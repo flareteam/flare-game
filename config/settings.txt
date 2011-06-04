@@ -1,0 +1,29 @@
+#
+# Global Settings
+#
+
+# fullscreen mode. 0 for windowed, 1 for fullscreen
+fullscreen=0
+
+# screen resolution. This increases field of view; the art does not scale.
+# The menus assume a minimum viewport of 640x480.
+resolution_w=720
+resolution_h=480
+
+# background music volume. Range is 0 (silent) to 128 (max)
+music_volume=64
+
+# sound effects volume. Range is 0 (silent) to 128 (max)
+sound_volume=96
+
+# mouse movement. 0 for keyboard movement, 1 for mouse movement
+mouse_move=0
+
+# upper limit for frames per second. All animations assume this fps.
+frames_per_sec=30
+
+# SDL hardware surfaces.  1 for hardware, 0 for software
+hwsurface=1
+
+# SDL double buffering. 1 for enabled, 0 for disabled
+doublebuf=1

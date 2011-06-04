@@ -1,0 +1,50 @@
+#
+# Key Bindings
+#
+# Each key has a main,alt binding
+# If there is no alt binding, just repeat the main binding.
+#
+# The keyboard enum is found in SDL_keysym.h
+# The mouse enum is found in SDL_mouse.h
+#
+
+# cancel (default: escape)
+cancel=27,27
+
+# accept (default: return and space)
+accept=13,32
+
+# directions (default: arrowkeys and WASD)
+up=119,273
+left=97,276
+down=115,274
+right=100,275
+
+# action bar 1,2,3,4,5,6,7,8,9,0 (default: numbers)
+bar1=49,49
+bar2=50,50
+bar3=51,51
+bar4=52,52
+bar5=53,53
+bar6=54,54
+bar7=55,55
+bar8=56,56
+bar9=57,57
+bar0=48,48
+
+# main buttons (default: mouse left/right click)
+main1=1,1
+main2=3,3
+
+# menu toggle buttons (default: c, i, p, l)
+character=99,99
+inventory=105,105
+powers=112,112
+log=108,108
+
+# ctrl and shift used by various menus/options (default: left and right ctrl/shift)
+ctrl=306,305
+shift=304,303
+
+# delete used by text entry (default: backspace, delete)
+delete=8,127

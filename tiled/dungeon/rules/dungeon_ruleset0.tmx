@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="isometric" width="7" height="3" tilewidth="64" tileheight="32">
+ <properties>
+  <property name="AutomappingRadius" value="1"/>
+  <property name="DeleteTiles" value="1"/>
+ </properties>
+ <tileset firstgid="1" name="collision" tilewidth="64" tileheight="32">
+  <image source="../tiled_collision.png" width="960" height="32"/>
+ </tileset>
+ <tileset firstgid="16" name="dungeon" tilewidth="64" tileheight="128">
+  <image source="../tiled_dungeon.png" width="1024" height="1920"/>
+ </tileset>
+ <tileset firstgid="256" name="set_rules" tilewidth="64" tileheight="32">
+  <image source="../set_rules.png" width="128" height="128"/>
+ </tileset>
+ <layer name="ruleRegions" width="7" height="3">
+  <data encoding="csv">
+0,0,0,0,0,0,0,
+0,256,0,256,0,256,0,
+0,0,0,0,0,0,0
+</data>
+ </layer>
+ <layer name="ruleSet" width="7" height="3">
+  <data encoding="csv">
+0,0,0,0,0,0,0,
+0,258,0,259,0,257,0,
+0,0,0,0,0,0,0
+</data>
+ </layer>
+ <layer name="rule_background" width="7" height="3">
+  <data encoding="csv">
+0,0,0,0,0,0,0,
+0,16,0,0,0,0,0,
+0,0,0,0,0,0,0
+</data>
+ </layer>
+ <layer name="rule_object" width="7" height="3">
+  <data encoding="csv">
+0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,
+0,0,0,0,0,0,0
+</data>
+ </layer>
+ <layer name="rule_collision" width="7" height="3">
+  <data encoding="csv">
+0,0,0,0,0,0,0,
+0,0,0,4,0,3,0,
+0,0,0,0,0,0,0
+</data>
+ </layer>
+</map>
