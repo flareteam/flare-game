@@ -1,0 +1,235 @@
+/**
+ * class MenuLog
+ *
+ * @author Clint Bellanger
+ * @license GPL
+ */
+
+#include "MenuLog.h"
+
+MenuLog::MenuLog(SDL_Surface *_screen, FontEngine *_font) {
+	screen = _screen;
+	font = _font;
+
+	visible = false;
+	
+	for (int i=0; i<LOG_TYPE_COUNT; i++) {
+		log_count[i] = 0;
+	}
+	active_log = 0;
+	
+	// TODO: move to config file with translation support
+	tab_labels[LOG_TYPE_MESSAGES] = "Messages";
+	tab_labels[LOG_TYPE_QUESTS] = "Quests";
+	tab_labels[LOG_TYPE_ACHIEVEMENTS] = "Achievements";
+	tab_labels[LOG_TYPE_STATISTICS] = "Statistics";
+
+	// TODO: allow menu size to be configurable
+	menu_area.x = 0;
+	menu_area.y = (VIEW_H - 416)/2;
+	menu_area.w = 320;
+	menu_area.h = 416;
+	
+	list_area.x = menu_area.x + 40;
+	list_area.y = menu_area.y + 56;
+	list_area.w = 224;
+	list_area.h = 328;
+	
+	tabs_area.x = menu_area.x + 32;
+	tabs_area.y = menu_area.y + 30;
+	tabs_area.w = 240;
+	tabs_area.h = 20;
+
+	tab_padding.y = 4;
+	tab_padding.x = 6;
+	paragraph_spacing = 6;
+	
+	for (int i=0; i<LOG_TYPE_COUNT; i++) {
+		tab_rect[i].y = tabs_area.y;
+		tab_rect[i].h = tabs_area.h;
+		
+		if (i==0) tab_rect[i].x = tabs_area.x;
+		else tab_rect[i].x = tab_rect[i-1].x + tab_rect[i-1].w;
+		
+		tab_rect[i].w = font->calc_length(tab_labels[i]) + tab_padding.x + tab_padding.x;
+		
+	}
+	
+	loadGraphics();
+	
+	// TEMP
+	add("Achievements are not yet implemented", LOG_TYPE_ACHIEVEMENTS);
+	add("Statistics are not yet implemented", LOG_TYPE_STATISTICS);
+}
+
+void MenuLog::loadGraphics() {
+
+	background = IMG_Load("images/menus/log.png");
+	tab_active = IMG_Load("images/menus/tab_active.png");
+	tab_inactive = IMG_Load("images/menus/tab_inactive.png");
+	
+	
+	if(!background || !tab_active || !tab_inactive) {
+		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
+		SDL_Quit();
+	}
+	
+	// optimize
+	SDL_Surface *cleanup = background;
+	background = SDL_DisplayFormatAlpha(background);
+	SDL_FreeSurface(cleanup);	
+
+	cleanup = tab_active;
+	tab_active = SDL_DisplayFormatAlpha(tab_active);
+	SDL_FreeSurface(cleanup);	
+
+	cleanup = tab_inactive;
+	tab_inactive = SDL_DisplayFormatAlpha(tab_inactive);
+	SDL_FreeSurface(cleanup);	
+}
+
+/**
+ * Perform one frame of logic
+ */
+void MenuLog::logic() {
+}
+
+/**
+ * Render graphics for this frame when the menu is open
+ */
+void MenuLog::render() {
+
+	if (!visible) return;
+	
+	SDL_Rect src;
+	
+	// background
+	src.x = 0;
+	src.y = 0;
+	src.w = menu_area.w;
+	src.h = menu_area.h;
+	SDL_BlitSurface(background, &src, screen, &menu_area);
+	
+	// text overlay
+	// TODO: translate()
+	font->render("Log", menu_area.x+160, menu_area.y+8, JUSTIFY_CENTER, screen, FONT_WHITE);
+	
+	
+	// display tabs
+	for (int i=0; i<LOG_TYPE_COUNT; i++) {
+		renderTab(i);
+	}
+	
+	// display latest log messages
+	
+	Point size;
+	int display_number = 0;
+	int total_size = 0;
+
+	// first calculate how many entire messages can fit in the log view
+	for (int i=log_count[active_log]-1; i>=0; i--) {
+		size = font->calc_size(log_msg[active_log][i], list_area.w);
+		total_size += size.y + paragraph_spacing;
+		if (total_size < list_area.h) display_number++;
+		else break;
+	}
+	
+	// now display these messages
+	int cursor_y = list_area.y;
+	for (int i=log_count[active_log]-display_number; i<log_count[active_log]; i++) {
+		
+		size = font->calc_size(log_msg[active_log][i], list_area.w);	
+		font->render(log_msg[active_log][i], list_area.x, cursor_y, JUSTIFY_LEFT, screen, list_area.w, FONT_WHITE);
+		cursor_y += size.y + paragraph_spacing;
+	}
+
+}
+
+/**
+ * Display the specified tab
+ * Render the font and tab background
+ * The active tab will look different
+ */
+void MenuLog::renderTab(int log_type) {
+	int i = log_type;
+	
+	// draw tab background
+	SDL_Rect src;
+	SDL_Rect dest;
+	src.x = src.y = 0;
+	dest.x = tab_rect[i].x;
+	dest.y = tab_rect[i].y;
+	src.w = tab_rect[i].w;
+	src.h = tab_rect[i].h;
+	
+	if (i == active_log)
+		SDL_BlitSurface(tab_active, &src, screen, &dest);	
+	else
+		SDL_BlitSurface(tab_inactive, &src, screen, &dest);	
+
+	// draw tab right edge
+	src.x = 128 - tab_padding.x;
+	src.w = tab_padding.x;
+	dest.x = tab_rect[i].x + tab_rect[i].w - tab_padding.x;
+	
+	if (i == active_log)
+		SDL_BlitSurface(tab_active, &src, screen, &dest);	
+	else
+		SDL_BlitSurface(tab_inactive, &src, screen, &dest);	
+	
+	
+	// set tab label text color
+	int tab_label_color;
+	if (i == active_log) tab_label_color = FONT_WHITE;
+	else tab_label_color = FONT_GREY;
+		
+	font->render(tab_labels[i], tab_rect[i].x + tab_padding.x, tab_rect[i].y + tab_padding.y, JUSTIFY_LEFT, screen, tab_label_color);		
+}
+
+/**
+ * Add a new message to the log
+ */
+void MenuLog::add(string s, int log_type) {
+
+	if (log_count[log_type] == MAX_LOG_MESSAGES) {
+
+		// remove oldest message
+		for (int i=0; i<MAX_LOG_MESSAGES-1; i++) {
+			log_msg[log_type][i] = log_msg[log_type][i+1];
+		}
+
+		log_count[log_type]--;
+	}
+	
+	// add new message
+	log_msg[log_type][log_count[log_type]] = s;
+
+	log_count[log_type]++;
+}
+
+/**
+ * Called by MenuManager
+ * The tab area was clicked. Change the active tab
+ */
+void MenuLog::clickTab(Point mouse) {
+	for (int i=0; i<LOG_TYPE_COUNT; i++) {
+		if(isWithin(tab_rect[i], mouse)) {
+			active_log = i;
+			return;
+		}
+	}
+}
+
+void MenuLog::clear(int log_type) {
+	log_count[log_type] = 0;
+}
+
+void MenuLog::clear() {
+	for (int i=0; i<LOG_TYPE_COUNT; i++) {
+		clear(i);
+	}
+}
+
+MenuLog::~MenuLog() {
+	SDL_FreeSurface(background);
+}
