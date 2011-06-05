@@ -16,125 +16,46 @@
  */
  
 #include "GameSwitcher.h"
+#include "GameStateTitle.h"
+#include "GameStateLoad.h"
 
 GameSwitcher::GameSwitcher(SDL_Surface *_screen, InputState *_inp) {
 	inp = _inp;
 	screen = _screen;
 		
 	font = new FontEngine();	
-	eng = new GameEngine(screen, inp, font);
-	title = new MenuTitle(screen, inp, font);
-	slots = new MenuGameSlots(screen, inp, font);
-	
-	game_state = GAME_STATE_TITLE;
-	eng->game_slot = 0;
+
+	// The initial state is the title screen
+	currentState = new GameStateTitle(screen, inp, font);
 	
 	done = false;
 }
 
 void GameSwitcher::logic() {
-	switch (game_state) {
-		
-		// title screen
-		case GAME_STATE_TITLE:
-		
-			title->logic();
-			done = title->exit_game;
-			
-			if (title->load_game) {
-				title->load_game = false;
-				game_state = GAME_STATE_LOAD;				
-				
-			}
-			break;
-			
-		// new game
-		case GAME_STATE_NEW:
-		
-			break;
-				
-		// load game
-		case GAME_STATE_LOAD:
-		
-			slots->logic();
-			if (slots->exit_slots) {
-				slots->exit_slots = false;
-				game_state = GAME_STATE_TITLE;
-			}
-			else if (slots->load_game) {
-				slots->load_game = false;
-				game_state = GAME_STATE_PLAY;
-				eng->resetGame();
-				eng->game_slot = slots->selected_slot+1;
-				eng->loadGame();
-				eng->logic(); // run one frame of logic to set up the render
-			}
-			else if (slots->new_game) {
-				slots->new_game = false;
-				game_state = GAME_STATE_PLAY;
-				eng->resetGame();
-				eng->game_slot = slots->selected_slot+1;
-				eng->loadGame();
-				eng->logic(); // run one frame of logic to set up the render
-			}
-			
-			break;
+
+	/*
+	*  Check if a the game state is to be changed and change it if necessary, deleting the old state
+	*/
+	if (currentState->getRequestedGameState() != NULL) {
+		GameState* newState = currentState->getRequestedGameState();
+
+		delete currentState;
 	
-		// main gameplay
-		case GAME_STATE_PLAY:
-		
-			eng->logic();
-			
-			if (eng->done) {
-				eng->done = false;
-				game_state = GAME_STATE_TITLE;
-				slots->readGameSlots();
-			}
-			
-			break;
-			
-		default:
-			break;
+		currentState = newState;
 	}
-	
+
+	currentState->logic();
+
+	// Check if the GameState wants to quit the application
+	done = currentState->isExitRequested();
 }
 
 void GameSwitcher::render() {
-	switch (game_state) {
-		
-		// title screen
-		case GAME_STATE_TITLE:
-		
-			title->render();
-			break;
-			
-		// main gameplay
-		case GAME_STATE_PLAY:
-		
-			eng->render();
-			break;
-	
-		// load game
-		case GAME_STATE_LOAD:
-		
-			slots->render();
-			break;
-			
-		// new game
-		case GAME_STATE_NEW:
-		
-			break;
-	
-		default:
-			break;
-	}
-
+	currentState->render();
 }
 
 GameSwitcher::~GameSwitcher() {
-	
 	delete font;
-	delete title;
-	delete eng;
-	delete slots;
+	delete currentState;
 }
+

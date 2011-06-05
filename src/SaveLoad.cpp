@@ -11,7 +11,7 @@
  * @license GPL
  */
 
-#include "GameEngine.h"
+#include "GameStateGameEngine.h"
 #include "UtilsParsing.h"
 #include <fstream>
 #include <iostream>
@@ -22,7 +22,7 @@ using namespace std;
 /**
  * Before exiting the game, save to file
  */
-void GameEngine::saveGame() {
+void GameStateGameEngine::saveGame() {
 
 	// game slots are currently 1-4
 	if (game_slot == 0) return;
@@ -105,7 +105,7 @@ void GameEngine::saveGame() {
 /**
  * When loading the game, load from file if possible
  */
-void GameEngine::loadGame() {
+void GameStateGameEngine::loadGame() {
 
 	// game slots are currently 1-4
 	if (game_slot == 0) return;
@@ -221,3 +221,4 @@ void GameEngine::loadGame() {
 	pc->stats.direction = 6;
 
 }
+

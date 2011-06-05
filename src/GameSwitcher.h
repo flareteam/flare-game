@@ -21,15 +21,14 @@
 #include "SDL.h"
 #include "SDL_image.h"
 #include "InputState.h"
-#include "GameEngine.h"
 #include "FontEngine.h"
-#include "MenuTitle.h"
-#include "MenuGameSlots.h"
 
 const int GAME_STATE_TITLE = 0;
 const int GAME_STATE_PLAY = 1;
 const int GAME_STATE_LOAD = 2;
 const int GAME_STATE_NEW = 3;
+
+class GameState;
 
 class GameSwitcher {
 private:
@@ -37,9 +36,7 @@ private:
 	InputState *inp;
 	FontEngine *font;
 	
-	GameEngine *eng; // for GAME_STATE_PLAY
-	MenuTitle *title; // for GAME_STATE_TITLE
-	MenuGameSlots *slots; // for GAME_STATE_LOAD
+	GameState *currentState;
 	
 public:
 	GameSwitcher(SDL_Surface *_screen, InputState *_inp);
@@ -47,8 +44,8 @@ public:
 	void render();
 	~GameSwitcher();
 	
-	int game_state;
 	bool done;
 };
 
 #endif
+

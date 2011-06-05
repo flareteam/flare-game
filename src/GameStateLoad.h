@@ -1,5 +1,5 @@
 /**
- * MenuGameSlots
+ * GameStateLoad
  * 
  * Display the current save-game slots
  * Allow the player to continue a previous game
@@ -10,8 +10,8 @@
  * @license GPL
  */
 
-#ifndef MENU_GAME_SLOTS_H
-#define MENU_GAME_SLOTS_H
+#ifndef GAMESTATELOAD_H
+#define GAMESTATELOAD_H
 
 #include <string>
 #include <sstream>
@@ -26,14 +26,12 @@
 #include "Settings.h"
 #include "StatBlock.h"
 #include "ItemDatabase.h"
+#include "GameState.h"
 
 const int GAME_SLOT_MAX = 4;
 
-class MenuGameSlots {
+class GameStateLoad : public GameState {
 private:
-	SDL_Surface *screen;
-	InputState *inp;
-	FontEngine *font;
 	ItemDatabase *items;
 	WidgetButton *button_exit;
 	WidgetButton *button_action;
@@ -58,8 +56,8 @@ private:
 	int frame_ticker;
 	
 public:
-	MenuGameSlots(SDL_Surface *_screen, InputState *_inp, FontEngine *_font);
-	~MenuGameSlots();
+	GameStateLoad(SDL_Surface *_screen, InputState *_inp, FontEngine *_font);
+	~GameStateLoad();
 
 	void loadGraphics();
 	void logic();
@@ -68,9 +66,7 @@ public:
 	void readGameSlots();
 	void loadPreview(int slot);
 	
-	bool exit_slots;
 	bool load_game;
-	bool new_game;
 	int selected_slot;
 };
 
