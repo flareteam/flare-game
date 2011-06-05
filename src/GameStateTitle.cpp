@@ -1,16 +1,7 @@
-/**
- * class MenuTitle
- *
- * @author Clint Bellanger
- * @license GPL
- */
+#include "GameStateLoad.h"
+#include "GameStateTitle.h"
 
-#include "MenuTitle.h"
-
-MenuTitle::MenuTitle(SDL_Surface *_screen, InputState *_inp, FontEngine *_font) {
-	screen = _screen;
-	inp = _inp;
-	font = _font;
+GameStateTitle::GameStateTitle(SDL_Surface *_screen, InputState *_inp, FontEngine *_font) : GameState(_screen, _inp, _font) {
 
 	exit_game = false;
 	load_game = false;
@@ -31,7 +22,7 @@ MenuTitle::MenuTitle(SDL_Surface *_screen, InputState *_inp, FontEngine *_font) 
 	
 }
 
-void MenuTitle::loadGraphics() {
+void GameStateTitle::loadGraphics() {
 
 	logo = IMG_Load("images/menus/logo.png");
 
@@ -46,18 +37,18 @@ void MenuTitle::loadGraphics() {
 	SDL_FreeSurface(cleanup);	
 }
 
-void MenuTitle::logic() {
+void GameStateTitle::logic() {
 
 	if (button_play->checkClick()) {
-		load_game = true;
+		requestedGameState = new GameStateLoad(screen, inp, font);
 	}
 	
 	if (button_exit->checkClick()) {
-		exit_game = true;
+		exitRequested = true;
 	}
 }
 
-void MenuTitle::render() {
+void GameStateTitle::render() {
 
 	SDL_Rect src;
 	SDL_Rect dest;
@@ -76,7 +67,7 @@ void MenuTitle::render() {
 	
 }
 
-MenuTitle::~MenuTitle() {
+GameStateTitle::~GameStateTitle() {
 	delete button_play;
 	delete button_exit;
 	SDL_FreeSurface(logo);

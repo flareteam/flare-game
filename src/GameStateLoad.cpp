@@ -1,17 +1,15 @@
 /**
- * MenuGameSlots
+ * GameStateLoad
  * 
  * @author Clint Bellanger
  * @license GPL
  */
  
-#include "MenuGameSlots.h"
+#include "GameStateLoad.h"
+#include "GameStateTitle.h"
+#include "GameStateGameEngine.h"
 
-MenuGameSlots::MenuGameSlots(SDL_Surface *_screen, InputState *_inp, FontEngine *_font) {
-	screen = _screen;
-	inp = _inp;
-	font = _font;
-	
+GameStateLoad::GameStateLoad(SDL_Surface *_screen, InputState *_inp, FontEngine *_font) : GameState(_screen, _inp, _font) {
 	items = new ItemDatabase(screen, font);
 	
 	button_exit = new WidgetButton(screen, font, inp);	
@@ -25,9 +23,7 @@ MenuGameSlots::MenuGameSlots(SDL_Surface *_screen, InputState *_inp, FontEngine 
 	button_action->pos.x = (VIEW_W - 640)/2 + 480 - button_action->pos.w/2;
 	button_action->pos.y = (VIEW_H - 480)/2 + 384;
 	
-	exit_slots = false;
 	load_game = false;
-	new_game = false;
 	
 	for (int i=0; i<GAME_SLOT_MAX; i++) {
 		sprites[i] = NULL;
@@ -70,7 +66,7 @@ MenuGameSlots::MenuGameSlots(SDL_Surface *_screen, InputState *_inp, FontEngine 
 	frame_ticker = 0;
 }
 
-void MenuGameSlots::loadGraphics() {
+void GameStateLoad::loadGraphics() {
 	background = NULL;
 	selection = NULL;
 	
@@ -94,13 +90,13 @@ void MenuGameSlots::loadGraphics() {
 	
 }
 
-void MenuGameSlots::readGameSlots() {
+void GameStateLoad::readGameSlots() {
 	for (int i=0; i<GAME_SLOT_MAX; i++) {
 		readGameSlot(i);
 	}
 }
 
-void MenuGameSlots::readGameSlot(int slot) {
+void GameStateLoad::readGameSlot(int slot) {
 
 	stringstream filename;
 	FileParser infile;	
@@ -140,7 +136,7 @@ void MenuGameSlots::readGameSlot(int slot) {
 
 }
 
-void MenuGameSlots::loadPreview(int slot) {
+void GameStateLoad::loadPreview(int slot) {
 
 	string img_main;
 	string img_body;
@@ -195,7 +191,7 @@ void MenuGameSlots::loadPreview(int slot) {
 }
 
 
-void MenuGameSlots::logic() {
+void GameStateLoad::logic() {
 
 	frame_ticker++;
 	if (frame_ticker == 64) frame_ticker = 0;
@@ -205,17 +201,16 @@ void MenuGameSlots::logic() {
 		current_frame = (63 - frame_ticker) / 8;
 
 	if (button_exit->checkClick()) {
-		exit_slots = true;
+		requestedGameState = new GameStateTitle(screen, inp, font);
 	}
 	
 	if (button_action->checkClick()) {
-		if (stats[selected_slot].name == "") {
-			new_game = true;
-			button_action->label = "Load Game";
-		}
-		else {
-			load_game = true;
-		}
+		GameStateGameEngine* eng = new GameStateGameEngine(screen, inp, font);
+		eng->resetGame();
+		eng->game_slot = selected_slot + 1;
+		eng->loadGame();
+
+		requestedGameState = eng;
 	}
 	
 	// check clicking game slot
@@ -237,7 +232,7 @@ void MenuGameSlots::logic() {
 	}
 }
 
-void MenuGameSlots::render() {
+void GameStateLoad::render() {
 
 	SDL_Rect src;
 	SDL_Rect dest;
@@ -327,7 +322,7 @@ void MenuGameSlots::render() {
 	}
 }
 
-MenuGameSlots::~MenuGameSlots() {
+GameStateLoad::~GameStateLoad() {
 	SDL_FreeSurface(background);
 	SDL_FreeSurface(selection);
 	delete button_exit;

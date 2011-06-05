@@ -1,5 +1,5 @@
 /**
- * class GameEngine
+ * class GameStateGameEngine
  *
  * Hands off the logic and rendering for the current game mode.
  * Also handles message passing between child objects, often to avoid circular dependencies.
@@ -8,8 +8,8 @@
  * @license GPL
  */
 
-#ifndef GAME_ENGINE_H
-#define GAME_ENGINE_H
+#ifndef GAMESTATEGAMEENGINE_H
+#define GAMESTATEGAMEENGINE_H
 
 #include "SDL.h"
 #include "SDL_image.h"
@@ -27,8 +27,9 @@
 #include "NPCManager.h"
 #include "CampaignManager.h"
 #include "QuestLog.h"
+#include "GameState.h"
 
-class GameEngine {
+class GameStateGameEngine : public GameState {
 private:
 	SDL_Surface *screen;
 	
@@ -60,8 +61,8 @@ private:
 	void checkNPCInteraction();
 	
 public:
-	GameEngine(SDL_Surface *screen, InputState *inp, FontEngine *font);
-	~GameEngine();
+	GameStateGameEngine(SDL_Surface *screen, InputState *inp, FontEngine *font);
+	~GameStateGameEngine();
 	
 	void logic();
 	void render();
@@ -70,14 +71,10 @@ public:
 	void loadGame();
 	void resetGame();
 
-	bool done;
 	int npc_id;
 	int game_slot;
 
 };
 
 #endif
-
-
-
 
