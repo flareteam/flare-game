@@ -44,7 +44,6 @@ public:
 	void render();
 	~GameSwitcher();
 	
-	int game_state;
 	bool done;
 };
 

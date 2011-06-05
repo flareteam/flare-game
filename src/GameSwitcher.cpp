@@ -25,9 +25,8 @@ GameSwitcher::GameSwitcher(SDL_Surface *_screen, InputState *_inp) {
 		
 	font = new FontEngine();	
 
+	// The initial state is the title screen
 	currentState = new GameStateTitle(screen, inp, font);
-	
-	game_state = GAME_STATE_TITLE;
 	
 	done = false;
 }
@@ -59,3 +58,4 @@ GameSwitcher::~GameSwitcher() {
 	delete font;
 	delete currentState;
 }
+
