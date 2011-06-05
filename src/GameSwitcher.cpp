@@ -16,7 +16,6 @@
  */
  
 #include "GameSwitcher.h"
-
 #include "GameStateTitle.h"
 #include "GameStateLoad.h"
 
@@ -53,39 +52,10 @@ void GameSwitcher::logic() {
 }
 
 void GameSwitcher::render() {
-	/*switch (game_state) {
-		
-		// title screen
-		case GAME_STATE_TITLE:
-		
-			title->render();
-			break;
-			
-		// main gameplay
-		case GAME_STATE_PLAY:
-		
-			eng->render();
-			break;
-	
-		// load game
-		case GAME_STATE_LOAD:
-		
-			slots->render();
-			break;
-			
-		// new game
-		case GAME_STATE_NEW:
-		
-			break;
-	
-		default:
-			break;
-	}
-	*/
-
 	currentState->render();
 }
 
 GameSwitcher::~GameSwitcher() {
 	delete font;
+	delete currentState;
 }
