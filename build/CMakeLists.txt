@@ -50,9 +50,11 @@ Set (FLARE_SOURCES
 	../src/LootManager.cpp
 	../src/MapCollision.cpp
 	../src/MapIso.cpp
+	../src/Menu.cpp
 	../src/MenuActionBar.cpp
 	../src/MenuCharacter.cpp
 	../src/MenuEnemy.cpp
+	../src/MenuExit.cpp
 	../src/MenuExperience.cpp
 	../src/MenuHPMP.cpp
 	../src/MenuHUDLog.cpp
