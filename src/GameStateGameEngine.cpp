@@ -175,16 +175,11 @@ void GameStateGameEngine::checkTeleport() {
  */
 void GameStateGameEngine::checkCancel() {
 
-	if (inp->pressing[CANCEL] && !inp->lock[CANCEL]) {
-		inp->lock[CANCEL] = true;
-		if (menu->menus_open) {
-			menu->closeAll(true);
-		}
-		else {
-			saveGame();
-			Mix_HaltMusic();
-			requestedGameState = new GameStateTitle(screen, inp, font);
-		}
+	// if user has clicked exit game from exit menu
+	if (menu->requestingExit()) {
+		saveGame();
+		Mix_HaltMusic();
+		requestedGameState = new GameStateTitle(screen, inp, font);
 	}
 
 	// if user closes the window

@@ -30,6 +30,7 @@
 #include "MenuEnemy.h"
 #include "MenuVendor.h"
 #include "MenuTalker.h"
+#include "MenuExit.h"
 #include "CampaignManager.h"
 
 const int DRAG_SRC_POWERS = 1;
@@ -58,6 +59,7 @@ private:
 	int drag_power;
 	int drag_src;
 
+	bool done;
 	
 public:
 	MenuManager(PowerManager *powers, SDL_Surface *screen, InputState *inp, FontEngine *font, StatBlock *stats, CampaignManager *camp);
@@ -82,6 +84,7 @@ public:
 	MenuEnemy *enemy;
 	MenuVendor *vendor;
 	MenuTalker *talker;
+	MenuExit *menuExit;
 	ItemDatabase *items;
 	
 	bool pause;
@@ -91,6 +94,7 @@ public:
 	Mix_Chunk *sfx_open;
 	Mix_Chunk *sfx_close;
 	
+	bool requestingExit() { return done; }
 };
 
 #endif

@@ -32,6 +32,7 @@ MenuManager::MenuManager(PowerManager *_powers, SDL_Surface *_screen, InputState
 	enemy = new MenuEnemy(screen, font);
 	vendor = new MenuVendor(screen, font, items, stats);
 	talker = new MenuTalker(screen, font, camp);
+	menuExit = new MenuExit(screen, inp, font);
 	
 	pause = false;
 	dragging = false;
@@ -44,6 +45,7 @@ MenuManager::MenuManager(PowerManager *_powers, SDL_Surface *_screen, InputState
 	
 	loadSounds();
 
+	done = false;
 }
 
 /**
@@ -103,6 +105,23 @@ void MenuManager::logic() {
 	
 	// check if mouse-clicking a menu button
 	act->checkMenu(inp->mouse, clicking_character, clicking_inventory, clicking_powers, clicking_log);
+
+	// exit menu toggle
+	if ((inp->pressing[CANCEL] && !inp->lock[CANCEL] && !key_lock && !dragging)) {
+		inp->lock[CANCEL] = true;
+		key_lock = true;
+		if (menus_open) {
+			closeAll(true);
+		}
+		else {
+			if (menuExit->isVisible()) {
+				menuExit->setVisible(false);
+			}
+			else if (!menuExit->isVisible()) {
+				 menuExit->setVisible(true);
+			}
+		}
+	}
 
 	// inventory menu toggle
 	if ((inp->pressing[INVENTORY] && !key_lock && !dragging) || clicking_inventory) {
@@ -395,6 +414,11 @@ void MenuManager::logic() {
 
 			dragging = false;
 		}
+
+		menuExit->logic();
+		if (menuExit->isExitRequested()) {
+			done = true;
+		}
 	}
 	
 	// handle equipment changes affecting hero stats
@@ -439,7 +463,9 @@ void MenuManager::render() {
 	log->render();
 	vendor->render();
 	talker->render();
+	talker->render();
 	enemy->render();
+	if (menuExit->isVisible()) menuExit->render();
 	
 	TooltipData tooltip;
 	int offset_x = (VIEW_W - 320);
@@ -484,6 +510,7 @@ void MenuManager::closeAll(bool play_sound) {
 	if (!dragging) {
 		closeLeft(play_sound);
 		closeRight(false);
+		menuExit->setVisible(false);
 	}
 }
 
@@ -522,6 +549,7 @@ MenuManager::~MenuManager() {
 	delete tip;
 	delete vendor;
 	delete talker;
+	delete menuExit;
 	delete enemy;
 	delete hpmp;
 	
