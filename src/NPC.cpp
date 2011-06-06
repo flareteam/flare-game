@@ -7,10 +7,8 @@
 
 #include "NPC.h"
 
-NPC::NPC(MapIso *_map, ItemDatabase *_items) {
-
+NPC::NPC(MapIso *_map, ItemDatabase *_items) : Entity(_map) {
 	items = _items;
-	map = _map;
 
 	// init general vars
 	name = "";
@@ -264,22 +262,6 @@ bool NPC::playSound(int type) {
 	return false;
 }
 
-Renderable NPC::getRender() {
-	Renderable r;
-	r.sprite = sprites;
-	r.map_pos.x = pos.x;
-	r.map_pos.y = pos.y;
-	r.src.x = render_size.x * (current_frame / anim_duration);
-	r.src.y = 0;
-	r.src.w = render_size.x;
-	r.src.h = render_size.y;
-	r.offset.x = render_offset.x;
-	r.offset.y = render_offset.y;
-	r.object_layer = true;
-		
-	return r;	
-}
-
 /**
  * NPCs have a list of dialog nodes
  * The player wants to begin dialog with this NPC
@@ -376,6 +358,27 @@ bool NPC::processDialog(int dialog_node, int &event_cursor) {
 		event_cursor++;
 	}
 	return false;
+}
+
+/**
+ * getRender()
+ * Map objects need to be drawn in Z order, so we allow a parent object (GameEngine)
+ * to collect all mobile sprites each frame.
+ */
+Renderable NPC::getRender() {
+	Renderable r;
+	r.sprite = sprites;
+	r.map_pos.x = pos.x;
+	r.map_pos.y = pos.y;
+	r.src.x = render_size.x * (current_frame / anim_duration);
+	r.src.y = 0;
+	r.src.w = render_size.x;
+	r.src.h = render_size.y;
+	r.offset.x = render_offset.x;
+	r.offset.y = render_offset.y;
+	r.object_layer = true;
+
+	return r;
 }
 
 

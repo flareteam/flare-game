@@ -15,6 +15,7 @@
 #include "SDL_image.h"
 #include "SDL_mixer.h"
 
+#include "Entity.h"
 #include "Utils.h"
 #include "InputState.h"
 #include "MapIso.h"
@@ -32,12 +33,11 @@ const int AVATAR_DEAD = 5;
 const int AVATAR_CAST = 6;
 const int AVATAR_SHOOT = 7;
 
-class Avatar {
+class Avatar : public Entity {
 private:
 	
 	PowerManager *powers;
 	InputState *inp;
-	MapIso *map;
 	
 	SDL_Surface *sprites;
 
@@ -67,20 +67,17 @@ public:
 	
 	void logic(int actionbar_power, bool restrictPowerUse);
 	bool pressing_move();	
-	bool move();
 	void set_direction();
-	int face(int mapx, int mapy);
-	Renderable getRender();
 	bool takeHit(Hazard h);
 	string log_msg;
+
+	virtual Renderable getRender();
 	
 	// vars
-	StatBlock stats;
 	Hazard *haz;
 	int current_power;
 	Point act_target;
 	bool drag_walking;
-
 };
 
 #endif
