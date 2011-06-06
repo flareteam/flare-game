@@ -34,6 +34,7 @@ EndIf (NOT SDLIMAGE_FOUND)
 # Sources
 
 Set (FLARE_SOURCES 
+	../src/Entity.cpp
 	../src/Avatar.cpp
 	../src/CampaignManager.cpp
 	../src/Enemy.cpp
@@ -76,7 +77,6 @@ Set (FLARE_SOURCES
 	../src/UtilsParsing.cpp
 	../src/WidgetButton.cpp
 	../src/main.cpp
-
 	../src/GameState.cpp
 	../src/GameStateTitle.cpp
 	../src/GameStateLoad.cpp

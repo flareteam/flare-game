@@ -8,6 +8,7 @@
 #ifndef NPC_H
 #define NPC_H
 
+#include "Entity.h"
 #include "SDL.h"
 #include "SDL_image.h"
 #include "SDL_mixer.h"
@@ -28,11 +29,9 @@ const int NPC_VOX_INTRO = 0;
 const int NPC_MAX_DIALOG = 32;
 const int NPC_MAX_EVENTS = 16;
 
-class NPC {
-private:
-
+class NPC : public Entity {
+protected:
 	ItemDatabase *items;
-	MapIso *map;
 
 	// animation info
 	SDL_Surface *sprites;
@@ -48,9 +47,9 @@ public:
 	void loadSound(string filename, int type);
 	void logic();
 	bool playSound(int type);
-	Renderable getRender();
 	int chooseDialogNode();
 	bool processDialog(int dialog_node, int &event_cursor);
+	virtual Renderable getRender();
 	
 	// general info
 	string name;
@@ -61,9 +60,9 @@ public:
 	Point render_size;
 	Point render_offset;
 
-    // talker info
+	// talker info
 	SDL_Surface *portrait;
-    bool talker;
+	bool talker;
 
 	// vendor info
 	bool vendor;
