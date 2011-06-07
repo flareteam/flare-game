@@ -28,7 +28,7 @@ PowerManager::PowerManager() {
 	powers[POWER_FREEZE].description = "Create a ray of piercing cold that slows enemies";
 	powers[POWER_FREEZE].new_state = POWSTATE_CAST;
 	powers[POWER_FREEZE].face = true;
-	powers[POWER_FREEZE].requires_mp = true;
+	powers[POWER_FREEZE].requires_mp = 1;
 	
 	powers[POWER_VENGEANCE].name = "Vengeance";
 	powers[POWER_VENGEANCE].type = POWTYPE_SINGLE;
@@ -36,7 +36,7 @@ PowerManager::PowerManager() {
 	powers[POWER_VENGEANCE].description = "After blocking, unlease a deadly and accurate counter-attack";
 	powers[POWER_VENGEANCE].new_state = POWSTATE_SWING;
 	powers[POWER_VENGEANCE].face = true;
-	powers[POWER_VENGEANCE].requires_mp = true;
+	powers[POWER_VENGEANCE].requires_mp = 1;
 	
 	used_item=-1;
 	
@@ -120,7 +120,7 @@ void PowerManager::loadPowers() {
 						if (val == "true") powers[input_id].requires_offense_weapon = true;
 					}
 					else if (key == "requires_mp") {
-						if (val == "true") powers[input_id].requires_mp = true;
+						powers[input_id].requires_mp = atoi(val.c_str());
 					}
 					else if (key == "requires_los") {
 						if (val == "true") powers[input_id].requires_los = true;
@@ -690,8 +690,8 @@ bool PowerManager::effect(int power_index, StatBlock *src_stats, Point target) {
 	playSound(power_index, src_stats);
 
 	// if all else succeeded, pay costs
-	if (powers[power_index].requires_mp) {
-		src_stats->mp--;
+	if (powers[power_index].requires_mp > 0) {
+		src_stats->mp -= powers[power_index].requires_mp;
 	}
 	used_item = powers[power_index].requires_item;
 
@@ -735,8 +735,8 @@ bool PowerManager::missile(int power_index, StatBlock *src_stats, Point target) 
 	hazards.push(haz);
 
 	// if all else succeeded, pay costs
-	if (powers[power_index].requires_mp) {
-		src_stats->mp--;
+	if (powers[power_index].requires_mp>0) {
+		src_stats->mp-=powers[power_index].requires_mp;
 	}
 	used_item = powers[power_index].requires_item;
 
@@ -757,8 +757,8 @@ bool PowerManager::missileX3(int power_index, StatBlock *src_stats, Point target
 	playSound(power_index, src_stats);
 	
 	// pay costs
-	if (powers[power_index].requires_mp) {
-		src_stats->mp--;
+	if (powers[power_index].requires_mp>0) {
+		src_stats->mp-=powers[power_index].requires_mp;
 	}
 	used_item = powers[power_index].requires_item;
 
