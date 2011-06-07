@@ -30,8 +30,10 @@ void MenuExit::loadGraphics() {
 }
 
 void MenuExit::logic() {
-	if (buttonExit->checkClick()) {
-		exitClicked = true;	
+	if (visible) {
+		if (buttonExit->checkClick()) {
+			exitClicked = true;	
+		}
 	}
 }
 
