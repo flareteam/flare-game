@@ -61,5 +61,6 @@ void MenuExit::render() {
 
 MenuExit::~MenuExit() {
 	delete buttonExit;
+	SDL_FreeSurface(background);
 }
 
