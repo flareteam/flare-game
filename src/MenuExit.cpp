@@ -53,5 +53,6 @@ void MenuExit::render() {
 }
 
 MenuExit::~MenuExit() {
+	delete buttonExit;
 }
 
