@@ -236,7 +236,18 @@ TooltipData MenuPowers::checkTooltip(Point mouse) {
 					tip.lines[tip.num_lines++] = ss.str();
 
 				}
-										
+
+				// add mana cost
+				if (powers->powers[i].requires_mp > 0) {
+					int mp_cost = powers->powers[i].requires_mp;
+					stringstream ss;
+					ss.str("");
+					ss << "Costs ";
+					ss << mp_cost;
+					ss << " MP";
+					tip.lines[tip.num_lines++] = ss.str();
+				}
+								
 				return tip;
 			}
 		}
