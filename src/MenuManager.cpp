@@ -32,7 +32,7 @@ MenuManager::MenuManager(PowerManager *_powers, SDL_Surface *_screen, InputState
 	enemy = new MenuEnemy(screen, font);
 	vendor = new MenuVendor(screen, font, items, stats);
 	talker = new MenuTalker(screen, font, camp);
-	menuExit = new MenuExit(screen, inp, font);
+	exit = new MenuExit(screen, inp, font);
 	
 	pause = false;
 	dragging = false;
@@ -114,12 +114,7 @@ void MenuManager::logic() {
 			closeAll(true);
 		}
 		else {
-			if (menuExit->isVisible()) {
-				menuExit->setVisible(false);
-			}
-			else if (!menuExit->isVisible()) {
-				 menuExit->setVisible(true);
-			}
+			exit->visible = !exit->visible;
 		}
 	}
 
@@ -415,8 +410,8 @@ void MenuManager::logic() {
 			dragging = false;
 		}
 
-		menuExit->logic();
-		if (menuExit->isExitRequested()) {
+		exit->logic();
+		if (exit->isExitRequested()) {
 			done = true;
 		}
 	}
@@ -465,7 +460,7 @@ void MenuManager::render() {
 	talker->render();
 	talker->render();
 	enemy->render();
-	if (menuExit->isVisible()) menuExit->render();
+	if (exit->visible) exit->render();
 	
 	TooltipData tooltip;
 	int offset_x = (VIEW_W - 320);
@@ -510,7 +505,6 @@ void MenuManager::closeAll(bool play_sound) {
 	if (!dragging) {
 		closeLeft(play_sound);
 		closeRight(false);
-		menuExit->setVisible(false);
 	}
 }
 
@@ -520,6 +514,7 @@ void MenuManager::closeLeft(bool play_sound) {
 		log->visible = false;
 		vendor->visible = false; 
 		talker->visible = false;
+		exit->visible = false;
 
 		if (play_sound) Mix_PlayChannel(-1, sfx_close, 0);
 		
@@ -531,6 +526,7 @@ void MenuManager::closeRight(bool play_sound) {
 		inv->visible = false;
 		pow->visible = false;	
 		talker->visible = false;
+		exit->visible = false;
 
 		if (play_sound) Mix_PlayChannel(-1, sfx_close, 0);
 	}
@@ -549,7 +545,7 @@ MenuManager::~MenuManager() {
 	delete tip;
 	delete vendor;
 	delete talker;
-	delete menuExit;
+	delete exit;
 	delete enemy;
 	delete hpmp;
 	

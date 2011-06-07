@@ -84,7 +84,7 @@ public:
 	MenuEnemy *enemy;
 	MenuVendor *vendor;
 	MenuTalker *talker;
-	MenuExit *menuExit;
+	MenuExit *exit;
 	ItemDatabase *items;
 	
 	bool pause;

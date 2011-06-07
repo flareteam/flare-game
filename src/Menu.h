@@ -23,13 +23,10 @@ protected:
 	SDL_Surface *background;
 	SDL_Rect window_area;
 
-	bool visible;
-
 public:
 	Menu(SDL_Surface*, InputState*, FontEngine*);
 
-	bool isVisible() { return visible; }
-	void setVisible(bool _visible) { visible = _visible; }
+	bool visible;
 
 	virtual void render() = 0;
 };
