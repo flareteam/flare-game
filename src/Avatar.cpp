@@ -267,7 +267,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 				target = screen_to_map(inp->mouse.x,  inp->mouse.y + powers->powers[actionbar_power].aim_assist, stats.pos.x, stats.pos.y);
 			
 				// check requirements
-				if (powers->powers[actionbar_power].requires_mp && stats.mp <= 0)
+				if (powers->powers[actionbar_power].requires_mp > stats.mp)
 					break;
 				if (powers->powers[actionbar_power].requires_physical_weapon && !stats.wielding_physical)
 					break;
@@ -359,7 +359,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 				target = screen_to_map(inp->mouse.x,  inp->mouse.y + powers->powers[actionbar_power].aim_assist, stats.pos.x, stats.pos.y);
 			
 				// check requirements
-				if (powers->powers[actionbar_power].requires_mp && stats.mp <= 0)
+				if (powers->powers[actionbar_power].requires_mp > stats.mp)
 					break;
 				if (powers->powers[actionbar_power].requires_physical_weapon && !stats.wielding_physical)
 					break;
