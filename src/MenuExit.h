@@ -2,7 +2,7 @@
 #define MENU_EXIT_H
 
 /**
- * class MenuInventory
+ * class MenuExit
  *
  * @author kitano
  * @license GPL

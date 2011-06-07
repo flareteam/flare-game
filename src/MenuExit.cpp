@@ -1,3 +1,10 @@
+/**
+ * class MenuExit
+ *
+ * @author kitano
+ * @license GPL
+ */
+
 #include "MenuExit.h"
 
 MenuExit::MenuExit(SDL_Surface *_screen, InputState *_inp, FontEngine *_font) : Menu(_screen, inp = _inp, _font) {

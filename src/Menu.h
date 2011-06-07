@@ -2,7 +2,7 @@
 #define MENU_H
 
 /**
- * class MenuInventory
+ * class Menu
  *
  * The base class for Menu objects
  *
