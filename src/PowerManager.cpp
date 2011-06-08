@@ -88,7 +88,6 @@ void PowerManager::loadPowers() {
 						else if (val == "effect") powers[input_id].type = POWTYPE_EFFECT;
 						else if (val == "missile") powers[input_id].type = POWTYPE_MISSILE;
 						else if (val == "groundray") powers[input_id].type = POWTYPE_GROUNDRAY;
-						else if (val == "missileX3") powers[input_id].type = POWTYPE_MISSILE_X3;
 					}
 					else if (key == "name") {
 						powers[input_id].name = val;
@@ -232,7 +231,12 @@ void PowerManager::loadPowers() {
 						else if (val == "fire") powers[input_id].trait_elemental = ELEMENT_FIRE;
 						else if (val == "shadow") powers[input_id].trait_elemental = ELEMENT_SHADOW;
 						else if (val == "light") powers[input_id].trait_elemental = ELEMENT_LIGHT;
-						
+					}
+					else if (key == "missile_num") {
+						powers[input_id].missile_num = atoi(val.c_str());
+					}
+					else if (key == "missile_angle") {
+						powers[input_id].missile_angle = atoi(val.c_str());
 					}
 					else if (key == "bleed_duration") {
 						powers[input_id].bleed_duration = atoi(val.c_str());
@@ -709,8 +713,8 @@ bool PowerManager::effect(int power_index, StatBlock *src_stats, Point target) {
 }
 
 /**
- * The activated power creates a missile hazard (e.g. arrow, thrown knife, firebolt).
- * Missiles are a single animated hazard that travel from the caster position to the
+ * The activated power creates a group of missile hazards (e.g. arrow, thrown knife, firebolt).
+ * Each individual missile is a single animated hazard that travels from the caster position to the
  * mouse target position.
  *
  * @param power_index The activated power ID
@@ -719,96 +723,43 @@ bool PowerManager::effect(int power_index, StatBlock *src_stats, Point target) {
  * return boolean true if successful
  */
 bool PowerManager::missile(int power_index, StatBlock *src_stats, Point target) {
+	float pi = 3.1415926535898;
 
-	int missile_speed;
-	Hazard *haz = new Hazard();
-	initHazard(power_index, src_stats, target, haz);
-	missile_speed = haz->base_speed;
-	
-	buff(power_index, src_stats, target);
-	
-	// If there's a sound effect, play it here
-	playSound(power_index, src_stats);
+	Hazard *haz[powers[power_index].missile_num];
 
-	// calculate missile speed
+	// calculate base angle
 	float dx = (float)target.x - (float)src_stats->pos.x;
 	float dy = (float)target.y - (float)src_stats->pos.y;
 	float theta = atan(dy/dx);
-	haz->speed.x = (float)missile_speed * cos(theta);
-	haz->speed.y = (float)missile_speed * sin(theta);
-	if (dx > 0.0 && haz->speed.x < 0.0 || dx < 0.0 && haz->speed.x > 0.0)
-		haz->speed.x *= -1.0;
-	if (dy > 0.0 && haz->speed.y < 0.0 || dy < 0.0 && haz->speed.y > 0.0)
-		haz->speed.y *= -1.0;
-	
-	// Hazard memory is now the responsibility of HazardManager
-	hazards.push(haz);
+	if (dx > 0) theta += pi; //theta corrector
 
-	// if all else succeeded, pay costs
-	if (powers[power_index].requires_mp>0) {
-		src_stats->mp-=powers[power_index].requires_mp;
+	//generate hazards
+	for (int i=0; i < powers[power_index].missile_num; i++) {
+		haz[i] = new Hazard();
+		Point rot_target;
+
+		//calculate individual missile angle
+		float alpha = theta + ((1.0 - powers[power_index].missile_num)/2 + i) * (powers[power_index].missile_angle * pi / 180.0);
+		while (alpha >= 2 * pi) alpha -= 2 * pi;
+		while (alpha < 0) alpha += 2 * pi;
+
+		//calculate animation direction (the 5 just makes them fly straighter)
+		rot_target.x = src_stats->pos.x - 5 * cos(alpha);
+		rot_target.y = src_stats->pos.y - 5 * sin(alpha);
+
+		initHazard(power_index, src_stats, rot_target, haz[i]);
+		haz[i]->speed.x = haz[0]->base_speed * -cos(alpha);
+		haz[i]->speed.y = haz[0]->base_speed * -sin(alpha);
+		hazards.push(haz[i]);
 	}
-	used_item = powers[power_index].requires_item;
 
-	return true;
-}
-
-/**
- * Triple projectile attack
- */
-bool PowerManager::missileX3(int power_index, StatBlock *src_stats, Point target) {
-
-	Hazard *haz[3];
-
-	for (int i=0; i<3; i++) {
-		haz[i] = new Hazard();		
-		initHazard(power_index, src_stats, target, haz[i]);
-	}
-	playSound(power_index, src_stats);
-	
 	// pay costs
 	if (powers[power_index].requires_mp>0) {
 		src_stats->mp-=powers[power_index].requires_mp;
 	}
 	used_item = powers[power_index].requires_item;
 
-	int missile_speed = haz[0]->base_speed;
-	
-	double angle = 0.2;
-
-	// calculate speeds
-	float dx = (float)target.x - (float)src_stats->pos.x;
-	float dy = (float)target.y - (float)src_stats->pos.y;
-	float theta = atan(dy/dx);
-	
-	// middle missile
-	haz[0]->speed.x = (float)missile_speed * cos(theta);
-	haz[0]->speed.y = (float)missile_speed * sin(theta);
-	if (dx > 0.0 && haz[0]->speed.x < 0.0 || dx < 0.0 && haz[0]->speed.x > 0.0)
-		haz[0]->speed.x *= -1.0;
-	if (dy > 0.0 && haz[0]->speed.y < 0.0 || dy < 0.0 && haz[0]->speed.y > 0.0)
-		haz[0]->speed.y *= -1.0;
-	hazards.push(haz[0]);
-	
-	// side missile
-	haz[1]->speed.x = (float)missile_speed * cos(theta + (float)angle);
-	haz[1]->speed.y = (float)missile_speed * sin(theta + (float)angle);
-	if (dx > 0.0 && haz[1]->speed.x < 0.0 || dx < 0.0 && haz[1]->speed.x > 0.0)
-		haz[1]->speed.x *= -1.0;
-	if (dy > 0.0 && haz[1]->speed.y < 0.0 || dy < 0.0 && haz[1]->speed.y > 0.0)
-		haz[1]->speed.y *= -1.0;
-	hazards.push(haz[1]);	
-
-	// side missile
-	haz[2]->speed.x = (float)missile_speed * cos(theta - (float)angle);
-	haz[2]->speed.y = (float)missile_speed * sin(theta - (float)angle);
-	if (dx > 0.0 && haz[2]->speed.x < 0.0 || dx < 0.0 && haz[2]->speed.x > 0.0)
-		haz[2]->speed.x *= -1.0;
-	if (dy > 0.0 && haz[2]->speed.y < 0.0 || dy < 0.0 && haz[2]->speed.y > 0.0)
-		haz[2]->speed.y *= -1.0;
-	hazards.push(haz[2]);	
-	
-	// Hazard memory is now the responsibility of HazardManager
+	playSound(power_index, src_stats);
 	return true;
 }
 
@@ -949,8 +900,6 @@ bool PowerManager::activate(int power_index, StatBlock *src_stats, Point target)
 		return single(power_index, src_stats, target);
 	else if (powers[power_index].type == POWTYPE_MISSILE)
 		return missile(power_index, src_stats, target);
-	else if (powers[power_index].type == POWTYPE_MISSILE_X3)
-		return missileX3(power_index, src_stats, target);
 	else if (powers[power_index].type == POWTYPE_GROUNDRAY)
 		return groundRay(power_index, src_stats, target);
 	else if (powers[power_index].type == POWTYPE_EFFECT)
