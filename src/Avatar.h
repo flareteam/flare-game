@@ -22,6 +22,7 @@
 #include "StatBlock.h"
 #include "Hazard.h"
 #include "PowerManager.h"
+#include "Animation.h"
 
 // AVATAR State enum
 const int AVATAR_STANCE = 0;
@@ -57,6 +58,19 @@ private:
 	string img_armor;
 	string img_off;
 
+	// animations
+	Animation *animStance;
+	Animation *animRun;
+	Animation *animMelee;
+	Animation *animMent;
+	Animation *animRanged;
+	Animation *animBlock;
+	Animation *animHit;
+	Animation *animDie;
+
+	// the currently active animation
+	Animation* activeAnimation;
+
 public:
 	Avatar(PowerManager *_powers, InputState *_inp, MapIso *_map);
 	~Avatar();
@@ -72,7 +86,7 @@ public:
 	string log_msg;
 
 	virtual Renderable getRender();
-	
+
 	// vars
 	Hazard *haz;
 	int current_power;
@@ -81,3 +95,4 @@ public:
 };
 
 #endif
+
