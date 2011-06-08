@@ -5,7 +5,7 @@ id=0
 name=Shoot
 type=missile
 icon=0
-description=Basic ranged attack (requires a ranged weapon)
+description=Basic ranged attack
 new_state=shoot
 face=true
 requires_offense_weapon=true
@@ -123,6 +123,8 @@ trait_elemental=wind
 trait_crits_impaired=25
 post_power=126
 wall_power=126
+missile_num=15
+missile_angle=24
 
 [power]
 id=7
@@ -268,11 +270,13 @@ buff_teleport=true
 [power]
 id=16
 name=Multishot
-type=missileX3
+type=missile
 icon=16
-description=Shoot three projectiles simultaneously (requires a ranged weapon)
+description=Shoot three projectiles simultaneously
 new_state=shoot
 face=true
+missile_num=3
+missile_angle=15
 requires_offense_weapon=true
 requires_mp=1
 base_damage=ranged
