@@ -203,6 +203,9 @@ void PowerManager::loadPowers() {
 						else if (val == "ment")
 							powers[input_id].base_damage = BASE_DAMAGE_MENT;
 					}
+					else if (key == "damage_multiplier") {
+						powers[input_id].damage_multiplier = atoi(val.c_str());
+					}
 					else if (key == "starting_pos") {
 						if (val == "source")
 							powers[input_id].starting_pos = STARTING_POS_SOURCE;
@@ -444,7 +447,7 @@ void PowerManager::initHazard(int power_index, StatBlock *src_stats, Point targe
 	haz->crit_chance = src_stats->crit;
 	haz->accuracy = src_stats->accuracy;
 	
-	// Hazard damage depends on equipped weapons
+	// Hazard damage depends on equipped weapons and the power's optional damage_multiplier
 	if (powers[power_index].base_damage == BASE_DAMAGE_MELEE) {
 		haz->dmg_min = src_stats->dmg_melee_min;
 		haz->dmg_max = src_stats->dmg_melee_max;
@@ -456,7 +459,10 @@ void PowerManager::initHazard(int power_index, StatBlock *src_stats, Point targe
 	else if (powers[power_index].base_damage == BASE_DAMAGE_MENT) {
 		haz->dmg_min = src_stats->dmg_ment_min;
 		haz->dmg_max = src_stats->dmg_ment_max;
-	}	
+	}
+	//apply the multiplier
+	haz->dmg_min = ceil(haz->dmg_min * powers[power_index].damage_multiplier / 100.0);
+	haz->dmg_max = ceil(haz->dmg_max * powers[power_index].damage_multiplier / 100.0);
 	
 	// Only apply stats from powers that are not defaults
 	// If we do this, we can init with multiple power layers
@@ -575,12 +581,16 @@ void PowerManager::initHazard(int power_index, StatBlock *src_stats, Point targe
  */
 void PowerManager::buff(int power_index, StatBlock *src_stats, Point target) {
 
-	// heal for ment weapon damage
+	// heal for ment weapon damage * damage multiplier
 	if (powers[power_index].buff_heal) {
-		if (src_stats->dmg_ment_max > src_stats->dmg_ment_min)
-			src_stats->hp += rand() % (src_stats->dmg_ment_max - src_stats->dmg_ment_min) + src_stats->dmg_ment_min;
+		int heal_amt = 0;
+		int heal_max = ceil(src_stats->dmg_ment_max * powers[power_index].damage_multiplier / 100.0);
+		int heal_min = ceil(src_stats->dmg_ment_min * powers[power_index].damage_multiplier / 100.0);
+		if (heal_max > heal_min)
+			heal_amt = rand() % (heal_max - heal_min) + heal_min;
 		else // avoid div by 0
-			src_stats->hp += src_stats->dmg_ment_min;
+			heal_amt = heal_min;
+		src_stats->hp += heal_amt;
 		if (src_stats->hp > src_stats->maxhp) src_stats->hp = src_stats->maxhp;
 	}
 	
@@ -596,9 +606,9 @@ void PowerManager::buff(int power_index, StatBlock *src_stats, Point target) {
 		if (src_stats->mp > src_stats->maxmp) src_stats->mp = src_stats->maxmp;
 	}
 	
-	// charge shield to max ment weapon damage
+	// charge shield to max ment weapon damage * damage multiplier
 	if (powers[power_index].buff_shield) {
-		src_stats->shield_hp = src_stats->dmg_ment_max;	
+		src_stats->shield_hp = ceil(src_stats->dmg_ment_max * powers[power_index].damage_multiplier / 100.0);	
 	}
 	
 	// teleport to the target location
