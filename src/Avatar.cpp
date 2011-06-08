@@ -617,6 +617,15 @@ Renderable Avatar::getRender() {
 }
 
 Avatar::~Avatar() {
+	delete animStance;
+	delete animRun;
+	delete animMelee;
+	delete animMent;
+	delete animRanged;
+	delete animBlock;
+	delete animHit;
+	delete animDie;
+
 	SDL_FreeSurface(sprites);
 	Mix_FreeChunk(sound_melee);
 	Mix_FreeChunk(sound_hit);
