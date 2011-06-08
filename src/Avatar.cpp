@@ -19,31 +19,17 @@ Avatar::Avatar(PowerManager *_powers, InputState *_inp, MapIso *_map) : Entity(_
 	
 	// default hero animation data
 	stats.cooldown = 4;
-	stats.anim_stance_position = 0;
-	stats.anim_stance_frames = 4;
-	stats.anim_stance_duration = 6;
-	stats.anim_run_position = 4;
-	stats.anim_run_frames = 8;
-	stats.anim_run_duration = 2;
-	stats.anim_melee_position = 12;
-	stats.anim_melee_frames = 4;
-	stats.anim_melee_duration = 3;
-	stats.anim_ment_position = 24;
-	stats.anim_ment_frames = 4;
-	stats.anim_ment_duration = 3;
-	stats.anim_ranged_position = 28;
-	stats.anim_ranged_frames = 4;
-	stats.anim_ranged_duration = 3;
-	stats.anim_block_position = 16;
-	stats.anim_block_frames = 2;
-	stats.anim_block_duration = 2;
-	stats.anim_hit_position = 18;
-	stats.anim_hit_frames = 2;
-	stats.anim_hit_duration = 2;
-	stats.anim_die_position = 18;
-	stats.anim_die_frames = 6;
-	stats.anim_die_duration = 3;
-
+	// load all animations
+	animStance = new Animation(sprites, 128, 0, 4, 6, "back_forth");
+	animRun = new Animation(sprites, 128, 4, 8, 2, "looped");
+	animMelee = new Animation(sprites, 128, 12, 4, 3, "play_once");
+	animMent = new Animation(sprites, 128, 24, 4, 3, "play_once");
+	animRanged = new Animation(sprites, 128, 28, 4, 3, "play_once");
+	animBlock = new Animation(sprites, 128, 16, 2, 1 /* this was originally 2*/, "play_once");
+	animHit = new Animation(sprites, 128, 18, 2, 2, "play_once");
+	animDie = new Animation(sprites, 128, 18, 6, 3, "play_once");
+	// set default animation
+	activeAnimation = animStance;
 }
 
 void Avatar::init() {
@@ -55,8 +41,6 @@ void Avatar::init() {
 	stats.direction = map->spawn_dir;
 	current_power = -1;
 		
-	stats.cur_frame = 1;
-	stats.disp_frame = 0;
 	lockSwing = false;
 	lockCast = false;
 	lockShoot = false;
@@ -132,6 +116,7 @@ void Avatar::loadGraphics(string _img_main, string _img_armor, string _img_off) 
 		SDL_Surface *cleanup = sprites;
 		sprites = SDL_DisplayFormatAlpha(sprites);
 		SDL_FreeSurface(cleanup);
+
 	}
 }
 
@@ -195,8 +180,6 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 	if (stats.stun_duration > 0) return;
 	bool allowed_to_move;
 	bool allowed_to_use_power;
-	int max_frame;
-	int mid_frame;
 	
 	// check level up
 	if (stats.level < 17 && stats.xp >= stats.xp_table[stats.level]) {
@@ -215,26 +198,22 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 	// check for bleeding to death
 	if (stats.hp == 0 && !(stats.cur_state == AVATAR_DEAD)) {
 		stats.cur_state = AVATAR_DEAD;
-		stats.cur_frame = 0;
 	}		
 	
 	// assist mouse movement
 	if (!inp->pressing[MAIN1]) drag_walking = false;
 	
+	// handle animation
+	activeAnimation->advanceFrame();
+			
 	switch(stats.cur_state) {
 		case AVATAR_STANCE:
+
+			if (activeAnimation != animStance) {
+				animStance->reset();
+				activeAnimation = animStance;
+			}
 		
-			// handle animation
-		    stats.cur_frame++;
-			// stance is a back/forth animation
-			mid_frame = stats.anim_stance_frames * stats.anim_stance_duration;
-			max_frame = mid_frame + mid_frame;
-			if (stats.cur_frame >= max_frame) stats.cur_frame = 0;
-			if (stats.cur_frame >= mid_frame)
-				stats.disp_frame = (max_frame -1 - stats.cur_frame) / stats.anim_stance_duration + stats.anim_stance_position;
-			else
-				stats.disp_frame = stats.cur_frame / stats.anim_stance_duration + stats.anim_stance_position;
-			
 			// allowed to move or use powers?
 			if (MOUSE_MOVE) {
 				allowed_to_move = restrictPowerUse && (!inp->lock[MAIN1] || drag_walking);
@@ -256,9 +235,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 				}
 				
 				if (move()) { // no collision
-					stats.cur_frame = 1;
 					stats.cur_state = AVATAR_RUN;
-					break;
 				}
 
 			}
@@ -291,24 +268,20 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 			
 				// handle melee powers
 				if (powers->powers[current_power].new_state == POWSTATE_SWING) {
-					stats.cur_frame = 0;
 					stats.cur_state = AVATAR_MELEE;
 					break;
 				}
 				// handle ranged powers
 				if (powers->powers[current_power].new_state == POWSTATE_SHOOT) {
-					stats.cur_frame = 0;
 					stats.cur_state = AVATAR_SHOOT;
 					break;
 				}
 				// handle ment powers
 				if (powers->powers[current_power].new_state == POWSTATE_CAST) {
-					stats.cur_frame = 0;
 					stats.cur_state = AVATAR_CAST;
 					break;
 				}
 				if (powers->powers[current_power].new_state == POWSTATE_BLOCK) {
-					stats.cur_frame = 0;
 					stats.cur_state = AVATAR_BLOCK;
 					stats.blocking = true;
 					break;
@@ -318,17 +291,15 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 			break;
 			
 		case AVATAR_RUN:
+
+			if (activeAnimation != animRun) {
+				animRun->reset();
+				activeAnimation = animRun;
+			}
 		
-			// handle animation
-			stats.cur_frame++;
-			// run is a looped animation
-			max_frame = stats.anim_run_frames * stats.anim_run_duration;
-			if (stats.cur_frame >= max_frame) stats.cur_frame = 0;
-			stats.disp_frame = (stats.cur_frame / stats.anim_run_duration) + stats.anim_run_position;
-			
 			stepfx = rand() % 4;
 			
-			if (stats.cur_frame == 0 || stats.cur_frame == max_frame/2) {
+			if (animRun->getCurFrame() == 1 || animRun->getCurFrame() == animRun->getMaxFrame()/2) {
 				Mix_PlayChannel(-1, sound_steps[stepfx], 0);
 			}
 
@@ -383,24 +354,20 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 			
 				// handle melee powers
 				if (powers->powers[current_power].new_state == POWSTATE_SWING) {
-					stats.cur_frame = 0;
 					stats.cur_state = AVATAR_MELEE;
 					break;
 				}
 				// handle ranged powers
 				if (powers->powers[current_power].new_state == POWSTATE_SHOOT) {
-					stats.cur_frame = 0;
 					stats.cur_state = AVATAR_SHOOT;
 					break;
 				}
 				// handle ment powers
 				if (powers->powers[current_power].new_state == POWSTATE_CAST) {
-					stats.cur_frame = 0;
 					stats.cur_state = AVATAR_CAST;
 					break;
 				}
 				if (powers->powers[current_power].new_state == POWSTATE_BLOCK) {
-					stats.cur_frame = 0;
 					stats.cur_state = AVATAR_BLOCK;
 					stats.blocking = true;
 					break;
@@ -411,42 +378,39 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 			
 		case AVATAR_MELEE:
 
-			// handle animation
-			stats.cur_frame++;
-			// melee is a play-once animation
-			max_frame = stats.anim_melee_frames * stats.anim_melee_duration;
-			stats.disp_frame = (stats.cur_frame / stats.anim_melee_duration) + stats.anim_melee_position;
-			
-			if (stats.cur_frame == 1) {
+			if (activeAnimation != animMelee) {
+				animMelee->reset();
+				activeAnimation = animMelee;
+			}
+
+			if (animMelee->getCurFrame() == 1) {
 				Mix_PlayChannel(-1, sound_melee, 0);
 			}
 			
 			// do power
-			if (stats.cur_frame == max_frame/2) {
+			if (animMelee->getCurFrame()  == animMelee->getMaxFrame()/2) {
 				powers->activate(current_power, &stats, act_target);
 			}
 			
-			if (stats.cur_frame == max_frame-1) {
-				stats.cur_frame = 0;
+			if (animMelee->getTimesPlayed() >= 1) {
 				stats.cur_state = AVATAR_STANCE;
 				if (stats.haste_duration == 0) stats.cooldown_ticks += stats.cooldown;
 			}
 			break;
 
 		case AVATAR_CAST:
-		
-			// handle animation
-			stats.cur_frame++;
-			max_frame = stats.anim_ment_frames * stats.anim_ment_duration;
-			stats.disp_frame = (stats.cur_frame / stats.anim_ment_duration) + stats.anim_ment_position;
+
+			if (activeAnimation != animMent) {
+				animMent->reset();
+				activeAnimation = animMent;
+			}
 
 			// do power
-			if (stats.cur_frame == max_frame/2) {
+			if (animMent->getCurFrame() == animMent->getMaxFrame()/2) {
 				powers->activate(current_power, &stats, act_target);
 			}
 
-			if (stats.cur_frame == max_frame-1) {
-				stats.cur_frame = 0;
+			if (animMent->getTimesPlayed() >= 1) {
 				stats.cur_state = AVATAR_STANCE;
 				if (stats.haste_duration == 0) stats.cooldown_ticks += stats.cooldown;
 			}
@@ -455,18 +419,17 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 			
 		case AVATAR_SHOOT:
 		
-			// handle animation
-			stats.cur_frame++;
-			max_frame = stats.anim_ranged_frames * stats.anim_ranged_duration;
-			stats.disp_frame = (stats.cur_frame / stats.anim_ranged_duration) + stats.anim_ranged_position;
+			if (activeAnimation != animRanged) {
+				animRanged->reset();
+				activeAnimation = animRanged;
+			}
 
 			// do power
-			if (stats.cur_frame == max_frame/2) {
+			if (animRanged->getCurFrame() == animRanged->getMaxFrame()/2) {
 				powers->activate(current_power, &stats, act_target);
 			}
 
-			if (stats.cur_frame == max_frame-1) {
-				stats.cur_frame = 0;
+			if (animRanged->getTimesPlayed() >= 1) {
 				stats.cur_state = AVATAR_STANCE;
 				if (stats.haste_duration == 0) stats.cooldown_ticks += stats.cooldown;
 			}
@@ -474,45 +437,44 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 
 		case AVATAR_BLOCK:
 		
-			max_frame = stats.anim_block_frames * stats.anim_block_duration -1;
-			if (stats.cur_frame < max_frame) stats.cur_frame++;
-			stats.disp_frame = (stats.cur_frame / stats.anim_block_duration) + stats.anim_block_position;			
-			
+			if (activeAnimation != animBlock) {
+				animBlock->reset();
+				activeAnimation = animBlock;
+			}
+
 			if (powers->powers[actionbar_power].new_state != POWSTATE_BLOCK) {
-				stats.cur_frame = 0;
 				stats.cur_state = AVATAR_STANCE;
 				stats.blocking = false;
 			}
 			break;
 			
 		case AVATAR_HIT:
-			stats.cur_frame++;
-						
-			// hit is a back/forth animation
-			mid_frame = stats.anim_hit_frames * stats.anim_hit_duration;
-			max_frame = mid_frame + mid_frame;
-			if (stats.cur_frame >= mid_frame)
-				stats.disp_frame = (max_frame -1 - stats.cur_frame) / stats.anim_hit_duration + stats.anim_hit_position;
-			else
-				stats.disp_frame = stats.cur_frame / stats.anim_hit_duration + stats.anim_hit_position;
-			
-			if (stats.cur_frame >= max_frame-1) {
+
+			if (activeAnimation != animHit) {
+				animHit->reset();
+				activeAnimation = animHit;
+			}
+						 
+			if (animHit->getTimesPlayed() >= 1) {
 				stats.cur_state = AVATAR_STANCE;
-				stats.cur_frame = 0;
 			}
 			
 			break;
 			
 		case AVATAR_DEAD:
-				
-			max_frame = (stats.anim_die_frames-1) * stats.anim_die_duration;
-			if (stats.cur_frame < max_frame) stats.cur_frame++;
-			if (stats.cur_frame == max_frame) stats.corpse = true;
-			stats.disp_frame = (stats.cur_frame / stats.anim_die_duration) + stats.anim_die_position;
 
-			if (stats.cur_frame == 1) {
+			if (activeAnimation != animDie) {
+				animDie->reset();
+				activeAnimation = animDie;
+			}
+				
+			if (animDie->getCurFrame() == 1 && animDie->getTimesPlayed() < 1) {
 				Mix_PlayChannel(-1, sound_die, 0);
 				log_msg = "You are defeated.  You lose half your gold.  Press Enter to continue.";
+			}
+
+			if (animDie->getTimesPlayed() >= 1) {
+				stats.corpse = true;
 			}
 			
 			// allow respawn with Accept
@@ -521,7 +483,6 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 				stats.mp = stats.maxmp;
 				stats.alive = true;
 				stats.corpse = false;
-				stats.cur_frame = 0;
 				stats.cur_state = AVATAR_STANCE;
 				
 				// remove temporary effects
@@ -595,7 +556,7 @@ bool Avatar::takeHit(Hazard h) {
 			if (dmg <= 0) {
 				dmg = 0;
 				Mix_PlayChannel(-1, sound_block, 0);
-				stats.cur_frame = 0; // shield stutter
+				animBlock->reset(); // shield stutter
 			}
 			
 		}
@@ -627,8 +588,6 @@ bool Avatar::takeHit(Hazard h) {
 		
 		
 		if (stats.hp <= 0) {
-			stats.cur_frame = 0;
-			stats.disp_frame = 18;
 			stats.cur_state = AVATAR_DEAD;
 			
 			// raise the death penalty flag.  Another module will read this and reset.
@@ -636,8 +595,6 @@ bool Avatar::takeHit(Hazard h) {
 		}
 		else if (prev_hp > stats.hp) { // only interrupt if damage was taken
 			Mix_PlayChannel(-1, sound_hit, 0);
-			stats.cur_frame = 0;
-			stats.disp_frame = 18;
 			stats.cur_state = AVATAR_HIT;
 		}
 		
@@ -652,21 +609,23 @@ bool Avatar::takeHit(Hazard h) {
  * to collect all mobile sprites each frame.
  */
 Renderable Avatar::getRender() {
-	Renderable r;
+	Renderable r = activeAnimation->getCurrentFrame(stats.direction);
+	r.sprite = sprites;
 	r.map_pos.x = stats.pos.x;
 	r.map_pos.y = stats.pos.y;
-	r.sprite = sprites;
-	r.src.x = 128 * stats.disp_frame;
-	r.src.y = 128 * stats.direction;
-	r.src.w = 128;
-	r.src.h = 128;
-	r.offset.x = 64;
-	r.offset.y = 96; // 112
-	r.object_layer = true;
 	return r;
 }
 
 Avatar::~Avatar() {
+	delete animStance;
+	delete animRun;
+	delete animMelee;
+	delete animMent;
+	delete animRanged;
+	delete animBlock;
+	delete animHit;
+	delete animDie;
+
 	SDL_FreeSurface(sprites);
 	Mix_FreeChunk(sound_melee);
 	Mix_FreeChunk(sound_hit);
