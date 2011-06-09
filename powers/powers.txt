@@ -5,7 +5,7 @@ id=0
 name=Shoot
 type=missile
 icon=0
-description=Basic ranged attack (requires a ranged weapon)
+description=Basic ranged attack
 new_state=shoot
 face=true
 requires_offense_weapon=true
@@ -268,11 +268,13 @@ buff_teleport=true
 [power]
 id=16
 name=Multishot
-type=missileX3
+type=missile
 icon=16
-description=Shoot three projectiles simultaneously (requires a ranged weapon)
+description=Shoot three projectiles simultaneously
 new_state=shoot
 face=true
+missile_num=3
+missile_angle=15
 requires_offense_weapon=true
 requires_mp=1
 base_damage=ranged
@@ -454,6 +456,33 @@ frame_size=64,64
 frame_offset=32,64
 wall_power=124
 
+[power]
+id=35
+name=Maddox's Ice Storm [enemy]
+type=missile
+new_state=cast
+face=true
+directional=true
+gfx=icicle.png
+sfx=shock.ogg
+use_hazard=true
+rendered=true
+aim_assist=32
+base_damage=ment
+lifespan=32
+radius=64
+speed=30
+frame_loop=12
+frame_duration=3
+frame_size=64,64
+frame_offset=32,64
+trait_elemental=water
+slow_duration=60
+post_power=126
+wall_power=126
+#missile num needs to be odd, or the player can avoid just by standing there
+missile_num=9
+missile_angle=40
 
 
 [power]
@@ -525,7 +554,7 @@ id=115
 name=Lightning Rod
 type=missile
 icon=101
-description=Channel a bolt of magic through your mental weapon
+description=Create a destructive blast of lightning bolts
 new_state=cast
 face=true
 directional=true
@@ -546,6 +575,9 @@ trait_elemental=wind
 post_power=126
 wall_power=126
 requires_item=1021
+missile_num=5
+angle_variance=15
+speed_variance=7
 
 [power]
 id=118
