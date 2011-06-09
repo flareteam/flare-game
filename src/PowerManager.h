@@ -114,6 +114,12 @@ struct Power {
 	int starting_pos; // enum. (source, target, or melee)
 	bool multitarget;
 	
+	//missile traits
+	int missile_num;
+	int missile_angle;
+	int angle_variance;
+	int speed_variance;
+
 	int trait_elemental; // enum. of elements
 	bool trait_armor_penetration;
 	int trait_crits_impaired; // crit bonus vs. movement impaired enemies (slowed, immobilized, stunned)
@@ -180,6 +186,11 @@ struct Power {
 		damage_multiplier = 100;
 		multitarget = false;
 
+		missile_num = 1;
+		missile_angle = 0;
+		angle_variance = 0;
+		speed_variance = 0;
+
 		trait_elemental = -1;
 		trait_armor_penetration = false;
 		trait_crits_impaired = 0;
@@ -234,7 +245,6 @@ private:
 	bool missile(int powernum, StatBlock *src_stats, Point target);
 	
 	bool single(int powernum, StatBlock *src_stats, Point target);
-	bool missileX3(int powernum, StatBlock *src_stats, Point target);
 	bool groundRay(int powernum, StatBlock *src_stats, Point target);
 	
 public:
