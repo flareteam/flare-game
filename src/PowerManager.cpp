@@ -232,12 +232,20 @@ void PowerManager::loadPowers() {
 						else if (val == "shadow") powers[input_id].trait_elemental = ELEMENT_SHADOW;
 						else if (val == "light") powers[input_id].trait_elemental = ELEMENT_LIGHT;
 					}
+					//missile modifiers
 					else if (key == "missile_num") {
 						powers[input_id].missile_num = atoi(val.c_str());
 					}
 					else if (key == "missile_angle") {
 						powers[input_id].missile_angle = atoi(val.c_str());
 					}
+					else if (key == "angle_variance") {
+						powers[input_id].angle_variance = atoi(val.c_str());
+					}
+					else if (key == "speed_variance") {
+						powers[input_id].speed_variance = atoi(val.c_str());
+					}
+					// buff/debuff durations
 					else if (key == "bleed_duration") {
 						powers[input_id].bleed_duration = atoi(val.c_str());
 					}
@@ -739,17 +747,26 @@ bool PowerManager::missile(int power_index, StatBlock *src_stats, Point target) 
 		Point rot_target;
 
 		//calculate individual missile angle
-		float alpha = theta + ((1.0 - powers[power_index].missile_num)/2 + i) * (powers[power_index].missile_angle * pi / 180.0);
+		float offset_angle = ((1.0 - powers[power_index].missile_num)/2 + i) * (powers[power_index].missile_angle * pi / 180.0);
+		float variance = 0;
+		if (powers[power_index].angle_variance != 0)
+			variance = pow(-1, (rand() % 2) - 1) * (rand() % powers[power_index].angle_variance) * pi / 180.0; //random between 0 and angle_variance away
+		float alpha = theta + offset_angle + variance;
 		while (alpha >= 2 * pi) alpha -= 2 * pi;
 		while (alpha < 0) alpha += 2 * pi;
 
-		//calculate animation direction (the 5 just makes them fly straighter)
+		//calculate animation direction (the 5 just reduces round-off error)
 		rot_target.x = src_stats->pos.x - 5 * cos(alpha);
 		rot_target.y = src_stats->pos.y - 5 * sin(alpha);
 
 		initHazard(power_index, src_stats, rot_target, haz[i]);
-		haz[i]->speed.x = haz[0]->base_speed * -cos(alpha);
-		haz[i]->speed.y = haz[0]->base_speed * -sin(alpha);
+
+		//calculate the missile velocity
+		int speed_var = 0;
+		if (powers[power_index].speed_variance != 0)
+			speed_var = pow(-1, (rand() % 2) - 1) * (rand() % powers[power_index].speed_variance + 1) - 1;
+		haz[i]->speed.x = (haz[0]->base_speed + speed_var) * -cos(alpha);
+		haz[i]->speed.y = (haz[0]->base_speed + speed_var) * -sin(alpha);
 		hazards.push(haz[i]);
 	}
 

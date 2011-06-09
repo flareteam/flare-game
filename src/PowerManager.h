@@ -117,6 +117,8 @@ struct Power {
 	//missile traits
 	int missile_num;
 	int missile_angle;
+	int angle_variance;
+	int speed_variance;
 
 	int trait_elemental; // enum. of elements
 	bool trait_armor_penetration;
@@ -186,6 +188,8 @@ struct Power {
 
 		missile_num = 1;
 		missile_angle = 0;
+		angle_variance = 0;
+		speed_variance = 0;
 
 		trait_elemental = -1;
 		trait_armor_penetration = false;
