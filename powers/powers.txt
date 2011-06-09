@@ -123,8 +123,6 @@ trait_elemental=wind
 trait_crits_impaired=25
 post_power=126
 wall_power=126
-missile_num=15
-missile_angle=24
 
 [power]
 id=7
@@ -458,6 +456,33 @@ frame_size=64,64
 frame_offset=32,64
 wall_power=124
 
+[power]
+id=35
+name=Maddox's Ice Storm [enemy]
+type=missile
+new_state=cast
+face=true
+directional=true
+gfx=icicle.png
+sfx=shock.ogg
+use_hazard=true
+rendered=true
+aim_assist=32
+base_damage=ment
+lifespan=32
+radius=64
+speed=30
+frame_loop=12
+frame_duration=3
+frame_size=64,64
+frame_offset=32,64
+trait_elemental=water
+slow_duration=60
+post_power=126
+wall_power=126
+#missile num needs to be odd, or the player can avoid just by standing there
+missile_num=9
+missile_angle=40
 
 
 [power]
@@ -529,7 +554,7 @@ id=115
 name=Lightning Rod
 type=missile
 icon=101
-description=Channel a bolt of magic through your mental weapon
+description=Create a destructive blast of lightning bolts
 new_state=cast
 face=true
 directional=true
@@ -550,6 +575,9 @@ trait_elemental=wind
 post_power=126
 wall_power=126
 requires_item=1021
+missile_num=5
+angle_variance=15
+speed_variance=7
 
 [power]
 id=118
