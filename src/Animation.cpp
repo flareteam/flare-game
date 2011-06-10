@@ -17,14 +17,20 @@
 
 #include "Animation.h"
 
-Animation::Animation(int _frameSize, int _position, int _frames, int _duration, std::string _type) : sprites(NULL), frameSize(_frameSize), position(_position), frames(_frames), duration(_duration), type(_type), cur_frame(0), disp_frame(0), mid_frame(0), max_frame(0), timesPlayed(0) {
+Animation::Animation(std::string _name, int _frameSize, int _position, int _frames, int _duration, std::string _type)
+	: name(_name), sprites(NULL),
+	  frameSize(_frameSize), position(_position), frames(_frames), duration(_duration), type(_type),
+	  cur_frame(0), disp_frame(0), mid_frame(0), max_frame(0), timesPlayed(0) {
 
 	mid_frame = frames * duration;
 
 	max_frame = mid_frame + mid_frame;
 }
 
-Animation::Animation(SDL_Surface* _sprites, int _frameSize, int _position, int _frames, int _duration, std::string _type) : sprites(_sprites), frameSize(_frameSize), position(_position), frames(_frames), duration(_duration), type(_type), cur_frame(0), disp_frame(0), mid_frame(0), max_frame(0), timesPlayed(0) {
+Animation::Animation(std::string _name, SDL_Surface* _sprites, int _frameSize, int _position, int _frames, int _duration, std::string _type)
+	: name(_name), sprites(_sprites),
+	  frameSize(_frameSize), position(_position), frames(_frames), duration(_duration), type(_type),
+	  cur_frame(0), disp_frame(0), mid_frame(0), max_frame(0), timesPlayed(0) {
 
 	mid_frame = frames * duration;
 

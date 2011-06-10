@@ -25,6 +25,8 @@
 class Animation {
 
 protected:
+	std::string name;
+
 	// The sprite sheet
 	SDL_Surface* sprites;
 
@@ -45,8 +47,8 @@ protected:
 
 public:
 	// can be instantiated with or without the sprite sheet
-	Animation(int frameSize, int position, int frames, int duration, std::string);
-	Animation(SDL_Surface*, int frameSize, int position, int frames, int duration, std::string);
+	Animation(std::string, int frameSize, int position, int frames, int duration, std::string);
+	Animation(std::string, SDL_Surface*, int frameSize, int position, int frames, int duration, std::string);
 
 	// advance the animation one frame
 	void advanceFrame();
@@ -61,6 +63,8 @@ public:
 
 	// resets to beginning of the animation
 	void reset();
+
+	std::string getName() { return name; }
 };
 
 #endif

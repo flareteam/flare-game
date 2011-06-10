@@ -13,10 +13,15 @@
  */
 
 #include "MapIso.h"
+#include "Animation.h"
+#include <vector>
 
 class Entity {
 protected:
 	MapIso* map;
+	vector<Animation*> animations;
+	Animation *activeAnimation;
+	SDL_Surface *sprites;
 
 public:
 	Entity(MapIso*);
@@ -29,6 +34,10 @@ public:
 
 	// Each child of Entity defines its own rendering method
 	virtual Renderable getRender() = 0;
+
+	void loadAnimations(std::string filename);
+
+	bool setAnimation(std::string animation);
 
 	StatBlock stats;
 };

@@ -11,7 +11,7 @@
 
 #include "Entity.h"
 
-Entity::Entity(MapIso* _map) {
+Entity::Entity(MapIso* _map) : sprites(NULL), activeAnimation(NULL) {
 	map = _map;
 }
 
@@ -91,6 +91,92 @@ int Entity::face(int mapx, int mapy) {
 	return stats.direction;
 }
   
+/**
+ * Load the entity's animation from animation definition file
+ */
+void Entity::loadAnimations(std::string filename) {
+
+	FileParser parser;
+
+	if (!parser.open(filename)) {
+		cout << "Error loading animation definition file: " << filename << endl;
+		exit(1);
+	}
+
+	std::string name = "";
+	int position = 0;
+	int frames = 0;
+	int duration = 0;
+	std::string type = "";
+	std::string firstAnimation = "";
+
+	// Parse the file and on each new section create an animation object from the data parsed previously
+
+	parser.next();
+	parser.new_section = false; // do not create the first animation object until parser has parsed first section
+
+	do {
+		if (parser.new_section) {
+			animations.push_back(new Animation(name, sprites, 128, position, frames, duration, type));
+		}
+
+		if (parser.key == "position") {
+			if (isInt(parser.val)) {
+				position = atoi(parser.val.c_str());
+			}
+		}	
+		if (parser.key == "frames") {
+			if (isInt(parser.val)) {
+				frames = atoi(parser.val.c_str());
+			}
+		}	
+		if (parser.key == "duration") {
+			if (isInt(parser.val)) {
+				int milliSeconds = atoi(parser.val.c_str());
+				// convert duration
+				duration = milliSeconds / FRAMES_PER_SEC;
+			}
+		}	
+		if (parser.key == "type") {
+			type = parser.val;
+		}	
+
+		if (name == "") {
+			// This is the first animation
+			firstAnimation = parser.section;
+		}
+		name = parser.section;
+	}
+	while (parser.next());
+
+	// set the default animation
+	if (firstAnimation != "") {
+		setAnimation(firstAnimation);
+	}
+}
+
+/**
+ * Set the entity's current animation by name
+*/
+bool Entity::setAnimation(std::string animationName) {
+
+	// if the animation is already the requested one do nothing
+	if (activeAnimation != NULL && activeAnimation->getName() == animationName) {
+		return true;
+	}
+
+	// search animations for the requested animation and set the active animation to it if found
+	for (vector<Animation*>::iterator it = animations.begin(); it!=animations.end(); it++) {
+		if ((*it) != NULL && (*it)->getName() == animationName) {
+			activeAnimation = *it;
+			activeAnimation->reset();
+			return true;
+		}
+	}
+
+	return false;
+}
+
 void Entity::logic() {
 }
 
