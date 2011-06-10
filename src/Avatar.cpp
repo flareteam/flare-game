@@ -583,7 +583,6 @@ Renderable Avatar::getRender() {
 }
 
 Avatar::~Avatar() {
-	/* need to delete all animations loaded from file*/
 
 	SDL_FreeSurface(sprites);
 	Mix_FreeChunk(sound_melee);

@@ -11,8 +11,7 @@
 
 #include "Entity.h"
 
-Entity::Entity(MapIso* _map) : sprites(NULL), activeAnimation(NULL) {
-	map = _map;
+Entity::Entity(MapIso* _map) : sprites(NULL), activeAnimation(NULL), map(_map) {
 }
 
 /**
@@ -178,5 +177,14 @@ bool Entity::setAnimation(std::string animationName) {
 }
 
 void Entity::logic() {
+}
+
+Entity::~Entity () {
+	// delete all loaded animations
+	for (vector<Animation*>::const_iterator it = animations.begin(); it != animations.end(); it++)
+	{
+	    delete *it;
+	} 
+	animations.clear();
 }
 
