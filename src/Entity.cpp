@@ -148,6 +148,10 @@ void Entity::loadAnimations(std::string filename) {
 	}
 	while (parser.next());
 
+	// add final animation
+	animations.push_back(new Animation(name, sprites, 128, position, frames, duration, type));
+
+
 	// set the default animation
 	if (firstAnimation != "") {
 		setAnimation(firstAnimation);
