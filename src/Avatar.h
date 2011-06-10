@@ -22,7 +22,6 @@
 #include "StatBlock.h"
 #include "Hazard.h"
 #include "PowerManager.h"
-#include "Animation.h"
 
 // AVATAR State enum
 const int AVATAR_STANCE = 0;
@@ -39,8 +38,6 @@ private:
 	
 	PowerManager *powers;
 	InputState *inp;
-	
-	SDL_Surface *sprites;
 
 	bool lockSwing;
 	bool lockCast;
@@ -57,19 +54,6 @@ private:
 	string img_main;
 	string img_armor;
 	string img_off;
-
-	// animations
-	Animation *animStance;
-	Animation *animRun;
-	Animation *animMelee;
-	Animation *animMent;
-	Animation *animRanged;
-	Animation *animBlock;
-	Animation *animHit;
-	Animation *animDie;
-
-	// the currently active animation
-	Animation* activeAnimation;
 
 public:
 	Avatar(PowerManager *_powers, InputState *_inp, MapIso *_map);

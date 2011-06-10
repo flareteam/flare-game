@@ -8,10 +8,10 @@
  */
 
 #include "Avatar.h"
+#include "FileParser.h"
+#include "UtilsParsing.h"
 
-Avatar::Avatar(PowerManager *_powers, InputState *_inp, MapIso *_map) : Entity(_map) {
-	powers = _powers;
-	inp = _inp;
+Avatar::Avatar(PowerManager *_powers, InputState *_inp, MapIso *_map) : Entity(_map), powers(_powers), inp(_inp) {
 	
 	loadSounds();
 	
@@ -19,17 +19,9 @@ Avatar::Avatar(PowerManager *_powers, InputState *_inp, MapIso *_map) : Entity(_
 	
 	// default hero animation data
 	stats.cooldown = 4;
-	// load all animations
-	animStance = new Animation(sprites, 128, 0, 4, 6, "back_forth");
-	animRun = new Animation(sprites, 128, 4, 8, 2, "looped");
-	animMelee = new Animation(sprites, 128, 12, 4, 3, "play_once");
-	animMent = new Animation(sprites, 128, 24, 4, 3, "play_once");
-	animRanged = new Animation(sprites, 128, 28, 4, 3, "play_once");
-	animBlock = new Animation(sprites, 128, 16, 2, 1 /* this was originally 2*/, "play_once");
-	animHit = new Animation(sprites, 128, 18, 2, 2, "play_once");
-	animDie = new Animation(sprites, 128, 18, 6, 3, "play_once");
-	// set default animation
-	activeAnimation = animStance;
+
+	// load the hero's animations from hero definition file
+	loadAnimations("./animations/hero.txt");
 }
 
 void Avatar::init() {
@@ -116,7 +108,6 @@ void Avatar::loadGraphics(string _img_main, string _img_armor, string _img_off) 
 		SDL_Surface *cleanup = sprites;
 		sprites = SDL_DisplayFormatAlpha(sprites);
 		SDL_FreeSurface(cleanup);
-
 	}
 }
 
@@ -209,10 +200,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 	switch(stats.cur_state) {
 		case AVATAR_STANCE:
 
-			if (activeAnimation != animStance) {
-				animStance->reset();
-				activeAnimation = animStance;
-			}
+			setAnimation("stance");
 		
 			// allowed to move or use powers?
 			if (MOUSE_MOVE) {
@@ -292,14 +280,11 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 			
 		case AVATAR_RUN:
 
-			if (activeAnimation != animRun) {
-				animRun->reset();
-				activeAnimation = animRun;
-			}
+			setAnimation("run");
 		
 			stepfx = rand() % 4;
 			
-			if (animRun->getCurFrame() == 1 || animRun->getCurFrame() == animRun->getMaxFrame()/2) {
+			if (activeAnimation->getCurFrame() == 1 || activeAnimation->getCurFrame() == activeAnimation->getMaxFrame()/2) {
 				Mix_PlayChannel(-1, sound_steps[stepfx], 0);
 			}
 
@@ -378,21 +363,18 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 			
 		case AVATAR_MELEE:
 
-			if (activeAnimation != animMelee) {
-				animMelee->reset();
-				activeAnimation = animMelee;
-			}
+			setAnimation("melee");
 
-			if (animMelee->getCurFrame() == 1) {
+			if (activeAnimation->getCurFrame() == 1) {
 				Mix_PlayChannel(-1, sound_melee, 0);
 			}
 			
 			// do power
-			if (animMelee->getCurFrame()  == animMelee->getMaxFrame()/2) {
+			if (activeAnimation->getCurFrame()  == activeAnimation->getMaxFrame()/2) {
 				powers->activate(current_power, &stats, act_target);
 			}
 			
-			if (animMelee->getTimesPlayed() >= 1) {
+			if (activeAnimation->getTimesPlayed() >= 1) {
 				stats.cur_state = AVATAR_STANCE;
 				if (stats.haste_duration == 0) stats.cooldown_ticks += stats.cooldown;
 			}
@@ -400,17 +382,14 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 
 		case AVATAR_CAST:
 
-			if (activeAnimation != animMent) {
-				animMent->reset();
-				activeAnimation = animMent;
-			}
+			setAnimation("ment");
 
 			// do power
-			if (animMent->getCurFrame() == animMent->getMaxFrame()/2) {
+			if (activeAnimation->getCurFrame() == activeAnimation->getMaxFrame()/2) {
 				powers->activate(current_power, &stats, act_target);
 			}
 
-			if (animMent->getTimesPlayed() >= 1) {
+			if (activeAnimation->getTimesPlayed() >= 1) {
 				stats.cur_state = AVATAR_STANCE;
 				if (stats.haste_duration == 0) stats.cooldown_ticks += stats.cooldown;
 			}
@@ -419,17 +398,14 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 			
 		case AVATAR_SHOOT:
 		
-			if (activeAnimation != animRanged) {
-				animRanged->reset();
-				activeAnimation = animRanged;
-			}
+			setAnimation("ranged");
 
 			// do power
-			if (animRanged->getCurFrame() == animRanged->getMaxFrame()/2) {
+			if (activeAnimation->getCurFrame() == activeAnimation->getMaxFrame()/2) {
 				powers->activate(current_power, &stats, act_target);
 			}
 
-			if (animRanged->getTimesPlayed() >= 1) {
+			if (activeAnimation->getTimesPlayed() >= 1) {
 				stats.cur_state = AVATAR_STANCE;
 				if (stats.haste_duration == 0) stats.cooldown_ticks += stats.cooldown;
 			}
@@ -437,10 +413,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 
 		case AVATAR_BLOCK:
 		
-			if (activeAnimation != animBlock) {
-				animBlock->reset();
-				activeAnimation = animBlock;
-			}
+			setAnimation("block");
 
 			if (powers->powers[actionbar_power].new_state != POWSTATE_BLOCK) {
 				stats.cur_state = AVATAR_STANCE;
@@ -450,12 +423,9 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 			
 		case AVATAR_HIT:
 
-			if (activeAnimation != animHit) {
-				animHit->reset();
-				activeAnimation = animHit;
-			}
+			setAnimation("hit");
 						 
-			if (animHit->getTimesPlayed() >= 1) {
+			if (activeAnimation->getTimesPlayed() >= 1) {
 				stats.cur_state = AVATAR_STANCE;
 			}
 			
@@ -463,17 +433,14 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 			
 		case AVATAR_DEAD:
 
-			if (activeAnimation != animDie) {
-				animDie->reset();
-				activeAnimation = animDie;
-			}
+			setAnimation("die");
 				
-			if (animDie->getCurFrame() == 1 && animDie->getTimesPlayed() < 1) {
+			if (activeAnimation->getCurFrame() == 1 && activeAnimation->getTimesPlayed() < 1) {
 				Mix_PlayChannel(-1, sound_die, 0);
 				log_msg = "You are defeated.  You lose half your gold.  Press Enter to continue.";
 			}
 
-			if (animDie->getTimesPlayed() >= 1) {
+			if (activeAnimation->getTimesPlayed() >= 1) {
 				stats.corpse = true;
 			}
 			
@@ -528,7 +495,7 @@ bool Avatar::takeHit(Hazard h) {
 		// check miss
 		int avoidance = stats.avoidance;
 		if (stats.blocking) avoidance *= 2;
-	    if (rand() % 100 > (h.accuracy - avoidance + 25)) return false; 
+		if (rand() % 100 > (h.accuracy - avoidance + 25)) return false; 
 	
 		int dmg;
 		if (h.dmg_min == h.dmg_max) dmg = h.dmg_min;
@@ -556,9 +523,8 @@ bool Avatar::takeHit(Hazard h) {
 			if (dmg <= 0) {
 				dmg = 0;
 				Mix_PlayChannel(-1, sound_block, 0);
-				animBlock->reset(); // shield stutter
+				activeAnimation->reset(); // shield stutter
 			}
-			
 		}
 	
 		
@@ -617,14 +583,6 @@ Renderable Avatar::getRender() {
 }
 
 Avatar::~Avatar() {
-	delete animStance;
-	delete animRun;
-	delete animMelee;
-	delete animMent;
-	delete animRanged;
-	delete animBlock;
-	delete animHit;
-	delete animDie;
 
 	SDL_FreeSurface(sprites);
 	Mix_FreeChunk(sound_melee);
