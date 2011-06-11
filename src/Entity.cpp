@@ -83,7 +83,7 @@ int Entity::face(int mapx, int mapy) {
 		if (dx > 0) return 6;
 		else return 2;
 	}
-	if (2 <= slope || -2 >= slope) {
+	if (2.0 <= slope || -2.0 >= slope) {
 		if (dy > 0) return 3;
 		else return 7;
 	}
@@ -131,9 +131,12 @@ void Entity::loadAnimations(std::string filename) {
 		}	
 		if (parser.key == "duration") {
 			if (isInt(parser.val)) {
-				int milliSeconds = atoi(parser.val.c_str());
-				// convert duration
-				duration = milliSeconds / FRAMES_PER_SEC;
+				int ms_per_frame = atoi(parser.val.c_str());
+				
+				duration = round((float)ms_per_frame / (1000.0 / (float)FRAMES_PER_SEC));
+				
+				// TEMP: if an animation is too fast, display one frame per fps anyway
+				if (duration < 1) duration=1;
 			}
 		}	
 		if (parser.key == "type") {

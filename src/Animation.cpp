@@ -22,9 +22,14 @@ Animation::Animation(std::string _name, int _frameSize, int _position, int _fram
 	  frameSize(_frameSize), position(_position), frames(_frames), duration(_duration), type(_type),
 	  cur_frame(0), disp_frame(0), mid_frame(0), max_frame(0), timesPlayed(0) {
 
-	mid_frame = frames * duration;
-
-	max_frame = mid_frame + mid_frame;
+	if (type == "play_once" || type == "looped") {
+		max_frame = frames * duration;
+	}
+	else if (type == "back_forth") {
+		mid_frame = frames * duration;
+		max_frame = mid_frame + mid_frame;
+	
+	}
 }
 
 Animation::Animation(std::string _name, SDL_Surface* _sprites, int _frameSize, int _position, int _frames, int _duration, std::string _type)
@@ -32,9 +37,14 @@ Animation::Animation(std::string _name, SDL_Surface* _sprites, int _frameSize, i
 	  frameSize(_frameSize), position(_position), frames(_frames), duration(_duration), type(_type),
 	  cur_frame(0), disp_frame(0), mid_frame(0), max_frame(0), timesPlayed(0) {
 
-	mid_frame = frames * duration;
-
-	max_frame = mid_frame + mid_frame;
+	if (type == "play_once" || type == "looped") {
+		max_frame = frames * duration;
+	}
+	else if (type == "back_forth") {
+		mid_frame = frames * duration;
+		max_frame = mid_frame + mid_frame;
+	
+	}
 }
 
 
@@ -47,33 +57,34 @@ void Animation::advanceFrame() {
 		else {
 			timesPlayed = 1;
 		}
-		max_frame = frames * duration;
 		disp_frame = (cur_frame / duration) + position;
 	}
 	else if (type == "looped") {
 		cur_frame++;
-		max_frame = frames * duration;
-		disp_frame = (cur_frame / duration) + position;	
-		if (cur_frame >= max_frame - 1) {
+		if (cur_frame == max_frame) {
 			cur_frame = 0;
 			//animation has completed one loop
 			timesPlayed++;
 		}
+		disp_frame = (cur_frame / duration) + position;	
+
 	}
 	else if (type == "back_forth") {
 		cur_frame++;
-		max_frame = mid_frame + mid_frame;
+				
+		if (cur_frame == max_frame) {
+			cur_frame = 0;
+			//animation has completed one loop
+			timesPlayed++;
+		}
+
 		if (cur_frame >= mid_frame) {
 			disp_frame = (max_frame -1 - cur_frame) / duration + position;
 		}
 		else {
 			disp_frame = cur_frame / duration + position;
 		}
-		if (cur_frame >= max_frame - 1) {
-			cur_frame = 0;
-			//animation has completed one loop
-			timesPlayed++;
-		}
+
 	}
 }
 
@@ -97,6 +108,7 @@ Renderable Animation::getCurrentFrame(int direction) {
 
 void Animation::reset() {
 	cur_frame = 0;
+	disp_frame = (cur_frame / duration) + position;
 	timesPlayed = 0;
 }
 
