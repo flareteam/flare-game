@@ -24,6 +24,10 @@ public:
 
 	ItemStack & operator [] (int slot);
 
+	void setItems(string s);
+	void setQuantities(string s);
+	string getItems();
+	string getQuantities();
 	void add(ItemStack stack, int slot = -1);
 	void substract(int slot, int quantity = 1);
 	bool remove(int item);

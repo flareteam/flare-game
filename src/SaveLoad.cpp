@@ -50,36 +50,12 @@ void GameStateGameEngine::saveGame() {
 		outfile << "gold=" << menu->inv->gold << "\n";
 
 		// equipped gear
-		outfile << "equipped=";
-		for (int i=0; i<MAX_EQUIPPED; i++) {
-			outfile << menu->inv->inventory[EQUIPMENT][i].item;
-			if (i<MAX_EQUIPPED-1) outfile << ",";
-			else outfile << "\n";
-		}
-
-		// equipped gear quantity
-		outfile << "equipped_quantity=";
-		for (int i=0; i<MAX_EQUIPPED; i++) {
-			outfile << menu->inv->inventory[EQUIPMENT][i].quantity;
-			if (i<MAX_EQUIPPED-1) outfile << ",";
-			else outfile << "\n";
-		}
+		outfile << "equipped=" << menu->inv->inventory[EQUIPMENT].getItems() << "\n";
+		outfile << "equipped_quantity=" << menu->inv->inventory[EQUIPMENT].getQuantities() << "\n";
 
 		// carried items
-		outfile << "carried=";
-		for (int i=0; i<MAX_CARRIED; i++) {
-			outfile << menu->inv->inventory[CARRIED][i].item;
-			if (i<MAX_CARRIED-1) outfile << ",";
-			else outfile << "\n";
-		}
- 
-		// carried items quantity
-		outfile << "carried_quantity=";
-		for (int i=0; i<MAX_CARRIED; i++) {
-			outfile << menu->inv->inventory[CARRIED][i].quantity;
-			if (i<MAX_CARRIED-1) outfile << ",";
-			else outfile << "\n";
-		}
+		outfile << "carried=" << menu->inv->inventory[CARRIED].getItems() << "\n";
+		outfile << "carried_quantity=" << menu->inv->inventory[CARRIED].getQuantities() << "\n";
 
 		// spawn point
 		outfile << "spawn=" << map->respawn_map << "," << map->respawn_point.x/UNITS_PER_TILE << "," << map->respawn_point.y/UNITS_PER_TILE << "\n";
@@ -158,32 +134,16 @@ void GameStateGameEngine::loadGame() {
 						menu->inv->gold = atoi(val.c_str());
 					}
 					else if (key == "equipped") {
-						val = val + ",";
-						for (int i=0; i<MAX_EQUIPPED; i++) {
-							menu->inv->inventory[EQUIPMENT][i].item = eatFirstInt(val, ',');
-							if( menu->inv->inventory[EQUIPMENT][i].item != 0) menu->inv->inventory[EQUIPMENT][i].quantity = 1;
-							else menu->inv->inventory[EQUIPMENT][i].quantity = 0;
-						}
+						menu->inv->inventory[EQUIPMENT].setItems(val);
 					}
 					else if (key == "equipped_quantity") {
-						val = val + ",";
-						for (int i=0; i<MAX_EQUIPPED; i++) {
-							menu->inv->inventory[EQUIPMENT][i].quantity = eatFirstInt(val, ',');
-						}
+						menu->inv->inventory[EQUIPMENT].setQuantities(val);
 					}
 					else if (key == "carried") {
-						val = val + ",";
-						for (int i=0; i<MAX_CARRIED; i++) {
-							menu->inv->inventory[CARRIED][i].item = eatFirstInt(val, ',');
-							if( menu->inv->inventory[CARRIED][i].item != 0) menu->inv->inventory[CARRIED][i].quantity = 1;
-							else menu->inv->inventory[CARRIED][i].quantity = 0;
-						}
+						menu->inv->inventory[CARRIED].setItems(val);
 					}
 					else if (key == "carried_quantity") {
-						val = val + ",";
-						for (int i=0; i<MAX_CARRIED; i++) {
-							menu->inv->inventory[CARRIED][i].quantity = eatFirstInt(val, ',');
-						}
+						menu->inv->inventory[CARRIED].setQuantities(val);
 					}
 					else if (key == "spawn") {
 						val = val + ",";

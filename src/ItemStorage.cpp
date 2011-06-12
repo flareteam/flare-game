@@ -23,6 +23,54 @@ ItemStack & ItemStorage::operator [] (int slot) {
 	return storage[slot];
 }
 
+/**
+ * Take the savefile CSV list of items id and convert to storage array
+ */
+void ItemStorage::setItems(string s) {
+	s = s + ',';
+	for (int i=0; i<slot_number; i++) {
+		storage[i].item = eatFirstInt(s, ',');
+		if( storage[i].item != 0) storage[i].quantity = 1;
+		else storage[i].quantity = 0;
+	}
+}
+
+/**
+ * Take the savefile CSV list of items quantities and convert to storage array
+ */
+void ItemStorage::setQuantities(string s) {
+	s = s + ',';
+	for (int i=0; i<slot_number; i++) {
+		storage[i].quantity = eatFirstInt(s, ',');
+	}
+}
+
+/**
+ * Convert storage array to a CSV list of items id for savefile
+ */
+string ItemStorage::getItems() {
+	stringstream ss;
+	ss.str("");
+	for (int i=0; i<slot_number; i++) {
+		ss << storage[i].item;
+		if (i < slot_number-1) ss << ',';
+	}
+	return ss.str();
+}
+
+/**
+ * Convert storage array to a CSV list of items quantities for savefile
+ */
+string ItemStorage::getQuantities() {
+	stringstream ss;
+	ss.str("");
+	for (int i=0; i<slot_number; i++) {
+		ss << storage[i].quantity;
+		if (i < slot_number-1) ss << ',';
+	}
+	return ss.str();
+}
+
 void ItemStorage::clear() {
 	for( int i=0; i<slot_number; i++) {
 		storage[i].item = 0;
