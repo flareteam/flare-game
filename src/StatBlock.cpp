@@ -109,6 +109,10 @@ StatBlock::StatBlock() {
 	quest_loot_not = "";
 	quest_loot_id = 0;
 	first_defeat_loot = 0;
+	
+	// default hero base/option
+	base="male";
+	look="option1";
 }
 
 /**
