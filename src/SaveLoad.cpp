@@ -39,6 +39,10 @@ void GameStateGameEngine::saveGame() {
 
 		// hero name
 		outfile << "name=" << pc->stats.name << "\n";
+		
+		// hero base (e.g. human male) and look (e.g. option1)
+		outfile << "base=" << pc->stats.base << "\n";
+		outfile << "look=" << pc->stats.look << "\n";
 
 		// current experience
 		outfile << "xp=" << pc->stats.xp << "\n";
@@ -119,6 +123,12 @@ void GameStateGameEngine::loadGame() {
 				
 					if (key == "name") {
 						pc->stats.name = val;
+					}
+					else if (key == "base") {
+						pc->stats.base = val;
+					}
+					else if (key == "look") {
+						pc->stats.look = val;
 					}
 					else if (key == "xp") {
 						pc->stats.xp = atoi(val.c_str());

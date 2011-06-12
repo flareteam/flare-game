@@ -41,7 +41,8 @@ private:
 	SDL_Surface *sprites[GAME_SLOT_MAX];
 	StatBlock stats[GAME_SLOT_MAX];
 	int equipped[GAME_SLOT_MAX][3];	
-	SDL_Rect slot_pos[GAME_SLOT_MAX];	
+	SDL_Rect slot_pos[GAME_SLOT_MAX];
+	
 	Point name_pos;
 	Point level_pos;
 	Point phys_pos;

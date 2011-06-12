@@ -206,6 +206,10 @@ public:
 	int quest_loot_id;
 	int first_defeat_loot;
 	
+	// player look choices
+	string base; // e.g. human male
+	string look; // e.g. option1
+	
 };
 
 #endif
