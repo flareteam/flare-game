@@ -113,6 +113,7 @@ void EnemyManager::handleNewMap () {
 		enemies[enemy_count]->stats.pos.y = me.pos.y;
 		enemies[enemy_count]->stats.direction = me.direction;
 		enemies[enemy_count]->stats.load("enemies/" + me.type + ".txt");
+		enemies[enemy_count]->loadAnimations("./animations/" + me.type + ".txt");
 		loadGraphics(enemies[enemy_count]->stats.gfx_prefix);
 		loadSounds(enemies[enemy_count]->stats.sfx_prefix);
 		enemy_count++;
