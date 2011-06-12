@@ -124,6 +124,9 @@ public:
 	Point pos;
 	int direction;
 		
+	// state
+	int cur_state;
+
 	// enemy behavioral stats
 	int chance_pursue;
 	int chance_flee;
@@ -147,42 +150,8 @@ public:
 	
 	int loot_chance;
 	
-	// rendering info
-	int cur_state;
-	int cur_frame;
-	int disp_frame;
-	
-	
 	Point render_size;
 	Point render_offset;
-
-	int anim_stance_position;
-	int anim_stance_frames;
-	int anim_stance_duration;
-	int anim_run_position;
-	int anim_run_frames;
-	int anim_run_duration;
-	int anim_melee_position;
-	int anim_melee_frames;
-	int anim_melee_duration;
-	int anim_ment_position;
-	int anim_ment_frames;
-	int anim_ment_duration;
-	int anim_ranged_position;
-	int anim_ranged_frames;
-	int anim_ranged_duration;
-	int anim_block_position;
-	int anim_block_frames;
-	int anim_block_duration;
-	int anim_hit_position;
-	int anim_hit_frames;
-	int anim_hit_duration;
-	int anim_die_position;
-	int anim_die_frames;
-	int anim_die_duration;
-	int anim_critdie_position;
-	int anim_critdie_frames;
-	int anim_critdie_duration;
 
 	// for the teleport spell
 	bool teleportation;
@@ -213,3 +182,4 @@ public:
 };
 
 #endif
+

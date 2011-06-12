@@ -12,8 +12,6 @@ Enemy::Enemy(PowerManager *_powers, MapIso *_map) : Entity(_map) {
 	powers = _powers;
 
 	stats.cur_state = ENEMY_STANCE;
-	stats.cur_frame = 0;
-	stats.disp_frame = 0;	
 	stats.dir_ticks = FRAMES_PER_SEC;
 	stats.patrol_ticks = 0;
 	stats.cooldown = 0;
@@ -81,7 +79,6 @@ int Enemy::getDistance(Point dest) {
 void Enemy::newState(int state) {
 	
 	stats.cur_state = state;
-	stats.cur_frame = 0;
 }
 	
 /**
@@ -98,7 +95,6 @@ void Enemy::logic() {
 	if (stats.hp <= 0 && !(stats.cur_state == ENEMY_DEAD || stats.cur_state == ENEMY_CRITDEAD)) {
 		doRewards();
 		stats.cur_state = ENEMY_DEAD;
-		stats.cur_frame = 0;
 	}
 	// check for bleeding spurt
 	if (stats.bleed_duration % 30 == 1) {
@@ -187,21 +183,13 @@ void Enemy::logic() {
 	// SECTION 2: States
 	// -----------------
 	
+	activeAnimation->advanceFrame();
+
 	switch(stats.cur_state) {
 	
 		case ENEMY_STANCE:
 		
-			// handle animation
-		    	stats.cur_frame++;
-			
-			// stance is a back/forth animation
-			mid_frame = stats.anim_stance_frames * stats.anim_stance_duration;
-			max_frame = mid_frame + mid_frame;
-			if (stats.cur_frame >= max_frame) stats.cur_frame = 0;
-			if (stats.cur_frame >= mid_frame)
-				stats.disp_frame = (max_frame -1 - stats.cur_frame) / stats.anim_stance_duration + stats.anim_stance_position;
-			else
-				stats.disp_frame = stats.cur_frame / stats.anim_stance_duration + stats.anim_stance_position;
+			setAnimation("stance");
 			
 			if (stats.in_combat) {
 
@@ -281,14 +269,8 @@ void Enemy::logic() {
 		
 		case ENEMY_MOVE:
 		
-			// handle animation
-			stats.cur_frame++;
-			
-			// run is a looped animation
-			max_frame = stats.anim_run_frames * stats.anim_run_duration;
-			if (stats.cur_frame >= max_frame) stats.cur_frame = 0;
-			stats.disp_frame = (stats.cur_frame / stats.anim_run_duration) + stats.anim_run_position;
-			
+			setAnimation("run");
+	
 			if (stats.in_combat) {
 
 				if (++stats.dir_ticks > stats.dir_favor && stats.patrol_ticks == 0) {
@@ -338,50 +320,42 @@ void Enemy::logic() {
 			
 		case ENEMY_MELEE_PHYS:
 			
-			// handle animation
-			stats.cur_frame++;
-			
-			// melee is a play-once animation
-			max_frame = stats.anim_melee_frames * stats.anim_melee_duration;
-			stats.disp_frame = (stats.cur_frame / stats.anim_melee_duration) + stats.anim_melee_position;
+			setAnimation("melee");
 
-			if (stats.cur_frame == 1) {
+			if (activeAnimation->getCurFrame() == 1) {
 				sfx_phys = true;
 			}
 
 			// the attack hazard is alive for a single frame
-			if (stats.cur_frame == max_frame/2 && haz == NULL) {
+			if (activeAnimation->getCurFrame() == activeAnimation->getMaxFrame()/2 && haz == NULL) {
 				powers->activate(stats.power_index[MELEE_PHYS], &stats, pursue_pos);
 				stats.power_ticks[MELEE_PHYS] = stats.power_cooldown[MELEE_PHYS];
 			}
 
-			if (stats.cur_frame == max_frame-1) {
+			if (activeAnimation->getCurFrame() == activeAnimation->getMaxFrame()-1) {
 				newState(ENEMY_STANCE);
 				stats.cooldown_ticks = stats.cooldown;
 			}
 			break;
 
 		case ENEMY_RANGED_PHYS:
+
+			setAnimation("ranged");
 	
 			// monsters turn to keep aim at the hero
 			stats.direction = face(pursue_pos.x, pursue_pos.y);
 			
-			// handle animation
-			stats.cur_frame++;
-			max_frame = stats.anim_ranged_frames * stats.anim_ranged_duration;
-			stats.disp_frame = (stats.cur_frame / stats.anim_ranged_duration) + stats.anim_ranged_position;
-
-			if (stats.cur_frame == 1) {
+			if (activeAnimation->getCurFrame() == 1) {
 				sfx_phys = true;
 			}
 			
 			// the attack hazard is alive for a single frame
-			if (stats.cur_frame == max_frame/2 && haz == NULL) {
+			if (activeAnimation->getCurFrame() == activeAnimation->getMaxFrame()/2 && haz == NULL) {
 				powers->activate(stats.power_index[RANGED_PHYS], &stats, pursue_pos);
 				stats.power_ticks[RANGED_PHYS] = stats.power_cooldown[RANGED_PHYS];
 			}
 			
-			if (stats.cur_frame == max_frame-1) {
+			if (activeAnimation->getCurFrame() == activeAnimation->getMaxFrame()-1) {
 				newState(ENEMY_STANCE);
 				stats.cooldown_ticks = stats.cooldown;
 			}
@@ -390,48 +364,42 @@ void Enemy::logic() {
 		
 		case ENEMY_MELEE_MENT:
 	
-			// handle animation
-			stats.cur_frame++;
-			max_frame = stats.anim_ment_frames * stats.anim_ment_duration;
-			stats.disp_frame = (stats.cur_frame / stats.anim_ment_duration) + stats.anim_ment_position;
+			setAnimation("ment");
 
-			if (stats.cur_frame == 1) {
+			if (activeAnimation->getCurFrame() == 1) {
 				sfx_ment = true;
 			}
 			
 			// the attack hazard is alive for a single frame
-			if (stats.cur_frame == max_frame/2 && haz == NULL) {
+			if (activeAnimation->getCurFrame() == activeAnimation->getMaxFrame()/2 && haz == NULL) {
 				powers->activate(stats.power_index[MELEE_MENT], &stats, pursue_pos);
 				stats.power_ticks[MELEE_MENT] = stats.power_cooldown[MELEE_MENT];
 			}
 			
-			if (stats.cur_frame == max_frame-1) {
+			if (activeAnimation->getCurFrame() == activeAnimation->getMaxFrame()-1) {
 				newState(ENEMY_STANCE);
 				stats.cooldown_ticks = stats.cooldown;
 			}
 			break;
 
 		case ENEMY_RANGED_MENT:
+
+			setAnimation("ment");
 		
 			// monsters turn to keep aim at the hero
 			stats.direction = face(pursue_pos.x, pursue_pos.y);
 	
-			// handle animation
-			stats.cur_frame++;
-			max_frame = stats.anim_ment_frames * stats.anim_ment_duration;
-			stats.disp_frame = (stats.cur_frame / stats.anim_ment_duration) + stats.anim_ment_position;
-
-			if (stats.cur_frame == 1) {
+			if (activeAnimation->getCurFrame() == 1) {
 				sfx_ment = true;
 			}
 			
 			// the attack hazard is alive for a single frame
-			if (stats.cur_frame == max_frame/2 && haz == NULL) {
+			if (activeAnimation->getCurFrame() == activeAnimation->getMaxFrame()/2 && haz == NULL) {
 				powers->activate(stats.power_index[RANGED_MENT], &stats, pursue_pos);
 				stats.power_ticks[RANGED_MENT] = stats.power_cooldown[RANGED_MENT];
 			}
 			
-			if (stats.cur_frame == max_frame-1) {
+			if (activeAnimation->getCurFrame() == activeAnimation->getMaxFrame()-1) {
 				newState(ENEMY_STANCE);
 				stats.cooldown_ticks = stats.cooldown;
 			}
@@ -440,19 +408,9 @@ void Enemy::logic() {
 		case ENEMY_HIT:
 			// enemy has taken damage (but isn't dead)
 
-			stats.cur_frame++;
-
-			// hit is a back/forth animation
-			mid_frame = stats.anim_hit_frames * stats.anim_hit_duration;
-			max_frame = mid_frame + mid_frame;
-			if (stats.cur_frame >= mid_frame)
-				stats.disp_frame = (max_frame -1 - stats.cur_frame) / stats.anim_hit_duration + stats.anim_hit_position;
-			else
-				stats.disp_frame = stats.cur_frame / stats.anim_hit_duration + stats.anim_hit_position;
+			setAnimation("hit");
 			
-
-			
-			if (stats.cur_frame == max_frame-1) {
+			if (activeAnimation->getCurFrame() == activeAnimation->getMaxFrame()-1) {
 				newState(ENEMY_STANCE);
 			}
 			
@@ -460,14 +418,12 @@ void Enemy::logic() {
 			
 		case ENEMY_DEAD:
 		
-			// corpse means the creature is dead and done animating
-			if (!stats.corpse) {
-				max_frame = (stats.anim_die_frames-1) * stats.anim_die_duration;
-				if (stats.cur_frame < max_frame) stats.cur_frame++;
-				if (stats.cur_frame == max_frame) stats.corpse = true;
-				stats.disp_frame = (stats.cur_frame / stats.anim_die_duration) + stats.anim_die_position;
-				if (stats.cur_frame == 1) sfx_die = true;
-			}
+			setAnimation("die");
+
+                        if (activeAnimation->getTimesPlayed() >= 1) {
+				// corpse means the creature is dead and done animating
+                                stats.corpse = true;
+                        }
 
 			break;
 		
@@ -476,11 +432,7 @@ void Enemy::logic() {
 		
 			// corpse means the creature is dead and done animating
 			if (!stats.corpse) {
-				max_frame = (stats.anim_critdie_frames-1) * stats.anim_critdie_duration;
-				if (stats.cur_frame < max_frame) stats.cur_frame++;
-				if (stats.cur_frame == max_frame) stats.corpse = true;
-				stats.disp_frame = (stats.cur_frame / stats.anim_critdie_duration) + stats.anim_critdie_position;
-				if (stats.cur_frame == 1) sfx_critdie = true;
+				setAnimation("critdie");
 			}
 			
 			break;
@@ -570,21 +522,17 @@ bool Enemy::takeHit(Hazard h) {
 		// interrupted to new state
 		if (dmg > 0) {
 			sfx_hit = true;
-			stats.cur_frame = 0;
 			
 			if (stats.hp <= 0 && crit) {
 				doRewards();
-				stats.disp_frame = stats.anim_critdie_position;
 				stats.cur_state = ENEMY_CRITDEAD;
 			}
 			else if (stats.hp <= 0) {
 				doRewards();
-				stats.disp_frame = stats.anim_die_position;
 				stats.cur_state = ENEMY_DEAD;		
 			}
 			// don't go through a hit animation if stunned
 			else if (h.stun_duration == 0) {
-				stats.disp_frame = stats.anim_hit_position;
 				stats.cur_state = ENEMY_HIT;
 			}
 		}
@@ -640,11 +588,9 @@ void Enemy::doRewards() {
  * to collect all mobile sprites each frame.
  */
 Renderable Enemy::getRender() {
-	Renderable r;
+	Renderable r = activeAnimation->getCurrentFrame(stats.direction);
 	r.map_pos.x = stats.pos.x;
 	r.map_pos.y = stats.pos.y;
-	r.src.x = stats.render_size.x * stats.disp_frame;
-	r.src.y = stats.render_size.y * stats.direction;
 	r.src.w = stats.render_size.x;
 	r.src.h = stats.render_size.y;
 	r.offset.x = stats.render_offset.x;
