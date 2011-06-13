@@ -14,6 +14,7 @@
 
 #include "MapIso.h"
 #include "Animation.h"
+#include "Utils.h"
 #include <vector>
 
 class Entity {
