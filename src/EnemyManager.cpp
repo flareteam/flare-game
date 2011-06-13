@@ -166,10 +166,10 @@ Enemy* EnemyManager::enemyFocus(Point mouse, Point cam, bool alive_only) {
 		}
 		p = map_to_screen(enemies[i]->stats.pos.x, enemies[i]->stats.pos.y, cam.x, cam.y);
 	
-		r.w = enemies[i]->stats.render_size.x;
-		r.h = enemies[i]->stats.render_size.y;
-		r.x = p.x - enemies[i]->stats.render_offset.x;
-		r.y = p.y - enemies[i]->stats.render_offset.y;
+		r.w = enemies[i]->getRender().src.x;
+		r.h = enemies[i]->getRender().src.y;
+		r.x = p.x - enemies[i]->getRender().offset.x;
+		r.y = p.y - enemies[i]->getRender().offset.y;
 		
 		if (isWithin(r, mouse)) {
 			Enemy *enemy = enemies[i];

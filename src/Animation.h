@@ -4,10 +4,6 @@
  * The Animation class handles the logic of advancing frames based on the animation type
  * and returning a renderable frame.
  * 
- * Currently an Animation optionally hold a reference to the sprite sheet. It can be instantiated
- * without specifying this and the getCurrentFrame() function will then return a renderable
- * without a sprite.
- *
  * The intention with the class is to keep it as flexible as possible so that the animations
  * can be used not only for character animations but any animated in-game objects.
  *
@@ -42,13 +38,13 @@ protected:
 	int disp_frame;
 	int mid_frame;
 	int max_frame;
+	Point render_size;
+	Point render_offset;
 
 	int timesPlayed;
 
 public:
-	// can be instantiated with or without the sprite sheet
-	Animation(std::string, int frameSize, int position, int frames, int duration, std::string);
-	Animation(std::string, SDL_Surface*, int frameSize, int position, int frames, int duration, std::string);
+	Animation(std::string, Point _render_size, Point _render_offset, int position, int frames, int duration, std::string);
 
 	// advance the animation one frame
 	void advanceFrame();

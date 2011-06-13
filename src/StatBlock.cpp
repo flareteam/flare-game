@@ -215,10 +215,6 @@ void StatBlock::load(string filename) {
 					else if (key == "attunement_ice") attunement_ice=num;
 
 					// animation stats
-					else if (key == "render_size_x") render_size.x = num;
-					else if (key == "render_size_y") render_size.y = num;
-					else if (key == "render_offset_x") render_offset.x = num;
-					else if (key == "render_offset_y") render_offset.y = num;
 					else if (key == "melee_weapon_power") melee_weapon_power = num;
 					else if (key == "mental_weapon_power") mental_weapon_power = num;
 					else if (key == "ranged_weapon_power") ranged_weapon_power = num;

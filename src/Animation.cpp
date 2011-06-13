@@ -4,10 +4,6 @@
  * The Animation class handles the logic of advancing frames based on the animation type
  * and returning a renderable frame.
  * 
- * Currently an Animation optionally hold a reference to the sprite sheet. It can be instantiated
- * without specifying this and the getCurrentFrame() function will then return a renderable
- * without a sprite.
- *
  * The intention with the class is to keep it as flexible as possible so that the animations
  * can be used not only for character animations but any animated in-game objects.
  *
@@ -17,9 +13,10 @@
 
 #include "Animation.h"
 
-Animation::Animation(std::string _name, int _frameSize, int _position, int _frames, int _duration, std::string _type)
+Animation::Animation(std::string _name, Point _render_size, Point _render_offset, int _position, int _frames, int _duration, std::string _type)
 	: name(_name), sprites(NULL),
-	  frameSize(_frameSize), position(_position), frames(_frames), duration(_duration), type(_type),
+	  render_size(_render_size), render_offset(_render_offset),
+	  position(_position), frames(_frames), duration(_duration), type(_type),
 	  cur_frame(0), disp_frame(0), mid_frame(0), max_frame(0), timesPlayed(0) {
 
 	if (type == "play_once" || type == "looped") {
@@ -31,22 +28,6 @@ Animation::Animation(std::string _name, int _frameSize, int _position, int _fram
 	
 	}
 }
-
-Animation::Animation(std::string _name, SDL_Surface* _sprites, int _frameSize, int _position, int _frames, int _duration, std::string _type)
-	: name(_name), sprites(_sprites),
-	  frameSize(_frameSize), position(_position), frames(_frames), duration(_duration), type(_type),
-	  cur_frame(0), disp_frame(0), mid_frame(0), max_frame(0), timesPlayed(0) {
-
-	if (type == "play_once" || type == "looped") {
-		max_frame = frames * duration;
-	}
-	else if (type == "back_forth") {
-		mid_frame = frames * duration;
-		max_frame = mid_frame + mid_frame;
-	
-	}
-}
-
 
 void Animation::advanceFrame() {
 
@@ -96,12 +77,12 @@ Renderable Animation::getCurrentFrame(int direction) {
 		r.sprite = sprites;
 	}
 
-	r.src.x = 128 * disp_frame;
-	r.src.y = 128 * direction;
-	r.src.w = 128;
-	r.src.h = 128;
-	r.offset.x = 64;
-	r.offset.y = 96; // 112
+	r.src.x = render_size.x * disp_frame;
+	r.src.y = render_size.y * direction;
+	r.src.w = render_size.x;
+	r.src.h = render_size.y;
+	r.offset.x = render_offset.x;
+	r.offset.y = render_offset.y; // 112
 	r.object_layer = true;
 	return r;
 }

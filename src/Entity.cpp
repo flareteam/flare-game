@@ -106,6 +106,8 @@ void Entity::loadAnimations(std::string filename) {
 	int position = 0;
 	int frames = 0;
 	int duration = 0;
+	Point render_size;
+	Point render_offset;
 	std::string type = "";
 	std::string firstAnimation = "";
 
@@ -115,8 +117,9 @@ void Entity::loadAnimations(std::string filename) {
 	parser.new_section = false; // do not create the first animation object until parser has parsed first section
 
 	do {
+		// create the animation if finished parsing a section
 		if (parser.new_section) {
-			animations.push_back(new Animation(name, sprites, 128, position, frames, duration, type));
+			animations.push_back(new Animation(name, render_size, render_offset,  position, frames, duration, type));
 		}
 
 		if (parser.key == "position") {
@@ -124,12 +127,12 @@ void Entity::loadAnimations(std::string filename) {
 				position = atoi(parser.val.c_str());
 			}
 		}	
-		if (parser.key == "frames") {
+		else if (parser.key == "frames") {
 			if (isInt(parser.val)) {
 				frames = atoi(parser.val.c_str());
 			}
 		}	
-		if (parser.key == "duration") {
+		else if (parser.key == "duration") {
 			if (isInt(parser.val)) {
 				int ms_per_frame = atoi(parser.val.c_str());
 				
@@ -139,8 +142,28 @@ void Entity::loadAnimations(std::string filename) {
 				if (duration < 1) duration=1;
 			}
 		}	
-		if (parser.key == "type") {
+		else if (parser.key == "type") {
 			type = parser.val;
+		}
+		else if (parser.key == "render_size_x") {
+			if (isInt(parser.val)) {
+				render_size.x = atoi(parser.val.c_str());
+			}
+		}	
+		else if (parser.key == "render_size_y") {
+			if (isInt(parser.val)) {
+				render_size.y = atoi(parser.val.c_str());
+			}
+		}	
+		else if (parser.key == "render_offset_x") {
+			if (isInt(parser.val)) {
+				render_offset.x = atoi(parser.val.c_str());
+			}
+		}	
+		else if (parser.key == "render_offset_y") {
+			if (isInt(parser.val)) {
+				render_offset.y = atoi(parser.val.c_str());
+			}
 		}	
 
 		if (name == "") {
@@ -152,7 +175,7 @@ void Entity::loadAnimations(std::string filename) {
 	while (parser.next());
 
 	// add final animation
-	animations.push_back(new Animation(name, sprites, 128, position, frames, duration, type));
+	animations.push_back(new Animation(name, render_size, render_offset, position, frames, duration, type));
 
 
 	// set the default animation

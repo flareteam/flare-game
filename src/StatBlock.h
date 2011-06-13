@@ -150,9 +150,6 @@ public:
 	
 	int loot_chance;
 	
-	Point render_size;
-	Point render_offset;
-
 	// for the teleport spell
 	bool teleportation;
 	Point teleport_destination;
