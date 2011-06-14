@@ -113,6 +113,12 @@ StatBlock::StatBlock() {
 	// default hero base/option
 	base="male";
 	look="option1";
+
+	// default animations
+	animations = "";
+
+	// default animation speed
+	animationSpeed = 100;
 }
 
 /**
@@ -218,6 +224,9 @@ void StatBlock::load(string filename) {
 					else if (key == "melee_weapon_power") melee_weapon_power = num;
 					else if (key == "mental_weapon_power") mental_weapon_power = num;
 					else if (key == "ranged_weapon_power") ranged_weapon_power = num;
+
+					else if (key == "animations") animations = val;
+					else if (key == "animation_speed") animationSpeed = num;
 	
 				}
 			}

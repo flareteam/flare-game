@@ -137,6 +137,9 @@ void Entity::loadAnimations(std::string filename) {
 				int ms_per_frame = atoi(parser.val.c_str());
 				
 				duration = round((float)ms_per_frame / (1000.0 / (float)FRAMES_PER_SEC));
+
+				// adjust duration according to the entity's animation speed
+				duration = duration * (100 / stats.animationSpeed);
 				
 				// TEMP: if an animation is too fast, display one frame per fps anyway
 				if (duration < 1) duration=1;

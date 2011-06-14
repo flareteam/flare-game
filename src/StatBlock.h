@@ -175,7 +175,9 @@ public:
 	// player look choices
 	string base; // e.g. human male
 	string look; // e.g. option1
-	
+
+	string animations;
+	int animationSpeed;
 };
 
 #endif
