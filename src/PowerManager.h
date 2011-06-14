@@ -111,6 +111,10 @@ struct Power {
 	int damage_multiplier; // % of base damage done by power (eg. 200 doubles damage and 50 halves it)
 	int starting_pos; // enum. (source, target, or melee)
 	bool multitarget;
+
+	//steal effects (in %, eg. hp_steal=50 turns 50% damage done into HP regain.)
+	int hp_steal;
+	int mp_steal;
 	
 	//missile traits
 	int missile_num;

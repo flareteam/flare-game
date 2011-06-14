@@ -223,6 +223,13 @@ void PowerManager::loadPowers() {
 						else if (val == "shadow") powers[input_id].trait_elemental = ELEMENT_SHADOW;
 						else if (val == "light") powers[input_id].trait_elemental = ELEMENT_LIGHT;
 					}
+					//steal effects
+					else if (key == "hp_steal") {
+						powers[input_id].hp_steal = atoi(val.c_str());
+					}
+					else if (key == "mp_steal") {
+						powers[input_id].mp_steal = atoi(val.c_str());
+					}
 					//missile modifiers
 					else if (key == "missile_num") {
 						powers[input_id].missile_num = atoi(val.c_str());
@@ -441,12 +448,8 @@ int PowerManager::calcDirection(int origin_x, int origin_y, int target_x, int ta
  */
 void PowerManager::initHazard(int power_index, StatBlock *src_stats, Point target, Hazard *haz) {
 
-	// the source (hero/enemy/neutral) determines what is a valid target
-	// i.e. no friendly fire between enemies
-	if (src_stats->hero)
-		haz->source = SRC_HERO;
-	else
-		haz->source = SRC_ENEMY;
+	//the hazard holds the statblock of its source
+	haz->src_stats = src_stats;
 
 	// Hazard attributes based on power source
 	haz->crit_chance = src_stats->crit;
@@ -541,6 +544,9 @@ void PowerManager::initHazard(int power_index, StatBlock *src_stats, Point targe
 	haz->stun_duration += powers[power_index].stun_duration;
 	haz->slow_duration += powers[power_index].slow_duration;
 	haz->immobilize_duration += powers[power_index].immobilize_duration;
+	// steal effects
+	haz->hp_steal += powers[power_index].hp_steal;
+	haz->mp_steal += powers[power_index].mp_steal;
 	
 	// hazard starting position
 	if (powers[power_index].starting_pos == STARTING_POS_SOURCE) {
@@ -847,10 +853,7 @@ bool PowerManager::single(int power_index, StatBlock *src_stats, Point target) {
 	haz->lifespan = 1;
 	haz->crit_chance = src_stats->crit;
 	haz->accuracy = src_stats->accuracy;
-	if (src_stats->hero)
-		haz->source = SRC_HERO;
-	else
-		haz->source = SRC_ENEMY;
+	haz->src_stats = src_stats;
 
 	// specific powers have different stats here
 	if (power_index == POWER_VENGEANCE) {

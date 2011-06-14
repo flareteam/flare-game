@@ -16,11 +16,7 @@
 #include "SDL_mixer.h"
 #include "Utils.h"
 #include "MapCollision.h"
-
-// Hazard Sources
-const int SRC_HERO = 0;
-const int SRC_ENEMY = 1;
-const int SRC_NEUTRAL = 2;
+#include "StatBlock.h"
 
 class Hazard {
 private:
@@ -28,12 +24,13 @@ private:
 public:
 	Hazard();
 	
+	StatBlock *src_stats;
+
 	SDL_Surface *sprites;
 	void setCollision(MapCollision *_collider);
 	void logic();
 
-	int source;
-	int enemyIndex;
+	//int enemyIndex; //don't know what this does... doesn't look like it's ever used.
 	
 	int dmg_min;
 	int dmg_max;
@@ -75,6 +72,8 @@ public:
 	int immobilize_duration;
 	int slow_duration;
 	int bleed_duration;
+	int hp_steal;
+	int mp_steal;
 	
 	bool trait_armor_penetration;
 	int trait_crits_impaired;
