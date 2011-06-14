@@ -21,14 +21,6 @@ PowerManager::PowerManager() {
 	for (int i=0; i<POWER_MAX_SFX; i++) {
 		sfx[i] = NULL;
 	}
-		
-	powers[POWER_FREEZE].name = "Freeze";
-	powers[POWER_FREEZE].type = POWTYPE_GROUNDRAY;
-	powers[POWER_FREEZE].icon = 14;
-	powers[POWER_FREEZE].description = "Create a ray of piercing cold that slows enemies";
-	powers[POWER_FREEZE].new_state = POWSTATE_CAST;
-	powers[POWER_FREEZE].face = true;
-	powers[POWER_FREEZE].requires_mp = 1;
 	
 	powers[POWER_VENGEANCE].name = "Vengeance";
 	powers[POWER_VENGEANCE].type = POWTYPE_SINGLE;
@@ -41,7 +33,6 @@ PowerManager::PowerManager() {
 	used_item=-1;
 	
 	loadGraphics();
-	loadSounds();
 	loadPowers();
 }
 
@@ -87,7 +78,7 @@ void PowerManager::loadPowers() {
 						if (val == "single") powers[input_id].type = POWTYPE_SINGLE;
 						else if (val == "effect") powers[input_id].type = POWTYPE_EFFECT;
 						else if (val == "missile") powers[input_id].type = POWTYPE_MISSILE;
-						else if (val == "groundray") powers[input_id].type = POWTYPE_GROUNDRAY;
+						else if (val == "repeater") powers[input_id].type = POWTYPE_REPEATER;
 					}
 					else if (key == "name") {
 						powers[input_id].name = val;
@@ -245,6 +236,13 @@ void PowerManager::loadPowers() {
 					else if (key == "speed_variance") {
 						powers[input_id].speed_variance = atoi(val.c_str());
 					}
+					//repeater modifiers
+					else if (key == "delay") {
+						powers[input_id].delay = atoi(val.c_str());
+					}
+					else if (key == "start_frame") {
+						powers[input_id].start_frame = atoi(val.c_str());
+					}
 					// buff/debuff durations
 					else if (key == "bleed_duration") {
 						powers[input_id].bleed_duration = atoi(val.c_str());
@@ -378,17 +376,12 @@ int PowerManager::loadSFX(string filename) {
 
 void PowerManager::loadGraphics() {
 
-	freeze = IMG_Load("images/powers/freeze.png");
 	runes = IMG_Load("images/powers/runes.png");
 	
-	if(!freeze || !runes) {
+	if(!runes) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 		SDL_Quit();
 	}
-}
-
-void PowerManager::loadSounds() {
-	sfx_freeze = Mix_LoadWAV("soundfx/powers/freeze.ogg");	
 }
 
 /**
@@ -771,25 +764,22 @@ bool PowerManager::missile(int power_index, StatBlock *src_stats, Point target) 
 	}
 
 	// pay costs
-	if (powers[power_index].requires_mp>0) {
-		src_stats->mp-=powers[power_index].requires_mp;
-	}
+	if (powers[power_index].requires_mp>0) src_stats->mp-=powers[power_index].requires_mp;
 	used_item = powers[power_index].requires_item;
 
 	playSound(power_index, src_stats);
 	return true;
 }
 
-
 /**
- * Ground Rays are multiple hazards that spawn in a straight line
+ * Repeaters are multiple hazards that spawn in a straight line
  */
-bool PowerManager::groundRay(int power_index, StatBlock *src_stats, Point target) {
-
+bool PowerManager::repeater(int power_index, StatBlock *src_stats, Point target) {
 	// pay costs
-	src_stats->mp--;
+	if (powers[power_index].requires_mp>0) src_stats->mp-=powers[power_index].requires_mp;
 	used_item = powers[power_index].requires_item;
-
+	
+	//initialize variables
 	Hazard *haz[10];
 	FPoint location_iterator;
 	FPoint speed;
@@ -811,9 +801,7 @@ bool PowerManager::groundRay(int power_index, StatBlock *src_stats, Point target
 	location_iterator.y = (float)src_stats->pos.y;
 	delay_iterator = 0;
 
-	if (power_index == POWER_FREEZE) {
-		Mix_PlayChannel(-1, sfx_freeze, 0);
-	}
+	playSound(power_index, src_stats);
 
 	for (int i=0; i<10; i++) {
 
@@ -824,46 +812,25 @@ bool PowerManager::groundRay(int power_index, StatBlock *src_stats, Point target
 		if (collider->is_wall((int)location_iterator.x, (int)location_iterator.y)) {
 			break; // no more hazards
 		}
+		
+		haz[i] = new Hazard();
+		initHazard(power_index, src_stats, target, haz[i]);
 
-		haz[i] = new Hazard();	
 		haz[i]->pos.x = location_iterator.x;
 		haz[i]->pos.y = location_iterator.y;
-		
-		
 		haz[i]->delay_frames = delay_iterator;
-		delay_iterator += 3;
+		delay_iterator += powers[power_index].delay;
 		
-		haz[i]->crit_chance = src_stats->crit;
-		haz[i]->accuracy = src_stats->accuracy;
-		if (src_stats->hero)
-			haz[i]->source = SRC_HERO;
-		else
-			haz[i]->source = SRC_ENEMY;
-		haz[i]->rendered = true;
-		haz[i]->frame_offset.y = 48;
-		
-		// specific powers have different stats here
-		if (power_index == POWER_FREEZE) {
-			haz[i]->lifespan = 20;
-			haz[i]->active_frame = 0;
-			haz[i]->frame = 16; // start at bottom frame
-			haz[i]->frame_loop = 20;
-			haz[i]->frame_duration = 3;
-			haz[i]->radius = 64;
-			haz[i]->dmg_min = src_stats->dmg_ment_min;
-			haz[i]->dmg_max = src_stats->dmg_ment_max;
-			haz[i]->sprites = freeze;
-			haz[i]->direction = rand() % 3;
-			haz[i]->complete_animation = true;
-			haz[i]->slow_duration = 90;
-			haz[i]->trait_elemental = ELEMENT_WATER;
-		}
+		haz[i]->frame = powers[power_index].start_frame; // start at bottom frame
+
+		//left over from Freeze... I'm not sure what this does, so I took it out.
+		//haz[i]->complete_animation = true;
 		
 		hazards.push(haz[i]);
 	}
-	
-	// Hazard memory is now the responsibility of HazardManager
+
 	return true;
+	
 }
 
 
@@ -917,8 +884,8 @@ bool PowerManager::activate(int power_index, StatBlock *src_stats, Point target)
 		return single(power_index, src_stats, target);
 	else if (powers[power_index].type == POWTYPE_MISSILE)
 		return missile(power_index, src_stats, target);
-	else if (powers[power_index].type == POWTYPE_GROUNDRAY)
-		return groundRay(power_index, src_stats, target);
+	else if (powers[power_index].type == POWTYPE_REPEATER)
+		return repeater(power_index, src_stats, target);
 	else if (powers[power_index].type == POWTYPE_EFFECT)
 		return effect(power_index, src_stats, target);
 	

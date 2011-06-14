@@ -28,9 +28,8 @@ const int POWER_MAX_SFX = 64;
 
 const int POWTYPE_SINGLE = 2;
 const int POWTYPE_MISSILE = 3;
-const int POWTYPE_MISSILE_X3 = 4; // used by MultiShot
-const int POWTYPE_GROUNDRAY = 5; // used by Freeze
-const int POWTYPE_EFFECT = 6;
+const int POWTYPE_REPEATER = 4;
+const int POWTYPE_EFFECT = 5;
 
 const int POWSTATE_SWING = 0;
 const int POWSTATE_CAST = 1;
@@ -64,7 +63,6 @@ const int STARTING_POS_MELEE = 2;
 // first 20 powers coincide with power tree
 // TODO: remove this restriction
 const int POWER_SHIELD = 11;
-const int POWER_FREEZE = 14;
 const int POWER_VENGEANCE = 17;
 const int POWER_SPARK_BLOOD = 127;
 
@@ -119,6 +117,10 @@ struct Power {
 	int missile_angle;
 	int angle_variance;
 	int speed_variance;
+
+	//repeater traits
+	int delay;
+	int start_frame;
 
 	int trait_elemental; // enum. of elements
 	bool trait_armor_penetration;
@@ -191,6 +193,9 @@ struct Power {
 		angle_variance = 0;
 		speed_variance = 0;
 
+		delay = 0;
+		start_frame = 0;
+		
 		trait_elemental = -1;
 		trait_armor_penetration = false;
 		trait_crits_impaired = 0;
@@ -226,7 +231,6 @@ private:
 
 	void loadPowers();
 	void loadGraphics();
-	void loadSounds();
 	
 	int loadGFX(string filename);
 	int loadSFX(string filename);
@@ -243,9 +247,8 @@ private:
 
 	bool effect(int powernum, StatBlock *src_stats, Point target);
 	bool missile(int powernum, StatBlock *src_stats, Point target);
-	
+	bool repeater(int powernum, StatBlock *src_stats, Point target);
 	bool single(int powernum, StatBlock *src_stats, Point target);
-	bool groundRay(int powernum, StatBlock *src_stats, Point target);
 	
 public:
 	PowerManager();
