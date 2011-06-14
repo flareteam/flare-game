@@ -29,6 +29,8 @@ lifespan=1
 radius=64
 starting_pos=melee
 allow_power_mod=true
+hp_steal=100
+mp_steal=100
 
 [power]
 id=2
@@ -511,6 +513,23 @@ wall_power=126
 missile_num=9
 missile_angle=40
 
+[power]
+id=36
+name=Vampiric Strike
+type=effect
+icon=1
+description=Turn 50% of damage you deal into HP
+new_state=swing
+face=true
+use_hazard=true
+rendered=false
+aim_assist=32
+base_damage=melee
+lifespan=1
+radius=64
+starting_pos=melee
+allow_power_mod=true
+hp_steal=50
 
 [power]
 id=100
