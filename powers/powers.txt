@@ -243,6 +243,33 @@ starting_pos=melee
 allow_power_mod=true
 
 [power]
+id=14
+name=Freeze
+type=repeater
+icon=14
+description=Create a ray of piercing cold that slows enemies
+new_state=cast
+face=true
+requires_mp=1
+gfx=freeze.png
+sfx=freeze.ogg
+speed=32
+trait_elemental=water
+slow_duration=90
+radius=64
+frame_duration=3
+frame_size=64,64
+frame_offset=32,48
+frame_loop=20
+start_frame=16
+lifespan=20
+active_frame=0
+base_damage=ment
+delay=3
+visual_random=3
+rendered=true
+
+[power]
 id=15
 name=Teleport
 type=effect
