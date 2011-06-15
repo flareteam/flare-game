@@ -557,13 +557,10 @@ bool Avatar::takeHit(Hazard h) {
 			if (h.bleed_duration > stats.bleed_duration) stats.bleed_duration = h.bleed_duration;
 			if (h.immobilize_duration > stats.immobilize_duration) stats.immobilize_duration = h.immobilize_duration;
 			if (h.hp_steal != 0) {
-				h.src_stats->hp += ceil((dmg * h.hp_steal) / 100);
+				h.src_stats->hp += ceil((float)dmg * (float)h.hp_steal / 100.0);
 				if (h.src_stats->hp > h.src_stats->maxhp) h.src_stats->hp = h.src_stats->maxhp;
 			}
-			/*if (h.mp_steal != 0) { //enemies don't have MP
-				h.src_stats->mp += ceil((dmg * h.mp_steal) / 100);
-				if (h.src_stats->mp > h.src_stats->maxmp) h.src_stats->mp = h.src_stats->maxmp;
-			}*/
+			// if (h.mp_steal != 0) { //enemies don't have MP
 		}
 		
 		// post effect power
