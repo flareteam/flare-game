@@ -90,11 +90,8 @@ void GameStateGameEngine::loadGame() {
 	// game slots are currently 1-4
 	if (game_slot == 0) return;
 
-	ifstream infile;
-	string line;
-	string key;
+	FileParser infile;
 	string val;
-	string starts_with;
 	int hotkeys[12];
 	
 	for (int i=0; i<12; i++) {
@@ -104,78 +101,52 @@ void GameStateGameEngine::loadGame() {
 	stringstream ss;
 	ss.str("");
 	ss << "saves/save" << game_slot << ".txt";
-	
-	infile.open(ss.str().c_str(), ios::in);
 
-	if (infile.is_open()) {
-		while (!infile.eof()) {
-			line = getLine(infile);
-
-			if (line.length() > 0) {
-				starts_with = line.at(0);
-				
-				if (starts_with != "#") { // skip comments
-					
-					// this is data.  treatment depends on section type
-					parse_key_pair(line, key, val);          
-					key = trim(key, ' ');
-					val = trim(val, ' ');
-				
-					if (key == "name") {
-						pc->stats.name = val;
-					}
-					else if (key == "base") {
-						pc->stats.base = val;
-					}
-					else if (key == "look") {
-						pc->stats.look = val;
-					}
-					else if (key == "xp") {
-						pc->stats.xp = atoi(val.c_str());
-					}
-					else if (key == "build") {
-						val = val + ",";
-						pc->stats.physical = eatFirstInt(val, ',');
-						pc->stats.mental = eatFirstInt(val, ',');
-						pc->stats.offense = eatFirstInt(val, ',');
-						pc->stats.defense = eatFirstInt(val, ',');
-					}
-					else if (key == "gold") {
-						menu->inv->gold = atoi(val.c_str());
-					}
-					else if (key == "equipped") {
-						menu->inv->inventory[EQUIPMENT].setItems(val);
-					}
-					else if (key == "equipped_quantity") {
-						menu->inv->inventory[EQUIPMENT].setQuantities(val);
-					}
-					else if (key == "carried") {
-						menu->inv->inventory[CARRIED].setItems(val);
-					}
-					else if (key == "carried_quantity") {
-						menu->inv->inventory[CARRIED].setQuantities(val);
-					}
-					else if (key == "spawn") {
-						val = val + ",";
-						map->teleport_mapname = eatFirstString(val, ',');
-						map->teleport_destination.x = eatFirstInt(val, ',') * UNITS_PER_TILE + UNITS_PER_TILE/2;
-						map->teleport_destination.y = eatFirstInt(val, ',') * UNITS_PER_TILE + UNITS_PER_TILE/2;
-						map->teleportation = true;
-						
-						// prevent spawn.txt from putting us on the starting map
-						map->clearEvents();
-					}
-					else if (key == "actionbar") {
-						val = val + ",";
-						for (int i=0; i<12; i++)
-							hotkeys[i] = eatFirstInt(val, ',');
-						menu->act->set(hotkeys);
-					}
-					else if (key == "campaign") {
-						camp->setAll(val);
-					}
-				}
+	if (infile.open(ss.str())) {
+		while (infile.next()) {
+			if (infile.key == "name") pc->stats.name = infile.val;
+			else if (infile.key == "base") pc->stats.base = infile.val;
+			else if (infile.key == "look") pc->stats.look = infile.val;
+			else if (infile.key == "xp") pc->stats.xp = atoi(infile.val.c_str());
+			else if (infile.key == "build") {
+				val = infile.val + ",";
+				pc->stats.physical = eatFirstInt(val, ',');
+				pc->stats.mental = eatFirstInt(val, ',');
+				pc->stats.offense = eatFirstInt(val, ',');
+				pc->stats.defense = eatFirstInt(val, ',');
 			}
+			else if (infile.key == "gold") {
+				menu->inv->gold = atoi(infile.val.c_str());
+			}
+			else if (infile.key == "equipped") {
+				menu->inv->inventory[EQUIPMENT].setItems(infile.val);
+			}
+			else if (infile.key == "equipped_quantity") {
+				menu->inv->inventory[EQUIPMENT].setQuantities(infile.val);
+			}
+			else if (infile.key == "carried") {
+				menu->inv->inventory[CARRIED].setItems(infile.val);
+			}
+			else if (infile.key == "carried_quantity") {
+				menu->inv->inventory[CARRIED].setQuantities(infile.val);
+			}
+			else if (infile.key == "spawn") {
+				val = infile.val + ",";
+				map->teleport_mapname = eatFirstString(val, ',');
+				map->teleport_destination.x = eatFirstInt(val, ',') * UNITS_PER_TILE + UNITS_PER_TILE/2;
+				map->teleport_destination.y = eatFirstInt(val, ',') * UNITS_PER_TILE + UNITS_PER_TILE/2;
+				map->teleportation = true;
+				
+				// prevent spawn.txt from putting us on the starting map
+				map->clearEvents();
+			}
+			else if (infile.key == "actionbar") {
+				val = infile.val + ",";
+				for (int i=0; i<12; i++)
+					hotkeys[i] = eatFirstInt(val, ',');
+				menu->act->set(hotkeys);
+			}
+			else if (infile.key == "campaign") camp->setAll(infile.val);
 		}
 			
 		infile.close();		
