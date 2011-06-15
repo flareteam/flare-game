@@ -102,6 +102,7 @@ struct Power {
 	Point frame_offset;
 	bool floor; // the hazard is drawn between the background and object layers
 	int active_frame;
+	bool complete_animation;
 
 	// hazard traits
 	bool use_hazard;
@@ -125,6 +126,7 @@ struct Power {
 	//repeater traits
 	int delay;
 	int start_frame;
+	int repeater_num;
 
 	int trait_elemental; // enum. of elements
 	bool trait_armor_penetration;
@@ -183,6 +185,7 @@ struct Power {
 		frame_offset.x = frame_offset.y = 0;
 		floor = false;
 		active_frame = -1;
+		complete_animation = false;
 
 		use_hazard = false;
 		no_attack = false;
@@ -199,6 +202,7 @@ struct Power {
 
 		delay = 0;
 		start_frame = 0;
+		repeater_num = 1;
 		
 		trait_elemental = -1;
 		trait_armor_penetration = false;

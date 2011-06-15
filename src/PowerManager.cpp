@@ -172,6 +172,9 @@ void PowerManager::loadPowers() {
 					else if (key == "active_frame") {
 						powers[input_id].active_frame = atoi(val.c_str());
 					}
+					else if (key == "complete_animation") {
+						if (val == "true") powers[input_id].complete_animation = true;
+					}
 					
 					// hazard traits
 					else if (key == "use_hazard") {
@@ -249,6 +252,9 @@ void PowerManager::loadPowers() {
 					}
 					else if (key == "start_frame") {
 						powers[input_id].start_frame = atoi(val.c_str());
+					}
+					else if (key == "repeater_num") {
+						powers[input_id].repeater_num = atoi(val.c_str());
 					}
 					// buff/debuff durations
 					else if (key == "bleed_duration") {
@@ -515,6 +521,9 @@ void PowerManager::initHazard(int power_index, StatBlock *src_stats, Point targe
 	haz->floor = powers[power_index].floor;
 	if (powers[power_index].speed > 0) {
 		haz->base_speed = powers[power_index].speed;
+	}
+	if (powers[power_index].complete_animation) {
+		haz->complete_animation = true;
 	}
 	
 	// combat traits
@@ -809,7 +818,7 @@ bool PowerManager::repeater(int power_index, StatBlock *src_stats, Point target)
 
 	playSound(power_index, src_stats);
 
-	for (int i=0; i<10; i++) {
+	for (int i=0; i<powers[power_index].repeater_num; i++) {
 
 		location_iterator.x += speed.x;
 		location_iterator.y += speed.y;
@@ -828,9 +837,6 @@ bool PowerManager::repeater(int power_index, StatBlock *src_stats, Point target)
 		delay_iterator += powers[power_index].delay;
 		
 		haz[i]->frame = powers[power_index].start_frame; // start at bottom frame
-
-		//left over from Freeze... I'm not sure what this does, so I took it out.
-		//haz[i]->complete_animation = true;
 		
 		hazards.push(haz[i]);
 	}
