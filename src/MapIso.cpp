@@ -95,11 +95,7 @@ void MapIso::playSFX(string filename) {
  * load
  */
 int MapIso::load(string filename) {
-	ifstream infile;
-	string line;
-	string starts_with;
-	string section;
-	string key;
+	FileParser infile;
 	string val;
 	string cur_layer;
 	string data_format;
@@ -108,216 +104,193 @@ int MapIso::load(string filename) {
   
     event_count = 0;
   
-	infile.open(("maps/" + filename).c_str(), ios::in);
-
-	if (infile.is_open()) {
-		while (!infile.eof()) {
-
-			line = getLine(infile);
-
-			if (line.length() > 0) {
-				starts_with = line.at(0);
+	if (infile.open(("maps/" + filename).c_str())) {
+		while (infile.next()) {
+			if (infile.new_section) {
+				data_format = "dec"; // default
 				
-				if (starts_with == "#") {
-					// skip comments
+				if (enemy_awaiting_queue) {
+					enemies.push(new_enemy);
+					enemy_awaiting_queue = false;
 				}
-				else if (starts_with == "[") {
-					section = trim(parse_section_title(line), ' ');
-					
-					data_format = "dec"; // default
-					
-					if (enemy_awaiting_queue) {
-						enemies.push(new_enemy);
-						enemy_awaiting_queue = false;
-					}
-					if (npc_awaiting_queue) {
-						npcs.push(new_npc);
-						npc_awaiting_queue = false;
-					}
-					
-					// for sections that are stored in collections, add a new object here
-					if (section == "enemy") {
-						clearEnemy(new_enemy);
-						enemy_awaiting_queue = true;
-					}
-					else if (section == "npc") {
-						clearNPC(new_npc);
-						npc_awaiting_queue = true;
-					}
-					else if (section == "event") {
-						event_count++;
-					}
-					
+				if (npc_awaiting_queue) {
+					npcs.push(new_npc);
+					npc_awaiting_queue = false;
 				}
-				else { // this is data.  treatment depends on section type
-					parse_key_pair(line, key, val);          
-					key = trim(key, ' ');
-					val = trim(val, ' ');
+				
+				// for sections that are stored in collections, add a new object here
+				if (infile.section == "enemy") {
+					clearEnemy(new_enemy);
+					enemy_awaiting_queue = true;
+				}
+				else if (infile.section == "npc") {
+					clearNPC(new_npc);
+					npc_awaiting_queue = true;
+				}
+				else if (infile.section == "event") {
+					event_count++;
+				}
+				
+			}
+			if (infile.section == "header") {
+				if (infile.key == "title") {
+					this->title = infile.val;
+				}
+				else if (infile.key == "width") {
+					this->w = atoi(infile.val.c_str());
+				}
+				else if (infile.key == "height") {
+					this->h = atoi(infile.val.c_str());
+				}
+				else if (infile.key == "tileset") {
+					this->tileset = infile.val;
+				}
+				else if (infile.key == "music") {
+					if (this->music_filename == infile.val) {
+						this->new_music = false;
+					}
+					else {
+						this->music_filename = infile.val;
+						this->new_music = true;
+					}
+				}
+				else if (infile.key == "spawnpoint") {
+					val = infile.val + ",";
+					spawn.x = eatFirstInt(val, ',') * UNITS_PER_TILE + UNITS_PER_TILE/2;
+					spawn.y = eatFirstInt(val, ',') * UNITS_PER_TILE + UNITS_PER_TILE/2;
+					spawn_dir = eatFirstInt(val, ',');
+				}
+			}
+			else if (infile.section == "layer") {
+				if (infile.key == "id") {
+					cur_layer = infile.val;
+				}
+				else if (infile.key == "format") {
+					data_format = infile.val;
+				}
+				else if (infile.key == "data") {
+					// layer map data handled as a special case
 
-					if (section == "header") {
-						if (key == "title") {
-							this->title = val;
-						}
-						else if (key == "width") {
-							this->w = atoi(val.c_str());
-						}
-						else if (key == "height") {
-							this->h = atoi(val.c_str());
-						}
-						else if (key == "tileset") {
-							this->tileset = val;
-						}
-						else if (key == "music") {
-							if (this->music_filename == val) {
-								this->new_music = false;
-							}
-							else {
-								this->music_filename = val;
-								this->new_music = true;
-							}
-						}
-						else if (key == "spawnpoint") {
-							val = val + ",";
-							spawn.x = eatFirstInt(val, ',') * UNITS_PER_TILE + UNITS_PER_TILE/2;
-							spawn.y = eatFirstInt(val, ',') * UNITS_PER_TILE + UNITS_PER_TILE/2;
-							spawn_dir = eatFirstInt(val, ',');
-						}
-					}
-					else if (section == "layer") {
-						if (key == "id") {
-							cur_layer = val;
-						}
-						else if (key == "format") {
-							data_format = val;
-						}
-						else if (key == "data") {
-							// layer map data handled as a special case
-
-							// The next h lines must contain layer data.  TODO: err
-							if (data_format == "hex") {
-								for (int j=0; j<h; j++) {
-									line = getLine(infile);
-									line = line + ',';
-									for (int i=0; i<w; i++) {
-										if (cur_layer == "background") background[i][j] = eatFirstHex(line, ',');
-										else if (cur_layer == "object") object[i][j] = eatFirstHex(line, ',');
-										else if (cur_layer == "collision") collision[i][j] = eatFirstHex(line, ',');
-									}
-								}
-							}
-							else if (data_format == "dec") {
-								for (int j=0; j<h; j++) {
-									line = getLine(infile);
-									line = line + ',';
-									for (int i=0; i<w; i++) {
-										if (cur_layer == "background") background[i][j] = eatFirstInt(line, ',');
-										else if (cur_layer == "object") object[i][j] = eatFirstInt(line, ',');
-										else if (cur_layer == "collision") collision[i][j] = eatFirstInt(line, ',');
-									}
-								}
+					// The next h lines must contain layer data.  TODO: err
+					if (data_format == "hex") {
+						for (int j=0; j<h; j++) {
+							val = infile.getRawLine() + ',';
+							for (int i=0; i<w; i++) {
+								if (cur_layer == "background") background[i][j] = eatFirstHex(val, ',');
+								else if (cur_layer == "object") object[i][j] = eatFirstHex(val, ',');
+								else if (cur_layer == "collision") collision[i][j] = eatFirstHex(val, ',');
 							}
 						}
 					}
-					else if (section == "enemy") {
-						
-						if (key == "type") {
-							new_enemy.type = val;
+					else if (data_format == "dec") {
+						for (int j=0; j<h; j++) {
+							val = infile.getRawLine() + ',';
+							for (int i=0; i<w; i++) {
+								if (cur_layer == "background") background[i][j] = eatFirstInt(val, ',');
+								else if (cur_layer == "object") object[i][j] = eatFirstInt(val, ',');
+								else if (cur_layer == "collision") collision[i][j] = eatFirstInt(val, ',');
+							}
 						}
-						else if (key == "spawnpoint") {
-							val = val + ",";
-							new_enemy.pos.x = eatFirstInt(val, ',') * UNITS_PER_TILE + UNITS_PER_TILE/2;
-							new_enemy.pos.y = eatFirstInt(val, ',') * UNITS_PER_TILE + UNITS_PER_TILE/2;
-							new_enemy.direction = eatFirstInt(val, ',');
-						}
-					}
-					else if (section == "npc") {
-						if (key == "id") {
-							new_npc.id = val;
-						}
-						else if (key == "position") {
-							val = val + ",";
-							new_npc.pos.x = eatFirstInt(val, ',') * UNITS_PER_TILE + UNITS_PER_TILE/2;
-							new_npc.pos.y = eatFirstInt(val, ',') * UNITS_PER_TILE + UNITS_PER_TILE/2;
-						}
-					
-					}
-					else if (section == "event") {
-						if (key == "type") {
-							events[event_count-1].type = val;
-						}
-						else if (key == "location") {
-							val = val + ",";
-							events[event_count-1].location.x = eatFirstInt(val, ',');
-							events[event_count-1].location.y = eatFirstInt(val, ',');
-							events[event_count-1].location.w = eatFirstInt(val, ',');
-							events[event_count-1].location.h = eatFirstInt(val, ',');							
-						}
-						else {
-	
-						
-							// new event component
-							Event_Component *e = &events[event_count-1].components[events[event_count-1].comp_num];
-							e->type = key;
-							
-							if (key == "intermap") {
-								val = val + ",";
-								e->s = eatFirstString(val, ',');
-								e->x = eatFirstInt(val, ',');
-								e->y = eatFirstInt(val, ',');
-							}
-							else if (key == "mapmod") {
-								val = val + ",";
-								e->s = eatFirstString(val, ',');
-								e->x = eatFirstInt(val, ',');
-								e->y = eatFirstInt(val, ',');
-								e->z = eatFirstInt(val, ',');
-							}
-							else if (key == "soundfx") {
-								e->s = val;
-							}
-							else if (key == "loot") {
-								val = val + ",";
-								e->s = eatFirstString(val, ',');
-								e->x = eatFirstInt(val, ',') * UNITS_PER_TILE + UNITS_PER_TILE/2;
-								e->y = eatFirstInt(val, ',') * UNITS_PER_TILE + UNITS_PER_TILE/2;
-								e->z = eatFirstInt(val, ',');
-			
-							}
-							else if (key == "msg") {
-								e->s = val;
-							}
-							else if (key == "shakycam") {
-								e->x = atoi(val.c_str());
-							}
-							else if (key == "requires_status") {
-								e->s = val;
-							}
-							else if (key == "requires_not") {
-								e->s = val;
-							}
-							else if (key == "requires_item") {
-								e->x = atoi(val.c_str());
-							}
-							else if (key == "set_status") {
-								e->s = val;
-							}
-							else if (key == "unset_status") {
-								e->s = val;
-							}
-							else if (key == "remove_item") {
-								e->x = atoi(val.c_str());
-							}
-							else if (key == "reward_xp") {
-								e->x = atoi(val.c_str());
-							}
-							
-							events[event_count-1].comp_num++;
-						}
-							
 					}
 				}
 			}
+			else if (infile.section == "enemy") {
+				
+				if (infile.key == "type") {
+					new_enemy.type = infile.val;
+				}
+				else if (infile.key == "spawnpoint") {
+					val = infile.val + ",";
+					new_enemy.pos.x = eatFirstInt(val, ',') * UNITS_PER_TILE + UNITS_PER_TILE/2;
+					new_enemy.pos.y = eatFirstInt(val, ',') * UNITS_PER_TILE + UNITS_PER_TILE/2;
+					new_enemy.direction = eatFirstInt(val, ',');
+				}
+			}
+			else if (infile.section == "npc") {
+				if (infile.key == "id") {
+					new_npc.id = infile.val;
+				}
+				else if (infile.key == "position") {
+					val = infile.val + ",";
+					new_npc.pos.x = eatFirstInt(val, ',') * UNITS_PER_TILE + UNITS_PER_TILE/2;
+					new_npc.pos.y = eatFirstInt(val, ',') * UNITS_PER_TILE + UNITS_PER_TILE/2;
+				}
+			
+			}
+			else if (infile.section == "event") {
+				if (infile.key == "type") {
+					events[event_count-1].type = infile.val;
+				}
+				else if (infile.key == "location") {
+					val = infile.val + ",";
+					events[event_count-1].location.x = eatFirstInt(val, ',');
+					events[event_count-1].location.y = eatFirstInt(val, ',');
+					events[event_count-1].location.w = eatFirstInt(val, ',');
+					events[event_count-1].location.h = eatFirstInt(val, ',');
+				}
+				else {
+					// new event component
+					Event_Component *e = &events[event_count-1].components[events[event_count-1].comp_num];
+					e->type = infile.key;
+					
+					if (infile.key == "intermap") {
+						val = infile.val + ",";
+						e->s = eatFirstString(val, ',');
+						e->x = eatFirstInt(val, ',');
+						e->y = eatFirstInt(val, ',');
+					}
+					else if (infile.key == "mapmod") {
+						val = infile.val + ",";
+						e->s = eatFirstString(val, ',');
+						e->x = eatFirstInt(val, ',');
+						e->y = eatFirstInt(val, ',');
+						e->z = eatFirstInt(val, ',');
+					}
+					else if (infile.key == "soundfx") {
+						e->s = infile.val;
+					}
+					else if (infile.key == "loot") {
+						val = infile.val + ",";
+						e->s = eatFirstString(val, ',');
+						e->x = eatFirstInt(val, ',') * UNITS_PER_TILE + UNITS_PER_TILE/2;
+						e->y = eatFirstInt(val, ',') * UNITS_PER_TILE + UNITS_PER_TILE/2;
+						e->z = eatFirstInt(val, ',');
+	
+					}
+					else if (infile.key == "msg") {
+						e->s = infile.val;
+					}
+					else if (infile.key == "shakycam") {
+						e->x = atoi(infile.val.c_str());
+					}
+					else if (infile.key == "requires_status") {
+						e->s = infile.val;
+					}
+					else if (infile.key == "requires_not") {
+						e->s = infile.val;
+					}
+					else if (infile.key == "requires_item") {
+						e->x = atoi(infile.val.c_str());
+					}
+					else if (infile.key == "set_status") {
+						e->s = infile.val;
+					}
+					else if (infile.key == "unset_status") {
+						e->s = infile.val;
+					}
+					else if (infile.key == "remove_item") {
+						e->x = atoi(infile.val.c_str());
+					}
+					else if (infile.key == "reward_xp") {
+						e->x = atoi(infile.val.c_str());
+					}
+					
+					events[event_count-1].comp_num++;
+				}
+			}
 		}
+
+		infile.close();
 		
 		// reached end of file.  Handle any final sections.
 		if (enemy_awaiting_queue) {
@@ -329,8 +302,6 @@ int MapIso::load(string filename) {
 			npc_awaiting_queue = false;
 		}
 	}
-
-	infile.close();
 
 	collider.setmap(collision);
 	collider.map_size.x = w;
