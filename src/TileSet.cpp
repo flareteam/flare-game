@@ -42,7 +42,6 @@ void TileSet::load(string filename) {
 	
 	ifstream infile;
 	string line;
-	string starts_with;
 	unsigned short index;
 
 	infile.open(("tilesetdefs/" + filename).c_str(), ios::in);

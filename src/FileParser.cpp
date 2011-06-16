@@ -26,7 +26,7 @@ void FileParser::close() {
  */
 bool FileParser::next() {
 
-	string starts_with = "";
+	string starts_with;
 	new_section = false;
 	
 	while (!infile.eof()) {

@@ -119,8 +119,8 @@ int main(int argc, char *argv[])
 	
 	// cleanup
 	// TODO: halt all sounds here before freeing music/chunks
-	delete(gswitch);
-	delete(inps);
+	delete gswitch;
+	delete inps;
 	SDL_FreeSurface(screen);
 	Mix_CloseAudio();
 	SDL_Quit();
