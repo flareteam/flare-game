@@ -172,6 +172,9 @@ void PowerManager::loadPowers() {
 					else if (key == "active_frame") {
 						powers[input_id].active_frame = atoi(val.c_str());
 					}
+					else if (key == "complete_animation") {
+						if (val == "true") powers[input_id].complete_animation = true;
+					}
 					
 					// hazard traits
 					else if (key == "use_hazard") {
@@ -223,6 +226,13 @@ void PowerManager::loadPowers() {
 						else if (val == "shadow") powers[input_id].trait_elemental = ELEMENT_SHADOW;
 						else if (val == "light") powers[input_id].trait_elemental = ELEMENT_LIGHT;
 					}
+					//steal effects
+					else if (key == "hp_steal") {
+						powers[input_id].hp_steal = atoi(val.c_str());
+					}
+					else if (key == "mp_steal") {
+						powers[input_id].mp_steal = atoi(val.c_str());
+					}
 					//missile modifiers
 					else if (key == "missile_num") {
 						powers[input_id].missile_num = atoi(val.c_str());
@@ -242,6 +252,9 @@ void PowerManager::loadPowers() {
 					}
 					else if (key == "start_frame") {
 						powers[input_id].start_frame = atoi(val.c_str());
+					}
+					else if (key == "repeater_num") {
+						powers[input_id].repeater_num = atoi(val.c_str());
 					}
 					// buff/debuff durations
 					else if (key == "bleed_duration") {
@@ -441,12 +454,8 @@ int PowerManager::calcDirection(int origin_x, int origin_y, int target_x, int ta
  */
 void PowerManager::initHazard(int power_index, StatBlock *src_stats, Point target, Hazard *haz) {
 
-	// the source (hero/enemy/neutral) determines what is a valid target
-	// i.e. no friendly fire between enemies
-	if (src_stats->hero)
-		haz->source = SRC_HERO;
-	else
-		haz->source = SRC_ENEMY;
+	//the hazard holds the statblock of its source
+	haz->src_stats = src_stats;
 
 	// Hazard attributes based on power source
 	haz->crit_chance = src_stats->crit;
@@ -513,6 +522,9 @@ void PowerManager::initHazard(int power_index, StatBlock *src_stats, Point targe
 	if (powers[power_index].speed > 0) {
 		haz->base_speed = powers[power_index].speed;
 	}
+	if (powers[power_index].complete_animation) {
+		haz->complete_animation = true;
+	}
 	
 	// combat traits
 	if (powers[power_index].no_attack) {
@@ -541,6 +553,9 @@ void PowerManager::initHazard(int power_index, StatBlock *src_stats, Point targe
 	haz->stun_duration += powers[power_index].stun_duration;
 	haz->slow_duration += powers[power_index].slow_duration;
 	haz->immobilize_duration += powers[power_index].immobilize_duration;
+	// steal effects
+	haz->hp_steal += powers[power_index].hp_steal;
+	haz->mp_steal += powers[power_index].mp_steal;
 	
 	// hazard starting position
 	if (powers[power_index].starting_pos == STARTING_POS_SOURCE) {
@@ -803,7 +818,7 @@ bool PowerManager::repeater(int power_index, StatBlock *src_stats, Point target)
 
 	playSound(power_index, src_stats);
 
-	for (int i=0; i<10; i++) {
+	for (int i=0; i<powers[power_index].repeater_num; i++) {
 
 		location_iterator.x += speed.x;
 		location_iterator.y += speed.y;
@@ -822,9 +837,6 @@ bool PowerManager::repeater(int power_index, StatBlock *src_stats, Point target)
 		delay_iterator += powers[power_index].delay;
 		
 		haz[i]->frame = powers[power_index].start_frame; // start at bottom frame
-
-		//left over from Freeze... I'm not sure what this does, so I took it out.
-		//haz[i]->complete_animation = true;
 		
 		hazards.push(haz[i]);
 	}
@@ -847,10 +859,7 @@ bool PowerManager::single(int power_index, StatBlock *src_stats, Point target) {
 	haz->lifespan = 1;
 	haz->crit_chance = src_stats->crit;
 	haz->accuracy = src_stats->accuracy;
-	if (src_stats->hero)
-		haz->source = SRC_HERO;
-	else
-		haz->source = SRC_ENEMY;
+	haz->src_stats = src_stats;
 
 	// specific powers have different stats here
 	if (power_index == POWER_VENGEANCE) {

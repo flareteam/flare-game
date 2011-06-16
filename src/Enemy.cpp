@@ -111,8 +111,8 @@ void Enemy::logic() {
 	int prev_direction;
 	bool los = false;
 	Point pursue_pos;	
-	int max_frame;
-	int mid_frame;
+	//int max_frame;
+	//int mid_frame;
 	
 	
 	// SECTION 1: Steering and Vision
@@ -409,7 +409,10 @@ void Enemy::logic() {
 			// enemy has taken damage (but isn't dead)
 
 			setAnimation("hit");
-			
+			if (activeAnimation->getCurFrame() == 1) {
+				sfx_hit = true;
+			}
+
 			if (activeAnimation->getCurFrame() == activeAnimation->getMaxFrame()-1) {
 				newState(ENEMY_STANCE);
 			}
@@ -417,13 +420,15 @@ void Enemy::logic() {
 			break;
 			
 		case ENEMY_DEAD:
-		
-			setAnimation("die");
 
-                        if (activeAnimation->getTimesPlayed() >= 1) {
-				// corpse means the creature is dead and done animating
-                                stats.corpse = true;
-                        }
+			// corpse means the creature is dead and done animating		
+			if (!stats.corpse) {
+				setAnimation("die");
+				
+				if (activeAnimation->getCurFrame() == 1) {
+					sfx_die = true;
+				}
+            }
 
 			break;
 		
@@ -433,6 +438,10 @@ void Enemy::logic() {
 			// corpse means the creature is dead and done animating
 			if (!stats.corpse) {
 				setAnimation("critdie");
+				
+				if (activeAnimation->getCurFrame() == 1) {
+					sfx_critdie = true;
+				}
 			}
 			
 			break;
@@ -510,6 +519,14 @@ bool Enemy::takeHit(Hazard h) {
 			if (h.slow_duration > stats.slow_duration) stats.slow_duration = h.slow_duration;
 			if (h.bleed_duration > stats.bleed_duration) stats.bleed_duration = h.bleed_duration;
 			if (h.immobilize_duration > stats.immobilize_duration) stats.immobilize_duration = h.immobilize_duration;
+			if (h.hp_steal != 0) {
+				h.src_stats->hp += ceil((float)dmg * (float)h.hp_steal / 100.0);
+				if (h.src_stats->hp > h.src_stats->maxhp) h.src_stats->hp = h.src_stats->maxhp;
+			}
+			if (h.mp_steal != 0) {
+				h.src_stats->mp += ceil((float)dmg * (float)h.mp_steal / 100.0);
+				if (h.src_stats->mp > h.src_stats->maxmp) h.src_stats->mp = h.src_stats->maxmp;
+			}
 		}
 		
 		// post effect power
@@ -521,7 +538,6 @@ bool Enemy::takeHit(Hazard h) {
 		
 		// interrupted to new state
 		if (dmg > 0) {
-			sfx_hit = true;
 			
 			if (stats.hp <= 0 && crit) {
 				doRewards();
