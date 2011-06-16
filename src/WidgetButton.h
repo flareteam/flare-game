@@ -2,7 +2,7 @@
  * class WidgetButton
  *
  * @author Clint Bellanger
- * @license GPL
+ * @license GPl
  */
 
 #ifndef WIDGET_BUTTON_H
@@ -27,11 +27,13 @@ private:
 	FontEngine *font;
 	InputState *inp;
 
+	const char* fileName; // the path to the buttons background image
+
 	SDL_Surface *buttons;
 	Mix_Chunk *click;
 	
 public:
-	WidgetButton(SDL_Surface *_screen, FontEngine *_font, InputState *_inp);
+	WidgetButton(SDL_Surface *_screen, FontEngine *_font, InputState *_inp, const char* _fileName);
 	~WidgetButton();
 
 	void loadArt();

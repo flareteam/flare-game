@@ -9,8 +9,8 @@ GameStateTitle::GameStateTitle(SDL_Surface *_screen, InputState *_inp, FontEngin
 	loadGraphics();
 	
 	// set up buttons
-	button_play = new WidgetButton(screen, font, inp);
-	button_exit = new WidgetButton(screen, font, inp);
+	button_play = new WidgetButton(screen, font, inp, "./images/menus/buttons/button_default.png");
+	button_exit = new WidgetButton(screen, font, inp, "./images/menus/buttons/button_default.png");
 	
 	button_play->label = "Play Game";
 	button_play->pos.x = VIEW_W_HALF - button_play->pos.w/2;

@@ -46,6 +46,9 @@ public:
 	~FontEngine();
 	void load();
 
+	int getWidth() { return font_width; }
+	int getHeight() { return font_height; }
+
 	int calc_length(string text);
 	Point calc_size(string text_with_newlines, int width);
 	
