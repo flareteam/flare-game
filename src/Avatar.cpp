@@ -8,8 +8,6 @@
  */
 
 #include "Avatar.h"
-#include "FileParser.h"
-#include "UtilsParsing.h"
 
 Avatar::Avatar(PowerManager *_powers, InputState *_inp, MapIso *_map) : Entity(_map), powers(_powers), inp(_inp) {
 	

@@ -99,7 +99,7 @@ void GameStateLoad::readGameSlots() {
 void GameStateLoad::readGameSlot(int slot) {
 
 	stringstream filename;
-	FileParser infile;	
+	FileParser infile;
 	
 	// abort if not a valid slot number
 	if (slot < 0 || slot >= GAME_SLOT_MAX) return;
@@ -117,16 +117,15 @@ void GameStateLoad::readGameSlot(int slot) {
 		else if (infile.key == "xp")
 			stats[slot].xp = atoi(infile.val.c_str());
 		else if (infile.key == "build") {
-			infile.val = infile.val + ",";
-			stats[slot].physical = eatFirstInt(infile.val, ',');
-			stats[slot].mental = eatFirstInt(infile.val, ',');
-			stats[slot].offense = eatFirstInt(infile.val, ',');
-			stats[slot].defense = eatFirstInt(infile.val, ',');		
+			stats[slot].physical = atoi(infile.nextValue().c_str());
+			stats[slot].mental = atoi(infile.nextValue().c_str());
+			stats[slot].offense = atoi(infile.nextValue().c_str());
+			stats[slot].defense = atoi(infile.nextValue().c_str());
 		}
 		else if (infile.key == "equipped") {
-			equipped[slot][0] = eatFirstInt(infile.val, ',');
-			equipped[slot][1] = eatFirstInt(infile.val, ',');
-			equipped[slot][2] = eatFirstInt(infile.val, ',');			
+			equipped[slot][0] = atoi(infile.nextValue().c_str());
+			equipped[slot][1] = atoi(infile.nextValue().c_str());
+			equipped[slot][2] = atoi(infile.nextValue().c_str());
 		}
 		else if (infile.key == "base") {
 			stats[slot].base = infile.val;

@@ -91,7 +91,6 @@ void GameStateGameEngine::loadGame() {
 	if (game_slot == 0) return;
 
 	FileParser infile;
-	string val;
 	int hotkeys[12];
 	
 	for (int i=0; i<12; i++) {
@@ -109,11 +108,10 @@ void GameStateGameEngine::loadGame() {
 			else if (infile.key == "look") pc->stats.look = infile.val;
 			else if (infile.key == "xp") pc->stats.xp = atoi(infile.val.c_str());
 			else if (infile.key == "build") {
-				val = infile.val + ",";
-				pc->stats.physical = eatFirstInt(val, ',');
-				pc->stats.mental = eatFirstInt(val, ',');
-				pc->stats.offense = eatFirstInt(val, ',');
-				pc->stats.defense = eatFirstInt(val, ',');
+				pc->stats.physical = atoi(infile.nextValue().c_str());
+				pc->stats.mental = atoi(infile.nextValue().c_str());
+				pc->stats.offense = atoi(infile.nextValue().c_str());
+				pc->stats.defense = atoi(infile.nextValue().c_str());
 			}
 			else if (infile.key == "gold") {
 				menu->inv->gold = atoi(infile.val.c_str());
@@ -131,19 +129,17 @@ void GameStateGameEngine::loadGame() {
 				menu->inv->inventory[CARRIED].setQuantities(infile.val);
 			}
 			else if (infile.key == "spawn") {
-				val = infile.val + ",";
-				map->teleport_mapname = eatFirstString(val, ',');
-				map->teleport_destination.x = eatFirstInt(val, ',') * UNITS_PER_TILE + UNITS_PER_TILE/2;
-				map->teleport_destination.y = eatFirstInt(val, ',') * UNITS_PER_TILE + UNITS_PER_TILE/2;
+				map->teleport_mapname = infile.nextValue();
+				map->teleport_destination.x = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+				map->teleport_destination.y = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
 				map->teleportation = true;
 				
 				// prevent spawn.txt from putting us on the starting map
 				map->clearEvents();
 			}
 			else if (infile.key == "actionbar") {
-				val = infile.val + ",";
 				for (int i=0; i<12; i++)
-					hotkeys[i] = eatFirstInt(val, ',');
+					hotkeys[i] = atoi(infile.nextValue().c_str());
 				menu->act->set(hotkeys);
 			}
 			else if (infile.key == "campaign") camp->setAll(infile.val);

@@ -8,6 +8,7 @@
  */
  
 #include "MapIso.h"
+#include "FileParser.h"
 
 MapIso::MapIso(SDL_Surface *_screen, CampaignManager *_camp) {
 
@@ -155,10 +156,9 @@ int MapIso::load(string filename) {
 					}
 				}
 				else if (infile.key == "spawnpoint") {
-					val = infile.val + ",";
-					spawn.x = eatFirstInt(val, ',') * UNITS_PER_TILE + UNITS_PER_TILE/2;
-					spawn.y = eatFirstInt(val, ',') * UNITS_PER_TILE + UNITS_PER_TILE/2;
-					spawn_dir = eatFirstInt(val, ',');
+					spawn.x = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+					spawn.y = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+					spawn_dir = atoi(infile.nextValue().c_str());
 				}
 			}
 			else if (infile.section == "layer") {
@@ -195,15 +195,13 @@ int MapIso::load(string filename) {
 				}
 			}
 			else if (infile.section == "enemy") {
-				
 				if (infile.key == "type") {
 					new_enemy.type = infile.val;
 				}
 				else if (infile.key == "spawnpoint") {
-					val = infile.val + ",";
-					new_enemy.pos.x = eatFirstInt(val, ',') * UNITS_PER_TILE + UNITS_PER_TILE/2;
-					new_enemy.pos.y = eatFirstInt(val, ',') * UNITS_PER_TILE + UNITS_PER_TILE/2;
-					new_enemy.direction = eatFirstInt(val, ',');
+					new_enemy.pos.x = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+					new_enemy.pos.y = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+					new_enemy.direction = atoi(infile.nextValue().c_str());
 				}
 			}
 			else if (infile.section == "npc") {
@@ -211,22 +209,19 @@ int MapIso::load(string filename) {
 					new_npc.id = infile.val;
 				}
 				else if (infile.key == "position") {
-					val = infile.val + ",";
-					new_npc.pos.x = eatFirstInt(val, ',') * UNITS_PER_TILE + UNITS_PER_TILE/2;
-					new_npc.pos.y = eatFirstInt(val, ',') * UNITS_PER_TILE + UNITS_PER_TILE/2;
+					new_npc.pos.x = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+					new_npc.pos.y = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
 				}
-			
 			}
 			else if (infile.section == "event") {
 				if (infile.key == "type") {
 					events[event_count-1].type = infile.val;
 				}
 				else if (infile.key == "location") {
-					val = infile.val + ",";
-					events[event_count-1].location.x = eatFirstInt(val, ',');
-					events[event_count-1].location.y = eatFirstInt(val, ',');
-					events[event_count-1].location.w = eatFirstInt(val, ',');
-					events[event_count-1].location.h = eatFirstInt(val, ',');
+					events[event_count-1].location.x = atoi(infile.nextValue().c_str());
+					events[event_count-1].location.y = atoi(infile.nextValue().c_str());
+					events[event_count-1].location.w = atoi(infile.nextValue().c_str());
+					events[event_count-1].location.h = atoi(infile.nextValue().c_str());
 				}
 				else {
 					// new event component
@@ -234,28 +229,24 @@ int MapIso::load(string filename) {
 					e->type = infile.key;
 					
 					if (infile.key == "intermap") {
-						val = infile.val + ",";
-						e->s = eatFirstString(val, ',');
-						e->x = eatFirstInt(val, ',');
-						e->y = eatFirstInt(val, ',');
+						e->s = infile.nextValue();
+						e->x = atoi(infile.nextValue().c_str());
+						e->y = atoi(infile.nextValue().c_str());
 					}
 					else if (infile.key == "mapmod") {
-						val = infile.val + ",";
-						e->s = eatFirstString(val, ',');
-						e->x = eatFirstInt(val, ',');
-						e->y = eatFirstInt(val, ',');
-						e->z = eatFirstInt(val, ',');
+						e->s = infile.nextValue();
+						e->x = atoi(infile.nextValue().c_str());
+						e->y = atoi(infile.nextValue().c_str());
+						e->z = atoi(infile.nextValue().c_str());
 					}
 					else if (infile.key == "soundfx") {
 						e->s = infile.val;
 					}
 					else if (infile.key == "loot") {
-						val = infile.val + ",";
-						e->s = eatFirstString(val, ',');
-						e->x = eatFirstInt(val, ',') * UNITS_PER_TILE + UNITS_PER_TILE/2;
-						e->y = eatFirstInt(val, ',') * UNITS_PER_TILE + UNITS_PER_TILE/2;
-						e->z = eatFirstInt(val, ',');
-	
+						e->s = infile.nextValue();
+						e->x = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+						e->y = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+						e->z = atoi(infile.nextValue().c_str());
 					}
 					else if (infile.key == "msg") {
 						e->s = infile.val;

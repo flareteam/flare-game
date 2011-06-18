@@ -23,6 +23,7 @@ public:
 	bool open(string filename);
 	void close();
 	bool next();
+	string nextValue();
 	string getRawLine();
 
 	bool new_section;

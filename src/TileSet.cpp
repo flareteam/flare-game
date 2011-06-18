@@ -8,6 +8,7 @@
  */
  
 #include "TileSet.h"
+#include "UtilsParsing.h"
 
 TileSet::TileSet() {
 	sprites = NULL;

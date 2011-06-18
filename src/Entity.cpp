@@ -10,6 +10,7 @@
  */
 
 #include "Entity.h"
+#include "FileParser.h"
 
 Entity::Entity(MapIso* _map) : sprites(NULL), activeAnimation(NULL), map(_map) {
 }

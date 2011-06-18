@@ -7,6 +7,7 @@
 
 
 #include "ItemDatabase.h"
+#include "FileParser.h"
 
 ItemDatabase::ItemDatabase(SDL_Surface *_screen, FontEngine *_font) {
 	screen = _screen;
@@ -20,7 +21,6 @@ ItemDatabase::ItemDatabase(SDL_Surface *_screen, FontEngine *_font) {
 
 void ItemDatabase::load() {
 	FileParser infile;
-	string val;
 	int id = 0;
 	string s;
 	
@@ -33,10 +33,8 @@ void ItemDatabase::load() {
 			else if (infile.key == "level")
 				items[id].level = atoi(infile.val.c_str());
 			else if (infile.key == "icon") {
-				val = infile.val + ",";
-				items[id].icon32 = eatFirstInt(val, ',');
-				if (val.length() > 0)
-					items[id].icon64 = eatFirstInt(val, ',');
+				items[id].icon32 = atoi(infile.nextValue().c_str());
+				items[id].icon64 = atoi(infile.nextValue().c_str());
 			}
 			else if (infile.key == "quality") {
 				if (infile.val == "low")
@@ -63,25 +61,21 @@ void ItemDatabase::load() {
 					items[id].type = ITEM_TYPE_QUEST;
 			}
 			else if (infile.key == "dmg") {
-				val = infile.val + ",";
-				items[id].dmg_min = eatFirstInt(val, ',');
-				if (val.length() > 0)
-					items[id].dmg_max = eatFirstInt(val, ',');
+				items[id].dmg_min = atoi(infile.nextValue().c_str());
+				if (infile.val.length() > 0)
+					items[id].dmg_max = atoi(infile.nextValue().c_str());
 				else
 					items[id].dmg_max = items[id].dmg_min;
 			}
 			else if (infile.key == "abs") {
-				val = infile.val + ",";
-				items[id].abs_min = eatFirstInt(val, ',');
-				if (val.length() > 0)
-					items[id].abs_max = eatFirstInt(val, ',');
+				items[id].abs_min = atoi(infile.nextValue().c_str());
+				if (infile.val.length() > 0)
+					items[id].abs_max = atoi(infile.nextValue().c_str());
 				else
 					items[id].abs_max = items[id].abs_min;
 			}
 			else if (infile.key == "req") {
-				val = infile.val + ",";
-				s = eatFirstString(val, ',');
-				items[id].req_val = eatFirstInt(val, ',');
+				s = infile.nextValue();
 				if (s == "p")
 					items[id].req_stat = REQUIRES_PHYS;
 				else if (s == "m")
@@ -90,11 +84,11 @@ void ItemDatabase::load() {
 					items[id].req_stat = REQUIRES_OFF;
 				else if (s == "d")
 					items[id].req_stat = REQUIRES_DEF;
+				items[id].req_val = atoi(infile.nextValue().c_str());
 			}
 			else if (infile.key == "bonus") {
-				val = infile.val + ",";
-				items[id].bonus_stat = eatFirstString(val, ',');
-				items[id].bonus_val = eatFirstInt(val, ',');
+				items[id].bonus_stat = infile.nextValue();
+				items[id].bonus_val = atoi(infile.nextValue().c_str());
 			}
 			else if (infile.key == "sfx") {
 				if (infile.val == "book")
