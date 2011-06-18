@@ -17,6 +17,7 @@
 #include "SDL_mixer.h"
 #include "UtilsParsing.h"
 #include "StatBlock.h"
+#include "FileParser.h"
 #include "MenuTooltip.h"
 
 using namespace std;
