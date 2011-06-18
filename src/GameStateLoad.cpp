@@ -12,12 +12,12 @@
 GameStateLoad::GameStateLoad(SDL_Surface *_screen, InputState *_inp, FontEngine *_font) : GameState(_screen, _inp, _font) {
 	items = new ItemDatabase(screen, font);
 	
-	button_exit = new WidgetButton(screen, font, inp);	
+	button_exit = new WidgetButton(screen, font, inp, "./images/menus/buttons/button_default.png");
 	button_exit->label = "Exit to Title";
 	button_exit->pos.x = VIEW_W_HALF - button_exit->pos.w/2;
-	button_exit->pos.y = VIEW_H - 32;	
+	button_exit->pos.y = VIEW_H - button_exit->pos.h;	
 	
-	button_action = new WidgetButton(screen, font, inp);
+	button_action = new WidgetButton(screen, font, inp, "./images/menus/buttons/button_default.png");
 	button_action->label = "Choose a Slot";
 	button_action->enabled = false;
 	button_action->pos.x = (VIEW_W - 640)/2 + 480 - button_action->pos.w/2;

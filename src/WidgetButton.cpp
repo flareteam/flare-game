@@ -7,27 +7,26 @@
 
 #include "WidgetButton.h"
 
-WidgetButton::WidgetButton(SDL_Surface *_screen, FontEngine *_font, InputState *_inp) {
-	screen = _screen;
-	font = _font;
-	inp = _inp;
-	
+WidgetButton::WidgetButton(SDL_Surface *_screen, FontEngine *_font, InputState *_inp, const char* _fileName)
+	: screen(_screen), font(_font), inp(_inp), fileName(_fileName) {
+
 	buttons = NULL;
 	click = NULL;
 	label = "";
 	pos.x = pos.y = pos.w = pos.y = 0;
 	enabled = true;
-	pos.w = 142;
-	pos.h = 28;
 	
 	loadArt();
+
+	pos.w = buttons->w;
+	pos.h = (buttons->h / 4); //height of one button
 
 }
 
 void WidgetButton::loadArt() {
 
 	// load button images
-	buttons = IMG_Load("images/menus/buttons.png");
+	buttons = IMG_Load(fileName);
 
 	if(!buttons) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
@@ -38,7 +37,6 @@ void WidgetButton::loadArt() {
 	SDL_Surface *cleanup = buttons;
 	buttons = SDL_DisplayFormatAlpha(buttons);
 	SDL_FreeSurface(cleanup);
-	
 	
 }
 
@@ -102,11 +100,15 @@ void WidgetButton::render() {
 	// render text
 	int font_color = FONT_WHITE;
 	if (!enabled) font_color = FONT_GRAY;
+	
+	// center font on button
 	int font_x = pos.x + (pos.w/2);
-	int font_y = pos.y + 8; // TODO: adjust by font size and button size
+	int font_y = (pos.y + (pos.h/2)) - (font->getHeight() / 2);
+
 	font->render(label, font_x, font_y, JUSTIFY_CENTER, screen, font_color);
 }
 	
 WidgetButton::~WidgetButton() {
 	SDL_FreeSurface(buttons);
 }
+
