@@ -20,13 +20,13 @@
 #include "InputState.h"
 #include "FontEngine.h"
 #include "WidgetButton.h"
+#include "WidgetInput.h"
 #include "FileParser.h"
 #include "Settings.h"
 #include "GameState.h"
 #include "UtilsParsing.h"
 
 const int BASE_AND_LOOK_MAX = 32;
-const int NAME_LENGTH_MAX = 20;
 
 class GameStateNew : public GameState {
 private:
@@ -39,7 +39,6 @@ private:
 	string look[BASE_AND_LOOK_MAX];
 	int option_count;
 	int current_option;
-	string character_name;
 
 	SDL_Surface *portrait;
 	SDL_Surface *portrait_border;
@@ -47,6 +46,7 @@ private:
 	WidgetButton *button_create;
 	WidgetButton *button_next;
 	WidgetButton *button_prev;
+	WidgetInput *input_name;
 
 public:
 	GameStateNew(SDL_Surface *_screen, InputState *_inp, FontEngine *_font);

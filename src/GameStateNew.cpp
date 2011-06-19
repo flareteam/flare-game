@@ -17,7 +17,6 @@ GameStateNew::GameStateNew(SDL_Surface *_screen, InputState *_inp, FontEngine *_
 	option_count = 0;
 	current_option = 0;
 	portrait = NULL;
-	character_name = "";
 	
 	button_exit = new WidgetButton(screen, font, inp, "./images/menus/buttons/button_default.png");
 	button_exit->label = "Cancel";
@@ -36,6 +35,8 @@ GameStateNew::GameStateNew(SDL_Surface *_screen, InputState *_inp, FontEngine *_
 	button_next = new WidgetButton(screen, font, inp, "./images/menus/buttons/right.png");
 	button_next->pos.x = VIEW_W_HALF + 160;
 	button_next->pos.y = VIEW_H_HALF - button_next->pos.h;
+
+	input_name = new WidgetInput(screen, font, inp, "Enter your character's name:");
 	
 	loadGraphics();
 	loadOptions("./config/base_and_look.txt");
@@ -99,7 +100,7 @@ void GameStateNew::loadOptions(string filename) {
 void GameStateNew::logic() {
 
 	// require character name
-	if (character_name == "") {
+	if (input_name->getText() == "") {
 		button_create->enabled = false;
 	}
 	else {
@@ -115,7 +116,7 @@ void GameStateNew::logic() {
 		GameStatePlay* play = new GameStatePlay(screen, inp, font);
 		play->pc->stats.base = base[current_option];
 		play->pc->stats.look = look[current_option];
-		play->pc->stats.name = character_name;
+		play->pc->stats.name = input_name->getText();
 		play->game_slot = game_slot;
 		play->resetGame();
 		requestedGameState = play;
@@ -132,19 +133,9 @@ void GameStateNew::logic() {
 		if (current_option == -1) current_option = option_count-1;
 		loadPortrait(base[current_option], look[current_option]);
 	}
-	
-	// type the character's name
-	character_name += inp->inkeys;
-	if (character_name.length() > NAME_LENGTH_MAX) {
-		character_name = character_name.substr(0, NAME_LENGTH_MAX);
-	}
-		
-	// handle backspaces
-	if (!inp->lock[DELETE] && inp->pressing[DELETE]) {
-		inp->lock[DELETE] = true;
-		character_name = character_name.substr(0, character_name.length()-1);
-	}
 
+	input_name->logic();
+	
 }
 
 void GameStateNew::render() {
@@ -153,6 +144,7 @@ void GameStateNew::render() {
 	button_create->render();
 	button_prev->render();
 	button_next->render();
+	input_name->render();
 	
 	// display portrait option
 	SDL_Rect src;
@@ -169,14 +161,6 @@ void GameStateNew::render() {
 	if (portrait_border != NULL) {
 		SDL_BlitSurface(portrait_border, &src, screen, &dest);
 	}
-	
-	// display character name
-	if (character_name == "") {
-		font->render("Type your character name", VIEW_W_HALF, VIEW_H_HALF+176, JUSTIFY_CENTER, screen, FONT_GREY);
-	}
-	else {
-		font->render(character_name, VIEW_W_HALF, VIEW_H_HALF+176, JUSTIFY_CENTER, screen, FONT_WHITE);
-	}
 }
 
 GameStateNew::~GameStateNew() {
@@ -186,5 +170,6 @@ GameStateNew::~GameStateNew() {
 	delete button_create;
 	delete button_next;
 	delete button_prev;
+	delete input_name;
 }
 
