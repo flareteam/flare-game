@@ -15,12 +15,12 @@ MenuTalker::MenuTalker(SDL_Surface *_screen, InputState *_inp , FontEngine *_fon
 	npc = NULL;
 
 	advanceButton = new WidgetButton(screen, font, inp, "./images/menus/buttons/right.png");
-	advanceButton->pos.x = VIEW_W - 110;
-	advanceButton->pos.y = VIEW_H - 65;
+	advanceButton->pos.x = VIEW_W_HALF + 288;
+	advanceButton->pos.y = VIEW_H_HALF + 184;
 
 	closeButton = new WidgetButton(screen, font, inp, "./images/menus/buttons/button_x.png");
-	closeButton->pos.x = VIEW_W - 110;
-	closeButton->pos.y = VIEW_H - 65;
+	closeButton->pos.x = VIEW_W_HALF + 288;
+	closeButton->pos.y = VIEW_H_HALF + 112;
 	
 	visible = false;
 
@@ -129,9 +129,14 @@ void MenuTalker::render() {
 	line = line + npc->dialog[dialog_node][event_cursor].s;
 	font->render(line, offset_x+48, offset_y+336, JUSTIFY_LEFT, screen, 544, FONT_WHITE);
 
-	// show advance button if there is more dialog to come, or close button if not
-	if (npc->dialog[dialog_node][event_cursor+1].s != "") {
-		advanceButton->render();
+	// show advance button if there are more event components, or close button if not
+	if (event_cursor < NPC_MAX_EVENTS-1) {
+		if (npc->dialog[dialog_node][event_cursor+1].type != "") {
+			advanceButton->render();
+		}
+		else {
+			closeButton->render();
+		}
 	}
 	else {
 		closeButton->render();
