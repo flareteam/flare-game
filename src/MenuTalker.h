@@ -17,11 +17,13 @@
 #include "CampaignManager.h"
 #include <string>
 #include <sstream>
+#include "WidgetButton.h"
 
 
 class MenuTalker {
 private:
 	SDL_Surface *screen;
+	InputState *inp;
 	FontEngine *font;
 	CampaignManager *camp;
 
@@ -31,18 +33,21 @@ private:
 	int dialog_node;
 
 public:
-	MenuTalker(SDL_Surface *screen, FontEngine *font, CampaignManager *camp);
+	MenuTalker(SDL_Surface *screen, InputState *inp, FontEngine *font, CampaignManager *camp);
 	~MenuTalker();
 
 	NPC *npc;
 	
 	void chooseDialogNode();
-	void logic(bool pressing_accept);
+	void logic();
 	void render();
 	
 	bool visible;
 	int event_cursor;
 	bool accept_lock;
+
+	WidgetButton *advanceButton;
+	WidgetButton *closeButton;
 	
 };
 

@@ -31,7 +31,7 @@ MenuManager::MenuManager(PowerManager *_powers, SDL_Surface *_screen, InputState
 	xp = new MenuExperience(screen, font);
 	enemy = new MenuEnemy(screen, font);
 	vendor = new MenuVendor(screen, font, items, stats);
-	talker = new MenuTalker(screen, font, camp);
+	talker = new MenuTalker(screen, inp, font, camp);
 	exit = new MenuExit(screen, inp, font);
 	
 	pause = false;
@@ -98,7 +98,7 @@ void MenuManager::logic() {
 	hudlog->logic();
 	enemy->logic();
 	inv->logic();
-	talker->logic(inp->pressing[ACCEPT]);
+	talker->logic();
 
 	if (!inp->pressing[INVENTORY] && !inp->pressing[POWERS] && !inp->pressing[CHARACTER] && !inp->pressing[LOG])
 		key_lock = false;
