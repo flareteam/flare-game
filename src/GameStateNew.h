@@ -23,7 +23,7 @@
 #include "FileParser.h"
 #include "Settings.h"
 #include "GameState.h"
-#include "UtilsParsing.h";
+#include "UtilsParsing.h"
 
 const int BASE_AND_LOOK_MAX = 32;
 const int NAME_LENGTH_MAX = 20;
