@@ -1,15 +1,15 @@
 /**
- * class GameStateGameEngine
+ * class GameStatePlay
  *
- * Hands off the logic and rendering for the current game mode.
+ * Handles logic and rendering of the main action game play
  * Also handles message passing between child objects, often to avoid circular dependencies.
  *
  * @author Clint Bellanger
  * @license GPL
  */
 
-#ifndef GAMESTATEGAMEENGINE_H
-#define GAMESTATEGAMEENGINE_H
+#ifndef GAMESTATEPLAY_H
+#define GAMESTATEPLAY_H
 
 #include "SDL.h"
 #include "SDL_image.h"
@@ -29,12 +29,11 @@
 #include "QuestLog.h"
 #include "GameState.h"
 
-class GameStateGameEngine : public GameState {
+class GameStatePlay : public GameState {
 private:
 	SDL_Surface *screen;
 	
 	InputState *inp;
-	Avatar *pc;
 	MapIso *map;
 	Enemy *enemy;
 	Renderable r[1024];
@@ -59,11 +58,13 @@ private:
 	void checkEquipmentChange();
 	void checkConsumable();
 	void checkNPCInteraction();
+
+	int npc_id;
 	
 public:
-	GameStateGameEngine(SDL_Surface *screen, InputState *inp, FontEngine *font);
-	~GameStateGameEngine();
-	
+	GameStatePlay(SDL_Surface *screen, InputState *inp, FontEngine *font);
+	~GameStatePlay();
+
 	void logic();
 	void render();
 	void showFPS(int fps);
@@ -71,7 +72,7 @@ public:
 	void loadGame();
 	void resetGame();
 
-	int npc_id;
+	Avatar *pc;
 	int game_slot;
 
 };

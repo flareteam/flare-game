@@ -10,6 +10,8 @@
 #include "StatBlock.h"
 
 StatBlock::StatBlock() {
+
+	name = "";
 	alive = true;
 	corpse = false;
 	hero = false;

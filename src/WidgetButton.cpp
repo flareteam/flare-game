@@ -15,6 +15,7 @@ WidgetButton::WidgetButton(SDL_Surface *_screen, FontEngine *_font, InputState *
 	label = "";
 	pos.x = pos.y = pos.w = pos.y = 0;
 	enabled = true;
+	pressed = false;
 	
 	loadArt();
 
@@ -97,15 +98,18 @@ void WidgetButton::render() {
 	
 	SDL_BlitSurface(buttons, &src, screen, &pos);
 	
-	// render text
-	int font_color = FONT_WHITE;
-	if (!enabled) font_color = FONT_GRAY;
+	if (label != "") {
 	
-	// center font on button
-	int font_x = pos.x + (pos.w/2);
-	int font_y = (pos.y + (pos.h/2)) - (font->getHeight() / 2);
+		// render text
+		int font_color = FONT_WHITE;
+		if (!enabled) font_color = FONT_GRAY;
+	
+		// center font on button
+		int font_x = pos.x + (pos.w/2);
+		int font_y = (pos.y + (pos.h/2)) - (font->getHeight() / 2);
 
-	font->render(label, font_x, font_y, JUSTIFY_CENTER, screen, font_color);
+		font->render(label, font_x, font_y, JUSTIFY_CENTER, screen, font_color);
+	}
 }
 	
 WidgetButton::~WidgetButton() {

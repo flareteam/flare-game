@@ -7,10 +7,12 @@
  
 #include "GameStateLoad.h"
 #include "GameStateTitle.h"
-#include "GameStateGameEngine.h"
+#include "GameStatePlay.h"
+#include "GameStateNew.h"
 
 GameStateLoad::GameStateLoad(SDL_Surface *_screen, InputState *_inp, FontEngine *_font) : GameState(_screen, _inp, _font) {
 	items = new ItemDatabase(screen, font);
+	portrait = NULL;
 	
 	button_exit = new WidgetButton(screen, font, inp, "./images/menus/buttons/button_default.png");
 	button_exit->label = "Exit to Title";
@@ -33,7 +35,7 @@ GameStateLoad::GameStateLoad(SDL_Surface *_screen, InputState *_inp, FontEngine 
 	readGameSlots();
 	
 	for (int i=0; i<GAME_SLOT_MAX; i++) {
-		slot_pos[i].x = (VIEW_W - 640)/2 + 32;
+		slot_pos[i].x = (VIEW_W - 640)/2;
 		slot_pos[i].y = (VIEW_H - 480)/2 + (i * 96) + 32;
 		slot_pos[i].w = 288;
 		slot_pos[i].h = 96;
@@ -69,15 +71,18 @@ GameStateLoad::GameStateLoad(SDL_Surface *_screen, InputState *_inp, FontEngine 
 void GameStateLoad::loadGraphics() {
 	background = NULL;
 	selection = NULL;
+	portrait_border = NULL;
 	
 	background = IMG_Load("images/menus/game_slots.png");
 	selection = IMG_Load("images/menus/game_slot_select.png");
-	if(!background || !selection) {
+	portrait_border = IMG_Load("images/menus/portrait_border.png");
+	if(!background || !selection || !portrait_border) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 		SDL_Quit();
 	}
 	
 	SDL_SetColorKey( selection, SDL_SRCCOLORKEY, SDL_MapRGB(selection->format, 255, 0, 255) ); 
+	SDL_SetColorKey( portrait_border, SDL_SRCCOLORKEY, SDL_MapRGB(portrait_border->format, 255, 0, 255) ); 
 	
 	// optimize
 	SDL_Surface *cleanup = background;
@@ -88,6 +93,25 @@ void GameStateLoad::loadGraphics() {
 	selection = SDL_DisplayFormatAlpha(selection);
 	SDL_FreeSurface(cleanup);
 	
+	cleanup = portrait_border;
+	portrait_border = SDL_DisplayFormatAlpha(portrait_border);
+	SDL_FreeSurface(cleanup);
+	
+}
+
+void GameStateLoad::loadPortrait(int slot) {
+	SDL_FreeSurface(portrait);
+	portrait = NULL;
+	
+	if (stats[slot].name == "") return;
+	
+	portrait = IMG_Load(("images/portraits/" + stats[slot].base + "_" + stats[slot].look + ".png").c_str());
+	if (!portrait) return;
+	
+	// optimize
+	SDL_Surface *cleanup = portrait;
+	portrait = SDL_DisplayFormatAlpha(portrait);
+	SDL_FreeSurface(cleanup);
 }
 
 void GameStateLoad::readGameSlots() {
@@ -213,12 +237,20 @@ void GameStateLoad::logic() {
 	}
 	
 	if (button_action->checkClick()) {
-		GameStateGameEngine* eng = new GameStateGameEngine(screen, inp, font);
-		eng->resetGame();
-		eng->game_slot = selected_slot + 1;
-		eng->loadGame();
-
-		requestedGameState = eng;
+		if (stats[selected_slot].name == "") {
+			// create a new game
+			GameStateNew* newgame = new GameStateNew(screen, inp, font);
+			newgame->game_slot = selected_slot + 1;
+			requestedGameState = newgame;
+		}
+		else {
+			// load an existing game
+			GameStatePlay* play = new GameStatePlay(screen, inp, font);
+			play->resetGame();
+			play->game_slot = selected_slot + 1;
+			play->loadGame();
+			requestedGameState = play;
+		}
 	}
 	
 	// check clicking game slot
@@ -227,6 +259,7 @@ void GameStateLoad::logic() {
 			if (isWithin(slot_pos[i], inp->mouse)) {
 				selected_slot = i;
 				inp->lock[MAIN1] = true;
+				loadPortrait(selected_slot);
 				
 				button_action->enabled = true;
 				if (stats[selected_slot].name == "") {
@@ -263,6 +296,18 @@ void GameStateLoad::render() {
 		src.h = 96;
 		src.x = src.y = 0;
 		SDL_BlitSurface(selection, &src, screen, &slot_pos[selected_slot]);	
+	}
+	
+
+	// portrait
+	if (selected_slot >= 0 && portrait != NULL) {
+
+		src.w = src.h = 320;
+		dest.x = VIEW_W_HALF;
+		dest.y = (VIEW_H - 480)/2 + 32;
+
+		SDL_BlitSurface(portrait, &src, screen, &dest);
+		SDL_BlitSurface(portrait_border, &src, screen, &dest);
 	}
 	
 	Point label;
@@ -333,6 +378,8 @@ void GameStateLoad::render() {
 GameStateLoad::~GameStateLoad() {
 	SDL_FreeSurface(background);
 	SDL_FreeSurface(selection);
+	SDL_FreeSurface(portrait_border);
+	SDL_FreeSurface(portrait);
 	delete button_exit;
 	delete button_action;
 	delete items;

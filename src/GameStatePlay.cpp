@@ -1,18 +1,18 @@
 /**
- * class GameStateGameEngine
+ * class GameStatePlay
  *
- * Hands off the logic and rendering for the current game mode.
+ * Handles logic and rendering of the main action game play
  * Also handles message passing between child objects, often to avoid circular dependencies.
  *
  * @author Clint Bellanger
  * @license GPL
  */
 
-#include "GameStateGameEngine.h"
+#include "GameStatePlay.h"
 #include "GameState.h"
 #include "GameStateTitle.h"
 
-GameStateGameEngine::GameStateGameEngine(SDL_Surface *_screen, InputState *_inp, FontEngine *_font) : GameState(screen, inp, font) {
+GameStatePlay::GameStatePlay(SDL_Surface *_screen, InputState *_inp, FontEngine *_font) : GameState(screen, inp, font) {
 
 	// shared resources from GameSwitcher
 	screen = _screen;
@@ -46,7 +46,7 @@ GameStateGameEngine::GameStateGameEngine(SDL_Surface *_screen, InputState *_inp,
 /**
  * Reset all game states to a new game.
  */
-void GameStateGameEngine::resetGame() {
+void GameStatePlay::resetGame() {
 	map->load("spawn.txt");
 	camp->clearAll();
 	pc->init();
@@ -66,7 +66,7 @@ void GameStateGameEngine::resetGame() {
  * class variable "enemy" contains a live enemy on mouseover.
  * This function also sets enemy mouseover for Menu Enemy.
  */
-void GameStateGameEngine::checkEnemyFocus() {
+void GameStatePlay::checkEnemyFocus() {
 	// determine enemies mouseover
 	// only check alive enemies for targeting
 	enemy = enemies->enemyFocus(inp->mouse, map->cam, true);
@@ -92,7 +92,7 @@ void GameStateGameEngine::checkEnemyFocus() {
  * If mouse_move is enabled, and the mouse is over a live enemy,
  * Do not allow power use with button MAIN1
  */
-bool GameStateGameEngine::restrictPowerUse() {
+bool GameStatePlay::restrictPowerUse() {
 	if(MOUSE_MOVE) {
 		if(enemy == NULL && inp->pressing[MAIN1] && !inp->pressing[SHIFT] && !(isWithin(menu->act->numberArea,inp->mouse) || isWithin(menu->act->mouseArea,inp->mouse) || isWithin(menu->act->menuArea, inp->mouse))) {
 			return true;
@@ -104,7 +104,7 @@ bool GameStateGameEngine::restrictPowerUse() {
 /**
  * Check to see if the player is picking up loot on the ground
  */
-void GameStateGameEngine::checkLoot() {
+void GameStatePlay::checkLoot() {
 	if (inp->pressing[MAIN1] && !inp->lock[MAIN1] && pc->stats.alive) {
 
 		ItemStack pickup;
@@ -129,7 +129,7 @@ void GameStateGameEngine::checkLoot() {
 	}
 }
 
-void GameStateGameEngine::checkTeleport() {
+void GameStatePlay::checkTeleport() {
 	if (map->teleportation || pc->stats.teleportation) {
 		
 		if (map->teleportation) {
@@ -173,7 +173,7 @@ void GameStateGameEngine::checkTeleport() {
  * Check for cancel key to exit menus or exit the game.
  * Also check closing the game window entirely.
  */
-void GameStateGameEngine::checkCancel() {
+void GameStatePlay::checkCancel() {
 
 	// if user has clicked exit game from exit menu
 	if (menu->requestingExit()) {
@@ -193,7 +193,7 @@ void GameStateGameEngine::checkCancel() {
 /**
  * Check for log messages from various child objects
  */
-void GameStateGameEngine::checkLog() {
+void GameStatePlay::checkLog() {
 
 	// Map events can create messages
 	if (map->log_msg != "") {
@@ -217,7 +217,7 @@ void GameStateGameEngine::checkLog() {
 	}
 }
 
-void GameStateGameEngine::checkEquipmentChange() {
+void GameStatePlay::checkEquipmentChange() {
 	if (menu->inv->changed_equipment) {
 		pc->loadGraphics(menu->items->items[menu->inv->inventory[EQUIPMENT][0].item].gfx, 
 		                 menu->items->items[menu->inv->inventory[EQUIPMENT][1].item].gfx, 
@@ -226,7 +226,7 @@ void GameStateGameEngine::checkEquipmentChange() {
 	}
 }
 
-void GameStateGameEngine::checkLootDrop() {
+void GameStatePlay::checkLootDrop() {
 	
 	// if the player has dropped an item from the inventory
 	if (menu->drop_stack.item > 0) {
@@ -247,7 +247,7 @@ void GameStateGameEngine::checkLootDrop() {
 /**
  * When a consumable-based power is used, we need to remove it from the inventory.
  */
-void GameStateGameEngine::checkConsumable() {
+void GameStatePlay::checkConsumable() {
 	if (powers->used_item != -1) {
 		if (menu->items->items[powers->used_item].type == ITEM_TYPE_CONSUMABLE) {
 			menu->inv->remove(powers->used_item);
@@ -261,7 +261,7 @@ void GameStateGameEngine::checkConsumable() {
  * If a player walks away from an NPC, end the interaction with that NPC
  * If an NPC is giving a reward, process it
  */
-void GameStateGameEngine::checkNPCInteraction() {
+void GameStatePlay::checkNPCInteraction() {
 
 	int npc_click = -1;
 	int max_interact_distance = UNITS_PER_TILE * 4;
@@ -321,7 +321,7 @@ void GameStateGameEngine::checkNPCInteraction() {
  * Process all actions for a single frame
  * This includes some message passing between child object
  */
-void GameStateGameEngine::logic() {
+void GameStatePlay::logic() {
 
 	// check menus first (top layer gets mouse click priority)
 	menu->logic();
@@ -364,7 +364,7 @@ void GameStateGameEngine::logic() {
 /**
  * Render all graphics for a single frame
  */
-void GameStateGameEngine::render() {
+void GameStatePlay::render() {
 
 	// Create a list of Renderables from all objects not already on the map.
 	renderableCount = 0;
@@ -421,13 +421,13 @@ void GameStateGameEngine::render() {
 
 }
 
-void GameStateGameEngine::showFPS(int fps) {
+void GameStatePlay::showFPS(int fps) {
 	stringstream ss;
 	ss << fps << "fps";
 	font->render(ss.str(), VIEW_W >> 1, 2, JUSTIFY_CENTER, screen, FONT_GRAY); 
 }
 
-GameStateGameEngine::~GameStateGameEngine() {
+GameStatePlay::~GameStatePlay() {
 	delete quests;
 	delete camp;
 	delete npcs;

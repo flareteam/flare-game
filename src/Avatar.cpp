@@ -23,6 +23,9 @@ Avatar::Avatar(PowerManager *_powers, InputState *_inp, MapIso *_map) : Entity(_
 }
 
 void Avatar::init() {
+
+	// name, base, look are set by GameStateNew so don't reset it here
+
 	// other init
 	sprites = 0;
 	stats.cur_state = AVATAR_STANCE;
@@ -35,7 +38,6 @@ void Avatar::init() {
 	lockCast = false;
 	lockShoot = false;
 	
-	stats.name = "Unknown";
 	stats.hero = true;
 	stats.level = 1;
 	stats.xp = 0;

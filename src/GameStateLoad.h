@@ -32,12 +32,18 @@ const int GAME_SLOT_MAX = 4;
 
 class GameStateLoad : public GameState {
 private:
+
+	void loadGraphics();
+	void loadPortrait(int slot);
+
 	ItemDatabase *items;
 	WidgetButton *button_exit;
 	WidgetButton *button_action;
 	
 	SDL_Surface *background;
 	SDL_Surface *selection;
+	SDL_Surface *portrait_border;
+	SDL_Surface *portrait;
 	SDL_Surface *sprites[GAME_SLOT_MAX];
 	StatBlock stats[GAME_SLOT_MAX];
 	int equipped[GAME_SLOT_MAX][3];	
@@ -60,7 +66,6 @@ public:
 	GameStateLoad(SDL_Surface *_screen, InputState *_inp, FontEngine *_font);
 	~GameStateLoad();
 
-	void loadGraphics();
 	void logic();
 	void render();	
 	void readGameSlot(int slot);

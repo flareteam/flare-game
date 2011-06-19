@@ -1,17 +1,17 @@
 /**
- * Save and Load functions for the GameEngine.
+ * Save and Load functions for the GameStatePlay.
  *
- * I put these in a separate cpp file just to keep GameEngine.cpp devoted to its core.
+ * I put these in a separate cpp file just to keep GameStatePlay.cpp devoted to its core.
  *
  * TODO: handle stackable items
  *
- * class GameEngine
+ * class GameStatePlay
  *
  * @author Clint Bellanger
  * @license GPL
  */
 
-#include "GameStateGameEngine.h"
+#include "GameStatePlay.h"
 #include "UtilsParsing.h"
 #include <fstream>
 #include <iostream>
@@ -22,7 +22,7 @@ using namespace std;
 /**
  * Before exiting the game, save to file
  */
-void GameStateGameEngine::saveGame() {
+void GameStatePlay::saveGame() {
 
 	// game slots are currently 1-4
 	if (game_slot == 0) return;
@@ -85,7 +85,7 @@ void GameStateGameEngine::saveGame() {
 /**
  * When loading the game, load from file if possible
  */
-void GameStateGameEngine::loadGame() {
+void GameStatePlay::loadGame() {
 
 	// game slots are currently 1-4
 	if (game_slot == 0) return;

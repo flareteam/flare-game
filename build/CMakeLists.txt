@@ -83,7 +83,8 @@ Set (FLARE_SOURCES
 	../src/GameState.cpp
 	../src/GameStateTitle.cpp
 	../src/GameStateLoad.cpp
-	../src/GameStateGameEngine.cpp
+	../src/GameStatePlay.cpp
+	../src/GameStateNew.cpp
 )
 
 Add_Executable (flare ${FLARE_SOURCES})
