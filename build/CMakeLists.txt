@@ -42,6 +42,11 @@ Set (FLARE_SOURCES
 	../src/EnemyManager.cpp
 	../src/FileParser.cpp
 	../src/FontEngine.cpp
+	../src/GameState.cpp
+	../src/GameStateTitle.cpp
+	../src/GameStateLoad.cpp
+	../src/GameStatePlay.cpp
+	../src/GameStateNew.cpp
 	../src/GameSwitcher.cpp
 	../src/Hazard.cpp
 	../src/HazardManager.cpp
@@ -79,12 +84,8 @@ Set (FLARE_SOURCES
 	../src/Utils.cpp
 	../src/UtilsParsing.cpp
 	../src/WidgetButton.cpp
+	../src/WidgetInput.cpp
 	../src/main.cpp
-	../src/GameState.cpp
-	../src/GameStateTitle.cpp
-	../src/GameStateLoad.cpp
-	../src/GameStatePlay.cpp
-	../src/GameStateNew.cpp
 )
 
 Add_Executable (flare ${FLARE_SOURCES})
