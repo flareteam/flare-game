@@ -103,17 +103,19 @@ void MapIso::playSFX(string filename) {
 }
 
 void MapIso::push_enemy_group(Map_Group g){
-	EnemyGroupManager category_list;
+	EnemyGroupManager category_list; //TODO: move this to beginning of program execution
 	category_list.generate();
 	for(int i = 0; i < g.number; i++) {
 		Enemy_Level enemy_lev;
 		Map_Enemy group_member;
 		enemy_lev = category_list.random_enemy(g.category, g.levelmin, g.levelmax);
-		group_member.type = enemy_lev.type;
-		group_member.pos.x = (g.pos.x + rand() % g.area.x) * UNITS_PER_TILE + UNITS_PER_TILE/2;;
-		group_member.pos.y = (g.pos.y + rand() % g.area.y) * UNITS_PER_TILE + UNITS_PER_TILE/2;;
-		group_member.direction = rand() % 8;
-		enemies.push(group_member);
+		if (enemy_lev.type != ""){
+			group_member.type = enemy_lev.type;
+			group_member.pos.x = (g.pos.x + rand() % g.area.x) * UNITS_PER_TILE + UNITS_PER_TILE/2;;
+			group_member.pos.y = (g.pos.y + rand() % g.area.y) * UNITS_PER_TILE + UNITS_PER_TILE/2;;
+			group_member.direction = rand() % 8;
+			enemies.push(group_member);
+		}
 	}
 }
 

@@ -13,6 +13,10 @@
 #include <string>
 #include <map>
 #include <vector>
+#include <iostream>
+#include <sys/types.h>
+#include <dirent.h>
+#include <errno.h>
 #include "MapIso.h"
 #include "FileParser.h"
 
@@ -29,6 +33,7 @@ private:
 	map <string, vector<Enemy_Level> > category_list; 
 	// functions
 	void extract_and_sort(string filename);
+	int getdir(string dir, vector<string> &files);
 public:
 	// functions
 	EnemyGroupManager(/*ARGS WILL GO HERE*/);

@@ -9,19 +9,36 @@
 
 #include "EnemyGroupManager.h"
 
-EnemyGroupManager::EnemyGroupManager(/*ARGS will go here*/) {
-
+EnemyGroupManager::EnemyGroupManager() {
 }
-EnemyGroupManager::~EnemyGroupManager(/*ARGS will go here*/) {
+EnemyGroupManager::~EnemyGroupManager() {
+}
 
+// Returns a vector containing all filenames in a given folder
+int EnemyGroupManager::getdir(string dir, vector<string> &files) {
+    DIR *dp;
+    struct dirent *dirp;
+    if((dp  = opendir(dir.c_str())) == NULL) {
+        cout << "Error(" << errno << ") opening " << dir << endl;
+        return errno;
+    }
+    while ((dirp = readdir(dp)) != NULL) {
+	if(dirp->d_type == 0x8) { //0x4 for directories, 0x8 for files
+	        files.push_back(string(dirp->d_name));
+	}
+    }
+    closedir(dp);
+    return 0;
 }
 
 // Fills the array with the enemy data
 void EnemyGroupManager::generate() {
-	//extract_and_sort("rotting_zombie.txt");
-	extract_and_sort("zombie.txt");
-	//extract_and_sort("goblin.txt");
-	//extract_and_sort("minotaur.txt");
+	string dir = string("enemies");
+	vector<string> files = vector<string>();
+	getdir(dir,files);
+	for (int i = 0; i < files.size(); i++) {
+		extract_and_sort(files[i]);
+	}
 }
 
 
@@ -32,11 +49,9 @@ void EnemyGroupManager::extract_and_sort(string filename) {
 	vector<string> categories;
 
 	if (infile.open(("enemies/" + filename).c_str())) {
+		new_enemy.type = filename.substr(0,filename.length()-4); //removes the ".txt" from the filename
 		while (infile.next()) {
-			if(infile.key == "name") {
-				new_enemy.type = infile.val;
-			}
-			else if(infile.key == "level") {
+			if(infile.key == "level") {
 				new_enemy.level = atoi(infile.val.c_str());
 			}
 			else if(infile.key == "categories") {
@@ -47,7 +62,7 @@ void EnemyGroupManager::extract_and_sort(string filename) {
 			}
 		}
 	}
-	
+	//push the enemy data into each category it belongs to
 	for (int i = 0; i < categories.size(); i++){
 		category_list[categories[i]].push_back(new_enemy);
 	}
@@ -56,12 +71,19 @@ void EnemyGroupManager::extract_and_sort(string filename) {
 	return;
 }
 
-//NYI
+// Returns a random monster that fits the category and level range
 Enemy_Level EnemyGroupManager::random_enemy(string category, int minlevel, int maxlevel) {
 	Enemy_Level new_enemy;
-	new_enemy.type = "zombie";
-	new_enemy.level = 3;
-	return new_enemy;
+	vector<Enemy_Level> enemy_list;
+	//load only the data that fit the criteria
+	for (int i = 0; i < category_list[category].size(); i++){
+		new_enemy = category_list[category][i];
+		if ( (new_enemy.level >= minlevel) && (new_enemy.level <= maxlevel)){
+			enemy_list.push_back(new_enemy);
+		}
+	}
+	if (enemy_list.size() == 0) return new_enemy;
+	return enemy_list[rand() % enemy_list.size()];
 }
 
 
