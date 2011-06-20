@@ -21,6 +21,7 @@
 #include "MapCollision.h"
 #include "Settings.h"
 #include "CampaignManager.h"
+#include "EnemyGroupManager.h"
 
 using namespace std;
 
@@ -28,6 +29,15 @@ struct Map_Enemy {
 	string type;
 	Point pos;
 	int direction;
+};
+
+struct Map_Group {
+	string category;
+	Point pos;
+	Point area;
+	int levelmin;
+	int levelmax;
+	int number;
 };
 
 struct Map_NPC {
@@ -57,6 +67,7 @@ private:
 	void executeEvent(int eid);
 	void removeEvent(int eid);
 	void playSFX(string filename);
+	void push_enemy_group(Map_Group g);
 		
 	// map events
 	Map_Event events[256];
@@ -71,6 +82,7 @@ public:
 	~MapIso();
 	void clearEnemy(Map_Enemy e);
 	void clearNPC(Map_NPC n);
+	void clearGroup(Map_Group g);
 
 	int load(string filename);
 	void loadMusic();
@@ -100,7 +112,9 @@ public:
 	// enemy load handling
 	queue<Map_Enemy> enemies;
 	Map_Enemy new_enemy;
+	Map_Group new_group;
 	bool enemy_awaiting_queue;
+	bool group_awaiting_queue;
 	
 	// npc load handling
 	queue<Map_NPC> npcs;
