@@ -25,27 +25,32 @@ protected:
 	FontEngine *font;
 	InputState *inp;
 
-	SDL_Surface *background;
+	void loadGraphics(string filename);
 
-	SDL_Rect pos;
+	SDL_Surface *background;
 
 	bool enabled;
 	bool inFocus;
 	bool pressed;
 
 	string text; // the text that has been type into the box
-	string label; // the label that appears above the text box
 	int max_characters;
+	int cursor_frame;
+	
+	Point font_pos;
 
 public:
-	WidgetInput(SDL_Surface *_screen, FontEngine *_font, InputState *_inp, string _label);
+	WidgetInput(SDL_Surface *_screen, FontEngine *_font, InputState *_inp);
 	
 	void logic();
 	void render();
-
 	bool checkClick();
-
 	string getText() { return text; }
+	void setPosition(int x, int y);
+
+	SDL_Rect pos;
+
+
 };
 
 #endif

@@ -1,12 +1,27 @@
 #include "WidgetInput.h"
 
-WidgetInput::WidgetInput(SDL_Surface* _screen, FontEngine *_font, InputState *_inp, string _label)
-	: screen(_screen), font(_font), inp(_inp), label(_label),
-	  enabled(true), inFocus(false), pressed(false),
-	  max_characters(20) {
+WidgetInput::WidgetInput(SDL_Surface* _screen, FontEngine *_font, InputState *_inp)
+	: screen(_screen), font(_font), inp(_inp) {
+	
+	enabled = true;
+	inFocus = false;
+	pressed = false;
+	max_characters = 20;
+	
+	loadGraphics("./images/menus/input.png");
 
-	// load button images
-	background = IMG_Load("./images/menus/input.png");
+	// position
+	pos.w = background->w;
+	pos.h = background->h/2;
+	
+	cursor_frame = 0;
+	
+}
+
+void WidgetInput::loadGraphics(string filename) {
+
+	// load input background image
+	background = IMG_Load(filename.c_str());
 
 	if(!background) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
@@ -18,20 +33,15 @@ WidgetInput::WidgetInput(SDL_Surface* _screen, FontEngine *_font, InputState *_i
 	background = SDL_DisplayFormatAlpha(background);
 	SDL_FreeSurface(cleanup);
 
-	// position
-	pos.w = background->w;
-	pos.h = background->h/2;
-	pos.x = VIEW_W_HALF - pos.w/2;
-	pos.y = VIEW_H_HALF+176;
 }
 
-
 void WidgetInput::logic() {
+
 	if (checkClick()) {
 		inFocus = true;
 	}
 
-	// if clciking elsewhere unfocus the text box
+	// if clicking elsewhere unfocus the text box
 	if (inp->pressing[MAIN1]) {
 		if (!isWithin(pos, inp->mouse)) {
 			inFocus = false;
@@ -51,7 +61,14 @@ void WidgetInput::logic() {
 			inp->lock[DELETE] = true;
 			text = text.substr(0, text.length()-1);
 		}
+
+		// animate cursor
+		// cursor visible one second, invisible the next
+		cursor_frame++;
+		if (cursor_frame == FRAMES_PER_SEC+FRAMES_PER_SEC) cursor_frame = 0;
+		
 	}
+
 }
 
 void WidgetInput::render() {
@@ -62,24 +79,33 @@ void WidgetInput::render() {
 	src.h = pos.h;
 
 	if (!inFocus)
-		src.y = 0 * pos.h;
+		src.y = 0;
 	else if (isWithin(pos, inp->mouse))
-		src.y = 1 * pos.h;
+		src.y = pos.h;
 	else
-		src.y = 1 * pos.h;
+		src.y = pos.h;
 
 	SDL_BlitSurface(background, &src, screen, &pos);
 
-	// show the label above the text box
-	font->render(label, pos.x + (pos.w/2), pos.y - 10, JUSTIFY_CENTER, screen, FONT_GRAY);
-
-	// show dimmed text if box not in focus
 	if (!inFocus) {
-		font->render(text, pos.x + 20, pos.y + (pos.h/2) - 4, JUSTIFY_LEFT, screen, FONT_GRAY);
+		font->render(text, font_pos.x, font_pos.y, JUSTIFY_LEFT, screen, FONT_WHITE);
 	}
 	else {
-		font->render(text + "|" , pos.x + 20, pos.y + (pos.h/2) - 4, JUSTIFY_LEFT, screen, FONT_WHITE);
+		if (cursor_frame < FRAMES_PER_SEC) {
+			font->render(text + "|", font_pos.x, font_pos.y, JUSTIFY_LEFT, screen, FONT_WHITE);
+		}
+		else {
+			font->render(text, font_pos.x, font_pos.y, JUSTIFY_LEFT, screen, FONT_WHITE);		
+		}
 	}
+}
+
+void WidgetInput::setPosition(int x, int y) {
+	pos.x = x;
+	pos.y = y;
+	
+	font_pos.x = pos.x + (font->getWidth()/2);
+	font_pos.y = pos.y + (pos.h/2) - (font->getHeight()/2);
 }
 
 bool WidgetInput::checkClick() {

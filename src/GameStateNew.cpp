@@ -36,7 +36,8 @@ GameStateNew::GameStateNew(SDL_Surface *_screen, InputState *_inp, FontEngine *_
 	button_next->pos.x = VIEW_W_HALF + 160;
 	button_next->pos.y = VIEW_H_HALF - button_next->pos.h;
 
-	input_name = new WidgetInput(screen, font, inp, "Enter your character's name:");
+	input_name = new WidgetInput(screen, font, inp);
+	input_name->setPosition(VIEW_W_HALF - input_name->pos.w/2, VIEW_H_HALF+184);
 	
 	loadGraphics();
 	loadOptions("./config/base_and_look.txt");
@@ -139,6 +140,7 @@ void GameStateNew::logic() {
 }
 
 void GameStateNew::render() {
+
 	// display buttons
 	button_exit->render();
 	button_create->render();
@@ -161,6 +163,11 @@ void GameStateNew::render() {
 	if (portrait_border != NULL) {
 		SDL_BlitSurface(portrait_border, &src, screen, &dest);
 	}
+	
+	// display labels
+	font->render("Choose a Portrait", VIEW_W_HALF, VIEW_H_HALF-176, JUSTIFY_CENTER, screen, FONT_GREY);
+	font->render("Choose a Name", VIEW_W_HALF, VIEW_H_HALF+168, JUSTIFY_CENTER, screen, FONT_GREY);
+	
 }
 
 GameStateNew::~GameStateNew() {
