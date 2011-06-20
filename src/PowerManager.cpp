@@ -7,6 +7,7 @@
 
 
 #include "PowerManager.h"
+#include "FileParser.h"
 
 /**
  * PowerManager constructor
@@ -41,282 +42,255 @@ PowerManager::PowerManager() {
  */
 void PowerManager::loadPowers() {
 
-	ifstream infile;
-	string line;
-	string key;
-	string val;
-	string starts_with;
+	FileParser infile;
 	int input_id = 0;
 	
-	infile.open("powers/powers.txt", ios::in);
-
-	if (infile.is_open()) {
-		while (!infile.eof()) {
-			line = getLine(infile);
-
-			if (line.length() > 0) {
-				starts_with = line.at(0);
-				
-				if (starts_with == "#") {
-					// skip comments
-				}
-				if (starts_with == "[") {
-					// not actually necessary.  We know we're at a new power when
-					// we see a new id key.
-				}
-				else { // this is data.  treatment depends on key
-					parse_key_pair(line, key, val);          
-					key = trim(key, ' ');
-					val = trim(val, ' ');
-				
-					// id needs to be the first component of each power.  That is how we write
-					// data to the correct power.
-					if (key == "id") {
-						input_id = atoi(val.c_str());
-					}
-					else if (key == "type") {
-						if (val == "single") powers[input_id].type = POWTYPE_SINGLE;
-						else if (val == "effect") powers[input_id].type = POWTYPE_EFFECT;
-						else if (val == "missile") powers[input_id].type = POWTYPE_MISSILE;
-						else if (val == "repeater") powers[input_id].type = POWTYPE_REPEATER;
-					}
-					else if (key == "name") {
-						powers[input_id].name = val;
-					}
-					else if (key == "description") {
-						powers[input_id].description = val;
-					}
-					else if (key == "icon") {
-						powers[input_id].icon = atoi(val.c_str());
-					}
-					else if (key == "new_state") {
-						if (val == "swing") powers[input_id].new_state = POWSTATE_SWING;
-						else if (val == "shoot") powers[input_id].new_state = POWSTATE_SHOOT;
-						else if (val == "cast") powers[input_id].new_state = POWSTATE_CAST;
-						else if (val == "block") powers[input_id].new_state = POWSTATE_BLOCK;
-					}
-					else if (key == "face") {
-						if (val == "true") powers[input_id].face = true;
-					}
-					
-					// power requirements
-					else if (key == "requires_physical_weapon") {
-						if (val == "true") powers[input_id].requires_physical_weapon = true;
-					}
-					else if (key == "requires_mental_weapon") {
-						if (val == "true") powers[input_id].requires_mental_weapon = true;
-					}
-					else if (key == "requires_offense_weapon") {
-						if (val == "true") powers[input_id].requires_offense_weapon = true;
-					}
-					else if (key == "requires_mp") {
-						powers[input_id].requires_mp = atoi(val.c_str());
-					}
-					else if (key == "requires_los") {
-						if (val == "true") powers[input_id].requires_los = true;
-					}
-					else if (key == "requires_empty_target") {
-						if (val == "true") powers[input_id].requires_empty_target = true;
-					}
-					else if (key == "requires_item") {
-						powers[input_id].requires_item = atoi(val.c_str());
-					}
-					
-					// animation info
-					else if (key == "gfx") {
-						powers[input_id].gfx_index = loadGFX(val);
-					}
-					else if (key == "sfx") {
-						powers[input_id].sfx_index = loadSFX(val);
-					}
-					else if (key == "rendered") {
-						if (val == "true") powers[input_id].rendered = true;				
-					}
-					else if (key == "directional") {
-						if (val == "true") powers[input_id].directional = true;
-					}
-					else if (key == "visual_random") {
-						powers[input_id].visual_random = atoi(val.c_str());
-					}
-					else if (key == "visual_option") {
-						powers[input_id].visual_option = atoi(val.c_str());
-					}
-					else if (key == "aim_assist") {
-						powers[input_id].aim_assist = atoi(val.c_str());
-					}
-					else if (key == "speed") {
-						powers[input_id].speed = atoi(val.c_str());
-					}
-					else if (key == "lifespan") {
-						powers[input_id].lifespan = atoi(val.c_str());
-					}
-					else if (key == "frame_loop") {
-						powers[input_id].frame_loop = atoi(val.c_str());
-					}
-					else if (key == "frame_duration") {
-						powers[input_id].frame_duration = atoi(val.c_str());
-					}
-					else if (key == "frame_size") {
-						val = val + ",";
-						powers[input_id].frame_size.x = eatFirstInt(val, ',');										
-						powers[input_id].frame_size.y = eatFirstInt(val, ',');				
-					}
-					else if (key == "frame_offset") {
-						val = val + ",";
-						powers[input_id].frame_offset.x = eatFirstInt(val, ',');										
-						powers[input_id].frame_offset.y = eatFirstInt(val, ',');				
-					}
-					else if (key == "floor") {
-						if (val == "true") powers[input_id].floor = true;
-					}
-					else if (key == "active_frame") {
-						powers[input_id].active_frame = atoi(val.c_str());
-					}
-					else if (key == "complete_animation") {
-						if (val == "true") powers[input_id].complete_animation = true;
-					}
-					
-					// hazard traits
-					else if (key == "use_hazard") {
-						if (val == "true") powers[input_id].use_hazard = true;
-					}
-					else if (key == "no_attack") {
-						if (val == "true") powers[input_id].no_attack = true;
-					}
-					else if (key == "radius") {
-						powers[input_id].radius = atoi(val.c_str());
-					}
-					else if (key == "base_damage") {
-						if (val == "none")
-							powers[input_id].base_damage = BASE_DAMAGE_NONE;
-						else if (val == "melee")
-							powers[input_id].base_damage = BASE_DAMAGE_MELEE;
-						else if (val == "ranged")
-							powers[input_id].base_damage = BASE_DAMAGE_RANGED;
-						else if (val == "ment")
-							powers[input_id].base_damage = BASE_DAMAGE_MENT;
-					}
-					else if (key == "damage_multiplier") {
-						powers[input_id].damage_multiplier = atoi(val.c_str());
-					}
-					else if (key == "starting_pos") {
-						if (val == "source")
-							powers[input_id].starting_pos = STARTING_POS_SOURCE;
-						else if (val == "target")
-							powers[input_id].starting_pos = STARTING_POS_TARGET;
-						else if (val == "melee")
-							powers[input_id].starting_pos = STARTING_POS_MELEE;
-					}
-					else if (key == "multitarget") {
-						if (val == "true") powers[input_id].multitarget = true;
-					}
-					else if (key == "trait_armor_penetration") {
-						if (val == "true") powers[input_id].trait_armor_penetration = true;
-					}
-					else if (key == "trait_crits_impaired") {
-						powers[input_id].trait_crits_impaired = atoi(val.c_str());
-					}
-					else if (key == "trait_elemental") {
-						if (val == "wood") powers[input_id].trait_elemental = ELEMENT_WOOD;
-						else if (val == "metal") powers[input_id].trait_elemental = ELEMENT_METAL;
-						else if (val == "wind") powers[input_id].trait_elemental = ELEMENT_WIND;
-						else if (val == "water") powers[input_id].trait_elemental = ELEMENT_WATER;
-						else if (val == "earth") powers[input_id].trait_elemental = ELEMENT_EARTH;
-						else if (val == "fire") powers[input_id].trait_elemental = ELEMENT_FIRE;
-						else if (val == "shadow") powers[input_id].trait_elemental = ELEMENT_SHADOW;
-						else if (val == "light") powers[input_id].trait_elemental = ELEMENT_LIGHT;
-					}
-					//steal effects
-					else if (key == "hp_steal") {
-						powers[input_id].hp_steal = atoi(val.c_str());
-					}
-					else if (key == "mp_steal") {
-						powers[input_id].mp_steal = atoi(val.c_str());
-					}
-					//missile modifiers
-					else if (key == "missile_num") {
-						powers[input_id].missile_num = atoi(val.c_str());
-					}
-					else if (key == "missile_angle") {
-						powers[input_id].missile_angle = atoi(val.c_str());
-					}
-					else if (key == "angle_variance") {
-						powers[input_id].angle_variance = atoi(val.c_str());
-					}
-					else if (key == "speed_variance") {
-						powers[input_id].speed_variance = atoi(val.c_str());
-					}
-					//repeater modifiers
-					else if (key == "delay") {
-						powers[input_id].delay = atoi(val.c_str());
-					}
-					else if (key == "start_frame") {
-						powers[input_id].start_frame = atoi(val.c_str());
-					}
-					else if (key == "repeater_num") {
-						powers[input_id].repeater_num = atoi(val.c_str());
-					}
-					// buff/debuff durations
-					else if (key == "bleed_duration") {
-						powers[input_id].bleed_duration = atoi(val.c_str());
-					}
-					else if (key == "stun_duration") {
-						powers[input_id].stun_duration = atoi(val.c_str());
-					}
-					else if (key == "slow_duration") {
-						powers[input_id].slow_duration = atoi(val.c_str());
-					}
-					else if (key == "immobilize_duration") {
-						powers[input_id].immobilize_duration = atoi(val.c_str());
-					}
-					else if (key == "immunity_duration") {
-						powers[input_id].immunity_duration = atoi(val.c_str());
-					}
-					else if (key == "haste_duration") {
-						powers[input_id].haste_duration = atoi(val.c_str());
-					}
-					else if (key == "hot_duration") {
-						powers[input_id].hot_duration = atoi(val.c_str());
-					}
-					else if (key == "hot_value") {
-						powers[input_id].hot_value = atoi(val.c_str());
-					}
-					
-					// buffs
-					else if (key == "buff_heal") {
-						if (val == "true") powers[input_id].buff_heal = true;
-					}
-					else if (key == "buff_shield") {
-						if (val == "true") powers[input_id].buff_shield = true;
-					}
-					else if (key == "buff_teleport") {
-						if (val == "true") powers[input_id].buff_teleport = true;
-					}
-					else if (key == "buff_immunity") {
-						if (val == "true") powers[input_id].buff_immunity = true;
-					}
-					else if (key == "buff_restore_hp") {
-						powers[input_id].buff_restore_hp = atoi(val.c_str());
-					}
-					else if (key == "buff_restore_mp") {
-						powers[input_id].buff_restore_mp = atoi(val.c_str());
-					}
-					
-					// pre and post power effects
-					else if (key == "post_power") {
-						powers[input_id].post_power = atoi(val.c_str());
-					}
-					else if (key == "wall_power") {
-						powers[input_id].wall_power = atoi(val.c_str());
-					}
-					else if (key == "allow_power_mod") {
-						if (val == "true") powers[input_id].allow_power_mod = true;
-					}
-				}
+	if (infile.open("powers/powers.txt")) {
+		while (infile.next()) {
+			// id needs to be the first component of each power.  That is how we write
+			// data to the correct power.
+			if (infile.key == "id") {
+				input_id = atoi(infile.val.c_str());
+			}
+			else if (infile.key == "type") {
+				if (infile.val == "single") powers[input_id].type = POWTYPE_SINGLE;
+				else if (infile.val == "effect") powers[input_id].type = POWTYPE_EFFECT;
+				else if (infile.val == "missile") powers[input_id].type = POWTYPE_MISSILE;
+				else if (infile.val == "repeater") powers[input_id].type = POWTYPE_REPEATER;
+			}
+			else if (infile.key == "name") {
+				powers[input_id].name = infile.val;
+			}
+			else if (infile.key == "description") {
+				powers[input_id].description = infile.val;
+			}
+			else if (infile.key == "icon") {
+				powers[input_id].icon = atoi(infile.val.c_str());
+			}
+			else if (infile.key == "new_state") {
+				if (infile.val == "swing") powers[input_id].new_state = POWSTATE_SWING;
+				else if (infile.val == "shoot") powers[input_id].new_state = POWSTATE_SHOOT;
+				else if (infile.val == "cast") powers[input_id].new_state = POWSTATE_CAST;
+				else if (infile.val == "block") powers[input_id].new_state = POWSTATE_BLOCK;
+			}
+			else if (infile.key == "face") {
+				if (infile.val == "true") powers[input_id].face = true;
+			}
+			
+			// power requirements
+			else if (infile.key == "requires_physical_weapon") {
+				if (infile.val == "true") powers[input_id].requires_physical_weapon = true;
+			}
+			else if (infile.key == "requires_mental_weapon") {
+				if (infile.val == "true") powers[input_id].requires_mental_weapon = true;
+			}
+			else if (infile.key == "requires_offense_weapon") {
+				if (infile.val == "true") powers[input_id].requires_offense_weapon = true;
+			}
+			else if (infile.key == "requires_mp") {
+				powers[input_id].requires_mp = atoi(infile.val.c_str());
+			}
+			else if (infile.key == "requires_los") {
+				if (infile.val == "true") powers[input_id].requires_los = true;
+			}
+			else if (infile.key == "requires_empty_target") {
+				if (infile.val == "true") powers[input_id].requires_empty_target = true;
+			}
+			else if (infile.key == "requires_item") {
+				powers[input_id].requires_item = atoi(infile.val.c_str());
+			}
+			
+			// animation info
+			else if (infile.key == "gfx") {
+				powers[input_id].gfx_index = loadGFX(infile.val);
+			}
+			else if (infile.key == "sfx") {
+				powers[input_id].sfx_index = loadSFX(infile.val);
+			}
+			else if (infile.key == "rendered") {
+				if (infile.val == "true") powers[input_id].rendered = true;
+			}
+			else if (infile.key == "directional") {
+				if (infile.val == "true") powers[input_id].directional = true;
+			}
+			else if (infile.key == "visual_random") {
+				powers[input_id].visual_random = atoi(infile.val.c_str());
+			}
+			else if (infile.key == "visual_option") {
+				powers[input_id].visual_option = atoi(infile.val.c_str());
+			}
+			else if (infile.key == "aim_assist") {
+				powers[input_id].aim_assist = atoi(infile.val.c_str());
+			}
+			else if (infile.key == "speed") {
+				powers[input_id].speed = atoi(infile.val.c_str());
+			}
+			else if (infile.key == "lifespan") {
+				powers[input_id].lifespan = atoi(infile.val.c_str());
+			}
+			else if (infile.key == "frame_loop") {
+				powers[input_id].frame_loop = atoi(infile.val.c_str());
+			}
+			else if (infile.key == "frame_duration") {
+				powers[input_id].frame_duration = atoi(infile.val.c_str());
+			}
+			else if (infile.key == "frame_size") {
+				powers[input_id].frame_size.x = atoi(infile.nextValue().c_str());
+				powers[input_id].frame_size.y = atoi(infile.nextValue().c_str());
+			}
+			else if (infile.key == "frame_offset") {
+				powers[input_id].frame_offset.x = atoi(infile.nextValue().c_str());
+				powers[input_id].frame_offset.y = atoi(infile.nextValue().c_str());
+			}
+			else if (infile.key == "floor") {
+				if (infile.val == "true") powers[input_id].floor = true;
+			}
+			else if (infile.key == "active_frame") {
+				powers[input_id].active_frame = atoi(infile.val.c_str());
+			}
+			else if (infile.key == "complete_animation") {
+				if (infile.val == "true") powers[input_id].complete_animation = true;
+			}
+			
+			// hazard traits
+			else if (infile.key == "use_hazard") {
+				if (infile.val == "true") powers[input_id].use_hazard = true;
+			}
+			else if (infile.key == "no_attack") {
+				if (infile.val == "true") powers[input_id].no_attack = true;
+			}
+			else if (infile.key == "radius") {
+				powers[input_id].radius = atoi(infile.val.c_str());
+			}
+			else if (infile.key == "base_damage") {
+				if (infile.val == "none")
+					powers[input_id].base_damage = BASE_DAMAGE_NONE;
+				else if (infile.val == "melee")
+					powers[input_id].base_damage = BASE_DAMAGE_MELEE;
+				else if (infile.val == "ranged")
+					powers[input_id].base_damage = BASE_DAMAGE_RANGED;
+				else if (infile.val == "ment")
+					powers[input_id].base_damage = BASE_DAMAGE_MENT;
+			}
+			else if (infile.key == "damage_multiplier") {
+				powers[input_id].damage_multiplier = atoi(infile.val.c_str());
+			}
+			else if (infile.key == "starting_pos") {
+				if (infile.val == "source")
+					powers[input_id].starting_pos = STARTING_POS_SOURCE;
+				else if (infile.val == "target")
+					powers[input_id].starting_pos = STARTING_POS_TARGET;
+				else if (infile.val == "melee")
+					powers[input_id].starting_pos = STARTING_POS_MELEE;
+			}
+			else if (infile.key == "multitarget") {
+				if (infile.val == "true") powers[input_id].multitarget = true;
+			}
+			else if (infile.key == "trait_armor_penetration") {
+				if (infile.val == "true") powers[input_id].trait_armor_penetration = true;
+			}
+			else if (infile.key == "trait_crits_impaired") {
+				powers[input_id].trait_crits_impaired = atoi(infile.val.c_str());
+			}
+			else if (infile.key == "trait_elemental") {
+				if (infile.val == "wood") powers[input_id].trait_elemental = ELEMENT_WOOD;
+				else if (infile.val == "metal") powers[input_id].trait_elemental = ELEMENT_METAL;
+				else if (infile.val == "wind") powers[input_id].trait_elemental = ELEMENT_WIND;
+				else if (infile.val == "water") powers[input_id].trait_elemental = ELEMENT_WATER;
+				else if (infile.val == "earth") powers[input_id].trait_elemental = ELEMENT_EARTH;
+				else if (infile.val == "fire") powers[input_id].trait_elemental = ELEMENT_FIRE;
+				else if (infile.val == "shadow") powers[input_id].trait_elemental = ELEMENT_SHADOW;
+				else if (infile.val == "light") powers[input_id].trait_elemental = ELEMENT_LIGHT;
+			}
+			//steal effects
+			else if (infile.key == "hp_steal") {
+				powers[input_id].hp_steal = atoi(infile.val.c_str());
+			}
+			else if (infile.key == "mp_steal") {
+				powers[input_id].mp_steal = atoi(infile.val.c_str());
+			}
+			//missile modifiers
+			else if (infile.key == "missile_num") {
+				powers[input_id].missile_num = atoi(infile.val.c_str());
+			}
+			else if (infile.key == "missile_angle") {
+				powers[input_id].missile_angle = atoi(infile.val.c_str());
+			}
+			else if (infile.key == "angle_variance") {
+				powers[input_id].angle_variance = atoi(infile.val.c_str());
+			}
+			else if (infile.key == "speed_variance") {
+				powers[input_id].speed_variance = atoi(infile.val.c_str());
+			}
+			//repeater modifiers
+			else if (infile.key == "delay") {
+				powers[input_id].delay = atoi(infile.val.c_str());
+			}
+			else if (infile.key == "start_frame") {
+				powers[input_id].start_frame = atoi(infile.val.c_str());
+			}
+			else if (infile.key == "repeater_num") {
+				powers[input_id].repeater_num = atoi(infile.val.c_str());
+			}
+			// buff/debuff durations
+			else if (infile.key == "bleed_duration") {
+				powers[input_id].bleed_duration = atoi(infile.val.c_str());
+			}
+			else if (infile.key == "stun_duration") {
+				powers[input_id].stun_duration = atoi(infile.val.c_str());
+			}
+			else if (infile.key == "slow_duration") {
+				powers[input_id].slow_duration = atoi(infile.val.c_str());
+			}
+			else if (infile.key == "immobilize_duration") {
+				powers[input_id].immobilize_duration = atoi(infile.val.c_str());
+			}
+			else if (infile.key == "immunity_duration") {
+				powers[input_id].immunity_duration = atoi(infile.val.c_str());
+			}
+			else if (infile.key == "haste_duration") {
+				powers[input_id].haste_duration = atoi(infile.val.c_str());
+			}
+			else if (infile.key == "hot_duration") {
+				powers[input_id].hot_duration = atoi(infile.val.c_str());
+			}
+			else if (infile.key == "hot_value") {
+				powers[input_id].hot_value = atoi(infile.val.c_str());
+			}
+			
+			// buffs
+			else if (infile.key == "buff_heal") {
+				if (infile.val == "true") powers[input_id].buff_heal = true;
+			}
+			else if (infile.key == "buff_shield") {
+				if (infile.val == "true") powers[input_id].buff_shield = true;
+			}
+			else if (infile.key == "buff_teleport") {
+				if (infile.val == "true") powers[input_id].buff_teleport = true;
+			}
+			else if (infile.key == "buff_immunity") {
+				if (infile.val == "true") powers[input_id].buff_immunity = true;
+			}
+			else if (infile.key == "buff_restore_hp") {
+				powers[input_id].buff_restore_hp = atoi(infile.val.c_str());
+			}
+			else if (infile.key == "buff_restore_mp") {
+				powers[input_id].buff_restore_mp = atoi(infile.val.c_str());
+			}
+			
+			// pre and post power effects
+			else if (infile.key == "post_power") {
+				powers[input_id].post_power = atoi(infile.val.c_str());
+			}
+			else if (infile.key == "wall_power") {
+				powers[input_id].wall_power = atoi(infile.val.c_str());
+			}
+			else if (infile.key == "allow_power_mod") {
+				if (infile.val == "true") powers[input_id].allow_power_mod = true;
 			}
 		}
+		infile.close();
 	}
-	infile.close();
 }
 
 /**

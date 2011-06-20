@@ -14,7 +14,7 @@
 #include <fstream>
 #include "Settings.h"
 #include "Utils.h"
-#include "UtilsParsing.h"
+
 using namespace std;
 
 const int STAT_EFFECT_SHIELD = 0;

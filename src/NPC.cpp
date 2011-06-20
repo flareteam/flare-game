@@ -6,6 +6,8 @@
  */
 
 #include "NPC.h"
+#include <fstream>
+#include "FileParser.h"
 
 NPC::NPC(MapIso *_map, ItemDatabase *_items) : Entity(_map) {
 	items = _items;
@@ -56,136 +58,108 @@ NPC::NPC(MapIso *_map, ItemDatabase *_items) : Entity(_map) {
  */
 void NPC::load(string npc_id) {
 
-	ifstream infile;
-	string line;
-	string key;
-	string val;
-	string starts_with;
-	string section = "";
+	FileParser infile;
 	ItemStack stack;
 	int event_count = 0;
 	
-	infile.open(("npcs/" + npc_id + ".txt").c_str(), ios::in);
-
 	string filename_sprites = "";
 	string filename_portrait = "";
 
-	if (infile.is_open()) {
-		while (!infile.eof()) {
-			line = getLine(infile);
+	if (infile.open(("npcs/" + npc_id + ".txt").c_str())) {
+		while (infile.next()) {
+			if (infile.section == "dialog") {
+				if (infile.new_section) {
+					dialog_count++;
+					event_count = 0;
+				}
+			
+				// here we use dialog_count-1 because we've already incremented the dialog count but the array is 0 based
+			
+				dialog[dialog_count-1][event_count].type = infile.key;
+				if (infile.key == "requires_status")
+					dialog[dialog_count-1][event_count].s = infile.val;
+				else if (infile.key == "requires_not")
+					dialog[dialog_count-1][event_count].s = infile.val;
+				else if (infile.key == "requires_item")
+					dialog[dialog_count-1][event_count].x = atoi(infile.val.c_str());
+				else if (infile.key == "him" || infile.key == "her")
+					dialog[dialog_count-1][event_count].s = infile.val;
+				else if (infile.key == "you")
+					dialog[dialog_count-1][event_count].s = infile.val;
+				else if (infile.key == "reward_item") {
+					// id,count
+					dialog[dialog_count-1][event_count].x = atoi(infile.nextValue().c_str());
+					dialog[dialog_count-1][event_count].y = atoi(infile.val.c_str());
+				}
+				else if (infile.key == "reward_xp")
+					dialog[dialog_count-1][event_count].x = atoi(infile.val.c_str());
+				else if (infile.key == "reward_currency")
+					dialog[dialog_count-1][event_count].x = atoi(infile.val.c_str());
+				else if (infile.key == "remove_item")
+					dialog[dialog_count-1][event_count].x = atoi(infile.val.c_str());
+				else if (infile.key == "set_status")
+					dialog[dialog_count-1][event_count].s = infile.val;
+				else if (infile.key == "unset_status")
+					dialog[dialog_count-1][event_count].s = infile.val;
+				
+				event_count++;
+			}
+			else {
+				if (infile.key == "name") {
+					name = infile.val;
+				}
+				else if (infile.key == "level") {
+					level = atoi(infile.val.c_str());
+				}
+				else if (infile.key == "gfx") {
+					filename_sprites = infile.val;
+				}
+				else if (infile.key == "render_size") {
+					render_size.x = atoi(infile.nextValue().c_str());
+					render_size.y = atoi(infile.val.c_str());
+				}
+				else if (infile.key == "render_offset") {
+					render_offset.x = atoi(infile.nextValue().c_str());
+					render_offset.y = atoi(infile.val.c_str());
+				}
+				else if (infile.key == "anim_frames") {
+					anim_frames = atoi(infile.val.c_str());
+				}
+				else if (infile.key == "anim_duration") {
+					anim_duration = atoi(infile.val.c_str());
+				}
 
-			if (line.length() > 0) {
-				starts_with = line.at(0);
-				
-				if (starts_with == "#") {
-					// skip comments
+				// handle talkers
+				else if (infile.key == "talker") {
+					if (infile.val == "true") talker = true;
 				}
-				else if (starts_with == "[") {
-					section = parse_section_title(line);
-					if (section == "dialog") {
-						dialog_count++;
-						event_count = 0;
+				else if (infile.key == "portrait") {
+					filename_portrait = infile.val;
+				}
+
+				// handle vendors
+				else if (infile.key == "vendor") {
+					if (infile.val == "true") vendor = true;
+				}
+				else if (infile.key == "constant_stock") {
+					stack.quantity = 1;
+					while (infile.val != "") {
+						stack.item = atoi(infile.nextValue().c_str());
+						stock.add(stack);
 					}
 				}
-				else { // this is data.  treatment depends on key
-					parse_key_pair(line, key, val);          
-					key = trim(key, ' ');
-					val = trim(val, ' ');
+				else if (infile.key == "random_stock") {
+					random_stock = atoi(infile.val.c_str());
+				}
 				
-					if (section == "dialog") {
-					
-						// here we use dialog_count-1 because we've already incremented the dialog count but the array is 0 based
-					
-						dialog[dialog_count-1][event_count].type = key;
-						if (key == "requires_status")
-							dialog[dialog_count-1][event_count].s = val;
-						else if (key == "requires_not")
-							dialog[dialog_count-1][event_count].s = val;
-						else if (key == "requires_item")
-							dialog[dialog_count-1][event_count].x = atoi(val.c_str());
-						else if (key == "him" || key == "her")
-							dialog[dialog_count-1][event_count].s = val;
-						else if (key == "you")
-							dialog[dialog_count-1][event_count].s = val;
-						else if (key == "reward_item") {
-							// id,count
-							dialog[dialog_count-1][event_count].x = eatFirstInt(val, ',');
-							dialog[dialog_count-1][event_count].y = atoi(val.c_str());							
-						}
-						else if (key == "reward_xp")
-							dialog[dialog_count-1][event_count].x = atoi(val.c_str());
-						else if (key == "reward_currency")
-							dialog[dialog_count-1][event_count].x = atoi(val.c_str());
-						else if (key == "remove_item")
-							dialog[dialog_count-1][event_count].x = atoi(val.c_str());
-						else if (key == "set_status")
-							dialog[dialog_count-1][event_count].s = val;
-						else if (key == "unset_status")
-							dialog[dialog_count-1][event_count].s = val;						
-						
-						event_count++;
-					}
-					else {
-						if (key == "name") {
-							name = val;
-						}
-						else if (key == "level") {
-							level = atoi(val.c_str());
-						}
-						else if (key == "gfx") {
-							filename_sprites = val;
-						}
-						else if (key == "render_size") {
-							val = val + ",";
-							render_size.x = eatFirstInt(val, ',');
-							render_size.y = eatFirstInt(val, ',');
-						}
-						else if (key == "render_offset") {
-							val = val + ",";
-							render_offset.x = eatFirstInt(val, ',');
-							render_offset.y = eatFirstInt(val, ',');
-						}
-						else if (key == "anim_frames") {
-							anim_frames = atoi(val.c_str());
-						}
-						else if (key == "anim_duration") {
-							anim_duration = atoi(val.c_str());
-						}
-	
-						// handle talkers
-						else if (key == "talker") {
-							if (val == "true") talker=true;
-						}
-						else if (key == "portrait") {
-							filename_portrait = val;
-						}
-	
-						// handle vendors
-						else if (key == "vendor") {
-							if (val == "true") vendor=true;
-						}
-						else if (key == "constant_stock") {
-							val = val + ",";
-							stack.quantity = 1;
-							while (val != "") {
-								stack.item = eatFirstInt(val, ',');
-								stock.add(stack);
-							}
-						}
-						else if (key == "random_stock") {
-							random_stock = atoi(val.c_str());
-						}
-						
-						// handle vocals
-						else if (key == "vox_intro") {
-						loadSound(val, NPC_VOX_INTRO);
-						}
-					}
+				// handle vocals
+				else if (infile.key == "vox_intro") {
+					loadSound(infile.val, NPC_VOX_INTRO);
 				}
 			}
 		}
+		infile.close();
 	}
-	infile.close();
 	loadGraphics(filename_sprites, filename_portrait);
 }
 

@@ -8,6 +8,8 @@
  */
 
 #include "QuestLog.h"
+#include <fstream>
+#include "FileParser.h"
 
 QuestLog::QuestLog(CampaignManager *_camp, MenuLog *_log) {
 	camp = _camp;
@@ -37,8 +39,8 @@ void QuestLog::loadAll() {
 				load(line);
 			}
 		}
+		infile.close();
 	}
-	infile.close();
 }
 
 /**
@@ -46,50 +48,28 @@ void QuestLog::loadAll() {
  */
 void QuestLog::load(string filename) {
 
-	ifstream infile;
-	string line;
-	string key;
-	string val;
-	string starts_with;
-	string section = "";
+	FileParser infile;
 	int event_count = 0;
 	
-	infile.open(("quests/" + filename).c_str(), ios::in);
-
-	if (infile.is_open()) {
-		while (!infile.eof()) {
-			line = getLine(infile);
-
-			if (line.length() > 0) {
-				starts_with = line.at(0);
-				
-				if (starts_with == "#") {
-					// skip comments
-				}
-				else if (starts_with == "[") {
-					section = parse_section_title(line);
-					if (section == "quest") {
-						quest_count++;
-						event_count = 0;
-					}
-				}
-				else { // this is data.  treatment depends on key
-					parse_key_pair(line, key, val);          
-					key = trim(key, ' ');
-					val = trim(val, ' ');
-					
-					quests[quest_count-1][event_count].type = key;
-					quests[quest_count-1][event_count].s = val;
-					event_count++;
-					
-					// requires_status=s
-					// requires_not=s
-					// quest_text=s			
+	if (infile.open(("quests/" + filename).c_str())) {
+		while (infile.next()) {
+			if (infile.new_section) {
+				if (infile.section == "quest") {
+					quest_count++;
+					event_count = 0;
 				}
 			}
+			
+			quests[quest_count-1][event_count].type = infile.key;
+			quests[quest_count-1][event_count].s = infile.val;
+			event_count++;
+			
+			// requires_status=s
+			// requires_not=s
+			// quest_text=s
 		}
+		infile.close();
 	}
-	infile.close();	
 }
 
 void QuestLog::logic() {
