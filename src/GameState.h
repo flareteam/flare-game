@@ -16,6 +16,7 @@ public:
 
 	GameState* getRequestedGameState();
 	bool isExitRequested() { return exitRequested; };
+	bool hasMusic;
 
 protected:
 	SDL_Surface *screen;

@@ -8,6 +8,7 @@
  */
 
 #include "StatBlock.h"
+#include "FileParser.h"
 
 StatBlock::StatBlock() {
 
@@ -127,114 +128,87 @@ StatBlock::StatBlock() {
  * load a statblock, typically for an enemy definition
  */
 void StatBlock::load(string filename) {
-	ifstream infile;
-	string line;
-	string key;
-	string val;
-	string starts_with;
+	FileParser infile;
 	int num;
 	
-	infile.open(filename.c_str(), ios::in);
-
-	if (infile.is_open()) {
-		while (!infile.eof()) {
-
-			line = getLine(infile);
-
-			if (line.length() > 0) {
+	if (infile.open(filename.c_str())) {
+		while (infile.next()) {
+			if (isInt(infile.val)) num = atoi(infile.val.c_str());
 			
+			if (infile.key == "name") name = infile.val;
+			else if (infile.key == "sfx_prefix") sfx_prefix = infile.val;
+			else if (infile.key == "gfx_prefix") gfx_prefix = infile.val;
 			
-				starts_with = line.at(0);
-				
-				if (starts_with == "#") {
-					// skip comments
-				}
-				else if (starts_with == "[") {
-					// skip headers
-				}
-				else { // this is data.  treatment depends on section type
-					parse_key_pair(line, key, val);          
-					key = trim(key, ' ');
-					val = trim(val, ' ');
-					if (isInt(val)) num = atoi(val.c_str());
-					
-					if (key == "name") name = val;
-					else if (key == "sfx_prefix") sfx_prefix = val;
-					else if (key == "gfx_prefix") gfx_prefix = val;
-					
-					else if (key == "level") level = num;
-					
-					// enemy death rewards and events
-					else if (key == "xp") xp = num;
-					else if (key == "loot_chance") loot_chance = num;
-					else if (key == "defeat_status") defeat_status = val;
-					else if (key == "first_defeat_loot") first_defeat_loot = num;
-					else if (key == "quest_loot") {
-						quest_loot_requires = eatFirstString(val, ',');
-						quest_loot_not = eatFirstString(val, ',');
-						quest_loot_id = atoi(val.c_str());
-					}
-					
-					// combat stats
-					else if (key == "hp") {
-						hp = num;
-						maxhp = num;
-					}
-					else if (key == "mp") {
-						mp = num;
-						maxmp = num;
-					}
-					else if (key == "cooldown") cooldown = num;
-					else if (key == "accuracy") accuracy = num;
-					else if (key == "avoidance") avoidance = num;
-					else if (key == "dmg_melee_min") dmg_melee_min = num;
-					else if (key == "dmg_melee_max") dmg_melee_max = num;
-					else if (key == "dmg_ment_min") dmg_ment_min = num;
-					else if (key == "dmg_ment_max") dmg_ment_max = num;
-					else if (key == "dmg_ranged_min") dmg_ranged_min = num;
-					else if (key == "dmg_ranged_max") dmg_ranged_max = num;
-					else if (key == "absorb_min") absorb_min = num;
-					else if (key == "absorb_max") absorb_max = num;
-					
-					// behavior stats
-					else if (key == "speed") speed = num;
-					else if (key == "dspeed") dspeed = num;
-					else if (key == "dir_favor") dir_favor = num;
-					else if (key == "chance_pursue") chance_pursue = num;
-					else if (key == "chance_flee") chance_flee = num;
-
-					else if (key == "chance_melee_phys") power_chance[MELEE_PHYS] = num;
-					else if (key == "chance_melee_ment") power_chance[MELEE_MENT] = num;
-					else if (key == "chance_ranged_phys") power_chance[RANGED_PHYS] = num;
-					else if (key == "chance_ranged_ment") power_chance[RANGED_MENT] = num;
-					else if (key == "power_melee_phys") power_index[MELEE_PHYS] = num;
-					else if (key == "power_melee_ment") power_index[MELEE_MENT] = num;
-					else if (key == "power_ranged_phys") power_index[RANGED_PHYS] = num;
-					else if (key == "power_ranged_ment") power_index[RANGED_MENT] = num;
-					else if (key == "cooldown_melee_phys") power_cooldown[MELEE_PHYS] = num;
-					else if (key == "cooldown_melee_ment") power_cooldown[MELEE_MENT] = num;
-					else if (key == "cooldown_ranged_phys") power_cooldown[RANGED_PHYS] = num;
-					else if (key == "cooldown_ranged_ment") power_cooldown[RANGED_MENT] = num;
-					
-					else if (key == "melee_range") melee_range = num;
-					else if (key == "threat_range") threat_range = num;
-					
-					else if (key == "attunement_fire") attunement_fire=num;
-					else if (key == "attunement_ice") attunement_ice=num;
-
-					// animation stats
-					else if (key == "melee_weapon_power") melee_weapon_power = num;
-					else if (key == "mental_weapon_power") mental_weapon_power = num;
-					else if (key == "ranged_weapon_power") ranged_weapon_power = num;
-
-					else if (key == "animations") animations = val;
-					else if (key == "animation_speed") animationSpeed = num;
-	
-				}
+			else if (infile.key == "level") level = num;
+			
+			// enemy death rewards and events
+			else if (infile.key == "xp") xp = num;
+			else if (infile.key == "loot_chance") loot_chance = num;
+			else if (infile.key == "defeat_status") defeat_status = infile.val;
+			else if (infile.key == "first_defeat_loot") first_defeat_loot = num;
+			else if (infile.key == "quest_loot") {
+				quest_loot_requires = atoi(infile.nextValue().c_str());
+				quest_loot_not = atoi(infile.nextValue().c_str());
+				quest_loot_id = atoi(infile.nextValue().c_str());
 			}
+			
+			// combat stats
+			else if (infile.key == "hp") {
+				hp = num;
+				maxhp = num;
+			}
+			else if (infile.key == "mp") {
+				mp = num;
+				maxmp = num;
+			}
+			else if (infile.key == "cooldown") cooldown = num;
+			else if (infile.key == "accuracy") accuracy = num;
+			else if (infile.key == "avoidance") avoidance = num;
+			else if (infile.key == "dmg_melee_min") dmg_melee_min = num;
+			else if (infile.key == "dmg_melee_max") dmg_melee_max = num;
+			else if (infile.key == "dmg_ment_min") dmg_ment_min = num;
+			else if (infile.key == "dmg_ment_max") dmg_ment_max = num;
+			else if (infile.key == "dmg_ranged_min") dmg_ranged_min = num;
+			else if (infile.key == "dmg_ranged_max") dmg_ranged_max = num;
+			else if (infile.key == "absorb_min") absorb_min = num;
+			else if (infile.key == "absorb_max") absorb_max = num;
+			
+			// behavior stats
+			else if (infile.key == "speed") speed = num;
+			else if (infile.key == "dspeed") dspeed = num;
+			else if (infile.key == "dir_favor") dir_favor = num;
+			else if (infile.key == "chance_pursue") chance_pursue = num;
+			else if (infile.key == "chance_flee") chance_flee = num;
+
+			else if (infile.key == "chance_melee_phys") power_chance[MELEE_PHYS] = num;
+			else if (infile.key == "chance_melee_ment") power_chance[MELEE_MENT] = num;
+			else if (infile.key == "chance_ranged_phys") power_chance[RANGED_PHYS] = num;
+			else if (infile.key == "chance_ranged_ment") power_chance[RANGED_MENT] = num;
+			else if (infile.key == "power_melee_phys") power_index[MELEE_PHYS] = num;
+			else if (infile.key == "power_melee_ment") power_index[MELEE_MENT] = num;
+			else if (infile.key == "power_ranged_phys") power_index[RANGED_PHYS] = num;
+			else if (infile.key == "power_ranged_ment") power_index[RANGED_MENT] = num;
+			else if (infile.key == "cooldown_melee_phys") power_cooldown[MELEE_PHYS] = num;
+			else if (infile.key == "cooldown_melee_ment") power_cooldown[MELEE_MENT] = num;
+			else if (infile.key == "cooldown_ranged_phys") power_cooldown[RANGED_PHYS] = num;
+			else if (infile.key == "cooldown_ranged_ment") power_cooldown[RANGED_MENT] = num;
+			
+			else if (infile.key == "melee_range") melee_range = num;
+			else if (infile.key == "threat_range") threat_range = num;
+			
+			else if (infile.key == "attunement_fire") attunement_fire=num;
+			else if (infile.key == "attunement_ice") attunement_ice=num;
+
+			// animation stats
+			else if (infile.key == "melee_weapon_power") melee_weapon_power = num;
+			else if (infile.key == "mental_weapon_power") mental_weapon_power = num;
+			else if (infile.key == "ranged_weapon_power") ranged_weapon_power = num;
+
+			else if (infile.key == "animations") animations = infile.val;
+			else if (infile.key == "animation_speed") animationSpeed = num;
 		}
+		infile.close();
 	}
-	infile.close();
 }
 
 /**

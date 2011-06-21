@@ -13,9 +13,7 @@
 #include "SDL_image.h"
 #include "SDL_mixer.h"
 #include <string>
-#include <fstream>
 #include "Utils.h"
-#include "UtilsParsing.h"
 #include "ItemDatabase.h"
 #include "ItemStorage.h"
 #include "MapIso.h"

@@ -20,6 +20,7 @@
 
 #include "SDL.h"
 #include "SDL_image.h"
+#include "SDL_mixer.h"
 #include "InputState.h"
 #include "FontEngine.h"
 
@@ -35,11 +36,13 @@ private:
 	SDL_Surface *screen;
 	InputState *inp;
 	FontEngine *font;
+	Mix_Music *music;	
 	
 	GameState *currentState;
 	
 public:
 	GameSwitcher(SDL_Surface *_screen, InputState *_inp);
+	void loadMusic();
 	void logic();
 	void render();
 	~GameSwitcher();

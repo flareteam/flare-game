@@ -29,6 +29,21 @@ GameSwitcher::GameSwitcher(SDL_Surface *_screen, InputState *_inp) {
 	currentState = new GameStateTitle(screen, inp, font);
 	
 	done = false;
+	loadMusic();
+	
+}
+
+void GameSwitcher::loadMusic() {
+
+	music = Mix_LoadMUS("./music/title_theme.ogg");
+	if (!music) {
+	  printf("Mix_LoadMUS: %s\n", Mix_GetError());
+	  SDL_Quit();
+	}
+
+	Mix_VolumeMusic(MUSIC_VOLUME);
+	Mix_PlayMusic(music, -1);
+	
 }
 
 void GameSwitcher::logic() {
@@ -42,6 +57,14 @@ void GameSwitcher::logic() {
 		delete currentState;
 	
 		currentState = newState;
+		
+		// if this game state does not provide music, use the title theme
+		if (!currentState->hasMusic) {
+			if (!Mix_PlayingMusic()) {
+				Mix_PlayMusic(music, -1);
+			}
+		}
+		
 	}
 
 	currentState->logic();
@@ -57,5 +80,6 @@ void GameSwitcher::render() {
 GameSwitcher::~GameSwitcher() {
 	delete font;
 	delete currentState;
+	Mix_FreeMusic(music);
 }
 

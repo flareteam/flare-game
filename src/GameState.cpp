@@ -8,6 +8,7 @@ GameState::GameState(SDL_Surface *_screen, InputState *_inp, FontEngine *_font) 
 	requestedGameState = NULL;
 
 	exitRequested = false;
+	hasMusic = false;
 }
 
 GameState* GameState::getRequestedGameState() {

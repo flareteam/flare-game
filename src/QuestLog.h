@@ -10,7 +10,6 @@
 #ifndef QUEST_LOG_H
 #define QUEST_LOG_H
 
-#include <fstream>
 #include <string>
 #include "Utils.h"
 #include "CampaignManager.h"

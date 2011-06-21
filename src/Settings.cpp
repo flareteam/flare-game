@@ -8,7 +8,7 @@
 #include "Settings.h"
 #include <fstream>
 #include <string>
-#include "UtilsParsing.h"
+#include "FileParser.h"
 
 using namespace std;
 
@@ -42,69 +42,44 @@ bool MOUSE_MOVE = false;
 
 bool loadSettings() {
 
-	ifstream infile;
-	string line;
-	string key;
-	string val;
-	string starts_with;
+	FileParser infile;
 	
-	infile.open("config/settings.txt", ios::in);
-
-	if (infile.is_open()) {
-		while (!infile.eof()) {
-			line = getLine(infile);
-
-			if (line.length() > 0) {
-				starts_with = line.at(0);
-				
-				if (starts_with == "#") {
-					// skip comments
-				}
-				else if (starts_with == "[") {
-					// skip headers
-				}
-				else { // this is data.  treatment depends on key
-					parse_key_pair(line, key, val);          
-					key = trim(key, ' ');
-					val = trim(val, ' ');
-				
-					if (key == "fullscreen") {
-						if (val == "1") FULLSCREEN = true;
-					}
-					else if (key == "resolution_w") {
-						VIEW_W = atoi(val.c_str());
-						VIEW_W_HALF = VIEW_W/2;
-					}
-					else if (key == "resolution_h") {
-						VIEW_H = atoi(val.c_str());
-						VIEW_H_HALF = VIEW_H/2;
-					}
-					else if (key == "frames_per_sec") {
-						FRAMES_PER_SEC = atoi(val.c_str());
-					}
-					else if (key == "music_volume") {
-						MUSIC_VOLUME = atoi(val.c_str());
-					}
-					else if (key == "sound_volume") {
-						SOUND_VOLUME = atoi(val.c_str());
-					}
-					else if (key == "mouse_move") {
-						if (val == "1") MOUSE_MOVE = true;
-					}
-					else if (key == "hwsurface") {
-						if (val == "1") HWSURFACE = true;
-					}
-					else if (key == "doublebuf") {
-						if (val == "1") DOUBLEBUF = true;
-					}
-				}
+	if (infile.open("config/settings.txt")) {
+		while (infile.next()) {
+			if (infile.key == "fullscreen") {
+				if (infile.val == "1") FULLSCREEN = true;
+			}
+			else if (infile.key == "resolution_w") {
+				VIEW_W = atoi(infile.val.c_str());
+				VIEW_W_HALF = VIEW_W/2;
+			}
+			else if (infile.key == "resolution_h") {
+				VIEW_H = atoi(infile.val.c_str());
+				VIEW_H_HALF = VIEW_H/2;
+			}
+			else if (infile.key == "frames_per_sec") {
+				FRAMES_PER_SEC = atoi(infile.val.c_str());
+			}
+			else if (infile.key == "music_volume") {
+				MUSIC_VOLUME = atoi(infile.val.c_str());
+			}
+			else if (infile.key == "sound_volume") {
+				SOUND_VOLUME = atoi(infile.val.c_str());
+			}
+			else if (infile.key == "mouse_move") {
+				if (infile.val == "1") MOUSE_MOVE = true;
+			}
+			else if (infile.key == "hwsurface") {
+				if (infile.val == "1") HWSURFACE = true;
+			}
+			else if (infile.key == "doublebuf") {
+				if (infile.val == "1") DOUBLEBUF = true;
 			}
 		}
+		infile.close();
+		return true;
 	}
 	else {
-		return false; // can't find the config file
+		return false; // can't open the config file
 	}
-	infile.close();
-	
-	return true;
 }
