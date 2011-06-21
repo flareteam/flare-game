@@ -1,9 +1,6 @@
 name=Zombie
 level=3
-#note: The ',' is necessary at the end of the category list due to a bug in FileParser::nextValue()
-#      If the ',' is omitted, will cause an infinite loop that freezes the program.
-#      Somebody needs to fix this; right now, my brain isn't working clearly enough to find the problem.
-categories=zombie,undead,dungeon,
+categories=zombie,undead,dungeon
 
 sfx_prefix=zombie
 gfx_prefix=zombie
