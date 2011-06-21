@@ -14,6 +14,8 @@
 
 GameStatePlay::GameStatePlay(SDL_Surface *_screen, InputState *_inp, FontEngine *_font) : GameState(screen, inp, font) {
 
+	hasMusic = true;
+
 	// shared resources from GameSwitcher
 	screen = _screen;
 	inp = _inp;
