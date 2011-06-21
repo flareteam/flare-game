@@ -15,6 +15,7 @@
 GameStatePlay::GameStatePlay(SDL_Surface *_screen, InputState *_inp, FontEngine *_font) : GameState(screen, inp, font) {
 
 	hasMusic = true;
+	//Mix_HaltMusic(); // maybe not needed? playing new music should auto halt previous music
 
 	// shared resources from GameSwitcher
 	screen = _screen;
@@ -82,13 +83,13 @@ void GameStatePlay::checkEnemyFocus() {
 	else {
 		
 		// if there's no living creature in focus, look for a dead one instead
-		enemy = enemies->enemyFocus(inp->mouse, map->cam, false);
-		if (enemy != NULL) {
-			menu->enemy->enemy = enemy;
+		Enemy *temp_enemy = enemies->enemyFocus(inp->mouse, map->cam, false);
+		if (temp_enemy != NULL) {
+			menu->enemy->enemy = temp_enemy;
 			menu->enemy->timeout = MENU_ENEMY_TIMEOUT;
 		}
 	}
-	enemy = NULL;
+
 }
 
 /**

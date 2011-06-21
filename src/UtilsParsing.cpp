@@ -125,7 +125,7 @@ void parse_key_pair(string s, string &key, string &val) {
  * This is basically a really lazy "split" replacement
  */
 int eatFirstInt(string &s, char separator) {
-	unsigned int seppos = s.find_first_of(separator);
+	int seppos = s.find_first_of(separator);
 	if (seppos == string::npos) {
 		s = "";
 		return 0; // not found
@@ -136,7 +136,7 @@ int eatFirstInt(string &s, char separator) {
 }
 
 unsigned short eatFirstHex(string &s, char separator) {
-	unsigned int seppos = s.find_first_of(separator);
+	int seppos = s.find_first_of(separator);
 	if (seppos == string::npos) {
 		s = "";
 		return 0; // not found
@@ -147,7 +147,7 @@ unsigned short eatFirstHex(string &s, char separator) {
 }
 
 string eatFirstString(string &s, char separator) {
-	unsigned int seppos = s.find_first_of(separator);
+	int seppos = s.find_first_of(separator);
 	if (seppos == string::npos) return ""; // not found
 	string outs = s.substr(0, seppos);
 	s = s.substr(seppos+1, s.length());

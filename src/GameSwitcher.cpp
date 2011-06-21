@@ -29,6 +29,7 @@ GameSwitcher::GameSwitcher(SDL_Surface *_screen, InputState *_inp) {
 	currentState = new GameStateTitle(screen, inp, font);
 	
 	done = false;
+	music = NULL;
 	loadMusic();
 	
 }

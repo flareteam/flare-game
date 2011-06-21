@@ -77,7 +77,7 @@ string FileParser::nextValue() {
 		return ""; // not found
 	}
 	string s;
-	unsigned int seppos = val.find_first_of(',');
+	int seppos = val.find_first_of(',');
 	if (seppos == string::npos) {
 		s = val;
 		val = "";
