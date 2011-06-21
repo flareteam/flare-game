@@ -80,12 +80,13 @@ void GameStatePlay::checkEnemyFocus() {
 	else {
 		
 		// if there's no living creature in focus, look for a dead one instead
-		Enemy *temp_enemy = enemies->enemyFocus(inp->mouse, map->cam, false);
-		if (temp_enemy != NULL) {
-			menu->enemy->enemy = temp_enemy;
+		enemy = enemies->enemyFocus(inp->mouse, map->cam, false);
+		if (enemy != NULL) {
+			menu->enemy->enemy = enemy;
 			menu->enemy->timeout = MENU_ENEMY_TIMEOUT;
 		}
 	}
+	enemy = NULL;
 }
 
 /**
