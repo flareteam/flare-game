@@ -29,7 +29,8 @@ GameSwitcher::GameSwitcher(SDL_Surface *_screen, InputState *_inp) {
 	currentState = new GameStateTitle(screen, inp, font);
 	
 	done = false;
-	loadMusic();
+	music = NULL;
+	//loadMusic();
 	
 }
 
@@ -59,11 +60,11 @@ void GameSwitcher::logic() {
 		currentState = newState;
 		
 		// if this game state does not provide music, use the title theme
-		if (!currentState->hasMusic) {
-			if (!Mix_PlayingMusic()) {
-				Mix_PlayMusic(music, -1);
-			}
-		}
+		//if (!currentState->hasMusic) {
+		//	if (!Mix_PlayingMusic()) {
+		//		Mix_PlayMusic(music, -1);
+		//	}
+		//}
 		
 	}
 

@@ -15,7 +15,7 @@
 GameStatePlay::GameStatePlay(SDL_Surface *_screen, InputState *_inp, FontEngine *_font) : GameState(screen, inp, font) {
 
 	hasMusic = true;
-	Mix_HaltMusic();
+	//Mix_HaltMusic(); // maybe not needed? playing new music should auto halt previous music
 
 	// shared resources from GameSwitcher
 	screen = _screen;
