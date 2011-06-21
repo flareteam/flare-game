@@ -39,6 +39,7 @@ Set (FLARE_SOURCES
 	../src/Avatar.cpp
 	../src/CampaignManager.cpp
 	../src/Enemy.cpp
+	../src/EnemyGroupManager.cpp
 	../src/EnemyManager.cpp
 	../src/FileParser.cpp
 	../src/FontEngine.cpp

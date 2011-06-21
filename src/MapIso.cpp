@@ -103,16 +103,37 @@ void MapIso::playSFX(string filename) {
 }
 
 void MapIso::push_enemy_group(Map_Group g){
-	EnemyGroupManager category_list; //TODO: move this to beginning of program execution
+	//TODO: move this to beginning of program execution
+	EnemyGroupManager category_list;
 	category_list.generate();
+	
 	for(int i = 0; i < g.number; i++) {
 		Enemy_Level enemy_lev;
 		Map_Enemy group_member;
 		enemy_lev = category_list.random_enemy(g.category, g.levelmin, g.levelmax);
 		if (enemy_lev.type != ""){
+			Point target;
+			bool respawn_flag = true;
+
 			group_member.type = enemy_lev.type;
-			group_member.pos.x = (g.pos.x + rand() % g.area.x) * UNITS_PER_TILE + UNITS_PER_TILE/2;;
-			group_member.pos.y = (g.pos.y + rand() % g.area.y) * UNITS_PER_TILE + UNITS_PER_TILE/2;;
+			target.x = (g.pos.x + rand() % g.area.x) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+			target.y = (g.pos.y + rand() % g.area.y) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+			Map_Enemy test_enemy;
+			//TODO: create a practical limit on this so an area that is too small won't spend eternity trying to generate enemies that won't fit
+			while (respawn_flag) {
+				respawn_flag = false;
+				target.x = (g.pos.x + rand() % g.area.x) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+				target.y = (g.pos.y + rand() % g.area.y) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+				respawn_flag = !collider.is_empty(target.x, target.y);
+				for (int n = 0; n < enemies.size(); n++) {
+					test_enemy = enemies.front();
+					enemies.pop();
+					enemies.push(test_enemy);
+					if ((test_enemy.pos.x == target.x) && (test_enemy.pos.y == target.y)) respawn_flag = true;
+				}
+			}
+			group_member.pos.x = target.x;
+			group_member.pos.y = target.y;
 			group_member.direction = rand() % 8;
 			enemies.push(group_member);
 		}
@@ -130,7 +151,8 @@ int MapIso::load(string filename) {
   
 	clearEvents();
   
-    event_count = 0;
+	event_count = 0;
+	bool collider_set = false;
   
 	if (infile.open(("maps/" + filename).c_str())) {
 		while (infile.next()) {
@@ -226,6 +248,11 @@ int MapIso::load(string filename) {
 								else if (cur_layer == "collision") collision[i][j] = eatFirstInt(val, ',');
 							}
 						}
+					}
+					if ((cur_layer == "collision") && !collider_set) {
+						collider.setmap(collision);
+						collider.map_size.x = w;
+						collider.map_size.y = h;
 					}
 				}
 			}
@@ -351,9 +378,7 @@ int MapIso::load(string filename) {
 		}
 	}
 
-	collider.setmap(collision);
-	collider.map_size.x = w;
-	collider.map_size.y = h;
+
 	
 	if (this->new_music) {
 		loadMusic();
