@@ -80,5 +80,6 @@ void GameSwitcher::render() {
 GameSwitcher::~GameSwitcher() {
 	delete font;
 	delete currentState;
+	Mix_FreeMusic(music);
 }
 
