@@ -314,6 +314,12 @@ mapmod=object,38,46,164
 soundfx=soundfx/inventory/inventory_page.ogg
 msg="Sir Evan Maddox led the Averguard when the plague struck.  Powerful clerics from the corners of the world were brought here.  By the time a cure was found it was too late."
 
+[enemygroup]
+category=goblin
+level=1,3
+number=6
+area=8,38,21,21
+
 [enemy]
 type=brittle_skeleton
 spawnpoint=15,18,5
@@ -353,30 +359,6 @@ spawnpoint=28,24,7
 [enemy]
 type=antlion
 spawnpoint=35,28,2
-
-[enemy]
-type=goblin
-spawnpoint=17,38,5
-
-[enemy]
-type=goblin
-spawnpoint=19,38,1
-
-[enemy]
-type=goblin
-spawnpoint=13,48,2
-
-[enemy]
-type=goblin
-spawnpoint=19,49,7
-
-[enemy]
-type=goblin
-spawnpoint=21,48,0
-
-[enemy]
-type=goblin
-spawnpoint=25,53,4
 
 [enemy]
 type=goblin
