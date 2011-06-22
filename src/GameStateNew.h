@@ -26,21 +26,22 @@
 #include "GameState.h"
 #include "UtilsParsing.h"
 
-const int BASE_AND_LOOK_MAX = 32;
+const int PLAYER_OPTION_MAX = 32;
 
 class GameStateNew : public GameState {
 private:
 
 	void loadGraphics();
-	void loadPortrait(string base, string look);
+	void loadPortrait(string portrait_filename);
 	void loadOptions(string option_filename);
 
-	string base[BASE_AND_LOOK_MAX];
-	string look[BASE_AND_LOOK_MAX];
+	string base[PLAYER_OPTION_MAX];
+	string head[PLAYER_OPTION_MAX];
+	string portrait[PLAYER_OPTION_MAX];
 	int option_count;
 	int current_option;
 
-	SDL_Surface *portrait;
+	SDL_Surface *portrait_image;
 	SDL_Surface *portrait_border;
 	WidgetButton *button_exit;
 	WidgetButton *button_create;

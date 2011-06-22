@@ -172,9 +172,10 @@ public:
 	int quest_loot_id;
 	int first_defeat_loot;
 	
-	// player look choices
-	string base; // e.g. human male
-	string look; // e.g. option1
+	// player look options
+	string base; // folder in /images/avatar
+	string head; // png in /images/avatar/[base]
+	string portrait; // png in /images/portraits
 
 	string animations;
 	int animationSpeed;

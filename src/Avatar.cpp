@@ -82,7 +82,7 @@ void Avatar::loadGraphics(string _img_main, string _img_armor, string _img_off) 
 		sprites = IMG_Load(("images/avatar/" + stats.base + "/" + img_armor + ".png").c_str());
 		if (img_main != "") gfx_main = IMG_Load(("images/avatar/" + stats.base + "/" + img_main + ".png").c_str());
 		if (img_off != "") gfx_off = IMG_Load(("images/avatar/" + stats.base + "/" + img_off + ".png").c_str());
-		gfx_head = IMG_Load(("images/avatar/" + stats.base + "/" + stats.look + ".png").c_str());
+		gfx_head = IMG_Load(("images/avatar/" + stats.base + "/" + stats.head + ".png").c_str());
 
 		SDL_SetColorKey( sprites, SDL_SRCCOLORKEY, SDL_MapRGB(sprites->format, 255, 0, 255) ); 
 		if (gfx_main) SDL_SetColorKey( gfx_main, SDL_SRCCOLORKEY, SDL_MapRGB(gfx_main->format, 255, 0, 255) ); 

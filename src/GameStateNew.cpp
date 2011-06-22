@@ -16,7 +16,7 @@ GameStateNew::GameStateNew(SDL_Surface *_screen, InputState *_inp, FontEngine *_
 	game_slot = 0;
 	option_count = 0;
 	current_option = 0;
-	portrait = NULL;
+	portrait_image = NULL;
 	
 	button_exit = new WidgetButton(screen, font, inp, "./images/menus/buttons/button_default.png");
 	button_exit->label = "Cancel";
@@ -40,8 +40,8 @@ GameStateNew::GameStateNew(SDL_Surface *_screen, InputState *_inp, FontEngine *_
 	input_name->setPosition(VIEW_W_HALF - input_name->pos.w/2, VIEW_H_HALF+184);
 	
 	loadGraphics();
-	loadOptions("./config/base_and_look.txt");
-	loadPortrait(base[0], look[0]);
+	loadOptions("./config/hero_options.txt");
+	loadPortrait(portrait[0]);
 }	
 
 void GameStateNew::loadGraphics() {
@@ -61,21 +61,21 @@ void GameStateNew::loadGraphics() {
 	SDL_FreeSurface(cleanup);
 }
 
-void GameStateNew::loadPortrait(string base, string look) {
-	SDL_FreeSurface(portrait);
-	portrait = NULL;
+void GameStateNew::loadPortrait(string portrait_filename) {
+	SDL_FreeSurface(portrait_image);
+	portrait_image = NULL;
 	
-	portrait = IMG_Load(("images/portraits/" + base + "_" + look + ".png").c_str());
-	if (!portrait) return;
+	portrait_image = IMG_Load(("images/portraits/" + portrait_filename + ".png").c_str());
+	if (!portrait_image) return;
 	
 	// optimize
-	SDL_Surface *cleanup = portrait;
-	portrait = SDL_DisplayFormatAlpha(portrait);
+	SDL_Surface *cleanup = portrait_image;
+	portrait_image = SDL_DisplayFormatAlpha(portrait_image);
 	SDL_FreeSurface(cleanup);
 }
 
 /**
- * Load body type "base" and portrait/head "look" options from a config file
+ * Load body type "base" and portrait/head "portrait" options from a config file
  *
  * @param filename File containing entries for option=base,look
  */
@@ -87,11 +87,12 @@ void GameStateNew::loadOptions(string filename) {
 	
 		// if at the max allowed base+look options, skip the rest of the file
 		// TODO: remove static array size limit
-		if (option_count == BASE_AND_LOOK_MAX-1) break;
+		if (option_count == PLAYER_OPTION_MAX-1) break;
 
 		if (fin.key == "option") {
-			base[option_count] = eatFirstString(fin.val, ',');
-			look[option_count] = fin.val;
+			base[option_count] = fin.nextValue();
+			head[option_count] = fin.nextValue();
+			portrait[option_count] = fin.nextValue();
 			option_count++;
 		}
 	}
@@ -116,7 +117,8 @@ void GameStateNew::logic() {
 		// start the new game
 		GameStatePlay* play = new GameStatePlay(screen, inp, font);
 		play->pc->stats.base = base[current_option];
-		play->pc->stats.look = look[current_option];
+		play->pc->stats.head = head[current_option];
+		play->pc->stats.portrait = portrait[current_option];
 		play->pc->stats.name = input_name->getText();
 		play->game_slot = game_slot;
 		play->resetGame();
@@ -127,12 +129,12 @@ void GameStateNew::logic() {
 	if (button_next->checkClick()) {
 		current_option++;
 		if (current_option == option_count) current_option = 0;
-		loadPortrait(base[current_option], look[current_option]);
+		loadPortrait(portrait[current_option]);
 	}
 	else if (button_prev->checkClick()) {
 		current_option--;
 		if (current_option == -1) current_option = option_count-1;
-		loadPortrait(base[current_option], look[current_option]);
+		loadPortrait(portrait[current_option]);
 	}
 
 	input_name->logic();
@@ -158,7 +160,7 @@ void GameStateNew::render() {
 	dest.y = VIEW_H_HALF - 160;
 
 	if (portrait != NULL) {
-		SDL_BlitSurface(portrait, &src, screen, &dest);		
+		SDL_BlitSurface(portrait_image, &src, screen, &dest);		
 	}
 	if (portrait_border != NULL) {
 		SDL_BlitSurface(portrait_border, &src, screen, &dest);
@@ -171,7 +173,7 @@ void GameStateNew::render() {
 }
 
 GameStateNew::~GameStateNew() {
-	SDL_FreeSurface(portrait);
+	SDL_FreeSurface(portrait_image);
 	SDL_FreeSurface(portrait_border);
 	delete button_exit;
 	delete button_create;
