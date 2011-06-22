@@ -219,6 +219,12 @@ void GameStatePlay::checkLog() {
 		menu->hudlog->add(camp->log_msg);
 		camp->log_msg = "";
 	}
+	
+	// MenuInventory has hints to help the player use items properly
+	if (menu->inv->log_msg != "") {
+		menu->hudlog->add(menu->inv->log_msg);
+		menu->inv->log_msg = "";	
+	}
 }
 
 void GameStatePlay::checkEquipmentChange() {

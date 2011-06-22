@@ -85,6 +85,7 @@ struct Power {
 	bool requires_empty_target; // target square must be empty
 	int requires_item;
 	bool consumable;
+	bool requires_targeting; // power only makes sense when using click-to-target
 	
 	// animation info
 	int gfx_index;
@@ -169,6 +170,7 @@ struct Power {
 		requires_los = false;
 		requires_empty_target = false;
 		requires_item = -1;
+		requires_targeting=false;
 		
 		gfx_index = -1;
 		sfx_index = -1;

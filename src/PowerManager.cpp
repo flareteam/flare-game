@@ -99,6 +99,9 @@ void PowerManager::loadPowers() {
 			else if (infile.key == "requires_item") {
 				powers[input_id].requires_item = atoi(infile.val.c_str());
 			}
+			else if (infile.key == "requires_targeting") {
+				if (infile.val == "true") powers[input_id].requires_targeting = true;
+			}
 			
 			// animation info
 			else if (infile.key == "gfx") {

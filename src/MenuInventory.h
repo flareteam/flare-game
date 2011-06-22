@@ -87,6 +87,8 @@ public:
 	// so we only update the hero sprites when non-artifact changes occur.
 	bool changed_equipment;
 	bool changed_artifact;
+	
+	string log_msg;
 
 };
 

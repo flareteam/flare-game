@@ -40,6 +40,7 @@ MenuInventory::MenuInventory(SDL_Surface *_screen, FontEngine *_font, ItemDataba
 	drag_prev_src = -1;
 	changed_equipment = true;
 	changed_artifact = true;
+	log_msg = "";
 }
 
 void MenuInventory::loadGraphics() {
@@ -274,10 +275,18 @@ void MenuInventory::activate(InputState * input) {
 	// use a consumable item
 	if (items->items[inventory[CARRIED][slot].item].type == ITEM_TYPE_CONSUMABLE) {
 	
-		powers->activate(items->items[inventory[CARRIED][slot].item].power, stats, nullpt);
-		// intercept used_item flag.  We will destroy the item here.
-		powers->used_item = -1;
-		inventory[CARRIED].substract(slot);
+		// if this item requires targeting it can't be used this way
+		if (!powers->powers[items->items[inventory[CARRIED][slot].item].power].requires_targeting) {
+	
+			powers->activate(items->items[inventory[CARRIED][slot].item].power, stats, nullpt);
+			// intercept used_item flag.  We will destroy the item here.
+			powers->used_item = -1;
+			inventory[CARRIED].substract(slot);
+		}
+		else {
+			// let player know this can only be used from the action bar
+			log_msg = "This item can only be used from the action bar.";
+		}
 		
 	}
 	// equip an item
