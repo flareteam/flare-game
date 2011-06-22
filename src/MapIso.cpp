@@ -81,6 +81,17 @@ void MapIso::clearNPC(Map_NPC n) {
 	n.pos.y = 0;
 }
 
+void MapIso::clearGroup(Map_Group g) {
+	g.category = "";
+	g.pos.x = 0;
+	g.pos.y = 0;
+	g.area.x = 0;
+	g.area.y = 0;
+	g.levelmin = 0;
+	g.levelmax = 0;
+	g.number = 0;
+}
+
 void MapIso::playSFX(string filename) {
 	// only load from file if the requested soundfx isn't already loaded
 	if (filename != sfx_filename) {
@@ -91,6 +102,43 @@ void MapIso::playSFX(string filename) {
 	if (sfx) Mix_PlayChannel(-1, sfx, 0);	
 }
 
+void MapIso::push_enemy_group(Map_Group g){
+	//TODO: move this to beginning of program execution
+	EnemyGroupManager category_list;
+	category_list.generate();
+	
+	for(int i = 0; i < g.number; i++) {
+		Enemy_Level enemy_lev;
+		Map_Enemy group_member;
+		enemy_lev = category_list.random_enemy(g.category, g.levelmin, g.levelmax);
+		if (enemy_lev.type != ""){
+			Point target;
+			bool respawn_flag = true;
+
+			group_member.type = enemy_lev.type;
+			target.x = (g.pos.x + rand() % g.area.x) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+			target.y = (g.pos.y + rand() % g.area.y) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+			Map_Enemy test_enemy;
+			//TODO: create a practical limit on this so an area that is too small won't spend eternity trying to generate enemies that won't fit
+			while (respawn_flag) {
+				respawn_flag = false;
+				target.x = (g.pos.x + rand() % g.area.x) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+				target.y = (g.pos.y + rand() % g.area.y) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+				respawn_flag = !collider.is_empty(target.x, target.y);
+				for (int n = 0; n < enemies.size(); n++) {
+					test_enemy = enemies.front();
+					enemies.pop();
+					enemies.push(test_enemy);
+					if ((test_enemy.pos.x == target.x) && (test_enemy.pos.y == target.y)) respawn_flag = true;
+				}
+			}
+			group_member.pos.x = target.x;
+			group_member.pos.y = target.y;
+			group_member.direction = rand() % 8;
+			enemies.push(group_member);
+		}
+	}
+}
 
 /**
  * load
@@ -103,7 +151,8 @@ int MapIso::load(string filename) {
   
 	clearEvents();
   
-    event_count = 0;
+	event_count = 0;
+	bool collider_set = false;
   
 	if (infile.open(("maps/" + filename).c_str())) {
 		while (infile.next()) {
@@ -118,11 +167,19 @@ int MapIso::load(string filename) {
 					npcs.push(new_npc);
 					npc_awaiting_queue = false;
 				}
+				if (group_awaiting_queue){
+					push_enemy_group(new_group);
+					group_awaiting_queue = false;
+				}
 				
 				// for sections that are stored in collections, add a new object here
 				if (infile.section == "enemy") {
 					clearEnemy(new_enemy);
 					enemy_awaiting_queue = true;
+				}
+				else if (infile.section == "enemygroup") {
+					clearGroup(new_group);
+					group_awaiting_queue = true;
 				}
 				else if (infile.section == "npc") {
 					clearNPC(new_npc);
@@ -192,6 +249,11 @@ int MapIso::load(string filename) {
 							}
 						}
 					}
+					if ((cur_layer == "collision") && !collider_set) {
+						collider.setmap(collision);
+						collider.map_size.x = w;
+						collider.map_size.y = h;
+					}
 				}
 			}
 			else if (infile.section == "enemy") {
@@ -202,6 +264,24 @@ int MapIso::load(string filename) {
 					new_enemy.pos.x = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
 					new_enemy.pos.y = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
 					new_enemy.direction = atoi(infile.nextValue().c_str());
+				}
+			}
+			else if (infile.section == "enemygroup") {
+				if (infile.key == "category") {
+					new_group.category = infile.val;
+				}
+				else if (infile.key == "level") {
+					new_group.levelmin = atoi(infile.nextValue().c_str());
+					new_group.levelmax = atoi(infile.nextValue().c_str());
+				}
+				else if (infile.key == "area") {
+					new_group.pos.x = atoi(infile.nextValue().c_str());
+					new_group.pos.y = atoi(infile.nextValue().c_str());
+					new_group.area.x = atoi(infile.nextValue().c_str());
+					new_group.area.y = atoi(infile.nextValue().c_str());
+				}
+				else if (infile.key == "number") {
+					new_group.number = atoi(infile.val.c_str());
 				}
 			}
 			else if (infile.section == "npc") {
@@ -292,11 +372,13 @@ int MapIso::load(string filename) {
 			npcs.push(new_npc);
 			npc_awaiting_queue = false;
 		}
+		if (group_awaiting_queue){
+			push_enemy_group(new_group);
+			group_awaiting_queue = false;
+		}
 	}
 
-	collider.setmap(collision);
-	collider.map_size.x = w;
-	collider.map_size.y = h;
+
 	
 	if (this->new_music) {
 		loadMusic();
