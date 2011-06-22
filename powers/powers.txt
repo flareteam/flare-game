@@ -280,6 +280,7 @@ description=Blink to a nearby location
 new_state=cast
 requires_mp=1
 requires_empty_target=true
+requires_targeting=true
 gfx=runes.png
 sfx=teleport.ogg
 use_hazard=true
@@ -311,8 +312,6 @@ aim_assist=32
 allow_power_mod=true
 
 
-
-
 [power]
 id=18
 name=Burn
@@ -323,6 +322,7 @@ new_state=cast
 face=true
 requires_mp=1
 requires_los=true
+requires_targeting=true
 gfx=blast.png
 sfx=burn.ogg
 use_hazard=true
@@ -830,6 +830,7 @@ icon=15
 description=Blink to a nearby location
 new_state=cast
 requires_empty_target=true
+requires_targeting=true
 gfx=runes.png
 sfx=teleport.ogg
 use_hazard=true
