@@ -14,18 +14,27 @@ EnemyGroupManager::EnemyGroupManager() {
 EnemyGroupManager::~EnemyGroupManager() {
 }
 
-// Returns a vector containing all filenames in a given folder
-int EnemyGroupManager::getdir(string dir, vector<string> &files) {
+/**
+ * Returns a vector containing all filenames in a given folder with the given extension
+ */
+int EnemyGroupManager::getdir(string dir, string ext, vector<string> &files) {
     DIR *dp;
     struct dirent *dirp;
-    if((dp  = opendir(dir.c_str())) == NULL) {
+    
+	if((dp  = opendir(dir.c_str())) == NULL) {
         cout << "Error(" << errno << ") opening " << dir << endl;
         return errno;
     }
+	
+	int extlen = ext.length();
     while ((dirp = readdir(dp)) != NULL) {
-	if(dirp->d_type == 0x8) { //0x4 for directories, 0x8 for files
-	        files.push_back(string(dirp->d_name));
-	}
+	//	if(dirp->d_type == 0x8) { //0x4 for directories, 0x8 for files
+		string filename = string(dirp->d_name);
+		if(filename.length() > extlen) {
+			if(filename.substr(filename.length()-extlen,extlen) == ext) {
+				files.push_back(filename);
+			}
+		}
     }
     closedir(dp);
     return 0;
@@ -35,7 +44,7 @@ int EnemyGroupManager::getdir(string dir, vector<string> &files) {
 void EnemyGroupManager::generate() {
 	string dir = string("enemies");
 	vector<string> files = vector<string>();
-	getdir(dir,files);
+	getdir(dir,".txt",files);
 	for (int i = 0; i < files.size(); i++) {
 		extract_and_sort(files[i]);
 	}

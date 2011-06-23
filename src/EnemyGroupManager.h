@@ -33,7 +33,7 @@ private:
 	map <string, vector<Enemy_Level> > category_list; 
 	// functions
 	void extract_and_sort(string filename);
-	int getdir(string dir, vector<string> &files);
+	int getdir(string dir, string ext, vector<string> &files);
 public:
 	// functions
 	EnemyGroupManager(/*ARGS WILL GO HERE*/);
