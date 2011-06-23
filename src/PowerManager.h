@@ -197,6 +197,9 @@ struct Power {
 		damage_multiplier = 100;
 		multitarget = false;
 
+		hp_steal = 0;
+		mp_steal = 0;
+
 		missile_num = 1;
 		missile_angle = 0;
 		angle_variance = 0;
