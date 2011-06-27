@@ -11,8 +11,6 @@
 
 Avatar::Avatar(PowerManager *_powers, InputState *_inp, MapIso *_map) : Entity(_map), powers(_powers), inp(_inp) {
 	
-	loadSounds();
-	
 	init();
 	
 	// default hero animation data
@@ -132,8 +130,8 @@ void Avatar::loadGraphics(string _img_main, string _img_armor, string _img_off) 
 
 void Avatar::loadSounds() {
 	sound_melee = Mix_LoadWAV("soundfx/melee_attack.ogg");
-	sound_hit = Mix_LoadWAV("soundfx/male_hit.ogg");
-	sound_die = Mix_LoadWAV("soundfx/male_die.ogg");
+	sound_hit = Mix_LoadWAV(("soundfx/" + stats.base + "_hit.ogg").c_str());
+	sound_die = Mix_LoadWAV(("soundfx/" + stats.base + "_die.ogg").c_str());
 	sound_block = Mix_LoadWAV("soundfx/powers/block.ogg");	
 	sound_steps[0] = Mix_LoadWAV("soundfx/step_echo1.ogg");
 	sound_steps[1] = Mix_LoadWAV("soundfx/step_echo2.ogg");
@@ -143,7 +141,6 @@ void Avatar::loadSounds() {
 				
 	if (!sound_melee || !sound_hit || !sound_die || !sound_steps[0] || !level_up) {
 	  printf("Mix_LoadWAV: %s\n", Mix_GetError());
-	  SDL_Quit();
 	}
 	
 }

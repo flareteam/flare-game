@@ -161,6 +161,9 @@ void GameStatePlay::loadGame() {
 	
 	// set up MenuTalker for this hero
 	menu->talker->setHero(pc->stats.name, pc->stats.portrait);
+	
+	// load sounds (gender specific)
+	pc->loadSounds();
 
 }
 
