@@ -723,9 +723,21 @@ bool PowerManager::missile(int power_index, StatBlock *src_stats, Point target) 
 	// calculate base angle
 	float dx = (float)target.x - (float)src_stats->pos.x;
 	float dy = (float)target.y - (float)src_stats->pos.y;
-	float theta = atan(dy/dx);
-	if (dx > 0) theta += pi; //theta corrector
+	int exact_dx = target.x - src_stats->pos.x;
 
+	float theta;
+	
+	// convert cartesian to polar coordinates
+	if (exact_dx == 0) {
+		if (dy > 0.0) theta = pi/2.0;
+		else theta = -pi/2.0;
+	}
+	else {
+		theta = atan(dy/dx);
+		if (dx < 0.0 && dy >= 0.0) theta += pi;
+		if (dx < 0.0 && dy < 0.0) theta -= pi;
+	}
+	
 	//generate hazards
 	for (int i=0; i < powers[power_index].missile_num; i++) {
 		haz[i] = new Hazard();
@@ -737,8 +749,8 @@ bool PowerManager::missile(int power_index, StatBlock *src_stats, Point target) 
 		if (powers[power_index].angle_variance != 0)
 			variance = pow(-1, (rand() % 2) - 1) * (rand() % powers[power_index].angle_variance) * pi / 180.0; //random between 0 and angle_variance away
 		float alpha = theta + offset_angle + variance;
-		while (alpha >= 2 * pi) alpha -= 2 * pi;
-		while (alpha < 0) alpha += 2 * pi;
+		while (alpha >= pi+pi) alpha -= pi+pi;
+		while (alpha < 0.0) alpha += pi+pi;
 
 		//calculate animation direction (the UNITS_PER_TILE just reduces round-off error)
 		rot_target.x = src_stats->pos.x - UNITS_PER_TILE * cos(alpha);
@@ -750,8 +762,8 @@ bool PowerManager::missile(int power_index, StatBlock *src_stats, Point target) 
 		int speed_var = 0;
 		if (powers[power_index].speed_variance != 0)
 			speed_var = pow(-1, (rand() % 2) - 1) * (rand() % powers[power_index].speed_variance + 1) - 1;
-		haz[i]->speed.x = (haz[0]->base_speed + speed_var) * -cos(alpha);
-		haz[i]->speed.y = (haz[0]->base_speed + speed_var) * -sin(alpha);
+		haz[i]->speed.x = (haz[0]->base_speed + speed_var) * cos(alpha);
+		haz[i]->speed.y = (haz[0]->base_speed + speed_var) * sin(alpha);
 		hazards.push(haz[i]);
 	}
 
@@ -767,6 +779,8 @@ bool PowerManager::missile(int power_index, StatBlock *src_stats, Point target) 
  * Repeaters are multiple hazards that spawn in a straight line
  */
 bool PowerManager::repeater(int power_index, StatBlock *src_stats, Point target) {
+	float pi = 3.1415926535898;
+	
 	// pay costs
 	if (powers[power_index].requires_mp>0) src_stats->mp-=powers[power_index].requires_mp;
 	used_item = powers[power_index].requires_item;
@@ -781,13 +795,22 @@ bool PowerManager::repeater(int power_index, StatBlock *src_stats, Point target)
 	// calculate speed
 	float dx = (float)(target.x - src_stats->pos.x);
 	float dy = (float)(target.y - src_stats->pos.y);
-	float theta = atan(dy/dx);
+	int exact_dx = target.x - src_stats->pos.x;
+	float theta;
+	
+	// convert cartesian to polar coordinates
+	if (exact_dx == 0) {
+		if (dy > 0.0) theta = pi/2.0;
+		else theta = -pi/2.0;
+	}
+	else {
+		theta = atan(dy/dx);
+		if (dx < 0.0 && dy >= 0.0) theta += pi;
+		if (dx < 0.0 && dy < 0.0) theta -= pi;
+	}	 
+
 	speed.x = (float)map_speed * cos(theta);
 	speed.y = (float)map_speed * sin(theta);
-	if (dx > 0.0 && speed.x < 0.0 || dx < 0.0 && speed.x > 0.0)
-		speed.x *= -1.0;
-	if (dy > 0.0 && speed.y < 0.0 || dy < 0.0 && speed.y > 0.0)
-		speed.y *= -1.0;
 
 	location_iterator.x = (float)src_stats->pos.x;
 	location_iterator.y = (float)src_stats->pos.y;
