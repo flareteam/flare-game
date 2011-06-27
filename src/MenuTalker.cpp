@@ -116,7 +116,7 @@ void MenuTalker::render() {
 		if (npc->portrait != NULL) {
 			src.w = dest.w = 320;
 			src.h = dest.h = 320;
-			dest.x = offset_x + 48;
+			dest.x = offset_x + 32;
 			dest.y = offset_y;
 			SDL_BlitSurface(npc->portrait, &src, screen, &dest);	
 		}
@@ -126,7 +126,7 @@ void MenuTalker::render() {
 		if (portrait != NULL) {
 			src.w = dest.w = 320;
 			src.h = dest.h = 320;
-			dest.x = offset_x + 272;
+			dest.x = offset_x + 288;
 			dest.y = offset_y;
 			SDL_BlitSurface(portrait, &src, screen, &dest);			
 		}
