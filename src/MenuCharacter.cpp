@@ -186,22 +186,22 @@ void MenuCharacter::render() {
 
 		// physical
 		if (stats->physical_character < 5) { // && mouse.x >= 16 && mouse.y >= offset_y+96
-			dest.y = offset_y + 96;
+			dest.y = offset_y + 104;
 			SDL_BlitSurface(upgrade, &src, screen, &dest);
 		}
 		// mental
 		if (stats->mental_character < 5) { // && mouse.x >= 16 && mouse.y >= offset_y+160
-			dest.y = offset_y + 160;
+			dest.y = offset_y + 168;
 			SDL_BlitSurface(upgrade, &src, screen, &dest);
 		}
 		// offense
 		if (stats->offense_character < 5) { // && mouse.x >= 16 && mouse.y >= offset_y+224
-			dest.y = offset_y + 224;
+			dest.y = offset_y + 232;
 			SDL_BlitSurface(upgrade, &src, screen, &dest);
 		}
 		// defense
 		if (stats->defense_character < 5) { // && mouse.x >= 16 && mouse.y >= offset_y+288
-			dest.y = offset_y + 288;
+			dest.y = offset_y + 296;
 			SDL_BlitSurface(upgrade, &src, screen, &dest);
 		}
 
