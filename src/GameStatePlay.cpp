@@ -62,6 +62,12 @@ void GameStatePlay::resetGame() {
 	menu->log->clear();
 	quests->createQuestList();
 	menu->hudlog->clear();
+	
+	// Not sure if this is the correct place for it
+	// When creating a new character instead of loading a game
+	// set up MenuTalker
+	menu->talker->setHero(pc->stats.name, pc->stats.portrait);
+
 }
 
 /**

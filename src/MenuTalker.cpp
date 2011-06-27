@@ -13,6 +13,9 @@ MenuTalker::MenuTalker(SDL_Surface *_screen, InputState *_inp , FontEngine *_fon
 	inp = _inp;
 	camp = _camp;
 	npc = NULL;
+	background = NULL;
+	portrait = NULL;
+
 
 	advanceButton = new WidgetButton(screen, font, inp, "./images/menus/buttons/right.png");
 	advanceButton->pos.x = VIEW_W_HALF + 288;
@@ -120,9 +123,14 @@ void MenuTalker::render() {
 		line = npc->name + ": ";
 	}
 	else if (etype == "you") {
-		// TODO: display the player's chosen portrait
-		// TODO: display the player's chosen name
-		line = "You: ";
+		if (portrait != NULL) {
+			src.w = dest.w = 320;
+			src.h = dest.h = 320;
+			dest.x = offset_x + 272;
+			dest.y = offset_y;
+			SDL_BlitSurface(portrait, &src, screen, &dest);			
+		}
+		line = hero_name + ": ";
 	}
 	
 	// text overlay
@@ -143,7 +151,26 @@ void MenuTalker::render() {
 	}
 }
 
+void MenuTalker::setHero(string name, string portrait_filename) {
+	hero_name = name;
+	
+	portrait = IMG_Load(("images/portraits/" + portrait_filename + ".png").c_str());
+	if(!portrait) {
+		fprintf(stderr, "Couldn't load portrait: %s\n", IMG_GetError());
+		
+		// keep playing, just don't show this portrait
+	}
+	else {
+		// optimize
+		SDL_Surface *cleanup = portrait;
+		portrait = SDL_DisplayFormatAlpha(portrait);
+		SDL_FreeSurface(cleanup);
+	}
+}
 
 MenuTalker::~MenuTalker() {
 	SDL_FreeSurface(background);
+	SDL_FreeSurface(portrait);
+	delete advanceButton;
+	delete closeButton;
 }

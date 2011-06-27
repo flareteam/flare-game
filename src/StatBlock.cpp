@@ -148,8 +148,8 @@ void StatBlock::load(string filename) {
 			else if (infile.key == "defeat_status") defeat_status = infile.val;
 			else if (infile.key == "first_defeat_loot") first_defeat_loot = num;
 			else if (infile.key == "quest_loot") {
-				quest_loot_requires = atoi(infile.nextValue().c_str());
-				quest_loot_not = atoi(infile.nextValue().c_str());
+				quest_loot_requires = infile.nextValue();
+				quest_loot_not = infile.nextValue();
 				quest_loot_id = atoi(infile.nextValue().c_str());
 			}
 			

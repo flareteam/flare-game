@@ -158,6 +158,9 @@ void GameStatePlay::loadGame() {
 			
 	// just for aesthetics, turn the hero to face the camera
 	pc->stats.direction = 6;
+	
+	// set up MenuTalker for this hero
+	menu->talker->setHero(pc->stats.name, pc->stats.portrait);
 
 }
 
