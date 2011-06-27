@@ -106,6 +106,13 @@ void MenuManager::logic() {
 	// check if mouse-clicking a menu button
 	act->checkMenu(inp->mouse, clicking_character, clicking_inventory, clicking_powers, clicking_log);
 
+	if (exit->visible) {
+		exit->logic();
+		if (exit->isExitRequested()) {
+			done = true;
+		}
+	}
+	
 	// exit menu toggle
 	if ((inp->pressing[CANCEL] && !inp->lock[CANCEL] && !key_lock && !dragging)) {
 		inp->lock[CANCEL] = true;
@@ -410,10 +417,6 @@ void MenuManager::logic() {
 			dragging = false;
 		}
 
-		exit->logic();
-		if (exit->isExitRequested()) {
-			done = true;
-		}
 	}
 	
 	// handle equipment changes affecting hero stats
