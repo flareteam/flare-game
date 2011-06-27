@@ -251,7 +251,7 @@ private:
 	string sfx_filenames[POWER_MAX_SFX];
 	int gfx_count;
 	int sfx_count;
-
+	float calcTheta(int x1, int y1, int x2, int y2);
 
 	int calcDirection(int origin_x, int origin_y, int target_x, int target_y);
 	void initHazard(int powernum, StatBlock *src_stats, Point target, Hazard *haz);

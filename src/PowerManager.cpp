@@ -381,11 +381,37 @@ void PowerManager::handleNewMap(MapCollision *_collider) {
 	collider = _collider;
 }
 
+// convert cartesian to polar theta where (x1,x2) is the origin
+float PowerManager::calcTheta(int x1, int y1, int x2, int y2) {
+
+	float pi = 3.1415926535898;
+	
+	// calculate base angle
+	float dx = (float)x2 - (float)x1;
+	float dy = (float)y2 - (float)y1;
+	int exact_dx = x2 - x1;
+	float theta;
+	
+	// convert cartesian to polar coordinates
+	if (exact_dx == 0) {
+		if (dy > 0.0) theta = pi/2.0;
+		else theta = -pi/2.0;
+	}
+	else {
+		theta = atan(dy/dx);
+		if (dx < 0.0 && dy >= 0.0) theta += pi;
+		if (dx < 0.0 && dy < 0.0) theta -= pi;
+	}
+	return theta;
+}
+
 /**
  * Change direction to face the target map location
  */
 int PowerManager::calcDirection(int origin_x, int origin_y, int target_x, int target_y) {
 
+	// TODO: use calcTheta instead and check for the areas between -PI and PI
+	
 	// inverting Y to convert map coordinates to standard cartesian coordinates
 	int dx = target_x - origin_x;
 	int dy = origin_y - target_y;
@@ -720,23 +746,8 @@ bool PowerManager::missile(int power_index, StatBlock *src_stats, Point target) 
 
 	Hazard *haz[powers[power_index].missile_num];
 
-	// calculate base angle
-	float dx = (float)target.x - (float)src_stats->pos.x;
-	float dy = (float)target.y - (float)src_stats->pos.y;
-	int exact_dx = target.x - src_stats->pos.x;
-
-	float theta;
-	
-	// convert cartesian to polar coordinates
-	if (exact_dx == 0) {
-		if (dy > 0.0) theta = pi/2.0;
-		else theta = -pi/2.0;
-	}
-	else {
-		theta = atan(dy/dx);
-		if (dx < 0.0 && dy >= 0.0) theta += pi;
-		if (dx < 0.0 && dy < 0.0) theta -= pi;
-	}
+	// calculate polor coordinates angle
+	float theta = calcTheta(src_stats->pos.x, src_stats->pos.y, target.x, target.y);
 	
 	//generate hazards
 	for (int i=0; i < powers[power_index].missile_num; i++) {
@@ -753,8 +764,8 @@ bool PowerManager::missile(int power_index, StatBlock *src_stats, Point target) 
 		while (alpha < 0.0) alpha += pi+pi;
 
 		//calculate animation direction (the UNITS_PER_TILE just reduces round-off error)
-		rot_target.x = src_stats->pos.x - UNITS_PER_TILE * cos(alpha);
-		rot_target.y = src_stats->pos.y - UNITS_PER_TILE * sin(alpha);
+		rot_target.x = src_stats->pos.x + UNITS_PER_TILE * cos(alpha);
+		rot_target.y = src_stats->pos.y + UNITS_PER_TILE * sin(alpha);
 
 		initHazard(power_index, src_stats, rot_target, haz[i]);
 
@@ -779,7 +790,7 @@ bool PowerManager::missile(int power_index, StatBlock *src_stats, Point target) 
  * Repeaters are multiple hazards that spawn in a straight line
  */
 bool PowerManager::repeater(int power_index, StatBlock *src_stats, Point target) {
-	float pi = 3.1415926535898;
+
 	
 	// pay costs
 	if (powers[power_index].requires_mp>0) src_stats->mp-=powers[power_index].requires_mp;
@@ -792,22 +803,8 @@ bool PowerManager::repeater(int power_index, StatBlock *src_stats, Point target)
 	int delay_iterator;
 	int map_speed = 64;
 
-	// calculate speed
-	float dx = (float)(target.x - src_stats->pos.x);
-	float dy = (float)(target.y - src_stats->pos.y);
-	int exact_dx = target.x - src_stats->pos.x;
-	float theta;
-	
-	// convert cartesian to polar coordinates
-	if (exact_dx == 0) {
-		if (dy > 0.0) theta = pi/2.0;
-		else theta = -pi/2.0;
-	}
-	else {
-		theta = atan(dy/dx);
-		if (dx < 0.0 && dy >= 0.0) theta += pi;
-		if (dx < 0.0 && dy < 0.0) theta -= pi;
-	}	 
+	// calculate polor coordinates angle
+	float theta = calcTheta(src_stats->pos.x, src_stats->pos.y, target.x, target.y);
 
 	speed.x = (float)map_speed * cos(theta);
 	speed.y = (float)map_speed * sin(theta);
