@@ -17,7 +17,9 @@ anim_duration=30
 
 [dialog]
 set_status=ak_intro
-him=I am Guill, a scribe with the Order. I am grateful you've come -- we are short on trained warriors due to the call-to-arms in Ancelot. What the locals call the Goblin Warrens is actually the entrance to a grand underground fortress known as Averguard Keep. This site is sacred to our order. Our primary mission is to cleanse the evil from this place.
+him=I am Guill, a scribe with the Order. I am grateful you've come -- we are short on trained warriors due to the call-to-arms in Ancelot.
+you=Why is the Order interested in these ruins?
+him=What the locals call the Goblin Warrens is actually the entrance to a grand underground fortress known as Averguard Keep. This site is sacred to our order. Our primary mission is to cleanse the evil from this place.
 
 [dialog]
 requires_status=ak_intro
@@ -28,6 +30,7 @@ him=The goblins in the Warrens answer to a warlord named Ukkonen. Most goblins a
 requires_status=ak_ukkonen_reward
 requires_not=ak_tome_found
 him=The Averguard left a set of Chronicles detailing their final era. One volume is missing. I've searched this entire area except for Ukkonen's lair. If you find the book please return to me.
+you=I'll keep an eye out for it.
 
 # This tome bears the seal of the Averguard
 
@@ -42,35 +45,44 @@ him=You found this tome in Ukkonen's lair? Most excellent -- I feared this volum
 [dialog]
 requires_status=ak_tome_reward
 set_status=ak_key_search
-him=This tome confirms what we know of Averguard Keep -- it crumbled against the plague many centuries ago. But not all of the infected were destroyed. It appears many undead where locked away in hopes that a cure would be found. Head northwest into the Atrium, then southeast to the Prison. Search for a key to access the sealed areas of the Keep.
+him=This tome confirms what we know of Averguard Keep -- it crumbled against the plague many centuries ago. But not all of the infected were destroyed. It appears many undead where locked away in hopes that a cure would be found.
+you=Why were the undead spared?
+him=I don't know, but we should investigate. Head northwest into the Atrium, then southeast to the Prison. Search for a key to access the sealed areas of the Keep.
 
 [dialog]
 requires_status=ak_key_found
 requires_item=9001
+you=I have the prison key. The old prison warden carried it on his person -- he was infected, haunting the depths of the Prison.
 reward_xp=75
 reward_item=1,1
 reward_item=2,1
 reward_currency=25
 set_status=ak_key_reward
-him=The prison warden himself had the key? A shame that he was infected. Now that we have the Averguard Key, the depths of Averguard Keep are open to us. The Order thanks you.
+him=A true shame that he was infected.  Well, now that we have the Averguard Key, the depths of Averguard Keep are open to us. The Order thanks you.
 
 [dialog]
 requires_status=ak_key_reward
 set_status=ak_temple_search
-him=There is one place within the Keep that no living being has seen for centuries: the burial chamber behind Averguard Temple. From the Atrium, head north to access the Temple. Use your key to enter the Burial Chamber. Show utmost respect -- the powerful leader of the Averguard is buried there.
+him=There is one place within the Keep that no living being has seen for centuries: the burial chamber behind Averguard Temple. From the Atrium, head north to access the Temple. Use your key to enter the Burial Chamber.
+you=Who is buried there?
+him=The powerful leader of the Averguard -- Sir Evan Maddox.
 
 #You insert the Averguard Key. Runes glow around the door, then fade. The door is still sealed.
 
 [dialog]
 requires_status=ak_temple_sealed
 set_status=ak_talisman_search
-him=So the Burial Chamber is still locked? It must be sealed by powerful magic. There was only one sorceror of Averguard with that kind of power - Professor Langlier. Search through his collection to find a way into the Burial Chamber. Go south from the Atrium to enter his Academy.  I must admit jealousy -- I have dreamed many years of seeing the old volumes there, but it is simply too dangerous yet.
+you=I tried the key on the Burial Chamber door but it would not open.
+him=It must be sealed by powerful magic. There was only one sorceror of Averguard with that kind of power - Professor Langlier. Search through his collection to find a way into the Burial Chamber. Go south from the Atrium to enter his Academy.
+you=As you wish.
+him=I must admit jealousy -- I have dreamed many years of seeing the old volumes there, but it is simply too dangerous yet.
 
 #Etched runes surround this talisman
 
 [dialog]
 requires_status=ak_talisman_found
 requires_item=9002
+you=I am back from the Academy. Langlier was rags and bones, yet still a powerful mage. He wore this symbol.
 set_status=ak_talisman_reward
 set_status=ak_maddox_search
 reward_xp=100
@@ -90,6 +102,7 @@ reward_xp=250
 reward_currency=100
 reward_item=10,1
 him=You have risked much for the Order. Take this final reward, as your mission here is complete. The grip of necromancy over Averguard Keep is broken -- in time the remaining undead will pass over into death.
+you=Thank you Guill. I am glad to be of service.
 
 [dialog]
 requires_status=ak_maddox_reward
