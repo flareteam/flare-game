@@ -21,7 +21,8 @@ StatBlock::StatBlock() {
 	targeted = 0;
 	
 	// core stats
-	offense = defense = physical = mental = 0;
+	offense_character = defense_character = physical_character = mental_character = 0;
+	offense_additional = defense_additional = physical_additional = mental_additional = 0;
 	physoff = physdef = mentoff = mentdef = 0;
 	physment = offdef = 0;
 	character_class="";
@@ -263,10 +264,10 @@ void StatBlock::recalc() {
 	int crit_per_level = 1;
 
 	int lev0 = level -1;
-	int phys0 = physical -1;
-	int ment0 = mental -1;
-	int off0 = offense -1;
-	int def0 = defense -1;
+	int phys0 = get_physical() -1;
+	int ment0 = get_mental() -1;
+	int off0 = get_offense() -1;
+	int def0 = get_defense() -1;
 	
 	hp = maxhp = hp_base + (hp_per_level * lev0) + (hp_per_physical * phys0);
 	mp = maxmp = mp_base + (mp_per_level * lev0) + (mp_per_mental * ment0);
@@ -276,12 +277,12 @@ void StatBlock::recalc() {
 	avoidance = avoidance_base + (avoidance_per_level * lev0) + (avoidance_per_defense * def0);
 	crit = crit_base + (crit_per_level * lev0);
 	
-	physoff = physical + offense;
-	physdef = physical + defense;
-	mentoff = mental + offense;
-	mentdef = mental + defense;
-	physment = physical + mental;
-	offdef = offense + defense;
+	physoff = get_physical() + get_offense();
+	physdef = get_physical() + get_defense();
+	mentoff = get_mental() + get_offense();
+	mentdef = get_mental() + get_defense();
+	physment = get_physical() + get_mental();
+	offdef = get_offense() + get_defense();
 	
 	for (int i=0; i<17; i++) {
 		if (xp >= xp_table[i])
@@ -290,13 +291,13 @@ void StatBlock::recalc() {
 	
 	// determine class
 	// if one attribute is much higher than the others, use the attribute class name
-	if (physical > mental+1 && physical > offense+1 && physical > defense+1)
+	if (get_physical() > get_mental()+1 && get_physical() > get_offense()+1 && get_physical() > get_defense()+1)
 		character_class = "Warrior";
-	else if (mental > physical+1 && mental > offense+1 && mental > defense+1)
+	else if (get_mental() > get_physical()+1 && get_mental() > get_offense()+1 && get_mental() > get_defense()+1)
 		character_class = "Wizard";
-	else if (offense > physical+1 && offense > mental+1 && offense > defense+1)
+	else if (get_offense() > get_physical()+1 && get_offense() > get_mental()+1 && get_offense() > get_defense()+1)
 		character_class = "Ranger";
-	else if (defense > physical+1 && defense > mental+1 && defense > offense+1)
+	else if (get_defense() > get_physical()+1 && get_defense() > get_mental()+1 && get_defense() > get_offense()+1)
 		character_class = "Paladin";
 	// if there is no dominant attribute, use the dicipline class name
 	else if (physoff > physdef && physoff > mentoff && physoff > mentdef && physoff > physment && physoff > offdef)

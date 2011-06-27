@@ -53,13 +53,25 @@ public:
 	int level;
 	int xp;
 	int xp_table[18];
-	
+
 	// base stats ("attributes")
-	int offense;
-	int defense;
-	int physical;
-	int mental;
-	
+	int offense_character;
+	int defense_character;
+	int physical_character;
+	int mental_character;
+
+	// additional values to base stats, given by items
+	int offense_additional;
+	int defense_additional;
+	int physical_additional;
+	int mental_additional;
+
+	// getters for full base stats (character + additional)
+	inline int get_offense() { return offense_character + offense_additional; }
+	inline int get_defense() { return defense_character + defense_additional; }
+	inline int get_physical() { return physical_character + physical_additional; }
+	inline int get_mental() { return mental_character + mental_additional; }
+
 	// derived stats ("disciplines")
 	int physoff;
 	int physdef;

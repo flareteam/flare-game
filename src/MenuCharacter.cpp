@@ -63,10 +63,10 @@ void MenuCharacter::render() {
 	font->render("Character", 160, offset_y+8, JUSTIFY_CENTER, screen, FONT_WHITE);
 	font->render("Name", 72, offset_y+34, JUSTIFY_RIGHT, screen, FONT_WHITE);
 	font->render("Level", 248, offset_y+34, JUSTIFY_RIGHT, screen, FONT_WHITE);
-	font->render("Physical", 40, offset_y+74, JUSTIFY_LEFT, screen, FONT_WHITE);
-	font->render("Mental", 40, offset_y+138, JUSTIFY_LEFT, screen, FONT_WHITE);
-	font->render("Offense", 40, offset_y+202, JUSTIFY_LEFT, screen, FONT_WHITE);
-	font->render("Defense", 40, offset_y+266, JUSTIFY_LEFT, screen, FONT_WHITE);
+	font->render("Physical", 24, offset_y+74, JUSTIFY_LEFT, screen, FONT_WHITE);
+	font->render("Mental", 24, offset_y+138, JUSTIFY_LEFT, screen, FONT_WHITE);
+	font->render("Offense", 24, offset_y+202, JUSTIFY_LEFT, screen, FONT_WHITE);
+	font->render("Defense", 24, offset_y+266, JUSTIFY_LEFT, screen, FONT_WHITE);
 	font->render("Total HP", 152, offset_y+106, JUSTIFY_RIGHT, screen, FONT_WHITE);
 	font->render("Regen", 248, offset_y+106, JUSTIFY_RIGHT, screen, FONT_WHITE);
 	font->render("Total MP", 152, offset_y+170, JUSTIFY_RIGHT, screen, FONT_WHITE);
@@ -89,17 +89,29 @@ void MenuCharacter::render() {
 	ss << stats->level;
 	font->render(ss.str(), 268, offset_y+34, JUSTIFY_CENTER, screen, FONT_WHITE);
 	ss.str("");
-	ss << stats->physical;
-	font->render(ss.str(), 24, offset_y+74, JUSTIFY_CENTER, screen, FONT_WHITE);
+	ss << stats->physical_character;
+	font->render(ss.str(), 24, offset_y+90, JUSTIFY_CENTER, screen, FONT_WHITE);
 	ss.str("");
-	ss << stats->mental;
-	font->render(ss.str(), 24, offset_y+138, JUSTIFY_CENTER, screen, FONT_WHITE);
+	ss << stats->physical_additional;
+	font->render(ss.str(), 56, offset_y+90, JUSTIFY_CENTER, screen, FONT_WHITE);
 	ss.str("");
-	ss << stats->offense;
-	font->render(ss.str(), 24, offset_y+202, JUSTIFY_CENTER, screen, FONT_WHITE);
+	ss << stats->mental_character;
+	font->render(ss.str(), 24, offset_y+154, JUSTIFY_CENTER, screen, FONT_WHITE);
 	ss.str("");
-	ss << stats->defense;
-	font->render(ss.str(), 24, offset_y+266, JUSTIFY_CENTER, screen, FONT_WHITE);
+	ss << stats->mental_additional;
+	font->render(ss.str(), 56, offset_y+154, JUSTIFY_CENTER, screen, FONT_WHITE);
+	ss.str("");
+	ss << stats->offense_character;
+	font->render(ss.str(), 24, offset_y+218, JUSTIFY_CENTER, screen, FONT_WHITE);
+	ss.str("");
+	ss << stats->offense_additional;
+	font->render(ss.str(), 56, offset_y+218, JUSTIFY_CENTER, screen, FONT_WHITE);
+	ss.str("");
+	ss << stats->defense_character;
+	font->render(ss.str(), 24, offset_y+282, JUSTIFY_CENTER, screen, FONT_WHITE);
+	ss.str("");
+	ss << stats->defense_additional;
+	font->render(ss.str(), 56, offset_y+282, JUSTIFY_CENTER, screen, FONT_WHITE);
 	ss.str("");
 	ss << stats->maxhp;
 	font->render(ss.str(), 172, offset_y+106, JUSTIFY_CENTER, screen, FONT_WHITE);
@@ -153,15 +165,15 @@ void MenuCharacter::render() {
 	font->render(ss.str(), 272, offset_y+370, JUSTIFY_CENTER, screen, FONT_WHITE);
 	
 	// highlight proficiencies
-	displayProficiencies(stats->physical, offset_y+64);
-	displayProficiencies(stats->mental, offset_y+128);
-	displayProficiencies(stats->offense, offset_y+192);
-	displayProficiencies(stats->defense, offset_y+256);	
+	displayProficiencies(stats->get_physical(), offset_y+64);
+	displayProficiencies(stats->get_mental(), offset_y+128);
+	displayProficiencies(stats->get_offense(), offset_y+192);
+	displayProficiencies(stats->get_defense(), offset_y+256);
 	
 	
 	// if points are available, show the upgrade buttons
 	
-	int spent = stats->physical + stats->mental + stats->offense + stats->defense -4;
+	int spent = stats->physical_character + stats->mental_character + stats->offense_character + stats->defense_character -4;
 	
 	// check to see if there are skill points available
 	if (spent < stats->level-1) {
@@ -173,22 +185,22 @@ void MenuCharacter::render() {
 		dest.x = 16;
 
 		// physical
-		if (stats->physical < 5) { // && mouse.x >= 16 && mouse.y >= offset_y+96
+		if (stats->physical_character < 5) { // && mouse.x >= 16 && mouse.y >= offset_y+96
 			dest.y = offset_y + 96;
 			SDL_BlitSurface(upgrade, &src, screen, &dest);
 		}
 		// mental
-		if (stats->mental < 5) { // && mouse.x >= 16 && mouse.y >= offset_y+160
+		if (stats->mental_character < 5) { // && mouse.x >= 16 && mouse.y >= offset_y+160
 			dest.y = offset_y + 160;
 			SDL_BlitSurface(upgrade, &src, screen, &dest);
 		}
 		// offense
-		if (stats->offense < 5) { // && mouse.x >= 16 && mouse.y >= offset_y+224
+		if (stats->offense_character < 5) { // && mouse.x >= 16 && mouse.y >= offset_y+224
 			dest.y = offset_y + 224;
 			SDL_BlitSurface(upgrade, &src, screen, &dest);
 		}
 		// defense
-		if (stats->defense < 5) { // && mouse.x >= 16 && mouse.y >= offset_y+288
+		if (stats->defense_character < 5) { // && mouse.x >= 16 && mouse.y >= offset_y+288
 			dest.y = offset_y + 288;
 			SDL_BlitSurface(upgrade, &src, screen, &dest);
 		}
@@ -263,25 +275,25 @@ TooltipData MenuCharacter::checkTooltip(Point mouse) {
 	// Physical
 	if (mouse.x >= 128 && mouse.x <= 160 && mouse.y >= offset_y+64 && mouse.y <= offset_y+96) {
 		tip.lines[tip.num_lines++] = "Dagger Proficiency";
-		if (stats->physical < 2) tip.colors[tip.num_lines] = FONT_RED;
+		if (stats->get_physical() < 2) tip.colors[tip.num_lines] = FONT_RED;
 		tip.lines[tip.num_lines++] = "Requires Physical 2";
 		return tip;
 	}
 	if (mouse.x >= 176 && mouse.x <= 208 && mouse.y >= offset_y+64 && mouse.y <= offset_y+96) {
 		tip.lines[tip.num_lines++] = "Shortsword Proficiency";
-		if (stats->physical < 3) tip.colors[tip.num_lines] = FONT_RED;
+		if (stats->get_physical() < 3) tip.colors[tip.num_lines] = FONT_RED;
 		tip.lines[tip.num_lines++] = "Requires Physical 3";
 		return tip;
 	}
 	if (mouse.x >= 224 && mouse.x <= 256 && mouse.y >= offset_y+64 && mouse.y <= offset_y+96) {
 		tip.lines[tip.num_lines++] = "Longsword Proficiency";
-		if (stats->physical < 4) tip.colors[tip.num_lines] = FONT_RED;
+		if (stats->get_physical() < 4) tip.colors[tip.num_lines] = FONT_RED;
 		tip.lines[tip.num_lines++] = "Requires Physical 4";
 		return tip;
 	}
 	if (mouse.x >= 272 && mouse.x <= 304 && mouse.y >= offset_y+64 && mouse.y <= offset_y+96) {
 		tip.lines[tip.num_lines++] = "Greatsword Proficiency";
-		if (stats->physical < 5) tip.colors[tip.num_lines] = FONT_RED;
+		if (stats->get_physical() < 5) tip.colors[tip.num_lines] = FONT_RED;
 		tip.lines[tip.num_lines++] = "Requires Physical 5";
 		return tip;
 	}
@@ -301,25 +313,25 @@ TooltipData MenuCharacter::checkTooltip(Point mouse) {
 	// Mental
 	if (mouse.x >= 128 && mouse.x <= 160 && mouse.y >= offset_y+128 && mouse.y <= offset_y+160) {
 		tip.lines[tip.num_lines++] = "Wand Proficiency";
-		if (stats->mental < 2) tip.colors[tip.num_lines] = FONT_RED;
+		if (stats->get_mental() < 2) tip.colors[tip.num_lines] = FONT_RED;
 		tip.lines[tip.num_lines++] = "Requires Mental 2";
 		return tip;
 	}
 	if (mouse.x >= 176 && mouse.x <= 208 && mouse.y >= offset_y+128 && mouse.y <= offset_y+160) {
 		tip.lines[tip.num_lines++] = "Rod Proficiency";
-		if (stats->mental < 3) tip.colors[tip.num_lines] = FONT_RED;
+		if (stats->get_mental() < 3) tip.colors[tip.num_lines] = FONT_RED;
 		tip.lines[tip.num_lines++] = "Requires Mental 3";
 		return tip;
 	}
 	if (mouse.x >= 224 && mouse.x <= 256 && mouse.y >= offset_y+128 && mouse.y <= offset_y+160) {
 		tip.lines[tip.num_lines++] = "Staff Proficiency";
-		if (stats->mental < 4) tip.colors[tip.num_lines] = FONT_RED;
+		if (stats->get_mental() < 4) tip.colors[tip.num_lines] = FONT_RED;
 		tip.lines[tip.num_lines++] = "Requires Mental 4";
 		return tip;
 	}
 	if (mouse.x >= 272 && mouse.x <= 304 && mouse.y >= offset_y+128 && mouse.y <= offset_y+160) {
 		tip.lines[tip.num_lines++] = "Greatstaff Proficiency";
-		if (stats->mental < 5) tip.colors[tip.num_lines] = FONT_RED;
+		if (stats->get_mental() < 5) tip.colors[tip.num_lines] = FONT_RED;
 		tip.lines[tip.num_lines++] = "Requires Mental 5";
 		return tip;
 	}		
@@ -339,25 +351,25 @@ TooltipData MenuCharacter::checkTooltip(Point mouse) {
 	// Offense
 	if (mouse.x >= 128 && mouse.x <= 160 && mouse.y >= offset_y+192 && mouse.y <= offset_y+224) {
 		tip.lines[tip.num_lines++] = "Slingshot Proficiency";
-		if (stats->offense < 2) tip.colors[tip.num_lines] = FONT_RED;
+		if (stats->get_offense() < 2) tip.colors[tip.num_lines] = FONT_RED;
 		tip.lines[tip.num_lines++] = "Requires Offense 2";
 		return tip;
 	}
 	if (mouse.x >= 176 && mouse.x <= 208 && mouse.y >= offset_y+192 && mouse.y <= offset_y+224) {
 		tip.lines[tip.num_lines++] = "Shortbow Proficiency";
-		if (stats->offense < 3) tip.colors[tip.num_lines] = FONT_RED;
+		if (stats->get_offense() < 3) tip.colors[tip.num_lines] = FONT_RED;
 		tip.lines[tip.num_lines++] = "Requires Offense 3";
 		return tip;
 	}
 	if (mouse.x >= 224 && mouse.x <= 256 && mouse.y >= offset_y+192 && mouse.y <= offset_y+224) {
 		tip.lines[tip.num_lines++] = "Longbow Proficiency";
-		if (stats->offense < 4) tip.colors[tip.num_lines] = FONT_RED;
+		if (stats->get_offense() < 4) tip.colors[tip.num_lines] = FONT_RED;
 		tip.lines[tip.num_lines++] = "Requires Offense 4";
 		return tip;
 	}
 	if (mouse.x >= 272 && mouse.x <= 304 && mouse.y >= offset_y+192 && mouse.y <= offset_y+224) {
 		tip.lines[tip.num_lines++] = "Greatbow Proficiency";
-		if (stats->offense < 5) tip.colors[tip.num_lines] = FONT_RED;
+		if (stats->get_offense() < 5) tip.colors[tip.num_lines] = FONT_RED;
 		tip.lines[tip.num_lines++] = "Requires Offense 5";
 		return tip;
 	}
@@ -371,25 +383,25 @@ TooltipData MenuCharacter::checkTooltip(Point mouse) {
 	// Defense
 	if (mouse.x >= 128 && mouse.x <= 160 && mouse.y >= offset_y+256 && mouse.y <= offset_y+288) {
 		tip.lines[tip.num_lines++] = "Light Armor Proficiency";
-		if (stats->defense < 2) tip.colors[tip.num_lines] = FONT_RED;
+		if (stats->get_defense() < 2) tip.colors[tip.num_lines] = FONT_RED;
 		tip.lines[tip.num_lines++] = "Requires Defense 2";
 		return tip;
 	}
 	if (mouse.x >= 176 && mouse.x <= 208 && mouse.y >= offset_y+256 && mouse.y <= offset_y+288) {
 		tip.lines[tip.num_lines++] = "Light Shield Proficiency";
-		if (stats->defense < 3) tip.colors[tip.num_lines] = FONT_RED;
+		if (stats->get_defense() < 3) tip.colors[tip.num_lines] = FONT_RED;
 		tip.lines[tip.num_lines++] = "Requires Defense 3";
 		return tip;
 	}
 	if (mouse.x >= 224 && mouse.x <= 256 && mouse.y >= offset_y+256 && mouse.y <= offset_y+288) {
 		tip.lines[tip.num_lines++] = "Heavy Armor Proficiency";
-		if (stats->defense < 4) tip.colors[tip.num_lines] = FONT_RED;
+		if (stats->get_defense() < 4) tip.colors[tip.num_lines] = FONT_RED;
 		tip.lines[tip.num_lines++] = "Requires Defense 4";
 		return tip;
 	}
 	if (mouse.x >= 272 && mouse.x <= 304 && mouse.y >= offset_y+256 && mouse.y <= offset_y+288) {
 		tip.lines[tip.num_lines++] = "Heavy Shield Proficiency";
-		if (stats->defense < 5) tip.colors[tip.num_lines] = FONT_RED;
+		if (stats->get_defense() < 5) tip.colors[tip.num_lines] = FONT_RED;
 		tip.lines[tip.num_lines++] = "Requires Defense 5";
 		return tip;
 	}		
@@ -410,7 +422,7 @@ TooltipData MenuCharacter::checkTooltip(Point mouse) {
  */
 bool MenuCharacter::checkUpgrade(Point mouse) {
 
-	int spent = stats->physical + stats->mental + stats->offense + stats->defense -4;
+	int spent = stats->physical_character + stats->mental_character + stats->offense_character + stats->defense_character -4;
 	
 	// check to see if there are skill points available
 	if (spent < stats->level-1) {
@@ -419,26 +431,26 @@ bool MenuCharacter::checkUpgrade(Point mouse) {
 		int offset_y = (VIEW_H - 416)/2;
 		
 		// physical
-		if (stats->physical < 5 && mouse.x >= 16 && mouse.x <= 48 && mouse.y >= offset_y+96 && mouse.y <= offset_y+112) {
-			stats->physical++;
+		if (stats->physical_character < 5 && mouse.x >= 16 && mouse.x <= 48 && mouse.y >= offset_y+96 && mouse.y <= offset_y+112) {
+			stats->physical_character++;
 			stats->recalc(); // equipment applied by MenuManager
 			return true;
 		}
 		// mental
-		else if (stats->mental < 5 && mouse.x >= 16 && mouse.x <= 48 && mouse.y >= offset_y+160 && mouse.y <= offset_y+176) {
-			stats->mental++;
+		else if (stats->mental_character < 5 && mouse.x >= 16 && mouse.x <= 48 && mouse.y >= offset_y+160 && mouse.y <= offset_y+176) {
+			stats->mental_character++;
 			stats->recalc(); // equipment applied by MenuManager
 			return true;		
 		}
 		// offense
-		else if (stats->offense < 5 && mouse.x >= 16 && mouse.x <= 48 && mouse.y >= offset_y+224 && mouse.y <= offset_y+240) {
-			stats->offense++;
+		else if (stats->offense_character < 5 && mouse.x >= 16 && mouse.x <= 48 && mouse.y >= offset_y+224 && mouse.y <= offset_y+240) {
+			stats->offense_character++;
 			stats->recalc(); // equipment applied by MenuManager
 			return true;		
 		}
 		// defense
-		else if (stats->defense < 5 && mouse.x >= 16 && mouse.x <= 48 && mouse.y >= offset_y+288 && mouse.y <= offset_y+304) {
-			stats->defense++;
+		else if (stats->defense_character < 5 && mouse.x >= 16 && mouse.x <= 48 && mouse.y >= offset_y+288 && mouse.y <= offset_y+304) {
+			stats->defense_character++;
 			stats->recalc(); // equipment applied by MenuManager
 			return true;		
 		}

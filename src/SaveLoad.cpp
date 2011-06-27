@@ -47,7 +47,7 @@ void GameStatePlay::saveGame() {
 		outfile << "xp=" << pc->stats.xp << "\n";
 
 		// stat spec
-		outfile << "build=" << pc->stats.physical << "," << pc->stats.mental << "," << pc->stats.offense << "," << pc->stats.defense << "\n";
+		outfile << "build=" << pc->stats.physical_character << "," << pc->stats.mental_character << "," << pc->stats.offense_character << "," << pc->stats.defense_character << "\n";
 
 		// current gold
 		outfile << "gold=" << menu->inv->gold << "\n";
@@ -110,10 +110,10 @@ void GameStatePlay::loadGame() {
 			}
 			else if (infile.key == "xp") pc->stats.xp = atoi(infile.val.c_str());
 			else if (infile.key == "build") {
-				pc->stats.physical = atoi(infile.nextValue().c_str());
-				pc->stats.mental = atoi(infile.nextValue().c_str());
-				pc->stats.offense = atoi(infile.nextValue().c_str());
-				pc->stats.defense = atoi(infile.nextValue().c_str());
+				pc->stats.physical_character = atoi(infile.nextValue().c_str());
+				pc->stats.mental_character = atoi(infile.nextValue().c_str());
+				pc->stats.offense_character = atoi(infile.nextValue().c_str());
+				pc->stats.defense_character = atoi(infile.nextValue().c_str());
 			}
 			else if (infile.key == "gold") {
 				menu->inv->gold = atoi(infile.val.c_str());
@@ -152,7 +152,7 @@ void GameStatePlay::loadGame() {
 
 	// initialize vars
 	pc->stats.recalc();
-	menu->items->applyEquipment(&pc->stats, menu->inv->inventory[EQUIPMENT].storage);
+	menu->inv->applyEquipment(&pc->stats, menu->inv->inventory[EQUIPMENT].storage);
 	pc->stats.hp = pc->stats.maxhp;
 	pc->stats.mp = pc->stats.maxmp;
 			

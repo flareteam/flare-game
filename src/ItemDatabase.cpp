@@ -359,19 +359,19 @@ TooltipData ItemDatabase::getTooltip(int item, StatBlock *stats, bool vendor_vie
 	if (items[item].req_val > 0) {
 		if (items[item].req_stat == REQUIRES_PHYS) {
 			ss << "Requires Physical " << items[item].req_val;
-			if (stats->physical < items[item].req_val) tip.colors[tip.num_lines] = FONT_RED;
+			if (stats->get_physical() < items[item].req_val) tip.colors[tip.num_lines] = FONT_RED;
 		}
 		else if (items[item].req_stat == REQUIRES_MENT) {
 			ss << "Requires Mental " << items[item].req_val;
-			if (stats->mental < items[item].req_val) tip.colors[tip.num_lines] = FONT_RED;
+			if (stats->get_mental() < items[item].req_val) tip.colors[tip.num_lines] = FONT_RED;
 		}
 		else if (items[item].req_stat == REQUIRES_OFF) {
 			ss << "Requires Offense " << items[item].req_val;
-			if (stats->offense < items[item].req_val) tip.colors[tip.num_lines] = FONT_RED;
+			if (stats->get_offense() < items[item].req_val) tip.colors[tip.num_lines] = FONT_RED;
 		}
 		else if (items[item].req_stat == REQUIRES_DEF) {
 			ss << "Requires Defense " << items[item].req_val;
-			if (stats->defense < items[item].req_val) tip.colors[tip.num_lines] = FONT_RED;
+			if (stats->get_defense() < items[item].req_val) tip.colors[tip.num_lines] = FONT_RED;
 		}
 		tip.lines[tip.num_lines++] = ss.str();
 	}
@@ -399,116 +399,6 @@ TooltipData ItemDatabase::getTooltip(int item, StatBlock *stats, bool vendor_vie
 	}
 	
 	return tip;
-}
-
-/**
- * Given the equipped items, calculate the hero's stats
- */
-void ItemDatabase::applyEquipment(StatBlock *stats, ItemStack * equipped) {
-
-	// note: these are also defined in MenuInventory.h
-	int SLOT_MAIN = 0;
-	int SLOT_BODY = 1;
-	int SLOT_OFF = 2;
-	//int SLOT_ARTIFACT = 3;
-
-	int prev_hp = stats->hp;
-	int prev_mp = stats->mp;
-
-	// defaults
-	stats->recalc();
-	stats->dmg_melee_min = stats->dmg_ment_min = 1;
-	stats->dmg_melee_max = stats->dmg_ment_max = 4;
-	stats->dmg_ranged_min = stats->dmg_ranged_max = 0;
-	stats->absorb_min = stats->absorb_max = 0;
-	stats->speed = 14;
-	stats->dspeed = 10;
-	stats->attunement_fire = 100;
-	stats->attunement_ice = 100;
-
-	// reset wielding vars
-	stats->wielding_physical = false;
-	stats->wielding_mental = false;
-	stats->wielding_offense = false;
-
-	// main hand weapon
-	int item_id = equipped[SLOT_MAIN].item;
-	if (item_id > 0) {
-		if (items[item_id].req_stat == REQUIRES_PHYS) {
-			stats->dmg_melee_min = items[item_id].dmg_min;
-			stats->dmg_melee_max = items[item_id].dmg_max;
-			stats->melee_weapon_power = items[item_id].power_mod;
-			stats->wielding_physical = true;
-		}
-		else if (items[item_id].req_stat == REQUIRES_MENT) {
-			stats->dmg_ment_min = items[item_id].dmg_min;
-			stats->dmg_ment_max = items[item_id].dmg_max;						
-			stats->mental_weapon_power = items[item_id].power_mod;	
-			stats->wielding_mental = true;
-		}
-	}
-	// off hand item
-	item_id = equipped[SLOT_OFF].item;
-	if (item_id > 0) {
-		if (items[item_id].req_stat == REQUIRES_OFF) {
-			stats->dmg_ranged_min = items[item_id].dmg_min;
-			stats->dmg_ranged_max = items[item_id].dmg_max;
-			stats->ranged_weapon_power = items[item_id].power_mod;
-			stats->wielding_offense = true;
-		}
-		else if (items[item_id].req_stat == REQUIRES_DEF) {
-			stats->absorb_min += items[item_id].abs_min;
-			stats->absorb_max += items[item_id].abs_max;						
-		}
-	}		
-	// body item
-	item_id = equipped[SLOT_BODY].item;
-	if (item_id > 0) {
-		stats->absorb_min += items[item_id].abs_min;
-		stats->absorb_max += items[item_id].abs_max;						
-	}
-
-	// apply bonuses from all items
-	for (int i=0; i<4; i++) {
-		item_id = equipped[i].item;
-		
-		if (items[item_id].bonus_stat == "HP")
-			stats->maxhp += items[item_id].bonus_val;
-		else if (items[item_id].bonus_stat == "HP regen")
-			stats->hp_per_minute += items[item_id].bonus_val;
-		else if (items[item_id].bonus_stat == "MP")
-			stats->maxmp += items[item_id].bonus_val;
-		else if (items[item_id].bonus_stat == "MP regen")
-			stats->mp_per_minute += items[item_id].bonus_val;
-		else if (items[item_id].bonus_stat == "accuracy")
-			stats->accuracy += items[item_id].bonus_val;
-		else if (items[item_id].bonus_stat == "avoidance")
-			stats->avoidance += items[item_id].bonus_val;
-		else if (items[item_id].bonus_stat == "crit")
-			stats->crit += items[item_id].bonus_val;
-		else if (items[item_id].bonus_stat == "speed") {
-			stats->speed += items[item_id].bonus_val;
-			// speed bonuses are in multiples of 3
-			// 3 ordinal, 2 diagonal is rounding pythagorus
-			stats->dspeed += ((items[item_id].bonus_val) * 2) /3;
-		}
-		else if (items[item_id].bonus_stat == "fire resist")
-			stats->attunement_fire -= items[item_id].bonus_val;
-		else if (items[item_id].bonus_stat == "ice resist")
-			stats->attunement_ice -= items[item_id].bonus_val;
-	}
-	
-	// apply previous hp/mp
-	if (prev_hp < stats->maxhp)
-		stats->hp = prev_hp;
-	else
-		stats->hp = stats->maxhp;
-		
-	if (prev_mp < stats->maxmp)
-		stats->mp = prev_mp;
-	else
-		stats->mp = stats->maxmp;
-		
 }
 
 ItemDatabase::~ItemDatabase() {

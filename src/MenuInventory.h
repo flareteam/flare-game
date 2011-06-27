@@ -73,6 +73,8 @@ public:
 	bool isItemEquipped(int item);
 	bool requirementsMet(int item);
 	
+	void applyEquipment(StatBlock *stats, ItemStack *equipped);
+
 	bool visible;
 
 	SDL_Rect window_area;
