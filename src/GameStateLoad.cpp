@@ -29,6 +29,7 @@ GameStateLoad::GameStateLoad(SDL_Surface *_screen, InputState *_inp, FontEngine 
 	
 	for (int i=0; i<GAME_SLOT_MAX; i++) {
 		sprites[i] = NULL;
+		current_map[i] = "";
 	}
 	
 	loadGraphics();
@@ -50,15 +51,8 @@ GameStateLoad::GameStateLoad(SDL_Surface *_screen, InputState *_inp, FontEngine 
 	level_pos.x = 24;
 	level_pos.y = 40;
 
-	phys_pos.x = 24;
-	phys_pos.y = 56;
-	ment_pos.x = 24;
-	ment_pos.y = 72;
-
-	off_pos.x = 100;
-	off_pos.y = 56;
-	def_pos.x = 100;
-	def_pos.y = 72;
+	map_pos.x = 24;
+	map_pos.y = 56;
 
 	sprites_pos.x = 178;
 	sprites_pos.y = -24;
@@ -120,6 +114,20 @@ void GameStateLoad::readGameSlots() {
 	}
 }
 
+string GameStateLoad::getMapName(string map_filename) {
+	FileParser infile;
+	if (!infile.open(("./maps/" + map_filename).c_str())) return "";
+	string map_name = "";
+	
+	while (map_name == "" && infile.next()) {
+		if (infile.key == "title")
+			map_name = infile.val;
+	}
+	
+	infile.close();
+	return map_name;
+}
+
 void GameStateLoad::readGameSlot(int slot) {
 
 	stringstream filename;
@@ -155,6 +163,9 @@ void GameStateLoad::readGameSlot(int slot) {
 			stats[slot].base = infile.nextValue();
 			stats[slot].head = infile.nextValue();
 			stats[slot].portrait = infile.nextValue();
+		}
+		else if (infile.key == "spawn") {
+			current_map[slot] = getMapName(infile.nextValue());
 		}
 	}
 	infile.close();
@@ -325,37 +336,15 @@ void GameStateLoad::render() {
 			ss.str("");
 			label.x = slot_pos[slot].x + level_pos.x;
 			label.y = slot_pos[slot].y + level_pos.y;		
-			ss << "Level " << stats[slot].level;
+			ss << "Level " << stats[slot].level << " " << stats[slot].character_class;
 			font->render(ss.str(), label.x, label.y, JUSTIFY_LEFT, screen, FONT_WHITE);
 			
-			// physical
-			ss.str("");
-			label.x = slot_pos[slot].x + phys_pos.x;
-			label.y = slot_pos[slot].y + phys_pos.y;		
-			ss << "Physical " << stats[slot].physical;
-			font->render(ss.str(), label.x, label.y, JUSTIFY_LEFT, screen, FONT_WHITE);
-
-			// mental
-			ss.str("");
-			label.x = slot_pos[slot].x + ment_pos.x;
-			label.y = slot_pos[slot].y + ment_pos.y;		
-			ss << "Mental " << stats[slot].mental;
-			font->render(ss.str(), label.x, label.y, JUSTIFY_LEFT, screen, FONT_WHITE);
-
-			// offense
-			ss.str("");
-			label.x = slot_pos[slot].x + off_pos.x;
-			label.y = slot_pos[slot].y + off_pos.y;		
-			ss << "Offense " << stats[slot].offense;
-			font->render(ss.str(), label.x, label.y, JUSTIFY_LEFT, screen, FONT_WHITE);
-
-			// defense
-			ss.str("");
-			label.x = slot_pos[slot].x + def_pos.x;
-			label.y = slot_pos[slot].y + def_pos.y;		
-			ss << "Defense " << stats[slot].defense;
-			font->render(ss.str(), label.x, label.y, JUSTIFY_LEFT, screen, FONT_WHITE);
+			// map
+			label.x = slot_pos[slot].x + map_pos.x;
+			label.y = slot_pos[slot].y + map_pos.y;		
+			font->render(current_map[slot], label.x, label.y, JUSTIFY_LEFT, screen, FONT_WHITE);
 			
+						
 			// render character preview
 			dest.x = slot_pos[slot].x + sprites_pos.x;
 			dest.y = slot_pos[slot].y + sprites_pos.y;

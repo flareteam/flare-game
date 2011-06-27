@@ -23,6 +23,8 @@ StatBlock::StatBlock() {
 	// core stats
 	offense = defense = physical = mental = 0;
 	physoff = physdef = mentoff = mentdef = 0;
+	physment = offdef = 0;
+	character_class="";
 	level = 0;
 	hp = maxhp = hp_per_minute = hp_ticker = 0;
 	mp = maxmp = mp_per_minute = mp_ticker = 0;
@@ -278,11 +280,40 @@ void StatBlock::recalc() {
 	physdef = physical + defense;
 	mentoff = mental + offense;
 	mentdef = mental + defense;
+	physment = physical + mental;
+	offdef = offense + defense;
 	
 	for (int i=0; i<17; i++) {
 		if (xp >= xp_table[i])
 			level=i+1;
 	}
+	
+	// determine class
+	// if one attribute is much higher than the others, use the attribute class name
+	if (physical > mental+1 && physical > offense+1 && physical > defense+1)
+		character_class = "Warrior";
+	else if (mental > physical+1 && mental > offense+1 && mental > defense+1)
+		character_class = "Wizard";
+	else if (offense > physical+1 && offense > mental+1 && offense > defense+1)
+		character_class = "Ranger";
+	else if (defense > physical+1 && defense > mental+1 && defense > offense+1)
+		character_class = "Paladin";
+	// if there is no dominant attribute, use the dicipline class name
+	else if (physoff > physdef && physoff > mentoff && physoff > mentdef && physoff > physment && physoff > offdef)
+		character_class = "Rogue";
+	else if (physdef > physoff && physdef > mentoff && physdef > mentdef && physdef > physment && physdef > offdef)
+		character_class = "Knight";
+	else if (mentoff > physoff && mentoff > physdef && mentoff > mentdef && mentoff > physment && mentoff > offdef)
+		character_class = "Shaman";
+	else if (mentdef > physoff && mentdef > physdef && mentdef > mentoff && mentdef > physment && mentdef > offdef)
+		character_class = "Cleric";
+	else if (physment > physoff && physment > physdef && physment > mentoff && physment > mentdef && physment > offdef)
+		character_class = "Battle Mage";
+	else if (offdef > physoff && offdef > physdef && offdef > mentoff && offdef > mentdef && offdef > physment)
+		character_class = "Heavy Archer";
+	// otherwise, use the generic name
+	else character_class = "Adventurer";
+	
 }
 
 /**

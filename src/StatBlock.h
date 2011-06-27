@@ -54,17 +54,23 @@ public:
 	int xp;
 	int xp_table[18];
 	
-	// base stats
+	// base stats ("attributes")
 	int offense;
 	int defense;
 	int physical;
 	int mental;
 	
-	// derived stats
+	// derived stats ("disciplines")
 	int physoff;
 	int physdef;
 	int mentoff;
 	int mentdef;
+	int physment;
+	int offdef;
+	
+	// in Flare there are no distinct character classes.
+	// instead each class is given a descriptor based on their base stat builds
+	string character_class;
 	
 	// physical stats
 	int hp;
