@@ -39,10 +39,14 @@ void Avatar::init() {
 	stats.hero = true;
 	stats.level = 1;
 	stats.xp = 0;
-	stats.physical = 1;
-	stats.mental = 1;
-	stats.offense = 1;
-	stats.defense = 1;
+	stats.physical_character = 1;
+	stats.mental_character = 1;
+	stats.offense_character = 1;
+	stats.defense_character = 1;
+	stats.physical_additional = 0;
+	stats.mental_additional = 0;
+	stats.offense_additional = 0;
+	stats.defense_additional = 0;
 	stats.speed = 14;
 	stats.dspeed = 10;
 	stats.recalc();

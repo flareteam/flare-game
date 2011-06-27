@@ -142,7 +142,6 @@ public:
 	void playCoinsSound();	
 	TooltipData getTooltip(int item, StatBlock *stats, bool vendor_view);
 	TooltipData getShortTooltip(ItemStack item);
-	void applyEquipment(StatBlock *stats, ItemStack *equipped);
 
 	Item items[MAX_ITEM_ID];
 	int vendor_ratio;

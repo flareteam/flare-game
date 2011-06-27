@@ -149,10 +149,10 @@ void GameStateLoad::readGameSlot(int slot) {
 		else if (infile.key == "xp")
 			stats[slot].xp = atoi(infile.val.c_str());
 		else if (infile.key == "build") {
-			stats[slot].physical = atoi(infile.nextValue().c_str());
-			stats[slot].mental = atoi(infile.nextValue().c_str());
-			stats[slot].offense = atoi(infile.nextValue().c_str());
-			stats[slot].defense = atoi(infile.nextValue().c_str());
+			stats[slot].physical_character = atoi(infile.nextValue().c_str());
+			stats[slot].mental_character = atoi(infile.nextValue().c_str());
+			stats[slot].offense_character = atoi(infile.nextValue().c_str());
+			stats[slot].defense_character = atoi(infile.nextValue().c_str());
 		}
 		else if (infile.key == "equipped") {
 			equipped[slot][0] = atoi(infile.nextValue().c_str());
@@ -343,8 +343,7 @@ void GameStateLoad::render() {
 			label.x = slot_pos[slot].x + map_pos.x;
 			label.y = slot_pos[slot].y + map_pos.y;		
 			font->render(current_map[slot], label.x, label.y, JUSTIFY_LEFT, screen, FONT_WHITE);
-			
-						
+
 			// render character preview
 			dest.x = slot_pos[slot].x + sprites_pos.x;
 			dest.y = slot_pos[slot].y + sprites_pos.y;
