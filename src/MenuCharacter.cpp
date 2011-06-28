@@ -42,6 +42,15 @@ void MenuCharacter::loadGraphics() {
 		
 }
 
+/**
+ * Color-coding for positive/negative/no bonus
+ */
+int MenuCharacter::bonusColor(int stat) {
+	if (stat > 0) return FONT_GREEN;
+	if (stat < 0) return FONT_RED;
+	return FONT_WHITE;
+}
+
 void MenuCharacter::render() {
 	if (!visible) return;
 	
@@ -63,10 +72,10 @@ void MenuCharacter::render() {
 	font->render("Character", 160, offset_y+8, JUSTIFY_CENTER, screen, FONT_WHITE);
 	font->render("Name", 72, offset_y+34, JUSTIFY_RIGHT, screen, FONT_WHITE);
 	font->render("Level", 248, offset_y+34, JUSTIFY_RIGHT, screen, FONT_WHITE);
-	font->render("Physical", 24, offset_y+74, JUSTIFY_LEFT, screen, FONT_WHITE);
-	font->render("Mental", 24, offset_y+138, JUSTIFY_LEFT, screen, FONT_WHITE);
-	font->render("Offense", 24, offset_y+202, JUSTIFY_LEFT, screen, FONT_WHITE);
-	font->render("Defense", 24, offset_y+266, JUSTIFY_LEFT, screen, FONT_WHITE);
+	font->render("Physical", 40, offset_y+74, JUSTIFY_LEFT, screen, FONT_WHITE);
+	font->render("Mental", 40, offset_y+138, JUSTIFY_LEFT, screen, FONT_WHITE);
+	font->render("Offense", 40, offset_y+202, JUSTIFY_LEFT, screen, FONT_WHITE);
+	font->render("Defense", 40, offset_y+266, JUSTIFY_LEFT, screen, FONT_WHITE);
 	font->render("Total HP", 152, offset_y+106, JUSTIFY_RIGHT, screen, FONT_WHITE);
 	font->render("Regen", 248, offset_y+106, JUSTIFY_RIGHT, screen, FONT_WHITE);
 	font->render("Total MP", 152, offset_y+170, JUSTIFY_RIGHT, screen, FONT_WHITE);
@@ -88,30 +97,20 @@ void MenuCharacter::render() {
 	ss.str("");
 	ss << stats->level;
 	font->render(ss.str(), 268, offset_y+34, JUSTIFY_CENTER, screen, FONT_WHITE);
+	
 	ss.str("");
-	ss << stats->physical_character;
-	font->render(ss.str(), 24, offset_y+90, JUSTIFY_CENTER, screen, FONT_WHITE);
+	ss << stats->get_physical();
+	font->render(ss.str(), 24, offset_y+74, JUSTIFY_CENTER, screen, bonusColor(stats->physical_additional));
 	ss.str("");
-	ss << stats->physical_additional;
-	font->render(ss.str(), 56, offset_y+90, JUSTIFY_CENTER, screen, FONT_WHITE);
+	ss << stats->get_mental();
+	font->render(ss.str(), 24, offset_y+138, JUSTIFY_CENTER, screen, bonusColor(stats->mental_additional));
 	ss.str("");
-	ss << stats->mental_character;
-	font->render(ss.str(), 24, offset_y+154, JUSTIFY_CENTER, screen, FONT_WHITE);
+	ss << stats->get_offense();
+	font->render(ss.str(), 24, offset_y+202, JUSTIFY_CENTER, screen, bonusColor(stats->offense_additional));
 	ss.str("");
-	ss << stats->mental_additional;
-	font->render(ss.str(), 56, offset_y+154, JUSTIFY_CENTER, screen, FONT_WHITE);
-	ss.str("");
-	ss << stats->offense_character;
-	font->render(ss.str(), 24, offset_y+218, JUSTIFY_CENTER, screen, FONT_WHITE);
-	ss.str("");
-	ss << stats->offense_additional;
-	font->render(ss.str(), 56, offset_y+218, JUSTIFY_CENTER, screen, FONT_WHITE);
-	ss.str("");
-	ss << stats->defense_character;
-	font->render(ss.str(), 24, offset_y+282, JUSTIFY_CENTER, screen, FONT_WHITE);
-	ss.str("");
-	ss << stats->defense_additional;
-	font->render(ss.str(), 56, offset_y+282, JUSTIFY_CENTER, screen, FONT_WHITE);
+	ss << stats->get_defense();
+	font->render(ss.str(), 24, offset_y+266, JUSTIFY_CENTER, screen, bonusColor(stats->defense_additional));
+	
 	ss.str("");
 	ss << stats->maxhp;
 	font->render(ss.str(), 172, offset_y+106, JUSTIFY_CENTER, screen, FONT_WHITE);
@@ -186,22 +185,22 @@ void MenuCharacter::render() {
 
 		// physical
 		if (stats->physical_character < 5) { // && mouse.x >= 16 && mouse.y >= offset_y+96
-			dest.y = offset_y + 104;
+			dest.y = offset_y + 96;
 			SDL_BlitSurface(upgrade, &src, screen, &dest);
 		}
 		// mental
 		if (stats->mental_character < 5) { // && mouse.x >= 16 && mouse.y >= offset_y+160
-			dest.y = offset_y + 168;
+			dest.y = offset_y + 160;
 			SDL_BlitSurface(upgrade, &src, screen, &dest);
 		}
 		// offense
 		if (stats->offense_character < 5) { // && mouse.x >= 16 && mouse.y >= offset_y+224
-			dest.y = offset_y + 232;
+			dest.y = offset_y + 224;
 			SDL_BlitSurface(upgrade, &src, screen, &dest);
 		}
 		// defense
 		if (stats->defense_character < 5) { // && mouse.x >= 16 && mouse.y >= offset_y+288
-			dest.y = offset_y + 296;
+			dest.y = offset_y + 288;
 			SDL_BlitSurface(upgrade, &src, screen, &dest);
 		}
 
@@ -256,19 +255,31 @@ TooltipData MenuCharacter::checkTooltip(Point mouse) {
 		return tip;
 	}
 	if (mouse.x >= 16 && mouse.x <= 80 && mouse.y >= offset_y+72 && mouse.y <= offset_y+88) {
-		tip.lines[tip.num_lines++] = "Physical (P) increases melee weapon proficiency and total HP";
+		tip.lines[tip.num_lines++] = "Physical (P) increases melee weapon proficiency and total HP.";
+		ss.str("");
+		ss << "base (" << stats->physical_character << "), bonus (" << stats->physical_additional << ")";
+		tip.lines[tip.num_lines++] = ss.str();
 		return tip;
 	}
 	if (mouse.x >= 16 && mouse.x <= 80 && mouse.y >= offset_y+136 && mouse.y <= offset_y+152) {
-		tip.lines[tip.num_lines++] = "Mental (M) increases mental weapon proficiency and total MP";
+		tip.lines[tip.num_lines++] = "Mental (M) increases mental weapon proficiency and total MP.";
+		ss.str("");
+		ss << "base (" << stats->mental_character << "), bonus (" << stats->mental_additional << ")";
+		tip.lines[tip.num_lines++] = ss.str();
 		return tip;
 	}
 	if (mouse.x >= 16 && mouse.x <= 80 && mouse.y >= offset_y+200 && mouse.y <= offset_y+216) {
-		tip.lines[tip.num_lines++] = "Offense (O) increases ranged weapon proficiency and accuracy";
+		tip.lines[tip.num_lines++] = "Offense (O) increases ranged weapon proficiency and accuracy.";
+		ss.str("");
+		ss << "base (" << stats->offense_character << "), bonus (" << stats->offense_additional << ")";
+		tip.lines[tip.num_lines++] = ss.str();
 		return tip;
 	}
 	if (mouse.x >= 16 && mouse.x <= 80 && mouse.y >= offset_y+264 && mouse.y <= offset_y+280) {
-		tip.lines[tip.num_lines++] = "Defense (D) increases armor proficiency and avoidance";
+		tip.lines[tip.num_lines++] = "Defense (D) increases armor proficiency and avoidance.";
+		ss.str("");
+		ss << "base (" << stats->defense_character << "), bonus (" << stats->defense_additional << ")";
+		tip.lines[tip.num_lines++] = ss.str();
 		return tip;
 	}
 
