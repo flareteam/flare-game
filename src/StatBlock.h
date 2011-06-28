@@ -141,7 +141,7 @@ public:
 	int dspeed;
 	Point pos;
 	int direction;
-	int hero_cooldown[1024]; //TODO: fix this to use POWER_COUNT
+	int hero_cooldown[1024]; //TODO: fix this to use POWER_COUNT... right now it can't #include "PowerManager.h"
 		
 	// state
 	int cur_state;
