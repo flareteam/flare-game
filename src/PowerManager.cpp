@@ -102,6 +102,9 @@ void PowerManager::loadPowers() {
 			else if (infile.key == "requires_targeting") {
 				if (infile.val == "true") powers[input_id].requires_targeting = true;
 			}
+			else if (infile.key == "cooldown") {
+				powers[input_id].cooldown = atoi(infile.val.c_str());
+			}
 			
 			// animation info
 			else if (infile.key == "gfx") {

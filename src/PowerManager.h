@@ -86,6 +86,7 @@ struct Power {
 	int requires_item;
 	bool consumable;
 	bool requires_targeting; // power only makes sense when using click-to-target
+	int cooldown; // milliseconds before you can use the power again
 	
 	// animation info
 	int gfx_index;
@@ -171,6 +172,7 @@ struct Power {
 		requires_empty_target = false;
 		requires_item = -1;
 		requires_targeting=false;
+		cooldown = 0;
 		
 		gfx_index = -1;
 		sfx_index = -1;
