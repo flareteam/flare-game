@@ -271,7 +271,8 @@ public:
 
 	void handleNewMap(MapCollision *_collider);	
 	bool activate(int power_index, StatBlock *src_stats, Point target);
-		
+
+	StatBlock *src_stats;
 	Power powers[POWER_COUNT];
 	queue<Hazard *> hazards; // output; read by HazardManager
 

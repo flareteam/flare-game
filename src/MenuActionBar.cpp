@@ -9,11 +9,12 @@
  
 #include "MenuActionBar.h"
 
-MenuActionBar::MenuActionBar(SDL_Surface *_screen, FontEngine *_font, InputState *_inp, PowerManager *_powers, SDL_Surface *_icons) {
+MenuActionBar::MenuActionBar(SDL_Surface *_screen, FontEngine *_font, InputState *_inp, PowerManager *_powers, StatBlock *_hero, SDL_Surface *_icons) {
 	screen = _screen;
 	font = _font;
 	inp = _inp;
 	powers = _powers;
+	hero = _hero;
 	icons = _icons;
 	
 	src.x = 0;
@@ -152,10 +153,13 @@ void MenuActionBar::render() {
 		else
 			dest.x = offset_x + (i * 32) + 64;
 
-		if (hotkeys[i] != -1)
+		if (hotkeys[i] != -1) {
+			slot_enabled[i] = (hero->hero_cooldown[hotkeys[i]] == 0) && (slot_item_count[i] != 0); //see if the slot should be greyed out
 			renderIcon(powers->powers[hotkeys[i]].icon, dest.x, dest.y);
-		else
+		}
+		else {
 			SDL_BlitSurface(emptyslot, &src, screen, &dest);
+		}
 	}
 	
 	renderItemCounts();

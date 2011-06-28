@@ -76,7 +76,6 @@ public:
 	int current_power;
 	Point act_target;
 	bool drag_walking;
-	int power_cooldown[POWER_COUNT];
 };
 
 #endif

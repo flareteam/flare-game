@@ -17,6 +17,7 @@
 #include "MenuTooltip.h"
 #include "PowerManager.h"
 #include "FontEngine.h"
+#include "StatBlock.h"
 #include <string>
 #include <sstream>
 
@@ -33,6 +34,7 @@ private:
 	SDL_Surface *icons;
 	SDL_Surface *disabled;
 	
+	StatBlock *hero;
 	PowerManager *powers;
 	InputState *inp;
 	FontEngine *font;
@@ -44,7 +46,7 @@ private:
 	
 public:
 
-	MenuActionBar(SDL_Surface *_screen, FontEngine *_font, InputState *_inp, PowerManager *_powers, SDL_Surface *icons);
+	MenuActionBar(SDL_Surface *_screen, FontEngine *_font, InputState *_inp, PowerManager *_powers, StatBlock *hero, SDL_Surface *icons);
 	~MenuActionBar();
 	void loadGraphics();
 	void renderIcon(int icon_id, int x, int y);

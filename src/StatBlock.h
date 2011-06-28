@@ -141,6 +141,7 @@ public:
 	int dspeed;
 	Point pos;
 	int direction;
+	int hero_cooldown[1024]; //TODO: fix this to use POWER_COUNT
 		
 	// state
 	int cur_state;

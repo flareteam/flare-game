@@ -62,7 +62,7 @@ void Avatar::init() {
 	img_off = "";
 
 	for (int i = 0; i < POWER_COUNT; i++) {
-		power_cooldown[i] = 0;
+		stats.hero_cooldown[i] = 0;
 	}
 }
 
@@ -267,10 +267,10 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 					break;
 				if (powers->powers[actionbar_power].requires_empty_target && !map->collider.is_empty(target.x, target.y))
 					break;
-				if (power_cooldown[actionbar_power] > 0)
+				if (stats.hero_cooldown[actionbar_power] > 0)
 					break;
 
-				power_cooldown[actionbar_power] = powers->powers[actionbar_power].cooldown; //set the cooldown timer
+				stats.hero_cooldown[actionbar_power] = powers->powers[actionbar_power].cooldown; //set the cooldown timer
 				current_power = actionbar_power;
 				act_target.x = target.x;
 				act_target.y = target.y;
@@ -353,10 +353,10 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 					break;
 				if (powers->powers[actionbar_power].requires_empty_target && !map->collider.is_empty(target.x, target.y))
 					break;
-				if (power_cooldown[actionbar_power] > 0)
+				if (stats.hero_cooldown[actionbar_power] > 0)
 					break;
 
-				power_cooldown[actionbar_power] = powers->powers[actionbar_power].cooldown; //set the cooldown timer
+				stats.hero_cooldown[actionbar_power] = powers->powers[actionbar_power].cooldown; //set the cooldown timer
 				current_power = actionbar_power;
 				act_target.x = target.x;
 				act_target.y = target.y;
@@ -509,8 +509,8 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 
 	// decrement all cooldowns
 	for (int i = 0; i < POWER_COUNT; i++){
-		power_cooldown[i] -= 1000 / FRAMES_PER_SEC;
-		if (power_cooldown[i] < 0) power_cooldown[i] = 0;
+		stats.hero_cooldown[i] -= 1000 / FRAMES_PER_SEC;
+		if (stats.hero_cooldown[i] < 0) stats.hero_cooldown[i] = 0;
 	}
 }
 
