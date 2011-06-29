@@ -23,11 +23,16 @@ void ItemDatabase::load() {
 	FileParser infile;
 	int id = 0;
 	string s;
+	int bonus_counter = 0;
 	
 	if (infile.open("items/items.txt")) {
 		while (infile.next()) {
-			if (infile.key == "id")
+			if (infile.key == "id") {
 				id = atoi(infile.val.c_str());
+				
+				// new item, reset bonus counter
+				bonus_counter = 0;
+			}
 			else if (infile.key == "name")
 				items[id].name = infile.val;
 			else if (infile.key == "level")
@@ -87,8 +92,11 @@ void ItemDatabase::load() {
 				items[id].req_val = atoi(infile.nextValue().c_str());
 			}
 			else if (infile.key == "bonus") {
-				items[id].bonus_stat = infile.nextValue();
-				items[id].bonus_val = atoi(infile.nextValue().c_str());
+				if (bonus_counter < ITEM_MAX_BONUSES) {
+					items[id].bonus_stat[bonus_counter] = infile.nextValue();
+					items[id].bonus_val[bonus_counter] = atoi(infile.nextValue().c_str());
+					bonus_counter++;
+				}
 			}
 			else if (infile.key == "sfx") {
 				if (infile.val == "book")
@@ -334,15 +342,20 @@ TooltipData ItemDatabase::getTooltip(int item, StatBlock *stats, bool vendor_vie
 		tip.lines[tip.num_lines++] = ss.str();
 	}
 	
-	ss.str("");
-	
-	// bonus
-	if (items[item].bonus_stat != "") {
-		if (items[item].bonus_val > 0)
-			ss << "Increases " << items[item].bonus_stat << " by " << items[item].bonus_val;
-		else
-			ss << "Decreases " << items[item].bonus_stat << " by " << (-1 * items[item].bonus_val);
+	// bonuses
+	int bonus_counter = 0;
+	while (items[item].bonus_stat[bonus_counter] != "") {
+		ss.str("");
+		if (items[item].bonus_val[bonus_counter] > 0) {
+			ss << "Increases " << items[item].bonus_stat[bonus_counter] << " by " << items[item].bonus_val[bonus_counter];
+			tip.colors[tip.num_lines] = FONT_GREEN;
+		}
+		else {
+			ss << "Decreases " << items[item].bonus_stat[bonus_counter] << " by " << (-1 * items[item].bonus_val[bonus_counter]);
+			tip.colors[tip.num_lines] = FONT_RED;
+		}
 		tip.lines[tip.num_lines++] = ss.str();
+		bonus_counter++;
 	}
 	
 	// power

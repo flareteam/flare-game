@@ -59,6 +59,8 @@ const int ITEM_QUALITY_NORMAL = 1;
 const int ITEM_QUALITY_HIGH = 2;
 const int ITEM_QUALITY_EPIC = 3;
 
+const int ITEM_MAX_BONUSES = 8;
+
 struct Item {
 	string name;          // item name displayed on long and short tool tips
 	int level;            // rough estimate of quality, used in the loot algorithm
@@ -72,8 +74,8 @@ struct Item {
 	int abs_max;          // maximum absorb amount (armors and shields only)
 	int req_stat;         // physical, mental, offense, defense
 	int req_val;          // 1-5 (used with req_stat)
-	string bonus_stat;    // stat to increase/decrease e.g. hp, accuracy, speed
-	int bonus_val;        // amount to increase (used with bonus_stat)
+	string bonus_stat[ITEM_MAX_BONUSES]; // stat to increase/decrease e.g. hp, accuracy, speed
+	int bonus_val[ITEM_MAX_BONUSES];        // amount to increase (used with bonus_stat)
 	int sfx;              // the item sound when it hits the floor or inventory, etc
 	string gfx;           // the sprite layer shown when this item is equipped
 	string loot;          // the flying loot animation for this item
@@ -99,8 +101,10 @@ struct Item {
 		abs_max = 0;
 		req_stat = 0;
 		req_val = 0;
-		bonus_stat = "";
-		bonus_val = 0;
+		for (int i=0; i<ITEM_MAX_BONUSES; i++) {
+			bonus_stat[i] = "";
+			bonus_val[i] = 0;
+		}
 		sfx = SFX_NONE;
 		gfx = "";
 		loot = "";

@@ -18,14 +18,16 @@
 const int STYLE_FLOAT = 0;
 const int STYLE_TOPLABEL = 1;
 
+const int TOOLTIP_MAX_LINES = 16;
+
 struct TooltipData {
-	string lines[8];
-	int colors[8];
+	string lines[TOOLTIP_MAX_LINES];
+	int colors[TOOLTIP_MAX_LINES];
 	int num_lines;
 	
 	TooltipData() {
 		num_lines = 0;
-		for (int i=0; i<8; i++) {
+		for (int i=0; i<TOOLTIP_MAX_LINES; i++) {
 			lines[i] = "";
 			colors[i] = FONT_WHITE;
 		}
