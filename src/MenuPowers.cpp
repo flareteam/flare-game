@@ -239,12 +239,16 @@ TooltipData MenuPowers::checkTooltip(Point mouse) {
 
 				// add mana cost
 				if (powers->powers[i].requires_mp > 0) {
-					int mp_cost = powers->powers[i].requires_mp;
 					stringstream ss;
 					ss.str("");
-					ss << "Costs ";
-					ss << mp_cost;
-					ss << " MP";
+					ss << "Costs " << powers->powers[i].requires_mp << " MP";
+					tip.lines[tip.num_lines++] = ss.str();
+				}
+				// add cooldown time
+				if (powers->powers[i].cooldown > 0) {
+					stringstream ss;
+					ss.str("");
+					ss << "Cooldown: " << powers->powers[i].cooldown / 1000.0 << " seconds";
 					tip.lines[tip.num_lines++] = ss.str();
 				}
 								

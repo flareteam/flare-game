@@ -24,7 +24,7 @@ MenuManager::MenuManager(PowerManager *_powers, SDL_Surface *_screen, InputState
 	chr = new MenuCharacter(screen, font, stats);
 	log = new MenuLog(screen, font);
 	hudlog = new MenuHUDLog(screen, font);
-	act = new MenuActionBar(screen, font, inp, powers, icons);
+	act = new MenuActionBar(screen, font, inp, powers, stats, icons);
 	hpmp = new MenuHPMP(screen, font);
 	tip = new MenuTooltip(font, screen);
 	mini = new MenuMiniMap(screen);
