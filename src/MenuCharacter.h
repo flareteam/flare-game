@@ -31,6 +31,7 @@ private:
 
 	void displayProficiencies(int value, int y);
 	void loadGraphics();
+	int bonusColor(int stat);
 	
 public:
 	MenuCharacter(SDL_Surface *screen, FontEngine *font, StatBlock *stats);
