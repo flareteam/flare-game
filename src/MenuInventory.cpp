@@ -659,6 +659,7 @@ void MenuInventory::applyEquipment(StatBlock *stats, ItemStack *equipped) {
 			}
 			
 			bonus_counter++;
+			if (bonus_counter == ITEM_MAX_BONUSES) break;
 		}
 	}
 
