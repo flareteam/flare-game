@@ -356,6 +356,7 @@ TooltipData ItemDatabase::getTooltip(int item, StatBlock *stats, bool vendor_vie
 		}
 		tip.lines[tip.num_lines++] = ss.str();
 		bonus_counter++;
+		if (bonus_counter == ITEM_MAX_BONUSES) break;
 	}
 	
 	// power

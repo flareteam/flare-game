@@ -543,6 +543,7 @@ void MenuInventory::applyEquipment(StatBlock *stats, ItemStack *equipped) {
 					stats->mental_additional += items[item_id].bonus_val[bonus_counter];
 				}
 				bonus_counter++;
+				if (bonus_counter == ITEM_MAX_BONUSES) break;
 			}
 		}
 		for (int i = 0; i < 4; i++) {
