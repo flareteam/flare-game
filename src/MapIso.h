@@ -22,6 +22,8 @@
 #include "Settings.h"
 #include "CampaignManager.h"
 #include "EnemyGroupManager.h"
+#include "InputState.h"
+#include "MenuTooltip.h"
 
 using namespace std;
 
@@ -50,16 +52,21 @@ struct Map_Event {
 	SDL_Rect location;
 	Event_Component components[8];
 	int comp_num;
+	SDL_Rect hotspot;
+	string tooltip;
 };
 
-
+const int CLICK_RANGE = 3 * UNITS_PER_TILE; //for activating events
 
 class MapIso {
 private:
 	SDL_Surface *screen;
-
+	InputState *inp;
 	Mix_Music *music;
-		
+	FontEngine *font;
+
+	MenuTooltip *tip;
+
 	// map events can play random soundfx
 	Mix_Chunk *sfx;
 	string sfx_filename;
@@ -74,11 +81,10 @@ private:
 	int event_count;
 	
 public:
-
 	CampaignManager *camp;
 
 	// functions
-	MapIso(SDL_Surface *_screen, CampaignManager *_camp);
+	MapIso(SDL_Surface *_screen, CampaignManager *_camp, InputState *_inp, FontEngine *_font);
 	~MapIso();
 	void clearEnemy(Map_Enemy e);
 	void clearNPC(Map_NPC n);
@@ -89,7 +95,9 @@ public:
 	void logic();
 	void render(Renderable r[], int rnum);
 	void checkEvents(Point loc);
+	void checkEventClick();
 	void clearEvents();
+	void checkTooltip();
 
 	// vars
 	string title;

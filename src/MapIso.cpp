@@ -10,10 +10,14 @@
 #include "MapIso.h"
 #include "FileParser.h"
 
-MapIso::MapIso(SDL_Surface *_screen, CampaignManager *_camp) {
+MapIso::MapIso(SDL_Surface *_screen, CampaignManager *_camp, InputState *_inp, FontEngine *_font) {
 
+	inp = _inp;
 	screen = _screen;
 	camp = _camp;
+	font = _font;
+	
+	tip = new MenuTooltip(font, screen);
 
 	// cam(x,y) is where on the map the camera is pointing
 	// units found in Settings.h (UNITS_PER_TILE)
@@ -48,6 +52,8 @@ void MapIso::clearEvents() {
 		events[i].location.w = 0;
 		events[i].location.h = 0;
 		events[i].comp_num = 0;
+		events[i].tooltip = "";
+		events[i].hotspot.x = events[i].hotspot.y = events[i].hotspot.h = events[i].hotspot.w = 0;
 		for (int j=0; j<8; j++) {
 			events[i].components[j].type = "";
 			events[i].components[j].s = "";
@@ -303,6 +309,15 @@ int MapIso::load(string filename) {
 					events[event_count-1].location.w = atoi(infile.nextValue().c_str());
 					events[event_count-1].location.h = atoi(infile.nextValue().c_str());
 				}
+				else if (infile.key == "hotspot") {
+					events[event_count-1].hotspot.x = atoi(infile.nextValue().c_str());
+					events[event_count-1].hotspot.y = atoi(infile.nextValue().c_str());
+					events[event_count-1].hotspot.w = atoi(infile.nextValue().c_str());
+					events[event_count-1].hotspot.h = atoi(infile.nextValue().c_str());
+				}
+				else if (infile.key == "tooltip") {
+					events[event_count-1].tooltip = infile.val;
+				}
 				else {
 					// new event component
 					Event_Component *e = &events[event_count-1].components[events[event_count-1].comp_num];
@@ -522,7 +537,10 @@ void MapIso::render(Renderable r[], int rnum) {
 			}
 		}
 	}
+	//render event tooltips
+	checkTooltip();
 }
+
 
 void MapIso::checkEvents(Point loc) {
 	Point maploc;
@@ -534,6 +552,49 @@ void MapIso::checkEvents(Point loc) {
 		    maploc.x <= events[i].location.x + events[i].location.w-1 &&
 			maploc.y <= events[i].location.y + events[i].location.h-1) {
 			executeEvent(i);
+		}
+	}
+}
+
+void MapIso::checkEventClick() {
+	Point p;
+	SDL_Rect r;
+	for(int i=0; i<event_count; i++) {
+		p = map_to_screen(events[i].location.x * UNITS_PER_TILE, events[i].location.y * UNITS_PER_TILE, cam.x, cam.y);
+		r.x = p.x + events[i].hotspot.x;
+		r.y = p.y + events[i].hotspot.y;
+		r.h = events[i].hotspot.h;
+		r.w = events[i].hotspot.w;
+		// execute if: MOUSE IN HOTSPOT && HOTSPOT EXISTS && CLICKING && HERO WITHIN RANGE
+		if (isWithin(r, inp->mouse) && (events[i].hotspot.h != 0) && inp->pressing[MAIN1] && !inp->lock[MAIN1] && (abs(cam.x - events[i].location.x * UNITS_PER_TILE) < CLICK_RANGE && abs(cam.y - events[i].location.y * UNITS_PER_TILE) < CLICK_RANGE)) {
+			inp->lock[MAIN1] = true;
+			executeEvent(i);
+		}
+	}
+}
+
+void MapIso::checkTooltip() {
+	Point p;
+	SDL_Rect r;
+
+	for (int i=0; i<event_count; i++) {
+		for (int j=0;j<events[i].comp_num;j++) {
+			if (events[i].components[j].type == "requires_not") {
+				if (camp->checkStatus(events[i].components[j].s)) return;
+			}
+		}
+
+		p = map_to_screen(events[i].location.x * UNITS_PER_TILE, events[i].location.y * UNITS_PER_TILE, cam.x, cam.y);
+		r.x = p.x + events[i].hotspot.x;
+		r.y = p.y + events[i].hotspot.y;
+		r.h = events[i].hotspot.h;
+		r.w = events[i].hotspot.w;
+		if (isWithin(r,inp->mouse) && events[i].tooltip != ""){
+			TooltipData td;
+			td.num_lines = 1;
+			td.colors[0] = FONT_WHITE;
+			td.lines[0] = events[i].tooltip;
+			tip->render(td, inp->mouse, STYLE_TOPLABEL);
 		}
 	}
 }
