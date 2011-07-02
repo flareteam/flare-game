@@ -29,7 +29,7 @@ GameStatePlay::GameStatePlay(SDL_Surface *_screen, InputState *_inp, FontEngine 
 	powers = new PowerManager();
 	font = _font;
 	camp = new CampaignManager();
-	map = new MapIso(_screen, camp, _inp);
+	map = new MapIso(_screen, camp, _inp, font);
 	pc = new Avatar(powers, _inp, map);
 	enemies = new EnemyManager(powers, map);
 	hazards = new HazardManager(powers, pc, enemies);
