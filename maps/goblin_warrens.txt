@@ -276,6 +276,7 @@ intermap=cave1.txt,3,13
 type=run_once
 location=3,36,1,1
 hotspot=-32,-32,64,64
+tooltip=Ukkonen's chest
 mapmod=object,3,36,160
 soundfx=soundfx/wood_open.ogg
 loot=random,4,36,2
@@ -285,7 +286,7 @@ loot=random,4,36,2
 type=run_once
 location=1,32,1,1
 hotspot=-32,-32,64,64
-tooltip=Barrel of loot
+tooltip=Barrel
 mapmod=object,1,32,162
 soundfx=soundfx/wood_open.ogg
 loot=random,2,32,1
@@ -295,6 +296,7 @@ loot=random,2,32,1
 type=run_once
 location=2,28,1,1
 hotspot=-32,-32,64,64
+tooltip=Averguard Tome
 requires_status=ak_ukkonen_search
 requires_not=ak_tome_found
 mapmod=object,2,28,165
@@ -304,18 +306,18 @@ loot=id,2,29,9000
 
 [event]
 #overlook book 1
-type=run_once
 location=38,51,1,1
 hotspot=-32,-32,64,64
+tooltip=History of the Averguard: Ch. 1
 mapmod=object,38,51,164
 soundfx=soundfx/inventory/inventory_page.ogg
 msg="In the Age of Settlement, the Averguard Knights defended peasants against the chaos of the wilderness."
 
 [event]
 #overlook book 2
-type=run_once
 location=38,46,1,1
 hotspot=-32,-32,64,64
+tooltip=History of the Averguard: Ch. 2
 mapmod=object,38,46,164
 soundfx=soundfx/inventory/inventory_page.ogg
 msg="Sir Evan Maddox led the Averguard when the plague struck.  Powerful clerics from the corners of the world were brought here.  By the time a cure was found it was too late."
