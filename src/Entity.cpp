@@ -98,8 +98,9 @@ void Entity::loadAnimations(std::string filename) {
 
 	FileParser parser;
 
-	if (!parser.open(filename)) {
+	if (!parser.open(PATH_DATA + filename)) {
 		cout << "Error loading animation definition file: " << filename << endl;
+		SDL_Quit();
 		exit(1);
 	}
 

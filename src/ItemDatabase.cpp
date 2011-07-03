@@ -25,7 +25,7 @@ void ItemDatabase::load() {
 	string s;
 	int bonus_counter = 0;
 	
-	if (infile.open("items/items.txt")) {
+	if (infile.open(PATH_DATA + "items/items.txt")) {
 		while (infile.next()) {
 			if (infile.key == "id") {
 				id = atoi(infile.val.c_str());
@@ -152,18 +152,18 @@ void ItemDatabase::load() {
 
 void ItemDatabase::loadSounds() {
 
-	sfx[SFX_BOOK] = Mix_LoadWAV("soundfx/inventory/inventory_book.ogg");
-	sfx[SFX_CLOTH] = Mix_LoadWAV("soundfx/inventory/inventory_cloth.ogg");
-	sfx[SFX_COINS] = Mix_LoadWAV("soundfx/inventory/inventory_coins.ogg");
-	sfx[SFX_GEM] = Mix_LoadWAV("soundfx/inventory/inventory_gem.ogg");
-	sfx[SFX_LEATHER] = Mix_LoadWAV("soundfx/inventory/inventory_leather.ogg");
-	sfx[SFX_METAL] = Mix_LoadWAV("soundfx/inventory/inventory_metal.ogg");
-	sfx[SFX_PAGE] = Mix_LoadWAV("soundfx/inventory/inventory_page.ogg");
-	sfx[SFX_MAILLE] = Mix_LoadWAV("soundfx/inventory/inventory_maille.ogg");
-	sfx[SFX_OBJECT] = Mix_LoadWAV("soundfx/inventory/inventory_object.ogg");
-	sfx[SFX_HEAVY] = Mix_LoadWAV("soundfx/inventory/inventory_heavy.ogg");
-	sfx[SFX_WOOD] = Mix_LoadWAV("soundfx/inventory/inventory_wood.ogg");
-	sfx[SFX_POTION] = Mix_LoadWAV("soundfx/inventory/inventory_potion.ogg");
+	sfx[SFX_BOOK] = Mix_LoadWAV((PATH_DATA + "soundfx/inventory/inventory_book.ogg").c_str());
+	sfx[SFX_CLOTH] = Mix_LoadWAV((PATH_DATA + "soundfx/inventory/inventory_cloth.ogg").c_str());
+	sfx[SFX_COINS] = Mix_LoadWAV((PATH_DATA + "soundfx/inventory/inventory_coins.ogg").c_str());
+	sfx[SFX_GEM] = Mix_LoadWAV((PATH_DATA + "soundfx/inventory/inventory_gem.ogg").c_str());
+	sfx[SFX_LEATHER] = Mix_LoadWAV((PATH_DATA + "soundfx/inventory/inventory_leather.ogg").c_str());
+	sfx[SFX_METAL] = Mix_LoadWAV((PATH_DATA + "soundfx/inventory/inventory_metal.ogg").c_str());
+	sfx[SFX_PAGE] = Mix_LoadWAV((PATH_DATA + "soundfx/inventory/inventory_page.ogg").c_str());
+	sfx[SFX_MAILLE] = Mix_LoadWAV((PATH_DATA + "soundfx/inventory/inventory_maille.ogg").c_str());
+	sfx[SFX_OBJECT] = Mix_LoadWAV((PATH_DATA + "soundfx/inventory/inventory_object.ogg").c_str());
+	sfx[SFX_HEAVY] = Mix_LoadWAV((PATH_DATA + "soundfx/inventory/inventory_heavy.ogg").c_str());
+	sfx[SFX_WOOD] = Mix_LoadWAV((PATH_DATA + "soundfx/inventory/inventory_wood.ogg").c_str());
+	sfx[SFX_POTION] = Mix_LoadWAV((PATH_DATA + "soundfx/inventory/inventory_potion.ogg").c_str());
 	
 }
 
@@ -172,8 +172,8 @@ void ItemDatabase::loadSounds() {
  */
 void ItemDatabase::loadIcons() {
 	
-	icons32 = IMG_Load("images/icons/icons32.png");
-	icons64 = IMG_Load("images/icons/icons64.png");
+	icons32 = IMG_Load((PATH_DATA + "images/icons/icons32.png").c_str());
+	icons64 = IMG_Load((PATH_DATA + "images/icons/icons64.png").c_str());
 	
 	if(!icons32 || !icons64) {
 		fprintf(stderr, "Couldn't load icons: %s\n", IMG_GetError());

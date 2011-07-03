@@ -19,9 +19,9 @@ MenuCharacter::MenuCharacter(SDL_Surface *_screen, FontEngine *_font, StatBlock 
 
 void MenuCharacter::loadGraphics() {
 
-	background = IMG_Load("images/menus/character.png");
-	proficiency = IMG_Load("images/menus/character_proficiency.png");
-	upgrade = IMG_Load("images/menus/upgrade.png");
+	background = IMG_Load((PATH_DATA + "images/menus/character.png").c_str());
+	proficiency = IMG_Load((PATH_DATA + "images/menus/character_proficiency.png").c_str());
+	upgrade = IMG_Load((PATH_DATA + "images/menus/upgrade.png").c_str());
 	if(!background || !proficiency || !upgrade) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 		SDL_Quit();

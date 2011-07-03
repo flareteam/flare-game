@@ -9,6 +9,7 @@
 #ifndef ENEMY_MANAGER_H
 #define ENEMY_MANAGER_H
 
+#include "Settings.h"
 #include "MapIso.h"
 #include "Enemy.h"
 #include "Utils.h"

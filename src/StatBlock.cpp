@@ -135,7 +135,7 @@ void StatBlock::load(string filename) {
 	FileParser infile;
 	int num;
 	
-	if (infile.open(filename.c_str())) {
+	if (infile.open(PATH_DATA + filename)) {
 		while (infile.next()) {
 			if (isInt(infile.val)) num = atoi(infile.val.c_str());
 			

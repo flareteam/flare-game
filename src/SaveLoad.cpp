@@ -3,8 +3,6 @@
  *
  * I put these in a separate cpp file just to keep GameStatePlay.cpp devoted to its core.
  *
- * TODO: handle stackable items
- *
  * class GameStatePlay
  *
  * @author Clint Bellanger
@@ -31,7 +29,7 @@ void GameStatePlay::saveGame() {
 
 	stringstream ss;
 	ss.str("");
-	ss << "saves/save" << game_slot << ".txt";
+	ss << PATH_USER << "saves/save" << game_slot << ".txt";
 
 	outfile.open(ss.str().c_str(), ios::out);
 
@@ -98,7 +96,7 @@ void GameStatePlay::loadGame() {
 
 	stringstream ss;
 	ss.str("");
-	ss << "saves/save" << game_slot << ".txt";
+	ss << PATH_USER << "saves/save" << game_slot << ".txt";
 
 	if (infile.open(ss.str())) {
 		while (infile.next()) {

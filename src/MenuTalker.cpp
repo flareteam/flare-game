@@ -17,11 +17,11 @@ MenuTalker::MenuTalker(SDL_Surface *_screen, InputState *_inp , FontEngine *_fon
 	portrait = NULL;
 
 
-	advanceButton = new WidgetButton(screen, font, inp, "./images/menus/buttons/right.png");
+	advanceButton = new WidgetButton(screen, font, inp, "images/menus/buttons/right.png");
 	advanceButton->pos.x = VIEW_W_HALF + 288;
 	advanceButton->pos.y = VIEW_H_HALF + 184;
 
-	closeButton = new WidgetButton(screen, font, inp, "./images/menus/buttons/button_x.png");
+	closeButton = new WidgetButton(screen, font, inp, "images/menus/buttons/button_x.png");
 	closeButton->pos.x = VIEW_W_HALF + 288;
 	closeButton->pos.y = VIEW_H_HALF + 112;
 	
@@ -38,7 +38,7 @@ MenuTalker::MenuTalker(SDL_Surface *_screen, InputState *_inp , FontEngine *_fon
 
 void MenuTalker::loadGraphics() {
 
-	background = IMG_Load("images/menus/dialog_box.png");
+	background = IMG_Load((PATH_DATA + "images/menus/dialog_box.png").c_str());
 	if(!background) {
 		fprintf(stderr, "Couldn't load image dialog_box.png: %s\n", IMG_GetError());
 		SDL_Quit();
@@ -154,7 +154,7 @@ void MenuTalker::render() {
 void MenuTalker::setHero(string name, string portrait_filename) {
 	hero_name = name;
 	
-	portrait = IMG_Load(("images/portraits/" + portrait_filename + ".png").c_str());
+	portrait = IMG_Load((PATH_DATA + "images/portraits/" + portrait_filename + ".png").c_str());
 	if(!portrait) {
 		fprintf(stderr, "Couldn't load portrait: %s\n", IMG_GetError());
 		

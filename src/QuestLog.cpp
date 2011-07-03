@@ -28,7 +28,7 @@ void QuestLog::loadAll() {
 	ifstream infile;
 	string line;
 	
-	infile.open("quests/index.txt", ios::in);
+	infile.open((PATH_DATA + "quests/index.txt").c_str(), ios::in);
 	
 	if (infile.is_open()) {
 		while (!infile.eof()) {
@@ -51,7 +51,7 @@ void QuestLog::load(string filename) {
 	FileParser infile;
 	int event_count = 0;
 	
-	if (infile.open(("quests/" + filename).c_str())) {
+	if (infile.open(PATH_DATA + "quests/" + filename)) {
 		while (infile.next()) {
 			if (infile.new_section) {
 				if (infile.section == "quest") {

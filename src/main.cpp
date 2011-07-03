@@ -109,6 +109,8 @@ int main(int argc, char *argv[])
 	
 	srand((unsigned int)time(NULL));
 
+	setPaths();
+
 	if (!loadSettings()) {
 		fprintf(stderr, "Error: could not load config/settings.txt. Check your permissions and working directory.");
 		return 1;

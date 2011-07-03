@@ -14,12 +14,12 @@ GameStateLoad::GameStateLoad(SDL_Surface *_screen, InputState *_inp, FontEngine 
 	items = new ItemDatabase(screen, font);
 	portrait = NULL;
 	
-	button_exit = new WidgetButton(screen, font, inp, "./images/menus/buttons/button_default.png");
+	button_exit = new WidgetButton(screen, font, inp, "images/menus/buttons/button_default.png");
 	button_exit->label = "Exit to Title";
 	button_exit->pos.x = VIEW_W_HALF - button_exit->pos.w/2;
 	button_exit->pos.y = VIEW_H - button_exit->pos.h;	
 	
-	button_action = new WidgetButton(screen, font, inp, "./images/menus/buttons/button_default.png");
+	button_action = new WidgetButton(screen, font, inp, "images/menus/buttons/button_default.png");
 	button_action->label = "Choose a Slot";
 	button_action->enabled = false;
 	button_action->pos.x = (VIEW_W - 640)/2 + 480 - button_action->pos.w/2;
@@ -67,9 +67,9 @@ void GameStateLoad::loadGraphics() {
 	selection = NULL;
 	portrait_border = NULL;
 	
-	background = IMG_Load("images/menus/game_slots.png");
-	selection = IMG_Load("images/menus/game_slot_select.png");
-	portrait_border = IMG_Load("images/menus/portrait_border.png");
+	background = IMG_Load((PATH_DATA + "images/menus/game_slots.png").c_str());
+	selection = IMG_Load((PATH_DATA + "images/menus/game_slot_select.png").c_str());
+	portrait_border = IMG_Load((PATH_DATA + "images/menus/portrait_border.png").c_str());
 	if(!background || !selection || !portrait_border) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 		SDL_Quit();
@@ -99,7 +99,7 @@ void GameStateLoad::loadPortrait(int slot) {
 	
 	if (stats[slot].name == "") return;
 	
-	portrait = IMG_Load(("images/portraits/" + stats[slot].portrait + ".png").c_str());
+	portrait = IMG_Load((PATH_DATA + "images/portraits/" + stats[slot].portrait + ".png").c_str());
 	if (!portrait) return;
 	
 	// optimize
@@ -116,7 +116,7 @@ void GameStateLoad::readGameSlots() {
 
 string GameStateLoad::getMapName(string map_filename) {
 	FileParser infile;
-	if (!infile.open(("./maps/" + map_filename).c_str())) return "";
+	if (!infile.open(PATH_DATA + "maps/" + map_filename)) return "";
 	string map_name = "";
 	
 	while (map_name == "" && infile.next()) {
@@ -139,7 +139,7 @@ void GameStateLoad::readGameSlot(int slot) {
 	// save slots are named save#.txt
 	filename << "saves/save" << (slot+1) << ".txt";
 
-	if (!infile.open(filename.str())) return;
+	if (!infile.open(PATH_USER + filename.str())) return;
 	
 	while (infile.next()) {
 	
@@ -194,7 +194,7 @@ void GameStateLoad::loadPreview(int slot) {
 	if (equipped[slot][2] != 0)	img_off = items->items[equipped[slot][2]].gfx;
 	
 	if (sprites[slot]) SDL_FreeSurface(sprites[slot]);	
-	sprites[slot] = IMG_Load("images/avatar/preview_background.png");
+	sprites[slot] = IMG_Load((PATH_DATA + "images/avatar/preview_background.png").c_str());
 	SDL_SetColorKey(sprites[slot], SDL_SRCCOLORKEY, SDL_MapRGB(screen->format, 255, 0, 255)); 
 
 	// optimize
@@ -204,10 +204,10 @@ void GameStateLoad::loadPreview(int slot) {
 	
 	// composite the hero graphic
 	
-	if (img_body != "") gfx_body = IMG_Load(("images/avatar/" + stats[slot].base + "/" + img_body + ".png").c_str());
-	if (img_main != "") gfx_main = IMG_Load(("images/avatar/" + stats[slot].base + "/" + img_main + ".png").c_str());
-	if (img_off != "") gfx_off = IMG_Load(("images/avatar/" + stats[slot].base + "/" + img_off + ".png").c_str());
-	gfx_head = IMG_Load(("images/avatar/" + stats[slot].base + "/" + stats[slot].head + ".png").c_str());
+	if (img_body != "") gfx_body = IMG_Load((PATH_DATA + "images/avatar/" + stats[slot].base + "/" + img_body + ".png").c_str());
+	if (img_main != "") gfx_main = IMG_Load((PATH_DATA + "images/avatar/" + stats[slot].base + "/" + img_main + ".png").c_str());
+	if (img_off != "") gfx_off = IMG_Load((PATH_DATA + "images/avatar/" + stats[slot].base + "/" + img_off + ".png").c_str());
+	gfx_head = IMG_Load((PATH_DATA + "images/avatar/" + stats[slot].base + "/" + stats[slot].head + ".png").c_str());
 
 	if (gfx_body) SDL_SetColorKey(gfx_body, SDL_SRCCOLORKEY, SDL_MapRGB(screen->format, 255, 0, 255)); 
 	if (gfx_main) SDL_SetColorKey(gfx_main, SDL_SRCCOLORKEY, SDL_MapRGB(screen->format, 255, 0, 255)); 

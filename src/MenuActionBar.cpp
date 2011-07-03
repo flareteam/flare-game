@@ -76,10 +76,10 @@ void MenuActionBar::clear() {
 
 void MenuActionBar::loadGraphics() {
 
-	emptyslot = IMG_Load("images/menus/slot_empty.png");
-	background = IMG_Load("images/menus/actionbar_trim.png");
-	labels = IMG_Load("images/menus/actionbar_labels.png");
-	disabled = IMG_Load("images/menus/disabled.png");
+	emptyslot = IMG_Load((PATH_DATA + "images/menus/slot_empty.png").c_str());
+	background = IMG_Load((PATH_DATA + "images/menus/actionbar_trim.png").c_str());
+	labels = IMG_Load((PATH_DATA + "images/menus/actionbar_labels.png").c_str());
+	disabled = IMG_Load((PATH_DATA + "images/menus/disabled.png").c_str());
 	if(!emptyslot || !background || !labels || !disabled) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 		SDL_Quit();

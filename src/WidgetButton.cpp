@@ -27,7 +27,7 @@ WidgetButton::WidgetButton(SDL_Surface *_screen, FontEngine *_font, InputState *
 void WidgetButton::loadArt() {
 
 	// load button images
-	buttons = IMG_Load(fileName);
+	buttons = IMG_Load((PATH_DATA + fileName).c_str());
 
 	if(!buttons) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());

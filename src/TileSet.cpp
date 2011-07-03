@@ -25,7 +25,7 @@ TileSet::TileSet() {
 void TileSet::loadGraphics(string filename) {
 	if (sprites) SDL_FreeSurface(sprites);
 	
-	sprites = IMG_Load(("images/tilesets/" + filename).c_str());
+	sprites = IMG_Load((PATH_DATA + "images/tilesets/" + filename).c_str());
 	if(!sprites) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 		SDL_Quit();
@@ -45,7 +45,7 @@ void TileSet::load(string filename) {
 	string line;
 	unsigned short index;
 
-	infile.open(("tilesetdefs/" + filename).c_str(), ios::in);
+	infile.open((PATH_DATA + "tilesetdefs/" + filename).c_str(), ios::in);
 
 	if (infile.is_open()) {
 		string img;

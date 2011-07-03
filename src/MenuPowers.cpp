@@ -30,9 +30,9 @@ MenuPowers::MenuPowers(SDL_Surface *_screen, FontEngine *_font, StatBlock *_stat
 
 void MenuPowers::loadGraphics() {
 
-	background = IMG_Load("images/menus/powers.png");
-	powers_step = IMG_Load("images/menus/powers_step.png");
-	powers_unlock = IMG_Load("images/menus/powers_unlock.png"); 
+	background = IMG_Load((PATH_DATA + "images/menus/powers.png").c_str());
+	powers_step = IMG_Load((PATH_DATA + "images/menus/powers_step.png").c_str());
+	powers_unlock = IMG_Load((PATH_DATA + "images/menus/powers_unlock.png").c_str()); 
 	if(!background || !powers_step || !powers_unlock) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 		SDL_Quit();

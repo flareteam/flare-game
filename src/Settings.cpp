@@ -12,6 +12,11 @@
 
 using namespace std;
 
+// Paths
+string PATH_CONF = "";
+string PATH_USER = "";
+string PATH_DATA = "";
+
 // Tile Settings
 int UNITS_PER_TILE = 64;
 int TILE_SHIFT = 6; // for fast bitshift divides
@@ -40,11 +45,26 @@ bool MENUS_PAUSE = false;
 // Input Settings
 bool MOUSE_MOVE = false;
 
+/**
+ * Set system paths
+ * PATH_CONF is for user-configurable settings files (e.g. keybindings)
+ * PATH_USER is for user-specific data (e.g. save games)
+ * PATH_DATA is for common game data (e.g. images, music)
+ */
+void setPaths() {
+	PATH_CONF = "./config/";
+	PATH_USER = "./";
+	PATH_DATA = "./";
+	
+	// TODO: use XDG or compiler flags
+	
+}
+
 bool loadSettings() {
 
 	FileParser infile;
 	
-	if (infile.open("config/settings.txt")) {
+	if (infile.open(PATH_CONF + "settings.txt")) {
 		while (infile.next()) {
 			if (infile.key == "fullscreen") {
 				if (infile.val == "1") FULLSCREEN = true;

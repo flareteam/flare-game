@@ -28,7 +28,7 @@ void FontEngine::load() {
 	char str[8];
 	
 	// load the definition file
-	infile.open("fonts/font.txt", ios::in);
+	infile.open((PATH_DATA + "fonts/font.txt").c_str(), ios::in);
 
 	if (infile.is_open()) {
 			
@@ -63,11 +63,11 @@ void FontEngine::load() {
 	infile.close();
 	
 	// load the font images
-	sprites[FONT_WHITE] = IMG_Load("fonts/white.png");
-	sprites[FONT_RED] = IMG_Load("fonts/red.png");
-	sprites[FONT_GREEN] = IMG_Load("fonts/green.png");
-	sprites[FONT_BLUE] = IMG_Load("fonts/blue.png");
-	sprites[FONT_GRAY] = IMG_Load("fonts/gray.png");
+	sprites[FONT_WHITE] = IMG_Load((PATH_DATA + "fonts/white.png").c_str());
+	sprites[FONT_RED] = IMG_Load((PATH_DATA + "fonts/red.png").c_str());
+	sprites[FONT_GREEN] = IMG_Load((PATH_DATA + "fonts/green.png").c_str());
+	sprites[FONT_BLUE] = IMG_Load((PATH_DATA + "fonts/blue.png").c_str());
+	sprites[FONT_GRAY] = IMG_Load((PATH_DATA + "fonts/gray.png").c_str());
 	
 }
 

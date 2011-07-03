@@ -28,7 +28,7 @@ MenuVendor::MenuVendor(SDL_Surface *_screen, FontEngine *_font, ItemDatabase *_i
 }
 
 void MenuVendor::loadGraphics() {
-	background = IMG_Load("images/menus/vendor.png");
+	background = IMG_Load((PATH_DATA + "images/menus/vendor.png").c_str());
 	if(!background) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 		SDL_Quit();

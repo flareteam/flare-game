@@ -45,7 +45,7 @@ MenuInventory::MenuInventory(SDL_Surface *_screen, FontEngine *_font, ItemDataba
 
 void MenuInventory::loadGraphics() {
 
-	background = IMG_Load("images/menus/inventory.png");
+	background = IMG_Load((PATH_DATA + "images/menus/inventory.png").c_str());
 	if(!background) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 		SDL_Quit();

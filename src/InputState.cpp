@@ -72,7 +72,7 @@ void InputState::loadKeyBindings() {
 	int key2;
 	int cursor;
 
-	if (!infile.open("config/keybindings.txt")) return;
+	if (!infile.open(PATH_CONF + "keybindings.txt")) return;
 	
 	while (infile.next()) {
 

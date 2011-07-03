@@ -36,7 +36,7 @@ void EnemyManager::loadGraphics(string type_id) {
 		}
 	}
 
-	sprites[gfx_count] = IMG_Load(("images/enemies/" + type_id + ".png").c_str());
+	sprites[gfx_count] = IMG_Load((PATH_DATA + "images/enemies/" + type_id + ".png").c_str());
 	if(!sprites[gfx_count]) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 		SDL_Quit();
@@ -65,11 +65,11 @@ void EnemyManager::loadSounds(string type_id) {
 		}
 	}
 	
-	sound_phys[sfx_count] = Mix_LoadWAV(("soundfx/enemies/" + type_id + "_phys.ogg").c_str());
-	sound_ment[sfx_count] = Mix_LoadWAV(("soundfx/enemies/" + type_id + "_ment.ogg").c_str());
-	sound_hit[sfx_count] = Mix_LoadWAV(("soundfx/enemies/" + type_id + "_hit.ogg").c_str());
-	sound_die[sfx_count] = Mix_LoadWAV(("soundfx/enemies/" + type_id + "_die.ogg").c_str());
-	sound_critdie[sfx_count] = Mix_LoadWAV(("soundfx/enemies/" + type_id + "_critdie.ogg").c_str());
+	sound_phys[sfx_count] = Mix_LoadWAV((PATH_DATA + "soundfx/enemies/" + type_id + "_phys.ogg").c_str());
+	sound_ment[sfx_count] = Mix_LoadWAV((PATH_DATA + "soundfx/enemies/" + type_id + "_ment.ogg").c_str());
+	sound_hit[sfx_count] = Mix_LoadWAV((PATH_DATA + "soundfx/enemies/" + type_id + "_hit.ogg").c_str());
+	sound_die[sfx_count] = Mix_LoadWAV((PATH_DATA + "soundfx/enemies/" + type_id + "_die.ogg").c_str());
+	sound_critdie[sfx_count] = Mix_LoadWAV((PATH_DATA + "soundfx/enemies/" + type_id + "_critdie.ogg").c_str());
 	
 	sfx_prefixes[sfx_count] = type_id;
 	sfx_count++;
@@ -112,10 +112,10 @@ void EnemyManager::handleNewMap () {
 		enemies[enemy_count]->stats.pos.x = me.pos.x;
 		enemies[enemy_count]->stats.pos.y = me.pos.y;
 		enemies[enemy_count]->stats.direction = me.direction;
-		enemies[enemy_count]->stats.load("enemies/" + me.type + ".txt");
+		enemies[enemy_count]->stats.load(PATH_DATA + "enemies/" + me.type + ".txt");
 		if (enemies[enemy_count]->stats.animations != "") {
 			// load the animation file if specified
-			enemies[enemy_count]->loadAnimations("./animations/" + enemies[enemy_count]->stats.animations + ".txt");
+			enemies[enemy_count]->loadAnimations(PATH_DATA + "animations/" + enemies[enemy_count]->stats.animations + ".txt");
 		}
 		else {
 			cout << "Warning: no animation file specified for entity: " << me.type << endl;

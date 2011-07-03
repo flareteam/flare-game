@@ -17,7 +17,7 @@ Avatar::Avatar(PowerManager *_powers, InputState *_inp, MapIso *_map) : Entity(_
 	stats.cooldown = 4;
 
 	// load the hero's animations from hero definition file
-	loadAnimations("./animations/hero.txt");
+	loadAnimations(PATH_DATA + "animations/hero.txt");
 }
 
 void Avatar::init() {
@@ -84,10 +84,10 @@ void Avatar::loadGraphics(string _img_main, string _img_armor, string _img_off) 
 	
 		// composite the hero graphic
 		if (sprites) SDL_FreeSurface(sprites);
-		sprites = IMG_Load(("images/avatar/" + stats.base + "/" + img_armor + ".png").c_str());
-		if (img_main != "") gfx_main = IMG_Load(("images/avatar/" + stats.base + "/" + img_main + ".png").c_str());
-		if (img_off != "") gfx_off = IMG_Load(("images/avatar/" + stats.base + "/" + img_off + ".png").c_str());
-		gfx_head = IMG_Load(("images/avatar/" + stats.base + "/" + stats.head + ".png").c_str());
+		sprites = IMG_Load((PATH_DATA + "images/avatar/" + stats.base + "/" + img_armor + ".png").c_str());
+		if (img_main != "") gfx_main = IMG_Load((PATH_DATA + "images/avatar/" + stats.base + "/" + img_main + ".png").c_str());
+		if (img_off != "") gfx_off = IMG_Load((PATH_DATA + "images/avatar/" + stats.base + "/" + img_off + ".png").c_str());
+		gfx_head = IMG_Load((PATH_DATA + "images/avatar/" + stats.base + "/" + stats.head + ".png").c_str());
 
 		SDL_SetColorKey( sprites, SDL_SRCCOLORKEY, SDL_MapRGB(sprites->format, 255, 0, 255) ); 
 		if (gfx_main) SDL_SetColorKey( gfx_main, SDL_SRCCOLORKEY, SDL_MapRGB(gfx_main->format, 255, 0, 255) ); 
@@ -136,15 +136,15 @@ void Avatar::loadGraphics(string _img_main, string _img_armor, string _img_off) 
 }
 
 void Avatar::loadSounds() {
-	sound_melee = Mix_LoadWAV("soundfx/melee_attack.ogg");
-	sound_hit = Mix_LoadWAV(("soundfx/" + stats.base + "_hit.ogg").c_str());
-	sound_die = Mix_LoadWAV(("soundfx/" + stats.base + "_die.ogg").c_str());
-	sound_block = Mix_LoadWAV("soundfx/powers/block.ogg");	
-	sound_steps[0] = Mix_LoadWAV("soundfx/step_echo1.ogg");
-	sound_steps[1] = Mix_LoadWAV("soundfx/step_echo2.ogg");
-	sound_steps[2] = Mix_LoadWAV("soundfx/step_echo3.ogg");
-	sound_steps[3] = Mix_LoadWAV("soundfx/step_echo4.ogg");
-	level_up = Mix_LoadWAV("soundfx/level_up.ogg");
+	sound_melee = Mix_LoadWAV((PATH_DATA + "soundfx/melee_attack.ogg").c_str());
+	sound_hit = Mix_LoadWAV((PATH_DATA + "soundfx/" + stats.base + "_hit.ogg").c_str());
+	sound_die = Mix_LoadWAV((PATH_DATA + "soundfx/" + stats.base + "_die.ogg").c_str());
+	sound_block = Mix_LoadWAV((PATH_DATA + "soundfx/powers/block.ogg").c_str());	
+	sound_steps[0] = Mix_LoadWAV((PATH_DATA + "soundfx/step_echo1.ogg").c_str());
+	sound_steps[1] = Mix_LoadWAV((PATH_DATA + "soundfx/step_echo2.ogg").c_str());
+	sound_steps[2] = Mix_LoadWAV((PATH_DATA + "soundfx/step_echo3.ogg").c_str());
+	sound_steps[3] = Mix_LoadWAV((PATH_DATA + "soundfx/step_echo4.ogg").c_str());
+	level_up = Mix_LoadWAV((PATH_DATA + "soundfx/level_up.ogg").c_str());
 				
 	if (!sound_melee || !sound_hit || !sound_die || !sound_steps[0] || !level_up) {
 	  printf("Mix_LoadWAV: %s\n", Mix_GetError());

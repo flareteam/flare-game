@@ -64,9 +64,9 @@ MenuLog::MenuLog(SDL_Surface *_screen, FontEngine *_font) {
 
 void MenuLog::loadGraphics() {
 
-	background = IMG_Load("images/menus/log.png");
-	tab_active = IMG_Load("images/menus/tab_active.png");
-	tab_inactive = IMG_Load("images/menus/tab_inactive.png");
+	background = IMG_Load((PATH_DATA + "images/menus/log.png").c_str());
+	tab_active = IMG_Load((PATH_DATA + "images/menus/tab_active.png").c_str());
+	tab_inactive = IMG_Load((PATH_DATA + "images/menus/tab_inactive.png").c_str());
 	
 	
 	if(!background || !tab_active || !tab_inactive) {

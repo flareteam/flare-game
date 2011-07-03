@@ -9,8 +9,8 @@ GameStateTitle::GameStateTitle(SDL_Surface *_screen, InputState *_inp, FontEngin
 	loadGraphics();
 	
 	// set up buttons
-	button_play = new WidgetButton(screen, font, inp, "./images/menus/buttons/button_default.png");
-	button_exit = new WidgetButton(screen, font, inp, "./images/menus/buttons/button_default.png");
+	button_play = new WidgetButton(screen, font, inp, "images/menus/buttons/button_default.png");
+	button_exit = new WidgetButton(screen, font, inp, "images/menus/buttons/button_default.png");
 	
 	button_play->label = "Play Game";
 	button_play->pos.x = VIEW_W_HALF - button_play->pos.w/2;
@@ -24,7 +24,7 @@ GameStateTitle::GameStateTitle(SDL_Surface *_screen, InputState *_inp, FontEngin
 
 void GameStateTitle::loadGraphics() {
 
-	logo = IMG_Load("images/menus/logo.png");
+	logo = IMG_Load((PATH_DATA + "images/menus/logo.png").c_str());
 
 	if(!logo) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());

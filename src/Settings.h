@@ -8,6 +8,13 @@
 #ifndef SETTINGS_H
 #define SETTINGS_H
 
+#include <string>
+
+// Path info
+extern std::string PATH_CONF; // user-configurable settings files
+extern std::string PATH_USER; // important per-user data (saves)
+extern std::string PATH_DATA; // common game data
+
 // Audio and Video Settings
 extern int MUSIC_VOLUME;
 extern int SOUND_VOLUME;
@@ -36,6 +43,7 @@ extern int TILE_H;
 extern int TILE_W_HALF;
 extern int TILE_H_HALF;
 
+void setPaths();
 bool loadSettings();
 
 #endif

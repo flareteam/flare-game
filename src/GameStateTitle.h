@@ -1,6 +1,7 @@
 #ifndef GAMESTATETITLE_H
 #define GAMESTATETITLE_H
 
+#include "Settings.h"
 #include "GameState.h"
 #include "WidgetButton.h"
 

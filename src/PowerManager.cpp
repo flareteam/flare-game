@@ -45,7 +45,7 @@ void PowerManager::loadPowers() {
 	FileParser infile;
 	int input_id = 0;
 	
-	if (infile.open("powers/powers.txt")) {
+	if (infile.open((PATH_DATA + "powers/powers.txt").c_str())) {
 		while (infile.next()) {
 			// id needs to be the first component of each power.  That is how we write
 			// data to the correct power.
@@ -318,7 +318,7 @@ int PowerManager::loadGFX(string filename) {
 	}
 
 	// we don't already have this sprite loaded, so load it
-	gfx[gfx_count] = IMG_Load(("images/powers/" + filename).c_str());
+	gfx[gfx_count] = IMG_Load((PATH_DATA + "images/powers/" + filename).c_str());
 	if(!gfx[gfx_count]) {
 		fprintf(stderr, "Couldn't load power sprites: %s\n", IMG_GetError());
 		return -1;
@@ -354,7 +354,7 @@ int PowerManager::loadSFX(string filename) {
 	}
 
 	// we don't already have this sound loaded, so load it
-	sfx[sfx_count] = Mix_LoadWAV(("soundfx/powers/" + filename).c_str());
+	sfx[sfx_count] = Mix_LoadWAV((PATH_DATA + "soundfx/powers/" + filename).c_str());
 	if(!sfx[sfx_count]) {
 		fprintf(stderr, "Couldn't load power soundfx: %s\n", filename.c_str());
 		return -1;
@@ -369,7 +369,7 @@ int PowerManager::loadSFX(string filename) {
 
 void PowerManager::loadGraphics() {
 
-	runes = IMG_Load("images/powers/runes.png");
+	runes = IMG_Load((PATH_DATA + "images/powers/runes.png").c_str());
 	
 	if(!runes) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());

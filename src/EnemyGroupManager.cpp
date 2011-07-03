@@ -42,7 +42,7 @@ int EnemyGroupManager::getdir(string dir, string ext, vector<string> &files) {
 
 // Fills the array with the enemy data
 void EnemyGroupManager::generate() {
-	string dir = string("enemies");
+	string dir = PATH_DATA + string("enemies");
 	vector<string> files = vector<string>();
 	getdir(dir,".txt",files);
 	for (int i = 0; i < files.size(); i++) {
@@ -57,7 +57,7 @@ void EnemyGroupManager::extract_and_sort(string filename) {
 	Enemy_Level new_enemy;
 	vector<string> categories;
 
-	if (infile.open(("enemies/" + filename).c_str())) {
+	if (infile.open(PATH_DATA + "enemies/" + filename)) {
 		new_enemy.type = filename.substr(0,filename.length()-4); //removes the ".txt" from the filename
 		while (infile.next()) {
 			if(infile.key == "level") {

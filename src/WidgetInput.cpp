@@ -8,7 +8,7 @@ WidgetInput::WidgetInput(SDL_Surface* _screen, FontEngine *_font, InputState *_i
 	pressed = false;
 	max_characters = 20;
 	
-	loadGraphics("./images/menus/input.png");
+	loadGraphics("images/menus/input.png");
 
 	// position
 	pos.w = background->w;
@@ -21,7 +21,7 @@ WidgetInput::WidgetInput(SDL_Surface* _screen, FontEngine *_font, InputState *_i
 void WidgetInput::loadGraphics(string filename) {
 
 	// load input background image
-	background = IMG_Load(filename.c_str());
+	background = IMG_Load((PATH_DATA + filename).c_str());
 
 	if(!background) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());

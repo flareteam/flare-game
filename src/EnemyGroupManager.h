@@ -17,6 +17,7 @@
 #include <sys/types.h>
 #include <dirent.h>
 #include <errno.h>
+#include "Settings.h"
 #include "MapIso.h"
 #include "FileParser.h"
 
