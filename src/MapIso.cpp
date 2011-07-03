@@ -38,8 +38,6 @@ MapIso::MapIso(SDL_Surface *_screen, CampaignManager *_camp, InputState *_inp, F
 	log_msg = "";
 	shaky_cam_ticks = 0;
 	
-	// spawn is a special map that defines where the campaign begins
-	// load("spawn.txt");
 }
 
 
@@ -560,7 +558,7 @@ void MapIso::checkEventClick() {
 	Point p;
 	SDL_Rect r;
 	for(int i=0; i<event_count; i++) {
-		p = map_to_screen(events[i].location.x * UNITS_PER_TILE, events[i].location.y * UNITS_PER_TILE, cam.x, cam.y);
+		p = map_to_screen(events[i].location.x * UNITS_PER_TILE + UNITS_PER_TILE/2, events[i].location.y * UNITS_PER_TILE + UNITS_PER_TILE/2, cam.x, cam.y);
 		r.x = p.x + events[i].hotspot.x;
 		r.y = p.y + events[i].hotspot.y;
 		r.h = events[i].hotspot.h;
@@ -576,25 +574,61 @@ void MapIso::checkEventClick() {
 void MapIso::checkTooltip() {
 	Point p;
 	SDL_Rect r;
-
+	Point tip_pos;
+	bool skip;
+	
 	for (int i=0; i<event_count; i++) {
+		skip = false;
 		for (int j=0;j<events[i].comp_num;j++) {
 			if (events[i].components[j].type == "requires_not") {
-				if (camp->checkStatus(events[i].components[j].s)) return;
+				if (camp->checkStatus(events[i].components[j].s)) {
+					skip = true;
+					break;
+				}
 			}
 		}
+		if (skip) continue;
 
-		p = map_to_screen(events[i].location.x * UNITS_PER_TILE, events[i].location.y * UNITS_PER_TILE, cam.x, cam.y);
+		p = map_to_screen(events[i].location.x * UNITS_PER_TILE + UNITS_PER_TILE/2, events[i].location.y * UNITS_PER_TILE + UNITS_PER_TILE/2, cam.x, cam.y);
 		r.x = p.x + events[i].hotspot.x;
 		r.y = p.y + events[i].hotspot.y;
 		r.h = events[i].hotspot.h;
 		r.w = events[i].hotspot.w;
-		if (isWithin(r,inp->mouse) && events[i].tooltip != ""){
+		
+		// DEBUG TOOL: outline hotspot
+		/*
+		SDL_Rect screen_size;
+		screen_size.x = screen_size.y = 0;
+		screen_size.w = VIEW_W;
+		screen_size.h = VIEW_H;
+		Point pixpos;
+		pixpos.x = r.x;
+		pixpos.y = r.y;
+		if (isWithin(screen_size, pixpos))
+			drawPixel(screen, r.x, r.y, 255);
+		pixpos.x = r.x+r.w;
+		pixpos.y = r.y;
+		if (isWithin(screen_size, pixpos))
+			drawPixel(screen, r.x+r.w, r.y, 255);
+		pixpos.x = r.x;
+		pixpos.y = r.y+r.h;
+		if (isWithin(screen_size, pixpos))
+			drawPixel(screen, r.x, r.y+r.h, 255);
+		pixpos.x = r.x+r.w;
+		pixpos.y = r.y+r.h;
+		if (isWithin(screen_size, pixpos))
+			drawPixel(screen, r.x+r.w, r.y+r.h, 255);
+		*/
+		
+		if (isWithin(r,inp->mouse) && events[i].tooltip != "") {
 			TooltipData td;
 			td.num_lines = 1;
 			td.colors[0] = FONT_WHITE;
 			td.lines[0] = events[i].tooltip;
-			tip->render(td, inp->mouse, STYLE_TOPLABEL);
+			
+			tip_pos.x = r.x + r.w/2;
+			tip_pos.y = r.y;
+			tip->render(td, tip_pos, STYLE_TOPLABEL);
 		}
 	}
 }
