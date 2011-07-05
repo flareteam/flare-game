@@ -93,7 +93,8 @@ void MapIso::clearGroup(Map_Group g) {
 	g.area.y = 0;
 	g.levelmin = 0;
 	g.levelmax = 0;
-	g.number = 0;
+	g.numbermin = 0;
+	g.numbermax = 0;
 }
 
 void MapIso::playSFX(string filename) {
@@ -111,7 +112,9 @@ void MapIso::push_enemy_group(Map_Group g){
 	EnemyGroupManager category_list;
 	category_list.generate();
 	
-	for(int i = 0; i < g.number; i++) {
+	int number = rand() % (g.numbermax + 1 - g.numbermin) + g.numbermin;
+
+	for(int i = 0; i < number; i++) {
 		Enemy_Level enemy_lev;
 		Map_Enemy group_member;
 		enemy_lev = category_list.random_enemy(g.category, g.levelmin, g.levelmax);
@@ -285,7 +288,8 @@ int MapIso::load(string filename) {
 					new_group.area.y = atoi(infile.nextValue().c_str());
 				}
 				else if (infile.key == "number") {
-					new_group.number = atoi(infile.val.c_str());
+					new_group.numbermin = atoi(infile.nextValue().c_str());
+					new_group.numbermax = atoi(infile.nextValue().c_str());
 				}
 			}
 			else if (infile.section == "npc") {
