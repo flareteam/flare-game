@@ -11,6 +11,8 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include "FileParser.h"
+#include "Utils.h"
+#include "UtilsParsing.h"
 
 using namespace std;
 
@@ -58,20 +60,22 @@ bool MENUS_PAUSE = false;
  */
 void setPaths() {
 
+	string engine_folder = "flare";
+	
 	// attempting to follow this spec:
 	// http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
 	
 	// set config path (settings, keybindings)
 	// $XDG_CONFIG_HOME/flare/
 	if (getenv("XDG_CONFIG_HOME") != NULL) {
-		PATH_CONF = (string)getenv("XDG_CONFIG_HOME") + "/flare/";
+		PATH_CONF = (string)getenv("XDG_CONFIG_HOME") + "/" + engine_folder + "/";
 		mkdir(PATH_CONF.c_str(), S_IRWXU);
 	}
 	// $HOME/.config/flare/
 	else if (getenv("HOME") != NULL) {
 		PATH_CONF = (string)getenv("HOME") + "/.config/";
 		mkdir(PATH_CONF.c_str(), S_IRWXU);
-		PATH_CONF += "flare/";
+		PATH_CONF += engine_folder + "/";
 		mkdir(PATH_CONF.c_str(), S_IRWXU);		
 	}
 	// ./config/
@@ -83,7 +87,7 @@ void setPaths() {
 	// set user path (save games)
 	// $XDG_DATA_HOME/flare/
 	if (getenv("XDG_DATA_HOME") != NULL) {
-		PATH_USER = (string)getenv("XDG_DATA_HOME") + "/flare/";
+		PATH_USER = (string)getenv("XDG_DATA_HOME") + "/" + engine_folder + "/";
 		mkdir(PATH_USER.c_str(), S_IRWXU);
 	}
 	// $HOME/.local/share/flare/
@@ -92,7 +96,7 @@ void setPaths() {
 		mkdir(PATH_USER.c_str(), S_IRWXU);
 		PATH_USER += "share/";
 		mkdir(PATH_USER.c_str(), S_IRWXU);
-		PATH_USER += "flare/";
+		PATH_USER += engine_folder + "/";
 		mkdir(PATH_USER.c_str(), S_IRWXU);
 	}
 	// ./saves/
@@ -109,10 +113,31 @@ void setPaths() {
 	// - OSX apps are released in a .app folder
 	// Official linux distros might put the executable and data files
 	// in a more standard location.
-	
-	// TODO
-	PATH_DATA = "./";
 
+	// NOTE: from here on out, the function exits early when the data dir is found
+
+	// check $XDG_DATA_DIRS options first
+	// a list of directories in preferred order separated by :
+	if (getenv("XDG_DATA_DIRS") != NULL) {
+		string pathlist = (string)getenv("XDG_DATA_DIRS");
+		string pathtest;
+		pathtest = eatFirstString(pathlist,':');
+		while (pathtest != "") {
+			PATH_DATA = pathtest + "/" + engine_folder + "/";
+			if (dirExists(PATH_DATA)) return; // NOTE: early exit
+			pathtest = eatFirstString(pathlist,':');
+		}
+	}
+	
+	// check /usr/local/share/flare/ and /usr/share/flare/ next
+	PATH_DATA = "/usr/local/share/" + engine_folder + "/";
+	if (dirExists(PATH_DATA)) return; // NOTE: early exit
+	
+	PATH_DATA = "/usr/local/" + engine_folder + "/";
+	if (dirExists(PATH_DATA)) return; // NOTE: early exit
+	
+	// finally assume the local folder
+	PATH_DATA = "./";
 }
 
 bool loadSettings() {
