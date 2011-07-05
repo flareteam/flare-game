@@ -10,6 +10,7 @@
 #include <string>
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <unistd.h>
 #include "FileParser.h"
 #include "Utils.h"
 #include "UtilsParsing.h"
@@ -58,6 +59,19 @@ bool MENUS_PAUSE = false;
  * PATH_USER is for user-specific data (e.g. save games)
  * PATH_DATA is for common game data (e.g. images, music)
  */
+#ifdef _WIN32
+void setPaths() {
+
+	// handle Windows-specific path options
+	PATH_CONF = "./config/";
+	PATH_USER = "./saves/";
+	PATH_DATA = "./";
+	// TODO: place config and save data in the user's home, windows style
+	mkdir(PATH_CONF.c_str());
+	mkdir(PATH_USER.c_str());
+}
+#endif
+#ifndef _WIN32
 void setPaths() {
 
 	string engine_folder = "flare";
@@ -147,6 +161,8 @@ void setPaths() {
 	// finally assume the local folder
 	PATH_DATA = "./";
 }
+#endif
+
 
 bool loadSettings() {
 

@@ -13,6 +13,17 @@ ItemDatabase::ItemDatabase(SDL_Surface *_screen, FontEngine *_font) {
 	screen = _screen;
 	font = _font;
 	
+	items = new Item[MAX_ITEM_ID];
+	
+	for (int i=0; i<MAX_ITEM_ID; i++) {
+		items[i].bonus_stat = new string[ITEM_MAX_BONUSES];
+		items[i].bonus_val = new int[ITEM_MAX_BONUSES];
+		for (int j=0; j<ITEM_MAX_BONUSES; j++) {
+			items[i].bonus_stat[j] = "";
+			items[i].bonus_val[j] = 0;
+		}
+	}
+
 	vendor_ratio = 4; // this means scrap/vendor pays 1/4th price to buy items from hero
 	load();
 	loadSounds();
@@ -424,6 +435,14 @@ ItemDatabase::~ItemDatabase() {
 		if (sfx[i])
 			Mix_FreeChunk(sfx[i]);
 	}
+	
+	for (int i=0; i<MAX_ITEM_ID; i++) {
+		delete[] items[i].bonus_stat;
+		delete[] items[i].bonus_val;		
+	}
+	
+	delete[] items;
+
 }
 
 /**
