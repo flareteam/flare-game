@@ -59,7 +59,7 @@ bool MENUS_PAUSE = false;
  * PATH_USER is for user-specific data (e.g. save games)
  * PATH_DATA is for common game data (e.g. images, music)
  */
-#ifdef WIN32
+#ifdef _WIN32
 void setPaths() {
 
 	// handle Windows-specific path options
@@ -71,7 +71,7 @@ void setPaths() {
 	mkdir(PATH_USER.c_str());
 }
 #endif
-#ifndef WIN32
+#ifndef _WIN32
 void setPaths() {
 
 	string engine_folder = "flare";
