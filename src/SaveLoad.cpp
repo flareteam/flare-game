@@ -29,7 +29,7 @@ void GameStatePlay::saveGame() {
 
 	stringstream ss;
 	ss.str("");
-	ss << PATH_USER << "saves/save" << game_slot << ".txt";
+	ss << PATH_USER << "save" << game_slot << ".txt";
 
 	outfile.open(ss.str().c_str(), ios::out);
 
@@ -96,7 +96,7 @@ void GameStatePlay::loadGame() {
 
 	stringstream ss;
 	ss.str("");
-	ss << PATH_USER << "saves/save" << game_slot << ".txt";
+	ss << PATH_USER << "save" << game_slot << ".txt";
 
 	if (infile.open(ss.str())) {
 		while (infile.next()) {

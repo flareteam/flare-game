@@ -8,6 +8,7 @@
 #include "Settings.h"
 #include <fstream>
 #include <string>
+#include <sys/types.h>
 #include <sys/stat.h>
 #include "FileParser.h"
 
@@ -56,28 +57,62 @@ bool MENUS_PAUSE = false;
  * PATH_DATA is for common game data (e.g. images, music)
  */
 void setPaths() {
+
+	// attempting to follow this spec:
+	// http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
 	
-	// set config path
+	// set config path (settings, keybindings)
+	// $XDG_CONFIG_HOME/flare/
 	if (getenv("XDG_CONFIG_HOME") != NULL) {
 		PATH_CONF = (string)getenv("XDG_CONFIG_HOME") + "/flare/";
-		mkdir(PATH_CONF.c_str(), S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
+		mkdir(PATH_CONF.c_str(), S_IRWXU);
 	}
+	// $HOME/.config/flare/
 	else if (getenv("HOME") != NULL) {
 		PATH_CONF = (string)getenv("HOME") + "/.config/";
-		mkdir(PATH_CONF.c_str(), S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
+		mkdir(PATH_CONF.c_str(), S_IRWXU);
 		PATH_CONF += "flare/";
-		mkdir(PATH_CONF.c_str(), S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);		
+		mkdir(PATH_CONF.c_str(), S_IRWXU);		
 	}
+	// ./config/
 	else {
 		PATH_CONF = "./config/";
-		mkdir(PATH_CONF.c_str(), S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);		
+		mkdir(PATH_CONF.c_str(), S_IRWXU | S_IRWXG | S_IRWXO);		
 	}
 
-	// set user/save path
+	// set user path (save games)
+	// $XDG_DATA_HOME/flare/
+	if (getenv("XDG_DATA_HOME") != NULL) {
+		PATH_USER = (string)getenv("XDG_DATA_HOME") + "/flare/";
+		mkdir(PATH_USER.c_str(), S_IRWXU);
+	}
+	// $HOME/.local/share/flare/
+	else if (getenv("HOME") != NULL) {
+		PATH_USER = (string)getenv("HOME") + "/.local/";
+		mkdir(PATH_USER.c_str(), S_IRWXU);
+		PATH_USER += "share/";
+		mkdir(PATH_USER.c_str(), S_IRWXU);
+		PATH_USER += "flare/";
+		mkdir(PATH_USER.c_str(), S_IRWXU);
+	}
+	// ./saves/
+	else {
+		PATH_USER = "./saves/";
+		mkdir(PATH_USER.c_str(), S_IRWXU | S_IRWXG | S_IRWXO);		
+	}
 	
-	PATH_USER = "./";
+	// data folder
+	// while PATH_CONF and PATH_USER are created if not found,
+	// PATH_DATA must already have the game data for the game to work.
+	// in most released the data will be in the same folder as the executable
+	// - Windows apps are released as a simple folder
+	// - OSX apps are released in a .app folder
+	// Official linux distros might put the executable and data files
+	// in a more standard location.
+	
+	// TODO
 	PATH_DATA = "./";
-	
+
 }
 
 bool loadSettings() {
