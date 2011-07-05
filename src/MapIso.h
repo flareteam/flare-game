@@ -39,7 +39,8 @@ struct Map_Group {
 	Point area;
 	int levelmin;
 	int levelmax;
-	int number;
+	int numbermin;
+	int numbermax;
 };
 
 struct Map_NPC {
@@ -50,7 +51,7 @@ struct Map_NPC {
 struct Map_Event {
 	string type;
 	SDL_Rect location;
-	Event_Component components[8];
+	Event_Component components[256];
 	int comp_num;
 	SDL_Rect hotspot;
 	string tooltip;
