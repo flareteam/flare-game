@@ -65,6 +65,9 @@ void GameStateTitle::render() {
 	button_play->render();
 	button_exit->render();
 	
+	// version number
+	font->render("Flare Alpha v0.14", VIEW_W-2, 2, JUSTIFY_RIGHT, screen, FONT_WHITE);
+	
 }
 
 GameStateTitle::~GameStateTitle() {
