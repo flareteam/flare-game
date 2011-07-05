@@ -22,7 +22,7 @@ InputState::InputState(void) {
 	binding[LEFT] = SDLK_a;
 	binding[RIGHT] = SDLK_d;
 	
-	binding_alt[CANCEL] = SDLK_BACKSPACE;
+	binding_alt[CANCEL] = SDLK_ESCAPE;
 	binding_alt[ACCEPT] = SDLK_SPACE;
 	binding_alt[UP] = SDLK_UP;
 	binding_alt[DOWN] = SDLK_DOWN;
@@ -52,6 +52,8 @@ InputState::InputState(void) {
 	binding_alt[CTRL] = SDLK_RCTRL;
 	binding[SHIFT] = SDLK_LSHIFT;
 	binding_alt[SHIFT] = SDLK_RSHIFT;
+	binding[DELETE] = SDLK_DELETE;
+	binding_alt[DELETE] = SDLK_BACKSPACE;
 	
 	for (int key=0; key<key_count; key++) {
 		pressing[key] = false;
@@ -72,7 +74,10 @@ void InputState::loadKeyBindings() {
 	int key2;
 	int cursor;
 
-	if (!infile.open(PATH_CONF + "keybindings.txt")) return;
+	if (!infile.open(PATH_CONF + "keybindings.txt")) {
+		saveKeyBindings();
+		return;
+	}
 	
 	while (infile.next()) {
 
@@ -114,6 +119,46 @@ void InputState::loadKeyBindings() {
 
 	}
 	infile.close();
+}
+
+/**
+ * Write current key bindings to config file
+ */
+void InputState::saveKeyBindings() {
+	ofstream outfile;
+	outfile.open((PATH_CONF + "keybindings.txt").c_str(), ios::out);
+
+	if (outfile.is_open()) {
+	
+		outfile << "cancel=" << binding[CANCEL] << "," << binding_alt[CANCEL] << "\n";
+		outfile << "accept=" << binding[ACCEPT] << "," << binding_alt[ACCEPT] << "\n";
+		outfile << "up=" << binding[UP] << "," << binding_alt[UP] << "\n";
+		outfile << "down=" << binding[DOWN] << "," << binding_alt[DOWN] << "\n";
+		outfile << "left=" << binding[LEFT] << "," << binding_alt[LEFT] << "\n";
+		outfile << "right=" << binding[RIGHT] << "," << binding_alt[RIGHT] << "\n";
+		outfile << "bar1=" << binding[BAR_1] << "," << binding_alt[BAR_1] << "\n";
+		outfile << "bar2=" << binding[BAR_2] << "," << binding_alt[BAR_2] << "\n";
+		outfile << "bar3=" << binding[BAR_3] << "," << binding_alt[BAR_3] << "\n";
+		outfile << "bar4=" << binding[BAR_4] << "," << binding_alt[BAR_4] << "\n";
+		outfile << "bar5=" << binding[BAR_5] << "," << binding_alt[BAR_5] << "\n";
+		outfile << "bar6=" << binding[BAR_6] << "," << binding_alt[BAR_6] << "\n";
+		outfile << "bar7=" << binding[BAR_7] << "," << binding_alt[BAR_7] << "\n";
+		outfile << "bar8=" << binding[BAR_8] << "," << binding_alt[BAR_8] << "\n";
+		outfile << "bar9=" << binding[BAR_9] << "," << binding_alt[BAR_9] << "\n";
+		outfile << "bar0=" << binding[BAR_0] << "," << binding_alt[BAR_0] << "\n";
+		outfile << "main1=" << binding[MAIN1] << "," << binding_alt[MAIN1] << "\n";
+		outfile << "main2=" << binding[MAIN2] << "," << binding_alt[MAIN2] << "\n";
+		outfile << "charater=" << binding[CHARACTER] << "," << binding_alt[CHARACTER] << "\n";
+		outfile << "inventory=" << binding[INVENTORY] << "," << binding_alt[INVENTORY] << "\n";
+		outfile << "powers=" << binding[POWERS] << "," << binding_alt[POWERS] << "\n";
+		outfile << "log=" << binding[LOG] << "," << binding_alt[LOG] << "\n";
+		outfile << "ctrl=" << binding[CTRL] << "," << binding_alt[CTRL] << "\n";
+		outfile << "shift=" << binding[SHIFT] << "," << binding_alt[SHIFT] << "\n";
+		outfile << "delete=" << binding[DELETE] << "," << binding_alt[DELETE] << "\n";
+		
+		outfile.close();
+	}
+
 }
 	
 void InputState::handle() {

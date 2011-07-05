@@ -45,5 +45,6 @@ extern int TILE_H_HALF;
 
 void setPaths();
 bool loadSettings();
+bool saveSettings();
 
 #endif

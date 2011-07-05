@@ -8,6 +8,7 @@
 #include "Settings.h"
 #include <fstream>
 #include <string>
+#include <sys/stat.h>
 #include "FileParser.h"
 
 using namespace std;
@@ -34,16 +35,19 @@ int VIEW_W = 720;
 int VIEW_H = 480;
 int VIEW_W_HALF = VIEW_W/2;
 int VIEW_H_HALF = VIEW_H/2;
-bool DOUBLEBUF = false;
-bool HWSURFACE = false;
+bool DOUBLEBUF = true;
+bool HWSURFACE = true;
 
 // Audio Settings
-int MUSIC_VOLUME = 64;
-int SOUND_VOLUME = 64;
-bool MENUS_PAUSE = false;
+int MUSIC_VOLUME = 96;
+int SOUND_VOLUME = 128;
 
 // Input Settings
 bool MOUSE_MOVE = false;
+
+// Other Settings
+bool MENUS_PAUSE = false;
+
 
 /**
  * Set system paths
@@ -52,11 +56,27 @@ bool MOUSE_MOVE = false;
  * PATH_DATA is for common game data (e.g. images, music)
  */
 void setPaths() {
-	PATH_CONF = "./config/";
+	
+	// set config path
+	if (getenv("XDG_CONFIG_HOME") != NULL) {
+		PATH_CONF = (string)getenv("XDG_CONFIG_HOME") + "/flare/";
+		mkdir(PATH_CONF.c_str(), S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
+	}
+	else if (getenv("HOME") != NULL) {
+		PATH_CONF = (string)getenv("HOME") + "/.config/";
+		mkdir(PATH_CONF.c_str(), S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
+		PATH_CONF += "flare/";
+		mkdir(PATH_CONF.c_str(), S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);		
+	}
+	else {
+		PATH_CONF = "./config/";
+		mkdir(PATH_CONF.c_str(), S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);		
+	}
+
+	// set user/save path
+	
 	PATH_USER = "./";
 	PATH_DATA = "./";
-	
-	// TODO: use XDG or compiler flags
 	
 }
 
@@ -77,9 +97,6 @@ bool loadSettings() {
 				VIEW_H = atoi(infile.val.c_str());
 				VIEW_H_HALF = VIEW_H/2;
 			}
-			else if (infile.key == "frames_per_sec") {
-				FRAMES_PER_SEC = atoi(infile.val.c_str());
-			}
 			else if (infile.key == "music_volume") {
 				MUSIC_VOLUME = atoi(infile.val.c_str());
 			}
@@ -95,11 +112,40 @@ bool loadSettings() {
 			else if (infile.key == "doublebuf") {
 				if (infile.val == "1") DOUBLEBUF = true;
 			}
+			else if (infile.key == "frames_per_sec") {
+				FRAMES_PER_SEC = atoi(infile.val.c_str());
+			}
 		}
 		infile.close();
 		return true;
 	}
 	else {
-		return false; // can't open the config file
+		saveSettings(); // write the default settings
 	}
+	return true;
+}
+
+/**
+ * Save the current main settings (primary video and audio settings)
+ */
+bool saveSettings() {
+
+	ofstream outfile;
+	outfile.open((PATH_CONF + "settings.txt").c_str(), ios::out);
+
+	if (outfile.is_open()) {
+	
+		outfile << "fullscreen=" << FULLSCREEN << "\n";
+		outfile << "resolution_w=" << VIEW_W << "\n";
+		outfile << "resolution_h=" << VIEW_H << "\n";
+		outfile << "music_volume=" << MUSIC_VOLUME << "\n";
+		outfile << "sound_volume=" << SOUND_VOLUME << "\n";
+		outfile << "mouse_move=" << MOUSE_MOVE << "\n";
+		outfile << "hwsurface=" << HWSURFACE << "\n";
+		outfile << "doublebuf=" << DOUBLEBUF << "\n";
+		outfile << "frames_per_sec=" << FRAMES_PER_SEC << "\n";
+
+		outfile.close();
+	}
+	return true;
 }

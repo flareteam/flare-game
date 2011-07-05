@@ -57,6 +57,7 @@ public:
 	InputState(void);
 	~InputState();
 	void loadKeyBindings();
+	void saveKeyBindings();
 	void handle();
 
 	bool pressing[key_count];
