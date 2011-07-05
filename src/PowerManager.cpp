@@ -481,8 +481,8 @@ void PowerManager::initHazard(int power_index, StatBlock *src_stats, Point targe
 		haz->dmg_max = src_stats->dmg_ment_max;
 	}
 	//apply the multiplier
-	haz->dmg_min = ceil(haz->dmg_min * powers[power_index].damage_multiplier / 100.0);
-	haz->dmg_max = ceil(haz->dmg_max * powers[power_index].damage_multiplier / 100.0);
+	haz->dmg_min = (int)ceil(haz->dmg_min * powers[power_index].damage_multiplier / 100.0);
+	haz->dmg_max = (int)ceil(haz->dmg_max * powers[power_index].damage_multiplier / 100.0);
 	
 	// Only apply stats from powers that are not defaults
 	// If we do this, we can init with multiple power layers
@@ -610,8 +610,8 @@ void PowerManager::buff(int power_index, StatBlock *src_stats, Point target) {
 	// heal for ment weapon damage * damage multiplier
 	if (powers[power_index].buff_heal) {
 		int heal_amt = 0;
-		int heal_max = ceil(src_stats->dmg_ment_max * powers[power_index].damage_multiplier / 100.0);
-		int heal_min = ceil(src_stats->dmg_ment_min * powers[power_index].damage_multiplier / 100.0);
+		int heal_max = (int)ceil(src_stats->dmg_ment_max * powers[power_index].damage_multiplier / 100.0);
+		int heal_min = (int)ceil(src_stats->dmg_ment_min * powers[power_index].damage_multiplier / 100.0);
 		if (heal_max > heal_min)
 			heal_amt = rand() % (heal_max - heal_min) + heal_min;
 		else // avoid div by 0
@@ -634,7 +634,7 @@ void PowerManager::buff(int power_index, StatBlock *src_stats, Point target) {
 	
 	// charge shield to max ment weapon damage * damage multiplier
 	if (powers[power_index].buff_shield) {
-		src_stats->shield_hp = ceil(src_stats->dmg_ment_max * powers[power_index].damage_multiplier / 100.0);	
+		src_stats->shield_hp = (int)ceil(src_stats->dmg_ment_max * powers[power_index].damage_multiplier / 100.0);	
 	}
 	
 	// teleport to the target location
@@ -767,15 +767,15 @@ bool PowerManager::missile(int power_index, StatBlock *src_stats, Point target) 
 		while (alpha < 0.0) alpha += pi+pi;
 
 		//calculate animation direction (the UNITS_PER_TILE just reduces round-off error)
-		rot_target.x = src_stats->pos.x + UNITS_PER_TILE * cos(alpha);
-		rot_target.y = src_stats->pos.y + UNITS_PER_TILE * sin(alpha);
+		rot_target.x = (int)(src_stats->pos.x + UNITS_PER_TILE * cos(alpha));
+		rot_target.y = (int)(src_stats->pos.y + UNITS_PER_TILE * sin(alpha));
 
 		initHazard(power_index, src_stats, rot_target, haz[i]);
 
 		//calculate the missile velocity
 		int speed_var = 0;
 		if (powers[power_index].speed_variance != 0)
-			speed_var = pow(-1, (rand() % 2) - 1) * (rand() % powers[power_index].speed_variance + 1) - 1;
+			speed_var = (int)(pow(-1, (rand() % 2) - 1) * (rand() % powers[power_index].speed_variance + 1) - 1);
 		haz[i]->speed.x = (haz[0]->base_speed + speed_var) * cos(alpha);
 		haz[i]->speed.y = (haz[0]->base_speed + speed_var) * sin(alpha);
 		hazards.push(haz[i]);
