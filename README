@@ -61,13 +61,24 @@ Running flare from command line is straightforward in Linux:
 If you're running flare from your operating system's gui file browser (e.g. Windows Explorer or OSX Finder), you'll want to use one of the provided launchers.  This helps the flare executable use its own working directory, so it can see all those data folders.
 
 
-FULLSCREEN
-==========
+SETTINGS
+========
 
-If flare works in windowed mode, it should be safe to run fullscreen.  To run flare in fullscreen mode, edit config/settings.txt and set
-fullscreen=1
+Settings are stored in one of these places:
+
+$XDG_CONFIG_HOME/flare
+$HOME/.config/flare
+./config
+
+Here you can enable fullscreen, change the game resolution, enable mouse-move, and change keybindings. The settings files are created the first time you run Flare.
 
 SAVE FILES
 ==========
 
-Make sure you have read and write access to the "saves" folder.  Currently the game is automatically saved when you exit.
+Save files are stored in one of these places:
+
+$XDG_DATA_HOME/flare
+$HOME/.local/share/flare
+./saves
+
+If permissions are correct, the game is automatically saved when you exit.
