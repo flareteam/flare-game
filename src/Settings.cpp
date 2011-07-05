@@ -133,8 +133,16 @@ void setPaths() {
 	PATH_DATA = "/usr/local/share/" + engine_folder + "/";
 	if (dirExists(PATH_DATA)) return; // NOTE: early exit
 	
-	PATH_DATA = "/usr/local/" + engine_folder + "/";
+	PATH_DATA = "/usr/share/" + engine_folder + "/";
 	if (dirExists(PATH_DATA)) return; // NOTE: early exit
+	
+	// check "games" variants of these
+	PATH_DATA = "/usr/local/share/games/" + engine_folder + "/";
+	if (dirExists(PATH_DATA)) return; // NOTE: early exit
+	
+	PATH_DATA = "/usr/share/games/" + engine_folder + "/";
+	if (dirExists(PATH_DATA)) return; // NOTE: early exit
+	
 	
 	// finally assume the local folder
 	PATH_DATA = "./";
