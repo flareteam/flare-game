@@ -322,12 +322,6 @@ mapmod=object,38,46,164
 soundfx=soundfx/inventory/inventory_page.ogg
 msg="Sir Evan Maddox led the Averguard when the plague struck.  Powerful clerics from the corners of the world were brought here.  By the time a cure was found it was too late."
 
-[enemygroup]
-category=goblin
-level=1,3
-number=4,8
-area=8,38,21,21
-
 [enemy]
 type=brittle_skeleton
 spawnpoint=15,18,5
@@ -340,77 +334,77 @@ spawnpoint=22,18,1
 type=ukkonen
 spawnpoint=4,33,2
 
-[enemy]
-type=antlion
-spawnpoint=8,67,7
+[enemygroup]
+category=goblin
+level=1,3
+number=4,8
+area=8,38,21,21
 
-[enemy]
-type=antlion
-spawnpoint=3,58,3
+[enemygroup]
+category=antlion
+level=1,2
+number=0,2
+area=28,1,2,3
 
-[enemy]
-type=antlion
-spawnpoint=38,16,2
+[enemygroup]
+category=dungeon
+level=1,2
+number=0,2
+area=18,1,2,3
 
-[enemy]
-type=antlion
-spawnpoint=42,8,0
+[enemygroup]
+category=antlion
+area=8,60,16,9
+number=0,2
+level=1,2
 
-[enemy]
-type=antlion
-spawnpoint=18,1,3
+[enemygroup]
+category=dungeon
+area=1,58,3,2
+level=1,2
+number=0,2
 
-[enemy]
-type=antlion
-spawnpoint=28,24,7
+[enemygroup]
+category=antlion
+area=28,8,17,27
+number=3,5
+level=1,2
 
-[enemy]
-type=antlion
-spawnpoint=35,28,2
+[enemygroup]
+category=goblin
+area=1,48,6,2
+number=0,2
+level=1,2
 
-[enemy]
-type=goblin
-spawnpoint=5,48,3
+[enemygroup]
+category=goblin
+level=1,2
+area=33,58,6,11
+number=0,2
 
-[enemy]
-type=goblin
-spawnpoint=2,58,0
+[enemygroup]
+category=goblin
+area=42,45,3,7
+number=1,3
+level=1,2
 
-[enemy]
-type=goblin
-spawnpoint=38,66,7
+[enemygroup]
+category=undead
+area=42,45,3,7
+number=1,1
+level=1,2
 
-[enemy]
-type=goblin
-spawnpoint=38,58,0
+[enemygroup]
+category=goblin
+area=20,28,19,9
+number=0,2
+level=1,2
 
-[enemy]
-type=goblin
-spawnpoint=44,51,3
-
-[enemy]
-type=goblin
-spawnpoint=44,46,7
-
-[enemy]
-type=goblin
-spawnpoint=37,38,1
-
-[enemy]
-type=goblin
-spawnpoint=38,34,5
-
-[enemy]
-type=goblin
-spawnpoint=1,18,2
-
-[enemy]
-type=goblin
-spawnpoint=2,19,6
-
-[enemy]
-type=rotting_zombie
-spawnpoint=45,48,1
+[enemygroup]
+category=goblin
+area=1,18,4,2
+number=0,3
+level=1,2
 
 [npc]
 id=wandering_trader

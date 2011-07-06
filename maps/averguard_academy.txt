@@ -329,29 +329,33 @@ intermap=averguard_atrium.txt,9,57
 
 # next 5 are bookstands throughout the library
 [event]
-type=run_once
-location=31,22,1,2
+location=31,22,1,1
+hotspot=-16,-48,32,56
+tooltip=Book Stand
 mapmod=object,31,22,165
 soundfx=soundfx/inventory/inventory_page.ogg
 msg="Some say the Averguard Academy is the greatest collection of knowledge within the empire."
 
 [event]
-type=run_once
-location=28,22,1,2
+location=28,22,1,1
+hotspot=-16,-48,32,56
+tooltip=Book Stand
 mapmod=object,28,22,165
 soundfx=soundfx/inventory/inventory_page.ogg
 msg="Professor Langlier is High Sage of the Averguard.  Several volumes kept here are his own writings."
 
 [event]
-type=run_once
-location=25,22,1,2
+location=25,22,1,1
+hotspot=-16,-48,32,56
+tooltip=Book Stand
 mapmod=object,25,22,165
 soundfx=soundfx/inventory/inventory_page.ogg
 msg="The Academy is only open to oathkeeping members of the Averguard.  Few others know of its existence."
 
 [event]
-type=run_once
-location=22,31,2,1
+location=22,31,1,1
+hotspot=-16,-48,32,56
+tooltip=Book Stand
 mapmod=object,22,31,164
 soundfx=soundfx/inventory/inventory_page.ogg
 msg="The peasants could not be trusted with literacy.  Most gave up their books without incident."
@@ -359,6 +363,8 @@ msg="The peasants could not be trusted with literacy.  Most gave up their books 
 [event]
 type=run_once
 location=20,75,2,1
+hotspot=-16,-48,32,56
+tooltip=Book Stand
 mapmod=object,20,75,164
 soundfx=soundfx/inventory/inventory_page.ogg
 msg=This false book has a secret compartment.
@@ -367,46 +373,60 @@ loot=id,21,75,2
 # next 4 are barrels in the storage area
 [event]
 type=run_once
-location=10,48,2,2
+hotspot=-16,-36,32,44
+tooltip=Barrel
+location=10,49,1,1
 mapmod=object,10,49,162
 soundfx=soundfx/wood_open.ogg
 
 [event]
 type=run_once
-location=10,47,2,3
+hotspot=-16,-36,32,44
+tooltip=Barrel
+location=10,48,1,1
 mapmod=object,10,48,162
 soundfx=soundfx/wood_open.ogg
 loot=random,11,48,1
 
 [event]
 type=run_once
-location=10,46,2,3
+hotspot=-16,-36,32,44
+tooltip=Barrel
+location=10,47,1,1
 mapmod=object,10,47,162
 soundfx=soundfx/wood_open.ogg
 
 [event]
 type=run_once
-location=11,48,3,2
+hotspot=-16,-36,32,44
+tooltip=Barrel
+location=12,49,1,1
 mapmod=object,12,49,162
 soundfx=soundfx/wood_open.ogg
 
 # next 3 are crates in the storage area
 [event]
 type=run_once
-location=10,46,3,2
+hotspot=-16,-30,32,36
+tooltip=Crate
+location=11,46,1,1
 mapmod=object,11,46,163
 soundfx=soundfx/wood_open.ogg
 loot=random,12,46,1
 
 [event]
 type=run_once
-location=12,48,3,2
+hotspot=-16,-30,32,36
+tooltip=Crate
+location=13,49,1,1
 mapmod=object,13,49,163
 soundfx=soundfx/wood_open.ogg
 
 [event]
 type=run_once
-location=14,48,2,2
+hotspot=-16,-30,32,36
+tooltip=Crate
+location=15,49,1,1
 mapmod=object,15,49,163
 soundfx=soundfx/wood_open.ogg
 loot=random,14,48,1
@@ -414,212 +434,118 @@ loot=random,14,48,1
 # boss tomb
 [event]
 type=run_once
-location=3,89,3,4
+location=3,88,5,5
 msg=This tomb glows with magical runes.
+
+[event]
+type=run_once
+location=4,90,1,2
+hotspot=-58,-50,80,75
+tooltip=Langlier's Tomb
 loot=random,5,90,5
 loot=random,5,91,6
 
 # teleport chest
 [event]
 type=run_once
-location=44,96,3,3
+hotspot=-16,-28,32,36
+tooltip=Treasure Chest
+location=45,97,1,1
 mapmod=object,45,97,161
 loot=random,45,98,7
 
+# entrance guards
 [enemy]
 type=skeleton
 spawnpoint=60,14,3
-
 [enemy]
 type=skeleton
 spawnpoint=65,14,3
 
-[enemy]
-type=rotting_zombie
-spawnpoint=62,26,1
-
-[enemy]
-type=zombie
-spawnpoint=65,28,0
+[enemygroup]
+category=undead
+area=58,23,9,7
+level=1,3
+number=1,3
 
 [enemy]
 type=rotting_zombie
 spawnpoint=50,25,5
-
 [enemy]
 type=zombie
 spawnpoint=50,30,5
 
-[enemy]
-type=skeletal_warrior
-spawnpoint=35,30,6
+# foyer
+[enemygroup]
+category=undead
+level=5,6
+number=2,3
+area=34,26,9,14
 
-[enemy]
-type=skeleton
-spawnpoint=31,23,3
+# north book area
+[enemygroup]
+area=15,22,18,18
+category=zombie
+level=1,3
+number=3,4
 
-[enemy]
-type=zombie
-spawnpoint=27,34,2
+[enemygroup]
+area=15,22,18,18
+category=zombie
+level=3,3
+number=2,2
 
-[enemy]
-type=rotting_zombie
-spawnpoint=20,23,7
+[enemygroup]
+area=15,22,18,18
+category=undead
+level=3,4
+number=1,2
 
-[enemy]
-type=zombie
-spawnpoint=20,37,4
+# center book area
+[enemygroup]
+category=zombie
+area=25,42,30,30
+level=3,3
+number=7,10
 
-[enemy]
-type=skeletal_warrior
-spawnpoint=11,47,1
+[enemygroup]
+category=zombie
+area=25,42,30,30
+level=1,3
+number=3,7
 
-[enemy]
-type=rotting_zombie
-spawnpoint=27,46,3
+[enemygroup]
+category=undead_mage
+area=25,42,33,33
+level=3,5
+number=4,6
 
-[enemy]
-type=zombie
-spawnpoint=40,54,2
+[enemygroup]
+category=antlion
+area=51,66,7,9
+level=1,2
+number=1,3
 
-[enemy]
-type=rotting_zombie
-spawnpoint=49,52,1
+#south book area
+[enemygroup]
+category=undead
+area=13,68,12,8
+level=1,3
+number=2,4
 
-[enemy]
-type=zombie
-spawnpoint=55,44,3
-
-[enemy]
-type=rotting_zombie
-spawnpoint=54,61,6
-
-[enemy]
-type=zombie
-spawnpoint=46,63,0
-
-[enemy]
-type=rotting_zombie
-spawnpoint=28,63,1
-
-[enemy]
-type=zombie
-spawnpoint=24,55,5
-
+#guards teleport chest
 [enemy]
 type=zombie
 spawnpoint=45,85,3
 
-[enemy]
-type=skeletal_mage
-spawnpoint=51,71,2
-
-[enemy]
-type=zombie
-spawnpoint=21,75,1
-
-[enemy]
-type=rotting_zombie
-spawnpoint=14,67,5
-
-
-[enemy]
-type=zombie
-spawnpoint=22,73,4
-
-[enemy]
-type=zombie
-spawnpoint=31,71,5
-
-[enemy]
-type=skeletal_mage
-spawnpoint=30,63,0
-
-[enemy]
-type=zombie
-spawnpoint=36,67,4
-
-[enemy]
-type=rotting_zombie
-spawnpoint=31,56,7
-
-[enemy]
-type=zombie
-spawnpoint=40,59,4
-
-[enemy]
-type=zombie
-spawnpoint=49,63,5
-
-[enemy]
-type=zombie
-spawnpoint=45,67,3
-[enemy]
-type=zombie
-spawnpoint=41,48,2
-
-[enemy]
-type=skeletal_mage
-spawnpoint=52,52,3
-
-[enemy]
-type=skeletal_mage
-spawnpoint=57,70,5
-
-[enemy]
-type=skeletal_mage
-spawnpoint=35,53,0
-
-[enemy]
-type=zombie
-spawnpoint=17,35,2
-
-[enemy]
-type=rotting_zombie
-spawnpoint=21,32,1
-
-[enemy]
-type=skeletal_warrior
-spawnpoint=38,37,3
-
-[enemy]
-type=antlion
-spawnpoint=6,80,5
-
-[enemy]
-type=antlion
-spawnpoint=13,84,4
-
-[enemy]
-type=antlion
-spawnpoint=19,90,4
-
-[enemy]
-type=antlion
-spawnpoint=13,74,7
-
-[enemy]
-type=antlion
-spawnpoint=54,70,2
-
-[enemy]
-type=antlion
-spawnpoint=55,65,4
+#langlier's area
+[enemygroup]
+category=antlion
+area=10,67,17,26
+number=3,5
+level=1,2
 
 [enemy]
 type=professor_langlier
 spawnpoint=5,91,1
-
-
-
-
-
-
-
-
-
-
-
-
-
 
