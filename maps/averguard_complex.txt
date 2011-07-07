@@ -390,7 +390,9 @@ intermap=averguard_atrium.txt,2,52
 # intro crate
 [event]
 type=run_once
-location=85,73,2,2
+location=85,74,1,1
+hotspot=-16,-30,32,36
+tooltip=Crate
 mapmod=object,85,74,163
 soundfx=soundfx/wood_open.ogg
 loot=random,86,74,2
@@ -398,21 +400,27 @@ loot=random,86,74,2
 # zombie barrels
 [event]
 type=run_once
-location=73,63,2,2
+location=74,63,1,1
+hotspot=-16,-36,32,44
+tooltip=Barrel
 mapmod=object,74,63,162
 soundfx=soundfx/wood_open.ogg
 loot=random,74,64,2
 
 [event]
 type=run_once
-location=72,61,2,3
+location=73,62,1,1
+hotspot=-16,-36,32,44
+tooltip=Barrel
 mapmod=object,73,62,162
 soundfx=soundfx/wood_open.ogg
 loot=random,72,62,2
 
 [event]
 type=run_once
-location=73,61,2,2
+location=74,62,1,1
+hotspot=-16,-36,32,44
+tooltip=Barrel
 mapmod=object,74,62,162
 soundfx=soundfx/wood_open.ogg
 loot=random,74,61,2
@@ -420,14 +428,18 @@ loot=random,74,61,2
 # goblin firepit barrel/crate
 [event]
 type=run_once
-location=72,95,2,3
+location=72,96,1,1
+hotspot=-16,-36,32,44
+tooltip=Barrel
 mapmod=object,72,96,162
 soundfx=soundfx/wood_open.ogg
 loot=random,73,96,2
 
 [event]
 type=run_once
-location=72,96,2,3
+location=72,97,1,1
+hotspot=-16,-30,32,36
+tooltip=Crate
 mapmod=object,72,97,163
 soundfx=soundfx/wood_open.ogg
 loot=random,73,97,2
@@ -435,15 +447,18 @@ loot=random,73,97,2
 # secret room crate
 [event]
 type=run_once
-location=72,109,2,2
+location=73,110,1,1
+hotspot=-16,-30,32,36
+tooltip=Crate
 mapmod=object,73,110,163
 soundfx=soundfx/wood_open.ogg
 loot=random,72,109,5
 
 # conference room book
 [event]
-type=run_once
-location=49,89,3,3
+location=50,90,1,1
+hotspot=-16,-48,32,56
+tooltip=Book Stand
 mapmod=object,50,90,164
 soundfx=soundfx/inventory/inventory_page.ogg
 msg=This book is entitled "Training Your Antlion". Chapter 1 is "How Not To Get Eaten". The rest of the book is unfinished.
@@ -451,35 +466,45 @@ msg=This book is entitled "Training Your Antlion". Chapter 1 is "How Not To Get 
 # barracks chests
 [event]
 type=run_once
-location=40,58,3,3
+location=41,59,1,1
+hotspot=-16,-28,32,36
+tooltip=Treasure Chest
 mapmod=object,41,59,160
 soundfx=soundfx/wood_open.ogg
 loot=random,42,59,3
 
 [event]
 type=run_once
-location=40,56,3,3
+location=41,57,1,1
+hotspot=-16,-28,32,36
+tooltip=Treasure Chest
 mapmod=object,41,57,160
 soundfx=soundfx/wood_open.ogg
 loot=random,42,57,4
 
 [event]
 type=run_once
-location=40,54,3,3
+location=41,55,1,1
+hotspot=-16,-28,32,36
+tooltip=Treasure Chest
 mapmod=object,41,55,160
 soundfx=soundfx/wood_open.ogg
 loot=random,42,55,5
 
 [event]
 type=run_once
-location=40,52,3,3
+location=41,53,1,1
+hotspot=-16,-28,32,36
+tooltip=Treasure Chest
 mapmod=object,41,53,160
 soundfx=soundfx/wood_open.ogg
 loot=random,42,53,4
 
 [event]
 type=run_once
-location=40,50,3,3
+location=41,51,1,1
+hotspot=-16,-28,32,36
+tooltip=Treasure Chest
 mapmod=object,41,51,160
 soundfx=soundfx/wood_open.ogg
 loot=random,42,51,3
@@ -487,28 +512,36 @@ loot=random,42,51,3
 # large room storage
 [event]
 type=run_once
-location=50,27,2,3
+location=50,28,1,1
+hotspot=-16,-36,32,44
+tooltip=Barrel
 mapmod=object,50,28,162
 soundfx=soundfx/wood_open.ogg
 loot=random,51,28,3
 
 [event]
 type=run_once
-location=50,28,2,2
+location=50,29,1,1
+hotspot=-16,-30,32,36
+tooltip=Crate
 mapmod=object,50,29,163
 soundfx=soundfx/wood_open.ogg
 loot=random,51,29,3
 
 [event]
 type=run_once
-location=54,27,2,3
+location=55,28,1,1
+hotspot=-16,-30,32,36
+tooltip=Crate
 mapmod=object,55,28,163
 soundfx=soundfx/wood_open.ogg
 loot=random,54,28,3
 
 [event]
 type=run_once
-location=54,28,2,2
+location=55,29,1,1
+hotspot=-16,-36,32,44
+tooltip=Barrel
 mapmod=object,55,29,162
 soundfx=soundfx/wood_open.ogg
 loot=random,54,29,3
@@ -516,7 +549,9 @@ loot=random,54,29,3
 # kill room chests
 [event]
 type=run_once
-location=9,20,2,2
+location=9,20,1,1
+hotspot=-16,-28,32,36
+tooltip=Treasure Chest
 mapmod=object,9,20,160
 soundfx=soundfx/wood_open.ogg
 loot=random,10,20,7
@@ -524,7 +559,9 @@ loot=random,9,21,7
 
 [event]
 type=run_once
-location=9,28,2,2
+location=9,29,1,1
+hotspot=-16,-28,32,36
+tooltip=Treasure Chest
 mapmod=object,9,29,160
 soundfx=soundfx/wood_open.ogg
 loot=random,10,29,6
@@ -810,15 +847,12 @@ spawnpoint=49,21,4
 # kill room switches
 [event]
 type=run_once
-location=12,23,2,4
+location=12,24,1,2
+hotspot=-58,-28,80,45
+tooltip=Switch System
 soundfx=soundfx/door_open.ogg
 mapmod=object,12,24,166
 mapmod=object,12,25,150
-
-# kill room walls
-[event]
-type=run_once
-location=12,23,2,4
 mapmod=object,11,22,0
 mapmod=object,12,22,0
 mapmod=object,13,22,0
@@ -827,9 +861,6 @@ mapmod=object,15,22,0
 mapmod=object,16,22,0
 mapmod=object,17,22,0
 mapmod=object,18,22,0
-[event]
-type=run_once
-location=12,23,2,4
 mapmod=object,19,22,0
 mapmod=object,20,22,0
 mapmod=object,21,22,0
@@ -838,9 +869,6 @@ mapmod=object,23,22,0
 mapmod=object,24,22,0
 mapmod=object,11,23,0
 mapmod=object,11,24,0
-[event]
-type=run_once
-location=12,23,2,4
 mapmod=object,11,25,0
 mapmod=object,11,26,0
 mapmod=object,11,27,0
@@ -849,9 +877,6 @@ mapmod=object,13,27,0
 mapmod=object,14,27,0
 mapmod=object,15,27,0
 mapmod=object,16,27,0
-[event]
-type=run_once
-location=12,23,2,4
 mapmod=object,17,27,0
 mapmod=object,18,27,0
 mapmod=object,19,27,0
@@ -860,11 +885,6 @@ mapmod=object,21,27,0
 mapmod=object,22,27,0
 mapmod=object,23,27,0
 mapmod=object,24,27,0
-
-# kill room collision
-[event]
-type=run_once
-location=12,23,2,4
 mapmod=collision,11,22,0
 mapmod=collision,12,22,0
 mapmod=collision,13,22,0
@@ -873,9 +893,6 @@ mapmod=collision,15,22,0
 mapmod=collision,16,22,0
 mapmod=collision,17,22,0
 mapmod=collision,18,22,0
-[event]
-type=run_once
-location=12,23,2,4
 mapmod=collision,19,22,0
 mapmod=collision,20,22,0
 mapmod=collision,21,22,0
@@ -884,9 +901,6 @@ mapmod=collision,23,22,0
 mapmod=collision,24,22,0
 mapmod=collision,11,23,0
 mapmod=collision,11,24,0
-[event]
-type=run_once
-location=12,23,2,4
 mapmod=collision,11,25,0
 mapmod=collision,11,26,0
 mapmod=collision,11,27,0
@@ -895,9 +909,6 @@ mapmod=collision,13,27,0
 mapmod=collision,14,27,0
 mapmod=collision,15,27,0
 mapmod=collision,16,27,0
-[event]
-type=run_once
-location=12,23,2,4
 mapmod=collision,17,27,0
 mapmod=collision,18,27,0
 mapmod=collision,19,27,0
