@@ -112,10 +112,10 @@ void EnemyManager::handleNewMap () {
 		enemies[enemy_count]->stats.pos.x = me.pos.x;
 		enemies[enemy_count]->stats.pos.y = me.pos.y;
 		enemies[enemy_count]->stats.direction = me.direction;
-		enemies[enemy_count]->stats.load(PATH_DATA + "enemies/" + me.type + ".txt");
+		enemies[enemy_count]->stats.load("enemies/" + me.type + ".txt");
 		if (enemies[enemy_count]->stats.animations != "") {
 			// load the animation file if specified
-			enemies[enemy_count]->loadAnimations(PATH_DATA + "animations/" + enemies[enemy_count]->stats.animations + ".txt");
+			enemies[enemy_count]->loadAnimations("animations/" + enemies[enemy_count]->stats.animations + ".txt");
 		}
 		else {
 			cout << "Warning: no animation file specified for entity: " << me.type << endl;

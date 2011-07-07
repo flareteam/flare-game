@@ -17,7 +17,7 @@ Avatar::Avatar(PowerManager *_powers, InputState *_inp, MapIso *_map) : Entity(_
 	stats.cooldown = 4;
 
 	// load the hero's animations from hero definition file
-	loadAnimations(PATH_DATA + "animations/hero.txt");
+	loadAnimations("animations/hero.txt");
 }
 
 void Avatar::init() {
