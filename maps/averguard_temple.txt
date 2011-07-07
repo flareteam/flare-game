@@ -425,7 +425,7 @@ soundfx=soundfx/door_open.ogg
 [event]
 type=run_once
 location=15,88,1,1
-hotspot=-16,-28,32,34
+hotspot=-18,-72,34,74
 tooltip=Sealed Temple Door
 requires_status=ak_temple_search
 requires_not=ak_maddox_search
@@ -437,7 +437,7 @@ set_status=ak_temple_sealed
 [event]
 type=run_once
 location=15,88,1,1
-hotspot=-16,-28,32,34
+hotspot=-18,-72,34,74
 tooltip=Activate Talisman
 requires_status=ak_maddox_search
 requires_not=ak_talisman_used
