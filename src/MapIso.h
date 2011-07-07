@@ -76,6 +76,7 @@ private:
 	void removeEvent(int eid);
 	void playSFX(string filename);
 	void push_enemy_group(Map_Group g);
+	bool isActive(int eventid);
 		
 	// map events
 	Map_Event events[256];
