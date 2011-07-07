@@ -7,8 +7,9 @@
 
 #include "MenuPowers.h"
 
-MenuPowers::MenuPowers(SDL_Surface *_screen, FontEngine *_font, StatBlock *_stats, PowerManager *_powers) {
+MenuPowers::MenuPowers(SDL_Surface *_screen, InputState *_inp, FontEngine *_font, StatBlock *_stats, PowerManager *_powers) {
 	screen = _screen;
+	inp = _inp;
 	font = _font;
 	stats = _stats;
 	powers = _powers;
@@ -26,6 +27,11 @@ MenuPowers::MenuPowers(SDL_Surface *_screen, FontEngine *_font, StatBlock *_stat
 		slots[i].x = offset_x + 48 + (i % 4) * 64;
 		slots[i].y = offset_y + 80 + (i / 4) * 64;
 	}
+	
+	closeButton = new WidgetButton(screen, font, inp, "images/menus/buttons/button_x.png");
+	closeButton->pos.x = VIEW_W - 26;
+	closeButton->pos.y = (VIEW_H - 480)/2 + 34;
+
 }
 
 void MenuPowers::loadGraphics() {
@@ -89,6 +95,15 @@ int MenuPowers::click(Point mouse) {
 	return -1;
 }
 
+
+void MenuPowers::logic() {
+	if (!visible) return;
+	
+	if (closeButton->checkClick()) {
+		visible = false;
+	}
+}
+
 void MenuPowers::render() {
 	if (!visible) return;
 	
@@ -106,6 +121,9 @@ void MenuPowers::render() {
 	src.w = dest.w = 320;
 	src.h = dest.h = 416;
 	SDL_BlitSurface(background, &src, screen, &dest);
+	
+	// close button
+	closeButton->render();
 	
 	// text overlay
 	// TODO: translate()
@@ -265,4 +283,5 @@ MenuPowers::~MenuPowers() {
 	SDL_FreeSurface(background);
 	SDL_FreeSurface(powers_step);
 	SDL_FreeSurface(powers_unlock);
+	delete closeButton;
 }

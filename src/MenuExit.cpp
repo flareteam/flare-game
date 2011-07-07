@@ -20,6 +20,10 @@ MenuExit::MenuExit(SDL_Surface *_screen, InputState *_inp, FontEngine *_font) : 
 	buttonExit->pos.x = VIEW_W_HALF - buttonExit->pos.w/2;
 	buttonExit->pos.y = VIEW_H/2;
 
+	buttonClose = new WidgetButton(screen, font, inp, "images/menus/buttons/button_x.png");
+	buttonClose->pos.x = window_area.x + window_area.w;
+	buttonClose->pos.y = window_area.y;
+
 	loadGraphics();
 }
 
@@ -41,6 +45,9 @@ void MenuExit::logic() {
 		if (buttonExit->checkClick()) {
 			exitClicked = true;	
 		}
+		if (buttonClose->checkClick()) {
+			visible = false;
+		}
 	}
 }
 
@@ -57,10 +64,12 @@ void MenuExit::render() {
 	font->render("Save and exit to title?", window_area.x + window_area.w/2, window_area.y + 10, JUSTIFY_CENTER, screen, FONT_WHITE);
 
 	buttonExit->render();
+	buttonClose->render();
 }
 
 MenuExit::~MenuExit() {
 	delete buttonExit;
+	delete buttonClose;
 	SDL_FreeSurface(background);
 }
 

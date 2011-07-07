@@ -7,8 +7,9 @@
 
 #include "MenuInventory.h"
 
-MenuInventory::MenuInventory(SDL_Surface *_screen, FontEngine *_font, ItemDatabase *_items, StatBlock *_stats, PowerManager *_powers) {
+MenuInventory::MenuInventory(SDL_Surface *_screen, InputState *_inp, FontEngine *_font, ItemDatabase *_items, StatBlock *_stats, PowerManager *_powers) {
 	screen = _screen;
+	inp = _inp;
 	font = _font;
 	items = _items;
 	stats = _stats;
@@ -41,6 +42,11 @@ MenuInventory::MenuInventory(SDL_Surface *_screen, FontEngine *_font, ItemDataba
 	changed_equipment = true;
 	changed_artifact = true;
 	log_msg = "";
+	
+	closeButton = new WidgetButton(screen, font, inp, "images/menus/buttons/button_x.png");
+	closeButton->pos.x = VIEW_W - 26;
+	closeButton->pos.y = (VIEW_H - 480)/2 + 34;
+
 }
 
 void MenuInventory::loadGraphics() {
@@ -67,10 +73,16 @@ void MenuInventory::logic() {
 	
 	// a copy of gold is kept in stats, to help with various situations
 	stats->gold = gold;
+	
+	// check close button
+	if (closeButton->checkClick()) {
+		visible = false;
+	}
 }
 
 void MenuInventory::render() {
 	if (!visible) return;
+	
 	SDL_Rect src;
 	stringstream ss;
 	
@@ -80,6 +92,9 @@ void MenuInventory::render() {
 	src.w = window_area.w;
 	src.h = window_area.h;
 	SDL_BlitSurface(background, &src, screen, &window_area);
+	
+	// close button
+	closeButton->render();
 	
 	// text overlay
 	// TODO: translate()
@@ -678,4 +693,5 @@ void MenuInventory::applyEquipment(StatBlock *stats, ItemStack *equipped) {
 
 MenuInventory::~MenuInventory() {
 	SDL_FreeSurface(background);
+	delete closeButton;
 }
