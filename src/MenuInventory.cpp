@@ -75,8 +75,10 @@ void MenuInventory::logic() {
 	stats->gold = gold;
 	
 	// check close button
-	if (closeButton->checkClick()) {
-		visible = false;
+	if (visible) {
+		if (closeButton->checkClick()) {
+			visible = false;
+		}
 	}
 }
 
