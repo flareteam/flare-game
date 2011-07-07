@@ -567,12 +567,33 @@ void MapIso::checkEventClick() {
 		r.y = p.y + events[i].hotspot.y;
 		r.h = events[i].hotspot.h;
 		r.w = events[i].hotspot.w;
-		// execute if: MOUSE IN HOTSPOT && HOTSPOT EXISTS && CLICKING && HERO WITHIN RANGE
-		if (isWithin(r, inp->mouse) && (events[i].hotspot.h != 0) && inp->pressing[MAIN1] && !inp->lock[MAIN1] && (abs(cam.x - events[i].location.x * UNITS_PER_TILE) < CLICK_RANGE && abs(cam.y - events[i].location.y * UNITS_PER_TILE) < CLICK_RANGE)) {
+		// execute if: EVENT IS ACTIVE && MOUSE IN HOTSPOT && HOTSPOT EXISTS && CLICKING && HERO WITHIN RANGE
+		if (isActive(i) && isWithin(r, inp->mouse) && (events[i].hotspot.h != 0) && inp->pressing[MAIN1] && !inp->lock[MAIN1] && (abs(cam.x - events[i].location.x * UNITS_PER_TILE) < CLICK_RANGE && abs(cam.y - events[i].location.y * UNITS_PER_TILE) < CLICK_RANGE)) {
 			inp->lock[MAIN1] = true;
 			executeEvent(i);
 		}
 	}
+}
+
+bool MapIso::isActive(int eventid){
+	for (int i=0; i < events[eventid].comp_num; i++) {
+		if (events[eventid].components[i].type == "requires_not") {
+			if (camp->checkStatus(events[eventid].components[i].s)) {
+				return false;
+			}
+		}
+		else if (events[eventid].components[i].type == "requires_status") {
+			if (!camp->checkStatus(events[eventid].components[i].s)) {
+				return false;
+			}
+		}
+		else if (events[eventid].components[i].type == "requires_item") {
+			if (!camp->checkItem(events[eventid].components[i].x)) {
+				return false;
+			}
+		}
+	}
+	return true;
 }
 
 void MapIso::checkTooltip() {
@@ -583,14 +604,8 @@ void MapIso::checkTooltip() {
 	
 	for (int i=0; i<event_count; i++) {
 		skip = false;
-		for (int j=0;j<events[i].comp_num;j++) {
-			if (events[i].components[j].type == "requires_not") {
-				if (camp->checkStatus(events[i].components[j].s)) {
-					skip = true;
-					break;
-				}
-			}
-		}
+		if(!isActive(i)) skip = true;
+
 		if (skip) continue;
 
 		p = map_to_screen(events[i].location.x * UNITS_PER_TILE + UNITS_PER_TILE/2, events[i].location.y * UNITS_PER_TILE + UNITS_PER_TILE/2, cam.x, cam.y);
@@ -598,7 +613,7 @@ void MapIso::checkTooltip() {
 		r.y = p.y + events[i].hotspot.y;
 		r.h = events[i].hotspot.h;
 		r.w = events[i].hotspot.w;
-		
+		 
 		// DEBUG TOOL: outline hotspot
 		/*
 		SDL_Rect screen_size;
