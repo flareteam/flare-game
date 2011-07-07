@@ -19,7 +19,7 @@ MenuTalker::MenuTalker(SDL_Surface *_screen, InputState *_inp , FontEngine *_fon
 
 	advanceButton = new WidgetButton(screen, font, inp, "images/menus/buttons/right.png");
 	advanceButton->pos.x = VIEW_W_HALF + 288;
-	advanceButton->pos.y = VIEW_H_HALF + 184;
+	advanceButton->pos.y = VIEW_H_HALF + 112;
 
 	closeButton = new WidgetButton(screen, font, inp, "images/menus/buttons/button_x.png");
 	closeButton->pos.x = VIEW_W_HALF + 288;
@@ -64,6 +64,22 @@ void MenuTalker::logic() {
 
 	if (!visible || npc==NULL) return;
 	
+	advanceButton->enabled = false;
+	closeButton->enabled = false;
+	
+	// determine active button
+	if (event_cursor < NPC_MAX_EVENTS-1) {
+		if (npc->dialog[dialog_node][event_cursor+1].type != "") {
+			advanceButton->enabled = true;
+		}
+		else {
+			closeButton->enabled = true;
+		}
+	}
+	else {
+		closeButton->enabled = true;
+	}
+	
 	bool more;
 
 	if (advanceButton->checkClick() || closeButton->checkClick()) {
@@ -90,6 +106,7 @@ void MenuTalker::logic() {
 		npc = NULL;
 		visible = false;
 	}
+
 }
 
 void MenuTalker::render() {
