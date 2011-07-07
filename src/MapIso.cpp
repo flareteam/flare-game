@@ -126,8 +126,11 @@ void MapIso::push_enemy_group(Map_Group g){
 			target.x = (g.pos.x + rand() % g.area.x) * UNITS_PER_TILE + UNITS_PER_TILE/2;
 			target.y = (g.pos.y + rand() % g.area.y) * UNITS_PER_TILE + UNITS_PER_TILE/2;
 			Map_Enemy test_enemy;
-			//TODO: create a practical limit on this so an area that is too small won't spend eternity trying to generate enemies that won't fit
-			while (respawn_flag) {
+
+			int spawn_attempts = 300; //Only attempt this many random spawns before giving up. If you reach this number frequently, you're probably using [enemygroup] in a bad area.
+			for (int spawn_counter = 0; spawn_counter < spawn_attempts; spawn_counter++) {
+				if (spawn_counter == spawn_attempts - 1) cout << "Warning: random enemy spawner could not place unit after " << spawn_attempts << " attempts!" << endl;
+				if (!respawn_flag) break;
 				respawn_flag = false;
 				target.x = (g.pos.x + rand() % g.area.x) * UNITS_PER_TILE + UNITS_PER_TILE/2;
 				target.y = (g.pos.y + rand() % g.area.y) * UNITS_PER_TILE + UNITS_PER_TILE/2;
