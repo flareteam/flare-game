@@ -19,10 +19,12 @@ MenuManager::MenuManager(PowerManager *_powers, SDL_Surface *_screen, InputState
 	loadIcons();
 
 	items = new ItemDatabase(screen, font);
-	inv = new MenuInventory(screen, font, items, stats, powers);
-	pow = new MenuPowers(screen, font, stats, powers);
-	chr = new MenuCharacter(screen, font, stats);
-	log = new MenuLog(screen, font);
+
+	chr = new MenuCharacter(screen, inp, font, stats);
+	inv = new MenuInventory(screen, inp, font, items, stats, powers);
+	pow = new MenuPowers(screen, inp, font, stats, powers);
+	log = new MenuLog(screen, inp, font);
+	
 	hudlog = new MenuHUDLog(screen, font);
 	act = new MenuActionBar(screen, font, inp, powers, stats, icons);
 	hpmp = new MenuHPMP(screen, font);
@@ -97,7 +99,10 @@ void MenuManager::logic() {
 	
 	hudlog->logic();
 	enemy->logic();
+	chr->logic();
 	inv->logic();
+	pow->logic();
+	log->logic();
 	talker->logic();
 
 	if (!inp->pressing[INVENTORY] && !inp->pressing[POWERS] && !inp->pressing[CHARACTER] && !inp->pressing[LOG])
@@ -205,7 +210,7 @@ void MenuManager::logic() {
 				if (chr->visible) {
 				
 					// applied a level-up
-					if (chr->checkUpgrade(inp->mouse)) {
+					if (chr->checkUpgrade()) {
 						inp->lock[MAIN1] = true;
 						
 						// apply equipment and max hp/mp
@@ -472,7 +477,7 @@ void MenuManager::render() {
 	// Find tooltips depending on mouse position	
 	if (inp->mouse.x < 320 && inp->mouse.y >= offset_y && inp->mouse.y <= offset_y+416) {
 		if (chr->visible) {
-			tooltip = chr->checkTooltip(inp->mouse);
+			tooltip = chr->checkTooltip();
 		}
 		else if (vendor->visible) {
 			tooltip = vendor->checkTooltip(inp->mouse);

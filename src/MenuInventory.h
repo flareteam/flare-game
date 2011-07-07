@@ -19,6 +19,7 @@
 #include "StatBlock.h"
 #include "PowerManager.h"
 #include "MenuItemStorage.h"
+#include "WidgetButton.h"
 #include <string>
 #include <sstream>
 
@@ -39,6 +40,7 @@ const int SLOT_ARTIFACT = 3;
 class MenuInventory {
 private:
 	SDL_Surface *screen;
+	InputState *inp;
 	ItemDatabase *items;
 	FontEngine *font;
 	StatBlock *stats;
@@ -49,9 +51,10 @@ private:
 	void updateEquipment(int slot);
 
 	SDL_Surface *background;
+	WidgetButton *closeButton;
 	
 public:
-	MenuInventory(SDL_Surface *screen, FontEngine *font, ItemDatabase *items, StatBlock *stats, PowerManager *powers);
+	MenuInventory(SDL_Surface *screen, InputState *inp, FontEngine *font, ItemDatabase *items, StatBlock *stats, PowerManager *powers);
 	~MenuInventory();
 	void logic();
 	void render();

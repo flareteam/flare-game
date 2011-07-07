@@ -17,6 +17,7 @@ protected:
 	void loadGraphics();
 
 	WidgetButton *buttonExit;
+	WidgetButton *buttonClose;
 
 	bool exitClicked;
 

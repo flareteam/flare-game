@@ -7,14 +7,20 @@
 
 #include "MenuCharacter.h"
 
-MenuCharacter::MenuCharacter(SDL_Surface *_screen, FontEngine *_font, StatBlock *_stats) {
+MenuCharacter::MenuCharacter(SDL_Surface *_screen, InputState *_inp, FontEngine *_font, StatBlock *_stats) {
 	screen = _screen;
+	inp = _inp;
 	font = _font;
 	stats = _stats;
 	
 	visible = false;
 
 	loadGraphics();
+	
+	closeButton = new WidgetButton(screen, font, inp, "images/menus/buttons/button_x.png");
+	closeButton->pos.x = 294;
+	closeButton->pos.y = (VIEW_H - 480)/2 + 34;
+
 }
 
 void MenuCharacter::loadGraphics() {
@@ -51,6 +57,14 @@ int MenuCharacter::bonusColor(int stat) {
 	return FONT_WHITE;
 }
 
+void MenuCharacter::logic() {
+	if (!visible) return;
+	
+	if (closeButton->checkClick()) {
+		visible = false;
+	}
+}
+
 void MenuCharacter::render() {
 	if (!visible) return;
 	
@@ -66,6 +80,9 @@ void MenuCharacter::render() {
 	src.w = dest.w = 320;
 	src.h = dest.h = 416;
 	SDL_BlitSurface(background, &src, screen, &dest);
+	
+	// close button
+	closeButton->render();
 	
 	// labels
 	// TODO: translate()
@@ -237,9 +254,12 @@ void MenuCharacter::displayProficiencies(int value, int y) {
 /**
  * Display various mouseovers tooltips depending on cursor location
  */
-TooltipData MenuCharacter::checkTooltip(Point mouse) {
+TooltipData MenuCharacter::checkTooltip() {
 
 	TooltipData tip;
+	Point mouse;
+	mouse.x = inp->mouse.x;
+	mouse.y = inp->mouse.y;
 	
 	int offset_y = (VIEW_H - 416)/2;
 	stringstream ss;
@@ -431,7 +451,11 @@ TooltipData MenuCharacter::checkTooltip(Point mouse) {
  * User might click this menu to upgrade a stat.  Check for this situation.
  * Return true if a stat was upgraded.
  */
-bool MenuCharacter::checkUpgrade(Point mouse) {
+bool MenuCharacter::checkUpgrade() {
+
+	Point mouse;
+	mouse.x = inp->mouse.x;
+	mouse.y = inp->mouse.y;
 
 	int spent = stats->physical_character + stats->mental_character + stats->offense_character + stats->defense_character -4;
 	
@@ -474,4 +498,5 @@ MenuCharacter::~MenuCharacter() {
 	SDL_FreeSurface(background);
 	SDL_FreeSurface(proficiency);
 	SDL_FreeSurface(upgrade);
+	delete closeButton;
 }

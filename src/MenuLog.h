@@ -12,8 +12,10 @@
 #include "SDL.h"
 #include "SDL_image.h"
 #include "SDL_mixer.h"
+#include "InputState.h"
 #include "Utils.h"
 #include "FontEngine.h"
+#include "WidgetButton.h"
 
 const int MAX_LOG_MESSAGES = 100;
 
@@ -26,11 +28,13 @@ const int LOG_TYPE_STATISTICS = 3;
 class MenuLog {
 private:
 	SDL_Surface *screen;
+	InputState *inp;
 	FontEngine *font;
 
 	SDL_Surface *background;
 	SDL_Surface *tab_active;
 	SDL_Surface *tab_inactive;
+	WidgetButton *closeButton;
 	
 	void loadGraphics();
 	void renderTab();
@@ -44,7 +48,7 @@ private:
 	int paragraph_spacing;
 	
 public:
-	MenuLog(SDL_Surface *screen, FontEngine *font);
+	MenuLog(SDL_Surface *screen, InputState *inp, FontEngine *font);
 	~MenuLog();
 
 	void logic();

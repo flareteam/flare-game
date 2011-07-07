@@ -7,8 +7,9 @@
 
 #include "MenuLog.h"
 
-MenuLog::MenuLog(SDL_Surface *_screen, FontEngine *_font) {
+MenuLog::MenuLog(SDL_Surface *_screen, InputState *_inp, FontEngine *_font) {
 	screen = _screen;
+	inp = _inp;
 	font = _font;
 
 	visible = false;
@@ -56,10 +57,11 @@ MenuLog::MenuLog(SDL_Surface *_screen, FontEngine *_font) {
 	}
 	
 	loadGraphics();
+
+	closeButton = new WidgetButton(screen, font, inp, "images/menus/buttons/button_x.png");
+	closeButton->pos.x = 294;
+	closeButton->pos.y = (VIEW_H - 480)/2 + 34;
 	
-	// TEMP
-	add("Achievements are not yet implemented", LOG_TYPE_ACHIEVEMENTS);
-	add("Statistics are not yet implemented", LOG_TYPE_STATISTICS);
 }
 
 void MenuLog::loadGraphics() {
@@ -92,6 +94,11 @@ void MenuLog::loadGraphics() {
  * Perform one frame of logic
  */
 void MenuLog::logic() {
+	if (!visible) return;
+	
+	if (closeButton->checkClick()) {
+		visible = false;
+	}
 }
 
 /**
@@ -109,6 +116,9 @@ void MenuLog::render() {
 	src.w = menu_area.w;
 	src.h = menu_area.h;
 	SDL_BlitSurface(background, &src, screen, &menu_area);
+	
+	// close button
+	closeButton->render();
 	
 	// text overlay
 	// TODO: translate()
@@ -232,4 +242,5 @@ void MenuLog::clear() {
 
 MenuLog::~MenuLog() {
 	SDL_FreeSurface(background);
+	delete closeButton;
 }
