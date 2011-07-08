@@ -24,6 +24,8 @@
 #include "EnemyGroupManager.h"
 #include "InputState.h"
 #include "MenuTooltip.h"
+#include "PowerManager.h"
+#include "StatBlock.h"
 
 using namespace std;
 
@@ -55,6 +57,14 @@ struct Map_Event {
 	int comp_num;
 	SDL_Rect hotspot;
 	string tooltip;
+	//power spawn variables
+	Point power_src;
+	Point power_dest;
+	bool targetHero;
+	int damagemin;
+	int damagemax;
+	int power_cooldown;
+	int cooldown_ticks;
 };
 
 const int CLICK_RANGE = 3 * UNITS_PER_TILE; //for activating events
@@ -84,6 +94,7 @@ private:
 	
 public:
 	CampaignManager *camp;
+	PowerManager *powers;
 
 	// functions
 	MapIso(SDL_Surface *_screen, CampaignManager *_camp, InputState *_inp, FontEngine *_font);
