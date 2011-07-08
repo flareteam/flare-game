@@ -359,15 +359,19 @@ spawnpoint=56,62,4
 
 [event]
 type=run_once
-location=47,31,2,3
+location=47,32,1,1
+hotspot=-16,-36,32,44
+tooltip=Barrel
 mapmod=object,47,32,178
 soundfx=soundfx/wood_open.ogg
 loot=random,48,32,6
 
 [event]
 type=run_once
-location=46,28,2,3
+location=46,29,1,1
 mapmod=object,46,29,179
+hotspot=-16,-30,32,36
+tooltip=Crate
 soundfx=soundfx/wood_open.ogg
 loot=random,47,29,6
 
@@ -409,62 +413,93 @@ area=15,49,33,12
 #treasure events
 [event]
 type=run_once
-location=11,22,2,1
+location=11,21,1,1
+hotspot=-16,-28,32,36
+tooltip=Treasure Chest
 mapmod=object,11,21,177
 soundfx=soundfx/wood_open.ogg
-loot=random,11,22,6
+loot=random,11,22,8
 
 [event]
 type=run_once
-location=12,22,2,2
+location=13,22,1,1
+hotspot=-16,-36,32,44
+tooltip=Barrel
 mapmod=object,13,22,178
 soundfx=soundfx/wood_open.ogg
 loot=random,13,23,6
 
 [event]
 type=run_once
-location=6,32,2,3
+location=6,33,1,1
+hotspot=-16,-30,32,36
+tooltip=Crate
 mapmod=object,6,33,179
 soundfx=soundfx/wood_open.ogg
 loot=random,7,33,6
 
 [event]
 type=run_once
-location=6,34,1,2
+location=5,34,1,1
+hotspot=-16,-36,32,44
+tooltip=Barrel
 mapmod=object,5,34,178
 soundfx=soundfx/wood_open.ogg
 loot=random,6,34,6
 
 [event]
 type=run_once
-location=25,25,1,1
+location=25,24,1,1
+hotspot=-16,-36,32,44
+tooltip=Barrel
 mapmod=object,25,24,178
+soundfx=soundfx/wood_open.ogg
+loot=random,25,25,5
+
+[event]
+type=run_once
+location=25,24,1,1
+hotspot=-16,-30,32,36
+tooltip=Crate
 mapmod=object,26,24,179
-mapmod=object,26,25,179
 soundfx=soundfx/wood_open.ogg
 loot=random,25,25,6
+
+[event]
+type=run_once
+location=25,24,1,1
+hotspot=-16,-30,32,36
+tooltip=Crate
+mapmod=object,26,25,179
+soundfx=soundfx/wood_open.ogg
 loot=random,25,26,7
 
 [event]
 type=run_once
-location=25,32,3,2
+location=26,32,1,1
 mapmod=object,26,32,179
+hotspot=-16,-30,32,36
+tooltip=Crate
 soundfx=soundfx/wood_open.ogg
-loot=random,26,33,6
+loot=random,26,33,7
 
 [event]
 type=run_once
-location=27,33,2,2
+location=28,33,1,1
+hotspot=-16,-36,32,44
+tooltip=Barrel
 mapmod=object,28,33,178
 soundfx=soundfx/wood_open.ogg
 loot=random,27,33,6
 
 [event]
 type=run_once
-location=49,53,3,1
+location=50,52,1,1
 mapmod=object,50,52,178
+hotspot=-16,-36,32,44
+tooltip=Barrel
 soundfx=soundfx/wood_open.ogg
-loot=random,50,53,6
+loot=random,50,53,5
 
 # South Shaft (to Lost Mines 2 (NYI) )
 
@@ -478,10 +513,12 @@ spawnpoint=56,80,4
 
 [event]
 type=run_once
-location=56,94,2,2
+location=56,95,1,1
 mapmod=object,56,95,176
+hotspot=-16,-28,32,36
+tooltip=Treasure Chest
 soundfx=soundfx/wood_open.ogg
-loot=random,57,95,6
+loot=random,57,95,8
 
 # East Underground River Area (to Cave Level 2 (NYI) )
 
@@ -500,22 +537,19 @@ msg=The river appears to have swollen recently, covering the area where the trac
 [event]
 # falling pillar/bridge event
 type=run_once
-location=80,59,1,1
+location=80,60,1,1
+hotspot=-16,-68,32,76
+tooltip=Stalagmite Pillar
 mapmod=collision,80,60,0
 mapmod=collision,80,61,0
 mapmod=collision,80,62,0
 mapmod=collision,80,63,0
-soundfx=soundfx/powers/quake.ogg
-shakycam=20
-
-[event]
-# falling pillar/bridge event continued
-type=run_once
-location=80,59,1,1
 mapmod=object,80,60,151
 mapmod=object,80,61,152
 mapmod=object,80,62,151
 mapmod=object,80,63,152
+soundfx=soundfx/powers/quake.ogg
+shakycam=20
 
 [enemy]
 type=antlion_spitter
@@ -543,38 +577,55 @@ area=66,55,24,18
 
 [event]
 type=run_once
-location=63,69,2,3
+location=63,70,1,1
+hotspot=-16,-36,32,44
+tooltip=Barrel
 mapmod=object,63,70,178
 soundfx=soundfx/wood_open.ogg
 loot=random,64,70,6
 
 [event]
 type=run_once
-location=70,72,3,2
+location=71,73,1,1
+hotspot=-16,-36,32,44
+tooltip=Barrel
 mapmod=object,71,73,178
 soundfx=soundfx/wood_open.ogg
 loot=random,71,72,6
 
 [event]
 type=run_once
-location=78,67,2,3
+location=79,68,1,1
+hotspot=-16,-36,32,44
+tooltip=Barrel
 mapmod=object,79,68,178
 soundfx=soundfx/wood_open.ogg
 loot=random,79,67,6
 
 [event]
 type=run_once
-location=79,66,2,3
+location=80,67,1,1
+hotspot=-16,-36,32,44
+tooltip=Barrel
 mapmod=object,80,67,178
-mapmod=object,81,67,179
 soundfx=soundfx/wood_open.ogg
 loot=random,80,66,6
+
+[event]
+type=run_once
+location=81,67,1,1
+hotspot=-16,-30,32,36
+tooltip=Crate
+mapmod=object,81,67,179
+soundfx=soundfx/wood_open.ogg
 loot=random,81,66,6
 
 [event]
 type=run_once
-location=97,61,2,1
+location=98,60,1,1
+hotspot=-16,-28,32,36
+tooltip=Treasure Chest
 mapmod=object,98,60,177
 soundfx=soundfx/wood_open.ogg
-loot=random,98,61,6
+loot=random,98,61,9
 
