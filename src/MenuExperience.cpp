@@ -60,13 +60,14 @@ void MenuExperience::loadGraphics() {
  * On mouseover, display progress in text form.
  */
 void MenuExperience::render(StatBlock *stats, Point mouse) {
+
+
 	SDL_Rect src;
 	SDL_Rect dest;
 	int xp_bar_length;
 	
 	// don't display anything if max level
-	// TODO: change this implementation if max level is configurable
-	if (stats->level < 1 || stats->level >= 17) return;
+	if (stats->level < 1 || stats->level == MAX_CHARACTER_LEVEL) return;
 	
 	// lay down the background image first
 	src.x = 0;
@@ -96,7 +97,12 @@ void MenuExperience::render(StatBlock *stats, Point mouse) {
 	if (isWithin(hud_position, mouse)) {
 		stringstream ss;
 		ss.str("");
-		ss << text_label << stats->xp << "/" << stats->xp_table[stats->level];
+		if (stats->level < MAX_CHARACTER_LEVEL) {
+			ss << text_label << stats->xp << "/" << stats->xp_table[stats->level];
+		}
+		else {
+			ss << text_label << stats->xp;
+		}
 		font->render(ss.str(), hud_position.x + text_offset.x, hud_position.y + text_offset.y, text_justify, screen, FONT_WHITE);
 	}
 }

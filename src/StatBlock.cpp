@@ -64,30 +64,11 @@ StatBlock::StatBlock() {
 	blocking = false;
 	
 	// xp table
-	// what experience do you need to reach the next level
-	// formula:
-	// scale 20-50-100-200-500-1000-2000-5000
-	// multiplied by current level
-	// affter 10000, increase by 5k each level
-	
+	// (level * level * 100) plus previous total
 	xp_table[0] = 0;
-	xp_table[1] = 20;
-	xp_table[2] = 100;
-	xp_table[3] = 300;
-	xp_table[4] = 800;
-	xp_table[5] = 2500;
-	xp_table[6] = 6000;
-	xp_table[7] = 14000;
-	xp_table[8] = 40000;
-	xp_table[9] = 90000;
-	xp_table[10] = 150000;
-	xp_table[11] = 220000;
-	xp_table[12] = 300000;
-	xp_table[13] = 390000;
-	xp_table[14] = 490000;
-	xp_table[15] = 600000;
-	xp_table[16] = 720000;
-	xp_table[17] = -1;
+	for (int i=1; i<MAX_CHARACTER_LEVEL; i++) {
+		xp_table[i] = i * i * 100 + xp_table[i-1];
+	}
 
 	teleportation=false;
 	
@@ -241,7 +222,13 @@ void StatBlock::takeDamage(int dmg) {
  */
 void StatBlock::recalc() {
 
-	// these formulas should be moved to a config file
+	level = 0;
+	for (int i=0; i<MAX_CHARACTER_LEVEL; i++) {
+		if (xp >= xp_table[i])
+			level=i+1;
+	}
+
+	// TODO: move these formula numbers to an engine config file
 	int hp_base = 10;
 	int hp_per_level = 2;
 	int hp_per_physical = 8;
@@ -255,10 +242,10 @@ void StatBlock::recalc() {
 	int mp_regen_per_level = 1;
 	int mp_regen_per_mental = 4;	
 	int accuracy_base = 75;
-	int accuracy_per_level = 2;
+	int accuracy_per_level = 1;
 	int accuracy_per_offense = 5;
 	int avoidance_base = 25;
-	int avoidance_per_level = 2;
+	int avoidance_per_level = 1;
 	int avoidance_per_defense = 5;
 	int crit_base = 5;
 	int crit_per_level = 1;
@@ -284,14 +271,17 @@ void StatBlock::recalc() {
 	physment = get_physical() + get_mental();
 	offdef = get_offense() + get_defense();
 	
-	for (int i=0; i<17; i++) {
-		if (xp >= xp_table[i])
-			level=i+1;
-	}
-	
+	int stat_sum = get_physical() + get_mental() + get_offense() + get_defense();
+
 	// determine class
+	// if all four stats are max, Grand Master
+	if (stat_sum >= 20)
+		character_class = "Grand Master";
+	// if three stats are max, Master
+	else if (stat_sum >= 16)
+		character_class = "Master";
 	// if one attribute is much higher than the others, use the attribute class name
-	if (get_physical() > get_mental()+1 && get_physical() > get_offense()+1 && get_physical() > get_defense()+1)
+	else if (get_physical() > get_mental()+1 && get_physical() > get_offense()+1 && get_physical() > get_defense()+1)
 		character_class = "Warrior";
 	else if (get_mental() > get_physical()+1 && get_mental() > get_offense()+1 && get_mental() > get_defense()+1)
 		character_class = "Wizard";

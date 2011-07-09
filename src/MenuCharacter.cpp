@@ -190,9 +190,10 @@ void MenuCharacter::render() {
 	// if points are available, show the upgrade buttons
 	
 	int spent = stats->physical_character + stats->mental_character + stats->offense_character + stats->defense_character -4;
+	int max_spendable_stat_points = 16;
 	
 	// check to see if there are skill points available
-	if (spent < stats->level-1) {
+	if (spent < stats->level && spent < max_spendable_stat_points) {
 
 		src.x = 0;
 		src.y = 0;
@@ -268,7 +269,7 @@ TooltipData MenuCharacter::checkTooltip() {
 		ss << "XP: " << stats->xp;
 		tip.lines[tip.num_lines++] = ss.str();
 		ss.str("");
-		if (stats->level < 17) {
+		if (stats->level < MAX_CHARACTER_LEVEL) {
 			ss << "Next: " << stats->xp_table[stats->level];
 			tip.lines[tip.num_lines++] = ss.str();
 		}
@@ -458,9 +459,10 @@ bool MenuCharacter::checkUpgrade() {
 	mouse.y = inp->mouse.y;
 
 	int spent = stats->physical_character + stats->mental_character + stats->offense_character + stats->defense_character -4;
+	int max_spendable_stat_points = 16;
 	
 	// check to see if there are skill points available
-	if (spent < stats->level-1) {
+	if (spent < stats->level && spent < max_spendable_stat_points) {
 		
 		// check mouse hotspots
 		int offset_y = (VIEW_H - 416)/2;

@@ -26,6 +26,7 @@ const int MELEE_MENT = 1;
 const int RANGED_PHYS = 2;
 const int RANGED_MENT = 3;
 
+const int MAX_CHARACTER_LEVEL = 32;
 
 class StatBlock {
 private:
@@ -52,7 +53,7 @@ public:
 	
 	int level;
 	int xp;
-	int xp_table[18];
+	int xp_table[MAX_CHARACTER_LEVEL+1];
 
 	// base stats ("attributes")
 	int offense_character;
