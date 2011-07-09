@@ -52,13 +52,19 @@ void MapIso::clearEvents() {
 		events[i].comp_num = 0;
 		events[i].tooltip = "";
 		events[i].hotspot.x = events[i].hotspot.y = events[i].hotspot.h = events[i].hotspot.w = 0;
-		for (int j=0; j<8; j++) {
+		for (int j=0; j<256; j++) {
 			events[i].components[j].type = "";
 			events[i].components[j].s = "";
 			events[i].components[j].x = 0;
 			events[i].components[j].y = 0;
 			events[i].components[j].z = 0;
 		}
+		events[i].power_src.x = events[i].power_src.y = 0;
+		events[i].power_dest.x = events[i].power_dest.y = 0;
+		events[i].targetHero = false;
+		events[i].damagemin = events[i].damagemax = 0;
+		events[i].power_cooldown = 0;
+		events[i].cooldown_ticks = 0;
 	}
 	event_count = 0;
 }
@@ -323,6 +329,25 @@ int MapIso::load(string filename) {
 				else if (infile.key == "tooltip") {
 					events[event_count-1].tooltip = infile.val;
 				}
+				else if (infile.key == "power_path") {
+					events[event_count-1].power_src.x = atoi(infile.nextValue().c_str());
+					events[event_count-1].power_src.y = atoi(infile.nextValue().c_str());
+					string dest = infile.nextValue();
+					if (dest == "hero") {
+						events[event_count-1].targetHero = true;
+					}
+					else {
+						events[event_count-1].power_dest.x = atoi(dest.c_str());
+						events[event_count-1].power_dest.y = atoi(infile.nextValue().c_str());
+					}
+				}
+				else if (infile.key == "power_damage") {
+					events[event_count-1].damagemin = atoi(infile.nextValue().c_str());
+					events[event_count-1].damagemax = atoi(infile.nextValue().c_str());
+				}
+				else if (infile.key == "power_cooldown") {
+					events[event_count-1].power_cooldown = atoi(infile.val.c_str());
+				}
 				else {
 					// new event component
 					Event_Component *e = &events[event_count-1].components[events[event_count-1].comp_num];
@@ -373,6 +398,9 @@ int MapIso::load(string filename) {
 						e->x = atoi(infile.val.c_str());
 					}
 					else if (infile.key == "reward_xp") {
+						e->x = atoi(infile.val.c_str());
+					}
+					else if (infile.key == "power") {
 						e->x = atoi(infile.val.c_str());
 					}
 					
@@ -716,6 +744,29 @@ void MapIso::executeEvent(int eid) {
 		}
 		else if (ec->type == "reward_xp") {
 			camp->rewardXP(ec->x);
+		}
+		else if (ec->type == "power") {
+			int power_index = ec->x;
+			StatBlock *dummy = new StatBlock();
+			dummy->accuracy = 1000; //always hits its target
+			dummy->pos.x = events[eid].power_src.x * UNITS_PER_TILE;
+			dummy->pos.y = events[eid].power_src.y * UNITS_PER_TILE;
+			dummy->dmg_melee_min = dummy->dmg_ranged_min = dummy->dmg_ment_min = events[eid].damagemin;
+			dummy->dmg_melee_max = dummy->dmg_ranged_max = dummy->dmg_ment_max = events[eid].damagemax;
+			Point target;
+			if (events[eid].targetHero){
+				target.x = cam.x;
+				target.y = cam.y;
+			}
+			else {
+				target.x = events[eid].power_dest.x * UNITS_PER_TILE;
+				target.y = events[eid].power_dest.y * UNITS_PER_TILE;
+			}
+			if (events[eid].cooldown_ticks > 0) events[eid].cooldown_ticks--;
+			else {
+				events[eid].cooldown_ticks = events[eid].power_cooldown;
+				powers->activate(power_index, dummy, target);
+			}
 		}
 	}
 	if (events[eid].type == "run_once") {

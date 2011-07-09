@@ -43,6 +43,7 @@ GameStatePlay::GameStatePlay(SDL_Surface *_screen, InputState *_inp, FontEngine 
 	camp->carried_items = &menu->inv->inventory[CARRIED];
 	camp->currency = &menu->inv->gold;
 	camp->xp = &pc->stats.xp;
+	map->powers = powers;
 
 }
 
