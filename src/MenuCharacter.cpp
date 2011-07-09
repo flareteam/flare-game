@@ -407,7 +407,7 @@ TooltipData MenuCharacter::checkTooltip() {
 	}
 	if (mouse.x >= 64 && mouse.x <= 280 && mouse.y >= offset_y+232 && mouse.y <= offset_y+248) {
 		tip.lines[tip.num_lines++] = "Each point of Offense grants +5 accuracy";
-		tip.lines[tip.num_lines++] = "Each level grants +2 accuracy";
+		tip.lines[tip.num_lines++] = "Each level grants +1 accuracy";
 		return tip;
 	}
 		
@@ -439,7 +439,7 @@ TooltipData MenuCharacter::checkTooltip() {
 	}		
 	if (mouse.x >= 64 && mouse.x <= 280 && mouse.y >= offset_y+296 && mouse.y <= offset_y+312) {
 		tip.lines[tip.num_lines++] = "Each point of Defense grants +5 avoidance";
-		tip.lines[tip.num_lines++] = "Each level grants +2 avoidance";
+		tip.lines[tip.num_lines++] = "Each level grants +1 avoidance";
 		return tip;
 	}
 
