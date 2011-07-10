@@ -7,23 +7,29 @@
 
 #include "MenuVendor.h"
 
-MenuVendor::MenuVendor(SDL_Surface *_screen, FontEngine *_font, ItemDatabase *_items, StatBlock *_stats) {
+MenuVendor::MenuVendor(SDL_Surface *_screen, InputState *_inp, FontEngine *_font, ItemDatabase *_items, StatBlock *_stats) {
 	screen = _screen;
+	inp = _inp;
 	font = _font;
 	items = _items;
 	stats = _stats;
-	
+
 	int offset_y = (VIEW_H - 416)/2;
-	
+
 	slots_area.x = 32;
 	slots_area.y = offset_y + 64;
 	slots_area.w = 256;
 	slots_area.h = 320;
-	
+
 	stock.init( VENDOR_SLOTS, items, screen, font, slots_area, ICON_SIZE_32, 8);
 
 	visible = false;
 	loadGraphics();
+
+	closeButton = new WidgetButton(screen, font, inp, "images/menus/buttons/button_x.png");
+	closeButton->pos.x = 294;
+	closeButton->pos.y = (VIEW_H - 480)/2 + 34;
+
 	loadMerchant("");
 }
 
@@ -33,26 +39,31 @@ void MenuVendor::loadGraphics() {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 		SDL_Quit();
 	}
-	
+
 	// optimize
 	SDL_Surface *cleanup = background;
 	background = SDL_DisplayFormatAlpha(background);
-	SDL_FreeSurface(cleanup);	
+	SDL_FreeSurface(cleanup);
 }
 
 void MenuVendor::loadMerchant(string filename) {
 }
 
 void MenuVendor::logic() {
+	if (!visible) return;
+
+	if (closeButton->checkClick()) {
+		visible = false;
+	}
 }
 
 void MenuVendor::render() {
 	if (!visible) return;
 	SDL_Rect src;
 	SDL_Rect dest;
-	
+
 	int offset_y = (VIEW_H - 416)/2;
-	
+
 	// background
 	src.x = 0;
 	src.y = 0;
@@ -61,12 +72,15 @@ void MenuVendor::render() {
 	src.w = dest.w = 320;
 	src.h = dest.h = 416;
 	SDL_BlitSurface(background, &src, screen, &dest);
-		
+
+	// close button
+	closeButton->render();
+
 	// text overlay
 	// TODO: translate()
 	font->render("Vendor", 160, offset_y+8, JUSTIFY_CENTER, screen, FONT_WHITE);
 	font->render(npc->name, 160, offset_y+24, JUSTIFY_CENTER, screen, FONT_WHITE);
-	
+
 	// show stock
 	stock.render();
 }
@@ -106,7 +120,7 @@ bool MenuVendor::full() {
  * Several NPCs vendors can share this menu.
  * When the player talks to a new NPC, apply that NPC's inventory
  */
-void MenuVendor::setInventory() {	
+void MenuVendor::setInventory() {
 	for (int i=0; i<VENDOR_SLOTS; i++) {
 		stock[i] = npc->stock[i];
 	}
@@ -126,5 +140,6 @@ void MenuVendor::saveInventory() {
 
 MenuVendor::~MenuVendor() {
 	SDL_FreeSurface(background);
+	delete closeButton;
 }
 

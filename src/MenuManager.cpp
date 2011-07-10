@@ -19,10 +19,12 @@ MenuManager::MenuManager(PowerManager *_powers, SDL_Surface *_screen, InputState
 	loadIcons();
 
 	items = new ItemDatabase(screen, font);
-	inv = new MenuInventory(screen, font, items, stats, powers);
-	pow = new MenuPowers(screen, font, stats, powers);
-	chr = new MenuCharacter(screen, font, stats);
-	log = new MenuLog(screen, font);
+
+	chr = new MenuCharacter(screen, inp, font, stats);
+	inv = new MenuInventory(screen, inp, font, items, stats, powers);
+	pow = new MenuPowers(screen, inp, font, stats, powers);
+	log = new MenuLog(screen, inp, font);
+
 	hudlog = new MenuHUDLog(screen, font);
 	act = new MenuActionBar(screen, font, inp, powers, stats, icons);
 	hpmp = new MenuHPMP(screen, font);
@@ -30,10 +32,10 @@ MenuManager::MenuManager(PowerManager *_powers, SDL_Surface *_screen, InputState
 	mini = new MenuMiniMap(screen);
 	xp = new MenuExperience(screen, font);
 	enemy = new MenuEnemy(screen, font);
-	vendor = new MenuVendor(screen, font, items, stats);
+	vendor = new MenuVendor(screen, inp, font, items, stats);
 	talker = new MenuTalker(screen, inp, font, camp);
 	exit = new MenuExit(screen, inp, font);
-	
+
 	pause = false;
 	dragging = false;
 	drag_stack.item = 0;
@@ -42,7 +44,7 @@ MenuManager::MenuManager(PowerManager *_powers, SDL_Surface *_screen, InputState
 	drag_src = 0;
 	drop_stack.item = 0;
 	drop_stack.quantity = 0;
-	
+
 	loadSounds();
 
 	done = false;
@@ -52,27 +54,27 @@ MenuManager::MenuManager(PowerManager *_powers, SDL_Surface *_screen, InputState
  * Icon set shared by all menus
  */
 void MenuManager::loadIcons() {
-	
+
 	icons = IMG_Load((PATH_DATA + "images/icons/icons32.png").c_str());
 	if(!icons) {
 		fprintf(stderr, "Couldn't load icons: %s\n", IMG_GetError());
 		SDL_Quit();
 	}
-	
+
 	// optimize
 	SDL_Surface *cleanup = icons;
 	icons = SDL_DisplayFormatAlpha(icons);
-	SDL_FreeSurface(cleanup);	
+	SDL_FreeSurface(cleanup);
 }
 
 void MenuManager::loadSounds() {
 	sfx_open = Mix_LoadWAV((PATH_DATA + "soundfx/inventory/inventory_page.ogg").c_str());
 	sfx_close = Mix_LoadWAV((PATH_DATA + "soundfx/inventory/inventory_book.ogg").c_str());
-	
+
 	if (!sfx_open || !sfx_close) {
 		fprintf(stderr, "Mix_LoadWAV: %s\n", Mix_GetError());
 		SDL_Quit();
-	}	
+	}
 }
 
 
@@ -84,7 +86,7 @@ void MenuManager::renderIcon(int icon_id, int x, int y) {
 	src.w = src.h = dest.w = dest.h = 32;
 	src.x = (icon_id % 16) * 32;
 	src.y = (icon_id / 16) * 32;
-	SDL_BlitSurface(icons, &src, screen, &dest);		
+	SDL_BlitSurface(icons, &src, screen, &dest);
 }
 
 void MenuManager::logic() {
@@ -94,15 +96,19 @@ void MenuManager::logic() {
 	bool clicking_powers = false;
 	bool clicking_log = false;
 	ItemStack stack;
-	
+
 	hudlog->logic();
 	enemy->logic();
+	chr->logic();
 	inv->logic();
+	vendor->logic();
+	pow->logic();
+	log->logic();
 	talker->logic();
 
 	if (!inp->pressing[INVENTORY] && !inp->pressing[POWERS] && !inp->pressing[CHARACTER] && !inp->pressing[LOG])
 		key_lock = false;
-	
+
 	// check if mouse-clicking a menu button
 	act->checkMenu(inp->mouse, clicking_character, clicking_inventory, clicking_powers, clicking_log);
 
@@ -112,7 +118,7 @@ void MenuManager::logic() {
 			done = true;
 		}
 	}
-	
+
 	// exit menu toggle
 	if ((inp->pressing[CANCEL] && !inp->lock[CANCEL] && !key_lock && !dragging)) {
 		inp->lock[CANCEL] = true;
@@ -136,7 +142,7 @@ void MenuManager::logic() {
 			inv->visible = true;
 			Mix_PlayChannel(-1, sfx_open, 0);
 		}
-		
+
 	}
 
 	// powers menu toggle
@@ -164,7 +170,7 @@ void MenuManager::logic() {
 			Mix_PlayChannel(-1, sfx_open, 0);
 		}
 	}
-	
+
 	// log menu toggle
 	if ((inp->pressing[LOG] && !key_lock && !dragging) || clicking_log) {
 		key_lock = true;
@@ -177,12 +183,12 @@ void MenuManager::logic() {
 			Mix_PlayChannel(-1, sfx_open, 0);
 		}
 	}
-		
+
 	if (MENUS_PAUSE) {
 		pause = (inv->visible || pow->visible || chr->visible || log->visible || vendor->visible || talker->visible);
 	}
 	menus_open = (inv->visible || pow->visible || chr->visible || log->visible || vendor->visible || talker->visible);
-	
+
 	if (stats->alive) {
 		int offset_x = (VIEW_W - 320);
 		int offset_y = (VIEW_H - 416)/2;
@@ -196,18 +202,18 @@ void MenuManager::logic() {
 				inp->lock[MAIN2] = true;
 			}
 		}
-		
+
 		// handle left-click
 		if (!dragging && inp->pressing[MAIN1] && !inp->lock[MAIN1]) {
-		
+
 			// left side menu
 			if (inp->mouse.x <= 320 && inp->mouse.y >= offset_y && inp->mouse.y <= offset_y+416) {
 				if (chr->visible) {
-				
+
 					// applied a level-up
-					if (chr->checkUpgrade(inp->mouse)) {
+					if (chr->checkUpgrade()) {
 						inp->lock[MAIN1] = true;
-						
+
 						// apply equipment and max hp/mp
 						inv->applyEquipment(stats, inv->inventory[EQUIPMENT].storage);
 						stats->hp = stats->maxhp;
@@ -215,10 +221,10 @@ void MenuManager::logic() {
 					}
 				}
 				else if (vendor->visible) {
-				
+
 					if (inp->pressing[CTRL]) {
 						inp->lock[MAIN1] = true;
-						
+
 						// buy item from a vendor
 						if (!inv->full()) {
 							stack = vendor->click(inp);
@@ -235,7 +241,7 @@ void MenuManager::logic() {
 						}
 					}
 					else {
-						
+
 						// start dragging a vendor item
 						drag_stack = vendor->click(inp);
 						if (drag_stack.item > 0) {
@@ -244,10 +250,10 @@ void MenuManager::logic() {
 							inp->lock[MAIN1] = true;
 						}
 					}
-				
+
 				}
 				else if (log->visible) {
-				
+
 					// click on a log tab to make it the active display
 					if (isWithin(log->tabs_area, inp->mouse)) {
 						log->clickTab(inp->mouse);
@@ -255,13 +261,13 @@ void MenuManager::logic() {
 					}
 				}
 			}
-		
+
 			// right side menu
 			else if (inp->mouse.x >= offset_x && inp->mouse.y >= offset_y && inp->mouse.y <= offset_y+416) {
-			
+
 				// pick up an inventory item
 				if (inv->visible) {
-				
+
 					if (inp->pressing[CTRL]) {
 						inp->lock[MAIN1] = true;
 						stack = inv->click(inp);
@@ -309,7 +315,7 @@ void MenuManager::logic() {
 			}
 			// action bar
 			else if (isWithin(act->numberArea,inp->mouse) || isWithin(act->mouseArea,inp->mouse) || isWithin(act->menuArea, inp->mouse)) {
-			
+
 				// ctrl-click action bar to clear that slot
 				if (inp->pressing[CTRL]) {
 					act->remove(inp->mouse);
@@ -324,7 +330,7 @@ void MenuManager::logic() {
 						inp->lock[MAIN1] = true;
 					}
 				}
-				
+
 				// else, clicking action bar to use a power?
 				// this check is done by GameEngine when calling Avatar::logic()
 
@@ -333,24 +339,24 @@ void MenuManager::logic() {
 		}
 		// handle dropping
 		if (dragging && !inp->pressing[MAIN1]) {
-			
+
 			// putting a power on the Action Bar
 			if (drag_src == DRAG_SRC_POWERS) {
 				if (isWithin(act->numberArea,inp->mouse) || isWithin(act->mouseArea,inp->mouse)) {
 					act->drop(inp->mouse, drag_power, 0);
 				}
 			}
-			
+
 			// rearranging the action bar
 			else if (drag_src == DRAG_SRC_ACTIONBAR) {
 				if (isWithin(act->numberArea,inp->mouse) || isWithin(act->mouseArea,inp->mouse)) {
 					act->drop(inp->mouse, drag_power, 1);
 				}
 			}
-		
+
 			// rearranging inventory or dropping items
 			else if (drag_src == DRAG_SRC_INVENTORY) {
-			
+
 				if (inv->visible && inp->mouse.x >= offset_x && inp->mouse.y >= offset_y && inp->mouse.y <= offset_y+416) {
 					inv->drop(inp->mouse, drag_stack);
 					drag_stack.item = 0;
@@ -382,7 +388,7 @@ void MenuManager::logic() {
 				}
 				else {
 					// if dragging and the source was inventory, drop item to the floor
-					
+
 					// quest items cannot be dropped
 					if (items->items[drag_stack.item].type != ITEM_TYPE_QUEST) {
 						drop_stack = drag_stack;
@@ -394,7 +400,7 @@ void MenuManager::logic() {
 					}
 				}
 			}
-			
+
 			else if (drag_src == DRAG_SRC_VENDOR) {
 
 				// dropping an item from vendor (we only allow to drop into the carried area)
@@ -418,7 +424,7 @@ void MenuManager::logic() {
 		}
 
 	}
-	
+
 	// handle equipment changes affecting hero stats
 	if (inv->changed_equipment || inv->changed_artifact) {
 		inv->applyEquipment(stats, inv->inventory[EQUIPMENT].storage);
@@ -430,7 +436,7 @@ void MenuManager::logic() {
 	for (int i=0; i<12; i++) {
 		act->slot_enabled[i] = true;
 		act->slot_item_count[i] = -1;
-		
+
 		if (act->hotkeys[i] != -1) {
 			int item_id = powers->powers[act->hotkeys[i]].requires_item;
 			if (item_id != -1 && items->items[item_id].type == ITEM_TYPE_CONSUMABLE) {
@@ -440,7 +446,7 @@ void MenuManager::logic() {
 				}
 			}
 			else if (item_id != -1) {
-			
+
 				// if a non-consumable item power is unequipped, disable that slot
 				if (!inv->isItemEquipped(item_id)) {
 					act->slot_enabled[i] = false;
@@ -464,15 +470,15 @@ void MenuManager::render() {
 	talker->render();
 	enemy->render();
 	if (exit->visible) exit->render();
-	
+
 	TooltipData tooltip;
 	int offset_x = (VIEW_W - 320);
 	int offset_y = (VIEW_H - 416)/2;
 
-	// Find tooltips depending on mouse position	
+	// Find tooltips depending on mouse position
 	if (inp->mouse.x < 320 && inp->mouse.y >= offset_y && inp->mouse.y <= offset_y+416) {
 		if (chr->visible) {
-			tooltip = chr->checkTooltip(inp->mouse);
+			tooltip = chr->checkTooltip();
 		}
 		else if (vendor->visible) {
 			tooltip = vendor->checkTooltip(inp->mouse);
@@ -489,11 +495,11 @@ void MenuManager::render() {
 	else if (inp->mouse.y >= VIEW_H-32) {
 		tooltip = act->checkTooltip(inp->mouse);
 	}
-	
+
 	if (tooltip.num_lines > 0) {
 		tip->render(tooltip, inp->mouse, STYLE_FLOAT);
 	}
-	
+
 	// draw icon under cursor if dragging
 	if (dragging) {
 		if (drag_src == DRAG_SRC_INVENTORY || drag_src == DRAG_SRC_VENDOR)
@@ -501,7 +507,7 @@ void MenuManager::render() {
 		else if (drag_src == DRAG_SRC_POWERS || drag_src == DRAG_SRC_ACTIONBAR)
 			renderIcon(powers->powers[drag_power].icon, inp->mouse.x-16, inp->mouse.y-16);
 	}
-	
+
 }
 
 void MenuManager::closeAll(bool play_sound) {
@@ -515,19 +521,19 @@ void MenuManager::closeLeft(bool play_sound) {
 	if (!dragging) {
 		chr->visible = false;
 		log->visible = false;
-		vendor->visible = false; 
+		vendor->visible = false;
 		talker->visible = false;
 		exit->visible = false;
 
 		if (play_sound) Mix_PlayChannel(-1, sfx_close, 0);
-		
+
 	}
 }
 
 void MenuManager::closeRight(bool play_sound) {
 	if (!dragging) {
 		inv->visible = false;
-		pow->visible = false;	
+		pow->visible = false;
 		talker->visible = false;
 		exit->visible = false;
 
@@ -551,7 +557,7 @@ MenuManager::~MenuManager() {
 	delete exit;
 	delete enemy;
 	delete hpmp;
-	
+
 	Mix_FreeChunk(sfx_open);
 	Mix_FreeChunk(sfx_close);
 }
