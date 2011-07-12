@@ -897,6 +897,11 @@ bool PowerManager::single(int power_index, StatBlock *src_stats, Point target) {
  */
 bool PowerManager::activate(int power_index, StatBlock *src_stats, Point target) {
 
+	if (src_stats->hero) {
+		if (powers[power_index].requires_mp > src_stats->mp)
+			return false;
+	}
+	
 	// logic for different types of powers are very different.  We allow these
 	// separate functions to handle the details.
 	if (powers[power_index].type == POWTYPE_SINGLE)
