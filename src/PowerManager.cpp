@@ -747,15 +747,25 @@ bool PowerManager::effect(int power_index, StatBlock *src_stats, Point target) {
 bool PowerManager::missile(int power_index, StatBlock *src_stats, Point target) {
 	float pi = 3.1415926535898;
 
+	Point src;
+	if (powers[power_index].starting_pos == STARTING_POS_TARGET) {
+		src.x = target.x;
+		src.y = target.y;
+	}
+	else {
+		src.x = src_stats->pos.x;
+		src.y = src_stats->pos.y;
+	}
+
 	Hazard *haz[powers[power_index].missile_num];
 
-	// calculate polor coordinates angle
-	float theta = calcTheta(src_stats->pos.x, src_stats->pos.y, target.x, target.y);
+	// calculate polar coordinates angle
+	float theta = calcTheta(src.x, src.y, target.x, target.y);
+	if (powers[power_index].starting_pos == STARTING_POS_TARGET) theta = 0; //corrector
 	
 	//generate hazards
 	for (int i=0; i < powers[power_index].missile_num; i++) {
 		haz[i] = new Hazard();
-		Point rot_target;
 
 		//calculate individual missile angle
 		float offset_angle = ((1.0 - powers[power_index].missile_num)/2 + i) * (powers[power_index].missile_angle * pi / 180.0);
@@ -766,11 +776,7 @@ bool PowerManager::missile(int power_index, StatBlock *src_stats, Point target) 
 		while (alpha >= pi+pi) alpha -= pi+pi;
 		while (alpha < 0.0) alpha += pi+pi;
 
-		//calculate animation direction (the UNITS_PER_TILE just reduces round-off error)
-		rot_target.x = (int)(src_stats->pos.x + UNITS_PER_TILE * cos(alpha));
-		rot_target.y = (int)(src_stats->pos.y + UNITS_PER_TILE * sin(alpha));
-
-		initHazard(power_index, src_stats, rot_target, haz[i]);
+		initHazard(power_index, src_stats, target, haz[i]);
 
 		//calculate the missile velocity
 		int speed_var = 0;
@@ -778,6 +784,9 @@ bool PowerManager::missile(int power_index, StatBlock *src_stats, Point target) 
 			speed_var = (int)(pow(-1, (rand() % 2) - 1) * (rand() % powers[power_index].speed_variance + 1) - 1);
 		haz[i]->speed.x = (haz[0]->base_speed + speed_var) * cos(alpha);
 		haz[i]->speed.y = (haz[0]->base_speed + speed_var) * sin(alpha);
+		//calculate direction based on trajectory, not actual target (UNITS_PER_TILE reduces round off error)
+		haz[i]->direction = calcDirection(src.x, src.y, src.x + UNITS_PER_TILE * haz[i]->speed.x, src.y + UNITS_PER_TILE * haz[i]->speed.y);
+
 		hazards.push(haz[i]);
 	}
 
@@ -806,7 +815,7 @@ bool PowerManager::repeater(int power_index, StatBlock *src_stats, Point target)
 	int delay_iterator;
 	int map_speed = 64;
 
-	// calculate polor coordinates angle
+	// calculate polar coordinates angle
 	float theta = calcTheta(src_stats->pos.x, src_stats->pos.y, target.x, target.y);
 
 	speed.x = (float)map_speed * cos(theta);

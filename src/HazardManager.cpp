@@ -37,16 +37,13 @@ void HazardManager::logic() {
 		
 		// if a moving hazard hits a wall, check for an after-effect
 		if (h[i]->hit_wall && h[i]->wall_power >= 0) {
-			Point pt;
-			StatBlock sb;
-			sb.pos.x = (int)(h[i]->pos.x);
-			sb.pos.y = (int)(h[i]->pos.y);
+			Point target;
+			target.x = (int)(h[i]->pos.x);
+			target.y = (int)(h[i]->pos.y);
 			
-			if (powers->powers[h[i]->wall_power].directional) {
-				pt = round(calcVector(sb.pos,h[i]->direction,64));
-			}
+			powers->activate(h[i]->wall_power, h[i]->src_stats, target);
+			if (powers->powers[h[i]->wall_power].directional) powers->hazards.back()->direction = h[i]->direction;
 			
-			powers->activate(h[i]->wall_power, &sb, pt);
 		}
 		
 	}
