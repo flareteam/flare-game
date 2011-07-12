@@ -783,9 +783,11 @@ bool PowerManager::missile(int power_index, StatBlock *src_stats, Point target) 
 			speed_var = (int)(pow(-1, (rand() % 2) - 1) * (rand() % powers[power_index].speed_variance + 1) - 1);
 		haz[i]->speed.x = (haz[0]->base_speed + speed_var) * cos(alpha);
 		haz[i]->speed.y = (haz[0]->base_speed + speed_var) * sin(alpha);
+		
 		//calculate direction based on trajectory, not actual target (UNITS_PER_TILE reduces round off error)
-		haz[i]->direction = calcDirection(src.x, src.y, src.x + UNITS_PER_TILE * haz[i]->speed.x, src.y + UNITS_PER_TILE * haz[i]->speed.y);
-
+		if (powers[power_index].directional)
+			haz[i]->direction = calcDirection(src.x, src.y, src.x + UNITS_PER_TILE * haz[i]->speed.x, src.y + UNITS_PER_TILE * haz[i]->speed.y);
+		
 		hazards.push(haz[i]);
 	}
 
