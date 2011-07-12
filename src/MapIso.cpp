@@ -117,39 +117,43 @@ void MapIso::push_enemy_group(Map_Group g){
 	//TODO: move this to beginning of program execution
 	EnemyGroupManager category_list;
 	category_list.generate();
-	
+
+	// populate valid_locations
+	vector<Point> valid_locations;
+	Point pt;
+	for (int w = 0; w < g.area.x; w++) {
+		for (int h = 0; h < g.area.y; h++) {
+			pt.x = (g.pos.x + w) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
+			pt.y = (g.pos.y + h) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
+			if (collider.is_empty(pt.x, pt.y)) {
+				valid_locations.push_back(pt);
+			}
+		}
+	}
+	//remove locations that already have an enemy on them
+	Map_Enemy test_enemy;
+	for (int i = 0; i < enemies.size(); i++) {
+		test_enemy = enemies.front();
+		enemies.pop();
+		enemies.push(test_enemy);
+		for (int j = 0; j < valid_locations.size(); j++) {
+			if ( (test_enemy.pos.x == valid_locations.at(j).x) && (test_enemy.pos.y == valid_locations.at(j).y) ) {
+				valid_locations.erase(valid_locations.begin() + j);
+			}
+		}
+	}
+
+	// spawn the appropriate number of enemies
 	int number = rand() % (g.numbermax + 1 - g.numbermin) + g.numbermin;
 
 	for(int i = 0; i < number; i++) {
-		Enemy_Level enemy_lev;
+		Enemy_Level enemy_lev = category_list.random_enemy(g.category, g.levelmin, g.levelmax);
 		Map_Enemy group_member;
-		enemy_lev = category_list.random_enemy(g.category, g.levelmin, g.levelmax);
-		if (enemy_lev.type != ""){
-			Point target;
-			bool respawn_flag = true;
-
+		if ((enemy_lev.type != "") && (valid_locations.size() != 0)){
 			group_member.type = enemy_lev.type;
-			target.x = (g.pos.x + rand() % g.area.x) * UNITS_PER_TILE + UNITS_PER_TILE/2;
-			target.y = (g.pos.y + rand() % g.area.y) * UNITS_PER_TILE + UNITS_PER_TILE/2;
-			Map_Enemy test_enemy;
-
-			int spawn_attempts = 300; //Only attempt this many random spawns before giving up. If you reach this number frequently, you're probably using [enemygroup] in a bad area.
-			for (int spawn_counter = 0; spawn_counter < spawn_attempts; spawn_counter++) {
-				if (spawn_counter == spawn_attempts - 1) cout << "Warning: random enemy spawner could not place unit after " << spawn_attempts << " attempts!" << endl;
-				if (!respawn_flag) break;
-				respawn_flag = false;
-				target.x = (g.pos.x + rand() % g.area.x) * UNITS_PER_TILE + UNITS_PER_TILE/2;
-				target.y = (g.pos.y + rand() % g.area.y) * UNITS_PER_TILE + UNITS_PER_TILE/2;
-				respawn_flag = !collider.is_empty(target.x, target.y);
-				for (int n = 0; n < enemies.size(); n++) {
-					test_enemy = enemies.front();
-					enemies.pop();
-					enemies.push(test_enemy);
-					if ((test_enemy.pos.x == target.x) && (test_enemy.pos.y == target.y)) respawn_flag = true;
-				}
-			}
-			group_member.pos.x = target.x;
-			group_member.pos.y = target.y;
+			int index = rand() % valid_locations.size();
+			group_member.pos = valid_locations.at(index);
+			valid_locations.erase(valid_locations.begin() + index);
 			group_member.direction = rand() % 8;
 			enemies.push(group_member);
 		}
