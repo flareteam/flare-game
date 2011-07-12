@@ -370,4 +370,7 @@ GameStateLoad::~GameStateLoad() {
 	delete button_exit;
 	delete button_action;
 	delete items;
+	for (int i=0; i<GAME_SLOT_MAX; i++) {
+		SDL_FreeSurface(sprites[i]);
+	}
 }

@@ -215,11 +215,5 @@ void Entity::logic() {
 }
 
 Entity::~Entity () {
-	// delete all loaded animations
-	for (vector<Animation*>::const_iterator it = animations.begin(); it != animations.end(); it++)
-	{
-	    delete *it;
-	} 
-	animations.clear();
 }
 

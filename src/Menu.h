@@ -25,6 +25,7 @@ protected:
 
 public:
 	Menu(SDL_Surface*, InputState*, FontEngine*);
+	virtual ~Menu();
 
 	bool visible;
 

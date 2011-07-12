@@ -16,3 +16,6 @@ Menu::Menu(SDL_Surface *_screen, InputState *_inp, FontEngine *_font) {
 
 	visible = false;
 }
+
+Menu::~Menu() {
+}

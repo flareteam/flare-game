@@ -637,6 +637,13 @@ Avatar::~Avatar() {
 	Mix_FreeChunk(sound_steps[3]);
 	Mix_FreeChunk(level_up);
 			
-	delete haz;	
+	delete haz;
+
+	// delete all loaded animations
+	for (vector<Animation*>::const_iterator it = animations.begin(); it != animations.end(); it++)
+	{
+	    delete *it;
+	} 
+	animations.clear();
 }
 

@@ -26,7 +26,7 @@ protected:
 
 public:
 	Entity(MapIso*);
-	~Entity();
+	virtual ~Entity();
 
 	bool move();
 	int face(int, int);
