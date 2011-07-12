@@ -584,10 +584,8 @@ bool Avatar::takeHit(Hazard h) {
 		}
 		
 		// post effect power
-		Point pt;
-		pt.x = pt.y = 0;
 		if (h.post_power >= 0 && dmg > 0) {
-			powers->activate(h.post_power, &stats, pt);
+			powers->activate(h.post_power, h.src_stats, stats.pos);
 		}
 		
 		// Power-specific: Vengeance gains stacks when blocking
