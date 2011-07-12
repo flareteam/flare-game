@@ -17,6 +17,7 @@
 #include "MenuItemStorage.h"
 #include "MenuTooltip.h"
 #include "StatBlock.h"
+#include "WidgetButton.h"
 #include "NPC.h"
 #include <string>
 #include <sstream>
@@ -29,17 +30,19 @@ private:
 	ItemDatabase *items;
 	FontEngine *font;
 	StatBlock *stats;
+	InputState *inp;
+	WidgetButton *closeButton;
 
 	void loadGraphics();
 	SDL_Surface *background;
 	MenuItemStorage stock; // items the vendor currently has in stock
 
 public:
-	MenuVendor(SDL_Surface *screen, FontEngine *font, ItemDatabase *items, StatBlock *stats);
+	MenuVendor(SDL_Surface *screen, InputState *_inp, FontEngine *font, ItemDatabase *items, StatBlock *stats);
 	~MenuVendor();
 
 	NPC *npc;
-	
+
 	void loadMerchant(string filename);
 	void logic();
 	void render();
@@ -50,7 +53,7 @@ public:
 	bool full();
 	void setInventory();
 	void saveInventory();
-	
+
 	bool visible;
 	SDL_Rect slots_area;
 };
