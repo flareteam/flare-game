@@ -4,8 +4,7 @@
  * @author Clint Bellanger
  * @license GPL
  */
-
-
+ 
 #include "Settings.h"
 #include <fstream>
 #include <string>
@@ -76,86 +75,50 @@ void setPaths() {
 void setPaths() {
 
 	string engine_folder = "flare";
-
+	
 	// attempting to follow this spec:
 	// http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
-
+	
 	// set config path (settings, keybindings)
 	// $XDG_CONFIG_HOME/flare/
 	if (getenv("XDG_CONFIG_HOME") != NULL) {
 		PATH_CONF = (string)getenv("XDG_CONFIG_HOME") + "/" + engine_folder + "/";
-		#ifdef WIN32
-		mkdir(PATH_CONF.c_str());
-		#else
 		mkdir(PATH_CONF.c_str(), S_IRWXU);
-		#endif
 	}
 	// $HOME/.config/flare/
 	else if (getenv("HOME") != NULL) {
 		PATH_CONF = (string)getenv("HOME") + "/.config/";
-		#ifdef WIN32
-		mkdir(PATH_CONF.c_str());
-		#else
 		mkdir(PATH_CONF.c_str(), S_IRWXU);
-		#endif
 		PATH_CONF += engine_folder + "/";
-		#ifdef WIN32
-		mkdir(PATH_CONF.c_str());
-		#else
-		mkdir(PATH_CONF.c_str(), S_IRWXU);
-		#endif
+		mkdir(PATH_CONF.c_str(), S_IRWXU);		
 	}
 	// ./config/
 	else {
 		PATH_CONF = "./config/";
-		#ifdef WIN32
-		mkdir(PATH_CONF.c_str());
-		#else
-		mkdir(PATH_CONF.c_str(), S_IRWXU | S_IRWXG | S_IRWXO);
-		#endif
+		mkdir(PATH_CONF.c_str(), S_IRWXU | S_IRWXG | S_IRWXO);		
 	}
 
 	// set user path (save games)
 	// $XDG_DATA_HOME/flare/
 	if (getenv("XDG_DATA_HOME") != NULL) {
 		PATH_USER = (string)getenv("XDG_DATA_HOME") + "/" + engine_folder + "/";
-		#ifdef WIN32
-		mkdir(PATH_CONF.c_str());
-		#else
 		mkdir(PATH_USER.c_str(), S_IRWXU);
-		#endif
 	}
 	// $HOME/.local/share/flare/
 	else if (getenv("HOME") != NULL) {
 		PATH_USER = (string)getenv("HOME") + "/.local/";
-		#ifdef WIN32
-		mkdir(PATH_CONF.c_str());
-		#else
 		mkdir(PATH_USER.c_str(), S_IRWXU);
-		#endif
 		PATH_USER += "share/";
-		#ifdef WIN32
-		mkdir(PATH_CONF.c_str());
-		#else
 		mkdir(PATH_USER.c_str(), S_IRWXU);
-		#endif
 		PATH_USER += engine_folder + "/";
-		#ifdef WIN32
-		mkdir(PATH_CONF.c_str());
-		#else
 		mkdir(PATH_USER.c_str(), S_IRWXU);
-		#endif
 	}
 	// ./saves/
 	else {
 		PATH_USER = "./saves/";
-		#ifdef WIN32
-		mkdir(PATH_CONF.c_str());
-		#else
-		mkdir(PATH_USER.c_str(), S_IRWXU | S_IRWXG | S_IRWXO);
-		#endif
+		mkdir(PATH_USER.c_str(), S_IRWXU | S_IRWXG | S_IRWXO);		
 	}
-
+	
 	// data folder
 	// while PATH_CONF and PATH_USER are created if not found,
 	// PATH_DATA must already have the game data for the game to work.
@@ -179,22 +142,22 @@ void setPaths() {
 			pathtest = eatFirstString(pathlist,':');
 		}
 	}
-
+	
 	// check /usr/local/share/flare/ and /usr/share/flare/ next
 	PATH_DATA = "/usr/local/share/" + engine_folder + "/";
 	if (dirExists(PATH_DATA)) return; // NOTE: early exit
-
+	
 	PATH_DATA = "/usr/share/" + engine_folder + "/";
 	if (dirExists(PATH_DATA)) return; // NOTE: early exit
-
+	
 	// check "games" variants of these
 	PATH_DATA = "/usr/local/share/games/" + engine_folder + "/";
 	if (dirExists(PATH_DATA)) return; // NOTE: early exit
-
+	
 	PATH_DATA = "/usr/share/games/" + engine_folder + "/";
 	if (dirExists(PATH_DATA)) return; // NOTE: early exit
-
-
+	
+	
 	// finally assume the local folder
 	PATH_DATA = "./";
 }
@@ -204,7 +167,7 @@ void setPaths() {
 bool loadSettings() {
 
 	FileParser infile;
-
+	
 	if (infile.open(PATH_CONF + "settings.txt")) {
 		while (infile.next()) {
 			if (infile.key == "fullscreen") {
@@ -255,7 +218,7 @@ bool saveSettings() {
 	outfile.open((PATH_CONF + "settings.txt").c_str(), ios::out);
 
 	if (outfile.is_open()) {
-
+	
 		outfile << "fullscreen=" << FULLSCREEN << "\n";
 		outfile << "resolution_w=" << VIEW_W << "\n";
 		outfile << "resolution_h=" << VIEW_H << "\n";
