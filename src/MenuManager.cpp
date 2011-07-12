@@ -24,11 +24,6 @@ MenuManager::MenuManager(PowerManager *_powers, SDL_Surface *_screen, InputState
 	inv = new MenuInventory(screen, inp, font, items, stats, powers);
 	pow = new MenuPowers(screen, inp, font, stats, powers);
 	log = new MenuLog(screen, inp, font);
-<<<<<<< HEAD
-	
-=======
-
->>>>>>> 0bf7986b5e02ae4bb686272e478388d4c8755ca8
 	hudlog = new MenuHUDLog(screen, font);
 	act = new MenuActionBar(screen, font, inp, powers, stats, icons);
 	hpmp = new MenuHPMP(screen, font);
@@ -105,10 +100,7 @@ void MenuManager::logic() {
 	enemy->logic();
 	chr->logic();
 	inv->logic();
-<<<<<<< HEAD
-=======
 	vendor->logic();
->>>>>>> 0bf7986b5e02ae4bb686272e478388d4c8755ca8
 	pow->logic();
 	log->logic();
 	talker->logic();
