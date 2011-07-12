@@ -761,7 +761,6 @@ bool PowerManager::missile(int power_index, StatBlock *src_stats, Point target) 
 
 	// calculate polar coordinates angle
 	float theta = calcTheta(src.x, src.y, target.x, target.y);
-	if (powers[power_index].starting_pos == STARTING_POS_TARGET) theta = 0; //corrector
 	
 	//generate hazards
 	for (int i=0; i < powers[power_index].missile_num; i++) {
