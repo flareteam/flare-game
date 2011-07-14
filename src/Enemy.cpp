@@ -110,9 +110,7 @@ void Enemy::logic() {
 	int dist;
 	int prev_direction;
 	bool los = false;
-	Point pursue_pos;	
-	//int max_frame;
-	//int mid_frame;
+	Point pursue_pos;
 	
 	
 	// SECTION 1: Steering and Vision
@@ -136,13 +134,14 @@ void Enemy::logic() {
 		los = map->collider.line_of_sight(stats.pos.x, stats.pos.y, stats.hero_pos.x, stats.hero_pos.y);
 	else
 		los = false;
-		
+
 	// if the enemy can see the hero, it pursues.
 	// otherwise, it will head towards where it last saw the hero
 	if (los && dist < stats.threat_range) {
 		stats.in_combat = true;
 		stats.last_seen.x = stats.hero_pos.x;
 		stats.last_seen.y = stats.hero_pos.y;
+		powers->activate(POWER_BEACON, &stats, stats.pos); //emit beacon
 	}
 	else if (stats.last_seen.x >= 0 && stats.last_seen.y >= 0) {
 		if (getDistance(stats.last_seen) <= (stats.speed+stats.speed) && stats.patrol_ticks == 0) {
@@ -151,9 +150,8 @@ void Enemy::logic() {
 			stats.patrol_ticks = 8; // start patrol; see note on "patrolling" below
 		}		
 	}
-	
 
-	
+
 	// where is the creature heading?
 	// TODO: add fleeing for X ticks
 	if (los) {
@@ -457,20 +455,24 @@ void Enemy::logic() {
  */
 bool Enemy::takeHit(Hazard h) {
 	if (stats.cur_state != ENEMY_DEAD && stats.cur_state != ENEMY_CRITDEAD) {
-	
+
 		if (!stats.in_combat) {
 			stats.in_combat = true;
 			stats.last_seen.x = stats.hero_pos.x;
 			stats.last_seen.y = stats.hero_pos.y;
+			powers->activate(POWER_BEACON, &stats, stats.pos); //emit beacon
 		}
-	
+
+		// exit if it was a beacon
+		if (h.power_index == POWER_BEACON) return false;
+
 		// auto-miss if recently attacked
 		// this is mainly to prevent slow, wide missiles from getting multiple attack attempts
 		if (stats.targeted > 0) return false;
 		stats.targeted = 5;
-		
+
 		// if it's a miss, do nothing
-	    if (rand() % 100 > (h.accuracy - stats.avoidance + 25)) return false; 
+		if (rand() % 100 > (h.accuracy - stats.avoidance + 25)) return false; 
 		
 		// calculate base damage
 		int dmg;

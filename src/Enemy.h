@@ -25,6 +25,9 @@
 #include "Settings.h"
 #include "PowerManager.h"
 
+//beacon power number
+const int POWER_BEACON = 132;
+
 // active states
 const int ENEMY_STANCE = 0;
 const int ENEMY_MOVE = 1;
