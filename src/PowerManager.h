@@ -75,6 +75,7 @@ struct Power {
 	int new_state; // when using this power the user (avatar/enemy) starts a new state
 	bool face; // does the user turn to face the mouse cursor when using this power?
 	int source_type; //hero, neutral, or enemy
+	bool beacon; //true if it's just an ememy calling its allies
 
 	// power requirements
 	bool requires_physical_weapon;
@@ -163,6 +164,7 @@ struct Power {
 		new_state = -1;
 		face=false;
 		source_type=-1;
+		beacon=false;
 		
 		requires_physical_weapon = false;
 		requires_offense_weapon = false;
@@ -265,12 +267,12 @@ private:
 	bool missile(int powernum, StatBlock *src_stats, Point target);
 	bool repeater(int powernum, StatBlock *src_stats, Point target);
 	bool single(int powernum, StatBlock *src_stats, Point target);
-	
+
 public:
 	PowerManager();
 	~PowerManager();
 
-	void handleNewMap(MapCollision *_collider);	
+	void handleNewMap(MapCollision *_collider);
 	bool activate(int power_index, StatBlock *src_stats, Point target);
 
 	StatBlock *src_stats;

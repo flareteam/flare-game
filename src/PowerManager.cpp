@@ -81,6 +81,9 @@ void PowerManager::loadPowers() {
 				else if (infile.val == "neutral") powers[input_id].source_type = SOURCE_TYPE_NEUTRAL;
 				else if (infile.val == "enemy") powers[input_id].source_type = SOURCE_TYPE_ENEMY;
 			}
+			else if (infile.key == "beacon") {
+				if (infile.val == "true") powers[input_id].beacon = true;
+			}
 			// power requirements
 			else if (infile.key == "requires_physical_weapon") {
 				if (infile.val == "true") powers[input_id].requires_physical_weapon = true;

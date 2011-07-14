@@ -141,7 +141,7 @@ void Enemy::logic() {
 		stats.in_combat = true;
 		stats.last_seen.x = stats.hero_pos.x;
 		stats.last_seen.y = stats.hero_pos.y;
-		powers->activate(POWER_BEACON, &stats, stats.pos); //emit beacon
+		powers->activate(stats.power_index[BEACON], &stats, stats.pos); //emit beacon
 	}
 	else if (stats.last_seen.x >= 0 && stats.last_seen.y >= 0) {
 		if (getDistance(stats.last_seen) <= (stats.speed+stats.speed) && stats.patrol_ticks == 0) {
@@ -460,11 +460,11 @@ bool Enemy::takeHit(Hazard h) {
 			stats.in_combat = true;
 			stats.last_seen.x = stats.hero_pos.x;
 			stats.last_seen.y = stats.hero_pos.y;
-			powers->activate(POWER_BEACON, &stats, stats.pos); //emit beacon
+			powers->activate(stats.power_index[BEACON], &stats, stats.pos); //emit beacon
 		}
 
-		// exit if it was a beacon
-		if (h.power_index == POWER_BEACON) return false;
+		// exit if it was a beacon (to prevent stats.targeted from being set)
+		if (powers->powers[h.power_index].beacon) return false;
 
 		// auto-miss if recently attacked
 		// this is mainly to prevent slow, wide missiles from getting multiple attack attempts
