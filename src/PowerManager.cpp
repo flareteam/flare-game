@@ -30,7 +30,7 @@ PowerManager::PowerManager() {
 	powers[POWER_VENGEANCE].new_state = POWSTATE_SWING;
 	powers[POWER_VENGEANCE].face = true;
 	powers[POWER_VENGEANCE].requires_mp = 1;
-	
+
 	used_item=-1;
 	
 	loadGraphics();
@@ -76,7 +76,11 @@ void PowerManager::loadPowers() {
 			else if (infile.key == "face") {
 				if (infile.val == "true") powers[input_id].face = true;
 			}
-			
+			else if (infile.key == "source_type") {
+				if (infile.val == "hero") powers[input_id].source_type = SOURCE_TYPE_HERO;
+				else if (infile.val == "neutral") powers[input_id].source_type = SOURCE_TYPE_NEUTRAL;
+				else if (infile.val == "enemy") powers[input_id].source_type = SOURCE_TYPE_ENEMY;
+			}
 			// power requirements
 			else if (infile.key == "requires_physical_weapon") {
 				if (infile.val == "true") powers[input_id].requires_physical_weapon = true;
@@ -462,6 +466,14 @@ void PowerManager::initHazard(int power_index, StatBlock *src_stats, Point targe
 
 	//the hazard holds the statblock of its source
 	haz->src_stats = src_stats;
+
+	if (powers[power_index].source_type == -1){
+		if (src_stats->hero) haz->source_type = SOURCE_TYPE_HERO;
+		else haz->source_type = SOURCE_TYPE_ENEMY;
+	}
+	else {
+		haz->source_type = powers[power_index].source_type;
+	}
 
 	// Hazard attributes based on power source
 	haz->crit_chance = src_stats->crit;

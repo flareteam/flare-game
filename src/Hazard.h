@@ -18,6 +18,11 @@
 #include "MapCollision.h"
 #include "StatBlock.h"
 
+// the spell/power's source type: eg. which team did it come from?
+const int SOURCE_TYPE_HERO = 0;
+const int SOURCE_TYPE_NEUTRAL = 1;
+const int SOURCE_TYPE_ENEMY = 2;
+
 class Hazard {
 private:
 	MapCollision *collider;
@@ -30,12 +35,11 @@ public:
 	void setCollision(MapCollision *_collider);
 	void logic();
 
-	//int enemyIndex; //don't know what this does... doesn't look like it's ever used.
-	
 	int dmg_min;
 	int dmg_max;
 	int crit_chance;
 	int accuracy;
+	int source_type;
 	
 	FPoint pos;
 	FPoint speed;
