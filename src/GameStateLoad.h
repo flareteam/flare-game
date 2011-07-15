@@ -51,6 +51,10 @@ private:
 	int equipped[GAME_SLOT_MAX][3];	
 	SDL_Rect slot_pos[GAME_SLOT_MAX];
 	string current_map[GAME_SLOT_MAX];
+
+	bool loading_requested;
+	bool loading;
+	bool loaded;
 	
 	Point name_pos;
 	Point level_pos;
@@ -66,6 +70,7 @@ public:
 	~GameStateLoad();
 
 	void logic();
+	void logicLoading();
 	void render();	
 	void readGameSlot(int slot);
 	void readGameSlots();
