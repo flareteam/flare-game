@@ -60,6 +60,7 @@ Set (FLARE_SOURCES
 	../src/Menu.cpp
 	../src/MenuActionBar.cpp
 	../src/MenuCharacter.cpp
+	../src/MenuConfirm.cpp
 	../src/MenuEnemy.cpp
 	../src/MenuExit.cpp
 	../src/MenuExperience.cpp

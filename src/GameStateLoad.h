@@ -28,6 +28,7 @@
 #include "StatBlock.h"
 #include "ItemDatabase.h"
 #include "GameState.h"
+#include "MenuConfirm.h"
 
 const int GAME_SLOT_MAX = 4;
 
@@ -41,7 +42,10 @@ private:
 	ItemDatabase *items;
 	WidgetButton *button_exit;
 	WidgetButton *button_action;
-	
+	WidgetButton *button_alternate;
+
+	MenuConfirm *confirm;
+
 	SDL_Surface *background;
 	SDL_Surface *selection;
 	SDL_Surface *portrait_border;
