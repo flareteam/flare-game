@@ -362,11 +362,4 @@ NPC::~NPC() {
 	for (int i=0; i<NPC_MAX_VOX; i++) {
 		Mix_FreeChunk(vox_intro[i]);
 	}
-	
-	// delete all loaded animations
-	for (vector<Animation*>::const_iterator it = animations.begin(); it != animations.end(); it++)
-	{
-	    delete *it;
-	} 
-	animations.clear();
 }
