@@ -20,11 +20,12 @@ using namespace std;
 const int STAT_EFFECT_SHIELD = 0;
 const int STAT_EFFECT_VENGEANCE = 1;
 
-const int POWERSLOT_COUNT = 4;
+const int POWERSLOT_COUNT = 5;
 const int MELEE_PHYS = 0;
 const int MELEE_MENT = 1;
 const int RANGED_PHYS = 2;
 const int RANGED_MENT = 3;
+const int BEACON = 4;
 
 const int MAX_CHARACTER_LEVEL = 32;
 

@@ -55,7 +55,7 @@ void HazardManager::logic() {
 		if (h[i]->active && h[i]->delay_frames==0 && (h[i]->active_frame == -1 || h[i]->active_frame == h[i]->frame)) {
 	
 			// process hazards that can hurt enemies
-			if (h[i]->src_stats->hero) { //there are no NEUTRAL DAMAGE SOURCES yet
+			if (h[i]->source_type != SOURCE_TYPE_ENEMY) { //hero or neutral sources
 				for (int eindex = 0; eindex < enemies->enemy_count; eindex++) {
 			
 					// only check living enemies
@@ -74,7 +74,7 @@ void HazardManager::logic() {
 			}
 		
 			// process hazards that can hurt the hero
-			if (!h[i]->src_stats->hero) {
+			if (h[i]->source_type != SOURCE_TYPE_HERO) { //enemy or neutral sources
 				if (hero->stats.hp > 0 && h[i]->active) {
 					if (isWithin(round(h[i]->pos), h[i]->radius, hero->stats.pos)) {
 						// hit!

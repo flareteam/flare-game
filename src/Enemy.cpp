@@ -110,9 +110,7 @@ void Enemy::logic() {
 	int dist;
 	int prev_direction;
 	bool los = false;
-	Point pursue_pos;	
-	//int max_frame;
-	//int mid_frame;
+	Point pursue_pos;
 	
 	
 	// SECTION 1: Steering and Vision
@@ -136,13 +134,14 @@ void Enemy::logic() {
 		los = map->collider.line_of_sight(stats.pos.x, stats.pos.y, stats.hero_pos.x, stats.hero_pos.y);
 	else
 		los = false;
-		
+
 	// if the enemy can see the hero, it pursues.
 	// otherwise, it will head towards where it last saw the hero
 	if (los && dist < stats.threat_range) {
 		stats.in_combat = true;
 		stats.last_seen.x = stats.hero_pos.x;
 		stats.last_seen.y = stats.hero_pos.y;
+		powers->activate(stats.power_index[BEACON], &stats, stats.pos); //emit beacon
 	}
 	else if (stats.last_seen.x >= 0 && stats.last_seen.y >= 0) {
 		if (getDistance(stats.last_seen) <= (stats.speed+stats.speed) && stats.patrol_ticks == 0) {
@@ -151,9 +150,8 @@ void Enemy::logic() {
 			stats.patrol_ticks = 8; // start patrol; see note on "patrolling" below
 		}		
 	}
-	
 
-	
+
 	// where is the creature heading?
 	// TODO: add fleeing for X ticks
 	if (los) {
@@ -456,25 +454,30 @@ void Enemy::logic() {
  * Returns false on miss
  */
 bool Enemy::takeHit(Hazard h) {
-  if (stats.cur_state != ENEMY_DEAD && stats.cur_state != ENEMY_CRITDEAD) 
-    {
-      /* Make sure hazard hasn't been hit before. This assumes Hazards hit a
-	 relatively small number of Entities, so a linear search isn't too bad.
-      */
+	if (stats.cur_state != ENEMY_DEAD && stats.cur_state != ENEMY_CRITDEAD) 
+	{
+		/* Make sure hazard hasn't been hit before. This assumes Hazards hit a
+		 relatively small number of Entities, so a linear search isn't too bad.
+		*/
                
 		bool repeat = h.hasEntity(this);
 		if(!repeat) h.addEntity(this);
+
 		if (!stats.in_combat) {
 			stats.in_combat = true;
 			stats.last_seen.x = stats.hero_pos.x;
 			stats.last_seen.y = stats.hero_pos.y;
+			powers->activate(stats.power_index[BEACON], &stats, stats.pos); //emit beacon
 		}
-	
+
+		// exit if it was a beacon (to prevent stats.targeted from being set)
+		if (powers->powers[h.power_index].beacon) return false;
+
 		// auto-miss if Hazard has already hit this Entity
 		if (repeat) return false;
-		
+
 		// if it's a miss, do nothing
-	    if (rand() % 100 > (h.accuracy - stats.avoidance + 25)) return false; 
+		if (rand() % 100 > (h.accuracy - stats.avoidance + 25)) return false; 
 		
 		// calculate base damage
 		int dmg;

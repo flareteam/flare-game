@@ -73,7 +73,7 @@ StatBlock::StatBlock() {
 	
 	for (int i=0; i<POWERSLOT_COUNT; i++) {
 		power_chance[i] = 0;
-		power_index[i] = 0;
+		power_index[i] = -1;
 		power_cooldown[i] = 0;
 		power_ticks[i] = 0;
 	}
@@ -172,6 +172,7 @@ void StatBlock::load(string filename) {
 			else if (infile.key == "power_melee_ment") power_index[MELEE_MENT] = num;
 			else if (infile.key == "power_ranged_phys") power_index[RANGED_PHYS] = num;
 			else if (infile.key == "power_ranged_ment") power_index[RANGED_MENT] = num;
+			else if (infile.key == "power_beacon") power_index[BEACON] = num;
 			else if (infile.key == "cooldown_melee_phys") power_cooldown[MELEE_PHYS] = num;
 			else if (infile.key == "cooldown_melee_ment") power_cooldown[MELEE_MENT] = num;
 			else if (infile.key == "cooldown_ranged_phys") power_cooldown[RANGED_PHYS] = num;
