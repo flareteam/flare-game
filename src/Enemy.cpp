@@ -456,12 +456,6 @@ void Enemy::logic() {
 bool Enemy::takeHit(Hazard h) {
 	if (stats.cur_state != ENEMY_DEAD && stats.cur_state != ENEMY_CRITDEAD) 
 	{
-		/* Make sure hazard hasn't been hit before. This assumes Hazards hit a
-		 relatively small number of Entities, so a linear search isn't too bad.
-		*/
-               
-		bool repeat = h.hasEntity(this);
-		if(!repeat) h.addEntity(this);
 
 		if (!stats.in_combat) {
 			stats.in_combat = true;
@@ -472,9 +466,6 @@ bool Enemy::takeHit(Hazard h) {
 
 		// exit if it was a beacon (to prevent stats.targeted from being set)
 		if (powers->powers[h.power_index].beacon) return false;
-
-		// auto-miss if Hazard has already hit this Entity
-		if (repeat) return false;
 
 		// if it's a miss, do nothing
 		if (rand() % 100 > (h.accuracy - stats.avoidance + 25)) return false; 
