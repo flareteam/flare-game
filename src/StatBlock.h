@@ -46,7 +46,6 @@ public:
 	bool alive;
 	bool corpse; // creature is dead and done animating
 	bool hero; // else, enemy or other
-	int targeted; // after being subject to an attack, cannot be hit by an attack for a short time
 	
 	string name;
 	string sfx_prefix;

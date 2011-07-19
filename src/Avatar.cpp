@@ -526,11 +526,12 @@ bool Avatar::takeHit(Hazard h) {
 
 	if (stats.cur_state != AVATAR_DEAD) {
 	
-		// auto-miss if recently attacked
-		// this is mainly to prevent slow, wide missiles from getting multiple attack attempts
-		if (stats.targeted > 0) return false;
-		stats.targeted = 5;	
+	        bool repeat = h.hasEntity(this);
 	
+		if(!repeat) h.addEntity(this);
+		
+		// Auto-miss if hazard has already hit this entity
+		if(repeat) return false;
 		// check miss
 		int avoidance = stats.avoidance;
 		if (stats.blocking) avoidance *= 2;

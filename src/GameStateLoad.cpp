@@ -13,6 +13,9 @@
 GameStateLoad::GameStateLoad(SDL_Surface *_screen, InputState *_inp, FontEngine *_font) : GameState(_screen, _inp, _font) {
 	items = new ItemDatabase(screen, font);
 	portrait = NULL;
+	loading_requested = false;
+	loading = false;
+	loaded = false;
 	
 	// Confirmation box to confirm deleting
 	confirm = new MenuConfirm(screen, inp, font, string("Delete save"),
@@ -254,6 +257,12 @@ void GameStateLoad::logic() {
 		requestedGameState = new GameStateTitle(screen, inp, font);
 	}
 	
+	if(loading_requested) {
+		loading = true;
+		loading_requested = false;
+		logicLoading();
+	}
+
 	if (button_action->checkClick()) {
 		if (stats[selected_slot].name == "") {
 			// create a new game
@@ -262,12 +271,7 @@ void GameStateLoad::logic() {
 			requestedGameState = newgame;
 		}
 		else {
-			// load an existing game
-			GameStatePlay* play = new GameStatePlay(screen, inp, font);
-			play->resetGame();
-			play->game_slot = selected_slot + 1;
-			play->loadGame();
-			requestedGameState = play;
+			loading_requested = true;
 		}
 	}
 	if (button_alternate->checkClick())
@@ -314,6 +318,17 @@ void GameStateLoad::logic() {
 	}
 }
 
+void GameStateLoad::logicLoading() {
+	// load an existing game
+	GameStatePlay* play = new GameStatePlay(screen, inp, font);
+	play->resetGame();
+	play->game_slot = selected_slot + 1;
+	play->loadGame();
+	requestedGameState = play;
+	loaded = true;
+	loading = false;
+}
+
 void GameStateLoad::render() {
 
 	SDL_Rect src;
@@ -354,6 +369,16 @@ void GameStateLoad::render() {
 	
 	Point label;
 	stringstream ss;
+
+	if( loading_requested || loading || loaded ) {
+		label.x = button_action->pos.x + ( button_action->pos.w / 2 );
+		label.y = button_action->pos.y - button_action->pos.h + 10;
+		if ( loaded ) {
+			font->render("Entering gameworld ...", label.x, label.y, JUSTIFY_CENTER, screen, FONT_WHITE);
+		} else {
+			font->render("Loading saved game ...", label.x, label.y, JUSTIFY_CENTER, screen, FONT_WHITE);
+		}
+	}
 	
 	// display text
 	for (int slot=0; slot<GAME_SLOT_MAX; slot++) {
