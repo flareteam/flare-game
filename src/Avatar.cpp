@@ -525,13 +525,6 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 bool Avatar::takeHit(Hazard h) {
 
 	if (stats.cur_state != AVATAR_DEAD) {
-	
-	        bool repeat = h.hasEntity(this);
-	
-		if(!repeat) h.addEntity(this);
-		
-		// Auto-miss if hazard has already hit this entity
-		if(repeat) return false;
 		// check miss
 		int avoidance = stats.avoidance;
 		if (stats.blocking) avoidance *= 2;
