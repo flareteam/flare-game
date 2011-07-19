@@ -874,3 +874,15 @@ new_state=cast
 face=false
 haste_duration=240
 requires_item=14
+
+[power]
+id=132
+name=Enemy Beacon
+description=Bring other enemies into the fight with a dummy attack
+type=effect
+use_hazard=true
+lifespan=1
+radius=256
+multitarget=true
+source_type=hero
+beacon=true
