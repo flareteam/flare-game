@@ -372,7 +372,7 @@ void GameStateLoad::render() {
 
 	if( loading_requested || loading || loaded ) {
 		label.x = button_action->pos.x + ( button_action->pos.w / 2 );
-		label.y = button_action->pos.y + button_action->pos.h + 10;
+		label.y = button_action->pos.y - button_action->pos.h + 10;
 		if ( loaded ) {
 			font->render("Entering gameworld ...", label.x, label.y, JUSTIFY_CENTER, screen, FONT_WHITE);
 		} else {
