@@ -614,11 +614,5 @@ Renderable Enemy::getRender() {
 
 Enemy::~Enemy() {
 	delete haz;
-	// delete all loaded animations
-	for (vector<Animation*>::const_iterator it = animations.begin(); it != animations.end(); it++)
-	{
-	    delete *it;
-	} 
-	animations.clear();
 }
 

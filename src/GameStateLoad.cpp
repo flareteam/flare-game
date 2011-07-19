@@ -4,11 +4,11 @@
  * @author Clint Bellanger
  * @license GPL
  */
- 
 #include "GameStateLoad.h"
 #include "GameStateTitle.h"
 #include "GameStatePlay.h"
 #include "GameStateNew.h"
+#include "MenuConfirm.h"
 
 GameStateLoad::GameStateLoad(SDL_Surface *_screen, InputState *_inp, FontEngine *_font) : GameState(_screen, _inp, _font) {
 	items = new ItemDatabase(screen, font);
@@ -17,6 +17,9 @@ GameStateLoad::GameStateLoad(SDL_Surface *_screen, InputState *_inp, FontEngine 
 	loading = false;
 	loaded = false;
 	
+	// Confirmation box to confirm deleting
+	confirm = new MenuConfirm(screen, inp, font, string("Delete save"),
+				  string("Delete this save"));
 	button_exit = new WidgetButton(screen, font, inp, "images/menus/buttons/button_default.png");
 	button_exit->label = "Exit to Title";
 	button_exit->pos.x = VIEW_W_HALF - button_exit->pos.w/2;
@@ -28,6 +31,11 @@ GameStateLoad::GameStateLoad(SDL_Surface *_screen, InputState *_inp, FontEngine 
 	button_action->pos.x = (VIEW_W - 640)/2 + 480 - button_action->pos.w/2;
 	button_action->pos.y = (VIEW_H - 480)/2 + 384;
 	
+	button_alternate = new WidgetButton(screen, font, inp, "images/menus/buttons/button_default.png");
+	button_alternate->label = "Delete Save";
+	button_alternate->enabled = false;
+	button_alternate->pos.x = (VIEW_W - 640)/2 + 480 - button_alternate->pos.w/2;
+	button_alternate->pos.y = (VIEW_H - 480)/2 + 415;
 	load_game = false;
 	
 	for (int i=0; i<GAME_SLOT_MAX; i++) {
@@ -266,7 +274,28 @@ void GameStateLoad::logic() {
 			loading_requested = true;
 		}
 	}
-	
+	if (button_alternate->checkClick())
+	  {
+	    // Display pop-up to make sure save should be deleted
+	    confirm->visible = true;
+	    confirm->render();
+	  }
+	if (confirm->visible){
+	  confirm->logic();
+	  if(confirm->isConfirmRequested()){
+	    stringstream filename;
+	    filename << PATH_USER << "save" << (selected_slot+1) << ".txt";
+	    if(remove(filename.str().c_str()) != 0)
+	      perror("Error deleting save from path");
+	    stats[selected_slot] = StatBlock();
+	    readGameSlot(selected_slot);
+	    loadPreview(selected_slot);
+	    loadPortrait(selected_slot);
+	    button_alternate->enabled = false;
+	    button_action->label = "New Game";
+	    confirm->visible = false;
+	  }
+	}
 	// check clicking game slot
 	if (inp->pressing[MAIN1] && !inp->lock[MAIN1]) {
 		for (int i=0; i<GAME_SLOT_MAX; i++) {
@@ -278,9 +307,11 @@ void GameStateLoad::logic() {
 				button_action->enabled = true;
 				if (stats[selected_slot].name == "") {
 					button_action->label = "New Game";
+					button_alternate->enabled = false;
 				}
 				else {
 					button_action->label = "Load Game";
+					button_alternate->enabled = true;
 				}
 			}
 		}
@@ -306,7 +337,8 @@ void GameStateLoad::render() {
 	// display buttons
 	button_exit->render();
 	button_action->render();
-	
+	button_alternate->render();
+
 	// display background
 	src.w = 288;
 	src.h = 384;
@@ -385,6 +417,8 @@ void GameStateLoad::render() {
 			font->render("Empty Slot", label.x, label.y, JUSTIFY_LEFT, screen, FONT_WHITE);
 		}
 	}
+	// display warnings
+	if(confirm->visible) confirm->render();
 }
 
 GameStateLoad::~GameStateLoad() {
@@ -394,6 +428,7 @@ GameStateLoad::~GameStateLoad() {
 	SDL_FreeSurface(portrait);
 	delete button_exit;
 	delete button_action;
+	delete button_alternate;
 	delete items;
 	for (int i=0; i<GAME_SLOT_MAX; i++) {
 		SDL_FreeSurface(sprites[i]);
