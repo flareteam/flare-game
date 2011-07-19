@@ -43,7 +43,7 @@ const int ENEMY_CRITDEAD = 10;
 class Enemy : public Entity {
 protected:
 	PowerManager *powers;
-	
+
 public:
 	Enemy(PowerManager *_powers, MapIso *_map);
 	~Enemy();

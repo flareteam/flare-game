@@ -18,7 +18,6 @@ StatBlock::StatBlock() {
 	hero = false;
 	hero_pos.x = hero_pos.y = -1;
 	hero_alive = true;
-	targeted = 0;
 	
 	// core stats
 	offense_character = defense_character = physical_character = mental_character = 0;
@@ -363,10 +362,6 @@ void StatBlock::logic() {
 		hp += hot_value;
 		if (hp > maxhp) hp = maxhp;
 	}
-	
-	// handle targeted
-	if (targeted > 0)
-		targeted--;
 		
 	// handle buff/debuff animations
 	shield_frame++;
