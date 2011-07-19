@@ -11,6 +11,9 @@
 #ifndef HAZARD_H
 #define HAZARD_H
 
+class Entity;
+
+#include <vector>
 #include "SDL.h"
 #include "SDL_image.h"
 #include "SDL_mixer.h"
@@ -21,14 +24,21 @@
 class Hazard {
 private:
 	MapCollision *collider;
+	// Keeps track of entities already hit
+	std::vector<Entity*> entitiesCollided;
+      
 public:
 	Hazard();
-	
+
 	StatBlock *src_stats;
 
 	SDL_Surface *sprites;
 	void setCollision(MapCollision *_collider);
 	void logic();
+	
+      	bool hasEntity(Entity*);
+	
+	void addEntity(Entity*);
 
 	//int enemyIndex; //don't know what this does... doesn't look like it's ever used.
 	
@@ -84,6 +94,7 @@ public:
 	int wall_power;
 	
 	bool equipment_modified;
+	
 };
 
 #endif

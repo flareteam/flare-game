@@ -54,14 +54,14 @@ static void init() {
 		exit(1);
 	}
 	
-	if(SDL_NumJoysticks() > 0) {
+	/*	if(SDL_NumJoysticks() > 0) {
 	  printf("%i joystick(s) were found:\n", SDL_NumJoysticks());
 	  for (int i = 0; i < SDL_NumJoysticks(); i++) {
 	    printf("\t%i. %s\n", SDL_NumJoysticks(), SDL_JoystickName(i));
 	  }
 	  SDL_JoystickOpen(0);
-	}
-	
+	  }
+	*/
 	SDL_WM_SetCaption("Flare", "Flare");
 	
 	// Set sound effects volume from settings file

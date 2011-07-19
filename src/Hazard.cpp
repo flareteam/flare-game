@@ -9,7 +9,6 @@
  */
 
 #include "Hazard.h"
-
 Hazard::Hazard() {
 	src_stats = NULL;
 	sprites = NULL;
@@ -50,7 +49,7 @@ Hazard::Hazard() {
 	wall_power = -1;
 	hit_wall = false;
 	equipment_modified = false;
-	base_speed = 0;
+	base_speed = 0; 
 }
 
 void Hazard::setCollision(MapCollision *_collider) {
@@ -86,4 +85,16 @@ void Hazard::logic() {
 		}
 	}
 
+}
+
+bool Hazard::hasEntity(Entity *ent)
+{
+  for(vector<Entity*>::iterator it = entitiesCollided.begin();
+      it != entitiesCollided.end(); it++)
+      if(*it == ent) return true;
+}
+
+void Hazard::addEntity(Entity *ent)
+{
+  entitiesCollided.push_back(ent);
 }
