@@ -454,15 +454,6 @@ void Enemy::logic() {
  * Returns false on miss
  */
 bool Enemy::takeHit(Hazard h) {
-	if (stats.cur_state != ENEMY_DEAD && stats.cur_state != ENEMY_CRITDEAD) {
-	if (stats.cur_state != ENEMY_DEAD && stats.cur_state != ENEMY_CRITDEAD) 
-	{
-		/* Make sure hazard hasn't been hit before. This assumes Hazards hit a
-		   relatively small number of Entities, so a linear search isn't too bad.
-		*/
-               
-		bool repeat = h.hasEntity(this);
-		if(!repeat) h.addEntity(this);
 	if (stats.cur_state != ENEMY_DEAD && stats.cur_state != ENEMY_CRITDEAD) 
 	{
 		/* Make sure hazard hasn't been hit before. This assumes Hazards hit a
