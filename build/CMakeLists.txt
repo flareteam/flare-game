@@ -4,7 +4,7 @@ cmake_minimum_required (VERSION 2.6)
 set (CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/..)
 
 Set (PACKAGE "FLARE")
-Set (VERSION "0.13")
+Set (VERSION "0.14.1")
 
 
 # Detect missing dependencies
