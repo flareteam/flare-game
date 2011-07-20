@@ -89,9 +89,9 @@ void Hazard::logic() {
 
 bool Hazard::hasEntity(Entity *ent)
 {
-  for(vector<Entity*>::iterator it = entitiesCollided.begin();
-      it != entitiesCollided.end(); it++)
-      if(*it == ent) return true;
+	for(vector<Entity*>::iterator it = entitiesCollided.begin(); it != entitiesCollided.end(); it++)
+		if(*it == ent) return true;
+	return false;
 }
 
 void Hazard::addEntity(Entity *ent)

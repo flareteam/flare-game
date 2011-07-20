@@ -743,11 +743,9 @@ bool PowerManager::effect(int power_index, StatBlock *src_stats, Point target) {
 	playSound(power_index, src_stats);
 
 	// if all else succeeded, pay costs
-	if (powers[power_index].requires_mp > 0) {
-		src_stats->mp -= powers[power_index].requires_mp;
-	}
-	used_item = powers[power_index].requires_item;
-
+	if (src_stats->hero && powers[power_index].requires_mp > 0) src_stats->mp -= powers[power_index].requires_mp;
+	if (src_stats->hero && powers[power_index].requires_item != -1) used_item = powers[power_index].requires_item;
+	
 	return true;
 }
 
@@ -808,9 +806,9 @@ bool PowerManager::missile(int power_index, StatBlock *src_stats, Point target) 
 		hazards.push(haz[i]);
 	}
 
-	// pay costs
-	if (powers[power_index].requires_mp>0) src_stats->mp-=powers[power_index].requires_mp;
-	used_item = powers[power_index].requires_item;
+	// if all else succeeded, pay costs
+	if (src_stats->hero && powers[power_index].requires_mp > 0) src_stats->mp -= powers[power_index].requires_mp;
+	if (src_stats->hero && powers[power_index].requires_item != -1) used_item = powers[power_index].requires_item;
 
 	playSound(power_index, src_stats);
 	return true;
@@ -822,9 +820,9 @@ bool PowerManager::missile(int power_index, StatBlock *src_stats, Point target) 
 bool PowerManager::repeater(int power_index, StatBlock *src_stats, Point target) {
 
 	
-	// pay costs
-	if (powers[power_index].requires_mp>0) src_stats->mp-=powers[power_index].requires_mp;
-	used_item = powers[power_index].requires_item;
+	// pay costs up front
+	if (src_stats->hero && powers[power_index].requires_mp > 0) src_stats->mp -= powers[power_index].requires_mp;
+	if (src_stats->hero && powers[power_index].requires_item != -1) used_item = powers[power_index].requires_item;
 	
 	//initialize variables
 	Hazard *haz[10];
