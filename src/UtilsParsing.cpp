@@ -92,7 +92,7 @@ string trim(string s, char c) {
 	while (s.at(first) == c && first < s.length()-1) {
 		first++;
 	}
-	while (s.at(last) == c && last >= first) {
+	while (s.at(last) == c && last >= first && last > 0) {
 		last--;
 	}
 	if (first <= last) return s.substr(first,last-first+1);
