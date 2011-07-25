@@ -232,7 +232,7 @@ int MapIso::load(string filename) {
 						this->new_music = true;
 					}
 				}
-				else if (infile.key == "spawnpoint") {
+				else if (infile.key == "location") {
 					spawn.x = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
 					spawn.y = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
 					spawn_dir = atoi(infile.nextValue().c_str());
@@ -280,21 +280,21 @@ int MapIso::load(string filename) {
 				if (infile.key == "type") {
 					new_enemy.type = infile.val;
 				}
-				else if (infile.key == "spawnpoint") {
+				else if (infile.key == "location") {
 					new_enemy.pos.x = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
 					new_enemy.pos.y = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
 					new_enemy.direction = atoi(infile.nextValue().c_str());
 				}
 			}
 			else if (infile.section == "enemygroup") {
-				if (infile.key == "category") {
+				if (infile.key == "type") {
 					new_group.category = infile.val;
 				}
 				else if (infile.key == "level") {
 					new_group.levelmin = atoi(infile.nextValue().c_str());
 					new_group.levelmax = atoi(infile.nextValue().c_str());
 				}
-				else if (infile.key == "area") {
+				else if (infile.key == "location") {
 					new_group.pos.x = atoi(infile.nextValue().c_str());
 					new_group.pos.y = atoi(infile.nextValue().c_str());
 					new_group.area.x = atoi(infile.nextValue().c_str());
@@ -306,10 +306,10 @@ int MapIso::load(string filename) {
 				}
 			}
 			else if (infile.section == "npc") {
-				if (infile.key == "id") {
+				if (infile.key == "type") {
 					new_npc.id = infile.val;
 				}
-				else if (infile.key == "position") {
+				else if (infile.key == "location") {
 					new_npc.pos.x = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
 					new_npc.pos.y = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
 				}
