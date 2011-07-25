@@ -3,11 +3,11 @@ title=Averguard Atrium
 width=20
 height=60
 tileset=tileset_dungeon.txt
-spawnpoint=16,11,1
+location=16,11,1
 music=overworld_theme.ogg
 
 [layer]
-id=background
+type=background
 format=dec
 data=
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -72,7 +72,7 @@ data=
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 
 [layer]
-id=object
+type=object
 format=dec
 data=
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -137,7 +137,7 @@ data=
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 
 [layer]
-id=collision
+type=collision
 format=dec
 data=
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
@@ -228,31 +228,31 @@ intermap=averguard_complex.txt,98,70
 
 [enemy]
 type=goblin_charger
-spawnpoint=8,22,7
+location=8,22,7
 
 [enemy]
 type=goblin_spearman
-spawnpoint=4,5,4
+location=4,5,4
 
 [enemy]
 type=goblin_spearman
-spawnpoint=8,16,6
+location=8,16,6
 
 [enemy]
 type=skeleton
-spawnpoint=5,32,3
+location=5,32,3
 
 [enemy]
 type=skeleton
-spawnpoint=11,32,3
+location=11,32,3
 
 [enemy]
 type=skeleton
-spawnpoint=4,37,5
+location=4,37,5
 
 [enemy]
 type=minotaur
-spawnpoint=10,43,1
+location=10,43,1
 
 
 
