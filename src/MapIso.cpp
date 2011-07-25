@@ -239,7 +239,7 @@ int MapIso::load(string filename) {
 				}
 			}
 			else if (infile.section == "layer") {
-				if (infile.key == "id") {
+				if (infile.key == "type") {
 					cur_layer = infile.val;
 				}
 				else if (infile.key == "format") {
