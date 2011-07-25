@@ -6,7 +6,7 @@ tileset=tileset_dungeon.txt
 music=safe_room_theme.ogg
 
 [layer]
-id=background
+type=background
 format=dec
 data=
 0,0,0,0,0,0,0,0,0,0,18,16,18,18,19,17,19,16,0,0,0,0,0,0,0,0,0,0,
@@ -139,7 +139,7 @@ data=
 0,0,0,0,0,0,0,0,0,0,0,0,0,17,16,16,19,0,0,0,0,0,0,0,0,0,0,0
 
 [layer]
-id=object
+type=object
 format=dec
 data=
 0,0,0,0,0,0,0,0,0,0,77,65,65,65,65,65,65,65,65,65,78,0,0,0,0,0,0,0,
@@ -273,7 +273,7 @@ data=
 
 
 [layer]
-id=collision
+type=collision
 format=dec
 data=
 3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,3,3,3,3,3,3,3,
@@ -523,116 +523,116 @@ loot=random,16,9,5
 
 # the library room
 [enemygroup]
-category=undead
-area=1,115,5,9
+type=undead
+location=1,115,5,9
 number=1,3
 level=4,6
 
 #the assembly hall
 [enemy]
 type=rotting_zombie
-spawnpoint=12,115,3
+location=12,115,3
 
 [enemy]
 type=zombie
-spawnpoint=16,118,5
+location=16,118,5
 
 [enemy]
 type=rotting_zombie
-spawnpoint=13,109,1
+location=13,109,1
 
 [enemy]
 type=rotting_zombie
-spawnpoint=10,106,3
+location=10,106,3
 
 [enemy]
 type=rotting_zombie
-spawnpoint=9,104,3
+location=9,104,3
 
 [enemy]
 type=rotting_zombie
-spawnpoint=10,104,3
+location=10,104,3
 
 [enemy]
 type=zombie
-spawnpoint=9,102,3
+location=9,102,3
 
 [enemy]
 type=rotting_zombie
-spawnpoint=10,100,3
+location=10,100,3
 
 [enemy]
 type=rotting_zombie
-spawnpoint=12,106,3
+location=12,106,3
 
 [enemy]
 type=rotting_zombie
-spawnpoint=13,102,3
+location=13,102,3
 
 [enemy]
 type=zombie
-spawnpoint=12,100,3
+location=12,100,3
 
 [enemy]
 type=rotting_zombie
-spawnpoint=13,100,3
+location=13,100,3
 
 [enemy]
 type=rotting_zombie
-spawnpoint=17,106,3
+location=17,106,3
 
 [enemy]
 type=zombie
-spawnpoint=17,104,3
+location=17,104,3
 
 [enemy]
 type=rotting_zombie
-spawnpoint=18,100,3
+location=18,100,3
 
 [enemy]
 type=rotting_zombie
-spawnpoint=20,102,3
+location=20,102,3
 
 [enemy]
 type=rotting_zombie
-spawnpoint=21,102,3
+location=21,102,3
 
 [enemy]
 type=zombie
-spawnpoint=21,104,3
+location=21,104,3
 
 [enemy]
 type=skeleton
-spawnpoint=15,99,3
+location=15,99,3
 
 [enemy]
 type=skeletal_warrior
-spawnpoint=15,95,7
+location=15,95,7
 
 # past the sealed door
 [enemygroup]
-category=undead
+type=undead
 level=3,6
 number=3,5
-area=6,49,19,18
+location=6,49,19,18
 
 [enemygroup]
-category=undead
+type=undead
 level=3,6
 number=3,5
-area=6,49,19,18
+location=6,49,19,18
 
 # the tomb guardians
 [enemy]
 type=skeletal_archer
-spawnpoint=14,27,7
+location=14,27,7
 [enemy]
 type=skeletal_archer
-spawnpoint=16,27,7
+location=16,27,7
 
 [enemy]
 type=sir_evan_maddox
-spawnpoint=16,8,7
+location=16,8,7
 
 
 

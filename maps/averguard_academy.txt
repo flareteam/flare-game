@@ -3,11 +3,11 @@ title=Averguard Academy
 width=70
 height=100
 tileset=tileset_dungeon.txt
-spawnpoint=62,3,7
+location=62,3,7
 music=town_theme.ogg
 
 [layer]
-id=background
+type=background
 format=dec
 data=
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -112,7 +112,7 @@ data=
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,50,50,50,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 
 [layer]
-id=object
+type=object
 format=dec
 data=
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -218,9 +218,9 @@ data=
 
 
 [layer]
-id=collision
+type=collision
 format=dec
-data=                                                                                                                          
+data=
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,1,0,0,1,1,3,3,3,3,
@@ -370,7 +370,7 @@ soundfx=soundfx/inventory/inventory_page.ogg
 msg=This false book has a secret compartment.
 loot=id,21,75,2
 
-# next 4 are barrels in the storage area
+# next 4 are barrels in the storage location
 [event]
 type=run_once
 hotspot=-16,-36,32,44
@@ -404,7 +404,7 @@ location=12,49,1,1
 mapmod=object,12,49,162
 soundfx=soundfx/wood_open.ogg
 
-# next 3 are crates in the storage area
+# next 3 are crates in the storage location
 [event]
 type=run_once
 hotspot=-16,-30,32,36
@@ -457,95 +457,95 @@ loot=random,45,98,7
 # entrance guards
 [enemy]
 type=skeleton
-spawnpoint=60,14,3
+location=60,14,3
 [enemy]
 type=skeleton
-spawnpoint=65,14,3
+location=65,14,3
 
 [enemygroup]
-category=undead
-area=58,23,9,7
+type=undead
+location=58,23,9,7
 level=1,3
 number=1,3
 
 [enemy]
 type=rotting_zombie
-spawnpoint=50,25,5
+location=50,25,5
 [enemy]
 type=zombie
-spawnpoint=50,30,5
+location=50,30,5
 
 # foyer
 [enemygroup]
-category=undead
+type=undead
 level=5,6
 number=2,3
-area=34,26,9,14
+location=34,26,9,14
 
-# north book area
+# north book location
 [enemygroup]
-area=15,22,18,18
-category=zombie
+location=15,22,18,18
+type=zombie
 level=1,3
 number=3,4
 
 [enemygroup]
-area=15,22,18,18
-category=zombie
+location=15,22,18,18
+type=zombie
 level=3,3
 number=2,2
 
 [enemygroup]
-area=15,22,18,18
-category=undead
+location=15,22,18,18
+type=undead
 level=3,4
 number=1,2
 
-# center book area
+# center book location
 [enemygroup]
-category=zombie
-area=25,42,30,30
+type=zombie
+location=25,42,30,30
 level=3,3
 number=7,10
 
 [enemygroup]
-category=zombie
-area=25,42,30,30
+type=zombie
+location=25,42,30,30
 level=1,3
 number=3,7
 
 [enemygroup]
-category=undead_mage
-area=25,42,33,33
+type=undead_mage
+location=25,42,33,33
 level=3,5
 number=4,6
 
 [enemygroup]
-category=antlion
-area=51,66,7,9
+type=antlion
+location=51,66,7,9
 level=1,2
 number=1,3
 
-#south book area
+#south book location
 [enemygroup]
-category=undead
-area=13,68,12,8
+type=undead
+location=13,68,12,8
 level=1,3
 number=2,4
 
 #guards teleport chest
 [enemy]
 type=zombie
-spawnpoint=45,85,3
+location=45,85,3
 
-#langlier's area
+#langlier's location
 [enemygroup]
-category=antlion
-area=10,67,17,26
+type=antlion
+location=10,67,17,26
 number=3,5
 level=1,2
 
 [enemy]
 type=professor_langlier
-spawnpoint=5,91,1
+location=5,91,1
 

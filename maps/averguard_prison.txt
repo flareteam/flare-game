@@ -3,11 +3,11 @@ title=Averguard Prison
 width=100
 height=100
 tileset=tileset_dungeon.txt
-spawnpoint=1,54,4
+location=1,54,4
 music=dungeon_theme.ogg
 
 [layer]
-id=background
+type=background
 format=dec
 data=
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -112,7 +112,7 @@ data=
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 
 [layer]
-id=object
+type=object
 format=dec
 data=
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -217,7 +217,7 @@ data=
 76,71,83,83,83,83,83,83,83,83,83,83,83,83,83,83,83,83,83,83,83,83,83,83,83,95,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 
 [layer]
-id=collision
+type=collision
 format=dec
 data=
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
@@ -400,121 +400,121 @@ mapmod=collision,69,48,0
 soundfx=soundfx/door_open.ogg
 
 [enemygroup]
-category=zombie
-area=2,43,5,5
+type=zombie
+location=2,43,5,5
 level=1,1
 number=1,3
 
 [enemy]
 type=zombie
-spawnpoint=20,52,7
+location=20,52,7
 
 [enemy]
 type=goblin_charger
-spawnpoint=23,52,7
+location=23,52,7
 
 [enemy]
 type=zombie
-spawnpoint=12,65,5
+location=12,65,5
 
 [enemygroup]
-category=zombie
+type=zombie
 number=0,2
 level=1,3
-area=14,56,2,22
+location=14,56,2,22
 
 [enemygroup]
-category=zombie
-area=2,74,7,1
+type=zombie
+location=2,74,7,1
 number=3,3
 level=1,3
 
 [enemygroup]
-category=zombie
-area=23,62,2,5
+type=zombie
+location=23,62,2,5
 number=1,2
 level=1,3
 
 [enemygroup]
-category=zombie
-area=23,62,2,5
+type=zombie
+location=23,62,2,5
 number=0,2
 level=1,3
 
 #outside torture room
 [enemygroup]
-category=undead
-area=9,97,6,2
+type=undead
+location=9,97,6,2
 level=1,3
 number=3,5
 
 #torture room
 [enemygroup]
-category=antlion
+type=antlion
 level=1,2
 number=2,4
-area=17,91,2,2
+location=17,91,2,2
 
 [enemygroup]
-category=undead
-area=7,82,12,11
+type=undead
+location=7,82,12,11
 number=3,5
 level=1,3
 
 [enemy]
 type=skeletal_warrior
-spawnpoint=16,84,7
+location=16,84,7
 
 #around the statue
 [enemy]
 type=rotting_zombie
-spawnpoint=36,55,5
+location=36,55,5
 [enemy]
 type=rotting_zombie
-spawnpoint=38,55,1
+location=38,55,1
 [enemy]
 type=rotting_zombie
-spawnpoint=37,54,7
+location=37,54,7
 [enemy]
 type=rotting_zombie
-spawnpoint=37,56,3
+location=37,56,3
 
 #pit room
 [enemy]
 type=skeletal_warrior
-spawnpoint=56,57,4
+location=56,57,4
 
 [enemy]
 type=skeleton
-spawnpoint=63,52,0
+location=63,52,0
 
 [enemygroup]
-category=zombie
-area=51,47,19,1
+type=zombie
+location=51,47,19,1
 number=6,6
 level=3,3
 
 #tomb room
 [enemygroup]
-category=undead
+type=undead
 level=2,5
 number=3,4
-area=86,63,8,18
+location=86,63,8,18
 
 # warden's guards
 [enemygroup]
-category=zombie
-area=86,41,8,4
+type=zombie
+location=86,41,8,4
 number=2,3
 level=3,3
 
 [enemygroup]
-category=antlion
-area=86,52,4,9
+type=antlion
+location=86,52,4,9
 level=1,2
 number=4,6
 
 [enemy]
 type=the_warden
-spawnpoint=89,6,7
+location=89,6,7
 

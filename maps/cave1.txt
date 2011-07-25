@@ -3,11 +3,11 @@ title=Caves Level 1
 width=100
 height=100
 tileset=tileset_cave.txt
-spawnpoint=4,12,5
+location=4,12,5
 music=cave_theme.ogg
 
 [layer]
-id=background
+type=background
 format=dec
 data=
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -112,7 +112,7 @@ data=
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 
 [layer]
-id=object
+type=object
 format=dec
 data=
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -217,7 +217,7 @@ data=
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 
 [layer]
-id=collision
+type=collision
 format=dec
 data=
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
@@ -335,8 +335,8 @@ intermap=lost_mines1.txt,53,5
 
 # Trader in the goblin room
 [npc]
-id=captured_trader
-position=72,31
+type=captured_trader
+location=72,31
 
 # mine cart in large pillar room
 [event]
@@ -448,11 +448,11 @@ loot=random,45,93,8
 #entry room
 [enemy]
 type=antlion_hatchling
-spawnpoint=12,9,3
+location=12,9,3
 
 [enemy]
 type=antlion_hatchling
-spawnpoint=12,12,3
+location=12,12,3
 
 [event]
 # warning message
@@ -464,107 +464,107 @@ msg=The crumbling walls of the south tunnel are held up by planks of rotting woo
 
 [enemy]
 type=antlion_hatchling
-spawnpoint=36,5,7
+location=36,5,7
 
 [enemy]
 type=antlion_hatchling
-spawnpoint=57,11,0
+location=57,11,0
 
 [enemy]
 type=antlion_hatchling
-spawnpoint=33,10,3
+location=33,10,3
 
 [enemy]
 type=antlion_slasher
-spawnpoint=37,10,2
+location=37,10,2
 
 [enemy]
 type=antlion_hatchling
-spawnpoint=42,7,4
+location=42,7,4
 
 [enemy]
 type=antlion_slasher
-spawnpoint=45,9,6
+location=45,9,6
 
 [enemy]
 type=antlion_spitter
-spawnpoint=46,17,0
+location=46,17,0
 
 [enemy]
 type=antlion_hatchling
-spawnpoint=47,19,7
+location=47,19,7
 
 [enemy]
 type=antlion_slasher
-spawnpoint=49,18,1
+location=49,18,1
 
 [enemy]
 type=antlion_hatchling
-spawnpoint=52,16,4
+location=52,16,4
 
 [enemy]
 type=antlion_spitter
-spawnpoint=53,18,3
+location=53,18,3
 
 [enemy]
 type=antlion_slasher
-spawnpoint=54,17,2
+location=54,17,2
 
 #small stalagmite room
 [enemy]
 type=antlion_spitter
-spawnpoint=48,26,7
+location=48,26,7
 
 [enemy]
 type=antlion_hatchling
-spawnpoint=47,30,1
+location=47,30,1
 
 [enemy]
 type=antlion_slasher
-spawnpoint=49,33,2
+location=49,33,2
 
 [enemy]
 type=antlion_hatchling
-spawnpoint=47,34,3
+location=47,34,3
 
 [enemy]
 type=antlion_hatchling
-spawnpoint=46,30,1
+location=46,30,1
 
 [enemy]
 type=antlion_hatchling
-spawnpoint=49,27,3
+location=49,27,3
 
 [enemy]
 type=antlion_hatchling
-spawnpoint=55,33,3
+location=55,33,3
 
 #goblin sacrifice room
 [enemy]
 type=goblin_charger
-spawnpoint=67,27,4
+location=67,27,4
 
 [enemy]
 type=goblin_spearman
-spawnpoint=74,29,6
+location=74,29,6
 
 [enemy]
 type=goblin_charger
-spawnpoint=75,32,6
+location=75,32,6
 
 [enemy]
 type=goblin_shaman
-spawnpoint=73,33,2
+location=73,33,2
 
 [enemy]
 type=goblin_spearman
-spawnpoint=73,32,1
+location=73,32,1
 
 [event]
 # ritual message
 type=run_once
 location=65,27,3,5
-msg=These goblins have captured a human trader.  Human bones are carefully arranged around the pillar in preparation for a goblin ritual.  
+msg=These goblins have captured a human trader.  Human bones are carefully arranged around the pillar in preparation for a goblin ritual.
 
 [event]
 # reward for being saved
@@ -576,23 +576,23 @@ loot=random,73,32,6
 #first south room
 [enemy]
 type=skeletal_archer
-spawnpoint=16,29,3
+location=16,29,3
 
 [enemy]
 type=skeletal_mage
-spawnpoint=18,30,4
+location=18,30,4
 
 [enemy]
 type=skeletal_warrior
-spawnpoint=23,29,2
+location=23,29,2
 
 [enemy]
 type=minotaur
-spawnpoint=23,33,3
+location=23,33,3
 
 [enemy]
 type=skeletal_warrior
-spawnpoint=10,30,5
+location=10,30,5
 
 [event]
 # cave-in event
@@ -618,19 +618,19 @@ shakycam=60
 #mine tracks room
 [enemy]
 type=skeletal_archer
-spawnpoint=17,50,7
+location=17,50,7
 
 [enemy]
 type=skeletal_archer
-spawnpoint=16,49,3
+location=16,49,3
 
 [enemy]
 type=minotaur
-spawnpoint=24,52,0
+location=24,52,0
 
 [enemy]
 type=skeletal_mage
-spawnpoint=13,45,3
+location=13,45,3
 
 [event]
 # release the skeletal mage
@@ -648,143 +648,143 @@ soundfx=soundfx/door_open.ogg
 #misc tunnels
 [enemy]
 type=antlion_blinker
-spawnpoint=39,39,3
+location=39,39,3
 
 [enemy]
 type=antlion_burster
-spawnpoint=43,43,2
+location=43,43,2
 
 [enemy]
 type=antlion_blinker
-spawnpoint=45,48,1
+location=45,48,1
 
 [enemy]
 type=antlion_spitter
-spawnpoint=74,53,5
+location=74,53,5
 
 [enemy]
 type=antlion_slasher
-spawnpoint=70,56,7
+location=70,56,7
 
 [enemy]
 type=antlion_blinker
-spawnpoint=85,68,6
+location=85,68,6
 
 #pathway to antlion nest
 [enemy]
 type=antlion_spitter
-spawnpoint=63,64,3
+location=63,64,3
 
 [enemy]
 type=antlion_spitter
-spawnpoint=63,66,0
+location=63,66,0
 
 [enemy]
 type=antlion_slasher
-spawnpoint=68,68,4
+location=68,68,4
 
 [enemy]
 type=antlion_blinker
-spawnpoint=67,71,1
+location=67,71,1
 
 [enemy]
 type=antlion_burster
-spawnpoint=60,72,3
+location=60,72,3
 
 [enemy]
 type=antlion_blinker
-spawnpoint=52,69,3
+location=52,69,3
 
 [enemy]
 type=antlion_hatchling
-spawnpoint=58,76,3
+location=58,76,3
 [enemy]
 type=antlion_hatchling
-spawnpoint=59,76,3
+location=59,76,3
 [enemy]
 type=antlion_hatchling
-spawnpoint=60,76,3
+location=60,76,3
 [enemy]
 type=antlion_hatchling
-spawnpoint=61,76,3
+location=61,76,3
 [enemy]
 type=antlion_hatchling
-spawnpoint=62,75,3
+location=62,75,3
 
 #antlion nest
 [enemy]
 type=antlion_burster
-spawnpoint=38,63,2
+location=38,63,2
 
 [enemy]
 type=antlion_burster
-spawnpoint=36,65,3
+location=36,65,3
 
 [enemy]
 type=antlion_burster
-spawnpoint=42,66,6
+location=42,66,6
 
 [enemy]
 type=antlion_blinker
-spawnpoint=38,70,5
+location=38,70,5
 
 [enemy]
 type=antlion_burster
-spawnpoint=42,73,3
+location=42,73,3
 
 [enemy]
 type=antlion_spitter
-spawnpoint=37,77,3
+location=37,77,3
 
 [enemy]
 type=antlion_blinker
-spawnpoint=39,79,7
+location=39,79,7
 
 [enemy]
 type=antlion_spitter
-spawnpoint=42,79,2
+location=42,79,2
 
 [enemy]
 type=antlion_slasher
-spawnpoint=46,80,3
+location=46,80,3
 
 [enemy]
 type=antlion_slasher
-spawnpoint=32,76,3
+location=32,76,3
 
 [enemy]
 type=antlion_slasher
-spawnpoint=35,79,1
+location=35,79,1
 
 [enemy]
 type=antlion_slasher
-spawnpoint=37,83,1
+location=37,83,1
 
 [enemy]
 type=antlion_burster
-spawnpoint=44,86,2
+location=44,86,2
 
 [enemy]
 type=antlion_hatchling
-spawnpoint=36,72,7
+location=36,72,7
 [enemy]
 type=antlion_hatchling
-spawnpoint=37,71,7
+location=37,71,7
 [enemy]
 type=antlion_hatchling
-spawnpoint=39,71,7
+location=39,71,7
 
 [enemy]
 type=antlion_hatchling
-spawnpoint=44,74,7
+location=44,74,7
 [enemy]
 type=antlion_hatchling
-spawnpoint=43,75,3
+location=43,75,3
 [enemy]
 type=antlion_hatchling
-spawnpoint=46,77,2
+location=46,77,2
 
 #[enemy]
 #type=antlion_queen (NYI)
-#spawnpoint=46,92,3
+#location=46,92,3
 

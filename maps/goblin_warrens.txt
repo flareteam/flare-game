@@ -3,11 +3,11 @@ title=Goblin Warrens
 width=60
 height=80
 tileset=tileset_dungeon.txt
-spawnpoint=28,76,3
+location=28,76,3
 music=unrest_theme.ogg
 
 [layer]
-id=background
+type=background
 format=dec
 data=
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,32,33,35,0,0,0,0,0,0,0,32,33,35,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -92,7 +92,7 @@ data=
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 
 [layer]
-id=object
+type=object
 format=dec
 data=
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,77,105,65,78,0,0,0,0,0,0,77,65,65,78,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -177,7 +177,7 @@ data=
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,76,71,83,95,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 
 [layer]
-id=collision
+type=collision
 format=dec
 data=
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,3,3,3,3,3,3,1,1,1,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
@@ -324,97 +324,97 @@ msg="Sir Evan Maddox led the Averguard when the plague struck.  Powerful clerics
 
 [enemy]
 type=brittle_skeleton
-spawnpoint=15,18,5
+location=15,18,5
 
 [enemy]
 type=brittle_skeleton
-spawnpoint=22,18,1
+location=22,18,1
 
 [enemy]
 type=ukkonen
-spawnpoint=4,33,2
+location=4,33,2
 
 [enemygroup]
-category=goblin
+type=goblin
 level=1,3
 number=4,8
-area=8,38,21,21
+location=8,38,21,21
 
 [enemygroup]
-category=antlion
+type=antlion
 level=1,2
 number=0,2
-area=28,1,2,3
+location=28,1,2,3
 
 [enemygroup]
-category=dungeon
+type=dungeon
 level=1,2
 number=0,2
-area=18,1,2,3
+location=18,1,2,3
 
 [enemygroup]
-category=antlion
-area=8,60,16,9
+type=antlion
+location=8,60,16,9
 number=0,2
 level=1,2
 
 [enemygroup]
-category=dungeon
-area=1,58,3,2
+type=dungeon
+location=1,58,3,2
 level=1,2
 number=0,2
 
 [enemygroup]
-category=antlion
-area=28,8,17,27
+type=antlion
+location=28,8,17,27
 number=3,5
 level=1,2
 
 [enemygroup]
-category=goblin
-area=1,48,6,2
+type=goblin
+location=1,48,6,2
 number=0,2
 level=1,2
 
 [enemygroup]
-category=goblin
+type=goblin
 level=1,2
-area=33,58,6,11
+location=33,58,6,11
 number=0,2
 
 [enemygroup]
-category=goblin
-area=42,45,3,7
+type=goblin
+location=42,45,3,7
 number=1,3
 level=1,2
 
 [enemygroup]
-category=undead
-area=42,45,3,7
+type=undead
+location=42,45,3,7
 number=1,1
 level=1,2
 
 [enemygroup]
-category=goblin
-area=20,28,19,9
+type=goblin
+location=20,28,19,9
 number=0,2
 level=1,2
 
 [enemygroup]
-category=goblin
-area=1,18,4,2
+type=goblin
+location=1,18,4,2
 number=0,3
 level=1,2
 
 [npc]
-id=wandering_trader
-position=28,77
+type=wandering_trader
+location=28,77
 
 [npc]
-id=clint_bellanger
-position=28,71
+type=clint_bellanger
+location=28,71
 
 [npc]
-id=guill
-position=28,74
+type=guill
+location=28,74
 
