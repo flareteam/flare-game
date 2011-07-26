@@ -3,11 +3,11 @@ title=Lost Mines Level 1
 width=100
 height=100
 tileset=tileset_cave.txt
-spawnpoint=56,69,4
+location=56,69,4
 music=cave_theme.ogg
 
 [layer]
-id=background
+type=background
 format=dec
 data=
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -112,7 +112,7 @@ data=
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,56,29,33,20,0,0,0,0,0,0,0,0,0,0,219,219,219,219,218,217,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 
 [layer]
-id=object
+type=object
 format=dec
 data=
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -217,7 +217,7 @@ data=
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,96,153,150,146,66,0,0,0,0,0,0,0,0,0,64,134,0,0,0,132,66,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 
 [layer]
-id=collision
+type=collision
 format=dec
 data=
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
@@ -331,31 +331,31 @@ intermap=cave1.txt,15,67
 
 [enemy]
 type=skeletal_warrior
-spawnpoint=49,21,4
+location=49,21,4
 
 [enemy]
 type=skeletal_warrior
-spawnpoint=57,20,4
+location=57,20,4
 
 [enemy]
 type=goblin_spearman
-spawnpoint=48,25,4
+location=48,25,4
 
 [enemy]
 type=minotaur
-spawnpoint=55,31,4
+location=55,31,4
 
 [enemy]
 type=skeletal_archer
-spawnpoint=56,32,4
+location=56,32,4
 
 [enemy]
 type=skeletal_archer
-spawnpoint=53,32,4
+location=53,32,4
 
 [enemy]
 type=minotaur
-spawnpoint=56,62,4
+location=56,62,4
 
 [event]
 type=run_once
@@ -375,7 +375,7 @@ tooltip=Crate
 soundfx=soundfx/wood_open.ogg
 loot=random,47,29,6
 
-# West Mining Area
+# West Mining location
 [event]
 # miners message
 type=run_once
@@ -390,25 +390,25 @@ msg=It looks like the necromancer has been raising the corpses of dead miners as
 
 [enemy]
 type=necromancer_apprentice
-spawnpoint=18,28,7
+location=18,28,7
 
 [enemygroup]
-category=undead
+type=undead
 level=3,3
 number=10
-area=6,11,21,35
+location=6,11,21,35
 
 [enemygroup]
-category=undead
+type=undead
 level=4,5
 number=5
-area=6,11,21,35
+location=6,11,21,35
 
 [enemygroup]
-category=undead
+type=undead
 level=3,5
 number=6
-area=15,49,33,12
+location=15,49,33,12
 
 #treasure events
 [event]
@@ -505,11 +505,11 @@ loot=random,50,53,5
 
 [enemy]
 type=skeletal_warrior
-spawnpoint=55,80,4
+location=55,80,4
 
 [enemy]
 type=skeletal_warrior
-spawnpoint=56,80,4
+location=56,80,4
 
 [event]
 type=run_once
@@ -520,7 +520,7 @@ tooltip=Treasure Chest
 soundfx=soundfx/wood_open.ogg
 loot=random,57,95,8
 
-# East Underground River Area (to Cave Level 2 (NYI) )
+# East Underground River location (to Cave Level 2 (NYI) )
 
 [event]
 # river message
@@ -532,7 +532,7 @@ msg=A natural underground river flows through this room.
 # river message 2
 type=run_once
 location=88,66,3,3
-msg=The river appears to have swollen recently, covering the area where the tracks once were.
+msg=The river appears to have swollen recently, covering the location where the tracks once were.
 
 [event]
 # falling pillar/bridge event
@@ -553,27 +553,27 @@ shakycam=20
 
 [enemy]
 type=antlion_spitter
-spawnpoint=71,71,3
+location=71,71,3
 
 [enemy]
 type=antlion_freezer
-spawnpoint=78,66,2
+location=78,66,2
 
 [enemy]
 type=antlion_freezer
-spawnpoint=81,66,2
+location=81,66,2
 
 [enemygroup]
-category=antlion_hatchling
-area=91,57,2,4
+type=antlion_hatchling
+location=91,57,2,4
 number=5
 level=2,6
 
 [enemygroup]
-category=antlion
+type=antlion
 level=4,6
 number=6
-area=66,55,24,18
+location=66,55,24,18
 
 [event]
 type=run_once
