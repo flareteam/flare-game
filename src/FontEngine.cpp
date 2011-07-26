@@ -23,6 +23,9 @@ FontEngine::FontEngine() {
 	font = TTF_OpenFont("fonts/LiberationSans-Regular.ttf", font_height);
 	if(!font) printf("TTF_OpenFont: %s\n", TTF_GetError());
 
+	// calculate the optimal line height
+	line_height = TTF_FontLineSkip(font);
+
 	// set the font colors
 	SDL_Color white = {255,255,255};
 	SDL_Color red = {255,0,0};
@@ -98,28 +101,13 @@ Point FontEngine::calc_size(string text_with_newlines, int width) {
 	}
 	
 	height = height + getHeight();
+	builder = trim(builder, ' '); //removes whitespace that shouldn't be included in the size
 	if (calc_length(builder) > max_width) max_width = calc_length(builder);
 		
 	Point size;
-	size.x = max_width; // TODO: remove the extra blankspace at the end
+	size.x = max_width;
 	size.y = height;
 	return size;
-
-}
-
-void FontEngine::render_ttf(string text, int x, int y, SDL_Surface *target, int color) {
-	SDL_Rect dest;
-	dest.x = x;
-	dest.y = y;
-	SDL_Surface *ttf;
-
-	const char* char_text = text.c_str(); //makes it so SDL_ttf functions can read it
-
-	ttf = TTF_RenderText_Blended(font, char_text, colors[color]);
-
-	if (ttf != NULL) SDL_BlitSurface(ttf, NULL, target, &dest);
-
-	SDL_FreeSurface(ttf);
 }
 
 
@@ -128,13 +116,8 @@ void FontEngine::render_ttf(string text, int x, int y, SDL_Surface *target, int 
  * Justify is left, right, or center
  */
 void FontEngine::render(string text, int x, int y, int justify, SDL_Surface *target, int color) {
-
-	unsigned char c;
-	char str[256];
 	int dest_x;
 	int dest_y;
-	
-	strcpy(str, text.c_str());
 
 	// calculate actual starting x,y based on justify
 	if (justify == JUSTIFY_LEFT) {
@@ -150,14 +133,23 @@ void FontEngine::render(string text, int x, int y, int justify, SDL_Surface *tar
 		dest_y = y;
 	}
 
-	render_ttf(text, dest_x, dest_y, target, color);
+	// render and blit the text
+	SDL_Rect dest;
+	dest.x = dest_x;
+	dest.y = dest_y;
+
+	const char* char_text = text.c_str(); //makes it so SDL_ttf functions can read it
+
+	ttf = TTF_RenderUTF8_Blended(font, char_text, colors[color]);
+
+	if (ttf != NULL) SDL_BlitSurface(ttf, NULL, target, &dest);
 }
 
 /**
  * Word wrap to width
  */
 void FontEngine::render(string text, int x, int y, int justify, SDL_Surface *target, int width, int color) {
-	
+
 	cursor_y = y;
 	string segment;
 	string fulltext;
@@ -193,6 +185,7 @@ void FontEngine::render(string text, int x, int y, int justify, SDL_Surface *tar
 
 
 FontEngine::~FontEngine() {
+	SDL_FreeSurface(ttf);
 	TTF_CloseFont(font);
 	TTF_Quit();
 }

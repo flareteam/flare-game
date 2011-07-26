@@ -38,20 +38,21 @@ class FontEngine {
 private:
 	SDL_Color colors[6];
 	int font_height;
+	int line_height;
 	SDL_Rect src;
 	SDL_Rect dest;
+	SDL_Surface *ttf;
 	TTF_Font *font;
 
 public:
 	FontEngine();
 	~FontEngine();
 
-	int getHeight() { TTF_FontLineSkip(font); } // returns the ideal line spacing, not the actual text height.
+	int getHeight() { return line_height; }
 
 	int calc_length(string text);
 	Point calc_size(string text_with_newlines, int width);
 
-	void render_ttf(string text, int x, int y, SDL_Surface *target, int color);
 	void render(string text, int x, int y, int justify, SDL_Surface *target, int color);
 	void render(string text, int x, int y, int justify, SDL_Surface *target, int width, int color);
 	
