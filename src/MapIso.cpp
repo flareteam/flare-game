@@ -78,20 +78,20 @@ void MapIso::removeEvent(int eid) {
 	event_count--;
 }
 
-void MapIso::clearEnemy(Map_Enemy e) {
+void MapIso::clearEnemy(Map_Enemy &e) {
 	e.pos.x = 0;
 	e.pos.y = 0;
-	e.direction = 0;
+	e.direction = rand() % 8; // enemies face a random direction unless otherwise specified
 	e.type = "";
 }
 
-void MapIso::clearNPC(Map_NPC n) {
+void MapIso::clearNPC(Map_NPC &n) {
 	n.id = "";
 	n.pos.x = 0;
 	n.pos.y = 0;
 }
 
-void MapIso::clearGroup(Map_Group g) {
+void MapIso::clearGroup(Map_Group &g) {
 	g.category = "";
 	g.pos.x = 0;
 	g.pos.y = 0;
@@ -187,7 +187,7 @@ int MapIso::load(string filename) {
 					npcs.push(new_npc);
 					npc_awaiting_queue = false;
 				}
-				if (group_awaiting_queue){
+				if (group_awaiting_queue) {
 					push_enemy_group(new_group);
 					group_awaiting_queue = false;
 				}
@@ -283,7 +283,9 @@ int MapIso::load(string filename) {
 				else if (infile.key == "location") {
 					new_enemy.pos.x = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
 					new_enemy.pos.y = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
-					new_enemy.direction = atoi(infile.nextValue().c_str());
+				}
+				else if (infile.key == "direction") {
+					new_enemy.direction = atoi(infile.val.c_str());
 				}
 			}
 			else if (infile.section == "enemygroup") {

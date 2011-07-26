@@ -99,9 +99,9 @@ public:
 	// functions
 	MapIso(SDL_Surface *_screen, CampaignManager *_camp, InputState *_inp, FontEngine *_font);
 	~MapIso();
-	void clearEnemy(Map_Enemy e);
-	void clearNPC(Map_NPC n);
-	void clearGroup(Map_Group g);
+	void clearEnemy(Map_Enemy &e);
+	void clearNPC(Map_NPC &n);
+	void clearGroup(Map_Group &g);
 
 	int load(string filename);
 	void loadMusic();
