@@ -457,10 +457,12 @@ loot=random,45,98,7
 # entrance guards
 [enemy]
 type=skeleton
-location=60,14,3
+location=60,14
+direction=3
 [enemy]
 type=skeleton
-location=65,14,3
+location=65,14
+direction=3
 
 [enemygroup]
 type=undead
@@ -470,10 +472,10 @@ number=1,3
 
 [enemy]
 type=rotting_zombie
-location=50,25,5
+location=50,25
 [enemy]
 type=zombie
-location=50,30,5
+location=50,30
 
 # foyer
 [enemygroup]
@@ -536,7 +538,7 @@ number=2,4
 #guards teleport chest
 [enemy]
 type=zombie
-location=45,85,3
+location=45,85
 
 #langlier's location
 [enemygroup]
@@ -547,5 +549,6 @@ level=1,2
 
 [enemy]
 type=professor_langlier
-location=5,91,1
+location=5,91
+direction=1
 
