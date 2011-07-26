@@ -15,6 +15,7 @@
 #include <string>
 #include "SDL.h"
 #include "SDL_image.h"
+#include "SDL_ttf.h"
 #include "Settings.h"
 #include "Utils.h"
 #include "UtilsParsing.h"
@@ -31,33 +32,31 @@ const int FONT_GREEN = 2;
 const int FONT_BLUE = 3;
 const int FONT_GRAY = 4;
 const int FONT_GREY = 4;
+const int FONT_BLACK = 5;
 
 class FontEngine {
 private:
-	SDL_Surface *sprites[5];
-	int font_width;
+	SDL_Color colors[6];
 	int font_height;
-	int kerning;
-	int width[256]; // width of each ASCII character
+	int line_height;
 	SDL_Rect src;
 	SDL_Rect dest;
+	SDL_Surface *ttf;
+	TTF_Font *font;
 
 public:
 	FontEngine();
 	~FontEngine();
-	void load();
 
-	int getWidth() { return font_width; }
-	int getHeight() { return font_height; }
+	int getHeight() { return line_height; }
 
 	int calc_length(string text);
 	Point calc_size(string text_with_newlines, int width);
-	
+
 	void render(string text, int x, int y, int justify, SDL_Surface *target, int color);
 	void render(string text, int x, int y, int justify, SDL_Surface *target, int width, int color);
 	
 	int cursor_y;
-	int line_height;
 };
 
 #endif

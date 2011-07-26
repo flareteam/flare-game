@@ -13,10 +13,6 @@ MenuTooltip::MenuTooltip(FontEngine *_font, SDL_Surface *_screen) {
 	offset=12;
 	width=160;
 	margin=4;
-	
-	// make the bottom margin smaller for visual balance
-	// (adjust for line height and low hanging characters like g,j,p,q,y)
-	margin_bottom=1;
 }
 
 /**
@@ -82,7 +78,7 @@ void MenuTooltip::render(TooltipData tip, Point pos, int style) {
 	
 	Point size = font->calc_size(fulltext, width);
 	background.w = size.x + margin + margin;
-	background.h = size.y + margin + margin_bottom;
+	background.h = size.y + margin + margin;
 	
 	int cursor_x;
 	int cursor_y;

@@ -42,7 +42,6 @@ private:
 	int offset;
 	int width;
 	int margin;
-	int margin_bottom;
 public:
 	MenuTooltip(FontEngine *_font, SDL_Surface *_screen);
 	void calcPosition(int style, Point pos, Point size, Sint16 &bgx, Sint16 &bgy, int &curx, int &cury);

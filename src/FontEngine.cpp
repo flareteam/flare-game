@@ -8,78 +8,45 @@
  */
 
 #include "FontEngine.h"
-
+#include <iostream>
 
 FontEngine::FontEngine() {
+	font_height = 10;
 
-	for (int i=0; i<256; i++) {
-		width[i] = 0;
+	// Initiate SDL_ttf
+	if(!TTF_WasInit() && TTF_Init()==-1) {
+		printf("TTF_Init: %s\n", TTF_GetError());
+		exit(2);
 	}
-	load();
-}
 
+	// load Liberation Sans Regular
+	font = TTF_OpenFont("fonts/LiberationSans-Regular.ttf", font_height);
+	if(!font) printf("TTF_OpenFont: %s\n", TTF_GetError());
 
+	// calculate the optimal line height
+	line_height = TTF_FontLineSkip(font);
 
-void FontEngine::load() {
+	// set the font colors
+	SDL_Color white = {255,255,255};
+	SDL_Color red = {255,0,0};
+	SDL_Color green = {0,255,0};
+	SDL_Color blue = {0,0,255};
+	SDL_Color grey = {128,128,128};
+	SDL_Color black = {0,0,0};
 
-	string imgfile;
-	string line;
-	ifstream infile;
-	char str[8];
-	
-	// load the definition file
-	infile.open((PATH_DATA + "fonts/font.txt").c_str(), ios::in);
-
-	if (infile.is_open()) {
-			
-		line = getLine(infile);
-		font_width = atoi(line.c_str());
-		
-		line = getLine(infile);
-				
-		font_height = atoi(line.c_str());
-		src.h = font_height;
-		dest.h = font_height;
-		
-		line = getLine(infile);
-				
-		line_height = atoi(line.c_str());
-		
-		line = getLine(infile);
-			
-		kerning = atoi(line.c_str());
-		
-		// the rest of the file is character pixel widths
-		while (!infile.eof()) {
-			line = getLine(infile);
-			
-			if (line.length() > 0) {
-				strcpy(str, line.c_str());
-				width[(int)str[0]] = line.c_str()[2] - 48;
-				
-			}
-		}
-	}
-	infile.close();
-	
-	// load the font images
-	sprites[FONT_WHITE] = IMG_Load((PATH_DATA + "fonts/white.png").c_str());
-	sprites[FONT_RED] = IMG_Load((PATH_DATA + "fonts/red.png").c_str());
-	sprites[FONT_GREEN] = IMG_Load((PATH_DATA + "fonts/green.png").c_str());
-	sprites[FONT_BLUE] = IMG_Load((PATH_DATA + "fonts/blue.png").c_str());
-	sprites[FONT_GRAY] = IMG_Load((PATH_DATA + "fonts/gray.png").c_str());
-	
+	colors[FONT_WHITE] = white;
+	colors[FONT_RED] = red;
+	colors[FONT_GREEN] = green;
+	colors[FONT_BLUE] = blue;
+	colors[FONT_GREY] = grey;
+	colors[FONT_BLACK] = black;
 }
 
 int FontEngine::calc_length(string text) {
-	int size=0;
-	char c;
-	for (unsigned int i=0; i<text.length(); i++) {
-		c = text.c_str()[i];
-		size = size + width[(int)c] + kerning;
-	}
-	size = size - kerning;
-	return size;
+	int w, h;
+	const char* char_text = text.c_str(); //makes it so SDL_ttf functions can read it
+	TTF_SizeUTF8(font, char_text, &w, &h);
+	return w;
 }
 
 /**
@@ -120,7 +87,7 @@ Point FontEngine::calc_size(string text_with_newlines, int width) {
 		builder = builder + segment;
 		
 		if (calc_length(builder) > width) {
-			height = height + line_height;
+			height = height + getHeight();
 			if (calc_length(builder_prev) > max_width) max_width = calc_length(builder_prev);
 			builder_prev = "";
 			builder = segment + " ";
@@ -133,28 +100,24 @@ Point FontEngine::calc_size(string text_with_newlines, int width) {
 		segment = eatFirstString(fulltext, space);
 	}
 	
-	height = height + line_height;
+	height = height + getHeight();
+	builder = trim(builder, ' '); //removes whitespace that shouldn't be included in the size
 	if (calc_length(builder) > max_width) max_width = calc_length(builder);
-				
+		
 	Point size;
-	size.x = max_width - this->width[32] - kerning; // remove the extra blankspace at the end
+	size.x = max_width;
 	size.y = height;
 	return size;
-
 }
+
 
 /**
  * Render the given text at (x,y) on the target image.
  * Justify is left, right, or center
  */
 void FontEngine::render(string text, int x, int y, int justify, SDL_Surface *target, int color) {
-
-	unsigned char c;
-	char str[256];
 	int dest_x;
 	int dest_y;
-	
-	strcpy(str, text.c_str());
 
 	// calculate actual starting x,y based on justify
 	if (justify == JUSTIFY_LEFT) {
@@ -170,34 +133,23 @@ void FontEngine::render(string text, int x, int y, int justify, SDL_Surface *tar
 		dest_y = y;
 	}
 
-	for (unsigned int i=0; i<text.length(); i++) {
-	
-		// Note, SDL_BlitSurface rewrites dest to show clipping.
-		// So we have to remember dest locally.  - cpb 2010/07/03
-		dest.x = dest_x;
-		dest.y = dest_y;
-	
-		// set the bounding rect of the char to render
-		c = str[i];
-		if (c >= 32 && c <= 127) {
-			src.x = ((c-32) % 16) * font_width;
-			src.y = ((c-32) / 16) * font_height;
-			src.w = width[c];
-		
-			// draw the font
-			SDL_BlitSurface(sprites[color], &src, target, &dest);
-		
-			// move dest
-			dest_x = dest_x + width[c] + kerning;
-		}
-	}
+	// render and blit the text
+	SDL_Rect dest;
+	dest.x = dest_x;
+	dest.y = dest_y;
+
+	const char* char_text = text.c_str(); //makes it so SDL_ttf functions can read it
+
+	ttf = TTF_RenderUTF8_Blended(font, char_text, colors[color]);
+
+	if (ttf != NULL) SDL_BlitSurface(ttf, NULL, target, &dest);
 }
 
 /**
  * Word wrap to width
  */
 void FontEngine::render(string text, int x, int y, int justify, SDL_Surface *target, int width, int color) {
-	
+
 	cursor_y = y;
 	string segment;
 	string fulltext;
@@ -214,7 +166,7 @@ void FontEngine::render(string text, int x, int y, int justify, SDL_Surface *tar
 		
 		if (calc_length(builder) > width) {
 			render(builder_prev, x, cursor_y, justify, target, color);
-			cursor_y += line_height;
+			cursor_y += getHeight();
 			builder_prev = "";
 			builder = segment + " ";
 		}
@@ -227,13 +179,14 @@ void FontEngine::render(string text, int x, int y, int justify, SDL_Surface *tar
 	}
 
 	render(builder, x, cursor_y, justify, target, color);
-	cursor_y += line_height;
+	cursor_y += getHeight();
 
 }
 
 
 FontEngine::~FontEngine() {
-	for (int i=0; i<5; i++)
-		SDL_FreeSurface(sprites[i]);
+	SDL_FreeSurface(ttf);
+	TTF_CloseFont(font);
+	TTF_Quit();
 }
 
