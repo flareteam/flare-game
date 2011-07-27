@@ -28,6 +28,9 @@ FontEngine::FontEngine() {
 			if (infile.key == "font_regular"){
 				font_path = infile.val;
 			}
+			if (infile.key == "ptsize"){
+				font_height = atoi(infile.val.c_str());
+			}
 		}
 	}
 	font_path = PATH_DATA + "fonts/" + font_path;
@@ -154,6 +157,8 @@ void FontEngine::render(string text, int x, int y, int justify, SDL_Surface *tar
 	ttf = TTF_RenderUTF8_Blended(font, char_text, colors[color]);
 
 	if (ttf != NULL) SDL_BlitSurface(ttf, NULL, target, &dest);
+	SDL_FreeSurface(ttf);
+	ttf = NULL;
 }
 
 /**
