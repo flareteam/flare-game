@@ -8,6 +8,7 @@
  */
 
 #include "FontEngine.h"
+#include "FileParser.h"
 #include <iostream>
 
 FontEngine::FontEngine() {
@@ -19,8 +20,18 @@ FontEngine::FontEngine() {
 		exit(2);
 	}
 
-	// load Liberation Sans Regular
-	font = TTF_OpenFont("fonts/LiberationSans-Regular.ttf", font_height);
+	// load the font
+	string font_path;
+	FileParser infile;
+	if (infile.open(PATH_DATA + "engine/font_settings.txt")) {
+		while (infile.next()) {
+			if (infile.key == "font_regular"){
+				font_path = infile.val;
+			}
+		}
+	}
+	font_path = PATH_DATA + "fonts/" + font_path;
+	font = TTF_OpenFont(font_path.c_str(), font_height);
 	if(!font) printf("TTF_OpenFont: %s\n", TTF_GetError());
 
 	// calculate the optimal line height
