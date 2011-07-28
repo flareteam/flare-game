@@ -17,14 +17,14 @@ Forums    http://opengameart.org/forums/flare
 DEPENDENCIES
 ============
 
-To build flare you need the 1.2 Development Libraries for SDL, SDL_image, and SDL_mixer.
+To build flare you need the 1.2 Development Libraries for SDL, SDL_image, SDL_mixer, and SDL_ttf
 To run flare you need the equivalent 1.2 Runtime Libraries.
 
 http://www.libsdl.org/download-1.2.php
 
 Here's an example of how to install the dependencies for Ubuntu:
 
-sudo apt-get install libsdl1.2-dev libsdl-image1.2-dev libsdl-mixer1.2-dev
+sudo apt-get install libsdl1.2-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf1.2-dev
 
 Additionally, for easy building I recommend using cmake and make.
 
@@ -46,10 +46,10 @@ or, BUILDING WITH g++
 If you prefer building directly with C++, the command will be something like this.
 
 Windows plus MinGW (depending on where your SDL dev headers are)
-g++ -I C:\MinGW\include\SDL src\*.cpp -o flare.exe -lmingw32 -lSDLmain -lSDL -lSDL_image -lSDL_mixer
+g++ -I C:\MinGW\include\SDL src\*.cpp -o flare.exe -lmingw32 -lSDLmain -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf
 
 Linux (depending on where your SDL includes are)
-g++ -I /usr/include/SDL src/*.cpp -o flare -lSDL -lSDL_image -lSDL_mixer
+g++ -I /usr/include/SDL src/*.cpp -o flare -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf
 
 
 RUNNING FLARE
