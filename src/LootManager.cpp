@@ -9,11 +9,12 @@
  
 #include "LootManager.h"
  
-LootManager::LootManager(ItemDatabase *_items, MenuTooltip *_tip, EnemyManager *_enemies, MapIso *_map) {
+LootManager::LootManager(ItemDatabase *_items, MenuTooltip *_tip, EnemyManager *_enemies, MapIso *_map, MessageEngine *_msg) {
 	items = _items;
 	tip = _tip;
 	enemies = _enemies; // we need to be able to read loot state when creatures die
 	map = _map; // we need to be able to read loot that drops from map containers
+	msg = _msg;
 	
 	tooltip_margin = 32; // pixels between loot drop center and label
 	
@@ -219,7 +220,7 @@ void LootManager::renderTooltips(Point cam) {
 			else {
 				td.num_lines = 1;
 				td.colors[0] = FONT_WHITE;
-				ss << loot[i].gold << " Gold";
+				ss << msg->get("currency", loot[i].gold);
 				td.lines[0] = ss.str();
 				ss.str("");
 			}

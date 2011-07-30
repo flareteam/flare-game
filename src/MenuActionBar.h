@@ -18,6 +18,7 @@
 #include "PowerManager.h"
 #include "FontEngine.h"
 #include "StatBlock.h"
+#include "MessageEngine.h"
 #include <string>
 #include <sstream>
 
@@ -38,6 +39,7 @@ private:
 	PowerManager *powers;
 	InputState *inp;
 	FontEngine *font;
+	MessageEngine *msg;
 	SDL_Rect src;
 	SDL_Rect label_src;
 	
@@ -46,7 +48,7 @@ private:
 	
 public:
 
-	MenuActionBar(SDL_Surface *_screen, FontEngine *_font, InputState *_inp, PowerManager *_powers, StatBlock *hero, SDL_Surface *icons);
+	MenuActionBar(SDL_Surface *_screen, FontEngine *_font, InputState *_inp, PowerManager *_powers, StatBlock *hero, SDL_Surface *icons, MessageEngine *_msg);
 	~MenuActionBar();
 	void loadGraphics();
 	void renderIcon(int icon_id, int x, int y);

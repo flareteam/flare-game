@@ -18,6 +18,7 @@
 #include "MenuTooltip.h"
 #include "PowerManager.h"
 #include "WidgetButton.h"
+#include "MessageEngine.h"
 #include <string>
 #include <sstream>
 
@@ -30,7 +31,8 @@ private:
 	FontEngine *font;
 	StatBlock *stats;
 	PowerManager *powers;
-	
+	MessageEngine *msg;
+
 	SDL_Surface *background;
 	SDL_Surface *powers_step;
 	SDL_Surface *powers_unlock;
@@ -40,7 +42,7 @@ private:
 	void displayBuild(int value, int x);
 
 public:
-	MenuPowers(SDL_Surface *_screen, InputState *_inp, FontEngine *_font, StatBlock *_stats, PowerManager *_powers);
+	MenuPowers(SDL_Surface *_screen, InputState *_inp, FontEngine *_font, StatBlock *_stats, PowerManager *_powers, MessageEngine *_msg);
 	~MenuPowers();
 	void logic();
 	void render();

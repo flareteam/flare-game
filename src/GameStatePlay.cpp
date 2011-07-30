@@ -29,13 +29,13 @@ GameStatePlay::GameStatePlay(SDL_Surface *_screen, InputState *_inp, FontEngine 
 	// construct gameplay objects
 	powers = new PowerManager();
 	font = _font;
-	camp = new CampaignManager();
+	camp = new CampaignManager(msg);
 	map = new MapIso(_screen, camp, _inp, font);
-	pc = new Avatar(powers, _inp, map);
+	pc = new Avatar(powers, _inp, map, msg);
 	enemies = new EnemyManager(powers, map);
 	hazards = new HazardManager(powers, pc, enemies);
-	menu = new MenuManager(powers, _screen, _inp, font, &pc->stats, camp);
-	loot = new LootManager(menu->items, menu->tip, enemies, map);
+	menu = new MenuManager(powers, _screen, _inp, font, &pc->stats, camp, msg);
+	loot = new LootManager(menu->items, menu->tip, enemies, map, msg);
 	npcs = new NPCManager(map, menu->tip, loot, menu->items);
 	quests = new QuestLog(camp, menu->log);
 

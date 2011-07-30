@@ -7,7 +7,9 @@
 
 #include "MenuExit.h"
 
-MenuExit::MenuExit(SDL_Surface *_screen, InputState *_inp, FontEngine *_font) : Menu(_screen, inp = _inp, _font) {
+MenuExit::MenuExit(SDL_Surface *_screen, InputState *_inp, FontEngine *_font, MessageEngine *_msg) : Menu(_screen, inp = _inp, _font) {
+	msg = _msg;
+
 	exitClicked = false;
 
 	window_area.w = 192;
@@ -61,7 +63,7 @@ void MenuExit::render() {
 	src.h = window_area.h;
 	SDL_BlitSurface(background, &src, screen, &window_area);
 
-	font->render("Save and exit to title?", window_area.x + window_area.w/2, window_area.y + 10, JUSTIFY_CENTER, screen, FONT_WHITE);
+	font->render(msg->get("exit_dialog"), window_area.x + window_area.w/2, window_area.y + 10, JUSTIFY_CENTER, screen, FONT_WHITE);
 
 	buttonExit->render();
 	buttonClose->render();

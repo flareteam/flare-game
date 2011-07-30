@@ -11,7 +11,7 @@
 #include "MenuConfirm.h"
 
 GameStateLoad::GameStateLoad(SDL_Surface *_screen, InputState *_inp, FontEngine *_font, MessageEngine *_msg) : GameState(_screen, _inp, _font, _msg) {
-	items = new ItemDatabase(screen, font);
+	items = new ItemDatabase(screen, font, msg);
 	portrait = NULL;
 	loading_requested = false;
 	loading = false;

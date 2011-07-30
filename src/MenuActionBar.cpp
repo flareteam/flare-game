@@ -9,13 +9,14 @@
  
 #include "MenuActionBar.h"
 
-MenuActionBar::MenuActionBar(SDL_Surface *_screen, FontEngine *_font, InputState *_inp, PowerManager *_powers, StatBlock *_hero, SDL_Surface *_icons) {
+MenuActionBar::MenuActionBar(SDL_Surface *_screen, FontEngine *_font, InputState *_inp, PowerManager *_powers, StatBlock *_hero, SDL_Surface *_icons, MessageEngine *_msg) {
 	screen = _screen;
 	font = _font;
 	inp = _inp;
 	powers = _powers;
 	hero = _hero;
 	icons = _icons;
+	msg = _msg;
 	
 	src.x = 0;
 	src.y = 0;
@@ -209,19 +210,19 @@ TooltipData MenuActionBar::checkTooltip(Point mouse) {
 	
 	//int offset_x = (VIEW_W - 640)/2;
 	if (isWithin(menus[0], mouse)) {
-		tip.lines[tip.num_lines++] = "Character Menu (C)";
+		tip.lines[tip.num_lines++] = msg->get("character_tooltip");
 		return tip;
 	}
 	if (isWithin(menus[1], mouse)) {
-		tip.lines[tip.num_lines++] = "Inventory Menu (I)";
+		tip.lines[tip.num_lines++] = msg->get("inventory_tooltip");
 		return tip;
 	}
 	if (isWithin(menus[2], mouse)) {
-		tip.lines[tip.num_lines++] = "Powers Menu (P)";
+		tip.lines[tip.num_lines++] = msg->get("power_tooltip");
 		return tip;
 	}
 	if (isWithin(menus[3], mouse)) {
-		tip.lines[tip.num_lines++] = "Log Menu (L)";
+		tip.lines[tip.num_lines++] = msg->get("log_tooltip");
 		return tip;
 	}
 	for (int i=0; i<12; i++) {

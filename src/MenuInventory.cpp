@@ -7,13 +7,14 @@
 
 #include "MenuInventory.h"
 
-MenuInventory::MenuInventory(SDL_Surface *_screen, InputState *_inp, FontEngine *_font, ItemDatabase *_items, StatBlock *_stats, PowerManager *_powers) {
+MenuInventory::MenuInventory(SDL_Surface *_screen, InputState *_inp, FontEngine *_font, ItemDatabase *_items, StatBlock *_stats, PowerManager *_powers, MessageEngine *_msg) {
 	screen = _screen;
 	inp = _inp;
 	font = _font;
 	items = _items;
 	stats = _stats;
 	powers = _powers;
+	msg = _msg;
 	
 	visible = false;
 	loadGraphics();
@@ -86,7 +87,6 @@ void MenuInventory::render() {
 	if (!visible) return;
 	
 	SDL_Rect src;
-	stringstream ss;
 	
 	// background
 	src.x = 0;
@@ -99,15 +99,12 @@ void MenuInventory::render() {
 	closeButton->render();
 	
 	// text overlay
-	// TODO: translate()
-	font->render("Inventory", window_area.x+160, window_area.y+8, JUSTIFY_CENTER, screen, FONT_WHITE);
-	font->render("Main Hand", window_area.x+64, window_area.y+34, JUSTIFY_CENTER, screen, FONT_WHITE);
-	font->render("Body", window_area.x+128, window_area.y+34, JUSTIFY_CENTER, screen, FONT_WHITE);
-	font->render("Off Hand", window_area.x+192, window_area.y+34, JUSTIFY_CENTER, screen, FONT_WHITE);
-	font->render("Artifact", window_area.x+256, window_area.y+34, JUSTIFY_CENTER, screen, FONT_WHITE);
-	
-	ss << gold << " Gold";
-	font->render(ss.str(), window_area.x+288, window_area.y+114, JUSTIFY_RIGHT, screen, FONT_WHITE);
+	font->render(msg->get("inventory"), window_area.x+160, window_area.y+8, JUSTIFY_CENTER, screen, FONT_WHITE);
+	font->render(msg->get("type_main"), window_area.x+64, window_area.y+34, JUSTIFY_CENTER, screen, FONT_WHITE);
+	font->render(msg->get("type_body"), window_area.x+128, window_area.y+34, JUSTIFY_CENTER, screen, FONT_WHITE);
+	font->render(msg->get("type_off"), window_area.x+192, window_area.y+34, JUSTIFY_CENTER, screen, FONT_WHITE);
+	font->render(msg->get("type_artifact"), window_area.x+256, window_area.y+34, JUSTIFY_CENTER, screen, FONT_WHITE);
+	font->render(msg->get("currency", gold), window_area.x+288, window_area.y+114, JUSTIFY_RIGHT, screen, FONT_WHITE);
 
 	inventory[EQUIPMENT].render();
 	inventory[CARRIED].render();
@@ -138,8 +135,8 @@ TooltipData MenuInventory::checkTooltip(Point mouse) {
 	}
 	else if (mouse.x >= window_area.x + 224 && mouse.y >= window_area.y+96 && mouse.x < window_area.x+288 && mouse.y < window_area.y+128) {
 		// TODO: I think we should add a little "?" icon in a corner, and show this title on it.
-		tip.lines[tip.num_lines++] = "Use SHIFT to move only one item.";
-		tip.lines[tip.num_lines++] = "CTRL-click a carried item to sell it.";
+		tip.lines[tip.num_lines++] = msg->get("shift_tooltip");
+		tip.lines[tip.num_lines++] = msg->get("ctrl_tooltip");
 	}
 	
 	return tip;
@@ -302,7 +299,7 @@ void MenuInventory::activate(InputState * input) {
 		}
 		else {
 			// let player know this can only be used from the action bar
-			log_msg = "This item can only be used from the action bar.";
+			log_msg = msg->get("item_actionbar_only");
 		}
 		
 	}

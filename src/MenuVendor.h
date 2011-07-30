@@ -19,6 +19,7 @@
 #include "StatBlock.h"
 #include "WidgetButton.h"
 #include "NPC.h"
+#include "MessageEngine.h"
 #include <string>
 #include <sstream>
 
@@ -31,6 +32,7 @@ private:
 	FontEngine *font;
 	StatBlock *stats;
 	InputState *inp;
+	MessageEngine *msg;
 	WidgetButton *closeButton;
 
 	void loadGraphics();
@@ -38,7 +40,7 @@ private:
 	MenuItemStorage stock; // items the vendor currently has in stock
 
 public:
-	MenuVendor(SDL_Surface *screen, InputState *_inp, FontEngine *font, ItemDatabase *items, StatBlock *stats);
+	MenuVendor(SDL_Surface *screen, InputState *_inp, FontEngine *font, ItemDatabase *items, StatBlock *stats, MessageEngine *msg);
 	~MenuVendor();
 
 	NPC *npc;

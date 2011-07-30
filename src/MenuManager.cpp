@@ -7,7 +7,7 @@
 
 #include "MenuManager.h"
 
-MenuManager::MenuManager(PowerManager *_powers, SDL_Surface *_screen, InputState *_inp, FontEngine *_font, StatBlock *_stats, CampaignManager *_camp) {
+MenuManager::MenuManager(PowerManager *_powers, SDL_Surface *_screen, InputState *_inp, FontEngine *_font, StatBlock *_stats, CampaignManager *_camp, MessageEngine *_msg) {
 	powers = _powers;
 	screen = _screen;
 	inp = _inp;
@@ -15,25 +15,26 @@ MenuManager::MenuManager(PowerManager *_powers, SDL_Surface *_screen, InputState
 	stats = _stats;
 	powers = _powers;
 	camp = _camp;
+	msg = _msg;
 
 	loadIcons();
 
-	items = new ItemDatabase(screen, font);
+	items = new ItemDatabase(screen, font, msg);
 
-	chr = new MenuCharacter(screen, inp, font, stats);
-	inv = new MenuInventory(screen, inp, font, items, stats, powers);
-	pow = new MenuPowers(screen, inp, font, stats, powers);
-	log = new MenuLog(screen, inp, font);
+	chr = new MenuCharacter(screen, inp, font, stats, msg);
+	inv = new MenuInventory(screen, inp, font, items, stats, powers, msg);
+	pow = new MenuPowers(screen, inp, font, stats, powers, msg);
+	log = new MenuLog(screen, inp, font, msg);
 	hudlog = new MenuHUDLog(screen, font);
-	act = new MenuActionBar(screen, font, inp, powers, stats, icons);
+	act = new MenuActionBar(screen, font, inp, powers, stats, icons, msg);
 	hpmp = new MenuHPMP(screen, font);
 	tip = new MenuTooltip(font, screen);
 	mini = new MenuMiniMap(screen);
 	xp = new MenuExperience(screen, font);
-	enemy = new MenuEnemy(screen, font);
-	vendor = new MenuVendor(screen, inp, font, items, stats);
+	enemy = new MenuEnemy(screen, font, msg);
+	vendor = new MenuVendor(screen, inp, font, items, stats, msg);
 	talker = new MenuTalker(screen, inp, font, camp);
-	exit = new MenuExit(screen, inp, font);
+	exit = new MenuExit(screen, inp, font, msg);
 
 	pause = false;
 	dragging = false;

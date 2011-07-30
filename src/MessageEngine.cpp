@@ -12,6 +12,7 @@
 
 #include "MessageEngine.h"
 #include <sstream>
+#include <iostream>
 
 MessageEngine::MessageEngine() {
 	FileParser infile;
@@ -26,38 +27,44 @@ MessageEngine::MessageEngine() {
  * They differ only on which variables they replace in the string - strings replace %s, integers replace %d
  */
 string MessageEngine::get(string key) {
-	return messages[key];
+	string msg = messages[key];
+	if (msg == "") cout << "Warning! Message '" << key << "' not found in /engine/messages.txt" << endl;
+	return msg;
 }
 
 string MessageEngine::get(string key, int i) {
 	string msg = messages[key];
+	if (msg == "") cout << "Warning! Message '" << key << "' not found in /engine/messages.txt" << endl;
 	int index = msg.find("%d");
-	msg = msg.replace(index, 2, str(i));
+	if (index != string::npos) msg = msg.replace(index, 2, str(i));
 	return msg;
 }
 
 string MessageEngine::get(string key, string s) {
 	string msg = messages[key];
+	if (msg == "") cout << "Warning! Message '" << key << "' not found in /engine/messages.txt" << endl;
 	int index = msg.find("%s");
-	msg = msg.replace(index, 2, s);
+	if (index != string::npos) msg = msg.replace(index, 2, s);
 	return msg;
 }
 
 string MessageEngine::get(string key, int i, string s) {
 	string msg = messages[key];
+	if (msg == "") cout << "Warning! Message '" << key << "' not found in /engine/messages.txt" << endl;
 	int index = msg.find("%d");
-	msg = msg.replace(index, 2, str(i));
+	if (index != string::npos) msg = msg.replace(index, 2, str(i));
 	index = msg.find("%s");
-	msg = msg.replace(index, 2, s);
+	if (index != string::npos) msg = msg.replace(index, 2, s);
 	return msg;
 }
 
 string MessageEngine::get(string key, int i, int j) {
 	string msg = messages[key];
+	if (msg == "") cout << "Warning! Message '" << key << "' not found in /engine/messages.txt" << endl;
 	int index = msg.find("%d");
-	msg = msg.replace(index, 2, str(i));
+	if (index != string::npos) msg = msg.replace(index, 2, str(i));
 	index = msg.find("%d");
-	msg = msg.replace(index, 2, str(j));
+	if (index != string::npos) msg = msg.replace(index, 2, str(j));
 	return msg;
 }
 

@@ -22,6 +22,7 @@
 #include "StatBlock.h"
 #include "Hazard.h"
 #include "PowerManager.h"
+#include "MessageEngine.h"
 
 // AVATAR State enum
 const int AVATAR_STANCE = 0;
@@ -38,6 +39,7 @@ private:
 	
 	PowerManager *powers;
 	InputState *inp;
+	MessageEngine *msg;
 
 	bool lockSwing;
 	bool lockCast;
@@ -56,7 +58,7 @@ private:
 	string img_off;
 
 public:
-	Avatar(PowerManager *_powers, InputState *_inp, MapIso *_map);
+	Avatar(PowerManager *_powers, InputState *_inp, MapIso *_map, MessageEngine *_msg);
 	~Avatar();
 	
 	void init();
