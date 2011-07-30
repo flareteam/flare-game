@@ -1,0 +1,204 @@
+# Use the patterns %d and %s for variable digits and strings, respectively.
+# Note: Pay attention to spacing here. The internal spaces have been taken out to accomodate variations in languages.
+#       You will need to manually provide the spaces in this file.
+
+# CHARACTER (Avatar.cpp)
+death=You are defeated.  You lose half your gold.  Press Enter to continue.
+level_up=Congratulations, you have reached level %d!
+attribute_increase= You may increase one attribute through the Character Menu.
+
+# REWARDS (CampaignManager.cpp)
+reward_item_begin=You receive %s.
+reward_currency=You receive %d gold.
+reward_xp=You receive %d XP.
+
+# LOADING SCREEN (GameStateLoad.cpp)
+delete_save_button=Delete Save
+delete_save_dialog=Delete this save?
+exit_to_title_button=Exit to Title
+choose_slot_button=Choose a Slot
+new_game_button=New Game
+load_game_button=Load Game
+loading_game_status=Loading saved game...
+entering_game_status=Entering game world...
+character_level_class=Level %d %s
+empty_slot=Empty Slot
+
+# NEW GAME SCREEN (GameStateNew.cpp)
+cancel_button=Cancel
+create_button=Create Character
+choose_portrait=Choose a Portrait
+choose_name=Choose a Name
+
+# PLAY MESSAGES (GameStatePlay.cpp)
+inventory_full=Inventory is full.
+
+# TITLE SCREEN (GameStateTitle.cpp)
+play_button=Play Game
+exit_button=Exit Game
+version_number=Flare Alpha v0.14.1 dev
+
+# ITEMS (ItemDatabase.cpp)
+type_main=Main Hand
+type_body=Body
+type_off=Off Hand
+type_artifact=Artifact
+type_consumable=Consumable
+type_gem=Gem
+type_quest=Quest Item
+damage_melee_single=Melee damage: %d
+damage_melee_range=Melee damage: %d-%d
+damage_ranged_single=Ranged damage: %d
+damage_ranged_range=Ranged damage: %d-%d
+damage_mental_single=Mental damage: %d
+damage_mental_range=Mental damage: %d-%d
+stat_absorb=Absorb: %d
+stat_absorb_range=Absorb: %d-%d
+stat_bonus=Increases %s by %d
+stat_malus=Decreases %s by %d
+requirement_physical=Requires Physical %d
+requirement_mental=Requires Mental %d
+requirement_offense=Requires Offense %d
+requirement_defense=Requires Defense %d
+buy_price_single=Buy Price: %d gold
+buy_price_multiple=Buy Price: %d gold each
+sell_price_single=Sell Price: %d gold
+sell_price_multiple=Sell Price: %d gold each
+
+# ITEMS, CONTINUED (LootManager.cpp)
+currency=%d Gold
+
+# GENERAL GAME (main.cpp)
+window_title=Flare
+
+# ACTION BAR (MenuActionBar.cpp)
+character_tooltip=Character Menu (C)
+inventory_tooltip=Inventory Menu (I)
+power_tooltip=Power Menu (P)
+log_tooltip=Log Menu (L)
+
+# CHARACTER MENU (MenuCharacter.cpp)
+character=Character
+name=Name
+level=Level
+physical=Physical
+mental=Mental
+offense=Offense
+defense=Defense
+total_hp=Total HP
+regen=Regen
+total_mp=Total MP
+#regen=Regen
+accuracy_vs_def_1=Accuracy vs. Def 1
+vs_def_5=vs. Def 5
+avoidance_vs_off_1=Avoidance vs. Off 1
+vs_off_5=vs. Off 5
+main_weapon=Main Weapon
+ranged_weapon=Ranged Weapon
+crit_chance=Crit Chance
+absorb=Absorb
+fire_resist=Fire Resist
+ice_resist=Ice Resist
+physical_description=Physical (P) increases melee weapon proficiency and total HP.
+mental_description=Mental (M) increases mental weapon proficiency and total MP.
+offense_description=Offense (O) increases ranged weapon proficiency and accuracy.
+defense_description=Defense (D) increases armor proficiency and avoidance.
+stat_display=base (%d), bonus (%d)
+requires_physical=Requires Physical %d
+requires_mental=Requires Mental %d
+requires_offense=Requires Offense %d
+requires_defense=Requires Defense %d
+physical_2_proficiency=Dagger Proficiency
+physical_3_proficiency=Shortsword Proficiency
+physical_4_proficiency=Longsword Proficiency
+physical_5_proficiency=Greatsword Proficiency
+mental_2_proficiency=Wand Proficiency
+mental_3_proficiency=Rod Proficiency
+mental_4_proficiency=Staff Proficiency
+mental_5_proficiency=Greatstaff Proficiency
+offense_2_proficiency=Slingshot Proficiency
+offense_3_proficiency=Shortbow Proficiency
+offense_4_proficiency=Longbow Proficiency
+offense_5_proficiency=Greatbow Proficiency
+defense_2_proficiency=Light Armor Proficiency
+defense_3_proficiency=Light Shield Proficiency
+defense_4_proficiency=Heavy Armor Proficiency
+defense_5_proficiency=Heavy Shield Proficiency
+physical_hp_bonus=Each point of Physical grants +8 HP
+level_hp_bonus=Each level grants +2 HP
+hp_regen_description=Ticks of HP regen per minute
+physical_hp_regen_bonus=Each point of Physical grants +4 HP regen
+level_hp_regen_bonus=Each level grants +1 HP regen
+mental_mp_bonus=Each point of Mental grants +8 MP
+level_mp_bonus=Each level grants +2 MP
+mp_regen_description=Ticks of MP regen per minute
+mental_mp_regen_bonus=Each point of Mental grants +4 MP regen
+level_mp_regen_bonus=Each level grants +1 MP regen
+offense_accuracy_bonus=Each point of Offense grants +5 accuracy
+level_accuracy_bonus=Each level grants +1 accuracy
+defense_avoidance_bonus=Each point of Defense grants +5 avoidance
+level_avoidance_bonus=Each level grants +1 avoidance
+
+# ENEMIES (MenuEnemy.cpp)
+enemy_info=%s level %d
+dead=Dead
+
+# EXIT CONFIRM (MenuExit.cpp)
+exit_dialog=Save and exit to title?
+
+# INVENTORY MENU (MenuInventory.cpp)
+inventory=Inventory
+# type_main=Main Hand
+# type_body=Body
+# type_off=Off Hand
+# type_artifact=Artifact
+#currency=%d Gold
+shift_tooltip=Use SHIFT to move only one item.
+ctrl_tooltip=CTRL-click a carried item to sell it.
+item_action_bar_only=This item can only be used from the action bar.
+
+# LOG MENU (MenuLog.cpp)
+messages_tab=Messages
+quests_tab=Quests
+achievements_tab=Achievements
+statistics_tab=Statistics
+
+# POWERS (MenuPowers.cpp)
+powers=Powers
+# physical=Physical
+# mental=Mental
+# offense=Offense
+# defense=Defense
+physical_offense_description=Physical + Offense grants melee and ranged attacks
+physical_defense_description=Physical + Defense grants melee protection
+mental_offense_description=Mental + Offense grants elemental spell attacks
+mental_defense_description=Mental + Defense grants healing and magical protection
+requires_physical_weapon=Requires a physical weapon
+requires_mental_weapon=Requires a mental weapon
+requires_offense_weapon=Requires an offense weapon
+physical_offense=Physical Offense %d
+physical_defense=Physical Defense %d
+mental_offense=Mental Offense %d
+mental_defense=Mental Defense %d
+mp_cost=Costs %d MP
+cooldown_seconds=Cooldown: %d seconds
+
+# VENDORS (MenuVendor.cpp)
+vendor=Vendor
+
+# CHARACTER CLASSES (StatBlock.cpp)
+class_grand_master=Grand Master
+class_master=Master
+class_physical=Warrior
+class_mental=Wizard
+class_offense=Ranger
+class_defense=Paladin
+class_physical_offense=Rogue
+class_physical_defense=Knight
+class_mental_offense=Shaman
+class_mental_defense=Cleric
+class_physical_mental=Battle Mage
+class_offense_defense=Heavy Archer
+class_generic=Adventurer
+
+# Phew! You made it!
