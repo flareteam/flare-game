@@ -12,19 +12,19 @@
 #include "GameStateLoad.h"
 #include "GameStatePlay.h"
 
-GameStateNew::GameStateNew(SDL_Surface *_screen, InputState *_inp, FontEngine *_font) : GameState(_screen, _inp, _font) {
+GameStateNew::GameStateNew(SDL_Surface *_screen, InputState *_inp, FontEngine *_font, MessageEngine *_msg) : GameState(_screen, _inp, _font, _msg) {
 	game_slot = 0;
 	option_count = 0;
 	current_option = 0;
 	portrait_image = NULL;
 	
 	button_exit = new WidgetButton(screen, font, inp, "images/menus/buttons/button_default.png");
-	button_exit->label = "Cancel";
+	button_exit->label = msg->get("cancel_button");
 	button_exit->pos.x = VIEW_W_HALF - button_exit->pos.w/2;
 	button_exit->pos.y = VIEW_H - button_exit->pos.h;
 	
 	button_create = new WidgetButton(screen, font, inp, "images/menus/buttons/button_default.png");
-	button_create->label = "Create Character";
+	button_create->label = msg->get("create_button");
 	button_create->pos.x = VIEW_W_HALF + button_create->pos.w/2;
 	button_create->pos.y = VIEW_H - button_create->pos.h;
 
@@ -110,12 +110,12 @@ void GameStateNew::logic() {
 	}
 
 	if (button_exit->checkClick()) {
-		requestedGameState = new GameStateLoad(screen, inp, font);
+		requestedGameState = new GameStateLoad(screen, inp, font, msg);
 	}
 	
 	if (button_create->checkClick()) {
 		// start the new game
-		GameStatePlay* play = new GameStatePlay(screen, inp, font);
+		GameStatePlay* play = new GameStatePlay(screen, inp, font, msg);
 		play->pc->stats.base = base[current_option];
 		play->pc->stats.head = head[current_option];
 		play->pc->stats.portrait = portrait[current_option];
@@ -167,8 +167,8 @@ void GameStateNew::render() {
 	}
 	
 	// display labels
-	font->render("Choose a Portrait", VIEW_W_HALF, VIEW_H_HALF-176, JUSTIFY_CENTER, screen, FONT_GREY);
-	font->render("Choose a Name", VIEW_W_HALF, VIEW_H_HALF+168, JUSTIFY_CENTER, screen, FONT_GREY);
+	font->render(msg->get("choose_portrait"), VIEW_W_HALF, VIEW_H_HALF-176, JUSTIFY_CENTER, screen, FONT_GREY);
+	font->render(msg->get("choose_name"), VIEW_W_HALF, VIEW_H_HALF+168, JUSTIFY_CENTER, screen, FONT_GREY);
 	
 }
 

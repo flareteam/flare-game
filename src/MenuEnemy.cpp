@@ -9,9 +9,10 @@
 
 #include "MenuEnemy.h"
 
-MenuEnemy::MenuEnemy(SDL_Surface *_screen, FontEngine *_font) {
+MenuEnemy::MenuEnemy(SDL_Surface *_screen, FontEngine *_font, MessageEngine *_msg) {
 	screen = _screen;
 	font = _font;
+	msg = _msg;
 	loadGraphics();
 	enemy = NULL;
 	timeout = 0;
@@ -80,14 +81,13 @@ void MenuEnemy::render() {
 	
 	SDL_BlitSurface(bar_hp, &src, screen, &dest);
 	
+	font->render(msg->get("enemy_info", enemy->stats.level, enemy->stats.name), VIEW_W_HALF, 4, JUSTIFY_CENTER, screen, FONT_WHITE);
 	stringstream ss;
-	ss << enemy->stats.name << " level " << enemy->stats.level;
-	font->render(ss.str(), VIEW_W_HALF, 4, JUSTIFY_CENTER, screen, FONT_WHITE);
 	ss.str("");
 	if (enemy->stats.hp > 0)
 		ss << enemy->stats.hp << "/" << enemy->stats.maxhp;
 	else
-		ss << "Dead";
+		ss << msg->get("dead");
 	font->render(ss.str(), VIEW_W_HALF, 19, JUSTIFY_CENTER, screen, FONT_WHITE);
 	
 	//SDL_UpdateRects(screen, 1, &dest);

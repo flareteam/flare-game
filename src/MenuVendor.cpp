@@ -7,12 +7,13 @@
 
 #include "MenuVendor.h"
 
-MenuVendor::MenuVendor(SDL_Surface *_screen, InputState *_inp, FontEngine *_font, ItemDatabase *_items, StatBlock *_stats) {
+MenuVendor::MenuVendor(SDL_Surface *_screen, InputState *_inp, FontEngine *_font, ItemDatabase *_items, StatBlock *_stats, MessageEngine *_msg) {
 	screen = _screen;
 	inp = _inp;
 	font = _font;
 	items = _items;
 	stats = _stats;
+	msg = _msg;
 
 	int offset_y = (VIEW_H - 416)/2;
 
@@ -77,8 +78,7 @@ void MenuVendor::render() {
 	closeButton->render();
 
 	// text overlay
-	// TODO: translate()
-	font->render("Vendor", 160, offset_y+8, JUSTIFY_CENTER, screen, FONT_WHITE);
+	font->render(msg->get("vendor"), 160, offset_y+8, JUSTIFY_CENTER, screen, FONT_WHITE);
 	font->render(npc->name, 160, offset_y+24, JUSTIFY_CENTER, screen, FONT_WHITE);
 
 	// show stock

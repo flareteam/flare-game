@@ -17,10 +17,12 @@ using namespace std;
 #include "Settings.h"
 #include "InputState.h"
 #include "GameSwitcher.h"
+#include "MessageEngine.h"
 
 SDL_Surface *screen;
 InputState *inps;
 GameSwitcher *gswitch;
+MessageEngine *msg;
 
 static void init() {
 
@@ -39,6 +41,9 @@ static void init() {
 	else
 		flags = flags | SDL_SWSURFACE;
 	
+	// Load Messages
+	msg = new MessageEngine();
+
 	// Create window
 	screen = SDL_SetVideoMode (VIEW_W, VIEW_H, 0, flags);
 	if (screen == NULL) {
@@ -61,15 +66,15 @@ static void init() {
 	  }
 	  SDL_JoystickOpen(0);
 	}
-	
-	SDL_WM_SetCaption("Flare", "Flare");
+	const char* title = msg->get("window_title").c_str();
+	SDL_WM_SetCaption(title, title);
 	
 	// Set sound effects volume from settings file
 	Mix_Volume(-1, SOUND_VOLUME);
 
 	/* Shared game units setup */
 	inps = new InputState();
-	gswitch = new GameSwitcher(screen, inps);
+	gswitch = new GameSwitcher(screen, inps, msg);
 }
 
 static void mainLoop () {
@@ -123,6 +128,7 @@ int main(int argc, char *argv[])
 	// TODO: halt all sounds here before freeing music/chunks
 	delete gswitch;
 	delete inps;
+	delete msg;
 	SDL_FreeSurface(screen);
 	Mix_CloseAudio();
 	SDL_Quit();

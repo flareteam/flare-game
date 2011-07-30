@@ -7,10 +7,11 @@
 
 #include "MenuLog.h"
 
-MenuLog::MenuLog(SDL_Surface *_screen, InputState *_inp, FontEngine *_font) {
+MenuLog::MenuLog(SDL_Surface *_screen, InputState *_inp, FontEngine *_font, MessageEngine *_msg) {
 	screen = _screen;
 	inp = _inp;
 	font = _font;
+	msg = _msg;
 
 	visible = false;
 	
@@ -18,12 +19,11 @@ MenuLog::MenuLog(SDL_Surface *_screen, InputState *_inp, FontEngine *_font) {
 		log_count[i] = 0;
 	}
 	active_log = 0;
-	
-	// TODO: move to config file with translation support
-	tab_labels[LOG_TYPE_MESSAGES] = "Messages";
-	tab_labels[LOG_TYPE_QUESTS] = "Quests";
-	tab_labels[LOG_TYPE_ACHIEVEMENTS] = "Achievements";
-	tab_labels[LOG_TYPE_STATISTICS] = "Statistics";
+
+	tab_labels[LOG_TYPE_MESSAGES] = msg->get("messages_tab");
+	tab_labels[LOG_TYPE_QUESTS] = msg->get("quests_tab");
+	tab_labels[LOG_TYPE_ACHIEVEMENTS] = msg->get("achievements_tab");
+	tab_labels[LOG_TYPE_STATISTICS] = msg->get("statistics_tab");
 
 	// TODO: allow menu size to be configurable
 	menu_area.x = 0;

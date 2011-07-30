@@ -15,6 +15,7 @@
 #include "StatBlock.h"
 #include "Utils.h"
 #include "FontEngine.h"
+#include "MessageEngine.h"
 #include <string>
 #include <sstream>
 #include "Enemy.h"
@@ -25,10 +26,11 @@ class MenuEnemy {
 private:
 	SDL_Surface *screen;
 	FontEngine *font;
+	MessageEngine *msg;
 	SDL_Surface *background;
 	SDL_Surface *bar_hp;
 public:
-	MenuEnemy(SDL_Surface *_screen, FontEngine *_font);
+	MenuEnemy(SDL_Surface *_screen, FontEngine *_font, MessageEngine *_msg);
 	~MenuEnemy();
 	Enemy *enemy;
 	void loadGraphics();

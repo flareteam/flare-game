@@ -25,6 +25,7 @@
 #include "Settings.h"
 #include "GameState.h"
 #include "UtilsParsing.h"
+#include "MessageEngine.h"
 
 const int PLAYER_OPTION_MAX = 32;
 
@@ -50,7 +51,7 @@ private:
 	WidgetInput *input_name;
 
 public:
-	GameStateNew(SDL_Surface *_screen, InputState *_inp, FontEngine *_font);
+	GameStateNew(SDL_Surface *_screen, InputState *_inp, FontEngine *_font, MessageEngine *_msg);
 	~GameStateNew();
 	void logic();
 	void render();

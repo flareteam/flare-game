@@ -16,6 +16,7 @@
 #include "Utils.h"
 #include "FontEngine.h"
 #include "WidgetButton.h"
+#include "MessageEngine.h"
 
 const int MAX_LOG_MESSAGES = 100;
 
@@ -30,6 +31,7 @@ private:
 	SDL_Surface *screen;
 	InputState *inp;
 	FontEngine *font;
+	MessageEngine *msg;
 
 	SDL_Surface *background;
 	SDL_Surface *tab_active;
@@ -48,7 +50,7 @@ private:
 	int paragraph_spacing;
 	
 public:
-	MenuLog(SDL_Surface *screen, InputState *inp, FontEngine *font);
+	MenuLog(SDL_Surface *screen, InputState *inp, FontEngine *font, MessageEngine *_msg);
 	~MenuLog();
 
 	void logic();

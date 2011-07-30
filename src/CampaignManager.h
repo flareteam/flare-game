@@ -15,14 +15,16 @@
 #include "UtilsParsing.h"
 #include "MenuItemStorage.h"
 #include "ItemDatabase.h"
+#include "MessageEngine.h"
 
 const int MAX_STATUS = 1024;
 
 class CampaignManager {
 private:
+	MessageEngine *msg;
 
 public:
-	CampaignManager();
+	CampaignManager(MessageEngine *_msg);
 	~CampaignManager();
 	
 	void clearAll();

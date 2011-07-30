@@ -29,6 +29,7 @@
 #include "ItemDatabase.h"
 #include "GameState.h"
 #include "MenuConfirm.h"
+#include "MessageEngine.h"
 
 const int GAME_SLOT_MAX = 4;
 
@@ -70,7 +71,7 @@ private:
 	int frame_ticker;
 	
 public:
-	GameStateLoad(SDL_Surface *_screen, InputState *_inp, FontEngine *_font);
+	GameStateLoad(SDL_Surface *_screen, InputState *_inp, FontEngine *_font, MessageEngine *_msg);
 	~GameStateLoad();
 
 	void logic();

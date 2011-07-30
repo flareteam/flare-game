@@ -20,6 +20,7 @@
 #include "PowerManager.h"
 #include "MenuItemStorage.h"
 #include "WidgetButton.h"
+#include "MessageEngine.h"
 #include <string>
 #include <sstream>
 
@@ -45,6 +46,7 @@ private:
 	FontEngine *font;
 	StatBlock *stats;
 	PowerManager *powers;
+	MessageEngine *msg;
 
 	void loadGraphics();
 	int areaOver(Point mouse);
@@ -54,7 +56,7 @@ private:
 	WidgetButton *closeButton;
 	
 public:
-	MenuInventory(SDL_Surface *screen, InputState *inp, FontEngine *font, ItemDatabase *items, StatBlock *stats, PowerManager *powers);
+	MenuInventory(SDL_Surface *screen, InputState *inp, FontEngine *font, ItemDatabase *items, StatBlock *stats, PowerManager *powers, MessageEngine *_msg);
 	~MenuInventory();
 	void logic();
 	void render();

@@ -14,19 +14,20 @@
  * @license GPL
  *
  */
- 
+
 #include "GameSwitcher.h"
 #include "GameStateTitle.h"
 #include "GameStateLoad.h"
 
-GameSwitcher::GameSwitcher(SDL_Surface *_screen, InputState *_inp) {
+GameSwitcher::GameSwitcher(SDL_Surface *_screen, InputState *_inp, MessageEngine *_msg) {
 	inp = _inp;
 	screen = _screen;
+	msg = _msg;
 		
 	font = new FontEngine();	
 
 	// The initial state is the title screen
-	currentState = new GameStateTitle(screen, inp, font);
+	currentState = new GameStateTitle(screen, inp, font, msg);
 	
 	done = false;
 	music = NULL;

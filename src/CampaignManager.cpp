@@ -9,7 +9,9 @@
 
 #include "CampaignManager.h"
 
-CampaignManager::CampaignManager() {
+CampaignManager::CampaignManager(MessageEngine *_msg) {
+
+	msg = _msg;
 
 	drop_stack.item = 0;
 	drop_stack.quantity = 0;
@@ -122,13 +124,11 @@ void CampaignManager::rewardItem(ItemStack istack) {
 	}
 	else {
 		carried_items->add(istack);
-	
-		stringstream ss;
-		ss.str("");
-		ss << "You receive " << items->items[istack.item].name;
-		if (istack.quantity > 1) ss << " x" << istack.quantity;
-		ss << ".";
-		addMsg(ss.str());
+
+		if (istack.quantity <= 1)
+			addMsg(msg->get("reward_item_single", items->items[istack.item].name));
+		if (istack.quantity > 1)
+			addMsg(msg->get("reward_item_multiple", istack.quantity, items->items[istack.item].name));
 		
 		items->playSound(istack.item);
 	}
@@ -136,22 +136,13 @@ void CampaignManager::rewardItem(ItemStack istack) {
 
 void CampaignManager::rewardCurrency(int amount) {
 	*currency += amount;
-	
-	stringstream ss;
-	ss.str("");
-	ss << "You receive " << amount << " gold.";
-	addMsg(ss.str());
-	
+	addMsg(msg->get("reward_currency", amount));
 	items->playCoinsSound();
 }
 
 void CampaignManager::rewardXP(int amount) {
 	*xp += amount;
-	
-	stringstream ss;
-	ss.str("");
-	ss << "You receive " << amount << " XP.";
-	addMsg(ss.str());
+	addMsg(msg->get("reward_xp", amount));
 }	
 
 void CampaignManager::addMsg(string msg) {

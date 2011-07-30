@@ -20,6 +20,7 @@
 #include "ItemDatabase.h"
 #include "MenuTooltip.h"
 #include "EnemyManager.h"
+#include "MessageEngine.h"
 
 struct LootDef {
 	ItemStack stack;
@@ -46,6 +47,7 @@ private:
 	MenuTooltip *tip;
 	EnemyManager *enemies;
 	MapIso *map;
+	MessageEngine *msg;
 
 	// functions
 	void loadGraphics();
@@ -76,7 +78,7 @@ private:
 	int anim_loot_duration;
 	
 public:
-	LootManager(ItemDatabase *_items, MenuTooltip *_tip, EnemyManager *_enemies, MapIso *_map);
+	LootManager(ItemDatabase *_items, MenuTooltip *_tip, EnemyManager *_enemies, MapIso *_map, MessageEngine *_msg);
 	~LootManager();
 
 	void handleNewMap();

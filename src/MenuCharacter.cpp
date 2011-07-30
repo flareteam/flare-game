@@ -7,11 +7,12 @@
 
 #include "MenuCharacter.h"
 
-MenuCharacter::MenuCharacter(SDL_Surface *_screen, InputState *_inp, FontEngine *_font, StatBlock *_stats) {
+MenuCharacter::MenuCharacter(SDL_Surface *_screen, InputState *_inp, FontEngine *_font, StatBlock *_stats, MessageEngine *_msg) {
 	screen = _screen;
 	inp = _inp;
 	font = _font;
 	stats = _stats;
+	msg = _msg;
 	
 	visible = false;
 
@@ -85,28 +86,27 @@ void MenuCharacter::render() {
 	closeButton->render();
 	
 	// labels
-	// TODO: translate()
-	font->render("Character", 160, offset_y+8, JUSTIFY_CENTER, screen, FONT_WHITE);
-	font->render("Name", 72, offset_y+34, JUSTIFY_RIGHT, screen, FONT_WHITE);
-	font->render("Level", 248, offset_y+34, JUSTIFY_RIGHT, screen, FONT_WHITE);
-	font->render("Physical", 40, offset_y+74, JUSTIFY_LEFT, screen, FONT_WHITE);
-	font->render("Mental", 40, offset_y+138, JUSTIFY_LEFT, screen, FONT_WHITE);
-	font->render("Offense", 40, offset_y+202, JUSTIFY_LEFT, screen, FONT_WHITE);
-	font->render("Defense", 40, offset_y+266, JUSTIFY_LEFT, screen, FONT_WHITE);
-	font->render("Total HP", 152, offset_y+106, JUSTIFY_RIGHT, screen, FONT_WHITE);
-	font->render("Regen", 248, offset_y+106, JUSTIFY_RIGHT, screen, FONT_WHITE);
-	font->render("Total MP", 152, offset_y+170, JUSTIFY_RIGHT, screen, FONT_WHITE);
-	font->render("Regen", 248, offset_y+170, JUSTIFY_RIGHT, screen, FONT_WHITE);
-	font->render("Accuracy vs. Def 1", 152, offset_y+234, JUSTIFY_RIGHT, screen, FONT_WHITE);
-	font->render("vs. Def 5", 248, offset_y+234, JUSTIFY_RIGHT, screen, FONT_WHITE);
-	font->render("Avoidance vs. Off 1", 152, offset_y+298, JUSTIFY_RIGHT, screen, FONT_WHITE);
-	font->render("vs. Off 5", 248, offset_y+298, JUSTIFY_RIGHT, screen, FONT_WHITE);
-	font->render("Main Weapon", 120, offset_y+338, JUSTIFY_RIGHT, screen, FONT_WHITE);
-	font->render("Ranged Weapon", 120, offset_y+354, JUSTIFY_RIGHT, screen, FONT_WHITE);
-	font->render("Crit Chance", 120, offset_y+370, JUSTIFY_RIGHT, screen, FONT_WHITE);
-	font->render("Absorb", 248, offset_y+338, JUSTIFY_RIGHT, screen, FONT_WHITE);
-	font->render("Fire Resist", 248, offset_y+354, JUSTIFY_RIGHT, screen, FONT_WHITE);
-	font->render("Ice Resist", 248, offset_y+370, JUSTIFY_RIGHT, screen, FONT_WHITE);
+	font->render(msg->get("character"), 160, offset_y+8, JUSTIFY_CENTER, screen, FONT_WHITE);
+	font->render(msg->get("name"), 72, offset_y+34, JUSTIFY_RIGHT, screen, FONT_WHITE);
+	font->render(msg->get("level"), 248, offset_y+34, JUSTIFY_RIGHT, screen, FONT_WHITE);
+	font->render(msg->get("physical"), 40, offset_y+74, JUSTIFY_LEFT, screen, FONT_WHITE);
+	font->render(msg->get("mental"), 40, offset_y+138, JUSTIFY_LEFT, screen, FONT_WHITE);
+	font->render(msg->get("offense"), 40, offset_y+202, JUSTIFY_LEFT, screen, FONT_WHITE);
+	font->render(msg->get("defense"), 40, offset_y+266, JUSTIFY_LEFT, screen, FONT_WHITE);
+	font->render(msg->get("total_hp"), 152, offset_y+106, JUSTIFY_RIGHT, screen, FONT_WHITE);
+	font->render(msg->get("regen"), 248, offset_y+106, JUSTIFY_RIGHT, screen, FONT_WHITE);
+	font->render(msg->get("total_mp"), 152, offset_y+170, JUSTIFY_RIGHT, screen, FONT_WHITE);
+	font->render(msg->get("regen"), 248, offset_y+170, JUSTIFY_RIGHT, screen, FONT_WHITE);
+	font->render(msg->get("accuracy_vs_def_1"), 152, offset_y+234, JUSTIFY_RIGHT, screen, FONT_WHITE);
+	font->render(msg->get("vs_def_5"), 248, offset_y+234, JUSTIFY_RIGHT, screen, FONT_WHITE);
+	font->render(msg->get("avoidance_vs_off_1"), 152, offset_y+298, JUSTIFY_RIGHT, screen, FONT_WHITE);
+	font->render(msg->get("vs_off_5"), 248, offset_y+298, JUSTIFY_RIGHT, screen, FONT_WHITE);
+	font->render(msg->get("main_weapon"), 120, offset_y+338, JUSTIFY_RIGHT, screen, FONT_WHITE);
+	font->render(msg->get("ranged_weapon"), 120, offset_y+354, JUSTIFY_RIGHT, screen, FONT_WHITE);
+	font->render(msg->get("crit_chance"), 120, offset_y+370, JUSTIFY_RIGHT, screen, FONT_WHITE);
+	font->render(msg->get("absorb"), 248, offset_y+338, JUSTIFY_RIGHT, screen, FONT_WHITE);
+	font->render(msg->get("fire_resist"), 248, offset_y+354, JUSTIFY_RIGHT, screen, FONT_WHITE);
+	font->render(msg->get("ice_resist"), 248, offset_y+370, JUSTIFY_RIGHT, screen, FONT_WHITE);
 
 	// character data
 	stringstream ss;
@@ -263,183 +263,171 @@ TooltipData MenuCharacter::checkTooltip() {
 	mouse.y = inp->mouse.y;
 	
 	int offset_y = (VIEW_H - 416)/2;
-	stringstream ss;
 
 	if (mouse.x >= 256 && mouse.x <= 280 && mouse.y >= offset_y+32 && mouse.y <= offset_y+48) {
-		ss << "XP: " << stats->xp;
-		tip.lines[tip.num_lines++] = ss.str();
-		ss.str("");
+		tip.lines[tip.num_lines++] = msg->get("xp", stats->xp);
 		if (stats->level < MAX_CHARACTER_LEVEL) {
-			ss << "Next: " << stats->xp_table[stats->level];
-			tip.lines[tip.num_lines++] = ss.str();
+			tip.lines[tip.num_lines++] = msg->get("next", stats->xp_table[stats->level]);
 		}
 		return tip;
 	}
 	if (mouse.x >= 16 && mouse.x <= 80 && mouse.y >= offset_y+72 && mouse.y <= offset_y+88) {
-		tip.lines[tip.num_lines++] = "Physical (P) increases melee weapon proficiency and total HP.";
-		ss.str("");
-		ss << "base (" << stats->physical_character << "), bonus (" << stats->physical_additional << ")";
-		tip.lines[tip.num_lines++] = ss.str();
+		tip.lines[tip.num_lines++] = msg->get("physical_description");
+		tip.lines[tip.num_lines++] = msg->get("stat_display", stats->physical_character, stats->physical_additional);
 		return tip;
 	}
 	if (mouse.x >= 16 && mouse.x <= 80 && mouse.y >= offset_y+136 && mouse.y <= offset_y+152) {
-		tip.lines[tip.num_lines++] = "Mental (M) increases mental weapon proficiency and total MP.";
-		ss.str("");
-		ss << "base (" << stats->mental_character << "), bonus (" << stats->mental_additional << ")";
-		tip.lines[tip.num_lines++] = ss.str();
+		tip.lines[tip.num_lines++] = msg->get("mental_description");
+		tip.lines[tip.num_lines++] = msg->get("stat_display", stats->mental_character, stats->mental_additional);
 		return tip;
 	}
 	if (mouse.x >= 16 && mouse.x <= 80 && mouse.y >= offset_y+200 && mouse.y <= offset_y+216) {
-		tip.lines[tip.num_lines++] = "Offense (O) increases ranged weapon proficiency and accuracy.";
-		ss.str("");
-		ss << "base (" << stats->offense_character << "), bonus (" << stats->offense_additional << ")";
-		tip.lines[tip.num_lines++] = ss.str();
+		tip.lines[tip.num_lines++] = msg->get("offense_description");
+		tip.lines[tip.num_lines++] = msg->get("stat_display", stats->offense_character, stats->offense_additional);
 		return tip;
 	}
 	if (mouse.x >= 16 && mouse.x <= 80 && mouse.y >= offset_y+264 && mouse.y <= offset_y+280) {
-		tip.lines[tip.num_lines++] = "Defense (D) increases armor proficiency and avoidance.";
-		ss.str("");
-		ss << "base (" << stats->defense_character << "), bonus (" << stats->defense_additional << ")";
-		tip.lines[tip.num_lines++] = ss.str();
+		tip.lines[tip.num_lines++] = msg->get("defense_description");
+		tip.lines[tip.num_lines++] = msg->get("stat_display", stats->defense_character, stats->defense_additional);
 		return tip;
 	}
 
 	// Physical
 	if (mouse.x >= 128 && mouse.x <= 160 && mouse.y >= offset_y+64 && mouse.y <= offset_y+96) {
-		tip.lines[tip.num_lines++] = "Dagger Proficiency";
+		tip.lines[tip.num_lines++] = msg->get("physical_2_proficiency");
 		if (stats->get_physical() < 2) tip.colors[tip.num_lines] = FONT_RED;
-		tip.lines[tip.num_lines++] = "Requires Physical 2";
+		tip.lines[tip.num_lines++] = msg->get("requires_physical", 2);
 		return tip;
 	}
 	if (mouse.x >= 176 && mouse.x <= 208 && mouse.y >= offset_y+64 && mouse.y <= offset_y+96) {
-		tip.lines[tip.num_lines++] = "Shortsword Proficiency";
+		tip.lines[tip.num_lines++] = msg->get("physical_3_proficiency");
 		if (stats->get_physical() < 3) tip.colors[tip.num_lines] = FONT_RED;
-		tip.lines[tip.num_lines++] = "Requires Physical 3";
+		tip.lines[tip.num_lines++] = msg->get("requires_physical", 3);
 		return tip;
 	}
 	if (mouse.x >= 224 && mouse.x <= 256 && mouse.y >= offset_y+64 && mouse.y <= offset_y+96) {
-		tip.lines[tip.num_lines++] = "Longsword Proficiency";
+		tip.lines[tip.num_lines++] = msg->get("physical_4_proficiency");
 		if (stats->get_physical() < 4) tip.colors[tip.num_lines] = FONT_RED;
-		tip.lines[tip.num_lines++] = "Requires Physical 4";
+		tip.lines[tip.num_lines++] = msg->get("requires_physical", 4);
 		return tip;
 	}
 	if (mouse.x >= 272 && mouse.x <= 304 && mouse.y >= offset_y+64 && mouse.y <= offset_y+96) {
-		tip.lines[tip.num_lines++] = "Greatsword Proficiency";
+		tip.lines[tip.num_lines++] = msg->get("physical_5_proficiency");
 		if (stats->get_physical() < 5) tip.colors[tip.num_lines] = FONT_RED;
-		tip.lines[tip.num_lines++] = "Requires Physical 5";
+		tip.lines[tip.num_lines++] = msg->get("requires_physical", 5);
 		return tip;
 	}
 	if (mouse.x >= 64 && mouse.x <= 184 && mouse.y >= offset_y+104 && mouse.y <= offset_y+120) {
-		tip.lines[tip.num_lines++] = "Each point of Physical grants +8 HP";
-		tip.lines[tip.num_lines++] = "Each level grants +2 HP";
+		tip.lines[tip.num_lines++] = msg->get("physical_hp_bonus");
+		tip.lines[tip.num_lines++] = msg->get("level_hp_bonus");
 		return tip;
 	}
 	if (mouse.x >= 208 && mouse.x <= 280 && mouse.y >= offset_y+104 && mouse.y <= offset_y+120) {
-		tip.lines[tip.num_lines++] = "Ticks of HP regen per minute";
-		tip.lines[tip.num_lines++] = "Each point of Physical grants +4 HP regen";
-		tip.lines[tip.num_lines++] = "Each level grants +1 HP regen";
+		tip.lines[tip.num_lines++] = msg->get("hp_regen_description");
+		tip.lines[tip.num_lines++] = msg->get("physical_hp_regen_bonus");
+		tip.lines[tip.num_lines++] = msg->get("level_hp_regen_bonus");
 		return tip;
 	}
 
 		
 	// Mental
 	if (mouse.x >= 128 && mouse.x <= 160 && mouse.y >= offset_y+128 && mouse.y <= offset_y+160) {
-		tip.lines[tip.num_lines++] = "Wand Proficiency";
+		tip.lines[tip.num_lines++] = msg->get("mental_2_proficiency");
 		if (stats->get_mental() < 2) tip.colors[tip.num_lines] = FONT_RED;
-		tip.lines[tip.num_lines++] = "Requires Mental 2";
+		tip.lines[tip.num_lines++] = msg->get("requires_mental", 2);
 		return tip;
 	}
 	if (mouse.x >= 176 && mouse.x <= 208 && mouse.y >= offset_y+128 && mouse.y <= offset_y+160) {
-		tip.lines[tip.num_lines++] = "Rod Proficiency";
+		tip.lines[tip.num_lines++] = msg->get("mental_3_proficiency");
 		if (stats->get_mental() < 3) tip.colors[tip.num_lines] = FONT_RED;
-		tip.lines[tip.num_lines++] = "Requires Mental 3";
+		tip.lines[tip.num_lines++] = msg->get("requires_mental", 3);
 		return tip;
 	}
 	if (mouse.x >= 224 && mouse.x <= 256 && mouse.y >= offset_y+128 && mouse.y <= offset_y+160) {
-		tip.lines[tip.num_lines++] = "Staff Proficiency";
+		tip.lines[tip.num_lines++] = msg->get("mental_4_proficiency");
 		if (stats->get_mental() < 4) tip.colors[tip.num_lines] = FONT_RED;
-		tip.lines[tip.num_lines++] = "Requires Mental 4";
+		tip.lines[tip.num_lines++] = msg->get("requires_mental", 4);
 		return tip;
 	}
 	if (mouse.x >= 272 && mouse.x <= 304 && mouse.y >= offset_y+128 && mouse.y <= offset_y+160) {
-		tip.lines[tip.num_lines++] = "Greatstaff Proficiency";
+		tip.lines[tip.num_lines++] = msg->get("mental_5_proficiency");
 		if (stats->get_mental() < 5) tip.colors[tip.num_lines] = FONT_RED;
-		tip.lines[tip.num_lines++] = "Requires Mental 5";
+		tip.lines[tip.num_lines++] = msg->get("requires_mental", 5);
 		return tip;
 	}		
 	if (mouse.x >= 64 && mouse.x <= 184 && mouse.y >= offset_y+168 && mouse.y <= offset_y+184) {
-		tip.lines[tip.num_lines++] = "Each point of Mental grants +8 MP";
-		tip.lines[tip.num_lines++] = "Each level grants +2 MP";		
+		tip.lines[tip.num_lines++] = msg->get("mental_mp_bonus");
+		tip.lines[tip.num_lines++] = msg->get("level_mp_bonus");
 		return tip;
 	}
 	if (mouse.x >= 208 && mouse.x <= 280 && mouse.y >= offset_y+168 && mouse.y <= offset_y+184) {
-		tip.lines[tip.num_lines++] = "Ticks of MP regen per minute";
-		tip.lines[tip.num_lines++] = "Each point of Mental grants +4 MP regen";
-		tip.lines[tip.num_lines++] = "Each level grants +1 MP regen";		
+		tip.lines[tip.num_lines++] = msg->get("mp_regen_description");
+		tip.lines[tip.num_lines++] = msg->get("mental_mp_regen_bonus");
+		tip.lines[tip.num_lines++] = msg->get("level_mp_regen_bonus");
 		return tip;
 	}
 		
 		
 	// Offense
 	if (mouse.x >= 128 && mouse.x <= 160 && mouse.y >= offset_y+192 && mouse.y <= offset_y+224) {
-		tip.lines[tip.num_lines++] = "Slingshot Proficiency";
+		tip.lines[tip.num_lines++] = msg->get("offense_2_proficiency");
 		if (stats->get_offense() < 2) tip.colors[tip.num_lines] = FONT_RED;
-		tip.lines[tip.num_lines++] = "Requires Offense 2";
+		tip.lines[tip.num_lines++] = msg->get("requires_offense", 2);
 		return tip;
 	}
 	if (mouse.x >= 176 && mouse.x <= 208 && mouse.y >= offset_y+192 && mouse.y <= offset_y+224) {
-		tip.lines[tip.num_lines++] = "Shortbow Proficiency";
+		tip.lines[tip.num_lines++] = msg->get("offense_3_proficiency");
 		if (stats->get_offense() < 3) tip.colors[tip.num_lines] = FONT_RED;
-		tip.lines[tip.num_lines++] = "Requires Offense 3";
+		tip.lines[tip.num_lines++] = msg->get("requires_offense", 3);
 		return tip;
 	}
 	if (mouse.x >= 224 && mouse.x <= 256 && mouse.y >= offset_y+192 && mouse.y <= offset_y+224) {
-		tip.lines[tip.num_lines++] = "Longbow Proficiency";
+		tip.lines[tip.num_lines++] = msg->get("offense_4_proficiency");
 		if (stats->get_offense() < 4) tip.colors[tip.num_lines] = FONT_RED;
-		tip.lines[tip.num_lines++] = "Requires Offense 4";
+		tip.lines[tip.num_lines++] = msg->get("requires_offense", 4);
 		return tip;
 	}
 	if (mouse.x >= 272 && mouse.x <= 304 && mouse.y >= offset_y+192 && mouse.y <= offset_y+224) {
-		tip.lines[tip.num_lines++] = "Greatbow Proficiency";
+		tip.lines[tip.num_lines++] = msg->get("offense_5_proficiency");
 		if (stats->get_offense() < 5) tip.colors[tip.num_lines] = FONT_RED;
-		tip.lines[tip.num_lines++] = "Requires Offense 5";
+		tip.lines[tip.num_lines++] = msg->get("requires_offense", 5);
 		return tip;
 	}
 	if (mouse.x >= 64 && mouse.x <= 280 && mouse.y >= offset_y+232 && mouse.y <= offset_y+248) {
-		tip.lines[tip.num_lines++] = "Each point of Offense grants +5 accuracy";
-		tip.lines[tip.num_lines++] = "Each level grants +1 accuracy";
+		tip.lines[tip.num_lines++] = msg->get("offense_accuracy_bonus");
+		tip.lines[tip.num_lines++] = msg->get("level_accuracy_bonus");
 		return tip;
 	}
 		
 		
 	// Defense
 	if (mouse.x >= 128 && mouse.x <= 160 && mouse.y >= offset_y+256 && mouse.y <= offset_y+288) {
-		tip.lines[tip.num_lines++] = "Light Armor Proficiency";
+		tip.lines[tip.num_lines++] = msg->get("defense_2_proficiency");
 		if (stats->get_defense() < 2) tip.colors[tip.num_lines] = FONT_RED;
-		tip.lines[tip.num_lines++] = "Requires Defense 2";
+		tip.lines[tip.num_lines++] = msg->get("requires_defense", 2);
 		return tip;
 	}
 	if (mouse.x >= 176 && mouse.x <= 208 && mouse.y >= offset_y+256 && mouse.y <= offset_y+288) {
-		tip.lines[tip.num_lines++] = "Light Shield Proficiency";
+		tip.lines[tip.num_lines++] = msg->get("defense_3_proficiency");
 		if (stats->get_defense() < 3) tip.colors[tip.num_lines] = FONT_RED;
-		tip.lines[tip.num_lines++] = "Requires Defense 3";
+		tip.lines[tip.num_lines++] = msg->get("requires_defense", 3);
 		return tip;
 	}
 	if (mouse.x >= 224 && mouse.x <= 256 && mouse.y >= offset_y+256 && mouse.y <= offset_y+288) {
-		tip.lines[tip.num_lines++] = "Heavy Armor Proficiency";
+		tip.lines[tip.num_lines++] = msg->get("defense_4_proficiency");
 		if (stats->get_defense() < 4) tip.colors[tip.num_lines] = FONT_RED;
-		tip.lines[tip.num_lines++] = "Requires Defense 4";
+		tip.lines[tip.num_lines++] = msg->get("requires_defense", 4);
 		return tip;
 	}
 	if (mouse.x >= 272 && mouse.x <= 304 && mouse.y >= offset_y+256 && mouse.y <= offset_y+288) {
-		tip.lines[tip.num_lines++] = "Heavy Shield Proficiency";
+		tip.lines[tip.num_lines++] = msg->get("defense_5_proficiency");
 		if (stats->get_defense() < 5) tip.colors[tip.num_lines] = FONT_RED;
-		tip.lines[tip.num_lines++] = "Requires Defense 5";
+		tip.lines[tip.num_lines++] = msg->get("requires_defense", 5);
 		return tip;
 	}		
 	if (mouse.x >= 64 && mouse.x <= 280 && mouse.y >= offset_y+296 && mouse.y <= offset_y+312) {
-		tip.lines[tip.num_lines++] = "Each point of Defense grants +5 avoidance";
-		tip.lines[tip.num_lines++] = "Each level grants +1 avoidance";
+		tip.lines[tip.num_lines++] = msg->get("defense_avoidance_bonus");
+		tip.lines[tip.num_lines++] = msg->get("level_avoidance_bonus");
 		return tip;
 	}
 

@@ -9,8 +9,9 @@
 
 #include "Avatar.h"
 
-Avatar::Avatar(PowerManager *_powers, InputState *_inp, MapIso *_map) : Entity(_map), powers(_powers), inp(_inp) {
+Avatar::Avatar(PowerManager *_powers, InputState *_inp, MapIso *_map, MessageEngine *_msg) : Entity(_map), powers(_powers), inp(_inp) {
 	
+	msg = _msg;
 	init();
 	
 	// default hero animation data
@@ -200,9 +201,9 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 	if (stats.xp >= stats.xp_table[stats.level] && stats.level < MAX_CHARACTER_LEVEL) {
 		stats.level++;
 		stringstream ss;
-		ss << "Congratulations, you have reached level " << stats.level << "!";
+		ss << msg->get("level_up", stats.level);
 		if (stats.level < max_spendable_stat_points) {
-			ss << " You may increase one attribute through the Character Menu.";
+			ss << " " << msg->get("attribute_increase");
 		}
 		log_msg = ss.str();
 		stats.recalc();
@@ -470,7 +471,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 				
 			if (activeAnimation->getCurFrame() == 1 && activeAnimation->getTimesPlayed() < 1) {
 				Mix_PlayChannel(-1, sound_die, 0);
-				log_msg = "You are defeated.  You lose half your gold.  Press Enter to continue.";
+				log_msg = msg->get("death");
 			}
 
 			if (activeAnimation->getTimesPlayed() >= 1) {

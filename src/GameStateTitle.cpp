@@ -1,7 +1,7 @@
 #include "GameStateLoad.h"
 #include "GameStateTitle.h"
 
-GameStateTitle::GameStateTitle(SDL_Surface *_screen, InputState *_inp, FontEngine *_font) : GameState(_screen, _inp, _font) {
+GameStateTitle::GameStateTitle(SDL_Surface *_screen, InputState *_inp, FontEngine *_font, MessageEngine *_msg) : GameState(_screen, _inp, _font, _msg) {
 
 	exit_game = false;
 	load_game = false;
@@ -12,11 +12,11 @@ GameStateTitle::GameStateTitle(SDL_Surface *_screen, InputState *_inp, FontEngin
 	button_play = new WidgetButton(screen, font, inp, "images/menus/buttons/button_default.png");
 	button_exit = new WidgetButton(screen, font, inp, "images/menus/buttons/button_default.png");
 	
-	button_play->label = "Play Game";
+	button_play->label = msg->get("play_button");
 	button_play->pos.x = VIEW_W_HALF - button_play->pos.w/2;
 	button_play->pos.y = VIEW_H - (button_exit->pos.h*2);
 
-	button_exit->label = "Exit Game";
+	button_exit->label = msg->get("exit_button");
 	button_exit->pos.x = VIEW_W_HALF - button_exit->pos.w/2;
 	button_exit->pos.y = VIEW_H - button_exit->pos.h;
 	
@@ -40,7 +40,7 @@ void GameStateTitle::loadGraphics() {
 void GameStateTitle::logic() {
 
 	if (button_play->checkClick()) {
-		requestedGameState = new GameStateLoad(screen, inp, font);
+		requestedGameState = new GameStateLoad(screen, inp, font, msg);
 	}
 	
 	if (button_exit->checkClick()) {
@@ -66,7 +66,7 @@ void GameStateTitle::render() {
 	button_exit->render();
 	
 	// version number
-	font->render("Flare Alpha v0.14", VIEW_W-2, 2, JUSTIFY_RIGHT, screen, FONT_WHITE);
+	font->render(msg->get("version_number"), VIEW_W-2, 2, JUSTIFY_RIGHT, screen, FONT_WHITE);
 	
 }
 

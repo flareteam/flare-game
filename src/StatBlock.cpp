@@ -12,6 +12,8 @@
 
 StatBlock::StatBlock() {
 
+	msg = new MessageEngine(); //Cheating. Might cause a performance decrease.
+
 	name = "";
 	alive = true;
 	corpse = false;
@@ -276,34 +278,34 @@ void StatBlock::recalc() {
 	// determine class
 	// if all four stats are max, Grand Master
 	if (stat_sum >= 20)
-		character_class = "Grand Master";
+		character_class = msg->get("class_grand_master");
 	// if three stats are max, Master
 	else if (stat_sum >= 16)
-		character_class = "Master";
+		character_class = msg->get("class_master");
 	// if one attribute is much higher than the others, use the attribute class name
 	else if (get_physical() > get_mental()+1 && get_physical() > get_offense()+1 && get_physical() > get_defense()+1)
-		character_class = "Warrior";
+		character_class = msg->get("class_physical");
 	else if (get_mental() > get_physical()+1 && get_mental() > get_offense()+1 && get_mental() > get_defense()+1)
-		character_class = "Wizard";
+		character_class = msg->get("class_mental");
 	else if (get_offense() > get_physical()+1 && get_offense() > get_mental()+1 && get_offense() > get_defense()+1)
-		character_class = "Ranger";
+		character_class = msg->get("class_offense");
 	else if (get_defense() > get_physical()+1 && get_defense() > get_mental()+1 && get_defense() > get_offense()+1)
-		character_class = "Paladin";
+		character_class = msg->get("class_defense");
 	// if there is no dominant attribute, use the dicipline class name
 	else if (physoff > physdef && physoff > mentoff && physoff > mentdef && physoff > physment && physoff > offdef)
-		character_class = "Rogue";
+		character_class = msg->get("class_physical_offense");
 	else if (physdef > physoff && physdef > mentoff && physdef > mentdef && physdef > physment && physdef > offdef)
-		character_class = "Knight";
+		character_class = msg->get("class_physical_defense");
 	else if (mentoff > physoff && mentoff > physdef && mentoff > mentdef && mentoff > physment && mentoff > offdef)
-		character_class = "Shaman";
+		character_class = msg->get("class_mental_offense");
 	else if (mentdef > physoff && mentdef > physdef && mentdef > mentoff && mentdef > physment && mentdef > offdef)
-		character_class = "Cleric";
+		character_class = msg->get("class_mental_defense");
 	else if (physment > physoff && physment > physdef && physment > mentoff && physment > mentdef && physment > offdef)
-		character_class = "Battle Mage";
+		character_class = msg->get("class_physical_mental");
 	else if (offdef > physoff && offdef > physdef && offdef > mentoff && offdef > mentdef && offdef > physment)
-		character_class = "Heavy Archer";
+		character_class = msg->get("class_offense_defense");
 	// otherwise, use the generic name
-	else character_class = "Adventurer";
+	else character_class = msg->get("class_generic");
 	
 }
 

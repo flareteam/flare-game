@@ -11,10 +11,12 @@
 #include "Menu.h"
 #include "SDL_image.h"
 #include "WidgetButton.h"
+#include "MessageEngine.h"
 
 class MenuExit : public Menu {
 protected:
 	void loadGraphics();
+	MessageEngine *msg;
 
 	WidgetButton *buttonExit;
 	WidgetButton *buttonClose;
@@ -22,7 +24,7 @@ protected:
 	bool exitClicked;
 
 public:
-	MenuExit(SDL_Surface*, InputState*, FontEngine*);
+	MenuExit(SDL_Surface*, InputState*, FontEngine*, MessageEngine *msg);
 	~MenuExit();
 
 	void logic();

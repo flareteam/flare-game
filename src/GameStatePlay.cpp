@@ -12,7 +12,7 @@
 #include "GameState.h"
 #include "GameStateTitle.h"
 
-GameStatePlay::GameStatePlay(SDL_Surface *_screen, InputState *_inp, FontEngine *_font) : GameState(screen, inp, font) {
+GameStatePlay::GameStatePlay(SDL_Surface *_screen, InputState *_inp, FontEngine *_font, MessageEngine *_msg) : GameState(screen, inp, font, msg) {
 
 	hasMusic = true;
 	//Mix_HaltMusic(); // maybe not needed? playing new music should auto halt previous music
@@ -20,6 +20,7 @@ GameStatePlay::GameStatePlay(SDL_Surface *_screen, InputState *_inp, FontEngine 
 	// shared resources from GameSwitcher
 	screen = _screen;
 	inp = _inp;
+	msg = _msg;
 	
 	// GameEngine scope variables
 	npc_id = -1;
@@ -28,13 +29,13 @@ GameStatePlay::GameStatePlay(SDL_Surface *_screen, InputState *_inp, FontEngine 
 	// construct gameplay objects
 	powers = new PowerManager();
 	font = _font;
-	camp = new CampaignManager();
+	camp = new CampaignManager(msg);
 	map = new MapIso(_screen, camp, _inp, font);
-	pc = new Avatar(powers, _inp, map);
+	pc = new Avatar(powers, _inp, map, msg);
 	enemies = new EnemyManager(powers, map);
 	hazards = new HazardManager(powers, pc, enemies);
-	menu = new MenuManager(powers, _screen, _inp, font, &pc->stats, camp);
-	loot = new LootManager(menu->items, menu->tip, enemies, map);
+	menu = new MenuManager(powers, _screen, _inp, font, &pc->stats, camp, msg);
+	loot = new LootManager(menu->items, menu->tip, enemies, map, msg);
 	npcs = new NPCManager(map, menu->tip, loot, menu->items);
 	quests = new QuestLog(camp, menu->log);
 
@@ -132,7 +133,7 @@ void GameStatePlay::checkLoot() {
 		}
 		if (loot->full_msg) {
 			inp->lock[MAIN1] = true;
-			menu->log->add("Inventory is full.", LOG_TYPE_MESSAGES);
+			menu->log->add(msg->get("inventory_full"), LOG_TYPE_MESSAGES);
 			loot->full_msg = false;
 		}
 	}
@@ -188,7 +189,7 @@ void GameStatePlay::checkCancel() {
 	if (menu->requestingExit()) {
 		saveGame();
 		Mix_HaltMusic();
-		requestedGameState = new GameStateTitle(screen, inp, font);
+		requestedGameState = new GameStateTitle(screen, inp, font, msg);
 	}
 
 	// if user closes the window

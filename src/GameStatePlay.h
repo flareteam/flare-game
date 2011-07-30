@@ -28,6 +28,7 @@
 #include "CampaignManager.h"
 #include "QuestLog.h"
 #include "GameState.h"
+#include "MessageEngine.h"
 
 class GameStatePlay : public GameState {
 private:
@@ -47,6 +48,7 @@ private:
 	NPCManager *npcs;
 	CampaignManager *camp;
 	QuestLog *quests;
+	MessageEngine *msg;
 	
 	bool restrictPowerUse();
 	void checkEnemyFocus();
@@ -62,7 +64,7 @@ private:
 	int npc_id;
 	
 public:
-	GameStatePlay(SDL_Surface *screen, InputState *inp, FontEngine *font);
+	GameStatePlay(SDL_Surface *screen, InputState *inp, FontEngine *font, MessageEngine *msg);
 	~GameStatePlay();
 
 	void logic();

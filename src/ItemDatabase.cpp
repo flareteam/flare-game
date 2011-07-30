@@ -9,9 +9,10 @@
 #include "ItemDatabase.h"
 #include "FileParser.h"
 
-ItemDatabase::ItemDatabase(SDL_Surface *_screen, FontEngine *_font) {
+ItemDatabase::ItemDatabase(SDL_Surface *_screen, FontEngine *_font, MessageEngine *_msg) {
 	screen = _screen;
 	font = _font;
+	msg = _msg;
 	
 	items = new Item[MAX_ITEM_ID];
 	
@@ -274,7 +275,6 @@ TooltipData ItemDatabase::getShortTooltip( ItemStack stack) {
  * Create detailed tooltip showing all relevant item info
  */
 TooltipData ItemDatabase::getTooltip(int item, StatBlock *stats, bool vendor_view) {
-	stringstream ss;
 	TooltipData tip;
 	
 	if (item == 0) return tip;
@@ -294,135 +294,122 @@ TooltipData ItemDatabase::getTooltip(int item, StatBlock *stats, bool vendor_vie
 	}
 	
 	// level
-	ss.str();
 	if (items[item].level != 0) {
-		ss << "Level " << items[item].level;
-		tip.lines[tip.num_lines++] = ss.str();
+		tip.lines[tip.num_lines++] = msg->get("item_level", items[item].level);
 	}
 	
 	// type
 	if (items[item].type != ITEM_TYPE_OTHER) {
 		if (items[item].type == ITEM_TYPE_MAIN)
-			tip.lines[tip.num_lines++] = "Main Hand";
+			tip.lines[tip.num_lines++] = msg->get("type_main");
 		else if (items[item].type == ITEM_TYPE_BODY)
-			tip.lines[tip.num_lines++] = "Body";
+			tip.lines[tip.num_lines++] = msg->get("type_body");
 		else if (items[item].type == ITEM_TYPE_OFF)
-			tip.lines[tip.num_lines++] = "Off Hand";
+			tip.lines[tip.num_lines++] = msg->get("type_off");
 		else if (items[item].type == ITEM_TYPE_ARTIFACT)
-			tip.lines[tip.num_lines++] = "Artifact";
+			tip.lines[tip.num_lines++] = msg->get("type_artifact");
 		else if (items[item].type == ITEM_TYPE_CONSUMABLE)
-			tip.lines[tip.num_lines++] = "Consumable";
+			tip.lines[tip.num_lines++] = msg->get("type_consumable");
 		else if (items[item].type == ITEM_TYPE_GEM)
-			tip.lines[tip.num_lines++] = "Gem";
+			tip.lines[tip.num_lines++] = msg->get("type_gem");
 		else if (items[item].type == ITEM_TYPE_QUEST)
-			tip.lines[tip.num_lines++] = "Quest Item";
+			tip.lines[tip.num_lines++] = msg->get("type_quest");
 	}
 	
 	// damage
-	ss.str("");
 	if (items[item].dmg_max > 0) {
 		if (items[item].req_stat == REQUIRES_PHYS) {
-			ss << "Melee ";
+			if (items[item].dmg_min < items[item].dmg_max)
+				tip.lines[tip.num_lines++] = msg->get("damage_melee_range", items[item].dmg_min, items[item].dmg_max);
+			else
+				tip.lines[tip.num_lines++] = msg->get("damage_melee_single", items[item].dmg_max);
 		}
 		else if (items[item].req_stat == REQUIRES_MENT) {
-			ss << "Mental ";
+			if (items[item].dmg_min < items[item].dmg_max)
+				tip.lines[tip.num_lines++] = msg->get("damage_mental_range", items[item].dmg_min, items[item].dmg_max);
+			else
+				tip.lines[tip.num_lines++] = msg->get("damage_mental_single", items[item].dmg_max);
 		}
 		else if (items[item].req_stat == REQUIRES_OFF) {
-			ss << "Ranged ";
+			if (items[item].dmg_min < items[item].dmg_max)
+				tip.lines[tip.num_lines++] = msg->get("damage_ranged_range", items[item].dmg_min, items[item].dmg_max);
+			else
+				tip.lines[tip.num_lines++] = msg->get("damage_ranged_single", items[item].dmg_max);
 		}
-		
-		if (items[item].dmg_min < items[item].dmg_max) {
-			ss << "damage: " << items[item].dmg_min << "-" << items[item].dmg_max;
-		}
-		else {
-			ss << "damage: " << items[item].dmg_max;		
-		}
-		tip.lines[tip.num_lines++] = ss.str();
 	}
-
-	ss.str("");
 
 	// absorb
 	if (items[item].abs_max > 0) {
-		if (items[item].abs_min < items[item].abs_max) {
-			ss << "Absorb: " << items[item].abs_min << "-" << items[item].abs_max;
-		}
-		else {
-			ss << "Absorb: " << items[item].abs_max;		
-		}
-		tip.lines[tip.num_lines++] = ss.str();
+		if (items[item].abs_min < items[item].abs_max)
+			tip.lines[tip.num_lines++] = msg->get("absorb_range", items[item].abs_min, items[item].abs_max);
+		else
+			tip.lines[tip.num_lines++] = msg->get("absorb_single", items[item].abs_max);
 	}
-	
+
 	// bonuses
 	int bonus_counter = 0;
+	string modifier;
 	while (items[item].bonus_stat[bonus_counter] != "") {
-		ss.str("");
 		if (items[item].bonus_val[bonus_counter] > 0) {
-			ss << "Increases " << items[item].bonus_stat[bonus_counter] << " by " << items[item].bonus_val[bonus_counter];
+			modifier = msg->get("stat_bonus", items[item].bonus_val[bonus_counter], items[item].bonus_stat[bonus_counter]);
 			tip.colors[tip.num_lines] = FONT_GREEN;
 		}
 		else {
-			ss << "Decreases " << items[item].bonus_stat[bonus_counter] << " by " << (-1 * items[item].bonus_val[bonus_counter]);
+			modifier = msg->get("stat_malus", items[item].bonus_val[bonus_counter], items[item].bonus_stat[bonus_counter]);
 			tip.colors[tip.num_lines] = FONT_RED;
 		}
-		tip.lines[tip.num_lines++] = ss.str();
+		tip.lines[tip.num_lines++] = modifier;
 		bonus_counter++;
 		if (bonus_counter == ITEM_MAX_BONUSES) break;
 	}
 	
 	// power
 	if (items[item].power_desc != "") {
-		ss.str("");
-		ss << items[item].power_desc;
 		tip.colors[tip.num_lines] = FONT_GREEN;
-		tip.lines[tip.num_lines++] = ss.str();
+		tip.lines[tip.num_lines++] = items[item].power_desc;
 	}
-
-	ss.str("");
 	
 	// requirement
 	if (items[item].req_val > 0) {
 		if (items[item].req_stat == REQUIRES_PHYS) {
-			ss << "Requires Physical " << items[item].req_val;
 			if (stats->get_physical() < items[item].req_val) tip.colors[tip.num_lines] = FONT_RED;
+			tip.lines[tip.num_lines++] = msg->get("requirement_physical", items[item].req_val);
 		}
 		else if (items[item].req_stat == REQUIRES_MENT) {
-			ss << "Requires Mental " << items[item].req_val;
 			if (stats->get_mental() < items[item].req_val) tip.colors[tip.num_lines] = FONT_RED;
+			tip.lines[tip.num_lines++] = msg->get("requirement_mental", items[item].req_val);
 		}
 		else if (items[item].req_stat == REQUIRES_OFF) {
-			ss << "Requires Offense " << items[item].req_val;
 			if (stats->get_offense() < items[item].req_val) tip.colors[tip.num_lines] = FONT_RED;
+			tip.lines[tip.num_lines++] = msg->get("requirement_offense", items[item].req_val);
 		}
 		else if (items[item].req_stat == REQUIRES_DEF) {
-			ss << "Requires Defense " << items[item].req_val;
 			if (stats->get_defense() < items[item].req_val) tip.colors[tip.num_lines] = FONT_RED;
+			tip.lines[tip.num_lines++] = msg->get("requirement_defense", items[item].req_val);
 		}
-		tip.lines[tip.num_lines++] = ss.str();
 	}
 	
 	// buy or sell price
-	ss.str("");
 	if (items[item].price > 0) {
+
 		if (vendor_view) {
-			int buy_price = items[item].price;
-			ss << "Buy price:: " << buy_price << " gold";
-			if (items[item].max_quantity > 1) ss << " each";
+			if (stats->gold < items[item].price) tip.colors[tip.num_lines] = FONT_RED;
+			if (items[item].max_quantity <= 1)
+				tip.lines[tip.num_lines++] = msg->get("buy_price_single", items[item].price);
+			else
+				tip.lines[tip.num_lines++] = msg->get("buy_price_multiple", items[item].price);
 		}
 		else {
 			int price_per_unit = items[item].price/vendor_ratio;
-			if (price_per_unit == 0) price_per_unit = 1;			
-			ss << "Sell price: " << price_per_unit << " gold";
-			if (items[item].max_quantity > 1) ss << " each";
+			if (price_per_unit == 0) price_per_unit = 1;
+			if (items[item].max_quantity <= 1)
+				tip.lines[tip.num_lines++] = msg->get("sell_price_single", price_per_unit);
+			else
+				tip.lines[tip.num_lines++] = msg->get("sell_price_multiple", price_per_unit);
 		}
 
-		if (vendor_view && stats->gold < items[item].price)
-			tip.colors[tip.num_lines] = FONT_RED;
-
-		tip.lines[tip.num_lines++] = ss.str();
-		
 	}
-	
+
 	return tip;
 }
 
