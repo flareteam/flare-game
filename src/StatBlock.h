@@ -14,6 +14,7 @@
 #include <fstream>
 #include "Settings.h"
 #include "Utils.h"
+#include "MessageEngine.h"
 
 using namespace std;
 
@@ -35,7 +36,9 @@ private:
 public:
 	StatBlock();
 	~StatBlock();
-	
+
+	MessageEngine *msg;
+
 	void load(string filename);
 	void takeDamage(int dmg);
 	void recalc();
