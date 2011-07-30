@@ -1,14 +1,13 @@
 # Use the patterns %d and %s for variable digits and strings, respectively.
-# Note: Pay attention to spacing here. The internal spaces have been taken out to accomodate variations in languages.
-#       You will need to manually provide the spaces in this file.
 
 # CHARACTER (Avatar.cpp)
 death=You are defeated.  You lose half your gold.  Press Enter to continue.
 level_up=Congratulations, you have reached level %d!
-attribute_increase= You may increase one attribute through the Character Menu.
+attribute_increase=You may increase one attribute through the Character Menu.
 
 # REWARDS (CampaignManager.cpp)
-reward_item_begin=You receive %s.
+reward_item_single=You receive %s.
+reward_item_multiple=You receive %s x%d.
 reward_currency=You receive %d gold.
 reward_xp=You receive %d XP.
 
@@ -36,7 +35,7 @@ inventory_full=Inventory is full.
 # TITLE SCREEN (GameStateTitle.cpp)
 play_button=Play Game
 exit_button=Exit Game
-version_number=Flare Alpha v0.14.1 dev
+version_number=Flare Alpha v0.14.1
 
 # ITEMS (ItemDatabase.cpp)
 type_main=Main Hand
@@ -46,14 +45,15 @@ type_artifact=Artifact
 type_consumable=Consumable
 type_gem=Gem
 type_quest=Quest Item
+item_level=Level %d
 damage_melee_single=Melee damage: %d
 damage_melee_range=Melee damage: %d-%d
 damage_ranged_single=Ranged damage: %d
 damage_ranged_range=Ranged damage: %d-%d
 damage_mental_single=Mental damage: %d
 damage_mental_range=Mental damage: %d-%d
-stat_absorb=Absorb: %d
-stat_absorb_range=Absorb: %d-%d
+absorb_single=Absorb: %d
+absorb_range=Absorb: %d-%d
 stat_bonus=Increases %s by %d
 stat_malus=Decreases %s by %d
 requirement_physical=Requires Physical %d
@@ -99,6 +99,8 @@ crit_chance=Crit Chance
 absorb=Absorb
 fire_resist=Fire Resist
 ice_resist=Ice Resist
+xp=XP: %d
+next=Next: %d
 physical_description=Physical (P) increases melee weapon proficiency and total HP.
 mental_description=Mental (M) increases mental weapon proficiency and total MP.
 offense_description=Offense (O) increases ranged weapon proficiency and accuracy.
@@ -155,7 +157,7 @@ inventory=Inventory
 #currency=%d Gold
 shift_tooltip=Use SHIFT to move only one item.
 ctrl_tooltip=CTRL-click a carried item to sell it.
-item_action_bar_only=This item can only be used from the action bar.
+item_actionbar_only=This item can only be used from the action bar.
 
 # LOG MENU (MenuLog.cpp)
 messages_tab=Messages
@@ -176,10 +178,10 @@ mental_defense_description=Mental + Defense grants healing and magical protectio
 requires_physical_weapon=Requires a physical weapon
 requires_mental_weapon=Requires a mental weapon
 requires_offense_weapon=Requires an offense weapon
-physical_offense=Physical Offense %d
-physical_defense=Physical Defense %d
-mental_offense=Mental Offense %d
-mental_defense=Mental Defense %d
+requires_physical_offense=Requires Physical Offense %d
+requires_physical_defense=Requires Physical Defense %d
+requires_mental_offense=Requires Mental Offense %d
+requires_mental_defense=Requires Mental Defense %d
 mp_cost=Costs %d MP
 cooldown_seconds=Cooldown: %d seconds
 
