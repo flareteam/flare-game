@@ -24,6 +24,7 @@
 #include "Settings.h"
 #include "InputState.h"
 #include "FontEngine.h"
+#include "MessageEngine.h"
 
 const int GAME_STATE_TITLE = 0;
 const int GAME_STATE_PLAY = 1;
@@ -37,12 +38,13 @@ private:
 	SDL_Surface *screen;
 	InputState *inp;
 	FontEngine *font;
-	Mix_Music *music;	
+	Mix_Music *music;
+	MessageEngine *msg;
 	
 	GameState *currentState;
 	
 public:
-	GameSwitcher(SDL_Surface *_screen, InputState *_inp);
+	GameSwitcher(SDL_Surface *_screen, InputState *_inp, MessageEngine *_msg);
 	void loadMusic();
 	void logic();
 	void render();

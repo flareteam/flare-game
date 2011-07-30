@@ -6,10 +6,11 @@
 #include "SDL_mixer.h"
 #include "InputState.h"
 #include "FontEngine.h"
+#include "MessageEngine.h"
 
 class GameState {
 public:
-	GameState(SDL_Surface *_screen, InputState *_inp, FontEngine *_font);
+	GameState(SDL_Surface *_screen, InputState *_inp, FontEngine *_font, MessageEngine *_msg);
 
 	virtual void logic();
 	virtual void render();
@@ -22,6 +23,7 @@ protected:
 	SDL_Surface *screen;
 	InputState *inp;
 	FontEngine *font;
+	MessageEngine *msg;
 
 	GameState* requestedGameState;	
 

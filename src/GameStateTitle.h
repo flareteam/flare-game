@@ -12,7 +12,7 @@ private:
 	WidgetButton *button_exit;
 	
 public:
-	GameStateTitle(SDL_Surface *_screen, InputState *_inp, FontEngine *_font);
+	GameStateTitle(SDL_Surface *_screen, InputState *_inp, FontEngine *_font, MessageEngine *_msg);
 	~GameStateTitle();
 	void loadGraphics();
 	void logic();
