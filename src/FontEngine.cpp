@@ -12,7 +12,7 @@
 #include <iostream>
 
 FontEngine::FontEngine() {
-	font_height = 10;
+	font_pt = 10;
 
 	// Initiate SDL_ttf
 	if(!TTF_WasInit() && TTF_Init()==-1) {
@@ -29,16 +29,17 @@ FontEngine::FontEngine() {
 				font_path = infile.val;
 			}
 			if (infile.key == "ptsize"){
-				font_height = atoi(infile.val.c_str());
+				font_pt = atoi(infile.val.c_str());
 			}
 		}
 	}
 	font_path = PATH_DATA + "fonts/" + font_path;
-	font = TTF_OpenFont(font_path.c_str(), font_height);
+	font = TTF_OpenFont(font_path.c_str(), font_pt);
 	if(!font) printf("TTF_OpenFont: %s\n", TTF_GetError());
 
 	// calculate the optimal line height
 	line_height = TTF_FontLineSkip(font);
+	font_height = TTF_FontHeight(font); 
 
 	// set the font colors
 	SDL_Color white = {255,255,255};
@@ -101,7 +102,7 @@ Point FontEngine::calc_size(string text_with_newlines, int width) {
 		builder = builder + segment;
 		
 		if (calc_length(builder) > width) {
-			height = height + getHeight();
+			height = height + getLineHeight();
 			if (calc_length(builder_prev) > max_width) max_width = calc_length(builder_prev);
 			builder_prev = "";
 			builder = segment + " ";
@@ -114,7 +115,7 @@ Point FontEngine::calc_size(string text_with_newlines, int width) {
 		segment = eatFirstString(fulltext, space);
 	}
 	
-	height = height + getHeight();
+	height = height + getLineHeight();
 	builder = trim(builder, ' '); //removes whitespace that shouldn't be included in the size
 	if (calc_length(builder) > max_width) max_width = calc_length(builder);
 		
@@ -182,7 +183,7 @@ void FontEngine::render(string text, int x, int y, int justify, SDL_Surface *tar
 		
 		if (calc_length(builder) > width) {
 			render(builder_prev, x, cursor_y, justify, target, color);
-			cursor_y += getHeight();
+			cursor_y += getLineHeight();
 			builder_prev = "";
 			builder = segment + " ";
 		}
@@ -195,7 +196,7 @@ void FontEngine::render(string text, int x, int y, int justify, SDL_Surface *tar
 	}
 
 	render(builder, x, cursor_y, justify, target, color);
-	cursor_y += getHeight();
+	cursor_y += getLineHeight();
 
 }
 

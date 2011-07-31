@@ -104,8 +104,8 @@ void WidgetInput::setPosition(int x, int y) {
 	pos.x = x;
 	pos.y = y;
 	
-	font_pos.x = pos.x  + (font->getHeight()/3);
-	font_pos.y = pos.y + (pos.h/2) - (font->getHeight()/2);
+	font_pos.x = pos.x  + (font->getFontHeight()/2);
+	font_pos.y = pos.y + (pos.h/2) - (font->getFontHeight()/2);
 }
 
 bool WidgetInput::checkClick() {

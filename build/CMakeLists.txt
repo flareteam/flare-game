@@ -95,6 +95,7 @@ Set (FLARE_SOURCES
 	../src/UtilsParsing.cpp
 	../src/WidgetButton.cpp
 	../src/WidgetInput.cpp
+	../src/WidgetLabel.cpp
 	../src/main.cpp
 )
 

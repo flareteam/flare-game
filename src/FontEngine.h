@@ -37,6 +37,7 @@ const int FONT_BLACK = 5;
 class FontEngine {
 private:
 	SDL_Color colors[6];
+	int font_pt;
 	int font_height;
 	int line_height;
 	SDL_Rect src;
@@ -48,8 +49,9 @@ public:
 	FontEngine();
 	~FontEngine();
 
-	int getHeight() { return line_height; }
-
+	int getLineHeight() { return line_height; }
+	int getFontHeight() { return font_height; }
+	
 	int calc_length(string text);
 	Point calc_size(string text_with_newlines, int width);
 

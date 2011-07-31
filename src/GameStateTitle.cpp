@@ -20,6 +20,10 @@ GameStateTitle::GameStateTitle(SDL_Surface *_screen, InputState *_inp, FontEngin
 	button_exit->pos.x = VIEW_W_HALF - button_exit->pos.w/2;
 	button_exit->pos.y = VIEW_H - button_exit->pos.h;
 	
+	// set up labels
+	label_version = new WidgetLabel(screen, font);
+	label_version->setPosition(VIEW_W, 0, JUSTIFY_RIGHT, VALIGN_TOP);
+	label_version->text = msg->get("version_number");
 }
 
 void GameStateTitle::loadGraphics() {
@@ -66,12 +70,12 @@ void GameStateTitle::render() {
 	button_exit->render();
 	
 	// version number
-	font->render(msg->get("version_number"), VIEW_W-2, 2, JUSTIFY_RIGHT, screen, FONT_WHITE);
-	
+	label_version->render();
 }
 
 GameStateTitle::~GameStateTitle() {
 	delete button_play;
 	delete button_exit;
+	delete label_version;
 	SDL_FreeSurface(logo);
 }
