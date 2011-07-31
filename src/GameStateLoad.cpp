@@ -274,26 +274,27 @@ void GameStateLoad::logic() {
 		}
 	}
 	if (button_alternate->checkClick())
-	  {
-	    // Display pop-up to make sure save should be deleted
-	    confirm->visible = true;
-	    confirm->render();
-	  }
-	if (confirm->visible){
-	  confirm->logic();
-	  if(confirm->isConfirmRequested()){
-	    stringstream filename;
-	    filename << PATH_USER << "save" << (selected_slot+1) << ".txt";
-	    if(remove(filename.str().c_str()) != 0)
-	      perror("Error deleting save from path");
-	    stats[selected_slot] = StatBlock();
-	    readGameSlot(selected_slot);
-	    loadPreview(selected_slot);
-	    loadPortrait(selected_slot);
-	    button_alternate->enabled = false;
-	    button_action->label = msg->get("new_game_button");
-	    confirm->visible = false;
-	  }
+	{
+		// Display pop-up to make sure save should be deleted
+		confirm->visible = true;
+		confirm->render();
+	}
+	if (confirm->visible) {
+		confirm->logic();
+		if(confirm->confirmClicked) {
+			stringstream filename;
+			filename << PATH_USER << "save" << (selected_slot+1) << ".txt";
+			if(remove(filename.str().c_str()) != 0)
+				perror("Error deleting save from path");
+			stats[selected_slot] = StatBlock();
+			readGameSlot(selected_slot);
+			loadPreview(selected_slot);
+			loadPortrait(selected_slot);
+			button_alternate->enabled = false;
+			button_action->label = msg->get("new_game_button");
+			confirm->visible = false;
+			confirm->confirmClicked = false;
+		}
 	}
 	// check clicking game slot
 	if (inp->pressing[MAIN1] && !inp->lock[MAIN1]) {

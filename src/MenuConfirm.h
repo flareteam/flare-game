@@ -12,8 +12,6 @@ protected:
 	WidgetButton *buttonConfirm;
 	WidgetButton *buttonClose;
 
-	bool confirmClicked;
-
 	string boxMsg;
 public:
 	MenuConfirm(SDL_Surface*, InputState*, FontEngine*, string, string);
@@ -22,7 +20,7 @@ public:
 	void logic();
 	virtual void render();
 
-	bool isConfirmRequested() { return confirmClicked; }
+	bool confirmClicked;
 };
 
 #endif
