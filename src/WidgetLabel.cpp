@@ -23,20 +23,25 @@ void WidgetLabel::render() {
 	font->render(text, x, y, justify, screen, color);
 }
 
-void WidgetLabel::setPosition(int _x, int _y, int _justify, int valign) {
+/**
+ * A shortcut function to set all attributes simultaneously.
+ * All of these options can be set seperately if needed.
+ */
+void WidgetLabel::set(int _x, int _y, int _justify, int _valign, string _text, int _color) {
 	justify = _justify;
 	x = _x;
+	text = _text;
+	color = _color;
 	
-	if (valign == VALIGN_TOP) {
+	if (_valign == VALIGN_TOP) {
 		y = _y;
 	}
-	else if (valign == VALIGN_BOTTOM) {
+	else if (_valign == VALIGN_BOTTOM) {
 		y = _y - font->getFontHeight();
 	}
-	else if (valign == VALIGN_CENTER) {
+	else if (_valign == VALIGN_CENTER) {
 		y = _y - font->getFontHeight()/2;
 	}
-
 }
 
 WidgetLabel::~WidgetLabel() {

@@ -17,11 +17,51 @@ MenuCharacter::MenuCharacter(SDL_Surface *_screen, InputState *_inp, FontEngine 
 	visible = false;
 
 	loadGraphics();
+
+	int offset_y = (VIEW_H - 416)/2;
 	
+	// button setup
 	closeButton = new WidgetButton(screen, font, inp, "images/menus/buttons/button_x.png");
 	closeButton->pos.x = 294;
-	closeButton->pos.y = (VIEW_H - 480)/2 + 34;
+	closeButton->pos.y = offset_y + 2;
 
+	// menu title
+	labelCharacter = new WidgetLabel(screen, font);
+	labelCharacter->set(160, offset_y+16, JUSTIFY_CENTER, VALIGN_CENTER, msg->get("character"), FONT_WHITE);
+	
+	for (int i=0; i<CSTAT_COUNT; i++) {
+		cstat[i].label = new WidgetLabel(screen, font);
+		cstat[i].value = new WidgetLabel(screen, font);
+		cstat[i].hover.x = cstat[i].hover.y = 0;
+		cstat[i].hover.w = cstat[i].hover.h = 0;
+	}
+	
+	// setup static labels
+	cstat[CSTAT_NAME].label->set(72, offset_y+40, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("name"), FONT_WHITE);
+	cstat[CSTAT_LEVEL].label->set(264, offset_y+40, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("level"), FONT_WHITE);
+	cstat[CSTAT_PHYSICAL].label->set(40, offset_y+80, JUSTIFY_LEFT, VALIGN_CENTER, msg->get("physical"), FONT_WHITE);
+	cstat[CSTAT_MENTAL].label->set(40, offset_y+144, JUSTIFY_LEFT, VALIGN_CENTER, msg->get("mental"), FONT_WHITE);
+	cstat[CSTAT_OFFENSE].label->set(40, offset_y+208, JUSTIFY_LEFT, VALIGN_CENTER, msg->get("offense"), FONT_WHITE);
+	cstat[CSTAT_DEFENSE].label->set(40, offset_y+272, JUSTIFY_LEFT, VALIGN_CENTER, msg->get("defense"), FONT_WHITE);
+	cstat[CSTAT_HP].label->set(152, offset_y+112, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("total_hp"), FONT_WHITE);
+	cstat[CSTAT_HPREGEN].label->set(264, offset_y+112, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("regen"), FONT_WHITE);
+	cstat[CSTAT_MP].label->set(152, offset_y+176, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("total_mp"), FONT_WHITE);
+	cstat[CSTAT_MPREGEN].label->set(264, offset_y+176, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("regen"), FONT_WHITE);
+	cstat[CSTAT_ACCURACYV1].label->set(152, offset_y+240, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("accuracy_vs_def_1"), FONT_WHITE);
+	cstat[CSTAT_ACCURACYV5].label->set(264, offset_y+240, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("vs_def_5"), FONT_WHITE);
+	cstat[CSTAT_AVOIDANCEV1].label->set(152, offset_y+304, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("avoidance_vs_off_1"), FONT_WHITE);
+	cstat[CSTAT_AVOIDANCEV5].label->set(264, offset_y+304, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("vs_off_5"), FONT_WHITE);
+	cstat[CSTAT_DMGMAIN].label->set(136, offset_y+344, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("main_weapon"), FONT_WHITE);
+	cstat[CSTAT_DMGRANGED].label->set(136, offset_y+360, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("ranged_weapon"), FONT_WHITE);
+	cstat[CSTAT_CRIT].label->set(136, offset_y+376, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("crit_chance"), FONT_WHITE);
+	cstat[CSTAT_ABSORB].label->set(264, offset_y+344, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("absorb"), FONT_WHITE);
+	cstat[CSTAT_FIRERESIST].label->set(264, offset_y+360, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("fire_resist"), FONT_WHITE);
+	cstat[CSTAT_ICERESIST].label->set(264, offset_y+376, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("ice_resist"), FONT_WHITE);
+	
+	// setup hotspot locations
+	cstat[CSTAT_NAME].setHover(16, offset_y+32, 168, 16);
+	// TODO: the rest
+	
 }
 
 void MenuCharacter::loadGraphics() {
@@ -50,6 +90,109 @@ void MenuCharacter::loadGraphics() {
 }
 
 /**
+ * Rebuild all stat values and tooltip info
+ */
+void MenuCharacter::refreshStats() {
+	stringstream ss;
+	int offset_y = (VIEW_H - 416)/2;
+	
+	// update stat text
+	cstat[CSTAT_NAME].value->set(84, offset_y+40, JUSTIFY_LEFT, VALIGN_CENTER, stats->name, FONT_WHITE);
+
+	ss.str("");
+	ss << stats->level;
+	cstat[CSTAT_LEVEL].value->set(288, offset_y+40, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
+	
+	ss.str("");
+	ss << stats->get_physical();
+	cstat[CSTAT_PHYSICAL].value->set(24, offset_y+80, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), bonusColor(stats->physical_additional));
+
+	ss.str("");
+	ss << stats->get_mental();
+	cstat[CSTAT_MENTAL].value->set(24, offset_y+144, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), bonusColor(stats->mental_additional));
+
+	ss.str("");
+	ss << stats->get_offense();
+	cstat[CSTAT_OFFENSE].value->set(24, offset_y+208, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), bonusColor(stats->offense_additional));
+
+	ss.str("");
+	ss << stats->get_defense();
+	cstat[CSTAT_DEFENSE].value->set(24, offset_y+272, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), bonusColor(stats->defense_additional));
+
+	ss.str("");
+	ss << stats->maxhp;
+	cstat[CSTAT_HP].value->set(176, offset_y+112, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
+	
+	ss.str("");
+	ss << stats->hp_per_minute;
+	cstat[CSTAT_HPREGEN].value->set(288, offset_y+112, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
+
+	ss.str("");
+	ss << stats->maxmp;
+	cstat[CSTAT_MP].value->set(176, offset_y+176, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
+
+	ss.str("");
+	ss << stats->mp_per_minute;
+	cstat[CSTAT_MPREGEN].value->set(288, offset_y+176, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
+
+	ss.str("");
+	ss << (stats->accuracy) << "%";
+	cstat[CSTAT_ACCURACYV1].value->set(176, offset_y+240, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
+
+	ss.str("");
+	ss << (stats->accuracy - 20) << "%";
+	cstat[CSTAT_ACCURACYV5].value->set(288, offset_y+240, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
+
+	ss.str("");
+	ss << (stats->avoidance) << "%";
+	cstat[CSTAT_AVOIDANCEV1].value->set(176, offset_y+304, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
+
+	ss.str("");
+	ss << (stats->avoidance - 20) << "%";
+	cstat[CSTAT_AVOIDANCEV5].value->set(288, offset_y+304, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
+
+	ss.str("");
+	if (stats->dmg_melee_max >= stats->dmg_ment_max)
+		ss << stats->dmg_melee_min << "-" << stats->dmg_melee_max;
+	else
+		ss << stats->dmg_ment_min << "-" << stats->dmg_ment_max;
+	cstat[CSTAT_DMGMAIN].value->set(160, offset_y+344, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
+
+	ss.str("");
+	if (stats->dmg_ranged_max > 0)
+		ss << stats->dmg_ranged_min << "-" << stats->dmg_ranged_max;
+	else
+		ss << "-";
+	cstat[CSTAT_DMGRANGED].value->set(160, offset_y+360, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
+
+	ss.str("");
+	ss << stats->crit << "%";
+	cstat[CSTAT_CRIT].value->set(160, offset_y+376, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
+
+	ss.str("");
+	if (stats->absorb_min == stats->absorb_max)
+		ss << stats->absorb_min;
+	else
+		ss << stats->absorb_min << "-" << stats->absorb_max;
+	cstat[CSTAT_ABSORB].value->set(288, offset_y+344, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
+
+	ss.str("");
+	ss << (100 - stats->attunement_fire) << "%";
+	cstat[CSTAT_FIRERESIST].value->set(288, offset_y+360, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
+
+	ss.str("");
+	ss << (100 - stats->attunement_ice) << "%";
+	cstat[CSTAT_ICERESIST].value->set(288, offset_y+376, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
+
+
+	// update tool tips
+	cstat[CSTAT_NAME].tip.num_lines = 0;
+	cstat[CSTAT_NAME].tip.lines[cstat[CSTAT_NAME].tip.num_lines++] = msg->get(stats->character_class);
+	// TODO: the rest
+}
+
+
+/**
  * Color-coding for positive/negative/no bonus
  */
 int MenuCharacter::bonusColor(int stat) {
@@ -64,7 +207,11 @@ void MenuCharacter::logic() {
 	if (closeButton->checkClick()) {
 		visible = false;
 	}
+	
+	refreshStats();
 }
+
+
 
 void MenuCharacter::render() {
 	if (!visible) return;
@@ -85,100 +232,15 @@ void MenuCharacter::render() {
 	// close button
 	closeButton->render();
 	
-	// labels
-	font->render(msg->get("character"), 160, offset_y+8, JUSTIFY_CENTER, screen, FONT_WHITE);
-	font->render(msg->get("name"), 72, offset_y+34, JUSTIFY_RIGHT, screen, FONT_WHITE);
-	font->render(msg->get("level"), 248, offset_y+34, JUSTIFY_RIGHT, screen, FONT_WHITE);
-	font->render(msg->get("physical"), 40, offset_y+74, JUSTIFY_LEFT, screen, FONT_WHITE);
-	font->render(msg->get("mental"), 40, offset_y+138, JUSTIFY_LEFT, screen, FONT_WHITE);
-	font->render(msg->get("offense"), 40, offset_y+202, JUSTIFY_LEFT, screen, FONT_WHITE);
-	font->render(msg->get("defense"), 40, offset_y+266, JUSTIFY_LEFT, screen, FONT_WHITE);
-	font->render(msg->get("total_hp"), 152, offset_y+106, JUSTIFY_RIGHT, screen, FONT_WHITE);
-	font->render(msg->get("regen"), 248, offset_y+106, JUSTIFY_RIGHT, screen, FONT_WHITE);
-	font->render(msg->get("total_mp"), 152, offset_y+170, JUSTIFY_RIGHT, screen, FONT_WHITE);
-	font->render(msg->get("regen"), 248, offset_y+170, JUSTIFY_RIGHT, screen, FONT_WHITE);
-	font->render(msg->get("accuracy_vs_def_1"), 152, offset_y+234, JUSTIFY_RIGHT, screen, FONT_WHITE);
-	font->render(msg->get("vs_def_5"), 248, offset_y+234, JUSTIFY_RIGHT, screen, FONT_WHITE);
-	font->render(msg->get("avoidance_vs_off_1"), 152, offset_y+298, JUSTIFY_RIGHT, screen, FONT_WHITE);
-	font->render(msg->get("vs_off_5"), 248, offset_y+298, JUSTIFY_RIGHT, screen, FONT_WHITE);
-	font->render(msg->get("main_weapon"), 120, offset_y+338, JUSTIFY_RIGHT, screen, FONT_WHITE);
-	font->render(msg->get("ranged_weapon"), 120, offset_y+354, JUSTIFY_RIGHT, screen, FONT_WHITE);
-	font->render(msg->get("crit_chance"), 120, offset_y+370, JUSTIFY_RIGHT, screen, FONT_WHITE);
-	font->render(msg->get("absorb"), 248, offset_y+338, JUSTIFY_RIGHT, screen, FONT_WHITE);
-	font->render(msg->get("fire_resist"), 248, offset_y+354, JUSTIFY_RIGHT, screen, FONT_WHITE);
-	font->render(msg->get("ice_resist"), 248, offset_y+370, JUSTIFY_RIGHT, screen, FONT_WHITE);
+	// title
+	labelCharacter->render();
 
-	// character data
-	stringstream ss;
-	font->render(stats->name, 83, offset_y+34, JUSTIFY_LEFT, screen, FONT_WHITE);
-	ss.str("");
-	ss << stats->level;
-	font->render(ss.str(), 268, offset_y+34, JUSTIFY_CENTER, screen, FONT_WHITE);
+	// labels and values
+	for (int i=0; i<CSTAT_COUNT; i++) {
+		cstat[i].label->render();
+		cstat[i].value->render();
+	}
 	
-	ss.str("");
-	ss << stats->get_physical();
-	font->render(ss.str(), 24, offset_y+74, JUSTIFY_CENTER, screen, bonusColor(stats->physical_additional));
-	ss.str("");
-	ss << stats->get_mental();
-	font->render(ss.str(), 24, offset_y+138, JUSTIFY_CENTER, screen, bonusColor(stats->mental_additional));
-	ss.str("");
-	ss << stats->get_offense();
-	font->render(ss.str(), 24, offset_y+202, JUSTIFY_CENTER, screen, bonusColor(stats->offense_additional));
-	ss.str("");
-	ss << stats->get_defense();
-	font->render(ss.str(), 24, offset_y+266, JUSTIFY_CENTER, screen, bonusColor(stats->defense_additional));
-	
-	ss.str("");
-	ss << stats->maxhp;
-	font->render(ss.str(), 172, offset_y+106, JUSTIFY_CENTER, screen, FONT_WHITE);
-	ss.str("");
-	ss << stats->hp_per_minute;
-	font->render(ss.str(), 268, offset_y+106, JUSTIFY_CENTER, screen, FONT_WHITE);
-	ss.str("");
-	ss << stats->maxmp;
-	font->render(ss.str(), 172, offset_y+170, JUSTIFY_CENTER, screen, FONT_WHITE);
-	ss.str("");
-	ss << stats->mp_per_minute;
-	font->render(ss.str(), 268, offset_y+170, JUSTIFY_CENTER, screen, FONT_WHITE);
-	ss.str("");
-	ss << (stats->accuracy) << "%";
-	font->render(ss.str(), 172, offset_y+234, JUSTIFY_CENTER, screen, FONT_WHITE);	
-	ss.str("");
-	ss << (stats->accuracy - 20) << "%";
-	font->render(ss.str(), 268, offset_y+234, JUSTIFY_CENTER, screen, FONT_WHITE);
-	ss.str("");
-	ss << (stats->avoidance) << "%";
-	font->render(ss.str(), 172, offset_y+298, JUSTIFY_CENTER, screen, FONT_WHITE);	
-	ss.str("");
-	ss << (stats->avoidance - 20) << "%";
-	font->render(ss.str(), 268, offset_y+298, JUSTIFY_CENTER, screen, FONT_WHITE);	
-	ss.str("");
-	if (stats->dmg_melee_max >= stats->dmg_ment_max)
-		ss << stats->dmg_melee_min << "-" << stats->dmg_melee_max;
-	else
-		ss << stats->dmg_ment_min << "-" << stats->dmg_ment_max;
-	font->render(ss.str(), 144, offset_y+338, JUSTIFY_CENTER, screen, FONT_WHITE);	
-	ss.str("");
-	if (stats->dmg_ranged_max > 0)
-		ss << stats->dmg_ranged_min << "-" << stats->dmg_ranged_max;
-	else
-		ss << "-";
-	font->render(ss.str(), 144, offset_y+354, JUSTIFY_CENTER, screen, FONT_WHITE);
-	ss.str("");
-	ss << stats->crit << "%";
-	font->render(ss.str(), 144, offset_y+370, JUSTIFY_CENTER, screen, FONT_WHITE);	
-	ss.str("");
-	if (stats->absorb_min == stats->absorb_max)
-		ss << stats->absorb_min;
-	else
-		ss << stats->absorb_min << "-" << stats->absorb_max;
-	font->render(ss.str(), 272, offset_y+338, JUSTIFY_CENTER, screen, FONT_WHITE);
-	ss.str("");
-	ss << (100 - stats->attunement_fire) << "%";
-	font->render(ss.str(), 272, offset_y+354, JUSTIFY_CENTER, screen, FONT_WHITE);
-	ss.str("");
-	ss << (100 - stats->attunement_ice) << "%";
-	font->render(ss.str(), 272, offset_y+370, JUSTIFY_CENTER, screen, FONT_WHITE);
 	
 	// highlight proficiencies
 	displayProficiencies(stats->get_physical(), offset_y+64);
@@ -186,8 +248,8 @@ void MenuCharacter::render() {
 	displayProficiencies(stats->get_offense(), offset_y+192);
 	displayProficiencies(stats->get_defense(), offset_y+256);
 	
-	
 	// if points are available, show the upgrade buttons
+	// TODO: replace with WidgetButton
 	
 	int spent = stats->physical_character + stats->mental_character + stats->offense_character + stats->defense_character -4;
 	int max_spendable_stat_points = 16;
@@ -257,6 +319,14 @@ void MenuCharacter::displayProficiencies(int value, int y) {
  */
 TooltipData MenuCharacter::checkTooltip() {
 
+	for (int i=0; i<CSTAT_COUNT; i++) {
+		if (isWithin(cstat[i].hover, inp->mouse) && cstat[i].tip.num_lines > 0)
+			return cstat[i].tip;
+	}
+	
+	// TODO: translate label hotspots
+	// TODO: refactor proficiency hotspots
+	
 	TooltipData tip;
 	Point mouse;
 	mouse.x = inp->mouse.x;
@@ -489,4 +559,10 @@ MenuCharacter::~MenuCharacter() {
 	SDL_FreeSurface(proficiency);
 	SDL_FreeSurface(upgrade);
 	delete closeButton;
+	
+	delete labelCharacter;
+	for (int i=0; i<CSTAT_COUNT; i++) {
+		delete cstat[i].label;
+		delete cstat[i].value;
+	}
 }

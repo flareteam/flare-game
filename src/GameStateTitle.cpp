@@ -22,8 +22,7 @@ GameStateTitle::GameStateTitle(SDL_Surface *_screen, InputState *_inp, FontEngin
 	
 	// set up labels
 	label_version = new WidgetLabel(screen, font);
-	label_version->setPosition(VIEW_W, 0, JUSTIFY_RIGHT, VALIGN_TOP);
-	label_version->text = msg->get("version_number");
+	label_version->set(VIEW_W, 0, JUSTIFY_RIGHT, VALIGN_TOP, msg->get("version_number"), FONT_WHITE);
 }
 
 void GameStateTitle::loadGraphics() {

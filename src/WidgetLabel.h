@@ -4,7 +4,8 @@
  * @author Clint Bellanger
  * @license GPL
  *
- * A simple text display for menus
+ * A simple text display for menus.
+ * This is preferred to directly displaying text because it helps handle positioning
  */
 
 #ifndef WIDGET_LABEL_H
@@ -23,17 +24,17 @@ private:
 	SDL_Surface *screen;
 	FontEngine *font;
 
-	int x;
-	int y;
-	int justify;
 public:
 	WidgetLabel(SDL_Surface *_screen, FontEngine *_font);
 	~WidgetLabel();
 	void render();
-	void setPosition(int _x, int _y, int _justify, int _valign);
-
+	void set(int _x, int _y, int _justify, int _valign, string _text, int _color);
+	
 	string text;
 	int color;
+	int x;
+	int y;
+	int justify;
 };
 
 #endif
