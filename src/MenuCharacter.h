@@ -44,9 +44,39 @@ const int CSTAT_FIRERESIST = 18;
 const int CSTAT_ICERESIST = 19;
 const int CSTAT_COUNT = 20;
 
+const int CPROF_P2 = 0;
+const int CPROF_P3 = 1;
+const int CPROF_P4 = 2;
+const int CPROF_P5 = 3;
+const int CPROF_M2 = 4;
+const int CPROF_M3 = 5;
+const int CPROF_M4 = 6;
+const int CPROF_M5 = 7;
+const int CPROF_O2 = 8;
+const int CPROF_O3 = 9;
+const int CPROF_O4 = 10;
+const int CPROF_O5 = 11;
+const int CPROF_D2 = 12;
+const int CPROF_D3 = 13;
+const int CPROF_D4 = 14;
+const int CPROF_D5 = 15;
+const int CPROF_COUNT = 16;
+
 struct CharStat {
 	WidgetLabel *label;
 	WidgetLabel *value;
+	SDL_Rect hover;
+	TooltipData tip;
+	
+	void setHover(int x, int y, int w, int h) {
+		hover.x=x;
+		hover.y=y;
+		hover.w=w;
+		hover.h=h;
+	}
+};
+
+struct CharProf {
 	SDL_Rect hover;
 	TooltipData tip;
 	
@@ -72,7 +102,7 @@ private:
 	WidgetButton *closeButton;	
 	WidgetLabel *labelCharacter;
 	CharStat cstat[CSTAT_COUNT];
-	
+	CharProf cprof[CPROF_COUNT];
 
 	void displayProficiencies(int value, int y);
 	void loadGraphics();
