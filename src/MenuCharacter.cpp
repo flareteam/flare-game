@@ -289,82 +289,98 @@ void MenuCharacter::refreshStats() {
 	// proficiency tooltips
 	cprof[CPROF_P2].tip.num_lines = 0;
 	cprof[CPROF_P2].tip.lines[cprof[CPROF_P2].tip.num_lines++] = msg->get("physical_2_proficiency");
-	if (stats->get_physical() < 2) cprof[CPROF_P2].tip.lines[cprof[CPROF_P2].tip.num_lines] = FONT_RED;
+	if (stats->get_physical() < 2) cprof[CPROF_P2].tip.colors[cprof[CPROF_P2].tip.num_lines] = FONT_RED;
+	else cprof[CPROF_P2].tip.colors[cprof[CPROF_P2].tip.num_lines] = FONT_WHITE;
 	cprof[CPROF_P2].tip.lines[cprof[CPROF_P2].tip.num_lines++] = msg->get("requires_physical", 2);
 
 	cprof[CPROF_P3].tip.num_lines = 0;
 	cprof[CPROF_P3].tip.lines[cprof[CPROF_P3].tip.num_lines++] = msg->get("physical_3_proficiency");
-	if (stats->get_physical() < 3) cprof[CPROF_P3].tip.lines[cprof[CPROF_P3].tip.num_lines] = FONT_RED;
+	if (stats->get_physical() < 3) cprof[CPROF_P3].tip.colors[cprof[CPROF_P3].tip.num_lines] = FONT_RED;
+	else cprof[CPROF_P3].tip.colors[cprof[CPROF_P3].tip.num_lines] = FONT_WHITE;
 	cprof[CPROF_P3].tip.lines[cprof[CPROF_P3].tip.num_lines++] = msg->get("requires_physical", 3);
 
 	cprof[CPROF_P4].tip.num_lines = 0;
 	cprof[CPROF_P4].tip.lines[cprof[CPROF_P4].tip.num_lines++] = msg->get("physical_4_proficiency");
-	if (stats->get_physical() < 4) cprof[CPROF_P4].tip.lines[cprof[CPROF_P4].tip.num_lines] = FONT_RED;
+	if (stats->get_physical() < 4) cprof[CPROF_P4].tip.colors[cprof[CPROF_P4].tip.num_lines] = FONT_RED;
+	else cprof[CPROF_P4].tip.colors[cprof[CPROF_P4].tip.num_lines] = FONT_WHITE;
 	cprof[CPROF_P4].tip.lines[cprof[CPROF_P4].tip.num_lines++] = msg->get("requires_physical", 4);
 
 	cprof[CPROF_P5].tip.num_lines = 0;
 	cprof[CPROF_P5].tip.lines[cprof[CPROF_P5].tip.num_lines++] = msg->get("physical_5_proficiency");
-	if (stats->get_physical() < 5) cprof[CPROF_P5].tip.lines[cprof[CPROF_P5].tip.num_lines] = FONT_RED;
+	if (stats->get_physical() < 5) cprof[CPROF_P5].tip.colors[cprof[CPROF_P5].tip.num_lines] = FONT_RED;
+	else cprof[CPROF_P5].tip.colors[cprof[CPROF_P5].tip.num_lines] = FONT_WHITE;
 	cprof[CPROF_P5].tip.lines[cprof[CPROF_P5].tip.num_lines++] = msg->get("requires_physical", 5);
 
 	cprof[CPROF_M2].tip.num_lines = 0;
 	cprof[CPROF_M2].tip.lines[cprof[CPROF_M2].tip.num_lines++] = msg->get("mental_2_proficiency");
-	if (stats->get_mental() < 2) cprof[CPROF_M2].tip.lines[cprof[CPROF_M2].tip.num_lines] = FONT_RED;
+	if (stats->get_mental() < 2) cprof[CPROF_M2].tip.colors[cprof[CPROF_M2].tip.num_lines] = FONT_RED;
+	else cprof[CPROF_M2].tip.colors[cprof[CPROF_M2].tip.num_lines] = FONT_WHITE;
 	cprof[CPROF_M2].tip.lines[cprof[CPROF_M2].tip.num_lines++] = msg->get("requires_mental", 2);
 
 	cprof[CPROF_M3].tip.num_lines = 0;
 	cprof[CPROF_M3].tip.lines[cprof[CPROF_M3].tip.num_lines++] = msg->get("mental_3_proficiency");
-	if (stats->get_mental() < 3) cprof[CPROF_M3].tip.lines[cprof[CPROF_M3].tip.num_lines] = FONT_RED;
+	if (stats->get_mental() < 3) cprof[CPROF_M3].tip.colors[cprof[CPROF_M3].tip.num_lines] = FONT_RED;
+	else cprof[CPROF_M3].tip.colors[cprof[CPROF_M3].tip.num_lines] = FONT_WHITE;
 	cprof[CPROF_M3].tip.lines[cprof[CPROF_M3].tip.num_lines++] = msg->get("requires_mental", 3);
 
 	cprof[CPROF_M4].tip.num_lines = 0;
 	cprof[CPROF_M4].tip.lines[cprof[CPROF_M4].tip.num_lines++] = msg->get("mental_4_proficiency");
-	if (stats->get_mental() < 4) cprof[CPROF_M4].tip.lines[cprof[CPROF_M4].tip.num_lines] = FONT_RED;
+	if (stats->get_mental() < 4) cprof[CPROF_M4].tip.colors[cprof[CPROF_M4].tip.num_lines] = FONT_RED;
+	else cprof[CPROF_M4].tip.colors[cprof[CPROF_M4].tip.num_lines] = FONT_WHITE;
 	cprof[CPROF_M4].tip.lines[cprof[CPROF_M4].tip.num_lines++] = msg->get("requires_mental", 4);
 
 	cprof[CPROF_M5].tip.num_lines = 0;
 	cprof[CPROF_M5].tip.lines[cprof[CPROF_M5].tip.num_lines++] = msg->get("mental_5_proficiency");
-	if (stats->get_mental() < 5) cprof[CPROF_M5].tip.lines[cprof[CPROF_M5].tip.num_lines] = FONT_RED;
+	if (stats->get_mental() < 5) cprof[CPROF_M5].tip.colors[cprof[CPROF_M5].tip.num_lines] = FONT_RED;
+	else cprof[CPROF_M5].tip.colors[cprof[CPROF_M5].tip.num_lines] = FONT_WHITE;
 	cprof[CPROF_M5].tip.lines[cprof[CPROF_M5].tip.num_lines++] = msg->get("requires_mental", 5);
 	
 	cprof[CPROF_O2].tip.num_lines = 0;
 	cprof[CPROF_O2].tip.lines[cprof[CPROF_O2].tip.num_lines++] = msg->get("offense_2_proficiency");
-	if (stats->get_offense() < 2) cprof[CPROF_O2].tip.lines[cprof[CPROF_O2].tip.num_lines] = FONT_RED;
+	if (stats->get_offense() < 2) cprof[CPROF_O2].tip.colors[cprof[CPROF_O2].tip.num_lines] = FONT_RED;
+	else cprof[CPROF_O2].tip.colors[cprof[CPROF_O2].tip.num_lines] = FONT_WHITE;
 	cprof[CPROF_O2].tip.lines[cprof[CPROF_O2].tip.num_lines++] = msg->get("requires_offense", 2);
 
 	cprof[CPROF_O3].tip.num_lines = 0;
 	cprof[CPROF_O3].tip.lines[cprof[CPROF_O3].tip.num_lines++] = msg->get("offense_3_proficiency");
-	if (stats->get_offense() < 3) cprof[CPROF_O3].tip.lines[cprof[CPROF_O3].tip.num_lines] = FONT_RED;
+	if (stats->get_offense() < 3) cprof[CPROF_O3].tip.colors[cprof[CPROF_O3].tip.num_lines] = FONT_RED;
+	else cprof[CPROF_O3].tip.colors[cprof[CPROF_O3].tip.num_lines] = FONT_WHITE;
 	cprof[CPROF_O3].tip.lines[cprof[CPROF_O3].tip.num_lines++] = msg->get("requires_offense", 3);
 
 	cprof[CPROF_O4].tip.num_lines = 0;
 	cprof[CPROF_O4].tip.lines[cprof[CPROF_O4].tip.num_lines++] = msg->get("offense_4_proficiency");
-	if (stats->get_offense() < 4) cprof[CPROF_O4].tip.lines[cprof[CPROF_O4].tip.num_lines] = FONT_RED;
+	if (stats->get_offense() < 4) cprof[CPROF_O4].tip.colors[cprof[CPROF_O4].tip.num_lines] = FONT_RED;
+	else cprof[CPROF_O4].tip.colors[cprof[CPROF_O4].tip.num_lines] = FONT_WHITE;
 	cprof[CPROF_O4].tip.lines[cprof[CPROF_O4].tip.num_lines++] = msg->get("requires_offense", 4);
 
 	cprof[CPROF_O5].tip.num_lines = 0;
 	cprof[CPROF_O5].tip.lines[cprof[CPROF_O5].tip.num_lines++] = msg->get("offense_5_proficiency");
-	if (stats->get_offense() < 5) cprof[CPROF_O5].tip.lines[cprof[CPROF_O5].tip.num_lines] = FONT_RED;
+	if (stats->get_offense() < 5) cprof[CPROF_O5].tip.colors[cprof[CPROF_O5].tip.num_lines] = FONT_RED;
+	else cprof[CPROF_O5].tip.colors[cprof[CPROF_O5].tip.num_lines] = FONT_WHITE;
 	cprof[CPROF_O5].tip.lines[cprof[CPROF_O5].tip.num_lines++] = msg->get("requires_offense", 5);
 
 	cprof[CPROF_D2].tip.num_lines = 0;
 	cprof[CPROF_D2].tip.lines[cprof[CPROF_D2].tip.num_lines++] = msg->get("defense_2_proficiency");
-	if (stats->get_defense() < 2) cprof[CPROF_D2].tip.lines[cprof[CPROF_D2].tip.num_lines] = FONT_RED;
+	if (stats->get_defense() < 2) cprof[CPROF_D2].tip.colors[cprof[CPROF_D2].tip.num_lines] = FONT_RED;
+	else cprof[CPROF_D2].tip.colors[cprof[CPROF_D2].tip.num_lines] = FONT_WHITE;
 	cprof[CPROF_D2].tip.lines[cprof[CPROF_D2].tip.num_lines++] = msg->get("requires_defense", 2);
 
 	cprof[CPROF_D3].tip.num_lines = 0;
 	cprof[CPROF_D3].tip.lines[cprof[CPROF_D3].tip.num_lines++] = msg->get("defense_3_proficiency");
-	if (stats->get_defense() < 3) cprof[CPROF_D3].tip.lines[cprof[CPROF_D3].tip.num_lines] = FONT_RED;
+	if (stats->get_defense() < 3) cprof[CPROF_D3].tip.colors[cprof[CPROF_D3].tip.num_lines] = FONT_RED;
+	else cprof[CPROF_D3].tip.colors[cprof[CPROF_D3].tip.num_lines] = FONT_WHITE;
 	cprof[CPROF_D3].tip.lines[cprof[CPROF_D3].tip.num_lines++] = msg->get("requires_defense", 3);
 
 	cprof[CPROF_D4].tip.num_lines = 0;
 	cprof[CPROF_D4].tip.lines[cprof[CPROF_D4].tip.num_lines++] = msg->get("defense_4_proficiency");
-	if (stats->get_defense() < 4) cprof[CPROF_D4].tip.lines[cprof[CPROF_D4].tip.num_lines] = FONT_RED;
+	if (stats->get_defense() < 4) cprof[CPROF_D4].tip.colors[cprof[CPROF_D4].tip.num_lines] = FONT_RED;
+	else cprof[CPROF_D4].tip.colors[cprof[CPROF_D4].tip.num_lines] = FONT_WHITE;
 	cprof[CPROF_D4].tip.lines[cprof[CPROF_D4].tip.num_lines++] = msg->get("requires_defense", 4);
 
 	cprof[CPROF_D5].tip.num_lines = 0;
 	cprof[CPROF_D5].tip.lines[cprof[CPROF_D5].tip.num_lines++] = msg->get("defense_5_proficiency");
-	if (stats->get_defense() < 5) cprof[CPROF_D5].tip.lines[cprof[CPROF_D5].tip.num_lines] = FONT_RED;
+	if (stats->get_defense() < 5) cprof[CPROF_D5].tip.colors[cprof[CPROF_D5].tip.num_lines] = FONT_RED;
+	else cprof[CPROF_D5].tip.colors[cprof[CPROF_D5].tip.num_lines] = FONT_WHITE;
 	cprof[CPROF_D5].tip.lines[cprof[CPROF_D5].tip.num_lines++] = msg->get("requires_defense", 5);
 	
 }

@@ -153,7 +153,10 @@ void GameStatePlay::loadGame() {
 	menu->inv->applyEquipment(&pc->stats, menu->inv->inventory[EQUIPMENT].storage);
 	pc->stats.hp = pc->stats.maxhp;
 	pc->stats.mp = pc->stats.maxmp;
-			
+	
+	// reset character menu
+	menu->chr->refreshStats();
+	
 	// just for aesthetics, turn the hero to face the camera
 	pc->stats.direction = 6;
 	
