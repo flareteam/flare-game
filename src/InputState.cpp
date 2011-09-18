@@ -62,6 +62,12 @@ InputState::InputState(void) {
 	done = false;
 	
 	loadKeyBindings();
+	
+	// Optionally ignore the Joystick subsystem
+	if (!ENABLE_JOYSTICK) {
+		SDL_JoystickEventState(SDL_IGNORE);
+		SDL_QuitSubSystem(SDL_INIT_JOYSTICK);
+	}
 }
 
 /**

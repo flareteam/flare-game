@@ -48,6 +48,7 @@ int SOUND_VOLUME = 128;
 
 // Input Settings
 bool MOUSE_MOVE = false;
+bool ENABLE_JOYSTICK = true;
 
 // Other Settings
 bool MENUS_PAUSE = false;
@@ -172,6 +173,7 @@ bool loadSettings() {
 		while (infile.next()) {
 			if (infile.key == "fullscreen") {
 				if (infile.val == "1") FULLSCREEN = true;
+				else FULLSCREEN = false;
 			}
 			else if (infile.key == "resolution_w") {
 				VIEW_W = atoi(infile.val.c_str());
@@ -192,12 +194,18 @@ bool loadSettings() {
 			}
 			else if (infile.key == "hwsurface") {
 				if (infile.val == "1") HWSURFACE = true;
+				else HWSURFACE = false;
 			}
 			else if (infile.key == "doublebuf") {
 				if (infile.val == "1") DOUBLEBUF = true;
+				else DOUBLEBUF = false;
 			}
 			else if (infile.key == "frames_per_sec") {
 				FRAMES_PER_SEC = atoi(infile.val.c_str());
+			}
+			else if (infile.key == "enable_joystick") {
+				if (infile.val == "1") ENABLE_JOYSTICK = true;
+				else ENABLE_JOYSTICK = false;
 			}
 		}
 		infile.close();
@@ -228,6 +236,7 @@ bool saveSettings() {
 		outfile << "hwsurface=" << HWSURFACE << "\n";
 		outfile << "doublebuf=" << DOUBLEBUF << "\n";
 		outfile << "frames_per_sec=" << FRAMES_PER_SEC << "\n";
+		outfile << "enable_joystick=" << ENABLE_JOYSTICK << "\n";
 
 		outfile.close();
 	}

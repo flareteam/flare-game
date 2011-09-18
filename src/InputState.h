@@ -20,6 +20,7 @@
 #include "FileParser.h"
 #include "Utils.h"
 #include "UtilsParsing.h"
+#include "Settings.h"
 
 // Input commands enum
 const int CANCEL = 0;
