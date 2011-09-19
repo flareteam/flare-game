@@ -57,8 +57,8 @@ void WidgetInput::logic() {
 		}
 			
 		// handle backspaces
-		if (!inp->lock[DELETE] && inp->pressing[DELETE]) {
-			inp->lock[DELETE] = true;
+		if (!inp->lock[DEL] && inp->pressing[DEL]) {
+			inp->lock[DEL] = true;
 			text = text.substr(0, text.length()-1);
 		}
 

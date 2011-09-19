@@ -47,7 +47,7 @@ const int MAIN1 = 20;
 const int MAIN2 = 21;
 const int CTRL = 22;
 const int SHIFT = 23;
-const int DELETE = 24;
+const int DEL = 24;
 
 class InputState {
 private:

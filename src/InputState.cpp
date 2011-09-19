@@ -52,8 +52,8 @@ InputState::InputState(void) {
 	binding_alt[CTRL] = SDLK_RCTRL;
 	binding[SHIFT] = SDLK_LSHIFT;
 	binding_alt[SHIFT] = SDLK_RSHIFT;
-	binding[DELETE] = SDLK_DELETE;
-	binding_alt[DELETE] = SDLK_BACKSPACE;
+	binding[DEL] = SDLK_DELETE;
+	binding_alt[DEL] = SDLK_BACKSPACE;
 	
 	for (int key=0; key<key_count; key++) {
 		pressing[key] = false;
@@ -116,7 +116,7 @@ void InputState::loadKeyBindings() {
 		else if (infile.key == "log") cursor = LOG;
 		else if (infile.key == "ctrl") cursor = CTRL;
 		else if (infile.key == "shift") cursor = SHIFT;
-		else if (infile.key == "delete") cursor = DELETE;
+		else if (infile.key == "delete") cursor = DEL;
 		
 		if (cursor != -1) {
 			binding[cursor] = key1;
@@ -160,7 +160,7 @@ void InputState::saveKeyBindings() {
 		outfile << "log=" << binding[LOG] << "," << binding_alt[LOG] << "\n";
 		outfile << "ctrl=" << binding[CTRL] << "," << binding_alt[CTRL] << "\n";
 		outfile << "shift=" << binding[SHIFT] << "," << binding_alt[SHIFT] << "\n";
-		outfile << "delete=" << binding[DELETE] << "," << binding_alt[DELETE] << "\n";
+		outfile << "delete=" << binding[DEL] << "," << binding_alt[DEL] << "\n";
 		
 		outfile.close();
 	}
