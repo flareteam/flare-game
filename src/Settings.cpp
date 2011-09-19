@@ -8,12 +8,10 @@
 #include "Settings.h"
 #include <fstream>
 #include <string>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <unistd.h>
 #include "FileParser.h"
 #include "Utils.h"
 #include "UtilsParsing.h"
+#include "UtilsFileSystem.h"
 
 using namespace std;
 
@@ -64,12 +62,13 @@ bool MENUS_PAUSE = false;
 void setPaths() {
 
 	// handle Windows-specific path options
-	PATH_CONF = "./config/";
-	PATH_USER = "./saves/";
-	PATH_DATA = "./";
+	PATH_CONF = "config/";
+	PATH_USER = "saves/";
+	PATH_DATA = "";
+	
 	// TODO: place config and save data in the user's home, windows style
-	mkdir(PATH_CONF.c_str());
-	mkdir(PATH_USER.c_str());
+	createDir(PATH_CONF);
+	createDir(PATH_USER);
 }
 #endif
 #ifndef _WIN32
@@ -84,40 +83,40 @@ void setPaths() {
 	// $XDG_CONFIG_HOME/flare/
 	if (getenv("XDG_CONFIG_HOME") != NULL) {
 		PATH_CONF = (string)getenv("XDG_CONFIG_HOME") + "/" + engine_folder + "/";
-		mkdir(PATH_CONF.c_str(), S_IRWXU);
+		createDir(PATH_CONF);
 	}
 	// $HOME/.config/flare/
 	else if (getenv("HOME") != NULL) {
 		PATH_CONF = (string)getenv("HOME") + "/.config/";
-		mkdir(PATH_CONF.c_str(), S_IRWXU);
+		createDir(PATH_CONF);
 		PATH_CONF += engine_folder + "/";
-		mkdir(PATH_CONF.c_str(), S_IRWXU);		
+		createDir(PATH_CONF);		
 	}
 	// ./config/
 	else {
 		PATH_CONF = "./config/";
-		mkdir(PATH_CONF.c_str(), S_IRWXU | S_IRWXG | S_IRWXO);		
+		createDir(PATH_CONF);		
 	}
 
 	// set user path (save games)
 	// $XDG_DATA_HOME/flare/
 	if (getenv("XDG_DATA_HOME") != NULL) {
 		PATH_USER = (string)getenv("XDG_DATA_HOME") + "/" + engine_folder + "/";
-		mkdir(PATH_USER.c_str(), S_IRWXU);
+		createDir(PATH_USER);
 	}
 	// $HOME/.local/share/flare/
 	else if (getenv("HOME") != NULL) {
 		PATH_USER = (string)getenv("HOME") + "/.local/";
-		mkdir(PATH_USER.c_str(), S_IRWXU);
+		createDir(PATH_USER);
 		PATH_USER += "share/";
-		mkdir(PATH_USER.c_str(), S_IRWXU);
+		createDir(PATH_USER);
 		PATH_USER += engine_folder + "/";
-		mkdir(PATH_USER.c_str(), S_IRWXU);
+		createDir(PATH_USER);
 	}
 	// ./saves/
 	else {
 		PATH_USER = "./saves/";
-		mkdir(PATH_USER.c_str(), S_IRWXU | S_IRWXG | S_IRWXO);		
+		createDir(PATH_USER);	
 	}
 	
 	// data folder
@@ -157,8 +156,7 @@ void setPaths() {
 	
 	PATH_DATA = "/usr/share/games/" + engine_folder + "/";
 	if (dirExists(PATH_DATA)) return; // NOTE: early exit
-	
-	
+
 	// finally assume the local folder
 	PATH_DATA = "./";
 }

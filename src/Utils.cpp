@@ -1,9 +1,6 @@
 #include "Utils.h"
 using namespace std;
 
-#include <sys/types.h>
-#include <sys/stat.h>
-
 int round(float f) {
 	return (int)(f + 0.5);
 }
@@ -199,12 +196,4 @@ void drawPixel(SDL_Surface *screen, int x, int y, Uint32 color) {
 	Uint32 *pixmem32;
 	pixmem32 = (Uint32*) screen->pixels + (y * ((screen->pitch)/4)) + x;
 	*pixmem32 = color;
-}
-
-/**
- * Check to see if a directory exists
- */
-bool dirExists(string path) {
-	struct stat st;
-	return (stat(path.c_str(), &st) == 0);
 }

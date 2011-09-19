@@ -92,6 +92,7 @@ Set (FLARE_SOURCES
 	../src/StatBlock.cpp
 	../src/TileSet.cpp
 	../src/Utils.cpp
+	../src/UtilsFileSystem.cpp
 	../src/UtilsParsing.cpp
 	../src/WidgetButton.cpp
 	../src/WidgetInput.cpp

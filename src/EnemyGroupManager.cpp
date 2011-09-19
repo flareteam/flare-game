@@ -14,37 +14,12 @@ EnemyGroupManager::EnemyGroupManager() {
 EnemyGroupManager::~EnemyGroupManager() {
 }
 
-/**
- * Returns a vector containing all filenames in a given folder with the given extension
- */
-int EnemyGroupManager::getdir(string dir, string ext, vector<string> &files) {
-    DIR *dp;
-    struct dirent *dirp;
-    
-	if((dp  = opendir(dir.c_str())) == NULL) {
-        cout << "Error(" << errno << ") opening " << dir << endl;
-        return errno;
-    }
-	
-	int extlen = ext.length();
-    while ((dirp = readdir(dp)) != NULL) {
-	//	if(dirp->d_type == 0x8) { //0x4 for directories, 0x8 for files
-		string filename = string(dirp->d_name);
-		if(filename.length() > extlen) {
-			if(filename.substr(filename.length()-extlen,extlen) == ext) {
-				files.push_back(filename);
-			}
-		}
-    }
-    closedir(dp);
-    return 0;
-}
 
 // Fills the array with the enemy data
 void EnemyGroupManager::generate() {
 	string dir = PATH_DATA + string("enemies");
 	vector<string> files = vector<string>();
-	getdir(dir,".txt",files);
+	getFileList(dir,".txt",files);
 	for (int i = 0; i < files.size(); i++) {
 		extract_and_sort(files[i]);
 	}
