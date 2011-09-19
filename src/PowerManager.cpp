@@ -785,7 +785,7 @@ bool PowerManager::missile(int power_index, StatBlock *src_stats, Point target) 
 		float offset_angle = ((1.0 - powers[power_index].missile_num)/2 + i) * (powers[power_index].missile_angle * pi / 180.0);
 		float variance = 0;
 		if (powers[power_index].angle_variance != 0)
-			variance = pow(-1, (rand() % 2) - 1) * (rand() % powers[power_index].angle_variance) * pi / 180.0; //random between 0 and angle_variance away
+			variance = pow(-1.0f, (rand() % 2) - 1) * (rand() % powers[power_index].angle_variance) * pi / 180.0; //random between 0 and angle_variance away
 		float alpha = theta + offset_angle + variance;
 		while (alpha >= pi+pi) alpha -= pi+pi;
 		while (alpha < 0.0) alpha += pi+pi;
@@ -795,7 +795,7 @@ bool PowerManager::missile(int power_index, StatBlock *src_stats, Point target) 
 		//calculate the missile velocity
 		int speed_var = 0;
 		if (powers[power_index].speed_variance != 0)
-			speed_var = (int)(pow(-1, (rand() % 2) - 1) * (rand() % powers[power_index].speed_variance + 1) - 1);
+			speed_var = (int)(pow(-1.0f, (rand() % 2) - 1) * (rand() % powers[power_index].speed_variance + 1) - 1);
 		haz[i]->speed.x = (haz[0]->base_speed + speed_var) * cos(alpha);
 		haz[i]->speed.y = (haz[0]->base_speed + speed_var) * sin(alpha);
 		
