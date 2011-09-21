@@ -62,13 +62,16 @@ bool MENUS_PAUSE = false;
 void setPaths() {
 
 	// handle Windows-specific path options
-	PATH_CONF = "config/";
-	PATH_USER = "saves/";
+	PATH_CONF = "config";
+	PATH_USER = "saves";
 	PATH_DATA = "";
 	
 	// TODO: place config and save data in the user's home, windows style
 	createDir(PATH_CONF);
 	createDir(PATH_USER);
+	
+	PATH_CONF = PATH_CONF + "/";
+	PATH_USER = PATH_USER + "/";
 }
 #endif
 #ifndef _WIN32

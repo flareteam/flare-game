@@ -772,14 +772,14 @@ bool PowerManager::missile(int power_index, StatBlock *src_stats, Point target) 
 		src.y = src_stats->pos.y;
 	}
 
-	Hazard *haz[powers[power_index].missile_num];
+	Hazard *haz;
 
 	// calculate polar coordinates angle
 	float theta = calcTheta(src.x, src.y, target.x, target.y);
 	
 	//generate hazards
 	for (int i=0; i < powers[power_index].missile_num; i++) {
-		haz[i] = new Hazard();
+		haz = new Hazard();
 
 		//calculate individual missile angle
 		float offset_angle = ((1.0 - powers[power_index].missile_num)/2 + i) * (powers[power_index].missile_angle * pi / 180.0);
@@ -790,20 +790,20 @@ bool PowerManager::missile(int power_index, StatBlock *src_stats, Point target) 
 		while (alpha >= pi+pi) alpha -= pi+pi;
 		while (alpha < 0.0) alpha += pi+pi;
 
-		initHazard(power_index, src_stats, target, haz[i]);
+		initHazard(power_index, src_stats, target, haz);
 
 		//calculate the missile velocity
 		int speed_var = 0;
 		if (powers[power_index].speed_variance != 0)
 			speed_var = (int)(pow(-1.0f, (rand() % 2) - 1) * (rand() % powers[power_index].speed_variance + 1) - 1);
-		haz[i]->speed.x = (haz[0]->base_speed + speed_var) * cos(alpha);
-		haz[i]->speed.y = (haz[0]->base_speed + speed_var) * sin(alpha);
+		haz->speed.x = (haz->base_speed + speed_var) * cos(alpha);
+		haz->speed.y = (haz->base_speed + speed_var) * sin(alpha);
 		
 		//calculate direction based on trajectory, not actual target (UNITS_PER_TILE reduces round off error)
 		if (powers[power_index].directional)
-			haz[i]->direction = calcDirection(src.x, src.y, src.x + UNITS_PER_TILE * haz[i]->speed.x, src.y + UNITS_PER_TILE * haz[i]->speed.y);
+			haz->direction = calcDirection(src.x, src.y, src.x + UNITS_PER_TILE * haz->speed.x, src.y + UNITS_PER_TILE * haz->speed.y);
 		
-		hazards.push(haz[i]);
+		hazards.push(haz);
 	}
 
 	// if all else succeeded, pay costs
