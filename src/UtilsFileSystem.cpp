@@ -1,10 +1,24 @@
+/*
+Copyright 2011 Clint Bellanger
+
+This file is part of FLARE.
+
+FLARE is free software: you can redistribute it and/or modify it under the terms
+of the GNU General Public License as published by the Free Software Foundation,
+either version 3 of the License, or (at your option) any later version.
+
+FLARE is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with
+FLARE.  If not, see http://www.gnu.org/licenses/
+*/
+
 /**
  * UtilsFileSystem
  *
  * Various file system function wrappers. Abstracted here to hide OS-specific implementations
- *
- * @author Clint Bellanger
- * @license GPL
  */
 
 #include "UtilsFileSystem.h"
@@ -13,6 +27,7 @@
 #include <sys/stat.h>
 #include <dirent.h>
 #include <errno.h>
+#include <fstream>
 
 #ifndef _WIN32
 #include <unistd.h>
@@ -41,7 +56,15 @@ void createDir(std::string path) {
 	std::string syscmd = "mkdir " + path;
 	system(syscmd.c_str());
 #endif
+}
 
+/**
+ * Check to see if a file exists
+ * The filename parameter should include the entire path to this file
+ */
+bool fileExists(std::string filename) {
+	std::ifstream infile(filename.c_str());
+	return infile;
 }
 
 /**
