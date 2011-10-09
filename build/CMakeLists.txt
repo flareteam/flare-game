@@ -101,4 +101,10 @@ Set (FLARE_SOURCES
 )
 
 Add_Executable (flare ${FLARE_SOURCES})
+
+# libSDLMain comes with libSDL if needed on certain platforms
+If (NOT SDLMAIN_LIBRARY)
+  Set (SDLMAIN_LIBRARY "")
+EndIf (NOT SDLMAIN_LIBRARY)
+
 Target_Link_Libraries (flare ${SDL_LIBRARY} ${SDLMIXER_LIBRARY} ${SDLIMAGE_LIBRARY} ${SDLTTF_LIBRARY} ${SDLMAIN_LIBRARY})
