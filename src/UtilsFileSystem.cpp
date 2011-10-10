@@ -28,6 +28,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <dirent.h>
 #include <errno.h>
 #include <fstream>
+#include <stdlib.h>
 
 #ifndef _WIN32
 #include <unistd.h>
