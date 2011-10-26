@@ -1,11 +1,8 @@
 Project (Flare)
 cmake_minimum_required (VERSION 2.6)
 
-set (CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/..)
-
 Set (PACKAGE "FLARE")
 Set (VERSION "0.14.1")
-
 
 # Detect missing dependencies
 
@@ -108,3 +105,23 @@ If (NOT SDLMAIN_LIBRARY)
 EndIf (NOT SDLMAIN_LIBRARY)
 
 Target_Link_Libraries (flare ${SDL_LIBRARY} ${SDLMIXER_LIBRARY} ${SDLIMAGE_LIBRARY} ${SDLTTF_LIBRARY} ${SDLMAIN_LIBRARY})
+
+
+# installing to the proper places
+install(PROGRAMS ${CMAKE_CURRENT_BINARY_DIR}/flare
+  DESTINATION games)
+install(DIRECTORY
+  "${CMAKE_CURRENT_SOURCE_DIR}/animations"
+  "${CMAKE_CURRENT_SOURCE_DIR}/enemies"
+  "${CMAKE_CURRENT_SOURCE_DIR}/engine"
+  "${CMAKE_CURRENT_SOURCE_DIR}/fonts"
+  "${CMAKE_CURRENT_SOURCE_DIR}/images"
+  "${CMAKE_CURRENT_SOURCE_DIR}/items"
+  "${CMAKE_CURRENT_SOURCE_DIR}/maps"
+  "${CMAKE_CURRENT_SOURCE_DIR}/music"
+  "${CMAKE_CURRENT_SOURCE_DIR}/npcs"
+  "${CMAKE_CURRENT_SOURCE_DIR}/powers"
+  "${CMAKE_CURRENT_SOURCE_DIR}/quests"
+  "${CMAKE_CURRENT_SOURCE_DIR}/soundfx"
+  "${CMAKE_CURRENT_SOURCE_DIR}/tilesetdefs"
+  DESTINATION share/games/flare)
