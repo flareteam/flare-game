@@ -109,7 +109,7 @@ Target_Link_Libraries (flare ${SDL_LIBRARY} ${SDLMIXER_LIBRARY} ${SDLIMAGE_LIBRA
 
 # installing to the proper places
 install(PROGRAMS ${CMAKE_CURRENT_BINARY_DIR}/flare
-  DESTINATION games)
+  DESTINATION ${CMAKE_INSTALL_PREFIX}/games)
 install(DIRECTORY
   "${CMAKE_CURRENT_SOURCE_DIR}/animations"
   "${CMAKE_CURRENT_SOURCE_DIR}/enemies"
@@ -124,4 +124,11 @@ install(DIRECTORY
   "${CMAKE_CURRENT_SOURCE_DIR}/quests"
   "${CMAKE_CURRENT_SOURCE_DIR}/soundfx"
   "${CMAKE_CURRENT_SOURCE_DIR}/tilesetdefs"
-  DESTINATION share/games/flare)
+  DESTINATION ${CMAKE_INSTALL_PREFIX}/share/games/flare)
+install(FILES
+  "${CMAKE_CURRENT_SOURCE_DIR}/distribution/flare.desktop"
+  DESTINATION ${CMAKE_INSTALL_PREFIX}/share/applications)
+install(FILES
+  "${CMAKE_CURRENT_SOURCE_DIR}/art/logo/flare_logo.svg"
+  DESTINATION ${CMAKE_INSTALL_PREFIX}/share/icons/hicolor/scalable/apps
+  RENAME flare.svg)
