@@ -105,7 +105,7 @@ private:
 	// map events
 	Map_Event events[256];
 	int event_count;
-	
+
 public:
 	CampaignManager *camp;
 	PowerManager *powers;
