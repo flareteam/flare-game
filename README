@@ -27,7 +27,8 @@ Email     clintbellanger@gmail.com
 DEPENDENCIES
 ============
 
-To build flare you need the 1.2 Development Libraries for SDL, SDL_image, SDL_mixer, and SDL_ttf
+To build flare you need the 1.2 Development Libraries for SDL, SDL_image, SDL_mixer, and SDL_ttf.
+
 To run flare you need the equivalent 1.2 Runtime Libraries.
 
 http://www.libsdl.org/download-1.2.php
@@ -42,13 +43,20 @@ Additionally, for easy building I recommend using cmake and make.
 BUILDING WITH CMAKE
 ===================
 
-To build flare, go to the build folder (cd build) and run the following commands:
+To build flare, go to the main directory/folder and run the following commands:
 
-cmake .
-make
+	make build
+	cd build
+	cmake ..
+	make
 
-Once you're done, return to this folder and you'll see the flare executable.
+If you want the game installed system-wide, as root, install with:
 
+	make install
+
+The game will be installed into '/usr/local' by default.  You can set differet paths in the cmake step, like:
+
+	cmake -DCMAKE_INSTALL_PREFIX:STRING="/usr" ..
 
 or, BUILDING WITH g++
 =====================
@@ -65,8 +73,15 @@ g++ -I /usr/include/SDL src/*.cpp -o flare -lSDL -lSDL_image -lSDL_mixer -lSDL_t
 RUNNING FLARE
 =============
 
-Running flare from command line is straightforward in Linux:
-./flare
+If the program is installing system-wide (i.e., you typed 'make install' and it worked), you can run it just by executing the 'flare' command.
+
+If you did not perform the installation step, you should copy back the binary in 'build' to the top directory, and run it from there, like this:
+
+	cp flare ..
+	cd ..
+	./flare
+
+Also, in newer versions, the game can be launched from an icon in your main menu in your GUI environment (KDE, GNOME, etc.).
 
 If you're running flare from your operating system's gui file browser (e.g. Windows Explorer or OSX Finder), you'll want to use one of the provided launchers.  This helps the flare executable use its own working directory, so it can see all those data folders.
 
