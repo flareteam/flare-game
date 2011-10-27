@@ -19,8 +19,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 /**
  * class MessageEngine
  *
- * The MessageEngine class loads all of FLARE's internal messages from a configuration file
- * and returns them as human-readable strings.
+ * The MessageEngine class allows translation of messages in FLARE by comparing them to
+ * .po files in a format similar to gettext.
  * 
  * This class is primarily used for making sure FLARE is flexible and translatable.
  */
@@ -30,7 +30,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 using namespace std;
 
-#include "FileParser.h"
+#include "GetText.h"
 #include "Settings.h"
 #include <map>
 

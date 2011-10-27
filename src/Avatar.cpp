@@ -215,9 +215,9 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 	if (stats.xp >= stats.xp_table[stats.level] && stats.level < MAX_CHARACTER_LEVEL) {
 		stats.level++;
 		stringstream ss;
-		ss << msg->get("level_up", stats.level);
+		ss << msg->get("Congratulations, you have reached level %d!", stats.level);
 		if (stats.level < max_spendable_stat_points) {
-			ss << " " << msg->get("attribute_increase");
+			ss << " " << msg->get("You may increase one attribute through the Character Menu.");
 		}
 		log_msg = ss.str();
 		stats.recalc();
@@ -485,7 +485,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 				
 			if (activeAnimation->getCurFrame() == 1 && activeAnimation->getTimesPlayed() < 1) {
 				Mix_PlayChannel(-1, sound_die, 0);
-				log_msg = msg->get("death");
+				log_msg = msg->get("You are defeated.  You lose half your gold.  Press Enter to continue.");
 			}
 
 			if (activeAnimation->getTimesPlayed() >= 1) {

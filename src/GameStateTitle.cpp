@@ -29,17 +29,17 @@ GameStateTitle::GameStateTitle(SDL_Surface *_screen, InputState *_inp, FontEngin
 	button_play = new WidgetButton(screen, font, inp, "images/menus/buttons/button_default.png");
 	button_exit = new WidgetButton(screen, font, inp, "images/menus/buttons/button_default.png");
 	
-	button_play->label = msg->get("play_button");
+	button_play->label = msg->get("Play Game");
 	button_play->pos.x = VIEW_W_HALF - button_play->pos.w/2;
 	button_play->pos.y = VIEW_H - (button_exit->pos.h*2);
 
-	button_exit->label = msg->get("exit_button");
+	button_exit->label = msg->get("Exit Game");
 	button_exit->pos.x = VIEW_W_HALF - button_exit->pos.w/2;
 	button_exit->pos.y = VIEW_H - button_exit->pos.h;
 	
 	// set up labels
 	label_version = new WidgetLabel(screen, font);
-	label_version->set(VIEW_W, 0, JUSTIFY_RIGHT, VALIGN_TOP, msg->get("version_number"), FONT_WHITE);
+	label_version->set(VIEW_W, 0, JUSTIFY_RIGHT, VALIGN_TOP, msg->get("Flare Alpha v0.14.1"), FONT_WHITE);
 }
 
 void GameStateTitle::loadGraphics() {

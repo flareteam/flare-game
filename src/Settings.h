@@ -58,6 +58,9 @@ extern int TILE_H;
 extern int TILE_W_HALF;
 extern int TILE_H_HALF;
 
+// Language Settings
+extern std::string LANGUAGE;
+
 void setPaths();
 bool loadSettings();
 bool saveSettings();

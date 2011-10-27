@@ -29,10 +29,10 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <iostream>
 
 MessageEngine::MessageEngine() {
-	FileParser infile;
-	if (infile.open(PATH_DATA + "engine/messages.txt")) {
+	GetText infile;
+	if (infile.open(PATH_DATA + "languages/" + LANGUAGE + ".po")) {
 		while (infile.next()) {
-				messages.insert(pair<string,string>(infile.key, infile.val));
+			messages.insert(pair<string,string>(infile.key, infile.val));
 		}
 	}
 }
@@ -42,13 +42,13 @@ MessageEngine::MessageEngine() {
  */
 string MessageEngine::get(string key) {
 	string msg = messages[key];
-	if (msg == "") cout << "Warning! Message '" << key << "' not found in /engine/messages.txt" << endl;
+	if (msg == "") msg = key;
 	return msg;
 }
 
 string MessageEngine::get(string key, int i) {
 	string msg = messages[key];
-	if (msg == "") cout << "Warning! Message '" << key << "' not found in /engine/messages.txt" << endl;
+	if (msg == "") msg = key;
 	int index = msg.find("%d");
 	if (index != string::npos) msg = msg.replace(index, 2, str(i));
 	return msg;
@@ -56,7 +56,7 @@ string MessageEngine::get(string key, int i) {
 
 string MessageEngine::get(string key, string s) {
 	string msg = messages[key];
-	if (msg == "") cout << "Warning! Message '" << key << "' not found in /engine/messages.txt" << endl;
+	if (msg == "") msg = key;
 	int index = msg.find("%s");
 	if (index != string::npos) msg = msg.replace(index, 2, s);
 	return msg;
@@ -64,7 +64,7 @@ string MessageEngine::get(string key, string s) {
 
 string MessageEngine::get(string key, int i, string s) {
 	string msg = messages[key];
-	if (msg == "") cout << "Warning! Message '" << key << "' not found in /engine/messages.txt" << endl;
+	if (msg == "") msg = key;
 	int index = msg.find("%d");
 	if (index != string::npos) msg = msg.replace(index, 2, str(i));
 	index = msg.find("%s");
@@ -74,7 +74,7 @@ string MessageEngine::get(string key, int i, string s) {
 
 string MessageEngine::get(string key, int i, int j) {
 	string msg = messages[key];
-	if (msg == "") cout << "Warning! Message '" << key << "' not found in /engine/messages.txt" << endl;
+	if (msg == "") msg = key;
 	int index = msg.find("%d");
 	if (index != string::npos) msg = msg.replace(index, 2, str(i));
 	index = msg.find("%d");

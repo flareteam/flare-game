@@ -66,7 +66,7 @@ static void init() {
 	  }
 	  SDL_JoystickOpen(0);
 	}
-	const char* title = msg->get("window_title").c_str();
+	const char* title = msg->get("Flare").c_str();
 	SDL_WM_SetCaption(title, title);
 	
 	// Set sound effects volume from settings file

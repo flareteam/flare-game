@@ -224,19 +224,19 @@ TooltipData MenuActionBar::checkTooltip(Point mouse) {
 	
 	//int offset_x = (VIEW_W - 640)/2;
 	if (isWithin(menus[0], mouse)) {
-		tip.lines[tip.num_lines++] = msg->get("character_tooltip");
+		tip.lines[tip.num_lines++] = msg->get("Character Menu (C)");
 		return tip;
 	}
 	if (isWithin(menus[1], mouse)) {
-		tip.lines[tip.num_lines++] = msg->get("inventory_tooltip");
+		tip.lines[tip.num_lines++] = msg->get("Inventory Menu (I)");
 		return tip;
 	}
 	if (isWithin(menus[2], mouse)) {
-		tip.lines[tip.num_lines++] = msg->get("power_tooltip");
+		tip.lines[tip.num_lines++] = msg->get("Power Menu (P)");
 		return tip;
 	}
 	if (isWithin(menus[3], mouse)) {
-		tip.lines[tip.num_lines++] = msg->get("log_tooltip");
+		tip.lines[tip.num_lines++] = msg->get("Log Menu (L)");
 		return tip;
 	}
 	for (int i=0; i<12; i++) {

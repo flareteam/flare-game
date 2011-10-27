@@ -62,6 +62,9 @@ int SOUND_VOLUME = 128;
 bool MOUSE_MOVE = false;
 bool ENABLE_JOYSTICK = true;
 
+// Language Settings
+std::string LANGUAGE = "en";
+
 // Other Settings
 bool MENUS_PAUSE = false;
 
@@ -222,6 +225,9 @@ bool loadSettings() {
 				if (infile.val == "1") ENABLE_JOYSTICK = true;
 				else ENABLE_JOYSTICK = false;
 			}
+			else if (infile.key == "language") {
+				LANGUAGE = infile.val.c_str();
+			}
 		}
 		infile.close();
 		return true;
@@ -252,6 +258,7 @@ bool saveSettings() {
 		outfile << "doublebuf=" << DOUBLEBUF << "\n";
 		outfile << "frames_per_sec=" << FRAMES_PER_SEC << "\n";
 		outfile << "enable_joystick=" << ENABLE_JOYSTICK << "\n";
+		outfile << "language=" << LANGUAGE << "\n";
 
 		outfile.close();
 	}

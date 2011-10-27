@@ -77,7 +77,7 @@ void MenuExit::render() {
 	src.h = window_area.h;
 	SDL_BlitSurface(background, &src, screen, &window_area);
 
-	font->render(msg->get("exit_dialog"), window_area.x + window_area.w/2, window_area.y + 10, JUSTIFY_CENTER, screen, FONT_WHITE);
+	font->render(msg->get("Save and exit to title?"), window_area.x + window_area.w/2, window_area.y + 10, JUSTIFY_CENTER, screen, FONT_WHITE);
 
 	buttonExit->render();
 	buttonClose->render();

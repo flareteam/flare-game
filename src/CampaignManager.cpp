@@ -140,9 +140,9 @@ void CampaignManager::rewardItem(ItemStack istack) {
 		carried_items->add(istack);
 
 		if (istack.quantity <= 1)
-			addMsg(msg->get("reward_item_single", items->items[istack.item].name));
+			addMsg(msg->get("You receive %s.", items->items[istack.item].name));
 		if (istack.quantity > 1)
-			addMsg(msg->get("reward_item_multiple", istack.quantity, items->items[istack.item].name));
+			addMsg(msg->get("You receive %s x%d.", istack.quantity, items->items[istack.item].name));
 		
 		items->playSound(istack.item);
 	}
@@ -150,13 +150,13 @@ void CampaignManager::rewardItem(ItemStack istack) {
 
 void CampaignManager::rewardCurrency(int amount) {
 	*currency += amount;
-	addMsg(msg->get("reward_currency", amount));
+	addMsg(msg->get("You receive %d gold.", amount));
 	items->playCoinsSound();
 }
 
 void CampaignManager::rewardXP(int amount) {
 	*xp += amount;
-	addMsg(msg->get("reward_xp", amount));
+	addMsg(msg->get("You receive %d XP.", amount));
 }	
 
 void CampaignManager::addMsg(string msg) {

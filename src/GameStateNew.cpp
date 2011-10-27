@@ -33,12 +33,12 @@ GameStateNew::GameStateNew(SDL_Surface *_screen, InputState *_inp, FontEngine *_
 	portrait_image = NULL;
 	
 	button_exit = new WidgetButton(screen, font, inp, "images/menus/buttons/button_default.png");
-	button_exit->label = msg->get("cancel_button");
+	button_exit->label = msg->get("Cancel");
 	button_exit->pos.x = VIEW_W_HALF - button_exit->pos.w/2;
 	button_exit->pos.y = VIEW_H - button_exit->pos.h;
 	
 	button_create = new WidgetButton(screen, font, inp, "images/menus/buttons/button_default.png");
-	button_create->label = msg->get("create_button");
+	button_create->label = msg->get("Create Character");
 	button_create->pos.x = VIEW_W_HALF + button_create->pos.w/2;
 	button_create->pos.y = VIEW_H - button_create->pos.h;
 
@@ -181,8 +181,8 @@ void GameStateNew::render() {
 	}
 	
 	// display labels
-	font->render(msg->get("choose_portrait"), VIEW_W_HALF, VIEW_H_HALF-176, JUSTIFY_CENTER, screen, FONT_GREY);
-	font->render(msg->get("choose_name"), VIEW_W_HALF, VIEW_H_HALF+168, JUSTIFY_CENTER, screen, FONT_GREY);
+	font->render(msg->get("Choose a Portrait"), VIEW_W_HALF, VIEW_H_HALF-176, JUSTIFY_CENTER, screen, FONT_GREY);
+	font->render(msg->get("Choose a Name"), VIEW_W_HALF, VIEW_H_HALF+168, JUSTIFY_CENTER, screen, FONT_GREY);
 	
 }
 

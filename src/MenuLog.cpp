@@ -34,10 +34,10 @@ MenuLog::MenuLog(SDL_Surface *_screen, InputState *_inp, FontEngine *_font, Mess
 	}
 	active_log = 0;
 
-	tab_labels[LOG_TYPE_MESSAGES] = msg->get("messages_tab");
-	tab_labels[LOG_TYPE_QUESTS] = msg->get("quests_tab");
-	tab_labels[LOG_TYPE_ACHIEVEMENTS] = msg->get("achievements_tab");
-	tab_labels[LOG_TYPE_STATISTICS] = msg->get("statistics_tab");
+	tab_labels[LOG_TYPE_MESSAGES] = msg->get("Messages");
+	tab_labels[LOG_TYPE_QUESTS] = msg->get("Quests");
+	tab_labels[LOG_TYPE_ACHIEVEMENTS] = msg->get("Achievements");
+	tab_labels[LOG_TYPE_STATISTICS] = msg->get("Statistics");
 
 	// TODO: allow menu size to be configurable
 	menu_area.x = 0;
