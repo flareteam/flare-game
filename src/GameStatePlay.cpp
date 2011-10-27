@@ -147,7 +147,7 @@ void GameStatePlay::checkLoot() {
 		}
 		if (loot->full_msg) {
 			inp->lock[MAIN1] = true;
-			menu->log->add(msg->get("inventory_full"), LOG_TYPE_MESSAGES);
+			menu->log->add(msg->get("Inventory is full."), LOG_TYPE_MESSAGES);
 			loot->full_msg = false;
 		}
 	}

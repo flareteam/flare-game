@@ -287,37 +287,40 @@ void StatBlock::recalc() {
 	
 	int stat_sum = get_physical() + get_mental() + get_offense() + get_defense();
 
+    // TODO: These class names do. not get caught by xgettext, so figure out
+    // a way to translate them.
+
 	// determine class
 	// if all four stats are max, Grand Master
 	if (stat_sum >= 20)
-		character_class = "class_grand_master";
+		character_class = "Grand Master";
 	// if three stats are max, Master
 	else if (stat_sum >= 16)
-		character_class = "class_master";
+		character_class = "Master";
 	// if one attribute is much higher than the others, use the attribute class name
 	else if (get_physical() > get_mental()+1 && get_physical() > get_offense()+1 && get_physical() > get_defense()+1)
-		character_class = "class_physical";
+		character_class = "Warrior";
 	else if (get_mental() > get_physical()+1 && get_mental() > get_offense()+1 && get_mental() > get_defense()+1)
-		character_class = "class_mental";
+		character_class = "Wizard";
 	else if (get_offense() > get_physical()+1 && get_offense() > get_mental()+1 && get_offense() > get_defense()+1)
-		character_class = "class_offense";
+		character_class = "Ranger";
 	else if (get_defense() > get_physical()+1 && get_defense() > get_mental()+1 && get_defense() > get_offense()+1)
-		character_class = "class_defense";
+		character_class = "Paladin";
 	// if there is no dominant attribute, use the dicipline class name
 	else if (physoff > physdef && physoff > mentoff && physoff > mentdef && physoff > physment && physoff > offdef)
-		character_class = "class_physical_offense";
+		character_class = "Rogue";
 	else if (physdef > physoff && physdef > mentoff && physdef > mentdef && physdef > physment && physdef > offdef)
-		character_class = "class_physical_defense";
+		character_class = "Knight";
 	else if (mentoff > physoff && mentoff > physdef && mentoff > mentdef && mentoff > physment && mentoff > offdef)
-		character_class = "class_mental_offense";
+		character_class = "Shaman";
 	else if (mentdef > physoff && mentdef > physdef && mentdef > mentoff && mentdef > physment && mentdef > offdef)
-		character_class = "class_mental_defense";
+		character_class = "Cleric";
 	else if (physment > physoff && physment > physdef && physment > mentoff && physment > mentdef && physment > offdef)
-		character_class = "class_physical_mental";
+		character_class = "Battle Mage";
 	else if (offdef > physoff && offdef > physdef && offdef > mentoff && offdef > mentdef && offdef > physment)
-		character_class = "class_offense_defense";
+		character_class = "Heavy Archer";
 	// otherwise, use the generic name
-	else character_class = "class_generic";
+	else character_class = "Adventurer";
 	
 }
 

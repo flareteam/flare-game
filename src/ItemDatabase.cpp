@@ -308,55 +308,55 @@ TooltipData ItemDatabase::getTooltip(int item, StatBlock *stats, bool vendor_vie
 	
 	// level
 	if (items[item].level != 0) {
-		tip.lines[tip.num_lines++] = msg->get("item_level", items[item].level);
+		tip.lines[tip.num_lines++] = msg->get("Level %d", items[item].level);
 	}
 	
 	// type
 	if (items[item].type != ITEM_TYPE_OTHER) {
 		if (items[item].type == ITEM_TYPE_MAIN)
-			tip.lines[tip.num_lines++] = msg->get("type_main");
+			tip.lines[tip.num_lines++] = msg->get("Main Hand");
 		else if (items[item].type == ITEM_TYPE_BODY)
-			tip.lines[tip.num_lines++] = msg->get("type_body");
+			tip.lines[tip.num_lines++] = msg->get("Body");
 		else if (items[item].type == ITEM_TYPE_OFF)
-			tip.lines[tip.num_lines++] = msg->get("type_off");
+			tip.lines[tip.num_lines++] = msg->get("Off Hand");
 		else if (items[item].type == ITEM_TYPE_ARTIFACT)
-			tip.lines[tip.num_lines++] = msg->get("type_artifact");
+			tip.lines[tip.num_lines++] = msg->get("Artifact");
 		else if (items[item].type == ITEM_TYPE_CONSUMABLE)
-			tip.lines[tip.num_lines++] = msg->get("type_consumable");
+			tip.lines[tip.num_lines++] = msg->get("Consumable");
 		else if (items[item].type == ITEM_TYPE_GEM)
-			tip.lines[tip.num_lines++] = msg->get("type_gem");
+			tip.lines[tip.num_lines++] = msg->get("Gem");
 		else if (items[item].type == ITEM_TYPE_QUEST)
-			tip.lines[tip.num_lines++] = msg->get("type_quest");
+			tip.lines[tip.num_lines++] = msg->get("Quest Item");
 	}
 	
 	// damage
 	if (items[item].dmg_max > 0) {
 		if (items[item].req_stat == REQUIRES_PHYS) {
 			if (items[item].dmg_min < items[item].dmg_max)
-				tip.lines[tip.num_lines++] = msg->get("damage_melee_range", items[item].dmg_min, items[item].dmg_max);
+				tip.lines[tip.num_lines++] = msg->get("Melee damage: %d-%d", items[item].dmg_min, items[item].dmg_max);
 			else
-				tip.lines[tip.num_lines++] = msg->get("damage_melee_single", items[item].dmg_max);
+				tip.lines[tip.num_lines++] = msg->get("Melee damage: %d", items[item].dmg_max);
 		}
 		else if (items[item].req_stat == REQUIRES_MENT) {
 			if (items[item].dmg_min < items[item].dmg_max)
-				tip.lines[tip.num_lines++] = msg->get("damage_mental_range", items[item].dmg_min, items[item].dmg_max);
+				tip.lines[tip.num_lines++] = msg->get("Mental damage: %d-%d", items[item].dmg_min, items[item].dmg_max);
 			else
-				tip.lines[tip.num_lines++] = msg->get("damage_mental_single", items[item].dmg_max);
+				tip.lines[tip.num_lines++] = msg->get("Mental damage: %d", items[item].dmg_max);
 		}
 		else if (items[item].req_stat == REQUIRES_OFF) {
 			if (items[item].dmg_min < items[item].dmg_max)
-				tip.lines[tip.num_lines++] = msg->get("damage_ranged_range", items[item].dmg_min, items[item].dmg_max);
+				tip.lines[tip.num_lines++] = msg->get("Ranged damage: %d-%d", items[item].dmg_min, items[item].dmg_max);
 			else
-				tip.lines[tip.num_lines++] = msg->get("damage_ranged_single", items[item].dmg_max);
+				tip.lines[tip.num_lines++] = msg->get("Ranged damage: %d", items[item].dmg_max);
 		}
 	}
 
 	// absorb
 	if (items[item].abs_max > 0) {
 		if (items[item].abs_min < items[item].abs_max)
-			tip.lines[tip.num_lines++] = msg->get("absorb_range", items[item].abs_min, items[item].abs_max);
+			tip.lines[tip.num_lines++] = msg->get("Absorb: %d-%d", items[item].abs_min, items[item].abs_max);
 		else
-			tip.lines[tip.num_lines++] = msg->get("absorb_single", items[item].abs_max);
+			tip.lines[tip.num_lines++] = msg->get("Absorb: %d", items[item].abs_max);
 	}
 
 	// bonuses
@@ -364,11 +364,11 @@ TooltipData ItemDatabase::getTooltip(int item, StatBlock *stats, bool vendor_vie
 	string modifier;
 	while (items[item].bonus_stat[bonus_counter] != "") {
 		if (items[item].bonus_val[bonus_counter] > 0) {
-			modifier = msg->get("stat_bonus", items[item].bonus_val[bonus_counter], items[item].bonus_stat[bonus_counter]);
+			modifier = msg->get("Increases %s by %d", items[item].bonus_val[bonus_counter], items[item].bonus_stat[bonus_counter]);
 			tip.colors[tip.num_lines] = FONT_GREEN;
 		}
 		else {
-			modifier = msg->get("stat_malus", items[item].bonus_val[bonus_counter], items[item].bonus_stat[bonus_counter]);
+			modifier = msg->get("Decreases %s by %d", items[item].bonus_val[bonus_counter], items[item].bonus_stat[bonus_counter]);
 			tip.colors[tip.num_lines] = FONT_RED;
 		}
 		tip.lines[tip.num_lines++] = modifier;
@@ -386,19 +386,19 @@ TooltipData ItemDatabase::getTooltip(int item, StatBlock *stats, bool vendor_vie
 	if (items[item].req_val > 0) {
 		if (items[item].req_stat == REQUIRES_PHYS) {
 			if (stats->get_physical() < items[item].req_val) tip.colors[tip.num_lines] = FONT_RED;
-			tip.lines[tip.num_lines++] = msg->get("requirement_physical", items[item].req_val);
+			tip.lines[tip.num_lines++] = msg->get("Requires Physical %d", items[item].req_val);
 		}
 		else if (items[item].req_stat == REQUIRES_MENT) {
 			if (stats->get_mental() < items[item].req_val) tip.colors[tip.num_lines] = FONT_RED;
-			tip.lines[tip.num_lines++] = msg->get("requirement_mental", items[item].req_val);
+			tip.lines[tip.num_lines++] = msg->get("Requires Mental %d", items[item].req_val);
 		}
 		else if (items[item].req_stat == REQUIRES_OFF) {
 			if (stats->get_offense() < items[item].req_val) tip.colors[tip.num_lines] = FONT_RED;
-			tip.lines[tip.num_lines++] = msg->get("requirement_offense", items[item].req_val);
+			tip.lines[tip.num_lines++] = msg->get("Requires Offense %d", items[item].req_val);
 		}
 		else if (items[item].req_stat == REQUIRES_DEF) {
 			if (stats->get_defense() < items[item].req_val) tip.colors[tip.num_lines] = FONT_RED;
-			tip.lines[tip.num_lines++] = msg->get("requirement_defense", items[item].req_val);
+			tip.lines[tip.num_lines++] = msg->get("Requires Defense %d", items[item].req_val);
 		}
 	}
 	
@@ -408,17 +408,17 @@ TooltipData ItemDatabase::getTooltip(int item, StatBlock *stats, bool vendor_vie
 		if (vendor_view) {
 			if (stats->gold < items[item].price) tip.colors[tip.num_lines] = FONT_RED;
 			if (items[item].max_quantity <= 1)
-				tip.lines[tip.num_lines++] = msg->get("buy_price_single", items[item].price);
+				tip.lines[tip.num_lines++] = msg->get("Buy Price: %d gold", items[item].price);
 			else
-				tip.lines[tip.num_lines++] = msg->get("buy_price_multiple", items[item].price);
+				tip.lines[tip.num_lines++] = msg->get("Buy Price: %d gold each", items[item].price);
 		}
 		else {
 			int price_per_unit = items[item].price/vendor_ratio;
 			if (price_per_unit == 0) price_per_unit = 1;
 			if (items[item].max_quantity <= 1)
-				tip.lines[tip.num_lines++] = msg->get("sell_price_single", price_per_unit);
+				tip.lines[tip.num_lines++] = msg->get("Sell Price: %d gold", price_per_unit);
 			else
-				tip.lines[tip.num_lines++] = msg->get("sell_price_multiple", price_per_unit);
+				tip.lines[tip.num_lines++] = msg->get("Sell Price: %d gold each", price_per_unit);
 		}
 
 	}

@@ -92,7 +92,7 @@ void MenuVendor::render() {
 	closeButton->render();
 
 	// text overlay
-	font->render(msg->get("vendor"), 160, offset_y+8, JUSTIFY_CENTER, screen, FONT_WHITE);
+	font->render(msg->get("Vendor"), 160, offset_y+8, JUSTIFY_CENTER, screen, FONT_WHITE);
 	font->render(npc->name, 160, offset_y+24, JUSTIFY_CENTER, screen, FONT_WHITE);
 
 	// show stock

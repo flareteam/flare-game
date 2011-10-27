@@ -234,7 +234,7 @@ void LootManager::renderTooltips(Point cam) {
 			else {
 				td.num_lines = 1;
 				td.colors[0] = FONT_WHITE;
-				ss << msg->get("currency", loot[i].gold);
+				ss << msg->get("%d Gold", loot[i].gold);
 				td.lines[0] = ss.str();
 				ss.str("");
 			}
