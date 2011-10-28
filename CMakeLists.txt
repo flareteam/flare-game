@@ -81,6 +81,7 @@ Set (FLARE_SOURCES
 	./src/MenuTooltip.cpp
 	./src/MenuVendor.cpp
 	./src/MessageEngine.cpp
+	./src/ModManager.cpp
 	./src/NPC.cpp
 	./src/NPCManager.cpp
 	./src/PowerManager.cpp
