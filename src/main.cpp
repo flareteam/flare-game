@@ -18,6 +18,7 @@ using namespace std;
 #include "InputState.h"
 #include "GameSwitcher.h"
 #include "MessageEngine.h"
+#include "ModManager.h"
 
 SDL_Surface *screen;
 InputState *inps;
@@ -25,6 +26,13 @@ GameSwitcher *gswitch;
 MessageEngine *msg;
 
 static void init() {
+
+	setPaths();
+
+	if (!loadSettings()) {
+		fprintf(stderr, "Error: could not load config/settings.txt.");
+		exit(1);
+	}
 
 	// SDL Inits
 	if ( SDL_Init (SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_JOYSTICK) < 0 ) {		
@@ -73,6 +81,7 @@ static void init() {
 	Mix_Volume(-1, SOUND_VOLUME);
 
 	/* Shared game units setup */
+	mods = new ModManager();
 	inps = new InputState();
 	gswitch = new GameSwitcher(screen, inps, msg);
 }
@@ -109,29 +118,23 @@ static void mainLoop () {
 	}
 }
 
-int main(int argc, char *argv[])
-{
-	
-	srand((unsigned int)time(NULL));
-
-	setPaths();
-
-	if (!loadSettings()) {
-		fprintf(stderr, "Error: could not load config/settings.txt. Check your permissions and working directory.");
-		return 1;
-	}
-	
-	init();
-	mainLoop();
-	
-	// cleanup
-	// TODO: halt all sounds here before freeing music/chunks
+static void cleanup() {
 	delete gswitch;
 	delete inps;
 	delete msg;
+	delete mods;
 	SDL_FreeSurface(screen);
 	Mix_CloseAudio();
 	SDL_Quit();
+}
+
+int main(int argc, char *argv[])
+{	
+	srand((unsigned int)time(NULL));
 	
+	init();
+	mainLoop();	
+	cleanup();
+
 	return 0;
 }

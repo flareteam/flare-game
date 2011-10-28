@@ -15,23 +15,42 @@ You should have received a copy of the GNU General Public License along with
 FLARE.  If not, see http://www.gnu.org/licenses/
 */
 
-/**
- * UtilsFileSystem
- *
- * Various file system function wrappers. Abstracted here to hide OS-specific implementations
- */
+/*
+class ModManager
 
-#ifndef UTILS_FILE_SYSTEM_H
-#define UTILS_FILE_SYSTEM_H
+ModManager maintains a list of active mods and provides functions for checking
+mods in priority order when loading data files.
+*/
 
+#ifndef MOD_MANAGER_H
+#define MOD_MANAGER_H
+
+#include "Settings.h"
+#include "UtilsParsing.h"
 #include <string>
+#include <map>
 #include <vector>
+#include <fstream>
 
-bool dirExists(std::string path);
-void createDir(std::string path);
-bool fileExists(std::string filename);
-int getFileList(std::string dir, std::string ext, std::vector<std::string> &files);
+using namespace std;
 
+class ModManager {
+private:
+	void loadModList();
 
+	map<string,string> loc_cache;
+	vector<string> mod_list;
+	
+public:
+	ModManager();
+	~ModManager();
+	
+	string locate(string filename);
+};
+
+// TODO: mod location lookup is used by most classes. Does this justify
+// use of a global? Consider refactoring.
+extern ModManager *mods;
 
 #endif
+
