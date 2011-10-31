@@ -30,6 +30,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "StatBlock.h"
 #include "Hazard.h"
 #include "MapCollision.h"
+#include "MessageEngine.h"
 
 #ifndef POWER_MANAGER_H
 #define POWER_MANAGER_H
@@ -283,12 +284,13 @@ private:
 	bool single(int powernum, StatBlock *src_stats, Point target);
 
 public:
-	PowerManager();
+	PowerManager(MessageEngine *_msg);
 	~PowerManager();
 
 	void handleNewMap(MapCollision *_collider);
 	bool activate(int power_index, StatBlock *src_stats, Point target);
 
+    MessageEngine *msg;
 	StatBlock *src_stats;
 	Power powers[POWER_COUNT];
 	queue<Hazard *> hazards; // output; read by HazardManager

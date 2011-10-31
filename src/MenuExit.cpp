@@ -32,7 +32,7 @@ MenuExit::MenuExit(SDL_Surface *_screen, InputState *_inp, FontEngine *_font, Me
 	window_area.y = (VIEW_H - window_area.h)/2;
 	
 	buttonExit = new WidgetButton(screen, font, inp, "images/menus/buttons/button_default.png");
-	buttonExit->label = "Exit";
+	buttonExit->label = msg->get("Exit");
 	buttonExit->pos.x = VIEW_W_HALF - buttonExit->pos.w/2;
 	buttonExit->pos.y = VIEW_H/2;
 

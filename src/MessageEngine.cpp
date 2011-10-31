@@ -30,7 +30,12 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 MessageEngine::MessageEngine() {
 	GetText infile;
-	if (infile.open(PATH_DATA + "languages/" + LANGUAGE + ".po")) {
+	if (infile.open(PATH_DATA + "languages/engine." + LANGUAGE + ".po")) {
+		while (infile.next()) {
+			messages.insert(pair<string,string>(infile.key, infile.val));
+		}
+	}
+	if (infile.open(PATH_DATA + "languages/data." + LANGUAGE + ".po")) {
 		while (infile.next()) {
 			messages.insert(pair<string,string>(infile.key, infile.val));
 		}
