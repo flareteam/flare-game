@@ -25,8 +25,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 /**
  * PowerManager constructor
  */
-PowerManager::PowerManager() {
-	
+PowerManager::PowerManager(MessageEngine *_msg) {
+	msg = _msg;
+
 	gfx_count = 0;
 	sfx_count = 0;
 	for (int i=0; i<POWER_MAX_GFX; i++) {
@@ -72,10 +73,10 @@ void PowerManager::loadPowers() {
 				else if (infile.val == "repeater") powers[input_id].type = POWTYPE_REPEATER;
 			}
 			else if (infile.key == "name") {
-				powers[input_id].name = infile.val;
+				powers[input_id].name = msg->get(infile.val);
 			}
 			else if (infile.key == "description") {
-				powers[input_id].description = infile.val;
+				powers[input_id].description = msg->get(infile.val);
 			}
 			else if (infile.key == "icon") {
 				powers[input_id].icon = atoi(infile.val.c_str());

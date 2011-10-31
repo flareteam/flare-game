@@ -59,7 +59,7 @@ void ItemDatabase::load() {
 				bonus_counter = 0;
 			}
 			else if (infile.key == "name")
-				items[id].name = infile.val;
+				items[id].name = msg->get(infile.val);
 			else if (infile.key == "level")
 				items[id].level = atoi(infile.val.c_str());
 			else if (infile.key == "icon") {
@@ -158,7 +158,7 @@ void ItemDatabase::load() {
 			else if (infile.key == "power_mod")
 				items[id].power_mod = atoi(infile.val.c_str());
 			else if (infile.key == "power_desc")
-				items[id].power_desc = infile.val;
+				items[id].power_desc = msg->get(infile.val);
 			else if (infile.key == "price")
 				items[id].price = atoi(infile.val.c_str());
 			else if (infile.key == "max_quantity")

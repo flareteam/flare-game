@@ -41,7 +41,7 @@ GameStatePlay::GameStatePlay(SDL_Surface *_screen, InputState *_inp, FontEngine 
 	game_slot = 0;
 
 	// construct gameplay objects
-	powers = new PowerManager();
+	powers = new PowerManager(msg);
 	font = _font;
 	camp = new CampaignManager(msg);
 	map = new MapIso(_screen, camp, _inp, font);
