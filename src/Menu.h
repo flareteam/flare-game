@@ -35,13 +35,13 @@ protected:
 	FontEngine *font;
 
 	SDL_Surface *background;
-	SDL_Rect window_area;
 
 public:
 	Menu(SDL_Surface*, InputState*, FontEngine*);
 	virtual ~Menu();
 
 	bool visible;
+	SDL_Rect window_area;
 
 	virtual void render() = 0;
 };
