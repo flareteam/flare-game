@@ -209,9 +209,13 @@ void MenuManager::logic() {
 
 		// handle right-click
 		if (!dragging && inp->pressing[MAIN2] && !inp->lock[MAIN2]) {
+			// exit menu
+			if (exit->visible && isWithin(exit->window_area, inp->mouse)) {
+				inp->lock[MAIN2] = true;
+			}
 
 			// activate inventory item
-			if (inv->visible && isWithin(inv->window_area, inp->mouse)) {
+			else if (inv->visible && isWithin(inv->window_area, inp->mouse)) {
 				inp->lock[MAIN2] = true;
 				if (isWithin(inv->carried_area, inp->mouse)) {
 					inv->activate(inp);
@@ -221,9 +225,13 @@ void MenuManager::logic() {
 
 		// handle left-click
 		if (!dragging && inp->pressing[MAIN1] && !inp->lock[MAIN1]) {
+			// exit menu
+			if (exit->visible && isWithin(exit->window_area, inp->mouse)) {
+				inp->lock[MAIN1] = true;
+			}
 
 			// left side menu
-			if (inp->mouse.x <= 320 && inp->mouse.y >= offset_y && inp->mouse.y <= offset_y+416) {
+			else if (inp->mouse.x <= 320 && inp->mouse.y >= offset_y && inp->mouse.y <= offset_y+416) {
 				if (chr->visible) {
 					inp->lock[MAIN1] = true;
 
