@@ -2,7 +2,7 @@
 import os
 import datetime
 
-keys = []
+keys = set()
 now = datetime.datetime.now()
 header = r'''# Copyright (C) 2011 Clint Bellanger
 # This file is distributed under the same license as the FLARE package.
@@ -28,15 +28,15 @@ def extract(filename):
     infile = open(filename, 'r')
     for line in infile.readlines():
         if line.startswith('name='):
-            keys.append(line[5:].strip('\n'))
+            keys.add(line[5:].strip('\n'))
         elif line.startswith('power_desc='):
-            keys.append(line[11:].strip('\n'))
+            keys.add(line[11:].strip('\n'))
         elif line.startswith('description='):
-            keys.append(line[12:].strip('\n'))
+            keys.add(line[12:].strip('\n'))
         elif line.startswith('title='):
-            keys.append(line[6:].strip('\n'))
+            keys.add(line[6:].strip('\n'))
         elif line.startswith('msg='):
-            keys.append(line[4:].strip('\n'))
+            keys.add(line[4:].strip('\n'))
 
 # this writes the list of keys to a gettext .po file
 def save(filename):
