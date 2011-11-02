@@ -211,9 +211,11 @@ void MenuManager::logic() {
 		if (!dragging && inp->pressing[MAIN2] && !inp->lock[MAIN2]) {
 
 			// activate inventory item
-			if (inv->visible && isWithin( inv->carried_area, inp->mouse)) {
-				inv->activate(inp);
+			if (inv->visible && isWithin(inv->window_area, inp->mouse)) {
 				inp->lock[MAIN2] = true;
+				if (isWithin(inv->carried_area, inp->mouse)) {
+					inv->activate(inp);
+				}
 			}
 		}
 
@@ -223,10 +225,10 @@ void MenuManager::logic() {
 			// left side menu
 			if (inp->mouse.x <= 320 && inp->mouse.y >= offset_y && inp->mouse.y <= offset_y+416) {
 				if (chr->visible) {
+					inp->lock[MAIN1] = true;
 
 					// applied a level-up
 					if (chr->checkUpgrade()) {
-						inp->lock[MAIN1] = true;
 
 						// apply equipment and max hp/mp
 						inv->applyEquipment(stats, inv->inventory[EQUIPMENT].storage);
@@ -236,8 +238,8 @@ void MenuManager::logic() {
 				}
 				else if (vendor->visible) {
 
+					inp->lock[MAIN1] = true;
 					if (inp->pressing[CTRL]) {
-						inp->lock[MAIN1] = true;
 
 						// buy item from a vendor
 						if (!inv->full()) {
@@ -261,17 +263,16 @@ void MenuManager::logic() {
 						if (drag_stack.item > 0) {
 							dragging = true;
 							drag_src = DRAG_SRC_VENDOR;
-							inp->lock[MAIN1] = true;
 						}
 					}
 
 				}
 				else if (log->visible) {
 
+					inp->lock[MAIN1] = true;
 					// click on a log tab to make it the active display
 					if (isWithin(log->tabs_area, inp->mouse)) {
 						log->clickTab(inp->mouse);
-						inp->lock[MAIN1] = true;
 					}
 				}
 			}
@@ -309,31 +310,31 @@ void MenuManager::logic() {
 						}
 					}
 					else {
+						inp->lock[MAIN1] = true;
 						drag_stack = inv->click(inp);
 						if (drag_stack.item > 0) {
 							dragging = true;
 							drag_src = DRAG_SRC_INVENTORY;
-							inp->lock[MAIN1] = true;
 						}
 					}
 				}
 				// pick up a power
 				else if (pow->visible) {
+					inp->lock[MAIN1] = true;
 					drag_power = pow->click(inp->mouse);
 					if (drag_power > -1) {
 						dragging = true;
 						drag_src = DRAG_SRC_POWERS;
-						inp->lock[MAIN1] = true;
 					}
 				}
 			}
 			// action bar
 			else if (isWithin(act->numberArea,inp->mouse) || isWithin(act->mouseArea,inp->mouse) || isWithin(act->menuArea, inp->mouse)) {
+				inp->lock[MAIN1] = true;
 
 				// ctrl-click action bar to clear that slot
 				if (inp->pressing[CTRL]) {
 					act->remove(inp->mouse);
-					inp->lock[MAIN1] = true;
 				}
 				// allow drag-to-rearrange action bar
 				else if (!isWithin(act->menuArea, inp->mouse)) {
@@ -341,7 +342,6 @@ void MenuManager::logic() {
 					if (drag_power > -1) {
 						dragging = true;
 						drag_src = DRAG_SRC_ACTIONBAR;
-						inp->lock[MAIN1] = true;
 					}
 				}
 
