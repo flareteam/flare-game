@@ -26,21 +26,14 @@ msgstr ""
 # this extracts translatable strings from the flare data file
 def extract(filename):
     infile = open(filename, 'r')
+    triggers = ['msg', 'him', 'you', 'name', 'title', 'tooltip',
+            'power_desc', 'quest_text', 'description']
     for line in infile.readlines():
-        if line.startswith('name='):
-            keys.append(line[5:].strip('\n').replace("\"", "\\\""))
-        elif line.startswith('power_desc=') or line.startswith('quest_text='):
-            keys.append(line[11:].strip('\n').replace("\"", "\\\""))
-        elif line.startswith('description='):
-            keys.append(line[12:].strip('\n').replace("\"", "\\\""))
-        elif line.startswith('title='):
-            keys.append(line[6:].strip('\n').replace("\"", "\\\""))
-        elif line.startswith('msg=') or line.startswith('him=') or line.startswith('you='):
-            keys.append(line[4:].strip('\n').replace("\"", "\\\""))
-        elif line.startswith('tooltip='):
-            keys.append(line[8:].strip('\n').replace("\"", "\\\""))
+        for trigger in triggers:
+            if line.startswith(trigger + '='):
+                keys.append(line[line.find('=') + 1:].strip('\n').replace("\"", "\\\""))
 
-# this removes duplicates from keys in a clean way (without screwing it up)
+# this removes duplicates from keys in a clean way (without screwing up the order)
 def remove_duplicates():
     global keys
     tmp = []
@@ -71,6 +64,7 @@ extract('../items/items.txt')
 extract('../powers/powers.txt')
 for filename in os.listdir('../enemies'):
     extract('../enemies/{enemy}'.format(enemy=filename))
+# WE WON'T USE THESE UNTIL MODS ARE READY
 #for filename in os.listdir('../maps'):
 #    extract('../maps/{map}'.format(map=filename))
 #for filename in get_quests():
