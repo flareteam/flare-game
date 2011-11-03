@@ -34,11 +34,13 @@ MessageEngine::MessageEngine() {
 		while (infile.next()) {
 			messages.insert(pair<string,string>(infile.key, infile.val));
 		}
+        infile.close();
 	}
 	if (infile.open(PATH_DATA + "languages/data." + LANGUAGE + ".po")) {
 		while (infile.next()) {
 			messages.insert(pair<string,string>(infile.key, infile.val));
 		}
+        infile.close();
 	}
 }
 /*

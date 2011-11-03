@@ -135,8 +135,7 @@ void MenuLog::render() {
 	closeButton->render();
 	
 	// text overlay
-	// TODO: translate()
-	font->render("Log", menu_area.x+160, menu_area.y+8, JUSTIFY_CENTER, screen, FONT_WHITE);
+	font->render(msg->get("Log"), menu_area.x+160, menu_area.y+8, JUSTIFY_CENTER, screen, FONT_WHITE);
 	
 	
 	// display tabs
