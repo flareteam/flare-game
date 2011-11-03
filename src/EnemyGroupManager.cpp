@@ -85,7 +85,7 @@ Enemy_Level EnemyGroupManager::getRandomEnemy(const std::string& category, int m
 
 	// load only the data that fit the criteria
 	vector<Enemy_Level> enemyCandidates;
-	for (int i = 0; i < enemyCategory.size(); ++i) {
+	for (size_t i = 0; i < enemyCategory.size(); ++i) {
 		Enemy_Level new_enemy = enemyCategory[i];
 		if ((new_enemy.level >= minlevel) && (new_enemy.level <= maxlevel)) {
 			enemyCandidates.push_back(new_enemy);
