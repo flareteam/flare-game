@@ -364,11 +364,11 @@ TooltipData ItemDatabase::getTooltip(int item, StatBlock *stats, bool vendor_vie
 	string modifier;
 	while (items[item].bonus_stat[bonus_counter] != "") {
 		if (items[item].bonus_val[bonus_counter] > 0) {
-			modifier = msg->get("Increases %s by %d", items[item].bonus_val[bonus_counter], items[item].bonus_stat[bonus_counter]);
+			modifier = msg->get("Increases %s by %d", items[item].bonus_val[bonus_counter], msg->get(items[item].bonus_stat[bonus_counter]));
 			tip.colors[tip.num_lines] = FONT_GREEN;
 		}
 		else {
-			modifier = msg->get("Decreases %s by %d", items[item].bonus_val[bonus_counter], items[item].bonus_stat[bonus_counter]);
+			modifier = msg->get("Decreases %s by %d", items[item].bonus_val[bonus_counter], msg->get(items[item].bonus_stat[bonus_counter]));
 			tip.colors[tip.num_lines] = FONT_RED;
 		}
 		tip.lines[tip.num_lines++] = modifier;
