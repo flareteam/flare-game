@@ -32,6 +32,9 @@ def extract(filename):
         for trigger in triggers:
             if line.startswith(trigger + '='):
                 keys.append(line[line.find('=') + 1:].strip('\n').replace("\"", "\\\""))
+        # handle the special case: bonus={stat},{value}
+        if line.startswith('bonus='):
+            keys.append(line[line.find('=') + 1: line.find(',')])
 
 # this removes duplicates from keys in a clean way (without screwing up the order)
 def remove_duplicates():
