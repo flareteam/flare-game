@@ -32,15 +32,14 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "GameStateTitle.h"
 #include "GameStateLoad.h"
 
-GameSwitcher::GameSwitcher(SDL_Surface *_screen, InputState *_inp, MessageEngine *_msg) {
+GameSwitcher::GameSwitcher(SDL_Surface *_screen, InputState *_inp) {
 	inp = _inp;
 	screen = _screen;
-	msg = _msg;
 		
 	font = new FontEngine();
 
 	// The initial state is the title screen
-	currentState = new GameStateTitle(screen, inp, font, msg);
+	currentState = new GameStateTitle(screen, inp, font);
 	
 	done = false;
 	music = NULL;

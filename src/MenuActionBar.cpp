@@ -23,14 +23,13 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  
 #include "MenuActionBar.h"
 
-MenuActionBar::MenuActionBar(SDL_Surface *_screen, FontEngine *_font, InputState *_inp, PowerManager *_powers, StatBlock *_hero, SDL_Surface *_icons, MessageEngine *_msg) {
+MenuActionBar::MenuActionBar(SDL_Surface *_screen, FontEngine *_font, InputState *_inp, PowerManager *_powers, StatBlock *_hero, SDL_Surface *_icons) {
 	screen = _screen;
 	font = _font;
 	inp = _inp;
 	powers = _powers;
 	hero = _hero;
 	icons = _icons;
-	msg = _msg;
 	
 	src.x = 0;
 	src.y = 0;

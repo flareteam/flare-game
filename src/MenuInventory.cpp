@@ -21,14 +21,13 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "MenuInventory.h"
 
-MenuInventory::MenuInventory(SDL_Surface *_screen, InputState *_inp, FontEngine *_font, ItemDatabase *_items, StatBlock *_stats, PowerManager *_powers, MessageEngine *_msg) {
+MenuInventory::MenuInventory(SDL_Surface *_screen, InputState *_inp, FontEngine *_font, ItemDatabase *_items, StatBlock *_stats, PowerManager *_powers) {
 	screen = _screen;
 	inp = _inp;
 	font = _font;
 	items = _items;
 	stats = _stats;
 	powers = _powers;
-	msg = _msg;
 	
 	visible = false;
 	loadGraphics();

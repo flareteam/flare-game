@@ -21,13 +21,12 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "MenuPowers.h"
 
-MenuPowers::MenuPowers(SDL_Surface *_screen, InputState *_inp, FontEngine *_font, StatBlock *_stats, PowerManager *_powers, MessageEngine *_msg) {
+MenuPowers::MenuPowers(SDL_Surface *_screen, InputState *_inp, FontEngine *_font, StatBlock *_stats, PowerManager *_powers) {
 	screen = _screen;
 	inp = _inp;
 	font = _font;
 	stats = _stats;
 	powers = _powers;
-	msg = _msg;
 	
 	visible = false;
 	loadGraphics();

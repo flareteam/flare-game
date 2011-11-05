@@ -23,9 +23,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "CampaignManager.h"
 
-CampaignManager::CampaignManager(MessageEngine *_msg) {
-
-	msg = _msg;
+CampaignManager::CampaignManager() {
 
 	drop_stack.item = 0;
 	drop_stack.quantity = 0;

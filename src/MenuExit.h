@@ -30,7 +30,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 class MenuExit : public Menu {
 protected:
 	void loadGraphics();
-	MessageEngine *msg;
 
 	WidgetButton *buttonExit;
 	WidgetButton *buttonClose;
@@ -38,7 +37,7 @@ protected:
 	bool exitClicked;
 
 public:
-	MenuExit(SDL_Surface*, InputState*, FontEngine*, MessageEngine *msg);
+	MenuExit(SDL_Surface*, InputState*, FontEngine*);
 	~MenuExit();
 
 	void logic();

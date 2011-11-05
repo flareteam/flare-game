@@ -23,7 +23,6 @@ using namespace std;
 SDL_Surface *screen;
 InputState *inps;
 GameSwitcher *gswitch;
-MessageEngine *msg;
 
 static void init() {
 
@@ -48,9 +47,6 @@ static void init() {
 		flags = flags | SDL_HWSURFACE;
 	else
 		flags = flags | SDL_SWSURFACE;
-	
-	// Load Messages
-	msg = new MessageEngine();
 
 	// Create window
 	screen = SDL_SetVideoMode (VIEW_W, VIEW_H, 0, flags);
@@ -74,6 +70,10 @@ static void init() {
 	  }
 	  SDL_JoystickOpen(0);
 	}
+
+    // setup MessageEngine here instead of below so we can initialize window title
+    msg = new MessageEngine();
+
 	const char* title = msg->get("Flare").c_str();
 	SDL_WM_SetCaption(title, title);
 	
@@ -83,7 +83,7 @@ static void init() {
 	/* Shared game units setup */
 	mods = new ModManager();
 	inps = new InputState();
-	gswitch = new GameSwitcher(screen, inps, msg);
+	gswitch = new GameSwitcher(screen, inps);
 }
 
 static void mainLoop () {

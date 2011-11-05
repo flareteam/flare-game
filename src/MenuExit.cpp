@@ -21,8 +21,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "MenuExit.h"
 
-MenuExit::MenuExit(SDL_Surface *_screen, InputState *_inp, FontEngine *_font, MessageEngine *_msg) : Menu(_screen, inp = _inp, _font) {
-	msg = _msg;
+MenuExit::MenuExit(SDL_Surface *_screen, InputState *_inp, FontEngine *_font) : Menu(_screen, inp = _inp, _font) {
 
 	exitClicked = false;
 

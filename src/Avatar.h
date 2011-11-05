@@ -53,7 +53,6 @@ private:
 	
 	PowerManager *powers;
 	InputState *inp;
-	MessageEngine *msg;
 
 	bool lockSwing;
 	bool lockCast;
@@ -72,7 +71,7 @@ private:
 	string img_off;
 
 public:
-	Avatar(PowerManager *_powers, InputState *_inp, MapIso *_map, MessageEngine *_msg);
+	Avatar(PowerManager *_powers, InputState *_inp, MapIso *_map);
 	~Avatar();
 	
 	void init();

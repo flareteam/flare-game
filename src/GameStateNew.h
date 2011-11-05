@@ -65,7 +65,7 @@ private:
 	WidgetInput *input_name;
 
 public:
-	GameStateNew(SDL_Surface *_screen, InputState *_inp, FontEngine *_font, MessageEngine *_msg);
+	GameStateNew(SDL_Surface *_screen, InputState *_inp, FontEngine *_font);
 	~GameStateNew();
 	void logic();
 	void render();

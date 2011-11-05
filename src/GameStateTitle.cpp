@@ -18,7 +18,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "GameStateLoad.h"
 #include "GameStateTitle.h"
 
-GameStateTitle::GameStateTitle(SDL_Surface *_screen, InputState *_inp, FontEngine *_font, MessageEngine *_msg) : GameState(_screen, _inp, _font, _msg) {
+GameStateTitle::GameStateTitle(SDL_Surface *_screen, InputState *_inp, FontEngine *_font) : GameState(_screen, _inp, _font) {
 
 	exit_game = false;
 	load_game = false;
@@ -60,7 +60,7 @@ void GameStateTitle::loadGraphics() {
 void GameStateTitle::logic() {
 
 	if (button_play->checkClick()) {
-		requestedGameState = new GameStateLoad(screen, inp, font, msg);
+		requestedGameState = new GameStateLoad(screen, inp, font);
 	}
 	
 	if (button_exit->checkClick()) {

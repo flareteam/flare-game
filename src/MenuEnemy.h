@@ -40,11 +40,10 @@ class MenuEnemy {
 private:
 	SDL_Surface *screen;
 	FontEngine *font;
-	MessageEngine *msg;
 	SDL_Surface *background;
 	SDL_Surface *bar_hp;
 public:
-	MenuEnemy(SDL_Surface *_screen, FontEngine *_font, MessageEngine *_msg);
+	MenuEnemy(SDL_Surface *_screen, FontEngine *_font);
 	~MenuEnemy();
 	Enemy *enemy;
 	void loadGraphics();

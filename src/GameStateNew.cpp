@@ -26,7 +26,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "GameStateLoad.h"
 #include "GameStatePlay.h"
 
-GameStateNew::GameStateNew(SDL_Surface *_screen, InputState *_inp, FontEngine *_font, MessageEngine *_msg) : GameState(_screen, _inp, _font, _msg) {
+GameStateNew::GameStateNew(SDL_Surface *_screen, InputState *_inp, FontEngine *_font) : GameState(_screen, _inp, _font) {
 	game_slot = 0;
 	option_count = 0;
 	current_option = 0;
@@ -124,12 +124,12 @@ void GameStateNew::logic() {
 	}
 
 	if (button_exit->checkClick()) {
-		requestedGameState = new GameStateLoad(screen, inp, font, msg);
+		requestedGameState = new GameStateLoad(screen, inp, font);
 	}
 	
 	if (button_create->checkClick()) {
 		// start the new game
-		GameStatePlay* play = new GameStatePlay(screen, inp, font, msg);
+		GameStatePlay* play = new GameStatePlay(screen, inp, font);
 		play->pc->stats.base = base[current_option];
 		play->pc->stats.head = head[current_option];
 		play->pc->stats.portrait = portrait[current_option];

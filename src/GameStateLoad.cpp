@@ -24,8 +24,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "GameStateNew.h"
 #include "MenuConfirm.h"
 
-GameStateLoad::GameStateLoad(SDL_Surface *_screen, InputState *_inp, FontEngine *_font, MessageEngine *_msg) : GameState(_screen, _inp, _font, _msg) {
-	items = new ItemDatabase(screen, font, msg);
+GameStateLoad::GameStateLoad(SDL_Surface *_screen, InputState *_inp, FontEngine *_font) : GameState(_screen, _inp, _font) {
+	items = new ItemDatabase(screen, font);
 	portrait = NULL;
 	loading_requested = false;
 	loading = false;
@@ -267,7 +267,7 @@ void GameStateLoad::logic() {
 		current_frame = (63 - frame_ticker) / 8;
 
 	if (button_exit->checkClick()) {
-		requestedGameState = new GameStateTitle(screen, inp, font, msg);
+		requestedGameState = new GameStateTitle(screen, inp, font);
 	}
 	
 	if(loading_requested) {
@@ -279,7 +279,7 @@ void GameStateLoad::logic() {
 	if (button_action->checkClick()) {
 		if (stats[selected_slot].name == "") {
 			// create a new game
-			GameStateNew* newgame = new GameStateNew(screen, inp, font, msg);
+			GameStateNew* newgame = new GameStateNew(screen, inp, font);
 			newgame->game_slot = selected_slot + 1;
 			requestedGameState = newgame;
 		}
@@ -334,7 +334,7 @@ void GameStateLoad::logic() {
 
 void GameStateLoad::logicLoading() {
 	// load an existing game
-	GameStatePlay* play = new GameStatePlay(screen, inp, font, msg);
+	GameStatePlay* play = new GameStatePlay(screen, inp, font);
 	play->resetGame();
 	play->game_slot = selected_slot + 1;
 	play->loadGame();

@@ -21,7 +21,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "MenuManager.h"
 
-MenuManager::MenuManager(PowerManager *_powers, SDL_Surface *_screen, InputState *_inp, FontEngine *_font, StatBlock *_stats, CampaignManager *_camp, MessageEngine *_msg) {
+MenuManager::MenuManager(PowerManager *_powers, SDL_Surface *_screen, InputState *_inp, FontEngine *_font, StatBlock *_stats, CampaignManager *_camp) {
 	powers = _powers;
 	screen = _screen;
 	inp = _inp;
@@ -29,26 +29,25 @@ MenuManager::MenuManager(PowerManager *_powers, SDL_Surface *_screen, InputState
 	stats = _stats;
 	powers = _powers;
 	camp = _camp;
-	msg = _msg;
 
 	loadIcons();
 
-	items = new ItemDatabase(screen, font, msg);
+	items = new ItemDatabase(screen, font);
 
-	chr = new MenuCharacter(screen, inp, font, stats, msg);
-	inv = new MenuInventory(screen, inp, font, items, stats, powers, msg);
-	pow = new MenuPowers(screen, inp, font, stats, powers, msg);
-	log = new MenuLog(screen, inp, font, msg);
+	chr = new MenuCharacter(screen, inp, font, stats);
+	inv = new MenuInventory(screen, inp, font, items, stats, powers);
+	pow = new MenuPowers(screen, inp, font, stats, powers);
+	log = new MenuLog(screen, inp, font);
 	hudlog = new MenuHUDLog(screen, font);
-	act = new MenuActionBar(screen, font, inp, powers, stats, icons, msg);
+	act = new MenuActionBar(screen, font, inp, powers, stats, icons);
 	hpmp = new MenuHPMP(screen, font);
 	tip = new MenuTooltip(font, screen);
 	mini = new MenuMiniMap(screen);
 	xp = new MenuExperience(screen, font);
-	enemy = new MenuEnemy(screen, font, msg);
-	vendor = new MenuVendor(screen, inp, font, items, stats, msg);
+	enemy = new MenuEnemy(screen, font);
+	vendor = new MenuVendor(screen, inp, font, items, stats);
 	talker = new MenuTalker(screen, inp, font, camp);
-	exit = new MenuExit(screen, inp, font, msg);
+	exit = new MenuExit(screen, inp, font);
 
 	pause = false;
 	dragging = false;

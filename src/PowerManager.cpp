@@ -25,8 +25,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 /**
  * PowerManager constructor
  */
-PowerManager::PowerManager(MessageEngine *_msg) {
-	msg = _msg;
+PowerManager::PowerManager() {
 
 	gfx_count = 0;
 	sfx_count = 0;

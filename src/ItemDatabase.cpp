@@ -22,10 +22,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "ItemDatabase.h"
 #include "FileParser.h"
 
-ItemDatabase::ItemDatabase(SDL_Surface *_screen, FontEngine *_font, MessageEngine *_msg) {
+ItemDatabase::ItemDatabase(SDL_Surface *_screen, FontEngine *_font) {
 	screen = _screen;
 	font = _font;
-	msg = _msg;
 	
 	items = new Item[MAX_ITEM_ID];
 	

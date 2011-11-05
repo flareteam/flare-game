@@ -21,12 +21,11 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "MenuCharacter.h"
 
-MenuCharacter::MenuCharacter(SDL_Surface *_screen, InputState *_inp, FontEngine *_font, StatBlock *_stats, MessageEngine *_msg) {
+MenuCharacter::MenuCharacter(SDL_Surface *_screen, InputState *_inp, FontEngine *_font, StatBlock *_stats) {
 	screen = _screen;
 	inp = _inp;
 	font = _font;
 	stats = _stats;
-	msg = _msg;
 	
 	visible = false;
 
