@@ -17,6 +17,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "ModManager.h"
 #include "UtilsFileSystem.h"
+#include "SDL.h"
 
 ModManager *mods;
 
@@ -41,6 +42,13 @@ void ModManager::loadModList() {
 	string starts_with;
 	
 	infile.open((PATH_DATA + "mods/mods.txt").c_str(), ios::in);
+
+	if (!infile.is_open()) {
+		fprintf(stderr, "Error during ModManager::loadModList() -- couldn't open mods/mods.txt");
+		SDL_Quit();
+		exit(1);
+	}
+	
 	while (!infile.eof()) {
 		line = getLine(infile);
 		
