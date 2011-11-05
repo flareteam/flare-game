@@ -142,13 +142,12 @@ private:
 	SDL_Surface *icons32;
 	SDL_Surface *icons64; // item db is the only module that currently uses the 64px icons
 	FontEngine *font;
-	MessageEngine *msg;
 	SDL_Rect src;
 	SDL_Rect dest;
 	Mix_Chunk *sfx[12];
 
 public:
-	ItemDatabase(SDL_Surface *_screen, FontEngine *_font, MessageEngine *_msg);
+	ItemDatabase(SDL_Surface *_screen, FontEngine *_font);
 	~ItemDatabase();
 	void load();
 	void loadSounds();

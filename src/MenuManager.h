@@ -64,7 +64,6 @@ private:
 	FontEngine *font;
 	SDL_Surface *screen;
 	CampaignManager *camp;
-	MessageEngine *msg;
 
 	bool key_lock;
 	void loadSounds();
@@ -78,7 +77,7 @@ private:
 	bool done;
 	
 public:
-	MenuManager(PowerManager *powers, SDL_Surface *screen, InputState *inp, FontEngine *font, StatBlock *stats, CampaignManager *camp, MessageEngine *_msg);
+	MenuManager(PowerManager *powers, SDL_Surface *screen, InputState *inp, FontEngine *font, StatBlock *stats, CampaignManager *camp);
 	~MenuManager();
 	void logic();
 	void render();

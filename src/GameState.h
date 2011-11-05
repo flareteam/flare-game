@@ -27,7 +27,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 class GameState {
 public:
-	GameState(SDL_Surface *_screen, InputState *_inp, FontEngine *_font, MessageEngine *_msg);
+	GameState(SDL_Surface *_screen, InputState *_inp, FontEngine *_font);
 
 	virtual void logic();
 	virtual void render();
@@ -40,7 +40,6 @@ protected:
 	SDL_Surface *screen;
 	InputState *inp;
 	FontEngine *font;
-	MessageEngine *msg;
 
 	GameState* requestedGameState;	
 

@@ -28,6 +28,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <sstream>
 #include <iostream>
 
+MessageEngine *msg;
+
 MessageEngine::MessageEngine() {
 	GetText infile;
 	if (infile.open(PATH_DATA + "languages/engine." + LANGUAGE + ".po")) {

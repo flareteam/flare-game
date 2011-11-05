@@ -31,7 +31,7 @@ private:
 	WidgetLabel *label_version;
 	
 public:
-	GameStateTitle(SDL_Surface *_screen, InputState *_inp, FontEngine *_font, MessageEngine *_msg);
+	GameStateTitle(SDL_Surface *_screen, InputState *_inp, FontEngine *_font);
 	~GameStateTitle();
 	void loadGraphics();
 	void logic();

@@ -45,7 +45,6 @@ private:
 	SDL_Surface *screen;
 	InputState *inp;
 	FontEngine *font;
-	MessageEngine *msg;
 
 	SDL_Surface *background;
 	SDL_Surface *tab_active;
@@ -64,7 +63,7 @@ private:
 	int paragraph_spacing;
 	
 public:
-	MenuLog(SDL_Surface *screen, InputState *inp, FontEngine *font, MessageEngine *_msg);
+	MenuLog(SDL_Surface *screen, InputState *inp, FontEngine *font);
 	~MenuLog();
 
 	void logic();

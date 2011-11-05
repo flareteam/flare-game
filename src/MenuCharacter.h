@@ -108,7 +108,6 @@ private:
 	InputState *inp;
 	FontEngine *font;
 	StatBlock *stats;
-	MessageEngine *msg;
 
 	SDL_Surface *background;
 	SDL_Surface *proficiency;
@@ -123,7 +122,7 @@ private:
 	int bonusColor(int stat);
 	
 public:
-	MenuCharacter(SDL_Surface *screen, InputState *inp, FontEngine *font, StatBlock *stats, MessageEngine *_msg);
+	MenuCharacter(SDL_Surface *screen, InputState *inp, FontEngine *font, StatBlock *stats);
 	~MenuCharacter();
 	void logic();
 	void render();

@@ -28,6 +28,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <fstream>
 #include "Settings.h"
 #include "Utils.h"
+#include "MessageEngine.h"
 
 using namespace std;
 

@@ -60,7 +60,6 @@ private:
 	FontEngine *font;
 	StatBlock *stats;
 	PowerManager *powers;
-	MessageEngine *msg;
 
 	void loadGraphics();
 	int areaOver(Point mouse);
@@ -70,7 +69,7 @@ private:
 	WidgetButton *closeButton;
 	
 public:
-	MenuInventory(SDL_Surface *screen, InputState *inp, FontEngine *font, ItemDatabase *items, StatBlock *stats, PowerManager *powers, MessageEngine *_msg);
+	MenuInventory(SDL_Surface *screen, InputState *inp, FontEngine *font, ItemDatabase *items, StatBlock *stats, PowerManager *powers);
 	~MenuInventory();
 	void logic();
 	void render();

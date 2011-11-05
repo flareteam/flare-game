@@ -45,7 +45,6 @@ private:
 	FontEngine *font;
 	StatBlock *stats;
 	PowerManager *powers;
-	MessageEngine *msg;
 
 	SDL_Surface *background;
 	SDL_Surface *powers_step;
@@ -56,7 +55,7 @@ private:
 	void displayBuild(int value, int x);
 
 public:
-	MenuPowers(SDL_Surface *_screen, InputState *_inp, FontEngine *_font, StatBlock *_stats, PowerManager *_powers, MessageEngine *_msg);
+	MenuPowers(SDL_Surface *_screen, InputState *_inp, FontEngine *_font, StatBlock *_stats, PowerManager *_powers);
 	~MenuPowers();
 	void logic();
 	void render();

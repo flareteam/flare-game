@@ -52,12 +52,11 @@ private:
 	InputState *inp;
 	FontEngine *font;
 	Mix_Music *music;
-	MessageEngine *msg;
 	
 	GameState *currentState;
 	
 public:
-	GameSwitcher(SDL_Surface *_screen, InputState *_inp, MessageEngine *_msg);
+	GameSwitcher(SDL_Surface *_screen, InputState *_inp);
 	void loadMusic();
 	void logic();
 	void render();

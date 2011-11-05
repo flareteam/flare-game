@@ -23,10 +23,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "MenuEnemy.h"
 
-MenuEnemy::MenuEnemy(SDL_Surface *_screen, FontEngine *_font, MessageEngine *_msg) {
+MenuEnemy::MenuEnemy(SDL_Surface *_screen, FontEngine *_font) {
 	screen = _screen;
 	font = _font;
-	msg = _msg;
 	loadGraphics();
 	enemy = NULL;
 	timeout = 0;

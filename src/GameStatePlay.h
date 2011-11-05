@@ -62,7 +62,6 @@ private:
 	NPCManager *npcs;
 	CampaignManager *camp;
 	QuestLog *quests;
-	MessageEngine *msg;
 	
 	bool restrictPowerUse();
 	void checkEnemyFocus();
@@ -78,7 +77,7 @@ private:
 	int npc_id;
 	
 public:
-	GameStatePlay(SDL_Surface *screen, InputState *inp, FontEngine *font, MessageEngine *msg);
+	GameStatePlay(SDL_Surface *screen, InputState *inp, FontEngine *font);
 	~GameStatePlay();
 
 	void logic();

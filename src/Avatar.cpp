@@ -23,9 +23,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "Avatar.h"
 
-Avatar::Avatar(PowerManager *_powers, InputState *_inp, MapIso *_map, MessageEngine *_msg) : Entity(_map), powers(_powers), inp(_inp) {
+Avatar::Avatar(PowerManager *_powers, InputState *_inp, MapIso *_map) : Entity(_map), powers(_powers), inp(_inp) {
 	
-	msg = _msg;
 	init();
 	
 	// default hero animation data

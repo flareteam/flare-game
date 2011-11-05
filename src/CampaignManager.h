@@ -34,11 +34,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 const int MAX_STATUS = 1024;
 
 class CampaignManager {
-private:
-	MessageEngine *msg;
-
 public:
-	CampaignManager(MessageEngine *_msg);
+	CampaignManager();
 	~CampaignManager();
 	
 	void clearAll();

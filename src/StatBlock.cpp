@@ -133,7 +133,7 @@ void StatBlock::load(string filename) {
 		while (infile.next()) {
 			if (isInt(infile.val)) num = atoi(infile.val.c_str());
 			
-			if (infile.key == "name") name = infile.val;
+			if (infile.key == "name") name = msg->get(infile.val);
 			else if (infile.key == "sfx_prefix") sfx_prefix = infile.val;
 			else if (infile.key == "gfx_prefix") gfx_prefix = infile.val;
 			

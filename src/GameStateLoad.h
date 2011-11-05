@@ -85,7 +85,7 @@ private:
 	int frame_ticker;
 	
 public:
-	GameStateLoad(SDL_Surface *_screen, InputState *_inp, FontEngine *_font, MessageEngine *_msg);
+	GameStateLoad(SDL_Surface *_screen, InputState *_inp, FontEngine *_font);
 	~GameStateLoad();
 
 	void logic();

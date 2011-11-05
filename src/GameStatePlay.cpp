@@ -26,7 +26,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "GameState.h"
 #include "GameStateTitle.h"
 
-GameStatePlay::GameStatePlay(SDL_Surface *_screen, InputState *_inp, FontEngine *_font, MessageEngine *_msg) : GameState(screen, inp, font, msg) {
+GameStatePlay::GameStatePlay(SDL_Surface *_screen, InputState *_inp, FontEngine *_font) : GameState(screen, inp, font) {
 
 	hasMusic = true;
 	//Mix_HaltMusic(); // maybe not needed? playing new music should auto halt previous music
@@ -34,22 +34,21 @@ GameStatePlay::GameStatePlay(SDL_Surface *_screen, InputState *_inp, FontEngine 
 	// shared resources from GameSwitcher
 	screen = _screen;
 	inp = _inp;
-	msg = _msg;
 	
 	// GameEngine scope variables
 	npc_id = -1;
 	game_slot = 0;
 
 	// construct gameplay objects
-	powers = new PowerManager(msg);
+	powers = new PowerManager();
 	font = _font;
-	camp = new CampaignManager(msg);
+	camp = new CampaignManager();
 	map = new MapIso(_screen, camp, _inp, font);
-	pc = new Avatar(powers, _inp, map, msg);
+	pc = new Avatar(powers, _inp, map);
 	enemies = new EnemyManager(powers, map);
 	hazards = new HazardManager(powers, pc, enemies);
-	menu = new MenuManager(powers, _screen, _inp, font, &pc->stats, camp, msg);
-	loot = new LootManager(menu->items, menu->tip, enemies, map, msg);
+	menu = new MenuManager(powers, _screen, _inp, font, &pc->stats, camp);
+	loot = new LootManager(menu->items, menu->tip, enemies, map);
 	npcs = new NPCManager(map, menu->tip, loot, menu->items);
 	quests = new QuestLog(camp, menu->log);
 
@@ -203,7 +202,7 @@ void GameStatePlay::checkCancel() {
 	if (menu->requestingExit()) {
 		saveGame();
 		Mix_HaltMusic();
-		requestedGameState = new GameStateTitle(screen, inp, font, msg);
+		requestedGameState = new GameStateTitle(screen, inp, font);
 	}
 
 	// if user closes the window

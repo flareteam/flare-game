@@ -50,4 +50,9 @@ public:
 
 };
 
+// The MessageEngine is initialized once,
+// never changed, and used everywhere, so
+// it works nicely as a global variable.
+extern MessageEngine *msg;
+
 #endif
