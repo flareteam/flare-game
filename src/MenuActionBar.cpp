@@ -200,7 +200,9 @@ void MenuActionBar::renderItemCounts() {
 
 		if (!slot_enabled[i]) {
 			src.x = src.y = 0;
-			src.w = src.h = 32;
+			src.h = 32;
+			src.w = 32 * (hero->hero_cooldown[hotkeys[i]] /
+					(float)powers->powers[hotkeys[i]].cooldown);
 			SDL_BlitSurface(disabled, &src, screen, &slots[i]);
 		}
 
