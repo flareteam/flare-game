@@ -32,10 +32,11 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 
 struct Enemy_Level {
-	string type;
+	std::string type;
 	int level;
+	std::string rarity;
 
-	Enemy_Level() : level(0) {}
+	Enemy_Level() : level(0), rarity("common") {}
 };
 
 

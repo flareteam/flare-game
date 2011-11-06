@@ -61,6 +61,9 @@ void EnemyGroupManager::parseEnemyFileAndStore(const string& dir, const string& 
 			if (infile.key == "level") {
 				new_enemy.level = atoi(infile.val.c_str());
 			}
+			else if (infile.key == "rarity") {
+				new_enemy.rarity = infile.val.c_str();
+			}
 			else if (infile.key == "categories") {
 				string cat;
 				while ( (cat = infile.nextValue()) != "") {
@@ -88,7 +91,25 @@ Enemy_Level EnemyGroupManager::getRandomEnemy(const std::string& category, int m
 	for (size_t i = 0; i < enemyCategory.size(); ++i) {
 		Enemy_Level new_enemy = enemyCategory[i];
 		if ((new_enemy.level >= minlevel) && (new_enemy.level <= maxlevel)) {
-			enemyCandidates.push_back(new_enemy);
+			// add more than one time to increase chance of getting
+			// this enemy as result, "rarity" property
+			int add_times = 0;
+			if (new_enemy.rarity == "common") {
+				add_times = 6;
+			} else if (new_enemy.rarity == "uncommon") {
+				add_times = 3;
+			} else if (new_enemy.rarity == "rare") {
+				add_times = 1;
+			} else {
+				fprintf(stderr,
+					"ERROR: 'rarity' property for enemy '%s' not valid (common|uncommon|rare): %s\n",
+					new_enemy.type.c_str(), new_enemy.rarity.c_str());
+			}
+
+			// do add, the given number of times
+			for (int i = 0; i < add_times; ++i) {
+				enemyCandidates.push_back(new_enemy);
+			}
 		}
 	}
 
