@@ -28,6 +28,7 @@ MenuCharacter::MenuCharacter(SDL_Surface *_screen, InputState *_inp, FontEngine 
 	stats = _stats;
 	
 	visible = false;
+    newPowerNotification = false;
 
 	loadGraphics();
 
@@ -565,24 +566,28 @@ bool MenuCharacter::checkUpgrade() {
 		if (stats->physical_character < 5 && mouse.x >= 16 && mouse.x <= 48 && mouse.y >= offset_y+96 && mouse.y <= offset_y+112) {
 			stats->physical_character++;
 			stats->recalc(); // equipment applied by MenuManager
+            newPowerNotification = true; //TODO: Only show if a NEW power is unlocked...
 			return true;
 		}
 		// mental
 		else if (stats->mental_character < 5 && mouse.x >= 16 && mouse.x <= 48 && mouse.y >= offset_y+160 && mouse.y <= offset_y+176) {
 			stats->mental_character++;
 			stats->recalc(); // equipment applied by MenuManager
+            newPowerNotification = true;
 			return true;		
 		}
 		// offense
 		else if (stats->offense_character < 5 && mouse.x >= 16 && mouse.x <= 48 && mouse.y >= offset_y+224 && mouse.y <= offset_y+240) {
 			stats->offense_character++;
 			stats->recalc(); // equipment applied by MenuManager
+            newPowerNotification = true;
 			return true;		
 		}
 		// defense
 		else if (stats->defense_character < 5 && mouse.x >= 16 && mouse.x <= 48 && mouse.y >= offset_y+288 && mouse.y <= offset_y+304) {
 			stats->defense_character++;
 			stats->recalc(); // equipment applied by MenuManager
+            newPowerNotification = true;
 			return true;		
 		}
 	}

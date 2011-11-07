@@ -131,6 +131,7 @@ public:
 	bool checkUpgrade();
 
 	bool visible;
+    bool newPowerNotification;
 
 };
 

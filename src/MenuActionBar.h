@@ -48,6 +48,7 @@ private:
 	SDL_Surface *emptyslot;
 	SDL_Surface *icons;
 	SDL_Surface *disabled;
+    SDL_Surface *attention;
 	
 	StatBlock *hero;
 	PowerManager *powers;
@@ -65,6 +66,7 @@ public:
 	~MenuActionBar();
 	void loadGraphics();
 	void renderIcon(int icon_id, int x, int y);
+	void renderAttention(int menu_id);
 	void logic();
 	void render();
 	void renderItemCounts();
@@ -83,6 +85,7 @@ public:
 	SDL_Rect menus[4]; // the location of the menu buttons
 	int slot_item_count[12]; // -1 means this power isn't item based.  0 means out of items.  1+ means sufficient items.
 	bool slot_enabled[12];
+    bool requires_attention[4];
 	
 	// these store the area occupied by these hotslot sections.
 	// useful for detecting mouse interactions on those locations

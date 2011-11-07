@@ -45,6 +45,7 @@ void Avatar::init() {
 	stats.pos.y = map->spawn.y;
 	stats.direction = map->spawn_dir;
 	current_power = -1;
+    newLevelNotification = false;
 		
 	lockSwing = false;
 	lockCast = false;
@@ -217,6 +218,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 		ss << msg->get("Congratulations, you have reached level %d!", stats.level);
 		if (stats.level < max_spendable_stat_points) {
 			ss << " " << msg->get("You may increase one attribute through the Character Menu.");
+            newLevelNotification = true;
 		}
 		log_msg = ss.str();
 		stats.recalc();

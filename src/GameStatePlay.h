@@ -72,6 +72,7 @@ private:
 	void checkLog();
 	void checkEquipmentChange();
 	void checkConsumable();
+    void checkNotifications();
 	void checkNPCInteraction();
 
 	int npc_id;
