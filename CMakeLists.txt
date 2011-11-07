@@ -4,6 +4,26 @@ cmake_minimum_required (VERSION 2.6)
 Set (PACKAGE "FLARE")
 Set (VERSION "0.14.1")
 
+
+# Default definitions
+set(CMAKE_CXX_FLAGS "-Wall -Wextra -Wno-unused -Wshadow -Woverloaded-virtual")
+if (NOT CMAKE_BUILD_TYPE)
+  set(CMAKE_BUILD_TYPE "Release")
+endif()
+if(CMAKE_BUILD_TYPE STREQUAL "Release")
+  set(CMAKE_CXX_FLAGS_RELEASE "-O2 -g0")
+elseif(CMAKE_BUILD_TYPE STREQUAL "RelWithDebInfo")
+  set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-O2 -g")
+elseif(CMAKE_BUILD_TYPE STREQUAL "MinSizeRel")
+  set(CMAKE_CXX_FLAGS_MINSIZEREL "-Os -g0")
+elseif(CMAKE_BUILD_TYPE STREQUAL "Debug")
+  set(CMAKE_CXX_FLAGS_DEBUG "-O0 -g3 -pg")
+  set(CMAKE_EXE_LINKER_FLAGS_DEBUG "-pg")
+  set(CMAKE_SHARED_LINKER_FLAGS_DEBUG "-pg")
+  set(CMAKE_MODULE_LINKER_FLAGS_DEBUG "-pg")
+endif()
+
+
 # Detect missing dependencies
 
 Find_Package (SDL REQUIRED)
