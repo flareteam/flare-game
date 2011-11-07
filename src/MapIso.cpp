@@ -51,7 +51,6 @@ MapIso::MapIso(SDL_Surface *_screen, CampaignManager *_camp, InputState *_inp, F
 	music = NULL;
 	log_msg = "";
 	shaky_cam_ticks = 0;
-	
 }
 
 
@@ -115,6 +114,7 @@ void MapIso::clearGroup(Map_Group &g) {
 	g.levelmax = 0;
 	g.numbermin = 0;
 	g.numbermax = 0;
+	g.chance = 1.0f;
 }
 
 void MapIso::playSFX(string filename) {
@@ -127,10 +127,12 @@ void MapIso::playSFX(string filename) {
 	if (sfx) Mix_PlayChannel(-1, sfx, 0);	
 }
 
-void MapIso::push_enemy_group(Map_Group g){
-	//TODO: move this to beginning of program execution
-	EnemyGroupManager category_list;
-	category_list.generate();
+void MapIso::push_enemy_group(Map_Group g) {
+	// activate at all?
+	float activate_chance = (rand() % 100) / 100.0f;
+	if (activate_chance > g.chance) {
+		return;
+	}
 
 	// populate valid_locations
 	vector<Point> valid_locations;
@@ -161,7 +163,7 @@ void MapIso::push_enemy_group(Map_Group g){
 	int number = rand() % (g.numbermax + 1 - g.numbermin) + g.numbermin;
 
 	for(int i = 0; i < number; i++) {
-		Enemy_Level enemy_lev = category_list.random_enemy(g.category, g.levelmin, g.levelmax);
+		Enemy_Level enemy_lev = EnemyGroupManager::instance().getRandomEnemy(g.category, g.levelmin, g.levelmax);
 		Map_Enemy group_member;
 		if ((enemy_lev.type != "") && (valid_locations.size() != 0)){
 			group_member.type = enemy_lev.type;
@@ -319,6 +321,15 @@ int MapIso::load(string filename) {
 				else if (infile.key == "number") {
 					new_group.numbermin = atoi(infile.nextValue().c_str());
 					new_group.numbermax = atoi(infile.nextValue().c_str());
+				}
+				else if (infile.key == "chance") {
+					new_group.chance = atoi(infile.nextValue().c_str()) / 100.0f;
+					if (new_group.chance > 1.0f) {
+						new_group.chance = 1.0f;
+					}
+					if (new_group.chance < 0.0f) {
+						new_group.chance = 0.0f;
+					}
 				}
 			}
 			else if (infile.section == "npc") {

@@ -57,6 +57,7 @@ struct Map_Group {
 	int levelmax;
 	int numbermin;
 	int numbermax;
+	float chance;
 };
 
 struct Map_NPC {
@@ -105,7 +106,7 @@ private:
 	// map events
 	Map_Event events[256];
 	int event_count;
-	
+
 public:
 	CampaignManager *camp;
 	PowerManager *powers;

@@ -1,5 +1,6 @@
 /*
 Copyright 2011 Thane Brimhall
+		Manuel A. Fernandez Montecelo <manuel.montezelo@gmail.com>
 
 This file is part of FLARE.
 
@@ -15,81 +16,106 @@ You should have received a copy of the GNU General Public License along with
 FLARE.  If not, see http://www.gnu.org/licenses/
 */
 
-/**
- * class EnemyGroupManager
- *
- * Loads Enemies into category lists and manages spawning randomized groups of enemies
- */
-
 #include "EnemyGroupManager.h"
 
-EnemyGroupManager::EnemyGroupManager() {
-}
-EnemyGroupManager::~EnemyGroupManager() {
-}
+using namespace std;
 
 
-// Fills the array with the enemy data
-void EnemyGroupManager::generate() {
+EnemyGroupManager* EnemyGroupManager::_instance = 0;
+
+
+EnemyGroupManager::EnemyGroupManager()
+{
+	generate();
+}
+
+EnemyGroupManager::~EnemyGroupManager()
+{
+}
+
+EnemyGroupManager& EnemyGroupManager::instance()
+{
+	if (_instance == 0) {
+		_instance = new EnemyGroupManager;
+	}
+	return *(_instance);
+}
+
+void EnemyGroupManager::generate()
+{
 	string dir = PATH_DATA + string("enemies");
-	vector<string> files = vector<string>();
-	getFileList(dir,".txt",files);
-	for (int i = 0; i < files.size(); i++) {
-		extract_and_sort(files[i]);
+	vector<string> files;
+	getFileList(dir, ".txt", files);
+	for (int i = 0; i < files.size(); ++i) {
+		parseEnemyFileAndStore(dir, files[i]);
 	}
 }
 
-
-//NYI
-void EnemyGroupManager::extract_and_sort(string filename) {
+void EnemyGroupManager::parseEnemyFileAndStore(const string& dir, const string& filename)
+{
 	FileParser infile;
-	Enemy_Level new_enemy;
-	vector<string> categories;
-
-	if (infile.open(PATH_DATA + "enemies/" + filename)) {
-		new_enemy.type = filename.substr(0,filename.length()-4); //removes the ".txt" from the filename
+	if (infile.open(dir + "/" + filename)) {
+		Enemy_Level new_enemy;
+		new_enemy.type = filename.substr(0, filename.length()-4); //removes the ".txt" from the filename
 		while (infile.next()) {
-			if(infile.key == "level") {
+			if (infile.key == "level") {
 				new_enemy.level = atoi(infile.val.c_str());
 			}
-			else if(infile.key == "categories") {
-				string cat = "";
+			else if (infile.key == "rarity") {
+				new_enemy.rarity = infile.val.c_str();
+			}
+			else if (infile.key == "categories") {
+				string cat;
 				while ( (cat = infile.nextValue()) != "") {
-					categories.push_back(cat);
+					_categories[cat].push_back(new_enemy);
 				}
 			}
 		}
 	}
-	//push the enemy data into each category it belongs to
-	for (int i = 0; i < categories.size(); i++){
-		category_list[categories[i]].push_back(new_enemy);
-	}
 
 	infile.close();
-	return;
 }
 
-// Returns a random monster that fits the category and level range
-Enemy_Level EnemyGroupManager::random_enemy(string category, int minlevel, int maxlevel) {
-	Enemy_Level new_enemy;
-	vector<Enemy_Level> enemy_list;
-	//load only the data that fit the criteria
-	for (int i = 0; i < category_list[category].size(); i++){
-		new_enemy = category_list[category][i];
-		if ( (new_enemy.level >= minlevel) && (new_enemy.level <= maxlevel)){
-			enemy_list.push_back(new_enemy);
+Enemy_Level EnemyGroupManager::getRandomEnemy(const std::string& category, int minlevel, int maxlevel) const
+{
+	vector<Enemy_Level> enemyCategory;
+	map<string, vector<Enemy_Level> >::const_iterator it = _categories.find(category);
+	if (it != _categories.end()) {
+		enemyCategory = it->second;
+	} else {
+		return Enemy_Level();
+	}
+
+	// load only the data that fit the criteria
+	vector<Enemy_Level> enemyCandidates;
+	for (size_t i = 0; i < enemyCategory.size(); ++i) {
+		Enemy_Level new_enemy = enemyCategory[i];
+		if ((new_enemy.level >= minlevel) && (new_enemy.level <= maxlevel)) {
+			// add more than one time to increase chance of getting
+			// this enemy as result, "rarity" property
+			int add_times = 0;
+			if (new_enemy.rarity == "common") {
+				add_times = 6;
+			} else if (new_enemy.rarity == "uncommon") {
+				add_times = 3;
+			} else if (new_enemy.rarity == "rare") {
+				add_times = 1;
+			} else {
+				fprintf(stderr,
+					"ERROR: 'rarity' property for enemy '%s' not valid (common|uncommon|rare): %s\n",
+					new_enemy.type.c_str(), new_enemy.rarity.c_str());
+			}
+
+			// do add, the given number of times
+			for (int i = 0; i < add_times; ++i) {
+				enemyCandidates.push_back(new_enemy);
+			}
 		}
 	}
-	if (enemy_list.size() == 0) return new_enemy;
-	return enemy_list[rand() % enemy_list.size()];
+
+	if (enemyCandidates.empty()) {
+		return Enemy_Level();
+	} else {
+		return enemyCandidates[rand() % enemyCandidates.size()];
+	}
 }
-
-
-
-
-
-
-
-
-
-
