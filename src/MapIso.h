@@ -57,7 +57,7 @@ struct Map_Group {
 	int levelmax;
 	int numbermin;
 	int numbermax;
-	float chance_of_activation;
+	float chance;
 };
 
 struct Map_NPC {

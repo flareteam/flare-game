@@ -114,7 +114,7 @@ void MapIso::clearGroup(Map_Group &g) {
 	g.levelmax = 0;
 	g.numbermin = 0;
 	g.numbermax = 0;
-	g.chance_of_activation = 1.0f;
+	g.chance = 1.0f;
 }
 
 void MapIso::playSFX(string filename) {
@@ -130,7 +130,7 @@ void MapIso::playSFX(string filename) {
 void MapIso::push_enemy_group(Map_Group g) {
 	// activate at all?
 	float activate_chance = (rand() % 100) / 100.0f;
-	if (activate_chance > g.chance_of_activation) {
+	if (activate_chance > g.chance) {
 		return;
 	}
 
@@ -322,13 +322,13 @@ int MapIso::load(string filename) {
 					new_group.numbermin = atoi(infile.nextValue().c_str());
 					new_group.numbermax = atoi(infile.nextValue().c_str());
 				}
-				else if (infile.key == "chance_of_activation") {
-					new_group.chance_of_activation = atoi(infile.nextValue().c_str()) / 100.0f;
-					if (new_group.chance_of_activation > 1.0f) {
-						new_group.chance_of_activation = 1.0f;
+				else if (infile.key == "chance") {
+					new_group.chance = atoi(infile.nextValue().c_str()) / 100.0f;
+					if (new_group.chance > 1.0f) {
+						new_group.chance = 1.0f;
 					}
-					if (new_group.chance_of_activation < 0.0f) {
-						new_group.chance_of_activation = 0.0f;
+					if (new_group.chance < 0.0f) {
+						new_group.chance = 0.0f;
 					}
 				}
 			}
