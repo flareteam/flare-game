@@ -37,6 +37,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "Hazard.h"
 #include "PowerManager.h"
 #include "MessageEngine.h"
+#include "MenuManager.h"
 
 // AVATAR State enum
 const int AVATAR_STANCE = 0;
@@ -91,6 +92,7 @@ public:
 	int current_power;
 	Point act_target;
 	bool drag_walking;
+    bool newLevelNotification;
 };
 
 #endif

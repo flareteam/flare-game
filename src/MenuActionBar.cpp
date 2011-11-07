@@ -83,6 +83,10 @@ void MenuActionBar::clear() {
 		slot_item_count[i] = -1;
 		slot_enabled[i] = true;
 	}
+
+    // clear menu notifications
+    for (int i=0; i<4; i++) 
+        requires_attention[i] = false;
 	
 	// default: LMB set to basic melee attack
 	hotkeys[10] = 1;
@@ -94,6 +98,7 @@ void MenuActionBar::loadGraphics() {
 	background = IMG_Load((PATH_DATA + "images/menus/actionbar_trim.png").c_str());
 	labels = IMG_Load((PATH_DATA + "images/menus/actionbar_labels.png").c_str());
 	disabled = IMG_Load((PATH_DATA + "images/menus/disabled.png").c_str());
+	attention = IMG_Load((PATH_DATA + "images/menus/attention_glow.png").c_str());
 	if(!emptyslot || !background || !labels || !disabled) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 		SDL_Quit();
@@ -114,7 +119,11 @@ void MenuActionBar::loadGraphics() {
 	
 	cleanup = disabled;
 	disabled = SDL_DisplayFormatAlpha(disabled);
-	SDL_FreeSurface(cleanup);	
+	SDL_FreeSurface(cleanup);
+
+	cleanup = attention;
+	attention = SDL_DisplayFormatAlpha(attention);
+	SDL_FreeSurface(cleanup);
 	
 }
 
@@ -131,6 +140,17 @@ void MenuActionBar::renderIcon(int icon_id, int x, int y) {
 	src.x = (icon_id % 16) * 32;
 	src.y = (icon_id / 16) * 32;
 	SDL_BlitSurface(icons, &src, screen, &dest);		
+}
+
+// Renders the "needs attention" icon over the appropriate log menu
+void MenuActionBar::renderAttention(int menu_id) {
+	SDL_Rect dest;
+
+    // x-value is 12 hotkeys and 4 empty slots over
+	dest.x = (VIEW_W - 640)/2 + (menu_id * 32) + 32*15;
+	dest.y = VIEW_H-32;
+    dest.w = dest.h = 32;
+	SDL_BlitSurface(attention, NULL, screen, &dest);		
 }
 
 void MenuActionBar::logic() {
@@ -175,8 +195,13 @@ void MenuActionBar::render() {
 			SDL_BlitSurface(emptyslot, &src, screen, &dest);
 		}
 	}
-	
+
 	renderItemCounts();
+
+    // render log attention notifications
+    for (int i=0; i<4; i++)
+        if (requires_attention[i])
+            renderAttention(i);
 	
 	// draw hotkey labels
 	// TODO: keybindings
@@ -201,8 +226,10 @@ void MenuActionBar::renderItemCounts() {
 		if (!slot_enabled[i]) {
 			src.x = src.y = 0;
 			src.h = 32;
-			src.w = 32 * (hero->hero_cooldown[hotkeys[i]] /
-					(float)powers->powers[hotkeys[i]].cooldown);
+            if (hero->hero_cooldown[hotkeys[i]])
+    			src.w = 32 * (hero->hero_cooldown[hotkeys[i]] /
+                        (float)powers->powers[hotkeys[i]].cooldown);
+            else src.w = 32;
 			SDL_BlitSurface(disabled, &src, screen, &slots[i]);
 		}
 

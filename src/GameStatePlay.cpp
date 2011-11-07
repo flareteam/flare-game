@@ -286,6 +286,28 @@ void GameStatePlay::checkConsumable() {
 }
 
 /**
+ * Marks the menu if it needs attention.
+ */
+void GameStatePlay::checkNotifications() {
+    if (pc->newLevelNotification) {
+        pc->newLevelNotification = false;
+        menu->act->requires_attention[MENU_CHARACTER] = true;
+    }
+    if (menu->chr->newPowerNotification) {
+        menu->chr->newPowerNotification = false;
+        menu->act->requires_attention[MENU_POWERS] = true;
+    }
+    if (quests->resetQuestNotification) { //remove if no quests
+        quests->resetQuestNotification = false;
+        menu->act->requires_attention[MENU_LOG] = false;
+    }
+    if (quests->newQuestNotification) {
+        quests->newQuestNotification = false;
+        menu->act->requires_attention[MENU_LOG] = true;
+    }
+}
+
+/**
  * If the player has clicked on an NPC, the game mode might be changed.
  * If a player walks away from an NPC, end the interaction with that NPC
  * If an NPC is giving a reward, process it
@@ -378,6 +400,7 @@ void GameStatePlay::logic() {
 	}
 	
 	// these actions occur whether the game is paused or not.
+    checkNotifications();
 	checkLootDrop();
 	checkTeleport();
 	checkLog();

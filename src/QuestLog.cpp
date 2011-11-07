@@ -29,6 +29,8 @@ QuestLog::QuestLog(CampaignManager *_camp, MenuLog *_log) {
 	camp = _camp;
 	log = _log;
 	
+    newQuestNotification = false;
+    resetQuestNotification = false;
 	quest_count = 0;
 	loadAll();
 }
@@ -88,6 +90,7 @@ void QuestLog::load(string filename) {
 
 void QuestLog::logic() {
 	if (camp->quest_update) {
+        resetQuestNotification = true;
 		camp->quest_update = false;
 		createQuestList();
 	}
@@ -98,14 +101,14 @@ void QuestLog::logic() {
  */
 void QuestLog::createQuestList() {
 	log->clear(LOG_TYPE_QUESTS);
-	
+
 	for (int i=0; i<quest_count; i++) {
 		for (int j=0; j<MAX_QUEST_EVENTS; j++) {
 			
 			// check requirements
 			// break (skip to next dialog node) if any requirement fails
 			// if we reach an event that is not a requirement, succeed
-			
+
 			if (quests[i][j].type == "requires_status") {
 				if (!camp->checkStatus(quests[i][j].s)) break;
 			}
@@ -114,6 +117,7 @@ void QuestLog::createQuestList() {
 			}
 			else if (quests[i][j].type == "quest_text") {
 				log->add(quests[i][j].s, LOG_TYPE_QUESTS);
+                newQuestNotification = true;
 				break;
 			}
 			else if (quests[i][j].type == "") {

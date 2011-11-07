@@ -152,6 +152,7 @@ void MenuManager::logic() {
 		}
 		else {
 			closeRight(false);
+            act->requires_attention[MENU_INVENTORY] = false;
 			inv->visible = true;
 			Mix_PlayChannel(-1, sfx_open, 0);
 		}
@@ -166,6 +167,7 @@ void MenuManager::logic() {
 		}
 		else {
 			closeRight(false);
+            act->requires_attention[MENU_POWERS] = false;
 			pow->visible = true;
 			Mix_PlayChannel(-1, sfx_open, 0);
 		}
@@ -179,6 +181,7 @@ void MenuManager::logic() {
 		}
 		else {
 			closeLeft(false);
+            act->requires_attention[MENU_CHARACTER] = false;
 			chr->visible = true;
 			Mix_PlayChannel(-1, sfx_open, 0);
 		}
@@ -192,6 +195,7 @@ void MenuManager::logic() {
 		}
 		else {
 			closeLeft(false);
+            act->requires_attention[MENU_LOG] = false;
 			log->visible = true;
 			Mix_PlayChannel(-1, sfx_open, 0);
 		}

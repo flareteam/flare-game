@@ -46,6 +46,8 @@ public:
 	void load(string filename);
 	void logic();
 	void createQuestList();
+    bool newQuestNotification;
+    bool resetQuestNotification;
 };
 
 #endif
