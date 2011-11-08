@@ -148,11 +148,11 @@ void MapIso::push_enemy_group(Map_Group g) {
 	}
 	//remove locations that already have an enemy on them
 	Map_Enemy test_enemy;
-	for (int i = 0; i < enemies.size(); i++) {
+	for (size_t i = 0; i < enemies.size(); i++) {
 		test_enemy = enemies.front();
 		enemies.pop();
 		enemies.push(test_enemy);
-		for (int j = 0; j < valid_locations.size(); j++) {
+		for (size_t j = 0; j < valid_locations.size(); j++) {
 			if ( (test_enemy.pos.x == valid_locations.at(j).x) && (test_enemy.pos.y == valid_locations.at(j).y) ) {
 				valid_locations.erase(valid_locations.begin() + j);
 			}

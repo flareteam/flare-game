@@ -94,7 +94,7 @@ string FileParser::nextValue() {
 		return ""; // not found
 	}
 	string s;
-	int seppos = val.find_first_of(',');
+	size_t seppos = val.find_first_of(',');
 	if (seppos == string::npos) {
 		s = val;
 		val = "";

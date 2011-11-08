@@ -46,7 +46,7 @@ void EnemyGroupManager::generate()
 	string dir = PATH_DATA + string("enemies");
 	vector<string> files;
 	getFileList(dir, ".txt", files);
-	for (int i = 0; i < files.size(); ++i) {
+	for (size_t i = 0; i < files.size(); ++i) {
 		parseEnemyFileAndStore(dir, files[i]);
 	}
 }
@@ -107,7 +107,7 @@ Enemy_Level EnemyGroupManager::getRandomEnemy(const std::string& category, int m
 			}
 
 			// do add, the given number of times
-			for (int i = 0; i < add_times; ++i) {
+			for (int j = 0; j < add_times; ++j) {
 				enemyCandidates.push_back(new_enemy);
 			}
 		}
