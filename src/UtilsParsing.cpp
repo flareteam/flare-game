@@ -117,13 +117,13 @@ string trim(string s, char c) {
 }
 
 string parse_section_title(string s) {
-	unsigned int bracket = s.find_first_of(']');
+	size_t bracket = s.find_first_of(']');
 	if (bracket == string::npos) return ""; // not found
 	return s.substr(1, bracket-1);
 }
 
 void parse_key_pair(string s, string &key, string &val) {
-	unsigned int separator = s.find_first_of('=');
+	size_t separator = s.find_first_of('=');
 	if (separator == string::npos) {
 		key = "";
 		val = "";
@@ -142,7 +142,7 @@ void parse_key_pair(string s, string &key, string &val) {
  * This is basically a really lazy "split" replacement
  */
 int eatFirstInt(string &s, char separator) {
-	int seppos = s.find_first_of(separator);
+	size_t seppos = s.find_first_of(separator);
 	if (seppos == string::npos) {
 		s = "";
 		return 0; // not found
@@ -153,7 +153,7 @@ int eatFirstInt(string &s, char separator) {
 }
 
 unsigned short eatFirstHex(string &s, char separator) {
-	int seppos = s.find_first_of(separator);
+	size_t seppos = s.find_first_of(separator);
 	if (seppos == string::npos) {
 		s = "";
 		return 0; // not found
@@ -164,7 +164,7 @@ unsigned short eatFirstHex(string &s, char separator) {
 }
 
 string eatFirstString(string &s, char separator) {
-	int seppos = s.find_first_of(separator);
+	size_t seppos = s.find_first_of(separator);
 	if (seppos == string::npos) return ""; // not found
 	string outs = s.substr(0, seppos);
 	s = s.substr(seppos+1, s.length());

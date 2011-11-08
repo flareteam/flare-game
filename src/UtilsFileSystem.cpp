@@ -81,7 +81,7 @@ int getFileList(std::string dir, std::string ext, std::vector<std::string> &file
         return errno;
     }
 	
-	int extlen = ext.length();
+	size_t extlen = ext.length();
     while ((dirp = readdir(dp)) != NULL) {
 	//	if(dirp->d_type == 0x8) { //0x4 for directories, 0x8 for files
 		std::string filename = std::string(dirp->d_name);
