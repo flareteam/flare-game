@@ -1,0 +1,662 @@
+# This is Russian translation of flare engine
+# Это перевод на русский язык движка flare
+# Copyright (C) 2011 Clint Bellanger
+# This file is distributed under the same license as the FLARE package.
+#
+# Sergey Basalaev <sbasalaev@gmail.com>, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: flare 0.14.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-11-02 21:28-0600\n"
+"PO-Revision-Date: 2011-11-16 00:58+0600\n"
+"Last-Translator: Sergey Basalaev <sbasalaev@gmail.com>\n"
+"Language-Team: Russian <ru@li.org>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../src/Avatar.cpp:218
+#, c-format
+msgid "Congratulations, you have reached level %d!"
+msgstr "Поздравляем, вы достигли уровня %d!"
+
+#: ../src/Avatar.cpp:220
+msgid "You may increase one attribute through the Character Menu."
+msgstr "Вы можете увеличить один атрибут через меню Персонаж."
+
+#: ../src/Avatar.cpp:488
+msgid "You are defeated.  You lose half your gold.  Press Enter to continue."
+msgstr "Вы убиты.  Вы теряете половину своего золота.  Нажмите Ввод для продолжения."
+
+#: ../src/CampaignManager.cpp:143
+#, c-format
+msgid "You receive %s."
+msgstr "Вы получаете %s."
+
+#: ../src/CampaignManager.cpp:145
+#, c-format
+msgid "You receive %s x%d."
+msgstr "Вы получаете %s x%d."
+
+#: ../src/CampaignManager.cpp:153
+#, c-format
+msgid "You receive %d gold."
+msgstr "Вы получаете %d золота."
+
+#: ../src/CampaignManager.cpp:159
+#, c-format
+msgid "You receive %d XP."
+msgstr "Вы получаете %d опыта."
+
+#: ../src/GameStateLoad.cpp:35
+#: ../src/GameStateLoad.cpp:48
+msgid "Delete Save"
+msgstr "Удалить игру"
+
+#: ../src/GameStateLoad.cpp:35
+msgid "Delete this save?"
+msgstr "Удалить эту сохранённую игру?"
+
+#: ../src/GameStateLoad.cpp:37
+msgid "Exit to Title"
+msgstr "Выйти в меню"
+
+#: ../src/GameStateLoad.cpp:42
+msgid "Choose a Slot"
+msgstr "Выберите слот"
+
+#: ../src/GameStateLoad.cpp:308
+#: ../src/GameStateLoad.cpp:323
+msgid "New Game"
+msgstr "Новая игра"
+
+#: ../src/GameStateLoad.cpp:327
+msgid "Load Game"
+msgstr "Загрузить игру"
+
+#: ../src/GameStateLoad.cpp:391
+msgid "Entering game world..."
+msgstr "Вход в игровой мир..."
+
+#: ../src/GameStateLoad.cpp:393
+msgid "Loading saved game..."
+msgstr "Загрузка сохранённой игры..."
+
+#: ../src/GameStateLoad.cpp:410
+#, c-format
+msgid "Level %d %s"
+msgstr "Уровень %d %s"
+
+#: ../src/GameStateLoad.cpp:431
+msgid "Empty Slot"
+msgstr "Пустой слот"
+
+#: ../src/GameStateNew.cpp:36
+msgid "Cancel"
+msgstr "Отмена"
+
+#: ../src/GameStateNew.cpp:41
+msgid "Create Character"
+msgstr "Создать персонаж"
+
+#: ../src/GameStateNew.cpp:184
+msgid "Choose a Portrait"
+msgstr "Выберите портрет"
+
+#: ../src/GameStateNew.cpp:185
+msgid "Choose a Name"
+msgstr "Выберите имя"
+
+#: ../src/GameStatePlay.cpp:150
+msgid "Inventory is full."
+msgstr "Инвентарь полон."
+
+#: ../src/GameStateTitle.cpp:32
+msgid "Play Game"
+msgstr "Играть"
+
+#: ../src/GameStateTitle.cpp:36
+msgid "Exit Game"
+msgstr "Выйти"
+
+#: ../src/GameStateTitle.cpp:42
+msgid "Flare Alpha v0.14.1"
+msgstr "Flare Alpha v0.14.1"
+
+#: ../src/ItemDatabase.cpp:311
+#, c-format
+msgid "Level %d"
+msgstr "Уровень %d"
+
+#: ../src/ItemDatabase.cpp:317
+#: ../src/MenuInventory.cpp:117
+msgid "Main Hand"
+msgstr "Главная рука"
+
+#: ../src/ItemDatabase.cpp:319
+#: ../src/MenuInventory.cpp:118
+msgid "Body"
+msgstr "Тело"
+
+#: ../src/ItemDatabase.cpp:321
+#: ../src/MenuInventory.cpp:119
+msgid "Off Hand"
+msgstr "Вторая рука"
+
+#: ../src/ItemDatabase.cpp:323
+#: ../src/MenuInventory.cpp:120
+msgid "Artifact"
+msgstr "Артефакт"
+
+#: ../src/ItemDatabase.cpp:325
+msgid "Consumable"
+msgstr "Расходуемое"
+
+#: ../src/ItemDatabase.cpp:327
+msgid "Gem"
+msgstr "Камень"
+
+#: ../src/ItemDatabase.cpp:329
+msgid "Quest Item"
+msgstr "Квестовый предмет"
+
+#: ../src/ItemDatabase.cpp:336
+#, c-format
+msgid "Melee damage: %d-%d"
+msgstr "Ближний вред: %d-%d"
+
+#: ../src/ItemDatabase.cpp:338
+#, c-format
+msgid "Melee damage: %d"
+msgstr "Ближний вред: %d"
+
+#: ../src/ItemDatabase.cpp:342
+#, c-format
+msgid "Mental damage: %d-%d"
+msgstr "Ментальный вред: %d-%d"
+
+#: ../src/ItemDatabase.cpp:344
+#, c-format
+msgid "Mental damage: %d"
+msgstr "Ментальный вред: %d"
+
+#: ../src/ItemDatabase.cpp:348
+#, c-format
+msgid "Ranged damage: %d-%d"
+msgstr "Дальний вред: %d-%d"
+
+#: ../src/ItemDatabase.cpp:350
+#, c-format
+msgid "Ranged damage: %d"
+msgstr "Дальний вред: %d"
+
+#: ../src/ItemDatabase.cpp:357
+#, c-format
+msgid "Absorb: %d-%d"
+msgstr "Поглощение: %d-%d"
+
+#: ../src/ItemDatabase.cpp:359
+#, c-format
+msgid "Absorb: %d"
+msgstr "Поглощение: %d"
+
+#: ../src/ItemDatabase.cpp:367
+#, c-format
+msgid "Increases %s by %d"
+msgstr "Увеличивает %s на %d"
+
+#: ../src/ItemDatabase.cpp:371
+#, c-format
+msgid "Decreases %s by %d"
+msgstr "Уменьшает %s на %d"
+
+#: ../src/ItemDatabase.cpp:389
+#: ../src/MenuCharacter.cpp:308
+#: ../src/MenuCharacter.cpp:314
+#: ../src/MenuCharacter.cpp:320
+#: ../src/MenuCharacter.cpp:326
+#, c-format
+msgid "Requires Physical %d"
+msgstr "Требуется Физическая %d"
+
+#: ../src/ItemDatabase.cpp:393
+#: ../src/MenuCharacter.cpp:332
+#: ../src/MenuCharacter.cpp:338
+#: ../src/MenuCharacter.cpp:344
+#: ../src/MenuCharacter.cpp:350
+#, c-format
+msgid "Requires Mental %d"
+msgstr "Требуется Ментальная %d"
+
+#: ../src/ItemDatabase.cpp:397
+#: ../src/MenuCharacter.cpp:356
+#: ../src/MenuCharacter.cpp:362
+#: ../src/MenuCharacter.cpp:368
+#: ../src/MenuCharacter.cpp:374
+#, c-format
+msgid "Requires Offense %d"
+msgstr "Требуется Атака %d"
+
+#: ../src/ItemDatabase.cpp:401
+#: ../src/MenuCharacter.cpp:380
+#: ../src/MenuCharacter.cpp:386
+#: ../src/MenuCharacter.cpp:392
+#: ../src/MenuCharacter.cpp:398
+#, c-format
+msgid "Requires Defense %d"
+msgstr "Требуется Защита %d"
+
+#: ../src/ItemDatabase.cpp:411
+#, c-format
+msgid "Buy Price: %d gold"
+msgstr "Цена покупки: %d золота"
+
+#: ../src/ItemDatabase.cpp:413
+#, c-format
+msgid "Buy Price: %d gold each"
+msgstr "Цена покупки: %d золота каждый"
+
+#: ../src/ItemDatabase.cpp:419
+#, c-format
+msgid "Sell Price: %d gold"
+msgstr "Цена продажи: %d золота"
+
+#: ../src/ItemDatabase.cpp:421
+#, c-format
+msgid "Sell Price: %d gold each"
+msgstr "Цена продажи: %d золота каждый"
+
+#: ../src/LootManager.cpp:237
+#: ../src/MenuInventory.cpp:121
+#, c-format
+msgid "%d Gold"
+msgstr "%d золота"
+
+#: ../src/main.cpp:77
+msgid "Flare"
+msgstr "Flare"
+
+#: ../src/MenuActionBar.cpp:227
+msgid "Character Menu (C)"
+msgstr "Меню персонажа (C)"
+
+#: ../src/MenuActionBar.cpp:231
+msgid "Inventory Menu (I)"
+msgstr "Меню инвентаря (I)"
+
+#: ../src/MenuActionBar.cpp:235
+msgid "Power Menu (P)"
+msgstr "Меню сил (P)"
+
+#: ../src/MenuActionBar.cpp:239
+msgid "Log Menu (L)"
+msgstr "Меню журнала (L)"
+
+#: ../src/MenuCharacter.cpp:44
+msgid "Character"
+msgstr "Персонаж"
+
+#: ../src/MenuCharacter.cpp:59
+msgid "Name"
+msgstr "Имя"
+
+#: ../src/MenuCharacter.cpp:60
+msgid "Level"
+msgstr "Уровень"
+
+#: ../src/MenuCharacter.cpp:61
+#: ../src/MenuPowers.cpp:145
+#: ../src/MenuPowers.cpp:146
+msgid "Physical"
+msgstr "Физическая"
+
+#: ../src/MenuCharacter.cpp:62
+#: ../src/MenuPowers.cpp:147
+#: ../src/MenuPowers.cpp:148
+msgid "Mental"
+msgstr "Ментальная"
+
+#: ../src/MenuCharacter.cpp:63
+#: ../src/MenuPowers.cpp:149
+#: ../src/MenuPowers.cpp:151
+msgid "Offense"
+msgstr "Атака"
+
+#: ../src/MenuCharacter.cpp:64
+#: ../src/MenuPowers.cpp:150
+#: ../src/MenuPowers.cpp:152
+msgid "Defense"
+msgstr "Защита"
+
+#: ../src/MenuCharacter.cpp:65
+msgid "Total HP"
+msgstr "Всего жизни"
+
+#: ../src/MenuCharacter.cpp:66
+#: ../src/MenuCharacter.cpp:68
+msgid "Regen"
+msgstr "Восстановл."
+
+#: ../src/MenuCharacter.cpp:67
+msgid "Total MP"
+msgstr "Всего маны"
+
+#: ../src/MenuCharacter.cpp:69
+msgid "Accuracy vs. Def 1"
+msgstr "Точность против защиты 1"
+
+#: ../src/MenuCharacter.cpp:70
+msgid "vs. Def 5"
+msgstr "пр. защиты 5"
+
+#: ../src/MenuCharacter.cpp:71
+msgid "Avoidance vs. Off 1"
+msgstr "Уклонение от атаки 1"
+
+#: ../src/MenuCharacter.cpp:72
+msgid "vs. Off 5"
+msgstr "от атаки 5"
+
+#: ../src/MenuCharacter.cpp:73
+msgid "Main Weapon"
+msgstr "Основное оружие"
+
+#: ../src/MenuCharacter.cpp:74
+msgid "Ranged Weapon"
+msgstr "Дальнее оружие"
+
+#: ../src/MenuCharacter.cpp:75
+msgid "Crit Chance"
+msgstr "Шанс крит. удара"
+
+#: ../src/MenuCharacter.cpp:76
+msgid "Absorb"
+msgstr "Поглощение"
+
+#: ../src/MenuCharacter.cpp:77
+msgid "Fire Resist"
+msgstr "Сопротивл. огню"
+
+#: ../src/MenuCharacter.cpp:78
+msgid "Ice Resist"
+msgstr "Сопротивл. льду"
+
+#: ../src/MenuCharacter.cpp:248
+#, c-format
+msgid "XP: %d"
+msgstr "Опыт: %d"
+
+#: ../src/MenuCharacter.cpp:250
+#, c-format
+msgid "Next: %d"
+msgstr "Следующий: %d"
+
+#: ../src/MenuCharacter.cpp:254
+msgid "Physical (P) increases melee weapon proficiency and total HP."
+msgstr "Физическая (P) увеличивает владение оружием ближнего боя и полное здоровье."
+
+#: ../src/MenuCharacter.cpp:255
+#: ../src/MenuCharacter.cpp:259
+#: ../src/MenuCharacter.cpp:263
+#: ../src/MenuCharacter.cpp:267
+#, c-format
+msgid "base (%d), bonus (%d)"
+msgstr "базовое (%d), бонус (%d)"
+
+#: ../src/MenuCharacter.cpp:258
+msgid "Mental (M) increases mental weapon proficiency and total MP."
+msgstr "Ментальная (M) увеличивает владение ментальным оружием и полную ману."
+
+#: ../src/MenuCharacter.cpp:262
+msgid "Offense (O) increases ranged weapon proficiency and accuracy."
+msgstr "Атака (O) увеличивает владению оружием дальнего боя и меткость."
+
+#: ../src/MenuCharacter.cpp:266
+msgid "Defense (D) increases armor proficiency and avoidance."
+msgstr "Защита (D) увеличивает владение бронёй и уклонение."
+
+#: ../src/MenuCharacter.cpp:270
+msgid "Each point of Physical grants +8 HP"
+msgstr "Каждое очко Физической даёт +8 к здоровью"
+
+#: ../src/MenuCharacter.cpp:271
+msgid "Each level grants +2 HP"
+msgstr "Каждый уровень даёт +2 к здоровью"
+
+#: ../src/MenuCharacter.cpp:274
+msgid "Ticks of HP regen per minute"
+msgstr "Число очков здоровья, восстанавливающихся за минуту"
+
+#: ../src/MenuCharacter.cpp:275
+msgid "Each point of Physical grants +4 HP regen"
+msgstr "Каждое очко Физической даёт +4 к восстановлению здоровья"
+
+#: ../src/MenuCharacter.cpp:276
+msgid "Each level grants +1 HP regen"
+msgstr "Каждый уровень даёт +1 к восстановлению здоровья"
+
+#: ../src/MenuCharacter.cpp:279
+msgid "Each point of Mental grants +8 MP"
+msgstr "Каждое очко Ментальной даёт +8 к магии"
+
+#: ../src/MenuCharacter.cpp:280
+msgid "Each level grants +2 MP"
+msgstr "Каждый уровень даёт +2 к магии"
+
+#: ../src/MenuCharacter.cpp:283
+msgid "Ticks of MP regen per minute"
+msgstr "Число очков маны, восстанавливающихся за минуту"
+
+#: ../src/MenuCharacter.cpp:284
+msgid "Each point of Mental grants +4 MP regen"
+msgstr "Каждое очко Ментальной даёт +4 к восстановлению маны"
+
+#: ../src/MenuCharacter.cpp:285
+msgid "Each level grants +1 MP regen"
+msgstr "Каждый уровень даёт +1 к восстановлению маны"
+
+#: ../src/MenuCharacter.cpp:288
+#: ../src/MenuCharacter.cpp:292
+msgid "Each point of Offense grants +5 accuracy"
+msgstr "Каждое очко Атаки даёт +5 к точности"
+
+#: ../src/MenuCharacter.cpp:289
+#: ../src/MenuCharacter.cpp:293
+msgid "Each level grants +1 accuracy"
+msgstr "Каждый уровень даёт +1 к точности"
+
+#: ../src/MenuCharacter.cpp:296
+#: ../src/MenuCharacter.cpp:300
+msgid "Each point of Defense grants +5 avoidance"
+msgstr "Каждое очко Защиты даёт +5 к уклонению"
+
+#: ../src/MenuCharacter.cpp:297
+#: ../src/MenuCharacter.cpp:301
+msgid "Each level grants +1 avoidance"
+msgstr "Каждый уровень даёт +1 к уклонению"
+
+#: ../src/MenuCharacter.cpp:305
+msgid "Dagger Proficiency"
+msgstr "Владение кинжалом"
+
+#: ../src/MenuCharacter.cpp:311
+msgid "Shortsword Proficiency"
+msgstr "Владение коротким мечом"
+
+#: ../src/MenuCharacter.cpp:317
+msgid "Longsword Proficiency"
+msgstr "Владение длинным мечом"
+
+#: ../src/MenuCharacter.cpp:323
+msgid "Greatsword Proficiency"
+msgstr "Владение великим мечом"
+
+#: ../src/MenuCharacter.cpp:329
+msgid "Wand Proficiency"
+msgstr "Владение жезлом"
+
+#: ../src/MenuCharacter.cpp:335
+msgid "Rod Proficiency"
+msgstr "Владение скипетром"
+
+#: ../src/MenuCharacter.cpp:341
+msgid "Staff Proficiency"
+msgstr "Владение посохом"
+
+#: ../src/MenuCharacter.cpp:347
+msgid "Greatstaff Proficiency"
+msgstr "Владение великим посохом"
+
+#: ../src/MenuCharacter.cpp:353
+msgid "Slingshot Proficiency"
+msgstr "Владение пращой"
+
+#: ../src/MenuCharacter.cpp:359
+msgid "Shortbow Proficiency"
+msgstr "Владение коротким луком"
+
+#: ../src/MenuCharacter.cpp:365
+msgid "Longbow Proficiency"
+msgstr "Владение длинным луком"
+
+#: ../src/MenuCharacter.cpp:371
+msgid "Greatbow Proficiency"
+msgstr "Владение великим луком"
+
+#: ../src/MenuCharacter.cpp:377
+msgid "Light Armor Proficiency"
+msgstr "Владение лёгкой бронёй"
+
+#: ../src/MenuCharacter.cpp:383
+msgid "Light Shield Proficiency"
+msgstr "Владение лёгким щитом"
+
+#: ../src/MenuCharacter.cpp:389
+msgid "Heavy Armor Proficiency"
+msgstr "Владение тяжёлой бронёй"
+
+#: ../src/MenuCharacter.cpp:395
+msgid "Heavy Shield Proficiency"
+msgstr "Владение тяжёлым щитом"
+
+#: ../src/MenuEnemy.cpp:98
+#, c-format
+msgid "%s level %d"
+msgstr "%s уровень %d"
+
+#: ../src/MenuEnemy.cpp:104
+msgid "Dead"
+msgstr "Мёртв"
+
+#: ../src/MenuExit.cpp:35
+msgid "Exit"
+msgstr "Выйти"
+
+#: ../src/MenuExit.cpp:80
+msgid "Save and exit to title?"
+msgstr "Сохранить и выйти в меню?"
+
+#: ../src/MenuInventory.cpp:116
+msgid "Inventory"
+msgstr "Инвентарь"
+
+#: ../src/MenuInventory.cpp:152
+msgid "Use SHIFT to move only one item."
+msgstr "Используйте SHIFT, чтобы переместить только один предмет."
+
+#: ../src/MenuInventory.cpp:153
+msgid "CTRL-click a carried item to sell it."
+msgstr "Используйте CTRL+щелчок на предмете в инвентаре, чтобы продать его."
+
+#: ../src/MenuInventory.cpp:316
+msgid "This item can only be used from the action bar."
+msgstr "Этот предмет можно использовать только с панели действия."
+
+#: ../src/MenuLog.cpp:37
+msgid "Messages"
+msgstr "Сообщения"
+
+#: ../src/MenuLog.cpp:38
+msgid "Quests"
+msgstr "Задания"
+
+#: ../src/MenuLog.cpp:39
+msgid "Achievements"
+msgstr "Достижения"
+
+#: ../src/MenuLog.cpp:40
+msgid "Statistics"
+msgstr "Статистика"
+
+#: ../src/MenuLog.cpp:138
+msgid "Log"
+msgstr "Журнал"
+
+#: ../src/MenuPowers.cpp:144
+msgid "Powers"
+msgstr "Силы"
+
+#: ../src/MenuPowers.cpp:223
+msgid "Physical + Offense grants melee and ranged attacks"
+msgstr "Физическая + Атака даёт ближние и дальние атаки"
+
+#: ../src/MenuPowers.cpp:227
+msgid "Physical + Defense grants melee protection"
+msgstr "Физическая + Защита даёт защиту от оружия"
+
+#: ../src/MenuPowers.cpp:231
+msgid "Mental + Offense grants elemental spell attacks"
+msgstr "Ментальная + Атака даёт атаки магии элементов"
+
+#: ../src/MenuPowers.cpp:235
+msgid "Mental + Defense grants healing and magical protection"
+msgstr "Ментальная + Защита даёт лечение и магическую защиту"
+
+#: ../src/MenuPowers.cpp:246
+msgid "Requires a physical weapon"
+msgstr "Требуется физическое оружие"
+
+#: ../src/MenuPowers.cpp:248
+msgid "Requires a mental weapon"
+msgstr "Требуется ментальное оружие"
+
+#: ../src/MenuPowers.cpp:250
+msgid "Requires an offense weapon"
+msgstr "Требуется оружие атаки"
+
+#: ../src/MenuPowers.cpp:261
+#, c-format
+msgid "Requires Physical Offense %d"
+msgstr "Требуется Физическая Атака %d"
+
+#: ../src/MenuPowers.cpp:262
+#, c-format
+msgid "Requires Physical Defense %d"
+msgstr "Требуется Физическая Защита %d"
+
+#: ../src/MenuPowers.cpp:263
+#, c-format
+msgid "Requires Mental Offense %d"
+msgstr "Требуется Ментальная Атака %d"
+
+#: ../src/MenuPowers.cpp:264
+#, c-format
+msgid "Requires Mental Defense %d"
+msgstr "Требуется Ментальная Защита %d"
+
+#: ../src/MenuPowers.cpp:270
+#, c-format
+msgid "Costs %d MP"
+msgstr "Стоит %d маны"
+
+#: ../src/MenuPowers.cpp:274
+#, c-format
+msgid "Cooldown: %d seconds"
+msgstr "Продолжительность: %d секунд"
+
+#: ../src/MenuVendor.cpp:95
+msgid "Vendor"
+msgstr "Торговец"
+
