@@ -23,6 +23,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "GameStatePlay.h"
 #include "GameStateNew.h"
 #include "MenuConfirm.h"
+#include "ModManager.h"
 
 GameStateLoad::GameStateLoad(SDL_Surface *_screen, InputState *_inp, FontEngine *_font) : GameState(_screen, _inp, _font) {
 	items = new ItemDatabase(screen, font);
@@ -227,12 +228,11 @@ void GameStateLoad::loadPreview(int slot) {
 	SDL_FreeSurface(cleanup);
 	
 	// composite the hero graphic
+	if (img_body != "") gfx_body = IMG_Load(mods->locate("images/avatar/" + stats[slot].base + "/" + img_body + ".png").c_str());
+	if (img_main != "") gfx_main = IMG_Load(mods->locate("images/avatar/" + stats[slot].base + "/" + img_main + ".png").c_str());
+	if (img_off != "") gfx_off = IMG_Load(mods->locate("images/avatar/" + stats[slot].base + "/" + img_off + ".png").c_str());
+	gfx_head = IMG_Load(mods->locate("images/avatar/" + stats[slot].base + "/" + stats[slot].head + ".png").c_str());
 	
-	if (img_body != "") gfx_body = IMG_Load((PATH_DATA + "images/avatar/" + stats[slot].base + "/" + img_body + ".png").c_str());
-	if (img_main != "") gfx_main = IMG_Load((PATH_DATA + "images/avatar/" + stats[slot].base + "/" + img_main + ".png").c_str());
-	if (img_off != "") gfx_off = IMG_Load((PATH_DATA + "images/avatar/" + stats[slot].base + "/" + img_off + ".png").c_str());
-	gfx_head = IMG_Load((PATH_DATA + "images/avatar/" + stats[slot].base + "/" + stats[slot].head + ".png").c_str());
-
 	if (gfx_body) SDL_SetColorKey(gfx_body, SDL_SRCCOLORKEY, SDL_MapRGB(screen->format, 255, 0, 255)); 
 	if (gfx_main) SDL_SetColorKey(gfx_main, SDL_SRCCOLORKEY, SDL_MapRGB(screen->format, 255, 0, 255)); 
 	if (gfx_off) SDL_SetColorKey(gfx_off, SDL_SRCCOLORKEY, SDL_MapRGB(screen->format, 255, 0, 255)); 

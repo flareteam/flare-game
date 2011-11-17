@@ -76,8 +76,18 @@ string ModManager::locate(string filename) {
 	}
 	
 	// search through mods for the first instance of this filename
+	string test_path;
 	
-	return filename;
+	for (unsigned int i = mod_list.size(); i>0; i--) {
+		test_path = PATH_DATA + "mods/" + mod_list[i-1] + "/" + filename;
+		if (fileExists(test_path)) {
+			loc_cache[filename] = test_path;
+			return test_path;
+		}
+	}
+
+	// all else failing, simply return the filename
+	return PATH_DATA + filename;
 }
 
 ModManager::~ModManager() {
