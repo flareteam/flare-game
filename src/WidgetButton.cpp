@@ -122,7 +122,7 @@ void WidgetButton::render() {
 		int font_x = pos.x + (pos.w/2);
 		int font_y = (pos.y + (pos.h/2)) - (font->getFontHeight() / 2);
 
-		font->render(label, font_x, font_y, JUSTIFY_CENTER, screen, font_color);
+		font->renderShadowed(label, font_x, font_y, JUSTIFY_CENTER, screen, font_color);
 	}
 }
 	

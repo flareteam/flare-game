@@ -70,6 +70,8 @@ public:
 
 	void render(string text, int x, int y, int justify, SDL_Surface *target, int color);
 	void render(string text, int x, int y, int justify, SDL_Surface *target, int width, int color);
+	void renderShadowed(string text, int x, int y, int justify, SDL_Surface *target, int color);
+	void renderShadowed(string text, int x, int y, int justify, SDL_Surface *target, int width, int color);	
 	
 	int cursor_y;
 };

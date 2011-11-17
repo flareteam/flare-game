@@ -66,7 +66,7 @@ void MenuHUDLog::render() {
 			size = font->calc_size(log_msg[i], list_area.x);
 			cursor_y -= size.y + paragraph_spacing;
 	
-			font->render(log_msg[i], 32, cursor_y, JUSTIFY_LEFT, screen, list_area.x, FONT_WHITE);
+			font->renderShadowed(log_msg[i], 32, cursor_y, JUSTIFY_LEFT, screen, list_area.x, FONT_WHITE);
 			
 		}
 		else return; // no more new messages

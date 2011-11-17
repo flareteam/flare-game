@@ -94,14 +94,14 @@ void MenuEnemy::render() {
 	
 	SDL_BlitSurface(bar_hp, &src, screen, &dest);
 	
-	font->render(msg->get("%s level %d", enemy->stats.level, enemy->stats.name), VIEW_W_HALF, 4, JUSTIFY_CENTER, screen, FONT_WHITE);
+	font->renderShadowed(msg->get("%s level %d", enemy->stats.level, enemy->stats.name), VIEW_W_HALF, 4, JUSTIFY_CENTER, screen, FONT_WHITE);
 	stringstream ss;
 	ss.str("");
 	if (enemy->stats.hp > 0)
 		ss << enemy->stats.hp << "/" << enemy->stats.maxhp;
 	else
 		ss << msg->get("Dead");
-	font->render(ss.str(), VIEW_W_HALF, 19, JUSTIFY_CENTER, screen, FONT_WHITE);
+	font->renderShadowed(ss.str(), VIEW_W_HALF, 19, JUSTIFY_CENTER, screen, FONT_WHITE);
 	
 	//SDL_UpdateRects(screen, 1, &dest);
 }

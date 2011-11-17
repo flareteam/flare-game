@@ -99,10 +99,10 @@ void MenuHPMP::render(StatBlock *stats, Point mouse) {
 
 		stringstream ss;
 		ss << stats->hp << "/" << stats->maxhp;
-		font->render(ss.str(), 53,4,JUSTIFY_CENTER, screen, FONT_WHITE);
+		font->renderShadowed(ss.str(), 53,4,JUSTIFY_CENTER, screen, FONT_WHITE);
 		ss.str("");
 		ss << stats->mp << "/" << stats->maxmp;
-		font->render(ss.str(), 53,19,JUSTIFY_CENTER, screen, FONT_WHITE);
+		font->renderShadowed(ss.str(), 53,19,JUSTIFY_CENTER, screen, FONT_WHITE);
 	 
 	}
 }

@@ -34,7 +34,7 @@ WidgetLabel::WidgetLabel(SDL_Surface *_screen, FontEngine *_font) {
 }
 
 void WidgetLabel::render() {
-	font->render(text, x, y, justify, screen, color);
+	font->renderShadowed(text, x, y, justify, screen, color);
 }
 
 /**

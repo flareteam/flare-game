@@ -117,7 +117,7 @@ void MenuExperience::render(StatBlock *stats, Point mouse) {
 		else {
 			ss << text_label << stats->xp;
 		}
-		font->render(ss.str(), hud_position.x + text_offset.x, hud_position.y + text_offset.y, text_justify, screen, FONT_WHITE);
+		font->renderShadowed(ss.str(), hud_position.x + text_offset.x, hud_position.y + text_offset.y, text_justify, screen, FONT_WHITE);
 	}
 }
 

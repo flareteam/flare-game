@@ -161,7 +161,7 @@ void MenuLog::render() {
 	for (int i=log_count[active_log]-display_number; i<log_count[active_log]; i++) {
 		
 		size = font->calc_size(log_msg[active_log][i], list_area.w);	
-		font->render(log_msg[active_log][i], list_area.x, cursor_y, JUSTIFY_LEFT, screen, list_area.w, FONT_WHITE);
+		font->renderShadowed(log_msg[active_log][i], list_area.x, cursor_y, JUSTIFY_LEFT, screen, list_area.w, FONT_WHITE);
 		cursor_y += size.y + paragraph_spacing;
 	}
 

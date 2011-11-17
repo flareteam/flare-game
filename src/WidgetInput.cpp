@@ -109,10 +109,10 @@ void WidgetInput::render() {
 	}
 	else {
 		if (cursor_frame < FRAMES_PER_SEC) {
-			font->render(text + "|", font_pos.x, font_pos.y, JUSTIFY_LEFT, screen, FONT_WHITE);
+			font->renderShadowed(text + "|", font_pos.x, font_pos.y, JUSTIFY_LEFT, screen, FONT_WHITE);
 		}
 		else {
-			font->render(text, font_pos.x, font_pos.y, JUSTIFY_LEFT, screen, FONT_WHITE);		
+			font->renderShadowed(text, font_pos.x, font_pos.y, JUSTIFY_LEFT, screen, FONT_WHITE);		
 		}
 	}
 }

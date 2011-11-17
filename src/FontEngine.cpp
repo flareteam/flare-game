@@ -213,6 +213,15 @@ void FontEngine::render(string text, int x, int y, int justify, SDL_Surface *tar
 
 }
 
+void FontEngine::renderShadowed(string text, int x, int y, int justify, SDL_Surface *target, int color) {
+	render(text, x+1, y+1, justify, target, FONT_BLACK);
+	render(text, x, y, justify, target, color);
+}
+
+void FontEngine::renderShadowed(string text, int x, int y, int justify, SDL_Surface *target, int width, int color) {
+	render(text, x+1, y+1, justify, target, width, FONT_BLACK);
+	render(text, x, y, justify, target, width, color);
+}
 
 FontEngine::~FontEngine() {
 	SDL_FreeSurface(ttf);
