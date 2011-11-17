@@ -44,6 +44,7 @@ extern bool HWSURFACE;
 // Input Settings
 extern bool MOUSE_MOVE;
 extern bool ENABLE_JOYSTICK;
+extern int JOYSTICK_DEVICE;
 
 // Engine Settings
 extern bool MENUS_PAUSE;

@@ -63,13 +63,22 @@ static void init() {
 		exit(1);
 	}
 	
-	if(SDL_NumJoysticks() > 0) {
-	  printf("%i joystick(s) were found:\n", SDL_NumJoysticks());
-	  for (int i = 0; i < SDL_NumJoysticks(); i++) {
-	    printf("\t%i. %s\n", SDL_NumJoysticks(), SDL_JoystickName(i));
-	  }
-	  SDL_JoystickOpen(0);
+    // initialize Joysticks
+	if(SDL_NumJoysticks() == 1) {
+		printf("1 joystick was found:\n");
 	}
+	else if(SDL_NumJoysticks() > 1) {
+		printf("%d joysticks were found:\n", SDL_NumJoysticks());
+	}
+	else {
+		printf("No joysticks were found\n");
+	}
+	for(int i = 0; i < SDL_NumJoysticks(); i++)
+	{
+		SDL_JoystickOpen(i);
+		printf("  Joy %d) %s\n", i, SDL_JoystickName(i));
+	}
+	printf("Using joystick #%d\n", JOYSTICK_DEVICE);
 
     // setup MessageEngine here instead of below so we can initialize window title
     msg = new MessageEngine();
