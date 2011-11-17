@@ -28,6 +28,12 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #define JOY_MAX         32767
 #define JOY_DEADZONE    100
 
+#define JOY_POS_CENTER	0
+#define JOY_POS_LEFT	-1
+#define JOY_POS_RIGHT	1
+#define JOY_POS_UP	-1
+#define JOY_POS_DOWN	1
+
 #include <string>
 #include <fstream>
 #include "SDL.h"
