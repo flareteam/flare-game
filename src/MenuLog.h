@@ -34,11 +34,10 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 const int MAX_LOG_MESSAGES = 100;
 
-const int LOG_TYPE_COUNT = 4;
+const int LOG_TYPE_COUNT = 3;
 const int LOG_TYPE_QUESTS = 0;
 const int LOG_TYPE_MESSAGES = 1;
-const int LOG_TYPE_ACHIEVEMENTS = 2;
-const int LOG_TYPE_STATISTICS = 3;
+const int LOG_TYPE_STATISTICS = 2;
 
 class MenuLog {
 private:
