@@ -21,6 +21,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "ItemDatabase.h"
 #include "FileParser.h"
+#include "ModManager.h"
+#include "UtilsFileSystem.h"
 
 ItemDatabase::ItemDatabase(SDL_Surface *_screen, FontEngine *_font) {
 	screen = _screen;
@@ -38,18 +40,43 @@ ItemDatabase::ItemDatabase(SDL_Surface *_screen, FontEngine *_font) {
 	}
 
 	vendor_ratio = 4; // this means scrap/vendor pays 1/4th price to buy items from hero
-	load();
+	loadAll();
 	loadSounds();
 	loadIcons();
 }
 
-void ItemDatabase::load() {
+/**
+ * Load all items files in all mods
+ */
+void ItemDatabase::loadAll() {
+
+	string test_path;
+
+	// load each items.txt file. Individual item IDs can be overwritten with mods.
+	for (unsigned int i = 0; i < mods->mod_list.size(); i++) {
+
+		test_path = PATH_DATA + "mods/" + mods->mod_list[i] + "/items/items.txt";
+
+		if (fileExists(test_path)) {
+			this->load(test_path);
+		}
+	}
+
+}
+
+/**
+ * Load a specific items file
+ * 
+ * @param filename The full path and name of the file to load
+ */
+void ItemDatabase::load(string filename) {
 	FileParser infile;
 	int id = 0;
 	string s;
 	int bonus_counter = 0;
+
+	if (infile.open(filename)) {
 	
-	if (infile.open(PATH_DATA + "items/items.txt")) {
 		while (infile.next()) {
 			if (infile.key == "id") {
 				id = atoi(infile.val.c_str());

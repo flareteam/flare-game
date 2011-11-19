@@ -149,7 +149,8 @@ private:
 public:
 	ItemDatabase(SDL_Surface *_screen, FontEngine *_font);
 	~ItemDatabase();
-	void load();
+	void load(string filename);
+	void loadAll();
 	void loadSounds();
 	void loadIcons();
 	void renderIcon(ItemStack stack, int x, int y, int size);

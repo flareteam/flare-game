@@ -73,7 +73,7 @@ Set (FLARE_SOURCES
 	./src/GameStatePlay.cpp
 	./src/GameStateNew.cpp
 	./src/GameSwitcher.cpp
-    ./src/GetText.cpp
+	./src/GetText.cpp
 	./src/Hazard.cpp
 	./src/HazardManager.cpp
 	./src/InputState.cpp
@@ -138,7 +138,6 @@ install(DIRECTORY
   "${CMAKE_CURRENT_SOURCE_DIR}/engine"
   "${CMAKE_CURRENT_SOURCE_DIR}/fonts"
   "${CMAKE_CURRENT_SOURCE_DIR}/images"
-  "${CMAKE_CURRENT_SOURCE_DIR}/items"
   "${CMAKE_CURRENT_SOURCE_DIR}/maps"
   "${CMAKE_CURRENT_SOURCE_DIR}/mods"
   "${CMAKE_CURRENT_SOURCE_DIR}/music"

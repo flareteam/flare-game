@@ -39,13 +39,13 @@ private:
 	void loadModList();
 
 	map<string,string> loc_cache;
-	vector<string> mod_list;
 	
 public:
 	ModManager();
 	~ModManager();
-	
 	string locate(string filename);
+
+	vector<string> mod_list;
 };
 
 // TODO: mod location lookup is used by most classes. Does this justify
