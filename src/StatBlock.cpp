@@ -23,6 +23,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "StatBlock.h"
 #include "FileParser.h"
+#include "ModManager.h"
 
 StatBlock::StatBlock() {
 
@@ -127,9 +128,9 @@ StatBlock::StatBlock() {
  */
 void StatBlock::load(string filename) {
 	FileParser infile;
-	int num;
+	int num = 0;
 	
-	if (infile.open(PATH_DATA + filename)) {
+	if (infile.open(mods->locate(filename))) {
 		while (infile.next()) {
 			if (isInt(infile.val)) num = atoi(infile.val.c_str());
 			
