@@ -23,7 +23,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "FileParser.h"
 #include "ModManager.h"
 
-
 NPC::NPC(MapIso *_map, ItemDatabase *_items) : Entity(_map) {
 	items = _items;
 
@@ -80,7 +79,7 @@ void NPC::load(string npc_id) {
 	string filename_sprites = "";
 	string filename_portrait = "";
 
-	if (infile.open(PATH_DATA + "npcs/" + npc_id + ".txt")) {
+	if (infile.open(mods->locate("npcs/" + npc_id + ".txt"))) {
 		while (infile.next()) {
 			if (infile.section == "dialog") {
 				if (infile.new_section) {
