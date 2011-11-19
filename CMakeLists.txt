@@ -144,7 +144,6 @@ install(DIRECTORY
   "${CMAKE_CURRENT_SOURCE_DIR}/npcs"
   "${CMAKE_CURRENT_SOURCE_DIR}/powers"
   "${CMAKE_CURRENT_SOURCE_DIR}/quests"
-  "${CMAKE_CURRENT_SOURCE_DIR}/soundfx"
   "${CMAKE_CURRENT_SOURCE_DIR}/tilesetdefs"
   DESTINATION ${CMAKE_INSTALL_PREFIX}/share/games/flare)
 install(FILES
