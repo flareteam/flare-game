@@ -46,7 +46,7 @@ void Avatar::init() {
 	stats.pos.y = map->spawn.y;
 	stats.direction = map->spawn_dir;
 	current_power = -1;
-    newLevelNotification = false;
+	newLevelNotification = false;
 		
 	lockSwing = false;
 	lockCast = false;
@@ -152,18 +152,18 @@ void Avatar::loadGraphics(string _img_main, string _img_armor, string _img_off) 
 }
 
 void Avatar::loadSounds() {
-	sound_melee = Mix_LoadWAV((PATH_DATA + "soundfx/melee_attack.ogg").c_str());
-	sound_hit = Mix_LoadWAV((PATH_DATA + "soundfx/" + stats.base + "_hit.ogg").c_str());
-	sound_die = Mix_LoadWAV((PATH_DATA + "soundfx/" + stats.base + "_die.ogg").c_str());
-	sound_block = Mix_LoadWAV((PATH_DATA + "soundfx/powers/block.ogg").c_str());	
-	sound_steps[0] = Mix_LoadWAV((PATH_DATA + "soundfx/step_echo1.ogg").c_str());
-	sound_steps[1] = Mix_LoadWAV((PATH_DATA + "soundfx/step_echo2.ogg").c_str());
-	sound_steps[2] = Mix_LoadWAV((PATH_DATA + "soundfx/step_echo3.ogg").c_str());
-	sound_steps[3] = Mix_LoadWAV((PATH_DATA + "soundfx/step_echo4.ogg").c_str());
-	level_up = Mix_LoadWAV((PATH_DATA + "soundfx/level_up.ogg").c_str());
+	sound_melee = Mix_LoadWAV(mods->locate("soundfx/melee_attack.ogg").c_str());
+	sound_hit = Mix_LoadWAV(mods->locate("soundfx/" + stats.base + "_hit.ogg").c_str());
+	sound_die = Mix_LoadWAV(mods->locate("soundfx/" + stats.base + "_die.ogg").c_str());
+	sound_block = Mix_LoadWAV(mods->locate("soundfx/powers/block.ogg").c_str());
+	sound_steps[0] = Mix_LoadWAV(mods->locate("soundfx/step_echo1.ogg").c_str());
+	sound_steps[1] = Mix_LoadWAV(mods->locate("soundfx/step_echo2.ogg").c_str());
+	sound_steps[2] = Mix_LoadWAV(mods->locate("soundfx/step_echo3.ogg").c_str());
+	sound_steps[3] = Mix_LoadWAV(mods->locate("soundfx/step_echo4.ogg").c_str());
+	level_up = Mix_LoadWAV(mods->locate("soundfx/level_up.ogg").c_str());
 				
 	if (!sound_melee || !sound_hit || !sound_die || !sound_steps[0] || !level_up) {
-	  printf("Mix_LoadWAV: %s\n", Mix_GetError());
+		printf("Mix_LoadWAV: %s\n", Mix_GetError());
 	}
 	
 }
@@ -219,7 +219,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 		ss << msg->get("Congratulations, you have reached level %d!", stats.level);
 		if (stats.level < max_spendable_stat_points) {
 			ss << " " << msg->get("You may increase one attribute through the Character Menu.");
-            newLevelNotification = true;
+			newLevelNotification = true;
 		}
 		log_msg = ss.str();
 		stats.recalc();
@@ -233,7 +233,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 	// check for bleeding to death
 	if (stats.hp == 0 && !(stats.cur_state == AVATAR_DEAD)) {
 		stats.cur_state = AVATAR_DEAD;
-	}		
+	}
 	
 	// assist mouse movement
 	if (!inp->pressing[MAIN1]) drag_walking = false;
