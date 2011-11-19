@@ -22,13 +22,13 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef WIDGET_BUTTON_H
 #define WIDGET_BUTTON_H
 
-#include <string>
 #include "SDL.h"
 #include "SDL_image.h"
 #include "SDL_mixer.h"
 #include "Utils.h"
 #include "FontEngine.h"
 #include "InputState.h"
+#include <string>
 
 const int BUTTON_GFX_NORMAL = 0;
 const int BUTTON_GFX_PRESSED = 1;
@@ -41,13 +41,13 @@ private:
 	FontEngine *font;
 	InputState *inp;
 
-	const char* fileName; // the path to the buttons background image
+	std::string fileName; // the path to the buttons background image
 
 	SDL_Surface *buttons;
 	Mix_Chunk *click;
 	
 public:
-	WidgetButton(SDL_Surface *_screen, FontEngine *_font, InputState *_inp, const char* _fileName);
+	WidgetButton(SDL_Surface *_screen, FontEngine *_font, InputState *_inp, const std::string& _fileName);
 	~WidgetButton();
 
 	void loadArt();

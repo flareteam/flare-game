@@ -20,6 +20,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "MenuCharacter.h"
+#include "ModManager.h"
 
 MenuCharacter::MenuCharacter(SDL_Surface *_screen, InputState *_inp, FontEngine *_font, StatBlock *_stats) {
 	screen = _screen;
@@ -35,7 +36,7 @@ MenuCharacter::MenuCharacter(SDL_Surface *_screen, InputState *_inp, FontEngine 
 	int offset_y = (VIEW_H - 416)/2;
 	
 	// button setup
-	closeButton = new WidgetButton(screen, font, inp, "images/menus/buttons/button_x.png");
+	closeButton = new WidgetButton(screen, font, inp, mods->locate("images/menus/buttons/button_x.png"));
 	closeButton->pos.x = 294;
 	closeButton->pos.y = offset_y + 2;
 
@@ -120,9 +121,9 @@ MenuCharacter::MenuCharacter(SDL_Surface *_screen, InputState *_inp, FontEngine 
 
 void MenuCharacter::loadGraphics() {
 
-	background = IMG_Load((PATH_DATA + "images/menus/character.png").c_str());
-	proficiency = IMG_Load((PATH_DATA + "images/menus/character_proficiency.png").c_str());
-	upgrade = IMG_Load((PATH_DATA + "images/menus/upgrade.png").c_str());
+	background = IMG_Load(mods->locate("images/menus/character.png").c_str());
+	proficiency = IMG_Load(mods->locate("images/menus/character_proficiency.png").c_str());
+	upgrade = IMG_Load(mods->locate("images/menus/upgrade.png").c_str());
 	if(!background || !proficiency || !upgrade) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 		SDL_Quit();

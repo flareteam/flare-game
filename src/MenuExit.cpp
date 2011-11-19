@@ -20,6 +20,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "MenuExit.h"
+#include "ModManager.h"
 
 MenuExit::MenuExit(SDL_Surface *_screen, InputState *_inp, FontEngine *_font) : Menu(_screen, inp = _inp, _font) {
 
@@ -30,12 +31,12 @@ MenuExit::MenuExit(SDL_Surface *_screen, InputState *_inp, FontEngine *_font) : 
 	window_area.x = (VIEW_W/2) - (window_area.w/2);
 	window_area.y = (VIEW_H - window_area.h)/2;
 	
-	buttonExit = new WidgetButton(screen, font, inp, "images/menus/buttons/button_default.png");
+	buttonExit = new WidgetButton(screen, font, inp, mods->locate("images/menus/buttons/button_default.png"));
 	buttonExit->label = msg->get("Exit");
 	buttonExit->pos.x = VIEW_W_HALF - buttonExit->pos.w/2;
 	buttonExit->pos.y = VIEW_H/2;
 
-	buttonClose = new WidgetButton(screen, font, inp, "images/menus/buttons/button_x.png");
+	buttonClose = new WidgetButton(screen, font, inp, mods->locate("images/menus/buttons/button_x.png"));
 	buttonClose->pos.x = window_area.x + window_area.w;
 	buttonClose->pos.y = window_area.y;
 
@@ -43,7 +44,7 @@ MenuExit::MenuExit(SDL_Surface *_screen, InputState *_inp, FontEngine *_font) : 
 }
 
 void MenuExit::loadGraphics() {
-	background = IMG_Load((PATH_DATA + "images/menus/confirm_bg.png").c_str());
+	background = IMG_Load(mods->locate("images/menus/confirm_bg.png").c_str());
 	if(!background) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 		SDL_Quit();

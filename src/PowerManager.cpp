@@ -21,6 +21,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "PowerManager.h"
 #include "FileParser.h"
+#include "ModManager.h"
 
 /**
  * PowerManager constructor
@@ -338,7 +339,7 @@ int PowerManager::loadGFX(string filename) {
 	}
 
 	// we don't already have this sprite loaded, so load it
-	gfx[gfx_count] = IMG_Load((PATH_DATA + "images/powers/" + filename).c_str());
+	gfx[gfx_count] = IMG_Load(mods->locate("images/powers/" + filename).c_str());
 	if(!gfx[gfx_count]) {
 		fprintf(stderr, "Couldn't load power sprites: %s\n", IMG_GetError());
 		return -1;
@@ -374,7 +375,7 @@ int PowerManager::loadSFX(string filename) {
 	}
 
 	// we don't already have this sound loaded, so load it
-	sfx[sfx_count] = Mix_LoadWAV((PATH_DATA + "soundfx/powers/" + filename).c_str());
+	sfx[sfx_count] = Mix_LoadWAV(mods->locate("soundfx/powers/" + filename).c_str());
 	if(!sfx[sfx_count]) {
 		fprintf(stderr, "Couldn't load power soundfx: %s\n", filename.c_str());
 		return -1;
@@ -389,7 +390,7 @@ int PowerManager::loadSFX(string filename) {
 
 void PowerManager::loadGraphics() {
 
-	runes = IMG_Load((PATH_DATA + "images/powers/runes.png").c_str());
+	runes = IMG_Load(mods->locate("images/powers/runes.png").c_str());
 	
 	if(!runes) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
@@ -697,8 +698,6 @@ void PowerManager::buff(int power_index, StatBlock *src_stats, Point target) {
 		src_stats->hot_duration = powers[power_index].hot_duration;
 		src_stats->hot_value = powers[power_index].hot_value;
 	}
-	
-	
 }
 
 /**

@@ -34,18 +34,18 @@ GameStateLoad::GameStateLoad(SDL_Surface *_screen, InputState *_inp, FontEngine 
 	
 	// Confirmation box to confirm deleting
 	confirm = new MenuConfirm(screen, inp, font, msg->get("Delete Save"), msg->get("Delete this save?"));
-	button_exit = new WidgetButton(screen, font, inp, "images/menus/buttons/button_default.png");
+	button_exit = new WidgetButton(screen, font, inp, mods->locate("images/menus/buttons/button_default.png"));
 	button_exit->label = msg->get("Exit to Title");
 	button_exit->pos.x = VIEW_W_HALF - button_exit->pos.w/2;
 	button_exit->pos.y = VIEW_H - button_exit->pos.h;	
 	
-	button_action = new WidgetButton(screen, font, inp, "images/menus/buttons/button_default.png");
+	button_action = new WidgetButton(screen, font, inp, mods->locate("images/menus/buttons/button_default.png"));
 	button_action->label = msg->get("Choose a Slot");
 	button_action->enabled = false;
 	button_action->pos.x = (VIEW_W - 640)/2 + 480 - button_action->pos.w/2;
 	button_action->pos.y = (VIEW_H - 480)/2 + 384;
 	
-	button_alternate = new WidgetButton(screen, font, inp, "images/menus/buttons/button_default.png");
+	button_alternate = new WidgetButton(screen, font, inp, mods->locate("images/menus/buttons/button_default.png"));
 	button_alternate->label = msg->get("Delete Save");
 	button_alternate->enabled = false;
 	button_alternate->pos.x = (VIEW_W - 640)/2 + 480 - button_alternate->pos.w/2;
@@ -92,9 +92,9 @@ void GameStateLoad::loadGraphics() {
 	selection = NULL;
 	portrait_border = NULL;
 	
-	background = IMG_Load((PATH_DATA + "images/menus/game_slots.png").c_str());
-	selection = IMG_Load((PATH_DATA + "images/menus/game_slot_select.png").c_str());
-	portrait_border = IMG_Load((PATH_DATA + "images/menus/portrait_border.png").c_str());
+	background = IMG_Load(mods->locate("images/menus/game_slots.png").c_str());
+	selection = IMG_Load(mods->locate("images/menus/game_slot_select.png").c_str());
+	portrait_border = IMG_Load(mods->locate("images/menus/portrait_border.png").c_str());
 	if(!background || !selection || !portrait_border) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 		SDL_Quit();
@@ -124,7 +124,7 @@ void GameStateLoad::loadPortrait(int slot) {
 	
 	if (stats[slot].name == "") return;
 	
-	portrait = IMG_Load((PATH_DATA + "images/portraits/" + stats[slot].portrait + ".png").c_str());
+	portrait = IMG_Load(mods->locate("images/portraits/" + stats[slot].portrait + ".png").c_str());
 	if (!portrait) return;
 	
 	// optimize
@@ -219,7 +219,7 @@ void GameStateLoad::loadPreview(int slot) {
 	if (equipped[slot][2] != 0)	img_off = items->items[equipped[slot][2]].gfx;
 	
 	if (sprites[slot]) SDL_FreeSurface(sprites[slot]);	
-	sprites[slot] = IMG_Load((PATH_DATA + "images/avatar/preview_background.png").c_str());
+	sprites[slot] = IMG_Load(mods->locate("images/avatar/preview_background.png").c_str());
 	SDL_SetColorKey(sprites[slot], SDL_SRCCOLORKEY, SDL_MapRGB(screen->format, 255, 0, 255)); 
 
 	// optimize

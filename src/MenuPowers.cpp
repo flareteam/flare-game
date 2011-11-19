@@ -20,6 +20,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "MenuPowers.h"
+#include "ModManager.h"
 
 MenuPowers::MenuPowers(SDL_Surface *_screen, InputState *_inp, FontEngine *_font, StatBlock *_stats, PowerManager *_powers) {
 	screen = _screen;
@@ -42,7 +43,7 @@ MenuPowers::MenuPowers(SDL_Surface *_screen, InputState *_inp, FontEngine *_font
 		slots[i].y = offset_y + 80 + (i / 4) * 64;
 	}
 	
-	closeButton = new WidgetButton(screen, font, inp, "images/menus/buttons/button_x.png");
+	closeButton = new WidgetButton(screen, font, inp, mods->locate("images/menus/buttons/button_x.png"));
 	closeButton->pos.x = VIEW_W - 26;
 	closeButton->pos.y = (VIEW_H - 480)/2 + 34;
 
@@ -50,9 +51,9 @@ MenuPowers::MenuPowers(SDL_Surface *_screen, InputState *_inp, FontEngine *_font
 
 void MenuPowers::loadGraphics() {
 
-	background = IMG_Load((PATH_DATA + "images/menus/powers.png").c_str());
-	powers_step = IMG_Load((PATH_DATA + "images/menus/powers_step.png").c_str());
-	powers_unlock = IMG_Load((PATH_DATA + "images/menus/powers_unlock.png").c_str()); 
+	background = IMG_Load(mods->locate("images/menus/powers.png").c_str());
+	powers_step = IMG_Load(mods->locate("images/menus/powers_step.png").c_str());
+	powers_unlock = IMG_Load(mods->locate("images/menus/powers_unlock.png").c_str());
 	if(!background || !powers_step || !powers_unlock) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 		SDL_Quit();

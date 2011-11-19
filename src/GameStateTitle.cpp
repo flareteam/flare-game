@@ -17,6 +17,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "GameStateLoad.h"
 #include "GameStateTitle.h"
+#include "ModManager.h"
 
 GameStateTitle::GameStateTitle(SDL_Surface *_screen, InputState *_inp, FontEngine *_font) : GameState(_screen, _inp, _font) {
 
@@ -26,8 +27,8 @@ GameStateTitle::GameStateTitle(SDL_Surface *_screen, InputState *_inp, FontEngin
 	loadGraphics();
 	
 	// set up buttons
-	button_play = new WidgetButton(screen, font, inp, "images/menus/buttons/button_default.png");
-	button_exit = new WidgetButton(screen, font, inp, "images/menus/buttons/button_default.png");
+	button_play = new WidgetButton(screen, font, inp, mods->locate("images/menus/buttons/button_default.png"));
+	button_exit = new WidgetButton(screen, font, inp, mods->locate("images/menus/buttons/button_default.png"));
 	
 	button_play->label = msg->get("Play Game");
 	button_play->pos.x = VIEW_W_HALF - button_play->pos.w/2;
@@ -44,7 +45,7 @@ GameStateTitle::GameStateTitle(SDL_Surface *_screen, InputState *_inp, FontEngin
 
 void GameStateTitle::loadGraphics() {
 
-	logo = IMG_Load((PATH_DATA + "images/menus/logo.png").c_str());
+	logo = IMG_Load(mods->locate("images/menus/logo.png").c_str());
 
 	if(!logo) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());

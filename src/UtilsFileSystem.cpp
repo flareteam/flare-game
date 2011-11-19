@@ -64,8 +64,13 @@ void createDir(std::string path) {
  * The filename parameter should include the entire path to this file
  */
 bool fileExists(std::string filename) {
+	bool exists;
+
 	std::ifstream infile(filename.c_str());
-	return infile;
+	exists = infile.is_open();
+	if (infile.is_open()) infile.close();
+	
+	return exists;
 }
 
 /**
