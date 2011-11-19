@@ -16,6 +16,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 */
 
 #include "MenuConfirm.h"
+#include "ModManager.h"
 
 MenuConfirm::MenuConfirm(SDL_Surface *_screen, InputState *_inp, FontEngine *_font, string _buttonMsg, string _boxMsg) : Menu(_screen, inp = _inp, _font) {
 	confirmClicked = false;
@@ -28,13 +29,12 @@ MenuConfirm::MenuConfirm(SDL_Surface *_screen, InputState *_inp, FontEngine *_fo
 	window_area.x = (VIEW_W/2) - (window_area.w/2);
 	window_area.y = (VIEW_H - window_area.h)/2;
 	
-	buttonConfirm = new WidgetButton(screen, font, inp, "images/menus/buttons/button_default.png");
+	buttonConfirm = new WidgetButton(screen, font, inp, mods->locate("images/menus/buttons/button_default.png"));
 	buttonConfirm->label = _buttonMsg;
 	buttonConfirm->pos.x = VIEW_W_HALF - buttonConfirm->pos.w/2;
 	buttonConfirm->pos.y = VIEW_H/2;
 	
-	buttonClose = new WidgetButton(screen, font, inp,
-				       "images/menus/buttons/button_x.png");
+	buttonClose = new WidgetButton(screen, font, inp, mods->locate("images/menus/buttons/button_x.png"));
 	buttonClose->pos.x = window_area.x + window_area.w;
 	buttonClose->pos.y = window_area.y;
 
@@ -42,7 +42,7 @@ MenuConfirm::MenuConfirm(SDL_Surface *_screen, InputState *_inp, FontEngine *_fo
 }
 
 void MenuConfirm::loadGraphics() {
-	background = IMG_Load((PATH_DATA + "images/menus/confirm_bg.png").c_str());
+	background = IMG_Load(mods->locate("images/menus/confirm_bg.png").c_str());
 	if(!background) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 		SDL_Quit();

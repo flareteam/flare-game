@@ -16,6 +16,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 */
 
 #include "WidgetInput.h"
+#include "ModManager.h"
 
 WidgetInput::WidgetInput(SDL_Surface* _screen, FontEngine *_font, InputState *_inp)
 	: screen(_screen), font(_font), inp(_inp) {
@@ -25,7 +26,7 @@ WidgetInput::WidgetInput(SDL_Surface* _screen, FontEngine *_font, InputState *_i
 	pressed = false;
 	max_characters = 20;
 	
-	loadGraphics("images/menus/input.png");
+	loadGraphics(mods->locate("images/menus/input.png"));
 
 	// position
 	pos.w = background->w;
@@ -35,10 +36,10 @@ WidgetInput::WidgetInput(SDL_Surface* _screen, FontEngine *_font, InputState *_i
 	
 }
 
-void WidgetInput::loadGraphics(string filename) {
+void WidgetInput::loadGraphics(const string& filename) {
 
 	// load input background image
-	background = IMG_Load((PATH_DATA + filename).c_str());
+	background = IMG_Load(filename.c_str());
 
 	if(!background) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());

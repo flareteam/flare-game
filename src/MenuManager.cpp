@@ -20,6 +20,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "MenuManager.h"
+#include "ModManager.h"
 
 MenuManager::MenuManager(PowerManager *_powers, SDL_Surface *_screen, InputState *_inp, FontEngine *_font, StatBlock *_stats, CampaignManager *_camp) {
 	powers = _powers;
@@ -68,7 +69,7 @@ MenuManager::MenuManager(PowerManager *_powers, SDL_Surface *_screen, InputState
  */
 void MenuManager::loadIcons() {
 
-	icons = IMG_Load((PATH_DATA + "images/icons/icons32.png").c_str());
+	icons = IMG_Load(mods->locate("images/icons/icons32.png").c_str());
 	if(!icons) {
 		fprintf(stderr, "Couldn't load icons: %s\n", IMG_GetError());
 		SDL_Quit();
@@ -81,8 +82,8 @@ void MenuManager::loadIcons() {
 }
 
 void MenuManager::loadSounds() {
-	sfx_open = Mix_LoadWAV((PATH_DATA + "soundfx/inventory/inventory_page.ogg").c_str());
-	sfx_close = Mix_LoadWAV((PATH_DATA + "soundfx/inventory/inventory_book.ogg").c_str());
+	sfx_open = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_page.ogg").c_str());
+	sfx_close = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_book.ogg").c_str());
 
 	if (!sfx_open || !sfx_close) {
 		fprintf(stderr, "Mix_LoadWAV: %s\n", Mix_GetError());

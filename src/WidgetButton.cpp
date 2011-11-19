@@ -21,7 +21,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "WidgetButton.h"
 
-WidgetButton::WidgetButton(SDL_Surface *_screen, FontEngine *_font, InputState *_inp, const char* _fileName)
+WidgetButton::WidgetButton(SDL_Surface *_screen, FontEngine *_font, InputState *_inp, const std::string& _fileName)
 	: screen(_screen), font(_font), inp(_inp), fileName(_fileName) {
 
 	buttons = NULL;
@@ -41,7 +41,7 @@ WidgetButton::WidgetButton(SDL_Surface *_screen, FontEngine *_font, InputState *
 void WidgetButton::loadArt() {
 
 	// load button images
-	buttons = IMG_Load((PATH_DATA + fileName).c_str());
+	buttons = IMG_Load(fileName.c_str());
 
 	if(!buttons) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());

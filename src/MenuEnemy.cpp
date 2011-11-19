@@ -22,6 +22,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "MenuEnemy.h"
+#include "ModManager.h"
 
 MenuEnemy::MenuEnemy(SDL_Surface *_screen, FontEngine *_font) {
 	screen = _screen;
@@ -33,8 +34,8 @@ MenuEnemy::MenuEnemy(SDL_Surface *_screen, FontEngine *_font) {
 
 void MenuEnemy::loadGraphics() {
 
-	background = IMG_Load((PATH_DATA + "images/menus/bar_enemy.png").c_str());
-	bar_hp = IMG_Load((PATH_DATA + "images/menus/bar_hp.png").c_str());
+	background = IMG_Load(mods->locate("images/menus/bar_enemy.png").c_str());
+	bar_hp = IMG_Load(mods->locate("images/menus/bar_hp.png").c_str());
 	
 	if(!background || !bar_hp) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());

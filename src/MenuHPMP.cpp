@@ -22,6 +22,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "MenuHPMP.h"
+#include "ModManager.h"
 
 MenuHPMP::MenuHPMP(SDL_Surface *_screen, FontEngine *_font) {
 	screen = _screen;
@@ -32,9 +33,9 @@ MenuHPMP::MenuHPMP(SDL_Surface *_screen, FontEngine *_font) {
 
 void MenuHPMP::loadGraphics() {
 
-	background = IMG_Load((PATH_DATA + "images/menus/bar_hp_mp.png").c_str());
-	bar_hp = IMG_Load((PATH_DATA + "images/menus/bar_hp.png").c_str());
-	bar_mp = IMG_Load((PATH_DATA + "images/menus/bar_mp.png").c_str());
+	background = IMG_Load(mods->locate("images/menus/bar_hp_mp.png").c_str());
+	bar_hp = IMG_Load(mods->locate("images/menus/bar_hp.png").c_str());
+	bar_mp = IMG_Load(mods->locate("images/menus/bar_mp.png").c_str());
 	
 	if(!background || !bar_hp || !bar_mp) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());

@@ -22,6 +22,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
  
 #include "LootManager.h"
+#include "ModManager.h"
  
 LootManager::LootManager(ItemDatabase *_items, MenuTooltip *_tip, EnemyManager *_enemies, MapIso *_map) {
 	items = _items;
@@ -61,7 +62,7 @@ LootManager::LootManager(ItemDatabase *_items, MenuTooltip *_tip, EnemyManager *
 	
 	loadGraphics();
 	calcTables();
-	loot_flip = Mix_LoadWAV((PATH_DATA + "soundfx/flying_loot.ogg").c_str());
+	loot_flip = Mix_LoadWAV(mods->locate("soundfx/flying_loot.ogg").c_str());
 	full_msg = false;
 	
 	anim_loot_frames = 6;
@@ -92,7 +93,7 @@ void LootManager::loadGraphics() {
 			}
 			
 			if (new_anim) {
-				flying_loot[animation_count] = IMG_Load((PATH_DATA + "images/loot/" + anim_id + ".png").c_str());
+				flying_loot[animation_count] = IMG_Load(mods->locate("images/loot/" + anim_id + ".png").c_str());
 				
 				if (flying_loot[animation_count]) {
 					animation_id[animation_count] = anim_id;
@@ -103,9 +104,9 @@ void LootManager::loadGraphics() {
 	}
 	
 	// gold
-	flying_gold[0] = IMG_Load((PATH_DATA + "images/loot/coins5.png").c_str());
-	flying_gold[1] = IMG_Load((PATH_DATA + "images/loot/coins25.png").c_str());
-	flying_gold[2] = IMG_Load((PATH_DATA + "images/loot/coins100.png").c_str());
+	flying_gold[0] = IMG_Load(mods->locate("images/loot/coins5.png").c_str());
+	flying_gold[1] = IMG_Load(mods->locate("images/loot/coins25.png").c_str());
+	flying_gold[2] = IMG_Load(mods->locate("images/loot/coins100.png").c_str());
 	
 	// set magic pink transparency
 	for (int i=0; i<animation_count; i++) {

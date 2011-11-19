@@ -22,6 +22,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "MenuExperience.h"
+#include "ModManager.h"
 
 MenuExperience::MenuExperience(SDL_Surface *_screen, FontEngine *_font) {
 	screen = _screen;
@@ -50,8 +51,8 @@ MenuExperience::MenuExperience(SDL_Surface *_screen, FontEngine *_font) {
 
 void MenuExperience::loadGraphics() {
 
-	background = IMG_Load((PATH_DATA + "images/menus/menu_xp.png").c_str());
-	bar = IMG_Load((PATH_DATA + "images/menus/bar_xp.png").c_str());
+	background = IMG_Load(mods->locate("images/menus/menu_xp.png").c_str());
+	bar = IMG_Load(mods->locate("images/menus/bar_xp.png").c_str());
 	
 	if(!background || !bar) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());

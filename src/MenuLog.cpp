@@ -20,6 +20,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "MenuLog.h"
+#include "ModManager.h"
 
 MenuLog::MenuLog(SDL_Surface *_screen, InputState *_inp, FontEngine *_font) {
 	screen = _screen;
@@ -70,7 +71,7 @@ MenuLog::MenuLog(SDL_Surface *_screen, InputState *_inp, FontEngine *_font) {
 	
 	loadGraphics();
 
-	closeButton = new WidgetButton(screen, font, inp, "images/menus/buttons/button_x.png");
+	closeButton = new WidgetButton(screen, font, inp, mods->locate("images/menus/buttons/button_x.png"));
 	closeButton->pos.x = 294;
 	closeButton->pos.y = (VIEW_H - 480)/2 + 34;
 	
@@ -78,9 +79,9 @@ MenuLog::MenuLog(SDL_Surface *_screen, InputState *_inp, FontEngine *_font) {
 
 void MenuLog::loadGraphics() {
 
-	background = IMG_Load((PATH_DATA + "images/menus/log.png").c_str());
-	tab_active = IMG_Load((PATH_DATA + "images/menus/tab_active.png").c_str());
-	tab_inactive = IMG_Load((PATH_DATA + "images/menus/tab_inactive.png").c_str());
+	background = IMG_Load(mods->locate("images/menus/log.png").c_str());
+	tab_active = IMG_Load(mods->locate("images/menus/tab_active.png").c_str());
+	tab_inactive = IMG_Load(mods->locate("images/menus/tab_inactive.png").c_str());
 	
 	
 	if(!background || !tab_active || !tab_inactive) {

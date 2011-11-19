@@ -20,8 +20,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "NPC.h"
-#include <fstream>
 #include "FileParser.h"
+#include "ModManager.h"
+
 
 NPC::NPC(MapIso *_map, ItemDatabase *_items) : Entity(_map) {
 	items = _items;
@@ -180,7 +181,7 @@ void NPC::load(string npc_id) {
 void NPC::loadGraphics(string filename_sprites, string filename_portrait) {
 
 	if (filename_sprites != "") {
-		sprites = IMG_Load((PATH_DATA + "images/npcs/" + filename_sprites + ".png").c_str());
+		sprites = IMG_Load(mods->locate("images/npcs/" + filename_sprites + ".png").c_str());
 		if(!sprites) {
 			fprintf(stderr, "Couldn't load NPC sprites: %s\n", IMG_GetError());
 		}
@@ -193,7 +194,7 @@ void NPC::loadGraphics(string filename_sprites, string filename_portrait) {
 		SDL_FreeSurface(cleanup);
 	}
 	if (filename_portrait != "") {
-		portrait = IMG_Load((PATH_DATA + "images/portraits/" + filename_portrait + ".png").c_str());
+		portrait = IMG_Load(mods->locate("images/portraits/" + filename_portrait + ".png").c_str());
 		if(!portrait) {
 			fprintf(stderr, "Couldn't load NPC portrait: %s\n", IMG_GetError());
 		}
