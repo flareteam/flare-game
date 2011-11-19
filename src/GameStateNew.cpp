@@ -96,7 +96,7 @@ void GameStateNew::loadPortrait(string portrait_filename) {
  */
 void GameStateNew::loadOptions(string filename) {
 	FileParser fin;
-	if (!fin.open(PATH_DATA + "engine/" + filename)) return;
+	if (!fin.open(mods->locate("engine/" + filename))) return;
 	
 	while (fin.next()) {
 	

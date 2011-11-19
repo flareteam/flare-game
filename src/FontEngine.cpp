@@ -22,6 +22,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "FontEngine.h"
 #include "FileParser.h"
+#include "ModManager.h"
 #include <iostream>
 
 FontEngine::FontEngine() {
@@ -36,7 +37,7 @@ FontEngine::FontEngine() {
 	// load the font
 	string font_path;
 	FileParser infile;
-	if (infile.open(PATH_DATA + "engine/font_settings.txt")) {
+	if (infile.open(mods->locate("engine/font_settings.txt"))) {
 		while (infile.next()) {
 			if (infile.key == "font_regular"){
 				font_path = infile.val;
@@ -46,7 +47,7 @@ FontEngine::FontEngine() {
 			}
 		}
 	}
-	font_path = PATH_DATA + "fonts/" + font_path;
+	font_path = mods->locate("fonts/" + font_path);
 	font = TTF_OpenFont(font_path.c_str(), font_pt);
 	if(!font) printf("TTF_OpenFont: %s\n", TTF_GetError());
 
