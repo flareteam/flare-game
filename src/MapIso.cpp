@@ -23,6 +23,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  
 #include "MapIso.h"
 #include "FileParser.h"
+#include "ModManager.h"
 
 MapIso::MapIso(SDL_Surface *_screen, CampaignManager *_camp, InputState *_inp, FontEngine *_font) {
 
@@ -121,7 +122,7 @@ void MapIso::playSFX(string filename) {
 	// only load from file if the requested soundfx isn't already loaded
 	if (filename != sfx_filename) {
 		if (sfx) Mix_FreeChunk(sfx);
-		sfx = Mix_LoadWAV((PATH_DATA + filename).c_str());
+		sfx = Mix_LoadWAV((mods->locate(filename)).c_str());
 		sfx_filename = filename;
 	}
 	if (sfx) Mix_PlayChannel(-1, sfx, 0);	
@@ -190,7 +191,7 @@ int MapIso::load(string filename) {
 	event_count = 0;
 	bool collider_set = false;
   
-	if (infile.open(PATH_DATA + "maps/" + filename)) {
+	if (infile.open(mods->locate("maps/" + filename))) {
 		while (infile.next()) {
 			if (infile.new_section) {
 				data_format = "dec"; // default
@@ -475,7 +476,7 @@ void MapIso::loadMusic() {
 		Mix_FreeMusic(music);
 		music = NULL;
 	}
-	music = Mix_LoadMUS((PATH_DATA + "music/" + this->music_filename).c_str());
+	music = Mix_LoadMUS((mods->locate("music/" + this->music_filename)).c_str());
 	if (!music) {
 	  printf("Mix_LoadMUS: %s\n", Mix_GetError());
 	  SDL_Quit();

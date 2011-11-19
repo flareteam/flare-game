@@ -141,7 +141,7 @@ void GameStateLoad::readGameSlots() {
 
 string GameStateLoad::getMapName(string map_filename) {
 	FileParser infile;
-	if (!infile.open(PATH_DATA + "maps/" + map_filename)) return "";
+	if (!infile.open(mods->locate("maps/" + map_filename))) return "";
 	string map_name = "";
 	
 	while (map_name == "" && infile.next()) {

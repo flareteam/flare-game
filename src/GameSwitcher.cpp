@@ -31,6 +31,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "GameSwitcher.h"
 #include "GameStateTitle.h"
 #include "GameStateLoad.h"
+#include "ModManager.h"
 
 GameSwitcher::GameSwitcher(SDL_Surface *_screen, InputState *_inp) {
 	inp = _inp;
@@ -49,7 +50,7 @@ GameSwitcher::GameSwitcher(SDL_Surface *_screen, InputState *_inp) {
 
 void GameSwitcher::loadMusic() {
 
-	music = Mix_LoadMUS((PATH_DATA + "music/title_theme.ogg").c_str());
+	music = Mix_LoadMUS((mods->locate("music/title_theme.ogg")).c_str());
 	if (!music) {
 	  printf("Mix_LoadMUS: %s\n", Mix_GetError());
 	  SDL_Quit();
