@@ -25,24 +25,28 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "MessageEngine.h"
+#include "ModManager.h"
 #include <sstream>
-#include <iostream>
 
 MessageEngine *msg;
 
 MessageEngine::MessageEngine() {
 	GetText infile;
-	if (infile.open(PATH_DATA + "languages/engine." + LANGUAGE + ".po")) {
-		while (infile.next()) {
-			messages.insert(pair<string,string>(infile.key, infile.val));
+	for (unsigned int i = 0; i < mods->mod_list.size(); i++) {
+		string path = PATH_DATA + "mods/" + mods->mod_list[i] + "/languages/";
+		if (infile.open(path + "engine." + LANGUAGE + ".po")) {
+			while (infile.next()) {
+				messages.insert(pair<string,string>(infile.key, infile.val));
+			}
+		    infile.close();
 		}
-        infile.close();
-	}
-	if (infile.open(PATH_DATA + "languages/data." + LANGUAGE + ".po")) {
-		while (infile.next()) {
-			messages.insert(pair<string,string>(infile.key, infile.val));
+		if (infile.open(path + "data." + LANGUAGE + ".po")) {
+			while (infile.next()) {
+				messages.insert(pair<string,string>(infile.key, infile.val));
+			}
+		    infile.close();
 		}
-        infile.close();
+
 	}
 }
 /*
@@ -50,45 +54,45 @@ MessageEngine::MessageEngine() {
  * They differ only on which variables they replace in the string - strings replace %s, integers replace %d
  */
 string MessageEngine::get(string key) {
-	string msg = messages[key];
-	if (msg == "") msg = key;
-	return msg;
+	string message = messages[key];
+	if (message == "") message = key;
+	return message;
 }
 
 string MessageEngine::get(string key, int i) {
-	string msg = messages[key];
-	if (msg == "") msg = key;
-	size_t index = msg.find("%d");
-	if (index != string::npos) msg = msg.replace(index, 2, str(i));
-	return msg;
+	string message = messages[key];
+	if (message == "") message = key;
+	size_t index = message.find("%d");
+	if (index != string::npos) message = message.replace(index, 2, str(i));
+	return message;
 }
 
 string MessageEngine::get(string key, string s) {
-	string msg = messages[key];
-	if (msg == "") msg = key;
-	size_t index = msg.find("%s");
-	if (index != string::npos) msg = msg.replace(index, 2, s);
-	return msg;
+	string message = messages[key];
+	if (message == "") message = key;
+	size_t index = message.find("%s");
+	if (index != string::npos) message = message.replace(index, 2, s);
+	return message;
 }
 
 string MessageEngine::get(string key, int i, string s) {
-	string msg = messages[key];
-	if (msg == "") msg = key;
-	size_t index = msg.find("%d");
-	if (index != string::npos) msg = msg.replace(index, 2, str(i));
-	index = msg.find("%s");
-	if (index != string::npos) msg = msg.replace(index, 2, s);
-	return msg;
+	string message = messages[key];
+	if (message == "") message = key;
+	size_t index = message.find("%d");
+	if (index != string::npos) message = message.replace(index, 2, str(i));
+	index = message.find("%s");
+	if (index != string::npos) message = message.replace(index, 2, s);
+	return message;
 }
 
 string MessageEngine::get(string key, int i, int j) {
-	string msg = messages[key];
-	if (msg == "") msg = key;
-	size_t index = msg.find("%d");
-	if (index != string::npos) msg = msg.replace(index, 2, str(i));
-	index = msg.find("%d");
-	if (index != string::npos) msg = msg.replace(index, 2, str(j));
-	return msg;
+	string message = messages[key];
+	if (message == "") message = key;
+	size_t index = message.find("%d");
+	if (index != string::npos) message = message.replace(index, 2, str(i));
+	index = message.find("%d");
+	if (index != string::npos) message = message.replace(index, 2, str(j));
+	return message;
 }
 
 // Changes an int into a string
