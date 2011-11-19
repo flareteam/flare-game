@@ -17,6 +17,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 */
 
 #include "EnemyGroupManager.h"
+#include "ModManager.h"
 
 using namespace std;
 
@@ -24,37 +25,38 @@ using namespace std;
 EnemyGroupManager* EnemyGroupManager::_instance = 0;
 
 
-EnemyGroupManager::EnemyGroupManager()
-{
+EnemyGroupManager::EnemyGroupManager() {
 	generate();
 }
 
-EnemyGroupManager::~EnemyGroupManager()
-{
+EnemyGroupManager::~EnemyGroupManager() {
 }
 
-EnemyGroupManager& EnemyGroupManager::instance()
-{
+EnemyGroupManager& EnemyGroupManager::instance() {
 	if (_instance == 0) {
 		_instance = new EnemyGroupManager;
 	}
 	return *(_instance);
 }
 
-void EnemyGroupManager::generate()
-{
-	string dir = PATH_DATA + string("enemies");
-	vector<string> files;
-	getFileList(dir, ".txt", files);
-	for (size_t i = 0; i < files.size(); ++i) {
-		parseEnemyFileAndStore(dir, files[i]);
+void EnemyGroupManager::generate() {
+
+	// load each enemies folder. Individual enemies can be overwritten with mods.
+	for (unsigned int i = 0; i < mods->mod_list.size(); i++) {
+
+		string dir = PATH_DATA + "mods/" + mods->mod_list[i] + "/enemies";
+
+		vector<string> files;
+		getFileList(dir, ".txt", files);
+		for (size_t j = 0; j < files.size(); ++j) {
+			parseEnemyFileAndStore(dir, files[j]);
+		}
 	}
 }
 
-void EnemyGroupManager::parseEnemyFileAndStore(const string& dir, const string& filename)
-{
+void EnemyGroupManager::parseEnemyFileAndStore(const string& dir, const string& filename) {
 	FileParser infile;
-	if (infile.open(dir + "/" + filename)) {
+	if (infile.open(mods->locate(dir + "/" + filename))) {
 		Enemy_Level new_enemy;
 		new_enemy.type = filename.substr(0, filename.length()-4); //removes the ".txt" from the filename
 		while (infile.next()) {
@@ -76,8 +78,7 @@ void EnemyGroupManager::parseEnemyFileAndStore(const string& dir, const string& 
 	infile.close();
 }
 
-Enemy_Level EnemyGroupManager::getRandomEnemy(const std::string& category, int minlevel, int maxlevel) const
-{
+Enemy_Level EnemyGroupManager::getRandomEnemy(const std::string& category, int minlevel, int maxlevel) const {
 	vector<Enemy_Level> enemyCategory;
 	map<string, vector<Enemy_Level> >::const_iterator it = _categories.find(category);
 	if (it != _categories.end()) {
