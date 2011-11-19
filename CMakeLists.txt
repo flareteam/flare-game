@@ -129,8 +129,13 @@ EndIf (NOT SDLMAIN_LIBRARY)
 Target_Link_Libraries (flare ${SDL_LIBRARY} ${SDLMIXER_LIBRARY} ${SDLIMAGE_LIBRARY} ${SDLTTF_LIBRARY} ${SDLMAIN_LIBRARY})
 
 
+set(FLARE_EXECUTABLE_PATH ${CMAKE_INSTALL_PREFIX}/games/flare)
+configure_file("${CMAKE_CURRENT_SOURCE_DIR}/distribution/flare.desktop.in" "${CMAKE_CURRENT_BINARY_DIR}/flare.desktop")
+
+
 # installing to the proper places
-install(PROGRAMS ${CMAKE_CURRENT_BINARY_DIR}/flare
+install(PROGRAMS
+  ${CMAKE_CURRENT_BINARY_DIR}/flare
   DESTINATION ${CMAKE_INSTALL_PREFIX}/games)
 install(DIRECTORY
   "${CMAKE_CURRENT_SOURCE_DIR}/animations"
@@ -147,7 +152,7 @@ install(DIRECTORY
   "${CMAKE_CURRENT_SOURCE_DIR}/tilesetdefs"
   DESTINATION ${CMAKE_INSTALL_PREFIX}/share/games/flare)
 install(FILES
-  "${CMAKE_CURRENT_SOURCE_DIR}/distribution/flare.desktop"
+  "${CMAKE_CURRENT_BINARY_DIR}/flare.desktop"
   DESTINATION ${CMAKE_INSTALL_PREFIX}/share/applications)
 install(FILES
   "${CMAKE_CURRENT_SOURCE_DIR}/art/logo/flare_logo.svg"
