@@ -25,16 +25,17 @@ msgstr ""
 
 # this extracts translatable strings from the flare data file
 def extract(filename):
-    infile = open(filename, 'r')
-    triggers = ['msg', 'him', 'you', 'name', 'title', 'tooltip',
-            'power_desc', 'quest_text', 'description']
-    for line in infile.readlines():
-        for trigger in triggers:
-            if line.startswith(trigger + '='):
-                keys.append(line[line.find('=') + 1:].strip('\n').replace("\"", "\\\""))
-        # handle the special case: bonus={stat},{value}
-        if line.startswith('bonus='):
-            keys.append(line[line.find('=') + 1: line.find(',')])
+    if os.path.exists(filename):
+        infile = open(filename, 'r')
+        triggers = ['msg', 'him', 'you', 'name', 'title', 'tooltip',
+                'power_desc', 'quest_text', 'description']
+        for line in infile.readlines():
+            for trigger in triggers:
+                if line.startswith(trigger + '='):
+                    keys.append(line[line.find('=') + 1:].strip('\n').replace("\"", "\\\""))
+            # handle the special case: bonus={stat},{value}
+            if line.startswith('bonus='):
+                keys.append(line[line.find('=') + 1: line.find(',')])
 
 # this removes duplicates from keys in a clean way (without screwing up the order)
 def remove_duplicates():
