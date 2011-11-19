@@ -219,7 +219,7 @@ void NPC::loadSound(string filename, int type) {
 	
 		// if too many already loaded, skip this one
 		if (vox_intro_count == NPC_MAX_VOX) return;
-		vox_intro[vox_intro_count] = Mix_LoadWAV((PATH_DATA + "soundfx/npcs/" + filename).c_str());
+		vox_intro[vox_intro_count] = Mix_LoadWAV(mods->locate("soundfx/npcs/" + filename).c_str());
 		
 		if (vox_intro[vox_intro_count])
 			vox_intro_count++;
