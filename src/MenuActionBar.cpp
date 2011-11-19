@@ -22,6 +22,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
  
 #include "MenuActionBar.h"
+#include "ModManager.h"
 
 MenuActionBar::MenuActionBar(SDL_Surface *_screen, FontEngine *_font, InputState *_inp, PowerManager *_powers, StatBlock *_hero, SDL_Surface *_icons) {
 	screen = _screen;
@@ -94,11 +95,11 @@ void MenuActionBar::clear() {
 
 void MenuActionBar::loadGraphics() {
 
-	emptyslot = IMG_Load((PATH_DATA + "images/menus/slot_empty.png").c_str());
-	background = IMG_Load((PATH_DATA + "images/menus/actionbar_trim.png").c_str());
-	labels = IMG_Load((PATH_DATA + "images/menus/actionbar_labels.png").c_str());
-	disabled = IMG_Load((PATH_DATA + "images/menus/disabled.png").c_str());
-	attention = IMG_Load((PATH_DATA + "images/menus/attention_glow.png").c_str());
+	emptyslot = IMG_Load(mods->locate("images/menus/slot_empty.png").c_str());
+	background = IMG_Load(mods->locate("images/menus/actionbar_trim.png").c_str());
+	labels = IMG_Load(mods->locate("images/menus/actionbar_labels.png").c_str());
+	disabled = IMG_Load(mods->locate("images/menus/disabled.png").c_str());
+	attention = IMG_Load(mods->locate("images/menus/attention_glow.png").c_str());
 	if(!emptyslot || !background || !labels || !disabled) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 		SDL_Quit();

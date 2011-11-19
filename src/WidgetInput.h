@@ -39,7 +39,7 @@ protected:
 	FontEngine *font;
 	InputState *inp;
 
-	void loadGraphics(string filename);
+	void loadGraphics(const std::string& filename);
 
 	SDL_Surface *background;
 
@@ -63,8 +63,6 @@ public:
 	void setPosition(int x, int y);
 
 	SDL_Rect pos;
-
-
 };
 
 #endif

@@ -20,6 +20,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "MenuVendor.h"
+#include "ModManager.h"
 
 MenuVendor::MenuVendor(SDL_Surface *_screen, InputState *_inp, FontEngine *_font, ItemDatabase *_items, StatBlock *_stats) {
 	screen = _screen;
@@ -40,7 +41,7 @@ MenuVendor::MenuVendor(SDL_Surface *_screen, InputState *_inp, FontEngine *_font
 	visible = false;
 	loadGraphics();
 
-	closeButton = new WidgetButton(screen, font, inp, "images/menus/buttons/button_x.png");
+	closeButton = new WidgetButton(screen, font, inp, mods->locate("images/menus/buttons/button_x.png"));
 	closeButton->pos.x = 294;
 	closeButton->pos.y = (VIEW_H - 480)/2 + 34;
 
@@ -48,7 +49,7 @@ MenuVendor::MenuVendor(SDL_Surface *_screen, InputState *_inp, FontEngine *_font
 }
 
 void MenuVendor::loadGraphics() {
-	background = IMG_Load((PATH_DATA + "images/menus/vendor.png").c_str());
+	background = IMG_Load(mods->locate("images/menus/vendor.png").c_str());
 	if(!background) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 		SDL_Quit();

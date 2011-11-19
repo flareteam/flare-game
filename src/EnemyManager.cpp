@@ -20,6 +20,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "EnemyManager.h"
+#include "ModManager.h"
 
 EnemyManager::EnemyManager(PowerManager *_powers, MapIso *_map) {
 	powers = _powers;
@@ -49,7 +50,7 @@ void EnemyManager::loadGraphics(string type_id) {
 		}
 	}
 
-	sprites[gfx_count] = IMG_Load((PATH_DATA + "images/enemies/" + type_id + ".png").c_str());
+	sprites[gfx_count] = IMG_Load(mods->locate("images/enemies/" + type_id + ".png").c_str());
 	if(!sprites[gfx_count]) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 		SDL_Quit();
@@ -70,19 +71,19 @@ void EnemyManager::loadSounds(string type_id) {
 
 	// TODO: throw an error if a map tries to use too many monsters
 	if (sfx_count == max_sfx) return;
-	
+
 	// first check to make sure the sprite isn't already loaded
 	for (int i=0; i<sfx_count; i++) {
 		if (sfx_prefixes[i] == type_id) {
 			return; // already have this one
 		}
 	}
-	
-	sound_phys[sfx_count] = Mix_LoadWAV((PATH_DATA + "soundfx/enemies/" + type_id + "_phys.ogg").c_str());
-	sound_ment[sfx_count] = Mix_LoadWAV((PATH_DATA + "soundfx/enemies/" + type_id + "_ment.ogg").c_str());
-	sound_hit[sfx_count] = Mix_LoadWAV((PATH_DATA + "soundfx/enemies/" + type_id + "_hit.ogg").c_str());
-	sound_die[sfx_count] = Mix_LoadWAV((PATH_DATA + "soundfx/enemies/" + type_id + "_die.ogg").c_str());
-	sound_critdie[sfx_count] = Mix_LoadWAV((PATH_DATA + "soundfx/enemies/" + type_id + "_critdie.ogg").c_str());
+
+	sound_phys[sfx_count] = Mix_LoadWAV(mods->locate("soundfx/enemies/" + type_id + "_phys.ogg").c_str());
+	sound_ment[sfx_count] = Mix_LoadWAV(mods->locate("soundfx/enemies/" + type_id + "_ment.ogg").c_str());
+	sound_hit[sfx_count] = Mix_LoadWAV(mods->locate("soundfx/enemies/" + type_id + "_hit.ogg").c_str());
+	sound_die[sfx_count] = Mix_LoadWAV(mods->locate("soundfx/enemies/" + type_id + "_die.ogg").c_str());
+	sound_critdie[sfx_count] = Mix_LoadWAV(mods->locate("soundfx/enemies/" + type_id + "_critdie.ogg").c_str());
 	
 	sfx_prefixes[sfx_count] = type_id;
 	sfx_count++;
@@ -243,4 +244,3 @@ EnemyManager::~EnemyManager() {
 	}
 
 }
-
