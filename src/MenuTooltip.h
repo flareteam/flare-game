@@ -22,12 +22,13 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef MENU_TOOLTIP_H
 #define MENU_TOOLTIP_H
 
-#include "SDL.h"
-#include "SDL_image.h"
-#include "SDL_mixer.h"
 #include "FontEngine.h"
 #include "Utils.h"
 #include "Settings.h"
+
+#include <SDL.h>
+#include <SDL_image.h>
+
 
 const int STYLE_FLOAT = 0;
 const int STYLE_TOPLABEL = 1;

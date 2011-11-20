@@ -20,7 +20,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "MenuHUDLog.h"
-#include "WidgetLabel.h"
 
 using namespace std;
 
@@ -71,7 +70,6 @@ void MenuHUDLog::render() {
 			cursor_y -= size.y + paragraph_spacing;
 	
 			font->renderShadowed(log_msg[i], 32, cursor_y, JUSTIFY_LEFT, screen, list_area.x, FONT_WHITE);
-			
 		}
 		else return; // no more new messages
 	}

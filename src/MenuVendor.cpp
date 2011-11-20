@@ -21,6 +21,10 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "MenuVendor.h"
 #include "ModManager.h"
+#include "WidgetLabel.h"
+
+using namespace std;
+
 
 MenuVendor::MenuVendor(SDL_Surface *_screen, InputState *_inp, FontEngine *_font, ItemDatabase *_items, StatBlock *_stats) {
 	screen = _screen;
@@ -61,7 +65,7 @@ void MenuVendor::loadGraphics() {
 	SDL_FreeSurface(cleanup);
 }
 
-void MenuVendor::loadMerchant(string filename) {
+void MenuVendor::loadMerchant(const std::string& filename) {
 }
 
 void MenuVendor::logic() {
@@ -92,8 +96,11 @@ void MenuVendor::render() {
 	closeButton->render();
 
 	// text overlay
-	font->render(msg->get("Vendor"), 160, offset_y+8, JUSTIFY_CENTER, screen, FONT_WHITE);
-	font->render(npc->name, 160, offset_y+24, JUSTIFY_CENTER, screen, FONT_WHITE);
+	WidgetLabel label(screen, font);
+	label.set(160, offset_y+8, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Vendor"), FONT_WHITE);
+	label.render();
+	label.set(160, offset_y+24, JUSTIFY_CENTER, VALIGN_TOP, npc->name, FONT_WHITE);
+	label.render();
 
 	// show stock
 	stock.render();

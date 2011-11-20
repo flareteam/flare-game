@@ -22,9 +22,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef MENU_VENDOR_H
 #define MENU_VENDOR_H
 
-#include "SDL.h"
-#include "SDL_image.h"
-#include "SDL_mixer.h"
 #include "InputState.h"
 #include "Utils.h"
 #include "FontEngine.h"
@@ -34,8 +31,12 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "WidgetButton.h"
 #include "NPC.h"
 #include "MessageEngine.h"
+
+#include <SDL.h>
+#include <SDL_image.h>
+
 #include <string>
-#include <sstream>
+
 
 const int VENDOR_SLOTS = 80;
 
@@ -58,7 +59,7 @@ public:
 
 	NPC *npc;
 
-	void loadMerchant(string filename);
+	void loadMerchant(const std::string& filename);
 	void logic();
 	void render();
 	ItemStack click(InputState * input);

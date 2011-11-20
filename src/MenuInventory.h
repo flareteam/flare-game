@@ -22,9 +22,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef MENU_INVENTORY_H
 #define MENU_INVENTORY_H
 
-#include "SDL.h"
-#include "SDL_image.h"
-#include "SDL_mixer.h"
 #include "InputState.h"
 #include "Utils.h"
 #include "FontEngine.h"
@@ -35,10 +32,11 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "MenuItemStorage.h"
 #include "WidgetButton.h"
 #include "MessageEngine.h"
-#include <string>
-#include <sstream>
 
-using namespace std;
+#include <SDL.h>
+#include <SDL_image.h>
+
+#include <string>
 
 const int EQUIPMENT = 0;
 const int CARRIED = 1;
@@ -108,7 +106,7 @@ public:
 	bool changed_equipment;
 	bool changed_artifact;
 	
-	string log_msg;
+	std::string log_msg;
 
 };
 

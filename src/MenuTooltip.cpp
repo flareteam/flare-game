@@ -104,5 +104,4 @@ void MenuTooltip::render(TooltipData tip, Point pos, int style) {
 		font->render(tip.lines[i], cursor_x, cursor_y, JUSTIFY_LEFT, screen, size.x, tip.colors[i]);
 		cursor_y = font->cursor_y;
 	}
-			
 }
