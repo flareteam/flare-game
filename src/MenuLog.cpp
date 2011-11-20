@@ -21,6 +21,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "MenuLog.h"
 #include "ModManager.h"
+#include "WidgetLabel.h"
 
 MenuLog::MenuLog(SDL_Surface *_screen, InputState *_inp, FontEngine *_font) {
 	screen = _screen;
@@ -134,9 +135,10 @@ void MenuLog::render() {
 	closeButton->render();
 	
 	// text overlay
-	font->render(msg->get("Log"), menu_area.x+160, menu_area.y+8, JUSTIFY_CENTER, screen, FONT_WHITE);
-	
-	
+	WidgetLabel label(screen, font);
+	label.set(menu_area.x+160, menu_area.y+8, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Log"), FONT_WHITE);
+	label.render();
+
 	// display tabs
 	for (int i=0; i<LOG_TYPE_COUNT; i++) {
 		renderTab(i);
@@ -164,7 +166,6 @@ void MenuLog::render() {
 		font->renderShadowed(log_msg[active_log][i], list_area.x, cursor_y, JUSTIFY_LEFT, screen, list_area.w, FONT_WHITE);
 		cursor_y += size.y + paragraph_spacing;
 	}
-
 }
 
 /**
@@ -205,7 +206,9 @@ void MenuLog::renderTab(int log_type) {
 	if (i == active_log) tab_label_color = FONT_WHITE;
 	else tab_label_color = FONT_GREY;
 		
-	font->render(tab_labels[i], tab_rect[i].x + tab_padding.x, tab_rect[i].y + tab_padding.y, JUSTIFY_LEFT, screen, tab_label_color);		
+	WidgetLabel label(screen, font);
+	label.set(tab_rect[i].x + tab_padding.x, tab_rect[i].y + tab_padding.y, JUSTIFY_LEFT, VALIGN_TOP, tab_labels[i], tab_label_color);
+	label.render();
 }
 
 /**
