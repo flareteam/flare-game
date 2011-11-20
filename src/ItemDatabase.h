@@ -22,17 +22,19 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef ITEM_DATABASE_H
 #define ITEM_DATABASE_H
 
-#include <string>
-#include <sstream>
-#include <fstream>
-
-#include "SDL.h"
-#include "SDL_image.h"
-#include "SDL_mixer.h"
 #include "UtilsParsing.h"
 #include "StatBlock.h"
 #include "MenuTooltip.h"
 #include "MessageEngine.h"
+
+#include <SDL.h>
+#include <SDL_image.h>
+#include <SDL_mixer.h>
+
+#include <string>
+#include <sstream>
+#include <fstream>
+
 
 using namespace std;
 
