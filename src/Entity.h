@@ -50,9 +50,9 @@ public:
 	// Each child of Entity defines its own rendering method
 	virtual Renderable getRender() = 0;
 
-	void loadAnimations(std::string filename);
+	void loadAnimations(const std::string& filename);
 
-	bool setAnimation(std::string animation);
+	bool setAnimation(const std::string& animation);
 
 	StatBlock stats;
 };
