@@ -24,8 +24,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef INPUT_STATE_H
 #define INPUT_STATE_H
 
-#define JOY_MIN         -32768
-#define JOY_MAX         32767
 #define JOY_DEADZONE    100
 
 #define JOY_POS_CENTER	0
