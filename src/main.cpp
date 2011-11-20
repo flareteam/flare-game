@@ -80,7 +80,8 @@ static void init() {
 	}
 	printf("Using joystick #%d\n", JOYSTICK_DEVICE);
 
-    // setup MessageEngine here instead of below so we can initialize window title
+    // setup ModManager and MessageEngine here instead of below so we can initialize window title
+	mods = new ModManager();
     msg = new MessageEngine();
 
 	const char* title = msg->get("Flare").c_str();
@@ -90,7 +91,6 @@ static void init() {
 	Mix_Volume(-1, SOUND_VOLUME);
 
 	/* Shared game units setup */
-	mods = new ModManager();
 	inps = new InputState();
 	gswitch = new GameSwitcher(screen, inps);
 }
