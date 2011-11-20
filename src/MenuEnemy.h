@@ -24,15 +24,14 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef MENU_ENEMY_H
 #define MENU_ENEMY_H
 
-#include "SDL.h"
-#include "SDL_image.h"
 #include "StatBlock.h"
 #include "Utils.h"
 #include "FontEngine.h"
 #include "MessageEngine.h"
-#include <string>
-#include <sstream>
 #include "Enemy.h"
+
+#include <SDL.h>
+#include <SDL_image.h>
 
 const int MENU_ENEMY_TIMEOUT = FRAMES_PER_SEC * 10;
 

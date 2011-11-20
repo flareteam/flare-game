@@ -23,6 +23,14 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "MenuHPMP.h"
 #include "ModManager.h"
+#include "WidgetLabel.h"
+
+#include <string>
+#include <sstream>
+
+
+using namespace std;
+
 
 MenuHPMP::MenuHPMP(SDL_Surface *_screen, FontEngine *_font) {
 	screen = _screen;
@@ -54,7 +62,6 @@ void MenuHPMP::loadGraphics() {
 	cleanup = bar_mp;
 	bar_mp = SDL_DisplayFormatAlpha(bar_mp);
 	SDL_FreeSurface(cleanup);
-	
 }
 
 void MenuHPMP::render(StatBlock *stats, Point mouse) {
@@ -97,14 +104,17 @@ void MenuHPMP::render(StatBlock *stats, Point mouse) {
 	
 	// if mouseover, draw text
 	if (mouse.x <= 106 && mouse.y <= 33) {
+		WidgetLabel label(screen, font);
 
 		stringstream ss;
 		ss << stats->hp << "/" << stats->maxhp;
-		font->renderShadowed(ss.str(), 53,4,JUSTIFY_CENTER, screen, FONT_WHITE);
+		label.set(53, 4, JUSTIFY_CENTER, VALIGN_TOP, ss.str(), FONT_WHITE);
+		label.render();
+
 		ss.str("");
 		ss << stats->mp << "/" << stats->maxmp;
-		font->renderShadowed(ss.str(), 53,19,JUSTIFY_CENTER, screen, FONT_WHITE);
-	 
+		label.set(53, 19, JUSTIFY_CENTER, VALIGN_TOP, ss.str(), FONT_WHITE);
+		label.render();
 	}
 }
 
@@ -112,6 +122,4 @@ MenuHPMP::~MenuHPMP() {
 	SDL_FreeSurface(background);
 	SDL_FreeSurface(bar_hp);
 	SDL_FreeSurface(bar_mp);
-	
 }
-

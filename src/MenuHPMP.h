@@ -24,15 +24,13 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef MENU_HP_MP_H
 #define MENU_HP_MP_H
 
-#include "SDL.h"
-#include "SDL_image.h"
 #include "StatBlock.h"
 #include "Utils.h"
 #include "FontEngine.h"
-#include <string>
-#include <sstream>
 
-using namespace std;
+#include <SDL.h>
+#include <SDL_image.h>
+
 
 class MenuHPMP {
 private:

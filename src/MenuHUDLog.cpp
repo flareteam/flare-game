@@ -20,6 +20,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "MenuHUDLog.h"
+#include "WidgetLabel.h"
+
+using namespace std;
 
 MenuHUDLog::MenuHUDLog(SDL_Surface *_screen, FontEngine *_font) {
 	screen = _screen;
@@ -35,7 +38,7 @@ MenuHUDLog::MenuHUDLog(SDL_Surface *_screen, FontEngine *_font) {
  * Calculate how long a given message should remain on the HUD
  * Formula: minimum time plus x frames per character
  */
-int MenuHUDLog::calcDuration(string s) {
+int MenuHUDLog::calcDuration(const string& s) {
 	// 5 seconds plus an extra second per 10 letters
 	return FRAMES_PER_SEC * 5 + s.length() * (FRAMES_PER_SEC/10);
 }
@@ -45,8 +48,9 @@ int MenuHUDLog::calcDuration(string s) {
  * Age messages
  */
 void MenuHUDLog::logic() {
-	for (int i=0; i<log_count; i++)
+	for (int i=0; i<log_count; i++) {
 		if (msg_age[i] > 0) msg_age[i]--;
+	}
 }
 
 
@@ -58,7 +62,7 @@ void MenuHUDLog::render() {
 	int cursor_y;
 	
 	cursor_y = VIEW_H - 40;
-	
+
 	// go through new messages
 	for (int i=log_count-1; i>=0; i--) {
 		if (msg_age[i] > 0 && cursor_y > 32) {
@@ -66,8 +70,9 @@ void MenuHUDLog::render() {
 			size = font->calc_size(log_msg[i], list_area.x);
 			cursor_y -= size.y + paragraph_spacing;
 	
-			font->renderShadowed(log_msg[i], 32, cursor_y, JUSTIFY_LEFT, screen, list_area.x, FONT_WHITE);
-			
+			WidgetLabel label(screen, font);
+			label.set(32, cursor_y, JUSTIFY_LEFT, VALIGN_TOP, log_msg[i], FONT_WHITE);
+			label.render();
 		}
 		else return; // no more new messages
 	}
@@ -77,7 +82,7 @@ void MenuHUDLog::render() {
 /**
  * Add a new message to the log
  */
-void MenuHUDLog::add(string s) {
+void MenuHUDLog::add(const string& s) {
 
 	if (log_count == MAX_HUD_MESSAGES) {
 
@@ -99,7 +104,7 @@ void MenuHUDLog::add(string s) {
 		if (msg_age[log_count] < msg_age[log_count-1])
 			msg_age[log_count] = msg_age[log_count-1];
 	}
-	
+
 	log_count++;
 }
 

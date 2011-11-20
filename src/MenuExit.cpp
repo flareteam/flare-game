@@ -21,6 +21,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "MenuExit.h"
 #include "ModManager.h"
+#include "WidgetLabel.h"
+
 
 MenuExit::MenuExit(SDL_Surface *_screen, InputState *_inp, FontEngine *_font) : Menu(_screen, inp = _inp, _font) {
 
@@ -77,7 +79,9 @@ void MenuExit::render() {
 	src.h = window_area.h;
 	SDL_BlitSurface(background, &src, screen, &window_area);
 
-	font->render(msg->get("Save and exit to title?"), window_area.x + window_area.w/2, window_area.y + 10, JUSTIFY_CENTER, screen, FONT_WHITE);
+	WidgetLabel label(screen, font);
+	label.set(window_area.x + window_area.w/2, window_area.y + 10, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Save and exit to title?"), FONT_WHITE);
+	label.render();
 
 	buttonExit->render();
 	buttonClose->render();
