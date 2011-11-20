@@ -31,9 +31,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef GAME_SWITCHER_H
 #define GAME_SWITCHER_H
 
-#include "SDL.h"
-#include "SDL_image.h"
-#include "SDL_mixer.h"
+#include <SDL.h>
+#include <SDL_image.h>
+#include <SDL_mixer.h>
 #include "Settings.h"
 #include "InputState.h"
 #include "FontEngine.h"

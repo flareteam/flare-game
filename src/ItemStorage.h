@@ -22,7 +22,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef ITEM_STORAGE_H
 #define ITEM_STORAGE_H
 
-#include "SDL.h"
+#include <SDL.h>
 #include "ItemDatabase.h"
 
 using namespace std;

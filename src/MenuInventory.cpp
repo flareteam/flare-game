@@ -547,12 +547,6 @@ void MenuInventory::applyEquipment(StatBlock *stats, ItemStack *equipped) {
 
 	int bonus_counter;
 	
-	// note: these are also defined in MenuInventory.h
-	int SLOT_MAIN = 0;
-	int SLOT_BODY = 1;
-	int SLOT_OFF = 2;
-	//int SLOT_ARTIFACT = 3;
-
 	int prev_hp = stats->hp;
 	int prev_mp = stats->mp;
 

@@ -23,9 +23,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #define NPC_H
 
 #include "Entity.h"
-#include "SDL.h"
-#include "SDL_image.h"
-#include "SDL_mixer.h"
+#include <SDL.h>
+#include <SDL_image.h>
+#include <SDL_mixer.h>
 #include <string>
 #include "Utils.h"
 #include "ItemDatabase.h"

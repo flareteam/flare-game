@@ -28,7 +28,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef ANIMATION_H
 #define ANIMATION_H
 
-#include "SDL_image.h"
+#include <SDL_image.h>
 #include "Utils.h"
 #include <string>
 

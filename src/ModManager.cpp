@@ -17,7 +17,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "ModManager.h"
 #include "UtilsFileSystem.h"
-#include "SDL.h"
+#include <SDL.h>
 
 ModManager *mods;
 

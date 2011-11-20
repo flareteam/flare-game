@@ -26,9 +26,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #define NPC_MANAGER_H
 
 #include <string>
-#include "SDL.h"
-#include "SDL_image.h"
-#include "SDL_mixer.h"
+#include <SDL.h>
+#include <SDL_image.h>
+#include <SDL_mixer.h>
 #include "NPC.h"
 #include "MapIso.h"
 #include "MenuTooltip.h"

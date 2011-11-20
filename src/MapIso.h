@@ -24,12 +24,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef MAP_ISO_H
 #define MAP_ISO_H
 
-#include <fstream>
-#include <string>
-#include <queue>
-#include "SDL.h"
-#include "SDL_image.h"
-#include "SDL_mixer.h"
 #include "Utils.h"
 #include "TileSet.h"
 #include "MapCollision.h"
@@ -41,16 +35,22 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "PowerManager.h"
 #include "StatBlock.h"
 
-using namespace std;
+#include <SDL.h>
+#include <SDL_image.h>
+#include <SDL_mixer.h>
+
+#include <string>
+#include <queue>
+
 
 struct Map_Enemy {
-	string type;
+	std::string type;
 	Point pos;
 	int direction;
 };
 
 struct Map_Group {
-	string category;
+	std::string category;
 	Point pos;
 	Point area;
 	int levelmin;
@@ -61,17 +61,17 @@ struct Map_Group {
 };
 
 struct Map_NPC {
-	string id;
+	std::string id;
 	Point pos;
 };
 
 struct Map_Event {
-	string type;
+	std::string type;
 	SDL_Rect location;
 	Event_Component components[256];
 	int comp_num;
 	SDL_Rect hotspot;
-	string tooltip;
+	std::string tooltip;
 	//power spawn variables
 	Point power_src;
 	Point power_dest;
@@ -95,11 +95,11 @@ private:
 
 	// map events can play random soundfx
 	Mix_Chunk *sfx;
-	string sfx_filename;
+	std::string sfx_filename;
 	
 	void executeEvent(int eid);
 	void removeEvent(int eid);
-	void playSFX(string filename);
+	void playSFX(std::string filename);
 	void push_enemy_group(Map_Group g);
 	bool isActive(int eventid);
 		
@@ -118,7 +118,7 @@ public:
 	void clearNPC(Map_NPC &n);
 	void clearGroup(Map_Group &g);
 
-	int load(string filename);
+	int load(std::string filename);
 	void loadMusic();
 	void logic();
 	void render(Renderable r[], int rnum);
@@ -128,15 +128,15 @@ public:
 	void checkTooltip();
 
 	// vars
-	string title;
+	std::string title;
 	int w;
 	int h;
 	Point cam;
 	Point hero_tile;
 	Point spawn;
 	int spawn_dir;
-	string tileset;
-	string music_filename;
+	std::string tileset;
+	std::string music_filename;
 	bool new_music;
 	TileSet tset;
 	
@@ -146,33 +146,32 @@ public:
 	MapCollision collider;
 
 	// enemy load handling
-	queue<Map_Enemy> enemies;
+	std::queue<Map_Enemy> enemies;
 	Map_Enemy new_enemy;
 	Map_Group new_group;
 	bool enemy_awaiting_queue;
 	bool group_awaiting_queue;
 	
 	// npc load handling
-	queue<Map_NPC> npcs;
+	std::queue<Map_NPC> npcs;
 	Map_NPC new_npc;
 	bool npc_awaiting_queue;
 	
 	// event-created loot or items
-	queue<Event_Component> loot;
+	std::queue<Event_Component> loot;
 
 	// teleport handling
 	bool teleportation;
 	Point teleport_destination;
-	string teleport_mapname;
-	string respawn_map;
+	std::string teleport_mapname;
+	std::string respawn_map;
 	Point respawn_point;
 	
 	// message handling
-	string log_msg;
+	std::string log_msg;
 	
 	// shaky cam
 	int shaky_cam_ticks;
-	
 };
 
 

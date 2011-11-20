@@ -25,7 +25,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef WIDGET_LABEL_H
 #define WIDGET_LABEL_H
 
-#include "SDL.h"
+#include <SDL.h>
 #include "FontEngine.h"
 #include <string>
 
