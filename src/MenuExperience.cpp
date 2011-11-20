@@ -23,6 +23,12 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "MenuExperience.h"
 #include "ModManager.h"
+#include "WidgetLabel.h"
+
+#include <SDL_mixer.h>
+
+#include <sstream>
+
 
 MenuExperience::MenuExperience(SDL_Surface *_screen, FontEngine *_font) {
 	screen = _screen;
@@ -76,11 +82,10 @@ void MenuExperience::loadGraphics() {
  */
 void MenuExperience::render(StatBlock *stats, Point mouse) {
 
-
 	SDL_Rect src;
 	SDL_Rect dest;
 	int xp_bar_length;
-	
+
 	// don't display anything if max level
 	if (stats->level < 1 || stats->level == MAX_CHARACTER_LEVEL) return;
 	
@@ -106,8 +111,8 @@ void MenuExperience::render(StatBlock *stats, Point mouse) {
 	dest.y = hud_position.y + bar_offset.y;
 		
 	// draw xp bar
-	SDL_BlitSurface(bar, &src, screen, &dest);		
-	
+	SDL_BlitSurface(bar, &src, screen, &dest);
+
 	// if mouseover, draw text
 	if (isWithin(hud_position, mouse)) {
 		stringstream ss;
@@ -118,7 +123,10 @@ void MenuExperience::render(StatBlock *stats, Point mouse) {
 		else {
 			ss << text_label << stats->xp;
 		}
-		font->renderShadowed(ss.str(), hud_position.x + text_offset.x, hud_position.y + text_offset.y, text_justify, screen, FONT_WHITE);
+
+		WidgetLabel label(screen, font);
+		label.set(hud_position.x + text_offset.x, hud_position.y + text_offset.y, text_justify, VALIGN_TOP, ss.str(), FONT_WHITE);
+		label.render();
 	}
 }
 
