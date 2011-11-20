@@ -21,16 +21,17 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * Special code for handling spells, special powers, item effects, etc.
  */
 
-#include <string>
-#include <queue>
-#include <SDL.h>
-#include <SDL_image.h>
-#include <SDL_mixer.h>
 #include "Utils.h"
 #include "StatBlock.h"
 #include "Hazard.h"
 #include "MapCollision.h"
 #include "MessageEngine.h"
+
+#include <SDL.h>
+#include <SDL_image.h>
+
+#include <string>
+#include <queue>
 
 #ifndef POWER_MANAGER_H
 #define POWER_MANAGER_H
@@ -290,7 +291,6 @@ public:
 	void handleNewMap(MapCollision *_collider);
 	bool activate(int power_index, StatBlock *src_stats, Point target);
 
-	StatBlock *src_stats;
 	Power powers[POWER_COUNT];
 	queue<Hazard *> hazards; // output; read by HazardManager
 
