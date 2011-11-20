@@ -27,12 +27,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef GAMESTATELOAD_H
 #define GAMESTATELOAD_H
 
-#include <string>
-#include <sstream>
-
-#include "SDL.h"
-#include "SDL_image.h"
-#include "SDL_mixer.h"
 #include "Settings.h"
 #include "InputState.h"
 #include "FontEngine.h"
@@ -44,6 +38,17 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "GameState.h"
 #include "MenuConfirm.h"
 #include "MessageEngine.h"
+
+#include <SDL.h>
+#include <SDL_image.h>
+#include <SDL_mixer.h>
+
+#include <string>
+#include <sstream>
+
+
+class WidgetLabel;
+
 
 const int GAME_SLOT_MAX = 4;
 
@@ -58,6 +63,8 @@ private:
 	WidgetButton *button_exit;
 	WidgetButton *button_action;
 	WidgetButton *button_alternate;
+	WidgetLabel *label_loading;
+	WidgetLabel *label_slots;
 
 	MenuConfirm *confirm;
 

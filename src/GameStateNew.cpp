@@ -26,6 +26,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "GameStateLoad.h"
 #include "GameStatePlay.h"
 #include "ModManager.h"
+#include "WidgetLabel.h"
 
 GameStateNew::GameStateNew(SDL_Surface *_screen, InputState *_inp, FontEngine *_font) : GameState(_screen, _inp, _font) {
 	game_slot = 0;
@@ -33,6 +34,7 @@ GameStateNew::GameStateNew(SDL_Surface *_screen, InputState *_inp, FontEngine *_
 	current_option = 0;
 	portrait_image = NULL;
 	
+	// set up buttons
 	button_exit = new WidgetButton(screen, font, inp, mods->locate("images/menus/buttons/button_default.png"));
 	button_exit->label = msg->get("Cancel");
 	button_exit->pos.x = VIEW_W_HALF - button_exit->pos.w/2;
@@ -53,11 +55,17 @@ GameStateNew::GameStateNew(SDL_Surface *_screen, InputState *_inp, FontEngine *_
 
 	input_name = new WidgetInput(screen, font, inp);
 	input_name->setPosition(VIEW_W_HALF - input_name->pos.w/2, VIEW_H_HALF+184);
-	
+
+	// set up labels
+	label_portrait = new WidgetLabel(screen, font);
+	label_portrait->set(VIEW_W_HALF, VIEW_H_HALF-176, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Choose a Portrait"), FONT_GREY);
+	label_name = new WidgetLabel(screen, font);
+	label_name->set(VIEW_W_HALF, VIEW_H_HALF+168, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Choose a Name"), FONT_GREY);
+
 	loadGraphics();
 	loadOptions("hero_options.txt");
 	loadPortrait(portrait[0]);
-}	
+}
 
 void GameStateNew::loadGraphics() {
 	portrait_border = NULL;
@@ -182,9 +190,8 @@ void GameStateNew::render() {
 	}
 	
 	// display labels
-	font->render(msg->get("Choose a Portrait"), VIEW_W_HALF, VIEW_H_HALF-176, JUSTIFY_CENTER, screen, FONT_GREY);
-	font->render(msg->get("Choose a Name"), VIEW_W_HALF, VIEW_H_HALF+168, JUSTIFY_CENTER, screen, FONT_GREY);
-	
+	label_portrait->render();
+	label_name->render();
 }
 
 GameStateNew::~GameStateNew() {

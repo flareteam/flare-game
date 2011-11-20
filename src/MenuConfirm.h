@@ -19,8 +19,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #define MENU_CONFIRM_H
 
 #include "Menu.h"
-#include "SDL_image.h"
 #include "WidgetButton.h"
+#include <SDL_image.h>
+
 
 class MenuConfirm : public Menu {
 protected:
