@@ -21,6 +21,12 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "MenuInventory.h"
 #include "ModManager.h"
+#include "WidgetLabel.h"
+
+#include <sstream>
+
+using namespace std;
+
 
 MenuInventory::MenuInventory(SDL_Surface *_screen, InputState *_inp, FontEngine *_font, ItemDatabase *_items, StatBlock *_stats, PowerManager *_powers) {
 	screen = _screen;
@@ -61,7 +67,6 @@ MenuInventory::MenuInventory(SDL_Surface *_screen, InputState *_inp, FontEngine 
 	closeButton = new WidgetButton(screen, font, inp, mods->locate("images/menus/buttons/button_x.png"));
 	closeButton->pos.x = VIEW_W - 26;
 	closeButton->pos.y = (VIEW_H - 480)/2 + 34;
-
 }
 
 void MenuInventory::loadGraphics() {
@@ -113,12 +118,19 @@ void MenuInventory::render() {
 	closeButton->render();
 	
 	// text overlay
-	font->render(msg->get("Inventory"), window_area.x+160, window_area.y+8, JUSTIFY_CENTER, screen, FONT_WHITE);
-	font->render(msg->get("Main Hand"), window_area.x+64, window_area.y+34, JUSTIFY_CENTER, screen, FONT_WHITE);
-	font->render(msg->get("Body"), window_area.x+128, window_area.y+34, JUSTIFY_CENTER, screen, FONT_WHITE);
-	font->render(msg->get("Off Hand"), window_area.x+192, window_area.y+34, JUSTIFY_CENTER, screen, FONT_WHITE);
-	font->render(msg->get("Artifact"), window_area.x+256, window_area.y+34, JUSTIFY_CENTER, screen, FONT_WHITE);
-	font->render(msg->get("%d Gold", gold), window_area.x+288, window_area.y+114, JUSTIFY_RIGHT, screen, FONT_WHITE);
+	WidgetLabel label(screen, font);
+	label.set(window_area.x+160, window_area.y+8, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Inventory"), FONT_WHITE);
+	label.render();
+	label.set(window_area.x+64, window_area.y+34, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Main Hand"), FONT_WHITE);
+	label.render();
+	label.set(window_area.x+128, window_area.y+34, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Body"), FONT_WHITE);
+	label.render();
+	label.set(window_area.x+192, window_area.y+34, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Off Hand"), FONT_WHITE);
+	label.render();
+	label.set(window_area.x+256, window_area.y+34, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Artifact"), FONT_WHITE);
+	label.render();
+	label.set(window_area.x+288, window_area.y+114, JUSTIFY_RIGHT, VALIGN_TOP, msg->get("%d Gold", gold), FONT_WHITE);
+	label.render();
 
 	inventory[EQUIPMENT].render();
 	inventory[CARRIED].render();
