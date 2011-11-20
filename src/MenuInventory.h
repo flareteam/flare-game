@@ -44,11 +44,13 @@ const int CARRIED = 1;
 const int MAX_EQUIPPED = 4;
 const int MAX_CARRIED = 64;
 
-// note: if you change these, also change them in ItemDatabase::applyEquipment
-const int SLOT_MAIN = 0;
-const int SLOT_BODY = 1;
-const int SLOT_OFF = 2;
-const int SLOT_ARTIFACT = 3;
+enum InventorySlotsType {
+	SLOT_MAIN = 0,
+	SLOT_BODY = 1,
+	SLOT_OFF = 2,
+	SLOT_ARTIFACT = 3
+};
+
 
 class MenuInventory {
 private:
