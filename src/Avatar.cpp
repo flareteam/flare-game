@@ -649,6 +649,4 @@ Avatar::~Avatar() {
 	Mix_FreeChunk(level_up);
 			
 	delete haz;
-
 }
-
