@@ -17,6 +17,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "MenuConfirm.h"
 #include "ModManager.h"
+#include "WidgetLabel.h"
 
 MenuConfirm::MenuConfirm(SDL_Surface *_screen, InputState *_inp, FontEngine *_font, string _buttonMsg, string _boxMsg) : Menu(_screen, inp = _inp, _font) {
 	confirmClicked = false;
@@ -73,7 +74,9 @@ void MenuConfirm::render() {
 	src.h = window_area.h;
 	SDL_BlitSurface(background, &src, screen, &window_area);
 
-	font->render(boxMsg, window_area.x + window_area.w/2, window_area.y + 10, JUSTIFY_CENTER, screen, FONT_WHITE);
+	WidgetLabel label(screen, font);
+	label.set(window_area.x + window_area.w/2, window_area.y + 10, JUSTIFY_CENTER, VALIGN_TOP, boxMsg, FONT_WHITE);
+	label.render();
 
 	buttonConfirm->render();
 	buttonClose->render();
