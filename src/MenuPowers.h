@@ -22,9 +22,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef MENU_POWERS_H
 #define MENU_POWERS_H
 
-#include "SDL.h"
-#include "SDL_image.h"
-#include "SDL_mixer.h"
 #include "InputState.h"
 #include "Utils.h"
 #include "FontEngine.h"
@@ -33,10 +30,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "PowerManager.h"
 #include "WidgetButton.h"
 #include "MessageEngine.h"
-#include <string>
-#include <sstream>
 
-using namespace std;
+#include <SDL.h>
+#include <SDL_image.h>
 
 class MenuPowers {
 private:
