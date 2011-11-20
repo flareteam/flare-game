@@ -23,6 +23,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "FileParser.h"
 #include "ModManager.h"
 #include "UtilsFileSystem.h"
+#include "WidgetLabel.h"
 
 ItemDatabase::ItemDatabase(SDL_Surface *_screen, FontEngine *_font) {
 	screen = _screen;
@@ -246,7 +247,6 @@ void ItemDatabase::loadIcons() {
  * Also display the stack size
  */
 void ItemDatabase::renderIcon(ItemStack stack, int x, int y, int size) {
-	stringstream ss;
 	int columns;
 
 	dest.x = x;
@@ -267,8 +267,12 @@ void ItemDatabase::renderIcon(ItemStack stack, int x, int y, int size) {
 	
 	if( stack.quantity > 1 || items[stack.item].max_quantity > 1) {
 		// stackable item : show the quantity
+		stringstream ss;
 		ss << stack.quantity;
-		font->render(ss.str(), dest.x + 2, dest.y + 2, JUSTIFY_LEFT, screen, FONT_WHITE);
+
+		WidgetLabel label(screen, font);
+		label.set(dest.x + 2, dest.y + 2, JUSTIFY_LEFT, VALIGN_TOP, ss.str(), FONT_WHITE);
+		label.render();
 	}
 }
 
