@@ -23,6 +23,11 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  
 #include "MenuActionBar.h"
 #include "ModManager.h"
+#include "WidgetLabel.h"
+
+#include <string>
+#include <sstream>
+
 
 MenuActionBar::MenuActionBar(SDL_Surface *_screen, FontEngine *_font, InputState *_inp, PowerManager *_powers, StatBlock *_hero, SDL_Surface *_icons) {
 	screen = _screen;
@@ -221,26 +226,29 @@ void MenuActionBar::renderItemCounts() {
 
 	stringstream ss;
 	SDL_Rect src;
-	
+
 	for (int i=0; i<12; i++) {
 
 		if (!slot_enabled[i]) {
 			src.x = src.y = 0;
 			src.h = 32;
-            if (hero->hero_cooldown[hotkeys[i]])
-    			src.w = 32 * (hero->hero_cooldown[hotkeys[i]] /
-                        (float)powers->powers[hotkeys[i]].cooldown);
-            else src.w = 32;
+			if (hero->hero_cooldown[hotkeys[i]]) {
+				src.w = 32 * (hero->hero_cooldown[hotkeys[i]] /
+					      (float)powers->powers[hotkeys[i]].cooldown);
+			}
+			else {
+				src.w = 32;
+			}
 			SDL_BlitSurface(disabled, &src, screen, &slots[i]);
 		}
 
 		if (slot_item_count[i] > -1) {
-		
-
 			ss.str("");
 			ss << slot_item_count[i];
 	
-			font->render(ss.str(), slots[i].x, slots[i].y, JUSTIFY_LEFT, screen, FONT_WHITE);
+			WidgetLabel label(screen, font);
+			label.set(slots[i].x, slots[i].y, JUSTIFY_LEFT, VALIGN_TOP, ss.str(), FONT_WHITE);
+			label.render();
 		}
 	}
 }
