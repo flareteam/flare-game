@@ -23,6 +23,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "FileParser.h"
 #include "ModManager.h"
 
+using namespace std;
+
+
 /**
  * PowerManager constructor
  */
@@ -326,7 +329,7 @@ void PowerManager::loadPowers() {
  * @param filename The .png file containing sprites for this power, assumed to be in images/powers/
  * @return The gfx[] array index for this graphic, or -1 upon load failure
  */
-int PowerManager::loadGFX(string filename) {
+int PowerManager::loadGFX(const string& filename) {
 	
 	// currently we restrict the total number of unique power sprite sets
 	if (gfx_count == POWER_MAX_GFX) return -1;
@@ -362,7 +365,7 @@ int PowerManager::loadGFX(string filename) {
  * @param filename The .ogg file containing the sound for this power, assumed to be in soundfx/powers/
  * @return The sfx[] array index for this mix chunk, or -1 upon load failure
  */
-int PowerManager::loadSFX(string filename) {
+int PowerManager::loadSFX(const string& filename) {
 	
 	// currently we restrict the total number of unique power sounds
 	if (sfx_count == POWER_MAX_SFX) return -1;
