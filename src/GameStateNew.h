@@ -25,12 +25,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef GAMESTATENEW_H
 #define GAMESTATENEW_H
 
-#include <string>
-#include <sstream>
-
-#include "SDL.h"
-#include "SDL_image.h"
-#include "SDL_mixer.h"
 #include "InputState.h"
 #include "FontEngine.h"
 #include "WidgetButton.h"
@@ -40,6 +34,17 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "GameState.h"
 #include "UtilsParsing.h"
 #include "MessageEngine.h"
+
+#include <SDL.h>
+#include <SDL_image.h>
+#include <SDL_mixer.h>
+
+#include <string>
+#include <sstream>
+
+
+class WidgetLabel;
+
 
 const int PLAYER_OPTION_MAX = 32;
 
@@ -62,6 +67,8 @@ private:
 	WidgetButton *button_create;
 	WidgetButton *button_next;
 	WidgetButton *button_prev;
+	WidgetLabel *label_portrait;
+	WidgetLabel *label_name;
 	WidgetInput *input_name;
 
 public:

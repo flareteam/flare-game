@@ -25,6 +25,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "GameStatePlay.h"
 #include "GameState.h"
 #include "GameStateTitle.h"
+#include "WidgetLabel.h"
 
 GameStatePlay::GameStatePlay(SDL_Surface *_screen, InputState *_inp, FontEngine *_font) : GameState(screen, inp, font) {
 
@@ -59,6 +60,10 @@ GameStatePlay::GameStatePlay(SDL_Surface *_screen, InputState *_inp, FontEngine 
 	camp->xp = &pc->stats.xp;
 	map->powers = powers;
 
+	// display the name of the map in the upper-right hand corner
+	label_mapname = new WidgetLabel(screen, font);
+
+	label_fps = new WidgetLabel(screen, font);
 }
 
 /**
@@ -462,7 +467,8 @@ void GameStatePlay::render() {
 	map->render(r, renderableCount);
 	
 	// display the name of the map in the upper-right hand corner
-	font->render(map->title, VIEW_W-2, 2, JUSTIFY_RIGHT, screen, FONT_WHITE);
+	label_mapname->set(VIEW_W-2, 2, JUSTIFY_RIGHT, VALIGN_TOP, map->title, FONT_WHITE);
+	label_mapname->render();
 	
 	// mouseover tooltips
 	loot->renderTooltips(map->cam);
@@ -477,7 +483,8 @@ void GameStatePlay::render() {
 void GameStatePlay::showFPS(int fps) {
 	stringstream ss;
 	ss << fps << "fps";
-	font->render(ss.str(), VIEW_W >> 1, 2, JUSTIFY_CENTER, screen, FONT_GRAY); 
+	label_fps->set(VIEW_W >> 1, 2, JUSTIFY_CENTER, VALIGN_TOP, ss.str(), FONT_GREY);
+	label_fps->render();
 }
 
 GameStatePlay::~GameStatePlay() {
