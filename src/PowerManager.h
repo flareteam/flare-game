@@ -21,6 +21,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * Special code for handling spells, special powers, item effects, etc.
  */
 
+#ifndef POWER_MANAGER_H
+#define POWER_MANAGER_H
+
 #include "Utils.h"
 #include "StatBlock.h"
 #include "Hazard.h"
@@ -32,9 +35,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include <string>
 #include <queue>
-
-#ifndef POWER_MANAGER_H
-#define POWER_MANAGER_H
 
 using namespace std;
 
