@@ -27,8 +27,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <iostream>
 #include <fstream>
 #include <string>
-#include "SDL.h"
-#include "SDL_image.h"
+#include <SDL.h>
+#include <SDL_image.h>
 #include "Utils.h"
 
 using namespace std;

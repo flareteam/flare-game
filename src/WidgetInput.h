@@ -27,7 +27,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "FontEngine.h"
 #include "InputState.h"
-#include "SDL.h"
+#include <SDL.h>
 #include <string>
 
 using namespace std;

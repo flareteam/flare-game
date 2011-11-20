@@ -25,9 +25,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 
 #include <sstream>
-#include "SDL.h"
-#include "SDL_image.h"
-#include "SDL_mixer.h"
+#include <SDL.h>
+#include <SDL_image.h>
+#include <SDL_mixer.h>
 
 #include "Entity.h"
 #include "Utils.h"

@@ -26,9 +26,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include <fstream>
 #include <string>
-#include "SDL.h"
-#include "SDL_image.h"
-#include "SDL_ttf.h"
+#include <SDL.h>
+#include <SDL_image.h>
+#include <SDL_ttf.h>
 #include "Settings.h"
 #include "Utils.h"
 #include "UtilsParsing.h"

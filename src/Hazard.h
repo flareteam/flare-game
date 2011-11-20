@@ -28,9 +28,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 class Entity;
 
 #include <vector>
-#include "SDL.h"
-#include "SDL_image.h"
-#include "SDL_mixer.h"
+#include <SDL.h>
+#include <SDL_image.h>
+#include <SDL_mixer.h>
 #include "Utils.h"
 #include "MapCollision.h"
 #include "StatBlock.h"

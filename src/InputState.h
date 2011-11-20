@@ -36,7 +36,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include <string>
 #include <fstream>
-#include "SDL.h"
+#include <SDL.h>
 #include "FileParser.h"
 #include "Utils.h"
 #include "UtilsParsing.h"
