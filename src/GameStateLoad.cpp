@@ -24,6 +24,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "GameStateNew.h"
 #include "MenuConfirm.h"
 #include "ModManager.h"
+#include "WidgetLabel.h"
 
 GameStateLoad::GameStateLoad(SDL_Surface *_screen, InputState *_inp, FontEngine *_font) : GameState(_screen, _inp, _font) {
 	items = new ItemDatabase(screen, font);
@@ -32,6 +33,9 @@ GameStateLoad::GameStateLoad(SDL_Surface *_screen, InputState *_inp, FontEngine 
 	loading = false;
 	loaded = false;
 	
+	label_loading = new WidgetLabel(screen, font);
+	label_slots = new WidgetLabel(screen, font);
+
 	// Confirmation box to confirm deleting
 	confirm = new MenuConfirm(screen, inp, font, msg->get("Delete Save"), msg->get("Delete this save?"));
 	button_exit = new WidgetButton(screen, font, inp, mods->locate("images/menus/buttons/button_default.png"));
@@ -387,33 +391,40 @@ void GameStateLoad::render() {
 	if( loading_requested || loading || loaded ) {
 		label.x = button_action->pos.x + ( button_action->pos.w / 2 );
 		label.y = button_action->pos.y - button_action->pos.h + 10;
+
 		if ( loaded ) {
-			font->render(msg->get("Entering game world..."), label.x, label.y, JUSTIFY_CENTER, screen, FONT_WHITE);
+			label_loading->text = msg->get("Entering game world...");
 		} else {
-			font->render(msg->get("Loading saved game..."), label.x, label.y, JUSTIFY_CENTER, screen, FONT_WHITE);
+			label_loading->text = msg->get("Loading saved game...");
 		}
+
+		label_loading->set(label.x, label.y, JUSTIFY_CENTER, VALIGN_TOP, label_loading->text, FONT_WHITE);
+		label_loading->render();
 	}
 	
 	// display text
 	for (int slot=0; slot<GAME_SLOT_MAX; slot++) {
 		if (stats[slot].name != "") {
-		
+
 			// name
 			label.x = slot_pos[slot].x + name_pos.x;
-			label.y = slot_pos[slot].y + name_pos.y;		
-			font->render(stats[slot].name, label.x, label.y, JUSTIFY_LEFT, screen, FONT_WHITE);
+			label.y = slot_pos[slot].y + name_pos.y;
+			label_slots->set(label.x, label.y, JUSTIFY_LEFT, VALIGN_TOP, stats[slot].name, FONT_WHITE);
+			label_slots->render();
 
 			// level
 			ss.str("");
 			label.x = slot_pos[slot].x + level_pos.x;
-			label.y = slot_pos[slot].y + level_pos.y;		
+			label.y = slot_pos[slot].y + level_pos.y;
 			ss << msg->get("Level %d %s", stats[slot].level, msg->get(stats[slot].character_class));
-			font->render(ss.str(), label.x, label.y, JUSTIFY_LEFT, screen, FONT_WHITE);
-			
+			label_slots->set(label.x, label.y, JUSTIFY_LEFT, VALIGN_TOP, ss.str(), FONT_WHITE);
+			label_slots->render();
+
 			// map
 			label.x = slot_pos[slot].x + map_pos.x;
-			label.y = slot_pos[slot].y + map_pos.y;		
-			font->render(current_map[slot], label.x, label.y, JUSTIFY_LEFT, screen, FONT_WHITE);
+			label.y = slot_pos[slot].y + map_pos.y;
+			label_slots->set(label.x, label.y, JUSTIFY_LEFT, VALIGN_TOP, current_map[slot], FONT_WHITE);
+			label_slots->render();
 
 			// render character preview
 			dest.x = slot_pos[slot].x + sprites_pos.x;
@@ -421,14 +432,14 @@ void GameStateLoad::render() {
 			src.x = current_frame * 128;
 			src.y = 0;
 			src.w = src.h = 128;
-			
+
 			SDL_BlitSurface(sprites[slot], &src, screen, &dest);
-			
 		}
 		else {
 			label.x = slot_pos[slot].x + name_pos.x;
-			label.y = slot_pos[slot].y + name_pos.y;		
-			font->render(msg->get("Empty Slot"), label.x, label.y, JUSTIFY_LEFT, screen, FONT_WHITE);
+			label.y = slot_pos[slot].y + name_pos.y;
+			label_slots->set(label.x, label.y, JUSTIFY_LEFT, VALIGN_TOP, msg->get("Empty Slot"), FONT_WHITE);
+			label_slots->render();
 		}
 	}
 	// display warnings
