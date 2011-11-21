@@ -22,6 +22,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "PowerManager.h"
 #include "FileParser.h"
 #include "ModManager.h"
+#include "UtilsFileSystem.h"
 
 using namespace std;
 
@@ -51,18 +52,40 @@ PowerManager::PowerManager() {
 	used_item=-1;
 	
 	loadGraphics();
-	loadPowers();
+	loadAll();
 }
 
 /**
- * All powers are defined in powers/powers.txt
+ * Load all powers files in all mods
  */
-void PowerManager::loadPowers() {
+void PowerManager::loadAll() {
+
+	string test_path;
+
+	// load each items.txt file. Individual item IDs can be overwritten with mods.
+	for (unsigned int i = 0; i < mods->mod_list.size(); i++) {
+
+		test_path = PATH_DATA + "mods/" + mods->mod_list[i] + "/powers/powers.txt";
+
+		if (fileExists(test_path)) {
+			this->loadPowers(test_path);
+		}
+	}
+
+}
+
+
+/**
+ * Powers are defined in [mod]/powers/powers.txt
+ *
+ * @param filename The full path and filename to this powers.txt file
+ */
+void PowerManager::loadPowers(const std::string& filename) {
 
 	FileParser infile;
 	int input_id = 0;
 	
-	if (infile.open((PATH_DATA + "powers/powers.txt").c_str())) {
+	if (infile.open(filename.c_str())) {
 		while (infile.next()) {
 			// id needs to be the first component of each power.  That is how we write
 			// data to the correct power.

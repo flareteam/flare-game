@@ -261,7 +261,8 @@ private:
 	
 	MapCollision *collider;
 
-	void loadPowers();
+	void loadAll();
+	void loadPowers(const std::string& filename);
 	void loadGraphics();
 	
 	int loadGFX(const std::string& filename);
