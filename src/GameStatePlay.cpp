@@ -475,7 +475,7 @@ void GameStatePlay::render() {
 	npcs->renderTooltips(map->cam, inp->mouse);
 	
 	menu->hudlog->render();
-	menu->mini->render(&map->collider, pc->stats.pos, map->w, map->h);
+	menu->mini->renderIso(&map->collider, pc->stats.pos, map->w, map->h);
 	menu->render();
 
 }

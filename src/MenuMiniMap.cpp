@@ -28,10 +28,18 @@ MenuMiniMap::MenuMiniMap(SDL_Surface *_screen) {
 	color_wall = SDL_MapRGB(screen->format, 128,128,128);
 	color_obst = SDL_MapRGB(screen->format, 64,64,64);
 	color_hero = SDL_MapRGB(screen->format, 255,255,255);
+	
+	map_center.x = VIEW_W - 64;
+	map_center.y = 80;
+	map_area.x = VIEW_W - 128;
+	map_area.y = 16;
+	map_area.w = map_area.h = 128;
+
 }
 
-	// TEMP: let's make a minimap
-
+/**
+ * Render a top-down version of the map (90 deg angle)
+ */
 void MenuMiniMap::render(MapCollision *collider, Point hero_pos, int map_w, int map_h) {
 	Point hero_tile;
 	Point map_tile;
@@ -57,6 +65,45 @@ void MenuMiniMap::render(MapCollision *collider, Point hero_pos, int map_w, int 
 	drawPixel(screen,VIEW_W-64,80-1,color_hero); // hero	
 	drawPixel(screen,VIEW_W-64,80+1,color_hero); // hero
 
+}
+
+/**
+ * Render an "isometric" version of the map (45 deg angle)
+ */
+void MenuMiniMap::renderIso(MapCollision *collider, Point hero_pos, int map_w, int map_h) {
+	int tile_type;
+	Point screen_pos;
+	Uint32 draw_color;
+	Point hero_tile;
+	
+	hero_tile.x = hero_pos.x / UNITS_PER_TILE;
+	hero_tile.y = hero_pos.y / UNITS_PER_TILE;
+	
+	for (int j=0; j<map_h; j++) {
+		for (int i=0; i<map_w; i++) {
+		
+			tile_type = collider->colmap[i][j];
+
+			// the hero, walls, and low obstacles show as different colors
+			if (i == hero_tile.x && j == hero_tile.y) draw_color = color_hero;
+			else if (tile_type == 1) draw_color = color_wall;
+			else if (tile_type == 2) draw_color = color_obst;
+			else continue; // not visible on mini-map
+						
+			// isometric transform
+			screen_pos.x = (i - hero_tile.x) - (j - hero_tile.y) + map_center.x;
+			screen_pos.y = (i - hero_tile.x) + (j - hero_tile.y) + map_center.y;
+			
+			// each tile is 2 pixels wide to mimic isometric view
+			if (isWithin(map_area, screen_pos)) {
+				drawPixel(screen, screen_pos.x, screen_pos.y, draw_color);
+			}
+			screen_pos.x++;
+			if (isWithin(map_area, screen_pos)) {
+				drawPixel(screen, screen_pos.x, screen_pos.y, draw_color);			
+			}
+		}
+	}
 }
 
 MenuMiniMap::~MenuMiniMap() {

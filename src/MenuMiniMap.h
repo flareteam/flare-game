@@ -32,11 +32,15 @@ private:
 	Uint32 color_wall;
 	Uint32 color_obst;
 	Uint32 color_hero;
+	Point map_center;
+	SDL_Rect map_area;
+
 public: 
 	MenuMiniMap(SDL_Surface *_screen);
 	~MenuMiniMap();
 
 	void render(MapCollision *collider, Point hero_pos, int map_w, int map_h);
+	void renderIso(MapCollision *collider, Point hero_pos, int map_w, int map_h);
 
 };
 
