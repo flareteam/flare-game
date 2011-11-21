@@ -17,7 +17,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 */
 
 #include "EnemyGroupManager.h"
-#include "ModManager.h"
+#include "SharedResources.h"
 
 using namespace std;
 

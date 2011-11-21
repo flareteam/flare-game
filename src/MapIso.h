@@ -30,7 +30,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "Settings.h"
 #include "CampaignManager.h"
 #include "EnemyGroupManager.h"
-#include "InputState.h"
 #include "WidgetTooltip.h"
 #include "PowerManager.h"
 #include "StatBlock.h"
@@ -86,10 +85,7 @@ const int CLICK_RANGE = 3 * UNITS_PER_TILE; //for activating events
 
 class MapIso {
 private:
-	SDL_Surface *screen;
-	InputState *inp;
 	Mix_Music *music;
-	FontEngine *font;
 
 	WidgetTooltip *tip;
 
@@ -112,7 +108,7 @@ public:
 	PowerManager *powers;
 
 	// functions
-	MapIso(SDL_Surface *_screen, CampaignManager *_camp, InputState *_inp, FontEngine *_font);
+	MapIso(CampaignManager *_camp);
 	~MapIso();
 	void clearEnemy(Map_Enemy &e);
 	void clearNPC(Map_NPC &n);

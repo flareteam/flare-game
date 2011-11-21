@@ -20,35 +20,32 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "MenuManager.h"
-#include "ModManager.h"
+#include "SharedResources.h"
 
-MenuManager::MenuManager(PowerManager *_powers, SDL_Surface *_screen, InputState *_inp, FontEngine *_font, StatBlock *_stats, CampaignManager *_camp) {
+MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManager *_camp) {
 	powers = _powers;
-	screen = _screen;
-	inp = _inp;
-	font = _font;
 	stats = _stats;
 	powers = _powers;
 	camp = _camp;
 
 	loadIcons();
 
-	items = new ItemManager(screen, font);
+	items = new ItemManager();
 
-	chr = new MenuCharacter(screen, inp, font, stats);
-	inv = new MenuInventory(screen, inp, font, items, stats, powers);
-	pow = new MenuPowers(screen, inp, font, stats, powers);
-	log = new MenuLog(screen, inp, font);
-	hudlog = new MenuHUDLog(screen, font);
-	act = new MenuActionBar(screen, font, inp, powers, stats, icons);
-	hpmp = new MenuHPMP(screen, font);
-	tip = new WidgetTooltip(font, screen);
-	mini = new MenuMiniMap(screen);
-	xp = new MenuExperience(screen, font);
-	enemy = new MenuEnemy(screen, font);
-	vendor = new MenuVendor(screen, inp, font, items, stats);
-	talker = new MenuTalker(screen, inp, font, camp);
-	exit = new MenuExit(screen, inp, font);
+	chr = new MenuCharacter(stats);
+	inv = new MenuInventory(items, stats, powers);
+	pow = new MenuPowers(stats, powers);
+	log = new MenuLog();
+	hudlog = new MenuHUDLog();
+	act = new MenuActionBar(powers, stats, icons);
+	hpmp = new MenuHPMP();
+	tip = new WidgetTooltip();
+	mini = new MenuMiniMap();
+	xp = new MenuExperience();
+	enemy = new MenuEnemy();
+	vendor = new MenuVendor(items, stats);
+	talker = new MenuTalker(camp);
+	exit = new MenuExit();
 
 	pause = false;
 	dragging = false;

@@ -37,7 +37,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "ItemManager.h"
 #include "GameState.h"
 #include "MenuConfirm.h"
-#include "MessageEngine.h"
+#include "SharedResources.h"
 
 #include <SDL.h>
 #include <SDL_image.h>
@@ -92,7 +92,7 @@ private:
 	int frame_ticker;
 	
 public:
-	GameStateLoad(SDL_Surface *_screen, InputState *_inp, FontEngine *_font);
+	GameStateLoad();
 	~GameStateLoad();
 
 	void logic();

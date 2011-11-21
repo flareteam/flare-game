@@ -20,23 +20,20 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "MenuTalker.h"
-#include "ModManager.h"
+#include "SharedResources.h"
 
-MenuTalker::MenuTalker(SDL_Surface *_screen, InputState *_inp , FontEngine *_font, CampaignManager *_camp) {
-	screen = _screen;
-	font = _font;
-	inp = _inp;
+MenuTalker::MenuTalker(CampaignManager *_camp) {
 	camp = _camp;
 	npc = NULL;
 	background = NULL;
 	portrait = NULL;
 
 
-	advanceButton = new WidgetButton(screen, font, inp, mods->locate("images/menus/buttons/right.png"));
+	advanceButton = new WidgetButton(mods->locate("images/menus/buttons/right.png"));
 	advanceButton->pos.x = VIEW_W_HALF + 288;
 	advanceButton->pos.y = VIEW_H_HALF + 112;
 
-	closeButton = new WidgetButton(screen, font, inp, mods->locate("images/menus/buttons/button_x.png"));
+	closeButton = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
 	closeButton->pos.x = VIEW_W_HALF + 288;
 	closeButton->pos.y = VIEW_H_HALF + 112;
 	

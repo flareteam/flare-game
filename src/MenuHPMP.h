@@ -35,8 +35,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 class MenuHPMP {
 private:
-	SDL_Surface *screen;
-	FontEngine *font;
 	SDL_Surface *background;
 	SDL_Surface *bar_hp;
 	SDL_Surface *bar_mp;
@@ -44,7 +42,7 @@ private:
 	WidgetLabel *mphover;
 	
 public:
-	MenuHPMP(SDL_Surface *_screen, FontEngine *_font);
+	MenuHPMP();
 	~MenuHPMP();
 	void loadGraphics();
 	void render(StatBlock *stats, Point mouse);

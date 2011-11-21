@@ -30,7 +30,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "StatBlock.h"
 #include "WidgetButton.h"
 #include "NPC.h"
-#include "MessageEngine.h"
+#include "SharedResources.h"
 
 #include <SDL.h>
 #include <SDL_image.h>
@@ -42,11 +42,8 @@ const int VENDOR_SLOTS = 80;
 
 class MenuVendor {
 private:
-	SDL_Surface *screen;
 	ItemManager *items;
-	FontEngine *font;
 	StatBlock *stats;
-	InputState *inp;
 	WidgetButton *closeButton;
 
 	void loadGraphics();
@@ -54,7 +51,7 @@ private:
 	MenuItemStorage stock; // items the vendor currently has in stock
 
 public:
-	MenuVendor(SDL_Surface *screen, InputState *_inp, FontEngine *font, ItemManager *items, StatBlock *stats);
+	MenuVendor(ItemManager *items, StatBlock *stats);
 	~MenuVendor();
 
 	NPC *npc;

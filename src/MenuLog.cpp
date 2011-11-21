@@ -20,13 +20,10 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "MenuLog.h"
-#include "ModManager.h"
+#include "SharedResources.h"
 #include "WidgetLabel.h"
 
-MenuLog::MenuLog(SDL_Surface *_screen, InputState *_inp, FontEngine *_font) {
-	screen = _screen;
-	inp = _inp;
-	font = _font;
+MenuLog::MenuLog() {
 
 	visible = false;
 	
@@ -72,7 +69,7 @@ MenuLog::MenuLog(SDL_Surface *_screen, InputState *_inp, FontEngine *_font) {
 	
 	loadGraphics();
 
-	closeButton = new WidgetButton(screen, font, inp, mods->locate("images/menus/buttons/button_x.png"));
+	closeButton = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
 	closeButton->pos.x = 294;
 	closeButton->pos.y = (VIEW_H - 480)/2 + 34;
 	
@@ -135,7 +132,7 @@ void MenuLog::render() {
 	closeButton->render();
 	
 	// text overlay
-	WidgetLabel label(screen, font);
+	WidgetLabel label;
 	label.set(menu_area.x+160, menu_area.y+8, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Log"), FONT_WHITE);
 	label.render();
 
@@ -206,7 +203,7 @@ void MenuLog::renderTab(int log_type) {
 	if (i == active_log) tab_label_color = FONT_WHITE;
 	else tab_label_color = FONT_GREY;
 		
-	WidgetLabel label(screen, font);
+	WidgetLabel label;
 	label.set(tab_rect[i].x + tab_padding.x, tab_rect[i].y + tab_padding.y, JUSTIFY_LEFT, VALIGN_TOP, tab_labels[i], tab_label_color);
 	label.render();
 }

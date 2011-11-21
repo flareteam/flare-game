@@ -34,7 +34,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "ItemManager.h"
 #include "WidgetTooltip.h"
 #include "EnemyManager.h"
-#include "MessageEngine.h"
+#include "SharedResources.h"
 
 struct LootDef {
 	ItemStack stack;

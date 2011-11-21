@@ -20,7 +20,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "EnemyManager.h"
-#include "ModManager.h"
+#include "SharedResources.h"
 
 EnemyManager::EnemyManager(PowerManager *_powers, MapIso *_map) {
 	powers = _powers;

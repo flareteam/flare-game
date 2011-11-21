@@ -46,7 +46,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "MenuTalker.h"
 #include "MenuExit.h"
 #include "CampaignManager.h"
-#include "MessageEngine.h"
+#include "SharedResources.h"
 
 const int DRAG_SRC_POWERS = 1;
 const int DRAG_SRC_INVENTORY = 2;
@@ -60,9 +60,6 @@ private:
 
 	PowerManager *powers;
 	StatBlock *stats;
-	InputState *inp;
-	FontEngine *font;
-	SDL_Surface *screen;
 	CampaignManager *camp;
 
 	bool key_lock;
@@ -77,7 +74,7 @@ private:
 	bool done;
 	
 public:
-	MenuManager(PowerManager *powers, SDL_Surface *screen, InputState *inp, FontEngine *font, StatBlock *stats, CampaignManager *camp);
+	MenuManager(PowerManager *powers, StatBlock *stats, CampaignManager *camp);
 	~MenuManager();
 	void logic();
 	void render();

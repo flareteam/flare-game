@@ -20,7 +20,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "MenuPowers.h"
-#include "ModManager.h"
+#include "SharedResources.h"
 #include "WidgetLabel.h"
 
 #include <string>
@@ -29,10 +29,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 using namespace std;
 
 
-MenuPowers::MenuPowers(SDL_Surface *_screen, InputState *_inp, FontEngine *_font, StatBlock *_stats, PowerManager *_powers) {
-	screen = _screen;
-	inp = _inp;
-	font = _font;
+MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers) {
 	stats = _stats;
 	powers = _powers;
 
@@ -49,7 +46,7 @@ MenuPowers::MenuPowers(SDL_Surface *_screen, InputState *_inp, FontEngine *_font
 		slots[i].y = offset_y + 80 + (i / 4) * 64;
 	}
 
-	closeButton = new WidgetButton(screen, font, inp, mods->locate("images/menus/buttons/button_x.png"));
+	closeButton = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
 	closeButton->pos.x = VIEW_W - 26;
 	closeButton->pos.y = (VIEW_H - 480)/2 + 34;
 }
@@ -146,7 +143,7 @@ void MenuPowers::render() {
 	closeButton->render();
 	
 	// text overlay
-        WidgetLabel label(screen, font);
+        WidgetLabel label;
         label.set(offset_x+160, offset_y+8, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Powers"), FONT_WHITE);
         label.render();
         label.set(offset_x+64, offset_y+50, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Physical"), FONT_WHITE);

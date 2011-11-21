@@ -37,9 +37,6 @@ const int BUTTON_GFX_DISABLED = 3;
 
 class WidgetButton {
 private:
-	SDL_Surface *screen;
-	FontEngine *font;
-	InputState *inp;
 
 	std::string fileName; // the path to the buttons background image
 
@@ -47,7 +44,7 @@ private:
 	Mix_Chunk *click;
 	
 public:
-	WidgetButton(SDL_Surface *_screen, FontEngine *_font, InputState *_inp, const std::string& _fileName);
+	WidgetButton(const std::string& _fileName);
 	~WidgetButton();
 
 	void loadArt();

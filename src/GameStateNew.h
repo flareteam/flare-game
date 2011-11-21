@@ -33,7 +33,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "Settings.h"
 #include "GameState.h"
 #include "UtilsParsing.h"
-#include "MessageEngine.h"
+#include "SharedResources.h"
 
 #include <SDL.h>
 #include <SDL_image.h>
@@ -72,7 +72,7 @@ private:
 	WidgetInput *input_name;
 
 public:
-	GameStateNew(SDL_Surface *_screen, InputState *_inp, FontEngine *_font);
+	GameStateNew();
 	~GameStateNew();
 	void logic();
 	void render();

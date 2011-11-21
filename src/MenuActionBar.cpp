@@ -22,17 +22,14 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
  
 #include "MenuActionBar.h"
-#include "ModManager.h"
+#include "SharedResources.h"
 #include "WidgetLabel.h"
 
 #include <string>
 #include <sstream>
 
 
-MenuActionBar::MenuActionBar(SDL_Surface *_screen, FontEngine *_font, InputState *_inp, PowerManager *_powers, StatBlock *_hero, SDL_Surface *_icons) {
-	screen = _screen;
-	font = _font;
-	inp = _inp;
+MenuActionBar::MenuActionBar(PowerManager *_powers, StatBlock *_hero, SDL_Surface *_icons) {
 	powers = _powers;
 	hero = _hero;
 	icons = _icons;
@@ -245,7 +242,7 @@ void MenuActionBar::renderItemCounts() {
 			ss.str("");
 			ss << slot_item_count[i];
 	
-			WidgetLabel label(screen, font);
+			WidgetLabel label;
 			label.set(slots[i].x, slots[i].y, JUSTIFY_LEFT, VALIGN_TOP, ss.str(), FONT_WHITE);
 			label.render();
 		}

@@ -25,7 +25,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "UtilsParsing.h"
 #include "StatBlock.h"
 #include "WidgetTooltip.h"
-#include "MessageEngine.h"
+#include "SharedResources.h"
 
 #include <SDL.h>
 #include <SDL_image.h>
@@ -140,16 +140,14 @@ struct ItemStack {
 
 class ItemManager {
 private:
-	SDL_Surface *screen;
 	SDL_Surface *icons32;
 	SDL_Surface *icons64; // item db is the only module that currently uses the 64px icons
-	FontEngine *font;
 	SDL_Rect src;
 	SDL_Rect dest;
 	Mix_Chunk *sfx[12];
 
 public:
-	ItemManager(SDL_Surface *_screen, FontEngine *_font);
+	ItemManager();
 	~ItemManager();
 	void load(string filename);
 	void loadAll();

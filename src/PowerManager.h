@@ -28,7 +28,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "StatBlock.h"
 #include "Hazard.h"
 #include "MapCollision.h"
-#include "MessageEngine.h"
+#include "SharedResources.h"
 
 #include <SDL.h>
 #include <SDL_image.h>

@@ -30,14 +30,11 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 class Menu {
 protected:
-	SDL_Surface *screen;
-	InputState *inp;
-	FontEngine *font;
 
 	SDL_Surface *background;
 
 public:
-	Menu(SDL_Surface*, InputState*, FontEngine*);
+	Menu();
 	virtual ~Menu();
 
 	bool visible;

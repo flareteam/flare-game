@@ -22,16 +22,14 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "MenuEnemy.h"
-#include "ModManager.h"
+#include "SharedResources.h"
 #include "WidgetLabel.h"
 
 #include <string>
 #include <sstream>
 
 
-MenuEnemy::MenuEnemy(SDL_Surface *_screen, FontEngine *_font) {
-	screen = _screen;
-	font = _font;
+MenuEnemy::MenuEnemy() {
 	loadGraphics();
 	enemy = NULL;
 	timeout = 0;
@@ -107,7 +105,7 @@ void MenuEnemy::render() {
 	else
 		ss << msg->get("Dead");
 
-	WidgetLabel label(screen, font);
+	WidgetLabel label;
 
 	label.set(VIEW_W_HALF, 9, JUSTIFY_CENTER, VALIGN_CENTER, msg->get("%s level %d", enemy->stats.level, enemy->stats.name), FONT_WHITE);
 	label.render();

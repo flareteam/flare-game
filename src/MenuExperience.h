@@ -38,12 +38,10 @@ using namespace std;
 
 class MenuExperience {
 private:
-	SDL_Surface *screen;
-	FontEngine *font;
 	SDL_Surface *background;
 	SDL_Surface *bar;
 public:
-	MenuExperience(SDL_Surface *_screen, FontEngine *_font);
+	MenuExperience();
 	~MenuExperience();
 	void loadGraphics();
 	void render(StatBlock *stats, Point mouse);

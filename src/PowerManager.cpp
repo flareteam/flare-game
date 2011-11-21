@@ -21,7 +21,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "PowerManager.h"
 #include "FileParser.h"
-#include "ModManager.h"
+#include "SharedResources.h"
 #include "UtilsFileSystem.h"
 
 using namespace std;

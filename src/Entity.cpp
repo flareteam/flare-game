@@ -24,7 +24,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "Entity.h"
 #include "FileParser.h"
-#include "ModManager.h"
+#include "SharedResources.h"
 
 Entity::Entity(MapIso* _map) : sprites(NULL), activeAnimation(NULL), map(_map) {
 }

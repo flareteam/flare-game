@@ -23,7 +23,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  
 #include "TileSet.h"
 #include "UtilsParsing.h"
-#include "ModManager.h"
+#include "SharedResources.h"
 
 TileSet::TileSet() {
 	sprites = NULL;

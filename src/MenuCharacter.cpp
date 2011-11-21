@@ -20,12 +20,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "MenuCharacter.h"
-#include "ModManager.h"
+#include "SharedResources.h"
 
-MenuCharacter::MenuCharacter(SDL_Surface *_screen, InputState *_inp, FontEngine *_font, StatBlock *_stats) {
-	screen = _screen;
-	inp = _inp;
-	font = _font;
+MenuCharacter::MenuCharacter(StatBlock *_stats) {
 	stats = _stats;
 	
 	visible = false;
@@ -36,17 +33,17 @@ MenuCharacter::MenuCharacter(SDL_Surface *_screen, InputState *_inp, FontEngine 
 	int offset_y = (VIEW_H - 416)/2;
 	
 	// button setup
-	closeButton = new WidgetButton(screen, font, inp, mods->locate("images/menus/buttons/button_x.png"));
+	closeButton = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
 	closeButton->pos.x = 294;
 	closeButton->pos.y = offset_y + 2;
 
 	// menu title
-	labelCharacter = new WidgetLabel(screen, font);
+	labelCharacter = new WidgetLabel();
 	labelCharacter->set(160, offset_y+16, JUSTIFY_CENTER, VALIGN_CENTER, msg->get("Character"), FONT_WHITE);
 	
 	for (int i=0; i<CSTAT_COUNT; i++) {
-		cstat[i].label = new WidgetLabel(screen, font);
-		cstat[i].value = new WidgetLabel(screen, font);
+		cstat[i].label = new WidgetLabel();
+		cstat[i].value = new WidgetLabel();
 		cstat[i].hover.x = cstat[i].hover.y = 0;
 		cstat[i].hover.w = cstat[i].hover.h = 0;
 	}

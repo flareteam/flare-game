@@ -17,9 +17,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "GameStateLoad.h"
 #include "GameStateTitle.h"
-#include "ModManager.h"
+#include "SharedResources.h"
 
-GameStateTitle::GameStateTitle(SDL_Surface *_screen, InputState *_inp, FontEngine *_font) : GameState(_screen, _inp, _font) {
+GameStateTitle::GameStateTitle() : GameState() {
 
 	exit_game = false;
 	load_game = false;
@@ -27,8 +27,8 @@ GameStateTitle::GameStateTitle(SDL_Surface *_screen, InputState *_inp, FontEngin
 	loadGraphics();
 	
 	// set up buttons
-	button_play = new WidgetButton(screen, font, inp, mods->locate("images/menus/buttons/button_default.png"));
-	button_exit = new WidgetButton(screen, font, inp, mods->locate("images/menus/buttons/button_default.png"));
+	button_play = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
+	button_exit = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
 	
 	button_play->label = msg->get("Play Game");
 	button_play->pos.x = VIEW_W_HALF - button_play->pos.w/2;
@@ -39,7 +39,7 @@ GameStateTitle::GameStateTitle(SDL_Surface *_screen, InputState *_inp, FontEngin
 	button_exit->pos.y = VIEW_H - button_exit->pos.h;
 	
 	// set up labels
-	label_version = new WidgetLabel(screen, font);
+	label_version = new WidgetLabel();
 	label_version->set(VIEW_W, 0, JUSTIFY_RIGHT, VALIGN_TOP, msg->get("Flare Alpha v0.14.1"), FONT_WHITE);
 }
 
@@ -61,7 +61,7 @@ void GameStateTitle::loadGraphics() {
 void GameStateTitle::logic() {
 
 	if (button_play->checkClick()) {
-		requestedGameState = new GameStateLoad(screen, inp, font);
+		requestedGameState = new GameStateLoad();
 	}
 	
 	if (button_exit->checkClick()) {

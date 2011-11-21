@@ -31,7 +31,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "WidgetTooltip.h"
 #include "InputState.h"
 #include "WidgetButton.h"
-#include "MessageEngine.h"
+#include "SharedResources.h"
 #include "WidgetLabel.h"
 #include <string>
 #include <sstream>
@@ -104,9 +104,6 @@ struct CharProf {
 
 class MenuCharacter {
 private:
-	SDL_Surface *screen;
-	InputState *inp;
-	FontEngine *font;
 	StatBlock *stats;
 
 	SDL_Surface *background;
@@ -122,7 +119,7 @@ private:
 	int bonusColor(int stat);
 	
 public:
-	MenuCharacter(SDL_Surface *screen, InputState *inp, FontEngine *font, StatBlock *stats);
+	MenuCharacter(StatBlock *stats);
 	~MenuCharacter();
 	void logic();
 	void render();

@@ -21,9 +21,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 
 #include "MenuMiniMap.h"
+#include "SharedResources.h"
 
-MenuMiniMap::MenuMiniMap(SDL_Surface *_screen) {
-	screen = _screen;
+MenuMiniMap::MenuMiniMap() {
 	
 	color_wall = SDL_MapRGB(screen->format, 128,128,128);
 	color_obst = SDL_MapRGB(screen->format, 64,64,64);

@@ -21,10 +21,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "MenuItemStorage.h"
 
-void MenuItemStorage::init(int _slot_number, ItemManager *_items, SDL_Surface *_screen, FontEngine *_font, SDL_Rect _area, int _icon_size, int _nb_cols) {
+void MenuItemStorage::init(int _slot_number, ItemManager *_items, SDL_Rect _area, int _icon_size, int _nb_cols) {
 	ItemStorage::init( _slot_number, _items);
-	screen = _screen;
-	font = _font;
 	area = _area;
 	icon_size = _icon_size;
 	nb_cols = _nb_cols;

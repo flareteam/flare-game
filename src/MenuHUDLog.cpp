@@ -20,12 +20,11 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "MenuHUDLog.h"
+#include "SharedResources.h"
 
 using namespace std;
 
-MenuHUDLog::MenuHUDLog(SDL_Surface *_screen, FontEngine *_font) {
-	screen = _screen;
-	font = _font;
+MenuHUDLog::MenuHUDLog() {
 	
 	log_count = 0;
 	list_area.x = 224;

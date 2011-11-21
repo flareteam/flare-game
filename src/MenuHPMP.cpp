@@ -22,7 +22,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "MenuHPMP.h"
-#include "ModManager.h"
+#include "SharedResources.h"
 
 #include <string>
 #include <sstream>
@@ -31,12 +31,10 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 using namespace std;
 
 
-MenuHPMP::MenuHPMP(SDL_Surface *_screen, FontEngine *_font) {
-	screen = _screen;
-	font = _font;
+MenuHPMP::MenuHPMP() {
 	
-	hphover = new WidgetLabel(screen, font);
-	mphover = new WidgetLabel(screen, font);
+	hphover = new WidgetLabel();
+	mphover = new WidgetLabel();
 	hphover->set(53, 9, JUSTIFY_CENTER, VALIGN_CENTER, "", FONT_WHITE);
 	mphover->set(53, 24, JUSTIFY_CENTER, VALIGN_CENTER, "", FONT_WHITE);
 

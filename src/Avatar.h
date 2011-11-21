@@ -31,7 +31,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "StatBlock.h"
 #include "Hazard.h"
 #include "PowerManager.h"
-#include "MessageEngine.h"
+#include "SharedResources.h"
 #include "MenuManager.h"
 
 #include <SDL.h>
@@ -57,7 +57,6 @@ class Avatar : public Entity {
 private:
 	
 	PowerManager *powers;
-	InputState *inp;
 
 	bool lockSwing;
 	bool lockCast;
@@ -76,7 +75,7 @@ private:
 	string img_off;
 
 public:
-	Avatar(PowerManager *_powers, InputState *_inp, MapIso *_map);
+	Avatar(PowerManager *_powers, MapIso *_map);
 	~Avatar();
 	
 	void init();

@@ -29,7 +29,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "UtilsParsing.h"
 #include "MenuItemStorage.h"
 #include "ItemManager.h"
-#include "MessageEngine.h"
 
 const int MAX_STATUS = 1024;
 

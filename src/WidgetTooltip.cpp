@@ -20,10 +20,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "WidgetTooltip.h"
+#include "SharedResources.h"
 
-WidgetTooltip::WidgetTooltip(FontEngine *_font, SDL_Surface *_screen) {
-	font = _font;
-	screen = _screen;
+WidgetTooltip::WidgetTooltip() {
 	offset=12;
 	width=160;
 	margin=4;

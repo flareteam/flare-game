@@ -29,16 +29,13 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "WidgetTooltip.h"
 #include "PowerManager.h"
 #include "WidgetButton.h"
-#include "MessageEngine.h"
+#include "SharedResources.h"
 
 #include <SDL.h>
 #include <SDL_image.h>
 
 class MenuPowers {
 private:
-	SDL_Surface *screen;
-	InputState *inp;
-	FontEngine *font;
 	StatBlock *stats;
 	PowerManager *powers;
 
@@ -51,7 +48,7 @@ private:
 	void displayBuild(int value, int x);
 
 public:
-	MenuPowers(SDL_Surface *_screen, InputState *_inp, FontEngine *_font, StatBlock *_stats, PowerManager *_powers);
+	MenuPowers(StatBlock *_stats, PowerManager *_powers);
 	~MenuPowers();
 	void logic();
 	void render();

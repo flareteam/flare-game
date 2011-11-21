@@ -39,8 +39,6 @@ private:
 
 	int calcDuration(const std::string& s);
 
-	SDL_Surface *screen;
-	FontEngine *font;
 	string log_msg[MAX_HUD_MESSAGES];
 	int msg_age[MAX_HUD_MESSAGES];
 	int log_count;
@@ -48,7 +46,7 @@ private:
 	
 public:
 
-	MenuHUDLog(SDL_Surface *screen, FontEngine *font);
+	MenuHUDLog();
 	~MenuHUDLog();
 	void logic();
 	void render();

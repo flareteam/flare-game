@@ -23,33 +23,33 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "GameStatePlay.h"
 #include "GameStateNew.h"
 #include "MenuConfirm.h"
-#include "ModManager.h"
+#include "SharedResources.h"
 #include "WidgetLabel.h"
 
-GameStateLoad::GameStateLoad(SDL_Surface *_screen, InputState *_inp, FontEngine *_font) : GameState(_screen, _inp, _font) {
-	items = new ItemManager(screen, font);
+GameStateLoad::GameStateLoad() : GameState() {
+	items = new ItemManager();
 	portrait = NULL;
 	loading_requested = false;
 	loading = false;
 	loaded = false;
 	
-	label_loading = new WidgetLabel(screen, font);
-	label_slots = new WidgetLabel(screen, font);
+	label_loading = new WidgetLabel();
+	label_slots = new WidgetLabel();
 
 	// Confirmation box to confirm deleting
-	confirm = new MenuConfirm(screen, inp, font, msg->get("Delete Save"), msg->get("Delete this save?"));
-	button_exit = new WidgetButton(screen, font, inp, mods->locate("images/menus/buttons/button_default.png"));
+	confirm = new MenuConfirm(msg->get("Delete Save"), msg->get("Delete this save?"));
+	button_exit = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
 	button_exit->label = msg->get("Exit to Title");
 	button_exit->pos.x = VIEW_W_HALF - button_exit->pos.w/2;
 	button_exit->pos.y = VIEW_H - button_exit->pos.h;	
 	
-	button_action = new WidgetButton(screen, font, inp, mods->locate("images/menus/buttons/button_default.png"));
+	button_action = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
 	button_action->label = msg->get("Choose a Slot");
 	button_action->enabled = false;
 	button_action->pos.x = (VIEW_W - 640)/2 + 480 - button_action->pos.w/2;
 	button_action->pos.y = (VIEW_H - 480)/2 + 384;
 	
-	button_alternate = new WidgetButton(screen, font, inp, mods->locate("images/menus/buttons/button_default.png"));
+	button_alternate = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
 	button_alternate->label = msg->get("Delete Save");
 	button_alternate->enabled = false;
 	button_alternate->pos.x = (VIEW_W - 640)/2 + 480 - button_alternate->pos.w/2;
@@ -271,7 +271,7 @@ void GameStateLoad::logic() {
 		current_frame = (63 - frame_ticker) / 8;
 
 	if (button_exit->checkClick()) {
-		requestedGameState = new GameStateTitle(screen, inp, font);
+		requestedGameState = new GameStateTitle();
 	}
 	
 	if(loading_requested) {
@@ -283,7 +283,7 @@ void GameStateLoad::logic() {
 	if (button_action->checkClick()) {
 		if (stats[selected_slot].name == "") {
 			// create a new game
-			GameStateNew* newgame = new GameStateNew(screen, inp, font);
+			GameStateNew* newgame = new GameStateNew();
 			newgame->game_slot = selected_slot + 1;
 			requestedGameState = newgame;
 		}
@@ -338,7 +338,7 @@ void GameStateLoad::logic() {
 
 void GameStateLoad::logicLoading() {
 	// load an existing game
-	GameStatePlay* play = new GameStatePlay(screen, inp, font);
+	GameStatePlay* play = new GameStatePlay();
 	play->resetGame();
 	play->game_slot = selected_slot + 1;
 	play->loadGame();

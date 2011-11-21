@@ -26,15 +26,12 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "GameState.h"
 #include "GameStateTitle.h"
 #include "WidgetLabel.h"
+#include "SharedResources.h"
 
-GameStatePlay::GameStatePlay(SDL_Surface *_screen, InputState *_inp, FontEngine *_font) : GameState(screen, inp, font) {
+GameStatePlay::GameStatePlay() : GameState() {
 
 	hasMusic = true;
 	//Mix_HaltMusic(); // maybe not needed? playing new music should auto halt previous music
-
-	// shared resources from GameSwitcher
-	screen = _screen;
-	inp = _inp;
 	
 	// GameEngine scope variables
 	npc_id = -1;
@@ -42,13 +39,12 @@ GameStatePlay::GameStatePlay(SDL_Surface *_screen, InputState *_inp, FontEngine 
 
 	// construct gameplay objects
 	powers = new PowerManager();
-	font = _font;
 	camp = new CampaignManager();
-	map = new MapIso(_screen, camp, _inp, font);
-	pc = new Avatar(powers, _inp, map);
+	map = new MapIso(camp);
+	pc = new Avatar(powers, map);
 	enemies = new EnemyManager(powers, map);
 	hazards = new HazardManager(powers, pc, enemies);
-	menu = new MenuManager(powers, _screen, _inp, font, &pc->stats, camp);
+	menu = new MenuManager(powers, &pc->stats, camp);
 	loot = new LootManager(menu->items, menu->tip, enemies, map);
 	npcs = new NPCManager(map, menu->tip, loot, menu->items);
 	quests = new QuestLog(camp, menu->log);
@@ -61,9 +57,9 @@ GameStatePlay::GameStatePlay(SDL_Surface *_screen, InputState *_inp, FontEngine 
 	map->powers = powers;
 
 	// display the name of the map in the upper-right hand corner
-	label_mapname = new WidgetLabel(screen, font);
+	label_mapname = new WidgetLabel();
 
-	label_fps = new WidgetLabel(screen, font);
+	label_fps = new WidgetLabel();
 }
 
 /**
@@ -207,7 +203,7 @@ void GameStatePlay::checkCancel() {
 	if (menu->requestingExit()) {
 		saveGame();
 		Mix_HaltMusic();
-		requestedGameState = new GameStateTitle(screen, inp, font);
+		requestedGameState = new GameStateTitle();
 	}
 
 	// if user closes the window

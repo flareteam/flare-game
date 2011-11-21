@@ -24,7 +24,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "QuestLog.h"
 #include <fstream>
 #include "FileParser.h"
-#include "ModManager.h"
+#include "SharedResources.h"
 #include "UtilsFileSystem.h"
 
 QuestLog::QuestLog(CampaignManager *_camp, MenuLog *_log) {

@@ -36,9 +36,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 class MenuTalker {
 private:
-	SDL_Surface *screen;
-	InputState *inp;
-	FontEngine *font;
 	CampaignManager *camp;
 
 	void loadGraphics();
@@ -49,7 +46,7 @@ private:
 	int dialog_node;
 
 public:
-	MenuTalker(SDL_Surface *screen, InputState *inp, FontEngine *font, CampaignManager *camp);
+	MenuTalker(CampaignManager *camp);
 	~MenuTalker();
 
 	NPC *npc;

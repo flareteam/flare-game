@@ -27,7 +27,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "StatBlock.h"
 #include "Utils.h"
 #include "FontEngine.h"
-#include "MessageEngine.h"
+#include "SharedResources.h"
 #include "Enemy.h"
 
 #include <SDL.h>
@@ -37,12 +37,10 @@ const int MENU_ENEMY_TIMEOUT = FRAMES_PER_SEC * 10;
 
 class MenuEnemy {
 private:
-	SDL_Surface *screen;
-	FontEngine *font;
 	SDL_Surface *background;
 	SDL_Surface *bar_hp;
 public:
-	MenuEnemy(SDL_Surface *_screen, FontEngine *_font);
+	MenuEnemy();
 	~MenuEnemy();
 	Enemy *enemy;
 	void loadGraphics();

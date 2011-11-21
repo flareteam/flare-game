@@ -20,16 +20,13 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "MenuVendor.h"
-#include "ModManager.h"
+#include "SharedResources.h"
 #include "WidgetLabel.h"
 
 using namespace std;
 
 
-MenuVendor::MenuVendor(SDL_Surface *_screen, InputState *_inp, FontEngine *_font, ItemManager *_items, StatBlock *_stats) {
-	screen = _screen;
-	inp = _inp;
-	font = _font;
+MenuVendor::MenuVendor(ItemManager *_items, StatBlock *_stats) {
 	items = _items;
 	stats = _stats;
 
@@ -40,12 +37,12 @@ MenuVendor::MenuVendor(SDL_Surface *_screen, InputState *_inp, FontEngine *_font
 	slots_area.w = 256;
 	slots_area.h = 320;
 
-	stock.init( VENDOR_SLOTS, items, screen, font, slots_area, ICON_SIZE_32, 8);
+	stock.init( VENDOR_SLOTS, items, slots_area, ICON_SIZE_32, 8);
 
 	visible = false;
 	loadGraphics();
 
-	closeButton = new WidgetButton(screen, font, inp, mods->locate("images/menus/buttons/button_x.png"));
+	closeButton = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
 	closeButton->pos.x = 294;
 	closeButton->pos.y = (VIEW_H - 480)/2 + 34;
 
@@ -96,7 +93,7 @@ void MenuVendor::render() {
 	closeButton->render();
 
 	// text overlay
-	WidgetLabel label(screen, font);
+	WidgetLabel label;
 	label.set(160, offset_y+8, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Vendor"), FONT_WHITE);
 	label.render();
 	label.set(160, offset_y+24, JUSTIFY_CENTER, VALIGN_TOP, npc->name, FONT_WHITE);

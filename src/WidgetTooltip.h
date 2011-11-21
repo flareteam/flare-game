@@ -52,13 +52,11 @@ struct TooltipData {
 
 class WidgetTooltip {
 private:
-	FontEngine *font;
-	SDL_Surface *screen;
 	int offset;
 	int width;
 	int margin;
 public:
-	WidgetTooltip(FontEngine *_font, SDL_Surface *_screen);
+	WidgetTooltip();
 	void calcPosition(int style, Point pos, Point size, Sint16 &bgx, Sint16 &bgy, int &curx, int &cury);
 	void render(TooltipData tip, Point pos, int style);
 };

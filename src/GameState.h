@@ -21,13 +21,10 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_mixer.h>
-#include "InputState.h"
-#include "FontEngine.h"
-#include "MessageEngine.h"
 
 class GameState {
 public:
-	GameState(SDL_Surface *_screen, InputState *_inp, FontEngine *_font);
+	GameState();
 
 	virtual void logic();
 	virtual void render();
@@ -37,9 +34,6 @@ public:
 	bool hasMusic;
 
 protected:
-	SDL_Surface *screen;
-	InputState *inp;
-	FontEngine *font;
 
 	GameState* requestedGameState;	
 

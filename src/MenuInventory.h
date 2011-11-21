@@ -31,7 +31,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "PowerManager.h"
 #include "MenuItemStorage.h"
 #include "WidgetButton.h"
-#include "MessageEngine.h"
+#include "SharedResources.h"
 
 #include <SDL.h>
 #include <SDL_image.h>
@@ -54,10 +54,7 @@ enum InventorySlotsType {
 
 class MenuInventory {
 private:
-	SDL_Surface *screen;
-	InputState *inp;
 	ItemManager *items;
-	FontEngine *font;
 	StatBlock *stats;
 	PowerManager *powers;
 
@@ -69,7 +66,7 @@ private:
 	WidgetButton *closeButton;
 	
 public:
-	MenuInventory(SDL_Surface *screen, InputState *inp, FontEngine *font, ItemManager *items, StatBlock *stats, PowerManager *powers);
+	MenuInventory(ItemManager *items, StatBlock *stats, PowerManager *powers);
 	~MenuInventory();
 	void logic();
 	void render();

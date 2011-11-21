@@ -21,13 +21,11 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "ItemManager.h"
 #include "FileParser.h"
-#include "ModManager.h"
+#include "SharedResources.h"
 #include "UtilsFileSystem.h"
 #include "WidgetLabel.h"
 
-ItemManager::ItemManager(SDL_Surface *_screen, FontEngine *_font) {
-	screen = _screen;
-	font = _font;
+ItemManager::ItemManager() {
 	
 	items = new Item[MAX_ITEM_ID];
 	
@@ -270,7 +268,7 @@ void ItemManager::renderIcon(ItemStack stack, int x, int y, int size) {
 		stringstream ss;
 		ss << stack.quantity;
 
-		WidgetLabel label(screen, font);
+		WidgetLabel label;
 		label.set(dest.x + 2, dest.y + 2, JUSTIFY_LEFT, VALIGN_TOP, ss.str(), FONT_WHITE);
 		label.render();
 	}

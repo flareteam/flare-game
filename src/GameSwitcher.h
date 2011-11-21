@@ -37,7 +37,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "Settings.h"
 #include "InputState.h"
 #include "FontEngine.h"
-#include "MessageEngine.h"
 
 const int GAME_STATE_TITLE = 0;
 const int GAME_STATE_PLAY = 1;
@@ -48,15 +47,12 @@ class GameState;
 
 class GameSwitcher {
 private:
-	SDL_Surface *screen;
-	InputState *inp;
-	FontEngine *font;
 	Mix_Music *music;
 	
 	GameState *currentState;
 	
 public:
-	GameSwitcher(SDL_Surface *_screen, InputState *_inp);
+	GameSwitcher();
 	void loadMusic();
 	void logic();
 	void render();

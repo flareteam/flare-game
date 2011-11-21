@@ -107,6 +107,7 @@ Set (FLARE_SOURCES
 	./src/QuestLog.cpp
 	./src/SaveLoad.cpp
 	./src/Settings.cpp
+	./src/SharedResources.cpp
 	./src/StatBlock.cpp
 	./src/TileSet.cpp
 	./src/Utils.cpp

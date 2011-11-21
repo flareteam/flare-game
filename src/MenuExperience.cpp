@@ -22,7 +22,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "MenuExperience.h"
-#include "ModManager.h"
+#include "SharedResources.h"
 #include "WidgetLabel.h"
 
 #include <SDL_mixer.h>
@@ -30,9 +30,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <sstream>
 
 
-MenuExperience::MenuExperience(SDL_Surface *_screen, FontEngine *_font) {
-	screen = _screen;
-	font = _font;
+MenuExperience::MenuExperience() {
 	loadGraphics();
 	
 	
@@ -124,7 +122,7 @@ void MenuExperience::render(StatBlock *stats, Point mouse) {
 			ss << text_label << stats->xp;
 		}
 
-		WidgetLabel label(screen, font);
+		WidgetLabel label;
 		label.set(hud_position.x + text_offset.x, hud_position.y + text_offset.y, text_justify, VALIGN_TOP, ss.str(), FONT_WHITE);
 		label.render();
 	}

@@ -25,41 +25,41 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "GameStateNew.h"
 #include "GameStateLoad.h"
 #include "GameStatePlay.h"
-#include "ModManager.h"
+#include "SharedResources.h"
 #include "WidgetLabel.h"
 
-GameStateNew::GameStateNew(SDL_Surface *_screen, InputState *_inp, FontEngine *_font) : GameState(_screen, _inp, _font) {
+GameStateNew::GameStateNew() : GameState() {
 	game_slot = 0;
 	option_count = 0;
 	current_option = 0;
 	portrait_image = NULL;
 	
 	// set up buttons
-	button_exit = new WidgetButton(screen, font, inp, mods->locate("images/menus/buttons/button_default.png"));
+	button_exit = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
 	button_exit->label = msg->get("Cancel");
 	button_exit->pos.x = VIEW_W_HALF - button_exit->pos.w/2;
 	button_exit->pos.y = VIEW_H - button_exit->pos.h;
 	
-	button_create = new WidgetButton(screen, font, inp, mods->locate("images/menus/buttons/button_default.png"));
+	button_create = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
 	button_create->label = msg->get("Create Character");
 	button_create->pos.x = VIEW_W_HALF + button_create->pos.w/2;
 	button_create->pos.y = VIEW_H - button_create->pos.h;
 
-	button_prev = new WidgetButton(screen, font, inp, mods->locate("images/menus/buttons/left.png"));
+	button_prev = new WidgetButton(mods->locate("images/menus/buttons/left.png"));
 	button_prev->pos.x = VIEW_W_HALF - 160 - button_prev->pos.w;
 	button_prev->pos.y = VIEW_H_HALF - button_prev->pos.h;
 	
-	button_next = new WidgetButton(screen, font, inp, mods->locate("images/menus/buttons/right.png"));
+	button_next = new WidgetButton(mods->locate("images/menus/buttons/right.png"));
 	button_next->pos.x = VIEW_W_HALF + 160;
 	button_next->pos.y = VIEW_H_HALF - button_next->pos.h;
 
-	input_name = new WidgetInput(screen, font, inp);
+	input_name = new WidgetInput();
 	input_name->setPosition(VIEW_W_HALF - input_name->pos.w/2, VIEW_H_HALF+184);
 
 	// set up labels
-	label_portrait = new WidgetLabel(screen, font);
+	label_portrait = new WidgetLabel();
 	label_portrait->set(VIEW_W_HALF, VIEW_H_HALF-176, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Choose a Portrait"), FONT_GREY);
-	label_name = new WidgetLabel(screen, font);
+	label_name = new WidgetLabel();
 	label_name->set(VIEW_W_HALF, VIEW_H_HALF+168, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Choose a Name"), FONT_GREY);
 
 	loadGraphics();
@@ -133,12 +133,12 @@ void GameStateNew::logic() {
 	}
 
 	if (button_exit->checkClick()) {
-		requestedGameState = new GameStateLoad(screen, inp, font);
+		requestedGameState = new GameStateLoad();
 	}
 	
 	if (button_create->checkClick()) {
 		// start the new game
-		GameStatePlay* play = new GameStatePlay(screen, inp, font);
+		GameStatePlay* play = new GameStatePlay();
 		play->pc->stats.base = base[current_option];
 		play->pc->stats.head = head[current_option];
 		play->pc->stats.portrait = portrait[current_option];

@@ -20,9 +20,10 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "WidgetButton.h"
+#include "SharedResources.h"
 
-WidgetButton::WidgetButton(SDL_Surface *_screen, FontEngine *_font, InputState *_inp, const std::string& _fileName)
-	: screen(_screen), font(_font), inp(_inp), fileName(_fileName) {
+WidgetButton::WidgetButton(const std::string& _fileName)
+	: fileName(_fileName) {
 
 	buttons = NULL;
 	click = NULL;

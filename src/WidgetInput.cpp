@@ -16,10 +16,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 */
 
 #include "WidgetInput.h"
-#include "ModManager.h"
+#include "SharedResources.h"
 
-WidgetInput::WidgetInput(SDL_Surface* _screen, FontEngine *_font, InputState *_inp)
-	: screen(_screen), font(_font), inp(_inp) {
+WidgetInput::WidgetInput() {
 	
 	enabled = true;
 	inFocus = false;

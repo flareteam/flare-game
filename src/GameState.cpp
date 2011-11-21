@@ -17,10 +17,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "GameState.h"
 
-GameState::GameState(SDL_Surface *_screen, InputState *_inp, FontEngine *_font) {
-	screen = _screen;
-	inp = _inp;
-	font = _font;
+GameState::GameState() {
 
 	requestedGameState = NULL;
 

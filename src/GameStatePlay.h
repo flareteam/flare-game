@@ -40,27 +40,20 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "CampaignManager.h"
 #include "QuestLog.h"
 #include "GameState.h"
-#include "MessageEngine.h"
+#include "WidgetLabel.h"
 
 #include <SDL.h>
 #include <SDL_image.h>
 
-
-class WidgetLabel;
-
-
 class GameStatePlay : public GameState {
 private:
-	SDL_Surface *screen;
-	
-	InputState *inp;
+
 	MapIso *map;
 	Enemy *enemy;
 	Renderable r[1024];
 	int renderableCount;
 	HazardManager *hazards;
 	EnemyManager *enemies;
-	FontEngine *font;
 	MenuManager *menu;
 	LootManager *loot;
 	PowerManager *powers;
@@ -86,7 +79,7 @@ private:
 	int npc_id;
 	
 public:
-	GameStatePlay(SDL_Surface *screen, InputState *inp, FontEngine *font);
+	GameStatePlay();
 	~GameStatePlay();
 
 	void logic();
