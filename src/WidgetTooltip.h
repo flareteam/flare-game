@@ -16,11 +16,11 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 */
 
 /**
- * class MenuTooltip
+ * class WidgetTooltip
  */
 
-#ifndef MENU_TOOLTIP_H
-#define MENU_TOOLTIP_H
+#ifndef WIDGET_TOOLTIP_H
+#define WIDGET_TOOLTIP_H
 
 #include "FontEngine.h"
 #include "Utils.h"
@@ -50,7 +50,7 @@ struct TooltipData {
 	
 };
 
-class MenuTooltip {
+class WidgetTooltip {
 private:
 	FontEngine *font;
 	SDL_Surface *screen;
@@ -58,7 +58,7 @@ private:
 	int width;
 	int margin;
 public:
-	MenuTooltip(FontEngine *_font, SDL_Surface *_screen);
+	WidgetTooltip(FontEngine *_font, SDL_Surface *_screen);
 	void calcPosition(int style, Point pos, Point size, Sint16 &bgx, Sint16 &bgy, int &curx, int &cury);
 	void render(TooltipData tip, Point pos, int style);
 };

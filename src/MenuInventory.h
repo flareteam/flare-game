@@ -25,8 +25,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "InputState.h"
 #include "Utils.h"
 #include "FontEngine.h"
-#include "ItemDatabase.h"
-#include "MenuTooltip.h"
+#include "ItemManager.h"
+#include "WidgetTooltip.h"
 #include "StatBlock.h"
 #include "PowerManager.h"
 #include "MenuItemStorage.h"
@@ -56,7 +56,7 @@ class MenuInventory {
 private:
 	SDL_Surface *screen;
 	InputState *inp;
-	ItemDatabase *items;
+	ItemManager *items;
 	FontEngine *font;
 	StatBlock *stats;
 	PowerManager *powers;
@@ -69,7 +69,7 @@ private:
 	WidgetButton *closeButton;
 	
 public:
-	MenuInventory(SDL_Surface *screen, InputState *inp, FontEngine *font, ItemDatabase *items, StatBlock *stats, PowerManager *powers);
+	MenuInventory(SDL_Surface *screen, InputState *inp, FontEngine *font, ItemManager *items, StatBlock *stats, PowerManager *powers);
 	~MenuInventory();
 	void logic();
 	void render();

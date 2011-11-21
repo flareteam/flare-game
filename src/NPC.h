@@ -28,7 +28,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <SDL_mixer.h>
 #include <string>
 #include "Utils.h"
-#include "ItemDatabase.h"
+#include "ItemManager.h"
 #include "ItemStorage.h"
 #include "MapIso.h"
 
@@ -43,7 +43,7 @@ const int NPC_MAX_EVENTS = 16;
 
 class NPC : public Entity {
 protected:
-	ItemDatabase *items;
+	ItemManager *items;
 
 	// animation info
 	SDL_Surface *sprites;
@@ -52,7 +52,7 @@ protected:
 	int current_frame;
 	
 public:
-	NPC(MapIso *_map, ItemDatabase *_items);
+	NPC(MapIso *_map, ItemManager *_items);
 	~NPC();
 	void load(string npc_id);
 	void loadGraphics(string filename_sprites, string filename_portrait);

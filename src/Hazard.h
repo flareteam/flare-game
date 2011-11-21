@@ -55,7 +55,7 @@ public:
 	void setCollision(MapCollision *_collider);
 	void logic();
 	
-      	bool hasEntity(Entity*);
+	bool hasEntity(Entity*);
 	
 	void addEntity(Entity*);
 

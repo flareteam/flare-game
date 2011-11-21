@@ -23,17 +23,17 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #define ITEM_STORAGE_H
 
 #include <SDL.h>
-#include "ItemDatabase.h"
+#include "ItemManager.h"
 
 using namespace std;
 
 class ItemStorage {
 protected:
-	ItemDatabase *items;
+	ItemManager *items;
 	int slot_number;
 
 public:
-	void init(int _slot_number, ItemDatabase *_items);
+	void init(int _slot_number, ItemManager *_items);
 	~ItemStorage();
 
 	ItemStack & operator [] (int slot);

@@ -31,8 +31,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <SDL_mixer.h>
 
 #include "Utils.h"
-#include "ItemDatabase.h"
-#include "MenuTooltip.h"
+#include "ItemManager.h"
+#include "WidgetTooltip.h"
 #include "EnemyManager.h"
 #include "MessageEngine.h"
 
@@ -57,8 +57,8 @@ const int LOOT_RANGE = 3 * UNITS_PER_TILE;
 class LootManager {
 private:
 
-	ItemDatabase *items;
-	MenuTooltip *tip;
+	ItemManager *items;
+	WidgetTooltip *tip;
 	EnemyManager *enemies;
 	MapIso *map;
 
@@ -78,7 +78,7 @@ private:
 	Point frame_size;
 	int frame_count; // the last frame is the "at-rest" floor loot graphic
 	
-	// loot refers to ItemDatabase indices
+	// loot refers to ItemManager indices
 	LootDef loot[256]; // TODO: change to dynamic list without limits
 	
 	// loot tables multiplied out
@@ -91,7 +91,7 @@ private:
 	int anim_loot_duration;
 	
 public:
-	LootManager(ItemDatabase *_items, MenuTooltip *_tip, EnemyManager *_enemies, MapIso *_map);
+	LootManager(ItemManager *_items, WidgetTooltip *_tip, EnemyManager *_enemies, MapIso *_map);
 	~LootManager();
 
 	void handleNewMap();

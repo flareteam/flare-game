@@ -33,7 +33,7 @@ MenuManager::MenuManager(PowerManager *_powers, SDL_Surface *_screen, InputState
 
 	loadIcons();
 
-	items = new ItemDatabase(screen, font);
+	items = new ItemManager(screen, font);
 
 	chr = new MenuCharacter(screen, inp, font, stats);
 	inv = new MenuInventory(screen, inp, font, items, stats, powers);
@@ -42,7 +42,7 @@ MenuManager::MenuManager(PowerManager *_powers, SDL_Surface *_screen, InputState
 	hudlog = new MenuHUDLog(screen, font);
 	act = new MenuActionBar(screen, font, inp, powers, stats, icons);
 	hpmp = new MenuHPMP(screen, font);
-	tip = new MenuTooltip(font, screen);
+	tip = new WidgetTooltip(font, screen);
 	mini = new MenuMiniMap(screen);
 	xp = new MenuExperience(screen, font);
 	enemy = new MenuEnemy(screen, font);

@@ -25,7 +25,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #define MENU_ACTION_BAR_H
 
 #include "InputState.h"
-#include "MenuTooltip.h"
+#include "WidgetTooltip.h"
 #include "PowerManager.h"
 #include "FontEngine.h"
 #include "StatBlock.h"

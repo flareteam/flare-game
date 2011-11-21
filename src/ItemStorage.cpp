@@ -21,7 +21,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "ItemStorage.h"
 
-void ItemStorage::init(int _slot_number, ItemDatabase *_items) {
+void ItemStorage::init(int _slot_number, ItemManager *_items) {
 	slot_number = _slot_number;
 	items = _items;
 

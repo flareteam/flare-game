@@ -34,7 +34,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "FileParser.h"
 #include "Settings.h"
 #include "StatBlock.h"
-#include "ItemDatabase.h"
+#include "ItemManager.h"
 #include "GameState.h"
 #include "MenuConfirm.h"
 #include "MessageEngine.h"
@@ -59,7 +59,7 @@ private:
 	void loadPortrait(int slot);
 	string getMapName(string map_filename);
 
-	ItemDatabase *items;
+	ItemManager *items;
 	WidgetButton *button_exit;
 	WidgetButton *button_action;
 	WidgetButton *button_alternate;

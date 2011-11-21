@@ -24,7 +24,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "NPCManager.h"
 
-NPCManager::NPCManager(MapIso *_map, MenuTooltip *_tip, LootManager *_loot, ItemDatabase *_items) {
+NPCManager::NPCManager(MapIso *_map, WidgetTooltip *_tip, LootManager *_loot, ItemManager *_items) {
 
 	map = _map;
 	tip = _tip;

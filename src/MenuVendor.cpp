@@ -26,7 +26,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 using namespace std;
 
 
-MenuVendor::MenuVendor(SDL_Surface *_screen, InputState *_inp, FontEngine *_font, ItemDatabase *_items, StatBlock *_stats) {
+MenuVendor::MenuVendor(SDL_Surface *_screen, InputState *_inp, FontEngine *_font, ItemManager *_items, StatBlock *_stats) {
 	screen = _screen;
 	inp = _inp;
 	font = _font;

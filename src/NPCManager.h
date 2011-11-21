@@ -31,7 +31,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <SDL_mixer.h>
 #include "NPC.h"
 #include "MapIso.h"
-#include "MenuTooltip.h"
+#include "WidgetTooltip.h"
 #include "LootManager.h"
 
 using namespace std;
@@ -42,11 +42,11 @@ const int MAX_NPC_COUNT = 32;
 class NPCManager {
 private:
 	MapIso *map;
-	MenuTooltip *tip;
+	WidgetTooltip *tip;
 	LootManager *loot;
-	ItemDatabase *items;
+	ItemManager *items;
 public:
-	NPCManager(MapIso *_map, MenuTooltip *_tip, LootManager *_loot, ItemDatabase *_items);
+	NPCManager(MapIso *_map, WidgetTooltip *_tip, LootManager *_loot, ItemManager *_items);
 	~NPCManager();
 	NPC *npcs[MAX_NPC_COUNT];
 	void handleNewMap();

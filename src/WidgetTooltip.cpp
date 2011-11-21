@@ -16,12 +16,12 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 */
 
 /**
- * class MenuTooltip
+ * class WidgetTooltip
  */
 
-#include "MenuTooltip.h"
+#include "WidgetTooltip.h"
 
-MenuTooltip::MenuTooltip(FontEngine *_font, SDL_Surface *_screen) {
+WidgetTooltip::WidgetTooltip(FontEngine *_font, SDL_Surface *_screen) {
 	font = _font;
 	screen = _screen;
 	offset=12;
@@ -33,7 +33,7 @@ MenuTooltip::MenuTooltip(FontEngine *_font, SDL_Surface *_screen) {
  * Knowing the total size of the text and the position of origin,
  * calculate the starting position of the background and text
  */
-void MenuTooltip::calcPosition(int style, Point pos, Point size, Sint16 &bgx, Sint16 &bgy, int &curx, int &cury) {
+void WidgetTooltip::calcPosition(int style, Point pos, Point size, Sint16 &bgx, Sint16 &bgy, int &curx, int &cury) {
 
 	// TopLabel style is fixed and centered over the origin
 	if (style == STYLE_TOPLABEL) {
@@ -80,7 +80,7 @@ void MenuTooltip::calcPosition(int style, Point pos, Point size, Sint16 &bgx, Si
 /**
  * Tooltip position depends on the screen quadrant of the source
  */
-void MenuTooltip::render(TooltipData tip, Point pos, int style) {
+void WidgetTooltip::render(TooltipData tip, Point pos, int style) {
 	SDL_Rect background;
 	
 	string fulltext;

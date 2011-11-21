@@ -16,15 +16,15 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 */
 
 /**
- * class ItemDatabase
+ * class ItemManager
  */
 
-#ifndef ITEM_DATABASE_H
-#define ITEM_DATABASE_H
+#ifndef ITEM_MANAGER_H
+#define ITEM_MANAGER_H
 
 #include "UtilsParsing.h"
 #include "StatBlock.h"
-#include "MenuTooltip.h"
+#include "WidgetTooltip.h"
 #include "MessageEngine.h"
 
 #include <SDL.h>
@@ -138,7 +138,7 @@ struct ItemStack {
 	bool operator > (ItemStack param);
 };
 
-class ItemDatabase {
+class ItemManager {
 private:
 	SDL_Surface *screen;
 	SDL_Surface *icons32;
@@ -149,8 +149,8 @@ private:
 	Mix_Chunk *sfx[12];
 
 public:
-	ItemDatabase(SDL_Surface *_screen, FontEngine *_font);
-	~ItemDatabase();
+	ItemManager(SDL_Surface *_screen, FontEngine *_font);
+	~ItemManager();
 	void load(string filename);
 	void loadAll();
 	void loadSounds();

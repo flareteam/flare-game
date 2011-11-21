@@ -36,8 +36,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "StatBlock.h"
 #include "MenuActionBar.h"
 #include "MenuHPMP.h"
-#include "MenuTooltip.h"
-#include "ItemDatabase.h"
+#include "WidgetTooltip.h"
+#include "ItemManager.h"
 #include "PowerManager.h"
 #include "MenuMiniMap.h"
 #include "MenuExperience.h"
@@ -93,14 +93,14 @@ public:
 	MenuHUDLog *hudlog;
 	MenuActionBar *act;
 	MenuHPMP *hpmp;
-	MenuTooltip *tip;
+	WidgetTooltip *tip;
 	MenuMiniMap *mini;
 	MenuExperience *xp;
 	MenuEnemy *enemy;
 	MenuVendor *vendor;
 	MenuTalker *talker;
 	MenuExit *exit;
-	ItemDatabase *items;
+	ItemManager *items;
 	
 	bool pause;
 	bool menus_open;

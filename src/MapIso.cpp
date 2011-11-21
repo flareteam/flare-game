@@ -33,7 +33,7 @@ MapIso::MapIso(SDL_Surface *_screen, CampaignManager *_camp, InputState *_inp, F
 	camp = _camp;
 	font = _font;
 	
-	tip = new MenuTooltip(font, screen);
+	tip = new WidgetTooltip(font, screen);
 
 	// cam(x,y) is where on the map the camera is pointing
 	// units found in Settings.h (UNITS_PER_TILE)

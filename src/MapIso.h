@@ -31,7 +31,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "CampaignManager.h"
 #include "EnemyGroupManager.h"
 #include "InputState.h"
-#include "MenuTooltip.h"
+#include "WidgetTooltip.h"
 #include "PowerManager.h"
 #include "StatBlock.h"
 
@@ -91,7 +91,7 @@ private:
 	Mix_Music *music;
 	FontEngine *font;
 
-	MenuTooltip *tip;
+	WidgetTooltip *tip;
 
 	// map events can play random soundfx
 	Mix_Chunk *sfx;

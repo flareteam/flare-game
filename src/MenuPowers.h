@@ -26,7 +26,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "Utils.h"
 #include "FontEngine.h"
 #include "StatBlock.h"
-#include "MenuTooltip.h"
+#include "WidgetTooltip.h"
 #include "PowerManager.h"
 #include "WidgetButton.h"
 #include "MessageEngine.h"

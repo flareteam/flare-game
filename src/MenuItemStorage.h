@@ -37,7 +37,7 @@ protected:
 	int nb_cols;
 
 public:
-	void init(int _slot_number, ItemDatabase *_items, SDL_Surface *_screen, FontEngine *_font, SDL_Rect _area, int icon_size, int nb_cols);
+	void init(int _slot_number, ItemManager *_items, SDL_Surface *_screen, FontEngine *_font, SDL_Rect _area, int icon_size, int nb_cols);
 
 	// rendering
 	void render();

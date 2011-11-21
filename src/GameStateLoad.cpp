@@ -27,7 +27,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "WidgetLabel.h"
 
 GameStateLoad::GameStateLoad(SDL_Surface *_screen, InputState *_inp, FontEngine *_font) : GameState(_screen, _inp, _font) {
-	items = new ItemDatabase(screen, font);
+	items = new ItemManager(screen, font);
 	portrait = NULL;
 	loading_requested = false;
 	loading = false;
