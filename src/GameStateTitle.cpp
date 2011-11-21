@@ -40,7 +40,7 @@ GameStateTitle::GameStateTitle() : GameState() {
 	
 	// set up labels
 	label_version = new WidgetLabel();
-	label_version->set(VIEW_W, 0, JUSTIFY_RIGHT, VALIGN_TOP, msg->get("Flare Alpha v0.14.1"), FONT_WHITE);
+	label_version->set(VIEW_W, 0, JUSTIFY_RIGHT, VALIGN_TOP, msg->get("Flare Alpha v0.15"), FONT_WHITE);
 }
 
 void GameStateTitle::loadGraphics() {
