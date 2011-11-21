@@ -77,7 +77,7 @@ Set (FLARE_SOURCES
 	./src/Hazard.cpp
 	./src/HazardManager.cpp
 	./src/InputState.cpp
-	./src/ItemDatabase.cpp
+	./src/ItemManager.cpp
 	./src/ItemStorage.cpp
 	./src/LootManager.cpp
 	./src/MapCollision.cpp
@@ -98,7 +98,6 @@ Set (FLARE_SOURCES
 	./src/MenuMiniMap.cpp
 	./src/MenuPowers.cpp
 	./src/MenuTalker.cpp
-	./src/MenuTooltip.cpp
 	./src/MenuVendor.cpp
 	./src/MessageEngine.cpp
 	./src/ModManager.cpp
@@ -116,6 +115,7 @@ Set (FLARE_SOURCES
 	./src/WidgetButton.cpp
 	./src/WidgetInput.cpp
 	./src/WidgetLabel.cpp
+	./src/WidgetTooltip.cpp
 	./src/main.cpp
 )
 
