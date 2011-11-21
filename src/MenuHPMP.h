@@ -27,6 +27,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "StatBlock.h"
 #include "Utils.h"
 #include "FontEngine.h"
+#include "WidgetLabel.h"
 
 #include <SDL.h>
 #include <SDL_image.h>
@@ -39,6 +40,9 @@ private:
 	SDL_Surface *background;
 	SDL_Surface *bar_hp;
 	SDL_Surface *bar_mp;
+	WidgetLabel *hphover;
+	WidgetLabel *mphover;
+	
 public:
 	MenuHPMP(SDL_Surface *_screen, FontEngine *_font);
 	~MenuHPMP();

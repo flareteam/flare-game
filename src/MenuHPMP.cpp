@@ -23,7 +23,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "MenuHPMP.h"
 #include "ModManager.h"
-#include "WidgetLabel.h"
 
 #include <string>
 #include <sstream>
@@ -36,6 +35,11 @@ MenuHPMP::MenuHPMP(SDL_Surface *_screen, FontEngine *_font) {
 	screen = _screen;
 	font = _font;
 	
+	hphover = new WidgetLabel(screen, font);
+	mphover = new WidgetLabel(screen, font);
+	hphover->set(53, 9, JUSTIFY_CENTER, VALIGN_CENTER, "", FONT_WHITE);
+	mphover->set(53, 24, JUSTIFY_CENTER, VALIGN_CENTER, "", FONT_WHITE);
+
 	loadGraphics();
 }
 
@@ -104,17 +108,16 @@ void MenuHPMP::render(StatBlock *stats, Point mouse) {
 	
 	// if mouseover, draw text
 	if (mouse.x <= 106 && mouse.y <= 33) {
-		WidgetLabel label(screen, font);
 
 		stringstream ss;
 		ss << stats->hp << "/" << stats->maxhp;
-		label.set(53, 4, JUSTIFY_CENTER, VALIGN_TOP, ss.str(), FONT_WHITE);
-		label.render();
+		hphover->text = ss.str();
+		hphover->render();
 
 		ss.str("");
 		ss << stats->mp << "/" << stats->maxmp;
-		label.set(53, 19, JUSTIFY_CENTER, VALIGN_TOP, ss.str(), FONT_WHITE);
-		label.render();
+		mphover->text = ss.str();
+		mphover->render();
 	}
 }
 
@@ -122,4 +125,6 @@ MenuHPMP::~MenuHPMP() {
 	SDL_FreeSurface(background);
 	SDL_FreeSurface(bar_hp);
 	SDL_FreeSurface(bar_mp);
+	delete hphover;
+	delete mphover;
 }

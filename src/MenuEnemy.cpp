@@ -109,10 +109,10 @@ void MenuEnemy::render() {
 
 	WidgetLabel label(screen, font);
 
-	label.set(VIEW_W_HALF, 4, JUSTIFY_CENTER, VALIGN_TOP, msg->get("%s level %d", enemy->stats.level, enemy->stats.name), FONT_WHITE);
+	label.set(VIEW_W_HALF, 9, JUSTIFY_CENTER, VALIGN_CENTER, msg->get("%s level %d", enemy->stats.level, enemy->stats.name), FONT_WHITE);
 	label.render();
 
-	label.set(VIEW_W_HALF, 19, JUSTIFY_CENTER, VALIGN_TOP, ss.str(), FONT_WHITE);
+	label.set(VIEW_W_HALF, 24, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
 	label.render();
 
 	
