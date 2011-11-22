@@ -22,9 +22,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef MENU_MANAGER_H
 #define MENU_MANAGER_H
 
-#include "SDL.h"
-#include "SDL_image.h"
-#include "SDL_mixer.h"
+#include <SDL.h>
+#include <SDL_image.h>
+#include <SDL_mixer.h>
 #include "Utils.h"
 #include "FontEngine.h"
 #include "InputState.h"
@@ -36,8 +36,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "StatBlock.h"
 #include "MenuActionBar.h"
 #include "MenuHPMP.h"
-#include "MenuTooltip.h"
-#include "ItemDatabase.h"
+#include "WidgetTooltip.h"
+#include "ItemManager.h"
 #include "PowerManager.h"
 #include "MenuMiniMap.h"
 #include "MenuExperience.h"
@@ -46,7 +46,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "MenuTalker.h"
 #include "MenuExit.h"
 #include "CampaignManager.h"
-#include "MessageEngine.h"
+#include "SharedResources.h"
 
 const int DRAG_SRC_POWERS = 1;
 const int DRAG_SRC_INVENTORY = 2;
@@ -60,9 +60,6 @@ private:
 
 	PowerManager *powers;
 	StatBlock *stats;
-	InputState *inp;
-	FontEngine *font;
-	SDL_Surface *screen;
 	CampaignManager *camp;
 
 	bool key_lock;
@@ -77,7 +74,7 @@ private:
 	bool done;
 	
 public:
-	MenuManager(PowerManager *powers, SDL_Surface *screen, InputState *inp, FontEngine *font, StatBlock *stats, CampaignManager *camp);
+	MenuManager(PowerManager *powers, StatBlock *stats, CampaignManager *camp);
 	~MenuManager();
 	void logic();
 	void render();
@@ -93,14 +90,14 @@ public:
 	MenuHUDLog *hudlog;
 	MenuActionBar *act;
 	MenuHPMP *hpmp;
-	MenuTooltip *tip;
+	WidgetTooltip *tip;
 	MenuMiniMap *mini;
 	MenuExperience *xp;
 	MenuEnemy *enemy;
 	MenuVendor *vendor;
 	MenuTalker *talker;
 	MenuExit *exit;
-	ItemDatabase *items;
+	ItemManager *items;
 	
 	bool pause;
 	bool menus_open;

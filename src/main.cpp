@@ -8,20 +8,16 @@
 #include <cstring>
 #include <cmath>
 #include <ctime>
-#include "SDL.h"
-#include "SDL_image.h"
-#include "SDL_mixer.h"
+#include <SDL.h>
+#include <SDL_image.h>
+#include <SDL_mixer.h>
 
 using namespace std;
 
 #include "Settings.h"
-#include "InputState.h"
 #include "GameSwitcher.h"
-#include "MessageEngine.h"
-#include "ModManager.h"
+#include "SharedResources.h"
 
-SDL_Surface *screen;
-InputState *inps;
 GameSwitcher *gswitch;
 
 static void init() {
@@ -80,19 +76,22 @@ static void init() {
 	}
 	printf("Using joystick #%d\n", JOYSTICK_DEVICE);
 
-    // setup ModManager and MessageEngine here instead of below so we can initialize window title
-	mods = new ModManager();
-    msg = new MessageEngine();
-
-	const char* title = msg->get("Flare").c_str();
-	SDL_WM_SetCaption(title, title);
-	
 	// Set sound effects volume from settings file
 	Mix_Volume(-1, SOUND_VOLUME);
 
-	/* Shared game units setup */
-	inps = new InputState();
-	gswitch = new GameSwitcher(screen, inps);
+	// Shared Resources set-up
+	
+	mods = new ModManager();
+    msg = new MessageEngine();
+	inp = new InputState();
+	font = new FontEngine();
+
+	// Window title
+	const char* title = msg->get("Flare").c_str();
+	SDL_WM_SetCaption(title, title);
+	
+
+	gswitch = new GameSwitcher();
 }
 
 static void mainLoop () {
@@ -109,13 +108,13 @@ static void mainLoop () {
 		SDL_FillRect(screen, NULL, 0);
 
 		SDL_PumpEvents();
-		inps->handle();
+		inp->handle();
 		gswitch->logic();
 		gswitch->render();
 		
 		// Engine done means the user escapes the main game menu.
 		// Input done means the user closes the window.
-		done = gswitch->done || inps->done;
+		done = gswitch->done || inp->done;
 		
 		nowTicks = SDL_GetTicks();
 		if (nowTicks - prevTicks < delay) SDL_Delay(delay - (nowTicks - prevTicks));
@@ -129,10 +128,13 @@ static void mainLoop () {
 
 static void cleanup() {
 	delete gswitch;
-	delete inps;
+	
+	delete font;
+	delete inp;
 	delete msg;
 	delete mods;
 	SDL_FreeSurface(screen);
+	
 	Mix_CloseAudio();
 	SDL_Quit();
 }

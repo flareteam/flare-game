@@ -20,7 +20,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "EnemyManager.h"
-#include "ModManager.h"
+#include "SharedResources.h"
 
 EnemyManager::EnemyManager(PowerManager *_powers, MapIso *_map) {
 	powers = _powers;
@@ -144,24 +144,32 @@ void EnemyManager::handleNewMap () {
  * perform logic() for all enemies
  */
 void EnemyManager::logic() {
-	int pref_id;
-
 	for (int i=0; i<enemy_count; i++) {
-	
+
+		int pref_id = -1;
+
 		// hazards are processed after Avatar and Enemy[]
 		// so process and clear sound effects from previous frames
 		// check sound effects
 		for (int j=0; j<sfx_count; j++) {
-			if (sfx_prefixes[j] == enemies[i]->stats.sfx_prefix)
+			if (sfx_prefixes[j] == enemies[i]->stats.sfx_prefix) {
 				pref_id = j;
+				break;
+			}
 		}
-		
-		if (enemies[i]->sfx_phys) Mix_PlayChannel(-1, sound_phys[pref_id], 0);
-		if (enemies[i]->sfx_ment) Mix_PlayChannel(-1, sound_ment[pref_id], 0);
-		if (enemies[i]->sfx_hit) Mix_PlayChannel(-1, sound_hit[pref_id], 0);
-		if (enemies[i]->sfx_die) Mix_PlayChannel(-1, sound_die[pref_id], 0);		
-		if (enemies[i]->sfx_critdie) Mix_PlayChannel(-1, sound_critdie[pref_id], 0);		
-		
+
+		if (pref_id == -1) {
+			printf("ERROR: enemy sfx_prefix doesn't match registered prefixes (enemy: '%s', sfx_prefix: '%s')\n",
+			       enemies[i]->stats.name.c_str(),
+			       enemies[i]->stats.sfx_prefix.c_str());
+		} else {
+			if (enemies[i]->sfx_phys) Mix_PlayChannel(-1, sound_phys[pref_id], 0);
+			if (enemies[i]->sfx_ment) Mix_PlayChannel(-1, sound_ment[pref_id], 0);
+			if (enemies[i]->sfx_hit) Mix_PlayChannel(-1, sound_hit[pref_id], 0);
+			if (enemies[i]->sfx_die) Mix_PlayChannel(-1, sound_die[pref_id], 0);
+			if (enemies[i]->sfx_critdie) Mix_PlayChannel(-1, sound_critdie[pref_id], 0);
+		}
+
 		// clear sound flags
 		enemies[i]->sfx_hit = false;
 		enemies[i]->sfx_phys = false;
@@ -242,5 +250,4 @@ EnemyManager::~EnemyManager() {
 		Mix_FreeChunk(sound_die[i]);
 		Mix_FreeChunk(sound_critdie[i]);
 	}
-
 }

@@ -193,7 +193,6 @@ void InputState::handle() {
 	static bool joyHasMovedY;
 	static int joyLastPosX;
 	static int joyLastPosY;
-	int joyDeadzone = JOY_DEADZONE;
 
 	inkeys = "";
 
@@ -244,7 +243,7 @@ void InputState::handle() {
 					switch(event.jaxis.axis) {
 						/* first analog */
 						case 0:
-							if((event.jaxis.value < -joyDeadzone) && (event.jaxis.value >= JOY_MIN))
+							if(event.jaxis.value < -JOY_DEADZONE)
 							{
 								if(!joyReverseAxisX)
 								{
@@ -279,7 +278,7 @@ void InputState::handle() {
 									joyHasMovedX = 1;
 								}
 							}
-							if((event.jaxis.value > joyDeadzone) && (event.jaxis.value <= JOY_MAX))
+							if(event.jaxis.value > JOY_DEADZONE)
 			                                {
 								if(!joyReverseAxisX)
 								{
@@ -314,7 +313,7 @@ void InputState::handle() {
 									joyHasMovedX = 1;
 								}
 			                                }
-							if((event.jaxis.value >= -joyDeadzone) && (event.jaxis.value < joyDeadzone))
+							if((event.jaxis.value >= -JOY_DEADZONE) && (event.jaxis.value < JOY_DEADZONE))
 							{
 								pressing[LEFT] = false;
 								lock[LEFT] = false;
@@ -325,7 +324,7 @@ void InputState::handle() {
 							}
 							break;
 						case 1:
-							if((event.jaxis.value < -joyDeadzone) && (event.jaxis.value >= JOY_MIN))
+							if(event.jaxis.value < -JOY_DEADZONE)
 			                                {
 								if(!joyReverseAxisY)
 								{
@@ -360,7 +359,7 @@ void InputState::handle() {
 									joyHasMovedY = 1;
 								}
 			                                }
-							if((event.jaxis.value > joyDeadzone) && (event.jaxis.value <= JOY_MAX))
+							if(event.jaxis.value > JOY_DEADZONE)
 			                                {
 								if(!joyReverseAxisY)
 								{
@@ -395,7 +394,7 @@ void InputState::handle() {
 									joyHasMovedY = 1;
 								}
 							}
-							if((event.jaxis.value >= -joyDeadzone) && (event.jaxis.value < joyDeadzone))
+							if((event.jaxis.value >= -JOY_DEADZONE) && (event.jaxis.value < JOY_DEADZONE))
 							{
 								pressing[UP] = false;
 								lock[UP] = false;

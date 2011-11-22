@@ -22,21 +22,24 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef MENU_MINI_MAP_H
 #define MENU_MINI_MAP_H
 
-#include "SDL.h"
+#include <SDL.h>
 #include "Utils.h"
 #include "MapCollision.h"
 
 class MenuMiniMap {
 private:
-	SDL_Surface *screen;
 	Uint32 color_wall;
 	Uint32 color_obst;
 	Uint32 color_hero;
+	Point map_center;
+	SDL_Rect map_area;
+
 public: 
-	MenuMiniMap(SDL_Surface *_screen);
+	MenuMiniMap();
 	~MenuMiniMap();
 
 	void render(MapCollision *collider, Point hero_pos, int map_w, int map_h);
+	void renderIso(MapCollision *collider, Point hero_pos, int map_w, int map_h);
 
 };
 

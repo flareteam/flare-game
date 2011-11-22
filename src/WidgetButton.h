@@ -22,9 +22,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef WIDGET_BUTTON_H
 #define WIDGET_BUTTON_H
 
-#include "SDL.h"
-#include "SDL_image.h"
-#include "SDL_mixer.h"
+#include <SDL.h>
+#include <SDL_image.h>
+#include <SDL_mixer.h>
 #include "Utils.h"
 #include "FontEngine.h"
 #include "InputState.h"
@@ -37,9 +37,6 @@ const int BUTTON_GFX_DISABLED = 3;
 
 class WidgetButton {
 private:
-	SDL_Surface *screen;
-	FontEngine *font;
-	InputState *inp;
 
 	std::string fileName; // the path to the buttons background image
 
@@ -47,7 +44,7 @@ private:
 	Mix_Chunk *click;
 	
 public:
-	WidgetButton(SDL_Surface *_screen, FontEngine *_font, InputState *_inp, const std::string& _fileName);
+	WidgetButton(const std::string& _fileName);
 	~WidgetButton();
 
 	void loadArt();

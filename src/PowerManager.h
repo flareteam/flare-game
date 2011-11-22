@@ -21,21 +21,20 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * Special code for handling spells, special powers, item effects, etc.
  */
 
-#include <string>
-#include <queue>
-#include "SDL.h"
-#include "SDL_image.h"
-#include "SDL_mixer.h"
+#ifndef POWER_MANAGER_H
+#define POWER_MANAGER_H
+
 #include "Utils.h"
 #include "StatBlock.h"
 #include "Hazard.h"
 #include "MapCollision.h"
-#include "MessageEngine.h"
+#include "SharedResources.h"
 
-#ifndef POWER_MANAGER_H
-#define POWER_MANAGER_H
+#include <SDL.h>
+#include <SDL_image.h>
 
-using namespace std;
+#include <string>
+#include <queue>
 
 const int POWER_COUNT = 1024;
 const int POWER_MAX_GFX = 64;
@@ -84,8 +83,8 @@ struct Power {
 
 	// base info
 	int type; // what kind of activate() this is
-	string name;
-	string description;
+	std::string name;
+	std::string description;
 	int icon; // just the number.  The caller menu will have access to the surface.
 	int new_state; // when using this power the user (avatar/enemy) starts a new state
 	bool face; // does the user turn to face the mouse cursor when using this power?
@@ -262,13 +261,14 @@ private:
 	
 	MapCollision *collider;
 
-	void loadPowers();
+	void loadAll();
+	void loadPowers(const std::string& filename);
 	void loadGraphics();
 	
-	int loadGFX(string filename);
-	int loadSFX(string filename);
-	string gfx_filenames[POWER_MAX_GFX];
-	string sfx_filenames[POWER_MAX_SFX];
+	int loadGFX(const std::string& filename);
+	int loadSFX(const std::string& filename);
+	std::string gfx_filenames[POWER_MAX_GFX];
+	std::string sfx_filenames[POWER_MAX_SFX];
 	int gfx_count;
 	int sfx_count;
 	float calcTheta(int x1, int y1, int x2, int y2);
@@ -290,9 +290,8 @@ public:
 	void handleNewMap(MapCollision *_collider);
 	bool activate(int power_index, StatBlock *src_stats, Point target);
 
-	StatBlock *src_stats;
 	Power powers[POWER_COUNT];
-	queue<Hazard *> hazards; // output; read by HazardManager
+	std::queue<Hazard *> hazards; // output; read by HazardManager
 
 	// shared images/sounds for power special effects
 	SDL_Surface *gfx[POWER_MAX_GFX];

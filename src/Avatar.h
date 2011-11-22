@@ -24,11 +24,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #define AVATAR_H
 
 
-#include <sstream>
-#include "SDL.h"
-#include "SDL_image.h"
-#include "SDL_mixer.h"
-
 #include "Entity.h"
 #include "Utils.h"
 #include "InputState.h"
@@ -36,24 +31,32 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "StatBlock.h"
 #include "Hazard.h"
 #include "PowerManager.h"
-#include "MessageEngine.h"
+#include "SharedResources.h"
 #include "MenuManager.h"
 
-// AVATAR State enum
-const int AVATAR_STANCE = 0;
-const int AVATAR_RUN = 1;
-const int AVATAR_MELEE = 2;
-const int AVATAR_BLOCK = 3;
-const int AVATAR_HIT = 4;
-const int AVATAR_DEAD = 5;
-const int AVATAR_CAST = 6;
-const int AVATAR_SHOOT = 7;
+#include <SDL.h>
+#include <SDL_image.h>
+
+
+/**
+ * Avatar State enum
+ */
+enum AvatarState {
+	AVATAR_STANCE = 0,
+	AVATAR_RUN = 1,
+	AVATAR_MELEE = 2,
+	AVATAR_BLOCK = 3,
+	AVATAR_HIT = 4,
+	AVATAR_DEAD = 5,
+	AVATAR_CAST = 6,
+	AVATAR_SHOOT = 7
+};
+
 
 class Avatar : public Entity {
 private:
 	
 	PowerManager *powers;
-	InputState *inp;
 
 	bool lockSwing;
 	bool lockCast;
@@ -72,7 +75,7 @@ private:
 	string img_off;
 
 public:
-	Avatar(PowerManager *_powers, InputState *_inp, MapIso *_map);
+	Avatar(PowerManager *_powers, MapIso *_map);
 	~Avatar();
 	
 	void init();

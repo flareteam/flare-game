@@ -27,7 +27,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "FontEngine.h"
 #include "InputState.h"
-#include "SDL.h"
+#include <SDL.h>
 #include <string>
 
 using namespace std;
@@ -35,9 +35,6 @@ using namespace std;
 class WidgetInput {
 
 protected:
-	SDL_Surface *screen;
-	FontEngine *font;
-	InputState *inp;
 
 	void loadGraphics(const std::string& filename);
 
@@ -54,7 +51,7 @@ protected:
 	Point font_pos;
 
 public:
-	WidgetInput(SDL_Surface *_screen, FontEngine *_font, InputState *_inp);
+	WidgetInput();
 	
 	void logic();
 	void render();

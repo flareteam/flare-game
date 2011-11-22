@@ -22,9 +22,12 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "Avatar.h"
-#include "ModManager.h"
+#include "SharedResources.h"
 
-Avatar::Avatar(PowerManager *_powers, InputState *_inp, MapIso *_map) : Entity(_map), powers(_powers), inp(_inp) {
+#include <sstream>
+
+
+Avatar::Avatar(PowerManager *_powers, MapIso *_map) : Entity(_map), powers(_powers) {
 	
 	init();
 	
@@ -649,6 +652,4 @@ Avatar::~Avatar() {
 	Mix_FreeChunk(level_up);
 			
 	delete haz;
-
 }
-

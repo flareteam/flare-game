@@ -16,23 +16,25 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 */
 
 /**
- * class ItemDatabase
+ * class ItemManager
  */
 
-#ifndef ITEM_DATABASE_H
-#define ITEM_DATABASE_H
+#ifndef ITEM_MANAGER_H
+#define ITEM_MANAGER_H
+
+#include "UtilsParsing.h"
+#include "StatBlock.h"
+#include "WidgetTooltip.h"
+#include "SharedResources.h"
+
+#include <SDL.h>
+#include <SDL_image.h>
+#include <SDL_mixer.h>
 
 #include <string>
 #include <sstream>
 #include <fstream>
 
-#include "SDL.h"
-#include "SDL_image.h"
-#include "SDL_mixer.h"
-#include "UtilsParsing.h"
-#include "StatBlock.h"
-#include "MenuTooltip.h"
-#include "MessageEngine.h"
 
 using namespace std;
 
@@ -136,19 +138,17 @@ struct ItemStack {
 	bool operator > (ItemStack param);
 };
 
-class ItemDatabase {
+class ItemManager {
 private:
-	SDL_Surface *screen;
 	SDL_Surface *icons32;
 	SDL_Surface *icons64; // item db is the only module that currently uses the 64px icons
-	FontEngine *font;
 	SDL_Rect src;
 	SDL_Rect dest;
 	Mix_Chunk *sfx[12];
 
 public:
-	ItemDatabase(SDL_Surface *_screen, FontEngine *_font);
-	~ItemDatabase();
+	ItemManager();
+	~ItemManager();
 	void load(string filename);
 	void loadAll();
 	void loadSounds();

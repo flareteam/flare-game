@@ -22,11 +22,14 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "MenuEnemy.h"
-#include "ModManager.h"
+#include "SharedResources.h"
+#include "WidgetLabel.h"
 
-MenuEnemy::MenuEnemy(SDL_Surface *_screen, FontEngine *_font) {
-	screen = _screen;
-	font = _font;
+#include <string>
+#include <sstream>
+
+
+MenuEnemy::MenuEnemy() {
 	loadGraphics();
 	enemy = NULL;
 	timeout = 0;
@@ -95,14 +98,21 @@ void MenuEnemy::render() {
 	
 	SDL_BlitSurface(bar_hp, &src, screen, &dest);
 	
-	font->renderShadowed(msg->get("%s level %d", enemy->stats.level, enemy->stats.name), VIEW_W_HALF, 4, JUSTIFY_CENTER, screen, FONT_WHITE);
 	stringstream ss;
 	ss.str("");
 	if (enemy->stats.hp > 0)
 		ss << enemy->stats.hp << "/" << enemy->stats.maxhp;
 	else
 		ss << msg->get("Dead");
-	font->renderShadowed(ss.str(), VIEW_W_HALF, 19, JUSTIFY_CENTER, screen, FONT_WHITE);
+
+	WidgetLabel label;
+
+	label.set(VIEW_W_HALF, 9, JUSTIFY_CENTER, VALIGN_CENTER, msg->get("%s level %d", enemy->stats.level, enemy->stats.name), FONT_WHITE);
+	label.render();
+
+	label.set(VIEW_W_HALF, 24, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
+	label.render();
+
 	
 	//SDL_UpdateRects(screen, 1, &dest);
 }

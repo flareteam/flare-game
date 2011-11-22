@@ -24,17 +24,15 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef MENU_ACTION_BAR_H
 #define MENU_ACTION_BAR_H
 
-#include <string>
-#include "SDL.h"
-#include "SDL_image.h"
 #include "InputState.h"
-#include "MenuTooltip.h"
+#include "WidgetTooltip.h"
 #include "PowerManager.h"
 #include "FontEngine.h"
 #include "StatBlock.h"
-#include "MessageEngine.h"
-#include <string>
-#include <sstream>
+#include "SharedResources.h"
+
+#include <SDL.h>
+#include <SDL_image.h>
 
 const int MENU_CHARACTER = 0;
 const int MENU_INVENTORY = 1;
@@ -43,7 +41,6 @@ const int MENU_LOG = 3;
 
 class MenuActionBar {
 private:
-	SDL_Surface *screen;
 	SDL_Surface *background;
 	SDL_Surface *emptyslot;
 	SDL_Surface *icons;
@@ -52,8 +49,6 @@ private:
 	
 	StatBlock *hero;
 	PowerManager *powers;
-	InputState *inp;
-	FontEngine *font;
 	SDL_Rect src;
 	SDL_Rect label_src;
 	
@@ -62,7 +57,7 @@ private:
 	
 public:
 
-	MenuActionBar(SDL_Surface *_screen, FontEngine *_font, InputState *_inp, PowerManager *_powers, StatBlock *hero, SDL_Surface *icons);
+	MenuActionBar(PowerManager *_powers, StatBlock *hero, SDL_Surface *icons);
 	~MenuActionBar();
 	void loadGraphics();
 	void renderIcon(int icon_id, int x, int y);

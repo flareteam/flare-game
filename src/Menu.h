@@ -24,20 +24,17 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef MENU_H
 #define MENU_H
 
-#include "SDL_image.h"
+#include <SDL_image.h>
 #include "FontEngine.h"
 #include "InputState.h"
 
 class Menu {
 protected:
-	SDL_Surface *screen;
-	InputState *inp;
-	FontEngine *font;
 
 	SDL_Surface *background;
 
 public:
-	Menu(SDL_Surface*, InputState*, FontEngine*);
+	Menu();
 	virtual ~Menu();
 
 	bool visible;

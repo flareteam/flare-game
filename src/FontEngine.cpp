@@ -22,7 +22,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "FontEngine.h"
 #include "FileParser.h"
-#include "ModManager.h"
+#include "SharedResources.h"
 #include <iostream>
 
 FontEngine::FontEngine() {
@@ -145,8 +145,8 @@ Point FontEngine::calc_size(string text_with_newlines, int width) {
  * Justify is left, right, or center
  */
 void FontEngine::render(string text, int x, int y, int justify, SDL_Surface *target, int color) {
-	int dest_x;
-	int dest_y;
+	int dest_x = -1;
+	int dest_y = -1;
 
 	// calculate actual starting x,y based on justify
 	if (justify == JUSTIFY_LEFT) {
@@ -159,6 +159,12 @@ void FontEngine::render(string text, int x, int y, int justify, SDL_Surface *tar
 	}
 	else if (justify == JUSTIFY_CENTER) {
 		dest_x = x - calc_length(text)/2;
+		dest_y = y;
+	}
+	else {
+		printf("ERROR: FontEngine::render() given unhandled 'justify=%d', assuming left\n",
+		       justify);
+		dest_x = x;
 		dest_y = y;
 	}
 

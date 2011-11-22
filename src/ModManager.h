@@ -48,9 +48,5 @@ public:
 	vector<string> mod_list;
 };
 
-// TODO: mod location lookup is used by most classes. Does this justify
-// use of a global? Consider refactoring.
-extern ModManager *mods;
-
 #endif
 

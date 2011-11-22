@@ -22,9 +22,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
  
 #include "LootManager.h"
-#include "ModManager.h"
+#include "SharedResources.h"
  
-LootManager::LootManager(ItemDatabase *_items, MenuTooltip *_tip, EnemyManager *_enemies, MapIso *_map) {
+LootManager::LootManager(ItemManager *_items, WidgetTooltip *_tip, EnemyManager *_enemies, MapIso *_map) {
 	items = _items;
 	tip = _tip;
 	enemies = _enemies; // we need to be able to read loot state when creatures die

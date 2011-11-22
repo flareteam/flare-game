@@ -43,7 +43,8 @@ private:
 public:
 	QuestLog(CampaignManager *_camp, MenuLog *_log);
 	void loadAll();
-	void load(string filename);
+	void loadIndex(const std::string& filename);
+	void load(const std::string& filename);
 	void logic();
 	void createQuestList();
     bool newQuestNotification;

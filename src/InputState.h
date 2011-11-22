@@ -24,9 +24,16 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef INPUT_STATE_H
 #define INPUT_STATE_H
 
-#define JOY_MIN         -32768
-#define JOY_MAX         32767
-#define JOY_DEADZONE    100
+#include "FileParser.h"
+#include "Utils.h"
+#include "UtilsParsing.h"
+#include "Settings.h"
+
+#include <SDL.h>
+#include <string>
+
+
+#define JOY_DEADZONE	100
 
 #define JOY_POS_CENTER	0
 #define JOY_POS_LEFT	-1
@@ -34,13 +41,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #define JOY_POS_UP	-1
 #define JOY_POS_DOWN	1
 
-#include <string>
-#include <fstream>
-#include "SDL.h"
-#include "FileParser.h"
-#include "Utils.h"
-#include "UtilsParsing.h"
-#include "Settings.h"
 
 // Input commands enum
 const int CANCEL = 0;
@@ -86,7 +86,7 @@ public:
 	
 	bool done;
 	Point mouse;
-	string inkeys;
+	std::string inkeys;
 };
 
 #endif

@@ -16,17 +16,16 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 */
 
 /**
- * class ItemDatabase
+ * class ItemManager
  */
 
-#include "ItemDatabase.h"
+#include "ItemManager.h"
 #include "FileParser.h"
-#include "ModManager.h"
+#include "SharedResources.h"
 #include "UtilsFileSystem.h"
+#include "WidgetLabel.h"
 
-ItemDatabase::ItemDatabase(SDL_Surface *_screen, FontEngine *_font) {
-	screen = _screen;
-	font = _font;
+ItemManager::ItemManager() {
 	
 	items = new Item[MAX_ITEM_ID];
 	
@@ -48,7 +47,7 @@ ItemDatabase::ItemDatabase(SDL_Surface *_screen, FontEngine *_font) {
 /**
  * Load all items files in all mods
  */
-void ItemDatabase::loadAll() {
+void ItemManager::loadAll() {
 
 	string test_path;
 
@@ -69,7 +68,7 @@ void ItemDatabase::loadAll() {
  * 
  * @param filename The full path and name of the file to load
  */
-void ItemDatabase::load(string filename) {
+void ItemManager::load(string filename) {
 	FileParser infile;
 	int id = 0;
 	string s;
@@ -201,7 +200,7 @@ void ItemDatabase::load(string filename) {
 	}
 }
 
-void ItemDatabase::loadSounds() {
+void ItemManager::loadSounds() {
 
 	sfx[SFX_BOOK] = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_book.ogg").c_str());
 	sfx[SFX_CLOTH] = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_cloth.ogg").c_str());
@@ -221,7 +220,7 @@ void ItemDatabase::loadSounds() {
 /**
  * Icon sets
  */
-void ItemDatabase::loadIcons() {
+void ItemManager::loadIcons() {
 	
 	icons32 = IMG_Load(mods->locate("images/icons/icons32.png").c_str());
 	icons64 = IMG_Load(mods->locate("images/icons/icons64.png").c_str());
@@ -245,8 +244,7 @@ void ItemDatabase::loadIcons() {
  * Renders icons at 32px size or 64px size
  * Also display the stack size
  */
-void ItemDatabase::renderIcon(ItemStack stack, int x, int y, int size) {
-	stringstream ss;
+void ItemManager::renderIcon(ItemStack stack, int x, int y, int size) {
 	int columns;
 
 	dest.x = x;
@@ -267,22 +265,26 @@ void ItemDatabase::renderIcon(ItemStack stack, int x, int y, int size) {
 	
 	if( stack.quantity > 1 || items[stack.item].max_quantity > 1) {
 		// stackable item : show the quantity
+		stringstream ss;
 		ss << stack.quantity;
-		font->render(ss.str(), dest.x + 2, dest.y + 2, JUSTIFY_LEFT, screen, FONT_WHITE);
+
+		WidgetLabel label;
+		label.set(dest.x + 2, dest.y + 2, JUSTIFY_LEFT, VALIGN_TOP, ss.str(), FONT_WHITE);
+		label.render();
 	}
 }
 
-void ItemDatabase::playSound(int item) {
+void ItemManager::playSound(int item) {
 	if (items[item].sfx != SFX_NONE)
 		if (sfx[items[item].sfx])
 			Mix_PlayChannel(-1, sfx[items[item].sfx], 0);
 }
 
-void ItemDatabase::playCoinsSound() {
+void ItemManager::playCoinsSound() {
 	Mix_PlayChannel(-1, sfx[SFX_COINS], 0);
 }
 
-TooltipData ItemDatabase::getShortTooltip( ItemStack stack) {
+TooltipData ItemManager::getShortTooltip( ItemStack stack) {
 	stringstream ss;
 	TooltipData tip;
 	
@@ -313,7 +315,7 @@ TooltipData ItemDatabase::getShortTooltip( ItemStack stack) {
 /**
  * Create detailed tooltip showing all relevant item info
  */
-TooltipData ItemDatabase::getTooltip(int item, StatBlock *stats, bool vendor_view) {
+TooltipData ItemManager::getTooltip(int item, StatBlock *stats, bool vendor_view) {
 	TooltipData tip;
 	
 	if (item == 0) return tip;
@@ -452,7 +454,7 @@ TooltipData ItemDatabase::getTooltip(int item, StatBlock *stats, bool vendor_vie
 	return tip;
 }
 
-ItemDatabase::~ItemDatabase() {
+ItemManager::~ItemManager() {
 
 	SDL_FreeSurface(icons32);
 	SDL_FreeSurface(icons64);

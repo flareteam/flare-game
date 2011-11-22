@@ -23,9 +23,11 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #define MENU_EXIT_H
 
 #include "Menu.h"
-#include "SDL_image.h"
 #include "WidgetButton.h"
-#include "MessageEngine.h"
+#include "SharedResources.h"
+
+#include <SDL_image.h>
+
 
 class MenuExit : public Menu {
 protected:
@@ -37,7 +39,7 @@ protected:
 	bool exitClicked;
 
 public:
-	MenuExit(SDL_Surface*, InputState*, FontEngine*);
+	MenuExit();
 	~MenuExit();
 
 	void logic();

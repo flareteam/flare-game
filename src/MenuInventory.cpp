@@ -20,12 +20,15 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "MenuInventory.h"
-#include "ModManager.h"
+#include "SharedResources.h"
+#include "WidgetLabel.h"
 
-MenuInventory::MenuInventory(SDL_Surface *_screen, InputState *_inp, FontEngine *_font, ItemDatabase *_items, StatBlock *_stats, PowerManager *_powers) {
-	screen = _screen;
-	inp = _inp;
-	font = _font;
+#include <sstream>
+
+using namespace std;
+
+
+MenuInventory::MenuInventory(ItemManager *_items, StatBlock *_stats, PowerManager *_powers) {
 	items = _items;
 	stats = _stats;
 	powers = _powers;
@@ -48,8 +51,8 @@ MenuInventory::MenuInventory(SDL_Surface *_screen, InputState *_inp, FontEngine 
 	carried_area.w = 256;
 	carried_area.h = 256;
 
-	inventory[EQUIPMENT].init(MAX_EQUIPPED, items, screen, font, equipped_area, ICON_SIZE_64, 4);
-	inventory[CARRIED].init(MAX_CARRIED, items, screen, font, carried_area, ICON_SIZE_32, 8);
+	inventory[EQUIPMENT].init(MAX_EQUIPPED, items, equipped_area, ICON_SIZE_64, 4);
+	inventory[CARRIED].init(MAX_CARRIED, items, carried_area, ICON_SIZE_32, 8);
 	
 	gold = 0;
 	
@@ -58,10 +61,9 @@ MenuInventory::MenuInventory(SDL_Surface *_screen, InputState *_inp, FontEngine 
 	changed_artifact = true;
 	log_msg = "";
 	
-	closeButton = new WidgetButton(screen, font, inp, mods->locate("images/menus/buttons/button_x.png"));
+	closeButton = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
 	closeButton->pos.x = VIEW_W - 26;
 	closeButton->pos.y = (VIEW_H - 480)/2 + 34;
-
 }
 
 void MenuInventory::loadGraphics() {
@@ -113,12 +115,19 @@ void MenuInventory::render() {
 	closeButton->render();
 	
 	// text overlay
-	font->render(msg->get("Inventory"), window_area.x+160, window_area.y+8, JUSTIFY_CENTER, screen, FONT_WHITE);
-	font->render(msg->get("Main Hand"), window_area.x+64, window_area.y+34, JUSTIFY_CENTER, screen, FONT_WHITE);
-	font->render(msg->get("Body"), window_area.x+128, window_area.y+34, JUSTIFY_CENTER, screen, FONT_WHITE);
-	font->render(msg->get("Off Hand"), window_area.x+192, window_area.y+34, JUSTIFY_CENTER, screen, FONT_WHITE);
-	font->render(msg->get("Artifact"), window_area.x+256, window_area.y+34, JUSTIFY_CENTER, screen, FONT_WHITE);
-	font->render(msg->get("%d Gold", gold), window_area.x+288, window_area.y+114, JUSTIFY_RIGHT, screen, FONT_WHITE);
+	WidgetLabel label;
+	label.set(window_area.x+160, window_area.y+8, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Inventory"), FONT_WHITE);
+	label.render();
+	label.set(window_area.x+64, window_area.y+34, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Main Hand"), FONT_WHITE);
+	label.render();
+	label.set(window_area.x+128, window_area.y+34, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Body"), FONT_WHITE);
+	label.render();
+	label.set(window_area.x+192, window_area.y+34, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Off Hand"), FONT_WHITE);
+	label.render();
+	label.set(window_area.x+256, window_area.y+34, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Artifact"), FONT_WHITE);
+	label.render();
+	label.set(window_area.x+288, window_area.y+114, JUSTIFY_RIGHT, VALIGN_TOP, msg->get("%d Gold", gold), FONT_WHITE);
+	label.render();
 
 	inventory[EQUIPMENT].render();
 	inventory[CARRIED].render();
@@ -535,12 +544,6 @@ void MenuInventory::applyEquipment(StatBlock *stats, ItemStack *equipped) {
 
 	int bonus_counter;
 	
-	// note: these are also defined in MenuInventory.h
-	int SLOT_MAIN = 0;
-	int SLOT_BODY = 1;
-	int SLOT_OFF = 2;
-	//int SLOT_ARTIFACT = 3;
-
 	int prev_hp = stats->hp;
 	int prev_mp = stats->mp;
 

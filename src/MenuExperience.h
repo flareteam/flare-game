@@ -24,25 +24,24 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef MENU_EXPERIENCE_H
 #define MENU_EXPERIENCE_H
 
-#include "SDL.h"
-#include "SDL_image.h"
-#include "SDL_mixer.h"
 #include "StatBlock.h"
 #include "Utils.h"
 #include "FontEngine.h"
+
+#include <SDL.h>
+#include <SDL_image.h>
+
 #include <string>
-#include <sstream>
+
 
 using namespace std;
 
 class MenuExperience {
 private:
-	SDL_Surface *screen;
-	FontEngine *font;
 	SDL_Surface *background;
 	SDL_Surface *bar;
 public:
-	MenuExperience(SDL_Surface *_screen, FontEngine *_font);
+	MenuExperience();
 	~MenuExperience();
 	void loadGraphics();
 	void render(StatBlock *stats, Point mouse);

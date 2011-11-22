@@ -22,15 +22,17 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef MENU_LOG_H
 #define MENU_LOG_H
 
-#include <string>
-#include "SDL.h"
-#include "SDL_image.h"
-#include "SDL_mixer.h"
 #include "InputState.h"
 #include "Utils.h"
 #include "FontEngine.h"
 #include "WidgetButton.h"
-#include "MessageEngine.h"
+#include "SharedResources.h"
+
+#include <SDL.h>
+#include <SDL_image.h>
+
+#include <string>
+
 
 const int MAX_LOG_MESSAGES = 100;
 
@@ -41,9 +43,6 @@ const int LOG_TYPE_STATISTICS = 2;
 
 class MenuLog {
 private:
-	SDL_Surface *screen;
-	InputState *inp;
-	FontEngine *font;
 
 	SDL_Surface *background;
 	SDL_Surface *tab_active;
@@ -62,7 +61,7 @@ private:
 	int paragraph_spacing;
 	
 public:
-	MenuLog(SDL_Surface *screen, InputState *inp, FontEngine *font);
+	MenuLog();
 	~MenuLog();
 
 	void logic();

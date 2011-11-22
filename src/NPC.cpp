@@ -21,9 +21,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "NPC.h"
 #include "FileParser.h"
-#include "ModManager.h"
+#include "SharedResources.h"
 
-NPC::NPC(MapIso *_map, ItemDatabase *_items) : Entity(_map) {
+NPC::NPC(MapIso *_map, ItemManager *_items) : Entity(_map) {
 	items = _items;
 
 	// init general vars

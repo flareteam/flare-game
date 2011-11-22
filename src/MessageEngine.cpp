@@ -24,11 +24,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * This class is primarily used for making sure FLARE is flexible and translatable.
  */
 
-#include "MessageEngine.h"
-#include "ModManager.h"
+#include "SharedResources.h"
+#include "SharedResources.h"
 #include <sstream>
-
-MessageEngine *msg;
 
 MessageEngine::MessageEngine() {
 	GetText infile;

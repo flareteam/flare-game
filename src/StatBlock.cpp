@@ -23,7 +23,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "StatBlock.h"
 #include "FileParser.h"
-#include "ModManager.h"
+#include "SharedResources.h"
 
 StatBlock::StatBlock() {
 

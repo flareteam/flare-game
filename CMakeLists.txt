@@ -2,7 +2,7 @@ Project (Flare)
 cmake_minimum_required (VERSION 2.6)
 
 Set (PACKAGE "FLARE")
-Set (VERSION "0.14.1")
+Set (VERSION "0.15")
 
 
 # Default definitions
@@ -77,7 +77,7 @@ Set (FLARE_SOURCES
 	./src/Hazard.cpp
 	./src/HazardManager.cpp
 	./src/InputState.cpp
-	./src/ItemDatabase.cpp
+	./src/ItemManager.cpp
 	./src/ItemStorage.cpp
 	./src/LootManager.cpp
 	./src/MapCollision.cpp
@@ -98,7 +98,6 @@ Set (FLARE_SOURCES
 	./src/MenuMiniMap.cpp
 	./src/MenuPowers.cpp
 	./src/MenuTalker.cpp
-	./src/MenuTooltip.cpp
 	./src/MenuVendor.cpp
 	./src/MessageEngine.cpp
 	./src/ModManager.cpp
@@ -108,6 +107,7 @@ Set (FLARE_SOURCES
 	./src/QuestLog.cpp
 	./src/SaveLoad.cpp
 	./src/Settings.cpp
+	./src/SharedResources.cpp
 	./src/StatBlock.cpp
 	./src/TileSet.cpp
 	./src/Utils.cpp
@@ -116,6 +116,7 @@ Set (FLARE_SOURCES
 	./src/WidgetButton.cpp
 	./src/WidgetInput.cpp
 	./src/WidgetLabel.cpp
+	./src/WidgetTooltip.cpp
 	./src/main.cpp
 )
 
@@ -138,10 +139,7 @@ install(PROGRAMS
   ${CMAKE_CURRENT_BINARY_DIR}/flare
   DESTINATION ${CMAKE_INSTALL_PREFIX}/games)
 install(DIRECTORY
-  "${CMAKE_CURRENT_SOURCE_DIR}/animations"
   "${CMAKE_CURRENT_SOURCE_DIR}/mods"
-  "${CMAKE_CURRENT_SOURCE_DIR}/powers"
-  "${CMAKE_CURRENT_SOURCE_DIR}/quests"
   DESTINATION ${CMAKE_INSTALL_PREFIX}/share/games/flare)
 install(FILES
   "${CMAKE_CURRENT_BINARY_DIR}/flare.desktop"

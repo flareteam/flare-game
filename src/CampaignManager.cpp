@@ -22,6 +22,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "CampaignManager.h"
+#include "SharedResources.h"
 
 CampaignManager::CampaignManager() {
 

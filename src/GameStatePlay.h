@@ -25,8 +25,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef GAMESTATEPLAY_H
 #define GAMESTATEPLAY_H
 
-#include "SDL.h"
-#include "SDL_image.h"
 #include "InputState.h"
 #include "Avatar.h"
 #include "Enemy.h"
@@ -42,26 +40,29 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "CampaignManager.h"
 #include "QuestLog.h"
 #include "GameState.h"
-#include "MessageEngine.h"
+#include "WidgetLabel.h"
+
+#include <SDL.h>
+#include <SDL_image.h>
 
 class GameStatePlay : public GameState {
 private:
-	SDL_Surface *screen;
-	
-	InputState *inp;
+
 	MapIso *map;
 	Enemy *enemy;
 	Renderable r[1024];
 	int renderableCount;
 	HazardManager *hazards;
 	EnemyManager *enemies;
-	FontEngine *font;
 	MenuManager *menu;
 	LootManager *loot;
 	PowerManager *powers;
 	NPCManager *npcs;
 	CampaignManager *camp;
 	QuestLog *quests;
+
+	WidgetLabel *label_mapname;
+	WidgetLabel *label_fps;
 	
 	bool restrictPowerUse();
 	void checkEnemyFocus();
@@ -72,13 +73,13 @@ private:
 	void checkLog();
 	void checkEquipmentChange();
 	void checkConsumable();
-    void checkNotifications();
+	void checkNotifications();
 	void checkNPCInteraction();
 
 	int npc_id;
 	
 public:
-	GameStatePlay(SDL_Surface *screen, InputState *inp, FontEngine *font);
+	GameStatePlay();
 	~GameStatePlay();
 
 	void logic();
@@ -90,7 +91,6 @@ public:
 
 	Avatar *pc;
 	int game_slot;
-
 };
 
 #endif

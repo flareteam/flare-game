@@ -22,23 +22,21 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef MENU_INVENTORY_H
 #define MENU_INVENTORY_H
 
-#include "SDL.h"
-#include "SDL_image.h"
-#include "SDL_mixer.h"
 #include "InputState.h"
 #include "Utils.h"
 #include "FontEngine.h"
-#include "ItemDatabase.h"
-#include "MenuTooltip.h"
+#include "ItemManager.h"
+#include "WidgetTooltip.h"
 #include "StatBlock.h"
 #include "PowerManager.h"
 #include "MenuItemStorage.h"
 #include "WidgetButton.h"
-#include "MessageEngine.h"
-#include <string>
-#include <sstream>
+#include "SharedResources.h"
 
-using namespace std;
+#include <SDL.h>
+#include <SDL_image.h>
+
+#include <string>
 
 const int EQUIPMENT = 0;
 const int CARRIED = 1;
@@ -46,18 +44,17 @@ const int CARRIED = 1;
 const int MAX_EQUIPPED = 4;
 const int MAX_CARRIED = 64;
 
-// note: if you change these, also change them in ItemDatabase::applyEquipment
-const int SLOT_MAIN = 0;
-const int SLOT_BODY = 1;
-const int SLOT_OFF = 2;
-const int SLOT_ARTIFACT = 3;
+enum InventorySlotsType {
+	SLOT_MAIN = 0,
+	SLOT_BODY = 1,
+	SLOT_OFF = 2,
+	SLOT_ARTIFACT = 3
+};
+
 
 class MenuInventory {
 private:
-	SDL_Surface *screen;
-	InputState *inp;
-	ItemDatabase *items;
-	FontEngine *font;
+	ItemManager *items;
 	StatBlock *stats;
 	PowerManager *powers;
 
@@ -69,7 +66,7 @@ private:
 	WidgetButton *closeButton;
 	
 public:
-	MenuInventory(SDL_Surface *screen, InputState *inp, FontEngine *font, ItemDatabase *items, StatBlock *stats, PowerManager *powers);
+	MenuInventory(ItemManager *items, StatBlock *stats, PowerManager *powers);
 	~MenuInventory();
 	void logic();
 	void render();
@@ -108,7 +105,7 @@ public:
 	bool changed_equipment;
 	bool changed_artifact;
 	
-	string log_msg;
+	std::string log_msg;
 
 };
 

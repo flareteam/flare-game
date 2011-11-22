@@ -22,12 +22,22 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "MenuHPMP.h"
-#include "ModManager.h"
+#include "SharedResources.h"
 
-MenuHPMP::MenuHPMP(SDL_Surface *_screen, FontEngine *_font) {
-	screen = _screen;
-	font = _font;
+#include <string>
+#include <sstream>
+
+
+using namespace std;
+
+
+MenuHPMP::MenuHPMP() {
 	
+	hphover = new WidgetLabel();
+	mphover = new WidgetLabel();
+	hphover->set(53, 9, JUSTIFY_CENTER, VALIGN_CENTER, "", FONT_WHITE);
+	mphover->set(53, 24, JUSTIFY_CENTER, VALIGN_CENTER, "", FONT_WHITE);
+
 	loadGraphics();
 }
 
@@ -54,7 +64,6 @@ void MenuHPMP::loadGraphics() {
 	cleanup = bar_mp;
 	bar_mp = SDL_DisplayFormatAlpha(bar_mp);
 	SDL_FreeSurface(cleanup);
-	
 }
 
 void MenuHPMP::render(StatBlock *stats, Point mouse) {
@@ -100,11 +109,13 @@ void MenuHPMP::render(StatBlock *stats, Point mouse) {
 
 		stringstream ss;
 		ss << stats->hp << "/" << stats->maxhp;
-		font->renderShadowed(ss.str(), 53,4,JUSTIFY_CENTER, screen, FONT_WHITE);
+		hphover->text = ss.str();
+		hphover->render();
+
 		ss.str("");
 		ss << stats->mp << "/" << stats->maxmp;
-		font->renderShadowed(ss.str(), 53,19,JUSTIFY_CENTER, screen, FONT_WHITE);
-	 
+		mphover->text = ss.str();
+		mphover->render();
 	}
 }
 
@@ -112,6 +123,6 @@ MenuHPMP::~MenuHPMP() {
 	SDL_FreeSurface(background);
 	SDL_FreeSurface(bar_hp);
 	SDL_FreeSurface(bar_mp);
-	
+	delete hphover;
+	delete mphover;
 }
-

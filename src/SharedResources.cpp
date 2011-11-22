@@ -15,30 +15,20 @@ You should have received a copy of the GNU General Public License along with
 FLARE.  If not, see http://www.gnu.org/licenses/
 */
 
-#ifndef MENU_CONFIRM_H
-#define MENU_CONFIRM_H
+/**
+SharedResources
 
-#include "Menu.h"
-#include "WidgetButton.h"
-#include <SDL_image.h>
+"Global" sort of system resources that are used by most game classes.
+Only one instance of these classes are needed by the engine.
+Generic objects only. Game-specific objects don't belong here.
+Created and destroyed by main.cpp
+**/
 
+#include "SharedResources.h"
 
-class MenuConfirm : public Menu {
-protected:
-	void loadGraphics();
+SDL_Surface *screen;
+ModManager *mods;
+MessageEngine *msg;
+InputState *inp;
+FontEngine *font;
 
-	WidgetButton *buttonConfirm;
-	WidgetButton *buttonClose;
-
-	string boxMsg;
-public:
-	MenuConfirm(string, string);
-	~MenuConfirm();
-
-	void logic();
-	virtual void render();
-
-	bool confirmClicked;
-};
-
-#endif

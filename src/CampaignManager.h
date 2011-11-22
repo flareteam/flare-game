@@ -28,8 +28,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <sstream>
 #include "UtilsParsing.h"
 #include "MenuItemStorage.h"
-#include "ItemDatabase.h"
-#include "MessageEngine.h"
+#include "ItemManager.h"
 
 const int MAX_STATUS = 1024;
 
@@ -57,7 +56,7 @@ public:
 	ItemStack drop_stack;
 	
 	// pointers to various info that can be changed
-	ItemDatabase *items;
+	ItemManager *items;
 	MenuItemStorage *carried_items;
 	int *currency;
 	int *xp;

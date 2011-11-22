@@ -25,15 +25,13 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "GameStatePlay.h"
 #include "GameState.h"
 #include "GameStateTitle.h"
+#include "WidgetLabel.h"
+#include "SharedResources.h"
 
-GameStatePlay::GameStatePlay(SDL_Surface *_screen, InputState *_inp, FontEngine *_font) : GameState(screen, inp, font) {
+GameStatePlay::GameStatePlay() : GameState() {
 
 	hasMusic = true;
 	//Mix_HaltMusic(); // maybe not needed? playing new music should auto halt previous music
-
-	// shared resources from GameSwitcher
-	screen = _screen;
-	inp = _inp;
 	
 	// GameEngine scope variables
 	npc_id = -1;
@@ -41,13 +39,12 @@ GameStatePlay::GameStatePlay(SDL_Surface *_screen, InputState *_inp, FontEngine 
 
 	// construct gameplay objects
 	powers = new PowerManager();
-	font = _font;
 	camp = new CampaignManager();
-	map = new MapIso(_screen, camp, _inp, font);
-	pc = new Avatar(powers, _inp, map);
+	map = new MapIso(camp);
+	pc = new Avatar(powers, map);
 	enemies = new EnemyManager(powers, map);
 	hazards = new HazardManager(powers, pc, enemies);
-	menu = new MenuManager(powers, _screen, _inp, font, &pc->stats, camp);
+	menu = new MenuManager(powers, &pc->stats, camp);
 	loot = new LootManager(menu->items, menu->tip, enemies, map);
 	npcs = new NPCManager(map, menu->tip, loot, menu->items);
 	quests = new QuestLog(camp, menu->log);
@@ -59,6 +56,10 @@ GameStatePlay::GameStatePlay(SDL_Surface *_screen, InputState *_inp, FontEngine 
 	camp->xp = &pc->stats.xp;
 	map->powers = powers;
 
+	// display the name of the map in the upper-right hand corner
+	label_mapname = new WidgetLabel();
+
+	label_fps = new WidgetLabel();
 }
 
 /**
@@ -202,7 +203,7 @@ void GameStatePlay::checkCancel() {
 	if (menu->requestingExit()) {
 		saveGame();
 		Mix_HaltMusic();
-		requestedGameState = new GameStateTitle(screen, inp, font);
+		requestedGameState = new GameStateTitle();
 	}
 
 	// if user closes the window
@@ -462,14 +463,15 @@ void GameStatePlay::render() {
 	map->render(r, renderableCount);
 	
 	// display the name of the map in the upper-right hand corner
-	font->render(map->title, VIEW_W-2, 2, JUSTIFY_RIGHT, screen, FONT_WHITE);
+	label_mapname->set(VIEW_W-2, 2, JUSTIFY_RIGHT, VALIGN_TOP, map->title, FONT_WHITE);
+	label_mapname->render();
 	
 	// mouseover tooltips
 	loot->renderTooltips(map->cam);
 	npcs->renderTooltips(map->cam, inp->mouse);
 	
 	menu->hudlog->render();
-	menu->mini->render(&map->collider, pc->stats.pos, map->w, map->h);
+	menu->mini->renderIso(&map->collider, pc->stats.pos, map->w, map->h);
 	menu->render();
 
 }
@@ -477,7 +479,8 @@ void GameStatePlay::render() {
 void GameStatePlay::showFPS(int fps) {
 	stringstream ss;
 	ss << fps << "fps";
-	font->render(ss.str(), VIEW_W >> 1, 2, JUSTIFY_CENTER, screen, FONT_GRAY); 
+	label_fps->set(VIEW_W >> 1, 2, JUSTIFY_CENTER, VALIGN_TOP, ss.str(), FONT_GREY);
+	label_fps->render();
 }
 
 GameStatePlay::~GameStatePlay() {

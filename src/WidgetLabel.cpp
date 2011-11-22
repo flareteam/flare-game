@@ -22,10 +22,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "WidgetLabel.h"
+#include "SharedResources.h"
 
-WidgetLabel::WidgetLabel(SDL_Surface *_screen, FontEngine *_font) {
-	screen = _screen;
-	font = _font;
+WidgetLabel::WidgetLabel() {
 	
 	text = "";
 	color = FONT_WHITE;

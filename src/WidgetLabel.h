@@ -25,7 +25,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef WIDGET_LABEL_H
 #define WIDGET_LABEL_H
 
-#include "SDL.h"
+#include <SDL.h>
 #include "FontEngine.h"
 #include <string>
 
@@ -35,11 +35,9 @@ const int VALIGN_BOTTOM = 2;
 
 class WidgetLabel {
 private:
-	SDL_Surface *screen;
-	FontEngine *font;
 
 public:
-	WidgetLabel(SDL_Surface *_screen, FontEngine *_font);
+	WidgetLabel();
 	~WidgetLabel();
 	void render();
 	void set(int _x, int _y, int _justify, int _valign, string _text, int _color);

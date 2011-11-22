@@ -23,16 +23,14 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  
 #include "MapIso.h"
 #include "FileParser.h"
-#include "ModManager.h"
+#include "SharedResources.h"
 
-MapIso::MapIso(SDL_Surface *_screen, CampaignManager *_camp, InputState *_inp, FontEngine *_font) {
 
-	inp = _inp;
-	screen = _screen;
+MapIso::MapIso(CampaignManager *_camp) {
+
 	camp = _camp;
-	font = _font;
 	
-	tip = new MenuTooltip(font, screen);
+	tip = new WidgetTooltip();
 
 	// cam(x,y) is where on the map the camera is pointing
 	// units found in Settings.h (UNITS_PER_TILE)

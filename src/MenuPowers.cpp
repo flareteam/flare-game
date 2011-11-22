@@ -20,19 +20,22 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "MenuPowers.h"
-#include "ModManager.h"
+#include "SharedResources.h"
+#include "WidgetLabel.h"
 
-MenuPowers::MenuPowers(SDL_Surface *_screen, InputState *_inp, FontEngine *_font, StatBlock *_stats, PowerManager *_powers) {
-	screen = _screen;
-	inp = _inp;
-	font = _font;
+#include <string>
+#include <sstream>
+
+using namespace std;
+
+
+MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers) {
 	stats = _stats;
 	powers = _powers;
-	
+
 	visible = false;
 	loadGraphics();
-	
-			
+
 	// set slot positions
 	int offset_x = (VIEW_W - 320);
 	int offset_y = (VIEW_H - 416)/2;
@@ -42,11 +45,10 @@ MenuPowers::MenuPowers(SDL_Surface *_screen, InputState *_inp, FontEngine *_font
 		slots[i].x = offset_x + 48 + (i % 4) * 64;
 		slots[i].y = offset_y + 80 + (i / 4) * 64;
 	}
-	
-	closeButton = new WidgetButton(screen, font, inp, mods->locate("images/menus/buttons/button_x.png"));
+
+	closeButton = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
 	closeButton->pos.x = VIEW_W - 26;
 	closeButton->pos.y = (VIEW_H - 480)/2 + 34;
-
 }
 
 void MenuPowers::loadGraphics() {
@@ -141,31 +143,50 @@ void MenuPowers::render() {
 	closeButton->render();
 	
 	// text overlay
-	font->render(msg->get("Powers"), offset_x+160, offset_y+8, JUSTIFY_CENTER, screen, FONT_WHITE);
-	font->render(msg->get("Physical"), offset_x+64, offset_y+50, JUSTIFY_CENTER, screen, FONT_WHITE);
-	font->render(msg->get("Physical"), offset_x+128, offset_y+50, JUSTIFY_CENTER, screen, FONT_WHITE);
-	font->render(msg->get("Mental"), offset_x+192, offset_y+50, JUSTIFY_CENTER, screen, FONT_WHITE);
-	font->render(msg->get("Mental"), offset_x+256, offset_y+50, JUSTIFY_CENTER, screen, FONT_WHITE);
-	font->render(msg->get("Offense"), offset_x+64, offset_y+66, JUSTIFY_CENTER, screen, FONT_WHITE);
-	font->render(msg->get("Defense"), offset_x+128, offset_y+66, JUSTIFY_CENTER, screen, FONT_WHITE);
-	font->render(msg->get("Offense"), offset_x+192, offset_y+66, JUSTIFY_CENTER, screen, FONT_WHITE);
-	font->render(msg->get("Defense"), offset_x+256, offset_y+66, JUSTIFY_CENTER, screen, FONT_WHITE);
-	
+        WidgetLabel label;
+        label.set(offset_x+160, offset_y+8, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Powers"), FONT_WHITE);
+        label.render();
+        label.set(offset_x+64, offset_y+50, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Physical"), FONT_WHITE);
+        label.render();
+        label.set(offset_x+128, offset_y+50, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Physical"), FONT_WHITE);
+        label.render();
+        label.set(offset_x+192, offset_y+50, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Mental"), FONT_WHITE);
+        label.render();
+        label.set(offset_x+256, offset_y+50, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Mental"), FONT_WHITE);
+        label.render();
+        label.set(offset_x+64, offset_y+66, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Offense"), FONT_WHITE);
+        label.render();
+        label.set(offset_x+128, offset_y+66, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Defense"), FONT_WHITE);
+        label.render();
+        label.set(offset_x+192, offset_y+66, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Offense"), FONT_WHITE);
+        label.render();
+        label.set(offset_x+256, offset_y+66, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Defense"), FONT_WHITE);
+        label.render();
+
 	// stats
 	stringstream ss;
+
 	ss.str("");
 	ss << stats->physoff;
-	font->render(ss.str(), offset_x+64, offset_y+34, JUSTIFY_CENTER, screen, FONT_WHITE);
+	label.set(offset_x+64, offset_y+34, JUSTIFY_CENTER, VALIGN_TOP, ss.str(), FONT_WHITE);
+	label.render();
+
 	ss.str("");
 	ss << stats->physdef;
-	font->render(ss.str(), offset_x+128, offset_y+34, JUSTIFY_CENTER, screen, FONT_WHITE);
+	label.set(offset_x+128, offset_y+34, JUSTIFY_CENTER, VALIGN_TOP, ss.str(), FONT_WHITE);
+	label.render();
+
 	ss.str("");
 	ss << stats->mentoff;
-	font->render(ss.str(), offset_x+192, offset_y+34, JUSTIFY_CENTER, screen, FONT_WHITE);
+	label.set(offset_x+192, offset_y+34, JUSTIFY_CENTER, VALIGN_TOP, ss.str(), FONT_WHITE);
+	label.render();
+
 	ss.str("");
 	ss << stats->mentdef;
-	font->render(ss.str(), offset_x+256, offset_y+34, JUSTIFY_CENTER, screen, FONT_WHITE);
-	
+	label.set(offset_x+256, offset_y+34, JUSTIFY_CENTER, VALIGN_TOP, ss.str(), FONT_WHITE);
+	label.render();
+
+
 	// highlighting
 	displayBuild(stats->physoff, offset_x+48);
 	displayBuild(stats->physdef, offset_x+112);

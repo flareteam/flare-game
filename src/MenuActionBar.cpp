@@ -22,12 +22,14 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
  
 #include "MenuActionBar.h"
-#include "ModManager.h"
+#include "SharedResources.h"
+#include "WidgetLabel.h"
 
-MenuActionBar::MenuActionBar(SDL_Surface *_screen, FontEngine *_font, InputState *_inp, PowerManager *_powers, StatBlock *_hero, SDL_Surface *_icons) {
-	screen = _screen;
-	font = _font;
-	inp = _inp;
+#include <string>
+#include <sstream>
+
+
+MenuActionBar::MenuActionBar(PowerManager *_powers, StatBlock *_hero, SDL_Surface *_icons) {
 	powers = _powers;
 	hero = _hero;
 	icons = _icons;
@@ -125,22 +127,21 @@ void MenuActionBar::loadGraphics() {
 	cleanup = attention;
 	attention = SDL_DisplayFormatAlpha(attention);
 	SDL_FreeSurface(cleanup);
-	
 }
 
 /**
  * generic render 32-pixel icon
  */
 void MenuActionBar::renderIcon(int icon_id, int x, int y) {
-	SDL_Rect src;
-	SDL_Rect dest;
+	SDL_Rect icon_src;
+	SDL_Rect icon_dest;
 	
-	dest.x = x;
-	dest.y = y;
-	src.w = src.h = dest.w = dest.h = 32;
-	src.x = (icon_id % 16) * 32;
-	src.y = (icon_id / 16) * 32;
-	SDL_BlitSurface(icons, &src, screen, &dest);		
+	icon_dest.x = x;
+	icon_dest.y = y;
+	icon_src.w = icon_src.h = icon_dest.w = icon_dest.h = 32;
+	icon_src.x = (icon_id % 16) * 32;
+	icon_src.y = (icon_id / 16) * 32;
+	SDL_BlitSurface(icons, &icon_src, screen, &icon_dest);
 }
 
 // Renders the "needs attention" icon over the appropriate log menu
@@ -220,27 +221,30 @@ void MenuActionBar::render() {
 void MenuActionBar::renderItemCounts() {
 
 	stringstream ss;
-	SDL_Rect src;
-	
+	SDL_Rect item_src;
+
 	for (int i=0; i<12; i++) {
 
 		if (!slot_enabled[i]) {
-			src.x = src.y = 0;
-			src.h = 32;
-            if (hero->hero_cooldown[hotkeys[i]])
-    			src.w = 32 * (hero->hero_cooldown[hotkeys[i]] /
-                        (float)powers->powers[hotkeys[i]].cooldown);
-            else src.w = 32;
-			SDL_BlitSurface(disabled, &src, screen, &slots[i]);
+			item_src.x = item_src.y = 0;
+			item_src.h = 32;
+			if (hero->hero_cooldown[hotkeys[i]]) {
+				item_src.w = 32 * (hero->hero_cooldown[hotkeys[i]] /
+					      (float)powers->powers[hotkeys[i]].cooldown);
+			}
+			else {
+				item_src.w = 32;
+			}
+			SDL_BlitSurface(disabled, &item_src, screen, &slots[i]);
 		}
 
 		if (slot_item_count[i] > -1) {
-		
-
 			ss.str("");
 			ss << slot_item_count[i];
 	
-			font->render(ss.str(), slots[i].x, slots[i].y, JUSTIFY_LEFT, screen, FONT_WHITE);
+			WidgetLabel label;
+			label.set(slots[i].x, slots[i].y, JUSTIFY_LEFT, VALIGN_TOP, ss.str(), FONT_WHITE);
+			label.render();
 		}
 	}
 }
@@ -318,7 +322,7 @@ int MenuActionBar::checkAction(Point mouse) {
 			if (isWithin(slots[i], mouse) && slot_enabled[i]) {
 
 				return hotkeys[i];
-			}	
+			}
 		}
 	}
 	

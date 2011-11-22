@@ -24,25 +24,25 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef MENU_HP_MP_H
 #define MENU_HP_MP_H
 
-#include "SDL.h"
-#include "SDL_image.h"
 #include "StatBlock.h"
 #include "Utils.h"
 #include "FontEngine.h"
-#include <string>
-#include <sstream>
+#include "WidgetLabel.h"
 
-using namespace std;
+#include <SDL.h>
+#include <SDL_image.h>
+
 
 class MenuHPMP {
 private:
-	SDL_Surface *screen;
-	FontEngine *font;
 	SDL_Surface *background;
 	SDL_Surface *bar_hp;
 	SDL_Surface *bar_mp;
+	WidgetLabel *hphover;
+	WidgetLabel *mphover;
+	
 public:
-	MenuHPMP(SDL_Surface *_screen, FontEngine *_font);
+	MenuHPMP();
 	~MenuHPMP();
 	void loadGraphics();
 	void render(StatBlock *stats, Point mouse);
