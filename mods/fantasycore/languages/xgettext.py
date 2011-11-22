@@ -27,7 +27,7 @@ msgstr ""
 def extract(filename):
     if os.path.exists(filename):
         infile = open(filename, 'r')
-        triggers = ['msg', 'him', 'you', 'name', 'title', 'tooltip',
+        triggers = ['msg', 'him', 'her', 'you', 'name', 'title', 'tooltip',
                 'power_desc', 'quest_text', 'description']
         for line in infile.readlines():
             for trigger in triggers:
@@ -56,23 +56,34 @@ def save(filename):
         outfile.write("msgstr \"\"\n\n")
 
 # this extracts the quest files from the quests directory
-#def get_quests():
-#    quests = set()
-#    infile = open('../quests/index.txt', 'r')
-#    for line in infile.readlines():
-#        quests.add(line.strip('\n'))
-#    infile.close()
-#    return quests
+def get_quests():
+    quests = set()
+    infile = open('../quests/index.txt', 'r')
+    for line in infile.readlines():
+        quests.add(line.strip('\n'))
+    infile.close()
+    return quests
 
+
+
+# HERE'S THE MAIN EXECUTION
 extract('../items/items.txt')
 extract('../powers/powers.txt')
-for filename in os.listdir('../enemies'):
-    extract('../enemies/{enemy}'.format(enemy=filename))
-# WE WON'T USE THESE UNTIL MODS ARE READY
-#for filename in os.listdir('../maps'):
-#    extract('../maps/{map}'.format(map=filename))
-#for filename in get_quests():
-#    extract('../quests/{quest}'.format(quest=filename))
-#for filename in os.listdir('../npcs'):
-#    extract('../npcs/{npc}'.format(npc=filename))
+
+if os.path.exists('../enemies'):
+	for filename in os.listdir('../enemies'):
+	    extract('../enemies/{enemy}'.format(enemy=filename))
+
+if os.path.exists('../maps'):
+	for filename in os.listdir('../maps'):
+	    extract('../maps/{map}'.format(map=filename))
+
+if os.path.exists('../quests'):
+	for filename in get_quests():
+	    extract('../quests/{quest}'.format(quest=filename))
+
+if os.path.exists('../npcs'):
+	for filename in os.listdir('../npcs'):
+	    extract('../npcs/{npc}'.format(npc=filename))
+
 save('data.pot')
