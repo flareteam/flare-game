@@ -227,7 +227,7 @@ int MapIso::load(string filename) {
 			}
 			if (infile.section == "header") {
 				if (infile.key == "title") {
-					this->title = infile.val;
+					this->title = msg->get(infile.val);
 				}
 				else if (infile.key == "width") {
 					this->w = atoi(infile.val.c_str());
@@ -357,7 +357,7 @@ int MapIso::load(string filename) {
 					events[event_count-1].hotspot.h = atoi(infile.nextValue().c_str());
 				}
 				else if (infile.key == "tooltip") {
-					events[event_count-1].tooltip = infile.val;
+					events[event_count-1].tooltip = msg->get(infile.val);
 				}
 				else if (infile.key == "power_path") {
 					events[event_count-1].power_src.x = atoi(infile.nextValue().c_str());
@@ -404,7 +404,7 @@ int MapIso::load(string filename) {
 						e->z = atoi(infile.nextValue().c_str());
 					}
 					else if (infile.key == "msg") {
-						e->s = infile.val;
+						e->s = msg->get(infile.val);
 					}
 					else if (infile.key == "shakycam") {
 						e->x = atoi(infile.val.c_str());

@@ -33,6 +33,15 @@ void GetText::close() {
 		infile.close();
 }
 
+// Turns all \" into just " 
+string GetText::sanitize(string message) {
+	signed int pos = 0;
+	while ((pos = message.find("\\\"")) != -1) {
+		message = message.substr(0, pos) + message.substr(pos+1);
+	}
+	return message;
+}
+
 /**
  * Advance to the next key pair
  *
@@ -50,7 +59,9 @@ bool GetText::next() {
 		if (line.find("msgid") == 0) {
             // grab only what's contained in the quotes
             key = line.substr(6);
-            key = trim(key, '"');
+            key = key.substr(1, key.length()-2); //strips off "s
+			key = sanitize(key);
+
             if (key != "")
     			continue;
 		}
@@ -59,7 +70,8 @@ bool GetText::next() {
 		if (line.find("msgstr") == 0) {
             // grab only what's contained in the quotes
             val = line.substr(7);
-            val = trim(val, '"');
+            val = val.substr(1, val.length()-2); //strips off "s
+			val = sanitize(val);
 
 	        // handle keypairs
             if (key != "" && val != "")

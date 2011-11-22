@@ -150,7 +150,7 @@ string GameStateLoad::getMapName(string map_filename) {
 	
 	while (map_name == "" && infile.next()) {
 		if (infile.key == "title")
-			map_name = infile.val;
+			map_name = msg->get(infile.val);
 	}
 	
 	infile.close();

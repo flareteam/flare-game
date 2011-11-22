@@ -25,7 +25,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "SharedResources.h"
-#include "SharedResources.h"
 #include <sstream>
 
 MessageEngine::MessageEngine() {
