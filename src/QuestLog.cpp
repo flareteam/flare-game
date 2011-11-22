@@ -102,7 +102,7 @@ void QuestLog::load(const std::string& filename) {
 			}
 			
 			quests[quest_count-1][event_count].type = infile.key;
-			quests[quest_count-1][event_count].s = infile.val;
+			quests[quest_count-1][event_count].s = msg->get(infile.val);
 			event_count++;
 			
 		}
