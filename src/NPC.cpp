@@ -97,9 +97,9 @@ void NPC::load(string npc_id) {
 				else if (infile.key == "requires_item")
 					dialog[dialog_count-1][event_count].x = atoi(infile.val.c_str());
 				else if (infile.key == "him" || infile.key == "her")
-					dialog[dialog_count-1][event_count].s = infile.val;
+					dialog[dialog_count-1][event_count].s = msg->get(infile.val);
 				else if (infile.key == "you")
-					dialog[dialog_count-1][event_count].s = infile.val;
+					dialog[dialog_count-1][event_count].s = msg->get(infile.val);
 				else if (infile.key == "reward_item") {
 					// id,count
 					dialog[dialog_count-1][event_count].x = atoi(infile.nextValue().c_str());
@@ -120,7 +120,7 @@ void NPC::load(string npc_id) {
 			}
 			else {
 				if (infile.key == "name") {
-					name = infile.val;
+					name = msg->get(infile.val);
 				}
 				else if (infile.key == "level") {
 					level = atoi(infile.val.c_str());
