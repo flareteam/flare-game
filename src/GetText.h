@@ -33,6 +33,7 @@ class GetText {
 private:
 	ifstream infile;
 	string line;
+	string sanitize(string input);
 	
 public:
 	GetText();
