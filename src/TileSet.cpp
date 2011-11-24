@@ -24,8 +24,10 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "TileSet.h"
 #include "UtilsParsing.h"
 #include "SharedResources.h"
+#include "FileParser.h"
 
 TileSet::TileSet() {
+	alpha_background = false;
 	sprites = NULL;
 	for (int i=0; i<256; i++) {
 		tiles[i].src.x = 0;
@@ -45,7 +47,11 @@ void TileSet::loadGraphics(string filename) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 		SDL_Quit();
 	}
-	SDL_SetColorKey( sprites, SDL_SRCCOLORKEY, SDL_MapRGB(sprites->format, 255, 0, 255) ); 
+	
+	// only set a color key if the tile set doesn't have an alpha channel
+	if (!alpha_background) {
+		SDL_SetColorKey( sprites, SDL_SRCCOLORKEY, SDL_MapRGB(sprites->format, 255, 0, 255) ); 
+	}
 	
 	// optimize
 	SDL_Surface *cleanup = sprites;
@@ -56,40 +62,34 @@ void TileSet::loadGraphics(string filename) {
 void TileSet::load(string filename) {
 	if (current_map == filename) return;
 	
-	ifstream infile;
-	string line;
+	alpha_background = false;
+	
+	FileParser infile;
 	unsigned short index;
+	string img;
 
-	infile.open((mods->locate("tilesetdefs/" + filename)).c_str(), ios::in);
+	if (infile.open(mods->locate("tilesetdefs/" + filename))) {
+		while (infile.next()) {
+			if (infile.key == "tile") {
 
-	if (infile.is_open()) {
-		string img;
-		
-		// first line is the tileset image filename
-		line = getLine(infile);
-		
-		img = line;
-
-		while (!infile.eof()) {
-			line = getLine(infile);
-
-			if (line.length() > 0) {
-				line = line + ',';
-
-				// split across comma
-				// line contains:
-				// index, x, y, w, h, ox, oy
-
-				index = eatFirstHex(line, ',');
-				tiles[index].src.x = eatFirstInt(line, ',');
-				tiles[index].src.y = eatFirstInt(line, ',');
-				tiles[index].src.w = eatFirstInt(line, ',');
-				tiles[index].src.h = eatFirstInt(line, ',');
-				tiles[index].offset.x = eatFirstInt(line, ',');
-				tiles[index].offset.y = eatFirstInt(line, ',');
+				infile.val = infile.val + ',';
+				index = eatFirstInt(infile.val, ',');
+				tiles[index].src.x = eatFirstInt(infile.val, ',');
+				tiles[index].src.y = eatFirstInt(infile.val, ',');
+				tiles[index].src.w = eatFirstInt(infile.val, ',');
+				tiles[index].src.h = eatFirstInt(infile.val, ',');
+				tiles[index].offset.x = eatFirstInt(infile.val, ',');
+				tiles[index].offset.y = eatFirstInt(infile.val, ',');
+				
 			}
+			else if (infile.key == "img") {
+				img = infile.val;
+			}
+			else if (infile.key == "alpha_background") {
+				if (infile.val == "1") alpha_background = true;
+			}
+		
 		}
-
 		infile.close();
 		loadGraphics(img);
 	}
