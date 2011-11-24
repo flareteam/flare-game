@@ -40,14 +40,9 @@ PowerManager::PowerManager() {
 	for (int i=0; i<POWER_MAX_SFX; i++) {
 		sfx[i] = NULL;
 	}
-	
-	powers[POWER_VENGEANCE].name = "Vengeance";
+
+	// TODO: generalize Vengeance
 	powers[POWER_VENGEANCE].type = POWTYPE_SINGLE;
-	powers[POWER_VENGEANCE].icon = 17;
-	powers[POWER_VENGEANCE].description = "After blocking, unlease a deadly and accurate counter-attack";
-	powers[POWER_VENGEANCE].new_state = POWSTATE_SWING;
-	powers[POWER_VENGEANCE].face = true;
-	powers[POWER_VENGEANCE].requires_mp = 1;
 
 	used_item=-1;
 	
