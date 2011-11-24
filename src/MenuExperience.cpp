@@ -50,7 +50,6 @@ MenuExperience::MenuExperience() {
 	text_offset.x = 2;
 	text_offset.y = 12;
 	text_justify = JUSTIFY_LEFT;
-	text_label = "XP: ";
 }
 
 void MenuExperience::loadGraphics() {
@@ -111,19 +110,21 @@ void MenuExperience::render(StatBlock *stats, Point mouse) {
 	// draw xp bar
 	SDL_BlitSurface(bar, &src, screen, &dest);
 
+
+	string text_label;
+	
 	// if mouseover, draw text
 	if (isWithin(hud_position, mouse)) {
-		stringstream ss;
-		ss.str("");
+
 		if (stats->level < MAX_CHARACTER_LEVEL) {
-			ss << text_label << stats->xp << "/" << stats->xp_table[stats->level];
+			text_label = msg->get("XP: %d/%d", stats->xp, stats->xp_table[stats->level]);
 		}
 		else {
-			ss << text_label << stats->xp;
+			text_label = msg->get("XP: %d", stats->xp);
 		}
 
 		WidgetLabel label;
-		label.set(hud_position.x + text_offset.x, hud_position.y + text_offset.y, text_justify, VALIGN_TOP, ss.str(), FONT_WHITE);
+		label.set(hud_position.x + text_offset.x, hud_position.y + text_offset.y, text_justify, VALIGN_TOP, text_label, FONT_WHITE);
 		label.render();
 	}
 }

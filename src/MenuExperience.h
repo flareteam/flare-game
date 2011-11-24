@@ -59,7 +59,6 @@ public:
 	Point bar_size;
 	Point text_offset;
 	int text_justify;
-	string text_label;
 	
 };
 
