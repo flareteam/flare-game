@@ -910,14 +910,8 @@ bool PowerManager::repeater(int power_index, StatBlock *src_stats, Point target)
 bool PowerManager::single(int power_index, StatBlock *src_stats, Point target) {
 	
 	Hazard *haz = new Hazard();
-	
-	// common to all singles
-	haz->pos.x = (float)target.x;
-	haz->pos.y = (float)target.y;
-	haz->lifespan = 1;
-	haz->crit_chance = src_stats->crit;
-	haz->accuracy = src_stats->accuracy;
-	haz->src_stats = src_stats;
+
+	initHazard(power_index, src_stats, target, haz);
 
 	// specific powers have different stats here
 	if (power_index == POWER_VENGEANCE) {

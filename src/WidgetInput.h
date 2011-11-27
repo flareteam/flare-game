@@ -44,7 +44,7 @@ protected:
 	bool inFocus;
 	bool pressed;
 
-	string text; // the text that has been type into the box
+	string text; // the text that has been typed into the box
 	int max_characters;
 	int cursor_frame;
 	

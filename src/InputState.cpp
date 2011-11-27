@@ -199,10 +199,20 @@ void InputState::handle() {
 	/* Check for events */
 	while (SDL_PollEvent (&event)) {
 
-		// grab ASCII keys
+		// grab symbol keys
 		if (event.type == SDL_KEYDOWN) {
-			if (event.key.keysym.unicode >= 32 && event.key.keysym.unicode < 127)
-				inkeys = inkeys + (char)event.key.keysym.unicode;
+			int ch = event.key.keysym.unicode;
+			// if it is printable char then write its utf-8 representation
+			if (ch >= 0x800) {
+				inkeys += (char) ((ch >> 12) | 0xe0);
+				inkeys += (char) ((ch >> 6) & 0x3f | 0x80);
+				inkeys += (char) (ch & 0x3f | 0x80);
+			} else if (ch >= 0x80) {
+				inkeys += (char) ((ch >> 6) | 0xc0);
+				inkeys += (char) (ch & 0x3f | 0x80);
+			} else if (ch >= 32) {
+				inkeys += (char)ch;
+			}
 		}
 
 		switch (event.type) {
