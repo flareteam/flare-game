@@ -76,7 +76,10 @@ void WidgetInput::logic() {
 		// handle backspaces
 		if (!inp->lock[DEL] && inp->pressing[DEL]) {
 			inp->lock[DEL] = true;
-			text = text.substr(0, text.length()-1);
+			// remove utf-8 character
+			int n = text.length()-1;
+			while (n > 0 && ((text[n] & 0xc0) == 0x80) ) n--;
+			text = text.substr(0, n);
 		}
 
 		// animate cursor
