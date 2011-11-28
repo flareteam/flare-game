@@ -45,7 +45,7 @@ protected:
 	bool pressed;
 
 	string text; // the text that has been typed into the box
-	int max_characters;
+	unsigned int max_characters;
 	int cursor_frame;
 	
 	Point font_pos;

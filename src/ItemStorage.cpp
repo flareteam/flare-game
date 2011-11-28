@@ -190,13 +190,13 @@ bool ItemStorage::full() {
  * Get the number of the specified item carried (not equipped)
  */
 int ItemStorage::count(int item) {
-	int count=0;
+	int item_count=0;
 	for (int i=0; i<slot_number; i++) {
 		if (storage[i].item == item) {
-			count += storage[i].quantity;
+			item_count += storage[i].quantity;
 		}
 	}
-	return count;
+	return item_count;
 }
 
 /**
