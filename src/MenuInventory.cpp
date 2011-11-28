@@ -540,14 +540,14 @@ void MenuInventory::updateEquipment(int slot) {
 /**
  * Given the equipped items, calculate the hero's stats
  */
-void MenuInventory::applyEquipment(StatBlock *stats, ItemStack *equipped) {
+void MenuInventory::applyEquipment(ItemStack *equipped) {
 
 	int bonus_counter;
 	
 	int prev_hp = stats->hp;
 	int prev_mp = stats->mp;
 
-	Item *items = this->items->items;
+	Item *pc_items = this->items->items;
 
 	// calculate bonuses to basic stats and check that each equipped item fit requirements
 	bool checkRequired = true;
@@ -558,20 +558,20 @@ void MenuInventory::applyEquipment(StatBlock *stats, ItemStack *equipped) {
 		for (int i = 0; i < 4; i++) {
 			int item_id = equipped[i].item;
 			bonus_counter = 0;
-			while (items[item_id].bonus_stat[bonus_counter] != "") {
-				if (items[item_id].bonus_stat[bonus_counter] == "offense")
-					stats->offense_additional += items[item_id].bonus_val[bonus_counter];
-				else if (items[item_id].bonus_stat[bonus_counter] == "defense")
-					stats->defense_additional += items[item_id].bonus_val[bonus_counter];
-				else if (items[item_id].bonus_stat[bonus_counter] == "physical")
-					stats->physical_additional += items[item_id].bonus_val[bonus_counter];
-				else if (items[item_id].bonus_stat[bonus_counter] == "mental")
-					stats->mental_additional += items[item_id].bonus_val[bonus_counter];
-				else if (items[item_id].bonus_stat[bonus_counter] == "all basic stats") {
-					stats->offense_additional += items[item_id].bonus_val[bonus_counter];
-					stats->defense_additional += items[item_id].bonus_val[bonus_counter];
-					stats->physical_additional += items[item_id].bonus_val[bonus_counter];
-					stats->mental_additional += items[item_id].bonus_val[bonus_counter];
+			while (pc_items[item_id].bonus_stat[bonus_counter] != "") {
+				if (pc_items[item_id].bonus_stat[bonus_counter] == "offense")
+					stats->offense_additional += pc_items[item_id].bonus_val[bonus_counter];
+				else if (pc_items[item_id].bonus_stat[bonus_counter] == "defense")
+					stats->defense_additional += pc_items[item_id].bonus_val[bonus_counter];
+				else if (pc_items[item_id].bonus_stat[bonus_counter] == "physical")
+					stats->physical_additional += pc_items[item_id].bonus_val[bonus_counter];
+				else if (pc_items[item_id].bonus_stat[bonus_counter] == "mental")
+					stats->mental_additional += pc_items[item_id].bonus_val[bonus_counter];
+				else if (pc_items[item_id].bonus_stat[bonus_counter] == "all basic stats") {
+					stats->offense_additional += pc_items[item_id].bonus_val[bonus_counter];
+					stats->defense_additional += pc_items[item_id].bonus_val[bonus_counter];
+					stats->physical_additional += pc_items[item_id].bonus_val[bonus_counter];
+					stats->mental_additional += pc_items[item_id].bonus_val[bonus_counter];
 				}
 				bonus_counter++;
 				if (bonus_counter == ITEM_MAX_BONUSES) break;
@@ -607,38 +607,38 @@ void MenuInventory::applyEquipment(StatBlock *stats, ItemStack *equipped) {
 	// main hand weapon
 	int item_id = equipped[SLOT_MAIN].item;
 	if (item_id > 0) {
-		if (items[item_id].req_stat == REQUIRES_PHYS) {
-			stats->dmg_melee_min = items[item_id].dmg_min;
-			stats->dmg_melee_max = items[item_id].dmg_max;
-			stats->melee_weapon_power = items[item_id].power_mod;
+		if (pc_items[item_id].req_stat == REQUIRES_PHYS) {
+			stats->dmg_melee_min = pc_items[item_id].dmg_min;
+			stats->dmg_melee_max = pc_items[item_id].dmg_max;
+			stats->melee_weapon_power = pc_items[item_id].power_mod;
 			stats->wielding_physical = true;
 		}
-		else if (items[item_id].req_stat == REQUIRES_MENT) {
-			stats->dmg_ment_min = items[item_id].dmg_min;
-			stats->dmg_ment_max = items[item_id].dmg_max;
-			stats->mental_weapon_power = items[item_id].power_mod;
+		else if (pc_items[item_id].req_stat == REQUIRES_MENT) {
+			stats->dmg_ment_min = pc_items[item_id].dmg_min;
+			stats->dmg_ment_max = pc_items[item_id].dmg_max;
+			stats->mental_weapon_power = pc_items[item_id].power_mod;
 			stats->wielding_mental = true;
 		}
 	}
 	// off hand item
 	item_id = equipped[SLOT_OFF].item;
 	if (item_id > 0) {
-		if (items[item_id].req_stat == REQUIRES_OFF) {
-			stats->dmg_ranged_min = items[item_id].dmg_min;
-			stats->dmg_ranged_max = items[item_id].dmg_max;
-			stats->ranged_weapon_power = items[item_id].power_mod;
+		if (pc_items[item_id].req_stat == REQUIRES_OFF) {
+			stats->dmg_ranged_min = pc_items[item_id].dmg_min;
+			stats->dmg_ranged_max = pc_items[item_id].dmg_max;
+			stats->ranged_weapon_power = pc_items[item_id].power_mod;
 			stats->wielding_offense = true;
 		}
-		else if (items[item_id].req_stat == REQUIRES_DEF) {
-			stats->absorb_min += items[item_id].abs_min;
-			stats->absorb_max += items[item_id].abs_max;
+		else if (pc_items[item_id].req_stat == REQUIRES_DEF) {
+			stats->absorb_min += pc_items[item_id].abs_min;
+			stats->absorb_max += pc_items[item_id].abs_max;
 		}
 	}
 	// body item
 	item_id = equipped[SLOT_BODY].item;
 	if (item_id > 0) {
-		stats->absorb_min += items[item_id].abs_min;
-		stats->absorb_max += items[item_id].abs_max;
+		stats->absorb_min += pc_items[item_id].abs_min;
+		stats->absorb_max += pc_items[item_id].abs_max;
 	}
 
 
@@ -648,45 +648,45 @@ void MenuInventory::applyEquipment(StatBlock *stats, ItemStack *equipped) {
 		item_id = equipped[i].item;
 	
 		bonus_counter = 0;
-		while (items[item_id].bonus_stat[bonus_counter] != "") {
+		while (pc_items[item_id].bonus_stat[bonus_counter] != "") {
 	
-			if (items[item_id].bonus_stat[bonus_counter] == "HP")
-				stats->maxhp += items[item_id].bonus_val[bonus_counter];
-			else if (items[item_id].bonus_stat[bonus_counter] == "HP regen")
-				stats->hp_per_minute += items[item_id].bonus_val[bonus_counter];
-			else if (items[item_id].bonus_stat[bonus_counter] == "MP")
-				stats->maxmp += items[item_id].bonus_val[bonus_counter];
-			else if (items[item_id].bonus_stat[bonus_counter] == "MP regen")
-				stats->mp_per_minute += items[item_id].bonus_val[bonus_counter];
-			else if (items[item_id].bonus_stat[bonus_counter] == "accuracy")
-				stats->accuracy += items[item_id].bonus_val[bonus_counter];
-			else if (items[item_id].bonus_stat[bonus_counter] == "avoidance")
-				stats->avoidance += items[item_id].bonus_val[bonus_counter];
-			else if (items[item_id].bonus_stat[bonus_counter] == "crit")
-				stats->crit += items[item_id].bonus_val[bonus_counter];
-			else if (items[item_id].bonus_stat[bonus_counter] == "speed") {
-				stats->speed += items[item_id].bonus_val[bonus_counter];
+			if (pc_items[item_id].bonus_stat[bonus_counter] == "HP")
+				stats->maxhp += pc_items[item_id].bonus_val[bonus_counter];
+			else if (pc_items[item_id].bonus_stat[bonus_counter] == "HP regen")
+				stats->hp_per_minute += pc_items[item_id].bonus_val[bonus_counter];
+			else if (pc_items[item_id].bonus_stat[bonus_counter] == "MP")
+				stats->maxmp += pc_items[item_id].bonus_val[bonus_counter];
+			else if (pc_items[item_id].bonus_stat[bonus_counter] == "MP regen")
+				stats->mp_per_minute += pc_items[item_id].bonus_val[bonus_counter];
+			else if (pc_items[item_id].bonus_stat[bonus_counter] == "accuracy")
+				stats->accuracy += pc_items[item_id].bonus_val[bonus_counter];
+			else if (pc_items[item_id].bonus_stat[bonus_counter] == "avoidance")
+				stats->avoidance += pc_items[item_id].bonus_val[bonus_counter];
+			else if (pc_items[item_id].bonus_stat[bonus_counter] == "crit")
+				stats->crit += pc_items[item_id].bonus_val[bonus_counter];
+			else if (pc_items[item_id].bonus_stat[bonus_counter] == "speed") {
+				stats->speed += pc_items[item_id].bonus_val[bonus_counter];
 				// speed bonuses are in multiples of 3
 				// 3 ordinal, 2 diagonal is rounding pythagorus
-				stats->dspeed += ((items[item_id].bonus_val[bonus_counter]) * 2) /3;
+				stats->dspeed += ((pc_items[item_id].bonus_val[bonus_counter]) * 2) /3;
 			}
-			else if (items[item_id].bonus_stat[bonus_counter] == "fire resist")
-				stats->attunement_fire -= items[item_id].bonus_val[bonus_counter];
-			else if (items[item_id].bonus_stat[bonus_counter] == "ice resist")
-				stats->attunement_ice -= items[item_id].bonus_val[bonus_counter];
-			else if (items[item_id].bonus_stat[bonus_counter] == "offense")
-				stats->offense_additional += items[item_id].bonus_val[bonus_counter];
-			else if (items[item_id].bonus_stat[bonus_counter] == "defense")
-				stats->defense_additional += items[item_id].bonus_val[bonus_counter];
-			else if (items[item_id].bonus_stat[bonus_counter] == "physical")
-				stats->physical_additional += items[item_id].bonus_val[bonus_counter];
-			else if (items[item_id].bonus_stat[bonus_counter] == "mental")
-				stats->mental_additional += items[item_id].bonus_val[bonus_counter];
-			else if (items[item_id].bonus_stat[bonus_counter] == "all basic stats") {
-				stats->offense_additional += items[item_id].bonus_val[bonus_counter];
-				stats->defense_additional += items[item_id].bonus_val[bonus_counter];
-				stats->physical_additional += items[item_id].bonus_val[bonus_counter];
-				stats->mental_additional += items[item_id].bonus_val[bonus_counter];
+			else if (pc_items[item_id].bonus_stat[bonus_counter] == "fire resist")
+				stats->attunement_fire -= pc_items[item_id].bonus_val[bonus_counter];
+			else if (pc_items[item_id].bonus_stat[bonus_counter] == "ice resist")
+				stats->attunement_ice -= pc_items[item_id].bonus_val[bonus_counter];
+			else if (pc_items[item_id].bonus_stat[bonus_counter] == "offense")
+				stats->offense_additional += pc_items[item_id].bonus_val[bonus_counter];
+			else if (pc_items[item_id].bonus_stat[bonus_counter] == "defense")
+				stats->defense_additional += pc_items[item_id].bonus_val[bonus_counter];
+			else if (pc_items[item_id].bonus_stat[bonus_counter] == "physical")
+				stats->physical_additional += pc_items[item_id].bonus_val[bonus_counter];
+			else if (pc_items[item_id].bonus_stat[bonus_counter] == "mental")
+				stats->mental_additional += pc_items[item_id].bonus_val[bonus_counter];
+			else if (pc_items[item_id].bonus_stat[bonus_counter] == "all basic stats") {
+				stats->offense_additional += pc_items[item_id].bonus_val[bonus_counter];
+				stats->defense_additional += pc_items[item_id].bonus_val[bonus_counter];
+				stats->physical_additional += pc_items[item_id].bonus_val[bonus_counter];
+				stats->mental_additional += pc_items[item_id].bonus_val[bonus_counter];
 			}
 			
 			bonus_counter++;

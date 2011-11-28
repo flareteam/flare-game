@@ -32,10 +32,10 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 class Entity {
 protected:
+	SDL_Surface *sprites;
+	Animation *activeAnimation;
 	MapIso* map;
 	vector<Animation*> animations;
-	Animation *activeAnimation;
-	SDL_Surface *sprites;
 
 public:
 	Entity(MapIso*);

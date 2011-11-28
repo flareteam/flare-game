@@ -164,7 +164,7 @@ void GameStatePlay::loadGame() {
 
 	// initialize vars
 	pc->stats.recalc();
-	menu->inv->applyEquipment(&pc->stats, menu->inv->inventory[EQUIPMENT].storage);
+	menu->inv->applyEquipment(menu->inv->inventory[EQUIPMENT].storage);
 	pc->stats.hp = pc->stats.maxhp;
 	pc->stats.mp = pc->stats.maxmp;
 	

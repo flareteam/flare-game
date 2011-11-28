@@ -158,9 +158,9 @@ void CampaignManager::rewardXP(int amount) {
 	addMsg(msg->get("You receive %d XP.", amount));
 }	
 
-void CampaignManager::addMsg(string msg) {
+void CampaignManager::addMsg(string new_msg) {
 	if (log_msg != "") log_msg += " ";
-	log_msg += msg;
+	log_msg += new_msg;
 }
 
 CampaignManager::~CampaignManager() {

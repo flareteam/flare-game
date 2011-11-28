@@ -40,21 +40,18 @@ protected:
 	// The sprite sheet
 	SDL_Surface* sprites;
 
-	// The type of animation: eg. play_once or looped
-	std::string type;
-	
 	// Animation data
 	int frameSize;
+	Point render_size;
+	Point render_offset;
 	int position;
 	int frames;
 	int duration;
+	std::string type; // eg. play_once or looped
 	int cur_frame;
 	int disp_frame;
 	int mid_frame;
 	int max_frame;
-	Point render_size;
-	Point render_offset;
-
 	int timesPlayed;
 
 public:

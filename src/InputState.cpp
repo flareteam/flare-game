@@ -205,11 +205,11 @@ void InputState::handle() {
 			// if it is printable char then write its utf-8 representation
 			if (ch >= 0x800) {
 				inkeys += (char) ((ch >> 12) | 0xe0);
-				inkeys += (char) ((ch >> 6) & 0x3f | 0x80);
-				inkeys += (char) (ch & 0x3f | 0x80);
+				inkeys += (char) (((ch >> 6) & 0x3f) | 0x80);
+				inkeys += (char) ((ch & 0x3f) | 0x80);
 			} else if (ch >= 0x80) {
 				inkeys += (char) ((ch >> 6) | 0xc0);
-				inkeys += (char) (ch & 0x3f | 0x80);
+				inkeys += (char) ((ch & 0x3f) | 0x80);
 			} else if (ch >= 32) {
 				inkeys += (char)ch;
 			}

@@ -56,12 +56,14 @@ FontEngine::FontEngine() {
 	font_height = TTF_FontHeight(font); 
 
 	// set the font colors
-	SDL_Color white = {255,255,255};
-	SDL_Color red = {255,0,0};
-	SDL_Color green = {0,255,0};
-	SDL_Color blue = {0,0,255};
-	SDL_Color grey = {128,128,128};
-	SDL_Color black = {0,0,0};
+	// RGB values, the last value is 'unused'. For info,
+	// see http://www.libsdl.org/cgi/docwiki.cgi/SDL_Color
+	SDL_Color white = {255,255,255,0};
+	SDL_Color red = {255,0,0,0};
+	SDL_Color green = {0,255,0,0};
+	SDL_Color blue = {0,0,255,0};
+	SDL_Color grey = {128,128,128,0};
+	SDL_Color black = {0,0,0,0};
 
 	colors[FONT_WHITE] = white;
 	colors[FONT_RED] = red;
@@ -169,15 +171,15 @@ void FontEngine::render(string text, int x, int y, int justify, SDL_Surface *tar
 	}
 
 	// render and blit the text
-	SDL_Rect dest;
-	dest.x = dest_x;
-	dest.y = dest_y;
+	SDL_Rect dest_rect;
+	dest_rect.x = dest_x;
+	dest_rect.y = dest_y;
 
 	const char* char_text = text.c_str(); //makes it so SDL_ttf functions can read it
 
 	ttf = TTF_RenderUTF8_Blended(font, char_text, colors[color]);
 
-	if (ttf != NULL) SDL_BlitSurface(ttf, NULL, target, &dest);
+	if (ttf != NULL) SDL_BlitSurface(ttf, NULL, target, &dest_rect);
 	SDL_FreeSurface(ttf);
 	ttf = NULL;
 }
