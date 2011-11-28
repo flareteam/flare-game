@@ -88,7 +88,7 @@ public:
 	bool isItemEquipped(int item);
 	bool requirementsMet(int item);
 	
-	void applyEquipment(StatBlock *stats, ItemStack *equipped);
+	void applyEquipment(ItemStack *equipped);
 
 	bool visible;
 

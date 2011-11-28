@@ -240,7 +240,7 @@ void MenuManager::logic() {
 					if (chr->checkUpgrade()) {
 
 						// apply equipment and max hp/mp
-						inv->applyEquipment(stats, inv->inventory[EQUIPMENT].storage);
+						inv->applyEquipment(inv->inventory[EQUIPMENT].storage);
 						stats->hp = stats->maxhp;
 						stats->mp = stats->maxmp;
 					}
@@ -450,7 +450,7 @@ void MenuManager::logic() {
 
 	// handle equipment changes affecting hero stats
 	if (inv->changed_equipment || inv->changed_artifact) {
-		inv->applyEquipment(stats, inv->inventory[EQUIPMENT].storage);
+		inv->applyEquipment(inv->inventory[EQUIPMENT].storage);
 		inv->changed_artifact = false;
 		// the equipment flag is reset after the new sprites are loaded
 	}
