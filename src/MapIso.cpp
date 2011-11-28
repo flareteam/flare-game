@@ -136,10 +136,10 @@ void MapIso::push_enemy_group(Map_Group g) {
 	// populate valid_locations
 	vector<Point> valid_locations;
 	Point pt;
-	for (int w = 0; w < g.area.x; w++) {
-		for (int h = 0; h < g.area.y; h++) {
-			pt.x = (g.pos.x + w) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
-			pt.y = (g.pos.y + h) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
+	for (int width = 0; width < g.area.x; width++) {
+		for (int height = 0; height < g.area.y; height++) {
+			pt.x = (g.pos.x + width) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
+			pt.y = (g.pos.y + height) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
 			if (collider.is_empty(pt.x, pt.y)) {
 				valid_locations.push_back(pt);
 			}
