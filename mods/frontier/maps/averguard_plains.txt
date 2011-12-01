@@ -330,6 +330,12 @@ intermap=frontier_outpost.txt,37,2
 # entrance to Averguard Keep
 type=run_once
 location=57,7,1,1
-hotspot=-16,-28,32,36
+hotspot=-41,-150,200,175
 tooltip=Entrance to Goblin Warrens
 intermap=goblin_warrens.txt,28,75
+
+[enemygroup]
+type=goblin
+level=1,3
+number=2,4
+location=51,6,10,10
