@@ -83,6 +83,10 @@ void Avatar::init() {
 	for (int i = 0; i < POWER_COUNT; i++) {
 		stats.hero_cooldown[i] = 0;
 	}
+	
+	for (int i=0; i<4; i++) {
+		sound_steps[i] = NULL;
+	}
 }
 
 void Avatar::loadGraphics(string _img_main, string _img_armor, string _img_off) {
@@ -159,17 +163,41 @@ void Avatar::loadSounds() {
 	sound_hit = Mix_LoadWAV(mods->locate("soundfx/" + stats.base + "_hit.ogg").c_str());
 	sound_die = Mix_LoadWAV(mods->locate("soundfx/" + stats.base + "_die.ogg").c_str());
 	sound_block = Mix_LoadWAV(mods->locate("soundfx/powers/block.ogg").c_str());
-	sound_steps[0] = Mix_LoadWAV(mods->locate("soundfx/step_echo1.ogg").c_str());
-	sound_steps[1] = Mix_LoadWAV(mods->locate("soundfx/step_echo2.ogg").c_str());
-	sound_steps[2] = Mix_LoadWAV(mods->locate("soundfx/step_echo3.ogg").c_str());
-	sound_steps[3] = Mix_LoadWAV(mods->locate("soundfx/step_echo4.ogg").c_str());
 	level_up = Mix_LoadWAV(mods->locate("soundfx/level_up.ogg").c_str());
 				
-	if (!sound_melee || !sound_hit || !sound_die || !sound_steps[0] || !level_up) {
+	if (!sound_melee || !sound_hit || !sound_die || !level_up) {
 		printf("Mix_LoadWAV: %s\n", Mix_GetError());
 	}
 	
 }
+
+/**
+ * Walking/running steps sound depends on worn armor
+ */
+void Avatar::loadStepFX(string stepname) {
+	
+	// TODO: put default step sound in engine config file
+	string filename = "cloth";
+	if (stepname != "") {
+		filename = stepname;
+	}
+
+	// clear previous sounds
+	for (int i=0; i<4; i++) {
+		if (sound_steps[i] != NULL) {
+			Mix_FreeChunk(sound_steps[i]);
+			sound_steps[i] = NULL;
+		}
+	}
+	
+	// load new sounds
+	sound_steps[0] = Mix_LoadWAV(mods->locate("soundfx/steps/step_" + filename + "1.ogg").c_str());
+	sound_steps[1] = Mix_LoadWAV(mods->locate("soundfx/steps/step_" + filename + "2.ogg").c_str());
+	sound_steps[2] = Mix_LoadWAV(mods->locate("soundfx/steps/step_" + filename + "3.ogg").c_str());
+	sound_steps[3] = Mix_LoadWAV(mods->locate("soundfx/steps/step_" + filename + "4.ogg").c_str());
+	
+}
+
 
 bool Avatar::pressing_move() {
 	if(MOUSE_MOVE) {
