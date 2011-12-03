@@ -104,7 +104,8 @@ struct Item {
 	int rand_loot;        // max amount appearing in a loot stack
 	int rand_vendor;      // max amount appearing in a vendor stack
 	string pickup_status; // when this item is picked up, set a campaign state (usually for quest items)
-	
+	string stepfx;        // sound effect played when walking (armors only)
+
 	Item() {
 		name = "";
 		level = 0;
@@ -129,6 +130,7 @@ struct Item {
 		rand_loot = 1;
 		rand_vendor = 1;
 		pickup_status = "";
+		stepfx = "";
 	}
 };
 

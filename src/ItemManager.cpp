@@ -194,6 +194,8 @@ void ItemManager::load(string filename) {
 				items[id].rand_vendor = atoi(infile.val.c_str());
 			else if (infile.key == "pickup_status")
 				items[id].pickup_status = infile.val;
+			else if (infile.key == "stepfx")
+				items[id].stepfx = infile.val;
 				
 		}
 		infile.close();

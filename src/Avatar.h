@@ -81,6 +81,7 @@ public:
 	void init();
 	void loadGraphics(string img_main, string img_armor, string img_off);
 	void loadSounds();
+	void loadStepFX(string stepname);
 	
 	void logic(int actionbar_power, bool restrictPowerUse);
 	bool pressing_move();	
