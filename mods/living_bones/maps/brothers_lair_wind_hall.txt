@@ -1,14 +1,12 @@
 [header]
-title=Brothers' Wind Hall
 width=40
 height=50
-tileset=tileset_dungeon.txt
-location=28,76,3
 music=unrest_theme.ogg
+tileset=tileset_dungeon.txt
+title=Brothers' Lair Wind Hall
 
 [layer]
 type=background
-format=dec
 data=
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -63,7 +61,6 @@ data=
 
 [layer]
 type=object
-format=dec
 data=
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -118,7 +115,6 @@ data=
 
 [layer]
 type=collision
-format=dec
 data=
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
@@ -172,6 +168,109 @@ data=
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
 
 [event]
+# Chain-Statue Switch
+type=run_once
+location=23,29,1,1
+hotspot=-16,-28,32,34
+mapmod=object,23,29,166
+soundfx=soundfx/door_open.ogg
+tooltip=Switch
+
+[event]
+# Chain-Grate Switch
+type=run_once
+location=25,29,1,1
+hotspot=-16,-28,32,34
+mapmod=object,25,29,166
+soundfx=soundfx/door_open.ogg
+tooltip=Switch
+
+[event]
+# Chain-ColdUrn Switch
+type=run_once
+location=27,29,1,1
+hotspot=-16,-28,32,34
+mapmod=object,27,29,166
+soundfx=soundfx/door_open.ogg
+tooltip=Switch
+
+[event]
+# Tomb-ColdUrn Switch
+type=run_once
+location=27,31,1,1
+hotspot=-16,-28,32,34
+mapmod=object,27,31,166
+soundfx=soundfx/door_open.ogg
+tooltip=Switch
+
+[event]
+# Tomb-Statue Switch
+type=run_once
+location=23,31,1,1
+hotspot=-16,-28,32,34
+mapmod=object,23,31,166
+soundfx=soundfx/door_open.ogg
+tooltip=Switch
+
+[event]
+# Tomb-Grate Switch
+type=run_once
+location=25,31,1,1
+hotspot=-16,-28,32,34
+mapmod=object,25,31,166
+soundfx=soundfx/door_open.ogg
+tooltip=Switch
+
+[event]
+# HotUrn-Statue Switch
+type=run_once
+location=23,33,1,1
+hotspot=-16,-28,32,34
+mapmod=object,23,33,166
+soundfx=soundfx/door_open.ogg
+tooltip=Switch
+
+[event]
+# HotUrn-Grate Switch
+type=run_once
+location=25,33,1,1
+hotspot=-16,-28,32,34
+mapmod=object,25,33,166
+soundfx=soundfx/door_open.ogg
+tooltip=Switch
+
+[event]
+# HotUrn-ColdUrn Switch
+type=run_once
+location=27,33,1,1
+hotspot=-16,-28,32,34
+mapmod=object,27,33,166
+soundfx=soundfx/door_open.ogg
+tooltip=Switch
+
+[event]
+# Storage Room Clue Book
+type=run_always
+location=13,31,1,1
+hotspot=-16,-48,32,56
+mapmod=object,13,31,164
+msg="The fiercest warrior's sword is as a flame to his enemies."
+soundfx=soundfx/inventory/inventory_page.ogg
+tooltip=Aldrenan's Proverbs
+
+[event]
+# Bedroom Clue Book
+type=run_always
+location=25,19,1,1
+hotspot=-16,-48,32,56
+mapmod=object,25,19,165
+msg="And so my lover lay there, cold as the grave, the fire of life having left him forever."
+soundfx=soundfx/inventory/inventory_page.ogg
+tooltip=Siobhan's Love
+
+[event]
+# Warp to Atrium
 type=teleport
 location=2,18,1,2
 intermap=brothers_lair_atrium.txt,26,14
+
