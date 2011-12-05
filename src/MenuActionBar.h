@@ -41,6 +41,9 @@ const int MENU_LOG = 3;
 
 class MenuActionBar {
 private:
+	void renderCooldowns();
+	void renderItemCounts();
+
 	SDL_Surface *background;
 	SDL_Surface *emptyslot;
 	SDL_Surface *icons;
@@ -64,7 +67,6 @@ public:
 	void renderAttention(int menu_id);
 	void logic();
 	void render();
-	void renderItemCounts();
 	int checkAction(Point mouse);
 	int checkDrag(Point mouse);
 	void checkMenu(Point mouse, bool &menu_c, bool &menu_i, bool &menu_p, bool &menu_l);

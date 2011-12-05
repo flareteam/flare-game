@@ -197,7 +197,8 @@ void MenuActionBar::render() {
 			SDL_BlitSurface(emptyslot, &src, screen, &dest);
 		}
 	}
-
+	
+	renderCooldowns();
 	renderItemCounts();
 
     // render log attention notifications
@@ -216,28 +217,46 @@ void MenuActionBar::render() {
 }
 
 /**
+ * Display a notification for any power on cooldown
+ * Also displays disabled powers
+ */
+void MenuActionBar::renderCooldowns() {
+
+	SDL_Rect item_src;
+	SDL_Rect item_dest;
+	
+	for (int i=0; i<12; i++) {
+		if (!slot_enabled[i]) {
+		
+			item_src.x = 0;
+			item_src.y = 0;
+			item_src.h = 32;
+			item_src.w = 32;
+			
+			// Wipe from bottom to top
+			if (hero->hero_cooldown[hotkeys[i]]) {
+				item_src.h = 32 * (hero->hero_cooldown[hotkeys[i]] / (float)powers->powers[hotkeys[i]].cooldown);
+			}
+			
+			// SDL_BlitSurface will write to these Rects, so make a copy
+			item_dest.x = slots[i].x;
+			item_dest.y = slots[i].y;
+			item_dest.w = slots[i].w;
+			item_dest.h = slots[i].h;
+			
+			SDL_BlitSurface(disabled, &item_src, screen, &item_dest);
+		}
+	}
+}
+
+/**
  * For powers that have consumables, display the number of consumables remaining
  */
 void MenuActionBar::renderItemCounts() {
 
 	stringstream ss;
-	SDL_Rect item_src;
 
 	for (int i=0; i<12; i++) {
-
-		if (!slot_enabled[i]) {
-			item_src.x = item_src.y = 0;
-			item_src.h = 32;
-			if (hero->hero_cooldown[hotkeys[i]]) {
-				item_src.w = 32 * (hero->hero_cooldown[hotkeys[i]] /
-					      (float)powers->powers[hotkeys[i]].cooldown);
-			}
-			else {
-				item_src.w = 32;
-			}
-			SDL_BlitSurface(disabled, &item_src, screen, &slots[i]);
-		}
-
 		if (slot_item_count[i] > -1) {
 			ss.str("");
 			ss << slot_item_count[i];
