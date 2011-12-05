@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="isometric" width="9" height="3" tilewidth="64" tileheight="32">
  <properties>
   <property name="AutomappingRadius" value="1"/>
@@ -39,17 +38,17 @@
 0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="rule_background" width="9" height="3" visible="0">
+ <layer name="rule_background" width="9" height="3">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,
 0,16,0,176,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="rule_object" width="9" height="3" visible="0">
+ <layer name="rule_object" width="9" height="3">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,80,0,
+0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0
 </data>
  </layer>
