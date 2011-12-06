@@ -210,7 +210,7 @@ void InputState::handle() {
 			} else if (ch >= 0x80) {
 				inkeys += (char) ((ch >> 6) | 0xc0);
 				inkeys += (char) ((ch & 0x3f) | 0x80);
-			} else if (ch >= 32) {
+			} else if (ch >= 32 && ch != 127) {
 				inkeys += (char)ch;
 			}
 		}

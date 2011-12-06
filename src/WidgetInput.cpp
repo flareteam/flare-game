@@ -67,10 +67,12 @@ void WidgetInput::logic() {
 
 	if (inFocus) {
 
-		// handle text input
-		text += inp->inkeys;
-		if (text.length() > max_characters) {
-			text = text.substr(0, max_characters);
+		if (inp->inkeys != "") {
+			// handle text input
+			text += inp->inkeys;
+			if (text.length() > max_characters) {
+				text = text.substr(0, max_characters);
+			}
 		}
 			
 		// handle backspaces
