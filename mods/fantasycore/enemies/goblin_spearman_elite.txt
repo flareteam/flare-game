@@ -1,36 +1,36 @@
-name=Goblin Spearman
+name=Goblin Spearman Elite
 level=3
 categories=goblin,dungeon
-rarity=uncommon
+rarity=rare
 
 sfx_prefix=goblin
-gfx_prefix=goblin
+gfx_prefix=goblin_elite
 animations=goblin
 
-loot_chance=30
+loot_chance=100
 
 # combat stats
-hp=10
-speed=4
-dspeed=3
+hp=18
+speed=7
+dspeed=5
 melee_range=76
 threat_range=512
 dir_favor=12
 chance_pursue=15
 chance_melee_phys=6
-chance_ranged_phys=2
+chance_ranged_phys=30
 power_melee_phys=1
 power_ranged_phys=32
 power_beacon=132
 
-accuracy=80
-avoidance=25
+accuracy=84
+avoidance=28
 
 dmg_melee_min=1
 dmg_melee_max=5
-dmg_ranged_min=2
-dmg_ranged_max=7
-absorb_min=0
+dmg_ranged_min=3
+dmg_ranged_max=8
+absorb_min=1
 absorb_max=1
 cooldown=25
 
