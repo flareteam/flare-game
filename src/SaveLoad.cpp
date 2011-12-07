@@ -144,12 +144,22 @@ void GameStatePlay::loadGame() {
 			}
 			else if (infile.key == "spawn") {
 				map->teleport_mapname = infile.nextValue();
-				map->teleport_destination.x = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
-				map->teleport_destination.y = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
-				map->teleportation = true;
 				
-				// prevent spawn.txt from putting us on the starting map
-				map->clearEvents();
+				if (fileExists(mods->locate("maps/" + map->teleport_mapname))) {
+					map->teleport_destination.x = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+					map->teleport_destination.y = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+					map->teleportation = true;
+				
+					// prevent spawn.txt from putting us on the starting map
+					map->clearEvents();
+				}
+				else {
+					map->teleport_mapname = "spawn.txt";
+					map->teleport_destination.x = 1;
+					map->teleport_destination.y = 1;
+					map->teleportation = true;
+					
+				}
 			}
 			else if (infile.key == "actionbar") {
 				for (int i=0; i<12; i++)

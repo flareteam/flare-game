@@ -721,6 +721,8 @@ void MapIso::checkTooltip() {
  */
 void MapIso::executeEvent(int eid) {
 	Event_Component *ec;
+	bool destroy_event = false;
+	
 	for (int i=0; i<events[eid].comp_num; i++) {
 		ec = &events[eid].components[i];
 		
@@ -740,10 +742,17 @@ void MapIso::executeEvent(int eid) {
 			camp->unsetStatus(ec->s);
 		}
 		if (ec->type == "intermap") {
-			teleportation = true;
-			teleport_mapname = ec->s;
-			teleport_destination.x = ec->x * UNITS_PER_TILE + UNITS_PER_TILE/2;
-			teleport_destination.y = ec->y * UNITS_PER_TILE + UNITS_PER_TILE/2;
+		
+			if (fileExists(mods->locate("maps/" + ec->s))) {
+				teleportation = true;
+				teleport_mapname = ec->s;
+				teleport_destination.x = ec->x * UNITS_PER_TILE + UNITS_PER_TILE/2;
+				teleport_destination.y = ec->y * UNITS_PER_TILE + UNITS_PER_TILE/2;
+			}
+			else {
+				destroy_event = true;
+				log_msg = msg->get("Unknown destination");
+			}
 		}
 		else if (ec->type == "mapmod") {
 			if (ec->s == "collision") {
@@ -784,7 +793,7 @@ void MapIso::executeEvent(int eid) {
 			dummy->dmg_melee_min = dummy->dmg_ranged_min = dummy->dmg_ment_min = events[eid].damagemin;
 			dummy->dmg_melee_max = dummy->dmg_ranged_max = dummy->dmg_ment_max = events[eid].damagemax;
 			Point target;
-			if (events[eid].targetHero){
+			if (events[eid].targetHero) {
 				target.x = cam.x;
 				target.y = cam.y;
 			}
@@ -799,7 +808,7 @@ void MapIso::executeEvent(int eid) {
 			}
 		}
 	}
-	if (events[eid].type == "run_once") {
+	if (events[eid].type == "run_once" || destroy_event) {
 		removeEvent(eid);
 	}
 }
