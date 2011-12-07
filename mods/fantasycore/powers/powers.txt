@@ -836,7 +836,7 @@ wall_power=126
 id=129
 name=Scroll of Teleport
 type=effect
-icon=15
+icon=53
 description=Blink to a nearby location
 new_state=cast
 requires_empty_target=true
@@ -860,8 +860,8 @@ requires_item=12
 id=130
 name=Scroll of Time Stop
 type=effect
-icon=19
-description=Stun nearby enemies for 5 seconds
+icon=52
+description=Stun nearby enemies for 10 seconds
 new_state=cast
 sfx=timestop.ogg
 use_hazard=true
@@ -869,19 +869,19 @@ rendered=false
 lifespan=1
 radius=512
 multitarget=true
-stun_duration=150
+stun_duration=300
 base_damage=none
 requires_item=13
 
 [power]
 id=131
 name=Scroll of Haste
-icon=12
-description=Double run and attack speed for 8 seconds
+icon=48
+description=Double run and attack speed for 20 seconds
 type=effect
 new_state=cast
 face=false
-haste_duration=240
+haste_duration=600
 requires_item=14
 
 [power]
