@@ -1,5 +1,5 @@
-# FLARE: Free/Libre Action RPG Engine
-# Copyright (C) 2011 Clint Bellanger
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-25 11:46+0700\n"
+"POT-Creation-Date: 2011-12-08 15:20+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,16 +17,16 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../../../src/Avatar.cpp:222
+#: ../../../src/Avatar.cpp:250
 #, c-format
 msgid "Congratulations, you have reached level %d!"
 msgstr ""
 
-#: ../../../src/Avatar.cpp:224
+#: ../../../src/Avatar.cpp:252
 msgid "You may increase one attribute through the Character Menu."
 msgstr ""
 
-#: ../../../src/Avatar.cpp:493
+#: ../../../src/Avatar.cpp:521
 msgid "You are defeated.  You lose half your gold.  Press Enter to continue."
 msgstr ""
 
@@ -123,133 +123,133 @@ msgstr ""
 msgid "Flare Alpha v0.15"
 msgstr ""
 
-#: ../../../src/ItemManager.cpp:339
+#: ../../../src/ItemManager.cpp:341
 #, c-format
 msgid "Level %d"
 msgstr ""
 
-#: ../../../src/ItemManager.cpp:345 ../../../src/MenuInventory.cpp:121
+#: ../../../src/ItemManager.cpp:347 ../../../src/MenuInventory.cpp:121
 msgid "Main Hand"
 msgstr ""
 
-#: ../../../src/ItemManager.cpp:347 ../../../src/MenuInventory.cpp:123
+#: ../../../src/ItemManager.cpp:349 ../../../src/MenuInventory.cpp:123
 msgid "Body"
 msgstr ""
 
-#: ../../../src/ItemManager.cpp:349 ../../../src/MenuInventory.cpp:125
+#: ../../../src/ItemManager.cpp:351 ../../../src/MenuInventory.cpp:125
 msgid "Off Hand"
 msgstr ""
 
-#: ../../../src/ItemManager.cpp:351 ../../../src/MenuInventory.cpp:127
+#: ../../../src/ItemManager.cpp:353 ../../../src/MenuInventory.cpp:127
 msgid "Artifact"
 msgstr ""
 
-#: ../../../src/ItemManager.cpp:353
+#: ../../../src/ItemManager.cpp:355
 msgid "Consumable"
 msgstr ""
 
-#: ../../../src/ItemManager.cpp:355
+#: ../../../src/ItemManager.cpp:357
 msgid "Gem"
 msgstr ""
 
-#: ../../../src/ItemManager.cpp:357
+#: ../../../src/ItemManager.cpp:359
 msgid "Quest Item"
-msgstr ""
-
-#: ../../../src/ItemManager.cpp:364
-#, c-format
-msgid "Melee damage: %d-%d"
 msgstr ""
 
 #: ../../../src/ItemManager.cpp:366
 #, c-format
-msgid "Melee damage: %d"
+msgid "Melee damage: %d-%d"
 msgstr ""
 
-#: ../../../src/ItemManager.cpp:370
+#: ../../../src/ItemManager.cpp:368
 #, c-format
-msgid "Mental damage: %d-%d"
+msgid "Melee damage: %d"
 msgstr ""
 
 #: ../../../src/ItemManager.cpp:372
 #, c-format
-msgid "Mental damage: %d"
+msgid "Mental damage: %d-%d"
 msgstr ""
 
-#: ../../../src/ItemManager.cpp:376
+#: ../../../src/ItemManager.cpp:374
 #, c-format
-msgid "Ranged damage: %d-%d"
+msgid "Mental damage: %d"
 msgstr ""
 
 #: ../../../src/ItemManager.cpp:378
 #, c-format
-msgid "Ranged damage: %d"
+msgid "Ranged damage: %d-%d"
 msgstr ""
 
-#: ../../../src/ItemManager.cpp:385
+#: ../../../src/ItemManager.cpp:380
 #, c-format
-msgid "Absorb: %d-%d"
+msgid "Ranged damage: %d"
 msgstr ""
 
 #: ../../../src/ItemManager.cpp:387
 #, c-format
+msgid "Absorb: %d-%d"
+msgstr ""
+
+#: ../../../src/ItemManager.cpp:389
+#, c-format
 msgid "Absorb: %d"
 msgstr ""
 
-#: ../../../src/ItemManager.cpp:395
+#: ../../../src/ItemManager.cpp:397
 #, c-format
 msgid "Increases %s by %d"
 msgstr ""
 
-#: ../../../src/ItemManager.cpp:399
+#: ../../../src/ItemManager.cpp:401
 #, c-format
 msgid "Decreases %s by %d"
 msgstr ""
 
-#: ../../../src/ItemManager.cpp:417 ../../../src/MenuCharacter.cpp:306
+#: ../../../src/ItemManager.cpp:419 ../../../src/MenuCharacter.cpp:306
 #: ../../../src/MenuCharacter.cpp:312 ../../../src/MenuCharacter.cpp:318
 #: ../../../src/MenuCharacter.cpp:324
 #, c-format
 msgid "Requires Physical %d"
 msgstr ""
 
-#: ../../../src/ItemManager.cpp:421 ../../../src/MenuCharacter.cpp:330
+#: ../../../src/ItemManager.cpp:423 ../../../src/MenuCharacter.cpp:330
 #: ../../../src/MenuCharacter.cpp:336 ../../../src/MenuCharacter.cpp:342
 #: ../../../src/MenuCharacter.cpp:348
 #, c-format
 msgid "Requires Mental %d"
 msgstr ""
 
-#: ../../../src/ItemManager.cpp:425 ../../../src/MenuCharacter.cpp:354
+#: ../../../src/ItemManager.cpp:427 ../../../src/MenuCharacter.cpp:354
 #: ../../../src/MenuCharacter.cpp:360 ../../../src/MenuCharacter.cpp:366
 #: ../../../src/MenuCharacter.cpp:372
 #, c-format
 msgid "Requires Offense %d"
 msgstr ""
 
-#: ../../../src/ItemManager.cpp:429 ../../../src/MenuCharacter.cpp:378
+#: ../../../src/ItemManager.cpp:431 ../../../src/MenuCharacter.cpp:378
 #: ../../../src/MenuCharacter.cpp:384 ../../../src/MenuCharacter.cpp:390
 #: ../../../src/MenuCharacter.cpp:396
 #, c-format
 msgid "Requires Defense %d"
 msgstr ""
 
-#: ../../../src/ItemManager.cpp:439
+#: ../../../src/ItemManager.cpp:441
 #, c-format
 msgid "Buy Price: %d gold"
 msgstr ""
 
-#: ../../../src/ItemManager.cpp:441
+#: ../../../src/ItemManager.cpp:443
 #, c-format
 msgid "Buy Price: %d gold each"
 msgstr ""
 
-#: ../../../src/ItemManager.cpp:447
+#: ../../../src/ItemManager.cpp:449
 #, c-format
 msgid "Sell Price: %d gold"
 msgstr ""
 
-#: ../../../src/ItemManager.cpp:449
+#: ../../../src/ItemManager.cpp:451
 #, c-format
 msgid "Sell Price: %d gold each"
 msgstr ""
@@ -263,19 +263,23 @@ msgstr ""
 msgid "Flare"
 msgstr ""
 
-#: ../../../src/MenuActionBar.cpp:260
+#: ../../../src/MapIso.cpp:754
+msgid "Unknown destination"
+msgstr ""
+
+#: ../../../src/MenuActionBar.cpp:279
 msgid "Character Menu (C)"
 msgstr ""
 
-#: ../../../src/MenuActionBar.cpp:264
+#: ../../../src/MenuActionBar.cpp:283
 msgid "Inventory Menu (I)"
 msgstr ""
 
-#: ../../../src/MenuActionBar.cpp:268
+#: ../../../src/MenuActionBar.cpp:287
 msgid "Power Menu (P)"
 msgstr ""
 
-#: ../../../src/MenuActionBar.cpp:272
+#: ../../../src/MenuActionBar.cpp:291
 msgid "Log Menu (L)"
 msgstr ""
 
