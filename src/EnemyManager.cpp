@@ -39,7 +39,7 @@ EnemyManager::EnemyManager(PowerManager *_powers, MapIso *_map) {
  * Enemies share graphic/sound resources (usually there are groups of similar enemies)
  */
 void EnemyManager::loadGraphics(string type_id) {
-	
+
 	// TODO: throw an error if a map tries to use too many monsters
 	if (gfx_count == max_gfx) return;
 	

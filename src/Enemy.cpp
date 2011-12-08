@@ -113,10 +113,13 @@ void Enemy::logic() {
 	if (stats.bleed_duration % 30 == 1) {
 		powers->activate(POWER_SPARK_BLOOD, &stats, stats.pos);
 	}
+	
 	// check for teleport powers
 	if (stats.teleportation) {
+		
 		stats.pos.x = stats.teleport_destination.x;
 		stats.pos.y = stats.teleport_destination.y;	
+		
 		stats.teleportation = false;	
 	}
 	
@@ -124,6 +127,10 @@ void Enemy::logic() {
 	int prev_direction;
 	bool los = false;
 	Point pursue_pos;
+	
+	// set a default pursue_pos, all else failing (used in targeting)
+	pursue_pos.x = stats.hero_pos.x;
+	pursue_pos.y = stats.hero_pos.y;
 	
 	
 	// SECTION 1: Steering and Vision
@@ -188,7 +195,6 @@ void Enemy::logic() {
 		pursue_pos.x = stats.last_seen.x;
 		pursue_pos.y = stats.last_seen.y;
 	}
-
 
 	
 	// SECTION 2: States
@@ -406,6 +412,7 @@ void Enemy::logic() {
 			
 			// the attack hazard is alive for a single frame
 			if (activeAnimation->getCurFrame() == activeAnimation->getMaxFrame()/2 && haz == NULL) {
+			
 				powers->activate(stats.power_index[RANGED_MENT], &stats, pursue_pos);
 				stats.power_ticks[RANGED_MENT] = stats.power_cooldown[RANGED_MENT];
 			}
