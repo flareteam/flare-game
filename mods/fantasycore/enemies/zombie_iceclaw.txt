@@ -1,0 +1,40 @@
+name=Iceclaw Zombie
+level=4
+categories=zombie,undead,dungeon
+
+sfx_prefix=zombie
+gfx_prefix=zombie
+animations=zombie
+animation_speed=125
+
+loot_chance=25
+
+# combat stats
+hp=16
+speed=9
+dspeed=6
+melee_range=72
+threat_range=512
+dir_favor=12
+chance_pursue=20
+chance_melee_phys=15
+chance_melee_ment=3
+chance_ranged_phys=0
+chance_ranged_ment=0
+
+# melee power Chill Touch (5s immobilize)
+power_melee_phys=38
+power_melee_ment=1
+power_beacon=132
+
+accuracy=85
+avoidance=30
+
+dmg_melee_min=3
+dmg_melee_max=8
+dmg_ment_min=4
+dmg_ment_max=10
+cooldown=20
+
+
+

@@ -542,6 +542,42 @@ allow_power_mod=true
 hp_steal=50
 
 [power]
+id=37
+name=Leech Strike
+type=effect
+icon=1
+description=Turn 25% of damage you deal into HP
+new_state=swing
+face=true
+use_hazard=true
+rendered=false
+aim_assist=32
+base_damage=melee
+lifespan=1
+radius=64
+starting_pos=melee
+allow_power_mod=true
+hp_steal=50
+
+[power]
+id=38
+name=Chill Touch
+type=effect
+icon=1
+description=Melee strike immobilizes target for 5 seconds
+new_state=swing
+face=true
+use_hazard=true
+rendered=false
+aim_assist=32
+base_damage=melee
+lifespan=1
+radius=64
+starting_pos=melee
+allow_power_mod=true
+immobilize_duration=150
+
+[power]
 id=100
 type=effect
 icon=32
