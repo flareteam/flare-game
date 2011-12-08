@@ -1,46 +1,46 @@
 name=Skeletal Warrior
 level=5
-categories=skeleton,undead,dungeon,ice
+categories=skeleton,undead,dungeon
 
 sfx_prefix=skeleton
 gfx_prefix=skeleton
+animations=skeleton
+animation_speed=100
 
 loot_chance=40
 
 # combat stats
-hp=15
+hp=26
 speed=10
 dspeed=7
 melee_range=76
 threat_range=512
 dir_favor=6
+
 chance_pursue=25
-chance_melee_phys=15
-chance_melee_ment=0
-chance_ranged_phys=1
-chance_ranged_ment=1
-power_melee_phys=1
-power_ranged_phys=34
-power_ranged_ment=30
+chance_melee_phys=10
+chance_melee_ment=10
+
+# blood strike
+power_melee_phys=5
+# piercing strike
+power_melee_ment=39
+
 power_beacon=132
-cooldown_ranged_phys=60
-cooldown_ranged_ment=90
+cooldown_ranged_ment=150
 
 accuracy=81
 avoidance=37
 
 dmg_melee_min=3
 dmg_melee_max=8
-dmg_ranged_min=3
-dmg_ranged_max=8
-dmg_ment_min=3
-dmg_ment_max=8
-absorb_min=1
+dmg_ment_min=4
+dmg_ment_max=9
+absorb_min=2
 absorb_max=2
+
 attunement_fire=150
 attunement_ice=75
-cooldown=30
+cooldown=20
 
-animations=skeleton
-animation_speed=100
 

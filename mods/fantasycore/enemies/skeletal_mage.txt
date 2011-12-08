@@ -1,6 +1,6 @@
 name=Skeletal Mage
 level=4
-categories=skeleton,undead,dungeon,ice,undead_mage
+categories=skeleton,undead,dungeon,ice
 
 sfx_prefix=skeleton
 gfx_prefix=skeleton_mage
@@ -9,12 +9,13 @@ animations=skeleton
 loot_chance=40
 
 # combat stats
-hp=10
+hp=18
 speed=7
 dspeed=5
 melee_range=76
 threat_range=512
 dir_favor=6
+
 chance_pursue=15
 chance_melee_phys=5
 chance_melee_ment=0
@@ -31,8 +32,7 @@ dmg_melee_min=1
 dmg_melee_max=5
 dmg_ment_min=2
 dmg_ment_max=7
-absorb_min=0
-absorb_max=1
+
 attunement_fire=200
 attunement_ice=50
 cooldown=30
