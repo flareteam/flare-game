@@ -7,10 +7,11 @@ gfx_prefix=fire_ant
 animations=antlion
 animation_speed=150
 
-loot_chance=5
+loot_chance=20
 
 # combat stats
-hp=20
+# antlions have low HP and high armor for their level
+hp=26
 speed=16
 dspeed=9
 melee_range=76
@@ -27,7 +28,7 @@ accuracy=100
 avoidance=25
 
 dmg_ment_min=30
-dmg_ment_max=50
+dmg_ment_max=40
 absorb_min=5
 absorb_max=5
 attunement_fire=100

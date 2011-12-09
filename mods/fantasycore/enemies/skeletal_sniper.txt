@@ -1,5 +1,5 @@
-name=Skeletal Archer
-level=3
+name=Skeletal Sniper
+level=6
 categories=skeleton,undead,dungeon
 
 sfx_prefix=skeleton
@@ -9,7 +9,7 @@ animations=skeleton
 loot_chance=30
 
 # combat stats
-hp=15
+hp=30
 speed=7
 dspeed=5
 melee_range=76
@@ -18,20 +18,20 @@ dir_favor=6
 chance_pursue=5
 chance_melee_phys=5
 chance_melee_ment=0
-chance_ranged_phys=5
+chance_ranged_phys=10
 chance_ranged_ment=0
 power_melee_phys=1
 power_ranged_phys=34
 power_beacon=132
 
-accuracy=83
-avoidance=28
+accuracy=89
+avoidance=34
 
 dmg_melee_min=1
 dmg_melee_max=5
-dmg_ranged_min=2
-dmg_ranged_max=6
+dmg_ranged_min=3
+dmg_ranged_max=9
 
-cooldown=30
+cooldown=15
 
 

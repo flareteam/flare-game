@@ -1,5 +1,5 @@
 name=Antlion
-level=2
+level=4
 categories=antlion,dungeon,cave
 
 sfx_prefix=antlion
@@ -9,22 +9,25 @@ animations=antlion
 loot_chance=25
 
 # combat stats
-hp=3
-speed=10
-dspeed=7
+# antlions have low HP and high armor for their level
+hp=14
+speed=11
+dspeed=8
 melee_range=76
 threat_range=512
 dir_favor=8
-chance_pursue=25
-chance_melee_phys=15
+chance_pursue=30
+chance_melee_phys=20
 power_melee_phys=1
 power_beacon=132
 
 accuracy=72
 avoidance=22
+absorb_min=2
+absorb_max=2
 
-dmg_melee_min=1
-dmg_melee_max=5
-cooldown=25
+dmg_melee_min=2
+dmg_melee_max=7
+cooldown=10
 
 

@@ -1,23 +1,25 @@
-name=Antlion Freezer
+name=Skeletal Mage
 level=7
-categories=antlion,dungeon,cave,ice
+categories=skeleton,undead,dungeon,ice
 
-sfx_prefix=antlion
-gfx_prefix=ice_ant
-animations=antlion
+sfx_prefix=skeleton
+gfx_prefix=skeleton_mage
+animations=skeleton
 
-loot_chance=25
+loot_chance=40
 
 # combat stats
-# antlions have low HP and high armor for their level
-hp=28
-speed=10
-dspeed=7
+hp=32
+speed=7
+dspeed=5
 melee_range=76
 threat_range=512
-dir_favor=8
-chance_pursue=10
+dir_favor=6
+
+chance_pursue=15
 chance_melee_phys=5
+chance_melee_ment=0
+chance_ranged_phys=0
 chance_ranged_ment=10
 power_melee_phys=1
 power_ranged_ment=30
@@ -30,10 +32,9 @@ dmg_melee_min=2
 dmg_melee_max=6
 dmg_ment_min=4
 dmg_ment_max=10
-absorb_min=1
-absorb_max=2
+
 attunement_fire=200
 attunement_ice=50
+cooldown=15
 
-cooldown=25
 

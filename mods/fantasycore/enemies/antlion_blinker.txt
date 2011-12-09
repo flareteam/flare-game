@@ -9,17 +9,24 @@ animations=antlion
 loot_chance=25
 
 # combat stats
-hp=15
+# antlions have low HP and high armor for their level
+hp=18
 speed=10
 dspeed=7
 melee_range=76
 threat_range=512
 dir_favor=8
-chance_pursue=25
-chance_melee_phys=3
-chance_ranged_ment=5
+chance_pursue=40
+chance_melee_phys=16
+chance_melee_ment=8
+chance_ranged_ment=10
+
 power_melee_phys=1
+# paralysis acid in melee range
+power_melee_ment=41
+# teleports into melee range
 power_ranged_ment=15
+
 power_beacon=132
 
 accuracy=81
@@ -27,9 +34,10 @@ avoidance=31
 
 dmg_melee_min=3
 dmg_melee_max=8
-absorb_min=1
-absorb_max=1
+dmg_ment_min=2
+dmg_ment_max=6
+absorb_min=2
+absorb_max=3
 
-cooldown=25
-
+cooldown=10
 
