@@ -113,17 +113,47 @@ type=teleport
 location=48,17,1,4
 intermap=cave_of_living_bones2.txt,3,38
 
+[event]
+# Crate of Blasting Powder
+type=run_once
+location=6,6,1,1
+hotspot=-16,-30,32,36
+mapmod=object,6,6,0
+mapmod=collision,6,6,0
+set_status=lb_has_explosive
+tooltip=Crate of Blasting Powder
+
+[event]
+# Barrel
+type=run_once
+location=5,6,1,1
+hotspot=-16,-36,32,44
+loot=random,6,7,7
+mapmod=object,5,6,178
+soundfx=soundfx/wood_open.ogg
+tooltip=Barrel
+
+[event]
+# Barrel
+type=run_once
+location=3,18,1,1
+hotspot=-16,-36,32,44
+loot=random,4,19,7
+mapmod=object,3,18,178
+soundfx=soundfx/wood_open.ogg
+tooltip=Barrel
+
 [enemygroup]
 # Guard the Explosives
 type=undead
 location=5,7,6,17
-level=4,7
+level=6,8
 number=5,7
 
 [enemygroup]
 # Various Enemies
 type=undead
 location=11,8,26,17
-level=4,7
+level=6,8
 number=7,10
 
