@@ -802,7 +802,7 @@
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
 </data>
  </layer>
- <objectgroup name="event" width="256" height="256" visible="0">
+ <objectgroup name="event" width="256" height="256">
   <object name="to Frontier Outpost" type="teleport" x="7968" y="5952" width="32" height="64">
    <properties>
     <property name="intermap" value="frontier_outpost.txt,2,12"/>
@@ -823,9 +823,9 @@
     <property name="intermap" value="white_wind.txt,100,4"/>
    </properties>
   </object>
-  <object name="to Earth Temple" type="teleport" x="3744" y="4288" width="128" height="128">
+  <object name="to Ancient Temple" type="teleport" x="3744" y="4288" width="128" height="128">
    <properties>
-    <property name="intermap" value="earth_temple.txt,64,64"/>
+    <property name="intermap" value="ancient_temple.txt,64,64"/>
    </properties>
   </object>
   <object x="3616" y="4224"/>
