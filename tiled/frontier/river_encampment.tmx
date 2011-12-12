@@ -229,7 +229,7 @@
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,3,3,3,3,3,3,3,3,3,3,1,3,3
 </data>
  </layer>
- <objectgroup name="enemy" width="64" height="64" visible="0">
+ <objectgroup name="enemy" width="64" height="64">
   <object type="goblin" x="1888" y="1568" width="32" height="32"/>
   <object type="goblin" x="1824" y="1376" width="32" height="32"/>
   <object type="goblin" x="1504" y="928" width="32" height="32"/>
@@ -260,7 +260,7 @@
   <object type="goblin_charger_elite" x="896" y="704" width="32" height="32"/>
   <object type="goblin_charger" x="576" y="480" width="32" height="32"/>
   <object type="goblin_spearman" x="448" y="608" width="32" height="32"/>
-  <object type="goblin_shaman" x="352" y="448" width="32" height="32">
+  <object type="rilrak" x="352" y="448" width="32" height="32">
    <properties>
     <property name="direction" value="5"/>
    </properties>
@@ -270,7 +270,7 @@
   <object type="antlion_hatchling" x="1312" y="480" width="32" height="32"/>
   <object type="antlion_hatchling" x="1312" y="576" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="event" width="64" height="64">
+ <objectgroup name="event" width="64" height="64" visible="0">
   <object name="cliff passage container" type="run_once" x="640" y="1376" width="32" height="32">
    <properties>
     <property name="hotspot" value="-24,-32,48,48"/>
