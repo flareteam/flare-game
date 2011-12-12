@@ -22,6 +22,7 @@ requires_status=fr_welcome
 requires_not=fr_rilrak_search
 him=We're having problems. Goblins. All the noise from our mining is drawing their attention. We can't have them thinking we're easy prey.
 set_status=fr_rilrak_search
+unset_status=fr_rilrak_defeated
 reward_currency=20
 him=Attack their encampment, on the river north of here. 20 gold now, 80 more when you return. 
 
@@ -31,6 +32,7 @@ requires_not=fr_rilrak_defeated
 him=The goblins have an encampment on the river north of here. Clear them out and I'll pay you 80 gold.
 
 [dialog]
+requires_status=fr_rilrak_search
 requires_status=fr_rilrak_defeated
 requires_not=fr_rilrak_reward
 set_status=fr_rilrak_reward
