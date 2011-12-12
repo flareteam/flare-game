@@ -40,7 +40,7 @@ static void init() {
 	if (FULLSCREEN) flags = flags | SDL_FULLSCREEN;
 	if (DOUBLEBUF) flags = flags | SDL_DOUBLEBUF;
 	if (HWSURFACE)
-		flags = flags | SDL_HWSURFACE;
+		flags = flags | SDL_HWSURFACE | SDL_HWACCEL;
 	else
 		flags = flags | SDL_SWSURFACE;
 

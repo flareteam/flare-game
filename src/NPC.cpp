@@ -184,13 +184,14 @@ void NPC::loadGraphics(string filename_sprites, string filename_portrait) {
 		if(!sprites) {
 			fprintf(stderr, "Couldn't load NPC sprites: %s\n", IMG_GetError());
 		}
+		else {
+			SDL_SetColorKey( sprites, SDL_SRCCOLORKEY, SDL_MapRGB(sprites->format, 255, 0, 255) );
 	
-		SDL_SetColorKey( sprites, SDL_SRCCOLORKEY, SDL_MapRGB(sprites->format, 255, 0, 255) );
-	
-		// optimize
-		SDL_Surface *cleanup = sprites;
-		sprites = SDL_DisplayFormatAlpha(sprites);
-		SDL_FreeSurface(cleanup);
+			// optimize
+			SDL_Surface *cleanup = sprites;
+			sprites = SDL_DisplayFormatAlpha(sprites);
+			SDL_FreeSurface(cleanup);
+		}
 	}
 	if (filename_portrait != "") {
 		portrait = IMG_Load(mods->locate("images/portraits/" + filename_portrait + ".png").c_str());
