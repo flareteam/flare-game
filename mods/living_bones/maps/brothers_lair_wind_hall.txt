@@ -167,91 +167,348 @@ data=
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
 
+# ROTATE CLUES
+
 [event]
-# Chain-Statue Switch
+type=run_once
+location=0,0,40,50
+requires_not=lb_wind_left1
+requires_not=lb_wind_left2
+requires_not=lb_wind_left3
+requires_not=lb_wind_left4
+set_status=lb_wind_left1
+set_status=lb_wind_rotatedleft
+
+[event]
+type=run_once
+location=0,0,40,50
+requires_not=lb_wind_right1
+requires_not=lb_wind_right2
+requires_not=lb_wind_right3
+requires_not=lb_wind_right4
+requires_not=lb_wind_right5
+set_status=lb_wind_right1
+set_status=lb_wind_rotatedright
+
+[event]
+type=run_once
+location=0,0,40,50
+requires_not=lb_wind_rotatedleft
+requires_status=lb_wind_left1
+unset_status=lb_wind_left1
+set_status=lb_wind_left2
+set_status=lb_wind_rotatedleft
+
+[event]
+type=run_once
+location=0,0,40,50
+requires_not=lb_wind_rotatedleft
+requires_status=lb_wind_left2
+unset_status=lb_wind_left2
+set_status=lb_wind_left3
+set_status=lb_wind_rotatedleft
+
+[event]
+type=run_once
+location=0,0,40,50
+requires_not=lb_wind_rotatedleft
+requires_status=lb_wind_left3
+unset_status=lb_wind_left3
+set_status=lb_wind_left4
+set_status=lb_wind_rotatedleft
+
+[event]
+type=run_once
+location=0,0,40,50
+requires_not=lb_wind_rotatedleft
+requires_status=lb_wind_left4
+unset_status=lb_wind_left4
+set_status=lb_wind_left1
+set_status=lb_wind_rotatedleft
+
+[event]
+type=run_once
+location=0,0,40,50
+requires_not=lb_wind_rotatedright
+requires_status=lb_wind_right1
+unset_status=lb_wind_right1
+set_status=lb_wind_right2
+set_status=lb_wind_rotatedright
+
+[event]
+type=run_once
+location=0,0,40,50
+requires_not=lb_wind_rotatedright
+requires_status=lb_wind_right2
+unset_status=lb_wind_right2
+set_status=lb_wind_right3
+set_status=lb_wind_rotatedright
+
+[event]
+type=run_once
+location=0,0,40,50
+requires_not=lb_wind_rotatedright
+requires_status=lb_wind_right3
+unset_status=lb_wind_right3
+set_status=lb_wind_right4
+set_status=lb_wind_rotatedright
+
+[event]
+type=run_once
+location=0,0,40,50
+requires_not=lb_wind_rotatedright
+requires_status=lb_wind_right4
+unset_status=lb_wind_right4
+set_status=lb_wind_right5
+set_status=lb_wind_rotatedright
+
+[event]
+type=run_once
+location=0,0,40,50
+requires_not=lb_wind_rotatedright
+requires_status=lb_wind_right5
+unset_status=lb_wind_right5
+set_status=lb_wind_right1
+set_status=lb_wind_rotatedright
+
+# SWITCHES
+
+[event]
+# Chain-Statue Switch (Right Door)
 type=run_once
 location=23,29,1,1
 hotspot=-16,-28,32,34
+requires_status=lb_wind_right1
+mapmod=object,23,29,166
+mapmod=object,25,16,113
+mapmod=collision,25,16,0
+soundfx=soundfx/door_open.ogg
+tooltip=Switch
+[event]
+type=run_once
+location=23,29,1,1
+hotspot=-16,-28,32,34
+requires_not=lb_wind_right1
 mapmod=object,23,29,166
 soundfx=soundfx/door_open.ogg
 tooltip=Switch
+power=6
+power_damage=10,15
+power_path=23,29,hero
 
 [event]
-# Chain-Grate Switch
+# Chain-Grate Switch (Left Door)
+type=run_once
+location=25,29,1,1
+requires_status=lb_wind_left1
+hotspot=-16,-28,32,34
+mapmod=object,25,29,166
+mapmod=object,10,31,112
+mapmod=collision,10,31,0
+soundfx=soundfx/door_open.ogg
+tooltip=Switch
+[event]
 type=run_once
 location=25,29,1,1
 hotspot=-16,-28,32,34
+requires_not=lb_wind_left1
 mapmod=object,25,29,166
 soundfx=soundfx/door_open.ogg
 tooltip=Switch
+power=6
+power_damage=10,15
+power_path=25,29,hero
 
 [event]
-# Chain-ColdUrn Switch
+# Chain-ColdUrn Switch (Left Door)
 type=run_once
 location=27,29,1,1
+mapmod=object,10,31,112
+mapmod=collision,10,31,0
+requires_status=lb_wind_left2
 hotspot=-16,-28,32,34
 mapmod=object,27,29,166
 soundfx=soundfx/door_open.ogg
 tooltip=Switch
+[event]
+type=run_once
+location=27,29,1,1
+hotspot=-16,-28,32,34
+requires_not=lb_wind_left2
+mapmod=object,27,29,166
+soundfx=soundfx/door_open.ogg
+tooltip=Switch
+power=6
+power_damage=10,15
+power_path=27,29,hero
 
 [event]
-# Tomb-ColdUrn Switch
+# Tomb-ColdUrn Switch (Right Door)
+type=run_once
+location=27,31,1,1
+requires_status=lb_wind_right2
+hotspot=-16,-28,32,34
+mapmod=object,27,31,166
+mapmod=object,25,16,113
+mapmod=collision,25,16,0
+soundfx=soundfx/door_open.ogg
+tooltip=Switch
+[event]
 type=run_once
 location=27,31,1,1
 hotspot=-16,-28,32,34
+requires_not=lb_wind_right2
 mapmod=object,27,31,166
 soundfx=soundfx/door_open.ogg
 tooltip=Switch
+power=6
+power_damage=10,15
+power_path=27,31,hero
 
 [event]
-# Tomb-Statue Switch
+# Tomb-Statue Switch (Right Door)
+type=run_once
+location=23,31,1,1
+requires_status=lb_wind_right3
+hotspot=-16,-28,32,34
+mapmod=object,23,31,166
+mapmod=object,25,16,113
+mapmod=collision,25,16,0
+soundfx=soundfx/door_open.ogg
+tooltip=Switch
+[event]
 type=run_once
 location=23,31,1,1
 hotspot=-16,-28,32,34
+requires_not=lb_wind_right3
 mapmod=object,23,31,166
 soundfx=soundfx/door_open.ogg
 tooltip=Switch
+power=6
+power_damage=10,15
+power_path=23,31,hero
 
 [event]
-# Tomb-Grate Switch
+# Tomb-Grate Switch (Right Door)
+type=run_once
+location=25,31,1,1
+requires_status=lb_wind_right4
+hotspot=-16,-28,32,34
+mapmod=object,25,31,166
+mapmod=object,25,16,113
+mapmod=collision,25,16,0
+soundfx=soundfx/door_open.ogg
+tooltip=Switch
+[event]
 type=run_once
 location=25,31,1,1
 hotspot=-16,-28,32,34
+requires_not=lb_wind_right4
 mapmod=object,25,31,166
 soundfx=soundfx/door_open.ogg
 tooltip=Switch
+power=6
+power_damage=10,15
+power_path=25,31,hero
 
 [event]
-# HotUrn-Statue Switch
+# HotUrn-Statue Switch (Left Door)
+type=run_once
+location=23,33,1,1
+requires_status=lb_wind_left3
+hotspot=-16,-28,32,34
+mapmod=object,23,33,166
+mapmod=object,10,31,112
+mapmod=collision,10,31,0
+soundfx=soundfx/door_open.ogg
+tooltip=Switch
+[event]
 type=run_once
 location=23,33,1,1
 hotspot=-16,-28,32,34
+requires_not=lb_wind_left3
 mapmod=object,23,33,166
 soundfx=soundfx/door_open.ogg
 tooltip=Switch
+power=6
+power_damage=10,15
+power_path=23,33,hero
 
 [event]
-# HotUrn-Grate Switch
+# HotUrn-Grate Switch (Left Door)
+type=run_once
+location=25,33,1,1
+requires_status=lb_wind_left4
+hotspot=-16,-28,32,34
+mapmod=object,25,33,166
+mapmod=object,10,31,112
+mapmod=collision,10,31,0
+soundfx=soundfx/door_open.ogg
+tooltip=Switch
+[event]
 type=run_once
 location=25,33,1,1
 hotspot=-16,-28,32,34
+requires_not=lb_wind_left4
 mapmod=object,25,33,166
 soundfx=soundfx/door_open.ogg
 tooltip=Switch
+power=6
+power_damage=10,15
+power_path=25,33,hero
 
 [event]
-# HotUrn-ColdUrn Switch
+# HotUrn-ColdUrn Switch (Right Door)
+type=run_once
+location=27,33,1,1
+requires_status=lb_wind_right5
+hotspot=-16,-28,32,34
+mapmod=object,27,33,166
+mapmod=object,25,16,113
+mapmod=collision,25,16,0
+soundfx=soundfx/door_open.ogg
+tooltip=Switch
+[event]
 type=run_once
 location=27,33,1,1
 hotspot=-16,-28,32,34
+requires_not=lb_wind_right5
 mapmod=object,27,33,166
 soundfx=soundfx/door_open.ogg
 tooltip=Switch
+power=6
+power_damage=10,15
+power_path=27,33,hero
+
+# CLUE BOOKS
 
 [event]
-# Storage Room Clue Book
+# Storage Room Clue Book #1 (chain grate)
 type=run_always
 location=13,31,1,1
+requires_status=lb_wind_left1
+hotspot=-16,-48,32,56
+mapmod=object,13,31,164
+msg="As we explored the sewers, an abomination charged my companion and knocked him into the filthy water. As he was wearing chainmail, he never resurfaced."
+soundfx=soundfx/inventory/inventory_page.ogg
+tooltip=The Journal of Sir Dunn
+
+[event]
+# Storage Room Clue Book #2 (chain cold)
+type=run_always
+location=13,31,1,1
+requires_status=lb_wind_left2
+hotspot=-16,-48,32,56
+mapmod=object,13,31,164
+msg="Winterkiss Amulet: An immaculate sapphire hanging from a silver chain, this artifact is said to have been worn by winter herself."
+soundfx=soundfx/inventory/inventory_page.ogg
+tooltip=Catalogue of Mystical Items
+
+[event]
+# Storage Room Clue Book #3 (hot statue)
+type=run_always
+location=13,31,1,1
+requires_status=lb_wind_left3
 hotspot=-16,-48,32,56
 mapmod=object,13,31,164
 msg="The fiercest warrior's sword is as a flame to his enemies."
@@ -259,14 +516,72 @@ soundfx=soundfx/inventory/inventory_page.ogg
 tooltip=Aldrenan's Proverbs
 
 [event]
-# Bedroom Clue Book
+# Storage Room Clue Book #4 (hot grate)
+type=run_always
+location=13,31,1,1
+requires_status=lb_wind_left4
+hotspot=-16,-48,32,56
+mapmod=object,13,31,164
+msg="The northern city of Arden-Ain was built high over an active magma flow. The heat filters up through the grates in the city to keep the people warm."
+soundfx=soundfx/inventory/inventory_page.ogg
+tooltip=10 Places You Must See
+
+[event]
+# Bedroom Clue Book #1 (chain statue)
 type=run_always
 location=25,19,1,1
+requires_status=lb_wind_right1
+hotspot=-16,-48,32,56
+mapmod=object,25,19,165
+msg="It is rumored that the great warrior king Giash was so rich, he even forged the shackles in his prisons out of gold."
+soundfx=soundfx/inventory/inventory_page.ogg
+tooltip=A Brief History of Alcand
+
+[event]
+# Bedroom Clue Book #2 (tomb cold)
+type=run_always
+location=25,19,1,1
+requires_status=lb_wind_right2
 hotspot=-16,-48,32,56
 mapmod=object,25,19,165
 msg="And so my lover lay there, cold as the grave, the fire of life having left him forever."
 soundfx=soundfx/inventory/inventory_page.ogg
 tooltip=Siobhan's Love
+
+[event]
+# Bedroom Clue Book #3 (tomb statue)
+type=run_always
+location=25,19,1,1
+requires_status=lb_wind_right3
+hotspot=-16,-48,32,56
+mapmod=object,25,19,165
+msg="Seeking to immortalize himself in the eyes of his people, Belandrius buried himself with his fortune in a grand tomb under his memorial."
+soundfx=soundfx/inventory/inventory_page.ogg
+tooltip=Atlas of Lost Fortunes
+
+[event]
+# Bedroom Clue Book #4 (tomb grate)
+type=run_always
+location=25,19,1,1
+requires_status=lb_wind_right4
+hotspot=-16,-48,32,56
+mapmod=object,25,19,165
+msg="The stench of rotting bodies filtered up from the sewers for years to come. The smell was so unbearable, the people abandoned the city for nearly a decade."
+soundfx=soundfx/inventory/inventory_page.ogg
+tooltip=A Tyrant's Wrath
+
+[event]
+# Bedroom Clue Book #5 (hot cold)
+type=run_always
+location=25,19,1,1
+requires_status=lb_wind_right5
+hotspot=-16,-48,32,56
+mapmod=object,25,19,165
+msg="Step 2: Light the fire and rotate the antlion legs slowly over the coals until they grow cold."
+soundfx=soundfx/inventory/inventory_page.ogg
+tooltip=Dungeon Delicacies
+
+# ETC
 
 [event]
 # Warp to Atrium
@@ -275,14 +590,15 @@ location=2,18,1,2
 intermap=brothers_lair_atrium.txt,26,14
 
 [event]
-# Storage Room Clue Book
+# Grisbon's Diary
 type=run_always
 location=31,8,1,1
 hotspot=-16,-48,32,56
 mapmod=object,31,8,164
 msg="People used to ask me why I use a sword rather than a wand. It never occurs to them that the metal blade can conduct and channel lightning as well as (or better than!) any enchanted twig. ~Grisbon"
+set_status=lb_wind_password
 soundfx=soundfx/inventory/inventory_page.ogg
-tooltip=Diary
+tooltip=Book Stand
 
 [event]
 # Crate
@@ -374,24 +690,48 @@ mapmod=object,36,15,162
 soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
+[event]
+# Grisbon's Chest
+type=run_always
+location=31,7,1,1
+hotspot=-16,-36,32,44
+power=6
+power_damage=20,25
+power_path=31,7,hero
+requires_not=lb_wind_key
+tooltip=Runed Chest
+
+[event]
+# Grisbon's Chest
+type=run_once
+location=31,7,1,1
+hotspot=-16,-36,32,44
+loot=random,32,7,10
+mapmod=object,31,7,160
+requires_status=lb_wind_key
+set_status=lb_wind_looted
+soundfx=soundfx/wood_open.ogg
+tooltip=Runed Chest
+unset_status=lb_wind_key
+
 [enemygroup]
 # 4-5 Undead
 type=undead
 location=3,40,9,7
-level=4,7
+level=7,8
 number=4,5
 
 [enemygroup]
 # 1-3 Undead
 type=undead
 location=12,27,18,9
-level=4,7
+level=7,8
 number=1,3
 
 [enemygroup]
 # 1-3 Undead
 type=undead
 location=21,18,9,18
-level=4,7
+level=7,8
 number=1,3
 

@@ -269,6 +269,7 @@ type=run_once
 location=17,45,1,1
 hotspot=-32,-84,64,100
 mapmod=collision,17,45,0
+mapmod=object,17,45,0
 shakycam=20
 sound=soundfx/powers/quake.ogg
 tooltip=Suspicious Bookcase
@@ -333,29 +334,158 @@ soundfx=soundfx/inventory/inventory_page.ogg
 tooltip=Book Stand
 
 [event]
-# Lore: A Step Further
+# Lore: New Residence
 type=run_always
 location=16,10,1,1
 hotspot=-16,-48,32,56
 mapmod=object,16,10,165
-msg="It's days like today that make me wonder if I should go a step further and eliminate V. and G. too... they're getting on my nerves."
+msg="G. suggested that each of us should take one of the halls in the old necromancer's lair."
 soundfx=soundfx/inventory/inventory_page.ogg
 tooltip=Book Stand
 
 [event]
 # Scathelocke's Diary
-type=run_once
+type=run_always
 location=18,10,1,1
 hotspot=-16,-48,32,56
 mapmod=object,18,10,165
-msg=The last entry in this diary is signed: "Scathelocke"
+msg="It's days like today that make me wonder if I should go a step further and eliminate V. and G. too... they're getting on my nerves. ~Scathelocke"
+set_status=lb_ice_password
+soundfx=soundfx/inventory/inventory_page.ogg
 tooltip=Book Stand
+
+[event]
+# Crate
+type=run_once
+location=11,13,1,1
+hotspot=-16,-30,32,36
+loot=random,12,13,7
+mapmod=object,11,13,163
+soundfx=soundfx/wood_open.ogg
+tooltip=Crate
+
+[event]
+# Crate
+type=run_once
+location=22,13,1,1
+hotspot=-16,-30,32,36
+loot=random,22,14,7
+mapmod=object,22,13,163
+soundfx=soundfx/wood_open.ogg
+tooltip=Crate
+
+[event]
+# Crate
+type=run_once
+location=29,48,1,1
+hotspot=-16,-30,32,36
+loot=random,29,49,7
+mapmod=object,29,48,163
+soundfx=soundfx/wood_open.ogg
+tooltip=Crate
+
+[event]
+# Barrel
+type=run_once
+location=11,14,1,1
+hotspot=-16,-36,32,44
+loot=random,11,15,7
+mapmod=object,11,14,162
+soundfx=soundfx/wood_open.ogg
+tooltip=Barrel
+
+[event]
+# Barrel
+type=run_once
+location=12,14,1,1
+hotspot=-16,-36,32,44
+loot=random,12,15,7
+mapmod=object,12,14,162
+soundfx=soundfx/wood_open.ogg
+tooltip=Barrel
+
+[event]
+# Barrel
+type=run_once
+location=23,13,1,1
+hotspot=-16,-36,32,44
+loot=random,23,14,7
+mapmod=object,23,13,162
+soundfx=soundfx/wood_open.ogg
+tooltip=Barrel
+
+[event]
+# Scathelocke's Chest
+type=run_once
+location=14,10,1,1
+hotspot=-16,-36,32,44
+loot=random,15,10,10
+mapmod=object,14,10,160
+requires_status=lb_ice_key
+set_status=lb_ice_looted
+soundfx=soundfx/wood_open.ogg
+tooltip=Runed Chest
+unset_status=lb_ice_key
+
+[event]
+# Treasure Chest
+type=run_once
+location=7,50,1,1
+hotspot=-16,-36,32,44
+loot=random,8,50,9
+mapmod=object,7,50,160
+soundfx=soundfx/wood_open.ogg
+tooltip=Treasure Chest
+
+[event]
+# Scathelocke's Chest Locked
+type=run_always
+location=14,10,1,1
+hotspot=-16,-36,32,44
+power=14
+power_damage=20,25
+power_path=14,10,hero
+requires_not=lb_ice_key
+requires_not=lb_ice_looted
+tooltip=Runed Chest
+
+[event]
+# Trapped Tile
+type=run_once
+location=17,34,1,2
+mapmod=object,13,31,0
+mapmod=collision,13,31,0
+mapmod=object,21,31,0
+mapmod=collision,21,31,0
+mapmod=object,13,38,0
+mapmod=collision,13,38,0
+mapmod=object,21,38,0
+mapmod=collision,21,38,0
+soundfx=soundfx/door_open.ogg
+
+[event]
+# Lore: Under the Wing
+type=run_once
+location=30,57,1,1
+hotspot=-32,-84,64,100
+loot=random,31,57,7
+soundfx=soundfx/inventory/inventory_page.ogg
+tooltip=Bookcase
+
+[event]
+# Lore: Under the Wing
+type=run_once
+location=6,61,1,1
+hotspot=-32,-84,64,100
+loot=random,7,61,7
+soundfx=soundfx/inventory/inventory_page.ogg
+tooltip=Bookcase
 
 [enemygroup]
 # 3-4 Undead
 type=undead
 location=15,52,12,13
-level=4,7
+level=6,8
 number=3,4
 
 [enemygroup]
@@ -363,7 +493,7 @@ number=3,4
 type=undead
 location=7,48,4,5
 chance=80
-level=4,7
+level=6,8
 number=1,3
 
 [enemygroup]
@@ -371,7 +501,7 @@ number=1,3
 type=undead
 location=7,57,4,7
 chance=80
-level=4,7
+level=6,8
 number=1,3
 
 [enemygroup]
@@ -379,7 +509,7 @@ number=1,3
 type=undead
 location=17,68,4,6
 chance=80
-level=4,7
+level=6,8
 number=1,3
 
 [enemygroup]
@@ -387,37 +517,37 @@ number=1,3
 type=undead
 location=27,48,6,4
 chance=80
-level=4,7
+level=6,8
 number=1,3
 
 [enemygroup]
 # 2 Undead
 type=undead
 location=31,56,4,4
-level=4,7
+level=6,8
 number=2,2
 
 [enemy]
-# Skeletal Warrior
-type=skeletal_warrior
+# Skeletal Knight
+type=skeletal_knight
 location=22,38,1,1
 direction=1
 
 [enemy]
-# Skeletal Warrior
-type=skeletal_warrior
+# Skeletal Knight
+type=skeletal_knight
 location=22,31,1,1
 direction=1
 
 [enemy]
-# Skeletal Warrior
-type=skeletal_warrior
+# Skeletal Knight
+type=skeletal_knight
 location=12,38,1,1
 direction=5
 
 [enemy]
-# Skeletal Warrior
-type=skeletal_warrior
+# Skeletal Knight
+type=skeletal_knight
 location=12,31,1,1
 direction=5
 

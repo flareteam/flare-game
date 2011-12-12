@@ -1,0 +1,33 @@
+name=Statue Guardian (Ice)
+
+# talker info
+talker=true
+
+# animation info
+gfx=statue_guardian_ice
+render_size=48,64
+render_offset=22,56
+anim_frames=6
+anim_duration=10
+
+# voiceover files
+
+[dialog]
+requires_not=lb_ice_password
+him=Who goes there?
+you=Uh... a lone adventurer?
+set_status=lb_ice_locked
+set_status=lb_ice_attack
+him=Intruder! You shall not interrupt the masters' work!
+
+[dialog]
+requires_status=lb_ice_password
+him=Who goes there?
+you=Scathelocke.
+set_status=lb_ice_unlocked
+reward_xp=100
+him=Welcome, Master Scathelocke.
+
+[dialog]
+requires_status=lb_ice_unlocked
+him=Welcome, Master Scathelocke.

@@ -1,0 +1,43 @@
+# Quest Items
+
+[item]
+id=9100
+name=Scathelocke's Spellbook
+quality=epic
+icon=116,20
+type=artifact
+sfx=object
+loot=book
+bonus=mental,1
+pickup_status=lb_spellbook_found
+
+[item]
+id=9101
+name=Scathelocke's Key
+icon=40
+power_desc=Opens Scathelocke's Runed Chest
+type=quest
+sfx=gem
+loot=gem
+pickup_status=lb_ice_key
+
+[item]
+id=9102
+name=Vesuvvio's Key
+icon=40
+power_desc=Opens Vesuvvio's Runed Chest
+type=quest
+sfx=gem
+loot=gem
+pickup_status=lb_fire_key
+
+[item]
+id=9103
+name=Grisbon's Key
+icon=40
+power_desc=Opens Grisbon's Runed Chest
+type=quest
+sfx=gem
+loot=gem
+pickup_status=lb_wind_key
+
