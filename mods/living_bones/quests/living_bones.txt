@@ -2,6 +2,7 @@
 # Living Bones quest chain #
 ############################
 
+# THE CAVES
 [quest]
 requires_status=lb_destroy_pillar
 requires_not=lb_has_explosive
@@ -16,4 +17,54 @@ quest_text=Use the blasting powder you found to destroy the large pillar.
 requires_status=lb_explosive_set
 requires_not=lb_explosive_detonated
 quest_text=Run! You don't want to be caught in the blast of your own explosion!
+
+# THE LAIR
+[quest]
+requires_status=lb_ice_locked
+requires_not=lb_ice_password
+quest_text=Search for the name of the ice wizard to pass the statue guardian.
+
+[quest]
+requires_status=lb_fire_locked
+requires_not=lb_fire_password
+quest_text=Search for the name of the fire wizard to pass the statue guardian.
+
+[quest]
+requires_status=lb_wind_locked
+requires_not=lb_wind_password
+quest_text=Search for the name of the wind wizard to pass the statue guardian.
+
+[quest]
+requires_status=lb_ice_password
+requires_not=lb_ice_unlocked
+quest_text=Pass the ice statue guardian by using the name "Scathelocke".
+
+[quest]
+requires_status=lb_fire_password
+requires_not=lb_fire_unlocked
+quest_text=Pass the fire statue guardian by using the name "Vesuvvio".
+
+[quest]
+requires_status=lb_wind_password
+requires_not=lb_wind_unlocked
+quest_text=Pass the wind statue guardian by using the name "Grisbon".
+
+[quest]
+requires_status=lb_ice_unlocked
+requires_status=lb_fire_unlocked
+requires_status=lb_wind_unlocked
+requires_not=lb_necromancers_defeated
+quest_text=Kill the three necromancer brothers - Scathelocke, Grisbon and Vesuvvio.
+
+[quest]
+requires_status=lb_ice_key
+quest_text=Use Scathelocke's Key to open his runed chest.
+
+[quest]
+requires_status=lb_fire_key
+quest_text=Use Vesuvvio's Key to open his runed chest.
+
+[quest]
+requires_status=lb_wind_key
+quest_text=Use Grisbon's Key to open his runed chest.
 
