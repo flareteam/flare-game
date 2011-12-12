@@ -1,0 +1,83 @@
+# Dungeon Master's test items
+[item]
+id=1021
+type=main
+name=Lightning Rod
+quality=epic
+type=main
+icon=101,5
+req=m,1
+dmg=8,16
+bonus=crit,50
+sfx=wood
+gfx=rod
+loot=rod
+price=1337
+power=115
+power_desc=Use: Shock
+
+[item]
+id=1022
+name=Boots of Testing Really Large Maps
+quality=epic
+icon=113,17
+type=artifact
+sfx=leather
+loot=boots
+bonus=speed,12
+power=114
+power_desc=Use: Teleport
+
+[item]
+id=1023
+name=Adamantium Ring of Mutant Healing
+quality=epic
+icon=114,18
+type=artifact
+sfx=gem
+loot=ring
+bonus=HP regen,1000
+
+# Quest Items
+
+[item]
+id=9100
+name=Scathelocke's Spellbook
+quality=epic
+icon=116,20
+type=artifact
+sfx=object
+loot=book
+bonus=mental,1
+pickup_status=lb_spellbook_found
+
+[item]
+id=9101
+name=Scathelocke's Key
+icon=40
+power_desc=Opens Scathelocke's Runed Chest
+type=quest
+sfx=gem
+loot=gem
+pickup_status=lb_ice_key
+
+[item]
+id=9102
+name=Vesuvvio's Key
+icon=40
+power_desc=Opens Vesuvvio's Runed Chest
+type=quest
+sfx=gem
+loot=gem
+pickup_status=lb_fire_key
+
+[item]
+id=9103
+name=Grisbon's Key
+icon=40
+power_desc=Opens Grisbon's Runed Chest
+type=quest
+sfx=gem
+loot=gem
+pickup_status=lb_wind_key
+
