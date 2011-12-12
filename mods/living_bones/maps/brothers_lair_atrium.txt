@@ -204,18 +204,26 @@ location=3,13,3,2
 unset_status=lb_ice_looted
 
 [event]
-# Unset "lb_ice_looted"
+# Unset "lb_fire_looted"
 type=run_once
 location=13,2,2,3
 unset_status=lb_fire_looted
 
 [event]
-# Unset "lb_ice_looted"
+# Unset "lb_wind_looted" & other vars
 type=run_once
 location=24,13,3,2
 unset_status=lb_wind_looted
 unset_status=lb_wind_rotatedleft
 unset_status=lb_wind_rotatedright
+
+[event]
+# Unset "lb_*_attack"
+type=run_once
+location=13,17,4,4
+unset_status=lb_ice_attack
+unset_status=lb_fire_attack
+unset_status=lb_wind_attack
 
 [enemygroup]
 # Random Enemy (40%)
