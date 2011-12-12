@@ -57,7 +57,7 @@ void CampaignManager::setAll(std::string s) {
 	string token;
 	while (str != "" && status_count < MAX_STATUS) {
 		token = eatFirstString(str, ',');
-		if (token != "") status[status_count++] = token;
+		if (token != "") this->setStatus(token);
 	}
 	quest_update = true;
 }
