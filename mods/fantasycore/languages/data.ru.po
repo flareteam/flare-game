@@ -1,5 +1,5 @@
-# This is Russian translation of flare data strings
-# Это перевод на русский язык строк данных flare
+# Russian translation of flare data strings
+# Переводы на русский язык строк данных flare
 # Copyright (C) 2011 Clint Bellanger
 # This file is distributed under the same license as the FLARE package.
 #
@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flare 0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-25 11:46+\n"
-"PO-Revision-Date: 2011-11-25 11:52+0600\n"
+"POT-Creation-Date: 2011-12-13 10:22+\n"
+"PO-Revision-Date: 2011-12-14 03:12+0600\n"
 "Last-Translator: Sergey Basalaev <sbasalaev@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "Language: ru\n"
@@ -62,14 +62,14 @@ msgstr "Переместиться в ближайшее расположени�
 msgid "Scroll of Time Stop"
 msgstr "Свиток остановки времени"
 
-msgid "Stun nearby enemies for 5 seconds "
-msgstr "Парализовать близких врагов на 5 секунд"
+msgid "Stun nearby enemies for 10 seconds "
+msgstr "Парализовать близких врагов на 10 секунд "
 
 msgid "Scroll of Haste"
 msgstr "Свиток ускорения"
 
-msgid "Double run and attack speed for 8 seconds "
-msgstr "Удвоить скорость бега и атаки на 8 секунд"
+msgid "Double run and attack speed for 20 seconds "
+msgstr "Удвоить скорость бега и атаки на 20 секунд "
 
 msgid "Clothes"
 msgstr "Одеяние"
@@ -1991,6 +1991,30 @@ msgstr "Удар вампира"
 msgid "Turn 50% of damage you deal into HP"
 msgstr "Преобразовать 50% нанесённого вреда в здоровье"
 
+msgid "Leech Strike"
+msgstr "Высасывающий удар"
+
+msgid "Turn 25% of damage you deal into HP"
+msgstr "Преобразовать 25% нанесённого вреда в здоровье"
+
+msgid "Chill Touch"
+msgstr "Хладное касание"
+
+msgid "Melee strike immobilizes target for 5 seconds"
+msgstr "Ближний удар парализует цель на 5 секунд"
+
+msgid "Piercing Strike"
+msgstr "Пронзающий удар"
+
+msgid "Melee strike ignores armor"
+msgstr "Ближний удар игнорирует броню"
+
+msgid "Explode"
+msgstr "Взрыв"
+
+msgid "Damage everything nearby"
+msgstr "Нанести вред всему, что находится поблизости"
+
 msgid "Boots of Testing Really Large Maps"
 msgstr "Ботинки для тестирования очень больших карт"
 
@@ -2030,47 +2054,59 @@ msgstr "Красная искра"
 msgid "Necrotic Bolt"
 msgstr "Омертвевший разряд"
 
+msgid "Stun nearby enemies for 10 seconds"
+msgstr "Парализовать близких врагов на 10 секунд"
+
+msgid "Double run and attack speed for 20 seconds"
+msgstr "Удвоить скорость бега и атаки на 20 секунд"
+
 msgid "Enemy Beacon"
 msgstr "Маяк врага"
 
 msgid "Bring other enemies into the fight with a dummy attack"
 msgstr "Привести других врагов в битву с пустой атакой"
 
-msgid "Apprentice Necromancer"
-msgstr "Ученик некроманта"
-
-msgid "Antlion Spitter"
-msgstr "Плюющийся муравьиный лев"
-
-msgid "Skeleton"
-msgstr "Скелет"
-
-msgid "Goblin"
-msgstr "Гоблин"
-
-msgid "Goblin Charger"
-msgstr "Нападающий гоблинов"
-
-msgid "Antlion Freezer"
-msgstr "Морозный муравьиный лев "
-
 msgid "Skeletal Archer"
 msgstr "Скелет лучник"
 
-msgid "Rotting Zombie"
-msgstr "Гниющий зомби"
-
-msgid "Goblin Shaman"
-msgstr "Гоблин шаман"
+msgid "Skeletal Knight"
+msgstr "Скелет рыцарь"
 
 msgid "Skeletal Warrior"
 msgstr "Скелет воин"
 
-msgid "Antlion Hatchling"
-msgstr "Детёныш муравьиного льва"
+msgid "Antlion Slasher"
+msgstr "Драчливый муравьиный лев"
+
+msgid "Goblin Shaman"
+msgstr "Гоблин шаман"
 
 msgid "Skeletal Mage"
 msgstr "Скелет маг"
+
+msgid "Rotting Zombie"
+msgstr "Гниющий зомби"
+
+msgid "Antlion Freezer"
+msgstr "Морозный муравьиный лев "
+
+msgid "Goblin Charger"
+msgstr "Нападающий гоблинов"
+
+msgid "Skeletal Sniper"
+msgstr "Скелет снайпер"
+
+msgid "Skeletal Occultist"
+msgstr "Скелет оккультист"
+
+msgid "Iceclaw Zombie"
+msgstr "Хладный труп"
+
+msgid "Antlion Hatchling"
+msgstr "Детёныш муравьиного льва"
+
+msgid "Goblin Spearman"
+msgstr "Копейщик гоблинов"
 
 msgid "Antlion Blinker"
 msgstr "Муравьиный лев сигнальщик"
@@ -2078,23 +2114,41 @@ msgstr "Муравьиный лев сигнальщик"
 msgid "Zombie"
 msgstr "Зомби"
 
-msgid "Antlion Slasher"
-msgstr "Драчливый муравьиный лев"
-
 msgid "Antlion"
 msgstr "Муравьиный лев"
 
-msgid "Goblin Spearman"
-msgstr "Копейщик гоблинов"
-
-msgid "Minotaur"
-msgstr "Минотавр"
+msgid "Zombie Brute"
+msgstr "Брутальный зомби"
 
 msgid "Antlion Burster"
 msgstr "Взрывающийся муравьиный лев"
 
-msgid "Brittle Skeleton"
-msgstr "Хрупкий скелет"
+msgid "Goblin Charger Elite"
+msgstr "Элитный нападающий гоблинов"
+
+msgid "Goblin Spearman Elite"
+msgstr "Элитный копейщик гоблинов"
+
+msgid "Skeleton"
+msgstr "Скелет"
+
+msgid "Antlion Spitter"
+msgstr "Плюющийся муравьиный лев"
+
+msgid "Minotaur"
+msgstr "Минотавр"
+
+msgid "Bloodthirsty Zombie"
+msgstr "Кровожадный зомби"
+
+msgid "Goblin"
+msgstr "Гоблин"
+
+msgid "Apprentice Necromancer"
+msgstr "Ученик некроманта"
+
+#~ msgid "Brittle Skeleton"
+#~ msgstr "Хрупкий скелет"
 
 #~ msgid "Use: Shock"
 #~ msgstr "Использование: шок"
