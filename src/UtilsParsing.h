@@ -33,6 +33,7 @@ void parse_key_pair(string s, string &key, string &val);
 int eatFirstInt(string &s, char separator);
 unsigned short eatFirstHex(string &s, char separator);
 string eatFirstString(string &s, char separator);
+string getNextToken(string s, size_t &cursor, char separator);
 string stripCarriageReturn(string line);
 string getLine(ifstream &infile);
 

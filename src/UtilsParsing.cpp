@@ -171,6 +171,18 @@ string eatFirstString(string &s, char separator) {
 	return outs;
 }
 
+// similar to eatFirstString but does not alter the input string
+string getNextToken(string s, size_t &cursor, char separator) {
+	size_t seppos = s.find_first_of(separator, cursor);
+	if (seppos == string::npos) { // not found
+		cursor = string::npos;
+		return "";
+	}
+	string outs = s.substr(cursor, seppos-cursor);
+	cursor = seppos+1;
+	return outs;
+}
+
 // strip carriage return if exists
 string stripCarriageReturn(string line) {
 	if (line.length() > 0) {

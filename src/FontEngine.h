@@ -56,7 +56,7 @@ private:
 	SDL_Rect src;
 	SDL_Rect dest;
 	SDL_Surface *ttf;
-	TTF_Font *font;
+	TTF_Font *ttfont;
 
 public:
 	FontEngine();
