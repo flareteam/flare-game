@@ -73,7 +73,10 @@ FontEngine::FontEngine() {
 	colors[FONT_BLACK] = black;
 }
 
-int FontEngine::calc_length(string text) {
+/**
+ * For single-line text, just calculate the width
+ */
+int FontEngine::calc_width(string text) {
 	int w, h;
 	TTF_SizeUTF8(ttfont, text.c_str(), &w, &h);
 	return w;
@@ -119,12 +122,12 @@ Point FontEngine::calc_size(string text_with_newlines, int width) {
 	while(cursor != string::npos) {
 		builder << next_word;
 		
-		if (calc_length(builder.str()) > width) {
+		if (calc_width(builder.str()) > width) {
 		
 			// this word can't fit on this line, so word wrap
 			height = height + getLineHeight();
-			if (calc_length(builder_prev.str()) > max_width) {
-				max_width = calc_length(builder_prev.str());
+			if (calc_width(builder_prev.str()) > max_width) {
+				max_width = calc_width(builder_prev.str());
 			}
 			
 			builder_prev.str("");
@@ -142,7 +145,7 @@ Point FontEngine::calc_size(string text_with_newlines, int width) {
 	
 	height = height + getLineHeight();
 	builder.str(trim(builder.str(), ' ')); //removes whitespace that shouldn't be included in the size
-	if (calc_length(builder.str()) > max_width) max_width = calc_length(builder.str());
+	if (calc_width(builder.str()) > max_width) max_width = calc_width(builder.str());
 		
 	Point size;
 	size.x = max_width;
@@ -169,11 +172,11 @@ void FontEngine::render(string text, int x, int y, int justify, SDL_Surface *tar
 		dest_y = y;
 	}
 	else if (justify == JUSTIFY_RIGHT) {
-		dest_x = x - calc_length(text);
+		dest_x = x - calc_width(text);
 		dest_y = y;
 	}
 	else if (justify == JUSTIFY_CENTER) {
-		dest_x = x - calc_length(text)/2;
+		dest_x = x - calc_width(text)/2;
 		dest_y = y;
 	}
 	else {
@@ -187,8 +190,8 @@ void FontEngine::render(string text, int x, int y, int justify, SDL_Surface *tar
 	SDL_Rect dest_rect;
 	dest_rect.x = dest_x;
 	dest_rect.y = dest_y;
-
-	ttf = TTF_RenderUTF8_Blended(ttfont, text.c_str(), colors[color]);
+	
+	ttf = TTF_RenderUTF8_Solid(ttfont, text.c_str(), colors[color]);
 
 	if (ttf != NULL) SDL_BlitSurface(ttf, NULL, target, &dest_rect);
 	SDL_FreeSurface(ttf);
@@ -218,7 +221,7 @@ void FontEngine::render(string text, int x, int y, int justify, SDL_Surface *tar
 	
 		builder << next_word;
 		
-		if (calc_length(builder.str()) > width) {
+		if (calc_width(builder.str()) > width) {
 			render(builder_prev.str(), x, cursor_y, justify, target, color);
 			cursor_y += getLineHeight();
 			builder_prev.str("");

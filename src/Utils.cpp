@@ -214,3 +214,43 @@ void drawPixel(SDL_Surface *screen, int x, int y, Uint32 color) {
 	pixmem32 = (Uint32*) screen->pixels + (y * ((screen->pitch)/4)) + x;
 	*pixmem32 = color;
 }
+
+/**
+ * create blank surface
+ * based on example: http://www.libsdl.org/docs/html/sdlcreatergbsurface.html
+ */
+SDL_Surface* createSurface(int width, int height) {
+
+    SDL_Surface *surface;
+    Uint32 rmask, gmask, bmask, amask;
+
+#if SDL_BYTEORDER == SDL_BIG_ENDIAN
+    rmask = 0xff000000;
+    gmask = 0x00ff0000;
+    bmask = 0x0000ff00;
+    amask = 0x000000ff;
+#else
+    rmask = 0x000000ff;
+    gmask = 0x0000ff00;
+    bmask = 0x00ff0000;
+    amask = 0xff000000;
+#endif
+
+	if (HWSURFACE) 
+		surface = SDL_CreateRGBSurface(SDL_HWSURFACE|SDL_SRCALPHA, width, height, 32, rmask, gmask, bmask, amask);
+	else
+		surface = SDL_CreateRGBSurface(SDL_SWSURFACE|SDL_SRCALPHA, width, height, 32, rmask, gmask, bmask, amask);	
+	
+    if(surface == NULL) {
+        fprintf(stderr, "CreateRGBSurface failed: %s\n", SDL_GetError());
+    }
+	
+	// optimize
+	SDL_Surface *cleanup = surface;
+	surface = SDL_DisplayFormatAlpha(surface);
+	SDL_FreeSurface(cleanup);
+
+	return surface;
+}
+
+

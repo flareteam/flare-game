@@ -65,7 +65,7 @@ public:
 	int getLineHeight() { return line_height; }
 	int getFontHeight() { return font_height; }
 	
-	int calc_length(string text);
+	int calc_width(string text);
 	Point calc_size(string text_with_newlines, int width);
 
 	void render(string text, int x, int y, int justify, SDL_Surface *target, int color);

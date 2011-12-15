@@ -393,12 +393,12 @@ void GameStateLoad::render() {
 		label.y = button_action->pos.y - button_action->pos.h + 10;
 
 		if ( loaded ) {
-			label_loading->text = msg->get("Entering game world...");
+			label_loading->set(msg->get("Entering game world..."));
 		} else {
-			label_loading->text = msg->get("Loading saved game...");
+			label_loading->set(msg->get("Loading saved game..."));
 		}
 
-		label_loading->set(label.x, label.y, JUSTIFY_CENTER, VALIGN_TOP, label_loading->text, FONT_WHITE);
+		label_loading->set(label.x, label.y, JUSTIFY_CENTER, VALIGN_TOP, label_loading->get(), FONT_WHITE);
 		label_loading->render();
 	}
 	
