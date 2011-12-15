@@ -53,7 +53,7 @@ static void init() {
 		exit(1);
 	}
 	
-	if (Mix_OpenAudio(22050, AUDIO_S16, 2, 1024)) {
+	if (Mix_OpenAudio(22050, AUDIO_S16SYS, 2, 1024)) {
 		fprintf (stderr, "Error during Mix_OpenAudio: %s\n", SDL_GetError());
 		SDL_Quit();
 		exit(1);

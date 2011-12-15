@@ -26,36 +26,125 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 WidgetLabel::WidgetLabel() {
 	
+	text_buffer = NULL;
 	text = "";
 	color = FONT_WHITE;
-	x = y = 0;
 	justify = JUSTIFY_LEFT;
-}
-
-void WidgetLabel::render() {
-	font->renderShadowed(text, x, y, justify, screen, color);
+	valign = VALIGN_TOP;
+	
+	bounds.x = bounds.y = 0;
+	bounds.w = bounds.h = 0;
+	
 }
 
 /**
- * A shortcut function to set all attributes simultaneously.
- * All of these options can be set seperately if needed.
+ * Draw the buffered string surface to the screen
  */
-void WidgetLabel::set(int _x, int _y, int _justify, int _valign, string _text, int _color) {
-	justify = _justify;
-	x = _x;
-	text = _text;
-	color = _color;
-	
-	if (_valign == VALIGN_TOP) {
-		y = _y;
-	}
-	else if (_valign == VALIGN_BOTTOM) {
-		y = _y - font->getFontHeight();
-	}
-	else if (_valign == VALIGN_CENTER) {
-		y = _y - font->getFontHeight()/2;
+void WidgetLabel::render() {
+
+	SDL_Rect dest;
+	dest.x = bounds.x;
+	dest.y = bounds.y;
+	dest.w = bounds.w;
+	dest.h = bounds.h;
+
+	if (text_buffer != NULL) {
+		SDL_BlitSurface(text_buffer, NULL, screen, &dest);		
 	}
 }
 
+
+/**
+ * A shortcut function to set all attributes simultaneously.
+ */
+void WidgetLabel::set(int _x, int _y, int _justify, int _valign, string _text, int _color) {
+
+	bool changed = false;
+
+	if (justify != _justify) {
+		justify = _justify;
+		changed = true;
+	}
+	if (valign != _valign) {
+		valign = _valign;
+		changed = true;
+	}
+	if (text != _text) {
+		text = _text;
+		changed = true;
+	}
+	if (color != _color) {
+		color = _color;
+		changed = true;
+	}
+	if (x_origin != _x) {
+		x_origin = _x;
+		changed = true;
+	}
+	if (y_origin != _y) {
+		y_origin = _y;
+		changed = true;
+	}
+	
+	if (changed) {
+		applyOffsets();
+		refresh();
+	}
+}
+
+/**
+ * Apply horizontal justify and vertical alignment to label position
+ */
+void WidgetLabel::applyOffsets() {
+
+	bounds.w = font->calc_width(text);
+	bounds.h = font->getFontHeight();
+
+	// apply JUSTIFY
+	if (justify == JUSTIFY_LEFT)
+		bounds.x = x_origin;
+	else if (justify == JUSTIFY_RIGHT)
+		bounds.x = x_origin - bounds.w;
+	else if (justify == JUSTIFY_CENTER)
+		bounds.x = x_origin - bounds.w/2;
+
+	// apply VALIGN
+	if (valign == VALIGN_TOP) {
+		bounds.y = y_origin;
+	}
+	else if (valign == VALIGN_BOTTOM) {
+		bounds.y = y_origin - bounds.h;;
+	}
+	else if (valign == VALIGN_CENTER) {
+		bounds.y = y_origin - bounds.h/2;
+	}
+	
+}
+
+/**
+ * Update the label text only
+ */
+void WidgetLabel::set(string _text) {
+	if (text != _text) {
+		this->text = _text;
+		applyOffsets();
+		refresh();
+	}
+}
+
+/**
+ * We buffer the rendered text instead of calculating it each frame
+ * This function refreshes the buffer.
+ */
+void WidgetLabel::refresh() {
+
+	SDL_FreeSurface(text_buffer);
+	text_buffer = createSurface(bounds.w, bounds.h);
+	font->renderShadowed(text, 0, 0, JUSTIFY_LEFT, text_buffer, color);
+	
+}
+
+
 WidgetLabel::~WidgetLabel() {
+	SDL_FreeSurface(text_buffer);
 }

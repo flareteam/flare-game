@@ -225,9 +225,6 @@ bool Entity::setAnimation(const std::string& animationName) {
 	return false;
 }
 
-void Entity::logic() {
-}
-
 Entity::~Entity () {
 
 	// delete all loaded animations

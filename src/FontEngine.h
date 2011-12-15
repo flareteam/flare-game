@@ -56,7 +56,7 @@ private:
 	SDL_Rect src;
 	SDL_Rect dest;
 	SDL_Surface *ttf;
-	TTF_Font *font;
+	TTF_Font *ttfont;
 
 public:
 	FontEngine();
@@ -65,7 +65,7 @@ public:
 	int getLineHeight() { return line_height; }
 	int getFontHeight() { return font_height; }
 	
-	int calc_length(string text);
+	int calc_width(string text);
 	Point calc_size(string text_with_newlines, int width);
 
 	void render(string text, int x, int y, int justify, SDL_Surface *target, int color);

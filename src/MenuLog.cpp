@@ -63,7 +63,7 @@ MenuLog::MenuLog() {
 		if (i==0) tab_rect[i].x = tabs_area.x;
 		else tab_rect[i].x = tab_rect[i-1].x + tab_rect[i-1].w;
 		
-		tab_rect[i].w = font->calc_length(tab_labels[i]) + tab_padding.x + tab_padding.x;
+		tab_rect[i].w = font->calc_width(tab_labels[i]) + tab_padding.x + tab_padding.x;
 		
 	}
 	

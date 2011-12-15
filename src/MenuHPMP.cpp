@@ -109,12 +109,12 @@ void MenuHPMP::render(StatBlock *stats, Point mouse) {
 
 		stringstream ss;
 		ss << stats->hp << "/" << stats->maxhp;
-		hphover->text = ss.str();
+		hphover->set(ss.str());
 		hphover->render();
 
 		ss.str("");
 		ss << stats->mp << "/" << stats->maxmp;
-		mphover->text = ss.str();
+		mphover->set(ss.str());
 		mphover->render();
 	}
 }

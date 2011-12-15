@@ -76,7 +76,9 @@ bool MENUS_PAUSE = false;
  * PATH_USER is for user-specific data (e.g. save games)
  * PATH_DATA is for common game data (e.g. images, music)
  */
+ 
 #ifdef _WIN32
+// Windows paths
 void setPaths() {
 
 	// handle Windows-specific path options
@@ -91,8 +93,14 @@ void setPaths() {
 	PATH_CONF = PATH_CONF + "/";
 	PATH_USER = PATH_USER + "/";
 }
-#endif
-#ifndef _WIN32
+#elseif __amigaos4__
+// AmigaOS paths
+void setPaths() {
+	PATH_CONF = "PROGDIR:";
+	PATH_USER = "PROGDIR:";
+	PATH_DATA = "PROGDIR:";
+}
+#else
 void setPaths() {
 
 	string engine_folder = "flare";
