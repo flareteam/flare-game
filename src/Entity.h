@@ -44,9 +44,6 @@ public:
 	bool move();
 	int face(int, int);
 
-	// Logic common to all entities goes here
-	virtual void logic();
-
 	// Each child of Entity defines its own rendering method
 	virtual Renderable getRender() = 0;
 
