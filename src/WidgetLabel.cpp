@@ -58,15 +58,38 @@ void WidgetLabel::render() {
  * A shortcut function to set all attributes simultaneously.
  */
 void WidgetLabel::set(int _x, int _y, int _justify, int _valign, string _text, int _color) {
-	justify = _justify;
-	valign = _valign;
-	text = _text;
-	color = _color;
-	x_origin = _x;
-	y_origin = _y;
+
+	bool changed = false;
+
+	if (justify != _justify) {
+		justify = _justify;
+		changed = true;
+	}
+	if (valign != _valign) {
+		valign = _valign;
+		changed = true;
+	}
+	if (text != _text) {
+		text = _text;
+		changed = true;
+	}
+	if (color != _color) {
+		color = _color;
+		changed = true;
+	}
+	if (x_origin != _x) {
+		x_origin = _x;
+		changed = true;
+	}
+	if (y_origin != _y) {
+		y_origin = _y;
+		changed = true;
+	}
 	
-	applyOffsets();
-	refresh();
+	if (changed) {
+		applyOffsets();
+		refresh();
+	}
 }
 
 /**
@@ -98,10 +121,15 @@ void WidgetLabel::applyOffsets() {
 	
 }
 
+/**
+ * Update the label text only
+ */
 void WidgetLabel::set(string _text) {
-	this->text = _text;
-	applyOffsets();
-	refresh();
+	if (text != _text) {
+		this->text = _text;
+		applyOffsets();
+		refresh();
+	}
 }
 
 /**
