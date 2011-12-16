@@ -36,17 +36,27 @@ const int VALIGN_BOTTOM = 2;
 class WidgetLabel {
 private:
 
+	void refresh();
+	void applyOffsets();
+
+	string text;
+	int color;
+	int x_origin;
+	int y_origin;
+	SDL_Rect bounds;
+	int justify;
+	int valign;
+	SDL_Surface *text_buffer;
+
 public:
 	WidgetLabel();
 	~WidgetLabel();
 	void render();
 	void set(int _x, int _y, int _justify, int _valign, string _text, int _color);
 	
-	string text;
-	int color;
-	int x;
-	int y;
-	int justify;
+	void set(string _text);
+	string get() {return text;}
+	
 };
 
 #endif

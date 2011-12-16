@@ -75,7 +75,7 @@ bool isWithin(SDL_Rect r, Point target);
 void zsort(Renderable r[], int rnum);
 void sort_by_tile(Renderable r[], int rnum);
 void drawPixel(SDL_Surface *screen, int x, int y, Uint32 color);
-bool dirExists(string path);
+SDL_Surface* createSurface(int width, int height);
 
 /**
  * As implemented here:
