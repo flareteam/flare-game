@@ -37,6 +37,7 @@ MenuExit::MenuExit() : Menu() {
 	buttonExit->label = msg->get("Exit");
 	buttonExit->pos.x = VIEW_W_HALF - buttonExit->pos.w/2;
 	buttonExit->pos.y = VIEW_H/2;
+	buttonExit->refresh();
 
 	buttonClose = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
 	buttonClose->pos.x = window_area.x + window_area.w;

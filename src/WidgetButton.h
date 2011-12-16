@@ -29,6 +29,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "FontEngine.h"
 #include "InputState.h"
 #include <string>
+#include "WidgetLabel.h"
 
 const int BUTTON_GFX_NORMAL = 0;
 const int BUTTON_GFX_PRESSED = 1;
@@ -43,6 +44,8 @@ private:
 	SDL_Surface *buttons;
 	Mix_Chunk *click;
 	
+	WidgetLabel wlabel;
+	
 public:
 	WidgetButton(const std::string& _fileName);
 	~WidgetButton();
@@ -50,6 +53,7 @@ public:
 	void loadArt();
 	bool checkClick();
 	void render();
+	void refresh();
 
 	string label;
 	SDL_Rect pos;

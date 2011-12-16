@@ -43,7 +43,6 @@ private:
 	int color;
 	int x_origin;
 	int y_origin;
-	SDL_Rect bounds;
 	int justify;
 	int valign;
 	SDL_Surface *text_buffer;
@@ -56,7 +55,8 @@ public:
 	
 	void set(string _text);
 	string get() {return text;}
-	
+
+	SDL_Rect bounds;	
 };
 
 #endif

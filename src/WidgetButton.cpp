@@ -112,21 +112,27 @@ void WidgetButton::render() {
 		src.y = BUTTON_GFX_NORMAL * pos.h;
 	
 	SDL_BlitSurface(buttons, &src, screen, &pos);
-	
+
+	wlabel.render();
+}
+
+/**
+ * Create the text buffer
+ */
+void WidgetButton::refresh() {
 	if (label != "") {
 	
 		// render text
 		int font_color = FONT_WHITE;
 		if (!enabled) font_color = FONT_GRAY;
-	
-		// center font on button
-		int font_x = pos.x + (pos.w/2);
-		int font_y = (pos.y + (pos.h/2)) - (font->getFontHeight() / 2);
 
-		font->renderShadowed(label, font_x, font_y, JUSTIFY_CENTER, screen, font_color);
+		int font_x = pos.x + (pos.w/2);
+		int font_y = pos.y + (pos.h/2);
+
+		wlabel.set(font_x, font_y, JUSTIFY_CENTER, VALIGN_CENTER, label, font_color);
 	}
 }
-	
+
 WidgetButton::~WidgetButton() {
 	SDL_FreeSurface(buttons);
 }

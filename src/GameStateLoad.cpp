@@ -41,19 +41,23 @@ GameStateLoad::GameStateLoad() : GameState() {
 	button_exit = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
 	button_exit->label = msg->get("Exit to Title");
 	button_exit->pos.x = VIEW_W_HALF - button_exit->pos.w/2;
-	button_exit->pos.y = VIEW_H - button_exit->pos.h;	
+	button_exit->pos.y = VIEW_H - button_exit->pos.h;
+	button_exit->refresh();
 	
 	button_action = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
 	button_action->label = msg->get("Choose a Slot");
 	button_action->enabled = false;
 	button_action->pos.x = (VIEW_W - 640)/2 + 480 - button_action->pos.w/2;
 	button_action->pos.y = (VIEW_H - 480)/2 + 384;
-	
+	button_action->refresh();
+		
 	button_alternate = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
 	button_alternate->label = msg->get("Delete Save");
 	button_alternate->enabled = false;
 	button_alternate->pos.x = (VIEW_W - 640)/2 + 480 - button_alternate->pos.w/2;
 	button_alternate->pos.y = (VIEW_H - 480)/2 + 415;
+	button_alternate->refresh();
+	
 	load_game = false;
 	
 	for (int i=0; i<GAME_SLOT_MAX; i++) {
@@ -308,8 +312,13 @@ void GameStateLoad::logic() {
 			readGameSlot(selected_slot);
 			loadPreview(selected_slot);
 			loadPortrait(selected_slot);
+			
 			button_alternate->enabled = false;
+			button_alternate->refresh();
+			
 			button_action->label = msg->get("New Game");
+			button_action->refresh();
+			
 			confirm->visible = false;
 			confirm->confirmClicked = false;
 		}
@@ -331,6 +340,9 @@ void GameStateLoad::logic() {
 					button_action->label = msg->get("Load Game");
 					button_alternate->enabled = true;
 				}
+				button_action->refresh();
+				button_alternate->refresh();
+				
 			}
 		}
 	}
