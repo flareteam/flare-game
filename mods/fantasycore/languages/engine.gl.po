@@ -7,8 +7,10 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-12-13 10:23-0700\n"
-"PO-Revision-Date: 2011-12-16 08:30+0100\n"
+"PO-Revision-Date: 2011-12-16 19:31+0100\n"
 "Last-Translator: Adrian Chaves Fernandez (Gallaecio) <adriyetichaves@gmail."
+"com>\n"
+"com>\n"
 "com>\n"
 "com>\n"
 "com>\n"
@@ -102,15 +104,15 @@ msgstr "Cancelar"
 
 #: GameStateNew.cpp:44
 msgid "Create Character"
-msgstr "Crear a personaxe"
+msgstr "Crear"
 
 #: GameStateNew.cpp:61
 msgid "Choose a Portrait"
-msgstr "Escolle un retrato"
+msgstr "Retrato"
 
 #: GameStateNew.cpp:63
 msgid "Choose a Name"
-msgstr "Escribe un nome"
+msgstr "Nome"
 
 #: GameStatePlay.cpp:150
 msgid "Inventory is full."
@@ -135,7 +137,7 @@ msgstr "Nivel %d"
 
 #: ItemManager.cpp:347 MenuInventory.cpp:121
 msgid "Main Hand"
-msgstr "Man principal"
+msgstr "Man der."
 
 #: ItemManager.cpp:349 MenuInventory.cpp:123
 msgid "Body"
@@ -143,7 +145,7 @@ msgstr "Corpo"
 
 #: ItemManager.cpp:351 MenuInventory.cpp:125
 msgid "Off Hand"
-msgstr "Man secundaria"
+msgstr "Man esq."
 
 #: ItemManager.cpp:353 MenuInventory.cpp:127
 msgid "Artifact"
@@ -215,25 +217,25 @@ msgstr "Reduce %s en %d"
 #: MenuCharacter.cpp:318 MenuCharacter.cpp:324
 #, c-format
 msgid "Requires Physical %d"
-msgstr "Require %d de físico"
+msgstr "Require %d de físico."
 
 #: ItemManager.cpp:423 MenuCharacter.cpp:330 MenuCharacter.cpp:336
 #: MenuCharacter.cpp:342 MenuCharacter.cpp:348
 #, c-format
 msgid "Requires Mental %d"
-msgstr "Require %d de mente"
+msgstr "Require %d de mente."
 
 #: ItemManager.cpp:427 MenuCharacter.cpp:354 MenuCharacter.cpp:360
 #: MenuCharacter.cpp:366 MenuCharacter.cpp:372
 #, c-format
 msgid "Requires Offense %d"
-msgstr "Require %d de ataque"
+msgstr "Require %d de ataque."
 
 #: ItemManager.cpp:431 MenuCharacter.cpp:378 MenuCharacter.cpp:384
 #: MenuCharacter.cpp:390 MenuCharacter.cpp:396
 #, c-format
 msgid "Requires Defense %d"
-msgstr "Require %d de defensa"
+msgstr "Require %d de defensa."
 
 #: ItemManager.cpp:441
 #, c-format
@@ -266,23 +268,23 @@ msgstr "Flare"
 
 #: MapIso.cpp:755
 msgid "Unknown destination"
-msgstr "Destino descoñecido"
+msgstr "Destino descoñecido."
 
 #: MenuActionBar.cpp:279
 msgid "Character Menu (C)"
-msgstr "Menú da personaxe (C)"
+msgstr "Personaxe (C)"
 
 #: MenuActionBar.cpp:283
 msgid "Inventory Menu (I)"
-msgstr "Menú do inventario (I)"
+msgstr "Inventario (I)"
 
 #: MenuActionBar.cpp:287
 msgid "Power Menu (P)"
-msgstr "Menú dos poderes (P)"
+msgstr "Habilidades (P)"
 
 #: MenuActionBar.cpp:291
 msgid "Log Menu (L)"
-msgstr "Menú dos rexistros (L)"
+msgstr "Rexistro (L)"
 
 #: MenuCharacter.cpp:42
 msgid "Character"
@@ -294,7 +296,7 @@ msgstr "Nome"
 
 #: MenuCharacter.cpp:58
 msgid "Level"
-msgstr "nivel"
+msgstr "Nivel"
 
 #: MenuCharacter.cpp:59 MenuPowers.cpp:149 MenuPowers.cpp:151
 msgid "Physical"
@@ -318,7 +320,7 @@ msgstr "Vida"
 
 #: MenuCharacter.cpp:64 MenuCharacter.cpp:66
 msgid "Regen"
-msgstr "Rexeneración"
+msgstr "Rexenera."
 
 #: MenuCharacter.cpp:65
 msgid "Total MP"
@@ -326,19 +328,19 @@ msgstr "Enerxía"
 
 #: MenuCharacter.cpp:67
 msgid "Accuracy vs. Def 1"
-msgstr "Puntería contra os 1D"
+msgstr "Puntería vs 1 Def."
 
 #: MenuCharacter.cpp:68
 msgid "vs. Def 5"
-msgstr "contra os 5D"
+msgstr "vs 5 Def."
 
 #: MenuCharacter.cpp:69
 msgid "Avoidance vs. Off 1"
-msgstr "Esquivar contra os 1A"
+msgstr "Esquivar vs 1 Ata."
 
 #: MenuCharacter.cpp:70
 msgid "vs. Off 5"
-msgstr "contra os 5A"
+msgstr "vs 5 Ata."
 
 #: MenuCharacter.cpp:71
 msgid "Main Weapon"
@@ -358,11 +360,11 @@ msgstr "Absorber"
 
 #: MenuCharacter.cpp:75
 msgid "Fire Resist"
-msgstr "Resistencia ao lume"
+msgstr "Res. ao lume"
 
 #: MenuCharacter.cpp:76
 msgid "Ice Resist"
-msgstr "Resistencia ao xeo"
+msgstr "Res. ao xeo"
 
 #: MenuCharacter.cpp:246 MenuExperience.cpp:123
 #, c-format
@@ -372,7 +374,7 @@ msgstr "Experiencia: %d"
 #: MenuCharacter.cpp:248
 #, c-format
 msgid "Next: %d"
-msgstr "Seguinte: %d"
+msgstr "Seguinte nivel: %d"
 
 #: MenuCharacter.cpp:252
 msgid "Physical (P) increases melee weapon proficiency and total HP."
@@ -382,7 +384,7 @@ msgstr "O físico (F) aumenta a habilidade coas armas corpo a corpo e a vida."
 #: MenuCharacter.cpp:265
 #, c-format
 msgid "base (%d), bonus (%d)"
-msgstr "base (%d), bonificación (%d)"
+msgstr "Base: %d. Bonificación: %d."
 
 #: MenuCharacter.cpp:256
 msgid "Mental (M) increases mental weapon proficiency and total MP."
@@ -398,59 +400,59 @@ msgstr "A defensa (D) aumenta a habilidade coa armadura e esquivando."
 
 #: MenuCharacter.cpp:268
 msgid "Each point of Physical grants +8 HP"
-msgstr "Cada punto de físico aumenta en 8 a vida"
+msgstr "Cada punto de físico aumenta en 8 a vida."
 
 #: MenuCharacter.cpp:269
 msgid "Each level grants +2 HP"
-msgstr "Cada nivel aumenta en 2 a vida"
+msgstr "Cada nivel aumenta en 2 a vida."
 
 #: MenuCharacter.cpp:272
 msgid "Ticks of HP regen per minute"
-msgstr "Recuperación de vida por minuto"
+msgstr "Recuperación por minuto"
 
 #: MenuCharacter.cpp:273
 msgid "Each point of Physical grants +4 HP regen"
-msgstr "Cada punto de físico aumenta en 4 a recuperación"
+msgstr "Cada punto de físico aumenta en 4 a recuperación."
 
 #: MenuCharacter.cpp:274
 msgid "Each level grants +1 HP regen"
-msgstr "Cada nivel aumenta en 1 a recuperación"
+msgstr "Cada nivel aumenta en 1 a recuperación."
 
 #: MenuCharacter.cpp:277
 msgid "Each point of Mental grants +8 MP"
-msgstr "Cada punto de mente aumenta en 8 a enerxía"
+msgstr "Cada punto de mente aumenta en 8 a enerxía."
 
 #: MenuCharacter.cpp:278
 msgid "Each level grants +2 MP"
-msgstr "Cada nivel aumenta en 2 a enerxía"
+msgstr "Cada nivel aumenta en 2 a enerxía."
 
 #: MenuCharacter.cpp:281
 msgid "Ticks of MP regen per minute"
-msgstr "Rexeneración de enerxía por minuto"
+msgstr "Rexeneración por minuto"
 
 #: MenuCharacter.cpp:282
 msgid "Each point of Mental grants +4 MP regen"
-msgstr "Cada punto de mente aumenta en 4 a rexeneración"
+msgstr "Cada punto de mente aumenta en 4 a rexeneración."
 
 #: MenuCharacter.cpp:283
 msgid "Each level grants +1 MP regen"
-msgstr "Cada nivel aumenta en 1 a rexeneración"
+msgstr "Cada nivel aumenta en 1 a rexeneración."
 
 #: MenuCharacter.cpp:286 MenuCharacter.cpp:290
 msgid "Each point of Offense grants +5 accuracy"
-msgstr "Cada punto de ataque aumenta en 5 a puntería"
+msgstr "Cada punto de ataque aumenta en 5 a puntería."
 
 #: MenuCharacter.cpp:287 MenuCharacter.cpp:291
 msgid "Each level grants +1 accuracy"
-msgstr "Cada nivel aumenta en 1 a puntería"
+msgstr "Cada nivel aumenta en 1 a puntería."
 
 #: MenuCharacter.cpp:294 MenuCharacter.cpp:298
 msgid "Each point of Defense grants +5 avoidance"
-msgstr "Cada punto de defensa aumenta en 5 a capacidade para esquivar"
+msgstr "Cada punto de defensa aumenta en 5 a capacidade para esquivar."
 
 #: MenuCharacter.cpp:295 MenuCharacter.cpp:299
 msgid "Each level grants +1 avoidance"
-msgstr "Cada nivel aumenta en 1 a capacidade para esquivar"
+msgstr "Cada nivel aumenta en 1 a capacidade para esquivar."
 
 #: MenuCharacter.cpp:303
 msgid "Dagger Proficiency"
@@ -527,11 +529,11 @@ msgstr "%s nivel %d"
 
 #: MenuExit.cpp:37
 msgid "Exit"
-msgstr "Saír"
+msgstr "Volver ao menú"
 
 #: MenuExit.cpp:83
 msgid "Save and exit to title?"
-msgstr "Gardar e volver ao menú principal?"
+msgstr "Gardar e saír ao menú?"
 
 #: MenuExperience.cpp:120
 #, c-format
@@ -572,7 +574,7 @@ msgstr "Rexistro"
 
 #: MenuPowers.cpp:147
 msgid "Powers"
-msgstr "Poderes"
+msgstr "Habilidades"
 
 #: MenuPowers.cpp:244
 msgid "Physical + Offense grants melee and ranged attacks"
@@ -595,35 +597,35 @@ msgstr "A combinación de mente e defensa permite sandar e a protección máxica
 
 #: MenuPowers.cpp:267
 msgid "Requires a physical weapon"
-msgstr "Require unha arma física"
+msgstr "Require unha arma física."
 
 #: MenuPowers.cpp:269
 msgid "Requires a mental weapon"
-msgstr "Require unha arma mental"
+msgstr "Require unha arma mental."
 
 #: MenuPowers.cpp:271
 msgid "Requires an offense weapon"
-msgstr "Require unha arma ofensiva"
+msgstr "Require unha arma ofensiva."
 
 #: MenuPowers.cpp:282
 #, c-format
 msgid "Requires Physical Offense %d"
-msgstr "Require %s de ataque físico"
+msgstr "Require %s de ataque físico."
 
 #: MenuPowers.cpp:283
 #, c-format
 msgid "Requires Physical Defense %d"
-msgstr "Require %d de defensa física"
+msgstr "Require %d de defensa física."
 
 #: MenuPowers.cpp:284
 #, c-format
 msgid "Requires Mental Offense %d"
-msgstr "Require %d de ataque mental"
+msgstr "Require %d de ataque mental."
 
 #: MenuPowers.cpp:285
 #, c-format
 msgid "Requires Mental Defense %d"
-msgstr "Require %d de defensa mental"
+msgstr "Require %d de defensa mental."
 
 #: MenuPowers.cpp:291
 #, c-format
