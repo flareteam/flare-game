@@ -32,7 +32,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <string>
 
 
-const int MAX_HUD_MESSAGES = 32;
+const int MAX_HUD_MESSAGES = 16;
 
 class MenuHUDLog{
 private:
@@ -41,8 +41,11 @@ private:
 
 	string log_msg[MAX_HUD_MESSAGES];
 	int msg_age[MAX_HUD_MESSAGES];
+	SDL_Surface *msg_buffer[MAX_HUD_MESSAGES];
+
 	int log_count;
 	int paragraph_spacing;
+	
 	
 public:
 
@@ -51,6 +54,7 @@ public:
 	void logic();
 	void render();
 	void add(const std::string& s);
+	void remove(int msg_index);
 	void clear();
 	
 	Point list_area;
