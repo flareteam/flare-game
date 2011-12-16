@@ -29,6 +29,9 @@ MenuLog::MenuLog() {
 	
 	for (int i=0; i<LOG_TYPE_COUNT; i++) {
 		log_count[i] = 0;
+		for (int j=0; j<MAX_LOG_MESSAGES; j++) {
+			msg_buffer[i][j] = NULL;
+		}
 	}
 	active_log = 0;
 
@@ -54,7 +57,7 @@ MenuLog::MenuLog() {
 
 	tab_padding.y = 4;
 	tab_padding.x = 6;
-	paragraph_spacing = 6;
+	paragraph_spacing = font->getLineHeight()/2;
 	
 	for (int i=0; i<LOG_TYPE_COUNT; i++) {
 		tab_rect[i].y = tabs_area.y;
@@ -143,25 +146,25 @@ void MenuLog::render() {
 	
 	// display latest log messages
 	
-	Point size;
 	int display_number = 0;
 	int total_size = 0;
 
 	// first calculate how many entire messages can fit in the log view
 	for (int i=log_count[active_log]-1; i>=0; i--) {
-		size = font->calc_size(log_msg[active_log][i], list_area.w);
-		total_size += size.y + paragraph_spacing;
+		total_size += msg_buffer[active_log][i]->h + paragraph_spacing;
 		if (total_size < list_area.h) display_number++;
 		else break;
 	}
 	
 	// now display these messages
-	int cursor_y = list_area.y;
+	SDL_Rect dest;
+	dest.x = list_area.x;
+	dest.y = list_area.y;
+	
 	for (int i=log_count[active_log]-display_number; i<log_count[active_log]; i++) {
-		
-		size = font->calc_size(log_msg[active_log][i], list_area.w);	
-		font->renderShadowed(log_msg[active_log][i], list_area.x, cursor_y, JUSTIFY_LEFT, screen, list_area.w, FONT_WHITE);
-		cursor_y += size.y + paragraph_spacing;
+
+		SDL_BlitSurface(msg_buffer[active_log][i], NULL, screen, &dest);
+		dest.y += msg_buffer[active_log][i]->h + paragraph_spacing;
 	}
 }
 
@@ -214,19 +217,34 @@ void MenuLog::renderTab(int log_type) {
 void MenuLog::add(string s, int log_type) {
 
 	if (log_count[log_type] == MAX_LOG_MESSAGES) {
-
-		// remove oldest message
-		for (int i=0; i<MAX_LOG_MESSAGES-1; i++) {
-			log_msg[log_type][i] = log_msg[log_type][i+1];
-		}
-
-		log_count[log_type]--;
+		remove(0, log_type);
 	}
 	
 	// add new message
 	log_msg[log_type][log_count[log_type]] = s;
+	
+	// render the log entry and store it in a buffer
+	Point size = font->calc_size(s, list_area.w);
+	msg_buffer[log_type][log_count[log_type]] = createSurface(size.x, size.y);
+	font->renderShadowed(s, 0, 0, JUSTIFY_LEFT, msg_buffer[log_type][log_count[log_type]], list_area.w, FONT_WHITE);
 
 	log_count[log_type]++;
+}
+
+/**
+ * Remove log message with the given id
+ */
+void MenuLog::remove(int msg_index, int log_type) {
+
+	SDL_FreeSurface(msg_buffer[log_type][msg_index]);
+	msg_buffer[log_type][msg_index] = NULL;
+		
+	for (int i=msg_index; i<MAX_LOG_MESSAGES-1; i++) {
+		log_msg[log_type][i] = log_msg[log_type][i+1];
+		msg_buffer[log_type][i] = msg_buffer[log_type][i+1];
+	}
+
+	log_count[log_type]--;
 }
 
 /**
@@ -244,6 +262,10 @@ void MenuLog::clickTab(Point mouse) {
 
 void MenuLog::clear(int log_type) {
 	log_count[log_type] = 0;
+	for (int i=0; i<MAX_LOG_MESSAGES; i++) {
+		SDL_FreeSurface(msg_buffer[log_type][i]);
+		msg_buffer[log_type][i] = NULL;
+	}
 }
 
 void MenuLog::clear() {
@@ -253,6 +275,16 @@ void MenuLog::clear() {
 }
 
 MenuLog::~MenuLog() {
+
+	for (int i=0; i<LOG_TYPE_COUNT; i++) {
+		log_count[i] = 0;
+		for (int j=0; j<MAX_LOG_MESSAGES; j++) {
+			SDL_FreeSurface(msg_buffer[i][j]);
+		}
+	}
+
 	SDL_FreeSurface(background);
+	SDL_FreeSurface(tab_active);
+	SDL_FreeSurface(tab_inactive);
 	delete closeButton;
 }

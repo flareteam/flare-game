@@ -113,6 +113,7 @@ void MenuHUDLog::add(const string& s) {
 void MenuHUDLog::remove(int msg_index) {
 
 	SDL_FreeSurface(msg_buffer[msg_index]);
+	msg_buffer[msg_index] = NULL;
 
 	for (int i=msg_index; i<MAX_HUD_MESSAGES-1; i++) {
 		log_msg[i] = log_msg[i+1];
@@ -125,6 +126,11 @@ void MenuHUDLog::remove(int msg_index) {
 
 void MenuHUDLog::clear() {
 	log_count = 0;
+	for (int i=0; i<MAX_HUD_MESSAGES; i++) {
+		SDL_FreeSurface(msg_buffer[i]);
+		msg_buffer[i] = NULL;
+	}
+
 }
 
 MenuHUDLog::~MenuHUDLog() {
