@@ -6,9 +6,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-26 07:27-0600\n"
-"PO-Revision-Date: 2011-10-29 14:00+0200\n"
+"POT-Creation-Date: 2011-12-13 10:23-0700\n"
+"PO-Revision-Date: 2011-12-13 23:21+0100\n"
 "Last-Translator: Adrian Chaves Fernandez (Gallaecio) <adriyetichaves@gmail."
+"com>\n"
 "com>\n"
 "Language-Team: Galician <kde-i18n-doc@kde.org>\n"
 "Language: \n"
@@ -18,93 +19,94 @@ msgstr ""
 "X-Generator: Lokalize 1.2\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: Avatar.cpp:218
+#: Avatar.cpp:250
 #, c-format
 msgid "Congratulations, you have reached level %d!"
 msgstr "Parabéns, chegaches ao nivel %d!"
 
-#: Avatar.cpp:220
+#: Avatar.cpp:252
 msgid "You may increase one attribute through the Character Menu."
 msgstr "Podes aumentar un atributo dende o menú da personaxe."
 
-#: Avatar.cpp:488
-msgid "You are defeated. You lose half your gold. Press Enter to continue."
-msgstr "Derrotáronte, e perdiches a metade do ouro. Preme «Intro» para continuar."
+#: Avatar.cpp:521
+msgid "You are defeated.  You lose half your gold.  Press Enter to continue."
+msgstr ""
+"Derrotáronte, e perdiches a metade do ouro. Preme Intro para continuar."
 
-#: CampaignManager.cpp:143
+#: CampaignManager.cpp:142
 #, c-format
 msgid "You receive %s."
-msgstr "Obtiveches %s moedas."
+msgstr "Obtiveches unha unidade de %s."
 
-#: CampaignManager.cpp:145
+#: CampaignManager.cpp:144
 #, c-format
 msgid "You receive %s x%d."
-msgstr "Obtiveches %d %s."
+msgstr "Obtiveches %d unidades de %s."
 
-#: CampaignManager.cpp:153
+#: CampaignManager.cpp:152
 #, c-format
 msgid "You receive %d gold."
 msgstr "Obtiveches %d moedas."
 
-#: CampaignManager.cpp:159
+#: CampaignManager.cpp:158
 #, c-format
 msgid "You receive %d XP."
-msgstr "A túa experiencia aumentou en %d."
+msgstr "A túa experiencia aumentou %d puntos."
 
-#: GameStateLoad.cpp:35 GameStateLoad.cpp:48
+#: GameStateLoad.cpp:40 GameStateLoad.cpp:53
 msgid "Delete Save"
 msgstr "Borrar a partida"
 
-#: GameStateLoad.cpp:35
+#: GameStateLoad.cpp:40
 msgid "Delete this save?"
 msgstr "Queres borrar a partida?"
 
-#: GameStateLoad.cpp:37
+#: GameStateLoad.cpp:42
 msgid "Exit to Title"
 msgstr "Volver ao menú principal"
 
-#: GameStateLoad.cpp:42
+#: GameStateLoad.cpp:47
 msgid "Choose a Slot"
 msgstr "Escolle un espazo"
 
-#: GameStateLoad.cpp:308 GameStateLoad.cpp:323
+#: GameStateLoad.cpp:312 GameStateLoad.cpp:327
 msgid "New Game"
 msgstr "Nova partida"
 
-#: GameStateLoad.cpp:327
+#: GameStateLoad.cpp:331
 msgid "Load Game"
 msgstr "Cargar a partida"
 
-#: GameStateLoad.cpp:391
+#: GameStateLoad.cpp:396
 msgid "Entering game world..."
 msgstr "Cargando o mundo…"
 
-#: GameStateLoad.cpp:393
+#: GameStateLoad.cpp:398
 msgid "Loading saved game..."
 msgstr "Cargando a partida..."
 
-#: GameStateLoad.cpp:410
+#: GameStateLoad.cpp:419
 #, c-format
 msgid "Level %d %s"
 msgstr "Nivel %d %s"
 
-#: GameStateLoad.cpp:431
+#: GameStateLoad.cpp:441
 msgid "Empty Slot"
 msgstr "Espazo sen usar"
 
-#: GameStateNew.cpp:36
+#: GameStateNew.cpp:39
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: GameStateNew.cpp:41
+#: GameStateNew.cpp:44
 msgid "Create Character"
 msgstr "Crear a personaxe"
 
-#: GameStateNew.cpp:184
+#: GameStateNew.cpp:61
 msgid "Choose a Portrait"
 msgstr "Escolle un retrato"
 
-#: GameStateNew.cpp:185
+#: GameStateNew.cpp:63
 msgid "Choose a Name"
 msgstr "Escribe un nome"
 
@@ -112,515 +114,580 @@ msgstr "Escribe un nome"
 msgid "Inventory is full."
 msgstr "O inventario está cheo."
 
-#: GameStateTitle.cpp:32
+#: GameStateTitle.cpp:33
 msgid "Play Game"
-msgstr "Xogar a partida"
+msgstr "Xogar"
 
-#: GameStateTitle.cpp:36
+#: GameStateTitle.cpp:37
 msgid "Exit Game"
-msgstr "Saír da partida"
+msgstr "Saír"
 
-#: GameStateTitle.cpp:42
-msgid "Flare Alpha v0.14.1"
-msgstr "Flare 0.14.1 (alfa)"
+#: GameStateTitle.cpp:43
+msgid "Flare Alpha v0.15"
+msgstr "Flare 0.15 (alfa)"
 
-#: ItemDatabase.cpp:311
+#: ItemManager.cpp:341
 #, c-format
 msgid "Level %d"
 msgstr "Nivel %d"
 
-#: ItemDatabase.cpp:317 MenuInventory.cpp:117
+#: ItemManager.cpp:347 MenuInventory.cpp:121
 msgid "Main Hand"
 msgstr "Man principal"
 
-#: ItemDatabase.cpp:319 MenuInventory.cpp:118
+#: ItemManager.cpp:349 MenuInventory.cpp:123
 msgid "Body"
 msgstr "Corpo"
 
-#: ItemDatabase.cpp:321 MenuInventory.cpp:119
+#: ItemManager.cpp:351 MenuInventory.cpp:125
 msgid "Off Hand"
 msgstr "Man secundaria"
 
-#: ItemDatabase.cpp:323 MenuInventory.cpp:120
+#: ItemManager.cpp:353 MenuInventory.cpp:127
 msgid "Artifact"
 msgstr "Artefacto"
 
-#: ItemDatabase.cpp:325
+#: ItemManager.cpp:355
 msgid "Consumable"
 msgstr "Consumíbel"
 
-#: ItemDatabase.cpp:327
+#: ItemManager.cpp:357
 msgid "Gem"
 msgstr "Xema"
 
-#: ItemDatabase.cpp:329
+#: ItemManager.cpp:359
 msgid "Quest Item"
 msgstr "Obxecto dunha misión"
 
-#: ItemDatabase.cpp:336
+#: ItemManager.cpp:366
 #, c-format
 msgid "Melee damage: %d-%d"
 msgstr "Dano corpo a corpo: %d-%d"
 
-#: ItemDatabase.cpp:338
+#: ItemManager.cpp:368
 #, c-format
 msgid "Melee damage: %d"
 msgstr "Dano corpo a corpo: %d"
 
-#: ItemDatabase.cpp:342
+#: ItemManager.cpp:372
 #, c-format
 msgid "Mental damage: %d-%d"
 msgstr "Dano mental: %d-%d"
 
-#: ItemDatabase.cpp:344
+#: ItemManager.cpp:374
 #, c-format
 msgid "Mental damage: %d"
 msgstr "Dano mental: %d"
 
-#: ItemDatabase.cpp:348
+#: ItemManager.cpp:378
 #, c-format
 msgid "Ranged damage: %d-%d"
 msgstr "Dano a distancia: %d-%d"
 
-#: ItemDatabase.cpp:350
+#: ItemManager.cpp:380
 #, c-format
 msgid "Ranged damage: %d"
 msgstr "Dano a distancia: %d"
 
-#: ItemDatabase.cpp:357
+#: ItemManager.cpp:387
 #, c-format
 msgid "Absorb: %d-%d"
 msgstr "Absorción: %d-%d"
 
-#: ItemDatabase.cpp:359
+#: ItemManager.cpp:389
 #, c-format
 msgid "Absorb: %d"
 msgstr "Absorción: %d"
 
-#: ItemDatabase.cpp:367
+#: ItemManager.cpp:397
 #, c-format
 msgid "Increases %s by %d"
 msgstr "Aumenta %s en %d"
 
-#: ItemDatabase.cpp:371
+#: ItemManager.cpp:401
 #, c-format
 msgid "Decreases %s by %d"
 msgstr "Reduce %s en %d"
 
-#: ItemDatabase.cpp:389 MenuCharacter.cpp:308 MenuCharacter.cpp:314
-#: MenuCharacter.cpp:320 MenuCharacter.cpp:326
+#: ItemManager.cpp:419 MenuCharacter.cpp:306 MenuCharacter.cpp:312
+#: MenuCharacter.cpp:318 MenuCharacter.cpp:324
 #, c-format
 msgid "Requires Physical %d"
 msgstr "Require %d de físico"
 
-#: ItemDatabase.cpp:393 MenuCharacter.cpp:332 MenuCharacter.cpp:338
-#: MenuCharacter.cpp:344 MenuCharacter.cpp:350
+#: ItemManager.cpp:423 MenuCharacter.cpp:330 MenuCharacter.cpp:336
+#: MenuCharacter.cpp:342 MenuCharacter.cpp:348
 #, c-format
 msgid "Requires Mental %d"
 msgstr "Require %d de mente"
 
-#: ItemDatabase.cpp:397 MenuCharacter.cpp:356 MenuCharacter.cpp:362
-#: MenuCharacter.cpp:368 MenuCharacter.cpp:374
+#: ItemManager.cpp:427 MenuCharacter.cpp:354 MenuCharacter.cpp:360
+#: MenuCharacter.cpp:366 MenuCharacter.cpp:372
 #, c-format
 msgid "Requires Offense %d"
 msgstr "Require %d de ataque"
 
-#: ItemDatabase.cpp:401 MenuCharacter.cpp:380 MenuCharacter.cpp:386
-#: MenuCharacter.cpp:392 MenuCharacter.cpp:398
+#: ItemManager.cpp:431 MenuCharacter.cpp:378 MenuCharacter.cpp:384
+#: MenuCharacter.cpp:390 MenuCharacter.cpp:396
 #, c-format
 msgid "Requires Defense %d"
 msgstr "Require %d de defensa"
 
-#: ItemDatabase.cpp:411
+#: ItemManager.cpp:441
 #, c-format
 msgid "Buy Price: %d gold"
 msgstr "Prezo de compra: %d moedas"
 
-#: ItemDatabase.cpp:413
+#: ItemManager.cpp:443
 #, c-format
 msgid "Buy Price: %d gold each"
 msgstr "Prezo de compra: %d moedas por unidade"
 
-#: ItemDatabase.cpp:419
+#: ItemManager.cpp:449
 #, c-format
 msgid "Sell Price: %d gold"
 msgstr "Prezo de venda: %d moedas"
 
-#: ItemDatabase.cpp:421
+#: ItemManager.cpp:451
 #, c-format
 msgid "Sell Price: %d gold each"
 msgstr "Prezo de venda: %d moedas por unidade"
 
-#: LootManager.cpp:237 MenuInventory.cpp:121
+#: LootManager.cpp:237 MenuInventory.cpp:129
 #, c-format
 msgid "%d Gold"
 msgstr "%d moedas"
 
-#: main.cpp:69
+#: main.cpp:90
 msgid "Flare"
 msgstr "Flare"
 
-#: MenuActionBar.cpp:227
+#: MapIso.cpp:755
+msgid "Unknown destination"
+msgstr "Destino descoñecido"
+
+#: MenuActionBar.cpp:279
 msgid "Character Menu (C)"
 msgstr "Menú da personaxe (C)"
 
-#: MenuActionBar.cpp:231
+#: MenuActionBar.cpp:283
 msgid "Inventory Menu (I)"
 msgstr "Menú do inventario (I)"
 
-#: MenuActionBar.cpp:235
+#: MenuActionBar.cpp:287
 msgid "Power Menu (P)"
 msgstr "Menú dos poderes (P)"
 
-#: MenuActionBar.cpp:239
+#: MenuActionBar.cpp:291
 msgid "Log Menu (L)"
 msgstr "Menú dos rexistros (L)"
 
-#: MenuCharacter.cpp:44
+#: MenuCharacter.cpp:42
 msgid "Character"
 msgstr "Personaxe"
 
-#: MenuCharacter.cpp:59
+#: MenuCharacter.cpp:57
 msgid "Name"
 msgstr "Nome"
 
-#: MenuCharacter.cpp:60
+#: MenuCharacter.cpp:58
 msgid "Level"
 msgstr "nivel"
 
-#: MenuCharacter.cpp:61 MenuPowers.cpp:145 MenuPowers.cpp:146
+#: MenuCharacter.cpp:59 MenuPowers.cpp:149 MenuPowers.cpp:151
 msgid "Physical"
 msgstr "Físico"
 
-#: MenuCharacter.cpp:62 MenuPowers.cpp:147 MenuPowers.cpp:148
+#: MenuCharacter.cpp:60 MenuPowers.cpp:153 MenuPowers.cpp:155
 msgid "Mental"
 msgstr "Mente"
 
-#: MenuCharacter.cpp:63 MenuPowers.cpp:149 MenuPowers.cpp:151
+#: MenuCharacter.cpp:61 MenuPowers.cpp:157 MenuPowers.cpp:161
 msgid "Offense"
 msgstr "Ataque"
 
-#: MenuCharacter.cpp:64 MenuPowers.cpp:150 MenuPowers.cpp:152
+#: MenuCharacter.cpp:62 MenuPowers.cpp:159 MenuPowers.cpp:163
 msgid "Defense"
 msgstr "Defensa"
 
-#: MenuCharacter.cpp:65
+#: MenuCharacter.cpp:63
 msgid "Total HP"
 msgstr "Vida"
 
-#: MenuCharacter.cpp:66 MenuCharacter.cpp:68
+#: MenuCharacter.cpp:64 MenuCharacter.cpp:66
 msgid "Regen"
 msgstr "Rexeneración"
 
-#: MenuCharacter.cpp:67
+#: MenuCharacter.cpp:65
 msgid "Total MP"
-msgstr "Maxia"
+msgstr "Enerxía"
 
-#: MenuCharacter.cpp:69
+#: MenuCharacter.cpp:67
 msgid "Accuracy vs. Def 1"
 msgstr "Puntería contra os 1D"
 
-#: MenuCharacter.cpp:70
+#: MenuCharacter.cpp:68
 msgid "vs. Def 5"
 msgstr "contra os 5D"
 
-#: MenuCharacter.cpp:71
+#: MenuCharacter.cpp:69
 msgid "Avoidance vs. Off 1"
 msgstr "Esquivar contra os 1A"
 
-#: MenuCharacter.cpp:72
+#: MenuCharacter.cpp:70
 msgid "vs. Off 5"
 msgstr "contra os 5A"
 
-#: MenuCharacter.cpp:73
+#: MenuCharacter.cpp:71
 msgid "Main Weapon"
 msgstr "Arma principal"
 
-#: MenuCharacter.cpp:74
+#: MenuCharacter.cpp:72
 msgid "Ranged Weapon"
 msgstr "Arma a distancia"
 
-#: MenuCharacter.cpp:75
+#: MenuCharacter.cpp:73
 msgid "Crit Chance"
 msgstr "Probabilidade de crítico"
 
-#: MenuCharacter.cpp:76
+#: MenuCharacter.cpp:74
 msgid "Absorb"
 msgstr "Absorber"
 
-#: MenuCharacter.cpp:77
+#: MenuCharacter.cpp:75
 msgid "Fire Resist"
 msgstr "Resistencia ao lume"
 
-#: MenuCharacter.cpp:78
+#: MenuCharacter.cpp:76
 msgid "Ice Resist"
 msgstr "Resistencia ao xeo"
 
-#: MenuCharacter.cpp:248
+#: MenuCharacter.cpp:246 MenuExperience.cpp:123
 #, c-format
 msgid "XP: %d"
 msgstr "Experiencia: %d"
 
-#: MenuCharacter.cpp:250
+#: MenuCharacter.cpp:248
 #, c-format
 msgid "Next: %d"
 msgstr "Seguinte: %d"
 
-#: MenuCharacter.cpp:254
+#: MenuCharacter.cpp:252
 msgid "Physical (P) increases melee weapon proficiency and total HP."
 msgstr "O físico (F) aumenta a habilidade coas armas corpo a corpo e a vida."
 
-#: MenuCharacter.cpp:255 MenuCharacter.cpp:259 MenuCharacter.cpp:263
-#: MenuCharacter.cpp:267
+#: MenuCharacter.cpp:253 MenuCharacter.cpp:257 MenuCharacter.cpp:261
+#: MenuCharacter.cpp:265
 #, c-format
 msgid "base (%d), bonus (%d)"
 msgstr "base (%d), bonificación (%d)"
 
-#: MenuCharacter.cpp:258
+#: MenuCharacter.cpp:256
 msgid "Mental (M) increases mental weapon proficiency and total MP."
 msgstr "A mente (M) aumenta a habilidade coas armas mentais e a enerxía."
 
-#: MenuCharacter.cpp:262
+#: MenuCharacter.cpp:260
 msgid "Offense (O) increases ranged weapon proficiency and accuracy."
 msgstr "O ataque (A) aumenta a habilidade coas armas a distancia e a puntería."
 
-#: MenuCharacter.cpp:266
+#: MenuCharacter.cpp:264
 msgid "Defense (D) increases armor proficiency and avoidance."
 msgstr "A defensa (D) aumenta a habilidade coa armadura e esquivando."
 
-#: MenuCharacter.cpp:270
+#: MenuCharacter.cpp:268
 msgid "Each point of Physical grants +8 HP"
 msgstr "Cada punto de físico aumenta en 8 a vida"
 
-#: MenuCharacter.cpp:271
+#: MenuCharacter.cpp:269
 msgid "Each level grants +2 HP"
 msgstr "Cada nivel aumenta en 2 a vida"
 
-#: MenuCharacter.cpp:274
+#: MenuCharacter.cpp:272
 msgid "Ticks of HP regen per minute"
 msgstr "Recuperación de vida por minuto"
 
-#: MenuCharacter.cpp:275
+#: MenuCharacter.cpp:273
 msgid "Each point of Physical grants +4 HP regen"
 msgstr "Cada punto de físico aumenta en 4 a recuperación"
 
-#: MenuCharacter.cpp:276
+#: MenuCharacter.cpp:274
 msgid "Each level grants +1 HP regen"
 msgstr "Cada nivel aumenta en 1 a recuperación"
 
-#: MenuCharacter.cpp:279
+#: MenuCharacter.cpp:277
 msgid "Each point of Mental grants +8 MP"
 msgstr "Cada punto de mente aumenta en 8 a enerxía"
 
-#: MenuCharacter.cpp:280
+#: MenuCharacter.cpp:278
 msgid "Each level grants +2 MP"
 msgstr "Cada nivel aumenta en 2 a enerxía"
 
-#: MenuCharacter.cpp:283
+#: MenuCharacter.cpp:281
 msgid "Ticks of MP regen per minute"
 msgstr "Rexeneración de enerxía por minuto"
 
-#: MenuCharacter.cpp:284
+#: MenuCharacter.cpp:282
 msgid "Each point of Mental grants +4 MP regen"
 msgstr "Cada punto de mente aumenta en 4 a rexeneración"
 
-#: MenuCharacter.cpp:285
+#: MenuCharacter.cpp:283
 msgid "Each level grants +1 MP regen"
 msgstr "Cada nivel aumenta en 1 a rexeneración"
 
-#: MenuCharacter.cpp:288 MenuCharacter.cpp:292
+#: MenuCharacter.cpp:286 MenuCharacter.cpp:290
 msgid "Each point of Offense grants +5 accuracy"
 msgstr "Cada punto de ataque aumenta en 5 a puntería"
 
-#: MenuCharacter.cpp:289 MenuCharacter.cpp:293
+#: MenuCharacter.cpp:287 MenuCharacter.cpp:291
 msgid "Each level grants +1 accuracy"
 msgstr "Cada nivel aumenta en 1 a puntería"
 
-#: MenuCharacter.cpp:296 MenuCharacter.cpp:300
+#: MenuCharacter.cpp:294 MenuCharacter.cpp:298
 msgid "Each point of Defense grants +5 avoidance"
 msgstr "Cada punto de defensa aumenta en 5 a capacidade para esquivar"
 
-#: MenuCharacter.cpp:297 MenuCharacter.cpp:301
+#: MenuCharacter.cpp:295 MenuCharacter.cpp:299
 msgid "Each level grants +1 avoidance"
 msgstr "Cada nivel aumenta en 1 a capacidade para esquivar"
 
-#: MenuCharacter.cpp:305
+#: MenuCharacter.cpp:303
 msgid "Dagger Proficiency"
 msgstr "Habilidade coa daga"
 
-#: MenuCharacter.cpp:311
+#: MenuCharacter.cpp:309
 msgid "Shortsword Proficiency"
 msgstr "Habilidade coa espada curta"
 
-#: MenuCharacter.cpp:317
+#: MenuCharacter.cpp:315
 msgid "Longsword Proficiency"
 msgstr "Habilidade coa espada longa"
 
-#: MenuCharacter.cpp:323
+#: MenuCharacter.cpp:321
 msgid "Greatsword Proficiency"
 msgstr "Habilidade coa gran espada"
 
-#: MenuCharacter.cpp:329
+#: MenuCharacter.cpp:327
 msgid "Wand Proficiency"
 msgstr "Habilidade co pau"
 
-#: MenuCharacter.cpp:335
+#: MenuCharacter.cpp:333
 msgid "Rod Proficiency"
 msgstr "Habilidade coa vara"
 
-#: MenuCharacter.cpp:341
+#: MenuCharacter.cpp:339
 msgid "Staff Proficiency"
 msgstr "Habilidade co bastón"
 
-#: MenuCharacter.cpp:347
+#: MenuCharacter.cpp:345
 msgid "Greatstaff Proficiency"
 msgstr "Habilidade co gran bastón"
 
-#: MenuCharacter.cpp:353
+#: MenuCharacter.cpp:351
 msgid "Slingshot Proficiency"
 msgstr "Habilidade co tiracroios"
 
-#: MenuCharacter.cpp:359
+#: MenuCharacter.cpp:357
 msgid "Shortbow Proficiency"
 msgstr "Habilidade co arco curto"
 
-#: MenuCharacter.cpp:365
+#: MenuCharacter.cpp:363
 msgid "Longbow Proficiency"
 msgstr "Habilidade co arco longo"
 
-#: MenuCharacter.cpp:371
+#: MenuCharacter.cpp:369
 msgid "Greatbow Proficiency"
 msgstr "Habilidade co gran arco"
 
-#: MenuCharacter.cpp:377
+#: MenuCharacter.cpp:375
 msgid "Light Armor Proficiency"
 msgstr "Habilidade coa armadura lixeira"
 
-#: MenuCharacter.cpp:383
+#: MenuCharacter.cpp:381
 msgid "Light Shield Proficiency"
 msgstr "Habilidade co escudo lixeiro"
 
-#: MenuCharacter.cpp:389
+#: MenuCharacter.cpp:387
 msgid "Heavy Armor Proficiency"
 msgstr "Habilidade coa armadura pesada"
 
-#: MenuCharacter.cpp:395
+#: MenuCharacter.cpp:393
 msgid "Heavy Shield Proficiency"
 msgstr "Habilidade co escudo pesado"
 
-#: MenuEnemy.cpp:98
+#: MenuEnemy.cpp:106
+msgid "Dead"
+msgstr "Morto"
+
+#: MenuEnemy.cpp:110
 #, c-format
 msgid "%s level %d"
 msgstr "%s nivel %d"
 
-#: MenuEnemy.cpp:104
-msgid "Dead"
-msgstr "Morto"
+#: MenuExit.cpp:37
+msgid "Exit"
+msgstr "Saír"
 
-#: MenuExit.cpp:80
+#: MenuExit.cpp:83
 msgid "Save and exit to title?"
 msgstr "Gardar e volver ao menú principal?"
 
-#: MenuInventory.cpp:116
+#: MenuExperience.cpp:120
+#, c-format
+msgid "XP: %d/%d"
+msgstr "Experiencia: %d/%d"
+
+#: MenuInventory.cpp:119
 msgid "Inventory"
 msgstr "Inventario"
 
-#: MenuInventory.cpp:152
+#: MenuInventory.cpp:161
 msgid "Use SHIFT to move only one item."
-msgstr "Prema «Maiús» para mover só un ítem."
+msgstr "Prema Maiús para mover só un ítem."
 
-#: MenuInventory.cpp:153
+#: MenuInventory.cpp:162
 msgid "CTRL-click a carried item to sell it."
-msgstr "Prema «Ctrl» e un ítem para vendelo."
+msgstr "Prema Ctrl e un ítem para vendelo."
 
-#: MenuInventory.cpp:316
+#: MenuInventory.cpp:325
 msgid "This item can only be used from the action bar."
 msgstr "Este ítem só pode empregarse dende a barra de acción."
 
-#: MenuLog.cpp:37
+#: MenuLog.cpp:35
 msgid "Messages"
 msgstr "Mensaxes"
 
-#: MenuLog.cpp:38
+#: MenuLog.cpp:36
 msgid "Quests"
 msgstr "Misións"
 
-#: MenuLog.cpp:39
-msgid "Achievements"
-msgstr "Logros"
-
-#: MenuLog.cpp:40
+#: MenuLog.cpp:37
 msgid "Statistics"
 msgstr "Estatísticas"
 
-#: MenuPowers.cpp:144
+#: MenuLog.cpp:136
+msgid "Log"
+msgstr "Rexistro"
+
+#: MenuPowers.cpp:147
 msgid "Powers"
 msgstr "Poderes"
 
-#: MenuPowers.cpp:223
+#: MenuPowers.cpp:244
 msgid "Physical + Offense grants melee and ranged attacks"
 msgstr ""
 "A combinación de físico e ataque permite os ataques corpo a corpo e a "
 "distancia"
 
-#: MenuPowers.cpp:227
+#: MenuPowers.cpp:248
 msgid "Physical + Defense grants melee protection"
 msgstr "A combinación de físico e defensa permite a protección corpo a corpo"
 
-#: MenuPowers.cpp:231
+#: MenuPowers.cpp:252
 msgid "Mental + Offense grants elemental spell attacks"
 msgstr ""
 "A combinación de mente e ataque permite encantamentos de ataque elementais"
 
-#: MenuPowers.cpp:235
+#: MenuPowers.cpp:256
 msgid "Mental + Defense grants healing and magical protection"
 msgstr "A combinación de mente e defensa permite sandar e a protección máxica"
 
-#: MenuPowers.cpp:246
+#: MenuPowers.cpp:267
 msgid "Requires a physical weapon"
 msgstr "Require unha arma física"
 
-#: MenuPowers.cpp:248
+#: MenuPowers.cpp:269
 msgid "Requires a mental weapon"
 msgstr "Require unha arma mental"
 
-#: MenuPowers.cpp:250
+#: MenuPowers.cpp:271
 msgid "Requires an offense weapon"
 msgstr "Require unha arma ofensiva"
 
-#: MenuPowers.cpp:261
+#: MenuPowers.cpp:282
 #, c-format
 msgid "Requires Physical Offense %d"
 msgstr "Require %s de ataque físico"
 
-#: MenuPowers.cpp:262
+#: MenuPowers.cpp:283
 #, c-format
 msgid "Requires Physical Defense %d"
 msgstr "Require %d de defensa física"
 
-#: MenuPowers.cpp:263
+#: MenuPowers.cpp:284
 #, c-format
 msgid "Requires Mental Offense %d"
 msgstr "Require %d de ataque mental"
 
-#: MenuPowers.cpp:264
+#: MenuPowers.cpp:285
 #, c-format
 msgid "Requires Mental Defense %d"
 msgstr "Require %d de defensa mental"
 
-#: MenuPowers.cpp:270
+#: MenuPowers.cpp:291
 #, c-format
 msgid "Costs %d MP"
 msgstr "Consume %d de enerxía"
 
-#: MenuPowers.cpp:274
+#: MenuPowers.cpp:295
 #, c-format
 msgid "Cooldown: %d seconds"
 msgstr "Recarga: %d segundos"
 
-#: MenuVendor.cpp:95
+#: MenuVendor.cpp:97
 msgid "Vendor"
 msgstr "Vendedor"
 
+#: StatBlock.cpp:297
+msgid "Grand Master"
+msgstr "Gran mestre"
 
+#: StatBlock.cpp:300
+msgid "Master"
+msgstr "Mestre"
 
+#: StatBlock.cpp:303
+msgid "Warrior"
+msgstr "Guerreiro"
+
+#: StatBlock.cpp:305
+msgid "Wizard"
+msgstr "Mago"
+
+#: StatBlock.cpp:307
+msgid "Ranger"
+msgstr "Silvano"
+
+#: StatBlock.cpp:309
+msgid "Paladin"
+msgstr "Paladín"
+
+#: StatBlock.cpp:312
+msgid "Rogue"
+msgstr "Pillabán"
+
+#: StatBlock.cpp:314
+msgid "Knight"
+msgstr "Cabaleiro"
+
+#: StatBlock.cpp:316
+msgid "Shaman"
+msgstr "Xamán"
+
+#: StatBlock.cpp:318
+msgid "Cleric"
+msgstr "Clérigo"
+
+#: StatBlock.cpp:320
+msgid "Battle Mage"
+msgstr "Mago guerreiro"
+
+#: StatBlock.cpp:322
+msgid "Heavy Archer"
+msgstr "Arqueiro pesado"
+
+#: StatBlock.cpp:324
+msgid "Adventurer"
+msgstr "Aventureiro"
+
+#~ msgid "Achievements"
+#~ msgstr "Logros"
