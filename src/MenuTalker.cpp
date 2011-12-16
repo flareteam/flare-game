@@ -27,7 +27,7 @@ MenuTalker::MenuTalker(CampaignManager *_camp) {
 	npc = NULL;
 	background = NULL;
 	portrait = NULL;
-
+	msg_buffer = NULL;
 
 	advanceButton = new WidgetButton(mods->locate("images/menus/buttons/right.png"));
 	advanceButton->pos.x = VIEW_W_HALF + 288;
@@ -67,6 +67,7 @@ void MenuTalker::chooseDialogNode() {
 	event_cursor = 0;
 	dialog_node = npc->chooseDialogNode();
 	npc->processDialog(dialog_node, event_cursor);
+	createBuffer();
 }
 
 /**
@@ -113,19 +114,42 @@ void MenuTalker::logic() {
 		more = npc->processDialog(dialog_node, event_cursor);
 	}
 
-	if (!more) {
+	if (more) {
+		createBuffer();
+	}
+	else {
 		// end dialog
 		npc = NULL;
 		visible = false;
 	}
+}
 
+void MenuTalker::createBuffer() {
+
+	string line;
+	
+	// speaker name
+	string etype = npc->dialog[dialog_node][event_cursor].type;
+	if (etype == "him" || etype == "her") {
+		line = npc->name + ": ";
+	}
+	else if (etype == "you") {
+		line = hero_name + ": ";
+	}
+	
+	line = line + npc->dialog[dialog_node][event_cursor].s;
+	
+	// render text to back buffer
+	SDL_FreeSurface(msg_buffer);
+	msg_buffer = createSurface(576,96);
+	font->render(line, 16, 16, JUSTIFY_LEFT, msg_buffer, 544, FONT_WHITE);
+	
 }
 
 void MenuTalker::render() {
 	if (!visible) return;
 	SDL_Rect src;
 	SDL_Rect dest;
-	string line;
 	
 	int offset_x = (VIEW_W - 640)/2;
 	int offset_y = (VIEW_H - 416)/2;
@@ -149,7 +173,6 @@ void MenuTalker::render() {
 			dest.y = offset_y;
 			SDL_BlitSurface(npc->portrait, &src, screen, &dest);	
 		}
-		line = npc->name + ": ";
 	}
 	else if (etype == "you") {
 		if (portrait != NULL) {
@@ -159,12 +182,12 @@ void MenuTalker::render() {
 			dest.y = offset_y;
 			SDL_BlitSurface(portrait, &src, screen, &dest);			
 		}
-		line = hero_name + ": ";
 	}
 	
 	// text overlay
-	line = line + npc->dialog[dialog_node][event_cursor].s;
-	font->render(line, offset_x+48, offset_y+336, JUSTIFY_LEFT, screen, 544, FONT_WHITE);
+	dest.x = offset_x+32;
+	dest.y = offset_y+320;
+	SDL_BlitSurface(msg_buffer, NULL, screen, &dest);
 
 	// show advance button if there are more event components, or close button if not
 	if (event_cursor < NPC_MAX_EVENTS-1) {
@@ -198,6 +221,7 @@ void MenuTalker::setHero(string name, string portrait_filename) {
 }
 
 MenuTalker::~MenuTalker() {
+	SDL_FreeSurface(msg_buffer);
 	SDL_FreeSurface(background);
 	SDL_FreeSurface(portrait);
 	delete advanceButton;
