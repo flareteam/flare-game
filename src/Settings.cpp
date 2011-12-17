@@ -93,7 +93,7 @@ void setPaths() {
 	PATH_CONF = PATH_CONF + "/";
 	PATH_USER = PATH_USER + "/";
 }
-#elseif __amigaos4__
+#elif __amigaos4__
 // AmigaOS paths
 void setPaths() {
 	PATH_CONF = "PROGDIR:";
