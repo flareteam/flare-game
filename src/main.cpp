@@ -44,6 +44,9 @@ static void init() {
 	else
 		flags = flags | SDL_SWSURFACE;
 
+	// Add Window Titlebar Icon
+	SDL_WM_SetIcon(IMG_Load("art/logo/icon.png"),NULL);
+
 	// Create window
 	screen = SDL_SetVideoMode (VIEW_W, VIEW_H, 0, flags);
 	if (screen == NULL) {
