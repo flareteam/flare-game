@@ -80,6 +80,10 @@ void MenuInventory::loadGraphics() {
 	SDL_FreeSurface(cleanup);	
 }
 
+bool MenuInventory::closeButtonClicked() {
+return closeButton->checkClick();
+}
+
 void MenuInventory::logic() {
 	
 	// if the player has just died, the penalty is half his current gold.

@@ -111,11 +111,18 @@ void MenuManager::logic() {
 	hudlog->logic();
 	enemy->logic();
 	chr->logic();
-	inv->logic();
 	vendor->logic();
 	pow->logic();
 	log->logic();
 	talker->logic();
+
+	// decide if we are closing inventory or both inventory and trader menu
+	if (vendor->visible && inv->closeButtonClicked()) {
+		closeAll(true);
+	}
+	else {
+		inv->logic();
+	}
 
 	if (!inp->pressing[INVENTORY] && !inp->pressing[POWERS] && !inp->pressing[CHARACTER] && !inp->pressing[LOG])
 		key_lock = false;
@@ -147,6 +154,7 @@ void MenuManager::logic() {
 		key_lock = true;
 		if (inv->visible) {
 			closeRight(true);
+			if (vendor->visible) vendor->visible = false;
 		}
 		else {
 			closeRight(false);

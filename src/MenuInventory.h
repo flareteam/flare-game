@@ -89,6 +89,7 @@ public:
 	bool requirementsMet(int item);
 	
 	void applyEquipment(ItemStack *equipped);
+	bool closeButtonClicked();
 
 	bool visible;
 
