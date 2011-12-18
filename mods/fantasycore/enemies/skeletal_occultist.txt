@@ -17,19 +17,21 @@ threat_range=512
 dir_favor=6
 
 chance_pursue=15
-chance_melee_phys=5
-chance_melee_ment=0
-chance_ranged_phys=0
+chance_melee_phys=10
 chance_ranged_ment=10
-power_melee_phys=1
-power_ranged_ment=30
+
+# channel
+power_melee_phys=2
+# freeze
+power_ranged_ment=14
+
 power_beacon=132
 
 accuracy=87
 avoidance=37
 
-dmg_melee_min=2
-dmg_melee_max=6
+dmg_melee_min=3
+dmg_melee_max=9
 dmg_ment_min=4
 dmg_ment_max=10
 
