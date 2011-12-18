@@ -624,6 +624,32 @@ multitarget=true
 post_effect=40
 post_power=125
 
+# enemy version of multishot
+[power]
+id=41
+name=Multishot
+type=missile
+icon=16
+description=Shoot three projectiles simultaneously
+new_state=shoot
+face=true
+directional=true
+requires_los=true
+gfx=arrows.png
+sfx=shoot.ogg
+use_hazard=true
+rendered=true
+aim_assist=32
+requires_offense_weapon=true
+base_damage=ranged
+lifespan=20
+radius=64
+speed=48
+frame_size=64,64
+frame_offset=32,64
+wall_power=124
+missile_num=3
+missile_angle=15
 
 [power]
 id=100
