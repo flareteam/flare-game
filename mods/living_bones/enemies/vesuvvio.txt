@@ -2,16 +2,18 @@ name=Vesuvvio (the Destroyer)
 level=11
 
 sfx_prefix=human_male
-gfx_prefix=necromancer
-animations=zombie
-animation_speed=150
+gfx_prefix=vesuvvio
+animations=necromancer
+animation_speed=100
 
-loot_chance=100
+loot_chance=0
+quest_loot=lb_fire_unlocked,lb_fire_key,9102
+defeat_status=lb_fire_defeated
 
 # combat stats
-hp=50
-speed=6
-dspeed=4
+hp=60
+speed=12
+dspeed=8
 melee_range=76
 threat_range=512
 dir_favor=6
@@ -20,21 +22,22 @@ chance_melee_phys=5
 chance_melee_ment=0
 chance_ranged_phys=0
 chance_ranged_ment=15
-power_melee_phys=1
-power_ranged_ment=128
+power_melee_phys=33
+power_ranged_ment=31
 power_beacon=132
 
 accuracy=96
 avoidance=49
 
-dmg_melee_min=1
-dmg_melee_max=5
+dmg_melee_min=5
+dmg_melee_max=8
 dmg_ment_min=5
 dmg_ment_max=13
 absorb_min=2
 absorb_max=2
-attunement_fire=50
-attunement_ice=50
+#immune fire
+attunement_fire=0
+attunement_ice=100
 cooldown=30
 
 
