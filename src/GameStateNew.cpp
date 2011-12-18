@@ -39,11 +39,14 @@ GameStateNew::GameStateNew() : GameState() {
 	button_exit->label = msg->get("Cancel");
 	button_exit->pos.x = VIEW_W_HALF - button_exit->pos.w/2;
 	button_exit->pos.y = VIEW_H - button_exit->pos.h;
+	button_exit->refresh();
 	
 	button_create = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
 	button_create->label = msg->get("Create Character");
 	button_create->pos.x = VIEW_W_HALF + button_create->pos.w/2;
 	button_create->pos.y = VIEW_H - button_create->pos.h;
+	button_create->enabled = false;
+	button_create->refresh();
 
 	button_prev = new WidgetButton(mods->locate("images/menus/buttons/left.png"));
 	button_prev->pos.x = VIEW_W_HALF - 160 - button_prev->pos.w;
@@ -126,10 +129,16 @@ void GameStateNew::logic() {
 
 	// require character name
 	if (input_name->getText() == "") {
-		button_create->enabled = false;
+		if (button_create->enabled) {
+			button_create->enabled = false;
+			button_create->refresh();
+		}
 	}
 	else {
-		button_create->enabled = true;
+		if (!button_create->enabled) {
+			button_create->enabled = true;
+			button_create->refresh();
+		}
 	}
 
 	if (button_exit->checkClick()) {

@@ -34,6 +34,7 @@ MenuConfirm::MenuConfirm(string _buttonMsg, string _boxMsg) : Menu() {
 	buttonConfirm->label = _buttonMsg;
 	buttonConfirm->pos.x = VIEW_W_HALF - buttonConfirm->pos.w/2;
 	buttonConfirm->pos.y = VIEW_H/2;
+	buttonConfirm->refresh();
 	
 	buttonClose = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
 	buttonClose->pos.x = window_area.x + window_area.w;

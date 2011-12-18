@@ -41,6 +41,7 @@ private:
 	void loadGraphics();
 	SDL_Surface *background;
 	SDL_Surface *portrait;
+	SDL_Surface *msg_buffer;
 	string hero_name;
 
 	int dialog_node;
@@ -55,6 +56,7 @@ public:
 	void logic();
 	void render();
 	void setHero(string name, string portrait_filename);
+	void createBuffer();
 	
 	bool visible;
 	int event_cursor;

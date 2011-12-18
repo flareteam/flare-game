@@ -33,10 +33,12 @@ GameStateTitle::GameStateTitle() : GameState() {
 	button_play->label = msg->get("Play Game");
 	button_play->pos.x = VIEW_W_HALF - button_play->pos.w/2;
 	button_play->pos.y = VIEW_H - (button_exit->pos.h*2);
+	button_play->refresh();
 
 	button_exit->label = msg->get("Exit Game");
 	button_exit->pos.x = VIEW_W_HALF - button_exit->pos.w/2;
 	button_exit->pos.y = VIEW_H - button_exit->pos.h;
+	button_exit->refresh();
 	
 	// set up labels
 	label_version = new WidgetLabel();
