@@ -223,6 +223,9 @@ void LootManager::renderTooltips(Point cam) {
 	
 	for (int i = 0; i < loot_count; i++) {			
 		if (loot[i].frame == max_frame) {
+		
+			tip->clear(td);
+		
 			dest.x = VIEW_W_HALF + (loot[i].pos.x/UNITS_PER_PIXEL_X - xcam.x) - (loot[i].pos.y/UNITS_PER_PIXEL_X - xcam.y);
 			dest.y = VIEW_H_HALF + (loot[i].pos.x/UNITS_PER_PIXEL_Y - ycam.x) + (loot[i].pos.y/UNITS_PER_PIXEL_Y - ycam.y) + (TILE_H/2);
 		
