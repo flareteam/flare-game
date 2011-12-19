@@ -2,16 +2,18 @@ name=Scathelocke
 level=11
 
 sfx_prefix=human_male
-gfx_prefix=necromancer
-animations=zombie
-animation_speed=150
+gfx_prefix=scathelocke
+animations=necromancer
+animation_speed=100
 
-loot_chance=100
+loot_chance=0
+quest_loot=lb_ice_unlocked,lb_ice_key,9101
+defeat_status=lb_ice_defeated
 
 # combat stats
-hp=50
-speed=6
-dspeed=4
+hp=60
+speed=12
+dspeed=8
 melee_range=76
 threat_range=512
 dir_favor=6
@@ -20,8 +22,9 @@ chance_melee_phys=5
 chance_melee_ment=0
 chance_ranged_phys=0
 chance_ranged_ment=15
-power_melee_phys=1
-power_ranged_ment=128
+#chill touch
+power_melee_phys=38
+power_ranged_ment=30
 power_beacon=132
 
 accuracy=96
@@ -33,8 +36,9 @@ dmg_ment_min=5
 dmg_ment_max=13
 absorb_min=2
 absorb_max=2
-attunement_fire=50
-attunement_ice=50
+#immune ice
+attunement_fire=200
+attunement_ice=0
 cooldown=30
 
 

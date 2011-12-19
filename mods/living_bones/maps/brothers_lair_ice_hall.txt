@@ -1,7 +1,7 @@
 [header]
 width=50
 height=80
-music=unrest_theme.ogg
+music=magical_theme.ogg
 tileset=tileset_dungeon.txt
 title=Brothers' Lair Ice Hall
 
@@ -419,9 +419,10 @@ tooltip=Barrel
 type=run_once
 location=14,10,1,1
 hotspot=-16,-36,32,44
-loot=random,15,10,10
+loot=random,15,10,11
 mapmod=object,14,10,160
-requires_status=lb_ice_key
+requires_item=9101
+remove_item=9101
 set_status=lb_ice_looted
 soundfx=soundfx/wood_open.ogg
 tooltip=Runed Chest
@@ -551,3 +552,6 @@ type=skeletal_knight
 location=12,31,1,1
 direction=5
 
+[enemy]
+type=skeletal_prophet
+location=20,14,8
