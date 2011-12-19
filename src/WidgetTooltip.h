@@ -39,13 +39,19 @@ struct TooltipData {
 	string lines[TOOLTIP_MAX_LINES];
 	int colors[TOOLTIP_MAX_LINES];
 	int num_lines;
+	SDL_Surface *tip_buffer;
 	
 	TooltipData() {
 		num_lines = 0;
+		tip_buffer = NULL;
 		for (int i=0; i<TOOLTIP_MAX_LINES; i++) {
 			lines[i] = "";
 			colors[i] = FONT_WHITE;
 		}
+	}
+	
+	~TooltipData() {
+		SDL_FreeSurface(tip_buffer);
 	}
 	
 };
@@ -57,8 +63,10 @@ private:
 	int margin;
 public:
 	WidgetTooltip();
-	void calcPosition(int style, Point pos, Point size, Sint16 &bgx, Sint16 &bgy, int &curx, int &cury);
-	void render(TooltipData tip, Point pos, int style);
+	Point calcPosition(int style, Point pos, Point size);
+	void render(TooltipData &tip, Point pos, int style);
+	void clear(TooltipData &tip);
+	void createBuffer(TooltipData &tip);
 };
 
 #endif

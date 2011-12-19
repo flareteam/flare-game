@@ -151,7 +151,7 @@ void setPaths() {
 	// data folder
 	// while PATH_CONF and PATH_USER are created if not found,
 	// PATH_DATA must already have the game data for the game to work.
-	// in most released the data will be in the same folder as the executable
+	// in most releases the data will be in the same folder as the executable
 	// - Windows apps are released as a simple folder
 	// - OSX apps are released in a .app folder
 	// Official linux distros might put the executable and data files
@@ -259,6 +259,8 @@ bool saveSettings() {
 	outfile.open((PATH_CONF + "settings.txt").c_str(), ios::out);
 
 	if (outfile.is_open()) {
+	
+		// TODO: output helpful comments
 	
 		outfile << "fullscreen=" << FULLSCREEN << "\n";
 		outfile << "resolution_w=" << VIEW_W << "\n";
