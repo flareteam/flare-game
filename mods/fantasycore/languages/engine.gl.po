@@ -7,8 +7,10 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-12-13 10:23-0700\n"
-"PO-Revision-Date: 2011-12-16 19:31+0100\n"
+"PO-Revision-Date: 2011-12-17 20:49+0100\n"
 "Last-Translator: Adrian Chaves Fernandez (Gallaecio) <adriyetichaves@gmail."
+"com>\n"
+"com>\n"
 "com>\n"
 "com>\n"
 "com>\n"
@@ -89,6 +91,7 @@ msgstr "Cargando o mundo…"
 msgid "Loading saved game..."
 msgstr "Cargando a partida..."
 
+# Aparece no menú de escolla de partida, para dicir o tipo de personaxe protagonista da partida, así como o seu nivel.
 #: GameStateLoad.cpp:419
 #, c-format
 msgid "Level %d %s"
@@ -522,10 +525,11 @@ msgstr "Habilidade co escudo pesado"
 msgid "Dead"
 msgstr "Morto"
 
+# Indicación do inimigo ao que se está a apuntar.
 #: MenuEnemy.cpp:110
 #, c-format
 msgid "%s level %d"
-msgstr "%s nivel %d"
+msgstr "%s (nivel %d)"
 
 #: MenuExit.cpp:37
 msgid "Exit"
