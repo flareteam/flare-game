@@ -1,0 +1,718 @@
+# FLARE (Free/Libre Action RPG Engine)
+# Copyright (C) 2011 Clint Bellanger
+# This file is distributed under the same license as the FLARE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: Flare 0.15\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-12-13 10:23-0700\n"
+"PO-Revision-Date: 2011-12-17 11:30+0100\n"
+"Last-Translator: Andreas Berheim Brudin <andreas@brudin.se>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: Avatar.cpp:250
+#, c-format
+msgid "Congratulations, you have reached level %d!"
+msgstr "Grattis, du har nått nivå %d!"
+
+#: Avatar.cpp:252
+msgid "You may increase one attribute through the Character Menu."
+msgstr "Du får nu öka på en egenskap (i karaktärsmenyn)"
+
+#: Avatar.cpp:521
+msgid "You are defeated.  You lose half your gold.  Press Enter to continue."
+msgstr "Du är besegrad. Du förlorar hälften av ditt guld. Tryck Retur för att fortsätta."
+
+#: CampaignManager.cpp:142
+#, c-format
+msgid "You receive %s."
+msgstr "Du får %s."
+
+#: CampaignManager.cpp:144
+#, c-format
+msgid "You receive %s x%d."
+msgstr "Du får %s x%d."
+
+#: CampaignManager.cpp:152
+#, c-format
+msgid "You receive %d gold."
+msgstr "Du får %d guld."
+
+#: CampaignManager.cpp:158
+#, c-format
+msgid "You receive %d XP."
+msgstr "Du får %d XP."
+
+#: GameStateLoad.cpp:40
+#: GameStateLoad.cpp:53
+msgid "Delete Save"
+msgstr "Radera sparat spel"
+
+#: GameStateLoad.cpp:40
+msgid "Delete this save?"
+msgstr "Vill du radera det sparade spelet?"
+
+#: GameStateLoad.cpp:42
+msgid "Exit to Title"
+msgstr "Avsluta och gå till huvudmenyn"
+
+#: GameStateLoad.cpp:47
+msgid "Choose a Slot"
+msgstr "Välj en plats"
+
+#: GameStateLoad.cpp:312
+#: GameStateLoad.cpp:327
+msgid "New Game"
+msgstr "Nytt spel"
+
+#: GameStateLoad.cpp:331
+msgid "Load Game"
+msgstr "Ladda spel"
+
+#: GameStateLoad.cpp:396
+msgid "Entering game world..."
+msgstr "Öppnar spelvärlden..."
+
+#: GameStateLoad.cpp:398
+msgid "Loading saved game..."
+msgstr "Laddar sparat spel..."
+
+#: GameStateLoad.cpp:419
+#, c-format
+msgid "Level %d %s"
+msgstr "Nivå %d %s"
+
+#: GameStateLoad.cpp:441
+msgid "Empty Slot"
+msgstr "Ledig plats"
+
+#: GameStateNew.cpp:39
+msgid "Cancel"
+msgstr "Avbryt"
+
+#: GameStateNew.cpp:44
+msgid "Create Character"
+msgstr "Skapa karaktär"
+
+#: GameStateNew.cpp:61
+msgid "Choose a Portrait"
+msgstr "Välj ett ansikte"
+
+#: GameStateNew.cpp:63
+msgid "Choose a Name"
+msgstr "Ange namn"
+
+#: GameStatePlay.cpp:150
+msgid "Inventory is full."
+msgstr "Du har inte plats för fler föremål."
+
+#: GameStateTitle.cpp:33
+msgid "Play Game"
+msgstr "Starta spelet"
+
+#: GameStateTitle.cpp:37
+msgid "Exit Game"
+msgstr "Avsluta spelet"
+
+#: GameStateTitle.cpp:43
+msgid "Flare Alpha v0.15"
+msgstr "Flare Alfa 0.15"
+
+#: ItemManager.cpp:341
+#, c-format
+msgid "Level %d"
+msgstr "Nivå %d"
+
+#: ItemManager.cpp:347
+#: MenuInventory.cpp:121
+msgid "Main Hand"
+msgstr "Stark hand"
+
+#: ItemManager.cpp:349
+#: MenuInventory.cpp:123
+msgid "Body"
+msgstr "Kropp"
+
+#: ItemManager.cpp:351
+#: MenuInventory.cpp:125
+msgid "Off Hand"
+msgstr "Svag hand"
+
+#: ItemManager.cpp:353
+#: MenuInventory.cpp:127
+msgid "Artifact"
+msgstr "Artefakt"
+
+#: ItemManager.cpp:355
+msgid "Consumable"
+msgstr "Ätbart"
+
+#: ItemManager.cpp:357
+msgid "Gem"
+msgstr "Ädelsten"
+
+#: ItemManager.cpp:359
+msgid "Quest Item"
+msgstr "Uppdragsrelaterat föremål"
+
+#: ItemManager.cpp:366
+#, c-format
+msgid "Melee damage: %d-%d"
+msgstr "Närstridsskada: %d-%d"
+
+#: ItemManager.cpp:368
+#, c-format
+msgid "Melee damage: %d"
+msgstr "Närstridsskada: %d"
+
+#: ItemManager.cpp:372
+#, c-format
+msgid "Mental damage: %d-%d"
+msgstr "Mental skada: %d-%d"
+
+#: ItemManager.cpp:374
+#, c-format
+msgid "Mental damage: %d"
+msgstr "Mental skada: %d"
+
+#: ItemManager.cpp:378
+#, c-format
+msgid "Ranged damage: %d-%d"
+msgstr "Avståndsskada: %d-%d"
+
+#: ItemManager.cpp:380
+#, c-format
+msgid "Ranged damage: %d"
+msgstr "Avståndsskada: %d"
+
+#: ItemManager.cpp:387
+#, c-format
+msgid "Absorb: %d-%d"
+msgstr "Absorberar: %d-%d"
+
+#: ItemManager.cpp:389
+#, c-format
+msgid "Absorb: %d"
+msgstr "Absorberar: %d"
+
+#: ItemManager.cpp:397
+#, c-format
+msgid "Increases %s by %d"
+msgstr "Ökar %s med %d"
+
+#: ItemManager.cpp:401
+#, c-format
+msgid "Decreases %s by %d"
+msgstr "Minskar %s med %d"
+
+#: ItemManager.cpp:419
+#: MenuCharacter.cpp:306
+#: MenuCharacter.cpp:312
+#: MenuCharacter.cpp:318
+#: MenuCharacter.cpp:324
+#, c-format
+msgid "Requires Physical %d"
+msgstr "Kräver fysik %d"
+
+#: ItemManager.cpp:423
+#: MenuCharacter.cpp:330
+#: MenuCharacter.cpp:336
+#: MenuCharacter.cpp:342
+#: MenuCharacter.cpp:348
+#, c-format
+msgid "Requires Mental %d"
+msgstr "Kräver mental styrka %d"
+
+#: ItemManager.cpp:427
+#: MenuCharacter.cpp:354
+#: MenuCharacter.cpp:360
+#: MenuCharacter.cpp:366
+#: MenuCharacter.cpp:372
+#, c-format
+msgid "Requires Offense %d"
+msgstr "Kräver anfall %d"
+
+#: ItemManager.cpp:431
+#: MenuCharacter.cpp:378
+#: MenuCharacter.cpp:384
+#: MenuCharacter.cpp:390
+#: MenuCharacter.cpp:396
+#, c-format
+msgid "Requires Defense %d"
+msgstr "Kräver försvar %d"
+
+#: ItemManager.cpp:441
+#, c-format
+msgid "Buy Price: %d gold"
+msgstr "Köpesumma: %d guld"
+
+#: ItemManager.cpp:443
+#, c-format
+msgid "Buy Price: %d gold each"
+msgstr "Köpesumma: %d guld per styck"
+
+#: ItemManager.cpp:449
+#, c-format
+msgid "Sell Price: %d gold"
+msgstr "Säljes för %d guld"
+
+#: ItemManager.cpp:451
+#, c-format
+msgid "Sell Price: %d gold each"
+msgstr "Säljes för %d guld per styck"
+
+#: LootManager.cpp:237
+#: MenuInventory.cpp:129
+#, c-format
+msgid "%d Gold"
+msgstr "%d guld"
+
+#: main.cpp:90
+msgid "Flare"
+msgstr "Flare"
+
+#: MapIso.cpp:755
+msgid "Unknown destination"
+msgstr "Destination okänd"
+
+#: MenuActionBar.cpp:279
+msgid "Character Menu (C)"
+msgstr "Karaktärsmenyn (C)"
+
+#: MenuActionBar.cpp:283
+msgid "Inventory Menu (I)"
+msgstr "Föremålsmenyn (I)"
+
+#: MenuActionBar.cpp:287
+msgid "Power Menu (P)"
+msgstr "Kraftmenyn (P)"
+
+#: MenuActionBar.cpp:291
+msgid "Log Menu (L)"
+msgstr "Loggmenyn (L)"
+
+#: MenuCharacter.cpp:42
+msgid "Character"
+msgstr "Karaktär"
+
+#: MenuCharacter.cpp:57
+msgid "Name"
+msgstr "Namn"
+
+#: MenuCharacter.cpp:58
+msgid "Level"
+msgstr "Nivå"
+
+#: MenuCharacter.cpp:59
+#: MenuPowers.cpp:149
+#: MenuPowers.cpp:151
+msgid "Physical"
+msgstr "Fysik"
+
+#: MenuCharacter.cpp:60
+#: MenuPowers.cpp:153
+#: MenuPowers.cpp:155
+msgid "Mental"
+msgstr "Mental styrka"
+
+#: MenuCharacter.cpp:61
+#: MenuPowers.cpp:157
+#: MenuPowers.cpp:161
+msgid "Offense"
+msgstr "Anfall"
+
+#: MenuCharacter.cpp:62
+#: MenuPowers.cpp:159
+#: MenuPowers.cpp:163
+msgid "Defense"
+msgstr "Försvar"
+
+#: MenuCharacter.cpp:63
+msgid "Total HP"
+msgstr "Totala HP"
+
+#: MenuCharacter.cpp:64
+#: MenuCharacter.cpp:66
+msgid "Regen"
+msgstr "Regenerering"
+
+#: MenuCharacter.cpp:65
+msgid "Total MP"
+msgstr "Totala MP"
+
+#: MenuCharacter.cpp:67
+msgid "Accuracy vs. Def 1"
+msgstr "Noggrannhet vs försvar 1"
+
+#: MenuCharacter.cpp:68
+msgid "vs. Def 5"
+msgstr "vs. försvar 5"
+
+#: MenuCharacter.cpp:69
+msgid "Avoidance vs. Off 1"
+msgstr "Undvikande vs. anfall 1"
+
+#: MenuCharacter.cpp:70
+msgid "vs. Off 5"
+msgstr "vs. anfall 5"
+
+#: MenuCharacter.cpp:71
+msgid "Main Weapon"
+msgstr "Huvudvapen"
+
+#: MenuCharacter.cpp:72
+msgid "Ranged Weapon"
+msgstr "Avståndsvapen"
+
+#: MenuCharacter.cpp:73
+msgid "Crit Chance"
+msgstr "Kritisk chans"
+
+#: MenuCharacter.cpp:74
+msgid "Absorb"
+msgstr "Absorbera"
+
+#: MenuCharacter.cpp:75
+msgid "Fire Resist"
+msgstr "Motståndskraft mot eld"
+
+#: MenuCharacter.cpp:76
+msgid "Ice Resist"
+msgstr "Motståndskraft mot is"
+
+#: MenuCharacter.cpp:246
+#: MenuExperience.cpp:123
+#, c-format
+msgid "XP: %d"
+msgstr "XP: %d"
+
+#: MenuCharacter.cpp:248
+#, c-format
+msgid "Next: %d"
+msgstr "Nästa: %d"
+
+#: MenuCharacter.cpp:252
+msgid "Physical (P) increases melee weapon proficiency and total HP."
+msgstr "Fysik (P) ökar skickligheten i närstrid och total HP."
+
+#: MenuCharacter.cpp:253
+#: MenuCharacter.cpp:257
+#: MenuCharacter.cpp:261
+#: MenuCharacter.cpp:265
+#, c-format
+msgid "base (%d), bonus (%d)"
+msgstr "bas (%d), bonus (%d)"
+
+#: MenuCharacter.cpp:256
+msgid "Mental (M) increases mental weapon proficiency and total MP."
+msgstr "Mental styrka (M) ökar färdighet med mentala vapen och total MP."
+
+#: MenuCharacter.cpp:260
+msgid "Offense (O) increases ranged weapon proficiency and accuracy."
+msgstr "Anfall ökar färdigheten och noggrannheten med avståndsvapen."
+
+#: MenuCharacter.cpp:264
+msgid "Defense (D) increases armor proficiency and avoidance."
+msgstr "Försvar (D) ökar färdighet med rustning och undvikande."
+
+#: MenuCharacter.cpp:268
+msgid "Each point of Physical grants +8 HP"
+msgstr "Varje fysikpoäng ger +8 HP"
+
+#: MenuCharacter.cpp:269
+msgid "Each level grants +2 HP"
+msgstr "Varje nivå ger +2 HP"
+
+#: MenuCharacter.cpp:272
+msgid "Ticks of HP regen per minute"
+msgstr "HP-regenereringar per minut"
+
+#: MenuCharacter.cpp:273
+msgid "Each point of Physical grants +4 HP regen"
+msgstr "Varje fysikpoäng ger +4 HP regenerering"
+
+#: MenuCharacter.cpp:274
+msgid "Each level grants +1 HP regen"
+msgstr "Varje nivå ger +1 HP regenerering"
+
+#: MenuCharacter.cpp:277
+msgid "Each point of Mental grants +8 MP"
+msgstr "Varje poäng i mental styrka ger +8 MP"
+
+#: MenuCharacter.cpp:278
+msgid "Each level grants +2 MP"
+msgstr "Varje nivå ger +2 MP"
+
+#: MenuCharacter.cpp:281
+msgid "Ticks of MP regen per minute"
+msgstr "MP-regenereringar per minut"
+
+#: MenuCharacter.cpp:282
+msgid "Each point of Mental grants +4 MP regen"
+msgstr "Varje poäng i mental styrka ger +4 MP regenerering"
+
+#: MenuCharacter.cpp:283
+msgid "Each level grants +1 MP regen"
+msgstr "Varje nivå ger +1 MP regenerering"
+
+#: MenuCharacter.cpp:286
+#: MenuCharacter.cpp:290
+msgid "Each point of Offense grants +5 accuracy"
+msgstr "Varje anfallspoäng ger +5 i noggrannhet"
+
+#: MenuCharacter.cpp:287
+#: MenuCharacter.cpp:291
+msgid "Each level grants +1 accuracy"
+msgstr "Varje nivå ger +1 i noggrannhet"
+
+#: MenuCharacter.cpp:294
+#: MenuCharacter.cpp:298
+msgid "Each point of Defense grants +5 avoidance"
+msgstr "Varje försvarspoäng ger +5 i undvikande"
+
+#: MenuCharacter.cpp:295
+#: MenuCharacter.cpp:299
+msgid "Each level grants +1 avoidance"
+msgstr "Varje nivå ger +1 i undvikande"
+
+#: MenuCharacter.cpp:303
+msgid "Dagger Proficiency"
+msgstr "Skicklighet med kniv"
+
+#: MenuCharacter.cpp:309
+msgid "Shortsword Proficiency"
+msgstr "Skicklighet med svärd"
+
+#: MenuCharacter.cpp:315
+msgid "Longsword Proficiency"
+msgstr "Skicklighet med långsvärd"
+
+#: MenuCharacter.cpp:321
+msgid "Greatsword Proficiency"
+msgstr "Skicklighet med stort svärd"
+
+#: MenuCharacter.cpp:327
+msgid "Wand Proficiency"
+msgstr "Skicklighet med trollstav"
+
+#: MenuCharacter.cpp:333
+msgid "Rod Proficiency"
+msgstr "Skicklighet med käpp"
+
+#: MenuCharacter.cpp:339
+msgid "Staff Proficiency"
+msgstr "Skicklighet med stav"
+
+#: MenuCharacter.cpp:345
+msgid "Greatstaff Proficiency"
+msgstr "Skicklighet med stor stav"
+
+#: MenuCharacter.cpp:351
+msgid "Slingshot Proficiency"
+msgstr "Skicklighet med slangbella"
+
+#: MenuCharacter.cpp:357
+msgid "Shortbow Proficiency"
+msgstr "Skicklighet i pilpåge"
+
+#: MenuCharacter.cpp:363
+msgid "Longbow Proficiency"
+msgstr "Skicklighet i långbåge"
+
+#: MenuCharacter.cpp:369
+msgid "Greatbow Proficiency"
+msgstr "Skicklighet i stor pilbåge"
+
+#: MenuCharacter.cpp:375
+msgid "Light Armor Proficiency"
+msgstr "Skicklighet med lätt rustning"
+
+#: MenuCharacter.cpp:381
+msgid "Light Shield Proficiency"
+msgstr "Skicklighet med lätt sköld"
+
+#: MenuCharacter.cpp:387
+msgid "Heavy Armor Proficiency"
+msgstr "Skicklighet med tung rustning"
+
+#: MenuCharacter.cpp:393
+msgid "Heavy Shield Proficiency"
+msgstr "Skicklighet med tung sköld"
+
+#: MenuEnemy.cpp:106
+msgid "Dead"
+msgstr "Död"
+
+#: MenuEnemy.cpp:110
+#, c-format
+msgid "%s level %d"
+msgstr "%s nivå %d"
+
+#: MenuExit.cpp:37
+msgid "Exit"
+msgstr "Avsluta"
+
+#: MenuExit.cpp:83
+msgid "Save and exit to title?"
+msgstr "Spara och gå till huvudmenyn?"
+
+#: MenuExperience.cpp:120
+#, c-format
+msgid "XP: %d/%d"
+msgstr "XP: %d/%d"
+
+#: MenuInventory.cpp:119
+msgid "Inventory"
+msgstr "Inventarie"
+
+#: MenuInventory.cpp:161
+msgid "Use SHIFT to move only one item."
+msgstr "Använd SHIFT för att flytta enstaka föremål."
+
+#: MenuInventory.cpp:162
+msgid "CTRL-click a carried item to sell it."
+msgstr "CTRL-clicka på ett föremål du har för att sälja det."
+
+#: MenuInventory.cpp:325
+msgid "This item can only be used from the action bar."
+msgstr "Det här föremålet kan bara användas från handlingslisten."
+
+#: MenuLog.cpp:35
+msgid "Messages"
+msgstr "Meddelanden"
+
+#: MenuLog.cpp:36
+msgid "Quests"
+msgstr "Uppdrag"
+
+#: MenuLog.cpp:37
+msgid "Statistics"
+msgstr "Statistik"
+
+#: MenuLog.cpp:136
+msgid "Log"
+msgstr "Logg"
+
+#: MenuPowers.cpp:147
+msgid "Powers"
+msgstr "Krafter"
+
+#: MenuPowers.cpp:244
+msgid "Physical + Offense grants melee and ranged attacks"
+msgstr "Fysik + anfall möjliggör närstrid och avståndsattacker"
+
+#: MenuPowers.cpp:248
+msgid "Physical + Defense grants melee protection"
+msgstr "Fysik + försvar möjliggör skydd i närstrid"
+
+#: MenuPowers.cpp:252
+msgid "Mental + Offense grants elemental spell attacks"
+msgstr "Mental styrka + anfall möjliggör enkla trollformelsattacker"
+
+#: MenuPowers.cpp:256
+msgid "Mental + Defense grants healing and magical protection"
+msgstr "Mental styrka + försvar möjliggör helande och magiskt skydd"
+
+#: MenuPowers.cpp:267
+msgid "Requires a physical weapon"
+msgstr "Kräver ett fysiskt vapen"
+
+#: MenuPowers.cpp:269
+msgid "Requires a mental weapon"
+msgstr "Kräver ett mentalt vapen"
+
+#: MenuPowers.cpp:271
+msgid "Requires an offense weapon"
+msgstr "Kräver ett anfallsvapen"
+
+#: MenuPowers.cpp:282
+#, c-format
+msgid "Requires Physical Offense %d"
+msgstr "Kräver fysiskt anfall %d"
+
+#: MenuPowers.cpp:283
+#, c-format
+msgid "Requires Physical Defense %d"
+msgstr "Kräver fysiskt försvar %d"
+
+#: MenuPowers.cpp:284
+#, c-format
+msgid "Requires Mental Offense %d"
+msgstr "Kräver mentalt anfall %d"
+
+#: MenuPowers.cpp:285
+#, c-format
+msgid "Requires Mental Defense %d"
+msgstr "Kräver mentalt försvar %d"
+
+#: MenuPowers.cpp:291
+#, c-format
+msgid "Costs %d MP"
+msgstr "Kostar %d MP"
+
+#: MenuPowers.cpp:295
+#, c-format
+msgid "Cooldown: %d seconds"
+msgstr "Svalnar av: %d sekunder"
+
+#: MenuVendor.cpp:97
+msgid "Vendor"
+msgstr "Affärsman"
+
+#: StatBlock.cpp:297
+msgid "Grand Master"
+msgstr "Stormästare"
+
+#: StatBlock.cpp:300
+msgid "Master"
+msgstr "Mästare"
+
+#: StatBlock.cpp:303
+msgid "Warrior"
+msgstr "Krigare"
+
+#: StatBlock.cpp:305
+msgid "Wizard"
+msgstr "Trollkarl"
+
+#: StatBlock.cpp:307
+msgid "Ranger"
+msgstr "Vandrare"
+
+#: StatBlock.cpp:309
+msgid "Paladin"
+msgstr "Paladin"
+
+#: StatBlock.cpp:312
+msgid "Rogue"
+msgstr "Landstrykare"
+
+#: StatBlock.cpp:314
+msgid "Knight"
+msgstr "Riddare"
+
+#: StatBlock.cpp:316
+msgid "Shaman"
+msgstr "Shaman"
+
+#: StatBlock.cpp:318
+msgid "Cleric"
+msgstr "Klerk"
+
+#: StatBlock.cpp:320
+msgid "Battle Mage"
+msgstr "Stridsmagiker"
+
+#: StatBlock.cpp:322
+msgid "Heavy Archer"
+msgstr "Pilbågsskytt"
+
+#: StatBlock.cpp:324
+msgid "Adventurer"
+msgstr "Äventyrare"
+
