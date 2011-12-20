@@ -39,7 +39,7 @@ requires_status=ak_tome_found
 requires_item=9000
 remove_item=9000
 set_status=ak_tome_reward
-reward_xp=15
+reward_xp=100
 him=You found this tome in Ukkonen's lair? Most excellent -- I feared this volume was lost. With it we can piece together the true history of this keep. I just need a moment to study...
 
 [dialog]
@@ -53,10 +53,10 @@ him=I don't know, but we should investigate. Head into the Atrium, then the Aver
 requires_status=ak_key_found
 requires_item=9001
 you=I have the prison key. The old prison warden carried it on his person -- he was infected, haunting the depths of the Prison.
-reward_xp=75
+reward_xp=200
 reward_item=1,1
 reward_item=2,1
-reward_currency=25
+reward_currency=100
 set_status=ak_key_reward
 him=A true shame that he was infected.  Well, now that we have the Averguard Key, the depths of Averguard Keep are open to us. The Order thanks you.
 
@@ -85,8 +85,8 @@ requires_item=9002
 you=I am back from the Academy. Langlier was rags and bones, yet still a powerful mage. He wore this symbol.
 set_status=ak_talisman_reward
 set_status=ak_maddox_search
-reward_xp=100
-reward_currency=50
+reward_xp=250
+reward_currency=125
 him=Fate has delivered this talisman to you. With it and the Averguard Key, you have the ability to open the Burial Chamber. Read these runes aloud at the sealed door and the path will be opened.
 
 [dialog]
@@ -98,8 +98,8 @@ requires_status=ak_maddox_defeated
 set_status=ak_maddox_reward
 remove_item=9001
 remove_item=9002
-reward_xp=250
-reward_currency=100
+reward_xp=500
+reward_currency=250
 reward_item=10,1
 him=You have risked much for the Order. Take this final reward, as your mission here is complete. The grip of necromancy over Averguard Keep is broken -- in time the remaining undead will pass over into death.
 you=Thank you Guill. I am glad to be of service.
@@ -113,8 +113,8 @@ requires_status=ak_ukkonen_search
 requires_status=ak_ukkonen_defeated
 requires_not=ak_ukkonen_reward
 set_status=ak_ukkonen_reward
-reward_currency=20
-reward_xp=35
+reward_currency=50
+reward_xp=100
 him=Ukkonen is defeated -- I sensed a calm in this place the moment you ended him. Take this reward for your bravery.
 
 #New icons: book, key, talisman

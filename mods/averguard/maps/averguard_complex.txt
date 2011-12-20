@@ -569,69 +569,69 @@ loot=random,9,28,8
 
 # intro skeletons
 [enemy]
-type=skeletal_archer
+type=skeletal_sniper
 location=85,69
 direction=5
 [enemy]
-type=skeletal_archer
+type=skeletal_sniper
 location=85,72
 direction=5
 
 # corner zombies
 [enemy]
-type=zombie
+type=zombie_bloodthirsty
 location=71,62
 [enemy]
-type=zombie
+type=zombie_bloodthirsty
 location=73,63
 [enemy]
-type=zombie
+type=zombie_bloodthirsty
 location=73,72
 [enemy]
-type=zombie
+type=zombie_bloodthirsty
 location=68,69
 
 # skeletons across the bridge
 [enemy]
-type=skeleton
+type=skeletal_archer
 location=69,81
 [enemy]
-type=skeleton
+type=skeletal_archer
 location=70,84
 [enemy]
-type=skeleton
+type=skeletal_mage
 location=73,83
 
 # goblins around the fire pit
 [enemy]
-type=goblin_charger
+type=goblin_charger_elite
 location=74,94
 direction=5
 [enemy]
-type=goblin_charger
+type=goblin_charger_elite
 location=76,94
 direction=1
 [enemy]
-type=goblin_spearman
+type=goblin_spearman_elite
 location=75,93
 direction=7
 [enemy]
-type=goblin_spearman
+type=goblin_spearman_elite
 location=75,95
 direction=3
 
 # small sarcophagus room creatures
 [enemy]
-type=skeleton
+type=skeletal_warrior
 location=66,92
 [enemy]
-type=skeleton
+type=skeletal_sniper
 location=61,87
 [enemy]
-type=zombie
+type=zombie_iceclaw
 location=61,89
 [enemy]
-type=zombie
+type=zombie_iceclaw
 location=62,91
 
 # conference room
@@ -640,10 +640,10 @@ type=skeletal_warrior
 location=51,90
 direction=1
 [enemy]
-type=zombie
+type=zombie_brute
 location=46,87
 [enemy]
-type=zombie
+type=zombie_brute
 location=46,94
 [enemy]
 type=antlion
@@ -663,13 +663,13 @@ location=49,91
 
 # sarcophagus cross location
 [enemy]
-type=zombie
+type=zombie_brute
 location=42,110
 [enemy]
-type=zombie
+type=zombie_iceclaw
 location=47,115
 [enemy]
-type=zombie
+type=zombie_bloodthirsty
 location=52,110
 [enemy]
 type=skeletal_warrior
@@ -744,7 +744,7 @@ direction=7
 type=skeletal_warrior
 location=40,60
 [enemy]
-type=skeletal_archer
+type=skeletal_sniper
 location=42,53
 [enemy]
 type=skeletal_warrior
@@ -758,39 +758,39 @@ location=42,49
 
 # zombie infestation
 [enemy]
-type=zombie
+type=zombie_brute
 location=72,42
 [enemy]
-type=zombie
+type=zombie_brute
 location=68,47
 [enemy]
-type=zombie
+type=zombie_brute
 location=64,43
 [enemy]
-type=zombie
+type=zombie_iceclaw
 location=58,41
 [enemy]
-type=zombie
+type=zombie_iceclaw
 location=56,47
 [enemy]
-type=zombie_rotting
+type=zombie_iceclaw
 location=64,48
 [enemy]
-type=zombie_rotting
+type=zombie_bloodthirsty
 location=57,44
 [enemy]
-type=zombie_rotting
+type=zombie_bloodthirsty
 location=54,42
 [enemy]
-type=zombie_rotting
+type=zombie_bloodthirsty
 location=74,44
 [enemy]
-type=zombie_rotting
+type=zombie_bloodthirsty
 location=67,41
 
 # antlion trainers left of chasm
 [enemy]
-type=skeletal_archer
+type=skeletal_sniper
 location=55,63
 [enemy]
 type=antlion
@@ -799,7 +799,7 @@ location=55,62
 type=antlion
 location=56,63
 [enemy]
-type=skeletal_archer
+type=skeletal_sniper
 location=59,54
 [enemy]
 type=antlion
@@ -810,10 +810,10 @@ location=59,55
 
 # hallway behind barracks
 [enemy]
-type=antlion
+type=antlion_blinker
 location=43,35
 [enemy]
-type=antlion
+type=antlion_blinker
 location=44,36
 
 # large room south nook
@@ -829,15 +829,15 @@ location=72,24
 
 # large room storage
 [enemy]
-type=skeleton
+type=skeletal_warrior
 location=51,28
 [enemy]
-type=skeleton
+type=skeletal_warrior
 location=54,29
 
 # large room right side
 [enemy]
-type=goblin_charger
+type=skeletal_mage
 location=58,18
 direction=6
 [enemy]
@@ -849,13 +849,13 @@ type=antlion
 location=61,21
 direction=2
 [enemy]
-type=skeleton
+type=skeletal_sniper
 location=58,21
 direction=4
 
 # large room left side
 [enemy]
-type=goblin_charger
+type=skeletal_mage
 location=46,18
 direction=6
 [enemy]
@@ -867,7 +867,7 @@ type=antlion
 location=46,21
 direction=2
 [enemy]
-type=skeleton
+type=skeletal_sniper
 location=49,21
 direction=4
 
@@ -952,7 +952,7 @@ type=antlion
 location=11,20
 direction=7
 [enemy]
-type=zombie
+type=zombie_bloodthirsty
 location=13,20
 direction=7
 [enemy]
@@ -960,7 +960,7 @@ type=antlion
 location=15,20
 direction=7
 [enemy]
-type=zombie
+type=zombie_bloodthirsty
 location=17,20
 direction=7
 
@@ -969,7 +969,7 @@ type=antlion
 location=11,29
 direction=3
 [enemy]
-type=zombie
+type=zombie_iceclaw
 location=13,29
 direction=3
 [enemy]
@@ -977,16 +977,16 @@ type=antlion
 location=15,29
 direction=3
 [enemy]
-type=zombie
+type=zombie_iceclaw
 location=17,29
 direction=3
 
 [enemy]
-type=skeletal_warrior
+type=skeletal_occultist
 location=9,23
 direction=5
 [enemy]
-type=skeletal_warrior
+type=skeletal_sniper
 location=9,26
 direction=5
 
