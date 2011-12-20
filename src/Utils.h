@@ -75,6 +75,7 @@ bool isWithin(SDL_Rect r, Point target);
 void zsort(Renderable r[], int rnum);
 void sort_by_tile(Renderable r[], int rnum);
 void drawPixel(SDL_Surface *screen, int x, int y, Uint32 color);
+void drawLine(SDL_Surface *screen, int x0, int y0, int x1, int y1, Uint32 color);
 SDL_Surface* createSurface(int width, int height);
 
 /**

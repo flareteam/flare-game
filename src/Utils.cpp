@@ -216,6 +216,34 @@ void drawPixel(SDL_Surface *screen, int x, int y, Uint32 color) {
 }
 
 /**
+ * draw line to the screen
+ * from http://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm#Simplification
+ */
+void drawLine(SDL_Surface *screen, int x0, int y0, int x1, int y1, Uint32 color) {
+	const int dx = abs(x1-x0);
+	const int dy = abs(y1-y0);
+	const int sx = x0 < x1 ? 1 : -1;
+	const int sy = y0 < y1 ? 1 : -1;
+	int err = dx-dy;
+
+	do {
+		//skip draw if outside screen
+		if (x0 > 0 && y0 > 0 && x0 < VIEW_W && y0 < VIEW_H)
+			drawPixel(screen,x0,y0,color);
+
+		int e2 = 2*err;
+		if (e2 > -dy) {
+			err = err - dy;
+			x0 = x0 + sx;
+		}
+		if (e2 <  dx) {
+			err = err + dx;
+			y0 = y0 + sy;
+		}
+	} while(x0 != x1 && y0 != y1);
+}
+
+/**
  * create blank surface
  * based on example: http://www.libsdl.org/docs/html/sdlcreatergbsurface.html
  */
