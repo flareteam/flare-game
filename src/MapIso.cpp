@@ -702,14 +702,17 @@ void MapIso::checkTooltip() {
 		*/
 		
 		if (isWithin(r,inp->mouse) && events[i].tooltip != "") {
-			TooltipData td;
-			td.num_lines = 1;
-			td.colors[0] = FONT_WHITE;
-			td.lines[0] = events[i].tooltip;
+		
+			// new tooltip?
+			if (tip_buf.lines[0] != events[i].tooltip) {
+				tip->clear(tip_buf);
+				tip_buf.num_lines = 1;
+				tip_buf.lines[0] = events[i].tooltip;
+			}
 			
 			tip_pos.x = r.x + r.w/2;
 			tip_pos.y = r.y;
-			tip->render(td, tip_pos, STYLE_TOPLABEL);
+			tip->render(tip_buf, tip_pos, STYLE_TOPLABEL);
 		}
 	}
 }
@@ -820,5 +823,8 @@ MapIso::~MapIso() {
 		Mix_FreeMusic(music);
 	}
 	if (sfx) Mix_FreeChunk(sfx);
+	
+	tip->clear(tip_buf);
+	delete tip;
 }
 
