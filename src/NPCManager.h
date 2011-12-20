@@ -45,6 +45,8 @@ private:
 	WidgetTooltip *tip;
 	LootManager *loot;
 	ItemManager *items;
+	TooltipData tip_buf;
+	
 public:
 	NPCManager(MapIso *_map, LootManager *_loot, ItemManager *_items);
 	~NPCManager();

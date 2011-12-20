@@ -44,6 +44,20 @@ private:
 	SDL_Surface *powers_unlock;
 	WidgetButton *closeButton;
 	
+	WidgetLabel label_powers;
+	WidgetLabel label_p1;
+	WidgetLabel label_p2;
+	WidgetLabel label_m1;
+	WidgetLabel label_m2;
+	WidgetLabel label_o1;
+	WidgetLabel label_o2;
+	WidgetLabel label_d1;
+	WidgetLabel label_d2;
+	WidgetLabel stat_po;
+	WidgetLabel stat_pd;
+	WidgetLabel stat_mo;
+	WidgetLabel stat_md;
+	
 	void loadGraphics();
 	void displayBuild(int value, int x);
 

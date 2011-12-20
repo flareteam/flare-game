@@ -108,7 +108,6 @@ int NPCManager::checkNPCClick(Point mouse, Point cam) {
 void NPCManager::renderTooltips(Point cam, Point mouse) {
 	Point p;
 	SDL_Rect r;
-	TooltipData td;
 	
 	for(int i=0; i<npc_count; i++) {
 
@@ -124,11 +123,16 @@ void NPCManager::renderTooltips(Point cam, Point mouse) {
 			// adjust dest.y so that the tooltip floats above the item
 			p.y -= tooltip_margin;
 			
-			td.num_lines = 1;
-			td.colors[0] = FONT_WHITE;
-			td.lines[0] = npcs[i]->name;
+			// use current tip or make a new one?
+			if (tip_buf.lines[0] != npcs[i]->name) {
+				tip->clear(tip_buf);
+				tip_buf.num_lines = 1;
+				tip_buf.lines[0] = npcs[i]->name;
+			}
 			
-			tip->render(td, p, STYLE_TOPLABEL);
+			tip->render(tip_buf, p, STYLE_TOPLABEL);
+			
+			break; // display only one NPC tooltip at a time
 		}
 	}
 }
@@ -138,5 +142,6 @@ NPCManager::~NPCManager() {
 		delete npcs[i];
 	}
 	
+	tip->clear(tip_buf);
 	delete tip;
 }
