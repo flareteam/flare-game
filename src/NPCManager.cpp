@@ -24,12 +24,13 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "NPCManager.h"
 
-NPCManager::NPCManager(MapIso *_map, WidgetTooltip *_tip, LootManager *_loot, ItemManager *_items) {
+NPCManager::NPCManager(MapIso *_map, LootManager *_loot, ItemManager *_items) {
 
 	map = _map;
-	tip = _tip;
 	loot = _loot;
 	items = _items;
+
+	tip = new WidgetTooltip();
 
 	npc_count = 0;
 	for (int i=0; i<MAX_NPC_COUNT; i++) {
@@ -136,5 +137,6 @@ NPCManager::~NPCManager() {
 	for (int i=0; i<npc_count; i++) {
 		delete npcs[i];
 	}
-
+	
+	delete tip;
 }

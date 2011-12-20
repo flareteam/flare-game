@@ -127,12 +127,9 @@ void WidgetTooltip::createBuffer(TooltipData &tip) {
 	
 	// calculate the full size to display a multi-line tooltip
 	Point size = font->calc_size(fulltext, width);
-	size.x += margin + margin;
-	size.y += margin + margin;
 	
-	// this SDL_Surface memory is freed when the TooltipData leaves scope
-	// or when a clear() is called.
-	tip.tip_buffer = createSurface(size.x, size.y);
+	// WARNING: dynamic memory allocation. Be careful of memory leaks.
+	tip.tip_buffer = createSurface(size.x + margin+margin, size.y + margin+margin);
 	
 	// Currently tooltips are always opaque
 	SDL_SetAlpha(tip.tip_buffer, 0, 0);

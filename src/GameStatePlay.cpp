@@ -31,7 +31,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 GameStatePlay::GameStatePlay() : GameState() {
 
 	hasMusic = true;
-	//Mix_HaltMusic(); // maybe not needed? playing new music should auto halt previous music
 	
 	// GameEngine scope variables
 	npc_id = -1;
@@ -45,8 +44,8 @@ GameStatePlay::GameStatePlay() : GameState() {
 	enemies = new EnemyManager(powers, map);
 	hazards = new HazardManager(powers, pc, enemies);
 	menu = new MenuManager(powers, &pc->stats, camp);
-	loot = new LootManager(menu->items, menu->tip, enemies, map);
-	npcs = new NPCManager(map, menu->tip, loot, menu->items);
+	loot = new LootManager(menu->items, enemies, map);
+	npcs = new NPCManager(map, loot, menu->items);
 	quests = new QuestLog(camp, menu->log);
 
 	// assign some object pointers after object creation, based on dependency order

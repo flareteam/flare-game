@@ -46,7 +46,7 @@ private:
 	LootManager *loot;
 	ItemManager *items;
 public:
-	NPCManager(MapIso *_map, WidgetTooltip *_tip, LootManager *_loot, ItemManager *_items);
+	NPCManager(MapIso *_map, LootManager *_loot, ItemManager *_items);
 	~NPCManager();
 	NPC *npcs[MAX_NPC_COUNT];
 	void handleNewMap();
