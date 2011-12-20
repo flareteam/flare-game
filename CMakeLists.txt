@@ -60,6 +60,7 @@ EndIf (NOT SDLTTF_FOUND)
 Set (FLARE_SOURCES 
 	./src/Entity.cpp
 	./src/Animation.cpp
+	./src/AStarNode.cpp
 	./src/Avatar.cpp
 	./src/CampaignManager.cpp
 	./src/Enemy.cpp
