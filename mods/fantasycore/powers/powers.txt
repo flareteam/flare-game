@@ -624,9 +624,34 @@ multitarget=true
 post_effect=40
 post_power=125
 
-# enemy version of multishot
+# paralyzing spit
 [power]
 id=41
+name=Paralyzing Spit
+type=missile
+icon=2
+description=Poison spit that stuns the target for 2 seconds
+new_state=swing
+face=true
+directional=true
+gfx=channel.png
+use_hazard=true
+rendered=true
+aim_assist=32
+base_damage=ment
+lifespan=8
+radius=64
+speed=24
+frame_loop=0
+frame_duration=2
+frame_size=64,64
+frame_offset=32,64
+starting_pos=melee
+stun_duration=60
+
+# enemy version of multishot
+[power]
+id=42
 name=Multishot
 type=missile
 icon=16
