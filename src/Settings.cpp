@@ -227,9 +227,6 @@ bool loadSettings() {
 				if (infile.val == "1") DOUBLEBUF = true;
 				else DOUBLEBUF = false;
 			}
-			else if (infile.key == "frames_per_sec") {
-				FRAMES_PER_SEC = atoi(infile.val.c_str());
-			}
 			else if (infile.key == "enable_joystick") {
 				if (infile.val == "1") ENABLE_JOYSTICK = true;
 				else ENABLE_JOYSTICK = false;
@@ -262,18 +259,30 @@ bool saveSettings() {
 	
 		// TODO: output helpful comments
 	
-		outfile << "fullscreen=" << FULLSCREEN << "\n";
+		outfile << "# fullscreen mode. 1 enable, 0 disable.\n";
+		outfile << "fullscreen=" << FULLSCREEN << "\n\n";
+		
+		outfile << "# display resolution. 640x480 minimum. 720x480 recommended.\n";		
 		outfile << "resolution_w=" << VIEW_W << "\n";
-		outfile << "resolution_h=" << VIEW_H << "\n";
+		outfile << "resolution_h=" << VIEW_H << "\n\n";
+		
+		outfile << "# music and sound volume (0 = silent, 128 = max)\n";
 		outfile << "music_volume=" << MUSIC_VOLUME << "\n";
-		outfile << "sound_volume=" << SOUND_VOLUME << "\n";
-		outfile << "mouse_move=" << MOUSE_MOVE << "\n";
+		outfile << "sound_volume=" << SOUND_VOLUME << "\n\n";
+		
+		outfile << "# use mouse to move (experimental). 1 enable, 0 disable.\n";
+		outfile << "mouse_move=" << MOUSE_MOVE << "\n\n";
+		
+		outfile << "# hardware surfaces, double buffering. Try disabling for performance. 1 enable, 0 disable.\n";
 		outfile << "hwsurface=" << HWSURFACE << "\n";
-		outfile << "doublebuf=" << DOUBLEBUF << "\n";
-		outfile << "frames_per_sec=" << FRAMES_PER_SEC << "\n";
+		outfile << "doublebuf=" << DOUBLEBUF << "\n\n";
+		
+		outfile << "# joystick settings.\n";
 		outfile << "enable_joystick=" << ENABLE_JOYSTICK << "\n";
-		outfile << "joystick_device=" << JOYSTICK_DEVICE << "\n";
-		outfile << "language=" << LANGUAGE << "\n";
+		outfile << "joystick_device=" << JOYSTICK_DEVICE << "\n\n";
+		
+		outfile << "# 2-letter language code.\n";
+		outfile << "language=" << LANGUAGE << "\n\n";
 
 		outfile.close();
 	}
