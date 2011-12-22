@@ -1,269 +1,257 @@
+# FLARE (Free/Libre Action RPG Engine)
 # Copyright (C) 2011 Clint Bellanger
 # This file is distributed under the same license as the FLARE package.
-#
-# Adrian Chaves Fernandez (Gallaecio) <adriyetichaves@gmail.com>, 2011.
+# Timo Sievänen <thematic@helsinkilainen.com>, 2011.
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: 0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-12-13 10:23-0700\n"
-"PO-Revision-Date: 2011-12-17 20:49+0100\n"
-"Last-Translator: Adrian Chaves Fernandez (Gallaecio) <adriyetichaves@gmail."
-"com>\n"
-"com>\n"
-"com>\n"
-"com>\n"
-"com>\n"
-"com>\n"
-"com>\n"
-"com>\n"
-"Language-Team: Galician <kde-i18n-doc@kde.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2011-12-21 08:31+0200\n"
+"Last-Translator: Timo Sievänen <thematic@helsinkilainen.com>\n"
+"Language-Team: \n"
+"Language: Finnish\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.2\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: Avatar.cpp:250
 #, c-format
 msgid "Congratulations, you have reached level %d!"
-msgstr "Parabéns, chegaches ao nivel %d!"
+msgstr "Onnittelut, olet päässyt tasolle %d!"
 
 #: Avatar.cpp:252
 msgid "You may increase one attribute through the Character Menu."
-msgstr "Podes aumentar un atributo dende o menú da personaxe."
+msgstr "Voit nostaa yhtä kyvyistäsi hahmovalikossa."
 
 #: Avatar.cpp:521
 msgid "You are defeated.  You lose half your gold.  Press Enter to continue."
-msgstr ""
-"Derrotáronte, e perdiches a metade do ouro. Preme Intro para continuar."
+msgstr "Kärsit tappion. Menetät puolet kullasta. Paina Enter jatkaaksesi."
 
 #: CampaignManager.cpp:142
 #, c-format
 msgid "You receive %s."
-msgstr "Obtiveches unha unidade de %s."
+msgstr "Hallussasi on nyt %s."
 
 #: CampaignManager.cpp:144
 #, c-format
 msgid "You receive %s x%d."
-msgstr "Obtiveches %d unidades de %s."
+msgstr "Saat %s x%d"
 
 #: CampaignManager.cpp:152
 #, c-format
 msgid "You receive %d gold."
-msgstr "Obtiveches %d moedas."
+msgstr "Saat %d kultaa."
 
 #: CampaignManager.cpp:158
 #, c-format
 msgid "You receive %d XP."
-msgstr "A túa experiencia aumentou %d puntos."
+msgstr "Saat %d kokemusta."
 
 #: GameStateLoad.cpp:40 GameStateLoad.cpp:53
 msgid "Delete Save"
-msgstr "Borrar a partida"
+msgstr "Poista tallennus"
 
 #: GameStateLoad.cpp:40
 msgid "Delete this save?"
-msgstr "Estás seguro?"
+msgstr "Poista tämä tallennus?"
 
 #: GameStateLoad.cpp:42
 msgid "Exit to Title"
-msgstr "Menú principal"
+msgstr "Poistu päävalikkoon"
 
 #: GameStateLoad.cpp:47
 msgid "Choose a Slot"
-msgstr "Escolle un espazo"
+msgstr "Valitse kohta"
 
 #: GameStateLoad.cpp:312 GameStateLoad.cpp:327
 msgid "New Game"
-msgstr "Nova partida"
+msgstr "Uusi peli"
 
 #: GameStateLoad.cpp:331
 msgid "Load Game"
-msgstr "Cargar a partida"
+msgstr "Lataa peli"
 
 #: GameStateLoad.cpp:396
 msgid "Entering game world..."
-msgstr "Cargando o mundo…"
+msgstr "Saavutaan pelimaailmaan..."
 
 #: GameStateLoad.cpp:398
 msgid "Loading saved game..."
-msgstr "Cargando a partida..."
+msgstr "Ladataan tallennettu peli..."
 
-# Aparece no menú de escolla de partida, para dicir o tipo de personaxe protagonista da partida, así como o seu nivel.
 #: GameStateLoad.cpp:419
 #, c-format
 msgid "Level %d %s"
-msgstr "%s de nivel %d"
+msgstr "Taso %d %s"
 
 #: GameStateLoad.cpp:441
 msgid "Empty Slot"
-msgstr "Espazo sen usar"
+msgstr "Tyhjä"
 
 #: GameStateNew.cpp:39
 msgid "Cancel"
-msgstr "Cancelar"
+msgstr "Peru"
 
 #: GameStateNew.cpp:44
 msgid "Create Character"
-msgstr "Crear"
+msgstr "Aloita hahmo"
 
 #: GameStateNew.cpp:61
 msgid "Choose a Portrait"
-msgstr "Retrato"
+msgstr "Valitse muotokuva"
 
 #: GameStateNew.cpp:63
 msgid "Choose a Name"
-msgstr "Nome"
+msgstr "Valitse nimi"
 
 #: GameStatePlay.cpp:150
 msgid "Inventory is full."
-msgstr "O inventario está cheo."
+msgstr "Tavaraluettelo on täynnä."
 
 #: GameStateTitle.cpp:33
 msgid "Play Game"
-msgstr "Xogar"
+msgstr "Pelaa"
 
 #: GameStateTitle.cpp:37
 msgid "Exit Game"
-msgstr "Saír"
+msgstr "Lopeta peli"
 
 #: GameStateTitle.cpp:43
 msgid "Flare Alpha v0.15"
-msgstr "Flare 0.15 (alfa)"
+msgstr "Flare Alpha v0.15"
 
 #: ItemManager.cpp:341
 #, c-format
 msgid "Level %d"
-msgstr "Nivel %d"
+msgstr "Taso %d"
 
 #: ItemManager.cpp:347 MenuInventory.cpp:121
 msgid "Main Hand"
-msgstr "Man der."
+msgstr "Vahvempi käsi"
 
 #: ItemManager.cpp:349 MenuInventory.cpp:123
 msgid "Body"
-msgstr "Corpo"
+msgstr "Vartalo"
 
 #: ItemManager.cpp:351 MenuInventory.cpp:125
 msgid "Off Hand"
-msgstr "Man esq."
+msgstr "Heikompi käsi"
 
 #: ItemManager.cpp:353 MenuInventory.cpp:127
 msgid "Artifact"
-msgstr "Artefacto"
+msgstr "Esine"
 
 #: ItemManager.cpp:355
 msgid "Consumable"
-msgstr "Consumíbel"
+msgstr "Kulutettava"
 
 #: ItemManager.cpp:357
 msgid "Gem"
-msgstr "Xema"
+msgstr "Jalokivi"
 
 #: ItemManager.cpp:359
 msgid "Quest Item"
-msgstr "Obxecto dunha misión"
+msgstr "Tarvike"
 
 #: ItemManager.cpp:366
 #, c-format
 msgid "Melee damage: %d-%d"
-msgstr "Dano corpo a corpo: %d-%d"
+msgstr "Lähitaisteluvahinko: %d-%d"
 
 #: ItemManager.cpp:368
 #, c-format
 msgid "Melee damage: %d"
-msgstr "Dano corpo a corpo: %d"
+msgstr "Lähitaisteluvahinko: %d"
 
 #: ItemManager.cpp:372
 #, c-format
 msgid "Mental damage: %d-%d"
-msgstr "Dano mental: %d-%d"
+msgstr "Mentaalinen vahinko: %d-%d"
 
 #: ItemManager.cpp:374
 #, c-format
 msgid "Mental damage: %d"
-msgstr "Dano mental: %d"
+msgstr "Mentaalinen vahinko: %d"
 
 #: ItemManager.cpp:378
 #, c-format
 msgid "Ranged damage: %d-%d"
-msgstr "Dano a distancia: %d-%d"
+msgstr "Etävahinko: %d-%d"
 
 #: ItemManager.cpp:380
 #, c-format
 msgid "Ranged damage: %d"
-msgstr "Dano a distancia: %d"
+msgstr "Etävahinko: %d"
 
 #: ItemManager.cpp:387
 #, c-format
 msgid "Absorb: %d-%d"
-msgstr "Absorción: %d-%d"
+msgstr "Vaimennus: %d-%d"
 
 #: ItemManager.cpp:389
 #, c-format
 msgid "Absorb: %d"
-msgstr "Absorción: %d"
+msgstr "Vaimennus: %d"
 
 #: ItemManager.cpp:397
 #, c-format
 msgid "Increases %s by %d"
-msgstr "Aumenta %s en %d"
+msgstr "%s nousee %d"
 
 #: ItemManager.cpp:401
 #, c-format
 msgid "Decreases %s by %d"
-msgstr "Reduce %s en %d"
+msgstr "%s laskee %d"
 
 #: ItemManager.cpp:419 MenuCharacter.cpp:306 MenuCharacter.cpp:312
 #: MenuCharacter.cpp:318 MenuCharacter.cpp:324
 #, c-format
 msgid "Requires Physical %d"
-msgstr "Require %d de físico."
+msgstr "Vaatii fyysisen kyvyn %d"
 
 #: ItemManager.cpp:423 MenuCharacter.cpp:330 MenuCharacter.cpp:336
 #: MenuCharacter.cpp:342 MenuCharacter.cpp:348
 #, c-format
 msgid "Requires Mental %d"
-msgstr "Require %d de mente."
+msgstr "Vaatii mentaalisen kyvyn %d"
 
 #: ItemManager.cpp:427 MenuCharacter.cpp:354 MenuCharacter.cpp:360
 #: MenuCharacter.cpp:366 MenuCharacter.cpp:372
 #, c-format
 msgid "Requires Offense %d"
-msgstr "Require %d de ataque."
+msgstr "Vaatii hyökkäyskyvyn %d"
 
 #: ItemManager.cpp:431 MenuCharacter.cpp:378 MenuCharacter.cpp:384
 #: MenuCharacter.cpp:390 MenuCharacter.cpp:396
 #, c-format
 msgid "Requires Defense %d"
-msgstr "Require %d de defensa."
+msgstr "Vaatii puolustuskyvyn %d"
 
 #: ItemManager.cpp:441
 #, c-format
 msgid "Buy Price: %d gold"
-msgstr "Prezo de compra: %d moedas"
+msgstr "Ostohinta: %d kultaa"
 
 #: ItemManager.cpp:443
 #, c-format
 msgid "Buy Price: %d gold each"
-msgstr "Prezo de compra: %d moedas por unidade"
+msgstr "Ostohinta: á %d kultaa"
 
 #: ItemManager.cpp:449
 #, c-format
 msgid "Sell Price: %d gold"
-msgstr "Prezo de venda: %d moedas"
+msgstr "Myyntihinta: %d kultaa"
 
 #: ItemManager.cpp:451
 #, c-format
 msgid "Sell Price: %d gold each"
-msgstr "Prezo de venda: %d moedas por unidade"
+msgstr "Myyntihinta: á %d kultaa"
 
 #: LootManager.cpp:237 MenuInventory.cpp:129
 #, c-format
 msgid "%d Gold"
-msgstr "%d moedas"
+msgstr "%d kultaa"
 
 #: main.cpp:90
 msgid "Flare"
@@ -271,431 +259,424 @@ msgstr "Flare"
 
 #: MapIso.cpp:755
 msgid "Unknown destination"
-msgstr "Destino descoñecido."
+msgstr "Tuntematon päämäärä"
 
 #: MenuActionBar.cpp:279
 msgid "Character Menu (C)"
-msgstr "Personaxe (C)"
+msgstr "Hahmovalikko (C)"
 
 #: MenuActionBar.cpp:283
 msgid "Inventory Menu (I)"
-msgstr "Inventario (I)"
+msgstr "Tavaraluettelo (I)"
 
 #: MenuActionBar.cpp:287
 msgid "Power Menu (P)"
-msgstr "Habilidades (P)"
+msgstr "Voimavalikko (P)"
 
 #: MenuActionBar.cpp:291
 msgid "Log Menu (L)"
-msgstr "Rexistro (L)"
+msgstr "Lokivalikko (L)"
 
 #: MenuCharacter.cpp:42
 msgid "Character"
-msgstr "Personaxe"
+msgstr "Hahmo"
 
 #: MenuCharacter.cpp:57
 msgid "Name"
-msgstr "Nome"
+msgstr "Nimi"
 
 #: MenuCharacter.cpp:58
 msgid "Level"
-msgstr "Nivel"
+msgstr "Taso"
 
 #: MenuCharacter.cpp:59 MenuPowers.cpp:149 MenuPowers.cpp:151
 msgid "Physical"
-msgstr "Físico"
+msgstr "Fyysinen"
 
 #: MenuCharacter.cpp:60 MenuPowers.cpp:153 MenuPowers.cpp:155
 msgid "Mental"
-msgstr "Mente"
+msgstr "Mentaalinen"
 
 #: MenuCharacter.cpp:61 MenuPowers.cpp:157 MenuPowers.cpp:161
 msgid "Offense"
-msgstr "Ataque"
+msgstr "Hyökkäys"
 
 #: MenuCharacter.cpp:62 MenuPowers.cpp:159 MenuPowers.cpp:163
 msgid "Defense"
-msgstr "Defensa"
+msgstr "Puolustus"
 
 #: MenuCharacter.cpp:63
 msgid "Total HP"
-msgstr "Vida"
+msgstr "Osumapisteet enintään"
 
 #: MenuCharacter.cpp:64 MenuCharacter.cpp:66
 msgid "Regen"
-msgstr "Rexenera."
+msgstr "Uusiutumisp."
 
 #: MenuCharacter.cpp:65
 msgid "Total MP"
-msgstr "Enerxía"
+msgstr "Mentaalipisteet enintään"
 
 #: MenuCharacter.cpp:67
 msgid "Accuracy vs. Def 1"
-msgstr "Puntería vs 1 Def."
+msgstr "Tarkkuus, kun puolustus 1"
 
 #: MenuCharacter.cpp:68
 msgid "vs. Def 5"
-msgstr "vs 5 Def."
+msgstr "puolustus 5"
 
 #: MenuCharacter.cpp:69
 msgid "Avoidance vs. Off 1"
-msgstr "Esquivar vs 1 Ata."
+msgstr "Välttely, kun hyökkäys 1"
 
 #: MenuCharacter.cpp:70
 msgid "vs. Off 5"
-msgstr "vs 5 Ata."
+msgstr "hyökkäys 5"
 
 #: MenuCharacter.cpp:71
 msgid "Main Weapon"
-msgstr "Arma principal"
+msgstr "Varsinainen ase"
 
 #: MenuCharacter.cpp:72
 msgid "Ranged Weapon"
-msgstr "Arma a distancia"
+msgstr "Etäase"
 
 #: MenuCharacter.cpp:73
 msgid "Crit Chance"
-msgstr "Probabilidade de crítico"
+msgstr "Kuritusmahdollisuudet"
 
 #: MenuCharacter.cpp:74
 msgid "Absorb"
-msgstr "Absorber"
+msgstr "Vaimennus"
 
 #: MenuCharacter.cpp:75
 msgid "Fire Resist"
-msgstr "Res. ao lume"
+msgstr "Tulensieto"
 
 #: MenuCharacter.cpp:76
 msgid "Ice Resist"
-msgstr "Res. ao xeo"
+msgstr "Jäänsieto"
 
 #: MenuCharacter.cpp:246 MenuExperience.cpp:123
 #, c-format
 msgid "XP: %d"
-msgstr "Experiencia: %d"
+msgstr "Kokemus: %d"
 
 #: MenuCharacter.cpp:248
 #, c-format
 msgid "Next: %d"
-msgstr "Seguinte nivel: %d"
+msgstr "Seuraava: %d"
 
 #: MenuCharacter.cpp:252
 msgid "Physical (P) increases melee weapon proficiency and total HP."
-msgstr "O físico (F) aumenta a habilidade coas armas corpo a corpo e a vida."
+msgstr "Fyysinen"
 
 #: MenuCharacter.cpp:253 MenuCharacter.cpp:257 MenuCharacter.cpp:261
 #: MenuCharacter.cpp:265
 #, c-format
 msgid "base (%d), bonus (%d)"
-msgstr "Base: %d. Bonificación: %d."
+msgstr "perus (%d), lisä (%d)"
 
 #: MenuCharacter.cpp:256
 msgid "Mental (M) increases mental weapon proficiency and total MP."
-msgstr "A mente (M) aumenta a habilidade coas armas mentais e a enerxía."
+msgstr "Mentaalinen (M) lisää mentaaliasetaitoa ja MP:n kokonaismäärää."
 
 #: MenuCharacter.cpp:260
 msgid "Offense (O) increases ranged weapon proficiency and accuracy."
-msgstr "O ataque (A) aumenta a habilidade coas armas a distancia e a puntería."
+msgstr "Hyökkäys (O) lisää etäasetaitoa ja tarkkuutta."
 
 #: MenuCharacter.cpp:264
 msgid "Defense (D) increases armor proficiency and avoidance."
-msgstr "A defensa (D) aumenta a habilidade coa armadura e esquivando."
+msgstr "Puolustus (D) lisää haarniskataitoa ja välttelymahdollisuuksia."
 
 #: MenuCharacter.cpp:268
 msgid "Each point of Physical grants +8 HP"
-msgstr "Cada punto de físico aumenta en 8 a vida."
+msgstr "Jokainen fyysinen piste lisää 8 osumapistettä"
 
 #: MenuCharacter.cpp:269
 msgid "Each level grants +2 HP"
-msgstr "Cada nivel aumenta en 2 a vida."
+msgstr "Jokainen taso lisää 2 osumapistettä"
 
 #: MenuCharacter.cpp:272
 msgid "Ticks of HP regen per minute"
-msgstr "Recuperación por minuto"
+msgstr "Osumapisteiden lisäys minuuttia kohden"
 
 #: MenuCharacter.cpp:273
 msgid "Each point of Physical grants +4 HP regen"
-msgstr "Cada punto de físico aumenta en 4 a recuperación."
+msgstr "Jokainen fyysinen piste lisää uusiutumiseen +4 OP"
 
 #: MenuCharacter.cpp:274
 msgid "Each level grants +1 HP regen"
-msgstr "Cada nivel aumenta en 1 a recuperación."
+msgstr "Jokainen taso lisää uusiutumiseen +1 OP"
 
 #: MenuCharacter.cpp:277
 msgid "Each point of Mental grants +8 MP"
-msgstr "Cada punto de mente aumenta en 8 a enerxía."
+msgstr "Jokainen mentaalipiste lisää 8 MP"
 
 #: MenuCharacter.cpp:278
 msgid "Each level grants +2 MP"
-msgstr "Cada nivel aumenta en 2 a enerxía."
+msgstr "Jokainen taso lisää 2 MP"
 
 #: MenuCharacter.cpp:281
 msgid "Ticks of MP regen per minute"
-msgstr "Rexeneración por minuto"
+msgstr "MP:n lisäys minuuttia kohden"
 
 #: MenuCharacter.cpp:282
 msgid "Each point of Mental grants +4 MP regen"
-msgstr "Cada punto de mente aumenta en 4 a rexeneración."
+msgstr "Jokainen mentaalipiste lisää uusiutumiseen +4 MP"
 
 #: MenuCharacter.cpp:283
 msgid "Each level grants +1 MP regen"
-msgstr "Cada nivel aumenta en 1 a rexeneración."
+msgstr "Jokainen taso lisää uusiutumiseen +1 MP"
 
 #: MenuCharacter.cpp:286 MenuCharacter.cpp:290
 msgid "Each point of Offense grants +5 accuracy"
-msgstr "Cada punto de ataque aumenta en 5 a puntería."
+msgstr "Jokainen hyökkäyspiste lisää 5 tarkkuuteen"
 
 #: MenuCharacter.cpp:287 MenuCharacter.cpp:291
 msgid "Each level grants +1 accuracy"
-msgstr "Cada nivel aumenta en 1 a puntería."
+msgstr "Jokainen taso lisää 1 tarkkuuteen"
 
 #: MenuCharacter.cpp:294 MenuCharacter.cpp:298
 msgid "Each point of Defense grants +5 avoidance"
-msgstr "Cada punto de defensa aumenta en 5 a capacidade para esquivar."
+msgstr "Jokainen puolustuspiste lisää 5 välttelyyn"
 
 #: MenuCharacter.cpp:295 MenuCharacter.cpp:299
 msgid "Each level grants +1 avoidance"
-msgstr "Cada nivel aumenta en 1 a capacidade para esquivar."
+msgstr "Jokainen taso lisää 1 välttelyyn"
 
 #: MenuCharacter.cpp:303
 msgid "Dagger Proficiency"
-msgstr "Habilidade coa daga"
+msgstr "Tikaritaito"
 
 #: MenuCharacter.cpp:309
 msgid "Shortsword Proficiency"
-msgstr "Habilidade coa espada curta"
+msgstr "Lyhytmiekkataito"
 
 #: MenuCharacter.cpp:315
 msgid "Longsword Proficiency"
-msgstr "Habilidade coa espada longa"
+msgstr "Pitkämiekkataito"
 
 #: MenuCharacter.cpp:321
 msgid "Greatsword Proficiency"
-msgstr "Habilidade coa gran espada"
+msgstr "Suurmiekkataito"
 
 #: MenuCharacter.cpp:327
 msgid "Wand Proficiency"
-msgstr "Habilidade co pau"
+msgstr "Varputaito"
 
 #: MenuCharacter.cpp:333
 msgid "Rod Proficiency"
-msgstr "Habilidade coa vara"
+msgstr "Keppitaito"
 
 #: MenuCharacter.cpp:339
 msgid "Staff Proficiency"
-msgstr "Habilidade co bastón"
+msgstr "Sauvataito"
 
 #: MenuCharacter.cpp:345
 msgid "Greatstaff Proficiency"
-msgstr "Habilidade co gran bastón"
+msgstr "Suursauvataito"
 
 #: MenuCharacter.cpp:351
 msgid "Slingshot Proficiency"
-msgstr "Habilidade co tiracroios"
+msgstr "Ritsataito"
 
 #: MenuCharacter.cpp:357
 msgid "Shortbow Proficiency"
-msgstr "Habilidade co arco curto"
+msgstr "Lyhytjousitaito"
 
 #: MenuCharacter.cpp:363
 msgid "Longbow Proficiency"
-msgstr "Habilidade co arco longo"
+msgstr "Pitkäjousitaito"
 
 #: MenuCharacter.cpp:369
 msgid "Greatbow Proficiency"
-msgstr "Habilidade co gran arco"
+msgstr "Suurjousitaito"
 
 #: MenuCharacter.cpp:375
 msgid "Light Armor Proficiency"
-msgstr "Habilidade coa armadura lixeira"
+msgstr "Kevythaarniskataito"
 
 #: MenuCharacter.cpp:381
 msgid "Light Shield Proficiency"
-msgstr "Habilidade co escudo lixeiro"
+msgstr "Kevyt kilpi -taito"
 
 #: MenuCharacter.cpp:387
 msgid "Heavy Armor Proficiency"
-msgstr "Habilidade coa armadura pesada"
+msgstr "Raskashaarniskataito"
 
 #: MenuCharacter.cpp:393
 msgid "Heavy Shield Proficiency"
-msgstr "Habilidade co escudo pesado"
+msgstr "Raskas kilpi -taito"
 
 #: MenuEnemy.cpp:106
 msgid "Dead"
-msgstr "Morto"
+msgstr "Kuollut"
 
-# Indicación do inimigo ao que se está a apuntar.
 #: MenuEnemy.cpp:110
 #, c-format
 msgid "%s level %d"
-msgstr "%s (nivel %d)"
+msgstr "%s taso %d"
 
 #: MenuExit.cpp:37
 msgid "Exit"
-msgstr "Volver ao menú"
+msgstr "Poistu"
 
 #: MenuExit.cpp:83
 msgid "Save and exit to title?"
-msgstr "Gardar e saír ao menú?"
+msgstr "Tallenna ja poistu päävalikkoon?"
 
 #: MenuExperience.cpp:120
 #, c-format
 msgid "XP: %d/%d"
-msgstr "Experiencia: %d/%d"
+msgstr "Kokemus: %d/%d"
 
 #: MenuInventory.cpp:119
 msgid "Inventory"
-msgstr "Inventario"
+msgstr "Tavaraluettelo"
 
 #: MenuInventory.cpp:161
 msgid "Use SHIFT to move only one item."
-msgstr "Prema Maiús para mover só un ítem."
+msgstr "Vaihtonäppäimellä siirrät vain yhden tavaran."
 
 #: MenuInventory.cpp:162
 msgid "CTRL-click a carried item to sell it."
-msgstr "Prema Ctrl e un ítem para vendelo."
+msgstr "CTRL-napsauttamalla myyt kannetun tavaran."
 
 #: MenuInventory.cpp:325
 msgid "This item can only be used from the action bar."
-msgstr "Este ítem só pode empregarse dende a barra de acción."
+msgstr "Tätä tavaraa voit käyttää vain toimintapalkista."
 
 #: MenuLog.cpp:35
 msgid "Messages"
-msgstr "Mensaxes"
+msgstr "Viestit"
 
 #: MenuLog.cpp:36
 msgid "Quests"
-msgstr "Misións"
+msgstr "Etsinnät"
 
 #: MenuLog.cpp:37
 msgid "Statistics"
-msgstr "Estatísticas"
+msgstr "Tilastot"
 
 #: MenuLog.cpp:136
 msgid "Log"
-msgstr "Rexistro"
+msgstr "Loki"
 
 #: MenuPowers.cpp:147
 msgid "Powers"
-msgstr "Habilidades"
+msgstr "Voimat"
 
 #: MenuPowers.cpp:244
 msgid "Physical + Offense grants melee and ranged attacks"
-msgstr ""
-"A combinación de físico e ataque permite os ataques corpo a corpo e a "
-"distancia"
+msgstr "Fyysinen + hyökkäys tarjoaa lähitaistelu- ja etähyökkäyksiä"
 
 #: MenuPowers.cpp:248
 msgid "Physical + Defense grants melee protection"
-msgstr "A combinación de físico e defensa permite a protección corpo a corpo"
+msgstr "Fyysinen + puolustus tarjoaa suojaa lähitaisteluun"
 
 #: MenuPowers.cpp:252
 msgid "Mental + Offense grants elemental spell attacks"
-msgstr ""
-"A combinación de mente e ataque permite encantamentos de ataque elementais"
+msgstr "Mentaalinen + hyökkäys tarjoaa hyökkääviä elementtiloitsuja"
 
 #: MenuPowers.cpp:256
 msgid "Mental + Defense grants healing and magical protection"
-msgstr "A combinación de mente e defensa permite sandar e a protección máxica"
+msgstr "Mentaalinen + puolustus tarjoaa parantavia ja suojaavia voimia"
 
 #: MenuPowers.cpp:267
 msgid "Requires a physical weapon"
-msgstr "Require unha arma física."
+msgstr "Vaatii fyysisen aseen"
 
 #: MenuPowers.cpp:269
 msgid "Requires a mental weapon"
-msgstr "Require unha arma mental."
+msgstr "Vaatii mentaalisen aseen"
 
 #: MenuPowers.cpp:271
 msgid "Requires an offense weapon"
-msgstr "Require unha arma ofensiva."
+msgstr "Vaatii hyökkäysaseen"
 
 #: MenuPowers.cpp:282
 #, c-format
 msgid "Requires Physical Offense %d"
-msgstr "Require %s de ataque físico."
+msgstr "Vaatii fyysisen hyökkäyskyvyn %d"
 
 #: MenuPowers.cpp:283
 #, c-format
 msgid "Requires Physical Defense %d"
-msgstr "Require %d de defensa física."
+msgstr "Vaatii fyysisen puolustuskyvyn %d"
 
 #: MenuPowers.cpp:284
 #, c-format
 msgid "Requires Mental Offense %d"
-msgstr "Require %d de ataque mental."
+msgstr "Vaatii mentaalisen hyökkäyskyvyn %d"
 
 #: MenuPowers.cpp:285
 #, c-format
 msgid "Requires Mental Defense %d"
-msgstr "Require %d de defensa mental."
+msgstr "Vaatii mentaalisen puolustuskyvyn %d"
 
 #: MenuPowers.cpp:291
 #, c-format
 msgid "Costs %d MP"
-msgstr "Consume %d de enerxía"
+msgstr "Kustannus %d MP"
 
 #: MenuPowers.cpp:295
 #, c-format
 msgid "Cooldown: %d seconds"
-msgstr "Recarga: %d segundos"
+msgstr "Jäähtyminen: %d sekuntia"
 
 #: MenuVendor.cpp:97
 msgid "Vendor"
-msgstr "Vendedor"
+msgstr "Kauppias"
 
 #: StatBlock.cpp:297
 msgid "Grand Master"
-msgstr "Gran mestre"
+msgstr "Suurmestari"
 
 #: StatBlock.cpp:300
 msgid "Master"
-msgstr "Mestre"
+msgstr "Mestari"
 
 #: StatBlock.cpp:303
 msgid "Warrior"
-msgstr "Guerreiro"
+msgstr "Soturi"
 
 #: StatBlock.cpp:305
 msgid "Wizard"
-msgstr "Mago"
+msgstr "Velho"
 
 #: StatBlock.cpp:307
 msgid "Ranger"
-msgstr "Silvano"
+msgstr "Metsänvartija"
 
 #: StatBlock.cpp:309
 msgid "Paladin"
-msgstr "Paladín"
+msgstr "Paladiini"
 
 #: StatBlock.cpp:312
 msgid "Rogue"
-msgstr "Pillabán"
+msgstr "Konna"
 
 #: StatBlock.cpp:314
 msgid "Knight"
-msgstr "Cabaleiro"
+msgstr "Ritari"
 
 #: StatBlock.cpp:316
 msgid "Shaman"
-msgstr "Xamán"
+msgstr "Shamaani"
 
 #: StatBlock.cpp:318
 msgid "Cleric"
-msgstr "Clérigo"
+msgstr "Pappi"
 
 #: StatBlock.cpp:320
 msgid "Battle Mage"
-msgstr "Mago guerreiro"
+msgstr "Taistelumaagi"
 
 #: StatBlock.cpp:322
 msgid "Heavy Archer"
-msgstr "Arqueiro pesado"
+msgstr "Ampuja"
 
 #: StatBlock.cpp:324
 msgid "Adventurer"
-msgstr "Aventureiro"
-
-#~ msgid "Achievements"
-#~ msgstr "Logros"
+msgstr "Seikkailija"
