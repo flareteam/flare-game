@@ -88,6 +88,7 @@ private:
 	Mix_Music *music;
 
 	WidgetTooltip *tip;
+	TooltipData tip_buf;
 
 	// map events can play random soundfx
 	Mix_Chunk *sfx;

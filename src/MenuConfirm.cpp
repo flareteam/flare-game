@@ -40,6 +40,8 @@ MenuConfirm::MenuConfirm(string _buttonMsg, string _boxMsg) : Menu() {
 	buttonClose->pos.x = window_area.x + window_area.w;
 	buttonClose->pos.y = window_area.y;
 
+	label.set(window_area.x + window_area.w/2, window_area.y + 10, JUSTIFY_CENTER, VALIGN_TOP, boxMsg, FONT_WHITE);
+
 	loadGraphics();
 }
 
@@ -75,8 +77,6 @@ void MenuConfirm::render() {
 	src.h = window_area.h;
 	SDL_BlitSurface(background, &src, screen, &window_area);
 
-	WidgetLabel label;
-	label.set(window_area.x + window_area.w/2, window_area.y + 10, JUSTIFY_CENTER, VALIGN_TOP, boxMsg, FONT_WHITE);
 	label.render();
 
 	buttonConfirm->render();

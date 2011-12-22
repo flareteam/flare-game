@@ -35,6 +35,7 @@ protected:
 
 	WidgetButton *buttonExit;
 	WidgetButton *buttonClose;
+	WidgetLabel label;
 
 	bool exitClicked;
 

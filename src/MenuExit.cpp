@@ -42,6 +42,8 @@ MenuExit::MenuExit() : Menu() {
 	buttonClose = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
 	buttonClose->pos.x = window_area.x + window_area.w;
 	buttonClose->pos.y = window_area.y;
+	
+	label.set(window_area.x + window_area.w/2, window_area.y + 10, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Save and exit to title?"), FONT_WHITE);
 
 	loadGraphics();
 }
@@ -80,8 +82,6 @@ void MenuExit::render() {
 	src.h = window_area.h;
 	SDL_BlitSurface(background, &src, screen, &window_area);
 
-	WidgetLabel label;
-	label.set(window_area.x + window_area.w/2, window_area.y + 10, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Save and exit to title?"), FONT_WHITE);
 	label.render();
 
 	buttonExit->render();

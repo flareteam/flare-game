@@ -494,33 +494,43 @@ void MenuManager::render() {
 	enemy->render();
 	if (exit->visible) exit->render();
 
-	TooltipData tooltip;
+	TooltipData tip_new;
 	int offset_x = (VIEW_W - 320);
 	int offset_y = (VIEW_H - 416)/2;
 
 	// Find tooltips depending on mouse position
 	if (inp->mouse.x < 320 && inp->mouse.y >= offset_y && inp->mouse.y <= offset_y+416) {
 		if (chr->visible) {
-			tooltip = chr->checkTooltip();
+			tip_new = chr->checkTooltip();
 		}
 		else if (vendor->visible) {
-			tooltip = vendor->checkTooltip(inp->mouse);
+			tip_new = vendor->checkTooltip(inp->mouse);
 		}
 	}
 	else if (inp->mouse.x >= offset_x && inp->mouse.y >= offset_y && inp->mouse.y <= offset_y+416) {
 		if (pow->visible) {
-			tooltip = pow->checkTooltip(inp->mouse);
+			tip_new = pow->checkTooltip(inp->mouse);
 		}
 		else if (inv->visible && !dragging) {
-			tooltip = inv->checkTooltip(inp->mouse);
+			tip_new = inv->checkTooltip(inp->mouse);
 		}
 	}
 	else if (inp->mouse.y >= VIEW_H-32) {
-		tooltip = act->checkTooltip(inp->mouse);
+		tip_new = act->checkTooltip(inp->mouse);
 	}
 
-	if (tooltip.num_lines > 0) {
-		tip->render(tooltip, inp->mouse, STYLE_FLOAT);
+	if (tip_new.num_lines > 0) {
+	
+		// when we render a tooltip it buffers the rasterized text for performance.
+		// If this new tooltip is the same as the existing one, reuse.
+		
+		// TODO: comparing the first line of a tooltip works in all existing cases,
+		// but may not hold true in the future.
+		if (tip_new.lines[0] != tip_buf.lines[0]) {
+			tip->clear(tip_buf);
+			tip_buf = tip_new;
+		}
+		tip->render(tip_buf, inp->mouse, STYLE_FLOAT);
 	}
 
 	// draw icon under cursor if dragging
@@ -565,6 +575,9 @@ void MenuManager::closeRight(bool play_sound) {
 }
 
 MenuManager::~MenuManager() {
+	
+	tip->clear(tip_buf);
+
 	delete xp;
 	delete mini;
 	delete items;
