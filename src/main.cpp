@@ -52,7 +52,7 @@ static void init() {
 	font = new FontEngine();
 
 	// Add Window Titlebar Icon
-	SDL_WM_SetIcon(IMG_Load("images/logo/icon.png"),NULL);
+	SDL_WM_SetIcon(IMG_Load(mods->locate("images/logo/icon.png").c_str()),NULL);
 
 	// Create window
 	screen = SDL_SetVideoMode (VIEW_W, VIEW_H, 0, flags);
