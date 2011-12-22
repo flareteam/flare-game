@@ -44,8 +44,15 @@ static void init() {
 	else
 		flags = flags | SDL_SWSURFACE;
 
+	// Shared Resources set-up
+	
+	mods = new ModManager();
+	msg = new MessageEngine();
+	inp = new InputState();
+	font = new FontEngine();
+
 	// Add Window Titlebar Icon
-	SDL_WM_SetIcon(IMG_Load("art/logo/icon.png"),NULL);
+	SDL_WM_SetIcon(IMG_Load("images/logo/icon.png"),NULL);
 
 	// Create window
 	screen = SDL_SetVideoMode (VIEW_W, VIEW_H, 0, flags);
@@ -81,13 +88,6 @@ static void init() {
 
 	// Set sound effects volume from settings file
 	Mix_Volume(-1, SOUND_VOLUME);
-
-	// Shared Resources set-up
-	
-	mods = new ModManager();
-    msg = new MessageEngine();
-	inp = new InputState();
-	font = new FontEngine();
 
 	// Window title
 	const char* title = msg->get("Flare").c_str();
