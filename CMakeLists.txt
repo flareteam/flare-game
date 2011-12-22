@@ -6,7 +6,7 @@ Set (VERSION "0.15")
 
 
 # Default definitions
-set(CMAKE_CXX_FLAGS "-Wall -Wextra -Wno-unused -Wshadow -Woverloaded-virtual")
+add_definitions(-Wall -Wextra -Wno-unused -Wshadow -Woverloaded-virtual)
 if (NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE "Release")
 endif()
