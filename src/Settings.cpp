@@ -171,6 +171,11 @@ void setPaths() {
 			pathtest = eatFirstString(pathlist,':');
 		}
 	}
+
+#if defined DATA_INSTALL_DIR
+	PATH_DATA = DATA_INSTALL_DIR "/";
+	if (dirExists(PATH_DATA)) return; // NOTE: early exit
+#endif
 	
 	// check /usr/local/share/flare/ and /usr/share/flare/ next
 	PATH_DATA = "/usr/local/share/" + engine_folder + "/";

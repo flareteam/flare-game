@@ -26,6 +26,8 @@ endif()
 set(BINDIR  "games"             CACHE STRING "where to install game binary")
 set(DATADIR "share/games/flare" CACHE STRING "where to install game data")
 
+add_definitions(-DDATA_INSTALL_DIR="${CMAKE_INSTALL_PREFIX}/${DATADIR}")
+
 # Detect missing dependencies
 
 Find_Package (SDL REQUIRED)
