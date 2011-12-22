@@ -61,6 +61,8 @@ private:
 	PowerManager *powers;
 	StatBlock *stats;
 	CampaignManager *camp;
+	
+	TooltipData tip_buf;
 
 	bool key_lock;
 	void loadSounds();

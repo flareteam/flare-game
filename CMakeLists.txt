@@ -6,10 +6,7 @@ Set (VERSION "0.15")
 
 
 # Default definitions
-set(CMAKE_CXX_FLAGS "-Wall -Wextra -Wno-unused -Wshadow -Woverloaded-virtual")
-if (NOT CMAKE_BUILD_TYPE)
-  set(CMAKE_BUILD_TYPE "Release")
-endif()
+add_definitions(-Wall -Wextra -Wno-unused -Wshadow -Woverloaded-virtual)
 if(CMAKE_BUILD_TYPE STREQUAL "Release")
   set(CMAKE_CXX_FLAGS_RELEASE "-O2 -g0")
 elseif(CMAKE_BUILD_TYPE STREQUAL "RelWithDebInfo")
@@ -23,6 +20,10 @@ elseif(CMAKE_BUILD_TYPE STREQUAL "Debug")
   set(CMAKE_MODULE_LINKER_FLAGS_DEBUG "-pg")
 endif()
 
+set(BINDIR  "games"             CACHE STRING "where to install game binary")
+set(DATADIR "share/games/flare" CACHE STRING "where to install game data")
+
+add_definitions(-DDATA_INSTALL_DIR="${CMAKE_INSTALL_PREFIX}/${DATADIR}")
 
 # Detect missing dependencies
 
@@ -130,21 +131,21 @@ EndIf (NOT SDLMAIN_LIBRARY)
 Target_Link_Libraries (flare ${SDL_LIBRARY} ${SDLMIXER_LIBRARY} ${SDLIMAGE_LIBRARY} ${SDLTTF_LIBRARY} ${SDLMAIN_LIBRARY})
 
 
-set(FLARE_EXECUTABLE_PATH ${CMAKE_INSTALL_PREFIX}/games/flare)
+set(FLARE_EXECUTABLE_PATH ${CMAKE_INSTALL_PREFIX}/${BINDIR}/flare)
 configure_file("${CMAKE_CURRENT_SOURCE_DIR}/distribution/flare.desktop.in" "${CMAKE_CURRENT_BINARY_DIR}/flare.desktop")
 
 
 # installing to the proper places
 install(PROGRAMS
   ${CMAKE_CURRENT_BINARY_DIR}/flare
-  DESTINATION ${CMAKE_INSTALL_PREFIX}/games)
+  DESTINATION ${CMAKE_INSTALL_PREFIX}/${BINDIR})
 install(DIRECTORY
   "${CMAKE_CURRENT_SOURCE_DIR}/mods"
-  DESTINATION ${CMAKE_INSTALL_PREFIX}/share/games/flare)
+  DESTINATION ${CMAKE_INSTALL_PREFIX}/${DATADIR})
 install(FILES
   "${CMAKE_CURRENT_BINARY_DIR}/flare.desktop"
   DESTINATION ${CMAKE_INSTALL_PREFIX}/share/applications)
 install(FILES
-  "${CMAKE_CURRENT_SOURCE_DIR}/art/logo/flare_logo.svg"
+  "${CMAKE_CURRENT_SOURCE_DIR}/art_src/logo/flare_logo.svg"
   DESTINATION ${CMAKE_INSTALL_PREFIX}/share/icons/hicolor/scalable/apps
   RENAME flare.svg)

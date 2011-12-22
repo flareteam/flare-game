@@ -93,7 +93,7 @@ void setPaths() {
 	PATH_CONF = PATH_CONF + "/";
 	PATH_USER = PATH_USER + "/";
 }
-#elseif __amigaos4__
+#elif __amigaos4__
 // AmigaOS paths
 void setPaths() {
 	PATH_CONF = "PROGDIR:";
@@ -151,7 +151,7 @@ void setPaths() {
 	// data folder
 	// while PATH_CONF and PATH_USER are created if not found,
 	// PATH_DATA must already have the game data for the game to work.
-	// in most released the data will be in the same folder as the executable
+	// in most releases the data will be in the same folder as the executable
 	// - Windows apps are released as a simple folder
 	// - OSX apps are released in a .app folder
 	// Official linux distros might put the executable and data files
@@ -171,6 +171,11 @@ void setPaths() {
 			pathtest = eatFirstString(pathlist,':');
 		}
 	}
+
+#if defined DATA_INSTALL_DIR
+	PATH_DATA = DATA_INSTALL_DIR "/";
+	if (dirExists(PATH_DATA)) return; // NOTE: early exit
+#endif
 	
 	// check /usr/local/share/flare/ and /usr/share/flare/ next
 	PATH_DATA = "/usr/local/share/" + engine_folder + "/";
@@ -227,9 +232,6 @@ bool loadSettings() {
 				if (infile.val == "1") DOUBLEBUF = true;
 				else DOUBLEBUF = false;
 			}
-			else if (infile.key == "frames_per_sec") {
-				FRAMES_PER_SEC = atoi(infile.val.c_str());
-			}
 			else if (infile.key == "enable_joystick") {
 				if (infile.val == "1") ENABLE_JOYSTICK = true;
 				else ENABLE_JOYSTICK = false;
@@ -260,18 +262,32 @@ bool saveSettings() {
 
 	if (outfile.is_open()) {
 	
-		outfile << "fullscreen=" << FULLSCREEN << "\n";
+		// TODO: output helpful comments
+	
+		outfile << "# fullscreen mode. 1 enable, 0 disable.\n";
+		outfile << "fullscreen=" << FULLSCREEN << "\n\n";
+		
+		outfile << "# display resolution. 640x480 minimum. 720x480 recommended.\n";		
 		outfile << "resolution_w=" << VIEW_W << "\n";
-		outfile << "resolution_h=" << VIEW_H << "\n";
+		outfile << "resolution_h=" << VIEW_H << "\n\n";
+		
+		outfile << "# music and sound volume (0 = silent, 128 = max)\n";
 		outfile << "music_volume=" << MUSIC_VOLUME << "\n";
-		outfile << "sound_volume=" << SOUND_VOLUME << "\n";
-		outfile << "mouse_move=" << MOUSE_MOVE << "\n";
+		outfile << "sound_volume=" << SOUND_VOLUME << "\n\n";
+		
+		outfile << "# use mouse to move (experimental). 1 enable, 0 disable.\n";
+		outfile << "mouse_move=" << MOUSE_MOVE << "\n\n";
+		
+		outfile << "# hardware surfaces, double buffering. Try disabling for performance. 1 enable, 0 disable.\n";
 		outfile << "hwsurface=" << HWSURFACE << "\n";
-		outfile << "doublebuf=" << DOUBLEBUF << "\n";
-		outfile << "frames_per_sec=" << FRAMES_PER_SEC << "\n";
+		outfile << "doublebuf=" << DOUBLEBUF << "\n\n";
+		
+		outfile << "# joystick settings.\n";
 		outfile << "enable_joystick=" << ENABLE_JOYSTICK << "\n";
-		outfile << "joystick_device=" << JOYSTICK_DEVICE << "\n";
-		outfile << "language=" << LANGUAGE << "\n";
+		outfile << "joystick_device=" << JOYSTICK_DEVICE << "\n\n";
+		
+		outfile << "# 2-letter language code.\n";
+		outfile << "language=" << LANGUAGE << "\n\n";
 
 		outfile.close();
 	}

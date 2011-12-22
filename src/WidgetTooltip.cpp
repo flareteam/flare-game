@@ -21,25 +21,29 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "WidgetTooltip.h"
 #include "SharedResources.h"
+#include "Utils.h"
 
 WidgetTooltip::WidgetTooltip() {
-	offset=12;
-	width=160;
-	margin=4;
+
+	// TODO: Put these values in an engine config file
+	
+	offset=12; // distance between cursor and tooltip
+	width=160; // max width of tooltips (wrap text)
+	margin=4; // outer margin between tooltip text and the edge of the tooltip background
 }
 
 /**
  * Knowing the total size of the text and the position of origin,
  * calculate the starting position of the background and text
  */
-void WidgetTooltip::calcPosition(int style, Point pos, Point size, Sint16 &bgx, Sint16 &bgy, int &curx, int &cury) {
+Point WidgetTooltip::calcPosition(int style, Point pos, Point size) {
+
+	Point tip_pos;
 
 	// TopLabel style is fixed and centered over the origin
 	if (style == STYLE_TOPLABEL) {
-		bgx = pos.x - size.x/2 - margin;
-		bgy = pos.y - offset - margin;
-		curx = bgx + margin;
-		cury = bgy + margin;
+		tip_pos.x = pos.x - size.x/2;
+		tip_pos.y = pos.y - offset;
 	}
 	// Float style changes position based on the screen quadrant of the origin
 	// (usually used for tooltips which are long and we don't want them to overflow
@@ -47,60 +51,99 @@ void WidgetTooltip::calcPosition(int style, Point pos, Point size, Sint16 &bgx, 
 	else if (style == STYLE_FLOAT) {
 		// upper left
 		if (pos.x < VIEW_W_HALF && pos.y < VIEW_H_HALF) {
-			bgx = pos.x + offset;
-			bgy = pos.y + offset;
-			curx = pos.x + offset + margin;
-			cury = pos.y + offset + margin;
+			tip_pos.x = pos.x + offset;
+			tip_pos.y = pos.y + offset;
 		}
 		// upper right
 		else if (pos.x >= VIEW_W_HALF && pos.y < VIEW_H_HALF) {
-			bgx = pos.x - offset - size.x - margin - margin;
-			bgy = pos.y + offset;
-			curx = pos.x - offset - size.x - margin;
-			cury = pos.y + offset + margin;
+			tip_pos.x = pos.x - offset - size.x;
+			tip_pos.y = pos.y + offset;
 		}
 		// lower left
 		else if (pos.x < VIEW_W_HALF && pos.y >= VIEW_H_HALF) {
-			bgx = pos.x + offset;
-			bgy = pos.y - offset - size.y - margin - margin;
-			curx = pos.x + offset + margin;
-			cury = pos.y - offset - size.y - margin;
+			tip_pos.x = pos.x + offset;
+			tip_pos.y = pos.y - offset - size.y;
 		}
 		// lower right
 		else if (pos.x >= VIEW_W_HALF && pos.y >= VIEW_H_HALF) {
-			bgx = pos.x - offset - size.x - margin - margin;		
-			bgy = pos.y - offset - size.y - margin - margin;		
-			curx = pos.x - offset - size.x - margin;
-			cury = pos.y - offset - size.y - margin;
+			tip_pos.x = pos.x - offset - size.x;		
+			tip_pos.y = pos.y - offset - size.y;		
 		}
 	}
+	
+	return tip_pos;
 } 
 
 /**
- * Tooltip position depends on the screen quadrant of the source
+ * Tooltip position depends on the screen quadrant of the source.
+ * Draw the buffered tooltip if it exists, else render the tooltip and buffer it
  */
-void WidgetTooltip::render(TooltipData tip, Point pos, int style) {
-	SDL_Rect background;
+void WidgetTooltip::render(TooltipData &tip, Point pos, int style) {
+
+	if (tip.tip_buffer == NULL) {
+		createBuffer(tip);
+	}
+
+	Point size;
+	size.x = tip.tip_buffer->w;
+	size.y = tip.tip_buffer->h;
+		
+	Point tip_pos = calcPosition(style, pos, size);
+
+	SDL_Rect dest;
+	dest.x = tip_pos.x;
+	dest.y = tip_pos.y;
 	
+	SDL_BlitSurface(tip.tip_buffer, NULL, screen, &dest);
+}
+
+/**
+ * Clear the given tooltip.
+ * Free the buffered tip image
+ * Note most tooltip usage will assume WHITE default color, so reset it
+ */
+void WidgetTooltip::clear(TooltipData &tip) {
+	tip.num_lines = 0;
+	for (int i=0; i<TOOLTIP_MAX_LINES; i++) {
+		tip.lines[i] = "";
+		tip.colors[i] = FONT_WHITE;
+	}
+	SDL_FreeSurface(tip.tip_buffer);
+	tip.tip_buffer = NULL;
+}
+
+/**
+ * Rendering a wordy tooltip (TTF to raster) can be expensive.
+ * Instead of doing this each frame, do it once and cache the result.
+ */
+void WidgetTooltip::createBuffer(TooltipData &tip) {
+	
+	// concat multi-line tooltip, used in determining total display size
 	string fulltext;
-	
 	fulltext = tip.lines[0];
 	for (int i=1; i<tip.num_lines; i++) {
 		fulltext = fulltext + "\n" + tip.lines[i];
 	}
 	
+	// calculate the full size to display a multi-line tooltip
 	Point size = font->calc_size(fulltext, width);
-	background.w = size.x + margin + margin;
-	background.h = size.y + margin + margin;
 	
-	int cursor_x;
-	int cursor_y;
+	// WARNING: dynamic memory allocation. Be careful of memory leaks.
+	tip.tip_buffer = createSurface(size.x + margin+margin, size.y + margin+margin);
 	
-	calcPosition(style, pos, size, background.x, background.y, cursor_x, cursor_y);
+	// Currently tooltips are always opaque
+	SDL_SetAlpha(tip.tip_buffer, 0, 0);
 	
-	SDL_FillRect(screen, &background, 0);
+	// style the tooltip background
+	// currently this is plain black
+	SDL_FillRect(tip.tip_buffer, NULL, 0);
+	
+	int cursor_y = margin;
+	
 	for (int i=0; i<tip.num_lines; i++) {
-		font->render(tip.lines[i], cursor_x, cursor_y, JUSTIFY_LEFT, screen, size.x, tip.colors[i]);
+		font->render(tip.lines[i], margin, cursor_y, JUSTIFY_LEFT, tip.tip_buffer, size.x, tip.colors[i]);
 		cursor_y = font->cursor_y;
 	}
+
 }
+

@@ -49,6 +49,22 @@ MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers) {
 	closeButton = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
 	closeButton->pos.x = VIEW_W - 26;
 	closeButton->pos.y = (VIEW_H - 480)/2 + 34;
+
+	label_powers.set(offset_x+160, offset_y+8, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Powers"), FONT_WHITE);
+	label_p1.set(offset_x+64, offset_y+50, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Physical"), FONT_WHITE);
+	label_p2.set(offset_x+128, offset_y+50, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Physical"), FONT_WHITE);
+	label_m1.set(offset_x+192, offset_y+50, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Mental"), FONT_WHITE);
+	label_m2.set(offset_x+256, offset_y+50, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Mental"), FONT_WHITE);
+	label_o1.set(offset_x+64, offset_y+66, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Offense"), FONT_WHITE);
+	label_o2.set(offset_x+192, offset_y+66, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Offense"), FONT_WHITE);
+	label_d1.set(offset_x+128, offset_y+66, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Defense"), FONT_WHITE);
+	label_d2.set(offset_x+256, offset_y+66, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Defense"), FONT_WHITE);
+	
+	stat_po.set(offset_x+64, offset_y+34, JUSTIFY_CENTER, VALIGN_TOP, "", FONT_WHITE);
+	stat_pd.set(offset_x+128, offset_y+34, JUSTIFY_CENTER, VALIGN_TOP, "", FONT_WHITE);
+	stat_mo.set(offset_x+192, offset_y+34, JUSTIFY_CENTER, VALIGN_TOP, "", FONT_WHITE);
+	stat_md.set(offset_x+256, offset_y+34, JUSTIFY_CENTER, VALIGN_TOP, "", FONT_WHITE);
+	
 }
 
 void MenuPowers::loadGraphics() {
@@ -143,49 +159,38 @@ void MenuPowers::render() {
 	closeButton->render();
 	
 	// text overlay
-        WidgetLabel label;
-        label.set(offset_x+160, offset_y+8, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Powers"), FONT_WHITE);
-        label.render();
-        label.set(offset_x+64, offset_y+50, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Physical"), FONT_WHITE);
-        label.render();
-        label.set(offset_x+128, offset_y+50, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Physical"), FONT_WHITE);
-        label.render();
-        label.set(offset_x+192, offset_y+50, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Mental"), FONT_WHITE);
-        label.render();
-        label.set(offset_x+256, offset_y+50, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Mental"), FONT_WHITE);
-        label.render();
-        label.set(offset_x+64, offset_y+66, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Offense"), FONT_WHITE);
-        label.render();
-        label.set(offset_x+128, offset_y+66, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Defense"), FONT_WHITE);
-        label.render();
-        label.set(offset_x+192, offset_y+66, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Offense"), FONT_WHITE);
-        label.render();
-        label.set(offset_x+256, offset_y+66, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Defense"), FONT_WHITE);
-        label.render();
+	label_powers.render();
+	label_p1.render();
+	label_p2.render();
+	label_m1.render();
+	label_m2.render();
+	label_o1.render();
+	label_o2.render();
+	label_d1.render();
+	label_d2.render();
 
 	// stats
 	stringstream ss;
 
 	ss.str("");
 	ss << stats->physoff;
-	label.set(offset_x+64, offset_y+34, JUSTIFY_CENTER, VALIGN_TOP, ss.str(), FONT_WHITE);
-	label.render();
+	stat_po.set(ss.str());
+	stat_po.render();
 
 	ss.str("");
 	ss << stats->physdef;
-	label.set(offset_x+128, offset_y+34, JUSTIFY_CENTER, VALIGN_TOP, ss.str(), FONT_WHITE);
-	label.render();
+	stat_pd.set(ss.str());
+	stat_pd.render();
 
 	ss.str("");
 	ss << stats->mentoff;
-	label.set(offset_x+192, offset_y+34, JUSTIFY_CENTER, VALIGN_TOP, ss.str(), FONT_WHITE);
-	label.render();
+	stat_mo.set(ss.str());
+	stat_mo.render();
 
 	ss.str("");
 	ss << stats->mentdef;
-	label.set(offset_x+256, offset_y+34, JUSTIFY_CENTER, VALIGN_TOP, ss.str(), FONT_WHITE);
-	label.render();
-
+	stat_md.set(ss.str());
+	stat_md.render();
 
 	// highlighting
 	displayBuild(stats->physoff, offset_x+48);

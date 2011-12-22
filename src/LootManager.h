@@ -41,6 +41,7 @@ struct LootDef {
 	int frame;
 	Point pos;
 	int gold;
+	TooltipData tip;
 };
 
 
@@ -91,7 +92,7 @@ private:
 	int anim_loot_duration;
 	
 public:
-	LootManager(ItemManager *_items, WidgetTooltip *_tip, EnemyManager *_enemies, MapIso *_map);
+	LootManager(ItemManager *_items, EnemyManager *_enemies, MapIso *_map);
 	~LootManager();
 
 	void handleNewMap();
