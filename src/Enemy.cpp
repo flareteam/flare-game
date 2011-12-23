@@ -150,8 +150,10 @@ void Enemy::logic() {
 		stats.last_seen.y = -1;
 		
 		// heal rapidly if the hero has left range
-		stats.hp++;
-		if (stats.hp > stats.maxhp) stats.hp = stats.maxhp;
+		if (stats.alive && stats.hero_alive) {
+			stats.hp++;
+			if (stats.hp > stats.maxhp) stats.hp = stats.maxhp;
+		}
 	}
 
 	if (dist < stats.threat_range && stats.hero_alive)
