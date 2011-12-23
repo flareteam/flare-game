@@ -25,7 +25,7 @@ static void init() {
 	setPaths();
 
 	if (!loadSettings()) {
-		fprintf(stderr, "Error: could not load config/settings.txt.");
+		fprintf(stderr, "Error: could not load config/settings.txt.\n");
 		exit(1);
 	}
 

@@ -42,7 +42,7 @@ void ModManager::loadModList() {
 	infile.open((PATH_DATA + "mods/mods.txt").c_str(), ios::in);
 
 	if (!infile.is_open()) {
-		fprintf(stderr, "Error during ModManager::loadModList() -- couldn't open mods/mods.txt");
+		fprintf(stderr, "Error during ModManager::loadModList() -- couldn't open mods/mods.txt\n");
 		SDL_Quit();
 		exit(1);
 	}
