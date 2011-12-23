@@ -121,6 +121,14 @@ Set (FLARE_SOURCES
 	./src/main.cpp
 )
 
+# Add icon and file info to executable for Windows systems
+IF (WIN32)
+  SET(FLARE_SOURCES 
+    ${FLARE_SOURCES}
+    ./src/Flare.rc
+    )
+ENDIF (WIN32)
+
 Add_Executable (flare ${FLARE_SOURCES})
 
 # libSDLMain comes with libSDL if needed on certain platforms
