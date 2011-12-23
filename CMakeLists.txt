@@ -6,7 +6,7 @@ Set (VERSION "0.15")
 
 
 # Default definitions
-add_definitions(-Wall -Wextra -Wno-unused -Wshadow -Woverloaded-virtual)
+set(CMAKE_CXX_FLAGS "-Wall -Wextra -Wno-unused -Wshadow -Woverloaded-virtual")
 if(CMAKE_BUILD_TYPE STREQUAL "Release")
   set(CMAKE_CXX_FLAGS_RELEASE "-O2 -g0")
 elseif(CMAKE_BUILD_TYPE STREQUAL "RelWithDebInfo")
