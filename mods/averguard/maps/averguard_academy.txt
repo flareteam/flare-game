@@ -456,18 +456,19 @@ loot=random,45,98,7
 
 # entrance guards
 [enemy]
-type=skeleton
+type=skeletal_mage
 location=60,14
 direction=3
+
 [enemy]
-type=skeleton
+type=skeletal_mage
 location=65,14
 direction=3
 
 [enemygroup]
 type=undead
 location=58,23,9,7
-level=1,3
+level=3,5
 number=1,3
 
 [enemy]
@@ -480,7 +481,7 @@ location=50,30
 # foyer
 [enemygroup]
 type=undead
-level=5,6
+level=4,6
 number=2,3
 location=34,26,9,14
 
@@ -488,32 +489,32 @@ location=34,26,9,14
 [enemygroup]
 location=15,22,18,18
 type=zombie
-level=1,3
+level=3,5
 number=3,4
 
 [enemygroup]
 location=15,22,18,18
 type=zombie
-level=2,3
+level=3,5
 number=2,2
 
 [enemygroup]
 location=15,22,18,18
 type=undead
-level=3,4
+level=3,5
 number=1,2
 
 # center book location
 [enemygroup]
 type=zombie
 location=25,42,30,30
-level=2,3
+level=3,5
 number=7,10
 
 [enemygroup]
 type=zombie
 location=25,42,30,30
-level=1,3
+level=3,5
 number=3,7
 
 [enemygroup]
@@ -525,14 +526,14 @@ number=4,6
 [enemygroup]
 type=antlion
 location=51,66,7,9
-level=1,2
+level=3,5
 number=1,3
 
 #south book location
 [enemygroup]
 type=undead
 location=13,68,12,8
-level=1,3
+level=3,5
 number=2,4
 
 #guards teleport chest
@@ -545,7 +546,7 @@ location=45,85
 type=antlion
 location=10,67,17,26
 number=3,5
-level=1,2
+level=3,5
 
 [enemy]
 type=professor_langlier

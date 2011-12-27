@@ -415,20 +415,6 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
-# Scathelocke's Chest
-type=run_once
-location=14,10,1,1
-hotspot=-16,-36,32,44
-loot=random,15,10,11
-mapmod=object,14,10,160
-requires_item=9101
-remove_item=9101
-set_status=lb_ice_looted
-soundfx=soundfx/wood_open.ogg
-tooltip=Runed Chest
-unset_status=lb_ice_key
-
-[event]
 # Treasure Chest
 type=run_once
 location=7,50,1,1
@@ -437,6 +423,39 @@ loot=random,8,50,9
 mapmod=object,7,50,160
 soundfx=soundfx/wood_open.ogg
 tooltip=Treasure Chest
+
+[event]
+# Scathelocke's Chest (Spellbook)
+# Should only drop once per game
+type=run_once
+location=14,10,1,1
+hotspot=-16,-36,32,44
+loot=id,15,10,9100
+mapmod=object,14,10,160
+requires_item=9101
+remove_item=9101
+requires_not=lb_ice_spellbook
+requires_not=lb_ice_looted
+set_status=lb_ice_looted
+set_status=lb_ice_spellbook
+soundfx=soundfx/wood_open.ogg
+tooltip=Runed Chest
+unset_status=lb_ice_key
+
+[event]
+# Scathelocke's Chest
+type=run_once
+location=14,10,1,1
+hotspot=-16,-36,32,44
+loot=random,15,10,11
+mapmod=object,14,10,160
+requires_item=9101
+remove_item=9101
+requires_not=lb_ice_looted
+set_status=lb_ice_looted
+soundfx=soundfx/wood_open.ogg
+tooltip=Runed Chest
+unset_status=lb_ice_key
 
 [event]
 # Scathelocke's Chest Locked
@@ -465,7 +484,7 @@ mapmod=collision,21,38,0
 soundfx=soundfx/door_open.ogg
 
 [event]
-# Lore: Under the Wing
+# Treasure
 type=run_once
 location=30,57,1,1
 hotspot=-32,-84,64,100
@@ -474,7 +493,7 @@ soundfx=soundfx/inventory/inventory_page.ogg
 tooltip=Bookcase
 
 [event]
-# Lore: Under the Wing
+# Treasure
 type=run_once
 location=6,61,1,1
 hotspot=-32,-84,64,100

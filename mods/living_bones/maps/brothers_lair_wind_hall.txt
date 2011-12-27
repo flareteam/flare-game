@@ -205,45 +205,23 @@ soundfx=soundfx/door_open.ogg
 tooltip=Rising Ice Switch
 
 [event]
-# Waiting Ice Switch (Death)
+# Falling Ice Switch (Death)
 type=run_once
 location=27,31,1,1
 hotspot=-16,-28,32,34
 mapmod=object,27,31,166
 soundfx=soundfx/door_open.ogg
-tooltip=Waiting Ice Switch
+tooltip=Falling Ice Switch
 power=6
 power_damage=1000,1000
 power_path=27,31,hero
 
 [event]
-# Waiting Wind Switch (Death)
+# Falling Wind Switch (Right Door)
 type=run_once
 location=23,31,1,1
 hotspot=-16,-28,32,34
 mapmod=object,23,31,166
-soundfx=soundfx/door_open.ogg
-tooltip=Waiting Wind Switch
-power=6
-power_damage=1000,1000
-power_path=23,31,hero
-
-[event]
-# Waiting Fire Switch (Treasure)
-type=run_once
-location=25,31,1,1
-hotspot=-16,-28,32,34
-mapmod=object,25,31,166
-loot=random,25,32,9
-soundfx=soundfx/door_open.ogg
-tooltip=Waiting Fire Switch
-
-[event]
-# Falling Wind Switch (Right Door)
-type=run_once
-location=23,33,1,1
-hotspot=-16,-28,32,34
-mapmod=object,23,33,166
 mapmod=object,25,16,113
 mapmod=collision,25,16,0
 soundfx=soundfx/door_open.ogg
@@ -252,23 +230,45 @@ tooltip=Falling Wind Switch
 [event]
 # Falling Fire Switch (Death)
 type=run_once
-location=25,33,1,1
+location=25,31,1,1
 hotspot=-16,-28,32,34
-mapmod=object,25,33,166
+mapmod=object,25,31,166
 soundfx=soundfx/door_open.ogg
 tooltip=Falling Fire Switch
 power=6
 power_damage=1000,1000
-power_path=25,33,hero
+power_path=25,31,hero
 
 [event]
-# Falling Ice Switch (Death)
+# Waiting Wind Switch (Death)
+type=run_once
+location=23,33,1,1
+hotspot=-16,-28,32,34
+mapmod=object,23,33,166
+soundfx=soundfx/door_open.ogg
+tooltip=Waiting Wind Switch
+power=6
+power_damage=1000,1000
+power_path=23,33,hero
+
+[event]
+# Waiting Fire Switch (Treasure)
+type=run_once
+location=25,33,1,1
+hotspot=-16,-28,32,34
+mapmod=object,25,33,166
+loot=random,25,34,9
+soundfx=soundfx/door_open.ogg
+tooltip=Waiting Fire Switch
+
+[event]
+# Waiting Ice Switch (Death)
 type=run_once
 location=27,33,1,1
 hotspot=-16,-28,32,34
 mapmod=object,27,33,166
 soundfx=soundfx/door_open.ogg
-tooltip=Falling Ice Switch
+tooltip=Waiting Ice Switch
 power=6
 power_damage=1000,1000
 power_path=27,33,hero
