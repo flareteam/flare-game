@@ -210,7 +210,7 @@ bool MapCollision::compute_path(Point start, Point end, vector<Point> &path, uns
 		if ( current.x == end.x && current.y == end.y )
 			break; //path found !
 
-		list<Point> neighbours = node.getNeighbours();
+		list<Point> neighbours = node.getNeighbours(256,256); //256 is map max size
 		// for every neighbour of current node
 		for (list<Point>::iterator it=neighbours.begin(); it != neighbours.end(); ++it)	{
 			Point neighbour = *it;
@@ -246,9 +246,6 @@ bool MapCollision::compute_path(Point start, Point end, vector<Point> &path, uns
 		    current = find(close.begin(), close.end(), current)->getParent();
 		}
 	}
-
-	// DEBUG pathfinding
-	lastPath = path;
 
 	return !path.empty();
 }

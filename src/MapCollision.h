@@ -64,10 +64,6 @@ public:
 		
 	int result_x;
 	int result_y;
-	
-	// DEBUG pathfinding
-	// store last computed path for debug
-	vector<Point> lastPath;
 };
 
 #endif

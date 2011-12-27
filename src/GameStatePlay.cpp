@@ -466,19 +466,6 @@ void GameStatePlay::render() {
 	// render the static map layers plus the renderables
 	map->render(r, renderableCount);
 	
-	// DEBUG
-	// render pathfinding debug as overlay
-	if (map->collider.lastPath.size() > 1) {
-		Point LineBegin = map_to_screen(map->collider.lastPath[0].x, map->collider.lastPath[0].y, map->cam.x, map->cam.y);
-		for (unsigned int i = 1; i < map->collider.lastPath.size(); ++i) {
-			Point LineEnd = map_to_screen(map->collider.lastPath[i].x, map->collider.lastPath[i].y, map->cam.x, map->cam.y);
-			Uint32 colorLine = SDL_MapRGB(screen->format, 255,255,255);
-			drawLine(screen,LineBegin.x,LineBegin.y,LineEnd.x,LineEnd.y,colorLine);
-			LineBegin.x = LineEnd.x;
-			LineBegin.y = LineEnd.y;
-		}
-	}
-	
 	// display the name of the map in the upper-right hand corner
 	label_mapname->set(VIEW_W-2, 2, JUSTIFY_RIGHT, VALIGN_TOP, map->title, FONT_WHITE);
 	label_mapname->render();
