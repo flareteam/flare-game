@@ -46,6 +46,18 @@ Point map_to_screen(int x, int y, int camx, int camy) {
 	return r;
 }
 
+Point collision_to_map(Point p) {
+	p.x = (p.x << TILE_SHIFT) + TILE_W_HALF;
+	p.y = (p.y << TILE_SHIFT) + TILE_H_HALF;
+	return p;
+}
+
+Point map_to_collision(Point p) {
+	p.x = p.x >> TILE_SHIFT;
+	p.y = p.y >> TILE_SHIFT;
+	return p;
+}
+
 /**
  * Apply parameter distance to position and direction
  */
@@ -240,7 +252,11 @@ void drawLine(SDL_Surface *screen, int x0, int y0, int x1, int y1, Uint32 color)
 			err = err + dx;
 			y0 = y0 + sy;
 		}
-	} while(x0 != x1 && y0 != y1);
+	} while(x0 != x1 || y0 != y1);
+}
+
+void drawLine(SDL_Surface *screen, Point pos0, Point pos1, Uint32 color) {
+	drawLine(screen, pos0.x, pos0.y, pos1.x, pos1.y, color);
 }
 
 /**

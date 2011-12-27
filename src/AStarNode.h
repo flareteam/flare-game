@@ -4,7 +4,7 @@
 #include <list>
 #include "Utils.h"
 
-const int node_stride = 50;
+const int node_stride = 1;
 
 class AStarNode
 {
