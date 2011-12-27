@@ -1,8 +1,20 @@
-/**
- * Generic main.cpp for game engines
- *
- */
-   
+/*
+Copyright 2011 Clint Bellanger
+
+This file is part of FLARE.
+
+FLARE is free software: you can redistribute it and/or modify it under the terms
+of the GNU General Public License as published by the Free Software Foundation,
+either version 3 of the License, or (at your option) any later version.
+
+FLARE is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with
+FLARE.  If not, see http://www.gnu.org/licenses/
+*/
+
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
@@ -25,7 +37,7 @@ static void init() {
 	setPaths();
 
 	if (!loadSettings()) {
-		fprintf(stderr, "Error: could not load config/settings.txt.");
+		fprintf(stderr, "Error: could not load config/settings.txt.\n");
 		exit(1);
 	}
 
@@ -43,6 +55,16 @@ static void init() {
 		flags = flags | SDL_HWSURFACE | SDL_HWACCEL;
 	else
 		flags = flags | SDL_SWSURFACE;
+
+	// Shared Resources set-up
+	
+	mods = new ModManager();
+	msg = new MessageEngine();
+	inp = new InputState();
+	font = new FontEngine();
+
+	// Add Window Titlebar Icon
+	SDL_WM_SetIcon(IMG_Load(mods->locate("images/logo/icon.png").c_str()),NULL);
 
 	// Create window
 	screen = SDL_SetVideoMode (VIEW_W, VIEW_H, 0, flags);
@@ -78,13 +100,6 @@ static void init() {
 
 	// Set sound effects volume from settings file
 	Mix_Volume(-1, SOUND_VOLUME);
-
-	// Shared Resources set-up
-	
-	mods = new ModManager();
-    msg = new MessageEngine();
-	inp = new InputState();
-	font = new FontEngine();
 
 	// Window title
 	const char* title = msg->get("Flare").c_str();

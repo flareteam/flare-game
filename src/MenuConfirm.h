@@ -29,6 +29,7 @@ protected:
 
 	WidgetButton *buttonConfirm;
 	WidgetButton *buttonClose;
+	WidgetLabel label;
 
 	string boxMsg;
 public:

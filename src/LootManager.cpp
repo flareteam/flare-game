@@ -24,11 +24,12 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "LootManager.h"
 #include "SharedResources.h"
  
-LootManager::LootManager(ItemManager *_items, WidgetTooltip *_tip, EnemyManager *_enemies, MapIso *_map) {
+LootManager::LootManager(ItemManager *_items, EnemyManager *_enemies, MapIso *_map) {
 	items = _items;
-	tip = _tip;
 	enemies = _enemies; // we need to be able to read loot state when creatures die
 	map = _map; // we need to be able to read loot that drops from map containers
+
+	tip = new WidgetTooltip();
 	
 	tooltip_margin = 32; // pixels between loot drop center and label
 	
@@ -169,6 +170,9 @@ void LootManager::calcTables() {
 }
 
 void LootManager::handleNewMap() {
+	for (int i=0; i<loot_count; i++) {
+		tip->clear(loot[i].tip);
+	}
 	loot_count = 0;
 }
 
@@ -216,7 +220,6 @@ void LootManager::renderTooltips(Point cam) {
 	ycam.y = cam.y/UNITS_PER_PIXEL_Y;
 	
 	Point dest;
-	TooltipData td;
 	stringstream ss;
 	
 	int max_frame = anim_loot_frames * anim_loot_duration - 1;
@@ -224,25 +227,29 @@ void LootManager::renderTooltips(Point cam) {
 	for (int i = 0; i < loot_count; i++) {			
 		if (loot[i].frame == max_frame) {
 		
-			tip->clear(td);
 		
 			dest.x = VIEW_W_HALF + (loot[i].pos.x/UNITS_PER_PIXEL_X - xcam.x) - (loot[i].pos.y/UNITS_PER_PIXEL_X - xcam.y);
 			dest.y = VIEW_H_HALF + (loot[i].pos.x/UNITS_PER_PIXEL_Y - ycam.x) + (loot[i].pos.y/UNITS_PER_PIXEL_Y - ycam.y) + (TILE_H/2);
 		
 			// adjust dest.y so that the tooltip floats above the item
 			dest.y -= tooltip_margin;
-			if (loot[i].stack.item > 0) {
-				td = items->getShortTooltip(loot[i].stack);
-			}
-			else {
-				td.num_lines = 1;
-				td.colors[0] = FONT_WHITE;
-				ss << msg->get("%d Gold", loot[i].gold);
-				td.lines[0] = ss.str();
-				ss.str("");
+
+			// create tooltip data if needed
+			if (loot[i].tip.tip_buffer == NULL) {
+
+				if (loot[i].stack.item > 0) {
+					loot[i].tip = items->getShortTooltip(loot[i].stack);
+				}
+				else {
+					loot[i].tip.num_lines = 1;
+					loot[i].tip.colors[0] = FONT_WHITE;
+					ss << msg->get("%d Gold", loot[i].gold);
+					loot[i].tip.lines[0] = ss.str();
+					ss.str("");
+				}
 			}
 			
-			tip->render(td, dest, STYLE_TOPLABEL);
+			tip->render(loot[i].tip, dest, STYLE_TOPLABEL);
 		}
 	}
 	
@@ -394,13 +401,28 @@ void LootManager::addGold(int count, Point pos) {
  * Remove one loot from the array, preserving sort order
  */
 void LootManager::removeLoot(int index) {
+
+	// deallocate the tooltip of the loot being removed
+	tip->clear(loot[index].tip);
+
 	for (int i=index; i<loot_count-1; i++) {
 		loot[i].stack = loot[i+1].stack;
 		loot[i].pos.x = loot[i+1].pos.x;
 		loot[i].pos.y = loot[i+1].pos.y;
 		loot[i].frame = loot[i+1].frame;
 		loot[i].gold = loot[i+1].gold;
+		loot[i].tip = loot[i+1].tip;
 	}
+		
+	// the last tooltip buffer pointer has been copied up one index.
+	// NULL the last pointer without deallocating. Otherwise the same
+	// address might be deallocated twice, causing a memory access error
+	loot[loot_count-1].tip.tip_buffer = NULL;
+	
+	// TODO: This requires too much knowledge of the underworkings of
+	// TooltipData. Is there a way to hide this complexity, be memory safe,
+	// and be efficient with the drawing buffer?
+
 	loot_count--;
 }
 
@@ -494,6 +516,7 @@ Renderable LootManager::getRender(int index) {
 }
 
 LootManager::~LootManager() {
+
 	for (int i=0; i<64; i++)
 		if (flying_loot[i])
 			SDL_FreeSurface(flying_loot[i]);
@@ -501,4 +524,11 @@ LootManager::~LootManager() {
 		if (flying_gold[i])
 			SDL_FreeSurface(flying_gold[i]);
 	if (loot_flip) Mix_FreeChunk(loot_flip);
+
+	// clear loot tooltips to free buffer memory
+	for (int i=0; i<loot_count; i++) {
+		tip->clear(loot[i].tip);
+	}
+	
+	delete tip;
 }
