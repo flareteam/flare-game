@@ -46,6 +46,18 @@ Point map_to_screen(int x, int y, int camx, int camy) {
 	return r;
 }
 
+Point collision_to_map(Point p) {
+	p.x = (p.x << TILE_SHIFT) + TILE_W_HALF;
+	p.y = (p.y << TILE_SHIFT) + TILE_H_HALF;
+	return p;
+}
+
+Point map_to_collision(Point p) {
+	p.x = p.x >> TILE_SHIFT;
+	p.y = p.y >> TILE_SHIFT;
+	return p;
+}
+
 /**
  * Apply parameter distance to position and direction
  */
@@ -213,6 +225,38 @@ void drawPixel(SDL_Surface *screen, int x, int y, Uint32 color) {
 	Uint32 *pixmem32;
 	pixmem32 = (Uint32*) screen->pixels + (y * ((screen->pitch)/4)) + x;
 	*pixmem32 = color;
+}
+
+/**
+ * draw line to the screen
+ * from http://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm#Simplification
+ */
+void drawLine(SDL_Surface *screen, int x0, int y0, int x1, int y1, Uint32 color) {
+	const int dx = abs(x1-x0);
+	const int dy = abs(y1-y0);
+	const int sx = x0 < x1 ? 1 : -1;
+	const int sy = y0 < y1 ? 1 : -1;
+	int err = dx-dy;
+
+	do {
+		//skip draw if outside screen
+		if (x0 > 0 && y0 > 0 && x0 < VIEW_W && y0 < VIEW_H)
+			drawPixel(screen,x0,y0,color);
+
+		int e2 = 2*err;
+		if (e2 > -dy) {
+			err = err - dy;
+			x0 = x0 + sx;
+		}
+		if (e2 <  dx) {
+			err = err + dx;
+			y0 = y0 + sy;
+		}
+	} while(x0 != x1 || y0 != y1);
+}
+
+void drawLine(SDL_Surface *screen, Point pos0, Point pos1, Uint32 color) {
+	drawLine(screen, pos0.x, pos0.y, pos1.x, pos1.y, color);
 }
 
 /**

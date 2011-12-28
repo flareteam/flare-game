@@ -27,6 +27,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include <algorithm>
 #include <stdlib.h>
+#include <vector>
 #include "Utils.h"
 #include "Settings.h"
 
@@ -56,6 +57,7 @@ public:
 
 	bool line_of_sight(int x1, int y1, int x2, int y2);
 	bool line_of_movement(int x1, int y1, int x2, int y2);
+	bool compute_path(Point start, Point end, vector<Point> &path, unsigned int limit = 100);
 
 	unsigned short colmap[256][256];
 	Point map_size;

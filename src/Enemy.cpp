@@ -297,7 +297,15 @@ void Enemy::logic() {
 			if (stats.in_combat) {
 
 				if (++stats.dir_ticks > stats.dir_favor && stats.patrol_ticks == 0) {
-					stats.direction = face(pursue_pos.x, pursue_pos.y);				
+					// if no line of movement to target, use pathfinder
+					if ( !map->collider.line_of_movement(stats.pos.x, stats.pos.y, pursue_pos.x, pursue_pos.y)) {
+						vector<Point> path;
+						// if a path is returned, target first waypoint
+						if ( map->collider.compute_path(stats.pos,pursue_pos,path) ) {
+							pursue_pos = path.back();
+						}
+					}
+					stats.direction = face(pursue_pos.x, pursue_pos.y);
 					stats.dir_ticks = 0;
 				}
 				

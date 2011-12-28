@@ -23,6 +23,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "MapCollision.h"
+#include "AStarNode.h"
+#include <cfloat>
 
 using namespace std;
 
@@ -159,8 +161,94 @@ bool MapCollision::line_of_movement(int x1, int y1, int x2, int y2) {
 
 }
 
+/**
+* Compute a path from (x1,y1) to (x2,y2)
+* Store waypoint inside path
+* limit is the maximum number of explored node
+* @return true if a path is found
+*/
+bool MapCollision::compute_path(Point start, Point end, vector<Point> &path, unsigned int limit) {
+	// path must be empty
+	if(!path.empty())
+	    path.clear();
 
-// TODO: A*
+	// destination must be valid
+	if( !is_empty(end.x,end.y) )
+	    return false;
+
+	// convert start & end to MapCollision precision
+	start = map_to_collision(start);
+	end = map_to_collision(end);
+
+	Point current = start;
+	AStarNode node(start);
+	node.setActualCost(0);
+	node.setEstimatedCost(calcDist(start,end));
+	node.setParent(current);
+
+	list<AStarNode> open;
+	list<AStarNode> close;
+
+	open.push_back(node);
+
+	while( !open.empty() && close.size() < limit ) {
+		float lowest_score = FLT_MAX;
+		// find lowest score available inside open, make it current node and move it to close
+		list<AStarNode>::iterator lowest_it;
+		for (list<AStarNode>::iterator it=open.begin(); it != open.end(); ++it) {
+			if(it->getFinalCost() < lowest_score) {
+				lowest_score = it->getFinalCost();
+				lowest_it = it;
+			}
+		}
+		node = *lowest_it;
+		current.x = node.getX();
+		current.y = node.getY();
+		close.push_back(node);
+		open.erase(lowest_it);
+
+		if ( current.x == end.x && current.y == end.y )
+			break; //path found !
+
+		list<Point> neighbours = node.getNeighbours(256,256); //256 is map max size
+		// for every neighbour of current node
+		for (list<Point>::iterator it=neighbours.begin(); it != neighbours.end(); ++it)	{
+			Point neighbour = *it;
+			// if neighbour is not free of any collision, or already in close, skip it
+			if(colmap[neighbour.x][neighbour.y] > 0 || find(close.begin(), close.end(), neighbour)!=close.end())
+				continue;
+
+			list<AStarNode>::iterator i = find(open.begin(), open.end(), neighbour);
+			// if neighbour isn't inside open, add it as a new Node
+			if(i==open.end()) {
+				AStarNode newNode(neighbour.x,neighbour.y);
+				newNode.setActualCost(node.getActualCost()+calcDist(current,neighbour));
+				newNode.setParent(current);
+				newNode.setEstimatedCost(calcDist(neighbour,end));
+				open.push_back(newNode);
+			}
+			// else, update it's cost if better
+			else if(node.getActualCost()+node_stride < i->getActualCost()) {
+				i->setActualCost(node.getActualCost()+node_stride);
+				i->setParent(current);
+			}
+		}
+	}
+
+	if( current.x != end.x || current.y != end.y )
+		return false;
+	else
+	{
+		// store path from end to start
+		path.push_back(collision_to_map(end));
+		while( current.x != start.x || current.y != start.y ) {
+		    path.push_back(collision_to_map(current));
+		    current = find(close.begin(), close.end(), current)->getParent();
+		}
+	}
+
+	return !path.empty();
+}
 
 MapCollision::~MapCollision() {
 }
