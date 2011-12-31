@@ -444,15 +444,19 @@ loot=random,44,92,9
 loot=random,45,91,8
 loot=random,45,93,8
 
+# entry room
+# two hatchlings spawn
+[event]
+type=run_once
+location=8,8,5,5
+power=134
+power_path=12,9,hero
 
-#entry room
-[enemy]
-type=antlion_hatchling
-location=12,9
-
-[enemy]
-type=antlion_hatchling
-location=12,12
+[event]
+type=run_once
+location=8,8,5,5
+power=134
+power_path=12,12,hero
 
 [event]
 # warning message

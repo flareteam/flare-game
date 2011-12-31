@@ -1030,3 +1030,19 @@ radius=256
 multitarget=true
 source_type=hero
 beacon=true
+
+[power]
+id=133
+name=Summon Antlion
+type=spawn
+spawn_type=antlion
+new_state=cast
+starting_pos=source
+
+[power]
+id=134
+name=Summon Antlion Hatchling
+type=spawn
+spawn_type=antlion_hatchling
+new_state=cast
+starting_pos=source
