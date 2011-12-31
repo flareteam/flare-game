@@ -789,27 +789,34 @@ void MapIso::executeEvent(int eid) {
 			camp->rewardXP(ec->x);
 		}
 		else if (ec->type == "power") {
-			int power_index = ec->x;
-			StatBlock *dummy = new StatBlock();
-			dummy->accuracy = 1000; //always hits its target
-			dummy->pos.x = events[eid].power_src.x * UNITS_PER_TILE;
-			dummy->pos.y = events[eid].power_src.y * UNITS_PER_TILE;
-			dummy->dmg_melee_min = dummy->dmg_ranged_min = dummy->dmg_ment_min = events[eid].damagemin;
-			dummy->dmg_melee_max = dummy->dmg_ranged_max = dummy->dmg_ment_max = events[eid].damagemax;
-			Point target;
-			if (events[eid].targetHero) {
-				target.x = cam.x;
-				target.y = cam.y;
-			}
-			else {
-				target.x = events[eid].power_dest.x * UNITS_PER_TILE;
-				target.y = events[eid].power_dest.y * UNITS_PER_TILE;
-			}
+
 			if (events[eid].cooldown_ticks > 0) events[eid].cooldown_ticks--;
 			else {
+
+				int power_index = ec->x;
+				
+				// TODO: delete this without breaking hazards, takeHit, etc.
+				StatBlock *dummy = new StatBlock();
+				dummy->accuracy = 1000; //always hits its target
+				dummy->pos.x = events[eid].power_src.x * UNITS_PER_TILE;
+				dummy->pos.y = events[eid].power_src.y * UNITS_PER_TILE;
+				dummy->dmg_melee_min = dummy->dmg_ranged_min = dummy->dmg_ment_min = events[eid].damagemin;
+				dummy->dmg_melee_max = dummy->dmg_ranged_max = dummy->dmg_ment_max = events[eid].damagemax;
+			
+				Point target;
+				if (events[eid].targetHero) {
+					target.x = cam.x;
+					target.y = cam.y;
+				}
+				else {
+					target.x = events[eid].power_dest.x * UNITS_PER_TILE;
+					target.y = events[eid].power_dest.y * UNITS_PER_TILE;
+				}
+			
 				events[eid].cooldown_ticks = events[eid].power_cooldown;
 				powers->activate(power_index, dummy, target);
 			}
+			
 		}
 	}
 	if (events[eid].type == "run_once" || destroy_event) {
