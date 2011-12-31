@@ -44,6 +44,7 @@ const int POWTYPE_SINGLE = 2;
 const int POWTYPE_MISSILE = 3;
 const int POWTYPE_REPEATER = 4;
 const int POWTYPE_EFFECT = 5;
+const int POWTYPE_SPAWN = 6;
 
 const int POWSTATE_SWING = 0;
 const int POWSTATE_CAST = 1;
@@ -170,6 +171,9 @@ struct Power {
 	int wall_power;
 	bool allow_power_mod;
 	
+	// spawn info
+	std::string spawn_type;
+	
 	Power() {
 		type = -1;
 		name = "";
@@ -252,8 +256,15 @@ struct Power {
 		wall_power = -1;
 		
 		allow_power_mod = false;
+		spawn_type = "";
 	}	
 	
+};
+
+struct EnemySpawn {
+	std::string type;
+	Point pos;
+	int direction;
 };
 
 class PowerManager {
@@ -282,6 +293,7 @@ private:
 	bool missile(int powernum, StatBlock *src_stats, Point target);
 	bool repeater(int powernum, StatBlock *src_stats, Point target);
 	bool single(int powernum, StatBlock *src_stats, Point target);
+	bool spawn(int powernum, StatBlock *src_stats, Point target);
 
 public:
 	PowerManager();
@@ -292,6 +304,7 @@ public:
 
 	Power powers[POWER_COUNT];
 	std::queue<Hazard *> hazards; // output; read by HazardManager
+	std::queue<EnemySpawn> enemies; // output; read by PowerManager
 
 	// shared images/sounds for power special effects
 	SDL_Surface *gfx[POWER_MAX_GFX];

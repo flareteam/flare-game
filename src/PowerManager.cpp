@@ -92,6 +92,7 @@ void PowerManager::loadPowers(const std::string& filename) {
 				else if (infile.val == "effect") powers[input_id].type = POWTYPE_EFFECT;
 				else if (infile.val == "missile") powers[input_id].type = POWTYPE_MISSILE;
 				else if (infile.val == "repeater") powers[input_id].type = POWTYPE_REPEATER;
+				else if (infile.val == "spawn") powers[input_id].type = POWTYPE_SPAWN;
 			}
 			else if (infile.key == "name") {
 				powers[input_id].name = msg->get(infile.val);
@@ -335,6 +336,11 @@ void PowerManager::loadPowers(const std::string& filename) {
 			}
 			else if (infile.key == "allow_power_mod") {
 				if (infile.val == "true") powers[input_id].allow_power_mod = true;
+			}
+			
+			// spawn info
+			else if (infile.key == "spawn_type") {
+				powers[input_id].spawn_type = infile.val;
 			}
 		}
 		infile.close();
@@ -933,6 +939,40 @@ bool PowerManager::single(int power_index, StatBlock *src_stats, Point target) {
 	return true;
 }
 
+/**
+ * Spawn a creature. Does not create a hazard
+ */
+bool PowerManager::spawn(int power_index, StatBlock *src_stats, Point target) {
+		
+	// apply any buffs
+	buff(power_index, src_stats, target);
+	
+	// If there's a sound effect, play it here
+	playSound(power_index, src_stats);
+	
+	EnemySpawn espawn;
+	espawn.type = powers[power_index].spawn_type;
+	
+	// enemy spawning position
+	if (powers[power_index].starting_pos == STARTING_POS_SOURCE) {
+		espawn.pos.x = (float)src_stats->pos.x;
+		espawn.pos.y = (float)src_stats->pos.y;
+	}
+	else if (powers[power_index].starting_pos == STARTING_POS_TARGET) {
+		espawn.pos.x = (float)target.x;
+		espawn.pos.y = (float)target.y;	
+	}
+	else if (powers[power_index].starting_pos == STARTING_POS_MELEE) {
+		FPoint fpos = calcVector(src_stats->pos, src_stats->direction, src_stats->melee_range);
+		espawn.pos.x = (int)fpos.x;
+		espawn.pos.y = (int)fpos.y;		
+	}
+	espawn.direction = src_stats->direction;
+	
+	enemies.push(espawn);
+	return true;
+}
+
 
 /**
  * Activate is basically a switch/redirect to the appropriate function
@@ -954,6 +994,8 @@ bool PowerManager::activate(int power_index, StatBlock *src_stats, Point target)
 		return repeater(power_index, src_stats, target);
 	else if (powers[power_index].type == POWTYPE_EFFECT)
 		return effect(power_index, src_stats, target);
+	else if (powers[power_index].type == POWTYPE_SPAWN)
+		return spawn(power_index, src_stats, target);
 	
 	return false;
 }

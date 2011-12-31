@@ -141,9 +141,45 @@ void EnemyManager::handleNewMap () {
 }
 
 /**
+ * Powers can cause new enemies to spawn
+ * Check PowerManager for any new queued enemies
+ */
+void EnemyManager::handleSpawn() {
+	
+	EnemySpawn espawn;
+	
+	while (!powers->enemies.empty()) {
+		espawn = powers->enemies.front();		
+		powers->enemies.pop();	
+
+		enemies[enemy_count] = new Enemy(powers, map);
+		enemies[enemy_count]->stats.pos.x = espawn.pos.x;
+		enemies[enemy_count]->stats.pos.y = espawn.pos.y;
+		enemies[enemy_count]->stats.direction = espawn.direction;
+		enemies[enemy_count]->stats.load("enemies/" + espawn.type + ".txt");
+		if (enemies[enemy_count]->stats.animations != "") {
+			// load the animation file if specified
+			enemies[enemy_count]->loadAnimations("animations/" + enemies[enemy_count]->stats.animations + ".txt");
+		}
+		else {
+			cout << "Warning: no animation file specified for entity: " << espawn.type << endl;
+		}
+		loadGraphics(enemies[enemy_count]->stats.gfx_prefix);
+		loadSounds(enemies[enemy_count]->stats.sfx_prefix);
+		
+		// special animation state for spawning enemies
+		enemies[enemy_count]->stats.cur_state = ENEMY_SPAWN;
+		enemy_count++;	
+	}
+}
+
+/**
  * perform logic() for all enemies
  */
 void EnemyManager::logic() {
+
+	handleSpawn();
+
 	for (int i=0; i<enemy_count; i++) {
 
 		int pref_id = -1;

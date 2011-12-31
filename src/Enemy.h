@@ -46,6 +46,7 @@ const int ENEMY_MELEE_PHYS = 3;
 const int ENEMY_MELEE_MENT = 4;
 const int ENEMY_RANGED_PHYS = 5;
 const int ENEMY_RANGED_MENT = 6;
+const int ENEMY_SPAWN = 7;
 
 // interrupt states
 const int ENEMY_BLOCK = 7;

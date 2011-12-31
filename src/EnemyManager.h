@@ -56,6 +56,7 @@ public:
 	EnemyManager(PowerManager *_powers, MapIso *_map);
 	~EnemyManager();
 	void handleNewMap();
+	void handleSpawn();
 	void logic();
 	Renderable getRender(int enemyIndex);
 	void checkEnemiesforXP(StatBlock *stats);

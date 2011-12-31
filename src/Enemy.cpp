@@ -436,6 +436,21 @@ void Enemy::logic() {
 				stats.cooldown_ticks = stats.cooldown;
 			}
 			break;
+			
+		case ENEMY_SPAWN:
+			// enemy is appearing out of nowhere
+
+			setAnimation("spawn");
+			if (activeAnimation->getCurFrame() == 1) {
+				sfx_ment = true;
+			}
+
+			if (activeAnimation->getCurFrame() == activeAnimation->getMaxFrame()-1) {
+				newState(ENEMY_STANCE);
+			}
+			
+			break;
+
 	
 		case ENEMY_HIT:
 			// enemy has taken damage (but isn't dead)
