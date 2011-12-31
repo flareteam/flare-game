@@ -967,7 +967,8 @@ bool PowerManager::spawn(int power_index, StatBlock *src_stats, Point target) {
 		espawn.pos.x = (int)fpos.x;
 		espawn.pos.y = (int)fpos.y;		
 	}
-	espawn.direction = src_stats->direction;
+	
+	espawn.direction = calcDirection(src_stats->pos.x, src_stats->pos.y, target.x, target.y);
 	
 	enemies.push(espawn);
 	return true;

@@ -41,7 +41,6 @@ protected:
 	SDL_Surface* sprites;
 
 	// Animation data
-	int frameSize;
 	Point render_size;
 	Point render_offset;
 	int position;
