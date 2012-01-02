@@ -130,6 +130,8 @@ struct Power {
 	int damage_multiplier; // % of base damage done by power (eg. 200 doubles damage and 50 halves it)
 	int starting_pos; // enum. (source, target, or melee)
 	bool multitarget;
+	int forced_move_speed;
+	int forced_move_duration;
 
 	//steal effects (in %, eg. hp_steal=50 turns 50% damage done into HP regain.)
 	int hp_steal;
@@ -219,6 +221,8 @@ struct Power {
 		base_damage = BASE_DAMAGE_NONE;
 		damage_multiplier = 100;
 		multitarget = false;
+		forced_move_speed = 0;
+		forced_move_duration = 0;
 
 		hp_steal = 0;
 		mp_steal = 0;
@@ -282,7 +286,6 @@ private:
 	std::string sfx_filenames[POWER_MAX_SFX];
 	int gfx_count;
 	int sfx_count;
-	float calcTheta(int x1, int y1, int x2, int y2);
 
 	int calcDirection(int origin_x, int origin_y, int target_x, int target_y);
 	void initHazard(int powernum, StatBlock *src_stats, Point target, Hazard *haz);
@@ -301,6 +304,7 @@ public:
 
 	void handleNewMap(MapCollision *_collider);
 	bool activate(int power_index, StatBlock *src_stats, Point target);
+	float calcTheta(int x1, int y1, int x2, int y2);
 
 	Power powers[POWER_COUNT];
 	std::queue<Hazard *> hazards; // output; read by HazardManager

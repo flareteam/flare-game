@@ -103,6 +103,9 @@ void Enemy::newState(int state) {
 void Enemy::logic() {
 
 	stats.logic();
+	if (stats.forced_move_duration > 0) {
+		move(); return;
+	}
 	if (stats.stun_duration > 0) return;
 	// check for bleeding to death
 	if (stats.hp <= 0 && !(stats.cur_state == ENEMY_DEAD || stats.cur_state == ENEMY_CRITDEAD)) {
@@ -475,7 +478,7 @@ void Enemy::logic() {
 				if (activeAnimation->getCurFrame() == 1) {
 					sfx_die = true;
 				}
-            }
+			}
 
 			break;
 		
@@ -566,6 +569,12 @@ bool Enemy::takeHit(Hazard h) {
 			if (h.slow_duration > stats.slow_duration) stats.slow_duration = h.slow_duration;
 			if (h.bleed_duration > stats.bleed_duration) stats.bleed_duration = h.bleed_duration;
 			if (h.immobilize_duration > stats.immobilize_duration) stats.immobilize_duration = h.immobilize_duration;
+			if (h.forced_move_duration > stats.forced_move_duration) stats.forced_move_duration = h.forced_move_duration;
+			if (h.forced_move_speed != 0) {
+				float theta = powers->calcTheta(stats.hero_pos.x, stats.hero_pos.y, stats.pos.x, stats.pos.y);
+				stats.forced_speed.x = ceil((float)h.forced_move_speed * cos(theta));
+				stats.forced_speed.y = ceil((float)h.forced_move_speed * sin(theta));
+			}
 			if (h.hp_steal != 0) {
 				h.src_stats->hp += (int)ceil((float)dmg * (float)h.hp_steal / 100.0);
 				if (h.src_stats->hp > h.src_stats->maxhp) h.src_stats->hp = h.src_stats->maxhp;

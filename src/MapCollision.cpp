@@ -170,11 +170,11 @@ bool MapCollision::line_of_movement(int x1, int y1, int x2, int y2) {
 bool MapCollision::compute_path(Point start, Point end, vector<Point> &path, unsigned int limit) {
 	// path must be empty
 	if(!path.empty())
-	    path.clear();
+		path.clear();
 
 	// destination must be valid
 	if( !is_empty(end.x,end.y) )
-	    return false;
+		return false;
 
 	// convert start & end to MapCollision precision
 	start = map_to_collision(start);
@@ -242,8 +242,8 @@ bool MapCollision::compute_path(Point start, Point end, vector<Point> &path, uns
 		// store path from end to start
 		path.push_back(collision_to_map(end));
 		while( current.x != start.x || current.y != start.y ) {
-		    path.push_back(collision_to_map(current));
-		    current = find(close.begin(), close.end(), current)->getParent();
+			path.push_back(collision_to_map(current));
+			current = find(close.begin(), close.end(), current)->getParent();
 		}
 	}
 

@@ -45,7 +45,7 @@ private:
 	MapCollision *collider;
 	// Keeps track of entities already hit
 	std::vector<Entity*> entitiesCollided;
-      
+	  
 public:
 	Hazard();
 
@@ -100,6 +100,8 @@ public:
 	int immobilize_duration;
 	int slow_duration;
 	int bleed_duration;
+	int forced_move_speed;
+	int forced_move_duration;
 	int hp_steal;
 	int mp_steal;
 	

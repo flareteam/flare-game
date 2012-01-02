@@ -36,6 +36,9 @@ Entity::Entity(MapIso* _map) : sprites(NULL), activeAnimation(NULL), map(_map) {
  * @return Returns false if wall collision, otherwise true.
  */
 bool Entity::move() {
+	if (stats.forced_move_duration > 0) {
+		return map->collider.move(stats.pos.x, stats.pos.y, stats.forced_speed.x, stats.forced_speed.y, 1);
+	}
 	if (stats.immobilize_duration > 0) return false;
 
 	int speed_diagonal = stats.dspeed;
@@ -230,7 +233,7 @@ Entity::~Entity () {
 	// delete all loaded animations
 	for (vector<Animation*>::const_iterator it = animations.begin(); it != animations.end(); it++)
 	{
-	    delete *it;
+		delete *it;
 	} 
 	animations.clear();
 }

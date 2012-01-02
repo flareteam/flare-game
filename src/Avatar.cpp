@@ -246,6 +246,16 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 	Point target;
 	int stepfx;
 	stats.logic();
+	if (stats.forced_move_duration > 0) {
+		move();
+		// calc new cam position from player position
+		// cam is focused at player position
+		map->cam.x = stats.pos.x;
+		map->cam.y = stats.pos.y;
+		map->hero_tile.x = stats.pos.x / 32;
+		map->hero_tile.y = stats.pos.y / 32;
+		return;
+	}
 	if (stats.stun_duration > 0) return;
 	bool allowed_to_move;
 	bool allowed_to_use_power;
@@ -626,6 +636,12 @@ bool Avatar::takeHit(Hazard h) {
 			if (h.slow_duration > stats.slow_duration) stats.slow_duration = h.slow_duration;
 			if (h.bleed_duration > stats.bleed_duration) stats.bleed_duration = h.bleed_duration;
 			if (h.immobilize_duration > stats.immobilize_duration) stats.immobilize_duration = h.immobilize_duration;
+			if (h.forced_move_duration > stats.forced_move_duration) stats.forced_move_duration = h.forced_move_duration;
+			if (h.forced_move_speed != 0) {
+				float theta = powers->calcTheta(h.src_stats->pos.x, h.src_stats->pos.y, stats.pos.x, stats.pos.y);
+				stats.forced_speed.x = ceil((float)h.forced_move_speed * cos(theta));
+				stats.forced_speed.y = ceil((float)h.forced_move_speed * sin(theta));
+			}
 			if (h.hp_steal != 0) {
 				h.src_stats->hp += (int)ceil((float)dmg * (float)h.hp_steal / 100.0);
 				if (h.src_stats->hp > h.src_stats->maxhp) h.src_stats->hp = h.src_stats->maxhp;
