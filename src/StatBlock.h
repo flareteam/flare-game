@@ -146,6 +146,7 @@ public:
 	int haste_duration;
 	int hot_duration;
 	int hot_value;
+	int forced_move_duration;
 	
 	int shield_hp; // shield
 	int shield_frame;
@@ -156,6 +157,7 @@ public:
 	int speed;
 	int dspeed;
 	Point pos;
+	Point forced_speed;
 	int direction;
 	int hero_cooldown[1024]; //TODO: fix this to use POWER_COUNT... right now it can't #include "PowerManager.h"
 		

@@ -53,6 +53,8 @@ Hazard::Hazard() {
 	immobilize_duration=0;
 	slow_duration=0;
 	bleed_duration=0;
+	forced_move_speed=0;
+	forced_move_duration=0;
 	hp_steal=0;
 	mp_steal=0;
 	trait_armor_penetration = false;

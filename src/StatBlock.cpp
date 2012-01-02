@@ -70,6 +70,7 @@ StatBlock::StatBlock() {
 	haste_duration = 0;
 	hot_duration = 0;
 	hot_value = 0;
+	forced_move_duration = 0;
 	shield_hp = 0;
 	shield_frame = 0;
 	vengeance_stacks = 0;
@@ -288,8 +289,8 @@ void StatBlock::recalc() {
 	
 	int stat_sum = get_physical() + get_mental() + get_offense() + get_defense();
 
-    // TODO: These class names do. not get caught by xgettext, so figure out
-    // a way to translate them.
+	// TODO: These class names do. not get caught by xgettext, so figure out
+	// a way to translate them.
 
 	// determine class
 	// if all four stats are max, Grand Master
@@ -370,6 +371,8 @@ void StatBlock::logic() {
 		haste_duration--;
 	if (hot_duration > 0)
 		hot_duration--;
+	if (forced_move_duration > 0)
+		forced_move_duration--;
 	
 	// apply bleed
 	if (bleed_duration % FRAMES_PER_SEC == 1) {
@@ -401,6 +404,9 @@ void StatBlock::clearEffects() {
 	bleed_duration = 0;
 	stun_duration = 0;
 	shield_hp = 0;
+	slow_duration = 0;
+	haste_duration = 0;
+	forced_move_duration = 0;
 	vengeance_stacks = 0;
 }
 

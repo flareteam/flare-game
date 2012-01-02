@@ -251,6 +251,10 @@ void PowerManager::loadPowers(const std::string& filename) {
 				else if (infile.val == "shadow") powers[input_id].trait_elemental = ELEMENT_SHADOW;
 				else if (infile.val == "light") powers[input_id].trait_elemental = ELEMENT_LIGHT;
 			}
+			else if (infile.key == "forced_move") {
+				powers[input_id].forced_move_speed = atoi(infile.nextValue().c_str());
+				powers[input_id].forced_move_duration = atoi(infile.nextValue().c_str());
+			}
 			//steal effects
 			else if (infile.key == "hp_steal") {
 				powers[input_id].hp_steal = atoi(infile.val.c_str());
@@ -617,6 +621,9 @@ void PowerManager::initHazard(int power_index, StatBlock *src_stats, Point targe
 	haz->stun_duration += powers[power_index].stun_duration;
 	haz->slow_duration += powers[power_index].slow_duration;
 	haz->immobilize_duration += powers[power_index].immobilize_duration;
+	// forced move
+	haz->forced_move_speed += powers[power_index].forced_move_speed;
+	haz->forced_move_duration += powers[power_index].forced_move_duration;
 	// steal effects
 	haz->hp_steal += powers[power_index].hp_steal;
 	haz->mp_steal += powers[power_index].mp_steal;
