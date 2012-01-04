@@ -25,6 +25,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <iostream>
 #include <sstream>
 
+using namespace std;
+
+
 FontEngine::FontEngine() {
 	font_pt = 10;
 

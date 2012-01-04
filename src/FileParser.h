@@ -30,24 +30,23 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 class FileParser {
 private:
-	ifstream infile;
-	string line;
+	std::ifstream infile;
+	std::string line;
 	
 public:
 	FileParser();
 	~FileParser();
 	
-	bool open(string filename);
+	bool open(const std::string& filename);
 	void close();
 	bool next();
-	string nextValue();
-	string getRawLine();
+	std::string nextValue();
+	std::string getRawLine();
 
 	bool new_section;
-	string section;
-	string key;
-	string val;
-	
+	std::string section;
+	std::string key;
+	std::string val;
 };
 
 #endif

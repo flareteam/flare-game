@@ -19,22 +19,19 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #define UTILS_PARSING_H
 
 #include <string>
-#include <stdlib.h>
-#include <fstream>
-using namespace std;
 
-bool isInt(string s);
+bool isInt(const std::string& s);
 unsigned short xtoi(char c);
-unsigned short xtoi(string hex);
+unsigned short xtoi(const std::string& hex);
 char btox(bool b1, bool b2, bool b3, bool b4);
-string trim(string s, char c);
-string parse_section_title(string s);
-void parse_key_pair(string s, string &key, string &val);
-int eatFirstInt(string &s, char separator);
-unsigned short eatFirstHex(string &s, char separator);
-string eatFirstString(string &s, char separator);
-string getNextToken(string s, size_t &cursor, char separator);
-string stripCarriageReturn(string line);
-string getLine(ifstream &infile);
+std::string trim(const std::string& s, char c);
+std::string parse_section_title(const std::string& s);
+void parse_key_pair(const std::string& s, std::string& key, std::string& val);
+int eatFirstInt(std::string& s, char separator);
+unsigned short eatFirstHex(std::string& s, char separator);
+std::string eatFirstString(std::string& s, char separator);
+std::string getNextToken(const std::string& s, size_t& cursor, char separator);
+std::string stripCarriageReturn(const std::string& line);
+std::string getLine(std::ifstream& infile);
 
 #endif

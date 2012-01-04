@@ -24,11 +24,11 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef CAMPAIGN_MANAGER_H
 #define CAMPAIGN_MANAGER_H
 
-#include <string>
-#include <sstream>
 #include "UtilsParsing.h"
 #include "MenuItemStorage.h"
 #include "ItemManager.h"
+
+#include <string>
 
 const int MAX_STATUS = 1024;
 
@@ -48,11 +48,11 @@ public:
 	void rewardItem(ItemStack istack);
 	void rewardCurrency(int amount);
 	void rewardXP(int amount);
-	void addMsg(string msg);
+	void addMsg(const std::string& msg);
 	
-	string status[MAX_STATUS];
+	std::string status[MAX_STATUS];
 	int status_count;
-	string log_msg;
+	std::string log_msg;
 	ItemStack drop_stack;
 	
 	// pointers to various info that can be changed

@@ -24,6 +24,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "WidgetLabel.h"
 #include "SharedResources.h"
 
+using namespace std;
+
+
 WidgetLabel::WidgetLabel() {
 	
 	text_buffer = NULL;
@@ -57,7 +60,7 @@ void WidgetLabel::render() {
 /**
  * A shortcut function to set all attributes simultaneously.
  */
-void WidgetLabel::set(int _x, int _y, int _justify, int _valign, string _text, int _color) {
+void WidgetLabel::set(int _x, int _y, int _justify, int _valign, const string& _text, int _color) {
 
 	bool changed = false;
 
@@ -124,7 +127,7 @@ void WidgetLabel::applyOffsets() {
 /**
  * Update the label text only
  */
-void WidgetLabel::set(string _text) {
+void WidgetLabel::set(const string& _text) {
 	if (text != _text) {
 		this->text = _text;
 		applyOffsets();

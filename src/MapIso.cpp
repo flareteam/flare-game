@@ -25,6 +25,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "FileParser.h"
 #include "SharedResources.h"
 
+using namespace std;
+
 
 MapIso::MapIso(CampaignManager *_camp) {
 

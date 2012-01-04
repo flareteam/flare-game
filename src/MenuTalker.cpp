@@ -22,6 +22,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "MenuTalker.h"
 #include "SharedResources.h"
 
+using namespace std;
+
+
 MenuTalker::MenuTalker(CampaignManager *_camp) {
 	camp = _camp;
 	npc = NULL;
@@ -203,7 +206,7 @@ void MenuTalker::render() {
 	}
 }
 
-void MenuTalker::setHero(string name, string portrait_filename) {
+void MenuTalker::setHero(const string& name, const string& portrait_filename) {
 	hero_name = name;
 	
 	portrait = IMG_Load(mods->locate("images/portraits/" + portrait_filename + ".png").c_str());

@@ -23,16 +23,14 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #define NPC_H
 
 #include "Entity.h"
-#include <SDL.h>
-#include <SDL_image.h>
-#include <SDL_mixer.h>
-#include <string>
 #include "Utils.h"
 #include "ItemManager.h"
 #include "ItemStorage.h"
 #include "MapIso.h"
-
-using namespace std;
+#include <SDL.h>
+#include <SDL_image.h>
+#include <SDL_mixer.h>
+#include <string>
 
 const int NPC_VENDOR_MAX_STOCK = 80;
 const int NPC_MAX_VOX = 8;
@@ -54,17 +52,17 @@ protected:
 public:
 	NPC(MapIso *_map, ItemManager *_items);
 	~NPC();
-	void load(string npc_id);
-	void loadGraphics(string filename_sprites, string filename_portrait);
-	void loadSound(string filename, int type);
+	void load(const std::string& npc_id);
+	void loadGraphics(const std::string& filename_sprites, const std::string& filename_portrait);
+	void loadSound(const std::string& filename, int type);
 	void logic();
 	bool playSound(int type);
 	int chooseDialogNode();
-	bool processDialog(int dialog_node, int &event_cursor);
+	bool processDialog(int dialog_node, int& event_cursor);
 	virtual Renderable getRender();
 	
 	// general info
-	string name;
+	std::string name;
 	Point pos; // map position
 	int level; // used in determining item quality
 	

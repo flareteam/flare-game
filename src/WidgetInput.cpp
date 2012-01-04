@@ -18,6 +18,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "WidgetInput.h"
 #include "SharedResources.h"
 
+using namespace std;
+
+
 WidgetInput::WidgetInput() {
 	
 	enabled = true;
@@ -32,7 +35,7 @@ WidgetInput::WidgetInput() {
 	pos.h = background->h/2;
 	
 	cursor_frame = 0;
-	
+
 }
 
 void WidgetInput::loadGraphics(const string& filename) {

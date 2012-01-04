@@ -22,10 +22,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef ITEM_STORAGE_H
 #define ITEM_STORAGE_H
 
-#include <SDL.h>
 #include "ItemManager.h"
+#include <SDL.h>
 
-using namespace std;
 
 class ItemStorage {
 protected:
@@ -38,10 +37,10 @@ public:
 
 	ItemStack & operator [] (int slot);
 
-	void setItems(string s);
-	void setQuantities(string s);
-	string getItems();
-	string getQuantities();
+	void setItems(std::string s);
+	void setQuantities(std::string s);
+	std::string getItems();
+	std::string getQuantities();
 	void add(ItemStack stack, int slot = -1);
 	void substract(int slot, int quantity = 1);
 	bool remove(int item);

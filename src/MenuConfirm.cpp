@@ -19,7 +19,10 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "SharedResources.h"
 #include "WidgetLabel.h"
 
-MenuConfirm::MenuConfirm(string _buttonMsg, string _boxMsg) : Menu() {
+using namespace std;
+
+
+MenuConfirm::MenuConfirm(const string& _buttonMsg, const string& _boxMsg) : Menu() {
 	confirmClicked = false;
 
 	// Text to display in confirmation box

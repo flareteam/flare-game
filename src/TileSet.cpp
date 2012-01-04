@@ -26,6 +26,10 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "SharedResources.h"
 #include "FileParser.h"
 
+#include <cstdio>
+
+using namespace std;
+
 TileSet::TileSet() {
 	alpha_background = false;
 	sprites = NULL;
@@ -39,11 +43,11 @@ TileSet::TileSet() {
 	}
 }
 
-void TileSet::loadGraphics(string filename) {
+void TileSet::loadGraphics(const std::string& filename) {
 	if (sprites) SDL_FreeSurface(sprites);
 	
 	sprites = IMG_Load((mods->locate("images/tilesets/" + filename)).c_str());
-	if(!sprites) {
+	if (!sprites) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 		SDL_Quit();
 	}
@@ -59,7 +63,7 @@ void TileSet::loadGraphics(string filename) {
 	SDL_FreeSurface(cleanup);	
 }
 
-void TileSet::load(string filename) {
+void TileSet::load(const std::string& filename) {
 	if (current_map == filename) return;
 	
 	alpha_background = false;

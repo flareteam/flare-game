@@ -31,9 +31,9 @@ protected:
 	WidgetButton *buttonClose;
 	WidgetLabel label;
 
-	string boxMsg;
+	std::string boxMsg;
 public:
-	MenuConfirm(string, string);
+	MenuConfirm(const std::string&, const std::string&);
 	~MenuConfirm();
 
 	void logic();

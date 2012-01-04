@@ -24,6 +24,11 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "LootManager.h"
 #include "SharedResources.h"
  
+#include <sstream>
+
+using namespace std;
+
+
 LootManager::LootManager(ItemManager *_items, EnemyManager *_enemies, MapIso *_map) {
 	items = _items;
 	enemies = _enemies; // we need to be able to read loot state when creatures die

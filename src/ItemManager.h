@@ -32,11 +32,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <SDL_mixer.h>
 
 #include <string>
-#include <sstream>
-#include <fstream>
 
-
-using namespace std;
 
 const int MAX_ITEM_ID = 10000;
 
@@ -79,7 +75,7 @@ const int ITEM_QUALITY_EPIC = 3;
 const int ITEM_MAX_BONUSES = 8;
 
 struct Item {
-	string name;          // item name displayed on long and short tool tips
+	std::string name;          // item name displayed on long and short tool tips
 	int level;            // rough estimate of quality, used in the loot algorithm
 	int quality;          // low, normal, high, epic; corresponds to item name color
 	int type;             // equipment slot or base item type
@@ -91,20 +87,20 @@ struct Item {
 	int abs_max;          // maximum absorb amount (armors and shields only)
 	int req_stat;         // physical, mental, offense, defense
 	int req_val;          // 1-5 (used with req_stat)
-	string *bonus_stat;   // stat to increase/decrease e.g. hp, accuracy, speed
+	std::string *bonus_stat;   // stat to increase/decrease e.g. hp, accuracy, speed
 	int *bonus_val;       // amount to increase (used with bonus_stat)
 	int sfx;              // the item sound when it hits the floor or inventory, etc
-	string gfx;           // the sprite layer shown when this item is equipped
-	string loot;          // the flying loot animation for this item
+	std::string gfx;           // the sprite layer shown when this item is equipped
+	std::string loot;          // the flying loot animation for this item
 	int power;            // this item can be dragged to the action bar and used as a power
 	int power_mod;        // alter powers when this item is equipped (e.g. shoot arrows from bows)
-	string power_desc;    // shows up in green text on the tooltip
+	std::string power_desc;    // shows up in green text on the tooltip
 	int price;            // if price = 0 the item cannot be sold
 	int max_quantity;     // max count per stack
 	int rand_loot;        // max amount appearing in a loot stack
 	int rand_vendor;      // max amount appearing in a vendor stack
-	string pickup_status; // when this item is picked up, set a campaign state (usually for quest items)
-	string stepfx;        // sound effect played when walking (armors only)
+	std::string pickup_status; // when this item is picked up, set a campaign state (usually for quest items)
+	std::string stepfx;        // sound effect played when walking (armors only)
 
 	Item() {
 		name = "";
@@ -151,7 +147,7 @@ private:
 public:
 	ItemManager();
 	~ItemManager();
-	void load(string filename);
+	void load(const std::string& filename);
 	void loadAll();
 	void loadSounds();
 	void loadIcons();

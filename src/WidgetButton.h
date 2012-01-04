@@ -22,14 +22,17 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef WIDGET_BUTTON_H
 #define WIDGET_BUTTON_H
 
-#include <SDL.h>
-#include <SDL_image.h>
-#include <SDL_mixer.h>
 #include "Utils.h"
 #include "FontEngine.h"
 #include "InputState.h"
-#include <string>
 #include "WidgetLabel.h"
+
+#include <SDL.h>
+#include <SDL_image.h>
+#include <SDL_mixer.h>
+
+#include <string>
+
 
 const int BUTTON_GFX_NORMAL = 0;
 const int BUTTON_GFX_PRESSED = 1;
@@ -55,7 +58,7 @@ public:
 	void render();
 	void refresh();
 
-	string label;
+	std::string label;
 	SDL_Rect pos;
 	bool enabled;
 	bool pressed;

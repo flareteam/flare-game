@@ -23,6 +23,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "SharedResources.h"
 #include "WidgetLabel.h"
 
+using namespace std;
+
+
 MenuLog::MenuLog() {
 
 	visible = false;
@@ -214,7 +217,7 @@ void MenuLog::renderTab(int log_type) {
 /**
  * Add a new message to the log
  */
-void MenuLog::add(string s, int log_type) {
+void MenuLog::add(const string& s, int log_type) {
 
 	if (log_count[log_type] == MAX_LOG_MESSAGES) {
 		remove(0, log_type);

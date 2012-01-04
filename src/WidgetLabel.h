@@ -25,8 +25,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef WIDGET_LABEL_H
 #define WIDGET_LABEL_H
 
-#include <SDL.h>
 #include "FontEngine.h"
+#include <SDL.h>
 #include <string>
 
 const int VALIGN_CENTER = 0;
@@ -39,7 +39,7 @@ private:
 	void refresh();
 	void applyOffsets();
 
-	string text;
+	std::string text;
 	int color;
 	int x_origin;
 	int y_origin;
@@ -51,10 +51,10 @@ public:
 	WidgetLabel();
 	~WidgetLabel();
 	void render();
-	void set(int _x, int _y, int _justify, int _valign, string _text, int _color);
+	void set(int _x, int _y, int _justify, int _valign, const std::string& _text, int _color);
 	
-	void set(string _text);
-	string get() {return text;}
+	void set(const std::string& _text);
+	std::string get() {return text;}
 
 	SDL_Rect bounds;	
 };

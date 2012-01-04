@@ -25,6 +25,12 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "UtilsFileSystem.h"
 #include "WidgetLabel.h"
 
+#include <sstream>
+#include <fstream>
+
+using namespace std;
+
+
 ItemManager::ItemManager() {
 	
 	items = new Item[MAX_ITEM_ID];
@@ -68,7 +74,7 @@ void ItemManager::loadAll() {
  * 
  * @param filename The full path and name of the file to load
  */
-void ItemManager::load(string filename) {
+void ItemManager::load(const string& filename) {
 	FileParser infile;
 	int id = 0;
 	string s;
@@ -286,7 +292,7 @@ void ItemManager::playCoinsSound() {
 	Mix_PlayChannel(-1, sfx[SFX_COINS], 0);
 }
 
-TooltipData ItemManager::getShortTooltip( ItemStack stack) {
+TooltipData ItemManager::getShortTooltip(ItemStack stack) {
 	stringstream ss;
 	TooltipData tip;
 	

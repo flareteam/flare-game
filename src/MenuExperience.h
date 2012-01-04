@@ -31,10 +31,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <SDL.h>
 #include <SDL_image.h>
 
-#include <string>
-
-
-using namespace std;
 
 class MenuExperience {
 private:
@@ -59,7 +55,6 @@ public:
 	Point bar_size;
 	Point text_offset;
 	int text_justify;
-	
 };
 
 #endif

@@ -24,13 +24,10 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef STAT_BLOCK_H
 #define STAT_BLOCK_H
 
-#include <string>
-#include <fstream>
 #include "Settings.h"
 #include "Utils.h"
 #include "SharedResources.h"
-
-using namespace std;
+#include <string>
 
 const int STAT_EFFECT_SHIELD = 0;
 const int STAT_EFFECT_VENGEANCE = 1;
@@ -51,7 +48,7 @@ public:
 	StatBlock();
 	~StatBlock();
 
-	void load(string filename);
+	void load(const std::string& filename);
 	void takeDamage(int dmg);
 	void recalc();
 	void logic();
@@ -62,9 +59,9 @@ public:
 	bool corpse; // creature is dead and done animating
 	bool hero; // else, enemy or other
 	
-	string name;
-	string sfx_prefix;
-	string gfx_prefix;
+	std::string name;
+	std::string sfx_prefix;
+	std::string gfx_prefix;
 	
 	int level;
 	int xp;
@@ -98,7 +95,7 @@ public:
 	
 	// in Flare there are no distinct character classes.
 	// instead each class is given a descriptor based on their base stat builds
-	string character_class;
+	std::string character_class;
 	
 	// physical stats
 	int hp;
@@ -203,18 +200,18 @@ public:
 	bool death_penalty;
 	
 	// Campaign event interaction
-	string defeat_status;
-	string quest_loot_requires;
-	string quest_loot_not;
+	std::string defeat_status;
+	std::string quest_loot_requires;
+	std::string quest_loot_not;
 	int quest_loot_id;
 	int first_defeat_loot;
 	
 	// player look options
-	string base; // folder in /images/avatar
-	string head; // png in /images/avatar/[base]
-	string portrait; // png in /images/portraits
+	std::string base; // folder in /images/avatar
+	std::string head; // png in /images/avatar/[base]
+	std::string portrait; // png in /images/portraits
 
-	string animations;
+	std::string animations;
 	int animationSpeed;
 };
 

@@ -21,6 +21,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "Enemy.h"
 
+using namespace std;
+
+
 Enemy::Enemy(PowerManager *_powers, MapIso *_map) : Entity(_map) {
 	powers = _powers;
 

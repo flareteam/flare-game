@@ -25,26 +25,26 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef GET_TEXT_H
 #define GET_TEXT_H
 
+#include "UtilsParsing.h"
 #include <fstream>
 #include <string>
-#include "UtilsParsing.h"
 
 class GetText {
 private:
-	ifstream infile;
-	string line;
-	string sanitize(string input);
+	std::ifstream infile;
+	std::string line;
+	std::string sanitize(std::string input);
 	
 public:
 	GetText();
 	~GetText();
 	
-	bool open(string filename);
+	bool open(const std::string& filename);
 	void close();
 	bool next();
 
-	string key;
-	string val;
+	std::string key;
+	std::string val;
 	
 };
 

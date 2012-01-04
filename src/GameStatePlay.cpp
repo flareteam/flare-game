@@ -28,6 +28,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "WidgetLabel.h"
 #include "SharedResources.h"
 
+using namespace std;
+
+
 GameStatePlay::GameStatePlay() : GameState() {
 
 	hasMusic = true;

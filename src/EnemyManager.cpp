@@ -22,6 +22,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "EnemyManager.h"
 #include "SharedResources.h"
 
+
+using namespace std;
+
 EnemyManager::EnemyManager(PowerManager *_powers, MapIso *_map) {
 	powers = _powers;
 	map = _map;
@@ -38,7 +41,7 @@ EnemyManager::EnemyManager(PowerManager *_powers, MapIso *_map) {
 /**
  * Enemies share graphic/sound resources (usually there are groups of similar enemies)
  */
-void EnemyManager::loadGraphics(string type_id) {
+void EnemyManager::loadGraphics(const string& type_id) {
 
 	// TODO: throw an error if a map tries to use too many monsters
 	if (gfx_count == max_gfx) return;
@@ -67,7 +70,7 @@ void EnemyManager::loadGraphics(string type_id) {
 
 }
 
-void EnemyManager::loadSounds(string type_id) {
+void EnemyManager::loadSounds(const string& type_id) {
 
 	// TODO: throw an error if a map tries to use too many monsters
 	if (sfx_count == max_sfx) return;

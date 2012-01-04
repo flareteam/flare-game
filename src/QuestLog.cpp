@@ -22,17 +22,21 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "QuestLog.h"
-#include <fstream>
 #include "FileParser.h"
 #include "SharedResources.h"
 #include "UtilsFileSystem.h"
+
+#include <fstream>
+
+using namespace std;
+
 
 QuestLog::QuestLog(CampaignManager *_camp, MenuLog *_log) {
 	camp = _camp;
 	log = _log;
 	
-    newQuestNotification = false;
-    resetQuestNotification = false;
+	newQuestNotification = false;
+	resetQuestNotification = false;
 	quest_count = 0;
 	loadAll();
 }
@@ -112,7 +116,7 @@ void QuestLog::load(const std::string& filename) {
 
 void QuestLog::logic() {
 	if (camp->quest_update) {
-        resetQuestNotification = true;
+		resetQuestNotification = true;
 		camp->quest_update = false;
 		createQuestList();
 	}
@@ -139,7 +143,7 @@ void QuestLog::createQuestList() {
 			}
 			else if (quests[i][j].type == "quest_text") {
 				log->add(quests[i][j].s, LOG_TYPE_QUESTS);
-                newQuestNotification = true;
+				newQuestNotification = true;
 				break;
 			}
 			else if (quests[i][j].type == "") {

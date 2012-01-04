@@ -22,6 +22,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "WidgetButton.h"
 #include "SharedResources.h"
 
+using namespace std;
+
 WidgetButton::WidgetButton(const std::string& _fileName)
 	: fileName(_fileName) {
 
@@ -53,7 +55,6 @@ void WidgetButton::loadArt() {
 	SDL_Surface *cleanup = buttons;
 	buttons = SDL_DisplayFormatAlpha(buttons);
 	SDL_FreeSurface(cleanup);
-	
 }
 
 /**

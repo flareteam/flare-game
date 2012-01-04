@@ -17,6 +17,10 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "FileParser.h"
 
+
+using namespace std;
+
+
 FileParser::FileParser() {
 	line = "";
 	section = "";
@@ -24,8 +28,7 @@ FileParser::FileParser() {
 	val = "";
 }
 
-bool FileParser::open(string filename) {
-	
+bool FileParser::open(const string& filename) {
 	infile.open(filename.c_str(), ios::in);
 	return infile.is_open();
 }

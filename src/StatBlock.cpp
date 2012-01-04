@@ -25,6 +25,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "FileParser.h"
 #include "SharedResources.h"
 
+using namespace std;
+
+
 StatBlock::StatBlock() {
 
 	name = "";
@@ -127,7 +130,7 @@ StatBlock::StatBlock() {
 /**
  * load a statblock, typically for an enemy definition
  */
-void StatBlock::load(string filename) {
+void StatBlock::load(const string& filename) {
 	FileParser infile;
 	int num = 0;
 	

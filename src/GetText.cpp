@@ -17,13 +17,17 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "GetText.h"
 
+
+using namespace std;
+
+
 GetText::GetText() {
 	line = "";
 	key = "";
 	val = "";
 }
 
-bool GetText::open(string filename) {
+bool GetText::open(const string& filename) {
 	infile.open(filename.c_str(), ios::in);
 	return infile.is_open();
 }

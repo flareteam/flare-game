@@ -24,6 +24,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "NPCManager.h"
 
+using namespace std;
+
+
 NPCManager::NPCManager(MapIso *_map, LootManager *_loot, ItemManager *_items) {
 
 	map = _map;

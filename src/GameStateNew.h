@@ -52,12 +52,12 @@ class GameStateNew : public GameState {
 private:
 
 	void loadGraphics();
-	void loadPortrait(string portrait_filename);
-	void loadOptions(string option_filename);
+	void loadPortrait(const std::string& portrait_filename);
+	void loadOptions(const std::string& option_filename);
 
-	string base[PLAYER_OPTION_MAX];
-	string head[PLAYER_OPTION_MAX];
-	string portrait[PLAYER_OPTION_MAX];
+	std::string base[PLAYER_OPTION_MAX];
+	std::string head[PLAYER_OPTION_MAX];
+	std::string portrait[PLAYER_OPTION_MAX];
 	int option_count;
 	int current_option;
 

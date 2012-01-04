@@ -39,7 +39,7 @@ private:
 
 	int calcDuration(const std::string& s);
 
-	string log_msg[MAX_HUD_MESSAGES];
+	std::string log_msg[MAX_HUD_MESSAGES];
 	int msg_age[MAX_HUD_MESSAGES];
 	SDL_Surface *msg_buffer[MAX_HUD_MESSAGES];
 

@@ -30,8 +30,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <SDL.h>
 #include <string>
 
-using namespace std;
-
 class WidgetInput {
 
 protected:
@@ -44,7 +42,7 @@ protected:
 	bool inFocus;
 	bool pressed;
 
-	string text; // the text that has been typed into the box
+	std::string text; // the text that has been typed into the box
 	unsigned int max_characters;
 	int cursor_frame;
 	
@@ -56,7 +54,7 @@ public:
 	void logic();
 	void render();
 	bool checkClick();
-	string getText() { return text; }
+	std::string getText() { return text; }
 	void setPosition(int x, int y);
 
 	SDL_Rect pos;

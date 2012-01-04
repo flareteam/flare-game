@@ -26,6 +26,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "FileParser.h"
 #include "SharedResources.h"
 
+using namespace std;
+
 Entity::Entity(MapIso* _map) : sprites(NULL), activeAnimation(NULL), map(_map) {
 }
 
@@ -111,7 +113,7 @@ int Entity::face(int mapx, int mapy) {
 /**
  * Load the entity's animation from animation definition file
  */
-void Entity::loadAnimations(const std::string& filename) {
+void Entity::loadAnimations(const string& filename) {
 
 	FileParser parser;
 
@@ -121,14 +123,14 @@ void Entity::loadAnimations(const std::string& filename) {
 		exit(1);
 	}
 
-	std::string name = "";
+	string name = "";
 	int position = 0;
 	int frames = 0;
 	int duration = 0;
 	Point render_size;
 	Point render_offset;
-	std::string type = "";
-	std::string firstAnimation = "";
+	string type = "";
+	string firstAnimation = "";
 
 	// Parse the file and on each new section create an animation object from the data parsed previously
 
@@ -209,7 +211,7 @@ void Entity::loadAnimations(const std::string& filename) {
 /**
  * Set the entity's current animation by name
 */
-bool Entity::setAnimation(const std::string& animationName) {
+bool Entity::setAnimation(const string& animationName) {
 
 	// if the animation is already the requested one do nothing
 	if (activeAnimation != NULL && activeAnimation->getName() == animationName) {
