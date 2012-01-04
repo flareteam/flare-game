@@ -22,10 +22,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef MENU_ITEM_STORAGE_H
 #define MENU_ITEM_STORAGE_H
 
-#include <SDL.h>
 #include "ItemStorage.h"
-
-using namespace std;
+#include <SDL.h>
 
 class MenuItemStorage : public ItemStorage {
 protected:

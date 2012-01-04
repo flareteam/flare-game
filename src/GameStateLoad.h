@@ -57,7 +57,7 @@ private:
 
 	void loadGraphics();
 	void loadPortrait(int slot);
-	string getMapName(string map_filename);
+	std::string getMapName(const std::string& map_filename);
 
 	ItemManager *items;
 	WidgetButton *button_exit;
@@ -76,7 +76,7 @@ private:
 	StatBlock stats[GAME_SLOT_MAX];
 	int equipped[GAME_SLOT_MAX][3];	
 	SDL_Rect slot_pos[GAME_SLOT_MAX];
-	string current_map[GAME_SLOT_MAX];
+	std::string current_map[GAME_SLOT_MAX];
 
 	bool loading_requested;
 	bool loading;

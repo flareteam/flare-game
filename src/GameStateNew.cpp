@@ -28,6 +28,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "SharedResources.h"
 #include "WidgetLabel.h"
 
+using namespace std;
+
+
 GameStateNew::GameStateNew() : GameState() {
 	game_slot = 0;
 	option_count = 0;
@@ -87,7 +90,7 @@ void GameStateNew::loadGraphics() {
 	SDL_FreeSurface(cleanup);
 }
 
-void GameStateNew::loadPortrait(string portrait_filename) {
+void GameStateNew::loadPortrait(const string& portrait_filename) {
 	SDL_FreeSurface(portrait_image);
 	portrait_image = NULL;
 	
@@ -105,7 +108,7 @@ void GameStateNew::loadPortrait(string portrait_filename) {
  *
  * @param filename File containing entries for option=base,look
  */
-void GameStateNew::loadOptions(string filename) {
+void GameStateNew::loadOptions(const string& filename) {
 	FileParser fin;
 	if (!fin.open(mods->locate("engine/" + filename))) return;
 	

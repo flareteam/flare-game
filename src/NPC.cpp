@@ -23,6 +23,12 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "FileParser.h"
 #include "SharedResources.h"
 
+
+#include <sstream>
+
+using namespace std;
+
+
 NPC::NPC(MapIso *_map, ItemManager *_items) : Entity(_map) {
 	items = _items;
 
@@ -70,7 +76,7 @@ NPC::NPC(MapIso *_map, ItemManager *_items) : Entity(_map) {
  *
  * @param npc_id Config file loaded at npcs/[npc_id].txt
  */
-void NPC::load(string npc_id) {
+void NPC::load(const string& npc_id) {
 
 	FileParser infile;
 	ItemStack stack;
@@ -177,7 +183,7 @@ void NPC::load(string npc_id) {
 	loadGraphics(filename_sprites, filename_portrait);
 }
 
-void NPC::loadGraphics(string filename_sprites, string filename_portrait) {
+void NPC::loadGraphics(const string& filename_sprites, const string& filename_portrait) {
 
 	if (filename_sprites != "") {
 		sprites = IMG_Load(mods->locate("images/npcs/" + filename_sprites + ".png").c_str());
@@ -213,7 +219,7 @@ void NPC::loadGraphics(string filename_sprites, string filename_portrait) {
  * filename assumes the file is in soundfx/npcs/
  * type is a const int enum, see NPC.h
  */
-void NPC::loadSound(string filename, int type) {
+void NPC::loadSound(const string& filename, int type) {
 
 	if (type == NPC_VOX_INTRO) {
 	

@@ -24,6 +24,11 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "CampaignManager.h"
 #include "SharedResources.h"
 
+#include <sstream>
+
+using namespace std;
+
+
 CampaignManager::CampaignManager() {
 
 	drop_stack.item = 0;
@@ -158,7 +163,7 @@ void CampaignManager::rewardXP(int amount) {
 	addMsg(msg->get("You receive %d XP.", amount));
 }	
 
-void CampaignManager::addMsg(string new_msg) {
+void CampaignManager::addMsg(const string& new_msg) {
 	if (log_msg != "") log_msg += " ";
 	log_msg += new_msg;
 }

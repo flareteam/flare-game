@@ -26,6 +26,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include <sstream>
 
+using namespace std;
+
 
 Avatar::Avatar(PowerManager *_powers, MapIso *_map) : Entity(_map), powers(_powers) {
 	
@@ -89,7 +91,7 @@ void Avatar::init() {
 	}
 }
 
-void Avatar::loadGraphics(string _img_main, string _img_armor, string _img_off) {
+void Avatar::loadGraphics(const string& _img_main, string _img_armor, const string& _img_off) {
 	SDL_Surface *gfx_main = NULL;
 	SDL_Surface *gfx_off = NULL;
 	SDL_Surface *gfx_head = NULL;
@@ -168,13 +170,12 @@ void Avatar::loadSounds() {
 	if (!sound_melee || !sound_hit || !sound_die || !level_up) {
 		printf("Mix_LoadWAV: %s\n", Mix_GetError());
 	}
-	
 }
 
 /**
  * Walking/running steps sound depends on worn armor
  */
-void Avatar::loadStepFX(string stepname) {
+void Avatar::loadStepFX(const string& stepname) {
 	
 	// TODO: put default step sound in engine config file
 	string filename = "cloth";

@@ -52,10 +52,10 @@ private:
 	void loadGraphics();
 	void renderTab();
 	
-	string log_msg[LOG_TYPE_COUNT][MAX_LOG_MESSAGES];
+	std::string log_msg[LOG_TYPE_COUNT][MAX_LOG_MESSAGES];
 	SDL_Surface *msg_buffer[LOG_TYPE_COUNT][MAX_LOG_MESSAGES];
 	int log_count[LOG_TYPE_COUNT];
-	string tab_labels[LOG_TYPE_COUNT];
+	std::string tab_labels[LOG_TYPE_COUNT];
 	SDL_Rect tab_rect[LOG_TYPE_COUNT];
 	Point tab_padding;
 	int active_log;
@@ -68,7 +68,7 @@ public:
 	void logic();
 	void render();
 	void renderTab(int log_type);
-	void add(string s, int log_type);
+	void add(const std::string& s, int log_type);
 	void remove(int msg_index, int log_type);
 	void clear(int log_type);
 	void clear();

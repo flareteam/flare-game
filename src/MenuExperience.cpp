@@ -27,12 +27,14 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include <SDL_mixer.h>
 
+#include <string>
 #include <sstream>
+
+using namespace std;
 
 
 MenuExperience::MenuExperience() {
 	loadGraphics();
-	
 	
 	// move these settings to a config file
 	hud_position.x = 0;

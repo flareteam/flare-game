@@ -35,7 +35,7 @@ protected:
 	SDL_Surface *sprites;
 	Animation *activeAnimation;
 	MapIso* map;
-	vector<Animation*> animations;
+	std::vector<Animation*> animations;
 
 public:
 	Entity(MapIso*);

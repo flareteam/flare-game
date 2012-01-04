@@ -37,12 +37,12 @@ private:
 
 	MapIso *map;
 	PowerManager *powers;
-	void loadGraphics(string type_id);
-	void loadSounds(string type_id);
+	void loadGraphics(const std::string& type_id);
+	void loadSounds(const std::string& type_id);
 
-	string gfx_prefixes[max_gfx];
+	std::string gfx_prefixes[max_gfx];
 	int gfx_count;
-	string sfx_prefixes[max_sfx];
+	std::string sfx_prefixes[max_sfx];
 	int sfx_count;
 	
 	SDL_Surface *sprites[max_gfx];	

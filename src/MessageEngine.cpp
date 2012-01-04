@@ -27,6 +27,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "SharedResources.h"
 #include <sstream>
 
+using namespace std;
+
 MessageEngine::MessageEngine() {
 	GetText infile;
 	for (unsigned int i = 0; i < mods->mod_list.size(); i++) {
@@ -50,13 +52,13 @@ MessageEngine::MessageEngine() {
  * Each of the get() functions returns the mapped value
  * They differ only on which variables they replace in the string - strings replace %s, integers replace %d
  */
-string MessageEngine::get(string key) {
+string MessageEngine::get(const string& key) {
 	string message = messages[key];
 	if (message == "") message = key;
 	return message;
 }
 
-string MessageEngine::get(string key, int i) {
+string MessageEngine::get(const string& key, int i) {
 	string message = messages[key];
 	if (message == "") message = key;
 	size_t index = message.find("%d");
@@ -64,7 +66,7 @@ string MessageEngine::get(string key, int i) {
 	return message;
 }
 
-string MessageEngine::get(string key, string s) {
+string MessageEngine::get(const string& key, const string& s) {
 	string message = messages[key];
 	if (message == "") message = key;
 	size_t index = message.find("%s");
@@ -72,7 +74,7 @@ string MessageEngine::get(string key, string s) {
 	return message;
 }
 
-string MessageEngine::get(string key, int i, string s) {
+string MessageEngine::get(const string& key, int i, const string& s) {
 	string message = messages[key];
 	if (message == "") message = key;
 	size_t index = message.find("%d");
@@ -82,7 +84,7 @@ string MessageEngine::get(string key, int i, string s) {
 	return message;
 }
 
-string MessageEngine::get(string key, int i, int j) {
+string MessageEngine::get(const string& key, int i, int j) {
 	string message = messages[key];
 	if (message == "") message = key;
 	size_t index = message.find("%d");
@@ -93,7 +95,7 @@ string MessageEngine::get(string key, int i, int j) {
 }
 
 // Changes an int into a string
-string MessageEngine::str(int i){	
+string MessageEngine::str(int i) {
 	stringstream ss;
 	ss << i;
 	return ss.str();

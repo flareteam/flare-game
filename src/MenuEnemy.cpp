@@ -28,6 +28,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <string>
 #include <sstream>
 
+using namespace std;
+
 
 MenuEnemy::MenuEnemy() {
 	loadGraphics();

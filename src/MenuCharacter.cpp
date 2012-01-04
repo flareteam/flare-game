@@ -22,6 +22,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "MenuCharacter.h"
 #include "SharedResources.h"
 
+using namespace std;
+
+
 MenuCharacter::MenuCharacter(StatBlock *_stats) {
 	stats = _stats;
 	

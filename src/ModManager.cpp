@@ -15,9 +15,14 @@ You should have received a copy of the GNU General Public License along with
 FLARE.  If not, see http://www.gnu.org/licenses/
 */
 
+#include "ModManager.h"
 #include "SharedResources.h"
 #include "UtilsFileSystem.h"
 #include <SDL.h>
+#include <fstream>
+
+using namespace std;
+
 
 ModManager::ModManager() {
 	loc_cache.clear();
@@ -66,7 +71,7 @@ void ModManager::loadModList() {
  * Find the location (mod file name) for this data file.
  * Use private loc_cache to prevent excessive disk I/O
  */
-string ModManager::locate(string filename) {
+string ModManager::locate(const string& filename) {
 
 	// if we have this location already cached, return it
 	if (loc_cache.find(filename) != loc_cache.end()) {

@@ -23,6 +23,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "SharedResources.h"
 #include "Utils.h"
 
+using namespace std;
+
+
 WidgetTooltip::WidgetTooltip() {
 
 	// TODO: Put these values in an engine config file

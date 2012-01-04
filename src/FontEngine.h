@@ -24,16 +24,17 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #define FONT_ENGINE_H
 
 
-#include <fstream>
-#include <string>
-#include <SDL.h>
-#include <SDL_image.h>
-#include <SDL_ttf.h>
 #include "Settings.h"
 #include "Utils.h"
 #include "UtilsParsing.h"
 
-using namespace std;
+#include <SDL.h>
+#include <SDL_image.h>
+#include <SDL_ttf.h>
+
+#include <fstream>
+#include <string>
+
 
 const int JUSTIFY_LEFT = 0;
 const int JUSTIFY_RIGHT = 1;
@@ -65,14 +66,14 @@ public:
 	int getLineHeight() { return line_height; }
 	int getFontHeight() { return font_height; }
 	
-	int calc_width(string text);
-	Point calc_size(string text_with_newlines, int width);
+	int calc_width(std::string text);
+	Point calc_size(std::string text_with_newlines, int width);
 
-	void render(string text, int x, int y, int justify, SDL_Surface *target, int color);
-	void render(string text, int x, int y, int justify, SDL_Surface *target, int width, int color);
-	void renderShadowed(string text, int x, int y, int justify, SDL_Surface *target, int color);
-	void renderShadowed(string text, int x, int y, int justify, SDL_Surface *target, int width, int color);	
-	
+	void render(std::string text, int x, int y, int justify, SDL_Surface *target, int color);
+	void render(std::string text, int x, int y, int justify, SDL_Surface *target, int width, int color);
+	void renderShadowed(std::string text, int x, int y, int justify, SDL_Surface *target, int color);
+	void renderShadowed(std::string text, int x, int y, int justify, SDL_Surface *target, int width, int color);
+
 	int cursor_y;
 };
 

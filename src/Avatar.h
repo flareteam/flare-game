@@ -37,6 +37,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <SDL.h>
 #include <SDL_image.h>
 
+#include <string>
+
 
 /**
  * Avatar State enum
@@ -70,24 +72,24 @@ private:
 	Mix_Chunk *sound_steps[4];
 	Mix_Chunk *level_up;
 
-	string img_main;
-	string img_armor;
-	string img_off;
+	std::string img_main;
+	std::string img_armor;
+	std::string img_off;
 
 public:
 	Avatar(PowerManager *_powers, MapIso *_map);
 	~Avatar();
 	
 	void init();
-	void loadGraphics(string img_main, string img_armor, string img_off);
+	void loadGraphics(const std::string& img_main, std::string img_armor, const std::string& img_off);
 	void loadSounds();
-	void loadStepFX(string stepname);
+	void loadStepFX(const std::string& stepname);
 	
 	void logic(int actionbar_power, bool restrictPowerUse);
 	bool pressing_move();	
 	void set_direction();
 	bool takeHit(Hazard h);
-	string log_msg;
+	std::string log_msg;
 
 	virtual Renderable getRender();
 
@@ -96,7 +98,7 @@ public:
 	int current_power;
 	Point act_target;
 	bool drag_walking;
-    bool newLevelNotification;
+	bool newLevelNotification;
 };
 
 #endif

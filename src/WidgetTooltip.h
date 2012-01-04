@@ -36,7 +36,7 @@ const int STYLE_TOPLABEL = 1;
 const int TOOLTIP_MAX_LINES = 16;
 
 struct TooltipData {
-	string lines[TOOLTIP_MAX_LINES];
+	std::string lines[TOOLTIP_MAX_LINES];
 	int colors[TOOLTIP_MAX_LINES];
 	int num_lines;
 	SDL_Surface *tip_buffer;

@@ -26,6 +26,10 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "SharedResources.h"
 #include "WidgetLabel.h"
 
+
+using namespace std;
+
+
 GameStateLoad::GameStateLoad() : GameState() {
 	items = new ItemManager();
 	portrait = NULL;
@@ -147,7 +151,7 @@ void GameStateLoad::readGameSlots() {
 	}
 }
 
-string GameStateLoad::getMapName(string map_filename) {
+string GameStateLoad::getMapName(const string& map_filename) {
 	FileParser infile;
 	if (!infile.open(mods->locate("maps/" + map_filename))) return "";
 	string map_name = "";

@@ -21,6 +21,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "MenuItemStorage.h"
 
+using namespace std;
+
 void MenuItemStorage::init(int _slot_number, ItemManager *_items, SDL_Rect _area, int _icon_size, int _nb_cols) {
 	ItemStorage::init( _slot_number, _items);
 	area = _area;

@@ -23,6 +23,10 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "Hazard.h"
+
+using namespace std;
+
+
 Hazard::Hazard() {
 	src_stats = NULL;
 	sprites = NULL;
@@ -112,5 +116,5 @@ bool Hazard::hasEntity(Entity *ent)
 
 void Hazard::addEntity(Entity *ent)
 {
-  entitiesCollided.push_back(ent);
+	entitiesCollided.push_back(ent);
 }

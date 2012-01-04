@@ -24,13 +24,10 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef UTILS_H
 #define UTILS_H
 
-#include <string>
+#include "Settings.h"
 #include <SDL.h>
 #include <SDL_image.h>
-#include "math.h"
-#include "Settings.h"
-
-using namespace std;
+#include <string>
 
 struct Point {
 	int x,y;
@@ -51,8 +48,8 @@ struct Renderable {
 };
 
 struct Event_Component {
-	string type;
-	string s;
+	std::string type;
+	std::string s;
 	int x;
 	int y;
 	int z;
