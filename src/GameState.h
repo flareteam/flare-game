@@ -25,6 +25,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 class GameState {
 public:
 	GameState();
+	virtual ~GameState();
 
 	virtual void logic();
 	virtual void render();
