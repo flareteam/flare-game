@@ -32,11 +32,11 @@ class FileParser {
 private:
 	std::ifstream infile;
 	std::string line;
-	
+
 public:
 	FileParser();
 	~FileParser();
-	
+
 	bool open(const std::string& filename);
 	void close();
 	bool next();

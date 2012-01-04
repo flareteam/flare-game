@@ -34,18 +34,18 @@ private:
 	std::ifstream infile;
 	std::string line;
 	std::string sanitize(std::string input);
-	
+
 public:
 	GetText();
 	~GetText();
-	
+
 	bool open(const std::string& filename);
 	void close();
 	bool next();
 
 	std::string key;
 	std::string val;
-	
+
 };
 
 #endif

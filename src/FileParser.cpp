@@ -48,7 +48,7 @@ bool FileParser::next() {
 
 	string starts_with;
 	new_section = false;
-	
+
 	while (!infile.eof()) {
 
 		line = getLine(infile);
@@ -57,25 +57,25 @@ bool FileParser::next() {
 		if (line.length() == 0) continue;
 
 		starts_with = line.at(0);
-		
+
 		// skip ahead if this line is a comment
 		if (starts_with == "#") continue;
-		
+
 		// set new section if this line is a section declaration
 		if (starts_with == "[") {
 			new_section = true;
 			section = parse_section_title(line);
-			
+
 			// keep searching for a key-pair
 			continue;
 		}
-		
+
 		// this is a keypair. Perform basic parsing and return
 		parse_key_pair(line, key, val);
 		return true;
-		
+
 	}
-	
+
 	// hit the end of file
 	return false;
 }
@@ -85,7 +85,7 @@ bool FileParser::next() {
  */
 string FileParser::getRawLine() {
 	line = "";
-	
+
 	if (!infile.eof()) {
 		line = getLine(infile);
 	}
