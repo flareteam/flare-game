@@ -46,6 +46,11 @@ public:
 
 	operator bool() const;
 	bool operator!() const;
+
+	SDL_Surface& operator*();
+	SDL_Surface const& operator*() const;
+	SDL_Surface* operator->();
+	SDL_Surface const* operator->() const;
 };
 
 #endif

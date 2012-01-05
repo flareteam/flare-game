@@ -55,3 +55,23 @@ bool SmartSurface::operator!() const{
 	return !surface_;
 }
 
+SDL_Surface& SmartSurface::operator*() {
+	assert(surface_ && "Invalid surface dereferenced.");
+	return *surface_;
+}
+
+SDL_Surface const& SmartSurface::operator*() const {
+	assert(surface_ && "Invalid surface dereferenced.");
+	return *surface_;
+}
+
+SDL_Surface* SmartSurface::operator->() {
+	assert(surface_ && "Invalid surface dereferenced.");
+	return surface_;
+}
+
+SDL_Surface const* SmartSurface::operator->() const {
+	assert(surface_ && "Invalid surface dereferenced.");
+	return surface_;
+}
+
