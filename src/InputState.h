@@ -33,13 +33,13 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <string>
 
 
-#define JOY_DEADZONE	100
+const int JOY_DEADZONE   = 100;
 
-#define JOY_POS_CENTER	0
-#define JOY_POS_LEFT	-1
-#define JOY_POS_RIGHT	1
-#define JOY_POS_UP	-1
-#define JOY_POS_DOWN	1
+const int JOY_POS_CENTER = 0;
+const int JOY_POS_LEFT	 = -1;
+const int JOY_POS_RIGHT	 = 1;
+const int JOY_POS_UP	 = -1;
+const int JOY_POS_DOWN	 = 1;
 
 
 // Input commands enum

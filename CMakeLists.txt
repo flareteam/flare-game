@@ -22,6 +22,7 @@ endif()
 
 set(BINDIR  "games"             CACHE STRING "where to install game binary")
 set(DATADIR "share/games/flare" CACHE STRING "where to install game data")
+include_directories(./src/)
 
 add_definitions(-DDATA_INSTALL_DIR="${CMAKE_INSTALL_PREFIX}/${DATADIR}")
 
@@ -58,7 +59,8 @@ EndIf (NOT SDLTTF_FOUND)
 
 # Sources
 
-Set (FLARE_SOURCES 
+Set (FLARE_SOURCES_EXCEPT_MAIN
+
 	./src/Entity.cpp
 	./src/Animation.cpp
 	./src/AStarNode.cpp
@@ -119,7 +121,17 @@ Set (FLARE_SOURCES
 	./src/WidgetInput.cpp
 	./src/WidgetLabel.cpp
 	./src/WidgetTooltip.cpp
+)
+	
+Set (FLARE_SOURCES 
+	${FLARE_SOURCES_EXCEPT_MAIN}
 	./src/main.cpp
+)
+
+Set (FLARE_TEST_SOURCES
+	${FLARE_SOURCES_EXCEPT_MAIN}
+	./src/tests/UtilsParsingTests.cpp
+	./src/tests/RunAll.cpp
 )
 
 # Add icon and file info to executable for Windows systems
@@ -131,6 +143,7 @@ IF (WIN32)
 ENDIF (WIN32)
 
 Add_Executable (flare ${FLARE_SOURCES})
+Add_Executable (flare-tests ${FLARE_TEST_SOURCES})
 
 # libSDLMain comes with libSDL if needed on certain platforms
 If (NOT SDLMAIN_LIBRARY)
@@ -138,6 +151,8 @@ If (NOT SDLMAIN_LIBRARY)
 EndIf (NOT SDLMAIN_LIBRARY)
 
 Target_Link_Libraries (flare ${SDL_LIBRARY} ${SDLMIXER_LIBRARY} ${SDLIMAGE_LIBRARY} ${SDLTTF_LIBRARY} ${SDLMAIN_LIBRARY})
+Target_Link_Libraries (flare-tests ${SDL_LIBRARY} ${SDLMIXER_LIBRARY} ${SDLIMAGE_LIBRARY}
+	${SDLTTF_LIBRARY} ${SDLMAIN_LIBRARY} boost_unit_test_framework)
 
 
 set(FLARE_EXECUTABLE_PATH ${CMAKE_INSTALL_PREFIX}/${BINDIR}/flare)

@@ -26,7 +26,7 @@ using namespace std;
  * The first character can be a negative (-) sign.
  */
 bool isInt(const string& s) {
-	if (s == "") return false;
+	if (s.size() == 0) return false;
 
 	int start=0;
 	
@@ -35,7 +35,7 @@ bool isInt(const string& s) {
 
 	for (unsigned int i=start; i<s.length(); i++) {
 		// if any character in this string is not a numeric digit, this string is not an integer
-		if (s.at(i) < 48 || s.at(i) > 57) return false;
+		if (s.at(i) < '0' || s.at(i) > '9') return false;
 	}
 	return true;
 }
@@ -44,9 +44,9 @@ bool isInt(const string& s) {
  * Convert a single hex character (0123456789abcdef) into the equivalent integer
  */
 unsigned short xtoi(char c) {
-	if (c >= 97) return c - 87;
-	else if (c >= 65) return c - 55;
-	else return c - 48;
+	if (c >= 'a') return c - 'a' + 10;
+	else if (c >= 'A') return c - 'A' + 10;
+	else return c - '0';
 }
 
 /**
@@ -68,36 +68,11 @@ unsigned short xtoi(const string& hex) {
  * Convert four booleans into a single hex character 0-f
  */
 char btox(bool b1, bool b2, bool b3, bool b4) {
-	if (b4)
-		if (b3)
-			if (b2)
-				if (b1) return 'f';
-				else return 'e';
-			else
-				if (b1) return 'd';
-				else return 'c';
-		else
-			if (b2)
-				if (b1) return 'b';
-				else return 'a';
-			else
-				if (b1) return '9';
-				else return '8';
+	char val = b1*1 + b2*2 + b3*4 + b4*8;
+	if (val < 10)
+		return '0' + val;
 	else
-		if (b3)
-			if (b2)
-				if (b1) return '7';
-				else return '6';
-			else
-				if (b1) return '5';
-				else return '4';
-		else
-			if (b2)
-				if (b1) return '3';
-				else return '2';
-			else
-				if (b1) return '1';
-				else return '0';
+		return 'a' + val - 10;
 }
 
 /**
