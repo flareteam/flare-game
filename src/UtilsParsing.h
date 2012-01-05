@@ -32,6 +32,6 @@ unsigned short eatFirstHex(std::string& s, char separator);
 std::string eatFirstString(std::string& s, char separator);
 std::string getNextToken(const std::string& s, size_t& cursor, char separator);
 std::string stripCarriageReturn(const std::string& line);
-std::string getLine(std::ifstream& infile);
+std::string getLine(std::istream& infile);
 
 #endif

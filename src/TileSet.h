@@ -48,7 +48,8 @@ public:
 	~TileSet();
 	void load(const std::string& filename);
 	
-	Tile_Def tiles[1024];
+	static const int number_of_tiles = 1024;
+	Tile_Def tiles[number_of_tiles];
 	SDL_Surface *sprites;
 };
 

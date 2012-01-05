@@ -171,9 +171,10 @@ string stripCarriageReturn(const string& line) {
 	return line;
 }
 
-string getLine(ifstream &infile) {
+string getLine(istream &infile) {
 	string line;
-	getline(infile, line);
+	if (!getline(infile, line))
+		return ""; // Read failed.
 	line = stripCarriageReturn(line);
 	return line; 
 }

@@ -33,7 +33,7 @@ using namespace std;
 TileSet::TileSet() {
 	alpha_background = false;
 	sprites = NULL;
-	for (int i=0; i<256; i++) {
+	for (int i=0; i<number_of_tiles; i++) {
 		tiles[i].src.x = 0;
 		tiles[i].src.y = 0;
 		tiles[i].src.w = 0;
