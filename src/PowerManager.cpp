@@ -1021,9 +1021,10 @@ PowerManager::~PowerManager() {
 			Mix_FreeChunk(sfx[i]);
 	}
 
-	SDL_FreeSurface(freeze);
 	SDL_FreeSurface(runes);	
-	Mix_FreeChunk(sfx_freeze);
+	// These line of code was present, but freeze and sfx_freeze are never assigned to!
+	// SDL_FreeSurface(freeze);
+	// Mix_FreeChunk(sfx_freeze);
 	
 }
 

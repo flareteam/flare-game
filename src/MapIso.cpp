@@ -44,6 +44,7 @@ MapIso::MapIso(CampaignManager *_camp) {
 	clearEvents();
 	enemy_awaiting_queue = false;
 	npc_awaiting_queue = false;
+	group_awaiting_queue = false;
 	clearEnemy(new_enemy);
 	clearNPC(new_npc);
 	
