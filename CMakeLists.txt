@@ -112,6 +112,7 @@ Set (FLARE_SOURCES_EXCEPT_MAIN
 	./src/SaveLoad.cpp
 	./src/Settings.cpp
 	./src/SharedResources.cpp
+	./src/SmartSurface.cpp
 	./src/StatBlock.cpp
 	./src/TileSet.cpp
 	./src/Utils.cpp
