@@ -16,41 +16,41 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 */
 
 /**
- * class TileSet
+ * class SmartSurface
  *
- * TileSet storage and file loading
+ * Wraps an SDL_Surface, calling SDL_Surface on it when it goes out of scope
  */
  
-#ifndef TILE_SET_H
-#define TILE_SET_H
-
-#include "Utils.h"
-#include "SmartSurface.h"
+#ifndef SMART_SURFACE_H
+#define SMART_SURFACE_H
 
 #include <SDL.h>
 #include <SDL_image.h>
 
-#include <string>
-
-struct Tile_Def {
-	SDL_Rect src;
-	Point offset;
-};
-
-class TileSet {
+class SmartSurface {
 private:
-	void loadGraphics(const std::string& filename);
-	int alpha_background;
-	std::string current_map;
+	SDL_Surface* surface_;
+	SmartSurface(SmartSurface const& surface);
+	SmartSurface& operator=(SmartSurface const& surface);
 
 public:
-	// functions
-	TileSet();
-	void load(const std::string& filename);
-	
-	static const int number_of_tiles = 1024;
-	Tile_Def tiles[number_of_tiles];
-	SmartSurface sprites;
+	SmartSurface();
+	explicit SmartSurface(SDL_Surface* surface);
+	~SmartSurface();
+
+	SDL_Surface* release();
+	// fails if SDL_Surface is invalid.
+	SDL_Surface* get() const;
+	bool is_null() const;
+	void reset(SDL_Surface* surface = NULL);
+
+	operator bool() const;
+	bool operator!() const;
+
+	SDL_Surface& operator*();
+	SDL_Surface const& operator*() const;
+	SDL_Surface* operator->();
+	SDL_Surface const* operator->() const;
 };
 
 #endif

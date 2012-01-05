@@ -32,8 +32,7 @@ using namespace std;
 
 TileSet::TileSet() {
 	alpha_background = false;
-	sprites = NULL;
-	for (int i=0; i<256; i++) {
+	for (int i=0; i<number_of_tiles; i++) {
 		tiles[i].src.x = 0;
 		tiles[i].src.y = 0;
 		tiles[i].src.w = 0;
@@ -44,9 +43,7 @@ TileSet::TileSet() {
 }
 
 void TileSet::loadGraphics(const std::string& filename) {
-	if (sprites) SDL_FreeSurface(sprites);
-	
-	sprites = IMG_Load((mods->locate("images/tilesets/" + filename)).c_str());
+	sprites.reset(IMG_Load((mods->locate("images/tilesets/" + filename)).c_str()));
 	if (!sprites) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 		SDL_Quit();
@@ -54,13 +51,11 @@ void TileSet::loadGraphics(const std::string& filename) {
 	
 	// only set a color key if the tile set doesn't have an alpha channel
 	if (!alpha_background) {
-		SDL_SetColorKey( sprites, SDL_SRCCOLORKEY, SDL_MapRGB(sprites->format, 255, 0, 255) ); 
+		SDL_SetColorKey( sprites.get(), SDL_SRCCOLORKEY, SDL_MapRGB(sprites->format, 255, 0, 255) ); 
 	}
 	
 	// optimize
-	SDL_Surface *cleanup = sprites;
-	sprites = SDL_DisplayFormatAlpha(sprites);
-	SDL_FreeSurface(cleanup);	
+	sprites.reset(SDL_DisplayFormatAlpha(sprites.get()));
 }
 
 void TileSet::load(const std::string& filename) {
@@ -101,6 +96,3 @@ void TileSet::load(const std::string& filename) {
 	current_map = filename;
 }
 
-TileSet::~TileSet() {
-	SDL_FreeSurface(sprites);
-}

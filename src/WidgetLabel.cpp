@@ -37,7 +37,7 @@ WidgetLabel::WidgetLabel() {
 	
 	bounds.x = bounds.y = 0;
 	bounds.w = bounds.h = 0;
-	
+	x_origin = y_origin = 0;
 }
 
 /**

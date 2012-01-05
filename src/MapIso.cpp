@@ -44,6 +44,7 @@ MapIso::MapIso(CampaignManager *_camp) {
 	clearEvents();
 	enemy_awaiting_queue = false;
 	npc_awaiting_queue = false;
+	group_awaiting_queue = false;
 	clearEnemy(new_enemy);
 	clearNPC(new_npc);
 	
@@ -542,7 +543,7 @@ void MapIso::render(Renderable r[], int rnum) {
 				dest.w = tset.tiles[current_tile].src.w;
 				dest.h = tset.tiles[current_tile].src.h;
 				
-				SDL_BlitSurface(tset.sprites, &(tset.tiles[current_tile].src), screen, &dest);
+				SDL_BlitSurface(tset.sprites.get(), &(tset.tiles[current_tile].src), screen, &dest);
 	
 			}
 		}
@@ -581,7 +582,7 @@ void MapIso::render(Renderable r[], int rnum) {
 				dest.w = tset.tiles[current_tile].src.w;
 				dest.h = tset.tiles[current_tile].src.h;
 				
-				SDL_BlitSurface(tset.sprites, &(tset.tiles[current_tile].src), screen, &dest);
+				SDL_BlitSurface(tset.sprites.get(), &(tset.tiles[current_tile].src), screen, &dest);
 	
 			}
 			

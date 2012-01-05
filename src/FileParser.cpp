@@ -21,11 +21,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 using namespace std;
 
 
-FileParser::FileParser() {
-	line = "";
-	section = "";
-	key = "";
-	val = "";
+FileParser::FileParser() : new_section(false) {
 }
 
 bool FileParser::open(const string& filename) {
@@ -51,6 +47,7 @@ bool FileParser::next() {
 
 	while (!infile.eof()) {
 
+		// if infile goes invalid on this read, this will return "" anyway.
 		line = getLine(infile);
 
 		// skip ahead if this line is empty
@@ -84,12 +81,10 @@ bool FileParser::next() {
  * Get an unparsed, unfiltered line from the input file
  */
 string FileParser::getRawLine() {
-	line = "";
-
 	if (!infile.eof()) {
-		line = getLine(infile);
+		return getLine(infile);
 	}
-	return line;
+	return "";
 }
 
 string FileParser::nextValue() {

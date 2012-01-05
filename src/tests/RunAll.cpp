@@ -15,42 +15,8 @@ You should have received a copy of the GNU General Public License along with
 FLARE.  If not, see http://www.gnu.org/licenses/
 */
 
-/**
- * class TileSet
- *
- * TileSet storage and file loading
- */
- 
-#ifndef TILE_SET_H
-#define TILE_SET_H
+#define BOOST_TEST_DYN_LINK
+#define BOOST_TEST_MODULE "Tests for FLARE"
+#include <boost/test/unit_test.hpp>
 
-#include "Utils.h"
-#include "SmartSurface.h"
 
-#include <SDL.h>
-#include <SDL_image.h>
-
-#include <string>
-
-struct Tile_Def {
-	SDL_Rect src;
-	Point offset;
-};
-
-class TileSet {
-private:
-	void loadGraphics(const std::string& filename);
-	int alpha_background;
-	std::string current_map;
-
-public:
-	// functions
-	TileSet();
-	void load(const std::string& filename);
-	
-	static const int number_of_tiles = 1024;
-	Tile_Def tiles[number_of_tiles];
-	SmartSurface sprites;
-};
-
-#endif
