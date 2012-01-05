@@ -132,6 +132,7 @@ Set (FLARE_SOURCES
 Set (FLARE_TEST_SOURCES
 	${FLARE_SOURCES_EXCEPT_MAIN}
 	./src/tests/UtilsParsingTests.cpp
+	./src/tests/ScopedPtrTests.cpp
 	./src/tests/RunAll.cpp
 )
 
@@ -144,7 +145,7 @@ IF (WIN32)
 ENDIF (WIN32)
 
 Add_Executable (flare ${FLARE_SOURCES})
-Add_Executable (flare-tests ${FLARE_TEST_SOURCES})
+Add_Executable (flare-tests EXCLUDE_FROM_ALL ${FLARE_TEST_SOURCES})
 
 # libSDLMain comes with libSDL if needed on certain platforms
 If (NOT SDLMAIN_LIBRARY)
