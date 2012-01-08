@@ -213,5 +213,7 @@ GameStateNew::~GameStateNew() {
 	delete button_create;
 	delete button_next;
 	delete button_prev;
+	delete label_portrait;
+	delete label_name;
 	delete input_name;
 }

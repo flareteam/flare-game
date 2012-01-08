@@ -314,12 +314,9 @@ public:
 	SDL_Surface *gfx[POWER_MAX_GFX];
 	Mix_Chunk *sfx[POWER_MAX_SFX];
 	
-	SDL_Surface *freeze;
 	SDL_Surface *runes;
 	
 	int used_item;
-	
-	Mix_Chunk *sfx_freeze;
 };
 
 #endif

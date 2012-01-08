@@ -1021,9 +1021,6 @@ PowerManager::~PowerManager() {
 			Mix_FreeChunk(sfx[i]);
 	}
 
-	SDL_FreeSurface(freeze);
 	SDL_FreeSurface(runes);	
-	Mix_FreeChunk(sfx_freeze);
-	
 }
 

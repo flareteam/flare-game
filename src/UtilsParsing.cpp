@@ -198,7 +198,9 @@ string stripCarriageReturn(const string& line) {
 
 string getLine(ifstream &infile) {
 	string line;
-	getline(infile, line);
+	// This is the standard way to check whether a read failed.
+	if (!getline(infile, line))
+		return "";
 	line = stripCarriageReturn(line);
 	return line; 
 }
