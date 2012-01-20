@@ -57,6 +57,7 @@ private:
 	MenuManager *menu;
 	LootManager *loot;
 	PowerManager *powers;
+	ItemManager *items;
 	NPCManager *npcs;
 	CampaignManager *camp;
 	QuestLog *quests;

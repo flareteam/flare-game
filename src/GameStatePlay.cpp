@@ -41,18 +41,19 @@ GameStatePlay::GameStatePlay() : GameState() {
 
 	// construct gameplay objects
 	powers = new PowerManager();
+	items = new ItemManager();
 	camp = new CampaignManager();
 	map = new MapIso(camp);
 	pc = new Avatar(powers, map);
 	enemies = new EnemyManager(powers, map);
 	hazards = new HazardManager(powers, pc, enemies);
-	menu = new MenuManager(powers, &pc->stats, camp);
-	loot = new LootManager(menu->items, enemies, map);
-	npcs = new NPCManager(map, loot, menu->items);
+	menu = new MenuManager(powers, &pc->stats, camp, items);
+	loot = new LootManager(items, enemies, map);
+	npcs = new NPCManager(map, loot, items);
 	quests = new QuestLog(camp, menu->log);
 
 	// assign some object pointers after object creation, based on dependency order
-	camp->items = menu->items;
+	camp->items = items;
 	camp->carried_items = &menu->inv->inventory[CARRIED];
 	camp->currency = &menu->inv->gold;
 	camp->xp = &pc->stats.xp;
@@ -491,7 +492,6 @@ void GameStatePlay::showFPS(int fps) {
 
 GameStatePlay::~GameStatePlay() {
 	delete quests;
-	delete camp;
 	delete npcs;
 	delete hazards;
 	delete enemies;
@@ -499,6 +499,8 @@ GameStatePlay::~GameStatePlay() {
 	delete map;
 	delete menu;
 	delete loot;
+	delete camp;
+	delete items;
 	delete powers;
 }
 

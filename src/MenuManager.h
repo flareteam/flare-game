@@ -76,7 +76,7 @@ private:
 	bool done;
 	
 public:
-	MenuManager(PowerManager *powers, StatBlock *stats, CampaignManager *camp);
+	MenuManager(PowerManager *powers, StatBlock *stats, CampaignManager *camp, ItemManager *items);
 	~MenuManager();
 	void logic();
 	void render();
@@ -85,6 +85,7 @@ public:
 	void closeLeft(bool play_sound);
 	void closeRight(bool play_sound);
 
+	ItemManager *items;
 	MenuInventory *inv;
 	MenuPowers *pow;
 	MenuCharacter *chr;
@@ -99,7 +100,6 @@ public:
 	MenuVendor *vendor;
 	MenuTalker *talker;
 	MenuExit *exit;
-	ItemManager *items;
 	
 	bool pause;
 	bool menus_open;
