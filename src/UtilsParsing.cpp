@@ -18,6 +18,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "UtilsParsing.h"
 #include <cstdlib>
 #include <fstream>
+#include <sstream>
 
 using namespace std;
 
@@ -205,3 +206,42 @@ string getLine(ifstream &infile) {
 	return line; 
 }
 
+bool tryParseValue(const type_info & type, const char * value, void * output) {
+	return tryParseValue(type, string(value), output);
+}
+
+bool tryParseValue(const type_info & type, const std::string & value, void * output) {
+
+	stringstream stream(value);
+
+	// TODO: add additional type parsing
+	if (type == typeid(bool)) {
+		stream>>(bool&)*((bool*)output);
+	} else if (type == typeid(int)) {
+		stream>>(int&)*((int*)output);
+	} else if (type == typeid(std::string)) {
+		*((string *)output) = value;
+	} else {
+		return false;
+	}
+
+	return !stream.fail();
+}
+
+std::string toString(const type_info & type, void * value) {
+
+	stringstream stream;
+
+	// TODO: add additional type parsing
+	if (type == typeid(bool)) {
+		stream<<*((bool*)value);
+	} else if (type == typeid(int)) {
+		stream<<*((int*)value);
+	} else if (type == typeid(std::string)) {
+		return (string &)*((string *)value);
+	} else {
+		return "";
+	}
+
+	return stream.str();
+}
