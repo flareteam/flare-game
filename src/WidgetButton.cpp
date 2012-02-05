@@ -30,7 +30,7 @@ WidgetButton::WidgetButton(const std::string& _fileName)
 	buttons = NULL;
 	click = NULL;
 	label = "";
-	pos.x = pos.y = pos.w = pos.y = 0;
+	pos.x = pos.y = pos.w = pos.h = 0;
 	enabled = true;
 	pressed = false;
 	
