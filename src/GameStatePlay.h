@@ -41,6 +41,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "QuestLog.h"
 #include "GameState.h"
 #include "WidgetLabel.h"
+#include "CombatText.h"
 
 #include <SDL.h>
 #include <SDL_image.h>

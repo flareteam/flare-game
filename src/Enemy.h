@@ -37,6 +37,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "Hazard.h"
 #include "Settings.h"
 #include "PowerManager.h"
+#include "CombatText.h"
 
 // active states
 const int ENEMY_STANCE = 0;
