@@ -33,6 +33,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "PowerManager.h"
 #include "SharedResources.h"
 #include "MenuManager.h"
+#include "CombatText.h"
 
 #include <SDL.h>
 #include <SDL_image.h>

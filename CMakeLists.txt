@@ -64,6 +64,7 @@ Set (FLARE_SOURCES
 	./src/AStarNode.cpp
 	./src/Avatar.cpp
 	./src/CampaignManager.cpp
+	./src/CombatText.cpp
 	./src/Enemy.cpp
 	./src/EnemyGroupManager.cpp
 	./src/EnemyManager.cpp

@@ -29,6 +29,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "Hazard.h"
 #include "MapCollision.h"
 #include "SharedResources.h"
+#include "CombatText.h"
 
 #include <SDL.h>
 #include <SDL_image.h>

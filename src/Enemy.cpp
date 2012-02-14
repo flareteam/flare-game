@@ -20,6 +20,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "Enemy.h"
+#include <sstream>
 
 using namespace std;
 
@@ -117,6 +118,7 @@ void Enemy::logic() {
 	}
 	// check for bleeding spurt
 	if (stats.bleed_duration % 30 == 1) {
+	    CombatText::Instance()->addMessage(1, stats.pos, DISPLAY_DAMAGE);
 		powers->activate(POWER_SPARK_BLOOD, &stats, stats.pos);
 	}
 	
@@ -510,8 +512,7 @@ void Enemy::logic() {
  */
 bool Enemy::takeHit(Hazard h) {
 	if (stats.cur_state != ENEMY_DEAD && stats.cur_state != ENEMY_CRITDEAD) 
-	{
-
+	{   
 		if (!stats.in_combat) {
 			stats.in_combat = true;
 			stats.last_seen.x = stats.hero_pos.x;
@@ -522,8 +523,14 @@ bool Enemy::takeHit(Hazard h) {
 		// exit if it was a beacon (to prevent stats.targeted from being set)
 		if (powers->powers[h.power_index].beacon) return false;
 
+        // prepare the combat text
+	    CombatText *combat_text = CombatText::Instance();
+	    
 		// if it's a miss, do nothing
-		if (rand() % 100 > (h.accuracy - stats.avoidance + 25)) return false; 
+		if (rand() % 100 > (h.accuracy - stats.avoidance + 25)) {
+		    combat_text->addMessage("miss", stats.pos, DISPLAY_MISS);
+		    return false; 
+		}
 		
 		// calculate base damage
 		int dmg;
@@ -558,6 +565,13 @@ bool Enemy::takeHit(Hazard h) {
 		if (crit) {
 			dmg = dmg + h.dmg_max;
 			map->shaky_cam_ticks = FRAMES_PER_SEC/2;
+			
+			// show crit damage
+		    combat_text->addMessage(dmg, stats.pos, DISPLAY_CRIT);
+		}
+		else {
+		    // show normal damage
+		    combat_text->addMessage(dmg, stats.pos, DISPLAY_DAMAGE);
 		}
 		
 		// apply damage
@@ -579,7 +593,9 @@ bool Enemy::takeHit(Hazard h) {
 				stats.forced_speed.y = ceil((float)h.forced_move_speed * sin(theta));
 			}
 			if (h.hp_steal != 0) {
-				h.src_stats->hp += (int)ceil((float)dmg * (float)h.hp_steal / 100.0);
+			    int heal_amt = (int)ceil((float)dmg * (float)h.hp_steal / 100.0);
+    			combat_text->addMessage(heal_amt, h.src_stats->pos, DISPLAY_HEAL);
+				h.src_stats->hp += heal_amt;
 				if (h.src_stats->hp > h.src_stats->maxhp) h.src_stats->hp = h.src_stats->maxhp;
 			}
 			if (h.mp_steal != 0) {

@@ -481,6 +481,11 @@ void GameStatePlay::render() {
 	menu->mini->renderIso(&map->collider, pc->stats.pos, map->w, map->h);
 	menu->render();
 
+    // render combat text last - this should make it obvious you're being
+    // attacked, even if you have menus open
+    CombatText *combat_text = CombatText::Instance();
+    combat_text->setCam(map->cam);
+    combat_text->render();
 }
 
 void GameStatePlay::showFPS(int fps) {
