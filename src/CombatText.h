@@ -28,6 +28,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #define COMBAT_TEXT_H
 
 #include "WidgetLabel.h"
+#include "Settings.h"
 #include <vector>
 #include <string>
 
@@ -35,6 +36,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #define DISPLAY_CRIT 1
 #define DISPLAY_HEAL 2
 #define DISPLAY_MISS 3
+#define DISPLAY_SHIELD 4
 
 struct Combat_Text_Item {
 	WidgetLabel *label;

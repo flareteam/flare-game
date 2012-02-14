@@ -702,7 +702,9 @@ void PowerManager::buff(int power_index, StatBlock *src_stats, Point target) {
 	
 	// charge shield to max ment weapon damage * damage multiplier
 	if (powers[power_index].buff_shield) {
-		src_stats->shield_hp = (int)ceil(src_stats->dmg_ment_max * powers[power_index].damage_multiplier / 100.0);	
+	    int shield_amt = (int)ceil(src_stats->dmg_ment_max * powers[power_index].damage_multiplier / 100.0);
+	    CombatText::Instance()->addMessage(shield_amt, src_stats->pos, DISPLAY_SHIELD);
+		src_stats->shield_hp = shield_amt;
 	}
 	
 	// teleport to the target location

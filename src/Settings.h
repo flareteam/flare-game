@@ -46,6 +46,9 @@ extern bool MOUSE_MOVE;
 extern bool ENABLE_JOYSTICK;
 extern int JOYSTICK_DEVICE;
 
+// User Options
+extern bool COMBAT_TEXT;
+
 // Engine Settings
 extern bool MENUS_PAUSE;
 
