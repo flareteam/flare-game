@@ -28,6 +28,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 extern std::string PATH_CONF; // user-configurable settings files
 extern std::string PATH_USER; // important per-user data (saves)
 extern std::string PATH_DATA; // common game data
+extern std::string FILE_SETTINGS; // Name of the settings file (for example: "settings.txt").
 
 // Audio and Video Settings
 extern int MUSIC_VOLUME;
