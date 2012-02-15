@@ -95,7 +95,7 @@ void InputState::loadKeyBindings() {
 	int key2;
 	int cursor;
 
-	if (!infile.open(PATH_CONF + "keybindings.txt")) {
+	if (!infile.open(PATH_CONF + FILE_KEYBINDINGS)) {
 		saveKeyBindings();
 		return;
 	}
@@ -147,7 +147,7 @@ void InputState::loadKeyBindings() {
  */
 void InputState::saveKeyBindings() {
 	ofstream outfile;
-	outfile.open((PATH_CONF + "keybindings.txt").c_str(), ios::out);
+	outfile.open((PATH_CONF + FILE_KEYBINDINGS).c_str(), ios::out);
 
 	if (outfile.is_open()) {
 	

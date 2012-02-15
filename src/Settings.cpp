@@ -61,7 +61,8 @@ string PATH_USER = "";
 string PATH_DATA = "";
 
 // Filenames
-string FILE_SETTINGS = "settings.txt"; // For usage in several locations.
+string FILE_SETTINGS    = "settings.txt";
+string FILE_KEYBINDINGS = "keybindings.txt";
 
 // Tile Settings
 int UNITS_PER_TILE = 64;
