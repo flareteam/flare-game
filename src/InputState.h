@@ -15,12 +15,6 @@ You should have received a copy of the GNU General Public License along with
 FLARE.  If not, see http://www.gnu.org/licenses/
 */
 
-/**
- * class InputState
- *
- * Handles keyboard and mouse states
- */
-
 #ifndef INPUT_STATE_H
 #define INPUT_STATE_H
 
@@ -68,6 +62,12 @@ const int MAIN2 = 21;
 const int CTRL = 22;
 const int SHIFT = 23;
 const int DEL = 24;
+
+/**
+ * class InputState
+ *
+ * Handles keyboard and mouse states
+ */
 
 class InputState {
 private:
