@@ -37,13 +37,13 @@ static void init() {
 	setPaths();
 
 	if (!loadSettings()) {
-		fprintf(stderr, "Error: could not load config/settings.txt.\n");
+		fprintf(stderr, ("Could not load settings file: ‘" + PATH_CONF + FILE_SETTINGS + "’.\n").c_str());
 		exit(1);
 	}
 
 	// SDL Inits
 	if ( SDL_Init (SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_JOYSTICK) < 0 ) {		
-        fprintf(stderr, "Couldn't initialize SDL: %s\n", SDL_GetError());
+        fprintf(stderr, "Could not initialize SDL: %s\n", SDL_GetError());
 		exit(1);
 	}
 
@@ -81,7 +81,7 @@ static void init() {
 		exit(1);
 	}
 	
-    // initialize Joysticks
+  // initialize Joysticks
 	if(SDL_NumJoysticks() == 1) {
 		printf("1 joystick was found:\n");
 	}
@@ -89,14 +89,14 @@ static void init() {
 		printf("%d joysticks were found:\n", SDL_NumJoysticks());
 	}
 	else {
-		printf("No joysticks were found\n");
+		printf("No joysticks were found.\n");
 	}
 	for(int i = 0; i < SDL_NumJoysticks(); i++)
 	{
 		SDL_JoystickOpen(i);
 		printf("  Joy %d) %s\n", i, SDL_JoystickName(i));
 	}
-	printf("Using joystick #%d\n", JOYSTICK_DEVICE);
+	printf("Using joystick #%d.\n", JOYSTICK_DEVICE);
 
 	// Set sound effects volume from settings file
 	Mix_Volume(-1, SOUND_VOLUME);

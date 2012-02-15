@@ -60,6 +60,9 @@ string PATH_CONF = "";
 string PATH_USER = "";
 string PATH_DATA = "";
 
+// Filenames
+string FILE_SETTINGS = "settings.txt"; // For usage in several locations.
+
 // Tile Settings
 int UNITS_PER_TILE = 64;
 int TILE_SHIFT = 6; // for fast bitshift divides
@@ -248,7 +251,7 @@ bool loadSettings() {
 
 	// try read from file
 	FileParser infile;
-	if (infile.open(PATH_CONF + "settings.txt")) {
+	if (infile.open(PATH_CONF + FILE_SETTINGS)) {
 
 		while (infile.next()) {
 
@@ -277,7 +280,7 @@ bool loadSettings() {
 bool saveSettings() {
 
 	ofstream outfile;
-	outfile.open((PATH_CONF + "settings.txt").c_str(), ios::out);
+	outfile.open((PATH_CONF + FILE_SETTINGS).c_str(), ios::out);
 
 	if (outfile.is_open()) {
 	
