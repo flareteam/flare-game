@@ -1,5 +1,5 @@
 /*
-Copyright 2011 Pavel Kirpichyov (Cheshire)
+Copyright © 2011-2012 Pavel Kirpichyov (Cheshire)
 
 This file is part of FLARE.
 
