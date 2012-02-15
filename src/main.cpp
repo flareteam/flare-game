@@ -32,6 +32,9 @@ using namespace std;
 
 GameSwitcher *gswitch;
 
+/**
+ * Game initialization.
+ */
 static void init() {
 
 	setPaths();
