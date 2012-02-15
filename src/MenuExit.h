@@ -1,5 +1,5 @@
 /*
-Copyright 2011 kitano
+Copyright © 2011-2012 kitano
 
 This file is part of FLARE.
 

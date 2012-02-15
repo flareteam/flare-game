@@ -20,8 +20,8 @@ elseif(CMAKE_BUILD_TYPE STREQUAL "Debug")
   set(CMAKE_MODULE_LINKER_FLAGS_DEBUG "-pg")
 endif()
 
-set(BINDIR  "games"             CACHE STRING "where to install game binary")
-set(DATADIR "share/games/flare" CACHE STRING "where to install game data")
+set(BINDIR  "games"             CACHE STRING "Directory from CMAKE_INSTALL_PREFIX where game executable will be installed.")
+set(DATADIR "share/games/flare" CACHE STRING "Directory from CMAKE_INSTALL_PREFIX where game data files will be installed.")
 
 add_definitions(-DDATA_INSTALL_DIR="${CMAKE_INSTALL_PREFIX}/${DATADIR}")
 
