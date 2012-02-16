@@ -1,5 +1,5 @@
 /*
-Copyright 2011 Clint Bellanger
+Copyright © 2011-2012 Clint Bellanger
 
 This file is part of FLARE.
 
@@ -14,19 +14,6 @@ PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 You should have received a copy of the GNU General Public License along with
 FLARE.  If not, see http://www.gnu.org/licenses/
 */
-
-/**
- * class GameSwitcher
- *
- * State machine handler between main game modes that take up the entire view/control
- *
- * Examples:
- * - the main gameplay (GameEngine class)
- * - title screen
- * - new game screen (character create)
- * - load game screen
- * - maybe full-video cutscenes
- */
  
 #ifndef GAME_SWITCHER_H
 #define GAME_SWITCHER_H
@@ -44,6 +31,19 @@ const int GAME_STATE_LOAD = 2;
 const int GAME_STATE_NEW = 3;
 
 class GameState;
+
+/**
+ * class GameSwitcher
+ *
+ * State machine handler between main game modes that take up the entire view/control
+ *
+ * Examples:
+ * - the main gameplay (GameEngine class)
+ * - title screen
+ * - new game screen (character create)
+ * - load game screen
+ * - maybe full-video cutscenes
+ */
 
 class GameSwitcher {
 private:

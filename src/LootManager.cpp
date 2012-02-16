@@ -1,5 +1,5 @@
 /*
-Copyright 2011 Clint Bellanger
+Copyright © 2011-2012 Clint Bellanger
 
 This file is part of FLARE.
 
@@ -410,25 +410,24 @@ void LootManager::removeLoot(int index) {
 	// deallocate the tooltip of the loot being removed
 	tip->clear(loot[index].tip);
 
-	for (int i=index; i<loot_count-1; i++) {
-		loot[i].stack = loot[i+1].stack;
-		loot[i].pos.x = loot[i+1].pos.x;
-		loot[i].pos.y = loot[i+1].pos.y;
-		loot[i].frame = loot[i+1].frame;
-		loot[i].gold = loot[i+1].gold;
-		loot[i].tip = loot[i+1].tip;
-	}
-		
+	loot_count--;
+
+	loot[index].stack = loot[loot_count].stack;
+	loot[index].pos.x = loot[loot_count].pos.x;
+	loot[index].pos.y = loot[loot_count].pos.y;
+	loot[index].frame = loot[loot_count].frame;
+	loot[index].gold = loot[loot_count].gold;
+	loot[index].tip = loot[loot_count].tip;
+	
 	// the last tooltip buffer pointer has been copied up one index.
 	// NULL the last pointer without deallocating. Otherwise the same
 	// address might be deallocated twice, causing a memory access error
-	loot[loot_count-1].tip.tip_buffer = NULL;
+	loot[loot_count].tip.tip_buffer = NULL;
 	
 	// TODO: This requires too much knowledge of the underworkings of
 	// TooltipData. Is there a way to hide this complexity, be memory safe,
 	// and be efficient with the drawing buffer?
 
-	loot_count--;
 }
 
 /**

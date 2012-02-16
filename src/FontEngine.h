@@ -1,5 +1,5 @@
 /*
-Copyright 2011 Clint Bellanger and Thane Brimhall
+Copyright © 2011-2012 Clint Bellanger and Thane Brimhall
 
 This file is part of FLARE.
 
@@ -14,11 +14,6 @@ PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 You should have received a copy of the GNU General Public License along with
 FLARE.  If not, see http://www.gnu.org/licenses/
 */
-
-/*
- * class FontEngine
- * Handles rendering a bitmap font
- */
 
 #ifndef FONT_ENGINE_H
 #define FONT_ENGINE_H
@@ -47,6 +42,12 @@ const int FONT_BLUE = 3;
 const int FONT_GRAY = 4;
 const int FONT_GREY = 4;
 const int FONT_BLACK = 5;
+
+/**
+ * class FontEngine
+ * 
+ * Handles rendering a bitmap font.
+ */
 
 class FontEngine {
 private:

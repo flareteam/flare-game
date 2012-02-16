@@ -1,5 +1,5 @@
 /*
-Copyright 2011 Clint Bellanger and Thane Brimhall
+Copyright © 2011-2012 Clint Bellanger and Thane Brimhall
 
 This file is part of FLARE.
 

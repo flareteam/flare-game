@@ -1,5 +1,5 @@
 /*
-Copyright 2011 Clint Bellanger
+Copyright © 2011-2012 Clint Bellanger
 
 This file is part of FLARE.
 
@@ -19,6 +19,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #define UTILS_PARSING_H
 
 #include <string>
+#include <typeinfo>
 
 bool isInt(const std::string& s);
 unsigned short xtoi(char c);
@@ -32,6 +33,9 @@ unsigned short eatFirstHex(std::string& s, char separator);
 std::string eatFirstString(std::string& s, char separator);
 std::string getNextToken(const std::string& s, size_t& cursor, char separator);
 std::string stripCarriageReturn(const std::string& line);
-std::string getLine(std::istream& infile);
+std::string getLine(std::ifstream& infile);
+bool tryParseValue(const std::type_info & type, const char * value, void * output);
+bool tryParseValue(const std::type_info & type, const std::string & value, void * output);
+std::string toString(const std::type_info & type, void * value);
 
 #endif

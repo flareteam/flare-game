@@ -1,5 +1,5 @@
 /*
-Copyright 2011 Clint Bellanger
+Copyright © 2011-2012 Clint Bellanger
 
 This file is part of FLARE.
 
@@ -29,6 +29,10 @@ extern std::string PATH_CONF; // user-configurable settings files
 extern std::string PATH_USER; // important per-user data (saves)
 extern std::string PATH_DATA; // common game data
 
+// Filenames
+extern std::string FILE_SETTINGS;     // Name of the settings file (e.g. "settings.txt").
+extern std::string FILE_KEYBINDINGS;  // Name of the key bindings file (e.g. "keybindings.txt").
+
 // Audio and Video Settings
 extern int MUSIC_VOLUME;
 extern int SOUND_VOLUME;
@@ -45,6 +49,9 @@ extern bool HWSURFACE;
 extern bool MOUSE_MOVE;
 extern bool ENABLE_JOYSTICK;
 extern int JOYSTICK_DEVICE;
+
+// User Options
+extern bool COMBAT_TEXT;
 
 // Engine Settings
 extern bool MENUS_PAUSE;

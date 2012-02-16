@@ -1,5 +1,5 @@
 /*
-Copyright 2011 Clint Bellanger
+Copyright © 2011-2012 Clint Bellanger
 
 This file is part of FLARE.
 
@@ -41,6 +41,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "QuestLog.h"
 #include "GameState.h"
 #include "WidgetLabel.h"
+#include "CombatText.h"
 
 #include <SDL.h>
 #include <SDL_image.h>
@@ -57,6 +58,7 @@ private:
 	MenuManager *menu;
 	LootManager *loot;
 	PowerManager *powers;
+	ItemManager *items;
 	NPCManager *npcs;
 	CampaignManager *camp;
 	QuestLog *quests;

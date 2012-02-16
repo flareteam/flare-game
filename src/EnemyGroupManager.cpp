@@ -1,5 +1,5 @@
 /*
-Copyright 2011 Thane Brimhall
+Copyright © 2011-2012 Thane Brimhall
 		Manuel A. Fernandez Montecelo <manuel.montezelo@gmail.com>
 
 This file is part of FLARE.

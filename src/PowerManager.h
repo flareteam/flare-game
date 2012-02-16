@@ -1,5 +1,5 @@
 /*
-Copyright 2011 Clint Bellanger
+Copyright © 2011-2012 Clint Bellanger
 
 This file is part of FLARE.
 
@@ -29,6 +29,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "Hazard.h"
 #include "MapCollision.h"
 #include "SharedResources.h"
+#include "CombatText.h"
 
 #include <SDL.h>
 #include <SDL_image.h>
@@ -314,12 +315,9 @@ public:
 	SDL_Surface *gfx[POWER_MAX_GFX];
 	Mix_Chunk *sfx[POWER_MAX_SFX];
 	
-	SDL_Surface *freeze;
 	SDL_Surface *runes;
 	
 	int used_item;
-	
-	Mix_Chunk *sfx_freeze;
 };
 
 #endif

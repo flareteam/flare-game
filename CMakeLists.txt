@@ -20,9 +20,8 @@ elseif(CMAKE_BUILD_TYPE STREQUAL "Debug")
   set(CMAKE_MODULE_LINKER_FLAGS_DEBUG "-pg")
 endif()
 
-set(BINDIR  "games"             CACHE STRING "where to install game binary")
-set(DATADIR "share/games/flare" CACHE STRING "where to install game data")
-include_directories(./src/)
+set(BINDIR  "games"             CACHE STRING "Directory from CMAKE_INSTALL_PREFIX where game executable will be installed.")
+set(DATADIR "share/games/flare" CACHE STRING "Directory from CMAKE_INSTALL_PREFIX where game data files will be installed.")
 
 add_definitions(-DDATA_INSTALL_DIR="${CMAKE_INSTALL_PREFIX}/${DATADIR}")
 
@@ -59,13 +58,13 @@ EndIf (NOT SDLTTF_FOUND)
 
 # Sources
 
-Set (FLARE_SOURCES_EXCEPT_MAIN
-
+Set (FLARE_SOURCES 
 	./src/Entity.cpp
 	./src/Animation.cpp
 	./src/AStarNode.cpp
 	./src/Avatar.cpp
 	./src/CampaignManager.cpp
+	./src/CombatText.cpp
 	./src/Enemy.cpp
 	./src/EnemyGroupManager.cpp
 	./src/EnemyManager.cpp
@@ -112,7 +111,6 @@ Set (FLARE_SOURCES_EXCEPT_MAIN
 	./src/SaveLoad.cpp
 	./src/Settings.cpp
 	./src/SharedResources.cpp
-	./src/SmartSurface.cpp
 	./src/StatBlock.cpp
 	./src/TileSet.cpp
 	./src/Utils.cpp
@@ -122,18 +120,7 @@ Set (FLARE_SOURCES_EXCEPT_MAIN
 	./src/WidgetInput.cpp
 	./src/WidgetLabel.cpp
 	./src/WidgetTooltip.cpp
-)
-	
-Set (FLARE_SOURCES 
-	${FLARE_SOURCES_EXCEPT_MAIN}
 	./src/main.cpp
-)
-
-Set (FLARE_TEST_SOURCES
-	${FLARE_SOURCES_EXCEPT_MAIN}
-	./src/tests/UtilsParsingTests.cpp
-	./src/tests/ScopedPtrTests.cpp
-	./src/tests/RunAll.cpp
 )
 
 # Add icon and file info to executable for Windows systems
@@ -145,7 +132,6 @@ IF (WIN32)
 ENDIF (WIN32)
 
 Add_Executable (flare ${FLARE_SOURCES})
-Add_Executable (flare-tests EXCLUDE_FROM_ALL ${FLARE_TEST_SOURCES})
 
 # libSDLMain comes with libSDL if needed on certain platforms
 If (NOT SDLMAIN_LIBRARY)
@@ -153,8 +139,6 @@ If (NOT SDLMAIN_LIBRARY)
 EndIf (NOT SDLMAIN_LIBRARY)
 
 Target_Link_Libraries (flare ${SDL_LIBRARY} ${SDLMIXER_LIBRARY} ${SDLIMAGE_LIBRARY} ${SDLTTF_LIBRARY} ${SDLMAIN_LIBRARY})
-Target_Link_Libraries (flare-tests ${SDL_LIBRARY} ${SDLMIXER_LIBRARY} ${SDLIMAGE_LIBRARY}
-	${SDLTTF_LIBRARY} ${SDLMAIN_LIBRARY} boost_unit_test_framework)
 
 
 set(FLARE_EXECUTABLE_PATH ${CMAKE_INSTALL_PREFIX}/${BINDIR}/flare)

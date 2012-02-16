@@ -1,5 +1,5 @@
 /*
-Copyright 2011 Clint Bellanger and morris989
+Copyright © 2011-2012 Clint Bellanger and morris989
 
 This file is part of FLARE.
 
