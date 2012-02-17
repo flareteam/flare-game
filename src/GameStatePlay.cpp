@@ -500,7 +500,6 @@ GameStatePlay::~GameStatePlay() {
 	delete npcs;
 	delete hazards;
 	delete enemies;
-	
 	delete pc;
 	delete map;
 	delete menu;

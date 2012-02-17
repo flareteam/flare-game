@@ -25,7 +25,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #define TILE_SET_H
 
 #include "Utils.h"
-#include "SmartSurface.h"
 
 #include <SDL.h>
 #include <SDL_image.h>
@@ -46,11 +45,11 @@ private:
 public:
 	// functions
 	TileSet();
+	~TileSet();
 	void load(const std::string& filename);
 	
-	static const int number_of_tiles = 1024;
-	Tile_Def tiles[number_of_tiles];
-	SmartSurface sprites;
+	Tile_Def tiles[1024];
+	SDL_Surface *sprites;
 };
 
 #endif
