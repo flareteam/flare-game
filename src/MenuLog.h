@@ -26,6 +26,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "Utils.h"
 #include "FontEngine.h"
 #include "WidgetButton.h"
+#include "WidgetTabControl.h"
 #include "SharedResources.h"
 
 #include <SDL.h>
@@ -45,20 +46,16 @@ class MenuLog {
 private:
 
 	SDL_Surface *background;
-	SDL_Surface *tab_active;
-	SDL_Surface *tab_inactive;
 	WidgetButton *closeButton;
+  WidgetTabControl *tabControl;
 	
 	void loadGraphics();
-	void renderTab();
 	
 	std::string log_msg[LOG_TYPE_COUNT][MAX_LOG_MESSAGES];
 	SDL_Surface *msg_buffer[LOG_TYPE_COUNT][MAX_LOG_MESSAGES];
 	int log_count[LOG_TYPE_COUNT];
 	std::string tab_labels[LOG_TYPE_COUNT];
 	SDL_Rect tab_rect[LOG_TYPE_COUNT];
-	Point tab_padding;
-	int active_log;
 	int paragraph_spacing;
 	
 public:
@@ -66,18 +63,15 @@ public:
 	~MenuLog();
 
 	void logic();
+  void tabsLogic();
 	void render();
-	void renderTab(int log_type);
 	void add(const std::string& s, int log_type);
 	void remove(int msg_index, int log_type);
 	void clear(int log_type);
 	void clear();
-	void clickTab(Point mouse);
 	
 	bool visible;
 	SDL_Rect menu_area;
-	SDL_Rect list_area;
-	SDL_Rect tabs_area;
 
 };
 

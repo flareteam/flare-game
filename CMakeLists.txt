@@ -118,7 +118,8 @@ Set (FLARE_SOURCES
 	./src/UtilsParsing.cpp
 	./src/WidgetButton.cpp
 	./src/WidgetInput.cpp
-	./src/WidgetLabel.cpp
+  ./src/WidgetLabel.cpp
+  ./src/WidgetTabControl.cpp
 	./src/WidgetTooltip.cpp
 	./src/main.cpp
 )
