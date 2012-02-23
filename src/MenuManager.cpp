@@ -113,7 +113,7 @@ void MenuManager::logic() {
 	inv->logic();
 	vendor->logic();
 	pow->logic();
-	log->logic();
+  log->logic();
 	talker->logic();
 
 	if (!inp->pressing[INVENTORY] && !inp->pressing[POWERS] && !inp->pressing[CHARACTER] && !inp->pressing[LOG])
@@ -273,16 +273,10 @@ void MenuManager::logic() {
 							drag_src = DRAG_SRC_VENDOR;
 						}
 					}
-
-				}
-				else if (log->visible) {
-
-					inp->lock[MAIN1] = true;
-					// click on a log tab to make it the active display
-					if (isWithin(log->tabs_area, inp->mouse)) {
-						log->clickTab(inp->mouse);
-					}
-				}
+				} else if(log->visible) {
+          inp->lock[MAIN1] = true;
+          log->tabsLogic();
+        }
 			}
 
 			// right side menu
