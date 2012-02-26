@@ -47,8 +47,8 @@ WidgetTabControl::WidgetTabControl(int amount) {
 WidgetTabControl::~WidgetTabControl() {
   SDL_FreeSurface(activeTabSurface);
   SDL_FreeSurface(inactiveTabSurface);
-  delete titles;
-  delete tabs;
+  delete[] titles;
+  delete[] tabs;
 }
 
 /**
