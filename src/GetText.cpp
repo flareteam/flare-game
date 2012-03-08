@@ -78,8 +78,24 @@ bool GetText::next() {
 			val = sanitize(val);
 
 			// handle keypairs
-			if (key != "" && val != "")
-				return true;
+			if (key != "")
+      {
+        if(val != "") // One-line value found.
+        {
+          return true;
+        }
+        else  // Might be a multi-line value.
+        {
+          line = getLine(infile);
+          while(line.find("\"") == 0)
+          {
+            // We remove the double quotes.
+            val += line.substr(1, line.length()-2);
+            line = getLine(infile);
+          }
+          return true;
+        }
+      }
 		}
 
 	}
