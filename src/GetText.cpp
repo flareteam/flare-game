@@ -93,7 +93,10 @@ bool GetText::next() {
             val += line.substr(1, line.length()-2);
             line = getLine(infile);
           }
-          return true;
+          if(val != "") // It was a multi-line value indeed.
+          {
+            return true;
+          }
         }
       }
 		}
