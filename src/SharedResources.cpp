@@ -32,3 +32,4 @@ MessageEngine *msg;
 InputState *inp;
 FontEngine *font;
 
+bool audio;

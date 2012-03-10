@@ -397,27 +397,31 @@ int PowerManager::loadGFX(const string& filename) {
  */
 int PowerManager::loadSFX(const string& filename) {
 	
-	// currently we restrict the total number of unique power sounds
-	if (sfx_count == POWER_MAX_SFX) return -1;
-	
-	// first check to make sure the sound isn't already loaded
-	for (int i=0; i<sfx_count; i++) {
-		if (sfx_filenames[i] == filename) {
-			return i; // already have this one
-		}
-	}
+        // currently we restrict the total number of unique power sounds
+        if (sfx_count == POWER_MAX_SFX) return -1;
+        
+        // first check to make sure the sound isn't already loaded
+        for (int i=0; i<sfx_count; i++) {
+            if (sfx_filenames[i] == filename) {
+                return i; // already have this one
+            }
+        }
 
-	// we don't already have this sound loaded, so load it
-	sfx[sfx_count] = Mix_LoadWAV(mods->locate("soundfx/powers/" + filename).c_str());
-	if(!sfx[sfx_count]) {
-		fprintf(stderr, "Couldn't load power soundfx: %s\n", filename.c_str());
-		return -1;
-	}
-	
-	// success; perform record-keeping
-	sfx_filenames[sfx_count] = filename;
-	sfx_count++;
-	return sfx_count-1;
+        // we don't already have this sound loaded, so load it
+        if (audio ==  true) {
+            sfx[sfx_count] = Mix_LoadWAV(mods->locate("soundfx/powers/" + filename).c_str());
+            if(!sfx[sfx_count]) {
+                fprintf(stderr, "Couldn't load power soundfx: %s\n", filename.c_str());
+                return -1;
+            }
+        } else {
+            sfx[sfx_count] = NULL;
+        }
+        
+        // success; perform record-keeping
+        sfx_filenames[sfx_count] = filename;
+        sfx_count++;
+        return sfx_count-1;
 }
 
 
@@ -749,22 +753,26 @@ void PowerManager::playSound(int power_index, StatBlock *src_stats) {
 	if (powers[power_index].allow_power_mod) {
 		if (powers[power_index].base_damage == BASE_DAMAGE_MELEE && src_stats->melee_weapon_power != -1 
 				&& powers[src_stats->melee_weapon_power].sfx_index != -1) {
-			Mix_PlayChannel(-1,sfx[powers[src_stats->melee_weapon_power].sfx_index],0);
+            if (sfx[powers[src_stats->melee_weapon_power].sfx_index])
+    			Mix_PlayChannel(-1,sfx[powers[src_stats->melee_weapon_power].sfx_index],0);
 		}
 		else if (powers[power_index].base_damage == BASE_DAMAGE_MENT && src_stats->mental_weapon_power != -1 
 				&& powers[src_stats->mental_weapon_power].sfx_index != -1) {
-			Mix_PlayChannel(-1,sfx[powers[src_stats->mental_weapon_power].sfx_index],0);
+            if (sfx[powers[src_stats->mental_weapon_power].sfx_index])
+                Mix_PlayChannel(-1,sfx[powers[src_stats->mental_weapon_power].sfx_index],0);
 		}
 		else if (powers[power_index].base_damage == BASE_DAMAGE_RANGED && src_stats->ranged_weapon_power != -1 
 				&& powers[src_stats->ranged_weapon_power].sfx_index != -1) {
-			Mix_PlayChannel(-1,sfx[powers[src_stats->ranged_weapon_power].sfx_index],0);
+            if (sfx[powers[src_stats->ranged_weapon_power].sfx_index])
+                Mix_PlayChannel(-1,sfx[powers[src_stats->ranged_weapon_power].sfx_index],0);
 		}
 		else play_base_sound = true;
 	}
 	else play_base_sound = true;
 
 	if (play_base_sound && powers[power_index].sfx_index != -1) {
-		Mix_PlayChannel(-1,sfx[powers[power_index].sfx_index],0);
+        if (sfx[powers[power_index].sfx_index])
+            Mix_PlayChannel(-1,sfx[powers[power_index].sfx_index],0);
 	}
 		
 }
@@ -1019,10 +1027,10 @@ PowerManager::~PowerManager() {
 		if (gfx[i] != NULL)
 			SDL_FreeSurface(gfx[i]);
 	}
-	for (int i=0; i<sfx_count; i++) {
-		if (sfx[i] != NULL)
-			Mix_FreeChunk(sfx[i]);
-	}
+    for (int i=0; i<sfx_count; i++) {
+        if (sfx[i] != NULL)
+            Mix_FreeChunk(sfx[i]);
+    }
 
 	SDL_FreeSurface(runes);	
 }

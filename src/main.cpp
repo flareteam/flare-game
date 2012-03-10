@@ -77,11 +77,12 @@ static void init() {
 		SDL_Quit();
 		exit(1);
 	}
-	
+    
+    audio = true;
+
 	if (Mix_OpenAudio(22050, AUDIO_S16SYS, 2, 1024)) {
 		fprintf (stderr, "Error during Mix_OpenAudio: %s\n", SDL_GetError());
-		SDL_Quit();
-		exit(1);
+        audio = false;
 	}
 	
   // initialize Joysticks
@@ -102,7 +103,8 @@ static void init() {
 	printf("Using joystick #%d.\n", JOYSTICK_DEVICE);
 
 	// Set sound effects volume from settings file
-	Mix_Volume(-1, SOUND_VOLUME);
+    if (audio == true)
+    	Mix_Volume(-1, SOUND_VOLUME);
 
 	// Window title
 	const char* title = msg->get("Flare").c_str();
