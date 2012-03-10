@@ -221,16 +221,18 @@ void NPC::loadGraphics(const string& filename_sprites, const string& filename_po
  */
 void NPC::loadSound(const string& filename, int type) {
 
-	if (type == NPC_VOX_INTRO) {
-	
-		// if too many already loaded, skip this one
-		if (vox_intro_count == NPC_MAX_VOX) return;
-		vox_intro[vox_intro_count] = Mix_LoadWAV(mods->locate("soundfx/npcs/" + filename).c_str());
-		
-		if (vox_intro[vox_intro_count])
-			vox_intro_count++;
-	}
-
+    if (type == NPC_VOX_INTRO) {
+    
+        // if too many already loaded, skip this one
+        if (vox_intro_count == NPC_MAX_VOX) return;
+        if (audio == true)
+            vox_intro[vox_intro_count] = Mix_LoadWAV(mods->locate("soundfx/npcs/" + filename).c_str());
+        else
+            vox_intro[vox_intro_count] = NULL;
+        
+        if (vox_intro[vox_intro_count])
+            vox_intro_count++;
+    }
 }
 
 void NPC::logic() {
@@ -251,7 +253,8 @@ bool NPC::playSound(int type) {
 	if (type == NPC_VOX_INTRO) {
 		if (vox_intro_count == 0) return false;
 		roll = rand() % vox_intro_count;
-		Mix_PlayChannel(-1, vox_intro[roll], 0);
+        if (vox_intro[roll])
+            Mix_PlayChannel(-1, vox_intro[roll], 0);
 		return true;
 	}
 	return false;
@@ -381,6 +384,7 @@ NPC::~NPC() {
 	if (sprites != NULL) SDL_FreeSurface(sprites);
 	if (portrait != NULL) SDL_FreeSurface(portrait);
 	for (int i=0; i<NPC_MAX_VOX; i++) {
-		Mix_FreeChunk(vox_intro[i]);
+        if (vox_intro[i])
+            Mix_FreeChunk(vox_intro[i]);
 	}
 }

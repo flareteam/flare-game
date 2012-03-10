@@ -39,4 +39,6 @@ extern MessageEngine *msg;
 extern InputState *inp;
 extern FontEngine *font;
 
+extern bool audio;
+
 #endif

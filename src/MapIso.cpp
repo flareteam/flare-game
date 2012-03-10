@@ -119,13 +119,15 @@ void MapIso::clearGroup(Map_Group &g) {
 }
 
 void MapIso::playSFX(string filename) {
-	// only load from file if the requested soundfx isn't already loaded
-	if (filename != sfx_filename) {
-		if (sfx) Mix_FreeChunk(sfx);
-		sfx = Mix_LoadWAV((mods->locate(filename)).c_str());
-		sfx_filename = filename;
-	}
-	if (sfx) Mix_PlayChannel(-1, sfx, 0);	
+    // only load from file if the requested soundfx isn't already loaded
+    if (filename != sfx_filename) {
+        if (sfx) Mix_FreeChunk(sfx);
+        if (audio == true) {
+            sfx = Mix_LoadWAV((mods->locate(filename)).c_str());
+            sfx_filename = filename;
+        }
+    }
+    if (sfx) Mix_PlayChannel(-1, sfx, 0);
 }
 
 void MapIso::push_enemy_group(Map_Group g) {
@@ -471,20 +473,21 @@ int MapIso::load(string filename) {
 
 void MapIso::loadMusic() {
 
-	if (music != NULL) {
-		Mix_HaltMusic();
-		Mix_FreeMusic(music);
-		music = NULL;
-	}
-	music = Mix_LoadMUS((mods->locate("music/" + this->music_filename)).c_str());
-	if (!music) {
-	  printf("Mix_LoadMUS: %s\n", Mix_GetError());
-	  SDL_Quit();
-	}
+    if (music != NULL) {
+        Mix_HaltMusic();
+        Mix_FreeMusic(music);
+        music = NULL;
+    }
+    if (audio == true) {
+        music = Mix_LoadMUS((mods->locate("music/" + this->music_filename)).c_str());
+        if(!music)
+            printf("Mix_LoadMUS: %s\n", Mix_GetError());
+    }
 
-	Mix_VolumeMusic(MUSIC_VOLUME);
-	Mix_PlayMusic(music, -1);
-	
+    if (music) {
+        Mix_VolumeMusic(MUSIC_VOLUME);
+        Mix_PlayMusic(music, -1);
+    }
 }
 
 void MapIso::logic() {
