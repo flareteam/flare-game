@@ -54,6 +54,9 @@ const int ENEMY_BLOCK = 7;
 const int ENEMY_HIT = 8;
 const int ENEMY_DEAD = 9;
 const int ENEMY_CRITDEAD = 10;
+const int ENEMY_HALF_DEAD = 11;
+const int ENEMY_DEBUFF = 12;
+const int ENEMY_JOIN_COMBAT = 13;
 
 class Enemy : public Entity {
 protected:

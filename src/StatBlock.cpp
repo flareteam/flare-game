@@ -196,6 +196,17 @@ void StatBlock::load(const string& filename) {
 			else if (infile.key == "cooldown_melee_ment") power_cooldown[MELEE_MENT] = num;
 			else if (infile.key == "cooldown_ranged_phys") power_cooldown[RANGED_PHYS] = num;
 			else if (infile.key == "cooldown_ranged_ment") power_cooldown[RANGED_MENT] = num;
+            else if (infile.key == "power_on_hit") power_index[ON_HIT] = num;
+			else if (infile.key == "power_on_death") power_index[ON_DEATH] = num;
+			else if (infile.key == "power_on_half_dead") power_index[ON_HALF_DEAD] = num;
+			else if (infile.key == "power_on_debuff") power_index[ON_DEBUFF] = num;
+			else if (infile.key == "power_on_join_combat") power_index[ON_JOIN_COMBAT] = num;
+            else if (infile.key == "chance_on_hit") power_chance[ON_HIT] = num;
+			else if (infile.key == "chance_on_death") power_chance[ON_DEATH] = num;
+			else if (infile.key == "chance_on_half_dead") power_chance[ON_HALF_DEAD] = num;
+			else if (infile.key == "chance_on_debuff") power_chance[ON_DEBUFF] = num;
+			else if (infile.key == "chance_on_join_combat") power_chance[ON_JOIN_COMBAT] = num;
+
 			
 			else if (infile.key == "melee_range") melee_range = num;
 			else if (infile.key == "threat_range") threat_range = num;
