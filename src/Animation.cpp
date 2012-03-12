@@ -27,11 +27,11 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "Animation.h"
 
-Animation::Animation(std::string _name, Point _render_size, Point _render_offset, int _position, int _frames, int _duration, std::string _type)
+Animation::Animation(std::string _name, Point _render_size, Point _render_offset, int _position, int _frames, int _duration, std::string _type, int active_frame)
 	: name(_name), sprites(NULL),
 	  render_size(_render_size), render_offset(_render_offset),
 	  position(_position), frames(_frames), duration(_duration), type(_type),
-	  cur_frame(0), disp_frame(0), mid_frame(0), max_frame(0), timesPlayed(0) {
+	  cur_frame(0), disp_frame(0), mid_frame(0), max_frame(0), timesPlayed(0), active_frame(0) {
 
 	if (type == "play_once" || type == "looped") {
 		max_frame = frames * duration;

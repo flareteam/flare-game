@@ -52,9 +52,10 @@ protected:
 	int mid_frame;
 	int max_frame;
 	int timesPlayed;
+	int active_frame;
 
 public:
-	Animation(std::string, Point _render_size, Point _render_offset, int position, int frames, int duration, std::string);
+	Animation(std::string, Point _render_size, Point _render_offset, int position, int frames, int duration, std::string, int _active_frame);
 
 	// advance the animation one frame
 	void advanceFrame();
@@ -63,6 +64,13 @@ public:
 
 	int getCurFrame() { return cur_frame; }
 	int getMaxFrame() { return max_frame; }
+	
+	bool isFirstFrame() { return cur_frame == 1; }
+	bool isMiddleFrame() { return cur_frame == mid_frame; }
+	bool isLastFrame() { return cur_frame == (max_frame -1); }
+	
+	bool isActiveFrame() { return cur_frame == active_frame; }
+	
 	// in a looped animation returns how many times it's been played
 	// in a play once animation returns 1 when the animation is finished
 	int getTimesPlayed() { return timesPlayed; }
