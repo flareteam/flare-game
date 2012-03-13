@@ -44,6 +44,28 @@ const int ON_HALF_DEAD = 7;
 const int ON_DEBUFF = 8;
 const int ON_JOIN_COMBAT = 9;
 
+// active states
+const int ENEMY_STANCE = 0;
+const int ENEMY_MOVE = 1;
+const int ENEMY_CHARGE = 2;
+const int ENEMY_MELEE_PHYS = 3;
+const int ENEMY_MELEE_MENT = 4;
+const int ENEMY_RANGED_PHYS = 5;
+const int ENEMY_RANGED_MENT = 6;
+const int ENEMY_SPAWN = 7;
+// interrupt states
+const int ENEMY_BLOCK = 9;
+const int ENEMY_HIT = 10;
+const int ENEMY_DEAD = 11;
+const int ENEMY_CRITDEAD = 12;
+const int ENEMY_HALF_DEAD = 13;
+const int ENEMY_DEBUFF = 14;
+const int ENEMY_JOIN_COMBAT = 15;
+
+// final shared states
+const int ENEMY_POWER = 16; // enemy performing a power. anim/sfx based on power
+
+
 const int MAX_CHARACTER_LEVEL = 32;
 
 class StatBlock {
@@ -187,6 +209,7 @@ public:
     bool join_combat;
 	int cooldown_ticks;
 	int cooldown; // min. # of frames between abilities
+	int activated_powerslot;
 	
 	int loot_chance;
 	

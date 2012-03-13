@@ -46,6 +46,8 @@ Enemy::Enemy(PowerManager *_powers, MapIso *_map) : Entity(_map) {
 	sfx_critdie = false;
 	loot_drop = false;
 	reward_xp = false;
+
+	eb = NULL;
 }
 
 /**
@@ -132,14 +134,11 @@ void Enemy::logic() {
 		stats.teleportation = false;	
 	}
 	
-	int dist;
-	int prev_direction;
-	bool los = false;
-	Point pursue_pos;
-	
+
 	// set a default pursue_pos, all else failing (used in targeting)
 	pursue_pos.x = stats.hero_pos.x;
 	pursue_pos.y = stats.hero_pos.y;
+	los = false;	
 	
 	
 	// SECTION 1: Steering and Vision
@@ -779,5 +778,6 @@ Renderable Enemy::getRender() {
 
 Enemy::~Enemy() {
 	delete haz;
+	delete eb;
 }
 

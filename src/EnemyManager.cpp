@@ -21,7 +21,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "EnemyManager.h"
 #include "SharedResources.h"
-
+#include "EnemyBehavior.h"
+#include "BehaviorStandard.h"
 
 using namespace std;
 
@@ -139,6 +140,10 @@ void EnemyManager::handleNewMap () {
 		map->enemies.pop();
 		
 		enemies[enemy_count] = new Enemy(powers, map);
+		
+		// factory
+		enemies[enemy_count]->eb = new BehaviorStandard(enemies[enemy_count]);
+		
 		enemies[enemy_count]->stats.pos.x = me.pos.x;
 		enemies[enemy_count]->stats.pos.y = me.pos.y;
 		enemies[enemy_count]->stats.direction = me.direction;

@@ -63,9 +63,11 @@ Set (FLARE_SOURCES
 	./src/Animation.cpp
 	./src/AStarNode.cpp
 	./src/Avatar.cpp
+	./src/BehaviorStandard.cpp
 	./src/CampaignManager.cpp
 	./src/CombatText.cpp
 	./src/Enemy.cpp
+	./src/EnemyBehavior.cpp
 	./src/EnemyGroupManager.cpp
 	./src/EnemyManager.cpp
 	./src/FileParser.cpp
@@ -118,8 +120,8 @@ Set (FLARE_SOURCES
 	./src/UtilsParsing.cpp
 	./src/WidgetButton.cpp
 	./src/WidgetInput.cpp
-  ./src/WidgetLabel.cpp
-  ./src/WidgetTabControl.cpp
+ 	./src/WidgetLabel.cpp
+ 	./src/WidgetTabControl.cpp
 	./src/WidgetTooltip.cpp
 	./src/main.cpp
 )
