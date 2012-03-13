@@ -28,22 +28,31 @@ DEPENDENCIES
 ============
 
 To build flare you need the 1.2 Development Libraries for SDL, SDL_image, SDL_mixer, and SDL_ttf.
-
 To run flare you need the equivalent 1.2 Runtime Libraries.
 
 http://www.libsdl.org/download-1.2.php
 
-Here's an example of how to install the dependencies for Ubuntu:
+For easy building I recommend using cmake and make.
 
+---
+
+Installing dependencies on Ubuntu:
 sudo apt-get install libsdl1.2-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf2.0-dev
 
-To get the dependencies on Arch Linux, run:
-
+  There is also a flare build in the Ubuntu (universe)
+  http://packages.ubuntu.com/source/precise/flare
+ 
+Installing dependencies on Arch Linux:
 pacman -S --asdeps sdl sdl_image sdl_mixer libogg libvorbis hicolor-icon-theme python sdl_ttf
 
-There is also a flare-rpg-git pkgbuild at the arch user repository: https://aur.archlinux.org/packages.php?ID=57522
+  There is also a flare-rpg-git pkgbuild at the arch user repository:
+  https://aur.archlinux.org/packages.php?ID=57522
 
-Additionally, for easy building I recommend using cmake and make.
+Installing dependencies on openSUSE:
+sudo zypper in make cmake gcc gcc-c++ libSDL-devel libSDL_image-devel libSDL_mixer-devel libSDL_ttf-devel python
+
+  There is also a flare build at the openSUSE Build Service:
+  http://software.opensuse.org/download.html?project=home:DarkSS&package=flare
 
 
 BUILDING WITH CMAKE
