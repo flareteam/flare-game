@@ -74,10 +74,10 @@ public:
 	bool reward_xp;
 	
 	// common behavior vars
-	int dist;
-	int prev_direction;
-	bool los;
-	Point pursue_pos;
+	//int dist;
+	//int prev_direction;
+	//bool los;
+	//Point pursue_pos;
 };
 
 

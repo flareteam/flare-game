@@ -37,6 +37,9 @@ StatBlock::StatBlock() {
 	hero_pos.x = hero_pos.y = -1;
 	hero_alive = true;
 	
+	flying = false;
+	incorporeal = false;
+	
 	// core stats
 	offense_character = defense_character = physical_character = mental_character = 0;
 	offense_additional = defense_additional = physical_additional = mental_additional = 0;
@@ -179,7 +182,7 @@ void StatBlock::load(const string& filename) {
 			// behavior stats
 			else if (infile.key == "speed") speed = num;
 			else if (infile.key == "dspeed") dspeed = num;
-			else if (infile.key == "dir_favor") dir_favor = num;
+			else if (infile.key == "turn_delay") turn_delay = num;
 			else if (infile.key == "chance_pursue") chance_pursue = num;
 			else if (infile.key == "chance_flee") chance_flee = num;
 

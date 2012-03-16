@@ -33,7 +33,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 class Entity {
 protected:
 	SDL_Surface *sprites;
-	MapIso* map;
 	std::vector<Animation*> animations;
 
 public:
@@ -50,6 +49,7 @@ public:
 	bool setAnimation(const std::string& animation);
 	Animation *activeAnimation;
 
+	MapIso* map;
 	StatBlock stats;
 };
 

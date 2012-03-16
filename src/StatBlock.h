@@ -86,6 +86,9 @@ public:
 	bool corpse; // creature is dead and done animating
 	bool hero; // else, enemy or other
 	
+	bool flying;
+	bool incorporeal;
+	
 	std::string name;
 	std::string sfx_prefix;
 	std::string gfx_prefix;
@@ -202,8 +205,8 @@ public:
 	Point hero_pos;
 	bool hero_alive;
 	Point last_seen; 
-	int dir_favor;
-	int dir_ticks;
+	int turn_delay;
+	int turn_ticks;
 	int patrol_ticks;
 	bool in_combat;
     bool join_combat;

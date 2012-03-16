@@ -22,12 +22,23 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 // forward declarations
 class Enemy;
+struct Point;
 
 class BehaviorStandard : public EnemyBehavior {
 private:
+
+	// logic steps
+	void doUpkeep();
+	void findTarget();
 	void checkPower();
 	void checkMove();
-	void checkState();
+	void updateState();
+	
+	// targeting vars
+	bool los;
+	int dist;
+	Point pursue_pos;
+	
 public:
 	BehaviorStandard(Enemy *_e);
 	void logic();

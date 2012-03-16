@@ -69,7 +69,9 @@ public:
 	bool isMiddleFrame() { return cur_frame == mid_frame; }
 	bool isLastFrame() { return cur_frame == (max_frame -1); }
 	
-	bool isActiveFrame() { return cur_frame == active_frame; }
+	//bool isActiveFrame() { return cur_frame == active_frame; }
+	bool isActiveFrame() { return cur_frame == max_frame /2; }
+	
 	
 	// in a looped animation returns how many times it's been played
 	// in a play once animation returns 1 when the animation is finished

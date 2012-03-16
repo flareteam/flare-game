@@ -29,7 +29,7 @@ Enemy::Enemy(PowerManager *_powers, MapIso *_map) : Entity(_map) {
 	powers = _powers;
 
 	stats.cur_state = ENEMY_STANCE;
-	stats.dir_ticks = FRAMES_PER_SEC;
+	stats.turn_ticks = FRAMES_PER_SEC;
 	stats.patrol_ticks = 0;
 	stats.cooldown = 0;
 	stats.last_seen.x = -1;
@@ -109,6 +109,10 @@ void Enemy::newState(int state) {
  */
 void Enemy::logic() {
 
+	eb->logic();
+	return;
+
+/*
 	stats.logic();
 	if (stats.forced_move_duration > 0) {
 		move(); return;
@@ -227,9 +231,9 @@ void Enemy::logic() {
 			if (stats.in_combat) {
 
 				// update direction to face the target
-				if (++stats.dir_ticks > stats.dir_favor && stats.patrol_ticks == 0) {
+				if (++stats.turn_ticks > stats.turn_delay && stats.patrol_ticks == 0) {
 					stats.direction = face(pursue_pos.x, pursue_pos.y);				
-					stats.dir_ticks = 0;
+					stats.turn_ticks = 0;
 				}
 		
                 // perform action upon joining combat
@@ -323,7 +327,7 @@ void Enemy::logic() {
 	
 			if (stats.in_combat) {
 
-				if (++stats.dir_ticks > stats.dir_favor && stats.patrol_ticks == 0) {
+				if (++stats.turn_ticks > stats.turn_delay && stats.patrol_ticks == 0) {
 					// if no line of movement to target, use pathfinder
 					if ( !map->collider.line_of_movement(stats.pos.x, stats.pos.y, pursue_pos.x, pursue_pos.y)) {
 						vector<Point> path;
@@ -333,7 +337,7 @@ void Enemy::logic() {
 						}
 					}
 					stats.direction = face(pursue_pos.x, pursue_pos.y);
-					stats.dir_ticks = 0;
+					stats.turn_ticks = 0;
 				}
 				
 				if (dist > stats.melee_range && stats.cooldown_ticks == 0) {
@@ -589,6 +593,7 @@ void Enemy::logic() {
 
             break;
 	}
+*/
 
 }
 

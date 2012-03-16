@@ -174,6 +174,9 @@ void EnemyManager::handleSpawn() {
 		powers->enemies.pop();	
 
 		enemies[enemy_count] = new Enemy(powers, map);
+		// factory
+		enemies[enemy_count]->eb = new BehaviorStandard(enemies[enemy_count]);
+
 		enemies[enemy_count]->stats.pos.x = espawn.pos.x;
 		enemies[enemy_count]->stats.pos.y = espawn.pos.y;
 		enemies[enemy_count]->stats.direction = espawn.direction;
