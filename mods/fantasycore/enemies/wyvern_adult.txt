@@ -1,0 +1,40 @@
+name=Adult Wyvern
+level=6
+categories=wyvern
+rarity=common
+
+sfx_prefix=wyvern
+gfx_prefix=wyvern_adult
+animations=wyvern_adult
+animation_speed=100
+
+loot_chance=25
+
+# combat stats
+hp=40
+speed=18
+dspeed=12
+melee_range=72
+threat_range=512
+turn_delay=3
+chance_pursue=10
+chance_melee_phys=15
+chance_melee_ment=0
+chance_ranged_phys=0
+chance_ranged_ment=2
+power_beacon=132
+
+# bleed sting
+power_melee_phys=5
+# fire spit
+power_ranged_ment=31
+
+accuracy=82
+avoidance=32
+
+dmg_melee_min=4
+dmg_melee_max=8
+dmg_ment_min=6
+dmg_ment_max=12
+cooldown=30
+cooldown_ranged_ment=90
