@@ -27,7 +27,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "Animation.h"
 
-Animation::Animation(std::string _name, Point _render_size, Point _render_offset, int _position, int _frames, int _duration, std::string _type, int active_frame)
+Animation::Animation(std::string _name, Point _render_size, Point _render_offset, int _position, int _frames, int _duration, std::string _type, int /*_active_frame*/)
 	: name(_name), sprites(NULL),
 	  render_size(_render_size), render_offset(_render_offset),
 	  position(_position), frames(_frames), duration(_duration), type(_type),
