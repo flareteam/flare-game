@@ -144,6 +144,7 @@ void EnemyManager::handleNewMap () {
 		// factory
 		enemies[enemy_count]->eb = new BehaviorStandard(enemies[enemy_count]);
 		
+		enemies[enemy_count]->stats.waypoints = me.waypoints;
 		enemies[enemy_count]->stats.pos.x = me.pos.x;
 		enemies[enemy_count]->stats.pos.y = me.pos.y;
 		enemies[enemy_count]->stats.direction = me.direction;

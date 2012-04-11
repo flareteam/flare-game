@@ -127,6 +127,12 @@ void BehaviorStandard::findTarget() {
 	// by default, the enemy pursues the hero directly
 	pursue_pos.x = e->stats.hero_pos.x;
 	pursue_pos.y = e->stats.hero_pos.y;
+	
+	if (!(e->stats.in_combat || e->stats.waypoints.empty())) {
+	    Point waypoint = e->stats.waypoints.front();
+	    pursue_pos.x = waypoint.x;
+	    pursue_pos.y = waypoint.y;
+	}
 
 }
 
@@ -207,14 +213,14 @@ void BehaviorStandard::checkPower() {
  */
 void BehaviorStandard::checkMove() {
 
-	// handle not being in combat
-	if (!e->stats.in_combat) {
+	// handle not being in combat and not patrolling waypoints
+	if (!e->stats.in_combat && e->stats.waypoints.empty()) {
 		
 		if (e->stats.cur_state == ENEMY_MOVE) {
 			e->newState(ENEMY_STANCE);
 		}
 		
-		// currently enemies only move while in combat
+		// currently enemies only move while in combat or patrolling
 		return;
 	}
 
@@ -277,6 +283,17 @@ void BehaviorStandard::checkMove() {
 				e->stats.direction = prev_direction;
 			}
 		}
+	}
+	
+	// if patrolling waypoints and has reached a waypoint, cycle to the next one
+	if (!e->stats.waypoints.empty()) {
+	    Point waypoint = e->stats.waypoints.front();
+	    Point pos = e->stats.pos;
+	    // if the patroller is close to the waypoint
+	    if (abs(waypoint.x - pos.x) < UNITS_PER_TILE/2 && abs(waypoint.y - pos.y) < UNITS_PER_TILE/2) {
+	        e->stats.waypoints.pop();
+	        e->stats.waypoints.push(waypoint);
+	    }
 	}
 
 }

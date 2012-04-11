@@ -306,6 +306,20 @@ int MapIso::load(string filename) {
 				else if (infile.key == "direction") {
 					new_enemy.direction = atoi(infile.val.c_str());
 				}
+				else if (infile.key == "waypoints") {
+			        string none = "";
+			        string a = infile.nextValue();
+			        string b = infile.nextValue();
+			        
+				    while (a != none) {
+				        Point p;
+					    p.x = atoi(a.c_str()) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
+					    p.y = atoi(b.c_str()) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
+					    new_enemy.waypoints.push(p);
+				        a = infile.nextValue();
+				        b = infile.nextValue();
+					}
+				}
 			}
 			else if (infile.section == "enemygroup") {
 				if (infile.key == "type") {
