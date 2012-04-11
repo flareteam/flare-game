@@ -194,6 +194,8 @@ public:
 
     // waypoint patrolling
     std::queue<Point> waypoints;
+    int waypoint_pause;
+    int waypoint_pause_ticks;
 
 	// enemy behavioral stats
 	int chance_pursue;
@@ -211,7 +213,6 @@ public:
 	Point last_seen; 
 	int turn_delay;
 	int turn_ticks;
-	int patrol_ticks;
 	bool in_combat;
     bool join_combat;
 	int cooldown_ticks;

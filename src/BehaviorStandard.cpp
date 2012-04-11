@@ -64,6 +64,9 @@ void BehaviorStandard::doUpkeep() {
 	
 	if (e->stats.stun_duration > 0)
 		return; // TODO: change this to exit the entire EnemyBehavior::logic()
+		
+	if (e->stats.waypoint_pause_ticks > 0)
+		e->stats.waypoint_pause_ticks--;
 	
 	// check for bleeding to death
 	if (e->stats.hp <= 0 && !(e->stats.cur_state == ENEMY_DEAD || e->stats.cur_state == ENEMY_CRITDEAD)) {
@@ -213,8 +216,8 @@ void BehaviorStandard::checkPower() {
  */
 void BehaviorStandard::checkMove() {
 
-	// handle not being in combat and not patrolling waypoints
-	if (!e->stats.in_combat && e->stats.waypoints.empty()) {
+	// handle not being in combat and (not patrolling waypoints or waiting at waypoint)
+	if (!e->stats.in_combat && (e->stats.waypoints.empty() || e->stats.waypoint_pause_ticks > 0)) {
 		
 		if (e->stats.cur_state == ENEMY_MOVE) {
 			e->newState(ENEMY_STANCE);
@@ -293,6 +296,7 @@ void BehaviorStandard::checkMove() {
 	    if (abs(waypoint.x - pos.x) < UNITS_PER_TILE/2 && abs(waypoint.y - pos.y) < UNITS_PER_TILE/2) {
 	        e->stats.waypoints.pop();
 	        e->stats.waypoints.push(waypoint);
+	        e->stats.waypoint_pause_ticks = e->stats.waypoint_pause;
 	    }
 	}
 

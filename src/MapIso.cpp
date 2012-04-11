@@ -97,6 +97,8 @@ void MapIso::clearEnemy(Map_Enemy &e) {
 	e.pos.y = 0;
 	e.direction = rand() % 8; // enemies face a random direction unless otherwise specified
 	e.type = "";
+	std::queue<Point> empty;
+	e.waypoints = empty;
 }
 
 void MapIso::clearNPC(Map_NPC &n) {

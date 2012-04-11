@@ -30,7 +30,7 @@ Enemy::Enemy(PowerManager *_powers, MapIso *_map) : Entity(_map) {
 
 	stats.cur_state = ENEMY_STANCE;
 	stats.turn_ticks = FRAMES_PER_SEC;
-	stats.patrol_ticks = 0;
+	//stats.patrol_ticks = 0; //no longer needed due to A*
 	stats.cooldown = 0;
 	stats.last_seen.x = -1;
 	stats.last_seen.y = -1;
