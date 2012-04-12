@@ -84,6 +84,10 @@ StatBlock::StatBlock() {
 	cooldown_ticks = 0;
 	blocking = false;
 	
+	// patrol waypoints
+	waypoint_pause = 0;
+	waypoint_pause_ticks = 0;
+	
 	// xp table
 	// (level * level * 100) plus previous total
 	xp_table[0] = 0;
@@ -180,6 +184,8 @@ void StatBlock::load(const string& filename) {
 			else if (infile.key == "absorb_max") absorb_max = num;
 			
 			// behavior stats
+			else if (infile.key == "waypoint_pause") waypoint_pause = num;
+			
 			else if (infile.key == "speed") speed = num;
 			else if (infile.key == "dspeed") dspeed = num;
 			else if (infile.key == "turn_delay") turn_delay = num;

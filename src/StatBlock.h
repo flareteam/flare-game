@@ -28,6 +28,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "Utils.h"
 #include "SharedResources.h"
 #include <string>
+#include <queue>
 
 const int STAT_EFFECT_SHIELD = 0;
 const int STAT_EFFECT_VENGEANCE = 1;
@@ -191,6 +192,11 @@ public:
 	// state
 	int cur_state;
 
+    // waypoint patrolling
+    std::queue<Point> waypoints;
+    int waypoint_pause;
+    int waypoint_pause_ticks;
+
 	// enemy behavioral stats
 	int chance_pursue;
 	int chance_flee;
@@ -199,7 +205,7 @@ public:
 	int power_index[POWERSLOT_COUNT];
 	int power_cooldown[POWERSLOT_COUNT];
 	int power_ticks[POWERSLOT_COUNT];
-		
+	
 	int melee_range;
 	int threat_range;
 	Point hero_pos;
@@ -207,7 +213,6 @@ public:
 	Point last_seen; 
 	int turn_delay;
 	int turn_ticks;
-	int patrol_ticks;
 	bool in_combat;
     bool join_combat;
 	int cooldown_ticks;
