@@ -59,12 +59,8 @@ void BehaviorStandard::doUpkeep() {
 
 	if (e->stats.forced_move_duration > 0) {
 		e->move();
-		return; // TODO: change this to exit the entire EnemyBehavior::logic()
 	}
-	
-	if (e->stats.stun_duration > 0)
-		return; // TODO: change this to exit the entire EnemyBehavior::logic()
-		
+			
 	if (e->stats.waypoint_pause_ticks > 0)
 		e->stats.waypoint_pause_ticks--;
 	
@@ -96,6 +92,9 @@ void BehaviorStandard::doUpkeep() {
  * Locate the player and set various targeting info
  */
 void BehaviorStandard::findTarget() {
+
+	// stunned enemies can't act
+	if (e->stats.stun_duration) return;
 		
 	// check distance and line of sight between enemy and hero
 	if (e->stats.hero_alive)
@@ -145,6 +144,9 @@ void BehaviorStandard::findTarget() {
  * Activate a ready power, if the attack animation has followed through
  */
 void BehaviorStandard::checkPower() {
+
+	// stunned enemies can't act
+	if (e->stats.stun_duration) return;
 
 	// currently all enemy power use happens during combat
 	if (!e->stats.in_combat) return;
@@ -215,6 +217,9 @@ void BehaviorStandard::checkPower() {
  * Check state changes related to movement
  */
 void BehaviorStandard::checkMove() {
+
+	// stunned enemies can't act
+	if (e->stats.stun_duration) return;
 
 	// handle not being in combat and (not patrolling waypoints or waiting at waypoint)
 	if (!e->stats.in_combat && (e->stats.waypoints.empty() || e->stats.waypoint_pause_ticks > 0)) {
@@ -308,6 +313,9 @@ void BehaviorStandard::checkMove() {
  * 2) Return to the default state (Stance) when actions are complete
  */
 void BehaviorStandard::updateState() {
+
+	// stunned enemies can't act
+	if (e->stats.stun_duration) return;
 
 	int power_id;
 	int power_state;
