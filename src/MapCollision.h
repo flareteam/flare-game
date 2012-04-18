@@ -53,6 +53,7 @@ public:
 	bool move(int &x, int &y, int step_x, int step_y, int dist);
 	bool outsideMap(int tile_x, int tile_y);
 	bool is_empty(int x, int y);
+	int is_one_step_around(int x, int y, int xidr, int ydir);
 	bool is_wall(int x, int y);
 
 	bool line_of_sight(int x1, int y1, int x2, int y2);
@@ -64,6 +65,9 @@ public:
 
 	int result_x;
 	int result_y;
+
+private:
+	bool inline is_sidestepable(int tile_x, int tile_y, int offx2, int offy2);
 };
 
 #endif
