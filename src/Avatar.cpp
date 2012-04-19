@@ -246,6 +246,51 @@ void Avatar::set_direction() {
 	}
 }
 
+void Avatar::handlePower(int actionbar_power) {
+	if (actionbar_power != -1 && stats.cooldown_ticks == 0) {
+		const Power &power = powers->getPower(actionbar_power);
+		Point target = screen_to_map(inp->mouse.x,  inp->mouse.y + power.aim_assist, stats.pos.x, stats.pos.y);
+
+		// check requirements
+		if (!stats.canUsePower(power, actionbar_power))
+			return;
+		if (power.requires_los && !map->collider.line_of_sight(stats.pos.x, stats.pos.y, target.x, target.y))
+			return;
+		if (power.requires_empty_target && !map->collider.is_empty(target.x, target.y))
+			return;
+		if (stats.hero_cooldown[actionbar_power] > 0)
+			return;
+
+		stats.hero_cooldown[actionbar_power] = power.cooldown; //set the cooldown timer
+		current_power = actionbar_power;
+		act_target = target;
+
+		// is this a power that requires changing direction?
+		if (power.face) {
+			stats.direction = face(target.x, target.y);
+		}
+
+		switch (power.new_state) {
+			case POWSTATE_SWING:	// handle melee powers
+				stats.cur_state = AVATAR_MELEE;
+				break;
+
+			case POWSTATE_SHOOT:	// handle ranged powers
+				stats.cur_state = AVATAR_SHOOT;
+				break;
+
+			case POWSTATE_CAST:		// handle ment powers
+				stats.cur_state = AVATAR_CAST;
+				break;
+
+			case POWSTATE_BLOCK:	// handle blocking
+				stats.cur_state = AVATAR_BLOCK;
+				stats.blocking = true;
+				break;
+		}
+	}
+}
+
 /**
  * logic()
  * Handle a single frame.  This includes:
@@ -253,11 +298,11 @@ void Avatar::set_direction() {
  * - calculate the next frame of animation
  * - calculate camera position based on avatar position
  *
- * @param power_index The actionbar power activated.  -1 means no power.
+ * @param actionbar_power The actionbar power activated.  -1 means no power.
+ * @param restrictPowerUse rather or not to allow power usage on mouse1
  */
 void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 
-	Point target;
 	int stepfx;
 	stats.logic();
 	if (stats.forced_move_duration > 0) {
@@ -336,58 +381,10 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 				}
 
 			}
-			// handle power usage
-			if (allowed_to_use_power && actionbar_power != -1 && stats.cooldown_ticks == 0) {				
-				target = screen_to_map(inp->mouse.x,  inp->mouse.y + powers->powers[actionbar_power].aim_assist, stats.pos.x, stats.pos.y);
-			
-				// check requirements
-				if (powers->powers[actionbar_power].requires_mp > stats.mp)
-					break;
-				if (powers->powers[actionbar_power].requires_physical_weapon && !stats.wielding_physical)
-					break;
-				if (powers->powers[actionbar_power].requires_mental_weapon && !stats.wielding_mental)
-					break;
-				if (powers->powers[actionbar_power].requires_offense_weapon && !stats.wielding_offense)
-					break;
-				if (powers->powers[actionbar_power].requires_los && !map->collider.line_of_sight(stats.pos.x, stats.pos.y, target.x, target.y))
-					break;
-				if (powers->powers[actionbar_power].requires_empty_target && !map->collider.is_empty(target.x, target.y))
-					break;
-				if (stats.hero_cooldown[actionbar_power] > 0)
-					break;
 
-				stats.hero_cooldown[actionbar_power] = powers->powers[actionbar_power].cooldown; //set the cooldown timer
-				current_power = actionbar_power;
-				act_target.x = target.x;
-				act_target.y = target.y;
-			
-				// is this a power that requires changing direction?
-				if (powers->powers[current_power].face) {
-					stats.direction = face(target.x, target.y);
-				}
-			
-				// handle melee powers
-				if (powers->powers[current_power].new_state == POWSTATE_SWING) {
-					stats.cur_state = AVATAR_MELEE;
-					break;
-				}
-				// handle ranged powers
-				if (powers->powers[current_power].new_state == POWSTATE_SHOOT) {
-					stats.cur_state = AVATAR_SHOOT;
-					break;
-				}
-				// handle ment powers
-				if (powers->powers[current_power].new_state == POWSTATE_CAST) {
-					stats.cur_state = AVATAR_CAST;
-					break;
-				}
-				if (powers->powers[current_power].new_state == POWSTATE_BLOCK) {
-					stats.cur_state = AVATAR_BLOCK;
-					stats.blocking = true;
-					break;
-				}
-			}
-			
+			// handle power usage
+			if(allowed_to_use_power)
+				handlePower(actionbar_power);
 			break;
 
 		case AVATAR_RUN:
@@ -423,58 +420,8 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 			}
 
 			// handle power usage
-			if (allowed_to_use_power && actionbar_power != -1 && stats.cooldown_ticks == 0) {
-
-				target = screen_to_map(inp->mouse.x,  inp->mouse.y + powers->powers[actionbar_power].aim_assist, stats.pos.x, stats.pos.y);
-			
-				// check requirements
-				if (powers->powers[actionbar_power].requires_mp > stats.mp)
-					break;
-				if (powers->powers[actionbar_power].requires_physical_weapon && !stats.wielding_physical)
-					break;
-				if (powers->powers[actionbar_power].requires_mental_weapon && !stats.wielding_mental)
-					break;
-				if (powers->powers[actionbar_power].requires_offense_weapon && !stats.wielding_offense)
-					break;
-				if (powers->powers[actionbar_power].requires_los && !map->collider.line_of_sight(stats.pos.x, stats.pos.y, target.x, target.y))
-					break;
-				if (powers->powers[actionbar_power].requires_empty_target && !map->collider.is_empty(target.x, target.y))
-					break;
-				if (stats.hero_cooldown[actionbar_power] > 0)
-					break;
-
-				stats.hero_cooldown[actionbar_power] = powers->powers[actionbar_power].cooldown; //set the cooldown timer
-				current_power = actionbar_power;
-				act_target.x = target.x;
-				act_target.y = target.y;
-			
-				// is this a power that requires changing direction?
-				if (powers->powers[current_power].face) {
-					stats.direction = face(target.x, target.y);
-				}
-			
-				// handle melee powers
-				if (powers->powers[current_power].new_state == POWSTATE_SWING) {
-					stats.cur_state = AVATAR_MELEE;
-					break;
-				}
-				// handle ranged powers
-				if (powers->powers[current_power].new_state == POWSTATE_SHOOT) {
-					stats.cur_state = AVATAR_SHOOT;
-					break;
-				}
-				// handle ment powers
-				if (powers->powers[current_power].new_state == POWSTATE_CAST) {
-					stats.cur_state = AVATAR_CAST;
-					break;
-				}
-				if (powers->powers[current_power].new_state == POWSTATE_BLOCK) {
-					stats.cur_state = AVATAR_BLOCK;
-					stats.blocking = true;
-					break;
-				}				
-			}
-							
+			if(allowed_to_use_power)
+				handlePower(actionbar_power);
 			break;
 
 		case AVATAR_MELEE:
@@ -713,8 +660,7 @@ bool Avatar::takeHit(Hazard h) {
 Renderable Avatar::getRender() {
 	Renderable r = activeAnimation->getCurrentFrame(stats.direction);
 	r.sprite = sprites;
-	r.map_pos.x = stats.pos.x;
-	r.map_pos.y = stats.pos.y;
+	r.map_pos = stats.pos;
 	return r;
 }
 

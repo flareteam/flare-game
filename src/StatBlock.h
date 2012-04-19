@@ -30,6 +30,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <string>
 #include <queue>
 
+class Power;
+
 const int STAT_EFFECT_SHIELD = 0;
 const int STAT_EFFECT_VENGEANCE = 1;
 
@@ -205,7 +207,9 @@ public:
 	int power_index[POWERSLOT_COUNT];
 	int power_cooldown[POWERSLOT_COUNT];
 	int power_ticks[POWERSLOT_COUNT];
-	
+
+	bool canUsePower(const Power &power, unsigned powerid) const;
+
 	int melee_range;
 	int threat_range;
 	Point hero_pos;

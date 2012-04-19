@@ -36,6 +36,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include <string>
 #include <queue>
+#include <cassert>
 
 const int POWER_COUNT = 1024;
 const int POWER_MAX_GFX = 64;
@@ -306,6 +307,8 @@ public:
 	void handleNewMap(MapCollision *_collider);
 	bool activate(int power_index, StatBlock *src_stats, Point target);
 	float calcTheta(int x1, int y1, int x2, int y2);
+	const Power &getPower(unsigned id) 	{assert(id < (unsigned)POWER_COUNT); return powers[id];}
+	bool canUsePower(unsigned id) const;
 
 	Power powers[POWER_COUNT];
 	std::queue<Hazard *> hazards; // output; read by HazardManager
@@ -318,6 +321,14 @@ public:
 	SDL_Surface *runes;
 
 	int used_item;
+
+	/**
+	 * Return the required stat value for the specified power. Uses a fairly
+	 * static mechanism of expecting disciplines to be index zero to 19.
+	 */
+	static unsigned getRequiredStatValue(unsigned powerid, unsigned stat) {
+		return (powerid > 19 || stat != powerid % 4) ? 0 : (powerid / 4) * 2 + 1;
+	}
 };
 
 #endif
