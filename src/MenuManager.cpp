@@ -116,7 +116,7 @@ void MenuManager::logic() {
 	inv->logic();
 	vendor->logic();
 	pow->logic();
-  log->logic();
+	log->logic();
 	talker->logic();
 
 	if (!inp->pressing[INVENTORY] && !inp->pressing[POWERS] && !inp->pressing[CHARACTER] && !inp->pressing[LOG])
@@ -520,10 +520,10 @@ void MenuManager::render() {
 	}
 
 	if (tip_new.num_lines > 0) {
-	
+
 		// when we render a tooltip it buffers the rasterized text for performance.
 		// If this new tooltip is the same as the existing one, reuse.
-		
+
 		// TODO: comparing the first line of a tooltip works in all existing cases,
 		// but may not hold true in the future.
 		if (tip_new.lines[0] != tip_buf.lines[0]) {
@@ -577,7 +577,7 @@ void MenuManager::closeRight(bool play_sound) {
 }
 
 MenuManager::~MenuManager() {
-	
+
 	tip->clear(tip_buf);
 
 	delete xp;

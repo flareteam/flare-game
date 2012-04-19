@@ -89,10 +89,10 @@ bool MapCollision::is_empty(int x, int y) {
 bool MapCollision::is_wall(int x, int y) {
 	int tile_x = x >> TILE_SHIFT; // fast div
 	int tile_y = y >> TILE_SHIFT; // fast div
-	
+
 	// bounds check
 	if (outsideMap(tile_x, tile_y)) return true;
-	
+
 	if (colmap[tile_x][tile_y] == BLOCKS_ALL || colmap[tile_x][tile_y] == BLOCKS_ALL_HIDDEN)
 		return true;
 	return false;
@@ -124,7 +124,7 @@ bool MapCollision::line_check(int x1, int y1, int x2, int y2, int checktype) {
 	if (x1 > x2) step_x = -step_x;
 	if (y1 > y2) step_y = -step_y;
 
-	
+
 	if (checktype == CHECK_SIGHT) {
 		for (int i=0; i<steps; i++) {
 			x += step_x;
@@ -147,7 +147,7 @@ bool MapCollision::line_check(int x1, int y1, int x2, int y2, int checktype) {
 			}
 		}
 	}
-	
+
 	result_x = x2;
 	result_y = y2;
 	return true;
