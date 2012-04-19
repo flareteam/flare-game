@@ -113,10 +113,10 @@ public:
 	int mental_additional;
 
 	// getters for full base stats (character + additional)
-	inline int get_offense() { return offense_character + offense_additional; }
-	inline int get_defense() { return defense_character + defense_additional; }
-	inline int get_physical() { return physical_character + physical_additional; }
-	inline int get_mental() { return mental_character + mental_additional; }
+	int get_offense()  const { return offense_character + offense_additional; }
+	int get_defense()  const { return defense_character + defense_additional; }
+	int get_physical() const { return physical_character + physical_additional; }
+	int get_mental()   const { return mental_character + mental_additional; }
 
 	// derived stats ("disciplines")
 	int physoff;
