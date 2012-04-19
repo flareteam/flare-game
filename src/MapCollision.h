@@ -45,7 +45,7 @@ class MapCollision {
 private:
 
 	bool line_check(int x1, int y1, int x2, int y2, int checktype);
-	
+
 public:
 	MapCollision();
 	~MapCollision();
@@ -61,7 +61,7 @@ public:
 
 	unsigned short colmap[256][256];
 	Point map_size;
-		
+
 	int result_x;
 	int result_y;
 };
