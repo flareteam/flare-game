@@ -100,6 +100,9 @@ public:
 	Point act_target;
 	bool drag_walking;
 	bool newLevelNotification;
+
+private:
+	void handlePower(int actionbar_power);
 };
 
 #endif

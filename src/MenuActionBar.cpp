@@ -192,14 +192,21 @@ void MenuActionBar::render() {
 			dest.x = offset_x + (i * 32) + 64;
 
 		if (hotkeys[i] != -1) {
-			slot_enabled[i] = (hero->hero_cooldown[hotkeys[i]] == 0) && (slot_item_count[i] != 0); //see if the slot should be greyed out
-			renderIcon(powers->powers[hotkeys[i]].icon, dest.x, dest.y);
+			const Power &power = powers->getPower(hotkeys[i]);
+			slot_enabled[i] = (hero->hero_cooldown[hotkeys[i]] == 0)
+						   && (slot_item_count[i] != 0)
+						   && !hero->stun_duration
+						   && hero->alive
+						   && hero->canUsePower(power, hotkeys[i]); //see if the slot should be greyed out
+			unsigned icon_offset = 0;/* !slot_enabled[i] ? ICON_DISABLED_OFFSET :
+								   (hero->activated_powerslot == i ? ICON_HIGHLIGHT_OFFSET : 0); */
+			renderIcon(power.icon + icon_offset, dest.x, dest.y);
 		}
 		else {
 			SDL_BlitSurface(emptyslot, &src, screen, &dest);
 		}
 	}
-	
+
 	renderCooldowns();
 	renderItemCounts();
 
