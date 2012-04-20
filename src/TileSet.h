@@ -41,7 +41,12 @@ struct Tile_Def {
 class TileSet {
 private:
 	void loadGraphics(const std::string& filename);
-	int alpha_background;
+	void reset();
+
+	Uint8 trans_r;
+	Uint8 trans_g;
+	Uint8 trans_b;
+	bool alpha_background;
 	std::string current_map;
 
 public:
