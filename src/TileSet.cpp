@@ -33,7 +33,7 @@ using namespace std;
 TileSet::TileSet() {
 	alpha_background = false;
 	sprites = NULL;
-	for (int i=0; i<256; i++) {
+	for (int i=0; i<TILE_SET_MAX_TILES; i++) {
 		tiles[i].src.x = 0;
 		tiles[i].src.y = 0;
 		tiles[i].src.w = 0;
@@ -78,12 +78,19 @@ void TileSet::load(const std::string& filename) {
 
 				infile.val = infile.val + ',';
 				index = eatFirstInt(infile.val, ',');
-				tiles[index].src.x = eatFirstInt(infile.val, ',');
-				tiles[index].src.y = eatFirstInt(infile.val, ',');
-				tiles[index].src.w = eatFirstInt(infile.val, ',');
-				tiles[index].src.h = eatFirstInt(infile.val, ',');
-				tiles[index].offset.x = eatFirstInt(infile.val, ',');
-				tiles[index].offset.y = eatFirstInt(infile.val, ',');
+				
+				if (index > 0 && index < TILE_SET_MAX_TILES) {
+				
+					tiles[index].src.x = eatFirstInt(infile.val, ',');
+					tiles[index].src.y = eatFirstInt(infile.val, ',');
+					tiles[index].src.w = eatFirstInt(infile.val, ',');
+					tiles[index].src.h = eatFirstInt(infile.val, ',');
+					tiles[index].offset.x = eatFirstInt(infile.val, ',');
+					tiles[index].offset.y = eatFirstInt(infile.val, ',');
+				}
+				else {
+					fprintf(stderr, "Warning: invalid tileset index in %s. Expected a value from 1 to %d\n", filename.c_str(), TILE_SET_MAX_TILES);
+				}
 				
 			}
 			else if (infile.key == "img") {

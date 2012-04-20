@@ -31,6 +31,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include <string>
 
+const int TILE_SET_MAX_TILES = 1024;
+
 struct Tile_Def {
 	SDL_Rect src;
 	Point offset;
@@ -48,7 +50,7 @@ public:
 	~TileSet();
 	void load(const std::string& filename);
 	
-	Tile_Def tiles[1024];
+	Tile_Def tiles[TILE_SET_MAX_TILES];
 	SDL_Surface *sprites;
 };
 
