@@ -36,6 +36,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include <string>
 #include <queue>
+#include <cassert>
 
 const int POWER_COUNT = 1024;
 const int POWER_MAX_GFX = 64;
@@ -104,7 +105,7 @@ struct Power {
 	bool consumable;
 	bool requires_targeting; // power only makes sense when using click-to-target
 	int cooldown; // milliseconds before you can use the power again
-	
+
 	// animation info
 	int gfx_index;
 	int sfx_index;
@@ -137,7 +138,7 @@ struct Power {
 	//steal effects (in %, eg. hp_steal=50 turns 50% damage done into HP regain.)
 	int hp_steal;
 	int mp_steal;
-	
+
 	//missile traits
 	int missile_num;
 	int missile_angle;
@@ -152,7 +153,7 @@ struct Power {
 	int trait_elemental; // enum. of elements
 	bool trait_armor_penetration;
 	int trait_crits_impaired; // crit bonus vs. movement impaired enemies (slowed, immobilized, stunned)
-	
+
 	int bleed_duration;
 	int stun_duration;
 	int slow_duration;
@@ -161,7 +162,7 @@ struct Power {
 	int haste_duration;
 	int hot_duration;
 	int hot_value;
-	
+
 	// special effects
 	bool buff_heal;
 	bool buff_shield;
@@ -169,14 +170,14 @@ struct Power {
 	bool buff_immunity;
 	int buff_restore_hp;
 	int buff_restore_mp;
-	
+
 	int post_power;
 	int wall_power;
 	bool allow_power_mod;
-	
+
 	// spawn info
 	std::string spawn_type;
-	
+
 	Power() {
 		type = -1;
 		name = "";
@@ -186,18 +187,18 @@ struct Power {
 		face=false;
 		source_type=-1;
 		beacon=false;
-		
+
 		requires_physical_weapon = false;
 		requires_offense_weapon = false;
 		requires_mental_weapon = false;
-		
+
 		requires_mp = 0;
 		requires_los = false;
 		requires_empty_target = false;
 		requires_item = -1;
 		requires_targeting=false;
 		cooldown = 0;
-		
+
 		gfx_index = -1;
 		sfx_index = -1;
 		rendered = false;
@@ -236,11 +237,11 @@ struct Power {
 		delay = 0;
 		start_frame = 0;
 		repeater_num = 1;
-		
+
 		trait_elemental = -1;
 		trait_armor_penetration = false;
 		trait_crits_impaired = 0;
-		
+
 		bleed_duration = 0;
 		stun_duration = 0;
 		slow_duration = 0;
@@ -249,21 +250,21 @@ struct Power {
 		haste_duration = 0;
 		hot_duration = 0;
 		hot_value = 0;
-		
+
 		buff_heal = false;
 		buff_shield = false;
 		buff_teleport = false;
 		buff_immunity = false;
 		buff_restore_hp = 0;
 		buff_restore_mp = 0;
-		
+
 		post_power = -1;
 		wall_power = -1;
-		
+
 		allow_power_mod = false;
 		spawn_type = "";
-	}	
-	
+	}
+
 };
 
 struct EnemySpawn {
@@ -274,13 +275,13 @@ struct EnemySpawn {
 
 class PowerManager {
 private:
-	
+
 	MapCollision *collider;
 
 	void loadAll();
 	void loadPowers(const std::string& filename);
 	void loadGraphics();
-	
+
 	int loadGFX(const std::string& filename);
 	int loadSFX(const std::string& filename);
 	std::string gfx_filenames[POWER_MAX_GFX];
@@ -306,6 +307,8 @@ public:
 	void handleNewMap(MapCollision *_collider);
 	bool activate(int power_index, StatBlock *src_stats, Point target);
 	float calcTheta(int x1, int y1, int x2, int y2);
+	const Power &getPower(unsigned id) 	{assert(id < (unsigned)POWER_COUNT); return powers[id];}
+	bool canUsePower(unsigned id) const;
 
 	Power powers[POWER_COUNT];
 	std::queue<Hazard *> hazards; // output; read by HazardManager
@@ -314,10 +317,18 @@ public:
 	// shared images/sounds for power special effects
 	SDL_Surface *gfx[POWER_MAX_GFX];
 	Mix_Chunk *sfx[POWER_MAX_SFX];
-	
+
 	SDL_Surface *runes;
-	
+
 	int used_item;
+
+	/**
+	 * Return the required stat value for the specified power. Uses a fairly
+	 * static mechanism of expecting disciplines to be index zero to 19.
+	 */
+	static unsigned getRequiredStatValue(unsigned powerid, unsigned stat) {
+		return (powerid > 19 || stat != powerid % 4) ? 0 : (powerid / 4) * 2 + 1;
+	}
 };
 
 #endif

@@ -153,7 +153,7 @@ public:
 	void loadIcons();
 	void renderIcon(ItemStack stack, int x, int y, int size);
 	void playSound(int item);
-	void playCoinsSound();	
+	void playCoinsSound();
 	TooltipData getTooltip(int item, StatBlock *stats, bool vendor_view);
 	TooltipData getShortTooltip(ItemStack item);
 

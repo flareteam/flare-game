@@ -48,10 +48,9 @@ void MapCollision::setmap(unsigned short _colmap[256][256]) {
  */
 bool MapCollision::move(int &x, int &y, int step_x, int step_y, int dist) {
 
-	bool diag = false;
-	if (step_x != 0 && step_y != 0) diag = true;
-	
-	for (int i=0; i<dist; i++) {
+	bool diag = step_x && step_y;
+
+	for (int i = dist; i--;) {
 		if (is_empty(x + step_x, y + step_y)) {
 			x+= step_x;
 			y+= step_y;
@@ -62,8 +61,21 @@ bool MapCollision::move(int &x, int &y, int step_x, int step_y, int dist) {
 		else if (diag && is_empty(x, y + step_y)) { // slide along wall
 			y+= step_y;
 		}
-		else { // absolute stop
-			return false;
+		else { // is there a singular obstacle or corner we can step around?
+			// only works if we are moving straight
+			if (diag) return false;
+
+			int way_around = is_one_step_around(x, y, step_x, step_y);
+
+			if (!way_around) {
+				return false;
+			}
+
+			if (step_x) {
+				y+= way_around;
+			} else {
+				x+= way_around;
+			}
 		}
 	}
 	return true;
@@ -77,22 +89,66 @@ bool MapCollision::outsideMap(int tile_x, int tile_y) {
 bool MapCollision::is_empty(int x, int y) {
 	int tile_x = x >> TILE_SHIFT; // fast div
 	int tile_y = y >> TILE_SHIFT; // fast div
-	
-	// bounds check
-	if (outsideMap(tile_x, tile_y)) return false;
 
-	if (colmap[tile_x][tile_y] == 0)
-		return true;
-	return false;
+	// check bounds, then check for collision
+	return !outsideMap(tile_x, tile_y) && !colmap[tile_x][tile_y];
+}
+
+bool inline MapCollision::is_sidestepable(int tile_x, int tile_y, int offx, int offy) {
+	return !outsideMap(tile_x + offx, tile_y + offy) && !colmap[tile_x + offx][tile_y + offy];
+}
+
+/**
+ * If we have encountered a collision (i.e., is_empty(x, y) already said no), then see if we've
+ * hit an object/wall where there is a path around it by one step.  This is to avoid getting
+ * "caught" on the corners of a jagged wall.
+ *
+ * @return if no side-step path exists, the return value is zero.  Otherwise,
+ *         it is the coodinate modifier value for the opposite coordinate
+ *         (i.e., if xdir was zero and ydir was non-zero, the return value
+ *         should be applied to xdir)
+ */
+int MapCollision::is_one_step_around(int x, int y, int xdir, int ydir) {
+	int tile_x = x >> TILE_SHIFT; // fast div
+	int tile_y = y >> TILE_SHIFT; // fast div
+	int ret = 0;
+
+	if (xdir) {
+		if (is_sidestepable(tile_x, tile_y, xdir, -1)) {
+			ret = 1;
+		}
+		if (is_sidestepable(tile_x, tile_y, xdir,  1)) {
+			ret |= 2;
+		}
+		if (ret == 3) { // If we can go either way, choose the route that shortest
+
+			// translation: ret = y % UNITS_PER_TILE > UNITS_PER_TILE / 2 ? 1 : -1;
+			// realistically, if we were using compile time constants, the compiler
+			// would generate pretty much those instructions.
+			ret = (y & (UNITS_PER_TILE - 1)) < UNITS_PER_TILE >> 1 ? 1 : -1;
+		}
+	} else {
+		if (is_sidestepable(tile_x, tile_y, -1, ydir)) {
+			ret = 1;
+		}
+		if (is_sidestepable(tile_x, tile_y,  1, ydir)) {
+			ret |= 2;
+		}
+		if (ret == 3) {
+			ret = (x & (UNITS_PER_TILE - 1)) < UNITS_PER_TILE >> 1 ? 1 : -1;
+		}
+	}
+
+	return !ret ? 0 : (ret == 1 ? -1 : 1);
 }
 
 bool MapCollision::is_wall(int x, int y) {
 	int tile_x = x >> TILE_SHIFT; // fast div
 	int tile_y = y >> TILE_SHIFT; // fast div
-	
+
 	// bounds check
 	if (outsideMap(tile_x, tile_y)) return true;
-	
+
 	if (colmap[tile_x][tile_y] == BLOCKS_ALL || colmap[tile_x][tile_y] == BLOCKS_ALL_HIDDEN)
 		return true;
 	return false;
@@ -124,7 +180,7 @@ bool MapCollision::line_check(int x1, int y1, int x2, int y2, int checktype) {
 	if (x1 > x2) step_x = -step_x;
 	if (y1 > y2) step_y = -step_y;
 
-	
+
 	if (checktype == CHECK_SIGHT) {
 		for (int i=0; i<steps; i++) {
 			x += step_x;
@@ -147,7 +203,7 @@ bool MapCollision::line_check(int x1, int y1, int x2, int y2, int checktype) {
 			}
 		}
 	}
-	
+
 	result_x = x2;
 	result_y = y2;
 	return true;
