@@ -197,10 +197,8 @@ power_path=25,29,hero
 # Rising Ice Switch (Left Door)
 type=run_once
 location=27,29,1,1
-mapmod=object,10,31,112
-mapmod=collision,10,31,0
+mapmod=object,10,31,112;collision,10,31,0;object,27,29,166
 hotspot=-16,-28,32,34
-mapmod=object,27,29,166
 soundfx=soundfx/door_open.ogg
 tooltip=Rising Ice Switch
 
@@ -221,9 +219,7 @@ power_path=27,31,hero
 type=run_once
 location=23,31,1,1
 hotspot=-16,-28,32,34
-mapmod=object,23,31,166
-mapmod=object,25,16,113
-mapmod=collision,25,16,0
+mapmod=object,23,31,166;object,25,16,113;collision,25,16,0
 soundfx=soundfx/door_open.ogg
 tooltip=Falling Wind Switch
 
