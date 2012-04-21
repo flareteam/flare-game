@@ -415,17 +415,17 @@ int MapIso::load(string filename) {
 						e->z = atoi(infile.nextValue().c_str());
 						
 						// add repeating mapmods
-						string layer = infile.nextValue();
-						while (layer != "") {
+						string repeat_val = infile.nextValue();
+						while (repeat_val != "") {
 							events[event_count-1].comp_num++;
 							e = &events[event_count-1].components[events[event_count-1].comp_num];
 							e->type = infile.key;
-							e->s = layer;
+							e->s = repeat_val;
 							e->x = atoi(infile.nextValue().c_str());
 							e->y = atoi(infile.nextValue().c_str());
 							e->z = atoi(infile.nextValue().c_str());
 							
-							layer = infile.nextValue();
+							repeat_val = infile.nextValue();
 						}
 					}
 					else if (infile.key == "soundfx") {
@@ -436,6 +436,20 @@ int MapIso::load(string filename) {
 						e->x = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
 						e->y = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
 						e->z = atoi(infile.nextValue().c_str());
+						
+						// add repeating loot
+						string repeat_val = infile.nextValue();
+						while (repeat_val != "") {
+							events[event_count-1].comp_num++;
+							e = &events[event_count-1].components[events[event_count-1].comp_num];
+							e->type = infile.key;
+							e->s = repeat_val;
+							e->x = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+							e->y = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+							e->z = atoi(infile.nextValue().c_str());
+							
+							repeat_val = infile.nextValue();
+						}
 					}
 					else if (infile.key == "msg") {
 						e->s = msg->get(infile.val);
