@@ -458,22 +458,88 @@ int MapIso::load(string filename) {
 						e->x = atoi(infile.val.c_str());
 					}
 					else if (infile.key == "requires_status") {
-						e->s = infile.val;
+						e->s = infile.nextValue();
+						
+						// add repeating requires_status
+						string repeat_val = infile.nextValue();
+						while (repeat_val != "") {
+							events[event_count-1].comp_num++;
+							e = &events[event_count-1].components[events[event_count-1].comp_num];
+							e->type = infile.key;
+							e->s = repeat_val;
+							
+							repeat_val = infile.nextValue();
+						}
 					}
 					else if (infile.key == "requires_not") {
-						e->s = infile.val;
+						e->s = infile.nextValue();
+						
+						// add repeating requires_not
+						string repeat_val = infile.nextValue();
+						while (repeat_val != "") {
+							events[event_count-1].comp_num++;
+							e = &events[event_count-1].components[events[event_count-1].comp_num];
+							e->type = infile.key;
+							e->s = repeat_val;
+							
+							repeat_val = infile.nextValue();
+						}
 					}
 					else if (infile.key == "requires_item") {
-						e->x = atoi(infile.val.c_str());
+						e->x = atoi(infile.nextValue().c_str());
+						
+						// add repeating requires_item
+						string repeat_val = infile.nextValue();
+						while (repeat_val != "") {
+							events[event_count-1].comp_num++;
+							e = &events[event_count-1].components[events[event_count-1].comp_num];
+							e->type = infile.key;
+							e->x = atoi(repeat_val.c_str());
+							
+							repeat_val = infile.nextValue();
+						}
 					}
 					else if (infile.key == "set_status") {
-						e->s = infile.val;
+						e->s = infile.nextValue();
+						
+						// add repeating set_status
+						string repeat_val = infile.nextValue();
+						while (repeat_val != "") {
+							events[event_count-1].comp_num++;
+							e = &events[event_count-1].components[events[event_count-1].comp_num];
+							e->type = infile.key;
+							e->s = repeat_val;
+							
+							repeat_val = infile.nextValue();
+						}
 					}
 					else if (infile.key == "unset_status") {
-						e->s = infile.val;
+						e->s = infile.nextValue();
+						
+						// add repeating unset_status
+						string repeat_val = infile.nextValue();
+						while (repeat_val != "") {
+							events[event_count-1].comp_num++;
+							e = &events[event_count-1].components[events[event_count-1].comp_num];
+							e->type = infile.key;
+							e->s = repeat_val;
+							
+							repeat_val = infile.nextValue();
+						}
 					}
 					else if (infile.key == "remove_item") {
-						e->x = atoi(infile.val.c_str());
+						e->x = atoi(infile.nextValue().c_str());
+						
+						// add repeating remove_item
+						string repeat_val = infile.nextValue();
+						while (repeat_val != "") {
+							events[event_count-1].comp_num++;
+							e = &events[event_count-1].components[events[event_count-1].comp_num];
+							e->type = infile.key;
+							e->x = atoi(repeat_val.c_str());
+							
+							repeat_val = infile.nextValue();
+						}
 					}
 					else if (infile.key == "reward_xp") {
 						e->x = atoi(infile.val.c_str());
