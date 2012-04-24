@@ -473,7 +473,7 @@ bool StatBlock::canUsePower(const Power &power, unsigned powerid) const {
 	return (!power.requires_mental_weapon || wielding_mental)
 		&& (!power.requires_offense_weapon || wielding_offense)
 		&& (!power.requires_physical_weapon || wielding_physical)
-		&& power.requires_mp < mp
+		&& mp >= power.requires_mp
 		&& (unsigned)physoff >= PowerManager::getRequiredStatValue(powerid, 0)
 		&& (unsigned)physdef >= PowerManager::getRequiredStatValue(powerid, 1)
 		&& (unsigned)mentoff >= PowerManager::getRequiredStatValue(powerid, 2)
