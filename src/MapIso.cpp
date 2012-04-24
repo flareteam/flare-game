@@ -121,15 +121,15 @@ void MapIso::clearGroup(Map_Group &g) {
 }
 
 void MapIso::playSFX(string filename) {
-    // only load from file if the requested soundfx isn't already loaded
-    if (filename != sfx_filename) {
-        if (sfx) Mix_FreeChunk(sfx);
-        if (audio == true) {
-            sfx = Mix_LoadWAV((mods->locate(filename)).c_str());
-            sfx_filename = filename;
-        }
-    }
-    if (sfx) Mix_PlayChannel(-1, sfx, 0);
+	// only load from file if the requested soundfx isn't already loaded
+	if (filename != sfx_filename) {
+		if (sfx) Mix_FreeChunk(sfx);
+		if (audio == true) {
+			sfx = Mix_LoadWAV((mods->locate(filename)).c_str());
+			sfx_filename = filename;
+		}
+	}
+	if (sfx) Mix_PlayChannel(-1, sfx, 0);
 }
 
 void MapIso::push_enemy_group(Map_Group g) {
@@ -309,17 +309,17 @@ int MapIso::load(string filename) {
 					new_enemy.direction = atoi(infile.val.c_str());
 				}
 				else if (infile.key == "waypoints") {
-			        string none = "";
-			        string a = infile.nextValue();
-			        string b = infile.nextValue();
-			        
-				    while (a != none) {
-				        Point p;
-					    p.x = atoi(a.c_str()) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
-					    p.y = atoi(b.c_str()) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
-					    new_enemy.waypoints.push(p);
-				        a = infile.nextValue();
-				        b = infile.nextValue();
+					string none = "";
+					string a = infile.nextValue();
+					string b = infile.nextValue();
+					
+					while (a != none) {
+						Point p;
+						p.x = atoi(a.c_str()) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
+						p.y = atoi(b.c_str()) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
+						new_enemy.waypoints.push(p);
+						a = infile.nextValue();
+						b = infile.nextValue();
 					}
 				}
 			}
@@ -413,6 +413,20 @@ int MapIso::load(string filename) {
 						e->x = atoi(infile.nextValue().c_str());
 						e->y = atoi(infile.nextValue().c_str());
 						e->z = atoi(infile.nextValue().c_str());
+						
+						// add repeating mapmods
+						string repeat_val = infile.nextValue();
+						while (repeat_val != "") {
+							events[event_count-1].comp_num++;
+							e = &events[event_count-1].components[events[event_count-1].comp_num];
+							e->type = infile.key;
+							e->s = repeat_val;
+							e->x = atoi(infile.nextValue().c_str());
+							e->y = atoi(infile.nextValue().c_str());
+							e->z = atoi(infile.nextValue().c_str());
+							
+							repeat_val = infile.nextValue();
+						}
 					}
 					else if (infile.key == "soundfx") {
 						e->s = infile.val;
@@ -422,6 +436,20 @@ int MapIso::load(string filename) {
 						e->x = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
 						e->y = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
 						e->z = atoi(infile.nextValue().c_str());
+						
+						// add repeating loot
+						string repeat_val = infile.nextValue();
+						while (repeat_val != "") {
+							events[event_count-1].comp_num++;
+							e = &events[event_count-1].components[events[event_count-1].comp_num];
+							e->type = infile.key;
+							e->s = repeat_val;
+							e->x = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+							e->y = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+							e->z = atoi(infile.nextValue().c_str());
+							
+							repeat_val = infile.nextValue();
+						}
 					}
 					else if (infile.key == "msg") {
 						e->s = msg->get(infile.val);
@@ -430,22 +458,88 @@ int MapIso::load(string filename) {
 						e->x = atoi(infile.val.c_str());
 					}
 					else if (infile.key == "requires_status") {
-						e->s = infile.val;
+						e->s = infile.nextValue();
+						
+						// add repeating requires_status
+						string repeat_val = infile.nextValue();
+						while (repeat_val != "") {
+							events[event_count-1].comp_num++;
+							e = &events[event_count-1].components[events[event_count-1].comp_num];
+							e->type = infile.key;
+							e->s = repeat_val;
+							
+							repeat_val = infile.nextValue();
+						}
 					}
 					else if (infile.key == "requires_not") {
-						e->s = infile.val;
+						e->s = infile.nextValue();
+						
+						// add repeating requires_not
+						string repeat_val = infile.nextValue();
+						while (repeat_val != "") {
+							events[event_count-1].comp_num++;
+							e = &events[event_count-1].components[events[event_count-1].comp_num];
+							e->type = infile.key;
+							e->s = repeat_val;
+							
+							repeat_val = infile.nextValue();
+						}
 					}
 					else if (infile.key == "requires_item") {
-						e->x = atoi(infile.val.c_str());
+						e->x = atoi(infile.nextValue().c_str());
+						
+						// add repeating requires_item
+						string repeat_val = infile.nextValue();
+						while (repeat_val != "") {
+							events[event_count-1].comp_num++;
+							e = &events[event_count-1].components[events[event_count-1].comp_num];
+							e->type = infile.key;
+							e->x = atoi(repeat_val.c_str());
+							
+							repeat_val = infile.nextValue();
+						}
 					}
 					else if (infile.key == "set_status") {
-						e->s = infile.val;
+						e->s = infile.nextValue();
+						
+						// add repeating set_status
+						string repeat_val = infile.nextValue();
+						while (repeat_val != "") {
+							events[event_count-1].comp_num++;
+							e = &events[event_count-1].components[events[event_count-1].comp_num];
+							e->type = infile.key;
+							e->s = repeat_val;
+							
+							repeat_val = infile.nextValue();
+						}
 					}
 					else if (infile.key == "unset_status") {
-						e->s = infile.val;
+						e->s = infile.nextValue();
+						
+						// add repeating unset_status
+						string repeat_val = infile.nextValue();
+						while (repeat_val != "") {
+							events[event_count-1].comp_num++;
+							e = &events[event_count-1].components[events[event_count-1].comp_num];
+							e->type = infile.key;
+							e->s = repeat_val;
+							
+							repeat_val = infile.nextValue();
+						}
 					}
 					else if (infile.key == "remove_item") {
-						e->x = atoi(infile.val.c_str());
+						e->x = atoi(infile.nextValue().c_str());
+						
+						// add repeating remove_item
+						string repeat_val = infile.nextValue();
+						while (repeat_val != "") {
+							events[event_count-1].comp_num++;
+							e = &events[event_count-1].components[events[event_count-1].comp_num];
+							e->type = infile.key;
+							e->x = atoi(repeat_val.c_str());
+							
+							repeat_val = infile.nextValue();
+						}
 					}
 					else if (infile.key == "reward_xp") {
 						e->x = atoi(infile.val.c_str());
@@ -489,21 +583,21 @@ int MapIso::load(string filename) {
 
 void MapIso::loadMusic() {
 
-    if (music != NULL) {
-        Mix_HaltMusic();
-        Mix_FreeMusic(music);
-        music = NULL;
-    }
-    if (audio == true) {
-        music = Mix_LoadMUS((mods->locate("music/" + this->music_filename)).c_str());
-        if(!music)
-            printf("Mix_LoadMUS: %s\n", Mix_GetError());
-    }
+	if (music != NULL) {
+		Mix_HaltMusic();
+		Mix_FreeMusic(music);
+		music = NULL;
+	}
+	if (audio == true) {
+		music = Mix_LoadMUS((mods->locate("music/" + this->music_filename)).c_str());
+		if(!music)
+			printf("Mix_LoadMUS: %s\n", Mix_GetError());
+	}
 
-    if (music) {
-        Mix_VolumeMusic(MUSIC_VOLUME);
-        Mix_PlayMusic(music, -1);
-    }
+	if (music) {
+		Mix_VolumeMusic(MUSIC_VOLUME);
+		Mix_PlayMusic(music, -1);
+	}
 }
 
 void MapIso::logic() {
@@ -633,8 +727,8 @@ void MapIso::checkEvents(Point loc) {
 	maploc.y = loc.y >> TILE_SHIFT;
 	for (int i=0; i<event_count; i++) {
 		if (maploc.x >= events[i].location.x &&
-		    maploc.y >= events[i].location.y &&
-		    maploc.x <= events[i].location.x + events[i].location.w-1 &&
+			maploc.y >= events[i].location.y &&
+			maploc.x <= events[i].location.x + events[i].location.w-1 &&
 			maploc.y <= events[i].location.y + events[i].location.h-1) {
 			executeEvent(i);
 		}
