@@ -209,9 +209,7 @@ mapmod=collision,9,23,0
 [event]
 type=run_once
 location=0,0,20,40
-requires_status=lb_ice_defeated
-requires_status=lb_fire_defeated
-requires_status=lb_wind_defeated
+requires_status=lb_ice_defeated,lb_fire_defeated,lb_wind_defeated
 set_status=lb_necromancers_defeated
 
 [enemy]

@@ -201,12 +201,7 @@ intermap=brothers_lair_wind_hall.txt,3,19
 # Unset a lot of event variables
 type=run_once
 location=0,0,30,50
-unset_status=lb_ice_attack
-unset_status=lb_fire_attack
-unset_status=lb_wind_attack
-unset_status=lb_ice_looted
-unset_status=lb_fire_looted
-unset_status=lb_wind_looted
+unset_status=lb_ice_attack,lb_fire_attack,lb_wind_attack,lb_ice_looted,lb_fire_looted,lb_wind_looted
 
 [enemy]
 # Patrolling undead
