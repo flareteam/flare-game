@@ -15,6 +15,7 @@ You should have received a copy of the GNU General Public License along with
 FLARE.  If not, see http://www.gnu.org/licenses/
 */
 
+#include <iostream>
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
@@ -35,12 +36,13 @@ GameSwitcher *gswitch;
 /**
  * Game initialization.
  */
-static void init() {
+static void init(const vector<string>	& args) {
 
 	setPaths();
 
 	if (!loadSettings()) {
-		fprintf(stderr, ("Could not load settings file: ‘" + PATH_CONF + FILE_SETTINGS + "’.\n").c_str());
+		fprintf(stderr, "%s",
+				("Could not load settings file: ‘" + PATH_CONF + FILE_SETTINGS + "’.\n").c_str());
 		exit(1);
 	}
 
@@ -65,6 +67,15 @@ static void init() {
 	msg = new MessageEngine();
 	inp = new InputState();
 	font = new FontEngine();
+
+	// Check the command line if we should override the key binding
+	if (!args.empty()) {
+		if (string("--qwerty") == args[0]) {
+			inp->defaultQwertyKeyBindings();
+		} else if (string("--azerty") == args[0]) {
+			inp->defaultAzertyKeyBindings();
+		}
+	}
 
 	// Add Window Titlebar Icon
 	SDL_WM_SetIcon(IMG_Load(mods->locate("images/logo/icon.png").c_str()),NULL);
@@ -161,9 +172,14 @@ static void cleanup() {
 
 int main(int argc, char *argv[])
 {	
+	vector<string>	args;
+	for (int i = 1 ; i < argc; i++) {
+		args.push_back(string(argv[i]));
+	}
+
 	srand((unsigned int)time(NULL));
 	
-	init();
+	init(args);
 	mainLoop();	
 	cleanup();
 
