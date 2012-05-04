@@ -3,6 +3,9 @@
 
 #include "GameState.h"
 
+class WidgetButton;
+class WidgetCheckButton;
+
 class GameStateCfg : public GameState {
 public:
     GameStateCfg    ();
@@ -12,8 +15,9 @@ public:
     void    render  ();
 
 private:
-    WidgetButton    * ok_button;
-    WidgetButton    * cancel_button;
+    WidgetButton        * ok_button;
+    WidgetButton        * cancel_button;
+    WidgetCheckButton   * truc_button;
 };
 
 #endif

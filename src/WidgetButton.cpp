@@ -49,6 +49,7 @@ void WidgetButton::loadArt() {
 	if(!buttons) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 		SDL_Quit();
+		exit(1); // or abort ??
 	}
 	
 	// optimize
@@ -92,7 +93,7 @@ bool WidgetButton::checkClick() {
 		}
 	}
 	return false;
-	
+
 }
 
 void WidgetButton::render() {

@@ -119,6 +119,7 @@ Set (FLARE_SOURCES
 	./src/Utils.cpp
 	./src/UtilsFileSystem.cpp
 	./src/UtilsParsing.cpp
+	./src/WidgetCheckButton.cpp
 	./src/WidgetButton.cpp
 	./src/WidgetInput.cpp
  	./src/WidgetLabel.cpp

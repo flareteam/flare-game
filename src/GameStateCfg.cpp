@@ -1,4 +1,5 @@
 #include "WidgetButton.h"
+#include "WidgetCheckButton.h"
 #include "GameStateCfg.h"
 #include "GameStateTitle.h"
 #include "SharedResources.h"
@@ -18,6 +19,11 @@ GameStateCfg::GameStateCfg ()
     cancel_button->pos.x = (VIEW_W_HALF / 2) * 3 - (cancel_button->pos.w / 2);
     cancel_button->pos.y = VIEW_H - cancel_button->pos.h;
     cancel_button->refresh();
+
+    truc_button = new WidgetCheckButton(mods->locate(
+                                                "images/menus/buttons/check_button_default.png"));
+    truc_button->pos.x = 50;
+    truc_button->pos.y = 50;
 }
 
 
@@ -25,6 +31,7 @@ GameStateCfg::~GameStateCfg()
 {
     delete ok_button;
     delete cancel_button;
+    delete truc_button;
 }
 
 
@@ -35,6 +42,7 @@ GameStateCfg::logic ()
         requestedGameState = new GameStateTitle();
     } else if (cancel_button->checkClick()) {
         requestedGameState = new GameStateTitle();
+    } else if (truc_button->checkClick()) {
     }
 }
 
@@ -43,5 +51,6 @@ GameStateCfg::render ()
 {
     ok_button->render();
     cancel_button->render();
+    truc_button->render();
 }
 
