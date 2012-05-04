@@ -73,6 +73,7 @@ Set (FLARE_SOURCES
 	./src/FileParser.cpp
 	./src/FontEngine.cpp
 	./src/GameState.cpp
+    ./src/GameStateCfg.cpp
 	./src/GameStateTitle.cpp
 	./src/GameStateLoad.cpp
 	./src/GameStatePlay.cpp

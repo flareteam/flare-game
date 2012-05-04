@@ -15,8 +15,11 @@ You should have received a copy of the GNU General Public License along with
 FLARE.  If not, see http://www.gnu.org/licenses/
 */
 
+#include <iostream>
+
 #include "GameStateLoad.h"
 #include "GameStateTitle.h"
+#include "GameStateCfg.h"
 #include "SharedResources.h"
 
 GameStateTitle::GameStateTitle() : GameState() {
@@ -29,11 +32,17 @@ GameStateTitle::GameStateTitle() : GameState() {
 	// set up buttons
 	button_play = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
 	button_exit = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
+	button_cfg = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
 	
 	button_play->label = msg->get("Play Game");
 	button_play->pos.x = VIEW_W_HALF - button_play->pos.w/2;
-	button_play->pos.y = VIEW_H - (button_exit->pos.h*2);
+	button_play->pos.y = VIEW_H - (button_exit->pos.h*3);
 	button_play->refresh();
+
+	button_cfg->label = std::string("Configuration");
+	button_cfg->pos.x = VIEW_W_HALF - button_cfg->pos.w/2;
+	button_cfg->pos.y = VIEW_H - (button_exit->pos.h*2);
+	button_cfg->refresh();
 
 	button_exit->label = msg->get("Exit Game");
 	button_exit->pos.x = VIEW_W_HALF - button_exit->pos.w/2;
@@ -65,6 +74,10 @@ void GameStateTitle::logic() {
 	if (button_play->checkClick()) {
 		requestedGameState = new GameStateLoad();
 	}
+
+    if (button_cfg->checkClick()) {
+        requestedGameState = new GameStateCfg();
+    }
 	
 	if (button_exit->checkClick()) {
 		exitRequested = true;
@@ -86,6 +99,7 @@ void GameStateTitle::render() {
 
 	// display buttons
 	button_play->render();
+    button_cfg->render();
 	button_exit->render();
 	
 	// version number
