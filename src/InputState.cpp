@@ -30,7 +30,7 @@ InputState::InputState(void) {
 
 	SDL_EnableUNICODE(true);
 
-    defaultQwertyKeyBindings();
+	defaultQwertyKeyBindings();
 	
 	for (int key=0; key<key_count; key++) {
 		pressing[key] = false;
