@@ -39,7 +39,7 @@ GameStateTitle::GameStateTitle() : GameState() {
 	button_play->pos.y = VIEW_H - (button_exit->pos.h*3);
 	button_play->refresh();
 
-	button_cfg->label = std::string("Configuration");
+	button_cfg->label = msg->get("Configuration");
 	button_cfg->pos.x = VIEW_W_HALF - button_cfg->pos.w/2;
 	button_cfg->pos.y = VIEW_H - (button_exit->pos.h*2);
 	button_cfg->refresh();
@@ -70,16 +70,11 @@ void GameStateTitle::loadGraphics() {
 }
 
 void GameStateTitle::logic() {
-
 	if (button_play->checkClick()) {
 		requestedGameState = new GameStateLoad();
-	}
-
-    if (button_cfg->checkClick()) {
+	} else if (button_cfg->checkClick()) {
         requestedGameState = new GameStateCfg();
-    }
-	
-	if (button_exit->checkClick()) {
+    } else if (button_exit->checkClick()) {
 		exitRequested = true;
 	}
 }

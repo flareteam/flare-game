@@ -5,12 +5,15 @@
 
 class GameStateCfg : public GameState {
 public:
-    GameStateCfg ();
-    ~GameStateCfg ();
+    GameStateCfg    ();
+    ~GameStateCfg   ();
 
-    void    logic ();
+    void    logic   ();
+    void    render  ();
 
 private:
+    WidgetButton    * ok_button;
+    WidgetButton    * cancel_button;
 };
 
 #endif
