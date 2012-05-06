@@ -81,7 +81,7 @@ public:
 	void defaultAzertyKeyBindings();
 	void loadKeyBindings();
 	void saveKeyBindings();
-	void handle();
+	void handle(bool dump_event);
 
 	bool pressing[key_count];
 	bool lock[key_count];

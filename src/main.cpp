@@ -21,6 +21,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <cstring>
 #include <cmath>
 #include <ctime>
+#include <algorithm>
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_mixer.h>
@@ -69,12 +70,10 @@ static void init(const vector<string>	& args) {
 	font = new FontEngine();
 
 	// Check the command line if we should override the key binding
-	if (!args.empty()) {
-		if (string("--qwerty") == args[0]) {
-			inpt->defaultQwertyKeyBindings();
-		} else if (string("--azerty") == args[0]) {
-			inpt->defaultAzertyKeyBindings();
-		}
+	if (binary_search(args.begin(), args.end(), string("--qwerty"))) {
+		inpt->defaultQwertyKeyBindings();
+	} else if (binary_search(args.begin(), args.end(), string("--azerty"))) {
+		inpt->defaultAzertyKeyBindings();
 	}
 
 	// Add Window Titlebar Icon
@@ -125,21 +124,22 @@ static void init(const vector<string>	& args) {
 	gswitch = new GameSwitcher();
 }
 
-static void mainLoop () {
+static void mainLoop (const vector<string>	& args) {
 
 	bool done = false;
 	int fps = FRAMES_PER_SEC;
 	int delay = 1000/fps;
 	int prevTicks = SDL_GetTicks();
 	int nowTicks;
-	
+	bool debug_event = binary_search(args.begin(), args.end(), string("--debug_event"));
+
 	while ( !done ) {
 		
 		// black out
 		SDL_FillRect(screen, NULL, 0);
 
 		SDL_PumpEvents();
-		inpt->handle();
+		inpt->handle(debug_event);
 		gswitch->logic();
 		gswitch->render();
 		
@@ -180,7 +180,7 @@ int main(int argc, char *argv[])
 	srand((unsigned int)time(NULL));
 	
 	init(args);
-	mainLoop();	
+	mainLoop(args);	
 	cleanup();
 
 	return 0;
