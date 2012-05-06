@@ -25,6 +25,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "FileParser.h"
 #include "SharedResources.h"
 #include "PowerManager.h"
+#include <limits>
 
 using namespace std;
 
@@ -50,6 +51,7 @@ StatBlock::StatBlock() {
 	level = 0;
 	hp = maxhp = hp_per_minute = hp_ticker = 0;
 	mp = maxmp = mp_per_minute = mp_ticker = 0;
+	xp = 0;
 	accuracy = 75;
 	avoidance = 25;
 	crit = 0;
@@ -89,12 +91,19 @@ StatBlock::StatBlock() {
 	waypoint_pause = 0;
 	waypoint_pause_ticks = 0;
 
-	// xp table
-	// (level * level * 100) plus previous total
-	xp_table[0] = 0;
-	for (int i=1; i<MAX_CHARACTER_LEVEL; i++) {
-		xp_table[i] = i * i * 100 + xp_table[i-1];
+	// xp table	
+	// default to MAX_INT
+	for (int i=0; i<MAX_CHARACTER_LEVEL; i++) {
+		xp_table[i] = std::numeric_limits<int>::max();
 	}
+	// overwrite with data from config
+	FileParser infile;
+	infile.open(mods->locate("engine/xp_table.txt"));
+	while(infile.next()) {
+	    xp_table[atoi(infile.key.c_str()) - 1] = atoi(infile.val.c_str());
+	}
+	infile.close();
+
 
 	teleportation=false;
 
