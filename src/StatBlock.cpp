@@ -51,6 +51,7 @@ StatBlock::StatBlock() {
 	level = 0;
 	hp = maxhp = hp_per_minute = hp_ticker = 0;
 	mp = maxmp = mp_per_minute = mp_ticker = 0;
+	xp = 0;
 	accuracy = 75;
 	avoidance = 25;
 	crit = 0;

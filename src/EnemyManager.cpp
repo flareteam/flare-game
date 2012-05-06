@@ -275,7 +275,7 @@ Enemy* EnemyManager::enemyFocus(Point mouse, Point cam, bool alive_only) {
 void EnemyManager::checkEnemiesforXP(StatBlock *stats) {
 	for (int i=0; i<enemy_count; i++) {
 		if (enemies[i]->reward_xp) {
-			stats->xp += enemies[i]->stats.level;
+			stats->xp += enemies[i]->stats.xp;
 			enemies[i]->reward_xp = false; // clear flag
 		}
 	}
