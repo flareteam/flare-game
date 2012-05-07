@@ -186,8 +186,18 @@ void GameStatePlay::checkTeleport() {
 			map->respawn_point.x = pc->stats.pos.x;
 			map->respawn_point.y = pc->stats.pos.y;
 			
-			// auto-save
-			saveGame();
+			// return to title (permadeath) OR auto-save
+			if (pc->permadeath && pc->stats.corpse) {
+			    stringstream filename;
+			    filename << PATH_USER << "save" << game_slot << ".txt";
+			    if(remove(filename.str().c_str()) != 0)
+				    perror("Error deleting save from path");
+				
+			    requestedGameState = new GameStateTitle();
+			}
+			else {
+			    saveGame();
+			}
 		}
 
 		map->teleportation = false;

@@ -34,6 +34,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "GameState.h"
 #include "UtilsParsing.h"
 #include "SharedResources.h"
+#include "WidgetCheckButton.h"
 
 #include <SDL.h>
 #include <SDL_image.h>
@@ -70,6 +71,8 @@ private:
 	WidgetLabel *label_portrait;
 	WidgetLabel *label_name;
 	WidgetInput *input_name;
+	WidgetCheckButton *button_permadeath;
+	WidgetLabel *label_permadeath;
 
 public:
 	GameStateNew();

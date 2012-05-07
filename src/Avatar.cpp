@@ -33,6 +33,8 @@ Avatar::Avatar(PowerManager *_powers, MapIso *_map) : Entity(_map), powers(_powe
 
 	init();
 
+	permadeath = false;
+
 	// default hero animation data
 	stats.cooldown = 4;
 
@@ -161,23 +163,23 @@ void Avatar::loadGraphics(const string& _img_main, string _img_armor, const stri
 }
 
 void Avatar::loadSounds() {
-    if (audio == true) {
-        sound_melee = Mix_LoadWAV(mods->locate("soundfx/melee_attack.ogg").c_str());
-        sound_hit = Mix_LoadWAV(mods->locate("soundfx/" + stats.base + "_hit.ogg").c_str());
-        sound_die = Mix_LoadWAV(mods->locate("soundfx/" + stats.base + "_die.ogg").c_str());
-        sound_block = Mix_LoadWAV(mods->locate("soundfx/powers/block.ogg").c_str());
-        level_up = Mix_LoadWAV(mods->locate("soundfx/level_up.ogg").c_str());
+	if (audio == true) {
+		sound_melee = Mix_LoadWAV(mods->locate("soundfx/melee_attack.ogg").c_str());
+		sound_hit = Mix_LoadWAV(mods->locate("soundfx/" + stats.base + "_hit.ogg").c_str());
+		sound_die = Mix_LoadWAV(mods->locate("soundfx/" + stats.base + "_die.ogg").c_str());
+		sound_block = Mix_LoadWAV(mods->locate("soundfx/powers/block.ogg").c_str());
+		level_up = Mix_LoadWAV(mods->locate("soundfx/level_up.ogg").c_str());
 
-        if (!sound_melee || !sound_hit || !sound_die || !level_up) {
-            printf("Mix_LoadWAV: %s\n", Mix_GetError());
-        }
-    } else {
-        sound_melee = NULL;
-        sound_hit = NULL;
-        sound_die = NULL;
-        sound_block = NULL;
-        level_up = NULL;
-    }
+		if (!sound_melee || !sound_hit || !sound_die || !level_up) {
+			printf("Mix_LoadWAV: %s\n", Mix_GetError());
+		}
+	} else {
+		sound_melee = NULL;
+		sound_hit = NULL;
+		sound_die = NULL;
+		sound_block = NULL;
+		level_up = NULL;
+	}
 }
 
 /**
@@ -192,24 +194,24 @@ void Avatar::loadStepFX(const string& stepname) {
 	}
 
 	// clear previous sounds
-    for (int i=0; i<4; i++) {
-        if (sound_steps[i])
-            Mix_FreeChunk(sound_steps[i]);
-        sound_steps[i] = NULL;
-    }
+	for (int i=0; i<4; i++) {
+		if (sound_steps[i])
+			Mix_FreeChunk(sound_steps[i]);
+		sound_steps[i] = NULL;
+	}
 
 	// load new sounds
-    if (audio == true) {
-        sound_steps[0] = Mix_LoadWAV(mods->locate("soundfx/steps/step_" + filename + "1.ogg").c_str());
-        sound_steps[1] = Mix_LoadWAV(mods->locate("soundfx/steps/step_" + filename + "2.ogg").c_str());
-        sound_steps[2] = Mix_LoadWAV(mods->locate("soundfx/steps/step_" + filename + "3.ogg").c_str());
-        sound_steps[3] = Mix_LoadWAV(mods->locate("soundfx/steps/step_" + filename + "4.ogg").c_str());
-    } else {
-        sound_steps[0] = NULL;
-        sound_steps[1] = NULL;
-        sound_steps[2] = NULL;
-        sound_steps[3] = NULL;
-    }
+	if (audio == true) {
+		sound_steps[0] = Mix_LoadWAV(mods->locate("soundfx/steps/step_" + filename + "1.ogg").c_str());
+		sound_steps[1] = Mix_LoadWAV(mods->locate("soundfx/steps/step_" + filename + "2.ogg").c_str());
+		sound_steps[2] = Mix_LoadWAV(mods->locate("soundfx/steps/step_" + filename + "3.ogg").c_str());
+		sound_steps[3] = Mix_LoadWAV(mods->locate("soundfx/steps/step_" + filename + "4.ogg").c_str());
+	} else {
+		sound_steps[0] = NULL;
+		sound_steps[1] = NULL;
+		sound_steps[2] = NULL;
+		sound_steps[3] = NULL;
+	}
 }
 
 
@@ -331,13 +333,13 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 		}
 		log_msg = ss.str();
 		stats.recalc();
-        if (level_up)
-            Mix_PlayChannel(-1, level_up, 0);
+		if (level_up)
+			Mix_PlayChannel(-1, level_up, 0);
 	}
 
 	// check for bleeding spurt
 	if (stats.bleed_duration % 30 == 1) {
-	    CombatText::Instance()->addMessage(1, stats.pos, DISPLAY_DAMAGE);
+		CombatText::Instance()->addMessage(1, stats.pos, DISPLAY_DAMAGE);
 		powers->activate(POWER_SPARK_BLOOD, &stats, stats.pos);
 	}
 	// check for bleeding to death
@@ -394,8 +396,8 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 			stepfx = rand() % 4;
 
 			if (activeAnimation->getCurFrame() == 1 || activeAnimation->getCurFrame() == activeAnimation->getMaxFrame()/2) {
-                if (sound_steps[stepfx])
-                    Mix_PlayChannel(-1, sound_steps[stepfx], 0);
+				if (sound_steps[stepfx])
+					Mix_PlayChannel(-1, sound_steps[stepfx], 0);
 			}
 
 			// allowed to move or use powers?
@@ -429,8 +431,8 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 			setAnimation("melee");
 
 			if (activeAnimation->getCurFrame() == 1) {
-                if (sound_melee)
-                    Mix_PlayChannel(-1, sound_melee, 0);
+				if (sound_melee)
+					Mix_PlayChannel(-1, sound_melee, 0);
 			}
 
 			// do power
@@ -500,31 +502,43 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 			setAnimation("die");
 
 			if (activeAnimation->getCurFrame() == 1 && activeAnimation->getTimesPlayed() < 1) {
-                if (sound_die)
-                    Mix_PlayChannel(-1, sound_die, 0);
-				log_msg = msg->get("You are defeated.  You lose half your gold.  Press Enter to continue.");
+				if (sound_die)
+					Mix_PlayChannel(-1, sound_die, 0);
+				if (permadeath) {
+					log_msg = msg->get("You are defeated. Game over! Press Enter to exit to Title.");
+				}
+				else {
+					log_msg = msg->get("You are defeated.  You lose half your gold.  Press Enter to continue.");
+				}
 			}
 
 			if (activeAnimation->getTimesPlayed() >= 1) {
 				stats.corpse = true;
 			}
 
-			// allow respawn with Accept
+			// allow respawn with Accept if not permadeath
 			if (inp->pressing[ACCEPT]) {
-				stats.hp = stats.maxhp;
-				stats.mp = stats.maxmp;
-				stats.alive = true;
-				stats.corpse = false;
-				stats.cur_state = AVATAR_STANCE;
-
-				// remove temporary effects
-				stats.clearEffects();
-
-				// set teleportation variables.  GameEngine acts on these.
 				map->teleportation = true;
 				map->teleport_mapname = map->respawn_map;
-				map->teleport_destination.x = map->respawn_point.x;
-				map->teleport_destination.y = map->respawn_point.y;
+				if (permadeath) {
+					// set these positions so it doesn't flash before jumping to Title
+					map->teleport_destination.x = stats.pos.x;
+					map->teleport_destination.y = stats.pos.y;
+				}
+				else {
+					stats.hp = stats.maxhp;
+					stats.mp = stats.maxmp;
+					stats.alive = true;
+					stats.corpse = false;
+					stats.cur_state = AVATAR_STANCE;
+
+					// remove temporary effects
+					stats.clearEffects();
+
+					// set teleportation variables.  GameEngine acts on these.
+					map->teleport_destination.x = map->respawn_point.x;
+					map->teleport_destination.y = map->respawn_point.y;
+				}
 			}
 
 			break;
@@ -557,14 +571,14 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 bool Avatar::takeHit(Hazard h) {
 
 	if (stats.cur_state != AVATAR_DEAD) {
-	    CombatText *combat_text = CombatText::Instance();
+		CombatText *combat_text = CombatText::Instance();
 		// check miss
 		int avoidance = stats.avoidance;
 		if (stats.blocking) avoidance *= 2;
 		if (rand() % 100 > (h.accuracy - avoidance + 25)) {
-		    combat_text->addMessage("miss", stats.pos, DISPLAY_MISS);
-		    return false;
-	    }
+			combat_text->addMessage("miss", stats.pos, DISPLAY_MISS);
+			return false;
+		}
 
 		int dmg;
 		if (h.dmg_min == h.dmg_max) dmg = h.dmg_min;
@@ -591,15 +605,15 @@ bool Avatar::takeHit(Hazard h) {
 			if (dmg < 1 && !stats.blocking) dmg = 1; // when blocking, dmg can be reduced to 0
 			if (dmg <= 0) {
 				dmg = 0;
-                if (sound_block)
-                    Mix_PlayChannel(-1, sound_block, 0);
+				if (sound_block)
+					Mix_PlayChannel(-1, sound_block, 0);
 				activeAnimation->reset(); // shield stutter
 			}
 		}
 
 
 		int prev_hp = stats.hp;
-	    combat_text->addMessage(dmg, stats.pos, DISPLAY_DAMAGE);
+		combat_text->addMessage(dmg, stats.pos, DISPLAY_DAMAGE);
 		stats.takeDamage(dmg);
 
 		// after effects
@@ -615,8 +629,8 @@ bool Avatar::takeHit(Hazard h) {
 				stats.forced_speed.y = ceil((float)h.forced_move_speed * sin(theta));
 			}
 			if (h.hp_steal != 0) {
-			    int steal_amt = (int)ceil((float)dmg * (float)h.hp_steal / 100.0);
-		        combat_text->addMessage(steal_amt, h.src_stats->pos, DISPLAY_HEAL);
+				int steal_amt = (int)ceil((float)dmg * (float)h.hp_steal / 100.0);
+				combat_text->addMessage(steal_amt, h.src_stats->pos, DISPLAY_HEAL);
 				h.src_stats->hp += steal_amt;
 				if (h.src_stats->hp > h.src_stats->maxhp) h.src_stats->hp = h.src_stats->maxhp;
 			}
@@ -642,8 +656,8 @@ bool Avatar::takeHit(Hazard h) {
 			stats.death_penalty = true;
 		}
 		else if (prev_hp > stats.hp) { // only interrupt if damage was taken
-            if (sound_hit)
-                Mix_PlayChannel(-1, sound_hit, 0);
+			if (sound_hit)
+				Mix_PlayChannel(-1, sound_hit, 0);
 			stats.cur_state = AVATAR_HIT;
 		}
 
@@ -668,24 +682,24 @@ Avatar::~Avatar() {
 
 	SDL_FreeSurface(sprites);
 
-    if (sound_melee)
-        Mix_FreeChunk(sound_melee);
-    if (sound_hit)
-        Mix_FreeChunk(sound_hit);
-    if (sound_die)
-        Mix_FreeChunk(sound_die);
-    if (sound_block)
-        Mix_FreeChunk(sound_block);
-    if (sound_steps[0])
-        Mix_FreeChunk(sound_steps[0]);
-    if (sound_steps[1])
-        Mix_FreeChunk(sound_steps[1]);
-    if (sound_steps[2])
-        Mix_FreeChunk(sound_steps[2]);
-    if (sound_steps[3])
-        Mix_FreeChunk(sound_steps[3]);
-    if (level_up)
-        Mix_FreeChunk(level_up);
+	if (sound_melee)
+		Mix_FreeChunk(sound_melee);
+	if (sound_hit)
+		Mix_FreeChunk(sound_hit);
+	if (sound_die)
+		Mix_FreeChunk(sound_die);
+	if (sound_block)
+		Mix_FreeChunk(sound_block);
+	if (sound_steps[0])
+		Mix_FreeChunk(sound_steps[0]);
+	if (sound_steps[1])
+		Mix_FreeChunk(sound_steps[1]);
+	if (sound_steps[2])
+		Mix_FreeChunk(sound_steps[2]);
+	if (sound_steps[3])
+		Mix_FreeChunk(sound_steps[3]);
+	if (level_up)
+		Mix_FreeChunk(level_up);
 
 	delete haz;
 }
