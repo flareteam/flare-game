@@ -192,6 +192,8 @@ void ItemManager::load(const string& filename) {
 				items[id].power_desc = msg->get(infile.val);
 			else if (infile.key == "price")
 				items[id].price = atoi(infile.val.c_str());
+			else if (infile.key == "price_sell")
+				items[id].price_sell = atoi(infile.val.c_str());
 			else if (infile.key == "max_quantity")
 				items[id].max_quantity = atoi(infile.val.c_str());
 			else if (infile.key == "rand_loot")
@@ -463,7 +465,11 @@ TooltipData ItemManager::getTooltip(int item, StatBlock *stats, bool vendor_view
 				tip.lines[tip.num_lines++] = msg->get("Buy Price: %d gold each", items[item].price);
 		}
 		else {
-			int price_per_unit = items[item].price/vendor_ratio;
+			int price_per_unit;
+			if(items[item].price_sell != 0)
+				price_per_unit = items[item].price_sell;
+			else
+				price_per_unit = items[item].price/vendor_ratio;
 			if (price_per_unit == 0) price_per_unit = 1;
 			if (items[item].max_quantity <= 1)
 				tip.lines[tip.num_lines++] = msg->get("Sell Price: %d gold", price_per_unit);
