@@ -73,7 +73,7 @@ Set (FLARE_SOURCES
 	./src/FileParser.cpp
 	./src/FontEngine.cpp
 	./src/GameState.cpp
-    ./src/GameStateCfg.cpp
+	./src/GameStateConfig.cpp
 	./src/GameStateTitle.cpp
 	./src/GameStateLoad.cpp
 	./src/GameStatePlay.cpp
@@ -119,7 +119,7 @@ Set (FLARE_SOURCES
 	./src/Utils.cpp
 	./src/UtilsFileSystem.cpp
 	./src/UtilsParsing.cpp
-	./src/WidgetCheckButton.cpp
+	./src/WidgetCheckBox.cpp
 	./src/WidgetButton.cpp
 	./src/WidgetInput.cpp
  	./src/WidgetLabel.cpp

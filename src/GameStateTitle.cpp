@@ -19,7 +19,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "GameStateLoad.h"
 #include "GameStateTitle.h"
-#include "GameStateCfg.h"
+#include "GameStateConfig.h"
 #include "SharedResources.h"
 
 GameStateTitle::GameStateTitle() : GameState() {
@@ -73,7 +73,7 @@ void GameStateTitle::logic() {
 	if (button_play->checkClick()) {
 		requestedGameState = new GameStateLoad();
 	} else if (button_cfg->checkClick()) {
-        requestedGameState = new GameStateCfg();
+        requestedGameState = new GameStateConfig();
     } else if (button_exit->checkClick()) {
 		exitRequested = true;
 	}

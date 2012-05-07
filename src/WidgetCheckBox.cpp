@@ -3,12 +3,12 @@
 #include <SDL.h>
 #include <SDL_image.h>
 
-#include "WidgetCheckButton.h"
+#include "WidgetCheckBox.h"
 #include "SharedResources.h"
 
 using namespace std;
 
-WidgetCheckButton::WidgetCheckButton (const string  & fname)
+WidgetCheckBox::WidgetCheckBox (const string  & fname)
         : imgFileName(fname),
           cb(NULL),
           checked(false),
@@ -28,14 +28,14 @@ WidgetCheckButton::WidgetCheckButton (const string  & fname)
     pos.h = cb->h / 2;
 }
 
-WidgetCheckButton::~WidgetCheckButton ()
+WidgetCheckBox::~WidgetCheckBox ()
 {
     SDL_FreeSurface(cb);
 }
 
 
     bool
-WidgetCheckButton::checkClick ()
+WidgetCheckBox::checkClick ()
 {
 	// main button already in use, new click not allowed
 	if (inp->lock[MAIN1]) return false;
@@ -61,14 +61,14 @@ WidgetCheckButton::checkClick ()
 
 
     bool
-WidgetCheckButton::isChecked () const
+WidgetCheckBox::isChecked () const
 {
     return checked;
 }
 
 
     void
-WidgetCheckButton::render ()
+WidgetCheckBox::render ()
 {
     SDL_Rect    src;
     src.x = 0;

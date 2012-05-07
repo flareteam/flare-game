@@ -62,8 +62,8 @@ GameStateNew::GameStateNew() : GameState() {
 	input_name = new WidgetInput();
 	input_name->setPosition(VIEW_W_HALF - input_name->pos.w/2, VIEW_H_HALF+164);
 
-	button_permadeath = new WidgetCheckButton(mods->locate(
-												"images/menus/buttons/check_button_default.png"));
+	button_permadeath = new WidgetCheckBox(mods->locate(
+												"images/menus/buttons/checkbox_default.png"));
 	button_permadeath->pos.x = input_name->pos.x;
 	button_permadeath->pos.y = input_name->pos.y + input_name->pos.h + 5;
 
