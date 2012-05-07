@@ -60,13 +60,21 @@ GameStateNew::GameStateNew() : GameState() {
 	button_next->pos.y = VIEW_H_HALF - button_next->pos.h;
 
 	input_name = new WidgetInput();
-	input_name->setPosition(VIEW_W_HALF - input_name->pos.w/2, VIEW_H_HALF+184);
+	input_name->setPosition(VIEW_W_HALF - input_name->pos.w/2, VIEW_H_HALF+164);
+
+	button_permadeath = new WidgetCheckButton(mods->locate(
+												"images/menus/buttons/check_button_default.png"));
+	button_permadeath->pos.x = input_name->pos.x;
+	button_permadeath->pos.y = input_name->pos.y + input_name->pos.h + 5;
 
 	// set up labels
 	label_portrait = new WidgetLabel();
-	label_portrait->set(VIEW_W_HALF, VIEW_H_HALF-176, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Choose a Portrait"), FONT_GREY);
+	label_portrait->set(VIEW_W_HALF, VIEW_H_HALF-200, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Choose a Portrait"), FONT_GREY);
 	label_name = new WidgetLabel();
-	label_name->set(VIEW_W_HALF, VIEW_H_HALF+168, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Choose a Name"), FONT_GREY);
+	label_name->set(VIEW_W_HALF, VIEW_H_HALF+148, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Choose a Name"), FONT_GREY);
+	label_permadeath = new WidgetLabel();
+	label_permadeath->set(button_permadeath->pos.x + button_permadeath->pos.w + 5, button_permadeath->pos.y + button_permadeath->pos.h/2,
+															JUSTIFY_LEFT, VALIGN_CENTER, msg->get("Permadeath?"), FONT_GREY);
 
 	loadGraphics();
 	loadOptions("hero_options.txt");
@@ -129,6 +137,7 @@ void GameStateNew::loadOptions(const string& filename) {
 }
 
 void GameStateNew::logic() {
+	button_permadeath->checkClick();
 
 	// require character name
 	if (input_name->getText() == "") {
@@ -155,6 +164,7 @@ void GameStateNew::logic() {
 		play->pc->stats.head = head[current_option];
 		play->pc->stats.portrait = portrait[current_option];
 		play->pc->stats.name = input_name->getText();
+		play->pc->permadeath = button_permadeath->isChecked();
 		play->game_slot = game_slot;
 		play->resetGame();
 		requestedGameState = play;
@@ -184,6 +194,7 @@ void GameStateNew::render() {
 	button_prev->render();
 	button_next->render();
 	input_name->render();
+	button_permadeath->render();
 	
 	// display portrait option
 	SDL_Rect src;
@@ -192,7 +203,7 @@ void GameStateNew::render() {
 	src.w = src.h = dest.w = dest.h = 320;
 	src.x = src.y = 0;
 	dest.x = VIEW_W_HALF - 160;
-	dest.y = VIEW_H_HALF - 160;
+	dest.y = VIEW_H_HALF - 180;
 
 	if (portrait != NULL) {
 		SDL_BlitSurface(portrait_image, &src, screen, &dest);		
@@ -204,6 +215,7 @@ void GameStateNew::render() {
 	// display labels
 	label_portrait->render();
 	label_name->render();
+	label_permadeath->render();
 }
 
 GameStateNew::~GameStateNew() {
