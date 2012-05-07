@@ -37,17 +37,17 @@ WidgetCheckBox::~WidgetCheckBox ()
     bool
 WidgetCheckBox::checkClick ()
 {
-	// main button already in use, new click not allowed
-	if (inp->lock[MAIN1]) return false;
+    // main button already in use, new click not allowed
+    if (inp->lock[MAIN1]) return false;
 
     if (pressed && !inp->lock[MAIN1]) { // this is a button release
         pressed = false;
-		if (isWithin(pos, inp->mouse)) { // the button release is done over the widget
+	if (isWithin(pos, inp->mouse)) { // the button release is done over the widget
             // toggle the state of the check button
             checked = !checked;
-			// activate upon release
-			return true;
-		}
+	    // activate upon release
+	    return true;
+	}
     }
 
     if (inp->pressing[MAIN1]) {
