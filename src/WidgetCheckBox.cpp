@@ -3,6 +3,7 @@
 #include <SDL.h>
 #include <SDL_image.h>
 
+#include "Widget.h"
 #include "WidgetCheckBox.h"
 #include "SharedResources.h"
 
