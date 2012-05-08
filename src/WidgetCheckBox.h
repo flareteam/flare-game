@@ -1,7 +1,9 @@
 #ifndef WIDGET_CHECKBOX_H
 #define WIDGET_CHECKBOX_H
 
-class WidgetCheckBox {
+class Widget;
+
+class WidgetCheckBox : public Widget {
 public:
     WidgetCheckBox (const std::string & fname);
     ~WidgetCheckBox ();

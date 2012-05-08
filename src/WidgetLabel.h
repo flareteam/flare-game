@@ -26,14 +26,15 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #define WIDGET_LABEL_H
 
 #include "FontEngine.h"
+#include "Widget.h"
 #include <SDL.h>
 #include <string>
 
 const int VALIGN_CENTER = 0;
 const int VALIGN_TOP = 1;
-const int VALIGN_BOTTOM = 2;
+const int VALIGN_BOTTOM = 1;
 
-class WidgetLabel {
+class WidgetLabel : public Widget {
 private:
 
 	void refresh();

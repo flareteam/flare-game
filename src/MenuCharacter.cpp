@@ -29,7 +29,7 @@ MenuCharacter::MenuCharacter(StatBlock *_stats) {
 	stats = _stats;
 	
 	visible = false;
-    newPowerNotification = false;
+	newPowerNotification = false;
 
 	loadGraphics();
 
