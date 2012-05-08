@@ -6,6 +6,7 @@
 
 class WidgetButton;
 class WidgetCheckBox;
+class WidgetSlider;
 
 class GameStateConfig : public GameState {
 public:
@@ -21,6 +22,8 @@ private:
     WidgetButton	    * cancel_button;
     WidgetLabel		    * full_screen_lb;
     WidgetCheckBox	    * full_screen_cb;
+    WidgetLabel         * volume_music_lb;
+    WidgetSlider        * volume_music_sl;
 };
 
 #endif

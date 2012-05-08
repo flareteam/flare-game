@@ -1,5 +1,6 @@
 #include "WidgetButton.h"
 #include "WidgetCheckBox.h"
+#include "WidgetSlider.h"
 #include "GameStateConfig.h"
 #include "GameStateTitle.h"
 #include "SharedResources.h"
@@ -36,6 +37,16 @@ GameStateConfig::GameStateConfig ()
     full_screen_cb->pos.x = full_screen_lb->bounds.w;
     full_screen_cb->pos.y = 0;
     child_widget.push_back(full_screen_cb);
+
+    volume_music_lb = new WidgetLabel();
+    volume_music_lb->set(0, 64, JUSTIFY_LEFT, VALIGN_TOP, "Music Volume", FONT_WHITE);
+    child_widget.push_back(volume_music_lb);
+
+    volume_music_sl = new WidgetSlider(mods->locate("images/menus/buttons/slider_default.png"));
+    volume_music_sl->pos.x = volume_music_lb->bounds.w;
+    volume_music_sl->pos.y = volume_music_lb->bounds.y;
+    volume_music_sl->set(0,128,64);
+    child_widget.push_back(volume_music_sl);
 }
 
 
@@ -55,6 +66,7 @@ GameStateConfig::logic ()
     } else if (cancel_button->checkClick()) {
         requestedGameState = new GameStateTitle();
     } else if (full_screen_cb->checkClick()) {
+    } else if (volume_music_sl->checkClick()) {
     }
 }
 
