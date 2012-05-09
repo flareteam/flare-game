@@ -53,11 +53,16 @@ public:
 	~WidgetLabel();
 	void render();
 	void set(int _x, int _y, int _justify, int _valign, const std::string& _text, int _color);
+	void setX(int _x);
+	void setY(int _y);
+	void setJustify(int _justify);
+	void setValign(int _valign);
+	void setColor(int _color);
 	
 	void set(const std::string& _text);
 	std::string get() {return text;}
 
-	SDL_Rect bounds;	
+	SDL_Rect bounds;
 };
 
 #endif

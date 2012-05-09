@@ -34,6 +34,12 @@ WidgetCheckBox::~WidgetCheckBox ()
     SDL_FreeSurface(cb);
 }
 
+    void
+WidgetCheckBox::Check ()
+{
+    checked = true;
+}
+
 
     bool
 WidgetCheckBox::checkClick ()

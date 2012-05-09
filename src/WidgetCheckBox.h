@@ -8,6 +8,7 @@ public:
     WidgetCheckBox (const std::string & fname);
     ~WidgetCheckBox ();
 
+    void Check ();
     bool checkClick ();
     bool isChecked () const;
     void render ();

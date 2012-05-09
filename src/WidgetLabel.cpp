@@ -52,7 +52,7 @@ void WidgetLabel::render() {
 	dest.h = bounds.h;
 
 	if (text_buffer != NULL) {
-		SDL_BlitSurface(text_buffer, NULL, screen, &dest);		
+		SDL_BlitSurface(text_buffer, NULL, screen, &dest);
 	}
 }
 
@@ -90,6 +90,61 @@ void WidgetLabel::set(int _x, int _y, int _justify, int _valign, const string& _
 	}
 	
 	if (changed) {
+		applyOffsets();
+		refresh();
+	}
+}
+
+/**
+ * Set initial X position of label.
+ */
+void WidgetLabel::setX(int _x) {
+	if (x_origin != _x) {
+		x_origin = _x;
+		applyOffsets();
+		refresh();
+	}
+}
+
+/**
+ * Set initial Y position of label.
+ */
+void WidgetLabel::setY(int _y) {
+	if (y_origin != _y) {
+		y_origin = _y;
+		applyOffsets();
+		refresh();
+	}
+}
+
+/**
+ * Set justify value.
+ */
+void WidgetLabel::setJustify(int _justify) {
+	if (justify != _justify) {
+		justify = _justify;
+		applyOffsets();
+		refresh();
+	}
+}
+
+/**
+ * Set valign value.
+ */
+void WidgetLabel::setValign(int _valign) {
+	if (valign != _valign) {
+		valign = _valign;
+		applyOffsets();
+		refresh();
+	}
+}
+
+/**
+ * Set text color.
+ */
+void WidgetLabel::setColor(int _color) {
+	if (color != _color) {
+		color = _color;
 		applyOffsets();
 		refresh();
 	}
