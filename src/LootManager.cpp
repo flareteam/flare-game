@@ -68,7 +68,8 @@ LootManager::LootManager(ItemManager *_items, EnemyManager *_enemies, MapIso *_m
 	
 	loadGraphics();
 	calcTables();
-	loot_flip = Mix_LoadWAV(mods->locate("soundfx/flying_loot.ogg").c_str());
+    if (audio == true)
+        loot_flip = Mix_LoadWAV(mods->locate("soundfx/flying_loot.ogg").c_str());
 	full_msg = false;
 	
 	anim_loot_frames = 6;

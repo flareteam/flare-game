@@ -29,12 +29,13 @@ Enemy::Enemy(PowerManager *_powers, MapIso *_map) : Entity(_map) {
 	powers = _powers;
 
 	stats.cur_state = ENEMY_STANCE;
-	stats.dir_ticks = FRAMES_PER_SEC;
-	stats.patrol_ticks = 0;
+	stats.turn_ticks = FRAMES_PER_SEC;
+	//stats.patrol_ticks = 0; //no longer needed due to A*
 	stats.cooldown = 0;
 	stats.last_seen.x = -1;
 	stats.last_seen.y = -1;
 	stats.in_combat = false;
+    stats.join_combat = false;
 	
 	haz = NULL;
 	
@@ -45,6 +46,8 @@ Enemy::Enemy(PowerManager *_powers, MapIso *_map) : Entity(_map) {
 	sfx_critdie = false;
 	loot_drop = false;
 	reward_xp = false;
+
+	eb = NULL;
 }
 
 /**
@@ -106,6 +109,10 @@ void Enemy::newState(int state) {
  */
 void Enemy::logic() {
 
+	eb->logic();
+	return;
+
+/*
 	stats.logic();
 	if (stats.forced_move_duration > 0) {
 		move(); return;
@@ -131,14 +138,11 @@ void Enemy::logic() {
 		stats.teleportation = false;	
 	}
 	
-	int dist;
-	int prev_direction;
-	bool los = false;
-	Point pursue_pos;
-	
+
 	// set a default pursue_pos, all else failing (used in targeting)
 	pursue_pos.x = stats.hero_pos.x;
 	pursue_pos.y = stats.hero_pos.y;
+	los = false;	
 	
 	
 	// SECTION 1: Steering and Vision
@@ -172,7 +176,9 @@ void Enemy::logic() {
 	// if the enemy can see the hero, it pursues.
 	// otherwise, it will head towards where it last saw the hero
 	if (los && dist < stats.threat_range) {
-		stats.in_combat = true;
+		if (!stats.in_combat)
+            stats.join_combat = true;
+        stats.in_combat = true;
 		stats.last_seen.x = stats.hero_pos.x;
 		stats.last_seen.y = stats.hero_pos.y;
 		powers->activate(stats.power_index[BEACON], &stats, stats.pos); //emit beacon
@@ -225,13 +231,30 @@ void Enemy::logic() {
 			if (stats.in_combat) {
 
 				// update direction to face the target
-				if (++stats.dir_ticks > stats.dir_favor && stats.patrol_ticks == 0) {
+				if (++stats.turn_ticks > stats.turn_delay && stats.patrol_ticks == 0) {
 					stats.direction = face(pursue_pos.x, pursue_pos.y);				
-					stats.dir_ticks = 0;
+					stats.turn_ticks = 0;
 				}
 		
+                // perform action upon joining combat
+                if ((rand() % 100) < stats.power_chance[ON_JOIN_COMBAT] && stats.join_combat == true) {
+                    newState(ENEMY_JOIN_COMBAT);
+                    break;
+                }
+
+                // perform action if half health or lower
+                if ((rand() % 100) < stats.power_chance[ON_HALF_DEAD] && stats.hp <= stats.maxhp/2) {
+                    newState(ENEMY_HALF_DEAD);
+                    break;
+                }
+                // perform action if debuffed
+                else if ((rand() % 100) < stats.power_chance[ON_DEBUFF] && (stats.stun_duration > 0 || stats.immobilize_duration > 0 || stats.slow_duration > 0 || stats.bleed_duration > 0)) {
+                    newState(ENEMY_DEBUFF);
+                    break;
+                }
+
 				// performed ranged actions
-				if (dist > stats.melee_range && stats.cooldown_ticks == 0) {
+				else if (dist > stats.melee_range && stats.cooldown_ticks == 0) {
 
 					// CHECK: ranged physical!
 					//if (!powers->powers[stats.power_index[RANGED_PHYS]].requires_los || los) {
@@ -304,7 +327,7 @@ void Enemy::logic() {
 	
 			if (stats.in_combat) {
 
-				if (++stats.dir_ticks > stats.dir_favor && stats.patrol_ticks == 0) {
+				if (++stats.turn_ticks > stats.turn_delay && stats.patrol_ticks == 0) {
 					// if no line of movement to target, use pathfinder
 					if ( !map->collider.line_of_movement(stats.pos.x, stats.pos.y, pursue_pos.x, pursue_pos.y)) {
 						vector<Point> path;
@@ -314,7 +337,7 @@ void Enemy::logic() {
 						}
 					}
 					stats.direction = face(pursue_pos.x, pursue_pos.y);
-					stats.dir_ticks = 0;
+					stats.turn_ticks = 0;
 				}
 				
 				if (dist > stats.melee_range && stats.cooldown_ticks == 0) {
@@ -468,12 +491,20 @@ void Enemy::logic() {
 				sfx_hit = true;
 			}
 
+            if ((rand() % 100) < stats.power_chance[ON_HIT]) {
+                if (activeAnimation->getCurFrame() == activeAnimation->getMaxFrame()/2 && haz == NULL) {
+                        powers->activate(stats.power_index[ON_HIT], &stats, stats.pos);
+                        stats.power_ticks[ON_HIT] = stats.power_cooldown[ON_HIT];
+                }
+            }
+
 			if (activeAnimation->getCurFrame() == activeAnimation->getMaxFrame()-1) {
 				newState(ENEMY_STANCE);
 			}
-			
+
 			break;
-			
+
+
 		case ENEMY_DEAD:
 
 			// corpse means the creature is dead and done animating		
@@ -483,10 +514,18 @@ void Enemy::logic() {
 				if (activeAnimation->getCurFrame() == 1) {
 					sfx_die = true;
 				}
+
+                if ((rand() % 100) < stats.power_chance[ON_DEATH]) {
+                    if (activeAnimation->getCurFrame() == activeAnimation->getMaxFrame()/2 && haz == NULL) {
+                        powers->activate(stats.power_index[ON_DEATH], &stats, stats.pos);
+                        stats.power_ticks[ON_DEATH] = stats.power_cooldown[ON_DEATH];
+                    }
+                }
 			}
 
 			break;
-		
+
+
 		case ENEMY_CRITDEAD:
 			// critdead is an optional, more gruesome death animation
 		
@@ -497,10 +536,64 @@ void Enemy::logic() {
 				if (activeAnimation->getCurFrame() == 1) {
 					sfx_critdie = true;
 				}
+
+                if ((rand() % 100) < stats.power_chance[ON_DEATH]) {
+                    if (activeAnimation->getCurFrame() == activeAnimation->getMaxFrame()/2 && haz == NULL) {
+                        powers->activate(stats.power_index[ON_DEATH], &stats, stats.pos);
+                        stats.power_ticks[ON_DEATH] = stats.power_cooldown[ON_DEATH];
+                    }
+                }
 			}
 			
 			break;
+
+
+        case ENEMY_HALF_DEAD:
+            // enemy is at half health or lower
+
+            if (activeAnimation->getCurFrame() == activeAnimation->getMaxFrame()/2 && haz == NULL) {
+                    powers->activate(stats.power_index[ON_HALF_DEAD], &stats, stats.pos);
+                    stats.power_ticks[ON_HALF_DEAD] = stats.power_cooldown[ON_HALF_DEAD];
+            }
+
+			if (activeAnimation->getCurFrame() == activeAnimation->getMaxFrame()-1) {
+				newState(ENEMY_STANCE);
+			}
+
+            break;
+
+
+        case ENEMY_DEBUFF:
+            // enemy is stunned, bleeding, etc
+
+            if (activeAnimation->getCurFrame() == activeAnimation->getMaxFrame()/2 && haz == NULL) {
+                    powers->activate(stats.power_index[ON_DEBUFF], &stats, stats.pos);
+                    stats.power_ticks[ON_DEBUFF] = stats.power_cooldown[ON_DEBUFF];
+            }
+
+			if (activeAnimation->getCurFrame() == activeAnimation->getMaxFrame()-1) {
+				newState(ENEMY_STANCE);
+			}
+
+            break;
+
+
+        case ENEMY_JOIN_COMBAT:
+            // enemy joins combat
+
+            if (activeAnimation->getCurFrame() == activeAnimation->getMaxFrame()/2 && haz == NULL) {
+                    powers->activate(stats.power_index[ON_JOIN_COMBAT], &stats, stats.pos);
+                    stats.power_ticks[ON_JOIN_COMBAT] = stats.power_cooldown[ON_JOIN_COMBAT];
+            }
+
+			if (activeAnimation->getCurFrame() == activeAnimation->getMaxFrame()-1) {
+				newState(ENEMY_STANCE);
+                stats.join_combat = false;
+			}
+
+            break;
 	}
+*/
 
 }
 
@@ -514,7 +607,8 @@ bool Enemy::takeHit(Hazard h) {
 	if (stats.cur_state != ENEMY_DEAD && stats.cur_state != ENEMY_CRITDEAD) 
 	{   
 		if (!stats.in_combat) {
-			stats.in_combat = true;
+			stats.join_combat = true;
+            stats.in_combat = true;
 			stats.last_seen.x = stats.hero_pos.x;
 			stats.last_seen.y = stats.hero_pos.y;
 			powers->activate(stats.power_index[BEACON], &stats, stats.pos); //emit beacon
@@ -689,5 +783,6 @@ Renderable Enemy::getRender() {
 
 Enemy::~Enemy() {
 	delete haz;
+	delete eb;
 }
 

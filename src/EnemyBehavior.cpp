@@ -1,5 +1,5 @@
 /*
-Copyright © 2011-2012 Clint Bellanger
+Copyright 2012 Clint Bellanger
 
 This file is part of FLARE.
 
@@ -16,20 +16,23 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 */
 
 /**
-SharedResources
+ * class EnemyBehavior
+ *
+ * Interface for enemy behaviors.
+ * The behavior object is a component of Enemy.
+ * Make AI decisions (movement, actions) for enemies.
+ */
 
-"Global" sort of system resources that are used by most game classes.
-Only one instance of these classes are needed by the engine.
-Generic objects only. Game-specific objects don't belong here.
-Created and destroyed by main.cpp
-**/
+#include "EnemyBehavior.h"
 
-#include "SharedResources.h"
+EnemyBehavior::EnemyBehavior(Enemy *_e) {
+	e = _e;
+}
 
-SDL_Surface *screen;
-ModManager *mods;
-MessageEngine *msg;
-InputState *inp;
-FontEngine *font;
+void EnemyBehavior::logic() {
 
-bool audio;
+}
+
+EnemyBehavior::~EnemyBehavior() {
+
+}

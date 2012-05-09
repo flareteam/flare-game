@@ -78,13 +78,16 @@ void MenuManager::loadIcons() {
 }
 
 void MenuManager::loadSounds() {
-	sfx_open = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_page.ogg").c_str());
-	sfx_close = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_book.ogg").c_str());
+    if (audio == true) {
+        sfx_open = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_page.ogg").c_str());
+        sfx_close = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_book.ogg").c_str());
 
-	if (!sfx_open || !sfx_close) {
-		fprintf(stderr, "Mix_LoadWAV: %s\n", Mix_GetError());
-		SDL_Quit();
-	}
+        if (!sfx_open || !sfx_close)
+            fprintf(stderr, "Mix_LoadWAV: %s\n", Mix_GetError());
+    } else {
+        sfx_open = NULL;
+        sfx_close = NULL;
+    }
 }
 
 
@@ -113,7 +116,7 @@ void MenuManager::logic() {
 	inv->logic();
 	vendor->logic();
 	pow->logic();
-  log->logic();
+	log->logic();
 	talker->logic();
 
 	if (!inp->pressing[INVENTORY] && !inp->pressing[POWERS] && !inp->pressing[CHARACTER] && !inp->pressing[LOG])
@@ -151,7 +154,8 @@ void MenuManager::logic() {
 			closeRight(false);
             act->requires_attention[MENU_INVENTORY] = false;
 			inv->visible = true;
-			Mix_PlayChannel(-1, sfx_open, 0);
+            if (sfx_open)
+                Mix_PlayChannel(-1, sfx_open, 0);
 		}
 
 	}
@@ -166,11 +170,12 @@ void MenuManager::logic() {
 			closeRight(false);
             act->requires_attention[MENU_POWERS] = false;
 			pow->visible = true;
-			Mix_PlayChannel(-1, sfx_open, 0);
+            if (sfx_open)
+                Mix_PlayChannel(-1, sfx_open, 0);
 		}
 	}
 
-	// character menu toggle
+	// character menu toggleggle
 	if ((inp->pressing[CHARACTER] && !key_lock && !dragging) || clicking_character) {
 		key_lock = true;
 		if (chr->visible) {
@@ -180,7 +185,8 @@ void MenuManager::logic() {
 			closeLeft(false);
             act->requires_attention[MENU_CHARACTER] = false;
 			chr->visible = true;
-			Mix_PlayChannel(-1, sfx_open, 0);
+            if (sfx_open)
+                Mix_PlayChannel(-1, sfx_open, 0);
 		}
 	}
 
@@ -194,7 +200,8 @@ void MenuManager::logic() {
 			closeLeft(false);
             act->requires_attention[MENU_LOG] = false;
 			log->visible = true;
-			Mix_PlayChannel(-1, sfx_open, 0);
+            if (sfx_open)
+                Mix_PlayChannel(-1, sfx_open, 0);
 		}
 	}
 
@@ -513,10 +520,10 @@ void MenuManager::render() {
 	}
 
 	if (tip_new.num_lines > 0) {
-	
+
 		// when we render a tooltip it buffers the rasterized text for performance.
 		// If this new tooltip is the same as the existing one, reuse.
-		
+
 		// TODO: comparing the first line of a tooltip works in all existing cases,
 		// but may not hold true in the future.
 		if (tip_new.lines[0] != tip_buf.lines[0]) {
@@ -551,7 +558,8 @@ void MenuManager::closeLeft(bool play_sound) {
 		talker->visible = false;
 		exit->visible = false;
 
-		if (play_sound) Mix_PlayChannel(-1, sfx_close, 0);
+        if (sfx_close)
+            if (play_sound) Mix_PlayChannel(-1, sfx_close, 0);
 
 	}
 }
@@ -563,12 +571,13 @@ void MenuManager::closeRight(bool play_sound) {
 		talker->visible = false;
 		exit->visible = false;
 
-		if (play_sound) Mix_PlayChannel(-1, sfx_close, 0);
+        if (sfx_close)
+            if (play_sound) Mix_PlayChannel(-1, sfx_close, 0);
 	}
 }
 
 MenuManager::~MenuManager() {
-	
+
 	tip->clear(tip_buf);
 
 	delete xp;
@@ -586,6 +595,8 @@ MenuManager::~MenuManager() {
 	delete enemy;
 	delete hpmp;
 
-	Mix_FreeChunk(sfx_open);
-	Mix_FreeChunk(sfx_close);
+    if (sfx_open != NULL)
+        Mix_FreeChunk(sfx_open);
+    if (sfx_close != NULL)
+        Mix_FreeChunk(sfx_close);
 }

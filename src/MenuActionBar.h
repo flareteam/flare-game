@@ -20,7 +20,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  *
  * Handles the config, display, and usage of the 0-9 hotkeys, mouse buttons, and menu calls
  */
- 
+
 #ifndef MENU_ACTION_BAR_H
 #define MENU_ACTION_BAR_H
 
@@ -49,15 +49,15 @@ private:
 	SDL_Surface *icons;
 	SDL_Surface *disabled;
     SDL_Surface *attention;
-	
+
 	StatBlock *hero;
 	PowerManager *powers;
 	SDL_Rect src;
 	SDL_Rect label_src;
-	
+
 	// for now the key mappings are static.  Just use an image for the labels
 	SDL_Surface *labels;
-	
+
 public:
 
 	MenuActionBar(PowerManager *_powers, StatBlock *hero, SDL_Surface *icons);
@@ -76,21 +76,21 @@ public:
 	void clear();
 
 	TooltipData checkTooltip(Point mouse);
-	
+
 	int hotkeys[12]; // refer to power_index in PowerManager
 	SDL_Rect slots[12]; // the location of hotkey slots
 	SDL_Rect menus[4]; // the location of the menu buttons
 	int slot_item_count[12]; // -1 means this power isn't item based.  0 means out of items.  1+ means sufficient items.
 	bool slot_enabled[12];
     bool requires_attention[4];
-	
+
 	// these store the area occupied by these hotslot sections.
 	// useful for detecting mouse interactions on those locations
 	SDL_Rect numberArea;
 	SDL_Rect mouseArea;
 	SDL_Rect menuArea;
 	int drag_prev_slot;
-	
+
 };
 
 #endif

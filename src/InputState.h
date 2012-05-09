@@ -77,6 +77,8 @@ private:
 public:
 	InputState(void);
 	~InputState();
+	void defaultQwertyKeyBindings();    
+	void defaultAzertyKeyBindings();
 	void loadKeyBindings();
 	void saveKeyBindings();
 	void handle();

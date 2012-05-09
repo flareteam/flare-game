@@ -131,6 +131,7 @@ void Entity::loadAnimations(const string& filename) {
 	Point render_offset;
 	string type = "";
 	string firstAnimation = "";
+	int active_frame = 0;
 
 	// Parse the file and on each new section create an animation object from the data parsed previously
 
@@ -140,7 +141,7 @@ void Entity::loadAnimations(const string& filename) {
 	do {
 		// create the animation if finished parsing a section
 		if (parser.new_section) {
-			animations.push_back(new Animation(name, render_size, render_offset,  position, frames, duration, type));
+			animations.push_back(new Animation(name, render_size, render_offset,  position, frames, duration, type, active_frame));
 		}
 
 		if (parser.key == "position") {
@@ -188,7 +189,10 @@ void Entity::loadAnimations(const string& filename) {
 			if (isInt(parser.val)) {
 				render_offset.y = atoi(parser.val.c_str());
 			}
-		}	
+		}
+		else if (parser.key == "active_frame") {
+			active_frame = atoi(parser.val.c_str());
+		}
 
 		if (name == "") {
 			// This is the first animation
@@ -199,7 +203,7 @@ void Entity::loadAnimations(const string& filename) {
 	while (parser.next());
 
 	// add final animation
-	animations.push_back(new Animation(name, render_size, render_offset, position, frames, duration, type));
+	animations.push_back(new Animation(name, render_size, render_offset, position, frames, duration, type, active_frame));
 
 
 	// set the default animation

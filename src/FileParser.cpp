@@ -98,6 +98,10 @@ string FileParser::nextValue() {
 	}
 	string s;
 	size_t seppos = val.find_first_of(',');
+	size_t alt_seppos = val.find_first_of(';');
+	if (alt_seppos != string::npos && alt_seppos < seppos)
+	    seppos = alt_seppos; // return the first ',' or ';'
+	
 	if (seppos == string::npos) {
 		s = val;
 		val = "";

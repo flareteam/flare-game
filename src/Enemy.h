@@ -38,26 +38,11 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "Settings.h"
 #include "PowerManager.h"
 #include "CombatText.h"
+#include "EnemyBehavior.h"
 
-// active states
-const int ENEMY_STANCE = 0;
-const int ENEMY_MOVE = 1;
-const int ENEMY_CHARGE = 2;
-const int ENEMY_MELEE_PHYS = 3;
-const int ENEMY_MELEE_MENT = 4;
-const int ENEMY_RANGED_PHYS = 5;
-const int ENEMY_RANGED_MENT = 6;
-const int ENEMY_SPAWN = 7;
 
-// interrupt states
-const int ENEMY_BLOCK = 7;
-const int ENEMY_HIT = 8;
-const int ENEMY_DEAD = 9;
-const int ENEMY_CRITDEAD = 10;
 
 class Enemy : public Entity {
-protected:
-	PowerManager *powers;
 
 public:
 	Enemy(PowerManager *_powers, MapIso *_map);
@@ -72,7 +57,9 @@ public:
 
 	virtual Renderable getRender();
 	
-	Hazard *haz;
+	Hazard *haz;	
+	EnemyBehavior *eb;
+	PowerManager *powers;
 
 	// sound effects flags
 	bool sfx_phys;
@@ -85,6 +72,12 @@ public:
 	// other flags
 	bool loot_drop;
 	bool reward_xp;
+	
+	// common behavior vars
+	//int dist;
+	//int prev_direction;
+	//bool los;
+	//Point pursue_pos;
 };
 
 

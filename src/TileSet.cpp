@@ -31,9 +31,18 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 using namespace std;
 
 TileSet::TileSet() {
-	alpha_background = false;
 	sprites = NULL;
-	for (int i=0; i<256; i++) {
+	reset();
+}
+
+void TileSet::reset() {
+
+	SDL_FreeSurface(sprites);
+
+	alpha_background = true;
+
+	sprites = NULL;
+	for (int i=0; i<TILE_SET_MAX_TILES; i++) {
 		tiles[i].src.x = 0;
 		tiles[i].src.y = 0;
 		tiles[i].src.w = 0;
@@ -53,8 +62,10 @@ void TileSet::loadGraphics(const std::string& filename) {
 	}
 	
 	// only set a color key if the tile set doesn't have an alpha channel
+	// the color ke is specified in the tilesetdef file like this:
+	// transparency=r,g,b
 	if (!alpha_background) {
-		SDL_SetColorKey( sprites, SDL_SRCCOLORKEY, SDL_MapRGB(sprites->format, 255, 0, 255) ); 
+		SDL_SetColorKey( sprites, SDL_SRCCOLORKEY, SDL_MapRGB(sprites->format, trans_r, trans_g, trans_b) ); 
 	}
 	
 	// optimize
@@ -66,7 +77,7 @@ void TileSet::loadGraphics(const std::string& filename) {
 void TileSet::load(const std::string& filename) {
 	if (current_map == filename) return;
 	
-	alpha_background = false;
+	reset();
 	
 	FileParser infile;
 	unsigned short index;
@@ -78,19 +89,32 @@ void TileSet::load(const std::string& filename) {
 
 				infile.val = infile.val + ',';
 				index = eatFirstInt(infile.val, ',');
-				tiles[index].src.x = eatFirstInt(infile.val, ',');
-				tiles[index].src.y = eatFirstInt(infile.val, ',');
-				tiles[index].src.w = eatFirstInt(infile.val, ',');
-				tiles[index].src.h = eatFirstInt(infile.val, ',');
-				tiles[index].offset.x = eatFirstInt(infile.val, ',');
-				tiles[index].offset.y = eatFirstInt(infile.val, ',');
+				
+				if (index > 0 && index < TILE_SET_MAX_TILES) {
+				
+					tiles[index].src.x = eatFirstInt(infile.val, ',');
+					tiles[index].src.y = eatFirstInt(infile.val, ',');
+					tiles[index].src.w = eatFirstInt(infile.val, ',');
+					tiles[index].src.h = eatFirstInt(infile.val, ',');
+					tiles[index].offset.x = eatFirstInt(infile.val, ',');
+					tiles[index].offset.y = eatFirstInt(infile.val, ',');
+				}
+				else {
+					fprintf(stderr, "Warning: invalid tileset index in %s. Expected a value from 1 to %d\n", filename.c_str(), TILE_SET_MAX_TILES);
+				}
 				
 			}
 			else if (infile.key == "img") {
 				img = infile.val;
 			}
-			else if (infile.key == "alpha_background") {
-				if (infile.val == "1") alpha_background = true;
+			else if (infile.key == "transparency") {
+				alpha_background = false;
+				
+				infile.val = infile.val + ',';
+				trans_r = (Uint8)eatFirstInt(infile.val, ',');
+				trans_g = (Uint8)eatFirstInt(infile.val, ',');
+				trans_b = (Uint8)eatFirstInt(infile.val, ',');				
+				
 			}
 		
 		}

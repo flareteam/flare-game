@@ -96,6 +96,7 @@ struct Item {
 	int power_mod;        // alter powers when this item is equipped (e.g. shoot arrows from bows)
 	std::string power_desc;    // shows up in green text on the tooltip
 	int price;            // if price = 0 the item cannot be sold
+	int price_sell;       // if price_sell = 0, the sell price is price/vendor_ratio
 	int max_quantity;     // max count per stack
 	int rand_loot;        // max amount appearing in a loot stack
 	int rand_vendor;      // max amount appearing in a vendor stack
@@ -122,6 +123,7 @@ struct Item {
 		power_mod = -1;
 		power_desc = "";
 		price = 0;
+		price_sell = 0;
 		max_quantity = 1;
 		rand_loot = 1;
 		rand_vendor = 1;
@@ -153,7 +155,7 @@ public:
 	void loadIcons();
 	void renderIcon(ItemStack stack, int x, int y, int size);
 	void playSound(int item);
-	void playCoinsSound();	
+	void playCoinsSound();
 	TooltipData getTooltip(int item, StatBlock *stats, bool vendor_view);
 	TooltipData getShortTooltip(ItemStack item);
 

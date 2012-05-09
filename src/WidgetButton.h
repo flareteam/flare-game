@@ -25,6 +25,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "Utils.h"
 #include "FontEngine.h"
 #include "InputState.h"
+#include "Widget.h"
 #include "WidgetLabel.h"
 
 #include <SDL.h>
@@ -39,7 +40,7 @@ const int BUTTON_GFX_PRESSED = 1;
 const int BUTTON_GFX_HOVER = 2;
 const int BUTTON_GFX_DISABLED = 3;
 
-class WidgetButton {
+class WidgetButton : public Widget {
 private:
 
 	std::string fileName; // the path to the buttons background image

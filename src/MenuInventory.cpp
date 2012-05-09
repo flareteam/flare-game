@@ -478,7 +478,11 @@ bool MenuInventory::sell(ItemStack stack) {
 	// items that have no price cannot be sold
 	if (items->items[stack.item].price == 0) return false;
 	
-	int value_each = items->items[stack.item].price / items->vendor_ratio;
+	int value_each;
+	if(items->items[stack.item].price_sell != 0)
+		value_each = items->items[stack.item].price_sell;
+	else
+		value_each = items->items[stack.item].price / items->vendor_ratio;
 	if (value_each == 0) value_each = 1;
 	int value = value_each * stack.quantity;
 	gold += value;

@@ -30,9 +30,11 @@ using namespace std;
 
 
 Avatar::Avatar(PowerManager *_powers, MapIso *_map) : Entity(_map), powers(_powers) {
-	
+
 	init();
-	
+
+	permadeath = false;
+
 	// default hero animation data
 	stats.cooldown = 4;
 
@@ -52,11 +54,11 @@ void Avatar::init() {
 	stats.direction = map->spawn_dir;
 	current_power = -1;
 	newLevelNotification = false;
-		
+
 	lockSwing = false;
 	lockCast = false;
 	lockShoot = false;
-	
+
 	stats.hero = true;
 	stats.level = 1;
 	stats.xp = 0;
@@ -71,11 +73,11 @@ void Avatar::init() {
 	stats.speed = 14;
 	stats.dspeed = 10;
 	stats.recalc();
-	
+
 	log_msg = "";
 
 	stats.cooldown_ticks = 0;
-	
+
 	haz = NULL;
 
 	img_main = "";
@@ -85,7 +87,7 @@ void Avatar::init() {
 	for (int i = 0; i < POWER_COUNT; i++) {
 		stats.hero_cooldown[i] = 0;
 	}
-	
+
 	for (int i=0; i<4; i++) {
 		sound_steps[i] = NULL;
 	}
@@ -97,16 +99,16 @@ void Avatar::loadGraphics(const string& _img_main, string _img_armor, const stri
 	SDL_Surface *gfx_head = NULL;
 	SDL_Rect src;
 	SDL_Rect dest;
-	
+
 	// Default appearance
 	if (_img_armor == "") _img_armor = "clothes";
-	
+
 	// Check if we really need to change the graphics
 	if (_img_main != img_main || _img_armor != img_armor || _img_off != img_off) {
 		img_main = _img_main;
 		img_armor = _img_armor;
 		img_off = _img_off;
-	
+
 		// composite the hero graphic
 		if (sprites) SDL_FreeSurface(sprites);
 		sprites = IMG_Load(mods->locate("images/avatar/" + stats.base + "/" + img_armor + ".png").c_str());
@@ -114,11 +116,11 @@ void Avatar::loadGraphics(const string& _img_main, string _img_armor, const stri
 		if (img_off != "") gfx_off = IMG_Load(mods->locate("images/avatar/" + stats.base + "/" + img_off + ".png").c_str());
 		gfx_head = IMG_Load(mods->locate("images/avatar/" + stats.base + "/" + stats.head + ".png").c_str());
 
-		SDL_SetColorKey( sprites, SDL_SRCCOLORKEY, SDL_MapRGB(sprites->format, 255, 0, 255) ); 
-		if (gfx_main) SDL_SetColorKey( gfx_main, SDL_SRCCOLORKEY, SDL_MapRGB(gfx_main->format, 255, 0, 255) ); 
-		if (gfx_off) SDL_SetColorKey( gfx_off, SDL_SRCCOLORKEY, SDL_MapRGB(gfx_off->format, 255, 0, 255) ); 
-		if (gfx_head) SDL_SetColorKey( gfx_head, SDL_SRCCOLORKEY, SDL_MapRGB(gfx_head->format, 255, 0, 255) ); 
-		
+		SDL_SetColorKey( sprites, SDL_SRCCOLORKEY, SDL_MapRGB(sprites->format, 255, 0, 255) );
+		if (gfx_main) SDL_SetColorKey( gfx_main, SDL_SRCCOLORKEY, SDL_MapRGB(gfx_main->format, 255, 0, 255) );
+		if (gfx_off) SDL_SetColorKey( gfx_off, SDL_SRCCOLORKEY, SDL_MapRGB(gfx_off->format, 255, 0, 255) );
+		if (gfx_head) SDL_SetColorKey( gfx_head, SDL_SRCCOLORKEY, SDL_MapRGB(gfx_head->format, 255, 0, 255) );
+
 		// assuming the hero is right-handed, we know the layer z-order
 		// copy the furthest hand first
 		src.w = dest.w = 4096;
@@ -131,12 +133,12 @@ void Avatar::loadGraphics(const string& _img_main, string _img_armor, const stri
 		src.h = dest.h = 512;
 		src.y = dest.y = 256;
 		if (gfx_off) SDL_BlitSurface(gfx_off, &src, sprites, &dest); // row 2-5 off hand
-		
+
 		// copy the head in the middle
 		src.h = dest.h = 1024;
 		src.y = dest.y = 0;
 		if (gfx_head) SDL_BlitSurface(gfx_head, &src, sprites, &dest); // head
-		
+
 		// copy the closest hand last
 		src.w = dest.w = 4096;
 		src.h = dest.h = 256;
@@ -148,11 +150,11 @@ void Avatar::loadGraphics(const string& _img_main, string _img_armor, const stri
 		src.h = dest.h = 512;
 		src.y = dest.y = 256;
 		if (gfx_main) SDL_BlitSurface(gfx_main, &src, sprites, &dest); // row 2-5 main hand
-		
+
 		if (gfx_main) SDL_FreeSurface(gfx_main);
 		if (gfx_off) SDL_FreeSurface(gfx_off);
 		if (gfx_head) SDL_FreeSurface(gfx_head);
-		
+
 		// optimize
 		SDL_Surface *cleanup = sprites;
 		sprites = SDL_DisplayFormatAlpha(sprites);
@@ -161,14 +163,22 @@ void Avatar::loadGraphics(const string& _img_main, string _img_armor, const stri
 }
 
 void Avatar::loadSounds() {
-	sound_melee = Mix_LoadWAV(mods->locate("soundfx/melee_attack.ogg").c_str());
-	sound_hit = Mix_LoadWAV(mods->locate("soundfx/" + stats.base + "_hit.ogg").c_str());
-	sound_die = Mix_LoadWAV(mods->locate("soundfx/" + stats.base + "_die.ogg").c_str());
-	sound_block = Mix_LoadWAV(mods->locate("soundfx/powers/block.ogg").c_str());
-	level_up = Mix_LoadWAV(mods->locate("soundfx/level_up.ogg").c_str());
-				
-	if (!sound_melee || !sound_hit || !sound_die || !level_up) {
-		printf("Mix_LoadWAV: %s\n", Mix_GetError());
+	if (audio == true) {
+		sound_melee = Mix_LoadWAV(mods->locate("soundfx/melee_attack.ogg").c_str());
+		sound_hit = Mix_LoadWAV(mods->locate("soundfx/" + stats.base + "_hit.ogg").c_str());
+		sound_die = Mix_LoadWAV(mods->locate("soundfx/" + stats.base + "_die.ogg").c_str());
+		sound_block = Mix_LoadWAV(mods->locate("soundfx/powers/block.ogg").c_str());
+		level_up = Mix_LoadWAV(mods->locate("soundfx/level_up.ogg").c_str());
+
+		if (!sound_melee || !sound_hit || !sound_die || !level_up) {
+			printf("Mix_LoadWAV: %s\n", Mix_GetError());
+		}
+	} else {
+		sound_melee = NULL;
+		sound_hit = NULL;
+		sound_die = NULL;
+		sound_block = NULL;
+		level_up = NULL;
 	}
 }
 
@@ -176,7 +186,7 @@ void Avatar::loadSounds() {
  * Walking/running steps sound depends on worn armor
  */
 void Avatar::loadStepFX(const string& stepname) {
-	
+
 	// TODO: put default step sound in engine config file
 	string filename = "cloth";
 	if (stepname != "") {
@@ -185,18 +195,23 @@ void Avatar::loadStepFX(const string& stepname) {
 
 	// clear previous sounds
 	for (int i=0; i<4; i++) {
-		if (sound_steps[i] != NULL) {
+		if (sound_steps[i])
 			Mix_FreeChunk(sound_steps[i]);
-			sound_steps[i] = NULL;
-		}
+		sound_steps[i] = NULL;
 	}
-	
+
 	// load new sounds
-	sound_steps[0] = Mix_LoadWAV(mods->locate("soundfx/steps/step_" + filename + "1.ogg").c_str());
-	sound_steps[1] = Mix_LoadWAV(mods->locate("soundfx/steps/step_" + filename + "2.ogg").c_str());
-	sound_steps[2] = Mix_LoadWAV(mods->locate("soundfx/steps/step_" + filename + "3.ogg").c_str());
-	sound_steps[3] = Mix_LoadWAV(mods->locate("soundfx/steps/step_" + filename + "4.ogg").c_str());
-	
+	if (audio == true) {
+		sound_steps[0] = Mix_LoadWAV(mods->locate("soundfx/steps/step_" + filename + "1.ogg").c_str());
+		sound_steps[1] = Mix_LoadWAV(mods->locate("soundfx/steps/step_" + filename + "2.ogg").c_str());
+		sound_steps[2] = Mix_LoadWAV(mods->locate("soundfx/steps/step_" + filename + "3.ogg").c_str());
+		sound_steps[3] = Mix_LoadWAV(mods->locate("soundfx/steps/step_" + filename + "4.ogg").c_str());
+	} else {
+		sound_steps[0] = NULL;
+		sound_steps[1] = NULL;
+		sound_steps[2] = NULL;
+		sound_steps[3] = NULL;
+	}
 }
 
 
@@ -205,7 +220,7 @@ bool Avatar::pressing_move() {
 		return inp->pressing[MAIN1];
 	} else {
 		return inp->pressing[UP] || inp->pressing[DOWN] || inp->pressing[LEFT] || inp->pressing[RIGHT];
-	}	
+	}
 }
 
 void Avatar::set_direction() {
@@ -233,6 +248,51 @@ void Avatar::set_direction() {
 	}
 }
 
+void Avatar::handlePower(int actionbar_power) {
+	if (actionbar_power != -1 && stats.cooldown_ticks == 0) {
+		const Power &power = powers->getPower(actionbar_power);
+		Point target = screen_to_map(inp->mouse.x,  inp->mouse.y + power.aim_assist, stats.pos.x, stats.pos.y);
+
+		// check requirements
+		if (!stats.canUsePower(power, actionbar_power))
+			return;
+		if (power.requires_los && !map->collider.line_of_sight(stats.pos.x, stats.pos.y, target.x, target.y))
+			return;
+		if (power.requires_empty_target && !map->collider.is_empty(target.x, target.y))
+			return;
+		if (stats.hero_cooldown[actionbar_power] > 0)
+			return;
+
+		stats.hero_cooldown[actionbar_power] = power.cooldown; //set the cooldown timer
+		current_power = actionbar_power;
+		act_target = target;
+
+		// is this a power that requires changing direction?
+		if (power.face) {
+			stats.direction = face(target.x, target.y);
+		}
+
+		switch (power.new_state) {
+			case POWSTATE_SWING:	// handle melee powers
+				stats.cur_state = AVATAR_MELEE;
+				break;
+
+			case POWSTATE_SHOOT:	// handle ranged powers
+				stats.cur_state = AVATAR_SHOOT;
+				break;
+
+			case POWSTATE_CAST:		// handle ment powers
+				stats.cur_state = AVATAR_CAST;
+				break;
+
+			case POWSTATE_BLOCK:	// handle blocking
+				stats.cur_state = AVATAR_BLOCK;
+				stats.blocking = true;
+				break;
+		}
+	}
+}
+
 /**
  * logic()
  * Handle a single frame.  This includes:
@@ -240,11 +300,11 @@ void Avatar::set_direction() {
  * - calculate the next frame of animation
  * - calculate camera position based on avatar position
  *
- * @param power_index The actionbar power activated.  -1 means no power.
+ * @param actionbar_power The actionbar power activated.  -1 means no power.
+ * @param restrictPowerUse rather or not to allow power usage on mouse1
  */
 void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 
-	Point target;
 	int stepfx;
 	stats.logic();
 	if (stats.forced_move_duration > 0) {
@@ -260,7 +320,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 	if (stats.stun_duration > 0) return;
 	bool allowed_to_move;
 	bool allowed_to_use_power;
-	
+
 	// check level up
 	int max_spendable_stat_points = 16;
 	if (stats.xp >= stats.xp_table[stats.level] && stats.level < MAX_CHARACTER_LEVEL) {
@@ -273,30 +333,31 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 		}
 		log_msg = ss.str();
 		stats.recalc();
-		Mix_PlayChannel(-1, level_up, 0);
+		if (level_up)
+			Mix_PlayChannel(-1, level_up, 0);
 	}
 
 	// check for bleeding spurt
 	if (stats.bleed_duration % 30 == 1) {
-	    CombatText::Instance()->addMessage(1, stats.pos, DISPLAY_DAMAGE);
+		CombatText::Instance()->addMessage(1, stats.pos, DISPLAY_DAMAGE);
 		powers->activate(POWER_SPARK_BLOOD, &stats, stats.pos);
 	}
 	// check for bleeding to death
 	if (stats.hp == 0 && !(stats.cur_state == AVATAR_DEAD)) {
 		stats.cur_state = AVATAR_DEAD;
 	}
-	
+
 	// assist mouse movement
 	if (!inp->pressing[MAIN1]) drag_walking = false;
-	
+
 	// handle animation
 	activeAnimation->advanceFrame();
-			
+
 	switch(stats.cur_state) {
 		case AVATAR_STANCE:
 
 			setAnimation("stance");
-		
+
 			// allowed to move or use powers?
 			if (MOUSE_MOVE) {
 				allowed_to_move = restrictPowerUse && (!inp->lock[MAIN1] || drag_walking);
@@ -310,80 +371,33 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 			// handle transitions to RUN
 			if (allowed_to_move)
 				set_direction();
-			
+
 			if (pressing_move() && allowed_to_move) {
 				if (MOUSE_MOVE && inp->pressing[MAIN1]) {
 					inp->lock[MAIN1] = true;
 					drag_walking = true;
 				}
-				
+
 				if (move()) { // no collision
 					stats.cur_state = AVATAR_RUN;
 				}
 
 			}
-			// handle power usage
-			if (allowed_to_use_power && actionbar_power != -1 && stats.cooldown_ticks == 0) {				
-				target = screen_to_map(inp->mouse.x,  inp->mouse.y + powers->powers[actionbar_power].aim_assist, stats.pos.x, stats.pos.y);
-			
-				// check requirements
-				if (powers->powers[actionbar_power].requires_mp > stats.mp)
-					break;
-				if (powers->powers[actionbar_power].requires_physical_weapon && !stats.wielding_physical)
-					break;
-				if (powers->powers[actionbar_power].requires_mental_weapon && !stats.wielding_mental)
-					break;
-				if (powers->powers[actionbar_power].requires_offense_weapon && !stats.wielding_offense)
-					break;
-				if (powers->powers[actionbar_power].requires_los && !map->collider.line_of_sight(stats.pos.x, stats.pos.y, target.x, target.y))
-					break;
-				if (powers->powers[actionbar_power].requires_empty_target && !map->collider.is_empty(target.x, target.y))
-					break;
-				if (stats.hero_cooldown[actionbar_power] > 0)
-					break;
 
-				stats.hero_cooldown[actionbar_power] = powers->powers[actionbar_power].cooldown; //set the cooldown timer
-				current_power = actionbar_power;
-				act_target.x = target.x;
-				act_target.y = target.y;
-			
-				// is this a power that requires changing direction?
-				if (powers->powers[current_power].face) {
-					stats.direction = face(target.x, target.y);
-				}
-			
-				// handle melee powers
-				if (powers->powers[current_power].new_state == POWSTATE_SWING) {
-					stats.cur_state = AVATAR_MELEE;
-					break;
-				}
-				// handle ranged powers
-				if (powers->powers[current_power].new_state == POWSTATE_SHOOT) {
-					stats.cur_state = AVATAR_SHOOT;
-					break;
-				}
-				// handle ment powers
-				if (powers->powers[current_power].new_state == POWSTATE_CAST) {
-					stats.cur_state = AVATAR_CAST;
-					break;
-				}
-				if (powers->powers[current_power].new_state == POWSTATE_BLOCK) {
-					stats.cur_state = AVATAR_BLOCK;
-					stats.blocking = true;
-					break;
-				}
-			}
-			
+			// handle power usage
+			if(allowed_to_use_power)
+				handlePower(actionbar_power);
 			break;
-			
+
 		case AVATAR_RUN:
 
 			setAnimation("run");
-		
+
 			stepfx = rand() % 4;
-			
+
 			if (activeAnimation->getCurFrame() == 1 || activeAnimation->getCurFrame() == activeAnimation->getMaxFrame()/2) {
-				Mix_PlayChannel(-1, sound_steps[stepfx], 0);
+				if (sound_steps[stepfx])
+					Mix_PlayChannel(-1, sound_steps[stepfx], 0);
 			}
 
 			// allowed to move or use powers?
@@ -393,88 +407,39 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 			else {
 				allowed_to_use_power = true;
 			}
-			
+
 			// handle direction changes
 			set_direction();
-			
+
 			// handle transition to STANCE
 			if (!pressing_move()) {
 				stats.cur_state = AVATAR_STANCE;
 				break;
-			} 
+			}
 			else if (!move()) { // collide with wall
 				stats.cur_state = AVATAR_STANCE;
 				break;
 			}
-						
+
 			// handle power usage
-			if (allowed_to_use_power && actionbar_power != -1 && stats.cooldown_ticks == 0) {
-
-				target = screen_to_map(inp->mouse.x,  inp->mouse.y + powers->powers[actionbar_power].aim_assist, stats.pos.x, stats.pos.y);
-			
-				// check requirements
-				if (powers->powers[actionbar_power].requires_mp > stats.mp)
-					break;
-				if (powers->powers[actionbar_power].requires_physical_weapon && !stats.wielding_physical)
-					break;
-				if (powers->powers[actionbar_power].requires_mental_weapon && !stats.wielding_mental)
-					break;
-				if (powers->powers[actionbar_power].requires_offense_weapon && !stats.wielding_offense)
-					break;
-				if (powers->powers[actionbar_power].requires_los && !map->collider.line_of_sight(stats.pos.x, stats.pos.y, target.x, target.y))
-					break;
-				if (powers->powers[actionbar_power].requires_empty_target && !map->collider.is_empty(target.x, target.y))
-					break;
-				if (stats.hero_cooldown[actionbar_power] > 0)
-					break;
-
-				stats.hero_cooldown[actionbar_power] = powers->powers[actionbar_power].cooldown; //set the cooldown timer
-				current_power = actionbar_power;
-				act_target.x = target.x;
-				act_target.y = target.y;
-			
-				// is this a power that requires changing direction?
-				if (powers->powers[current_power].face) {
-					stats.direction = face(target.x, target.y);
-				}
-			
-				// handle melee powers
-				if (powers->powers[current_power].new_state == POWSTATE_SWING) {
-					stats.cur_state = AVATAR_MELEE;
-					break;
-				}
-				// handle ranged powers
-				if (powers->powers[current_power].new_state == POWSTATE_SHOOT) {
-					stats.cur_state = AVATAR_SHOOT;
-					break;
-				}
-				// handle ment powers
-				if (powers->powers[current_power].new_state == POWSTATE_CAST) {
-					stats.cur_state = AVATAR_CAST;
-					break;
-				}
-				if (powers->powers[current_power].new_state == POWSTATE_BLOCK) {
-					stats.cur_state = AVATAR_BLOCK;
-					stats.blocking = true;
-					break;
-				}				
-			}
-							
+			if(allowed_to_use_power)
+				handlePower(actionbar_power);
 			break;
-			
+
 		case AVATAR_MELEE:
 
 			setAnimation("melee");
 
 			if (activeAnimation->getCurFrame() == 1) {
-				Mix_PlayChannel(-1, sound_melee, 0);
+				if (sound_melee)
+					Mix_PlayChannel(-1, sound_melee, 0);
 			}
-			
+
 			// do power
 			if (activeAnimation->getCurFrame()  == activeAnimation->getMaxFrame()/2) {
 				powers->activate(current_power, &stats, act_target);
 			}
-			
+
 			if (activeAnimation->getTimesPlayed() >= 1) {
 				stats.cur_state = AVATAR_STANCE;
 				if (stats.haste_duration == 0) stats.cooldown_ticks += stats.cooldown;
@@ -496,9 +461,9 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 			}
 			break;
 
-			
+
 		case AVATAR_SHOOT:
-		
+
 			setAnimation("ranged");
 
 			// do power
@@ -513,7 +478,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 			break;
 
 		case AVATAR_BLOCK:
-		
+
 			setAnimation("block");
 
 			if (powers->powers[actionbar_power].new_state != POWSTATE_BLOCK) {
@@ -521,61 +486,74 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 				stats.blocking = false;
 			}
 			break;
-			
+
 		case AVATAR_HIT:
 
 			setAnimation("hit");
-						 
+
 			if (activeAnimation->getTimesPlayed() >= 1) {
 				stats.cur_state = AVATAR_STANCE;
 			}
-			
+
 			break;
-			
+
 		case AVATAR_DEAD:
 
 			setAnimation("die");
-				
+
 			if (activeAnimation->getCurFrame() == 1 && activeAnimation->getTimesPlayed() < 1) {
-				Mix_PlayChannel(-1, sound_die, 0);
-				log_msg = msg->get("You are defeated.  You lose half your gold.  Press Enter to continue.");
+				if (sound_die)
+					Mix_PlayChannel(-1, sound_die, 0);
+				if (permadeath) {
+					log_msg = msg->get("You are defeated. Game over! Press Enter to exit to Title.");
+				}
+				else {
+					log_msg = msg->get("You are defeated.  You lose half your gold.  Press Enter to continue.");
+				}
 			}
 
 			if (activeAnimation->getTimesPlayed() >= 1) {
 				stats.corpse = true;
 			}
-			
-			// allow respawn with Accept
+
+			// allow respawn with Accept if not permadeath
 			if (inp->pressing[ACCEPT]) {
-				stats.hp = stats.maxhp;
-				stats.mp = stats.maxmp;
-				stats.alive = true;
-				stats.corpse = false;
-				stats.cur_state = AVATAR_STANCE;
-				
-				// remove temporary effects
-				stats.clearEffects();
-				
-				// set teleportation variables.  GameEngine acts on these.
 				map->teleportation = true;
 				map->teleport_mapname = map->respawn_map;
-				map->teleport_destination.x = map->respawn_point.x;
-				map->teleport_destination.y = map->respawn_point.y;
+				if (permadeath) {
+					// set these positions so it doesn't flash before jumping to Title
+					map->teleport_destination.x = stats.pos.x;
+					map->teleport_destination.y = stats.pos.y;
+				}
+				else {
+					stats.hp = stats.maxhp;
+					stats.mp = stats.maxmp;
+					stats.alive = true;
+					stats.corpse = false;
+					stats.cur_state = AVATAR_STANCE;
+
+					// remove temporary effects
+					stats.clearEffects();
+
+					// set teleportation variables.  GameEngine acts on these.
+					map->teleport_destination.x = map->respawn_point.x;
+					map->teleport_destination.y = map->respawn_point.y;
+				}
 			}
-			
+
 			break;
-		
+
 		default:
 			break;
 	}
-	
+
 	// calc new cam position from player position
 	// cam is focused at player position
 	map->cam.x = stats.pos.x;
 	map->cam.y = stats.pos.y;
 	map->hero_tile.x = stats.pos.x / 32;
 	map->hero_tile.y = stats.pos.y / 32;
-	
+
 	// check for map events
 	map->checkEvents(stats.pos);
 
@@ -593,50 +571,51 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 bool Avatar::takeHit(Hazard h) {
 
 	if (stats.cur_state != AVATAR_DEAD) {
-	    CombatText *combat_text = CombatText::Instance();
+		CombatText *combat_text = CombatText::Instance();
 		// check miss
 		int avoidance = stats.avoidance;
 		if (stats.blocking) avoidance *= 2;
 		if (rand() % 100 > (h.accuracy - avoidance + 25)) {
-		    combat_text->addMessage("miss", stats.pos, DISPLAY_MISS);
-		    return false;
-	    }
-	
+			combat_text->addMessage("miss", stats.pos, DISPLAY_MISS);
+			return false;
+		}
+
 		int dmg;
 		if (h.dmg_min == h.dmg_max) dmg = h.dmg_min;
 		else dmg = h.dmg_min + (rand() % (h.dmg_max - h.dmg_min + 1));
-	
+
 		// apply elemental resistance
 		// TODO: make this generic
 		if (h.trait_elemental == ELEMENT_FIRE) {
 			dmg = (dmg * stats.attunement_fire) / 100;
 		}
 		if (h.trait_elemental == ELEMENT_WATER) {
-			dmg = (dmg * stats.attunement_ice) / 100;			
+			dmg = (dmg * stats.attunement_ice) / 100;
 		}
-	
+
 		// apply absorption
 		int absorption;
 		if (!h.trait_armor_penetration) { // armor penetration ignores all absorption
 			if (stats.absorb_min == stats.absorb_max) absorption = stats.absorb_min;
 			else absorption = stats.absorb_min + (rand() % (stats.absorb_max - stats.absorb_min + 1));
-			
+
 			if (stats.blocking) absorption += absorption + stats.absorb_max; // blocking doubles your absorb amount
-			
+
 			dmg = dmg - absorption;
 			if (dmg < 1 && !stats.blocking) dmg = 1; // when blocking, dmg can be reduced to 0
 			if (dmg <= 0) {
 				dmg = 0;
-				Mix_PlayChannel(-1, sound_block, 0);
+				if (sound_block)
+					Mix_PlayChannel(-1, sound_block, 0);
 				activeAnimation->reset(); // shield stutter
 			}
 		}
-	
-		
+
+
 		int prev_hp = stats.hp;
-	    combat_text->addMessage(dmg, stats.pos, DISPLAY_DAMAGE);
+		combat_text->addMessage(dmg, stats.pos, DISPLAY_DAMAGE);
 		stats.takeDamage(dmg);
-		
+
 		// after effects
 		if (stats.hp > 0 && stats.immunity_duration == 0 && dmg > 0) {
 			if (h.stun_duration > stats.stun_duration) stats.stun_duration = h.stun_duration;
@@ -650,37 +629,38 @@ bool Avatar::takeHit(Hazard h) {
 				stats.forced_speed.y = ceil((float)h.forced_move_speed * sin(theta));
 			}
 			if (h.hp_steal != 0) {
-			    int steal_amt = (int)ceil((float)dmg * (float)h.hp_steal / 100.0);
-		        combat_text->addMessage(steal_amt, h.src_stats->pos, DISPLAY_HEAL);
+				int steal_amt = (int)ceil((float)dmg * (float)h.hp_steal / 100.0);
+				combat_text->addMessage(steal_amt, h.src_stats->pos, DISPLAY_HEAL);
 				h.src_stats->hp += steal_amt;
 				if (h.src_stats->hp > h.src_stats->maxhp) h.src_stats->hp = h.src_stats->maxhp;
 			}
 			// if (h.mp_steal != 0) { //enemies don't have MP
 		}
-		
+
 		// post effect power
 		if (h.post_power >= 0 && dmg > 0) {
 			powers->activate(h.post_power, h.src_stats, stats.pos);
 		}
-		
+
 		// Power-specific: Vengeance gains stacks when blocking
 		if (stats.blocking && stats.physdef >= 9) {
 			if (stats.vengeance_stacks < 3)
 				stats.vengeance_stacks++;
 		}
-		
-		
+
+
 		if (stats.hp <= 0) {
 			stats.cur_state = AVATAR_DEAD;
-			
+
 			// raise the death penalty flag.  Another module will read this and reset.
 			stats.death_penalty = true;
 		}
 		else if (prev_hp > stats.hp) { // only interrupt if damage was taken
-			Mix_PlayChannel(-1, sound_hit, 0);
+			if (sound_hit)
+				Mix_PlayChannel(-1, sound_hit, 0);
 			stats.cur_state = AVATAR_HIT;
 		}
-		
+
 		return true;
 	}
 	return false;
@@ -694,23 +674,32 @@ bool Avatar::takeHit(Hazard h) {
 Renderable Avatar::getRender() {
 	Renderable r = activeAnimation->getCurrentFrame(stats.direction);
 	r.sprite = sprites;
-	r.map_pos.x = stats.pos.x;
-	r.map_pos.y = stats.pos.y;
+	r.map_pos = stats.pos;
 	return r;
 }
 
 Avatar::~Avatar() {
 
 	SDL_FreeSurface(sprites);
-	Mix_FreeChunk(sound_melee);
-	Mix_FreeChunk(sound_hit);
-	Mix_FreeChunk(sound_die);
-	Mix_FreeChunk(sound_block);
-	Mix_FreeChunk(sound_steps[0]);
-	Mix_FreeChunk(sound_steps[1]);
-	Mix_FreeChunk(sound_steps[2]);
-	Mix_FreeChunk(sound_steps[3]);
-	Mix_FreeChunk(level_up);
-			
+
+	if (sound_melee)
+		Mix_FreeChunk(sound_melee);
+	if (sound_hit)
+		Mix_FreeChunk(sound_hit);
+	if (sound_die)
+		Mix_FreeChunk(sound_die);
+	if (sound_block)
+		Mix_FreeChunk(sound_block);
+	if (sound_steps[0])
+		Mix_FreeChunk(sound_steps[0]);
+	if (sound_steps[1])
+		Mix_FreeChunk(sound_steps[1]);
+	if (sound_steps[2])
+		Mix_FreeChunk(sound_steps[2]);
+	if (sound_steps[3])
+		Mix_FreeChunk(sound_steps[3]);
+	if (level_up)
+		Mix_FreeChunk(level_up);
+
 	delete haz;
 }

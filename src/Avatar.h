@@ -58,14 +58,14 @@ enum AvatarState {
 
 class Avatar : public Entity {
 private:
-	
+
 	PowerManager *powers;
 
 	bool lockSwing;
 	bool lockCast;
 	bool lockShoot;
 	bool animFwd;
-	
+
 	Mix_Chunk *sound_melee;
 	Mix_Chunk *sound_hit;
 	Mix_Chunk *sound_die;
@@ -80,14 +80,16 @@ private:
 public:
 	Avatar(PowerManager *_powers, MapIso *_map);
 	~Avatar();
-	
+
+    bool permadeath;
+
 	void init();
 	void loadGraphics(const std::string& img_main, std::string img_armor, const std::string& img_off);
 	void loadSounds();
 	void loadStepFX(const std::string& stepname);
-	
+
 	void logic(int actionbar_power, bool restrictPowerUse);
-	bool pressing_move();	
+	bool pressing_move();
 	void set_direction();
 	bool takeHit(Hazard h);
 	std::string log_msg;
@@ -100,6 +102,9 @@ public:
 	Point act_target;
 	bool drag_walking;
 	bool newLevelNotification;
+
+private:
+	void handlePower(int actionbar_power);
 };
 
 #endif
