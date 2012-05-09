@@ -1,7 +1,8 @@
 name=Wyvern
-level=1
+level=3
 categories=wyvern
 rarity=common
+xp=3
 
 sfx_prefix=wyvern
 gfx_prefix=wyvern
@@ -11,17 +12,17 @@ animation_speed=100
 loot_chance=25
 
 # combat stats
-hp=6
+hp=14
 speed=10
 dspeed=7
 melee_range=72
 threat_range=512
-dir_favor=6
+turn_delay=6
 chance_pursue=35
-chance_melee_phys=8
+chance_melee_phys=15
 chance_melee_ment=0
 chance_ranged_phys=0
-chance_ranged_ment=1
+chance_ranged_ment=2
 power_beacon=132
 
 # bleed sting
@@ -29,12 +30,12 @@ power_melee_phys=5
 # fire spit
 power_ranged_ment=31
 
-accuracy=75
-avoidance=25
+accuracy=77
+avoidance=27
 
 dmg_melee_min=1
-dmg_melee_max=3
-dmg_ment_min=1
-dmg_ment_max=3
+dmg_melee_max=5
+dmg_ment_min=2
+dmg_ment_max=6
 cooldown=30
 cooldown_ranged_ment=90

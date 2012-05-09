@@ -198,35 +198,13 @@ location=27,13,1,2
 intermap=brothers_lair_wind_hall.txt,3,19
 
 [event]
-# Unset "lb_ice_looted"
+# Unset a lot of event variables
 type=run_once
-location=3,13,3,2
-unset_status=lb_ice_looted
+location=0,0,30,50
+unset_status=lb_ice_attack,lb_fire_attack,lb_wind_attack,lb_ice_looted,lb_fire_looted,lb_wind_looted
 
-[event]
-# Unset "lb_fire_looted"
-type=run_once
-location=13,2,2,3
-unset_status=lb_fire_looted
-
-[event]
-# Unset "lb_wind_looted"
-type=run_once
-location=24,13,3,2
-unset_status=lb_wind_looted
-
-[event]
-# Unset "lb_*_attack"
-type=run_once
-location=13,17,4,4
-unset_status=lb_ice_attack
-unset_status=lb_fire_attack
-unset_status=lb_wind_attack
-
-[enemygroup]
-# Random Enemy (40%)
-type=undead
-location=7,6,16,16
-chance=40
-level=8,8
-number=1,1
+[enemy]
+# Patrolling undead
+type=skeletal_warrior
+location=9,8,0
+waypoints=9,8;20,8;20,19;9,19
