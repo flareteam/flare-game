@@ -24,6 +24,18 @@ private:
     WidgetCheckBox	    * full_screen_cb;
     WidgetLabel         * volume_music_lb;
     WidgetSlider        * volume_music_sl;
+    WidgetLabel         * volume_sound_lb;
+    WidgetSlider        * volume_sound_sl;
+    WidgetLabel         * mouse_move_lb;
+    WidgetCheckBox	    * mouse_move_cb;
+    WidgetLabel         * combat_text_lb;
+    WidgetCheckBox	    * combat_text_cb;
+    WidgetLabel         * hwsurface_lb;
+    WidgetCheckBox	    * hwsurface_cb;
+    WidgetLabel         * doublebuf_lb;
+    WidgetCheckBox	    * doublebuf_cb;
+    WidgetLabel         * enable_joystick_lb;
+    WidgetCheckBox	    * enable_joystick_cb;
 };
 
 #endif
