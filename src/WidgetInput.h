@@ -27,10 +27,11 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "FontEngine.h"
 #include "InputState.h"
+#include "Widget.h"
 #include <SDL.h>
 #include <string>
 
-class WidgetInput {
+class WidgetInput : public Widget {
 
 protected:
 

@@ -3,10 +3,11 @@
 
 #include <vector>
 #include "GameState.h"
-
-class WidgetButton;
-class WidgetCheckBox;
-class WidgetSlider;
+#include "WidgetButton.h"
+#include "WidgetCheckBox.h"
+#include "WidgetSlider.h"
+#include "WidgetTabControl.h"
+#include "WidgetInput.h"
 
 class GameStateConfig : public GameState {
 public:
@@ -17,25 +18,16 @@ public:
     void    render  ();
 
 private:
+    int optiontab[70];
     std::vector<Widget*>      child_widget;
-    WidgetButton	    * ok_button;
-    WidgetButton	    * cancel_button;
-    WidgetLabel		    * full_screen_lb;
-    WidgetCheckBox	    * full_screen_cb;
-    WidgetLabel         * volume_music_lb;
-    WidgetSlider        * volume_music_sl;
-    WidgetLabel         * volume_sound_lb;
-    WidgetSlider        * volume_sound_sl;
-    WidgetLabel         * mouse_move_lb;
-    WidgetCheckBox	    * mouse_move_cb;
-    WidgetLabel         * combat_text_lb;
-    WidgetCheckBox	    * combat_text_cb;
-    WidgetLabel         * hwsurface_lb;
-    WidgetCheckBox	    * hwsurface_cb;
-    WidgetLabel         * doublebuf_lb;
-    WidgetCheckBox	    * doublebuf_cb;
-    WidgetLabel         * enable_joystick_lb;
-    WidgetCheckBox	    * enable_joystick_cb;
+    WidgetTabControl    * tabControl;
+    WidgetButton        * ok_button;
+    WidgetButton        * cancel_button;
+
+    WidgetLabel         * settings_lb[36];
+    WidgetSlider        * settings_sl[2];
+    WidgetCheckBox      * settings_cb[6];
+    WidgetInput         * settings_key[25];
 };
 
 #endif
