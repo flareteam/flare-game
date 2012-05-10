@@ -225,44 +225,64 @@ GameStateConfig::logic ()
 {
     tabControl->logic();
 
+    // Ok/Cancel Buttons
     if (ok_button->checkClick()) {
         saveSettings();
         requestedGameState = new GameStateTitle();
     } else if (cancel_button->checkClick()) {
         requestedGameState = new GameStateTitle();
-    } else if (settings_cb[0]->checkClick()) {
-        if (settings_cb[0]->isChecked()) FULLSCREEN=true;
-        else FULLSCREEN=false;
-    } else if (settings_sl[0]->checkClick()) {
-        MUSIC_VOLUME=settings_sl[0]->getValue();
-    } else if (settings_sl[1]->checkClick()) {
-        SOUND_VOLUME=settings_sl[1]->getValue();
-    } else if (settings_cb[1]->checkClick()) {
-        if (settings_cb[1]->isChecked()) MOUSE_MOVE=true;
-        else MOUSE_MOVE=false;
-    } else if (settings_cb[2]->checkClick()) {
-        if (settings_cb[2]->isChecked()) COMBAT_TEXT=true;
-        else COMBAT_TEXT=false;
-    } else if (settings_cb[3]->checkClick()) {
-        if (settings_cb[3]->isChecked()) HWSURFACE=true;
-        else HWSURFACE=false;
-    } else if (settings_cb[4]->checkClick()) {
-        if (settings_cb[4]->isChecked()) DOUBLEBUF=true;
-        else DOUBLEBUF=false;
-    } else if (settings_cb[5]->checkClick()) {
-        if (settings_cb[5]->isChecked()) ENABLE_JOYSTICK=true;
-        else ENABLE_JOYSTICK=false;
+    }
+
+    int active_tab = tabControl->getActiveTab();
+
+    // tab 0 (video)
+    if (active_tab == 0) {
+        if (settings_cb[0]->checkClick()) {
+            if (settings_cb[0]->isChecked()) FULLSCREEN=true;
+            else FULLSCREEN=false;
+        } else if (settings_cb[3]->checkClick()) {
+            if (settings_cb[3]->isChecked()) HWSURFACE=true;
+            else HWSURFACE=false;
+        } else if (settings_cb[4]->checkClick()) {
+            if (settings_cb[4]->isChecked()) DOUBLEBUF=true;
+            else DOUBLEBUF=false;
+        }
+    }
+    // tab 1 (audio)
+    else if (active_tab == 1) {
+        if (settings_sl[0]->checkClick()) {
+            MUSIC_VOLUME=settings_sl[0]->getValue();
+        } else if (settings_sl[1]->checkClick()) {
+            SOUND_VOLUME=settings_sl[1]->getValue();
+        }
+    }
+    // tab 2 (interface)
+    else if (active_tab == 2) {
+        if (settings_cb[2]->checkClick()) {
+            if (settings_cb[2]->isChecked()) COMBAT_TEXT=true;
+            else COMBAT_TEXT=false;
+        }
+    }
+    // tab 3 (input)
+    else if (active_tab == 3) {
+        if (settings_cb[1]->checkClick()) {
+            if (settings_cb[1]->isChecked()) MOUSE_MOVE=true;
+            else MOUSE_MOVE=false;
+        } else if (settings_cb[5]->checkClick()) {
+            if (settings_cb[5]->isChecked()) ENABLE_JOYSTICK=true;
+            else ENABLE_JOYSTICK=false;
+        }
     }
 }
 
     void
 GameStateConfig::render ()
 {
-	// Tab control.
+    // Tab control.
     tabControl->render();
 
     for (unsigned int i = 0; i < 2; i++) {
-    child_widget[i]->render();
+        child_widget[i]->render();
     }
 
     int active_tab = tabControl->getActiveTab();
@@ -271,4 +291,3 @@ GameStateConfig::render ()
          if (optiontab[i] == active_tab) child_widget[i]->render();
     }
 }
-

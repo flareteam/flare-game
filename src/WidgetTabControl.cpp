@@ -22,24 +22,24 @@ using namespace std;
 
 /**
  * Class constructor.
- * 
+ *
  * @param amount  Amount of tabs the control will have.
  */
 WidgetTabControl::WidgetTabControl(int amount) {
-  
+
   // Based on given amount:
   tabsAmount = amount;
   titles = new std::string[tabsAmount];
   tabs = new SDL_Rect[tabsAmount];
-  
+
   // Predefined:
   activeTab = 0;
   tabPadding.x = 6;
   tabPadding.y = 4;
-  
+
   // Load needed graphics.
   loadGraphics();
-  
+
 }
 /**
  * Class destructor.
@@ -53,18 +53,18 @@ WidgetTabControl::~WidgetTabControl() {
 
 /**
  * Sets the title of a tab.
- * 
+ *
  * @param number        Tab index. For example, 0 for the first tab.
  * @param title         Tab title.
  * @param updateHeader  Whether or not the header should be updated.
  */
 void WidgetTabControl::setTabTitle(int number, const std::string& title) {
-  titles[number] = title;    
+  titles[number] = title;
 }
 
 /**
  * Returns the index of the open tab.
- * 
+ *
  * For example, if the first tab is open, it will return 0.
  */
 int WidgetTabControl::getActiveTab() {
@@ -73,7 +73,7 @@ int WidgetTabControl::getActiveTab() {
 
 /**
  * Define the position and size of the tab control.
- * 
+ *
  * @param x       X coordinate of the top-left corner of the widget.
  * @param y       Y coordinate of the top-left corner of the widget.
  * @param width   Width of the widget.
@@ -86,7 +86,7 @@ void WidgetTabControl::setMainArea(int x, int y, int width, int height)
   tabsArea.y = y;
   tabsArea.w = width;
   tabsArea.h = 20;
-  
+
   // Set content area.
   contentArea.x = x + 8;
   contentArea.y = y + 26;
@@ -96,20 +96,20 @@ void WidgetTabControl::setMainArea(int x, int y, int width, int height)
 
 /**
  * Updates the areas or the tabs.
- * 
+ *
  * Use it right after you set the area and tab titles of the tab control.
  */
 void WidgetTabControl::updateHeader()
-{  
+{
   for (int i=0; i<tabsAmount; i++) {
     tabs[i].y = tabsArea.y;
     tabs[i].h = tabsArea.h;
-    
+
     if (i==0) tabs[i].x = tabsArea.x;
     else tabs[i].x = tabs[i-1].x + tabs[i-1].w;
-    
+
     tabs[i].w = tabPadding.x + font->calc_width(titles[i]) + tabPadding.x;
-    
+
   }
 }
 
@@ -120,32 +120,32 @@ void WidgetTabControl::loadGraphics()
 {
   activeTabSurface = IMG_Load(mods->locate("images/menus/tab_active.png").c_str());
   inactiveTabSurface = IMG_Load(mods->locate("images/menus/tab_inactive.png").c_str());
-    
+
   if(!activeTabSurface || !inactiveTabSurface) {
     fprintf(stderr, "Could not load image: %s\n", IMG_GetError());
     SDL_Quit();
   }
-  
+
   SDL_Surface *cleanup;
 
   cleanup = activeTabSurface;
   activeTabSurface = SDL_DisplayFormatAlpha(activeTabSurface);
-  SDL_FreeSurface(cleanup); 
+  SDL_FreeSurface(cleanup);
 
   cleanup = inactiveTabSurface;
   inactiveTabSurface = SDL_DisplayFormatAlpha(inactiveTabSurface);
-  SDL_FreeSurface(cleanup); 
+  SDL_FreeSurface(cleanup);
 }
 
 /**
  * Performs one frame of logic.
- * 
+ *
  * It basically checks if it was clicked on the header, and if so changes the active tab.
  */
 void WidgetTabControl::logic()
 {
   // If the click was in the tabs area;
-  if(isWithin(tabsArea, inp->mouse)) {
+  if(isWithin(tabsArea, inp->mouse) && inp->pressing[MAIN1]) {
     // Mark the clicked tab as activeTab.
     for (int i=0; i<tabsAmount; i++) {
       if(isWithin(tabs[i], inp->mouse)) {
@@ -158,7 +158,7 @@ void WidgetTabControl::logic()
 
 /**
  * Renders the widget.
- * 
+ *
  * Remember to render then on top of it the actual content of the {@link getActiveTab() active tab}.
  */
 void WidgetTabControl::render()
@@ -176,34 +176,34 @@ void WidgetTabControl::renderTab(int number)
   int i = number;
   SDL_Rect src;
   SDL_Rect dest;
-  
+
   // Draw tab’s background.
   src.x = src.y = 0;
   dest.x = tabs[i].x;
   dest.y = tabs[i].y;
   src.w = tabs[i].w;
   src.h = tabs[i].h;
-  
+
   if (i == activeTab)
-    SDL_BlitSurface(activeTabSurface, &src, screen, &dest); 
+    SDL_BlitSurface(activeTabSurface, &src, screen, &dest);
   else
-    SDL_BlitSurface(inactiveTabSurface, &src, screen, &dest); 
+    SDL_BlitSurface(inactiveTabSurface, &src, screen, &dest);
 
   // Draw tab’s right edge.
   src.x = 128 - tabPadding.x;
   src.w = tabPadding.x;
   dest.x = tabs[i].x + tabs[i].w - tabPadding.x;
-  
+
   if (i == activeTab)
-    SDL_BlitSurface(activeTabSurface, &src, screen, &dest); 
+    SDL_BlitSurface(activeTabSurface, &src, screen, &dest);
   else
-    SDL_BlitSurface(inactiveTabSurface, &src, screen, &dest); 
-   
+    SDL_BlitSurface(inactiveTabSurface, &src, screen, &dest);
+
   // Set tab’s label font color.
   int fontColor;
   if (i == activeTab) fontColor = FONT_WHITE;
   else fontColor = FONT_GREY;
-  
+
   // Draw tab’s label.
   WidgetLabel label;
   label.set(tabs[i].x + tabPadding.x, tabs[i].y + tabPadding.y, JUSTIFY_LEFT, VALIGN_TOP, titles[i], fontColor);
