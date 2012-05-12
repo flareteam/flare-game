@@ -1,3 +1,28 @@
+/*
+Copyright © 2012 Clint Bellanger
+Copyright © 2012 davidriod
+Copyright © 2012 Igor Paliychuk
+
+This file is part of FLARE.
+
+FLARE is free software: you can redistribute it and/or modify it under the terms
+of the GNU General Public License as published by the Free Software Foundation,
+either version 3 of the License, or (at your option) any later version.
+
+FLARE is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with
+FLARE.  If not, see http://www.gnu.org/licenses/
+*/
+
+/**
+ * GameStateConfig
+ * 
+ * Handle game Settings Menu
+ */
+
 #ifndef GAMESTATECONFIG_H
 #define GAMESTATECONFIG_H
 
@@ -12,33 +37,33 @@
 
 class GameStateConfig : public GameState {
 public:
-    GameStateConfig    ();
-    ~GameStateConfig   ();
+	GameStateConfig    ();
+	~GameStateConfig   ();
 
-    void    logic   ();
-    void    render  ();
+	void    logic   ();
+	void    render  ();
 
 private:
-    int optiontab[74];
-    SDL_Rect** video_modes;
+	int optiontab[74];
+	SDL_Rect** video_modes;
 
-    std::string * language_ISO;
-    std::string * language_full;
+	std::string * language_ISO;
+	std::string * language_full;
 
-    int getVideoModes(void);
-    bool getLanguagesList(void);
-    int getLanguagesNumber(void);
+	int getVideoModes(void);
+	bool getLanguagesList(void);
+	int getLanguagesNumber(void);
 
-    std::vector<Widget*>      child_widget;
-    WidgetTabControl    * tabControl;
-    WidgetButton        * ok_button;
-    WidgetButton        * cancel_button;
+	std::vector<Widget*>      child_widget;
+	WidgetTabControl    * tabControl;
+	WidgetButton        * ok_button;
+	WidgetButton        * cancel_button;
 
-    WidgetLabel         * settings_lb[36];
-    WidgetSlider        * settings_sl[2];
-    WidgetCheckBox      * settings_cb[6];
-    WidgetInput         * settings_key[25];
-    WidgetComboBox      * settings_cmb[3];
+	WidgetLabel         * settings_lb[36];
+	WidgetSlider        * settings_sl[2];
+	WidgetCheckBox      * settings_cb[6];
+	WidgetInput         * settings_key[25];
+	WidgetComboBox      * settings_cmb[3];
 };
 
 #endif

@@ -1,5 +1,6 @@
 /*
 Copyright © 2011-2012 Clint Bellanger
+Copyright © 2012 Justin Jacobs
 
 This file is part of FLARE.
 
@@ -50,10 +51,10 @@ private:
 	
 	WidgetLabel wlabel;
 
-    int cmbAmount;
-    std::string *values;
-    WidgetLabel *vlabels;
-    SDL_Rect *rows;
+	int cmbAmount;
+	std::string *values;
+	WidgetLabel *vlabels;
+	SDL_Rect *rows;
 	
 public:
 	WidgetComboBox(int amount, const std::string& _fileName);
@@ -61,9 +62,9 @@ public:
 
 	void loadArt();
 	bool checkClick();
-    void set(int index, std::string value);
-    std::string get(int index);
-    int getSelected();
+	void set(int index, std::string value);
+	std::string get(int index);
+	int getSelected();
 	void render();
 	void refresh();
 
@@ -71,7 +72,7 @@ public:
 	SDL_Rect pos;
 	bool enabled;
 	bool pressed;
-    int selected;
+	int selected;
 };
 
 #endif
