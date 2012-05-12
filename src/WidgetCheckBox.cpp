@@ -1,3 +1,25 @@
+/*
+Copyright © 2012 Clint Bellanger
+Copyright © 2012 davidriod
+
+This file is part of FLARE.
+
+FLARE is free software: you can redistribute it and/or modify it under the terms
+of the GNU General Public License as published by the Free Software Foundation,
+either version 3 of the License, or (at your option) any later version.
+
+FLARE is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with
+FLARE.  If not, see http://www.gnu.org/licenses/
+*/
+
+/**
+ * class WidgetCheckBox
+ */
+
 #include <iostream>
 #include <string>
 #include <SDL.h>
@@ -10,79 +32,75 @@
 using namespace std;
 
 WidgetCheckBox::WidgetCheckBox (const string  & fname)
-        : imgFileName(fname),
-          cb(NULL),
-          checked(false),
-          pressed(false)
+		: imgFileName(fname),
+		  cb(NULL),
+		  checked(false),
+		  pressed(false)
 {
-    SDL_Surface * tmp = IMG_Load(imgFileName.c_str());
-    if (NULL == tmp) {
-        fprintf(stderr, "Could not load image \"%s\" error \"%s\"\n",
-                imgFileName.c_str(), IMG_GetError());
-        SDL_Quit();
-        exit(1);
-    }
-    cb = SDL_DisplayFormatAlpha(tmp);
-    SDL_FreeSurface(tmp);
+	SDL_Surface * tmp = IMG_Load(imgFileName.c_str());
+	if (NULL == tmp) {
+		fprintf(stderr, "Could not load image \"%s\" error \"%s\"\n",
+				imgFileName.c_str(), IMG_GetError());
+		SDL_Quit();
+		exit(1);
+	}
+	cb = SDL_DisplayFormatAlpha(tmp);
+	SDL_FreeSurface(tmp);
 
-    pos.w = cb->w;
-    pos.h = cb->h / 2;
+	pos.w = cb->w;
+	pos.h = cb->h / 2;
 }
 
 WidgetCheckBox::~WidgetCheckBox ()
 {
-    SDL_FreeSurface(cb);
+	SDL_FreeSurface(cb);
 }
 
-    void
-WidgetCheckBox::Check ()
+void WidgetCheckBox::Check ()
 {
-    checked = true;
+	checked = true;
 }
 
 
-    bool
-WidgetCheckBox::checkClick ()
+bool WidgetCheckBox::checkClick ()
 {
-    // main button already in use, new click not allowed
-    if (inp->lock[MAIN1]) return false;
+	// main button already in use, new click not allowed
+	if (inp->lock[MAIN1]) return false;
 
-    if (pressed && !inp->lock[MAIN1]) { // this is a button release
-        pressed = false;
+	if (pressed && !inp->lock[MAIN1]) { // this is a button release
+		pressed = false;
 	if (isWithin(pos, inp->mouse)) { // the button release is done over the widget
-            // toggle the state of the check button
-            checked = !checked;
-	    // activate upon release
-	    return true;
+			// toggle the state of the check button
+			checked = !checked;
+		// activate upon release
+		return true;
 	}
-    }
+	}
 
-    if (inp->pressing[MAIN1]) {
-        if (isWithin(pos, inp->mouse)) {
-            pressed = true;
-            inp->lock[MAIN1] = true;
-        }
-    }
-    return false;
+	if (inp->pressing[MAIN1]) {
+		if (isWithin(pos, inp->mouse)) {
+			pressed = true;
+			inp->lock[MAIN1] = true;
+		}
+	}
+	return false;
 }
 
 
-    bool
-WidgetCheckBox::isChecked () const
+bool WidgetCheckBox::isChecked () const
 {
-    return checked;
+	return checked;
 }
 
 
-    void
-WidgetCheckBox::render ()
+void WidgetCheckBox::render ()
 {
-    SDL_Rect    src;
-    src.x = 0;
-    src.y = checked ? pos.h : 0;
-    src.h = pos.h;
-    src.w = pos.w;
+	SDL_Rect    src;
+	src.x = 0;
+	src.y = checked ? pos.h : 0;
+	src.h = pos.h;
+	src.w = pos.w;
 
-    SDL_BlitSurface(cb, &src, screen, &pos);
+	SDL_BlitSurface(cb, &src, screen, &pos);
 }
 
