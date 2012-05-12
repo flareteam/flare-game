@@ -2,6 +2,7 @@
 #include "GameStateTitle.h"
 #include "SharedResources.h"
 #include "Settings.h"
+#include <sstream>
 
 
 GameStateConfig::GameStateConfig ()
@@ -11,6 +12,7 @@ GameStateConfig::GameStateConfig ()
           cancel_button(NULL)
 
 {
+    // Initialize Widgets
     tabControl = new WidgetTabControl(4);
     ok_button = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
     cancel_button = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
@@ -30,6 +32,21 @@ GameStateConfig::GameStateConfig ()
     for (unsigned int i = 0; i < 25; i++) {
          settings_key[i] = new WidgetInput();
     }
+
+    // Allocate Joycticks ComboBox
+    settings_cmb[0] = new WidgetComboBox(5, mods->locate("images/menus/buttons/combobox_default.png"));
+
+    // Allocate Resolution ComboBox
+    int resolutions = getVideoModes();
+    if (resolutions < 1) fprintf(stderr, "Unable to get resolutions list!\n");
+
+    settings_cmb[1] = new WidgetComboBox(resolutions, mods->locate("images/menus/buttons/combobox_default.png"));
+
+    // Allocate Languages ComboBox
+    int langCount = getLanguagesNumber();
+    language_ISO = new std::string[langCount];
+    language_full = new std::string[langCount];
+    settings_cmb[2] = new WidgetComboBox(langCount, mods->locate("images/menus/buttons/combobox_default.png"));
 
     //Load the menu configuration from file
     int x1;
@@ -99,8 +116,8 @@ GameStateConfig::GameStateConfig ()
                     settings_sl[setting_num-7]->pos.x = (VIEW_W - 640)/2 + x2;
                     settings_sl[setting_num-7]->pos.y = (VIEW_H - 480)/2 + y2;
                 } else if ((setting_num > 8) && (setting_num < 12)) {
-                    //settings_cmb[setting_num]->pos.x = (VIEW_W - 640)/2 + x2;
-                    //settings_cmb[setting_num]->pos.y = (VIEW_H - 480)/2 + y2;
+                    settings_cmb[setting_num-9]->pos.x = (VIEW_W - 640)/2 + x2;
+                    settings_cmb[setting_num-9]->pos.y = (VIEW_H - 480)/2 + y2;
                 } else if (setting_num > 11) {
                     settings_key[setting_num-12]->pos.x = (VIEW_W - 640)/2 + x2;
                     settings_key[setting_num-12]->pos.y = (VIEW_H - 480)/2 + y2;
@@ -108,7 +125,7 @@ GameStateConfig::GameStateConfig ()
             }
 
           }
-        }
+        } else fprintf(stderr, "Unable to open config.txt!\n");
         infile.close();
 
     // Initialize the tab control.
@@ -121,6 +138,7 @@ GameStateConfig::GameStateConfig ()
     tabControl->setTabTitle(3, msg->get("Input"));
     tabControl->updateHeader();
 
+    // Define widgets
     ok_button->label = msg->get("Ok");
     ok_button->pos.x = VIEW_W_HALF - ok_button->pos.w/2;
     ok_button->pos.y = VIEW_H - (cancel_button->pos.h*2);
@@ -197,6 +215,48 @@ GameStateConfig::GameStateConfig ()
     child_widget.push_back(settings_cb[5]);
     optiontab[child_widget.size()-1] = 3;
 
+    //Define ComboBoxes and their Labels
+
+    settings_lb[9]->set(msg->get("Resolution"));
+    child_widget.push_back(settings_lb[9]);
+    optiontab[child_widget.size()-1] = 0;
+
+    std::stringstream list_mode;
+
+    for (unsigned int i=0; video_modes[i]; ++i) {
+         list_mode << video_modes[i]->w << "x" << video_modes[i]->h;
+         settings_cmb[1]->set(i, list_mode.str());
+         if (video_modes[i]->w == VIEW_W && video_modes[i]->h == VIEW_H) settings_cmb[1]->selected = i;
+         list_mode.str("");
+        }
+
+    settings_cmb[1]->refresh();
+    child_widget.push_back(settings_cmb[1]);
+    optiontab[child_widget.size()-1] = 0;
+
+    settings_lb[10]->set(msg->get("Language"));
+    child_widget.push_back(settings_lb[10]);
+    optiontab[child_widget.size()-1] = 2;
+
+    if (!getLanguagesList()) fprintf(stderr, "Unable to get languages list!\n");
+    for (int i=0; i < langCount; i++) {
+         settings_cmb[2]->set(i, language_full[i]);
+         if (language_ISO[i] == LANGUAGE) settings_cmb[2]->selected = i;
+        }
+
+    settings_cmb[2]->refresh();
+    child_widget.push_back(settings_cmb[2]);
+    optiontab[child_widget.size()-1] = 2;
+
+    settings_lb[8]->set(msg->get("Joystick"));
+    child_widget.push_back(settings_lb[8]);
+    optiontab[child_widget.size()-1] = 3;
+
+    //if (JOYSTICK_DEVICE > -1) settings_cmb[0]->selected = JOYSTICK_DEVICE;
+    settings_cmb[0]->refresh();
+    child_widget.push_back(settings_cmb[0]);
+    optiontab[child_widget.size()-1] = 3;
+
     // Add Key Binding objects
     for (unsigned int i = 11; i < 36; i++) {
          settings_lb[i]->set("Key");
@@ -223,6 +283,7 @@ GameStateConfig::~GameStateConfig()
     void
 GameStateConfig::logic ()
 {
+    int active;
     tabControl->logic();
 
     // Ok/Cancel Buttons
@@ -246,6 +307,14 @@ GameStateConfig::logic ()
         } else if (settings_cb[4]->checkClick()) {
             if (settings_cb[4]->isChecked()) DOUBLEBUF=true;
             else DOUBLEBUF=false;
+        } else if (settings_cmb[1]->checkClick()) {
+            std::string value;
+
+            // TODO We need to change resolution only in settings file, not at runtime
+            active = settings_cmb[1]->getSelected();
+            value = settings_cmb[1]->get(active) + 'x';
+            VIEW_W = eatFirstInt(value, 'x');
+            VIEW_H = eatFirstInt(value, 'x');
         }
     }
     // tab 1 (audio)
@@ -261,6 +330,9 @@ GameStateConfig::logic ()
         if (settings_cb[2]->checkClick()) {
             if (settings_cb[2]->isChecked()) COMBAT_TEXT=true;
             else COMBAT_TEXT=false;
+        } else if (settings_cmb[2]->checkClick()) {
+            active = settings_cmb[2]->getSelected();
+            LANGUAGE = language_ISO[active];
         }
     }
     // tab 3 (input)
@@ -278,7 +350,6 @@ GameStateConfig::logic ()
     void
 GameStateConfig::render ()
 {
-    // Tab control.
     tabControl->render();
 
     for (unsigned int i = 0; i < 2; i++) {
@@ -290,4 +361,63 @@ GameStateConfig::render ()
     for (unsigned int i = 2; i < child_widget.size(); i++) {
          if (optiontab[i] == active_tab) child_widget[i]->render();
     }
+}
+
+    int
+GameStateConfig::getVideoModes()
+{
+    int modes = 0;
+
+    /* Get available fullscreen/hardware modes */
+    video_modes = SDL_ListModes(NULL, SDL_FULLSCREEN|SDL_HWSURFACE);
+
+    /* Check if there are any modes available */
+    if (video_modes == (SDL_Rect**)0) {
+        fprintf(stderr, "No modes available!\n");
+        return 0;
+    }
+
+    /* Check if our resolution is restricted */
+    if (video_modes == (SDL_Rect**)-1) {
+        fprintf(stderr, "All resolutions available.\n");
+    }
+
+    for (unsigned int i=0; video_modes[i]; ++i) {
+        modes += 1;
+    }
+    //TODO Exclude resolutions smaller than 640x480
+
+    return modes;
+}
+
+    bool
+GameStateConfig::getLanguagesList()
+{
+    FileParser infile;
+    if (infile.open(mods->locate("engine/languages.txt"))) {
+        unsigned int i=0;
+        while (infile.next()) {
+               language_ISO[i] = infile.key;
+               language_full[i] = infile.val.c_str();
+               i += 1;
+            }
+        } else fprintf(stderr, "Unable to open languages.txt!\n");
+        infile.close();
+
+    return true;
+}
+
+    int
+GameStateConfig::getLanguagesNumber()
+{
+    int languages_num = 0;
+    FileParser infile;
+    if (infile.open(mods->locate("engine/languages.txt"))) {
+        while (infile.next()) {
+               languages_num += 1;
+            }
+        } else fprintf(stderr, "Unable to open languages.txt!\n");
+        infile.close();
+
+    return languages_num;
 }

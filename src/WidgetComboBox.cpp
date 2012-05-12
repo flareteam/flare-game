@@ -110,6 +110,10 @@ void WidgetComboBox::set(int index, std::string value) {
     values[index] = value;
 }
 
+std::string WidgetComboBox::get(int index) {
+    return values[index];
+}
+
 int WidgetComboBox::getSelected() {
     return selected;
 }
