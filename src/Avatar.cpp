@@ -217,16 +217,16 @@ void Avatar::loadStepFX(const string& stepname) {
 
 bool Avatar::pressing_move() {
 	if(MOUSE_MOVE) {
-		return inp->pressing[MAIN1];
+		return inpt->pressing[MAIN1];
 	} else {
-		return inp->pressing[UP] || inp->pressing[DOWN] || inp->pressing[LEFT] || inp->pressing[RIGHT];
+		return inpt->pressing[UP] || inpt->pressing[DOWN] || inpt->pressing[LEFT] || inpt->pressing[RIGHT];
 	}
 }
 
 void Avatar::set_direction() {
 	// handle direction changes
 	if(MOUSE_MOVE) {
-		Point target = screen_to_map(inp->mouse.x,  inp->mouse.y, stats.pos.x, stats.pos.y);
+		Point target = screen_to_map(inpt->mouse.x,  inpt->mouse.y, stats.pos.x, stats.pos.y);
 		// if no line of movement to target, use pathfinder
 		if( !map->collider.line_of_movement(stats.pos.x, stats.pos.y, target.x, target.y) ) {
 			vector<Point> path;
@@ -237,21 +237,21 @@ void Avatar::set_direction() {
 		}
 		stats.direction = face(target.x, target.y);
 	} else {
-		if(inp->pressing[UP] && inp->pressing[LEFT]) stats.direction = 1;
-		else if(inp->pressing[UP] && inp->pressing[RIGHT]) stats.direction = 3;
-		else if(inp->pressing[DOWN] && inp->pressing[RIGHT]) stats.direction = 5;
-		else if(inp->pressing[DOWN] && inp->pressing[LEFT]) stats.direction = 7;
-		else if(inp->pressing[LEFT]) stats.direction = 0;
-		else if(inp->pressing[UP]) stats.direction = 2;
-		else if(inp->pressing[RIGHT]) stats.direction = 4;
-		else if(inp->pressing[DOWN]) stats.direction = 6;
+		if(inpt->pressing[UP] && inpt->pressing[LEFT]) stats.direction = 1;
+		else if(inpt->pressing[UP] && inpt->pressing[RIGHT]) stats.direction = 3;
+		else if(inpt->pressing[DOWN] && inpt->pressing[RIGHT]) stats.direction = 5;
+		else if(inpt->pressing[DOWN] && inpt->pressing[LEFT]) stats.direction = 7;
+		else if(inpt->pressing[LEFT]) stats.direction = 0;
+		else if(inpt->pressing[UP]) stats.direction = 2;
+		else if(inpt->pressing[RIGHT]) stats.direction = 4;
+		else if(inpt->pressing[DOWN]) stats.direction = 6;
 	}
 }
 
 void Avatar::handlePower(int actionbar_power) {
 	if (actionbar_power != -1 && stats.cooldown_ticks == 0) {
 		const Power &power = powers->getPower(actionbar_power);
-		Point target = screen_to_map(inp->mouse.x,  inp->mouse.y + power.aim_assist, stats.pos.x, stats.pos.y);
+		Point target = screen_to_map(inpt->mouse.x,  inpt->mouse.y + power.aim_assist, stats.pos.x, stats.pos.y);
 
 		// check requirements
 		if (!stats.canUsePower(power, actionbar_power))
@@ -348,7 +348,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 	}
 
 	// assist mouse movement
-	if (!inp->pressing[MAIN1]) drag_walking = false;
+	if (!inpt->pressing[MAIN1]) drag_walking = false;
 
 	// handle animation
 	activeAnimation->advanceFrame();
@@ -360,7 +360,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 
 			// allowed to move or use powers?
 			if (MOUSE_MOVE) {
-				allowed_to_move = restrictPowerUse && (!inp->lock[MAIN1] || drag_walking);
+				allowed_to_move = restrictPowerUse && (!inpt->lock[MAIN1] || drag_walking);
 				allowed_to_use_power = !allowed_to_move;
 			}
 			else {
@@ -373,8 +373,8 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 				set_direction();
 
 			if (pressing_move() && allowed_to_move) {
-				if (MOUSE_MOVE && inp->pressing[MAIN1]) {
-					inp->lock[MAIN1] = true;
+				if (MOUSE_MOVE && inpt->pressing[MAIN1]) {
+					inpt->lock[MAIN1] = true;
 					drag_walking = true;
 				}
 
@@ -402,7 +402,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 
 			// allowed to move or use powers?
 			if (MOUSE_MOVE) {
-				allowed_to_use_power = !(restrictPowerUse && !inp->lock[MAIN1]);
+				allowed_to_use_power = !(restrictPowerUse && !inpt->lock[MAIN1]);
 			}
 			else {
 				allowed_to_use_power = true;
@@ -517,7 +517,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 			}
 
 			// allow respawn with Accept if not permadeath
-			if (inp->pressing[ACCEPT]) {
+			if (inpt->pressing[ACCEPT]) {
 				map->teleportation = true;
 				map->teleport_mapname = map->respawn_map;
 				if (permadeath) {

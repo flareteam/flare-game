@@ -68,13 +68,13 @@ bool WidgetButton::checkClick() {
 	if (!enabled) return false;
 
 	// main button already in use, new click not allowed
-	if (inp->lock[MAIN1]) return false;
+	if (inpt->lock[MAIN1]) return false;
 
 	// main click released, so the button state goes back to unpressed
-	if (pressed && !inp->lock[MAIN1]) {
+	if (pressed && !inpt->lock[MAIN1]) {
 		pressed = false;
 		
-		if (isWithin(pos, inp->mouse)) {
+		if (isWithin(pos, inpt->mouse)) {
 		
 			// activate upon release
 			return true;
@@ -84,10 +84,10 @@ bool WidgetButton::checkClick() {
 	pressed = false;
 	
 	// detect new click
-	if (inp->pressing[MAIN1]) {
-		if (isWithin(pos, inp->mouse)) {
+	if (inpt->pressing[MAIN1]) {
+		if (isWithin(pos, inpt->mouse)) {
 		
-			inp->lock[MAIN1] = true;
+			inpt->lock[MAIN1] = true;
 			pressed = true;
 
 		}
@@ -108,7 +108,7 @@ void WidgetButton::render() {
 		src.y = BUTTON_GFX_DISABLED * pos.h;
 	else if (pressed)
 		src.y = BUTTON_GFX_PRESSED * pos.h;
-	else if (isWithin(pos, inp->mouse))
+	else if (isWithin(pos, inpt->mouse))
 		src.y = BUTTON_GFX_HOVER * pos.h;
 	else
 		src.y = BUTTON_GFX_NORMAL * pos.h;

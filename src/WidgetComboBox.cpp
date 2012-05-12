@@ -75,15 +75,15 @@ bool WidgetComboBox::checkClick() {
 	if (!enabled) return false;
 
 	// main ComboBox already in use, new click not allowed
-	if (inp->lock[MAIN1]) return false;
+	if (inpt->lock[MAIN1]) return false;
 
 	// main click released, so the ComboBox state goes back to unpressed
-	if (pressed && !inp->lock[MAIN1]) {
+	if (pressed && !inpt->lock[MAIN1]) {
 		pressed = false;
 		
 		for(int i=0;i<cmbAmount;i++)
 		{
-		if (isWithin(rows[i], inp->mouse)) {
+		if (isWithin(rows[i], inpt->mouse)) {
 			// activate upon release
 			selected = i;
 			refresh();
@@ -95,10 +95,10 @@ bool WidgetComboBox::checkClick() {
 	pressed = false;
 
 	// detect new click
-	if (inp->pressing[MAIN1]) {
-		if (isWithin(pos, inp->mouse)) {
+	if (inpt->pressing[MAIN1]) {
+		if (isWithin(pos, inpt->mouse)) {
 		
-			inp->lock[MAIN1] = true;
+			inpt->lock[MAIN1] = true;
 			pressed = true;
 
 		}
@@ -131,7 +131,7 @@ void WidgetComboBox::render() {
 		src.y = COMBOBOX_GFX_DISABLED * pos.h;
 	else if (pressed)
 		src.y = COMBOBOX_GFX_PRESSED * pos.h;
-	else if (isWithin(pos, inp->mouse))
+	else if (isWithin(pos, inpt->mouse))
 		src.y = COMBOBOX_GFX_HOVER * pos.h;
 	else
 		src.y = COMBOBOX_GFX_NORMAL * pos.h;
@@ -184,7 +184,7 @@ void WidgetComboBox::refresh() {
 	for(int i=0;i<cmbAmount;i++)
 	{
 		int font_color;
-		if(isWithin(rows[i], inp->mouse))
+		if(isWithin(rows[i], inpt->mouse))
 			font_color = FONT_WHITE;
 		else
 			font_color = FONT_GRAY;

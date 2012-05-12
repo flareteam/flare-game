@@ -530,12 +530,12 @@ void MenuCharacter::displayProficiencies(int value, int y) {
 TooltipData MenuCharacter::checkTooltip() {
 
 	for (int i=0; i<CSTAT_COUNT; i++) {
-		if (isWithin(cstat[i].hover, inp->mouse) && cstat[i].tip.num_lines > 0)
+		if (isWithin(cstat[i].hover, inpt->mouse) && cstat[i].tip.num_lines > 0)
 			return cstat[i].tip;
 	}
 
 	for (int i=0; i<CPROF_COUNT; i++) {
-		if (isWithin(cprof[i].hover, inp->mouse) && cprof[i].tip.num_lines > 0)
+		if (isWithin(cprof[i].hover, inpt->mouse) && cprof[i].tip.num_lines > 0)
 			return cprof[i].tip;
 	}
 	
@@ -551,8 +551,8 @@ TooltipData MenuCharacter::checkTooltip() {
 bool MenuCharacter::checkUpgrade() {
 
 	Point mouse;
-	mouse.x = inp->mouse.x;
-	mouse.y = inp->mouse.y;
+	mouse.x = inpt->mouse.x;
+	mouse.y = inpt->mouse.y;
 
 	int spent = stats->physical_character + stats->mental_character + stats->offense_character + stats->defense_character -4;
 	int max_spendable_stat_points = 16;
