@@ -279,7 +279,7 @@ void GameStateLoad::logic() {
 		current_frame = (63 - frame_ticker) / 8;
 
 	if (button_exit->checkClick()) {
-		delete(requestedGameState);
+		delete requestedGameState;
 		requestedGameState = new GameStateTitle();
 	}
 	

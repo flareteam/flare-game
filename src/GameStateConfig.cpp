@@ -34,6 +34,7 @@ GameStateConfig::GameStateConfig ()
 		: GameState(),
 		  child_widget(),
 		  ok_button(NULL),
+		  defaults_button(NULL),
 		  cancel_button(NULL)
 
 {
@@ -306,9 +307,7 @@ GameStateConfig::~GameStateConfig()
 {
 	delete tabControl;
 
-	for (unsigned int i = 0; i < child_widget.size(); i++) {
-		delete child_widget[i];
-	}
+	child_widget.clear();
 }
 
 
@@ -320,14 +319,14 @@ void GameStateConfig::logic ()
 	// Ok/Cancel Buttons
 	if (ok_button->checkClick()) {
 		saveSettings();
-		delete(requestedGameState);
+		delete requestedGameState;
 		requestedGameState = new GameStateTitle();
 	} else if (defaults_button->checkClick()) {
 		loadDefaults();
-		delete(requestedGameState);
+		delete requestedGameState;
 		requestedGameState = new GameStateConfig();
 	} else if (cancel_button->checkClick()) {
-		delete(requestedGameState);
+		delete requestedGameState;
 		requestedGameState = new GameStateTitle();
 	}
 

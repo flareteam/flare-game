@@ -71,10 +71,10 @@ void GameStateTitle::loadGraphics() {
 
 void GameStateTitle::logic() {
 	if (button_play->checkClick()) {
-		delete(requestedGameState);
+		delete requestedGameState;
 		requestedGameState = new GameStateLoad();
 	} else if (button_cfg->checkClick()) {
-		delete(requestedGameState);
+		delete requestedGameState;
         requestedGameState = new GameStateConfig();
     } else if (button_exit->checkClick()) {
 		exitRequested = true;

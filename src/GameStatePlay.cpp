@@ -193,7 +193,7 @@ void GameStatePlay::checkTeleport() {
 			    if(remove(filename.str().c_str()) != 0)
 				    perror("Error deleting save from path");
 				
-				delete(requestedGameState);
+				delete requestedGameState;
 				requestedGameState = new GameStateTitle();
 			}
 			else {
