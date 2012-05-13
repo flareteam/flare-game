@@ -19,7 +19,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 /**
  * GameStateConfig
- * 
+ *
  * Handle game Settings Menu
  */
 
@@ -320,11 +320,14 @@ void GameStateConfig::logic ()
 	// Ok/Cancel Buttons
 	if (ok_button->checkClick()) {
 		saveSettings();
+		delete(requestedGameState);
 		requestedGameState = new GameStateTitle();
 	} else if (defaults_button->checkClick()) {
 		loadDefaults();
+		delete(requestedGameState);
 		requestedGameState = new GameStateConfig();
 	} else if (cancel_button->checkClick()) {
+		delete(requestedGameState);
 		requestedGameState = new GameStateTitle();
 	}
 
