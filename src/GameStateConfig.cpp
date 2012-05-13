@@ -323,7 +323,7 @@ void GameStateConfig::logic ()
 		requestedGameState = new GameStateTitle();
 	} else if (defaults_button->checkClick()) {
 		loadDefaults();
-		// TODO Update settings on screen
+		requestedGameState = new GameStateConfig();
 	} else if (cancel_button->checkClick()) {
 		requestedGameState = new GameStateTitle();
 	}
