@@ -28,7 +28,7 @@ using namespace std;
 WidgetComboBox::WidgetComboBox(int amount, const std::string& _fileName)
 	: fileName(_fileName) {
 
-	cmbAmount = amount+1;
+	cmbAmount = amount;
 	values = new std::string[cmbAmount];
 	vlabels = new WidgetLabel[cmbAmount];
 	rows = new SDL_Rect[cmbAmount];
