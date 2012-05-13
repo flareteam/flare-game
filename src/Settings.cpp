@@ -109,7 +109,7 @@ bool MENUS_PAUSE = false;
  * PATH_USER is for user-specific data (e.g. save games)
  * PATH_DATA is for common game data (e.g. images, music)
  */
- 
+
 #ifdef _WIN32
 // Windows paths
 void setPaths() {
@@ -152,12 +152,12 @@ void setPaths() {
 		PATH_CONF = (string)getenv("HOME") + "/.config/";
 		createDir(PATH_CONF);
 		PATH_CONF += engine_folder + "/";
-		createDir(PATH_CONF);		
+		createDir(PATH_CONF);
 	}
 	// ./config/
 	else {
 		PATH_CONF = "./config/";
-		createDir(PATH_CONF);		
+		createDir(PATH_CONF);
 	}
 
 	// set user path (save games)
@@ -178,7 +178,7 @@ void setPaths() {
 	// ./saves/
 	else {
 		PATH_USER = "./saves/";
-		createDir(PATH_USER);	
+		createDir(PATH_USER);
 	}
 	
 	// data folder
@@ -299,5 +299,23 @@ bool saveSettings() {
 
 		outfile.close();
 	}
+	return true;
+}
+
+bool loadDefaults() {
+
+	// init defaults
+	for (int i = 0; i < config_size; i++) {
+		// TODO: handle errors
+		ConfigEntry * entry = config + i;
+		tryParseValue(*entry->type, entry->default_val, entry->storage);
+	}
+
+	saveSettings(); // write the default settings
+
+	// Init automatically calculated parameters
+	VIEW_W_HALF = VIEW_W / 2;
+	VIEW_H_HALF = VIEW_H / 2;
+
 	return true;
 }

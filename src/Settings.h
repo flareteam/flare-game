@@ -72,5 +72,6 @@ extern std::string LANGUAGE;
 void setPaths();
 bool loadSettings();
 bool saveSettings();
+bool loadDefaults();
 
 #endif

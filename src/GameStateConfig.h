@@ -57,6 +57,7 @@ private:
 	std::vector<Widget*>      child_widget;
 	WidgetTabControl    * tabControl;
 	WidgetButton        * ok_button;
+	WidgetButton        * defaults_button;
 	WidgetButton        * cancel_button;
 
 	WidgetLabel         * settings_lb[36];
