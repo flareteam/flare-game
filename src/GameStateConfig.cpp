@@ -40,6 +40,7 @@ GameStateConfig::GameStateConfig ()
 	// Initialize Widgets
 	tabControl = new WidgetTabControl(4);
 	ok_button = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
+	defaults_button = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
 	cancel_button = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
 
 	for (unsigned int i = 0; i < 36; i++) {
@@ -166,9 +167,15 @@ GameStateConfig::GameStateConfig ()
 	// Define widgets
 	ok_button->label = msg->get("Ok");
 	ok_button->pos.x = VIEW_W_HALF - ok_button->pos.w/2;
-	ok_button->pos.y = VIEW_H - (cancel_button->pos.h*2);
+	ok_button->pos.y = VIEW_H - (cancel_button->pos.h*3);
 	ok_button->refresh();
 	child_widget.push_back(ok_button);
+
+    defaults_button->label = msg->get("Defaults");
+	defaults_button->pos.x = VIEW_W_HALF - defaults_button->pos.w/2;
+	defaults_button->pos.y = VIEW_H - (cancel_button->pos.h*2);
+	defaults_button->refresh();
+	child_widget.push_back(defaults_button);
 
 	cancel_button->label = msg->get("Cancel");
 	cancel_button->pos.x = VIEW_W_HALF - cancel_button->pos.w/2;
@@ -314,6 +321,9 @@ void GameStateConfig::logic ()
 	if (ok_button->checkClick()) {
 		saveSettings();
 		requestedGameState = new GameStateTitle();
+	} else if (defaults_button->checkClick()) {
+		loadDefaults();
+		// TODO Update settings on screen
 	} else if (cancel_button->checkClick()) {
 		requestedGameState = new GameStateTitle();
 	}
@@ -377,13 +387,13 @@ void GameStateConfig::render ()
 {
 	tabControl->render();
 
-	for (unsigned int i = 0; i < 2; i++) {
+	for (unsigned int i = 0; i < 3; i++) {
 		child_widget[i]->render();
 	}
 
 	int active_tab = tabControl->getActiveTab();
 
-	for (unsigned int i = 2; i < child_widget.size(); i++) {
+	for (unsigned int i = 3; i < child_widget.size(); i++) {
 		 if (optiontab[i] == active_tab) child_widget[i]->render();
 	}
 }
