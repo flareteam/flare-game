@@ -345,8 +345,10 @@ void GameStateConfig::logic ()
 	else if (active_tab == 1) {
 		if (settings_sl[0]->checkClick()) {
 			MUSIC_VOLUME=settings_sl[0]->getValue();
+			Mix_VolumeMusic(MUSIC_VOLUME);
 		} else if (settings_sl[1]->checkClick()) {
 			SOUND_VOLUME=settings_sl[1]->getValue();
+			Mix_Volume(-1, SOUND_VOLUME);
 		}
 	}
 	// tab 2 (interface)

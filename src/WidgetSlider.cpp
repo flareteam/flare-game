@@ -61,19 +61,19 @@ WidgetSlider::~WidgetSlider ()
 bool WidgetSlider::checkClick ()
 {
 	// main button already in use, new click not allowed
-	if (inp->lock[MAIN1]) return false;
+	if (inpt->lock[MAIN1]) return false;
 
-	if (pressed && !inp->lock[MAIN1]) { // this is a button release
+	if (pressed && !inpt->lock[MAIN1]) { // this is a button release
 		pressed = false;
 
 		// set the value of the slider
 		float tmp;
-		if (inp->mouse.x < pos.x)
+		if (inpt->mouse.x < pos.x)
 			tmp = 0;
-		else if (inp->mouse.x > pos.x+pos.w)
+		else if (inpt->mouse.x > pos.x+pos.w)
 			tmp = pos.w;
 		else
-			tmp = inp->mouse.x - pos.x;
+			tmp = inpt->mouse.x - pos.x;
 
 		pos_knob.x = pos.x + tmp - (pos_knob.w/2);
 		value = tmp*((float)maximum/pos.w);
@@ -82,10 +82,10 @@ bool WidgetSlider::checkClick ()
 		return true;
 	}
 
-	if (inp->pressing[MAIN1]) {
-		if (isWithin(pos, inp->mouse)) {
+	if (inpt->pressing[MAIN1]) {
+		if (isWithin(pos, inpt->mouse)) {
 			pressed = true;
-			inp->lock[MAIN1] = true;
+			inpt->lock[MAIN1] = true;
 		}
 	}
 	return false;

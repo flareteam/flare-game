@@ -62,25 +62,25 @@ void WidgetInput::logic() {
 	}
 
 	// if clicking elsewhere unfocus the text box
-	if (inp->pressing[MAIN1]) {
-		if (!isWithin(pos, inp->mouse)) {
+	if (inpt->pressing[MAIN1]) {
+		if (!isWithin(pos, inpt->mouse)) {
 			inFocus = false;
 		}
 	}
 
 	if (inFocus) {
 
-		if (inp->inkeys != "") {
+		if (inpt->inkeys != "") {
 			// handle text input
-			text += inp->inkeys;
+			text += inpt->inkeys;
 			if (text.length() > max_characters) {
 				text = text.substr(0, max_characters);
 			}
 		}
 			
 		// handle backspaces
-		if (!inp->lock[DEL] && inp->pressing[DEL]) {
-			inp->lock[DEL] = true;
+		if (!inpt->lock[DEL] && inpt->pressing[DEL]) {
+			inpt->lock[DEL] = true;
 			// remove utf-8 character
 			int n = text.length()-1;
 			while (n > 0 && ((text[n] & 0xc0) == 0x80) ) n--;
@@ -105,7 +105,7 @@ void WidgetInput::render() {
 
 	if (!inFocus)
 		src.y = 0;
-	else if (isWithin(pos, inp->mouse))
+	else if (isWithin(pos, inpt->mouse))
 		src.y = pos.h;
 	else
 		src.y = pos.h;
@@ -139,13 +139,13 @@ bool WidgetInput::checkClick() {
 	if (!enabled) return false;
 
 	// main button already in use, new click not allowed
-	if (inp->lock[MAIN1]) return false;
+	if (inpt->lock[MAIN1]) return false;
 
 	// main click released, so the button state goes back to unpressed
-	if (pressed && !inp->lock[MAIN1]) {
+	if (pressed && !inpt->lock[MAIN1]) {
 		pressed = false;
 		
-		if (isWithin(pos, inp->mouse)) {
+		if (isWithin(pos, inpt->mouse)) {
 		
 			// activate upon release
 			return true;
@@ -155,10 +155,10 @@ bool WidgetInput::checkClick() {
 	pressed = false;
 	
 	// detect new click
-	if (inp->pressing[MAIN1]) {
-		if (isWithin(pos, inp->mouse)) {
+	if (inpt->pressing[MAIN1]) {
+		if (isWithin(pos, inpt->mouse)) {
 		
-			inp->lock[MAIN1] = true;
+			inpt->lock[MAIN1] = true;
 			pressed = true;
 
 		}

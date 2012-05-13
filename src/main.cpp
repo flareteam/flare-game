@@ -65,15 +65,15 @@ static void init(const vector<string>	& args) {
 	
 	mods = new ModManager();
 	msg = new MessageEngine();
-	inp = new InputState();
+	inpt = new InputState();
 	font = new FontEngine();
 
 	// Check the command line if we should override the key binding
 	if (!args.empty()) {
 		if (string("--qwerty") == args[0]) {
-			inp->defaultQwertyKeyBindings();
+			inpt->defaultQwertyKeyBindings();
 		} else if (string("--azerty") == args[0]) {
-			inp->defaultAzertyKeyBindings();
+			inpt->defaultAzertyKeyBindings();
 		}
 	}
 
@@ -139,13 +139,13 @@ static void mainLoop () {
 		SDL_FillRect(screen, NULL, 0);
 
 		SDL_PumpEvents();
-		inp->handle();
+		inpt->handle();
 		gswitch->logic();
 		gswitch->render();
 		
 		// Engine done means the user escapes the main game menu.
 		// Input done means the user closes the window.
-		done = gswitch->done || inp->done;
+		done = gswitch->done || inpt->done;
 		
 		nowTicks = SDL_GetTicks();
 		if (nowTicks - prevTicks < delay) SDL_Delay(delay - (nowTicks - prevTicks));
@@ -161,7 +161,7 @@ static void cleanup() {
 	delete gswitch;
 	
 	delete font;
-	delete inp;
+	delete inpt;
 	delete msg;
 	delete mods;
 	SDL_FreeSurface(screen);

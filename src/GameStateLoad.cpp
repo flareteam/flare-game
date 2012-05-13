@@ -328,11 +328,11 @@ void GameStateLoad::logic() {
 		}
 	}
 	// check clicking game slot
-	if (inp->pressing[MAIN1] && !inp->lock[MAIN1]) {
+	if (inpt->pressing[MAIN1] && !inpt->lock[MAIN1]) {
 		for (int i=0; i<GAME_SLOT_MAX; i++) {
-			if (isWithin(slot_pos[i], inp->mouse)) {
+			if (isWithin(slot_pos[i], inpt->mouse)) {
 				selected_slot = i;
-				inp->lock[MAIN1] = true;
+				inpt->lock[MAIN1] = true;
 				loadPortrait(selected_slot);
 				
 				button_action->enabled = true;

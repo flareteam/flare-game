@@ -745,8 +745,8 @@ void MapIso::checkEventClick() {
 		r.h = events[i].hotspot.h;
 		r.w = events[i].hotspot.w;
 		// execute if: EVENT IS ACTIVE && MOUSE IN HOTSPOT && HOTSPOT EXISTS && CLICKING && HERO WITHIN RANGE
-		if (isActive(i) && isWithin(r, inp->mouse) && (events[i].hotspot.h != 0) && inp->pressing[MAIN1] && !inp->lock[MAIN1] && (abs(cam.x - events[i].location.x * UNITS_PER_TILE) < CLICK_RANGE && abs(cam.y - events[i].location.y * UNITS_PER_TILE) < CLICK_RANGE)) {
-			inp->lock[MAIN1] = true;
+		if (isActive(i) && isWithin(r, inpt->mouse) && (events[i].hotspot.h != 0) && inpt->pressing[MAIN1] && !inpt->lock[MAIN1] && (abs(cam.x - events[i].location.x * UNITS_PER_TILE) < CLICK_RANGE && abs(cam.y - events[i].location.y * UNITS_PER_TILE) < CLICK_RANGE)) {
+			inpt->lock[MAIN1] = true;
 			executeEvent(i);
 		}
 	}
@@ -816,7 +816,7 @@ void MapIso::checkTooltip() {
 			drawPixel(screen, r.x+r.w, r.y+r.h, 255);
 		*/
 		
-		if (isWithin(r,inp->mouse) && events[i].tooltip != "") {
+		if (isWithin(r,inpt->mouse) && events[i].tooltip != "") {
 		
 			// new tooltip?
 			if (tip_buf.lines[0] != events[i].tooltip) {

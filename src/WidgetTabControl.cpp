@@ -145,10 +145,10 @@ void WidgetTabControl::loadGraphics()
 void WidgetTabControl::logic()
 {
   // If the click was in the tabs area;
-  if(isWithin(tabsArea, inp->mouse) && inp->pressing[MAIN1]) {
+  if(isWithin(tabsArea, inpt->mouse) && inpt->pressing[MAIN1]) {
     // Mark the clicked tab as activeTab.
     for (int i=0; i<tabsAmount; i++) {
-      if(isWithin(tabs[i], inp->mouse)) {
+      if(isWithin(tabs[i], inpt->mouse)) {
         activeTab = i;
         return;
       }

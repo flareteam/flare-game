@@ -95,7 +95,7 @@ void GameStatePlay::resetGame() {
 void GameStatePlay::checkEnemyFocus() {
 	// determine enemies mouseover
 	// only check alive enemies for targeting
-	enemy = enemies->enemyFocus(inp->mouse, map->cam, true);
+	enemy = enemies->enemyFocus(inpt->mouse, map->cam, true);
 	
 	if (enemy != NULL) {
 	
@@ -106,7 +106,7 @@ void GameStatePlay::checkEnemyFocus() {
 	else {
 		
 		// if there's no living creature in focus, look for a dead one instead
-		Enemy *temp_enemy = enemies->enemyFocus(inp->mouse, map->cam, false);
+		Enemy *temp_enemy = enemies->enemyFocus(inpt->mouse, map->cam, false);
 		if (temp_enemy != NULL) {
 			menu->enemy->enemy = temp_enemy;
 			menu->enemy->timeout = MENU_ENEMY_TIMEOUT;
@@ -121,7 +121,7 @@ void GameStatePlay::checkEnemyFocus() {
  */
 bool GameStatePlay::restrictPowerUse() {
 	if(MOUSE_MOVE) {
-		if(enemy == NULL && inp->pressing[MAIN1] && !inp->pressing[SHIFT] && !(isWithin(menu->act->numberArea,inp->mouse) || isWithin(menu->act->mouseArea,inp->mouse) || isWithin(menu->act->menuArea, inp->mouse))) {
+		if(enemy == NULL && inpt->pressing[MAIN1] && !inpt->pressing[SHIFT] && !(isWithin(menu->act->numberArea,inpt->mouse) || isWithin(menu->act->mouseArea,inpt->mouse) || isWithin(menu->act->menuArea, inpt->mouse))) {
 			return true;
 		}
 	}
@@ -132,24 +132,24 @@ bool GameStatePlay::restrictPowerUse() {
  * Check to see if the player is picking up loot on the ground
  */
 void GameStatePlay::checkLoot() {
-	if (inp->pressing[MAIN1] && !inp->lock[MAIN1] && pc->stats.alive) {
+	if (inpt->pressing[MAIN1] && !inpt->lock[MAIN1] && pc->stats.alive) {
 
 		ItemStack pickup;
 		int gold;
 		
-		pickup = loot->checkPickup(inp->mouse, map->cam, pc->stats.pos, gold, menu->inv->full());
+		pickup = loot->checkPickup(inpt->mouse, map->cam, pc->stats.pos, gold, menu->inv->full());
 		if (pickup.item > 0) {
-			inp->lock[MAIN1] = true;
+			inpt->lock[MAIN1] = true;
 			menu->inv->add(pickup);
 
 			camp->setStatus(menu->items->items[pickup.item].pickup_status);
 		}
 		else if (gold > 0) {
-			inp->lock[MAIN1] = true;
+			inpt->lock[MAIN1] = true;
 			menu->inv->addGold(gold);
 		}
 		if (loot->full_msg) {
-			inp->lock[MAIN1] = true;
+			inpt->lock[MAIN1] = true;
 			menu->log->add(msg->get("Inventory is full."), LOG_TYPE_MESSAGES);
 			loot->full_msg = false;
 		}
@@ -220,7 +220,7 @@ void GameStatePlay::checkCancel() {
 	}
 
 	// if user closes the window
-	if (inp->done) {
+	if (inpt->done) {
 		saveGame();
 		Mix_HaltMusic();
 		exitRequested = true;
@@ -337,8 +337,8 @@ void GameStatePlay::checkNPCInteraction() {
 	int interact_distance = max_interact_distance+1;
 	
 	// check for clicking on an NPC
-	if (inp->pressing[MAIN1] && !inp->lock[MAIN1]) {
-		npc_click = npcs->checkNPCClick(inp->mouse, map->cam);
+	if (inpt->pressing[MAIN1] && !inpt->lock[MAIN1]) {
+		npc_click = npcs->checkNPCClick(inpt->mouse, map->cam);
 		if (npc_click != -1) npc_id = npc_click;
 	}
 	
@@ -349,7 +349,7 @@ void GameStatePlay::checkNPCInteraction() {
 	
 	// if close enough to the NPC, open the appropriate interaction screen
 	if (npc_click != -1 && interact_distance < max_interact_distance && pc->stats.alive) {
-		inp->lock[MAIN1] = true;
+		inpt->lock[MAIN1] = true;
 		
 		if (npcs->npcs[npc_id]->vendor) {
 			menu->vendor->npc = npcs->npcs[npc_id];
@@ -403,7 +403,7 @@ void GameStatePlay::logic() {
 		checkNPCInteraction();
 		map->checkEventClick();
 		
-		pc->logic(menu->act->checkAction(inp->mouse), restrictPowerUse());
+		pc->logic(menu->act->checkAction(inpt->mouse), restrictPowerUse());
 		
 		// transfer hero data to enemies, for AI use
 		enemies->hero_pos = pc->stats.pos;
@@ -485,7 +485,7 @@ void GameStatePlay::render() {
 	
 	// mouseover tooltips
 	loot->renderTooltips(map->cam);
-	npcs->renderTooltips(map->cam, inp->mouse);
+	npcs->renderTooltips(map->cam, inpt->mouse);
 	
 	menu->hudlog->render();
 	menu->mini->renderIso(&map->collider, pc->stats.pos, map->w, map->h);
