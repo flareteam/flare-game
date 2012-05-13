@@ -119,11 +119,11 @@ void MenuManager::logic() {
 	log->logic();
 	talker->logic();
 
-	if (!inp->pressing[INVENTORY] && !inp->pressing[POWERS] && !inp->pressing[CHARACTER] && !inp->pressing[LOG])
+	if (!inpt->pressing[INVENTORY] && !inpt->pressing[POWERS] && !inpt->pressing[CHARACTER] && !inpt->pressing[LOG])
 		key_lock = false;
 
 	// check if mouse-clicking a menu button
-	act->checkMenu(inp->mouse, clicking_character, clicking_inventory, clicking_powers, clicking_log);
+	act->checkMenu(inpt->mouse, clicking_character, clicking_inventory, clicking_powers, clicking_log);
 
 	if (exit->visible) {
 		exit->logic();
@@ -133,8 +133,8 @@ void MenuManager::logic() {
 	}
 
 	// exit menu toggle
-	if ((inp->pressing[CANCEL] && !inp->lock[CANCEL] && !key_lock && !dragging)) {
-		inp->lock[CANCEL] = true;
+	if ((inpt->pressing[CANCEL] && !inpt->lock[CANCEL] && !key_lock && !dragging)) {
+		inpt->lock[CANCEL] = true;
 		key_lock = true;
 		if (menus_open) {
 			closeAll(true);
@@ -145,7 +145,7 @@ void MenuManager::logic() {
 	}
 
 	// inventory menu toggle
-	if ((inp->pressing[INVENTORY] && !key_lock && !dragging) || clicking_inventory) {
+	if ((inpt->pressing[INVENTORY] && !key_lock && !dragging) || clicking_inventory) {
 		key_lock = true;
 		if (inv->visible) {
 			closeRight(true);
@@ -161,7 +161,7 @@ void MenuManager::logic() {
 	}
 
 	// powers menu toggle
-	if ((inp->pressing[POWERS] && !key_lock && !dragging) || clicking_powers) {
+	if ((inpt->pressing[POWERS] && !key_lock && !dragging) || clicking_powers) {
 		key_lock = true;
 		if (pow->visible) {
 			closeRight(true);
@@ -176,7 +176,7 @@ void MenuManager::logic() {
 	}
 
 	// character menu toggleggle
-	if ((inp->pressing[CHARACTER] && !key_lock && !dragging) || clicking_character) {
+	if ((inpt->pressing[CHARACTER] && !key_lock && !dragging) || clicking_character) {
 		key_lock = true;
 		if (chr->visible) {
 			closeLeft(true);
@@ -191,7 +191,7 @@ void MenuManager::logic() {
 	}
 
 	// log menu toggle
-	if ((inp->pressing[LOG] && !key_lock && !dragging) || clicking_log) {
+	if ((inpt->pressing[LOG] && !key_lock && !dragging) || clicking_log) {
 		key_lock = true;
 		if (log->visible) {
 			closeLeft(true);
@@ -215,32 +215,32 @@ void MenuManager::logic() {
 		int offset_y = (VIEW_H - 416)/2;
 
 		// handle right-click
-		if (!dragging && inp->pressing[MAIN2] && !inp->lock[MAIN2]) {
+		if (!dragging && inpt->pressing[MAIN2] && !inpt->lock[MAIN2]) {
 			// exit menu
-			if (exit->visible && isWithin(exit->window_area, inp->mouse)) {
-				inp->lock[MAIN2] = true;
+			if (exit->visible && isWithin(exit->window_area, inpt->mouse)) {
+				inpt->lock[MAIN2] = true;
 			}
 
 			// activate inventory item
-			else if (inv->visible && isWithin(inv->window_area, inp->mouse)) {
-				inp->lock[MAIN2] = true;
-				if (isWithin(inv->carried_area, inp->mouse)) {
-					inv->activate(inp);
+			else if (inv->visible && isWithin(inv->window_area, inpt->mouse)) {
+				inpt->lock[MAIN2] = true;
+				if (isWithin(inv->carried_area, inpt->mouse)) {
+					inv->activate(inpt);
 				}
 			}
 		}
 
 		// handle left-click
-		if (!dragging && inp->pressing[MAIN1] && !inp->lock[MAIN1]) {
+		if (!dragging && inpt->pressing[MAIN1] && !inpt->lock[MAIN1]) {
 			// exit menu
-			if (exit->visible && isWithin(exit->window_area, inp->mouse)) {
-				inp->lock[MAIN1] = true;
+			if (exit->visible && isWithin(exit->window_area, inpt->mouse)) {
+				inpt->lock[MAIN1] = true;
 			}
 
 			// left side menu
-			else if (inp->mouse.x <= 320 && inp->mouse.y >= offset_y && inp->mouse.y <= offset_y+416) {
+			else if (inpt->mouse.x <= 320 && inpt->mouse.y >= offset_y && inpt->mouse.y <= offset_y+416) {
 				if (chr->visible) {
-					inp->lock[MAIN1] = true;
+					inpt->lock[MAIN1] = true;
 
 					// applied a level-up
 					if (chr->checkUpgrade()) {
@@ -253,12 +253,12 @@ void MenuManager::logic() {
 				}
 				else if (vendor->visible) {
 
-					inp->lock[MAIN1] = true;
-					if (inp->pressing[CTRL]) {
+					inpt->lock[MAIN1] = true;
+					if (inpt->pressing[CTRL]) {
 
 						// buy item from a vendor
 						if (!inv->full()) {
-							stack = vendor->click(inp);
+							stack = vendor->click(inpt);
 							if (stack.item > 0) {
 								if( inv->full()) {
 									// Can we say "Not enough place" ?
@@ -274,27 +274,27 @@ void MenuManager::logic() {
 					else {
 
 						// start dragging a vendor item
-						drag_stack = vendor->click(inp);
+						drag_stack = vendor->click(inpt);
 						if (drag_stack.item > 0) {
 							dragging = true;
 							drag_src = DRAG_SRC_VENDOR;
 						}
 					}
 				} else if(log->visible) {
-          inp->lock[MAIN1] = true;
+          inpt->lock[MAIN1] = true;
           log->tabsLogic();
         }
 			}
 
 			// right side menu
-			else if (inp->mouse.x >= offset_x && inp->mouse.y >= offset_y && inp->mouse.y <= offset_y+416) {
+			else if (inpt->mouse.x >= offset_x && inpt->mouse.y >= offset_y && inpt->mouse.y <= offset_y+416) {
 
 				// pick up an inventory item
 				if (inv->visible) {
 
-					if (inp->pressing[CTRL]) {
-						inp->lock[MAIN1] = true;
-						stack = inv->click(inp);
+					if (inpt->pressing[CTRL]) {
+						inpt->lock[MAIN1] = true;
+						stack = inv->click(inpt);
 						if( stack.item > 0) {
 							if (vendor->visible) {
 								if( vendor->full()) {
@@ -319,8 +319,8 @@ void MenuManager::logic() {
 						}
 					}
 					else {
-						inp->lock[MAIN1] = true;
-						drag_stack = inv->click(inp);
+						inpt->lock[MAIN1] = true;
+						drag_stack = inv->click(inpt);
 						if (drag_stack.item > 0) {
 							dragging = true;
 							drag_src = DRAG_SRC_INVENTORY;
@@ -329,8 +329,8 @@ void MenuManager::logic() {
 				}
 				// pick up a power
 				else if (pow->visible) {
-					inp->lock[MAIN1] = true;
-					drag_power = pow->click(inp->mouse);
+					inpt->lock[MAIN1] = true;
+					drag_power = pow->click(inpt->mouse);
 					if (drag_power > -1) {
 						dragging = true;
 						drag_src = DRAG_SRC_POWERS;
@@ -338,16 +338,16 @@ void MenuManager::logic() {
 				}
 			}
 			// action bar
-			else if (isWithin(act->numberArea,inp->mouse) || isWithin(act->mouseArea,inp->mouse) || isWithin(act->menuArea, inp->mouse)) {
-				inp->lock[MAIN1] = true;
+			else if (isWithin(act->numberArea,inpt->mouse) || isWithin(act->mouseArea,inpt->mouse) || isWithin(act->menuArea, inpt->mouse)) {
+				inpt->lock[MAIN1] = true;
 
 				// ctrl-click action bar to clear that slot
-				if (inp->pressing[CTRL]) {
-					act->remove(inp->mouse);
+				if (inpt->pressing[CTRL]) {
+					act->remove(inpt->mouse);
 				}
 				// allow drag-to-rearrange action bar
-				else if (!isWithin(act->menuArea, inp->mouse)) {
-					drag_power = act->checkDrag(inp->mouse);
+				else if (!isWithin(act->menuArea, inpt->mouse)) {
+					drag_power = act->checkDrag(inpt->mouse);
 					if (drag_power > -1) {
 						dragging = true;
 						drag_src = DRAG_SRC_ACTIONBAR;
@@ -361,39 +361,39 @@ void MenuManager::logic() {
 			}
 		}
 		// handle dropping
-		if (dragging && !inp->pressing[MAIN1]) {
+		if (dragging && !inpt->pressing[MAIN1]) {
 
 			// putting a power on the Action Bar
 			if (drag_src == DRAG_SRC_POWERS) {
-				if (isWithin(act->numberArea,inp->mouse) || isWithin(act->mouseArea,inp->mouse)) {
-					act->drop(inp->mouse, drag_power, 0);
+				if (isWithin(act->numberArea,inpt->mouse) || isWithin(act->mouseArea,inpt->mouse)) {
+					act->drop(inpt->mouse, drag_power, 0);
 				}
 			}
 
 			// rearranging the action bar
 			else if (drag_src == DRAG_SRC_ACTIONBAR) {
-				if (isWithin(act->numberArea,inp->mouse) || isWithin(act->mouseArea,inp->mouse)) {
-					act->drop(inp->mouse, drag_power, 1);
+				if (isWithin(act->numberArea,inpt->mouse) || isWithin(act->mouseArea,inpt->mouse)) {
+					act->drop(inpt->mouse, drag_power, 1);
 				}
 			}
 
 			// rearranging inventory or dropping items
 			else if (drag_src == DRAG_SRC_INVENTORY) {
 
-				if (inv->visible && inp->mouse.x >= offset_x && inp->mouse.y >= offset_y && inp->mouse.y <= offset_y+416) {
-					inv->drop(inp->mouse, drag_stack);
+				if (inv->visible && inpt->mouse.x >= offset_x && inpt->mouse.y >= offset_y && inpt->mouse.y <= offset_y+416) {
+					inv->drop(inpt->mouse, drag_stack);
 					drag_stack.item = 0;
 				}
-				else if (isWithin(act->numberArea,inp->mouse) || isWithin(act->mouseArea,inp->mouse)) {
+				else if (isWithin(act->numberArea,inpt->mouse) || isWithin(act->mouseArea,inpt->mouse)) {
 					// The action bar is not storage!
 					inv->itemReturn(drag_stack);
 
 					// put an item with a power on the action bar
 					if (items->items[drag_stack.item].power != -1) {
-						act->drop(inp->mouse, items->items[drag_stack.item].power, false);
+						act->drop(inpt->mouse, items->items[drag_stack.item].power, false);
 					}
 				}
-				else if (vendor->visible && isWithin(vendor->slots_area, inp->mouse)) {
+				else if (vendor->visible && isWithin(vendor->slots_area, inpt->mouse)) {
 					// vendor sell item
 					if( vendor->full()) {
 						// Can we say "Not enough place" ?
@@ -427,12 +427,12 @@ void MenuManager::logic() {
 			else if (drag_src == DRAG_SRC_VENDOR) {
 
 				// dropping an item from vendor (we only allow to drop into the carried area)
-				if (inv->visible && isWithin( inv->carried_area, inp->mouse)) {
+				if (inv->visible && isWithin( inv->carried_area, inpt->mouse)) {
 					if( inv->full()) {
 						// Can we say "Not enough place" ?
 						vendor->itemReturn( drag_stack);
 					}
-					else if( ! inv->buy( drag_stack, inp->mouse)) {
+					else if( ! inv->buy( drag_stack, inpt->mouse)) {
 						// Can we say "Not enough money" ? (here or in MenuInventory::buy())
 						vendor->itemReturn( drag_stack);
 					}
@@ -481,8 +481,8 @@ void MenuManager::logic() {
 }
 
 void MenuManager::render() {
-	hpmp->render(stats, inp->mouse);
-	xp->render(stats, inp->mouse);
+	hpmp->render(stats, inpt->mouse);
+	xp->render(stats, inpt->mouse);
 	act->render();
 	inv->render();
 	pow->render();
@@ -499,24 +499,24 @@ void MenuManager::render() {
 	int offset_y = (VIEW_H - 416)/2;
 
 	// Find tooltips depending on mouse position
-	if (inp->mouse.x < 320 && inp->mouse.y >= offset_y && inp->mouse.y <= offset_y+416) {
+	if (inpt->mouse.x < 320 && inpt->mouse.y >= offset_y && inpt->mouse.y <= offset_y+416) {
 		if (chr->visible) {
 			tip_new = chr->checkTooltip();
 		}
 		else if (vendor->visible) {
-			tip_new = vendor->checkTooltip(inp->mouse);
+			tip_new = vendor->checkTooltip(inpt->mouse);
 		}
 	}
-	else if (inp->mouse.x >= offset_x && inp->mouse.y >= offset_y && inp->mouse.y <= offset_y+416) {
+	else if (inpt->mouse.x >= offset_x && inpt->mouse.y >= offset_y && inpt->mouse.y <= offset_y+416) {
 		if (pow->visible) {
-			tip_new = pow->checkTooltip(inp->mouse);
+			tip_new = pow->checkTooltip(inpt->mouse);
 		}
 		else if (inv->visible && !dragging) {
-			tip_new = inv->checkTooltip(inp->mouse);
+			tip_new = inv->checkTooltip(inpt->mouse);
 		}
 	}
-	else if (inp->mouse.y >= VIEW_H-32) {
-		tip_new = act->checkTooltip(inp->mouse);
+	else if (inpt->mouse.y >= VIEW_H-32) {
+		tip_new = act->checkTooltip(inpt->mouse);
 	}
 
 	if (tip_new.num_lines > 0) {
@@ -530,15 +530,15 @@ void MenuManager::render() {
 			tip->clear(tip_buf);
 			tip_buf = tip_new;
 		}
-		tip->render(tip_buf, inp->mouse, STYLE_FLOAT);
+		tip->render(tip_buf, inpt->mouse, STYLE_FLOAT);
 	}
 
 	// draw icon under cursor if dragging
 	if (dragging) {
 		if (drag_src == DRAG_SRC_INVENTORY || drag_src == DRAG_SRC_VENDOR)
-			items->renderIcon(drag_stack, inp->mouse.x - 16, inp->mouse.y - 16, ICON_SIZE_32);
+			items->renderIcon(drag_stack, inpt->mouse.x - 16, inpt->mouse.y - 16, ICON_SIZE_32);
 		else if (drag_src == DRAG_SRC_POWERS || drag_src == DRAG_SRC_ACTIONBAR)
-			renderIcon(powers->powers[drag_power].icon, inp->mouse.x-16, inp->mouse.y-16);
+			renderIcon(powers->powers[drag_power].icon, inpt->mouse.x-16, inpt->mouse.y-16);
 	}
 
 }

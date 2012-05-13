@@ -345,7 +345,7 @@ void MenuActionBar::remove(Point mouse) {
 int MenuActionBar::checkAction(Point mouse) {
 
 	// check click action
-	if ((inp->pressing[MAIN1] && !inp->lock[MAIN1]) || (inp->pressing[MAIN2] && !inp->lock[MAIN2])) {
+	if ((inpt->pressing[MAIN1] && !inpt->lock[MAIN1]) || (inpt->pressing[MAIN2] && !inpt->lock[MAIN2])) {
 		for (int i=0; i<12; i++) {
 			if (isWithin(slots[i], mouse) && slot_enabled[i]) {
 
@@ -355,20 +355,20 @@ int MenuActionBar::checkAction(Point mouse) {
 	}
 
 	// check hotkey action
-	if (inp->pressing[BAR_1] && slot_enabled[0]) return hotkeys[0];
-	if (inp->pressing[BAR_2] && slot_enabled[1]) return hotkeys[1];
-	if (inp->pressing[BAR_3] && slot_enabled[2]) return hotkeys[2];
-	if (inp->pressing[BAR_4] && slot_enabled[3]) return hotkeys[3];
-	if (inp->pressing[BAR_5] && slot_enabled[4]) return hotkeys[4];
-	if (inp->pressing[BAR_6] && slot_enabled[5]) return hotkeys[5];
-	if (inp->pressing[BAR_7] && slot_enabled[6]) return hotkeys[6];
-	if (inp->pressing[BAR_8] && slot_enabled[7]) return hotkeys[7];
-	if (inp->pressing[BAR_9] && slot_enabled[8]) return hotkeys[8];
-	if (inp->pressing[BAR_0] && slot_enabled[9]) return hotkeys[9];
-	if (inp->pressing[MAIN1] && slot_enabled[10] && !inp->lock[MAIN1]) {
+	if (inpt->pressing[BAR_1] && slot_enabled[0]) return hotkeys[0];
+	if (inpt->pressing[BAR_2] && slot_enabled[1]) return hotkeys[1];
+	if (inpt->pressing[BAR_3] && slot_enabled[2]) return hotkeys[2];
+	if (inpt->pressing[BAR_4] && slot_enabled[3]) return hotkeys[3];
+	if (inpt->pressing[BAR_5] && slot_enabled[4]) return hotkeys[4];
+	if (inpt->pressing[BAR_6] && slot_enabled[5]) return hotkeys[5];
+	if (inpt->pressing[BAR_7] && slot_enabled[6]) return hotkeys[6];
+	if (inpt->pressing[BAR_8] && slot_enabled[7]) return hotkeys[7];
+	if (inpt->pressing[BAR_9] && slot_enabled[8]) return hotkeys[8];
+	if (inpt->pressing[BAR_0] && slot_enabled[9]) return hotkeys[9];
+	if (inpt->pressing[MAIN1] && slot_enabled[10] && !inpt->lock[MAIN1]) {
 		return hotkeys[10];
 	}
-	if (inp->pressing[MAIN2] && slot_enabled[11] && !inp->lock[MAIN2]) {
+	if (inpt->pressing[MAIN2] && slot_enabled[11] && !inpt->lock[MAIN2]) {
 		return hotkeys[11];
 	}
 	return -1;
@@ -396,27 +396,27 @@ int MenuActionBar::checkDrag(Point mouse) {
  * if clicking a menu, act as if the player pressed that menu's hotkey
  */
 void MenuActionBar::checkMenu(Point mouse, bool &menu_c, bool &menu_i, bool &menu_p, bool &menu_l) {
-	if ((inp->pressing[MAIN1] && !inp->lock[MAIN1]) || (inp->pressing[MAIN2] && !inp->lock[MAIN2])) {
+	if ((inpt->pressing[MAIN1] && !inpt->lock[MAIN1]) || (inpt->pressing[MAIN2] && !inpt->lock[MAIN2])) {
 		if (isWithin(menus[MENU_CHARACTER], mouse)) {
-			if (inp->pressing[MAIN1] && !inp->lock[MAIN1]) inp->lock[MAIN1] = true;
-			else inp->lock[MAIN2] = true;
+			if (inpt->pressing[MAIN1] && !inpt->lock[MAIN1]) inpt->lock[MAIN1] = true;
+			else inpt->lock[MAIN2] = true;
 			menu_c = true;
 		}
 		else if (isWithin(menus[MENU_INVENTORY], mouse)) {
-			if (inp->pressing[MAIN1] && !inp->lock[MAIN1]) inp->lock[MAIN1] = true;
-			else inp->lock[MAIN2] = true;
+			if (inpt->pressing[MAIN1] && !inpt->lock[MAIN1]) inpt->lock[MAIN1] = true;
+			else inpt->lock[MAIN2] = true;
 			menu_i = true;
 		}
 		else if (isWithin(menus[MENU_POWERS], mouse)) {
-			if (inp->pressing[MAIN1] && !inp->lock[MAIN1]) inp->lock[MAIN1] = true;
-			else inp->lock[MAIN2] = true;
-			inp->lock[MAIN1] = true;
+			if (inpt->pressing[MAIN1] && !inpt->lock[MAIN1]) inpt->lock[MAIN1] = true;
+			else inpt->lock[MAIN2] = true;
+			inpt->lock[MAIN1] = true;
 			menu_p = true;
 		}
 		else if (isWithin(menus[MENU_LOG], mouse)) {
-			if (inp->pressing[MAIN1] && !inp->lock[MAIN1]) inp->lock[MAIN1] = true;
-			else inp->lock[MAIN2] = true;
-			inp->lock[MAIN1] = true;
+			if (inpt->pressing[MAIN1] && !inpt->lock[MAIN1]) inpt->lock[MAIN1] = true;
+			else inpt->lock[MAIN2] = true;
+			inpt->lock[MAIN1] = true;
 			menu_l = true;
 		}
 	}

@@ -36,7 +36,7 @@ Created and destroyed by main.cpp
 extern SDL_Surface *screen;
 extern ModManager *mods;
 extern MessageEngine *msg;
-extern InputState *inp;
+extern InputState *inpt;
 extern FontEngine *font;
 
 extern bool audio;

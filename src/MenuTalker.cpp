@@ -103,10 +103,10 @@ void MenuTalker::logic() {
 		event_cursor++;
 		more = npc->processDialog(dialog_node, event_cursor);
 	}
-	else if	(inp->pressing[ACCEPT] && accept_lock) {
+	else if	(inpt->pressing[ACCEPT] && accept_lock) {
 		return;
 	}
-	else if (!inp->pressing[ACCEPT]) {
+	else if (!inpt->pressing[ACCEPT]) {
 		accept_lock = false;
 		return;
 	}

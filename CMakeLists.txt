@@ -6,7 +6,11 @@ Set (VERSION "0.15")
 
 
 # Default definitions
+if (MSVC)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /wd4099 /wd4244")
+else (MSVC)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wno-unused -Wshadow -Woverloaded-virtual")
+endif (MSVC)
 if(CMAKE_BUILD_TYPE STREQUAL "Release")
   set(CMAKE_CXX_FLAGS_RELEASE "-O2 -g0")
 elseif(CMAKE_BUILD_TYPE STREQUAL "RelWithDebInfo")
@@ -120,6 +124,7 @@ Set (FLARE_SOURCES
 	./src/UtilsFileSystem.cpp
 	./src/UtilsParsing.cpp
 	./src/WidgetCheckBox.cpp
+    ./src/WidgetComboBox.cpp
 	./src/WidgetButton.cpp
 	./src/WidgetInput.cpp
  	./src/WidgetLabel.cpp

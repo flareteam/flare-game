@@ -29,7 +29,7 @@ Created and destroyed by main.cpp
 SDL_Surface *screen;
 ModManager *mods;
 MessageEngine *msg;
-InputState *inp;
+InputState *inpt;
 FontEngine *font;
 
 bool audio;
