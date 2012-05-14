@@ -319,3 +319,62 @@ bool loadDefaults() {
 
 	return true;
 }
+
+/**
+ * Save selected video settings into file. Don't apply them at runtime.
+ */
+bool saveVideoSettings(int screen, int width, int height) {
+
+	int video[3];
+	video[0] = screen;
+	video[1] = width;
+	video[2] = height;
+
+	ofstream outfile;
+	outfile.open((PATH_CONF + FILE_SETTINGS).c_str(), ios::out);
+
+	if (outfile.is_open()) {
+
+		for (int i = 0; i < 3; i++) {
+
+			// write additional newline before the next section
+			if (i != 0 && config[i].comment != NULL)
+				outfile<<"\n";
+
+			if (config[i].comment != NULL) {
+				outfile<<"# "<<config[i].comment<<"\n";
+			}
+			outfile<<config[i].name<<"="<<video[i]<<"\n";
+		}
+
+		outfile.close();
+	}
+	return true;
+}
+
+/**
+ * Save the current main settings (except video settings)
+ */
+bool saveMiscSettings() {
+
+	ofstream outfile;
+	outfile.open((PATH_CONF + FILE_SETTINGS).c_str(), ios::out | ios::app);
+
+	if (outfile.is_open()) {
+
+		for (int i = 3; i < config_size; i++) {
+
+			// write additional newline before the next section
+			if (i != 0 && config[i].comment != NULL)
+				outfile<<"\n";
+
+			if (config[i].comment != NULL) {
+				outfile<<"# "<<config[i].comment<<"\n";
+			}
+			outfile<<config[i].name<<"="<<toString(*config[i].type, config[i].storage)<<"\n";
+		}
+
+		outfile.close();
+	}
+	return true;
+}

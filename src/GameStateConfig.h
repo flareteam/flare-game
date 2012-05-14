@@ -44,7 +44,7 @@ public:
 	void    render  ();
 
 private:
-	int optiontab[74];
+	int optiontab[78];
 	SDL_Rect** video_modes;
 
 	std::string * language_ISO;
@@ -53,6 +53,7 @@ private:
 	int getVideoModes(void);
 	bool getLanguagesList(void);
 	int getLanguagesNumber(void);
+	void update();
 
 	std::vector<Widget*>      child_widget;
 	WidgetTabControl    * tabControl;
@@ -60,7 +61,7 @@ private:
 	WidgetButton        * defaults_button;
 	WidgetButton        * cancel_button;
 
-	WidgetLabel         * settings_lb[36];
+	WidgetLabel         * settings_lb[39];
 	WidgetSlider        * settings_sl[2];
 	WidgetCheckBox      * settings_cb[6];
 	WidgetInput         * settings_key[25];

@@ -64,7 +64,6 @@ public:
 	bool checkClick();
 	void set(int index, std::string value);
 	std::string get(int index);
-	int getSelected();
 	void render();
 	void refresh();
 

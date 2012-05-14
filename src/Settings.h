@@ -73,5 +73,7 @@ void setPaths();
 bool loadSettings();
 bool saveSettings();
 bool loadDefaults();
+bool saveVideoSettings(int screen, int width, int height);
+bool saveMiscSettings();
 
 #endif
