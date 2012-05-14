@@ -306,8 +306,31 @@ GameStateConfig::GameStateConfig ()
 GameStateConfig::~GameStateConfig()
 {
 	delete tabControl;
+	delete ok_button;
+	delete defaults_button;
+	delete cancel_button;
 
 	child_widget.clear();
+
+	for (unsigned int i = 0; i < 36; i++) {
+		 delete settings_lb[i];
+	}
+
+	for (unsigned int i = 0; i < 2; i++) {
+		 delete settings_sl[i];
+	}
+
+	for (unsigned int i = 0; i < 6; i++) {
+		 delete settings_cb[i];
+	}
+
+	for (unsigned int i = 0; i < 25; i++) {
+		 delete settings_key[i];
+	}
+
+	for (unsigned int i = 0; i < 3; i++) {
+		 delete settings_cmb[i];
+	}
 }
 
 
