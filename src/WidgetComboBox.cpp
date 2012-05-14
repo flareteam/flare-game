@@ -115,10 +115,6 @@ std::string WidgetComboBox::get(int index) {
 	return values[index];
 }
 
-int WidgetComboBox::getSelected() {
-	return selected;
-}
-
 void WidgetComboBox::render() {
 	SDL_Rect src;
 	src.x = 0;

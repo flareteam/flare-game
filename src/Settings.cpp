@@ -302,20 +302,80 @@ bool saveSettings() {
 	return true;
 }
 
+/**
+ * Load all default settings, except video settings.
+ */
 bool loadDefaults() {
 
-	// init defaults
-	for (int i = 0; i < config_size; i++) {
+	// HACK init defaults except video
+	for (int i = 3; i < config_size; i++) {
 		// TODO: handle errors
 		ConfigEntry * entry = config + i;
 		tryParseValue(*entry->type, entry->default_val, entry->storage);
 	}
 
-	saveSettings(); // write the default settings
-
 	// Init automatically calculated parameters
 	VIEW_W_HALF = VIEW_W / 2;
 	VIEW_H_HALF = VIEW_H / 2;
 
+	return true;
+}
+
+/**
+ * Save selected video settings into file. Don't apply them at runtime.
+ */
+bool saveVideoSettings(int screen, int width, int height) {
+
+	int video[3];
+	video[0] = screen;
+	video[1] = width;
+	video[2] = height;
+
+	ofstream outfile;
+	outfile.open((PATH_CONF + FILE_SETTINGS).c_str(), ios::out);
+
+	if (outfile.is_open()) {
+
+		for (int i = 0; i < 3; i++) {
+
+			// write additional newline before the next section
+			if (i != 0 && config[i].comment != NULL)
+				outfile<<"\n";
+
+			if (config[i].comment != NULL) {
+				outfile<<"# "<<config[i].comment<<"\n";
+			}
+			outfile<<config[i].name<<"="<<video[i]<<"\n";
+		}
+
+		outfile.close();
+	}
+	return true;
+}
+
+/**
+ * Save the current main settings (except video settings)
+ */
+bool saveMiscSettings() {
+
+	ofstream outfile;
+	outfile.open((PATH_CONF + FILE_SETTINGS).c_str(), ios::out | ios::app);
+
+	if (outfile.is_open()) {
+
+		for (int i = 3; i < config_size; i++) {
+
+			// write additional newline before the next section
+			if (i != 0 && config[i].comment != NULL)
+				outfile<<"\n";
+
+			if (config[i].comment != NULL) {
+				outfile<<"# "<<config[i].comment<<"\n";
+			}
+			outfile<<config[i].name<<"="<<toString(*config[i].type, config[i].storage)<<"\n";
+		}
+
+		outfile.close();
+	}
 	return true;
 }

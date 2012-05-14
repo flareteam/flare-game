@@ -31,6 +31,7 @@ public:
 	~WidgetCheckBox ();
 
 	void Check ();
+	void unCheck ();
 	bool checkClick ();
 	bool isChecked () const;
 	void render ();
