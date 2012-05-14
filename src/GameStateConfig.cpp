@@ -394,8 +394,10 @@ void GameStateConfig::logic ()
 		delete requestedGameState;
 		requestedGameState = new GameStateTitle();
 	} else if (defaults_button->checkClick()) {
+		FULLSCREEN = 0;
 		loadDefaults();
 		update();
+		setDefaultResolution();
 	} else if (cancel_button->checkClick()) {
 		delete requestedGameState;
 		requestedGameState = new GameStateTitle();
@@ -522,4 +524,27 @@ int GameStateConfig::getLanguagesNumber()
 		infile.close();
 
 	return languages_num;
+}
+
+/**
+ * This function is a HACK to set combobox to default resolution without changing it at runtime
+ */
+void GameStateConfig::setDefaultResolution()
+{
+	std::stringstream list_mode;
+	bool default_720 = false;
+	getVideoModes();
+	for (unsigned int i=0; video_modes[i]; ++i) {
+		if (video_modes[i]->w == 720 && video_modes[i]->h == 480) {
+			default_720 = true; settings_cmb[1]->selected = i;
+		}
+		 list_mode.str("");
+		}
+
+	if (!default_720)
+		for (unsigned int i=0; video_modes[i]; ++i) {
+			if (video_modes[i]->w == 640 && video_modes[i]->h == 480) settings_cmb[1]->selected = i;
+		}
+	settings_cmb[1]->refresh();
+
 }

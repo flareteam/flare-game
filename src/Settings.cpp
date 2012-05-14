@@ -302,16 +302,17 @@ bool saveSettings() {
 	return true;
 }
 
+/**
+ * Load all default settings, except video settings.
+ */
 bool loadDefaults() {
 
-	// init defaults
-	for (int i = 0; i < config_size; i++) {
+	// HACK init defaults except video
+	for (int i = 3; i < config_size; i++) {
 		// TODO: handle errors
 		ConfigEntry * entry = config + i;
 		tryParseValue(*entry->type, entry->default_val, entry->storage);
 	}
-
-	saveSettings(); // write the default settings
 
 	// Init automatically calculated parameters
 	VIEW_W_HALF = VIEW_W / 2;

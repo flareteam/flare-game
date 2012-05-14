@@ -54,6 +54,7 @@ private:
 	bool getLanguagesList(void);
 	int getLanguagesNumber(void);
 	void update();
+	void setDefaultResolution();
 
 	std::vector<Widget*>      child_widget;
 	WidgetTabControl    * tabControl;
