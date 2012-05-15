@@ -156,8 +156,7 @@ TooltipData MenuInventory::checkTooltip(Point mouse) {
 	if( area > -1) {
 		tip = inventory[area].checkTooltip( mouse, stats, false);
 	}
-	else if (mouse.x >= window_area.x + 224 && mouse.y >= window_area.y+96 && mouse.x < window_area.x+288 && mouse.y < window_area.y+128) {
-		// TODO: I think we should add a little "?" icon in a corner, and show this title on it.
+	else if (mouse.x >= window_area.x + 2 && mouse.y >= window_area.y+2 && mouse.x < window_area.x+26 && mouse.y < window_area.y+26) {
 		tip.lines[tip.num_lines++] = msg->get("Use SHIFT to move only one item.");
 		tip.lines[tip.num_lines++] = msg->get("CTRL-click a carried item to sell it.");
 	}
