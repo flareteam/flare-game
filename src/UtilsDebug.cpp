@@ -17,6 +17,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <ostream>
 #include <SDL.h>
 
+#include "Utils.h"
 #include "UtilsDebug.h"
 
 using namespace std;
@@ -245,4 +246,18 @@ operator<< (ostream & os, const SDL_ExposeEvent & evt)
 {
     os << "{SDL_EXPOSEEVENT}";
     return os;
+}
+
+	ostream &
+operator<< (ostream & os, const SDL_Rect & rect)
+{
+	os << "(x,y,h,w) = (" << rect.x << "," << rect.y << "," << rect.h << "," << rect.w << ")";
+	return os;
+}
+
+	ostream &
+operator<< (ostream & os, const Point & p)
+{
+	os << "(x,y) = (" << p.x << "," << p.y << ")";
+	return os;
 }
