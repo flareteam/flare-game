@@ -21,8 +21,11 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * Handles keyboard and mouse states
  */
 
+#include <iostream>
+
 #include "InputState.h"
 #include "Settings.h"
+#include "UtilsDebug.h"
 
 using namespace std;
 
@@ -213,7 +216,7 @@ void InputState::saveKeyBindings() {
 
 }
 
-void InputState::handle() {
+void InputState::handle(bool dump_event) {
 	SDL_Event event;
 
 	SDL_GetMouseState(&mouse.x, &mouse.y);
@@ -229,6 +232,10 @@ void InputState::handle() {
 
 	/* Check for events */
 	while (SDL_PollEvent (&event)) {
+
+		if (dump_event) {
+			cout << event << endl;
+		}
 
 		// grab symbol keys
 		if (event.type == SDL_KEYDOWN) {

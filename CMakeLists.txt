@@ -121,10 +121,11 @@ Set (FLARE_SOURCES
 	./src/StatBlock.cpp
 	./src/TileSet.cpp
 	./src/Utils.cpp
+	./src/UtilsDebug.cpp
 	./src/UtilsFileSystem.cpp
 	./src/UtilsParsing.cpp
 	./src/WidgetCheckBox.cpp
-    ./src/WidgetComboBox.cpp
+	./src/WidgetComboBox.cpp
 	./src/WidgetButton.cpp
 	./src/WidgetInput.cpp
  	./src/WidgetLabel.cpp

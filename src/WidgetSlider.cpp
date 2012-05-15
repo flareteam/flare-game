@@ -27,6 +27,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "Widget.h"
 #include "WidgetSlider.h"
 #include "SharedResources.h"
+#include "UtilsDebug.h"
 
 using namespace std;
 
@@ -60,33 +61,42 @@ WidgetSlider::~WidgetSlider ()
 
 bool WidgetSlider::checkClick ()
 {
-	// main button already in use, new click not allowed
-	if (inpt->lock[MAIN1]) return false;
-
-	if (pressed && !inpt->lock[MAIN1]) { // this is a button release
-		pressed = false;
-
+		//
+		//	We are just grabbing the knob
+		//
+	if (!pressed && inpt->pressing[MAIN1]) {
+		if (isWithin(pos_knob, inpt->mouse)) {
+			pressed = true;
+			inpt->lock[MAIN1] = true;
+			return true;
+		}
+		return false;
+	}
+	if (pressed) {
+			//
+			// The knob has been released
+			//
+		if (!isWithin(pos, inpt->mouse)) {
+			pressed = false;
+			return false;
+		}
+		if (!inpt->lock[MAIN1]) {
+			pressed = false;
+		}
 		// set the value of the slider
 		float tmp;
-		if (inpt->mouse.x < pos.x)
+		if (inpt->mouse.x < pos.x) {
 			tmp = 0;
-		else if (inpt->mouse.x > pos.x+pos.w)
+		} else if (inpt->mouse.x > pos.x+pos.w) {
 			tmp = pos.w;
-		else
+		} else {
 			tmp = inpt->mouse.x - pos.x;
+		}
 
 		pos_knob.x = pos.x + tmp - (pos_knob.w/2);
 		value = tmp*((float)maximum/pos.w);
 
-		// activate upon release
 		return true;
-	}
-
-	if (inpt->pressing[MAIN1]) {
-		if (isWithin(pos, inpt->mouse)) {
-			pressed = true;
-			inpt->lock[MAIN1] = true;
-		}
 	}
 	return false;
 }
