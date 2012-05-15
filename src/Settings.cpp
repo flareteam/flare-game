@@ -109,7 +109,7 @@ bool MENUS_PAUSE = false;
  * PATH_USER is for user-specific data (e.g. save games)
  * PATH_DATA is for common game data (e.g. images, music)
  */
- 
+
 #ifdef _WIN32
 // Windows paths
 void setPaths() {
@@ -152,12 +152,12 @@ void setPaths() {
 		PATH_CONF = (string)getenv("HOME") + "/.config/";
 		createDir(PATH_CONF);
 		PATH_CONF += engine_folder + "/";
-		createDir(PATH_CONF);		
+		createDir(PATH_CONF);
 	}
 	// ./config/
 	else {
 		PATH_CONF = "./config/";
-		createDir(PATH_CONF);		
+		createDir(PATH_CONF);
 	}
 
 	// set user path (save games)
@@ -178,7 +178,7 @@ void setPaths() {
 	// ./saves/
 	else {
 		PATH_USER = "./saves/";
-		createDir(PATH_USER);	
+		createDir(PATH_USER);
 	}
 	
 	// data folder
@@ -286,6 +286,84 @@ bool saveSettings() {
 	if (outfile.is_open()) {
 	
 		for (int i = 0; i < config_size; i++) {
+
+			// write additional newline before the next section
+			if (i != 0 && config[i].comment != NULL)
+				outfile<<"\n";
+
+			if (config[i].comment != NULL) {
+				outfile<<"# "<<config[i].comment<<"\n";
+			}
+			outfile<<config[i].name<<"="<<toString(*config[i].type, config[i].storage)<<"\n";
+		}
+
+		outfile.close();
+	}
+	return true;
+}
+
+/**
+ * Load all default settings, except video settings.
+ */
+bool loadDefaults() {
+
+	// HACK init defaults except video
+	for (int i = 3; i < config_size; i++) {
+		// TODO: handle errors
+		ConfigEntry * entry = config + i;
+		tryParseValue(*entry->type, entry->default_val, entry->storage);
+	}
+
+	// Init automatically calculated parameters
+	VIEW_W_HALF = VIEW_W / 2;
+	VIEW_H_HALF = VIEW_H / 2;
+
+	return true;
+}
+
+/**
+ * Save selected video settings into file. Don't apply them at runtime.
+ */
+bool saveVideoSettings(int screen, int width, int height) {
+
+	int video[3];
+	video[0] = screen;
+	video[1] = width;
+	video[2] = height;
+
+	ofstream outfile;
+	outfile.open((PATH_CONF + FILE_SETTINGS).c_str(), ios::out);
+
+	if (outfile.is_open()) {
+
+		for (int i = 0; i < 3; i++) {
+
+			// write additional newline before the next section
+			if (i != 0 && config[i].comment != NULL)
+				outfile<<"\n";
+
+			if (config[i].comment != NULL) {
+				outfile<<"# "<<config[i].comment<<"\n";
+			}
+			outfile<<config[i].name<<"="<<video[i]<<"\n";
+		}
+
+		outfile.close();
+	}
+	return true;
+}
+
+/**
+ * Save the current main settings (except video settings)
+ */
+bool saveMiscSettings() {
+
+	ofstream outfile;
+	outfile.open((PATH_CONF + FILE_SETTINGS).c_str(), ios::out | ios::app);
+
+	if (outfile.is_open()) {
+
+		for (int i = 3; i < config_size; i++) {
 
 			// write additional newline before the next section
 			if (i != 0 && config[i].comment != NULL)

@@ -154,6 +154,7 @@ void GameStateNew::logic() {
 	}
 
 	if (button_exit->checkClick()) {
+		delete requestedGameState;
 		requestedGameState = new GameStateLoad();
 	}
 	

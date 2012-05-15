@@ -19,7 +19,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 /**
  * GameStateConfig
- * 
+ *
  * Handle game Settings Menu
  */
 
@@ -34,15 +34,17 @@ GameStateConfig::GameStateConfig ()
 		: GameState(),
 		  child_widget(),
 		  ok_button(NULL),
+		  defaults_button(NULL),
 		  cancel_button(NULL)
 
 {
 	// Initialize Widgets
 	tabControl = new WidgetTabControl(4);
 	ok_button = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
+	defaults_button = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
 	cancel_button = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
 
-	for (unsigned int i = 0; i < 36; i++) {
+	for (unsigned int i = 0; i < 39; i++) {
 		 settings_lb[i] = new WidgetLabel();
 	}
 
@@ -129,6 +131,9 @@ GameStateConfig::GameStateConfig ()
 			else if (infile.key == "ctrl") setting_num = 12 + CTRL;
 			else if (infile.key == "shift") setting_num = 12 + SHIFT;
 			else if (infile.key == "delete") setting_num = 12 + DEL;
+			else if (infile.key == "restart_note") setting_num = 37;
+			else if (infile.key == "hws_note") setting_num = 38;
+			else if (infile.key == "dbuf_note") setting_num = 39;
 
 			if (setting_num != -1) {
 					settings_lb[setting_num-1]->setX((VIEW_W - 640)/2 + x1);
@@ -143,7 +148,7 @@ GameStateConfig::GameStateConfig ()
 				} else if ((setting_num > 8) && (setting_num < 12)) {
 					settings_cmb[setting_num-9]->pos.x = (VIEW_W - 640)/2 + x2;
 					settings_cmb[setting_num-9]->pos.y = (VIEW_H - 480)/2 + y2;
-				} else if (setting_num > 11) {
+				} else if (setting_num > 11 && setting_num < 37) {
 					settings_key[setting_num-12]->pos.x = (VIEW_W - 640)/2 + x2;
 					settings_key[setting_num-12]->pos.y = (VIEW_H - 480)/2 + y2;
 				}
@@ -166,9 +171,15 @@ GameStateConfig::GameStateConfig ()
 	// Define widgets
 	ok_button->label = msg->get("Ok");
 	ok_button->pos.x = VIEW_W_HALF - ok_button->pos.w/2;
-	ok_button->pos.y = VIEW_H - (cancel_button->pos.h*2);
+	ok_button->pos.y = VIEW_H - (cancel_button->pos.h*3);
 	ok_button->refresh();
 	child_widget.push_back(ok_button);
+
+    defaults_button->label = msg->get("Defaults");
+	defaults_button->pos.x = VIEW_W_HALF - defaults_button->pos.w/2;
+	defaults_button->pos.y = VIEW_H - (cancel_button->pos.h*2);
+	defaults_button->refresh();
+	child_widget.push_back(defaults_button);
 
 	cancel_button->label = msg->get("Cancel");
 	cancel_button->pos.x = VIEW_W_HALF - cancel_button->pos.w/2;
@@ -180,7 +191,6 @@ GameStateConfig::GameStateConfig ()
 	child_widget.push_back(settings_lb[0]);
 	optiontab[child_widget.size()-1] = 0;
 
-	if (FULLSCREEN == true) settings_cb[0]->Check();
 	child_widget.push_back(settings_cb[0]);
 	optiontab[child_widget.size()-1] = 0;
 
@@ -188,7 +198,6 @@ GameStateConfig::GameStateConfig ()
 	child_widget.push_back(settings_lb[6]);
 	optiontab[child_widget.size()-1] = 1;
 
-	settings_sl[0]->set(0,128,MUSIC_VOLUME);
 	child_widget.push_back(settings_sl[0]);
 	optiontab[child_widget.size()-1] = 1;
 
@@ -196,7 +205,6 @@ GameStateConfig::GameStateConfig ()
 	child_widget.push_back(settings_lb[7]);
 	optiontab[child_widget.size()-1] = 1;
 
-	settings_sl[1]->set(0,128,SOUND_VOLUME);
 	child_widget.push_back(settings_sl[1]);
 	optiontab[child_widget.size()-1] = 1;
 
@@ -204,7 +212,6 @@ GameStateConfig::GameStateConfig ()
 	child_widget.push_back(settings_lb[1]);
 	optiontab[child_widget.size()-1] = 3;
 
-	if (MOUSE_MOVE == true) settings_cb[1]->Check();
 	child_widget.push_back(settings_cb[1]);
 	optiontab[child_widget.size()-1] = 3;
 
@@ -212,7 +219,6 @@ GameStateConfig::GameStateConfig ()
 	child_widget.push_back(settings_lb[2]);
 	optiontab[child_widget.size()-1] = 2;
 
-	if (COMBAT_TEXT == true) settings_cb[2]->Check();
 	child_widget.push_back(settings_cb[2]);
 	optiontab[child_widget.size()-1] = 2;
 
@@ -220,7 +226,6 @@ GameStateConfig::GameStateConfig ()
 	child_widget.push_back(settings_lb[3]);
 	optiontab[child_widget.size()-1] = 0;
 
-	if (HWSURFACE == true) settings_cb[3]->Check();
 	child_widget.push_back(settings_cb[3]);
 	optiontab[child_widget.size()-1] = 0;
 
@@ -228,7 +233,6 @@ GameStateConfig::GameStateConfig ()
 	child_widget.push_back(settings_lb[4]);
 	optiontab[child_widget.size()-1] = 0;
 
-	if (DOUBLEBUF == true) settings_cb[4]->Check();
 	child_widget.push_back(settings_cb[4]);
 	optiontab[child_widget.size()-1] = 0;
 
@@ -236,9 +240,20 @@ GameStateConfig::GameStateConfig ()
 	child_widget.push_back(settings_lb[5]);
 	optiontab[child_widget.size()-1] = 3;
 
-	if (ENABLE_JOYSTICK == true) settings_cb[5]->Check();
 	child_widget.push_back(settings_cb[5]);
 	optiontab[child_widget.size()-1] = 3;
+
+	settings_lb[36]->set(msg->get("Restart the game to changes take effect"));
+	child_widget.push_back(settings_lb[36]);
+	optiontab[child_widget.size()-1] = 0;
+
+	settings_lb[37]->set(msg->get("Try disabling for performance"));
+	child_widget.push_back(settings_lb[37]);
+	optiontab[child_widget.size()-1] = 0;
+
+	settings_lb[38]->set(msg->get("Try disabling for performance"));
+	child_widget.push_back(settings_lb[38]);
+	optiontab[child_widget.size()-1] = 0;
 
 	//Define ComboBoxes and their Labels
 
@@ -246,16 +261,6 @@ GameStateConfig::GameStateConfig ()
 	child_widget.push_back(settings_lb[9]);
 	optiontab[child_widget.size()-1] = 0;
 
-	std::stringstream list_mode;
-
-	for (unsigned int i=0; video_modes[i]; ++i) {
-		 list_mode << video_modes[i]->w << "x" << video_modes[i]->h;
-		 settings_cmb[1]->set(i, list_mode.str());
-		 if (video_modes[i]->w == VIEW_W && video_modes[i]->h == VIEW_H) settings_cmb[1]->selected = i;
-		 list_mode.str("");
-		}
-
-	settings_cmb[1]->refresh();
 	child_widget.push_back(settings_cmb[1]);
 	optiontab[child_widget.size()-1] = 0;
 
@@ -263,13 +268,6 @@ GameStateConfig::GameStateConfig ()
 	child_widget.push_back(settings_lb[10]);
 	optiontab[child_widget.size()-1] = 2;
 
-	if (!getLanguagesList()) fprintf(stderr, "Unable to get languages list!\n");
-	for (int i=0; i < langCount; i++) {
-		 settings_cmb[2]->set(i, language_full[i]);
-		 if (language_ISO[i] == LANGUAGE) settings_cmb[2]->selected = i;
-		}
-
-	settings_cmb[2]->refresh();
 	child_widget.push_back(settings_cmb[2]);
 	optiontab[child_widget.size()-1] = 2;
 
@@ -292,29 +290,116 @@ GameStateConfig::GameStateConfig ()
 		 child_widget.push_back(settings_key[i]);
 		 optiontab[child_widget.size()-1] = 3;
 	}
+
+	update();
 }
 
 
 GameStateConfig::~GameStateConfig()
 {
 	delete tabControl;
+	delete ok_button;
+	delete defaults_button;
+	delete cancel_button;
 
-	for (unsigned int i = 0; i < child_widget.size(); i++) {
-		delete child_widget[i];
+	child_widget.clear();
+
+	for (unsigned int i = 0; i < 39; i++) {
+		 delete settings_lb[i];
+	}
+
+	for (unsigned int i = 0; i < 2; i++) {
+		 delete settings_sl[i];
+	}
+
+	for (unsigned int i = 0; i < 6; i++) {
+		 delete settings_cb[i];
+	}
+
+	for (unsigned int i = 0; i < 25; i++) {
+		 delete settings_key[i];
+	}
+
+	for (unsigned int i = 0; i < 3; i++) {
+		 delete settings_cmb[i];
 	}
 }
 
+void GameStateConfig::update () {
+	if (FULLSCREEN == true) settings_cb[0]->Check();
+	else settings_cb[0]->unCheck();
+	settings_sl[0]->set(0,128,MUSIC_VOLUME);
+	settings_sl[1]->set(0,128,SOUND_VOLUME);
+	if (MOUSE_MOVE == true) settings_cb[1]->Check();
+	else settings_cb[1]->unCheck();
+	if (COMBAT_TEXT == true) settings_cb[2]->Check();
+	else settings_cb[2]->unCheck();
+	if (HWSURFACE == true) settings_cb[3]->Check();
+	else settings_cb[3]->unCheck();
+	if (DOUBLEBUF == true) settings_cb[4]->Check();
+	else settings_cb[4]->unCheck();
+	if (ENABLE_JOYSTICK == true) settings_cb[5]->Check();
+	else settings_cb[5]->unCheck();
+
+	std::stringstream list_mode;
+	getVideoModes();
+	for (unsigned int i=0; video_modes[i]; ++i) {
+		 list_mode << video_modes[i]->w << "x" << video_modes[i]->h;
+		 settings_cmb[1]->set(i, list_mode.str());
+		 if (video_modes[i]->w == VIEW_W && video_modes[i]->h == VIEW_H) settings_cmb[1]->selected = i;
+		 list_mode.str("");
+		}
+	int active = settings_cmb[1]->selected;
+
+	// Check if resolution was selected correctly
+	// If not, than 720x480 is not supported
+	list_mode << VIEW_W << "x" << VIEW_H;
+	if (settings_cmb[1]->get(active) != list_mode.str()) {
+		fprintf(stderr, "Default resolution 720x480 is not supported!\n");
+		fprintf(stderr, "Using 640x480 instead!\n");
+		for (unsigned int i=0; video_modes[i]; ++i) {
+			if (video_modes[i]->w == 640 && video_modes[i]->h == 480) settings_cmb[1]->selected = i;
+		}
+		VIEW_W = 640;
+	}
+
+	settings_cmb[1]->refresh();
+
+	if (!getLanguagesList()) fprintf(stderr, "Unable to get languages list!\n");
+	for (int i=0; i < getLanguagesNumber(); i++) {
+		 settings_cmb[2]->set(i, language_full[i]);
+		 if (language_ISO[i] == LANGUAGE) settings_cmb[2]->selected = i;
+		}
+
+	settings_cmb[2]->refresh();
+}
 
 void GameStateConfig::logic ()
 {
 	int active;
+
+	// Initialize resolution value
+	std::string value;
+	active = settings_cmb[1]->selected;
+	value = settings_cmb[1]->get(active) + 'x';
+	int width = eatFirstInt(value, 'x');
+	int height = eatFirstInt(value, 'x');
+
 	tabControl->logic();
 
 	// Ok/Cancel Buttons
 	if (ok_button->checkClick()) {
-		saveSettings();
+		saveVideoSettings(FULLSCREEN, width, height);
+		saveMiscSettings();
+		delete requestedGameState;
 		requestedGameState = new GameStateTitle();
+	} else if (defaults_button->checkClick()) {
+		FULLSCREEN = 0;
+		loadDefaults();
+		update();
+		setDefaultResolution();
 	} else if (cancel_button->checkClick()) {
+		delete requestedGameState;
 		requestedGameState = new GameStateTitle();
 	}
 
@@ -332,13 +417,8 @@ void GameStateConfig::logic ()
 			if (settings_cb[4]->isChecked()) DOUBLEBUF=true;
 			else DOUBLEBUF=false;
 		} else if (settings_cmb[1]->checkClick()) {
-			std::string value;
-
-			// TODO We need to change resolution only in settings file, not at runtime
-			active = settings_cmb[1]->getSelected();
+			active = settings_cmb[1]->selected;
 			value = settings_cmb[1]->get(active) + 'x';
-			VIEW_W = eatFirstInt(value, 'x');
-			VIEW_H = eatFirstInt(value, 'x');
 		}
 	}
 	// tab 1 (audio)
@@ -357,8 +437,10 @@ void GameStateConfig::logic ()
 			if (settings_cb[2]->isChecked()) COMBAT_TEXT=true;
 			else COMBAT_TEXT=false;
 		} else if (settings_cmb[2]->checkClick()) {
-			active = settings_cmb[2]->getSelected();
+			active = settings_cmb[2]->selected;
 			LANGUAGE = language_ISO[active];
+			delete msg;
+			msg = new MessageEngine();
 		}
 	}
 	// tab 3 (input)
@@ -377,13 +459,13 @@ void GameStateConfig::render ()
 {
 	tabControl->render();
 
-	for (unsigned int i = 0; i < 2; i++) {
+	for (unsigned int i = 0; i < 3; i++) {
 		child_widget[i]->render();
 	}
 
 	int active_tab = tabControl->getActiveTab();
 
-	for (unsigned int i = 2; i < child_widget.size(); i++) {
+	for (unsigned int i = 3; i < child_widget.size(); i++) {
 		 if (optiontab[i] == active_tab) child_widget[i]->render();
 	}
 }
@@ -442,4 +524,27 @@ int GameStateConfig::getLanguagesNumber()
 		infile.close();
 
 	return languages_num;
+}
+
+/**
+ * This function is a HACK to set combobox to default resolution without changing it at runtime
+ */
+void GameStateConfig::setDefaultResolution()
+{
+	std::stringstream list_mode;
+	bool default_720 = false;
+	getVideoModes();
+	for (unsigned int i=0; video_modes[i]; ++i) {
+		if (video_modes[i]->w == 720 && video_modes[i]->h == 480) {
+			default_720 = true; settings_cmb[1]->selected = i;
+		}
+		 list_mode.str("");
+		}
+
+	if (!default_720)
+		for (unsigned int i=0; video_modes[i]; ++i) {
+			if (video_modes[i]->w == 640 && video_modes[i]->h == 480) settings_cmb[1]->selected = i;
+		}
+	settings_cmb[1]->refresh();
+
 }

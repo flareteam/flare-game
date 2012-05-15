@@ -61,6 +61,10 @@ void WidgetCheckBox::Check ()
 	checked = true;
 }
 
+void WidgetCheckBox::unCheck ()
+{
+	checked = false;
+}
 
 bool WidgetCheckBox::checkClick ()
 {

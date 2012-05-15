@@ -119,6 +119,11 @@ void MenuManager::logic() {
 	log->logic();
 	talker->logic();
 
+	// only allow the vendor window to be open if the inventory is open 
+	if (vendor->visible && !(inv->visible)) {
+	  closeLeft(true);
+	}
+
 	if (!inpt->pressing[INVENTORY] && !inpt->pressing[POWERS] && !inpt->pressing[CHARACTER] && !inpt->pressing[LOG])
 		key_lock = false;
 
