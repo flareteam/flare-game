@@ -14,7 +14,7 @@ PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 You should have received a copy of the GNU General Public License along with
 FLARE.  If not, see http://www.gnu.org/licenses/
 
-NetMessage -- ClientSocket classes are based on SDL NET tutorail from www.sdltutorials.com. Thanks
+NetMessage -- ClientSocket classes are based on SDL NET tutorial from www.sdltutorials.com. Thanks
 */
 
 #include "Network.h"
