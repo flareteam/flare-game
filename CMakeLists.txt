@@ -59,6 +59,12 @@ Else (NOT SDLTTF_FOUND)
   Include_Directories (${SDLTTF_INCLUDE_DIR})
 EndIf (NOT SDLTTF_FOUND)
 
+Find_Package (SDL_net REQUIRED)
+If (NOT SDLNET_FOUND)
+  Message (FATAL_ERROR "Couldn't find SDL-net development files. On Debian-based systems (such as Ubuntu) you should install the 'libsdl-net1.2-dev' package.")
+Else (NOT SDLNET_FOUND)
+  Include_Directories (${SDLNET_INCLUDE_DIR})
+EndIf (NOT SDLNET_FOUND)
 
 # Sources
 
@@ -80,6 +86,7 @@ Set (FLARE_SOURCES
 	./src/GameStateConfig.cpp
 	./src/GameStateTitle.cpp
 	./src/GameStateLoad.cpp
+	./src/GameStateMultiplayer.cpp
 	./src/GameStatePlay.cpp
 	./src/GameStateNew.cpp
 	./src/GameSwitcher.cpp
@@ -111,6 +118,7 @@ Set (FLARE_SOURCES
 	./src/MenuVendor.cpp
 	./src/MessageEngine.cpp
 	./src/ModManager.cpp
+	./src/Network.cpp
 	./src/NPC.cpp
 	./src/NPCManager.cpp
 	./src/PowerManager.cpp
@@ -150,7 +158,7 @@ If (NOT SDLMAIN_LIBRARY)
   Set (SDLMAIN_LIBRARY "")
 EndIf (NOT SDLMAIN_LIBRARY)
 
-Target_Link_Libraries (flare ${SDL_LIBRARY} ${SDLMIXER_LIBRARY} ${SDLIMAGE_LIBRARY} ${SDLTTF_LIBRARY} ${SDLMAIN_LIBRARY})
+Target_Link_Libraries (flare ${SDL_LIBRARY} ${SDLMIXER_LIBRARY} ${SDLIMAGE_LIBRARY} ${SDLTTF_LIBRARY} ${SDLNET_LIBRARY} ${SDLMAIN_LIBRARY})
 
 
 set(FLARE_EXECUTABLE_PATH ${CMAKE_INSTALL_PREFIX}/${BINDIR}/flare)

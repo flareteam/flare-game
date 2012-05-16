@@ -20,6 +20,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "GameStateLoad.h"
 #include "GameStateTitle.h"
 #include "GameStateConfig.h"
+#include "GameStateMultiplayer.h"
 #include "SharedResources.h"
 
 GameStateTitle::GameStateTitle() : GameState() {
@@ -32,6 +33,7 @@ GameStateTitle::GameStateTitle() : GameState() {
 	// set up buttons
 	button_play = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
 	button_exit = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
+	button_multiplayer = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
 	button_cfg = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
 	
 	button_play->label = msg->get("Play Game");
@@ -43,6 +45,11 @@ GameStateTitle::GameStateTitle() : GameState() {
 	button_cfg->pos.x = VIEW_W_HALF - button_cfg->pos.w/2;
 	button_cfg->pos.y = VIEW_H - (button_exit->pos.h*2);
 	button_cfg->refresh();
+
+	button_multiplayer->label = msg->get("Multiplayer");
+	button_multiplayer->pos.x = VIEW_W_HALF - button_multiplayer->pos.w/2;
+	button_multiplayer->pos.y = VIEW_H - (button_exit->pos.h*4);
+	button_multiplayer->refresh();
 
 	button_exit->label = msg->get("Exit Game");
 	button_exit->pos.x = VIEW_W_HALF - button_exit->pos.w/2;
@@ -76,6 +83,9 @@ void GameStateTitle::logic() {
 	} else if (button_cfg->checkClick()) {
 		delete requestedGameState;
         requestedGameState = new GameStateConfig();
+	} else if (button_multiplayer->checkClick()) {
+		delete requestedGameState;
+		requestedGameState = new GameStateMultiPlayer();
     } else if (button_exit->checkClick()) {
 		exitRequested = true;
 	}
@@ -98,7 +108,8 @@ void GameStateTitle::render() {
 	button_play->render();
     button_cfg->render();
 	button_exit->render();
-	
+	button_multiplayer->render();
+
 	// version number
 	label_version->render();
 }
@@ -106,6 +117,8 @@ void GameStateTitle::render() {
 GameStateTitle::~GameStateTitle() {
 	delete button_play;
 	delete button_exit;
+	delete button_cfg;
+	delete button_multiplayer;
 	delete label_version;
 	SDL_FreeSurface(logo);
 }

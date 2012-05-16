@@ -73,6 +73,10 @@ bool Entity::move() {
 		case 7:
 			return map->collider.move(stats.pos.x, stats.pos.y, 0, 1, speed_straight);
 	}
+
+	/*TestCase for connection*/
+	network->statusHandler(stats.pos.x, stats.pos.y);
+
 	return true;
 }
 
@@ -109,7 +113,7 @@ int Entity::face(int mapx, int mapy) {
 	}
 	return stats.direction;
 }
-  
+
 /**
  * Load the entity's animation from animation definition file
  */
@@ -148,12 +152,12 @@ void Entity::loadAnimations(const string& filename) {
 			if (isInt(parser.val)) {
 				position = atoi(parser.val.c_str());
 			}
-		}	
+		}
 		else if (parser.key == "frames") {
 			if (isInt(parser.val)) {
 				frames = atoi(parser.val.c_str());
 			}
-		}	
+		}
 		else if (parser.key == "duration") {
 			if (isInt(parser.val)) {
 				int ms_per_frame = atoi(parser.val.c_str());
@@ -166,7 +170,7 @@ void Entity::loadAnimations(const string& filename) {
 				// TEMP: if an animation is too fast, display one frame per fps anyway
 				if (duration < 1) duration=1;
 			}
-		}	
+		}
 		else if (parser.key == "type") {
 			type = parser.val;
 		}
@@ -174,17 +178,17 @@ void Entity::loadAnimations(const string& filename) {
 			if (isInt(parser.val)) {
 				render_size.x = atoi(parser.val.c_str());
 			}
-		}	
+		}
 		else if (parser.key == "render_size_y") {
 			if (isInt(parser.val)) {
 				render_size.y = atoi(parser.val.c_str());
 			}
-		}	
+		}
 		else if (parser.key == "render_offset_x") {
 			if (isInt(parser.val)) {
 				render_offset.x = atoi(parser.val.c_str());
 			}
-		}	
+		}
 		else if (parser.key == "render_offset_y") {
 			if (isInt(parser.val)) {
 				render_offset.y = atoi(parser.val.c_str());
@@ -240,7 +244,7 @@ Entity::~Entity () {
 	for (vector<Animation*>::const_iterator it = animations.begin(); it != animations.end(); it++)
 	{
 		delete *it;
-	} 
+	}
 	animations.clear();
 }
 

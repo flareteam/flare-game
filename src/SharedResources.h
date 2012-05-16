@@ -32,12 +32,17 @@ Created and destroyed by main.cpp
 #include "MessageEngine.h"
 #include "InputState.h"
 #include "FontEngine.h"
+#include "Network.h"
 
 extern SDL_Surface *screen;
 extern ModManager *mods;
 extern MessageEngine *msg;
 extern InputState *inpt;
 extern FontEngine *font;
+
+extern Multiplayer *network;
+extern bool multiplayer;
+extern bool isHost;
 
 extern bool audio;
 

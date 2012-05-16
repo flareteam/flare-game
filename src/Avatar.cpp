@@ -562,6 +562,11 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 		stats.hero_cooldown[i] -= 1000 / FRAMES_PER_SEC;
 		if (stats.hero_cooldown[i] < 0) stats.hero_cooldown[i] = 0;
 	}
+
+	//Check if we are in multiplayer
+	if (multiplayer && isHost) network->serverOnLoop();
+	if (multiplayer && !isHost) network->clientOnLoop();
+
 }
 
 /**

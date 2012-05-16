@@ -32,4 +32,8 @@ MessageEngine *msg;
 InputState *inpt;
 FontEngine *font;
 
+Multiplayer *network;
+bool multiplayer;
+bool isHost;
+
 bool audio;
