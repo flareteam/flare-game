@@ -455,7 +455,7 @@ void Multiplayer::statusHandler(int new_x, int new_y) {
 	//Player == 0 is always Server.
 		if(CurrentPlayer == 0) {
 			setEntityStatus();//(new_X, new_Y, character, action);
-			printf("Send x=(%d) and y=(%d)\n", temp_x, temp_y);
+			printf("Send x=(%d) and y=(%d)\n", new_x, new_y);
 			printf("Send RAW to client: ");
 			for (int i=0; i < 10; i++) printf("%d ", packet[i]);
 			printf("\n");

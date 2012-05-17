@@ -92,7 +92,6 @@ public:
 	void resetGame();
 
 	Avatar *pc;
-    Avatar *partypl;
 	int game_slot;
 };
 
