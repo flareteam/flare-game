@@ -271,7 +271,6 @@ void GameStateLoad::loadPreview(int slot) {
 
 void GameStateLoad::logic() {
 
-	network = new Multiplayer();
 	frame_ticker++;
 	if (frame_ticker == 64) frame_ticker = 0;
 	if (frame_ticker < 32)
@@ -287,9 +286,7 @@ void GameStateLoad::logic() {
 	if(loading_requested) {
 		loading = true;
 		loading_requested = false;
-		if (multiplayer) network->Init();
-		if (multiplayer && isHost) network->startServer(1234);
-		if (multiplayer && !isHost) network->connectToServer("127.0.0.1", 1234);
+		if (multiplayer) network = new Multiplayer();
 		logicLoading();
 	}
 

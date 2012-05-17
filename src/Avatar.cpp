@@ -563,9 +563,11 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 		if (stats.hero_cooldown[i] < 0) stats.hero_cooldown[i] = 0;
 	}
 
-	//Check if we are in multiplayer
-	if (multiplayer && isHost) network->serverOnLoop();
-	if (multiplayer && !isHost) network->clientOnLoop();
+	//Send data to remote host
+	network->statusHandler(stats.pos.x, stats.pos.y);
+
+	//Accept data from remote host
+	network->MultiplayerLoop();
 
 }
 

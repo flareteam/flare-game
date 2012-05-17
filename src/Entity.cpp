@@ -74,9 +74,6 @@ bool Entity::move() {
 			return map->collider.move(stats.pos.x, stats.pos.y, 0, 1, speed_straight);
 	}
 
-	/*TestCase for connection*/
-	network->statusHandler(stats.pos.x, stats.pos.y);
-
 	return true;
 }
 

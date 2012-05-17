@@ -25,6 +25,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 GameStateTitle::GameStateTitle() : GameState() {
 
+	multiplayer = false;
+	isHost = false;
+
 	exit_game = false;
 	load_game = false;
 	

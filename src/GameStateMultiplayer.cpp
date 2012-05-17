@@ -94,8 +94,6 @@ void GameStateMultiPlayer::logic ()
 		delete requestedGameState;
 		requestedGameState = new GameStateLoad();
 	} else if (cancel_button->checkClick()) {
-		multiplayer = true;
-		isHost = true;
 		delete requestedGameState;
 		requestedGameState = new GameStateTitle();
 	}

@@ -17,7 +17,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 NetMessage -- ClientSocket classes are based on SDL NET tutorial from www.sdltutorials.com. Thanks
 */
 
-#include "Network.h"
+#include "SharedResources.h"
 
 //---------NetMessage Class------------//
 
@@ -290,17 +290,21 @@ bool ClientSocket::Send (NetMessage& sData) {
 //==============================================================================
 
 Multiplayer::Multiplayer() {
+
+	CurrentPlayer = 0;
 	Connected = false;
-	tcplistener = NULL;
-	tcpclient = NULL;
-	remoteip = NULL;
+
+	Init();
+
+	if (isHost) startServer(1234);
+	else connectToServer("127.0.0.1", 1234);
 }
 
-void Multiplayer::Cleanup() {
+Multiplayer::~Multiplayer() {
 
-	delete tcplistener;
 	delete tcpclient;
-	delete remoteip;
+	if (isHost) delete tcplistener;
+	else delete remoteip;
 }
 
 bool Multiplayer::Init() {
@@ -317,6 +321,10 @@ void Multiplayer::Quit() {
 }
 
 void Multiplayer::startServer(int port) {
+
+	tcplistener = NULL;
+	tcpclient = NULL;
+
 	tcplistener = new HostSocket (port);
 	if (!tcplistener->Ok())
 		exit(EXIT_FAILURE);
@@ -325,23 +333,38 @@ void Multiplayer::startServer(int port) {
 }
 
 void Multiplayer::connectToServer(std::string ip, int port) {
+
+	tcpclient = NULL;
+	remoteip = NULL;
+
 	tcpclient = new ClientSocket ();
 	remoteip = new IpAddress (ip, port);
 }
 
-void Multiplayer::serverOnLoop() {
+void Multiplayer::MultiplayerLoop() {
+
+	if (!multiplayer) return;
+
+	if(isHost) serverLoop();
+	else clientLoop();
+}
+
+void Multiplayer::serverLoop() {
 	if (!Connected) {
 		if (tcplistener->Accept (*tcpclient)) {
 			Connected = true;
 		}
 	}
 	else {
-		printf("Client is connected\n");
-		//FIXME Connected, but tcpclient is not Ready
 		if (tcpclient->Ready()) {
 			if (tcpclient->Receive (msg)) {
+				printf("Received from client RAW: (x) and (y) ");
+				charbuf result;
+				msg.UnLoadBytes(result);
+				for (int i=0; i < 10; i++) printf("%d ", result[i]);
+				printf("\n");
+				//Apply received data to be in sync
 				setEntityStatus();
-				printf("Client reported its new X position %d\n", msg.UnLoadByte());
 				CurrentPlayer = 0;
 			}
 			else
@@ -350,7 +373,7 @@ void Multiplayer::serverOnLoop() {
 	}
 }
 
-void Multiplayer::clientOnLoop() {
+void Multiplayer::clientLoop() {
 	if (!Connected) {
 		if (tcpclient->Connect(*remoteip)) {
 			if (tcpclient->Ok()) {
@@ -359,12 +382,15 @@ void Multiplayer::clientOnLoop() {
 		}
 	}
 	else {
-		printf("Client is connected\n");
-		//FIXME Connected, but tcpclient is not Ready
 		if (tcpclient->Ready()){
 			if (tcpclient->Receive (msg)) {
+				printf("Received from server RAW: (x) and (y) ");
+				charbuf result;
+				msg.UnLoadBytes(result);
+				for (int i=0; i < 10; i++) printf("%d ", result[i]);
+				printf("\n");
+				//Apply received data to be in sync
 				setEntityStatus();
-				printf("Server reported its new X position %d\n", msg.UnLoadByte());
 				CurrentPlayer = 1;
 			}
 			else {
@@ -378,22 +404,63 @@ void Multiplayer::clientOnLoop() {
  * Get new Entity position and transfer it to remote server/client
  */
 void Multiplayer::statusHandler(int new_x, int new_y) {
+
+	int temp_x = new_x;
+	int temp_y = new_y;
+	//Create data packet
+	char packet [256];
+	int intpacket [10];
+
+	int count = 0;
+	int digit;
+
+	while(temp_y>0)
+	{
+		digit = temp_y % 10;
+		temp_y = temp_y / 10;
+		intpacket[count] = digit;
+		count = count + 1;
+	}
+	count = 5;
+	while(temp_x>0)
+	{
+		digit = temp_x % 10;
+		temp_x = temp_x / 10;
+		intpacket[count] = digit;
+		count = count + 1;
+	}
+
+	//This gives normal digits order
+	for (int i=0; i < 10; i++) {
+		packet[i] = (char) intpacket[9-i];
+	}
+
 	//Handle client
 	//Player == 0 is always Server.
-	if(CurrentPlayer != 0) {
-		setEntityStatus();//(new_X, new_Y, character, action);
-		CurrentPlayer = 0;
-		msg.LoadByte((char) new_x);
-		tcpclient->Send(msg);
-	}
+	if (!isHost) {
+		if(CurrentPlayer != 0) {
+			setEntityStatus();//(new_X, new_Y, character, action);
+			printf("Send x=(%d) and y=(%d)\n", new_x, new_y);
+			printf("Send RAW to server: ");
+			for (int i=0; i < 10; i++) printf("%d ", packet[i]);
+			printf("\n");
+			CurrentPlayer = 0;
+			msg.LoadBytes(packet,10);
+			tcpclient->Send(msg);
+		}
+	} else
 
 	//Handle server
 	if (Connected) {
 	//Player == 0 is always Server.
 		if(CurrentPlayer == 0) {
 			setEntityStatus();//(new_X, new_Y, character, action);
+			printf("Send x=(%d) and y=(%d)\n", temp_x, temp_y);
+			printf("Send RAW to client: ");
+			for (int i=0; i < 10; i++) printf("%d ", packet[i]);
+			printf("\n");
 			CurrentPlayer = 1;
-			msg.LoadByte((char) new_x);
+			msg.LoadBytes(packet,10);
 			tcpclient->Send(msg);
 		}
 	}

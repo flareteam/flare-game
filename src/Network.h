@@ -67,7 +67,7 @@ class IpAddress {
 class TcpSocket {
   protected:
 	TCPsocket m_Socket;
-	SDLNet_SocketSet set;
+	SDLNet_SocketSet set; //a set of sockets. Used here only to check existing packets
   public:
 	TcpSocket();
 	virtual ~TcpSocket();
@@ -115,17 +115,18 @@ class Multiplayer {
 
 		int CurrentPlayer;
 
+		void serverLoop();
+		void clientLoop();
+		void setEntityStatus();
 
 	public:
 		Multiplayer();
+		~Multiplayer();
 
 		bool Init(); //Initialize SDL_net
 		void Quit(); //Exit SDL_net
 		void startServer( int port);
 		void connectToServer(std::string ip, int port);
-		void Cleanup();
-		void serverOnLoop();
-		void clientOnLoop();
+		void MultiplayerLoop();
 		void statusHandler(int new_x, int new_y);
-		void setEntityStatus();
 };
