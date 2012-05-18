@@ -389,6 +389,7 @@ void GameStateConfig::logic ()
 
 	// Ok/Cancel Buttons
 	if (ok_button->checkClick()) {
+		refreshFont();
 		saveVideoSettings(FULLSCREEN, width, height);
 		saveMiscSettings();
 		delete requestedGameState;
@@ -503,7 +504,7 @@ bool GameStateConfig::getLanguagesList()
 		unsigned int i=0;
 		while (infile.next()) {
 			   language_ISO[i] = infile.key;
-			   language_full[i] = infile.val.c_str();
+			   language_full[i] = infile.nextValue();
 			   i += 1;
 			}
 		} else fprintf(stderr, "Unable to open languages.txt!\n");
@@ -547,4 +548,35 @@ void GameStateConfig::setDefaultResolution()
 		}
 	settings_cmb[1]->refresh();
 
+}
+
+void GameStateConfig::refreshFont() {
+	std::string local_font;
+	std::string default_font;
+	FileParser infile, infile2;
+	if (infile.open(mods->locate("engine/languages.txt"))) {
+		while (infile.next()) {
+			if (infile.key == LANGUAGE) {
+			   local_font = infile.nextValue();// Ignore full language name
+			   local_font = infile.nextValue();
+			   // Check if selected language needs another font
+			   if (local_font != "") {
+				   delete font;
+				   font = new FontEngine();
+			   } else {
+			   // We have selected language with default font
+				   if (infile2.open(mods->locate("engine/font_settings.txt"))) {
+						while (infile2.next()) if (infile2.key == "font_regular") default_font = infile2.val;
+				   }
+				   infile2.close();
+				   // If active font is not default, reset font to default
+				   if (local_font != default_font) {
+					    delete font;
+						font = new FontEngine();
+						}
+				   }
+			}
+		}
+	} else fprintf(stderr, "Unable to open languages.txt!\n");
+	infile.close();
 }
