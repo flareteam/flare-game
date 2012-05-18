@@ -14,66 +14,10 @@ PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 You should have received a copy of the GNU General Public License along with
 FLARE.  If not, see http://www.gnu.org/licenses/
 
-NetMessage -- ClientSocket classes are based on SDL NET tutorial from www.sdltutorials.com. Thanks
+IpAddress -- ClientSocket classes are based on SDL NET tutorial from www.sdltutorials.com. Thanks
 */
 
 #include "SharedResources.h"
-
-//---------NetMessage Class------------//
-
-NetMessage::NetMessage() {
-	reset();
-}
-
-void NetMessage::reset() {
-	for (int i =0; i < 256; i++)
-		buffer [i] = 0;
-	state = EMPTY;
-}
-
-void NetMessage::finish() {
-	if (state == READING)
-		state = FULL;
-}
-
-int NetMessage::NumToLoad() {
-	if (state == EMPTY)
-		return 255;
-	else
-		return 0;
-}
-
-int NetMessage::NumToUnLoad() {
-	if (state == FULL)
-		return strlen(buffer) + 1;
-	else
-		return 0;
-}
-
-void NetMessage::LoadBytes(charbuf& inputbuffer, int n) {
-	for (int i = 0; i < n; i++)
-		buffer[i] = inputbuffer[i];
-	state = READING;
-}
-
-void NetMessage::UnLoadBytes(charbuf& destbuffer) {
-	for (int i=0; i < this->NumToUnLoad(); i++)
-		destbuffer[i] = buffer[i];
-	reset();
-}
-
-void NetMessage::LoadByte(char ID) {
-	charbuf c;
-	c[0] = ID;
-	LoadBytes(c, 1);
-	finish();
-}
-
-char NetMessage::UnLoadByte() {
-	charbuf c;
-	UnLoadBytes (c);
-	return c[0];
-}
 
 //---------IpAddress Class------------//
 
@@ -251,39 +195,28 @@ IpAddress ClientSocket::getIpAddress () const {
 	return m_RemoteIp;
 }
 
-bool ClientSocket::Receive(NetMessage& rData) {
-//Firstly, check if there is a socket
+bool ClientSocket::Receive(DataPacket* rData) {
 	if (m_Socket == NULL)
 		return false;
-	charbuf buf;
+		
+	int len = sizeof(DataPacket);
 
-//Check if the instance can receive bytes, if it can, load the number of bytes specfied by NumToLoad() virtual function
-	while (rData.NumToLoad() > 0) {
-		if (SDLNet_TCP_Recv(m_Socket, buf, rData.NumToLoad()) > 0) {
-			rData.LoadBytes (buf, rData.NumToLoad());
-		}
-		else {
-			return false;
-		}
-	}
-	rData.finish();
+	if (SDLNet_TCP_Recv(m_Socket, (void *)rData, len) <= 0)
+		return false;
+
 	return true;
 }
 
-bool ClientSocket::Send (NetMessage& sData) {
+bool ClientSocket::Send (DataPacket* sData) {
 	if (m_Socket == NULL)
 		return false;
-	charbuf buf;
-	int len;
+		
+	int len = sizeof(DataPacket);
 
-//Check if the instance can send bytes, if it can, unload the number of bytes specfied by NumToLoad()
-	while ((len = sData.NumToUnLoad()) > 0) {
-		sData.UnLoadBytes (buf);
-		if (SDLNet_TCP_Send(m_Socket, (void *)buf, len) < len) {
-			fprintf(stderr, "SDLNet_TCP_Send: %s\n", SDLNet_GetError());
-			return false;
+	if (SDLNet_TCP_Send(m_Socket, (void *)sData, len) < len) {
+		fprintf(stderr, "SDLNet_TCP_Send: %s\n", SDLNet_GetError());
+		return false;
 		}
-	}
 	return true;
 }
 
@@ -298,6 +231,8 @@ Multiplayer::Multiplayer() {
 
 	if (isHost) startServer(1234);
 	else connectToServer("127.0.0.1", 1234);
+	
+	//DataPacket packet_to_send;
 }
 
 Multiplayer::~Multiplayer() {
@@ -350,6 +285,9 @@ void Multiplayer::MultiplayerLoop() {
 }
 
 void Multiplayer::serverLoop() {
+
+	DataPacket* packet_get = new DataPacket;
+
 	if (!Connected) {
 		if (tcplistener->Accept (*tcpclient)) {
 			Connected = true;
@@ -357,23 +295,22 @@ void Multiplayer::serverLoop() {
 	}
 	else {
 		if (tcpclient->Ready()) {
-			if (tcpclient->Receive (msg)) {
-				printf("Received from client RAW: (x) and (y) ");
-				charbuf result;
-				msg.UnLoadBytes(result);
-				for (int i=0; i < 10; i++) printf("%d ", result[i]);
-				printf("\n");
-				//Apply received data to be in sync
-				setEntityStatus();
-				CurrentPlayer = 0;
+			if (tcpclient->Receive (packet_get)) {
+				printf("Received hero position %d, %d\n", packet_get->hero_pos_x, packet_get->hero_pos_y);
+				setEntityStatus(packet_get->hero_pos_x, packet_get->hero_pos_y);//(new_X, new_Y, character, action);
 			}
 			else
 				Connected = false;
 		}
 	}
+	
+	delete packet_get;
 }
 
 void Multiplayer::clientLoop() {
+
+	DataPacket* packet_get = new DataPacket;
+
 	if (!Connected) {
 		if (tcpclient->Connect(*remoteip)) {
 			if (tcpclient->Ok()) {
@@ -383,21 +320,17 @@ void Multiplayer::clientLoop() {
 	}
 	else {
 		if (tcpclient->Ready()){
-			if (tcpclient->Receive (msg)) {
-				printf("Received from server RAW: (x) and (y) ");
-				charbuf result;
-				msg.UnLoadBytes(result);
-				for (int i=0; i < 10; i++) printf("%d ", result[i]);
-				printf("\n");
-				//Apply received data to be in sync
-				setEntityStatus();
-				CurrentPlayer = 1;
+			if (tcpclient->Receive (packet_get)) {
+				printf("Received hero position %d, %d\n", packet_get->hero_pos_x, packet_get->hero_pos_y);
+				setEntityStatus(packet_get->hero_pos_x, packet_get->hero_pos_y);//(new_X, new_Y, character, action);
 			}
 			else {
 				Connected = false;
 			}
 		}
 	}
+	
+	delete packet_get;
 }
 
 /**
@@ -405,70 +338,32 @@ void Multiplayer::clientLoop() {
  */
 void Multiplayer::statusHandler(int new_x, int new_y) {
 
-	int temp_x = new_x;
-	int temp_y = new_y;
-	//Create data packet
-	char packet [256];
-	int intpacket [10];
+	DataPacket* packet_to_send = new DataPacket;
 
-	int count = 0;
-	int digit;
-
-	while(temp_y>0)
-	{
-		digit = temp_y % 10;
-		temp_y = temp_y / 10;
-		intpacket[count] = digit;
-		count = count + 1;
-	}
-	count = 5;
-	while(temp_x>0)
-	{
-		digit = temp_x % 10;
-		temp_x = temp_x / 10;
-		intpacket[count] = digit;
-		count = count + 1;
-	}
-
-	//This gives normal digits order
-	for (int i=0; i < 10; i++) {
-		packet[i] = (char) intpacket[9-i];
-	}
+	packet_to_send->hero_pos_x = new_x;
+	packet_to_send->hero_pos_y = new_y;
 
 	//Handle client
-	//Player == 0 is always Server.
 	if (!isHost) {
-		if(CurrentPlayer != 0) {
-			setEntityStatus();//(new_X, new_Y, character, action);
-			printf("Send x=(%d) and y=(%d)\n", new_x, new_y);
-			printf("Send RAW to server: ");
-			for (int i=0; i < 10; i++) printf("%d ", packet[i]);
-			printf("\n");
-			CurrentPlayer = 0;
-			msg.LoadBytes(packet,10);
-			tcpclient->Send(msg);
-		}
+		setEntityStatus(packet_to_send->hero_pos_x, packet_to_send->hero_pos_y);
+		printf("Send hero position %d, %d\n", packet_to_send->hero_pos_x, packet_to_send->hero_pos_y);
+		tcpclient->Send(packet_to_send);
 	} else
 
 	//Handle server
 	if (Connected) {
-	//Player == 0 is always Server.
-		if(CurrentPlayer == 0) {
-			setEntityStatus();//(new_X, new_Y, character, action);
-			printf("Send x=(%d) and y=(%d)\n", new_x, new_y);
-			printf("Send RAW to client: ");
-			for (int i=0; i < 10; i++) printf("%d ", packet[i]);
-			printf("\n");
-			CurrentPlayer = 1;
-			msg.LoadBytes(packet,10);
-			tcpclient->Send(msg);
-		}
+		setEntityStatus(packet_to_send->hero_pos_x, packet_to_send->hero_pos_y);
+		printf("Send hero position %d, %d\n", packet_to_send->hero_pos_x, packet_to_send->hero_pos_y);
+		tcpclient->Send(packet_to_send);
 	}
+
+	delete packet_to_send;
 }
 
 /**
  * Set received Entity status/position
  */
-void Multiplayer::setEntityStatus() {
+void Multiplayer::setEntityStatus(int recv_x, int recv_y) {
+
 	//UNIMPLEMENTED
 }

@@ -14,7 +14,7 @@ PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 You should have received a copy of the GNU General Public License along with
 FLARE.  If not, see http://www.gnu.org/licenses/
 
-NetMessage -- ClientSocket classes are based on SDL NET tutorial from www.sdltutorials.com. Thanks
+IpAddress -- ClientSocket classes are based on SDL NET tutorial from www.sdltutorials.com. Thanks
 */
 
 #include <stdio.h>
@@ -25,28 +25,19 @@ NetMessage -- ClientSocket classes are based on SDL NET tutorial from www.sdltut
 #include <cstring>
 #include "SDL_net.h"
 
-typedef char charbuf [256];
+// Data Packet size is 100 bytes
+typedef struct DataPacket {
+    unsigned char img_main [30];
+    unsigned char img_armor [30];
+    unsigned char img_off [30];
+    bool takehit;
+    unsigned char current_power;
 
-class NetMessage {
-  protected:
-	charbuf buffer;
-	enum bufstates {
-	EMPTY,
-	READING,
-	WRITING,
-	FULL };
-	bufstates state;
-	void reset(); // reset message: fulfill it with zeroes and change its state to EMPTY
-  public:
-	NetMessage();
-	int NumToLoad();
-	int NumToUnLoad();
-	void LoadBytes(charbuf& inputbuffer, int n);
-	void UnLoadBytes(charbuf& destbuffer);
-	void LoadByte(char);
-	char UnLoadByte();
-	void finish();
-};
+    unsigned short int face_map_x;
+    unsigned short int face_map_y;
+    unsigned short int hero_pos_x;
+    unsigned short int hero_pos_y;
+} DataPacket;
 
 //==============================================================================
 
@@ -96,8 +87,8 @@ class ClientSocket : public TcpSocket {
 	bool Connect (HostSocket& the_listener_socket);
 	void SetSocket (TCPsocket  the_sdl_socket);
 	IpAddress getIpAddress () const;
-	bool Receive(NetMessage& rData);
-	bool Send (NetMessage& sData);
+	bool Receive(DataPacket* rData);
+	bool Send (DataPacket* sData);
 };
 
 //==============================================================================
@@ -111,13 +102,12 @@ class Multiplayer {
 		HostSocket* tcplistener;
 		ClientSocket* tcpclient;
 		IpAddress* remoteip;
-		NetMessage msg;
 
 		int CurrentPlayer;
 
 		void serverLoop();
 		void clientLoop();
-		void setEntityStatus();
+		void setEntityStatus(int recv_x, int recv_y);
 
 	public:
 		Multiplayer();
