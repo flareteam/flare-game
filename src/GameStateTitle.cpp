@@ -105,7 +105,7 @@ void GameStateTitle::render() {
 
 GameStateTitle::~GameStateTitle() {
 	delete button_play;
-	delete button_cfg
+	delete button_cfg;
 	delete button_exit;
 	delete label_version;
 	SDL_FreeSurface(logo);
