@@ -50,6 +50,20 @@ FontEngine::FontEngine() {
 			}
 		}
 	}
+	infile.close();
+	// Redefine font to language specific if avaliable
+	std::string local_font;
+	if (infile.open(mods->locate("engine/languages.txt"))) {
+		while (infile.next()) {
+			if (infile.key == LANGUAGE) {
+			   local_font = infile.nextValue();// Ignore full language name
+			   local_font = infile.nextValue();
+			   if (local_font != "") {
+				   font_path = local_font; font_pt = atoi(infile.nextValue().c_str());
+			   }
+			}
+		}
+	}
 	font_path = mods->locate("fonts/" + font_path);
 	ttfont = TTF_OpenFont(font_path.c_str(), font_pt);
 	if(!ttfont) printf("TTF_OpenFont: %s\n", TTF_GetError());

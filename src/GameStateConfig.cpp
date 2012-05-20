@@ -389,6 +389,7 @@ void GameStateConfig::logic ()
 
 	// Ok/Cancel Buttons
 	if (ok_button->checkClick()) {
+		refreshFont();
 		saveVideoSettings(FULLSCREEN, width, height);
 		saveMiscSettings();
 		delete requestedGameState;
@@ -503,7 +504,7 @@ bool GameStateConfig::getLanguagesList()
 		unsigned int i=0;
 		while (infile.next()) {
 			   language_ISO[i] = infile.key;
-			   language_full[i] = infile.val.c_str();
+			   language_full[i] = infile.nextValue();
 			   i += 1;
 			}
 		} else fprintf(stderr, "Unable to open languages.txt!\n");
@@ -547,4 +548,9 @@ void GameStateConfig::setDefaultResolution()
 		}
 	settings_cmb[1]->refresh();
 
+}
+
+void GameStateConfig::refreshFont() {
+	delete font;
+	font = new FontEngine();
 }
