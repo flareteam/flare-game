@@ -25,12 +25,14 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef NPC_MANAGER_H
 #define NPC_MANAGER_H
 
-#include "NPC.h"
-#include "MapIso.h"
 #include "WidgetTooltip.h"
-#include "LootManager.h"
 
 #include <SDL.h>
+
+class ItemManager;
+class LootManager;
+class MapIso;
+class NPC;
 
 // max number of NPCs for a single map
 const int MAX_NPC_COUNT = 32;
@@ -42,7 +44,7 @@ private:
 	LootManager *loot;
 	ItemManager *items;
 	TooltipData tip_buf;
-	
+
 public:
 	NPCManager(MapIso *_map, LootManager *_loot, ItemManager *_items);
 	~NPCManager();

@@ -28,8 +28,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef MESSAGE_ENGINE_H
 #define MESSAGE_ENGINE_H
 
-#include "GetText.h"
-#include "Settings.h"
 #include <map>
 
 class MessageEngine {

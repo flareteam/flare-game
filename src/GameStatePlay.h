@@ -25,26 +25,25 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef GAMESTATEPLAY_H
 #define GAMESTATEPLAY_H
 
-#include "InputState.h"
-#include "Avatar.h"
-#include "Enemy.h"
-#include "MapIso.h"
-#include "Utils.h"
-#include "HazardManager.h"
-#include "EnemyManager.h"
-#include "FontEngine.h"
-#include "MenuManager.h"
-#include "LootManager.h"
-#include "PowerManager.h"
-#include "NPCManager.h"
-#include "CampaignManager.h"
-#include "QuestLog.h"
 #include "GameState.h"
-#include "WidgetLabel.h"
-#include "CombatText.h"
 
 #include <SDL.h>
 #include <SDL_image.h>
+
+
+class Avatar;
+class CampaignManager;
+class Enemy;
+class EnemyManager;
+class HazardManager;
+class ItemManager;
+class LootManager;
+class MapIso;
+class MenuManager;
+class NPCManager;
+class PowerManager;
+class QuestLog;
+class WidgetLabel;
 
 class GameStatePlay : public GameState {
 private:

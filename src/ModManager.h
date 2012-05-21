@@ -25,8 +25,6 @@ mods in priority order when loading data files.
 #ifndef MOD_MANAGER_H
 #define MOD_MANAGER_H
 
-#include "Settings.h"
-#include "UtilsParsing.h"
 #include <string>
 #include <map>
 #include <vector>
@@ -36,7 +34,7 @@ private:
 	void loadModList();
 
 	std::map<std::string,std::string> loc_cache;
-	
+
 public:
 	ModManager();
 	~ModManager();

@@ -21,19 +21,22 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "GameStateTitle.h"
 #include "GameStateConfig.h"
 #include "SharedResources.h"
+#include "Settings.h"
+#include "WidgetButton.h"
+#include "WidgetLabel.h"
 
 GameStateTitle::GameStateTitle() : GameState() {
 
 	exit_game = false;
 	load_game = false;
-	
+
 	loadGraphics();
-	
+
 	// set up buttons
 	button_play = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
 	button_exit = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
 	button_cfg = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
-	
+
 	button_play->label = msg->get("Play Game");
 	button_play->pos.x = VIEW_W_HALF - button_play->pos.w/2;
 	button_play->pos.y = VIEW_H - (button_exit->pos.h*3);
@@ -48,7 +51,7 @@ GameStateTitle::GameStateTitle() : GameState() {
 	button_exit->pos.x = VIEW_W_HALF - button_exit->pos.w/2;
 	button_exit->pos.y = VIEW_H - button_exit->pos.h;
 	button_exit->refresh();
-	
+
 	// set up labels
 	label_version = new WidgetLabel();
 	label_version->set(VIEW_W, 0, JUSTIFY_RIGHT, VALIGN_TOP, msg->get("Flare Alpha v0.15"), FONT_WHITE);
@@ -62,11 +65,11 @@ void GameStateTitle::loadGraphics() {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 		SDL_Quit();
 	}
-	
+
 	// optimize
 	SDL_Surface *cleanup = logo;
 	logo = SDL_DisplayFormatAlpha(logo);
-	SDL_FreeSurface(cleanup);	
+	SDL_FreeSurface(cleanup);
 }
 
 void GameStateTitle::logic() {
@@ -85,7 +88,7 @@ void GameStateTitle::render() {
 
 	SDL_Rect src;
 	SDL_Rect dest;
-	
+
 	// display logo centered
 	src.x = src.y = 0;
 	src.w = dest.w = logo->w;
@@ -98,7 +101,7 @@ void GameStateTitle::render() {
 	button_play->render();
     button_cfg->render();
 	button_exit->render();
-	
+
 	// version number
 	label_version->render();
 }

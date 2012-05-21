@@ -25,8 +25,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #define MENU_H
 
 #include <SDL_image.h>
-#include "FontEngine.h"
-#include "InputState.h"
 
 class Menu {
 protected:

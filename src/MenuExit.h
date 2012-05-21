@@ -24,7 +24,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "Menu.h"
 #include "WidgetButton.h"
-#include "SharedResources.h"
 
 #include <SDL_image.h>
 

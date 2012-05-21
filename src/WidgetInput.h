@@ -25,8 +25,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef WIDGETINPUT_H
 #define WIDGETINPUT_H
 
-#include "FontEngine.h"
-#include "InputState.h"
+#include "Utils.h"
 #include "Widget.h"
 #include <SDL.h>
 #include <string>

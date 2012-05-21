@@ -26,7 +26,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include <fstream>
 #include <string>
-#include "UtilsParsing.h"
 
 class FileParser {
 private:

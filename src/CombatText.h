@@ -21,14 +21,15 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  *
  * The CombatText class displays floating damage numbers and miss messages
  * above the targets.
- * 
+ *
  */
 
 #ifndef COMBAT_TEXT_H
 #define COMBAT_TEXT_H
 
+#include "Utils.h"
 #include "WidgetLabel.h"
-#include "Settings.h"
+
 #include <vector>
 #include <string>
 
@@ -37,6 +38,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #define DISPLAY_HEAL 2
 #define DISPLAY_MISS 3
 #define DISPLAY_SHIELD 4
+
+class WIdgetLabel;
 
 struct Combat_Text_Item {
 	WidgetLabel *label;
@@ -59,7 +62,7 @@ private:
     std::vector<Combat_Text_Item> combat_text;
     CombatText(){};
     CombatText(CombatText const&){};
-    
+
     static CombatText* m_pInstance;
 
 };

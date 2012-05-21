@@ -22,17 +22,15 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef MENU_POWERS_H
 #define MENU_POWERS_H
 
-#include "InputState.h"
 #include "Utils.h"
-#include "FontEngine.h"
-#include "StatBlock.h"
-#include "WidgetTooltip.h"
-#include "PowerManager.h"
 #include "WidgetButton.h"
-#include "SharedResources.h"
 
 #include <SDL.h>
 #include <SDL_image.h>
+
+class PowerManager;
+class StatBlock;
+class TooltipData;
 
 class MenuPowers {
 private:
@@ -43,7 +41,7 @@ private:
 	SDL_Surface *powers_step;
 	SDL_Surface *powers_unlock;
 	WidgetButton *closeButton;
-	
+
 	WidgetLabel label_powers;
 	WidgetLabel label_p1;
 	WidgetLabel label_p2;
@@ -57,7 +55,7 @@ private:
 	WidgetLabel stat_pd;
 	WidgetLabel stat_mo;
 	WidgetLabel stat_md;
-	
+
 	void loadGraphics();
 	void displayBuild(int value, int x);
 
@@ -69,7 +67,7 @@ public:
 	TooltipData checkTooltip(Point mouse);
 	bool requirementsMet(int power_index);
 	int click(Point mouse);
-	
+
 	bool visible;
 	SDL_Rect slots[20]; // the location of power slots
 

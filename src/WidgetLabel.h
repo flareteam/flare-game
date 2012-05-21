@@ -25,7 +25,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef WIDGET_LABEL_H
 #define WIDGET_LABEL_H
 
-#include "FontEngine.h"
 #include "Widget.h"
 #include <SDL.h>
 #include <string>
@@ -58,7 +57,7 @@ public:
 	void setJustify(int _justify);
 	void setValign(int _valign);
 	void setColor(int _color);
-	
+
 	void set(const std::string& _text);
 	std::string get() {return text;}
 

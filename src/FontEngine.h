@@ -18,10 +18,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef FONT_ENGINE_H
 #define FONT_ENGINE_H
 
-
-#include "Settings.h"
 #include "Utils.h"
-#include "UtilsParsing.h"
 
 #include <SDL.h>
 #include <SDL_image.h>

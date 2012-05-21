@@ -20,6 +20,21 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "MenuManager.h"
+#include "MenuActionBar.h"
+#include "MenuCharacter.h"
+#include "MenuExperience.h"
+#include "MenuHPMP.h"
+#include "MenuHUDLog.h"
+#include "MenuInventory.h"
+#include "MenuMiniMap.h"
+#include "MenuPowers.h"
+#include "MenuEnemy.h"
+#include "MenuVendor.h"
+#include "MenuTalker.h"
+#include "MenuExit.h"
+#include "MenuLog.h"
+#include "ModManager.h"
+#include "PowerManager.h"
 #include "SharedResources.h"
 
 MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManager *_camp, ItemManager *_items) {
@@ -119,7 +134,7 @@ void MenuManager::logic() {
 	log->logic();
 	talker->logic();
 
-	// only allow the vendor window to be open if the inventory is open 
+	// only allow the vendor window to be open if the inventory is open
 	if (vendor->visible && !(inv->visible)) {
 	  closeLeft(true);
 	}

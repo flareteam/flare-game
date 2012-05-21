@@ -16,6 +16,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 */
 
 #include "GetText.h"
+#include "UtilsParsing.h"
 
 
 using namespace std;

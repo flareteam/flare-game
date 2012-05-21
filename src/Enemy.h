@@ -30,16 +30,11 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <SDL_mixer.h>
 
 #include "Entity.h"
-#include "Utils.h"
-#include "InputState.h"
-#include "MapIso.h"
-#include "StatBlock.h"
-#include "Hazard.h"
-#include "Settings.h"
-#include "PowerManager.h"
-#include "CombatText.h"
-#include "EnemyBehavior.h"
 
+class EnemyBehavior;
+class Hazard;
+class PowerManager;
+class StatBlock;
 
 
 class Enemy : public Entity {

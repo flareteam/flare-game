@@ -25,16 +25,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef GAMESTATENEW_H
 #define GAMESTATENEW_H
 
-#include "InputState.h"
-#include "FontEngine.h"
-#include "WidgetButton.h"
-#include "WidgetInput.h"
-#include "FileParser.h"
-#include "Settings.h"
 #include "GameState.h"
-#include "UtilsParsing.h"
-#include "SharedResources.h"
-#include "WidgetCheckBox.h"
 
 #include <SDL.h>
 #include <SDL_image.h>
@@ -43,7 +34,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <string>
 #include <sstream>
 
-
+class WidgetButton;
+class WidgetCheckBox;
+class WidgetInput;
 class WidgetLabel;
 
 

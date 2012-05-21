@@ -23,9 +23,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef WIDGET_ComboBox_H
 #define WIDGET_ComboBox_H
 
-#include "Utils.h"
-#include "FontEngine.h"
-#include "InputState.h"
 #include "Widget.h"
 #include "WidgetLabel.h"
 

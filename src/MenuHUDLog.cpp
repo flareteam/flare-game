@@ -21,16 +21,17 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "MenuHUDLog.h"
 #include "SharedResources.h"
+#include "Settings.h"
 
 using namespace std;
 
 MenuHUDLog::MenuHUDLog() {
-	
+
 	log_count = 0;
 	list_area.x = 224;
 	list_area.y = 416;
 	paragraph_spacing = font->getLineHeight()/2;
-	
+
 	for (int i=0; i<MAX_HUD_MESSAGES; i++) {
 		msg_buffer[i] = NULL;
 		log_msg[i] = "";
@@ -62,16 +63,16 @@ void MenuHUDLog::logic() {
  * New messages appear on the screen for a brief time
  */
 void MenuHUDLog::render() {
-	
+
 	SDL_Rect dest;
 	dest.x = 32;
 	dest.y = VIEW_H - 40;
-	
+
 
 	// go through new messages
 	for (int i=log_count-1; i>=0; i--) {
 		if (msg_age[i] > 0 && dest.y > 64) {
-		
+
 			dest.y -= msg_buffer[i]->h + paragraph_spacing;
 			SDL_BlitSurface(msg_buffer[i], NULL, screen, &dest);
 		}
@@ -88,17 +89,17 @@ void MenuHUDLog::add(const string& s) {
 	if (log_count == MAX_HUD_MESSAGES) {
 		remove(0); // remove the oldest message
 	}
-	
+
 	// add new message
 	log_msg[log_count] = s;
 	msg_age[log_count] = calcDuration(s);
-	
+
 	// force HUD messages to vanish in order
 	if (log_count > 0) {
 		if (msg_age[log_count] < msg_age[log_count-1])
 			msg_age[log_count] = msg_age[log_count-1];
 	}
-	
+
 	// render the log entry and store it in a buffer
 	Point size = font->calc_size(s, list_area.x);
 	msg_buffer[log_count] = createSurface(size.x, size.y);

@@ -16,8 +16,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 */
 
 #include "ModManager.h"
-#include "SharedResources.h"
+#include "Settings.h"
 #include "UtilsFileSystem.h"
+#include "UtilsParsing.h"
 #include <SDL.h>
 #include <fstream>
 
@@ -43,7 +44,7 @@ void ModManager::loadModList() {
 	ifstream infile;
 	string line;
 	string starts_with;
-	
+
 	infile.open((PATH_DATA + "mods/mods.txt").c_str(), ios::in);
 
 	if (!infile.is_open()) {
@@ -51,17 +52,17 @@ void ModManager::loadModList() {
 		SDL_Quit();
 		exit(1);
 	}
-	
+
 	while (!infile.eof()) {
 		line = getLine(infile);
-		
+
 		// skip ahead if this line is empty
 		if (line.length() == 0) continue;
-		
+
 		// skip comments
 		starts_with = line.at(0);
 		if (starts_with == "#") continue;
-				
+
 		mod_list.push_back(line);
 	}
 	infile.close();
@@ -77,10 +78,10 @@ string ModManager::locate(const string& filename) {
 	if (loc_cache.find(filename) != loc_cache.end()) {
 		return loc_cache[filename];
 	}
-	
+
 	// search through mods for the first instance of this filename
 	string test_path;
-	
+
 	for (unsigned int i = mod_list.size(); i>0; i--) {
 		test_path = PATH_DATA + "mods/" + mod_list[i-1] + "/" + filename;
 		if (fileExists(test_path)) {

@@ -17,6 +17,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "WidgetInput.h"
 #include "SharedResources.h"
+#include "Settings.h"
 
 using namespace std;
 
@@ -120,7 +121,7 @@ void WidgetInput::render() {
 			font->renderShadowed(text + "|", font_pos.x, font_pos.y, JUSTIFY_LEFT, screen, FONT_WHITE);
 		}
 		else {
-			font->renderShadowed(text, font_pos.x, font_pos.y, JUSTIFY_LEFT, screen, FONT_WHITE);		
+			font->renderShadowed(text, font_pos.x, font_pos.y, JUSTIFY_LEFT, screen, FONT_WHITE);
 		}
 	}
 }

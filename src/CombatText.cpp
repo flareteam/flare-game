@@ -21,16 +21,18 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  *
  * The CombatText class displays floating damage numbers and miss messages
  * above the targets.
- * 
+ *
  */
 
 #include "CombatText.h"
+#include "FontEngine.h"
+#include "Settings.h"
 #include <iostream>
 #include <sstream>
 
 // Global static pointer used to ensure a single instance of the class.
-CombatText* CombatText::m_pInstance = NULL;  
-  
+CombatText* CombatText::m_pInstance = NULL;
+
 CombatText* CombatText::Instance() {
    if (!m_pInstance)
       m_pInstance = new CombatText;
@@ -64,11 +66,11 @@ void CombatText::addMessage(int num, Point location, int displaytype) {
         WidgetLabel *label = new WidgetLabel();
         c->pos = p;
         c->label = label;
-        
+
         std::stringstream ss;
         ss << num;
         c->text = ss.str();
-        
+
         c->lifespan = 30;
         c->displaytype = displaytype;
         combat_text.push_back(*c);

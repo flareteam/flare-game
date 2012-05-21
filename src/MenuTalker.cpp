@@ -20,6 +20,10 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "MenuTalker.h"
+
+#include "NPC.h"
+#include "WidgetButton.h"
+
 #include "SharedResources.h"
 
 using namespace std;

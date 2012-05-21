@@ -22,12 +22,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef MENU_TALKER_H
 #define MENU_TALKER_H
 
-#include "Utils.h"
-#include "FontEngine.h"
-#include "NPC.h"
-#include "CampaignManager.h"
-#include "WidgetButton.h"
-
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_mixer.h>
@@ -35,6 +29,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <string>
 #include <sstream>
 
+class CampaignManager;
+class NPC;
+class WidgetButton;
 
 class MenuTalker {
 private:

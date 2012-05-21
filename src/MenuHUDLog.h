@@ -22,9 +22,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef MENU_HUD_LOG_H
 #define MENU_HUD_LOG_H
 
-#include "Settings.h"
 #include "Utils.h"
-#include "FontEngine.h"
 
 #include <SDL.h>
 #include <SDL_image.h>

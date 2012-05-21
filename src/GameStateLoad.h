@@ -27,17 +27,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef GAMESTATELOAD_H
 #define GAMESTATELOAD_H
 
-#include "Settings.h"
-#include "InputState.h"
-#include "FontEngine.h"
-#include "WidgetButton.h"
-#include "FileParser.h"
-#include "Settings.h"
 #include "StatBlock.h"
-#include "ItemManager.h"
 #include "GameState.h"
-#include "MenuConfirm.h"
-#include "SharedResources.h"
 
 #include <SDL.h>
 #include <SDL_image.h>
@@ -46,7 +37,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <string>
 #include <sstream>
 
-
+class ItemManager;
+class MenuConfirm;
+class WidgetButton;
 class WidgetLabel;
 
 

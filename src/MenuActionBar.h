@@ -24,15 +24,14 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef MENU_ACTION_BAR_H
 #define MENU_ACTION_BAR_H
 
-#include "InputState.h"
-#include "WidgetTooltip.h"
-#include "PowerManager.h"
-#include "FontEngine.h"
-#include "StatBlock.h"
-#include "SharedResources.h"
+#include "Utils.h"
 
 #include <SDL.h>
 #include <SDL_image.h>
+
+class PowerManager;
+class StatBlock;
+class TooltipData;
 
 const int MENU_CHARACTER = 0;
 const int MENU_INVENTORY = 1;

@@ -24,11 +24,11 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef CAMPAIGN_MANAGER_H
 #define CAMPAIGN_MANAGER_H
 
-#include "UtilsParsing.h"
-#include "MenuItemStorage.h"
 #include "ItemManager.h"
 
 #include <string>
+
+class MenuItemStorage;
 
 const int MAX_STATUS = 1024;
 

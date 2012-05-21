@@ -1,5 +1,5 @@
 /*
-Copyright Â© 2011-2012 Clint Bellanger
+Copyright © 2011-2012 Clint Bellanger
 
 This file is part of FLARE.
 
@@ -20,15 +20,11 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  *
  * Handles floor loot
  */
- 
+
 #ifndef LOOT_MANAGER_H
 #define LOOT_MANAGER_H
 
-#include "Utils.h"
 #include "ItemManager.h"
-#include "WidgetTooltip.h"
-#include "EnemyManager.h"
-#include "SharedResources.h"
 
 #include <SDL.h>
 #include <SDL_image.h>
@@ -36,6 +32,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include <string>
 
+class EnemyManager;
+class MapIso;
+class WidgetTooltip;
 
 struct LootDef {
 	ItemStack stack;

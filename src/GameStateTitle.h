@@ -18,10 +18,10 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef GAMESTATETITLE_H
 #define GAMESTATETITLE_H
 
-#include "Settings.h"
 #include "GameState.h"
-#include "WidgetButton.h"
-#include "WidgetLabel.h"
+
+class WidgetButton;
+class WidgetLabel;
 
 class GameStateTitle : public GameState {
 private:
