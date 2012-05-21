@@ -22,8 +22,12 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef MENU_ITEM_STORAGE_H
 #define MENU_ITEM_STORAGE_H
 
+#include "ItemManager.h"
 #include "ItemStorage.h"
+#include "WidgetTooltip.h"
 #include <SDL.h>
+
+class InputState;
 
 class MenuItemStorage : public ItemStorage {
 protected:

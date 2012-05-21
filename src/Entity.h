@@ -26,9 +26,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #define ENTITY_H
 
 #include "MapIso.h"
-#include "Animation.h"
-#include "Utils.h"
 #include <vector>
+
+class Animation;
 
 class Entity {
 protected:

@@ -19,6 +19,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * class MenuItemStorage
  */
 
+#include "InputState.h"
 #include "MenuItemStorage.h"
 
 using namespace std;

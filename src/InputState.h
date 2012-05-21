@@ -18,10 +18,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef INPUT_STATE_H
 #define INPUT_STATE_H
 
-#include "FileParser.h"
 #include "Utils.h"
-#include "UtilsParsing.h"
-#include "Settings.h"
 
 #include <SDL.h>
 #include <string>

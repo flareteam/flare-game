@@ -26,9 +26,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "Utils.h"
 #include "ItemManager.h"
+#include "MapIso.h"
 #include "WidgetTooltip.h"
-#include "EnemyManager.h"
-#include "SharedResources.h"
 
 #include <SDL.h>
 #include <SDL_image.h>
@@ -36,6 +35,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include <string>
 
+
+class EnemyManager;
 
 struct LootDef {
 	ItemStack stack;

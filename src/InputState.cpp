@@ -23,9 +23,11 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include <iostream>
 
+#include "FileParser.h"
 #include "InputState.h"
 #include "Settings.h"
 #include "UtilsDebug.h"
+#include "UtilsParsing.h"
 
 using namespace std;
 

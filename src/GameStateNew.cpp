@@ -22,10 +22,16 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * (e.g. character appearance)
  */
 
+#include "Avatar.h"
+#include "FileParser.h"
+#include "GameStateConfig.h"
 #include "GameStateNew.h"
 #include "GameStateLoad.h"
 #include "GameStatePlay.h"
 #include "SharedResources.h"
+#include "WidgetButton.h"
+#include "WidgetCheckBox.h"
+#include "WidgetInput.h"
 #include "WidgetLabel.h"
 
 using namespace std;

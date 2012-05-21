@@ -21,6 +21,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "GameStateTitle.h"
 #include "GameStateConfig.h"
 #include "SharedResources.h"
+#include "WidgetButton.h"
+#include "WidgetLabel.h"
 
 GameStateTitle::GameStateTitle() : GameState() {
 

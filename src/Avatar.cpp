@@ -21,6 +21,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * Contains logic and rendering routines for the player avatar.
  */
 
+#include "Animation.h"
 #include "Avatar.h"
 #include "SharedResources.h"
 

@@ -25,7 +25,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef GET_TEXT_H
 #define GET_TEXT_H
 
-#include "UtilsParsing.h"
 #include <fstream>
 #include <string>
 

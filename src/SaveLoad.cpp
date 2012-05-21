@@ -23,7 +23,11 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * class GameStatePlay
  */
 
+#include "Avatar.h"
+#include "FileParser.h"
 #include "GameStatePlay.h"
+#include "MenuManager.h"
+#include "UtilsFileSystem.h"
 #include "UtilsParsing.h"
 #include <fstream>
 #include <iostream>

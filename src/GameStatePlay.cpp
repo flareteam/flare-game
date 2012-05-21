@@ -22,9 +22,16 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * Also handles message passing between child objects, often to avoid circular dependencies.
  */
 
+#include "Avatar.h"
+#include "EnemyManager.h"
 #include "GameStatePlay.h"
 #include "GameState.h"
 #include "GameStateTitle.h"
+#include "HazardManager.h"
+#include "LootManager.h"
+#include "MenuManager.h"
+#include "NPCManager.h"
+#include "QuestLog.h"
 #include "WidgetLabel.h"
 #include "SharedResources.h"
 

@@ -19,7 +19,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * class ItemStorage
  */
 
+#include "ItemManager.h"
 #include "ItemStorage.h"
+#include "UtilsParsing.h"
 
 #include <sstream>
 

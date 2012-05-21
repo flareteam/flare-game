@@ -32,8 +32,9 @@ class Entity;
 #include <SDL_image.h>
 #include <SDL_mixer.h>
 #include "Utils.h"
-#include "MapCollision.h"
-#include "StatBlock.h"
+
+class StatBlock;
+class MapCollision;
 
 // the spell/power's source type: eg. which team did it come from?
 const int SOURCE_TYPE_HERO = 0;

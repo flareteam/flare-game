@@ -21,7 +21,11 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * Holds the collection of hazards (active attacks, spells, etc) and handles group operations
  */
 
+#include "Avatar.h"
+#include "EnemyManager.h"
+#include "Hazard.h"
 #include "HazardManager.h"
+#include "PowerManager.h"
 
 HazardManager::HazardManager(PowerManager *_powers, Avatar *_hero, EnemyManager *_enemies) {
 	powers = _powers;
