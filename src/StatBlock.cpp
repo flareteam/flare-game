@@ -23,8 +23,10 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "StatBlock.h"
 #include "FileParser.h"
-#include "SharedResources.h"
 #include "PowerManager.h"
+#include "SharedResources.h"
+#include "Settings.h"
+#include "UtilsParsing.h"
 #include <limits>
 
 using namespace std;
@@ -91,7 +93,7 @@ StatBlock::StatBlock() {
 	waypoint_pause = 0;
 	waypoint_pause_ticks = 0;
 
-	// xp table	
+	// xp table
 	// default to MAX_INT
 	for (int i=0; i<MAX_CHARACTER_LEVEL; i++) {
 		xp_table[i] = std::numeric_limits<int>::max();

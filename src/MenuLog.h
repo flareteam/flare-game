@@ -22,18 +22,13 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef MENU_LOG_H
 #define MENU_LOG_H
 
-#include "InputState.h"
-#include "Utils.h"
-#include "FontEngine.h"
-#include "WidgetButton.h"
-#include "WidgetTabControl.h"
-#include "SharedResources.h"
-
 #include <SDL.h>
 #include <SDL_image.h>
 
 #include <string>
 
+class WidgetButton;
+class WidgetTabControl;
 
 const int MAX_LOG_MESSAGES = 32;
 

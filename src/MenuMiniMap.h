@@ -24,7 +24,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include <SDL.h>
 #include "Utils.h"
-#include "MapCollision.h"
+
+class MapCollision;
 
 class MenuMiniMap {
 private:

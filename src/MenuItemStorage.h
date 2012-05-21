@@ -24,10 +24,10 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "ItemManager.h"
 #include "ItemStorage.h"
-#include "WidgetTooltip.h"
 #include <SDL.h>
 
 class InputState;
+class TooltipData;
 
 class MenuItemStorage : public ItemStorage {
 protected:

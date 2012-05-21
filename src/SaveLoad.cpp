@@ -24,9 +24,14 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "Avatar.h"
+#include "CampaignManager.h"
 #include "FileParser.h"
 #include "GameStatePlay.h"
+#include "MenuActionBar.h"
+#include "MenuCharacter.h"
+#include "MenuInventory.h"
 #include "MenuManager.h"
+#include "MenuTalker.h"
 #include "UtilsFileSystem.h"
 #include "UtilsParsing.h"
 #include <fstream>
@@ -179,7 +184,7 @@ void GameStatePlay::loadGame() {
 			else if (infile.key == "campaign") camp->setAll(infile.val);
 		}
 			
-		infile.close();		
+		infile.close();
 	}
 
 	// initialize vars
@@ -190,13 +195,13 @@ void GameStatePlay::loadGame() {
 	
 	// reset character menu
 	menu->chr->refreshStats();
-	
+
 	// just for aesthetics, turn the hero to face the camera
 	pc->stats.direction = 6;
-	
+
 	// set up MenuTalker for this hero
 	menu->talker->setHero(pc->stats.name, pc->stats.portrait);
-	
+
 	// load sounds (gender specific)
 	pc->loadSounds();
 

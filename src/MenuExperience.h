@@ -24,12 +24,12 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef MENU_EXPERIENCE_H
 #define MENU_EXPERIENCE_H
 
-#include "StatBlock.h"
 #include "Utils.h"
-#include "FontEngine.h"
 
 #include <SDL.h>
 #include <SDL_image.h>
+
+class StatBlock;
 
 
 class MenuExperience {

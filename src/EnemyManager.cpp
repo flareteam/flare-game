@@ -24,6 +24,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "EnemyBehavior.h"
 #include "BehaviorStandard.h"
 
+#include <iostream>
+
 using namespace std;
 
 EnemyManager::EnemyManager(PowerManager *_powers, MapIso *_map) {

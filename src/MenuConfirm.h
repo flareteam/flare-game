@@ -22,7 +22,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "WidgetButton.h"
 #include <SDL_image.h>
 
-
 class MenuConfirm : public Menu {
 protected:
 	void loadGraphics();

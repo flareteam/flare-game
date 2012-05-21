@@ -28,11 +28,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "TileSet.h"
 #include "MapCollision.h"
 #include "Settings.h"
-#include "CampaignManager.h"
-#include "EnemyGroupManager.h"
 #include "WidgetTooltip.h"
-#include "PowerManager.h"
-#include "StatBlock.h"
 
 #include <SDL.h>
 #include <SDL_image.h>
@@ -41,6 +37,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <string>
 #include <queue>
 
+class CampaignManager;
+class PowerManager;
 
 struct Map_Enemy {
 	std::string type;

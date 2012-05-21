@@ -22,8 +22,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * Handle collisions between objects and the map
  */
 
-#include "MapCollision.h"
 #include "AStarNode.h"
+#include "MapCollision.h"
+#include "Settings.h"
 #include <cfloat>
 
 using namespace std;

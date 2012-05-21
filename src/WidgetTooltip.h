@@ -24,7 +24,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "FontEngine.h"
 #include "Utils.h"
-#include "Settings.h"
 
 #include <SDL.h>
 #include <SDL_image.h>

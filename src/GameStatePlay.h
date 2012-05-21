@@ -36,6 +36,7 @@ class CampaignManager;
 class Enemy;
 class EnemyManager;
 class HazardManager;
+class ItemManager;
 class LootManager;
 class MapIso;
 class MenuManager;

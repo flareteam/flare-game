@@ -23,6 +23,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "NPCManager.h"
+#include "NPC.h"
+#include "MapIso.h"
+#include "LootManager.h"
 
 using namespace std;
 
@@ -39,33 +42,33 @@ NPCManager::NPCManager(MapIso *_map, LootManager *_loot, ItemManager *_items) {
 	for (int i=0; i<MAX_NPC_COUNT; i++) {
 		npcs[i] = NULL;
 	}
-	
+
 	tooltip_margin = 64;
 }
 
 void NPCManager::handleNewMap() {
-	
+
 	Map_NPC mn;
 	ItemStack item_roll;
-	
+
 	// remove existing NPCs
 	for (int i=0; i<npc_count; i++) {
 		delete(npcs[i]);
 		npcs[i] = NULL;
 	}
-	
+
 	npc_count = 0;
-	
+
 	// read the queued NPCs in the map file
 	while (!map->npcs.empty()) {
 		mn = map->npcs.front();
 		map->npcs.pop();
-		
+
 		npcs[npc_count] = new NPC(map, items);
 		npcs[npc_count]->load(mn.id);
 		npcs[npc_count]->pos.x = mn.pos.x;
 		npcs[npc_count]->pos.y = mn.pos.y;
-		
+
 		// if this NPC needs randomized items
 		while (npcs[npc_count]->random_stock > 0 && npcs[npc_count]->stock_count < NPC_VENDOR_MAX_STOCK) {
 			item_roll.item = loot->randomItem(npcs[npc_count]->level);
@@ -92,12 +95,12 @@ int NPCManager::checkNPCClick(Point mouse, Point cam) {
 	for(int i=0; i<npc_count; i++) {
 
 		p = map_to_screen(npcs[i]->pos.x, npcs[i]->pos.y, cam.x, cam.y);
-	
+
 		r.w = npcs[i]->render_size.x;
 		r.h = npcs[i]->render_size.y;
 		r.x = p.x - npcs[i]->render_offset.x;
 		r.y = p.y - npcs[i]->render_offset.y;
-		
+
 		if (isWithin(r, mouse)) {
 			return i;
 		}
@@ -111,30 +114,30 @@ int NPCManager::checkNPCClick(Point mouse, Point cam) {
 void NPCManager::renderTooltips(Point cam, Point mouse) {
 	Point p;
 	SDL_Rect r;
-	
+
 	for(int i=0; i<npc_count; i++) {
 
 		p = map_to_screen(npcs[i]->pos.x, npcs[i]->pos.y, cam.x, cam.y);
-	
+
 		r.w = npcs[i]->render_size.x;
 		r.h = npcs[i]->render_size.y;
 		r.x = p.x - npcs[i]->render_offset.x;
 		r.y = p.y - npcs[i]->render_offset.y;
-		
+
 		if (isWithin(r, mouse)) {
-		
+
 			// adjust dest.y so that the tooltip floats above the item
 			p.y -= tooltip_margin;
-			
+
 			// use current tip or make a new one?
 			if (tip_buf.lines[0] != npcs[i]->name) {
 				tip->clear(tip_buf);
 				tip_buf.num_lines = 1;
 				tip_buf.lines[0] = npcs[i]->name;
 			}
-			
+
 			tip->render(tip_buf, p, STYLE_TOPLABEL);
-			
+
 			break; // display only one NPC tooltip at a time
 		}
 	}
@@ -144,7 +147,7 @@ NPCManager::~NPCManager() {
 	for (int i=0; i<npc_count; i++) {
 		delete npcs[i];
 	}
-	
+
 	tip->clear(tip_buf);
 	delete tip;
 }

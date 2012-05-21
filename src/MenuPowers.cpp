@@ -21,7 +21,11 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "MenuPowers.h"
 #include "SharedResources.h"
+#include "PowerManager.h"
+#include "Settings.h"
+#include "StatBlock.h"
 #include "WidgetLabel.h"
+#include "WidgetTooltip.h"
 
 #include <string>
 #include <sstream>
@@ -59,12 +63,12 @@ MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers) {
 	label_o2.set(offset_x+192, offset_y+66, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Offense"), FONT_WHITE);
 	label_d1.set(offset_x+128, offset_y+66, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Defense"), FONT_WHITE);
 	label_d2.set(offset_x+256, offset_y+66, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Defense"), FONT_WHITE);
-	
+
 	stat_po.set(offset_x+64, offset_y+34, JUSTIFY_CENTER, VALIGN_TOP, "", FONT_WHITE);
 	stat_pd.set(offset_x+128, offset_y+34, JUSTIFY_CENTER, VALIGN_TOP, "", FONT_WHITE);
 	stat_mo.set(offset_x+192, offset_y+34, JUSTIFY_CENTER, VALIGN_TOP, "", FONT_WHITE);
 	stat_md.set(offset_x+256, offset_y+34, JUSTIFY_CENTER, VALIGN_TOP, "", FONT_WHITE);
-	
+
 }
 
 void MenuPowers::loadGraphics() {
@@ -76,16 +80,16 @@ void MenuPowers::loadGraphics() {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 		SDL_Quit();
 	}
-	
+
 	// optimize
 	SDL_Surface *cleanup = background;
 	background = SDL_DisplayFormatAlpha(background);
-	SDL_FreeSurface(cleanup);	
-	
+	SDL_FreeSurface(cleanup);
+
 	cleanup = powers_step;
 	powers_step = SDL_DisplayFormatAlpha(powers_step);
 	SDL_FreeSurface(cleanup);
-	
+
 	cleanup = powers_unlock;
 	powers_unlock = SDL_DisplayFormatAlpha(powers_unlock);
 	SDL_FreeSurface(cleanup);
@@ -109,7 +113,7 @@ bool MenuPowers::requirementsMet(int power_index) {
 			break;
 		case 3:
 			return (stats->mentdef >= required_val);
-			break;			
+			break;
 	}
 	return false;
 }
@@ -118,7 +122,7 @@ bool MenuPowers::requirementsMet(int power_index) {
  * Click-to-drag a power (to the action bar)
  */
 int MenuPowers::click(Point mouse) {
-	
+
 	for (int i=0; i<20; i++) {
 		if (isWithin(slots[i], mouse)) {
 			if (requirementsMet(i)) return i;
@@ -131,7 +135,7 @@ int MenuPowers::click(Point mouse) {
 
 void MenuPowers::logic() {
 	if (!visible) return;
-	
+
 	if (closeButton->checkClick()) {
 		visible = false;
 	}
@@ -139,13 +143,13 @@ void MenuPowers::logic() {
 
 void MenuPowers::render() {
 	if (!visible) return;
-	
+
 	SDL_Rect src;
 	SDL_Rect dest;
-	
+
 	int offset_x = (VIEW_W - 320);
 	int offset_y = (VIEW_H - 416)/2;
-	
+
 	// background
 	src.x = 0;
 	src.y = 0;
@@ -154,10 +158,10 @@ void MenuPowers::render() {
 	src.w = dest.w = 320;
 	src.h = dest.h = 416;
 	SDL_BlitSurface(background, &src, screen, &dest);
-	
+
 	// close button
 	closeButton->render();
-	
+
 	// text overlay
 	label_powers.render();
 	label_p1.render();
@@ -196,7 +200,7 @@ void MenuPowers::render() {
 	displayBuild(stats->physoff, offset_x+48);
 	displayBuild(stats->physdef, offset_x+112);
 	displayBuild(stats->mentoff, offset_x+176);
-	displayBuild(stats->mentdef, offset_x+240);	
+	displayBuild(stats->mentdef, offset_x+240);
 }
 
 /**
@@ -206,7 +210,7 @@ void MenuPowers::displayBuild(int value, int x) {
 	SDL_Rect src_step;
 	SDL_Rect src_unlock;
 	SDL_Rect dest;
-	
+
 	src_step.x = src_unlock.x = 0;
 	src_step.y = src_unlock.y = 0;
 	src_step.w = 32;
@@ -216,11 +220,11 @@ void MenuPowers::displayBuild(int value, int x) {
 
 	dest.x = x;
 	int offset_y = (VIEW_H - 416)/2;
-	
+
 	// save-game hackers could set their stats higher than normal.
 	// make sure this display still works.
 	int display_value = min(value,10);
-	
+
 	for (int i=3; i<= display_value; i++) {
 		if (i%2 == 0) { // even stat
 			dest.y = i * 32 + offset_y + 48;
@@ -229,7 +233,7 @@ void MenuPowers::displayBuild(int value, int x) {
 		else { // odd stat
 			dest.y = i * 32 + offset_y + 35;
 			SDL_BlitSurface(powers_unlock, &src_unlock, screen, &dest);
-		
+
 		}
 	}
 }
@@ -243,7 +247,7 @@ TooltipData MenuPowers::checkTooltip(Point mouse) {
 
 	int offset_x = (VIEW_W - 320);
 	int offset_y = (VIEW_H - 416)/2;
-	
+
 	if (mouse.y >= offset_y+32 && mouse.y <= offset_y+80) {
 		if (mouse.x >= offset_x+48 && mouse.x <= offset_x+80) {
 			tip.lines[tip.num_lines++] = msg->get("Physical + Offense grants melee and ranged attacks");
@@ -267,15 +271,15 @@ TooltipData MenuPowers::checkTooltip(Point mouse) {
 			if (isWithin(slots[i], mouse)) {
 				tip.lines[tip.num_lines++] = powers->powers[i].name;
 				tip.lines[tip.num_lines++] = powers->powers[i].description;
-				
+
 				if (powers->powers[i].requires_physical_weapon)
 					tip.lines[tip.num_lines++] = msg->get("Requires a physical weapon");
 				else if (powers->powers[i].requires_mental_weapon)
 					tip.lines[tip.num_lines++] = msg->get("Requires a mental weapon");
 				else if (powers->powers[i].requires_offense_weapon)
 					tip.lines[tip.num_lines++] = msg->get("Requires an offense weapon");
-				
-				
+
+
 				// add requirement
 				int required_val = (i / 4) * 2 + 1;
 				int required_stat = i % 4;
@@ -304,7 +308,7 @@ TooltipData MenuPowers::checkTooltip(Point mouse) {
 			}
 		}
 	}
-	
+
 	return tip;
 }
 

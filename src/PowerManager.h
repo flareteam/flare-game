@@ -25,18 +25,18 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #define POWER_MANAGER_H
 
 #include "Utils.h"
-#include "StatBlock.h"
-#include "Hazard.h"
-#include "MapCollision.h"
-#include "SharedResources.h"
-#include "CombatText.h"
 
 #include <SDL.h>
 #include <SDL_image.h>
+#include <SDL_mixer.h>
 
 #include <string>
 #include <queue>
 #include <cassert>
+
+class Hazard;
+class MapCollision;
+class StatBlock;
 
 const int POWER_COUNT = 1024;
 const int POWER_MAX_GFX = 64;

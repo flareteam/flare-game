@@ -26,6 +26,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #define ENTITY_H
 
 #include "MapIso.h"
+#include "StatBlock.h"
 #include <vector>
 
 class Animation;

@@ -23,6 +23,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "Animation.h"
 #include "Avatar.h"
+#include "CombatText.h"
+#include "Hazard.h"
+#include "PowerManager.h"
 #include "SharedResources.h"
 
 #include <sstream>

@@ -16,8 +16,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 */
 
 #include "MenuConfirm.h"
+#include "Settings.h"
 #include "SharedResources.h"
-#include "WidgetLabel.h"
 
 using namespace std;
 

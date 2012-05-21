@@ -24,10 +24,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef MENU_ENEMY_H
 #define MENU_ENEMY_H
 
-#include "StatBlock.h"
-#include "Utils.h"
-#include "FontEngine.h"
-#include "SharedResources.h"
 #include "Enemy.h"
 
 #include <SDL.h>

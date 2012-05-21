@@ -24,6 +24,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "CampaignManager.h"
 #include "MenuItemStorage.h"
 #include "SharedResources.h"
+#include "UtilsParsing.h"
 
 #include <sstream>
 

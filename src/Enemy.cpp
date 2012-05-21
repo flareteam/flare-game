@@ -20,8 +20,11 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "Animation.h"
+#include "CampaignManager.h"
 #include "Enemy.h"
 #include "EnemyBehavior.h"
+#include "Hazard.h"
+#include "PowerManager.h"
 #include <sstream>
 
 using namespace std;
