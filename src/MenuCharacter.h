@@ -32,7 +32,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <sstream>
 
 class StatBlock;
-//class TooltipData;
 class WidgetButton;
 class WidgetLabel;
 
