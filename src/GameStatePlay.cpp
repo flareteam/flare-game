@@ -237,6 +237,7 @@ void GameStatePlay::checkCancel() {
 	if (menu->requestingExit()) {
 		saveGame();
 		Mix_HaltMusic();
+		delete requestedGameState;
 		requestedGameState = new GameStateTitle();
 	}
 
