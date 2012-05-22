@@ -21,6 +21,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "Animation.h"
 #include "CampaignManager.h"
+#include "CombatText.h"
 #include "Enemy.h"
 #include "EnemyBehavior.h"
 #include "Hazard.h"

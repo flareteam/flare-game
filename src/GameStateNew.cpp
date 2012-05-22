@@ -235,4 +235,6 @@ GameStateNew::~GameStateNew() {
 	delete label_portrait;
 	delete label_name;
 	delete input_name;
+	delete button_permadeath;
+	delete label_permadeath;
 }
