@@ -1046,3 +1046,14 @@ type=spawn
 spawn_type=antlion_hatchling
 new_state=cast
 starting_pos=source
+
+[power]
+id=135
+name=Transform into Minotaur
+type=transform
+new_state=cast
+spawn_type=skeleton
+icon=12
+description=Fully transform into Minotaur
+sfx=quake.ogg
+transform_duration=150
