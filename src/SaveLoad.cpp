@@ -62,7 +62,7 @@ void GameStatePlay::saveGame() {
 		outfile << "name=" << pc->stats.name << "\n";
 
 		// permadeath
-		outfile << "permadeath=" << pc->permadeath << "\n";
+		outfile << "permadeath=" << pc->stats.permadeath << "\n";
 		
 		// hero visual option
 		outfile << "option=" << pc->stats.base << "," << pc->stats.head << "," << pc->stats.portrait << "\n";
@@ -128,7 +128,7 @@ void GameStatePlay::loadGame() {
 		while (infile.next()) {
 			if (infile.key == "name") pc->stats.name = infile.val;
 			else if (infile.key == "permadeath") {
-			    pc->permadeath = atoi(infile.val.c_str());
+			    pc->stats.permadeath = atoi(infile.val.c_str());
 			}
 			else if (infile.key == "option") {
 				pc->stats.base = infile.nextValue();

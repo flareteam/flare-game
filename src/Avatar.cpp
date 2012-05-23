@@ -37,8 +37,6 @@ Avatar::Avatar(PowerManager *_powers, MapIso *_map) : Entity(_map), powers(_powe
 
 	init();
 
-	permadeath = false;
-
 	// default hero animation data
 	stats.cooldown = 4;
 
@@ -508,7 +506,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 			if (activeAnimation->getCurFrame() == 1 && activeAnimation->getTimesPlayed() < 1) {
 				if (sound_die)
 					Mix_PlayChannel(-1, sound_die, 0);
-				if (permadeath) {
+				if (stats.permadeath) {
 					log_msg = msg->get("You are defeated. Game over! Press Enter to exit to Title.");
 				}
 				else {
@@ -524,7 +522,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 			if (inpt->pressing[ACCEPT]) {
 				map->teleportation = true;
 				map->teleport_mapname = map->respawn_map;
-				if (permadeath) {
+				if (stats.permadeath) {
 					// set these positions so it doesn't flash before jumping to Title
 					map->teleport_destination.x = stats.pos.x;
 					map->teleport_destination.y = stats.pos.y;

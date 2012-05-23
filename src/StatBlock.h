@@ -86,6 +86,7 @@ public:
 	bool alive;
 	bool corpse; // creature is dead and done animating
 	bool hero; // else, enemy or other
+	bool permadeath;
 
 	bool flying;
 	bool incorporeal;

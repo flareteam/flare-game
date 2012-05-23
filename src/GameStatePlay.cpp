@@ -207,7 +207,7 @@ void GameStatePlay::checkTeleport() {
 			map->respawn_point.y = pc->stats.pos.y;
 
 			// return to title (permadeath) OR auto-save
-			if (pc->permadeath && pc->stats.corpse) {
+			if (pc->stats.permadeath && pc->stats.corpse) {
 			    stringstream filename;
 			    filename << PATH_USER << "save" << game_slot << ".txt";
 			    if(remove(filename.str().c_str()) != 0)
