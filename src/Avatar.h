@@ -79,8 +79,6 @@ public:
 	Avatar(PowerManager *_powers, MapIso *_map);
 	~Avatar();
 
-    bool permadeath;
-
 	void init();
 	void loadGraphics(const std::string& img_main, std::string img_armor, const std::string& img_off);
 	void loadSounds();

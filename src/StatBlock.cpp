@@ -40,6 +40,7 @@ StatBlock::StatBlock() {
 	hero = false;
 	hero_pos.x = hero_pos.y = -1;
 	hero_alive = true;
+	permadeath = false;
 
 	flying = false;
 	incorporeal = false;

@@ -171,7 +171,7 @@ void GameStateNew::logic() {
 		play->pc->stats.head = head[current_option];
 		play->pc->stats.portrait = portrait[current_option];
 		play->pc->stats.name = input_name->getText();
-		play->pc->permadeath = button_permadeath->isChecked();
+		play->pc->stats.permadeath = button_permadeath->isChecked();
 		play->game_slot = game_slot;
 		play->resetGame();
 		requestedGameState = play;
