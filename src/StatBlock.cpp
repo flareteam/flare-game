@@ -41,6 +41,7 @@ StatBlock::StatBlock() {
 	hero_pos.x = hero_pos.y = -1;
 	hero_alive = true;
 	permadeath = false;
+	transform_type = "";
 
 	flying = false;
 	incorporeal = false;
@@ -79,6 +80,7 @@ StatBlock::StatBlock() {
 	stun_duration = 0;
 	immobilize_duration = 0;
 	immunity_duration = 0;
+	transform_duration = 0;
 	haste_duration = 0;
 	hot_duration = 0;
 	hot_value = 0;
@@ -409,6 +411,8 @@ void StatBlock::logic() {
 		hot_duration--;
 	if (forced_move_duration > 0)
 		forced_move_duration--;
+	if (transform_duration > 0)
+		transform_duration--;
 
 	// apply bleed
 	if (bleed_duration % FRAMES_PER_SEC == 1) {

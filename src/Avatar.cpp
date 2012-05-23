@@ -86,6 +86,10 @@ void Avatar::init() {
 	img_armor = "";
 	img_off = "";
 
+	transformed = false;
+	transform_triggered = false;
+	untransform_triggered = false;
+
 	for (int i = 0; i < POWER_COUNT; i++) {
 		stats.hero_cooldown[i] = 0;
 	}
@@ -354,6 +358,10 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 
 	// handle animation
 	activeAnimation->advanceFrame();
+
+	// handle transformation
+	if (stats.transform_type != "" && transform_triggered == false) transform();
+	if (stats.transform_type != "" && stats.transform_duration == 0) untransform();
 
 	switch(stats.cur_state) {
 		case AVATAR_STANCE:
@@ -666,6 +674,43 @@ bool Avatar::takeHit(Hazard h) {
 		return true;
 	}
 	return false;
+}
+
+
+void Avatar::transform() {
+
+	transform_triggered = true;
+	transformed = true;
+
+	img_armor = stats.transform_type;
+
+	// transform the hero graphic
+	if (sprites) SDL_FreeSurface(sprites);
+
+	sprites = IMG_Load(mods->locate("images/enemies/" + stats.transform_type + ".png").c_str());
+
+	if(!sprites) {
+		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
+		SDL_Quit();
+	}
+
+	SDL_SetColorKey( sprites, SDL_SRCCOLORKEY, SDL_MapRGB(sprites->format, 255, 0, 255) );
+
+	// optimize
+	SDL_Surface *cleanup = sprites;
+	sprites = SDL_DisplayFormatAlpha(sprites);
+	SDL_FreeSurface(cleanup);
+
+	loadStepFX("enemies" + stats.transform_type);
+
+}
+
+void Avatar::untransform() {
+
+	transformed = false;
+	transform_triggered = false;
+	untransform_triggered = true;
+	stats.transform_type = "";
 }
 
 /**

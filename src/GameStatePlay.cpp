@@ -283,7 +283,9 @@ void GameStatePlay::checkLog() {
 }
 
 void GameStatePlay::checkEquipmentChange() {
-	if (menu->inv->changed_equipment) {
+	if (menu->inv->changed_equipment || pc->untransform_triggered) {
+
+		pc->untransform_triggered = false;
 
 		pc->loadGraphics(menu->items->items[menu->inv->inventory[EQUIPMENT][0].item].gfx,
 		                 menu->items->items[menu->inv->inventory[EQUIPMENT][1].item].gfx,
