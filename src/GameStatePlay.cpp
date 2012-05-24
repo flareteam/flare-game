@@ -453,6 +453,32 @@ void GameStatePlay::logic() {
 	map->logic();
 	quests->logic();
 
+
+	// change hero powers on transformation
+	if (pc->setPowers) {
+		pc->setPowers = false;
+
+		// save ActionBar state
+		for (int i=0; i<12 ; i++) {
+			actionbar[i] = menu->act->hotkeys[i];
+			menu->act->hotkeys[i] = -1;
+		}
+		int count = 10;
+		for (int i=0; i<4 ; i++) {
+			if (pc->charmed_stats->power_index[i] != -1) {
+				menu->act->hotkeys[count] = pc->charmed_stats->power_index[i];
+				count++;
+			}
+			if (count == 12) count = 0;
+		}
+	}
+	// revert hero powers
+	if (pc->revertPowers) {
+		pc->revertPowers = false;
+
+		// restore ActionBar state
+		for (int i=0; i<12 ; i++) menu->act->hotkeys[i] = actionbar[i];
+	}
 }
 
 

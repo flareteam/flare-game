@@ -91,10 +91,16 @@ public:
 	bool pressing_move();
 	void set_direction();
 	bool takeHit(Hazard h);
+	std::string log_msg;
+	
+	// transformation handling
 	void transform();
 	void untransform();
 	bool untransform_triggered;
-	std::string log_msg;
+	bool setPowers;
+	bool revertPowers;
+	StatBlock *hero_stats;
+	StatBlock *charmed_stats;
 
 	virtual Renderable getRender();
 

@@ -89,6 +89,8 @@ void Avatar::init() {
 	transformed = false;
 	transform_triggered = false;
 	untransform_triggered = false;
+	setPowers = false;
+	revertPowers = false;
 
 	for (int i = 0; i < POWER_COUNT; i++) {
 		stats.hero_cooldown[i] = 0;
@@ -681,13 +683,17 @@ void Avatar::transform() {
 
 	transform_triggered = true;
 	transformed = true;
+	setPowers = true;
 
-	img_armor = stats.transform_type;
+	charmed_stats = new StatBlock();
+	charmed_stats->load("enemies/" + stats.transform_type + ".txt");
+
+	img_armor = charmed_stats->gfx_prefix;
 
 	// transform the hero graphic
 	if (sprites) SDL_FreeSurface(sprites);
 
-	sprites = IMG_Load(mods->locate("images/enemies/" + stats.transform_type + ".png").c_str());
+	sprites = IMG_Load(mods->locate("images/enemies/" + charmed_stats->gfx_prefix + ".png").c_str());
 
 	if(!sprites) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
@@ -701,8 +707,16 @@ void Avatar::transform() {
 	sprites = SDL_DisplayFormatAlpha(sprites);
 	SDL_FreeSurface(cleanup);
 
-	loadStepFX("enemies" + stats.transform_type);
+	// temporary save hero stats
+	hero_stats = new StatBlock();
+	*hero_stats = stats;
 
+	// replace some hero stats
+	stats.speed = charmed_stats->speed;
+	stats.dspeed = charmed_stats->dspeed;
+	stats.flying = charmed_stats->flying;
+
+	loadStepFX("NULL");
 }
 
 void Avatar::untransform() {
@@ -711,6 +725,13 @@ void Avatar::untransform() {
 	transform_triggered = false;
 	untransform_triggered = true;
 	stats.transform_type = "";
+	revertPowers = true;
+
+	// revert some hero stats to last saved
+	stats.speed = hero_stats->speed;
+	stats.dspeed = hero_stats->dspeed;
+	stats.flying = hero_stats->flying;
+	// TODO append Experience
 }
 
 /**
