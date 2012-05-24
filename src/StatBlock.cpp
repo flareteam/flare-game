@@ -42,6 +42,7 @@ StatBlock::StatBlock() {
 	hero_alive = true;
 	permadeath = false;
 	transform_type = "";
+	transformed = false;
 
 	flying = false;
 	incorporeal = false;

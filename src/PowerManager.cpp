@@ -1022,6 +1022,10 @@ bool PowerManager::transform(int power_index, StatBlock *src_stats, Point target
 
 	src_stats->transform_type = powers[power_index].spawn_type;
 
+	// pay costs
+	if (src_stats->hero && powers[power_index].requires_mp > 0) src_stats->mp -= powers[power_index].requires_mp;
+	if (src_stats->hero && powers[power_index].requires_item != -1) used_item = powers[power_index].requires_item;
+
 	return true;
 }
 

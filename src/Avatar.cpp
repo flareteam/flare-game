@@ -86,7 +86,6 @@ void Avatar::init() {
 	img_armor = "";
 	img_off = "";
 
-	transformed = false;
 	transform_triggered = false;
 	untransform_triggered = false;
 	setPowers = false;
@@ -682,7 +681,7 @@ bool Avatar::takeHit(Hazard h) {
 void Avatar::transform() {
 
 	transform_triggered = true;
-	transformed = true;
+	stats.transformed = true;
 	setPowers = true;
 
 	charmed_stats = new StatBlock();
@@ -715,13 +714,14 @@ void Avatar::transform() {
 	stats.speed = charmed_stats->speed;
 	stats.dspeed = charmed_stats->dspeed;
 	stats.flying = charmed_stats->flying;
+	stats.animations = charmed_stats->animations;
 
 	loadStepFX("NULL");
 }
 
 void Avatar::untransform() {
 
-	transformed = false;
+	stats.transformed = false;
 	transform_triggered = false;
 	untransform_triggered = true;
 	stats.transform_type = "";
@@ -731,7 +731,7 @@ void Avatar::untransform() {
 	stats.speed = hero_stats->speed;
 	stats.dspeed = hero_stats->dspeed;
 	stats.flying = hero_stats->flying;
-	// TODO append Experience
+	stats.animations = hero_stats->animations;
 }
 
 /**
