@@ -362,7 +362,7 @@ void MenuManager::logic() {
 				inpt->lock[MAIN1] = true;
 
 				// ctrl-click action bar to clear that slot
-				if (inpt->pressing[CTRL]) {
+				if (inpt->pressing[CTRL] && !stats->transformed) {
 					act->remove(inpt->mouse);
 				}
 				// allow drag-to-rearrange action bar
