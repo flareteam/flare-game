@@ -322,10 +322,6 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 		map->cam.y = stats.pos.y;
 		map->hero_tile.x = stats.pos.x / 32;
 		map->hero_tile.y = stats.pos.y / 32;
-		
-		//Send data to remote host
-		network->statusHandler(stats.pos.x, stats.pos.y);
-		
 		return;
 	}
 	if (stats.stun_duration > 0) return;
@@ -397,9 +393,6 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 					stats.cur_state = AVATAR_RUN;
 				}
 
-			
-			//Send data to remote host
-			network->statusHandler(stats.pos.x, stats.pos.y);
 			}
 
 			// handle power usage
@@ -580,10 +573,6 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 		stats.hero_cooldown[i] -= 1000 / FRAMES_PER_SEC;
 		if (stats.hero_cooldown[i] < 0) stats.hero_cooldown[i] = 0;
 	}
-
-	//Accept data from remote host
-	network->MultiplayerLoop();
-
 }
 
 /**

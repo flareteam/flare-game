@@ -290,7 +290,6 @@ void GameStateLoad::logic() {
 	if(loading_requested) {
 		loading = true;
 		loading_requested = false;
-		if (multiplayer) network = new Multiplayer();
 		logicLoading();
 	}
 

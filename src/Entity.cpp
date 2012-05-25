@@ -77,7 +77,6 @@ bool Entity::move() {
 		case 7:
 			return map->collider.move(stats.pos.x, stats.pos.y, 0, 1, speed_straight);
 	}
-
 	return true;
 }
 

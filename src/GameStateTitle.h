@@ -29,7 +29,6 @@ private:
 	WidgetButton *button_play;
 	WidgetButton *button_exit;
     WidgetButton *button_cfg;
-	WidgetButton *button_multiplayer;
 	WidgetLabel *label_version;
 	
 public:
