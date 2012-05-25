@@ -55,7 +55,8 @@ const int CSTAT_CRIT = 16;
 const int CSTAT_ABSORB = 17;
 const int CSTAT_FIRERESIST = 18;
 const int CSTAT_ICERESIST = 19;
-const int CSTAT_COUNT = 20;
+const int CSTAT_UNSPENT = 20;
+const int CSTAT_COUNT = 21;
 
 const int CPROF_P2 = 0;
 const int CPROF_P3 = 1;
@@ -116,6 +117,7 @@ private:
 	void displayProficiencies(int value, int y);
 	void loadGraphics();
 	int bonusColor(int stat);
+	int skill_points;
 	
 public:
 	MenuCharacter(StatBlock *stats);
