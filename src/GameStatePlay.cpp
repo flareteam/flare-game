@@ -457,7 +457,7 @@ void GameStatePlay::logic() {
 	// change hero powers on transformation
 	if (pc->setPowers) {
 		pc->setPowers = false;
-
+		menu->closeAll(false);
 		// save ActionBar state
 		for (int i=0; i<12 ; i++) {
 			actionbar[i] = menu->act->hotkeys[i];
