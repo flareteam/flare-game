@@ -372,7 +372,7 @@ void GameStatePlay::checkNPCInteraction() {
 	}
 
 	// if close enough to the NPC, open the appropriate interaction screen
-	if (npc_click != -1 && interact_distance < max_interact_distance && pc->stats.alive) {
+	if (npc_click != -1 && interact_distance < max_interact_distance && pc->stats.alive && !pc->stats.transformed) {
 		inpt->lock[MAIN1] = true;
 
 		if (npcs->npcs[npc_id]->vendor) {

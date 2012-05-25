@@ -75,7 +75,6 @@ private:
 	std::string img_armor;
 	std::string img_off;
 
-	bool transformed;
 	bool transform_triggered;
 
 public:
