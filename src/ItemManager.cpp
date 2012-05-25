@@ -29,6 +29,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include <sstream>
 #include <fstream>
+#include <cstring>
 
 using namespace std;
 
@@ -213,6 +214,7 @@ void ItemManager::load(const string& filename) {
 }
 
 void ItemManager::loadSounds() {
+    memset(sfx, 0, sizeof(sfx));
 
     if (audio == true) {
         sfx[SFX_BOOK] = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_book.ogg").c_str());
@@ -227,18 +229,6 @@ void ItemManager::loadSounds() {
         sfx[SFX_HEAVY] = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_heavy.ogg").c_str());
         sfx[SFX_WOOD] = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_wood.ogg").c_str());
         sfx[SFX_POTION] = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_potion.ogg").c_str());
-    } else {
-        sfx[SFX_BOOK] = NULL;
-        sfx[SFX_CLOTH] = NULL;
-        sfx[SFX_COINS] = NULL;
-        sfx[SFX_GEM] = NULL;
-        sfx[SFX_LEATHER] = NULL;
-        sfx[SFX_METAL] = NULL;
-        sfx[SFX_PAGE] = NULL;
-        sfx[SFX_MAILLE] = NULL;
-        sfx[SFX_OBJECT] = NULL;
-        sfx[SFX_HEAVY] = NULL;
-        sfx[SFX_WOOD] = NULL;
     }
 }
 
