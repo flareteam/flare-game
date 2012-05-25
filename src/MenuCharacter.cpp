@@ -32,6 +32,8 @@ using namespace std;
 MenuCharacter::MenuCharacter(StatBlock *_stats) {
 	stats = _stats;
 
+	skill_points = 0;
+
 	visible = false;
 	newPowerNotification = false;
 
@@ -103,6 +105,7 @@ MenuCharacter::MenuCharacter(StatBlock *_stats) {
 	cstat[CSTAT_ABSORB].setHover(272, offset_y+336, 32, 16);
 	cstat[CSTAT_FIRERESIST].setHover(272, offset_y+352, 32, 16);
 	cstat[CSTAT_ICERESIST].setHover(272, offset_y+368, 32, 16);
+	cstat[CSTAT_UNSPENT].setHover(90, offset_y+392, 120, 16);
 
 	cprof[CPROF_P2].setHover(128, offset_y+64, 32, 32);
 	cprof[CPROF_P3].setHover(176, offset_y+64, 32, 32);
@@ -244,6 +247,11 @@ void MenuCharacter::refreshStats() {
 	ss << (100 - stats->attunement_ice) << "%";
 	cstat[CSTAT_ICERESIST].value->set(288, offset_y+376, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
 
+	ss.str("");
+	if (skill_points > 0) ss << skill_points << " " << msg->get("points remaining");
+	else ss.str("");
+	cstat[CSTAT_UNSPENT].value->set(155, offset_y+400, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_GREEN);
+	ss.str("");
 
 	// update tool tips
 	cstat[CSTAT_NAME].tip.num_lines = 0;
@@ -304,6 +312,9 @@ void MenuCharacter::refreshStats() {
 	cstat[CSTAT_AVOIDANCEV5].tip.num_lines = 0;
 	cstat[CSTAT_AVOIDANCEV5].tip.lines[cstat[CSTAT_AVOIDANCEV5].tip.num_lines++] = msg->get("Each point of Defense grants +5 avoidance");
 	cstat[CSTAT_AVOIDANCEV5].tip.lines[cstat[CSTAT_AVOIDANCEV5].tip.num_lines++] = msg->get("Each level grants +1 avoidance");
+
+	cstat[CSTAT_UNSPENT].tip.num_lines = 0;
+	if (skill_points) cstat[CSTAT_UNSPENT].tip.lines[cstat[CSTAT_UNSPENT].tip.num_lines++] = msg->get("Unspent attribute points");
 
 	// proficiency tooltips
 	cprof[CPROF_P2].tip.num_lines = 0;
@@ -467,6 +478,7 @@ void MenuCharacter::render() {
 
 	int spent = stats->physical_character + stats->mental_character + stats->offense_character + stats->defense_character -4;
 	int max_spendable_stat_points = 16;
+	skill_points = stats->level - spent;
 
 	// check to see if there are skill points available
 	if (spent < stats->level && spent < max_spendable_stat_points) {
@@ -560,6 +572,7 @@ bool MenuCharacter::checkUpgrade() {
 
 	int spent = stats->physical_character + stats->mental_character + stats->offense_character + stats->defense_character -4;
 	int max_spendable_stat_points = 16;
+	skill_points = stats->level - spent;
 
 	// check to see if there are skill points available
 	if (spent < stats->level && spent < max_spendable_stat_points) {
