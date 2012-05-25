@@ -172,6 +172,7 @@ public:
 	int stun_duration;
 	int immobilize_duration;
 	int immunity_duration;
+	int transform_duration;
 	int haste_duration;
 	int hot_duration;
 	int hot_value;
@@ -250,6 +251,7 @@ public:
 	std::string base; // folder in /images/avatar
 	std::string head; // png in /images/avatar/[base]
 	std::string portrait; // png in /images/portraits
+	std::string transform_type;
 
 	std::string animations;
 	int animationSpeed;

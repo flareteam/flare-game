@@ -100,6 +100,7 @@ void PowerManager::loadPowers(const std::string& filename) {
 				else if (infile.val == "missile") powers[input_id].type = POWTYPE_MISSILE;
 				else if (infile.val == "repeater") powers[input_id].type = POWTYPE_REPEATER;
 				else if (infile.val == "spawn") powers[input_id].type = POWTYPE_SPAWN;
+				else if (infile.val == "transform") powers[input_id].type = POWTYPE_TRANSFORM;
 			}
 			else if (infile.key == "name") {
 				powers[input_id].name = msg->get(infile.val);
@@ -307,6 +308,9 @@ void PowerManager::loadPowers(const std::string& filename) {
 			}
 			else if (infile.key == "immunity_duration") {
 				powers[input_id].immunity_duration = atoi(infile.val.c_str());
+			}
+			else if (infile.key == "transform_duration") {
+				powers[input_id].transform_duration = atoi(infile.val.c_str());
 			}
 			else if (infile.key == "haste_duration") {
 				powers[input_id].haste_duration = atoi(infile.val.c_str());
@@ -736,6 +740,11 @@ void PowerManager::buff(int power_index, StatBlock *src_stats, Point target) {
 		src_stats->immunity_duration = powers[power_index].immunity_duration;
 	}
 
+	// transform_duration causes hero to be transformed
+	if (src_stats->transform_duration < powers[power_index].transform_duration) {
+		src_stats->transform_duration = powers[power_index].transform_duration;
+	}
+
 	// haste doubles run speed and removes power cooldowns
 	if (src_stats->haste_duration < powers[power_index].haste_duration) {
 		src_stats->haste_duration = powers[power_index].haste_duration;
@@ -1001,6 +1010,23 @@ bool PowerManager::spawn(int power_index, StatBlock *src_stats, Point target) {
 
 
 /**
+ * Transform into a creature. Fully replaces entity characteristics
+ */
+bool PowerManager::transform(int power_index, StatBlock *src_stats, Point target) {
+
+	// apply any buffs
+	buff(power_index, src_stats, target);
+
+	// If there's a sound effect, play it here
+	playSound(power_index, src_stats);
+
+	src_stats->transform_type = powers[power_index].spawn_type;
+
+	return true;
+}
+
+
+/**
  * Activate is basically a switch/redirect to the appropriate function
  */
 bool PowerManager::activate(int power_index, StatBlock *src_stats, Point target) {
@@ -1022,6 +1048,8 @@ bool PowerManager::activate(int power_index, StatBlock *src_stats, Point target)
 		return effect(power_index, src_stats, target);
 	else if (powers[power_index].type == POWTYPE_SPAWN)
 		return spawn(power_index, src_stats, target);
+	else if (powers[power_index].type == POWTYPE_TRANSFORM)
+		return transform(power_index, src_stats, target);
 
 	return false;
 }

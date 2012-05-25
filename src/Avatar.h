@@ -75,6 +75,9 @@ private:
 	std::string img_armor;
 	std::string img_off;
 
+	bool transformed;
+	bool transform_triggered;
+
 public:
 	Avatar(PowerManager *_powers, MapIso *_map);
 	~Avatar();
@@ -89,6 +92,15 @@ public:
 	void set_direction();
 	bool takeHit(Hazard h);
 	std::string log_msg;
+	
+	// transformation handling
+	void transform();
+	void untransform();
+	bool untransform_triggered;
+	bool setPowers;
+	bool revertPowers;
+	StatBlock *hero_stats;
+	StatBlock *charmed_stats;
 
 	virtual Renderable getRender();
 
