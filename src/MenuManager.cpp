@@ -20,6 +20,21 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "MenuManager.h"
+#include "MenuActionBar.h"
+#include "MenuCharacter.h"
+#include "MenuExperience.h"
+#include "MenuHPMP.h"
+#include "MenuHUDLog.h"
+#include "MenuInventory.h"
+#include "MenuMiniMap.h"
+#include "MenuPowers.h"
+#include "MenuEnemy.h"
+#include "MenuVendor.h"
+#include "MenuTalker.h"
+#include "MenuExit.h"
+#include "MenuLog.h"
+#include "ModManager.h"
+#include "PowerManager.h"
 #include "SharedResources.h"
 
 MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManager *_camp, ItemManager *_items) {
@@ -119,7 +134,7 @@ void MenuManager::logic() {
 	log->logic();
 	talker->logic();
 
-	// only allow the vendor window to be open if the inventory is open 
+	// only allow the vendor window to be open if the inventory is open
 	if (vendor->visible && !(inv->visible)) {
 	  closeLeft(true);
 	}
@@ -138,7 +153,7 @@ void MenuManager::logic() {
 	}
 
 	// exit menu toggle
-	if ((inpt->pressing[CANCEL] && !inpt->lock[CANCEL] && !key_lock && !dragging)) {
+	if ((inpt->pressing[CANCEL] && !inpt->lock[CANCEL] && !key_lock && !dragging) && !(stats->corpse && stats->permadeath) && !stats->transformed) {
 		inpt->lock[CANCEL] = true;
 		key_lock = true;
 		if (menus_open) {
@@ -150,7 +165,7 @@ void MenuManager::logic() {
 	}
 
 	// inventory menu toggle
-	if ((inpt->pressing[INVENTORY] && !key_lock && !dragging) || clicking_inventory) {
+	if (((inpt->pressing[INVENTORY] && !key_lock && !dragging) || clicking_inventory) && !stats->transformed) {
 		key_lock = true;
 		if (inv->visible) {
 			closeRight(true);
@@ -166,7 +181,7 @@ void MenuManager::logic() {
 	}
 
 	// powers menu toggle
-	if ((inpt->pressing[POWERS] && !key_lock && !dragging) || clicking_powers) {
+	if (((inpt->pressing[POWERS] && !key_lock && !dragging) || clicking_powers) && !stats->transformed) {
 		key_lock = true;
 		if (pow->visible) {
 			closeRight(true);
@@ -181,7 +196,7 @@ void MenuManager::logic() {
 	}
 
 	// character menu toggleggle
-	if ((inpt->pressing[CHARACTER] && !key_lock && !dragging) || clicking_character) {
+	if (((inpt->pressing[CHARACTER] && !key_lock && !dragging) || clicking_character) && !stats->transformed) {
 		key_lock = true;
 		if (chr->visible) {
 			closeLeft(true);
@@ -196,7 +211,7 @@ void MenuManager::logic() {
 	}
 
 	// log menu toggle
-	if ((inpt->pressing[LOG] && !key_lock && !dragging) || clicking_log) {
+	if (((inpt->pressing[LOG] && !key_lock && !dragging) || clicking_log) && !stats->transformed) {
 		key_lock = true;
 		if (log->visible) {
 			closeLeft(true);
@@ -351,7 +366,7 @@ void MenuManager::logic() {
 					act->remove(inpt->mouse);
 				}
 				// allow drag-to-rearrange action bar
-				else if (!isWithin(act->menuArea, inpt->mouse)) {
+				else if (!isWithin(act->menuArea, inpt->mouse) && !stats->transformed) {
 					drag_power = act->checkDrag(inpt->mouse);
 					if (drag_power > -1) {
 						dragging = true;

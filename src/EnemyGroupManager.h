@@ -19,11 +19,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef ENEMYGROUPMANAGER_H
 #define ENEMYGROUPMANAGER_H
 
-#include "Settings.h"
-#include "MapIso.h"
-#include "FileParser.h"
-#include "UtilsFileSystem.h"
-
 #include <fstream>
 #include <string>
 #include <map>

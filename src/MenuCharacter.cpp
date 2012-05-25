@@ -21,20 +21,24 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "MenuCharacter.h"
 #include "SharedResources.h"
+#include "Settings.h"
+#include "StatBlock.h"
+#include "WidgetButton.h"
+
 
 using namespace std;
 
 
 MenuCharacter::MenuCharacter(StatBlock *_stats) {
 	stats = _stats;
-	
+
 	visible = false;
 	newPowerNotification = false;
 
 	loadGraphics();
 
 	int offset_y = (VIEW_H - 416)/2;
-	
+
 	// button setup
 	closeButton = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
 	closeButton->pos.x = 294;
@@ -43,19 +47,19 @@ MenuCharacter::MenuCharacter(StatBlock *_stats) {
 	// menu title
 	labelCharacter = new WidgetLabel();
 	labelCharacter->set(160, offset_y+16, JUSTIFY_CENTER, VALIGN_CENTER, msg->get("Character"), FONT_WHITE);
-	
+
 	for (int i=0; i<CSTAT_COUNT; i++) {
 		cstat[i].label = new WidgetLabel();
 		cstat[i].value = new WidgetLabel();
 		cstat[i].hover.x = cstat[i].hover.y = 0;
 		cstat[i].hover.w = cstat[i].hover.h = 0;
 	}
-	
+
 	for (int i=0; i<CPROF_COUNT; i++) {
 		cstat[i].hover.x = cstat[i].hover.y = 0;
-		cstat[i].hover.w = cstat[i].hover.h = 0;	
+		cstat[i].hover.w = cstat[i].hover.h = 0;
 	}
-	
+
 	// setup static labels
 	cstat[CSTAT_NAME].label->set(72, offset_y+40, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("Name"), FONT_WHITE);
 	cstat[CSTAT_LEVEL].label->set(264, offset_y+40, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("Level"), FONT_WHITE);
@@ -77,7 +81,7 @@ MenuCharacter::MenuCharacter(StatBlock *_stats) {
 	cstat[CSTAT_ABSORB].label->set(264, offset_y+344, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("Absorb"), FONT_WHITE);
 	cstat[CSTAT_FIRERESIST].label->set(264, offset_y+360, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("Fire Resist"), FONT_WHITE);
 	cstat[CSTAT_ICERESIST].label->set(264, offset_y+376, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("Ice Resist"), FONT_WHITE);
-	
+
 	// setup hotspot locations
 	cstat[CSTAT_NAME].setHover(80, offset_y+32, 104, 16);
 	cstat[CSTAT_LEVEL].setHover(272, offset_y+32, 32, 16);
@@ -99,7 +103,7 @@ MenuCharacter::MenuCharacter(StatBlock *_stats) {
 	cstat[CSTAT_ABSORB].setHover(272, offset_y+336, 32, 16);
 	cstat[CSTAT_FIRERESIST].setHover(272, offset_y+352, 32, 16);
 	cstat[CSTAT_ICERESIST].setHover(272, offset_y+368, 32, 16);
-	
+
 	cprof[CPROF_P2].setHover(128, offset_y+64, 32, 32);
 	cprof[CPROF_P3].setHover(176, offset_y+64, 32, 32);
 	cprof[CPROF_P4].setHover(224, offset_y+64, 32, 32);
@@ -116,7 +120,7 @@ MenuCharacter::MenuCharacter(StatBlock *_stats) {
 	cprof[CPROF_D3].setHover(176, offset_y+256, 32, 32);
 	cprof[CPROF_D4].setHover(224, offset_y+256, 32, 32);
 	cprof[CPROF_D5].setHover(272, offset_y+256, 32, 32);
-	
+
 }
 
 void MenuCharacter::loadGraphics() {
@@ -128,12 +132,12 @@ void MenuCharacter::loadGraphics() {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 		SDL_Quit();
 	}
-	
+
 	// optimize
 	SDL_Surface *cleanup = background;
 	background = SDL_DisplayFormatAlpha(background);
 	SDL_FreeSurface(cleanup);
-	
+
 	cleanup = proficiency;
 	proficiency = SDL_DisplayFormatAlpha(proficiency);
 	SDL_FreeSurface(cleanup);
@@ -141,7 +145,7 @@ void MenuCharacter::loadGraphics() {
 	cleanup = upgrade;
 	upgrade = SDL_DisplayFormatAlpha(upgrade);
 	SDL_FreeSurface(cleanup);
-		
+
 }
 
 /**
@@ -151,14 +155,14 @@ void MenuCharacter::refreshStats() {
 
 	stringstream ss;
 	int offset_y = (VIEW_H - 416)/2;
-	
+
 	// update stat text
 	cstat[CSTAT_NAME].value->set(84, offset_y+40, JUSTIFY_LEFT, VALIGN_CENTER, stats->name, FONT_WHITE);
 
 	ss.str("");
 	ss << stats->level;
 	cstat[CSTAT_LEVEL].value->set(288, offset_y+40, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
-	
+
 	ss.str("");
 	ss << stats->get_physical();
 	cstat[CSTAT_PHYSICAL].value->set(24, offset_y+80, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), bonusColor(stats->physical_additional));
@@ -178,7 +182,7 @@ void MenuCharacter::refreshStats() {
 	ss.str("");
 	ss << stats->maxhp;
 	cstat[CSTAT_HP].value->set(176, offset_y+112, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
-	
+
 	ss.str("");
 	ss << stats->hp_per_minute;
 	cstat[CSTAT_HPREGEN].value->set(288, offset_y+112, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
@@ -266,7 +270,7 @@ void MenuCharacter::refreshStats() {
 	cstat[CSTAT_DEFENSE].tip.num_lines = 0;
 	cstat[CSTAT_DEFENSE].tip.lines[cstat[CSTAT_DEFENSE].tip.num_lines++] = msg->get("Defense (D) increases armor proficiency and avoidance.");
 	cstat[CSTAT_DEFENSE].tip.lines[cstat[CSTAT_DEFENSE].tip.num_lines++] = msg->get("base (%d), bonus (%d)", stats->defense_character, stats->defense_additional);
-	
+
 	cstat[CSTAT_HP].tip.num_lines = 0;
 	cstat[CSTAT_HP].tip.lines[cstat[CSTAT_HP].tip.num_lines++] = msg->get("Each point of Physical grants +8 HP");
 	cstat[CSTAT_HP].tip.lines[cstat[CSTAT_HP].tip.num_lines++] = msg->get("Each level grants +2 HP");
@@ -300,7 +304,7 @@ void MenuCharacter::refreshStats() {
 	cstat[CSTAT_AVOIDANCEV5].tip.num_lines = 0;
 	cstat[CSTAT_AVOIDANCEV5].tip.lines[cstat[CSTAT_AVOIDANCEV5].tip.num_lines++] = msg->get("Each point of Defense grants +5 avoidance");
 	cstat[CSTAT_AVOIDANCEV5].tip.lines[cstat[CSTAT_AVOIDANCEV5].tip.num_lines++] = msg->get("Each level grants +1 avoidance");
-	
+
 	// proficiency tooltips
 	cprof[CPROF_P2].tip.num_lines = 0;
 	cprof[CPROF_P2].tip.lines[cprof[CPROF_P2].tip.num_lines++] = msg->get("Dagger Proficiency");
@@ -349,7 +353,7 @@ void MenuCharacter::refreshStats() {
 	if (stats->get_mental() < 5) cprof[CPROF_M5].tip.colors[cprof[CPROF_M5].tip.num_lines] = FONT_RED;
 	else cprof[CPROF_M5].tip.colors[cprof[CPROF_M5].tip.num_lines] = FONT_WHITE;
 	cprof[CPROF_M5].tip.lines[cprof[CPROF_M5].tip.num_lines++] = msg->get("Requires Mental %d", 5);
-	
+
 	cprof[CPROF_O2].tip.num_lines = 0;
 	cprof[CPROF_O2].tip.lines[cprof[CPROF_O2].tip.num_lines++] = msg->get("Slingshot Proficiency");
 	if (stats->get_offense() < 2) cprof[CPROF_O2].tip.colors[cprof[CPROF_O2].tip.num_lines] = FONT_RED;
@@ -397,7 +401,7 @@ void MenuCharacter::refreshStats() {
 	if (stats->get_defense() < 5) cprof[CPROF_D5].tip.colors[cprof[CPROF_D5].tip.num_lines] = FONT_RED;
 	else cprof[CPROF_D5].tip.colors[cprof[CPROF_D5].tip.num_lines] = FONT_WHITE;
 	cprof[CPROF_D5].tip.lines[cprof[CPROF_D5].tip.num_lines++] = msg->get("Requires Defense %d", 5);
-	
+
 }
 
 
@@ -412,11 +416,11 @@ int MenuCharacter::bonusColor(int stat) {
 
 void MenuCharacter::logic() {
 	if (!visible) return;
-	
+
 	if (closeButton->checkClick()) {
 		visible = false;
 	}
-	
+
 	// TODO: this doesn't need to be done every frame. Only call this when something has updated
 	refreshStats();
 }
@@ -425,11 +429,11 @@ void MenuCharacter::logic() {
 
 void MenuCharacter::render() {
 	if (!visible) return;
-	
+
 	SDL_Rect src;
 	SDL_Rect dest;
 	int offset_y = (VIEW_H - 416)/2;
-	
+
 	// background
 	src.x = 0;
 	src.y = 0;
@@ -438,10 +442,10 @@ void MenuCharacter::render() {
 	src.w = dest.w = 320;
 	src.h = dest.h = 416;
 	SDL_BlitSurface(background, &src, screen, &dest);
-	
+
 	// close button
 	closeButton->render();
-	
+
 	// title
 	labelCharacter->render();
 
@@ -450,20 +454,20 @@ void MenuCharacter::render() {
 		cstat[i].label->render();
 		cstat[i].value->render();
 	}
-	
-	
+
+
 	// highlight proficiencies
 	displayProficiencies(stats->get_physical(), offset_y+64);
 	displayProficiencies(stats->get_mental(), offset_y+128);
 	displayProficiencies(stats->get_offense(), offset_y+192);
 	displayProficiencies(stats->get_defense(), offset_y+256);
-	
+
 	// if points are available, show the upgrade buttons
 	// TODO: replace with WidgetButton
-	
+
 	int spent = stats->physical_character + stats->mental_character + stats->offense_character + stats->defense_character -4;
 	int max_spendable_stat_points = 16;
-	
+
 	// check to see if there are skill points available
 	if (spent < stats->level && spent < max_spendable_stat_points) {
 
@@ -494,7 +498,7 @@ void MenuCharacter::render() {
 			SDL_BlitSurface(upgrade, &src, screen, &dest);
 		}
 
-		
+
 	}
 }
 
@@ -513,11 +517,11 @@ void MenuCharacter::displayProficiencies(int value, int y) {
 	src.w = dest.w = 48;
 	src.h = dest.h = 32;
 	dest.y = y;
-	
+
 	// save-game hackers could set their stats higher than normal.
 	// make sure this display still works.
 	int actual_value = min(value,5);
-	
+
 	for (int i=2; i<= actual_value; i++) {
 		dest.x = 112 + (i-2) * 48;
 		SDL_BlitSurface(proficiency, &src, screen, &dest);
@@ -538,7 +542,7 @@ TooltipData MenuCharacter::checkTooltip() {
 		if (isWithin(cprof[i].hover, inpt->mouse) && cprof[i].tip.num_lines > 0)
 			return cprof[i].tip;
 	}
-	
+
 	TooltipData tip;
 	tip.num_lines = 0;
 	return tip;
@@ -556,13 +560,13 @@ bool MenuCharacter::checkUpgrade() {
 
 	int spent = stats->physical_character + stats->mental_character + stats->offense_character + stats->defense_character -4;
 	int max_spendable_stat_points = 16;
-	
+
 	// check to see if there are skill points available
 	if (spent < stats->level && spent < max_spendable_stat_points) {
-		
+
 		// check mouse hotspots
 		int offset_y = (VIEW_H - 416)/2;
-		
+
 		// physical
 		if (stats->physical_character < 5 && mouse.x >= 16 && mouse.x <= 48 && mouse.y >= offset_y+96 && mouse.y <= offset_y+112) {
 			stats->physical_character++;
@@ -575,24 +579,24 @@ bool MenuCharacter::checkUpgrade() {
 			stats->mental_character++;
 			stats->recalc(); // equipment applied by MenuManager
             newPowerNotification = true;
-			return true;		
+			return true;
 		}
 		// offense
 		else if (stats->offense_character < 5 && mouse.x >= 16 && mouse.x <= 48 && mouse.y >= offset_y+224 && mouse.y <= offset_y+240) {
 			stats->offense_character++;
 			stats->recalc(); // equipment applied by MenuManager
             newPowerNotification = true;
-			return true;		
+			return true;
 		}
 		// defense
 		else if (stats->defense_character < 5 && mouse.x >= 16 && mouse.x <= 48 && mouse.y >= offset_y+288 && mouse.y <= offset_y+304) {
 			stats->defense_character++;
 			stats->recalc(); // equipment applied by MenuManager
             newPowerNotification = true;
-			return true;		
+			return true;
 		}
 	}
-	
+
 	return false;
 }
 
@@ -601,7 +605,7 @@ MenuCharacter::~MenuCharacter() {
 	SDL_FreeSurface(proficiency);
 	SDL_FreeSurface(upgrade);
 	delete closeButton;
-	
+
 	delete labelCharacter;
 	for (int i=0; i<CSTAT_COUNT; i++) {
 		delete cstat[i].label;

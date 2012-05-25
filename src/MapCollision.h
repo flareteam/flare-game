@@ -26,7 +26,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #define MAP_COLLISION_H
 
 #include "Utils.h"
-#include "Settings.h"
+
 #include <algorithm>
 #include <cstdlib>
 #include <vector>

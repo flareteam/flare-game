@@ -25,16 +25,15 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_mixer.h>
-#include "Utils.h"
-#include "FontEngine.h"
-#include "StatBlock.h"
+
 #include "WidgetTooltip.h"
-#include "InputState.h"
-#include "WidgetButton.h"
-#include "SharedResources.h"
-#include "WidgetLabel.h"
+
 #include <string>
 #include <sstream>
+
+class StatBlock;
+class WidgetButton;
+class WidgetLabel;
 
 const int CSTAT_NAME = 0;
 const int CSTAT_LEVEL = 1;

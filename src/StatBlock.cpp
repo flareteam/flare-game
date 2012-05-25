@@ -23,8 +23,10 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "StatBlock.h"
 #include "FileParser.h"
-#include "SharedResources.h"
 #include "PowerManager.h"
+#include "SharedResources.h"
+#include "Settings.h"
+#include "UtilsParsing.h"
 #include <limits>
 
 using namespace std;
@@ -38,6 +40,9 @@ StatBlock::StatBlock() {
 	hero = false;
 	hero_pos.x = hero_pos.y = -1;
 	hero_alive = true;
+	permadeath = false;
+	transform_type = "";
+	transformed = false;
 
 	flying = false;
 	incorporeal = false;
@@ -76,6 +81,7 @@ StatBlock::StatBlock() {
 	stun_duration = 0;
 	immobilize_duration = 0;
 	immunity_duration = 0;
+	transform_duration = 0;
 	haste_duration = 0;
 	hot_duration = 0;
 	hot_value = 0;
@@ -91,7 +97,7 @@ StatBlock::StatBlock() {
 	waypoint_pause = 0;
 	waypoint_pause_ticks = 0;
 
-	// xp table	
+	// xp table
 	// default to MAX_INT
 	for (int i=0; i<MAX_CHARACTER_LEVEL; i++) {
 		xp_table[i] = std::numeric_limits<int>::max();
@@ -406,6 +412,8 @@ void StatBlock::logic() {
 		hot_duration--;
 	if (forced_move_duration > 0)
 		forced_move_duration--;
+	if (transform_duration > 0)
+		transform_duration--;
 
 	// apply bleed
 	if (bleed_duration % FRAMES_PER_SEC == 1) {

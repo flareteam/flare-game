@@ -25,18 +25,18 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #define POWER_MANAGER_H
 
 #include "Utils.h"
-#include "StatBlock.h"
-#include "Hazard.h"
-#include "MapCollision.h"
-#include "SharedResources.h"
-#include "CombatText.h"
 
 #include <SDL.h>
 #include <SDL_image.h>
+#include <SDL_mixer.h>
 
 #include <string>
 #include <queue>
 #include <cassert>
+
+class Hazard;
+class MapCollision;
+class StatBlock;
 
 const int POWER_COUNT = 1024;
 const int POWER_MAX_GFX = 64;
@@ -47,6 +47,7 @@ const int POWTYPE_MISSILE = 3;
 const int POWTYPE_REPEATER = 4;
 const int POWTYPE_EFFECT = 5;
 const int POWTYPE_SPAWN = 6;
+const int POWTYPE_TRANSFORM = 7;
 
 const int POWSTATE_SWING = 0;
 const int POWSTATE_CAST = 1;
@@ -159,6 +160,7 @@ struct Power {
 	int slow_duration;
 	int immobilize_duration;
 	int immunity_duration;
+	int transform_duration;
 	int haste_duration;
 	int hot_duration;
 	int hot_value;
@@ -247,6 +249,7 @@ struct Power {
 		slow_duration = 0;
 		immobilize_duration = 0;
 		immunity_duration = 0;
+		transform_duration = 0;
 		haste_duration = 0;
 		hot_duration = 0;
 		hot_value = 0;
@@ -299,6 +302,7 @@ private:
 	bool repeater(int powernum, StatBlock *src_stats, Point target);
 	bool single(int powernum, StatBlock *src_stats, Point target);
 	bool spawn(int powernum, StatBlock *src_stats, Point target);
+	bool transform(int powernum, StatBlock *src_stats, Point target);
 
 public:
 	PowerManager();

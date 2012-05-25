@@ -25,28 +25,27 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_mixer.h>
-#include "Utils.h"
-#include "FontEngine.h"
-#include "InputState.h"
-#include "MenuInventory.h"
-#include "MenuPowers.h"
-#include "MenuCharacter.h"
-#include "MenuLog.h"
-#include "MenuHUDLog.h"
-#include "StatBlock.h"
-#include "MenuActionBar.h"
-#include "MenuHPMP.h"
-#include "WidgetTooltip.h"
+
 #include "ItemManager.h"
-#include "PowerManager.h"
-#include "MenuMiniMap.h"
-#include "MenuExperience.h"
-#include "MenuEnemy.h"
-#include "MenuVendor.h"
-#include "MenuTalker.h"
-#include "MenuExit.h"
-#include "CampaignManager.h"
-#include "SharedResources.h"
+#include "WidgetTooltip.h"
+
+class MenuInventory;
+class MenuPowers;
+class MenuCharacter;
+class MenuLog;
+class MenuHUDLog;
+class MenuActionBar;
+class MenuHPMP;
+class MenuMiniMap;
+class MenuExperience;
+class MenuEnemy;
+class MenuVendor;
+class MenuTalker;
+class MenuExit;
+class CampaignManager;
+class ItemManager;
+class PowerManager;
+class StatBlock;
 
 const int DRAG_SRC_POWERS = 1;
 const int DRAG_SRC_INVENTORY = 2;

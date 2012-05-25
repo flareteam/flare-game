@@ -20,8 +20,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "MenuVendor.h"
+#include "NPC.h"
 #include "SharedResources.h"
-#include "WidgetLabel.h"
+#include "WidgetButton.h"
 
 using namespace std;
 

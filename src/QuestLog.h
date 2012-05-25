@@ -26,8 +26,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include <string>
 #include "Utils.h"
-#include "CampaignManager.h"
-#include "MenuLog.h"
+
+class CampaignManager;
+class MenuLog;
 
 const int MAX_QUESTS = 1024;
 const int MAX_QUEST_EVENTS = 8;

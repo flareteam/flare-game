@@ -22,6 +22,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "FontEngine.h"
 #include "FileParser.h"
 #include "SharedResources.h"
+#include "Settings.h"
+#include "UtilsParsing.h"
 #include <iostream>
 #include <sstream>
 
@@ -70,7 +72,7 @@ FontEngine::FontEngine() {
 
 	// calculate the optimal line height
 	line_height = TTF_FontLineSkip(ttfont);
-	font_height = TTF_FontHeight(ttfont); 
+	font_height = TTF_FontHeight(ttfont);
 
 	// set the font colors
 	// RGB values, the last value is 'unused'. For info,
@@ -93,7 +95,7 @@ FontEngine::FontEngine() {
 /**
  * For single-line text, just calculate the width
  */
-int FontEngine::calc_width(string text) {
+int FontEngine::calc_width(const std::string& text) {
 	int w, h;
 	TTF_SizeUTF8(ttfont, text.c_str(), &w, &h);
 	return w;
@@ -102,9 +104,9 @@ int FontEngine::calc_width(string text) {
 /**
  * Using the given wrap width, calculate the width and height necessary to display this text
  */
-Point FontEngine::calc_size(string text_with_newlines, int width) {
+Point FontEngine::calc_size(const std::string& text_with_newlines, int width) {
 	char newline = 10;
-	
+
 	string text = text_with_newlines;
 
 	// if this contains newlines, recurse
@@ -113,10 +115,10 @@ Point FontEngine::calc_size(string text_with_newlines, int width) {
 		Point p1 = calc_size(text.substr(0, check_newline), width);
 		Point p2 = calc_size(text.substr(check_newline+1, text.length()), width);
 		Point p3;
-		
+
 		if (p1.x > p2.x) p3.x = p1.x;
 		else p3.x = p2.x;
-		
+
 		p3.y = p1.y + p2.y;
 		return p3;
 	}
@@ -130,40 +132,40 @@ Point FontEngine::calc_size(string text_with_newlines, int width) {
 	char space = 32;
 	size_t cursor = 0;
 	string fulltext = text + " ";
-	
+
 	builder.str("");
 	builder_prev.str("");
-	
+
 	next_word = getNextToken(fulltext, cursor, space);
-	
+
 	while(cursor != string::npos) {
 		builder << next_word;
-		
+
 		if (calc_width(builder.str()) > width) {
-		
+
 			// this word can't fit on this line, so word wrap
 			height = height + getLineHeight();
 			if (calc_width(builder_prev.str()) > max_width) {
 				max_width = calc_width(builder_prev.str());
 			}
-			
+
 			builder_prev.str("");
 			builder.str("");
-			
-			builder << next_word << " ";			
+
+			builder << next_word << " ";
 		}
 		else {
 			builder <<  " ";
 			builder_prev.str(builder.str());
 		}
-		
+
 		next_word = getNextToken(fulltext, cursor, space); // get next word
 	}
-	
+
 	height = height + getLineHeight();
 	builder.str(trim(builder.str(), ' ')); //removes whitespace that shouldn't be included in the size
 	if (calc_width(builder.str()) > max_width) max_width = calc_width(builder.str());
-		
+
 	Point size;
 	size.x = max_width;
 	size.y = height;
@@ -175,14 +177,14 @@ Point FontEngine::calc_size(string text_with_newlines, int width) {
  * Render the given text at (x,y) on the target image.
  * Justify is left, right, or center
  */
-void FontEngine::render(string text, int x, int y, int justify, SDL_Surface *target, int color) {
+void FontEngine::render(const std::string& text, int x, int y, int justify, SDL_Surface *target, int color) {
 	int dest_x = -1;
 	int dest_y = -1;
 
 	// DEBUG
 	dest_x = x;
 	dest_y = y;
-	
+
 	// calculate actual starting x,y based on justify
 	if (justify == JUSTIFY_LEFT) {
 		dest_x = x;
@@ -207,7 +209,7 @@ void FontEngine::render(string text, int x, int y, int justify, SDL_Surface *tar
 	SDL_Rect dest_rect;
 	dest_rect.x = dest_x;
 	dest_rect.y = dest_y;
-	
+
 	ttf = TTF_RenderUTF8_Solid(ttfont, text.c_str(), colors[color]);
 
 	if (ttf != NULL) SDL_BlitSurface(ttf, NULL, target, &dest_rect);
@@ -218,7 +220,7 @@ void FontEngine::render(string text, int x, int y, int justify, SDL_Surface *tar
 /**
  * Word wrap to width
  */
-void FontEngine::render(string text, int x, int y, int justify, SDL_Surface *target, int width, int color) {
+void FontEngine::render(const std::string& text, int x, int y, int justify, SDL_Surface *target, int width, int color) {
 
 	string fulltext = text + " ";
 	cursor_y = y;
@@ -228,29 +230,29 @@ void FontEngine::render(string text, int x, int y, int justify, SDL_Surface *tar
 	char space = 32;
 	size_t cursor = 0;
 	string swap;
-	
+
 	builder.str("");
 	builder_prev.str("");
-	
+
 	next_word = getNextToken(fulltext, cursor, space);
-	
+
 	while(cursor != string::npos) {
-	
+
 		builder << next_word;
-		
+
 		if (calc_width(builder.str()) > width) {
 			render(builder_prev.str(), x, cursor_y, justify, target, color);
 			cursor_y += getLineHeight();
 			builder_prev.str("");
 			builder.str("");
-			
+
 			builder << next_word << " ";
 		}
 		else {
 			builder << " ";
 			builder_prev.str(builder.str());
 		}
-		
+
 		next_word = getNextToken(fulltext, cursor, space); // next word
 	}
 
@@ -259,12 +261,12 @@ void FontEngine::render(string text, int x, int y, int justify, SDL_Surface *tar
 
 }
 
-void FontEngine::renderShadowed(string text, int x, int y, int justify, SDL_Surface *target, int color) {
+void FontEngine::renderShadowed(const std::string& text, int x, int y, int justify, SDL_Surface *target, int color) {
 	render(text, x+1, y+1, justify, target, FONT_BLACK);
 	render(text, x, y, justify, target, color);
 }
 
-void FontEngine::renderShadowed(string text, int x, int y, int justify, SDL_Surface *target, int width, int color) {
+void FontEngine::renderShadowed(const std::string& text, int x, int y, int justify, SDL_Surface *target, int width, int color) {
 	render(text, x+1, y+1, justify, target, width, FONT_BLACK);
 	render(text, x, y, justify, target, width, color);
 }

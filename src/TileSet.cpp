@@ -20,11 +20,11 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  *
  * TileSet storage and file loading
  */
- 
+
 #include "TileSet.h"
-#include "UtilsParsing.h"
 #include "SharedResources.h"
 #include "FileParser.h"
+#include "UtilsParsing.h"
 
 #include <cstdio>
 
@@ -65,13 +65,13 @@ void TileSet::loadGraphics(const std::string& filename) {
 	// the color ke is specified in the tilesetdef file like this:
 	// transparency=r,g,b
 	if (!alpha_background) {
-		SDL_SetColorKey( sprites, SDL_SRCCOLORKEY, SDL_MapRGB(sprites->format, trans_r, trans_g, trans_b) ); 
+		SDL_SetColorKey( sprites, SDL_SRCCOLORKEY, SDL_MapRGB(sprites->format, trans_r, trans_g, trans_b) );
 	}
 	
 	// optimize
 	SDL_Surface *cleanup = sprites;
 	sprites = SDL_DisplayFormatAlpha(sprites);
-	SDL_FreeSurface(cleanup);	
+	SDL_FreeSurface(cleanup);
 }
 
 void TileSet::load(const std::string& filename) {
@@ -113,7 +113,7 @@ void TileSet::load(const std::string& filename) {
 				infile.val = infile.val + ',';
 				trans_r = (Uint8)eatFirstInt(infile.val, ',');
 				trans_g = (Uint8)eatFirstInt(infile.val, ',');
-				trans_b = (Uint8)eatFirstInt(infile.val, ',');				
+				trans_b = (Uint8)eatFirstInt(infile.val, ',');
 				
 			}
 		

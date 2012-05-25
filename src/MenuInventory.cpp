@@ -20,8 +20,11 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "MenuInventory.h"
+#include "PowerManager.h"
 #include "SharedResources.h"
-#include "WidgetLabel.h"
+#include "Settings.h"
+#include "StatBlock.h"
+#include "WidgetButton.h"
 
 #include <sstream>
 
@@ -32,7 +35,7 @@ MenuInventory::MenuInventory(ItemManager *_items, StatBlock *_stats, PowerManage
 	items = _items;
 	stats = _stats;
 	powers = _powers;
-	
+
 	visible = false;
 	loadGraphics();
 
@@ -45,7 +48,7 @@ MenuInventory::MenuInventory(ItemManager *_items, StatBlock *_stats, PowerManage
 	equipped_area.y = window_area.y + 48;
 	equipped_area.w = 256;
 	equipped_area.h = 64;
-	
+
 	carried_area.x = window_area.x + 32;
 	carried_area.y = window_area.y + 128;
 	carried_area.w = 256;
@@ -53,14 +56,14 @@ MenuInventory::MenuInventory(ItemManager *_items, StatBlock *_stats, PowerManage
 
 	inventory[EQUIPMENT].init(MAX_EQUIPPED, items, equipped_area, ICON_SIZE_64, 4);
 	inventory[CARRIED].init(MAX_CARRIED, items, carried_area, ICON_SIZE_32, 8);
-	
+
 	gold = 0;
-	
+
 	drag_prev_src = -1;
 	changed_equipment = true;
 	changed_artifact = true;
 	log_msg = "";
-	
+
 	closeButton = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
 	closeButton->pos.x = VIEW_W - 26;
 	closeButton->pos.y = (VIEW_H - 480)/2 + 34;
@@ -73,24 +76,24 @@ void MenuInventory::loadGraphics() {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 		SDL_Quit();
 	}
-	
+
 	// optimize
 	SDL_Surface *cleanup = background;
 	background = SDL_DisplayFormatAlpha(background);
-	SDL_FreeSurface(cleanup);	
+	SDL_FreeSurface(cleanup);
 }
 
 void MenuInventory::logic() {
-	
+
 	// if the player has just died, the penalty is half his current gold.
 	if (stats->death_penalty) {
 		gold = gold/2;
 		stats->death_penalty = false;
 	}
-	
+
 	// a copy of gold is kept in stats, to help with various situations
 	stats->gold = gold;
-	
+
 	// check close button
 	if (visible) {
 		if (closeButton->checkClick()) {
@@ -101,19 +104,19 @@ void MenuInventory::logic() {
 
 void MenuInventory::render() {
 	if (!visible) return;
-	
+
 	SDL_Rect src;
-	
+
 	// background
 	src.x = 0;
 	src.y = 0;
 	src.w = window_area.w;
 	src.h = window_area.h;
 	SDL_BlitSurface(background, &src, screen, &window_area);
-	
+
 	// close button
 	closeButton->render();
-	
+
 	// text overlay
 	WidgetLabel label;
 	label.set(window_area.x+160, window_area.y+8, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Inventory"), FONT_WHITE);
@@ -151,7 +154,7 @@ int MenuInventory::areaOver(Point mouse) {
 TooltipData MenuInventory::checkTooltip(Point mouse) {
 	int area;
 	TooltipData tip;
-	
+
 	area = areaOver( mouse);
 	if( area > -1) {
 		tip = inventory[area].checkTooltip( mouse, stats, false);
@@ -160,7 +163,7 @@ TooltipData MenuInventory::checkTooltip(Point mouse) {
 		tip.lines[tip.num_lines++] = msg->get("Use SHIFT to move only one item.");
 		tip.lines[tip.num_lines++] = msg->get("CTRL-click a carried item to sell it.");
 	}
-	
+
 	return tip;
 }
 
@@ -237,7 +240,7 @@ void MenuInventory::drop(Point mouse, ItemStack stack) {
 	}
 	else if (area == CARRIED) {
 		// dropped onto carried item
-		
+
 		if (drag_prev_src == CARRIED) {
 			if (slot != drag_prev_slot) {
 				if( inventory[area][slot].item == stack.item) {
@@ -310,10 +313,10 @@ void MenuInventory::activate(InputState * input) {
 
 	// use a consumable item
 	if (items->items[inventory[CARRIED][slot].item].type == ITEM_TYPE_CONSUMABLE) {
-	
+
 		// if this item requires targeting it can't be used this way
 		if (!powers->powers[items->items[inventory[CARRIED][slot].item].power].requires_targeting) {
-	
+
 			powers->activate(items->items[inventory[CARRIED][slot].item].power, stats, nullpt);
 			// intercept used_item flag.  We will destroy the item here.
 			powers->used_item = -1;
@@ -323,7 +326,7 @@ void MenuInventory::activate(InputState * input) {
 			// let player know this can only be used from the action bar
 			log_msg = msg->get("This item can only be used from the action bar.");
 		}
-		
+
 	}
 	// equip an item
 	else {
@@ -448,7 +451,7 @@ bool MenuInventory::buy(ItemStack stack, Point mouse) {
 	int area;
 	int slot = -1;
 	int count = items->items[stack.item].price * stack.quantity;
-	
+
 	if( gold >= count) {
 		gold -= count;
 
@@ -476,7 +479,7 @@ bool MenuInventory::buy(ItemStack stack, Point mouse) {
 bool MenuInventory::sell(ItemStack stack) {
 	// items that have no price cannot be sold
 	if (items->items[stack.item].price == 0) return false;
-	
+
 	int value_each;
 	if(items->items[stack.item].price_sell != 0)
 		value_each = items->items[stack.item].price_sell;
@@ -496,7 +499,7 @@ bool MenuInventory::sell(ItemStack stack) {
 bool MenuInventory::full() {
 	return inventory[CARRIED].full();
 }
- 
+
 /**
  * Get the number of the specified item carried (not equipped)
  */
@@ -546,7 +549,7 @@ void MenuInventory::updateEquipment(int slot) {
 void MenuInventory::applyEquipment(ItemStack *equipped) {
 
 	int bonus_counter;
-	
+
 	int prev_hp = stats->hp;
 	int prev_mp = stats->mp;
 
@@ -649,10 +652,10 @@ void MenuInventory::applyEquipment(ItemStack *equipped) {
 	// apply bonuses from all items
 	for (int i=0; i<4; i++) {
 		item_id = equipped[i].item;
-	
+
 		bonus_counter = 0;
 		while (pc_items[item_id].bonus_stat[bonus_counter] != "") {
-	
+
 			if (pc_items[item_id].bonus_stat[bonus_counter] == "HP")
 				stats->maxhp += pc_items[item_id].bonus_val[bonus_counter];
 			else if (pc_items[item_id].bonus_stat[bonus_counter] == "HP regen")
@@ -691,7 +694,7 @@ void MenuInventory::applyEquipment(ItemStack *equipped) {
 				stats->physical_additional += pc_items[item_id].bonus_val[bonus_counter];
 				stats->mental_additional += pc_items[item_id].bonus_val[bonus_counter];
 			}
-			
+
 			bonus_counter++;
 			if (bonus_counter == ITEM_MAX_BONUSES) break;
 		}

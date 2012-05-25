@@ -24,12 +24,13 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef HAZARD_MANAGER_H
 #define HAZARD_MANAGER_H
 
-#include "Avatar.h"
-#include "EnemyManager.h"
 #include "Utils.h"
-#include "Hazard.h"
-#include "MapCollision.h"
-#include "PowerManager.h"
+
+class Avatar;
+class EnemyManager;
+class Hazard;
+class MapCollision;
+class PowerManager;
 
 class HazardManager {
 private:

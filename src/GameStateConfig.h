@@ -28,12 +28,16 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include <vector>
 #include "GameState.h"
-#include "WidgetButton.h"
-#include "WidgetCheckBox.h"
-#include "WidgetComboBox.h"
-#include "WidgetSlider.h"
-#include "WidgetTabControl.h"
-#include "WidgetInput.h"
+#include <string>
+
+class Widget;
+class WidgetButton;
+class WidgetCheckBox;
+class WidgetComboBox;
+class WidgetInput;
+class WidgetLabel;
+class WidgetSlider;
+class WidgetTabControl;
 
 class GameStateConfig : public GameState {
 public:

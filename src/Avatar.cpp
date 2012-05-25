@@ -21,7 +21,11 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * Contains logic and rendering routines for the player avatar.
  */
 
+#include "Animation.h"
 #include "Avatar.h"
+#include "CombatText.h"
+#include "Hazard.h"
+#include "PowerManager.h"
 #include "SharedResources.h"
 
 #include <sstream>
@@ -32,8 +36,6 @@ using namespace std;
 Avatar::Avatar(PowerManager *_powers, MapIso *_map) : Entity(_map), powers(_powers) {
 
 	init();
-
-	permadeath = false;
 
 	// default hero animation data
 	stats.cooldown = 4;
@@ -83,6 +85,11 @@ void Avatar::init() {
 	img_main = "";
 	img_armor = "";
 	img_off = "";
+
+	transform_triggered = false;
+	untransform_triggered = false;
+	setPowers = false;
+	revertPowers = false;
 
 	for (int i = 0; i < POWER_COUNT; i++) {
 		stats.hero_cooldown[i] = 0;
@@ -357,6 +364,10 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 	// handle animation
 	activeAnimation->advanceFrame();
 
+	// handle transformation
+	if (stats.transform_type != "" && transform_triggered == false) transform();
+	if (stats.transform_type != "" && stats.transform_duration == 0) untransform();
+
 	switch(stats.cur_state) {
 		case AVATAR_STANCE:
 
@@ -511,7 +522,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 			if (activeAnimation->getCurFrame() == 1 && activeAnimation->getTimesPlayed() < 1) {
 				if (sound_die)
 					Mix_PlayChannel(-1, sound_die, 0);
-				if (permadeath) {
+				if (stats.permadeath) {
 					log_msg = msg->get("You are defeated. Game over! Press Enter to exit to Title.");
 				}
 				else {
@@ -527,7 +538,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 			if (inpt->pressing[ACCEPT]) {
 				map->teleportation = true;
 				map->teleport_mapname = map->respawn_map;
-				if (permadeath) {
+				if (stats.permadeath) {
 					// set these positions so it doesn't flash before jumping to Title
 					map->teleport_destination.x = stats.pos.x;
 					map->teleport_destination.y = stats.pos.y;
@@ -675,6 +686,63 @@ bool Avatar::takeHit(Hazard h) {
 		return true;
 	}
 	return false;
+}
+
+
+void Avatar::transform() {
+
+	transform_triggered = true;
+	stats.transformed = true;
+	setPowers = true;
+
+	charmed_stats = new StatBlock();
+	charmed_stats->load("enemies/" + stats.transform_type + ".txt");
+
+	img_armor = charmed_stats->gfx_prefix;
+
+	// transform the hero graphic
+	if (sprites) SDL_FreeSurface(sprites);
+
+	sprites = IMG_Load(mods->locate("images/enemies/" + charmed_stats->gfx_prefix + ".png").c_str());
+
+	if(!sprites) {
+		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
+		SDL_Quit();
+	}
+
+	SDL_SetColorKey( sprites, SDL_SRCCOLORKEY, SDL_MapRGB(sprites->format, 255, 0, 255) );
+
+	// optimize
+	SDL_Surface *cleanup = sprites;
+	sprites = SDL_DisplayFormatAlpha(sprites);
+	SDL_FreeSurface(cleanup);
+
+	// temporary save hero stats
+	hero_stats = new StatBlock();
+	*hero_stats = stats;
+
+	// replace some hero stats
+	stats.speed = charmed_stats->speed;
+	stats.dspeed = charmed_stats->dspeed;
+	stats.flying = charmed_stats->flying;
+	stats.animations = charmed_stats->animations;
+
+	loadStepFX("NULL");
+}
+
+void Avatar::untransform() {
+
+	stats.transformed = false;
+	transform_triggered = false;
+	untransform_triggered = true;
+	stats.transform_type = "";
+	revertPowers = true;
+
+	// revert some hero stats to last saved
+	stats.speed = hero_stats->speed;
+	stats.dspeed = hero_stats->dspeed;
+	stats.flying = hero_stats->flying;
+	stats.animations = hero_stats->animations;
 }
 
 /**

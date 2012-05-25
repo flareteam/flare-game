@@ -22,21 +22,18 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef MENU_INVENTORY_H
 #define MENU_INVENTORY_H
 
-#include "InputState.h"
-#include "Utils.h"
-#include "FontEngine.h"
-#include "ItemManager.h"
-#include "WidgetTooltip.h"
-#include "StatBlock.h"
-#include "PowerManager.h"
 #include "MenuItemStorage.h"
-#include "WidgetButton.h"
-#include "SharedResources.h"
 
 #include <SDL.h>
 #include <SDL_image.h>
 
 #include <string>
+
+class InputState;
+class ItemManager;
+class PowerManager;
+class StatBlock;
+class WidgetButton;
 
 const int EQUIPMENT = 0;
 const int CARRIED = 1;

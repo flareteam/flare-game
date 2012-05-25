@@ -20,8 +20,10 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "MenuLog.h"
-#include "SharedResources.h"
-#include "WidgetLabel.h"
+#include "ModManager.h"
+#include "Settings.h"
+#include "WidgetButton.h"
+#include "WidgetTabControl.h"
 
 using namespace std;
 
@@ -35,7 +37,7 @@ MenuLog::MenuLog() {
   menu_area.y = (VIEW_H - 416)/2;
   menu_area.w = 320;
   menu_area.h = 416;
-  
+
   // Store the amount of displayed log messages on each log, and the maximum.
   for (int i=0; i<LOG_TYPE_COUNT; i++) {
     log_count[i] = 0;
@@ -43,11 +45,11 @@ MenuLog::MenuLog() {
       msg_buffer[i][j] = NULL;
     }
   }
-  
+
   // Initialize the tab control.
   tabControl = new WidgetTabControl(LOG_TYPE_COUNT);
   tabControl->setMainArea(menu_area.x + 32, menu_area.y + 30, 240, 348);
-  
+
   // Define the header.
   tabControl->setTabTitle(LOG_TYPE_MESSAGES, msg->get("Messages"));
   tabControl->setTabTitle(LOG_TYPE_QUESTS, msg->get("Quests"));
@@ -55,7 +57,7 @@ MenuLog::MenuLog() {
   tabControl->updateHeader();
 
 	paragraph_spacing = font->getLineHeight()/2;
-	
+
 	loadGraphics();
 
 	closeButton = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
@@ -66,25 +68,25 @@ MenuLog::MenuLog() {
 void MenuLog::loadGraphics() {
 
 	background = IMG_Load(mods->locate("images/menus/log.png").c_str());
-	
+
 	if(!background) {
 		fprintf(stderr, "Could not load image: %s\n", IMG_GetError());
 		SDL_Quit();
 	}
-	
+
 	// optimize
 	SDL_Surface *cleanup = background;
 	background = SDL_DisplayFormatAlpha(background);
 	SDL_FreeSurface(cleanup);
-  
+
 }
 
 /**
  * Perform one frame of logic.
  */
-void MenuLog::logic() {	
+void MenuLog::logic() {
   if(!visible) return;
-  
+
   if (closeButton->checkClick()) {
     visible = false;
   }
@@ -105,19 +107,19 @@ void MenuLog::tabsLogic()
 void MenuLog::render() {
 
 	if (!visible) return;
-	
+
 	SDL_Rect src;
-	
+
 	// Background.
 	src.x = 0;
 	src.y = 0;
 	src.w = menu_area.w;
 	src.h = menu_area.h;
 	SDL_BlitSurface(background, &src, screen, &menu_area);
-	
+
 	// Close button.
 	closeButton->render();
-	
+
 	// Text overlay.
 	WidgetLabel label;
 	label.set(menu_area.x+160, menu_area.y+8, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Log"), FONT_WHITE);
@@ -125,9 +127,9 @@ void MenuLog::render() {
 
 	// Tab control.
   tabControl->render();
-  
+
 	// Display latest log messages for the active tab.
-	
+
 	int display_number = 0;
 	int total_size = 0;
   int active_log = tabControl->getActiveTab();
@@ -139,7 +141,7 @@ void MenuLog::render() {
 		if (total_size < contentArea.h) display_number++;
 		else break;
 	}
-	
+
 	// Now display these messages.
 	for (int i=log_count[active_log]-display_number; i<log_count[active_log]; i++) {
 		SDL_BlitSurface(msg_buffer[active_log][i], NULL, screen, &contentArea);
@@ -156,10 +158,10 @@ void MenuLog::add(const string& s, int log_type) {
 	if (log_count[log_type] == MAX_LOG_MESSAGES) {
 		remove(0, log_type);
 	}
-	
+
 	// Add the new message.
 	log_msg[log_type][log_count[log_type]] = s;
-	
+
 	// Render the log entry and store it in a buffer.
   int widthLimit = tabControl->getContentArea().w;
 	Point size = font->calc_size(s, widthLimit);
@@ -176,7 +178,7 @@ void MenuLog::remove(int msg_index, int log_type) {
 
 	SDL_FreeSurface(msg_buffer[log_type][msg_index]);
 	msg_buffer[log_type][msg_index] = NULL;
-		
+
 	for (int i=msg_index; i<MAX_LOG_MESSAGES-1; i++) {
 		log_msg[log_type][i] = log_msg[log_type][i+1];
 		msg_buffer[log_type][i] = msg_buffer[log_type][i+1];

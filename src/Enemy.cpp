@@ -19,7 +19,13 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * class Enemy
  */
 
+#include "Animation.h"
+#include "CampaignManager.h"
+#include "CombatText.h"
 #include "Enemy.h"
+#include "EnemyBehavior.h"
+#include "Hazard.h"
+#include "PowerManager.h"
 #include <sstream>
 
 using namespace std;

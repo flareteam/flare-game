@@ -20,11 +20,13 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  *
  * The MessageEngine class loads all of FLARE's internal messages from a configuration file
  * and returns them as human-readable strings.
- * 
+ *
  * This class is primarily used for making sure FLARE is flexible and translatable.
  */
 
+#include "GetText.h"
 #include "SharedResources.h"
+#include "Settings.h"
 #include <sstream>
 
 using namespace std;

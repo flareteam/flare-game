@@ -22,10 +22,16 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * (e.g. character appearance)
  */
 
+#include "Avatar.h"
+#include "FileParser.h"
+#include "GameStateConfig.h"
 #include "GameStateNew.h"
 #include "GameStateLoad.h"
 #include "GameStatePlay.h"
 #include "SharedResources.h"
+#include "WidgetButton.h"
+#include "WidgetCheckBox.h"
+#include "WidgetInput.h"
 #include "WidgetLabel.h"
 
 using namespace std;
@@ -165,7 +171,7 @@ void GameStateNew::logic() {
 		play->pc->stats.head = head[current_option];
 		play->pc->stats.portrait = portrait[current_option];
 		play->pc->stats.name = input_name->getText();
-		play->pc->permadeath = button_permadeath->isChecked();
+		play->pc->stats.permadeath = button_permadeath->isChecked();
 		play->game_slot = game_slot;
 		play->resetGame();
 		requestedGameState = play;
@@ -229,4 +235,6 @@ GameStateNew::~GameStateNew() {
 	delete label_portrait;
 	delete label_name;
 	delete input_name;
+	delete button_permadeath;
+	delete label_permadeath;
 }

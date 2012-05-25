@@ -30,18 +30,18 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "GameSwitcher.h"
 #include "GameStateTitle.h"
-#include "GameStateLoad.h"
 #include "SharedResources.h"
+#include "Settings.h"
 
 GameSwitcher::GameSwitcher() {
 
 	// The initial state is the title screen
 	currentState = new GameStateTitle();
-	
+
 	done = false;
 	music = NULL;
 	loadMusic();
-	
+
 }
 
 void GameSwitcher::loadMusic() {
@@ -55,7 +55,7 @@ void GameSwitcher::loadMusic() {
     if (music) {
         Mix_VolumeMusic(MUSIC_VOLUME);
         Mix_PlayMusic(music, -1);
-    }	
+    }
 }
 
 void GameSwitcher::logic() {
@@ -67,16 +67,16 @@ void GameSwitcher::logic() {
 		GameState* newState = currentState->getRequestedGameState();
 
 		delete currentState;
-	
+
 		currentState = newState;
-		
+
 		// if this game state does not provide music, use the title theme
         if (!currentState->hasMusic) {
             if (!Mix_PlayingMusic()) {
                 if (music)
                     Mix_PlayMusic(music, -1);
             }
-        } 
+        }
 	}
 
 	currentState->logic();

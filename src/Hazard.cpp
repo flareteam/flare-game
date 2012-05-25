@@ -23,6 +23,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "Hazard.h"
+#include "MapCollision.h"
+#include "Settings.h"
 
 using namespace std;
 

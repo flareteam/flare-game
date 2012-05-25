@@ -18,12 +18,16 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 /**
  * GameStateLoad
  */
+
+#include "FileParser.h"
 #include "GameStateLoad.h"
 #include "GameStateTitle.h"
 #include "GameStatePlay.h"
 #include "GameStateNew.h"
+#include "ItemManager.h"
 #include "MenuConfirm.h"
 #include "SharedResources.h"
+#include "Settings.h"
 #include "WidgetLabel.h"
 
 

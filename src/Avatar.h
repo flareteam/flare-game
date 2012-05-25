@@ -25,21 +25,19 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 
 #include "Entity.h"
-#include "Utils.h"
-#include "InputState.h"
-#include "MapIso.h"
-#include "StatBlock.h"
-#include "Hazard.h"
-#include "PowerManager.h"
 #include "SharedResources.h"
-#include "MenuManager.h"
-#include "CombatText.h"
+#include "Utils.h"
 
 #include <SDL.h>
 #include <SDL_image.h>
 
+#include <math.h>
 #include <string>
 
+class Entity;
+class Hazard;
+class PowerManager;
+class StatBlock;
 
 /**
  * Avatar State enum
@@ -77,11 +75,11 @@ private:
 	std::string img_armor;
 	std::string img_off;
 
+	bool transform_triggered;
+
 public:
 	Avatar(PowerManager *_powers, MapIso *_map);
 	~Avatar();
-
-    bool permadeath;
 
 	void init();
 	void loadGraphics(const std::string& img_main, std::string img_armor, const std::string& img_off);
@@ -93,6 +91,15 @@ public:
 	void set_direction();
 	bool takeHit(Hazard h);
 	std::string log_msg;
+	
+	// transformation handling
+	void transform();
+	void untransform();
+	bool untransform_triggered;
+	bool setPowers;
+	bool revertPowers;
+	StatBlock *hero_stats;
+	StatBlock *charmed_stats;
 
 	virtual Renderable getRender();
 

@@ -20,10 +20,16 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  *
  * Isometric map data structure and rendering
  */
- 
+
 #include "MapIso.h"
+#include "CampaignManager.h"
+#include "EnemyGroupManager.h"
 #include "FileParser.h"
 #include "SharedResources.h"
+#include "PowerManager.h"
+#include "StatBlock.h"
+#include "UtilsFileSystem.h"
+#include "UtilsParsing.h"
 
 using namespace std;
 
@@ -31,14 +37,14 @@ using namespace std;
 MapIso::MapIso(CampaignManager *_camp) {
 
 	camp = _camp;
-	
+
 	tip = new WidgetTooltip();
 
 	// cam(x,y) is where on the map the camera is pointing
 	// units found in Settings.h (UNITS_PER_TILE)
 	cam.x = 0;
 	cam.y = 0;
-	
+
 	new_music = false;
 
 	clearEvents();
@@ -46,7 +52,7 @@ MapIso::MapIso(CampaignManager *_camp) {
 	npc_awaiting_queue = false;
 	clearEnemy(new_enemy);
 	clearNPC(new_npc);
-	
+
 	sfx = NULL;
 	sfx_filename = "";
 	music = NULL;
@@ -189,17 +195,17 @@ int MapIso::load(string filename) {
 	string val;
 	string cur_layer;
 	string data_format;
-  
+
 	clearEvents();
-  
+
 	event_count = 0;
 	bool collider_set = false;
-  
+
 	if (infile.open(mods->locate("maps/" + filename))) {
 		while (infile.next()) {
 			if (infile.new_section) {
 				data_format = "dec"; // default
-				
+
 				if (enemy_awaiting_queue) {
 					enemies.push(new_enemy);
 					enemy_awaiting_queue = false;
@@ -212,7 +218,7 @@ int MapIso::load(string filename) {
 					push_enemy_group(new_group);
 					group_awaiting_queue = false;
 				}
-				
+
 				// for sections that are stored in collections, add a new object here
 				if (infile.section == "enemy") {
 					clearEnemy(new_enemy);
@@ -229,7 +235,7 @@ int MapIso::load(string filename) {
 				else if (infile.section == "event") {
 					event_count++;
 				}
-				
+
 			}
 			if (infile.section == "header") {
 				if (infile.key == "title") {
@@ -312,7 +318,7 @@ int MapIso::load(string filename) {
 					string none = "";
 					string a = infile.nextValue();
 					string b = infile.nextValue();
-					
+
 					while (a != none) {
 						Point p;
 						p.x = atoi(a.c_str()) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
@@ -402,7 +408,7 @@ int MapIso::load(string filename) {
 					// new event component
 					Event_Component *e = &events[event_count-1].components[events[event_count-1].comp_num];
 					e->type = infile.key;
-					
+
 					if (infile.key == "intermap") {
 						e->s = infile.nextValue();
 						e->x = atoi(infile.nextValue().c_str());
@@ -413,7 +419,7 @@ int MapIso::load(string filename) {
 						e->x = atoi(infile.nextValue().c_str());
 						e->y = atoi(infile.nextValue().c_str());
 						e->z = atoi(infile.nextValue().c_str());
-						
+
 						// add repeating mapmods
 						string repeat_val = infile.nextValue();
 						while (repeat_val != "") {
@@ -424,7 +430,7 @@ int MapIso::load(string filename) {
 							e->x = atoi(infile.nextValue().c_str());
 							e->y = atoi(infile.nextValue().c_str());
 							e->z = atoi(infile.nextValue().c_str());
-							
+
 							repeat_val = infile.nextValue();
 						}
 					}
@@ -436,7 +442,7 @@ int MapIso::load(string filename) {
 						e->x = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
 						e->y = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
 						e->z = atoi(infile.nextValue().c_str());
-						
+
 						// add repeating loot
 						string repeat_val = infile.nextValue();
 						while (repeat_val != "") {
@@ -447,7 +453,7 @@ int MapIso::load(string filename) {
 							e->x = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
 							e->y = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
 							e->z = atoi(infile.nextValue().c_str());
-							
+
 							repeat_val = infile.nextValue();
 						}
 					}
@@ -459,7 +465,7 @@ int MapIso::load(string filename) {
 					}
 					else if (infile.key == "requires_status") {
 						e->s = infile.nextValue();
-						
+
 						// add repeating requires_status
 						string repeat_val = infile.nextValue();
 						while (repeat_val != "") {
@@ -467,13 +473,13 @@ int MapIso::load(string filename) {
 							e = &events[event_count-1].components[events[event_count-1].comp_num];
 							e->type = infile.key;
 							e->s = repeat_val;
-							
+
 							repeat_val = infile.nextValue();
 						}
 					}
 					else if (infile.key == "requires_not") {
 						e->s = infile.nextValue();
-						
+
 						// add repeating requires_not
 						string repeat_val = infile.nextValue();
 						while (repeat_val != "") {
@@ -481,13 +487,13 @@ int MapIso::load(string filename) {
 							e = &events[event_count-1].components[events[event_count-1].comp_num];
 							e->type = infile.key;
 							e->s = repeat_val;
-							
+
 							repeat_val = infile.nextValue();
 						}
 					}
 					else if (infile.key == "requires_item") {
 						e->x = atoi(infile.nextValue().c_str());
-						
+
 						// add repeating requires_item
 						string repeat_val = infile.nextValue();
 						while (repeat_val != "") {
@@ -495,13 +501,13 @@ int MapIso::load(string filename) {
 							e = &events[event_count-1].components[events[event_count-1].comp_num];
 							e->type = infile.key;
 							e->x = atoi(repeat_val.c_str());
-							
+
 							repeat_val = infile.nextValue();
 						}
 					}
 					else if (infile.key == "set_status") {
 						e->s = infile.nextValue();
-						
+
 						// add repeating set_status
 						string repeat_val = infile.nextValue();
 						while (repeat_val != "") {
@@ -509,13 +515,13 @@ int MapIso::load(string filename) {
 							e = &events[event_count-1].components[events[event_count-1].comp_num];
 							e->type = infile.key;
 							e->s = repeat_val;
-							
+
 							repeat_val = infile.nextValue();
 						}
 					}
 					else if (infile.key == "unset_status") {
 						e->s = infile.nextValue();
-						
+
 						// add repeating unset_status
 						string repeat_val = infile.nextValue();
 						while (repeat_val != "") {
@@ -523,13 +529,13 @@ int MapIso::load(string filename) {
 							e = &events[event_count-1].components[events[event_count-1].comp_num];
 							e->type = infile.key;
 							e->s = repeat_val;
-							
+
 							repeat_val = infile.nextValue();
 						}
 					}
 					else if (infile.key == "remove_item") {
 						e->x = atoi(infile.nextValue().c_str());
-						
+
 						// add repeating remove_item
 						string repeat_val = infile.nextValue();
 						while (repeat_val != "") {
@@ -537,7 +543,7 @@ int MapIso::load(string filename) {
 							e = &events[event_count-1].components[events[event_count-1].comp_num];
 							e->type = infile.key;
 							e->x = atoi(repeat_val.c_str());
-							
+
 							repeat_val = infile.nextValue();
 						}
 					}
@@ -547,14 +553,14 @@ int MapIso::load(string filename) {
 					else if (infile.key == "power") {
 						e->x = atoi(infile.val.c_str());
 					}
-					
+
 					events[event_count-1].comp_num++;
 				}
 			}
 		}
 
 		infile.close();
-		
+
 		// reached end of file.  Handle any final sections.
 		if (enemy_awaiting_queue) {
 			enemies.push(new_enemy);
@@ -571,7 +577,7 @@ int MapIso::load(string filename) {
 	}
 
 
-	
+
 	if (this->new_music) {
 		loadMusic();
 		this->new_music = false;
@@ -612,7 +618,7 @@ void MapIso::render(Renderable r[], int rnum) {
 	// - monsters
 	// - loot
 	// - special effects
-	// we want to sort these by map draw order.  Then, we use a cursor to move through the 
+	// we want to sort these by map draw order.  Then, we use a cursor to move through the
 	// renderables while we're also moving through the map tiles.  After we draw each map tile we
 	// check to see if it's time to draw the next renderable yet.
 
@@ -621,10 +627,10 @@ void MapIso::render(Renderable r[], int rnum) {
 	//SDL_Rect src;
 	SDL_Rect dest;
 	int current_tile;
-	
+
 	Point xcam;
 	Point ycam;
-	
+
 	if (shaky_cam_ticks == 0) {
 		xcam.x = cam.x/UNITS_PER_PIXEL_X;
 		xcam.y = cam.y/UNITS_PER_PIXEL_X;
@@ -637,16 +643,16 @@ void MapIso::render(Renderable r[], int rnum) {
 		ycam.x = (cam.x + rand() % 16 - 8) /UNITS_PER_PIXEL_Y;
 		ycam.y = (cam.y + rand() % 16 - 8) /UNITS_PER_PIXEL_Y;
 	}
-	
+
 	// todo: trim by screen rect
 	// background
 	for (j=0; j<h; j++) {
 		for (i=0; i<w; i++) {
-		  
+
 			current_tile = background[i][j];
-			
-			if (current_tile > 0) {			
-			
+
+			if (current_tile > 0) {
+
 				dest.x = VIEW_W_HALF + (i * TILE_W_HALF - xcam.x) - (j * TILE_W_HALF - xcam.y);
 				dest.y = VIEW_H_HALF + (i * TILE_H_HALF - ycam.x) + (j * TILE_H_HALF - ycam.y) + TILE_H_HALF;
 				// adding TILE_H_HALF gets us to the tile center instead of top corner
@@ -654,17 +660,17 @@ void MapIso::render(Renderable r[], int rnum) {
 				dest.y -= tset.tiles[current_tile].offset.y;
 				dest.w = tset.tiles[current_tile].src.w;
 				dest.h = tset.tiles[current_tile].src.h;
-				
+
 				SDL_BlitSurface(tset.sprites, &(tset.tiles[current_tile].src), screen, &dest);
-	
+
 			}
 		}
 	}
 
 	// some renderables are drawn above the background and below the objects
-	for (int ri = 0; ri < rnum; ri++) {			
+	for (int ri = 0; ri < rnum; ri++) {
 		if (!r[ri].object_layer) {
-				
+
 			// draw renderable
 			dest.w = r[ri].src.w;
 			dest.h = r[ri].src.h;
@@ -672,20 +678,20 @@ void MapIso::render(Renderable r[], int rnum) {
 			dest.y = VIEW_H_HALF + (r[ri].map_pos.x/UNITS_PER_PIXEL_Y - ycam.x) + (r[ri].map_pos.y/UNITS_PER_PIXEL_Y - ycam.y) - r[ri].offset.y;
 
 			SDL_BlitSurface(r[ri].sprite, &r[ri].src, screen, &dest);
-		} 
+		}
 	}
-		
+
 	int r_cursor = 0;
 
 	// todo: trim by screen rect
 	// object layer
 	for (j=0; j<h; j++) {
 		for (i=0; i<w; i++) {
-		
+
 			current_tile = object[i][j];
-			
-			if (current_tile > 0) {			
-			
+
+			if (current_tile > 0) {
+
 				dest.x = VIEW_W_HALF + (i * TILE_W_HALF - xcam.x) - (j * TILE_W_HALF - xcam.y);
 				dest.y = VIEW_H_HALF + (i * TILE_H_HALF - ycam.x) + (j * TILE_H_HALF - ycam.y) + TILE_H_HALF;
 				// adding TILE_H_HALF gets us to the tile center instead of top corner
@@ -693,11 +699,11 @@ void MapIso::render(Renderable r[], int rnum) {
 				dest.y -= tset.tiles[current_tile].offset.y;
 				dest.w = tset.tiles[current_tile].src.w;
 				dest.h = tset.tiles[current_tile].src.h;
-				
+
 				SDL_BlitSurface(tset.sprites, &(tset.tiles[current_tile].src), screen, &dest);
-	
+
 			}
-			
+
 			// some renderable entities go in this layer
 			while (r_cursor < rnum && r[r_cursor].tile.x == i && r[r_cursor].tile.y == j) {
 				if (r[r_cursor].object_layer) {
@@ -707,9 +713,9 @@ void MapIso::render(Renderable r[], int rnum) {
 					dest.x = VIEW_W_HALF + (r[r_cursor].map_pos.x/UNITS_PER_PIXEL_X - xcam.x) - (r[r_cursor].map_pos.y/UNITS_PER_PIXEL_X - xcam.y) - r[r_cursor].offset.x;
 					dest.y = VIEW_H_HALF + (r[r_cursor].map_pos.x/UNITS_PER_PIXEL_Y - ycam.x) + (r[r_cursor].map_pos.y/UNITS_PER_PIXEL_Y - ycam.y) - r[r_cursor].offset.y;
 
-					SDL_BlitSurface(r[r_cursor].sprite, &r[r_cursor].src, screen, &dest);	
+					SDL_BlitSurface(r[r_cursor].sprite, &r[r_cursor].src, screen, &dest);
 				}
-				
+
 				r_cursor++;
 
 			}
@@ -717,7 +723,7 @@ void MapIso::render(Renderable r[], int rnum) {
 	}
 	//render event tooltips
 	checkTooltip();
-	
+
 }
 
 
@@ -778,7 +784,7 @@ void MapIso::checkTooltip() {
 	SDL_Rect r;
 	Point tip_pos;
 	bool skip;
-	
+
 	for (int i=0; i<event_count; i++) {
 		skip = false;
 		if(!isActive(i)) skip = true;
@@ -790,7 +796,7 @@ void MapIso::checkTooltip() {
 		r.y = p.y + events[i].hotspot.y;
 		r.h = events[i].hotspot.h;
 		r.w = events[i].hotspot.w;
-		 
+
 		// DEBUG TOOL: outline hotspot
 		/*
 		SDL_Rect screen_size;
@@ -815,16 +821,16 @@ void MapIso::checkTooltip() {
 		if (isWithin(screen_size, pixpos))
 			drawPixel(screen, r.x+r.w, r.y+r.h, 255);
 		*/
-		
+
 		if (isWithin(r,inpt->mouse) && events[i].tooltip != "") {
-		
+
 			// new tooltip?
 			if (tip_buf.lines[0] != events[i].tooltip) {
 				tip->clear(tip_buf);
 				tip_buf.num_lines = 1;
 				tip_buf.lines[0] = events[i].tooltip;
 			}
-			
+
 			tip_pos.x = r.x + r.w/2;
 			tip_pos.y = r.y;
 			tip->render(tip_buf, tip_pos, STYLE_TOPLABEL);
@@ -841,10 +847,10 @@ void MapIso::checkTooltip() {
 void MapIso::executeEvent(int eid) {
 	Event_Component *ec;
 	bool destroy_event = false;
-	
+
 	for (int i=0; i<events[eid].comp_num; i++) {
 		ec = &events[eid].components[i];
-		
+
 		if (ec->type == "requires_status") {
 			if (!camp->checkStatus(ec->s)) return;
 		}
@@ -861,7 +867,7 @@ void MapIso::executeEvent(int eid) {
 			camp->unsetStatus(ec->s);
 		}
 		if (ec->type == "intermap") {
-		
+
 			if (fileExists(mods->locate("maps/" + ec->s))) {
 				teleportation = true;
 				teleport_mapname = ec->s;
@@ -879,10 +885,10 @@ void MapIso::executeEvent(int eid) {
 				collider.colmap[ec->x][ec->y] = ec->z;
 			}
 			else if (ec->s == "object") {
-				object[ec->x][ec->y] = ec->z;			
+				object[ec->x][ec->y] = ec->z;
 			}
 			else if (ec->s == "background") {
-				background[ec->x][ec->y] = ec->z;			
+				background[ec->x][ec->y] = ec->z;
 			}
 		}
 		else if (ec->type == "soundfx") {
@@ -909,7 +915,7 @@ void MapIso::executeEvent(int eid) {
 			else {
 
 				int power_index = ec->x;
-				
+
 				// TODO: delete this without breaking hazards, takeHit, etc.
 				StatBlock *dummy = new StatBlock();
 				dummy->accuracy = 1000; //always hits its target
@@ -917,7 +923,7 @@ void MapIso::executeEvent(int eid) {
 				dummy->pos.y = events[eid].power_src.y * UNITS_PER_TILE;
 				dummy->dmg_melee_min = dummy->dmg_ranged_min = dummy->dmg_ment_min = events[eid].damagemin;
 				dummy->dmg_melee_max = dummy->dmg_ranged_max = dummy->dmg_ment_max = events[eid].damagemax;
-			
+
 				Point target;
 				if (events[eid].targetHero) {
 					target.x = cam.x;
@@ -927,11 +933,11 @@ void MapIso::executeEvent(int eid) {
 					target.x = events[eid].power_dest.x * UNITS_PER_TILE;
 					target.y = events[eid].power_dest.y * UNITS_PER_TILE;
 				}
-			
+
 				events[eid].cooldown_ticks = events[eid].power_cooldown;
 				powers->activate(power_index, dummy, target);
 			}
-			
+
 		}
 	}
 	if (events[eid].type == "run_once" || destroy_event) {
@@ -945,7 +951,7 @@ MapIso::~MapIso() {
 		Mix_FreeMusic(music);
 	}
 	if (sfx) Mix_FreeChunk(sfx);
-	
+
 	tip->clear(tip_buf);
 	delete tip;
 }

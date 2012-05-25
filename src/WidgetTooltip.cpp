@@ -21,6 +21,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "WidgetTooltip.h"
 #include "SharedResources.h"
+#include "Settings.h"
 #include "Utils.h"
 
 using namespace std;
@@ -69,13 +70,13 @@ Point WidgetTooltip::calcPosition(int style, Point pos, Point size) {
 		}
 		// lower right
 		else if (pos.x >= VIEW_W_HALF && pos.y >= VIEW_H_HALF) {
-			tip_pos.x = pos.x - offset - size.x;		
-			tip_pos.y = pos.y - offset - size.y;		
+			tip_pos.x = pos.x - offset - size.x;
+			tip_pos.y = pos.y - offset - size.y;
 		}
 	}
 	
 	return tip_pos;
-} 
+}
 
 /**
  * Tooltip position depends on the screen quadrant of the source.

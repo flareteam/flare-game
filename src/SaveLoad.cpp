@@ -23,7 +23,16 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * class GameStatePlay
  */
 
+#include "Avatar.h"
+#include "CampaignManager.h"
+#include "FileParser.h"
 #include "GameStatePlay.h"
+#include "MenuActionBar.h"
+#include "MenuCharacter.h"
+#include "MenuInventory.h"
+#include "MenuManager.h"
+#include "MenuTalker.h"
+#include "UtilsFileSystem.h"
 #include "UtilsParsing.h"
 #include <fstream>
 #include <iostream>
@@ -53,7 +62,7 @@ void GameStatePlay::saveGame() {
 		outfile << "name=" << pc->stats.name << "\n";
 
 		// permadeath
-		outfile << "permadeath=" << pc->permadeath << "\n";
+		outfile << "permadeath=" << pc->stats.permadeath << "\n";
 		
 		// hero visual option
 		outfile << "option=" << pc->stats.base << "," << pc->stats.head << "," << pc->stats.portrait << "\n";
@@ -119,7 +128,7 @@ void GameStatePlay::loadGame() {
 		while (infile.next()) {
 			if (infile.key == "name") pc->stats.name = infile.val;
 			else if (infile.key == "permadeath") {
-			    pc->permadeath = atoi(infile.val.c_str());
+			    pc->stats.permadeath = atoi(infile.val.c_str());
 			}
 			else if (infile.key == "option") {
 				pc->stats.base = infile.nextValue();
@@ -175,7 +184,7 @@ void GameStatePlay::loadGame() {
 			else if (infile.key == "campaign") camp->setAll(infile.val);
 		}
 			
-		infile.close();		
+		infile.close();
 	}
 
 	// initialize vars
@@ -186,13 +195,13 @@ void GameStatePlay::loadGame() {
 	
 	// reset character menu
 	menu->chr->refreshStats();
-	
+
 	// just for aesthetics, turn the hero to face the camera
 	pc->stats.direction = 6;
-	
+
 	// set up MenuTalker for this hero
 	menu->talker->setHero(pc->stats.name, pc->stats.portrait);
-	
+
 	// load sounds (gender specific)
 	pc->loadSounds();
 

@@ -26,6 +26,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 using namespace std;
 
 #include "FileParser.h"
+#include "Settings.h"
 #include "Utils.h"
 #include "UtilsParsing.h"
 #include "UtilsFileSystem.h"
