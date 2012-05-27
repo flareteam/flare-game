@@ -234,7 +234,7 @@ void StatBlock::load(const string& filename) {
 
 
 			else if (infile.key == "melee_range") melee_range = num;
-			else if (infile.key == "threat_range") threat_range = num;
+			else if (infile.key == "threat_range") threat_range = VIEW_W > VIEW_H ? ((float)num/VIEW_W_HALF)*VIEW_W : ((float)num/VIEW_H_HALF)*VIEW_H;
 
 			else if (infile.key == "attunement_fire") attunement_fire=num;
 			else if (infile.key == "attunement_ice") attunement_ice=num;
