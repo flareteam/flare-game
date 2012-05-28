@@ -135,6 +135,7 @@ struct Power {
 	bool multitarget;
 	int forced_move_speed;
 	int forced_move_duration;
+	int range;
 
 	//steal effects (in %, eg. hp_steal=50 turns 50% damage done into HP regain.)
 	int hp_steal;
@@ -227,6 +228,7 @@ struct Power {
 		multitarget = false;
 		forced_move_speed = 0;
 		forced_move_duration = 0;
+		range = 0;
 
 		hp_steal = 0;
 		mp_steal = 0;
@@ -293,6 +295,7 @@ private:
 	int sfx_count;
 
 	int calcDirection(int origin_x, int origin_y, int target_x, int target_y);
+	Point checkRange(int range, Point src, Point target);
 	void initHazard(int powernum, StatBlock *src_stats, Point target, Hazard *haz);
 	void buff(int power_index, StatBlock *src_stats, Point target);
 	void playSound(int power_index, StatBlock *src_stats);
