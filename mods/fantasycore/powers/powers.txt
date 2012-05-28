@@ -1073,6 +1073,16 @@ icon=20
 new_state=cast
 spawn_type=antlion_freezer
 requires_mp=5
-description=Transform into Antlion Freezer
+description=Transform into Antlion Freezer for 5 seconds
 sfx=quake.ogg
 transform_duration=150
+manual_untransform=true
+
+[power]
+id=136
+name=Disenchant
+type=transform
+icon=20
+new_state=cast
+description=Transform back to human
+sfx=quake.ogg
