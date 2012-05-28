@@ -82,6 +82,7 @@ StatBlock::StatBlock() {
 	immobilize_duration = 0;
 	immunity_duration = 0;
 	transform_duration = 0;
+	manual_untransform = false;
 	haste_duration = 0;
 	hot_duration = 0;
 	hot_value = 0;
