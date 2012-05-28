@@ -109,6 +109,17 @@ void BehaviorStandard::findTarget() {
 	else
 		los = false;
 
+	// check entering combat (because the player hit the enemy)
+	if (e->stats.join_combat) {
+		if (dist <= (e->stats.threat_range *2)) {
+			e->stats.join_combat = false;
+		}
+		else {
+			e->stats.in_combat = true;
+			e->powers->activate(e->stats.power_index[BEACON], &e->stats, e->stats.pos); //emit beacon
+		}
+	}
+
 	// check entering combat (because the player got too close)
 	if (!e->stats.in_combat && los && dist < e->stats.threat_range) {
 	
@@ -118,7 +129,7 @@ void BehaviorStandard::findTarget() {
 	}
 
 	// check exiting combat (player died or got too far away)
-	if (e->stats.in_combat && dist > (e->stats.threat_range *2)) {
+	if (e->stats.in_combat && dist > (e->stats.threat_range *2) && !e->stats.join_combat) {
 		e->stats.in_combat = false;
 	}
 	

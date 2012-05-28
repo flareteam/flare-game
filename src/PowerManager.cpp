@@ -263,6 +263,9 @@ void PowerManager::loadPowers(const std::string& filename) {
 				powers[input_id].forced_move_speed = atoi(infile.nextValue().c_str());
 				powers[input_id].forced_move_duration = atoi(infile.nextValue().c_str());
 			}
+			else if (infile.key == "range") {
+				powers[input_id].range = atoi(infile.nextValue().c_str());
+			}
 			//steal effects
 			else if (infile.key == "hp_steal") {
 				powers[input_id].hp_steal = atoi(infile.val.c_str());
@@ -512,6 +515,24 @@ int PowerManager::calcDirection(int origin_x, int origin_y, int target_x, int ta
 	return 0;
 }
 
+/**
+ * Keep two points within a certain range
+ */
+Point PowerManager::limitRange(int range, Point src, Point target) {
+	if (range > 0) {
+		if (src.x+range < target.x)
+			target.x = src.x+range;
+		if (src.x-range > target.x)
+			target.x = src.x-range;
+		if (src.y+range < target.y)
+			target.y = src.y+range;
+		if (src.y-range > target.y)
+			target.y = src.y-range;
+	}
+
+	return target;
+}
+
 
 /**
  * Apply basic power info to a new hazard.
@@ -649,6 +670,7 @@ void PowerManager::initHazard(int power_index, StatBlock *src_stats, Point targe
 		haz->pos.y = (float)src_stats->pos.y;
 	}
 	else if (powers[power_index].starting_pos == STARTING_POS_TARGET) {
+		target = limitRange(powers[power_index].range,src_stats->pos,target);
 		haz->pos.x = (float)target.x;
 		haz->pos.y = (float)target.y;
 	}
@@ -722,6 +744,7 @@ void PowerManager::buff(int power_index, StatBlock *src_stats, Point target) {
 
 	// teleport to the target location
 	if (powers[power_index].buff_teleport) {
+		target = limitRange(powers[power_index].range,src_stats->pos,target);
 		src_stats->teleportation = true;
 		src_stats->teleport_destination.x = target.x;
 		src_stats->teleport_destination.y = target.y;
