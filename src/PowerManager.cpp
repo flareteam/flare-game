@@ -315,6 +315,9 @@ void PowerManager::loadPowers(const std::string& filename) {
 			else if (infile.key == "transform_duration") {
 				powers[input_id].transform_duration = atoi(infile.val.c_str());
 			}
+			else if (infile.key == "manual_untransform") {
+				if (infile.val == "true") powers[input_id].manual_untransform = true;
+			}
 			else if (infile.key == "haste_duration") {
 				powers[input_id].haste_duration = atoi(infile.val.c_str());
 			}
@@ -764,7 +767,8 @@ void PowerManager::buff(int power_index, StatBlock *src_stats, Point target) {
 	}
 
 	// transform_duration causes hero to be transformed
-	if (src_stats->transform_duration < powers[power_index].transform_duration) {
+	if (src_stats->transform_duration < powers[power_index].transform_duration &&
+		src_stats->transform_duration !=-1) {
 		src_stats->transform_duration = powers[power_index].transform_duration;
 	}
 
@@ -1040,10 +1044,22 @@ bool PowerManager::transform(int power_index, StatBlock *src_stats, Point target
 	// apply any buffs
 	buff(power_index, src_stats, target);
 
+	src_stats->manual_untransform = powers[power_index].manual_untransform;
+
 	// If there's a sound effect, play it here
 	playSound(power_index, src_stats);
 
-	src_stats->transform_type = powers[power_index].spawn_type;
+	// power with id=136 is untransform power, its transform_type field is empty
+	if (power_index == 136) {
+		src_stats->transform_duration = 0;
+		src_stats->transform_type = "NULL"; // untransform() is called only if type !=""
+	}
+	else {
+		// permanent transformation
+		if (powers[power_index].transform_duration == 0) src_stats->transform_duration = -1;
+
+		src_stats->transform_type = powers[power_index].spawn_type;
+	}
 
 	// pay costs
 	if (src_stats->hero && powers[power_index].requires_mp > 0) src_stats->mp -= powers[power_index].requires_mp;

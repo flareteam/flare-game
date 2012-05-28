@@ -471,6 +471,7 @@ void GameStatePlay::logic() {
 			}
 			if (count == 12) count = 0;
 		}
+		if (pc->stats.manual_untransform) menu->act->hotkeys[count] = 136; //untransform power
 	}
 	// revert hero powers
 	if (pc->revertPowers) {

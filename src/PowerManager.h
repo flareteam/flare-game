@@ -162,6 +162,7 @@ struct Power {
 	int immobilize_duration;
 	int immunity_duration;
 	int transform_duration;
+	bool manual_untransform; // true binds to the power another recurrence power
 	int haste_duration;
 	int hot_duration;
 	int hot_value;
@@ -252,6 +253,7 @@ struct Power {
 		immobilize_duration = 0;
 		immunity_duration = 0;
 		transform_duration = 0;
+		manual_untransform = false;
 		haste_duration = 0;
 		hot_duration = 0;
 		hot_value = 0;

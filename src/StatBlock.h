@@ -174,6 +174,7 @@ public:
 	int immobilize_duration;
 	int immunity_duration;
 	int transform_duration;
+	bool manual_untransform;
 	int haste_duration;
 	int hot_duration;
 	int hot_value;
