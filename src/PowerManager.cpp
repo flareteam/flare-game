@@ -518,7 +518,7 @@ int PowerManager::calcDirection(int origin_x, int origin_y, int target_x, int ta
 /**
  * Keep two points within a certain range
  */
-Point PowerManager::checkRange(int range, Point src, Point target) {
+Point PowerManager::limitRange(int range, Point src, Point target) {
 	if (range > 0) {
 		if (src.x+range < target.x)
 			target.x = src.x+range;
@@ -670,7 +670,7 @@ void PowerManager::initHazard(int power_index, StatBlock *src_stats, Point targe
 		haz->pos.y = (float)src_stats->pos.y;
 	}
 	else if (powers[power_index].starting_pos == STARTING_POS_TARGET) {
-		target = checkRange(powers[power_index].range,src_stats->pos,target);
+		target = limitRange(powers[power_index].range,src_stats->pos,target);
 		haz->pos.x = (float)target.x;
 		haz->pos.y = (float)target.y;
 	}
@@ -744,7 +744,7 @@ void PowerManager::buff(int power_index, StatBlock *src_stats, Point target) {
 
 	// teleport to the target location
 	if (powers[power_index].buff_teleport) {
-		target = checkRange(powers[power_index].range,src_stats->pos,target);
+		target = limitRange(powers[power_index].range,src_stats->pos,target);
 		src_stats->teleportation = true;
 		src_stats->teleport_destination.x = target.x;
 		src_stats->teleport_destination.y = target.y;
