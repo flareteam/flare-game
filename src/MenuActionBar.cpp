@@ -89,6 +89,7 @@ void MenuActionBar::clear() {
 	// clear action bar
 	for (int i=0; i<12; i++) {
 		hotkeys[i] = -1;
+		actionbar[i] = -1;
 		slot_item_count[i] = -1;
 		slot_enabled[i] = true;
 	}

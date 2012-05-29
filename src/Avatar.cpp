@@ -794,6 +794,9 @@ void Avatar::untransform() {
 
 	stats.attunement_fire = hero_stats->attunement_fire;
 	stats.attunement_ice = hero_stats->attunement_ice;
+
+	delete charmed_stats;
+	delete hero_stats;
 }
 
 /**
