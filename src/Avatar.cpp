@@ -269,6 +269,8 @@ void Avatar::handlePower(int actionbar_power) {
 			return;
 		if (stats.hero_cooldown[actionbar_power] > 0)
 			return;
+		if (!powers->hasValidTarget(actionbar_power,&stats,target))
+			return;
 
 		stats.hero_cooldown[actionbar_power] = power.cooldown; //set the cooldown timer
 		current_power = actionbar_power;

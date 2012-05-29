@@ -536,6 +536,22 @@ Point PowerManager::limitRange(int range, Point src, Point target) {
 	return target;
 }
 
+/**
+ * Check if the target is valid (not an empty area or a wall)
+ */
+bool PowerManager::hasValidTarget(int power_index, StatBlock *src_stats, Point target) {
+
+	target = limitRange(powers[power_index].range,src_stats->pos,target);
+
+	if (!collider->is_empty(target.x, target.y) || collider->is_wall(target.x,target.y)) {
+		if (powers[power_index].buff_teleport) {
+			return false;
+		}
+	}
+
+	return true;
+}
+
 
 /**
  * Apply basic power info to a new hazard.
