@@ -717,6 +717,49 @@ void Avatar::transform() {
 	stats.dspeed = charmed_stats->dspeed;
 	stats.flying = charmed_stats->flying;
 	stats.animations = charmed_stats->animations;
+	stats.animationSpeed = charmed_stats->animationSpeed;
+
+	// damage
+	if (charmed_stats->dmg_melee_min > stats.dmg_melee_min)
+	stats.dmg_melee_min = charmed_stats->dmg_melee_min;
+
+	if (charmed_stats->dmg_melee_max > stats.dmg_melee_max)
+	stats.dmg_melee_max = charmed_stats->dmg_melee_max;
+
+	if (charmed_stats->dmg_ment_min > stats.dmg_ment_min)
+	stats.dmg_ment_min = charmed_stats->dmg_ment_min;
+
+	if (charmed_stats->dmg_ment_max > stats.dmg_ment_max)
+	stats.dmg_ment_max = charmed_stats->dmg_ment_max;
+
+	if (charmed_stats->dmg_ranged_min > stats.dmg_ranged_min)
+	stats.dmg_ranged_min = charmed_stats->dmg_ranged_min;
+
+	if (charmed_stats->dmg_ranged_max > stats.dmg_ranged_max)
+	stats.dmg_ranged_max = charmed_stats->dmg_ranged_max;
+
+	// dexterity
+	if (charmed_stats->absorb_min > stats.absorb_min)
+	stats.absorb_min = charmed_stats->absorb_min;
+
+	if (charmed_stats->absorb_max > stats.absorb_max)
+	stats.absorb_max = charmed_stats->absorb_max;
+
+	if (charmed_stats->avoidance > stats.avoidance)
+	stats.avoidance = charmed_stats->avoidance;
+
+	if (charmed_stats->accuracy > stats.accuracy)
+	stats.accuracy = charmed_stats->accuracy;
+
+	if (charmed_stats->crit > stats.crit)
+	stats.crit = charmed_stats->crit;
+
+	// resistances
+	if (charmed_stats->attunement_fire > stats.attunement_fire)
+	stats.attunement_fire = charmed_stats->attunement_fire;
+
+	if (charmed_stats->attunement_ice > stats.attunement_ice)
+	stats.attunement_ice = charmed_stats->attunement_ice;
 
 	loadStepFX("NULL");
 }
@@ -734,6 +777,23 @@ void Avatar::untransform() {
 	stats.dspeed = hero_stats->dspeed;
 	stats.flying = hero_stats->flying;
 	stats.animations = hero_stats->animations;
+	stats.animationSpeed = hero_stats->animationSpeed;
+
+	stats.dmg_melee_min = hero_stats->dmg_melee_min;
+	stats.dmg_melee_max = hero_stats->dmg_melee_max;
+	stats.dmg_ment_min = hero_stats->dmg_ment_min;
+	stats.dmg_ment_max = hero_stats->dmg_ment_max;
+	stats.dmg_ranged_min = hero_stats->dmg_ranged_min;
+	stats.dmg_ranged_max = hero_stats->dmg_ranged_max;
+
+	stats.absorb_min = hero_stats->absorb_min;
+	stats.absorb_max = hero_stats->absorb_max;
+	stats.avoidance = hero_stats->avoidance;
+	stats.accuracy = hero_stats->accuracy;
+	stats.crit = hero_stats->crit;
+
+	stats.attunement_fire = hero_stats->attunement_fire;
+	stats.attunement_ice = hero_stats->attunement_ice;
 }
 
 /**
