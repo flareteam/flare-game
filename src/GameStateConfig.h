@@ -66,6 +66,8 @@ private:
 	WidgetButton        * ok_button;
 	WidgetButton        * defaults_button;
 	WidgetButton        * cancel_button;
+	SDL_Surface         * background;
+	std::string         imgFileName;
 
 	WidgetLabel         * settings_lb[39];
 	WidgetSlider        * settings_sl[2];

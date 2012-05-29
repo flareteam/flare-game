@@ -44,9 +44,21 @@ GameStateConfig::GameStateConfig ()
 		  child_widget(),
 		  ok_button(NULL),
 		  defaults_button(NULL),
-		  cancel_button(NULL)
+		  cancel_button(NULL),
+		  imgFileName(mods->locate("images/menus/config.png"))
 
 {
+	// Load background image
+	SDL_Surface * tmp = IMG_Load(imgFileName.c_str());
+	if (NULL == tmp) {
+		fprintf(stderr, "Could not load image \"%s\" error \"%s\"\n",
+				imgFileName.c_str(), IMG_GetError());
+		SDL_Quit();
+		exit(1);
+	}
+	background = SDL_DisplayFormatAlpha(tmp);
+	SDL_FreeSurface(tmp);
+
 	// Initialize Widgets
 	tabControl = new WidgetTabControl(4);
 	ok_button = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
@@ -311,6 +323,8 @@ GameStateConfig::~GameStateConfig()
 	delete defaults_button;
 	delete cancel_button;
 
+	SDL_FreeSurface(background);
+
 	child_widget.clear();
 
 	for (unsigned int i = 0; i < 39; i++) {
@@ -467,6 +481,14 @@ void GameStateConfig::logic ()
 
 void GameStateConfig::render ()
 {
+	SDL_Rect	pos = tabControl->getContentArea();
+	pos.x = pos.x-12;
+	pos.y = pos.y-12;
+	pos.w = 640;
+	pos.h = 380;
+
+	SDL_BlitSurface(background,NULL,screen,&pos);
+
 	tabControl->render();
 
 	for (unsigned int i = 0; i < 3; i++) {
