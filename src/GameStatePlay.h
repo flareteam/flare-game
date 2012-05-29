@@ -78,7 +78,6 @@ private:
 	void checkNPCInteraction();
 
 	int npc_id;
-	int actionbar[12];
 	
 public:
 	GameStatePlay();

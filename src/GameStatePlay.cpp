@@ -460,7 +460,7 @@ void GameStatePlay::logic() {
 		menu->closeAll(false);
 		// save ActionBar state
 		for (int i=0; i<12 ; i++) {
-			actionbar[i] = menu->act->hotkeys[i];
+			menu->act->actionbar[i] = menu->act->hotkeys[i];
 			menu->act->hotkeys[i] = -1;
 		}
 		int count = 10;
@@ -478,7 +478,7 @@ void GameStatePlay::logic() {
 		pc->revertPowers = false;
 
 		// restore ActionBar state
-		for (int i=0; i<12 ; i++) menu->act->hotkeys[i] = actionbar[i];
+		for (int i=0; i<12 ; i++) menu->act->hotkeys[i] = menu->act->actionbar[i];
 	}
 }
 

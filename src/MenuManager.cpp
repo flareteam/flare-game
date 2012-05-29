@@ -153,7 +153,7 @@ void MenuManager::logic() {
 	}
 
 	// exit menu toggle
-	if ((inpt->pressing[CANCEL] && !inpt->lock[CANCEL] && !key_lock && !dragging) && !(stats->corpse && stats->permadeath) && !stats->transformed) {
+	if ((inpt->pressing[CANCEL] && !inpt->lock[CANCEL] && !key_lock && !dragging) && !(stats->corpse && stats->permadeath)) {
 		inpt->lock[CANCEL] = true;
 		key_lock = true;
 		if (menus_open) {
