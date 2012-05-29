@@ -488,6 +488,9 @@ StatBlock::~StatBlock() {
 }
 
 bool StatBlock::canUsePower(const Power &power, unsigned powerid) const {
+	// needed to unlock shapeshifter powers
+	if (transformed) return mp >= power.requires_mp;
+	else
 	return (!power.requires_mental_weapon || wielding_mental)
 		&& (!power.requires_offense_weapon || wielding_offense)
 		&& (!power.requires_physical_weapon || wielding_physical)
