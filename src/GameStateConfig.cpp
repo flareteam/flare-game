@@ -408,10 +408,8 @@ void GameStateConfig::logic ()
 	// Ok/Cancel Buttons
 	if (ok_button->checkClick()) {
 		refreshFont();
-		if (applyVideoSettings(screen, width, height)) {
-			saveVideoSettings(FULLSCREEN, width, height);
-		}
-		saveMiscSettings();
+		applyVideoSettings(screen, width, height);
+		saveSettings();
 		delete requestedGameState;
 		requestedGameState = new GameStateTitle();
 	} else if (defaults_button->checkClick()) {
