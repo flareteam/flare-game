@@ -65,7 +65,7 @@ GameStateConfig::GameStateConfig ()
 	defaults_button = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
 	cancel_button = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
 
-	for (unsigned int i = 0; i < 39; i++) {
+	for (unsigned int i = 0; i < 38; i++) {
 		 settings_lb[i] = new WidgetLabel();
 	}
 
@@ -152,9 +152,8 @@ GameStateConfig::GameStateConfig ()
 			else if (infile.key == "ctrl") setting_num = 12 + CTRL;
 			else if (infile.key == "shift") setting_num = 12 + SHIFT;
 			else if (infile.key == "delete") setting_num = 12 + DEL;
-			else if (infile.key == "restart_note") setting_num = 37;
-			else if (infile.key == "hws_note") setting_num = 38;
-			else if (infile.key == "dbuf_note") setting_num = 39;
+			else if (infile.key == "hws_note") setting_num = 37;
+			else if (infile.key == "dbuf_note") setting_num = 38;
 
 			if (setting_num != -1) {
 					settings_lb[setting_num-1]->setX((VIEW_W - 640)/2 + x1);
@@ -264,16 +263,12 @@ GameStateConfig::GameStateConfig ()
 	child_widget.push_back(settings_cb[5]);
 	optiontab[child_widget.size()-1] = 3;
 
-	settings_lb[36]->set(msg->get("Restart the game to changes take effect"));
+	settings_lb[36]->set(msg->get("Try disabling for performance"));
 	child_widget.push_back(settings_lb[36]);
 	optiontab[child_widget.size()-1] = 0;
 
 	settings_lb[37]->set(msg->get("Try disabling for performance"));
 	child_widget.push_back(settings_lb[37]);
-	optiontab[child_widget.size()-1] = 0;
-
-	settings_lb[38]->set(msg->get("Try disabling for performance"));
-	child_widget.push_back(settings_lb[38]);
 	optiontab[child_widget.size()-1] = 0;
 
 	//Define ComboBoxes and their Labels
@@ -327,7 +322,7 @@ GameStateConfig::~GameStateConfig()
 
 	child_widget.clear();
 
-	for (unsigned int i = 0; i < 39; i++) {
+	for (unsigned int i = 0; i < 38; i++) {
 		 delete settings_lb[i];
 	}
 
@@ -413,7 +408,9 @@ void GameStateConfig::logic ()
 	// Ok/Cancel Buttons
 	if (ok_button->checkClick()) {
 		refreshFont();
-		saveVideoSettings(FULLSCREEN, width, height);
+		if (applyVideoSettings(screen, width, height)) {
+			saveVideoSettings(FULLSCREEN, width, height);
+		}
 		saveMiscSettings();
 		delete requestedGameState;
 		requestedGameState = new GameStateTitle();
@@ -584,4 +581,50 @@ void GameStateConfig::setDefaultResolution()
 void GameStateConfig::refreshFont() {
 	delete font;
 	font = new FontEngine();
+}
+
+/**
+ * Tries to apply the selected video settings, reverting back to the old settings upon failure
+ */
+bool GameStateConfig::applyVideoSettings(SDL_Surface *src, int width, int height) {
+	// Temporarily save previous settings
+	int tmp_fs = FULLSCREEN;
+	int tmp_w = VIEW_W;
+	int tmp_h = VIEW_H;
+
+	// Attempt to apply the new settings
+	Uint32 flags = 0;
+	if (FULLSCREEN) flags = flags | SDL_FULLSCREEN;
+	if (DOUBLEBUF) flags = flags | SDL_DOUBLEBUF;
+	if (HWSURFACE)
+		flags = flags | SDL_HWSURFACE | SDL_HWACCEL;
+	else
+		flags = flags | SDL_SWSURFACE;
+
+	src = SDL_SetVideoMode (width, height, 0, flags);
+
+	// If the new settings fail, revert to the old ones
+	if (src == NULL) {
+        fprintf (stderr, "Error during SDL_SetVideoMode: %s\n", SDL_GetError());
+		
+		flags = 0;	
+		if (tmp_fs) flags = flags | SDL_FULLSCREEN;
+		if (DOUBLEBUF) flags = flags | SDL_DOUBLEBUF;
+		if (HWSURFACE)
+			flags = flags | SDL_HWSURFACE | SDL_HWACCEL;
+		else
+			flags = flags | SDL_SWSURFACE;
+
+		src = SDL_SetVideoMode (tmp_w, tmp_h, 0, flags);
+
+		return false;
+	}
+
+	// If the new settings succeed, adjust the view area
+	VIEW_W = width;
+	VIEW_W_HALF = width/2;
+	VIEW_H = height;
+	VIEW_H_HALF = height/2;
+
+	return true;
 }
