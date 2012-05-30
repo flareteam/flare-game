@@ -60,6 +60,7 @@ private:
 	void update();
 	void setDefaultResolution();
 	void refreshFont();
+	bool applyVideoSettings(SDL_Surface *src, int width, int height);
 
 	std::vector<Widget*>      child_widget;
 	WidgetTabControl    * tabControl;
@@ -69,7 +70,7 @@ private:
 	SDL_Surface         * background;
 	std::string         imgFileName;
 
-	WidgetLabel         * settings_lb[39];
+	WidgetLabel         * settings_lb[38];
 	WidgetSlider        * settings_sl[2];
 	WidgetCheckBox      * settings_cb[6];
 	WidgetInput         * settings_key[25];
