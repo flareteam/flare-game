@@ -219,6 +219,8 @@ bool tryParseValue(const type_info & type, const std::string & value, void * out
 		stream>>(bool&)*((bool*)output);
 	} else if (type == typeid(int)) {
 		stream>>(int&)*((int*)output);
+	} else if (type == typeid(float)) {
+		stream>>(float&)*((float*)output);
 	} else if (type == typeid(std::string)) {
 		*((string *)output) = value;
 	} else {
@@ -237,6 +239,8 @@ std::string toString(const type_info & type, void * value) {
 		stream<<*((bool*)value);
 	} else if (type == typeid(int)) {
 		stream<<*((int*)value);
+	} else if (type == typeid(float)) {
+		stream<<*((float*)value);
 	} else if (type == typeid(std::string)) {
 		return (string &)*((string *)value);
 	} else {

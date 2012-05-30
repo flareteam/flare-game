@@ -70,8 +70,8 @@ private:
 	SDL_Surface         * background;
 	std::string         imgFileName;
 
-	WidgetLabel         * settings_lb[38];
-	WidgetSlider        * settings_sl[2];
+	WidgetLabel         * settings_lb[39];
+	WidgetSlider        * settings_sl[3];
 	WidgetCheckBox      * settings_cb[6];
 	WidgetInput         * settings_key[25];
 	WidgetComboBox      * settings_cmb[3];
