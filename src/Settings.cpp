@@ -52,7 +52,8 @@ ConfigEntry config[] = {
 	{ "doublebuf",       &typeid(DOUBLEBUF),       "1",   &DOUBLEBUF,       NULL},
 	{ "enable_joystick", &typeid(ENABLE_JOYSTICK), "1",   &ENABLE_JOYSTICK, "joystick settings."},
 	{ "joystick_device", &typeid(JOYSTICK_DEVICE), "0",   &JOYSTICK_DEVICE, NULL},
-	{ "language",        &typeid(LANGUAGE),        "en",  &LANGUAGE,        "2-letter language code."}
+	{ "language",        &typeid(LANGUAGE),        "en",  &LANGUAGE,        "2-letter language code."},
+	{ "gamma",           &typeid(GAMMA),           "1.0", &GAMMA,           "screen gamma (0.5 = darkest, 2.0 = lightest)"}
 };
 const int config_size = sizeof(config) / sizeof(ConfigEntry);
 
@@ -84,6 +85,7 @@ int VIEW_W_HALF = VIEW_W/2;
 int VIEW_H_HALF = VIEW_H/2;
 bool DOUBLEBUF;
 bool HWSURFACE;
+float GAMMA;
 
 // Audio Settings
 int MUSIC_VOLUME;

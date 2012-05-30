@@ -44,6 +44,7 @@ extern int VIEW_W_HALF;
 extern int VIEW_H_HALF;
 extern bool DOUBLEBUF;
 extern bool HWSURFACE;
+extern float GAMMA;
 
 // Input Settings
 extern bool MOUSE_MOVE;

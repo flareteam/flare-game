@@ -87,7 +87,10 @@ static void init(const vector<string>	& args) {
 		SDL_Quit();
 		exit(1);
 	}
-    
+
+	// Set Gamma
+	SDL_SetGamma(GAMMA,GAMMA,GAMMA);
+
     audio = true;
 
 	if (Mix_OpenAudio(22050, AUDIO_S16SYS, 2, 1024)) {
