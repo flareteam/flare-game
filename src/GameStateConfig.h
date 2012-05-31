@@ -49,7 +49,7 @@ public:
 
 private:
 	int optiontab[78];
-	SDL_Rect** video_modes;
+	SDL_Rect* video_modes;
 
 	std::string * language_ISO;
 	std::string * language_full;
