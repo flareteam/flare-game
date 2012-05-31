@@ -355,8 +355,9 @@ void GameStateConfig::update () {
 	if (FULLSCREEN == true) settings_cb[0]->Check();
 	else settings_cb[0]->unCheck();
 	settings_sl[0]->set(0,128,MUSIC_VOLUME);
+	Mix_VolumeMusic(MUSIC_VOLUME);
 	settings_sl[1]->set(0,128,SOUND_VOLUME);
-	settings_sl[2]->set(0,15,(int)((GAMMA-0.5)*10.0));
+	Mix_Volume(-1, SOUND_VOLUME);
 	if (MOUSE_MOVE == true) settings_cb[1]->Check();
 	else settings_cb[1]->unCheck();
 	if (COMBAT_TEXT == true) settings_cb[2]->Check();
@@ -367,6 +368,9 @@ void GameStateConfig::update () {
 	else settings_cb[4]->unCheck();
 	if (ENABLE_JOYSTICK == true) settings_cb[5]->Check();
 	else settings_cb[5]->unCheck();
+
+	settings_sl[2]->set(0,15,(int)((GAMMA-0.5)*10.0));
+	SDL_SetGamma(GAMMA,GAMMA,GAMMA);
 
 	std::stringstream list_mode;
 	getVideoModes();
@@ -427,6 +431,8 @@ void GameStateConfig::logic ()
 		update();
 		setDefaultResolution();
 	} else if (cancel_button->checkClick()) {
+		loadSettings();
+		update();
 		delete requestedGameState;
 		requestedGameState = new GameStateTitle();
 	}
