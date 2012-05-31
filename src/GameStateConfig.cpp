@@ -519,8 +519,8 @@ int GameStateConfig::getVideoModes()
 {
 	/* Set predefined modes */
 	unsigned int cm_count = 5;
-	SDL_Rect common_modes[cm_count];
-	common_modes[0].w = 640;
+	SDL_Rect common_modes[5]; //Using cm_count here gives this error(MSVC 2010): error C2057: expected constant expression
+	common_modes[0].w = 640;		 
 	common_modes[0].h = 480;
 	common_modes[1].w = 720;
 	common_modes[1].h = 480;
