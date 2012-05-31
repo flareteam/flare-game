@@ -373,11 +373,11 @@ void GameStateConfig::update () {
 	SDL_SetGamma(GAMMA,GAMMA,GAMMA);
 
 	std::stringstream list_mode;
-	getVideoModes();
-	for (unsigned int i=0; video_modes[i]; ++i) {
-		 list_mode << video_modes[i]->w << "x" << video_modes[i]->h;
+	unsigned int resolutions = getVideoModes();
+	for (unsigned int i=0; i<resolutions; ++i) {
+		 list_mode << video_modes[i].w << "x" << video_modes[i].h;
 		 settings_cmb[1]->set(i, list_mode.str());
-		 if (video_modes[i]->w == VIEW_W && video_modes[i]->h == VIEW_H) settings_cmb[1]->selected = i;
+		 if (video_modes[i].w == VIEW_W && video_modes[i].h == VIEW_H) settings_cmb[1]->selected = i;
 		 list_mode.str("");
 		}
 	int active = settings_cmb[1]->selected;
@@ -388,8 +388,8 @@ void GameStateConfig::update () {
 	if (settings_cmb[1]->get(active) != list_mode.str()) {
 		fprintf(stderr, "Default resolution 720x480 is not supported!\n");
 		fprintf(stderr, "Using 640x480 instead!\n");
-		for (unsigned int i=0; video_modes[i]; ++i) {
-			if (video_modes[i]->w == 640 && video_modes[i]->h == 480) settings_cmb[1]->selected = i;
+		for (unsigned int i=0; i<resolutions; ++i) {
+			if (video_modes[i].w == 640 && video_modes[i].h == 480) settings_cmb[1]->selected = i;
 		}
 		VIEW_W = 640;
 	}
@@ -517,26 +517,99 @@ void GameStateConfig::render ()
 
 int GameStateConfig::getVideoModes()
 {
+	/* Set predefined modes */
+	unsigned int cm_count = 5;
+	SDL_Rect common_modes[cm_count];
+	common_modes[0].w = 640;
+	common_modes[0].h = 480;
+	common_modes[1].w = 720;
+	common_modes[1].h = 480;
+	common_modes[2].w = 800;
+	common_modes[2].h = 600;
+	common_modes[3].w = 1024;
+	common_modes[3].h = 768;
+	common_modes[4].w = 1280;
+	common_modes[4].h = 1024;
+
 	int modes = 0;
 
 	/* Get available fullscreen/hardware modes */
-	video_modes = SDL_ListModes(NULL, SDL_FULLSCREEN|SDL_HWSURFACE);
+	SDL_Rect** detect_modes = SDL_ListModes(NULL, SDL_FULLSCREEN|SDL_HWSURFACE);
 
 	/* Check if there are any modes available */
-	if (video_modes == (SDL_Rect**)0) {
+	if (detect_modes == (SDL_Rect**)0) {
 		fprintf(stderr, "No modes available!\n");
 		return 0;
 	}
 
 	/* Check if our resolution is restricted */
-	if (video_modes == (SDL_Rect**)-1) {
+	if (detect_modes == (SDL_Rect**)-1) {
 		fprintf(stderr, "All resolutions available.\n");
 	}
 
-	for (unsigned int i=0; video_modes[i]; ++i) {
-		modes += 1;
+	/* Determine the number of valid modes */
+	for (unsigned int i=0; detect_modes[i]; ++i) {
+		if (detect_modes[i]->w >= 640 && detect_modes[i]->h >= 480) {
+			modes++;
+		}
 	}
-	//TODO Exclude resolutions smaller than 640x480
+	for (unsigned int j=0; j<cm_count; ++j) {
+		for (unsigned int i=0; detect_modes[i]; i++) {
+			if(common_modes[j].w != 0) {
+				if (detect_modes[i]->w >= 640 && detect_modes[i]->h >= 480) {
+					if (common_modes[j].w == detect_modes[i]->w && common_modes[j].h == detect_modes[i]->h) {
+						common_modes[j].w = 0;
+						break;
+					}
+				}
+			}
+		}
+		if (common_modes[j].w != 0) {
+			modes++;
+		}
+	}
+
+	/* Combine the detected modes and the common modes */
+	video_modes = (SDL_Rect*)calloc(modes,sizeof(SDL_Rect));
+	int k = 0;
+
+	for (unsigned int i=0; detect_modes[i]; ++i) {
+		if (detect_modes[i]->w >= 640 && detect_modes[i]->h >= 480) {
+			video_modes[k].w = detect_modes[i]->w;
+			video_modes[k].h = detect_modes[i]->h;
+			k++;
+		}
+	}
+	for (unsigned int j=0; j<cm_count; ++j) {
+		for (unsigned int i=0; detect_modes[i]; i++) {
+			if(common_modes[j].w != 0) {
+				if (detect_modes[i]->w >= 640 && detect_modes[i]->h >= 480) {
+					if (common_modes[j].w == detect_modes[i]->w && common_modes[j].h == detect_modes[i]->h) {
+						common_modes[j].w = 0;
+						break;
+					}
+				}
+			}
+		}
+		if (common_modes[j].w != 0) {
+			video_modes[k].w = common_modes[j].w;
+			video_modes[k].h = common_modes[j].h;
+			k++;
+		}
+	}
+
+	/* Sort the new list */
+	for (int x=0; x<modes; x++) {
+		int index_of_min = x;
+		for (int y=x; y<modes; y++) {
+			if (video_modes[index_of_min].w < video_modes[y].w) {
+				index_of_min = y;
+			}
+		}
+		SDL_Rect temp = video_modes[x];
+		video_modes[x] = video_modes[index_of_min];
+		video_modes[index_of_min] = temp;
+	}
 
 	return modes;
 }
@@ -578,17 +651,17 @@ void GameStateConfig::setDefaultResolution()
 {
 	std::stringstream list_mode;
 	bool default_720 = false;
-	getVideoModes();
-	for (unsigned int i=0; video_modes[i]; ++i) {
-		if (video_modes[i]->w == 720 && video_modes[i]->h == 480) {
+	unsigned int resolutions = getVideoModes();
+	for (unsigned int i=0; i<resolutions; ++i) {
+		if (video_modes[i].w == 720 && video_modes[i].h == 480) {
 			default_720 = true; settings_cmb[1]->selected = i;
 		}
 		 list_mode.str("");
 		}
 
 	if (!default_720)
-		for (unsigned int i=0; video_modes[i]; ++i) {
-			if (video_modes[i]->w == 640 && video_modes[i]->h == 480) settings_cmb[1]->selected = i;
+		for (unsigned int i=0; i<resolutions; ++i) {
+			if (video_modes[i].w == 640 && video_modes[i].h == 480) settings_cmb[1]->selected = i;
 		}
 	settings_cmb[1]->refresh();
 
