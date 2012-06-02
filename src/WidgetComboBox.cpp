@@ -86,6 +86,10 @@ bool WidgetComboBox::checkClick() {
 		if (isWithin(rows[i], inpt->mouse)) {
 			// activate upon release
 			selected = i;
+			if (i<cmbAmount-1) {
+				if (isWithin(rows[i+1], inpt->mouse))
+					selected = i+1;
+			}
 			refresh();
 			return true;
 		}
@@ -180,10 +184,15 @@ void WidgetComboBox::refresh() {
 	for(int i=0;i<cmbAmount;i++)
 	{
 		int font_color;
-		if(isWithin(rows[i], inpt->mouse))
+		if(isWithin(rows[i], inpt->mouse)) {
 			font_color = FONT_WHITE;
-		else
+			if(i<cmbAmount-1) {
+				if(isWithin(rows[i+1], inpt->mouse))
+					font_color = FONT_GRAY;
+			}
+		} else {
 			font_color = FONT_GRAY;
+		}
 
 		int font_x = rows[i].x + (rows[i].w/2);
 		int font_y = rows[i].y + (rows[i].h/2);
