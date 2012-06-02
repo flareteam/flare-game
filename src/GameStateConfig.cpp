@@ -369,7 +369,7 @@ void GameStateConfig::update () {
 	if (ENABLE_JOYSTICK == true) settings_cb[5]->Check();
 	else settings_cb[5]->unCheck();
 
-	settings_sl[2]->set(0,15,(int)((GAMMA-0.5)*10.0));
+	settings_sl[2]->set(5,20,(int)(GAMMA*10.0));
 	SDL_SetGamma(GAMMA,GAMMA,GAMMA);
 
 	std::stringstream list_mode;
@@ -454,7 +454,7 @@ void GameStateConfig::logic ()
 			active = settings_cmb[1]->selected;
 			value = settings_cmb[1]->get(active) + 'x';
 		} else if (settings_sl[2]->checkClick()) {
-			GAMMA=0.5+(float)(settings_sl[2]->getValue())*0.1;
+			GAMMA=(float)(settings_sl[2]->getValue())*0.1;
 			SDL_SetGamma(GAMMA,GAMMA,GAMMA);
 		}
 	}

@@ -76,7 +76,14 @@ bool WidgetSlider::checkClick ()
 			//
 			// The knob has been released
 			//
-		if (!isWithin(pos, inpt->mouse)) {
+		// create a temporary SDL_Rect slightly wider than the slider
+		SDL_Rect tmp_pos;
+		tmp_pos.x = pos.x - (pos_knob.w*2);
+		tmp_pos.y = pos.y;
+		tmp_pos.w = pos.w + (pos_knob.w*4);
+		tmp_pos.h = pos.h;
+
+		if (!isWithin(tmp_pos, inpt->mouse)) {
 			pressed = false;
 			return false;
 		}
@@ -94,7 +101,7 @@ bool WidgetSlider::checkClick ()
 		}
 
 		pos_knob.x = pos.x + tmp - (pos_knob.w/2);
-		value = tmp*((float)maximum/pos.w);
+		value = tmp*((float)(maximum-minimum)/pos.w)+minimum;
 
 		return true;
 	}
@@ -108,7 +115,7 @@ void WidgetSlider::set (int min, int max, int val)
 	maximum = max;
 	value = val;
 
-	pos_knob.x = pos.x + (val/((float)max/pos.w)) - pos_knob.w/2;
+	pos_knob.x = pos.x + ((float)(val-min)/((float)(max-min)/pos.w)) - (pos_knob.w/2);
 	pos_knob.y = pos.y;
 }
 
