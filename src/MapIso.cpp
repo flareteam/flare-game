@@ -652,12 +652,9 @@ void MapIso::render(Renderable r[], int rnum) {
 			current_tile = background[i][j];
 
 			if (current_tile > 0) {
-
-				//dest.x = VIEW_W_HALF + (i * TILE_W_HALF - xcam.x) - (j * TILE_W_HALF - xcam.y);
-				//dest.y = VIEW_H_HALF + (i * TILE_H_HALF - ycam.x) + (j * TILE_H_HALF - ycam.y) + TILE_H_HALF;
-				Point temp = map_to_screen(i * TILE_W, j * TILE_W, cam.x, cam.y);
-				dest.x = temp.x;
-				dest.y = temp.y + TILE_H_HALF;
+				Point p = map_to_screen(i * TILE_W, j * TILE_W, cam.x, cam.y);
+				dest.x = p.x;
+				dest.y = p.y + TILE_H_HALF;
 				// adding TILE_H_HALF gets us to the tile center instead of top corner
 				dest.x -= tset.tiles[current_tile].offset.x;
 				dest.y -= tset.tiles[current_tile].offset.y;
