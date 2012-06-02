@@ -233,11 +233,10 @@ void LootManager::renderTooltips(Point cam) {
 
 	for (int i = 0; i < loot_count; i++) {
 		if (loot[i].frame == max_frame) {
-
-
-			dest.x = VIEW_W_HALF + (loot[i].pos.x/UNITS_PER_PIXEL_X - xcam.x) - (loot[i].pos.y/UNITS_PER_PIXEL_X - xcam.y);
-			dest.y = VIEW_H_HALF + (loot[i].pos.x/UNITS_PER_PIXEL_Y - ycam.x) + (loot[i].pos.y/UNITS_PER_PIXEL_Y - ycam.y) + (TILE_H/2);
-
+			Point p = map_to_screen(loot[i].pos.x, loot[i].pos.y, cam.x, cam.y);
+			dest.x = p.x;
+			dest.y = p.y + TILE_H_HALF;
+			
 			// adjust dest.y so that the tooltip floats above the item
 			dest.y -= tooltip_margin;
 

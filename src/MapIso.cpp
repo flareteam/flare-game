@@ -628,20 +628,15 @@ void MapIso::render(Renderable r[], int rnum) {
 	SDL_Rect dest;
 	int current_tile;
 
-	Point xcam;
-	Point ycam;
+	Point shakycam;
 
 	if (shaky_cam_ticks == 0) {
-		xcam.x = cam.x/UNITS_PER_PIXEL_X;
-		xcam.y = cam.y/UNITS_PER_PIXEL_X;
-		ycam.x = cam.x/UNITS_PER_PIXEL_Y;
-		ycam.y = cam.y/UNITS_PER_PIXEL_Y;
+		shakycam.x = cam.x;
+		shakycam.y = cam.y;
 	}
 	else {
-		xcam.x = (cam.x + rand() % 16 - 8) /UNITS_PER_PIXEL_X;
-		xcam.y = (cam.y + rand() % 16 - 8) /UNITS_PER_PIXEL_X;
-		ycam.x = (cam.x + rand() % 16 - 8) /UNITS_PER_PIXEL_Y;
-		ycam.y = (cam.y + rand() % 16 - 8) /UNITS_PER_PIXEL_Y;
+		shakycam.x = cam.x + (rand() % 16 - 8) /UNITS_PER_PIXEL_X;
+		shakycam.y = cam.y + (rand() % 16 - 8) /UNITS_PER_PIXEL_Y;
 	}
 
 	// todo: trim by screen rect
@@ -652,7 +647,7 @@ void MapIso::render(Renderable r[], int rnum) {
 			current_tile = background[i][j];
 
 			if (current_tile > 0) {
-				Point p = map_to_screen(i * TILE_W, j * TILE_W, cam.x, cam.y);
+				Point p = map_to_screen(i * TILE_W, j * TILE_W, shakycam.x, shakycam.y);
 				dest.x = p.x;
 				dest.y = p.y + TILE_H_HALF;
 				// adding TILE_H_HALF gets us to the tile center instead of top corner
@@ -674,7 +669,7 @@ void MapIso::render(Renderable r[], int rnum) {
 			// draw renderable
 			dest.w = r[ri].src.w;
 			dest.h = r[ri].src.h;
-			Point p = map_to_screen(r[ri].map_pos.x, r[ri].map_pos.y, cam.x, cam.y);
+			Point p = map_to_screen(r[ri].map_pos.x, r[ri].map_pos.y, shakycam.x, shakycam.y);
 			dest.x = p.x - r[ri].offset.x;
 			dest.y = p.y - r[ri].offset.y;
 			
@@ -692,7 +687,7 @@ void MapIso::render(Renderable r[], int rnum) {
 			current_tile = object[i][j];
 
 			if (current_tile > 0) {
-				Point p = map_to_screen(i * TILE_W, j * TILE_W, cam.x, cam.y);
+				Point p = map_to_screen(i * TILE_W, j * TILE_W, shakycam.x, shakycam.y);
 				dest.x = p.x;
 				dest.y = p.y + TILE_H_HALF;
 				// adding TILE_H_HALF gets us to the tile center instead of top corner
@@ -711,7 +706,7 @@ void MapIso::render(Renderable r[], int rnum) {
 					// draw renderable
 					dest.w = r[r_cursor].src.w;
 					dest.h = r[r_cursor].src.h;
-					Point p = map_to_screen(r[r_cursor].map_pos.x, r[r_cursor].map_pos.y, cam.x, cam.y);
+					Point p = map_to_screen(r[r_cursor].map_pos.x, r[r_cursor].map_pos.y, shakycam.x, shakycam.y);
 					dest.x = p.x - r[r_cursor].offset.x;
 					dest.y = p.y - r[r_cursor].offset.y;
 
