@@ -218,14 +218,6 @@ bool LootManager::isFlying(int loot_index) {
  * Show all tooltips for loot on the floor
  */
 void LootManager::renderTooltips(Point cam) {
-
-	Point xcam;
-	Point ycam;
-	xcam.x = cam.x/UNITS_PER_PIXEL_X;
-	xcam.y = cam.y/UNITS_PER_PIXEL_X;
-	ycam.x = cam.x/UNITS_PER_PIXEL_Y;
-	ycam.y = cam.y/UNITS_PER_PIXEL_Y;
-
 	Point dest;
 	stringstream ss;
 
