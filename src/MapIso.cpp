@@ -653,8 +653,11 @@ void MapIso::render(Renderable r[], int rnum) {
 
 			if (current_tile > 0) {
 
-				dest.x = VIEW_W_HALF + (i * TILE_W_HALF - xcam.x) - (j * TILE_W_HALF - xcam.y);
-				dest.y = VIEW_H_HALF + (i * TILE_H_HALF - ycam.x) + (j * TILE_H_HALF - ycam.y) + TILE_H_HALF;
+				//dest.x = VIEW_W_HALF + (i * TILE_W_HALF - xcam.x) - (j * TILE_W_HALF - xcam.y);
+				//dest.y = VIEW_H_HALF + (i * TILE_H_HALF - ycam.x) + (j * TILE_H_HALF - ycam.y) + TILE_H_HALF;
+				Point temp = map_to_screen(i * TILE_W, j * TILE_W, cam.x, cam.y);
+				dest.x = temp.x;
+				dest.y = temp.y + TILE_H_HALF;
 				// adding TILE_H_HALF gets us to the tile center instead of top corner
 				dest.x -= tset.tiles[current_tile].offset.x;
 				dest.y -= tset.tiles[current_tile].offset.y;
@@ -674,9 +677,10 @@ void MapIso::render(Renderable r[], int rnum) {
 			// draw renderable
 			dest.w = r[ri].src.w;
 			dest.h = r[ri].src.h;
-			dest.x = VIEW_W_HALF + (r[ri].map_pos.x/UNITS_PER_PIXEL_X - xcam.x) - (r[ri].map_pos.y/UNITS_PER_PIXEL_X - xcam.y) - r[ri].offset.x;
-			dest.y = VIEW_H_HALF + (r[ri].map_pos.x/UNITS_PER_PIXEL_Y - ycam.x) + (r[ri].map_pos.y/UNITS_PER_PIXEL_Y - ycam.y) - r[ri].offset.y;
-
+			Point p = map_to_screen(r[ri].map_pos.x, r[ri].map_pos.y, cam.x, cam.y);
+			dest.x = p.x - r[ri].offset.x;
+			dest.y = p.y - r[ri].offset.y;
+			
 			SDL_BlitSurface(r[ri].sprite, &r[ri].src, screen, &dest);
 		}
 	}
@@ -691,9 +695,9 @@ void MapIso::render(Renderable r[], int rnum) {
 			current_tile = object[i][j];
 
 			if (current_tile > 0) {
-
-				dest.x = VIEW_W_HALF + (i * TILE_W_HALF - xcam.x) - (j * TILE_W_HALF - xcam.y);
-				dest.y = VIEW_H_HALF + (i * TILE_H_HALF - ycam.x) + (j * TILE_H_HALF - ycam.y) + TILE_H_HALF;
+				Point p = map_to_screen(i * TILE_W, j * TILE_W, cam.x, cam.y);
+				dest.x = p.x;
+				dest.y = p.y + TILE_H_HALF;
 				// adding TILE_H_HALF gets us to the tile center instead of top corner
 				dest.x -= tset.tiles[current_tile].offset.x;
 				dest.y -= tset.tiles[current_tile].offset.y;
@@ -710,8 +714,9 @@ void MapIso::render(Renderable r[], int rnum) {
 					// draw renderable
 					dest.w = r[r_cursor].src.w;
 					dest.h = r[r_cursor].src.h;
-					dest.x = VIEW_W_HALF + (r[r_cursor].map_pos.x/UNITS_PER_PIXEL_X - xcam.x) - (r[r_cursor].map_pos.y/UNITS_PER_PIXEL_X - xcam.y) - r[r_cursor].offset.x;
-					dest.y = VIEW_H_HALF + (r[r_cursor].map_pos.x/UNITS_PER_PIXEL_Y - ycam.x) + (r[r_cursor].map_pos.y/UNITS_PER_PIXEL_Y - ycam.y) - r[r_cursor].offset.y;
+					Point p = map_to_screen(r[r_cursor].map_pos.x, r[r_cursor].map_pos.y, cam.x, cam.y);
+					dest.x = p.x - r[r_cursor].offset.x;
+					dest.y = p.y - r[r_cursor].offset.y;
 
 					SDL_BlitSurface(r[r_cursor].sprite, &r[r_cursor].src, screen, &dest);
 				}
