@@ -37,17 +37,29 @@ Point round(FPoint fp) {
 // TODO: rewrite using UNITS_PER_PIXEL_X,Y?
 Point screen_to_map(int x, int y, int camx, int camy) {
 	Point r;
-	int scrx = x - VIEW_W_HALF;
-	int scry = y - VIEW_H_HALF;
-	r.x = scrx + scry*2 + camx;
-	r.y = scry*2 - scrx + camy;
+	if (TILESET_ORIENTATION == TILESET_ISOMETRIC) {
+	    int scrx = x - VIEW_W_HALF;
+	    int scry = y - VIEW_H_HALF;
+	    r.x = scrx + scry*2 + camx;
+	    r.y = scry*2 - scrx + camy;
+    }
+    else {
+	    r.x = x - VIEW_W_HALF + camx;
+	    r.y = y - VIEW_H_HALF + camy;
+    }
 	return r;
 }
 
 Point map_to_screen(int x, int y, int camx, int camy) {
 	Point r;
-	r.x = VIEW_W_HALF + (x/UNITS_PER_PIXEL_X - camx/UNITS_PER_PIXEL_X) - (y/UNITS_PER_PIXEL_X - camy/UNITS_PER_PIXEL_X);
-	r.y = VIEW_H_HALF + (x/UNITS_PER_PIXEL_Y - camx/UNITS_PER_PIXEL_Y) + (y/UNITS_PER_PIXEL_Y - camy/UNITS_PER_PIXEL_Y);
+	if (TILESET_ORIENTATION == TILESET_ISOMETRIC) {
+	    r.x = VIEW_W_HALF + (x - camx - y + camy)/(float)UNITS_PER_PIXEL_X;
+	    r.y = VIEW_H_HALF + (x - camx + y - camy)/(float)UNITS_PER_PIXEL_Y;
+    }
+	else {
+	    r.x = VIEW_W_HALF - camx + x;
+	    r.y = VIEW_H_HALF - camy + y;
+	}
 	return r;
 }
 

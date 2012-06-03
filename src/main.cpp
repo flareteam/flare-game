@@ -69,6 +69,9 @@ static void init(const vector<string>	& args) {
 	inpt = new InputState();
 	font = new FontEngine();
 
+    // Load tileset options (must be after ModManager is initialized)
+	loadTilesetSettings();
+	
 	// Check the command line if we should override the key binding
 	if (binary_search(args.begin(), args.end(), string("--qwerty"))) {
 		inpt->defaultQwertyKeyBindings();

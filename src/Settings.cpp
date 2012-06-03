@@ -23,6 +23,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <cstring>
 #include <string>
 #include <typeinfo>
+#include <cmath>
 using namespace std;
 
 #include "FileParser.h"
@@ -30,6 +31,7 @@ using namespace std;
 #include "Utils.h"
 #include "UtilsParsing.h"
 #include "UtilsFileSystem.h"
+#include "SharedResources.h"
 
 struct ConfigEntry
 {
@@ -41,19 +43,19 @@ struct ConfigEntry
 };
 
 ConfigEntry config[] = {
-	{ "fullscreen",	     &typeid(FULLSCREEN),      "0",   &FULLSCREEN,      "fullscreen mode. 1 enable, 0 disable."},
-	{ "resolution_w",    &typeid(VIEW_W),          "720", &VIEW_W,          "display resolution. 640x480 minimum. 720x480 recommended."},
-	{ "resolution_h",    &typeid(VIEW_H),          "480", &VIEW_H,          NULL},
-	{ "music_volume",    &typeid(MUSIC_VOLUME),    "96",  &MUSIC_VOLUME,    "music and sound volume (0 = silent, 128 = max)"},
-	{ "sound_volume",    &typeid(SOUND_VOLUME),    "128", &SOUND_VOLUME,    NULL},
-	{ "combat_text",     &typeid(COMBAT_TEXT),     "0",   &COMBAT_TEXT,     "display floating damage text. 1 enable, 0 disable."},
-	{ "mouse_move",      &typeid(MOUSE_MOVE),      "0",   &MOUSE_MOVE,      "use mouse to move (experimental). 1 enable, 0 disable."},
-	{ "hwsurface",       &typeid(HWSURFACE),       "1",   &HWSURFACE,       "hardware surfaces, double buffering. Try disabling for performance. 1 enable, 0 disable."},
-	{ "doublebuf",       &typeid(DOUBLEBUF),       "1",   &DOUBLEBUF,       NULL},
+	{ "fullscreen",		 &typeid(FULLSCREEN),	  "0",   &FULLSCREEN,	  "fullscreen mode. 1 enable, 0 disable."},
+	{ "resolution_w",	&typeid(VIEW_W),		  "720", &VIEW_W,		  "display resolution. 640x480 minimum. 720x480 recommended."},
+	{ "resolution_h",	&typeid(VIEW_H),		  "480", &VIEW_H,		  NULL},
+	{ "music_volume",	&typeid(MUSIC_VOLUME),	"96",  &MUSIC_VOLUME,	"music and sound volume (0 = silent, 128 = max)"},
+	{ "sound_volume",	&typeid(SOUND_VOLUME),	"128", &SOUND_VOLUME,	NULL},
+	{ "combat_text",	 &typeid(COMBAT_TEXT),	 "0",   &COMBAT_TEXT,	 "display floating damage text. 1 enable, 0 disable."},
+	{ "mouse_move",	  &typeid(MOUSE_MOVE),	  "0",   &MOUSE_MOVE,	  "use mouse to move (experimental). 1 enable, 0 disable."},
+	{ "hwsurface",	   &typeid(HWSURFACE),	   "1",   &HWSURFACE,	   "hardware surfaces, double buffering. Try disabling for performance. 1 enable, 0 disable."},
+	{ "doublebuf",	   &typeid(DOUBLEBUF),	   "1",   &DOUBLEBUF,	   NULL},
 	{ "enable_joystick", &typeid(ENABLE_JOYSTICK), "1",   &ENABLE_JOYSTICK, "joystick settings."},
 	{ "joystick_device", &typeid(JOYSTICK_DEVICE), "0",   &JOYSTICK_DEVICE, NULL},
-	{ "language",        &typeid(LANGUAGE),        "en",  &LANGUAGE,        "2-letter language code."},
-	{ "gamma",           &typeid(GAMMA),           "1.0", &GAMMA,           "screen gamma (0.5 = darkest, 2.0 = lightest)"}
+	{ "language",		&typeid(LANGUAGE),		"en",  &LANGUAGE,		"2-letter language code."},
+	{ "gamma",		   &typeid(GAMMA),		   "1.0", &GAMMA,		   "screen gamma (0.5 = darkest, 2.0 = lightest)"}
 };
 const int config_size = sizeof(config) / sizeof(ConfigEntry);
 
@@ -63,7 +65,7 @@ string PATH_USER = "";
 string PATH_DATA = "";
 
 // Filenames
-string FILE_SETTINGS    = "settings.txt";
+string FILE_SETTINGS	= "settings.txt";
 string FILE_KEYBINDINGS = "keybindings.txt";
 
 // Tile Settings
@@ -75,6 +77,9 @@ int TILE_W = 64;
 int TILE_H = 32;
 int TILE_W_HALF = TILE_W/2;
 int TILE_H_HALF = TILE_H/2;
+int TILESET_ISOMETRIC = 0;
+int TILESET_ORTHOGONAL = 1;
+int TILESET_ORIENTATION = TILESET_ISOMETRIC;
 
 // Video Settings
 bool FULLSCREEN;
@@ -244,6 +249,41 @@ static ConfigEntry * getConfigEntry(const std::string & name) {
 	return getConfigEntry(name.c_str());
 }
 
+void loadTilesetSettings() {
+	FileParser infile;
+	// load tileset settings from engine config
+	if (infile.open(mods->locate("engine/tileset_config.txt").c_str())) {
+		while (infile.next()) {
+			if (infile.key == "units_per_tile") {
+				UNITS_PER_TILE = atoi(infile.val.c_str());
+			}
+			else if (infile.key == "units_per_pixel") {
+				UNITS_PER_PIXEL_X = atoi(infile.nextValue().c_str());
+				UNITS_PER_PIXEL_Y = atoi(infile.nextValue().c_str());
+			}
+			else if (infile.key == "tile_size") {
+				TILE_W = atoi(infile.nextValue().c_str());
+				TILE_H = atoi(infile.nextValue().c_str());
+			}
+			else if (infile.key == "orientation") {
+				if (infile.val == "isometric")
+					TILESET_ORIENTATION = TILESET_ISOMETRIC;
+				else if (infile.val == "orthogonal")
+					TILESET_ORIENTATION = TILESET_ORTHOGONAL;
+			}
+		}
+		infile.close();
+	}
+	else {
+		fprintf(stderr, "No tileset config found! Defaulting to 64x32 isometric tiles.\n");
+	}
+
+	// Init automatically calculated parameters
+	TILE_SHIFT = log2(UNITS_PER_TILE);
+	VIEW_W_HALF = VIEW_W / 2;
+	VIEW_H_HALF = VIEW_H / 2;
+}
+
 bool loadSettings() {
 
 	// init defaults
@@ -270,10 +310,6 @@ bool loadSettings() {
 	else {
 		saveSettings(); // write the default settings
 	}
-
-	// Init automatically calculated parameters
-	VIEW_W_HALF = VIEW_W / 2;
-	VIEW_H_HALF = VIEW_H / 2;
 
 	return true;
 }
