@@ -66,11 +66,15 @@ extern int TILE_W;
 extern int TILE_H;
 extern int TILE_W_HALF;
 extern int TILE_H_HALF;
+extern int TILESET_ORIENTATION;
+extern int TILESET_ISOMETRIC;
+extern int TILESET_ORTHOGONAL;
 
 // Language Settings
 extern std::string LANGUAGE;
 
 void setPaths();
+void loadTilesetSettings();
 bool loadSettings();
 bool saveSettings();
 bool loadDefaults();
