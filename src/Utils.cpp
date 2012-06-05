@@ -57,8 +57,8 @@ Point map_to_screen(int x, int y, int camx, int camy) {
 	    r.y = VIEW_H_HALF + (x - camx + y - camy)/(float)UNITS_PER_PIXEL_Y;
     }
 	else {
-	    r.x = VIEW_W_HALF - camx + x;
-	    r.y = VIEW_H_HALF - camy + y;
+	    r.x = VIEW_W_HALF - (camx - x)/(float)UNITS_PER_PIXEL_X;
+	    r.y = VIEW_H_HALF - (camy - y)/(float)UNITS_PER_PIXEL_Y;
 	}
 	return r;
 }
