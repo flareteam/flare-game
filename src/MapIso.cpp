@@ -647,10 +647,10 @@ void MapIso::render(Renderable r[], int rnum) {
 			current_tile = background[i][j];
 
 			if (current_tile > 0) {
-				Point p = map_to_screen(i * TILE_W, j * TILE_W, shakycam.x, shakycam.y);
+				Point p = map_to_screen(i * UNITS_PER_TILE, j * UNITS_PER_TILE, shakycam.x, shakycam.y);
+				p = center_tile(p);
 				dest.x = p.x;
-				dest.y = p.y + TILE_H_HALF;
-				// adding TILE_H_HALF gets us to the tile center instead of top corner
+				dest.y = p.y;
 				dest.x -= tset.tiles[current_tile].offset.x;
 				dest.y -= tset.tiles[current_tile].offset.y;
 				dest.w = tset.tiles[current_tile].src.w;
@@ -687,10 +687,10 @@ void MapIso::render(Renderable r[], int rnum) {
 			current_tile = object[i][j];
 
 			if (current_tile > 0) {
-				Point p = map_to_screen(i * TILE_W, j * TILE_W, shakycam.x, shakycam.y);
+				Point p = map_to_screen(i * UNITS_PER_TILE, j * UNITS_PER_TILE, shakycam.x, shakycam.y);
+				p = center_tile(p);
 				dest.x = p.x;
-				dest.y = p.y + TILE_H_HALF;
-				// adding TILE_H_HALF gets us to the tile center instead of top corner
+				dest.y = p.y;
 				dest.x -= tset.tiles[current_tile].offset.x;
 				dest.y -= tset.tiles[current_tile].offset.y;
 				dest.w = tset.tiles[current_tile].src.w;
