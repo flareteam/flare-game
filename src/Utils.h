@@ -64,6 +64,7 @@ int round(float f);
 Point round(FPoint fp);
 Point screen_to_map(int x, int y, int camx, int camy);
 Point map_to_screen(int x, int y, int camx, int camy);
+Point center_tile(Point p);
 Point map_to_collision(Point p);
 Point collision_to_map(Point p);
 FPoint calcVector(Point pos, int direction, int dist);
