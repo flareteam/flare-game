@@ -257,10 +257,6 @@ void loadTilesetSettings() {
 			if (infile.key == "units_per_tile") {
 				UNITS_PER_TILE = atoi(infile.val.c_str());
 			}
-			else if (infile.key == "units_per_pixel") {
-				UNITS_PER_PIXEL_X = atoi(infile.nextValue().c_str());
-				UNITS_PER_PIXEL_Y = atoi(infile.nextValue().c_str());
-			}
 			else if (infile.key == "tile_size") {
 				TILE_W = atoi(infile.nextValue().c_str());
 				TILE_H = atoi(infile.nextValue().c_str());
@@ -282,6 +278,14 @@ void loadTilesetSettings() {
 	TILE_SHIFT = log2(UNITS_PER_TILE);
 	VIEW_W_HALF = VIEW_W / 2;
 	VIEW_H_HALF = VIEW_H / 2;
+	if (TILESET_ORIENTATION == TILESET_ISOMETRIC) {
+		UNITS_PER_PIXEL_X = UNITS_PER_TILE / TILE_W * 2;
+		UNITS_PER_PIXEL_Y = UNITS_PER_TILE / TILE_H * 2;
+	}
+	else { // TILESET_ORTHOGONAL
+		UNITS_PER_PIXEL_X = UNITS_PER_TILE / TILE_W;
+		UNITS_PER_PIXEL_Y = UNITS_PER_TILE / TILE_H;
+	}
 }
 
 bool loadSettings() {

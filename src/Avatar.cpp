@@ -252,6 +252,11 @@ void Avatar::set_direction() {
 		else if(inpt->pressing[UP]) stats.direction = 2;
 		else if(inpt->pressing[RIGHT]) stats.direction = 4;
 		else if(inpt->pressing[DOWN]) stats.direction = 6;
+		// Adjust for ORTHO tilesets
+		if (TILESET_ORIENTATION == TILESET_ORTHOGONAL && 
+				(inpt->pressing[UP] || inpt->pressing[DOWN] || 
+				inpt->pressing[LEFT] || inpt->pressing[RIGHT]))
+			stats.direction = stats.direction == 7 ? 0 : stats.direction + 1;
 	}
 }
 
