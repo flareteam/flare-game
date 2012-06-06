@@ -39,10 +39,17 @@ MenuMiniMap::MenuMiniMap() {
 
 }
 
+void MenuMiniMap::render(MapCollision *collider, Point hero_pos, int map_w, int map_h) {
+	if (TILESET_ORIENTATION == TILESET_ISOMETRIC)
+		renderIso(collider, hero_pos, map_w, map_h);
+	else // TILESET_ORTHOGONAL
+		renderOrtho(collider, hero_pos, map_w, map_h);
+}
+
 /**
  * Render a top-down version of the map (90 deg angle)
  */
-void MenuMiniMap::render(MapCollision *collider, Point hero_pos, int map_w, int map_h) {
+void MenuMiniMap::renderOrtho(MapCollision *collider, Point hero_pos, int map_w, int map_h) {
 	Point hero_tile;
 	Point map_tile;
 	hero_tile.x = hero_pos.x / UNITS_PER_TILE;
