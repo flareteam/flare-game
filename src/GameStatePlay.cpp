@@ -539,7 +539,7 @@ void GameStatePlay::render() {
 	npcs->renderTooltips(map->cam, inpt->mouse);
 
 	menu->hudlog->render();
-	menu->mini->renderIso(&map->collider, pc->stats.pos, map->w, map->h);
+	menu->mini->render(&map->collider, pc->stats.pos, map->w, map->h);
 	menu->render();
 
     // render combat text last - this should make it obvious you're being
