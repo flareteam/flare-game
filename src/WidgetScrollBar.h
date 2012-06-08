@@ -17,16 +17,13 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 */
 
 /**
- * class WidgetListBox
+ * class WidgetScrollBar
  */
 
-#ifndef WIDGET_ListBox_H
-#define WIDGET_ListBox_H
+#ifndef WIDGET_ScrollBar_H
+#define WIDGET_ScrollBar_H
 
 #include "Widget.h"
-#include "WidgetLabel.h"
-#include "WidgetScrollBar.h"
-#include "WidgetTooltip.h"
 
 #include <SDL.h>
 #include <SDL_image.h>
@@ -35,43 +32,29 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <string>
 
 
-class WidgetListBox : public Widget {
+class WidgetScrollBar : public Widget {
 private:
 
-	std::string fileName; // the path to the ListBoxs background image
+	std::string fileName; // the path to the ScrollBars background image
 
-	SDL_Surface *listboxs;
+	SDL_Surface *scrollbars;
 	Mix_Chunk *click;
 	
-	int listAmount;
-	int listHeight;
-	int cursor;
-	bool hasScrollBar;
-	std::string *values;
-	std::string *tooltips;
-	WidgetLabel *vlabels;
-	SDL_Rect *rows;
-	WidgetScrollBar *scrollbar;
+	int barHeight;
 	
 public:
-	WidgetListBox(int amount, int height, const std::string& _fileName);
-	~WidgetListBox();
+	WidgetScrollBar(int x, int y, int height, const std::string& _fileName);
+	~WidgetScrollBar();
 
 	void loadArt();
-	bool checkClick();
-	TooltipData checkTooltip(Point mouse);
-	void append(std::string value, std::string tooltip);
-	void remove(int index);
-	std::string getValue(int index);
-	std::string getTooltip(int index);
-	void scrollUp();
-	void scrollDown();
+	int checkClick();
 	void render();
-	void refresh();
+	void refresh(int x, int y);
 
-	SDL_Rect pos;
-	bool pressed;
-	bool *selected;
+	SDL_Rect pos_up;
+	SDL_Rect pos_down;
+	bool pressed_up;
+	bool pressed_down;
 };
 
 #endif

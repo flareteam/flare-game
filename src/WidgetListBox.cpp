@@ -31,6 +31,7 @@ WidgetListBox::WidgetListBox(int amount, int height, const std::string& _fileNam
 	listAmount = amount;
 	listHeight = height;
 	cursor = 0;
+	hasScrollBar = false;
 	values = new std::string[listAmount];
 	tooltips = new std::string[listAmount];
 	vlabels = new WidgetLabel[listHeight];
@@ -50,6 +51,7 @@ WidgetListBox::WidgetListBox(int amount, int height, const std::string& _fileNam
 	pos.w = listboxs->w;
 	pos.h = (listboxs->h / 3); //height of one item
 
+	scrollbar = new WidgetScrollBar(pos.x+pos.w, pos.y, pos.h*listHeight,mods->locate("images/menus/buttons/scrollbar_default.png"));
 }
 
 void WidgetListBox::loadArt() {
@@ -74,6 +76,19 @@ void WidgetListBox::loadArt() {
  * If press and release, activate (return true)
  */
 bool WidgetListBox::checkClick() {
+	// check ScrollBar clicks
+	if (hasScrollBar) {
+		switch (scrollbar->checkClick()) {
+			case 1:
+				scrollUp();
+				break;
+			case 2:
+				scrollDown();
+				break;
+			default:
+				break;
+		}
+	}
 
 	// main ListBox already in use, new click not allowed
 	if (inpt->lock[MAIN1]) return false;
@@ -152,11 +167,13 @@ std::string WidgetListBox::getTooltip(int index) {
 void WidgetListBox::scrollUp() {
 	if (cursor > 0)
 		cursor -= 1;
+	refresh();
 }
 
 void WidgetListBox::scrollDown() {
 	if (cursor+listHeight < listAmount-listHeight+1)
 		cursor += 1;
+	refresh();
 }
 
 void WidgetListBox::render() {
@@ -164,15 +181,6 @@ void WidgetListBox::render() {
 	src.x = 0;
 	src.w = pos.w;
 	src.h = pos.h;
-
-//	for(int i=cursor;i<cursor+listHeight;i++) {
-//		if(i==cursor)
-//			src.y = 0;
-//		else if(i==cursor+listHeight-1)
-//			src.y = pos.h*2;
-//		else
-//			src.y = pos.h;
-//	}
 
 	for(int i=0; i<listHeight; i++) {
 		if(i==0)
@@ -186,13 +194,16 @@ void WidgetListBox::render() {
 		SDL_BlitSurface(listboxs, &src, screen, &rows[i]);
 		vlabels[i].render();
 	}
+
+	if (hasScrollBar)
+		scrollbar->render();
 }
 
 /**
  * Create the text buffer
+ * Also, toggle the scrollbar based on the size of the list
  */
 void WidgetListBox::refresh() {
-	
 	for(int i=0;i<listHeight;i++)
 	{
 		rows[i].x = pos.x;
@@ -209,6 +220,13 @@ void WidgetListBox::refresh() {
 			vlabels[i].set(font_x, font_y, JUSTIFY_CENTER, VALIGN_CENTER, values[i+cursor], FONT_GRAY);
 		}
 	}
+
+	if (listAmount > listHeight) {
+		hasScrollBar = true;
+	} else {
+		hasScrollBar = false;
+	}
+	scrollbar->refresh(pos.x+pos.w,pos.y);
 }
 
 WidgetListBox::~WidgetListBox() {
@@ -218,5 +236,6 @@ WidgetListBox::~WidgetListBox() {
 	delete[] vlabels;
 	delete[] rows;
 	delete[] selected;
+	delete scrollbar;
 }
 
