@@ -127,6 +127,11 @@ bool WidgetListBox::checkClick() {
 
 }
 
+/**
+ * If mousing-over an item with a tooltip, return that tooltip data.
+ *
+ * @param mouse The x,y screen coordinates of the mouse cursor
+ */
 TooltipData WidgetListBox::checkTooltip(Point mouse) {
 	TooltipData tip;
 
@@ -142,6 +147,9 @@ TooltipData WidgetListBox::checkTooltip(Point mouse) {
 	return tip;
 }
 
+/**
+ * Set the value and tooltip of the first available slot
+ */
 void WidgetListBox::append(std::string value, std::string tooltip) {
 	for (int i=0;i<listAmount;i++) {
 		if (values[i] == "") {
@@ -153,6 +161,9 @@ void WidgetListBox::append(std::string value, std::string tooltip) {
 	}
 }
 
+/**
+ * Clear a slot at a specified index, shifting the other items accordingly
+ */
 void WidgetListBox::remove(int index) {
 	for (int i=index;i<listAmount;i++) {
 		if (i==listAmount-1) {
@@ -168,6 +179,9 @@ void WidgetListBox::remove(int index) {
 	refresh();
 }
 
+/*
+ * Move an item up on the list
+ */
 void WidgetListBox::shiftUp(int index) {
 	if (index > 0) {
 		bool tmp_selected = selected[index];
@@ -186,6 +200,9 @@ void WidgetListBox::shiftUp(int index) {
 	}
 }
 
+/*
+ * Move an item down on the list
+ */
 void WidgetListBox::shiftDown(int index) {
 	if (index < listAmount-1) {
 		bool tmp_selected = selected[index];
@@ -204,20 +221,32 @@ void WidgetListBox::shiftDown(int index) {
 	}
 }
 
+/*
+ * Get the item name at a specific index
+ */
 std::string WidgetListBox::getValue(int index) {
 	return values[index];
 }
 
+/*
+ * Get the item tooltip at a specific index
+ */
 std::string WidgetListBox::getTooltip(int index) {
 	return tooltips[index];
 }
 
+/*
+ * Shift the viewing area up
+ */
 void WidgetListBox::scrollUp() {
 	if (cursor > 0)
 		cursor -= 1;
 	refresh();
 }
 
+/*
+ * Shift the viewing area down
+ */
 void WidgetListBox::scrollDown() {
 	if (cursor+listHeight < listAmount)
 		cursor += 1;

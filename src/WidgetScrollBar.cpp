@@ -128,6 +128,9 @@ void WidgetScrollBar::render() {
 	SDL_BlitSurface(scrollbars, &src_down, screen, &pos_down);
 }
 
+/**
+ * Updates the scrollbar's location
+ */
 void WidgetScrollBar::refresh(int x, int y) {
 	pos_up.x = pos_down.x = x;
 	pos_up.y = y;
