@@ -98,6 +98,7 @@ GameStateConfig::GameStateConfig ()
 	settings_cmb[2] = new WidgetComboBox(langCount, mods->locate("images/menus/buttons/combobox_default.png"));
 
 	// Allocate Mods ListBoxes
+	// TODO: The first argument of WidgetListBox should be replaced with the number of available mods
 	settings_lstb[0] = new WidgetListBox(10, 5, mods->locate("images/menus/buttons/listbox_default.png"));
 
 	//Load the menu configuration from file
@@ -329,15 +330,8 @@ GameStateConfig::GameStateConfig ()
 	child_widget.push_back(settings_lb[39]);
 	optiontab[child_widget.size()-1] = 4;
 
-	// TODO: Append mods names here and remove tests
-	settings_lstb[0]->append("test1","");
-	settings_lstb[0]->append("test2","");
-	settings_lstb[0]->append("test3","");
-	settings_lstb[0]->append("test4","");
-	settings_lstb[0]->append("test5","");
-	settings_lstb[0]->append("test6","");
-	settings_lstb[0]->append("test7","");
-	settings_lstb[0]->remove(3);
+	// TODO: Append mod names to listboxes here
+	settings_lstb[0]->append("Example Label","Example Tooltip");
 	child_widget.push_back(settings_lstb[0]);
 	optiontab[child_widget.size()-1] = 4;
 

@@ -47,10 +47,12 @@ private:
 	int listHeight;
 	int cursor;
 	bool hasScrollBar;
+	TooltipData tip_buf;
 	std::string *values;
 	std::string *tooltips;
 	WidgetLabel *vlabels;
 	SDL_Rect *rows;
+	WidgetTooltip *tip;
 	WidgetScrollBar *scrollbar;
 	
 public:
@@ -62,6 +64,8 @@ public:
 	TooltipData checkTooltip(Point mouse);
 	void append(std::string value, std::string tooltip);
 	void remove(int index);
+	void shiftUp(int index);
+	void shiftDown(int index);
 	std::string getValue(int index);
 	std::string getTooltip(int index);
 	void scrollUp();

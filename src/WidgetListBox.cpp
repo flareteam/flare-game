@@ -36,6 +36,7 @@ WidgetListBox::WidgetListBox(int amount, int height, const std::string& _fileNam
 	tooltips = new std::string[listAmount];
 	vlabels = new WidgetLabel[listHeight];
 	rows = new SDL_Rect[listHeight];
+	tip = new WidgetTooltip();
 
 	listboxs = NULL;
 	click = NULL;
@@ -132,7 +133,8 @@ TooltipData WidgetListBox::checkTooltip(Point mouse) {
 	for(int i=0; i<listHeight; i++) {
 		if (i<listAmount) {
 			if (isWithin(rows[i], mouse) && tooltips[i+cursor] != "") {
-				tip.lines[0] = tooltips[i+cursor];
+				tip.lines[tip.num_lines++] = tooltips[i+cursor];
+				break;
 			}
 		}
 	}
@@ -145,6 +147,7 @@ void WidgetListBox::append(std::string value, std::string tooltip) {
 		if (values[i] == "") {
 			values[i] = value;
 			tooltips[i] = tooltip;
+			refresh();
 			return;
 		}
 	}
@@ -161,6 +164,43 @@ void WidgetListBox::remove(int index) {
 			values[i] = values[i+1];
 			tooltips[i] = tooltips[i+1];
 		}
+	}
+	refresh();
+}
+
+void WidgetListBox::shiftUp(int index) {
+	if (index > 0) {
+		bool tmp_selected = selected[index];
+		std::string tmp_value = values[index];
+		std::string tmp_tooltip = tooltips[index];
+
+		selected[index] = selected[index-1];
+		values[index] = values[index-1];
+		tooltips[index] = tooltips[index-1];
+
+		selected[index-1] = tmp_selected;
+		values[index-1] = tmp_value;
+		tooltips[index-1] = tmp_tooltip;
+
+		scrollUp();
+	}
+}
+
+void WidgetListBox::shiftDown(int index) {
+	if (index < listAmount-1) {
+		bool tmp_selected = selected[index];
+		std::string tmp_value = values[index];
+		std::string tmp_tooltip = tooltips[index];
+
+		selected[index] = selected[index+1];
+		values[index] = values[index+1];
+		tooltips[index] = tooltips[index+1];
+
+		selected[index+1] = tmp_selected;
+		values[index+1] = tmp_value;
+		tooltips[index+1] = tmp_tooltip;
+
+		scrollDown();
 	}
 }
 
@@ -179,7 +219,7 @@ void WidgetListBox::scrollUp() {
 }
 
 void WidgetListBox::scrollDown() {
-	if (cursor+listHeight < listAmount-listHeight+1)
+	if (cursor+listHeight < listAmount)
 		cursor += 1;
 	refresh();
 }
@@ -200,11 +240,24 @@ void WidgetListBox::render() {
 
 		refresh();
 		SDL_BlitSurface(listboxs, &src, screen, &rows[i]);
-		vlabels[i].render();
+		if (i<listAmount) {
+			vlabels[i].render();
+		}
 	}
 
 	if (hasScrollBar)
 		scrollbar->render();
+
+	TooltipData tip_new = checkTooltip(inpt->mouse);
+	if (tip_new.num_lines > 0) {
+		if (tip_new.lines[0] != tip_buf.lines[0]) {
+			tip->clear(tip_buf);
+			tip_buf = tip_new;
+		}
+		tip->render(tip_buf, inpt->mouse, STYLE_FLOAT);
+	}
+
+
 }
 
 /**
@@ -222,10 +275,12 @@ void WidgetListBox::refresh() {
 		int font_x = rows[i].x + (rows[i].w/2);
 		int font_y = rows[i].y + (rows[i].h/2);
 
-		if(selected[i+cursor]) {
-			vlabels[i].set(font_x, font_y, JUSTIFY_CENTER, VALIGN_CENTER, values[i+cursor], FONT_WHITE);
-		} else {
-			vlabels[i].set(font_x, font_y, JUSTIFY_CENTER, VALIGN_CENTER, values[i+cursor], FONT_GRAY);
+		if (i<listAmount) {
+			if(selected[i+cursor]) {
+				vlabels[i].set(font_x, font_y, JUSTIFY_CENTER, VALIGN_CENTER, values[i+cursor], FONT_WHITE);
+			} else {
+				vlabels[i].set(font_x, font_y, JUSTIFY_CENTER, VALIGN_CENTER, values[i+cursor], FONT_GRAY);
+			}
 		}
 	}
 
@@ -238,12 +293,14 @@ void WidgetListBox::refresh() {
 }
 
 WidgetListBox::~WidgetListBox() {
+	tip->clear(tip_buf);
 	SDL_FreeSurface(listboxs);
 	delete[] values;
 	delete[] tooltips;
 	delete[] vlabels;
 	delete[] rows;
 	delete[] selected;
+	delete tip;
 	delete scrollbar;
 }
 
