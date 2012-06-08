@@ -36,6 +36,7 @@ class WidgetCheckBox;
 class WidgetComboBox;
 class WidgetInput;
 class WidgetLabel;
+class WidgetListBox;
 class WidgetSlider;
 class WidgetTabControl;
 
@@ -48,7 +49,7 @@ public:
 	void    render  ();
 
 private:
-	int optiontab[78];
+	int optiontab[81];
 	SDL_Rect* video_modes;
 
 	std::string * language_ISO;
@@ -70,11 +71,12 @@ private:
 	SDL_Surface         * background;
 	std::string         imgFileName;
 
-	WidgetLabel         * settings_lb[39];
+	WidgetLabel         * settings_lb[40];
 	WidgetSlider        * settings_sl[3];
 	WidgetCheckBox      * settings_cb[6];
 	WidgetInput         * settings_key[25];
 	WidgetComboBox      * settings_cmb[3];
+	WidgetListBox       * settings_lstb[1];
 };
 
 #endif
