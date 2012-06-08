@@ -336,6 +336,8 @@ GameStateConfig::GameStateConfig ()
 	settings_lstb[0]->append("test4","");
 	settings_lstb[0]->append("test5","");
 	settings_lstb[0]->append("test6","");
+	settings_lstb[0]->append("test7","");
+	settings_lstb[0]->remove(3);
 	child_widget.push_back(settings_lstb[0]);
 	optiontab[child_widget.size()-1] = 4;
 

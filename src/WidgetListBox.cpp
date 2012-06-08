@@ -151,9 +151,17 @@ void WidgetListBox::append(std::string value, std::string tooltip) {
 }
 
 void WidgetListBox::remove(int index) {
-	selected[index] = false;
-	values[index] = "";
-	tooltips[index] = "";
+	for (int i=index;i<listAmount;i++) {
+		if (i==listAmount-1) {
+			selected[i] = false;
+			values[i] = "";
+			tooltips[i] = "";
+		} else {
+			selected[i] = selected[i+1];
+			values[i] = values[i+1];
+			tooltips[i] = tooltips[i+1];
+		}
+	}
 }
 
 std::string WidgetListBox::getValue(int index) {
