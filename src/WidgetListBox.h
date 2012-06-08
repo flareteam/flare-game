@@ -57,10 +57,12 @@ public:
 	void loadArt();
 	bool checkClick();
 	TooltipData checkTooltip(Point mouse);
-	void append(int index, std::string value, std::string tooltip);
+	void append(std::string value, std::string tooltip);
 	void remove(int index);
 	std::string getValue(int index);
 	std::string getTooltip(int index);
+	void scrollUp();
+	void scrollDown();
 	void render();
 	void refresh();
 

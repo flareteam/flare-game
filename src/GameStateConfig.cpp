@@ -33,6 +33,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "WidgetCheckBox.h"
 #include "WidgetComboBox.h"
 #include "WidgetInput.h"
+#include "WidgetListBox.h"
 #include "WidgetSlider.h"
 #include "WidgetTabControl.h"
 
@@ -60,12 +61,12 @@ GameStateConfig::GameStateConfig ()
 	SDL_FreeSurface(tmp);
 
 	// Initialize Widgets
-	tabControl = new WidgetTabControl(4);
+	tabControl = new WidgetTabControl(5);
 	ok_button = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
 	defaults_button = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
 	cancel_button = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
 
-	for (unsigned int i = 0; i < 39; i++) {
+	for (unsigned int i = 0; i < 40; i++) {
 		 settings_lb[i] = new WidgetLabel();
 	}
 
@@ -95,6 +96,9 @@ GameStateConfig::GameStateConfig ()
 	language_ISO = new std::string[langCount];
 	language_full = new std::string[langCount];
 	settings_cmb[2] = new WidgetComboBox(langCount, mods->locate("images/menus/buttons/combobox_default.png"));
+
+	// Allocate Mods ListBoxes
+	settings_lstb[0] = new WidgetListBox(10, 5, mods->locate("images/menus/buttons/listbox_default.png"));
 
 	//Load the menu configuration from file
 	int x1;
@@ -155,6 +159,7 @@ GameStateConfig::GameStateConfig ()
 			else if (infile.key == "delete") setting_num = 13 + DEL;
 			else if (infile.key == "hws_note") setting_num = 38;
 			else if (infile.key == "dbuf_note") setting_num = 39;
+			else if (infile.key == "activemods") setting_num = 40;
 
 			if (setting_num != -1) {
 					settings_lb[setting_num-1]->setX((VIEW_W - 640)/2 + x1);
@@ -172,6 +177,9 @@ GameStateConfig::GameStateConfig ()
 				} else if (setting_num > 12 && setting_num < 39) {
 					settings_key[setting_num-13]->pos.x = (VIEW_W - 640)/2 + x2;
 					settings_key[setting_num-13]->pos.y = (VIEW_H - 480)/2 + y2;
+				} else if (setting_num > 39 && setting_num < 41) {
+					settings_lstb[setting_num-40]->pos.x = (VIEW_W - 640)/2 + x2;
+					settings_lstb[setting_num-40]->pos.y = (VIEW_H - 480)/2 + y2;
 				}
 			}
 
@@ -187,6 +195,7 @@ GameStateConfig::GameStateConfig ()
 	tabControl->setTabTitle(1, msg->get("Audio"));
 	tabControl->setTabTitle(2, msg->get("Interface"));
 	tabControl->setTabTitle(3, msg->get("Input"));
+	tabControl->setTabTitle(4, msg->get("Mods"));
 	tabControl->updateHeader();
 
 	// Define widgets
@@ -315,6 +324,22 @@ GameStateConfig::GameStateConfig ()
 		 optiontab[child_widget.size()-1] = 3;
 	}
 
+	// Add ListBoxes
+	settings_lb[39]->set(msg->get("Active Mods"));
+	child_widget.push_back(settings_lb[39]);
+	optiontab[child_widget.size()-1] = 4;
+
+	// TODO: Append mods names here and remove tests
+	settings_lstb[0]->append("test1","");
+	settings_lstb[0]->append("test2","");
+	settings_lstb[0]->append("test3","");
+	settings_lstb[0]->append("test4","");
+	settings_lstb[0]->append("test5","");
+	settings_lstb[0]->append("test6","");
+	child_widget.push_back(settings_lstb[0]);
+	optiontab[child_widget.size()-1] = 4;
+
+
 	update();
 }
 
@@ -330,7 +355,7 @@ GameStateConfig::~GameStateConfig()
 
 	child_widget.clear();
 
-	for (unsigned int i = 0; i < 39; i++) {
+	for (unsigned int i = 0; i < 40; i++) {
 		 delete settings_lb[i];
 	}
 
@@ -348,6 +373,10 @@ GameStateConfig::~GameStateConfig()
 
 	for (unsigned int i = 0; i < 3; i++) {
 		 delete settings_cmb[i];
+	}
+
+	for (unsigned int i = 0; i < 1; i++) {
+		 delete settings_lstb[i];
 	}
 }
 
@@ -403,6 +432,8 @@ void GameStateConfig::update () {
 		}
 
 	settings_cmb[2]->refresh();
+
+	settings_lstb[0]->refresh();
 }
 
 void GameStateConfig::logic ()
@@ -488,6 +519,11 @@ void GameStateConfig::logic ()
 		} else if (settings_cb[5]->checkClick()) {
 			if (settings_cb[5]->isChecked()) ENABLE_JOYSTICK=true;
 			else ENABLE_JOYSTICK=false;
+		}
+	}
+	// tab 4 (mods)
+	else if (active_tab == 4) {
+		if (settings_lstb[0]->checkClick()) {
 		}
 	}
 }

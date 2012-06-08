@@ -98,11 +98,13 @@ bool WidgetListBox::checkClick() {
 
 	// detect new click
 	if (inpt->pressing[MAIN1]) {
-		if (isWithin(pos, inpt->mouse)) {
-		
-			inpt->lock[MAIN1] = true;
-			pressed = true;
+		for (int i=0; i<listHeight;i++) {
+			if (isWithin(rows[i], inpt->mouse)) {
+			
+				inpt->lock[MAIN1] = true;
+				pressed = true;
 
+			}
 		}
 	}
 	return false;
@@ -123,11 +125,12 @@ TooltipData WidgetListBox::checkTooltip(Point mouse) {
 	return tip;
 }
 
-void WidgetListBox::append(int index, std::string value, std::string tooltip) {
+void WidgetListBox::append(std::string value, std::string tooltip) {
 	for (int i=0;i<listAmount;i++) {
-		if (values[index] == "") {
-			values[index] = value;
-			tooltips[index] = tooltip;
+		if (values[i] == "") {
+			values[i] = value;
+			tooltips[i] = tooltip;
+			return;
 		}
 	}
 }
@@ -146,26 +149,38 @@ std::string WidgetListBox::getTooltip(int index) {
 	return tooltips[index];
 }
 
+void WidgetListBox::scrollUp() {
+	if (cursor > 0)
+		cursor -= 1;
+}
+
+void WidgetListBox::scrollDown() {
+	if (cursor+listHeight < listAmount-listHeight+1)
+		cursor += 1;
+}
+
 void WidgetListBox::render() {
 	SDL_Rect src;
 	src.x = 0;
 	src.w = pos.w;
 	src.h = pos.h;
 
-	for(int i=cursor;i<cursor+listHeight;i++) {
-		if(i==cursor)
+//	for(int i=cursor;i<cursor+listHeight;i++) {
+//		if(i==cursor)
+//			src.y = 0;
+//		else if(i==cursor+listHeight-1)
+//			src.y = pos.h*2;
+//		else
+//			src.y = pos.h;
+//	}
+
+	for(int i=0; i<listHeight; i++) {
+		if(i==0)
 			src.y = 0;
-		else if(i==cursor+listHeight-1)
+		else if(i==listHeight-1)
 			src.y = pos.h*2;
 		else
 			src.y = pos.h;
-	}
-
-	for(int i=0; i<listHeight; i++) {
-		rows[i].x = pos.x;
-		rows[i].y = ((pos.h-1)*i)+pos.y-3+pos.h;
-		rows[i].w = pos.w;
-		rows[i].h = pos.h;
 
 		refresh();
 		SDL_BlitSurface(listboxs, &src, screen, &rows[i]);
@@ -180,17 +195,19 @@ void WidgetListBox::refresh() {
 	
 	for(int i=0;i<listHeight;i++)
 	{
-		int font_color;
-		if(selected[i+cursor]) {
-			font_color = FONT_WHITE;
-		} else {
-			font_color = FONT_GRAY;
-		}
+		rows[i].x = pos.x;
+		rows[i].y = ((pos.h-1)*i)+pos.y;
+		rows[i].w = pos.w;
+		rows[i].h = pos.h;
 
 		int font_x = rows[i].x + (rows[i].w/2);
 		int font_y = rows[i].y + (rows[i].h/2);
 
-		vlabels[i].set(font_x, font_y, JUSTIFY_CENTER, VALIGN_CENTER, values[i], font_color);
+		if(selected[i+cursor]) {
+			vlabels[i].set(font_x, font_y, JUSTIFY_CENTER, VALIGN_CENTER, values[i+cursor], FONT_WHITE);
+		} else {
+			vlabels[i].set(font_x, font_y, JUSTIFY_CENTER, VALIGN_CENTER, values[i+cursor], FONT_GRAY);
+		}
 	}
 }
 
