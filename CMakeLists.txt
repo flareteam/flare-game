@@ -129,6 +129,7 @@ Set (FLARE_SOURCES
 	./src/WidgetButton.cpp
 	./src/WidgetInput.cpp
  	./src/WidgetLabel.cpp
+ 	./src/WidgetListBox.cpp
 	./src/WidgetSlider.cpp
  	./src/WidgetTabControl.cpp
 	./src/WidgetTooltip.cpp
