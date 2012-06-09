@@ -32,6 +32,7 @@ WidgetListBox::WidgetListBox(int amount, int height, const std::string& _fileNam
 	listHeight = height;
 	cursor = 0;
 	hasScrollBar = false;
+	non_empty_slots = 0;
 	values = new std::string[listAmount];
 	tooltips = new std::string[listAmount];
 	vlabels = new WidgetLabel[listHeight];
@@ -248,7 +249,7 @@ void WidgetListBox::scrollUp() {
  * Shift the viewing area down
  */
 void WidgetListBox::scrollDown() {
-	if (cursor+listHeight < listAmount)
+	if (cursor+listHeight < non_empty_slots)
 		cursor += 1;
 	refresh();
 }
@@ -294,6 +295,12 @@ void WidgetListBox::render() {
  * Also, toggle the scrollbar based on the size of the list
  */
 void WidgetListBox::refresh() {
+	non_empty_slots = 0;
+	for (int i=0;i<listAmount;i++) {
+		if (values[i] != "")
+			non_empty_slots = i+1;
+	}
+
 	for(int i=0;i<listHeight;i++)
 	{
 		rows[i].x = pos.x;
@@ -313,7 +320,7 @@ void WidgetListBox::refresh() {
 		}
 	}
 
-	if (listAmount > listHeight) {
+	if (non_empty_slots > listHeight) {
 		hasScrollBar = true;
 	} else {
 		hasScrollBar = false;

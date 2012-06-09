@@ -47,6 +47,7 @@ private:
 	int listHeight;
 	int cursor;
 	bool hasScrollBar;
+	int non_empty_slots;
 	TooltipData tip_buf;
 	std::string *values;
 	std::string *tooltips;
