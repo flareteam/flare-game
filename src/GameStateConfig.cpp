@@ -329,6 +329,7 @@ GameStateConfig::GameStateConfig ()
 	child_widget.push_back(settings_lb[39]);
 	optiontab[child_widget.size()-1] = 4;
 
+	settings_lstb[0]->multi_select = true;
 	for (unsigned int i = 0; i < mods->mod_list.size() ; i++) {
 		settings_lstb[0]->append(mods->mod_list[i],"");
 	}

@@ -47,6 +47,8 @@ WidgetListBox::WidgetListBox(int amount, int height, const std::string& _fileNam
 	for (int i=0; i<listAmount; i++) {
 		selected[i] = false;
 	}
+
+	multi_select = false;
 	
 	loadArt();
 
@@ -102,6 +104,13 @@ bool WidgetListBox::checkClick() {
 		for(int i=0; i<listHeight; i++) {
 			if (i<listAmount) {
 				if (isWithin(rows[i], inpt->mouse) && values[i+cursor] != "") {
+					// deselect other options if multi-select is disabled
+					if (!multi_select) {
+						for (int j=0; j<listAmount; j++) {
+							if (j!=i+cursor)
+								selected[j] = false;
+						}
+					}
 					// activate upon release
 					selected[i+cursor] = !selected[i+cursor];
 					refresh();

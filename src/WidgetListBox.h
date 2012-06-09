@@ -77,6 +77,7 @@ public:
 	SDL_Rect pos;
 	bool pressed;
 	bool *selected;
+	bool multi_select;
 };
 
 #endif
