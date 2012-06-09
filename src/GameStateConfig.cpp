@@ -98,8 +98,7 @@ GameStateConfig::GameStateConfig ()
 	settings_cmb[2] = new WidgetComboBox(langCount, mods->locate("images/menus/buttons/combobox_default.png"));
 
 	// Allocate Mods ListBoxes
-	// TODO: The first argument of WidgetListBox should be replaced with the number of available mods
-	settings_lstb[0] = new WidgetListBox(10, 5, mods->locate("images/menus/buttons/listbox_default.png"));
+	settings_lstb[0] = new WidgetListBox(mods->mod_list.size(), 5, mods->locate("images/menus/buttons/listbox_default.png"));
 
 	//Load the menu configuration from file
 	int x1;
@@ -330,8 +329,9 @@ GameStateConfig::GameStateConfig ()
 	child_widget.push_back(settings_lb[39]);
 	optiontab[child_widget.size()-1] = 4;
 
-	// TODO: Append mod names to listboxes here
-	settings_lstb[0]->append("Example Label","Example Tooltip");
+	for (unsigned int i = 0; i < mods->mod_list.size() ; i++) {
+		settings_lstb[0]->append(mods->mod_list[i],"");
+	}
 	child_widget.push_back(settings_lstb[0]);
 	optiontab[child_widget.size()-1] = 4;
 
