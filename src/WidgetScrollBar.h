@@ -43,13 +43,13 @@ private:
 	int barHeight;
 	
 public:
-	WidgetScrollBar(int x, int y, int height, const std::string& _fileName);
+	WidgetScrollBar(const std::string& _fileName);
 	~WidgetScrollBar();
 
 	void loadArt();
 	int checkClick();
 	void render();
-	void refresh(int x, int y);
+	void refresh(int x, int y, int h);
 
 	SDL_Rect pos_up;
 	SDL_Rect pos_down;

@@ -25,10 +25,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 using namespace std;
 
-WidgetScrollBar::WidgetScrollBar(int x, int y, int height, const std::string& _fileName)
+WidgetScrollBar::WidgetScrollBar(const std::string& _fileName)
 	: fileName(_fileName) {
-
-	barHeight = height;
 
 	scrollbars = NULL;
 	click = NULL;
@@ -37,10 +35,6 @@ WidgetScrollBar::WidgetScrollBar(int x, int y, int height, const std::string& _f
 
 	pos_up.w = pos_down.w = scrollbars->w;
 	pos_up.h = pos_down.h = (scrollbars->h / 4); //height of one button
-
-	pos_up.x = pos_down.x = x;
-	pos_up.y = y;
-	pos_down.y = y+barHeight-pos_down.h;
 }
 
 void WidgetScrollBar::loadArt() {
@@ -131,10 +125,10 @@ void WidgetScrollBar::render() {
 /**
  * Updates the scrollbar's location
  */
-void WidgetScrollBar::refresh(int x, int y) {
+void WidgetScrollBar::refresh(int x, int y, int h) {
 	pos_up.x = pos_down.x = x;
 	pos_up.y = y;
-	pos_down.y = y+barHeight-pos_down.h;
+	pos_down.y = y+h;
 }
 
 WidgetScrollBar::~WidgetScrollBar() {

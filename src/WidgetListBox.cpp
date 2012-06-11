@@ -55,7 +55,7 @@ WidgetListBox::WidgetListBox(int amount, int height, const std::string& _fileNam
 	pos.w = listboxs->w;
 	pos.h = (listboxs->h / 3); //height of one item
 
-	scrollbar = new WidgetScrollBar(pos.x+pos.w, pos.y, pos.h*listHeight,mods->locate("images/menus/buttons/scrollbar_default.png"));
+	scrollbar = new WidgetScrollBar(mods->locate("images/menus/buttons/scrollbar_default.png"));
 }
 
 void WidgetListBox::loadArt() {
@@ -80,6 +80,7 @@ void WidgetListBox::loadArt() {
  * If press and release, activate (return true)
  */
 bool WidgetListBox::checkClick() {
+	refresh();
 	// check ScrollBar clicks
 	if (hasScrollBar) {
 		switch (scrollbar->checkClick()) {
@@ -186,6 +187,7 @@ void WidgetListBox::remove(int index) {
 			tooltips[i] = tooltips[i+1];
 		}
 	}
+	scrollUp();
 	refresh();
 }
 
@@ -283,7 +285,6 @@ void WidgetListBox::render() {
 		else
 			src.y = pos.h;
 
-		refresh();
 		SDL_BlitSurface(listboxs, &src, screen, &rows[i]);
 		if (i<listAmount) {
 			vlabels[i].render();
@@ -310,37 +311,49 @@ void WidgetListBox::render() {
  * Also, toggle the scrollbar based on the size of the list
  */
 void WidgetListBox::refresh() {
+	// Get the number of slots that have content
 	non_empty_slots = 0;
 	for (int i=0;i<listAmount;i++) {
 		if (values[i] != "")
 			non_empty_slots = i+1;
 	}
 
+	// Update the scrollbar
+	if (non_empty_slots > listHeight) {
+		hasScrollBar = true;
+		pos_scroll.x = pos.x+pos.w-3-scrollbar->pos_up.w;
+		pos_scroll.y = pos.y+3;
+		pos_scroll.w = scrollbar->pos_up.w;
+		pos_scroll.h = ((pos.h-1)*listHeight)-scrollbar->pos_down.h-7;
+		scrollbar->refresh(pos_scroll.x, pos_scroll.y, pos_scroll.h);
+	} else {
+		hasScrollBar = false;
+	}
+
+	// Update each row's hitbox and label
 	for(int i=0;i<listHeight;i++)
 	{
 		rows[i].x = pos.x;
 		rows[i].y = ((pos.h-1)*i)+pos.y;
-		rows[i].w = pos.w;
+		if (hasScrollBar) {
+			rows[i].w = pos.w - pos_scroll.w;
+		} else {
+			rows[i].w = pos.w;
+		}
 		rows[i].h = pos.h;
 
-		int font_x = rows[i].x + (rows[i].w/2);
+		int font_x = rows[i].x + 8;
 		int font_y = rows[i].y + (rows[i].h/2);
 
 		if (i<listAmount) {
 			if(selected[i+cursor]) {
-				vlabels[i].set(font_x, font_y, JUSTIFY_CENTER, VALIGN_CENTER, values[i+cursor], FONT_WHITE);
+				vlabels[i].set(font_x, font_y, JUSTIFY_LEFT, VALIGN_CENTER, values[i+cursor], FONT_WHITE);
 			} else {
-				vlabels[i].set(font_x, font_y, JUSTIFY_CENTER, VALIGN_CENTER, values[i+cursor], FONT_GRAY);
+				vlabels[i].set(font_x, font_y, JUSTIFY_LEFT, VALIGN_CENTER, values[i+cursor], FONT_GRAY);
 			}
 		}
 	}
 
-	if (non_empty_slots > listHeight) {
-		hasScrollBar = true;
-	} else {
-		hasScrollBar = false;
-	}
-	scrollbar->refresh(pos.x+pos.w,pos.y);
 }
 
 WidgetListBox::~WidgetListBox() {

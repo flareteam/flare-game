@@ -75,6 +75,7 @@ public:
 	void refresh();
 
 	SDL_Rect pos;
+	SDL_Rect pos_scroll;
 	bool pressed;
 	bool *selected;
 	bool multi_select;

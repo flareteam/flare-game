@@ -102,8 +102,8 @@ GameStateConfig::GameStateConfig ()
 	settings_cmb[2] = new WidgetComboBox(langCount, mods->locate("images/menus/buttons/combobox_default.png"));
 
 	// Allocate Mods ListBoxes
-	settings_lstb[0] = new WidgetListBox(mods->mod_list.size(), 5, mods->locate("images/menus/buttons/listbox_default.png"));
-	settings_lstb[1] = new WidgetListBox(mods->mod_list.size(), 5, mods->locate("images/menus/buttons/listbox_default.png"));
+	settings_lstb[0] = new WidgetListBox(mods->mod_list.size()+4, 5, mods->locate("images/menus/buttons/listbox_default.png"));
+	settings_lstb[1] = new WidgetListBox(mods->mod_list.size()+4, 5, mods->locate("images/menus/buttons/listbox_default.png"));
 
 	//Load the menu configuration from file
 	int x1;
@@ -350,6 +350,10 @@ GameStateConfig::GameStateConfig ()
 	for (unsigned int i = 0; i < mods->mod_list.size() ; i++) {
 		settings_lstb[0]->append(mods->mod_list[i],"");
 	}
+    settings_lstb[0]->append("test1","");
+    settings_lstb[0]->append("test2","");
+    settings_lstb[0]->append("test3","");
+    settings_lstb[0]->append("test4","");
 	child_widget.push_back(settings_lstb[0]);
 	optiontab[child_widget.size()-1] = 4;
 
@@ -814,7 +818,7 @@ bool GameStateConfig::applyVideoSettings(SDL_Surface *src, int width, int height
  * Toggle mods between active and inactive
  */
 void GameStateConfig::modsToggle(int source, int dest) {
-	for (unsigned int i=0; i<mods->mod_list.size(); i++) {
+	for (unsigned int i=0; i<mods->mod_list.size()+4; i++) {
 		if (settings_lstb[source]->selected[i]) {
 			settings_lstb[dest]->append(settings_lstb[source]->getValue(i),settings_lstb[source]->getTooltip(i));
 			settings_lstb[source]->remove(i);
