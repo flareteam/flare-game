@@ -65,8 +65,8 @@ public:
 	TooltipData checkTooltip(Point mouse);
 	void append(std::string value, std::string tooltip);
 	void remove(int index);
-	void shiftUp(int index);
-	void shiftDown(int index);
+	void shiftUp();
+	void shiftDown();
 	std::string getValue(int index);
 	std::string getTooltip(int index);
 	void scrollUp();
@@ -77,6 +77,7 @@ public:
 	SDL_Rect pos;
 	bool pressed;
 	bool *selected;
+	bool multi_select;
 };
 
 #endif

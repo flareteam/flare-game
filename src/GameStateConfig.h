@@ -49,7 +49,7 @@ public:
 	void    render  ();
 
 private:
-	int optiontab[81];
+	int optiontab[89];
 	SDL_Rect* video_modes;
 
 	std::string * language_ISO;
@@ -62,6 +62,7 @@ private:
 	void setDefaultResolution();
 	void refreshFont();
 	bool applyVideoSettings(SDL_Surface *src, int width, int height);
+	void modsToggle(int source, int dest);
 
 	std::vector<Widget*>      child_widget;
 	WidgetTabControl    * tabControl;
@@ -71,12 +72,13 @@ private:
 	SDL_Surface         * background;
 	std::string         imgFileName;
 
-	WidgetLabel         * settings_lb[40];
+	WidgetLabel         * settings_lb[41];
 	WidgetSlider        * settings_sl[3];
 	WidgetCheckBox      * settings_cb[6];
 	WidgetInput         * settings_key[25];
 	WidgetComboBox      * settings_cmb[3];
-	WidgetListBox       * settings_lstb[1];
+	WidgetListBox       * settings_lstb[2];
+	WidgetButton        * settings_btn[6];
 };
 
 #endif

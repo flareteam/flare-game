@@ -66,7 +66,7 @@ GameStateConfig::GameStateConfig ()
 	defaults_button = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
 	cancel_button = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
 
-	for (unsigned int i = 0; i < 40; i++) {
+	for (unsigned int i = 0; i < 41; i++) {
 		 settings_lb[i] = new WidgetLabel();
 	}
 
@@ -80,6 +80,10 @@ GameStateConfig::GameStateConfig ()
 
 	for (unsigned int i = 0; i < 25; i++) {
 		 settings_key[i] = new WidgetInput();
+	}
+
+	for (unsigned int i = 0; i < 6; i++) {
+		 settings_btn[i] = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
 	}
 
 	// Allocate Joycticks ComboBox
@@ -98,8 +102,8 @@ GameStateConfig::GameStateConfig ()
 	settings_cmb[2] = new WidgetComboBox(langCount, mods->locate("images/menus/buttons/combobox_default.png"));
 
 	// Allocate Mods ListBoxes
-	// TODO: The first argument of WidgetListBox should be replaced with the number of available mods
-	settings_lstb[0] = new WidgetListBox(10, 5, mods->locate("images/menus/buttons/listbox_default.png"));
+	settings_lstb[0] = new WidgetListBox(mods->mod_list.size(), 5, mods->locate("images/menus/buttons/listbox_default.png"));
+	settings_lstb[1] = new WidgetListBox(mods->mod_list.size(), 5, mods->locate("images/menus/buttons/listbox_default.png"));
 
 	//Load the menu configuration from file
 	int x1;
@@ -161,10 +165,19 @@ GameStateConfig::GameStateConfig ()
 			else if (infile.key == "hws_note") setting_num = 38;
 			else if (infile.key == "dbuf_note") setting_num = 39;
 			else if (infile.key == "activemods") setting_num = 40;
+			else if (infile.key == "inactivemods") setting_num = 41;
+			else if (infile.key == "activemods_shiftup") setting_num = 42;
+			else if (infile.key == "activemods_shiftdown") setting_num = 43;
+			else if (infile.key == "activemods_deactivate") setting_num = 44;
+			else if (infile.key == "inactivemods_shiftup") setting_num = 45;
+			else if (infile.key == "inactivemods_shiftdown") setting_num = 46;
+			else if (infile.key == "inactivemods_activate") setting_num = 47;
 
 			if (setting_num != -1) {
+				if (setting_num < 42) {
 					settings_lb[setting_num-1]->setX((VIEW_W - 640)/2 + x1);
 					settings_lb[setting_num-1]->setY((VIEW_H - 480)/2 + y1);
+				}
 
 				if (setting_num < 7) {
 					settings_cb[setting_num-1]->pos.x = (VIEW_W - 640)/2 + x2;
@@ -178,9 +191,12 @@ GameStateConfig::GameStateConfig ()
 				} else if (setting_num > 12 && setting_num < 39) {
 					settings_key[setting_num-13]->pos.x = (VIEW_W - 640)/2 + x2;
 					settings_key[setting_num-13]->pos.y = (VIEW_H - 480)/2 + y2;
-				} else if (setting_num > 39 && setting_num < 41) {
+				} else if (setting_num > 39 && setting_num < 42) {
 					settings_lstb[setting_num-40]->pos.x = (VIEW_W - 640)/2 + x2;
 					settings_lstb[setting_num-40]->pos.y = (VIEW_H - 480)/2 + y2;
+				} else if (setting_num > 41 && setting_num < 48) {
+					settings_btn[setting_num-42]->pos.x = (VIEW_W - 640)/2 + x1;
+					settings_btn[setting_num-42]->pos.y = (VIEW_H - 480)/2 + y1;
 				}
 			}
 
@@ -330,10 +346,34 @@ GameStateConfig::GameStateConfig ()
 	child_widget.push_back(settings_lb[39]);
 	optiontab[child_widget.size()-1] = 4;
 
-	// TODO: Append mod names to listboxes here
-	settings_lstb[0]->append("Example Label","Example Tooltip");
+	settings_lstb[0]->multi_select = true;
+	for (unsigned int i = 0; i < mods->mod_list.size() ; i++) {
+		settings_lstb[0]->append(mods->mod_list[i],"");
+	}
 	child_widget.push_back(settings_lstb[0]);
 	optiontab[child_widget.size()-1] = 4;
+
+	settings_lb[40]->set(msg->get("Inactive Mods"));
+	child_widget.push_back(settings_lb[40]);
+	optiontab[child_widget.size()-1] = 4;
+
+	settings_lstb[1]->multi_select = true;
+	child_widget.push_back(settings_lstb[1]);
+	optiontab[child_widget.size()-1] = 4;
+
+	// Add Buttons
+	settings_btn[0]->label = msg->get("Move up");
+	settings_btn[1]->label = msg->get("Move down");
+	settings_btn[2]->label = msg->get("Deactivate");
+	settings_btn[3]->label = msg->get("Move up");
+	settings_btn[4]->label = msg->get("Move down");
+	settings_btn[5]->label = msg->get("Activate");
+
+	for (unsigned int i=0; i<6; i++) {
+		settings_btn[i]->refresh();
+		child_widget.push_back(settings_btn[i]);
+		optiontab[child_widget.size()-1] = 4;
+	}
 
 
 	update();
@@ -371,8 +411,12 @@ GameStateConfig::~GameStateConfig()
 		 delete settings_cmb[i];
 	}
 
-	for (unsigned int i = 0; i < 1; i++) {
+	for (unsigned int i = 0; i < 2; i++) {
 		 delete settings_lstb[i];
+	}
+
+	for (unsigned int i = 0; i < 6; i++) {
+		 delete settings_btn[i];
 	}
 }
 
@@ -430,6 +474,7 @@ void GameStateConfig::update () {
 	settings_cmb[2]->refresh();
 
 	settings_lstb[0]->refresh();
+	settings_lstb[1]->refresh();
 }
 
 void GameStateConfig::logic ()
@@ -520,6 +565,21 @@ void GameStateConfig::logic ()
 	// tab 4 (mods)
 	else if (active_tab == 4) {
 		if (settings_lstb[0]->checkClick()) {
+			//do nothing
+		} else if (settings_lstb[1]->checkClick()) {
+			//do nothing
+		} else if (settings_btn[0]->checkClick()) {
+			settings_lstb[0]->shiftUp();
+		} else if (settings_btn[1]->checkClick()) {
+			settings_lstb[0]->shiftDown();
+		} else if (settings_btn[2]->checkClick()) {
+			modsToggle(0,1);
+		} else if (settings_btn[3]->checkClick()) {
+			settings_lstb[1]->shiftUp();
+		} else if (settings_btn[4]->checkClick()) {
+			settings_lstb[1]->shiftDown();
+		} else if (settings_btn[5]->checkClick()) {
+			modsToggle(1,0);
 		}
 	}
 }
@@ -748,4 +808,17 @@ bool GameStateConfig::applyVideoSettings(SDL_Surface *src, int width, int height
 	VIEW_H_HALF = height/2;
 
 	return true;
+}
+
+/**
+ * Toggle mods between active and inactive
+ */
+void GameStateConfig::modsToggle(int source, int dest) {
+	for (unsigned int i=0; i<mods->mod_list.size(); i++) {
+		if (settings_lstb[source]->selected[i]) {
+			settings_lstb[dest]->append(settings_lstb[source]->getValue(i),settings_lstb[source]->getTooltip(i));
+			settings_lstb[source]->remove(i);
+			i--;
+		}
+	}
 }
