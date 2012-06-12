@@ -199,9 +199,11 @@ void WidgetListBox::remove(int index) {
  * Move an item up on the list
  */
 void WidgetListBox::shiftUp() {
+	any_selected = false;
 	if (!selected[0]) {
 		for (int i=1; i < non_empty_slots; i++) {
 			if (selected[i]) {
+				any_selected = true;
 				bool tmp_selected = selected[i];
 				std::string tmp_value = values[i];
 				std::string tmp_tooltip = tooltips[i];
@@ -215,7 +217,9 @@ void WidgetListBox::shiftUp() {
 				tooltips[i-1] = tmp_tooltip;
 			}
 		}
-		scrollUp();
+		if (any_selected) {
+			scrollUp();
+		}
 	}
 }
 
@@ -223,9 +227,11 @@ void WidgetListBox::shiftUp() {
  * Move an item down on the list
  */
 void WidgetListBox::shiftDown() {
+	any_selected = false;
 	if (!selected[non_empty_slots-1]) {
 		for (int i=non_empty_slots-2; i >= 0; i--) {
 			if (selected[i]) {
+				any_selected = true;
 				bool tmp_selected = selected[i];
 				std::string tmp_value = values[i];
 				std::string tmp_tooltip = tooltips[i];
@@ -239,7 +245,9 @@ void WidgetListBox::shiftDown() {
 				tooltips[i+1] = tmp_tooltip;
 			}
 		}
-		scrollDown();
+		if (any_selected) {
+			scrollDown();
+		}
 	}
 }
 
