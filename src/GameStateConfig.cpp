@@ -82,9 +82,10 @@ GameStateConfig::GameStateConfig ()
 		 settings_key[i] = new WidgetInput();
 	}
 
-	for (unsigned int i = 0; i < 6; i++) {
-		 settings_btn[i] = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
-	}
+	settings_btn[0] = new WidgetButton(mods->locate("images/menus/buttons/up.png"));
+	settings_btn[1] = new WidgetButton(mods->locate("images/menus/buttons/down.png"));
+	settings_btn[2] = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
+	settings_btn[3] = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
 
 	// Allocate Joycticks ComboBox
 	settings_cmb[0] = new WidgetComboBox(5, mods->locate("images/menus/buttons/combobox_default.png"));
@@ -169,9 +170,7 @@ GameStateConfig::GameStateConfig ()
 			else if (infile.key == "activemods_shiftup") setting_num = 42;
 			else if (infile.key == "activemods_shiftdown") setting_num = 43;
 			else if (infile.key == "activemods_deactivate") setting_num = 44;
-			else if (infile.key == "inactivemods_shiftup") setting_num = 45;
-			else if (infile.key == "inactivemods_shiftdown") setting_num = 46;
-			else if (infile.key == "inactivemods_activate") setting_num = 47;
+			else if (infile.key == "inactivemods_activate") setting_num = 45;
 
 			if (setting_num != -1) {
 				if (setting_num < 42) {
@@ -194,7 +193,7 @@ GameStateConfig::GameStateConfig ()
 				} else if (setting_num > 39 && setting_num < 42) {
 					settings_lstb[setting_num-40]->pos.x = (VIEW_W - 640)/2 + x2;
 					settings_lstb[setting_num-40]->pos.y = (VIEW_H - 480)/2 + y2;
-				} else if (setting_num > 41 && setting_num < 48) {
+				} else if (setting_num > 41 && setting_num < 46) {
 					settings_btn[setting_num-42]->pos.x = (VIEW_W - 640)/2 + x1;
 					settings_btn[setting_num-42]->pos.y = (VIEW_H - 480)/2 + y1;
 				}
@@ -361,15 +360,11 @@ GameStateConfig::GameStateConfig ()
 	child_widget.push_back(settings_lstb[1]);
 	optiontab[child_widget.size()-1] = 4;
 
-	// Add Buttons
-	settings_btn[0]->label = msg->get("Move up");
-	settings_btn[1]->label = msg->get("Move down");
-	settings_btn[2]->label = msg->get("Deactivate");
-	settings_btn[3]->label = msg->get("Move up");
-	settings_btn[4]->label = msg->get("Move down");
-	settings_btn[5]->label = msg->get("Activate");
+	// Add Button labels
+	settings_btn[2]->label = msg->get("<< Deactivate");
+	settings_btn[3]->label = msg->get("Activate >>");
 
-	for (unsigned int i=0; i<6; i++) {
+	for (unsigned int i=0; i<4; i++) {
 		settings_btn[i]->refresh();
 		child_widget.push_back(settings_btn[i]);
 		optiontab[child_widget.size()-1] = 4;
@@ -415,7 +410,7 @@ GameStateConfig::~GameStateConfig()
 		 delete settings_lstb[i];
 	}
 
-	for (unsigned int i = 0; i < 6; i++) {
+	for (unsigned int i = 0; i < 4; i++) {
 		 delete settings_btn[i];
 	}
 }
@@ -575,10 +570,6 @@ void GameStateConfig::logic ()
 		} else if (settings_btn[2]->checkClick()) {
 			modsToggle(0,1);
 		} else if (settings_btn[3]->checkClick()) {
-			settings_lstb[1]->shiftUp();
-		} else if (settings_btn[4]->checkClick()) {
-			settings_lstb[1]->shiftDown();
-		} else if (settings_btn[5]->checkClick()) {
 			modsToggle(1,0);
 		}
 	}
