@@ -43,10 +43,10 @@ private:
 	SDL_Surface *listboxs;
 	Mix_Chunk *click;
 	
-	int listAmount;
-	int listHeight;
+	int list_amount;
+	int list_height;
 	int cursor;
-	bool hasScrollBar;
+	bool has_scroll_bar;
 	int non_empty_slots;
 	TooltipData tip_buf;
 	std::string *values;

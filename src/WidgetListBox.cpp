@@ -28,23 +28,23 @@ using namespace std;
 WidgetListBox::WidgetListBox(int amount, int height, const std::string& _fileName)
 	: fileName(_fileName) {
 
-	listAmount = amount;
-	listHeight = height;
+	list_amount = amount;
+	list_height = height;
 	cursor = 0;
-	hasScrollBar = false;
+	has_scroll_bar = false;
 	non_empty_slots = 0;
-	values = new std::string[listAmount];
-	tooltips = new std::string[listAmount];
-	vlabels = new WidgetLabel[listHeight];
-	rows = new SDL_Rect[listHeight];
+	values = new std::string[list_amount];
+	tooltips = new std::string[list_amount];
+	vlabels = new WidgetLabel[list_height];
+	rows = new SDL_Rect[list_height];
 	tip = new WidgetTooltip();
 
 	listboxs = NULL;
 	click = NULL;
 	pos.x = pos.y = pos.w = pos.h = 0;
 
-	selected = new bool[listAmount];
-	for (int i=0; i<listAmount; i++) {
+	selected = new bool[list_amount];
+	for (int i=0; i<list_amount; i++) {
 		selected[i] = false;
 	}
 
@@ -82,7 +82,7 @@ void WidgetListBox::loadArt() {
 bool WidgetListBox::checkClick() {
 	refresh();
 	// check ScrollBar clicks
-	if (hasScrollBar) {
+	if (has_scroll_bar) {
 		switch (scrollbar->checkClick()) {
 			case 1:
 				scrollUp();
@@ -106,12 +106,12 @@ bool WidgetListBox::checkClick() {
 	if (pressed && !inpt->lock[MAIN1]) {
 		pressed = false;
 		
-		for(int i=0; i<listHeight; i++) {
-			if (i<listAmount) {
+		for(int i=0; i<list_height; i++) {
+			if (i<list_amount) {
 				if (isWithin(rows[i], inpt->mouse) && values[i+cursor] != "") {
 					// deselect other options if multi-select is disabled
 					if (!multi_select) {
-						for (int j=0; j<listAmount; j++) {
+						for (int j=0; j<list_amount; j++) {
 							if (j!=i+cursor)
 								selected[j] = false;
 						}
@@ -129,7 +129,7 @@ bool WidgetListBox::checkClick() {
 
 	// detect new click
 	if (inpt->pressing[MAIN1]) {
-		for (int i=0; i<listHeight;i++) {
+		for (int i=0; i<list_height;i++) {
 			if (isWithin(rows[i], inpt->mouse)) {
 			
 				inpt->lock[MAIN1] = true;
@@ -150,8 +150,8 @@ bool WidgetListBox::checkClick() {
 TooltipData WidgetListBox::checkTooltip(Point mouse) {
 	TooltipData tip;
 
-	for(int i=0; i<listHeight; i++) {
-		if (i<listAmount) {
+	for(int i=0; i<list_height; i++) {
+		if (i<list_amount) {
 			if (isWithin(rows[i], mouse) && tooltips[i+cursor] != "") {
 				tip.lines[tip.num_lines++] = tooltips[i+cursor];
 				break;
@@ -166,7 +166,7 @@ TooltipData WidgetListBox::checkTooltip(Point mouse) {
  * Set the value and tooltip of the first available slot
  */
 void WidgetListBox::append(std::string value, std::string tooltip) {
-	for (int i=0;i<listAmount;i++) {
+	for (int i=0;i<list_amount;i++) {
 		if (values[i] == "") {
 			values[i] = value;
 			tooltips[i] = tooltip;
@@ -180,8 +180,8 @@ void WidgetListBox::append(std::string value, std::string tooltip) {
  * Clear a slot at a specified index, shifting the other items accordingly
  */
 void WidgetListBox::remove(int index) {
-	for (int i=index;i<listAmount;i++) {
-		if (i==listAmount-1) {
+	for (int i=index;i<list_amount;i++) {
+		if (i==list_amount-1) {
 			selected[i] = false;
 			values[i] = "";
 			tooltips[i] = "";
@@ -270,7 +270,7 @@ void WidgetListBox::scrollUp() {
  * Shift the viewing area down
  */
 void WidgetListBox::scrollDown() {
-	if (cursor+listHeight < non_empty_slots)
+	if (cursor+list_height < non_empty_slots)
 		cursor += 1;
 	refresh();
 }
@@ -281,21 +281,21 @@ void WidgetListBox::render() {
 	src.w = pos.w;
 	src.h = pos.h;
 
-	for(int i=0; i<listHeight; i++) {
+	for(int i=0; i<list_height; i++) {
 		if(i==0)
 			src.y = 0;
-		else if(i==listHeight-1)
+		else if(i==list_height-1)
 			src.y = pos.h*2;
 		else
 			src.y = pos.h;
 
 		SDL_BlitSurface(listboxs, &src, screen, &rows[i]);
-		if (i<listAmount) {
+		if (i<list_amount) {
 			vlabels[i].render();
 		}
 	}
 
-	if (hasScrollBar)
+	if (has_scroll_bar)
 		scrollbar->render();
 
 	TooltipData tip_new = checkTooltip(inpt->mouse);
@@ -317,29 +317,29 @@ void WidgetListBox::render() {
 void WidgetListBox::refresh() {
 	// Get the number of slots that have content
 	non_empty_slots = 0;
-	for (int i=0;i<listAmount;i++) {
+	for (int i=0;i<list_amount;i++) {
 		if (values[i] != "")
 			non_empty_slots = i+1;
 	}
 
 	// Update the scrollbar
-	if (non_empty_slots > listHeight) {
-		hasScrollBar = true;
+	if (non_empty_slots > list_height) {
+		has_scroll_bar = true;
 		pos_scroll.x = pos.x+pos.w-3-scrollbar->pos_up.w;
 		pos_scroll.y = pos.y+3;
 		pos_scroll.w = scrollbar->pos_up.w;
-		pos_scroll.h = ((pos.h-1)*listHeight)-scrollbar->pos_down.h-7;
-		scrollbar->refresh(pos_scroll.x, pos_scroll.y, pos_scroll.h, cursor, non_empty_slots-listHeight);
+		pos_scroll.h = ((pos.h-1)*list_height)-scrollbar->pos_down.h-7;
+		scrollbar->refresh(pos_scroll.x, pos_scroll.y, pos_scroll.h, cursor, non_empty_slots-list_height);
 	} else {
-		hasScrollBar = false;
+		has_scroll_bar = false;
 	}
 
 	// Update each row's hitbox and label
-	for(int i=0;i<listHeight;i++)
+	for(int i=0;i<list_height;i++)
 	{
 		rows[i].x = pos.x;
 		rows[i].y = ((pos.h-1)*i)+pos.y;
-		if (hasScrollBar) {
+		if (has_scroll_bar) {
 			rows[i].w = pos.w - pos_scroll.w;
 		} else {
 			rows[i].w = pos.w;
@@ -349,7 +349,7 @@ void WidgetListBox::refresh() {
 		int font_x = rows[i].x + 8;
 		int font_y = rows[i].y + (rows[i].h/2);
 
-		if (i<listAmount) {
+		if (i<list_amount) {
 			if(selected[i+cursor]) {
 				vlabels[i].set(font_x, font_y, JUSTIFY_LEFT, VALIGN_CENTER, values[i+cursor], FONT_WHITE);
 			} else {
