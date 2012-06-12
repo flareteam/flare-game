@@ -40,7 +40,9 @@ private:
 	SDL_Surface *scrollbars;
 	Mix_Chunk *click;
 	
-	int barHeight;
+	int value;
+	int bar_height;
+	int maximum;
 	
 public:
 	WidgetScrollBar(const std::string& _fileName);
@@ -48,13 +50,17 @@ public:
 
 	void loadArt();
 	int checkClick();
+	void set();
+	int getValue();
 	void render();
-	void refresh(int x, int y, int h);
+	void refresh(int x, int y, int h, int val, int max);
 
 	SDL_Rect pos_up;
 	SDL_Rect pos_down;
+	SDL_Rect pos_knob;
 	bool pressed_up;
 	bool pressed_down;
+	bool pressed_knob;
 };
 
 #endif

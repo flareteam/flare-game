@@ -90,6 +90,10 @@ bool WidgetListBox::checkClick() {
 			case 2:
 				scrollDown();
 				break;
+            case 3:
+                cursor = scrollbar->getValue();
+                refresh();
+                break;
 			default:
 				break;
 		}
@@ -325,7 +329,7 @@ void WidgetListBox::refresh() {
 		pos_scroll.y = pos.y+3;
 		pos_scroll.w = scrollbar->pos_up.w;
 		pos_scroll.h = ((pos.h-1)*listHeight)-scrollbar->pos_down.h-7;
-		scrollbar->refresh(pos_scroll.x, pos_scroll.y, pos_scroll.h);
+		scrollbar->refresh(pos_scroll.x, pos_scroll.y, pos_scroll.h, cursor, non_empty_slots-listHeight);
 	} else {
 		hasScrollBar = false;
 	}
