@@ -29,6 +29,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "Settings.h"
 #include "SharedResources.h"
 #include "UtilsParsing.h"
+#include "UtilsFileSystem.h"
 #include "WidgetButton.h"
 #include "WidgetCheckBox.h"
 #include "WidgetComboBox.h"
@@ -39,6 +40,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include <sstream>
 
+using namespace std;
 
 GameStateConfig::GameStateConfig ()
 		: GameState(),
@@ -103,8 +105,11 @@ GameStateConfig::GameStateConfig ()
 	settings_cmb[2] = new WidgetComboBox(langCount, mods->locate("images/menus/buttons/combobox_default.png"));
 
 	// Allocate Mods ListBoxes
-	settings_lstb[0] = new WidgetListBox(mods->mod_list.size(), 5, mods->locate("images/menus/buttons/listbox_default.png"));
-	settings_lstb[1] = new WidgetListBox(mods->mod_list.size(), 5, mods->locate("images/menus/buttons/listbox_default.png"));
+	vector<string> mod_dirs;
+	getDirList(PATH_DATA + "mods", mod_dirs);
+
+	settings_lstb[0] = new WidgetListBox(mod_dirs.size(), 5, mods->locate("images/menus/buttons/listbox_default.png"));
+	settings_lstb[1] = new WidgetListBox(mod_dirs.size(), 5, mods->locate("images/menus/buttons/listbox_default.png"));
 
 	//Load the menu configuration from file
 	int x1;
@@ -352,11 +357,14 @@ GameStateConfig::GameStateConfig ()
 	child_widget.push_back(settings_lstb[0]);
 	optiontab[child_widget.size()-1] = 4;
 
-	settings_lb[40]->set(msg->get("Inactive Mods"));
+	settings_lb[40]->set(msg->get("Avaliable Mods"));
 	child_widget.push_back(settings_lb[40]);
 	optiontab[child_widget.size()-1] = 4;
 
 	settings_lstb[1]->multi_select = true;
+	for (unsigned int i = 0; i < mod_dirs.size(); i++) {
+		settings_lstb[1]->append(mod_dirs[i],"");
+	}
 	child_widget.push_back(settings_lstb[1]);
 	optiontab[child_widget.size()-1] = 4;
 
@@ -495,6 +503,7 @@ void GameStateConfig::logic ()
 		refreshFont();
 		applyVideoSettings(screen, width, height);
 		saveSettings();
+		setMods();
 		delete requestedGameState;
 		requestedGameState = new GameStateTitle();
 	} else if (defaults_button->checkClick()) {
@@ -575,9 +584,9 @@ void GameStateConfig::logic ()
 		} else if (settings_btn[1]->checkClick()) {
 			settings_lstb[0]->shiftDown();
 		} else if (settings_btn[2]->checkClick()) {
-			modsToggle(0,1);
+			disableMods();
 		} else if (settings_btn[3]->checkClick()) {
-			modsToggle(1,0);
+			enableMods();
 		}
 	}
 }
@@ -809,14 +818,44 @@ bool GameStateConfig::applyVideoSettings(SDL_Surface *src, int width, int height
 }
 
 /**
- * Toggle mods between active and inactive
+ * Activate mods
  */
-void GameStateConfig::modsToggle(int source, int dest) {
-	for (unsigned int i=0; i<mods->mod_list.size(); i++) {
-		if (settings_lstb[source]->selected[i]) {
-			settings_lstb[dest]->append(settings_lstb[source]->getValue(i),settings_lstb[source]->getTooltip(i));
-			settings_lstb[source]->remove(i);
+void GameStateConfig::enableMods() {
+	
+	bool add = true;
+
+	for (int i=0; i<settings_lstb[1]->getSize(); i++) {
+		if (settings_lstb[1]->selected[i]) {
+			for (int j=0; j<settings_lstb[0]->getSize(); j++) {
+				if (settings_lstb[0]->getValue(j) == settings_lstb[1]->getValue(i)) add = false;
+			}
+			if (add) settings_lstb[0]->append(settings_lstb[1]->getValue(i),settings_lstb[1]->getTooltip(i));
+			add = true;
+			settings_lstb[1]->selected[i] = false;
+		}
+	}
+}
+
+/**
+ * Deactivate mods
+ */
+void GameStateConfig::disableMods() {
+	for (int i=0; i<settings_lstb[0]->getSize(); i++) {
+		if (settings_lstb[0]->selected[i]) {
+			settings_lstb[0]->remove(i);
 			i--;
 		}
 	}
 }
+
+/**
+ * Save new mods list
+ */
+void GameStateConfig::setMods() {
+	// TODO Mods data is not reloaded and not saved into mods.txt
+	mods->mod_list.clear();
+	for (int i=0; i<settings_lstb[0]->getSize(); i++) {
+		mods->mod_list.push_back(settings_lstb[0]->getValue(i));
+	}
+}
+

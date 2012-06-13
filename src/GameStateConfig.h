@@ -62,7 +62,9 @@ private:
 	void setDefaultResolution();
 	void refreshFont();
 	bool applyVideoSettings(SDL_Surface *src, int width, int height);
-	void modsToggle(int source, int dest);
+	void enableMods();
+	void disableMods();
+	void setMods();
 
 	std::vector<Widget*>      child_widget;
 	WidgetTabControl    * tabControl;
