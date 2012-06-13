@@ -99,3 +99,34 @@ int getFileList(std::string dir, std::string ext, std::vector<std::string> &file
     closedir(dp);
     return 0;
 }
+
+/**
+ * Returns a vector containing all directory names in a given directory
+ */
+int getDirList(std::string dir, std::vector<std::string> &dirs) {
+
+	DIR *dp, *testopen;
+	struct dirent *dirp;
+	struct stat st;
+
+	if((dp  = opendir(dir.c_str())) == NULL) {
+		//cout << "Error(" << errno << ") opening " << dir << endl;
+		return errno;
+	}
+	
+	while ((dirp = readdir(dp)) != NULL) {
+	//	do not use dirp->d_type, it's not portable
+		std::string directory = std::string(dirp->d_name);
+		std::string mod_dir = dir + "/" + directory;
+		if ((stat(mod_dir.c_str(), &st) != -1)
+			&& S_ISDIR(st.st_mode)
+			&& directory != "."
+			&& directory != ".."
+			)
+		{
+			dirs.push_back(directory);
+		}
+	}
+	closedir(dp);
+	return 0;
+}

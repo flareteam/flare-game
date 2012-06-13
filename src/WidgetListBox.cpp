@@ -46,6 +46,7 @@ WidgetListBox::WidgetListBox(int amount, int height, const std::string& _fileNam
 	selected = new bool[list_amount];
 	for (int i=0; i<list_amount; i++) {
 		selected[i] = false;
+		values[i] = "";
 	}
 
 	multi_select = false;
@@ -263,6 +264,13 @@ std::string WidgetListBox::getValue(int index) {
  */
 std::string WidgetListBox::getTooltip(int index) {
 	return tooltips[index];
+}
+
+/*
+ * Get the amount of ListBox items
+ */
+int WidgetListBox::getSize() {
+	return list_amount;
 }
 
 /*

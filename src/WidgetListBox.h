@@ -70,6 +70,7 @@ public:
 	void shiftDown();
 	std::string getValue(int index);
 	std::string getTooltip(int index);
+	int getSize();
 	void scrollUp();
 	void scrollDown();
 	void render();

@@ -31,6 +31,7 @@ bool dirExists(std::string path);
 void createDir(std::string path);
 bool fileExists(std::string filename);
 int getFileList(std::string dir, std::string ext, std::vector<std::string> &files);
+int getDirList(std::string dir, std::vector<std::string> &dirs);
 
 
 
