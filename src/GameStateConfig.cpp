@@ -619,7 +619,7 @@ int GameStateConfig::getVideoModes()
 	/* Set predefined modes */
 	const unsigned int cm_count = 5;
 	SDL_Rect common_modes[cm_count];
-	common_modes[0].w = 640;		 
+	common_modes[0].w = 640;
 	common_modes[0].h = 480;
 	common_modes[1].w = 720;
 	common_modes[1].h = 480;
@@ -795,7 +795,7 @@ bool GameStateConfig::applyVideoSettings(SDL_Surface *src, int width, int height
 	if (src == NULL) {
         fprintf (stderr, "Error during SDL_SetVideoMode: %s\n", SDL_GetError());
 		
-		flags = 0;	
+		flags = 0;
 		if (tmp_fs) flags = flags | SDL_FULLSCREEN;
 		if (DOUBLEBUF) flags = flags | SDL_DOUBLEBUF;
 		if (HWSURFACE)
@@ -852,10 +852,23 @@ void GameStateConfig::disableMods() {
  * Save new mods list
  */
 void GameStateConfig::setMods() {
-	// TODO Mods data is not reloaded and not saved into mods.txt
+	// TODO Some mods data is not reloaded at runtime
 	mods->mod_list.clear();
 	for (int i=0; i<settings_lstb[0]->getSize(); i++) {
-		mods->mod_list.push_back(settings_lstb[0]->getValue(i));
+		if (settings_lstb[0]->getValue(i) != "") mods->mod_list.push_back(settings_lstb[0]->getValue(i));
 	}
+	ofstream outfile;
+	outfile.open((PATH_DATA + "mods/mods.txt").c_str(), ios::out);
+
+	if (outfile.is_open()) {
+
+		outfile<<"# Mods lower on the list will overwrite data in the entries higher on the list"<<"\n";
+		outfile<<"\n";
+
+		for (unsigned int i = 0; i < mods->mod_list.size(); i++) {
+			outfile<<mods->mod_list[i]<<"\n";
+		}
+	}
+	outfile.close();
 }
 
