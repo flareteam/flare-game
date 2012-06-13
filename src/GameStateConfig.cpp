@@ -418,10 +418,15 @@ GameStateConfig::~GameStateConfig()
 void GameStateConfig::update () {
 	if (FULLSCREEN == true) settings_cb[0]->Check();
 	else settings_cb[0]->unCheck();
-	settings_sl[0]->set(0,128,MUSIC_VOLUME);
-	Mix_VolumeMusic(MUSIC_VOLUME);
-	settings_sl[1]->set(0,128,SOUND_VOLUME);
-	Mix_Volume(-1, SOUND_VOLUME);
+	if (audio) {
+		settings_sl[0]->set(0,128,MUSIC_VOLUME);
+		Mix_VolumeMusic(MUSIC_VOLUME);
+		settings_sl[1]->set(0,128,SOUND_VOLUME);
+		Mix_Volume(-1, SOUND_VOLUME);
+	} else {
+		settings_sl[0]->set(0,128,0);
+		settings_sl[1]->set(0,128,0);
+	}
 	if (MOUSE_MOVE == true) settings_cb[1]->Check();
 	else settings_cb[1]->unCheck();
 	if (COMBAT_TEXT == true) settings_cb[2]->Check();
@@ -527,12 +532,14 @@ void GameStateConfig::logic ()
 	}
 	// tab 1 (audio)
 	else if (active_tab == 1) {
-		if (settings_sl[0]->checkClick()) {
-			MUSIC_VOLUME=settings_sl[0]->getValue();
-			Mix_VolumeMusic(MUSIC_VOLUME);
-		} else if (settings_sl[1]->checkClick()) {
-			SOUND_VOLUME=settings_sl[1]->getValue();
-			Mix_Volume(-1, SOUND_VOLUME);
+		if (audio) {
+			if (settings_sl[0]->checkClick()) {
+				MUSIC_VOLUME=settings_sl[0]->getValue();
+				Mix_VolumeMusic(MUSIC_VOLUME);
+			} else if (settings_sl[1]->checkClick()) {
+				SOUND_VOLUME=settings_sl[1]->getValue();
+				Mix_Volume(-1, SOUND_VOLUME);
+			}
 		}
 	}
 	// tab 2 (interface)
