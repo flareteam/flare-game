@@ -80,8 +80,8 @@ GameStateConfig::GameStateConfig ()
 		 settings_cb[i] = new WidgetCheckBox(mods->locate("images/menus/buttons/checkbox_default.png"));
 	}
 
-	for (unsigned int i = 0; i < 25; i++) {
-		 settings_key[i] = new WidgetInput();
+	for (unsigned int i = 0; i < 50; i++) {
+		 settings_key[i] = new WidgetButton(mods->locate("images/menus/buttons/button_small.png"));
 	}
 
 	settings_btn[0] = new WidgetButton(mods->locate("images/menus/buttons/up.png"));
@@ -117,6 +117,8 @@ GameStateConfig::GameStateConfig ()
 	int x2;
 	int y2;
 	int setting_num;
+	int offset_x;
+	int offset_y;
 
 	FileParser infile;
 	if (infile.open(mods->locate("menus/config.txt"))) {
@@ -176,6 +178,7 @@ GameStateConfig::GameStateConfig ()
 			else if (infile.key == "activemods_shiftdown") setting_num = 43;
 			else if (infile.key == "activemods_deactivate") setting_num = 44;
 			else if (infile.key == "inactivemods_activate") setting_num = 45;
+			else if (infile.key == "secondary_offset") {offset_x = x1; offset_y = y1;}
 
 			if (setting_num != -1) {
 				if (setting_num < 42) {
@@ -210,6 +213,12 @@ GameStateConfig::GameStateConfig ()
 
 	// Initialize the tab control.
 	tabControl->setMainArea((VIEW_W - 640)/2, (VIEW_H - 480)/2, 640, 480);
+
+	// Set positions of secondary key bindings
+	for (unsigned int i = 25; i < 50; i++) {
+		settings_key[i]->pos.x = settings_key[i-25]->pos.x + offset_x;
+		settings_key[i]->pos.y = settings_key[i-25]->pos.y + offset_y;
+	}
 
 	// Define the header.
 	tabControl->setTabTitle(0, msg->get("Video"));
@@ -336,11 +345,13 @@ GameStateConfig::GameStateConfig ()
 
 	// Add Key Binding objects
 	for (unsigned int i = 12; i < 37; i++) {
-		 settings_lb[i]->set("Key");
+		 settings_lb[i]->set(binding_name[i-12]);
 		 child_widget.push_back(settings_lb[i]);
 		 optiontab[child_widget.size()-1] = 3;
 	}
-	for (unsigned int i = 0; i < 25; i++) {
+	for (unsigned int i = 0; i < 50; i++) {
+		settings_key[i]->label = "???";
+		settings_key[i]->refresh();
 		 child_widget.push_back(settings_key[i]);
 		 optiontab[child_widget.size()-1] = 3;
 	}
@@ -406,7 +417,7 @@ GameStateConfig::~GameStateConfig()
 		 delete settings_cb[i];
 	}
 
-	for (unsigned int i = 0; i < 25; i++) {
+	for (unsigned int i = 0; i < 50; i++) {
 		 delete settings_key[i];
 	}
 
