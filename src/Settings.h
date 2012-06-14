@@ -79,4 +79,10 @@ bool loadSettings();
 bool saveSettings();
 bool loadDefaults();
 
+const std::string binding_name[] = {"Cancel", "Accept", "Up", "Down", "Left", "Right",
+									"Bar1", "Bar2", "Bar3", "Bar4", "Bar5", "Bar6",
+									"Bar7", "Bar8", "Bar9", "Bar0", "Main1", "Main2",
+									"Character", "Inventory", "Powers", "Log", "Ctrl",
+									"Shift", "Delete"};
+
 #endif

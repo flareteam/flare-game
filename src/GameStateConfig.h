@@ -49,7 +49,7 @@ public:
 	void    render  ();
 
 private:
-	int optiontab[87];
+	int optiontab[112];
 	SDL_Rect* video_modes;
 
 	std::string * language_ISO;
@@ -77,7 +77,7 @@ private:
 	WidgetLabel         * settings_lb[41];
 	WidgetSlider        * settings_sl[3];
 	WidgetCheckBox      * settings_cb[6];
-	WidgetInput         * settings_key[25];
+	WidgetButton        * settings_key[50];
 	WidgetComboBox      * settings_cmb[3];
 	WidgetListBox       * settings_lstb[2];
 	WidgetButton        * settings_btn[4];
