@@ -64,7 +64,7 @@ private:
 	bool applyVideoSettings(SDL_Surface *src, int width, int height);
 	void enableMods();
 	void disableMods();
-	void setMods();
+	bool setMods();
 
 	std::vector<Widget*>      child_widget;
 	WidgetTabControl    * tabControl;

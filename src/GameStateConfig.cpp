@@ -514,7 +514,11 @@ void GameStateConfig::logic ()
 		refreshFont();
 		applyVideoSettings(screen, width, height);
 		saveSettings();
-		setMods();
+		if (setMods()) {
+			delete mods;
+			mods = new ModManager();
+			loadTilesetSettings();
+		}
 		delete requestedGameState;
 		requestedGameState = new GameStateTitle();
 	} else if (defaults_button->checkClick()) {
@@ -860,10 +864,10 @@ void GameStateConfig::disableMods() {
 }
 
 /**
- * Save new mods list
+ * Save new mods list. Return true if modlist was changed. Else return false
  */
-void GameStateConfig::setMods() {
-	// TODO Some mods data is not reloaded at runtime
+bool GameStateConfig::setMods() {
+	vector<string> temp_list = mods->mod_list;
 	mods->mod_list.clear();
 	for (int i=0; i<settings_lstb[0]->getSize(); i++) {
 		if (settings_lstb[0]->getValue(i) != "") mods->mod_list.push_back(settings_lstb[0]->getValue(i));
@@ -881,5 +885,7 @@ void GameStateConfig::setMods() {
 		}
 	}
 	outfile.close();
+	if (mods->mod_list != temp_list) return true;
+	else return false;
 }
 
