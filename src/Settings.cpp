@@ -52,7 +52,7 @@ ConfigEntry config[] = {
 	{ "mouse_move",	  &typeid(MOUSE_MOVE),	  "0",   &MOUSE_MOVE,	  "use mouse to move (experimental). 1 enable, 0 disable."},
 	{ "hwsurface",	   &typeid(HWSURFACE),	   "1",   &HWSURFACE,	   "hardware surfaces, double buffering. Try disabling for performance. 1 enable, 0 disable."},
 	{ "doublebuf",	   &typeid(DOUBLEBUF),	   "1",   &DOUBLEBUF,	   NULL},
-	{ "enable_joystick", &typeid(ENABLE_JOYSTICK), "1",   &ENABLE_JOYSTICK, "joystick settings."},
+	{ "enable_joystick", &typeid(ENABLE_JOYSTICK), "0",   &ENABLE_JOYSTICK, "joystick settings."},
 	{ "joystick_device", &typeid(JOYSTICK_DEVICE), "0",   &JOYSTICK_DEVICE, NULL},
 	{ "language",		&typeid(LANGUAGE),		"en",  &LANGUAGE,		"2-letter language code."},
 	{ "gamma",		   &typeid(GAMMA),		   "1.0", &GAMMA,		   "screen gamma (0.5 = darkest, 2.0 = lightest)"}
