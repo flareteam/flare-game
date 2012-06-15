@@ -83,6 +83,11 @@ GameStateConfig::GameStateConfig ()
 	for (unsigned int i = 0; i < 50; i++) {
 		 settings_key[i] = new WidgetButton(mods->locate("images/menus/buttons/button_small.png"));
 	}
+	keyboard_layout = new WidgetComboBox(2, mods->locate("images/menus/buttons/combobox_default.png"));
+	keyboard_layout->set(0, "QWERTY");
+	keyboard_layout->set(1, "AZERTY");
+
+    settings_key[51] = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
 
 	settings_btn[0] = new WidgetButton(mods->locate("images/menus/buttons/up.png"));
 	settings_btn[1] = new WidgetButton(mods->locate("images/menus/buttons/down.png"));
@@ -179,6 +184,7 @@ GameStateConfig::GameStateConfig ()
 			else if (infile.key == "activemods_deactivate") setting_num = 44;
 			else if (infile.key == "inactivemods_activate") setting_num = 45;
 			else if (infile.key == "secondary_offset") {offset_x = x1; offset_y = y1;}
+			else if (infile.key == "keyboard_layout") setting_num = 46;
 
 			if (setting_num != -1) {
 				if (setting_num < 42) {
@@ -204,6 +210,9 @@ GameStateConfig::GameStateConfig ()
 				} else if (setting_num > 41 && setting_num < 46) {
 					settings_btn[setting_num-42]->pos.x = (VIEW_W - 640)/2 + x1;
 					settings_btn[setting_num-42]->pos.y = (VIEW_H - 480)/2 + y1;
+				} else if (setting_num == 46) {
+					keyboard_layout->pos.x = (VIEW_W - 640)/2 + x2;
+					keyboard_layout->pos.y = (VIEW_W - 640)/2 + y2;
 				}
 			}
 
@@ -350,11 +359,12 @@ GameStateConfig::GameStateConfig ()
 		 optiontab[child_widget.size()-1] = 3;
 	}
 	for (unsigned int i = 0; i < 50; i++) {
-		settings_key[i]->label = "???";
-		settings_key[i]->refresh();
 		 child_widget.push_back(settings_key[i]);
 		 optiontab[child_widget.size()-1] = 3;
 	}
+	keyboard_layout->refresh();
+	child_widget.push_back(keyboard_layout);
+	optiontab[child_widget.size()-1] = 3;
 
 	// Add ListBoxes
 	settings_lb[39]->set(msg->get("Active Mods"));
@@ -400,6 +410,7 @@ GameStateConfig::~GameStateConfig()
 	delete ok_button;
 	delete defaults_button;
 	delete cancel_button;
+	delete keyboard_layout;
 
 	SDL_FreeSurface(background);
 
@@ -494,6 +505,17 @@ void GameStateConfig::update () {
 
 	settings_lstb[0]->refresh();
 	settings_lstb[1]->refresh();
+
+	for (unsigned int i = 0; i < 50; i++) {
+		if (inpt->binding[i] < 8) {
+			if (i < 25) settings_key[i]->label = mouse_button[inpt->binding[i]-1];
+			else settings_key[i]->label = mouse_button[inpt->binding_alt[i-25]-1];
+		} else {
+			if (i < 25) settings_key[i]->label = SDL_GetKeyName((SDLKey)inpt->binding[i]);
+			else settings_key[i]->label = SDL_GetKeyName((SDLKey)inpt->binding_alt[i-25]);
+		}
+		settings_key[i]->refresh();
+	}
 }
 
 void GameStateConfig::logic ()
@@ -514,6 +536,7 @@ void GameStateConfig::logic ()
 		refreshFont();
 		applyVideoSettings(screen, width, height);
 		saveSettings();
+		inpt->saveKeyBindings();
 		if (setMods()) {
 			delete mods;
 			mods = new ModManager();
@@ -524,10 +547,13 @@ void GameStateConfig::logic ()
 	} else if (defaults_button->checkClick()) {
 		FULLSCREEN = 0;
 		loadDefaults();
+		if (keyboard_layout->selected == 0) inpt->defaultQwertyKeyBindings();
+		if (keyboard_layout->selected == 1) inpt->defaultAzertyKeyBindings();
 		update();
 		setDefaultResolution();
 	} else if (cancel_button->checkClick()) {
 		loadSettings();
+		inpt->loadKeyBindings();
 		update();
 		delete requestedGameState;
 		requestedGameState = new GameStateTitle();
@@ -586,6 +612,23 @@ void GameStateConfig::logic ()
 		} else if (settings_cb[5]->checkClick()) {
 			if (settings_cb[5]->isChecked()) ENABLE_JOYSTICK=true;
 			else ENABLE_JOYSTICK=false;
+		} else if (keyboard_layout->checkClick()) {
+			if (keyboard_layout->selected == 0) inpt->defaultQwertyKeyBindings();
+			if (keyboard_layout->selected == 1) inpt->defaultAzertyKeyBindings();
+			for (unsigned int i = 0; i < 50; i++) {
+				if (inpt->binding[i] < 8) {
+					if (i < 25) settings_key[i]->label = mouse_button[inpt->binding[i]-1];
+					else settings_key[i]->label = mouse_button[inpt->binding_alt[i-25]-1];
+				} else {
+					if (i < 25) settings_key[i]->label = SDL_GetKeyName((SDLKey)inpt->binding[i]);
+					else settings_key[i]->label = SDL_GetKeyName((SDLKey)inpt->binding_alt[i-25]);
+				}
+				settings_key[i]->refresh();
+			}
+
+		}
+		for (unsigned int i = 0; i < 50; i++) {
+			if (settings_key[i]->checkClick()) scanKey(i);
 		}
 	}
 	// tab 4 (mods)
@@ -888,4 +931,31 @@ bool GameStateConfig::setMods() {
 	if (mods->mod_list != temp_list) return true;
 	else return false;
 }
+
+/**
+ * Scan key binding
+ */
+void GameStateConfig::scanKey(int button) {
+	SDL_Event event;
+	bool waitkey = true;
+	while (waitkey) {
+
+		if (SDL_PollEvent (&event)) {
+
+		switch (event.type) {
+			case SDL_MOUSEBUTTONDOWN:
+				settings_key[button]->label = mouse_button[event.button.button-1];
+				waitkey = false;
+				break;
+			case SDL_KEYDOWN:
+				settings_key[button]->label = SDL_GetKeyName(event.key.keysym.sym);
+				waitkey = false;
+				break;
+			default:
+				break;
+			}
+		}
+	}
+	settings_key[button]->refresh();
+ }
 

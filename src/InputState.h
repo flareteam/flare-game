@@ -67,14 +67,14 @@ const int DEL = 24;
  */
 
 class InputState {
-private:
+public:
 	static const int key_count = 25;
 	int binding[key_count];
 	int binding_alt[key_count];
-public:
 	InputState(void);
 	~InputState();
-	void defaultQwertyKeyBindings();    
+
+	void defaultQwertyKeyBindings();
 	void defaultAzertyKeyBindings();
 	void loadKeyBindings();
 	void saveKeyBindings();
