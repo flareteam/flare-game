@@ -33,3 +33,4 @@ InputState *inpt;
 FontEngine *font;
 
 bool audio;
+SDL_Joystick *joy;

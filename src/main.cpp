@@ -48,13 +48,13 @@ static void init(const vector<string>	& args) {
 	}
 
 	// SDL Inits
-	if ( SDL_Init (SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_JOYSTICK) < 0 ) {		
+	if ( SDL_Init (SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_JOYSTICK) < 0 ) {
         fprintf(stderr, "Could not initialize SDL: %s\n", SDL_GetError());
 		exit(1);
 	}
 
 	Uint32 flags = 0;
-    
+
 	if (FULLSCREEN) flags = flags | SDL_FULLSCREEN;
 	if (DOUBLEBUF) flags = flags | SDL_DOUBLEBUF;
 	if (HWSURFACE)
@@ -63,7 +63,7 @@ static void init(const vector<string>	& args) {
 		flags = flags | SDL_SWSURFACE;
 
 	// Shared Resources set-up
-	
+
 	mods = new ModManager();
 	msg = new MessageEngine();
 	inpt = new InputState();
@@ -71,7 +71,7 @@ static void init(const vector<string>	& args) {
 
     // Load tileset options (must be after ModManager is initialized)
 	loadTilesetSettings();
-	
+
 	// Check the command line if we should override the key binding
 	if (binary_search(args.begin(), args.end(), string("--qwerty"))) {
 		inpt->defaultQwertyKeyBindings();
@@ -85,7 +85,7 @@ static void init(const vector<string>	& args) {
 	// Create window
 	screen = SDL_SetVideoMode (VIEW_W, VIEW_H, 0, flags);
 	if (screen == NULL) {
-		
+
         fprintf (stderr, "Error during SDL_SetVideoMode: %s\n", SDL_GetError());
 		SDL_Quit();
 		exit(1);
@@ -100,7 +100,7 @@ static void init(const vector<string>	& args) {
 		fprintf (stderr, "Error during Mix_OpenAudio: %s\n", SDL_GetError());
         audio = false;
 	}
-	
+
   // initialize Joysticks
 	if(SDL_NumJoysticks() == 1) {
 		printf("1 joystick was found:\n");
@@ -113,9 +113,9 @@ static void init(const vector<string>	& args) {
 	}
 	for(int i = 0; i < SDL_NumJoysticks(); i++)
 	{
-		SDL_JoystickOpen(i);
 		printf("  Joy %d) %s\n", i, SDL_JoystickName(i));
 	}
+	if ((ENABLE_JOYSTICK == 1) && (JOYSTICK_DEVICE > 0) && (SDL_NumJoysticks() > 0)) joy = SDL_JoystickOpen(JOYSTICK_DEVICE);
 	printf("Using joystick #%d.\n", JOYSTICK_DEVICE);
 
 	// Set sound effects volume from settings file
@@ -125,7 +125,7 @@ static void init(const vector<string>	& args) {
 	// Window title
 	const char* title = msg->get("Flare").c_str();
 	SDL_WM_SetCaption(title, title);
-	
+
 
 	gswitch = new GameSwitcher();
 }
@@ -140,7 +140,7 @@ static void mainLoop (const vector<string>	& args) {
 	bool debug_event = binary_search(args.begin(), args.end(), string("--debug_event"));
 
 	while ( !done ) {
-		
+
 		// black out
 		SDL_FillRect(screen, NULL, 0);
 
@@ -148,45 +148,45 @@ static void mainLoop (const vector<string>	& args) {
 		inpt->handle(debug_event);
 		gswitch->logic();
 		gswitch->render();
-		
+
 		// Engine done means the user escapes the main game menu.
 		// Input done means the user closes the window.
 		done = gswitch->done || inpt->done;
-		
+
 		nowTicks = SDL_GetTicks();
 		if (nowTicks - prevTicks < delay) SDL_Delay(delay - (nowTicks - prevTicks));
 		prevTicks = SDL_GetTicks();
-		
-		SDL_Flip(screen);		
-		
-		
+
+		SDL_Flip(screen);
+
+
 	}
 }
 
 static void cleanup() {
 	delete gswitch;
-	
+
 	delete font;
 	delete inpt;
 	delete msg;
 	delete mods;
 	SDL_FreeSurface(screen);
-	
+
 	Mix_CloseAudio();
 	SDL_Quit();
 }
 
 int main(int argc, char *argv[])
-{	
+{
 	vector<string>	args;
 	for (int i = 1 ; i < argc; i++) {
 		args.push_back(string(argv[i]));
 	}
 
 	srand((unsigned int)time(NULL));
-	
+
 	init(args);
-	mainLoop(args);	
+	mainLoop(args);
 	cleanup();
 
 	return 0;

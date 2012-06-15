@@ -95,7 +95,7 @@ GameStateConfig::GameStateConfig ()
 	settings_btn[3] = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
 
 	// Allocate Joycticks ComboBox
-	settings_cmb[0] = new WidgetComboBox(5, mods->locate("images/menus/buttons/combobox_default.png"));
+	settings_cmb[0] = new WidgetComboBox(SDL_NumJoysticks(), mods->locate("images/menus/buttons/combobox_default.png"));
 
 	// Allocate Resolution ComboBox
 	int resolutions = getVideoModes();
@@ -347,8 +347,10 @@ GameStateConfig::GameStateConfig ()
 	child_widget.push_back(settings_lb[9]);
 	optiontab[child_widget.size()-1] = 3;
 
-	//if (JOYSTICK_DEVICE > -1) settings_cmb[0]->selected = JOYSTICK_DEVICE;
-	settings_cmb[0]->refresh();
+	for(int i = 0; i < SDL_NumJoysticks(); i++)
+	{
+		settings_cmb[0]->set(i, SDL_JoystickName(i));
+	}
 	child_widget.push_back(settings_cmb[0]);
 	optiontab[child_widget.size()-1] = 3;
 
@@ -446,7 +448,7 @@ GameStateConfig::~GameStateConfig()
 }
 
 void GameStateConfig::update () {
-	if (FULLSCREEN == true) settings_cb[0]->Check();
+	if (FULLSCREEN == 1) settings_cb[0]->Check();
 	else settings_cb[0]->unCheck();
 	if (audio) {
 		settings_sl[0]->set(0,128,MUSIC_VOLUME);
@@ -457,16 +459,23 @@ void GameStateConfig::update () {
 		settings_sl[0]->set(0,128,0);
 		settings_sl[1]->set(0,128,0);
 	}
-	if (MOUSE_MOVE == true) settings_cb[1]->Check();
+	if (MOUSE_MOVE == 1) settings_cb[1]->Check();
 	else settings_cb[1]->unCheck();
-	if (COMBAT_TEXT == true) settings_cb[2]->Check();
+	if (COMBAT_TEXT == 1) settings_cb[2]->Check();
 	else settings_cb[2]->unCheck();
-	if (HWSURFACE == true) settings_cb[3]->Check();
+	if (HWSURFACE == 1) settings_cb[3]->Check();
 	else settings_cb[3]->unCheck();
-	if (DOUBLEBUF == true) settings_cb[4]->Check();
+	if (DOUBLEBUF == 1) settings_cb[4]->Check();
 	else settings_cb[4]->unCheck();
-	if (ENABLE_JOYSTICK == true) settings_cb[5]->Check();
+	if (ENABLE_JOYSTICK == 1) settings_cb[5]->Check();
 	else settings_cb[5]->unCheck();
+
+	if ((ENABLE_JOYSTICK == 1) && (JOYSTICK_DEVICE > 0) && (SDL_NumJoysticks() > 0)) {
+		SDL_JoystickClose(joy);
+		joy = SDL_JoystickOpen(JOYSTICK_DEVICE);
+		settings_cmb[0]->selected = JOYSTICK_DEVICE;
+		settings_cmb[0]->refresh();
+	}
 
 	settings_sl[2]->set(5,20,(int)(GAMMA*10.0));
 	SDL_SetGamma(GAMMA,GAMMA,GAMMA);
@@ -570,14 +579,14 @@ void GameStateConfig::logic ()
 	// tab 0 (video)
 	if (active_tab == 0) {
 		if (settings_cb[0]->checkClick()) {
-			if (settings_cb[0]->isChecked()) FULLSCREEN=true;
-			else FULLSCREEN=false;
+			if (settings_cb[0]->isChecked()) FULLSCREEN=1;
+			else FULLSCREEN=0;
 		} else if (settings_cb[3]->checkClick()) {
-			if (settings_cb[3]->isChecked()) HWSURFACE=true;
-			else HWSURFACE=false;
+			if (settings_cb[3]->isChecked()) HWSURFACE=1;
+			else HWSURFACE=0;
 		} else if (settings_cb[4]->checkClick()) {
-			if (settings_cb[4]->isChecked()) DOUBLEBUF=true;
-			else DOUBLEBUF=false;
+			if (settings_cb[4]->isChecked()) DOUBLEBUF=1;
+			else DOUBLEBUF=0;
 		} else if (settings_cmb[1]->checkClick()) {
 			active = settings_cmb[1]->selected;
 			value = settings_cmb[1]->get(active) + 'x';
@@ -601,8 +610,8 @@ void GameStateConfig::logic ()
 	// tab 2 (interface)
 	else if (active_tab == 2) {
 		if (settings_cb[2]->checkClick()) {
-			if (settings_cb[2]->isChecked()) COMBAT_TEXT=true;
-			else COMBAT_TEXT=false;
+			if (settings_cb[2]->isChecked()) COMBAT_TEXT=1;
+			else COMBAT_TEXT=0;
 		} else if (settings_cmb[2]->checkClick()) {
 			active = settings_cmb[2]->selected;
 			LANGUAGE = language_ISO[active];
@@ -613,11 +622,13 @@ void GameStateConfig::logic ()
 	// tab 3 (input)
 	else if (active_tab == 3) {
 		if (settings_cb[1]->checkClick()) {
-			if (settings_cb[1]->isChecked()) MOUSE_MOVE=true;
-			else MOUSE_MOVE=false;
+			if (settings_cb[1]->isChecked()) MOUSE_MOVE=1;
+			else MOUSE_MOVE=0;
 		} else if (settings_cb[5]->checkClick()) {
-			if (settings_cb[5]->isChecked()) ENABLE_JOYSTICK=true;
-			else ENABLE_JOYSTICK=false;
+			if (settings_cb[5]->isChecked()) ENABLE_JOYSTICK=1;
+			else ENABLE_JOYSTICK=0;
+		} else if (settings_cmb[0]->checkClick()) {
+			JOYSTICK_DEVICE = settings_cmb[0]->selected;
 		} else if (keyboard_layout->checkClick()) {
 			if (keyboard_layout->selected == 0) inpt->defaultQwertyKeyBindings();
 			if (keyboard_layout->selected == 1) inpt->defaultAzertyKeyBindings();
