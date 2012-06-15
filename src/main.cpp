@@ -115,7 +115,7 @@ static void init(const vector<string>	& args) {
 	{
 		printf("  Joy %d) %s\n", i, SDL_JoystickName(i));
 	}
-	if ((ENABLE_JOYSTICK == 1) && (JOYSTICK_DEVICE > 0) && (SDL_NumJoysticks() > 0)) joy = SDL_JoystickOpen(JOYSTICK_DEVICE);
+	if ((ENABLE_JOYSTICK == 1) && (SDL_NumJoysticks() > 0)) joy = SDL_JoystickOpen(JOYSTICK_DEVICE);
 	printf("Using joystick #%d.\n", JOYSTICK_DEVICE);
 
 	// Set sound effects volume from settings file

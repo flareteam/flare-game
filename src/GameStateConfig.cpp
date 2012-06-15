@@ -470,7 +470,7 @@ void GameStateConfig::update () {
 	if (ENABLE_JOYSTICK == 1) settings_cb[5]->Check();
 	else settings_cb[5]->unCheck();
 
-	if ((ENABLE_JOYSTICK == 1) && (JOYSTICK_DEVICE > 0) && (SDL_NumJoysticks() > 0)) {
+	if ((ENABLE_JOYSTICK == 1) && (SDL_NumJoysticks() > 0)) {
 		SDL_JoystickClose(joy);
 		joy = SDL_JoystickOpen(JOYSTICK_DEVICE);
 		settings_cmb[0]->selected = JOYSTICK_DEVICE;
@@ -875,7 +875,7 @@ bool GameStateConfig::applyVideoSettings(SDL_Surface *src, int width, int height
 	// If the new settings fail, revert to the old ones
 	if (src == NULL) {
         fprintf (stderr, "Error during SDL_SetVideoMode: %s\n", SDL_GetError());
-		
+
 		flags = 0;
 		if (tmp_fs) flags = flags | SDL_FULLSCREEN;
 		if (DOUBLEBUF) flags = flags | SDL_DOUBLEBUF;
@@ -902,7 +902,7 @@ bool GameStateConfig::applyVideoSettings(SDL_Surface *src, int width, int height
  * Activate mods
  */
 void GameStateConfig::enableMods() {
-	
+
 	bool add = true;
 
 	for (int i=0; i<settings_lstb[1]->getSize(); i++) {
