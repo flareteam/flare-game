@@ -85,4 +85,6 @@ const std::string binding_name[] = {"Cancel", "Accept", "Up", "Down", "Left", "R
 									"Character", "Inventory", "Powers", "Log", "Ctrl",
 									"Shift", "Delete"};
 
+const std::string mouse_button[] = {"lmb", "mmb", "rmb", "wheel up", "wheel down", "mbx1", "mbx2"};
+
 #endif
