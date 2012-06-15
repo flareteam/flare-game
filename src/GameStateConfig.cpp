@@ -211,8 +211,8 @@ GameStateConfig::GameStateConfig ()
 					settings_btn[setting_num-42]->pos.x = (VIEW_W - 640)/2 + x1;
 					settings_btn[setting_num-42]->pos.y = (VIEW_H - 480)/2 + y1;
 				} else if (setting_num == 46) {
-					keyboard_layout->pos.x = (VIEW_W - 640)/2 + x2;
-					keyboard_layout->pos.y = (VIEW_W - 640)/2 + y2;
+					keyboard_layout->pos.x = (VIEW_W - 640)/2 + x1;
+					keyboard_layout->pos.y = (VIEW_W - 640)/2 + y1;
 				}
 			}
 
@@ -506,13 +506,19 @@ void GameStateConfig::update () {
 	settings_lstb[0]->refresh();
 	settings_lstb[1]->refresh();
 
-	for (unsigned int i = 0; i < 50; i++) {
+	for (unsigned int i = 0; i < 25; i++) {
 		if (inpt->binding[i] < 8) {
-			if (i < 25) settings_key[i]->label = mouse_button[inpt->binding[i]-1];
-			else settings_key[i]->label = mouse_button[inpt->binding_alt[i-25]-1];
+			settings_key[i]->label = mouse_button[inpt->binding[i]-1];
 		} else {
-			if (i < 25) settings_key[i]->label = SDL_GetKeyName((SDLKey)inpt->binding[i]);
-			else settings_key[i]->label = SDL_GetKeyName((SDLKey)inpt->binding_alt[i-25]);
+			settings_key[i]->label = SDL_GetKeyName((SDLKey)inpt->binding[i]);
+		}
+		settings_key[i]->refresh();
+	}
+	for (unsigned int i = 25; i < 50; i++) {
+		if (inpt->binding[i] < 8) {
+			settings_key[i]->label = mouse_button[inpt->binding_alt[i-25]-1];
+		} else {
+			settings_key[i]->label = SDL_GetKeyName((SDLKey)inpt->binding_alt[i-25]);
 		}
 		settings_key[i]->refresh();
 	}
@@ -615,13 +621,19 @@ void GameStateConfig::logic ()
 		} else if (keyboard_layout->checkClick()) {
 			if (keyboard_layout->selected == 0) inpt->defaultQwertyKeyBindings();
 			if (keyboard_layout->selected == 1) inpt->defaultAzertyKeyBindings();
-			for (unsigned int i = 0; i < 50; i++) {
+			for (unsigned int i = 0; i < 25; i++) {
 				if (inpt->binding[i] < 8) {
-					if (i < 25) settings_key[i]->label = mouse_button[inpt->binding[i]-1];
-					else settings_key[i]->label = mouse_button[inpt->binding_alt[i-25]-1];
+					settings_key[i]->label = mouse_button[inpt->binding[i]-1];
 				} else {
-					if (i < 25) settings_key[i]->label = SDL_GetKeyName((SDLKey)inpt->binding[i]);
-					else settings_key[i]->label = SDL_GetKeyName((SDLKey)inpt->binding_alt[i-25]);
+					settings_key[i]->label = SDL_GetKeyName((SDLKey)inpt->binding[i]);
+				}
+				settings_key[i]->refresh();
+			}
+			for (unsigned int i = 25; i < 50; i++) {
+				if (inpt->binding[i] < 8) {
+					settings_key[i]->label = mouse_button[inpt->binding_alt[i-25]-1];
+				} else {
+					settings_key[i]->label = SDL_GetKeyName((SDLKey)inpt->binding_alt[i-25]);
 				}
 				settings_key[i]->refresh();
 			}
@@ -944,10 +956,16 @@ void GameStateConfig::scanKey(int button) {
 
 		switch (event.type) {
 			case SDL_MOUSEBUTTONDOWN:
+				if (button < 25) inpt->binding[button] = event.button.button;
+				else inpt->binding_alt[button-25] = event.button.button;
+
 				settings_key[button]->label = mouse_button[event.button.button-1];
 				waitkey = false;
 				break;
 			case SDL_KEYDOWN:
+				if (button < 25) inpt->binding[button] = event.key.keysym.sym;
+				else inpt->binding_alt[button-25] = event.key.keysym.sym;
+
 				settings_key[button]->label = SDL_GetKeyName(event.key.keysym.sym);
 				waitkey = false;
 				break;
