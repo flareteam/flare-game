@@ -557,6 +557,10 @@ void GameStateConfig::logic ()
 			mods = new ModManager();
 			loadTilesetSettings();
 		}
+		if ((ENABLE_JOYSTICK == 1) && (SDL_NumJoysticks() > 0)) {
+			SDL_JoystickClose(joy);
+			joy = SDL_JoystickOpen(JOYSTICK_DEVICE);
+		}
 		delete requestedGameState;
 		requestedGameState = new GameStateTitle();
 	} else if (defaults_button->checkClick()) {
@@ -627,6 +631,7 @@ void GameStateConfig::logic ()
 		} else if (settings_cb[5]->checkClick()) {
 			if (settings_cb[5]->isChecked()) ENABLE_JOYSTICK=1;
 			else ENABLE_JOYSTICK=0;
+			if (SDL_NumJoysticks() > 0) settings_cmb[0]->refresh();
 		} else if (settings_cmb[0]->checkClick()) {
 			JOYSTICK_DEVICE = settings_cmb[0]->selected;
 		} else if (keyboard_layout->checkClick()) {

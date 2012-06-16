@@ -45,11 +45,6 @@ InputState::InputState(void) {
 	
 	loadKeyBindings();
 	
-	// Optionally ignore the Joystick subsystem
-	if (!ENABLE_JOYSTICK) {
-		SDL_JoystickEventState(SDL_IGNORE);
-		SDL_QuitSubSystem(SDL_INIT_JOYSTICK);
-	}
 }
 
 
@@ -288,7 +283,7 @@ void InputState::handle(bool dump_event) {
 				}
 				break;
 			case SDL_JOYAXISMOTION:
-				if(JOYSTICK_DEVICE == event.jaxis.which)
+				if(JOYSTICK_DEVICE == event.jaxis.which && ENABLE_JOYSTICK)
 				{
 					switch(event.jaxis.axis) {
 						/* first analog */
@@ -464,7 +459,7 @@ void InputState::handle(bool dump_event) {
 				break;
 
 			case SDL_JOYHATMOTION:
-				if(JOYSTICK_DEVICE == event.jhat.which)
+				if(JOYSTICK_DEVICE == event.jhat.which && ENABLE_JOYSTICK)
 				{
 					switch (event.jhat.value) {
 						case SDL_HAT_CENTERED:
@@ -549,7 +544,7 @@ void InputState::handle(bool dump_event) {
 				}
 				break;
 			case SDL_JOYBUTTONDOWN:
-				if(JOYSTICK_DEVICE == event.jbutton.which)
+				if(JOYSTICK_DEVICE == event.jbutton.which && ENABLE_JOYSTICK)
 				{
 					for (int key=0; key<key_count; key++) {
 						if (event.jbutton.button == binding[key] || event.jbutton.button == binding_alt[key]) {
@@ -559,7 +554,7 @@ void InputState::handle(bool dump_event) {
 				}
 				break;
 			case SDL_JOYBUTTONUP:
-				if(JOYSTICK_DEVICE == event.jbutton.which)
+				if(JOYSTICK_DEVICE == event.jbutton.which && ENABLE_JOYSTICK)
 				{
 					for (int key=0; key<key_count; key++) {
 						if (event.jbutton.button == binding[key] || event.jbutton.button == binding_alt[key]) {
