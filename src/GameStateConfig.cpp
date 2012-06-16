@@ -212,7 +212,7 @@ GameStateConfig::GameStateConfig ()
 					settings_btn[setting_num-42]->pos.y = (VIEW_H - 480)/2 + y1;
 				} else if (setting_num == 46) {
 					keyboard_layout->pos.x = (VIEW_W - 640)/2 + x1;
-					keyboard_layout->pos.y = (VIEW_W - 640)/2 + y1;
+					keyboard_layout->pos.y = (VIEW_H - 480)/2 + y1;
 				}
 			}
 
