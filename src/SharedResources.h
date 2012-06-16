@@ -40,5 +40,6 @@ extern InputState *inpt;
 extern FontEngine *font;
 
 extern bool audio;
+extern SDL_Joystick *joy;
 
 #endif
