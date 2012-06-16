@@ -331,6 +331,9 @@ void WidgetListBox::render() {
  * Also, toggle the scrollbar based on the size of the list
  */
 void WidgetListBox::refresh() {
+
+	std::string temp;
+
 	// Get the number of slots that have content
 	non_empty_slots = 0;
 	for (int i=0;i<list_amount;i++) {
@@ -366,10 +369,17 @@ void WidgetListBox::refresh() {
 		int font_y = rows[i].y + (rows[i].h/2);
 
 		if (i<list_amount) {
-			if(selected[i+cursor]) {
-				vlabels[i].set(font_x, font_y, JUSTIFY_LEFT, VALIGN_CENTER, values[i+cursor], FONT_WHITE);
+			if (values[i+cursor].length() > 22) {
+				temp = values[i+cursor].substr(0,19);
+				temp.append("...");
 			} else {
-				vlabels[i].set(font_x, font_y, JUSTIFY_LEFT, VALIGN_CENTER, values[i+cursor], FONT_GRAY);
+				temp = values[i+cursor];
+			}
+
+			if(selected[i+cursor]) {
+				vlabels[i].set(font_x, font_y, JUSTIFY_LEFT, VALIGN_CENTER, temp, FONT_WHITE);
+			} else {
+				vlabels[i].set(font_x, font_y, JUSTIFY_LEFT, VALIGN_CENTER, temp, FONT_GRAY);
 			}
 		}
 	}

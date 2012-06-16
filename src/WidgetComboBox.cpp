@@ -166,39 +166,51 @@ void WidgetComboBox::render() {
  * Create the text buffer
  */
 void WidgetComboBox::refresh() {
-	label = values[selected];
+
+	std::string temp;
+
+	// Draw the label for the selected item
+	if (values[selected].length() > 19) {
+		label = values[selected].substr(0,16);
+		label.append("...");
+	} else {
+		label = values[selected];
+	}
 	if (label != "") {
-	
-		// render text
 		int font_color = FONT_WHITE;
 		if (!enabled) font_color = FONT_GRAY;
 
-		int font_x = pos.x + (pos.w/2);
+		int font_x = pos.x + 8;
 		int font_y = pos.y + (pos.h/2);
 
-		wlabel.set(font_x, font_y, JUSTIFY_CENTER, VALIGN_CENTER, label, font_color);
+		wlabel.set(font_x, font_y, JUSTIFY_LEFT, VALIGN_CENTER, label, font_color);
 	}
 
-	if(pressed)
-	{
-	for(int i=0;i<cmbAmount;i++)
-	{
-		int font_color;
-		if(isWithin(rows[i], inpt->mouse)) {
-			font_color = FONT_WHITE;
-			if(i<cmbAmount-1) {
-				if(isWithin(rows[i+1], inpt->mouse))
-					font_color = FONT_GRAY;
+	// Draw the labels for each option if the menu is open
+	if(pressed) {
+		for(int i=0;i<cmbAmount;i++) {
+			int font_color;
+			if(isWithin(rows[i], inpt->mouse)) {
+				font_color = FONT_WHITE;
+				if(i<cmbAmount-1) {
+					if(isWithin(rows[i+1], inpt->mouse))
+						font_color = FONT_GRAY;
+				}
+			} else {
+				font_color = FONT_GRAY;
 			}
-		} else {
-			font_color = FONT_GRAY;
+			if (values[i].length() > 23) {
+				temp = values[i].substr(0,20);
+				temp.append("...");
+			} else {
+				temp = values[i];
+			}
+
+			int font_x = rows[i].x + 8;
+			int font_y = rows[i].y + (rows[i].h/2);
+
+			vlabels[i].set(font_x, font_y, JUSTIFY_LEFT, VALIGN_CENTER, temp, font_color);
 		}
-
-		int font_x = rows[i].x + (rows[i].w/2);
-		int font_y = rows[i].y + (rows[i].h/2);
-
-		vlabels[i].set(font_x, font_y, JUSTIFY_CENTER, VALIGN_CENTER, values[i], font_color);
-	}
 	}
 }
 
