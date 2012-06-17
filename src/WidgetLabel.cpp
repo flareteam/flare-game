@@ -118,6 +118,20 @@ void WidgetLabel::setY(int _y) {
 }
 
 /**
+ * Get X position of label.
+ */
+int WidgetLabel::getX() {
+	return x_origin;
+}
+
+/**
+ * Get Y position of label.
+ */
+int WidgetLabel::getY() {
+	return y_origin;
+}
+
+/**
  * Set justify value.
  */
 void WidgetLabel::setJustify(int _justify) {
