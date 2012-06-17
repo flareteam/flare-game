@@ -123,6 +123,9 @@ int WidgetScrollBar::checkClick() {
 
 void WidgetScrollBar::set() {
 	pos_knob.y = pos_up.y + pos_up.h + ((float)value/((float)maximum/(bar_height-pos_down.h)));
+	if (pos_knob.y+pos_knob.h > pos_down.y) {
+		pos_knob.y = pos_down.y-pos_knob.h;
+	}
 }
 
 int WidgetScrollBar::getValue() {
