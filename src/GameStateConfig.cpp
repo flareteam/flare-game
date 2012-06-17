@@ -82,7 +82,7 @@ GameStateConfig::GameStateConfig ()
 	}
 
 	for (unsigned int i = 0; i < 50; i++) {
-		 settings_key[i] = new WidgetButton(mods->locate("images/menus/buttons/button_small.png"));
+		 settings_key[i] = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
 	}
 	keyboard_layout = new WidgetComboBox(2, mods->locate("images/menus/buttons/combobox_default.png"));
 	keyboard_layout->set(0, "QWERTY");
@@ -90,9 +90,9 @@ GameStateConfig::GameStateConfig ()
 
 	keyboard_scroll = new WidgetScrollBar(mods->locate("images/menus/buttons/scrollbar_default.png"));
 	keyboard_scroll->pos_up.x = (VIEW_W - 640)/2 + 610;
-	keyboard_scroll->pos_up.y = (VIEW_H - 480)/2 + 100;
+	keyboard_scroll->pos_up.y = (VIEW_H - 480)/2 + 140;
 	keyboard_scroll->pos_knob.x = (VIEW_W - 640)/2 + 610;
-	keyboard_scroll->pos_knob.y = (VIEW_H - 480)/2 + 115;
+	keyboard_scroll->pos_knob.y = (VIEW_H - 480)/2 + 155;
 	keyboard_scroll->pos_down.x = (VIEW_W - 640)/2 + 610;
 	keyboard_scroll->pos_down.y = (VIEW_H - 480)/2 + 370;
 
@@ -727,11 +727,11 @@ void GameStateConfig::render ()
 
 	if (active_tab == 3) {
 	for (unsigned int i = 12; i < 37; i++) {
-			if ((settings_lb[i]->getY() < 370) && (settings_lb[i]->getY() > 100))
+			if ((settings_lb[i]->getY() < 370) && (settings_lb[i]->getY() > 147))
 				settings_lb[i]->render();
 		}
 		for (unsigned int i = 0; i < 50; i++) {
-			if ((settings_key[i]->pos.y < 370) && (settings_key[i]->pos.y > 100))
+			if ((settings_key[i]->pos.y < 370) && (settings_key[i]->pos.y > 140))
 				settings_key[i]->render();
 		}
 	}
@@ -1032,7 +1032,7 @@ void GameStateConfig::scanKey(int button) {
 
 void GameStateConfig::scrollUpKeys() {
 	for (unsigned int i = 0; i < 50; i++) {
-		 settings_key[i]->pos.y-=20;
+		 settings_key[i]->pos.y+=20;
 		 settings_key[i]->refresh();
 	}
 	for (unsigned int i = 12; i < 37; i++) {
@@ -1042,7 +1042,7 @@ void GameStateConfig::scrollUpKeys() {
 
 void GameStateConfig::scrollDownKeys() {
 	for (unsigned int i = 0; i < 50; i++) {
-		 settings_key[i]->pos.y+=20;
+		 settings_key[i]->pos.y-=20;
 		 settings_key[i]->refresh();
 	}
 	for (unsigned int i = 12; i < 37; i++) {
