@@ -35,6 +35,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "WidgetComboBox.h"
 #include "WidgetInput.h"
 #include "WidgetListBox.h"
+#include "WidgetScrollBar.h"
 #include "WidgetSlider.h"
 #include "WidgetTabControl.h"
 
@@ -87,7 +88,13 @@ GameStateConfig::GameStateConfig ()
 	keyboard_layout->set(0, "QWERTY");
 	keyboard_layout->set(1, "AZERTY");
 
-    settings_key[51] = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
+	keyboard_scroll = new WidgetScrollBar(mods->locate("images/menus/buttons/scrollbar_default.png"));
+	keyboard_scroll->pos_up.x = (VIEW_W - 640)/2 + 610;
+	keyboard_scroll->pos_up.y = (VIEW_H - 480)/2 + 100;
+	keyboard_scroll->pos_knob.x = (VIEW_W - 640)/2 + 610;
+	keyboard_scroll->pos_knob.y = (VIEW_H - 480)/2 + 115;
+	keyboard_scroll->pos_down.x = (VIEW_W - 640)/2 + 610;
+	keyboard_scroll->pos_down.y = (VIEW_H - 480)/2 + 370;
 
 	settings_btn[0] = new WidgetButton(mods->locate("images/menus/buttons/up.png"));
 	settings_btn[1] = new WidgetButton(mods->locate("images/menus/buttons/down.png"));
@@ -366,6 +373,9 @@ GameStateConfig::GameStateConfig ()
 	}
 	keyboard_layout->refresh();
 	child_widget.push_back(keyboard_layout);
+	optiontab[child_widget.size()-1] = 3;
+
+	child_widget.push_back(keyboard_scroll);
 	optiontab[child_widget.size()-1] = 3;
 
 	// Add ListBoxes
@@ -655,6 +665,19 @@ void GameStateConfig::logic ()
 			}
 
 		}
+		switch (keyboard_scroll->checkClick()) {
+			case 1:
+				scrollUpKeys();
+				break;
+			case 2:
+				scrollDownKeys();
+				break;
+			case 3:
+				//handle knob
+				break;
+			default:
+				break;
+		}
 		for (unsigned int i = 0; i < 50; i++) {
 			if (settings_key[i]->checkClick()) scanKey(i);
 		}
@@ -695,8 +718,22 @@ void GameStateConfig::render ()
 
 	int active_tab = tabControl->getActiveTab();
 
-	for (unsigned int i = 3; i < child_widget.size(); i++) {
+	for (unsigned int i = 3; i < 29; i++) {
 		 if (optiontab[i] == active_tab) child_widget[i]->render();
+	}
+	for (unsigned int i = 104; i < child_widget.size(); i++) {
+		 if (optiontab[i] == active_tab) child_widget[i]->render();
+	}
+
+	if (active_tab == 3) {
+	for (unsigned int i = 12; i < 37; i++) {
+			if ((settings_lb[i]->getY() < 370) && (settings_lb[i]->getY() > 100))
+				settings_lb[i]->render();
+		}
+		for (unsigned int i = 0; i < 50; i++) {
+			if ((settings_key[i]->pos.y < 370) && (settings_key[i]->pos.y > 100))
+				settings_key[i]->render();
+		}
 	}
 }
 
@@ -993,3 +1030,22 @@ void GameStateConfig::scanKey(int button) {
 	settings_key[button]->refresh();
  }
 
+void GameStateConfig::scrollUpKeys() {
+	for (unsigned int i = 0; i < 50; i++) {
+		 settings_key[i]->pos.y-=20;
+		 settings_key[i]->refresh();
+	}
+	for (unsigned int i = 12; i < 37; i++) {
+	settings_lb[i]->setY(settings_key[i-12]->pos.y + 7);
+	}
+}
+
+void GameStateConfig::scrollDownKeys() {
+	for (unsigned int i = 0; i < 50; i++) {
+		 settings_key[i]->pos.y+=20;
+		 settings_key[i]->refresh();
+	}
+	for (unsigned int i = 12; i < 37; i++) {
+	settings_lb[i]->setY(settings_key[i-12]->pos.y + 7);
+	}
+}
