@@ -43,7 +43,10 @@ WidgetLabel::WidgetLabel() {
 /**
  * Draw the buffered string surface to the screen
  */
-void WidgetLabel::render() {
+void WidgetLabel::render(SDL_Surface *target) {
+	if (target == NULL) {
+		target = screen;
+	}
 
 	SDL_Rect dest;
 	dest.x = bounds.x;
@@ -52,7 +55,7 @@ void WidgetLabel::render() {
 	dest.h = bounds.h;
 
 	if (text_buffer != NULL) {
-		SDL_BlitSurface(text_buffer, NULL, screen, &dest);
+		SDL_BlitSurface(text_buffer, NULL, target, &dest);
 	}
 }
 
@@ -115,6 +118,20 @@ void WidgetLabel::setY(int _y) {
 		applyOffsets();
 		refresh();
 	}
+}
+
+/**
+ * Get X position of label.
+ */
+int WidgetLabel::getX() {
+	return x_origin;
+}
+
+/**
+ * Get Y position of label.
+ */
+int WidgetLabel::getY() {
+	return y_origin;
 }
 
 /**

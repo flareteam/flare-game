@@ -43,7 +43,7 @@ private:
 
   void loadGraphics();
 
-  void renderTab(int number);
+  void renderTab(int number, SDL_Surface *target);
 
 public:
 
@@ -59,7 +59,8 @@ public:
   void updateHeader();
 
   void logic();
-  void render();
+  void logic(int x, int y);
+  void render(SDL_Surface *target = NULL);
 };
 
 #endif

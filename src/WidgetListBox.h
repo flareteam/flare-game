@@ -50,6 +50,7 @@ private:
 	int non_empty_slots;
 	bool any_selected;
 	TooltipData tip_buf;
+	TooltipData tip_new;
 	std::string *values;
 	std::string *tooltips;
 	WidgetLabel *vlabels;
@@ -63,6 +64,7 @@ public:
 
 	void loadArt();
 	bool checkClick();
+	bool checkClick(int x, int y);
 	TooltipData checkTooltip(Point mouse);
 	void append(std::string value, std::string tooltip);
 	void remove(int index);
@@ -73,7 +75,7 @@ public:
 	int getSize();
 	void scrollUp();
 	void scrollDown();
-	void render();
+	void render(SDL_Surface *target = NULL);
 	void refresh();
 
 	SDL_Rect pos;

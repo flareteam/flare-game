@@ -137,18 +137,24 @@ void WidgetTabControl::loadGraphics()
   SDL_FreeSurface(cleanup);
 }
 
+void WidgetTabControl::logic()
+{
+  logic(inpt->mouse.x,inpt->mouse.y);
+}
+
 /**
  * Performs one frame of logic.
  *
  * It basically checks if it was clicked on the header, and if so changes the active tab.
  */
-void WidgetTabControl::logic()
+void WidgetTabControl::logic(int x, int y)
 {
+  Point mouse = {x,y};
   // If the click was in the tabs area;
-  if(isWithin(tabsArea, inpt->mouse) && inpt->pressing[MAIN1]) {
+  if(isWithin(tabsArea, mouse) && inpt->pressing[MAIN1]) {
     // Mark the clicked tab as activeTab.
     for (int i=0; i<tabsAmount; i++) {
-      if(isWithin(tabs[i], inpt->mouse)) {
+      if(isWithin(tabs[i], mouse)) {
         activeTab = i;
         return;
       }
@@ -161,17 +167,20 @@ void WidgetTabControl::logic()
  *
  * Remember to render then on top of it the actual content of the {@link getActiveTab() active tab}.
  */
-void WidgetTabControl::render()
+void WidgetTabControl::render(SDL_Surface *target)
 {
+  if (target == NULL) {
+    target = screen;
+  }
   for (int i=0; i<tabsAmount; i++) {
-    renderTab(i);
+    renderTab(i,target);
   }
 }
 
 /**
  * Renders the given tab on the widget header.
  */
-void WidgetTabControl::renderTab(int number)
+void WidgetTabControl::renderTab(int number, SDL_Surface *target)
 {
   int i = number;
   SDL_Rect src;
@@ -185,9 +194,9 @@ void WidgetTabControl::renderTab(int number)
   src.h = tabs[i].h;
 
   if (i == activeTab)
-    SDL_BlitSurface(activeTabSurface, &src, screen, &dest);
+    SDL_BlitSurface(activeTabSurface, &src, target, &dest);
   else
-    SDL_BlitSurface(inactiveTabSurface, &src, screen, &dest);
+    SDL_BlitSurface(inactiveTabSurface, &src, target, &dest);
 
   // Draw tab’s right edge.
   src.x = 128 - tabPadding.x;
@@ -195,9 +204,9 @@ void WidgetTabControl::renderTab(int number)
   dest.x = tabs[i].x + tabs[i].w - tabPadding.x;
 
   if (i == activeTab)
-    SDL_BlitSurface(activeTabSurface, &src, screen, &dest);
+    SDL_BlitSurface(activeTabSurface, &src, target, &dest);
   else
-    SDL_BlitSurface(inactiveTabSurface, &src, screen, &dest);
+    SDL_BlitSurface(inactiveTabSurface, &src, target, &dest);
 
   // Set tab’s label font color.
   int fontColor;
@@ -207,7 +216,7 @@ void WidgetTabControl::renderTab(int number)
   // Draw tab’s label.
   WidgetLabel label;
   label.set(tabs[i].x + tabPadding.x, tabs[i].y + tabPadding.y, JUSTIFY_LEFT, VALIGN_TOP, titles[i], fontColor);
-  label.render();
+  label.render(target);
 }
 
 /**

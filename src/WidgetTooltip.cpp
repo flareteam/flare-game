@@ -82,7 +82,10 @@ Point WidgetTooltip::calcPosition(int style, Point pos, Point size) {
  * Tooltip position depends on the screen quadrant of the source.
  * Draw the buffered tooltip if it exists, else render the tooltip and buffer it
  */
-void WidgetTooltip::render(TooltipData &tip, Point pos, int style) {
+void WidgetTooltip::render(TooltipData &tip, Point pos, int style, SDL_Surface *target) {
+	if (target == NULL) {
+		target = screen;
+	}
 
 	if (tip.tip_buffer == NULL) {
 		createBuffer(tip);
@@ -98,22 +101,7 @@ void WidgetTooltip::render(TooltipData &tip, Point pos, int style) {
 	dest.x = tip_pos.x;
 	dest.y = tip_pos.y;
 	
-	SDL_BlitSurface(tip.tip_buffer, NULL, screen, &dest);
-}
-
-/**
- * Clear the given tooltip.
- * Free the buffered tip image
- * Note most tooltip usage will assume WHITE default color, so reset it
- */
-void WidgetTooltip::clear(TooltipData &tip) {
-	tip.num_lines = 0;
-	for (int i=0; i<TOOLTIP_MAX_LINES; i++) {
-		tip.lines[i] = "";
-		tip.colors[i] = FONT_WHITE;
-	}
-	SDL_FreeSurface(tip.tip_buffer);
-	tip.tip_buffer = NULL;
+	SDL_BlitSurface(tip.tip_buffer, NULL, target, &dest);
 }
 
 /**

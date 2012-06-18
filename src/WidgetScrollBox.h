@@ -1,5 +1,6 @@
 /*
-Copyright 2012 Clint Bellanger
+Copyright © 2011-2012 Clint Bellanger
+Copyright © 2012 Justin Jacobs
 
 This file is part of FLARE.
 
@@ -16,26 +17,38 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 */
 
 /**
- * class EnemyBehavior
- *
- * Interface for enemy behaviors.
- * The behavior object is a component of Enemy.
- * Make AI decisions (movement, actions) for enemies.
+ * class WidgetScrollBox
  */
 
-#ifndef ENEMY_BEHAVIOR_H
-#define ENEMY_BEHAVIOR_H
+#ifndef WIDGET_SCROLLBOX_H
+#define WIDGET_SCROLLBOX_H
 
-// fwd-declare Enemy class
-class Enemy;
+#include "SharedResources.h"
+#include "Widget.h"
+#include "WidgetScrollBar.h"
 
-class EnemyBehavior {
-protected:
-	Enemy *e;
+class Widget;
+
+class WidgetScrollBox : public Widget {
 public:
-	EnemyBehavior(Enemy *_e);
-	virtual ~EnemyBehavior();
-	virtual void logic();
+	WidgetScrollBox (int width, int height, int full_height);
+	~WidgetScrollBox ();
+
+	Point input_assist(Point mouse);
+	void logic();
+	void logic(int x, int y);
+	void refresh();
+	void render(SDL_Surface *target = NULL);
+
+	SDL_Rect pos;
+	SDL_Surface * contents;
+
+private:
+	void scroll(int amount);
+
+	int cursor;
+	WidgetScrollBar * scrollbar;
 };
 
 #endif
+

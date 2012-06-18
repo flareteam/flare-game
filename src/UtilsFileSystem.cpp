@@ -105,7 +105,7 @@ int getFileList(std::string dir, std::string ext, std::vector<std::string> &file
  */
 int getDirList(std::string dir, std::vector<std::string> &dirs) {
 
-	DIR *dp, *testopen;
+	DIR *dp;
 	struct dirent *dirp;
 	struct stat st;
 

@@ -37,6 +37,7 @@ class WidgetComboBox;
 class WidgetInput;
 class WidgetLabel;
 class WidgetListBox;
+class WidgetScrollBox;
 class WidgetSlider;
 class WidgetTabControl;
 
@@ -83,6 +84,7 @@ private:
 	WidgetListBox       * settings_lstb[2];
 	WidgetButton        * settings_btn[4];
 	WidgetComboBox      * keyboard_layout;
+	WidgetScrollBox     * input_scrollbox;
 };
 
 #endif

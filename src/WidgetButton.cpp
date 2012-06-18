@@ -33,6 +33,7 @@ WidgetButton::WidgetButton(const std::string& _fileName)
 	pos.x = pos.y = pos.w = pos.h = 0;
 	enabled = true;
 	pressed = false;
+	hover = false;
 	
 	loadArt();
 
@@ -58,11 +59,26 @@ void WidgetButton::loadArt() {
 	SDL_FreeSurface(cleanup);
 }
 
+bool WidgetButton::checkClick() {
+	if (checkClick(inpt->mouse.x,inpt->mouse.y))
+		return true;
+	else
+		return false;
+}
+
 /**
  * Sets and releases the "pressed" visual state of the button
  * If press and release, activate (return true)
  */
-bool WidgetButton::checkClick() {
+bool WidgetButton::checkClick(int x, int y) {
+	Point mouse = {x,y};
+
+	// Change the hover state
+	if (isWithin(pos, mouse)) {
+		hover = true;
+	} else {
+		hover = false;
+	}
 
 	// disabled buttons can't be clicked;
 	if (!enabled) return false;
@@ -74,7 +90,7 @@ bool WidgetButton::checkClick() {
 	if (pressed && !inpt->lock[MAIN1]) {
 		pressed = false;
 		
-		if (isWithin(pos, inpt->mouse)) {
+		if (isWithin(pos, mouse)) {
 		
 			// activate upon release
 			return true;
@@ -85,7 +101,7 @@ bool WidgetButton::checkClick() {
 	
 	// detect new click
 	if (inpt->pressing[MAIN1]) {
-		if (isWithin(pos, inpt->mouse)) {
+		if (isWithin(pos, mouse)) {
 		
 			inpt->lock[MAIN1] = true;
 			pressed = true;
@@ -96,7 +112,10 @@ bool WidgetButton::checkClick() {
 
 }
 
-void WidgetButton::render() {
+void WidgetButton::render(SDL_Surface *target) {
+	if (target == NULL) {
+		target = screen;
+	}
 	SDL_Rect src;
 	src.x = 0;
 	src.w = pos.w;
@@ -108,14 +127,14 @@ void WidgetButton::render() {
 		src.y = BUTTON_GFX_DISABLED * pos.h;
 	else if (pressed)
 		src.y = BUTTON_GFX_PRESSED * pos.h;
-	else if (isWithin(pos, inpt->mouse))
+	else if (hover)
 		src.y = BUTTON_GFX_HOVER * pos.h;
 	else
 		src.y = BUTTON_GFX_NORMAL * pos.h;
 	
-	SDL_BlitSurface(buttons, &src, screen, &pos);
+	SDL_BlitSurface(buttons, &src, target, &pos);
 
-	wlabel.render();
+	wlabel.render(target);
 }
 
 /**

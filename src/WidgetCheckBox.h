@@ -33,8 +33,9 @@ public:
 	void Check ();
 	void unCheck ();
 	bool checkClick ();
+	bool checkClick (int x, int y);
 	bool isChecked () const;
-	void render ();
+	void render (SDL_Surface *target = NULL);
 
 	SDL_Rect pos; // This is the position of the button within the screen
 

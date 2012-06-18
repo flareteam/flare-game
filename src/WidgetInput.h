@@ -41,6 +41,7 @@ protected:
 	bool enabled;
 	bool inFocus;
 	bool pressed;
+	bool hover;
 
 	std::string text; // the text that has been typed into the box
 	unsigned int max_characters;
@@ -52,7 +53,8 @@ public:
 	WidgetInput();
 	
 	void logic();
-	void render();
+	bool logic(int x, int y);
+	void render(SDL_Surface *target = NULL);
 	bool checkClick();
 	std::string getText() { return text; }
 	void setPosition(int x, int y);

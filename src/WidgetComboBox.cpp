@@ -40,6 +40,7 @@ WidgetComboBox::WidgetComboBox(int amount, const std::string& _fileName)
 	enabled = true;
 	pressed = false;
 	selected = 0;
+	hover = false;
 	
 	loadArt();
 
@@ -65,11 +66,27 @@ void WidgetComboBox::loadArt() {
 	SDL_FreeSurface(cleanup);
 }
 
+bool WidgetComboBox::checkClick() {
+	if (checkClick(inpt->mouse.x,inpt->mouse.y))
+		return true;
+	else
+		return false;
+}
+
 /**
  * Sets and releases the "pressed" visual state of the ComboBox
  * If press and release, activate (return true)
  */
-bool WidgetComboBox::checkClick() {
+bool WidgetComboBox::checkClick(int x, int y) {
+	Point mouse = {x,y};
+	mouse_point = mouse;
+
+	// Change the hover state
+	if (isWithin(pos, mouse)) {
+		hover = true;
+	} else {
+		hover = false;
+	}
 
 	// disabled ComboBoxs can't be clicked;
 	if (!enabled) return false;
@@ -83,11 +100,11 @@ bool WidgetComboBox::checkClick() {
 		
 		for(int i=0;i<cmbAmount;i++)
 		{
-		if (isWithin(rows[i], inpt->mouse)) {
+		if (isWithin(rows[i], mouse)) {
 			// activate upon release
 			selected = i;
 			if (i<cmbAmount-1) {
-				if (isWithin(rows[i+1], inpt->mouse))
+				if (isWithin(rows[i+1], mouse))
 					selected = i+1;
 			}
 			refresh();
@@ -100,7 +117,7 @@ bool WidgetComboBox::checkClick() {
 
 	// detect new click
 	if (inpt->pressing[MAIN1]) {
-		if (isWithin(pos, inpt->mouse)) {
+		if (isWithin(pos, mouse)) {
 		
 			inpt->lock[MAIN1] = true;
 			pressed = true;
@@ -119,7 +136,11 @@ std::string WidgetComboBox::get(int index) {
 	return values[index];
 }
 
-void WidgetComboBox::render() {
+void WidgetComboBox::render(SDL_Surface *target) {
+	if (target == NULL) {
+		target = screen;
+	}
+
 	SDL_Rect src;
 	src.x = 0;
 	src.w = pos.w;
@@ -131,14 +152,14 @@ void WidgetComboBox::render() {
 		src.y = COMBOBOX_GFX_DISABLED * pos.h;
 	else if (pressed)
 		src.y = COMBOBOX_GFX_PRESSED * pos.h;
-	else if (isWithin(pos, inpt->mouse))
+	else if (hover)
 		src.y = COMBOBOX_GFX_HOVER * pos.h;
 	else
 		src.y = COMBOBOX_GFX_NORMAL * pos.h;
 
-	SDL_BlitSurface(comboboxs, &src, screen, &pos);
+	SDL_BlitSurface(comboboxs, &src, target, &pos);
 
-	wlabel.render();
+	wlabel.render(target);
 
 	if(pressed)
 	{
@@ -156,8 +177,8 @@ void WidgetComboBox::render() {
 				src.y = 0;
 
 			refresh();
-			SDL_BlitSurface(comboboxs, &src, screen, &rows[i]);
-			vlabels[i].render();
+			SDL_BlitSurface(comboboxs, &src, target, &rows[i]);
+			vlabels[i].render(target);
 		}
 	}
 }
@@ -190,10 +211,10 @@ void WidgetComboBox::refresh() {
 	if(pressed) {
 		for(int i=0;i<cmbAmount;i++) {
 			int font_color;
-			if(isWithin(rows[i], inpt->mouse)) {
+			if(isWithin(rows[i], mouse_point)) {
 				font_color = FONT_WHITE;
 				if(i<cmbAmount-1) {
-					if(isWithin(rows[i+1], inpt->mouse))
+					if(isWithin(rows[i+1], mouse_point))
 						font_color = FONT_GRAY;
 				}
 			} else {

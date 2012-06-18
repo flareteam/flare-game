@@ -33,8 +33,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "WidgetButton.h"
 #include "WidgetCheckBox.h"
 #include "WidgetComboBox.h"
-#include "WidgetInput.h"
 #include "WidgetListBox.h"
+#include "WidgetScrollBox.h"
 #include "WidgetSlider.h"
 #include "WidgetTabControl.h"
 
@@ -81,13 +81,16 @@ GameStateConfig::GameStateConfig ()
 	}
 
 	for (unsigned int i = 0; i < 50; i++) {
-		 settings_key[i] = new WidgetButton(mods->locate("images/menus/buttons/button_small.png"));
+		 settings_key[i] = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
 	}
 	keyboard_layout = new WidgetComboBox(2, mods->locate("images/menus/buttons/combobox_default.png"));
 	keyboard_layout->set(0, "QWERTY");
 	keyboard_layout->set(1, "AZERTY");
 
-    settings_key[51] = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
+	input_scrollbox = new WidgetScrollBox(600, 230, 780);
+	input_scrollbox->pos.x = (VIEW_W - 640)/2 + 10;
+	input_scrollbox->pos.y = (VIEW_H - 480)/2 + 150;
+	input_scrollbox->refresh();
 
 	settings_btn[0] = new WidgetButton(mods->locate("images/menus/buttons/up.png"));
 	settings_btn[1] = new WidgetButton(mods->locate("images/menus/buttons/down.png"));
@@ -531,6 +534,7 @@ void GameStateConfig::update () {
 		}
 		settings_key[i]->refresh();
 	}
+	input_scrollbox->refresh();
 }
 
 void GameStateConfig::logic ()
@@ -655,8 +659,12 @@ void GameStateConfig::logic ()
 			}
 
 		}
-		for (unsigned int i = 0; i < 50; i++) {
-			if (settings_key[i]->checkClick()) scanKey(i);
+		input_scrollbox->logic();
+		if (isWithin(input_scrollbox->pos,inpt->mouse)) {
+			for (unsigned int i = 0; i < 50; i++) {
+				Point mouse = input_scrollbox->input_assist(inpt->mouse);
+				if (settings_key[i]->checkClick(mouse.x,mouse.y)) scanKey(i);
+			}
 		}
 	}
 	// tab 4 (mods)
@@ -695,9 +703,23 @@ void GameStateConfig::render ()
 
 	int active_tab = tabControl->getActiveTab();
 
-	for (unsigned int i = 3; i < child_widget.size(); i++) {
+	if (active_tab == 3) {
+		for (unsigned int i = 12; i < 37; i++) {
+			settings_lb[i]->render(input_scrollbox->contents);
+		}
+		for (unsigned int i = 0; i < 50; i++) {
+			settings_key[i]->render(input_scrollbox->contents);
+		}
+		input_scrollbox->render();
+	}
+
+	for (unsigned int i = 3; i < 29; i++) {
 		 if (optiontab[i] == active_tab) child_widget[i]->render();
 	}
+	for (unsigned int i = 104; i < child_widget.size(); i++) {
+		 if (optiontab[i] == active_tab) child_widget[i]->render();
+	}
+
 }
 
 int GameStateConfig::getVideoModes()

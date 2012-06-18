@@ -54,11 +54,17 @@ void WidgetScrollBar::loadArt() {
 	SDL_FreeSurface(cleanup);
 }
 
+int WidgetScrollBar::checkClick() {
+	int r = checkClick(inpt->mouse.x,inpt->mouse.y);
+	return r;
+}
+
 /**
  * Sets and releases the "pressed" visual state of the ScrollBar
  * If press and release, activate (return 1 for up, 2 for down)
  */
-int WidgetScrollBar::checkClick() {
+int WidgetScrollBar::checkClick(int x, int y) {
+	Point mouse = {x,y};
 
 	// main ScrollBar already in use, new click not allowed
 	//if (inpt->lock[MAIN1]) return 0;
@@ -66,14 +72,14 @@ int WidgetScrollBar::checkClick() {
 	// main click released, so the ScrollBar state goes back to unpressed
 	if (pressed_up && !inpt->lock[MAIN1]) {
 		pressed_up = false;
-		if (isWithin(pos_up, inpt->mouse)) {
+		if (isWithin(pos_up, mouse)) {
 			// activate upon release
 			return 1;
 		}
 	}
 	if (pressed_down && !inpt->lock[MAIN1]) {
 		pressed_down = false;
-		if (isWithin(pos_down, inpt->mouse)) {
+		if (isWithin(pos_down, mouse)) {
 			// activate upon release
 			return 2;
 		}
@@ -82,18 +88,11 @@ int WidgetScrollBar::checkClick() {
 		if (!inpt->lock[MAIN1]) {
 			pressed_knob = false;
 		}
-		// set the value of the slider
 		float tmp;
-		if (inpt->mouse.y < pos_up.y+pos_up.h) {
-			tmp = 0;
-		} else if (inpt->mouse.y > pos_down.y-pos_knob.h) {
-			tmp = bar_height;
-		} else {
-			tmp = inpt->mouse.y - pos_up.y;
-		}
+		tmp = mouse.y - pos_up.y;
 
 		pos_knob.y = pos_up.y + tmp;
-		value = tmp*((float)maximum/(bar_height-pos_down.h));
+		value = tmp*((float)maximum/bar_height);
 		set();
 
 		return 3;
@@ -105,13 +104,13 @@ int WidgetScrollBar::checkClick() {
 
 	// detect new click
 	if (inpt->pressing[MAIN1]) {
-		if (isWithin(pos_up, inpt->mouse)) {
+		if (isWithin(pos_up, mouse)) {
 			inpt->lock[MAIN1] = true;
 			pressed_up = true;
-		} else if (isWithin(pos_down, inpt->mouse)) {
+		} else if (isWithin(pos_down, mouse)) {
 			inpt->lock[MAIN1] = true;
 			pressed_down = true;
-		} else if (isWithin(pos_knob, inpt->mouse)) {
+		} else if (isWithin(pos_knob, mouse)) {
 			inpt->lock[MAIN1] = true;
 			pressed_knob = true;
 		}
@@ -122,14 +121,26 @@ int WidgetScrollBar::checkClick() {
 }
 
 void WidgetScrollBar::set() {
-	pos_knob.y = pos_up.y + pos_up.h + ((float)value/((float)maximum/(bar_height-pos_down.h)));
+	pos_knob.y = pos_up.y + ((float)value/((float)maximum/bar_height));
+	if (pos_knob.y < pos_up.y+pos_up.h) {
+		pos_knob.y = pos_up.y+pos_up.h;
+		value = 0;
+	}
+	if (pos_knob.y+pos_knob.h > pos_down.y) {
+		pos_knob.y = pos_down.y-pos_knob.h;
+		value = maximum;
+	}
 }
 
 int WidgetScrollBar::getValue() {
 	return value;
 }
 
-void WidgetScrollBar::render() {
+void WidgetScrollBar::render(SDL_Surface *target) {
+	if (target == NULL) {
+		target = screen;
+	}
+
 	SDL_Rect src_up, src_down, src_knob;
 
 	src_up.x = 0;
@@ -155,9 +166,9 @@ void WidgetScrollBar::render() {
 	else
 		src_down.y = pos_down.h*2;
 
-	SDL_BlitSurface(scrollbars, &src_up, screen, &pos_up);
-	SDL_BlitSurface(scrollbars, &src_down, screen, &pos_down);
-	SDL_BlitSurface(scrollbars, &src_knob, screen, &pos_knob);
+	SDL_BlitSurface(scrollbars, &src_up, target, &pos_up);
+	SDL_BlitSurface(scrollbars, &src_down, target, &pos_down);
+	SDL_BlitSurface(scrollbars, &src_knob, target, &pos_knob);
 }
 
 /**

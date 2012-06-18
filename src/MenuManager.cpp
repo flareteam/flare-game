@@ -547,7 +547,7 @@ void MenuManager::render() {
 		// TODO: comparing the first line of a tooltip works in all existing cases,
 		// but may not hold true in the future.
 		if (tip_new.lines[0] != tip_buf.lines[0]) {
-			tip->clear(tip_buf);
+			tip_buf.clear();
 			tip_buf = tip_new;
 		}
 		tip->render(tip_buf, inpt->mouse, STYLE_FLOAT);
@@ -598,7 +598,7 @@ void MenuManager::closeRight(bool play_sound) {
 
 MenuManager::~MenuManager() {
 
-	tip->clear(tip_buf);
+	tip_buf.clear();
 
 	delete xp;
 	delete mini;
