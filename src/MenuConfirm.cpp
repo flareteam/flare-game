@@ -24,7 +24,8 @@ using namespace std;
 
 MenuConfirm::MenuConfirm(const string& _buttonMsg, const string& _boxMsg) : Menu() {
 	confirmClicked = false;
-
+	hasConfirmButton = true;
+	if (_buttonMsg == "") hasConfirmButton = false;
 	// Text to display in confirmation box
 	boxMsg = _boxMsg;
 
@@ -32,18 +33,21 @@ MenuConfirm::MenuConfirm(const string& _buttonMsg, const string& _boxMsg) : Menu
 	window_area.h = 64;
 	window_area.x = (VIEW_W/2) - (window_area.w/2);
 	window_area.y = (VIEW_H - window_area.h)/2;
-	
-	buttonConfirm = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
-	buttonConfirm->label = _buttonMsg;
-	buttonConfirm->pos.x = VIEW_W_HALF - buttonConfirm->pos.w/2;
-	buttonConfirm->pos.y = VIEW_H/2;
-	buttonConfirm->refresh();
-	
+
+	if (hasConfirmButton) {
+		buttonConfirm = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
+		buttonConfirm->label = _buttonMsg;
+		buttonConfirm->pos.x = VIEW_W_HALF - buttonConfirm->pos.w/2;
+		buttonConfirm->pos.y = VIEW_H/2;
+		buttonConfirm->refresh();
+	}
+
 	buttonClose = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
 	buttonClose->pos.x = window_area.x + window_area.w;
 	buttonClose->pos.y = window_area.y;
-
+	if (hasConfirmButton) {
 	label.set(window_area.x + window_area.w/2, window_area.y + 10, JUSTIFY_CENTER, VALIGN_TOP, boxMsg, FONT_WHITE);
+	} else label.set(window_area.x + window_area.w/2, window_area.y + 25, JUSTIFY_CENTER, VALIGN_TOP, boxMsg, FONT_WHITE);
 
 	loadGraphics();
 }
@@ -58,13 +62,16 @@ void MenuConfirm::loadGraphics() {
 	// optimize
 	SDL_Surface *cleanup = background;
 	background = SDL_DisplayFormatAlpha(background);
-	SDL_FreeSurface(cleanup);	
+	SDL_FreeSurface(cleanup);
 }
 
 void MenuConfirm::logic() {
-	if (visible) {
+	if (visible && hasConfirmButton) {
 	  if(buttonConfirm->checkClick())
 	    confirmClicked = true;
+	  if(buttonClose->checkClick())
+	    visible = false;
+	} else if (visible && !hasConfirmButton) {
 	  if(buttonClose->checkClick())
 	    visible = false;
 	}
@@ -82,12 +89,12 @@ void MenuConfirm::render() {
 
 	label.render();
 
-	buttonConfirm->render();
+	if (hasConfirmButton) buttonConfirm->render();
 	buttonClose->render();
 }
 
 MenuConfirm::~MenuConfirm() {
-	delete buttonConfirm;
+	if (hasConfirmButton) delete buttonConfirm;
 	delete buttonClose;
 	SDL_FreeSurface(background);
 }
