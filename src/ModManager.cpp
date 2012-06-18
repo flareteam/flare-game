@@ -33,7 +33,9 @@ ModManager::ModManager() {
 }
 
 /**
- * The mod list is in [PATH_DATA]/mods/mods.txt
+ * The mod list is in either:
+ * 1. [PATH_CONF]/mods.txt
+ * 2. [PATH_DATA]/mods/mods.txt
  * The mods.txt file shows priority/load order for mods
  *
  * File format:
@@ -45,12 +47,16 @@ void ModManager::loadModList() {
 	string line;
 	string starts_with;
 
-	infile.open((PATH_DATA + "mods/mods.txt").c_str(), ios::in);
+	infile.open((PATH_CONF + "mods.txt").c_str(), ios::in);
 
 	if (!infile.is_open()) {
-		fprintf(stderr, "Error during ModManager::loadModList() -- couldn't open mods/mods.txt\n");
-		SDL_Quit();
-		exit(1);
+		infile.open((PATH_DATA + "mods/mods.txt").c_str(), ios::in);
+
+		if (!infile.is_open()) {
+			fprintf(stderr, "Error during ModManager::loadModList() -- couldn't open mods/mods.txt\n");
+			SDL_Quit();
+			exit(1);
+		}
 	}
 
 	while (!infile.eof()) {
