@@ -823,7 +823,7 @@ void MapIso::checkTooltip() {
 
 			// new tooltip?
 			if (tip_buf.lines[0] != events[i].tooltip) {
-				tip->clear(tip_buf);
+				tip_buf.clear();
 				tip_buf.num_lines = 1;
 				tip_buf.lines[0] = events[i].tooltip;
 			}
@@ -949,7 +949,7 @@ MapIso::~MapIso() {
 	}
 	if (sfx) Mix_FreeChunk(sfx);
 
-	tip->clear(tip_buf);
+	tip_buf.clear();
 	delete tip;
 }
 

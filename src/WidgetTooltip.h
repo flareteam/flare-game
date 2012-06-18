@@ -34,12 +34,23 @@ const int STYLE_TOPLABEL = 1;
 
 const int TOOLTIP_MAX_LINES = 16;
 
+/**
+ * TooltipData contains the text and line colors for one tool tip.
+ * Useful for keeping the data separate from the widget itself, so the data
+ * can be passed around easily.
+ *
+ * Contains a image buffer to keep a render of the tooltip, rather than needing
+ * to render it each frame. This buffer is not copied during copy/assign to
+ * avoid multiple deconstructors on the same dynamically allocated memory. Thus
+ * the new copy will recreate its own buffer next time it is displayed.
+ */
 struct TooltipData {
 	std::string lines[TOOLTIP_MAX_LINES];
 	int colors[TOOLTIP_MAX_LINES];
 	int num_lines;
 	SDL_Surface *tip_buffer;
 	
+	// Constructor
 	TooltipData() {
 		num_lines = 0;
 		tip_buffer = NULL;
@@ -49,8 +60,56 @@ struct TooltipData {
 		}
 	}
 	
+	// Deconstructor
 	~TooltipData() {
 		SDL_FreeSurface(tip_buffer);
+	}
+	
+	// Copy Constructor
+	TooltipData(const TooltipData &tdSource) {
+	
+		// DO NOT copy the buffered text render
+		// Allow the new copy to create its own buffer
+		// Otherwise the same buffer will be deleted twice, causing a mem error
+		tip_buffer = NULL; 
+		
+		num_lines = tdSource.num_lines;
+		for (int i=0; i<tdSource.num_lines; i++) {
+			lines[i] = tdSource.lines[i];
+			colors[i] = tdSource.colors[i];
+		}
+	}
+	
+	// Assignment Operator
+	TooltipData& operator= (const TooltipData &tdSource) {
+	
+		// if the buffer already exists, deallocate it
+		SDL_FreeSurface(tip_buffer);
+	
+		// DO NOT copy the buffered text render
+		// Allow the new copy to create its own buffer
+		// Otherwise the same buffer will be deleted twice, causing a mem error
+		tip_buffer = NULL; 
+		
+		num_lines = tdSource.num_lines;
+		for (int i=0; i<tdSource.num_lines; i++) {
+			lines[i] = tdSource.lines[i];
+			colors[i] = tdSource.colors[i];
+		}		
+
+		return *this;
+	}
+	
+	// clear this existing tooltipdata
+	void clear() {
+		num_lines = 0;
+		for (int i=0; i<TOOLTIP_MAX_LINES; i++) {
+			lines[i] = "";
+			colors[i] = FONT_WHITE;
+		}
+		SDL_FreeSurface(tip_buffer);
+		tip_buffer = NULL;
+
 	}
 	
 };
@@ -64,7 +123,6 @@ public:
 	WidgetTooltip();
 	Point calcPosition(int style, Point pos, Point size);
 	void render(TooltipData &tip, Point pos, int style);
-	void clear(TooltipData &tip);
 	void createBuffer(TooltipData &tip);
 };
 
