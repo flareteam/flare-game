@@ -7,7 +7,9 @@
 #include <SDL.h>
 class Widget {
 public:
-    virtual void    render  (SDL_Surface *target = NULL) = 0;
+    Widget() {};
+	virtual ~Widget() {};
+	virtual void render(SDL_Surface *target = NULL) {};
 private:
 };
 
