@@ -317,7 +317,7 @@ void WidgetListBox::render() {
 	TooltipData tip_new = checkTooltip(inpt->mouse);
 	if (tip_new.num_lines > 0) {
 		if (tip_new.lines[0] != tip_buf.lines[0]) {
-			tip->clear(tip_buf);
+			tip_buf.clear();
 			tip_buf = tip_new;
 		}
 		tip->render(tip_buf, inpt->mouse, STYLE_FLOAT);
@@ -387,7 +387,7 @@ void WidgetListBox::refresh() {
 }
 
 WidgetListBox::~WidgetListBox() {
-	tip->clear(tip_buf);
+	tip_buf.clear();
 	SDL_FreeSurface(listboxs);
 	delete[] values;
 	delete[] tooltips;

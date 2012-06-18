@@ -102,21 +102,6 @@ void WidgetTooltip::render(TooltipData &tip, Point pos, int style) {
 }
 
 /**
- * Clear the given tooltip.
- * Free the buffered tip image
- * Note most tooltip usage will assume WHITE default color, so reset it
- */
-void WidgetTooltip::clear(TooltipData &tip) {
-	tip.num_lines = 0;
-	for (int i=0; i<TOOLTIP_MAX_LINES; i++) {
-		tip.lines[i] = "";
-		tip.colors[i] = FONT_WHITE;
-	}
-	SDL_FreeSurface(tip.tip_buffer);
-	tip.tip_buffer = NULL;
-}
-
-/**
  * Rendering a wordy tooltip (TTF to raster) can be expensive.
  * Instead of doing this each frame, do it once and cache the result.
  */

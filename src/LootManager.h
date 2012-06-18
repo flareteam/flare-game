@@ -1,5 +1,5 @@
 /*
-Copyright © 2011-2012 Clint Bellanger
+Copyright ï¿½ 2011-2012 Clint Bellanger
 
 This file is part of FLARE.
 
@@ -42,6 +42,16 @@ struct LootDef {
 	Point pos;
 	int gold;
 	TooltipData tip;
+	
+	void clear() {
+		stack.item = 0;
+		stack.quantity = 0;
+		frame = 0;
+		pos.x = 0;
+		pos.y = 0;
+		gold = 0;
+		tip.clear();
+	}
 };
 
 
@@ -67,6 +77,8 @@ private:
 	void loadGraphics();
 	void calcTables();
 	int lootLevel(int base_level);
+	void clearLoot(LootDef &ld);
+	
 	
 	SDL_Surface *flying_loot[64];
 	SDL_Surface *flying_gold[3];
@@ -91,6 +103,8 @@ private:
 	int anim_loot_frames;
 	int anim_loot_duration;
 	
+
+
 public:
 	LootManager(ItemManager *_items, EnemyManager *_enemies, MapIso *_map);
 	~LootManager();

@@ -1,5 +1,5 @@
 /*
-Copyright © 2011-2012 Clint Bellanger
+Copyright ï¿½ 2011-2012 Clint Bellanger
 
 This file is part of FLARE.
 
@@ -51,12 +51,7 @@ LootManager::LootManager(ItemManager *_items, EnemyManager *_enemies, MapIso *_m
 
 	// reset current map loot
 	for (int i=0; i<256; i++) {
-		loot[i].pos.x = 0;
-		loot[i].pos.y = 0;
-		loot[i].frame = 0;
-		loot[i].stack.item = 0;
-		loot[i].stack.quantity = 0;
-		loot[i].gold = 0;
+		loot[i].clear();
 	}
 
 	// reset loot table
@@ -178,7 +173,7 @@ void LootManager::calcTables() {
 
 void LootManager::handleNewMap() {
 	for (int i=0; i<loot_count; i++) {
-		tip->clear(loot[i].tip);
+		loot[i].clear();
 	}
 	loot_count = 0;
 }
@@ -396,31 +391,19 @@ void LootManager::addGold(int count, Point pos) {
 
 
 /**
- * Remove one loot from the array, preserving sort order
+ * Remove one loot from the array
  */
 void LootManager::removeLoot(int index) {
 
-	// deallocate the tooltip of the loot being removed
-	tip->clear(loot[index].tip);
-
 	loot_count--;
 
-	loot[index].stack = loot[loot_count].stack;
-	loot[index].pos.x = loot[loot_count].pos.x;
-	loot[index].pos.y = loot[loot_count].pos.y;
-	loot[index].frame = loot[loot_count].frame;
-	loot[index].gold = loot[loot_count].gold;
-	loot[index].tip = loot[loot_count].tip;
-
-	// the last tooltip buffer pointer has been copied up one index.
-	// NULL the last pointer without deallocating. Otherwise the same
-	// address might be deallocated twice, causing a memory access error
-	loot[loot_count].tip.tip_buffer = NULL;
-
-	// TODO: This requires too much knowledge of the underworkings of
-	// TooltipData. Is there a way to hide this complexity, be memory safe,
-	// and be efficient with the drawing buffer?
-
+	// copy the last loot into this position
+	// instead of bubbling each loot down
+	// so that only 1 tooltip buffer needs to be redrawn
+	loot[index] = loot[loot_count];
+	
+	// reset the last loot
+	loot[loot_count].clear();
 }
 
 /**
@@ -524,7 +507,7 @@ LootManager::~LootManager() {
 
 	// clear loot tooltips to free buffer memory
 	for (int i=0; i<loot_count; i++) {
-		tip->clear(loot[i].tip);
+		loot[i].clear();
 	}
 
 	delete tip;

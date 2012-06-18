@@ -131,7 +131,7 @@ void NPCManager::renderTooltips(Point cam, Point mouse) {
 
 			// use current tip or make a new one?
 			if (tip_buf.lines[0] != npcs[i]->name) {
-				tip->clear(tip_buf);
+				tip_buf.clear();
 				tip_buf.num_lines = 1;
 				tip_buf.lines[0] = npcs[i]->name;
 			}
@@ -148,6 +148,6 @@ NPCManager::~NPCManager() {
 		delete npcs[i];
 	}
 
-	tip->clear(tip_buf);
+	tip_buf.clear();
 	delete tip;
 }
