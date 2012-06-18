@@ -149,18 +149,18 @@ bool WidgetListBox::checkClick() {
  * @param mouse The x,y screen coordinates of the mouse cursor
  */
 TooltipData WidgetListBox::checkTooltip(Point mouse) {
-	TooltipData tip;
+	TooltipData _tip;
 
 	for(int i=0; i<list_height; i++) {
 		if (i<list_amount) {
 			if (isWithin(rows[i], mouse) && tooltips[i+cursor] != "") {
-				tip.lines[tip.num_lines++] = tooltips[i+cursor];
+				_tip.lines[_tip.num_lines++] = tooltips[i+cursor];
 				break;
 			}
 		}
 	}
 
-	return tip;
+	return _tip;
 }
 
 /**

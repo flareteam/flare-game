@@ -34,7 +34,7 @@ protected:
 	Enemy *e;
 public:
 	EnemyBehavior(Enemy *_e);
-	~EnemyBehavior();
+	virtual ~EnemyBehavior();
 	virtual void logic();
 };
 

@@ -6,7 +6,9 @@
  */
 class Widget {
 public:
-    virtual void    render  () = 0;
+    Widget() {};
+	virtual ~Widget() {};
+	virtual void render() {};
 private:
 };
 
