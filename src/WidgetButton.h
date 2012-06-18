@@ -44,6 +44,7 @@ private:
 
 	SDL_Surface *buttons;
 	Mix_Chunk *click;
+	bool hover;
 	
 	WidgetLabel wlabel;
 	
@@ -53,7 +54,8 @@ public:
 
 	void loadArt();
 	bool checkClick();
-	void render();
+	bool checkClick(int x, int y);
+	void render(SDL_Surface *target = NULL);
 	void refresh();
 
 	std::string label;

@@ -27,6 +27,7 @@ WidgetInput::WidgetInput() {
 	enabled = true;
 	inFocus = false;
 	pressed = false;
+	hover = false;
 	max_characters = 20;
 	
 	loadGraphics(mods->locate("images/menus/input.png"));
@@ -57,6 +58,19 @@ void WidgetInput::loadGraphics(const string& filename) {
 }
 
 void WidgetInput::logic() {
+	if (logic(inpt->mouse.x,inpt->mouse.y))
+		return;
+}
+
+bool WidgetInput::logic(int x, int y) {
+	Point mouse = {x,y};
+
+	// Change the hover state
+	if (isWithin(pos, mouse)) {
+		hover = true;
+	} else {
+		hover = false;
+	}
 
 	if (checkClick()) {
 		inFocus = true;
@@ -97,7 +111,11 @@ void WidgetInput::logic() {
 
 }
 
-void WidgetInput::render() {
+void WidgetInput::render(SDL_Surface *target) {
+	if (target == NULL) {
+		target = screen;
+	}
+
 	SDL_Rect src;
 	src.x = 0;
 	src.y = 0;
@@ -106,22 +124,22 @@ void WidgetInput::render() {
 
 	if (!inFocus)
 		src.y = 0;
-	else if (isWithin(pos, inpt->mouse))
+	else if (hover)
 		src.y = pos.h;
 	else
 		src.y = pos.h;
 
-	SDL_BlitSurface(background, &src, screen, &pos);
+	SDL_BlitSurface(background, &src, target, &pos);
 
 	if (!inFocus) {
-		font->render(text, font_pos.x, font_pos.y, JUSTIFY_LEFT, screen, FONT_WHITE);
+		font->render(text, font_pos.x, font_pos.y, JUSTIFY_LEFT, target, FONT_WHITE);
 	}
 	else {
 		if (cursor_frame < FRAMES_PER_SEC) {
-			font->renderShadowed(text + "|", font_pos.x, font_pos.y, JUSTIFY_LEFT, screen, FONT_WHITE);
+			font->renderShadowed(text + "|", font_pos.x, font_pos.y, JUSTIFY_LEFT, target, FONT_WHITE);
 		}
 		else {
-			font->renderShadowed(text, font_pos.x, font_pos.y, JUSTIFY_LEFT, screen, FONT_WHITE);
+			font->renderShadowed(text, font_pos.x, font_pos.y, JUSTIFY_LEFT, target, FONT_WHITE);
 		}
 	}
 }

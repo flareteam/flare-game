@@ -76,15 +76,26 @@ void WidgetListBox::loadArt() {
 	SDL_FreeSurface(cleanup);
 }
 
+bool WidgetListBox::checkClick() {
+	if (checkClick(inpt->mouse.x,inpt->mouse.y))
+		return true;
+	else
+		return false;
+}
+
 /**
  * Sets and releases the "pressed" visual state of the ListBox
  * If press and release, activate (return true)
  */
-bool WidgetListBox::checkClick() {
+bool WidgetListBox::checkClick(int x, int y) {
+	Point mouse = {x,y};
+
 	refresh();
+	tip_new = checkTooltip(mouse);
+
 	// check ScrollBar clicks
 	if (has_scroll_bar) {
-		switch (scrollbar->checkClick()) {
+		switch (scrollbar->checkClick(mouse.x,mouse.y)) {
 			case 1:
 				scrollUp();
 				break;
@@ -109,7 +120,7 @@ bool WidgetListBox::checkClick() {
 		
 		for(int i=0; i<list_height; i++) {
 			if (i<list_amount) {
-				if (isWithin(rows[i], inpt->mouse) && values[i+cursor] != "") {
+				if (isWithin(rows[i], mouse) && values[i+cursor] != "") {
 					// deselect other options if multi-select is disabled
 					if (!multi_select) {
 						for (int j=0; j<list_amount; j++) {
@@ -131,7 +142,7 @@ bool WidgetListBox::checkClick() {
 	// detect new click
 	if (inpt->pressing[MAIN1]) {
 		for (int i=0; i<list_height;i++) {
-			if (isWithin(rows[i], inpt->mouse)) {
+			if (isWithin(rows[i], mouse)) {
 			
 				inpt->lock[MAIN1] = true;
 				pressed = true;
@@ -291,7 +302,11 @@ void WidgetListBox::scrollDown() {
 	refresh();
 }
 
-void WidgetListBox::render() {
+void WidgetListBox::render(SDL_Surface *target) {
+	if (target == NULL) {
+		target = screen;
+	}
+
 	SDL_Rect src;
 	src.x = 0;
 	src.w = pos.w;
@@ -305,22 +320,21 @@ void WidgetListBox::render() {
 		else
 			src.y = pos.h;
 
-		SDL_BlitSurface(listboxs, &src, screen, &rows[i]);
+		SDL_BlitSurface(listboxs, &src, target, &rows[i]);
 		if (i<list_amount) {
-			vlabels[i].render();
+			vlabels[i].render(target);
 		}
 	}
 
 	if (has_scroll_bar)
-		scrollbar->render();
+		scrollbar->render(target);
 
-	TooltipData tip_new = checkTooltip(inpt->mouse);
 	if (tip_new.num_lines > 0) {
 		if (tip_new.lines[0] != tip_buf.lines[0]) {
 			tip_buf.clear();
 			tip_buf = tip_new;
 		}
-		tip->render(tip_buf, inpt->mouse, STYLE_FLOAT);
+		tip->render(tip_buf, inpt->mouse, STYLE_FLOAT, target);
 	}
 
 

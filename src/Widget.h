@@ -4,9 +4,10 @@
 /**
  * Base interface all widget needs to implement
  */
+#include <SDL.h>
 class Widget {
 public:
-    virtual void    render  () = 0;
+    virtual void    render  (SDL_Surface *target = NULL) = 0;
 private:
 };
 

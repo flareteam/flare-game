@@ -59,13 +59,22 @@ WidgetSlider::~WidgetSlider ()
 }
 
 
-bool WidgetSlider::checkClick ()
+bool WidgetSlider::checkClick() {
+	if (checkClick(inpt->mouse.x,inpt->mouse.y))
+		return true;
+	else
+		return false;
+}
+
+
+bool WidgetSlider::checkClick (int x, int y)
 {
+	Point mouse = {x,y};
 		//
 		//	We are just grabbing the knob
 		//
 	if (!pressed && inpt->pressing[MAIN1]) {
-		if (isWithin(pos_knob, inpt->mouse)) {
+		if (isWithin(pos_knob, mouse)) {
 			pressed = true;
 			inpt->lock[MAIN1] = true;
 			return true;
@@ -83,7 +92,7 @@ bool WidgetSlider::checkClick ()
 		tmp_pos.w = pos.w + (pos_knob.w*4);
 		tmp_pos.h = pos.h;
 
-		if (!isWithin(tmp_pos, inpt->mouse)) {
+		if (!isWithin(tmp_pos, mouse)) {
 			pressed = false;
 			return false;
 		}
@@ -92,12 +101,12 @@ bool WidgetSlider::checkClick ()
 		}
 		// set the value of the slider
 		float tmp;
-		if (inpt->mouse.x < pos.x) {
+		if (mouse.x < pos.x) {
 			tmp = 0;
-		} else if (inpt->mouse.x > pos.x+pos.w) {
+		} else if (mouse.x > pos.x+pos.w) {
 			tmp = pos.w;
 		} else {
-			tmp = inpt->mouse.x - pos.x;
+			tmp = mouse.x - pos.x;
 		}
 
 		pos_knob.x = pos.x + tmp - (pos_knob.w/2);
@@ -126,8 +135,12 @@ int WidgetSlider::getValue () const
 }
 
 
-void WidgetSlider::render ()
+void WidgetSlider::render (SDL_Surface *target)
 {
+	if (target == NULL) {
+		target = screen;
+	}
+
 	SDL_Rect	base;
 	base.x = 0;
 	base.y = 0;
@@ -140,7 +153,7 @@ void WidgetSlider::render ()
 	knob.h = pos_knob.h;
 	knob.w = pos_knob.w;
 
-	SDL_BlitSurface(sl, &base, screen, &pos);
-	SDL_BlitSurface(sl, &knob, screen, &pos_knob);
+	SDL_BlitSurface(sl, &base, target, &pos);
+	SDL_BlitSurface(sl, &knob, target, &pos_knob);
 }
 

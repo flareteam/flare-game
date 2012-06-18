@@ -24,13 +24,18 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 using namespace std;
 
-WidgetScrollBox::WidgetScrollBox (int width, int height) {
+WidgetScrollBox::WidgetScrollBox(int width, int height, int full_height) {
+	pos.x, pos.y = 0;
+	pos.w = width;
+	pos.h = height;
     cursor = 0;
-    contents = createSurface(width,height);
+    contents = createSurface(width,full_height);
+	SDL_FillRect(contents,NULL,0x1A1A1A);
+	SDL_SetAlpha(contents, 0, 0);
 	scrollbar = new WidgetScrollBar(mods->locate("images/menus/buttons/scrollbar_default.png"));
 }
 
-WidgetScrollBox::~WidgetScrollBox () {
+WidgetScrollBox::~WidgetScrollBox() {
 	SDL_FreeSurface(contents);
     delete scrollbar;
 }
@@ -42,16 +47,29 @@ void WidgetScrollBox::scroll(int amount) {
     } else if (cursor > contents->h-pos.h) {
         cursor = contents->h-pos.h;
     }
+	refresh();
 }
 
-void WidgetScrollBox::logic () {
+Point WidgetScrollBox::input_assist(Point mouse) {
+	Point new_mouse;
+	new_mouse.x = mouse.x-pos.x;
+	new_mouse.y = mouse.y-pos.y+cursor;
+	return new_mouse;
+}
+
+void WidgetScrollBox::logic() {
+	logic(inpt->mouse.x,inpt->mouse.y);
+}
+
+void WidgetScrollBox::logic(int x, int y) {
+	Point mouse = {x,y};
 	// check ScrollBar clicks
-    switch (scrollbar->checkClick()) {
+    switch (scrollbar->checkClick(mouse.x,mouse.y)) {
         case 1:
-            scroll(20);
+            scroll(-20);
             break;
         case 2:
-            scroll(-20);
+            scroll(20);
             break;
         case 3:
             cursor = scrollbar->getValue();
@@ -62,17 +80,21 @@ void WidgetScrollBox::logic () {
 }
 
 void WidgetScrollBox::refresh() {
-    scrollbar->refresh(pos.x+pos.w, pos.y, pos.h, cursor, contents->h-pos.h);
+    scrollbar->refresh(pos.x+pos.w, pos.y, pos.h-scrollbar->pos_down.h, cursor, contents->h-pos.h-scrollbar->pos_knob.h);
 }
 
-void WidgetScrollBox::render () {
+void WidgetScrollBox::render(SDL_Surface *target) {
+	if (target == NULL) {
+		target = screen;
+	}
+
 	SDL_Rect    src;
 	src.x = 0;
 	src.y = cursor;
 	src.w = contents->w;
-	src.h = contents->h;
+	src.h = pos.h;
 
-	SDL_BlitSurface(contents, &src, screen, &pos);
-    scrollbar->render();
+	SDL_BlitSurface(contents, &src, target, &pos);
+    scrollbar->render(target);
 }
 

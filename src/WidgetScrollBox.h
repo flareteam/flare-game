@@ -31,12 +31,14 @@ class Widget;
 
 class WidgetScrollBox : public Widget {
 public:
-	WidgetScrollBox (int width, int height);
+	WidgetScrollBox (int width, int height, int full_height);
 	~WidgetScrollBox ();
 
+	Point input_assist(Point mouse);
 	void logic();
+	void logic(int x, int y);
 	void refresh();
-	void render();
+	void render(SDL_Surface *target = NULL);
 
 	SDL_Rect pos;
 	SDL_Surface * contents;
