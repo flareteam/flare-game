@@ -31,6 +31,7 @@ protected:
 	WidgetLabel label;
 
 	std::string boxMsg;
+	bool hasConfirmButton;
 public:
 	MenuConfirm(const std::string&, const std::string&);
 	~MenuConfirm();
