@@ -190,7 +190,10 @@ GameStateConfig::GameStateConfig ()
 			else if (infile.key == "keyboard_layout") setting_num = 46;
 
 			if (setting_num != -1) {
-				if (setting_num < 42) {
+				if (setting_num > 12 && setting_num < 38) {
+					settings_lb[setting_num-1]->setX(x1);
+					settings_lb[setting_num-1]->setY(y1);
+				} else if (setting_num < 42) {
 					settings_lb[setting_num-1]->setX((VIEW_W - 640)/2 + x1);
 					settings_lb[setting_num-1]->setY((VIEW_H - 480)/2 + y1);
 				}
@@ -205,8 +208,8 @@ GameStateConfig::GameStateConfig ()
 					settings_cmb[setting_num-10]->pos.x = (VIEW_W - 640)/2 + x2;
 					settings_cmb[setting_num-10]->pos.y = (VIEW_H - 480)/2 + y2;
 				} else if (setting_num > 12 && setting_num < 39) {
-					settings_key[setting_num-13]->pos.x = (VIEW_W - 640)/2 + x2;
-					settings_key[setting_num-13]->pos.y = (VIEW_H - 480)/2 + y2;
+					settings_key[setting_num-13]->pos.x = x2;
+					settings_key[setting_num-13]->pos.y = y2;
 				} else if (setting_num > 39 && setting_num < 42) {
 					settings_lstb[setting_num-40]->pos.x = (VIEW_W - 640)/2 + x2;
 					settings_lstb[setting_num-40]->pos.y = (VIEW_H - 480)/2 + y2;
