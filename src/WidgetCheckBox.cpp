@@ -66,14 +66,24 @@ void WidgetCheckBox::unCheck ()
 	checked = false;
 }
 
-bool WidgetCheckBox::checkClick ()
+bool WidgetCheckBox::checkClick()
 {
+	if (checkClick(inpt->mouse.x,inpt->mouse.y))
+		return true;
+	else
+		return false;
+}
+
+bool WidgetCheckBox::checkClick (int x, int y)
+{
+	Point mouse = {x,y};
+
 	// main button already in use, new click not allowed
 	if (inpt->lock[MAIN1]) return false;
 
 	if (pressed && !inpt->lock[MAIN1]) { // this is a button release
 		pressed = false;
-	if (isWithin(pos, inpt->mouse)) { // the button release is done over the widget
+	if (isWithin(pos, mouse)) { // the button release is done over the widget
 			// toggle the state of the check button
 			checked = !checked;
 		// activate upon release
@@ -82,7 +92,7 @@ bool WidgetCheckBox::checkClick ()
 	}
 
 	if (inpt->pressing[MAIN1]) {
-		if (isWithin(pos, inpt->mouse)) {
+		if (isWithin(pos, mouse)) {
 			pressed = true;
 			inpt->lock[MAIN1] = true;
 		}
@@ -97,14 +107,18 @@ bool WidgetCheckBox::isChecked () const
 }
 
 
-void WidgetCheckBox::render ()
+void WidgetCheckBox::render (SDL_Surface *target)
 {
+	if (target == NULL) {
+		target = screen;
+	}
+
 	SDL_Rect    src;
 	src.x = 0;
 	src.y = checked ? pos.h : 0;
 	src.h = pos.h;
 	src.w = pos.w;
 
-	SDL_BlitSurface(cb, &src, screen, &pos);
+	SDL_BlitSurface(cb, &src, target, &pos);
 }
 

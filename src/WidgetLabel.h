@@ -50,7 +50,7 @@ private:
 public:
 	WidgetLabel();
 	~WidgetLabel();
-	void render();
+	void render(SDL_Surface *target = NULL);
 	void set(int _x, int _y, int _justify, int _valign, const std::string& _text, int _color);
 	void setX(int _x);
 	void setY(int _y);

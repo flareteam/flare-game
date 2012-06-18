@@ -33,9 +33,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "WidgetButton.h"
 #include "WidgetCheckBox.h"
 #include "WidgetComboBox.h"
-#include "WidgetInput.h"
 #include "WidgetListBox.h"
-#include "WidgetScrollBar.h"
+#include "WidgetScrollBox.h"
 #include "WidgetSlider.h"
 #include "WidgetTabControl.h"
 
@@ -88,13 +87,10 @@ GameStateConfig::GameStateConfig ()
 	keyboard_layout->set(0, "QWERTY");
 	keyboard_layout->set(1, "AZERTY");
 
-	keyboard_scroll = new WidgetScrollBar(mods->locate("images/menus/buttons/scrollbar_default.png"));
-	keyboard_scroll->pos_up.x = (VIEW_W - 640)/2 + 610;
-	keyboard_scroll->pos_up.y = (VIEW_H - 480)/2 + 140;
-	keyboard_scroll->pos_knob.x = (VIEW_W - 640)/2 + 610;
-	keyboard_scroll->pos_knob.y = (VIEW_H - 480)/2 + 155;
-	keyboard_scroll->pos_down.x = (VIEW_W - 640)/2 + 610;
-	keyboard_scroll->pos_down.y = (VIEW_H - 480)/2 + 370;
+	input_scrollbox = new WidgetScrollBox(600, 230, 780);
+	input_scrollbox->pos.x = (VIEW_W - 640)/2 + 10;
+	input_scrollbox->pos.y = (VIEW_H - 480)/2 + 150;
+	input_scrollbox->refresh();
 
 	settings_btn[0] = new WidgetButton(mods->locate("images/menus/buttons/up.png"));
 	settings_btn[1] = new WidgetButton(mods->locate("images/menus/buttons/down.png"));
@@ -375,9 +371,6 @@ GameStateConfig::GameStateConfig ()
 	child_widget.push_back(keyboard_layout);
 	optiontab[child_widget.size()-1] = 3;
 
-	child_widget.push_back(keyboard_scroll);
-	optiontab[child_widget.size()-1] = 3;
-
 	// Add ListBoxes
 	settings_lb[39]->set(msg->get("Active Mods"));
 	child_widget.push_back(settings_lb[39]);
@@ -541,6 +534,7 @@ void GameStateConfig::update () {
 		}
 		settings_key[i]->refresh();
 	}
+	input_scrollbox->refresh();
 }
 
 void GameStateConfig::logic ()
@@ -665,21 +659,12 @@ void GameStateConfig::logic ()
 			}
 
 		}
-		switch (keyboard_scroll->checkClick()) {
-			case 1:
-				scrollUpKeys();
-				break;
-			case 2:
-				scrollDownKeys();
-				break;
-			case 3:
-				//handle knob
-				break;
-			default:
-				break;
-		}
-		for (unsigned int i = 0; i < 50; i++) {
-			if (settings_key[i]->checkClick()) scanKey(i);
+		input_scrollbox->logic();
+		if (isWithin(input_scrollbox->pos,inpt->mouse)) {
+			for (unsigned int i = 0; i < 50; i++) {
+				Point mouse = input_scrollbox->input_assist(inpt->mouse);
+				if (settings_key[i]->checkClick(mouse.x,mouse.y)) scanKey(i);
+			}
 		}
 	}
 	// tab 4 (mods)
@@ -718,6 +703,16 @@ void GameStateConfig::render ()
 
 	int active_tab = tabControl->getActiveTab();
 
+	if (active_tab == 3) {
+		for (unsigned int i = 12; i < 37; i++) {
+			settings_lb[i]->render(input_scrollbox->contents);
+		}
+		for (unsigned int i = 0; i < 50; i++) {
+			settings_key[i]->render(input_scrollbox->contents);
+		}
+		input_scrollbox->render();
+	}
+
 	for (unsigned int i = 3; i < 29; i++) {
 		 if (optiontab[i] == active_tab) child_widget[i]->render();
 	}
@@ -725,16 +720,6 @@ void GameStateConfig::render ()
 		 if (optiontab[i] == active_tab) child_widget[i]->render();
 	}
 
-	if (active_tab == 3) {
-	for (unsigned int i = 12; i < 37; i++) {
-			if ((settings_lb[i]->getY() < 370) && (settings_lb[i]->getY() > 147))
-				settings_lb[i]->render();
-		}
-		for (unsigned int i = 0; i < 50; i++) {
-			if ((settings_key[i]->pos.y < 370) && (settings_key[i]->pos.y > 140))
-				settings_key[i]->render();
-		}
-	}
 }
 
 int GameStateConfig::getVideoModes()
@@ -1030,22 +1015,3 @@ void GameStateConfig::scanKey(int button) {
 	settings_key[button]->refresh();
  }
 
-void GameStateConfig::scrollUpKeys() {
-	for (unsigned int i = 0; i < 50; i++) {
-		 settings_key[i]->pos.y+=20;
-		 settings_key[i]->refresh();
-	}
-	for (unsigned int i = 12; i < 37; i++) {
-	settings_lb[i]->setY(settings_key[i-12]->pos.y + 7);
-	}
-}
-
-void GameStateConfig::scrollDownKeys() {
-	for (unsigned int i = 0; i < 50; i++) {
-		 settings_key[i]->pos.y-=20;
-		 settings_key[i]->refresh();
-	}
-	for (unsigned int i = 12; i < 37; i++) {
-	settings_lb[i]->setY(settings_key[i-12]->pos.y + 7);
-	}
-}

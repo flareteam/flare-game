@@ -37,7 +37,7 @@ class WidgetComboBox;
 class WidgetInput;
 class WidgetLabel;
 class WidgetListBox;
-class WidgetScrollBar;
+class WidgetScrollBox;
 class WidgetSlider;
 class WidgetTabControl;
 
@@ -50,7 +50,7 @@ public:
 	void    render  ();
 
 private:
-	int optiontab[114];
+	int optiontab[113];
 	SDL_Rect* video_modes;
 
 	std::string * language_ISO;
@@ -67,8 +67,6 @@ private:
 	void disableMods();
 	bool setMods();
 	void scanKey(int button);
-	void scrollUpKeys();
-	void scrollDownKeys();
 
 	std::vector<Widget*>      child_widget;
 	WidgetTabControl    * tabControl;
@@ -86,7 +84,7 @@ private:
 	WidgetListBox       * settings_lstb[2];
 	WidgetButton        * settings_btn[4];
 	WidgetComboBox      * keyboard_layout;
-	WidgetScrollBar     * keyboard_scroll;
+	WidgetScrollBox     * input_scrollbox;
 };
 
 #endif

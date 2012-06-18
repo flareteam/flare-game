@@ -122,7 +122,7 @@ private:
 public:
 	WidgetTooltip();
 	Point calcPosition(int style, Point pos, Point size);
-	void render(TooltipData &tip, Point pos, int style);
+	void render(TooltipData &tip, Point pos, int style, SDL_Surface *target = NULL);
 	void createBuffer(TooltipData &tip);
 };
 

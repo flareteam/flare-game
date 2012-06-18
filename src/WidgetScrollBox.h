@@ -1,6 +1,6 @@
 /*
-Copyright © 2012 Clint Bellanger
-Copyright © 2012 davidriod
+Copyright © 2011-2012 Clint Bellanger
+Copyright © 2012 Justin Jacobs
 
 This file is part of FLARE.
 
@@ -17,33 +17,37 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 */
 
 /**
- * class WidgetCheckBox
+ * class WidgetScrollBox
  */
 
-#ifndef WIDGET_CHECKBOX_H
-#define WIDGET_CHECKBOX_H
+#ifndef WIDGET_SCROLLBOX_H
+#define WIDGET_SCROLLBOX_H
+
+#include "SharedResources.h"
+#include "Widget.h"
+#include "WidgetScrollBar.h"
 
 class Widget;
 
-class WidgetCheckBox : public Widget {
+class WidgetScrollBox : public Widget {
 public:
-	WidgetCheckBox (const std::string & fname);
-	~WidgetCheckBox ();
+	WidgetScrollBox (int width, int height, int full_height);
+	~WidgetScrollBox ();
 
-	void Check ();
-	void unCheck ();
-	bool checkClick ();
-	bool checkClick (int x, int y);
-	bool isChecked () const;
-	void render (SDL_Surface *target = NULL);
+	Point input_assist(Point mouse);
+	void logic();
+	void logic(int x, int y);
+	void refresh();
+	void render(SDL_Surface *target = NULL);
 
-	SDL_Rect pos; // This is the position of the button within the screen
+	SDL_Rect pos;
+	SDL_Surface * contents;
 
 private:
-	std::string imgFileName;
-	SDL_Surface * cb;
-	bool checked;
-	bool pressed;
+	void scroll(int amount);
+
+	int cursor;
+	WidgetScrollBar * scrollbar;
 };
 
 #endif

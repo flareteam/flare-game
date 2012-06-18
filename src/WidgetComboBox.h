@@ -29,6 +29,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_mixer.h>
+#include "SharedResources.h"
 
 #include <string>
 
@@ -45,6 +46,7 @@ private:
 
 	SDL_Surface *comboboxs;
 	Mix_Chunk *click;
+	bool hover;
 	
 	WidgetLabel wlabel;
 
@@ -59,9 +61,10 @@ public:
 
 	void loadArt();
 	bool checkClick();
+	bool checkClick(int x, int y);
 	void set(int index, std::string value);
 	std::string get(int index);
-	void render();
+	void render(SDL_Surface *target = NULL);
 	void refresh();
 
 	std::string label;
@@ -69,6 +72,7 @@ public:
 	bool enabled;
 	bool pressed;
 	int selected;
+	Point mouse_point;
 };
 
 #endif
