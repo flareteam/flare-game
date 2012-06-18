@@ -108,7 +108,7 @@ bool WidgetInput::logic(int x, int y) {
 		if (cursor_frame == FRAMES_PER_SEC+FRAMES_PER_SEC) cursor_frame = 0;
 		
 	}
-
+	return true;
 }
 
 void WidgetInput::render(SDL_Surface *target) {
