@@ -41,6 +41,10 @@ InputState::InputState(void) {
 		pressing[key] = false;
 		lock[key] = false;
 	}
+	for (int key=0; key<joy_key_count; key++) {
+		joy_binding[key] = key;
+		joy_pressing[key] = false;
+	}
 	done = false;
 	
 	loadKeyBindings();
@@ -546,9 +550,9 @@ void InputState::handle(bool dump_event) {
 			case SDL_JOYBUTTONDOWN:
 				if(JOYSTICK_DEVICE == event.jbutton.which && ENABLE_JOYSTICK)
 				{
-					for (int key=0; key<key_count; key++) {
-						if (event.jbutton.button == binding[key] || event.jbutton.button == binding_alt[key]) {
-							pressing[key] = true;
+					for (int key=0; key<joy_key_count; key++) {
+						if (event.jbutton.button == joy_binding[key]) {
+							joy_pressing[key] = true;
 						}
 					}
 				}
@@ -556,10 +560,9 @@ void InputState::handle(bool dump_event) {
 			case SDL_JOYBUTTONUP:
 				if(JOYSTICK_DEVICE == event.jbutton.which && ENABLE_JOYSTICK)
 				{
-					for (int key=0; key<key_count; key++) {
-						if (event.jbutton.button == binding[key] || event.jbutton.button == binding_alt[key]) {
-							pressing[key] = false;
-							lock[key] = false;
+					for (int key=0; key<joy_key_count; key++) {
+						if (event.jbutton.button == joy_binding[key]) {
+							joy_pressing[key] = false;
 						}
 					}
 				}

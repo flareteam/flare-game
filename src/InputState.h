@@ -69,8 +69,10 @@ const int DEL = 24;
 class InputState {
 public:
 	static const int key_count = 25;
+	static const int joy_key_count = 2;
 	int binding[key_count];
 	int binding_alt[key_count];
+	int joy_binding[joy_key_count];
 	InputState(void);
 	~InputState();
 
@@ -82,6 +84,7 @@ public:
 
 	bool pressing[key_count];
 	bool lock[key_count];
+	bool joy_pressing[joy_key_count];
 	
 	bool done;
 	Point mouse;

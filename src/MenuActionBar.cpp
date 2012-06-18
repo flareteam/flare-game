@@ -370,12 +370,11 @@ int MenuActionBar::checkAction(Point mouse) {
 	if (inpt->pressing[BAR_8] && slot_enabled[7]) return hotkeys[7];
 	if (inpt->pressing[BAR_9] && slot_enabled[8]) return hotkeys[8];
 	if (inpt->pressing[BAR_0] && slot_enabled[9]) return hotkeys[9];
-	if (inpt->pressing[MAIN1] && slot_enabled[10] && !inpt->lock[MAIN1]) {
-		return hotkeys[10];
-	}
-	if (inpt->pressing[MAIN2] && slot_enabled[11] && !inpt->lock[MAIN2]) {
-		return hotkeys[11];
-	}
+	if (inpt->pressing[MAIN1] && slot_enabled[10] && !inpt->lock[MAIN1]) return hotkeys[10];
+	if (inpt->pressing[MAIN2] && slot_enabled[11] && !inpt->lock[MAIN2]) return hotkeys[11];
+	// joystick actions
+	if (inpt->joy_pressing[0] && slot_enabled[10]) return hotkeys[10];
+	if (inpt->joy_pressing[1] && slot_enabled[11]) return hotkeys[11];
 	return -1;
 }
 
