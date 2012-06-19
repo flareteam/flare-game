@@ -89,6 +89,8 @@ public:
 	bool done;
 	Point mouse;
 	std::string inkeys;
+	int last_key;
+	int last_button;
 };
 
 #endif

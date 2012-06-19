@@ -30,6 +30,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "GameState.h"
 #include <string>
 
+class MenuConfirm;
 class Widget;
 class WidgetButton;
 class WidgetCheckBox;
@@ -85,6 +86,9 @@ private:
 	WidgetButton        * settings_btn[4];
 	WidgetComboBox      * keyboard_layout;
 	WidgetScrollBox     * input_scrollbox;
+	MenuConfirm         * input_confirm;
+
+	int input_key;
 };
 
 #endif
