@@ -422,6 +422,8 @@ GameStateConfig::~GameStateConfig()
 	delete defaults_button;
 	delete cancel_button;
 	delete keyboard_layout;
+	delete input_scrollbox;
+	delete input_confirm;
 
 	SDL_FreeSurface(background);
 
