@@ -244,10 +244,10 @@ void GameStateLoad::loadPreview(int slot) {
 	SDL_FreeSurface(cleanup);
 
 	// composite the hero graphic
-	if (img_body != "") gfx_body = IMG_Load(mods->locate("images/avatar/" + stats[slot].base + "/" + img_body + ".png").c_str());
-	if (img_main != "") gfx_main = IMG_Load(mods->locate("images/avatar/" + stats[slot].base + "/" + img_main + ".png").c_str());
-	if (img_off != "") gfx_off = IMG_Load(mods->locate("images/avatar/" + stats[slot].base + "/" + img_off + ".png").c_str());
-	gfx_head = IMG_Load(mods->locate("images/avatar/" + stats[slot].base + "/" + stats[slot].head + ".png").c_str());
+	if (img_body != "") gfx_body = IMG_Load(mods->locate("images/avatar/" + stats[slot].base + "/preview/" + img_body + ".png").c_str());
+	if (img_main != "") gfx_main = IMG_Load(mods->locate("images/avatar/" + stats[slot].base + "/preview/" + img_main + ".png").c_str());
+	if (img_off != "") gfx_off = IMG_Load(mods->locate("images/avatar/" + stats[slot].base + "/preview/" + img_off + ".png").c_str());
+	gfx_head = IMG_Load(mods->locate("images/avatar/" + stats[slot].base + "/preview/" + stats[slot].head + ".png").c_str());
 
 	if (gfx_body) SDL_SetColorKey(gfx_body, SDL_SRCCOLORKEY, SDL_MapRGB(screen->format, 255, 0, 255));
 	if (gfx_main) SDL_SetColorKey(gfx_main, SDL_SRCCOLORKEY, SDL_MapRGB(screen->format, 255, 0, 255));
@@ -260,10 +260,10 @@ void GameStateLoad::loadPreview(int slot) {
 	src.y = 768; // for this meny we only need facing down
 	dest.y = 0;
 
-	if (gfx_body) SDL_BlitSurface(gfx_body, &src, sprites[slot], &dest);
-	if (gfx_main) SDL_BlitSurface(gfx_main, &src, sprites[slot], &dest);
-	if (gfx_head) SDL_BlitSurface(gfx_head, &src, sprites[slot], &dest);
-	if (gfx_off) SDL_BlitSurface(gfx_off, &src, sprites[slot], &dest);
+	if (gfx_body) SDL_BlitSurface(gfx_body, NULL, sprites[slot], &dest);
+	if (gfx_main) SDL_BlitSurface(gfx_main, NULL, sprites[slot], &dest);
+	if (gfx_head) SDL_BlitSurface(gfx_head, NULL, sprites[slot], &dest);
+	if (gfx_off) SDL_BlitSurface(gfx_off, NULL, sprites[slot], &dest);
 
 	if (gfx_body) SDL_FreeSurface(gfx_body);
 	if (gfx_main) SDL_FreeSurface(gfx_main);
