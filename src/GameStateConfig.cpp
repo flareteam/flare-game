@@ -573,6 +573,8 @@ void GameStateConfig::logic ()
 	} else if (defaults_button->checkClick()) {
 		FULLSCREEN = 0;
 		loadDefaults();
+		delete msg;
+		msg = new MessageEngine();
 		if (keyboard_layout->selected == 0) inpt->defaultQwertyKeyBindings();
 		if (keyboard_layout->selected == 1) inpt->defaultAzertyKeyBindings();
 		update();
@@ -580,6 +582,8 @@ void GameStateConfig::logic ()
 	} else if (cancel_button->checkClick()) {
 		loadSettings();
 		inpt->loadKeyBindings();
+		delete msg;
+		msg = new MessageEngine();
 		update();
 		delete requestedGameState;
 		requestedGameState = new GameStateTitle();
