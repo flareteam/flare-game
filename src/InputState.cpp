@@ -270,6 +270,7 @@ void InputState::handle(bool dump_event) {
 						lock[key] = false;
 					}
 				}
+				last_button = event.button.button;
 				break;
 			case SDL_KEYDOWN:
 				for (int key=0; key<key_count; key++) {
@@ -285,6 +286,7 @@ void InputState::handle(bool dump_event) {
 						lock[key] = false;
 					}
 				}
+				last_key = event.key.keysym.sym;
 				break;
 			case SDL_JOYAXISMOTION:
 				if(JOYSTICK_DEVICE == event.jaxis.which && ENABLE_JOYSTICK)

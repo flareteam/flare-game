@@ -26,6 +26,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "FileParser.h"
 #include "GameStateConfig.h"
 #include "GameStateTitle.h"
+#include "MenuConfirm.h"
 #include "Settings.h"
 #include "SharedResources.h"
 #include "UtilsParsing.h"
@@ -91,6 +92,8 @@ GameStateConfig::GameStateConfig ()
 	input_scrollbox->pos.x = (VIEW_W - 640)/2 + 10;
 	input_scrollbox->pos.y = (VIEW_H - 480)/2 + 150;
 	input_scrollbox->refresh();
+
+	input_confirm = new MenuConfirm("",msg->get("Press a key to assign: "));
 
 	settings_btn[0] = new WidgetButton(mods->locate("images/menus/buttons/up.png"));
 	settings_btn[1] = new WidgetButton(mods->locate("images/menus/buttons/down.png"));
@@ -551,42 +554,44 @@ void GameStateConfig::logic ()
 	int width = eatFirstInt(value, 'x');
 	int height = eatFirstInt(value, 'x');
 
-	tabControl->logic();
+	if (!input_confirm->visible) {
+		tabControl->logic();
 
-	// Ok/Cancel Buttons
-	if (ok_button->checkClick()) {
-		refreshFont();
-		applyVideoSettings(screen, width, height);
-		saveSettings();
-		inpt->saveKeyBindings();
-		if (setMods()) {
-			delete mods;
-			mods = new ModManager();
-			loadTilesetSettings();
+		// Ok/Cancel Buttons
+		if (ok_button->checkClick()) {
+			refreshFont();
+			applyVideoSettings(screen, width, height);
+			saveSettings();
+			inpt->saveKeyBindings();
+			if (setMods()) {
+				delete mods;
+				mods = new ModManager();
+				loadTilesetSettings();
+			}
+			if ((ENABLE_JOYSTICK == 1) && (SDL_NumJoysticks() > 0)) {
+				SDL_JoystickClose(joy);
+				joy = SDL_JoystickOpen(JOYSTICK_DEVICE);
+			}
+			delete requestedGameState;
+			requestedGameState = new GameStateTitle();
+		} else if (defaults_button->checkClick()) {
+			FULLSCREEN = 0;
+			loadDefaults();
+			delete msg;
+			msg = new MessageEngine();
+			if (keyboard_layout->selected == 0) inpt->defaultQwertyKeyBindings();
+			if (keyboard_layout->selected == 1) inpt->defaultAzertyKeyBindings();
+			update();
+			setDefaultResolution();
+		} else if (cancel_button->checkClick()) {
+			loadSettings();
+			inpt->loadKeyBindings();
+			delete msg;
+			msg = new MessageEngine();
+			update();
+			delete requestedGameState;
+			requestedGameState = new GameStateTitle();
 		}
-		if ((ENABLE_JOYSTICK == 1) && (SDL_NumJoysticks() > 0)) {
-			SDL_JoystickClose(joy);
-			joy = SDL_JoystickOpen(JOYSTICK_DEVICE);
-		}
-		delete requestedGameState;
-		requestedGameState = new GameStateTitle();
-	} else if (defaults_button->checkClick()) {
-		FULLSCREEN = 0;
-		loadDefaults();
-		delete msg;
-		msg = new MessageEngine();
-		if (keyboard_layout->selected == 0) inpt->defaultQwertyKeyBindings();
-		if (keyboard_layout->selected == 1) inpt->defaultAzertyKeyBindings();
-		update();
-		setDefaultResolution();
-	} else if (cancel_button->checkClick()) {
-		loadSettings();
-		inpt->loadKeyBindings();
-		delete msg;
-		msg = new MessageEngine();
-		update();
-		delete requestedGameState;
-		requestedGameState = new GameStateTitle();
 	}
 
 	int active_tab = tabControl->getActiveTab();
@@ -636,41 +641,59 @@ void GameStateConfig::logic ()
 	}
 	// tab 3 (input)
 	else if (active_tab == 3) {
-		if (settings_cb[1]->checkClick()) {
-			if (settings_cb[1]->isChecked()) MOUSE_MOVE=1;
-			else MOUSE_MOVE=0;
-		} else if (settings_cb[5]->checkClick()) {
-			if (settings_cb[5]->isChecked()) ENABLE_JOYSTICK=1;
-			else ENABLE_JOYSTICK=0;
-			if (SDL_NumJoysticks() > 0) settings_cmb[0]->refresh();
-		} else if (settings_cmb[0]->checkClick()) {
-			JOYSTICK_DEVICE = settings_cmb[0]->selected;
-		} else if (keyboard_layout->checkClick()) {
-			if (keyboard_layout->selected == 0) inpt->defaultQwertyKeyBindings();
-			if (keyboard_layout->selected == 1) inpt->defaultAzertyKeyBindings();
-			for (unsigned int i = 0; i < 25; i++) {
-				if (inpt->binding[i] < 8) {
-					settings_key[i]->label = mouse_button[inpt->binding[i]-1];
-				} else {
-					settings_key[i]->label = SDL_GetKeyName((SDLKey)inpt->binding[i]);
+		if (input_confirm->visible) {
+			input_confirm->logic();
+			scanKey(input_key);
+		} else {
+			if (settings_cb[1]->checkClick()) {
+				if (settings_cb[1]->isChecked()) MOUSE_MOVE=1;
+				else MOUSE_MOVE=0;
+			} else if (settings_cb[5]->checkClick()) {
+				if (settings_cb[5]->isChecked()) ENABLE_JOYSTICK=1;
+				else ENABLE_JOYSTICK=0;
+				if (SDL_NumJoysticks() > 0) settings_cmb[0]->refresh();
+			} else if (settings_cmb[0]->checkClick()) {
+				JOYSTICK_DEVICE = settings_cmb[0]->selected;
+			} else if (keyboard_layout->checkClick()) {
+				if (keyboard_layout->selected == 0) inpt->defaultQwertyKeyBindings();
+				if (keyboard_layout->selected == 1) inpt->defaultAzertyKeyBindings();
+				for (unsigned int i = 0; i < 25; i++) {
+					if (inpt->binding[i] < 8) {
+						settings_key[i]->label = mouse_button[inpt->binding[i]-1];
+					} else {
+						settings_key[i]->label = SDL_GetKeyName((SDLKey)inpt->binding[i]);
+					}
+					settings_key[i]->refresh();
 				}
-				settings_key[i]->refresh();
-			}
-			for (unsigned int i = 25; i < 50; i++) {
-				if (inpt->binding[i] < 8) {
-					settings_key[i]->label = mouse_button[inpt->binding_alt[i-25]-1];
-				} else {
-					settings_key[i]->label = SDL_GetKeyName((SDLKey)inpt->binding_alt[i-25]);
+				for (unsigned int i = 25; i < 50; i++) {
+					if (inpt->binding[i] < 8) {
+						settings_key[i]->label = mouse_button[inpt->binding_alt[i-25]-1];
+					} else {
+						settings_key[i]->label = SDL_GetKeyName((SDLKey)inpt->binding_alt[i-25]);
+					}
+					settings_key[i]->refresh();
 				}
-				settings_key[i]->refresh();
+
 			}
 
-		}
-		input_scrollbox->logic();
-		if (isWithin(input_scrollbox->pos,inpt->mouse)) {
-			for (unsigned int i = 0; i < 50; i++) {
-				Point mouse = input_scrollbox->input_assist(inpt->mouse);
-				if (settings_key[i]->checkClick(mouse.x,mouse.y)) scanKey(i);
+			input_scrollbox->logic();
+			if (isWithin(input_scrollbox->pos,inpt->mouse)) {
+				for (unsigned int i = 0; i < 50; i++) {
+					Point mouse = input_scrollbox->input_assist(inpt->mouse);
+					if (settings_key[i]->checkClick(mouse.x,mouse.y)) {
+						std::string confirm_msg;
+						if (i < 25)
+							confirm_msg = msg->get("Press a key to assign: ") + binding_name[i];
+						else
+							confirm_msg = msg->get("Press a key to assign: ") + binding_name[i-25];
+						delete input_confirm;
+						input_confirm = new MenuConfirm("",confirm_msg);
+						input_confirm->visible = true;
+						input_key = i;
+						inpt->last_button = -1;
+						inpt->last_key = -1;
+					}
+				}
 			}
 		}
 	}
@@ -727,6 +750,7 @@ void GameStateConfig::render ()
 		 if (optiontab[i] == active_tab) child_widget[i]->render();
 	}
 
+	if (input_confirm->visible) input_confirm->render();
 }
 
 int GameStateConfig::getVideoModes()
@@ -993,32 +1017,25 @@ bool GameStateConfig::setMods() {
  * Scan key binding
  */
 void GameStateConfig::scanKey(int button) {
-	SDL_Event event;
-	bool waitkey = true;
-	while (waitkey) {
+	if (input_confirm->visible) {
+	if (inpt->last_button != -1) {
+		if (button < 25) inpt->binding[button] = inpt->last_button;
+		else inpt->binding_alt[button-25] = inpt->last_button;
 
-		if (SDL_PollEvent (&event)) {
-
-		switch (event.type) {
-			case SDL_MOUSEBUTTONDOWN:
-				if (button < 25) inpt->binding[button] = event.button.button;
-				else inpt->binding_alt[button-25] = event.button.button;
-
-				settings_key[button]->label = mouse_button[event.button.button-1];
-				waitkey = false;
-				break;
-			case SDL_KEYDOWN:
-				if (button < 25) inpt->binding[button] = event.key.keysym.sym;
-				else inpt->binding_alt[button-25] = event.key.keysym.sym;
-
-				settings_key[button]->label = SDL_GetKeyName(event.key.keysym.sym);
-				waitkey = false;
-				break;
-			default:
-				break;
-			}
-		}
+		settings_key[button]->label = mouse_button[inpt->last_button-1];
+		input_confirm->visible = false;
+		settings_key[button]->refresh();
+		return;
 	}
-	settings_key[button]->refresh();
+	if (inpt->last_key != -1) {
+		if (button < 25) inpt->binding[button] = inpt->last_key;
+		else inpt->binding_alt[button-25] = inpt->last_key;
+
+		settings_key[button]->label = SDL_GetKeyName((SDLKey)inpt->last_key);
+		input_confirm->visible = false;
+		settings_key[button]->refresh();
+		return;
+	}
+	}
  }
 
