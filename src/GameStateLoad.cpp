@@ -226,7 +226,6 @@ void GameStateLoad::loadPreview(int slot) {
 	SDL_Surface *gfx_main = NULL;
 	SDL_Surface *gfx_off = NULL;
 	SDL_Surface *gfx_head = NULL;
-	SDL_Rect src;
 	SDL_Rect dest;
 
 	if (equipped[slot][0] != 0)	img_main = items->items[equipped[slot][0]].gfx;
@@ -254,10 +253,9 @@ void GameStateLoad::loadPreview(int slot) {
 	if (gfx_off) SDL_SetColorKey(gfx_off, SDL_SRCCOLORKEY, SDL_MapRGB(screen->format, 255, 0, 255));
 	if (gfx_head) SDL_SetColorKey(gfx_head, SDL_SRCCOLORKEY, SDL_MapRGB(screen->format, 255, 0, 255));
 
-	src.w = dest.w = 512; // for this menu we only need the stance animation
-	src.h = dest.h = 128; // for this menu we only need one direction
-	src.x = dest.x = 0;
-	src.y = 768; // for this meny we only need facing down
+	dest.w = 512; // for this menu we only need the stance animation
+	dest.h = 128; // for this menu we only need one direction
+	dest.x = 0;
 	dest.y = 0;
 
 	if (gfx_body) SDL_BlitSurface(gfx_body, NULL, sprites[slot], &dest);
