@@ -267,6 +267,7 @@ GameStateConfig::GameStateConfig ()
 	child_widget.push_back(cancel_button);
 
 	settings_lb[0]->set(msg->get("Full Screen Mode"));
+	settings_lb[0]->setJustify(JUSTIFY_RIGHT);
 	child_widget.push_back(settings_lb[0]);
 	optiontab[child_widget.size()-1] = 0;
 
@@ -288,6 +289,7 @@ GameStateConfig::GameStateConfig ()
 	optiontab[child_widget.size()-1] = 1;
 
 	settings_lb[8]->set(msg->get("Gamma"));
+	settings_lb[8]->setJustify(JUSTIFY_RIGHT);
 	child_widget.push_back(settings_lb[8]);
 	optiontab[child_widget.size()-1] = 0;
 
@@ -309,6 +311,7 @@ GameStateConfig::GameStateConfig ()
 	optiontab[child_widget.size()-1] = 2;
 
 	settings_lb[3]->set(msg->get("Hardware surfaces"));
+	settings_lb[3]->setJustify(JUSTIFY_RIGHT);
 	child_widget.push_back(settings_lb[3]);
 	optiontab[child_widget.size()-1] = 0;
 
@@ -316,6 +319,7 @@ GameStateConfig::GameStateConfig ()
 	optiontab[child_widget.size()-1] = 0;
 
 	settings_lb[4]->set(msg->get("Double buffering"));
+	settings_lb[4]->setJustify(JUSTIFY_RIGHT);
 	child_widget.push_back(settings_lb[4]);
 	optiontab[child_widget.size()-1] = 0;
 
@@ -340,6 +344,7 @@ GameStateConfig::GameStateConfig ()
 	//Define ComboBoxes and their Labels
 
 	settings_lb[10]->set(msg->get("Resolution"));
+	settings_lb[10]->setJustify(JUSTIFY_RIGHT);
 	child_widget.push_back(settings_lb[10]);
 	optiontab[child_widget.size()-1] = 0;
 
