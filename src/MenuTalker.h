@@ -58,11 +58,14 @@ public:
 	void createBuffer();
 	
 	bool visible;
+	bool vendor_visible;
+	bool has_vendor_button;
 	int event_cursor;
 	bool accept_lock;
 
 	WidgetButton *advanceButton;
 	WidgetButton *closeButton;
+	WidgetButton *vendorButton;
 	
 };
 

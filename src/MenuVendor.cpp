@@ -41,6 +41,7 @@ MenuVendor::MenuVendor(ItemManager *_items, StatBlock *_stats) {
 	stock.init( VENDOR_SLOTS, items, slots_area, ICON_SIZE_32, 8);
 
 	visible = false;
+	talker_visible = false;
 	loadGraphics();
 
 	closeButton = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
