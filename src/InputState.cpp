@@ -96,36 +96,12 @@ void InputState::defaultQwertyKeyBindings ()
 }
 
 
-void InputState::defaultAzertyKeyBindings ()
-{
-    defaultQwertyKeyBindings();
-        //
-        // Just replace a few here and there
-        //
-	binding[UP] = SDLK_z;
-	binding[DOWN] = SDLK_s;
-	binding[LEFT] = SDLK_q;
-	binding[RIGHT] = SDLK_d;
-
-	binding[BAR_1] = binding_alt[BAR_1] = SDLK_AMPERSAND;
-	binding[BAR_2] = binding_alt[BAR_2] = SDLK_WORLD_73;
-	binding[BAR_3] = binding_alt[BAR_3] = SDLK_QUOTEDBL;
-	binding[BAR_4] = binding_alt[BAR_4] = SDLK_QUOTE;
-	binding[BAR_5] = binding_alt[BAR_5] = SDLK_LEFTPAREN;
-	binding[BAR_6] = binding_alt[BAR_6] = SDLK_MINUS;
-	binding[BAR_7] = binding_alt[BAR_7] = SDLK_WORLD_72;
-	binding[BAR_8] = binding_alt[BAR_8] = SDLK_UNDERSCORE;
-	binding[BAR_9] = binding_alt[BAR_9] = SDLK_WORLD_71;
-	binding[BAR_0] = binding_alt[BAR_0] = SDLK_WORLD_64;
-}
-
-
 /**
  * Key bindings are found in config/keybindings.txt
  */
 void InputState::loadKeyBindings() {
 
-	FileParser infile;	
+	FileParser infile;
 	int key1;
 	int key2;
 	int cursor;
@@ -577,7 +553,7 @@ void InputState::handle(bool dump_event) {
 		}
 	}
 
-		
+
 }
 
 InputState::~InputState() {

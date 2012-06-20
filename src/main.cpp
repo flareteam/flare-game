@@ -72,13 +72,6 @@ static void init(const vector<string>	& args) {
     // Load tileset options (must be after ModManager is initialized)
 	loadTilesetSettings();
 
-	// Check the command line if we should override the key binding
-	if (binary_search(args.begin(), args.end(), string("--qwerty"))) {
-		inpt->defaultQwertyKeyBindings();
-	} else if (binary_search(args.begin(), args.end(), string("--azerty"))) {
-		inpt->defaultAzertyKeyBindings();
-	}
-
 	// Add Window Titlebar Icon
 	SDL_WM_SetIcon(IMG_Load(mods->locate("images/logo/icon.png").c_str()),NULL);
 
