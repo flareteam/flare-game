@@ -77,7 +77,6 @@ public:
 	~InputState();
 
 	void defaultQwertyKeyBindings();
-	void defaultAzertyKeyBindings();
 	void loadKeyBindings();
 	void saveKeyBindings();
 	void handle(bool dump_event);

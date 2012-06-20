@@ -87,13 +87,10 @@ GameStateConfig::GameStateConfig ()
 	for (unsigned int i = 0; i < 50; i++) {
 		 settings_key[i] = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
 	}
-	keyboard_layout = new WidgetComboBox(2, mods->locate("images/menus/buttons/combobox_default.png"));
-	keyboard_layout->set(0, "QWERTY");
-	keyboard_layout->set(1, "AZERTY");
 
-	input_scrollbox = new WidgetScrollBox(600, 230, 780);
+	input_scrollbox = new WidgetScrollBox(600, 280, 780);
 	input_scrollbox->pos.x = (VIEW_W - 640)/2 + 10;
-	input_scrollbox->pos.y = (VIEW_H - 480)/2 + 150;
+	input_scrollbox->pos.y = (VIEW_H - 480)/2 + 100;
 	input_scrollbox->refresh();
 
 	settings_btn[0] = new WidgetButton(mods->locate("images/menus/buttons/up.png"));
@@ -191,7 +188,6 @@ GameStateConfig::GameStateConfig ()
 			else if (infile.key == "activemods_deactivate") setting_num = 44;
 			else if (infile.key == "inactivemods_activate") setting_num = 45;
 			else if (infile.key == "secondary_offset") {offset_x = x1; offset_y = y1;}
-			else if (infile.key == "keyboard_layout") setting_num = 46;
 
 			if (setting_num != -1) {
 				if (setting_num > 12 && setting_num < 38) {
@@ -220,9 +216,6 @@ GameStateConfig::GameStateConfig ()
 				} else if (setting_num > 41 && setting_num < 46) {
 					settings_btn[setting_num-42]->pos.x = (VIEW_W - 640)/2 + x1;
 					settings_btn[setting_num-42]->pos.y = (VIEW_H - 480)/2 + y1;
-				} else if (setting_num == 46) {
-					keyboard_layout->pos.x = (VIEW_W - 640)/2 + x1;
-					keyboard_layout->pos.y = (VIEW_H - 480)/2 + y1;
 				}
 			}
 
@@ -379,9 +372,6 @@ GameStateConfig::GameStateConfig ()
 		 child_widget.push_back(settings_key[i]);
 		 optiontab[child_widget.size()-1] = 3;
 	}
-	keyboard_layout->refresh();
-	child_widget.push_back(keyboard_layout);
-	optiontab[child_widget.size()-1] = 3;
 
 	// Add ListBoxes
 	settings_lb[39]->set(msg->get("Active Mods"));
@@ -427,7 +417,6 @@ GameStateConfig::~GameStateConfig()
 	delete ok_button;
 	delete defaults_button;
 	delete cancel_button;
-	delete keyboard_layout;
 	delete input_scrollbox;
 	delete input_confirm;
 	delete defaults_confirm;
@@ -570,8 +559,6 @@ void GameStateConfig::logic ()
 			loadDefaults();
 			delete msg;
 			msg = new MessageEngine();
-			if (keyboard_layout->selected == 0) inpt->defaultQwertyKeyBindings();
-			if (keyboard_layout->selected == 1) inpt->defaultAzertyKeyBindings();
 			update();
 			setDefaultResolution();
 			defaults_confirm->visible = false;
@@ -672,26 +659,6 @@ void GameStateConfig::logic ()
 				if (SDL_NumJoysticks() > 0) settings_cmb[0]->refresh();
 			} else if (settings_cmb[0]->checkClick()) {
 				JOYSTICK_DEVICE = settings_cmb[0]->selected;
-			} else if (keyboard_layout->checkClick()) {
-				if (keyboard_layout->selected == 0) inpt->defaultQwertyKeyBindings();
-				if (keyboard_layout->selected == 1) inpt->defaultAzertyKeyBindings();
-				for (unsigned int i = 0; i < 25; i++) {
-					if (inpt->binding[i] < 8) {
-						settings_key[i]->label = mouse_button[inpt->binding[i]-1];
-					} else {
-						settings_key[i]->label = SDL_GetKeyName((SDLKey)inpt->binding[i]);
-					}
-					settings_key[i]->refresh();
-				}
-				for (unsigned int i = 25; i < 50; i++) {
-					if (inpt->binding[i] < 8) {
-						settings_key[i]->label = mouse_button[inpt->binding_alt[i-25]-1];
-					} else {
-						settings_key[i]->label = SDL_GetKeyName((SDLKey)inpt->binding_alt[i-25]);
-					}
-					settings_key[i]->refresh();
-				}
-
 			}
 
 			input_scrollbox->logic();
