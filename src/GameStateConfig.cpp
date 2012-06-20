@@ -69,6 +69,9 @@ GameStateConfig::GameStateConfig ()
 	defaults_button = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
 	cancel_button = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
 
+	input_confirm = new MenuConfirm("",msg->get("Press a key to assign: "));
+	defaults_confirm = new MenuConfirm(msg->get("Defaults"),msg->get("Set ALL settings to default?"));
+
 	for (unsigned int i = 0; i < 41; i++) {
 		 settings_lb[i] = new WidgetLabel();
 	}
@@ -92,8 +95,6 @@ GameStateConfig::GameStateConfig ()
 	input_scrollbox->pos.x = (VIEW_W - 640)/2 + 10;
 	input_scrollbox->pos.y = (VIEW_H - 480)/2 + 150;
 	input_scrollbox->refresh();
-
-	input_confirm = new MenuConfirm("",msg->get("Press a key to assign: "));
 
 	settings_btn[0] = new WidgetButton(mods->locate("images/menus/buttons/up.png"));
 	settings_btn[1] = new WidgetButton(mods->locate("images/menus/buttons/down.png"));
@@ -424,6 +425,7 @@ GameStateConfig::~GameStateConfig()
 	delete keyboard_layout;
 	delete input_scrollbox;
 	delete input_confirm;
+	delete defaults_confirm;
 
 	SDL_FreeSurface(background);
 
@@ -556,7 +558,23 @@ void GameStateConfig::logic ()
 	int width = eatFirstInt(value, 'x');
 	int height = eatFirstInt(value, 'x');
 
-	if (!input_confirm->visible) {
+	if (defaults_confirm->visible) {
+		defaults_confirm->logic();
+		if (defaults_confirm->confirmClicked) {
+			FULLSCREEN = 0;
+			loadDefaults();
+			delete msg;
+			msg = new MessageEngine();
+			if (keyboard_layout->selected == 0) inpt->defaultQwertyKeyBindings();
+			if (keyboard_layout->selected == 1) inpt->defaultAzertyKeyBindings();
+			update();
+			setDefaultResolution();
+			defaults_confirm->visible = false;
+			defaults_confirm->confirmClicked = false;
+		}
+	}
+
+	if (!input_confirm->visible && !defaults_confirm->visible) {
 		tabControl->logic();
 
 		// Ok/Cancel Buttons
@@ -577,14 +595,7 @@ void GameStateConfig::logic ()
 			delete requestedGameState;
 			requestedGameState = new GameStateTitle();
 		} else if (defaults_button->checkClick()) {
-			FULLSCREEN = 0;
-			loadDefaults();
-			delete msg;
-			msg = new MessageEngine();
-			if (keyboard_layout->selected == 0) inpt->defaultQwertyKeyBindings();
-			if (keyboard_layout->selected == 1) inpt->defaultAzertyKeyBindings();
-			update();
-			setDefaultResolution();
+			defaults_confirm->visible = true;
 		} else if (cancel_button->checkClick()) {
 			loadSettings();
 			inpt->loadKeyBindings();
@@ -599,7 +610,7 @@ void GameStateConfig::logic ()
 	int active_tab = tabControl->getActiveTab();
 
 	// tab 0 (video)
-	if (active_tab == 0) {
+	if (active_tab == 0 && !defaults_confirm->visible) {
 		if (settings_cb[0]->checkClick()) {
 			if (settings_cb[0]->isChecked()) FULLSCREEN=1;
 			else FULLSCREEN=0;
@@ -618,7 +629,7 @@ void GameStateConfig::logic ()
 		}
 	}
 	// tab 1 (audio)
-	else if (active_tab == 1) {
+	else if (active_tab == 1 && !defaults_confirm->visible) {
 		if (audio) {
 			if (settings_sl[0]->checkClick()) {
 				MUSIC_VOLUME=settings_sl[0]->getValue();
@@ -630,7 +641,7 @@ void GameStateConfig::logic ()
 		}
 	}
 	// tab 2 (interface)
-	else if (active_tab == 2) {
+	else if (active_tab == 2 && !defaults_confirm->visible) {
 		if (settings_cb[2]->checkClick()) {
 			if (settings_cb[2]->isChecked()) COMBAT_TEXT=1;
 			else COMBAT_TEXT=0;
@@ -642,7 +653,7 @@ void GameStateConfig::logic ()
 		}
 	}
 	// tab 3 (input)
-	else if (active_tab == 3) {
+	else if (active_tab == 3 && !defaults_confirm->visible) {
 		if (input_confirm->visible) {
 			input_confirm->logic();
 			scanKey(input_key);
@@ -700,7 +711,7 @@ void GameStateConfig::logic ()
 		}
 	}
 	// tab 4 (mods)
-	else if (active_tab == 4) {
+	else if (active_tab == 4 && !defaults_confirm->visible) {
 		if (settings_lstb[0]->checkClick()) {
 			//do nothing
 		} else if (settings_lstb[1]->checkClick()) {
@@ -753,6 +764,7 @@ void GameStateConfig::render ()
 	}
 
 	if (input_confirm->visible) input_confirm->render();
+	if (defaults_confirm->visible) defaults_confirm->render();
 }
 
 int GameStateConfig::getVideoModes()

@@ -87,6 +87,7 @@ private:
 	WidgetComboBox      * keyboard_layout;
 	WidgetScrollBox     * input_scrollbox;
 	MenuConfirm         * input_confirm;
+	MenuConfirm         * defaults_confirm;
 
 	int input_key;
 };
