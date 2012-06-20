@@ -70,7 +70,7 @@ GameStateConfig::GameStateConfig ()
 	cancel_button = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
 
 	input_confirm = new MenuConfirm("",msg->get("Press a key to assign: "));
-	defaults_confirm = new MenuConfirm(msg->get("Defaults"),msg->get("Load default settings?"));
+	defaults_confirm = new MenuConfirm(msg->get("Defaults"),msg->get("Set ALL settings to default?"));
 
 	for (unsigned int i = 0; i < 41; i++) {
 		 settings_lb[i] = new WidgetLabel();
