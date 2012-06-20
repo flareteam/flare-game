@@ -64,6 +64,7 @@ public:
 	void saveInventory();
 
 	bool visible;
+	bool talker_visible;
 	SDL_Rect slots_area;
 };
 

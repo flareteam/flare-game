@@ -375,24 +375,50 @@ void GameStatePlay::checkNPCInteraction() {
 	if (npc_click != -1 && interact_distance < max_interact_distance && pc->stats.alive && !pc->stats.transformed) {
 		inpt->lock[MAIN1] = true;
 
-		if (npcs->npcs[npc_id]->vendor) {
+		if ((npcs->npcs[npc_id]->vendor && !npcs->npcs[npc_id]->talker)) {
+			menu->vendor->talker_visible = false;
+			menu->talker->vendor_visible = true;
+		}
+		else if (npcs->npcs[npc_id]->talker) {
+			menu->vendor->talker_visible = true;
+			menu->talker->vendor_visible = false;
+
+			npcs->npcs[npc_id]->playSound(NPC_VOX_INTRO);
+        }
+	}
+
+	if (npc_id != -1 && interact_distance < max_interact_distance && pc->stats.alive && !pc->stats.transformed) {
+		if (menu->talker->vendor_visible && !menu->vendor->talker_visible) {
 			menu->vendor->npc = npcs->npcs[npc_id];
 			menu->vendor->setInventory();
 			menu->closeAll(false);
+			menu->talker->visible = false;
 			menu->vendor->visible = true;
 			menu->inv->visible = true;
 
-			if (!npcs->npcs[npc_id]->playSound(NPC_VOX_INTRO))
-				Mix_PlayChannel(-1, menu->sfx_open, 0);
-		}
-		else if(npcs->npcs[npc_id]->talker) {
+			Mix_PlayChannel(-1, menu->sfx_open, 0);
+
+			menu->talker->vendor_visible = false;
+			menu->vendor->talker_visible = false;
+
+		} else if (!menu->talker->vendor_visible && menu->vendor->talker_visible && npcs->npcs[npc_id]->talker) {
+			if (npcs->npcs[npc_id]->vendor) {
+				menu->talker->has_vendor_button = true;
+				menu->talker->vendor_visible = false;
+				menu->vendor->talker_visible = true;
+			} else {
+				menu->talker->has_vendor_button = false;
+			}
 			menu->talker->npc = npcs->npcs[npc_id];
 			menu->talker->chooseDialogNode();
 			menu->closeAll(false);
 			menu->talker->visible = true;
+			menu->vendor->visible = false;
+			menu->inv->visible = false;
 
-			npcs->npcs[npc_id]->playSound(NPC_VOX_INTRO);
-        }
+			menu->talker->vendor_visible = false;
+			menu->vendor->talker_visible = false;
+		}
 	}
 
 	// check for walking away from an NPC
