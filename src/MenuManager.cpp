@@ -137,6 +137,8 @@ void MenuManager::logic() {
 	// only allow the vendor window to be open if the inventory is open
 	if (vendor->visible && !(inv->visible)) {
 	  closeLeft(true);
+      if (vendor->talker_visible && !(inv->visible))
+          closeRight(true);
 	}
 
 	if (!inpt->pressing[INVENTORY] && !inpt->pressing[POWERS] && !inpt->pressing[CHARACTER] && !inpt->pressing[LOG])
@@ -567,6 +569,7 @@ void MenuManager::closeAll(bool play_sound) {
 	if (!dragging) {
 		closeLeft(play_sound);
 		closeRight(false);
+		vendor->talker_visible = false;
 	}
 }
 
