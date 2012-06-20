@@ -73,7 +73,7 @@ bool WidgetSlider::checkClick (int x, int y)
 		//
 		//	We are just grabbing the knob
 		//
-	if (!pressed && inpt->pressing[MAIN1]) {
+	if (!pressed && inpt->pressing[MAIN1] && !inpt->lock[MAIN1]) {
 		if (isWithin(pos_knob, mouse)) {
 			pressed = true;
 			inpt->lock[MAIN1] = true;
