@@ -64,7 +64,7 @@ GameStateConfig::GameStateConfig ()
 	SDL_FreeSurface(tmp);
 
 	// Initialize Widgets
-	tabControl = new WidgetTabControl(5);
+	tabControl = new WidgetTabControl(6);
 	ok_button = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
 	defaults_button = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
 	cancel_button = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
@@ -88,9 +88,9 @@ GameStateConfig::GameStateConfig ()
 		 settings_key[i] = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
 	}
 
-	input_scrollbox = new WidgetScrollBox(600, 280, 780);
+	input_scrollbox = new WidgetScrollBox(600, 350, 780);
 	input_scrollbox->pos.x = (VIEW_W - 640)/2 + 10;
-	input_scrollbox->pos.y = (VIEW_H - 480)/2 + 100;
+	input_scrollbox->pos.y = (VIEW_H - 480)/2 + 30;
 	input_scrollbox->refresh();
 
 	settings_btn[0] = new WidgetButton(mods->locate("images/menus/buttons/up.png"));
@@ -237,7 +237,8 @@ GameStateConfig::GameStateConfig ()
 	tabControl->setTabTitle(1, msg->get("Audio"));
 	tabControl->setTabTitle(2, msg->get("Interface"));
 	tabControl->setTabTitle(3, msg->get("Input"));
-	tabControl->setTabTitle(4, msg->get("Mods"));
+	tabControl->setTabTitle(4, msg->get("Keybindings"));
+	tabControl->setTabTitle(5, msg->get("Mods"));
 	tabControl->updateHeader();
 
 	// Define widgets
@@ -247,7 +248,7 @@ GameStateConfig::GameStateConfig ()
 	ok_button->refresh();
 	child_widget.push_back(ok_button);
 
-    defaults_button->label = msg->get("Defaults");
+	defaults_button->label = msg->get("Defaults");
 	defaults_button->pos.x = VIEW_W_HALF - defaults_button->pos.w/2;
 	defaults_button->pos.y = VIEW_H - (cancel_button->pos.h*2);
 	defaults_button->refresh();
@@ -361,35 +362,35 @@ GameStateConfig::GameStateConfig ()
 	for (unsigned int i = 12; i < 37; i++) {
 		 settings_lb[i]->set(binding_name[i-12]);
 		 child_widget.push_back(settings_lb[i]);
-		 optiontab[child_widget.size()-1] = 3;
+		 optiontab[child_widget.size()-1] = 4;
 	}
 	for (unsigned int i = 0; i < 50; i++) {
 		 child_widget.push_back(settings_key[i]);
-		 optiontab[child_widget.size()-1] = 3;
+		 optiontab[child_widget.size()-1] = 4;
 	}
 
 	// Add ListBoxes
 	settings_lb[39]->set(msg->get("Active Mods"));
 	child_widget.push_back(settings_lb[39]);
-	optiontab[child_widget.size()-1] = 4;
+	optiontab[child_widget.size()-1] = 5;
 
 	settings_lstb[0]->multi_select = true;
 	for (unsigned int i = 0; i < mods->mod_list.size() ; i++) {
 		settings_lstb[0]->append(mods->mod_list[i],"");
 	}
 	child_widget.push_back(settings_lstb[0]);
-	optiontab[child_widget.size()-1] = 4;
+	optiontab[child_widget.size()-1] = 5;
 
 	settings_lb[40]->set(msg->get("Avaliable Mods"));
 	child_widget.push_back(settings_lb[40]);
-	optiontab[child_widget.size()-1] = 4;
+	optiontab[child_widget.size()-1] = 5;
 
 	settings_lstb[1]->multi_select = true;
 	for (unsigned int i = 0; i < mod_dirs.size(); i++) {
 		settings_lstb[1]->append(mod_dirs[i],"");
 	}
 	child_widget.push_back(settings_lstb[1]);
-	optiontab[child_widget.size()-1] = 4;
+	optiontab[child_widget.size()-1] = 5;
 
 	// Add Button labels
 	settings_btn[2]->label = msg->get("<< Deactivate");
@@ -398,7 +399,7 @@ GameStateConfig::GameStateConfig ()
 	for (unsigned int i=0; i<4; i++) {
 		settings_btn[i]->refresh();
 		child_widget.push_back(settings_btn[i]);
-		optiontab[child_widget.size()-1] = 4;
+		optiontab[child_widget.size()-1] = 5;
 	}
 
 
@@ -641,21 +642,23 @@ void GameStateConfig::logic ()
 	}
 	// tab 3 (input)
 	else if (active_tab == 3 && !defaults_confirm->visible) {
+		if (settings_cb[1]->checkClick()) {
+			if (settings_cb[1]->isChecked()) MOUSE_MOVE=1;
+			else MOUSE_MOVE=0;
+		} else if (settings_cb[5]->checkClick()) {
+			if (settings_cb[5]->isChecked()) ENABLE_JOYSTICK=1;
+			else ENABLE_JOYSTICK=0;
+			if (SDL_NumJoysticks() > 0) settings_cmb[0]->refresh();
+		} else if (settings_cmb[0]->checkClick()) {
+			JOYSTICK_DEVICE = settings_cmb[0]->selected;
+		}
+	}
+	// tab 4 (keybindings)
+	else if (active_tab == 4 && !defaults_confirm->visible) {
 		if (input_confirm->visible) {
 			input_confirm->logic();
 			scanKey(input_key);
 		} else {
-			if (settings_cb[1]->checkClick()) {
-				if (settings_cb[1]->isChecked()) MOUSE_MOVE=1;
-				else MOUSE_MOVE=0;
-			} else if (settings_cb[5]->checkClick()) {
-				if (settings_cb[5]->isChecked()) ENABLE_JOYSTICK=1;
-				else ENABLE_JOYSTICK=0;
-				if (SDL_NumJoysticks() > 0) settings_cmb[0]->refresh();
-			} else if (settings_cmb[0]->checkClick()) {
-				JOYSTICK_DEVICE = settings_cmb[0]->selected;
-			}
-
 			input_scrollbox->logic();
 			if (isWithin(input_scrollbox->pos,inpt->mouse)) {
 				for (unsigned int i = 0; i < 50; i++) {
@@ -677,8 +680,8 @@ void GameStateConfig::logic ()
 			}
 		}
 	}
-	// tab 4 (mods)
-	else if (active_tab == 4 && !defaults_confirm->visible) {
+	// tab 5 (mods)
+	else if (active_tab == 5 && !defaults_confirm->visible) {
 		if (settings_lstb[0]->checkClick()) {
 			//do nothing
 		} else if (settings_lstb[1]->checkClick()) {
@@ -713,7 +716,7 @@ void GameStateConfig::render ()
 
 	int active_tab = tabControl->getActiveTab();
 
-	if (active_tab == 3) {
+	if (active_tab == 4) {
 		for (unsigned int i = 12; i < 37; i++) {
 			settings_lb[i]->render(input_scrollbox->contents);
 		}
@@ -913,7 +916,7 @@ bool GameStateConfig::applyVideoSettings(SDL_Surface *src, int width, int height
 
 	// If the new settings fail, revert to the old ones
 	if (src == NULL) {
-        fprintf (stderr, "Error during SDL_SetVideoMode: %s\n", SDL_GetError());
+		fprintf (stderr, "Error during SDL_SetVideoMode: %s\n", SDL_GetError());
 
 		flags = 0;
 		if (tmp_fs) flags = flags | SDL_FULLSCREEN;
