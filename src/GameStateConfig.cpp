@@ -456,7 +456,7 @@ GameStateConfig::~GameStateConfig()
 }
 
 void GameStateConfig::update () {
-	if (FULLSCREEN == 1) settings_cb[0]->Check();
+	if (FULLSCREEN) settings_cb[0]->Check();
 	else settings_cb[0]->unCheck();
 	if (audio) {
 		settings_sl[0]->set(0,128,MUSIC_VOLUME);
@@ -467,18 +467,18 @@ void GameStateConfig::update () {
 		settings_sl[0]->set(0,128,0);
 		settings_sl[1]->set(0,128,0);
 	}
-	if (MOUSE_MOVE == 1) settings_cb[1]->Check();
+	if (MOUSE_MOVE) settings_cb[1]->Check();
 	else settings_cb[1]->unCheck();
-	if (COMBAT_TEXT == 1) settings_cb[2]->Check();
+	if (COMBAT_TEXT) settings_cb[2]->Check();
 	else settings_cb[2]->unCheck();
-	if (HWSURFACE == 1) settings_cb[3]->Check();
+	if (HWSURFACE) settings_cb[3]->Check();
 	else settings_cb[3]->unCheck();
-	if (DOUBLEBUF == 1) settings_cb[4]->Check();
+	if (DOUBLEBUF) settings_cb[4]->Check();
 	else settings_cb[4]->unCheck();
-	if (ENABLE_JOYSTICK == 1) settings_cb[5]->Check();
+	if (ENABLE_JOYSTICK) settings_cb[5]->Check();
 	else settings_cb[5]->unCheck();
 
-	if ((ENABLE_JOYSTICK == 1) && (SDL_NumJoysticks() > 0)) {
+	if ((ENABLE_JOYSTICK) && (SDL_NumJoysticks() > 0)) {
 		SDL_JoystickClose(joy);
 		joy = SDL_JoystickOpen(JOYSTICK_DEVICE);
 		settings_cmb[0]->selected = JOYSTICK_DEVICE;
@@ -581,7 +581,7 @@ void GameStateConfig::logic ()
 				mods = new ModManager();
 				loadTilesetSettings();
 			}
-			if ((ENABLE_JOYSTICK == 1) && (SDL_NumJoysticks() > 0)) {
+			if ((ENABLE_JOYSTICK) && (SDL_NumJoysticks() > 0)) {
 				SDL_JoystickClose(joy);
 				joy = SDL_JoystickOpen(JOYSTICK_DEVICE);
 			}
@@ -605,14 +605,14 @@ void GameStateConfig::logic ()
 	// tab 0 (video)
 	if (active_tab == 0 && !defaults_confirm->visible) {
 		if (settings_cb[0]->checkClick()) {
-			if (settings_cb[0]->isChecked()) FULLSCREEN=1;
-			else FULLSCREEN=0;
+			if (settings_cb[0]->isChecked()) FULLSCREEN=true;
+			else FULLSCREEN=false;
 		} else if (settings_cb[3]->checkClick()) {
-			if (settings_cb[3]->isChecked()) HWSURFACE=1;
-			else HWSURFACE=0;
+			if (settings_cb[3]->isChecked()) HWSURFACE=true;
+			else HWSURFACE=false;
 		} else if (settings_cb[4]->checkClick()) {
-			if (settings_cb[4]->isChecked()) DOUBLEBUF=1;
-			else DOUBLEBUF=0;
+			if (settings_cb[4]->isChecked()) DOUBLEBUF=true;
+			else DOUBLEBUF=false;
 		} else if (settings_cmb[1]->checkClick()) {
 			active = settings_cmb[1]->selected;
 			value = settings_cmb[1]->get(active) + 'x';
@@ -636,8 +636,8 @@ void GameStateConfig::logic ()
 	// tab 2 (interface)
 	else if (active_tab == 2 && !defaults_confirm->visible) {
 		if (settings_cb[2]->checkClick()) {
-			if (settings_cb[2]->isChecked()) COMBAT_TEXT=1;
-			else COMBAT_TEXT=0;
+			if (settings_cb[2]->isChecked()) COMBAT_TEXT=true;
+			else COMBAT_TEXT=false;
 		} else if (settings_cmb[2]->checkClick()) {
 			active = settings_cmb[2]->selected;
 			LANGUAGE = language_ISO[active];
@@ -648,11 +648,11 @@ void GameStateConfig::logic ()
 	// tab 3 (input)
 	else if (active_tab == 3 && !defaults_confirm->visible) {
 		if (settings_cb[1]->checkClick()) {
-			if (settings_cb[1]->isChecked()) MOUSE_MOVE=1;
-			else MOUSE_MOVE=0;
+			if (settings_cb[1]->isChecked()) MOUSE_MOVE=true;
+			else MOUSE_MOVE=false;
 		} else if (settings_cb[5]->checkClick()) {
-			if (settings_cb[5]->isChecked()) ENABLE_JOYSTICK=1;
-			else ENABLE_JOYSTICK=0;
+			if (settings_cb[5]->isChecked()) ENABLE_JOYSTICK=true;
+			else ENABLE_JOYSTICK=false;
 			if (SDL_NumJoysticks() > 0) settings_cmb[0]->refresh();
 		} else if (settings_cmb[0]->checkClick()) {
 			JOYSTICK_DEVICE = settings_cmb[0]->selected;
