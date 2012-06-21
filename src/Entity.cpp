@@ -59,25 +59,49 @@ bool Entity::move() {
 		speed_straight *= 2;
 	}
 
+	int tile_x;
+	int tile_y;
+	
+	// clear current tile
+	tile_x = stats.pos.x / UNITS_PER_TILE;
+	tile_y = stats.pos.y / UNITS_PER_TILE;	
+	map->collider.colmap[tile_x][tile_y] = BLOCKS_NONE;
+	
+	bool full_move;
+	
 	switch (stats.direction) {
 		case 0:
-			return map->collider.move(stats.pos.x, stats.pos.y, -1, 1, speed_diagonal);
+			full_move = map->collider.move(stats.pos.x, stats.pos.y, -1, 1, speed_diagonal);
+			break;
 		case 1:
-			return map->collider.move(stats.pos.x, stats.pos.y, -1, 0, speed_straight);
+			full_move =  map->collider.move(stats.pos.x, stats.pos.y, -1, 0, speed_straight);
+			break;
 		case 2:
-			return map->collider.move(stats.pos.x, stats.pos.y, -1, -1, speed_diagonal);
+			full_move =  map->collider.move(stats.pos.x, stats.pos.y, -1, -1, speed_diagonal);
+			break;
 		case 3:
-			return map->collider.move(stats.pos.x, stats.pos.y, 0, -1, speed_straight);
+			full_move =  map->collider.move(stats.pos.x, stats.pos.y, 0, -1, speed_straight);
+			break;
 		case 4:
-			return map->collider.move(stats.pos.x, stats.pos.y, 1, -1, speed_diagonal);
+			full_move =  map->collider.move(stats.pos.x, stats.pos.y, 1, -1, speed_diagonal);
+			break;
 		case 5:
-			return map->collider.move(stats.pos.x, stats.pos.y, 1, 0, speed_straight);
+			full_move =  map->collider.move(stats.pos.x, stats.pos.y, 1, 0, speed_straight);
+			break;
 		case 6:
-			return map->collider.move(stats.pos.x, stats.pos.y, 1, 1, speed_diagonal);
+			full_move =  map->collider.move(stats.pos.x, stats.pos.y, 1, 1, speed_diagonal);
+			break;
 		case 7:
-			return map->collider.move(stats.pos.x, stats.pos.y, 0, 1, speed_straight);
+			full_move =  map->collider.move(stats.pos.x, stats.pos.y, 0, 1, speed_straight);
+			break;
 	}
-	return true;
+
+	// block current tile
+	tile_x = stats.pos.x / UNITS_PER_TILE;
+	tile_y = stats.pos.y / UNITS_PER_TILE;	
+	map->collider.colmap[tile_x][tile_y] = BLOCKS_ENTITIES;
+	
+	return full_move;
 }
 
 /**
