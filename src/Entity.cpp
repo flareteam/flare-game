@@ -59,13 +59,8 @@ bool Entity::move() {
 		speed_straight *= 2;
 	}
 
-	int tile_x;
-	int tile_y;
-	
 	// clear current tile
-	tile_x = stats.pos.x / UNITS_PER_TILE;
-	tile_y = stats.pos.y / UNITS_PER_TILE;	
-	map->collider.colmap[tile_x][tile_y] = BLOCKS_NONE;
+	map->collider.unblock(stats.pos.x,stats.pos.y);
 	
 	bool full_move;
 	
@@ -97,9 +92,7 @@ bool Entity::move() {
 	}
 
 	// block current tile
-	tile_x = stats.pos.x / UNITS_PER_TILE;
-	tile_y = stats.pos.y / UNITS_PER_TILE;	
-	map->collider.colmap[tile_x][tile_y] = BLOCKS_ENTITIES;
+	map->collider.block(stats.pos.x,stats.pos.y);
 	
 	return full_move;
 }

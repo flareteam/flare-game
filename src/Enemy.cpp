@@ -231,12 +231,14 @@ bool Enemy::takeHit(Hazard h) {
 			if (stats.hp <= 0 && crit) {
 				doRewards();
 				stats.cur_state = ENEMY_CRITDEAD;
-				map->collider.colmap[stats.pos.x / UNITS_PER_TILE][stats.pos.y / UNITS_PER_TILE] = BLOCKS_NONE;
+				map->collider.unblock(stats.pos.x,stats.pos.y);
+
 			}
 			else if (stats.hp <= 0) {
 				doRewards();
 				stats.cur_state = ENEMY_DEAD;
-				map->collider.colmap[stats.pos.x / UNITS_PER_TILE][stats.pos.y / UNITS_PER_TILE] = BLOCKS_NONE;
+				map->collider.unblock(stats.pos.x,stats.pos.y);				
+
 			}
 			// don't go through a hit animation if stunned
 			else if (h.stun_duration == 0) {

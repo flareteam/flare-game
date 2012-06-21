@@ -69,7 +69,7 @@ void BehaviorStandard::doUpkeep() {
 	if (e->stats.hp <= 0 && !(e->stats.cur_state == ENEMY_DEAD || e->stats.cur_state == ENEMY_CRITDEAD)) {
 		e->doRewards();
 		e->stats.cur_state = ENEMY_DEAD;
-		e->map->collider.colmap[e->stats.pos.x / UNITS_PER_TILE][e->stats.pos.y / UNITS_PER_TILE] = BLOCKS_NONE;
+		e->map->collider.unblock(e->stats.pos.x,e->stats.pos.y);	
 	}
 	
 	// TEMP: check for bleeding spurt

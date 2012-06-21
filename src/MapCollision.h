@@ -61,6 +61,9 @@ public:
 	bool line_of_sight(int x1, int y1, int x2, int y2);
 	bool line_of_movement(int x1, int y1, int x2, int y2);
 	bool compute_path(Point start, Point end, std::vector<Point> &path, unsigned int limit = 100);
+	
+	void block(int map_x, int map_y);
+	void unblock(int map_x, int map_y);
 
 	unsigned short colmap[256][256];
 	Point map_size;

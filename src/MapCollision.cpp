@@ -307,6 +307,27 @@ bool MapCollision::compute_path(Point start, Point end, vector<Point> &path, uns
 	return !path.empty();
 }
 
+void MapCollision::block(int map_x, int map_y) {
+	int tile_x = map_x / UNITS_PER_TILE;
+	int tile_y = map_y / UNITS_PER_TILE;
+
+	if (colmap[tile_x][tile_y] == BLOCKS_NONE) {
+		colmap[tile_x][tile_y] = BLOCKS_ENTITIES;
+	}
+	
+}
+
+void MapCollision::unblock(int map_x, int map_y) {
+	int tile_x = map_x / UNITS_PER_TILE;
+	int tile_y = map_y / UNITS_PER_TILE;
+
+	if (colmap[tile_x][tile_y] == BLOCKS_ENTITIES) {
+		colmap[tile_x][tile_y] = BLOCKS_NONE;
+	}
+
+}
+
+
 MapCollision::~MapCollision() {
 }
 

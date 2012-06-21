@@ -25,7 +25,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 using namespace std;
 
 WidgetScrollBox::WidgetScrollBox(int width, int height, int full_height) {
-	pos.x, pos.y = 0;
+	pos.x = pos.y = 0;
 	pos.w = width;
 	pos.h = height;
     cursor = 0;
