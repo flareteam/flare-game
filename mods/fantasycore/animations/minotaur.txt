@@ -5,55 +5,55 @@ render_offset_y=96
 
 [stance]
 position=0
-frames=4
+frames=8
 duration=180
-type=back_forth
+type=looped
 
 [run]
-position=4
+position=8
 frames=8
 duration=60
 type=looped
 
 [melee]
-position=12
-frames=4
+position=16
+frames=8
 duration=120
 type=play_once
 
+[block]
+position=24
+frames=8
+duration=30
+type=play_once
+
 [ment]
-position=12
-frames=4
+position=40
+frames=8
 duration=90
 type=play_once
 
 [ranged]
-position=12
-frames=4
-duration=90
-type=play_once
-
-[block]
-position=16
-frames=2
+position=56
+frames=8
 duration=90
 type=play_once
 
 [hit]
-position=18
-frames=2
+position=48
+frames=4
 duration=60
-type=play_once
+type=back_forth
 
 [die]
-position=18
-frames=6
+position=48
+frames=8
 duration=120
 type=play_once
 
 [critdie]
-position=18
-frames=6
+position=48
+frames=8
 duration=120
 type=play_once
 
