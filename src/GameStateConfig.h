@@ -89,6 +89,7 @@ private:
 	MenuConfirm         * defaults_confirm;
 
 	int input_key;
+	int mods_total;
 };
 
 #endif
