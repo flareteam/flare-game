@@ -33,12 +33,6 @@ using namespace std;
 TileSet::TileSet() {
 	sprites = NULL;
 	reset();
-
-	for (int i = 0; i < TILE_SET_MAX_TILES; i++) {
-		anim[i].current_frame = 1;
-		anim[i].duration = 0;
-		anim[i].frames = 1;
-	}
 }
 
 void TileSet::reset() {
@@ -56,6 +50,12 @@ void TileSet::reset() {
 		tiles[i].offset.x = 0;
 		tiles[i].offset.y = 0;
 	}
+	
+	for (int i = 0; i < TILE_SET_MAX_TILES; i++) {
+		anim[i].current_frame = 1;
+		anim[i].duration = 0;
+		anim[i].frames = 1;
+	}	
 }
 
 void TileSet::loadGraphics(const std::string& filename) {
