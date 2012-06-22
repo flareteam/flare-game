@@ -269,6 +269,7 @@ GameStateConfig::GameStateConfig ()
 	optiontab[child_widget.size()-1] = 0;
 
 	settings_lb[6]->set(msg->get("Music Volume"));
+	settings_lb[6]->setJustify(JUSTIFY_RIGHT);
 	child_widget.push_back(settings_lb[6]);
 	optiontab[child_widget.size()-1] = 1;
 
@@ -276,6 +277,7 @@ GameStateConfig::GameStateConfig ()
 	optiontab[child_widget.size()-1] = 1;
 
 	settings_lb[7]->set(msg->get("Sound Volume"));
+	settings_lb[7]->setJustify(JUSTIFY_RIGHT);
 	child_widget.push_back(settings_lb[7]);
 	optiontab[child_widget.size()-1] = 1;
 
@@ -291,6 +293,7 @@ GameStateConfig::GameStateConfig ()
 	optiontab[child_widget.size()-1] = 0;
 
 	settings_lb[1]->set(msg->get("Move hero using mouse"));
+	settings_lb[1]->setJustify(JUSTIFY_RIGHT);
 	child_widget.push_back(settings_lb[1]);
 	optiontab[child_widget.size()-1] = 3;
 
@@ -298,6 +301,7 @@ GameStateConfig::GameStateConfig ()
 	optiontab[child_widget.size()-1] = 3;
 
 	settings_lb[2]->set(msg->get("Show combat text"));
+	settings_lb[2]->setJustify(JUSTIFY_RIGHT);
 	child_widget.push_back(settings_lb[2]);
 	optiontab[child_widget.size()-1] = 2;
 
@@ -321,6 +325,7 @@ GameStateConfig::GameStateConfig ()
 	optiontab[child_widget.size()-1] = 0;
 
 	settings_lb[5]->set(msg->get("Use joystick"));
+	settings_lb[5]->setJustify(JUSTIFY_RIGHT);
 	child_widget.push_back(settings_lb[5]);
 	optiontab[child_widget.size()-1] = 3;
 
@@ -346,6 +351,7 @@ GameStateConfig::GameStateConfig ()
 	optiontab[child_widget.size()-1] = 0;
 
 	settings_lb[11]->set(msg->get("Language"));
+	settings_lb[11]->setJustify(JUSTIFY_RIGHT);
 	child_widget.push_back(settings_lb[11]);
 	optiontab[child_widget.size()-1] = 2;
 
@@ -353,6 +359,7 @@ GameStateConfig::GameStateConfig ()
 	optiontab[child_widget.size()-1] = 2;
 
 	settings_lb[9]->set(msg->get("Joystick"));
+	settings_lb[9]->setJustify(JUSTIFY_RIGHT);
 	child_widget.push_back(settings_lb[9]);
 	optiontab[child_widget.size()-1] = 3;
 
@@ -366,6 +373,7 @@ GameStateConfig::GameStateConfig ()
 	// Add Key Binding objects
 	for (unsigned int i = 12; i < 37; i++) {
 		 settings_lb[i]->set(binding_name[i-12]);
+		 settings_lb[i]->setJustify(JUSTIFY_RIGHT);
 		 child_widget.push_back(settings_lb[i]);
 		 optiontab[child_widget.size()-1] = 4;
 	}
