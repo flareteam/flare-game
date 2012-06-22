@@ -388,7 +388,10 @@ void GameStatePlay::checkNPCInteraction() {
 	}
 
 	if (npc_id != -1 && interact_distance < max_interact_distance && pc->stats.alive && !pc->stats.transformed) {
+
 		if (menu->talker->vendor_visible && !menu->vendor->talker_visible) {
+		
+			// begin trading
 			menu->vendor->npc = npcs->npcs[npc_id];
 			menu->vendor->setInventory();
 			menu->closeAll(false);
@@ -396,12 +399,23 @@ void GameStatePlay::checkNPCInteraction() {
 			menu->vendor->visible = true;
 			menu->inv->visible = true;
 
-			Mix_PlayChannel(-1, menu->sfx_open, 0);
-
+			// if this vendor has voice-over, play it
+			if (!npcs->npcs[npc_id]->talker) {
+				if (!npcs->npcs[npc_id]->playSound(NPC_VOX_INTRO)) {
+					Mix_PlayChannel(-1, menu->sfx_open, 0);
+				}
+			}
+			else {
+				// unless the vendor has dialog; then they've already given their vox intro
+				Mix_PlayChannel(-1, menu->sfx_open, 0);
+			}
+			
 			menu->talker->vendor_visible = false;
 			menu->vendor->talker_visible = false;
 
 		} else if (!menu->talker->vendor_visible && menu->vendor->talker_visible && npcs->npcs[npc_id]->talker) {
+		
+			// begin talking		
 			if (npcs->npcs[npc_id]->vendor) {
 				menu->talker->has_vendor_button = true;
 				menu->talker->vendor_visible = false;
