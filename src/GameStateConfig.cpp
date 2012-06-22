@@ -117,8 +117,8 @@ GameStateConfig::GameStateConfig ()
 	vector<string> mod_dirs;
 	getDirList(PATH_DATA + "mods", mod_dirs);
 
-	settings_lstb[0] = new WidgetListBox(mod_dirs.size(), 5, mods->locate("images/menus/buttons/listbox_default.png"));
-	settings_lstb[1] = new WidgetListBox(mod_dirs.size(), 5, mods->locate("images/menus/buttons/listbox_default.png"));
+	settings_lstb[0] = new WidgetListBox(mod_dirs.size(), 10, mods->locate("images/menus/buttons/listbox_default.png"));
+	settings_lstb[1] = new WidgetListBox(mod_dirs.size(), 10, mods->locate("images/menus/buttons/listbox_default.png"));
 
 	//Load the menu configuration from file
 	int x1;
