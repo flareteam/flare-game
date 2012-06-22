@@ -32,10 +32,19 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <string>
 
 const int TILE_SET_MAX_TILES = 1024;
+const int MAX_TILE_FRAMES = 64;
 
 struct Tile_Def {
 	SDL_Rect src;
 	Point offset;
+};
+
+struct Tile_Anim {
+	Point pos[MAX_TILE_FRAMES];
+	int frames;
+	int current_frame;
+	int duration;
+	int frame_duration[MAX_TILE_FRAMES];
 };
 
 class TileSet {
@@ -54,8 +63,10 @@ public:
 	TileSet();
 	~TileSet();
 	void load(const std::string& filename);
+	void logic();
 	
 	Tile_Def tiles[TILE_SET_MAX_TILES];
+	Tile_Anim anim[TILE_SET_MAX_TILES];
 	SDL_Surface *sprites;
 };
 

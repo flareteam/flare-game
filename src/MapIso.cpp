@@ -608,6 +608,7 @@ void MapIso::loadMusic() {
 
 void MapIso::logic() {
 	if (shaky_cam_ticks > 0) shaky_cam_ticks--;
+	tset.logic();
 }
 
 void MapIso::render(Renderable r[], int rnum) {
