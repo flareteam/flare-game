@@ -116,6 +116,12 @@ GameStateConfig::GameStateConfig ()
 	// Allocate Mods ListBoxes
 	vector<string> mod_dirs;
 	getDirList(PATH_DATA + "mods", mod_dirs);
+	// Remove active mods from the available mods list
+	for (unsigned int i = 0; i<mods->mod_list.size(); i++) {
+		for (unsigned int j = 0; j<mod_dirs.size(); j++) {
+			if (mods->mod_list[i] == mod_dirs[j]) mod_dirs[j].erase();
+		}
+	}
 
 	settings_lstb[0] = new WidgetListBox(mod_dirs.size(), 10, mods->locate("images/menus/buttons/listbox_default.png"));
 	settings_lstb[1] = new WidgetListBox(mod_dirs.size(), 10, mods->locate("images/menus/buttons/listbox_default.png"));
@@ -957,17 +963,11 @@ bool GameStateConfig::applyVideoSettings(SDL_Surface *src, int width, int height
  * Activate mods
  */
 void GameStateConfig::enableMods() {
-
-	bool add = true;
-
 	for (int i=0; i<settings_lstb[1]->getSize(); i++) {
 		if (settings_lstb[1]->selected[i]) {
-			for (int j=0; j<settings_lstb[0]->getSize(); j++) {
-				if (settings_lstb[0]->getValue(j) == settings_lstb[1]->getValue(i)) add = false;
-			}
-			if (add) settings_lstb[0]->append(settings_lstb[1]->getValue(i),settings_lstb[1]->getTooltip(i));
-			add = true;
-			settings_lstb[1]->selected[i] = false;
+			settings_lstb[0]->append(settings_lstb[1]->getValue(i),settings_lstb[1]->getTooltip(i));
+			settings_lstb[1]->remove(i);
+			i--;
 		}
 	}
 }
@@ -978,6 +978,7 @@ void GameStateConfig::enableMods() {
 void GameStateConfig::disableMods() {
 	for (int i=0; i<settings_lstb[0]->getSize(); i++) {
 		if (settings_lstb[0]->selected[i]) {
+			settings_lstb[1]->append(settings_lstb[0]->getValue(i),settings_lstb[0]->getTooltip(i));
 			settings_lstb[0]->remove(i);
 			i--;
 		}
