@@ -133,6 +133,7 @@ void TileSet::load(const std::string& filename) {
 				while (repeat_val != "") {
 					frame++;
 					anim[TILE_ID].frames++;
+					if (anim[TILE_ID].frames > MAX_TILE_FRAMES) break;
 					anim[TILE_ID].pos[frame].x = atoi(repeat_val.c_str());
 					anim[TILE_ID].pos[frame].y = atoi(infile.nextValue().c_str());
 					anim[TILE_ID].frame_duration[frame] = atoi(infile.nextValue().c_str());
