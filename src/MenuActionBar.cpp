@@ -44,10 +44,6 @@ MenuActionBar::MenuActionBar(PowerManager *_powers, StatBlock *_hero, SDL_Surfac
 	src.y = 0;
 	src.w = 32;
 	src.h = 32;
-	label_src.x = 0;
-	label_src.y = 0;
-	label_src.w = 640;
-	label_src.h = 10;
 	drag_prev_slot = -1;
 
 	clear();
@@ -83,6 +79,29 @@ MenuActionBar::MenuActionBar(PowerManager *_powers, StatBlock *_hero, SDL_Surfac
 	menuArea.w = 128;
 
 	loadGraphics();
+
+	// set keybinding labels
+	for (unsigned int i=0;i<16;i++) {
+		labels[i] = new WidgetLabel();
+	}
+	for (unsigned int i=0; i<10; i++) {
+		if (inpt->binding[i+6] < 8)
+			labels[i]->set(slots[i].x+slots[i].w, slots[i].y+slots[i].h-12, JUSTIFY_RIGHT, VALIGN_TOP, mouse_button[inpt->binding[i+6]-1], FONT_WHITE);
+		else
+			labels[i]->set(slots[i].x+slots[i].w, slots[i].y+slots[i].h-12, JUSTIFY_RIGHT, VALIGN_TOP, SDL_GetKeyName((SDLKey)inpt->binding[i+6]), FONT_WHITE);
+	}
+	for (unsigned int i=0; i<2; i++) {
+		if (inpt->binding[i+20] < 8)
+			labels[i+10]->set(slots[i+10].x+slots[i+10].w, slots[i+10].y+slots[i+10].h-12, JUSTIFY_RIGHT, VALIGN_TOP, mouse_button[inpt->binding[i+20]-1], FONT_WHITE);
+		else
+			labels[i+10]->set(slots[i+10].x+slots[i+10].w, slots[i+10].y+slots[i+10].h-12, JUSTIFY_RIGHT, VALIGN_TOP, SDL_GetKeyName((SDLKey)inpt->binding[i+20]), FONT_WHITE);
+	}
+	for (unsigned int i=0; i<4; i++) {
+		if (inpt->binding[i+16] < 8)
+			labels[i+12]->set(menus[i].x+menus[i].w, menus[i].y+menus[i].h-12, JUSTIFY_RIGHT, VALIGN_TOP, mouse_button[inpt->binding[i+16]-1], FONT_WHITE);
+		else
+			labels[i+12]->set(menus[i].x+menus[i].w, menus[i].y+menus[i].h-12, JUSTIFY_RIGHT, VALIGN_TOP, SDL_GetKeyName((SDLKey)inpt->binding[i+16]), FONT_WHITE);
+	}
 }
 
 void MenuActionBar::clear() {
@@ -106,10 +125,9 @@ void MenuActionBar::loadGraphics() {
 
 	emptyslot = IMG_Load(mods->locate("images/menus/slot_empty.png").c_str());
 	background = IMG_Load(mods->locate("images/menus/actionbar_trim.png").c_str());
-	labels = IMG_Load(mods->locate("images/menus/actionbar_labels.png").c_str());
 	disabled = IMG_Load(mods->locate("images/menus/disabled.png").c_str());
 	attention = IMG_Load(mods->locate("images/menus/attention_glow.png").c_str());
-	if(!emptyslot || !background || !labels || !disabled) {
+	if(!emptyslot || !background || !disabled) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 		SDL_Quit();
 	}
@@ -121,10 +139,6 @@ void MenuActionBar::loadGraphics() {
 
 	cleanup = emptyslot;
 	emptyslot = SDL_DisplayFormatAlpha(emptyslot);
-	SDL_FreeSurface(cleanup);
-
-	cleanup = labels;
-	labels = SDL_DisplayFormatAlpha(labels);
 	SDL_FreeSurface(cleanup);
 
 	cleanup = disabled;
@@ -221,12 +235,9 @@ void MenuActionBar::render() {
             renderAttention(i);
 
 	// draw hotkey labels
-	// TODO: keybindings
-	dest.x = offset_x;
-	dest.y = VIEW_H-10;
-	dest.w = 640;
-	dest.h = 10;
-	SDL_BlitSurface(labels, &label_src, screen, &dest);
+	for (int i=0; i<16;i++) {
+		labels[i]->render();
+	}
 
 }
 
@@ -437,6 +448,9 @@ void MenuActionBar::set(int power_id[12]) {
 MenuActionBar::~MenuActionBar() {
 	SDL_FreeSurface(emptyslot);
 	SDL_FreeSurface(background);
-	SDL_FreeSurface(labels);
 	SDL_FreeSurface(disabled);
+
+	for (unsigned int i=0; i<16; i++) {
+		delete labels[i];
+	}
 }
