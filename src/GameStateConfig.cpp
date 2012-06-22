@@ -116,6 +116,7 @@ GameStateConfig::GameStateConfig ()
 	// Allocate Mods ListBoxes
 	vector<string> mod_dirs;
 	getDirList(PATH_DATA + "mods", mod_dirs);
+	mods_total = mod_dirs.size();
 	// Remove active mods from the available mods list
 	for (unsigned int i = 0; i<mods->mod_list.size(); i++) {
 		for (unsigned int j = 0; j<mod_dirs.size(); j++) {
@@ -123,8 +124,8 @@ GameStateConfig::GameStateConfig ()
 		}
 	}
 
-	settings_lstb[0] = new WidgetListBox(mod_dirs.size(), 10, mods->locate("images/menus/buttons/listbox_default.png"));
-	settings_lstb[1] = new WidgetListBox(mod_dirs.size(), 10, mods->locate("images/menus/buttons/listbox_default.png"));
+	settings_lstb[0] = new WidgetListBox(mods_total, 10, mods->locate("images/menus/buttons/listbox_default.png"));
+	settings_lstb[1] = new WidgetListBox(mods_total, 10, mods->locate("images/menus/buttons/listbox_default.png"));
 
 	//Load the menu configuration from file
 	int x1;
