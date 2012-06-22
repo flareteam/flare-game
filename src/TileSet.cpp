@@ -133,7 +133,7 @@ void TileSet::load(const std::string& filename) {
 				while (repeat_val != "") {
 					frame++;
 					anim[TILE_ID].frames++;
-					anim[TILE_ID].pos[frame].x = atoi(infile.nextValue().c_str());
+					anim[TILE_ID].pos[frame].x = atoi(repeat_val.c_str());
 					anim[TILE_ID].pos[frame].y = atoi(infile.nextValue().c_str());
 					anim[TILE_ID].frame_duration[frame] = atoi(infile.nextValue().c_str());
 
@@ -152,8 +152,8 @@ void TileSet::load(const std::string& filename) {
 void TileSet::logic() {
 	for (int i = 0; i < TILE_SET_MAX_TILES; i++) {
 		if (anim[i].duration == anim[i].frame_duration[anim[i].current_frame-1] && (anim[i].frames > 1)) {
-			tiles[i].src.x = anim[i].pos[anim[i].current_frame].x;
-			tiles[i].src.y = anim[i].pos[anim[i].current_frame].y;
+			tiles[i].src.x = anim[i].pos[anim[i].current_frame-1].x;
+			tiles[i].src.y = anim[i].pos[anim[i].current_frame-1].y;
 			anim[i].duration = 0;
 			if (anim[i].current_frame == anim[i].frames) {
 				anim[i].current_frame = 1;
