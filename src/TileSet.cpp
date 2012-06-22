@@ -33,6 +33,12 @@ using namespace std;
 TileSet::TileSet() {
 	sprites = NULL;
 	reset();
+
+	for (int i = 0; i < TILE_SET_MAX_TILES; i++) {
+		anim[i].current_frame = 1;
+		anim[i].duration = 0;
+		anim[i].frames = 1;
+	}
 }
 
 void TileSet::reset() {
@@ -116,6 +122,25 @@ void TileSet::load(const std::string& filename) {
 				trans_b = (Uint8)eatFirstInt(infile.val, ',');
 				
 			}
+			else if (infile.key == "animation") {
+				int frame = 0;
+				int TILE_ID = atoi(infile.nextValue().c_str());
+				anim[TILE_ID].pos[frame].x = atoi(infile.nextValue().c_str());
+				anim[TILE_ID].pos[frame].y = atoi(infile.nextValue().c_str());
+				anim[TILE_ID].frame_duration[frame] = atoi(infile.nextValue().c_str());
+
+				string repeat_val = infile.nextValue();
+				while (repeat_val != "") {
+					frame++;
+					anim[TILE_ID].frames++;
+					if (anim[TILE_ID].frames > MAX_TILE_FRAMES) break;
+					anim[TILE_ID].pos[frame].x = atoi(repeat_val.c_str());
+					anim[TILE_ID].pos[frame].y = atoi(infile.nextValue().c_str());
+					anim[TILE_ID].frame_duration[frame] = atoi(infile.nextValue().c_str());
+
+					repeat_val = infile.nextValue();
+				}
+			}
 		
 		}
 		infile.close();
@@ -123,6 +148,19 @@ void TileSet::load(const std::string& filename) {
 	}
 
 	current_map = filename;
+}
+
+void TileSet::logic() {
+	for (int i = 0; i < TILE_SET_MAX_TILES; i++) {
+		if (anim[i].duration == anim[i].frame_duration[anim[i].current_frame-1] && (anim[i].frames > 1)) {
+			tiles[i].src.x = anim[i].pos[anim[i].current_frame-1].x;
+			tiles[i].src.y = anim[i].pos[anim[i].current_frame-1].y;
+			anim[i].duration = 0;
+			if (anim[i].current_frame == anim[i].frames) {
+				anim[i].current_frame = 1;
+			} else anim[i].current_frame++;
+		} else if (anim[i].frames > 1) anim[i].duration++;
+	}
 }
 
 TileSet::~TileSet() {
