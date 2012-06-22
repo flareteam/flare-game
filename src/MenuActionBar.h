@@ -28,10 +28,12 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include <SDL.h>
 #include <SDL_image.h>
+#include "WidgetLabel.h"
 
 class PowerManager;
 class StatBlock;
 class TooltipData;
+class WidgetLabel;
 
 const int MENU_CHARACTER = 0;
 const int MENU_INVENTORY = 1;
@@ -52,10 +54,8 @@ private:
 	StatBlock *hero;
 	PowerManager *powers;
 	SDL_Rect src;
-	SDL_Rect label_src;
 
-	// for now the key mappings are static.  Just use an image for the labels
-	SDL_Surface *labels;
+	WidgetLabel *labels[16];
 
 public:
 
