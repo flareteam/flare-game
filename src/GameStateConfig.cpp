@@ -978,7 +978,7 @@ void GameStateConfig::enableMods() {
  */
 void GameStateConfig::disableMods() {
 	for (int i=0; i<settings_lstb[0]->getSize(); i++) {
-		if (settings_lstb[0]->selected[i]) {
+		if (settings_lstb[0]->selected[i] && settings_lstb[0]->getValue(i) != FALLBACK_MOD) {
 			settings_lstb[1]->append(settings_lstb[0]->getValue(i),settings_lstb[0]->getTooltip(i));
 			settings_lstb[0]->remove(i);
 			i--;
