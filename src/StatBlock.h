@@ -89,8 +89,9 @@ public:
 	bool permadeath;
 	bool transformed;
 
+	int movement_type;
 	bool flying;
-	bool incorporeal;
+	bool intangible;
 
 	std::string name;
 	std::string sfx_prefix;

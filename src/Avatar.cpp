@@ -235,10 +235,10 @@ void Avatar::set_direction() {
 	if(MOUSE_MOVE) {
 		Point target = screen_to_map(inpt->mouse.x,  inpt->mouse.y, stats.pos.x, stats.pos.y);
 		// if no line of movement to target, use pathfinder
-		if( !map->collider.line_of_movement(stats.pos.x, stats.pos.y, target.x, target.y) ) {
+		if( !map->collider.line_of_movement(stats.pos.x, stats.pos.y, target.x, target.y, stats.movement_type) ) {
 			vector<Point> path;
 			// if a path is returned, target first waypoint
-			if ( map->collider.compute_path(stats.pos,target,path,1000) ) {
+			if ( map->collider.compute_path(stats.pos, target, path, 1000, stats.movement_type) ) {
 				target = path.back();
 			}
 		}

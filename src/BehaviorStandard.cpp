@@ -249,11 +249,11 @@ void BehaviorStandard::checkMove() {
 	if (++e->stats.turn_ticks > e->stats.turn_delay) {
 
 		// if blocked, face in pathfinder direction instead
-		if (!e->map->collider.line_of_movement(e->stats.pos.x, e->stats.pos.y, e->stats.hero_pos.x, e->stats.hero_pos.y)) {
+		if (!e->map->collider.line_of_movement(e->stats.pos.x, e->stats.pos.y, e->stats.hero_pos.x, e->stats.hero_pos.y, e->stats.movement_type)) {
 					
 			// if a path is returned, target first waypoint
 			std::vector<Point> path;
-			if ( e->map->collider.compute_path(e->stats.pos, pursue_pos, path) ) {
+			if ( e->map->collider.compute_path(e->stats.pos, pursue_pos, path, e->stats.movement_type) ) {
 				pursue_pos = path.back();
 			}
 		}

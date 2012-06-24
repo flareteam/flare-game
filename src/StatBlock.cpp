@@ -27,6 +27,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "SharedResources.h"
 #include "Settings.h"
 #include "UtilsParsing.h"
+#include "MapCollision.h"
 #include <limits>
 
 using namespace std;
@@ -44,8 +45,9 @@ StatBlock::StatBlock() {
 	transform_type = "";
 	transformed = false;
 
+	movement_type = MOVEMENT_NORMAL;
 	flying = false;
-	incorporeal = false;
+	intangible = false;
 
 	// core stats
 	offense_character = defense_character = physical_character = mental_character = 0;
@@ -201,6 +203,13 @@ void StatBlock::load(const string& filename) {
 			else if (infile.key == "absorb_max") absorb_max = num;
 
 			// behavior stats
+			else if (infile.key == "flying") {
+				if (num == 1) flying = true;
+			}
+			else if (infile.key == "intangible") {
+				if (num == 1) intangible = true;
+			}
+			
 			else if (infile.key == "waypoint_pause") waypoint_pause = num;
 
 			else if (infile.key == "speed") speed = num;
@@ -434,6 +443,11 @@ void StatBlock::logic() {
 	vengeance_frame+= vengeance_stacks;
 	if (vengeance_frame >= 24) vengeance_frame -= 24;
 
+	// set movement type
+	// some creatures may shift between movement types
+	if (intangible) movement_type = MOVEMENT_INTANGIBLE;
+	else if (flying) movement_type = MOVEMENT_FLYING;
+	else movement_type = MOVEMENT_NORMAL;
 
 }
 
