@@ -3,6 +3,7 @@ import os
 import datetime
 
 keys = []
+comments = []
 now = datetime.datetime.now()
 header = r'''# Copyright (C) 2011 Clint Bellanger
 # This file is distributed under the same license as the FLARE package.
@@ -29,21 +30,35 @@ def extract(filename):
         infile = open(filename, 'r')
         triggers = ['msg', 'him', 'her', 'you', 'name', 'title', 'tooltip',
                 'power_desc', 'quest_text', 'description']
-        for line in infile.readlines():
+        for i,line in enumerate(infile):
             for trigger in triggers:
                 if line.startswith(trigger + '='):
+                    aString = filename
+                    aString += ':'
+                    aString += str(i+1)
+                    comments.append(aString)
+                    del aString
                     keys.append(line[line.find('=') + 1:].strip('\n').replace("\"", "\\\""))
             # handle the special case: bonus={stat},{value}
             if line.startswith('bonus='):
+                aString = filename
+                aString += ':'
+                aString += str(i+1)
+                comments.append(aString)
+                del aString
                 keys.append(line[line.find('=') + 1: line.find(',')])
 
 # this removes duplicates from keys in a clean way (without screwing up the order)
 def remove_duplicates():
+    global comments
     global keys
     tmp = []
-    for node in keys:
+    tmp_c = []
+    for node_c,node in zip(comments,keys):
         if node not in tmp:
+            tmp_c.append(node_c)
             tmp.append(node)
+    comments = tmp_c
     keys = tmp
 
 # this writes the list of keys to a gettext .po file
@@ -51,7 +66,8 @@ def save(filename):
     outfile = open('data.pot', 'w')
     outfile.write(header.format(now=now.strftime('%Y-%m-%d %H:%M+%z')))
     remove_duplicates()
-    for line in keys:
+    for line_c,line in zip(comments,keys):
+        outfile.write("#: {line}\n".format(line=line_c))
         outfile.write("msgid \"{line}\"\n".format(line=line))
         outfile.write("msgstr \"\"\n\n")
 
