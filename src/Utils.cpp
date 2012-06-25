@@ -53,20 +53,20 @@ Point screen_to_map(int x, int y, int camx, int camy) {
 Point map_to_screen(int x, int y, int camx, int camy) {
 	Point r;
 	if (TILESET_ORIENTATION == TILESET_ISOMETRIC) {
-		r.x = VIEW_W_HALF + (x - camx - y + camy)/(float)UNITS_PER_PIXEL_X;
-		r.y = VIEW_H_HALF + (x - camx + y - camy)/(float)UNITS_PER_PIXEL_Y;
+		r.x = VIEW_W_HALF + (x - camx - y + camy)/UNITS_PER_PIXEL_X;
+		r.y = VIEW_H_HALF + (x - camx + y - camy)/UNITS_PER_PIXEL_Y;
 	}
 	else { //TILESET_ORTHOGONAL
-		r.x = VIEW_W_HALF - (camx - x)/(float)UNITS_PER_PIXEL_X;
-		r.y = VIEW_H_HALF - (camy - y)/(float)UNITS_PER_PIXEL_Y;
+		r.x = VIEW_W_HALF - (camx - x)/UNITS_PER_PIXEL_X;
+		r.y = VIEW_H_HALF - (camy - y)/UNITS_PER_PIXEL_Y;
 	}
 	return r;
 }
 
 Point center_tile(Point p) {
 	if (TILESET_ORIENTATION == TILESET_ORTHOGONAL) {
-		p.x += TILE_W_HALF / 2;
-		p.y += TILE_H_HALF / 2;
+		p.x += TILE_W_HALF;
+		p.y += TILE_H_HALF;
 	}
 	else //TILESET_ISOMETRIC
 		p.y += TILE_H_HALF;
