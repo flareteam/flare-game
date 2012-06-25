@@ -623,8 +623,8 @@ void MapIso::render(Renderable r[], int rnum) {
 	// renderables while we're also moving through the map tiles.  After we draw each map tile we
 	// check to see if it's time to draw the next renderable yet.
 
-	short unsigned int i;
-	short unsigned int j;
+	short int i;
+	short int j;
 	//SDL_Rect src;
 	SDL_Rect dest;
 	int current_tile;
@@ -640,10 +640,20 @@ void MapIso::render(Renderable r[], int rnum) {
 		shakycam.y = cam.y + (rand() % 16 - 8) /UNITS_PER_PIXEL_Y;
 	}
 
-	// todo: trim by screen rect
-	// background
-	for (j=0; j<h; j++) {
-		for (i=0; i<w; i++) {
+	const Point upperright = screen_to_map(0, 0, shakycam.x, shakycam.y);
+	short x, y, tiles_width;
+	const short max_tiles_width = (VIEW_W / TILE_W) + 16;
+	const short max_tiles_height = (2 * VIEW_H / TILE_H) + 16;
+	j = upperright.y / UNITS_PER_TILE;
+	i = upperright.x / UNITS_PER_TILE - 8;
+
+	for (y = max_tiles_height ; y; --y) {
+		tiles_width = 0;
+		for (x = max_tiles_width; x ; --x) {
+			--j; ++i;
+			++tiles_width;
+			if (j >= h || i < 0) continue;
+			if (j < 0 || i >= w) break;
 
 			current_tile = background[i][j];
 
@@ -658,9 +668,14 @@ void MapIso::render(Renderable r[], int rnum) {
 				dest.h = tset.tiles[current_tile].src.h;
 
 				SDL_BlitSurface(tset.sprites, &(tset.tiles[current_tile].src), screen, &dest);
-
 			}
 		}
+		j += tiles_width;
+		i -= tiles_width;
+		if (y % 2)
+			i++;
+		else
+			j++;
 	}
 
 	// some renderables are drawn above the background and below the objects
@@ -673,7 +688,7 @@ void MapIso::render(Renderable r[], int rnum) {
 			Point p = map_to_screen(r[ri].map_pos.x, r[ri].map_pos.y, shakycam.x, shakycam.y);
 			dest.x = p.x - r[ri].offset.x;
 			dest.y = p.y - r[ri].offset.y;
-			
+
 			SDL_BlitSurface(r[ri].sprite, &r[ri].src, screen, &dest);
 		}
 	}
