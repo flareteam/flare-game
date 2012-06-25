@@ -48,6 +48,7 @@ StatBlock::StatBlock() {
 	movement_type = MOVEMENT_NORMAL;
 	flying = false;
 	intangible = false;
+	facing = true;
 
 	// core stats
 	offense_character = defense_character = physical_character = mental_character = 0;
@@ -208,6 +209,9 @@ void StatBlock::load(const string& filename) {
 			}
 			else if (infile.key == "intangible") {
 				if (num == 1) intangible = true;
+			}
+			else if (infile.key == "facing") {
+				if (num == 0) facing = false;
 			}
 			
 			else if (infile.key == "waypoint_pause") waypoint_pause = num;

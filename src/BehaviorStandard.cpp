@@ -246,20 +246,22 @@ void BehaviorStandard::checkMove() {
 	}
 
 	// update direction
-	if (++e->stats.turn_ticks > e->stats.turn_delay) {
+	if (e->stats.facing) {
+		if (++e->stats.turn_ticks > e->stats.turn_delay) {
 
-		// if blocked, face in pathfinder direction instead
-		if (!e->map->collider.line_of_movement(e->stats.pos.x, e->stats.pos.y, e->stats.hero_pos.x, e->stats.hero_pos.y, e->stats.movement_type)) {
+			// if blocked, face in pathfinder direction instead
+			if (!e->map->collider.line_of_movement(e->stats.pos.x, e->stats.pos.y, e->stats.hero_pos.x, e->stats.hero_pos.y, e->stats.movement_type)) {
 					
-			// if a path is returned, target first waypoint
-			std::vector<Point> path;
-			if ( e->map->collider.compute_path(e->stats.pos, pursue_pos, path, e->stats.movement_type) ) {
-				pursue_pos = path.back();
+				// if a path is returned, target first waypoint
+				std::vector<Point> path;
+				if ( e->map->collider.compute_path(e->stats.pos, pursue_pos, path, e->stats.movement_type) ) {
+					pursue_pos = path.back();
+				}
 			}
-		}
 	
-		e->stats.direction = e->face(pursue_pos.x, pursue_pos.y);				
-		e->stats.turn_ticks = 0;
+			e->stats.direction = e->face(pursue_pos.x, pursue_pos.y);				
+			e->stats.turn_ticks = 0;
+		}
 	}
 	int prev_direction = e->stats.direction;
 
