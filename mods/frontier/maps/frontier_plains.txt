@@ -861,6 +861,11 @@ type=teleport
 location=35,194,1,2
 intermap=hidden_grove.txt,120,60
 
+[event]
+type=run_once
+location=48,155,5,5
+spawn=zombie_rotting,45,155;zombie_rotting,46,160;zombie_rotting,50,153;zombie_rotting,52,161;zombie_rotting,54,157
+
 [enemygroup]
 # goblin camp
 type=goblin
@@ -1043,12 +1048,14 @@ location=20,158,1,1
 direction=1
 
 [enemy]
-# guardian wyvern
+# guarding wyvern
 type=wyvern
-location=119,128
+location=119,128,1,1
 direction=3
 
 [enemy]
+# Zombie spawner
 type=cursed_grave
-location=33,152
-direction=7
+location=32,153,1,1
+direction=3
+
