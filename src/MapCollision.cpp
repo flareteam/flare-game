@@ -288,11 +288,11 @@ bool MapCollision::compute_path(Point start, Point end, vector<Point> &path, int
 	end = map_to_collision(end);
 
 	// destination must be valid.
-	if (!valid_tile(end.x, end.y, movement_type)) {
+	//if (!valid_tile(end.x, end.y, movement_type)) {
 	
 		// Exception: if targeting an entity square, allow it.
-		if (colmap[end.x][end.y] != BLOCKS_ENTITIES) return false;
-	}
+		//if (colmap[end.x][end.y] != BLOCKS_ENTITIES) return false;
+	//}
 	
 	Point current = start;
 	AStarNode node(start);
@@ -325,12 +325,13 @@ bool MapCollision::compute_path(Point start, Point end, vector<Point> &path, int
 			break; //path found !
 
 		list<Point> neighbours = node.getNeighbours(256,256); //256 is map max size
+		
 		// for every neighbour of current node
 		for (list<Point>::iterator it=neighbours.begin(); it != neighbours.end(); ++it)	{
 			Point neighbour = *it;
 			
 			// if neighbour is not free of any collision, or already in close, skip it
-			if(valid_tile(neighbour.x,neighbour.y,movement_type) || find(close.begin(), close.end(), neighbour)!=close.end())
+			if(!valid_tile(neighbour.x,neighbour.y,movement_type) || find(close.begin(), close.end(), neighbour)!=close.end())
 				continue;
 
 			list<AStarNode>::iterator i = find(open.begin(), open.end(), neighbour);

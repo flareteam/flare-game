@@ -245,6 +245,9 @@ void BehaviorStandard::checkMove() {
 		return;
 	}
 
+	// clear current space to allow correct movement
+	e->map->collider.unblock(e->stats.pos.x, e->stats.pos.y);
+	
 	// update direction
 	if (e->stats.facing) {
 		if (++e->stats.turn_ticks > e->stats.turn_delay) {
@@ -254,6 +257,7 @@ void BehaviorStandard::checkMove() {
 					
 				// if a path is returned, target first waypoint
 				std::vector<Point> path;
+								
 				if ( e->map->collider.compute_path(e->stats.pos, pursue_pos, path, e->stats.movement_type) ) {
 					pursue_pos = path.back();
 				}
@@ -320,6 +324,9 @@ void BehaviorStandard::checkMove() {
 	    }
 	}
 
+	// re-block current space to allow correct movement
+	e->map->collider.block(e->stats.pos.x, e->stats.pos.y);
+	
 }
 
 /**

@@ -237,10 +237,14 @@ void Avatar::set_direction() {
 		// if no line of movement to target, use pathfinder
 		if( !map->collider.line_of_movement(stats.pos.x, stats.pos.y, target.x, target.y, stats.movement_type) ) {
 			vector<Point> path;
+			
 			// if a path is returned, target first waypoint
+			
 			if ( map->collider.compute_path(stats.pos, target, path, 1000, stats.movement_type) ) {
 				target = path.back();
 			}
+			
+			
 		}
 		stats.direction = face(target.x, target.y);
 	} else {
@@ -349,19 +353,32 @@ void Avatar::handlePower(int actionbar_power) {
  */
 void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 
+	// clear current space to allow correct movement
+	// make sure to re-block before leaving this function
+	//map->collider.unblock(stats.pos.x, stats.pos.y);
+	
 	int stepfx;
 	stats.logic();
 	if (stats.forced_move_duration > 0) {
 		move();
+		
 		// calc new cam position from player position
 		// cam is focused at player position
 		map->cam.x = stats.pos.x;
 		map->cam.y = stats.pos.y;
 		map->hero_tile.x = stats.pos.x / 32;
 		map->hero_tile.y = stats.pos.y / 32;
+		
+		//map->collider.block(stats.pos.x, stats.pos.y);
 		return;
 	}
-	if (stats.stun_duration > 0) return;
+	if (stats.stun_duration > 0) {
+	
+		//map->collider.block(stats.pos.x, stats.pos.y);	
+		return;
+	}
+	
+	
 	bool allowed_to_move;
 	bool allowed_to_use_power;
 
@@ -610,6 +627,9 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 		stats.hero_cooldown[i] -= 1000 / FRAMES_PER_SEC;
 		if (stats.hero_cooldown[i] < 0) stats.hero_cooldown[i] = 0;
 	}
+	
+	// make the current square solid
+	// map->collider.block(stats.pos.x, stats.pos.y);
 }
 
 /**

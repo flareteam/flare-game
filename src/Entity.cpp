@@ -60,12 +60,7 @@ bool Entity::move() {
 		speed_straight *= 2;
 	}
 
-	// clear current tile
-	map->collider.unblock(stats.pos.x,stats.pos.y);
-	
 	bool full_move;
-	
-
 	
 	switch (stats.direction) {
 		case 0:
@@ -94,9 +89,6 @@ bool Entity::move() {
 			break;
 	}
 
-	// block current tile
-	map->collider.block(stats.pos.x,stats.pos.y);
-	
 	return full_move;
 }
 

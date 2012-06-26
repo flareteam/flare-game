@@ -48,7 +48,7 @@ const int MOVEMENT_NORMAL = 0;
 const int MOVEMENT_FLYING = 1; // can move through BLOCKS_MOVEMENT (e.g. water)
 const int MOVEMENT_INTANGIBLE = 2; // can move through BLOCKS_ALL (e.g. walls)
 
-const unsigned int PATH_MAX_TILES = 64;
+const unsigned int PATH_MAX_TILES = 256;
 
 
 class MapCollision {
