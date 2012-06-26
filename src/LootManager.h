@@ -72,6 +72,7 @@ private:
 	WidgetTooltip *tip;
 	EnemyManager *enemies;
 	MapIso *map;
+	StatBlock *hero;
 
 	// functions
 	void loadGraphics();
@@ -106,7 +107,7 @@ private:
 
 
 public:
-	LootManager(ItemManager *_items, EnemyManager *_enemies, MapIso *_map);
+	LootManager(ItemManager *_items, EnemyManager *_enemies, MapIso *_map, StatBlock *_hero);
 	~LootManager();
 
 	void handleNewMap();
