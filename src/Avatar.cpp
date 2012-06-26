@@ -354,8 +354,7 @@ void Avatar::handlePower(int actionbar_power) {
 void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 
 	// clear current space to allow correct movement
-	// make sure to re-block before leaving this function
-	//map->collider.unblock(stats.pos.x, stats.pos.y);
+	map->collider.unblock(stats.pos.x, stats.pos.y);
 	
 	int stepfx;
 	stats.logic();
@@ -369,12 +368,12 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 		map->hero_tile.x = stats.pos.x / 32;
 		map->hero_tile.y = stats.pos.y / 32;
 		
-		//map->collider.block(stats.pos.x, stats.pos.y);
+		map->collider.block(stats.pos.x, stats.pos.y);
 		return;
 	}
 	if (stats.stun_duration > 0) {
 	
-		//map->collider.block(stats.pos.x, stats.pos.y);	
+		map->collider.block(stats.pos.x, stats.pos.y);	
 		return;
 	}
 	
@@ -629,7 +628,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 	}
 	
 	// make the current square solid
-	// map->collider.block(stats.pos.x, stats.pos.y);
+	map->collider.block(stats.pos.x, stats.pos.y);
 }
 
 /**

@@ -277,22 +277,22 @@ bool MapCollision::line_of_movement(int x1, int y1, int x2, int y2, int movement
 * limit is the maximum number of explored node
 * @return true if a path is found
 */
-bool MapCollision::compute_path(Point start, Point end, vector<Point> &path, int movement_type, unsigned int limit) {
+bool MapCollision::compute_path(Point start_pos, Point end_pos, vector<Point> &path, int movement_type, unsigned int limit) {
 
 	// path must be empty
 	if (!path.empty())
 		path.clear();
 	
 	// convert start & end to MapCollision precision
-	start = map_to_collision(start);
-	end = map_to_collision(end);
-
-	// destination must be valid.
-	//if (!valid_tile(end.x, end.y, movement_type)) {
+	Point start = map_to_collision(start_pos);
+	Point end = map_to_collision(end_pos);
 	
-		// Exception: if targeting an entity square, allow it.
-		//if (colmap[end.x][end.y] != BLOCKS_ENTITIES) return false;
-	//}
+	// if the target square has an entity, temporarily clear it to compute the path
+	bool target_blocks = false;
+	if (colmap[end.x][end.y] == BLOCKS_ENTITIES) {
+		target_blocks = true;
+		unblock(end_pos.x, end_pos.y);
+	}
 	
 	Point current = start;
 	AStarNode node(start);
@@ -351,8 +351,13 @@ bool MapCollision::compute_path(Point start, Point end, vector<Point> &path, int
 		}
 	}
 
-	if( current.x != end.x || current.y != end.y )
+	if( current.x != end.x || current.y != end.y ) {
+	
+		// reblock target if needed
+		if (target_blocks) block(end_pos.x, end_pos.y);
+	
 		return false;
+	}
 	else
 	{
 		// store path from end to start
@@ -363,6 +368,9 @@ bool MapCollision::compute_path(Point start, Point end, vector<Point> &path, int
 		}
 	}
 
+	// reblock target if needed
+	if (target_blocks) block(end_pos.x, end_pos.y);
+	
 	return !path.empty();
 }
 
