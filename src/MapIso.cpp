@@ -642,10 +642,11 @@ void MapIso::render(Renderable r[], int rnum) {
 
 	const Point upperright = screen_to_map(0, 0, shakycam.x, shakycam.y);
 	short x, y, tiles_width;
-	const short max_tiles_width = (VIEW_W / TILE_W) + 16;
-	const short max_tiles_height = (2 * VIEW_H / TILE_H) + 16;
+	const short tiles_outside_ofscreen = 8;
+	const short max_tiles_width = (VIEW_W / TILE_W) + 2 * tiles_outside_ofscreen;
+	const short max_tiles_height = (2 * VIEW_H / TILE_H) + 2 * tiles_outside_ofscreen;
 	j = upperright.y / UNITS_PER_TILE;
-	i = upperright.x / UNITS_PER_TILE - 8;
+	i = upperright.x / UNITS_PER_TILE - tiles_outside_ofscreen;
 
 	for (y = max_tiles_height ; y; --y) {
 		tiles_width = 0;
