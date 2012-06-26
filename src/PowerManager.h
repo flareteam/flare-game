@@ -319,6 +319,7 @@ public:
 	const Power &getPower(unsigned id) 	{assert(id < (unsigned)POWER_COUNT); return powers[id];}
 	bool canUsePower(unsigned id) const;
 	bool hasValidTarget(int power_index, StatBlock *src_stats, Point target);
+	bool spawn(const std::string& enemy_type, Point target);
 
 	Power powers[POWER_COUNT];
 	std::queue<Hazard *> hazards; // output; read by HazardManager

@@ -553,6 +553,26 @@ int MapIso::load(string filename) {
 					else if (infile.key == "power") {
 						e->x = atoi(infile.val.c_str());
 					}
+					else if (infile.key == "spawn") {
+					
+						e->s = infile.nextValue();
+						e->x = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+						e->y = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+
+						// add repeating spawn
+						string repeat_val = infile.nextValue();
+						while (repeat_val != "") {
+							events[event_count-1].comp_num++;
+							e = &events[event_count-1].components[events[event_count-1].comp_num];
+							e->type = infile.key;
+
+							e->s = repeat_val;
+							e->x = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+							e->y = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+
+							repeat_val = infile.nextValue();
+						}
+					}
 
 					events[event_count-1].comp_num++;
 				}
@@ -922,6 +942,12 @@ void MapIso::executeEvent(int eid) {
 		}
 		else if (ec->type == "reward_xp") {
 			camp->rewardXP(ec->x);
+		}
+		else if (ec->type == "spawn") {
+			Point spawn_pos;
+			spawn_pos.x = ec->x;
+			spawn_pos.y = ec->y;
+			powers->spawn(ec->s, spawn_pos);
 		}
 		else if (ec->type == "power") {
 
