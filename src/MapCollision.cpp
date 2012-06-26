@@ -246,7 +246,7 @@ bool MapCollision::line_check(int x1, int y1, int x2, int y2, int check_type, in
 		for (int i=0; i<steps; i++) {
 			x += step_x;
 			y += step_y;
-			if (valid_position(round(x), round(y), movement_type)) {
+			if (!valid_position(round(x), round(y), movement_type)) {
 				result_x = round(x -= step_x);
 				result_y = round(y -= step_y);
 				return false;
@@ -267,7 +267,19 @@ bool MapCollision::line_of_movement(int x1, int y1, int x2, int y2, int movement
 	// intangible entities can always move
 	if (movement_type == MOVEMENT_INTANGIBLE) return true;
 	
-	else return line_check(x1, y1, x2, y2, CHECK_MOVEMENT, movement_type);
+	// if the target is blocking, clear it temporarily
+	int tile_x = x2 >> TILE_SHIFT;
+	int tile_y = y2 >> TILE_SHIFT;
+	bool target_blocks = false;
+	if (colmap[tile_x][tile_y] == BLOCKS_ENTITIES) {
+		target_blocks = true;
+		unblock(x2,y2);
+	}
+	
+	bool has_movement = line_check(x1, y1, x2, y2, CHECK_MOVEMENT, movement_type);
+	
+	if (target_blocks) block(x2,y2);
+	return has_movement;
 	
 }
 
