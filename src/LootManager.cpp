@@ -30,10 +30,11 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 using namespace std;
 
 
-LootManager::LootManager(ItemManager *_items, EnemyManager *_enemies, MapIso *_map) {
+LootManager::LootManager(ItemManager *_items, EnemyManager *_enemies, MapIso *_map, StatBlock *_hero) {
 	items = _items;
 	enemies = _enemies; // we need to be able to read loot state when creatures die
 	map = _map; // we need to be able to read loot that drops from map containers
+	hero = _hero; // we need the player's position for dropping loot in a valid spot
 
 	tip = new WidgetTooltip();
 
@@ -64,8 +65,8 @@ LootManager::LootManager(ItemManager *_items, EnemyManager *_enemies, MapIso *_m
 
 	loadGraphics();
 	calcTables();
-    if (audio == true)
-        loot_flip = Mix_LoadWAV(mods->locate("soundfx/flying_loot.ogg").c_str());
+	if (audio == true)
+		loot_flip = Mix_LoadWAV(mods->locate("soundfx/flying_loot.ogg").c_str());
 	full_msg = false;
 
 	anim_loot_frames = 6;
@@ -267,7 +268,10 @@ void LootManager::checkEnemiesForLoot() {
 			}
 			else {
 				// random loot
-				determineLoot(enemies->enemies[i]->stats.level, enemies->enemies[i]->stats.pos);
+				if (map->collider.valid_position(enemies->enemies[i]->stats.pos.x, enemies->enemies[i]->stats.pos.y, MOVEMENT_NORMAL))
+					determineLoot(enemies->enemies[i]->stats.level, enemies->enemies[i]->stats.pos);
+				else
+					determineLoot(enemies->enemies[i]->stats.level, hero->pos);
 			}
 
 			enemies->enemies[i]->loot_drop = false;

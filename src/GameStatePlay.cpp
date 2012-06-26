@@ -68,7 +68,7 @@ GameStatePlay::GameStatePlay() : GameState() {
 	enemies = new EnemyManager(powers, map);
 	hazards = new HazardManager(powers, pc, enemies);
 	menu = new MenuManager(powers, &pc->stats, camp, items);
-	loot = new LootManager(items, enemies, map);
+	loot = new LootManager(items, enemies, map, &pc->stats);
 	npcs = new NPCManager(map, loot, items);
 	quests = new QuestLog(camp, menu->log);
 
