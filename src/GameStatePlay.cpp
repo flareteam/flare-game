@@ -177,7 +177,11 @@ void GameStatePlay::checkLoot() {
 }
 
 void GameStatePlay::checkTeleport() {
+
+	// both map events and player powers can cause teleportation
 	if (map->teleportation || pc->stats.teleportation) {
+	
+		map->collider.unblock(pc->stats.pos.x, pc->stats.pos.y);
 
 		if (map->teleportation) {
 			map->cam.x = pc->stats.pos.x = map->teleport_destination.x;
@@ -186,7 +190,7 @@ void GameStatePlay::checkTeleport() {
 		else {
 			map->cam.x = pc->stats.pos.x = pc->stats.teleport_destination.x;
 			map->cam.y = pc->stats.pos.y = pc->stats.teleport_destination.y;
-		}
+		}		
 
 		// process intermap teleport
 		if (map->teleportation && map->teleport_mapname != "") {
@@ -221,6 +225,8 @@ void GameStatePlay::checkTeleport() {
 			}
 		}
 
+		map->collider.block(pc->stats.pos.x, pc->stats.pos.y);
+		
 		map->teleportation = false;
 		pc->stats.teleportation = false; // teleport spell
 

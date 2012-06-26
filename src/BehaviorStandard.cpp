@@ -81,8 +81,12 @@ void BehaviorStandard::doUpkeep() {
 	// check for teleport powers
 	if (e->stats.teleportation) {
 		
+		e->map->collider.unblock(e->stats.pos.x,e->stats.pos.y);
+		
 		e->stats.pos.x = e->stats.teleport_destination.x;
-		e->stats.pos.y = e->stats.teleport_destination.y;	
+		e->stats.pos.y = e->stats.teleport_destination.y;
+		
+		e->map->collider.block(e->stats.pos.x,e->stats.pos.y);	
 		
 		e->stats.teleportation = false;	
 	}
