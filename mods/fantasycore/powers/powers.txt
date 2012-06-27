@@ -296,6 +296,7 @@ floor=true
 starting_pos=source
 buff_teleport=true
 range=512
+target_neighbor=true
 
 [power]
 id=16
@@ -1055,6 +1056,7 @@ icon=20
 spawn_type=antlion
 new_state=cast
 starting_pos=source
+target_neighbor=true
 
 [power]
 id=134
@@ -1064,6 +1066,7 @@ icon=20
 spawn_type=antlion_hatchling
 new_state=cast
 starting_pos=source
+target_neighbor=true
 
 [power]
 id=135
@@ -1095,3 +1098,4 @@ icon=20
 spawn_type=zombie_rotting
 new_state=cast
 starting_pos=source
+target_neighbor = true
