@@ -13,35 +13,35 @@
  <tileset firstgid="256" name="set_rules" tilewidth="64" tileheight="32">
   <image source="../set_rules.png" width="128" height="128"/>
  </tileset>
- <layer name="ruleRegions" width="7" height="3">
+ <layer name="regions" width="7" height="3">
   <data encoding="csv">
 0,0,0,0,0,0,0,
 0,256,0,256,0,256,0,
 0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="ruleSet" width="7" height="3">
+ <layer name="input_automap" width="7" height="3">
   <data encoding="csv">
 0,0,0,0,0,0,0,
 0,258,0,259,0,257,0,
 0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="rule_background" width="7" height="3">
+ <layer name="output_background" width="7" height="3">
   <data encoding="csv">
 0,0,0,0,0,0,0,
 0,16,0,0,0,0,0,
 0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="rule_object" width="7" height="3">
+ <layer name="output_object" width="7" height="3">
   <data encoding="csv">
 0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,
 0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="rule_collision" width="7" height="3">
+ <layer name="output_collision" width="7" height="3">
   <data encoding="csv">
 0,0,0,0,0,0,0,
 0,0,0,4,0,3,0,

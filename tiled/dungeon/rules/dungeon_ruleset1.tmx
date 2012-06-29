@@ -12,7 +12,7 @@
  <tileset firstgid="256" name="set_rules" tilewidth="64" tileheight="32">
   <image source="../set_rules.png" width="128" height="128"/>
  </tileset>
- <layer name="ruleRegions" width="11" height="7">
+ <layer name="regions" width="11" height="7">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,
 0,256,256,0,256,0,256,0,256,256,0,
@@ -23,7 +23,7 @@
 0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="ruleSet" width="11" height="7">
+ <layer name="input_automap" width="11" height="7">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,
 0,260,258,0,258,0,260,0,258,260,0,
@@ -34,7 +34,7 @@
 0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="rule_background" width="11" height="7">
+ <layer name="output_background" width="11" height="7">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,
 0,16,32,0,33,0,16,0,35,0,0,
@@ -45,7 +45,7 @@
 0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="rule_object" width="11" height="7">
+ <layer name="output_object" width="11" height="7">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,
 0,64,0,0,0,0,65,0,0,82,0,
@@ -56,7 +56,7 @@
 0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="rule_collision" width="11" height="7">
+ <layer name="output_collision" width="11" height="7">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,
 0,1,0,0,0,0,1,0,0,1,0,
