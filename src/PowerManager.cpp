@@ -1128,6 +1128,9 @@ bool PowerManager::spawn(const std::string& enemy_type, Point target) {
 	espawn.type = enemy_type;
 	espawn.pos = target;
 	
+	// quick spawns start facing a random direction
+	espawn.direction = rand() % 8;
+	
 	enemies.push(espawn);
 	return true;
 }
