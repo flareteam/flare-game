@@ -414,6 +414,10 @@ int MapIso::load(string filename) {
 						e->x = atoi(infile.nextValue().c_str());
 						e->y = atoi(infile.nextValue().c_str());
 					}
+					else if (infile.key == "intramap") {
+						e->x = atoi(infile.nextValue().c_str());
+						e->y = atoi(infile.nextValue().c_str());					
+					}
 					else if (infile.key == "mapmod") {
 						e->s = infile.nextValue();
 						e->x = atoi(infile.nextValue().c_str());
@@ -900,7 +904,7 @@ void MapIso::executeEvent(int eid) {
 		else if (ec->type == "unset_status") {
 			camp->unsetStatus(ec->s);
 		}
-		if (ec->type == "intermap") {
+		else if (ec->type == "intermap") {
 
 			if (fileExists(mods->locate("maps/" + ec->s))) {
 				teleportation = true;
@@ -912,6 +916,12 @@ void MapIso::executeEvent(int eid) {
 				destroy_event = true;
 				log_msg = msg->get("Unknown destination");
 			}
+		}
+		else if (ec->type == "intramap") {
+			teleportation = true;
+			teleport_mapname = "";
+			teleport_destination.x = ec->x * UNITS_PER_TILE + UNITS_PER_TILE/2;
+			teleport_destination.y = ec->y * UNITS_PER_TILE + UNITS_PER_TILE/2;			
 		}
 		else if (ec->type == "mapmod") {
 			if (ec->s == "collision") {
