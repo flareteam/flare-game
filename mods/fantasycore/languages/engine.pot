@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-10 00:34+0200\n"
+"POT-Creation-Date: 2012-06-30 19:20+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,20 +17,20 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../../../src/Avatar.cpp:343
+#: ../../../src/Avatar.cpp:389
 #, c-format
 msgid "Congratulations, you have reached level %d!"
 msgstr ""
 
-#: ../../../src/Avatar.cpp:345
+#: ../../../src/Avatar.cpp:391
 msgid "You may increase one attribute through the Character Menu."
 msgstr ""
 
-#: ../../../src/Avatar.cpp:526
+#: ../../../src/Avatar.cpp:572
 msgid "You are defeated. Game over! Press Enter to exit to Title."
 msgstr ""
 
-#: ../../../src/Avatar.cpp:529
+#: ../../../src/Avatar.cpp:575
 msgid "You are defeated.  You lose half your gold.  Press Enter to continue."
 msgstr ""
 
@@ -54,92 +54,117 @@ msgstr ""
 msgid "You receive %d XP."
 msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:195
-msgid "Video"
+#: ../../../src/GameStateConfig.cpp:72 ../../../src/GameStateConfig.cpp:689
+#: ../../../src/GameStateConfig.cpp:691
+msgid "Press a key to assign: "
 msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:196
-msgid "Audio"
-msgstr ""
-
-#: ../../../src/GameStateConfig.cpp:197
-msgid "Interface"
-msgstr ""
-
-#: ../../../src/GameStateConfig.cpp:198
-msgid "Input"
-msgstr ""
-
-#: ../../../src/GameStateConfig.cpp:199
-msgid "Mods"
-msgstr ""
-
-#: ../../../src/GameStateConfig.cpp:203
-msgid "Ok"
-msgstr ""
-
-#: ../../../src/GameStateConfig.cpp:209
+#: ../../../src/GameStateConfig.cpp:73 ../../../src/GameStateConfig.cpp:258
 msgid "Defaults"
 msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:215 ../../../src/GameStateNew.cpp:48
+#: ../../../src/GameStateConfig.cpp:73
+msgid "Set ALL settings to default?"
+msgstr ""
+
+#: ../../../src/GameStateConfig.cpp:243
+msgid "Video"
+msgstr ""
+
+#: ../../../src/GameStateConfig.cpp:244
+msgid "Audio"
+msgstr ""
+
+#: ../../../src/GameStateConfig.cpp:245
+msgid "Interface"
+msgstr ""
+
+#: ../../../src/GameStateConfig.cpp:246
+msgid "Input"
+msgstr ""
+
+#: ../../../src/GameStateConfig.cpp:247
+msgid "Keybindings"
+msgstr ""
+
+#: ../../../src/GameStateConfig.cpp:248
+msgid "Mods"
+msgstr ""
+
+#: ../../../src/GameStateConfig.cpp:252
+msgid "Ok"
+msgstr ""
+
+#: ../../../src/GameStateConfig.cpp:264 ../../../src/GameStateNew.cpp:48
 msgid "Cancel"
 msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:221
+#: ../../../src/GameStateConfig.cpp:270
 msgid "Full Screen Mode"
 msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:228
+#: ../../../src/GameStateConfig.cpp:278
 msgid "Music Volume"
 msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:235
+#: ../../../src/GameStateConfig.cpp:286
 msgid "Sound Volume"
 msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:242
+#: ../../../src/GameStateConfig.cpp:294
 msgid "Gamma"
 msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:249
+#: ../../../src/GameStateConfig.cpp:302
 msgid "Move hero using mouse"
 msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:256
+#: ../../../src/GameStateConfig.cpp:310
 msgid "Show combat text"
 msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:263
+#: ../../../src/GameStateConfig.cpp:318
 msgid "Hardware surfaces"
 msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:270
+#: ../../../src/GameStateConfig.cpp:326
 msgid "Double buffering"
 msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:277
+#: ../../../src/GameStateConfig.cpp:334
 msgid "Use joystick"
 msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:284 ../../../src/GameStateConfig.cpp:288
+#: ../../../src/GameStateConfig.cpp:342 ../../../src/GameStateConfig.cpp:346
 msgid "Try disabling for performance"
 msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:294
+#: ../../../src/GameStateConfig.cpp:352
 msgid "Resolution"
 msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:301
+#: ../../../src/GameStateConfig.cpp:360
 msgid "Language"
 msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:308
+#: ../../../src/GameStateConfig.cpp:368
 msgid "Joystick"
 msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:329
+#: ../../../src/GameStateConfig.cpp:393
 msgid "Active Mods"
+msgstr ""
+
+#: ../../../src/GameStateConfig.cpp:404
+msgid "Avaliable Mods"
+msgstr ""
+
+#: ../../../src/GameStateConfig.cpp:416
+msgid "<< Deactivate"
+msgstr ""
+
+#: ../../../src/GameStateConfig.cpp:417
+msgid "Activate >>"
 msgstr ""
 
 #: ../../../src/GameStateLoad.cpp:48 ../../../src/GameStateLoad.cpp:63
@@ -158,28 +183,28 @@ msgstr ""
 msgid "Choose a Slot"
 msgstr ""
 
-#: ../../../src/GameStateLoad.cpp:328 ../../../src/GameStateLoad.cpp:345
+#: ../../../src/GameStateLoad.cpp:326 ../../../src/GameStateLoad.cpp:343
 msgid "New Game"
 msgstr ""
 
-#: ../../../src/GameStateLoad.cpp:349
+#: ../../../src/GameStateLoad.cpp:347
 msgid "Load Game"
 msgstr ""
 
-#: ../../../src/GameStateLoad.cpp:417
+#: ../../../src/GameStateLoad.cpp:415
 msgid "Entering game world..."
 msgstr ""
 
-#: ../../../src/GameStateLoad.cpp:419
+#: ../../../src/GameStateLoad.cpp:417
 msgid "Loading saved game..."
 msgstr ""
 
-#: ../../../src/GameStateLoad.cpp:440
+#: ../../../src/GameStateLoad.cpp:438
 #, c-format
 msgid "Level %d %s"
 msgstr ""
 
-#: ../../../src/GameStateLoad.cpp:462
+#: ../../../src/GameStateLoad.cpp:460
 msgid "Empty Slot"
 msgstr ""
 
@@ -216,7 +241,7 @@ msgid "Exit Game"
 msgstr ""
 
 #: ../../../src/GameStateTitle.cpp:57
-msgid "Flare Alpha v0.15"
+msgid "Flare Alpha v0.16"
 msgstr ""
 
 #: ../../../src/ItemManager.cpp:355
@@ -350,32 +375,32 @@ msgstr ""
 msgid "Sell Price: %d gold each"
 msgstr ""
 
-#: ../../../src/LootManager.cpp:244 ../../../src/MenuInventory.cpp:132
+#: ../../../src/LootManager.cpp:240 ../../../src/MenuInventory.cpp:132
 #, c-format
 msgid "%d Gold"
 msgstr ""
 
-#: ../../../src/main.cpp:126
+#: ../../../src/main.cpp:119
 msgid "Flare"
 msgstr ""
 
-#: ../../../src/MapIso.cpp:876
+#: ../../../src/MapIso.cpp:917
 msgid "Unknown destination"
 msgstr ""
 
-#: ../../../src/MenuActionBar.cpp:293
+#: ../../../src/MenuActionBar.cpp:304
 msgid "Character Menu (C)"
 msgstr ""
 
-#: ../../../src/MenuActionBar.cpp:297
+#: ../../../src/MenuActionBar.cpp:308
 msgid "Inventory Menu (I)"
 msgstr ""
 
-#: ../../../src/MenuActionBar.cpp:301
+#: ../../../src/MenuActionBar.cpp:312
 msgid "Power Menu (P)"
 msgstr ""
 
-#: ../../../src/MenuActionBar.cpp:305
+#: ../../../src/MenuActionBar.cpp:316
 msgid "Log Menu (L)"
 msgstr ""
 
@@ -739,58 +764,62 @@ msgstr ""
 msgid "Cooldown: %d seconds"
 msgstr ""
 
-#: ../../../src/MenuVendor.cpp:98
+#: ../../../src/MenuTalker.cpp:50
+msgid "Trade"
+msgstr ""
+
+#: ../../../src/MenuVendor.cpp:99
 msgid "Vendor"
 msgstr ""
 
-#: ../../../src/StatBlock.cpp:338
+#: ../../../src/StatBlock.cpp:351
 msgid "Grand Master"
 msgstr ""
 
-#: ../../../src/StatBlock.cpp:341
+#: ../../../src/StatBlock.cpp:354
 msgid "Master"
 msgstr ""
 
-#: ../../../src/StatBlock.cpp:344
+#: ../../../src/StatBlock.cpp:357
 msgid "Warrior"
 msgstr ""
 
-#: ../../../src/StatBlock.cpp:346
+#: ../../../src/StatBlock.cpp:359
 msgid "Wizard"
 msgstr ""
 
-#: ../../../src/StatBlock.cpp:348
+#: ../../../src/StatBlock.cpp:361
 msgid "Ranger"
 msgstr ""
 
-#: ../../../src/StatBlock.cpp:350
+#: ../../../src/StatBlock.cpp:363
 msgid "Paladin"
 msgstr ""
 
-#: ../../../src/StatBlock.cpp:353
+#: ../../../src/StatBlock.cpp:366
 msgid "Rogue"
 msgstr ""
 
-#: ../../../src/StatBlock.cpp:355
+#: ../../../src/StatBlock.cpp:368
 msgid "Knight"
 msgstr ""
 
-#: ../../../src/StatBlock.cpp:357
+#: ../../../src/StatBlock.cpp:370
 msgid "Shaman"
 msgstr ""
 
-#: ../../../src/StatBlock.cpp:359
+#: ../../../src/StatBlock.cpp:372
 msgid "Cleric"
 msgstr ""
 
-#: ../../../src/StatBlock.cpp:361
+#: ../../../src/StatBlock.cpp:374
 msgid "Battle Mage"
 msgstr ""
 
-#: ../../../src/StatBlock.cpp:363
+#: ../../../src/StatBlock.cpp:376
 msgid "Heavy Archer"
 msgstr ""
 
-#: ../../../src/StatBlock.cpp:365
+#: ../../../src/StatBlock.cpp:378
 msgid "Adventurer"
 msgstr ""
