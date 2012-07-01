@@ -31,6 +31,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 // TODO: rename these to something more specific to EnemyManager
 const int max_sfx = 8;
 const int max_gfx = 32;
+const int MAX_ENEMIES_PER_MAP = 256;
 
 class EnemyManager {
 private:
@@ -63,7 +64,7 @@ public:
 	Enemy *enemyFocus(Point mouse, Point cam, bool alive_only);
 
 	// vars
-	Enemy *enemies[256]; // TODO: change to dynamic list without limits
+	Enemy *enemies[MAX_ENEMIES_PER_MAP]; // TODO: change to dynamic list without limits
 	Point hero_pos;
 	bool hero_alive;
 	int enemy_count;

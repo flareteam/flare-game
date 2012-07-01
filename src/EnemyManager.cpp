@@ -137,7 +137,7 @@ void EnemyManager::handleNewMap () {
 	sfx_count = 0;
 	
 	// load new enemies
-	while (!map->enemies.empty()) {
+	while (!map->enemies.empty() && enemy_count < MAX_ENEMIES_PER_MAP) {
 		me = map->enemies.front();
 		map->enemies.pop();
 		
@@ -156,12 +156,22 @@ void EnemyManager::handleNewMap () {
 			enemies[enemy_count]->loadAnimations("animations/" + enemies[enemy_count]->stats.animations + ".txt");
 		}
 		else {
-			cout << "Warning: no animation file specified for entity: " << me.type << endl;
+			cerr << "Warning: no animation file specified for entity: " << me.type << endl;
 		}
 		loadGraphics(enemies[enemy_count]->stats.gfx_prefix);
 		loadSounds(enemies[enemy_count]->stats.sfx_prefix);
 		enemy_count++;
 	}
+	
+	// Too many enemies on this map.
+	if (!map->enemies.empty()) {
+		cerr << "Warning: map contains more than the max (" << MAX_ENEMIES_PER_MAP << ") number of enemies." << endl;
+		
+		while (!map->enemies.empty()) {
+			map->enemies.pop();
+		}
+	}
+	
 }
 
 /**
@@ -172,7 +182,7 @@ void EnemyManager::handleSpawn() {
 	
 	EnemySpawn espawn;
 	
-	while (!powers->enemies.empty()) {
+	while (!powers->enemies.empty() && enemy_count < MAX_ENEMIES_PER_MAP) {
 		espawn = powers->enemies.front();		
 		powers->enemies.pop();	
 
@@ -198,6 +208,16 @@ void EnemyManager::handleSpawn() {
 		enemies[enemy_count]->stats.cur_state = ENEMY_SPAWN;
 		enemy_count++;	
 	}
+	
+	// Too many enemies on this map.
+	if (!powers->enemies.empty()) {
+		cerr << "Warning: enemy not spawned; map already at max capacity (" << MAX_ENEMIES_PER_MAP << " enemies)." << endl;
+		
+		while (!powers->enemies.empty()) {
+			powers->enemies.pop();
+		}
+	}
+
 }
 
 /**
