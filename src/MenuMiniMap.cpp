@@ -40,6 +40,7 @@ MenuMiniMap::MenuMiniMap() {
 }
 
 void MenuMiniMap::render(MapCollision *collider, Point hero_pos, int map_w, int map_h) {
+
 	if (TILESET_ORIENTATION == TILESET_ISOMETRIC)
 		renderIso(collider, hero_pos, map_w, map_h);
 	else // TILESET_ORTHOGONAL
@@ -50,6 +51,9 @@ void MenuMiniMap::render(MapCollision *collider, Point hero_pos, int map_w, int 
  * Render a top-down version of the map (90 deg angle)
  */
 void MenuMiniMap::renderOrtho(MapCollision *collider, Point hero_pos, int map_w, int map_h) {
+
+	SDL_LockSurface(screen);
+
 	Point hero_tile;
 	Point map_tile;
 	hero_tile.x = hero_pos.x / UNITS_PER_TILE;
@@ -73,6 +77,8 @@ void MenuMiniMap::renderOrtho(MapCollision *collider, Point hero_pos, int map_w,
 	drawPixel(screen,VIEW_W-64+1,80,color_hero); // hero
 	drawPixel(screen,VIEW_W-64,80-1,color_hero); // hero
 	drawPixel(screen,VIEW_W-64,80+1,color_hero); // hero
+	
+	SDL_UnlockSurface(screen);
 
 }
 
@@ -80,6 +86,9 @@ void MenuMiniMap::renderOrtho(MapCollision *collider, Point hero_pos, int map_w,
  * Render an "isometric" version of the map (45 deg angle)
  */
 void MenuMiniMap::renderIso(MapCollision *collider, Point hero_pos, int map_w, int map_h) {
+
+	SDL_LockSurface(screen);
+
 	int tile_type;
 	Point screen_pos;
 	Uint32 draw_color;
@@ -113,6 +122,8 @@ void MenuMiniMap::renderIso(MapCollision *collider, Point hero_pos, int map_w, i
 			}
 		}
 	}
+	
+	SDL_UnlockSurface(screen);
 }
 
 MenuMiniMap::~MenuMiniMap() {

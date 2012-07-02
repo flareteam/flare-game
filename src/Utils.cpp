@@ -245,14 +245,48 @@ void sort_by_tile(Renderable r[], int rnum) {
 	
 }
 
-/**
- * draw pixel to the screen
+
+/*
+ * Set the pixel at (x, y) to the given value
+ * NOTE: The surface must be locked before calling this!
+ *
+ * Source: SDL Documentation
+ * http://www.libsdl.org/docs/html/guidevideo.html
  */
-void drawPixel(SDL_Surface *screen, int x, int y, Uint32 color) {
-	Uint32 *pixmem32;
-	pixmem32 = (Uint32*) screen->pixels + (y * ((screen->pitch)/4)) + x;
-	*pixmem32 = color;
+void drawPixel(SDL_Surface *surface, int x, int y, Uint32 pixel)
+{
+    int bpp = surface->format->BytesPerPixel;
+    /* Here p is the address to the pixel we want to set */
+    Uint8 *p = (Uint8 *)surface->pixels + y * surface->pitch + x * bpp;
+
+    switch(bpp) {
+    case 1:
+        *p = pixel;
+        break;
+
+    case 2:
+        *(Uint16 *)p = pixel;
+        break;
+
+    case 3:
+        if(SDL_BYTEORDER == SDL_BIG_ENDIAN) {
+            p[0] = (pixel >> 16) & 0xff;
+            p[1] = (pixel >> 8) & 0xff;
+            p[2] = pixel & 0xff;
+        } else {
+            p[0] = pixel & 0xff;
+            p[1] = (pixel >> 8) & 0xff;
+            p[2] = (pixel >> 16) & 0xff;
+        }
+        break;
+
+    case 4:
+        *(Uint32 *)p = pixel;
+        break;
+    }
 }
+
+
 
 /**
  * draw line to the screen
