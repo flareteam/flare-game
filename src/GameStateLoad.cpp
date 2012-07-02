@@ -222,7 +222,6 @@ void GameStateLoad::loadPreview(int slot) {
 	string img_body;
 	string img_off;
 
-	SDL_Surface *gfx_body = NULL;
 	SDL_Surface *gfx_main = NULL;
 	SDL_Surface *gfx_off = NULL;
 	SDL_Surface *gfx_head = NULL;
@@ -232,41 +231,37 @@ void GameStateLoad::loadPreview(int slot) {
 	if (equipped[slot][1] != 0)	img_body = items->items[equipped[slot][1]].gfx;
 	else img_body = "clothes";
 	if (equipped[slot][2] != 0)	img_off = items->items[equipped[slot][2]].gfx;
-
-	if (sprites[slot]) SDL_FreeSurface(sprites[slot]);
-	sprites[slot] = IMG_Load(mods->locate("images/avatar/preview_background.png").c_str());
-	SDL_SetColorKey(sprites[slot], SDL_SRCCOLORKEY, SDL_MapRGB(screen->format, 255, 0, 255));
-
-	// optimize
-	SDL_Surface *cleanup = sprites[slot];
-	sprites[slot] = SDL_DisplayFormatAlpha(sprites[slot]);
-	SDL_FreeSurface(cleanup);
+	
+	// load the body as the base image
+	// we'll blit the other layers onto it
+	sprites[slot] = IMG_Load(mods->locate("images/avatar/" + stats[slot].base + "/preview/" + img_body + ".png").c_str());
 
 	// composite the hero graphic
-	if (img_body != "") gfx_body = IMG_Load(mods->locate("images/avatar/" + stats[slot].base + "/preview/" + img_body + ".png").c_str());
 	if (img_main != "") gfx_main = IMG_Load(mods->locate("images/avatar/" + stats[slot].base + "/preview/" + img_main + ".png").c_str());
 	if (img_off != "") gfx_off = IMG_Load(mods->locate("images/avatar/" + stats[slot].base + "/preview/" + img_off + ".png").c_str());
 	gfx_head = IMG_Load(mods->locate("images/avatar/" + stats[slot].base + "/preview/" + stats[slot].head + ".png").c_str());
 
-	if (gfx_body) SDL_SetColorKey(gfx_body, SDL_SRCCOLORKEY, SDL_MapRGB(screen->format, 255, 0, 255));
 	if (gfx_main) SDL_SetColorKey(gfx_main, SDL_SRCCOLORKEY, SDL_MapRGB(screen->format, 255, 0, 255));
 	if (gfx_off) SDL_SetColorKey(gfx_off, SDL_SRCCOLORKEY, SDL_MapRGB(screen->format, 255, 0, 255));
 	if (gfx_head) SDL_SetColorKey(gfx_head, SDL_SRCCOLORKEY, SDL_MapRGB(screen->format, 255, 0, 255));
 
-	dest.w = 512; // for this menu we only need the stance animation
-	dest.h = 128; // for this menu we only need one direction
-	dest.x = 0;
-	dest.y = 0;
+	dest.x = dest.y = 0;
+	dest.w = 512;
+	dest.h = 128;
 
-	if (gfx_body) SDL_BlitSurface(gfx_body, NULL, sprites[slot], &dest);
 	if (gfx_main) SDL_BlitSurface(gfx_main, NULL, sprites[slot], &dest);
-	if (gfx_head) SDL_BlitSurface(gfx_head, NULL, sprites[slot], &dest);
 	if (gfx_off) SDL_BlitSurface(gfx_off, NULL, sprites[slot], &dest);
+	if (gfx_head) SDL_BlitSurface(gfx_head, NULL, sprites[slot], &dest);
 
-	if (gfx_body) SDL_FreeSurface(gfx_body);
 	if (gfx_main) SDL_FreeSurface(gfx_main);
-	if (gfx_head) SDL_FreeSurface(gfx_head);
 	if (gfx_off) SDL_FreeSurface(gfx_off);
+	if (gfx_head) SDL_FreeSurface(gfx_head);
+
+	// optimize
+	SDL_SetColorKey(sprites[slot], SDL_SRCCOLORKEY, SDL_MapRGB(screen->format, 255, 0, 255));
+	SDL_Surface *cleanup = sprites[slot];
+	sprites[slot] = SDL_DisplayFormatAlpha(sprites[slot]);
+	SDL_FreeSurface(cleanup);
 
 }
 
