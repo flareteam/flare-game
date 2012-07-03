@@ -635,7 +635,15 @@ void MapIso::logic() {
 	tset.logic();
 }
 
+
 void MapIso::render(Renderable r[], int rnum) {
+    if (TILESET_ORTHOGONAL)
+        renderOrtho(r, rnum);
+    else
+        renderIso(r, rnum);
+}
+
+void MapIso::renderIso(Renderable r[], int rnum) {
 
 	// r will become a list of renderables.  Everything not on the map already:
 	// - hero
@@ -702,6 +710,117 @@ void MapIso::render(Renderable r[], int rnum) {
 		else
 			j++;
 	}
+
+	// some renderables are drawn above the background and below the objects
+	for (int ri = 0; ri < rnum; ri++) {
+		if (!r[ri].object_layer) {
+
+			// draw renderable
+			dest.w = r[ri].src.w;
+			dest.h = r[ri].src.h;
+			Point p = map_to_screen(r[ri].map_pos.x, r[ri].map_pos.y, shakycam.x, shakycam.y);
+			dest.x = p.x - r[ri].offset.x;
+			dest.y = p.y - r[ri].offset.y;
+
+			SDL_BlitSurface(r[ri].sprite, &r[ri].src, screen, &dest);
+		}
+	}
+
+	int r_cursor = 0;
+
+	// todo: trim by screen rect
+	// object layer
+	for (j=0; j<h; j++) {
+		for (i=0; i<w; i++) {
+
+			current_tile = object[i][j];
+
+			if (current_tile > 0) {
+				Point p = map_to_screen(i * UNITS_PER_TILE, j * UNITS_PER_TILE, shakycam.x, shakycam.y);
+				p = center_tile(p);
+				dest.x = p.x;
+				dest.y = p.y;
+				dest.x -= tset.tiles[current_tile].offset.x;
+				dest.y -= tset.tiles[current_tile].offset.y;
+				dest.w = tset.tiles[current_tile].src.w;
+				dest.h = tset.tiles[current_tile].src.h;
+
+				SDL_BlitSurface(tset.sprites, &(tset.tiles[current_tile].src), screen, &dest);
+
+			}
+
+			// some renderable entities go in this layer
+			while (r_cursor < rnum && r[r_cursor].tile.x == i && r[r_cursor].tile.y == j) {
+				if (r[r_cursor].object_layer) {
+					// draw renderable
+					dest.w = r[r_cursor].src.w;
+					dest.h = r[r_cursor].src.h;
+					Point p = map_to_screen(r[r_cursor].map_pos.x, r[r_cursor].map_pos.y, shakycam.x, shakycam.y);
+					dest.x = p.x - r[r_cursor].offset.x;
+					dest.y = p.y - r[r_cursor].offset.y;
+
+					SDL_BlitSurface(r[r_cursor].sprite, &r[r_cursor].src, screen, &dest);
+				}
+
+				r_cursor++;
+
+			}
+		}
+	}
+	//render event tooltips
+	checkTooltip();
+
+}
+
+void MapIso::renderOrtho(Renderable r[], int rnum) {
+
+	// r will become a list of renderables.  Everything not on the map already:
+	// - hero
+	// - npcs
+	// - monsters
+	// - loot
+	// - special effects
+	// we want to sort these by map draw order.  Then, we use a cursor to move through the
+	// renderables while we're also moving through the map tiles.  After we draw each map tile we
+	// check to see if it's time to draw the next renderable yet.
+
+	short int i;
+	short int j;
+	SDL_Rect dest;
+	int current_tile;
+
+	Point shakycam;
+
+	if (shaky_cam_ticks == 0) {
+		shakycam.x = cam.x;
+		shakycam.y = cam.y;
+	}
+	else {
+		shakycam.x = cam.x + (rand() % 16 - 8) /UNITS_PER_PIXEL_X;
+		shakycam.y = cam.y + (rand() % 16 - 8) /UNITS_PER_PIXEL_Y;
+	}
+	
+	for (j=0; j<h; j++) {
+		for (i=0; i<w; i++) {
+
+			current_tile = background[i][j];
+
+			if (current_tile > 0) {
+				Point p = map_to_screen(i * UNITS_PER_TILE, j * UNITS_PER_TILE, shakycam.x, shakycam.y);
+				p = center_tile(p);
+				dest.x = p.x;
+				dest.y = p.y;
+				dest.x -= tset.tiles[current_tile].offset.x;
+				dest.y -= tset.tiles[current_tile].offset.y;
+				dest.w = tset.tiles[current_tile].src.w;
+				dest.h = tset.tiles[current_tile].src.h;
+
+				SDL_BlitSurface(tset.sprites, &(tset.tiles[current_tile].src), screen, &dest);
+
+			}
+		}
+	}
+
 
 	// some renderables are drawn above the background and below the objects
 	for (int ri = 0; ri < rnum; ri++) {

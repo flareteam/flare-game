@@ -118,6 +118,8 @@ public:
 	void loadMusic();
 	void logic();
 	void render(Renderable r[], int rnum);
+	void renderIso(Renderable r[], int rnum);
+	void renderOrtho(Renderable r[], int rnum);
 	void checkEvents(Point loc);
 	void checkEventClick();
 	void clearEvents();
