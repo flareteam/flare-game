@@ -107,6 +107,10 @@ int JOYSTICK_DEVICE;
 // Language Settings
 std::string LANGUAGE = "en";
 
+// Autopickup Settings
+int AUTOPICKUP_RANGE = 0;
+bool AUTOPICKUP_GOLD = false;
+
 // Other Settings
 bool MENUS_PAUSE = false;
 
@@ -285,6 +289,26 @@ void loadTilesetSettings() {
 	else { // TILESET_ORTHOGONAL
 		UNITS_PER_PIXEL_X = UNITS_PER_TILE / TILE_W;
 		UNITS_PER_PIXEL_Y = UNITS_PER_TILE / TILE_H;
+	}
+}
+
+void loadAutoPickupSettings() {
+	FileParser infile;
+	// load autopickup settings from engine config
+	if (infile.open(mods->locate("engine/autopickup.txt").c_str())) {
+		while (infile.next()) {
+			if (infile.key == "range") {
+				AUTOPICKUP_RANGE = atoi(infile.val.c_str());
+			}
+			else if (infile.key == "gold") {
+				if (atoi(infile.val.c_str()) == 1) AUTOPICKUP_GOLD = true;
+                else AUTOPICKUP_GOLD = false;
+			}
+		}
+		infile.close();
+	}
+	else {
+		fprintf(stderr, "No autopickup config found! Turning autopickup off by default.\n");
 	}
 }
 

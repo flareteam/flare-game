@@ -72,6 +72,9 @@ static void init(const vector<string>	& args) {
     // Load tileset options (must be after ModManager is initialized)
 	loadTilesetSettings();
 
+    // Load autopickup settings (must be after ModManager is initialized)
+    loadAutoPickupSettings();
+
 	// Add Window Titlebar Icon
 	SDL_WM_SetIcon(IMG_Load(mods->locate("images/logo/icon.png").c_str()),NULL);
 
