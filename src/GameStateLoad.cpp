@@ -258,10 +258,12 @@ void GameStateLoad::loadPreview(int slot) {
 	if (gfx_head) SDL_FreeSurface(gfx_head);
 
 	// optimize
-	SDL_SetColorKey(sprites[slot], SDL_SRCCOLORKEY, SDL_MapRGB(screen->format, 255, 0, 255));
-	SDL_Surface *cleanup = sprites[slot];
-	sprites[slot] = SDL_DisplayFormatAlpha(sprites[slot]);
-	SDL_FreeSurface(cleanup);
+	if (sprites[slot]) {
+		SDL_SetColorKey(sprites[slot], SDL_SRCCOLORKEY, SDL_MapRGB(screen->format, 255, 0, 255));
+		SDL_Surface *cleanup = sprites[slot];
+		sprites[slot] = SDL_DisplayFormatAlpha(sprites[slot]);
+		SDL_FreeSurface(cleanup);
+	}
 
 }
 
