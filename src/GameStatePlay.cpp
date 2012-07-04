@@ -152,10 +152,20 @@ bool GameStatePlay::restrictPowerUse() {
  * Check to see if the player is picking up loot on the ground
  */
 void GameStatePlay::checkLoot() {
-	if (inpt->pressing[MAIN1] && !inpt->lock[MAIN1] && pc->stats.alive) {
 
-		ItemStack pickup;
-		int gold;
+	ItemStack pickup;
+	int gold;
+
+	// Autopickup
+    if (pc->stats.alive && AUTOPICKUP_GOLD) {
+        pickup = loot->checkAutoPickup(map->cam, pc->stats.pos, gold, menu->inv->full());
+        if (gold > 0) {
+            menu->inv->addGold(gold);
+        }
+    }
+
+	// Pickup with mouse click
+	if (inpt->pressing[MAIN1] && !inpt->lock[MAIN1] && pc->stats.alive) {
 
 		pickup = loot->checkPickup(inpt->mouse, map->cam, pc->stats.pos, gold, menu->inv->full());
 		if (pickup.item > 0) {

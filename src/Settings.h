@@ -73,8 +73,13 @@ extern int TILESET_ORTHOGONAL;
 // Language Settings
 extern std::string LANGUAGE;
 
+// Autopickup Settings
+extern int AUTOPICKUP_RANGE;
+extern bool AUTOPICKUP_GOLD;
+
 void setPaths();
 void loadTilesetSettings();
+void loadAutoPickupSettings();
 bool loadSettings();
 bool saveSettings();
 bool loadDefaults();

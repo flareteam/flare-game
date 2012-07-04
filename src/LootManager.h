@@ -122,6 +122,7 @@ public:
 	void addGold(int count, Point pos);
 	void removeLoot(int index);
 	ItemStack checkPickup(Point mouse, Point cam, Point hero_pos, int &gold, bool inv_full);
+	ItemStack checkAutoPickup(Point cam, Point hero_pos, int &gold, bool inv_full);
 	
 	Renderable getRender(int index);
 	

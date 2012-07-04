@@ -462,6 +462,28 @@ ItemStack LootManager::checkPickup(Point mouse, Point cam, Point hero_pos, int &
 	return loot_stack;
 }
 
+/**
+ * Autopickup loot if enabled in the engine
+ * Currently, only gold is checked for autopickup
+ */
+ItemStack LootManager::checkAutoPickup(Point cam, Point hero_pos, int &gold, bool inv_full) {
+	ItemStack loot_stack;
+	gold = 0;
+	loot_stack.item = 0;
+	loot_stack.quantity = 0;
+
+	for (int i=loot_count-1; i>=0; i--) {
+		if (abs(hero_pos.x - loot[i].pos.x) < AUTOPICKUP_RANGE && abs(hero_pos.y - loot[i].pos.y) < AUTOPICKUP_RANGE && !isFlying(i)) {
+			if (loot[i].gold > 0 && AUTOPICKUP_GOLD) {
+				gold = loot[i].gold;
+				removeLoot(i);
+				return loot_stack;
+			}
+		}
+	}
+	return loot_stack;
+}
+
 Renderable LootManager::getRender(int index) {
 
 	Renderable r;
