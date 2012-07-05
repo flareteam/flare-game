@@ -364,7 +364,7 @@ void PowerManager::loadPowers(const std::string& filename) {
 				powers[input_id].spawn_type = infile.val;
 			}
 			else if (infile.key == "target_neighbor") {
-				if (infile.val == "true") powers[input_id].target_neighbor = true;
+				powers[input_id].target_neighbor = atoi(infile.val.c_str());
 			}
 		}
 		infile.close();
@@ -559,51 +559,23 @@ bool PowerManager::hasValidTarget(int power_index, StatBlock *src_stats, Point t
  * Try to retarget the power to one of the 8 adjacent tiles
  * Returns the retargeted position on success, returns the original position on failure
  */
-Point PowerManager::targetNeighbor(Point target) {
+Point PowerManager::targetNeighbor(Point target, int range) {
 	Point new_target = target;
-	int direction = rand() % 8;
-	int start_direction = direction;
+	std::vector<Point> valid_tiles;
 
-	while (1) {
-		if (direction == 0) {
-			new_target.x = target.x-UNITS_PER_TILE;
-		}
-		if (direction == 1) {
-			new_target.x = target.x-UNITS_PER_TILE;
-			new_target.y = target.y-UNITS_PER_TILE;
-		}
-		if (direction == 2) {
-			new_target.y = target.y-UNITS_PER_TILE;
-		}
-		if (direction == 3) {
-			new_target.x = target.x+UNITS_PER_TILE;
-			new_target.y = target.y-UNITS_PER_TILE;
-		}
-		if (direction == 4) {
-			new_target.x = target.x+UNITS_PER_TILE;
-		}
-		if (direction == 5) {
-			new_target.x = target.x+UNITS_PER_TILE;
-			new_target.y = target.y+UNITS_PER_TILE;
-		}
-		if (direction == 6) {
-			new_target.y = target.y+UNITS_PER_TILE;
-		}
-		if (direction == 7) {
-			new_target.x = target.x-UNITS_PER_TILE;
-			new_target.y = target.y+UNITS_PER_TILE;
-		}
-
-		if (collider->valid_position(new_target.x,new_target.y,MOVEMENT_NORMAL)) {
-			return new_target;
-		} else {
-			direction++;
-			if (direction > 8) direction = 0;
-			if (direction == start_direction) break;
+	for (int i=-range; i<=range; i++) {
+		for (int j=-range; j<=range; j++) {
+			new_target.x = target.x+UNITS_PER_TILE*i;
+			new_target.y = target.y+UNITS_PER_TILE*j;
+			if (collider->valid_position(new_target.x,new_target.y,MOVEMENT_NORMAL))
+				valid_tiles.push_back(new_target);
 		}
 	}
 
-	return target;
+	if (valid_tiles.size() > 0)
+		return valid_tiles[rand() % valid_tiles.size()];
+	else
+		return target;
 }
 
 /**
@@ -817,8 +789,8 @@ void PowerManager::buff(int power_index, StatBlock *src_stats, Point target) {
 	// teleport to the target location
 	if (powers[power_index].buff_teleport) {
 		target = limitRange(powers[power_index].range,src_stats->pos,target);
-		if (powers[power_index].target_neighbor) {
-			Point new_target = targetNeighbor(target);
+		if (powers[power_index].target_neighbor > 0) {
+			Point new_target = targetNeighbor(target,powers[power_index].target_neighbor);
 			if (new_target.x == target.x && new_target.y == target.y) {
 				src_stats->teleportation = false;
 			} else {
@@ -1108,8 +1080,8 @@ bool PowerManager::spawn(int power_index, StatBlock *src_stats, Point target) {
 		espawn.pos.x = (int)fpos.x;
 		espawn.pos.y = (int)fpos.y;
 	}
-	if (powers[power_index].target_neighbor) {
-		espawn.pos = targetNeighbor(src_stats->pos);
+	if (powers[power_index].target_neighbor > 0) {
+		espawn.pos = targetNeighbor(src_stats->pos,powers[power_index].target_neighbor);
 	}
 
 	espawn.direction = calcDirection(src_stats->pos.x, src_stats->pos.y, target.x, target.y);
