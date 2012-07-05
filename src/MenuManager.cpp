@@ -155,7 +155,7 @@ void MenuManager::logic() {
 	}
 
 	// exit menu toggle
-	if ((inpt->pressing[CANCEL] && !inpt->lock[CANCEL] && !key_lock && !dragging) && !(stats->corpse && stats->permadeath)) {
+	if ((inpt->pressing[CANCEL] && !inpt->lock[CANCEL] && !key_lock && !dragging) && !(stats->corpse && stats->permadeath) && stats->transform_duration < 1) {
 		inpt->lock[CANCEL] = true;
 		key_lock = true;
 		if (menus_open) {
@@ -167,7 +167,7 @@ void MenuManager::logic() {
 	}
 
 	// inventory menu toggle
-	if (((inpt->pressing[INVENTORY] && !key_lock && !dragging) || clicking_inventory) && !stats->transformed) {
+	if (((inpt->pressing[INVENTORY] && !key_lock && !dragging) || clicking_inventory) && stats->transform_duration < 1) {
 		key_lock = true;
 		if (inv->visible) {
 			closeRight(true);

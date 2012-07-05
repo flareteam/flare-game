@@ -299,7 +299,7 @@ void GameStatePlay::checkLog() {
 }
 
 void GameStatePlay::checkEquipmentChange() {
-	if (menu->inv->changed_equipment || pc->untransform_triggered) {
+	if ((menu->inv->changed_equipment || pc->untransform_triggered) && !pc->stats.transformed) {
 
 		pc->untransform_triggered = false;
 
