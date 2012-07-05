@@ -637,7 +637,7 @@ void MapIso::logic() {
 
 
 void MapIso::render(Renderable r[], int rnum) {
-    if (TILESET_ORTHOGONAL)
+    if (TILESET_ORIENTATION == TILESET_ORTHOGONAL)
         renderOrtho(r, rnum);
     else
         renderIso(r, rnum);
