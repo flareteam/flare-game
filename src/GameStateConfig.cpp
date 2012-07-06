@@ -231,7 +231,7 @@ GameStateConfig::GameStateConfig ()
 		infile.close();
 
 	// Initialize the tab control.
-	tabControl->setMainArea((VIEW_W - 640)/2, (VIEW_H - 480)/2, 640, 480);
+	tabControl->setMainArea(((VIEW_W - 640)/2)+3, (VIEW_H - 480)/2, 640, 480);
 
 	// Set positions of secondary key bindings
 	for (unsigned int i = 25; i < 50; i++) {
@@ -514,10 +514,9 @@ void GameStateConfig::update () {
 	int active = settings_cmb[1]->selected;
 
 	// Check if resolution was selected correctly
-	// If not, than 720x480 is not supported
 	list_mode << VIEW_W << "x" << VIEW_H;
 	if (settings_cmb[1]->get(active) != list_mode.str()) {
-		fprintf(stderr, "Default resolution 720x480 is not supported!\n");
+		fprintf(stderr, "Resolution is not supported!\n");
 		fprintf(stderr, "Using 640x480 instead!\n");
 		for (unsigned int i=0; i<resolutions; ++i) {
 			if (video_modes[i].w == 640 && video_modes[i].h == 480) settings_cmb[1]->selected = i;
@@ -760,18 +759,16 @@ void GameStateConfig::render ()
 int GameStateConfig::getVideoModes()
 {
 	/* Set predefined modes */
-	const unsigned int cm_count = 5;
+	const unsigned int cm_count = 4;
 	SDL_Rect common_modes[cm_count];
 	common_modes[0].w = 640;
 	common_modes[0].h = 480;
-	common_modes[1].w = 720;
-	common_modes[1].h = 480;
-	common_modes[2].w = 800;
-	common_modes[2].h = 600;
-	common_modes[3].w = 1024;
-	common_modes[3].h = 768;
-	common_modes[4].w = 1280;
-	common_modes[4].h = 1024;
+	common_modes[1].w = 800;
+	common_modes[1].h = 600;
+	common_modes[2].w = 1024;
+	common_modes[2].h = 768;
+	common_modes[3].w = 1280;
+	common_modes[3].h = 1024;
 
 	int modes = 0;
 
@@ -891,20 +888,11 @@ int GameStateConfig::getLanguagesNumber()
  */
 void GameStateConfig::setDefaultResolution()
 {
-	std::stringstream list_mode;
-	bool default_720 = false;
 	unsigned int resolutions = getVideoModes();
-	for (unsigned int i=0; i<resolutions; ++i) {
-		if (video_modes[i].w == 720 && video_modes[i].h == 480) {
-			default_720 = true; settings_cmb[1]->selected = i;
-		}
-		 list_mode.str("");
-		}
 
-	if (!default_720)
-		for (unsigned int i=0; i<resolutions; ++i) {
-			if (video_modes[i].w == 640 && video_modes[i].h == 480) settings_cmb[1]->selected = i;
-		}
+	for (unsigned int i=0; i<resolutions; ++i) {
+		if (video_modes[i].w == 640 && video_modes[i].h == 480) settings_cmb[1]->selected = i;
+	}
 	settings_cmb[1]->refresh();
 
 }
