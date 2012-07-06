@@ -1120,10 +1120,10 @@ bool PowerManager::transform(int power_index, StatBlock *src_stats, Point target
 	// If there's a sound effect, play it here
 	playSound(power_index, src_stats);
 
-	// power with id=136 is untransform power, its transform_type field is empty
-	if (power_index == 136) {
+	// execute untransform powers
+	if (powers[power_index].spawn_type == "untransform" && src_stats->transformed) {
 		src_stats->transform_duration = 0;
-		src_stats->transform_type = "NULL"; // untransform() is called only if type !=""
+		src_stats->transform_type = "untransform"; // untransform() is called only if type !=""
 	}
 	else {
 		// permanent transformation

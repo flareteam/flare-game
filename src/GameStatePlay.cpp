@@ -299,7 +299,7 @@ void GameStatePlay::checkLog() {
 }
 
 void GameStatePlay::checkEquipmentChange() {
-	if (menu->inv->changed_equipment || pc->untransform_triggered) {
+	if ((menu->inv->changed_equipment || pc->untransform_triggered) && !pc->stats.transformed) {
 
 		pc->untransform_triggered = false;
 
@@ -337,6 +337,8 @@ void GameStatePlay::checkLootDrop() {
 void GameStatePlay::checkConsumable() {
 	if (powers->used_item != -1) {
 		if (menu->items->items[powers->used_item].type == ITEM_TYPE_CONSUMABLE) {
+			//don't use untransform item if hero is not transformed
+			if (powers->powers[menu->items->items[powers->used_item].power].spawn_type == "untransform" && !pc->stats.transformed) return;
 			menu->inv->remove(powers->used_item);
 			powers->used_item = -1;
 		}

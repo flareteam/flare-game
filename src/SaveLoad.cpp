@@ -96,6 +96,9 @@ void GameStatePlay::saveGame() {
 		}
 		outfile << "\n";
 		
+		//shapeshifter value
+		outfile << "transformed=" << pc->stats.transform_type << "\n";
+
 		// campaign data
 		outfile << "campaign=";
 		outfile << camp->getAll();
@@ -181,6 +184,10 @@ void GameStatePlay::loadGame() {
 				for (int i=0; i<12; i++)
 					hotkeys[i] = atoi(infile.nextValue().c_str());
 				menu->act->set(hotkeys);
+			}
+			else if (infile.key == "transformed") {
+				pc->stats.transform_type = infile.nextValue().c_str();
+				if (pc->stats.transform_type != "") pc->stats.transform_duration = -1;
 			}
 			else if (infile.key == "campaign") camp->setAll(infile.val);
 		}
