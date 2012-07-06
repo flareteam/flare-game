@@ -315,7 +315,7 @@ void MenuInventory::activate(InputState * input) {
 	if (items->items[inventory[CARRIED][slot].item].type == ITEM_TYPE_CONSUMABLE) {
 
 		//don't use untransform item if hero is not transformed
-		if (items->items[inventory[CARRIED][slot].item].power == 139 && !stats->transformed) return;
+		if (powers->powers[items->items[inventory[CARRIED][slot].item].power].spawn_type == "untransform" && !stats->transformed) return;
 
 		// if this item requires targeting it can't be used this way
 		if (!powers->powers[items->items[inventory[CARRIED][slot].item].power].requires_targeting) {

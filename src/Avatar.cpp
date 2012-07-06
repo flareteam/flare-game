@@ -414,7 +414,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 	activeAnimation->advanceFrame();
 
 	// handle transformation
-	if (stats.transform_type != "" && transform_triggered == false) transform();
+	if (stats.transform_type != "" && stats.transform_type != "untransform" && transform_triggered == false) transform();
 	if (stats.transform_type != "" && stats.transform_duration == 0) untransform();
 
 	switch(stats.cur_state) {
