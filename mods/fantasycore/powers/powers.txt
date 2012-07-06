@@ -636,7 +636,7 @@ id=41
 name=Paralyzing Spit
 type=missile
 icon=2
-description=Poison spit that stuns the target for 2 seconds
+description=Poison spit that stuns the target for 1 second
 new_state=swing
 face=true
 directional=true
@@ -653,7 +653,7 @@ frame_duration=2
 frame_size=64,64
 frame_offset=32,64
 starting_pos=melee
-stun_duration=60
+stun_duration=30
 
 # enemy version of multishot
 [power]
