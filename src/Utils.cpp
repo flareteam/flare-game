@@ -52,12 +52,12 @@ Point screen_to_map(int x, int y, int camx, int camy) {
 
 Point map_to_screen(int x, int y, int camx, int camy) {
 	Point r;
-	
+
 	// adjust to the center of the viewport
 	// we do this calculation first to avoid negative integer division
 	int adjust_x = VIEW_W_HALF * UNITS_PER_PIXEL_X;
 	int adjust_y = VIEW_H_HALF * UNITS_PER_PIXEL_Y;
-		
+
 	if (TILESET_ORIENTATION == TILESET_ISOMETRIC) {
 		r.x = (x - camx - y + camy + adjust_x)/UNITS_PER_PIXEL_X;
 		r.y = (x - camx + y - camy + adjust_y)/UNITS_PER_PIXEL_Y;
@@ -101,7 +101,7 @@ FPoint calcVector(Point pos, int direction, int dist) {
 
 	float dist_straight = (float)dist;
 	float dist_diag = ((float)dist) * (float)(0.7071); //  1/sqrt(2)
-	
+
 	switch (direction) {
 		case 0:
 			p.x -= dist_diag;
@@ -164,12 +164,12 @@ void zsort(Renderable r[], int rnum) {
 	int zpos[1024];
 	int ztemp;
 	Renderable rtemp;
-	
+
 	// calculate zpos
 	for (int i=0; i<rnum; i++) {
 		zpos[i] = r[i].map_pos.x/2 + r[i].map_pos.y/2;
 	}
-	
+
 	// sort
 	// TODO: better sort algo
 	for (int i=0; i<rnum; i++) {
@@ -184,71 +184,42 @@ void zsort(Renderable r[], int rnum) {
 			}
 		}
 	}
-	
+
 }
 
 /**
  * Sort in the same order as the tiles are drawn
  * Depends upon the map implementation
  */
+
+int zcompare(const void * elem1, const void * elem2) {
+	const Renderable *r1 = static_cast<const Renderable*>(elem1);
+	const Renderable *r2 = static_cast<const Renderable*>(elem2);
+	if (r1->tile.y > r2->tile.y)
+		return 1;
+	else if (r1->tile.y == r2->tile.y) {
+		if (r1->tile.x > r2->tile.x)
+			return 1;
+		else
+			if (r1->map_pos.x + r1->map_pos.y > r2->map_pos.x + r2->map_pos.y)
+				return 1;
+	}
+	return 0;
+}
+
 void sort_by_tile(Renderable r[], int rnum) {
 
 	// For MapIso the sort order is:
 	// tile column first, then tile row.  Within each tile, z-order
-	int zpos[1024];
-	int ztemp;
-	Renderable rtemp;
-	
-	// prep	
+
+	// prep
 	for (int i=0; i<rnum; i++) {
-		// calculate zpos
-		zpos[i] = r[i].map_pos.x/2 + r[i].map_pos.y/2;
 		// calculate tile
 		r[i].tile.x = r[i].map_pos.x >> TILE_SHIFT;
 		r[i].tile.y = r[i].map_pos.y >> TILE_SHIFT;
 	}
-	
-	// sort
-	for (int i=0; i<rnum; i++) {
-		for (int j=0; j<rnum-1; j++) {
-		
-			// check tile y
-			if (r[j].tile.y > r[j+1].tile.y) {
-				ztemp = zpos[j];
-				zpos[j] = zpos[j+1];
-				zpos[j+1] = ztemp;
-				rtemp = r[j];
-				r[j] = r[j+1];
-				r[j+1] = rtemp;
-			}
-			else if (r[j].tile.y == r[j+1].tile.y) {
-			
-				// check tile x
-				if (r[j].tile.x > r[j+1].tile.x) {
-					ztemp = zpos[j];
-					zpos[j] = zpos[j+1];
-					zpos[j+1] = ztemp;
-					rtemp = r[j];
-					r[j] = r[j+1];
-					r[j+1] = rtemp;
-				}
-				else if (r[j].tile.x == r[j+1].tile.x) {
-				
-					// check zpos
-					if (zpos[j] > zpos[j+1]) {
-						ztemp = zpos[j];
-						zpos[j] = zpos[j+1];
-						zpos[j+1] = ztemp;
-						rtemp = r[j];
-						r[j] = r[j+1];
-						r[j+1] = rtemp;
-					}
-				}
-			}
-			
-		}	
-	}
-	
+
+	qsort(r, rnum, sizeof(Renderable), zcompare);
 }
 
 
@@ -347,15 +318,15 @@ SDL_Surface* createSurface(int width, int height) {
 	amask = 0xff000000;
 #endif
 
-	if (HWSURFACE) 
+	if (HWSURFACE)
 		surface = SDL_CreateRGBSurface(SDL_HWSURFACE|SDL_SRCALPHA, width, height, 32, rmask, gmask, bmask, amask);
 	else
-		surface = SDL_CreateRGBSurface(SDL_SWSURFACE|SDL_SRCALPHA, width, height, 32, rmask, gmask, bmask, amask);	
-	
+		surface = SDL_CreateRGBSurface(SDL_SWSURFACE|SDL_SRCALPHA, width, height, 32, rmask, gmask, bmask, amask);
+
 	if(surface == NULL) {
 		fprintf(stderr, "CreateRGBSurface failed: %s\n", SDL_GetError());
 	}
-	
+
 	// optimize
 	SDL_Surface *cleanup = surface;
 	surface = SDL_DisplayFormatAlpha(surface);
