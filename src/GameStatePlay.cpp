@@ -583,8 +583,6 @@ void GameStatePlay::render() {
 		r[renderableCount++].sprite = powers->runes;
 	}
 
-	sort_by_tile(r,renderableCount);
-
 	// render the static map layers plus the renderables
 	map->render(r, renderableCount);
 

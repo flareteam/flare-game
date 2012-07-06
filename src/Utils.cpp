@@ -157,42 +157,37 @@ bool isWithin(SDL_Rect r, Point target) {
 }
 
 /**
- * Sort back-to-front in isometric view
- */
-void zsort(Renderable r[], int rnum) {
-
-	int zpos[1024];
-	int ztemp;
-	Renderable rtemp;
-
-	// calculate zpos
-	for (int i=0; i<rnum; i++) {
-		zpos[i] = r[i].map_pos.x/2 + r[i].map_pos.y/2;
-	}
-
-	// sort
-	// TODO: better sort algo
-	for (int i=0; i<rnum; i++) {
-		for (int j=0; j<rnum-1; j++) {
-			if (zpos[j] > zpos[j+1]) {
-				ztemp = zpos[j];
-				zpos[j] = zpos[j+1];
-				zpos[j+1] = ztemp;
-				rtemp = r[j];
-				r[j] = r[j+1];
-				r[j+1] = rtemp;
-			}
-		}
-	}
-
-}
-
-/**
  * Sort in the same order as the tiles are drawn
  * Depends upon the map implementation
  */
 
-int zcompare(const void * elem1, const void * elem2) {
+int zcompare_iso(const void * elem1, const void * elem2) {
+	const Renderable *r1 = static_cast<const Renderable*>(elem1);
+	const Renderable *r2 = static_cast<const Renderable*>(elem2);
+	if (r1->tile.y + r1->tile.x > r2->tile.y + r2->tile.x)
+		return 1;
+	else if (r1->tile.y + r1->tile.x == r2->tile.y + r2->tile.x) {
+		if (r1->tile.x > r2->tile.x)
+			return 1;
+	}
+	return -1;
+}
+
+void sort_by_tile_iso(Renderable r[], int rnum) {
+
+	// For MapIso the sort order is:
+	// tile column first, then tile row.  Within each tile, z-order
+
+	// prep
+	for (int i=0; i<rnum; i++) {
+		// calculate tile
+		r[i].tile.x = r[i].map_pos.x >> TILE_SHIFT;
+		r[i].tile.y = r[i].map_pos.y >> TILE_SHIFT;
+	}
+	qsort(r, rnum, sizeof(Renderable), zcompare_iso);
+}
+
+int zcompare_ortho(const void * elem1, const void * elem2) {
 	const Renderable *r1 = static_cast<const Renderable*>(elem1);
 	const Renderable *r2 = static_cast<const Renderable*>(elem2);
 	if (r1->tile.y > r2->tile.y)
@@ -207,7 +202,7 @@ int zcompare(const void * elem1, const void * elem2) {
 	return 0;
 }
 
-void sort_by_tile(Renderable r[], int rnum) {
+void sort_by_tile_ortho(Renderable r[], int rnum) {
 
 	// For MapIso the sort order is:
 	// tile column first, then tile row.  Within each tile, z-order
@@ -218,9 +213,9 @@ void sort_by_tile(Renderable r[], int rnum) {
 		r[i].tile.x = r[i].map_pos.x >> TILE_SHIFT;
 		r[i].tile.y = r[i].map_pos.y >> TILE_SHIFT;
 	}
-
-	qsort(r, rnum, sizeof(Renderable), zcompare);
+	qsort(r, rnum, sizeof(Renderable), zcompare_ortho);
 }
+
 
 
 /*
