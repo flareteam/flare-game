@@ -337,6 +337,8 @@ void GameStatePlay::checkLootDrop() {
 void GameStatePlay::checkConsumable() {
 	if (powers->used_item != -1) {
 		if (menu->items->items[powers->used_item].type == ITEM_TYPE_CONSUMABLE) {
+			//don't use untransform item if hero is not transformed
+			if (menu->items->items[powers->used_item].power == 139 && !pc->stats.transformed) return;
 			menu->inv->remove(powers->used_item);
 			powers->used_item = -1;
 		}
