@@ -1112,3 +1112,13 @@ description=Transform into Antlion Freezer permanently
 sfx=quake.ogg
 transform_duration=0
 manual_untransform=false
+
+[power]
+id=139
+name=Disenchant [item]
+type=transform
+icon=20
+new_state=cast
+description=Transform back to human
+requires_item=948
+sfx=quake.ogg
