@@ -131,6 +131,8 @@ int Entity::face(int mapx, int mapy) {
  */
 void Entity::loadAnimations(const string& filename) {
 
+	if (animations.size() > 0) animations.clear();
+
 	FileParser parser;
 
 	if (!parser.open(mods->locate(filename).c_str())) {
