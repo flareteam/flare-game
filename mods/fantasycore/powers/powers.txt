@@ -1087,6 +1087,7 @@ name=Disenchant
 type=transform
 icon=20
 new_state=cast
+spawn_type=untransform
 description=Transform back to human
 sfx=quake.ogg
 
@@ -1099,3 +1100,27 @@ spawn_type=zombie_rotting
 new_state=cast
 starting_pos=source
 target_neighbor=1
+
+[power]
+id=138
+name=Transform into Antlion Freezer permanently
+type=transform
+icon=20
+new_state=cast
+spawn_type=antlion_freezer
+requires_mp=5
+description=Transform into Antlion Freezer permanently
+sfx=quake.ogg
+transform_duration=0
+manual_untransform=false
+
+[power]
+id=139
+name=Disenchant [item]
+type=transform
+icon=53
+new_state=cast
+spawn_type=untransform
+description=Transform back to human
+requires_item=948
+sfx=quake.ogg
