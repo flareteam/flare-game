@@ -735,9 +735,7 @@ void MapIso::renderIso(Renderable r[], int rnum) {
 	j = upperright.y / UNITS_PER_TILE;
 	i = upperright.x / UNITS_PER_TILE - tiles_outside_ofscreen;
 
-	while (r[r_cursor].tile.x + r[r_cursor].tile.y < i + j && r_cursor < rnum)
-		r_cursor++;
-	while (r[r_cursor].tile.x < i && r_cursor < rnum)
+	while (r_cursor < rnum && (r[r_cursor].tile.x + r[r_cursor].tile.y < i + j || r[r_cursor].tile.x < i))
 		r_cursor++;
 
 	for (y = max_tiles_height ; y; --y) {
@@ -776,7 +774,6 @@ void MapIso::renderIso(Renderable r[], int rnum) {
 
 					SDL_BlitSurface(r[r_cursor].sprite, &r[r_cursor].src, screen, &dest);
 				}
-
 				r_cursor++;
 			}
 		}
@@ -786,11 +783,8 @@ void MapIso::renderIso(Renderable r[], int rnum) {
 			i++;
 		else
 			j++;
-		while (r[r_cursor].tile.x + r[r_cursor].tile.y < i + j && r_cursor < rnum)
+		while (r_cursor < rnum && (r[r_cursor].tile.x + r[r_cursor].tile.y < i + j || r[r_cursor].tile.x <= i))
 			r_cursor++;
-		while (r[r_cursor].tile.x <= i && r_cursor < rnum)
-			r_cursor++;
-
 	}
 	//render event tooltips
 	checkTooltip();
