@@ -216,8 +216,6 @@ void sort_by_tile_ortho(Renderable r[], int rnum) {
 	qsort(r, rnum, sizeof(Renderable), zcompare_ortho);
 }
 
-
-
 /*
  * Set the pixel at (x, y) to the given value
  * NOTE: The surface must be locked before calling this!

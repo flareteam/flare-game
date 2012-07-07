@@ -78,22 +78,4 @@ void drawLine(SDL_Surface *screen, int x0, int y0, int x1, int y1, Uint32 color)
 void drawLine(SDL_Surface *screen, Point pos0, Point pos1, Uint32 color);
 SDL_Surface* createSurface(int width, int height);
 
-template <typename T>
-void remove(T arr[], int &n, int index) {
-	for (int i=index; i<n-1; i++) {
-		arr[i] = arr[i+1];
-	}
-	n--;
-}
-
-template <typename T>
-void removeDupes(T arr[], int &n) {
-	int i = n;
-	while (i>0) {
-		if (arr[i] == arr[i-1]) {
-			remove(arr, n, i);
-		}
-		i--;
-	}
-}
 #endif
