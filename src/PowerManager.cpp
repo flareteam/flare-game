@@ -1128,6 +1128,7 @@ bool PowerManager::transform(int power_index, StatBlock *src_stats, Point target
 	else {
 		// permanent transformation
 		if (powers[power_index].transform_duration == 0) src_stats->transform_duration = -1;
+		else src_stats->transform_duration = powers[power_index].transform_duration;
 
 		src_stats->transform_type = powers[power_index].spawn_type;
 	}
