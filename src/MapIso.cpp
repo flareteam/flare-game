@@ -660,9 +660,7 @@ void MapIso::renderIso(Renderable r[], int rnum) {
 
 	short int i;
 	short int j;
-	//SDL_Rect src;
 	SDL_Rect dest;
-	int current_tile;
 
 	Point shakycam;
 
@@ -676,24 +674,23 @@ void MapIso::renderIso(Renderable r[], int rnum) {
 	}
 
 	const Point upperright = screen_to_map(0, 0, shakycam.x, shakycam.y);
-	short x, y, tiles_width;
 	const short tiles_outside_ofscreen = 12;
 	const short max_tiles_width = (VIEW_W / TILE_W) + 2 * tiles_outside_ofscreen;
 	const short max_tiles_height = (2 * VIEW_H / TILE_H) + 2 * tiles_outside_ofscreen;
 	j = upperright.y / UNITS_PER_TILE;
 	i = upperright.x / UNITS_PER_TILE - tiles_outside_ofscreen;
 
-	for (y = max_tiles_height ; y; --y) {
-		tiles_width = 0;
-		for (x = max_tiles_width; x ; --x) {
+	for (unsigned short y = max_tiles_height ; y; --y) {
+		short tiles_width = 0;
+		for (unsigned short x = max_tiles_width; x ; --x) {
 			--j; ++i;
 			++tiles_width;
 			if (j >= h || i < 0) continue;
 			if (j < 0 || i >= w) break;
 
-			current_tile = background[i][j];
+			unsigned short current_tile = background[i][j];
 
-			if (current_tile > 0) {
+			if (current_tile) {
 				Point p = map_to_screen(i * UNITS_PER_TILE, j * UNITS_PER_TILE, shakycam.x, shakycam.y);
 				p = center_tile(p);
 				dest.x = p.x;
@@ -738,17 +735,17 @@ void MapIso::renderIso(Renderable r[], int rnum) {
 	while (r_cursor < rnum && (r[r_cursor].tile.x + r[r_cursor].tile.y < i + j || r[r_cursor].tile.x < i))
 		r_cursor++;
 
-	for (y = max_tiles_height ; y; --y) {
-		tiles_width = 0;
-		for (x = max_tiles_width; x ; --x) {
+	for (unsigned short y = max_tiles_height ; y; --y) {
+		short tiles_width = 0;
+		for (unsigned short x = max_tiles_width; x ; --x) {
 			--j; ++i;
 			++tiles_width;
 			if (j >= h || i < 0) continue;
 			if (j < 0 || i >= w) break;
 
-			current_tile = object[i][j];
+			unsigned short current_tile = object[i][j];
 
-			if (current_tile > 0) {
+			if (current_tile) {
 				Point p = map_to_screen(i * UNITS_PER_TILE, j * UNITS_PER_TILE, shakycam.x, shakycam.y);
 				p = center_tile(p);
 				dest.x = p.x;
@@ -763,7 +760,7 @@ void MapIso::renderIso(Renderable r[], int rnum) {
 			}
 
 			// some renderable entities go in this layer
-			while (r_cursor < rnum && r[r_cursor].tile.x == i && r[r_cursor].tile.y == j) {
+			while (r[r_cursor].tile.x == i && r[r_cursor].tile.y == j && r_cursor < rnum) {
 				if (r[r_cursor].object_layer) {
 					// draw renderable
 					dest.w = r[r_cursor].src.w;
