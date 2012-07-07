@@ -416,7 +416,7 @@ int MapIso::load(string filename) {
 					}
 					else if (infile.key == "intramap") {
 						e->x = atoi(infile.nextValue().c_str());
-						e->y = atoi(infile.nextValue().c_str());					
+						e->y = atoi(infile.nextValue().c_str());
 					}
 					else if (infile.key == "mapmod") {
 						e->s = infile.nextValue();
@@ -558,7 +558,7 @@ int MapIso::load(string filename) {
 						e->x = atoi(infile.val.c_str());
 					}
 					else if (infile.key == "spawn") {
-					
+
 						e->s = infile.nextValue();
 						e->x = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
 						e->y = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
@@ -637,10 +637,13 @@ void MapIso::logic() {
 
 
 void MapIso::render(Renderable r[], int rnum) {
-    if (TILESET_ORIENTATION == TILESET_ORTHOGONAL)
-        renderOrtho(r, rnum);
-    else
-        renderIso(r, rnum);
+	if (TILESET_ORIENTATION == TILESET_ORTHOGONAL) {
+		sort_by_tile_ortho(r, rnum);
+		renderOrtho(r, rnum);
+	} else {
+		sort_by_tile_iso(r, rnum);
+		renderIso(r, rnum);
+	}
 }
 
 void MapIso::renderIso(Renderable r[], int rnum) {
@@ -674,7 +677,7 @@ void MapIso::renderIso(Renderable r[], int rnum) {
 
 	const Point upperright = screen_to_map(0, 0, shakycam.x, shakycam.y);
 	short x, y, tiles_width;
-	const short tiles_outside_ofscreen = 8;
+	const short tiles_outside_ofscreen = 12;
 	const short max_tiles_width = (VIEW_W / TILE_W) + 2 * tiles_outside_ofscreen;
 	const short max_tiles_height = (2 * VIEW_H / TILE_H) + 2 * tiles_outside_ofscreen;
 	j = upperright.y / UNITS_PER_TILE;
@@ -728,10 +731,20 @@ void MapIso::renderIso(Renderable r[], int rnum) {
 
 	int r_cursor = 0;
 
-	// todo: trim by screen rect
 	// object layer
-	for (j=0; j<h; j++) {
-		for (i=0; i<w; i++) {
+	j = upperright.y / UNITS_PER_TILE;
+	i = upperright.x / UNITS_PER_TILE - tiles_outside_ofscreen;
+
+	while (r_cursor < rnum && (r[r_cursor].tile.x + r[r_cursor].tile.y < i + j || r[r_cursor].tile.x < i))
+		r_cursor++;
+
+	for (y = max_tiles_height ; y; --y) {
+		tiles_width = 0;
+		for (x = max_tiles_width; x ; --x) {
+			--j; ++i;
+			++tiles_width;
+			if (j >= h || i < 0) continue;
+			if (j < 0 || i >= w) break;
 
 			current_tile = object[i][j];
 
@@ -761,11 +774,17 @@ void MapIso::renderIso(Renderable r[], int rnum) {
 
 					SDL_BlitSurface(r[r_cursor].sprite, &r[r_cursor].src, screen, &dest);
 				}
-
 				r_cursor++;
-
 			}
 		}
+		j += tiles_width;
+		i -= tiles_width;
+		if (y % 2)
+			i++;
+		else
+			j++;
+		while (r_cursor < rnum && (r[r_cursor].tile.x + r[r_cursor].tile.y < i + j || r[r_cursor].tile.x <= i))
+			r_cursor++;
 	}
 	//render event tooltips
 	checkTooltip();
@@ -799,7 +818,7 @@ void MapIso::renderOrtho(Renderable r[], int rnum) {
 		shakycam.x = cam.x + (rand() % 16 - 8) /UNITS_PER_PIXEL_X;
 		shakycam.y = cam.y + (rand() % 16 - 8) /UNITS_PER_PIXEL_Y;
 	}
-	
+
 	for (j=0; j<h; j++) {
 		for (i=0; i<w; i++) {
 
@@ -1040,7 +1059,7 @@ void MapIso::executeEvent(int eid) {
 			teleportation = true;
 			teleport_mapname = "";
 			teleport_destination.x = ec->x * UNITS_PER_TILE + UNITS_PER_TILE/2;
-			teleport_destination.y = ec->y * UNITS_PER_TILE + UNITS_PER_TILE/2;			
+			teleport_destination.y = ec->y * UNITS_PER_TILE + UNITS_PER_TILE/2;
 		}
 		else if (ec->type == "mapmod") {
 			if (ec->s == "collision") {
