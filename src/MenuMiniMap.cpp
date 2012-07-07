@@ -90,40 +90,78 @@ void MenuMiniMap::renderIso(MapCollision *collider, Point hero_pos, int map_w, i
 	SDL_LockSurface(screen);
 
 	int tile_type;
-	Point screen_pos;
 	Uint32 draw_color;
 	Point hero_tile;
+	bool draw_tile;
 
 	hero_tile.x = hero_pos.x / UNITS_PER_TILE;
 	hero_tile.y = hero_pos.y / UNITS_PER_TILE;
 
-	for (int j=0; j<map_h; j++) {
-		for (int i=0; i<map_w; i++) {
+	// half the width of the minimap is used in several calculations
+	// a 2x1 pixel area correlates to a tile, so we can traverse tiles using pixel counting
+	// This is also the number of tiles we'll draw per screen row (the i loop below)
+	int minimap_half = map_area.w/2;	
+	
+	// Because the minimap is always 128x128px, we know which tile represents the corner of the map
+	Point tile_cursor;
+	tile_cursor.x = hero_tile.x - minimap_half;
+	tile_cursor.y = hero_tile.y;
+	
+	int map_end_x = map_area.x + map_area.w;
+	int map_end_y = map_area.y + map_area.h;
+	
+	bool odd_row = false;
+	
+	// for each pixel row
+	for (int j=map_area.y; j<map_end_y; j++) {
+	
+		// for each 2-px wide column
+		for (int i=map_area.x; i<map_end_x; i+=2) {
 
-			tile_type = collider->colmap[i][j];
+			// if this tile is the max map size
+			if (tile_cursor.x >= 0 && tile_cursor.y >= 0 && tile_cursor.x < map_w && tile_cursor.y < map_h) {
 
-			// the hero, walls, and low obstacles show as different colors
-			if (i == hero_tile.x && j == hero_tile.y) draw_color = color_hero;
-			else if (tile_type == 1) draw_color = color_wall;
-			else if (tile_type == 2) draw_color = color_obst;
-			else continue; // not visible on mini-map
-
-			// isometric transform
-			screen_pos.x = (i - hero_tile.x) - (j - hero_tile.y) + map_center.x;
-			screen_pos.y = (i - hero_tile.x) + (j - hero_tile.y) + map_center.y;
-
-			// each tile is 2 pixels wide to mimic isometric view
-			if (isWithin(map_area, screen_pos)) {
-				drawPixel(screen, screen_pos.x, screen_pos.y, draw_color);
+				tile_type = collider->colmap[tile_cursor.x][tile_cursor.y];
+				draw_tile = true;
+				
+				// the hero, walls, and low obstacles show as different colors
+				if (tile_cursor.x == hero_tile.x && tile_cursor.y == hero_tile.y) draw_color = color_hero;
+				else if (tile_type == 1) draw_color = color_wall;
+				else if (tile_type == 2) draw_color = color_obst;
+				else draw_tile = false;
+				
+				if (draw_tile) {
+					if (odd_row) {
+						drawPixel(screen, i, j, draw_color);
+						drawPixel(screen, i+1, j, draw_color);
+					}
+					else {
+						drawPixel(screen, i-1, j, draw_color);
+						drawPixel(screen, i, j, draw_color);					
+					}
+				}	
 			}
-			screen_pos.x++;
-			if (isWithin(map_area, screen_pos)) {
-				drawPixel(screen, screen_pos.x, screen_pos.y, draw_color);
-			}
+		
+			// moving screen-right in isometric is +x -y in map coordinates
+			tile_cursor.x++;
+			tile_cursor.y--;
+		}					
+		
+		// return tile cursor to next row of tiles
+		if (odd_row) {
+			odd_row = false;
+			tile_cursor.x -= minimap_half;
+			tile_cursor.y += (minimap_half +1);
 		}
-	}
+		else {
+			odd_row = true;
+			tile_cursor.x -= (minimap_half -1);
+			tile_cursor.y += minimap_half;			
+		}
+	}	
 	
 	SDL_UnlockSurface(screen);
+	
 }
 
 MenuMiniMap::~MenuMiniMap() {
