@@ -52,13 +52,19 @@ Point screen_to_map(int x, int y, int camx, int camy) {
 
 Point map_to_screen(int x, int y, int camx, int camy) {
 	Point r;
+	
+	// adjust to the center of the viewport
+	// we do this calculation first to avoid negative integer division
+	int adjust_x = VIEW_W_HALF * UNITS_PER_PIXEL_X;
+	int adjust_y = VIEW_H_HALF * UNITS_PER_PIXEL_Y;
+		
 	if (TILESET_ORIENTATION == TILESET_ISOMETRIC) {
-		r.x = VIEW_W_HALF + (x - camx - y + camy)/UNITS_PER_PIXEL_X;
-		r.y = VIEW_H_HALF + (x - camx + y - camy)/UNITS_PER_PIXEL_Y;
+		r.x = (x - camx - y + camy + adjust_x)/UNITS_PER_PIXEL_X;
+		r.y = (x - camx + y - camy + adjust_y)/UNITS_PER_PIXEL_Y;
 	}
 	else { //TILESET_ORTHOGONAL
-		r.x = VIEW_W_HALF - (camx - x)/UNITS_PER_PIXEL_X;
-		r.y = VIEW_H_HALF - (camy - y)/UNITS_PER_PIXEL_Y;
+		r.x = (x - camx + adjust_x)/UNITS_PER_PIXEL_X;
+		r.y = (y - camy + adjust_y)/UNITS_PER_PIXEL_Y;
 	}
 	return r;
 }
