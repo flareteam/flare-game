@@ -179,8 +179,18 @@ bool ItemStorage::remove(int item) {
 	return false;
 }
 
+int compareItemStack (const void *a, const void *b)
+{
+	const ItemStack *i1 = static_cast<const ItemStack*>(a);
+	const ItemStack *i2 = static_cast<const ItemStack*>(b);
+	if (i1 > i2)
+		return 1;
+	else
+		return -1;
+}
+
 void ItemStorage::sort() {
-	bubbleSort(storage, slot_number);
+	qsort(storage, slot_number, sizeof(ItemStack*), compareItemStack);
 }
 
 //TODO: handle stackable items
@@ -192,7 +202,7 @@ bool ItemStorage::full() {
 	}
 	return true;
 }
- 
+
 /**
  * Get the number of the specified item carried (not equipped)
  */

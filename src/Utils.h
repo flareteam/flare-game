@@ -78,45 +78,4 @@ void drawLine(SDL_Surface *screen, int x0, int y0, int x1, int y1, Uint32 color)
 void drawLine(SDL_Surface *screen, Point pos0, Point pos1, Uint32 color);
 SDL_Surface* createSurface(int width, int height);
 
-/**
- * As implemented here:
- * http://www.algolist.net/Algorithms/Sorting/Bubble_sort
- */
-template <typename T>
-void bubbleSort(T arr[], int n) {
-      bool swapped = true;
-      int j = 0;
-      T tmp;
-      while (swapped) {
-            swapped = false;
-            j++;
-            for (int i = 0; i < n - j; i++) {
-                  if (arr[i] > arr[i + 1]) {
-                        tmp = arr[i];
-                        arr[i] = arr[i + 1];
-                        arr[i + 1] = tmp;
-                        swapped = true;
-                  }
-            }
-      }
-}
-
-template <typename T>
-void remove(T arr[], int &n, int index) {
-	for (int i=index; i<n-1; i++) {
-		arr[i] = arr[i+1];
-	}
-	n--;
-}
-
-template <typename T>
-void removeDupes(T arr[], int &n) {
-	int i = n;
-	while (i>0) {
-		if (arr[i] == arr[i-1]) {
-			remove(arr, n, i);
-		}
-		i--;
-	}
-}
 #endif
