@@ -97,7 +97,8 @@ void GameStatePlay::saveGame() {
 		outfile << "\n";
 		
 		//shapeshifter value
-		outfile << "transformed=" << pc->stats.transform_type << "\n";
+		if (pc->stats.transform_type == "untransform") outfile << "transformed=" << "\n";
+		else outfile << "transformed=" << pc->stats.transform_type << "\n";
 
 		// campaign data
 		outfile << "campaign=";
