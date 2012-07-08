@@ -52,12 +52,12 @@ void EnemyGroupManager::generate() {
 		vector<string> files;
 		getFileList(dir, ".txt", files);
 		for (size_t j = 0; j < files.size(); ++j) {
-			parseEnemyFileAndStore(dir, files[j]);
+			parseEnemyFileAndStore(files[j]);
 		}
 	}
 }
 
-void EnemyGroupManager::parseEnemyFileAndStore(const string& dir, const string& filename) {
+void EnemyGroupManager::parseEnemyFileAndStore(const string& filename) {
 	FileParser infile;
 	if (infile.open(mods->locate("enemies/" + filename))) {
 		Enemy_Level new_enemy;

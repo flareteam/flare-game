@@ -130,7 +130,8 @@ struct Item {
 	}
 };
 
-struct ItemStack {
+class ItemStack {
+public:
 	int item;
 	int quantity;
 	bool operator > (const ItemStack &param) const;

@@ -44,12 +44,13 @@ const int TOOLTIP_MAX_LINES = 16;
  * avoid multiple deconstructors on the same dynamically allocated memory. Thus
  * the new copy will recreate its own buffer next time it is displayed.
  */
-struct TooltipData {
+class TooltipData {
+public:
 	std::string lines[TOOLTIP_MAX_LINES];
 	int colors[TOOLTIP_MAX_LINES];
 	int num_lines;
 	SDL_Surface *tip_buffer;
-	
+
 	// Constructor
 	TooltipData() {
 		num_lines = 0;
@@ -59,47 +60,47 @@ struct TooltipData {
 			colors[i] = FONT_WHITE;
 		}
 	}
-	
+
 	// Deconstructor
 	~TooltipData() {
 		SDL_FreeSurface(tip_buffer);
 	}
-	
+
 	// Copy Constructor
 	TooltipData(const TooltipData &tdSource) {
-	
+
 		// DO NOT copy the buffered text render
 		// Allow the new copy to create its own buffer
 		// Otherwise the same buffer will be deleted twice, causing a mem error
-		tip_buffer = NULL; 
-		
+		tip_buffer = NULL;
+
 		num_lines = tdSource.num_lines;
 		for (int i=0; i<tdSource.num_lines; i++) {
 			lines[i] = tdSource.lines[i];
 			colors[i] = tdSource.colors[i];
 		}
 	}
-	
+
 	// Assignment Operator
 	TooltipData& operator= (const TooltipData &tdSource) {
-	
+
 		// if the buffer already exists, deallocate it
 		SDL_FreeSurface(tip_buffer);
-	
+
 		// DO NOT copy the buffered text render
 		// Allow the new copy to create its own buffer
 		// Otherwise the same buffer will be deleted twice, causing a mem error
-		tip_buffer = NULL; 
-		
+		tip_buffer = NULL;
+
 		num_lines = tdSource.num_lines;
 		for (int i=0; i<tdSource.num_lines; i++) {
 			lines[i] = tdSource.lines[i];
 			colors[i] = tdSource.colors[i];
-		}		
+		}
 
 		return *this;
 	}
-	
+
 	// clear this existing tooltipdata
 	void clear() {
 		num_lines = 0;
@@ -111,7 +112,7 @@ struct TooltipData {
 		tip_buffer = NULL;
 
 	}
-	
+
 };
 
 class WidgetTooltip {

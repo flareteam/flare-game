@@ -52,7 +52,7 @@ public:
 
 	NPC *npc;
 
-	void loadMerchant(const std::string& filename);
+	void loadMerchant(const std::string&);
 	void logic();
 	void render();
 	ItemStack click(InputState * input);

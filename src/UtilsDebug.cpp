@@ -221,28 +221,28 @@ operator<< (ostream                     & os,
 
 
     ostream &
-operator<< (ostream & os, const SDL_QuitEvent & evt)
+operator<< (ostream & os, const SDL_QuitEvent &evt)
 {
     os << "{SDL_QUITEVENT}";
     return os;
 }
 
     ostream &
-operator<< (ostream & os, const SDL_SysWMEvent & evt)
+operator<< (ostream & os, const SDL_SysWMEvent &evt)
 {
     os << "{SDL_SYSWMEVENT}";
     return os;
 }
 
     ostream &
-operator<< (ostream & os, const SDL_ResizeEvent & evt)
+operator<< (ostream & os, const SDL_ResizeEvent &evt)
 {
     os << "{SDL_RESIZE_EVENT, (w,h) = (" << evt.w << "," << evt.h << ")}";
     return os;
 }
 
     ostream &
-operator<< (ostream & os, const SDL_ExposeEvent & evt)
+operator<< (ostream & os, const SDL_ExposeEvent &evt)
 {
     os << "{SDL_EXPOSEEVENT}";
     return os;
