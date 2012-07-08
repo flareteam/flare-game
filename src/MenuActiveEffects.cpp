@@ -88,66 +88,37 @@ void MenuActiveEffects::render(StatBlock *stats) {
 	if (effects.size() > 0) effects.clear();
 
 	// Append active effects to the effects list
-	if (stats->slow_duration > 0) {
-		effects.push_back("slow");
-		if (limits.slow == 0) limits.slow = stats->slow_duration;
-	}
-	if (stats->bleed_duration > 0) {
-		effects.push_back("bleed");
-		if (limits.bleed == 0) limits.bleed = stats->bleed_duration;
-	}
-	if (stats->stun_duration > 0) {
-		effects.push_back("stun");
-		if (limits.stun == 0) limits.stun = stats->stun_duration;
-	}
-	if (stats->immobilize_duration > 0) {
-		effects.push_back("immobilize");
-		if (limits.immobilize == 0) limits.immobilize = stats->immobilize_duration;
-	}
-	if (stats->immunity_duration > 0) {
-		effects.push_back("immunity");
-		if (limits.immunity == 0) limits.immunity = stats->immunity_duration;
-	}
-	if (stats->transform_duration > 0) {
-		effects.push_back("transform");
-		if (limits.transform == 0) limits.transform = stats->transform_duration;
-	}
-	if (stats->haste_duration > 0) {
-		effects.push_back("haste");
-		if (limits.haste == 0) limits.haste = stats->haste_duration;
-	}
-	if (stats->hot_duration > 0) {
-		effects.push_back("hot");
-		if (limits.hot == 0) limits.hot = stats->hot_duration;
-	}
-	if (stats->shield_hp > 0) {
-		effects.push_back("shield");
-		if (limits.shield == 0) limits.shield = stats->shield_hp;
-	}
-	if (stats->blocking) {
-		effects.push_back("block");
-	}
+	if (stats->slow_duration > 0) effects.push_back("slow");
+	if (stats->bleed_duration > 0) effects.push_back("bleed");
+	if (stats->stun_duration > 0) effects.push_back("stun");
+	if (stats->immobilize_duration > 0) effects.push_back("immobilize");
+	if (stats->immunity_duration > 0) effects.push_back("immunity");
+	if (stats->transform_duration > 0) effects.push_back("transform");
+	if (stats->haste_duration > 0) effects.push_back("haste");
+	if (stats->hot_duration > 0) effects.push_back("hot");
+	if (stats->shield_hp > 0) effects.push_back("shield");
+	if (stats->blocking) effects.push_back("block");
 
 	// Step through the list of effects and render those that are active
 	for (unsigned int i=0; i<effects.size(); i++) {
 		if (effects[i] == "slow")
-			renderIcon(14,i,stats->slow_duration,limits.slow);
+			renderIcon(14,i,stats->slow_duration,stats->slow_duration_total);
 		if (effects[i] == "bleed")
-			renderIcon(5,i,stats->bleed_duration,limits.bleed);
+			renderIcon(5,i,stats->bleed_duration,stats->bleed_duration_total);
 		if (effects[i] == "stun")
-			renderIcon(10,i,stats->stun_duration,limits.stun);
+			renderIcon(10,i,stats->stun_duration,stats->stun_duration_total);
 		if (effects[i] == "immobilize")
-			renderIcon(4,i,stats->immobilize_duration,limits.immobilize);
+			renderIcon(4,i,stats->immobilize_duration,stats->immobilize_duration_total);
 		if (effects[i] == "immunity")
-			renderIcon(9,i,stats->immunity_duration,limits.immunity);
+			renderIcon(9,i,stats->immunity_duration,stats->immunity_duration_total);
 		if (effects[i] == "transform")
-			renderIcon(21,i,stats->transform_duration,limits.transform);
+			renderIcon(21,i,stats->transform_duration,stats->transform_duration_total);
 		if (effects[i] == "haste")
-			renderIcon(12,i,stats->haste_duration,limits.haste);
+			renderIcon(12,i,stats->haste_duration,stats->haste_duration_total);
 		if (effects[i] == "hot")
-			renderIcon(7,i,stats->hot_duration,limits.hot);
+			renderIcon(7,i,stats->hot_duration,stats->hot_duration_total);
 		if (effects[i] == "shield")
-			renderIcon(11,i,stats->shield_hp,limits.shield);
+			renderIcon(11,i,stats->shield_hp,stats->shield_hp_total);
 		if (effects[i] == "block")
 			renderIcon(3,i,0,0);
 	}
