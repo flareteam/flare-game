@@ -32,6 +32,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "MenuVendor.h"
 #include "MenuTalker.h"
 #include "MenuExit.h"
+#include "MenuActiveEffects.h"
 #include "MenuLog.h"
 #include "ModManager.h"
 #include "PowerManager.h"
@@ -60,6 +61,7 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 	vendor = new MenuVendor(items, stats);
 	talker = new MenuTalker(camp);
 	exit = new MenuExit();
+	effects = new MenuActiveEffects(icons);
 
 	pause = false;
 	dragging = false;
@@ -505,6 +507,7 @@ void MenuManager::logic() {
 void MenuManager::render() {
 	hpmp->render(stats, inpt->mouse);
 	xp->render(stats, inpt->mouse);
+	effects->render(stats);
 	act->render();
 	inv->render();
 	pow->render();

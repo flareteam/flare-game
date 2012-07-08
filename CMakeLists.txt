@@ -94,6 +94,7 @@ Set (FLARE_SOURCES
 	./src/MapIso.cpp
 	./src/Menu.cpp
 	./src/MenuActionBar.cpp
+	./src/MenuActiveEffects.cpp
 	./src/MenuCharacter.cpp
 	./src/MenuConfirm.cpp
 	./src/MenuEnemy.cpp
