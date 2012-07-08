@@ -709,7 +709,7 @@ void MapRenderer::renderIso(Renderable r[], int rnum) {
 	i = upperright.x / UNITS_PER_TILE - tiles_outside_ofscreen;
 
 	for (unsigned short y = max_tiles_height ; y; --y) {
-		short tiles_width = 0;
+		unsigned short tiles_width = 0;
 		for (unsigned short x = max_tiles_width; x ; --x) {
 			--j; ++i;
 			++tiles_width;
