@@ -19,6 +19,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * GameStateLoad
  */
 
+#include "SDL_gfxBlitFunc.h"
 #include "FileParser.h"
 #include "GameStateLoad.h"
 #include "GameStateTitle.h"
@@ -249,9 +250,9 @@ void GameStateLoad::loadPreview(int slot) {
 	dest.w = 512;
 	dest.h = 128;
 
-	if (gfx_main) SDL_BlitSurface(gfx_main, NULL, sprites[slot], &dest);
-	if (gfx_off) SDL_BlitSurface(gfx_off, NULL, sprites[slot], &dest);
-	if (gfx_head) SDL_BlitSurface(gfx_head, NULL, sprites[slot], &dest);
+	if (gfx_main) SDL_gfxBlitRGBA(gfx_main, NULL, sprites[slot], &dest);
+	if (gfx_off) SDL_gfxBlitRGBA(gfx_off, NULL, sprites[slot], &dest);
+	if (gfx_head) SDL_gfxBlitRGBA(gfx_head, NULL, sprites[slot], &dest);
 
 	if (gfx_main) SDL_FreeSurface(gfx_main);
 	if (gfx_off) SDL_FreeSurface(gfx_off);
