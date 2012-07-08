@@ -21,12 +21,15 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * Contains logic and rendering routines for the player avatar.
  */
 
+ 
+#include "SDL_gfxBlitFunc.h"
 #include "Animation.h"
 #include "Avatar.h"
 #include "CombatText.h"
 #include "Hazard.h"
 #include "PowerManager.h"
 #include "SharedResources.h"
+
 
 #include <sstream>
 
@@ -123,10 +126,6 @@ void Avatar::loadGraphics(const string& _img_main, string _img_armor, const stri
 		if (img_off != "") gfx_off = IMG_Load(mods->locate("images/avatar/" + stats.base + "/" + img_off + ".png").c_str());
 		gfx_head = IMG_Load(mods->locate("images/avatar/" + stats.base + "/" + stats.head + ".png").c_str());
 
-		SDL_SetColorKey( sprites, SDL_SRCCOLORKEY, SDL_MapRGB(sprites->format, 255, 0, 255) );
-		if (gfx_main) SDL_SetColorKey( gfx_main, SDL_SRCCOLORKEY, SDL_MapRGB(gfx_main->format, 255, 0, 255) );
-		if (gfx_off) SDL_SetColorKey( gfx_off, SDL_SRCCOLORKEY, SDL_MapRGB(gfx_off->format, 255, 0, 255) );
-		if (gfx_head) SDL_SetColorKey( gfx_head, SDL_SRCCOLORKEY, SDL_MapRGB(gfx_head->format, 255, 0, 255) );
 
 		// assuming the hero is right-handed, we know the layer z-order
 		// copy the furthest hand first
@@ -134,29 +133,29 @@ void Avatar::loadGraphics(const string& _img_main, string _img_armor, const stri
 		src.h = dest.h = 256;
 		src.x = dest.x = 0;
 		src.y = dest.y = 0;
-		if (gfx_main) SDL_BlitSurface(gfx_main, &src, sprites, &dest); // row 0,1 main hand
+		if (gfx_main) SDL_gfxBlitRGBA(gfx_main, &src, sprites, &dest); // row 0,1 main hand
 		src.y = dest.y = 768;
-		if (gfx_main) SDL_BlitSurface(gfx_main, &src, sprites, &dest); // row 6,7 main hand
+		if (gfx_main) SDL_gfxBlitRGBA(gfx_main, &src, sprites, &dest); // row 6,7 main hand
 		src.h = dest.h = 512;
 		src.y = dest.y = 256;
-		if (gfx_off) SDL_BlitSurface(gfx_off, &src, sprites, &dest); // row 2-5 off hand
+		if (gfx_off) SDL_gfxBlitRGBA(gfx_off, &src, sprites, &dest); // row 2-5 off hand
 
 		// copy the head in the middle
 		src.h = dest.h = 1024;
 		src.y = dest.y = 0;
-		if (gfx_head) SDL_BlitSurface(gfx_head, &src, sprites, &dest); // head
+		if (gfx_head) SDL_gfxBlitRGBA(gfx_head, &src, sprites, &dest); // head
 
 		// copy the closest hand last
 		src.w = dest.w = 4096;
 		src.h = dest.h = 256;
 		src.x = dest.x = 0;
 		src.y = dest.y = 0;
-		if (gfx_off) SDL_BlitSurface(gfx_off, &src, sprites, &dest); // row 0,1 off hand
+		if (gfx_off) SDL_gfxBlitRGBA(gfx_off, &src, sprites, &dest); // row 0,1 off hand
 		src.y = dest.y = 768;
-		if (gfx_off) SDL_BlitSurface(gfx_off, &src, sprites, &dest); // row 6,7 off hand
+		if (gfx_off) SDL_gfxBlitRGBA(gfx_off, &src, sprites, &dest); // row 6,7 off hand
 		src.h = dest.h = 512;
 		src.y = dest.y = 256;
-		if (gfx_main) SDL_BlitSurface(gfx_main, &src, sprites, &dest); // row 2-5 main hand
+		if (gfx_main) SDL_gfxBlitRGBA(gfx_main, &src, sprites, &dest); // row 2-5 main hand
 
 		if (gfx_main) SDL_FreeSurface(gfx_main);
 		if (gfx_off) SDL_FreeSurface(gfx_off);

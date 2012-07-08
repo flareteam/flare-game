@@ -116,6 +116,7 @@ Set (FLARE_SOURCES
 	./src/PowerManager.cpp
 	./src/QuestLog.cpp
 	./src/SaveLoad.cpp
+	./src/SDL_gfxBlitFunc.c
 	./src/Settings.cpp
 	./src/SharedResources.cpp
 	./src/StatBlock.cpp
@@ -130,8 +131,8 @@ Set (FLARE_SOURCES
 	./src/WidgetInput.cpp
  	./src/WidgetLabel.cpp
  	./src/WidgetListBox.cpp
-    ./src/WidgetScrollBar.cpp
-    ./src/WidgetScrollBox.cpp
+	./src/WidgetScrollBar.cpp
+	./src/WidgetScrollBox.cpp
 	./src/WidgetSlider.cpp
  	./src/WidgetTabControl.cpp
 	./src/WidgetTooltip.cpp
