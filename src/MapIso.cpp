@@ -600,8 +600,6 @@ int MapIso::load(string filename) {
 		}
 	}
 
-
-
 	if (this->new_music) {
 		loadMusic();
 		this->new_music = false;
@@ -693,13 +691,10 @@ void MapIso::renderIso(Renderable r[], int rnum) {
 			if (current_tile) {
 				Point p = map_to_screen(i * UNITS_PER_TILE, j * UNITS_PER_TILE, shakycam.x, shakycam.y);
 				p = center_tile(p);
-				dest.x = p.x;
-				dest.y = p.y;
-				dest.x -= tset.tiles[current_tile].offset.x;
-				dest.y -= tset.tiles[current_tile].offset.y;
-				dest.w = tset.tiles[current_tile].src.w;
-				dest.h = tset.tiles[current_tile].src.h;
-
+				dest.x = p.x - tset.tiles[current_tile].offset.x;
+				dest.y = p.y - tset.tiles[current_tile].offset.y;
+				// no need to set w and h in dest, as it is ignored
+				// by SDL_BlitSurface
 				SDL_BlitSurface(tset.sprites, &(tset.tiles[current_tile].src), screen, &dest);
 			}
 		}
@@ -714,14 +709,9 @@ void MapIso::renderIso(Renderable r[], int rnum) {
 	// some renderables are drawn above the background and below the objects
 	for (int ri = 0; ri < rnum; ri++) {
 		if (!r[ri].object_layer) {
-
-			// draw renderable
-			dest.w = r[ri].src.w;
-			dest.h = r[ri].src.h;
 			Point p = map_to_screen(r[ri].map_pos.x, r[ri].map_pos.y, shakycam.x, shakycam.y);
 			dest.x = p.x - r[ri].offset.x;
 			dest.y = p.y - r[ri].offset.y;
-
 			SDL_BlitSurface(r[ri].sprite, &r[ri].src, screen, &dest);
 		}
 	}
@@ -736,7 +726,7 @@ void MapIso::renderIso(Renderable r[], int rnum) {
 		r_cursor++;
 
 	for (unsigned short y = max_tiles_height ; y; --y) {
-		short tiles_width = 0;
+		unsigned short tiles_width = 0;
 		for (unsigned short x = max_tiles_width; x ; --x) {
 			--j; ++i;
 			++tiles_width;
@@ -748,27 +738,18 @@ void MapIso::renderIso(Renderable r[], int rnum) {
 			if (current_tile) {
 				Point p = map_to_screen(i * UNITS_PER_TILE, j * UNITS_PER_TILE, shakycam.x, shakycam.y);
 				p = center_tile(p);
-				dest.x = p.x;
-				dest.y = p.y;
-				dest.x -= tset.tiles[current_tile].offset.x;
-				dest.y -= tset.tiles[current_tile].offset.y;
-				dest.w = tset.tiles[current_tile].src.w;
-				dest.h = tset.tiles[current_tile].src.h;
-
+				dest.x = p.x - tset.tiles[current_tile].offset.x;
+				dest.y = p.y - tset.tiles[current_tile].offset.y;
 				SDL_BlitSurface(tset.sprites, &(tset.tiles[current_tile].src), screen, &dest);
-
 			}
 
 			// some renderable entities go in this layer
 			while (r[r_cursor].tile.x == i && r[r_cursor].tile.y == j && r_cursor < rnum) {
 				if (r[r_cursor].object_layer) {
 					// draw renderable
-					dest.w = r[r_cursor].src.w;
-					dest.h = r[r_cursor].src.h;
 					Point p = map_to_screen(r[r_cursor].map_pos.x, r[r_cursor].map_pos.y, shakycam.x, shakycam.y);
 					dest.x = p.x - r[r_cursor].offset.x;
 					dest.y = p.y - r[r_cursor].offset.y;
-
 					SDL_BlitSurface(r[r_cursor].sprite, &r[r_cursor].src, screen, &dest);
 				}
 				r_cursor++;
@@ -803,7 +784,7 @@ void MapIso::renderOrtho(Renderable r[], int rnum) {
 	short int i;
 	short int j;
 	SDL_Rect dest;
-	int current_tile;
+	unsigned short current_tile;
 
 	Point shakycam;
 
@@ -821,18 +802,12 @@ void MapIso::renderOrtho(Renderable r[], int rnum) {
 
 			current_tile = background[i][j];
 
-			if (current_tile > 0) {
+			if (current_tile) {
 				Point p = map_to_screen(i * UNITS_PER_TILE, j * UNITS_PER_TILE, shakycam.x, shakycam.y);
 				p = center_tile(p);
-				dest.x = p.x;
-				dest.y = p.y;
-				dest.x -= tset.tiles[current_tile].offset.x;
-				dest.y -= tset.tiles[current_tile].offset.y;
-				dest.w = tset.tiles[current_tile].src.w;
-				dest.h = tset.tiles[current_tile].src.h;
-
+				dest.x = p.x - tset.tiles[current_tile].offset.x;
+				dest.y = p.y - tset.tiles[current_tile].offset.y;
 				SDL_BlitSurface(tset.sprites, &(tset.tiles[current_tile].src), screen, &dest);
-
 			}
 		}
 	}
@@ -841,19 +816,15 @@ void MapIso::renderOrtho(Renderable r[], int rnum) {
 	// some renderables are drawn above the background and below the objects
 	for (int ri = 0; ri < rnum; ri++) {
 		if (!r[ri].object_layer) {
-
 			// draw renderable
-			dest.w = r[ri].src.w;
-			dest.h = r[ri].src.h;
 			Point p = map_to_screen(r[ri].map_pos.x, r[ri].map_pos.y, shakycam.x, shakycam.y);
 			dest.x = p.x - r[ri].offset.x;
 			dest.y = p.y - r[ri].offset.y;
-
 			SDL_BlitSurface(r[ri].sprite, &r[ri].src, screen, &dest);
 		}
 	}
 
-	int r_cursor = 0;
+	unsigned short r_cursor = 0;
 
 	// todo: trim by screen rect
 	// object layer
@@ -862,35 +833,25 @@ void MapIso::renderOrtho(Renderable r[], int rnum) {
 
 			current_tile = object[i][j];
 
-			if (current_tile > 0) {
+			if (current_tile) {
 				Point p = map_to_screen(i * UNITS_PER_TILE, j * UNITS_PER_TILE, shakycam.x, shakycam.y);
 				p = center_tile(p);
-				dest.x = p.x;
-				dest.y = p.y;
-				dest.x -= tset.tiles[current_tile].offset.x;
-				dest.y -= tset.tiles[current_tile].offset.y;
-				dest.w = tset.tiles[current_tile].src.w;
-				dest.h = tset.tiles[current_tile].src.h;
-
+				dest.x = p.x - tset.tiles[current_tile].offset.x;
+				dest.y = p.y - tset.tiles[current_tile].offset.y;
 				SDL_BlitSurface(tset.sprites, &(tset.tiles[current_tile].src), screen, &dest);
-
 			}
 
 			// some renderable entities go in this layer
 			while (r_cursor < rnum && r[r_cursor].tile.x == i && r[r_cursor].tile.y == j) {
 				if (r[r_cursor].object_layer) {
 					// draw renderable
-					dest.w = r[r_cursor].src.w;
-					dest.h = r[r_cursor].src.h;
 					Point p = map_to_screen(r[r_cursor].map_pos.x, r[r_cursor].map_pos.y, shakycam.x, shakycam.y);
 					dest.x = p.x - r[r_cursor].offset.x;
 					dest.y = p.y - r[r_cursor].offset.y;
-
 					SDL_BlitSurface(r[r_cursor].sprite, &r[r_cursor].src, screen, &dest);
 				}
 
 				r_cursor++;
-
 			}
 		}
 	}
