@@ -55,7 +55,8 @@ ConfigEntry config[] = {
 	{ "enable_joystick", &typeid(ENABLE_JOYSTICK), "0",   &ENABLE_JOYSTICK, "joystick settings."},
 	{ "joystick_device", &typeid(JOYSTICK_DEVICE), "0",   &JOYSTICK_DEVICE, NULL},
 	{ "language",		&typeid(LANGUAGE),		"en",  &LANGUAGE,		"2-letter language code."},
-	{ "gamma",		   &typeid(GAMMA),		   "1.0", &GAMMA,		   "screen gamma (0.5 = darkest, 2.0 = lightest)"}
+	{ "gamma",		   &typeid(GAMMA),		   "1.0", &GAMMA,		   "screen gamma (0.5 = darkest, 2.0 = lightest)"},
+	{ "texture_quality", &typeid(TEXTURE_QUALITY), "1", &TEXTURE_QUALITY, "texture quality (0 = low quality, 1 = high quality)"}
 };
 const int config_size = sizeof(config) / sizeof(ConfigEntry);
 
@@ -91,6 +92,7 @@ int VIEW_H_HALF = VIEW_H/2;
 bool DOUBLEBUF;
 bool HWSURFACE;
 float GAMMA;
+bool TEXTURE_QUALITY;
 
 // Audio Settings
 int MUSIC_VOLUME;
