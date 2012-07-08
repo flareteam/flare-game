@@ -42,6 +42,7 @@ class MenuEnemy;
 class MenuVendor;
 class MenuTalker;
 class MenuExit;
+class MenuActiveEffects;
 class CampaignManager;
 class ItemManager;
 class PowerManager;
@@ -99,6 +100,7 @@ public:
 	MenuVendor *vendor;
 	MenuTalker *talker;
 	MenuExit *exit;
+	MenuActiveEffects *effects;
 	
 	bool pause;
 	bool menus_open;
