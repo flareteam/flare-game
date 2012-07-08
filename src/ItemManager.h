@@ -133,7 +133,7 @@ struct Item {
 struct ItemStack {
 	int item;
 	int quantity;
-	bool operator > (ItemStack param);
+	bool operator > (const ItemStack &param) const;
 };
 
 class ItemManager {

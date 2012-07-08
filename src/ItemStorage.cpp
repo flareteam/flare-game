@@ -183,7 +183,7 @@ int compareItemStack (const void *a, const void *b)
 {
 	const ItemStack *i1 = static_cast<const ItemStack*>(a);
 	const ItemStack *i2 = static_cast<const ItemStack*>(b);
-	if (i1 > i2)
+	if ((*i1) > (*i2))
 		return 1;
 	else
 		return -1;
