@@ -24,6 +24,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef POWER_MANAGER_H
 #define POWER_MANAGER_H
 
+#include "Enemy.h"
 #include "Utils.h"
 
 #include <SDL.h>
@@ -276,12 +277,6 @@ struct Power {
 
 };
 
-struct EnemySpawn {
-	std::string type;
-	Point pos;
-	int direction;
-};
-
 class PowerManager {
 private:
 
@@ -326,7 +321,7 @@ public:
 
 	Power powers[POWER_COUNT];
 	std::queue<Hazard *> hazards; // output; read by HazardManager
-	std::queue<EnemySpawn> enemies; // output; read by PowerManager
+	std::queue<Map_Enemy> enemies; // output; read by PowerManager
 
 	// shared images/sounds for power special effects
 	SDL_Surface *gfx[POWER_MAX_GFX];
