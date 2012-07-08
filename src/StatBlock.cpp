@@ -80,17 +80,27 @@ StatBlock::StatBlock() {
 
 	// buff and debuff stats
 	slow_duration = 0;
+	slow_duration_total = 0;
 	bleed_duration = 0;
+	bleed_duration_total = 0;
 	stun_duration = 0;
+	stun_duration_total = 0;
 	immobilize_duration = 0;
+	immobilize_duration_total = 0;
 	immunity_duration = 0;
+	immunity_duration_total = 0;
 	transform_duration = 0;
+	transform_duration_total = 0;
 	manual_untransform = false;
 	haste_duration = 0;
+	haste_duration_total = 0;
 	hot_duration = 0;
+	hot_duration_total = 0;
 	hot_value = 0;
 	forced_move_duration = 0;
+	forced_move_duration_total = 0;
 	shield_hp = 0;
+	shield_hp_total = 0;
 	shield_frame = 0;
 	vengeance_stacks = 0;
 	vengeance_frame = 0;

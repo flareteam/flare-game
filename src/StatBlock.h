@@ -171,18 +171,28 @@ public:
 
 	// buff and debuff stats
 	int slow_duration;
+	int slow_duration_total;
 	int bleed_duration;
+	int bleed_duration_total;
 	int stun_duration;
+	int stun_duration_total;
 	int immobilize_duration;
+	int immobilize_duration_total;
 	int immunity_duration;
+	int immunity_duration_total;
 	int transform_duration;
+	int transform_duration_total;
 	bool manual_untransform;
 	int haste_duration;
+	int haste_duration_total;
 	int hot_duration;
+	int hot_duration_total;
 	int hot_value;
 	int forced_move_duration;
+	int forced_move_duration_total;
 
 	int shield_hp; // shield
+	int shield_hp_total;
 	int shield_frame;
 	bool blocking;
 	int vengeance_stacks;

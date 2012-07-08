@@ -783,7 +783,7 @@ void PowerManager::buff(int power_index, StatBlock *src_stats, Point target) {
 	if (powers[power_index].buff_shield) {
 	    int shield_amt = (int)ceil(src_stats->dmg_ment_max * powers[power_index].damage_multiplier / 100.0);
 	    CombatText::Instance()->addMessage(shield_amt, src_stats->pos, DISPLAY_SHIELD);
-		src_stats->shield_hp = shield_amt;
+		src_stats->shield_hp = src_stats->shield_hp_total = shield_amt;
 	}
 
 	// teleport to the target location
@@ -815,23 +815,23 @@ void PowerManager::buff(int power_index, StatBlock *src_stats, Point target) {
 
 	// immunity_duration makes one immune to new debuffs
 	if (src_stats->immunity_duration < powers[power_index].immunity_duration) {
-		src_stats->immunity_duration = powers[power_index].immunity_duration;
+		src_stats->immunity_duration = src_stats->immunity_duration_total = powers[power_index].immunity_duration;
 	}
 
 	// transform_duration causes hero to be transformed
 	if (src_stats->transform_duration < powers[power_index].transform_duration &&
 		src_stats->transform_duration !=-1) {
-		src_stats->transform_duration = powers[power_index].transform_duration;
+		src_stats->transform_duration = src_stats->transform_duration_total = powers[power_index].transform_duration;
 	}
 
 	// haste doubles run speed and removes power cooldowns
 	if (src_stats->haste_duration < powers[power_index].haste_duration) {
-		src_stats->haste_duration = powers[power_index].haste_duration;
+		src_stats->haste_duration = src_stats->haste_duration_total = powers[power_index].haste_duration;
 	}
 
 	// hot is healing over time
 	if (src_stats->hot_duration < powers[power_index].hot_duration) {
-		src_stats->hot_duration = powers[power_index].hot_duration;
+		src_stats->hot_duration = src_stats->hot_duration_total = powers[power_index].hot_duration;
 		src_stats->hot_value = powers[power_index].hot_value;
 	}
 }
