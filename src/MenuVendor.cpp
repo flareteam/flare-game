@@ -65,7 +65,7 @@ void MenuVendor::loadGraphics() {
 	SDL_FreeSurface(cleanup);
 }
 
-void MenuVendor::loadMerchant(const std::string& filename) {
+void MenuVendor::loadMerchant(const std::string&) {
 }
 
 void MenuVendor::logic() {

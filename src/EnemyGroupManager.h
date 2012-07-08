@@ -75,7 +75,7 @@ private:
 	void generate();
 
 	/** Get information stored on files and insert into container */
-	void parseEnemyFileAndStore(const std::string& dir, const std::string& filename);
+	void parseEnemyFileAndStore(const std::string& filename);
 };
 
 #endif

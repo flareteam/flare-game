@@ -37,7 +37,7 @@ GameSwitcher *gswitch;
 /**
  * Game initialization.
  */
-static void init(const vector<string>	& args) {
+static void init(const vector<string> &args) {
 
 	setPaths();
 
