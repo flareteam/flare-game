@@ -498,7 +498,7 @@ ItemManager::~ItemManager() {
 /**
  * Compare two item stack to be able to sorting them on their item_id in the vendors' stock
  */
-bool ItemStack::operator > (ItemStack param) {
+bool ItemStack::operator > (const ItemStack &param) const {
 	if (item == 0 && param.item > 0) {
 		// Make the empty slots the last while sorting
 		return true;
