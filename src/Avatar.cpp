@@ -21,15 +21,15 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * Contains logic and rendering routines for the player avatar.
  */
 
- 
+
 #include "SDL_gfxBlitFunc.h"
 #include "Animation.h"
 #include "Avatar.h"
 #include "CombatText.h"
 #include "Hazard.h"
+#include "MapIso.h"
 #include "PowerManager.h"
 #include "SharedResources.h"
-
 
 #include <sstream>
 
@@ -236,14 +236,14 @@ void Avatar::set_direction() {
 		// if no line of movement to target, use pathfinder
 		if( !map->collider.line_of_movement(stats.pos.x, stats.pos.y, target.x, target.y, stats.movement_type) ) {
 			vector<Point> path;
-			
+
 			// if a path is returned, target first waypoint
-			
+
 			if ( map->collider.compute_path(stats.pos, target, path, 1000, stats.movement_type) ) {
 				target = path.back();
 			}
-			
-			
+
+
 		}
 		stats.direction = face(target.x, target.y);
 	} else {
@@ -256,8 +256,8 @@ void Avatar::set_direction() {
 		else if(inpt->pressing[RIGHT]) stats.direction = 4;
 		else if(inpt->pressing[DOWN]) stats.direction = 6;
 		// Adjust for ORTHO tilesets
-		if (TILESET_ORIENTATION == TILESET_ORTHOGONAL && 
-				(inpt->pressing[UP] || inpt->pressing[DOWN] || 
+		if (TILESET_ORIENTATION == TILESET_ORTHOGONAL &&
+				(inpt->pressing[UP] || inpt->pressing[DOWN] ||
 				inpt->pressing[LEFT] || inpt->pressing[RIGHT]))
 			stats.direction = stats.direction == 7 ? 0 : stats.direction + 1;
 	}
@@ -354,29 +354,29 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 
 	// clear current space to allow correct movement
 	map->collider.unblock(stats.pos.x, stats.pos.y);
-	
+
 	int stepfx;
 	stats.logic();
 	if (stats.forced_move_duration > 0) {
 		move();
-		
+
 		// calc new cam position from player position
 		// cam is focused at player position
 		map->cam.x = stats.pos.x;
 		map->cam.y = stats.pos.y;
 		map->hero_tile.x = stats.pos.x / 32;
 		map->hero_tile.y = stats.pos.y / 32;
-		
+
 		map->collider.block(stats.pos.x, stats.pos.y);
 		return;
 	}
 	if (stats.stun_duration > 0) {
-	
-		map->collider.block(stats.pos.x, stats.pos.y);	
+
+		map->collider.block(stats.pos.x, stats.pos.y);
 		return;
 	}
-	
-	
+
+
 	bool allowed_to_move;
 	bool allowed_to_use_power;
 
@@ -625,7 +625,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 		stats.hero_cooldown[i] -= 1000 / FRAMES_PER_SEC;
 		if (stats.hero_cooldown[i] < 0) stats.hero_cooldown[i] = 0;
 	}
-	
+
 	// make the current square solid
 	map->collider.block(stats.pos.x, stats.pos.y);
 }

@@ -23,8 +23,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "CampaignManager.h"
 #include "FileParser.h"
 #include "ItemManager.h"
+#include "MapIso.h"
 #include "SharedResources.h"
-
 
 #include <sstream>
 

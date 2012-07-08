@@ -25,6 +25,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "Animation.h"
 #include "Entity.h"
 #include "FileParser.h"
+#include "MapIso.h"
 #include "SharedResources.h"
 #include "UtilsParsing.h"
 
@@ -61,7 +62,7 @@ bool Entity::move() {
 	}
 
 	bool full_move;
-	
+
 	switch (stats.direction) {
 		case 0:
 			full_move = map->collider.move(stats.pos.x, stats.pos.y, -1, 1, speed_diagonal, stats.movement_type);

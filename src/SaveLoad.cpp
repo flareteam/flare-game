@@ -27,11 +27,13 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "CampaignManager.h"
 #include "FileParser.h"
 #include "GameStatePlay.h"
+#include "MapIso.h"
 #include "MenuActionBar.h"
 #include "MenuCharacter.h"
 #include "MenuInventory.h"
 #include "MenuManager.h"
 #include "MenuTalker.h"
+#include "Settings.h"
 #include "UtilsFileSystem.h"
 #include "UtilsParsing.h"
 #include <fstream>
@@ -47,7 +49,7 @@ void GameStatePlay::saveGame() {
 
 	// game slots are currently 1-4
 	if (game_slot == 0) return;
-	
+
 	ofstream outfile;
 
 	stringstream ss;
@@ -63,7 +65,7 @@ void GameStatePlay::saveGame() {
 
 		// permadeath
 		outfile << "permadeath=" << pc->stats.permadeath << "\n";
-		
+
 		// hero visual option
 		outfile << "option=" << pc->stats.base << "," << pc->stats.head << "," << pc->stats.portrait << "\n";
 
@@ -86,7 +88,7 @@ void GameStatePlay::saveGame() {
 
 		// spawn point
 		outfile << "spawn=" << map->respawn_map << "," << map->respawn_point.x/UNITS_PER_TILE << "," << map->respawn_point.y/UNITS_PER_TILE << "\n";
-		
+
 		// action bar
 		outfile << "actionbar=";
 		for (int i=0; i<12; i++) {
@@ -95,7 +97,7 @@ void GameStatePlay::saveGame() {
 			if (i<11) outfile << ",";
 		}
 		outfile << "\n";
-		
+
 		//shapeshifter value
 		if (pc->stats.transform_type == "untransform") outfile << "transformed=" << "\n";
 		else outfile << "transformed=" << pc->stats.transform_type << "\n";
@@ -103,9 +105,9 @@ void GameStatePlay::saveGame() {
 		// campaign data
 		outfile << "campaign=";
 		outfile << camp->getAll();
-		
+
 		outfile << endl;
-		
+
 		outfile.close();
 	}
 }
@@ -120,7 +122,7 @@ void GameStatePlay::loadGame() {
 
 	FileParser infile;
 	int hotkeys[12];
-	
+
 	for (int i=0; i<12; i++) {
 		hotkeys[i] = -1;
 	}
@@ -164,12 +166,12 @@ void GameStatePlay::loadGame() {
 			}
 			else if (infile.key == "spawn") {
 				map->teleport_mapname = infile.nextValue();
-				
+
 				if (fileExists(mods->locate("maps/" + map->teleport_mapname))) {
 					map->teleport_destination.x = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
 					map->teleport_destination.y = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
 					map->teleportation = true;
-				
+
 					// prevent spawn.txt from putting us on the starting map
 					map->clearEvents();
 				}
@@ -178,7 +180,7 @@ void GameStatePlay::loadGame() {
 					map->teleport_destination.x = 1;
 					map->teleport_destination.y = 1;
 					map->teleportation = true;
-					
+
 				}
 			}
 			else if (infile.key == "actionbar") {
@@ -192,7 +194,7 @@ void GameStatePlay::loadGame() {
 			}
 			else if (infile.key == "campaign") camp->setAll(infile.val);
 		}
-			
+
 		infile.close();
 	}
 
@@ -201,7 +203,7 @@ void GameStatePlay::loadGame() {
 	menu->inv->applyEquipment(menu->inv->inventory[EQUIPMENT].storage);
 	pc->stats.hp = pc->stats.maxhp;
 	pc->stats.mp = pc->stats.maxmp;
-	
+
 	// reset character menu
 	menu->chr->refreshStats();
 

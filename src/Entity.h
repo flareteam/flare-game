@@ -25,11 +25,11 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef ENTITY_H
 #define ENTITY_H
 
-#include "MapIso.h"
 #include "StatBlock.h"
 #include <vector>
 
 class Animation;
+class MapIso;
 
 class Entity {
 protected:
