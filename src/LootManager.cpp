@@ -30,7 +30,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 using namespace std;
 
 
-LootManager::LootManager(ItemManager *_items, EnemyManager *_enemies, MapIso *_map, StatBlock *_hero) {
+LootManager::LootManager(ItemManager *_items, EnemyManager *_enemies, MapRenderer *_map, StatBlock *_hero) {
 	items = _items;
 	enemies = _enemies; // we need to be able to read loot state when creatures die
 	map = _map; // we need to be able to read loot that drops from map containers
@@ -224,7 +224,7 @@ void LootManager::renderTooltips(Point cam) {
 			Point p = map_to_screen(loot[i].pos.x, loot[i].pos.y, cam.x, cam.y);
 			dest.x = p.x;
 			dest.y = p.y + TILE_H_HALF;
-			
+
 			// adjust dest.y so that the tooltip floats above the item
 			dest.y -= tooltip_margin;
 
@@ -405,7 +405,7 @@ void LootManager::removeLoot(int index) {
 	// instead of bubbling each loot down
 	// so that only 1 tooltip buffer needs to be redrawn
 	loot[index] = loot[loot_count];
-	
+
 	// reset the last loot
 	loot[loot_count].clear();
 }

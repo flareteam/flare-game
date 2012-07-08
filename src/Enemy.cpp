@@ -25,14 +25,14 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "Enemy.h"
 #include "EnemyBehavior.h"
 #include "Hazard.h"
-#include "MapIso.h"
+#include "MapRenderer.h"
 #include "PowerManager.h"
 #include <sstream>
 
 using namespace std;
 
 
-Enemy::Enemy(PowerManager *_powers, MapIso *_map) : Entity(_map) {
+Enemy::Enemy(PowerManager *_powers, MapRenderer *_map) : Entity(_map) {
 	powers = _powers;
 
 	stats.cur_state = ENEMY_STANCE;

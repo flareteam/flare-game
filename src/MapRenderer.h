@@ -16,13 +16,14 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 */
 
 /**
- * class MapIso
+ * class MapRenderer
  *
- * Isometric map data structure and rendering
+ * Map data structure and rendering
+ * This class is capable of rendering isometric and orthogonal maps.
  */
 
-#ifndef MAP_ISO_H
-#define MAP_ISO_H
+#ifndef MAP_RENDERER_H
+#define MAP_RENDERER_H
 
 #include "Enemy.h"
 #include "Utils.h"
@@ -74,9 +75,16 @@ struct Map_Event {
 	int cooldown_ticks;
 };
 
+struct Map_Enemy {
+	std::string type;
+	Point pos;
+	int direction;
+	std::queue<Point> waypoints;
+};
+
 const int CLICK_RANGE = 3 * UNITS_PER_TILE; //for activating events
 
-class MapIso {
+class MapRenderer {
 private:
 	Mix_Music *music;
 
@@ -102,8 +110,8 @@ public:
 	PowerManager *powers;
 
 	// functions
-	MapIso(CampaignManager *_camp);
-	~MapIso();
+	MapRenderer(CampaignManager *_camp);
+	~MapRenderer();
 	void clearEnemy(Map_Enemy &e);
 	void clearNPC(Map_NPC &n);
 	void clearGroup(Map_Group &g);

@@ -63,7 +63,7 @@ GameStatePlay::GameStatePlay() : GameState() {
 	powers = new PowerManager();
 	items = new ItemManager();
 	camp = new CampaignManager();
-	map = new MapIso(camp);
+	map = new MapRenderer(camp);
 	pc = new Avatar(powers, map);
 	enemies = new EnemyManager(powers, map);
 	hazards = new HazardManager(powers, pc, enemies);
@@ -190,7 +190,7 @@ void GameStatePlay::checkTeleport() {
 
 	// both map events and player powers can cause teleportation
 	if (map->teleportation || pc->stats.teleportation) {
-	
+
 		map->collider.unblock(pc->stats.pos.x, pc->stats.pos.y);
 
 		if (map->teleportation) {
@@ -200,7 +200,7 @@ void GameStatePlay::checkTeleport() {
 		else {
 			map->cam.x = pc->stats.pos.x = pc->stats.teleport_destination.x;
 			map->cam.y = pc->stats.pos.y = pc->stats.teleport_destination.y;
-		}		
+		}
 
 		// process intermap teleport
 		if (map->teleportation && map->teleport_mapname != "") {
@@ -236,7 +236,7 @@ void GameStatePlay::checkTeleport() {
 		}
 
 		map->collider.block(pc->stats.pos.x, pc->stats.pos.y);
-		
+
 		map->teleportation = false;
 		pc->stats.teleportation = false; // teleport spell
 
@@ -406,7 +406,7 @@ void GameStatePlay::checkNPCInteraction() {
 	if (npc_id != -1 && interact_distance < max_interact_distance && pc->stats.alive && !pc->stats.transformed) {
 
 		if (menu->talker->vendor_visible && !menu->vendor->talker_visible) {
-		
+
 			// begin trading
 			menu->vendor->npc = npcs->npcs[npc_id];
 			menu->vendor->setInventory();
@@ -425,13 +425,13 @@ void GameStatePlay::checkNPCInteraction() {
 				// unless the vendor has dialog; then they've already given their vox intro
 				Mix_PlayChannel(-1, menu->sfx_open, 0);
 			}
-			
+
 			menu->talker->vendor_visible = false;
 			menu->vendor->talker_visible = false;
 
 		} else if (!menu->talker->vendor_visible && menu->vendor->talker_visible && npcs->npcs[npc_id]->talker) {
-		
-			// begin talking		
+
+			// begin talking
 			if (npcs->npcs[npc_id]->vendor) {
 				menu->talker->has_vendor_button = true;
 				menu->talker->vendor_visible = false;

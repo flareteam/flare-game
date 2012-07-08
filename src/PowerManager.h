@@ -24,7 +24,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef POWER_MANAGER_H
 #define POWER_MANAGER_H
 
-#include "Enemy.h"
+#include "MapRenderer.h"
 #include "Utils.h"
 
 #include <SDL.h>

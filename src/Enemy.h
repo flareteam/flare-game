@@ -33,23 +33,16 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "Entity.h"
 #include "Utils.h"
 
-struct Map_Enemy {
-	std::string type;
-	Point pos;
-	int direction;
-	std::queue<Point> waypoints;
-};
-
 class EnemyBehavior;
 class Hazard;
 class PowerManager;
 class StatBlock;
-class MapIso;
+class MapRenderer;
 
 class Enemy : public Entity {
 
 public:
-	Enemy(PowerManager *_powers, MapIso *_map);
+	Enemy(PowerManager *_powers, MapRenderer *_map);
 	~Enemy();
 	bool lineOfSight();
 	void logic();

@@ -33,7 +33,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <string>
 
 class EnemyManager;
-class MapIso;
+class MapRenderer;
 class WidgetTooltip;
 
 struct LootDef {
@@ -42,7 +42,7 @@ struct LootDef {
 	Point pos;
 	int gold;
 	TooltipData tip;
-	
+
 	void clear() {
 		stack.item = 0;
 		stack.quantity = 0;
@@ -71,7 +71,7 @@ private:
 	ItemManager *items;
 	WidgetTooltip *tip;
 	EnemyManager *enemies;
-	MapIso *map;
+	MapRenderer *map;
 	StatBlock *hero;
 
 	// functions
@@ -79,35 +79,35 @@ private:
 	void calcTables();
 	int lootLevel(int base_level);
 	void clearLoot(LootDef &ld);
-	
-	
+
+
 	SDL_Surface *flying_loot[64];
 	SDL_Surface *flying_gold[3];
-	
+
 	std::string animation_id[64];
 	int animation_count;
-	
+
 	Mix_Chunk *loot_flip;
-	
+
 	Point frame_size;
 	int frame_count; // the last frame is the "at-rest" floor loot graphic
-	
+
 	// loot refers to ItemManager indices
 	LootDef loot[256]; // TODO: change to dynamic list without limits
-	
+
 	// loot tables multiplied out
 	// currently loot can range from levels 0-20
 	int loot_table[21][1024]; // level, number.  the int is an item id
 	int loot_table_count[21]; // total number per level
-	
+
 	// animation vars
 	int anim_loot_frames;
 	int anim_loot_duration;
-	
+
 
 
 public:
-	LootManager(ItemManager *_items, EnemyManager *_enemies, MapIso *_map, StatBlock *_hero);
+	LootManager(ItemManager *_items, EnemyManager *_enemies, MapRenderer *_map, StatBlock *_hero);
 	~LootManager();
 
 	void handleNewMap();
@@ -123,13 +123,13 @@ public:
 	void removeLoot(int index);
 	ItemStack checkPickup(Point mouse, Point cam, Point hero_pos, int &gold, bool inv_full);
 	ItemStack checkAutoPickup(Point cam, Point hero_pos, int &gold, bool inv_full);
-	
+
 	Renderable getRender(int index);
-	
+
 	int tooltip_margin;
 	int loot_count;
 	bool full_msg;
-	
+
 };
 
 #endif

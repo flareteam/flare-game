@@ -38,7 +38,7 @@ class EnemyManager;
 class HazardManager;
 class ItemManager;
 class LootManager;
-class MapIso;
+class MapRenderer;
 class MenuManager;
 class NPCManager;
 class PowerManager;
@@ -48,7 +48,7 @@ class WidgetLabel;
 class GameStatePlay : public GameState {
 private:
 
-	MapIso *map;
+	MapRenderer *map;
 	Enemy *enemy;
 	Renderable r[1024];
 	int renderableCount;
@@ -64,7 +64,7 @@ private:
 
 	WidgetLabel *label_mapname;
 	WidgetLabel *label_fps;
-	
+
 	bool restrictPowerUse();
 	void checkEnemyFocus();
 	void checkLoot();
@@ -78,7 +78,7 @@ private:
 	void checkNPCInteraction();
 
 	int npc_id;
-	
+
 public:
 	GameStatePlay();
 	~GameStatePlay();
