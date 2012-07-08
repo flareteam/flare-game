@@ -21,6 +21,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "MenuVendor.h"
 #include "NPC.h"
+#include "Settings.h"
 #include "SharedResources.h"
 #include "WidgetButton.h"
 

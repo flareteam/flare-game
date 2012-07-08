@@ -25,6 +25,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "Enemy.h"
 #include "EnemyBehavior.h"
 #include "Hazard.h"
+#include "MapIso.h"
 #include "PowerManager.h"
 #include <sstream>
 
@@ -42,9 +43,9 @@ Enemy::Enemy(PowerManager *_powers, MapIso *_map) : Entity(_map) {
 	stats.last_seen.y = -1;
 	stats.in_combat = false;
     stats.join_combat = false;
-	
+
 	haz = NULL;
-	
+
 	sfx_phys = false;
 	sfx_ment = false;
 	sfx_hit = false;
@@ -103,10 +104,10 @@ int Enemy::getDistance(Point dest) {
 }
 
 void Enemy::newState(int state) {
-	
+
 	stats.cur_state = state;
 }
-	
+
 /**
  * logic()
  * Handle a single frame.  This includes:
@@ -126,8 +127,8 @@ void Enemy::logic() {
  * Returns false on miss
  */
 bool Enemy::takeHit(Hazard h) {
-	if (stats.cur_state != ENEMY_DEAD && stats.cur_state != ENEMY_CRITDEAD) 
-	{   
+	if (stats.cur_state != ENEMY_DEAD && stats.cur_state != ENEMY_CRITDEAD)
+	{
 		if (!stats.in_combat) {
 			stats.join_combat = true;
             stats.in_combat = true;
@@ -141,13 +142,13 @@ bool Enemy::takeHit(Hazard h) {
 
         // prepare the combat text
 	    CombatText *combat_text = CombatText::Instance();
-	    
+
 		// if it's a miss, do nothing
 		if (rand() % 100 > (h.accuracy - stats.avoidance + 25)) {
 		    combat_text->addMessage("miss", stats.pos, DISPLAY_MISS);
-		    return false; 
+		    return false;
 		}
-		
+
 		// calculate base damage
 		int dmg;
 		if (h.dmg_max > h.dmg_min) dmg = rand() % (h.dmg_max - h.dmg_min + 1) + h.dmg_min;
@@ -159,9 +160,9 @@ bool Enemy::takeHit(Hazard h) {
 			dmg = (dmg * stats.attunement_fire) / 100;
 		}
 		if (h.trait_elemental == ELEMENT_WATER) {
-			dmg = (dmg * stats.attunement_ice) / 100;			
+			dmg = (dmg * stats.attunement_ice) / 100;
 		}
-		
+
 		// substract absorption from armor
 		int absorption;
 		if (!h.trait_armor_penetration) { // armor penetration ignores all absorption
@@ -176,12 +177,12 @@ bool Enemy::takeHit(Hazard h) {
 		int true_crit_chance = h.crit_chance;
 		if (stats.stun_duration > 0 || stats.immobilize_duration > 0 || stats.slow_duration > 0)
 			true_crit_chance += h.trait_crits_impaired;
-			
+
 		bool crit = (rand() % 100) < true_crit_chance;
 		if (crit) {
 			dmg = dmg + h.dmg_max;
 			map->shaky_cam_ticks = FRAMES_PER_SEC/2;
-			
+
 			// show crit damage
 		    combat_text->addMessage(dmg, stats.pos, DISPLAY_CRIT);
 		}
@@ -189,13 +190,13 @@ bool Enemy::takeHit(Hazard h) {
 		    // show normal damage
 		    combat_text->addMessage(dmg, stats.pos, DISPLAY_DAMAGE);
 		}
-		
+
 		// apply damage
 		stats.takeDamage(dmg);
-		
+
 		// damage always breaks stun
 		if (dmg > 0) stats.stun_duration=0;
-		
+
 		// after effects
 		if (stats.hp > 0) {
 			if (h.stun_duration > stats.stun_duration) stats.stun_duration = h.stun_duration;
@@ -219,15 +220,15 @@ bool Enemy::takeHit(Hazard h) {
 				if (h.src_stats->mp > h.src_stats->maxmp) h.src_stats->mp = h.src_stats->maxmp;
 			}
 		}
-		
+
 		// post effect power
 		if (h.post_power >= 0 && dmg > 0) {
 			powers->activate(h.post_power, h.src_stats, stats.pos);
 		}
-		
+
 		// interrupted to new state
 		if (dmg > 0) {
-			
+
 			if (stats.hp <= 0 && crit) {
 				doRewards();
 				stats.cur_state = ENEMY_CRITDEAD;
@@ -237,7 +238,7 @@ bool Enemy::takeHit(Hazard h) {
 			else if (stats.hp <= 0) {
 				doRewards();
 				stats.cur_state = ENEMY_DEAD;
-				map->collider.unblock(stats.pos.x,stats.pos.y);				
+				map->collider.unblock(stats.pos.x,stats.pos.y);
 
 			}
 			// don't go through a hit animation if stunned
@@ -246,7 +247,7 @@ bool Enemy::takeHit(Hazard h) {
 			}
 
 		}
-		
+
 		return true;
 	}
 	return false;
@@ -262,10 +263,10 @@ void Enemy::doRewards() {
 		loot_drop = true;
 	}
 	reward_xp = true;
-	
+
 	// some creatures create special loot if we're on a quest
 	if (stats.quest_loot_requires != "") {
-	
+
 		// the loot manager will check quest_loot_id
 		// if set (not zero), the loot manager will 100% generate that loot.
 		if (map->camp->checkStatus(stats.quest_loot_requires) && !map->camp->checkStatus(stats.quest_loot_not)) {
@@ -275,7 +276,7 @@ void Enemy::doRewards() {
 			stats.quest_loot_id = 0;
 		}
 	}
-	
+
 	// some creatures drop special loot the first time they are defeated
 	// this must be done in conjunction with defeat status
 	if (stats.first_defeat_loot > 0) {
@@ -284,7 +285,7 @@ void Enemy::doRewards() {
 			stats.quest_loot_id = stats.first_defeat_loot;
 		}
 	}
-	
+
 	// defeating some creatures (e.g. bosses) affects the story
 	if (stats.defeat_status != "") {
 		map->camp->setStatus(stats.defeat_status);
@@ -305,7 +306,7 @@ Renderable Enemy::getRender() {
 	// draw corpses below objects so that floor loot is more visible
 	r.object_layer = !stats.corpse;
 
-	return r;	
+	return r;
 }
 
 Enemy::~Enemy() {

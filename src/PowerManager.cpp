@@ -1063,7 +1063,7 @@ bool PowerManager::spawn(int power_index, StatBlock *src_stats, Point target) {
 	// If there's a sound effect, play it here
 	playSound(power_index, src_stats);
 
-	EnemySpawn espawn;
+	Map_Enemy espawn;
 	espawn.type = powers[power_index].spawn_type;
 
 	// enemy spawning position
@@ -1095,14 +1095,14 @@ bool PowerManager::spawn(int power_index, StatBlock *src_stats, Point target) {
  */
 bool PowerManager::spawn(const std::string& enemy_type, Point target) {
 
-	EnemySpawn espawn;
-	
+	Map_Enemy espawn;
+
 	espawn.type = enemy_type;
 	espawn.pos = target;
-	
+
 	// quick spawns start facing a random direction
 	espawn.direction = rand() % 8;
-	
+
 	enemies.push(espawn);
 	return true;
 }

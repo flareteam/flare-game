@@ -25,6 +25,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #define MENU_ENEMY_H
 
 #include "Enemy.h"
+#include "Settings.h"
 
 #include <SDL.h>
 #include <SDL_image.h>

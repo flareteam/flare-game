@@ -25,17 +25,26 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include <math.h>
 #include <string>
+#include <queue>
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_mixer.h>
 
 #include "Entity.h"
+#include "Utils.h"
+
+struct Map_Enemy {
+	std::string type;
+	Point pos;
+	int direction;
+	std::queue<Point> waypoints;
+};
 
 class EnemyBehavior;
 class Hazard;
 class PowerManager;
 class StatBlock;
-
+class MapIso;
 
 class Enemy : public Entity {
 
@@ -51,23 +60,23 @@ public:
 	void doRewards();
 
 	virtual Renderable getRender();
-	
-	Hazard *haz;	
+
+	Hazard *haz;
 	EnemyBehavior *eb;
 	PowerManager *powers;
 
 	// sound effects flags
 	bool sfx_phys;
 	bool sfx_ment;
-	
+
 	bool sfx_hit;
 	bool sfx_die;
 	bool sfx_critdie;
-	
+
 	// other flags
 	bool loot_drop;
 	bool reward_xp;
-	
+
 	// common behavior vars
 	//int dist;
 	//int prev_direction;
