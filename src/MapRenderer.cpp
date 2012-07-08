@@ -15,13 +15,7 @@ You should have received a copy of the GNU General Public License along with
 FLARE.  If not, see http://www.gnu.org/licenses/
 */
 
-/**
- * class MapIso
- *
- * Isometric map data structure and rendering
- */
-
-#include "MapIso.h"
+#include "MapRenderer.h"
 #include "CampaignManager.h"
 #include "EnemyGroupManager.h"
 #include "FileParser.h"
@@ -33,8 +27,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 using namespace std;
 
-
-MapIso::MapIso(CampaignManager *_camp) {
+MapRenderer::MapRenderer(CampaignManager *_camp) {
 
 	camp = _camp;
 
@@ -62,7 +55,7 @@ MapIso::MapIso(CampaignManager *_camp) {
 
 
 
-void MapIso::clearEvents() {
+void MapRenderer::clearEvents() {
 	for (int i=0; i<256; i++) {
 		events[i].type = "";
 		events[i].location.x = 0;
@@ -71,7 +64,8 @@ void MapIso::clearEvents() {
 		events[i].location.h = 0;
 		events[i].comp_num = 0;
 		events[i].tooltip = "";
-		events[i].hotspot.x = events[i].hotspot.y = events[i].hotspot.h = events[i].hotspot.w = 0;
+		events[i].hotspot.x = events[i].hotspot.y = 0;
+		events[i].hotspot.h = events[i].hotspot.w = 0;
 		for (int j=0; j<256; j++) {
 			events[i].components[j].type = "";
 			events[i].components[j].s = "";
@@ -89,7 +83,7 @@ void MapIso::clearEvents() {
 	event_count = 0;
 }
 
-void MapIso::removeEvent(int eid) {
+void MapRenderer::removeEvent(int eid) {
 	for (int i=eid; i<event_count; i++) {
 		if (i<256) {
 			events[i] = events[i+1];
@@ -98,22 +92,23 @@ void MapIso::removeEvent(int eid) {
 	event_count--;
 }
 
-void MapIso::clearEnemy(Map_Enemy &e) {
+void MapRenderer::clearEnemy(Map_Enemy &e) {
 	e.pos.x = 0;
 	e.pos.y = 0;
-	e.direction = rand() % 8; // enemies face a random direction unless otherwise specified
+	// enemies face a random direction unless otherwise specified
+	e.direction = rand() % 8;
 	e.type = "";
 	std::queue<Point> empty;
 	e.waypoints = empty;
 }
 
-void MapIso::clearNPC(Map_NPC &n) {
+void MapRenderer::clearNPC(Map_NPC &n) {
 	n.id = "";
 	n.pos.x = 0;
 	n.pos.y = 0;
 }
 
-void MapIso::clearGroup(Map_Group &g) {
+void MapRenderer::clearGroup(Map_Group &g) {
 	g.category = "";
 	g.pos.x = 0;
 	g.pos.y = 0;
@@ -126,7 +121,7 @@ void MapIso::clearGroup(Map_Group &g) {
 	g.chance = 1.0f;
 }
 
-void MapIso::playSFX(string filename) {
+void MapRenderer::playSFX(string filename) {
 	// only load from file if the requested soundfx isn't already loaded
 	if (filename != sfx_filename) {
 		if (sfx) Mix_FreeChunk(sfx);
@@ -138,7 +133,7 @@ void MapIso::playSFX(string filename) {
 	if (sfx) Mix_PlayChannel(-1, sfx, 0);
 }
 
-void MapIso::push_enemy_group(Map_Group g) {
+void MapRenderer::push_enemy_group(Map_Group g) {
 	// activate at all?
 	float activate_chance = (rand() % 100) / 100.0f;
 	if (activate_chance > g.chance) {
@@ -190,7 +185,7 @@ void MapIso::push_enemy_group(Map_Group g) {
 /**
  * load
  */
-int MapIso::load(string filename) {
+int MapRenderer::load(string filename) {
 	FileParser infile;
 	string val;
 	string cur_layer;
@@ -609,7 +604,7 @@ int MapIso::load(string filename) {
 	return 0;
 }
 
-void MapIso::loadMusic() {
+void MapRenderer::loadMusic() {
 
 	if (music != NULL) {
 		Mix_HaltMusic();
@@ -628,13 +623,13 @@ void MapIso::loadMusic() {
 	}
 }
 
-void MapIso::logic() {
+void MapRenderer::logic() {
 	if (shaky_cam_ticks > 0) shaky_cam_ticks--;
 	tset.logic();
 }
 
 
-void MapIso::render(Renderable r[], int rnum) {
+void MapRenderer::render(Renderable r[], int rnum) {
 	if (TILESET_ORIENTATION == TILESET_ORTHOGONAL) {
 		sort_by_tile_ortho(r, rnum);
 		renderOrtho(r, rnum);
@@ -644,7 +639,7 @@ void MapIso::render(Renderable r[], int rnum) {
 	}
 }
 
-void MapIso::renderIso(Renderable r[], int rnum) {
+void MapRenderer::renderIso(Renderable r[], int rnum) {
 
 	// r will become a list of renderables.  Everything not on the map already:
 	// - hero
@@ -769,7 +764,7 @@ void MapIso::renderIso(Renderable r[], int rnum) {
 
 }
 
-void MapIso::renderOrtho(Renderable r[], int rnum) {
+void MapRenderer::renderOrtho(Renderable r[], int rnum) {
 
 	// r will become a list of renderables.  Everything not on the map already:
 	// - hero
@@ -861,7 +856,7 @@ void MapIso::renderOrtho(Renderable r[], int rnum) {
 }
 
 
-void MapIso::checkEvents(Point loc) {
+void MapRenderer::checkEvents(Point loc) {
 	Point maploc;
 	maploc.x = loc.x >> TILE_SHIFT;
 	maploc.y = loc.y >> TILE_SHIFT;
@@ -875,7 +870,7 @@ void MapIso::checkEvents(Point loc) {
 	}
 }
 
-void MapIso::checkEventClick() {
+void MapRenderer::checkEventClick() {
 	Point p;
 	SDL_Rect r;
 	for(int i=0; i<event_count; i++) {
@@ -892,7 +887,7 @@ void MapIso::checkEventClick() {
 	}
 }
 
-bool MapIso::isActive(int eventid){
+bool MapRenderer::isActive(int eventid){
 	for (int i=0; i < events[eventid].comp_num; i++) {
 		if (events[eventid].components[i].type == "requires_not") {
 			if (camp->checkStatus(events[eventid].components[i].s)) {
@@ -913,7 +908,7 @@ bool MapIso::isActive(int eventid){
 	return true;
 }
 
-void MapIso::checkTooltip() {
+void MapRenderer::checkTooltip() {
 	Point p;
 	SDL_Rect r;
 	Point tip_pos;
@@ -978,7 +973,7 @@ void MapIso::checkTooltip() {
  *
  * @param eid The triggered event id
  */
-void MapIso::executeEvent(int eid) {
+void MapRenderer::executeEvent(int eid) {
 	Event_Component *ec;
 	bool destroy_event = false;
 
@@ -1091,7 +1086,7 @@ void MapIso::executeEvent(int eid) {
 	}
 }
 
-MapIso::~MapIso() {
+MapRenderer::~MapRenderer() {
 	if (music != NULL) {
 		Mix_HaltMusic();
 		Mix_FreeMusic(music);

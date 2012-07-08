@@ -175,7 +175,7 @@ int zcompare_iso(const void * elem1, const void * elem2) {
 
 void sort_by_tile_iso(Renderable r[], int rnum) {
 
-	// For MapIso the sort order is:
+	// For MapRenderer the sort order is:
 	// tile column first, then tile row.  Within each tile, z-order
 
 	// prep
@@ -204,7 +204,7 @@ int zcompare_ortho(const void * elem1, const void * elem2) {
 
 void sort_by_tile_ortho(Renderable r[], int rnum) {
 
-	// For MapIso the sort order is:
+	// For MapRenderer the sort order is:
 	// tile column first, then tile row.  Within each tile, z-order
 
 	// prep

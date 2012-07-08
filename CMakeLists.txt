@@ -91,7 +91,7 @@ Set (FLARE_SOURCES
 	./src/ItemStorage.cpp
 	./src/LootManager.cpp
 	./src/MapCollision.cpp
-	./src/MapIso.cpp
+	./src/MapRenderer.cpp
 	./src/Menu.cpp
 	./src/MenuActionBar.cpp
 	./src/MenuActiveEffects.cpp

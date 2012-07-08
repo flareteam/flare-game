@@ -28,7 +28,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 using namespace std;
 
-EnemyManager::EnemyManager(PowerManager *_powers, MapIso *_map) {
+EnemyManager::EnemyManager(PowerManager *_powers, MapRenderer *_map) {
 	powers = _powers;
 	map = _map;
 	enemy_count = 0;

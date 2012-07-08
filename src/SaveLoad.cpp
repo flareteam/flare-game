@@ -27,7 +27,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "CampaignManager.h"
 #include "FileParser.h"
 #include "GameStatePlay.h"
-#include "MapIso.h"
+#include "MapRenderer.h"
 #include "MenuActionBar.h"
 #include "MenuCharacter.h"
 #include "MenuInventory.h"

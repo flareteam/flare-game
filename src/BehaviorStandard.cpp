@@ -19,7 +19,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "Animation.h"
 #include "BehaviorStandard.h"
 #include "Enemy.h"
-#include "MapIso.h"
+#include "MapRenderer.h"
 #include "PowerManager.h"
 #include "StatBlock.h"
 #include "CombatText.h"

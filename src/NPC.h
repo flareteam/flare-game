@@ -32,7 +32,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <string>
 
 class ItemManager;
-class MapIso;
+class MapRenderer;
 
 const int NPC_VENDOR_MAX_STOCK = 80;
 const int NPC_MAX_VOX = 8;
@@ -52,7 +52,7 @@ protected:
 	int current_frame;
 
 public:
-	NPC(MapIso *_map, ItemManager *_items);
+	NPC(MapRenderer *_map, ItemManager *_items);
 	~NPC();
 	void load(const std::string& npc_id);
 	void loadGraphics(const std::string& filename_sprites, const std::string& filename_portrait);

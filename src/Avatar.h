@@ -79,7 +79,7 @@ private:
 	bool transform_triggered;
 
 public:
-	Avatar(PowerManager *_powers, MapIso *_map);
+	Avatar(PowerManager *_powers, MapRenderer *_map);
 	~Avatar();
 
 	void init();

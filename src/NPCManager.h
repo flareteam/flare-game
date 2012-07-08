@@ -31,7 +31,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 class ItemManager;
 class LootManager;
-class MapIso;
+class MapRenderer;
 class NPC;
 
 // max number of NPCs for a single map
@@ -39,14 +39,14 @@ const int MAX_NPC_COUNT = 32;
 
 class NPCManager {
 private:
-	MapIso *map;
+	MapRenderer *map;
 	WidgetTooltip *tip;
 	LootManager *loot;
 	ItemManager *items;
 	TooltipData tip_buf;
 
 public:
-	NPCManager(MapIso *_map, LootManager *_loot, ItemManager *_items);
+	NPCManager(MapRenderer *_map, LootManager *_loot, ItemManager *_items);
 	~NPCManager();
 	NPC *npcs[MAX_NPC_COUNT];
 	void handleNewMap();
