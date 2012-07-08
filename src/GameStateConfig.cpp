@@ -358,9 +358,9 @@ GameStateConfig::GameStateConfig ()
 
 	//Define ComboBoxes and their Labels
 
-	settings_lb[10]->set(msg->get("Resolution"));
-	settings_lb[10]->setJustify(JUSTIFY_RIGHT);
-	child_widget.push_back(settings_lb[10]);
+	settings_lb[11]->set(msg->get("Resolution"));
+	settings_lb[11]->setJustify(JUSTIFY_RIGHT);
+	child_widget.push_back(settings_lb[11]);
 	optiontab[child_widget.size()-1] = 0;
 
 	child_widget.push_back(settings_cmb[1]);
@@ -388,7 +388,7 @@ GameStateConfig::GameStateConfig ()
 
 	// Add Key Binding objects
 	for (unsigned int i = 13; i < 38; i++) {
-		 settings_lb[i]->set(binding_name[i-12]);
+		 settings_lb[i]->set(binding_name[i-13]);
 		 settings_lb[i]->setJustify(JUSTIFY_RIGHT);
 		 child_widget.push_back(settings_lb[i]);
 		 optiontab[child_widget.size()-1] = 4;
@@ -759,10 +759,10 @@ void GameStateConfig::render ()
 		input_scrollbox->render();
 	}
 
-	for (unsigned int i = 3; i < 29; i++) {
+	for (unsigned int i = 3; i < 31; i++) {
 		 if (optiontab[i] == active_tab) child_widget[i]->render();
 	}
-	for (unsigned int i = 104; i < child_widget.size(); i++) {
+	for (unsigned int i = 106; i < child_widget.size(); i++) {
 		 if (optiontab[i] == active_tab) child_widget[i]->render();
 	}
 
