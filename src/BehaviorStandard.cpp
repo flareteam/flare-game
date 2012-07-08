@@ -403,12 +403,16 @@ void BehaviorStandard::updateState() {
 		
 			e->setAnimation("die");
 			if (e->activeAnimation->isFirstFrame()) e->sfx_die = true;
+			if (e->activeAnimation->isLastFrame()) e->stats.corpse = true; // puts renderable under object layer
+			
 			break;
 			
 		case ENEMY_CRITDEAD:
 
 			e->setAnimation("critdie");
 			if (e->activeAnimation->isFirstFrame()) e->sfx_critdie = true;
+			if (e->activeAnimation->isLastFrame()) e->stats.corpse = true; // puts renderable under object layer
+			
 			break;
 
 		default:
