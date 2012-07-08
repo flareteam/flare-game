@@ -25,6 +25,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "SharedResources.h"
 #include "FileParser.h"
 #include "UtilsParsing.h"
+#include "Settings.h"
 
 #include <cstdio>
 
@@ -40,6 +41,9 @@ void TileSet::reset() {
 	SDL_FreeSurface(sprites);
 
 	alpha_background = true;
+	trans_r = 255;
+	trans_g = 0;
+	trans_b = 255;
 
 	sprites = NULL;
 	for (int i=0; i<TILE_SET_MAX_TILES; i++) {
@@ -61,10 +65,17 @@ void TileSet::reset() {
 void TileSet::loadGraphics(const std::string& filename) {
 	if (sprites) SDL_FreeSurface(sprites);
 	
-	sprites = IMG_Load((mods->locate("images/tilesets/" + filename)).c_str());
+	if (TEXTURE_QUALITY == false)
+		sprites = IMG_Load((mods->locate("images/tilesets/noalpha/" + filename)).c_str());
+
 	if (!sprites) {
-		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
-		SDL_Quit();
+		sprites = IMG_Load((mods->locate("images/tilesets/" + filename)).c_str());
+		if (!sprites) {
+			fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
+			SDL_Quit();
+		}
+	} else {
+		alpha_background = false;
 	}
 	
 	// only set a color key if the tile set doesn't have an alpha channel
