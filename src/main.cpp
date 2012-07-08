@@ -37,7 +37,7 @@ GameSwitcher *gswitch;
 /**
  * Game initialization.
  */
-static void init(const vector<string>	& args) {
+static void init() {
 
 	setPaths();
 
@@ -154,8 +154,6 @@ static void mainLoop (const vector<string>	& args) {
 		prevTicks = SDL_GetTicks();
 
 		SDL_Flip(screen);
-
-
 	}
 }
 
@@ -181,7 +179,7 @@ int main(int argc, char *argv[])
 
 	srand((unsigned int)time(NULL));
 
-	init(args);
+	init();
 	mainLoop(args);
 	cleanup();
 

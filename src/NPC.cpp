@@ -23,7 +23,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "CampaignManager.h"
 #include "FileParser.h"
 #include "ItemManager.h"
-#include "MapIso.h"
+#include "MapRenderer.h"
 #include "SharedResources.h"
 
 #include <sstream>
@@ -31,7 +31,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 using namespace std;
 
 
-NPC::NPC(MapIso *_map, ItemManager *_items) : Entity(_map) {
+NPC::NPC(MapRenderer *_map, ItemManager *_items) : Entity(_map) {
 	items = _items;
 
 	// init general vars

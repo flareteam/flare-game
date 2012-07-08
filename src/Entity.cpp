@@ -25,7 +25,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "Animation.h"
 #include "Entity.h"
 #include "FileParser.h"
-#include "MapIso.h"
+#include "MapRenderer.h"
 #include "SharedResources.h"
 #include "UtilsParsing.h"
 
@@ -33,7 +33,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 using namespace std;
 
-Entity::Entity(MapIso* _map) : sprites(NULL), activeAnimation(NULL), map(_map) {
+Entity::Entity(MapRenderer* _map) : sprites(NULL), activeAnimation(NULL), map(_map) {
 }
 
 /**

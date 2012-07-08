@@ -24,7 +24,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef POWER_MANAGER_H
 #define POWER_MANAGER_H
 
-#include "Enemy.h"
+#include "MapRenderer.h"
 #include "Utils.h"
 
 #include <SDL.h>
@@ -84,8 +84,8 @@ const int POWER_SHIELD = 11;
 const int POWER_VENGEANCE = 17;
 const int POWER_SPARK_BLOOD = 127;
 
-struct Power {
-
+class Power {
+public:
 	// base info
 	int type; // what kind of activate() this is
 	std::string name;

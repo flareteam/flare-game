@@ -24,13 +24,13 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "NPCManager.h"
 #include "NPC.h"
-#include "MapIso.h"
+#include "MapRenderer.h"
 #include "LootManager.h"
 
 using namespace std;
 
 
-NPCManager::NPCManager(MapIso *_map, LootManager *_loot, ItemManager *_items) {
+NPCManager::NPCManager(MapRenderer *_map, LootManager *_loot, ItemManager *_items) {
 
 	map = _map;
 	loot = _loot;

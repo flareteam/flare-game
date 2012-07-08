@@ -29,7 +29,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <vector>
 
 class Animation;
-class MapIso;
+class MapRenderer;
 
 class Entity {
 protected:
@@ -37,7 +37,7 @@ protected:
 	std::vector<Animation*> animations;
 
 public:
-	Entity(MapIso*);
+	Entity(MapRenderer*);
 	virtual ~Entity();
 
 	bool move();
@@ -50,7 +50,7 @@ public:
 	bool setAnimation(const std::string& animation);
 	Animation *activeAnimation;
 
-	MapIso* map;
+	MapRenderer* map;
 	StatBlock stats;
 };
 

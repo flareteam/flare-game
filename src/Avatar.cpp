@@ -27,7 +27,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "Avatar.h"
 #include "CombatText.h"
 #include "Hazard.h"
-#include "MapIso.h"
+#include "MapRenderer.h"
 #include "PowerManager.h"
 #include "SharedResources.h"
 
@@ -36,7 +36,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 using namespace std;
 
 
-Avatar::Avatar(PowerManager *_powers, MapIso *_map) : Entity(_map), powers(_powers) {
+Avatar::Avatar(PowerManager *_powers, MapRenderer *_map) : Entity(_map), powers(_powers) {
 
 	init();
 
