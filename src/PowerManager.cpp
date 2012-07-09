@@ -565,6 +565,7 @@ Point PowerManager::targetNeighbor(Point target, int range) {
 
 	for (int i=-range; i<=range; i++) {
 		for (int j=-range; j<=range; j++) {
+			if (i == 0 && j == 0) continue; // skip the middle tile
 			new_target.x = target.x+UNITS_PER_TILE*i;
 			new_target.y = target.y+UNITS_PER_TILE*j;
 			if (collider->valid_position(new_target.x,new_target.y,MOVEMENT_NORMAL))
