@@ -67,14 +67,7 @@ public:
 	bool sfx_critdie;
 
 	// other flags
-	bool loot_drop;
 	bool reward_xp;
-
-	// common behavior vars
-	//int dist;
-	//int prev_direction;
-	//bool los;
-	//Point pursue_pos;
 };
 
 

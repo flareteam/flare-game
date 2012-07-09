@@ -25,6 +25,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #define LOOT_MANAGER_H
 
 #include "ItemManager.h"
+#include "Settings.h"
 
 #include <SDL.h>
 #include <SDL_image.h>
@@ -104,19 +105,25 @@ private:
 	int anim_loot_frames;
 	int anim_loot_duration;
 
-
+	// enemies which should drop loot, but didnt yet.
+	std::vector<const Enemy*> enemiesDroppingLoot;
 
 public:
-	LootManager(ItemManager *_items, EnemyManager *_enemies, MapRenderer *_map, StatBlock *_hero);
+	static LootManager *getInstance();
+	LootManager(ItemManager *_items, MapRenderer *_map, StatBlock *_hero);
 	~LootManager();
 
 	void handleNewMap();
 	void logic();
 	void renderTooltips(Point cam);
 	void checkEnemiesForLoot();
+
+	// called by enemy, who definitly wants to drop loot.
+	void addEnemyLoot(const Enemy *e);
 	void checkMapForLoot();
 	bool isFlying(int loot_index);
-	void determineLoot(int base_level, Point pos);
+	void determineLoot(int base_level, Point pos); // uniformly distributed within the base_level set
+	void determineLootWithProbability(const Enemy *e, Point pos); // distributed according to enemies loot type probabilities.
 	int randomItem(int base_level);
 	void addLoot(ItemStack stack, Point pos);
 	void addGold(int count, Point pos);
@@ -129,7 +136,8 @@ public:
 	int tooltip_margin;
 	int loot_count;
 	bool full_msg;
-
 };
+
+extern LootManager *lootManager;
 
 #endif

@@ -25,6 +25,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "Enemy.h"
 #include "EnemyBehavior.h"
 #include "Hazard.h"
+#include "LootManager.h"
 #include "MapRenderer.h"
 #include "PowerManager.h"
 #include <sstream>
@@ -51,7 +52,6 @@ Enemy::Enemy(PowerManager *_powers, MapRenderer *_map) : Entity(_map) {
 	sfx_hit = false;
 	sfx_die = false;
 	sfx_critdie = false;
-	loot_drop = false;
 	reward_xp = false;
 
 	eb = NULL;
@@ -257,6 +257,7 @@ bool Enemy::takeHit(Hazard h) {
  * Upon enemy death, handle rewards (gold, xp, loot)
  */
 void Enemy::doRewards() {
+	bool loot_drop = false;
 
 	int roll = rand() % 100;
 	if (roll < stats.loot_chance) {
@@ -291,6 +292,8 @@ void Enemy::doRewards() {
 		map->camp->setStatus(stats.defeat_status);
 	}
 
+	if (loot_drop)
+		LootManager::getInstance()->addEnemyLoot(this);
 }
 
 /**
