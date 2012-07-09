@@ -772,6 +772,7 @@ void Avatar::transform() {
 	stats.animations = charmed_stats->animations;
 	stats.animationSpeed = charmed_stats->animationSpeed;
 	loadAnimations("animations/" + charmed_stats->animations + ".txt");
+	stats.cur_state = AVATAR_STANCE;
 
 	// damage
 	if (charmed_stats->dmg_melee_min > stats.dmg_melee_min)
@@ -833,6 +834,7 @@ void Avatar::untransform() {
 	stats.animations = hero_stats->animations;
 	stats.animationSpeed = hero_stats->animationSpeed;
 	loadAnimations("animations/hero.txt");
+	stats.cur_state = AVATAR_STANCE;
 
 	stats.dmg_melee_min = hero_stats->dmg_melee_min;
 	stats.dmg_melee_max = hero_stats->dmg_melee_max;
