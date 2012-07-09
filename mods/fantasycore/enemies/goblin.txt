@@ -9,7 +9,19 @@ gfx_prefix=goblin
 animations=goblin
 animation_speed=75
 
-loot_chance=25
+loot_chance=100
+
+# The loot_type is a list of strings, which describe which kind of loot
+# is being dropped. The strings should match the "loot" entry in the item
+# database. Optionally a number can be passed after each string entry to
+# adapt the probablity of the entry. If the optional probability number
+# is omited, 1 is assumed.
+
+# The following configuration has a sum of all weights of 5+1+4=10, so
+# the distribution is steps of 10 percents.
+# Gold will be dropped in 50 percent of the cases. In 10 percent there
+# will be clothes and in the other remaining 40 percent a dagger will be dropped.
+loot_type=gold,5,clothes,dagger,4
 
 # combat stats
 hp=6
