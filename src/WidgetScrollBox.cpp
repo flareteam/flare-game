@@ -25,31 +25,30 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 using namespace std;
 
-WidgetScrollBox::WidgetScrollBox(int width, int height, int full_height) {
+WidgetScrollBox::WidgetScrollBox(int width, int height) {
 	pos.x = pos.y = 0;
 	pos.w = width;
 	pos.h = height;
-    cursor = 0;
-    contents = createSurface(width,full_height);
-	SDL_FillRect(contents,NULL,0x1A1A1A);
-	SDL_SetAlpha(contents, 0, 0);
+	cursor = 0;
+	contents = NULL;
 	scrollbar = new WidgetScrollBar(mods->locate("images/menus/buttons/scrollbar_default.png"));
 	update = true;
-    render_to_alpha = false;
+	render_to_alpha = false;
+	resize(height);
 }
 
 WidgetScrollBox::~WidgetScrollBox() {
-	SDL_FreeSurface(contents);
-    delete scrollbar;
+	if (contents != NULL) SDL_FreeSurface(contents);
+	delete scrollbar;
 }
 
 void WidgetScrollBox::scroll(int amount) {
-    cursor += amount;
-    if (cursor < 0) {
-        cursor = 0;
-    } else if (cursor > contents->h-pos.h) {
-        cursor = contents->h-pos.h;
-    }
+	cursor += amount;
+	if (cursor < 0) {
+		cursor = 0;
+	} else if (cursor > contents->h-pos.h) {
+		cursor = contents->h-pos.h;
+	}
 	refresh();
 }
 
@@ -67,23 +66,34 @@ void WidgetScrollBox::logic() {
 void WidgetScrollBox::logic(int x, int y) {
 	Point mouse = {x,y};
 	// check ScrollBar clicks
-    switch (scrollbar->checkClick(mouse.x,mouse.y)) {
-        case 1:
-            scroll(-20);
-            break;
-        case 2:
-            scroll(20);
-            break;
-        case 3:
-            cursor = scrollbar->getValue();
-            break;
-        default:
-            break;
-    }
+	switch (scrollbar->checkClick(mouse.x,mouse.y)) {
+		case 1:
+			scroll(-20);
+			break;
+		case 2:
+			scroll(20);
+			break;
+		case 3:
+			cursor = scrollbar->getValue();
+			break;
+		default:
+			break;
+	}
 }
 
+void WidgetScrollBox::resize(int h) {
+	if (contents != NULL) SDL_FreeSurface(contents);
+
+	if (pos.h > h) h = pos.h;
+	contents = createSurface(pos.w,h);
+	SDL_FillRect(contents,NULL,0x1A1A1A);
+	SDL_SetAlpha(contents, 0, 0);
+
+	cursor = 0;
+	refresh();
+}
 void WidgetScrollBox::refresh() {
-    scrollbar->refresh(pos.x+pos.w, pos.y, pos.h-scrollbar->pos_down.h, cursor, contents->h-pos.h-scrollbar->pos_knob.h);
+	scrollbar->refresh(pos.x+pos.w, pos.y, pos.h-scrollbar->pos_down.h, cursor, contents->h-pos.h-scrollbar->pos_knob.h);
 }
 
 void WidgetScrollBox::render(SDL_Surface *target) {
@@ -91,16 +101,17 @@ void WidgetScrollBox::render(SDL_Surface *target) {
 		target = screen;
 	}
 
-	SDL_Rect    src;
+	SDL_Rect	src,dest;
+	dest = pos;
 	src.x = 0;
 	src.y = cursor;
 	src.w = contents->w;
 	src.h = pos.h;
 
-    if (render_to_alpha)
-        SDL_gfxBlitRGBA(contents, &src, target, &pos);
-    else
-        SDL_BlitSurface(contents, &src, target, &pos);
+	if (render_to_alpha)
+		SDL_gfxBlitRGBA(contents, &src, target, &dest);
+	else
+		SDL_BlitSurface(contents, &src, target, &dest);
 	scrollbar->render(target);
 	update = false;
 }
