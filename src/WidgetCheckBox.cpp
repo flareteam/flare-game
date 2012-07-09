@@ -28,6 +28,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "Widget.h"
 #include "WidgetCheckBox.h"
 #include "SharedResources.h"
+#include "SDL_gfxBlitFunc.h"
 
 using namespace std;
 
@@ -49,6 +50,8 @@ WidgetCheckBox::WidgetCheckBox (const string  & fname)
 
 	pos.w = cb->w;
 	pos.h = cb->h / 2;
+
+	render_to_alpha = false;
 }
 
 WidgetCheckBox::~WidgetCheckBox ()
@@ -119,6 +122,9 @@ void WidgetCheckBox::render (SDL_Surface *target)
 	src.h = pos.h;
 	src.w = pos.w;
 
-	SDL_BlitSurface(cb, &src, target, &pos);
+	if (render_to_alpha)
+		SDL_gfxBlitRGBA(cb, &src, target, &pos);
+	else
+		SDL_BlitSurface(cb, &src, target, &pos);
 }
 

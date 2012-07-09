@@ -10,6 +10,7 @@ public:
     Widget() {};
 	virtual ~Widget() {};
 	virtual void render(SDL_Surface *target = NULL) = 0;
+	bool render_to_alpha;
 private:
 };
 

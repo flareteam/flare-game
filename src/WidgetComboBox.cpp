@@ -22,6 +22,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "WidgetComboBox.h"
 #include "SharedResources.h"
+#include "SDL_gfxBlitFunc.h"
 
 using namespace std;
 
@@ -47,6 +48,7 @@ WidgetComboBox::WidgetComboBox(int amount, const std::string& _fileName)
 	pos.w = (comboboxs->w / 2);
 	pos.h = (comboboxs->h / 4); //height of one ComboBox
 
+	render_to_alpha = false;
 }
 
 void WidgetComboBox::loadArt() {
@@ -157,7 +159,10 @@ void WidgetComboBox::render(SDL_Surface *target) {
 	else
 		src.y = COMBOBOX_GFX_NORMAL * pos.h;
 
-	SDL_BlitSurface(comboboxs, &src, target, &pos);
+	if (render_to_alpha)
+		SDL_gfxBlitRGBA(comboboxs, &src, target, &pos);
+	else
+		SDL_BlitSurface(comboboxs, &src, target, &pos);
 
 	wlabel.render(target);
 
@@ -177,7 +182,10 @@ void WidgetComboBox::render(SDL_Surface *target) {
 				src.y = 0;
 
 			refresh();
-			SDL_BlitSurface(comboboxs, &src, target, &rows[i]);
+			if (render_to_alpha)
+				SDL_gfxBlitRGBA(comboboxs, &src, target, &rows[i]);
+			else
+				SDL_BlitSurface(comboboxs, &src, target, &rows[i]);
 			vlabels[i].render(target);
 		}
 	}

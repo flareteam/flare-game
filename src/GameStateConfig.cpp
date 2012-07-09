@@ -390,10 +390,12 @@ GameStateConfig::GameStateConfig ()
 	for (unsigned int i = 13; i < 38; i++) {
 		 settings_lb[i]->set(binding_name[i-13]);
 		 settings_lb[i]->setJustify(JUSTIFY_RIGHT);
+		 settings_lb[i]->render_to_alpha = true;
 		 child_widget.push_back(settings_lb[i]);
 		 optiontab[child_widget.size()-1] = 4;
 	}
 	for (unsigned int i = 0; i < 50; i++) {
+		 settings_key[i]->render_to_alpha = true;
 		 child_widget.push_back(settings_key[i]);
 		 optiontab[child_widget.size()-1] = 4;
 	}
@@ -695,6 +697,7 @@ void GameStateConfig::logic ()
 			input_scrollbox->logic();
 			if (isWithin(input_scrollbox->pos,inpt->mouse)) {
 				for (unsigned int i = 0; i < 50; i++) {
+					if (settings_key[i]->pressed || settings_key[i]->hover) input_scrollbox->update = true;
 					Point mouse = input_scrollbox->input_assist(inpt->mouse);
 					if (settings_key[i]->checkClick(mouse.x,mouse.y)) {
 						std::string confirm_msg;
@@ -751,10 +754,10 @@ void GameStateConfig::render ()
 
 	if (active_tab == 4) {
 		for (unsigned int i = 13; i < 38; i++) {
-			settings_lb[i]->render(input_scrollbox->contents);
+			if (input_scrollbox->update) settings_lb[i]->render(input_scrollbox->contents);
 		}
 		for (unsigned int i = 0; i < 50; i++) {
-			settings_key[i]->render(input_scrollbox->contents);
+			if (input_scrollbox->update) settings_key[i]->render(input_scrollbox->contents);
 		}
 		input_scrollbox->render();
 	}

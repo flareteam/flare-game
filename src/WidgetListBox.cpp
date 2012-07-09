@@ -22,6 +22,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "WidgetListBox.h"
 #include "SharedResources.h"
+#include "SDL_gfxBlitFunc.h"
 
 using namespace std;
 
@@ -57,6 +58,8 @@ WidgetListBox::WidgetListBox(int amount, int height, const std::string& _fileNam
 	pos.h = (listboxs->h / 3); //height of one item
 
 	scrollbar = new WidgetScrollBar(mods->locate("images/menus/buttons/scrollbar_default.png"));
+
+	render_to_alpha = false;
 }
 
 void WidgetListBox::loadArt() {
@@ -320,7 +323,10 @@ void WidgetListBox::render(SDL_Surface *target) {
 		else
 			src.y = pos.h;
 
-		SDL_BlitSurface(listboxs, &src, target, &rows[i]);
+		if (render_to_alpha)
+			SDL_gfxBlitRGBA(listboxs, &src, target, &rows[i]);
+		else
+			SDL_BlitSurface(listboxs, &src, target, &rows[i]);
 		if (i<list_amount) {
 			vlabels[i].render(target);
 		}

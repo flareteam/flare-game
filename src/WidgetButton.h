@@ -44,7 +44,6 @@ private:
 
 	SDL_Surface *buttons;
 	Mix_Chunk *click;
-	bool hover;
 	
 	WidgetLabel wlabel;
 	
@@ -62,6 +61,7 @@ public:
 	SDL_Rect pos;
 	bool enabled;
 	bool pressed;
+	bool hover;
 };
 
 #endif

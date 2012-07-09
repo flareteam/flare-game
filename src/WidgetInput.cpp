@@ -18,6 +18,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "WidgetInput.h"
 #include "SharedResources.h"
 #include "Settings.h"
+#include "SDL_gfxBlitFunc.h"
 
 using namespace std;
 
@@ -38,6 +39,7 @@ WidgetInput::WidgetInput() {
 	
 	cursor_frame = 0;
 
+	render_to_alpha = false;
 }
 
 void WidgetInput::loadGraphics(const string& filename) {
@@ -129,7 +131,10 @@ void WidgetInput::render(SDL_Surface *target) {
 	else
 		src.y = pos.h;
 
-	SDL_BlitSurface(background, &src, target, &pos);
+	if (render_to_alpha)
+		SDL_gfxBlitRGBA(background, &src, target, &pos);
+	else
+		SDL_BlitSurface(background, &src, target, &pos);
 
 	if (!inFocus) {
 		font->render(text, font_pos.x, font_pos.y, JUSTIFY_LEFT, target, FONT_WHITE);
