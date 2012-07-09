@@ -29,6 +29,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <SDL_mixer.h>
 
 #include <string>
+#include <stdint.h>
+#include <vector>
 
 class StatBlock;
 

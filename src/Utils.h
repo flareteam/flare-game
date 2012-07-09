@@ -71,8 +71,6 @@ FPoint calcVector(Point pos, int direction, int dist);
 double calcDist(Point p1, Point p2);
 bool isWithin(Point center, int radius, Point target);
 bool isWithin(SDL_Rect r, Point target);
-void sort_by_tile_iso(Renderable r[], int rnum);
-void sort_by_tile_ortho(Renderable r[], int rnum);
 void drawPixel(SDL_Surface *screen, int x, int y, Uint32 color);
 void drawLine(SDL_Surface *screen, int x0, int y0, int x1, int y1, Uint32 color);
 void drawLine(SDL_Surface *screen, Point pos0, Point pos1, Uint32 color);

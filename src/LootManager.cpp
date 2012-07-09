@@ -29,10 +29,13 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 using namespace std;
 
+LootManager *lootManager = 0;
+LootManager *LootManager::getInstance() {
+	return lootManager;
+}
 
-LootManager::LootManager(ItemManager *_items, EnemyManager *_enemies, MapRenderer *_map, StatBlock *_hero) {
+LootManager::LootManager(ItemManager *_items, MapRenderer *_map, StatBlock *_hero) {
 	items = _items;
-	enemies = _enemies; // we need to be able to read loot state when creatures die
 	map = _map; // we need to be able to read loot that drops from map containers
 	hero = _hero; // we need the player's position for dropping loot in a valid spot
 
@@ -72,6 +75,11 @@ LootManager::LootManager(ItemManager *_items, EnemyManager *_enemies, MapRendere
 	anim_loot_frames = 6;
 	anim_loot_duration = 3;
 
+	if (!lootManager)
+		lootManager = this;
+	else
+		exit(25);
+		// TODO: make sure only one instance of the lootmanager is created.
 }
 
 /**
@@ -246,8 +254,6 @@ void LootManager::renderTooltips(Point cam) {
 			tip->render(loot[i].tip, dest, STYLE_TOPLABEL);
 		}
 	}
-
-
 }
 
 /**
@@ -258,25 +264,31 @@ void LootManager::checkEnemiesForLoot() {
 	ItemStack istack;
 	istack.quantity = 1;
 
-	for (int i=0; i<enemies->enemy_count; i++) {
-		if (enemies->enemies[i]->loot_drop) {
+	for (unsigned i=0; i < enemiesDroppingLoot.size(); ++i) {
+		const Enemy *e = enemiesDroppingLoot[i];
+		if (e->stats.quest_loot_id != 0) {
+			// quest loot
+			istack.item = enemies->enemies[i]->stats.quest_loot_id;
+			addLoot(istack, enemies->enemies[i]->stats.pos);
+		}
+		else { // random loot
+			//determine position
+			Point pos = hero->pos;
+			if (map->collider.valid_position(e->stats.pos.x, e->stats.pos.y, MOVEMENT_NORMAL))
+				pos = e->stats.pos;
 
-			if (enemies->enemies[i]->stats.quest_loot_id != 0) {
-				// quest loot
-				istack.item = enemies->enemies[i]->stats.quest_loot_id;
-				addLoot(istack, enemies->enemies[i]->stats.pos);
-			}
-			else {
-				// random loot
-				if (map->collider.valid_position(enemies->enemies[i]->stats.pos.x, enemies->enemies[i]->stats.pos.y, MOVEMENT_NORMAL))
-					determineLoot(enemies->enemies[i]->stats.level, enemies->enemies[i]->stats.pos);
-				else
-					determineLoot(enemies->enemies[i]->stats.level, hero->pos);
-			}
-
-			enemies->enemies[i]->loot_drop = false;
+			// if no probability density function  is given, do a random loot
+			if (e->stats.loot_types.empty())
+				determineLoot(e->stats.level, pos);
+			else
+				determineLootWithProbability(e, pos);
 		}
 	}
+	enemiesDroppingLoot.clear();
+}
+
+void LootManager::addEnemyLoot(const Enemy *e) {
+	enemiesDroppingLoot.push_back(e);
 }
 
 /**
@@ -354,6 +366,46 @@ void LootManager::determineLoot(int base_level, Point pos) {
 		else {
 			// gold range is level to 3x level
 			addGold(rand() % (level * 2) + level, pos);
+		}
+	}
+}
+
+void LootManager::determineLootWithProbability(const Enemy *e, Point pos) {
+	// quality level of loot
+	int level = lootLevel(e->stats.level);
+	if (level <= 0)
+		return;
+
+	// roll a dice to select the type
+	int typeSelector = rand() % e->stats.loot_prob_sum;
+	int typeSelectorIndex = 0;
+
+	// look up type hit by dice with correct probabilities
+	while (typeSelector >= e->stats.loot_prob[typeSelectorIndex]) {
+		typeSelector -= e->stats.loot_prob[typeSelectorIndex];
+		typeSelectorIndex++;
+	}
+	string loot_type = e->stats.loot_types[typeSelectorIndex];
+
+	if (loot_type == "gold")
+		addGold(rand() % (level * 2) + level, pos);
+	else {
+		// look up all items of the determined type
+		vector<int> possible_loots;
+		for (int i = 0; i < loot_table_count[level]; i++) {
+			const int itemIndex = loot_table[level][i];
+			if (items->items[itemIndex].loot == loot_type)
+				possible_loots.push_back(itemIndex);
+		}
+
+		// if there are items matching the seleected type,
+		// add a random item of that type.
+		if (level > 0 && possible_loots.size() > 0) {
+			int roll = rand() % possible_loots.size();
+			ItemStack new_loot;
+			new_loot.item = possible_loots[roll];
+			new_loot.quantity = rand() % items->items[new_loot.item].rand_loot + 1;
+			addLoot(new_loot, pos);
 		}
 	}
 }
@@ -536,5 +588,6 @@ LootManager::~LootManager() {
 		loot[i].clear();
 	}
 
+	lootManager = 0;
 	delete tip;
 }

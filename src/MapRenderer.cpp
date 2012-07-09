@@ -628,13 +628,48 @@ void MapRenderer::logic() {
 	tset.logic();
 }
 
+/**
+ * Sort in the same order as the tiles are drawn
+ * Depends upon the map implementation
+ */
+int zcompare_iso(const void * elem1, const void * elem2) {
+	const Renderable *r1 = static_cast<const Renderable*>(elem1);
+	const Renderable *r2 = static_cast<const Renderable*>(elem2);
+	if (r1->tile.y + r1->tile.x > r2->tile.y + r2->tile.x)
+		return 1;
+	else if (r1->tile.y + r1->tile.x == r2->tile.y + r2->tile.x) {
+		if (r1->tile.x > r2->tile.x)
+			return 1;
+	}
+	return -1;
+}
+
+int zcompare_ortho(const void * elem1, const void * elem2) {
+	const Renderable *r1 = static_cast<const Renderable*>(elem1);
+	const Renderable *r2 = static_cast<const Renderable*>(elem2);
+	if (r1->tile.y > r2->tile.y)
+		return 1;
+	else if (r1->tile.y == r2->tile.y) {
+		if (r1->tile.x > r2->tile.x)
+			return 1;
+		else
+			if (r1->map_pos.x + r1->map_pos.y > r2->map_pos.x + r2->map_pos.y)
+				return 1;
+	}
+	return 0;
+}
 
 void MapRenderer::render(Renderable r[], int rnum) {
+	for (int i=0; i<rnum; i++) {
+		// calculate tile
+		r[i].tile.x = r[i].map_pos.x >> TILE_SHIFT;
+		r[i].tile.y = r[i].map_pos.y >> TILE_SHIFT;
+	}
 	if (TILESET_ORIENTATION == TILESET_ORTHOGONAL) {
-		sort_by_tile_ortho(r, rnum);
+		qsort(r, rnum, sizeof(Renderable), zcompare_ortho);
 		renderOrtho(r, rnum);
 	} else {
-		sort_by_tile_iso(r, rnum);
+		qsort(r, rnum, sizeof(Renderable), zcompare_iso);
 		renderIso(r, rnum);
 	}
 }
@@ -674,7 +709,7 @@ void MapRenderer::renderIso(Renderable r[], int rnum) {
 	i = upperright.x / UNITS_PER_TILE - tiles_outside_ofscreen;
 
 	for (unsigned short y = max_tiles_height ; y; --y) {
-		short tiles_width = 0;
+		unsigned short tiles_width = 0;
 		for (unsigned short x = max_tiles_width; x ; --x) {
 			--j; ++i;
 			++tiles_width;

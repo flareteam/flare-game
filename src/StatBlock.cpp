@@ -124,8 +124,11 @@ StatBlock::StatBlock() {
 	}
 	infile.close();
 
-
-	teleportation=false;
+	loot_chance = 50;
+	loot_types = vector<string>();
+	loot_prob = vector<int>();
+	loot_prob_sum = 0;
+	teleportation = false;
 
 	for (int i=0; i<POWERSLOT_COUNT; i++) {
 		power_chance[i] = 0;
@@ -184,6 +187,21 @@ void StatBlock::load(const string& filename) {
 			// enemy death rewards and events
 			else if (infile.key == "xp") xp = num;
 			else if (infile.key == "loot_chance") loot_chance = num;
+			else if (infile.key == "loot_type") {
+				string str;
+				while ((str = infile.nextValue()) != "") {
+					if (!isInt(str)) {
+						loot_types.push_back(str);
+						loot_prob.push_back(1);
+						loot_prob_sum++;
+					}
+					else {
+						num = atoi(str.c_str());
+						loot_prob[loot_types.size()-1] = num;
+						loot_prob_sum += num - 1; // one was already added, so add one less
+					}
+				}
+			}
 			else if (infile.key == "defeat_status") defeat_status = infile.val;
 			else if (infile.key == "first_defeat_loot") first_defeat_loot = num;
 			else if (infile.key == "quest_loot") {
@@ -191,7 +209,6 @@ void StatBlock::load(const string& filename) {
 				quest_loot_not = infile.nextValue();
 				quest_loot_id = atoi(infile.nextValue().c_str());
 			}
-
 			// combat stats
 			else if (infile.key == "hp") {
 				hp = num;
@@ -223,7 +240,7 @@ void StatBlock::load(const string& filename) {
 			else if (infile.key == "facing") {
 				if (num == 0) facing = false;
 			}
-			
+
 			else if (infile.key == "waypoint_pause") waypoint_pause = num;
 
 			else if (infile.key == "speed") speed = num;
@@ -245,12 +262,12 @@ void StatBlock::load(const string& filename) {
 			else if (infile.key == "cooldown_melee_ment") power_cooldown[MELEE_MENT] = num;
 			else if (infile.key == "cooldown_ranged_phys") power_cooldown[RANGED_PHYS] = num;
 			else if (infile.key == "cooldown_ranged_ment") power_cooldown[RANGED_MENT] = num;
-            else if (infile.key == "power_on_hit") power_index[ON_HIT] = num;
+			else if (infile.key == "power_on_hit") power_index[ON_HIT] = num;
 			else if (infile.key == "power_on_death") power_index[ON_DEATH] = num;
 			else if (infile.key == "power_on_half_dead") power_index[ON_HALF_DEAD] = num;
 			else if (infile.key == "power_on_debuff") power_index[ON_DEBUFF] = num;
 			else if (infile.key == "power_on_join_combat") power_index[ON_JOIN_COMBAT] = num;
-            else if (infile.key == "chance_on_hit") power_chance[ON_HIT] = num;
+			else if (infile.key == "chance_on_hit") power_chance[ON_HIT] = num;
 			else if (infile.key == "chance_on_death") power_chance[ON_DEATH] = num;
 			else if (infile.key == "chance_on_half_dead") power_chance[ON_HALF_DEAD] = num;
 			else if (infile.key == "chance_on_debuff") power_chance[ON_DEBUFF] = num;

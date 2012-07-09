@@ -92,7 +92,7 @@ public:
 	int movement_type;
 	bool flying;
 	bool intangible;
-	bool facing; // does this creature turn to face the hero	
+	bool facing; // does this creature turn to face the hero
 
 	std::string name;
 	std::string sfx_prefix;
@@ -238,6 +238,9 @@ public:
 	int activated_powerslot;
 
 	int loot_chance;
+	std::vector<std::string> loot_types; // which kind of loot is able to be dropped.
+	std::vector<int> loot_prob;     // weights for each kind of drop.
+	int loot_prob_sum;              // sum of all loot_prob entries.
 
 	// for the teleport spell
 	bool teleportation;
