@@ -22,6 +22,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "WidgetScrollBar.h"
 #include "SharedResources.h"
+#include "SDL_gfxBlitFunc.h"
 
 using namespace std;
 
@@ -35,6 +36,8 @@ WidgetScrollBar::WidgetScrollBar(const std::string& _fileName)
 
 	pos_up.w = pos_down.w  = pos_knob.w = scrollbars->w;
 	pos_up.h = pos_down.h = pos_knob.h = (scrollbars->h / 5); //height of one button
+
+	render_to_alpha = false;
 }
 
 void WidgetScrollBar::loadArt() {
@@ -166,9 +169,15 @@ void WidgetScrollBar::render(SDL_Surface *target) {
 	else
 		src_down.y = pos_down.h*2;
 
-	SDL_BlitSurface(scrollbars, &src_up, target, &pos_up);
-	SDL_BlitSurface(scrollbars, &src_down, target, &pos_down);
-	SDL_BlitSurface(scrollbars, &src_knob, target, &pos_knob);
+	if (render_to_alpha) {
+		SDL_gfxBlitRGBA(scrollbars, &src_up, target, &pos_up);
+		SDL_gfxBlitRGBA(scrollbars, &src_down, target, &pos_down);
+		SDL_gfxBlitRGBA(scrollbars, &src_knob, target, &pos_knob);
+	} else {
+		SDL_BlitSurface(scrollbars, &src_up, target, &pos_up);
+		SDL_BlitSurface(scrollbars, &src_down, target, &pos_down);
+		SDL_BlitSurface(scrollbars, &src_knob, target, &pos_knob);
+	}
 }
 
 /**

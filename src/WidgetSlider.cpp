@@ -28,6 +28,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "WidgetSlider.h"
 #include "SharedResources.h"
 #include "UtilsDebug.h"
+#include "SDL_gfxBlitFunc.h"
 
 using namespace std;
 
@@ -51,6 +52,8 @@ WidgetSlider::WidgetSlider (const string  & fname)
 
 	pos_knob.w = sl->w / 8;
 	pos_knob.h = sl->h / 2;
+
+	render_to_alpha = false;
 }
 
 WidgetSlider::~WidgetSlider ()
@@ -153,7 +156,12 @@ void WidgetSlider::render (SDL_Surface *target)
 	knob.h = pos_knob.h;
 	knob.w = pos_knob.w;
 
-	SDL_BlitSurface(sl, &base, target, &pos);
-	SDL_BlitSurface(sl, &knob, target, &pos_knob);
+	if (render_to_alpha) {
+		SDL_gfxBlitRGBA(sl, &base, target, &pos);
+		SDL_gfxBlitRGBA(sl, &knob, target, &pos_knob);
+	} else {
+		SDL_BlitSurface(sl, &base, target, &pos);
+		SDL_BlitSurface(sl, &knob, target, &pos_knob);
+	}
 }
 

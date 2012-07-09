@@ -21,6 +21,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "WidgetScrollBox.h"
+#include "SDL_gfxBlitFunc.h"
 
 using namespace std;
 
@@ -30,9 +31,9 @@ WidgetScrollBox::WidgetScrollBox(int width, int height, int full_height) {
 	pos.h = height;
     cursor = 0;
     contents = createSurface(width,full_height);
-	SDL_FillRect(contents,NULL,0x1A1A1A);
-	SDL_SetAlpha(contents, 0, 0);
 	scrollbar = new WidgetScrollBar(mods->locate("images/menus/buttons/scrollbar_default.png"));
+	update = true;
+    render_to_alpha = false;
 }
 
 WidgetScrollBox::~WidgetScrollBox() {
@@ -94,7 +95,11 @@ void WidgetScrollBox::render(SDL_Surface *target) {
 	src.w = contents->w;
 	src.h = pos.h;
 
-	SDL_BlitSurface(contents, &src, target, &pos);
-    scrollbar->render(target);
+    if (render_to_alpha)
+        SDL_gfxBlitRGBA(contents, &src, target, &pos);
+    else
+        SDL_BlitSurface(contents, &src, target, &pos);
+	scrollbar->render(target);
+	update = false;
 }
 

@@ -23,6 +23,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "WidgetLabel.h"
 #include "SharedResources.h"
+#include "SDL_gfxBlitFunc.h"
 
 using namespace std;
 
@@ -37,6 +38,8 @@ WidgetLabel::WidgetLabel() {
 	
 	bounds.x = bounds.y = 0;
 	bounds.w = bounds.h = 0;
+
+	render_to_alpha = false;
 	
 }
 
@@ -55,7 +58,10 @@ void WidgetLabel::render(SDL_Surface *target) {
 	dest.h = bounds.h;
 
 	if (text_buffer != NULL) {
-		SDL_BlitSurface(text_buffer, NULL, target, &dest);
+		if (render_to_alpha)
+			SDL_gfxBlitRGBA(text_buffer, NULL, target, &dest);
+		else
+			SDL_BlitSurface(text_buffer, NULL, target, &dest);
 	}
 }
 

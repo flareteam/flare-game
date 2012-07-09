@@ -21,6 +21,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "WidgetButton.h"
 #include "SharedResources.h"
+#include "SDL_gfxBlitFunc.h"
 
 using namespace std;
 
@@ -34,6 +35,7 @@ WidgetButton::WidgetButton(const std::string& _fileName)
 	enabled = true;
 	pressed = false;
 	hover = false;
+	render_to_alpha = false;
 	
 	loadArt();
 
@@ -135,7 +137,10 @@ void WidgetButton::render(SDL_Surface *target) {
 	// create a temporary rect so we don't modify pos
 	SDL_Rect offset = pos;
 
-	SDL_BlitSurface(buttons, &src, target, &offset);
+	if (render_to_alpha)
+		SDL_gfxBlitRGBA(buttons, &src, target, &offset);
+	else
+		SDL_BlitSurface(buttons, &src, target, &offset);
 
 	wlabel.render(target);
 }
