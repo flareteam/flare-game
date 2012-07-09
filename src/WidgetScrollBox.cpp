@@ -31,6 +31,8 @@ WidgetScrollBox::WidgetScrollBox(int width, int height, int full_height) {
 	pos.h = height;
     cursor = 0;
     contents = createSurface(width,full_height);
+	SDL_FillRect(contents,NULL,0x1A1A1A);
+	SDL_SetAlpha(contents, 0, 0);
 	scrollbar = new WidgetScrollBar(mods->locate("images/menus/buttons/scrollbar_default.png"));
 	update = true;
     render_to_alpha = false;
