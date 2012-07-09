@@ -34,6 +34,7 @@ class MapRenderer;
 class Entity {
 protected:
 	SDL_Surface *sprites;
+	SDL_Surface *transformed_sprites;
 	std::vector<Animation*> animations;
 
 public:

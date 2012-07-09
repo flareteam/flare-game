@@ -77,6 +77,7 @@ private:
 	std::string img_off;
 
 	bool transform_triggered;
+	std::string last_transform;
 
 public:
 	Avatar(PowerManager *_powers, MapRenderer *_map);
