@@ -190,7 +190,7 @@ int compareItemStack (const void *a, const void *b)
 }
 
 void ItemStorage::sort() {
-	qsort(storage, slot_number, sizeof(ItemStack*), compareItemStack);
+	qsort(storage, slot_number, sizeof(ItemStack), compareItemStack);
 }
 
 //TODO: handle stackable items
