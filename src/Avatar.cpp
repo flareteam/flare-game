@@ -53,6 +53,7 @@ void Avatar::init() {
 
 	// other init
 	sprites = 0;
+	transformed_sprites = 0;
 	stats.cur_state = AVATAR_STANCE;
 	stats.pos.x = map->spawn.x;
 	stats.pos.y = map->spawn.y;
@@ -93,6 +94,7 @@ void Avatar::init() {
 	untransform_triggered = false;
 	setPowers = false;
 	revertPowers = false;
+	last_transform = "";
 
 	for (int i = 0; i < POWER_COUNT; i++) {
 		stats.hero_cooldown[i] = 0;
@@ -745,20 +747,23 @@ void Avatar::transform() {
 	img_armor = charmed_stats->gfx_prefix;
 
 	// transform the hero graphic
-	if (sprites) SDL_FreeSurface(sprites);
+	if (last_transform != charmed_stats->gfx_prefix) {
+		if (transformed_sprites) SDL_FreeSurface(transformed_sprites);
 
-	sprites = IMG_Load(mods->locate("images/enemies/" + charmed_stats->gfx_prefix + ".png").c_str());
+		transformed_sprites = IMG_Load(mods->locate("images/enemies/" + charmed_stats->gfx_prefix + ".png").c_str());
 
-	if(!sprites) {
-		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
-		SDL_Quit();
+		if(!transformed_sprites) {
+			fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
+			SDL_Quit();
+		}
+		last_transform = charmed_stats->gfx_prefix;
 	}
 
-	SDL_SetColorKey( sprites, SDL_SRCCOLORKEY, SDL_MapRGB(sprites->format, 255, 0, 255) );
+	SDL_SetColorKey( sprites, SDL_SRCCOLORKEY, SDL_MapRGB(transformed_sprites->format, 255, 0, 255) );
 
 	// optimize
-	SDL_Surface *cleanup = sprites;
-	sprites = SDL_DisplayFormatAlpha(sprites);
+	SDL_Surface *cleanup = transformed_sprites;
+	transformed_sprites = SDL_DisplayFormatAlpha(transformed_sprites);
 	SDL_FreeSurface(cleanup);
 
 	// temporary save hero stats
@@ -863,7 +868,10 @@ void Avatar::untransform() {
  */
 Renderable Avatar::getRender() {
 	Renderable r = activeAnimation->getCurrentFrame(stats.direction);
-	r.sprite = sprites;
+	if (stats.transformed)
+		r.sprite = transformed_sprites;
+	else
+		r.sprite = sprites;
 	r.map_pos = stats.pos;
 	return r;
 }
@@ -871,6 +879,7 @@ Renderable Avatar::getRender() {
 Avatar::~Avatar() {
 
 	SDL_FreeSurface(sprites);
+	if (transformed_sprites) SDL_FreeSurface(transformed_sprites);
 
 	if (sound_melee)
 		Mix_FreeChunk(sound_melee);
