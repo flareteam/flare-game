@@ -390,12 +390,10 @@ GameStateConfig::GameStateConfig ()
 	for (unsigned int i = 13; i < 38; i++) {
 		 settings_lb[i]->set(binding_name[i-13]);
 		 settings_lb[i]->setJustify(JUSTIFY_RIGHT);
-		 settings_lb[i]->render_to_alpha = true;
 		 child_widget.push_back(settings_lb[i]);
 		 optiontab[child_widget.size()-1] = 4;
 	}
 	for (unsigned int i = 0; i < 50; i++) {
-		 settings_key[i]->render_to_alpha = true;
 		 child_widget.push_back(settings_key[i]);
 		 optiontab[child_widget.size()-1] = 4;
 	}
