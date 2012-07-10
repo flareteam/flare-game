@@ -47,19 +47,16 @@ ItemManager::ItemManager() {
  * Load all items files in all mods
  */
 void ItemManager::loadAll() {
-
 	string test_path;
 
 	// load each items.txt file. Individual item IDs can be overwritten with mods.
 	for (unsigned int i = 0; i < mods->mod_list.size(); i++) {
-
 		test_path = PATH_DATA + "mods/" + mods->mod_list[i] + "/items/items.txt";
 
 		if (fileExists(test_path)) {
 			this->load(test_path);
 		}
 	}
-
 }
 
 /**
@@ -207,22 +204,22 @@ void ItemManager::load(const string& filename) {
 }
 
 void ItemManager::loadSounds() {
-    memset(sfx, 0, sizeof(sfx));
+	memset(sfx, 0, sizeof(sfx));
 
-    if (audio == true) {
-        sfx[SFX_BOOK] = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_book.ogg").c_str());
-        sfx[SFX_CLOTH] = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_cloth.ogg").c_str());
-        sfx[SFX_COINS] = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_coins.ogg").c_str());
-        sfx[SFX_GEM] = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_gem.ogg").c_str());
-        sfx[SFX_LEATHER] = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_leather.ogg").c_str());
-        sfx[SFX_METAL] = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_metal.ogg").c_str());
-        sfx[SFX_PAGE] = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_page.ogg").c_str());
-        sfx[SFX_MAILLE] = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_maille.ogg").c_str());
-        sfx[SFX_OBJECT] = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_object.ogg").c_str());
-        sfx[SFX_HEAVY] = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_heavy.ogg").c_str());
-        sfx[SFX_WOOD] = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_wood.ogg").c_str());
-        sfx[SFX_POTION] = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_potion.ogg").c_str());
-    }
+	if (audio) {
+		sfx[SFX_BOOK] = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_book.ogg").c_str());
+		sfx[SFX_CLOTH] = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_cloth.ogg").c_str());
+		sfx[SFX_COINS] = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_coins.ogg").c_str());
+		sfx[SFX_GEM] = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_gem.ogg").c_str());
+		sfx[SFX_LEATHER] = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_leather.ogg").c_str());
+		sfx[SFX_METAL] = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_metal.ogg").c_str());
+		sfx[SFX_PAGE] = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_page.ogg").c_str());
+		sfx[SFX_MAILLE] = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_maille.ogg").c_str());
+		sfx[SFX_OBJECT] = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_object.ogg").c_str());
+		sfx[SFX_HEAVY] = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_heavy.ogg").c_str());
+		sfx[SFX_WOOD] = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_wood.ogg").c_str());
+		sfx[SFX_POTION] = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_potion.ogg").c_str());
+	}
 }
 
 /**
@@ -283,14 +280,14 @@ void ItemManager::renderIcon(ItemStack stack, int x, int y, int size) {
 }
 
 void ItemManager::playSound(int item) {
-    if (items[item].sfx != SFX_NONE)
-        if (sfx[items[item].sfx])
-            Mix_PlayChannel(-1, sfx[items[item].sfx], 0);
+	if (items[item].sfx != SFX_NONE)
+		if (sfx[items[item].sfx])
+			Mix_PlayChannel(-1, sfx[items[item].sfx], 0);
 }
 
 void ItemManager::playCoinsSound() {
-    if (sfx[SFX_COINS])
-        Mix_PlayChannel(-1, sfx[SFX_COINS], 0);
+	if (sfx[SFX_COINS])
+		Mix_PlayChannel(-1, sfx[SFX_COINS], 0);
 }
 
 TooltipData ItemManager::getShortTooltip(ItemStack stack) {
@@ -461,24 +458,21 @@ TooltipData ItemManager::getTooltip(int item, StatBlock *stats, bool vendor_view
 			else
 				tip.lines[tip.num_lines++] = msg->get("Sell Price: %d gold each", price_per_unit);
 		}
-
 	}
 
 	return tip;
 }
 
 ItemManager::~ItemManager() {
-
 	SDL_FreeSurface(icons32);
 	SDL_FreeSurface(icons64);
 
-    if (audio == true) {
-        for (int i=0; i<12; i++) {
-            if (sfx[i])
-                Mix_FreeChunk(sfx[i]);
-        }
-    }
-
+	if (audio) {
+		for (int i=0; i<12; i++) {
+			if (sfx[i])
+				Mix_FreeChunk(sfx[i]);
+		}
+	}
 }
 
 /**
