@@ -41,41 +41,41 @@ void HazardManager::logic() {
 		if (h[i]->lifespan == 0)
 			expire(i);
 	}
-	
+
 	checkNewHazards();
-	
+
 	// handle single-frame transforms
 	for (int i=hazard_count-1; i>=0; i--) {
 		h[i]->logic();
-		
+
 		// remove all hazards that need to die immediately (e.g. exit the map)
 		if (h[i]->remove_now)
 			expire(i);
-		
-		
+
+
 		// if a moving hazard hits a wall, check for an after-effect
 		if (h[i]->hit_wall && h[i]->wall_power >= 0) {
 			Point target;
 			target.x = (int)(h[i]->pos.x);
 			target.y = (int)(h[i]->pos.y);
-			
+
 			powers->activate(h[i]->wall_power, h[i]->src_stats, target);
 			if (powers->powers[h[i]->wall_power].directional) powers->hazards.back()->direction = h[i]->direction;
-			
+
 		}
-		
+
 	}
-	
+
 	bool hit;
-	
+
 	// handle collisions
 	for (int i=0; i<hazard_count; i++) {
 		if (h[i]->active && h[i]->delay_frames==0 && (h[i]->active_frame == -1 || h[i]->active_frame == h[i]->frame)) {
-	
+
 			// process hazards that can hurt enemies
 			if (h[i]->source_type != SOURCE_TYPE_ENEMY) { //hero or neutral sources
-				for (int eindex = 0; eindex < enemies->enemy_count; eindex++) {
-			
+				for (unsigned int eindex = 0; eindex < enemies->enemies.size(); eindex++) {
+
 					// only check living enemies
 					if (enemies->enemies[eindex]->stats.hp > 0 && h[i]->active) {
 						if (isWithin(round(h[i]->pos), h[i]->radius, enemies->enemies[eindex]->stats.pos)) {
@@ -90,10 +90,10 @@ void HazardManager::logic() {
 							}
 						}
 					}
-				
+
 				}
 			}
-		
+
 			// process hazards that can hurt the hero
 			if (h[i]->source_type != SOURCE_TYPE_HERO) { //enemy or neutral sources
 				if (hero->stats.hp > 0 && h[i]->active) {
@@ -110,7 +110,7 @@ void HazardManager::logic() {
 					}
 				}
 			}
-			
+
 		}
 	}
 }
@@ -125,8 +125,8 @@ void HazardManager::checkNewHazards() {
 
 	// check PowerManager for hazards
 	while (!powers->hazards.empty()) {
-		new_haz = powers->hazards.front();		
-		powers->hazards.pop();		
+		new_haz = powers->hazards.front();
+		powers->hazards.pop();
 		new_haz->setCollision(collider);
 
 		h[hazard_count] = new_haz;
@@ -139,9 +139,9 @@ void HazardManager::checkNewHazards() {
 		hazard_count++;
 		hero->haz = NULL;
 	}
-	
+
 	// check monster hazards
-	for (int eindex = 0; eindex < enemies->enemy_count; eindex++) {
+	for (unsigned int eindex = 0; eindex < enemies->enemies.size(); eindex++) {
 		if (enemies->enemies[eindex]->haz != NULL) {
 			h[hazard_count] = enemies->enemies[eindex]->haz;
 			hazard_count++;
@@ -193,7 +193,7 @@ Renderable HazardManager::getRender(int haz_id) {
 		r.src.y = h[haz_id]->frame_size.y * h[haz_id]->visual_option;
 	else
 		r.src.y = 0;
-	
+
 	return r;
 }
 
