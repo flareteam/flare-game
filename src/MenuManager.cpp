@@ -64,6 +64,7 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 	enemy = new MenuEnemy();
 	menus.push_back(enemy); // menus[5]
 	vendor = new MenuVendor(items, stats);
+	menus.push_back(vendor); // menus[6]
 	talker = new MenuTalker(camp);
 	exit = new MenuExit();
 	mini = new MenuMiniMap();
@@ -95,6 +96,7 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 			else if (infile.key == "hudlog") menu_index = 3;
 			else if (infile.key == "actionbar") menu_index = 4;
 			else if (infile.key == "enemy") menu_index = 5;
+			else if (infile.key == "vendor") menu_index = 6;
 
 			if (menu_index != -1) {
 				menus[menu_index]->window_area.x = x;
@@ -111,7 +113,9 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 	}
 	infile.close();
 
-	act->update(); // update the position of the actionbar contents
+	// Some menus need to be updated with their loaded dimensions
+	act->update();
+	vendor->update();
 
 	pause = false;
 	dragging = false;
