@@ -346,6 +346,59 @@ void StatBlock::recalc() {
 	int crit_base = 5;
 	int crit_per_level = 1;
 
+	// Redefine numbers from config file if present
+	int value;
+	FileParser infile;
+	if (infile.open(mods->locate("engine/stats.txt"))) {
+	  while (infile.next()) {
+		infile.val = infile.val + ',';
+		value = eatFirstInt(infile.val, ',');
+
+		if (infile.key == "hp_base") {
+			hp_base = value;
+		} else if (infile.key == "hp_per_level") {
+			hp_per_level = value;
+		} else if (infile.key == "hp_per_physical") {
+			hp_per_physical = value;
+		} else if (infile.key == "hp_regen_base") {
+			hp_regen_base = value;
+		} else if (infile.key == "hp_regen_per_level") {
+			hp_regen_per_level = value;
+		} else if (infile.key == "hp_regen_per_physical") {
+			hp_regen_per_physical = value;
+		} else if (infile.key == "mp_base") {
+			mp_base = value;
+		} else if (infile.key == "mp_per_level") {
+			mp_per_level = value;
+		} else if (infile.key == "mp_per_mental") {
+			mp_per_mental = value;
+		} else if (infile.key == "mp_regen_base") {
+			mp_regen_base = value;
+		} else if (infile.key == "mp_regen_per_level") {
+			mp_regen_per_level = value;
+		} else if (infile.key == "mp_regen_per_mental") {
+			mp_regen_per_mental = value;
+		} else if (infile.key == "accuracy_base") {
+			accuracy_base = value;
+		} else if (infile.key == "accuracy_per_level") {
+			accuracy_per_level = value;
+		} else if (infile.key == "accuracy_per_offense") {
+			accuracy_per_offense = value;
+		} else if (infile.key == "avoidance_base") {
+			avoidance_base = value;
+		} else if (infile.key == "avoidance_per_level") {
+			avoidance_per_level = value;
+		} else if (infile.key == "avoidance_per_defense") {
+			avoidance_per_defense = value;
+		} else if (infile.key == "crit_base") {
+			crit_base = value;
+		} else if (infile.key == "crit_per_level") {
+			crit_per_level = value;
+		}
+	  }
+	} else fprintf(stderr, "Unable to open stats.txt!\n");
+	infile.close();
+
 	int lev0 = level -1;
 	int phys0 = get_physical() -1;
 	int ment0 = get_mental() -1;
