@@ -21,6 +21,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * Handles the display of the HP and MP bars at the top/left of the screen
  */
 
+#include "Menu.h"
 #include "MenuHPMP.h"
 #include "ModManager.h"
 #include "SharedResources.h"
@@ -33,13 +34,10 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 using namespace std;
 
-
 MenuHPMP::MenuHPMP() {
 
 	hphover = new WidgetLabel();
 	mphover = new WidgetLabel();
-	hphover->set(53, 9, JUSTIFY_CENTER, VALIGN_CENTER, "", FONT_WHITE);
-	mphover->set(53, 24, JUSTIFY_CENTER, VALIGN_CENTER, "", FONT_WHITE);
 
 	loadGraphics();
 }
@@ -69,17 +67,24 @@ void MenuHPMP::loadGraphics() {
 	SDL_FreeSurface(cleanup);
 }
 
+void MenuHPMP::render() {
+}
+
 void MenuHPMP::render(StatBlock *stats, Point mouse) {
+	hphover->set(window_area.x+window_area.w/2, window_area.y+9, JUSTIFY_CENTER, VALIGN_CENTER, "", FONT_WHITE);
+	mphover->set(window_area.x+window_area.w/2, window_area.y+24, JUSTIFY_CENTER, VALIGN_CENTER, "", FONT_WHITE);
+
 	SDL_Rect src;
 	SDL_Rect dest;
 	int hp_bar_length;
 	int mp_bar_length;
 
 	// draw trim/background
-	src.x = dest.x = 0;
-	src.y = dest.y = 0;
-	src.w = dest.w = 106;
-	src.h = dest.h = 33;
+	dest.x = window_area.x;
+	dest.y = window_area.y;
+	src.x = src.y = 0;
+	src.w = dest.w = window_area.w;
+	src.h = dest.h = window_area.h;
 
 	SDL_BlitSurface(background, &src, screen, &dest);
 
@@ -97,18 +102,18 @@ void MenuHPMP::render(StatBlock *stats, Point mouse) {
 	src.x = 0;
 	src.y = 0;
 	src.h = 12;
-	dest.x = 3;
-	dest.y = 3;
+	dest.x = window_area.x+3;
+	dest.y = window_area.y+3;
 	src.w = hp_bar_length;
 	SDL_BlitSurface(bar_hp, &src, screen, &dest);
 
 	// draw mp bar
-	dest.y = 18;
+	dest.y = window_area.y+18;
 	src.w = mp_bar_length;
 	SDL_BlitSurface(bar_mp, &src, screen, &dest);
 
 	// if mouseover, draw text
-	if (mouse.x <= 106 && mouse.y <= 33) {
+	if (isWithin(window_area,mouse)) {
 
 		stringstream ss;
 		ss << stats->hp << "/" << stats->maxhp;

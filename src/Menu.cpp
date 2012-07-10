@@ -22,6 +22,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "Menu.h"
+#include "Settings.h"
 
 Menu::Menu() {
 
@@ -29,4 +30,38 @@ Menu::Menu() {
 }
 
 Menu::~Menu() {
+}
+
+void Menu::align() {
+	SDL_Rect temp = window_area;
+
+	if (alignment == "topleft") {
+		window_area.x = 0+temp.x;
+		window_area.y = 0+temp.y;
+	} else if (alignment == "top") {
+		window_area.x = (VIEW_W_HALF-temp.w/2)+temp.x;
+		window_area.y = 0+temp.y;
+	} else if (alignment == "topright") {
+		window_area.x = (VIEW_W-temp.w)+temp.x;
+		window_area.y = 0+temp.y;
+	} else if (alignment == "left") {
+		window_area.x = 0+temp.x;
+		window_area.y = (VIEW_H_HALF-temp.h/2)+temp.y;
+	} else if (alignment == "center") {
+		window_area.x = (VIEW_W_HALF-temp.w/2)+temp.x;
+		window_area.y = (VIEW_H_HALF-temp.h/2)+temp.y;
+	} else if (alignment == "right") {
+		window_area.x = (VIEW_W-temp.w)+temp.x;
+		window_area.y = (VIEW_H_HALF-temp.h/2)+temp.y;
+	} else if (alignment == "bottomleft") {
+		window_area.x = 0+temp.x;
+		window_area.y = (VIEW_H-temp.h)+temp.y;
+	} else if (alignment == "bottom") {
+		window_area.x = (VIEW_W_HALF-temp.w/2)+temp.x;
+		window_area.y = (VIEW_H-temp.h)+temp.y;
+	} else if (alignment == "bottomright") {
+		window_area.x = (VIEW_W-temp.w)+temp.x;
+		window_area.y = (VIEW_H-temp.h)+temp.y;
+	}
+
 }

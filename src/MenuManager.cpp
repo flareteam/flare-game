@@ -19,6 +19,10 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * class MenuManager
  */
 
+#include "FileParser.h"
+#include "UtilsParsing.h"
+#include "UtilsFileSystem.h"
+#include "Menu.h"
 #include "MenuManager.h"
 #include "MenuActionBar.h"
 #include "MenuCharacter.h"
@@ -54,6 +58,7 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 	hudlog = new MenuHUDLog();
 	act = new MenuActionBar(powers, stats, icons);
 	hpmp = new MenuHPMP();
+	menus.push_back(hpmp); // menus[0]
 	tip = new WidgetTooltip();
 	mini = new MenuMiniMap();
 	xp = new MenuExperience();
@@ -62,6 +67,33 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 	talker = new MenuTalker(camp);
 	exit = new MenuExit();
 	effects = new MenuActiveEffects(icons);
+
+	// Load the menu positions and alignments from menus/menus.txt
+	int x,y,w,h;
+	std::string align;
+	FileParser infile;
+	if (infile.open(mods->locate("menus/menus.txt"))) {
+		while (infile.next()) {
+			infile.val = infile.val + ',';
+			x = eatFirstInt(infile.val, ',');
+			y = eatFirstInt(infile.val, ',');
+			w = eatFirstInt(infile.val, ',');
+			h = eatFirstInt(infile.val, ',');
+			align = eatFirstString(infile.val, ',');
+
+			if (infile.key == "hpmp") {
+				menus[0]->window_area.x = x;
+				menus[0]->window_area.y = y;
+				menus[0]->window_area.w = w;
+				menus[0]->window_area.h = h;
+				menus[0]->alignment = align;
+				menus[0]->align();
+			}
+
+		}
+	} else fprintf(stderr, "Unable to open menus.txt!\n");
+	infile.close();
+
 
 	pause = false;
 	dragging = false;
