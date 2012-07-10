@@ -32,15 +32,18 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 class StatBlock;
 
 
-class MenuExperience {
+class MenuExperience : public Menu {
 private:
 	SDL_Surface *background;
 	SDL_Surface *bar;
+	StatBlock *stats;
+	Point mouse;
 public:
 	MenuExperience();
 	~MenuExperience();
 	void loadGraphics();
-	void render(StatBlock *stats, Point mouse);
+	void update(StatBlock *_stats, Point _mouse);
+	void render();
 	
 	// variables to make the experience bar display configurable
 	

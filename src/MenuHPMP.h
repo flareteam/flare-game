@@ -32,7 +32,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 class StatBlock;
 class WidgetLabel;
 
-class MenuHPMP : public Menu{
+class MenuHPMP : public Menu {
 private:
 	SDL_Surface *background;
 	SDL_Surface *bar_hp;

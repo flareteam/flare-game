@@ -62,6 +62,7 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 	tip = new WidgetTooltip();
 	mini = new MenuMiniMap();
 	xp = new MenuExperience();
+	menus.push_back(xp); // menus[1]
 	enemy = new MenuEnemy();
 	vendor = new MenuVendor(items, stats);
 	talker = new MenuTalker(camp);
@@ -71,6 +72,7 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 	// Load the menu positions and alignments from menus/menus.txt
 	int x,y,w,h;
 	std::string align;
+	int menu_index;
 	FileParser infile;
 	if (infile.open(mods->locate("menus/menus.txt"))) {
 		while (infile.next()) {
@@ -81,13 +83,18 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 			h = eatFirstInt(infile.val, ',');
 			align = eatFirstString(infile.val, ',');
 
-			if (infile.key == "hpmp") {
-				menus[0]->window_area.x = x;
-				menus[0]->window_area.y = y;
-				menus[0]->window_area.w = w;
-				menus[0]->window_area.h = h;
-				menus[0]->alignment = align;
-				menus[0]->align();
+			menu_index = -1;
+
+			if (infile.key == "hpmp") menu_index = 0;
+			else if (infile.key == "xp") menu_index = 1;
+
+			if (menu_index != -1) {
+				menus[menu_index]->window_area.x = x;
+				menus[menu_index]->window_area.y = y;
+				menus[menu_index]->window_area.w = w;
+				menus[menu_index]->window_area.h = h;
+				menus[menu_index]->alignment = align;
+				menus[menu_index]->align();
 			}
 
 		}
@@ -160,6 +167,7 @@ void MenuManager::logic() {
 	ItemStack stack;
 
 	hpmp->update(stats,inpt->mouse);
+	xp->update(stats,inpt->mouse);
 
 	hudlog->logic();
 	enemy->logic();
@@ -540,7 +548,7 @@ void MenuManager::logic() {
 
 void MenuManager::render() {
 	hpmp->render();
-	xp->render(stats, inpt->mouse);
+	xp->render();
 	effects->render(stats);
 	act->render();
 	inv->render();

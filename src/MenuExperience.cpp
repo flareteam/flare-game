@@ -21,6 +21,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * Handles the display of the Experience bar on the HUD
  */
 
+#include "Menu.h"
 #include "MenuExperience.h"
 #include "ModManager.h"
 #include "SharedResources.h"
@@ -37,23 +38,6 @@ using namespace std;
 
 MenuExperience::MenuExperience() {
 	loadGraphics();
-
-	// move these settings to a config file
-	hud_position.x = 0;
-	hud_position.y = 32;
-	hud_position.w = 106;
-	hud_position.h = 26;
-	background_offset.x = 0;
-	background_offset.y = 0;
-	background_size.x = 106;
-	background_size.y = 10;
-	bar_offset.x = 3;
-	bar_offset.y = 3;
-	bar_size.x = 100;
-	bar_size.y = 4;
-	text_offset.x = 2;
-	text_offset.y = 12;
-	text_justify = JUSTIFY_LEFT;
 }
 
 void MenuExperience::loadGraphics() {
@@ -77,11 +61,16 @@ void MenuExperience::loadGraphics() {
 	SDL_FreeSurface(cleanup);
 }
 
+void MenuExperience::update(StatBlock *_stats, Point _mouse) {
+	mouse = _mouse;
+	stats = _stats;
+}
+
 /**
  * Display the XP bar background and current progress.
  * On mouseover, display progress in text form.
  */
-void MenuExperience::render(StatBlock *stats, Point mouse) {
+void MenuExperience::render() {
 
 	SDL_Rect src;
 	SDL_Rect dest;
@@ -93,10 +82,10 @@ void MenuExperience::render(StatBlock *stats, Point mouse) {
 	// lay down the background image first
 	src.x = 0;
 	src.y = 0;
-	src.w = background_size.x;
-	src.h = background_size.y;
-	dest.x = hud_position.x + background_offset.x;
-	dest.y = hud_position.y + background_offset.y;
+	src.w = window_area.w;
+	src.h = window_area.h-16;
+	dest.x = window_area.x;
+	dest.y = window_area.y;
 	SDL_BlitSurface(background, &src, screen, &dest);
 
 	// calculate the length of the xp bar
@@ -105,11 +94,11 @@ void MenuExperience::render(StatBlock *stats, Point mouse) {
 	src.y = 0;
 	int required = stats->xp_table[stats->level] - stats->xp_table[stats->level-1];
 	int current = stats->xp - stats->xp_table[stats->level-1];
-	xp_bar_length = (current * bar_size.x) / required;
+	xp_bar_length = (current * 100) / required;
 	src.w = xp_bar_length;
-	src.h = bar_size.y;
-	dest.x = hud_position.x + bar_offset.x;
-	dest.y = hud_position.y + bar_offset.y;
+	src.h = 4;
+	dest.x = window_area.x+3;
+	dest.y = window_area.y+3;
 
 	// draw xp bar
 	SDL_BlitSurface(bar, &src, screen, &dest);
@@ -118,7 +107,7 @@ void MenuExperience::render(StatBlock *stats, Point mouse) {
 	string text_label;
 
 	// if mouseover, draw text
-	if (isWithin(hud_position, mouse)) {
+	if (isWithin(window_area, mouse)) {
 
 		if (stats->level < MAX_CHARACTER_LEVEL) {
 			text_label = msg->get("XP: %d/%d", stats->xp, stats->xp_table[stats->level]);
@@ -128,7 +117,7 @@ void MenuExperience::render(StatBlock *stats, Point mouse) {
 		}
 
 		WidgetLabel label;
-		label.set(hud_position.x + text_offset.x, hud_position.y + text_offset.y, text_justify, VALIGN_TOP, text_label, FONT_WHITE);
+		label.set(window_area.x+2, window_area.y+window_area.h-14, JUSTIFY_LEFT, VALIGN_TOP, text_label, FONT_WHITE);
 		label.render();
 	}
 }
