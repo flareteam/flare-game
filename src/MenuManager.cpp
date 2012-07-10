@@ -68,6 +68,7 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 	talker = new MenuTalker(camp);
 	menus.push_back(talker); // menus[7]
 	exit = new MenuExit();
+	menus.push_back(exit); // menus[8]
 	mini = new MenuMiniMap();
 	chr = new MenuCharacter(stats);
 	inv = new MenuInventory(items, stats, powers);
@@ -99,6 +100,7 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 			else if (infile.key == "enemy") menu_index = 5;
 			else if (infile.key == "vendor") menu_index = 6;
 			else if (infile.key == "talker") menu_index = 7;
+			else if (infile.key == "exit") menu_index = 8;
 
 			if (menu_index != -1) {
 				menus[menu_index]->window_area.x = x;
@@ -115,10 +117,11 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 	}
 	infile.close();
 
-	// Some menus need to be updated with their loaded dimensions
+	// Some menus need to be updated to apply their new dimensions
 	act->update();
 	vendor->update();
 	talker->update();
+	exit->update();
 
 	pause = false;
 	dragging = false;

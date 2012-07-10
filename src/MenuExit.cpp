@@ -27,22 +27,10 @@ MenuExit::MenuExit() : Menu() {
 
 	exitClicked = false;
 
-	window_area.w = 192;
-	window_area.h = 64;
-	window_area.x = (VIEW_W/2) - (window_area.w/2);
-	window_area.y = (VIEW_H - window_area.h)/2;
-
 	buttonExit = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
 	buttonExit->label = msg->get("Exit");
-	buttonExit->pos.x = VIEW_W_HALF - buttonExit->pos.w/2;
-	buttonExit->pos.y = VIEW_H/2;
-	buttonExit->refresh();
 
 	buttonClose = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
-	buttonClose->pos.x = window_area.x + window_area.w;
-	buttonClose->pos.y = window_area.y;
-
-	label.set(window_area.x + window_area.w/2, window_area.y + 10, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Save and exit to title?"), FONT_WHITE);
 
 	loadGraphics();
 }
@@ -58,6 +46,17 @@ void MenuExit::loadGraphics() {
 	SDL_Surface *cleanup = background;
 	background = SDL_DisplayFormatAlpha(background);
 	SDL_FreeSurface(cleanup);
+}
+
+void MenuExit::update() {
+	buttonExit->pos.x = VIEW_W_HALF - buttonExit->pos.w/2;
+	buttonExit->pos.y = VIEW_H/2;
+	buttonExit->refresh();
+
+	buttonClose->pos.x = window_area.x + window_area.w;
+	buttonClose->pos.y = window_area.y;
+
+	label.set(window_area.x + window_area.w/2, window_area.y + 10, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Save and exit to title?"), FONT_WHITE);
 }
 
 void MenuExit::logic() {
