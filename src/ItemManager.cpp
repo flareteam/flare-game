@@ -35,7 +35,7 @@ using namespace std;
 
 
 ItemManager::ItemManager() {
-	items = new Item[MAX_ITEM_ID];
+	items = vector<Item>();
 
 	vendor_ratio = 4; // this means scrap/vendor pays 1/4th price to buy items from hero
 	loadAll();
@@ -69,7 +69,7 @@ void ItemManager::loadAll() {
  */
 void ItemManager::load(const string& filename) {
 	FileParser infile;
-	int id = 0;
+	unsigned int id = 0;
 	string s;
 	int bonus_counter = 0;
 
@@ -78,7 +78,10 @@ void ItemManager::load(const string& filename) {
 		while (infile.next()) {
 			if (infile.key == "id") {
 				id = atoi(infile.val.c_str());
-
+				if (id >= items.size()) {
+					// *2 to amortize the resizing to O(log(n)).
+					items.resize((2*id) + 1);
+				}
 				// new item, reset bonus counter
 				bonus_counter = 0;
 			}
@@ -475,8 +478,6 @@ ItemManager::~ItemManager() {
                 Mix_FreeChunk(sfx[i]);
         }
     }
-
-	delete[] items;
 
 }
 

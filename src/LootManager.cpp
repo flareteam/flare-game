@@ -92,7 +92,7 @@ void LootManager::loadGraphics() {
 	bool new_anim;
 
 	// check all items in the item database
-	for (int i=0; i<MAX_ITEM_ID; i++) {
+	for (unsigned int i=0; i < items->items.size(); i++) {
 		anim_id = items->items[i].loot;
 
 		new_anim = true;

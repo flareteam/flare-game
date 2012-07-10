@@ -34,8 +34,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 class StatBlock;
 
-const int MAX_ITEM_ID = 10000;
-
 const int ICON_SIZE_32 = 32;
 const int ICON_SIZE_64 = 64;
 
@@ -156,20 +154,21 @@ private:
 	SDL_Rect dest;
 	Mix_Chunk *sfx[12];
 
-public:
-	ItemManager();
-	~ItemManager();
 	void load(const std::string& filename);
 	void loadAll();
 	void loadSounds();
 	void loadIcons();
+
+public:
+	ItemManager();
+	~ItemManager();
 	void renderIcon(ItemStack stack, int x, int y, int size);
 	void playSound(int item);
 	void playCoinsSound();
 	TooltipData getTooltip(int item, StatBlock *stats, bool vendor_view);
 	TooltipData getShortTooltip(ItemStack item);
 
-	Item *items;
+	std::vector<Item> items;
 	int vendor_ratio;
 };
 
