@@ -28,6 +28,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "FileParser.h"
 #include "GameStatePlay.h"
 #include "MapRenderer.h"
+#include "Menu.h"
 #include "MenuActionBar.h"
 #include "MenuCharacter.h"
 #include "MenuInventory.h"

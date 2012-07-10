@@ -60,7 +60,7 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 	hudlog = new MenuHUDLog();
 	menus.push_back(hudlog); // menus[3]
 	act = new MenuActionBar(powers, stats, icons);
-	tip = new WidgetTooltip();
+	menus.push_back(act); // menus[4]
 	mini = new MenuMiniMap();
 	enemy = new MenuEnemy();
 	vendor = new MenuVendor(items, stats);
@@ -70,6 +70,7 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 	inv = new MenuInventory(items, stats, powers);
 	pow = new MenuPowers(stats, powers);
 	log = new MenuLog();
+	tip = new WidgetTooltip();
 
 	// Load the menu positions and alignments from menus/menus.txt
 	int x,y,w,h;
@@ -91,6 +92,7 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 			else if (infile.key == "xp") menu_index = 1;
 			else if (infile.key == "effects") menu_index = 2;
 			else if (infile.key == "hudlog") menu_index = 3;
+			else if (infile.key == "actionbar") menu_index = 4;
 
 			if (menu_index != -1) {
 				menus[menu_index]->window_area.x = x;
@@ -102,9 +104,12 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 			}
 
 		}
-	} else fprintf(stderr, "Unable to open menus.txt!\n");
+	} else {
+		fprintf(stderr, "Unable to open menus.txt!\n");
+	}
 	infile.close();
 
+	act->update(); // update the position of the actionbar contents
 
 	pause = false;
 	dragging = false;
@@ -114,6 +119,7 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 	drag_src = 0;
 	drop_stack.item = 0;
 	drop_stack.quantity = 0;
+
 
 	loadSounds();
 
