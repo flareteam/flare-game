@@ -62,6 +62,7 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 	act = new MenuActionBar(powers, stats, icons);
 	menus.push_back(act); // menus[4]
 	enemy = new MenuEnemy();
+	menus.push_back(enemy); // menus[5]
 	vendor = new MenuVendor(items, stats);
 	talker = new MenuTalker(camp);
 	exit = new MenuExit();
@@ -93,6 +94,7 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 			else if (infile.key == "effects") menu_index = 2;
 			else if (infile.key == "hudlog") menu_index = 3;
 			else if (infile.key == "actionbar") menu_index = 4;
+			else if (infile.key == "enemy") menu_index = 5;
 
 			if (menu_index != -1) {
 				menus[menu_index]->window_area.x = x;
