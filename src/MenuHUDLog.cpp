@@ -19,6 +19,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * class MenuHUDLog
  */
 
+#include "Menu.h"
 #include "MenuHUDLog.h"
 #include "SharedResources.h"
 #include "Settings.h"
@@ -65,8 +66,8 @@ void MenuHUDLog::logic() {
 void MenuHUDLog::render() {
 
 	SDL_Rect dest;
-	dest.x = 32;
-	dest.y = VIEW_H - 40;
+	dest.x = window_area.x;
+	dest.y = window_area.y;
 
 
 	// go through new messages
@@ -101,9 +102,9 @@ void MenuHUDLog::add(const string& s) {
 	}
 
 	// render the log entry and store it in a buffer
-	Point size = font->calc_size(s, list_area.x);
+	Point size = font->calc_size(s, window_area.w);
 	msg_buffer[log_count] = createSurface(size.x, size.y);
-	font->renderShadowed(s, 0, 0, JUSTIFY_LEFT, msg_buffer[log_count], list_area.x, FONT_WHITE);
+	font->renderShadowed(s, 0, 0, JUSTIFY_LEFT, msg_buffer[log_count], window_area.w, FONT_WHITE);
 
 	log_count++;
 }

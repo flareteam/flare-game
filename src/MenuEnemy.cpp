@@ -21,6 +21,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * Handles the display of the Enemy bar on the HUD
  */
 
+#include "Menu.h"
 #include "MenuEnemy.h"
 #include "SharedResources.h"
 #include "WidgetLabel.h"
@@ -76,10 +77,10 @@ void MenuEnemy::render() {
 	int hp_bar_length;
 
 	// draw trim/background
-	dest.x = VIEW_W_HALF-53;
-	dest.y = 0;
-	dest.w = 106;
-	dest.h = 33;
+	dest.x = window_area.x;
+	dest.y = window_area.y;
+	dest.w = window_area.w;
+	dest.h = window_area.h;
 
 	SDL_BlitSurface(background, NULL, screen, &dest);
 
@@ -90,8 +91,8 @@ void MenuEnemy::render() {
 
 	// draw hp bar
 
-	dest.x = VIEW_W_HALF-50;
-	dest.y = 18;
+	dest.x = window_area.x+3;
+	dest.y = window_area.y+18;
 
 	src.x = 0;
 	src.y = 0;
@@ -109,10 +110,10 @@ void MenuEnemy::render() {
 
 	WidgetLabel label;
 
-	label.set(VIEW_W_HALF, 9, JUSTIFY_CENTER, VALIGN_CENTER, msg->get("%s level %d", enemy->stats.level, enemy->stats.name), FONT_WHITE);
+	label.set(window_area.x+window_area.w/2, window_area.y+9, JUSTIFY_CENTER, VALIGN_CENTER, msg->get("%s level %d", enemy->stats.level, enemy->stats.name), FONT_WHITE);
 	label.render();
 
-	label.set(VIEW_W_HALF, 24, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
+	label.set(window_area.x+window_area.w/2, window_area.y+24, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
 	label.render();
 
 

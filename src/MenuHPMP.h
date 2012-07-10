@@ -32,20 +32,22 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 class StatBlock;
 class WidgetLabel;
 
-class MenuHPMP : public Menu{
+class MenuHPMP : public Menu {
 private:
 	SDL_Surface *background;
 	SDL_Surface *bar_hp;
 	SDL_Surface *bar_mp;
 	WidgetLabel *hphover;
 	WidgetLabel *mphover;
+	StatBlock *stats;
+	Point mouse;
 	
 public:
 	MenuHPMP();
 	~MenuHPMP();
 	void loadGraphics();
+	void update(StatBlock *_stats, Point _mouse);
 	void render();
-	void render(StatBlock *stats, Point mouse);
 };
 
 #endif

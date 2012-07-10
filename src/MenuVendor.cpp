@@ -19,6 +19,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * class MenuVendor
  */
 
+#include "Menu.h"
 #include "MenuVendor.h"
 #include "NPC.h"
 #include "Settings.h"
@@ -32,22 +33,11 @@ MenuVendor::MenuVendor(ItemManager *_items, StatBlock *_stats) {
 	items = _items;
 	stats = _stats;
 
-	int offset_y = (VIEW_H - 416)/2;
-
-	slots_area.x = 32;
-	slots_area.y = offset_y + 64;
-	slots_area.w = 256;
-	slots_area.h = 320;
-
-	stock.init( VENDOR_SLOTS, items, slots_area, ICON_SIZE_32, 8);
-
 	visible = false;
 	talker_visible = false;
 	loadGraphics();
 
 	closeButton = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
-	closeButton->pos.x = 294;
-	closeButton->pos.y = (VIEW_H - 480)/2 + 34;
 
 	loadMerchant("");
 }
@@ -63,6 +53,18 @@ void MenuVendor::loadGraphics() {
 	SDL_Surface *cleanup = background;
 	background = SDL_DisplayFormatAlpha(background);
 	SDL_FreeSurface(cleanup);
+}
+
+void MenuVendor::update() {
+	slots_area.x = window_area.x+32;
+	slots_area.y = window_area.y+64;
+	slots_area.w = 256;
+	slots_area.h = 320;
+
+	stock.init( VENDOR_SLOTS, items, slots_area, ICON_SIZE_32, 8);
+
+	closeButton->pos.x = window_area.x+window_area.w-26;
+	closeButton->pos.y = window_area.y+2;
 }
 
 void MenuVendor::loadMerchant(const std::string&) {
@@ -81,15 +83,13 @@ void MenuVendor::render() {
 	SDL_Rect src;
 	SDL_Rect dest;
 
-	int offset_y = (VIEW_H - 416)/2;
-
 	// background
 	src.x = 0;
 	src.y = 0;
-	dest.x = 0;
-	dest.y = offset_y;
-	src.w = dest.w = 320;
-	src.h = dest.h = 416;
+	dest.x = window_area.x;
+	dest.y = window_area.y;
+	src.w = dest.w = window_area.w;
+	src.h = dest.h = window_area.h;
 	SDL_BlitSurface(background, &src, screen, &dest);
 
 	// close button
@@ -97,9 +97,9 @@ void MenuVendor::render() {
 
 	// text overlay
 	WidgetLabel label;
-	label.set(160, offset_y+8, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Vendor"), FONT_WHITE);
+	label.set(window_area.x+window_area.w/2, window_area.y+8, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Vendor"), FONT_WHITE);
 	label.render();
-	label.set(160, offset_y+24, JUSTIFY_CENTER, VALIGN_TOP, npc->name, FONT_WHITE);
+	label.set(window_area.x+window_area.w/2, window_area.y+24, JUSTIFY_CENTER, VALIGN_TOP, npc->name, FONT_WHITE);
 	label.render();
 
 	// show stock

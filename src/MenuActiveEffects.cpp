@@ -22,6 +22,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * Handles the display of active effects (buffs/debuffs)
  */
 
+#include "Menu.h"
 #include "MenuActiveEffects.h"
 #include "ModManager.h"
 #include "SharedResources.h"
@@ -67,8 +68,8 @@ void MenuActiveEffects::loadGraphics() {
 
 void MenuActiveEffects::renderIcon(int icon_id, int index, int current, int max){
 	SDL_Rect pos,src,overlay;
-	pos.x = 106 + (index * 32);
-	pos.y = 0;
+	pos.x = window_area.x + (index * 32);
+	pos.y = window_area.y;
 	
 	src.x = (icon_id % 16) * 32;
 	src.y = (icon_id / 16) * 32;
@@ -83,7 +84,11 @@ void MenuActiveEffects::renderIcon(int icon_id, int index, int current, int max)
 	SDL_BlitSurface(timer,&overlay,screen,&pos);
 }
 
-void MenuActiveEffects::render(StatBlock *stats) {
+void MenuActiveEffects::update(StatBlock *_stats) {
+	stats = _stats;
+}
+
+void MenuActiveEffects::render() {
 	// Make sure the list of effects is empty
 	if (effects.size() > 0) effects.clear();
 

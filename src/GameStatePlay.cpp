@@ -32,6 +32,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "Hazard.h"
 #include "HazardManager.h"
 #include "LootManager.h"
+#include "Menu.h"
 #include "MenuActionBar.h"
 #include "MenuCharacter.h"
 #include "MenuEnemy.h"
@@ -592,7 +593,6 @@ void GameStatePlay::render() {
 	loot->renderTooltips(map->cam);
 	npcs->renderTooltips(map->cam, inpt->mouse);
 
-	menu->hudlog->render();
 	menu->mini->render(&map->collider, pc->stats.pos, map->w, map->h);
 	menu->render();
 

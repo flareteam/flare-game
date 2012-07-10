@@ -40,7 +40,7 @@ const int MENU_INVENTORY = 1;
 const int MENU_POWERS = 2;
 const int MENU_LOG = 3;
 
-class MenuActionBar {
+class MenuActionBar : public Menu {
 private:
 	void renderCooldowns();
 	void renderItemCounts();
@@ -73,6 +73,7 @@ public:
 	void remove(Point mouse);
 	void set(int power_id[12]);
 	void clear();
+	void update();
 
 	TooltipData checkTooltip(Point mouse);
 

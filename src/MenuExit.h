@@ -42,6 +42,7 @@ public:
 	MenuExit();
 	~MenuExit();
 
+	void update();
 	void logic();
 	virtual void render();
 

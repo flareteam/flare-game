@@ -51,26 +51,35 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 
 	loadIcons();
 
+	hpmp = new MenuHPMP();
+	menus.push_back(hpmp); // menus[0]
+	xp = new MenuExperience();
+	menus.push_back(xp); // menus[1]
+	effects = new MenuActiveEffects(icons);
+	menus.push_back(effects); // menus[2]
+	hudlog = new MenuHUDLog();
+	menus.push_back(hudlog); // menus[3]
+	act = new MenuActionBar(powers, stats, icons);
+	menus.push_back(act); // menus[4]
+	enemy = new MenuEnemy();
+	menus.push_back(enemy); // menus[5]
+	vendor = new MenuVendor(items, stats);
+	menus.push_back(vendor); // menus[6]
+	talker = new MenuTalker(camp);
+	menus.push_back(talker); // menus[7]
+	exit = new MenuExit();
+	menus.push_back(exit); // menus[8]
+	mini = new MenuMiniMap();
 	chr = new MenuCharacter(stats);
 	inv = new MenuInventory(items, stats, powers);
 	pow = new MenuPowers(stats, powers);
 	log = new MenuLog();
-	hudlog = new MenuHUDLog();
-	act = new MenuActionBar(powers, stats, icons);
-	hpmp = new MenuHPMP();
-	menus.push_back(hpmp); // menus[0]
 	tip = new WidgetTooltip();
-	mini = new MenuMiniMap();
-	xp = new MenuExperience();
-	enemy = new MenuEnemy();
-	vendor = new MenuVendor(items, stats);
-	talker = new MenuTalker(camp);
-	exit = new MenuExit();
-	effects = new MenuActiveEffects(icons);
 
 	// Load the menu positions and alignments from menus/menus.txt
 	int x,y,w,h;
 	std::string align;
+	int menu_index;
 	FileParser infile;
 	if (infile.open(mods->locate("menus/menus.txt"))) {
 		while (infile.next()) {
@@ -81,19 +90,38 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 			h = eatFirstInt(infile.val, ',');
 			align = eatFirstString(infile.val, ',');
 
-			if (infile.key == "hpmp") {
-				menus[0]->window_area.x = x;
-				menus[0]->window_area.y = y;
-				menus[0]->window_area.w = w;
-				menus[0]->window_area.h = h;
-				menus[0]->alignment = align;
-				menus[0]->align();
+			menu_index = -1;
+
+			if (infile.key == "hpmp") menu_index = 0;
+			else if (infile.key == "xp") menu_index = 1;
+			else if (infile.key == "effects") menu_index = 2;
+			else if (infile.key == "hudlog") menu_index = 3;
+			else if (infile.key == "actionbar") menu_index = 4;
+			else if (infile.key == "enemy") menu_index = 5;
+			else if (infile.key == "vendor") menu_index = 6;
+			else if (infile.key == "talker") menu_index = 7;
+			else if (infile.key == "exit") menu_index = 8;
+
+			if (menu_index != -1) {
+				menus[menu_index]->window_area.x = x;
+				menus[menu_index]->window_area.y = y;
+				menus[menu_index]->window_area.w = w;
+				menus[menu_index]->window_area.h = h;
+				menus[menu_index]->alignment = align;
+				menus[menu_index]->align();
 			}
 
 		}
-	} else fprintf(stderr, "Unable to open menus.txt!\n");
+	} else {
+		fprintf(stderr, "Unable to open menus.txt!\n");
+	}
 	infile.close();
 
+	// Some menus need to be updated to apply their new dimensions
+	act->update();
+	vendor->update();
+	talker->update();
+	exit->update();
 
 	pause = false;
 	dragging = false;
@@ -103,6 +131,7 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 	drag_src = 0;
 	drop_stack.item = 0;
 	drop_stack.quantity = 0;
+
 
 	loadSounds();
 
@@ -158,6 +187,10 @@ void MenuManager::logic() {
 	bool clicking_powers = false;
 	bool clicking_log = false;
 	ItemStack stack;
+
+	hpmp->update(stats,inpt->mouse);
+	xp->update(stats,inpt->mouse);
+	effects->update(stats);
 
 	hudlog->logic();
 	enemy->logic();
@@ -537,16 +570,16 @@ void MenuManager::logic() {
 }
 
 void MenuManager::render() {
-	hpmp->render(stats, inpt->mouse);
-	xp->render(stats, inpt->mouse);
-	effects->render(stats);
+	hpmp->render();
+	xp->render();
+	effects->render();
 	act->render();
+	hudlog->render();
 	inv->render();
 	pow->render();
 	chr->render();
 	log->render();
 	vendor->render();
-	talker->render();
 	talker->render();
 	enemy->render();
 	if (exit->visible) exit->render();

@@ -67,10 +67,12 @@ void MenuHPMP::loadGraphics() {
 	SDL_FreeSurface(cleanup);
 }
 
-void MenuHPMP::render() {
+void MenuHPMP::update(StatBlock *_stats, Point _mouse) {
+	mouse = _mouse;
+	stats = _stats;
 }
 
-void MenuHPMP::render(StatBlock *stats, Point mouse) {
+void MenuHPMP::render() {
 	hphover->set(window_area.x+window_area.w/2, window_area.y+9, JUSTIFY_CENTER, VALIGN_CENTER, "", FONT_WHITE);
 	mphover->set(window_area.x+window_area.w/2, window_area.y+24, JUSTIFY_CENTER, VALIGN_CENTER, "", FONT_WHITE);
 

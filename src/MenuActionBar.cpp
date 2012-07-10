@@ -21,6 +21,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * Handles the config, display, and usage of the 0-9 hotkeys, mouse buttons, and menu calls
  */
 
+#include "Menu.h"
 #include "MenuActionBar.h"
 #include "PowerManager.h"
 #include "SharedResources.h"
@@ -48,15 +49,21 @@ MenuActionBar::MenuActionBar(PowerManager *_powers, StatBlock *_hero, SDL_Surfac
 
 	clear();
 
+	for (unsigned int i=0;i<16;i++) {
+		labels[i] = new WidgetLabel();
+	}
+
+	loadGraphics();
+
+}
+
+void MenuActionBar::update() {
 	// TEMP: set action bar positions
-	// TODO: define in a config file so that the menu is customizable
-	int offset_x = (VIEW_W - 640)/2;
-	int offset_y = VIEW_H-32;
 
 	for (int i=0; i<12; i++) {
 		slots[i].w = slots[i].h = 32;
-		slots[i].y = VIEW_H-32;
-		slots[i].x = offset_x + i*32 + 32;
+		slots[i].y = window_area.y+3;
+		slots[i].x = window_area.x + i*32 + 32;
 	}
 	slots[10].x += 32;
 	slots[11].x += 32;
@@ -64,26 +71,21 @@ MenuActionBar::MenuActionBar(PowerManager *_powers, StatBlock *_hero, SDL_Surfac
 	// menu button positions
 	for (int i=0; i<4; i++) {
 		menus[i].w = menus[i].h = 32;
-		menus[i].y = VIEW_H-32;
-		menus[i].x = offset_x + 480 + i*32;
+		menus[i].y = window_area.y+3;
+		menus[i].x = window_area.x + 480 + i*32;
 	}
 
 	// screen areas occupied by the three main sections
 	numberArea.h = mouseArea.h = menuArea.h = 32;
-	numberArea.y = mouseArea.y = menuArea.y = offset_y;
-	numberArea.x = offset_x+32;
+	numberArea.y = mouseArea.y = menuArea.y = window_area.y;
+	numberArea.x = window_area.x+32;
 	numberArea.w = 320;
-	mouseArea.x = offset_x+384;
+	mouseArea.x = window_area.x+384;
 	mouseArea.w = 64;
-	menuArea.x = offset_x+480;
+	menuArea.x = window_area.x+480;
 	menuArea.w = 128;
 
-	loadGraphics();
-
 	// set keybinding labels
-	for (unsigned int i=0;i<16;i++) {
-		labels[i] = new WidgetLabel();
-	}
 	for (unsigned int i=0; i<10; i++) {
 		if (inpt->binding[i+6] < 8)
 			labels[i]->set(slots[i].x+slots[i].w, slots[i].y+slots[i].h-12, JUSTIFY_RIGHT, VALIGN_TOP, mouse_button[inpt->binding[i+6]-1], FONT_WHITE);
@@ -170,8 +172,8 @@ void MenuActionBar::renderAttention(int menu_id) {
 	SDL_Rect dest;
 
     // x-value is 12 hotkeys and 4 empty slots over
-	dest.x = (VIEW_W - 640)/2 + (menu_id * 32) + 32*15;
-	dest.y = VIEW_H-32;
+	dest.x = window_area.x + (menu_id * 32) + 32*15;
+	dest.y = window_area.y+3;
     dest.w = dest.h = 32;
 	SDL_BlitSurface(attention, NULL, screen, &dest);
 }
@@ -186,12 +188,10 @@ void MenuActionBar::render() {
 	SDL_Rect dest;
 	SDL_Rect trimsrc;
 
-	int offset_x = (VIEW_W - 640)/2;
-
-	dest.x = offset_x;
-	dest.y = VIEW_H-35;
-	dest.w = 640;
-	dest.h = 35;
+	dest.x = window_area.x;
+	dest.y = window_area.y;
+	dest.w = window_area.w;
+	dest.h = window_area.h;
 	trimsrc.x = 0;
 	trimsrc.y = 0;
 	trimsrc.w = 640;
@@ -202,13 +202,13 @@ void MenuActionBar::render() {
 	// draw hotkeyed icons
 	src.x = src.y = 0;
 	src.w = src.h = dest.w = dest.h = 32;
-	dest.y = VIEW_H-32;
+	dest.y = window_area.y+3;
 	for (int i=0; i<12; i++) {
 
 		if (i<=9)
-			dest.x = offset_x + (i * 32) + 32;
+			dest.x = window_area.x + (i * 32) + 32;
 		else
-			dest.x = offset_x + (i * 32) + 64;
+			dest.x = window_area.x + (i * 32) + 64;
 
 		if (hotkeys[i] != -1) {
 			const Power &power = powers->getPower(hotkeys[i]);
@@ -299,7 +299,6 @@ void MenuActionBar::renderItemCounts() {
 TooltipData MenuActionBar::checkTooltip(Point mouse) {
 	TooltipData tip;
 
-	//int offset_x = (VIEW_W - 640)/2;
 	if (isWithin(menus[0], mouse)) {
 		tip.lines[tip.num_lines++] = msg->get("Character Menu (C)");
 		return tip;

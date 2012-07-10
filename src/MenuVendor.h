@@ -36,7 +36,7 @@ class WidgetButton;
 
 const int VENDOR_SLOTS = 80;
 
-class MenuVendor {
+class MenuVendor : public Menu {
 private:
 	ItemManager *items;
 	StatBlock *stats;
@@ -52,6 +52,7 @@ public:
 
 	NPC *npc;
 
+	void update();
 	void loadMerchant(const std::string&);
 	void logic();
 	void render();
