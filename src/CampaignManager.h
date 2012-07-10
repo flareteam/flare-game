@@ -30,13 +30,11 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 class MenuItemStorage;
 
-const int MAX_STATUS = 1024;
-
 class CampaignManager {
 public:
 	CampaignManager();
 	~CampaignManager();
-	
+
 	void clearAll();
 	void setAll(std::string s);
 	std::string getAll();
@@ -49,18 +47,17 @@ public:
 	void rewardCurrency(int amount);
 	void rewardXP(int amount);
 	void addMsg(const std::string& msg);
-	
-	std::string status[MAX_STATUS];
-	int status_count;
+
+	std::vector<std::string> status;
 	std::string log_msg;
 	ItemStack drop_stack;
-	
+
 	// pointers to various info that can be changed
 	ItemManager *items;
 	MenuItemStorage *carried_items;
 	int *currency;
 	int *xp;
-	
+
 	bool quest_update;
 };
 

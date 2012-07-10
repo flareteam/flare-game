@@ -40,20 +40,16 @@ CampaignManager::CampaignManager() {
 	carried_items = NULL;
 	currency = NULL;
 	xp = NULL;
-	
+
 	log_msg = "";
 	quest_update = true;
-	
-	clearAll();
 
+	clearAll();
 }
 
 void CampaignManager::clearAll() {
 	// clear campaign data
-	for (int i=0; i<MAX_STATUS; i++) {
-		status[i] = "";
-	}
-	status_count = 0;
+	status.clear();
 }
 
 /**
@@ -62,7 +58,7 @@ void CampaignManager::clearAll() {
 void CampaignManager::setAll(std::string s) {
 	string str = s + ',';
 	string token;
-	while (str != "" && status_count < MAX_STATUS) {
+	while (str != "") {
 		token = eatFirstString(str, ',');
 		if (token != "") this->setStatus(token);
 	}
@@ -75,9 +71,9 @@ void CampaignManager::setAll(std::string s) {
 std::string CampaignManager::getAll() {
 	stringstream ss;
 	ss.str("");
-	for (int i=0; i<status_count; i++) {
+	for (unsigned int i=0; i < status.size(); i++) {
 		ss << status[i];
-		if (i < status_count-1) ss << ',';
+		if (i < status.size()-1) ss << ',';
 	}
 	return ss.str();
 }
@@ -86,8 +82,8 @@ bool CampaignManager::checkStatus(std::string s) {
 
 	// avoid searching empty statuses
 	if (s == "") return false;
-	
-	for (int i=0; i<status_count; i++) {
+
+	for (unsigned int i=0; i < status.size(); i++) {
 		if (status[i] == s) return true;
 	}
 	return false;
@@ -98,14 +94,10 @@ void CampaignManager::setStatus(std::string s) {
 	// avoid adding empty statuses
 	if (s == "") return;
 
-	// hit upper limit for status
-	// TODO: add a warning
-	if (status_count >= MAX_STATUS) return;
-	
 	// if it's already set, don't add it again
 	if (checkStatus(s)) return;
-	
-	status[status_count++] = s;
+
+	status.push_back(s);
 	quest_update = true;
 }
 
@@ -114,14 +106,10 @@ void CampaignManager::unsetStatus(std::string s) {
 	// avoid searching empty statuses
 	if (s == "") return;
 
-	for (int i=status_count-1; i>=0; i--) {
-		if (status[i] == s) {
-		
-			// bubble existing statuses down
-			for (int j=i; j<status_count-1; j++) {
-				status[j] = status[j+1];
-			}
-			status_count--;
+	vector<string>::iterator it;
+	for (it = status.end(); it != status.begin(); it--) {
+		if ((*it) == s) {
+			status.erase(it);
 			quest_update = true;
 			return;
 		}
@@ -149,7 +137,7 @@ void CampaignManager::rewardItem(ItemStack istack) {
 			addMsg(msg->get("You receive %s.", items->items[istack.item].name));
 		if (istack.quantity > 1)
 			addMsg(msg->get("You receive %s x%d.", istack.quantity, items->items[istack.item].name));
-		
+
 		items->playSound(istack.item);
 	}
 }
@@ -163,7 +151,7 @@ void CampaignManager::rewardCurrency(int amount) {
 void CampaignManager::rewardXP(int amount) {
 	*xp += amount;
 	addMsg(msg->get("You receive %d XP.", amount));
-}	
+}
 
 void CampaignManager::addMsg(const string& new_msg) {
 	if (log_msg != "") log_msg += " ";
