@@ -32,7 +32,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 class StatBlock;
 class WidgetLabel;
 
-class MenuHPMP {
+class MenuHPMP : public Menu{
 private:
 	SDL_Surface *background;
 	SDL_Surface *bar_hp;
@@ -44,6 +44,7 @@ public:
 	MenuHPMP();
 	~MenuHPMP();
 	void loadGraphics();
+	void render();
 	void render(StatBlock *stats, Point mouse);
 };
 

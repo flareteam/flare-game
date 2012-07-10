@@ -25,6 +25,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #define MENU_H
 
 #include <SDL_image.h>
+#include <string>
 
 class Menu {
 protected:
@@ -37,7 +38,9 @@ public:
 
 	bool visible;
 	SDL_Rect window_area;
+	std::string alignment;
 
+	virtual void align();
 	virtual void render() = 0;
 };
 
