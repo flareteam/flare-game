@@ -557,7 +557,6 @@ void MenuManager::render() {
 	log->render();
 	vendor->render();
 	talker->render();
-	talker->render();
 	enemy->render();
 	if (exit->visible) exit->render();
 
