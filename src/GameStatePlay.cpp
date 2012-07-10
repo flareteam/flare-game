@@ -593,7 +593,6 @@ void GameStatePlay::render() {
 	loot->renderTooltips(map->cam);
 	npcs->renderTooltips(map->cam, inpt->mouse);
 
-	menu->hudlog->render();
 	menu->mini->render(&map->collider, pc->stats.pos, map->w, map->h);
 	menu->render();
 

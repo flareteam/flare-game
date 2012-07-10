@@ -61,11 +61,11 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 	menus.push_back(hudlog); // menus[3]
 	act = new MenuActionBar(powers, stats, icons);
 	menus.push_back(act); // menus[4]
-	mini = new MenuMiniMap();
 	enemy = new MenuEnemy();
 	vendor = new MenuVendor(items, stats);
 	talker = new MenuTalker(camp);
 	exit = new MenuExit();
+	mini = new MenuMiniMap();
 	chr = new MenuCharacter(stats);
 	inv = new MenuInventory(items, stats, powers);
 	pow = new MenuPowers(stats, powers);
@@ -562,6 +562,7 @@ void MenuManager::render() {
 	xp->render();
 	effects->render();
 	act->render();
+	hudlog->render();
 	inv->render();
 	pow->render();
 	chr->render();
