@@ -159,6 +159,8 @@ void MenuManager::logic() {
 	bool clicking_log = false;
 	ItemStack stack;
 
+	hpmp->update(stats,inpt->mouse);
+
 	hudlog->logic();
 	enemy->logic();
 	chr->logic();
@@ -537,7 +539,7 @@ void MenuManager::logic() {
 }
 
 void MenuManager::render() {
-	hpmp->render(stats, inpt->mouse);
+	hpmp->render();
 	xp->render(stats, inpt->mouse);
 	effects->render(stats);
 	act->render();
