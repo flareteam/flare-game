@@ -33,11 +33,12 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 class StatBlock;
 
-class MenuActiveEffects {
+class MenuActiveEffects : public Menu {
 private:
 	SDL_Surface *icons;
 	SDL_Surface *timer;
 	std::vector<std::string> effects;
+	StatBlock *stats;
 
 	struct limits {
 		int slow;
@@ -57,7 +58,8 @@ public:
 	MenuActiveEffects(SDL_Surface *_icons);
 	~MenuActiveEffects();
 	void loadGraphics();
-	void render(StatBlock *stats);
+	void update(StatBlock *_stats);
+	void render();
 };
 
 #endif

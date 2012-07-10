@@ -51,23 +51,24 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 
 	loadIcons();
 
-	chr = new MenuCharacter(stats);
-	inv = new MenuInventory(items, stats, powers);
-	pow = new MenuPowers(stats, powers);
-	log = new MenuLog();
-	hudlog = new MenuHUDLog();
-	act = new MenuActionBar(powers, stats, icons);
 	hpmp = new MenuHPMP();
 	menus.push_back(hpmp); // menus[0]
-	tip = new WidgetTooltip();
-	mini = new MenuMiniMap();
 	xp = new MenuExperience();
 	menus.push_back(xp); // menus[1]
+	effects = new MenuActiveEffects(icons);
+	menus.push_back(effects); // menus[2]
+	hudlog = new MenuHUDLog();
+	act = new MenuActionBar(powers, stats, icons);
+	tip = new WidgetTooltip();
+	mini = new MenuMiniMap();
 	enemy = new MenuEnemy();
 	vendor = new MenuVendor(items, stats);
 	talker = new MenuTalker(camp);
 	exit = new MenuExit();
-	effects = new MenuActiveEffects(icons);
+	chr = new MenuCharacter(stats);
+	inv = new MenuInventory(items, stats, powers);
+	pow = new MenuPowers(stats, powers);
+	log = new MenuLog();
 
 	// Load the menu positions and alignments from menus/menus.txt
 	int x,y,w,h;
@@ -87,6 +88,7 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 
 			if (infile.key == "hpmp") menu_index = 0;
 			else if (infile.key == "xp") menu_index = 1;
+			else if (infile.key == "effects") menu_index = 2;
 
 			if (menu_index != -1) {
 				menus[menu_index]->window_area.x = x;
@@ -168,6 +170,7 @@ void MenuManager::logic() {
 
 	hpmp->update(stats,inpt->mouse);
 	xp->update(stats,inpt->mouse);
+	effects->update(stats);
 
 	hudlog->logic();
 	enemy->logic();
@@ -549,7 +552,7 @@ void MenuManager::logic() {
 void MenuManager::render() {
 	hpmp->render();
 	xp->render();
-	effects->render(stats);
+	effects->render();
 	act->render();
 	inv->render();
 	pow->render();
