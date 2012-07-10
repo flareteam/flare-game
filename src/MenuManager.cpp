@@ -66,6 +66,7 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 	vendor = new MenuVendor(items, stats);
 	menus.push_back(vendor); // menus[6]
 	talker = new MenuTalker(camp);
+	menus.push_back(talker); // menus[7]
 	exit = new MenuExit();
 	mini = new MenuMiniMap();
 	chr = new MenuCharacter(stats);
@@ -97,6 +98,7 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 			else if (infile.key == "actionbar") menu_index = 4;
 			else if (infile.key == "enemy") menu_index = 5;
 			else if (infile.key == "vendor") menu_index = 6;
+			else if (infile.key == "talker") menu_index = 7;
 
 			if (menu_index != -1) {
 				menus[menu_index]->window_area.x = x;
@@ -116,6 +118,7 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 	// Some menus need to be updated with their loaded dimensions
 	act->update();
 	vendor->update();
+	talker->update();
 
 	pause = false;
 	dragging = false;

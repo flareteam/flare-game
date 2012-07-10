@@ -33,7 +33,7 @@ class CampaignManager;
 class NPC;
 class WidgetButton;
 
-class MenuTalker {
+class MenuTalker : public Menu {
 private:
 	CampaignManager *camp;
 
@@ -52,6 +52,7 @@ public:
 	NPC *npc;
 	
 	void chooseDialogNode();
+	void update();
 	void logic();
 	void render();
 	void setHero(const std::string& name, const std::string& portrait_filename);
