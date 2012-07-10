@@ -80,14 +80,14 @@ void MenuTalker::chooseDialogNode() {
 }
 
 void MenuTalker::update() {
-	advanceButton->pos.x = window_area.w/2 + 288;
-	advanceButton->pos.y = window_area.h/2 + 144;
+	advanceButton->pos.x = window_area.x + (window_area.w/2) + 288;
+	advanceButton->pos.y = window_area.y + (window_area.h/2) + 112;
 
-	closeButton->pos.x = window_area.w/2 + 288;
-	closeButton->pos.y = window_area.h/2 + 144;
+	closeButton->pos.x = window_area.x + (window_area.w/2) + 288;
+	closeButton->pos.y = window_area.y + (window_area.h/2) + 112;
 
-	vendorButton->pos.x = window_area.w/2 + 288 - vendorButton->pos.w;
-	vendorButton->pos.y = window_area.h/2 + 112;
+	vendorButton->pos.x = window_area.x + (window_area.w/2) + 288 - vendorButton->pos.w;
+	vendorButton->pos.y = window_area.y + (window_area.h/2) + 80;
 	vendorButton->refresh();
 }
 /**

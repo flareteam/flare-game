@@ -63,7 +63,7 @@ void MenuVendor::update() {
 
 	stock.init( VENDOR_SLOTS, items, slots_area, ICON_SIZE_32, 8);
 
-	closeButton->pos.x = window_area.x+window_area.w-24;
+	closeButton->pos.x = window_area.x+window_area.w-26;
 	closeButton->pos.y = window_area.y+2;
 }
 
