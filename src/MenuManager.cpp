@@ -58,6 +58,7 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 	effects = new MenuActiveEffects(icons);
 	menus.push_back(effects); // menus[2]
 	hudlog = new MenuHUDLog();
+	menus.push_back(hudlog); // menus[3]
 	act = new MenuActionBar(powers, stats, icons);
 	tip = new WidgetTooltip();
 	mini = new MenuMiniMap();
@@ -89,6 +90,7 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 			if (infile.key == "hpmp") menu_index = 0;
 			else if (infile.key == "xp") menu_index = 1;
 			else if (infile.key == "effects") menu_index = 2;
+			else if (infile.key == "hudlog") menu_index = 3;
 
 			if (menu_index != -1) {
 				menus[menu_index]->window_area.x = x;
