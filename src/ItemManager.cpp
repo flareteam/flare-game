@@ -57,6 +57,7 @@ void ItemManager::loadAll() {
 			this->load(test_path);
 		}
 	}
+	shrinkItems();
 }
 
 /**
@@ -243,6 +244,24 @@ void ItemManager::loadIcons() {
 	cleanup = icons64;
 	icons64 = SDL_DisplayFormatAlpha(icons64);
 	SDL_FreeSurface(cleanup);
+}
+
+/**
+ * Shrinks the items vector to the absolute needed size.
+ *
+ * While loading the items, the item vector grows dynamically. To have
+ * no much time overhead for reallocating the vector, a new reallocation
+ * is twice as large as the needed item id, which means in the worst case
+ * the item vector was reallocated for loading the last element, so the
+ * vector is twice as large as needed. This memory is definitly not used,
+ * so we can free it.
+ */
+void ItemManager::shrinkItems() {
+	unsigned i = items.size() - 1;
+	while (items[i].name == "")
+		i--;
+
+	items.resize(i + 1);
 }
 
 /**

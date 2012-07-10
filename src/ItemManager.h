@@ -158,7 +158,7 @@ private:
 	void loadAll();
 	void loadSounds();
 	void loadIcons();
-
+	void shrinkItems();
 public:
 	ItemManager();
 	~ItemManager();
