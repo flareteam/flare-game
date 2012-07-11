@@ -27,7 +27,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 class MapCollision;
 
-class MenuMiniMap {
+class MenuMiniMap : public Menu {
 private:
 	Uint32 color_wall;
 	Uint32 color_obst;
@@ -39,6 +39,7 @@ public:
 	MenuMiniMap();
 	~MenuMiniMap();
 
+	void render();
 	void render(MapCollision *collider, Point hero_pos, int map_w, int map_h);
 	void renderOrtho(MapCollision *collider, Point hero_pos, int map_w, int map_h);
 	void renderIso(MapCollision *collider, Point hero_pos, int map_w, int map_h);
