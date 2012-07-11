@@ -44,6 +44,8 @@ MenuHPMP::MenuHPMP() {
 
 	loadGraphics();
 
+	orientation = 0; // horizontal
+
 	// Load config settings
 	FileParser infile;
 	if(infile.open(mods->locate("menus/hpmp.txt"))) {
@@ -56,6 +58,7 @@ MenuHPMP::MenuHPMP() {
 			else if(infile.key == "mp_y") mp_pos.y = atoi(infile.nextValue().c_str());
 			else if(infile.key == "mp_w") mp_pos.w = atoi(infile.nextValue().c_str());
 			else if(infile.key == "mp_h") mp_pos.h = atoi(infile.nextValue().c_str());
+			else if(infile.key == "orientation") orientation = atoi(infile.nextValue().c_str());
 		}
 	}
 }
@@ -123,26 +126,49 @@ void MenuHPMP::render() {
 	src.h = mp_pos.h;
 	SDL_BlitSurface(background, &src, screen, &dest);
 
-	// draw hp bar
-	if (stats->maxhp == 0) hp_bar_length = 0;
-	else hp_bar_length = (stats->hp * (hp_pos.w-6)) / stats->maxhp;
-	dest.x = hp_dest.x+3;
-	dest.y = hp_dest.y+3;
-	src.x = src.y = 0;
-	src.w = hp_bar_length;
-	src.h = hp_pos.h-6;
-	SDL_BlitSurface(bar_hp, &src, screen, &dest);
+	if (orientation == 0) {
+		// draw hp bar
+		if (stats->maxhp == 0) hp_bar_length = 0;
+		else hp_bar_length = (stats->hp * (hp_pos.w-6)) / stats->maxhp;
+		dest.x = hp_dest.x+3;
+		dest.y = hp_dest.y+3;
+		src.x = src.y = 0;
+		src.w = hp_bar_length;
+		src.h = hp_pos.h-6;
+		SDL_BlitSurface(bar_hp, &src, screen, &dest);
 
-	// draw mp bar
-	if (stats->maxmp == 0) mp_bar_length = 0;
-	else mp_bar_length = (stats->mp * (hp_pos.w-6)) / stats->maxmp;
-	dest.x = mp_dest.x+3;
-	dest.y = mp_dest.y+3;
-	src.x = src.y = 0;
-	src.w = mp_bar_length;
-	src.h = mp_pos.h-6;
+		// draw mp bar
+		if (stats->maxmp == 0) mp_bar_length = 0;
+		else mp_bar_length = (stats->mp * (hp_pos.w-6)) / stats->maxmp;
+		dest.x = mp_dest.x+3;
+		dest.y = mp_dest.y+3;
+		src.x = src.y = 0;
+		src.w = mp_bar_length;
+		src.h = mp_pos.h-6;
+		SDL_BlitSurface(bar_mp, &src, screen, &dest);
+	} else if (orientation == 1) {
+		// draw hp bar
+		if (stats->maxhp == 0) hp_bar_length = 0;
+		else hp_bar_length = (stats->hp * (hp_pos.h-6)) / stats->maxhp;
+		src.x = 0;
+		src.y = hp_pos.h-6-hp_bar_length;
+		src.w = hp_pos.w-6;
+		src.h = hp_bar_length;
+		dest.x = hp_dest.x+3;
+		dest.y = hp_dest.y+3+src.y;
+		SDL_BlitSurface(bar_hp, &src, screen, &dest);
 
-	SDL_BlitSurface(bar_mp, &src, screen, &dest);
+		// draw mp bar
+		if (stats->maxmp == 0) mp_bar_length = 0;
+		else mp_bar_length = (stats->mp * (mp_pos.h-6)) / stats->maxmp;
+		src.x = 0;
+		src.y = mp_pos.h-6-mp_bar_length;
+		src.w = mp_pos.w-6;
+		src.h = mp_bar_length;
+		dest.x = mp_dest.x+3;
+		dest.y = mp_dest.y+3+src.y;
+		SDL_BlitSurface(bar_mp, &src, screen, &dest);
+	}
 
 	// if mouseover, draw text
 	hphover->set(hp_dest.x+hp_pos.w/2, hp_dest.y+hp_pos.h/2, JUSTIFY_CENTER, VALIGN_CENTER, "", FONT_WHITE);

@@ -43,6 +43,7 @@ private:
 	Point mouse;
 	SDL_Rect hp_pos;
 	SDL_Rect mp_pos;
+	bool orientation;
 	
 public:
 	MenuHPMP();
