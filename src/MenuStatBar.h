@@ -17,9 +17,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 */
 
 /**
- * MenuHPMP
+ * MenuStatBar
  *
- * Handles the display of the HP and MP bars at the top/left of the screen
+ * Handles the display of a status bar
  */
 
 #ifndef MENU_STATBAR_H
