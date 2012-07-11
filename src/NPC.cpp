@@ -51,26 +51,12 @@ NPC::NPC(MapRenderer *_map, ItemManager *_items) : Entity(_map) {
 	stock.init(NPC_VENDOR_MAX_STOCK, _items);
 	stock_count = 0;
 	random_stock = 0;
-	vox_intro_count = 0;
 
-	for (int i=0; i<NPC_MAX_VOX; i++) {
-		vox_intro[i] = NULL;
-	}
+	vox_intro = vector<Mix_Chunk*>();
 
 	// init talker info
 	portrait = NULL;
 	talker = false;
-
-	for (int i=0; i<NPC_MAX_DIALOG; i++) {
-		for (int j=0; j<NPC_MAX_EVENTS; j++) {
-			dialog[i][j].type = "";
-			dialog[i][j].s = "";
-			dialog[i][j].x = 0;
-			dialog[i][j].y = 0;
-			dialog[i][j].z = 0;
-		}
-	}
-	dialog_count = 0;
 }
 
 /**
@@ -91,40 +77,37 @@ void NPC::load(const string& npc_id) {
 		while (infile.next()) {
 			if (infile.section == "dialog") {
 				if (infile.new_section) {
-					dialog_count++;
-					event_count = 0;
+					dialog.push_back(vector<Event_Component>());
 				}
-
-				// here we use dialog_count-1 because we've already incremented the dialog count but the array is 0 based
-
-				dialog[dialog_count-1][event_count].type = infile.key;
+				Event_Component e;
+				e.type = infile.key;
 				if (infile.key == "requires_status")
-					dialog[dialog_count-1][event_count].s = infile.val;
+					e.s = infile.val;
 				else if (infile.key == "requires_not")
-					dialog[dialog_count-1][event_count].s = infile.val;
+					e.s = infile.val;
 				else if (infile.key == "requires_item")
-					dialog[dialog_count-1][event_count].x = atoi(infile.val.c_str());
+					e.x = atoi(infile.val.c_str());
 				else if (infile.key == "him" || infile.key == "her")
-					dialog[dialog_count-1][event_count].s = msg->get(infile.val);
+					e.s = msg->get(infile.val);
 				else if (infile.key == "you")
-					dialog[dialog_count-1][event_count].s = msg->get(infile.val);
+					e.s = msg->get(infile.val);
 				else if (infile.key == "reward_item") {
 					// id,count
-					dialog[dialog_count-1][event_count].x = atoi(infile.nextValue().c_str());
-					dialog[dialog_count-1][event_count].y = atoi(infile.val.c_str());
+					e.x = atoi(infile.nextValue().c_str());
+					e.y = atoi(infile.val.c_str());
 				}
 				else if (infile.key == "reward_xp")
-					dialog[dialog_count-1][event_count].x = atoi(infile.val.c_str());
+					e.x = atoi(infile.val.c_str());
 				else if (infile.key == "reward_currency")
-					dialog[dialog_count-1][event_count].x = atoi(infile.val.c_str());
+					e.x = atoi(infile.val.c_str());
 				else if (infile.key == "remove_item")
-					dialog[dialog_count-1][event_count].x = atoi(infile.val.c_str());
+					e.x = atoi(infile.val.c_str());
 				else if (infile.key == "set_status")
-					dialog[dialog_count-1][event_count].s = infile.val;
+					e.s = infile.val;
 				else if (infile.key == "unset_status")
-					dialog[dialog_count-1][event_count].s = infile.val;
+					e.s = infile.val;
 
-				event_count++;
+				dialog.back().push_back(e);
 			}
 			else {
 				if (infile.key == "name") {
@@ -223,18 +206,15 @@ void NPC::loadGraphics(const string& filename_sprites, const string& filename_po
  */
 void NPC::loadSound(const string& filename, int type) {
 
-    if (type == NPC_VOX_INTRO) {
+	if (type == NPC_VOX_INTRO) {
 
-        // if too many already loaded, skip this one
-        if (vox_intro_count == NPC_MAX_VOX) return;
-        if (audio == true)
-            vox_intro[vox_intro_count] = Mix_LoadWAV(mods->locate("soundfx/npcs/" + filename).c_str());
-        else
-            vox_intro[vox_intro_count] = NULL;
-
-        if (vox_intro[vox_intro_count])
-            vox_intro_count++;
-    }
+		// if too many already loaded, skip this one
+		if (audio) {
+			Mix_Chunk *a = Mix_LoadWAV(mods->locate("soundfx/npcs/" + filename).c_str());
+			if (a)
+				vox_intro.push_back(a);
+		}
+	}
 }
 
 void NPC::logic() {
@@ -253,10 +233,9 @@ void NPC::logic() {
 bool NPC::playSound(int type) {
 	int roll;
 	if (type == NPC_VOX_INTRO) {
-		if (vox_intro_count == 0) return false;
-		roll = rand() % vox_intro_count;
-        if (vox_intro[roll])
-            Mix_PlayChannel(-1, vox_intro[roll], 0);
+		if (vox_intro.empty()) return false;
+		roll = rand() % vox_intro.size();
+		Mix_PlayChannel(-1, vox_intro[roll], 0);
 		return true;
 	}
 	return false;
@@ -272,9 +251,8 @@ int NPC::chooseDialogNode() {
 	// NPC dialog nodes are listed in timeline order
 	// So check from the bottom of the list up
 	// First node we reach that meets requirements is the correct node
-
-	for (int i=dialog_count-1; i>=0; i--) {
-		for (int j=0; j<NPC_MAX_EVENTS; j++) {
+	for (int i=dialog.size()-1; i>=0; i--) {
+		for (unsigned int j=0; j<dialog[i].size(); j++) {
 
 			// check requirements
 			// break (skip to next dialog node) if any requirement fails
@@ -303,12 +281,12 @@ int NPC::chooseDialogNode() {
  *
  * Return false if the dialog has ended
  */
-bool NPC::processDialog(int dialog_node, int &event_cursor) {
+bool NPC::processDialog(unsigned int dialog_node, unsigned int &event_cursor) {
 
 	stringstream ss;
 	ss.str("");
 
-	while (event_cursor < NPC_MAX_EVENTS) {
+	while (event_cursor < dialog[dialog_node].size()) {
 
 		// we've already determined requirements are met, so skip these
 		if (dialog[dialog_node][event_cursor].type == "requires_status") {
@@ -385,8 +363,8 @@ Renderable NPC::getRender() {
 NPC::~NPC() {
 	if (sprites != NULL) SDL_FreeSurface(sprites);
 	if (portrait != NULL) SDL_FreeSurface(portrait);
-	for (int i=0; i<NPC_MAX_VOX; i++) {
-        if (vox_intro[i])
-            Mix_FreeChunk(vox_intro[i]);
+	while (!vox_intro.empty()) {
+		Mix_FreeChunk(vox_intro.back());
+		vox_intro.pop_back();
 	}
 }
