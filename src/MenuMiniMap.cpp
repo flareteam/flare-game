@@ -20,6 +20,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 
+#include "Menu.h"
 #include "MenuMiniMap.h"
 #include "MapCollision.h"
 #include "SharedResources.h"
@@ -33,10 +34,10 @@ MenuMiniMap::MenuMiniMap() {
 
 	map_center.x = VIEW_W - 64;
 	map_center.y = 80;
-	map_area.x = VIEW_W - 128;
-	map_area.y = 16;
-	map_area.w = map_area.h = 128;
 
+}
+
+void MenuMiniMap::render() {
 }
 
 void MenuMiniMap::render(MapCollision *collider, Point hero_pos, int map_w, int map_h) {
@@ -52,31 +53,35 @@ void MenuMiniMap::render(MapCollision *collider, Point hero_pos, int map_w, int 
  */
 void MenuMiniMap::renderOrtho(MapCollision *collider, Point hero_pos, int map_w, int map_h) {
 
+	map_area.x = window_area.x;
+	map_area.y = window_area.y;
+	map_area.w = map_area.h = window_area.w;
+
 	SDL_LockSurface(screen);
 
 	Point hero_tile;
 	Point map_tile;
 	hero_tile.x = hero_pos.x / UNITS_PER_TILE;
 	hero_tile.y = hero_pos.y / UNITS_PER_TILE;
-	for (int i=0; i<127; i++) {
-		for (int j=0; j<127; j++) {
-			map_tile.x = hero_tile.x + i - 64;
-			map_tile.y = hero_tile.y + j - 64;
+	for (int i=0; i<map_area.w; i++) {
+		for (int j=0; j<map_area.h; j++) {
+			map_tile.x = hero_tile.x + i - map_area.w/2;
+			map_tile.y = hero_tile.y + j - map_area.h/2;
 			if (map_tile.x >= 0 && map_tile.x < map_w && map_tile.y >= 0 && map_tile.y < map_h) {
 				if (collider->colmap[map_tile.x][map_tile.y] == 1) {
-					drawPixel(screen, VIEW_W - 128 + i, 16+j, color_wall);
+					drawPixel(screen, map_area.x+i, map_area.y+j, color_wall);
 				}
 				else if (collider->colmap[map_tile.x][map_tile.y] == 2) {
-					drawPixel(screen, VIEW_W - 128 + i, 16+j, color_obst);
+					drawPixel(screen, map_area.x+i, map_area.y+j, color_obst);
 				}
 			}
 		}
 	}
-	drawPixel(screen,VIEW_W-64,80,color_hero); // hero
-	drawPixel(screen,VIEW_W-64-1,80,color_hero); // hero
-	drawPixel(screen,VIEW_W-64+1,80,color_hero); // hero
-	drawPixel(screen,VIEW_W-64,80-1,color_hero); // hero
-	drawPixel(screen,VIEW_W-64,80+1,color_hero); // hero
+	drawPixel(screen,window_area.x+64,80,color_hero); // hero
+	drawPixel(screen,window_area.x+64-1,80,color_hero); // hero
+	drawPixel(screen,window_area.x+64+1,80,color_hero); // hero
+	drawPixel(screen,window_area.x+64,80-1,color_hero); // hero
+	drawPixel(screen,window_area.x+64,80+1,color_hero); // hero
 	
 	SDL_UnlockSurface(screen);
 
@@ -86,6 +91,10 @@ void MenuMiniMap::renderOrtho(MapCollision *collider, Point hero_pos, int map_w,
  * Render an "isometric" version of the map (45 deg angle)
  */
 void MenuMiniMap::renderIso(MapCollision *collider, Point hero_pos, int map_w, int map_h) {
+
+	map_area.x = window_area.x;
+	map_area.y = window_area.y;
+	map_area.w = map_area.h = window_area.w;
 
 	SDL_LockSurface(screen);
 

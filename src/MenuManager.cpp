@@ -70,6 +70,7 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 	exit = new MenuExit();
 	menus.push_back(exit); // menus[8]
 	mini = new MenuMiniMap();
+	menus.push_back(mini); // menus[9]
 	chr = new MenuCharacter(stats);
 	inv = new MenuInventory(items, stats, powers);
 	pow = new MenuPowers(stats, powers);
@@ -101,6 +102,7 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 			else if (infile.key == "vendor") menu_index = 6;
 			else if (infile.key == "talker") menu_index = 7;
 			else if (infile.key == "exit") menu_index = 8;
+			else if (infile.key == "minimap") menu_index = 9;
 
 			if (menu_index != -1) {
 				menus[menu_index]->window_area.x = x;
@@ -570,19 +572,13 @@ void MenuManager::logic() {
 }
 
 void MenuManager::render() {
-	hpmp->render();
-	xp->render();
-	effects->render();
-	act->render();
-	hudlog->render();
+	for (unsigned int i=0; i<menus.size(); i++) {
+		menus[i]->render();
+	}
 	inv->render();
 	pow->render();
 	chr->render();
 	log->render();
-	vendor->render();
-	talker->render();
-	enemy->render();
-	if (exit->visible) exit->render();
 
 	TooltipData tip_new;
 	int offset_x = (VIEW_W - 320);
