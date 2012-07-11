@@ -73,9 +73,13 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 	mini = new MenuMiniMap();
 	menus.push_back(mini); // menus[10]
 	chr = new MenuCharacter(stats);
+	menus.push_back(chr); // menus[11]
 	inv = new MenuInventory(items, stats, powers);
+	menus.push_back(inv); // menus[12]
 	pow = new MenuPowers(stats, powers);
+	menus.push_back(pow); // menus[13]
 	log = new MenuLog();
+	menus.push_back(log);
 	tip = new WidgetTooltip();
 
 	// Load the menu positions and alignments from menus/menus.txt
@@ -105,6 +109,10 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 			else if (infile.key == "talker") menu_index = 8;
 			else if (infile.key == "exit") menu_index = 9;
 			else if (infile.key == "minimap") menu_index = 10;
+			else if (infile.key == "character") menu_index = 11;
+			else if (infile.key == "inventory") menu_index = 12;
+			else if (infile.key == "power") menu_index = 13;
+			else if (infile.key == "log") menu_index = 14;
 
 			if (menu_index != -1) {
 				menus[menu_index]->window_area.x = x;
@@ -575,7 +583,7 @@ void MenuManager::logic() {
 }
 
 void MenuManager::render() {
-	for (unsigned int i=0; i<menus.size(); i++) {
+	for (unsigned int i=0; i<menus.size()-4; i++) {
 		menus[i]->render();
 	}
 	inv->render();
