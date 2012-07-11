@@ -30,16 +30,13 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <SDL_image.h>
 #include <SDL_mixer.h>
 #include <string>
+#include <vector>
 
 class ItemManager;
 class MapRenderer;
 
 const int NPC_VENDOR_MAX_STOCK = 80;
-const int NPC_MAX_VOX = 8;
 const int NPC_VOX_INTRO = 0;
-
-const int NPC_MAX_DIALOG = 32;
-const int NPC_MAX_EVENTS = 16;
 
 class NPC : public Entity {
 protected:
@@ -60,7 +57,7 @@ public:
 	void logic();
 	bool playSound(int type);
 	int chooseDialogNode();
-	bool processDialog(int dialog_node, int& event_cursor);
+	bool processDialog(unsigned int dialog_node, unsigned int& event_cursor);
 	virtual Renderable getRender();
 
 	// general info
@@ -83,12 +80,12 @@ public:
 	int random_stock;
 
 	// vocals
-	Mix_Chunk *vox_intro[NPC_MAX_VOX];
-	int vox_intro_count;
+	std::vector<Mix_Chunk*> vox_intro;
 
 	// story and dialog options
-	Event_Component dialog[NPC_MAX_DIALOG][NPC_MAX_EVENTS];
-	int dialog_count;
+	// outer vector is addressing the dialog and the inner vector is
+	// addressing the events during one dialog
+	std::vector<std::vector<Event_Component> > dialog;
 
 };
 

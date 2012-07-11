@@ -44,30 +44,31 @@ private:
 	std::string hero_name;
 
 	int dialog_node;
+	unsigned int event_cursor;
 
 public:
 	MenuTalker(CampaignManager *camp);
 	~MenuTalker();
 
 	NPC *npc;
-	
+
 	void chooseDialogNode();
 	void update();
 	void logic();
 	void render();
 	void setHero(const std::string& name, const std::string& portrait_filename);
 	void createBuffer();
-	
+
 	bool visible;
 	bool vendor_visible;
 	bool has_vendor_button;
-	int event_cursor;
+
 	bool accept_lock;
 
 	WidgetButton *advanceButton;
 	WidgetButton *closeButton;
 	WidgetButton *vendorButton;
-	
+
 };
 
 #endif
