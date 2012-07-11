@@ -27,6 +27,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "SharedResources.h"
 #include "StatBlock.h"
 #include "WidgetLabel.h"
+#include "FileParser.h"
+#include "UtilsParsing.h"
+#include "UtilsFileSystem.h"
 
 #include <string>
 #include <sstream>
@@ -40,6 +43,30 @@ MenuHPMP::MenuHPMP() {
 	mphover = new WidgetLabel();
 
 	loadGraphics();
+
+	orientation = 0; // horizontal
+
+	// Load config settings
+	FileParser infile;
+	if(infile.open(mods->locate("menus/hpmp.txt"))) {
+		while(infile.next()) {
+			infile.val = infile.val + ',';
+
+			if(infile.key == "hp_pos") {
+				hp_pos.x = eatFirstInt(infile.val,',');
+				hp_pos.y = eatFirstInt(infile.val,',');
+				hp_pos.w = eatFirstInt(infile.val,',');
+				hp_pos.h = eatFirstInt(infile.val,',');
+			} else if(infile.key == "mp_pos") {
+				mp_pos.x = eatFirstInt(infile.val,',');
+				mp_pos.y = eatFirstInt(infile.val,',');
+				mp_pos.w = eatFirstInt(infile.val,',');
+				mp_pos.h = eatFirstInt(infile.val,',');
+			} else if(infile.key == "orientation") {
+				orientation = eatFirstInt(infile.val,',');
+			}
+		}
+	}
 }
 
 void MenuHPMP::loadGraphics() {
@@ -73,49 +100,86 @@ void MenuHPMP::update(StatBlock *_stats, Point _mouse) {
 }
 
 void MenuHPMP::render() {
-	hphover->set(window_area.x+window_area.w/2, window_area.y+9, JUSTIFY_CENTER, VALIGN_CENTER, "", FONT_WHITE);
-	mphover->set(window_area.x+window_area.w/2, window_area.y+24, JUSTIFY_CENTER, VALIGN_CENTER, "", FONT_WHITE);
-
 	SDL_Rect src;
 	SDL_Rect dest;
 	int hp_bar_length;
 	int mp_bar_length;
 
-	// draw trim/background
-	dest.x = window_area.x;
-	dest.y = window_area.y;
-	src.x = src.y = 0;
-	src.w = dest.w = window_area.w;
-	src.h = dest.h = window_area.h;
+	// position elements based on the window position
+	SDL_Rect hp_dest,mp_dest;
+	hp_dest = hp_pos;
+	mp_dest = mp_pos;
+	hp_dest.x = hp_pos.x+window_area.x;
+	hp_dest.y = hp_pos.y+window_area.y;
+	mp_dest.x = mp_pos.x+window_area.x;
+	mp_dest.y = mp_pos.y+window_area.y;
 
-	SDL_BlitSurface(background, &src, screen, &dest);
-
-	if (stats->maxhp == 0)
-		hp_bar_length = 0;
-	else
-		hp_bar_length = (stats->hp * 100) / stats->maxhp;
-
-	if (stats->maxmp == 0)
-		mp_bar_length = 0;
-	else
-		mp_bar_length = (stats->mp * 100) / stats->maxmp;
-
-	// draw hp bar
+	// draw hp background
+	dest.x = hp_dest.x;
+	dest.y = hp_dest.y;
 	src.x = 0;
 	src.y = 0;
-	src.h = 12;
-	dest.x = window_area.x+3;
-	dest.y = window_area.y+3;
-	src.w = hp_bar_length;
-	SDL_BlitSurface(bar_hp, &src, screen, &dest);
+	src.w = hp_pos.w;
+	src.h = hp_pos.h;
+	SDL_BlitSurface(background, &src, screen, &dest);
 
-	// draw mp bar
-	dest.y = window_area.y+18;
-	src.w = mp_bar_length;
-	SDL_BlitSurface(bar_mp, &src, screen, &dest);
+	// draw mp background
+	dest.x = mp_dest.x;
+	dest.y = mp_dest.y;
+	src.x = 0;
+	src.y = hp_pos.h;
+	src.w = mp_pos.w;
+	src.h = mp_pos.h;
+	SDL_BlitSurface(background, &src, screen, &dest);
+
+	if (orientation == 0) {
+		// draw hp bar
+		if (stats->maxhp == 0) hp_bar_length = 0;
+		else hp_bar_length = (stats->hp * hp_pos.w) / stats->maxhp;
+		dest.x = hp_dest.x;
+		dest.y = hp_dest.y;
+		src.x = src.y = 0;
+		src.w = hp_bar_length;
+		src.h = hp_pos.h;
+		SDL_BlitSurface(bar_hp, &src, screen, &dest);
+
+		// draw mp bar
+		if (stats->maxmp == 0) mp_bar_length = 0;
+		else mp_bar_length = (stats->mp * hp_pos.w) / stats->maxmp;
+		dest.x = mp_dest.x;
+		dest.y = mp_dest.y;
+		src.x = src.y = 0;
+		src.w = mp_bar_length;
+		src.h = mp_pos.h;
+		SDL_BlitSurface(bar_mp, &src, screen, &dest);
+	} else if (orientation == 1) {
+		// draw hp bar
+		if (stats->maxhp == 0) hp_bar_length = 0;
+		else hp_bar_length = (stats->hp * hp_pos.h) / stats->maxhp;
+		src.x = 0;
+		src.y = hp_pos.h-hp_bar_length;
+		src.w = hp_pos.w;
+		src.h = hp_bar_length;
+		dest.x = hp_dest.x;
+		dest.y = hp_dest.y+src.y;
+		SDL_BlitSurface(bar_hp, &src, screen, &dest);
+
+		// draw mp bar
+		if (stats->maxmp == 0) mp_bar_length = 0;
+		else mp_bar_length = (stats->mp * mp_pos.h) / stats->maxmp;
+		src.x = 0;
+		src.y = mp_pos.h-mp_bar_length;
+		src.w = mp_pos.w;
+		src.h = mp_bar_length;
+		dest.x = mp_dest.x;
+		dest.y = mp_dest.y+src.y;
+		SDL_BlitSurface(bar_mp, &src, screen, &dest);
+	}
 
 	// if mouseover, draw text
-	if (isWithin(window_area,mouse)) {
+	hphover->set(hp_dest.x+hp_pos.w/2, hp_dest.y+hp_pos.h/2, JUSTIFY_CENTER, VALIGN_CENTER, "", FONT_WHITE);
+	mphover->set(mp_dest.x+mp_pos.w/2, mp_dest.y+mp_pos.h/2, JUSTIFY_CENTER, VALIGN_CENTER, "", FONT_WHITE);
+	if (isWithin(hp_dest,mouse) || isWithin(mp_dest,mouse)) {
 
 		stringstream ss;
 		ss << stats->hp << "/" << stats->maxhp;
