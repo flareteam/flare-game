@@ -268,8 +268,8 @@ void LootManager::checkEnemiesForLoot() {
 		const Enemy *e = enemiesDroppingLoot[i];
 		if (e->stats.quest_loot_id != 0) {
 			// quest loot
-			istack.item = enemies->enemies[i]->stats.quest_loot_id;
-			addLoot(istack, enemies->enemies[i]->stats.pos);
+			istack.item = e->stats.quest_loot_id;
+			addLoot(istack, e->stats.pos);
 		}
 		else { // random loot
 			//determine position
