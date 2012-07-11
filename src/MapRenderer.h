@@ -54,12 +54,29 @@ public:
 	int numbermin;
 	int numbermax;
 	float chance;
+	void clear() {
+		category = "";
+		pos.x = 0;
+		pos.y = 0;
+		area.x = 0;
+		area.y = 0;
+		levelmin = 0;
+		levelmax = 0;
+		numbermin = 0;
+		numbermax = 0;
+		chance = 1.0f;
+	}
 };
 
 class Map_NPC {
 public:
 	std::string id;
 	Point pos;
+	void clear() {
+		id = "";
+		pos.x = 0;
+		pos.y = 0;
+	}
 };
 
 class Map_Event {
@@ -112,6 +129,16 @@ public:
 	Point pos;
 	int direction;
 	std::queue<Point> waypoints;
+
+	void clear() {
+		pos.x = 0;
+		pos.y = 0;
+		// enemies face a random direction unless otherwise specified
+		direction = rand() % 8;
+		type = "";
+		std::queue<Point> empty;
+		waypoints = empty;
+	}
 };
 
 const int CLICK_RANGE = 3 * UNITS_PER_TILE; //for activating events
@@ -142,9 +169,6 @@ public:
 	// functions
 	MapRenderer(CampaignManager *_camp);
 	~MapRenderer();
-	void clearEnemy(Map_Enemy &e);
-	void clearNPC(Map_NPC &n);
-	void clearGroup(Map_Group &g);
 
 	int load(std::string filename);
 	void loadMusic();

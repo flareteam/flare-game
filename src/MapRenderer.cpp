@@ -43,8 +43,8 @@ MapRenderer::MapRenderer(CampaignManager *_camp) {
 	clearEvents();
 	enemy_awaiting_queue = false;
 	npc_awaiting_queue = false;
-	clearEnemy(new_enemy);
-	clearNPC(new_npc);
+	new_enemy.clear();
+	new_npc.clear();
 
 	sfx = NULL;
 	sfx_filename = "";
@@ -55,38 +55,6 @@ MapRenderer::MapRenderer(CampaignManager *_camp) {
 
 void MapRenderer::clearEvents() {
 	events.clear();
-}
-
-void MapRenderer::clearEnemy(Map_Enemy &e) {
-	// TODO: move this into the Map_Enemy class
-	e.pos.x = 0;
-	e.pos.y = 0;
-	// enemies face a random direction unless otherwise specified
-	e.direction = rand() % 8;
-	e.type = "";
-	std::queue<Point> empty;
-	e.waypoints = empty;
-}
-
-void MapRenderer::clearNPC(Map_NPC &n) {
-	// move to MAP_NPC class
-	n.id = "";
-	n.pos.x = 0;
-	n.pos.y = 0;
-}
-
-void MapRenderer::clearGroup(Map_Group &g) {
-	//TODO: move this to Map_Group class
-	g.category = "";
-	g.pos.x = 0;
-	g.pos.y = 0;
-	g.area.x = 0;
-	g.area.y = 0;
-	g.levelmin = 0;
-	g.levelmax = 0;
-	g.numbermin = 0;
-	g.numbermax = 0;
-	g.chance = 1.0f;
 }
 
 void MapRenderer::playSFX(string filename) {
@@ -183,15 +151,15 @@ int MapRenderer::load(string filename) {
 
 				// for sections that are stored in collections, add a new object here
 				if (infile.section == "enemy") {
-					clearEnemy(new_enemy);
+					new_enemy.clear();
 					enemy_awaiting_queue = true;
 				}
 				else if (infile.section == "enemygroup") {
-					clearGroup(new_group);
+					new_group.clear();
 					group_awaiting_queue = true;
 				}
 				else if (infile.section == "npc") {
-					clearNPC(new_npc);
+					new_npc.clear();
 					npc_awaiting_queue = true;
 				}
 				else if (infile.section == "event") {
