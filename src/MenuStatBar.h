@@ -1,5 +1,6 @@
 /*
 Copyright © 2011-2012 Clint Bellanger
+Copyright © 2012 Justin Jacobs
 
 This file is part of FLARE.
 
@@ -16,48 +17,41 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 */
 
 /**
- * MenuExperience
+ * MenuHPMP
  *
- * Handles the display of the Experience bar on the HUD
+ * Handles the display of the HP and MP bars at the top/left of the screen
  */
 
-#ifndef MENU_EXPERIENCE_H
-#define MENU_EXPERIENCE_H
+#ifndef MENU_STATBAR_H
+#define MENU_STATBAR_H
 
 #include "Utils.h"
 
 #include <SDL.h>
 #include <SDL_image.h>
 
-class StatBlock;
+class WidgetLabel;
 
-
-class MenuExperience : public Menu {
+class MenuStatBar : public Menu {
 private:
 	SDL_Surface *background;
 	SDL_Surface *bar;
-	StatBlock *stats;
+	WidgetLabel *label;
+	int stat_cur;
+	int stat_max;
 	Point mouse;
+	SDL_Rect bar_pos;
+	Point text_pos;
+	bool orientation;
+	bool custom_text_pos;
+	std::string custom_string;
+	
 public:
-	MenuExperience();
-	~MenuExperience();
-	void loadGraphics();
-	void update(StatBlock *_stats, Point _mouse);
+	MenuStatBar(std::string type);
+	~MenuStatBar();
+	void loadGraphics(std::string type);
+	void update(int _stat_cur, int _stat_max, Point _mouse, std::string _custom_string);
 	void render();
-	
-	// variables to make the experience bar display configurable
-	
-	// hud_position is the bounding box for the entire menu.
-	// This is useful for checking mouseover.
-	// Also, changing hud_position (x,y) should move the frame contents properly
-	SDL_Rect hud_position;
-	
-	Point background_offset; // offset from hud_position (x,y)
-	Point background_size;
-	Point bar_offset; // offset from hud_position (x,y)
-	Point bar_size;
-	Point text_offset;
-	int text_justify;
 };
 
 #endif
