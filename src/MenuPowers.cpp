@@ -51,10 +51,30 @@ MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_i
 		power_ui[i].id = 0;
 		power_ui[i].pos.x = 0;
 		power_ui[i].pos.y = 0;
+	}
 
+	// Read powers data from config file 
+	FileParser infile;
+	int counter = -1;
+	if (infile.open(mods->locate("menus/powers.txt"))) {
+	  while (infile.next()) {
+		infile.val = infile.val + ',';
+
+		if (infile.key == "id") {
+			counter++;
+			power_ui[counter].id = eatFirstInt(infile.val, ',');
+		} else if (infile.key == "position") {
+			power_ui[counter].pos.x = eatFirstInt(infile.val, ',');
+			power_ui[counter].pos.y = eatFirstInt(infile.val, ',');
+		}
+	  }
+	} else fprintf(stderr, "Unable to open powers_menu.txt!\n");
+	infile.close();
+
+	for (int i=0; i<20; i++) {
 		slots[i].w = slots[i].h = 32;
-		slots[i].x = offset_x + 48 + (i % 4) * 64;
-		slots[i].y = offset_y + 80 + (i / 4) * 64;
+		slots[i].x = offset_x + power_ui[i].pos.x;
+		slots[i].y = offset_y + power_ui[i].pos.y;
 	}
 
 	closeButton = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
@@ -75,24 +95,6 @@ MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_i
 	stat_pd.set(offset_x+128, offset_y+34, JUSTIFY_CENTER, VALIGN_TOP, "", FONT_WHITE);
 	stat_mo.set(offset_x+192, offset_y+34, JUSTIFY_CENTER, VALIGN_TOP, "", FONT_WHITE);
 	stat_md.set(offset_x+256, offset_y+34, JUSTIFY_CENTER, VALIGN_TOP, "", FONT_WHITE);
-
-	// Read powers data from config file 
-	FileParser infile;
-	int counter = -1;
-	if (infile.open(mods->locate("menus/powers.txt"))) {
-	  while (infile.next()) {
-		infile.val = infile.val + ',';
-
-		if (infile.key == "id") {
-			counter++;
-			power_ui[counter].id = eatFirstInt(infile.val, ',');
-		} else if (infile.key == "position") {
-			power_ui[counter].pos.x = eatFirstInt(infile.val, ',');
-			power_ui[counter].pos.y = eatFirstInt(infile.val, ',');
-		}
-	  }
-	} else fprintf(stderr, "Unable to open powers_menu.txt!\n");
-	infile.close();
 }
 
 void MenuPowers::loadGraphics() {
@@ -200,7 +202,7 @@ void MenuPowers::render() {
 
 	// power icons
 	for (int i=0; i<20; i++) {
-		renderIcon(powers->powers[power_ui[i].id].icon, (VIEW_W - 320) + power_ui[i].pos.x, (VIEW_H - 416)/2 + power_ui[i].pos.y);
+		renderIcon(powers->powers[power_ui[i].id].icon, offset_x + power_ui[i].pos.x, offset_y + power_ui[i].pos.y);
 	}
 
 	// close button
