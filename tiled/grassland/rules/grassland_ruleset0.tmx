@@ -24,39 +24,29 @@
  <tileset firstgid="256" name="set_rules" tilewidth="64" tileheight="32">
   <image source="../set_rules.png" width="128" height="128"/>
  </tileset>
- <layer name="ruleRegions" width="9" height="3">
-  <data encoding="csv">
-0,0,0,0,0,0,0,0,0,
-0,256,0,256,0,256,0,256,0,
-0,0,0,0,0,0,0,0,0
-</data>
+ <layer name="regions" width="9" height="3">
+  <data encoding="base64" compression="zlib">
+   eJxjYCASMBKgiQAAAUgABQ==
+  </data>
  </layer>
- <layer name="ruleSet" width="9" height="3">
-  <data encoding="csv">
-0,0,0,0,0,0,0,0,0,
-0,258,0,259,0,257,0,260,0,
-0,0,0,0,0,0,0,0,0
-</data>
+ <layer name="input_automap" width="9" height="3">
+  <data encoding="base64" compression="zlib">
+   eJxjYCAOMDFCaGYozQilWRiJNAAIAANoAA8=
+  </data>
  </layer>
- <layer name="rule_background" width="9" height="3">
-  <data encoding="csv">
-0,0,0,0,0,0,0,0,0,
-0,16,0,176,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0
-</data>
+ <layer name="output_background" width="9" height="3">
+  <data encoding="base64" compression="zlib">
+   eJxjYCAOCEDpDUSqxwYALewAwQ==
+  </data>
  </layer>
- <layer name="rule_object" width="9" height="3">
-  <data encoding="csv">
-0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0
-</data>
+ <layer name="output_object" width="9" height="3">
+  <data encoding="base64" compression="zlib">
+   eJxjYKAfAAAAbAAB
+  </data>
  </layer>
- <layer name="rule_collision" width="9" height="3">
-  <data encoding="csv">
-0,0,0,0,0,0,0,0,0,
-0,0,0,2,0,3,0,1,0,
-0,0,0,0,0,0,0,0,0
-</data>
+ <layer name="output_collision" width="9" height="3">
+  <data encoding="base64" compression="zlib">
+   eJxjYCANMEFpZijNSIJeAAGsAAc=
+  </data>
  </layer>
 </map>
