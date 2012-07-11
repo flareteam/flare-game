@@ -49,8 +49,7 @@ public:
 	void handleNewMap(MapCollision *_collider);
 	void addRenders(std::vector<Renderable> &r);
 
-	int hazard_count;
-	Hazard *h[256];
+	std::vector<Hazard*> h;
 };
 
 #endif
