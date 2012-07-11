@@ -23,7 +23,7 @@
  <tileset firstgid="256" name="set_rules" tilewidth="64" tileheight="32">
   <image source="../set_rules.png" width="128" height="128"/>
  </tileset>
- <layer name="regions" width="13" height="13">
+ <layer name="regions" width="13" height="13" visible="0">
   <data encoding="base64" compression="zlib">
    eJxjYCATMEIxsWxy9Yy6bcS7DQBXZABB
   </data>
@@ -38,29 +38,24 @@
    eJxjYCAPsDBCMDqbGU2cmRFVDzMOddjY5AJc9jCjiSO7DZccPv+Q67bRcCMNAACF0wEh
   </data>
  </layer>
- <layer name="output_background" width="13" height="13">
+ <layer name="output_background" width="13" height="13" visible="0">
   <data encoding="base64" compression="zlib">
    eJxjYBgFgwHMQuPPRuPPgNIz6eAWdLAIjb8Yjb8ASi+kkf0AgwkE7Q==
   </data>
  </layer>
- <layer name="output1_background" width="13" height="13">
+ <layer name="output1_background" width="13" height="13" visible="0">
   <data encoding="base64" compression="zlib">
    eJxjYBgFgwHMQ+PPR+PPgdJz6eAWdLAMjb8cjb8ESi+lkf0AmgkFDQ==
   </data>
  </layer>
- <layer name="output_object" width="13" height="13">
+ <layer name="output_object" width="13" height="13" visible="0">
   <data encoding="base64" compression="zlib">
    eJxjYCAPWKDxLck0BwasoLQ1heaAgAMa35FC85ygtDOF5owC8gAAsQkB7Q==
   </data>
  </layer>
- <layer name="output1_object" width="13" height="13">
+ <layer name="output1_object" width="13" height="13" visible="0">
   <data encoding="base64" compression="zlib">
    eJxjYCAP2KDxbck0BwbsoLQ9heaAgAsa35VC89ygtDuF5owC8gAA7wkCDQ==
-  </data>
- </layer>
- <layer name="output_collision" width="13" height="13">
-  <data encoding="base64" compression="zlib">
-   eJxjYBgFo2BwAwACpAAB
   </data>
  </layer>
 </map>
