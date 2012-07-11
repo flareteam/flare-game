@@ -50,15 +50,21 @@ MenuHPMP::MenuHPMP() {
 	FileParser infile;
 	if(infile.open(mods->locate("menus/hpmp.txt"))) {
 		while(infile.next()) {
-			if(infile.key == "hp_x") hp_pos.x = atoi(infile.nextValue().c_str());
-			else if(infile.key == "hp_y") hp_pos.y = atoi(infile.nextValue().c_str());
-			else if(infile.key == "hp_w") hp_pos.w = atoi(infile.nextValue().c_str());
-			else if(infile.key == "hp_h") hp_pos.h = atoi(infile.nextValue().c_str());
-			else if(infile.key == "mp_x") mp_pos.x = atoi(infile.nextValue().c_str());
-			else if(infile.key == "mp_y") mp_pos.y = atoi(infile.nextValue().c_str());
-			else if(infile.key == "mp_w") mp_pos.w = atoi(infile.nextValue().c_str());
-			else if(infile.key == "mp_h") mp_pos.h = atoi(infile.nextValue().c_str());
-			else if(infile.key == "orientation") orientation = atoi(infile.nextValue().c_str());
+			infile.val = infile.val + ',';
+
+			if(infile.key == "hp_pos") {
+				hp_pos.x = eatFirstInt(infile.val,',');
+				hp_pos.y = eatFirstInt(infile.val,',');
+				hp_pos.w = eatFirstInt(infile.val,',');
+				hp_pos.h = eatFirstInt(infile.val,',');
+			} else if(infile.key == "mp_pos") {
+				mp_pos.x = eatFirstInt(infile.val,',');
+				mp_pos.y = eatFirstInt(infile.val,',');
+				mp_pos.w = eatFirstInt(infile.val,',');
+				mp_pos.h = eatFirstInt(infile.val,',');
+			} else if(infile.key == "orientation") {
+				orientation = eatFirstInt(infile.val,',');
+			}
 		}
 	}
 }
