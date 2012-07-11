@@ -23,92 +23,44 @@
  <tileset firstgid="256" name="set_rules" tilewidth="64" tileheight="32">
   <image source="../set_rules.png" width="128" height="128"/>
  </tileset>
- <layer name="ruleRegions" width="11" height="7">
-  <data encoding="csv">
-0,0,0,0,0,0,0,0,0,0,0,
-0,256,256,0,256,0,256,0,256,256,0,
-0,0,0,0,256,0,256,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,256,0,256,0,0,0,0,
-0,256,256,0,256,0,256,0,256,256,0,
-0,0,0,0,0,0,0,0,0,0,0
-</data>
+ <layer name="regions" width="11" height="7">
+  <data encoding="base64" compression="zlib">
+   eJxjYCARMEIxAw6aEUMHdrXUAoTMJde9eAAACuQAEQ==
+  </data>
  </layer>
- <layer name="ruleSet" width="11" height="7" visible="0">
-  <data encoding="csv">
-0,0,0,0,0,0,0,0,0,0,0,
-0,260,258,0,258,0,260,0,258,260,0,
-0,0,0,0,260,0,258,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,258,0,259,0,0,0,0,
-0,258,259,0,259,0,258,0,259,258,0,
-0,0,0,0,0,0,0,0,0,0,0
-</data>
+ <layer name="input_automap" width="11" height="7">
+  <data encoding="base64" compression="zlib">
+   eJxjYCANsDAyMDAxQtgwmgWJD2Nj04esh1oAZh4zDnNB8sxoapD1kOMeACboAD0=
+  </data>
  </layer>
- <layer name="ruleSet" width="11" height="7">
-  <data encoding="csv">
-0,0,0,0,0,0,0,0,0,0,0,
-0,260,259,0,259,0,260,0,259,260,0,
-0,0,0,0,260,0,259,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,260,0,259,0,0,0,0,
-0,260,259,0,259,0,260,0,259,260,0,
-0,0,0,0,0,0,0,0,0,0,0
-</data>
+ <layer name="input_automap" width="11" height="7">
+  <data encoding="base64" compression="zlib">
+   eJxjYCANsDAyMDAzQtgwmgWJD2Nj04esh1qAkLnkuhcfAAAtBABJ
+  </data>
  </layer>
- <layer name="rule_background" width="11" height="7">
-  <data encoding="csv">
-0,0,0,0,0,0,0,0,0,0,0,
-0,16,0,0,0,0,16,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,147,0,0,0,0,
-0,0,144,0,145,0,0,0,146,0,0,
-0,0,0,0,0,0,0,0,0,0,0
-</data>
+ <layer name="output_background" width="11" height="7">
+  <data encoding="base64" compression="zlib">
+   eJxjYCANCBApRm8wGY/cBCg9EU18Epl2AQDUMAJn
+  </data>
  </layer>
- <layer name="rule1_background" width="11" height="7">
-  <data encoding="csv">
-0,0,0,0,0,0,0,0,0,0,0,
-0,16,0,0,0,0,16,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,151,0,0,0,0,
-0,0,148,0,149,0,0,0,150,0,0,
-0,0,0,0,0,0,0,0,0,0,0
-</data>
+ <layer name="output1_background" width="11" height="7">
+  <data encoding="base64" compression="zlib">
+   eJxjYCANCBApRm8wHY/cFCg9FU18Gpl2AQDZIAJ3
+  </data>
  </layer>
- <layer name="rule_object" width="11" height="7" visible="0">
-  <data encoding="csv">
-0,0,0,0,0,0,0,0,0,0,0,
-0,48,0,0,0,0,49,0,0,50,0,
-0,0,0,0,51,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0
-</data>
+ <layer name="output_object" width="11" height="7">
+  <data encoding="base64" compression="zlib">
+   eJxjYCANGGARM0RiG+HQZ0yiPYMZAAC1EADH
+  </data>
  </layer>
- <layer name="rule1_object" width="11" height="7" visible="0">
-  <data encoding="csv">
-0,0,0,0,0,0,0,0,0,0,0,
-0,52,0,0,0,0,53,0,0,54,0,
-0,0,0,0,55,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0
-</data>
+ <layer name="output1_object" width="11" height="7">
+  <data encoding="base64" compression="zlib">
+   eJxjYCANmGARM0Vim+HQZ06iPYMZAADDoADX
+  </data>
  </layer>
- <layer name="rule_collision" width="11" height="7" visible="0">
-  <data encoding="csv">
-0,0,0,0,0,0,0,0,0,0,0,
-0,1,0,0,0,0,1,0,0,1,0,
-0,0,0,0,1,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,2,0,0,0,0,
-0,0,2,0,2,0,0,0,2,0,0,
-0,0,0,0,0,0,0,0,0,0,0
-</data>
+ <layer name="output_collision" width="11" height="7">
+  <data encoding="base64" compression="zlib">
+   eJxjYCANMBIQwyaPT5xagIkIOXQ1+PTgAwAHUAAN
+  </data>
  </layer>
 </map>
