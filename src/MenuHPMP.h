@@ -41,6 +41,8 @@ private:
 	WidgetLabel *mphover;
 	StatBlock *stats;
 	Point mouse;
+	SDL_Rect hp_pos;
+	SDL_Rect mp_pos;
 	
 public:
 	MenuHPMP();
