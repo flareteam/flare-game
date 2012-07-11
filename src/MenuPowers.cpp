@@ -19,11 +19,13 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * class MenuPowers
  */
 
+#include "FileParser.h"
 #include "MenuPowers.h"
 #include "SharedResources.h"
 #include "PowerManager.h"
 #include "Settings.h"
 #include "StatBlock.h"
+#include "UtilsParsing.h"
 #include "WidgetLabel.h"
 #include "WidgetTooltip.h"
 
@@ -33,9 +35,10 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 using namespace std;
 
 
-MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers) {
+MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_icons) {
 	stats = _stats;
 	powers = _powers;
+	icons = _icons;
 
 	visible = false;
 	loadGraphics();
@@ -45,6 +48,10 @@ MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers) {
 	int offset_y = (VIEW_H - 416)/2;
 
 	for (int i=0; i<20; i++) {
+		power_ui[i].id = 0;
+		power_ui[i].pos.x = 0;
+		power_ui[i].pos.y = 0;
+
 		slots[i].w = slots[i].h = 32;
 		slots[i].x = offset_x + 48 + (i % 4) * 64;
 		slots[i].y = offset_y + 80 + (i / 4) * 64;
@@ -69,6 +76,23 @@ MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers) {
 	stat_mo.set(offset_x+192, offset_y+34, JUSTIFY_CENTER, VALIGN_TOP, "", FONT_WHITE);
 	stat_md.set(offset_x+256, offset_y+34, JUSTIFY_CENTER, VALIGN_TOP, "", FONT_WHITE);
 
+	// Read powers data from config file 
+	FileParser infile;
+	int counter = -1;
+	if (infile.open(mods->locate("menus/powers.txt"))) {
+	  while (infile.next()) {
+		infile.val = infile.val + ',';
+
+		if (infile.key == "id") {
+			counter++;
+			power_ui[counter].id = eatFirstInt(infile.val, ',');
+		} else if (infile.key == "position") {
+			power_ui[counter].pos.x = eatFirstInt(infile.val, ',');
+			power_ui[counter].pos.y = eatFirstInt(infile.val, ',');
+		}
+	  }
+	} else fprintf(stderr, "Unable to open powers_menu.txt!\n");
+	infile.close();
 }
 
 void MenuPowers::loadGraphics() {
@@ -93,6 +117,21 @@ void MenuPowers::loadGraphics() {
 	cleanup = powers_unlock;
 	powers_unlock = SDL_DisplayFormatAlpha(powers_unlock);
 	SDL_FreeSurface(cleanup);
+}
+
+/**
+ * generic render 32-pixel icon
+ */
+void MenuPowers::renderIcon(int icon_id, int x, int y) {
+	SDL_Rect icon_src;
+	SDL_Rect icon_dest;
+
+	icon_dest.x = x;
+	icon_dest.y = y;
+	icon_src.w = icon_src.h = icon_dest.w = icon_dest.h = 32;
+	icon_src.x = (icon_id % 16) * 32;
+	icon_src.y = (icon_id / 16) * 32;
+	SDL_BlitSurface(icons, &icon_src, screen, &icon_dest);
 }
 
 /**
@@ -125,7 +164,7 @@ int MenuPowers::click(Point mouse) {
 
 	for (int i=0; i<20; i++) {
 		if (isWithin(slots[i], mouse)) {
-			if (requirementsMet(i)) return i;
+			if (requirementsMet(power_ui[i].id)) return power_ui[i].id;
 			else return -1;
 		}
 	}
@@ -158,6 +197,11 @@ void MenuPowers::render() {
 	src.w = dest.w = 320;
 	src.h = dest.h = 416;
 	SDL_BlitSurface(background, &src, screen, &dest);
+
+	// power icons
+	for (int i=0; i<20; i++) {
+		renderIcon(powers->powers[power_ui[i].id].icon, (VIEW_W - 320) + power_ui[i].pos.x, (VIEW_H - 416)/2 + power_ui[i].pos.y);
+	}
 
 	// close button
 	closeButton->render();
@@ -269,14 +313,14 @@ TooltipData MenuPowers::checkTooltip(Point mouse) {
 	else {
 		for (int i=0; i<20; i++) {
 			if (isWithin(slots[i], mouse)) {
-				tip.lines[tip.num_lines++] = powers->powers[i].name;
-				tip.lines[tip.num_lines++] = powers->powers[i].description;
+				tip.lines[tip.num_lines++] = powers->powers[power_ui[i].id].name;
+				tip.lines[tip.num_lines++] = powers->powers[power_ui[i].id].description;
 
-				if (powers->powers[i].requires_physical_weapon)
+				if (powers->powers[power_ui[i].id].requires_physical_weapon)
 					tip.lines[tip.num_lines++] = msg->get("Requires a physical weapon");
-				else if (powers->powers[i].requires_mental_weapon)
+				else if (powers->powers[power_ui[i].id].requires_mental_weapon)
 					tip.lines[tip.num_lines++] = msg->get("Requires a mental weapon");
-				else if (powers->powers[i].requires_offense_weapon)
+				else if (powers->powers[power_ui[i].id].requires_offense_weapon)
 					tip.lines[tip.num_lines++] = msg->get("Requires an offense weapon");
 
 
@@ -296,12 +340,12 @@ TooltipData MenuPowers::checkTooltip(Point mouse) {
 				}
 
 				// add mana cost
-				if (powers->powers[i].requires_mp > 0) {
-					tip.lines[tip.num_lines++] = msg->get("Costs %d MP", powers->powers[i].requires_mp);
+				if (powers->powers[power_ui[i].id].requires_mp > 0) {
+					tip.lines[tip.num_lines++] = msg->get("Costs %d MP", powers->powers[power_ui[i].id].requires_mp);
 				}
 				// add cooldown time
-				if (powers->powers[i].cooldown > 0) {
-					tip.lines[tip.num_lines++] = msg->get("Cooldown: %d seconds", powers->powers[i].cooldown / 1000.0);
+				if (powers->powers[power_ui[i].id].cooldown > 0) {
+					tip.lines[tip.num_lines++] = msg->get("Cooldown: %d seconds", powers->powers[power_ui[i].id].cooldown / 1000.0);
 				}
 
 				return tip;

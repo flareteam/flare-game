@@ -32,12 +32,19 @@ class PowerManager;
 class StatBlock;
 class TooltipData;
 
+struct Power_UI {
+	int id;
+	Point pos;
+};
+
 class MenuPowers {
 private:
 	StatBlock *stats;
 	PowerManager *powers;
+	Power_UI power_ui[20];
 
 	SDL_Surface *background;
+	SDL_Surface *icons;
 	SDL_Surface *powers_step;
 	SDL_Surface *powers_unlock;
 	WidgetButton *closeButton;
@@ -58,9 +65,10 @@ private:
 
 	void loadGraphics();
 	void displayBuild(int value, int x);
+	void renderIcon(int icon_id, int x, int y);
 
 public:
-	MenuPowers(StatBlock *_stats, PowerManager *_powers);
+	MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_icons);
 	~MenuPowers();
 	void logic();
 	void render();

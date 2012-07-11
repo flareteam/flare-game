@@ -73,7 +73,7 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 	menus.push_back(mini); // menus[9]
 	chr = new MenuCharacter(stats);
 	inv = new MenuInventory(items, stats, powers);
-	pow = new MenuPowers(stats, powers);
+	pow = new MenuPowers(stats, powers, icons);
 	log = new MenuLog();
 	tip = new WidgetTooltip();
 
