@@ -107,7 +107,9 @@ void CampaignManager::unsetStatus(std::string s) {
 	if (s == "") return;
 
 	vector<string>::iterator it;
-	for (it = status.end(); it != status.begin(); it--) {
+	// see http://stackoverflow.com/a/223405
+	for (it = status.end(); it != status.begin();) {
+		it--;
 		if ((*it) == s) {
 			status.erase(it);
 			quest_update = true;
