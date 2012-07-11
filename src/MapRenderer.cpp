@@ -566,56 +566,53 @@ void MapRenderer::logic() {
  * Sort in the same order as the tiles are drawn
  * Depends upon the map implementation
  */
-int zcompare_iso(const void * elem1, const void * elem2) {
-	const Renderable *r1 = static_cast<const Renderable*>(elem1);
-	const Renderable *r2 = static_cast<const Renderable*>(elem2);
-	if (r1->tile.y + r1->tile.x > r2->tile.y + r2->tile.x)
-		return 1;
-	else if (r1->tile.y + r1->tile.x == r2->tile.y + r2->tile.x) {
-		if (r1->tile.x > r2->tile.x)
-			return 1;
-		else if (r1->tile.x == r2->tile.x) {
+bool zcompare_iso(const Renderable &r1, const Renderable &r2) {
+	if (r1.tile.y + r1.tile.x > r2.tile.y + r2.tile.x)
+		return false;
+	else if (r1.tile.y + r1.tile.x == r2.tile.y + r2.tile.x) {
+		if (r1.tile.x > r2.tile.x)
+			return false;
+		else if (r1.tile.x == r2.tile.x) {
 
 			// same tile, sort by subtile
-			if (r1->map_pos.x + r1->map_pos.y > r2->map_pos.x + r2->map_pos.y)
-				return 1;
+			if (r1.map_pos.x + r1.map_pos.y > r2.map_pos.x + r2.map_pos.y)
+				return false;
 
 		}
 	}
-	return -1;
+	return true;
 }
 
-int zcompare_ortho(const void * elem1, const void * elem2) {
-	const Renderable *r1 = static_cast<const Renderable*>(elem1);
-	const Renderable *r2 = static_cast<const Renderable*>(elem2);
-	if (r1->tile.y > r2->tile.y)
-		return 1;
-	else if (r1->tile.y == r2->tile.y) {
-		if (r1->tile.x > r2->tile.x)
-			return 1;
+bool zcompare_ortho(const Renderable &r1, const Renderable &r2) {
+	if (r1.tile.y > r2.tile.y)
+		return false;
+	else if (r1.tile.y == r2.tile.y) {
+		if (r1.tile.x > r2.tile.x)
+			return false;
 		else
-			if (r1->map_pos.x + r1->map_pos.y > r2->map_pos.x + r2->map_pos.y)
-				return 1;
+			if (r1.map_pos.x + r1.map_pos.y > r2.map_pos.x + r2.map_pos.y)
+				return false;
 	}
-	return 0;
+	return true;
 }
 
-void MapRenderer::render(Renderable r[], int rnum) {
-	for (int i=0; i<rnum; i++) {
+void MapRenderer::render(vector<Renderable> &r) {
+	vector<Renderable>::iterator it;
+	for (it = r.begin(); it != r.end(); it++) {
 		// calculate tile
-		r[i].tile.x = r[i].map_pos.x >> TILE_SHIFT;
-		r[i].tile.y = r[i].map_pos.y >> TILE_SHIFT;
+		it->tile.x = it->map_pos.x >> TILE_SHIFT;
+		it->tile.y = it->map_pos.y >> TILE_SHIFT;
 	}
 	if (TILESET_ORIENTATION == TILESET_ORTHOGONAL) {
-		qsort(r, rnum, sizeof(Renderable), zcompare_ortho);
-		renderOrtho(r, rnum);
+		std::sort(r.begin(), r.end(), zcompare_ortho);
+		renderOrtho(r);
 	} else {
-		qsort(r, rnum, sizeof(Renderable), zcompare_iso);
-		renderIso(r, rnum);
+		std::sort(r.begin(), r.end(), zcompare_iso);
+		renderIso(r);
 	}
 }
 
-void MapRenderer::renderIso(Renderable r[], int rnum) {
+void MapRenderer::renderIso(vector<Renderable> &r) {
 
 	// r will become a list of renderables.  Everything not on the map already:
 	// - hero
@@ -678,22 +675,24 @@ void MapRenderer::renderIso(Renderable r[], int rnum) {
 	}
 
 	// some renderables are drawn above the background and below the objects
-	for (int ri = 0; ri < rnum; ri++) {
-		if (!r[ri].object_layer) {
-			Point p = map_to_screen(r[ri].map_pos.x, r[ri].map_pos.y, shakycam.x, shakycam.y);
-			dest.x = p.x - r[ri].offset.x;
-			dest.y = p.y - r[ri].offset.y;
-			SDL_BlitSurface(r[ri].sprite, &r[ri].src, screen, &dest);
+	vector<Renderable>::iterator it;
+	for (it = r.begin(); it != r.end(); it++) {
+		if (!it->object_layer) {
+			Point p = map_to_screen(it->map_pos.x, it->map_pos.y, shakycam.x, shakycam.y);
+			dest.x = p.x - it->offset.x;
+			dest.y = p.y - it->offset.y;
+			SDL_BlitSurface(it->sprite, &(it->src), screen, &dest);
 		}
 	}
 
-	int r_cursor = 0;
+	vector<Renderable>::iterator r_cursor = r.begin();
+	vector<Renderable>::iterator r_end = r.end();
 
 	// object layer
 	j = upperright.y / UNITS_PER_TILE;
 	i = upperright.x / UNITS_PER_TILE - tiles_outside_ofscreen;
 
-	while (r_cursor < rnum && (r[r_cursor].tile.x + r[r_cursor].tile.y < i + j || r[r_cursor].tile.x < i))
+	while (r_cursor != r_end && (r_cursor->tile.x + r_cursor->tile.y < i + j || r_cursor->tile.x < i))
 		r_cursor++;
 
 	for (unsigned short y = max_tiles_height ; y; --y) {
@@ -715,13 +714,13 @@ void MapRenderer::renderIso(Renderable r[], int rnum) {
 			}
 
 			// some renderable entities go in this layer
-			while (r[r_cursor].tile.x == i && r[r_cursor].tile.y == j && r_cursor < rnum) {
-				if (r[r_cursor].object_layer) {
+			while (r_cursor->tile.x == i && r_cursor->tile.y == j && r_cursor != r_end) {
+				if (r_cursor->object_layer) {
 					// draw renderable
-					Point p = map_to_screen(r[r_cursor].map_pos.x, r[r_cursor].map_pos.y, shakycam.x, shakycam.y);
-					dest.x = p.x - r[r_cursor].offset.x;
-					dest.y = p.y - r[r_cursor].offset.y;
-					SDL_BlitSurface(r[r_cursor].sprite, &r[r_cursor].src, screen, &dest);
+					Point p = map_to_screen(r_cursor->map_pos.x, r_cursor->map_pos.y, shakycam.x, shakycam.y);
+					dest.x = p.x - r_cursor->offset.x;
+					dest.y = p.y - r_cursor->offset.y;
+					SDL_BlitSurface(r_cursor->sprite, &(r_cursor->src), screen, &dest);
 				}
 				r_cursor++;
 			}
@@ -732,7 +731,7 @@ void MapRenderer::renderIso(Renderable r[], int rnum) {
 			i++;
 		else
 			j++;
-		while (r_cursor < rnum && (r[r_cursor].tile.x + r[r_cursor].tile.y < i + j || r[r_cursor].tile.x <= i))
+		while (r_cursor != r_end && (r_cursor->tile.x + r_cursor->tile.y < i + j || r_cursor->tile.x <= i))
 			r_cursor++;
 	}
 	//render event tooltips
@@ -740,7 +739,7 @@ void MapRenderer::renderIso(Renderable r[], int rnum) {
 
 }
 
-void MapRenderer::renderOrtho(Renderable r[], int rnum) {
+void MapRenderer::renderOrtho(vector<Renderable> &r) {
 
 	// r will become a list of renderables.  Everything not on the map already:
 	// - hero
@@ -785,17 +784,19 @@ void MapRenderer::renderOrtho(Renderable r[], int rnum) {
 
 
 	// some renderables are drawn above the background and below the objects
-	for (int ri = 0; ri < rnum; ri++) {
-		if (!r[ri].object_layer) {
+	vector<Renderable>::iterator it;
+	for (it = r.begin(); it != r.end(); it++) {
+		if (!it->object_layer) {
 			// draw renderable
-			Point p = map_to_screen(r[ri].map_pos.x, r[ri].map_pos.y, shakycam.x, shakycam.y);
-			dest.x = p.x - r[ri].offset.x;
-			dest.y = p.y - r[ri].offset.y;
-			SDL_BlitSurface(r[ri].sprite, &r[ri].src, screen, &dest);
+			Point p = map_to_screen(it->map_pos.x, it->map_pos.y, shakycam.x, shakycam.y);
+			dest.x = p.x - it->offset.x;
+			dest.y = p.y - it->offset.y;
+			SDL_BlitSurface(it->sprite, &it->src, screen, &dest);
 		}
 	}
 
-	unsigned short r_cursor = 0;
+	vector<Renderable>::iterator r_cursor = r.begin();
+	vector<Renderable>::iterator r_end = r.end();
 
 	// todo: trim by screen rect
 	// object layer
@@ -813,13 +814,13 @@ void MapRenderer::renderOrtho(Renderable r[], int rnum) {
 			}
 
 			// some renderable entities go in this layer
-			while (r_cursor < rnum && r[r_cursor].tile.x == i && r[r_cursor].tile.y == j) {
-				if (r[r_cursor].object_layer) {
+			while (r_cursor != r_end && r_cursor->tile.x == i && r_cursor->tile.y == j) {
+				if (r_cursor->object_layer) {
 					// draw renderable
-					Point p = map_to_screen(r[r_cursor].map_pos.x, r[r_cursor].map_pos.y, shakycam.x, shakycam.y);
-					dest.x = p.x - r[r_cursor].offset.x;
-					dest.y = p.y - r[r_cursor].offset.y;
-					SDL_BlitSurface(r[r_cursor].sprite, &r[r_cursor].src, screen, &dest);
+					Point p = map_to_screen(r_cursor->map_pos.x, r_cursor->map_pos.y, shakycam.x, shakycam.y);
+					dest.x = p.x - r_cursor->offset.x;
+					dest.y = p.y - r_cursor->offset.y;
+					SDL_BlitSurface(r_cursor->sprite, &r_cursor->src, screen, &dest);
 				}
 
 				r_cursor++;
