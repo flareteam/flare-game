@@ -26,6 +26,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #define MAP_RENDERER_H
 
 #include "Enemy.h"
+#include "GameStatePlay.h"
 #include "Utils.h"
 #include "TileSet.h"
 #include "MapCollision.h"
@@ -38,11 +39,13 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include <string>
 #include <queue>
+#include <vector>
 
 class CampaignManager;
 class PowerManager;
 
-struct Map_Group {
+class Map_Group {
+public:
 	std::string category;
 	Point pos;
 	Point area;
@@ -53,18 +56,21 @@ struct Map_Group {
 	float chance;
 };
 
-struct Map_NPC {
+class Map_NPC {
+public:
 	std::string id;
 	Point pos;
 };
 
-struct Map_Event {
+class Map_Event {
+public:
 	std::string type;
 	SDL_Rect location;
 	Event_Component components[256];
 	int comp_num;
 	SDL_Rect hotspot;
 	std::string tooltip;
+
 	//power spawn variables
 	Point power_src;
 	Point power_dest;
@@ -73,9 +79,35 @@ struct Map_Event {
 	int damagemax;
 	int power_cooldown;
 	int cooldown_ticks;
+
+	Map_Event() {
+		type = "";
+		location.x = 0;
+		location.y = 0;
+		location.w = 0;
+		location.h = 0;
+		comp_num = 0;
+		tooltip = "";
+		hotspot.x = hotspot.y = 0;
+		hotspot.h = hotspot.w = 0;
+		for (int j=0; j<256; j++) {
+			components[j].type = "";
+			components[j].s = "";
+			components[j].x = 0;
+			components[j].y = 0;
+			components[j].z = 0;
+		}
+		power_src.x = power_src.y = 0;
+		power_dest.x = power_dest.y = 0;
+		targetHero = false;
+		damagemin = damagemax = 0;
+		power_cooldown = 0;
+		cooldown_ticks = 0;
+	}
 };
 
-struct Map_Enemy {
+class Map_Enemy {
+public:
 	std::string type;
 	Point pos;
 	int direction;
@@ -95,15 +127,13 @@ private:
 	Mix_Chunk *sfx;
 	std::string sfx_filename;
 
-	void executeEvent(int eid);
-	void removeEvent(int eid);
+	bool executeEvent(Map_Event &e);
 	void playSFX(std::string filename);
 	void push_enemy_group(Map_Group g);
-	bool isActive(int eventid);
+	bool isActive(const Map_Event &e);
 
 	// map events
-	Map_Event events[256];
-	int event_count;
+	std::vector<Map_Event> events;
 
 public:
 	CampaignManager *camp;
@@ -122,9 +152,9 @@ public:
 	void render(Renderable r[], int rnum);
 	void renderIso(Renderable r[], int rnum);
 	void renderOrtho(Renderable r[], int rnum);
+	void clearEvents();
 	void checkEvents(Point loc);
 	void checkEventClick();
-	void clearEvents();
 	void checkTooltip();
 
 	// vars
