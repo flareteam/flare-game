@@ -46,7 +46,8 @@ struct Renderable {
 	Point tile;
 };
 
-struct Event_Component {
+class Event_Component {
+public:
 	std::string type;
 	std::string s;
 	int x;

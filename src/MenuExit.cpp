@@ -71,19 +71,21 @@ void MenuExit::logic() {
 }
 
 void MenuExit::render() {
-	SDL_Rect src;
+	if (visible) {
+		SDL_Rect src;
 
-	// background
-	src.x = 0;
-	src.y = 0;
-	src.w = window_area.w;
-	src.h = window_area.h;
-	SDL_BlitSurface(background, &src, screen, &window_area);
+		// background
+		src.x = 0;
+		src.y = 0;
+		src.w = window_area.w;
+		src.h = window_area.h;
+		SDL_BlitSurface(background, &src, screen, &window_area);
 
-	label.render();
+		label.render();
 
-	buttonExit->render();
-	buttonClose->render();
+		buttonExit->render();
+		buttonClose->render();
+	}
 }
 
 MenuExit::~MenuExit() {
