@@ -135,44 +135,44 @@ void MenuHPMP::render() {
 	if (orientation == 0) {
 		// draw hp bar
 		if (stats->maxhp == 0) hp_bar_length = 0;
-		else hp_bar_length = (stats->hp * (hp_pos.w-6)) / stats->maxhp;
-		dest.x = hp_dest.x+3;
-		dest.y = hp_dest.y+3;
+		else hp_bar_length = (stats->hp * hp_pos.w) / stats->maxhp;
+		dest.x = hp_dest.x;
+		dest.y = hp_dest.y;
 		src.x = src.y = 0;
 		src.w = hp_bar_length;
-		src.h = hp_pos.h-6;
+		src.h = hp_pos.h;
 		SDL_BlitSurface(bar_hp, &src, screen, &dest);
 
 		// draw mp bar
 		if (stats->maxmp == 0) mp_bar_length = 0;
-		else mp_bar_length = (stats->mp * (hp_pos.w-6)) / stats->maxmp;
-		dest.x = mp_dest.x+3;
-		dest.y = mp_dest.y+3;
+		else mp_bar_length = (stats->mp * hp_pos.w) / stats->maxmp;
+		dest.x = mp_dest.x;
+		dest.y = mp_dest.y;
 		src.x = src.y = 0;
 		src.w = mp_bar_length;
-		src.h = mp_pos.h-6;
+		src.h = mp_pos.h;
 		SDL_BlitSurface(bar_mp, &src, screen, &dest);
 	} else if (orientation == 1) {
 		// draw hp bar
 		if (stats->maxhp == 0) hp_bar_length = 0;
-		else hp_bar_length = (stats->hp * (hp_pos.h-6)) / stats->maxhp;
+		else hp_bar_length = (stats->hp * hp_pos.h) / stats->maxhp;
 		src.x = 0;
-		src.y = hp_pos.h-6-hp_bar_length;
-		src.w = hp_pos.w-6;
+		src.y = hp_pos.h-hp_bar_length;
+		src.w = hp_pos.w;
 		src.h = hp_bar_length;
-		dest.x = hp_dest.x+3;
-		dest.y = hp_dest.y+3+src.y;
+		dest.x = hp_dest.x;
+		dest.y = hp_dest.y+src.y;
 		SDL_BlitSurface(bar_hp, &src, screen, &dest);
 
 		// draw mp bar
 		if (stats->maxmp == 0) mp_bar_length = 0;
-		else mp_bar_length = (stats->mp * (mp_pos.h-6)) / stats->maxmp;
+		else mp_bar_length = (stats->mp * mp_pos.h) / stats->maxmp;
 		src.x = 0;
-		src.y = mp_pos.h-6-mp_bar_length;
-		src.w = mp_pos.w-6;
+		src.y = mp_pos.h-mp_bar_length;
+		src.w = mp_pos.w;
 		src.h = mp_bar_length;
-		dest.x = mp_dest.x+3;
-		dest.y = mp_dest.y+3+src.y;
+		dest.x = mp_dest.x;
+		dest.y = mp_dest.y+src.y;
 		SDL_BlitSurface(bar_mp, &src, screen, &dest);
 	}
 
