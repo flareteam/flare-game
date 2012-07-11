@@ -640,6 +640,13 @@ int zcompare_iso(const void * elem1, const void * elem2) {
 	else if (r1->tile.y + r1->tile.x == r2->tile.y + r2->tile.x) {
 		if (r1->tile.x > r2->tile.x)
 			return 1;
+		else if (r1->tile.x == r2->tile.x) {
+			
+			// same tile, sort by subtile
+			if (r1->map_pos.x + r1->map_pos.y > r2->map_pos.x + r2->map_pos.y)
+				return 1;
+
+		}
 	}
 	return -1;
 }
