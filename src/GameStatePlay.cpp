@@ -550,7 +550,7 @@ void GameStatePlay::render() {
 
 	r[renderableCount++] = pc->getRender(); // Avatar
 
-	for (int i=0; i<enemies->enemy_count; i++) { // Enemies
+	for (unsigned int i=0; i<enemies->enemies.size(); i++) { // Enemies
 		r[renderableCount++] = enemies->getRender(i);
 		if (enemies->enemies[i]->stats.shield_hp > 0) {
 			r[renderableCount] = enemies->enemies[i]->stats.getEffectRender(STAT_EFFECT_SHIELD);

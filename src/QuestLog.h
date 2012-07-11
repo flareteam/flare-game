@@ -25,22 +25,22 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #define QUEST_LOG_H
 
 #include <string>
+#include <vector>
 #include "Utils.h"
 
 class CampaignManager;
 class MenuLog;
 
-const int MAX_QUESTS = 1024;
-const int MAX_QUEST_EVENTS = 8;
-
 class QuestLog {
 private:
 	CampaignManager *camp;
 	MenuLog *log;
-	
-	Event_Component quests[MAX_QUESTS][MAX_QUEST_EVENTS];
+
+	// inner vector is a chain of events per quest, outer vector is a
+	// list of quests.
+	std::vector<std::vector<Event_Component> >quests;
 	int quest_count;
-	
+
 public:
 	QuestLog(CampaignManager *_camp, MenuLog *_log);
 	void loadAll();

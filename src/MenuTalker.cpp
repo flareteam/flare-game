@@ -101,7 +101,7 @@ void MenuTalker::logic() {
 	closeButton->enabled = false;
 
 	// determine active button
-	if (event_cursor < NPC_MAX_EVENTS-1) {
+	if (event_cursor < npc->dialog[dialog_node].size()-1) {
 		if (npc->dialog[dialog_node][event_cursor+1].type != "") {
 			advanceButton->enabled = true;
 		}
@@ -214,7 +214,7 @@ void MenuTalker::render() {
 	SDL_BlitSurface(msg_buffer, NULL, screen, &dest);
 
 	// show advance button if there are more event components, or close button if not
-	if (event_cursor < NPC_MAX_EVENTS-1) {
+	if (event_cursor < npc->dialog[dialog_node].size()-1) {
 		if (npc->dialog[dialog_node][event_cursor+1].type != "") {
 			advanceButton->render();
 		}

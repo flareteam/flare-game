@@ -31,7 +31,7 @@ using namespace std;
 EnemyManager::EnemyManager(PowerManager *_powers, MapRenderer *_map) {
 	powers = _powers;
 	map = _map;
-	enemy_count = 0;
+	enemies = vector<Enemy*>();
 	sfx_count = 0;
 	gfx_count = 0;
 	hero_pos.x = hero_pos.y = -1;
@@ -112,66 +112,56 @@ void EnemyManager::handleNewMap () {
 	Map_Enemy me;
 
 	// delete existing enemies
-	for (int i=0; i<enemy_count; i++) {
-		delete(enemies[i]);
+	for (unsigned int i=0; i < enemies.size(); i++) {
+		delete enemies[i];
 	}
-	enemy_count = 0;
+	enemies.clear();
 
 	// free shared resources
 	for (int j=0; j<gfx_count; j++) {
 		SDL_FreeSurface(sprites[j]);
 	}
-    for (int j=0; j<sfx_count; j++) {
-        if (sound_phys[j])
-            Mix_FreeChunk(sound_phys[j]);
-        if (sound_ment[j])
-            Mix_FreeChunk(sound_ment[j]);
-        if (sound_hit[j])
-            Mix_FreeChunk(sound_hit[j]);
-        if (sound_die[j])
-            Mix_FreeChunk(sound_die[j]);
-        if (sound_critdie[j])
-            Mix_FreeChunk(sound_critdie[j]);
-    }
+	for (int j=0; j<sfx_count; j++) {
+		if (sound_phys[j])
+			Mix_FreeChunk(sound_phys[j]);
+		if (sound_ment[j])
+			Mix_FreeChunk(sound_ment[j]);
+		if (sound_hit[j])
+			Mix_FreeChunk(sound_hit[j]);
+		if (sound_die[j])
+			Mix_FreeChunk(sound_die[j]);
+		if (sound_critdie[j])
+			Mix_FreeChunk(sound_critdie[j]);
+	}
 	gfx_count = 0;
 	sfx_count = 0;
 
 	// load new enemies
-	while (!map->enemies.empty() && enemy_count < MAX_ENEMIES_PER_MAP) {
+	while (!map->enemies.empty()) {
 		me = map->enemies.front();
 		map->enemies.pop();
 
-		enemies[enemy_count] = new Enemy(powers, map);
+		Enemy *e = new Enemy(powers, map);
 
 		// factory
-		enemies[enemy_count]->eb = new BehaviorStandard(enemies[enemy_count]);
+		e->eb = new BehaviorStandard(e);
 
-		enemies[enemy_count]->stats.waypoints = me.waypoints;
-		enemies[enemy_count]->stats.pos.x = me.pos.x;
-		enemies[enemy_count]->stats.pos.y = me.pos.y;
-		enemies[enemy_count]->stats.direction = me.direction;
-		enemies[enemy_count]->stats.load("enemies/" + me.type + ".txt");
-		if (enemies[enemy_count]->stats.animations != "") {
+		e->stats.waypoints = me.waypoints;
+		e->stats.pos.x = me.pos.x;
+		e->stats.pos.y = me.pos.y;
+		e->stats.direction = me.direction;
+		e->stats.load("enemies/" + me.type + ".txt");
+		if (e->stats.animations != "") {
 			// load the animation file if specified
-			enemies[enemy_count]->loadAnimations("animations/" + enemies[enemy_count]->stats.animations + ".txt");
+			e->loadAnimations("animations/" + e->stats.animations + ".txt");
 		}
 		else {
 			cerr << "Warning: no animation file specified for entity: " << me.type << endl;
 		}
-		loadGraphics(enemies[enemy_count]->stats.gfx_prefix);
-		loadSounds(enemies[enemy_count]->stats.sfx_prefix);
-		enemy_count++;
+		loadGraphics(e->stats.gfx_prefix);
+		loadSounds(e->stats.sfx_prefix);
+		enemies.push_back(e);
 	}
-
-	// Too many enemies on this map.
-	if (!map->enemies.empty()) {
-		cerr << "Warning: map contains more than the max (" << MAX_ENEMIES_PER_MAP << ") number of enemies." << endl;
-
-		while (!map->enemies.empty()) {
-			map->enemies.pop();
-		}
-	}
-
 }
 
 /**
@@ -182,42 +172,32 @@ void EnemyManager::handleSpawn() {
 
 	Map_Enemy espawn;
 
-	while (!powers->enemies.empty() && enemy_count < MAX_ENEMIES_PER_MAP) {
+	while (!powers->enemies.empty()) {
 		espawn = powers->enemies.front();
 		powers->enemies.pop();
 
-		enemies[enemy_count] = new Enemy(powers, map);
+		Enemy *e = new Enemy(powers, map);
 		// factory
-		enemies[enemy_count]->eb = new BehaviorStandard(enemies[enemy_count]);
+		e->eb = new BehaviorStandard(e);
 
-		enemies[enemy_count]->stats.pos.x = espawn.pos.x;
-		enemies[enemy_count]->stats.pos.y = espawn.pos.y;
-		enemies[enemy_count]->stats.direction = espawn.direction;
-		enemies[enemy_count]->stats.load("enemies/" + espawn.type + ".txt");
-		if (enemies[enemy_count]->stats.animations != "") {
+		e->stats.pos.x = espawn.pos.x;
+		e->stats.pos.y = espawn.pos.y;
+		e->stats.direction = espawn.direction;
+		e->stats.load("enemies/" + espawn.type + ".txt");
+		if (e->stats.animations != "") {
 			// load the animation file if specified
-			enemies[enemy_count]->loadAnimations("animations/" + enemies[enemy_count]->stats.animations + ".txt");
+			e->loadAnimations("animations/" + e->stats.animations + ".txt");
 		}
 		else {
 			cout << "Warning: no animation file specified for entity: " << espawn.type << endl;
 		}
-		loadGraphics(enemies[enemy_count]->stats.gfx_prefix);
-		loadSounds(enemies[enemy_count]->stats.sfx_prefix);
+		loadGraphics(e->stats.gfx_prefix);
+		loadSounds(e->stats.sfx_prefix);
 
 		// special animation state for spawning enemies
-		enemies[enemy_count]->stats.cur_state = ENEMY_SPAWN;
-		enemy_count++;
+		e->stats.cur_state = ENEMY_SPAWN;
+		enemies.push_back(e);
 	}
-
-	// Too many enemies on this map.
-	if (!powers->enemies.empty()) {
-		cerr << "Warning: enemy not spawned; map already at max capacity (" << MAX_ENEMIES_PER_MAP << " enemies)." << endl;
-
-		while (!powers->enemies.empty()) {
-			powers->enemies.pop();
-		}
-	}
-
 }
 
 /**
@@ -227,52 +207,52 @@ void EnemyManager::logic() {
 
 	handleSpawn();
 
-	for (int i=0; i<enemy_count; i++) {
+	for (unsigned int i=0; i < enemies.size(); i++) {
 
 		int pref_id = -1;
 
 		// hazards are processed after Avatar and Enemy[]
 		// so process and clear sound effects from previous frames
 		// check sound effects
-        if (audio == true) {
-            for (int j=0; j<sfx_count; j++) {
-                if (sfx_prefixes[j] == enemies[i]->stats.sfx_prefix) {
-                    pref_id = j;
-                    break;
-                }
-            }
+		if (audio == true) {
+			for (int j=0; j<sfx_count; j++) {
+				if (sfx_prefixes[j] == enemies[i]->stats.sfx_prefix) {
+					pref_id = j;
+					break;
+				}
+			}
 
-            if (pref_id == -1) {
-                printf("ERROR: enemy sfx_prefix doesn't match registered prefixes (enemy: '%s', sfx_prefix: '%s')\n",
-                       enemies[i]->stats.name.c_str(),
-                       enemies[i]->stats.sfx_prefix.c_str());
-            } else {
-                if (enemies[i]->sfx_phys) Mix_PlayChannel(-1, sound_phys[pref_id], 0);
-                if (enemies[i]->sfx_ment) Mix_PlayChannel(-1, sound_ment[pref_id], 0);
-                if (enemies[i]->sfx_hit) Mix_PlayChannel(-1, sound_hit[pref_id], 0);
-                if (enemies[i]->sfx_die) Mix_PlayChannel(-1, sound_die[pref_id], 0);
-                if (enemies[i]->sfx_critdie) Mix_PlayChannel(-1, sound_critdie[pref_id], 0);
-            }
+			if (pref_id == -1) {
+				printf("ERROR: enemy sfx_prefix doesn't match registered prefixes (enemy: '%s', sfx_prefix: '%s')\n",
+					   enemies[i]->stats.name.c_str(),
+					   enemies[i]->stats.sfx_prefix.c_str());
+			} else {
+				if (enemies[i]->sfx_phys) Mix_PlayChannel(-1, sound_phys[pref_id], 0);
+				if (enemies[i]->sfx_ment) Mix_PlayChannel(-1, sound_ment[pref_id], 0);
+				if (enemies[i]->sfx_hit) Mix_PlayChannel(-1, sound_hit[pref_id], 0);
+				if (enemies[i]->sfx_die) Mix_PlayChannel(-1, sound_die[pref_id], 0);
+				if (enemies[i]->sfx_critdie) Mix_PlayChannel(-1, sound_critdie[pref_id], 0);
+			}
 
-            // clear sound flags
-            enemies[i]->sfx_hit = false;
-            enemies[i]->sfx_phys = false;
-            enemies[i]->sfx_ment = false;
-            enemies[i]->sfx_die = false;
-            enemies[i]->sfx_critdie = false;
-        }
+			// clear sound flags
+			enemies[i]->sfx_hit = false;
+			enemies[i]->sfx_phys = false;
+			enemies[i]->sfx_ment = false;
+			enemies[i]->sfx_die = false;
+			enemies[i]->sfx_critdie = false;
+		}
 
-        // new actions this round
-        enemies[i]->stats.hero_pos = hero_pos;
-        enemies[i]->stats.hero_alive = hero_alive;
-        enemies[i]->logic();
+		// new actions this round
+		enemies[i]->stats.hero_pos = hero_pos;
+		enemies[i]->stats.hero_alive = hero_alive;
+		enemies[i]->logic();
 	}
 }
 
 Enemy* EnemyManager::enemyFocus(Point mouse, Point cam, bool alive_only) {
 	Point p;
 	SDL_Rect r;
-	for(int i = 0; i < enemy_count; i++) {
+	for(unsigned int i = 0; i < enemies.size(); i++) {
 		if(alive_only && (enemies[i]->stats.cur_state == ENEMY_DEAD || enemies[i]->stats.cur_state == ENEMY_CRITDEAD)) {
 			continue;
 		}
@@ -295,7 +275,7 @@ Enemy* EnemyManager::enemyFocus(Point mouse, Point cam, bool alive_only) {
  * If an enemy has died, reward the hero with experience points
  */
 void EnemyManager::checkEnemiesforXP(StatBlock *stats) {
-	for (int i=0; i<enemy_count; i++) {
+	for (unsigned int i=0; i < enemies.size(); i++) {
 		if (enemies[i]->reward_xp) {
 			stats->xp += enemies[i]->stats.xp;
 			enemies[i]->reward_xp = false; // clear flag
@@ -320,23 +300,23 @@ Renderable EnemyManager::getRender(int enemyIndex) {
 }
 
 EnemyManager::~EnemyManager() {
-	for (int i=0; i<enemy_count; i++) {
+	for (unsigned int i=0; i < enemies.size(); i++) {
 		delete enemies[i];
 	}
 
 	for (int i=0; i<gfx_count; i++) {
 		SDL_FreeSurface(sprites[i]);
 	}
-    for (int i=0; i<sfx_count; i++) {
-        if (sound_phys[i])
-            Mix_FreeChunk(sound_phys[i]);
-        if (sound_ment[i])
-            Mix_FreeChunk(sound_ment[i]);
-        if (sound_hit[i])
-            Mix_FreeChunk(sound_hit[i]);
-        if (sound_die[i])
-            Mix_FreeChunk(sound_die[i]);
-        if (sound_critdie[i])
-            Mix_FreeChunk(sound_critdie[i]);
-    }
+	for (int i=0; i<sfx_count; i++) {
+		if (sound_phys[i])
+			Mix_FreeChunk(sound_phys[i]);
+		if (sound_ment[i])
+			Mix_FreeChunk(sound_ment[i]);
+		if (sound_hit[i])
+			Mix_FreeChunk(sound_hit[i]);
+		if (sound_die[i])
+			Mix_FreeChunk(sound_die[i]);
+		if (sound_critdie[i])
+			Mix_FreeChunk(sound_critdie[i]);
+	}
 }
