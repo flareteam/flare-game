@@ -27,6 +27,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "HazardManager.h"
 #include "PowerManager.h"
 
+using namespace std;
+
 HazardManager::HazardManager(PowerManager *_powers, Avatar *_hero, EnemyManager *_enemies) {
 	powers = _powers;
 	hero = _hero;
@@ -170,31 +172,33 @@ void HazardManager::handleNewMap(MapCollision *_collider) {
 }
 
 /**
- * getRender()
+ * addRenders()
  * Map objects need to be drawn in Z order, so we allow a parent object (GameEngine)
  * to collect all mobile sprites each frame.
  */
-Renderable HazardManager::getRender(int haz_id) {
+void HazardManager::addRenders(vector<Renderable> &r) {
+	for (int i=0; i<hazard_count; i++) {
+		if (h[i]->rendered && h[i]->delay_frames == 0) {
+			Renderable re;
+			re.map_pos.x = round(h[i]->pos.x);
+			re.map_pos.y = round(h[i]->pos.y);
+			re.sprite = h[i]->sprites;
+			re.src.x = h[i]->frame_size.x * (h[i]->frame / h[i]->frame_duration);
+			re.src.w = h[i]->frame_size.x;
+			re.src.h = h[i]->frame_size.y;
+			re.offset.x = h[i]->frame_offset.x;
+			re.offset.y = h[i]->frame_offset.y;
+			re.object_layer = !h[i]->floor;
 
-	Renderable r;
-	r.map_pos.x = round(h[haz_id]->pos.x);
-	r.map_pos.y = round(h[haz_id]->pos.y);
-	r.sprite = h[haz_id]->sprites;
-	r.src.x = h[haz_id]->frame_size.x * (h[haz_id]->frame / h[haz_id]->frame_duration);
-	r.src.w = h[haz_id]->frame_size.x;
-	r.src.h = h[haz_id]->frame_size.y;
-	r.offset.x = h[haz_id]->frame_offset.x;
-	r.offset.y = h[haz_id]->frame_offset.y;
-	r.object_layer = !h[haz_id]->floor;
-
-	if (h[haz_id]->direction > 0)
-		r.src.y = h[haz_id]->frame_size.y * h[haz_id]->direction;
-	else if (h[haz_id]->visual_option > 0)
-		r.src.y = h[haz_id]->frame_size.y * h[haz_id]->visual_option;
-	else
-		r.src.y = 0;
-
-	return r;
+			if (h[i]->direction > 0)
+				re.src.y = h[i]->frame_size.y * h[i]->direction;
+			else if (h[i]->visual_option > 0)
+				re.src.y = h[i]->frame_size.y * h[i]->visual_option;
+			else
+				re.src.y = 0;
+			r.push_back(re);
+		}
+	}
 }
 
 HazardManager::~HazardManager() {
