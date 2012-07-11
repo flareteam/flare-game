@@ -44,6 +44,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 class CampaignManager;
 class PowerManager;
 
+// TODO:
+// Move these Map_* classes to its own file.
+
 class Map_Group {
 public:
 	std::string category;
