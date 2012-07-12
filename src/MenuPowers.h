@@ -48,6 +48,7 @@ private:
 	SDL_Surface *powers_step;
 	SDL_Surface *powers_unlock;
 	WidgetButton *closeButton;
+	Point close_pos;
 
 	WidgetLabel label_powers;
 	WidgetLabel label_p1;
@@ -70,6 +71,7 @@ private:
 public:
 	MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_icons);
 	~MenuPowers();
+	void update();
 	void logic();
 	void render();
 	TooltipData checkTooltip(Point mouse);

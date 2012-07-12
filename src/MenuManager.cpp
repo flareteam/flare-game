@@ -111,7 +111,7 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 			else if (infile.key == "minimap") menu_index = 10;
 			else if (infile.key == "character") menu_index = 11;
 			else if (infile.key == "inventory") menu_index = 12;
-			else if (infile.key == "power") menu_index = 13;
+			else if (infile.key == "powers") menu_index = 13;
 			else if (infile.key == "log") menu_index = 14;
 
 			if (menu_index != -1) {
@@ -134,6 +134,7 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 	vendor->update();
 	talker->update();
 	exit->update();
+	pow->update();
 
 	pause = false;
 	dragging = false;

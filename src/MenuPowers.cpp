@@ -44,15 +44,13 @@ MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_i
 	visible = false;
 	loadGraphics();
 
-	// set slot positions
-	int offset_x = (VIEW_W - 320);
-	int offset_y = (VIEW_H - 416)/2;
-
 	for (int i=0; i<20; i++) {
 		power_ui[i].id = 0;
 		power_ui[i].pos.x = 0;
 		power_ui[i].pos.y = 0;
 	}
+
+	closeButton = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
 
 	// Read powers data from config file 
 	FileParser infile;
@@ -67,35 +65,41 @@ MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_i
 		} else if (infile.key == "position") {
 			power_ui[counter].pos.x = eatFirstInt(infile.val, ',');
 			power_ui[counter].pos.y = eatFirstInt(infile.val, ',');
+		} else if (infile.key == "closebutton_pos") {
+			close_pos.x = eatFirstInt(infile.val, ',');
+			close_pos.y = eatFirstInt(infile.val, ',');
 		}
+
 	  }
 	} else fprintf(stderr, "Unable to open powers_menu.txt!\n");
 	infile.close();
 
+}
+
+void MenuPowers::update() {
 	for (int i=0; i<20; i++) {
 		slots[i].w = slots[i].h = 32;
-		slots[i].x = offset_x + power_ui[i].pos.x;
-		slots[i].y = offset_y + power_ui[i].pos.y;
+		slots[i].x = window_area.x + power_ui[i].pos.x;
+		slots[i].y = window_area.y + power_ui[i].pos.y;
 	}
 
-	closeButton = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
-	closeButton->pos.x = VIEW_W - 26;
-	closeButton->pos.y = (VIEW_H - 480)/2 + 34;
+	label_powers.set(window_area.x+160, window_area.y+8, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Powers"), FONT_WHITE);
+	label_p1.set(window_area.x+64, window_area.y+50, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Physical"), FONT_WHITE);
+	label_p2.set(window_area.x+128, window_area.y+50, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Physical"), FONT_WHITE);
+	label_m1.set(window_area.x+192, window_area.y+50, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Mental"), FONT_WHITE);
+	label_m2.set(window_area.x+256, window_area.y+50, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Mental"), FONT_WHITE);
+	label_o1.set(window_area.x+64, window_area.y+66, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Offense"), FONT_WHITE);
+	label_o2.set(window_area.x+192, window_area.y+66, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Offense"), FONT_WHITE);
+	label_d1.set(window_area.x+128, window_area.y+66, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Defense"), FONT_WHITE);
+	label_d2.set(window_area.x+256, window_area.y+66, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Defense"), FONT_WHITE);
 
-	label_powers.set(offset_x+160, offset_y+8, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Powers"), FONT_WHITE);
-	label_p1.set(offset_x+64, offset_y+50, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Physical"), FONT_WHITE);
-	label_p2.set(offset_x+128, offset_y+50, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Physical"), FONT_WHITE);
-	label_m1.set(offset_x+192, offset_y+50, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Mental"), FONT_WHITE);
-	label_m2.set(offset_x+256, offset_y+50, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Mental"), FONT_WHITE);
-	label_o1.set(offset_x+64, offset_y+66, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Offense"), FONT_WHITE);
-	label_o2.set(offset_x+192, offset_y+66, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Offense"), FONT_WHITE);
-	label_d1.set(offset_x+128, offset_y+66, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Defense"), FONT_WHITE);
-	label_d2.set(offset_x+256, offset_y+66, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Defense"), FONT_WHITE);
+	stat_po.set(window_area.x+64, window_area.y+34, JUSTIFY_CENTER, VALIGN_TOP, "", FONT_WHITE);
+	stat_pd.set(window_area.x+128, window_area.y+34, JUSTIFY_CENTER, VALIGN_TOP, "", FONT_WHITE);
+	stat_mo.set(window_area.x+192, window_area.y+34, JUSTIFY_CENTER, VALIGN_TOP, "", FONT_WHITE);
+	stat_md.set(window_area.x+256, window_area.y+34, JUSTIFY_CENTER, VALIGN_TOP, "", FONT_WHITE);
 
-	stat_po.set(offset_x+64, offset_y+34, JUSTIFY_CENTER, VALIGN_TOP, "", FONT_WHITE);
-	stat_pd.set(offset_x+128, offset_y+34, JUSTIFY_CENTER, VALIGN_TOP, "", FONT_WHITE);
-	stat_mo.set(offset_x+192, offset_y+34, JUSTIFY_CENTER, VALIGN_TOP, "", FONT_WHITE);
-	stat_md.set(offset_x+256, offset_y+34, JUSTIFY_CENTER, VALIGN_TOP, "", FONT_WHITE);
+	closeButton->pos.x = window_area.x+close_pos.x;
+	closeButton->pos.y = window_area.y+close_pos.y;
 }
 
 void MenuPowers::loadGraphics() {
@@ -189,21 +193,18 @@ void MenuPowers::render() {
 	SDL_Rect src;
 	SDL_Rect dest;
 
-	int offset_x = (VIEW_W - 320);
-	int offset_y = (VIEW_H - 416)/2;
-
 	// background
 	src.x = 0;
 	src.y = 0;
-	dest.x = offset_x;
-	dest.y = offset_y;
+	dest.x = window_area.x;
+	dest.y = window_area.y;
 	src.w = dest.w = 320;
 	src.h = dest.h = 416;
 	SDL_BlitSurface(background, &src, screen, &dest);
 
 	// power icons
 	for (int i=0; i<20; i++) {
-		renderIcon(powers->powers[power_ui[i].id].icon, offset_x + power_ui[i].pos.x, offset_y + power_ui[i].pos.y);
+		renderIcon(powers->powers[power_ui[i].id].icon, window_area.x + power_ui[i].pos.x, window_area.y + power_ui[i].pos.y);
 	}
 
 	// close button
@@ -244,10 +245,10 @@ void MenuPowers::render() {
 	stat_md.render();
 
 	// highlighting
-	displayBuild(stats->physoff, offset_x+48);
-	displayBuild(stats->physdef, offset_x+112);
-	displayBuild(stats->mentoff, offset_x+176);
-	displayBuild(stats->mentdef, offset_x+240);
+	displayBuild(stats->physoff, window_area.x+48);
+	displayBuild(stats->physdef, window_area.x+112);
+	displayBuild(stats->mentoff, window_area.x+176);
+	displayBuild(stats->mentdef, window_area.x+240);
 }
 
 /**
@@ -266,7 +267,6 @@ void MenuPowers::displayBuild(int value, int x) {
 	src_unlock.h = 45;
 
 	dest.x = x;
-	int offset_y = (VIEW_H - 416)/2;
 
 	// save-game hackers could set their stats higher than normal.
 	// make sure this display still works.
@@ -274,11 +274,11 @@ void MenuPowers::displayBuild(int value, int x) {
 
 	for (int i=3; i<= display_value; i++) {
 		if (i%2 == 0) { // even stat
-			dest.y = i * 32 + offset_y + 48;
+			dest.y = i * 32 + window_area.y + 48;
 			SDL_BlitSurface(powers_step, &src_step, screen, &dest);
 		}
 		else { // odd stat
-			dest.y = i * 32 + offset_y + 35;
+			dest.y = i * 32 + window_area.y + 35;
 			SDL_BlitSurface(powers_unlock, &src_unlock, screen, &dest);
 
 		}
@@ -292,23 +292,20 @@ TooltipData MenuPowers::checkTooltip(Point mouse) {
 
 	TooltipData tip;
 
-	int offset_x = (VIEW_W - 320);
-	int offset_y = (VIEW_H - 416)/2;
-
-	if (mouse.y >= offset_y+32 && mouse.y <= offset_y+80) {
-		if (mouse.x >= offset_x+48 && mouse.x <= offset_x+80) {
+	if (mouse.y >= window_area.y+32 && mouse.y <= window_area.y+80) {
+		if (mouse.x >= window_area.x+48 && mouse.x <= window_area.x+80) {
 			tip.lines[tip.num_lines++] = msg->get("Physical + Offense grants melee and ranged attacks");
 			return tip;
 		}
-		if (mouse.x >= offset_x+112 && mouse.x <= offset_x+144) {
+		if (mouse.x >= window_area.x+112 && mouse.x <= window_area.x+144) {
 			tip.lines[tip.num_lines++] = msg->get("Physical + Defense grants melee protection");
 			return tip;
 		}
-		if (mouse.x >= offset_x+176 && mouse.x <= offset_x+208) {
+		if (mouse.x >= window_area.x+176 && mouse.x <= window_area.x+208) {
 			tip.lines[tip.num_lines++] = msg->get("Mental + Offense grants elemental spell attacks");
 			return tip;
 		}
-		if (mouse.x >= offset_x+240 && mouse.x <= offset_x+272) {
+		if (mouse.x >= window_area.x+240 && mouse.x <= window_area.x+272) {
 			tip.lines[tip.num_lines++] = msg->get("Mental + Defense grants healing and magical protection");
 			return tip;
 		}
