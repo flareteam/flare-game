@@ -102,7 +102,7 @@ struct CharProf {
 	}
 };
 
-class MenuCharacter {
+class MenuCharacter : public Menu {
 private:
 	StatBlock *stats;
 
