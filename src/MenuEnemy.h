@@ -36,6 +36,9 @@ class MenuEnemy : public Menu {
 private:
 	SDL_Surface *background;
 	SDL_Surface *bar_hp;
+	SDL_Rect bar_pos;
+	SDL_Rect text_pos;
+	bool custom_text_pos;
 public:
 	MenuEnemy();
 	~MenuEnemy();
