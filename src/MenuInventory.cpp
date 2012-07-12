@@ -19,6 +19,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * class MenuInventory
  */
 
+#include "Menu.h"
 #include "MenuInventory.h"
 #include "PowerManager.h"
 #include "SharedResources.h"

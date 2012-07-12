@@ -32,7 +32,7 @@ class PowerManager;
 class StatBlock;
 class TooltipData;
 
-class MenuPowers {
+class MenuPowers : public Menu {
 private:
 	StatBlock *stats;
 	PowerManager *powers;

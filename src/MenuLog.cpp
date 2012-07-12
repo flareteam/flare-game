@@ -19,6 +19,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * class MenuLog
  */
 
+#include "Menu.h"
 #include "MenuLog.h"
 #include "ModManager.h"
 #include "Settings.h"

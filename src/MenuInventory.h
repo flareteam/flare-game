@@ -49,7 +49,7 @@ enum InventorySlotsType {
 };
 
 
-class MenuInventory {
+class MenuInventory : public Menu {
 private:
 	ItemManager *items;
 	StatBlock *stats;
