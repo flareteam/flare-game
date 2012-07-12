@@ -439,6 +439,7 @@ void LootManager::addGold(int count, Point pos) {
 	ld.pos.y = pos.y;
 	ld.frame = 0;
 	ld.gold = count;
+	loot.push_back(ld);
 	if (loot_flip) Mix_PlayChannel(-1, loot_flip, 0);
 }
 
