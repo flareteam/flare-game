@@ -103,8 +103,6 @@ Set (FLARE_SOURCES
 	./src/MenuConfirm.cpp
 	./src/MenuEnemy.cpp
 	./src/MenuExit.cpp
-	./src/MenuExperience.cpp
-	./src/MenuHPMP.cpp
 	./src/MenuHUDLog.cpp
 	./src/MenuInventory.cpp
 	./src/MenuItemStorage.cpp
@@ -112,6 +110,7 @@ Set (FLARE_SOURCES
 	./src/MenuManager.cpp
 	./src/MenuMiniMap.cpp
 	./src/MenuPowers.cpp
+	./src/MenuStatBar.cpp
 	./src/MenuTalker.cpp
 	./src/MenuVendor.cpp
 	./src/MessageEngine.cpp
