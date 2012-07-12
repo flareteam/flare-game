@@ -79,7 +79,7 @@ void InputState::defaultQwertyKeyBindings ()
 	binding[BAR_9] = binding_alt[BAR_9] = SDLK_9;
 	binding[BAR_0] = binding_alt[BAR_0] = SDLK_0;
 	
-	binding[CHARACTER_MENU] = binding_alt[CHARACTER_MENU] = SDLK_c;
+	binding[CHARACTER] = binding_alt[CHARACTER] = SDLK_c;
 	binding[INVENTORY] = binding_alt[INVENTORY] = SDLK_i;
 	binding[POWERS] = binding_alt[POWERS] = SDLK_p;
 	binding[LOG] = binding_alt[LOG] = SDLK_l;
