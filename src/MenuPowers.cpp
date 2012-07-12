@@ -19,6 +19,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * class MenuPowers
  */
 
+#include "Menu.h"
 #include "MenuPowers.h"
 #include "SharedResources.h"
 #include "PowerManager.h"

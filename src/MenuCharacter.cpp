@@ -19,6 +19,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * class MenuCharacter
  */
 
+#include "Menu.h"
 #include "MenuCharacter.h"
 #include "SharedResources.h"
 #include "Settings.h"
