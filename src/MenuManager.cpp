@@ -76,7 +76,7 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 	menus.push_back(chr); // menus[11]
 	inv = new MenuInventory(items, stats, powers);
 	menus.push_back(inv); // menus[12]
-	pow = new MenuPowers(stats, powers);
+	pow = new MenuPowers(stats, powers, icons);
 	menus.push_back(pow); // menus[13]
 	log = new MenuLog();
 	menus.push_back(log);
