@@ -838,6 +838,7 @@ void MapRenderer::checkEvents(Point loc) {
 	maploc.x = loc.x >> TILE_SHIFT;
 	maploc.y = loc.y >> TILE_SHIFT;
 	vector<Map_Event>::iterator it;
+	
 	for (it = events.begin(); it < events.end(); it++) {
 		if (maploc.x >= (*it).location.x &&
 			maploc.y >= (*it).location.y &&
@@ -853,7 +854,8 @@ void MapRenderer::checkEventClick() {
 	Point p;
 	SDL_Rect r;
 	vector<Map_Event>::iterator it;
-	for (it = events.begin(); it != events.end(); it++) {
+	
+	for (it = events.begin(); it < events.end(); it++) {
 		p = map_to_screen((*it).location.x * UNITS_PER_TILE + UNITS_PER_TILE/2, (*it).location.y * UNITS_PER_TILE + UNITS_PER_TILE/2, cam.x, cam.y);
 		r.x = p.x + (*it).hotspot.x;
 		r.y = p.y + (*it).hotspot.y;
