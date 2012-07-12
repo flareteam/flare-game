@@ -714,7 +714,7 @@ void MapRenderer::renderIso(vector<Renderable> &r) {
 			}
 
 			// some renderable entities go in this layer
-			while (r_cursor->tile.x == i && r_cursor->tile.y == j && r_cursor != r_end) {
+			while (r_cursor != r_end && r_cursor->tile.x == i && r_cursor->tile.y == j) {
 				if (r_cursor->object_layer) {
 					// draw renderable
 					Point p = map_to_screen(r_cursor->map_pos.x, r_cursor->map_pos.y, shakycam.x, shakycam.y);
@@ -838,7 +838,7 @@ void MapRenderer::checkEvents(Point loc) {
 	maploc.x = loc.x >> TILE_SHIFT;
 	maploc.y = loc.y >> TILE_SHIFT;
 	vector<Map_Event>::iterator it;
-	
+
 	for (it = events.begin(); it < events.end(); it++) {
 		if (maploc.x >= (*it).location.x &&
 			maploc.y >= (*it).location.y &&
@@ -854,7 +854,7 @@ void MapRenderer::checkEventClick() {
 	Point p;
 	SDL_Rect r;
 	vector<Map_Event>::iterator it;
-	
+
 	for (it = events.begin(); it < events.end(); it++) {
 		p = map_to_screen((*it).location.x * UNITS_PER_TILE + UNITS_PER_TILE/2, (*it).location.y * UNITS_PER_TILE + UNITS_PER_TILE/2, cam.x, cam.y);
 		r.x = p.x + (*it).hotspot.x;
