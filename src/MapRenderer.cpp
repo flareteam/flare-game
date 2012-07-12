@@ -838,7 +838,7 @@ void MapRenderer::checkEvents(Point loc) {
 	maploc.x = loc.x >> TILE_SHIFT;
 	maploc.y = loc.y >> TILE_SHIFT;
 	vector<Map_Event>::iterator it;
-	for (it = events.begin(); it != events.end(); it++) {
+	for (it = events.begin(); it < events.end(); it++) {
 		if (maploc.x >= (*it).location.x &&
 			maploc.y >= (*it).location.y &&
 			maploc.x <= (*it).location.x + (*it).location.w-1 &&
