@@ -42,8 +42,6 @@ MenuStatBar::MenuStatBar(std::string type) {
 
 	label = new WidgetLabel();
 
-	loadGraphics(type);
-
 	orientation = 0; // horizontal
 	custom_text_pos = false; // label will be placed in the middle of the bar
 	custom_string = "";
@@ -68,6 +66,8 @@ MenuStatBar::MenuStatBar(std::string type) {
 			}
 		}
 	}
+
+	loadGraphics(type);
 }
 
 void MenuStatBar::loadGraphics(std::string type) {

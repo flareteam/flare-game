@@ -27,6 +27,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "ModManager.h"
 #include "SharedResources.h"
 #include "StatBlock.h"
+#include "FileParser.h"
+#include "UtilsParsing.h"
+#include "UtilsFileSystem.h"
 
 #include <string>
 #include <sstream>
@@ -37,8 +40,7 @@ using namespace std;
 
 MenuActiveEffects::MenuActiveEffects(SDL_Surface *_icons) {
 	icons = _icons;
-
-	loadGraphics();
+	orientation = 0; // horizontal
 
 	limits.slow = 0;
 	limits.bleed = 0;
@@ -49,6 +51,20 @@ MenuActiveEffects::MenuActiveEffects(SDL_Surface *_icons) {
 	limits.haste = 0;
 	limits.hot = 0;
 	limits.shield = 0;
+
+	// Load config settings
+	FileParser infile;
+	if(infile.open(mods->locate("menus/activeeffects.txt"))) {
+		while(infile.next()) {
+			infile.val = infile.val + ',';
+
+			if(infile.key == "orientation") {
+				orientation = eatFirstInt(infile.val,',');
+			}
+		}
+	}
+
+	loadGraphics();
 }
 
 void MenuActiveEffects::loadGraphics() {
@@ -68,8 +84,13 @@ void MenuActiveEffects::loadGraphics() {
 
 void MenuActiveEffects::renderIcon(int icon_id, int index, int current, int max){
 	SDL_Rect pos,src,overlay;
-	pos.x = window_area.x + (index * 32);
-	pos.y = window_area.y;
+	if (orientation == 0) {
+		pos.x = window_area.x + (index * 32);
+		pos.y = window_area.y;
+	} else if (orientation == 1) {
+		pos.x = window_area.x;
+		pos.y = window_area.y + (index * 32);;
+	}
 	
 	src.x = (icon_id % 16) * 32;
 	src.y = (icon_id / 16) * 32;

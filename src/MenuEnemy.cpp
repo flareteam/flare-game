@@ -25,6 +25,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "MenuEnemy.h"
 #include "SharedResources.h"
 #include "WidgetLabel.h"
+#include "FileParser.h"
+#include "UtilsParsing.h"
+#include "UtilsFileSystem.h"
 
 #include <string>
 #include <sstream>
@@ -33,6 +36,27 @@ using namespace std;
 
 
 MenuEnemy::MenuEnemy() {
+	custom_text_pos = false;
+
+	// Load config settings
+	FileParser infile;
+	if(infile.open(mods->locate("menus/enemy.txt"))) {
+		while(infile.next()) {
+			infile.val = infile.val + ',';
+
+			if(infile.key == "pos") {
+				bar_pos.x = eatFirstInt(infile.val,',');
+				bar_pos.y = eatFirstInt(infile.val,',');
+				bar_pos.w = eatFirstInt(infile.val,',');
+				bar_pos.h = eatFirstInt(infile.val,',');
+			} else if(infile.key == "text_pos") {
+				custom_text_pos = true;
+				text_pos.x = eatFirstInt(infile.val,',');
+				text_pos.y = eatFirstInt(infile.val,',');
+			}
+		}
+	}
+
 	loadGraphics();
 	enemy = NULL;
 	timeout = 0;
@@ -40,8 +64,8 @@ MenuEnemy::MenuEnemy() {
 
 void MenuEnemy::loadGraphics() {
 
-	background = IMG_Load(mods->locate("images/menus/bar_enemy.png").c_str());
-	bar_hp = IMG_Load(mods->locate("images/menus/bar_hp.png").c_str());
+	background = IMG_Load(mods->locate("images/menus/enemy_bar.png").c_str());
+	bar_hp = IMG_Load(mods->locate("images/menus/enemy_bar_hp.png").c_str());
 
 	if(!background || !bar_hp) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
@@ -77,10 +101,10 @@ void MenuEnemy::render() {
 	int hp_bar_length;
 
 	// draw trim/background
-	dest.x = window_area.x;
-	dest.y = window_area.y;
-	dest.w = window_area.w;
-	dest.h = window_area.h;
+	dest.x = window_area.x+bar_pos.x;
+	dest.y = window_area.y+bar_pos.y;
+	dest.w = bar_pos.w;
+	dest.h = bar_pos.h;
 
 	SDL_BlitSurface(background, NULL, screen, &dest);
 
@@ -91,12 +115,9 @@ void MenuEnemy::render() {
 
 	// draw hp bar
 
-	dest.x = window_area.x+3;
-	dest.y = window_area.y+18;
-
 	src.x = 0;
 	src.y = 0;
-	src.h = 12;
+	src.h = bar_pos.h;
 	src.w = hp_bar_length;
 
 	SDL_BlitSurface(bar_hp, &src, screen, &dest);
@@ -110,10 +131,14 @@ void MenuEnemy::render() {
 
 	WidgetLabel label;
 
-	label.set(window_area.x+window_area.w/2, window_area.y+9, JUSTIFY_CENTER, VALIGN_CENTER, msg->get("%s level %d", enemy->stats.level, enemy->stats.name), FONT_WHITE);
+	if (custom_text_pos) {
+		label.set(window_area.x+text_pos.x, window_area.y+text_pos.y, JUSTIFY_LEFT, VALIGN_TOP, msg->get("%s level %d", enemy->stats.level, enemy->stats.name), FONT_WHITE);
+	} else {
+		label.set(window_area.x+bar_pos.x+bar_pos.w/2, window_area.y+bar_pos.y-9, JUSTIFY_CENTER, VALIGN_CENTER, msg->get("%s level %d", enemy->stats.level, enemy->stats.name), FONT_WHITE);
+	}
 	label.render();
 
-	label.set(window_area.x+window_area.w/2, window_area.y+24, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
+	label.set(window_area.x+bar_pos.x+bar_pos.w/2, window_area.y+bar_pos.y+bar_pos.h/2, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
 	label.render();
 
 
