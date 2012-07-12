@@ -39,6 +39,7 @@ private:
 	SDL_Surface *timer;
 	std::vector<std::string> effects;
 	StatBlock *stats;
+	bool orientation;
 
 	struct limits {
 		int slow;
