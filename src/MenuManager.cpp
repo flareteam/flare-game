@@ -26,8 +26,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "MenuManager.h"
 #include "MenuActionBar.h"
 #include "MenuCharacter.h"
-#include "MenuExperience.h"
-#include "MenuHPMP.h"
+#include "MenuStatBar.h"
 #include "MenuHUDLog.h"
 #include "MenuInventory.h"
 #include "MenuMiniMap.h"
@@ -51,30 +50,36 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 
 	loadIcons();
 
-	hpmp = new MenuHPMP();
-	menus.push_back(hpmp); // menus[0]
-	xp = new MenuExperience();
-	menus.push_back(xp); // menus[1]
+	hp = new MenuStatBar("hp");
+	menus.push_back(hp); // menus[0]
+	mp = new MenuStatBar("mp");
+	menus.push_back(mp); // menus[1]
+	xp = new MenuStatBar("xp");
+	menus.push_back(xp); // menus[2]
 	effects = new MenuActiveEffects(icons);
-	menus.push_back(effects); // menus[2]
+	menus.push_back(effects); // menus[3]
 	hudlog = new MenuHUDLog();
-	menus.push_back(hudlog); // menus[3]
+	menus.push_back(hudlog); // menus[4]
 	act = new MenuActionBar(powers, stats, icons);
-	menus.push_back(act); // menus[4]
+	menus.push_back(act); // menus[5]
 	enemy = new MenuEnemy();
-	menus.push_back(enemy); // menus[5]
+	menus.push_back(enemy); // menus[6]
 	vendor = new MenuVendor(items, stats);
-	menus.push_back(vendor); // menus[6]
+	menus.push_back(vendor); // menus[7]
 	talker = new MenuTalker(camp);
-	menus.push_back(talker); // menus[7]
+	menus.push_back(talker); // menus[8]
 	exit = new MenuExit();
-	menus.push_back(exit); // menus[8]
+	menus.push_back(exit); // menus[9]
 	mini = new MenuMiniMap();
-	menus.push_back(mini); // menus[9]
+	menus.push_back(mini); // menus[10]
 	chr = new MenuCharacter(stats);
+	menus.push_back(chr); // menus[11]
 	inv = new MenuInventory(items, stats, powers);
-	pow = new MenuPowers(stats, powers, icons);
+	menus.push_back(inv); // menus[12]
+	pow = new MenuPowers(stats, powers);
+	menus.push_back(pow); // menus[13]
 	log = new MenuLog();
+	menus.push_back(log);
 	tip = new WidgetTooltip();
 
 	// Load the menu positions and alignments from menus/menus.txt
@@ -93,16 +98,21 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 
 			menu_index = -1;
 
-			if (infile.key == "hpmp") menu_index = 0;
-			else if (infile.key == "xp") menu_index = 1;
-			else if (infile.key == "effects") menu_index = 2;
-			else if (infile.key == "hudlog") menu_index = 3;
-			else if (infile.key == "actionbar") menu_index = 4;
-			else if (infile.key == "enemy") menu_index = 5;
-			else if (infile.key == "vendor") menu_index = 6;
-			else if (infile.key == "talker") menu_index = 7;
-			else if (infile.key == "exit") menu_index = 8;
-			else if (infile.key == "minimap") menu_index = 9;
+			if (infile.key == "hp") menu_index = 0;
+			else if (infile.key == "mp") menu_index = 1;
+			else if (infile.key == "xp") menu_index = 2;
+			else if (infile.key == "effects") menu_index = 3;
+			else if (infile.key == "hudlog") menu_index = 4;
+			else if (infile.key == "actionbar") menu_index = 5;
+			else if (infile.key == "enemy") menu_index = 6;
+			else if (infile.key == "vendor") menu_index = 7;
+			else if (infile.key == "talker") menu_index = 8;
+			else if (infile.key == "exit") menu_index = 9;
+			else if (infile.key == "minimap") menu_index = 10;
+			else if (infile.key == "character") menu_index = 11;
+			else if (infile.key == "inventory") menu_index = 12;
+			else if (infile.key == "power") menu_index = 13;
+			else if (infile.key == "log") menu_index = 14;
 
 			if (menu_index != -1) {
 				menus[menu_index]->window_area.x = x;
@@ -190,8 +200,9 @@ void MenuManager::logic() {
 	bool clicking_log = false;
 	ItemStack stack;
 
-	hpmp->update(stats,inpt->mouse);
-	xp->update(stats,inpt->mouse);
+	hp->update(stats->hp,stats->maxhp,inpt->mouse,"");
+	mp->update(stats->mp,stats->maxmp,inpt->mouse,"");
+	xp->update((stats->xp - stats->xp_table[stats->level-1]),(stats->xp_table[stats->level] - stats->xp_table[stats->level-1]),inpt->mouse,msg->get("XP: %d/%d", stats->xp, stats->xp_table[stats->level]));
 	effects->update(stats);
 
 	hudlog->logic();
@@ -572,7 +583,7 @@ void MenuManager::logic() {
 }
 
 void MenuManager::render() {
-	for (unsigned int i=0; i<menus.size(); i++) {
+	for (unsigned int i=0; i<menus.size()-4; i++) {
 		menus[i]->render();
 	}
 	inv->render();
@@ -667,6 +678,8 @@ MenuManager::~MenuManager() {
 
 	tip_buf.clear();
 
+	delete hp;
+	delete mp;
 	delete xp;
 	delete mini;
 	delete inv;
@@ -680,7 +693,6 @@ MenuManager::~MenuManager() {
 	delete talker;
 	delete exit;
 	delete enemy;
-	delete hpmp;
 
     if (sfx_open != NULL)
         Mix_FreeChunk(sfx_open);

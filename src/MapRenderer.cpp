@@ -43,8 +43,8 @@ MapRenderer::MapRenderer(CampaignManager *_camp) {
 	clearEvents();
 	enemy_awaiting_queue = false;
 	npc_awaiting_queue = false;
-	clearEnemy(new_enemy);
-	clearNPC(new_npc);
+	new_enemy.clear();
+	new_npc.clear();
 
 	sfx = NULL;
 	sfx_filename = "";
@@ -53,72 +53,8 @@ MapRenderer::MapRenderer(CampaignManager *_camp) {
 	shaky_cam_ticks = 0;
 }
 
-
-
 void MapRenderer::clearEvents() {
-	for (int i=0; i<256; i++) {
-		events[i].type = "";
-		events[i].location.x = 0;
-		events[i].location.y = 0;
-		events[i].location.w = 0;
-		events[i].location.h = 0;
-		events[i].comp_num = 0;
-		events[i].tooltip = "";
-		events[i].hotspot.x = events[i].hotspot.y = 0;
-		events[i].hotspot.h = events[i].hotspot.w = 0;
-		for (int j=0; j<256; j++) {
-			events[i].components[j].type = "";
-			events[i].components[j].s = "";
-			events[i].components[j].x = 0;
-			events[i].components[j].y = 0;
-			events[i].components[j].z = 0;
-		}
-		events[i].power_src.x = events[i].power_src.y = 0;
-		events[i].power_dest.x = events[i].power_dest.y = 0;
-		events[i].targetHero = false;
-		events[i].damagemin = events[i].damagemax = 0;
-		events[i].power_cooldown = 0;
-		events[i].cooldown_ticks = 0;
-	}
-	event_count = 0;
-}
-
-void MapRenderer::removeEvent(int eid) {
-	for (int i=eid; i<event_count; i++) {
-		if (i<256) {
-			events[i] = events[i+1];
-		}
-	}
-	event_count--;
-}
-
-void MapRenderer::clearEnemy(Map_Enemy &e) {
-	e.pos.x = 0;
-	e.pos.y = 0;
-	// enemies face a random direction unless otherwise specified
-	e.direction = rand() % 8;
-	e.type = "";
-	std::queue<Point> empty;
-	e.waypoints = empty;
-}
-
-void MapRenderer::clearNPC(Map_NPC &n) {
-	n.id = "";
-	n.pos.x = 0;
-	n.pos.y = 0;
-}
-
-void MapRenderer::clearGroup(Map_Group &g) {
-	g.category = "";
-	g.pos.x = 0;
-	g.pos.y = 0;
-	g.area.x = 0;
-	g.area.y = 0;
-	g.levelmin = 0;
-	g.levelmax = 0;
-	g.numbermin = 0;
-	g.numbermax = 0;
-	g.chance = 1.0f;
+	events.clear();
 }
 
 void MapRenderer::playSFX(string filename) {
@@ -193,7 +129,6 @@ int MapRenderer::load(string filename) {
 
 	clearEvents();
 
-	event_count = 0;
 	bool collider_set = false;
 
 	if (infile.open(mods->locate("maps/" + filename))) {
@@ -216,19 +151,19 @@ int MapRenderer::load(string filename) {
 
 				// for sections that are stored in collections, add a new object here
 				if (infile.section == "enemy") {
-					clearEnemy(new_enemy);
+					new_enemy.clear();
 					enemy_awaiting_queue = true;
 				}
 				else if (infile.section == "enemygroup") {
-					clearGroup(new_group);
+					new_group.clear();
 					group_awaiting_queue = true;
 				}
 				else if (infile.section == "npc") {
-					clearNPC(new_npc);
+					new_npc.clear();
 					npc_awaiting_queue = true;
 				}
 				else if (infile.section == "event") {
-					event_count++;
+					events.push_back(Map_Event());
 				}
 
 			}
@@ -363,45 +298,45 @@ int MapRenderer::load(string filename) {
 			}
 			else if (infile.section == "event") {
 				if (infile.key == "type") {
-					events[event_count-1].type = infile.val;
+					events.back().type = infile.val;
 				}
 				else if (infile.key == "location") {
-					events[event_count-1].location.x = atoi(infile.nextValue().c_str());
-					events[event_count-1].location.y = atoi(infile.nextValue().c_str());
-					events[event_count-1].location.w = atoi(infile.nextValue().c_str());
-					events[event_count-1].location.h = atoi(infile.nextValue().c_str());
+					events.back().location.x = atoi(infile.nextValue().c_str());
+					events.back().location.y = atoi(infile.nextValue().c_str());
+					events.back().location.w = atoi(infile.nextValue().c_str());
+					events.back().location.h = atoi(infile.nextValue().c_str());
 				}
 				else if (infile.key == "hotspot") {
-					events[event_count-1].hotspot.x = atoi(infile.nextValue().c_str());
-					events[event_count-1].hotspot.y = atoi(infile.nextValue().c_str());
-					events[event_count-1].hotspot.w = atoi(infile.nextValue().c_str());
-					events[event_count-1].hotspot.h = atoi(infile.nextValue().c_str());
+					events.back().hotspot.x = atoi(infile.nextValue().c_str());
+					events.back().hotspot.y = atoi(infile.nextValue().c_str());
+					events.back().hotspot.w = atoi(infile.nextValue().c_str());
+					events.back().hotspot.h = atoi(infile.nextValue().c_str());
 				}
 				else if (infile.key == "tooltip") {
-					events[event_count-1].tooltip = msg->get(infile.val);
+					events.back().tooltip = msg->get(infile.val);
 				}
 				else if (infile.key == "power_path") {
-					events[event_count-1].power_src.x = atoi(infile.nextValue().c_str());
-					events[event_count-1].power_src.y = atoi(infile.nextValue().c_str());
+					events.back().power_src.x = atoi(infile.nextValue().c_str());
+					events.back().power_src.y = atoi(infile.nextValue().c_str());
 					string dest = infile.nextValue();
 					if (dest == "hero") {
-						events[event_count-1].targetHero = true;
+						events.back().targetHero = true;
 					}
 					else {
-						events[event_count-1].power_dest.x = atoi(dest.c_str());
-						events[event_count-1].power_dest.y = atoi(infile.nextValue().c_str());
+						events.back().power_dest.x = atoi(dest.c_str());
+						events.back().power_dest.y = atoi(infile.nextValue().c_str());
 					}
 				}
 				else if (infile.key == "power_damage") {
-					events[event_count-1].damagemin = atoi(infile.nextValue().c_str());
-					events[event_count-1].damagemax = atoi(infile.nextValue().c_str());
+					events.back().damagemin = atoi(infile.nextValue().c_str());
+					events.back().damagemax = atoi(infile.nextValue().c_str());
 				}
 				else if (infile.key == "power_cooldown") {
-					events[event_count-1].power_cooldown = atoi(infile.val.c_str());
+					events.back().power_cooldown = atoi(infile.val.c_str());
 				}
 				else {
 					// new event component
-					Event_Component *e = &events[event_count-1].components[events[event_count-1].comp_num];
+					Event_Component *e = &(events.back()).components[events.back().comp_num];
 					e->type = infile.key;
 
 					if (infile.key == "intermap") {
@@ -422,8 +357,8 @@ int MapRenderer::load(string filename) {
 						// add repeating mapmods
 						string repeat_val = infile.nextValue();
 						while (repeat_val != "") {
-							events[event_count-1].comp_num++;
-							e = &events[event_count-1].components[events[event_count-1].comp_num];
+							events.back().comp_num++;
+							e = &events.back().components[events.back().comp_num];
 							e->type = infile.key;
 							e->s = repeat_val;
 							e->x = atoi(infile.nextValue().c_str());
@@ -445,8 +380,8 @@ int MapRenderer::load(string filename) {
 						// add repeating loot
 						string repeat_val = infile.nextValue();
 						while (repeat_val != "") {
-							events[event_count-1].comp_num++;
-							e = &events[event_count-1].components[events[event_count-1].comp_num];
+							events.back().comp_num++;
+							e = &events.back().components[events.back().comp_num];
 							e->type = infile.key;
 							e->s = repeat_val;
 							e->x = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
@@ -468,8 +403,8 @@ int MapRenderer::load(string filename) {
 						// add repeating requires_status
 						string repeat_val = infile.nextValue();
 						while (repeat_val != "") {
-							events[event_count-1].comp_num++;
-							e = &events[event_count-1].components[events[event_count-1].comp_num];
+							events.back().comp_num++;
+							e = &events.back().components[events.back().comp_num];
 							e->type = infile.key;
 							e->s = repeat_val;
 
@@ -482,8 +417,8 @@ int MapRenderer::load(string filename) {
 						// add repeating requires_not
 						string repeat_val = infile.nextValue();
 						while (repeat_val != "") {
-							events[event_count-1].comp_num++;
-							e = &events[event_count-1].components[events[event_count-1].comp_num];
+							events.back().comp_num++;
+							e = &events.back().components[events.back().comp_num];
 							e->type = infile.key;
 							e->s = repeat_val;
 
@@ -496,8 +431,8 @@ int MapRenderer::load(string filename) {
 						// add repeating requires_item
 						string repeat_val = infile.nextValue();
 						while (repeat_val != "") {
-							events[event_count-1].comp_num++;
-							e = &events[event_count-1].components[events[event_count-1].comp_num];
+							events.back().comp_num++;
+							e = &events.back().components[events.back().comp_num];
 							e->type = infile.key;
 							e->x = atoi(repeat_val.c_str());
 
@@ -510,8 +445,8 @@ int MapRenderer::load(string filename) {
 						// add repeating set_status
 						string repeat_val = infile.nextValue();
 						while (repeat_val != "") {
-							events[event_count-1].comp_num++;
-							e = &events[event_count-1].components[events[event_count-1].comp_num];
+							events.back().comp_num++;
+							e = &events.back().components[events.back().comp_num];
 							e->type = infile.key;
 							e->s = repeat_val;
 
@@ -524,8 +459,8 @@ int MapRenderer::load(string filename) {
 						// add repeating unset_status
 						string repeat_val = infile.nextValue();
 						while (repeat_val != "") {
-							events[event_count-1].comp_num++;
-							e = &events[event_count-1].components[events[event_count-1].comp_num];
+							events.back().comp_num++;
+							e = &events.back().components[events.back().comp_num];
 							e->type = infile.key;
 							e->s = repeat_val;
 
@@ -538,8 +473,8 @@ int MapRenderer::load(string filename) {
 						// add repeating remove_item
 						string repeat_val = infile.nextValue();
 						while (repeat_val != "") {
-							events[event_count-1].comp_num++;
-							e = &events[event_count-1].components[events[event_count-1].comp_num];
+							events.back().comp_num++;
+							e = &events.back().components[events.back().comp_num];
 							e->type = infile.key;
 							e->x = atoi(repeat_val.c_str());
 
@@ -561,8 +496,8 @@ int MapRenderer::load(string filename) {
 						// add repeating spawn
 						string repeat_val = infile.nextValue();
 						while (repeat_val != "") {
-							events[event_count-1].comp_num++;
-							e = &events[event_count-1].components[events[event_count-1].comp_num];
+							events.back().comp_num++;
+							e = &events.back().components[events.back().comp_num];
 							e->type = infile.key;
 
 							e->s = repeat_val;
@@ -572,8 +507,7 @@ int MapRenderer::load(string filename) {
 							repeat_val = infile.nextValue();
 						}
 					}
-
-					events[event_count-1].comp_num++;
+					events.back().comp_num++;
 				}
 			}
 		}
@@ -632,56 +566,53 @@ void MapRenderer::logic() {
  * Sort in the same order as the tiles are drawn
  * Depends upon the map implementation
  */
-int zcompare_iso(const void * elem1, const void * elem2) {
-	const Renderable *r1 = static_cast<const Renderable*>(elem1);
-	const Renderable *r2 = static_cast<const Renderable*>(elem2);
-	if (r1->tile.y + r1->tile.x > r2->tile.y + r2->tile.x)
-		return 1;
-	else if (r1->tile.y + r1->tile.x == r2->tile.y + r2->tile.x) {
-		if (r1->tile.x > r2->tile.x)
-			return 1;
-		else if (r1->tile.x == r2->tile.x) {
-			
+bool zcompare_iso(const Renderable &r1, const Renderable &r2) {
+	if (r1.tile.y + r1.tile.x > r2.tile.y + r2.tile.x)
+		return false;
+	else if (r1.tile.y + r1.tile.x == r2.tile.y + r2.tile.x) {
+		if (r1.tile.x > r2.tile.x)
+			return false;
+		else if (r1.tile.x == r2.tile.x) {
+
 			// same tile, sort by subtile
-			if (r1->map_pos.x + r1->map_pos.y > r2->map_pos.x + r2->map_pos.y)
-				return 1;
+			if (r1.map_pos.x + r1.map_pos.y > r2.map_pos.x + r2.map_pos.y)
+				return false;
 
 		}
 	}
-	return -1;
+	return true;
 }
 
-int zcompare_ortho(const void * elem1, const void * elem2) {
-	const Renderable *r1 = static_cast<const Renderable*>(elem1);
-	const Renderable *r2 = static_cast<const Renderable*>(elem2);
-	if (r1->tile.y > r2->tile.y)
-		return 1;
-	else if (r1->tile.y == r2->tile.y) {
-		if (r1->tile.x > r2->tile.x)
-			return 1;
+bool zcompare_ortho(const Renderable &r1, const Renderable &r2) {
+	if (r1.tile.y > r2.tile.y)
+		return false;
+	else if (r1.tile.y == r2.tile.y) {
+		if (r1.tile.x > r2.tile.x)
+			return false;
 		else
-			if (r1->map_pos.x + r1->map_pos.y > r2->map_pos.x + r2->map_pos.y)
-				return 1;
+			if (r1.map_pos.x + r1.map_pos.y > r2.map_pos.x + r2.map_pos.y)
+				return false;
 	}
-	return 0;
+	return true;
 }
 
-void MapRenderer::render(Renderable r[], int rnum) {
-	for (int i=0; i<rnum; i++) {
+void MapRenderer::render(vector<Renderable> &r) {
+	vector<Renderable>::iterator it;
+	for (it = r.begin(); it != r.end(); it++) {
 		// calculate tile
-		r[i].tile.x = r[i].map_pos.x >> TILE_SHIFT;
-		r[i].tile.y = r[i].map_pos.y >> TILE_SHIFT;
+		it->tile.x = it->map_pos.x >> TILE_SHIFT;
+		it->tile.y = it->map_pos.y >> TILE_SHIFT;
 	}
 	if (TILESET_ORIENTATION == TILESET_ORTHOGONAL) {
-		qsort(r, rnum, sizeof(Renderable), zcompare_ortho);
-		renderOrtho(r, rnum);
+		std::sort(r.begin(), r.end(), zcompare_ortho);
+		renderOrtho(r);
 	} else {
-		qsort(r, rnum, sizeof(Renderable), zcompare_iso);
-		renderIso(r, rnum);
+		std::sort(r.begin(), r.end(), zcompare_iso);
+		renderIso(r);
 	}
 }
 
-void MapRenderer::renderIso(Renderable r[], int rnum) {
+void MapRenderer::renderIso(vector<Renderable> &r) {
 
 	// r will become a list of renderables.  Everything not on the map already:
 	// - hero
@@ -744,22 +675,24 @@ void MapRenderer::renderIso(Renderable r[], int rnum) {
 	}
 
 	// some renderables are drawn above the background and below the objects
-	for (int ri = 0; ri < rnum; ri++) {
-		if (!r[ri].object_layer) {
-			Point p = map_to_screen(r[ri].map_pos.x, r[ri].map_pos.y, shakycam.x, shakycam.y);
-			dest.x = p.x - r[ri].offset.x;
-			dest.y = p.y - r[ri].offset.y;
-			SDL_BlitSurface(r[ri].sprite, &r[ri].src, screen, &dest);
+	vector<Renderable>::iterator it;
+	for (it = r.begin(); it != r.end(); it++) {
+		if (!it->object_layer) {
+			Point p = map_to_screen(it->map_pos.x, it->map_pos.y, shakycam.x, shakycam.y);
+			dest.x = p.x - it->offset.x;
+			dest.y = p.y - it->offset.y;
+			SDL_BlitSurface(it->sprite, &(it->src), screen, &dest);
 		}
 	}
 
-	int r_cursor = 0;
+	vector<Renderable>::iterator r_cursor = r.begin();
+	vector<Renderable>::iterator r_end = r.end();
 
 	// object layer
 	j = upperright.y / UNITS_PER_TILE;
 	i = upperright.x / UNITS_PER_TILE - tiles_outside_ofscreen;
 
-	while (r_cursor < rnum && (r[r_cursor].tile.x + r[r_cursor].tile.y < i + j || r[r_cursor].tile.x < i))
+	while (r_cursor != r_end && (r_cursor->tile.x + r_cursor->tile.y < i + j || r_cursor->tile.x < i))
 		r_cursor++;
 
 	for (unsigned short y = max_tiles_height ; y; --y) {
@@ -781,13 +714,13 @@ void MapRenderer::renderIso(Renderable r[], int rnum) {
 			}
 
 			// some renderable entities go in this layer
-			while (r[r_cursor].tile.x == i && r[r_cursor].tile.y == j && r_cursor < rnum) {
-				if (r[r_cursor].object_layer) {
+			while (r_cursor->tile.x == i && r_cursor->tile.y == j && r_cursor != r_end) {
+				if (r_cursor->object_layer) {
 					// draw renderable
-					Point p = map_to_screen(r[r_cursor].map_pos.x, r[r_cursor].map_pos.y, shakycam.x, shakycam.y);
-					dest.x = p.x - r[r_cursor].offset.x;
-					dest.y = p.y - r[r_cursor].offset.y;
-					SDL_BlitSurface(r[r_cursor].sprite, &r[r_cursor].src, screen, &dest);
+					Point p = map_to_screen(r_cursor->map_pos.x, r_cursor->map_pos.y, shakycam.x, shakycam.y);
+					dest.x = p.x - r_cursor->offset.x;
+					dest.y = p.y - r_cursor->offset.y;
+					SDL_BlitSurface(r_cursor->sprite, &(r_cursor->src), screen, &dest);
 				}
 				r_cursor++;
 			}
@@ -798,7 +731,7 @@ void MapRenderer::renderIso(Renderable r[], int rnum) {
 			i++;
 		else
 			j++;
-		while (r_cursor < rnum && (r[r_cursor].tile.x + r[r_cursor].tile.y < i + j || r[r_cursor].tile.x <= i))
+		while (r_cursor != r_end && (r_cursor->tile.x + r_cursor->tile.y < i + j || r_cursor->tile.x <= i))
 			r_cursor++;
 	}
 	//render event tooltips
@@ -806,7 +739,7 @@ void MapRenderer::renderIso(Renderable r[], int rnum) {
 
 }
 
-void MapRenderer::renderOrtho(Renderable r[], int rnum) {
+void MapRenderer::renderOrtho(vector<Renderable> &r) {
 
 	// r will become a list of renderables.  Everything not on the map already:
 	// - hero
@@ -851,17 +784,19 @@ void MapRenderer::renderOrtho(Renderable r[], int rnum) {
 
 
 	// some renderables are drawn above the background and below the objects
-	for (int ri = 0; ri < rnum; ri++) {
-		if (!r[ri].object_layer) {
+	vector<Renderable>::iterator it;
+	for (it = r.begin(); it != r.end(); it++) {
+		if (!it->object_layer) {
 			// draw renderable
-			Point p = map_to_screen(r[ri].map_pos.x, r[ri].map_pos.y, shakycam.x, shakycam.y);
-			dest.x = p.x - r[ri].offset.x;
-			dest.y = p.y - r[ri].offset.y;
-			SDL_BlitSurface(r[ri].sprite, &r[ri].src, screen, &dest);
+			Point p = map_to_screen(it->map_pos.x, it->map_pos.y, shakycam.x, shakycam.y);
+			dest.x = p.x - it->offset.x;
+			dest.y = p.y - it->offset.y;
+			SDL_BlitSurface(it->sprite, &it->src, screen, &dest);
 		}
 	}
 
-	unsigned short r_cursor = 0;
+	vector<Renderable>::iterator r_cursor = r.begin();
+	vector<Renderable>::iterator r_end = r.end();
 
 	// todo: trim by screen rect
 	// object layer
@@ -879,13 +814,13 @@ void MapRenderer::renderOrtho(Renderable r[], int rnum) {
 			}
 
 			// some renderable entities go in this layer
-			while (r_cursor < rnum && r[r_cursor].tile.x == i && r[r_cursor].tile.y == j) {
-				if (r[r_cursor].object_layer) {
+			while (r_cursor != r_end && r_cursor->tile.x == i && r_cursor->tile.y == j) {
+				if (r_cursor->object_layer) {
 					// draw renderable
-					Point p = map_to_screen(r[r_cursor].map_pos.x, r[r_cursor].map_pos.y, shakycam.x, shakycam.y);
-					dest.x = p.x - r[r_cursor].offset.x;
-					dest.y = p.y - r[r_cursor].offset.y;
-					SDL_BlitSurface(r[r_cursor].sprite, &r[r_cursor].src, screen, &dest);
+					Point p = map_to_screen(r_cursor->map_pos.x, r_cursor->map_pos.y, shakycam.x, shakycam.y);
+					dest.x = p.x - r_cursor->offset.x;
+					dest.y = p.y - r_cursor->offset.y;
+					SDL_BlitSurface(r_cursor->sprite, &r_cursor->src, screen, &dest);
 				}
 
 				r_cursor++;
@@ -902,12 +837,14 @@ void MapRenderer::checkEvents(Point loc) {
 	Point maploc;
 	maploc.x = loc.x >> TILE_SHIFT;
 	maploc.y = loc.y >> TILE_SHIFT;
-	for (int i=0; i<event_count; i++) {
-		if (maploc.x >= events[i].location.x &&
-			maploc.y >= events[i].location.y &&
-			maploc.x <= events[i].location.x + events[i].location.w-1 &&
-			maploc.y <= events[i].location.y + events[i].location.h-1) {
-			executeEvent(i);
+	vector<Map_Event>::iterator it;
+	for (it = events.begin(); it != events.end(); it++) {
+		if (maploc.x >= (*it).location.x &&
+			maploc.y >= (*it).location.y &&
+			maploc.x <= (*it).location.x + (*it).location.w-1 &&
+			maploc.y <= (*it).location.y + (*it).location.h-1) {
+			if (executeEvent(*it))
+				events.erase(it);
 		}
 	}
 }
@@ -915,34 +852,42 @@ void MapRenderer::checkEvents(Point loc) {
 void MapRenderer::checkEventClick() {
 	Point p;
 	SDL_Rect r;
-	for(int i=0; i<event_count; i++) {
-		p = map_to_screen(events[i].location.x * UNITS_PER_TILE + UNITS_PER_TILE/2, events[i].location.y * UNITS_PER_TILE + UNITS_PER_TILE/2, cam.x, cam.y);
-		r.x = p.x + events[i].hotspot.x;
-		r.y = p.y + events[i].hotspot.y;
-		r.h = events[i].hotspot.h;
-		r.w = events[i].hotspot.w;
+	vector<Map_Event>::iterator it;
+	for (it = events.begin(); it != events.end(); it++) {
+		p = map_to_screen((*it).location.x * UNITS_PER_TILE + UNITS_PER_TILE/2, (*it).location.y * UNITS_PER_TILE + UNITS_PER_TILE/2, cam.x, cam.y);
+		r.x = p.x + (*it).hotspot.x;
+		r.y = p.y + (*it).hotspot.y;
+		r.h = (*it).hotspot.h;
+		r.w = (*it).hotspot.w;
 		// execute if: EVENT IS ACTIVE && MOUSE IN HOTSPOT && HOTSPOT EXISTS && CLICKING && HERO WITHIN RANGE
-		if (isActive(i) && isWithin(r, inpt->mouse) && (events[i].hotspot.h != 0) && inpt->pressing[MAIN1] && !inpt->lock[MAIN1] && (abs(cam.x - events[i].location.x * UNITS_PER_TILE) < CLICK_RANGE && abs(cam.y - events[i].location.y * UNITS_PER_TILE) < CLICK_RANGE)) {
+		if (isActive(*it)
+				&& isWithin(r, inpt->mouse)
+				&& ((*it).hotspot.h != 0)
+				&& inpt->pressing[MAIN1]
+				&& !inpt->lock[MAIN1]
+				&& (abs(cam.x - (*it).location.x * UNITS_PER_TILE) < CLICK_RANGE
+				&& abs(cam.y - (*it).location.y * UNITS_PER_TILE) < CLICK_RANGE)) {
 			inpt->lock[MAIN1] = true;
-			executeEvent(i);
+			if (executeEvent(*it))
+				events.erase(it);
 		}
 	}
 }
 
-bool MapRenderer::isActive(int eventid){
-	for (int i=0; i < events[eventid].comp_num; i++) {
-		if (events[eventid].components[i].type == "requires_not") {
-			if (camp->checkStatus(events[eventid].components[i].s)) {
+bool MapRenderer::isActive(const Map_Event &e){
+	for (int i=0; i < e.comp_num; i++) {
+		if (e.components[i].type == "requires_not") {
+			if (camp->checkStatus(e.components[i].s)) {
 				return false;
 			}
 		}
-		else if (events[eventid].components[i].type == "requires_status") {
-			if (!camp->checkStatus(events[eventid].components[i].s)) {
+		else if (e.components[i].type == "requires_status") {
+			if (!camp->checkStatus(e.components[i].s)) {
 				return false;
 			}
 		}
-		else if (events[eventid].components[i].type == "requires_item") {
-			if (!camp->checkItem(events[eventid].components[i].x)) {
+		else if (e.components[i].type == "requires_item") {
+			if (!camp->checkItem(e.components[i].x)) {
 				return false;
 			}
 		}
@@ -956,20 +901,18 @@ void MapRenderer::checkTooltip() {
 	Point tip_pos;
 	bool skip;
 
-	for (int i=0; i<event_count; i++) {
-		skip = false;
-		if(!isActive(i)) skip = true;
+	vector<Map_Event>::iterator it;
+	for (it = events.begin(); it != events.end(); it++) {
+		if(!isActive(*it)) continue;
 
-		if (skip) continue;
-
-		p = map_to_screen(events[i].location.x * UNITS_PER_TILE + UNITS_PER_TILE/2, events[i].location.y * UNITS_PER_TILE + UNITS_PER_TILE/2, cam.x, cam.y);
-		r.x = p.x + events[i].hotspot.x;
-		r.y = p.y + events[i].hotspot.y;
-		r.h = events[i].hotspot.h;
-		r.w = events[i].hotspot.w;
+		p = map_to_screen((*it).location.x * UNITS_PER_TILE + UNITS_PER_TILE/2, (*it).location.y * UNITS_PER_TILE + UNITS_PER_TILE/2, cam.x, cam.y);
+		r.x = p.x + (*it).hotspot.x;
+		r.y = p.y + (*it).hotspot.y;
+		r.h = (*it).hotspot.h;
+		r.w = (*it).hotspot.w;
 
 		// DEBUG TOOL: outline hotspot
-		/*
+#ifdef DEBUG
 		SDL_Rect screen_size;
 		screen_size.x = screen_size.y = 0;
 		screen_size.w = VIEW_W;
@@ -991,15 +934,15 @@ void MapRenderer::checkTooltip() {
 		pixpos.y = r.y+r.h;
 		if (isWithin(screen_size, pixpos))
 			drawPixel(screen, r.x+r.w, r.y+r.h, 255);
-		*/
+#endif
 
-		if (isWithin(r,inpt->mouse) && events[i].tooltip != "") {
+		if (isWithin(r,inpt->mouse) && (*it).tooltip != "") {
 
 			// new tooltip?
-			if (tip_buf.lines[0] != events[i].tooltip) {
+			if (tip_buf.lines[0] != (*it).tooltip) {
 				tip_buf.clear();
 				tip_buf.num_lines = 1;
-				tip_buf.lines[0] = events[i].tooltip;
+				tip_buf.lines[0] = (*it).tooltip;
 			}
 
 			tip_pos.x = r.x + r.w/2;
@@ -1011,25 +954,26 @@ void MapRenderer::checkTooltip() {
 
 /**
  * A particular event has been triggered.
- * Process all of this event's components.
+ * Process all of this events components.
  *
- * @param eid The triggered event id
+ * @param The triggered event
+ * @return Returns true if the event shall not be run again.
  */
-void MapRenderer::executeEvent(int eid) {
-	Event_Component *ec;
+bool MapRenderer::executeEvent(Map_Event &ev) {
+	const Event_Component *ec;
 	bool destroy_event = false;
 
-	for (int i=0; i<events[eid].comp_num; i++) {
-		ec = &events[eid].components[i];
+	for (int i=0; i<ev.comp_num; i++) {
+		ec = &ev.components[i];
 
 		if (ec->type == "requires_status") {
-			if (!camp->checkStatus(ec->s)) return;
+			if (!camp->checkStatus(ec->s)) return false;
 		}
 		else if (ec->type == "requires_not") {
-			if (camp->checkStatus(ec->s)) return;
+			if (camp->checkStatus(ec->s)) return false;
 		}
 		else if (ec->type == "requires_item") {
-			if (!camp->checkItem(ec->x)) return;
+			if (!camp->checkItem(ec->x)) return false;
 		}
 		else if (ec->type == "set_status") {
 			camp->setStatus(ec->s);
@@ -1094,7 +1038,7 @@ void MapRenderer::executeEvent(int eid) {
 		}
 		else if (ec->type == "power") {
 
-			if (events[eid].cooldown_ticks > 0) events[eid].cooldown_ticks--;
+			if (ev.cooldown_ticks > 0) ev.cooldown_ticks--;
 			else {
 
 				int power_index = ec->x;
@@ -1102,30 +1046,31 @@ void MapRenderer::executeEvent(int eid) {
 				// TODO: delete this without breaking hazards, takeHit, etc.
 				StatBlock *dummy = new StatBlock();
 				dummy->accuracy = 1000; //always hits its target
-				dummy->pos.x = events[eid].power_src.x * UNITS_PER_TILE;
-				dummy->pos.y = events[eid].power_src.y * UNITS_PER_TILE;
-				dummy->dmg_melee_min = dummy->dmg_ranged_min = dummy->dmg_ment_min = events[eid].damagemin;
-				dummy->dmg_melee_max = dummy->dmg_ranged_max = dummy->dmg_ment_max = events[eid].damagemax;
+				dummy->pos.x = ev.power_src.x * UNITS_PER_TILE;
+				dummy->pos.y = ev.power_src.y * UNITS_PER_TILE;
+				dummy->dmg_melee_min = dummy->dmg_ranged_min = dummy->dmg_ment_min = ev.damagemin;
+				dummy->dmg_melee_max = dummy->dmg_ranged_max = dummy->dmg_ment_max = ev.damagemax;
 
 				Point target;
-				if (events[eid].targetHero) {
+				if (ev.targetHero) {
 					target.x = cam.x;
 					target.y = cam.y;
 				}
 				else {
-					target.x = events[eid].power_dest.x * UNITS_PER_TILE;
-					target.y = events[eid].power_dest.y * UNITS_PER_TILE;
+					target.x = ev.power_dest.x * UNITS_PER_TILE;
+					target.y = ev.power_dest.y * UNITS_PER_TILE;
 				}
 
-				events[eid].cooldown_ticks = events[eid].power_cooldown;
+				ev.cooldown_ticks = ev.power_cooldown;
 				powers->activate(power_index, dummy, target);
 			}
 
 		}
 	}
-	if (events[eid].type == "run_once" || destroy_event) {
-		removeEvent(eid);
-	}
+	if (ev.type == "run_once" || destroy_event)
+		return true;
+	else
+		return false;
 }
 
 MapRenderer::~MapRenderer() {

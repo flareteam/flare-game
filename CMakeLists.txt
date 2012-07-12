@@ -27,7 +27,11 @@ endif()
 set(BINDIR  "games"             CACHE STRING "Directory from CMAKE_INSTALL_PREFIX where game executable will be installed.")
 set(DATADIR "share/games/flare" CACHE STRING "Directory from CMAKE_INSTALL_PREFIX where game data files will be installed.")
 
-add_definitions(-DDATA_INSTALL_DIR="${CMAKE_INSTALL_PREFIX}/${DATADIR}")
+If(NOT IS_ABSOLUTE "${DATADIR}")
+	add_definitions(-DDATA_INSTALL_DIR="${CMAKE_INSTALL_PREFIX}/${DATADIR}")
+Else(NOT IS_ABSOLUTE "${DATADIR}")
+	add_definitions(-DDATA_INSTALL_DIR="${DATADIR}")
+EndIf(NOT IS_ABSOLUTE "${DATADIR}")
 
 # Detect missing dependencies
 
@@ -99,8 +103,6 @@ Set (FLARE_SOURCES
 	./src/MenuConfirm.cpp
 	./src/MenuEnemy.cpp
 	./src/MenuExit.cpp
-	./src/MenuExperience.cpp
-	./src/MenuHPMP.cpp
 	./src/MenuHUDLog.cpp
 	./src/MenuInventory.cpp
 	./src/MenuItemStorage.cpp
@@ -108,6 +110,7 @@ Set (FLARE_SOURCES
 	./src/MenuManager.cpp
 	./src/MenuMiniMap.cpp
 	./src/MenuPowers.cpp
+	./src/MenuStatBar.cpp
 	./src/MenuTalker.cpp
 	./src/MenuVendor.cpp
 	./src/MessageEngine.cpp
@@ -165,10 +168,10 @@ configure_file("${CMAKE_CURRENT_SOURCE_DIR}/distribution/flare.desktop.in" "${CM
 # installing to the proper places
 install(PROGRAMS
   ${CMAKE_CURRENT_BINARY_DIR}/flare
-  DESTINATION ${CMAKE_INSTALL_PREFIX}/${BINDIR})
+  DESTINATION ${BINDIR})
 install(DIRECTORY
   "${CMAKE_CURRENT_SOURCE_DIR}/mods"
-  DESTINATION ${CMAKE_INSTALL_PREFIX}/${DATADIR})
+  DESTINATION ${DATADIR})
 install(FILES
   "${CMAKE_CURRENT_BINARY_DIR}/flare.desktop"
   DESTINATION ${CMAKE_INSTALL_PREFIX}/share/applications)
