@@ -37,7 +37,7 @@ struct Power_UI {
 	Point pos;
 };
 
-class MenuPowers {
+class MenuPowers : public Menu {
 private:
 	StatBlock *stats;
 	PowerManager *powers;
