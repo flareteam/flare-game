@@ -56,10 +56,6 @@ private:
 	int points_left;
 
 	WidgetLabel label_powers;
-	WidgetLabel stat_po;
-	WidgetLabel stat_pd;
-	WidgetLabel stat_mo;
-	WidgetLabel stat_md;
 	WidgetLabel stat_up;
 
 	void loadGraphics();

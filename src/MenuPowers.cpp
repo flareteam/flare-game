@@ -95,11 +95,6 @@ void MenuPowers::update() {
 
 	label_powers.set(window_area.x+160, window_area.y+8, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Powers"), FONT_WHITE);
 
-	stat_po.set(window_area.x+64, window_area.y+34, JUSTIFY_CENTER, VALIGN_TOP, "", FONT_WHITE);
-	stat_pd.set(window_area.x+128, window_area.y+34, JUSTIFY_CENTER, VALIGN_TOP, "", FONT_WHITE);
-	stat_mo.set(window_area.x+192, window_area.y+34, JUSTIFY_CENTER, VALIGN_TOP, "", FONT_WHITE);
-	stat_md.set(window_area.x+256, window_area.y+34, JUSTIFY_CENTER, VALIGN_TOP, "", FONT_WHITE);
-
 	closeButton->pos.x = window_area.x+close_pos.x;
 	closeButton->pos.y = window_area.y+close_pos.y;
 
