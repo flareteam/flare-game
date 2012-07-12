@@ -134,6 +134,7 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 	vendor->update();
 	talker->update();
 	exit->update();
+	chr->update();
 	pow->update();
 
 	pause = false;
