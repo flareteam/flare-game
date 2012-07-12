@@ -110,8 +110,9 @@ void MenuPowers::update() {
 void MenuPowers::loadGraphics() {
 
 	background = IMG_Load(mods->locate("images/menus/powers.png").c_str());
+	powers_tree = IMG_Load(mods->locate("images/menus/powers_tree.png").c_str());
 	powers_unlock = IMG_Load(mods->locate("images/menus/powers_unlock.png").c_str());
-	if(!background || !powers_unlock) {
+	if(!background || !powers_tree || !powers_unlock) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 		SDL_Quit();
 	}
@@ -119,6 +120,10 @@ void MenuPowers::loadGraphics() {
 	// optimize
 	SDL_Surface *cleanup = background;
 	background = SDL_DisplayFormatAlpha(background);
+	SDL_FreeSurface(cleanup);
+
+	cleanup = powers_tree;
+	powers_tree = SDL_DisplayFormatAlpha(powers_tree);
 	SDL_FreeSurface(cleanup);
 
 	cleanup = powers_unlock;
@@ -213,6 +218,7 @@ void MenuPowers::render() {
 	src.w = dest.w = 320;
 	src.h = dest.h = 416;
 	SDL_BlitSurface(background, &src, screen, &dest);
+	SDL_BlitSurface(powers_tree, &src, screen, &dest);
 
 	// power icons
 	for (int i=0; i<20; i++) {
