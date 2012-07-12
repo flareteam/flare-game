@@ -146,7 +146,7 @@ void LootManager::calcTables() {
 
 	int level;
 
-	for (int i=0; i<1024; i++) {
+	for (unsigned int i=0; i<items->items.size(); i++) {
 		level = items->items[i].level;
 		if (level > 0) {
 			if (items->items[i].quality == ITEM_QUALITY_LOW) {
