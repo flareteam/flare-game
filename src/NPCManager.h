@@ -29,6 +29,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include <SDL.h>
 
+#include <vector>
+
 class ItemManager;
 class LootManager;
 class MapRenderer;
@@ -51,6 +53,7 @@ public:
 	NPC *npcs[MAX_NPC_COUNT];
 	void handleNewMap();
 	void logic();
+	void addRenders(std::vector<Renderable> &r);
 	int checkNPCClick(Point mouse, Point cam);
 	void renderTooltips(Point cam, Point mouse);
 	int npc_count;
