@@ -54,6 +54,12 @@ MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_i
 		power_cell[i].requires_mentoff = 0;
 		power_cell[i].requires_physoff = 0;
 		power_cell[i].requires_physdef = 0;
+		power_cell[i].requires_defense = 0;
+		power_cell[i].requires_offense = 0;
+		power_cell[i].requires_physical = 0;
+		power_cell[i].requires_mental = 0;
+		power_cell[i].requires_level = 0;
+		power_cell[i].requires_power = -1;
 		power_cell[i].requires_point = false;
 
 		plusButton[i] = new WidgetButton(mods->locate("images/menus/buttons/button_plus.png"));
@@ -82,8 +88,20 @@ MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_i
 			power_cell[counter].requires_mentoff = eatFirstInt(infile.val, ',');
 		} else if (infile.key == "requires_mentdef") {
 			power_cell[counter].requires_mentdef = eatFirstInt(infile.val, ',');
+		} else if (infile.key == "requires_defense") {
+			power_cell[counter].requires_defense = eatFirstInt(infile.val, ',');
+		} else if (infile.key == "requires_offense") {
+			power_cell[counter].requires_offense = eatFirstInt(infile.val, ',');
+		} else if (infile.key == "requires_physical") {
+			power_cell[counter].requires_physical = eatFirstInt(infile.val, ',');
+		} else if (infile.key == "requires_mental") {
+			power_cell[counter].requires_mental = eatFirstInt(infile.val, ',');
 		} else if (infile.key == "requires_point") {
 			if (infile.val == "true,") power_cell[counter].requires_point = true;
+		} else if (infile.key == "requires_level") {
+			power_cell[counter].requires_level = eatFirstInt(infile.val, ',');
+		} else if (infile.key == "requires_power") {
+			power_cell[counter].requires_power = eatFirstInt(infile.val, ',');
 		} else if (infile.key == "closebutton_pos") {
 			close_pos.x = eatFirstInt(infile.val, ',');
 			close_pos.y = eatFirstInt(infile.val, ',');
@@ -160,6 +178,11 @@ void MenuPowers::renderIcon(int icon_id, int x, int y) {
  * With great power comes great stat requirements.
  */
 bool MenuPowers::requirementsMet(int power_index) {
+
+	// power_index can be -1 during recursive call if requires_power is not defined.
+	// Power with index -1 doesn't exist and is always enabled
+	if (power_index == -1) return true;
+
 	// Find cell with our power
 	int id;
 	for (int i=0; i<20; i++) {
@@ -177,6 +200,12 @@ bool MenuPowers::requirementsMet(int power_index) {
 		(stats->physdef >= power_cell[id].requires_physdef) &&
 		(stats->mentoff >= power_cell[id].requires_mentoff) &&
 		(stats->mentdef >= power_cell[id].requires_mentdef) &&
+		(stats->get_defense() >= power_cell[id].requires_defense) &&
+		(stats->get_offense() >= power_cell[id].requires_offense) &&
+		(stats->get_physical() >= power_cell[id].requires_physical) &&
+		(stats->get_mental() >= power_cell[id].requires_mental) &&
+		(stats->level >= power_cell[id].requires_level) &&
+		 requirementsMet(power_cell[id].requires_power) &&
 		!power_cell[id].requires_point) return true;
 	return false;
 }
@@ -185,6 +214,11 @@ bool MenuPowers::requirementsMet(int power_index) {
  * Check if we can unlock power.
  */
 bool MenuPowers::powerUnlockable(int power_index) {
+
+	// power_index can be -1 during recursive call if requires_power is not defined.
+	// Power with index -1 doesn't exist and is always enabled
+	if (power_index == -1) return true;
+
 	// Find cell with our power
 	int id;
 	for (int i=0; i<20; i++) {
@@ -198,7 +232,13 @@ bool MenuPowers::powerUnlockable(int power_index) {
 	if ((stats->physoff >= power_cell[id].requires_physoff) &&
 		(stats->physdef >= power_cell[id].requires_physdef) &&
 		(stats->mentoff >= power_cell[id].requires_mentoff) &&
-		(stats->mentdef >= power_cell[id].requires_mentdef)) return true;
+		(stats->mentdef >= power_cell[id].requires_mentdef) &&
+		(stats->get_defense() >= power_cell[id].requires_defense) &&
+		(stats->get_offense() >= power_cell[id].requires_offense) &&
+		(stats->get_physical() >= power_cell[id].requires_physical) &&
+		(stats->get_mental() >= power_cell[id].requires_mental) &&
+		(stats->level >= power_cell[id].requires_level) &&
+		 requirementsMet(power_cell[id].requires_power)) return true;
 	return false;
 }
 

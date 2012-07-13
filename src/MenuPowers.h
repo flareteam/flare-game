@@ -41,6 +41,12 @@ struct Power_Menu_Cell {
 	int requires_physdef;
 	int requires_mentoff;
 	int requires_mentdef;
+	int requires_defense;
+	int requires_offense;
+	int requires_physical;
+	int requires_mental;
+	int requires_level;
+	int requires_power;
 	bool requires_point;
 };
 
