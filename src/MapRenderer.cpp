@@ -567,12 +567,17 @@ void MapRenderer::logic() {
  * Depends upon the map implementation
  */
 bool zcompare_iso(const Renderable &r1, const Renderable &r2) {
-	if (r1.tile.y + r1.tile.x > r2.tile.y + r2.tile.x)
+	const int x1 = r1.tile.x;
+	const int x2 = r2.tile.x;
+	const int z1 = r1.tile.y + x1;
+	const int z2 = r2.tile.y + x2;
+	if (z1 > z2)
 		return false;
-	else if (r1.tile.y + r1.tile.x == r2.tile.y + r2.tile.x) {
-		if (r1.tile.x > r2.tile.x)
+	else if (z1 == z2) {
+		if (x1 > x2) {
 			return false;
-		else if (r1.tile.x == r2.tile.x) {
+		}
+		else if (x1 == x2) {
 			// same tile, sort by subtile
 			if (r1.map_pos.x + r1.map_pos.y >= r2.map_pos.x + r2.map_pos.y)
 				return false;
@@ -582,14 +587,21 @@ bool zcompare_iso(const Renderable &r1, const Renderable &r2) {
 }
 
 bool zcompare_ortho(const Renderable &r1, const Renderable &r2) {
-	if (r1.tile.y > r2.tile.y)
+	const int x1 = r1.tile.x;
+	const int x2 = r2.tile.x;
+	const int y1 = r1.tile.y;
+	const int y2 = r2.tile.y;
+	if (y1 > y2) {
 		return false;
-	else if (r1.tile.y == r2.tile.y) {
-		if (r1.tile.x > r2.tile.x)
+	}
+	else if (y1 == y2) {
+		if (x1 > x2) {
 			return false;
-		else
+		}
+		else if (x1 == x2) {
 			if (r1.map_pos.x + r1.map_pos.y >= r2.map_pos.x + r2.map_pos.y)
 				return false;
+		}
 	}
 	return true;
 }
