@@ -50,6 +50,7 @@ private:
 
 	MapRenderer *map;
 	Enemy *enemy;
+	Renderable r[1024];
 	int renderableCount;
 	HazardManager *hazards;
 	EnemyManager *enemies;

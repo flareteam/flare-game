@@ -546,38 +546,44 @@ void GameStatePlay::logic() {
 void GameStatePlay::render() {
 
 	// Create a list of Renderables from all objects not already on the map.
-	vector<Renderable> renderables;
+	renderableCount = 0;
 
-	renderables.push_back(pc->getRender()); // Avatar
+	r[renderableCount++] = pc->getRender(); // Avatar
 
-	enemies->addRenders(renderables);
-
-	for (int i=0; i<npcs->npc_count; i++) { // NPCs
-		renderables.push_back(npcs->npcs[i]->getRender());
+	for (unsigned int i=0; i<enemies->enemies.size(); i++) { // Enemies
+		r[renderableCount++] = enemies->getRender(i);
+		if (enemies->enemies[i]->stats.shield_hp > 0) {
+			r[renderableCount] = enemies->enemies[i]->stats.getEffectRender(STAT_EFFECT_SHIELD);
+			r[renderableCount++].sprite = powers->gfx[powers->powers[POWER_SHIELD].gfx_index]; // TODO: parameter
+		}
 	}
 
-	loot->addRenders(renderables);
+	for (int i=0; i<npcs->npc_count; i++) { // NPCs
+		r[renderableCount++] = npcs->npcs[i]->getRender();
+	}
+
+	for (int i=0; i<loot->loot_count; i++) { // Loot
+		r[renderableCount++] = loot->getRender(i);
+	}
 
 	for (int i=0; i<hazards->hazard_count; i++) { // Hazards
 		if (hazards->h[i]->rendered && hazards->h[i]->delay_frames == 0) {
-			renderables.push_back(hazards->getRender(i));
+			r[renderableCount++] = hazards->getRender(i);
 		}
 	}
 
 	// get additional hero overlays
 	if (pc->stats.shield_hp > 0) {
-		Renderable re = pc->stats.getEffectRender(STAT_EFFECT_SHIELD);
-		re.sprite = powers->gfx[powers->powers[POWER_SHIELD].gfx_index]; // TODO: parameter
-		renderables.push_back(re);
+		r[renderableCount] = pc->stats.getEffectRender(STAT_EFFECT_SHIELD);
+		r[renderableCount++].sprite = powers->gfx[powers->powers[POWER_SHIELD].gfx_index]; // TODO: parameter
 	}
 	if (pc->stats.vengeance_stacks > 0) {
-		Renderable re = pc->stats.getEffectRender(STAT_EFFECT_VENGEANCE);
-		re.sprite = powers->runes;
-		renderables.push_back(re);
+		r[renderableCount] = pc->stats.getEffectRender(STAT_EFFECT_VENGEANCE);
+		r[renderableCount++].sprite = powers->runes;
 	}
 
 	// render the static map layers plus the renderables
-	map->render(renderables);
+	map->render(r, renderableCount);
 
 	// display the name of the map in the upper-right hand corner
 	label_mapname->set(VIEW_W-2, 2, JUSTIFY_RIGHT, VALIGN_TOP, map->title, FONT_WHITE);

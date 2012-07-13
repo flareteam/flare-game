@@ -176,9 +176,9 @@ public:
 	int load(std::string filename);
 	void loadMusic();
 	void logic();
-	void render(std::vector<Renderable> &r);
-	void renderIso(std::vector<Renderable> &r);
-	void renderOrtho(std::vector<Renderable> &r);
+	void render(Renderable r[], int rnum);
+	void renderIso(Renderable r[], int rnum);
+	void renderOrtho(Renderable r[], int rnum);
 	void clearEvents();
 	void checkEvents(Point loc);
 	void checkEventClick();
