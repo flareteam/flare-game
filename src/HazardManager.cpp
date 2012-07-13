@@ -33,12 +33,13 @@ HazardManager::HazardManager(PowerManager *_powers, Avatar *_hero, EnemyManager 
 	powers = _powers;
 	hero = _hero;
 	enemies = _enemies;
+	hazard_count = 0;
 }
 
 void HazardManager::logic() {
 
 	// remove all hazards with lifespan 0.  Most hazards still display their last frame.
-	for (int i=h.size()-1; i>=0; i--) {
+	for (int i=hazard_count-1; i>=0; i--) {
 		if (h[i]->lifespan == 0)
 			expire(i);
 	}
@@ -46,7 +47,7 @@ void HazardManager::logic() {
 	checkNewHazards();
 
 	// handle single-frame transforms
-	for (int i=h.size()-1; i>=0; i--) {
+	for (int i=hazard_count-1; i>=0; i--) {
 		h[i]->logic();
 
 		// remove all hazards that need to die immediately (e.g. exit the map)
@@ -70,7 +71,7 @@ void HazardManager::logic() {
 	bool hit;
 
 	// handle collisions
-	for (unsigned int i=0; i<h.size(); i++) {
+	for (int i=0; i<hazard_count; i++) {
 		if (h[i]->active && h[i]->delay_frames==0 && (h[i]->active_frame == -1 || h[i]->active_frame == h[i]->frame)) {
 
 			// process hazards that can hurt enemies
@@ -130,33 +131,43 @@ void HazardManager::checkNewHazards() {
 		powers->hazards.pop();
 		new_haz->setCollision(collider);
 
-		h.push_back(new_haz);
+		h[hazard_count] = new_haz;
+		hazard_count++;
 	}
 
 	// check hero hazards
 	if (hero->haz != NULL) {
-		h.push_back(hero->haz);
+		h[hazard_count] = hero->haz;
+		hazard_count++;
 		hero->haz = NULL;
 	}
 
 	// check monster hazards
 	for (unsigned int eindex = 0; eindex < enemies->enemies.size(); eindex++) {
 		if (enemies->enemies[eindex]->haz != NULL) {
-			h.push_back(enemies->enemies[eindex]->haz);
+			h[hazard_count] = enemies->enemies[eindex]->haz;
+			hazard_count++;
 			enemies->enemies[eindex]->haz = NULL;
 		}
 	}
 }
 
 void HazardManager::expire(int index) {
-	h.erase(h.begin()+index);
+	// TODO: assert this instead?
+	if (index >= 0 && index < hazard_count) {
+		delete(h[index]);
+		for (int i=index; i<hazard_count-1; i++) {
+			h[i] = h[i+1];
+		}
+		hazard_count--;
+	}
 }
 
 /**
  * Reset all hazards and get new collision object
  */
 void HazardManager::handleNewMap(MapCollision *_collider) {
-	h.clear();
+	hazard_count = 0;
 	collider = _collider;
 }
 
@@ -166,7 +177,7 @@ void HazardManager::handleNewMap(MapCollision *_collider) {
  * to collect all mobile sprites each frame.
  */
 void HazardManager::addRenders(vector<Renderable> &r) {
-	for (unsigned int i=0; i<h.size(); i++) {
+	for (int i=0; i<hazard_count; i++) {
 		if (h[i]->rendered && h[i]->delay_frames == 0) {
 			Renderable re;
 			re.map_pos.x = round(h[i]->pos.x);
@@ -191,5 +202,7 @@ void HazardManager::addRenders(vector<Renderable> &r) {
 }
 
 HazardManager::~HazardManager() {
-	h.clear();
+	for (int i=0; i<hazard_count; i++) {
+		delete h[i];
+	}
 }
