@@ -550,20 +550,6 @@ void GameStatePlay::render() {
 
 	renderables.push_back(pc->getRender()); // Avatar
 
-	enemies->addRenders(renderables);
-
-	for (int i=0; i<npcs->npc_count; i++) { // NPCs
-		renderables.push_back(npcs->npcs[i]->getRender());
-	}
-
-	loot->addRenders(renderables);
-
-	for (int i=0; i<hazards->hazard_count; i++) { // Hazards
-		if (hazards->h[i]->rendered && hazards->h[i]->delay_frames == 0) {
-			renderables.push_back(hazards->getRender(i));
-		}
-	}
-
 	// get additional hero overlays
 	if (pc->stats.shield_hp > 0) {
 		Renderable re = pc->stats.getEffectRender(STAT_EFFECT_SHIELD);
@@ -575,6 +561,15 @@ void GameStatePlay::render() {
 		re.sprite = powers->runes;
 		renderables.push_back(re);
 	}
+
+	enemies->addRenders(renderables);
+
+	npcs->addRenders(renderables);
+
+	loot->addRenders(renderables);
+
+	hazards->addRenders(renderables);
+
 
 	// render the static map layers plus the renderables
 	map->render(renderables);

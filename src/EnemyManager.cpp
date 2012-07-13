@@ -284,7 +284,7 @@ void EnemyManager::checkEnemiesforXP(StatBlock *stats) {
 }
 
 /**
- * getRender()
+ * addRenders()
  * Map objects need to be drawn in Z order, so we allow a parent object (GameEngine)
  * to collect all mobile sprites each frame.
  *

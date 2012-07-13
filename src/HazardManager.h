@@ -20,11 +20,13 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  *
  * Holds the collection of hazards (active attacks, spells, etc) and handles group operations
  */
- 
+
 #ifndef HAZARD_MANAGER_H
 #define HAZARD_MANAGER_H
 
 #include "Utils.h"
+
+#include <vector>
 
 class Avatar;
 class EnemyManager;
@@ -45,8 +47,8 @@ public:
 	void expire(int index);
 	void checkNewHazards();
 	void handleNewMap(MapCollision *_collider);
-	Renderable getRender(int haz_id);
-	
+	void addRenders(std::vector<Renderable> &r);
+
 	int hazard_count;
 	Hazard *h[256];
 };
