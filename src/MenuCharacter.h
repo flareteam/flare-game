@@ -122,6 +122,7 @@ private:
 public:
 	MenuCharacter(StatBlock *stats);
 	~MenuCharacter();
+	void update();
 	void logic();
 	void render();
 	void refreshStats();
@@ -129,7 +130,7 @@ public:
 	bool checkUpgrade();
 
 	bool visible;
-    bool newPowerNotification;
+	bool newPowerNotification;
 
 };
 

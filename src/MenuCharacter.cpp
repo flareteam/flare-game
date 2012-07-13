@@ -40,16 +40,10 @@ MenuCharacter::MenuCharacter(StatBlock *_stats) {
 
 	loadGraphics();
 
-	int offset_y = (VIEW_H - 416)/2;
-
-	// button setup
 	closeButton = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
-	closeButton->pos.x = 294;
-	closeButton->pos.y = offset_y + 2;
 
 	// menu title
 	labelCharacter = new WidgetLabel();
-	labelCharacter->set(160, offset_y+16, JUSTIFY_CENTER, VALIGN_CENTER, msg->get("Character"), FONT_WHITE);
 
 	for (int i=0; i<CSTAT_COUNT; i++) {
 		cstat[i].label = new WidgetLabel();
@@ -63,67 +57,79 @@ MenuCharacter::MenuCharacter(StatBlock *_stats) {
 		cstat[i].hover.w = cstat[i].hover.h = 0;
 	}
 
+}
+
+void MenuCharacter::update() {
+	// TODO put item position info in a config file
+
+	// close button
+	closeButton->pos.x = window_area.x + 294;
+	closeButton->pos.y = window_area.y + 2;
+
+	// menu title
+	labelCharacter->set(window_area.x+window_area.w/2, window_area.y+16, JUSTIFY_CENTER, VALIGN_CENTER, msg->get("Character"), FONT_WHITE);
+
 	// setup static labels
-	cstat[CSTAT_NAME].label->set(72, offset_y+40, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("Name"), FONT_WHITE);
-	cstat[CSTAT_LEVEL].label->set(264, offset_y+40, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("Level"), FONT_WHITE);
-	cstat[CSTAT_PHYSICAL].label->set(40, offset_y+80, JUSTIFY_LEFT, VALIGN_CENTER, msg->get("Physical"), FONT_WHITE);
-	cstat[CSTAT_MENTAL].label->set(40, offset_y+144, JUSTIFY_LEFT, VALIGN_CENTER, msg->get("Mental"), FONT_WHITE);
-	cstat[CSTAT_OFFENSE].label->set(40, offset_y+208, JUSTIFY_LEFT, VALIGN_CENTER, msg->get("Offense"), FONT_WHITE);
-	cstat[CSTAT_DEFENSE].label->set(40, offset_y+272, JUSTIFY_LEFT, VALIGN_CENTER, msg->get("Defense"), FONT_WHITE);
-	cstat[CSTAT_HP].label->set(152, offset_y+112, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("Total HP"), FONT_WHITE);
-	cstat[CSTAT_HPREGEN].label->set(264, offset_y+112, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("Regen"), FONT_WHITE);
-	cstat[CSTAT_MP].label->set(152, offset_y+176, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("Total MP"), FONT_WHITE);
-	cstat[CSTAT_MPREGEN].label->set(264, offset_y+176, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("Regen"), FONT_WHITE);
-	cstat[CSTAT_ACCURACYV1].label->set(152, offset_y+240, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("Accuracy vs. Def 1"), FONT_WHITE);
-	cstat[CSTAT_ACCURACYV5].label->set(264, offset_y+240, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("vs. Def 5"), FONT_WHITE);
-	cstat[CSTAT_AVOIDANCEV1].label->set(152, offset_y+304, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("Avoidance vs. Off 1"), FONT_WHITE);
-	cstat[CSTAT_AVOIDANCEV5].label->set(264, offset_y+304, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("vs. Off 5"), FONT_WHITE);
-	cstat[CSTAT_DMGMAIN].label->set(136, offset_y+344, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("Main Weapon"), FONT_WHITE);
-	cstat[CSTAT_DMGRANGED].label->set(136, offset_y+360, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("Ranged Weapon"), FONT_WHITE);
-	cstat[CSTAT_CRIT].label->set(136, offset_y+376, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("Crit Chance"), FONT_WHITE);
-	cstat[CSTAT_ABSORB].label->set(264, offset_y+344, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("Absorb"), FONT_WHITE);
-	cstat[CSTAT_FIRERESIST].label->set(264, offset_y+360, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("Fire Resist"), FONT_WHITE);
-	cstat[CSTAT_ICERESIST].label->set(264, offset_y+376, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("Ice Resist"), FONT_WHITE);
+	cstat[CSTAT_NAME].label->set(window_area.x+72, window_area.y+40, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("Name"), FONT_WHITE);
+	cstat[CSTAT_LEVEL].label->set(window_area.x+264, window_area.y+40, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("Level"), FONT_WHITE);
+	cstat[CSTAT_PHYSICAL].label->set(window_area.x+40, window_area.y+80, JUSTIFY_LEFT, VALIGN_CENTER, msg->get("Physical"), FONT_WHITE);
+	cstat[CSTAT_MENTAL].label->set(window_area.x+40, window_area.y+144, JUSTIFY_LEFT, VALIGN_CENTER, msg->get("Mental"), FONT_WHITE);
+	cstat[CSTAT_OFFENSE].label->set(window_area.x+40, window_area.y+208, JUSTIFY_LEFT, VALIGN_CENTER, msg->get("Offense"), FONT_WHITE);
+	cstat[CSTAT_DEFENSE].label->set(window_area.x+40, window_area.y+272, JUSTIFY_LEFT, VALIGN_CENTER, msg->get("Defense"), FONT_WHITE);
+	cstat[CSTAT_HP].label->set(window_area.x+152, window_area.y+112, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("Total HP"), FONT_WHITE);
+	cstat[CSTAT_HPREGEN].label->set(window_area.x+264, window_area.y+112, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("Regen"), FONT_WHITE);
+	cstat[CSTAT_MP].label->set(window_area.x+152, window_area.y+176, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("Total MP"), FONT_WHITE);
+	cstat[CSTAT_MPREGEN].label->set(window_area.x+264, window_area.y+176, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("Regen"), FONT_WHITE);
+	cstat[CSTAT_ACCURACYV1].label->set(window_area.x+152, window_area.y+240, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("Accuracy vs. Def 1"), FONT_WHITE);
+	cstat[CSTAT_ACCURACYV5].label->set(window_area.x+264, window_area.y+240, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("vs. Def 5"), FONT_WHITE);
+	cstat[CSTAT_AVOIDANCEV1].label->set(window_area.x+152, window_area.y+304, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("Avoidance vs. Off 1"), FONT_WHITE);
+	cstat[CSTAT_AVOIDANCEV5].label->set(window_area.x+264, window_area.y+304, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("vs. Off 5"), FONT_WHITE);
+	cstat[CSTAT_DMGMAIN].label->set(window_area.x+136, window_area.y+344, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("Main Weapon"), FONT_WHITE);
+	cstat[CSTAT_DMGRANGED].label->set(window_area.x+136, window_area.y+360, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("Ranged Weapon"), FONT_WHITE);
+	cstat[CSTAT_CRIT].label->set(window_area.x+136, window_area.y+376, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("Crit Chance"), FONT_WHITE);
+	cstat[CSTAT_ABSORB].label->set(window_area.x+264, window_area.y+344, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("Absorb"), FONT_WHITE);
+	cstat[CSTAT_FIRERESIST].label->set(window_area.x+264, window_area.y+360, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("Fire Resist"), FONT_WHITE);
+	cstat[CSTAT_ICERESIST].label->set(window_area.x+264, window_area.y+376, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("Ice Resist"), FONT_WHITE);
 
 	// setup hotspot locations
-	cstat[CSTAT_NAME].setHover(80, offset_y+32, 104, 16);
-	cstat[CSTAT_LEVEL].setHover(272, offset_y+32, 32, 16);
-	cstat[CSTAT_PHYSICAL].setHover(16, offset_y+72, 16, 16);
-	cstat[CSTAT_MENTAL].setHover(16, offset_y+136, 16, 16);
-	cstat[CSTAT_OFFENSE].setHover(16, offset_y+200, 16, 16);
-	cstat[CSTAT_DEFENSE].setHover(16, offset_y+264, 16, 16);
-	cstat[CSTAT_HP].setHover(160, offset_y+104, 32, 16);
-	cstat[CSTAT_HPREGEN].setHover(272, offset_y+104, 32, 16);
-	cstat[CSTAT_MP].setHover(160, offset_y+168, 32, 16);
-	cstat[CSTAT_MPREGEN].setHover(272, offset_y+168, 32, 16);
-	cstat[CSTAT_ACCURACYV1].setHover(160, offset_y+232, 32, 16);
-	cstat[CSTAT_ACCURACYV5].setHover(272, offset_y+232, 32, 16);
-	cstat[CSTAT_AVOIDANCEV1].setHover(160, offset_y+296, 32, 16);
-	cstat[CSTAT_AVOIDANCEV5].setHover(272, offset_y+296, 32, 16);
-	cstat[CSTAT_DMGMAIN].setHover(144, offset_y+336, 32, 16);
-	cstat[CSTAT_DMGRANGED].setHover(144, offset_y+352, 32, 16);
-	cstat[CSTAT_CRIT].setHover(144, offset_y+368, 32, 16);
-	cstat[CSTAT_ABSORB].setHover(272, offset_y+336, 32, 16);
-	cstat[CSTAT_FIRERESIST].setHover(272, offset_y+352, 32, 16);
-	cstat[CSTAT_ICERESIST].setHover(272, offset_y+368, 32, 16);
-	cstat[CSTAT_UNSPENT].setHover(90, offset_y+392, 120, 16);
+	cstat[CSTAT_NAME].setHover(window_area.x+80, window_area.y+32, 104, 16);
+	cstat[CSTAT_LEVEL].setHover(window_area.x+272, window_area.y+32, 32, 16);
+	cstat[CSTAT_PHYSICAL].setHover(window_area.x+16, window_area.y+72, 16, 16);
+	cstat[CSTAT_MENTAL].setHover(window_area.x+16, window_area.y+136, 16, 16);
+	cstat[CSTAT_OFFENSE].setHover(window_area.x+16, window_area.y+200, 16, 16);
+	cstat[CSTAT_DEFENSE].setHover(window_area.x+16, window_area.y+264, 16, 16);
+	cstat[CSTAT_HP].setHover(window_area.x+160, window_area.y+104, 32, 16);
+	cstat[CSTAT_HPREGEN].setHover(window_area.x+272, window_area.y+104, 32, 16);
+	cstat[CSTAT_MP].setHover(window_area.x+160, window_area.y+168, 32, 16);
+	cstat[CSTAT_MPREGEN].setHover(window_area.x+272, window_area.y+168, 32, 16);
+	cstat[CSTAT_ACCURACYV1].setHover(window_area.x+160, window_area.y+232, 32, 16);
+	cstat[CSTAT_ACCURACYV5].setHover(window_area.x+272, window_area.y+232, 32, 16);
+	cstat[CSTAT_AVOIDANCEV1].setHover(window_area.x+160, window_area.y+296, 32, 16);
+	cstat[CSTAT_AVOIDANCEV5].setHover(window_area.x+272, window_area.y+296, 32, 16);
+	cstat[CSTAT_DMGMAIN].setHover(window_area.x+144, window_area.y+336, 32, 16);
+	cstat[CSTAT_DMGRANGED].setHover(window_area.x+144, window_area.y+352, 32, 16);
+	cstat[CSTAT_CRIT].setHover(window_area.x+144, window_area.y+368, 32, 16);
+	cstat[CSTAT_ABSORB].setHover(window_area.x+272, window_area.y+336, 32, 16);
+	cstat[CSTAT_FIRERESIST].setHover(window_area.x+272, window_area.y+352, 32, 16);
+	cstat[CSTAT_ICERESIST].setHover(window_area.x+272, window_area.y+368, 32, 16);
+	cstat[CSTAT_UNSPENT].setHover(window_area.x+90, window_area.y+392, 120, 16);
 
-	cprof[CPROF_P2].setHover(128, offset_y+64, 32, 32);
-	cprof[CPROF_P3].setHover(176, offset_y+64, 32, 32);
-	cprof[CPROF_P4].setHover(224, offset_y+64, 32, 32);
-	cprof[CPROF_P5].setHover(272, offset_y+64, 32, 32);
-	cprof[CPROF_M2].setHover(128, offset_y+128, 32, 32);
-	cprof[CPROF_M3].setHover(176, offset_y+128, 32, 32);
-	cprof[CPROF_M4].setHover(224, offset_y+128, 32, 32);
-	cprof[CPROF_M5].setHover(272, offset_y+128, 32, 32);
-	cprof[CPROF_O2].setHover(128, offset_y+192, 32, 32);
-	cprof[CPROF_O3].setHover(176, offset_y+192, 32, 32);
-	cprof[CPROF_O4].setHover(224, offset_y+192, 32, 32);
-	cprof[CPROF_O5].setHover(272, offset_y+192, 32, 32);
-	cprof[CPROF_D2].setHover(128, offset_y+256, 32, 32);
-	cprof[CPROF_D3].setHover(176, offset_y+256, 32, 32);
-	cprof[CPROF_D4].setHover(224, offset_y+256, 32, 32);
-	cprof[CPROF_D5].setHover(272, offset_y+256, 32, 32);
+	cprof[CPROF_P2].setHover(window_area.x+128, window_area.y+64, 32, 32);
+	cprof[CPROF_P3].setHover(window_area.x+176, window_area.y+64, 32, 32);
+	cprof[CPROF_P4].setHover(window_area.x+224, window_area.y+64, 32, 32);
+	cprof[CPROF_P5].setHover(window_area.x+272, window_area.y+64, 32, 32);
+	cprof[CPROF_M2].setHover(window_area.x+128, window_area.y+128, 32, 32);
+	cprof[CPROF_M3].setHover(window_area.x+176, window_area.y+128, 32, 32);
+	cprof[CPROF_M4].setHover(window_area.x+224, window_area.y+128, 32, 32);
+	cprof[CPROF_M5].setHover(window_area.x+272, window_area.y+128, 32, 32);
+	cprof[CPROF_O2].setHover(window_area.x+128, window_area.y+192, 32, 32);
+	cprof[CPROF_O3].setHover(window_area.x+176, window_area.y+192, 32, 32);
+	cprof[CPROF_O4].setHover(window_area.x+224, window_area.y+192, 32, 32);
+	cprof[CPROF_O5].setHover(window_area.x+272, window_area.y+192, 32, 32);
+	cprof[CPROF_D2].setHover(window_area.x+128, window_area.y+256, 32, 32);
+	cprof[CPROF_D3].setHover(window_area.x+176, window_area.y+256, 32, 32);
+	cprof[CPROF_D4].setHover(window_area.x+224, window_area.y+256, 32, 32);
+	cprof[CPROF_D5].setHover(window_area.x+272, window_area.y+256, 32, 32);
 
 }
 
@@ -158,100 +164,99 @@ void MenuCharacter::loadGraphics() {
 void MenuCharacter::refreshStats() {
 
 	stringstream ss;
-	int offset_y = (VIEW_H - 416)/2;
 
 	// update stat text
-	cstat[CSTAT_NAME].value->set(84, offset_y+40, JUSTIFY_LEFT, VALIGN_CENTER, stats->name, FONT_WHITE);
+	cstat[CSTAT_NAME].value->set(window_area.x+84, window_area.y+40, JUSTIFY_LEFT, VALIGN_CENTER, stats->name, FONT_WHITE);
 
 	ss.str("");
 	ss << stats->level;
-	cstat[CSTAT_LEVEL].value->set(288, offset_y+40, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
+	cstat[CSTAT_LEVEL].value->set(window_area.x+288, window_area.y+40, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
 
 	ss.str("");
 	ss << stats->get_physical();
-	cstat[CSTAT_PHYSICAL].value->set(24, offset_y+80, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), bonusColor(stats->physical_additional));
+	cstat[CSTAT_PHYSICAL].value->set(window_area.x+24, window_area.y+80, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), bonusColor(stats->physical_additional));
 
 	ss.str("");
 	ss << stats->get_mental();
-	cstat[CSTAT_MENTAL].value->set(24, offset_y+144, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), bonusColor(stats->mental_additional));
+	cstat[CSTAT_MENTAL].value->set(window_area.x+24, window_area.y+144, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), bonusColor(stats->mental_additional));
 
 	ss.str("");
 	ss << stats->get_offense();
-	cstat[CSTAT_OFFENSE].value->set(24, offset_y+208, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), bonusColor(stats->offense_additional));
+	cstat[CSTAT_OFFENSE].value->set(window_area.x+24, window_area.y+208, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), bonusColor(stats->offense_additional));
 
 	ss.str("");
 	ss << stats->get_defense();
-	cstat[CSTAT_DEFENSE].value->set(24, offset_y+272, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), bonusColor(stats->defense_additional));
+	cstat[CSTAT_DEFENSE].value->set(window_area.x+24, window_area.y+272, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), bonusColor(stats->defense_additional));
 
 	ss.str("");
 	ss << stats->maxhp;
-	cstat[CSTAT_HP].value->set(176, offset_y+112, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
+	cstat[CSTAT_HP].value->set(window_area.x+176, window_area.y+112, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
 
 	ss.str("");
 	ss << stats->hp_per_minute;
-	cstat[CSTAT_HPREGEN].value->set(288, offset_y+112, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
+	cstat[CSTAT_HPREGEN].value->set(window_area.x+288, window_area.y+112, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
 
 	ss.str("");
 	ss << stats->maxmp;
-	cstat[CSTAT_MP].value->set(176, offset_y+176, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
+	cstat[CSTAT_MP].value->set(window_area.x+176, window_area.y+176, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
 
 	ss.str("");
 	ss << stats->mp_per_minute;
-	cstat[CSTAT_MPREGEN].value->set(288, offset_y+176, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
+	cstat[CSTAT_MPREGEN].value->set(window_area.x+288, window_area.y+176, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
 
 	ss.str("");
 	ss << (stats->accuracy) << "%";
-	cstat[CSTAT_ACCURACYV1].value->set(176, offset_y+240, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
+	cstat[CSTAT_ACCURACYV1].value->set(window_area.x+176, window_area.y+240, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
 
 	ss.str("");
 	ss << (stats->accuracy - 20) << "%";
-	cstat[CSTAT_ACCURACYV5].value->set(288, offset_y+240, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
+	cstat[CSTAT_ACCURACYV5].value->set(window_area.x+288, window_area.y+240, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
 
 	ss.str("");
 	ss << (stats->avoidance) << "%";
-	cstat[CSTAT_AVOIDANCEV1].value->set(176, offset_y+304, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
+	cstat[CSTAT_AVOIDANCEV1].value->set(window_area.x+176, window_area.y+304, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
 
 	ss.str("");
 	ss << (stats->avoidance - 20) << "%";
-	cstat[CSTAT_AVOIDANCEV5].value->set(288, offset_y+304, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
+	cstat[CSTAT_AVOIDANCEV5].value->set(window_area.x+288, window_area.y+304, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
 
 	ss.str("");
 	if (stats->dmg_melee_max >= stats->dmg_ment_max)
 		ss << stats->dmg_melee_min << "-" << stats->dmg_melee_max;
 	else
 		ss << stats->dmg_ment_min << "-" << stats->dmg_ment_max;
-	cstat[CSTAT_DMGMAIN].value->set(160, offset_y+344, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
+	cstat[CSTAT_DMGMAIN].value->set(window_area.x+160, window_area.y+344, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
 
 	ss.str("");
 	if (stats->dmg_ranged_max > 0)
 		ss << stats->dmg_ranged_min << "-" << stats->dmg_ranged_max;
 	else
 		ss << "-";
-	cstat[CSTAT_DMGRANGED].value->set(160, offset_y+360, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
+	cstat[CSTAT_DMGRANGED].value->set(window_area.x+160, window_area.y+360, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
 
 	ss.str("");
 	ss << stats->crit << "%";
-	cstat[CSTAT_CRIT].value->set(160, offset_y+376, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
+	cstat[CSTAT_CRIT].value->set(window_area.x+160, window_area.y+376, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
 
 	ss.str("");
 	if (stats->absorb_min == stats->absorb_max)
 		ss << stats->absorb_min;
 	else
 		ss << stats->absorb_min << "-" << stats->absorb_max;
-	cstat[CSTAT_ABSORB].value->set(288, offset_y+344, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
+	cstat[CSTAT_ABSORB].value->set(window_area.x+288, window_area.y+344, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
 
 	ss.str("");
 	ss << (100 - stats->attunement_fire) << "%";
-	cstat[CSTAT_FIRERESIST].value->set(288, offset_y+360, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
+	cstat[CSTAT_FIRERESIST].value->set(window_area.x+288, window_area.y+360, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
 
 	ss.str("");
 	ss << (100 - stats->attunement_ice) << "%";
-	cstat[CSTAT_ICERESIST].value->set(288, offset_y+376, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
+	cstat[CSTAT_ICERESIST].value->set(window_area.x+288, window_area.y+376, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
 
 	ss.str("");
 	if (skill_points > 0) ss << skill_points << " " << msg->get("points remaining");
 	else ss.str("");
-	cstat[CSTAT_UNSPENT].value->set(155, offset_y+400, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_GREEN);
+	cstat[CSTAT_UNSPENT].value->set(window_area.x+155, window_area.y+400, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_GREEN);
 	ss.str("");
 
 	// update tool tips
@@ -444,13 +449,12 @@ void MenuCharacter::render() {
 
 	SDL_Rect src;
 	SDL_Rect dest;
-	int offset_y = (VIEW_H - 416)/2;
 
 	// background
 	src.x = 0;
 	src.y = 0;
-	dest.x = 0;
-	dest.y = offset_y;
+	dest.x = window_area.x;
+	dest.y = window_area.y;
 	src.w = dest.w = 320;
 	src.h = dest.h = 416;
 	SDL_BlitSurface(background, &src, screen, &dest);
@@ -469,10 +473,10 @@ void MenuCharacter::render() {
 
 
 	// highlight proficiencies
-	displayProficiencies(stats->get_physical(), offset_y+64);
-	displayProficiencies(stats->get_mental(), offset_y+128);
-	displayProficiencies(stats->get_offense(), offset_y+192);
-	displayProficiencies(stats->get_defense(), offset_y+256);
+	displayProficiencies(stats->get_physical(), window_area.y+64);
+	displayProficiencies(stats->get_mental(), window_area.y+128);
+	displayProficiencies(stats->get_offense(), window_area.y+192);
+	displayProficiencies(stats->get_defense(), window_area.y+256);
 
 	// if points are available, show the upgrade buttons
 	// TODO: replace with WidgetButton
@@ -488,26 +492,26 @@ void MenuCharacter::render() {
 		src.y = 0;
 		src.w = dest.w = 32;
 		src.h = dest.h = 16;
-		dest.x = 16;
+		dest.x = window_area.x + 16;
 
 		// physical
-		if (stats->physical_character < 5) { // && mouse.x >= 16 && mouse.y >= offset_y+96
-			dest.y = offset_y + 96;
+		if (stats->physical_character < 5) { // && mouse.x >= 16 && mouse.y >= window_area.y+96
+			dest.y = window_area.y + 96;
 			SDL_BlitSurface(upgrade, &src, screen, &dest);
 		}
 		// mental
-		if (stats->mental_character < 5) { // && mouse.x >= 16 && mouse.y >= offset_y+160
-			dest.y = offset_y + 160;
+		if (stats->mental_character < 5) { // && mouse.x >= 16 && mouse.y >= window_area.y+160
+			dest.y = window_area.y + 160;
 			SDL_BlitSurface(upgrade, &src, screen, &dest);
 		}
 		// offense
-		if (stats->offense_character < 5) { // && mouse.x >= 16 && mouse.y >= offset_y+224
-			dest.y = offset_y + 224;
+		if (stats->offense_character < 5) { // && mouse.x >= 16 && mouse.y >= window_area.y+224
+			dest.y = window_area.y + 224;
 			SDL_BlitSurface(upgrade, &src, screen, &dest);
 		}
 		// defense
-		if (stats->defense_character < 5) { // && mouse.x >= 16 && mouse.y >= offset_y+288
-			dest.y = offset_y + 288;
+		if (stats->defense_character < 5) { // && mouse.x >= 16 && mouse.y >= window_area.y+288
+			dest.y = window_area.y + 288;
 			SDL_BlitSurface(upgrade, &src, screen, &dest);
 		}
 
@@ -536,7 +540,7 @@ void MenuCharacter::displayProficiencies(int value, int y) {
 	int actual_value = min(value,5);
 
 	for (int i=2; i<= actual_value; i++) {
-		dest.x = 112 + (i-2) * 48;
+		dest.x = window_area.x + 112 + (i-2) * 48;
 		SDL_BlitSurface(proficiency, &src, screen, &dest);
 	}
 }
@@ -579,34 +583,33 @@ bool MenuCharacter::checkUpgrade() {
 	if (spent < stats->level && spent < max_spendable_stat_points) {
 
 		// check mouse hotspots
-		int offset_y = (VIEW_H - 416)/2;
 
 		// physical
-		if (stats->physical_character < 5 && mouse.x >= 16 && mouse.x <= 48 && mouse.y >= offset_y+96 && mouse.y <= offset_y+112) {
+		if (stats->physical_character < 5 && mouse.x >= window_area.x+16 && mouse.x <= window_area.x+48 && mouse.y >= window_area.y+96 && mouse.y <= window_area.y+112) {
 			stats->physical_character++;
 			stats->recalc(); // equipment applied by MenuManager
-            newPowerNotification = true; //TODO: Only show if a NEW power is unlocked...
+			newPowerNotification = true; //TODO: Only show if a NEW power is unlocked...
 			return true;
 		}
 		// mental
-		else if (stats->mental_character < 5 && mouse.x >= 16 && mouse.x <= 48 && mouse.y >= offset_y+160 && mouse.y <= offset_y+176) {
+		else if (stats->mental_character < 5 && mouse.x >= window_area.x+16 && mouse.x <= window_area.x+48 && mouse.y >= window_area.y+160 && mouse.y <= window_area.y+176) {
 			stats->mental_character++;
 			stats->recalc(); // equipment applied by MenuManager
-            newPowerNotification = true;
+			newPowerNotification = true;
 			return true;
 		}
 		// offense
-		else if (stats->offense_character < 5 && mouse.x >= 16 && mouse.x <= 48 && mouse.y >= offset_y+224 && mouse.y <= offset_y+240) {
+		else if (stats->offense_character < 5 && mouse.x >= window_area.x+16 && mouse.x <= window_area.x+48 && mouse.y >= window_area.y+224 && mouse.y <= window_area.y+240) {
 			stats->offense_character++;
 			stats->recalc(); // equipment applied by MenuManager
-            newPowerNotification = true;
+			newPowerNotification = true;
 			return true;
 		}
 		// defense
-		else if (stats->defense_character < 5 && mouse.x >= 16 && mouse.x <= 48 && mouse.y >= offset_y+288 && mouse.y <= offset_y+304) {
+		else if (stats->defense_character < 5 && mouse.x >= window_area.x+16 && mouse.x <= window_area.x+48 && mouse.y >= window_area.y+288 && mouse.y <= window_area.y+304) {
 			stats->defense_character++;
 			stats->recalc(); // equipment applied by MenuManager
-            newPowerNotification = true;
+			newPowerNotification = true;
 			return true;
 		}
 	}
