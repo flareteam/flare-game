@@ -44,10 +44,14 @@ MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_i
 	visible = false;
 	loadGraphics();
 
+	points_left = 0;
+
 	for (int i=0; i<20; i++) {
 		power_ui[i].id = 0;
 		power_ui[i].pos.x = 0;
 		power_ui[i].pos.y = 0;
+
+		plusButton[i] = new WidgetButton(mods->locate("images/menus/buttons/button_plus.png"));
 	}
 
 	closeButton = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
@@ -68,6 +72,9 @@ MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_i
 		} else if (infile.key == "closebutton_pos") {
 			close_pos.x = eatFirstInt(infile.val, ',');
 			close_pos.y = eatFirstInt(infile.val, ',');
+		} else if (infile.key == "unspent_points_pos") {
+			unspent_pos.x = eatFirstInt(infile.val, ',');
+			unspent_pos.y = eatFirstInt(infile.val, ',');
 		}
 
 	  }
@@ -81,33 +88,26 @@ void MenuPowers::update() {
 		slots[i].w = slots[i].h = 32;
 		slots[i].x = window_area.x + power_ui[i].pos.x;
 		slots[i].y = window_area.y + power_ui[i].pos.y;
+
+		plusButton[i]->pos.x = window_area.x + power_ui[i].pos.x + 32;
+		plusButton[i]->pos.y = window_area.y + power_ui[i].pos.y;
 	}
 
 	label_powers.set(window_area.x+160, window_area.y+8, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Powers"), FONT_WHITE);
-	label_p1.set(window_area.x+64, window_area.y+50, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Physical"), FONT_WHITE);
-	label_p2.set(window_area.x+128, window_area.y+50, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Physical"), FONT_WHITE);
-	label_m1.set(window_area.x+192, window_area.y+50, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Mental"), FONT_WHITE);
-	label_m2.set(window_area.x+256, window_area.y+50, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Mental"), FONT_WHITE);
-	label_o1.set(window_area.x+64, window_area.y+66, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Offense"), FONT_WHITE);
-	label_o2.set(window_area.x+192, window_area.y+66, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Offense"), FONT_WHITE);
-	label_d1.set(window_area.x+128, window_area.y+66, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Defense"), FONT_WHITE);
-	label_d2.set(window_area.x+256, window_area.y+66, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Defense"), FONT_WHITE);
-
-	stat_po.set(window_area.x+64, window_area.y+34, JUSTIFY_CENTER, VALIGN_TOP, "", FONT_WHITE);
-	stat_pd.set(window_area.x+128, window_area.y+34, JUSTIFY_CENTER, VALIGN_TOP, "", FONT_WHITE);
-	stat_mo.set(window_area.x+192, window_area.y+34, JUSTIFY_CENTER, VALIGN_TOP, "", FONT_WHITE);
-	stat_md.set(window_area.x+256, window_area.y+34, JUSTIFY_CENTER, VALIGN_TOP, "", FONT_WHITE);
 
 	closeButton->pos.x = window_area.x+close_pos.x;
 	closeButton->pos.y = window_area.y+close_pos.y;
+
+	stat_up.set(window_area.x+unspent_pos.x, window_area.y+unspent_pos.y, JUSTIFY_CENTER, VALIGN_TOP, "", FONT_GREEN);
+	points_left = stats->level - powers_list.size();
 }
 
 void MenuPowers::loadGraphics() {
 
 	background = IMG_Load(mods->locate("images/menus/powers.png").c_str());
-	powers_step = IMG_Load(mods->locate("images/menus/powers_step.png").c_str());
+	powers_tree = IMG_Load(mods->locate("images/menus/powers_tree.png").c_str());
 	powers_unlock = IMG_Load(mods->locate("images/menus/powers_unlock.png").c_str());
-	if(!background || !powers_step || !powers_unlock) {
+	if(!background || !powers_tree || !powers_unlock) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 		SDL_Quit();
 	}
@@ -117,8 +117,8 @@ void MenuPowers::loadGraphics() {
 	background = SDL_DisplayFormatAlpha(background);
 	SDL_FreeSurface(cleanup);
 
-	cleanup = powers_step;
-	powers_step = SDL_DisplayFormatAlpha(powers_step);
+	cleanup = powers_tree;
+	powers_tree = SDL_DisplayFormatAlpha(powers_tree);
 	SDL_FreeSurface(cleanup);
 
 	cleanup = powers_unlock;
@@ -145,6 +145,7 @@ void MenuPowers::renderIcon(int icon_id, int x, int y) {
  * With great power comes great stat requirements.
  */
 bool MenuPowers::requirementsMet(int power_index) {
+/*
 	int required_val = (power_index / 4) * 2 + 1;
 	int required_stat = power_index % 4;
 	switch (required_stat) {
@@ -160,6 +161,11 @@ bool MenuPowers::requirementsMet(int power_index) {
 		case 3:
 			return (stats->mentdef >= required_val);
 			break;
+	}
+	return false;
+*/
+	for (unsigned int i=0; i<powers_list.size(); i++) {
+		if (power_index == powers_list[i]) return true;
 	}
 	return false;
 }
@@ -185,6 +191,12 @@ void MenuPowers::logic() {
 	if (closeButton->checkClick()) {
 		visible = false;
 	}
+	for (int i=0; i<20; i++) {
+		if (plusButton[i]->checkClick() && (points_left > 0)) {
+			powers_list.push_back(power_ui[i].id);
+			points_left = stats->level - powers_list.size();
+		}
+	}
 }
 
 void MenuPowers::render() {
@@ -201,10 +213,15 @@ void MenuPowers::render() {
 	src.w = dest.w = 320;
 	src.h = dest.h = 416;
 	SDL_BlitSurface(background, &src, screen, &dest);
+	SDL_BlitSurface(powers_tree, &src, screen, &dest);
 
 	// power icons
 	for (int i=0; i<20; i++) {
 		renderIcon(powers->powers[power_ui[i].id].icon, window_area.x + power_ui[i].pos.x, window_area.y + power_ui[i].pos.y);
+		plusButton[i]->render();
+
+		// highlighting
+		if (find(powers_list.begin(), powers_list.end(), power_ui[i].id) != powers_list.end()) displayBuild(power_ui[i].id);
 	}
 
 	// close button
@@ -212,75 +229,36 @@ void MenuPowers::render() {
 
 	// text overlay
 	label_powers.render();
-	label_p1.render();
-	label_p2.render();
-	label_m1.render();
-	label_m2.render();
-	label_o1.render();
-	label_o2.render();
-	label_d1.render();
-	label_d2.render();
 
 	// stats
 	stringstream ss;
 
 	ss.str("");
-	ss << stats->physoff;
-	stat_po.set(ss.str());
-	stat_po.render();
-
-	ss.str("");
-	ss << stats->physdef;
-	stat_pd.set(ss.str());
-	stat_pd.render();
-
-	ss.str("");
-	ss << stats->mentoff;
-	stat_mo.set(ss.str());
-	stat_mo.render();
-
-	ss.str("");
-	ss << stats->mentdef;
-	stat_md.set(ss.str());
-	stat_md.render();
-
-	// highlighting
-	displayBuild(stats->physoff, window_area.x+48);
-	displayBuild(stats->physdef, window_area.x+112);
-	displayBuild(stats->mentoff, window_area.x+176);
-	displayBuild(stats->mentdef, window_area.x+240);
+	points_left = stats->level - powers_list.size();
+	if (points_left !=0) {
+		ss << "Unspent power points:" << " " << points_left;
+	}
+	stat_up.set(ss.str());
+	stat_up.render();
 }
 
 /**
  * Highlight unlocked powers
  */
-void MenuPowers::displayBuild(int value, int x) {
-	SDL_Rect src_step;
+void MenuPowers::displayBuild(int power_id) {
 	SDL_Rect src_unlock;
 	SDL_Rect dest;
 
-	src_step.x = src_unlock.x = 0;
-	src_step.y = src_unlock.y = 0;
-	src_step.w = 32;
-	src_step.h = 19;
+	src_unlock.x = 0;
+	src_unlock.y = 0;
 	src_unlock.w = 32;
-	src_unlock.h = 45;
+	src_unlock.h = 32;
 
-	dest.x = x;
-
-	// save-game hackers could set their stats higher than normal.
-	// make sure this display still works.
-	int display_value = min(value,10);
-
-	for (int i=3; i<= display_value; i++) {
-		if (i%2 == 0) { // even stat
-			dest.y = i * 32 + window_area.y + 48;
-			SDL_BlitSurface(powers_step, &src_step, screen, &dest);
-		}
-		else { // odd stat
-			dest.y = i * 32 + window_area.y + 35;
+	for (int i=0; i<20; i++) {
+		if (power_ui[i].id == power_id) {
+			dest.x = window_area.x + power_ui[i].pos.x;
+			dest.y = window_area.y + power_ui[i].pos.y;
 			SDL_BlitSurface(powers_unlock, &src_unlock, screen, &dest);
-
 		}
 	}
 }
@@ -292,25 +270,6 @@ TooltipData MenuPowers::checkTooltip(Point mouse) {
 
 	TooltipData tip;
 
-	if (mouse.y >= window_area.y+32 && mouse.y <= window_area.y+80) {
-		if (mouse.x >= window_area.x+48 && mouse.x <= window_area.x+80) {
-			tip.lines[tip.num_lines++] = msg->get("Physical + Offense grants melee and ranged attacks");
-			return tip;
-		}
-		if (mouse.x >= window_area.x+112 && mouse.x <= window_area.x+144) {
-			tip.lines[tip.num_lines++] = msg->get("Physical + Defense grants melee protection");
-			return tip;
-		}
-		if (mouse.x >= window_area.x+176 && mouse.x <= window_area.x+208) {
-			tip.lines[tip.num_lines++] = msg->get("Mental + Offense grants elemental spell attacks");
-			return tip;
-		}
-		if (mouse.x >= window_area.x+240 && mouse.x <= window_area.x+272) {
-			tip.lines[tip.num_lines++] = msg->get("Mental + Defense grants healing and magical protection");
-			return tip;
-		}
-	}
-	else {
 		for (int i=0; i<20; i++) {
 			if (isWithin(slots[i], mouse)) {
 				tip.lines[tip.num_lines++] = powers->powers[power_ui[i].id].name;
@@ -351,14 +310,15 @@ TooltipData MenuPowers::checkTooltip(Point mouse) {
 				return tip;
 			}
 		}
-	}
 
 	return tip;
 }
 
 MenuPowers::~MenuPowers() {
 	SDL_FreeSurface(background);
-	SDL_FreeSurface(powers_step);
 	SDL_FreeSurface(powers_unlock);
 	delete closeButton;
+	for (int i=0; i<20; i++) {
+	delete plusButton[i];
+	}
 }

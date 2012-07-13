@@ -43,6 +43,7 @@ LootManager::LootManager(ItemManager *_items, MapRenderer *_map, StatBlock *_her
 
 	tooltip_margin = 32; // pixels between loot drop center and label
 
+	loot_count = 0;
 	animation_count = 0;
 
 	for (int i=0; i<64; i++) {
@@ -53,7 +54,9 @@ LootManager::LootManager(ItemManager *_items, MapRenderer *_map, StatBlock *_her
 	loot_flip = NULL;
 
 	// reset current map loot
-	loot.clear();
+	for (int i=0; i<256; i++) {
+		loot[i].clear();
+	}
 
 	// reset loot table
 	for (int lvl=0; lvl<15; lvl++) {
@@ -146,7 +149,7 @@ void LootManager::calcTables() {
 
 	int level;
 
-	for (int i=0; i<1024; i++) {
+	for (unsigned int i=0; i<items->items.size(); i++) {
 		level = items->items[i].level;
 		if (level > 0) {
 			if (items->items[i].quality == ITEM_QUALITY_LOW) {
@@ -178,22 +181,24 @@ void LootManager::calcTables() {
 }
 
 void LootManager::handleNewMap() {
-	loot.clear();
+	for (int i=0; i<loot_count; i++) {
+		loot[i].clear();
+	}
+	loot_count = 0;
 }
 
 void LootManager::logic() {
 	int max_frame = anim_loot_frames * anim_loot_duration - 1;
 
-	vector<LootDef>::iterator it;
-	for (it = loot.begin(); it != loot.end(); it++) {
+	for (int i=0; i<loot_count; i++) {
 
 		// animate flying loot
-		if (it->frame < max_frame)
-			it->frame++;
+		if (loot[i].frame < max_frame)
+			loot[i].frame++;
 
-		if (it->frame == max_frame-1) {
-			if (it->stack.item > 0)
-				items->playSound(it->stack.item);
+		if (loot[i].frame == max_frame-1) {
+			if (loot[i].stack.item > 0)
+				items->playSound(loot[i].stack.item);
 			else
 				items->playCoinsSound();
 		}
@@ -207,9 +212,9 @@ void LootManager::logic() {
  * If an item is flying, it hasn't completed its "flying loot" animation.
  * Only allow loot to be picked up if it is grounded.
  */
-bool LootManager::isFlying(const LootDef &ld) {
+bool LootManager::isFlying(int loot_index) {
 	int max_frame = anim_loot_frames * anim_loot_duration - 1;
-	if (ld.frame == max_frame) return false;
+	if (loot[loot_index].frame == max_frame) return false;
 	return true;
 }
 
@@ -222,10 +227,9 @@ void LootManager::renderTooltips(Point cam) {
 
 	int max_frame = anim_loot_frames * anim_loot_duration - 1;
 
-	vector<LootDef>::iterator it;
-	for (it = loot.begin(); it != loot.end(); it++) {
-		if (it->frame == max_frame) {
-			Point p = map_to_screen(it->pos.x, it->pos.y, cam.x, cam.y);
+	for (int i = 0; i < loot_count; i++) {
+		if (loot[i].frame == max_frame) {
+			Point p = map_to_screen(loot[i].pos.x, loot[i].pos.y, cam.x, cam.y);
 			dest.x = p.x;
 			dest.y = p.y + TILE_H_HALF;
 
@@ -233,21 +237,21 @@ void LootManager::renderTooltips(Point cam) {
 			dest.y -= tooltip_margin;
 
 			// create tooltip data if needed
-			if (it->tip.tip_buffer == NULL) {
+			if (loot[i].tip.tip_buffer == NULL) {
 
-				if (it->stack.item > 0) {
-					it->tip = items->getShortTooltip(it->stack);
+				if (loot[i].stack.item > 0) {
+					loot[i].tip = items->getShortTooltip(loot[i].stack);
 				}
 				else {
-					it->tip.num_lines = 1;
-					it->tip.colors[0] = FONT_WHITE;
-					ss << msg->get("%d Gold", it->gold);
-					it->tip.lines[0] = ss.str();
+					loot[i].tip.num_lines = 1;
+					loot[i].tip.colors[0] = FONT_WHITE;
+					ss << msg->get("%d Gold", loot[i].gold);
+					loot[i].tip.lines[0] = ss.str();
 					ss.str("");
 				}
 			}
 
-			tip->render(it->tip, dest, STYLE_TOPLABEL);
+			tip->render(loot[i].tip, dest, STYLE_TOPLABEL);
 		}
 	}
 }
@@ -421,25 +425,41 @@ int LootManager::randomItem(int base_level) {
 
 void LootManager::addLoot(ItemStack stack, Point pos) {
 	// TODO: z-sort insert?
-	LootDef ld;
-	ld.stack = stack;
-	ld.pos.x = pos.x;
-	ld.pos.y = pos.y;
-	ld.frame = 0;
-	ld.gold = 0;
-	loot.push_back(ld);
+	loot[loot_count].stack = stack;
+	loot[loot_count].pos.x = pos.x;
+	loot[loot_count].pos.y = pos.y;
+	loot[loot_count].frame = 0;
+	loot[loot_count].gold = 0;
+	loot_count++;
 	if (loot_flip) Mix_PlayChannel(-1, loot_flip, 0);
 }
 
 void LootManager::addGold(int count, Point pos) {
-	LootDef ld;
-	ld.stack.item = 0;
-	ld.stack.quantity = 0;
-	ld.pos.x = pos.x;
-	ld.pos.y = pos.y;
-	ld.frame = 0;
-	ld.gold = count;
+	loot[loot_count].stack.item = 0;
+	loot[loot_count].stack.quantity = 0;
+	loot[loot_count].pos.x = pos.x;
+	loot[loot_count].pos.y = pos.y;
+	loot[loot_count].frame = 0;
+	loot[loot_count].gold = count;
+	loot_count++;
 	if (loot_flip) Mix_PlayChannel(-1, loot_flip, 0);
+}
+
+
+/**
+ * Remove one loot from the array
+ */
+void LootManager::removeLoot(int index) {
+
+	loot_count--;
+
+	// copy the last loot into this position
+	// instead of bubbling each loot down
+	// so that only 1 tooltip buffer needs to be redrawn
+	loot[index] = loot[loot_count];
+
+	// reset the last loot
+	loot[loot_count].clear();
 }
 
 /**
@@ -458,14 +478,12 @@ ItemStack LootManager::checkPickup(Point mouse, Point cam, Point hero_pos, int &
 	// I'm starting at the end of the loot list so that more recently-dropped
 	// loot is picked up first.  If a player drops several loot in the same
 	// location, picking it back up will work like a stack.
-	vector<LootDef>::iterator it;
-	for (it = loot.end(); it != loot.begin(); ) {
-		it--;
+	for (int i=loot_count-1; i>=0; i--) {
 
 		// loot close enough to pickup?
-		if (abs(hero_pos.x - it->pos.x) < LOOT_RANGE && abs(hero_pos.y - it->pos.y) < LOOT_RANGE && !isFlying(*it)) {
+		if (abs(hero_pos.x - loot[i].pos.x) < LOOT_RANGE && abs(hero_pos.y - loot[i].pos.y) < LOOT_RANGE && !isFlying(i)) {
 
-			p = map_to_screen(it->pos.x, it->pos.y, cam.x, cam.y);
+			p = map_to_screen(loot[i].pos.x, loot[i].pos.y, cam.x, cam.y);
 
 			r.w = 32;
 			r.h = 48;
@@ -476,17 +494,17 @@ ItemStack LootManager::checkPickup(Point mouse, Point cam, Point hero_pos, int &
 			if (mouse.x > r.x && mouse.x < r.x+r.w &&
 				mouse.y > r.y && mouse.y < r.y+r.h) {
 
-				if (it->stack.item > 0 && !inv_full) {
-					loot_stack = it->stack;
-					loot.erase(it);
+				if (loot[i].stack.item > 0 && !inv_full) {
+					loot_stack = loot[i].stack;
+					removeLoot(i);
 					return loot_stack;
 				}
-				else if (it->stack.item > 0) {
+				else if (loot[i].stack.item > 0) {
 					full_msg = true;
 				}
-				else if (it->gold > 0) {
-					gold = it->gold;
-					loot.erase(it);
+				else if (loot[i].gold > 0) {
+					gold = loot[i].gold;
+					removeLoot(i);
 
 					return loot_stack;
 				}
@@ -506,13 +524,11 @@ ItemStack LootManager::checkAutoPickup(Point cam, Point hero_pos, int &gold, boo
 	loot_stack.item = 0;
 	loot_stack.quantity = 0;
 
-	vector<LootDef>::iterator it;
-	for (it = loot.end(); it != loot.begin(); ) {
-		it--;
-		if (abs(hero_pos.x - it->pos.x) < AUTOPICKUP_RANGE && abs(hero_pos.y - it->pos.y) < AUTOPICKUP_RANGE && !isFlying(*it)) {
-			if (it->gold > 0 && AUTOPICKUP_GOLD) {
-				gold = it->gold;
-				loot.erase(it);
+	for (int i=loot_count-1; i>=0; i--) {
+		if (abs(hero_pos.x - loot[i].pos.x) < AUTOPICKUP_RANGE && abs(hero_pos.y - loot[i].pos.y) < AUTOPICKUP_RANGE && !isFlying(i)) {
+			if (loot[i].gold > 0 && AUTOPICKUP_GOLD) {
+				gold = loot[i].gold;
+				removeLoot(i);
 				return loot_stack;
 			}
 		}
@@ -520,42 +536,41 @@ ItemStack LootManager::checkAutoPickup(Point cam, Point hero_pos, int &gold, boo
 	return loot_stack;
 }
 
-void LootManager::addRenders(vector<Renderable> &renderables) {
-	vector<LootDef>::iterator it;
-	for (it = loot.begin(); it != loot.end(); it++) {
-		Renderable r;
-		r.map_pos.x = it->pos.x;
-		r.map_pos.y = it->pos.y;
+Renderable LootManager::getRender(int index) {
 
-		// Right now the animation settings (number of frames, speed, frame size)
-		// are hard coded.  At least move these to consts in the header.
+	Renderable r;
+	r.map_pos.x = loot[index].pos.x;
+	r.map_pos.y = loot[index].pos.y;
 
-		r.src.x = (it->frame / anim_loot_duration) * 64;
-		r.src.y = 0;
-		r.src.w = 64;
-		r.src.h = 128;
-		r.offset.x = 32;
-		r.offset.y = 112;
-		r.object_layer = true;
+	// Right now the animation settings (number of frames, speed, frame size)
+	// are hard coded.  At least move these to consts in the header.
 
-		if (it->stack.item > 0) {
-			// item
-			for (int i=0; i<animation_count; i++) {
-				if (items->items[it->stack.item].loot == animation_id[i])
-					r.sprite = flying_loot[i];
-			}
+	r.src.x = (loot[index].frame / anim_loot_duration) * 64;
+	r.src.y = 0;
+	r.src.w = 64;
+	r.src.h = 128;
+	r.offset.x = 32;
+	r.offset.y = 112;
+	r.object_layer = true;
+
+	if (loot[index].stack.item > 0) {
+		// item
+		for (int i=0; i<animation_count; i++) {
+			if (items->items[loot[index].stack.item].loot == animation_id[i])
+				r.sprite = flying_loot[i];
 		}
-		else if (it->gold > 0) {
-			// gold
-			if (it->gold <= 9)
-				r.sprite = flying_gold[0];
-			else if (it->gold <= 25)
-				r.sprite = flying_gold[1];
-			else
-				r.sprite = flying_gold[2];
-		}
-		renderables.push_back(r);
 	}
+	else if (loot[index].gold > 0) {
+		// gold
+		if (loot[index].gold <= 9)
+			r.sprite = flying_gold[0];
+		else if (loot[index].gold <= 25)
+			r.sprite = flying_gold[1];
+		else
+			r.sprite = flying_gold[2];
+	}
+
+	return r;
 }
 
 LootManager::~LootManager() {
@@ -569,7 +584,9 @@ LootManager::~LootManager() {
 	if (loot_flip) Mix_FreeChunk(loot_flip);
 
 	// clear loot tooltips to free buffer memory
-	loot.clear();
+	for (int i=0; i<loot_count; i++) {
+		loot[i].clear();
+	}
 
 	lootManager = 0;
 	delete tip;

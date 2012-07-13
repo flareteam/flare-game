@@ -28,6 +28,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <SDL.h>
 #include <SDL_image.h>
 
+#include <vector>
+
 class PowerManager;
 class StatBlock;
 class TooltipData;
@@ -45,27 +47,19 @@ private:
 
 	SDL_Surface *background;
 	SDL_Surface *icons;
-	SDL_Surface *powers_step;
+	SDL_Surface *powers_tree;
 	SDL_Surface *powers_unlock;
 	WidgetButton *closeButton;
+	WidgetButton *plusButton[20];
 	Point close_pos;
+	Point unspent_pos;
+	int points_left;
 
 	WidgetLabel label_powers;
-	WidgetLabel label_p1;
-	WidgetLabel label_p2;
-	WidgetLabel label_m1;
-	WidgetLabel label_m2;
-	WidgetLabel label_o1;
-	WidgetLabel label_o2;
-	WidgetLabel label_d1;
-	WidgetLabel label_d2;
-	WidgetLabel stat_po;
-	WidgetLabel stat_pd;
-	WidgetLabel stat_mo;
-	WidgetLabel stat_md;
+	WidgetLabel stat_up;
 
 	void loadGraphics();
-	void displayBuild(int value, int x);
+	void displayBuild(int power_id);
 	void renderIcon(int icon_id, int x, int y);
 
 public:
@@ -80,6 +74,7 @@ public:
 
 	bool visible;
 	SDL_Rect slots[20]; // the location of power slots
+	std::vector<int> powers_list;
 
 };
 

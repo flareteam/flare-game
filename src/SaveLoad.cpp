@@ -33,6 +33,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "MenuCharacter.h"
 #include "MenuInventory.h"
 #include "MenuManager.h"
+#include "MenuPowers.h"
 #include "MenuTalker.h"
 #include "Settings.h"
 #include "UtilsFileSystem.h"
@@ -102,6 +103,14 @@ void GameStatePlay::saveGame() {
 		//shapeshifter value
 		if (pc->stats.transform_type == "untransform") outfile << "transformed=" << "\n";
 		else outfile << "transformed=" << pc->stats.transform_type << "\n";
+
+		// enabled powers
+		outfile << "powers=";
+		for (unsigned int i=0; i<menu->pow->powers_list.size(); i++) {
+			if (i == 0) outfile << menu->pow->powers_list[i];
+			else outfile << "," << menu->pow->powers_list[i];
+		}
+		outfile << "\n";
 
 		// campaign data
 		outfile << "campaign=";
@@ -192,6 +201,12 @@ void GameStatePlay::loadGame() {
 			else if (infile.key == "transformed") {
 				pc->stats.transform_type = infile.nextValue().c_str();
 				if (pc->stats.transform_type != "") pc->stats.transform_duration = -1;
+			}
+			else if (infile.key == "powers") {
+				string power;
+				while ( (power = infile.nextValue()) != "") {
+					menu->pow->powers_list.push_back(atoi(power.c_str()));
+				}
 			}
 			else if (infile.key == "campaign") camp->setAll(infile.val);
 		}
