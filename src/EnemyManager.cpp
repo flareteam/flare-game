@@ -290,13 +290,21 @@ void EnemyManager::checkEnemiesforXP(StatBlock *stats) {
  *
  * This wrapper function is necessary because EnemyManager holds shared sprites for identical-looking enemies
  */
-Renderable EnemyManager::getRender(int enemyIndex) {
-	Renderable r = enemies[enemyIndex]->getRender();
-	for (int i=0; i<gfx_count; i++) {
-		if (gfx_prefixes[i] == enemies[enemyIndex]->stats.gfx_prefix)
-			r.sprite = sprites[i];
+void EnemyManager::addRenders(vector<Renderable> &r) {
+	vector<Enemy*>::iterator it;
+	for (it = enemies.begin(); it != enemies.end(); it++) {
+		Renderable re = (*it)->getRender();
+		for (int i=0; i<gfx_count; i++) {
+			if (gfx_prefixes[i] == (*it)->stats.gfx_prefix)
+				re.sprite = sprites[i];
+		}
+		r.push_back(re);
+		if ((*it)->stats.shield_hp > 0) {
+			re = (*it)->stats.getEffectRender(STAT_EFFECT_SHIELD);
+			re.sprite = powers->gfx[powers->powers[POWER_SHIELD].gfx_index]; // TODO: parameter
+			r.push_back(re);
+		}
 	}
-	return r;
 }
 
 EnemyManager::~EnemyManager() {

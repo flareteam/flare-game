@@ -94,7 +94,7 @@ private:
 	int frame_count; // the last frame is the "at-rest" floor loot graphic
 
 	// loot refers to ItemManager indices
-	LootDef loot[256]; // TODO: change to dynamic list without limits
+	std::vector<LootDef> loot;
 
 	// loot tables multiplied out
 	// currently loot can range from levels 0-20
@@ -121,7 +121,7 @@ public:
 	// called by enemy, who definitly wants to drop loot.
 	void addEnemyLoot(const Enemy *e);
 	void checkMapForLoot();
-	bool isFlying(int loot_index);
+	bool isFlying(const LootDef &ld);
 	void determineLoot(int base_level, Point pos); // uniformly distributed within the base_level set
 	void determineLootWithProbability(const Enemy *e, Point pos); // distributed according to enemies loot type probabilities.
 	int randomItem(int base_level);
@@ -131,10 +131,9 @@ public:
 	ItemStack checkPickup(Point mouse, Point cam, Point hero_pos, int &gold, bool inv_full);
 	ItemStack checkAutoPickup(Point cam, Point hero_pos, int &gold, bool inv_full);
 
-	Renderable getRender(int index);
+	void addRenders(std::vector<Renderable> &renderables);
 
 	int tooltip_margin;
-	int loot_count;
 	bool full_msg;
 };
 
