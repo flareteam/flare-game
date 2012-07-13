@@ -57,6 +57,7 @@ MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_i
 		power_cell[i].requires_point = false;
 
 		plusButton[i] = new WidgetButton(mods->locate("images/menus/buttons/button_plus.png"));
+		plusButton[i]->enabled = false;
 	}
 
 	closeButton = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
@@ -83,7 +84,7 @@ MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_i
 		} else if (infile.key == "requires_mentdef") {
 			power_cell[counter].requires_mentdef = eatFirstInt(infile.val, ',');
 		} else if (infile.key == "requires_point") {
-			if (infile.val == "true") power_cell[counter].requires_point = true;
+			if (infile.val == "true,") power_cell[counter].requires_point = true;
 		} else if (infile.key == "closebutton_pos") {
 			close_pos.x = eatFirstInt(infile.val, ',');
 			close_pos.y = eatFirstInt(infile.val, ',');
@@ -231,11 +232,19 @@ void MenuPowers::render() {
 
 	// power icons
 	for (int i=0; i<20; i++) {
+		bool power_in_vector = false;
+		if (find(powers_list.begin(), powers_list.end(), power_cell[i].id) != powers_list.end()) power_in_vector = true;
+
 		renderIcon(powers->powers[power_cell[i].id].icon, window_area.x + power_cell[i].pos.x, window_area.y + power_cell[i].pos.y);
-		if (power_cell[i].requires_point) plusButton[i]->render();
+
+		// Draw button if we can unlock power
+		if (power_cell[i].requires_point && !power_in_vector) {
+			plusButton[i]->enabled = true;
+			plusButton[i]->render();
+		}
 
 		// highlighting
-		if (find(powers_list.begin(), powers_list.end(), power_cell[i].id) != powers_list.end() || requirementsMet(power_cell[i].id))
+		if (power_in_vector || requirementsMet(power_cell[i].id))
 			displayBuild(power_cell[i].id);
 	}
 
