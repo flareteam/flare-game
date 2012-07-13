@@ -40,24 +40,6 @@ MenuInventory::MenuInventory(ItemManager *_items, StatBlock *_stats, PowerManage
 	visible = false;
 	loadGraphics();
 
-	window_area.w = 320;
-	window_area.h = 416;
-	window_area.x = VIEW_W - window_area.w;
-	window_area.y = (VIEW_H - window_area.h)/2;
-
-	equipped_area.x = window_area.x + 32;
-	equipped_area.y = window_area.y + 48;
-	equipped_area.w = 256;
-	equipped_area.h = 64;
-
-	carried_area.x = window_area.x + 32;
-	carried_area.y = window_area.y + 128;
-	carried_area.w = 256;
-	carried_area.h = 256;
-
-	inventory[EQUIPMENT].init(MAX_EQUIPPED, items, equipped_area, ICON_SIZE_64, 4);
-	inventory[CARRIED].init(MAX_CARRIED, items, carried_area, ICON_SIZE_32, 8);
-
 	gold = 0;
 
 	drag_prev_src = -1;
@@ -66,8 +48,6 @@ MenuInventory::MenuInventory(ItemManager *_items, StatBlock *_stats, PowerManage
 	log_msg = "";
 
 	closeButton = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
-	closeButton->pos.x = VIEW_W - 26;
-	closeButton->pos.y = (VIEW_H - 480)/2 + 34;
 }
 
 void MenuInventory::loadGraphics() {
@@ -82,6 +62,24 @@ void MenuInventory::loadGraphics() {
 	SDL_Surface *cleanup = background;
 	background = SDL_DisplayFormatAlpha(background);
 	SDL_FreeSurface(cleanup);
+}
+
+void MenuInventory::update() {
+	equipped_area.x = window_area.x + 32;
+	equipped_area.y = window_area.y + 48;
+	equipped_area.w = 256;
+	equipped_area.h = 64;
+
+	carried_area.x = window_area.x + 32;
+	carried_area.y = window_area.y + 128;
+	carried_area.w = 256;
+	carried_area.h = 256;
+
+	inventory[EQUIPMENT].init(MAX_EQUIPPED, items, equipped_area, ICON_SIZE_64, 4);
+	inventory[CARRIED].init(MAX_CARRIED, items, carried_area, ICON_SIZE_32, 8);
+
+	closeButton->pos.x = window_area.x+294;
+	closeButton->pos.y = window_area.y+2;
 }
 
 void MenuInventory::logic() {
@@ -109,11 +107,12 @@ void MenuInventory::render() {
 	SDL_Rect src;
 
 	// background
+	SDL_Rect dest = window_area;
 	src.x = 0;
 	src.y = 0;
 	src.w = window_area.w;
 	src.h = window_area.h;
-	SDL_BlitSurface(background, &src, screen, &window_area);
+	SDL_BlitSurface(background, NULL, screen, &dest);
 
 	// close button
 	closeButton->render();
