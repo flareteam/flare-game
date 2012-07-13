@@ -79,10 +79,10 @@ or, BUILDING WITH g++
 If you prefer building directly with C++, the command will be something like this.
 
 Windows plus MinGW (depending on where your SDL dev headers are)
-g++ -I C:\MinGW\include\SDL src\*.cpp -o flare.exe -lmingw32 -lSDLmain -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf
+g++ -I C:\MinGW\include\SDL src\*.cpp src\*.c -o flare.exe -lmingw32 -lSDLmain -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf
 
 Linux (depending on where your SDL includes are)
-g++ -I /usr/include/SDL src/*.cpp -o flare -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf
+g++ -I /usr/include/SDL src/*.cpp src/*.c -o flare -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf
 
 
 RUNNING FLARE
