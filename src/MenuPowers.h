@@ -34,16 +34,21 @@ class PowerManager;
 class StatBlock;
 class TooltipData;
 
-struct Power_UI {
+struct Power_Menu_Cell {
 	int id;
 	Point pos;
+	int requires_physoff;
+	int requires_physdef;
+	int requires_mentoff;
+	int requires_mentdef;
+	bool requires_point;
 };
 
 class MenuPowers : public Menu {
 private:
 	StatBlock *stats;
 	PowerManager *powers;
-	Power_UI power_ui[20];
+	Power_Menu_Cell power_cell[20];
 
 	SDL_Surface *background;
 	SDL_Surface *icons;

@@ -336,6 +336,7 @@ public:
 	 * static mechanism of expecting disciplines to be index zero to 19.
 	 */
 	static unsigned getRequiredStatValue(unsigned powerid, unsigned stat) {
+		// TODO This is hadrcoded
 		return (powerid > 19 || stat != powerid % 4) ? 0 : (powerid / 4) * 2 + 1;
 	}
 };

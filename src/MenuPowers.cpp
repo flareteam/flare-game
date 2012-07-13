@@ -47,9 +47,14 @@ MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_i
 	points_left = 0;
 
 	for (int i=0; i<20; i++) {
-		power_ui[i].id = 0;
-		power_ui[i].pos.x = 0;
-		power_ui[i].pos.y = 0;
+		power_cell[i].id = 0;
+		power_cell[i].pos.x = 0;
+		power_cell[i].pos.y = 0;
+		power_cell[i].requires_mentdef = 0;
+		power_cell[i].requires_mentoff = 0;
+		power_cell[i].requires_physoff = 0;
+		power_cell[i].requires_physdef = 0;
+		power_cell[i].requires_point = false;
 
 		plusButton[i] = new WidgetButton(mods->locate("images/menus/buttons/button_plus.png"));
 	}
@@ -65,10 +70,20 @@ MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_i
 
 		if (infile.key == "id") {
 			counter++;
-			power_ui[counter].id = eatFirstInt(infile.val, ',');
+			power_cell[counter].id = eatFirstInt(infile.val, ',');
 		} else if (infile.key == "position") {
-			power_ui[counter].pos.x = eatFirstInt(infile.val, ',');
-			power_ui[counter].pos.y = eatFirstInt(infile.val, ',');
+			power_cell[counter].pos.x = eatFirstInt(infile.val, ',');
+			power_cell[counter].pos.y = eatFirstInt(infile.val, ',');
+		} else if (infile.key == "requires_physoff") {
+			power_cell[counter].requires_physoff = eatFirstInt(infile.val, ',');
+		} else if (infile.key == "requires_physdef") {
+			power_cell[counter].requires_physdef = eatFirstInt(infile.val, ',');
+		} else if (infile.key == "requires_mentoff") {
+			power_cell[counter].requires_mentoff = eatFirstInt(infile.val, ',');
+		} else if (infile.key == "requires_mentdef") {
+			power_cell[counter].requires_mentdef = eatFirstInt(infile.val, ',');
+		} else if (infile.key == "requires_point") {
+			if (infile.val == "true") power_cell[counter].requires_point = true;
 		} else if (infile.key == "closebutton_pos") {
 			close_pos.x = eatFirstInt(infile.val, ',');
 			close_pos.y = eatFirstInt(infile.val, ',');
@@ -86,11 +101,11 @@ MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_i
 void MenuPowers::update() {
 	for (int i=0; i<20; i++) {
 		slots[i].w = slots[i].h = 32;
-		slots[i].x = window_area.x + power_ui[i].pos.x;
-		slots[i].y = window_area.y + power_ui[i].pos.y;
+		slots[i].x = window_area.x + power_cell[i].pos.x;
+		slots[i].y = window_area.y + power_cell[i].pos.y;
 
-		plusButton[i]->pos.x = window_area.x + power_ui[i].pos.x + 32;
-		plusButton[i]->pos.y = window_area.y + power_ui[i].pos.y;
+		plusButton[i]->pos.x = window_area.x + power_cell[i].pos.x + 32;
+		plusButton[i]->pos.y = window_area.y + power_cell[i].pos.y;
 	}
 
 	label_powers.set(window_area.x+160, window_area.y+8, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Powers"), FONT_WHITE);
@@ -145,28 +160,24 @@ void MenuPowers::renderIcon(int icon_id, int x, int y) {
  * With great power comes great stat requirements.
  */
 bool MenuPowers::requirementsMet(int power_index) {
-/*
-	int required_val = (power_index / 4) * 2 + 1;
-	int required_stat = power_index % 4;
-	switch (required_stat) {
-		case 0:
-			return (stats->physoff >= required_val);
-			break;
-		case 1:
-			return (stats->physdef >= required_val);
-			break;
-		case 2:
-			return (stats->mentoff >= required_val);
-			break;
-		case 3:
-			return (stats->mentdef >= required_val);
-			break;
+	// Find cell with our power
+	int id;
+	for (int i=0; i<20; i++) {
+		if (power_cell[i].id == power_index) {
+		id = i;
+		break;
+		}
 	}
-	return false;
-*/
-	for (unsigned int i=0; i<powers_list.size(); i++) {
-		if (power_index == powers_list[i]) return true;
-	}
+
+	// If power_id is saved into vector, it's unlocked anyway
+	if (find(powers_list.begin(), powers_list.end(), power_index) != powers_list.end()) return true;
+
+	// Check the rest requirements
+	if ((stats->physoff >= power_cell[id].requires_physoff) &&
+		(stats->physdef >= power_cell[id].requires_physdef) &&
+		(stats->mentoff >= power_cell[id].requires_mentoff) &&
+		(stats->mentdef >= power_cell[id].requires_mentdef) &&
+		!power_cell[id].requires_point) return true;
 	return false;
 }
 
@@ -177,7 +188,7 @@ int MenuPowers::click(Point mouse) {
 
 	for (int i=0; i<20; i++) {
 		if (isWithin(slots[i], mouse)) {
-			if (requirementsMet(power_ui[i].id)) return power_ui[i].id;
+			if (requirementsMet(power_cell[i].id)) return power_cell[i].id;
 			else return -1;
 		}
 	}
@@ -192,8 +203,11 @@ void MenuPowers::logic() {
 		visible = false;
 	}
 	for (int i=0; i<20; i++) {
+		// Don't push unlocked cell
+		if (requirementsMet(power_cell[i].id)) continue;
+
 		if (plusButton[i]->checkClick() && (points_left > 0)) {
-			powers_list.push_back(power_ui[i].id);
+			powers_list.push_back(power_cell[i].id);
 			points_left = stats->level - powers_list.size();
 		}
 	}
@@ -217,11 +231,12 @@ void MenuPowers::render() {
 
 	// power icons
 	for (int i=0; i<20; i++) {
-		renderIcon(powers->powers[power_ui[i].id].icon, window_area.x + power_ui[i].pos.x, window_area.y + power_ui[i].pos.y);
-		plusButton[i]->render();
+		renderIcon(powers->powers[power_cell[i].id].icon, window_area.x + power_cell[i].pos.x, window_area.y + power_cell[i].pos.y);
+		if (power_cell[i].requires_point) plusButton[i]->render();
 
 		// highlighting
-		if (find(powers_list.begin(), powers_list.end(), power_ui[i].id) != powers_list.end()) displayBuild(power_ui[i].id);
+		if (find(powers_list.begin(), powers_list.end(), power_cell[i].id) != powers_list.end() || requirementsMet(power_cell[i].id))
+			displayBuild(power_cell[i].id);
 	}
 
 	// close button
@@ -255,9 +270,9 @@ void MenuPowers::displayBuild(int power_id) {
 	src_unlock.h = 32;
 
 	for (int i=0; i<20; i++) {
-		if (power_ui[i].id == power_id) {
-			dest.x = window_area.x + power_ui[i].pos.x;
-			dest.y = window_area.y + power_ui[i].pos.y;
+		if (power_cell[i].id == power_id) {
+			dest.x = window_area.x + power_cell[i].pos.x;
+			dest.y = window_area.y + power_cell[i].pos.y;
 			SDL_BlitSurface(powers_unlock, &src_unlock, screen, &dest);
 		}
 	}
@@ -272,14 +287,14 @@ TooltipData MenuPowers::checkTooltip(Point mouse) {
 
 		for (int i=0; i<20; i++) {
 			if (isWithin(slots[i], mouse)) {
-				tip.lines[tip.num_lines++] = powers->powers[power_ui[i].id].name;
-				tip.lines[tip.num_lines++] = powers->powers[power_ui[i].id].description;
+				tip.lines[tip.num_lines++] = powers->powers[power_cell[i].id].name;
+				tip.lines[tip.num_lines++] = powers->powers[power_cell[i].id].description;
 
-				if (powers->powers[power_ui[i].id].requires_physical_weapon)
+				if (powers->powers[power_cell[i].id].requires_physical_weapon)
 					tip.lines[tip.num_lines++] = msg->get("Requires a physical weapon");
-				else if (powers->powers[power_ui[i].id].requires_mental_weapon)
+				else if (powers->powers[power_cell[i].id].requires_mental_weapon)
 					tip.lines[tip.num_lines++] = msg->get("Requires a mental weapon");
-				else if (powers->powers[power_ui[i].id].requires_offense_weapon)
+				else if (powers->powers[power_cell[i].id].requires_offense_weapon)
 					tip.lines[tip.num_lines++] = msg->get("Requires an offense weapon");
 
 
@@ -299,12 +314,12 @@ TooltipData MenuPowers::checkTooltip(Point mouse) {
 				}
 
 				// add mana cost
-				if (powers->powers[power_ui[i].id].requires_mp > 0) {
-					tip.lines[tip.num_lines++] = msg->get("Costs %d MP", powers->powers[power_ui[i].id].requires_mp);
+				if (powers->powers[power_cell[i].id].requires_mp > 0) {
+					tip.lines[tip.num_lines++] = msg->get("Costs %d MP", powers->powers[power_cell[i].id].requires_mp);
 				}
 				// add cooldown time
-				if (powers->powers[power_ui[i].id].cooldown > 0) {
-					tip.lines[tip.num_lines++] = msg->get("Cooldown: %d seconds", powers->powers[power_ui[i].id].cooldown / 1000.0);
+				if (powers->powers[power_cell[i].id].cooldown > 0) {
+					tip.lines[tip.num_lines++] = msg->get("Cooldown: %d seconds", powers->powers[power_cell[i].id].cooldown / 1000.0);
 				}
 
 				return tip;
