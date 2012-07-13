@@ -137,6 +137,7 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 	chr->update();
 	inv->update();
 	pow->update();
+    log->update();
 
 	pause = false;
 	dragging = false;
@@ -386,7 +387,6 @@ void MenuManager::logic() {
 
             // pick up an inventory item
             if (inv->visible && isWithin(inv->window_area,inpt->mouse)) {
-
                 if (inpt->pressing[CTRL]) {
                     inpt->lock[MAIN1] = true;
                     stack = inv->click(inpt);
