@@ -66,6 +66,7 @@ private:
 	void loadGraphics();
 	void displayBuild(int power_id);
 	void renderIcon(int icon_id, int x, int y);
+	bool powerUnlockable(int power_index);
 
 public:
 	MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_icons);

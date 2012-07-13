@@ -83,7 +83,7 @@ MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_i
 		} else if (infile.key == "requires_mentdef") {
 			power_cell[counter].requires_mentdef = eatFirstInt(infile.val, ',');
 		} else if (infile.key == "requires_point") {
-			if (infile.val == "true") power_cell[counter].requires_point = true;
+			if (infile.val == "true,") power_cell[counter].requires_point = true;
 		} else if (infile.key == "closebutton_pos") {
 			close_pos.x = eatFirstInt(infile.val, ',');
 			close_pos.y = eatFirstInt(infile.val, ',');
@@ -182,6 +182,27 @@ bool MenuPowers::requirementsMet(int power_index) {
 }
 
 /**
+ * Check if we can unlock power.
+ */
+bool MenuPowers::powerUnlockable(int power_index) {
+	// Find cell with our power
+	int id;
+	for (int i=0; i<20; i++) {
+		if (power_cell[i].id == power_index) {
+		id = i;
+		break;
+		}
+	}
+
+	// Check requirements
+	if ((stats->physoff >= power_cell[id].requires_physoff) &&
+		(stats->physdef >= power_cell[id].requires_physdef) &&
+		(stats->mentoff >= power_cell[id].requires_mentoff) &&
+		(stats->mentdef >= power_cell[id].requires_mentdef)) return true;
+	return false;
+}
+
+/**
  * Click-to-drag a power (to the action bar)
  */
 int MenuPowers::click(Point mouse) {
@@ -203,10 +224,7 @@ void MenuPowers::logic() {
 		visible = false;
 	}
 	for (int i=0; i<20; i++) {
-		// Don't push unlocked cell
-		if (requirementsMet(power_cell[i].id)) continue;
-
-		if (plusButton[i]->checkClick() && (points_left > 0)) {
+		if (plusButton[i]->checkClick()) {
 			powers_list.push_back(power_cell[i].id);
 			points_left = stats->level - powers_list.size();
 		}
@@ -231,11 +249,22 @@ void MenuPowers::render() {
 
 	// power icons
 	for (int i=0; i<20; i++) {
+		bool power_in_vector = false;
+		if (find(powers_list.begin(), powers_list.end(), power_cell[i].id) != powers_list.end()) power_in_vector = true;
+
 		renderIcon(powers->powers[power_cell[i].id].icon, window_area.x + power_cell[i].pos.x, window_area.y + power_cell[i].pos.y);
-		if (power_cell[i].requires_point) plusButton[i]->render();
+
+		// Disable all buttons
+		plusButton[i]->enabled = false;
+
+		// Enable button if we can unlock power
+		if (power_cell[i].requires_point && !power_in_vector && powerUnlockable(power_cell[i].id) && (points_left > 0)) {
+			plusButton[i]->enabled = true;
+			plusButton[i]->render();
+		}
 
 		// highlighting
-		if (find(powers_list.begin(), powers_list.end(), power_cell[i].id) != powers_list.end() || requirementsMet(power_cell[i].id))
+		if (power_in_vector || requirementsMet(power_cell[i].id))
 			displayBuild(power_cell[i].id);
 	}
 
