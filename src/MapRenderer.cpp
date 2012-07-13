@@ -573,11 +573,9 @@ bool zcompare_iso(const Renderable &r1, const Renderable &r2) {
 		if (r1.tile.x > r2.tile.x)
 			return false;
 		else if (r1.tile.x == r2.tile.x) {
-
 			// same tile, sort by subtile
-			if (r1.map_pos.x + r1.map_pos.y > r2.map_pos.x + r2.map_pos.y)
+			if (r1.map_pos.x + r1.map_pos.y >= r2.map_pos.x + r2.map_pos.y)
 				return false;
-
 		}
 	}
 	return true;
@@ -590,7 +588,7 @@ bool zcompare_ortho(const Renderable &r1, const Renderable &r2) {
 		if (r1.tile.x > r2.tile.x)
 			return false;
 		else
-			if (r1.map_pos.x + r1.map_pos.y > r2.map_pos.x + r2.map_pos.y)
+			if (r1.map_pos.x + r1.map_pos.y >= r2.map_pos.x + r2.map_pos.y)
 				return false;
 	}
 	return true;
