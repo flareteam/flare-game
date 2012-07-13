@@ -135,7 +135,9 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 	talker->update();
 	exit->update();
 	chr->update();
+	inv->update();
 	pow->update();
+    log->update();
 
 	pause = false;
 	dragging = false;
@@ -334,115 +336,103 @@ void MenuManager::logic() {
 			}
 		}
 
-		// handle left-click
-		if (!dragging && inpt->pressing[MAIN1] && !inpt->lock[MAIN1]) {
-			// exit menu
-			if (exit->visible && isWithin(exit->window_area, inpt->mouse)) {
-				inpt->lock[MAIN1] = true;
-			}
+        // handle left-click
+        if (!dragging && inpt->pressing[MAIN1] && !inpt->lock[MAIN1]) {
+            // exit menu
+            if (exit->visible && isWithin(exit->window_area, inpt->mouse)) {
+                inpt->lock[MAIN1] = true;
+            }
 
-			// left side menu
-			else if (inpt->mouse.x <= 320 && inpt->mouse.y >= offset_y && inpt->mouse.y <= offset_y+416) {
-				if (chr->visible) {
-					inpt->lock[MAIN1] = true;
+            if (chr->visible && isWithin(chr->window_area,inpt->mouse)) {
+                inpt->lock[MAIN1] = true;
 
-					// applied a level-up
-					if (chr->checkUpgrade()) {
+                // applied a level-up
+                if (chr->checkUpgrade()) {
+                    // apply equipment and max hp/mp
+                    inv->applyEquipment(inv->inventory[EQUIPMENT].storage);
+                    stats->hp = stats->maxhp;
+                    stats->mp = stats->maxmp;
+                }
+            }
+            if (vendor->visible && isWithin(vendor->window_area,inpt->mouse)) {
+                inpt->lock[MAIN1] = true;
+                if (inpt->pressing[CTRL]) {
+                    // buy item from a vendor
+                    if (!inv->full()) {
+                        stack = vendor->click(inpt);
+                        if (stack.item > 0) {
+                            if( inv->full()) {
+                                // Can we say "Not enough place" ?
+                                vendor->itemReturn( stack);
+                            } else if( ! inv->buy( stack)) {
+                                // Can we say "Not enough money" ? (here or in MenuInventory::buy())
+                                vendor->itemReturn( stack);
+                            }
+                        }
+                    }
+                } else {
+                    // start dragging a vendor item
+                    drag_stack = vendor->click(inpt);
+                    if (drag_stack.item > 0) {
+                        dragging = true;
+                        drag_src = DRAG_SRC_VENDOR;
+                    }
+                }
+            }
 
-						// apply equipment and max hp/mp
-						inv->applyEquipment(inv->inventory[EQUIPMENT].storage);
-						stats->hp = stats->maxhp;
-						stats->mp = stats->maxmp;
-					}
-				}
-				else if (vendor->visible) {
+            if(log->visible && isWithin(log->window_area,inpt->mouse)) {
+                inpt->lock[MAIN1] = true;
+                log->tabsLogic();
+            }
 
-					inpt->lock[MAIN1] = true;
-					if (inpt->pressing[CTRL]) {
-
-						// buy item from a vendor
-						if (!inv->full()) {
-							stack = vendor->click(inpt);
-							if (stack.item > 0) {
-								if( inv->full()) {
-									// Can we say "Not enough place" ?
-									vendor->itemReturn( stack);
-								}
-								else if( ! inv->buy( stack)) {
-									// Can we say "Not enough money" ? (here or in MenuInventory::buy())
-									vendor->itemReturn( stack);
-								}
-							}
-						}
-					}
-					else {
-
-						// start dragging a vendor item
-						drag_stack = vendor->click(inpt);
-						if (drag_stack.item > 0) {
-							dragging = true;
-							drag_src = DRAG_SRC_VENDOR;
-						}
-					}
-				} else if(log->visible) {
-		  inpt->lock[MAIN1] = true;
-		  log->tabsLogic();
-		}
-			}
-
-			// right side menu
-			else if (inpt->mouse.x >= offset_x && inpt->mouse.y >= offset_y && inpt->mouse.y <= offset_y+416) {
-
-				// pick up an inventory item
-				if (inv->visible) {
-
-					if (inpt->pressing[CTRL]) {
-						inpt->lock[MAIN1] = true;
-						stack = inv->click(inpt);
-						if( stack.item > 0) {
-							if (vendor->visible) {
-								if( vendor->full()) {
-									// Can we say "Not enough place" ?
-									inv->itemReturn( stack);
-								}
-								else {
-									// The vendor could have a limited amount of money in the future. It will be tested here.
-									if (inv->sell(stack)) {
-										vendor->add(stack);
-									}
-									else {
-										inv->itemReturn(stack);
-									}
-								}
-							}
-							else {
-								if (!inv->sell(stack)) {
-									inv->itemReturn(stack);
-								}
-							}
-						}
-					}
-					else {
-						inpt->lock[MAIN1] = true;
-						drag_stack = inv->click(inpt);
-						if (drag_stack.item > 0) {
-							dragging = true;
-							drag_src = DRAG_SRC_INVENTORY;
-						}
-					}
-				}
-				// pick up a power
-				else if (pow->visible) {
-					inpt->lock[MAIN1] = true;
-					drag_power = pow->click(inpt->mouse);
-					if (drag_power > -1) {
-						dragging = true;
-						drag_src = DRAG_SRC_POWERS;
-					}
-				}
-			}
+            // pick up an inventory item
+            if (inv->visible && isWithin(inv->window_area,inpt->mouse)) {
+                if (inpt->pressing[CTRL]) {
+                    inpt->lock[MAIN1] = true;
+                    stack = inv->click(inpt);
+                    if( stack.item > 0) {
+                        if (vendor->visible) {
+                            if( vendor->full()) {
+                                // Can we say "Not enough place" ?
+                                inv->itemReturn( stack);
+                            }
+                            else {
+                                // The vendor could have a limited amount of money in the future. It will be tested here.
+                                if (inv->sell(stack)) {
+                                    vendor->add(stack);
+                                }
+                                else {
+                                    inv->itemReturn(stack);
+                                }
+                            }
+                        }
+                        else {
+                            if (!inv->sell(stack)) {
+                                inv->itemReturn(stack);
+                            }
+                        }
+                    }
+                }
+                else {
+                    inpt->lock[MAIN1] = true;
+                    drag_stack = inv->click(inpt);
+                    if (drag_stack.item > 0) {
+                        dragging = true;
+                        drag_src = DRAG_SRC_INVENTORY;
+                    }
+                }
+            }
+            // pick up a power
+            if (pow->visible && isWithin(pow->window_area,inpt->mouse)) {
+                inpt->lock[MAIN1] = true;
+                drag_power = pow->click(inpt->mouse);
+                if (drag_power > -1) {
+                    dragging = true;
+                    drag_src = DRAG_SRC_POWERS;
+                }
+            }
 			// action bar
-			else if (isWithin(act->numberArea,inpt->mouse) || isWithin(act->mouseArea,inpt->mouse) || isWithin(act->menuArea, inpt->mouse)) {
+			if (isWithin(act->numberArea,inpt->mouse) || isWithin(act->mouseArea,inpt->mouse) || isWithin(act->menuArea, inpt->mouse)) {
 				inpt->lock[MAIN1] = true;
 
 				// ctrl-click action bar to clear that slot
@@ -464,6 +454,7 @@ void MenuManager::logic() {
 
 			}
 		}
+
 		// handle dropping
 		if (dragging && !inpt->pressing[MAIN1]) {
 
@@ -484,7 +475,7 @@ void MenuManager::logic() {
 			// rearranging inventory or dropping items
 			else if (drag_src == DRAG_SRC_INVENTORY) {
 
-				if (inv->visible && inpt->mouse.x >= offset_x && inpt->mouse.y >= offset_y && inpt->mouse.y <= offset_y+416) {
+				if (inv->visible && isWithin(inv->window_area, inpt->mouse)) {
 					inv->drop(inpt->mouse, drag_stack);
 					drag_stack.item = 0;
 				}

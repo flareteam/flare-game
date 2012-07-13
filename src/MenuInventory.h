@@ -65,6 +65,7 @@ private:
 public:
 	MenuInventory(ItemManager *items, StatBlock *stats, PowerManager *powers);
 	~MenuInventory();
+	void update();
 	void logic();
 	void render();
 	TooltipData checkTooltip(Point mouse);
@@ -89,7 +90,6 @@ public:
 
 	bool visible;
 
-	SDL_Rect window_area;
 	SDL_Rect carried_area;
 	SDL_Rect equipped_area;
 

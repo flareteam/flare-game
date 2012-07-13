@@ -33,37 +33,27 @@ MenuLog::MenuLog() {
 
 	visible = false;
 
-  // TODO: allow menu size to be configurable
-  menu_area.x = 0;
-  menu_area.y = (VIEW_H - 416)/2;
-  menu_area.w = 320;
-  menu_area.h = 416;
+	// Store the amount of displayed log messages on each log, and the maximum.
+	for (int i=0; i<LOG_TYPE_COUNT; i++) {
+		log_count[i] = 0;
+		for (int j=0; j<MAX_LOG_MESSAGES; j++) {
+			msg_buffer[i][j] = NULL;
+		}
+	}
 
-  // Store the amount of displayed log messages on each log, and the maximum.
-  for (int i=0; i<LOG_TYPE_COUNT; i++) {
-    log_count[i] = 0;
-    for (int j=0; j<MAX_LOG_MESSAGES; j++) {
-      msg_buffer[i][j] = NULL;
-    }
-  }
+	// Initialize the tab control.
+	tabControl = new WidgetTabControl(LOG_TYPE_COUNT);
 
-  // Initialize the tab control.
-  tabControl = new WidgetTabControl(LOG_TYPE_COUNT);
-  tabControl->setMainArea(menu_area.x + 32, menu_area.y + 30, 240, 348);
-
-  // Define the header.
-  tabControl->setTabTitle(LOG_TYPE_MESSAGES, msg->get("Messages"));
-  tabControl->setTabTitle(LOG_TYPE_QUESTS, msg->get("Quests"));
-  tabControl->setTabTitle(LOG_TYPE_STATISTICS, msg->get("Statistics"));
-  tabControl->updateHeader();
+	// Define the header.
+	tabControl->setTabTitle(LOG_TYPE_MESSAGES, msg->get("Messages"));
+	tabControl->setTabTitle(LOG_TYPE_QUESTS, msg->get("Quests"));
+	tabControl->setTabTitle(LOG_TYPE_STATISTICS, msg->get("Statistics"));
 
 	paragraph_spacing = font->getLineHeight()/2;
 
 	loadGraphics();
 
 	closeButton = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
-	closeButton->pos.x = 294;
-	closeButton->pos.y = (VIEW_H - 480)/2 + 34;
 }
 
 void MenuLog::loadGraphics() {
@@ -82,15 +72,22 @@ void MenuLog::loadGraphics() {
 
 }
 
+void MenuLog::update() {
+	tabControl->setMainArea(window_area.x + 32, window_area.y + 30, 240, 348);
+	tabControl->updateHeader();
+	closeButton->pos.x = window_area.x + 294;
+	closeButton->pos.y = window_area.y + 2;
+}
+
 /**
  * Perform one frame of logic.
  */
 void MenuLog::logic() {
-  if(!visible) return;
+	if(!visible) return;
 
-  if (closeButton->checkClick()) {
-    visible = false;
-  }
+	if (closeButton->checkClick()) {
+		visible = false;
+	}
 }
 
 /**
@@ -98,7 +95,7 @@ void MenuLog::logic() {
  */
 void MenuLog::tabsLogic()
 {
-  tabControl->logic();
+	tabControl->logic();
 }
 
 
@@ -109,32 +106,33 @@ void MenuLog::render() {
 
 	if (!visible) return;
 
-	SDL_Rect src;
+	SDL_Rect src,dest;
 
 	// Background.
+	dest = window_area;
 	src.x = 0;
 	src.y = 0;
-	src.w = menu_area.w;
-	src.h = menu_area.h;
-	SDL_BlitSurface(background, &src, screen, &menu_area);
+	src.w = window_area.w;
+	src.h = window_area.h;
+	SDL_BlitSurface(background, &src, screen, &window_area);
 
 	// Close button.
 	closeButton->render();
 
 	// Text overlay.
 	WidgetLabel label;
-	label.set(menu_area.x+160, menu_area.y+8, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Log"), FONT_WHITE);
+	label.set(window_area.x+160, window_area.y+8, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Log"), FONT_WHITE);
 	label.render();
 
 	// Tab control.
-  tabControl->render();
+	tabControl->render();
 
 	// Display latest log messages for the active tab.
 
 	int display_number = 0;
 	int total_size = 0;
-  int active_log = tabControl->getActiveTab();
-  SDL_Rect contentArea = tabControl->getContentArea();
+	int active_log = tabControl->getActiveTab();
+	SDL_Rect contentArea = tabControl->getContentArea();
 
 	// first calculate how many entire messages can fit in the log view
 	for (int i=log_count[active_log]-1; i>=0; i--) {
@@ -155,7 +153,7 @@ void MenuLog::render() {
  */
 void MenuLog::add(const string& s, int log_type) {
 
-  // Make space if needed.
+	// Make space if needed.
 	if (log_count[log_type] == MAX_LOG_MESSAGES) {
 		remove(0, log_type);
 	}
@@ -164,7 +162,7 @@ void MenuLog::add(const string& s, int log_type) {
 	log_msg[log_type][log_count[log_type]] = s;
 
 	// Render the log entry and store it in a buffer.
-  int widthLimit = tabControl->getContentArea().w;
+	int widthLimit = tabControl->getContentArea().w;
 	Point size = font->calc_size(s, widthLimit);
 	msg_buffer[log_type][log_count[log_type]] = createSurface(size.x, size.y);
 	font->renderShadowed(s, 0, 0, JUSTIFY_LEFT, msg_buffer[log_type][log_count[log_type]], widthLimit, FONT_WHITE);
@@ -213,5 +211,5 @@ MenuLog::~MenuLog() {
 
 	SDL_FreeSurface(background);
 	delete closeButton;
-  delete tabControl;
+	delete tabControl;
 }

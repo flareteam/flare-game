@@ -57,8 +57,9 @@ public:
 	MenuLog();
 	~MenuLog();
 
+	void update();
 	void logic();
-  void tabsLogic();
+	void tabsLogic();
 	void render();
 	void add(const std::string& s, int log_type);
 	void remove(int msg_index, int log_type);
@@ -66,7 +67,6 @@ public:
 	void clear();
 	
 	bool visible;
-	SDL_Rect menu_area;
 
 };
 
