@@ -170,16 +170,16 @@ void MenuManager::loadIcons() {
 }
 
 void MenuManager::loadSounds() {
-    if (audio == true) {
-        sfx_open = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_page.ogg").c_str());
-        sfx_close = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_book.ogg").c_str());
+	if (audio == true) {
+		sfx_open = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_page.ogg").c_str());
+		sfx_close = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_book.ogg").c_str());
 
-        if (!sfx_open || !sfx_close)
-            fprintf(stderr, "Mix_LoadWAV: %s\n", Mix_GetError());
-    } else {
-        sfx_open = NULL;
-        sfx_close = NULL;
-    }
+		if (!sfx_open || !sfx_close)
+			fprintf(stderr, "Mix_LoadWAV: %s\n", Mix_GetError());
+	} else {
+		sfx_open = NULL;
+		sfx_close = NULL;
+	}
 }
 
 
@@ -219,8 +219,8 @@ void MenuManager::logic() {
 	// only allow the vendor window to be open if the inventory is open
 	if (vendor->visible && !(inv->visible)) {
 	  closeLeft(true);
-      if (vendor->talker_visible && !(inv->visible))
-          closeRight(true);
+	  if (vendor->talker_visible && !(inv->visible))
+		  closeRight(true);
 	}
 
 	if (!inpt->pressing[INVENTORY] && !inpt->pressing[POWERS] && !inpt->pressing[CHARACTER] && !inpt->pressing[LOG])
@@ -256,10 +256,10 @@ void MenuManager::logic() {
 		}
 		else {
 			closeRight(false);
-            act->requires_attention[MENU_INVENTORY] = false;
+			act->requires_attention[MENU_INVENTORY] = false;
 			inv->visible = true;
-            if (sfx_open)
-                Mix_PlayChannel(-1, sfx_open, 0);
+			if (sfx_open)
+				Mix_PlayChannel(-1, sfx_open, 0);
 		}
 
 	}
@@ -272,10 +272,10 @@ void MenuManager::logic() {
 		}
 		else {
 			closeRight(false);
-            act->requires_attention[MENU_POWERS] = false;
+			act->requires_attention[MENU_POWERS] = false;
 			pow->visible = true;
-            if (sfx_open)
-                Mix_PlayChannel(-1, sfx_open, 0);
+			if (sfx_open)
+				Mix_PlayChannel(-1, sfx_open, 0);
 		}
 	}
 
@@ -287,10 +287,10 @@ void MenuManager::logic() {
 		}
 		else {
 			closeLeft(false);
-            act->requires_attention[MENU_CHARACTER] = false;
+			act->requires_attention[MENU_CHARACTER] = false;
 			chr->visible = true;
-            if (sfx_open)
-                Mix_PlayChannel(-1, sfx_open, 0);
+			if (sfx_open)
+				Mix_PlayChannel(-1, sfx_open, 0);
 		}
 	}
 
@@ -302,10 +302,10 @@ void MenuManager::logic() {
 		}
 		else {
 			closeLeft(false);
-            act->requires_attention[MENU_LOG] = false;
+			act->requires_attention[MENU_LOG] = false;
 			log->visible = true;
-            if (sfx_open)
-                Mix_PlayChannel(-1, sfx_open, 0);
+			if (sfx_open)
+				Mix_PlayChannel(-1, sfx_open, 0);
 		}
 	}
 
@@ -385,9 +385,9 @@ void MenuManager::logic() {
 						}
 					}
 				} else if(log->visible) {
-          inpt->lock[MAIN1] = true;
-          log->tabsLogic();
-        }
+		  inpt->lock[MAIN1] = true;
+		  log->tabsLogic();
+		}
 			}
 
 			// right side menu
@@ -598,23 +598,19 @@ void MenuManager::render() {
 	int offset_y = (VIEW_H - 416)/2;
 
 	// Find tooltips depending on mouse position
-	if (inpt->mouse.x < 320 && inpt->mouse.y >= offset_y && inpt->mouse.y <= offset_y+416) {
-		if (chr->visible) {
-			tip_new = chr->checkTooltip();
-		}
-		else if (vendor->visible) {
-			tip_new = vendor->checkTooltip(inpt->mouse);
-		}
+	if (chr->visible && isWithin(chr->window_area,inpt->mouse)) {
+		tip_new = chr->checkTooltip();
 	}
-	else if (inpt->mouse.x >= offset_x && inpt->mouse.y >= offset_y && inpt->mouse.y <= offset_y+416) {
-		if (pow->visible) {
-			tip_new = pow->checkTooltip(inpt->mouse);
-		}
-		else if (inv->visible && !dragging) {
-			tip_new = inv->checkTooltip(inpt->mouse);
-		}
+	if (vendor->visible && isWithin(vendor->window_area,inpt->mouse)) {
+		tip_new = vendor->checkTooltip(inpt->mouse);
 	}
-	else if (inpt->mouse.y >= VIEW_H-32) {
+	if (pow->visible && isWithin(pow->window_area,inpt->mouse)) {
+		tip_new = pow->checkTooltip(inpt->mouse);
+	}
+	if (inv->visible && !dragging && isWithin(inv->window_area,inpt->mouse)) {
+		tip_new = inv->checkTooltip(inpt->mouse);
+	}
+	if (isWithin(act->window_area,inpt->mouse)) {
 		tip_new = act->checkTooltip(inpt->mouse);
 	}
 
@@ -658,8 +654,8 @@ void MenuManager::closeLeft(bool play_sound) {
 		talker->visible = false;
 		exit->visible = false;
 
-        if (sfx_close)
-            if (play_sound) Mix_PlayChannel(-1, sfx_close, 0);
+		if (sfx_close)
+			if (play_sound) Mix_PlayChannel(-1, sfx_close, 0);
 
 	}
 }
@@ -671,8 +667,8 @@ void MenuManager::closeRight(bool play_sound) {
 		talker->visible = false;
 		exit->visible = false;
 
-        if (sfx_close)
-            if (play_sound) Mix_PlayChannel(-1, sfx_close, 0);
+		if (sfx_close)
+			if (play_sound) Mix_PlayChannel(-1, sfx_close, 0);
 	}
 }
 
@@ -696,8 +692,8 @@ MenuManager::~MenuManager() {
 	delete exit;
 	delete enemy;
 
-    if (sfx_open != NULL)
-        Mix_FreeChunk(sfx_open);
-    if (sfx_close != NULL)
-        Mix_FreeChunk(sfx_close);
+	if (sfx_open != NULL)
+		Mix_FreeChunk(sfx_open);
+	if (sfx_close != NULL)
+		Mix_FreeChunk(sfx_close);
 }
