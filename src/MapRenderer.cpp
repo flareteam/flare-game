@@ -778,6 +778,7 @@ void MapRenderer::renderOrthoBackground() {
 }
 
 void MapRenderer::renderOrthoBackObjects(std::vector<Renderable> &r) {
+	SDL_Rect dest;
 	// some renderables are drawn above the background and below the objects
 	vector<Renderable>::iterator it;
 	for (it = r.begin(); it != r.end(); it++) {
@@ -792,6 +793,10 @@ void MapRenderer::renderOrthoBackObjects(std::vector<Renderable> &r) {
 }
 
 void MapRenderer::renderOrthoFrontObjects(std::vector<Renderable> &r) {
+	short int i;
+	short int j;
+	SDL_Rect dest;
+	unsigned short current_tile;
 	vector<Renderable>::iterator r_cursor = r.begin();
 	vector<Renderable>::iterator r_end = r.end();
 
