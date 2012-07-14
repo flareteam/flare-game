@@ -63,7 +63,8 @@ private:
 	SDL_Surface *powers_tree;
 	SDL_Surface *powers_unlock;
 	WidgetButton *closeButton;
-	WidgetButton *plusButton[POWER_SLOTS_COUNT];
+	bool unlock_click(Point mouse);
+	bool pressed;
 	Point close_pos;
 	Point unspent_pos;
 	int points_left;

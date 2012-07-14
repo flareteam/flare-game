@@ -45,6 +45,7 @@ MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_i
 	loadGraphics();
 
 	points_left = 0;
+	pressed = false;
 
 	for (int i=0; i<POWER_SLOTS_COUNT; i++) {
 		power_cell[i].id = -1;
@@ -61,8 +62,6 @@ MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_i
 		power_cell[i].requires_level = 0;
 		power_cell[i].requires_power = -1;
 		power_cell[i].requires_point = false;
-
-		plusButton[i] = new WidgetButton(mods->locate("images/menus/buttons/button_plus.png"));
 	}
 
 	closeButton = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
@@ -121,9 +120,6 @@ void MenuPowers::update() {
 		slots[i].w = slots[i].h = 32;
 		slots[i].x = window_area.x + power_cell[i].pos.x;
 		slots[i].y = window_area.y + power_cell[i].pos.y;
-
-		plusButton[i]->pos.x = window_area.x + power_cell[i].pos.x + 32;
-		plusButton[i]->pos.y = window_area.y + power_cell[i].pos.y;
 	}
 
 	label_powers.set(window_area.x+160, window_area.y+8, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Powers"), FONT_WHITE);
@@ -256,6 +252,33 @@ int MenuPowers::click(Point mouse) {
 	return -1;
 }
 
+/**
+ * Unlock a power
+ */
+bool MenuPowers::unlock_click(Point mouse) {
+/*
+	for (int i=0; i<POWER_SLOTS_COUNT; i++) {
+		// detect new click
+		if (inpt->pressing[MAIN1]) {
+			if (isWithin(slots[i], mouse)) {
+		
+				inpt->lock[MAIN1] = true;
+				pressed = true;
+
+			}
+		}
+
+		if (pressed && !inpt->lock[MAIN1]) {
+			pressed = false;
+		
+			if (isWithin(slots[i], mouse) && (power_cell[i].id != -1) && (powerUnlockable(power_cell[i].id)) && points_left > 0)
+			// activate upon release
+			return true;
+
+		}
+	}*/
+	return false;
+}
 
 void MenuPowers::logic() {
 	if (!visible) return;
@@ -264,7 +287,7 @@ void MenuPowers::logic() {
 		visible = false;
 	}
 	for (int i=0; i<POWER_SLOTS_COUNT; i++) {
-		if (plusButton[i]->checkClick() && (power_cell[i].id != -1)) {
+		if (unlock_click(inpt->mouse)) {
 			powers_list.push_back(power_cell[i].id);
 			points_left = stats->level - powers_list.size();
 		}
@@ -297,15 +320,6 @@ void MenuPowers::render() {
 		if (find(powers_list.begin(), powers_list.end(), power_cell[i].id) != powers_list.end()) power_in_vector = true;
 
 		renderIcon(powers->powers[power_cell[i].id].icon, window_area.x + power_cell[i].pos.x, window_area.y + power_cell[i].pos.y);
-
-		// Disable all buttons
-		plusButton[i]->enabled = false;
-
-		// Enable button if we can unlock power
-		if (power_cell[i].requires_point && !power_in_vector && powerUnlockable(power_cell[i].id) && (points_left > 0)) {
-			plusButton[i]->enabled = true;
-			plusButton[i]->render();
-		}
 
 		// highlighting
 		if (power_in_vector || requirementsMet(power_cell[i].id))
@@ -427,17 +441,36 @@ TooltipData MenuPowers::checkTooltip(Point mouse) {
 					tip.lines[tip.num_lines++] = msg->get("Requires Level %d", power_cell[i].requires_level);
 				}
 
-				// Draw required Power Point Tooltip
+				// Draw required Skill Point Tooltip
 				if ((power_cell[i].requires_point) &&
 					!(find(powers_list.begin(), powers_list.end(), power_cell[i].id) != powers_list.end()) &&
 					(points_left < 1)) {
 						tip.colors[tip.num_lines] = FONT_RED;
-						tip.lines[tip.num_lines++] = msg->get("Requires %d Power Point", power_cell[i].requires_point);
+						tip.lines[tip.num_lines++] = msg->get("Requires %d Skill Point", power_cell[i].requires_point);
 				}
 				else if ((power_cell[i].requires_point) &&
 					!(find(powers_list.begin(), powers_list.end(), power_cell[i].id) != powers_list.end()) &&
 					(points_left > 0))
-						tip.lines[tip.num_lines++] = msg->get("Requires %d Power Point", power_cell[i].requires_point);
+						tip.lines[tip.num_lines++] = msg->get("Requires %d SKill Point", power_cell[i].requires_point);
+
+				// Draw unlock power Tooltip
+				if (power_cell[i].requires_point && 
+					!(find(powers_list.begin(), powers_list.end(), power_cell[i].id) != powers_list.end()) &&
+					(points_left > 0) &&
+					powerUnlockable(power_cell[i].id) && (points_left > 0)) {
+						tip.colors[tip.num_lines] = FONT_GREEN;
+						tip.lines[tip.num_lines++] = msg->get("Click to Unlock");
+					}
+
+
+				// Required Power Tooltip
+				if ((power_cell[i].requires_power != -1) && !(requirementsMet(power_cell[i].id))) {
+					tip.colors[tip.num_lines] = FONT_RED;
+					tip.lines[tip.num_lines++] = msg->get("Requires Power: %s", powers->powers[power_cell[i].requires_power].name);
+				}
+				else if ((power_cell[i].requires_power != -1) && (requirementsMet(power_cell[i].id))) {
+					tip.lines[tip.num_lines++] = msg->get("Requires Power: %s", powers->powers[power_cell[i].requires_power].name);
+				}
 
 				// add mana cost
 				if (powers->powers[power_cell[i].id].requires_mp > 0) {
@@ -459,7 +492,4 @@ MenuPowers::~MenuPowers() {
 	SDL_FreeSurface(background);
 	SDL_FreeSurface(powers_unlock);
 	delete closeButton;
-	for (int i=0; i<POWER_SLOTS_COUNT; i++) {
-	delete plusButton[i];
-	}
 }
