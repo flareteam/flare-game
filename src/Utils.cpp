@@ -50,6 +50,10 @@ Point screen_to_map(int x, int y, int camx, int camy) {
 	return r;
 }
 
+/**
+ * Returns a point (in map units) of a given (x,y) tupel on the screen
+ * when the camera is at a given position.
+ */
 Point map_to_screen(int x, int y, int camx, int camy) {
 	Point r;
 
