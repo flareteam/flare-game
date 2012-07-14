@@ -162,8 +162,22 @@ private:
 	void push_enemy_group(Map_Group g);
 	bool isActive(const Map_Event &e);
 
+	void loadMusic();
+
 	// map events
 	std::vector<Map_Event> events;
+
+	unsigned short background[256][256];
+	unsigned short object[256][256];
+	unsigned short collision[256][256];
+
+	void renderIso(std::vector<Renderable> &r);
+	void renderOrtho(std::vector<Renderable> &r);
+
+	bool new_music;
+	TileSet tset;
+	std::string tileset;
+	std::string music_filename;
 
 public:
 	CampaignManager *camp;
@@ -174,11 +188,8 @@ public:
 	~MapRenderer();
 
 	int load(std::string filename);
-	void loadMusic();
 	void logic();
 	void render(std::vector<Renderable> &r);
-	void renderIso(std::vector<Renderable> &r);
-	void renderOrtho(std::vector<Renderable> &r);
 	void clearEvents();
 	void checkEvents(Point loc);
 	void checkEventClick();
@@ -192,14 +203,7 @@ public:
 	Point hero_tile;
 	Point spawn;
 	int spawn_dir;
-	std::string tileset;
-	std::string music_filename;
-	bool new_music;
-	TileSet tset;
 
-	unsigned short background[256][256];
-	unsigned short object[256][256];
-	unsigned short collision[256][256];
 	MapCollision collider;
 
 	// enemy load handling
