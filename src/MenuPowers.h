@@ -63,7 +63,6 @@ private:
 	SDL_Surface *powers_tree;
 	SDL_Surface *powers_unlock;
 	WidgetButton *closeButton;
-	bool unlock_click(Point mouse);
 	bool pressed;
 	Point close_pos;
 	Point unspent_pos;
@@ -86,6 +85,7 @@ public:
 	TooltipData checkTooltip(Point mouse);
 	bool requirementsMet(int power_index);
 	int click(Point mouse);
+	void unlock_click(Point mouse);
 
 	bool visible;
 	SDL_Rect slots[POWER_SLOTS_COUNT]; // the location of power slots

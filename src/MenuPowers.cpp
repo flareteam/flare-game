@@ -255,29 +255,13 @@ int MenuPowers::click(Point mouse) {
 /**
  * Unlock a power
  */
-bool MenuPowers::unlock_click(Point mouse) {
-/*
+void MenuPowers::unlock_click(Point mouse) {
 	for (int i=0; i<POWER_SLOTS_COUNT; i++) {
-		// detect new click
-		if (inpt->pressing[MAIN1]) {
-			if (isWithin(slots[i], mouse)) {
-		
-				inpt->lock[MAIN1] = true;
-				pressed = true;
-
-			}
+		if (isWithin(slots[i], mouse) && (power_cell[i].id != -1) && (powerUnlockable(power_cell[i].id)) && points_left > 0 && power_cell[i].requires_point) {
+			powers_list.push_back(power_cell[i].id);
+			points_left = stats->level - powers_list.size();
 		}
-
-		if (pressed && !inpt->lock[MAIN1]) {
-			pressed = false;
-		
-			if (isWithin(slots[i], mouse) && (power_cell[i].id != -1) && (powerUnlockable(power_cell[i].id)) && points_left > 0)
-			// activate upon release
-			return true;
-
-		}
-	}*/
-	return false;
+	}
 }
 
 void MenuPowers::logic() {
@@ -285,12 +269,6 @@ void MenuPowers::logic() {
 
 	if (closeButton->checkClick()) {
 		visible = false;
-	}
-	for (int i=0; i<POWER_SLOTS_COUNT; i++) {
-		if (unlock_click(inpt->mouse)) {
-			powers_list.push_back(power_cell[i].id);
-			points_left = stats->level - powers_list.size();
-		}
 	}
 }
 
