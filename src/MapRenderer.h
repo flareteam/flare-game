@@ -175,6 +175,10 @@ private:
 	void renderIsoBackObjects(std::vector<Renderable> &r);
 	void renderIsoFrontObjects(std::vector<Renderable> &r);
 	void renderIso(std::vector<Renderable> &r);
+
+	void renderOrthoBackground();
+	void renderOrthoBackObjects(std::vector<Renderable> &r);
+	void renderOrthoFrontObjects(std::vector<Renderable> &r);
 	void renderOrtho(std::vector<Renderable> &r);
 
 	Point shakycam;
