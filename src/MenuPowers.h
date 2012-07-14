@@ -34,6 +34,8 @@ class PowerManager;
 class StatBlock;
 class TooltipData;
 
+const int POWER_SLOTS_COUNT = 20;
+
 struct Power_Menu_Cell {
 	int id;
 	Point pos;
@@ -41,6 +43,12 @@ struct Power_Menu_Cell {
 	int requires_physdef;
 	int requires_mentoff;
 	int requires_mentdef;
+	int requires_defense;
+	int requires_offense;
+	int requires_physical;
+	int requires_mental;
+	int requires_level;
+	int requires_power;
 	bool requires_point;
 };
 
@@ -48,14 +56,14 @@ class MenuPowers : public Menu {
 private:
 	StatBlock *stats;
 	PowerManager *powers;
-	Power_Menu_Cell power_cell[20];
+	Power_Menu_Cell power_cell[POWER_SLOTS_COUNT];
 
 	SDL_Surface *background;
 	SDL_Surface *icons;
 	SDL_Surface *powers_tree;
 	SDL_Surface *powers_unlock;
 	WidgetButton *closeButton;
-	WidgetButton *plusButton[20];
+	bool pressed;
 	Point close_pos;
 	Point unspent_pos;
 	int points_left;
@@ -77,9 +85,10 @@ public:
 	TooltipData checkTooltip(Point mouse);
 	bool requirementsMet(int power_index);
 	int click(Point mouse);
+	void unlock_click(Point mouse);
 
 	bool visible;
-	SDL_Rect slots[20]; // the location of power slots
+	SDL_Rect slots[POWER_SLOTS_COUNT]; // the location of power slots
 	std::vector<int> powers_list;
 
 };

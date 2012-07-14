@@ -425,6 +425,7 @@ void MenuManager::logic() {
             // pick up a power
             if (pow->visible && isWithin(pow->window_area,inpt->mouse)) {
                 inpt->lock[MAIN1] = true;
+				pow->unlock_click(inpt->mouse);
                 drag_power = pow->click(inpt->mouse);
                 if (drag_power > -1) {
                     dragging = true;
