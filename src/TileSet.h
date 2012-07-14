@@ -41,6 +41,10 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 struct Tile_Def {
 	SDL_Rect src;
 	Point offset;
+	Tile_Def() {
+		src.x = src.y = src.w = src.h = 0;
+		offset.x = offset.y = 0;
+	}
 };
 
 struct Tile_Anim {
@@ -49,6 +53,11 @@ struct Tile_Anim {
 	int current_frame;
 	int duration;
 	std::vector<int> frame_duration;
+	Tile_Anim() {
+		frames = 1;
+		current_frame = 0;
+		duration = 0;
+	}
 };
 
 class TileSet {

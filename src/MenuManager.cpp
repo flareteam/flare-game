@@ -683,6 +683,7 @@ MenuManager::~MenuManager() {
 	delete talker;
 	delete exit;
 	delete enemy;
+	delete effects;
 
 	if (sfx_open != NULL)
 		Mix_FreeChunk(sfx_open);
