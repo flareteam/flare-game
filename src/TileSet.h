@@ -20,7 +20,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  *
  * TileSet storage and file loading
  */
- 
+
 #ifndef TILE_SET_H
 #define TILE_SET_H
 
@@ -34,6 +34,12 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 const int TILE_SET_MAX_TILES = 1024;
 const int MAX_TILE_FRAMES = 64;
 
+/**
+ * Describes a tile by its location \a src in the tileset sprite and
+ * by the \a offset to be applied when rendering it on screen.
+ * The offset is measured from upper left corner to the logical midpoint
+ * of the tile at groundlevel.
+ */
 struct Tile_Def {
 	SDL_Rect src;
 	Point offset;
@@ -64,7 +70,7 @@ public:
 	~TileSet();
 	void load(const std::string& filename);
 	void logic();
-	
+
 	Tile_Def tiles[TILE_SET_MAX_TILES];
 	Tile_Anim anim[TILE_SET_MAX_TILES];
 	SDL_Surface *sprites;
