@@ -30,9 +30,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <SDL_image.h>
 
 #include <string>
-
-const int TILE_SET_MAX_TILES = 1024;
-const int MAX_TILE_FRAMES = 64;
+#include <vector>
 
 /**
  * Describes a tile by its location \a src in the tileset sprite and
@@ -46,11 +44,11 @@ struct Tile_Def {
 };
 
 struct Tile_Anim {
-	Point pos[MAX_TILE_FRAMES];
+	std::vector<Point> pos;
 	int frames;
 	int current_frame;
 	int duration;
-	int frame_duration[MAX_TILE_FRAMES];
+	std::vector<int> frame_duration;
 };
 
 class TileSet {
@@ -71,8 +69,8 @@ public:
 	void load(const std::string& filename);
 	void logic();
 
-	Tile_Def tiles[TILE_SET_MAX_TILES];
-	Tile_Anim anim[TILE_SET_MAX_TILES];
+	std::vector<Tile_Def> tiles;
+	std::vector<Tile_Anim> anim;
 	SDL_Surface *sprites;
 };
 
