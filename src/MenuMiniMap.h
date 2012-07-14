@@ -34,8 +34,11 @@ private:
 	Uint32 color_hero;
 	Point map_center;
 	SDL_Rect map_area;
+	SDL_Surface *map_surface;
+	Point old_hero_tile;
+	void createMapSurface();
 
-public: 
+public:
 	MenuMiniMap();
 	~MenuMiniMap();
 
