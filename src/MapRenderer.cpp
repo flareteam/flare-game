@@ -622,32 +622,10 @@ void MapRenderer::render(vector<Renderable> &r) {
 	}
 }
 
-void MapRenderer::renderIso(vector<Renderable> &r) {
-
-	// r will become a list of renderables.  Everything not on the map already:
-	// - hero
-	// - npcs
-	// - monsters
-	// - loot
-	// - special effects
-	// we want to sort these by map draw order.  Then, we use a cursor to move through the
-	// renderables while we're also moving through the map tiles.  After we draw each map tile we
-	// check to see if it's time to draw the next renderable yet.
-
+void MapRenderer::renderIsoBackground() {
 	short int i;
 	short int j;
 	SDL_Rect dest;
-
-	Point shakycam;
-
-	if (shaky_cam_ticks == 0) {
-		shakycam.x = cam.x;
-		shakycam.y = cam.y;
-	}
-	else {
-		shakycam.x = cam.x + (rand() % 16 - 8) /UNITS_PER_PIXEL_X;
-		shakycam.y = cam.y + (rand() % 16 - 8) /UNITS_PER_PIXEL_Y;
-	}
 
 	const Point upperright = screen_to_map(0, 0, shakycam.x, shakycam.y);
 	const short tiles_outside_ofscreen = 12;
@@ -683,7 +661,10 @@ void MapRenderer::renderIso(vector<Renderable> &r) {
 		else
 			j++;
 	}
+}
 
+void MapRenderer::renderIsoBackObjects(vector<Renderable> &r) {
+	SDL_Rect dest;
 	// some renderables are drawn above the background and below the objects
 	vector<Renderable>::iterator it;
 	for (it = r.begin(); it != r.end(); it++) {
@@ -694,6 +675,16 @@ void MapRenderer::renderIso(vector<Renderable> &r) {
 			SDL_BlitSurface(it->sprite, &(it->src), screen, &dest);
 		}
 	}
+}
+
+void MapRenderer::renderIsoFrontObjects(vector<Renderable> &r) {
+	short int i;
+	short int j;
+	SDL_Rect dest;
+	const Point upperright = screen_to_map(0, 0, shakycam.x, shakycam.y);
+	const short tiles_outside_ofscreen = 12;
+	const short max_tiles_width = (VIEW_W / TILE_W) + 2 * tiles_outside_ofscreen;
+	const short max_tiles_height = (2 * VIEW_H / TILE_H) + 2 * tiles_outside_ofscreen;
 
 	vector<Renderable>::iterator r_cursor = r.begin();
 	vector<Renderable>::iterator r_end = r.end();
@@ -744,9 +735,21 @@ void MapRenderer::renderIso(vector<Renderable> &r) {
 		while (r_cursor != r_end && (r_cursor->tile.x + r_cursor->tile.y < i + j || r_cursor->tile.x <= i))
 			r_cursor++;
 	}
-	//render event tooltips
-	checkTooltip();
+}
 
+void MapRenderer::renderIso(vector<Renderable> &r) {
+	if (shaky_cam_ticks == 0) {
+		shakycam.x = cam.x;
+		shakycam.y = cam.y;
+	}
+	else {
+		shakycam.x = cam.x + (rand() % 16 - 8) /UNITS_PER_PIXEL_X;
+		shakycam.y = cam.y + (rand() % 16 - 8) /UNITS_PER_PIXEL_Y;
+	}
+	renderIsoBackground();
+	renderIsoBackObjects(r);
+	renderIsoFrontObjects(r);
+	checkTooltip();
 }
 
 void MapRenderer::renderOrtho(vector<Renderable> &r) {
@@ -765,8 +768,6 @@ void MapRenderer::renderOrtho(vector<Renderable> &r) {
 	short int j;
 	SDL_Rect dest;
 	unsigned short current_tile;
-
-	Point shakycam;
 
 	if (shaky_cam_ticks == 0) {
 		shakycam.x = cam.x;

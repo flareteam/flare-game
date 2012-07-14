@@ -171,9 +171,13 @@ private:
 	unsigned short object[256][256];
 	unsigned short collision[256][256];
 
+	void renderIsoBackground();
+	void renderIsoBackObjects(std::vector<Renderable> &r);
+	void renderIsoFrontObjects(std::vector<Renderable> &r);
 	void renderIso(std::vector<Renderable> &r);
 	void renderOrtho(std::vector<Renderable> &r);
 
+	Point shakycam;
 	bool new_music;
 	TileSet tset;
 	std::string tileset;
