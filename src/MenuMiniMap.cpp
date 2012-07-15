@@ -38,29 +38,7 @@ MenuMiniMap::MenuMiniMap() {
 
 void MenuMiniMap::createMapSurface() {
 
-	Uint32 rmask, gmask, bmask, amask;
-#if SDL_BYTEORDER == SDL_BIG_ENDIAN
-	rmask = 0xff000000;
-	gmask = 0x00ff0000;
-	bmask = 0x0000ff00;
-	amask = 0x000000ff;
-#else
-	rmask = 0x000000ff;
-	gmask = 0x0000ff00;
-	bmask = 0x00ff0000;
-	amask = 0xff000000;
-#endif
-
-	if (HWSURFACE)
-		map_surface = SDL_CreateRGBSurface(SDL_HWSURFACE, 128, 128, 32, rmask, gmask, bmask, amask);
-	else
-		map_surface = SDL_CreateRGBSurface(SDL_SWSURFACE, 128, 128, 32, rmask, gmask, bmask, amask);
-
-	SDL_SetColorKey(map_surface, SDL_SRCCOLORKEY, SDL_MapRGB(map_surface->format,255,0,255));
-
-	SDL_Surface *cleanup = map_surface;
-	map_surface = SDL_DisplayFormat(map_surface);
-	SDL_FreeSurface(cleanup);
+	map_surface = createSurface(128, 128);
 
 	color_wall = SDL_MapRGB(map_surface->format, 128,128,128);
 	color_obst = SDL_MapRGB(map_surface->format, 64,64,64);

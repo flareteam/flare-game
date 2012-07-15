@@ -220,7 +220,7 @@ void WidgetLabel::set(const string& _text) {
 void WidgetLabel::refresh() {
 
 	SDL_FreeSurface(text_buffer);
-	text_buffer = createSurface(bounds.w, bounds.h);
+	text_buffer = createAlphaSurface(bounds.w, bounds.h);
 	font->renderShadowed(text, 0, 0, JUSTIFY_LEFT, text_buffer, color);
 	
 }

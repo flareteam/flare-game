@@ -165,7 +165,7 @@ void MenuTalker::createBuffer() {
 
 	// render text to back buffer
 	SDL_FreeSurface(msg_buffer);
-	msg_buffer = createSurface(576,96);
+	msg_buffer = createAlphaSurface(576,96);
 	font->render(line, 16, 16, JUSTIFY_LEFT, msg_buffer, 544, FONT_WHITE);
 
 }

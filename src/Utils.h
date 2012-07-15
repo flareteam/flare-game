@@ -75,6 +75,22 @@ bool isWithin(SDL_Rect r, Point target);
 void drawPixel(SDL_Surface *screen, int x, int y, Uint32 color);
 void drawLine(SDL_Surface *screen, int x0, int y0, int x1, int y1, Uint32 color);
 void drawLine(SDL_Surface *screen, Point pos0, Point pos1, Uint32 color);
-SDL_Surface* createSurface(int width, int height);
 
+/**
+ * Creates a SDL_Surface.
+ * The SDL_HWSURFACE or SDL_SWSURFACE flag is set according
+ * to settings. The result is a surface which has the same format as the
+ * screen surface.
+ * Additionally the alpha flag is set, so transparent blits are possible.
+ */
+SDL_Surface* createAlphaSurface(int width, int height);
+
+/**
+ * Creates a SDL_Surface.
+ * The SDL_HWSURFACE or SDL_SWSURFACE flag is set according
+ * to settings. The result is a surface which has the same format as the
+ * screen surface.
+ * The bright pink (rgb 0xff00ff) is set as transparent color.
+ */
+SDL_Surface* createSurface(int width, int height);
 #endif
