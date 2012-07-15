@@ -28,6 +28,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "Settings.h"
 #include "UtilsParsing.h"
 #include "MapCollision.h"
+#include "MenuPowers.h"
 #include <limits>
 
 using namespace std;
@@ -586,6 +587,8 @@ StatBlock::~StatBlock() {
 }
 
 bool StatBlock::canUsePower(const Power &power, unsigned powerid) const {
+	MenuPowers *menu_powers = MenuPowers::getInstance();
+
 	// needed to unlock shapeshifter powers
 	if (transformed) return mp >= power.requires_mp;
 
@@ -596,8 +599,6 @@ bool StatBlock::canUsePower(const Power &power, unsigned powerid) const {
 		&& (!power.requires_offense_weapon || wielding_offense)
 		&& (!power.requires_physical_weapon || wielding_physical)
 		&& mp >= power.requires_mp
-		&& (unsigned)physoff >= PowerManager::getRequiredStatValue(powerid, 0)
-		&& (unsigned)physdef >= PowerManager::getRequiredStatValue(powerid, 1)
-		&& (unsigned)mentoff >= PowerManager::getRequiredStatValue(powerid, 2)
-		&& (unsigned)mentdef >= PowerManager::getRequiredStatValue(powerid, 3);
+		&& menu_powers->meetsUsageStats(powerid);
+
 }
