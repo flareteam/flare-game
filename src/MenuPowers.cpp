@@ -480,8 +480,7 @@ MenuPowers::~MenuPowers() {
 }
 
 /**
- * Return the required stat value for the specified power. Uses a fairly
- * static mechanism of expecting disciplines to be index zero to 19.
+ * Return true if required stats for power usage are met. Else return false.
  */
 bool MenuPowers::meetsUsageStats(unsigned powerid) {
 
