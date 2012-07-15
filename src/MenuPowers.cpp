@@ -485,13 +485,16 @@ MenuPowers::~MenuPowers() {
 bool MenuPowers::meetsUsageStats(unsigned powerid) {
 
 	// Find cell with our power
-	int id;
+	int id = -1;
 	for (int i=0; i<POWER_SLOTS_COUNT; i++) {
 		if (power_cell[i].id == (int)powerid) {
 		id = i;
 		break;
 		}
 	}
+
+	// If we didn't find power in power_menu, than it has no stats requirements
+	if (id == -1) return true;
 
 	return stats->physoff >= power_cell[id].requires_physoff	
 		&& stats->physdef >= power_cell[id].requires_physdef
