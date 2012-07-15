@@ -234,26 +234,30 @@ void drawLine(SDL_Surface *screen, Point pos0, Point pos1, Uint32 color) {
 	drawLine(screen, pos0.x, pos0.y, pos1.x, pos1.y, color);
 }
 
+void setSDL_RGBA(Uint32 *rmask, Uint32 *gmask, Uint32 *bmask, Uint32 *amask) {
+#if SDL_BYTEORDER == SDL_BIG_ENDIAN
+	*rmask = 0xff000000;
+	*gmask = 0x00ff0000;
+	*bmask = 0x0000ff00;
+	*amask = 0x000000ff;
+#else
+	*rmask = 0x000000ff;
+	*gmask = 0x0000ff00;
+	*bmask = 0x00ff0000;
+	*amask = 0xff000000;
+#endif
+}
+
 /**
  * create blank surface
  * based on example: http://www.libsdl.org/docs/html/sdlcreatergbsurface.html
  */
-SDL_Surface* createSurface(int width, int height) {
+SDL_Surface* createAlphaSurface(int width, int height) {
 
 	SDL_Surface *surface;
 	Uint32 rmask, gmask, bmask, amask;
 
-#if SDL_BYTEORDER == SDL_BIG_ENDIAN
-	rmask = 0xff000000;
-	gmask = 0x00ff0000;
-	bmask = 0x0000ff00;
-	amask = 0x000000ff;
-#else
-	rmask = 0x000000ff;
-	gmask = 0x0000ff00;
-	bmask = 0x00ff0000;
-	amask = 0xff000000;
-#endif
+	setSDL_RGBA(&rmask, &gmask, &bmask, &amask);
 
 	if (HWSURFACE)
 		surface = SDL_CreateRGBSurface(SDL_HWSURFACE|SDL_SRCALPHA, width, height, 32, rmask, gmask, bmask, amask);
@@ -272,4 +276,27 @@ SDL_Surface* createSurface(int width, int height) {
 	return surface;
 }
 
+SDL_Surface* createSurface(int width, int height) {
 
+	SDL_Surface *surface;
+	Uint32 rmask, gmask, bmask, amask;
+
+	setSDL_RGBA(&rmask, &gmask, &bmask, &amask);
+
+	if (HWSURFACE)
+		surface = SDL_CreateRGBSurface(SDL_HWSURFACE, width, height, 32, rmask, gmask, bmask, amask);
+	else
+		surface = SDL_CreateRGBSurface(SDL_SWSURFACE, width, height, 32, rmask, gmask, bmask, amask);
+
+	if(surface == NULL) {
+		fprintf(stderr, "CreateRGBSurface failed: %s\n", SDL_GetError());
+	}
+
+	SDL_SetColorKey(surface, SDL_SRCCOLORKEY, SDL_MapRGB(surface->format,255,0,255));
+
+	SDL_Surface *cleanup = surface;
+	surface = SDL_DisplayFormat(surface);
+	SDL_FreeSurface(cleanup);
+
+	return surface;
+}
