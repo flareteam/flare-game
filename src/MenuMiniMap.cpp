@@ -30,6 +30,8 @@ MenuMiniMap::MenuMiniMap() {
 	map_center.x = VIEW_W - 64;
 	map_center.y = 80;
 
+	old_hero_tile.x = old_hero_tile.y = 0;
+
 	map_surface = 0;
 	createMapSurface();
 }

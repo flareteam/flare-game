@@ -29,18 +29,18 @@ using namespace std;
 
 
 WidgetLabel::WidgetLabel() {
-	
+
 	text_buffer = NULL;
 	text = "";
 	color = FONT_WHITE;
+	x_origin = y_origin = 0;
 	justify = JUSTIFY_LEFT;
 	valign = VALIGN_TOP;
-	
+
 	bounds.x = bounds.y = 0;
 	bounds.w = bounds.h = 0;
 
 	render_to_alpha = false;
-	
 }
 
 /**

@@ -611,5 +611,8 @@ GameStatePlay::~GameStatePlay() {
 	delete camp;
 	delete items;
 	delete powers;
+
+	delete label_fps;
+	delete label_mapname;
 }
 

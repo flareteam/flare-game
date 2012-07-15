@@ -475,4 +475,7 @@ GameStateLoad::~GameStateLoad() {
 	for (int i=0; i<GAME_SLOT_MAX; i++) {
 		SDL_FreeSurface(sprites[i]);
 	}
+	delete label_slots;
+	delete label_loading;
+	delete confirm;
 }
