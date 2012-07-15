@@ -857,6 +857,15 @@ void MapRenderer::checkEvents(Point loc) {
 	}
 }
 
+/**
+ * Some events have a hotspot (rectangle screen area) where the user can click
+ * to trigger the event.
+ *
+ * The hero must be within range (CLICK_RANGE) to activate an event.
+ *
+ * This function checks valid mouse clicks against all clickable events, and
+ * executes 
+ */
 void MapRenderer::checkEventClick() {
 
 	// only check events if the player is clicking
@@ -868,18 +877,28 @@ void MapRenderer::checkEventClick() {
 	SDL_Rect r;
 	vector<Map_Event>::iterator it;
 
-	for (it = events.begin(); it < events.end(); it++) {
+	// work backwards through events because events can be erased in the loop.
+	// this prevents the iterator from becoming invalid.
+	for (it = events.end(); it != events.begin(); ) {
+		it--;
+
+		// skip inactive events
+		if (!isActive(*it)) continue;
+		
+		// skip events without hotspots
+		if ((*it).hotspot.h == 0) continue;
+	
 		p = map_to_screen((*it).location.x * UNITS_PER_TILE + UNITS_PER_TILE/2, (*it).location.y * UNITS_PER_TILE + UNITS_PER_TILE/2, cam.x, cam.y);
 		r.x = p.x + (*it).hotspot.x;
 		r.y = p.y + (*it).hotspot.y;
 		r.h = (*it).hotspot.h;
 		r.w = (*it).hotspot.w;
-		// execute if: EVENT IS ACTIVE && MOUSE IN HOTSPOT && HOTSPOT EXISTS && CLICKING && HERO WITHIN RANGE
-		if (isActive(*it)
-				&& isWithin(r, inpt->mouse)
-				&& ((*it).hotspot.h != 0)
+		
+		// execute if mouse in hotspot && hero within range
+		if (isWithin(r, inpt->mouse)
 				&& (abs(cam.x - (*it).location.x * UNITS_PER_TILE) < CLICK_RANGE
 				&& abs(cam.y - (*it).location.y * UNITS_PER_TILE) < CLICK_RANGE)) {
+				
 			inpt->lock[MAIN1] = true;
 			if (executeEvent(*it))
 				events.erase(it);
