@@ -32,8 +32,13 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include <string>
 #include <sstream>
+#include <iostream>
 
 using namespace std;
+MenuPowers *menuPowers = NULL;
+MenuPowers *MenuPowers::getInstance() {
+	return menuPowers;
+}
 
 
 MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_icons) {
@@ -113,6 +118,7 @@ MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_i
 	} else fprintf(stderr, "Unable to open powers_menu.txt!\n");
 	infile.close();
 
+	menuPowers = this;
 }
 
 void MenuPowers::update() {
@@ -470,4 +476,30 @@ MenuPowers::~MenuPowers() {
 	SDL_FreeSurface(background);
 	SDL_FreeSurface(powers_unlock);
 	delete closeButton;
+	menuPowers = NULL;
+}
+
+/**
+ * Return the required stat value for the specified power. Uses a fairly
+ * static mechanism of expecting disciplines to be index zero to 19.
+ */
+bool MenuPowers::meetsUsageStats(unsigned powerid) {
+
+	// Find cell with our power
+	int id;
+	for (int i=0; i<POWER_SLOTS_COUNT; i++) {
+		if (power_cell[i].id == (int)powerid) {
+		id = i;
+		break;
+		}
+	}
+
+	return stats->physoff >= power_cell[id].requires_physoff	
+		&& stats->physdef >= power_cell[id].requires_physdef
+		&& stats->mentoff >= power_cell[id].requires_mentoff
+		&& stats->mentdef >= power_cell[id].requires_mentdef
+		&& stats->get_defense() >= power_cell[id].requires_defense
+		&& stats->get_offense() >= power_cell[id].requires_offense
+		&& stats->get_mental() >= power_cell[id].requires_mental
+		&& stats->get_physical() >= power_cell[id].requires_physical;
 }

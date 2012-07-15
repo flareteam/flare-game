@@ -22,6 +22,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef MENU_POWERS_H
 #define MENU_POWERS_H
 
+#include "Menu.h"
 #include "Utils.h"
 #include "WidgetButton.h"
 
@@ -77,6 +78,7 @@ private:
 	bool powerUnlockable(int power_index);
 
 public:
+	static MenuPowers *getInstance();
 	MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_icons);
 	~MenuPowers();
 	void update();
@@ -86,11 +88,12 @@ public:
 	bool requirementsMet(int power_index);
 	int click(Point mouse);
 	void unlock_click(Point mouse);
+	bool meetsUsageStats(unsigned powerid);
 
 	bool visible;
 	SDL_Rect slots[POWER_SLOTS_COUNT]; // the location of power slots
 	std::vector<int> powers_list;
 
 };
-
+extern MenuPowers *menuPowers;
 #endif
