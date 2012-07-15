@@ -858,6 +858,12 @@ void MapRenderer::checkEvents(Point loc) {
 }
 
 void MapRenderer::checkEventClick() {
+
+	// only check events if the player is clicking
+	// and allowed to click
+	if (!inpt->pressing[MAIN1]) return;
+	else if (inpt->lock[MAIN1]) return;
+
 	Point p;
 	SDL_Rect r;
 	vector<Map_Event>::iterator it;
@@ -872,8 +878,6 @@ void MapRenderer::checkEventClick() {
 		if (isActive(*it)
 				&& isWithin(r, inpt->mouse)
 				&& ((*it).hotspot.h != 0)
-				&& inpt->pressing[MAIN1]
-				&& !inpt->lock[MAIN1]
 				&& (abs(cam.x - (*it).location.x * UNITS_PER_TILE) < CLICK_RANGE
 				&& abs(cam.y - (*it).location.y * UNITS_PER_TILE) < CLICK_RANGE)) {
 			inpt->lock[MAIN1] = true;
