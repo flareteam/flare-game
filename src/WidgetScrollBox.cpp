@@ -85,7 +85,7 @@ void WidgetScrollBox::resize(int h) {
 	if (contents != NULL) SDL_FreeSurface(contents);
 
 	if (pos.h > h) h = pos.h;
-	contents = createSurface(pos.w,h);
+	contents = createAlphaSurface(pos.w,h);
 	SDL_FillRect(contents,NULL,0x1A1A1A);
 	SDL_SetAlpha(contents, 0, 0);
 

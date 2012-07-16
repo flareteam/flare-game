@@ -43,8 +43,10 @@ MapRenderer::MapRenderer(CampaignManager *_camp) {
 	clearEvents();
 	enemy_awaiting_queue = false;
 	npc_awaiting_queue = false;
+	group_awaiting_queue = false;
 	new_enemy.clear();
 	new_npc.clear();
+	new_group.clear();
 
 	sfx = NULL;
 	sfx_filename = "";

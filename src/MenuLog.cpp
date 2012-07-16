@@ -164,7 +164,7 @@ void MenuLog::add(const string& s, int log_type) {
 	// Render the log entry and store it in a buffer.
 	int widthLimit = tabControl->getContentArea().w;
 	Point size = font->calc_size(s, widthLimit);
-	msg_buffer[log_type][log_count[log_type]] = createSurface(size.x, size.y);
+	msg_buffer[log_type][log_count[log_type]] = createAlphaSurface(size.x, size.y);
 	font->renderShadowed(s, 0, 0, JUSTIFY_LEFT, msg_buffer[log_type][log_count[log_type]], widthLimit, FONT_WHITE);
 
 	log_count[log_type]++;
