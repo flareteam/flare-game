@@ -26,122 +26,138 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "SharedResources.h"
 #include "Settings.h"
 
-MenuMiniMap::MenuMiniMap() {
-	map_center.x = VIEW_W - 64;
-	map_center.y = 80;
+#include <iostream>
+using namespace std;
 
-	old_hero_tile.x = old_hero_tile.y = 0;
+MenuMiniMap::MenuMiniMap() {
 
 	map_surface = 0;
 	createMapSurface();
-}
-
-void MenuMiniMap::createMapSurface() {
-
-	map_surface = createSurface(128, 128);
-
 	color_wall = SDL_MapRGB(map_surface->format, 128,128,128);
 	color_obst = SDL_MapRGB(map_surface->format, 64,64,64);
 	color_hero = SDL_MapRGB(map_surface->format, 255,255,255);
 }
 
+void MenuMiniMap::createMapSurface() {
+
+	SDL_FreeSurface(map_surface);
+
+	if (TILESET_ORIENTATION == TILESET_ISOMETRIC)
+		map_surface = createSurface(512, 512);
+	else // TILESET_ORTHOGONAL
+		map_surface = createSurface(512, 512);
+}
+
 void MenuMiniMap::render() {
 }
 
-void MenuMiniMap::render(MapCollision *collider, Point hero_pos, int map_w, int map_h) {
+void MenuMiniMap::render(Point hero_pos) {
 
 	if (TILESET_ORIENTATION == TILESET_ISOMETRIC)
-		renderIso(collider, hero_pos, map_w, map_h);
+		renderIso(hero_pos);
 	else // TILESET_ORTHOGONAL
-		renderOrtho(collider, hero_pos, map_w, map_h);
+		renderOrtho(hero_pos);
+}
+
+void MenuMiniMap::prerender(MapCollision *collider, int map_w, int map_h) {
+	map_size.x = map_w;
+	map_size.y = map_h;
+	SDL_FillRect(map_surface, 0, SDL_MapRGB(map_surface->format,255,0,255));
+
+	if (TILESET_ORIENTATION == TILESET_ISOMETRIC)
+		prerenderIso(collider);
+	else // TILESET_ORTHOGONAL
+		prerenderOrtho(collider);
 }
 
 /**
  * Render a top-down version of the map (90 deg angle)
  */
-void MenuMiniMap::renderOrtho(MapCollision *collider, Point hero_pos, int map_w, int map_h) {
+void MenuMiniMap::renderOrtho(Point hero_pos) {
 
+	const int herox = hero_pos.x / UNITS_PER_TILE;
+	const int heroy = hero_pos.y / UNITS_PER_TILE;
+
+	SDL_Rect clip;
+	clip.x = herox - window_area.w/2;
+	clip.y = heroy - window_area.w/2;
+	clip.w = clip.h = window_area.w;
+
+	SDL_Rect map_area;
 	map_area.x = window_area.x;
 	map_area.y = window_area.y;
 	map_area.w = map_area.h = window_area.w;
 
+	SDL_BlitSurface(map_surface, &clip ,screen, &map_area);
+
 	SDL_LockSurface(screen);
-
-	Point hero_tile;
-	Point map_tile;
-	hero_tile.x = hero_pos.x / UNITS_PER_TILE;
-	hero_tile.y = hero_pos.y / UNITS_PER_TILE;
-	for (int i=0; i<map_area.w; i++) {
-		for (int j=0; j<map_area.h; j++) {
-			map_tile.x = hero_tile.x + i - map_area.w/2;
-			map_tile.y = hero_tile.y + j - map_area.h/2;
-			if (map_tile.x >= 0 && map_tile.x < map_w && map_tile.y >= 0 && map_tile.y < map_h) {
-				if (collider->colmap[map_tile.x][map_tile.y] == 1) {
-					drawPixel(screen, map_area.x+i, map_area.y+j, color_wall);
-				}
-				else if (collider->colmap[map_tile.x][map_tile.y] == 2) {
-					drawPixel(screen, map_area.x+i, map_area.y+j, color_obst);
-				}
-			}
-		}
-	}
-	drawPixel(screen,window_area.x+64,80,color_hero); // hero
-	drawPixel(screen,window_area.x+64-1,80,color_hero); // hero
-	drawPixel(screen,window_area.x+64+1,80,color_hero); // hero
-	drawPixel(screen,window_area.x+64,80-1,color_hero); // hero
-	drawPixel(screen,window_area.x+64,80+1,color_hero); // hero
-
+	drawPixel(screen, window_area.x + window_area.w/2, window_area.y + window_area.h/2, color_hero);
+	drawPixel(screen, window_area.x + window_area.w/2 + 1, window_area.y + window_area.h/2, color_hero);
+	drawPixel(screen, window_area.x + window_area.w/2 - 1, window_area.y + window_area.h/2, color_hero);
+	drawPixel(screen, window_area.x + window_area.w/2, window_area.y + window_area.h/2 + 1, color_hero);
+	drawPixel(screen, window_area.x + window_area.w/2, window_area.y + window_area.h/2 - 1, color_hero);
 	SDL_UnlockSurface(screen);
-
 }
 
 /**
  * Render an "isometric" version of the map (45 deg angle)
  */
-void MenuMiniMap::renderIso(MapCollision *collider, Point hero_pos, int map_w, int map_h) {
+void MenuMiniMap::renderIso(Point hero_pos) {
 
+	const int herox = hero_pos.x / UNITS_PER_TILE;
+	const int heroy = hero_pos.y / UNITS_PER_TILE;
+	const int heroy_screen = herox + heroy;
+	const int herox_screen = herox - heroy + std::max(map_size.x, map_size.y);
+
+	SDL_Rect clip;
+	clip.x = herox_screen - window_area.w/2;
+	clip.y = heroy_screen - window_area.w/2;
+	clip.w = clip.h = window_area.w;
+
+	SDL_Rect map_area;
 	map_area.x = window_area.x;
 	map_area.y = window_area.y;
 	map_area.w = map_area.h = window_area.w;
 
-	int tile_type;
-	Uint32 draw_color;
-	Point hero_tile;
+	SDL_BlitSurface(map_surface, &clip ,screen, &map_area);
+	SDL_LockSurface(screen);
+	drawPixel(screen, window_area.x + window_area.w/2, window_area.y + window_area.h/2, color_hero);
+	drawPixel(screen, window_area.x + window_area.w/2 - 1, window_area.y + window_area.h/2, color_hero);
+	SDL_UnlockSurface(screen);
+}
 
-	hero_tile.x = hero_pos.x / UNITS_PER_TILE;
-	hero_tile.y = hero_pos.y / UNITS_PER_TILE;
-
-	if (hero_tile.x == old_hero_tile.x && hero_tile.y == old_hero_tile.y) {
-		SDL_BlitSurface(map_surface, 0 ,screen, &window_area);
-		return;
+void MenuMiniMap::prerenderOrtho(MapCollision *collider) {
+	for (int i=0; i<std::min(map_surface->w, map_size.x); i++) {
+		for (int j=0; j<std::min(map_surface->h, map_size.y); j++) {
+			if (collider->colmap[i][j] == 1) {
+				drawPixel(map_surface, i, j, color_wall);
+			}
+			else if (collider->colmap[i][j] == 2) {
+				drawPixel(map_surface, i, j, color_obst);
+			}
+		}
 	}
+}
 
-	old_hero_tile = hero_tile;
-	SDL_FillRect(map_surface, 0, SDL_MapRGB(map_surface->format,255,0,255));
-
-	// half the width of the minimap is used in several calculations
+void MenuMiniMap::prerenderIso(MapCollision *collider) {
 	// a 2x1 pixel area correlates to a tile, so we can traverse tiles using pixel counting
-	// This is also the number of tiles we'll draw per screen row (the i loop below)
-	int minimap_half = map_area.w/2;
+	Uint32 draw_color;
+	int tile_type;
 
-	// Because the minimap is always 128x128px, we know which tile represents the corner of the map
 	Point tile_cursor;
-	tile_cursor.x = hero_tile.x - minimap_half;
-	tile_cursor.y = hero_tile.y;
-
-	int map_end_x = map_area.x + map_area.w;
-	int map_end_y = map_area.y + map_area.h;
+	tile_cursor.x = -std::max(map_size.x, map_size.y)/2;
+	tile_cursor.y = std::max(map_size.x, map_size.y)/2;
 
 	bool odd_row = false;
 
 	// for each pixel row
-	for (int j=0; j<128; j++) {
+	for (int j=0; j<map_surface->h; j++) {
 
 		// for each 2-px wide column
-		for (int i=0; i<128; i+=2) {
+		for (int i=0; i<map_surface->w; i+=2) {
 
 			// if this tile is the max map size
-			if (tile_cursor.x >= 0 && tile_cursor.y >= 0 && tile_cursor.x < map_w && tile_cursor.y < map_h) {
+			if (tile_cursor.x >= 0 && tile_cursor.y >= 0 && tile_cursor.x < map_size.x && tile_cursor.y < map_size.y) {
 
 				tile_type = collider->colmap[tile_cursor.x][tile_cursor.y];
 				bool draw_tile = true;
@@ -171,20 +187,15 @@ void MenuMiniMap::renderIso(MapCollision *collider, Point hero_pos, int map_w, i
 		// return tile cursor to next row of tiles
 		if (odd_row) {
 			odd_row = false;
-			tile_cursor.x -= minimap_half;
-			tile_cursor.y += (minimap_half +1);
+			tile_cursor.x -= map_surface->w/2;
+			tile_cursor.y += (map_surface->w/2 +1);
 		}
 		else {
 			odd_row = true;
-			tile_cursor.x -= (minimap_half -1);
-			tile_cursor.y += minimap_half;
+			tile_cursor.x -= (map_surface->w/2 -1);
+			tile_cursor.y += map_surface->w/2;
 		}
 	}
-	// the hero
-	drawPixel(map_surface, 64, 64, color_hero);
-	drawPixel(map_surface, 65, 64, color_hero);
-
-	SDL_BlitSurface(map_surface, 0 ,screen, &window_area);
 }
 
 MenuMiniMap::~MenuMiniMap() {
