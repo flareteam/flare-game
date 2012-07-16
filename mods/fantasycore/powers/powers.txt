@@ -1124,3 +1124,24 @@ spawn_type=untransform
 description=Transform back to human
 requires_item=948
 sfx=quake.ogg
+
+[power]
+id=160
+name=Spikes
+type=effect
+description=Spikes Trap
+gfx=spikes.png
+use_hazard=true
+rendered=true
+lifespan=16
+radius=48
+frame_loop=0
+frame_duration=2
+frame_size=64,128
+frame_offset=32,112
+starting_pos=source
+active_frame=5
+multitarget=true
+base_damage=melee
+visual_random=4
+
