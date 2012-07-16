@@ -63,6 +63,7 @@ private:
 	SDL_Surface *icons;
 	SDL_Surface *powers_tree;
 	SDL_Surface *powers_unlock;
+	SDL_Surface *overlay_disabled;
 	WidgetButton *closeButton;
 	bool pressed;
 	Point close_pos;

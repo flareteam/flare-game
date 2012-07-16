@@ -46,6 +46,8 @@ MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_i
 	powers = _powers;
 	icons = _icons;
 
+	overlay_disabled = NULL;
+
 	visible = false;
 	loadGraphics();
 
@@ -142,6 +144,8 @@ void MenuPowers::loadGraphics() {
 	background = IMG_Load(mods->locate("images/menus/powers.png").c_str());
 	powers_tree = IMG_Load(mods->locate("images/menus/powers_tree.png").c_str());
 	powers_unlock = IMG_Load(mods->locate("images/menus/powers_unlock.png").c_str());
+	overlay_disabled = IMG_Load(mods->locate("images/menus/disabled.png").c_str());
+	
 	if(!background || !powers_tree || !powers_unlock) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 		SDL_Quit();
@@ -159,6 +163,12 @@ void MenuPowers::loadGraphics() {
 	cleanup = powers_unlock;
 	powers_unlock = SDL_DisplayFormatAlpha(powers_unlock);
 	SDL_FreeSurface(cleanup);
+	
+	if (overlay_disabled != NULL) {
+		cleanup = overlay_disabled;
+		overlay_disabled = SDL_DisplayFormatAlpha(overlay_disabled);
+		SDL_FreeSurface(cleanup);
+	}
 }
 
 /**
@@ -294,6 +304,10 @@ void MenuPowers::render() {
 	SDL_BlitSurface(background, &src, screen, &dest);
 	SDL_BlitSurface(powers_tree, &src, screen, &dest);
 
+	SDL_Rect disabled_src;
+	disabled_src.x = disabled_src.y = 0;
+	disabled_src.w = disabled_src.h = 32;
+
 	// power icons
 	for (int i=0; i<POWER_SLOTS_COUNT; i++) {
 		bool power_in_vector = false;
@@ -306,8 +320,15 @@ void MenuPowers::render() {
 		renderIcon(powers->powers[power_cell[i].id].icon, window_area.x + power_cell[i].pos.x, window_area.y + power_cell[i].pos.y);
 
 		// highlighting
-		if (power_in_vector || requirementsMet(power_cell[i].id))
+		if (power_in_vector || requirementsMet(power_cell[i].id)) {
 			displayBuild(power_cell[i].id);
+		}
+		else {
+		
+			if (overlay_disabled != NULL) {
+				SDL_BlitSurface(overlay_disabled, &disabled_src, screen, &slots[i]);
+			}
+		}
 	}
 
 	// close button
@@ -333,7 +354,7 @@ void MenuPowers::render() {
  */
 void MenuPowers::displayBuild(int power_id) {
 	SDL_Rect src_unlock;
-	SDL_Rect dest;
+//	SDL_Rect dest;
 
 	src_unlock.x = 0;
 	src_unlock.y = 0;
@@ -342,9 +363,9 @@ void MenuPowers::displayBuild(int power_id) {
 
 	for (int i=0; i<POWER_SLOTS_COUNT; i++) {
 		if (power_cell[i].id == power_id) {
-			dest.x = window_area.x + power_cell[i].pos.x;
-			dest.y = window_area.y + power_cell[i].pos.y;
-			SDL_BlitSurface(powers_unlock, &src_unlock, screen, &dest);
+//			dest.x = window_area.x + power_cell[i].pos.x;
+//			dest.y = window_area.y + power_cell[i].pos.y;
+			SDL_BlitSurface(powers_unlock, &src_unlock, screen, &slots[i]);
 		}
 	}
 }
@@ -475,6 +496,8 @@ TooltipData MenuPowers::checkTooltip(Point mouse) {
 MenuPowers::~MenuPowers() {
 	SDL_FreeSurface(background);
 	SDL_FreeSurface(powers_unlock);
+	SDL_FreeSurface(overlay_disabled);
+	
 	delete closeButton;
 	menuPowers = NULL;
 }
@@ -485,16 +508,13 @@ MenuPowers::~MenuPowers() {
 bool MenuPowers::meetsUsageStats(unsigned powerid) {
 
 	// Find cell with our power
-	int id = -1;
+	int id;
 	for (int i=0; i<POWER_SLOTS_COUNT; i++) {
 		if (power_cell[i].id == (int)powerid) {
 		id = i;
 		break;
 		}
 	}
-
-	// If we didn't find power in power_menu, than it has no stats requirements
-	if (id == -1) return true;
 
 	return stats->physoff >= power_cell[id].requires_physoff	
 		&& stats->physdef >= power_cell[id].requires_physdef
