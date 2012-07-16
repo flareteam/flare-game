@@ -1126,6 +1126,33 @@ requires_item=948
 sfx=quake.ogg
 
 [power]
+id=159
+name=Spike Ray
+type=repeater
+icon=14
+description=Create a ray of deadly spikes
+new_state=cast
+face=true
+requires_mp=1
+gfx=spikes.png
+sfx=spikes.ogg
+speed=48
+slow_duration=90
+radius=48
+frame_duration=2
+frame_size=64,128
+frame_offset=32,112
+frame_loop=0
+lifespan=16
+active_frame=0
+base_damage=ment
+delay=6
+visual_random=4
+rendered=true
+complete_animation=true
+repeater_num=10
+
+[power]
 id=160
 name=Spikes
 type=effect
@@ -1141,7 +1168,7 @@ frame_size=64,128
 frame_offset=32,112
 starting_pos=source
 active_frame=5
-multitarget=true
+complete_animation=true
 base_damage=melee
 visual_random=4
 sfx=spikes.ogg
