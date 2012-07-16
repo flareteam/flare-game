@@ -583,6 +583,10 @@ void GameStatePlay::render() {
 	loot->renderTooltips(map->cam);
 	npcs->renderTooltips(map->cam, inpt->mouse);
 
+	if (map->map_change) {
+		menu->mini->prerender(&map->collider, map->w, map->h);
+		map->map_change = false;
+	}
 	menu->mini->render(pc->stats.pos);
 	menu->render();
 
