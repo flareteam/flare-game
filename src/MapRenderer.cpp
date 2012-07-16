@@ -558,8 +558,19 @@ void MapRenderer::loadMusic() {
 }
 
 void MapRenderer::logic() {
+
+	// handle camera shaking timer
 	if (shaky_cam_ticks > 0) shaky_cam_ticks--;
+	
+	// handle tile set logic e.g. animations
 	tset.logic();
+	
+	// handle event cooldowns
+	vector<Map_Event>::iterator it;
+	for (it = events.begin(); it < events.end(); it++) {
+		if ((*it).cooldown_ticks > 0) (*it).cooldown_ticks--;
+	}
+	
 }
 
 /**
@@ -931,7 +942,6 @@ void MapRenderer::checkTooltip() {
 	Point p;
 	SDL_Rect r;
 	Point tip_pos;
-	bool skip;
 
 	vector<Map_Event>::iterator it;
 	for (it = events.begin(); it != events.end(); it++) {
@@ -1070,27 +1080,45 @@ bool MapRenderer::executeEvent(Map_Event &ev) {
 		}
 		else if (ec->type == "power") {
 
-			if (ev.cooldown_ticks > 0) ev.cooldown_ticks--;
-			else {
+			if (ev.cooldown_ticks == 0) {
 
 				int power_index = ec->x;
 
 				// TODO: delete this without breaking hazards, takeHit, etc.
 				StatBlock *dummy = new StatBlock();
 				dummy->accuracy = 1000; //always hits its target
-				dummy->pos.x = ev.power_src.x * UNITS_PER_TILE;
-				dummy->pos.y = ev.power_src.y * UNITS_PER_TILE;
+				
+				// if a power path was specified, place the source position there
+				if (ev.power_src.x > 0) {
+					dummy->pos.x = ev.power_src.x * UNITS_PER_TILE + UNITS_PER_TILE/2;
+					dummy->pos.y = ev.power_src.y * UNITS_PER_TILE + UNITS_PER_TILE/2;
+				}
+				// otherwise the source position is the event position
+				else {
+					dummy->pos.x = ev.location.x * UNITS_PER_TILE + UNITS_PER_TILE/2;
+					dummy->pos.y = ev.location.y * UNITS_PER_TILE + UNITS_PER_TILE/2;
+				}
+				
 				dummy->dmg_melee_min = dummy->dmg_ranged_min = dummy->dmg_ment_min = ev.damagemin;
 				dummy->dmg_melee_max = dummy->dmg_ranged_max = dummy->dmg_ment_max = ev.damagemax;
 
 				Point target;
+				
+				// if a power path was specified:
+				// targets hero option
 				if (ev.targetHero) {
 					target.x = cam.x;
 					target.y = cam.y;
 				}
+				// targets fixed path option
+				else if (ev.power_dest.x != 0) {
+					target.x = ev.power_dest.x * UNITS_PER_TILE + UNITS_PER_TILE/2;
+					target.y = ev.power_dest.y * UNITS_PER_TILE + UNITS_PER_TILE/2;
+				}
+				// no path specified, targets self location
 				else {
-					target.x = ev.power_dest.x * UNITS_PER_TILE;
-					target.y = ev.power_dest.y * UNITS_PER_TILE;
+					target.x = dummy->pos.x;
+					target.y = dummy->pos.y;
 				}
 
 				ev.cooldown_ticks = ev.power_cooldown;
