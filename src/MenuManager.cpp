@@ -317,8 +317,6 @@ void MenuManager::logic() {
 	menus_open = (inv->visible || pow->visible || chr->visible || log->visible || vendor->visible || talker->visible);
 
 	if (stats->alive) {
-		int offset_x = (VIEW_W - 320);
-		int offset_y = (VIEW_H - 416)/2;
 
 		// handle right-click
 		if (!dragging && inpt->pressing[MAIN2] && !inpt->lock[MAIN2]) {
@@ -586,8 +584,6 @@ void MenuManager::render() {
 	log->render();
 
 	TooltipData tip_new;
-	int offset_x = (VIEW_W - 320);
-	int offset_y = (VIEW_H - 416)/2;
 
 	// Find tooltips depending on mouse position
 	if (chr->visible && isWithin(chr->window_area,inpt->mouse)) {
@@ -683,7 +679,6 @@ MenuManager::~MenuManager() {
 	delete talker;
 	delete exit;
 	delete enemy;
-	delete effects;
 
 	if (sfx_open != NULL)
 		Mix_FreeChunk(sfx_open);

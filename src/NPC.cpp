@@ -68,7 +68,6 @@ void NPC::load(const string& npc_id) {
 
 	FileParser infile;
 	ItemStack stack;
-	int event_count = 0;
 
 	string filename_sprites = "";
 	string filename_portrait = "";

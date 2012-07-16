@@ -43,10 +43,8 @@ MapRenderer::MapRenderer(CampaignManager *_camp) {
 	clearEvents();
 	enemy_awaiting_queue = false;
 	npc_awaiting_queue = false;
-	group_awaiting_queue = false;
 	new_enemy.clear();
 	new_npc.clear();
-	new_group.clear();
 
 	sfx = NULL;
 	sfx_filename = "";
@@ -333,8 +331,8 @@ int MapRenderer::load(string filename) {
 					events.back().damagemin = atoi(infile.nextValue().c_str());
 					events.back().damagemax = atoi(infile.nextValue().c_str());
 				}
-				else if (infile.key == "power_cooldown") {
-					events.back().power_cooldown = atoi(infile.val.c_str());
+				else if (infile.key == "cooldown") {
+					events.back().cooldown = atoi(infile.val.c_str());
 				}
 				else {
 					// new event component
@@ -900,6 +898,9 @@ void MapRenderer::checkEventClick() {
 		
 		// skip events without hotspots
 		if ((*it).hotspot.h == 0) continue;
+		
+		// skip events on cooldown
+		if ((*it).cooldown_ticks != 0) continue;
 	
 		p = map_to_screen((*it).location.x * UNITS_PER_TILE + UNITS_PER_TILE/2, (*it).location.y * UNITS_PER_TILE + UNITS_PER_TILE/2, cam.x, cam.y);
 		r.x = p.x + (*it).hotspot.x;
@@ -1004,6 +1005,13 @@ void MapRenderer::checkTooltip() {
  * @return Returns true if the event shall not be run again.
  */
 bool MapRenderer::executeEvent(Map_Event &ev) {
+
+	// skip executing events that are on cooldown
+	if (ev.cooldown_ticks > 0) return false;
+
+	// set cooldown
+	ev.cooldown_ticks = ev.cooldown;
+
 	const Event_Component *ec;
 	bool destroy_event = false;
 
@@ -1082,50 +1090,46 @@ bool MapRenderer::executeEvent(Map_Event &ev) {
 		}
 		else if (ec->type == "power") {
 
-			if (ev.cooldown_ticks == 0) {
+			int power_index = ec->x;
 
-				int power_index = ec->x;
-
-				// TODO: delete this without breaking hazards, takeHit, etc.
-				StatBlock *dummy = new StatBlock();
-				dummy->accuracy = 1000; //always hits its target
+			// TODO: delete this without breaking hazards, takeHit, etc.
+			StatBlock *dummy = new StatBlock();
+			dummy->accuracy = 1000; //always hits its target
 				
-				// if a power path was specified, place the source position there
-				if (ev.power_src.x > 0) {
-					dummy->pos.x = ev.power_src.x * UNITS_PER_TILE + UNITS_PER_TILE/2;
-					dummy->pos.y = ev.power_src.y * UNITS_PER_TILE + UNITS_PER_TILE/2;
-				}
-				// otherwise the source position is the event position
-				else {
-					dummy->pos.x = ev.location.x * UNITS_PER_TILE + UNITS_PER_TILE/2;
-					dummy->pos.y = ev.location.y * UNITS_PER_TILE + UNITS_PER_TILE/2;
-				}
-				
-				dummy->dmg_melee_min = dummy->dmg_ranged_min = dummy->dmg_ment_min = ev.damagemin;
-				dummy->dmg_melee_max = dummy->dmg_ranged_max = dummy->dmg_ment_max = ev.damagemax;
-
-				Point target;
-				
-				// if a power path was specified:
-				// targets hero option
-				if (ev.targetHero) {
-					target.x = cam.x;
-					target.y = cam.y;
-				}
-				// targets fixed path option
-				else if (ev.power_dest.x != 0) {
-					target.x = ev.power_dest.x * UNITS_PER_TILE + UNITS_PER_TILE/2;
-					target.y = ev.power_dest.y * UNITS_PER_TILE + UNITS_PER_TILE/2;
-				}
-				// no path specified, targets self location
-				else {
-					target.x = dummy->pos.x;
-					target.y = dummy->pos.y;
-				}
-
-				ev.cooldown_ticks = ev.power_cooldown;
-				powers->activate(power_index, dummy, target);
+			// if a power path was specified, place the source position there
+			if (ev.power_src.x > 0) {
+				dummy->pos.x = ev.power_src.x * UNITS_PER_TILE + UNITS_PER_TILE/2;
+				dummy->pos.y = ev.power_src.y * UNITS_PER_TILE + UNITS_PER_TILE/2;
 			}
+			// otherwise the source position is the event position
+			else {
+				dummy->pos.x = ev.location.x * UNITS_PER_TILE + UNITS_PER_TILE/2;
+				dummy->pos.y = ev.location.y * UNITS_PER_TILE + UNITS_PER_TILE/2;
+			}
+				
+			dummy->dmg_melee_min = dummy->dmg_ranged_min = dummy->dmg_ment_min = ev.damagemin;
+			dummy->dmg_melee_max = dummy->dmg_ranged_max = dummy->dmg_ment_max = ev.damagemax;
+				
+			Point target;
+			
+			// if a power path was specified:
+			// targets hero option
+			if (ev.targetHero) {
+				target.x = cam.x;
+				target.y = cam.y;
+			}
+			// targets fixed path option
+			else if (ev.power_dest.x != 0) {
+				target.x = ev.power_dest.x * UNITS_PER_TILE + UNITS_PER_TILE/2;
+				target.y = ev.power_dest.y * UNITS_PER_TILE + UNITS_PER_TILE/2;
+			}
+			// no path specified, targets self location
+			else {
+				target.x = dummy->pos.x;
+				target.y = dummy->pos.y;
+			}
+
+			powers->activate(power_index, dummy, target);
 
 		}
 	}

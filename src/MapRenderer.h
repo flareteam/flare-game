@@ -90,6 +90,7 @@ public:
 	int comp_num;
 	SDL_Rect hotspot;
 	std::string tooltip;
+	int cooldown; // events that run multiple times pause this long in frames
 
 	//power spawn variables
 	Point power_src;
@@ -97,7 +98,6 @@ public:
 	bool targetHero;
 	int damagemin;
 	int damagemax;
-	int power_cooldown;
 	int cooldown_ticks;
 
 	Map_Event() {
@@ -110,6 +110,7 @@ public:
 		tooltip = "";
 		hotspot.x = hotspot.y = 0;
 		hotspot.h = hotspot.w = 0;
+		cooldown = 0;
 		for (int j=0; j<256; j++) {
 			components[j].type = "";
 			components[j].s = "";
@@ -121,7 +122,6 @@ public:
 		power_dest.x = power_dest.y = 0;
 		targetHero = false;
 		damagemin = damagemax = 0;
-		power_cooldown = 0;
 		cooldown_ticks = 0;
 	}
 };
