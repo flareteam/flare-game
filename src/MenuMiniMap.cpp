@@ -46,6 +46,7 @@ void MenuMiniMap::createMapSurface() {
 		map_surface = createSurface(512, 512);
 	else // TILESET_ORTHOGONAL
 		map_surface = createSurface(512, 512);
+
 }
 
 void MenuMiniMap::render() {
@@ -62,8 +63,8 @@ void MenuMiniMap::render(Point hero_pos) {
 void MenuMiniMap::prerender(MapCollision *collider, int map_w, int map_h) {
 	map_size.x = map_w;
 	map_size.y = map_h;
-	SDL_FillRect(map_surface, 0, SDL_MapRGB(map_surface->format,255,0,255));
-
+	// SDL_FillRect(map_surface, 0, SDL_MapRGB(map_surface->format,255,0,255));
+	
 	if (TILESET_ORIENTATION == TILESET_ISOMETRIC)
 		prerenderIso(collider);
 	else // TILESET_ORTHOGONAL
