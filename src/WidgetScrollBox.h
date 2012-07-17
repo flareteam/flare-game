@@ -44,6 +44,7 @@ public:
 	SDL_Rect pos;
 	SDL_Surface * contents;
 	bool update;
+	int bg_color;
 
 private:
 	void scroll(int amount);

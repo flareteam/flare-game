@@ -30,6 +30,7 @@ WidgetScrollBox::WidgetScrollBox(int width, int height) {
 	pos.w = width;
 	pos.h = height;
 	cursor = 0;
+	bg_color = 0x1a1a1a;
 	contents = NULL;
 	scrollbar = new WidgetScrollBar(mods->locate("images/menus/buttons/scrollbar_default.png"));
 	update = true;
@@ -86,13 +87,24 @@ void WidgetScrollBox::resize(int h) {
 
 	if (pos.h > h) h = pos.h;
 	contents = createAlphaSurface(pos.w,h);
-	SDL_FillRect(contents,NULL,0x1A1A1A);
+	SDL_FillRect(contents,NULL,bg_color);
 	SDL_SetAlpha(contents, 0, 0);
 
 	cursor = 0;
 	refresh();
 }
+
 void WidgetScrollBox::refresh() {
+	int h = pos.h;
+	if (contents != NULL) {
+		h = contents->h;
+		SDL_FreeSurface(contents);
+	}
+
+	contents = createAlphaSurface(pos.w,h);
+	SDL_FillRect(contents,NULL,bg_color);
+	SDL_SetAlpha(contents, 0, 0);
+
 	scrollbar->refresh(pos.x+pos.w, pos.y, pos.h-scrollbar->pos_down.h, cursor, contents->h-pos.h-scrollbar->pos_knob.h);
 }
 
