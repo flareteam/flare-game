@@ -751,6 +751,7 @@ void GameStateConfig::render ()
 	int active_tab = tabControl->getActiveTab();
 
 	if (active_tab == 4) {
+		if (input_scrollbox->update) input_scrollbox->refresh();
 		for (unsigned int i = 13; i < 38; i++) {
 			if (input_scrollbox->update) settings_lb[i]->render(input_scrollbox->contents);
 		}
