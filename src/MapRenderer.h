@@ -212,6 +212,10 @@ public:
 	Point spawn;
 	int spawn_dir;
 
+	// indicates that the map was changed by an event, so the GameStatePlay
+	// will tell the mini map to update.
+	bool map_change;
+
 	MapCollision collider;
 
 	// enemy load handling

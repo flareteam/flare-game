@@ -39,6 +39,7 @@ MapRenderer::MapRenderer(CampaignManager *_camp) {
 	cam.y = 0;
 
 	new_music = false;
+	map_change = false;
 
 	clearEvents();
 	enemy_awaiting_queue = false;
@@ -1063,6 +1064,7 @@ bool MapRenderer::executeEvent(Map_Event &ev) {
 			else if (ec->s == "background") {
 				background[ec->x][ec->y] = ec->z;
 			}
+			map_change = true;
 		}
 		else if (ec->type == "soundfx") {
 			playSFX(ec->s);
