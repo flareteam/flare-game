@@ -759,7 +759,7 @@ void Avatar::transform() {
 		last_transform = charmed_stats->gfx_prefix;
 	}
 
-	SDL_SetColorKey( sprites, SDL_SRCCOLORKEY, SDL_MapRGB(transformed_sprites->format, 255, 0, 255) );
+	SDL_SetColorKey( transformed_sprites, SDL_SRCCOLORKEY, SDL_MapRGB(transformed_sprites->format, 255, 0, 255) );
 
 	// optimize
 	SDL_Surface *cleanup = transformed_sprites;
