@@ -722,6 +722,11 @@ void PowerManager::initHazard(int power_index, StatBlock *src_stats, Point targe
 	else if (powers[power_index].starting_pos == STARTING_POS_MELEE) {
 		haz->pos = calcVector(src_stats->pos, src_stats->direction, src_stats->melee_range);
 	}
+	if (powers[power_index].target_neighbor > 0) {
+		Point new_target = targetNeighbor(src_stats->pos,powers[power_index].target_neighbor);
+		haz->pos.x = (float)new_target.x;
+		haz->pos.y = (float)new_target.y;
+	}
 
 	// pre/post power effects
 	if (powers[power_index].post_power != -1) {
@@ -882,12 +887,17 @@ void PowerManager::playSound(int power_index, StatBlock *src_stats) {
  */
 bool PowerManager::effect(int power_index, StatBlock *src_stats, Point target) {
 
+	Point dest;
+	int count = powers[power_index].missile_num;
+	if (count < 1) count = 1;
 	if (powers[power_index].use_hazard) {
-		Hazard *haz = new Hazard();
-		initHazard(power_index, src_stats, target, haz);
+		for (int i=0; i < count; i++) {
+			Hazard *haz = new Hazard();
+			initHazard(power_index, src_stats, target, haz);
 
-		// Hazard memory is now the responsibility of HazardManager
-		hazards.push(haz);
+			// Hazard memory is now the responsibility of HazardManager
+			hazards.push(haz);
+		}
 	}
 
 	buff(power_index, src_stats, target);

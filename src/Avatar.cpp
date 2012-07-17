@@ -815,10 +815,10 @@ void Avatar::transform() {
 	stats.crit = charmed_stats->crit;
 
 	// resistances
-	if (charmed_stats->attunement_fire > stats.attunement_fire)
+	if (charmed_stats->attunement_fire < stats.attunement_fire)
 	stats.attunement_fire = charmed_stats->attunement_fire;
 
-	if (charmed_stats->attunement_ice > stats.attunement_ice)
+	if (charmed_stats->attunement_ice < stats.attunement_ice)
 	stats.attunement_ice = charmed_stats->attunement_ice;
 
 	loadStepFX("NULL");
