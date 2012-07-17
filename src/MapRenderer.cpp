@@ -611,8 +611,11 @@ bool zcompare_ortho(const Renderable &r1, const Renderable &r2) {
 			return false;
 		}
 		else if (x1 == x2) {
-			if (r1.map_pos.x + r1.map_pos.y >= r2.map_pos.x + r2.map_pos.y)
+			if (r1.map_pos.y >= r2.map_pos.y)
 				return false;
+			else
+				if (r1.map_pos.x >= r2.map_pos.x)
+					return false;
 		}
 	}
 	return true;
