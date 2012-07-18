@@ -553,8 +553,8 @@ void GameStateConfig::update () {
 	else settings_cb[6]->unCheck();
 	//if (CHANGE_GAMMA) settings_cb[7]->Check();
 	//else settings_cb[7]->unCheck();
-	//if (ANIMATED_TILES) settings_cb[8]->Check();
-	//else settings_cb[8]->unCheck();
+	if (ANIMATED_TILES) settings_cb[8]->Check();
+	else settings_cb[8]->unCheck();
 
 	if ((ENABLE_JOYSTICK) && (SDL_NumJoysticks() > 0)) {
 		SDL_JoystickClose(joy);
@@ -696,9 +696,9 @@ void GameStateConfig::logic ()
 		//} else if (settings_cb[7]->checkClick()) {
 		//	if (settings_cb[7]->isChecked()) CHANGE_GAMMA=true;
 		//	else CHANGE_GAMMA=false;
-		//} else if (settings_cb[8]->checkClick()) {
-		//	if (settings_cb[8]->isChecked()) ANIMATED_TILES=true;
-		//	else ANIMATED_TILES=false;
+		} else if (settings_cb[8]->checkClick()) {
+			if (settings_cb[8]->isChecked()) ANIMATED_TILES=true;
+			else ANIMATED_TILES=false;
 		} else if (settings_cmb[1]->checkClick()) {
 			active = settings_cmb[1]->selected;
 			value = settings_cmb[1]->get(active) + 'x';
