@@ -825,6 +825,8 @@ void Avatar::transform() {
 }
 
 void Avatar::untransform() {
+	// Only allow untransform when on a valid tile
+	if (!map->collider.valid_position(stats.pos.x,stats.pos.y,MOVEMENT_NORMAL)) return;
 
 	stats.transformed = false;
 	transform_triggered = false;
