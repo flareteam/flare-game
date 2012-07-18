@@ -56,6 +56,7 @@ private:
 	SDL_Rect src;
 
 	WidgetLabel *labels[16];
+	int default_M1;
 
 public:
 
