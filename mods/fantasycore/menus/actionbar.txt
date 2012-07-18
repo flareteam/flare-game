@@ -1,0 +1,30 @@
+# Settings for actionbar menu
+# pos is x,y,width,height
+
+default_M1_power=1
+
+slot1=32,3,32,32
+slot2=64,3,32,32
+slot3=96,3,32,32
+slot4=128,3,32,32
+slot5=160,3,32,32
+slot6=192,3,32,32
+slot7=224,3,32,32
+slot8=256,3,32,32
+slot9=288,3,32,32
+slot10=320,3,32,32
+
+slot_M1=384,3,32,32
+slot_M2=416,3,32,32
+
+char_menu=480,3,32,32
+inv_menu=512,3,32,32
+powers_menu=544,3,32,32
+log_menu=576,3,32,32
+
+# screen areas occupied by the three main sections
+# TODO maybe we should calculate them
+# x,width,height. There is no y, it's taken from menus.txt 
+numberArea=32,320,32
+mouseArea=384,64,32
+menuArea=480,128,32
