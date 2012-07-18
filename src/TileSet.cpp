@@ -163,6 +163,9 @@ void TileSet::load(const std::string& filename) {
 }
 
 void TileSet::logic() {
+	if (!ANIMATED_TILES)
+		return;
+
 	for (unsigned i = 0; i < anim.size() ; i++) {
 		if ((anim[i].frames > 1) && anim[i].duration == anim[i].frame_duration[anim[i].current_frame-1]) {
 			tiles[i].src.x = anim[i].pos[anim[i].current_frame-1].x;

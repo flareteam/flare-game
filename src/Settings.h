@@ -46,6 +46,7 @@ extern bool DOUBLEBUF;
 extern bool HWSURFACE;
 extern float GAMMA;
 extern bool TEXTURE_QUALITY;
+extern bool ANIMATED_TILES;
 
 // Input Settings
 extern bool MOUSE_MOVE;

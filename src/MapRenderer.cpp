@@ -52,6 +52,9 @@ MapRenderer::MapRenderer(CampaignManager *_camp) {
 	music = NULL;
 	log_msg = "";
 	shaky_cam_ticks = 0;
+
+	backgroundsurface = 0;
+	repaint_background = false;
 }
 
 void MapRenderer::clearEvents() {
@@ -562,16 +565,16 @@ void MapRenderer::logic() {
 
 	// handle camera shaking timer
 	if (shaky_cam_ticks > 0) shaky_cam_ticks--;
-	
+
 	// handle tile set logic e.g. animations
 	tset.logic();
-	
+
 	// handle event cooldowns
 	vector<Map_Event>::iterator it;
 	for (it = events.begin(); it < events.end(); it++) {
 		if ((*it).cooldown_ticks > 0) (*it).cooldown_ticks--;
 	}
-	
+
 }
 
 /**
@@ -648,7 +651,36 @@ void MapRenderer::render(vector<Renderable> &r) {
 	}
 }
 
-void MapRenderer::renderIsoBackground() {
+void MapRenderer::createBackgroundSurface() {
+
+	Uint32 rmask, gmask, bmask, amask;
+#if SDL_BYTEORDER == SDL_BIG_ENDIAN
+	rmask = 0xff000000;
+	gmask = 0x00ff0000;
+	bmask = 0x0000ff00;
+	amask = 0x000000ff;
+#else
+	rmask = 0x000000ff;
+	gmask = 0x0000ff00;
+	bmask = 0x00ff0000;
+	amask = 0xff000000;
+#endif
+
+	SDL_FreeSurface(backgroundsurface);
+	SDL_Surface *surface;
+	if (HWSURFACE)
+		surface = SDL_CreateRGBSurface(SDL_HWSURFACE|SDL_SRCALPHA, 2 * VIEW_W, 2 * VIEW_H, 32, rmask, gmask, bmask, amask);
+	else
+		surface = SDL_CreateRGBSurface(SDL_SWSURFACE|SDL_SRCALPHA, 2 * VIEW_W, 2 * VIEW_H, 32, rmask, gmask, bmask, amask);
+
+	if (surface == NULL) {
+		fprintf(stderr, "CreateRGBSurface failed: %s\n", SDL_GetError());
+	}
+	backgroundsurface = SDL_DisplayFormat(surface);
+	SDL_FreeSurface(surface);
+}
+
+void MapRenderer::renderIsoBackground(SDL_Surface *wheretorender, Point offset) {
 	short int i;
 	short int j;
 	SDL_Rect dest;
@@ -673,11 +705,11 @@ void MapRenderer::renderIsoBackground() {
 			if (current_tile) {
 				Point p = map_to_screen(i * UNITS_PER_TILE, j * UNITS_PER_TILE, shakycam.x, shakycam.y);
 				p = center_tile(p);
-				dest.x = p.x - tset.tiles[current_tile].offset.x;
-				dest.y = p.y - tset.tiles[current_tile].offset.y;
+				dest.x = p.x - tset.tiles[current_tile].offset.x + offset.x;
+				dest.y = p.y - tset.tiles[current_tile].offset.y + offset.y;
 				// no need to set w and h in dest, as it is ignored
 				// by SDL_BlitSurface
-				SDL_BlitSurface(tset.sprites, &(tset.tiles[current_tile].src), screen, &dest);
+				SDL_BlitSurface(tset.sprites, &(tset.tiles[current_tile].src), wheretorender, &dest);
 			}
 		}
 		j += tiles_width;
@@ -764,7 +796,35 @@ void MapRenderer::renderIsoFrontObjects(vector<Renderable> &r) {
 }
 
 void MapRenderer::renderIso(vector<Renderable> &r) {
-	renderIsoBackground();
+	if (ANIMATED_TILES) {
+		Point off = {0, 0};
+		renderIsoBackground(screen, off);
+	}
+	else {
+		if (abs(shakycam.x - backgroundsurfaceoffset.x) > 2 * UNITS_PER_TILE
+			|| abs(shakycam.y - backgroundsurfaceoffset.y) > 2 * UNITS_PER_TILE
+			|| repaint_background) {
+
+			if (!backgroundsurface)
+				createBackgroundSurface();
+
+			repaint_background = false;
+
+			backgroundsurfaceoffset = shakycam;
+
+			SDL_FillRect(backgroundsurface, 0, 0);
+			Point off = {VIEW_W_HALF, VIEW_H_HALF};
+			renderIsoBackground(backgroundsurface, off);
+		}
+		Point p = map_to_screen(shakycam.x, shakycam.y , backgroundsurfaceoffset.x, backgroundsurfaceoffset.y);
+		SDL_Rect src;
+		src.x = p.x;
+		src.y = p.y;
+		src.w = 2 * VIEW_W;
+		src.h = 2 * VIEW_H;
+		SDL_BlitSurface(backgroundsurface, &src, screen , 0);
+	}
+
 	renderIsoBackObjects(r);
 	renderIsoFrontObjects(r);
 	checkTooltip();
@@ -879,7 +939,7 @@ void MapRenderer::checkEvents(Point loc) {
  * The hero must be within range (CLICK_RANGE) to activate an event.
  *
  * This function checks valid mouse clicks against all clickable events, and
- * executes 
+ * executes
  */
 void MapRenderer::checkEventClick() {
 
@@ -899,24 +959,24 @@ void MapRenderer::checkEventClick() {
 
 		// skip inactive events
 		if (!isActive(*it)) continue;
-		
+
 		// skip events without hotspots
 		if ((*it).hotspot.h == 0) continue;
-		
+
 		// skip events on cooldown
 		if ((*it).cooldown_ticks != 0) continue;
-	
+
 		p = map_to_screen((*it).location.x * UNITS_PER_TILE + UNITS_PER_TILE/2, (*it).location.y * UNITS_PER_TILE + UNITS_PER_TILE/2, cam.x, cam.y);
 		r.x = p.x + (*it).hotspot.x;
 		r.y = p.y + (*it).hotspot.y;
 		r.h = (*it).hotspot.h;
 		r.w = (*it).hotspot.w;
-		
+
 		// execute if mouse in hotspot && hero within range
 		if (isWithin(r, inpt->mouse)
 				&& (abs(cam.x - (*it).location.x * UNITS_PER_TILE) < CLICK_RANGE
 				&& abs(cam.y - (*it).location.y * UNITS_PER_TILE) < CLICK_RANGE)) {
-				
+
 			inpt->lock[MAIN1] = true;
 			if (executeEvent(*it))
 				events.erase(it);
@@ -1066,6 +1126,7 @@ bool MapRenderer::executeEvent(Map_Event &ev) {
 			}
 			else if (ec->s == "background") {
 				background[ec->x][ec->y] = ec->z;
+				repaint_background = true;
 			}
 			map_change = true;
 		}
@@ -1100,7 +1161,7 @@ bool MapRenderer::executeEvent(Map_Event &ev) {
 			// TODO: delete this without breaking hazards, takeHit, etc.
 			StatBlock *dummy = new StatBlock();
 			dummy->accuracy = 1000; //always hits its target
-				
+
 			// if a power path was specified, place the source position there
 			if (ev.power_src.x > 0) {
 				dummy->pos.x = ev.power_src.x * UNITS_PER_TILE + UNITS_PER_TILE/2;
@@ -1111,12 +1172,12 @@ bool MapRenderer::executeEvent(Map_Event &ev) {
 				dummy->pos.x = ev.location.x * UNITS_PER_TILE + UNITS_PER_TILE/2;
 				dummy->pos.y = ev.location.y * UNITS_PER_TILE + UNITS_PER_TILE/2;
 			}
-				
+
 			dummy->dmg_melee_min = dummy->dmg_ranged_min = dummy->dmg_ment_min = ev.damagemin;
 			dummy->dmg_melee_max = dummy->dmg_ranged_max = dummy->dmg_ment_max = ev.damagemax;
-				
+
 			Point target;
-			
+
 			// if a power path was specified:
 			// targets hero option
 			if (ev.targetHero) {
@@ -1151,6 +1212,7 @@ MapRenderer::~MapRenderer() {
 	}
 	if (sfx) Mix_FreeChunk(sfx);
 
+	SDL_FreeSurface(backgroundsurface);
 	tip_buf.clear();
 	delete tip;
 }
