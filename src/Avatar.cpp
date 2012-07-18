@@ -843,6 +843,10 @@ void Avatar::untransform() {
 	loadAnimations("animations/hero.txt");
 	stats.cur_state = AVATAR_STANCE;
 
+	// This is a bit of a hack.
+	// In order to switch to the stance animation, we can't already be in a stance animation
+	setAnimation("run");
+
 	stats.dmg_melee_min = hero_stats->dmg_melee_min;
 	stats.dmg_melee_max = hero_stats->dmg_melee_max;
 	stats.dmg_ment_min = hero_stats->dmg_ment_min;
