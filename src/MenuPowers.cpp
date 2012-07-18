@@ -343,7 +343,7 @@ void MenuPowers::render() {
 	ss.str("");
 	points_left = stats->level - powers_list.size();
 	if (points_left !=0) {
-		ss << "Unspent power points:" << " " << points_left;
+		ss << "Unspent skill points:" << " " << points_left;
 	}
 	stat_up.set(ss.str());
 	stat_up.render();

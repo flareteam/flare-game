@@ -214,6 +214,7 @@ void GameStatePlay::checkTeleport() {
 			npcs->handleNewMap();
 			menu->vendor->npc = NULL;
 			menu->vendor->visible = false;
+			menu->mini->prerender(&map->collider, map->w, map->h);
 			npc_id = -1;
 
 			// store this as the new respawn point
@@ -582,7 +583,11 @@ void GameStatePlay::render() {
 	loot->renderTooltips(map->cam);
 	npcs->renderTooltips(map->cam, inpt->mouse);
 
-	menu->mini->render(&map->collider, pc->stats.pos, map->w, map->h);
+	if (map->map_change) {
+		menu->mini->prerender(&map->collider, map->w, map->h);
+		map->map_change = false;
+	}
+	menu->mini->render(pc->stats.pos);
 	menu->render();
 
     // render combat text last - this should make it obvious you're being

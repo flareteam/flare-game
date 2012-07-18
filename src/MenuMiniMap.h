@@ -32,21 +32,23 @@ private:
 	Uint32 color_wall;
 	Uint32 color_obst;
 	Uint32 color_hero;
-	Point map_center;
-	SDL_Rect map_area;
+
 	SDL_Surface *map_surface;
-	Point old_hero_tile;
+	Point map_size;
+
 	void createMapSurface();
+	void renderIso(Point hero_pos);
+	void renderOrtho(Point hero_pos);
+	void prerenderOrtho(MapCollision *collider);
+	void prerenderIso(MapCollision *collider);
 
 public:
 	MenuMiniMap();
 	~MenuMiniMap();
 
 	void render();
-	void render(MapCollision *collider, Point hero_pos, int map_w, int map_h);
-	void renderOrtho(MapCollision *collider, Point hero_pos, int map_w, int map_h);
-	void renderIso(MapCollision *collider, Point hero_pos, int map_w, int map_h);
-
+	void render(Point hero_pos);
+	void prerender(MapCollision *collider, int map_w, int map_h);
 };
 
 

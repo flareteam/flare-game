@@ -39,6 +39,7 @@ MapRenderer::MapRenderer(CampaignManager *_camp) {
 	cam.y = 0;
 
 	new_music = false;
+	map_change = false;
 
 	clearEvents();
 	enemy_awaiting_queue = false;
@@ -610,8 +611,11 @@ bool zcompare_ortho(const Renderable &r1, const Renderable &r2) {
 			return false;
 		}
 		else if (x1 == x2) {
-			if (r1.map_pos.x + r1.map_pos.y >= r2.map_pos.x + r2.map_pos.y)
+			if (r1.map_pos.y >= r2.map_pos.y)
 				return false;
+			else
+				if (r1.map_pos.x >= r2.map_pos.x)
+					return false;
 		}
 	}
 	return true;
@@ -1063,6 +1067,7 @@ bool MapRenderer::executeEvent(Map_Event &ev) {
 			else if (ec->s == "background") {
 				background[ec->x][ec->y] = ec->z;
 			}
+			map_change = true;
 		}
 		else if (ec->type == "soundfx") {
 			playSFX(ec->s);
