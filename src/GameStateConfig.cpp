@@ -73,7 +73,7 @@ GameStateConfig::GameStateConfig ()
 	defaults_confirm = new MenuConfirm(msg->get("Defaults"),msg->get("Set ALL settings to default?"));
 
 	// Allocate Labels
-	for (unsigned int i = 0; i < 44; i++) {
+	for (unsigned int i = 0; i < 46; i++) {
 		 settings_lb[i] = new WidgetLabel();
 	}
 
@@ -151,7 +151,7 @@ GameStateConfig::GameStateConfig ()
 			y2 = eatFirstInt(infile.val, ',');
 
 			setting_num = -1;
-			//labels with num 1--15, 16--40, 41--44
+			//labels with num 1--15, 16--40, 41--46
 			if (infile.key == "fullscreen") setting_num = 1;//checkbox
 			else if (infile.key == "mouse_move") setting_num = 2;//checkbox
 			else if (infile.key == "combat_text") setting_num = 3;//checkbox
@@ -198,14 +198,16 @@ GameStateConfig::GameStateConfig ()
 			// buttons end
 			else if (infile.key == "hws_note") setting_num = 41;
 			else if (infile.key == "dbuf_note") setting_num = 42;
+			else if (infile.key == "anim_tiles_note") setting_num = 43;
+			else if (infile.key == "test_note") setting_num = 44;
 
-			else if (infile.key == "activemods") setting_num = 43;//listbox
-			else if (infile.key == "inactivemods") setting_num = 44;//listbox
+			else if (infile.key == "activemods") setting_num = 45;//listbox
+			else if (infile.key == "inactivemods") setting_num = 46;//listbox
 
-			else if (infile.key == "activemods_shiftup") setting_num = 45;//button
-			else if (infile.key == "activemods_shiftdown") setting_num = 46;//button
-			else if (infile.key == "activemods_deactivate") setting_num = 47;//button
-			else if (infile.key == "inactivemods_activate") setting_num = 48;//button
+			else if (infile.key == "activemods_shiftup") setting_num = 47;//button
+			else if (infile.key == "activemods_shiftdown") setting_num = 48;//button
+			else if (infile.key == "activemods_deactivate") setting_num = 49;//button
+			else if (infile.key == "inactivemods_activate") setting_num = 50;//button
 			else if (infile.key == "secondary_offset") {offset_x = x1; offset_y = y1;}
 
 			if (setting_num != -1) {
@@ -213,7 +215,7 @@ GameStateConfig::GameStateConfig ()
 					// keybinding labels inside scrollbox
 					settings_lb[setting_num-1]->setX(x1);
 					settings_lb[setting_num-1]->setY(y1);
-				} else if (setting_num < 45) {
+				} else if (setting_num < 47) {
 					// all labels except keybinding labels
 					settings_lb[setting_num-1]->setX((VIEW_W - 640)/2 + x1);
 					settings_lb[setting_num-1]->setY((VIEW_H - 480)/2 + y1);
@@ -225,24 +227,24 @@ GameStateConfig::GameStateConfig ()
 					settings_cb[setting_num-1]->pos.y = (VIEW_H - 480)/2 + y2;
 				} else if ((setting_num > 9) && (setting_num < 13)) {
 					//sliders positions
-					settings_sl[setting_num-8]->pos.x = (VIEW_W - 640)/2 + x2;
-					settings_sl[setting_num-8]->pos.y = (VIEW_H - 480)/2 + y2;
+					settings_sl[setting_num-10]->pos.x = (VIEW_W - 640)/2 + x2;
+					settings_sl[setting_num-10]->pos.y = (VIEW_H - 480)/2 + y2;
 				} else if ((setting_num > 12) && (setting_num < 16)) {
 					//comboboxes positions
-					settings_cmb[setting_num-11]->pos.x = (VIEW_W - 640)/2 + x2;
-					settings_cmb[setting_num-11]->pos.y = (VIEW_H - 480)/2 + y2;
+					settings_cmb[setting_num-13]->pos.x = (VIEW_W - 640)/2 + x2;
+					settings_cmb[setting_num-13]->pos.y = (VIEW_H - 480)/2 + y2;
 				} else if (setting_num > 15 && setting_num < 41) {
 					//keybinding buttons positions
-					settings_key[setting_num-14]->pos.x = x2;
-					settings_key[setting_num-14]->pos.y = y2;
-				} else if (setting_num > 42 && setting_num < 45) {
+					settings_key[setting_num-16]->pos.x = x2;
+					settings_key[setting_num-16]->pos.y = y2;
+				} else if (setting_num > 44 && setting_num < 47) {
 					//listboxes positions
-					settings_lstb[setting_num-41]->pos.x = (VIEW_W - 640)/2 + x2;
-					settings_lstb[setting_num-41]->pos.y = (VIEW_H - 480)/2 + y2;
-				} else if (setting_num > 44 && setting_num < 49) {
+					settings_lstb[setting_num-45]->pos.x = (VIEW_W - 640)/2 + x2;
+					settings_lstb[setting_num-45]->pos.y = (VIEW_H - 480)/2 + y2;
+				} else if (setting_num > 46 && setting_num < 51) {
 					//mods config buttons positions
-					settings_btn[setting_num-43]->pos.x = (VIEW_W - 640)/2 + x1;
-					settings_btn[setting_num-43]->pos.y = (VIEW_H - 480)/2 + y1;
+					settings_btn[setting_num-47]->pos.x = (VIEW_W - 640)/2 + x1;
+					settings_btn[setting_num-47]->pos.y = (VIEW_H - 480)/2 + y1;
 				}
 			}
 
@@ -352,7 +354,7 @@ GameStateConfig::GameStateConfig ()
 	child_widget.push_back(settings_cb[7]);
 	optiontab[child_widget.size()-1] = 0;
 
-	settings_lb[8]->set(msg->get("Enable animated tiles"));
+	settings_lb[8]->set(msg->get("Animated tiles"));
 	settings_lb[8]->setJustify(JUSTIFY_RIGHT);
 	child_widget.push_back(settings_lb[8]);
 	optiontab[child_widget.size()-1] = 0;
@@ -417,7 +419,7 @@ GameStateConfig::GameStateConfig ()
 
 	// Add Key Binding objects
 	for (unsigned int i = 15; i < 40; i++) {
-		 settings_lb[i]->set(binding_name[i-13]);
+		 settings_lb[i]->set(binding_name[i-15]);
 		 settings_lb[i]->setJustify(JUSTIFY_RIGHT);
 		 child_widget.push_back(settings_lb[i]);
 		 optiontab[child_widget.size()-1] = 4;
@@ -436,9 +438,17 @@ GameStateConfig::GameStateConfig ()
 	child_widget.push_back(settings_lb[41]);
 	optiontab[child_widget.size()-1] = 0;
 
-	// Add ListBoxes and their Labels
-	settings_lb[42]->set(msg->get("Active Mods"));
+	settings_lb[42]->set(msg->get("Try disabling for performance"));
 	child_widget.push_back(settings_lb[42]);
+	optiontab[child_widget.size()-1] = 0;
+
+	settings_lb[43]->set(msg->get("Experimental"));
+	child_widget.push_back(settings_lb[43]);
+	optiontab[child_widget.size()-1] = 0;
+
+	// Add ListBoxes and their Labels
+	settings_lb[44]->set(msg->get("Active Mods"));
+	child_widget.push_back(settings_lb[44]);
 	optiontab[child_widget.size()-1] = 5;
 
 	settings_lstb[0]->multi_select = true;
@@ -448,8 +458,8 @@ GameStateConfig::GameStateConfig ()
 	child_widget.push_back(settings_lstb[0]);
 	optiontab[child_widget.size()-1] = 5;
 
-	settings_lb[43]->set(msg->get("Avaliable Mods"));
-	child_widget.push_back(settings_lb[43]);
+	settings_lb[45]->set(msg->get("Avaliable Mods"));
+	child_widget.push_back(settings_lb[45]);
 	optiontab[child_widget.size()-1] = 5;
 
 	settings_lstb[1]->multi_select = true;
@@ -488,7 +498,7 @@ GameStateConfig::~GameStateConfig()
 
 	child_widget.clear();
 
-	for (unsigned int i = 0; i < 44; i++) {
+	for (unsigned int i = 0; i < 46; i++) {
 		 delete settings_lb[i];
 	}
 
@@ -802,7 +812,7 @@ void GameStateConfig::render ()
 	// render keybindings tab
 	if (active_tab == 4) {
 		if (input_scrollbox->update) input_scrollbox->refresh();
-		for (unsigned int i = 13; i < 38; i++) {
+		for (unsigned int i = 15; i < 40; i++) {
 			if (input_scrollbox->update) settings_lb[i]->render(input_scrollbox->contents);
 		}
 		for (unsigned int i = 0; i < 50; i++) {

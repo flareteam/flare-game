@@ -51,7 +51,7 @@ public:
 	void    render  ();
 
 private:
-	int optiontab[116];
+	int optiontab[120];
 	SDL_Rect* video_modes;
 
 	std::string * language_ISO;
@@ -77,7 +77,7 @@ private:
 	SDL_Surface         * background;
 	std::string         imgFileName;
 
-	WidgetLabel         * settings_lb[44];
+	WidgetLabel         * settings_lb[46];
 	WidgetSlider        * settings_sl[3];
 	WidgetCheckBox      * settings_cb[9];
 	WidgetButton        * settings_key[50];
