@@ -391,6 +391,23 @@ GameStateConfig::GameStateConfig ()
 	child_widget.push_back(settings_sl[2]);
 	optiontab[child_widget.size()-1] = 0;
 
+	// Add just some Labels
+	settings_lb[40]->set(msg->get("Try disabling for performance"));
+	child_widget.push_back(settings_lb[40]);
+	optiontab[child_widget.size()-1] = 0;
+
+	settings_lb[41]->set(msg->get("Try disabling for performance"));
+	child_widget.push_back(settings_lb[41]);
+	optiontab[child_widget.size()-1] = 0;
+
+	settings_lb[42]->set(msg->get("Try disabling for performance"));
+	child_widget.push_back(settings_lb[42]);
+	optiontab[child_widget.size()-1] = 0;
+
+	settings_lb[43]->set(msg->get("Experimental"));
+	child_widget.push_back(settings_lb[43]);
+	optiontab[child_widget.size()-1] = 0;
+
 	//Define ComboBoxes and their Labels
 	settings_lb[12]->set(msg->get("Joystick"));
 	settings_lb[12]->setJustify(JUSTIFY_RIGHT);
@@ -432,23 +449,6 @@ GameStateConfig::GameStateConfig ()
 		 child_widget.push_back(settings_key[i]);
 		 optiontab[child_widget.size()-1] = 4;
 	}
-
-	// Add just some Labels
-	settings_lb[40]->set(msg->get("Try disabling for performance"));
-	child_widget.push_back(settings_lb[40]);
-	optiontab[child_widget.size()-1] = 0;
-
-	settings_lb[41]->set(msg->get("Try disabling for performance"));
-	child_widget.push_back(settings_lb[41]);
-	optiontab[child_widget.size()-1] = 0;
-
-	settings_lb[42]->set(msg->get("Try disabling for performance"));
-	child_widget.push_back(settings_lb[42]);
-	optiontab[child_widget.size()-1] = 0;
-
-	settings_lb[43]->set(msg->get("Experimental"));
-	child_widget.push_back(settings_lb[43]);
-	optiontab[child_widget.size()-1] = 0;
 
 	// Add ListBoxes and their Labels
 	settings_lb[44]->set(msg->get("Active Mods"));
@@ -832,11 +832,11 @@ void GameStateConfig::render ()
 	}
 
 	// render widgets in vector before keybindings
-	for (unsigned int i = 3; i < 33; i++) {
+	for (unsigned int i = 3; i < 37; i++) {
 		 if (optiontab[i] == active_tab) child_widget[i]->render();
 	}
 	// render widgets in vector sfter keybindings
-	for (unsigned int i = 108; i < child_widget.size(); i++) {
+	for (unsigned int i = 112; i < child_widget.size(); i++) {
 		 if (optiontab[i] == active_tab) child_widget[i]->render();
 	}
 
