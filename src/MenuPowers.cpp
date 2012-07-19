@@ -332,7 +332,7 @@ void MenuPowers::logic() {
 	if (closeButton->checkClick()) {
 		visible = false;
 	}
-	tabControl->logic();
+	if (tabs_count > 1) tabControl->logic();
 }
 
 void MenuPowers::render() {
