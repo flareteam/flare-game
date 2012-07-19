@@ -1,5 +1,6 @@
 /*
 Copyright © 2011-2012 Clint Bellanger
+Copyright © 2012 Igor Paliychuk
 
 This file is part of FLARE.
 
@@ -36,7 +37,7 @@ class PowerManager;
 class StatBlock;
 class TooltipData;
 
-const int POWER_SLOTS_COUNT = 20;
+const int POWER_SLOTS_COUNT = 60;
 
 struct Power_Menu_Cell {
 	int id;
@@ -63,7 +64,7 @@ private:
 
 	SDL_Surface *background;
 	SDL_Surface *icons;
-	SDL_Surface *powers_tree;
+	SDL_Surface *powers_tree[5];//don't think we need to have more than 5 tabs
 	SDL_Surface *powers_unlock;
 	SDL_Surface *overlay_disabled;
 	WidgetButton *closeButton;
@@ -73,6 +74,7 @@ private:
 	int points_left;
 	int tabs_count;
 	std::vector<std::string> tab;
+	std::vector<std::string> power_tree;
 
 	WidgetLabel label_powers;
 	WidgetLabel stat_up;

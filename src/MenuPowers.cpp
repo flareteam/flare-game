@@ -1,5 +1,6 @@
 /*
 Copyright © 2011-2012 Clint Bellanger
+Copyright © 2012 Igor Paliychuk
 
 This file is part of FLARE.
 
@@ -49,7 +50,6 @@ MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_i
 	overlay_disabled = NULL;
 
 	visible = false;
-	loadGraphics();
 
 	points_left = 0;
 	tabs_count = 1;
@@ -84,6 +84,8 @@ MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_i
 
 		if (infile.key == "tab_title") {
 			tab.push_back(eatFirstString(infile.val, ','));
+		} else if (infile.key == "tab_tree") {
+			power_tree.push_back(eatFirstString(infile.val, ','));
 		} else if (infile.key == "id") {
 			counter++;
 			power_cell[counter].id = eatFirstInt(infile.val, ',');
@@ -129,6 +131,8 @@ MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_i
 	} else fprintf(stderr, "Unable to open powers.txt!\n");
 	infile.close();
 
+	loadGraphics();
+
 	menuPowers = this;
 }
 
@@ -163,13 +167,21 @@ void MenuPowers::update() {
 void MenuPowers::loadGraphics() {
 
 	background = IMG_Load(mods->locate("images/menus/powers.png").c_str());
-	powers_tree = IMG_Load(mods->locate("images/menus/powers_tree.png").c_str());
+
+	if (power_tree.size() < 1) {
+		powers_tree[0] = IMG_Load(mods->locate("images/menus/powers_tree.png").c_str());
+	} else {
+		for (unsigned int i=0; i<power_tree.size(); i++) powers_tree[i] = IMG_Load(mods->locate("images/menus/" + power_tree[i]).c_str());
+	}
+
 	powers_unlock = IMG_Load(mods->locate("images/menus/powers_unlock.png").c_str());
 	overlay_disabled = IMG_Load(mods->locate("images/menus/disabled.png").c_str());
 	
-	if(!background || !powers_tree || !powers_unlock) {
-		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
-		SDL_Quit();
+	for (unsigned int i=0; i<power_tree.size(); i++) {
+		if(!background || !powers_tree[i] || !powers_unlock || !overlay_disabled) {
+			fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
+			SDL_Quit();
+		}
 	}
 
 	// optimize
@@ -177,9 +189,11 @@ void MenuPowers::loadGraphics() {
 	background = SDL_DisplayFormatAlpha(background);
 	SDL_FreeSurface(cleanup);
 
-	cleanup = powers_tree;
-	powers_tree = SDL_DisplayFormatAlpha(powers_tree);
-	SDL_FreeSurface(cleanup);
+	for (unsigned int i=0; i<power_tree.size(); i++) {
+		cleanup = powers_tree[i];
+		powers_tree[i] = SDL_DisplayFormatAlpha(powers_tree[i]);
+		SDL_FreeSurface(cleanup);
+	}
 
 	cleanup = powers_unlock;
 	powers_unlock = SDL_DisplayFormatAlpha(powers_unlock);
@@ -349,16 +363,22 @@ void MenuPowers::render() {
 	src.w = dest.w = 320;
 	src.h = dest.h = 416;
 	SDL_BlitSurface(background, &src, screen, &dest);
-	SDL_BlitSurface(powers_tree, &src, screen, &dest);
 
-	// power icons
 	if (tabs_count > 1) {
 		tabControl->render();
 		int active_tab = tabControl->getActiveTab();
 		for (int i=0; i<tabs_count; i++) {
-			if (active_tab == i) renderPowers(active_tab);
+			if (active_tab == i) {
+				// power tree
+				SDL_BlitSurface(powers_tree[i], &src, screen, &dest);
+				// power icons
+				renderPowers(active_tab);
+			}
 		}
-	} else renderPowers(0);
+	} else {
+		SDL_BlitSurface(powers_tree[0], &src, screen, &dest);
+		renderPowers(0);
+	}
 
 	// close button
 	closeButton->render();
@@ -527,6 +547,7 @@ TooltipData MenuPowers::checkTooltip(Point mouse) {
 
 MenuPowers::~MenuPowers() {
 	SDL_FreeSurface(background);
+	for (unsigned int i=0; i<power_tree.size(); i++) SDL_FreeSurface(powers_tree[i]);
 	SDL_FreeSurface(powers_unlock);
 	SDL_FreeSurface(overlay_disabled);
 	
