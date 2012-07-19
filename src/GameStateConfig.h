@@ -54,8 +54,8 @@ private:
 	int optiontab[120];
 	SDL_Rect* video_modes;
 
-	std::string * language_ISO;
-	std::string * language_full;
+	std::vector<std::string> language_ISO;
+	std::vector<std::string> language_full;
 
 	int getVideoModes(void);
 	bool getLanguagesList(void);

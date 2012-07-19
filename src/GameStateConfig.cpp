@@ -45,11 +45,13 @@ using namespace std;
 
 GameStateConfig::GameStateConfig ()
 		: GameState(),
+		  video_modes(NULL),
 		  child_widget(),
 		  ok_button(NULL),
 		  defaults_button(NULL),
 		  cancel_button(NULL),
 		  imgFileName(mods->locate("images/menus/config.png"))
+
 
 {
 	// Load background image
@@ -114,8 +116,10 @@ GameStateConfig::GameStateConfig ()
 
 	// Allocate Languages ComboBox
 	int langCount = getLanguagesNumber();
-	language_ISO = new std::string[langCount];
-	language_full = new std::string[langCount];
+	language_ISO = std::vector<std::string>();
+	language_full = std::vector<std::string>();
+	language_ISO.resize(langCount);
+	language_full.resize(langCount);
 	settings_cmb[2] = new WidgetComboBox(langCount, mods->locate("images/menus/buttons/combobox_default.png"));
 
 	// Allocate Mods ListBoxes
@@ -525,6 +529,12 @@ GameStateConfig::~GameStateConfig()
 	for (unsigned int i = 0; i < 4; i++) {
 		 delete settings_btn[i];
 	}
+
+	language_ISO.clear();
+	language_full.clear();
+
+	if (video_modes)
+		delete video_modes;
 }
 
 void GameStateConfig::update () {
@@ -886,6 +896,8 @@ int GameStateConfig::getVideoModes()
 		}
 	}
 
+	if (video_modes)
+		delete video_modes;
 	/* Combine the detected modes and the common modes */
 	video_modes = (SDL_Rect*)calloc(modes,sizeof(SDL_Rect));
 	int k = 0;
