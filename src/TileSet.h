@@ -55,7 +55,7 @@ struct Tile_Anim {
 	std::vector<int> frame_duration;
 	Tile_Anim() {
 		frames = 1;
-		current_frame = 0;
+		current_frame = 1;
 		duration = 0;
 	}
 };
