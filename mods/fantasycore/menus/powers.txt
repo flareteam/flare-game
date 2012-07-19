@@ -7,15 +7,20 @@
 
 closebutton_pos=294,2
 unspent_points_pos=160,396
+# maximum 5 tabs
 tabs=1
 
 #tab_title=Melee
+#tab_tree=powers_tree.png
+
 #tab_title=Ranged
+#tab_tree=powers_tree2.png
+
 #tab_title=Elemental
+#tab_tree=powers_tree3.png
 
 # First tab has index=0 
-# Don't add tab= and tab_title= keys if you use only 1 tab
-# TODO If using tabs, you should have corresponding power_tree image files: powers_tree.png(first tab), powers_tree1.png(second tab)...
+# Don't add tab_title=, tab_tree=, tab= and tab_title= keys if you use only 1 tab
 
 [power]
 id=0
