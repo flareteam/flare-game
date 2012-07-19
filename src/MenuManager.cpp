@@ -217,6 +217,12 @@ void MenuManager::logic() {
 	pow->logic();
 	log->logic();
 	talker->logic();
+	if (chr->checkUpgrade()) {
+		// apply equipment and max hp/mp
+		inv->applyEquipment(inv->inventory[EQUIPMENT].storage);
+		stats->hp = stats->maxhp;
+		stats->mp = stats->maxmp;
+	}
 
 	// only allow the vendor window to be open if the inventory is open
 	if (vendor->visible && !(inv->visible)) {
@@ -341,17 +347,6 @@ void MenuManager::logic() {
                 inpt->lock[MAIN1] = true;
             }
 
-            if (chr->visible && isWithin(chr->window_area,inpt->mouse)) {
-                inpt->lock[MAIN1] = true;
-
-                // applied a level-up
-                if (chr->checkUpgrade()) {
-                    // apply equipment and max hp/mp
-                    inv->applyEquipment(inv->inventory[EQUIPMENT].storage);
-                    stats->hp = stats->maxhp;
-                    stats->mp = stats->maxmp;
-                }
-            }
             if (vendor->visible && isWithin(vendor->window_area,inpt->mouse)) {
                 inpt->lock[MAIN1] = true;
                 if (inpt->pressing[CTRL]) {

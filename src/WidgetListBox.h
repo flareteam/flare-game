@@ -68,6 +68,7 @@ public:
 	TooltipData checkTooltip(Point mouse);
 	void append(std::string value, std::string tooltip);
 	void remove(int index);
+	void clear();
 	void shiftUp();
 	void shiftDown();
 	std::string getValue(int index);
