@@ -50,6 +50,7 @@ struct CharStat {
 	WidgetLabel *value;
 	SDL_Rect hover;
 	TooltipData tip;
+	bool visible;
 	
 	void setHover(int x, int y, int w, int h) {
 		hover.x=x;
@@ -86,6 +87,8 @@ private:
 	Point statlist_pos;
 	Point label_pos[CSTAT_COUNT-1]; //unspent points doesn't have a separate label
 	SDL_Rect value_pos[CSTAT_COUNT];
+	bool show_upgrade[4];
+	bool show_stat[14];
 
 	
 public:
