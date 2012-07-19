@@ -836,7 +836,7 @@ void GameStateConfig::render ()
 		 if (optiontab[i] == active_tab) child_widget[i]->render();
 	}
 	// render widgets in vector sfter keybindings
-	for (unsigned int i = 104; i < child_widget.size(); i++) {
+	for (unsigned int i = 112; i < child_widget.size(); i++) {
 		 if (optiontab[i] == active_tab) child_widget[i]->render();
 	}
 
