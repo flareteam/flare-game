@@ -41,6 +41,36 @@ MenuCharacter::MenuCharacter(StatBlock *_stats) {
 	visible = false;
 	newPowerNotification = false;
 
+	for (int i=0; i<CSTAT_COUNT; i++) {
+		cstat[i].label = new WidgetLabel();
+		cstat[i].value = new WidgetLabel();
+		cstat[i].hover.x = cstat[i].hover.y = 0;
+		cstat[i].hover.w = cstat[i].hover.h = 0;
+		cstat[i].visible = true;
+	}
+	for (int i=0; i<14; i++) {
+		show_stat[i] = true;
+	}
+
+	closeButton = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
+
+	// Upgrade buttons
+	for (int i=0; i<4; i++) {
+		upgradeButton[i] = new WidgetButton(mods->locate("images/menus/buttons/upgrade.png"));
+		upgradeButton[i]->enabled = false;
+		show_upgrade[i] = true;
+	}
+	physical_up = false;
+	mental_up = false;
+	offense_up = false;
+	defense_up = false;
+
+	// menu title
+	labelCharacter = new WidgetLabel();
+
+	// stat list
+	statList = new WidgetListBox(14, 10, mods->locate("images/menus/buttons/listbox_char.png"));
+
 	// Load config settings
 	FileParser infile;
 	if(infile.open(mods->locate("menus/character.txt"))) {
@@ -118,36 +148,61 @@ MenuCharacter::MenuCharacter(StatBlock *_stats) {
 				value_pos[6].y = eatFirstInt(infile.val,',');
 				value_pos[6].w = eatFirstInt(infile.val,',');
 				value_pos[6].h = eatFirstInt(infile.val,',');
+			} else if (infile.key == "show_name"){
+				if (eatFirstInt(infile.val,',') == 0) cstat[CSTAT_NAME].visible = false;
+			} else if (infile.key == "show_level"){
+				if (eatFirstInt(infile.val,',') == 0) cstat[CSTAT_LEVEL].visible = false;
+			} else if (infile.key == "show_physical"){
+				if (eatFirstInt(infile.val,',') == 0) cstat[CSTAT_PHYSICAL].visible = false;
+			} else if (infile.key == "show_mental"){
+				if (eatFirstInt(infile.val,',') == 0) cstat[CSTAT_MENTAL].visible = false;
+			} else if (infile.key == "show_offense"){
+				if (eatFirstInt(infile.val,',') == 0) cstat[CSTAT_OFFENSE].visible = false;
+			} else if (infile.key == "show_defense"){
+				if (eatFirstInt(infile.val,',') == 0) cstat[CSTAT_DEFENSE].visible = false;
+			} else if (infile.key == "show_unspent"){
+				if (eatFirstInt(infile.val,',') == 0) cstat[CSTAT_UNSPENT].visible = false;
+			} else if (infile.key == "show_upgrade_physical"){
+				if (eatFirstInt(infile.val,',') == 0) show_upgrade[0] = false;
+			} else if (infile.key == "show_upgrade_mental"){
+				if (eatFirstInt(infile.val,',') == 0) show_upgrade[1] = false;
+			} else if (infile.key == "show_upgrade_offense"){
+				if (eatFirstInt(infile.val,',') == 0) show_upgrade[2] = false;
+			} else if (infile.key == "show_upgrade_defenese"){
+				if (eatFirstInt(infile.val,',') == 0) show_upgrade[3] = false;
+			} else if (infile.key == "show_maxhp"){
+				if (eatFirstInt(infile.val,',') == 0) show_stat[0] = false;
+			} else if (infile.key == "show_hpregen"){
+				if (eatFirstInt(infile.val,',') == 0) show_stat[1] = false;
+			} else if (infile.key == "show_maxmp"){
+				if (eatFirstInt(infile.val,',') == 0) show_stat[2] = false;
+			} else if (infile.key == "show_mpregen"){
+				if (eatFirstInt(infile.val,',') == 0) show_stat[3] = false;
+			} else if (infile.key == "show_accuracy_v1"){
+				if (eatFirstInt(infile.val,',') == 0) show_stat[4] = false;
+			} else if (infile.key == "show_accuracy_v5"){
+				if (eatFirstInt(infile.val,',') == 0) show_stat[5] = false;
+			} else if (infile.key == "show_avoidance_v1"){
+				if (eatFirstInt(infile.val,',') == 0) show_stat[6] = false;
+			} else if (infile.key == "show_avoidance_v5"){
+				if (eatFirstInt(infile.val,',') == 0) show_stat[7] = false;
+			} else if (infile.key == "show_melee"){
+				if (eatFirstInt(infile.val,',') == 0) show_stat[8] = false;
+			} else if (infile.key == "show_ranged"){
+				if (eatFirstInt(infile.val,',') == 0) show_stat[9] = false;
+			} else if (infile.key == "show_crit"){
+				if (eatFirstInt(infile.val,',') == 0) show_stat[10] = false;
+			} else if (infile.key == "show_absorb"){
+				if (eatFirstInt(infile.val,',') == 0) show_stat[11] = false;
+			} else if (infile.key == "show_resist_fire"){
+				if (eatFirstInt(infile.val,',') == 0) show_stat[12] = false;
+			} else if (infile.key == "show_resist_ice"){
+				if (eatFirstInt(infile.val,',') == 0) show_stat[13] = false;
 			}
 		}
 	}
 
 	loadGraphics();
-
-	closeButton = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
-
-	// Upgrade buttons
-	for (int i=0; i<4; i++) {
-		upgradeButton[i] = new WidgetButton(mods->locate("images/menus/buttons/upgrade.png"));
-		upgradeButton[i]->enabled = false;
-	}
-	physical_up = false;
-	mental_up = false;
-	offense_up = false;
-	defense_up = false;
-
-	// menu title
-	labelCharacter = new WidgetLabel();
-
-	for (int i=0; i<CSTAT_COUNT; i++) {
-		cstat[i].label = new WidgetLabel();
-		cstat[i].value = new WidgetLabel();
-		cstat[i].hover.x = cstat[i].hover.y = 0;
-		cstat[i].hover.w = cstat[i].hover.h = 0;
-	}
-
-	// stat list
-	statList = new WidgetListBox(14, 10, mods->locate("images/menus/buttons/listbox_char.png"));
 }
 
 void MenuCharacter::update() {
@@ -244,73 +299,101 @@ void MenuCharacter::refreshStats() {
 	statList->clear();
 	statList->refresh();
 
-	ss.str("");
-	ss << "Max HP: " << stats->maxhp;
-	statList->append(ss.str(),"Each point of Physical grants +8 HP. Each level grants +2 HP");
+	if (show_stat[0]) {
+		ss.str("");
+		ss << "Max HP: " << stats->maxhp;
+		statList->append(ss.str(),"Each point of Physical grants +8 HP. Each level grants +2 HP");
+	}
 
-	ss.str("");
-	ss << "HP Regen: " << stats->hp_per_minute;
-	statList->append(ss.str(),"Ticks of HP regen per minute. Each point of Physical grants +4 HP regen. Each level grants +1 HP regen");
+	if (show_stat[1]) {
+		ss.str("");
+		ss << "HP Regen: " << stats->hp_per_minute;
+		statList->append(ss.str(),"Ticks of HP regen per minute. Each point of Physical grants +4 HP regen. Each level grants +1 HP regen");
+	}
 
-	ss.str("");
-	ss << "Max MP: " << stats->maxmp;
-	statList->append(ss.str(),"Each point of Mental grants +8 MP. Each level grants +2 MP");
+	if (show_stat[2]) {
+		ss.str("");
+		ss << "Max MP: " << stats->maxmp;
+		statList->append(ss.str(),"Each point of Mental grants +8 MP. Each level grants +2 MP");
+	}
 
-	ss.str("");
-	ss << "MP Regen: " << stats->hp_per_minute;
-	statList->append(ss.str(),"Ticks of MP regen per minute. Each point of Mental grants +4 MP regen. Each level grants +1 MP regen");
+	if (show_stat[3]) {
+		ss.str("");
+		ss << "MP Regen: " << stats->hp_per_minute;
+		statList->append(ss.str(),"Ticks of MP regen per minute. Each point of Mental grants +4 MP regen. Each level grants +1 MP regen");
+	}
 
-	ss.str("");
-	ss << "Accuracy (vs level 1): " << stats->accuracy << "%";
-	statList->append(ss.str(),"Each point of Offense grants +5 accuracy. Each level grants +1 accuracy");
+	if (show_stat[4]) {
+		ss.str("");
+		ss << "Accuracy (vs level 1): " << stats->accuracy << "%";
+		statList->append(ss.str(),"Each point of Offense grants +5 accuracy. Each level grants +1 accuracy");
+	}
 
-	ss.str("");
-	ss << "Accuracy (vs level 5): " << (stats->accuracy-20) << "%";
-	statList->append(ss.str(),"Each point of Offense grants +5 accuracy. Each level grants +1 accuracy");
+	if (show_stat[5]) {
+		ss.str("");
+		ss << "Accuracy (vs level 5): " << (stats->accuracy-20) << "%";
+		statList->append(ss.str(),"Each point of Offense grants +5 accuracy. Each level grants +1 accuracy");
+	}
 
-	ss.str("");
-	ss << "Avoidance (vs level 1): " << stats->avoidance << "%";
-	statList->append(ss.str(),"Each point of Defense grants +5 avoidance. Each level grants +1 accuracy");
+	if (show_stat[6]) {
+		ss.str("");
+		ss << "Avoidance (vs level 1): " << stats->avoidance << "%";
+		statList->append(ss.str(),"Each point of Defense grants +5 avoidance. Each level grants +1 accuracy");
+	}
 
-	ss.str("");
-	ss << "Avoidance (vs level 5): " << (stats->avoidance-20) << "%";
-	statList->append(ss.str(),"Each point of Defense grants +5 avoidance. Each level grants +1 accuracy");
+	if (show_stat[7]) {
+		ss.str("");
+		ss << "Avoidance (vs level 5): " << (stats->avoidance-20) << "%";
+		statList->append(ss.str(),"Each point of Defense grants +5 avoidance. Each level grants +1 accuracy");
+	}
 
-	ss.str("");
-	ss << "Melee Damage: ";
-	if (stats->dmg_melee_max >= stats->dmg_ment_max)
-		ss << stats->dmg_melee_min << "-" << stats->dmg_melee_max;
-	else
-		ss << stats->dmg_ment_min << "-" << stats->dmg_ment_max;
-	statList->append(ss.str(),"");
+	if (show_stat[8]) {
+		ss.str("");
+		ss << "Melee Damage: ";
+		if (stats->dmg_melee_max >= stats->dmg_ment_max)
+			ss << stats->dmg_melee_min << "-" << stats->dmg_melee_max;
+		else
+			ss << stats->dmg_ment_min << "-" << stats->dmg_ment_max;
+		statList->append(ss.str(),"");
+	}
 
-	ss.str("");
-	ss << "Ranged Damage: ";
-	if (stats->dmg_ranged_max > 0)
-		ss << stats->dmg_ranged_min << "-" << stats->dmg_ranged_max;
-	else
-		ss << "-";
-	statList->append(ss.str(),"");
+	if (show_stat[9]) {
+		ss.str("");
+		ss << "Ranged Damage: ";
+		if (stats->dmg_ranged_max > 0)
+			ss << stats->dmg_ranged_min << "-" << stats->dmg_ranged_max;
+		else
+			ss << "-";
+		statList->append(ss.str(),"");
+	}
 
-	ss.str("");
-	ss << "Crit: " << stats->crit << "%";
-	statList->append(ss.str(),"");
+	if (show_stat[10]) {
+		ss.str("");
+		ss << "Crit: " << stats->crit << "%";
+		statList->append(ss.str(),"");
+	}
 
-	ss.str("");
-	ss << "Absorb: ";
-	if (stats->absorb_min == stats->absorb_max)
-		ss << stats->absorb_min;
-	else
-		ss << stats->absorb_min << "-" << stats->absorb_max;
-	statList->append(ss.str(),"");
+	if (show_stat[11]) {
+		ss.str("");
+		ss << "Absorb: ";
+		if (stats->absorb_min == stats->absorb_max)
+			ss << stats->absorb_min;
+		else
+			ss << stats->absorb_min << "-" << stats->absorb_max;
+		statList->append(ss.str(),"");
+	}
 
-	ss.str("");
-	ss << "Fire Resistance: " << (100 - stats->attunement_fire) << "%";
-	statList->append(ss.str(),"");
+	if (show_stat[12]) {
+		ss.str("");
+		ss << "Fire Resistance: " << (100 - stats->attunement_fire) << "%";
+		statList->append(ss.str(),"");
+	}
 
-	ss.str("");
-	ss << "Ice Resistance: " << (100 - stats->attunement_ice) << "%";
-	statList->append(ss.str(),"");
+	if (show_stat[13]) {
+		ss.str("");
+		ss << "Ice Resistance: " << (100 - stats->attunement_ice) << "%";
+		statList->append(ss.str(),"");
+	}
 
 	// update tool tips
 	cstat[CSTAT_NAME].tip.num_lines = 0;
@@ -370,10 +453,10 @@ void MenuCharacter::logic() {
 	skill_points = stats->level - spent;
 
 	if (spent < stats->level && spent < max_spendable_stat_points) {
-		if (stats->physical_character < 5) upgradeButton[0]->enabled = true;
-		if (stats->mental_character  < 5) upgradeButton[1]->enabled = true;
-		if (stats->offense_character < 5) upgradeButton[2]->enabled = true;
-		if (stats->defense_character < 5) upgradeButton[3]->enabled = true;
+		if (stats->physical_character < 5 && show_upgrade[0]) upgradeButton[0]->enabled = true;
+		if (stats->mental_character  < 5 && show_upgrade[1]) upgradeButton[1]->enabled = true;
+		if (stats->offense_character < 5 && show_upgrade[2]) upgradeButton[2]->enabled = true;
+		if (stats->defense_character < 5 && show_upgrade[3]) upgradeButton[3]->enabled = true;
 	}
 
 	if (upgradeButton[0]->checkClick()) physical_up = true;
@@ -412,8 +495,10 @@ void MenuCharacter::render() {
 
 	// labels and values
 	for (int i=0; i<CSTAT_COUNT; i++) {
-		cstat[i].label->render();
-		cstat[i].value->render();
+		if (cstat[i].visible) {
+			cstat[i].label->render();
+			cstat[i].value->render();
+		}
 	}
 
 	// upgrade buttons
@@ -431,7 +516,7 @@ void MenuCharacter::render() {
 TooltipData MenuCharacter::checkTooltip() {
 
 	for (int i=0; i<CSTAT_COUNT; i++) {
-		if (isWithin(cstat[i].hover, inpt->mouse) && cstat[i].tip.num_lines > 0)
+		if (isWithin(cstat[i].hover, inpt->mouse) && cstat[i].tip.num_lines > 0 && cstat[i].visible)
 			return cstat[i].tip;
 	}
 
