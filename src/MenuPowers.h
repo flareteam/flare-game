@@ -25,6 +25,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "Menu.h"
 #include "Utils.h"
 #include "WidgetButton.h"
+#include "WidgetTabControl.h"
 
 #include <SDL.h>
 #include <SDL_image.h>
@@ -39,6 +40,7 @@ const int POWER_SLOTS_COUNT = 20;
 
 struct Power_Menu_Cell {
 	int id;
+	int tab;
 	Point pos;
 	int requires_physoff;
 	int requires_physdef;
@@ -69,14 +71,18 @@ private:
 	Point close_pos;
 	Point unspent_pos;
 	int points_left;
+	int tabs_count;
+	std::vector<std::string> tab;
 
 	WidgetLabel label_powers;
 	WidgetLabel stat_up;
+	WidgetTabControl * tabControl;
 
 	void loadGraphics();
 	void displayBuild(int power_id);
 	void renderIcon(int icon_id, int x, int y);
 	bool powerUnlockable(int power_index);
+	void renderPowers(int tab_num);
 
 public:
 	static MenuPowers *getInstance();
