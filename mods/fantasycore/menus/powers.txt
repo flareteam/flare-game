@@ -7,9 +7,19 @@
 
 closebutton_pos=294,2
 unspent_points_pos=160,396
+tabs=1
+
+#tab_title=Melee
+#tab_title=Ranged
+#tab_title=Elemental
+
+# First tab has index=0 
+# Don't add tab= and tab_title= keys if you use only 1 tab
+# TODO If using tabs, you should have corresponding power_tree image files: powers_tree.png(first tab), powers_tree1.png(second tab)...
 
 [power]
 id=0
+#tab=1
 position=48,80
 requires_physoff=1
 
