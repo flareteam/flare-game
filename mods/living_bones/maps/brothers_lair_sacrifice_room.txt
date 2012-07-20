@@ -212,6 +212,12 @@ location=0,0,20,40
 requires_status=lb_ice_defeated,lb_fire_defeated,lb_wind_defeated
 set_status=lb_necromancers_defeated
 
+[event]
+#brazier sound effect
+location=4,6,8,5
+cooldown=120
+soundfx=soundfx/environment/open_fire.ogg
+
 [enemy]
 type=grisbon
 location=9,13,3
