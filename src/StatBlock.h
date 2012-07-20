@@ -71,6 +71,8 @@ const int MAX_CHARACTER_LEVEL = 32;
 
 class StatBlock {
 private:
+	void loadHeroStats();
+	bool statsLoaded;
 
 public:
 	StatBlock();
@@ -273,6 +275,28 @@ public:
 
 	std::string animations;
 	int animationSpeed;
+
+	// formula numbers
+	int hp_base;
+	int hp_per_level;
+	int hp_per_physical;
+	int hp_regen_base;
+	int hp_regen_per_level;
+	int hp_regen_per_physical;
+	int mp_base;
+	int mp_per_level;
+	int mp_per_mental;
+	int mp_regen_base;
+	int mp_regen_per_level;
+	int mp_regen_per_mental;
+	int accuracy_base;
+	int accuracy_per_level;
+	int accuracy_per_offense;
+	int avoidance_base;
+	int avoidance_per_level;
+	int avoidance_per_defense;
+	int crit_base;
+	int crit_per_level;
 };
 
 #endif

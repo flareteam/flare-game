@@ -517,7 +517,7 @@ TooltipData MenuPowers::checkTooltip(Point mouse) {
 				else if ((power_cell[i].requires_point) &&
 					!(find(powers_list.begin(), powers_list.end(), power_cell[i].id) != powers_list.end()) &&
 					(points_left > 0))
-						tip.lines[tip.num_lines++] = msg->get("Requires %d SKill Point", power_cell[i].requires_point);
+						tip.lines[tip.num_lines++] = msg->get("Requires %d Skill Point", power_cell[i].requires_point);
 
 				// Draw unlock power Tooltip
 				if (power_cell[i].requires_point && 
