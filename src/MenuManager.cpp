@@ -217,11 +217,12 @@ void MenuManager::logic() {
 	pow->logic();
 	log->logic();
 	talker->logic();
-	if (chr->checkUpgrade()) {
+	if (chr->checkUpgrade() || stats->level_up) {
 		// apply equipment and max hp/mp
 		inv->applyEquipment(inv->inventory[EQUIPMENT].storage);
 		stats->hp = stats->maxhp;
 		stats->mp = stats->maxmp;
+		stats->level_up = false;
 	}
 
 	// only allow the vendor window to be open if the inventory is open
