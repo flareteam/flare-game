@@ -65,6 +65,7 @@ StatBlock::StatBlock() {
 	accuracy = 75;
 	avoidance = 25;
 	crit = 0;
+	level_up = false;
 
 
 	// equipment stats

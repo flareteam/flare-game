@@ -102,6 +102,7 @@ public:
 	int level;
 	int xp;
 	int xp_table[MAX_CHARACTER_LEVEL+1];
+	bool level_up;
 
 	// base stats ("attributes")
 	int offense_character;
