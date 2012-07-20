@@ -1,5 +1,6 @@
 /*
 Copyright © 2011-2012 Clint Bellanger
+Copyright © 2012 Igor Paliychuk
 
 This file is part of FLARE.
 
@@ -49,13 +50,14 @@ MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_i
 	overlay_disabled = NULL;
 
 	visible = false;
-	loadGraphics();
 
 	points_left = 0;
+	tabs_count = 1;
 	pressed = false;
 
 	for (int i=0; i<POWER_SLOTS_COUNT; i++) {
 		power_cell[i].id = -1;
+		power_cell[i].tab = 0;
 		power_cell[i].pos.x = 0;
 		power_cell[i].pos.y = 0;
 		power_cell[i].requires_mentdef = 0;
@@ -80,7 +82,11 @@ MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_i
 	  while (infile.next()) {
 		infile.val = infile.val + ',';
 
-		if (infile.key == "id") {
+		if (infile.key == "tab_title") {
+			tab.push_back(eatFirstString(infile.val, ','));
+		} else if (infile.key == "tab_tree") {
+			power_tree.push_back(eatFirstString(infile.val, ','));
+		} else if (infile.key == "id") {
 			counter++;
 			power_cell[counter].id = eatFirstInt(infile.val, ',');
 		} else if (infile.key == "position") {
@@ -114,11 +120,27 @@ MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_i
 		} else if (infile.key == "unspent_points_pos") {
 			unspent_pos.x = eatFirstInt(infile.val, ',');
 			unspent_pos.y = eatFirstInt(infile.val, ',');
+		} else if (infile.key == "tabs") {
+			tabs_count = eatFirstInt(infile.val, ',');
+			if (tabs_count < 1) tabs_count = 1;
+		} else if (infile.key == "tab") {
+			power_cell[counter].tab = eatFirstInt(infile.val, ',');
 		}
 
 	  }
 	} else fprintf(stderr, "Unable to open powers.txt!\n");
 	infile.close();
+
+	loadGraphics();
+
+	// check for errors in config file
+	if((tabs_count == 1) && (power_tree.size() > 0 || tab.size() > 0)) {
+		fprintf(stderr, "menu/powers.txt error: you don't have tabs, but tab_tree_image and tab_title counts are not 0\n");
+		SDL_Quit();
+	} else if((tabs_count > 1) && (power_tree.size() != (unsigned)tabs_count || tab.size() != (unsigned)tabs_count)) {
+		fprintf(stderr, "menu/powers.txt error: tabs count, tab_tree_image and tab_name counts do not match\n");
+		SDL_Quit();
+	}
 
 	menuPowers = this;
 }
@@ -137,18 +159,39 @@ void MenuPowers::update() {
 
 	stat_up.set(window_area.x+unspent_pos.x, window_area.y+unspent_pos.y, JUSTIFY_CENTER, VALIGN_TOP, "", FONT_GREEN);
 	points_left = stats->level - powers_list.size();
+
+	// If we have more than one tab, create TabControl
+	if (tabs_count > 1) {
+		tabControl = new WidgetTabControl(tabs_count); 
+
+		// Initialize the tab control.
+		tabControl->setMainArea(window_area.x+35, window_area.y+35, background->w-70, background->h-70);
+
+		// Define the header.
+		for (int i=0; i<tabs_count; i++)
+			tabControl->setTabTitle(i, tab[i]);
+		tabControl->updateHeader();
+	}
 }
 
 void MenuPowers::loadGraphics() {
 
 	background = IMG_Load(mods->locate("images/menus/powers.png").c_str());
-	powers_tree = IMG_Load(mods->locate("images/menus/powers_tree.png").c_str());
+
+	if (power_tree.size() < 1) {
+		powers_tree.push_back(IMG_Load(mods->locate("images/menus/powers_tree.png").c_str()));
+	} else {
+		for (unsigned int i=0; i<power_tree.size(); i++) powers_tree.push_back(IMG_Load(mods->locate("images/menus/" + power_tree[i]).c_str()));
+	}
+
 	powers_unlock = IMG_Load(mods->locate("images/menus/powers_unlock.png").c_str());
 	overlay_disabled = IMG_Load(mods->locate("images/menus/disabled.png").c_str());
 	
-	if(!background || !powers_tree || !powers_unlock) {
-		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
-		SDL_Quit();
+	for (unsigned int i=0; i<power_tree.size(); i++) {
+		if(!background || !powers_tree[i] || !powers_unlock || !overlay_disabled) {
+			fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
+			SDL_Quit();
+		}
 	}
 
 	// optimize
@@ -156,9 +199,11 @@ void MenuPowers::loadGraphics() {
 	background = SDL_DisplayFormatAlpha(background);
 	SDL_FreeSurface(cleanup);
 
-	cleanup = powers_tree;
-	powers_tree = SDL_DisplayFormatAlpha(powers_tree);
-	SDL_FreeSurface(cleanup);
+	for (unsigned int i=0; i<power_tree.size(); i++) {
+		cleanup = powers_tree[i];
+		powers_tree[i] = SDL_DisplayFormatAlpha(powers_tree[i]);
+		SDL_FreeSurface(cleanup);
+	}
 
 	cleanup = powers_unlock;
 	powers_unlock = SDL_DisplayFormatAlpha(powers_unlock);
@@ -259,10 +304,22 @@ bool MenuPowers::powerUnlockable(int power_index) {
  */
 int MenuPowers::click(Point mouse) {
 
-	for (int i=0; i<POWER_SLOTS_COUNT; i++) {
-		if (isWithin(slots[i], mouse) && (power_cell[i].id != -1)) {
-			if (requirementsMet(power_cell[i].id)) return power_cell[i].id;
-			else return -1;
+	// if we have tabCOntrol
+	if (tabs_count > 1) {
+		int active_tab = tabControl->getActiveTab();
+		for (int i=0; i<POWER_SLOTS_COUNT; i++) {
+			if (isWithin(slots[i], mouse) && (power_cell[i].id != -1) && (power_cell[i].tab == active_tab)) {
+				if (requirementsMet(power_cell[i].id)) return power_cell[i].id;
+				else return -1;
+			}
+		}
+	// if have don't have tabs
+	} else {
+		for (int i=0; i<POWER_SLOTS_COUNT; i++) {
+			if (isWithin(slots[i], mouse) && (power_cell[i].id != -1)) {
+				if (requirementsMet(power_cell[i].id)) return power_cell[i].id;
+				else return -1;
+			}
 		}
 	}
 	return -1;
@@ -272,10 +329,22 @@ int MenuPowers::click(Point mouse) {
  * Unlock a power
  */
 void MenuPowers::unlock_click(Point mouse) {
-	for (int i=0; i<POWER_SLOTS_COUNT; i++) {
-		if (isWithin(slots[i], mouse) && (power_cell[i].id != -1) && (powerUnlockable(power_cell[i].id)) && points_left > 0 && power_cell[i].requires_point) {
-			powers_list.push_back(power_cell[i].id);
-			points_left = stats->level - powers_list.size();
+	// if we have tabCOntrol
+	if (tabs_count > 1) {
+		int active_tab = tabControl->getActiveTab();
+		for (int i=0; i<POWER_SLOTS_COUNT; i++) {
+			if (isWithin(slots[i], mouse) && (power_cell[i].id != -1) && (powerUnlockable(power_cell[i].id)) && points_left > 0 && power_cell[i].requires_point && power_cell[i].tab == active_tab) {
+				powers_list.push_back(power_cell[i].id);
+				points_left = stats->level - powers_list.size();
+			}
+		}
+	// if have don't have tabs
+	} else {
+		for (int i=0; i<POWER_SLOTS_COUNT; i++) {
+			if (isWithin(slots[i], mouse) && (power_cell[i].id != -1) && (powerUnlockable(power_cell[i].id)) && points_left > 0 && power_cell[i].requires_point) {
+				powers_list.push_back(power_cell[i].id);
+				points_left = stats->level - powers_list.size();
+			}
 		}
 	}
 }
@@ -286,6 +355,7 @@ void MenuPowers::logic() {
 	if (closeButton->checkClick()) {
 		visible = false;
 	}
+	if (tabs_count > 1) tabControl->logic();
 }
 
 void MenuPowers::render() {
@@ -302,33 +372,21 @@ void MenuPowers::render() {
 	src.w = dest.w = 320;
 	src.h = dest.h = 416;
 	SDL_BlitSurface(background, &src, screen, &dest);
-	SDL_BlitSurface(powers_tree, &src, screen, &dest);
 
-	SDL_Rect disabled_src;
-	disabled_src.x = disabled_src.y = 0;
-	disabled_src.w = disabled_src.h = 32;
-
-	// power icons
-	for (int i=0; i<POWER_SLOTS_COUNT; i++) {
-		bool power_in_vector = false;
-
-		// Continue if slot is not filled with data
-		if (power_cell[i].id == -1) continue;
-
-		if (find(powers_list.begin(), powers_list.end(), power_cell[i].id) != powers_list.end()) power_in_vector = true;
-
-		renderIcon(powers->powers[power_cell[i].id].icon, window_area.x + power_cell[i].pos.x, window_area.y + power_cell[i].pos.y);
-
-		// highlighting
-		if (power_in_vector || requirementsMet(power_cell[i].id)) {
-			displayBuild(power_cell[i].id);
-		}
-		else {
-		
-			if (overlay_disabled != NULL) {
-				SDL_BlitSurface(overlay_disabled, &disabled_src, screen, &slots[i]);
+	if (tabs_count > 1) {
+		tabControl->render();
+		int active_tab = tabControl->getActiveTab();
+		for (int i=0; i<tabs_count; i++) {
+			if (active_tab == i) {
+				// power tree
+				SDL_BlitSurface(powers_tree[i], &src, screen, &dest);
+				// power icons
+				renderPowers(active_tab);
 			}
 		}
+	} else {
+		SDL_BlitSurface(powers_tree[0], &src, screen, &dest);
+		renderPowers(0);
 	}
 
 	// close button
@@ -378,6 +436,9 @@ TooltipData MenuPowers::checkTooltip(Point mouse) {
 	TooltipData tip;
 
 		for (int i=0; i<POWER_SLOTS_COUNT; i++) {
+
+			if ((tabs_count > 1) && (tabControl->getActiveTab() != power_cell[i].tab)) continue;
+
 			if (isWithin(slots[i], mouse) && (power_cell[i].id != -1)) {
 				tip.lines[tip.num_lines++] = powers->powers[power_cell[i].id].name;
 				tip.lines[tip.num_lines++] = powers->powers[power_cell[i].id].description;
@@ -495,10 +556,12 @@ TooltipData MenuPowers::checkTooltip(Point mouse) {
 
 MenuPowers::~MenuPowers() {
 	SDL_FreeSurface(background);
+	for (unsigned int i=0; i<power_tree.size(); i++) SDL_FreeSurface(powers_tree[i]);
 	SDL_FreeSurface(powers_unlock);
 	SDL_FreeSurface(overlay_disabled);
 	
 	delete closeButton;
+	if (tabs_count > 1) delete tabControl;
 	menuPowers = NULL;
 }
 
@@ -527,4 +590,33 @@ bool MenuPowers::meetsUsageStats(unsigned powerid) {
 		&& stats->get_offense() >= power_cell[id].requires_offense
 		&& stats->get_mental() >= power_cell[id].requires_mental
 		&& stats->get_physical() >= power_cell[id].requires_physical;
+}
+
+void MenuPowers::renderPowers(int tab_num) {
+
+	SDL_Rect disabled_src;
+	disabled_src.x = disabled_src.y = 0;
+	disabled_src.w = disabled_src.h = 32;
+
+	for (int i=0; i<POWER_SLOTS_COUNT; i++) {
+		bool power_in_vector = false;
+
+		// Continue if slot is not filled with data
+		if ((power_cell[i].id == -1) || (power_cell[i].tab != tab_num)) continue;
+
+		if (find(powers_list.begin(), powers_list.end(), power_cell[i].id) != powers_list.end()) power_in_vector = true;
+
+		renderIcon(powers->powers[power_cell[i].id].icon, window_area.x + power_cell[i].pos.x, window_area.y + power_cell[i].pos.y);
+
+		// highlighting
+		if (power_in_vector || requirementsMet(power_cell[i].id)) {
+			displayBuild(power_cell[i].id);
+		}
+		else {
+		
+			if (overlay_disabled != NULL) {
+				SDL_BlitSurface(overlay_disabled, &disabled_src, screen, &slots[i]);
+			}
+		}
+	}
 }
