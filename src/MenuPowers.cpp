@@ -133,6 +133,15 @@ MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_i
 
 	loadGraphics();
 
+	// check for errors in config file
+	if((tabs_count == 1) && (power_tree.size() > 0 || tab.size() > 0)) {
+		fprintf(stderr, "menu/powers.txt error: you don't have tabs, but tab_tree_image and tab_title counts are not 0\n");
+		SDL_Quit();
+	} else if((tabs_count > 1) && (power_tree.size() != (unsigned)tabs_count || tab.size() != (unsigned)tabs_count)) {
+		fprintf(stderr, "menu/powers.txt error: tabs count, tab_tree_image and tab_name counts do not match\n");
+		SDL_Quit();
+	}
+
 	menuPowers = this;
 }
 
@@ -159,7 +168,8 @@ void MenuPowers::update() {
 		tabControl->setMainArea(window_area.x+35, window_area.y+35, background->w-70, background->h-70);
 
 		// Define the header.
-		for (int i=0; i<tabs_count; i++) tabControl->setTabTitle(i, tab[i]);
+		for (int i=0; i<tabs_count; i++)
+			tabControl->setTabTitle(i, tab[i]);
 		tabControl->updateHeader();
 	}
 }
@@ -169,9 +179,9 @@ void MenuPowers::loadGraphics() {
 	background = IMG_Load(mods->locate("images/menus/powers.png").c_str());
 
 	if (power_tree.size() < 1) {
-		powers_tree[0] = IMG_Load(mods->locate("images/menus/powers_tree.png").c_str());
+		powers_tree.push_back(IMG_Load(mods->locate("images/menus/powers_tree.png").c_str()));
 	} else {
-		for (unsigned int i=0; i<power_tree.size(); i++) powers_tree[i] = IMG_Load(mods->locate("images/menus/" + power_tree[i]).c_str());
+		for (unsigned int i=0; i<power_tree.size(); i++) powers_tree.push_back(IMG_Load(mods->locate("images/menus/" + power_tree[i]).c_str()));
 	}
 
 	powers_unlock = IMG_Load(mods->locate("images/menus/powers_unlock.png").c_str());
@@ -303,7 +313,6 @@ int MenuPowers::click(Point mouse) {
 				else return -1;
 			}
 		}
-		return -1;
 	// if have don't have tabs
 	} else {
 		for (int i=0; i<POWER_SLOTS_COUNT; i++) {
@@ -312,8 +321,8 @@ int MenuPowers::click(Point mouse) {
 				else return -1;
 			}
 		}
-		return -1;
 	}
+	return -1;
 }
 
 /**

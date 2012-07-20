@@ -64,7 +64,7 @@ private:
 
 	SDL_Surface *background;
 	SDL_Surface *icons;
-	SDL_Surface *powers_tree[5];//don't think we need to have more than 5 tabs
+	std::vector<SDL_Surface*> powers_tree;
 	SDL_Surface *powers_unlock;
 	SDL_Surface *overlay_disabled;
 	WidgetButton *closeButton;
