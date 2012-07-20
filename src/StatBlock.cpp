@@ -40,6 +40,7 @@ StatBlock::StatBlock() {
 	alive = true;
 	corpse = false;
 	hero = false;
+	humanoid = false;
 	hero_pos.x = hero_pos.y = -1;
 	hero_alive = true;
 	permadeath = false;
@@ -180,6 +181,9 @@ void StatBlock::load(const string& filename) {
 			if (isInt(infile.val)) num = atoi(infile.val.c_str());
 
 			if (infile.key == "name") name = msg->get(infile.val);
+			else if (infile.key == "humanoid") {
+				if (infile.val == "true") humanoid = true;
+			}
 			else if (infile.key == "sfx_prefix") sfx_prefix = infile.val;
 			else if (infile.key == "gfx_prefix") gfx_prefix = infile.val;
 

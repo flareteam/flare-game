@@ -257,7 +257,7 @@ void MenuManager::logic() {
 	}
 
 	// inventory menu toggle
-	if (((inpt->pressing[INVENTORY] && !key_lock && !dragging) || clicking_inventory) && stats->transform_duration < 1) {
+	if ((inpt->pressing[INVENTORY] && !key_lock && !dragging) || clicking_inventory) {
 		key_lock = true;
 		if (inv->visible) {
 			closeRight(true);
@@ -273,7 +273,7 @@ void MenuManager::logic() {
 	}
 
 	// powers menu toggle
-	if (((inpt->pressing[POWERS] && !key_lock && !dragging) || clicking_powers) && !stats->transformed) {
+	if (((inpt->pressing[POWERS] && !key_lock && !dragging) || clicking_powers) && stats->humanoid) {
 		key_lock = true;
 		if (pow->visible) {
 			closeRight(true);
@@ -288,7 +288,7 @@ void MenuManager::logic() {
 	}
 
 	// character menu toggleggle
-	if (((inpt->pressing[CHARACTER] && !key_lock && !dragging) || clicking_character) && !stats->transformed) {
+	if (((inpt->pressing[CHARACTER] && !key_lock && !dragging) || clicking_character) && stats->humanoid) {
 		key_lock = true;
 		if (chr->visible) {
 			closeLeft(true);
@@ -303,7 +303,7 @@ void MenuManager::logic() {
 	}
 
 	// log menu toggle
-	if (((inpt->pressing[LOG] && !key_lock && !dragging) || clicking_log) && !stats->transformed) {
+	if ((inpt->pressing[LOG] && !key_lock && !dragging) || clicking_log) {
 		key_lock = true;
 		if (log->visible) {
 			closeLeft(true);

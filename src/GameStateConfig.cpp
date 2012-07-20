@@ -619,7 +619,7 @@ void GameStateConfig::update () {
 		settings_key[i]->refresh();
 	}
 	for (unsigned int i = 25; i < 50; i++) {
-		if (inpt->binding[i] < 8) {
+		if (inpt->binding_alt[i-25] < 8) {
 			settings_key[i]->label = mouse_button[inpt->binding_alt[i-25]-1];
 		} else {
 			settings_key[i]->label = SDL_GetKeyName((SDLKey)inpt->binding_alt[i-25]);
@@ -645,6 +645,7 @@ void GameStateConfig::logic ()
 		if (defaults_confirm->confirmClicked) {
 			FULLSCREEN = 0;
 			loadDefaults();
+			inpt->defaultQwertyKeyBindings();
 			delete msg;
 			msg = new MessageEngine();
 			update();
