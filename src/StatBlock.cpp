@@ -167,6 +167,29 @@ StatBlock::StatBlock() {
 
 	// default animation speed
 	animationSpeed = 100;
+
+	statsLoaded = false;
+	// formula numbers. Used only for hero
+	hp_base = 10;
+	hp_per_level = 2;
+	hp_per_physical = 8;
+	hp_regen_base = 10;
+	hp_regen_per_level = 1;
+	hp_regen_per_physical = 4;
+	mp_base = 10;
+	mp_per_level = 2;
+	mp_per_mental = 8;
+	mp_regen_base = 10;
+	mp_regen_per_level = 1;
+	mp_regen_per_mental = 4;
+	accuracy_base = 75;
+	accuracy_per_level = 1;
+	accuracy_per_offense = 5;
+	avoidance_base = 25;
+	avoidance_per_level = 1;
+	avoidance_per_defense = 5;
+	crit_base = 5;
+	crit_per_level = 1;
 }
 
 /**
@@ -329,80 +352,7 @@ void StatBlock::recalc() {
 			level=i+1;
 	}
 
-	// TODO: move these formula numbers to an engine config file
-	int hp_base = 10;
-	int hp_per_level = 2;
-	int hp_per_physical = 8;
-	int hp_regen_base = 10;
-	int hp_regen_per_level = 1;
-	int hp_regen_per_physical = 4;
-	int mp_base = 10;
-	int mp_per_level = 2;
-	int mp_per_mental = 8;
-	int mp_regen_base = 10;
-	int mp_regen_per_level = 1;
-	int mp_regen_per_mental = 4;
-	int accuracy_base = 75;
-	int accuracy_per_level = 1;
-	int accuracy_per_offense = 5;
-	int avoidance_base = 25;
-	int avoidance_per_level = 1;
-	int avoidance_per_defense = 5;
-	int crit_base = 5;
-	int crit_per_level = 1;
-
-	// Redefine numbers from config file if present
-	int value;
-	FileParser infile;
-	if (infile.open(mods->locate("engine/stats.txt"))) {
-	  while (infile.next()) {
-		infile.val = infile.val + ',';
-		value = eatFirstInt(infile.val, ',');
-
-		if (infile.key == "hp_base") {
-			hp_base = value;
-		} else if (infile.key == "hp_per_level") {
-			hp_per_level = value;
-		} else if (infile.key == "hp_per_physical") {
-			hp_per_physical = value;
-		} else if (infile.key == "hp_regen_base") {
-			hp_regen_base = value;
-		} else if (infile.key == "hp_regen_per_level") {
-			hp_regen_per_level = value;
-		} else if (infile.key == "hp_regen_per_physical") {
-			hp_regen_per_physical = value;
-		} else if (infile.key == "mp_base") {
-			mp_base = value;
-		} else if (infile.key == "mp_per_level") {
-			mp_per_level = value;
-		} else if (infile.key == "mp_per_mental") {
-			mp_per_mental = value;
-		} else if (infile.key == "mp_regen_base") {
-			mp_regen_base = value;
-		} else if (infile.key == "mp_regen_per_level") {
-			mp_regen_per_level = value;
-		} else if (infile.key == "mp_regen_per_mental") {
-			mp_regen_per_mental = value;
-		} else if (infile.key == "accuracy_base") {
-			accuracy_base = value;
-		} else if (infile.key == "accuracy_per_level") {
-			accuracy_per_level = value;
-		} else if (infile.key == "accuracy_per_offense") {
-			accuracy_per_offense = value;
-		} else if (infile.key == "avoidance_base") {
-			avoidance_base = value;
-		} else if (infile.key == "avoidance_per_level") {
-			avoidance_per_level = value;
-		} else if (infile.key == "avoidance_per_defense") {
-			avoidance_per_defense = value;
-		} else if (infile.key == "crit_base") {
-			crit_base = value;
-		} else if (infile.key == "crit_per_level") {
-			crit_per_level = value;
-		}
-	  }
-	} else fprintf(stderr, "Unable to open stats.txt!\n");
-	infile.close();
+	if (!statsLoaded) loadHeroStats();
 
 	int lev0 = level -1;
 	int phys0 = get_physical() -1;
@@ -605,4 +555,61 @@ bool StatBlock::canUsePower(const Power &power, unsigned powerid) const {
 		&& mp >= power.requires_mp
 		&& menu_powers->meetsUsageStats(powerid);
 
+}
+
+void StatBlock::loadHeroStats() {
+
+	// Redefine numbers from config file if present
+	int value;
+	FileParser infile;
+	if (infile.open(mods->locate("engine/stats.txt"))) {
+	  while (infile.next()) {
+		infile.val = infile.val + ',';
+		value = eatFirstInt(infile.val, ',');
+
+		if (infile.key == "hp_base") {
+			hp_base = value;
+		} else if (infile.key == "hp_per_level") {
+			hp_per_level = value;
+		} else if (infile.key == "hp_per_physical") {
+			hp_per_physical = value;
+		} else if (infile.key == "hp_regen_base") {
+			hp_regen_base = value;
+		} else if (infile.key == "hp_regen_per_level") {
+			hp_regen_per_level = value;
+		} else if (infile.key == "hp_regen_per_physical") {
+			hp_regen_per_physical = value;
+		} else if (infile.key == "mp_base") {
+			mp_base = value;
+		} else if (infile.key == "mp_per_level") {
+			mp_per_level = value;
+		} else if (infile.key == "mp_per_mental") {
+			mp_per_mental = value;
+		} else if (infile.key == "mp_regen_base") {
+			mp_regen_base = value;
+		} else if (infile.key == "mp_regen_per_level") {
+			mp_regen_per_level = value;
+		} else if (infile.key == "mp_regen_per_mental") {
+			mp_regen_per_mental = value;
+		} else if (infile.key == "accuracy_base") {
+			accuracy_base = value;
+		} else if (infile.key == "accuracy_per_level") {
+			accuracy_per_level = value;
+		} else if (infile.key == "accuracy_per_offense") {
+			accuracy_per_offense = value;
+		} else if (infile.key == "avoidance_base") {
+			avoidance_base = value;
+		} else if (infile.key == "avoidance_per_level") {
+			avoidance_per_level = value;
+		} else if (infile.key == "avoidance_per_defense") {
+			avoidance_per_defense = value;
+		} else if (infile.key == "crit_base") {
+			crit_base = value;
+		} else if (infile.key == "crit_per_level") {
+			crit_per_level = value;
+		}
+	  }
+	  infile.close();
+	  statsLoaded = true;
+	} else fprintf(stderr, "Unable to open stats.txt!\n");
 }

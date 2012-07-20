@@ -301,55 +301,55 @@ void MenuCharacter::refreshStats() {
 
 	if (show_stat[0]) {
 		ss.str("");
-		ss << "Max HP: " << stats->maxhp;
-		statList->append(ss.str(),"Each point of Physical grants +8 HP. Each level grants +2 HP");
+		ss << msg->get("Max HP:") << " " << stats->maxhp;
+		statList->append(ss.str(),msg->get("Each point of Physical grants +%d HP. Each level grants +%d HP", stats->hp_per_physical, stats->hp_per_level));
 	}
 
 	if (show_stat[1]) {
 		ss.str("");
-		ss << "HP Regen: " << stats->hp_per_minute;
-		statList->append(ss.str(),"Ticks of HP regen per minute. Each point of Physical grants +4 HP regen. Each level grants +1 HP regen");
+		ss << msg->get("HP Regen:") << " " << stats->hp_per_minute;
+		statList->append(ss.str(),msg->get("Ticks of HP regen per minute. Each point of Physical grants +%d HP regen. Each level grants +%d HP regen",stats->hp_regen_per_physical, stats->hp_regen_per_level));
 	}
 
 	if (show_stat[2]) {
 		ss.str("");
-		ss << "Max MP: " << stats->maxmp;
-		statList->append(ss.str(),"Each point of Mental grants +8 MP. Each level grants +2 MP");
+		ss << msg->get("Max MP:") << " " << stats->maxmp;
+		statList->append(ss.str(),msg->get("Each point of Mental grants +%d MP. Each level grants +%d MP", stats->mp_per_mental, stats->mp_per_level));
 	}
 
 	if (show_stat[3]) {
 		ss.str("");
-		ss << "MP Regen: " << stats->hp_per_minute;
-		statList->append(ss.str(),"Ticks of MP regen per minute. Each point of Mental grants +4 MP regen. Each level grants +1 MP regen");
+		ss << msg->get("MP Regen:") << " " << stats->hp_per_minute;
+		statList->append(ss.str(),msg->get("Ticks of MP regen per minute. Each point of Mental grants +%d MP regen. Each level grants +%d MP regen", stats->mp_regen_per_mental, stats->mp_regen_per_level));
 	}
 
 	if (show_stat[4]) {
 		ss.str("");
-		ss << "Accuracy (vs level 1): " << stats->accuracy << "%";
-		statList->append(ss.str(),"Each point of Offense grants +5 accuracy. Each level grants +1 accuracy");
+		ss << msg->get("Accuracy (vs level 1):") << " " << stats->accuracy << "%";
+		statList->append(ss.str(),msg->get("Each point of Offense grants +%d accuracy. Each level grants +%d accuracy", stats->accuracy_per_offense, stats->accuracy_per_level));
 	}
 
 	if (show_stat[5]) {
 		ss.str("");
-		ss << "Accuracy (vs level 5): " << (stats->accuracy-20) << "%";
-		statList->append(ss.str(),"Each point of Offense grants +5 accuracy. Each level grants +1 accuracy");
+		ss << msg->get("Accuracy (vs level 5):") << " " << (stats->accuracy-20) << "%";
+		statList->append(ss.str(),msg->get("Each point of Offense grants +%d accuracy. Each level grants +%d accuracy", stats->accuracy_per_offense, stats->accuracy_per_level));
 	}
 
 	if (show_stat[6]) {
 		ss.str("");
-		ss << "Avoidance (vs level 1): " << stats->avoidance << "%";
-		statList->append(ss.str(),"Each point of Defense grants +5 avoidance. Each level grants +1 accuracy");
+		ss << msg->get("Avoidance (vs level 1):") << " " << stats->avoidance << "%";
+		statList->append(ss.str(),msg->get("Each point of Defense grants +%d avoidance. Each level grants +%d accuracy", stats->avoidance_per_defense, stats->avoidance_per_level));
 	}
 
 	if (show_stat[7]) {
 		ss.str("");
-		ss << "Avoidance (vs level 5): " << (stats->avoidance-20) << "%";
-		statList->append(ss.str(),"Each point of Defense grants +5 avoidance. Each level grants +1 accuracy");
+		ss << msg->get("Avoidance (vs level 5):") << " " << (stats->avoidance-20) << "%";
+		statList->append(ss.str(),msg->get("Each point of Defense grants +%d avoidance. Each level grants +%d accuracy", stats->avoidance_per_defense, stats->avoidance_per_level));
 	}
 
 	if (show_stat[8]) {
 		ss.str("");
-		ss << "Melee Damage: ";
+		ss << msg->get("Melee Damage:") << " ";
 		if (stats->dmg_melee_max >= stats->dmg_ment_max)
 			ss << stats->dmg_melee_min << "-" << stats->dmg_melee_max;
 		else
@@ -359,7 +359,7 @@ void MenuCharacter::refreshStats() {
 
 	if (show_stat[9]) {
 		ss.str("");
-		ss << "Ranged Damage: ";
+		ss << msg->get("Ranged Damage:") << " ";
 		if (stats->dmg_ranged_max > 0)
 			ss << stats->dmg_ranged_min << "-" << stats->dmg_ranged_max;
 		else
@@ -369,13 +369,13 @@ void MenuCharacter::refreshStats() {
 
 	if (show_stat[10]) {
 		ss.str("");
-		ss << "Crit: " << stats->crit << "%";
+		ss << msg->get("Crit:") << " " << stats->crit << "%";
 		statList->append(ss.str(),"");
 	}
 
 	if (show_stat[11]) {
 		ss.str("");
-		ss << "Absorb: ";
+		ss << msg->get("Absorb:") << " ";
 		if (stats->absorb_min == stats->absorb_max)
 			ss << stats->absorb_min;
 		else
@@ -385,13 +385,13 @@ void MenuCharacter::refreshStats() {
 
 	if (show_stat[12]) {
 		ss.str("");
-		ss << "Fire Resistance: " << (100 - stats->attunement_fire) << "%";
+		ss << msg->get("Fire Resistance:") << " " << (100 - stats->attunement_fire) << "%";
 		statList->append(ss.str(),"");
 	}
 
 	if (show_stat[13]) {
 		ss.str("");
-		ss << "Ice Resistance: " << (100 - stats->attunement_ice) << "%";
+		ss << msg->get("Ice Resistance:") << " " << (100 - stats->attunement_ice) << "%";
 		statList->append(ss.str(),"");
 	}
 
