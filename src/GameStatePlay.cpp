@@ -390,7 +390,7 @@ void GameStatePlay::checkNPCInteraction() {
 	}
 
 	// if close enough to the NPC, open the appropriate interaction screen
-	if (npc_click != -1 && interact_distance < max_interact_distance && pc->stats.alive && !pc->stats.transformed) {
+	if (npc_click != -1 && interact_distance < max_interact_distance && pc->stats.alive && pc->stats.humanoid) {
 		inpt->lock[MAIN1] = true;
 
 		if ((npcs->npcs[npc_id]->vendor && !npcs->npcs[npc_id]->talker)) {
@@ -405,7 +405,7 @@ void GameStatePlay::checkNPCInteraction() {
         }
 	}
 
-	if (npc_id != -1 && interact_distance < max_interact_distance && pc->stats.alive && !pc->stats.transformed) {
+	if (npc_id != -1 && interact_distance < max_interact_distance && pc->stats.alive && pc->stats.humanoid) {
 
 		if (menu->talker->vendor_visible && !menu->vendor->talker_visible) {
 

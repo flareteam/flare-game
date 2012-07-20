@@ -66,6 +66,7 @@ void Avatar::init() {
 	lockShoot = false;
 
 	stats.hero = true;
+	stats.humanoid = true;
 	stats.level = 1;
 	stats.xp = 0;
 	stats.physical_character = 1;
@@ -774,6 +775,7 @@ void Avatar::transform() {
 	stats.speed = charmed_stats->speed;
 	stats.dspeed = charmed_stats->dspeed;
 	stats.flying = charmed_stats->flying;
+	stats.humanoid = charmed_stats->humanoid;
 	stats.animations = charmed_stats->animations;
 	stats.animationSpeed = charmed_stats->animationSpeed;
 	loadAnimations("animations/" + charmed_stats->animations + ".txt");
@@ -838,6 +840,7 @@ void Avatar::untransform() {
 	stats.speed = hero_stats->speed;
 	stats.dspeed = hero_stats->dspeed;
 	stats.flying = hero_stats->flying;
+	stats.humanoid = hero_stats->humanoid;
 	stats.animations = hero_stats->animations;
 	stats.animationSpeed = hero_stats->animationSpeed;
 	loadAnimations("animations/hero.txt");
