@@ -149,6 +149,7 @@ void HazardManager::checkNewHazards() {
 }
 
 void HazardManager::expire(int index) {
+	delete h[index];
 	h.erase(h.begin()+index);
 }
 
