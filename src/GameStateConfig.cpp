@@ -665,6 +665,7 @@ void GameStateConfig::logic ()
 			saveSettings();
 			inpt->saveKeyBindings();
 			if (setMods()) {
+				reload_music = true;
 				delete mods;
 				mods = new ModManager();
 				loadTilesetSettings();
