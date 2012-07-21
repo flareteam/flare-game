@@ -168,7 +168,7 @@ MenuCharacter::MenuCharacter(StatBlock *_stats) {
 				if (eatFirstInt(infile.val,',') == 0) show_upgrade[1] = false;
 			} else if (infile.key == "show_upgrade_offense"){
 				if (eatFirstInt(infile.val,',') == 0) show_upgrade[2] = false;
-			} else if (infile.key == "show_upgrade_defenese"){
+			} else if (infile.key == "show_upgrade_defense"){
 				if (eatFirstInt(infile.val,',') == 0) show_upgrade[3] = false;
 			} else if (infile.key == "show_maxhp"){
 				if (eatFirstInt(infile.val,',') == 0) show_stat[0] = false;
