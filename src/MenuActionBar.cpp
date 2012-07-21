@@ -62,7 +62,7 @@ MenuActionBar::MenuActionBar(PowerManager *_powers, StatBlock *_hero, SDL_Surfac
 
 void MenuActionBar::update() {
 
-	// Read data from config file 
+	// Read data from config file
 	FileParser infile;
 	int counter = -1;
 	if (infile.open(mods->locate("menus/actionbar.txt"))) {
@@ -218,7 +218,7 @@ void MenuActionBar::loadGraphics() {
 	background = IMG_Load(mods->locate("images/menus/actionbar_trim.png").c_str());
 	disabled = IMG_Load(mods->locate("images/menus/disabled.png").c_str());
 	attention = IMG_Load(mods->locate("images/menus/attention_glow.png").c_str());
-	if(!emptyslot || !background || !disabled) {
+	if(!emptyslot || !background || !disabled || !attention) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 		SDL_Quit();
 	}
@@ -537,6 +537,7 @@ MenuActionBar::~MenuActionBar() {
 	SDL_FreeSurface(emptyslot);
 	SDL_FreeSurface(background);
 	SDL_FreeSurface(disabled);
+	SDL_FreeSurface(attention);
 
 	for (unsigned int i=0; i<16; i++) {
 		delete labels[i];

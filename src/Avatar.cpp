@@ -104,6 +104,12 @@ void Avatar::init() {
 	for (int i=0; i<4; i++) {
 		sound_steps[i] = NULL;
 	}
+
+	sound_melee = NULL;
+	sound_hit = NULL;
+	sound_die = NULL;
+	sound_block = NULL;
+	level_up = NULL;
 }
 
 void Avatar::loadGraphics(const string& _img_main, string _img_armor, const string& _img_off) {
@@ -172,7 +178,13 @@ void Avatar::loadGraphics(const string& _img_main, string _img_armor, const stri
 }
 
 void Avatar::loadSounds() {
-	if (audio == true) {
+	if (audio) {
+		Mix_FreeChunk(sound_melee);
+		Mix_FreeChunk(sound_hit);
+		Mix_FreeChunk(sound_die);
+		Mix_FreeChunk(sound_block);
+		Mix_FreeChunk(level_up);
+
 		sound_melee = Mix_LoadWAV(mods->locate("soundfx/melee_attack.ogg").c_str());
 		sound_hit = Mix_LoadWAV(mods->locate("soundfx/" + stats.base + "_hit.ogg").c_str());
 		sound_die = Mix_LoadWAV(mods->locate("soundfx/" + stats.base + "_die.ogg").c_str());
@@ -182,12 +194,6 @@ void Avatar::loadSounds() {
 		if (!sound_melee || !sound_hit || !sound_die || !level_up) {
 			printf("Mix_LoadWAV: %s\n", Mix_GetError());
 		}
-	} else {
-		sound_melee = NULL;
-		sound_hit = NULL;
-		sound_die = NULL;
-		sound_block = NULL;
-		level_up = NULL;
 	}
 }
 
@@ -891,24 +897,15 @@ Avatar::~Avatar() {
 	SDL_FreeSurface(sprites);
 	if (transformed_sprites) SDL_FreeSurface(transformed_sprites);
 
-	if (sound_melee)
-		Mix_FreeChunk(sound_melee);
-	if (sound_hit)
-		Mix_FreeChunk(sound_hit);
-	if (sound_die)
-		Mix_FreeChunk(sound_die);
-	if (sound_block)
-		Mix_FreeChunk(sound_block);
-	if (sound_steps[0])
-		Mix_FreeChunk(sound_steps[0]);
-	if (sound_steps[1])
-		Mix_FreeChunk(sound_steps[1]);
-	if (sound_steps[2])
-		Mix_FreeChunk(sound_steps[2]);
-	if (sound_steps[3])
-		Mix_FreeChunk(sound_steps[3]);
-	if (level_up)
-		Mix_FreeChunk(level_up);
+	Mix_FreeChunk(sound_melee);
+	Mix_FreeChunk(sound_hit);
+	Mix_FreeChunk(sound_die);
+	Mix_FreeChunk(sound_block);
+	Mix_FreeChunk(sound_steps[0]);
+	Mix_FreeChunk(sound_steps[1]);
+	Mix_FreeChunk(sound_steps[2]);
+	Mix_FreeChunk(sound_steps[3]);
+	Mix_FreeChunk(level_up);
 
 	delete haz;
 }

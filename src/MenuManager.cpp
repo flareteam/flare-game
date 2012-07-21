@@ -677,8 +677,7 @@ MenuManager::~MenuManager() {
 	delete enemy;
 	delete effects;
 
-	if (sfx_open != NULL)
-		Mix_FreeChunk(sfx_open);
-	if (sfx_close != NULL)
-		Mix_FreeChunk(sfx_close);
+	Mix_FreeChunk(sfx_open);
+	Mix_FreeChunk(sfx_close);
+	SDL_FreeSurface(icons);
 }
