@@ -187,7 +187,7 @@ void MenuPowers::loadGraphics() {
 	powers_unlock = IMG_Load(mods->locate("images/menus/powers_unlock.png").c_str());
 	overlay_disabled = IMG_Load(mods->locate("images/menus/disabled.png").c_str());
 	
-	for (unsigned int i=0; i<tree_image_files.size(); i++) {
+	for (unsigned int i=0; i<tree_surf.size(); i++) {
 		if(!background || !tree_surf[i] || !powers_unlock || !overlay_disabled) {
 			fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 			SDL_Quit();
@@ -199,7 +199,7 @@ void MenuPowers::loadGraphics() {
 	background = SDL_DisplayFormatAlpha(background);
 	SDL_FreeSurface(cleanup);
 
-	for (unsigned int i=0; i<tree_image_files.size(); i++) {
+	for (unsigned int i=0; i<tree_surf.size(); i++) {
 		cleanup = tree_surf[i];
 		tree_surf[i] = SDL_DisplayFormatAlpha(tree_surf[i]);
 		SDL_FreeSurface(cleanup);
@@ -556,7 +556,7 @@ TooltipData MenuPowers::checkTooltip(Point mouse) {
 
 MenuPowers::~MenuPowers() {
 	SDL_FreeSurface(background);
-	for (unsigned int i=0; i<tree_image_files.size(); i++) SDL_FreeSurface(tree_surf[i]);
+	for (unsigned int i=0; i<tree_surf.size(); i++) SDL_FreeSurface(tree_surf[i]);
 	SDL_FreeSurface(powers_unlock);
 	SDL_FreeSurface(overlay_disabled);
 	
