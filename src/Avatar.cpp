@@ -565,7 +565,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 			break;
 
 		case AVATAR_DEAD:
-			if (stats.transform_type != "") {
+			if (stats.transformed) {
 				stats.transform_duration = 0;
 				untransform();
 			}
