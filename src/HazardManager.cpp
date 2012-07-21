@@ -157,6 +157,7 @@ void HazardManager::expire(int index) {
  * Reset all hazards and get new collision object
  */
 void HazardManager::handleNewMap(MapCollision *_collider) {
+	for (unsigned int i = 0; i < h.size(); i++) delete h[i];
 	h.clear();
 	collider = _collider;
 }
@@ -192,5 +193,6 @@ void HazardManager::addRenders(vector<Renderable> &r) {
 }
 
 HazardManager::~HazardManager() {
+	for (unsigned int i = 0; i < h.size(); i++) delete h[i];
 	h.clear();
 }
