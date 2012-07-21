@@ -519,6 +519,12 @@ tooltip=Maddox's Tomb
 msg=You wipe dust away from the tomb lid, revealing an inscription: "Here lies Sir Evan Maddox"
 loot=random,16,9,5
 
+[event]
+#brazier sound effect
+location=11,95,8,7
+cooldown=120
+soundfx=soundfx/environment/open_fire.ogg
+
 # the library room
 [enemygroup]
 type=undead

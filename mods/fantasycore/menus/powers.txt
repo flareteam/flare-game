@@ -7,9 +7,23 @@
 
 closebutton_pos=294,2
 unspent_points_pos=160,396
+tabs=1
+
+#tab_title=Melee
+#tab_tree=powers_tree.png
+
+#tab_title=Ranged
+#tab_tree=powers_tree2.png
+
+#tab_title=Elemental
+#tab_tree=powers_tree3.png
+
+# First tab has index=0 
+# Don't add tab_title=, tab_tree=, and tab= keys if you use only 1 tab
 
 [power]
 id=0
+#tab=1
 position=48,80
 requires_physoff=1
 

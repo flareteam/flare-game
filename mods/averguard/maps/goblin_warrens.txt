@@ -333,6 +333,18 @@ mapmod=object,38,46,164
 soundfx=soundfx/inventory/inventory_page.ogg
 msg="Sir Evan Maddox led the Averguard when the plague struck.  Powerful clerics from the corners of the world were brought here.  By the time a cure was found it was too late."
 
+[event]
+#brazier sound effect
+location=40,41,4,16
+cooldown=120
+soundfx=soundfx/environment/open_fire.ogg
+
+[event]
+#brazier sound effect
+location=4,29,5,9
+cooldown=120
+soundfx=soundfx/environment/open_fire.ogg
+
 [enemy]
 type=skeleton
 location=15,18
