@@ -1177,13 +1177,11 @@ bool PowerManager::activate(int power_index, StatBlock *src_stats, Point target)
 PowerManager::~PowerManager() {
 
 	for (int i=0; i<gfx_count; i++) {
-		if (gfx[i] != NULL)
-			SDL_FreeSurface(gfx[i]);
+		SDL_FreeSurface(gfx[i]);
 	}
-    for (int i=0; i<sfx_count; i++) {
-        if (sfx[i] != NULL)
-            Mix_FreeChunk(sfx[i]);
-    }
+	for (int i=0; i<sfx_count; i++) {
+		Mix_FreeChunk(sfx[i]);
+	}
 
 	SDL_FreeSurface(runes);
 }

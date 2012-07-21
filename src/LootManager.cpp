@@ -562,12 +562,12 @@ void LootManager::addRenders(vector<Renderable> &renderables) {
 LootManager::~LootManager() {
 
 	for (int i=0; i<64; i++)
-		if (flying_loot[i])
-			SDL_FreeSurface(flying_loot[i]);
+		SDL_FreeSurface(flying_loot[i]);
+
 	for (int i=0; i<3; i++)
-		if (flying_gold[i])
-			SDL_FreeSurface(flying_gold[i]);
-	if (loot_flip) Mix_FreeChunk(loot_flip);
+		SDL_FreeSurface(flying_gold[i]);
+
+	Mix_FreeChunk(loot_flip);
 
 	// clear loot tooltips to free buffer memory
 	loot.clear();
