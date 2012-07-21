@@ -34,65 +34,23 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 class StatBlock;
 class WidgetButton;
 class WidgetLabel;
+class WidgetListBox;
 
 const int CSTAT_NAME = 0;
 const int CSTAT_LEVEL = 1;
 const int CSTAT_PHYSICAL = 2;
-const int CSTAT_HP = 3;
-const int CSTAT_HPREGEN = 4;
-const int CSTAT_MENTAL = 5;
-const int CSTAT_MP = 6;
-const int CSTAT_MPREGEN = 7;
-const int CSTAT_OFFENSE = 8;
-const int CSTAT_ACCURACYV1 = 9;
-const int CSTAT_ACCURACYV5 = 10;
-const int CSTAT_DEFENSE = 11;
-const int CSTAT_AVOIDANCEV1 = 12;
-const int CSTAT_AVOIDANCEV5 = 13;
-const int CSTAT_DMGMAIN = 14;
-const int CSTAT_DMGRANGED = 15;
-const int CSTAT_CRIT = 16;
-const int CSTAT_ABSORB = 17;
-const int CSTAT_FIRERESIST = 18;
-const int CSTAT_ICERESIST = 19;
-const int CSTAT_UNSPENT = 20;
-const int CSTAT_COUNT = 21;
-
-const int CPROF_P2 = 0;
-const int CPROF_P3 = 1;
-const int CPROF_P4 = 2;
-const int CPROF_P5 = 3;
-const int CPROF_M2 = 4;
-const int CPROF_M3 = 5;
-const int CPROF_M4 = 6;
-const int CPROF_M5 = 7;
-const int CPROF_O2 = 8;
-const int CPROF_O3 = 9;
-const int CPROF_O4 = 10;
-const int CPROF_O5 = 11;
-const int CPROF_D2 = 12;
-const int CPROF_D3 = 13;
-const int CPROF_D4 = 14;
-const int CPROF_D5 = 15;
-const int CPROF_COUNT = 16;
+const int CSTAT_MENTAL = 3;
+const int CSTAT_OFFENSE = 4;
+const int CSTAT_DEFENSE = 5;
+const int CSTAT_UNSPENT = 6;
+const int CSTAT_COUNT = 7;
 
 struct CharStat {
 	WidgetLabel *label;
 	WidgetLabel *value;
 	SDL_Rect hover;
 	TooltipData tip;
-	
-	void setHover(int x, int y, int w, int h) {
-		hover.x=x;
-		hover.y=y;
-		hover.w=w;
-		hover.h=h;
-	}
-};
-
-struct CharProf {
-	SDL_Rect hover;
-	TooltipData tip;
+	bool visible;
 	
 	void setHover(int x, int y, int w, int h) {
 		hover.x=x;
@@ -109,15 +67,29 @@ private:
 	SDL_Surface *background;
 	SDL_Surface *proficiency;
 	SDL_Surface *upgrade;
-	WidgetButton *closeButton;	
+	WidgetButton *closeButton;
+	WidgetButton *upgradeButton[4];
 	WidgetLabel *labelCharacter;
+	WidgetListBox *statList;
 	CharStat cstat[CSTAT_COUNT];
-	CharProf cprof[CPROF_COUNT];
 
-	void displayProficiencies(int value, int y);
 	void loadGraphics();
 	int bonusColor(int stat);
 	int skill_points;
+	bool physical_up;
+	bool mental_up;
+	bool offense_up;
+	bool defense_up;
+
+	// label and widget positions
+	Point close_pos;
+	Point upgrade_pos[4];
+	Point statlist_pos;
+	Point label_pos[CSTAT_COUNT-1]; //unspent points doesn't have a separate label
+	SDL_Rect value_pos[CSTAT_COUNT];
+	bool show_upgrade[4];
+	bool show_stat[14];
+
 	
 public:
 	MenuCharacter(StatBlock *stats);

@@ -1,5 +1,6 @@
 /*
 Copyright © 2011-2012 Clint Bellanger
+Copyright © 2012 Igor Paliychuk
 
 This file is part of FLARE.
 
@@ -25,6 +26,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "Menu.h"
 #include "Utils.h"
 #include "WidgetButton.h"
+#include "WidgetTabControl.h"
 
 #include <SDL.h>
 #include <SDL_image.h>
@@ -35,10 +37,11 @@ class PowerManager;
 class StatBlock;
 class TooltipData;
 
-const int POWER_SLOTS_COUNT = 20;
+const int POWER_SLOTS_COUNT = 60;
 
 struct Power_Menu_Cell {
 	int id;
+	int tab;
 	Point pos;
 	int requires_physoff;
 	int requires_physdef;
@@ -61,7 +64,7 @@ private:
 
 	SDL_Surface *background;
 	SDL_Surface *icons;
-	SDL_Surface *powers_tree;
+	std::vector<SDL_Surface*> powers_tree;
 	SDL_Surface *powers_unlock;
 	SDL_Surface *overlay_disabled;
 	WidgetButton *closeButton;
@@ -69,14 +72,19 @@ private:
 	Point close_pos;
 	Point unspent_pos;
 	int points_left;
+	int tabs_count;
+	std::vector<std::string> tab;
+	std::vector<std::string> power_tree;
 
 	WidgetLabel label_powers;
 	WidgetLabel stat_up;
+	WidgetTabControl * tabControl;
 
 	void loadGraphics();
 	void displayBuild(int power_id);
 	void renderIcon(int icon_id, int x, int y);
 	bool powerUnlockable(int power_index);
+	void renderPowers(int tab_num);
 
 public:
 	static MenuPowers *getInstance();

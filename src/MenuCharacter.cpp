@@ -19,12 +19,15 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * class MenuCharacter
  */
 
+#include "FileParser.h"
 #include "Menu.h"
 #include "MenuCharacter.h"
 #include "SharedResources.h"
 #include "Settings.h"
 #include "StatBlock.h"
+#include "UtilsParsing.h"
 #include "WidgetButton.h"
+#include "WidgetListBox.h"
 
 
 using namespace std;
@@ -38,107 +41,213 @@ MenuCharacter::MenuCharacter(StatBlock *_stats) {
 	visible = false;
 	newPowerNotification = false;
 
-	loadGraphics();
-
-	closeButton = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
-
-	// menu title
-	labelCharacter = new WidgetLabel();
-
 	for (int i=0; i<CSTAT_COUNT; i++) {
 		cstat[i].label = new WidgetLabel();
 		cstat[i].value = new WidgetLabel();
 		cstat[i].hover.x = cstat[i].hover.y = 0;
 		cstat[i].hover.w = cstat[i].hover.h = 0;
+		cstat[i].visible = true;
+	}
+	for (int i=0; i<14; i++) {
+		show_stat[i] = true;
 	}
 
-	for (int i=0; i<CPROF_COUNT; i++) {
-		cstat[i].hover.x = cstat[i].hover.y = 0;
-		cstat[i].hover.w = cstat[i].hover.h = 0;
+	closeButton = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
+
+	// Upgrade buttons
+	for (int i=0; i<4; i++) {
+		upgradeButton[i] = new WidgetButton(mods->locate("images/menus/buttons/upgrade.png"));
+		upgradeButton[i]->enabled = false;
+		show_upgrade[i] = true;
+	}
+	physical_up = false;
+	mental_up = false;
+	offense_up = false;
+	defense_up = false;
+
+	// menu title
+	labelCharacter = new WidgetLabel();
+
+	// stat list
+	statList = new WidgetListBox(14, 10, mods->locate("images/menus/buttons/listbox_char.png"));
+
+	// Load config settings
+	FileParser infile;
+	if(infile.open(mods->locate("menus/character.txt"))) {
+		while(infile.next()) {
+			infile.val = infile.val + ',';
+
+			if(infile.key == "close") {
+				close_pos.x = eatFirstInt(infile.val,',');
+				close_pos.y = eatFirstInt(infile.val,',');
+			} else if(infile.key == "upgrade_physical") {
+				upgrade_pos[0].x = eatFirstInt(infile.val,',');
+				upgrade_pos[0].y = eatFirstInt(infile.val,',');
+			} else if(infile.key == "upgrade_mental") {
+				upgrade_pos[1].x = eatFirstInt(infile.val,',');
+				upgrade_pos[1].y = eatFirstInt(infile.val,',');
+			} else if(infile.key == "upgrade_offense") {
+				upgrade_pos[2].x = eatFirstInt(infile.val,',');
+				upgrade_pos[2].y = eatFirstInt(infile.val,',');
+			} else if(infile.key == "upgrade_defense") {
+				upgrade_pos[3].x = eatFirstInt(infile.val,',');
+				upgrade_pos[3].y = eatFirstInt(infile.val,',');
+			} else if(infile.key == "statlist") {
+				statlist_pos.x = eatFirstInt(infile.val,',');
+				statlist_pos.y = eatFirstInt(infile.val,',');
+			} else if(infile.key == "label_name") {
+				label_pos[0].x = eatFirstInt(infile.val,',');
+				label_pos[0].y = eatFirstInt(infile.val,',');
+			} else if(infile.key == "label_level") {
+				label_pos[1].x = eatFirstInt(infile.val,',');
+				label_pos[1].y = eatFirstInt(infile.val,',');
+			} else if(infile.key == "label_physical") {
+				label_pos[2].x = eatFirstInt(infile.val,',');
+				label_pos[2].y = eatFirstInt(infile.val,',');
+			} else if(infile.key == "label_mental") {
+				label_pos[3].x = eatFirstInt(infile.val,',');
+				label_pos[3].y = eatFirstInt(infile.val,',');
+			} else if(infile.key == "label_offense") {
+				label_pos[4].x = eatFirstInt(infile.val,',');
+				label_pos[4].y = eatFirstInt(infile.val,',');
+			} else if(infile.key == "label_defense") {
+				label_pos[5].x = eatFirstInt(infile.val,',');
+				label_pos[5].y = eatFirstInt(infile.val,',');
+			} else if(infile.key == "name") {
+				value_pos[0].x = eatFirstInt(infile.val,',');
+				value_pos[0].y = eatFirstInt(infile.val,',');
+				value_pos[0].w = eatFirstInt(infile.val,',');
+				value_pos[0].h = eatFirstInt(infile.val,',');
+			} else if(infile.key == "level") {
+				value_pos[1].x = eatFirstInt(infile.val,',');
+				value_pos[1].y = eatFirstInt(infile.val,',');
+				value_pos[1].w = eatFirstInt(infile.val,',');
+				value_pos[1].h = eatFirstInt(infile.val,',');
+			} else if(infile.key == "physical") {
+				value_pos[2].x = eatFirstInt(infile.val,',');
+				value_pos[2].y = eatFirstInt(infile.val,',');
+				value_pos[2].w = eatFirstInt(infile.val,',');
+				value_pos[2].h = eatFirstInt(infile.val,',');
+			} else if(infile.key == "mental") {
+				value_pos[3].x = eatFirstInt(infile.val,',');
+				value_pos[3].y = eatFirstInt(infile.val,',');
+				value_pos[3].w = eatFirstInt(infile.val,',');
+				value_pos[3].h = eatFirstInt(infile.val,',');
+			} else if(infile.key == "offense") {
+				value_pos[4].x = eatFirstInt(infile.val,',');
+				value_pos[4].y = eatFirstInt(infile.val,',');
+				value_pos[4].w = eatFirstInt(infile.val,',');
+				value_pos[4].h = eatFirstInt(infile.val,',');
+			} else if(infile.key == "defense") {
+				value_pos[5].x = eatFirstInt(infile.val,',');
+				value_pos[5].y = eatFirstInt(infile.val,',');
+				value_pos[5].w = eatFirstInt(infile.val,',');
+				value_pos[5].h = eatFirstInt(infile.val,',');
+			} else if(infile.key == "unspent") {
+				value_pos[6].x = eatFirstInt(infile.val,',');
+				value_pos[6].y = eatFirstInt(infile.val,',');
+				value_pos[6].w = eatFirstInt(infile.val,',');
+				value_pos[6].h = eatFirstInt(infile.val,',');
+			} else if (infile.key == "show_name"){
+				if (eatFirstInt(infile.val,',') == 0) cstat[CSTAT_NAME].visible = false;
+			} else if (infile.key == "show_level"){
+				if (eatFirstInt(infile.val,',') == 0) cstat[CSTAT_LEVEL].visible = false;
+			} else if (infile.key == "show_physical"){
+				if (eatFirstInt(infile.val,',') == 0) cstat[CSTAT_PHYSICAL].visible = false;
+			} else if (infile.key == "show_mental"){
+				if (eatFirstInt(infile.val,',') == 0) cstat[CSTAT_MENTAL].visible = false;
+			} else if (infile.key == "show_offense"){
+				if (eatFirstInt(infile.val,',') == 0) cstat[CSTAT_OFFENSE].visible = false;
+			} else if (infile.key == "show_defense"){
+				if (eatFirstInt(infile.val,',') == 0) cstat[CSTAT_DEFENSE].visible = false;
+			} else if (infile.key == "show_unspent"){
+				if (eatFirstInt(infile.val,',') == 0) cstat[CSTAT_UNSPENT].visible = false;
+			} else if (infile.key == "show_upgrade_physical"){
+				if (eatFirstInt(infile.val,',') == 0) show_upgrade[0] = false;
+			} else if (infile.key == "show_upgrade_mental"){
+				if (eatFirstInt(infile.val,',') == 0) show_upgrade[1] = false;
+			} else if (infile.key == "show_upgrade_offense"){
+				if (eatFirstInt(infile.val,',') == 0) show_upgrade[2] = false;
+			} else if (infile.key == "show_upgrade_defense"){
+				if (eatFirstInt(infile.val,',') == 0) show_upgrade[3] = false;
+			} else if (infile.key == "show_maxhp"){
+				if (eatFirstInt(infile.val,',') == 0) show_stat[0] = false;
+			} else if (infile.key == "show_hpregen"){
+				if (eatFirstInt(infile.val,',') == 0) show_stat[1] = false;
+			} else if (infile.key == "show_maxmp"){
+				if (eatFirstInt(infile.val,',') == 0) show_stat[2] = false;
+			} else if (infile.key == "show_mpregen"){
+				if (eatFirstInt(infile.val,',') == 0) show_stat[3] = false;
+			} else if (infile.key == "show_accuracy_v1"){
+				if (eatFirstInt(infile.val,',') == 0) show_stat[4] = false;
+			} else if (infile.key == "show_accuracy_v5"){
+				if (eatFirstInt(infile.val,',') == 0) show_stat[5] = false;
+			} else if (infile.key == "show_avoidance_v1"){
+				if (eatFirstInt(infile.val,',') == 0) show_stat[6] = false;
+			} else if (infile.key == "show_avoidance_v5"){
+				if (eatFirstInt(infile.val,',') == 0) show_stat[7] = false;
+			} else if (infile.key == "show_melee"){
+				if (eatFirstInt(infile.val,',') == 0) show_stat[8] = false;
+			} else if (infile.key == "show_ranged"){
+				if (eatFirstInt(infile.val,',') == 0) show_stat[9] = false;
+			} else if (infile.key == "show_crit"){
+				if (eatFirstInt(infile.val,',') == 0) show_stat[10] = false;
+			} else if (infile.key == "show_absorb"){
+				if (eatFirstInt(infile.val,',') == 0) show_stat[11] = false;
+			} else if (infile.key == "show_resist_fire"){
+				if (eatFirstInt(infile.val,',') == 0) show_stat[12] = false;
+			} else if (infile.key == "show_resist_ice"){
+				if (eatFirstInt(infile.val,',') == 0) show_stat[13] = false;
+			}
+		}
 	}
 
+	loadGraphics();
 }
 
 void MenuCharacter::update() {
 	// TODO put item position info in a config file
 
 	// close button
-	closeButton->pos.x = window_area.x + 294;
-	closeButton->pos.y = window_area.y + 2;
+	closeButton->pos.x = window_area.x + close_pos.x;
+	closeButton->pos.y = window_area.y + close_pos.y;
 
 	// menu title
 	labelCharacter->set(window_area.x+window_area.w/2, window_area.y+16, JUSTIFY_CENTER, VALIGN_CENTER, msg->get("Character"), FONT_WHITE);
 
+	// upgrade buttons
+	for (int i=0; i<4; i++) {
+		upgradeButton[i]->pos.x = window_area.x+upgrade_pos[i].x;
+		upgradeButton[i]->pos.y = window_area.y+upgrade_pos[i].y;
+	}
+
+	// stat list
+	statList->pos.x = window_area.x+statlist_pos.x;
+	statList->pos.y = window_area.y+statlist_pos.y;
+
 	// setup static labels
-	cstat[CSTAT_NAME].label->set(window_area.x+72, window_area.y+40, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("Name"), FONT_WHITE);
-	cstat[CSTAT_LEVEL].label->set(window_area.x+264, window_area.y+40, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("Level"), FONT_WHITE);
-	cstat[CSTAT_PHYSICAL].label->set(window_area.x+40, window_area.y+80, JUSTIFY_LEFT, VALIGN_CENTER, msg->get("Physical"), FONT_WHITE);
-	cstat[CSTAT_MENTAL].label->set(window_area.x+40, window_area.y+144, JUSTIFY_LEFT, VALIGN_CENTER, msg->get("Mental"), FONT_WHITE);
-	cstat[CSTAT_OFFENSE].label->set(window_area.x+40, window_area.y+208, JUSTIFY_LEFT, VALIGN_CENTER, msg->get("Offense"), FONT_WHITE);
-	cstat[CSTAT_DEFENSE].label->set(window_area.x+40, window_area.y+272, JUSTIFY_LEFT, VALIGN_CENTER, msg->get("Defense"), FONT_WHITE);
-	cstat[CSTAT_HP].label->set(window_area.x+152, window_area.y+112, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("Total HP"), FONT_WHITE);
-	cstat[CSTAT_HPREGEN].label->set(window_area.x+264, window_area.y+112, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("Regen"), FONT_WHITE);
-	cstat[CSTAT_MP].label->set(window_area.x+152, window_area.y+176, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("Total MP"), FONT_WHITE);
-	cstat[CSTAT_MPREGEN].label->set(window_area.x+264, window_area.y+176, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("Regen"), FONT_WHITE);
-	cstat[CSTAT_ACCURACYV1].label->set(window_area.x+152, window_area.y+240, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("Accuracy vs. Def 1"), FONT_WHITE);
-	cstat[CSTAT_ACCURACYV5].label->set(window_area.x+264, window_area.y+240, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("vs. Def 5"), FONT_WHITE);
-	cstat[CSTAT_AVOIDANCEV1].label->set(window_area.x+152, window_area.y+304, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("Avoidance vs. Off 1"), FONT_WHITE);
-	cstat[CSTAT_AVOIDANCEV5].label->set(window_area.x+264, window_area.y+304, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("vs. Off 5"), FONT_WHITE);
-	cstat[CSTAT_DMGMAIN].label->set(window_area.x+136, window_area.y+344, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("Main Weapon"), FONT_WHITE);
-	cstat[CSTAT_DMGRANGED].label->set(window_area.x+136, window_area.y+360, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("Ranged Weapon"), FONT_WHITE);
-	cstat[CSTAT_CRIT].label->set(window_area.x+136, window_area.y+376, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("Crit Chance"), FONT_WHITE);
-	cstat[CSTAT_ABSORB].label->set(window_area.x+264, window_area.y+344, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("Absorb"), FONT_WHITE);
-	cstat[CSTAT_FIRERESIST].label->set(window_area.x+264, window_area.y+360, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("Fire Resist"), FONT_WHITE);
-	cstat[CSTAT_ICERESIST].label->set(window_area.x+264, window_area.y+376, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("Ice Resist"), FONT_WHITE);
+	cstat[CSTAT_NAME].label->set(window_area.x+label_pos[0].x, window_area.y+label_pos[0].y, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("Name"), FONT_WHITE);
+	cstat[CSTAT_LEVEL].label->set(window_area.x+label_pos[1].x, window_area.y+label_pos[1].y, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("Level"), FONT_WHITE);
+	cstat[CSTAT_PHYSICAL].label->set(window_area.x+label_pos[2].x, window_area.y+label_pos[2].y, JUSTIFY_LEFT, VALIGN_CENTER, msg->get("Physical"), FONT_WHITE);
+	cstat[CSTAT_MENTAL].label->set(window_area.x+label_pos[3].x, window_area.y+label_pos[3].y, JUSTIFY_LEFT, VALIGN_CENTER, msg->get("Mental"), FONT_WHITE);
+	cstat[CSTAT_OFFENSE].label->set(window_area.x+label_pos[4].x, window_area.y+label_pos[4].y, JUSTIFY_LEFT, VALIGN_CENTER, msg->get("Offense"), FONT_WHITE);
+	cstat[CSTAT_DEFENSE].label->set(window_area.x+label_pos[5].x, window_area.y+label_pos[5].y, JUSTIFY_LEFT, VALIGN_CENTER, msg->get("Defense"), FONT_WHITE);
 
 	// setup hotspot locations
-	cstat[CSTAT_NAME].setHover(window_area.x+80, window_area.y+32, 104, 16);
-	cstat[CSTAT_LEVEL].setHover(window_area.x+272, window_area.y+32, 32, 16);
-	cstat[CSTAT_PHYSICAL].setHover(window_area.x+16, window_area.y+72, 16, 16);
-	cstat[CSTAT_MENTAL].setHover(window_area.x+16, window_area.y+136, 16, 16);
-	cstat[CSTAT_OFFENSE].setHover(window_area.x+16, window_area.y+200, 16, 16);
-	cstat[CSTAT_DEFENSE].setHover(window_area.x+16, window_area.y+264, 16, 16);
-	cstat[CSTAT_HP].setHover(window_area.x+160, window_area.y+104, 32, 16);
-	cstat[CSTAT_HPREGEN].setHover(window_area.x+272, window_area.y+104, 32, 16);
-	cstat[CSTAT_MP].setHover(window_area.x+160, window_area.y+168, 32, 16);
-	cstat[CSTAT_MPREGEN].setHover(window_area.x+272, window_area.y+168, 32, 16);
-	cstat[CSTAT_ACCURACYV1].setHover(window_area.x+160, window_area.y+232, 32, 16);
-	cstat[CSTAT_ACCURACYV5].setHover(window_area.x+272, window_area.y+232, 32, 16);
-	cstat[CSTAT_AVOIDANCEV1].setHover(window_area.x+160, window_area.y+296, 32, 16);
-	cstat[CSTAT_AVOIDANCEV5].setHover(window_area.x+272, window_area.y+296, 32, 16);
-	cstat[CSTAT_DMGMAIN].setHover(window_area.x+144, window_area.y+336, 32, 16);
-	cstat[CSTAT_DMGRANGED].setHover(window_area.x+144, window_area.y+352, 32, 16);
-	cstat[CSTAT_CRIT].setHover(window_area.x+144, window_area.y+368, 32, 16);
-	cstat[CSTAT_ABSORB].setHover(window_area.x+272, window_area.y+336, 32, 16);
-	cstat[CSTAT_FIRERESIST].setHover(window_area.x+272, window_area.y+352, 32, 16);
-	cstat[CSTAT_ICERESIST].setHover(window_area.x+272, window_area.y+368, 32, 16);
-	cstat[CSTAT_UNSPENT].setHover(window_area.x+90, window_area.y+392, 120, 16);
-
-	cprof[CPROF_P2].setHover(window_area.x+128, window_area.y+64, 32, 32);
-	cprof[CPROF_P3].setHover(window_area.x+176, window_area.y+64, 32, 32);
-	cprof[CPROF_P4].setHover(window_area.x+224, window_area.y+64, 32, 32);
-	cprof[CPROF_P5].setHover(window_area.x+272, window_area.y+64, 32, 32);
-	cprof[CPROF_M2].setHover(window_area.x+128, window_area.y+128, 32, 32);
-	cprof[CPROF_M3].setHover(window_area.x+176, window_area.y+128, 32, 32);
-	cprof[CPROF_M4].setHover(window_area.x+224, window_area.y+128, 32, 32);
-	cprof[CPROF_M5].setHover(window_area.x+272, window_area.y+128, 32, 32);
-	cprof[CPROF_O2].setHover(window_area.x+128, window_area.y+192, 32, 32);
-	cprof[CPROF_O3].setHover(window_area.x+176, window_area.y+192, 32, 32);
-	cprof[CPROF_O4].setHover(window_area.x+224, window_area.y+192, 32, 32);
-	cprof[CPROF_O5].setHover(window_area.x+272, window_area.y+192, 32, 32);
-	cprof[CPROF_D2].setHover(window_area.x+128, window_area.y+256, 32, 32);
-	cprof[CPROF_D3].setHover(window_area.x+176, window_area.y+256, 32, 32);
-	cprof[CPROF_D4].setHover(window_area.x+224, window_area.y+256, 32, 32);
-	cprof[CPROF_D5].setHover(window_area.x+272, window_area.y+256, 32, 32);
+	cstat[CSTAT_NAME].setHover(window_area.x+value_pos[0].x, window_area.y+value_pos[0].y, value_pos[0].w, value_pos[0].h);
+	cstat[CSTAT_LEVEL].setHover(window_area.x+value_pos[1].x, window_area.y+value_pos[1].y, value_pos[1].w, value_pos[1].h);
+	cstat[CSTAT_PHYSICAL].setHover(window_area.x+value_pos[2].x, window_area.y+value_pos[2].y, value_pos[2].w, value_pos[2].h);
+	cstat[CSTAT_MENTAL].setHover(window_area.x+value_pos[3].x, window_area.y+value_pos[3].y, value_pos[3].w, value_pos[3].h);
+	cstat[CSTAT_OFFENSE].setHover(window_area.x+value_pos[4].x, window_area.y+value_pos[4].y, value_pos[4].w, value_pos[4].h);
+	cstat[CSTAT_DEFENSE].setHover(window_area.x+value_pos[5].x, window_area.y+value_pos[5].y, value_pos[5].w, value_pos[5].h);
+	cstat[CSTAT_UNSPENT].setHover(window_area.x+value_pos[6].x, window_area.y+value_pos[6].y, value_pos[6].w, value_pos[6].h);
 
 }
 
 void MenuCharacter::loadGraphics() {
 
 	background = IMG_Load(mods->locate("images/menus/character.png").c_str());
-	proficiency = IMG_Load(mods->locate("images/menus/character_proficiency.png").c_str());
-	upgrade = IMG_Load(mods->locate("images/menus/upgrade.png").c_str());
-	if(!background || !proficiency || !upgrade) {
+	if(!background) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 		SDL_Quit();
 	}
@@ -146,14 +255,6 @@ void MenuCharacter::loadGraphics() {
 	// optimize
 	SDL_Surface *cleanup = background;
 	background = SDL_DisplayFormatAlpha(background);
-	SDL_FreeSurface(cleanup);
-
-	cleanup = proficiency;
-	proficiency = SDL_DisplayFormatAlpha(proficiency);
-	SDL_FreeSurface(cleanup);
-
-	cleanup = upgrade;
-	upgrade = SDL_DisplayFormatAlpha(upgrade);
 	SDL_FreeSurface(cleanup);
 
 }
@@ -166,98 +267,133 @@ void MenuCharacter::refreshStats() {
 	stringstream ss;
 
 	// update stat text
-	cstat[CSTAT_NAME].value->set(window_area.x+84, window_area.y+40, JUSTIFY_LEFT, VALIGN_CENTER, stats->name, FONT_WHITE);
+	cstat[CSTAT_NAME].value->set(window_area.x+value_pos[0].x+4, window_area.y+value_pos[0].y+value_pos[0].h/2, JUSTIFY_LEFT, VALIGN_CENTER, stats->name, FONT_WHITE);
 
 	ss.str("");
 	ss << stats->level;
-	cstat[CSTAT_LEVEL].value->set(window_area.x+288, window_area.y+40, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
+	cstat[CSTAT_LEVEL].value->set(window_area.x+value_pos[1].x+value_pos[1].w/2, window_area.y+value_pos[1].y+value_pos[1].h/2, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
 
 	ss.str("");
 	ss << stats->get_physical();
-	cstat[CSTAT_PHYSICAL].value->set(window_area.x+24, window_area.y+80, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), bonusColor(stats->physical_additional));
+	cstat[CSTAT_PHYSICAL].value->set(window_area.x+value_pos[2].x+value_pos[2].w/2, window_area.y+value_pos[2].y+value_pos[2].h/2, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), bonusColor(stats->physical_additional));
 
 	ss.str("");
 	ss << stats->get_mental();
-	cstat[CSTAT_MENTAL].value->set(window_area.x+24, window_area.y+144, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), bonusColor(stats->mental_additional));
+	cstat[CSTAT_MENTAL].value->set(window_area.x+value_pos[3].x+value_pos[3].w/2, window_area.y+value_pos[3].y+value_pos[3].h/2, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), bonusColor(stats->mental_additional));
 
 	ss.str("");
 	ss << stats->get_offense();
-	cstat[CSTAT_OFFENSE].value->set(window_area.x+24, window_area.y+208, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), bonusColor(stats->offense_additional));
+	cstat[CSTAT_OFFENSE].value->set(window_area.x+value_pos[4].x+value_pos[4].w/2, window_area.y+value_pos[4].y+value_pos[4].h/2, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), bonusColor(stats->offense_additional));
 
 	ss.str("");
 	ss << stats->get_defense();
-	cstat[CSTAT_DEFENSE].value->set(window_area.x+24, window_area.y+272, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), bonusColor(stats->defense_additional));
-
-	ss.str("");
-	ss << stats->maxhp;
-	cstat[CSTAT_HP].value->set(window_area.x+176, window_area.y+112, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
-
-	ss.str("");
-	ss << stats->hp_per_minute;
-	cstat[CSTAT_HPREGEN].value->set(window_area.x+288, window_area.y+112, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
-
-	ss.str("");
-	ss << stats->maxmp;
-	cstat[CSTAT_MP].value->set(window_area.x+176, window_area.y+176, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
-
-	ss.str("");
-	ss << stats->mp_per_minute;
-	cstat[CSTAT_MPREGEN].value->set(window_area.x+288, window_area.y+176, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
-
-	ss.str("");
-	ss << (stats->accuracy) << "%";
-	cstat[CSTAT_ACCURACYV1].value->set(window_area.x+176, window_area.y+240, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
-
-	ss.str("");
-	ss << (stats->accuracy - 20) << "%";
-	cstat[CSTAT_ACCURACYV5].value->set(window_area.x+288, window_area.y+240, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
-
-	ss.str("");
-	ss << (stats->avoidance) << "%";
-	cstat[CSTAT_AVOIDANCEV1].value->set(window_area.x+176, window_area.y+304, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
-
-	ss.str("");
-	ss << (stats->avoidance - 20) << "%";
-	cstat[CSTAT_AVOIDANCEV5].value->set(window_area.x+288, window_area.y+304, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
-
-	ss.str("");
-	if (stats->dmg_melee_max >= stats->dmg_ment_max)
-		ss << stats->dmg_melee_min << "-" << stats->dmg_melee_max;
-	else
-		ss << stats->dmg_ment_min << "-" << stats->dmg_ment_max;
-	cstat[CSTAT_DMGMAIN].value->set(window_area.x+160, window_area.y+344, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
-
-	ss.str("");
-	if (stats->dmg_ranged_max > 0)
-		ss << stats->dmg_ranged_min << "-" << stats->dmg_ranged_max;
-	else
-		ss << "-";
-	cstat[CSTAT_DMGRANGED].value->set(window_area.x+160, window_area.y+360, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
-
-	ss.str("");
-	ss << stats->crit << "%";
-	cstat[CSTAT_CRIT].value->set(window_area.x+160, window_area.y+376, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
-
-	ss.str("");
-	if (stats->absorb_min == stats->absorb_max)
-		ss << stats->absorb_min;
-	else
-		ss << stats->absorb_min << "-" << stats->absorb_max;
-	cstat[CSTAT_ABSORB].value->set(window_area.x+288, window_area.y+344, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
-
-	ss.str("");
-	ss << (100 - stats->attunement_fire) << "%";
-	cstat[CSTAT_FIRERESIST].value->set(window_area.x+288, window_area.y+360, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
-
-	ss.str("");
-	ss << (100 - stats->attunement_ice) << "%";
-	cstat[CSTAT_ICERESIST].value->set(window_area.x+288, window_area.y+376, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
+	cstat[CSTAT_DEFENSE].value->set(window_area.x+value_pos[5].x+value_pos[5].w/2, window_area.y+value_pos[5].y+value_pos[5].h/2, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), bonusColor(stats->defense_additional));
 
 	ss.str("");
 	if (skill_points > 0) ss << skill_points << " " << msg->get("points remaining");
 	else ss.str("");
-	cstat[CSTAT_UNSPENT].value->set(window_area.x+155, window_area.y+400, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_GREEN);
+	cstat[CSTAT_UNSPENT].value->set(window_area.x+value_pos[6].x+value_pos[6].w/2, window_area.y+value_pos[6].y+value_pos[6].h/2, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_GREEN);
 	ss.str("");
+
+	// scrolling stat list
+	statList->clear();
+	statList->refresh();
+
+	if (show_stat[0]) {
+		ss.str("");
+		ss << msg->get("Max HP:") << " " << stats->maxhp;
+		statList->append(ss.str(),msg->get("Each point of Physical grants +%d HP. Each level grants +%d HP", stats->hp_per_physical, stats->hp_per_level));
+	}
+
+	if (show_stat[1]) {
+		ss.str("");
+		ss << msg->get("HP Regen:") << " " << stats->hp_per_minute;
+		statList->append(ss.str(),msg->get("Ticks of HP regen per minute. Each point of Physical grants +%d HP regen. Each level grants +%d HP regen",stats->hp_regen_per_physical, stats->hp_regen_per_level));
+	}
+
+	if (show_stat[2]) {
+		ss.str("");
+		ss << msg->get("Max MP:") << " " << stats->maxmp;
+		statList->append(ss.str(),msg->get("Each point of Mental grants +%d MP. Each level grants +%d MP", stats->mp_per_mental, stats->mp_per_level));
+	}
+
+	if (show_stat[3]) {
+		ss.str("");
+		ss << msg->get("MP Regen:") << " " << stats->hp_per_minute;
+		statList->append(ss.str(),msg->get("Ticks of MP regen per minute. Each point of Mental grants +%d MP regen. Each level grants +%d MP regen", stats->mp_regen_per_mental, stats->mp_regen_per_level));
+	}
+
+	if (show_stat[4]) {
+		ss.str("");
+		ss << msg->get("Accuracy (vs level 1):") << " " << stats->accuracy << "%";
+		statList->append(ss.str(),msg->get("Each point of Offense grants +%d accuracy. Each level grants +%d accuracy", stats->accuracy_per_offense, stats->accuracy_per_level));
+	}
+
+	if (show_stat[5]) {
+		ss.str("");
+		ss << msg->get("Accuracy (vs level 5):") << " " << (stats->accuracy-20) << "%";
+		statList->append(ss.str(),msg->get("Each point of Offense grants +%d accuracy. Each level grants +%d accuracy", stats->accuracy_per_offense, stats->accuracy_per_level));
+	}
+
+	if (show_stat[6]) {
+		ss.str("");
+		ss << msg->get("Avoidance (vs level 1):") << " " << stats->avoidance << "%";
+		statList->append(ss.str(),msg->get("Each point of Defense grants +%d avoidance. Each level grants +%d accuracy", stats->avoidance_per_defense, stats->avoidance_per_level));
+	}
+
+	if (show_stat[7]) {
+		ss.str("");
+		ss << msg->get("Avoidance (vs level 5):") << " " << (stats->avoidance-20) << "%";
+		statList->append(ss.str(),msg->get("Each point of Defense grants +%d avoidance. Each level grants +%d accuracy", stats->avoidance_per_defense, stats->avoidance_per_level));
+	}
+
+	if (show_stat[8]) {
+		ss.str("");
+		ss << msg->get("Melee Damage:") << " ";
+		if (stats->dmg_melee_max >= stats->dmg_ment_max)
+			ss << stats->dmg_melee_min << "-" << stats->dmg_melee_max;
+		else
+			ss << stats->dmg_ment_min << "-" << stats->dmg_ment_max;
+		statList->append(ss.str(),"");
+	}
+
+	if (show_stat[9]) {
+		ss.str("");
+		ss << msg->get("Ranged Damage:") << " ";
+		if (stats->dmg_ranged_max > 0)
+			ss << stats->dmg_ranged_min << "-" << stats->dmg_ranged_max;
+		else
+			ss << "-";
+		statList->append(ss.str(),"");
+	}
+
+	if (show_stat[10]) {
+		ss.str("");
+		ss << msg->get("Crit:") << " " << stats->crit << "%";
+		statList->append(ss.str(),"");
+	}
+
+	if (show_stat[11]) {
+		ss.str("");
+		ss << msg->get("Absorb:") << " ";
+		if (stats->absorb_min == stats->absorb_max)
+			ss << stats->absorb_min;
+		else
+			ss << stats->absorb_min << "-" << stats->absorb_max;
+		statList->append(ss.str(),"");
+	}
+
+	if (show_stat[12]) {
+		ss.str("");
+		ss << msg->get("Fire Resistance:") << " " << (100 - stats->attunement_fire) << "%";
+		statList->append(ss.str(),"");
+	}
+
+	if (show_stat[13]) {
+		ss.str("");
+		ss << msg->get("Ice Resistance:") << " " << (100 - stats->attunement_ice) << "%";
+		statList->append(ss.str(),"");
+	}
 
 	// update tool tips
 	cstat[CSTAT_NAME].tip.num_lines = 0;
@@ -285,139 +421,8 @@ void MenuCharacter::refreshStats() {
 	cstat[CSTAT_DEFENSE].tip.lines[cstat[CSTAT_DEFENSE].tip.num_lines++] = msg->get("Defense (D) increases armor proficiency and avoidance.");
 	cstat[CSTAT_DEFENSE].tip.lines[cstat[CSTAT_DEFENSE].tip.num_lines++] = msg->get("base (%d), bonus (%d)", stats->defense_character, stats->defense_additional);
 
-	cstat[CSTAT_HP].tip.num_lines = 0;
-	cstat[CSTAT_HP].tip.lines[cstat[CSTAT_HP].tip.num_lines++] = msg->get("Each point of Physical grants +8 HP");
-	cstat[CSTAT_HP].tip.lines[cstat[CSTAT_HP].tip.num_lines++] = msg->get("Each level grants +2 HP");
-
-	cstat[CSTAT_HPREGEN].tip.num_lines = 0;
-	cstat[CSTAT_HPREGEN].tip.lines[cstat[CSTAT_HPREGEN].tip.num_lines++] = msg->get("Ticks of HP regen per minute");
-	cstat[CSTAT_HPREGEN].tip.lines[cstat[CSTAT_HPREGEN].tip.num_lines++] = msg->get("Each point of Physical grants +4 HP regen");
-	cstat[CSTAT_HPREGEN].tip.lines[cstat[CSTAT_HPREGEN].tip.num_lines++] = msg->get("Each level grants +1 HP regen");
-
-	cstat[CSTAT_MP].tip.num_lines = 0;
-	cstat[CSTAT_MP].tip.lines[cstat[CSTAT_MP].tip.num_lines++] = msg->get("Each point of Mental grants +8 MP");
-	cstat[CSTAT_MP].tip.lines[cstat[CSTAT_MP].tip.num_lines++] = msg->get("Each level grants +2 MP");
-
-	cstat[CSTAT_MPREGEN].tip.num_lines = 0;
-	cstat[CSTAT_MPREGEN].tip.lines[cstat[CSTAT_MPREGEN].tip.num_lines++] = msg->get("Ticks of MP regen per minute");
-	cstat[CSTAT_MPREGEN].tip.lines[cstat[CSTAT_MPREGEN].tip.num_lines++] = msg->get("Each point of Mental grants +4 MP regen");
-	cstat[CSTAT_MPREGEN].tip.lines[cstat[CSTAT_MPREGEN].tip.num_lines++] = msg->get("Each level grants +1 MP regen");
-
-	cstat[CSTAT_ACCURACYV1].tip.num_lines = 0;
-	cstat[CSTAT_ACCURACYV1].tip.lines[cstat[CSTAT_ACCURACYV1].tip.num_lines++] = msg->get("Each point of Offense grants +5 accuracy");
-	cstat[CSTAT_ACCURACYV1].tip.lines[cstat[CSTAT_ACCURACYV1].tip.num_lines++] = msg->get("Each level grants +1 accuracy");
-
-	cstat[CSTAT_ACCURACYV5].tip.num_lines = 0;
-	cstat[CSTAT_ACCURACYV5].tip.lines[cstat[CSTAT_ACCURACYV5].tip.num_lines++] = msg->get("Each point of Offense grants +5 accuracy");
-	cstat[CSTAT_ACCURACYV5].tip.lines[cstat[CSTAT_ACCURACYV5].tip.num_lines++] = msg->get("Each level grants +1 accuracy");
-
-	cstat[CSTAT_AVOIDANCEV1].tip.num_lines = 0;
-	cstat[CSTAT_AVOIDANCEV1].tip.lines[cstat[CSTAT_AVOIDANCEV1].tip.num_lines++] = msg->get("Each point of Defense grants +5 avoidance");
-	cstat[CSTAT_AVOIDANCEV1].tip.lines[cstat[CSTAT_AVOIDANCEV1].tip.num_lines++] = msg->get("Each level grants +1 avoidance");
-
-	cstat[CSTAT_AVOIDANCEV5].tip.num_lines = 0;
-	cstat[CSTAT_AVOIDANCEV5].tip.lines[cstat[CSTAT_AVOIDANCEV5].tip.num_lines++] = msg->get("Each point of Defense grants +5 avoidance");
-	cstat[CSTAT_AVOIDANCEV5].tip.lines[cstat[CSTAT_AVOIDANCEV5].tip.num_lines++] = msg->get("Each level grants +1 avoidance");
-
 	cstat[CSTAT_UNSPENT].tip.num_lines = 0;
 	if (skill_points) cstat[CSTAT_UNSPENT].tip.lines[cstat[CSTAT_UNSPENT].tip.num_lines++] = msg->get("Unspent attribute points");
-
-	// proficiency tooltips
-	cprof[CPROF_P2].tip.num_lines = 0;
-	cprof[CPROF_P2].tip.lines[cprof[CPROF_P2].tip.num_lines++] = msg->get("Dagger Proficiency");
-	if (stats->get_physical() < 2) cprof[CPROF_P2].tip.colors[cprof[CPROF_P2].tip.num_lines] = FONT_RED;
-	else cprof[CPROF_P2].tip.colors[cprof[CPROF_P2].tip.num_lines] = FONT_WHITE;
-	cprof[CPROF_P2].tip.lines[cprof[CPROF_P2].tip.num_lines++] = msg->get("Requires Physical %d", 2);
-
-	cprof[CPROF_P3].tip.num_lines = 0;
-	cprof[CPROF_P3].tip.lines[cprof[CPROF_P3].tip.num_lines++] = msg->get("Shortsword Proficiency");
-	if (stats->get_physical() < 3) cprof[CPROF_P3].tip.colors[cprof[CPROF_P3].tip.num_lines] = FONT_RED;
-	else cprof[CPROF_P3].tip.colors[cprof[CPROF_P3].tip.num_lines] = FONT_WHITE;
-	cprof[CPROF_P3].tip.lines[cprof[CPROF_P3].tip.num_lines++] = msg->get("Requires Physical %d", 3);
-
-	cprof[CPROF_P4].tip.num_lines = 0;
-	cprof[CPROF_P4].tip.lines[cprof[CPROF_P4].tip.num_lines++] = msg->get("Longsword Proficiency");
-	if (stats->get_physical() < 4) cprof[CPROF_P4].tip.colors[cprof[CPROF_P4].tip.num_lines] = FONT_RED;
-	else cprof[CPROF_P4].tip.colors[cprof[CPROF_P4].tip.num_lines] = FONT_WHITE;
-	cprof[CPROF_P4].tip.lines[cprof[CPROF_P4].tip.num_lines++] = msg->get("Requires Physical %d", 4);
-
-	cprof[CPROF_P5].tip.num_lines = 0;
-	cprof[CPROF_P5].tip.lines[cprof[CPROF_P5].tip.num_lines++] = msg->get("Greatsword Proficiency");
-	if (stats->get_physical() < 5) cprof[CPROF_P5].tip.colors[cprof[CPROF_P5].tip.num_lines] = FONT_RED;
-	else cprof[CPROF_P5].tip.colors[cprof[CPROF_P5].tip.num_lines] = FONT_WHITE;
-	cprof[CPROF_P5].tip.lines[cprof[CPROF_P5].tip.num_lines++] = msg->get("Requires Physical %d", 5);
-
-	cprof[CPROF_M2].tip.num_lines = 0;
-	cprof[CPROF_M2].tip.lines[cprof[CPROF_M2].tip.num_lines++] = msg->get("Wand Proficiency");
-	if (stats->get_mental() < 2) cprof[CPROF_M2].tip.colors[cprof[CPROF_M2].tip.num_lines] = FONT_RED;
-	else cprof[CPROF_M2].tip.colors[cprof[CPROF_M2].tip.num_lines] = FONT_WHITE;
-	cprof[CPROF_M2].tip.lines[cprof[CPROF_M2].tip.num_lines++] = msg->get("Requires Mental %d", 2);
-
-	cprof[CPROF_M3].tip.num_lines = 0;
-	cprof[CPROF_M3].tip.lines[cprof[CPROF_M3].tip.num_lines++] = msg->get("Rod Proficiency");
-	if (stats->get_mental() < 3) cprof[CPROF_M3].tip.colors[cprof[CPROF_M3].tip.num_lines] = FONT_RED;
-	else cprof[CPROF_M3].tip.colors[cprof[CPROF_M3].tip.num_lines] = FONT_WHITE;
-	cprof[CPROF_M3].tip.lines[cprof[CPROF_M3].tip.num_lines++] = msg->get("Requires Mental %d", 3);
-
-	cprof[CPROF_M4].tip.num_lines = 0;
-	cprof[CPROF_M4].tip.lines[cprof[CPROF_M4].tip.num_lines++] = msg->get("Staff Proficiency");
-	if (stats->get_mental() < 4) cprof[CPROF_M4].tip.colors[cprof[CPROF_M4].tip.num_lines] = FONT_RED;
-	else cprof[CPROF_M4].tip.colors[cprof[CPROF_M4].tip.num_lines] = FONT_WHITE;
-	cprof[CPROF_M4].tip.lines[cprof[CPROF_M4].tip.num_lines++] = msg->get("Requires Mental %d", 4);
-
-	cprof[CPROF_M5].tip.num_lines = 0;
-	cprof[CPROF_M5].tip.lines[cprof[CPROF_M5].tip.num_lines++] = msg->get("Greatstaff Proficiency");
-	if (stats->get_mental() < 5) cprof[CPROF_M5].tip.colors[cprof[CPROF_M5].tip.num_lines] = FONT_RED;
-	else cprof[CPROF_M5].tip.colors[cprof[CPROF_M5].tip.num_lines] = FONT_WHITE;
-	cprof[CPROF_M5].tip.lines[cprof[CPROF_M5].tip.num_lines++] = msg->get("Requires Mental %d", 5);
-
-	cprof[CPROF_O2].tip.num_lines = 0;
-	cprof[CPROF_O2].tip.lines[cprof[CPROF_O2].tip.num_lines++] = msg->get("Slingshot Proficiency");
-	if (stats->get_offense() < 2) cprof[CPROF_O2].tip.colors[cprof[CPROF_O2].tip.num_lines] = FONT_RED;
-	else cprof[CPROF_O2].tip.colors[cprof[CPROF_O2].tip.num_lines] = FONT_WHITE;
-	cprof[CPROF_O2].tip.lines[cprof[CPROF_O2].tip.num_lines++] = msg->get("Requires Offense %d", 2);
-
-	cprof[CPROF_O3].tip.num_lines = 0;
-	cprof[CPROF_O3].tip.lines[cprof[CPROF_O3].tip.num_lines++] = msg->get("Shortbow Proficiency");
-	if (stats->get_offense() < 3) cprof[CPROF_O3].tip.colors[cprof[CPROF_O3].tip.num_lines] = FONT_RED;
-	else cprof[CPROF_O3].tip.colors[cprof[CPROF_O3].tip.num_lines] = FONT_WHITE;
-	cprof[CPROF_O3].tip.lines[cprof[CPROF_O3].tip.num_lines++] = msg->get("Requires Offense %d", 3);
-
-	cprof[CPROF_O4].tip.num_lines = 0;
-	cprof[CPROF_O4].tip.lines[cprof[CPROF_O4].tip.num_lines++] = msg->get("Longbow Proficiency");
-	if (stats->get_offense() < 4) cprof[CPROF_O4].tip.colors[cprof[CPROF_O4].tip.num_lines] = FONT_RED;
-	else cprof[CPROF_O4].tip.colors[cprof[CPROF_O4].tip.num_lines] = FONT_WHITE;
-	cprof[CPROF_O4].tip.lines[cprof[CPROF_O4].tip.num_lines++] = msg->get("Requires Offense %d", 4);
-
-	cprof[CPROF_O5].tip.num_lines = 0;
-	cprof[CPROF_O5].tip.lines[cprof[CPROF_O5].tip.num_lines++] = msg->get("Greatbow Proficiency");
-	if (stats->get_offense() < 5) cprof[CPROF_O5].tip.colors[cprof[CPROF_O5].tip.num_lines] = FONT_RED;
-	else cprof[CPROF_O5].tip.colors[cprof[CPROF_O5].tip.num_lines] = FONT_WHITE;
-	cprof[CPROF_O5].tip.lines[cprof[CPROF_O5].tip.num_lines++] = msg->get("Requires Offense %d", 5);
-
-	cprof[CPROF_D2].tip.num_lines = 0;
-	cprof[CPROF_D2].tip.lines[cprof[CPROF_D2].tip.num_lines++] = msg->get("Light Armor Proficiency");
-	if (stats->get_defense() < 2) cprof[CPROF_D2].tip.colors[cprof[CPROF_D2].tip.num_lines] = FONT_RED;
-	else cprof[CPROF_D2].tip.colors[cprof[CPROF_D2].tip.num_lines] = FONT_WHITE;
-	cprof[CPROF_D2].tip.lines[cprof[CPROF_D2].tip.num_lines++] = msg->get("Requires Defense %d", 2);
-
-	cprof[CPROF_D3].tip.num_lines = 0;
-	cprof[CPROF_D3].tip.lines[cprof[CPROF_D3].tip.num_lines++] = msg->get("Light Shield Proficiency");
-	if (stats->get_defense() < 3) cprof[CPROF_D3].tip.colors[cprof[CPROF_D3].tip.num_lines] = FONT_RED;
-	else cprof[CPROF_D3].tip.colors[cprof[CPROF_D3].tip.num_lines] = FONT_WHITE;
-	cprof[CPROF_D3].tip.lines[cprof[CPROF_D3].tip.num_lines++] = msg->get("Requires Defense %d", 3);
-
-	cprof[CPROF_D4].tip.num_lines = 0;
-	cprof[CPROF_D4].tip.lines[cprof[CPROF_D4].tip.num_lines++] = msg->get("Heavy Armor Proficiency");
-	if (stats->get_defense() < 4) cprof[CPROF_D4].tip.colors[cprof[CPROF_D4].tip.num_lines] = FONT_RED;
-	else cprof[CPROF_D4].tip.colors[cprof[CPROF_D4].tip.num_lines] = FONT_WHITE;
-	cprof[CPROF_D4].tip.lines[cprof[CPROF_D4].tip.num_lines++] = msg->get("Requires Defense %d", 4);
-
-	cprof[CPROF_D5].tip.num_lines = 0;
-	cprof[CPROF_D5].tip.lines[cprof[CPROF_D5].tip.num_lines++] = msg->get("Heavy Shield Proficiency");
-	if (stats->get_defense() < 5) cprof[CPROF_D5].tip.colors[cprof[CPROF_D5].tip.num_lines] = FONT_RED;
-	else cprof[CPROF_D5].tip.colors[cprof[CPROF_D5].tip.num_lines] = FONT_WHITE;
-	cprof[CPROF_D5].tip.lines[cprof[CPROF_D5].tip.num_lines++] = msg->get("Requires Defense %d", 5);
 
 }
 
@@ -437,6 +442,29 @@ void MenuCharacter::logic() {
 	if (closeButton->checkClick()) {
 		visible = false;
 	}
+
+	// upgrade buttons
+	for (int i=0; i<4; i++) {
+		upgradeButton[i]->enabled = false;
+	}
+
+	int spent = stats->physical_character + stats->mental_character + stats->offense_character + stats->defense_character -4;
+	int max_spendable_stat_points = 16;
+	skill_points = stats->level - spent;
+
+	if (spent < stats->level && spent < max_spendable_stat_points) {
+		if (stats->physical_character < 5 && show_upgrade[0]) upgradeButton[0]->enabled = true;
+		if (stats->mental_character  < 5 && show_upgrade[1]) upgradeButton[1]->enabled = true;
+		if (stats->offense_character < 5 && show_upgrade[2]) upgradeButton[2]->enabled = true;
+		if (stats->defense_character < 5 && show_upgrade[3]) upgradeButton[3]->enabled = true;
+	}
+
+	if (upgradeButton[0]->checkClick()) physical_up = true;
+	if (upgradeButton[1]->checkClick()) mental_up = true;
+	if (upgradeButton[2]->checkClick()) offense_up = true;
+	if (upgradeButton[3]->checkClick()) defense_up = true;
+
+	statList->checkClick();
 
 	// TODO: this doesn't need to be done every frame. Only call this when something has updated
 	refreshStats();
@@ -467,83 +495,20 @@ void MenuCharacter::render() {
 
 	// labels and values
 	for (int i=0; i<CSTAT_COUNT; i++) {
-		cstat[i].label->render();
-		cstat[i].value->render();
+		if (cstat[i].visible) {
+			cstat[i].label->render();
+			cstat[i].value->render();
+		}
 	}
 
-
-	// highlight proficiencies
-	displayProficiencies(stats->get_physical(), window_area.y+64);
-	displayProficiencies(stats->get_mental(), window_area.y+128);
-	displayProficiencies(stats->get_offense(), window_area.y+192);
-	displayProficiencies(stats->get_defense(), window_area.y+256);
-
-	// if points are available, show the upgrade buttons
-	// TODO: replace with WidgetButton
-
-	int spent = stats->physical_character + stats->mental_character + stats->offense_character + stats->defense_character -4;
-	int max_spendable_stat_points = 16;
-	skill_points = stats->level - spent;
-
-	// check to see if there are skill points available
-	if (spent < stats->level && spent < max_spendable_stat_points) {
-
-		src.x = 0;
-		src.y = 0;
-		src.w = dest.w = 32;
-		src.h = dest.h = 16;
-		dest.x = window_area.x + 16;
-
-		// physical
-		if (stats->physical_character < 5) { // && mouse.x >= 16 && mouse.y >= window_area.y+96
-			dest.y = window_area.y + 96;
-			SDL_BlitSurface(upgrade, &src, screen, &dest);
-		}
-		// mental
-		if (stats->mental_character < 5) { // && mouse.x >= 16 && mouse.y >= window_area.y+160
-			dest.y = window_area.y + 160;
-			SDL_BlitSurface(upgrade, &src, screen, &dest);
-		}
-		// offense
-		if (stats->offense_character < 5) { // && mouse.x >= 16 && mouse.y >= window_area.y+224
-			dest.y = window_area.y + 224;
-			SDL_BlitSurface(upgrade, &src, screen, &dest);
-		}
-		// defense
-		if (stats->defense_character < 5) { // && mouse.x >= 16 && mouse.y >= window_area.y+288
-			dest.y = window_area.y + 288;
-			SDL_BlitSurface(upgrade, &src, screen, &dest);
-		}
-
-
+	// upgrade buttons
+	for (int i=0; i<4; i++) {
+		if (upgradeButton[i]->enabled) upgradeButton[i]->render();
 	}
+
+	statList->render();
 }
 
-/**
- * Display an overlay graphic to highlight which weapon/armor proficiencies are unlocked.
- * Similar routine for each row of attribute
- *
- * @param value The current attribute level
- * @param y The y pixel coordinate of this proficiency row
- */
-void MenuCharacter::displayProficiencies(int value, int y) {
-	SDL_Rect src;
-	SDL_Rect dest;
-	src.x = 0;
-	src.y = 0;
-	src.w = dest.w = 48;
-	src.h = dest.h = 32;
-	dest.y = y;
-
-	// save-game hackers could set their stats higher than normal.
-	// make sure this display still works.
-	int actual_value = min(value,5);
-
-	for (int i=2; i<= actual_value; i++) {
-		dest.x = window_area.x + 112 + (i-2) * 48;
-		SDL_BlitSurface(proficiency, &src, screen, &dest);
-	}
-}
 
 /**
  * Display various mouseovers tooltips depending on cursor location
@@ -551,13 +516,8 @@ void MenuCharacter::displayProficiencies(int value, int y) {
 TooltipData MenuCharacter::checkTooltip() {
 
 	for (int i=0; i<CSTAT_COUNT; i++) {
-		if (isWithin(cstat[i].hover, inpt->mouse) && cstat[i].tip.num_lines > 0)
+		if (isWithin(cstat[i].hover, inpt->mouse) && cstat[i].tip.num_lines > 0 && cstat[i].visible)
 			return cstat[i].tip;
-	}
-
-	for (int i=0; i<CPROF_COUNT; i++) {
-		if (isWithin(cprof[i].hover, inpt->mouse) && cprof[i].tip.num_lines > 0)
-			return cprof[i].tip;
 	}
 
 	TooltipData tip;
@@ -585,31 +545,35 @@ bool MenuCharacter::checkUpgrade() {
 		// check mouse hotspots
 
 		// physical
-		if (stats->physical_character < 5 && mouse.x >= window_area.x+16 && mouse.x <= window_area.x+48 && mouse.y >= window_area.y+96 && mouse.y <= window_area.y+112) {
+		if (physical_up) {
 			stats->physical_character++;
 			stats->recalc(); // equipment applied by MenuManager
 			newPowerNotification = true; //TODO: Only show if a NEW power is unlocked...
+			physical_up = false;
 			return true;
 		}
 		// mental
-		else if (stats->mental_character < 5 && mouse.x >= window_area.x+16 && mouse.x <= window_area.x+48 && mouse.y >= window_area.y+160 && mouse.y <= window_area.y+176) {
+		else if (mental_up) {
 			stats->mental_character++;
 			stats->recalc(); // equipment applied by MenuManager
 			newPowerNotification = true;
+			mental_up = false;
 			return true;
 		}
 		// offense
-		else if (stats->offense_character < 5 && mouse.x >= window_area.x+16 && mouse.x <= window_area.x+48 && mouse.y >= window_area.y+224 && mouse.y <= window_area.y+240) {
+		else if (offense_up) {
 			stats->offense_character++;
 			stats->recalc(); // equipment applied by MenuManager
 			newPowerNotification = true;
+			offense_up = false;
 			return true;
 		}
 		// defense
-		else if (stats->defense_character < 5 && mouse.x >= window_area.x+16 && mouse.x <= window_area.x+48 && mouse.y >= window_area.y+288 && mouse.y <= window_area.y+304) {
+		else if (defense_up) {
 			stats->defense_character++;
 			stats->recalc(); // equipment applied by MenuManager
 			newPowerNotification = true;
+			defense_up = false;
 			return true;
 		}
 	}
@@ -619,8 +583,6 @@ bool MenuCharacter::checkUpgrade() {
 
 MenuCharacter::~MenuCharacter() {
 	SDL_FreeSurface(background);
-	SDL_FreeSurface(proficiency);
-	SDL_FreeSurface(upgrade);
 	delete closeButton;
 
 	delete labelCharacter;
@@ -628,4 +590,8 @@ MenuCharacter::~MenuCharacter() {
 		delete cstat[i].label;
 		delete cstat[i].value;
 	}
+	for (int i=0; i<4; i++) {
+		delete upgradeButton[i];
+	}
+	delete statList;
 }

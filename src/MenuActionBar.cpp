@@ -21,12 +21,14 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * Handles the config, display, and usage of the 0-9 hotkeys, mouse buttons, and menu calls
  */
 
+#include "FileParser.h"
 #include "Menu.h"
 #include "MenuActionBar.h"
 #include "PowerManager.h"
 #include "SharedResources.h"
 #include "Settings.h"
 #include "StatBlock.h"
+#include "UtilsParsing.h"
 #include "WidgetLabel.h"
 #include "WidgetTooltip.h"
 
@@ -46,6 +48,7 @@ MenuActionBar::MenuActionBar(PowerManager *_powers, StatBlock *_hero, SDL_Surfac
 	src.w = 32;
 	src.h = 32;
 	drag_prev_slot = -1;
+	default_M1 = -1;
 
 	clear();
 
@@ -58,32 +61,116 @@ MenuActionBar::MenuActionBar(PowerManager *_powers, StatBlock *_hero, SDL_Surfac
 }
 
 void MenuActionBar::update() {
-	// TEMP: set action bar positions
 
-	for (int i=0; i<12; i++) {
-		slots[i].w = slots[i].h = 32;
-		slots[i].y = window_area.y+3;
-		slots[i].x = window_area.x + i*32 + 32;
-	}
-	slots[10].x += 32;
-	slots[11].x += 32;
+	// Read data from config file
+	FileParser infile;
+	int counter = -1;
+	if (infile.open(mods->locate("menus/actionbar.txt"))) {
+	  while (infile.next()) {
+		infile.val = infile.val + ',';
 
-	// menu button positions
-	for (int i=0; i<4; i++) {
-		menus[i].w = menus[i].h = 32;
-		menus[i].y = window_area.y+3;
-		menus[i].x = window_area.x + 480 + i*32;
-	}
+		if (infile.key == "default_M1_power") {
+			default_M1 = window_area.x+eatFirstInt(infile.val, ',');
+		}else if (infile.key == "slot1") {
+			slots[0].x = window_area.x+eatFirstInt(infile.val, ',');
+			slots[0].y = window_area.y+eatFirstInt(infile.val, ',');
+			slots[0].w = eatFirstInt(infile.val, ',');
+			slots[0].h = eatFirstInt(infile.val, ',');
+		} else if (infile.key == "slot2") {
+			slots[1].x = window_area.x+eatFirstInt(infile.val, ',');
+			slots[1].y = window_area.y+eatFirstInt(infile.val, ',');
+			slots[1].w = eatFirstInt(infile.val, ',');
+			slots[1].h = eatFirstInt(infile.val, ',');
+		} else if (infile.key == "slot3") {
+			slots[2].x = window_area.x+eatFirstInt(infile.val, ',');
+			slots[2].y = window_area.y+eatFirstInt(infile.val, ',');
+			slots[2].w = eatFirstInt(infile.val, ',');
+			slots[2].h = eatFirstInt(infile.val, ',');
+		} else if (infile.key == "slot4") {
+			slots[3].x = window_area.x+eatFirstInt(infile.val, ',');
+			slots[3].y = window_area.y+eatFirstInt(infile.val, ',');
+			slots[3].w = eatFirstInt(infile.val, ',');
+			slots[3].h = eatFirstInt(infile.val, ',');
+		} else if (infile.key == "slot5") {
+			slots[4].x = window_area.x+eatFirstInt(infile.val, ',');
+			slots[4].y = window_area.y+eatFirstInt(infile.val, ',');
+			slots[4].w = eatFirstInt(infile.val, ',');
+			slots[4].h = eatFirstInt(infile.val, ',');
+		} else if (infile.key == "slot6") {
+			slots[5].x = window_area.x+eatFirstInt(infile.val, ',');
+			slots[5].y = window_area.y+eatFirstInt(infile.val, ',');
+			slots[5].w = eatFirstInt(infile.val, ',');
+			slots[5].h = eatFirstInt(infile.val, ',');
+		} else if (infile.key == "slot7") {
+			slots[6].x = window_area.x+eatFirstInt(infile.val, ',');
+			slots[6].y = window_area.y+eatFirstInt(infile.val, ',');
+			slots[6].w = eatFirstInt(infile.val, ',');
+			slots[6].h = eatFirstInt(infile.val, ',');
+		} else if (infile.key == "slot8") {
+			slots[7].x = window_area.x+eatFirstInt(infile.val, ',');
+			slots[7].y = window_area.y+eatFirstInt(infile.val, ',');
+			slots[7].w = eatFirstInt(infile.val, ',');
+			slots[7].h = eatFirstInt(infile.val, ',');
+		} else if (infile.key == "slot9") {
+			slots[8].x = window_area.x+eatFirstInt(infile.val, ',');
+			slots[8].y = window_area.y+eatFirstInt(infile.val, ',');
+			slots[8].w = eatFirstInt(infile.val, ',');
+			slots[8].h = eatFirstInt(infile.val, ',');
+		} else if (infile.key == "slot10") {
+			slots[9].x = window_area.x+eatFirstInt(infile.val, ',');
+			slots[9].y = window_area.y+eatFirstInt(infile.val, ',');
+			slots[9].w = eatFirstInt(infile.val, ',');
+			slots[9].h = eatFirstInt(infile.val, ',');
+		} else if (infile.key == "slot_M1") {
+			slots[10].x = window_area.x+eatFirstInt(infile.val, ',');
+			slots[10].y = window_area.y+eatFirstInt(infile.val, ',');
+			slots[10].w = eatFirstInt(infile.val, ',');
+			slots[10].h = eatFirstInt(infile.val, ',');
+		} else if (infile.key == "slot_M2") {
+			slots[11].x = window_area.x+eatFirstInt(infile.val, ',');
+			slots[11].y = window_area.y+eatFirstInt(infile.val, ',');
+			slots[11].w = eatFirstInt(infile.val, ',');
+			slots[11].h = eatFirstInt(infile.val, ',');
+		} else if (infile.key == "char_menu") {
+			menus[0].x = window_area.x+eatFirstInt(infile.val, ',');
+			menus[0].y = window_area.y+eatFirstInt(infile.val, ',');
+			menus[0].w = eatFirstInt(infile.val, ',');
+			menus[0].h = eatFirstInt(infile.val, ',');
+		} else if (infile.key == "inv_menu") {
+			menus[1].x = window_area.x+eatFirstInt(infile.val, ',');
+			menus[1].y = window_area.y+eatFirstInt(infile.val, ',');
+			menus[1].w = eatFirstInt(infile.val, ',');
+			menus[1].h = eatFirstInt(infile.val, ',');
+		} else if (infile.key == "powers_menu") {
+			menus[2].x = window_area.x+eatFirstInt(infile.val, ',');
+			menus[2].y = window_area.y+eatFirstInt(infile.val, ',');
+			menus[2].w = eatFirstInt(infile.val, ',');
+			menus[2].h = eatFirstInt(infile.val, ',');
+		} else if (infile.key == "log_menu") {
+			menus[3].x = window_area.x+eatFirstInt(infile.val, ',');
+			menus[3].y = window_area.y+eatFirstInt(infile.val, ',');
+			menus[3].w = eatFirstInt(infile.val, ',');
+			menus[3].h = eatFirstInt(infile.val, ',');
+		} else if (infile.key == "numberArea") {
+			numberArea.x = window_area.x+eatFirstInt(infile.val, ',');
+			numberArea.w = eatFirstInt(infile.val, ',');
+			numberArea.h = eatFirstInt(infile.val, ',');
+		} else if (infile.key == "mouseArea") {
+			mouseArea.x = window_area.x+eatFirstInt(infile.val, ',');
+			mouseArea.w = eatFirstInt(infile.val, ',');
+			mouseArea.h = eatFirstInt(infile.val, ',');
+		} else if (infile.key == "menuArea") {
+			menuArea.x = window_area.x+eatFirstInt(infile.val, ',');
+			menuArea.w = eatFirstInt(infile.val, ',');
+			menuArea.h = eatFirstInt(infile.val, ',');
+		}
+
+	  }
+	} else fprintf(stderr, "Unable to open actionbar.txt!\n");
+	infile.close();
 
 	// screen areas occupied by the three main sections
-	numberArea.h = mouseArea.h = menuArea.h = 32;
 	numberArea.y = mouseArea.y = menuArea.y = window_area.y;
-	numberArea.x = window_area.x+32;
-	numberArea.w = 320;
-	mouseArea.x = window_area.x+384;
-	mouseArea.w = 64;
-	menuArea.x = window_area.x+480;
-	menuArea.w = 128;
 
 	// set keybinding labels
 	for (unsigned int i=0; i<10; i++) {
@@ -121,6 +208,8 @@ void MenuActionBar::clear() {
 
 	// default: LMB set to basic melee attack
 	hotkeys[10] = 1;
+	// redefine from config file
+	if (default_M1 != -1) hotkeys[10] = default_M1;
 }
 
 void MenuActionBar::loadGraphics() {
@@ -129,7 +218,7 @@ void MenuActionBar::loadGraphics() {
 	background = IMG_Load(mods->locate("images/menus/actionbar_trim.png").c_str());
 	disabled = IMG_Load(mods->locate("images/menus/disabled.png").c_str());
 	attention = IMG_Load(mods->locate("images/menus/attention_glow.png").c_str());
-	if(!emptyslot || !background || !disabled) {
+	if(!emptyslot || !background || !disabled || !attention) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 		SDL_Quit();
 	}
@@ -448,6 +537,7 @@ MenuActionBar::~MenuActionBar() {
 	SDL_FreeSurface(emptyslot);
 	SDL_FreeSurface(background);
 	SDL_FreeSurface(disabled);
+	SDL_FreeSurface(attention);
 
 	for (unsigned int i=0; i<16; i++) {
 		delete labels[i];

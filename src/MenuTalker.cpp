@@ -59,6 +59,7 @@ MenuTalker::MenuTalker(CampaignManager *_camp) {
 
 void MenuTalker::loadGraphics() {
 
+	SDL_FreeSurface(background);
 	background = IMG_Load(mods->locate("images/menus/dialog_box.png").c_str());
 	if(!background) {
 		fprintf(stderr, "Couldn't load image dialog_box.png: %s\n", IMG_GetError());
@@ -69,7 +70,6 @@ void MenuTalker::loadGraphics() {
 	SDL_Surface *cleanup = background;
 	background = SDL_DisplayFormatAlpha(background);
 	SDL_FreeSurface(cleanup);
-
 }
 
 void MenuTalker::chooseDialogNode() {
@@ -234,6 +234,7 @@ void MenuTalker::render() {
 void MenuTalker::setHero(const string& name, const string& portrait_filename) {
 	hero_name = name;
 
+	SDL_FreeSurface(portrait);
 	portrait = IMG_Load(mods->locate("images/portraits/" + portrait_filename + ".png").c_str());
 	if(!portrait) {
 		fprintf(stderr, "Couldn't load portrait: %s\n", IMG_GetError());

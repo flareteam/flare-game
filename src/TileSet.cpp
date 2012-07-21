@@ -130,9 +130,6 @@ void TileSet::load(const std::string& filename) {
 				if (TILE_ID >= anim.size())
 					anim.resize(TILE_ID + 1);
 
-				anim[TILE_ID].current_frame = 0;
-				anim[TILE_ID].duration = 0;
-
 				anim[TILE_ID].pos.resize(1);
 				anim[TILE_ID].frame_duration.resize(1);
 
@@ -163,16 +160,20 @@ void TileSet::load(const std::string& filename) {
 }
 
 void TileSet::logic() {
-	for (unsigned i = 0; i < anim.size() ; i++) {
-		if ((anim[i].frames > 1) && anim[i].duration == anim[i].frame_duration[anim[i].current_frame-1]) {
-			tiles[i].src.x = anim[i].pos[anim[i].current_frame-1].x;
-			tiles[i].src.y = anim[i].pos[anim[i].current_frame-1].y;
-			anim[i].duration = 0;
-			if (anim[i].current_frame == anim[i].frames) {
-				anim[i].current_frame = 1;
-			} else anim[i].current_frame++;
-		} else if (anim[i].frames > 1) anim[i].duration++;
+
+	if (ANIMATED_TILES) {
+		for (unsigned i = 0; i < anim.size() ; i++) {
+			if ((anim[i].frames > 1) && anim[i].duration == anim[i].frame_duration[anim[i].current_frame-1]) {
+				tiles[i].src.x = anim[i].pos[anim[i].current_frame-1].x;
+				tiles[i].src.y = anim[i].pos[anim[i].current_frame-1].y;
+				anim[i].duration = 0;
+				if (anim[i].current_frame == anim[i].frames) {
+					anim[i].current_frame = 1;
+				} else anim[i].current_frame++;
+			} else if (anim[i].frames > 1) anim[i].duration++;
+		}
 	}
+
 }
 
 TileSet::~TileSet() {

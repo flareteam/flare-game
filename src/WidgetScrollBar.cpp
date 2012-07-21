@@ -38,6 +38,11 @@ WidgetScrollBar::WidgetScrollBar(const std::string& _fileName)
 	pos_up.h = pos_down.h = pos_knob.h = (scrollbars->h / 5); //height of one button
 
 	render_to_alpha = false;
+	pressed_up = false;
+	pressed_down = false;
+	pressed_knob = false;
+
+
 }
 
 void WidgetScrollBar::loadArt() {

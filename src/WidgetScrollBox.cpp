@@ -95,15 +95,17 @@ void WidgetScrollBox::resize(int h) {
 }
 
 void WidgetScrollBox::refresh() {
-	int h = pos.h;
-	if (contents != NULL) {
-		h = contents->h;
-		SDL_FreeSurface(contents);
-	}
+	if (update) {
+		int h = pos.h;
+		if (contents != NULL) {
+			h = contents->h;
+			SDL_FreeSurface(contents);
+		}
 
-	contents = createAlphaSurface(pos.w,h);
-	SDL_FillRect(contents,NULL,bg_color);
-	SDL_SetAlpha(contents, 0, 0);
+		contents = createAlphaSurface(pos.w,h);
+		SDL_FillRect(contents,NULL,bg_color);
+		SDL_SetAlpha(contents, 0, 0);
+	}
 
 	scrollbar->refresh(pos.x+pos.w, pos.y, pos.h-scrollbar->pos_down.h, cursor, contents->h-pos.h-scrollbar->pos_knob.h);
 }

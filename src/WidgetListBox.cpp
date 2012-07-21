@@ -211,6 +211,18 @@ void WidgetListBox::remove(int index) {
 }
 
 /*
+ * Clear the list
+ */
+void WidgetListBox::clear() {
+	for (int i=0; i<list_amount; i++) {
+		selected[i] = false;
+		values[i] = "";
+		tooltips[i] = "";
+	}
+	refresh();
+}
+
+/*
  * Move an item up on the list
  */
 void WidgetListBox::shiftUp() {
@@ -389,7 +401,7 @@ void WidgetListBox::refresh() {
 		int font_y = rows[i].y + (rows[i].h/2);
 
 		if (i<list_amount) {
-			if (values[i+cursor].length() > 22) {
+			if (values[i+cursor].length() > (float)pos.w/6.5) {
 				temp = values[i+cursor].substr(0,19);
 				temp.append("...");
 			} else {

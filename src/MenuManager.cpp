@@ -217,6 +217,13 @@ void MenuManager::logic() {
 	pow->logic();
 	log->logic();
 	talker->logic();
+	if (chr->checkUpgrade() || stats->level_up) {
+		// apply equipment and max hp/mp
+		inv->applyEquipment(inv->inventory[EQUIPMENT].storage);
+		stats->hp = stats->maxhp;
+		stats->mp = stats->maxmp;
+		stats->level_up = false;
+	}
 
 	// only allow the vendor window to be open if the inventory is open
 	if (vendor->visible && !(inv->visible)) {
@@ -251,7 +258,7 @@ void MenuManager::logic() {
 	}
 
 	// inventory menu toggle
-	if (((inpt->pressing[INVENTORY] && !key_lock && !dragging) || clicking_inventory) && stats->transform_duration < 1) {
+	if ((inpt->pressing[INVENTORY] && !key_lock && !dragging) || clicking_inventory) {
 		key_lock = true;
 		if (inv->visible) {
 			closeRight(true);
@@ -267,7 +274,7 @@ void MenuManager::logic() {
 	}
 
 	// powers menu toggle
-	if (((inpt->pressing[POWERS] && !key_lock && !dragging) || clicking_powers) && !stats->transformed) {
+	if (((inpt->pressing[POWERS] && !key_lock && !dragging) || clicking_powers) && stats->humanoid) {
 		key_lock = true;
 		if (pow->visible) {
 			closeRight(true);
@@ -282,7 +289,7 @@ void MenuManager::logic() {
 	}
 
 	// character menu toggleggle
-	if (((inpt->pressing[CHARACTER] && !key_lock && !dragging) || clicking_character) && !stats->transformed) {
+	if (((inpt->pressing[CHARACTER] && !key_lock && !dragging) || clicking_character) && stats->humanoid) {
 		key_lock = true;
 		if (chr->visible) {
 			closeLeft(true);
@@ -297,7 +304,7 @@ void MenuManager::logic() {
 	}
 
 	// log menu toggle
-	if (((inpt->pressing[LOG] && !key_lock && !dragging) || clicking_log) && !stats->transformed) {
+	if ((inpt->pressing[LOG] && !key_lock && !dragging) || clicking_log) {
 		key_lock = true;
 		if (log->visible) {
 			closeLeft(true);
@@ -341,17 +348,6 @@ void MenuManager::logic() {
                 inpt->lock[MAIN1] = true;
             }
 
-            if (chr->visible && isWithin(chr->window_area,inpt->mouse)) {
-                inpt->lock[MAIN1] = true;
-
-                // applied a level-up
-                if (chr->checkUpgrade()) {
-                    // apply equipment and max hp/mp
-                    inv->applyEquipment(inv->inventory[EQUIPMENT].storage);
-                    stats->hp = stats->maxhp;
-                    stats->mp = stats->maxmp;
-                }
-            }
             if (vendor->visible && isWithin(vendor->window_area,inpt->mouse)) {
                 inpt->lock[MAIN1] = true;
                 if (inpt->pressing[CTRL]) {
@@ -679,9 +675,9 @@ MenuManager::~MenuManager() {
 	delete talker;
 	delete exit;
 	delete enemy;
+	delete effects;
 
-	if (sfx_open != NULL)
-		Mix_FreeChunk(sfx_open);
-	if (sfx_close != NULL)
-		Mix_FreeChunk(sfx_close);
+	Mix_FreeChunk(sfx_open);
+	Mix_FreeChunk(sfx_close);
+	SDL_FreeSurface(icons);
 }

@@ -66,6 +66,7 @@ void Avatar::init() {
 	lockShoot = false;
 
 	stats.hero = true;
+	stats.humanoid = true;
 	stats.level = 1;
 	stats.xp = 0;
 	stats.physical_character = 1;
@@ -103,6 +104,12 @@ void Avatar::init() {
 	for (int i=0; i<4; i++) {
 		sound_steps[i] = NULL;
 	}
+
+	sound_melee = NULL;
+	sound_hit = NULL;
+	sound_die = NULL;
+	sound_block = NULL;
+	level_up = NULL;
 }
 
 void Avatar::loadGraphics(const string& _img_main, string _img_armor, const string& _img_off) {
@@ -171,7 +178,13 @@ void Avatar::loadGraphics(const string& _img_main, string _img_armor, const stri
 }
 
 void Avatar::loadSounds() {
-	if (audio == true) {
+	if (audio) {
+		Mix_FreeChunk(sound_melee);
+		Mix_FreeChunk(sound_hit);
+		Mix_FreeChunk(sound_die);
+		Mix_FreeChunk(sound_block);
+		Mix_FreeChunk(level_up);
+
 		sound_melee = Mix_LoadWAV(mods->locate("soundfx/melee_attack.ogg").c_str());
 		sound_hit = Mix_LoadWAV(mods->locate("soundfx/" + stats.base + "_hit.ogg").c_str());
 		sound_die = Mix_LoadWAV(mods->locate("soundfx/" + stats.base + "_die.ogg").c_str());
@@ -181,12 +194,6 @@ void Avatar::loadSounds() {
 		if (!sound_melee || !sound_hit || !sound_die || !level_up) {
 			printf("Mix_LoadWAV: %s\n", Mix_GetError());
 		}
-	} else {
-		sound_melee = NULL;
-		sound_hit = NULL;
-		sound_die = NULL;
-		sound_block = NULL;
-		level_up = NULL;
 	}
 }
 
@@ -385,6 +392,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 	// check level up
 	int max_spendable_stat_points = 16;
 	if (stats.xp >= stats.xp_table[stats.level] && stats.level < MAX_CHARACTER_LEVEL) {
+		stats.level_up = true;
 		stats.level++;
 		stringstream ss;
 		ss << msg->get("Congratulations, you have reached level %d!", stats.level);
@@ -563,6 +571,10 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 			break;
 
 		case AVATAR_DEAD:
+			if (stats.transformed) {
+				stats.transform_duration = 0;
+				untransform();
+			}
 
 			setAnimation("die");
 
@@ -774,6 +786,7 @@ void Avatar::transform() {
 	stats.speed = charmed_stats->speed;
 	stats.dspeed = charmed_stats->dspeed;
 	stats.flying = charmed_stats->flying;
+	stats.humanoid = charmed_stats->humanoid;
 	stats.animations = charmed_stats->animations;
 	stats.animationSpeed = charmed_stats->animationSpeed;
 	loadAnimations("animations/" + charmed_stats->animations + ".txt");
@@ -825,6 +838,8 @@ void Avatar::transform() {
 }
 
 void Avatar::untransform() {
+	// Only allow untransform when on a valid tile
+	if (!map->collider.valid_position(stats.pos.x,stats.pos.y,MOVEMENT_NORMAL)) return;
 
 	stats.transformed = false;
 	transform_triggered = false;
@@ -836,10 +851,15 @@ void Avatar::untransform() {
 	stats.speed = hero_stats->speed;
 	stats.dspeed = hero_stats->dspeed;
 	stats.flying = hero_stats->flying;
+	stats.humanoid = hero_stats->humanoid;
 	stats.animations = hero_stats->animations;
 	stats.animationSpeed = hero_stats->animationSpeed;
 	loadAnimations("animations/hero.txt");
 	stats.cur_state = AVATAR_STANCE;
+
+	// This is a bit of a hack.
+	// In order to switch to the stance animation, we can't already be in a stance animation
+	setAnimation("run");
 
 	stats.dmg_melee_min = hero_stats->dmg_melee_min;
 	stats.dmg_melee_max = hero_stats->dmg_melee_max;
@@ -881,24 +901,15 @@ Avatar::~Avatar() {
 	SDL_FreeSurface(sprites);
 	if (transformed_sprites) SDL_FreeSurface(transformed_sprites);
 
-	if (sound_melee)
-		Mix_FreeChunk(sound_melee);
-	if (sound_hit)
-		Mix_FreeChunk(sound_hit);
-	if (sound_die)
-		Mix_FreeChunk(sound_die);
-	if (sound_block)
-		Mix_FreeChunk(sound_block);
-	if (sound_steps[0])
-		Mix_FreeChunk(sound_steps[0]);
-	if (sound_steps[1])
-		Mix_FreeChunk(sound_steps[1]);
-	if (sound_steps[2])
-		Mix_FreeChunk(sound_steps[2]);
-	if (sound_steps[3])
-		Mix_FreeChunk(sound_steps[3]);
-	if (level_up)
-		Mix_FreeChunk(level_up);
+	Mix_FreeChunk(sound_melee);
+	Mix_FreeChunk(sound_hit);
+	Mix_FreeChunk(sound_die);
+	Mix_FreeChunk(sound_block);
+	Mix_FreeChunk(sound_steps[0]);
+	Mix_FreeChunk(sound_steps[1]);
+	Mix_FreeChunk(sound_steps[2]);
+	Mix_FreeChunk(sound_steps[3]);
+	Mix_FreeChunk(level_up);
 
 	delete haz;
 }
