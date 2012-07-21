@@ -33,6 +33,7 @@ public:
 	GameState* getRequestedGameState();
 	bool isExitRequested() { return exitRequested; };
 	bool hasMusic;
+	bool reload_music;
 
 protected:
 
