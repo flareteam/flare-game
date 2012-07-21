@@ -64,7 +64,7 @@ private:
 
 	SDL_Surface *background;
 	SDL_Surface *icons;
-	std::vector<SDL_Surface*> powers_tree;
+	std::vector<SDL_Surface*> tree_surf;
 	SDL_Surface *powers_unlock;
 	SDL_Surface *overlay_disabled;
 	WidgetButton *closeButton;
@@ -73,8 +73,8 @@ private:
 	Point unspent_pos;
 	int points_left;
 	int tabs_count;
-	std::vector<std::string> tab;
-	std::vector<std::string> power_tree;
+	std::vector<std::string> tab_titles;
+	std::vector<std::string> tree_image_files;
 
 	WidgetLabel label_powers;
 	WidgetLabel stat_up;

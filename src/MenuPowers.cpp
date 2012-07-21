@@ -83,9 +83,9 @@ MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_i
 		infile.val = infile.val + ',';
 
 		if (infile.key == "tab_title") {
-			tab.push_back(eatFirstString(infile.val, ','));
+			tab_titles.push_back(eatFirstString(infile.val, ','));
 		} else if (infile.key == "tab_tree") {
-			power_tree.push_back(eatFirstString(infile.val, ','));
+			tree_image_files.push_back(eatFirstString(infile.val, ','));
 		} else if (infile.key == "id") {
 			counter++;
 			power_cell[counter].id = eatFirstInt(infile.val, ',');
@@ -134,10 +134,10 @@ MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_i
 	loadGraphics();
 
 	// check for errors in config file
-	if((tabs_count == 1) && (power_tree.size() > 0 || tab.size() > 0)) {
+	if((tabs_count == 1) && (tree_image_files.size() > 0 || tab_titles.size() > 0)) {
 		fprintf(stderr, "menu/powers.txt error: you don't have tabs, but tab_tree_image and tab_title counts are not 0\n");
 		SDL_Quit();
-	} else if((tabs_count > 1) && (power_tree.size() != (unsigned)tabs_count || tab.size() != (unsigned)tabs_count)) {
+	} else if((tabs_count > 1) && (tree_image_files.size() != (unsigned)tabs_count || tab_titles.size() != (unsigned)tabs_count)) {
 		fprintf(stderr, "menu/powers.txt error: tabs count, tab_tree_image and tab_name counts do not match\n");
 		SDL_Quit();
 	}
@@ -169,7 +169,7 @@ void MenuPowers::update() {
 
 		// Define the header.
 		for (int i=0; i<tabs_count; i++)
-			tabControl->setTabTitle(i, tab[i]);
+			tabControl->setTabTitle(i, tab_titles[i]);
 		tabControl->updateHeader();
 	}
 }
@@ -178,17 +178,17 @@ void MenuPowers::loadGraphics() {
 
 	background = IMG_Load(mods->locate("images/menus/powers.png").c_str());
 
-	if (power_tree.size() < 1) {
-		powers_tree.push_back(IMG_Load(mods->locate("images/menus/powers_tree.png").c_str()));
+	if (tree_image_files.size() < 1) {
+		tree_surf.push_back(IMG_Load(mods->locate("images/menus/powers_tree.png").c_str()));
 	} else {
-		for (unsigned int i=0; i<power_tree.size(); i++) powers_tree.push_back(IMG_Load(mods->locate("images/menus/" + power_tree[i]).c_str()));
+		for (unsigned int i=0; i<tree_image_files.size(); i++) tree_surf.push_back(IMG_Load(mods->locate("images/menus/" + tree_image_files[i]).c_str()));
 	}
 
 	powers_unlock = IMG_Load(mods->locate("images/menus/powers_unlock.png").c_str());
 	overlay_disabled = IMG_Load(mods->locate("images/menus/disabled.png").c_str());
 	
-	for (unsigned int i=0; i<power_tree.size(); i++) {
-		if(!background || !powers_tree[i] || !powers_unlock || !overlay_disabled) {
+	for (unsigned int i=0; i<tree_image_files.size(); i++) {
+		if(!background || !tree_surf[i] || !powers_unlock || !overlay_disabled) {
 			fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 			SDL_Quit();
 		}
@@ -199,9 +199,9 @@ void MenuPowers::loadGraphics() {
 	background = SDL_DisplayFormatAlpha(background);
 	SDL_FreeSurface(cleanup);
 
-	for (unsigned int i=0; i<power_tree.size(); i++) {
-		cleanup = powers_tree[i];
-		powers_tree[i] = SDL_DisplayFormatAlpha(powers_tree[i]);
+	for (unsigned int i=0; i<tree_image_files.size(); i++) {
+		cleanup = tree_surf[i];
+		tree_surf[i] = SDL_DisplayFormatAlpha(tree_surf[i]);
 		SDL_FreeSurface(cleanup);
 	}
 
@@ -379,13 +379,13 @@ void MenuPowers::render() {
 		for (int i=0; i<tabs_count; i++) {
 			if (active_tab == i) {
 				// power tree
-				SDL_BlitSurface(powers_tree[i], &src, screen, &dest);
+				SDL_BlitSurface(tree_surf[i], &src, screen, &dest);
 				// power icons
 				renderPowers(active_tab);
 			}
 		}
 	} else {
-		SDL_BlitSurface(powers_tree[0], &src, screen, &dest);
+		SDL_BlitSurface(tree_surf[0], &src, screen, &dest);
 		renderPowers(0);
 	}
 
@@ -556,7 +556,7 @@ TooltipData MenuPowers::checkTooltip(Point mouse) {
 
 MenuPowers::~MenuPowers() {
 	SDL_FreeSurface(background);
-	for (unsigned int i=0; i<power_tree.size(); i++) SDL_FreeSurface(powers_tree[i]);
+	for (unsigned int i=0; i<tree_image_files.size(); i++) SDL_FreeSurface(tree_surf[i]);
 	SDL_FreeSurface(powers_unlock);
 	SDL_FreeSurface(overlay_disabled);
 	
