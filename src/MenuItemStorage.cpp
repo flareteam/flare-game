@@ -34,7 +34,7 @@ void MenuItemStorage::init(int _slot_number, ItemManager *_items, SDL_Rect _area
 void MenuItemStorage::render() {
 	for (int i=0; i<slot_number; i++) {
 		if (storage[i].item > 0) {
-			items->renderIcon(storage[i], area.x + (i % nb_cols * icon_size), area.y + (i / nb_cols * icon_size), icon_size);
+			items->renderIcon(storage[i], area.x + ((i+nb_cols) % nb_cols * icon_size), area.y + (int(i / nb_cols) * icon_size), icon_size);
 		}	
 	}
 }

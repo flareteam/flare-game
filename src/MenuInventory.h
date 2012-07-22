@@ -39,7 +39,6 @@ const int EQUIPMENT = 0;
 const int CARRIED = 1;
 
 const int MAX_EQUIPPED = 4;
-const int MAX_CARRIED = 64;
 
 enum InventorySlotsType {
 	SLOT_MAIN = 0,
@@ -61,7 +60,21 @@ private:
 
 	SDL_Surface *background;
 	WidgetButton *closeButton;
-	
+
+	int MAX_CARRIED;
+
+	// label and widget positions
+	Point close_pos;
+	Point title_pos;
+	Point main_lbl_pos;
+	Point body_lbl_pos;
+	Point off_lbl_pos;
+	Point artifact_lbl_pos;
+	Point gold_pos;
+	SDL_Rect help_pos;
+	int carried_cols;
+	int carried_rows;
+
 public:
 	MenuInventory(ItemManager *items, StatBlock *stats, PowerManager *powers);
 	~MenuInventory();
