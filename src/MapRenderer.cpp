@@ -64,8 +64,9 @@ void MapRenderer::clearEvents() {
 void MapRenderer::playSFX(string filename) {
 	// only load from file if the requested soundfx isn't already loaded
 	if (filename != sfx_filename) {
-		if (sfx) Mix_FreeChunk(sfx);
-		if (audio == true) {
+		Mix_FreeChunk(sfx);
+		sfx = NULL;
+		if (audio) {
 			sfx = Mix_LoadWAV((mods->locate(filename)).c_str());
 			sfx_filename = filename;
 		}
@@ -1210,7 +1211,7 @@ MapRenderer::~MapRenderer() {
 		Mix_HaltMusic();
 		Mix_FreeMusic(music);
 	}
-	if (sfx) Mix_FreeChunk(sfx);
+	Mix_FreeChunk(sfx);
 
 	SDL_FreeSurface(backgroundsurface);
 	tip_buf.clear();

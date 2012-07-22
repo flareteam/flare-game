@@ -488,8 +488,7 @@ ItemManager::~ItemManager() {
 
 	if (audio) {
 		for (int i=0; i<12; i++) {
-			if (sfx[i])
-				Mix_FreeChunk(sfx[i]);
+			Mix_FreeChunk(sfx[i]);
 		}
 	}
 }
