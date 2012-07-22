@@ -67,18 +67,20 @@ void WidgetScrollBox::logic() {
 void WidgetScrollBox::logic(int x, int y) {
 	Point mouse = {x,y};
 	// check ScrollBar clicks
-	switch (scrollbar->checkClick(mouse.x,mouse.y)) {
-		case 1:
-			scroll(-20);
-			break;
-		case 2:
-			scroll(20);
-			break;
-		case 3:
-			cursor = scrollbar->getValue();
-			break;
-		default:
-			break;
+	if (contents->h > pos.h) {
+		switch (scrollbar->checkClick(mouse.x,mouse.y)) {
+			case 1:
+				scroll(-20);
+				break;
+			case 2:
+				scroll(20);
+				break;
+			case 3:
+				cursor = scrollbar->getValue();
+				break;
+			default:
+				break;
+		}
 	}
 }
 
@@ -126,7 +128,7 @@ void WidgetScrollBox::render(SDL_Surface *target) {
 		SDL_gfxBlitRGBA(contents, &src, target, &dest);
 	else
 		SDL_BlitSurface(contents, &src, target, &dest);
-	scrollbar->render(target);
+	if (contents->h > pos.h) scrollbar->render(target);
 	update = false;
 }
 
