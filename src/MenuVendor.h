@@ -34,8 +34,6 @@ class NPC;
 class StatBlock;
 class WidgetButton;
 
-const int VENDOR_SLOTS = 80;
-
 class MenuVendor : public Menu {
 private:
 	ItemManager *items;
@@ -45,6 +43,15 @@ private:
 	void loadGraphics();
 	SDL_Surface *background;
 	MenuItemStorage stock; // items the vendor currently has in stock
+
+	int VENDOR_SLOTS;
+
+	// label and widget positions
+	Point close_pos;
+	Point title_pos;
+	Point name_pos;
+	int slots_cols;
+	int slots_rows;
 
 public:
 	MenuVendor(ItemManager *items, StatBlock *stats);
