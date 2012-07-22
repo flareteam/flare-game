@@ -28,6 +28,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <string>
 #include <vector>
 
+#include "Utils.h"
+
 class WidgetButton;
 class WidgetScrollBox;
 class WidgetTabControl;
@@ -54,6 +56,11 @@ private:
 	std::string tab_labels[LOG_TYPE_COUNT];
 	SDL_Rect tab_rect[LOG_TYPE_COUNT];
 	int paragraph_spacing;
+
+	Point title_pos;
+	Point close_pos;
+	SDL_Rect tabs_pos;
+	int tab_content_y;
 	
 public:
 	MenuLog();

@@ -19,10 +19,12 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * class MenuLog
  */
 
+#include "FileParser.h"
 #include "Menu.h"
 #include "MenuLog.h"
 #include "ModManager.h"
 #include "Settings.h"
+#include "UtilsParsing.h"
 #include "WidgetButton.h"
 #include "WidgetScrollBox.h"
 #include "WidgetTabControl.h"
@@ -34,10 +36,33 @@ MenuLog::MenuLog() {
 
 	visible = false;
 
+	// Load config settings
+	FileParser infile;
+	if(infile.open(mods->locate("menus/log.txt"))) {
+		while(infile.next()) {
+			infile.val = infile.val + ',';
+
+			if(infile.key == "title") {
+				title_pos.x = eatFirstInt(infile.val,',');
+				title_pos.y = eatFirstInt(infile.val,',');
+			} else if(infile.key == "close") {
+				close_pos.x = eatFirstInt(infile.val,',');
+				close_pos.y = eatFirstInt(infile.val,',');
+			} else if(infile.key == "tabs") {
+				tabs_pos.x = eatFirstInt(infile.val,',');
+				tabs_pos.y = eatFirstInt(infile.val,',');
+				tabs_pos.w = eatFirstInt(infile.val,',');
+				tabs_pos.h = eatFirstInt(infile.val,',');
+			} else if(infile.key == "tab_content_offset") {
+				tab_content_y = eatFirstInt(infile.val,',');
+			}
+		}
+	}
+
 	// Store the amount of displayed log messages on each log, and the maximum.
 	for (int i=0; i<LOG_TYPE_COUNT; i++) {
 		log_count[i] = 0;
-		msg_buffer[i] = new WidgetScrollBox(241,336);
+		msg_buffer[i] = new WidgetScrollBox(tabs_pos.w,tabs_pos.h);
 	}
 
 	// Initialize the tab control.
@@ -72,14 +97,14 @@ void MenuLog::loadGraphics() {
 }
 
 void MenuLog::update() {
-	tabControl->setMainArea(window_area.x + 32, window_area.y + 30, 240, 348);
+	tabControl->setMainArea(window_area.x + tabs_pos.x, window_area.y + tabs_pos.y, tabs_pos.w, tabs_pos.h);
 	tabControl->updateHeader();
-	closeButton->pos.x = window_area.x + 294;
-	closeButton->pos.y = window_area.y + 2;
+	closeButton->pos.x = window_area.x + close_pos.x;
+	closeButton->pos.y = window_area.y + close_pos.y;
 
 	for (int i=0; i<LOG_TYPE_COUNT; i++) {
-		msg_buffer[i]->pos.x = window_area.x+32;
-		msg_buffer[i]->pos.y = window_area.y+48;
+		msg_buffer[i]->pos.x = window_area.x+tabs_pos.x;
+		msg_buffer[i]->pos.y = window_area.y+tabs_pos.y+tab_content_y;
 	}
 }
 
@@ -130,7 +155,7 @@ void MenuLog::render() {
 
 	// Text overlay.
 	WidgetLabel label;
-	label.set(window_area.x+160, window_area.y+8, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Log"), FONT_WHITE);
+	label.set(window_area.x+title_pos.x, window_area.y+title_pos.y, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Log"), FONT_WHITE);
 	label.render();
 
 	// Tab control.
