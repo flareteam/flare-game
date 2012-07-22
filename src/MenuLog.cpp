@@ -19,10 +19,12 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * class MenuLog
  */
 
+#include "FileParser.h"
 #include "Menu.h"
 #include "MenuLog.h"
 #include "ModManager.h"
 #include "Settings.h"
+#include "UtilsParsing.h"
 #include "WidgetButton.h"
 #include "WidgetTabControl.h"
 
@@ -54,6 +56,28 @@ MenuLog::MenuLog() {
 	loadGraphics();
 
 	closeButton = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
+
+	// Load config settings
+	FileParser infile;
+	if(infile.open(mods->locate("menus/log.txt"))) {
+		while(infile.next()) {
+			infile.val = infile.val + ',';
+
+			if(infile.key == "close") {
+				close_pos.x = eatFirstInt(infile.val,',');
+				close_pos.y = eatFirstInt(infile.val,',');
+			} else if(infile.key == "tab_area") {
+				tab_area.x = eatFirstInt(infile.val,',');
+				tab_area.y = eatFirstInt(infile.val,',');
+				tab_area.w = eatFirstInt(infile.val,',');
+				tab_area.h = eatFirstInt(infile.val,',');
+			} else if (infile.key == "title"){
+				title_pos.x =  eatFirstInt(infile.val,',');
+				title_pos.y =  eatFirstInt(infile.val,',');
+			}
+		}
+		infile.close();
+	} else fprintf(stderr, "Unable to open log.txt!\n");
 }
 
 void MenuLog::loadGraphics() {
@@ -73,10 +97,10 @@ void MenuLog::loadGraphics() {
 }
 
 void MenuLog::update() {
-	tabControl->setMainArea(window_area.x + 32, window_area.y + 30, 240, 348);
+	tabControl->setMainArea(window_area.x + tab_area.x, window_area.y + tab_area.y, tab_area.w, tab_area.h);
 	tabControl->updateHeader();
-	closeButton->pos.x = window_area.x + 294;
-	closeButton->pos.y = window_area.y + 2;
+	closeButton->pos.x = window_area.x + close_pos.x;
+	closeButton->pos.y = window_area.y + close_pos.y;
 }
 
 /**
@@ -121,7 +145,7 @@ void MenuLog::render() {
 
 	// Text overlay.
 	WidgetLabel label;
-	label.set(window_area.x+160, window_area.y+8, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Log"), FONT_WHITE);
+	label.set(window_area.x+title_pos.x, window_area.y+title_pos.y, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Log"), FONT_WHITE);
 	label.render();
 
 	// Tab control.

@@ -25,6 +25,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <SDL.h>
 #include <SDL_image.h>
 
+#include "Utils.h"
+
 #include <string>
 
 class WidgetButton;
@@ -52,6 +54,10 @@ private:
 	std::string tab_labels[LOG_TYPE_COUNT];
 	SDL_Rect tab_rect[LOG_TYPE_COUNT];
 	int paragraph_spacing;
+
+	Point close_pos;
+	Point title_pos;
+	SDL_Rect tab_area;
 	
 public:
 	MenuLog();
