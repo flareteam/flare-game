@@ -35,6 +35,7 @@ using namespace std;
 MenuLog::MenuLog() {
 
 	visible = false;
+	tab_content_indent = 4;
 
 	// Load config settings
 	FileParser infile;
@@ -164,7 +165,7 @@ void MenuLog::render() {
 	// Display latest log messages for the active tab.
 
 	int display_number = 0;
-	int total_size = 0;
+	int total_size = tab_content_indent;
 	int active_log = tabControl->getActiveTab();
 	SDL_Rect contentArea = tabControl->getContentArea();
 
@@ -172,7 +173,7 @@ void MenuLog::render() {
 		for (unsigned int i=log_msg[active_log].size(); i>0; i--) {
 			int widthLimit = tabControl->getContentArea().w;
 			Point size = font->calc_size(log_msg[active_log][i-1], widthLimit);
-			font->renderShadowed(log_msg[active_log][i-1], 0, total_size, JUSTIFY_LEFT, msg_buffer[active_log]->contents, widthLimit, FONT_WHITE);
+			font->renderShadowed(log_msg[active_log][i-1], tab_content_indent, total_size, JUSTIFY_LEFT, msg_buffer[active_log]->contents, widthLimit, FONT_WHITE);
 			total_size+=size.y+paragraph_spacing;
 		}
 	}
@@ -181,13 +182,14 @@ void MenuLog::render() {
 }
 
 void MenuLog::refresh(int log_type) {
-	int y = 0;
+	int y = tab_content_indent;
 
 	for (unsigned int i=0; i<log_msg[log_type].size(); i++) {
 		int widthLimit = tabControl->getContentArea().w;
 		Point size = font->calc_size(log_msg[log_type][i], widthLimit);
 		y+=size.y+paragraph_spacing;
 	}
+	y+=tab_content_indent;
 
 	msg_buffer[log_type]->resize(y);
 }

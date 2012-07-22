@@ -61,6 +61,7 @@ private:
 	Point close_pos;
 	SDL_Rect tabs_pos;
 	int tab_content_y;
+	int tab_content_indent;
 	
 public:
 	MenuLog();
