@@ -26,6 +26,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "Settings.h"
 #include "UtilsParsing.h"
 #include "WidgetButton.h"
+#include "WidgetScrollBox.h"
 #include "WidgetTabControl.h"
 
 using namespace std;
@@ -34,13 +35,35 @@ using namespace std;
 MenuLog::MenuLog() {
 
 	visible = false;
+	tab_content_indent = 4;
+
+	// Load config settings
+	FileParser infile;
+	if(infile.open(mods->locate("menus/log.txt"))) {
+		while(infile.next()) {
+			infile.val = infile.val + ',';
+
+			if(infile.key == "title") {
+				title_pos.x = eatFirstInt(infile.val,',');
+				title_pos.y = eatFirstInt(infile.val,',');
+			} else if(infile.key == "close") {
+				close_pos.x = eatFirstInt(infile.val,',');
+				close_pos.y = eatFirstInt(infile.val,',');
+			} else if(infile.key == "tab_area") {
+				tab_area.x = eatFirstInt(infile.val,',');
+				tab_area.y = eatFirstInt(infile.val,',');
+				tab_area.w = eatFirstInt(infile.val,',');
+				tab_area.h = eatFirstInt(infile.val,',');
+			} else if(infile.key == "tab_content_offset") {
+				tab_content_y = eatFirstInt(infile.val,',');
+			}
+		}
+	} else fprintf(stderr, "Unable to open log.txt!\n");
 
 	// Store the amount of displayed log messages on each log, and the maximum.
 	for (int i=0; i<LOG_TYPE_COUNT; i++) {
 		log_count[i] = 0;
-		for (int j=0; j<MAX_LOG_MESSAGES; j++) {
-			msg_buffer[i][j] = NULL;
-		}
+		msg_buffer[i] = new WidgetScrollBox(tab_area.w,tab_area.h);
 	}
 
 	// Initialize the tab control.
@@ -57,27 +80,6 @@ MenuLog::MenuLog() {
 
 	closeButton = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
 
-	// Load config settings
-	FileParser infile;
-	if(infile.open(mods->locate("menus/log.txt"))) {
-		while(infile.next()) {
-			infile.val = infile.val + ',';
-
-			if(infile.key == "close") {
-				close_pos.x = eatFirstInt(infile.val,',');
-				close_pos.y = eatFirstInt(infile.val,',');
-			} else if(infile.key == "tab_area") {
-				tab_area.x = eatFirstInt(infile.val,',');
-				tab_area.y = eatFirstInt(infile.val,',');
-				tab_area.w = eatFirstInt(infile.val,',');
-				tab_area.h = eatFirstInt(infile.val,',');
-			} else if (infile.key == "title"){
-				title_pos.x =  eatFirstInt(infile.val,',');
-				title_pos.y =  eatFirstInt(infile.val,',');
-			}
-		}
-		infile.close();
-	} else fprintf(stderr, "Unable to open log.txt!\n");
 }
 
 void MenuLog::loadGraphics() {
@@ -101,6 +103,11 @@ void MenuLog::update() {
 	tabControl->updateHeader();
 	closeButton->pos.x = window_area.x + close_pos.x;
 	closeButton->pos.y = window_area.y + close_pos.y;
+
+	for (int i=0; i<LOG_TYPE_COUNT; i++) {
+		msg_buffer[i]->pos.x = window_area.x+tab_area.x;
+		msg_buffer[i]->pos.y = window_area.y+tab_area.y+tab_content_y;
+	}
 }
 
 /**
@@ -111,6 +118,11 @@ void MenuLog::logic() {
 
 	if (closeButton->checkClick()) {
 		visible = false;
+	}
+
+	for (int i=0; i<LOG_TYPE_COUNT; i++) {
+		msg_buffer[i]->refresh();
+		msg_buffer[i]->logic();
 	}
 }
 
@@ -154,22 +166,33 @@ void MenuLog::render() {
 	// Display latest log messages for the active tab.
 
 	int display_number = 0;
-	int total_size = 0;
+	int total_size = tab_content_indent;
 	int active_log = tabControl->getActiveTab();
 	SDL_Rect contentArea = tabControl->getContentArea();
 
-	// first calculate how many entire messages can fit in the log view
-	for (int i=log_count[active_log]-1; i>=0; i--) {
-		total_size += msg_buffer[active_log][i]->h + paragraph_spacing;
-		if (total_size < contentArea.h) display_number++;
-		else break;
+	if (msg_buffer[active_log]->update) {
+		for (unsigned int i=log_msg[active_log].size(); i>0; i--) {
+			int widthLimit = tabControl->getContentArea().w;
+			Point size = font->calc_size(log_msg[active_log][i-1], widthLimit);
+			font->renderShadowed(log_msg[active_log][i-1], tab_content_indent, total_size, JUSTIFY_LEFT, msg_buffer[active_log]->contents, widthLimit, FONT_WHITE);
+			total_size+=size.y+paragraph_spacing;
+		}
 	}
 
-	// Now display these messages.
-	for (int i=log_count[active_log]-display_number; i<log_count[active_log]; i++) {
-		SDL_BlitSurface(msg_buffer[active_log][i], NULL, screen, &contentArea);
-		contentArea.y += msg_buffer[active_log][i]->h + paragraph_spacing;
+	msg_buffer[active_log]->render();
+}
+
+void MenuLog::refresh(int log_type) {
+	int y = tab_content_indent;
+
+	for (unsigned int i=0; i<log_msg[log_type].size(); i++) {
+		int widthLimit = tabControl->getContentArea().w;
+		Point size = font->calc_size(log_msg[log_type][i], widthLimit);
+		y+=size.y+paragraph_spacing;
 	}
+	y+=tab_content_indent;
+
+	msg_buffer[log_type]->resize(y);
 }
 
 /**
@@ -177,19 +200,10 @@ void MenuLog::render() {
  */
 void MenuLog::add(const string& s, int log_type) {
 
-	// Make space if needed.
-	if (log_count[log_type] == MAX_LOG_MESSAGES) {
-		remove(0, log_type);
-	}
-
 	// Add the new message.
-	log_msg[log_type][log_count[log_type]] = s;
-
-	// Render the log entry and store it in a buffer.
-	int widthLimit = tabControl->getContentArea().w;
-	Point size = font->calc_size(s, widthLimit);
-	msg_buffer[log_type][log_count[log_type]] = createAlphaSurface(size.x, size.y);
-	font->renderShadowed(s, 0, 0, JUSTIFY_LEFT, msg_buffer[log_type][log_count[log_type]], widthLimit, FONT_WHITE);
+	log_msg[log_type].push_back(s);
+	msg_buffer[log_type]->update = true;
+	refresh(log_type);
 
 	log_count[log_type]++;
 }
@@ -199,23 +213,18 @@ void MenuLog::add(const string& s, int log_type) {
  */
 void MenuLog::remove(int msg_index, int log_type) {
 
-	SDL_FreeSurface(msg_buffer[log_type][msg_index]);
-	msg_buffer[log_type][msg_index] = NULL;
-
-	for (int i=msg_index; i<MAX_LOG_MESSAGES-1; i++) {
-		log_msg[log_type][i] = log_msg[log_type][i+1];
-		msg_buffer[log_type][i] = msg_buffer[log_type][i+1];
-	}
+	log_msg[log_type][msg_index].erase();
+	msg_buffer[log_type]->update = true;
+	refresh(log_type);
 
 	log_count[log_type]--;
 }
 
 void MenuLog::clear(int log_type) {
 	log_count[log_type] = 0;
-	for (int i=0; i<MAX_LOG_MESSAGES; i++) {
-		SDL_FreeSurface(msg_buffer[log_type][i]);
-		msg_buffer[log_type][i] = NULL;
-	}
+	log_msg[log_type].clear();
+	msg_buffer[log_type]->update = true;
+	refresh(log_type);
 }
 
 void MenuLog::clear() {
@@ -228,9 +237,7 @@ MenuLog::~MenuLog() {
 
 	for (int i=0; i<LOG_TYPE_COUNT; i++) {
 		log_count[i] = 0;
-		for (int j=0; j<MAX_LOG_MESSAGES; j++) {
-			SDL_FreeSurface(msg_buffer[i][j]);
-		}
+		delete msg_buffer[i];
 	}
 
 	SDL_FreeSurface(background);
