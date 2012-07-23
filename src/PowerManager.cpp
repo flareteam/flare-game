@@ -360,6 +360,9 @@ void PowerManager::loadPowers(const std::string& filename) {
 			}
 
 			// spawn info
+			else if (infile.key == "spawn_num") {
+				powers[input_id].spawn_num = atoi(infile.val.c_str());
+			}
 			else if (infile.key == "spawn_type") {
 				powers[input_id].spawn_type = infile.val;
 			}
@@ -1086,9 +1089,9 @@ bool PowerManager::spawn(int power_index, StatBlock *src_stats, Point target) {
 	}
 
 	espawn.direction = calcDirection(src_stats->pos.x, src_stats->pos.y, target.x, target.y);
-
-	enemies.push(espawn);
-
+	for (int i=0; i < powers[power_index].spawn_num; i++) {
+		enemies.push(espawn);
+	}
 	// pay costs
 	if (src_stats->hero && powers[power_index].requires_mp > 0) src_stats->mp -= powers[power_index].requires_mp;
 	if (src_stats->hero && powers[power_index].requires_item != -1) used_item = powers[power_index].requires_item;
