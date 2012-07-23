@@ -58,6 +58,7 @@ MenuLog::MenuLog() {
 				tab_content_y = eatFirstInt(infile.val,',');
 			}
 		}
+		infile.close();
 	} else fprintf(stderr, "Unable to open log.txt!\n");
 
 	// Store the amount of displayed log messages on each log, and the maximum.

@@ -65,7 +65,8 @@ MenuStatBar::MenuStatBar(std::string type) {
 				orientation = eatFirstInt(infile.val,',');
 			}
 		}
-	}
+		infile.close();
+	} else fprintf(stderr, "Unable to open %s.txt!\n", type.c_str());
 
 	loadGraphics(type);
 }

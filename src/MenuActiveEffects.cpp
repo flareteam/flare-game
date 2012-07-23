@@ -62,7 +62,8 @@ MenuActiveEffects::MenuActiveEffects(SDL_Surface *_icons) {
 				orientation = eatFirstInt(infile.val,',');
 			}
 		}
-	}
+		infile.close();
+	} else fprintf(stderr, "Unable to open activeeffects.txt!\n");
 
 	loadGraphics();
 }

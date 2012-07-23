@@ -55,7 +55,8 @@ MenuEnemy::MenuEnemy() {
 				text_pos.y = eatFirstInt(infile.val,',');
 			}
 		}
-	}
+		infile.close();
+	} else fprintf(stderr, "Unable to open enemy.txt!\n");
 
 	loadGraphics();
 	enemy = NULL;
