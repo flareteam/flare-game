@@ -183,6 +183,7 @@ public:
 	// spawn info
 	std::string spawn_type;
 	int target_neighbor;
+	int spawn_num;
 
 	Power() {
 		type = -1;
@@ -272,6 +273,7 @@ public:
 
 		allow_power_mod = false;
 		spawn_type = "";
+		spawn_num = 1;
 		target_neighbor = 0;
 	}
 
