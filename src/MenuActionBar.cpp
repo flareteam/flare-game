@@ -200,6 +200,7 @@ void MenuActionBar::clear() {
 		actionbar[i] = -1;
 		slot_item_count[i] = -1;
 		slot_enabled[i] = true;
+		locked[i] = false;
 	}
 
     // clear menu notifications
@@ -421,6 +422,7 @@ TooltipData MenuActionBar::checkTooltip(Point mouse) {
 void MenuActionBar::drop(Point mouse, int power_index, bool rearranging) {
 	for (int i=0; i<12; i++) {
 		if (isWithin(slots[i], mouse)) {
+			if (locked[i] && hotkeys[i] != -1) continue;
 			if (rearranging) {
 				hotkeys[drag_prev_slot] = hotkeys[i];
 			}
@@ -436,6 +438,7 @@ void MenuActionBar::drop(Point mouse, int power_index, bool rearranging) {
 void MenuActionBar::remove(Point mouse) {
 	for (int i=0; i<12; i++) {
 		if (isWithin(slots[i], mouse)) {
+			if (locked[i]) continue;
 			hotkeys[i] = -1;
 			return;
 		}
@@ -485,6 +488,7 @@ int MenuActionBar::checkDrag(Point mouse) {
 
 	for (int i=0; i<12; i++) {
 		if (isWithin(slots[i], mouse)) {
+			if (locked[i]) continue;
 			drag_prev_slot = i;
 			power_index = hotkeys[i];
 			hotkeys[i] = -1;
