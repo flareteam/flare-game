@@ -213,6 +213,12 @@ GameStateConfig::GameStateConfig ()
 			else if (infile.key == "activemods_deactivate") setting_num = 49;//button
 			else if (infile.key == "inactivemods_activate") setting_num = 50;//button
 			else if (infile.key == "secondary_offset") {offset_x = x1; offset_y = y1;}
+			else if (infile.key == "keybinds_bg_color") {
+				// background color for keybinds scrollbox
+				input_scrollbox->bg.r = x1;
+				input_scrollbox->bg.g = y1;
+				input_scrollbox->bg.b = x2;
+			}
 
 			if (setting_num != -1) {
 				if (setting_num > 15 && setting_num < 41) {
