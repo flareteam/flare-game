@@ -435,7 +435,7 @@ void MenuManager::logic() {
 					act->remove(inpt->mouse);
 				}
 				// allow drag-to-rearrange action bar
-				else if (!isWithin(act->menuArea, inpt->mouse) && !stats->transformed) {
+				else if (!isWithin(act->menuArea, inpt->mouse)) {
 					drag_power = act->checkDrag(inpt->mouse);
 					if (drag_power > -1) {
 						dragging = true;

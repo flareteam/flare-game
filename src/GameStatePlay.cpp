@@ -522,10 +522,11 @@ void GameStatePlay::logic() {
 	if (pc->setPowers) {
 		pc->setPowers = false;
 		menu->closeAll(false);
-		// save ActionBar state
+		// save ActionBar state and lock slots from removing/replacing power
 		for (int i=0; i<12 ; i++) {
 			menu->act->actionbar[i] = menu->act->hotkeys[i];
 			menu->act->hotkeys[i] = -1;
+			menu->act->locked[i] = true;
 		}
 		int count = 10;
 		for (int i=0; i<4 ; i++) {
@@ -542,7 +543,10 @@ void GameStatePlay::logic() {
 		pc->revertPowers = false;
 
 		// restore ActionBar state
-		for (int i=0; i<12 ; i++) menu->act->hotkeys[i] = menu->act->actionbar[i];
+		for (int i=0; i<12 ; i++) {
+			menu->act->hotkeys[i] = menu->act->actionbar[i];
+			menu->act->locked[i] = false;
+		}
 	}
 }
 
