@@ -298,6 +298,12 @@ void GameStatePlay::checkLog() {
 		menu->hudlog->add(menu->inv->log_msg);
 		menu->inv->log_msg = "";
 	}
+
+	// PowerManager has hints for powers
+	if (powers->log_msg != "") {
+		menu->hudlog->add(powers->log_msg);
+		powers->log_msg = "";
+	}
 }
 
 void GameStatePlay::checkEquipmentChange() {

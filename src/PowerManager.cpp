@@ -53,6 +53,8 @@ PowerManager::PowerManager() {
 
 	used_item=-1;
 
+	log_msg = "";
+
 	loadGraphics();
 	loadAll();
 }
@@ -1120,6 +1122,11 @@ bool PowerManager::spawn(const std::string& enemy_type, Point target) {
  * Transform into a creature. Fully replaces entity characteristics
  */
 bool PowerManager::transform(int power_index, StatBlock *src_stats, Point target) {
+
+	if (src_stats->transformed && powers[power_index].spawn_type != "untransform") {
+		log_msg = msg->get("You are already transformed, untransform first.");
+		return false;
+	}
 
 	// apply any buffs
 	buff(power_index, src_stats, target);

@@ -313,6 +313,8 @@ public:
 	PowerManager();
 	~PowerManager();
 
+	std::string log_msg;
+
 	void handleNewMap(MapCollision *_collider);
 	bool activate(int power_index, StatBlock *src_stats, Point target);
 	float calcTheta(int x1, int y1, int x2, int y2);
