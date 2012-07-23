@@ -203,7 +203,8 @@ MenuCharacter::MenuCharacter(StatBlock *_stats) {
 				if (eatFirstInt(infile.val,',') == 0) show_stat[13] = false;
 			}
 		}
-	}
+		infile.close();
+	} else fprintf(stderr, "Unable to open character.txt!\n");
 
 	loadGraphics();
 }

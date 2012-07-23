@@ -136,8 +136,8 @@ MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_i
 		}
 
 	  }
+	  infile.close();
 	} else fprintf(stderr, "Unable to open powers.txt!\n");
-	infile.close();
 
 	loadGraphics();
 
