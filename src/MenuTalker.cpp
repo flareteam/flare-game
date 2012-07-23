@@ -19,6 +19,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * class MenuTalker
  */
 
+#include "FileParser.h"
 #include "Menu.h"
 #include "MenuTalker.h"
 
@@ -26,6 +27,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "WidgetButton.h"
 #include "SharedResources.h"
 #include "Settings.h"
+#include "UtilsParsing.h"
 
 using namespace std;
 
@@ -55,6 +57,26 @@ MenuTalker::MenuTalker(CampaignManager *_camp) {
 
 	loadGraphics();
 
+	// Load config settings
+	FileParser infile;
+	if(infile.open(mods->locate("menus/talker.txt"))) {
+		while(infile.next()) {
+			infile.val = infile.val + ',';
+
+			if(infile.key == "close") {
+				close_pos.x = eatFirstInt(infile.val,',');
+				close_pos.y = eatFirstInt(infile.val,',');
+			} else if(infile.key == "advance") {
+				advance_pos.x = eatFirstInt(infile.val,',');
+				advance_pos.y = eatFirstInt(infile.val,',');
+			} else if (infile.key == "vendor"){
+				vendor_pos.x = eatFirstInt(infile.val,',');
+				vendor_pos.y = eatFirstInt(infile.val,',');
+			}
+		}
+		infile.close();
+	} else fprintf(stderr, "Unable to open talker.txt!\n");
+
 }
 
 void MenuTalker::loadGraphics() {
@@ -80,14 +102,14 @@ void MenuTalker::chooseDialogNode() {
 }
 
 void MenuTalker::update() {
-	advanceButton->pos.x = window_area.x + (window_area.w/2) + 288;
-	advanceButton->pos.y = window_area.y + (window_area.h/2) + 112;
+	advanceButton->pos.x = window_area.x + advance_pos.x;
+	advanceButton->pos.y = window_area.y + advance_pos.y;
 
-	closeButton->pos.x = window_area.x + (window_area.w/2) + 288;
-	closeButton->pos.y = window_area.y + (window_area.h/2) + 112;
+	closeButton->pos.x = window_area.x + close_pos.x;
+	closeButton->pos.y = window_area.y + close_pos.y;
 
-	vendorButton->pos.x = window_area.x + (window_area.w/2) + 288 - vendorButton->pos.w;
-	vendorButton->pos.y = window_area.y + (window_area.h/2) + 80;
+	vendorButton->pos.x = window_area.x + vendor_pos.x;
+	vendorButton->pos.y = window_area.y + vendor_pos.y;
 	vendorButton->refresh();
 }
 /**

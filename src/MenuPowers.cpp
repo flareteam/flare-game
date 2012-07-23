@@ -114,12 +114,20 @@ MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_i
 			power_cell[counter].requires_level = eatFirstInt(infile.val, ',');
 		} else if (infile.key == "requires_power") {
 			power_cell[counter].requires_power = eatFirstInt(infile.val, ',');
-		} else if (infile.key == "closebutton_pos") {
+		} else if (infile.key == "title") {
+			title_pos.x = eatFirstInt(infile.val, ',');
+			title_pos.y = eatFirstInt(infile.val, ',');
+		} else if (infile.key == "close") {
 			close_pos.x = eatFirstInt(infile.val, ',');
 			close_pos.y = eatFirstInt(infile.val, ',');
-		} else if (infile.key == "unspent_points_pos") {
+		} else if (infile.key == "unspent_points") {
 			unspent_pos.x = eatFirstInt(infile.val, ',');
 			unspent_pos.y = eatFirstInt(infile.val, ',');
+		} else if (infile.key == "tab_area") {
+			tab_area.x = eatFirstInt(infile.val, ',');
+			tab_area.y = eatFirstInt(infile.val, ',');
+			tab_area.w = eatFirstInt(infile.val, ',');
+			tab_area.h = eatFirstInt(infile.val, ',');
 		} else if (infile.key == "tabs") {
 			tabs_count = eatFirstInt(infile.val, ',');
 			if (tabs_count < 1) tabs_count = 1;
@@ -152,7 +160,7 @@ void MenuPowers::update() {
 		slots[i].y = window_area.y + power_cell[i].pos.y;
 	}
 
-	label_powers.set(window_area.x+160, window_area.y+8, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Powers"), FONT_WHITE);
+	label_powers.set(window_area.x+title_pos.x, window_area.y+title_pos.y, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Powers"), FONT_WHITE);
 
 	closeButton->pos.x = window_area.x+close_pos.x;
 	closeButton->pos.y = window_area.y+close_pos.y;
@@ -165,7 +173,7 @@ void MenuPowers::update() {
 		tabControl = new WidgetTabControl(tabs_count); 
 
 		// Initialize the tab control.
-		tabControl->setMainArea(window_area.x+35, window_area.y+35, background->w-70, background->h-70);
+		tabControl->setMainArea(window_area.x+tab_area.x, window_area.y+tab_area.y, tab_area.w, tab_area.h);
 
 		// Define the header.
 		for (int i=0; i<tabs_count; i++)

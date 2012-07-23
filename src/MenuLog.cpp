@@ -49,21 +49,21 @@ MenuLog::MenuLog() {
 			} else if(infile.key == "close") {
 				close_pos.x = eatFirstInt(infile.val,',');
 				close_pos.y = eatFirstInt(infile.val,',');
-			} else if(infile.key == "tabs") {
-				tabs_pos.x = eatFirstInt(infile.val,',');
-				tabs_pos.y = eatFirstInt(infile.val,',');
-				tabs_pos.w = eatFirstInt(infile.val,',');
-				tabs_pos.h = eatFirstInt(infile.val,',');
+			} else if(infile.key == "tab_area") {
+				tab_area.x = eatFirstInt(infile.val,',');
+				tab_area.y = eatFirstInt(infile.val,',');
+				tab_area.w = eatFirstInt(infile.val,',');
+				tab_area.h = eatFirstInt(infile.val,',');
 			} else if(infile.key == "tab_content_offset") {
 				tab_content_y = eatFirstInt(infile.val,',');
 			}
 		}
-	}
+	} else fprintf(stderr, "Unable to open log.txt!\n");
 
 	// Store the amount of displayed log messages on each log, and the maximum.
 	for (int i=0; i<LOG_TYPE_COUNT; i++) {
 		log_count[i] = 0;
-		msg_buffer[i] = new WidgetScrollBox(tabs_pos.w,tabs_pos.h);
+		msg_buffer[i] = new WidgetScrollBox(tab_area.w,tab_area.h);
 	}
 
 	// Initialize the tab control.
@@ -79,6 +79,7 @@ MenuLog::MenuLog() {
 	loadGraphics();
 
 	closeButton = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
+
 }
 
 void MenuLog::loadGraphics() {
@@ -98,14 +99,14 @@ void MenuLog::loadGraphics() {
 }
 
 void MenuLog::update() {
-	tabControl->setMainArea(window_area.x + tabs_pos.x, window_area.y + tabs_pos.y, tabs_pos.w, tabs_pos.h);
+	tabControl->setMainArea(window_area.x + tab_area.x, window_area.y + tab_area.y, tab_area.w, tab_area.h);
 	tabControl->updateHeader();
 	closeButton->pos.x = window_area.x + close_pos.x;
 	closeButton->pos.y = window_area.y + close_pos.y;
 
 	for (int i=0; i<LOG_TYPE_COUNT; i++) {
-		msg_buffer[i]->pos.x = window_area.x+tabs_pos.x;
-		msg_buffer[i]->pos.y = window_area.y+tabs_pos.y+tab_content_y;
+		msg_buffer[i]->pos.x = window_area.x+tab_area.x;
+		msg_buffer[i]->pos.y = window_area.y+tab_area.y+tab_content_y;
 	}
 }
 

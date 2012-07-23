@@ -25,6 +25,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <SDL.h>
 #include <SDL_image.h>
 
+#include "Utils.h"
+
 #include <string>
 #include <vector>
 
@@ -59,7 +61,7 @@ private:
 
 	Point title_pos;
 	Point close_pos;
-	SDL_Rect tabs_pos;
+	SDL_Rect tab_area;
 	int tab_content_y;
 	int tab_content_indent;
 	

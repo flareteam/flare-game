@@ -69,8 +69,12 @@ private:
 	SDL_Surface *overlay_disabled;
 	WidgetButton *closeButton;
 	bool pressed;
+
+	Point title_pos;
 	Point close_pos;
 	Point unspent_pos;
+	SDL_Rect tab_area;
+
 	int points_left;
 	int tabs_count;
 	std::vector<std::string> tab_titles;
