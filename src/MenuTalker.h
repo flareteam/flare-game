@@ -26,6 +26,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <SDL_image.h>
 #include <SDL_mixer.h>
 
+#include "Utils.h"
+
 #include <string>
 #include <sstream>
 
@@ -45,6 +47,10 @@ private:
 
 	int dialog_node;
 	unsigned int event_cursor;
+
+	Point close_pos;
+	Point advance_pos;
+	Point vendor_pos;
 
 public:
 	MenuTalker(CampaignManager *camp);

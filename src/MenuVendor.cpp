@@ -19,11 +19,13 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * class MenuVendor
  */
 
+#include "FileParser.h"
 #include "Menu.h"
 #include "MenuVendor.h"
 #include "NPC.h"
 #include "Settings.h"
 #include "SharedResources.h"
+#include "UtilsParsing.h"
 #include "WidgetButton.h"
 
 using namespace std;
@@ -40,6 +42,36 @@ MenuVendor::MenuVendor(ItemManager *_items, StatBlock *_stats) {
 	closeButton = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
 
 	loadMerchant("");
+
+
+	// Load config settings
+	FileParser infile;
+	if(infile.open(mods->locate("menus/vendor.txt"))) {
+		while(infile.next()) {
+			infile.val = infile.val + ',';
+
+			if(infile.key == "close") {
+				close_pos.x = eatFirstInt(infile.val,',');
+				close_pos.y = eatFirstInt(infile.val,',');
+			} else if(infile.key == "slots_area") {
+				slots_area.x = eatFirstInt(infile.val,',');
+				slots_area.y = eatFirstInt(infile.val,',');
+			} else if (infile.key == "vendor_cols"){
+				slots_cols = eatFirstInt(infile.val,',');
+			} else if (infile.key == "vendor_rows"){
+				slots_rows = eatFirstInt(infile.val,',');
+			} else if (infile.key == "title"){
+				title_pos.x =  eatFirstInt(infile.val,',');
+				title_pos.y =  eatFirstInt(infile.val,',');
+			} else if (infile.key == "name"){
+				name_pos.x =  eatFirstInt(infile.val,',');
+				name_pos.y =  eatFirstInt(infile.val,',');
+			}
+		}
+		infile.close();
+	} else fprintf(stderr, "Unable to open vendor.txt!\n");
+
+	VENDOR_SLOTS = slots_cols * slots_rows;
 }
 
 void MenuVendor::loadGraphics() {
@@ -56,15 +88,15 @@ void MenuVendor::loadGraphics() {
 }
 
 void MenuVendor::update() {
-	slots_area.x = window_area.x+32;
-	slots_area.y = window_area.y+64;
-	slots_area.w = 256;
-	slots_area.h = 320;
+	slots_area.x += window_area.x;
+	slots_area.y += window_area.y;
+	slots_area.w = slots_cols*32;
+	slots_area.h = slots_rows*32;
 
-	stock.init( VENDOR_SLOTS, items, slots_area, ICON_SIZE_32, 8);
+	stock.init( VENDOR_SLOTS, items, slots_area, ICON_SIZE_32, slots_cols);
 
-	closeButton->pos.x = window_area.x+window_area.w-26;
-	closeButton->pos.y = window_area.y+2;
+	closeButton->pos.x = window_area.x+close_pos.x;
+	closeButton->pos.y = window_area.y+close_pos.y;
 }
 
 void MenuVendor::loadMerchant(const std::string&) {
@@ -97,9 +129,9 @@ void MenuVendor::render() {
 
 	// text overlay
 	WidgetLabel label;
-	label.set(window_area.x+window_area.w/2, window_area.y+8, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Vendor"), FONT_WHITE);
+	label.set(window_area.x+title_pos.x, window_area.y+title_pos.y, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Vendor"), FONT_WHITE);
 	label.render();
-	label.set(window_area.x+window_area.w/2, window_area.y+24, JUSTIFY_CENTER, VALIGN_TOP, npc->name, FONT_WHITE);
+	label.set(window_area.x+name_pos.x, window_area.y+name_pos.y, JUSTIFY_CENTER, VALIGN_TOP, npc->name, FONT_WHITE);
 	label.render();
 
 	// show stock
