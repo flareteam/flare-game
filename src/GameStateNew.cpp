@@ -68,6 +68,7 @@ GameStateNew::GameStateNew() : GameState() {
 
 	input_name = new WidgetInput();
 	input_name->setPosition(VIEW_W_HALF - input_name->pos.w/2, VIEW_H_HALF+164);
+	if (DEFAULT_NAME != "") input_name->setText(DEFAULT_NAME);
 
 	button_permadeath = new WidgetCheckBox(mods->locate(
 												"images/menus/buttons/checkbox_default.png"));
@@ -147,7 +148,7 @@ void GameStateNew::logic() {
 	button_permadeath->checkClick();
 
 	// require character name
-	if (input_name->getText() == "") {
+	if (input_name->getText() == "" && DEFAULT_NAME == "") {
 		if (button_create->enabled) {
 			button_create->enabled = false;
 			button_create->refresh();
@@ -190,7 +191,7 @@ void GameStateNew::logic() {
 		loadPortrait(portrait[current_option]);
 	}
 
-	input_name->logic();
+	if (DEFAULT_NAME == "") input_name->logic();
 
 }
 
@@ -222,7 +223,7 @@ void GameStateNew::render() {
 
 	// display labels
 	label_portrait->render();
-	label_name->render();
+	if (DEFAULT_NAME == "") label_name->render();
 	label_permadeath->render();
 }
 

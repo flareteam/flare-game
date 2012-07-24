@@ -58,6 +58,7 @@ public:
 	void render(SDL_Surface *target = NULL);
 	bool checkClick();
 	std::string getText() { return text; }
+	void setText(std::string _text) { text = _text; }
 	void setPosition(int x, int y);
 
 	SDL_Rect pos;
