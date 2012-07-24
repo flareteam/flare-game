@@ -117,6 +117,7 @@ bool AUTOPICKUP_GOLD = false;
 
 // Other Settings
 bool MENUS_PAUSE = false;
+std::string DEFAULT_NAME = "";
 bool SAVE_HPMP = false;
 
 
@@ -324,6 +325,8 @@ void loadMiscSettings() {
 		while (infile.next()) {
 			if (infile.key == "save_hpmp") {
 				SAVE_HPMP = atoi(infile.val.c_str());
+			} else if (infile.key == "default_name") {
+				DEFAULT_NAME = infile.val.c_str();
 			}
 		}
 		infile.close();

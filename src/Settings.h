@@ -58,6 +58,7 @@ extern bool COMBAT_TEXT;
 
 // Engine Settings
 extern bool MENUS_PAUSE;
+extern std::string DEFAULT_NAME;
 extern bool SAVE_HPMP;
 
 // Tile Settings
