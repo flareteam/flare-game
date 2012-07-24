@@ -49,6 +49,7 @@ public:
 	void clear();
 
 	bool full();
+	bool full(int item);
 	int count(int item);
 	bool contain(int item);
 

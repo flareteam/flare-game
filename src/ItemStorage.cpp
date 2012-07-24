@@ -195,7 +195,14 @@ void ItemStorage::sort() {
 
 //TODO: handle stackable items
 bool ItemStorage::full() {
+	return full(0);
+}
+
+bool ItemStorage::full(int item) {
 	for (int i=0; i<slot_number; i++) {
+		if (storage[i].item == item && items->items[item].max_quantity > 1) {
+			return false;
+		}
 		if (storage[i].item == 0) {
 			return false;
 		}

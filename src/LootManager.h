@@ -35,6 +35,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 class EnemyManager;
 class MapRenderer;
+class MenuInventory;
 class WidgetTooltip;
 
 struct LootDef {
@@ -128,8 +129,8 @@ public:
 	void addLoot(ItemStack stack, Point pos);
 	void addGold(int count, Point pos);
 	void removeLoot(int index);
-	ItemStack checkPickup(Point mouse, Point cam, Point hero_pos, int &gold, bool inv_full);
-	ItemStack checkAutoPickup(Point cam, Point hero_pos, int &gold, bool inv_full);
+	ItemStack checkPickup(Point mouse, Point cam, Point hero_pos, int &gold, MenuInventory *inv);
+	ItemStack checkAutoPickup(Point cam, Point hero_pos, int &gold, MenuInventory *inv);
 
 	void addRenders(std::vector<Renderable> &renderables);
 
