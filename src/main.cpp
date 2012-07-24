@@ -76,6 +76,9 @@ static void init() {
     // Load autopickup settings (must be after ModManager is initialized)
     loadAutoPickupSettings();
 
+    // Load miscellaneous settings
+    loadMiscSettings();
+
 	// Add Window Titlebar Icon
 	titlebar_icon = IMG_Load(mods->locate("images/logo/icon.png").c_str());
 	SDL_WM_SetIcon(titlebar_icon, NULL);

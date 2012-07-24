@@ -58,6 +58,7 @@ extern bool COMBAT_TEXT;
 
 // Engine Settings
 extern bool MENUS_PAUSE;
+extern bool SAVE_HPMP;
 
 // Tile Settings
 extern int UNITS_PER_TILE;
@@ -82,6 +83,7 @@ extern bool AUTOPICKUP_GOLD;
 void setPaths();
 void loadTilesetSettings();
 void loadAutoPickupSettings();
+void loadMiscSettings();
 bool loadSettings();
 bool saveSettings();
 bool loadDefaults();
