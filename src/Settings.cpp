@@ -117,6 +117,7 @@ bool AUTOPICKUP_GOLD = false;
 
 // Other Settings
 bool MENUS_PAUSE = false;
+bool SAVE_HPMP = false;
 
 
 /**
@@ -313,6 +314,22 @@ void loadAutoPickupSettings() {
 	}
 	else {
 		fprintf(stderr, "No autopickup config found! Turning autopickup off by default.\n");
+	}
+}
+
+void loadMiscSettings() {
+	FileParser infile;
+	// load autopickup settings from engine config
+	if (infile.open(mods->locate("engine/misc.txt").c_str())) {
+		while (infile.next()) {
+			if (infile.key == "save_hpmp") {
+				SAVE_HPMP = atoi(infile.val.c_str());
+			}
+		}
+		infile.close();
+	}
+	else {
+		fprintf(stderr, "No misc engine settings config found!\n");
 	}
 }
 

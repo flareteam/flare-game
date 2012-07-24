@@ -74,6 +74,9 @@ void GameStatePlay::saveGame() {
 		// current experience
 		outfile << "xp=" << pc->stats.xp << "\n";
 
+		// hp and mp
+		if (SAVE_HPMP) outfile << "hpmp=" << pc->stats.hp << "," << pc->stats.mp << "\n";
+
 		// stat spec
 		outfile << "build=" << pc->stats.physical_character << "," << pc->stats.mental_character << "," << pc->stats.offense_character << "," << pc->stats.defense_character << "\n";
 
@@ -126,6 +129,8 @@ void GameStatePlay::saveGame() {
  * When loading the game, load from file if possible
  */
 void GameStatePlay::loadGame() {
+	int saved_hp = 0;
+	int saved_mp = 0;
 
 	// game slots are currently 1-4
 	if (game_slot == 0) return;
@@ -153,6 +158,10 @@ void GameStatePlay::loadGame() {
 				pc->stats.portrait = infile.nextValue();
 			}
 			else if (infile.key == "xp") pc->stats.xp = atoi(infile.val.c_str());
+			else if (infile.key == "hpmp") {
+				saved_hp = atoi(infile.nextValue().c_str());
+				saved_mp = atoi(infile.nextValue().c_str());
+			}
 			else if (infile.key == "build") {
 				pc->stats.physical_character = atoi(infile.nextValue().c_str());
 				pc->stats.mental_character = atoi(infile.nextValue().c_str());
@@ -217,8 +226,10 @@ void GameStatePlay::loadGame() {
 	// initialize vars
 	pc->stats.recalc();
 	menu->inv->applyEquipment(menu->inv->inventory[EQUIPMENT].storage);
-	pc->stats.hp = pc->stats.maxhp;
-	pc->stats.mp = pc->stats.maxmp;
+	if (saved_hp > 0) pc->stats.hp = saved_hp;
+	else pc->stats.hp = pc->stats.maxhp;
+	if (saved_mp > 0) pc->stats.mp = saved_mp;
+	else pc->stats.mp = pc->stats.maxmp;
 
 	// reset character menu
 	menu->chr->refreshStats();
