@@ -94,7 +94,7 @@ public:
 	bool buy(ItemStack stack, Point mouse = Point());
 	bool sell(ItemStack stack);
 
-	bool full();
+	bool full(int item);
 	int getItemCountCarried(int item);
 	bool isItemEquipped(int item);
 	bool requirementsMet(int item);

@@ -159,7 +159,7 @@ void GameStatePlay::checkLoot() {
 
 	// Autopickup
     if (pc->stats.alive && AUTOPICKUP_GOLD) {
-        pickup = loot->checkAutoPickup(map->cam, pc->stats.pos, gold, menu->inv->full());
+        pickup = loot->checkAutoPickup(map->cam, pc->stats.pos, gold, menu->inv);
         if (gold > 0) {
             menu->inv->addGold(gold);
         }
@@ -168,7 +168,7 @@ void GameStatePlay::checkLoot() {
 	// Pickup with mouse click
 	if (inpt->pressing[MAIN1] && !inpt->lock[MAIN1] && pc->stats.alive) {
 
-		pickup = loot->checkPickup(inpt->mouse, map->cam, pc->stats.pos, gold, menu->inv->full());
+		pickup = loot->checkPickup(inpt->mouse, map->cam, pc->stats.pos, gold, menu->inv);
 		if (pickup.item > 0) {
 			inpt->lock[MAIN1] = true;
 			menu->inv->add(pickup);

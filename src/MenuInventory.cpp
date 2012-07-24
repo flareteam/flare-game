@@ -550,8 +550,8 @@ bool MenuInventory::sell(ItemStack stack) {
  * Cannot pick up new items if the inventory is full.
  * Full means no more carrying capacity (equipped capacity is ignored)
  */
-bool MenuInventory::full() {
-	return inventory[CARRIED].full();
+bool MenuInventory::full(int item) {
+	return inventory[CARRIED].full(item);
 }
 
 /**

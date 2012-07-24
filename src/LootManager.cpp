@@ -23,6 +23,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "EnemyManager.h"
 #include "LootManager.h"
+#include "Menu.h"
+#include "MenuInventory.h"
 #include "SharedResources.h"
 
 #include <sstream>
@@ -448,7 +450,7 @@ void LootManager::addGold(int count, Point pos) {
  * screen coordinates to map locations.  We need the hero position because
  * the hero has to be within range to pick up an item.
  */
-ItemStack LootManager::checkPickup(Point mouse, Point cam, Point hero_pos, int &gold, bool inv_full) {
+ItemStack LootManager::checkPickup(Point mouse, Point cam, Point hero_pos, int &gold, MenuInventory *inv) {
 	Point p;
 	SDL_Rect r;
 	ItemStack loot_stack;
@@ -477,7 +479,7 @@ ItemStack LootManager::checkPickup(Point mouse, Point cam, Point hero_pos, int &
 			if (mouse.x > r.x && mouse.x < r.x+r.w &&
 				mouse.y > r.y && mouse.y < r.y+r.h) {
 
-				if (it->stack.item > 0 && !inv_full) {
+				if (it->stack.item > 0 && !(inv->full(it->stack.item))) {
 					loot_stack = it->stack;
 					loot.erase(it);
 					return loot_stack;
@@ -501,7 +503,7 @@ ItemStack LootManager::checkPickup(Point mouse, Point cam, Point hero_pos, int &
  * Autopickup loot if enabled in the engine
  * Currently, only gold is checked for autopickup
  */
-ItemStack LootManager::checkAutoPickup(Point cam, Point hero_pos, int &gold, bool inv_full) {
+ItemStack LootManager::checkAutoPickup(Point cam, Point hero_pos, int &gold, MenuInventory *inv) {
 	ItemStack loot_stack;
 	gold = 0;
 	loot_stack.item = 0;
