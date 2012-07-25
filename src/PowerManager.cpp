@@ -560,11 +560,15 @@ bool PowerManager::hasValidTarget(int power_index, StatBlock *src_stats, Point t
 	return true;
 }
 
+Point PowerManager::targetNeighbor(Point target, int range) {
+	return targetNeighbor(target,range,false);
+}
+
 /**
  * Try to retarget the power to one of the 8 adjacent tiles
  * Returns the retargeted position on success, returns the original position on failure
  */
-Point PowerManager::targetNeighbor(Point target, int range) {
+Point PowerManager::targetNeighbor(Point target, int range, bool ignore_blocked) {
 	Point new_target = target;
 	std::vector<Point> valid_tiles;
 
@@ -573,7 +577,7 @@ Point PowerManager::targetNeighbor(Point target, int range) {
 			if (i == 0 && j == 0) continue; // skip the middle tile
 			new_target.x = target.x+UNITS_PER_TILE*i;
 			new_target.y = target.y+UNITS_PER_TILE*j;
-			if (collider->valid_position(new_target.x,new_target.y,MOVEMENT_NORMAL))
+			if (collider->valid_position(new_target.x,new_target.y,MOVEMENT_NORMAL) || ignore_blocked)
 				valid_tiles.push_back(new_target);
 		}
 	}
@@ -726,6 +730,11 @@ void PowerManager::initHazard(int power_index, StatBlock *src_stats, Point targe
 	}
 	else if (powers[power_index].starting_pos == STARTING_POS_MELEE) {
 		haz->pos = calcVector(src_stats->pos, src_stats->direction, src_stats->melee_range);
+	}
+	if (powers[power_index].target_neighbor > 0) {
+		Point new_target = targetNeighbor(src_stats->pos,powers[power_index].target_neighbor,true);
+		haz->pos.x = (float)new_target.x;
+		haz->pos.y = (float)new_target.y;
 	}
 
 	// pre/post power effects
@@ -887,12 +896,17 @@ void PowerManager::playSound(int power_index, StatBlock *src_stats) {
  */
 bool PowerManager::effect(int power_index, StatBlock *src_stats, Point target) {
 
+	Point dest;
+	int count = powers[power_index].missile_num;
+	if (count < 1) count = 1;
 	if (powers[power_index].use_hazard) {
-		Hazard *haz = new Hazard();
-		initHazard(power_index, src_stats, target, haz);
+		for (int i=0; i < count; i++) {
+			Hazard *haz = new Hazard();
+			initHazard(power_index, src_stats, target, haz);
 
-		// Hazard memory is now the responsibility of HazardManager
-		hazards.push(haz);
+			// Hazard memory is now the responsibility of HazardManager
+			hazards.push(haz);
+		}
 	}
 
 	buff(power_index, src_stats, target);
@@ -1189,9 +1203,9 @@ PowerManager::~PowerManager() {
 	for (int i=0; i<gfx_count; i++) {
 		SDL_FreeSurface(gfx[i]);
 	}
-	for (int i=0; i<sfx_count; i++) {
+    for (int i=0; i<sfx_count; i++) {
 		Mix_FreeChunk(sfx[i]);
-	}
+    }
 
 	SDL_FreeSurface(runes);
 }

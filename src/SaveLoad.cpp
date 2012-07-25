@@ -150,7 +150,7 @@ void GameStatePlay::loadGame() {
 		while (infile.next()) {
 			if (infile.key == "name") pc->stats.name = infile.val;
 			else if (infile.key == "permadeath") {
-			    pc->stats.permadeath = atoi(infile.val.c_str());
+				pc->stats.permadeath = atoi(infile.val.c_str());
 			}
 			else if (infile.key == "option") {
 				pc->stats.base = infile.nextValue();
@@ -226,10 +226,13 @@ void GameStatePlay::loadGame() {
 	// initialize vars
 	pc->stats.recalc();
 	menu->inv->applyEquipment(menu->inv->inventory[EQUIPMENT].storage);
-	if (saved_hp > 0) pc->stats.hp = saved_hp;
-	else pc->stats.hp = pc->stats.maxhp;
-	if (saved_mp > 0) pc->stats.mp = saved_mp;
-	else pc->stats.mp = pc->stats.maxmp;
+	if (SAVE_HPMP) {
+		pc->stats.hp = saved_hp;
+		pc->stats.mp = saved_mp;
+	} else {
+		pc->stats.hp = pc->stats.maxhp;
+		pc->stats.mp = pc->stats.maxmp;
+	}
 
 	// reset character menu
 	menu->chr->refreshStats();
