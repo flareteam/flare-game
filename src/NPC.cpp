@@ -97,6 +97,8 @@ void NPC::load(const string& npc_id, int hero_level) {
 				}
 				else if (infile.key == "reward_xp")
 					e.x = atoi(infile.val.c_str());
+				else if (infile.key == "restore")
+					e.s = infile.val;
 				else if (infile.key == "reward_currency")
 					e.x = atoi(infile.val.c_str());
 				else if (infile.key == "remove_item")
@@ -319,6 +321,9 @@ bool NPC::processDialog(unsigned int dialog_node, unsigned int &event_cursor) {
 		}
 		else if (dialog[dialog_node][event_cursor].type == "reward_xp") {
 			map->camp->rewardXP(dialog[dialog_node][event_cursor].x);
+		}
+		else if (dialog[dialog_node][event_cursor].type == "restore") {
+			map->camp->restoreHPMP(dialog[dialog_node][event_cursor].s);
 		}
 		else if (dialog[dialog_node][event_cursor].type == "reward_currency") {
 			map->camp->rewardCurrency(dialog[dialog_node][event_cursor].x);

@@ -77,7 +77,7 @@ GameStatePlay::GameStatePlay() : GameState() {
 	camp->items = items;
 	camp->carried_items = &menu->inv->inventory[CARRIED];
 	camp->currency = &menu->inv->gold;
-	camp->xp = &pc->stats.xp;
+	camp->hero = &pc->stats;
 	map->powers = powers;
 
 	// display the name of the map in the upper-right hand corner

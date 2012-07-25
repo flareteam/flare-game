@@ -182,6 +182,9 @@ public:
 	int stun_duration_total;
 	int immobilize_duration;
 	int immobilize_duration_total;
+
+	void clearNegativeEffects();
+
 	int immunity_duration;
 	int immunity_duration_total;
 	int transform_duration;
