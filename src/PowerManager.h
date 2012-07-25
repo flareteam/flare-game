@@ -298,6 +298,7 @@ private:
 	int calcDirection(int origin_x, int origin_y, int target_x, int target_y);
 	Point limitRange(int range, Point src, Point target);
 	Point targetNeighbor(Point target, int range);
+	Point targetNeighbor(Point target, int range, bool ignore_blocked);
 	void initHazard(int powernum, StatBlock *src_stats, Point target, Hazard *haz);
 	void buff(int power_index, StatBlock *src_stats, Point target);
 	void playSound(int power_index, StatBlock *src_stats);
