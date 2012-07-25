@@ -614,3 +614,10 @@ void StatBlock::loadHeroStats() {
 	  statsLoaded = true;
 	} else fprintf(stderr, "Unable to open stats.txt!\n");
 }
+
+void StatBlock::clearNegativeEffects() {
+	slow_duration = 0;
+	bleed_duration = 0;
+	stun_duration = 0;
+	immobilize_duration = 0;
+}
