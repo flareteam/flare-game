@@ -64,7 +64,7 @@ NPC::NPC(MapRenderer *_map, ItemManager *_items) : Entity(_map) {
  *
  * @param npc_id Config file loaded at npcs/[npc_id].txt
  */
-void NPC::load(const string& npc_id) {
+void NPC::load(const string& npc_id, int hero_level) {
 
 	FileParser infile;
 	ItemStack stack;
@@ -113,7 +113,12 @@ void NPC::load(const string& npc_id) {
 					name = msg->get(infile.val);
 				}
 				else if (infile.key == "level") {
-					level = atoi(infile.val.c_str());
+					if (infile.val == "hero") {
+						level = hero_level;
+					}
+					else {
+						level = atoi(infile.val.c_str());
+					}
 				}
 				else if (infile.key == "gfx") {
 					filename_sprites = infile.val;

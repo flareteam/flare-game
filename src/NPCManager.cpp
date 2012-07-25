@@ -26,12 +26,14 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "NPC.h"
 #include "MapRenderer.h"
 #include "LootManager.h"
+#include "StatBlock.h"
 
 using namespace std;
 
 
-NPCManager::NPCManager(MapRenderer *_map, LootManager *_loot, ItemManager *_items) {
+NPCManager::NPCManager(MapRenderer *_map, LootManager *_loot, ItemManager *_items, StatBlock *_stats) {
 
+	stats = _stats;
 	map = _map;
 	loot = _loot;
 	items = _items;
@@ -71,7 +73,7 @@ void NPCManager::handleNewMap() {
 		map->npcs.pop();
 
 		npcs[npc_count] = new NPC(map, items);
-		npcs[npc_count]->load(mn.id);
+		npcs[npc_count]->load(mn.id, stats->level);
 		npcs[npc_count]->pos.x = mn.pos.x;
 		npcs[npc_count]->pos.y = mn.pos.y;
 

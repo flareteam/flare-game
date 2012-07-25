@@ -70,7 +70,7 @@ GameStatePlay::GameStatePlay() : GameState() {
 	hazards = new HazardManager(powers, pc, enemies);
 	menu = new MenuManager(powers, &pc->stats, camp, items);
 	loot = new LootManager(items, map, &pc->stats);
-	npcs = new NPCManager(map, loot, items);
+	npcs = new NPCManager(map, loot, items, &pc->stats);
 	quests = new QuestLog(camp, menu->log);
 
 	// assign some object pointers after object creation, based on dependency order

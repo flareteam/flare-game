@@ -51,7 +51,7 @@ protected:
 public:
 	NPC(MapRenderer *_map, ItemManager *_items);
 	~NPC();
-	void load(const std::string& npc_id);
+	void load(const std::string& npc_id, int hero_level);
 	void loadGraphics(const std::string& filename_sprites, const std::string& filename_portrait);
 	void loadSound(const std::string& filename, int type);
 	void logic();
