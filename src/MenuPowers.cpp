@@ -293,6 +293,9 @@ bool MenuPowers::powerUnlockable(int power_index) {
 		}
 	}
 
+	// If we already have a power, don't try to unlock it
+	if (requirementsMet(power_index)) return false;
+
 	// Check requirements
 	if ((stats->physoff >= power_cell[id].requires_physoff) &&
 		(stats->physdef >= power_cell[id].requires_physdef) &&
