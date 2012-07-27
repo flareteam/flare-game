@@ -388,18 +388,12 @@ void MenuManager::logic() {
 					stack = inv->click(inpt);
 					if( stack.item > 0) {
 						if (vendor->visible) {
-							if( vendor->full()) {
-								// Can we say "Not enough place" ?
-								inv->itemReturn( stack);
+							// The vendor could have a limited amount of money in the future. It will be tested here.
+							if (inv->sell(stack)) {
+								vendor->add(stack);
 							}
 							else {
-								// The vendor could have a limited amount of money in the future. It will be tested here.
-								if (inv->sell(stack)) {
-									vendor->add(stack);
-								}
-								else {
-									inv->itemReturn(stack);
-								}
+								inv->itemReturn(stack);
 							}
 						}
 						else {
@@ -487,18 +481,11 @@ void MenuManager::logic() {
 					}
 				}
 				else if (vendor->visible && isWithin(vendor->slots_area, inpt->mouse)) {
-					// vendor sell item
-					if( vendor->full()) {
-						// Can we say "Not enough place" ?
-						inv->itemReturn( drag_stack);
+					if (inv->sell( drag_stack)) {
+						vendor->add( drag_stack);
 					}
 					else {
-						if (inv->sell( drag_stack)) {
-							vendor->add( drag_stack);
-						}
-						else {
-							inv->itemReturn(drag_stack);
-						}
+						inv->itemReturn(drag_stack);
 					}
 					drag_stack.item = 0;
 				}
