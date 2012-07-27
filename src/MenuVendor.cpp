@@ -19,8 +19,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * class MenuVendor
  */
 
-#include "CampaignManager.h"
 #include "FileParser.h"
+#include "ItemStorage.h"
 #include "Menu.h"
 #include "MenuVendor.h"
 #include "NPC.h"
@@ -33,10 +33,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 using namespace std;
 
 
-MenuVendor::MenuVendor(ItemManager *_items, StatBlock *_stats, CampaignManager *_camp) {
+MenuVendor::MenuVendor(ItemManager *_items, StatBlock *_stats) {
 	items = _items;
 	stats = _stats;
-	camp = _camp;
 
 	visible = false;
 	talker_visible = false;
@@ -204,7 +203,7 @@ bool MenuVendor::full() {
 void MenuVendor::setInventory() {
 	for (int i=0; i<VENDOR_SLOTS; i++) {
 		stock[VENDOR_BUY][i] = npc->stock[i];
-		stock[VENDOR_SELL][i] = camp->buyback_stock[i];
+		stock[VENDOR_SELL][i] = buyback_stock[i];
 	}
 }
 
@@ -216,7 +215,7 @@ void MenuVendor::setInventory() {
 void MenuVendor::saveInventory() {
 	for (int i=0; i<VENDOR_SLOTS; i++) {
 		npc->stock[i] = stock[VENDOR_BUY][i];
-		camp->buyback_stock[i] = stock[VENDOR_SELL][i];
+		buyback_stock[i] = stock[VENDOR_SELL][i];
 	}
 
 }

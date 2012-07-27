@@ -25,7 +25,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #define CAMPAIGN_MANAGER_H
 
 #include "ItemManager.h"
-#include "ItemStorage.h"
 
 #include <string>
 
@@ -59,7 +58,6 @@ public:
 	MenuItemStorage *carried_items;
 	int *currency;
 	StatBlock * hero;
-	ItemStorage buyback_stock;
 
 	bool quest_update;
 };

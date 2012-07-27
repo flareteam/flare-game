@@ -38,6 +38,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "MenuActiveEffects.h"
 #include "MenuLog.h"
 #include "ModManager.h"
+#include "NPC.h"
 #include "PowerManager.h"
 #include "SharedResources.h"
 
@@ -64,7 +65,7 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 	menus.push_back(act); // menus[5]
 	enemy = new MenuEnemy();
 	menus.push_back(enemy); // menus[6]
-	vendor = new MenuVendor(items, stats, camp);
+	vendor = new MenuVendor(items, stats);
 	menus.push_back(vendor); // menus[7]
 	talker = new MenuTalker(camp);
 	menus.push_back(talker); // menus[8]
@@ -132,6 +133,7 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 	// Some menus need to be updated to apply their new dimensions
 	act->update();
 	vendor->update();
+	vendor->buyback_stock.init(NPC_VENDOR_MAX_STOCK, items);
 	talker->update();
 	exit->update();
 	chr->update();

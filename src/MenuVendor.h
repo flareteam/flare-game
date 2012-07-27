@@ -32,8 +32,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #define VENDOR_BUY 0
 #define VENDOR_SELL 1
 
-class CampaignManager;
 class InputState;
+class ItemStorage;
 class NPC;
 class StatBlock;
 class WidgetButton;
@@ -61,11 +61,11 @@ private:
 	int activetab;
 
 public:
-	MenuVendor(ItemManager *items, StatBlock *stats, CampaignManager *_camp);
+	MenuVendor(ItemManager *items, StatBlock *stats);
 	~MenuVendor();
 
 	NPC *npc;
-	CampaignManager *camp;
+	ItemStorage buyback_stock;
 
 	void update();
 	void loadMerchant(const std::string&);
