@@ -234,7 +234,7 @@
   <object name="Bowyer" type="nerin" x="384" y="1120" width="32" height="32"/>
   <object x="736" y="1280"/>
  </objectgroup>
- <objectgroup name="event" width="64" height="64" visible="0">
+ <objectgroup name="event" width="64" height="64">
   <object name="to Mineshaft Longsword" type="teleport" x="608" y="352" width="64" height="32">
    <properties>
     <property name="intermap" value="mineshaft_longsword.txt,100,100"/>
@@ -248,6 +248,14 @@
   <object name="to Frontier Plains" type="teleport" x="32" y="384" width="32" height="64">
    <properties>
     <property name="intermap" value="frontier_plains.txt,248,186"/>
+   </properties>
+  </object>
+  <object name="Shared stash" type="stash" x="704" y="896" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="-32,-48,64,64"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="stash" value="true"/>
+    <property name="tooltip" value="Shared Stash"/>
    </properties>
   </object>
  </objectgroup>

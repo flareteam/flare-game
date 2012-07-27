@@ -252,3 +252,12 @@ type=teleport
 location=1,12,1,2
 intermap=frontier_plains.txt,248,186
 
+[event]
+# Shared stash
+type=stash
+location=22,28,1,1
+hotspot=-32,-48,64,64
+soundfx=soundfx/wood_open.ogg
+stash=true
+tooltip=Shared Stash
+
