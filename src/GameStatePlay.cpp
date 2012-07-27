@@ -416,6 +416,7 @@ void GameStatePlay::checkNPCInteraction() {
 		if (menu->talker->vendor_visible && !menu->vendor->talker_visible) {
 
 			// begin trading
+			menu->vendor->setTab(0); // Show the NPC's inventory as opposed to the buyback tab
 			menu->vendor->npc = npcs->npcs[npc_id];
 			menu->vendor->setInventory();
 			menu->closeAll(false);

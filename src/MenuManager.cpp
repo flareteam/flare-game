@@ -38,6 +38,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "MenuActiveEffects.h"
 #include "MenuLog.h"
 #include "ModManager.h"
+#include "NPC.h"
 #include "PowerManager.h"
 #include "SharedResources.h"
 
@@ -132,6 +133,7 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 	// Some menus need to be updated to apply their new dimensions
 	act->update();
 	vendor->update();
+	vendor->buyback_stock.init(NPC_VENDOR_MAX_STOCK, items);
 	talker->update();
 	exit->update();
 	chr->update();
@@ -350,6 +352,7 @@ void MenuManager::logic() {
 
 			if (vendor->visible && isWithin(vendor->window_area,inpt->mouse)) {
 				inpt->lock[MAIN1] = true;
+				vendor->tabsLogic();
 				if (inpt->pressing[CTRL]) {
 					// buy item from a vendor
 					stack = vendor->click(inpt);
@@ -380,6 +383,7 @@ void MenuManager::logic() {
 			// pick up an inventory item
 			if (inv->visible && isWithin(inv->window_area,inpt->mouse)) {
 				if (inpt->pressing[CTRL]) {
+					vendor->setTab(VENDOR_SELL);
 					inpt->lock[MAIN1] = true;
 					stack = inv->click(inpt);
 					if( stack.item > 0) {
@@ -406,6 +410,7 @@ void MenuManager::logic() {
 					}
 				}
 				else {
+					if (vendor->visible) vendor->setTab(VENDOR_SELL);
 					inpt->lock[MAIN1] = true;
 					drag_stack = inv->click(inpt);
 					if (drag_stack.item > 0) {
