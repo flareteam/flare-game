@@ -184,7 +184,13 @@ void MenuVendor::itemReturn(ItemStack stack) {
 }
 
 void MenuVendor::add(ItemStack stack) {
-	stock[activetab].add(stack);
+	// Remove the first item stack to make room
+	if (stock[VENDOR_SELL].full(stack.item)) {
+		stock[VENDOR_SELL][0].item = 0;
+		stock[VENDOR_SELL][0].quantity = 0;
+		sort(VENDOR_SELL);
+	}
+	stock[VENDOR_SELL].add(stack);
 	saveInventory();
 }
 
@@ -205,6 +211,8 @@ void MenuVendor::setInventory() {
 		stock[VENDOR_BUY][i] = npc->stock[i];
 		stock[VENDOR_SELL][i] = buyback_stock[i];
 	}
+	sort(VENDOR_BUY);
+	sort(VENDOR_SELL);
 }
 
 /**
@@ -218,6 +226,21 @@ void MenuVendor::saveInventory() {
 		buyback_stock[i] = stock[VENDOR_SELL][i];
 	}
 
+}
+
+void MenuVendor::sort(int type) {
+	for (int i=0; i<VENDOR_SLOTS; i++) {
+		if (stock[type][i].item == 0) {
+			for (int j=i; j<VENDOR_SLOTS; j++) {
+				if (stock[type][j].item != 0) {
+					stock[type][i] = stock[type][j];
+					stock[type][j].item = 0;
+					stock[type][j].quantity = 0;
+					break;
+				}
+			}
+		}
+	}
 }
 
 MenuVendor::~MenuVendor() {
