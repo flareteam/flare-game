@@ -78,6 +78,7 @@ GameStatePlay::GameStatePlay() : GameState() {
 	camp->carried_items = &menu->inv->inventory[CARRIED];
 	camp->currency = &menu->inv->gold;
 	camp->hero = &pc->stats;
+	camp->buyback_stock.init(NPC_VENDOR_MAX_STOCK, items);
 	map->powers = powers;
 
 	// display the name of the map in the upper-right hand corner
@@ -416,6 +417,7 @@ void GameStatePlay::checkNPCInteraction() {
 		if (menu->talker->vendor_visible && !menu->vendor->talker_visible) {
 
 			// begin trading
+			menu->vendor->setTab(0); // Show the NPC's inventory as opposed to the buyback tab
 			menu->vendor->npc = npcs->npcs[npc_id];
 			menu->vendor->setInventory();
 			menu->closeAll(false);

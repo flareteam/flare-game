@@ -19,6 +19,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * class MenuVendor
  */
 
+#include "CampaignManager.h"
 #include "FileParser.h"
 #include "Menu.h"
 #include "MenuVendor.h"
@@ -27,19 +28,26 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "SharedResources.h"
 #include "UtilsParsing.h"
 #include "WidgetButton.h"
+#include "WidgetTabControl.h"
 
 using namespace std;
 
 
-MenuVendor::MenuVendor(ItemManager *_items, StatBlock *_stats) {
+MenuVendor::MenuVendor(ItemManager *_items, StatBlock *_stats, CampaignManager *_camp) {
 	items = _items;
 	stats = _stats;
+	camp = _camp;
 
 	visible = false;
 	talker_visible = false;
+	activetab = VENDOR_BUY;
 	loadGraphics();
 
 	closeButton = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
+
+	tabControl = new WidgetTabControl(2);
+	tabControl->setTabTitle(VENDOR_BUY,msg->get("Inventory"));
+	tabControl->setTabTitle(VENDOR_SELL,msg->get("Buyback"));
 
 	loadMerchant("");
 
@@ -93,7 +101,14 @@ void MenuVendor::update() {
 	slots_area.w = slots_cols*32;
 	slots_area.h = slots_rows*32;
 
-	stock.init( VENDOR_SLOTS, items, slots_area, ICON_SIZE_32, slots_cols);
+	SDL_Rect tabs_area = slots_area;
+
+	//TODO: Put tabcontrol posistion in vendor.txt
+	tabControl->setMainArea(tabs_area.x, tabs_area.y-18, tabs_area.w, tabs_area.h+18);
+	tabControl->updateHeader();
+
+	stock[VENDOR_BUY].init( VENDOR_SLOTS, items, slots_area, ICON_SIZE_32, slots_cols);
+	stock[VENDOR_SELL].init( VENDOR_SLOTS, items, slots_area, ICON_SIZE_32, slots_cols);
 
 	closeButton->pos.x = window_area.x+close_pos.x;
 	closeButton->pos.y = window_area.y+close_pos.y;
@@ -108,6 +123,16 @@ void MenuVendor::logic() {
 	if (closeButton->checkClick()) {
 		visible = false;
 	}
+}
+
+void MenuVendor::tabsLogic() {
+	tabControl->logic();
+	activetab = tabControl->getActiveTab();
+}
+
+void MenuVendor::setTab(int tab) {
+	tabControl->setActiveTab(tab);
+	activetab = tab;
 }
 
 void MenuVendor::render() {
@@ -134,8 +159,11 @@ void MenuVendor::render() {
 	label.set(window_area.x+name_pos.x, window_area.y+name_pos.y, JUSTIFY_CENTER, VALIGN_TOP, npc->name, FONT_WHITE);
 	label.render();
 
+	// render tabs
+	tabControl->render();
+
 	// show stock
-	stock.render();
+	stock[activetab].render();
 }
 
 /**
@@ -143,7 +171,7 @@ void MenuVendor::render() {
  * Players can drag an item to their inventory to purchase.
  */
 ItemStack MenuVendor::click(InputState * input) {
-	ItemStack stack = stock.click(input);
+	ItemStack stack = stock[activetab].click(input);
 	saveInventory();
 	return stack;
 }
@@ -152,21 +180,21 @@ ItemStack MenuVendor::click(InputState * input) {
  * Cancel the dragging initiated by the clic()
  */
 void MenuVendor::itemReturn(ItemStack stack) {
-	stock.itemReturn(stack);
+	stock[activetab].itemReturn(stack);
 	saveInventory();
 }
 
 void MenuVendor::add(ItemStack stack) {
-	stock.add(stack);
+	stock[activetab].add(stack);
 	saveInventory();
 }
 
 TooltipData MenuVendor::checkTooltip(Point mouse) {
-	return stock.checkTooltip( mouse, stats, true);
+	return stock[activetab].checkTooltip( mouse, stats, true);
 }
 
 bool MenuVendor::full() {
-	return stock.full();
+	return stock[activetab].full();
 }
 
 /**
@@ -175,7 +203,8 @@ bool MenuVendor::full() {
  */
 void MenuVendor::setInventory() {
 	for (int i=0; i<VENDOR_SLOTS; i++) {
-		stock[i] = npc->stock[i];
+		stock[VENDOR_BUY][i] = npc->stock[i];
+		stock[VENDOR_SELL][i] = camp->buyback_stock[i];
 	}
 }
 
@@ -186,7 +215,8 @@ void MenuVendor::setInventory() {
  */
 void MenuVendor::saveInventory() {
 	for (int i=0; i<VENDOR_SLOTS; i++) {
-		npc->stock[i] = stock[i];
+		npc->stock[i] = stock[VENDOR_BUY][i];
+		camp->buyback_stock[i] = stock[VENDOR_SELL][i];
 	}
 
 }
@@ -194,5 +224,6 @@ void MenuVendor::saveInventory() {
 MenuVendor::~MenuVendor() {
 	SDL_FreeSurface(background);
 	delete closeButton;
+	delete tabControl;
 }
 

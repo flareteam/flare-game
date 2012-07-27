@@ -64,7 +64,7 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 	menus.push_back(act); // menus[5]
 	enemy = new MenuEnemy();
 	menus.push_back(enemy); // menus[6]
-	vendor = new MenuVendor(items, stats);
+	vendor = new MenuVendor(items, stats, camp);
 	menus.push_back(vendor); // menus[7]
 	talker = new MenuTalker(camp);
 	menus.push_back(talker); // menus[8]
@@ -350,6 +350,7 @@ void MenuManager::logic() {
 
 			if (vendor->visible && isWithin(vendor->window_area,inpt->mouse)) {
 				inpt->lock[MAIN1] = true;
+				vendor->tabsLogic();
 				if (inpt->pressing[CTRL]) {
 					// buy item from a vendor
 					stack = vendor->click(inpt);
@@ -380,6 +381,7 @@ void MenuManager::logic() {
 			// pick up an inventory item
 			if (inv->visible && isWithin(inv->window_area,inpt->mouse)) {
 				if (inpt->pressing[CTRL]) {
+					vendor->setTab(VENDOR_SELL);
 					inpt->lock[MAIN1] = true;
 					stack = inv->click(inpt);
 					if( stack.item > 0) {
@@ -406,6 +408,7 @@ void MenuManager::logic() {
 					}
 				}
 				else {
+					if (vendor->visible) vendor->setTab(VENDOR_SELL);
 					inpt->lock[MAIN1] = true;
 					drag_stack = inv->click(inpt);
 					if (drag_stack.item > 0) {

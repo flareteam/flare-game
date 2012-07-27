@@ -54,6 +54,7 @@ public:
   void setMainArea(int x, int y, int width, int height);
 
   int getActiveTab();
+  void setActiveTab(int tab) { activeTab = tab; }
   SDL_Rect getContentArea();
 
   void updateHeader();

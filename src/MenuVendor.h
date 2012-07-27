@@ -29,20 +29,26 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include <string>
 
+#define VENDOR_BUY 0
+#define VENDOR_SELL 1
+
+class CampaignManager;
 class InputState;
 class NPC;
 class StatBlock;
 class WidgetButton;
+class WidgetTabControl;
 
 class MenuVendor : public Menu {
 private:
 	ItemManager *items;
 	StatBlock *stats;
 	WidgetButton *closeButton;
+	WidgetTabControl *tabControl;
 
 	void loadGraphics();
 	SDL_Surface *background;
-	MenuItemStorage stock; // items the vendor currently has in stock
+	MenuItemStorage stock[2]; // items the vendor currently has in stock
 
 	int VENDOR_SLOTS;
 
@@ -52,16 +58,20 @@ private:
 	Point name_pos;
 	int slots_cols;
 	int slots_rows;
+	int activetab;
 
 public:
-	MenuVendor(ItemManager *items, StatBlock *stats);
+	MenuVendor(ItemManager *items, StatBlock *stats, CampaignManager *_camp);
 	~MenuVendor();
 
 	NPC *npc;
+	CampaignManager *camp;
 
 	void update();
 	void loadMerchant(const std::string&);
 	void logic();
+	void tabsLogic();
+	void setTab(int tab);
 	void render();
 	ItemStack click(InputState * input);
 	void itemReturn(ItemStack stack);
