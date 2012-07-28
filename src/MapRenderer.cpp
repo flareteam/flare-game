@@ -1199,6 +1199,9 @@ bool MapRenderer::executeEvent(Map_Event &ev) {
 			powers->activate(power_index, dummy, target);
 
 		}
+        else if (ec->type == "stash") {
+            stash = true;
+        }
 	}
 	if (ev.type == "run_once" || destroy_event)
 		return true;

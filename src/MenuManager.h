@@ -43,6 +43,7 @@ class MenuVendor;
 class MenuTalker;
 class MenuExit;
 class MenuActiveEffects;
+class MenuStash;
 class CampaignManager;
 class ItemManager;
 class PowerManager;
@@ -103,6 +104,7 @@ public:
 	MenuTalker *talker;
 	MenuExit *exit;
 	MenuActiveEffects *effects;
+	MenuStash *stash;
 	
 	bool pause;
 	bool menus_open;

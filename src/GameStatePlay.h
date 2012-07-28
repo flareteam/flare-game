@@ -75,6 +75,7 @@ private:
 	void checkConsumable();
 	void checkNotifications();
 	void checkNPCInteraction();
+	void checkStash();
 
 	int npc_id;
 
