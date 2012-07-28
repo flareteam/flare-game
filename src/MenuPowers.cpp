@@ -233,9 +233,9 @@ void MenuPowers::renderIcon(int icon_id, int x, int y) {
 
 	icon_dest.x = x;
 	icon_dest.y = y;
-	icon_src.w = icon_src.h = icon_dest.w = icon_dest.h = 32;
-	icon_src.x = (icon_id % 16) * 32;
-	icon_src.y = (icon_id / 16) * 32;
+	icon_src.w = icon_src.h = icon_dest.w = icon_dest.h = ICON_SIZE_SMALL;
+	icon_src.x = (icon_id % 16) * ICON_SIZE_SMALL;
+	icon_src.y = (icon_id / 16) * ICON_SIZE_SMALL;
 	SDL_BlitSurface(icons, &icon_src, screen, &icon_dest);
 }
 

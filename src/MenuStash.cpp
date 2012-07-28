@@ -86,7 +86,7 @@ void MenuStash::update() {
 	slots_area.w = slots_cols*32;
 	slots_area.h = slots_rows*32;
 
-	stock.init( STASH_SLOTS, items, slots_area, ICON_SIZE_32, slots_cols);
+	stock.init( STASH_SLOTS, items, slots_area, ICON_SIZE_SMALL, slots_cols);
 
 	closeButton->pos.x = window_area.x+close_pos.x;
 	closeButton->pos.y = window_area.y+close_pos.y;

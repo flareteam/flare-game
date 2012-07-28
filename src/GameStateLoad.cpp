@@ -111,12 +111,12 @@ GameStateLoad::GameStateLoad() : GameState() {
 	  infile.close();
 	} else fprintf(stderr, "Unable to open gameload.txt!\n");
 
-	button_action->pos.x += (VIEW_W - 640)/2;
-	button_action->pos.y += (VIEW_H - 480)/2;
+	button_action->pos.x += (VIEW_W - FRAME_W)/2;
+	button_action->pos.y += (VIEW_H - FRAME_H)/2;
 	button_action->refresh();
 
-	button_alternate->pos.x += (VIEW_W - 640)/2;
-	button_alternate->pos.y += (VIEW_H - 480)/2;
+	button_alternate->pos.x += (VIEW_W - FRAME_W)/2;
+	button_alternate->pos.y += (VIEW_H - FRAME_H)/2;
 	button_alternate->refresh();
 
 	load_game = false;
@@ -130,9 +130,9 @@ GameStateLoad::GameStateLoad() : GameState() {
 	readGameSlots();
 
 	for (int i=0; i<GAME_SLOT_MAX; i++) {
-		slot_pos[i].x = gameslot_pos.x + (VIEW_W - 640)/2;
+		slot_pos[i].x = gameslot_pos.x + (VIEW_W - FRAME_W)/2;
 		slot_pos[i].h = gameslot_pos.h;
-		slot_pos[i].y = gameslot_pos.y + (VIEW_H - 480)/2 + (i * gameslot_pos.h);
+		slot_pos[i].y = gameslot_pos.y + (VIEW_H - FRAME_H)/2 + (i * gameslot_pos.h);
 		slot_pos[i].w = gameslot_pos.w;
 	}
 
@@ -436,8 +436,8 @@ void GameStateLoad::render() {
 
 		src.w = portrait_pos.w;
 		src.h = portrait_pos.h;
-		dest.x = portrait_pos.x + (VIEW_W - 640)/2;
-		dest.y = portrait_pos.y + (VIEW_H - 480)/2;
+		dest.x = portrait_pos.x + (VIEW_W - FRAME_W)/2;
+		dest.y = portrait_pos.y + (VIEW_H - FRAME_H)/2;
 
 		SDL_BlitSurface(portrait, &src, screen, &dest);
 		SDL_BlitSurface(portrait_border, &src, screen, &dest);
@@ -447,8 +447,8 @@ void GameStateLoad::render() {
 	stringstream ss;
 
 	if( loading_requested || loading || loaded ) {
-		label.x = loading_pos.x + (VIEW_W - 640)/2;
-		label.y = loading_pos.y + (VIEW_H - 480)/2;
+		label.x = loading_pos.x + (VIEW_W - FRAME_W)/2;
+		label.y = loading_pos.y + (VIEW_H - FRAME_H)/2;
 
 		if ( loaded ) {
 			label_loading->set(msg->get("Entering game world..."));

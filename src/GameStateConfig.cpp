@@ -96,8 +96,8 @@ GameStateConfig::GameStateConfig ()
 
 	// Allocate KeyBindings ScrollBox
 	input_scrollbox = new WidgetScrollBox(600, 350);
-	input_scrollbox->pos.x = (VIEW_W - 640)/2 + 10;
-	input_scrollbox->pos.y = (VIEW_H - 480)/2 + 30;
+	input_scrollbox->pos.x = (VIEW_W - FRAME_W)/2 + 10;
+	input_scrollbox->pos.y = (VIEW_H - FRAME_H)/2 + 30;
 	input_scrollbox->resize(780);
 
 	// Allocate Mods Configuration Buttons
@@ -228,34 +228,34 @@ GameStateConfig::GameStateConfig ()
 					settings_lb[setting_num-1]->setY(y1);
 				} else if (setting_num < 47) {
 					// all labels except keybinding labels
-					settings_lb[setting_num-1]->setX((VIEW_W - 640)/2 + x1);
-					settings_lb[setting_num-1]->setY((VIEW_H - 480)/2 + y1);
+					settings_lb[setting_num-1]->setX((VIEW_W - FRAME_W)/2 + x1);
+					settings_lb[setting_num-1]->setY((VIEW_H - FRAME_H)/2 + y1);
 				}
 
 				if (setting_num < 10) {
 					//checkboxes positions
-					settings_cb[setting_num-1]->pos.x = (VIEW_W - 640)/2 + x2;
-					settings_cb[setting_num-1]->pos.y = (VIEW_H - 480)/2 + y2;
+					settings_cb[setting_num-1]->pos.x = (VIEW_W - FRAME_W)/2 + x2;
+					settings_cb[setting_num-1]->pos.y = (VIEW_H - FRAME_H)/2 + y2;
 				} else if ((setting_num > 9) && (setting_num < 13)) {
 					//sliders positions
-					settings_sl[setting_num-10]->pos.x = (VIEW_W - 640)/2 + x2;
-					settings_sl[setting_num-10]->pos.y = (VIEW_H - 480)/2 + y2;
+					settings_sl[setting_num-10]->pos.x = (VIEW_W - FRAME_W)/2 + x2;
+					settings_sl[setting_num-10]->pos.y = (VIEW_H - FRAME_H)/2 + y2;
 				} else if ((setting_num > 12) && (setting_num < 15)) {
 					//comboboxes positions
-					settings_cmb[setting_num-13]->pos.x = (VIEW_W - 640)/2 + x2;
-					settings_cmb[setting_num-13]->pos.y = (VIEW_H - 480)/2 + y2;
+					settings_cmb[setting_num-13]->pos.x = (VIEW_W - FRAME_W)/2 + x2;
+					settings_cmb[setting_num-13]->pos.y = (VIEW_H - FRAME_H)/2 + y2;
 				} else if (setting_num > 14 && setting_num < 40) {
 					//keybinding buttons positions
 					settings_key[setting_num-15]->pos.x = x2;
 					settings_key[setting_num-15]->pos.y = y2;
 				} else if (setting_num > 43 && setting_num < 47) {
 					//listboxes positions
-					settings_lstb[setting_num-44]->pos.x = (VIEW_W - 640)/2 + x2;
-					settings_lstb[setting_num-44]->pos.y = (VIEW_H - 480)/2 + y2;
+					settings_lstb[setting_num-44]->pos.x = (VIEW_W - FRAME_W)/2 + x2;
+					settings_lstb[setting_num-44]->pos.y = (VIEW_H - FRAME_H)/2 + y2;
 				} else if (setting_num > 46 && setting_num < 51) {
 					//mods config buttons positions
-					settings_btn[setting_num-47]->pos.x = (VIEW_W - 640)/2 + x1;
-					settings_btn[setting_num-47]->pos.y = (VIEW_H - 480)/2 + y1;
+					settings_btn[setting_num-47]->pos.x = (VIEW_W - FRAME_W)/2 + x1;
+					settings_btn[setting_num-47]->pos.y = (VIEW_H - FRAME_H)/2 + y1;
 				}
 			}
 
@@ -264,7 +264,7 @@ GameStateConfig::GameStateConfig ()
 		infile.close();
 
 	// Initialize the tab control.
-	tabControl->setMainArea(((VIEW_W - 640)/2)+3, (VIEW_H - 480)/2, 640, 480);
+	tabControl->setMainArea(((VIEW_W - FRAME_W)/2)+3, (VIEW_H - FRAME_H)/2, FRAME_W, FRAME_H);
 
 	// Set positions of secondary key bindings
 	for (unsigned int i = 25; i < 50; i++) {

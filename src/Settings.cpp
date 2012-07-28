@@ -83,6 +83,13 @@ int TILESET_ISOMETRIC = 0;
 int TILESET_ORTHOGONAL = 1;
 int TILESET_ORIENTATION = TILESET_ISOMETRIC;
 
+// Main Menu frame size
+int FRAME_W;
+int FRAME_H;
+
+int ICON_SIZE_SMALL;
+int ICON_SIZE_LARGE;
+
 // Video Settings
 bool FULLSCREEN;
 int FRAMES_PER_SEC = 30;
@@ -320,13 +327,21 @@ void loadAutoPickupSettings() {
 
 void loadMiscSettings() {
 	FileParser infile;
-	// load autopickup settings from engine config
+	// load miscellaneous settings from engine config
 	if (infile.open(mods->locate("engine/misc.txt").c_str())) {
 		while (infile.next()) {
 			if (infile.key == "save_hpmp") {
 				SAVE_HPMP = atoi(infile.val.c_str());
 			} else if (infile.key == "default_name") {
 				DEFAULT_NAME = infile.val.c_str();
+			} else if (infile.key == "menu_frame_width") {
+				FRAME_W = atoi(infile.val.c_str());
+			} else if (infile.key == "menu_frame_height") {
+				FRAME_H = atoi(infile.val.c_str());
+			} else if (infile.key == "small_icon_size") {
+				ICON_SIZE_SMALL = atoi(infile.val.c_str());
+			} else if (infile.key == "large_icon_size") {
+				ICON_SIZE_LARGE = atoi(infile.val.c_str());
 			}
 		}
 		infile.close();
