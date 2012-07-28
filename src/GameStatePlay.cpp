@@ -41,6 +41,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "MenuLog.h"
 #include "MenuManager.h"
 #include "MenuMiniMap.h"
+#include "MenuStash.h"
 #include "MenuTalker.h"
 #include "MenuVendor.h"
 #include "NPC.h"
@@ -475,6 +476,29 @@ void GameStatePlay::checkNPCInteraction() {
 
 }
 
+void GameStatePlay::checkStash() {
+	int max_interact_distance = UNITS_PER_TILE * 4;
+	int interact_distance = max_interact_distance+1;
+
+	if (map->stash) {
+		// If triggered, open the stash and inventory menus
+		menu->inv->visible = true;
+		menu->stash->visible = true;
+		map->stash = false;
+	} else {
+		// Close stash if inventory is closed
+		if (!menu->inv->visible) menu->stash->visible = false;
+
+		// If the player walks away from the stash, close its menu
+		interact_distance = (int)calcDist(pc->stats.pos, map->stash_pos);
+		if (interact_distance > max_interact_distance || !pc->stats.alive) {
+			if (menu->stash->visible) {
+				menu->stash->visible = false;
+			}
+		}
+	}
+}
+
 /**
  * Process all actions for a single frame
  * This includes some message passing between child object
@@ -513,6 +537,7 @@ void GameStatePlay::logic() {
 	checkLog();
 	checkEquipmentChange();
 	checkConsumable();
+	checkStash();
 	checkCancel();
 
 	map->logic();

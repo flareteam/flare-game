@@ -258,6 +258,10 @@ public:
 
 	// shaky cam
 	int shaky_cam_ticks;
+
+	// stash handling
+	bool stash;
+	Point stash_pos;
 };
 
 

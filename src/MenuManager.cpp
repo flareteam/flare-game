@@ -36,6 +36,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "MenuTalker.h"
 #include "MenuExit.h"
 #include "MenuActiveEffects.h"
+#include "MenuStash.h"
 #include "MenuLog.h"
 #include "ModManager.h"
 #include "NPC.h"
@@ -80,7 +81,9 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 	pow = new MenuPowers(stats, powers, icons);
 	menus.push_back(pow); // menus[13]
 	log = new MenuLog();
-	menus.push_back(log);
+	menus.push_back(log); // menus[14]
+	stash = new MenuStash(items, stats);
+	menus.push_back(stash); // menus[15]
 	tip = new WidgetTooltip();
 
 	// Load the menu positions and alignments from menus/menus.txt
@@ -114,6 +117,7 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 			else if (infile.key == "inventory") menu_index = 12;
 			else if (infile.key == "powers") menu_index = 13;
 			else if (infile.key == "log") menu_index = 14;
+			else if (infile.key == "stash") menu_index = 15;
 
 			if (menu_index != -1) {
 				menus[menu_index]->window_area.x = x;
@@ -140,6 +144,7 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 	inv->update();
 	pow->update();
 	log->update();
+	stash->update();
 
 	pause = false;
 	dragging = false;
@@ -219,6 +224,7 @@ void MenuManager::logic() {
 	pow->logic();
 	log->logic();
 	talker->logic();
+	stash->logic();
 	if (chr->checkUpgrade() || stats->level_up) {
 		// apply equipment and max hp/mp
 		inv->applyEquipment(inv->inventory[EQUIPMENT].storage);
@@ -561,13 +567,9 @@ void MenuManager::logic() {
 }
 
 void MenuManager::render() {
-	for (unsigned int i=0; i<menus.size()-4; i++) {
+	for (unsigned int i=0; i<menus.size(); i++) {
 		menus[i]->render();
 	}
-	inv->render();
-	pow->render();
-	chr->render();
-	log->render();
 
 	TooltipData tip_new;
 
@@ -627,6 +629,7 @@ void MenuManager::closeLeft(bool play_sound) {
 		vendor->visible = false;
 		talker->visible = false;
 		exit->visible = false;
+		stash->visible = false;
 
 		if (sfx_close)
 			if (play_sound) Mix_PlayChannel(-1, sfx_close, 0);
@@ -666,6 +669,7 @@ MenuManager::~MenuManager() {
 	delete exit;
 	delete enemy;
 	delete effects;
+	delete stash;
 
 	Mix_FreeChunk(sfx_open);
 	Mix_FreeChunk(sfx_close);
