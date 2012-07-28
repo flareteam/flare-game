@@ -29,6 +29,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "MenuConfirm.h"
 #include "SharedResources.h"
 #include "Settings.h"
+#include "UtilsParsing.h"
 #include "WidgetLabel.h"
 
 
@@ -56,15 +57,66 @@ GameStateLoad::GameStateLoad() : GameState() {
 	button_action = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
 	button_action->label = msg->get("Choose a Slot");
 	button_action->enabled = false;
-	button_action->pos.x = (VIEW_W - 640)/2 + 480 - button_action->pos.w/2;
-	button_action->pos.y = (VIEW_H - 480)/2 + 384;
-	button_action->refresh();
 
 	button_alternate = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
 	button_alternate->label = msg->get("Delete Save");
 	button_alternate->enabled = false;
-	button_alternate->pos.x = (VIEW_W - 640)/2 + 480 - button_alternate->pos.w/2;
-	button_alternate->pos.y = (VIEW_H - 480)/2 + 415;
+
+	// Read positions from config file 
+	FileParser infile;
+	int counter = -1;
+	if (infile.open(mods->locate("menus/gameload.txt"))) {
+	  while (infile.next()) {
+		infile.val = infile.val + ',';
+
+		if (infile.key == "action_button") {
+			button_action->pos.x = eatFirstInt(infile.val, ',');
+			button_action->pos.y = eatFirstInt(infile.val, ',');
+		} else if (infile.key == "atlernate_button") {
+			button_alternate->pos.x = eatFirstInt(infile.val, ',');
+			button_alternate->pos.y = eatFirstInt(infile.val, ',');
+		} else if (infile.key == "portrait") {
+			portrait_pos.x = eatFirstInt(infile.val, ',');
+			portrait_pos.y = eatFirstInt(infile.val, ',');
+			portrait_pos.w = eatFirstInt(infile.val, ',');
+			portrait_pos.h = eatFirstInt(infile.val, ',');
+		} else if (infile.key == "gameslot") {
+			gameslot_pos.x = eatFirstInt(infile.val, ',');
+			gameslot_pos.y = eatFirstInt(infile.val, ',');
+			gameslot_pos.w = eatFirstInt(infile.val, ',');
+			gameslot_pos.h = eatFirstInt(infile.val, ',');
+		} else if (infile.key == "preview") {
+			preview_pos.x = eatFirstInt(infile.val, ',');
+			preview_pos.y = eatFirstInt(infile.val, ',');
+			preview_pos.w = eatFirstInt(infile.val, ',');
+			preview_pos.h = eatFirstInt(infile.val, ',');
+		// label positions within each slot
+		} else if (infile.key == "name") {
+			name_pos.x = eatFirstInt(infile.val, ',');
+			name_pos.y = eatFirstInt(infile.val, ',');
+		} else if (infile.key == "level") {
+			level_pos.x = eatFirstInt(infile.val, ',');
+			level_pos.y = eatFirstInt(infile.val, ',');
+		} else if (infile.key == "map") {
+			map_pos.x = eatFirstInt(infile.val, ',');
+			map_pos.y = eatFirstInt(infile.val, ',');
+		} else if (infile.key == "sprite") {
+			sprites_pos.x = eatFirstInt(infile.val, ',');
+			sprites_pos.y = eatFirstInt(infile.val, ',');
+		} else if (infile.key == "loading_label") {
+			loading_pos.x = eatFirstInt(infile.val, ',');
+			loading_pos.y = eatFirstInt(infile.val, ',');
+		}
+	  }
+	  infile.close();
+	} else fprintf(stderr, "Unable to open gameload.txt!\n");
+
+	button_action->pos.x += (VIEW_W - 640)/2;
+	button_action->pos.y += (VIEW_H - 480)/2;
+	button_action->refresh();
+
+	button_alternate->pos.x += (VIEW_W - 640)/2;
+	button_alternate->pos.y += (VIEW_H - 480)/2;
 	button_alternate->refresh();
 
 	load_game = false;
@@ -78,26 +130,13 @@ GameStateLoad::GameStateLoad() : GameState() {
 	readGameSlots();
 
 	for (int i=0; i<GAME_SLOT_MAX; i++) {
-		slot_pos[i].x = (VIEW_W - 640)/2;
-		slot_pos[i].y = (VIEW_H - 480)/2 + (i * 96) + 32;
-		slot_pos[i].w = 288;
-		slot_pos[i].h = 96;
+		slot_pos[i].x = gameslot_pos.x + (VIEW_W - 640)/2;
+		slot_pos[i].h = gameslot_pos.h;
+		slot_pos[i].y = gameslot_pos.y + (VIEW_H - 480)/2 + (i * gameslot_pos.h);
+		slot_pos[i].w = gameslot_pos.w;
 	}
 
 	selected_slot = -1;
-
-	// label positions within each slot
-	name_pos.x = 16;
-	name_pos.y = 16;
-
-	level_pos.x = 24;
-	level_pos.y = 40;
-
-	map_pos.x = 24;
-	map_pos.y = 56;
-
-	sprites_pos.x = 178;
-	sprites_pos.y = -24;
 
 	// temp
 	current_frame = 0;
@@ -246,9 +285,10 @@ void GameStateLoad::loadPreview(int slot) {
 	if (gfx_off) SDL_SetColorKey(gfx_off, SDL_SRCCOLORKEY, SDL_MapRGB(gfx_off->format, 255, 0, 255));
 	if (gfx_head) SDL_SetColorKey(gfx_head, SDL_SRCCOLORKEY, SDL_MapRGB(gfx_head->format, 255, 0, 255));
 
-	dest.x = dest.y = 0;
-	dest.w = 512;
-	dest.h = 128;
+	dest.x = preview_pos.x;
+	dest.y = preview_pos.y;
+	dest.w = preview_pos.w;
+	dest.h = preview_pos.h;
 
 	if (gfx_main) SDL_gfxBlitRGBA(gfx_main, NULL, sprites[slot], &dest);
 	if (gfx_off) SDL_gfxBlitRGBA(gfx_off, NULL, sprites[slot], &dest);
@@ -375,8 +415,8 @@ void GameStateLoad::render() {
 	button_alternate->render();
 
 	// display background
-	src.w = 288;
-	src.h = 384;
+	src.w = gameslot_pos.w;
+	src.h = gameslot_pos.h * GAME_SLOT_MAX;
 	src.x = src.y = 0;
 	dest.x = slot_pos[0].x;
 	dest.y = slot_pos[0].y;
@@ -384,8 +424,8 @@ void GameStateLoad::render() {
 
 	// display selection
 	if (selected_slot >= 0) {
-		src.w = 288;
-		src.h = 96;
+		src.w = gameslot_pos.w;
+		src.h = gameslot_pos.h;
 		src.x = src.y = 0;
 		SDL_BlitSurface(selection, &src, screen, &slot_pos[selected_slot]);
 	}
@@ -394,9 +434,10 @@ void GameStateLoad::render() {
 	// portrait
 	if (selected_slot >= 0 && portrait != NULL) {
 
-		src.w = src.h = 320;
-		dest.x = VIEW_W_HALF;
-		dest.y = (VIEW_H - 480)/2 + 32;
+		src.w = portrait_pos.w;
+		src.h = portrait_pos.h;
+		dest.x = portrait_pos.x + (VIEW_W - 640)/2;
+		dest.y = portrait_pos.y + (VIEW_H - 480)/2;
 
 		SDL_BlitSurface(portrait, &src, screen, &dest);
 		SDL_BlitSurface(portrait_border, &src, screen, &dest);
@@ -406,8 +447,8 @@ void GameStateLoad::render() {
 	stringstream ss;
 
 	if( loading_requested || loading || loaded ) {
-		label.x = button_action->pos.x + ( button_action->pos.w / 2 );
-		label.y = button_action->pos.y - button_action->pos.h + 10;
+		label.x = loading_pos.x + (VIEW_W - 640)/2;
+		label.y = loading_pos.y + (VIEW_H - 480)/2;
 
 		if ( loaded ) {
 			label_loading->set(msg->get("Entering game world..."));
