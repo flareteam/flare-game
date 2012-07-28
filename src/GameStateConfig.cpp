@@ -94,12 +94,6 @@ GameStateConfig::GameStateConfig ()
 		 settings_key[i] = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
 	}
 
-	// Allocate KeyBindings ScrollBox
-	input_scrollbox = new WidgetScrollBox(600, 350);
-	input_scrollbox->pos.x = (VIEW_W - FRAME_W)/2 + 10;
-	input_scrollbox->pos.y = (VIEW_H - FRAME_H)/2 + 30;
-	input_scrollbox->resize(780);
-
 	// Allocate Mods Configuration Buttons
 	settings_btn[0] = new WidgetButton(mods->locate("images/menus/buttons/up.png"));
 	settings_btn[1] = new WidgetButton(mods->locate("images/menus/buttons/down.png"));
@@ -216,9 +210,15 @@ GameStateConfig::GameStateConfig ()
 			else if (infile.key == "secondary_offset") {offset_x = x1; offset_y = y1;}
 			else if (infile.key == "keybinds_bg_color") {
 				// background color for keybinds scrollbox
-				input_scrollbox->bg.r = x1;
-				input_scrollbox->bg.g = y1;
-				input_scrollbox->bg.b = x2;
+				scrollpane_color.x = x1;
+				scrollpane_color.y = y1;
+				scrollpane_color.w = x2;
+			}
+			else if (infile.key == "scrollpane") {
+				scrollpane.x = x1;
+				scrollpane.y = y1;
+				scrollpane.w = x2;
+				scrollpane.h = y2;
 			}
 
 			if (setting_num != -1) {
@@ -262,6 +262,15 @@ GameStateConfig::GameStateConfig ()
 		  }
 		} else fprintf(stderr, "Unable to open config.txt!\n");
 		infile.close();
+
+	// Allocate KeyBindings ScrollBox
+	input_scrollbox = new WidgetScrollBox(scrollpane.w, scrollpane.h);
+	input_scrollbox->pos.x = scrollpane.x + (VIEW_W - FRAME_W)/2;
+	input_scrollbox->pos.y = scrollpane.y + (VIEW_H - FRAME_H)/2;
+	input_scrollbox->resize(780);
+	input_scrollbox->bg.r = scrollpane_color.x;
+	input_scrollbox->bg.g = scrollpane_color.y;
+	input_scrollbox->bg.b = scrollpane_color.w;
 
 	// Initialize the tab control.
 	tabControl->setMainArea(((VIEW_W - FRAME_W)/2)+3, (VIEW_H - FRAME_H)/2, FRAME_W, FRAME_H);
