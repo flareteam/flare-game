@@ -166,6 +166,11 @@ public:
 	TooltipData getShortTooltip(ItemStack item);
 
 	std::vector<Item> items;
+
+	std::vector<std::string> item_class_names; // a vector of all defined classes of items
+	// belongs to the item_class_names vector and contains a vector of item ids which belong to that specific class.
+	std::vector<std::vector<unsigned int> > item_class_items;
+
 	int vendor_ratio;
 };
 
