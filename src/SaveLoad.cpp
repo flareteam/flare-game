@@ -34,6 +34,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "MenuInventory.h"
 #include "MenuManager.h"
 #include "MenuPowers.h"
+#include "MenuStash.h"
 #include "MenuTalker.h"
 #include "Settings.h"
 #include "UtilsFileSystem.h"
@@ -118,6 +119,21 @@ void GameStatePlay::saveGame() {
 		// campaign data
 		outfile << "campaign=";
 		outfile << camp->getAll();
+
+		outfile << endl;
+
+		outfile.close();
+	}
+
+	// Save stash
+	ss.str("");
+	ss << PATH_USER << "stash.txt";
+
+	outfile.open(ss.str().c_str(), ios::out);
+
+	if (outfile.is_open()) {
+		outfile << "item=" << menu->stash->stock.getItems() << "\n";
+		outfile << "quantity=" << menu->stash->stock.getQuantities() << "\n";
 
 		outfile << endl;
 
@@ -223,6 +239,22 @@ void GameStatePlay::loadGame() {
 		infile.close();
 	}
 
+	// Load stash
+	ss.str("");
+	ss << PATH_USER << "stash.txt";
+
+	if (infile.open(ss.str())) {
+		while (infile.next()) {
+			if (infile.key == "item") {
+				menu->stash->stock.setItems(infile.val);
+			}
+			else if (infile.key == "quantity") {
+				menu->stash->stock.setQuantities(infile.val);
+			}
+		}
+		infile.close();
+	}
+
 	// initialize vars
 	pc->stats.recalc();
 	menu->inv->applyEquipment(menu->inv->inventory[EQUIPMENT].storage);
@@ -248,3 +280,25 @@ void GameStatePlay::loadGame() {
 
 }
 
+/*
+ * This is used to load the stash when starting a new game
+ */
+void GameStatePlay::loadStash() {
+	// Load stash
+	FileParser infile;
+	stringstream ss;
+	ss.str("");
+	ss << PATH_USER << "stash.txt";
+
+	if (infile.open(ss.str())) {
+		while (infile.next()) {
+			if (infile.key == "item") {
+				menu->stash->stock.setItems(infile.val);
+			}
+			else if (infile.key == "quantity") {
+				menu->stash->stock.setQuantities(infile.val);
+			}
+		}
+		infile.close();
+	}
+}

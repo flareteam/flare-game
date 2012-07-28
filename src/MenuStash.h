@@ -42,7 +42,6 @@ private:
 
 	void loadGraphics();
 	SDL_Surface *background;
-	MenuItemStorage stock;
 
 	int STASH_SLOTS;
 
@@ -63,12 +62,11 @@ public:
 	void itemReturn(ItemStack stack);
 	void add(ItemStack stack);
 	TooltipData checkTooltip(Point mouse);
-	bool full();
-	void setInventory();
-	void saveInventory();
+	bool full(int item);
 
 	bool visible;
 	SDL_Rect slots_area;
+	MenuItemStorage stock;
 };
 
 

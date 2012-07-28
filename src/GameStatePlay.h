@@ -88,6 +88,7 @@ public:
 	void showFPS(int fps);
 	void saveGame();
 	void loadGame();
+	void loadStash();
 	void resetGame();
 
 	Avatar *pc;

@@ -315,7 +315,7 @@ void MenuInventory::drop(Point mouse, ItemStack stack) {
 			}
 		}
 		else {
-		    // note: equipment slots 0-3 correspond with item types 0-3
+			// note: equipment slots 0-3 correspond with item types 0-3
 			// also check to see if the hero meets the requirements
 			if (inventory[area][slot].item == stack.item) {
 				// Merge the stacks
@@ -527,6 +527,35 @@ bool MenuInventory::buy(ItemStack stack, Point mouse) {
 	}
 }
 
+/**
+ * Similar to buy(), but for use with stash
+ */
+bool MenuInventory::stashRemove(ItemStack stack, Point mouse) {
+	int area;
+	int slot = -1;
+
+	area = areaOver( mouse);
+	if( area > -1) {
+		slot = inventory[area].slotOver( mouse);
+	}
+	if( slot > -1) {
+		add( stack, area, slot);
+	}
+	else {
+		add(stack);
+	}
+	return true;
+}
+
+/**
+ * Similar to sell(), but for use with stash
+ */
+bool MenuInventory::stashAdd(ItemStack stack) {
+	// items that have no price cannot be stored
+	if (items->items[stack.item].price == 0) return false;
+
+	return true;
+}
 /**
  * Sell a specific stack of items
  */
