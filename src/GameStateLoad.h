@@ -79,10 +79,15 @@ private:
 	Point level_pos;
 	Point map_pos;
 	Point sprites_pos;
+	Point loading_pos;
 	
 	// animation info
 	int current_frame;
 	int frame_ticker;
+
+	SDL_Rect portrait_pos;
+	SDL_Rect gameslot_pos;
+	SDL_Rect preview_pos;
 	
 public:
 	GameStateLoad();
