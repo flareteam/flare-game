@@ -67,6 +67,7 @@ public:
 	bool visible;
 	SDL_Rect slots_area;
 	MenuItemStorage stock;
+	bool updated;
 };
 
 

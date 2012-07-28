@@ -393,6 +393,7 @@ void MenuManager::logic() {
 						} else if( ! inv->stashRemove( stack)) {
 							stash->itemReturn( stack);
 						}
+						stash->updated = true;
 					}
 				} else {
 					// start dragging a stash item
@@ -428,6 +429,7 @@ void MenuManager::logic() {
 						else if (stash->visible) {
 							if (inv->stashAdd(stack) && !stash->full(stack.item)) {
 								stash->add(stack);
+								stash->updated = true;
 							}
 							else {
 								inv->itemReturn(stack);
@@ -529,6 +531,7 @@ void MenuManager::logic() {
 				else if (stash->visible && isWithin(stash->slots_area, inpt->mouse)) {
 					if (inv->stashAdd( drag_stack) && !stash->full(drag_stack.item)) {
 						stash->add( drag_stack);
+						stash->updated = true;
 					}
 					else {
 						inv->itemReturn(drag_stack);
@@ -580,6 +583,7 @@ void MenuManager::logic() {
 					else if( ! inv->stashRemove( drag_stack, inpt->mouse)) {
 						stash->itemReturn( drag_stack);
 					}
+					stash->updated = true;
 					drag_stack.item = 0;
 				}
 				else {

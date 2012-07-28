@@ -35,6 +35,7 @@ MenuStash::MenuStash(ItemManager *_items, StatBlock *_stats) {
 	stats = _stats;
 
 	visible = false;
+	updated = false;
 	loadGraphics();
 
 	closeButton = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
