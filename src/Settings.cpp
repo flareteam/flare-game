@@ -97,6 +97,8 @@ int VIEW_W;
 int VIEW_H;
 int VIEW_W_HALF = VIEW_W/2;
 int VIEW_H_HALF = VIEW_H/2;
+int MIN_VIEW_W = -1;
+int MIN_VIEW_H = -1;
 bool DOUBLEBUF;
 bool HWSURFACE;
 float GAMMA;
@@ -342,6 +344,14 @@ void loadMiscSettings() {
 				ICON_SIZE_SMALL = atoi(infile.val.c_str());
 			} else if (infile.key == "large_icon_size") {
 				ICON_SIZE_LARGE = atoi(infile.val.c_str());
+			} else if (infile.key == "required_width") {
+				MIN_VIEW_W = atoi(infile.val.c_str());
+				if (VIEW_W < MIN_VIEW_W) VIEW_W = MIN_VIEW_W;
+				VIEW_W_HALF = VIEW_W/2;
+			} else if (infile.key == "required_height") {
+				MIN_VIEW_H = atoi(infile.val.c_str());
+				if (VIEW_H < MIN_VIEW_H) VIEW_H = MIN_VIEW_H;
+				VIEW_H_HALF = VIEW_H/2;
 			}
 		}
 		infile.close();

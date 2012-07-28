@@ -49,6 +49,8 @@ extern int VIEW_W;
 extern int VIEW_H;
 extern int VIEW_W_HALF;
 extern int VIEW_H_HALF;
+extern int MIN_VIEW_W;
+extern int MIN_VIEW_H;
 extern bool DOUBLEBUF;
 extern bool HWSURFACE;
 extern float GAMMA;
