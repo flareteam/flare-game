@@ -592,7 +592,7 @@ void GameStateConfig::update () {
 		}
 
 	// Check if resolution was selected correctly
-	if (!check_resolution) {
+	if (check_resolution) {
 		list_mode << VIEW_W << "x" << VIEW_H;
 		if (settings_lstb[0]->getValue() != list_mode.str()) {
 			fprintf(stderr, "Resolution is not supported!\n");
@@ -641,7 +641,7 @@ void GameStateConfig::update () {
 void GameStateConfig::logic ()
 {
 	int active;
-	check_resolution = false;
+	check_resolution = true;
 
 	// Initialize resolution value
 	std::string value;
@@ -652,7 +652,7 @@ void GameStateConfig::logic ()
 	if (defaults_confirm->visible) {
 		defaults_confirm->logic();
 		if (defaults_confirm->confirmClicked) {
-			check_resolution = true;
+			check_resolution = false;
 			FULLSCREEN = 0;
 			loadDefaults();
 			inpt->defaultQwertyKeyBindings();
@@ -689,7 +689,7 @@ void GameStateConfig::logic ()
 		} else if (defaults_button->checkClick()) {
 			defaults_confirm->visible = true;
 		} else if (cancel_button->checkClick()) {
-			check_resolution = true;
+			check_resolution = false;
 			loadSettings();
 			inpt->loadKeyBindings();
 			delete msg;
