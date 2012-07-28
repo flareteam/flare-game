@@ -245,10 +245,10 @@ public:
 	int activated_powerslot;
 
 	int loot_chance;
-	std::vector<std::string> loot_types; // which kind of loot is able to be dropped
-	// the strings given in loot_types correspond to the item class
-	std::vector<int> loot_prob;          // weights for each kind of drop.
-	int loot_prob_sum;                   // sum of all loot_prob entries.
+	std::vector<std::string> item_classes; // which kind of loot is able to be dropped
+	// the strings given in item_class correspond to the item class
+	std::vector<int> item_class_prob;      // weights for each kind of drop.
+	int item_class_prob_sum;               // sum of all loot_prob entries.
 
 	// for the teleport spell
 	bool teleportation;

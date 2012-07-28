@@ -277,7 +277,7 @@ void LootManager::checkEnemiesForLoot() {
 				pos = e->stats.pos;
 
 			// if no probability density function  is given, do a random loot
-			if (e->stats.loot_types.empty())
+			if (e->stats.item_classes.empty())
 				determineLoot(e->stats.level, pos);
 			else
 				determineLootByClass(e, pos);
@@ -376,28 +376,28 @@ void LootManager::determineLootByClass(const Enemy *e, Point pos) {
 		return;
 
 	// roll a dice to select the type
-	int typeSelector = rand() % e->stats.loot_prob_sum;
+	int typeSelector = rand() % e->stats.item_class_prob_sum;
 	int typeSelectorIndex = 0;
 
 	// look up type hit by dice with correct probabilities
-	while (typeSelector >= e->stats.loot_prob[typeSelectorIndex]) {
-		typeSelector -= e->stats.loot_prob[typeSelectorIndex];
+	while (typeSelector >= e->stats.item_class_prob[typeSelectorIndex]) {
+		typeSelector -= e->stats.item_class_prob[typeSelectorIndex];
 		typeSelectorIndex++;
 	}
-	string loot_type = e->stats.loot_types[typeSelectorIndex];
+	string item_class = e->stats.item_classes[typeSelectorIndex];
 
-	if (loot_type == "gold")
+	if (item_class == "gold")
 		addGold(rand() % (level * 2) + level, pos);
 	else {
 		// search for the itemclass
 		unsigned int index;
 		for (index = 0; index < items->item_class_names.size(); index++) {
-			if (items->item_class_names[index] == loot_type)
+			if (items->item_class_names[index] == item_class)
 				break;
 		}
 		if (index == items->item_class_names.size()) {
 			// item class name not found:
-			cout << "item class " << loot_type << " has no items." << endl;
+			cout << "item class " << item_class << " has no items." << endl;
 			return;
 		}
 
