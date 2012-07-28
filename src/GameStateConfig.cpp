@@ -592,14 +592,18 @@ void GameStateConfig::update () {
 		}
 
 	// Check if resolution was selected correctly
-	list_mode << VIEW_W << "x" << VIEW_H;
-	if (settings_lstb[0]->getValue() != list_mode.str()) {
-		fprintf(stderr, "Resolution is not supported!\n");
-		fprintf(stderr, "Using 640x480 instead!\n");
-		for (unsigned int i=0; i<resolutions; ++i) {
-			if (video_modes[i].w == 640 && video_modes[i].h == 480) settings_lstb[0]->selected[i] = true;
+	if (!check_resolution) {
+		list_mode << VIEW_W << "x" << VIEW_H;
+		if (settings_lstb[0]->getValue() != list_mode.str()) {
+			fprintf(stderr, "Resolution is not supported!\n");
+			fprintf(stderr, "Using 640x480 instead!\n");
+			for (unsigned int i=0; i<resolutions; ++i) {
+				if (video_modes[i].w == 640 && video_modes[i].h == 480) settings_lstb[0]->selected[i] = true;
+				else settings_lstb[0]->selected[i] = false;
+			}
+			VIEW_W = 640;
+			VIEW_H = 480;
 		}
-		VIEW_W = 640;
 	}
 
 	settings_lstb[0]->refresh();
@@ -637,6 +641,7 @@ void GameStateConfig::update () {
 void GameStateConfig::logic ()
 {
 	int active;
+	check_resolution = false;
 
 	// Initialize resolution value
 	std::string value;
@@ -647,6 +652,7 @@ void GameStateConfig::logic ()
 	if (defaults_confirm->visible) {
 		defaults_confirm->logic();
 		if (defaults_confirm->confirmClicked) {
+			check_resolution = true;
 			FULLSCREEN = 0;
 			loadDefaults();
 			inpt->defaultQwertyKeyBindings();
@@ -683,6 +689,7 @@ void GameStateConfig::logic ()
 		} else if (defaults_button->checkClick()) {
 			defaults_confirm->visible = true;
 		} else if (cancel_button->checkClick()) {
+			check_resolution = true;
 			loadSettings();
 			inpt->loadKeyBindings();
 			delete msg;
@@ -987,6 +994,7 @@ void GameStateConfig::setDefaultResolution()
 
 	for (unsigned int i=0; i<resolutions; ++i) {
 		if (video_modes[i].w == 640 && video_modes[i].h == 480) settings_lstb[0]->selected[i] = true;
+		else settings_lstb[0]->selected[i] = false;
 	}
 	settings_lstb[0]->refresh();
 
