@@ -123,8 +123,8 @@ public:
 	void addEnemyLoot(const Enemy *e);
 	void checkMapForLoot();
 	bool isFlying(const LootDef &ld);
-	void determineLoot(int base_level, Point pos); // uniformly distributed within the base_level set
-	void determineLootWithProbability(const Enemy *e, Point pos); // distributed according to enemies loot type probabilities.
+	void determineLoot(int base_level, Point pos); // uniformly distributed within the base_level set, randomly chosen
+	void determineLootByClass(const Enemy *e, Point pos); // distributed according to enemies loot type probabilities, only from specific item class
 	int randomItem(int base_level);
 	void addLoot(ItemStack stack, Point pos);
 	void addGold(int count, Point pos);

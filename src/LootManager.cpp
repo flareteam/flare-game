@@ -28,6 +28,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "SharedResources.h"
 
 #include <sstream>
+#include <iostream>
 
 using namespace std;
 
@@ -279,7 +280,7 @@ void LootManager::checkEnemiesForLoot() {
 			if (e->stats.loot_types.empty())
 				determineLoot(e->stats.level, pos);
 			else
-				determineLootWithProbability(e, pos);
+				determineLootByClass(e, pos);
 		}
 	}
 	enemiesDroppingLoot.clear();
@@ -368,7 +369,7 @@ void LootManager::determineLoot(int base_level, Point pos) {
 	}
 }
 
-void LootManager::determineLootWithProbability(const Enemy *e, Point pos) {
+void LootManager::determineLootByClass(const Enemy *e, Point pos) {
 	// quality level of loot
 	int level = lootLevel(e->stats.level);
 	if (level <= 0)
@@ -388,20 +389,22 @@ void LootManager::determineLootWithProbability(const Enemy *e, Point pos) {
 	if (loot_type == "gold")
 		addGold(rand() % (level * 2) + level, pos);
 	else {
-		// look up all items of the determined type
-		vector<int> possible_loots;
-		for (int i = 0; i < loot_table_count[level]; i++) {
-			const int itemIndex = loot_table[level][i];
-			if (items->items[itemIndex].loot == loot_type)
-				possible_loots.push_back(itemIndex);
+		// search for the itemclass
+		unsigned int index;
+		for (index = 0; index < items->item_class_names.size(); index++) {
+			if (items->item_class_names[index] == loot_type)
+				break;
+		}
+		if (index == items->item_class_names.size()) {
+			// item class name not found:
+			cout << "item class " << loot_type << " has no items." << endl;
+			return;
 		}
 
-		// if there are items matching the seleected type,
-		// add a random item of that type.
-		if (level > 0 && possible_loots.size() > 0) {
-			int roll = rand() % possible_loots.size();
+		if (level > 0 && items->item_class_items[index].size() > 0) {
+			int roll = rand() % items->item_class_items[index].size();
 			ItemStack new_loot;
-			new_loot.item = possible_loots[roll];
+			new_loot.item = items->item_class_items[index][roll];
 			new_loot.quantity = rand() % items->items[new_loot.item].rand_loot + 1;
 			addLoot(new_loot, pos);
 		}
