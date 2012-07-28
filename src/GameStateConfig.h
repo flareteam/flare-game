@@ -81,8 +81,8 @@ private:
 	WidgetSlider        * settings_sl[3];
 	WidgetCheckBox      * settings_cb[9];
 	WidgetButton        * settings_key[50];
-	WidgetComboBox      * settings_cmb[3];
-	WidgetListBox       * settings_lstb[2];
+	WidgetComboBox      * settings_cmb[2];
+	WidgetListBox       * settings_lstb[3];
 	WidgetButton        * settings_btn[4];
 	WidgetScrollBox     * input_scrollbox;
 	MenuConfirm         * input_confirm;

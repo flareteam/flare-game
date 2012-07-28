@@ -51,6 +51,7 @@ WidgetListBox::WidgetListBox(int amount, int height, const std::string& _fileNam
 	}
 
 	multi_select = false;
+	can_deselect = true;
 	
 	loadArt();
 
@@ -132,7 +133,11 @@ bool WidgetListBox::checkClick(int x, int y) {
 						}
 					}
 					// activate upon release
-					selected[i+cursor] = !selected[i+cursor];
+					if (selected[i+cursor]) {
+						if (can_deselect) selected[i+cursor] = false;
+					} else {
+						selected[i+cursor] = true;
+					}
 					refresh();
 					return true;
 				}
@@ -276,6 +281,13 @@ void WidgetListBox::shiftDown() {
 			scrollDown();
 		}
 	}
+}
+
+std::string WidgetListBox::getValue() {
+	for (int i=0; i<non_empty_slots; i++) {
+		if (selected[i]) return values[i];
+	}
+	return "";
 }
 
 /*
