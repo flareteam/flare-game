@@ -594,24 +594,30 @@ void GameStateConfig::update () {
 	std::stringstream list_mode;
 	unsigned int resolutions = getVideoModes();
 	for (unsigned int i=0; i<resolutions; ++i) {
-		 list_mode << video_modes[i].w << "x" << video_modes[i].h;
-		 settings_lstb[0]->append(list_mode.str(),"");
-		 if (video_modes[i].w == VIEW_W && video_modes[i].h == VIEW_H) settings_lstb[0]->selected[i] = true;
-		 list_mode.str("");
-		}
+		list_mode << video_modes[i].w << "x" << video_modes[i].h;
+		settings_lstb[0]->append(list_mode.str(),"");
+		if (video_modes[i].w == VIEW_W && video_modes[i].h == VIEW_H) settings_lstb[0]->selected[i] = true;
+		else settings_lstb[0]->selected[i] = false;
+		list_mode.str("");
+	}
 
 	// Check if resolution was selected correctly
 	if (check_resolution) {
+		int w,h;
+		if (MIN_VIEW_W != -1) w = MIN_VIEW_W;
+		else w = 640;
+		if (MIN_VIEW_H != -1) h = MIN_VIEW_H;
+		else h = 480;
 		list_mode << VIEW_W << "x" << VIEW_H;
 		if (settings_lstb[0]->getValue() != list_mode.str()) {
 			fprintf(stderr, "Resolution is not supported!\n");
-			fprintf(stderr, "Using 640x480 instead!\n");
+			fprintf(stderr, "Using %dx%d instead!\n",w,h);
 			for (unsigned int i=0; i<resolutions; ++i) {
-				if (video_modes[i].w == 640 && video_modes[i].h == 480) settings_lstb[0]->selected[i] = true;
+				if (video_modes[i].w == w && video_modes[i].h == h) settings_lstb[0]->selected[i] = true;
 				else settings_lstb[0]->selected[i] = false;
 			}
-			VIEW_W = 640;
-			VIEW_H = 480;
+			VIEW_W = w;
+			VIEW_H = h;
 		}
 	}
 
@@ -664,11 +670,11 @@ void GameStateConfig::logic ()
 			check_resolution = false;
 			FULLSCREEN = 0;
 			loadDefaults();
+			loadMiscSettings();
 			inpt->defaultQwertyKeyBindings();
 			delete msg;
 			msg = new MessageEngine();
 			update();
-			setDefaultResolution();
 			defaults_confirm->visible = false;
 			defaults_confirm->confirmClicked = false;
 		}
@@ -679,8 +685,6 @@ void GameStateConfig::logic ()
 
 		// Ok/Cancel Buttons
 		if (ok_button->checkClick()) {
-			refreshFont();
-			applyVideoSettings(screen, width, height);
 			saveSettings();
 			inpt->saveKeyBindings();
 			if (setMods()) {
@@ -689,6 +693,9 @@ void GameStateConfig::logic ()
 				mods = new ModManager();
 				loadTilesetSettings();
 			}
+			loadMiscSettings();
+			refreshFont();
+			applyVideoSettings(screen, width, height);
 			if ((ENABLE_JOYSTICK) && (SDL_NumJoysticks() > 0)) {
 				SDL_JoystickClose(joy);
 				joy = SDL_JoystickOpen(JOYSTICK_DEVICE);
@@ -700,6 +707,7 @@ void GameStateConfig::logic ()
 		} else if (cancel_button->checkClick()) {
 			check_resolution = false;
 			loadSettings();
+			loadMiscSettings();
 			inpt->loadKeyBindings();
 			delete msg;
 			msg = new MessageEngine();
@@ -867,6 +875,12 @@ void GameStateConfig::render ()
 
 int GameStateConfig::getVideoModes()
 {
+	int w,h;
+	if (MIN_VIEW_W != -1) w = MIN_VIEW_W;
+	else w = 640;
+	if (MIN_VIEW_H != -1) h = MIN_VIEW_H;
+	else h = 480;
+
 	/* Set predefined modes */
 	const unsigned int cm_count = 4;
 	SDL_Rect common_modes[cm_count];
@@ -876,8 +890,8 @@ int GameStateConfig::getVideoModes()
 	common_modes[1].h = 600;
 	common_modes[2].w = 1024;
 	common_modes[2].h = 768;
-	common_modes[3].w = 1280;
-	common_modes[3].h = 1024;
+	common_modes[3].w = w;
+	common_modes[3].h = h;
 
 	int modes = 0;
 
@@ -897,15 +911,15 @@ int GameStateConfig::getVideoModes()
 
 	/* Determine the number of valid modes */
 	for (unsigned int i=0; detect_modes[i]; ++i) {
-		if (detect_modes[i]->w >= 640 && detect_modes[i]->h >= 480) {
+		if (detect_modes[i]->w >= w && detect_modes[i]->h >= h) {
 			modes++;
 		}
 	}
 	for (unsigned int j=0; j<cm_count; ++j) {
 		for (unsigned int i=0; detect_modes[i]; i++) {
 			if(common_modes[j].w != 0) {
-				if (detect_modes[i]->w >= 640 && detect_modes[i]->h >= 480) {
-					if (common_modes[j].w == detect_modes[i]->w && common_modes[j].h == detect_modes[i]->h) {
+				if (detect_modes[i]->w >= w && detect_modes[i]->h >= h) {
+					if ((common_modes[j].w == detect_modes[i]->w && common_modes[j].h == detect_modes[i]->h) || (common_modes[j].w*common_modes[j].h < w*h)) {
 						common_modes[j].w = 0;
 						break;
 					}
@@ -924,7 +938,7 @@ int GameStateConfig::getVideoModes()
 	int k = 0;
 
 	for (unsigned int i=0; detect_modes[i]; ++i) {
-		if (detect_modes[i]->w >= 640 && detect_modes[i]->h >= 480) {
+		if (detect_modes[i]->w >= w && detect_modes[i]->h >= h) {
 			video_modes[k].w = detect_modes[i]->w;
 			video_modes[k].h = detect_modes[i]->h;
 			k++;
@@ -933,8 +947,8 @@ int GameStateConfig::getVideoModes()
 	for (unsigned int j=0; j<cm_count; ++j) {
 		for (unsigned int i=0; detect_modes[i]; i++) {
 			if(common_modes[j].w != 0) {
-				if (detect_modes[i]->w >= 640 && detect_modes[i]->h >= 480) {
-					if (common_modes[j].w == detect_modes[i]->w && common_modes[j].h == detect_modes[i]->h) {
+				if (detect_modes[i]->w >= w && detect_modes[i]->h >= h) {
+					if ((common_modes[j].w == detect_modes[i]->w && common_modes[j].h == detect_modes[i]->h) || (common_modes[j].w*common_modes[j].h < w*h)) {
 						common_modes[j].w = 0;
 						break;
 					}
@@ -952,7 +966,7 @@ int GameStateConfig::getVideoModes()
 	for (int x=0; x<modes; x++) {
 		int index_of_min = x;
 		for (int y=x; y<modes; y++) {
-			if (video_modes[index_of_min].w < video_modes[y].w) {
+			if (video_modes[index_of_min].w*video_modes[index_of_min].h < video_modes[y].w*video_modes[y].h) {
 				index_of_min = y;
 			}
 		}
@@ -994,21 +1008,6 @@ int GameStateConfig::getLanguagesNumber()
 	return languages_num;
 }
 
-/**
- * This function is a HACK to set combobox to default resolution without changing it at runtime
- */
-void GameStateConfig::setDefaultResolution()
-{
-	unsigned int resolutions = getVideoModes();
-
-	for (unsigned int i=0; i<resolutions; ++i) {
-		if (video_modes[i].w == 640 && video_modes[i].h == 480) settings_lstb[0]->selected[i] = true;
-		else settings_lstb[0]->selected[i] = false;
-	}
-	settings_lstb[0]->refresh();
-
-}
-
 void GameStateConfig::refreshFont() {
 	delete font;
 	font = new FontEngine();
@@ -1018,6 +1017,12 @@ void GameStateConfig::refreshFont() {
  * Tries to apply the selected video settings, reverting back to the old settings upon failure
  */
 bool GameStateConfig::applyVideoSettings(SDL_Surface *src, int width, int height) {
+	if (MIN_VIEW_W != -1 && MIN_VIEW_H != -1) {
+		fprintf (stderr, "A mod is requiring a minimum resolution of %dx%d\n", MIN_VIEW_W, MIN_VIEW_H);
+		if (width < MIN_VIEW_W) width = MIN_VIEW_W;
+		if (height < MIN_VIEW_H) height = MIN_VIEW_H;
+	}
+
 	// Temporarily save previous settings
 	int tmp_fs = FULLSCREEN;
 	int tmp_w = VIEW_W;
