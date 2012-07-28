@@ -128,9 +128,9 @@ StatBlock::StatBlock() {
 	infile.close();
 
 	loot_chance = 50;
-	loot_types = vector<string>();
-	loot_prob = vector<int>();
-	loot_prob_sum = 0;
+	item_classes = vector<string>();
+	item_class_prob = vector<int>();
+	item_class_prob_sum = 0;
 	teleportation = false;
 
 	for (int i=0; i<POWERSLOT_COUNT; i++) {
@@ -216,18 +216,18 @@ void StatBlock::load(const string& filename) {
 			// enemy death rewards and events
 			else if (infile.key == "xp") xp = num;
 			else if (infile.key == "loot_chance") loot_chance = num;
-			else if (infile.key == "loot_type") {
+			else if (infile.key == "item_class") {
 				string str;
 				while ((str = infile.nextValue()) != "") {
 					if (!isInt(str)) {
-						loot_types.push_back(str);
-						loot_prob.push_back(1);
-						loot_prob_sum++;
+						item_classes.push_back(str);
+						item_class_prob.push_back(1);
+						item_class_prob_sum++;
 					}
 					else {
 						num = atoi(str.c_str());
-						loot_prob[loot_types.size()-1] = num;
-						loot_prob_sum += num - 1; // one was already added, so add one less
+						item_class_prob[item_classes.size()-1] = num;
+						item_class_prob_sum += num - 1; // one was already added, so add one less
 					}
 				}
 			}
