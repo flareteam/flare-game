@@ -51,6 +51,11 @@ private:
 	Point close_pos;
 	Point advance_pos;
 	Point vendor_pos;
+	SDL_Rect dialog_pos;
+	SDL_Rect text_pos;
+	Point text_offset;
+	SDL_Rect portrait_he;
+	SDL_Rect portrait_you; 
 
 public:
 	MenuTalker(CampaignManager *camp);
