@@ -19,6 +19,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * class FontEngine
  */
 
+#include "SDL_gfxBlitFunc.h"
 #include "FontEngine.h"
 #include "FileParser.h"
 #include "SharedResources.h"
@@ -32,6 +33,7 @@ using namespace std;
 
 FontEngine::FontEngine() {
 	font_pt = 10;
+	render_blended = false;
 
 	// Initiate SDL_ttf
 	if(!TTF_WasInit() && TTF_Init()==-1) {
@@ -44,11 +46,14 @@ FontEngine::FontEngine() {
 	FileParser infile;
 	if (infile.open(mods->locate("engine/font_settings.txt"))) {
 		while (infile.next()) {
-			if (infile.key == "font_regular"){
+			if (infile.key == "font_regular") {
 				font_path = infile.val;
 			}
-			if (infile.key == "ptsize"){
+			else if (infile.key == "ptsize") {
 				font_pt = atoi(infile.val.c_str());
+			}
+			else if (infile.key == "render") {
+				if (infile.val == "blended") render_blended = true;
 			}
 		}
 	}
@@ -210,9 +215,17 @@ void FontEngine::render(const std::string& text, int x, int y, int justify, SDL_
 	dest_rect.x = dest_x;
 	dest_rect.y = dest_y;
 
-	ttf = TTF_RenderUTF8_Solid(ttfont, text.c_str(), colors[color]);
-
-	if (ttf != NULL) SDL_BlitSurface(ttf, NULL, target, &dest_rect);
+	if (render_blended) {
+		ttf = TTF_RenderUTF8_Blended(ttfont, text.c_str(), colors[color]);
+		
+		// preserve alpha transparency of text buffers
+		if (ttf != NULL) SDL_gfxBlitRGBA(ttf, NULL, target, &dest_rect);
+	}
+	else {
+		ttf = TTF_RenderUTF8_Solid(ttfont, text.c_str(), colors[color]);
+		if (ttf != NULL) SDL_BlitSurface(ttf, NULL, target, &dest_rect);		
+	}
+	
 	SDL_FreeSurface(ttf);
 	ttf = NULL;
 }
