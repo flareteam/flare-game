@@ -1,0 +1,22 @@
+# Menu Definitions
+# First two values are x and y position; Next 2 values are width and height
+# The last value is the menu's alignment on the screen, possible values are:
+# topleft, top, topright, left, center, right, bottomleft, bottom, bottomright
+
+[menus]
+hp=0,0,53,16,topleft
+mp=0,9,53,16,topleft
+xp=0,18,53,13,topleft
+effects=53,0,0,0,topleft
+hudlog=16,-20,112,0,bottomleft
+actionbar=0,0,320,18,bottom
+enemy=0,0,53,16,top
+vendor=0,0,160,208,left
+talker=0,0,320,208,center
+exit=0,0,96,32,center
+minimap=0,8,64,64,topright
+character=0,0,160,208,left
+inventory=0,0,160,208,right
+powers=0,0,160,208,right
+log=0,0,160,208,left
+stash=0,0,160,208,left
