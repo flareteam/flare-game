@@ -261,6 +261,7 @@ public:
 
 	// stash handling
 	bool stash;
+	Point stash_pos;
 };
 
 
