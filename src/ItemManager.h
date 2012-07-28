@@ -34,9 +34,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 class StatBlock;
 
-const int ICON_SIZE_32 = 32;
-const int ICON_SIZE_64 = 64;
-
 const int ITEM_TYPE_OTHER = -1;
 const int ITEM_TYPE_MAIN = 0;
 const int ITEM_TYPE_BODY = 1;
@@ -78,8 +75,8 @@ public:
 	int level;            // rough estimate of quality, used in the loot algorithm
 	int quality;          // low, normal, high, epic; corresponds to item name color
 	int type;             // equipment slot or base item type
-	int icon32;           // icon index on the 32x32 pixel sheet
-	int icon64;           // icon index on the 64x64 pixel sheet (used for equippable items)
+	int icon_small;       // icon index on small pixel sheet
+	int icon_large;       // icon index on large pixel sheet (used for equippable items)
 	int dmg_min;          // minimum damage amount (weapons only)
 	int dmg_max;          // maximum damage amount (weapons only)
 	int abs_min;          // minimum absorb amount (armors and shields only)
@@ -106,8 +103,8 @@ public:
 		name = "";
 		level = 0;
 		quality = ITEM_QUALITY_NORMAL;
-		icon32 = 0;
-		icon64 = 0;
+		icon_small = 0;
+		icon_large = 0;
 		type = -1;
 		dmg_min = 0;
 		dmg_max = 0;
@@ -148,8 +145,8 @@ public:
 
 class ItemManager {
 private:
-	SDL_Surface *icons32;
-	SDL_Surface *icons64; // item db is the only module that currently uses the 64px icons
+	SDL_Surface *icons_small;
+	SDL_Surface *icons_large; // item db is the only module that currently uses the 64px icons
 	SDL_Rect src;
 	SDL_Rect dest;
 	Mix_Chunk *sfx[12];

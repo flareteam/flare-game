@@ -33,6 +33,13 @@ extern std::string PATH_DATA; // common game data
 extern std::string FILE_SETTINGS;     // Name of the settings file (e.g. "settings.txt").
 extern std::string FILE_KEYBINDINGS;  // Name of the key bindings file (e.g. "keybindings.txt").
 
+// Main Menu frame size
+extern int FRAME_W;
+extern int FRAME_H;
+
+extern int ICON_SIZE_SMALL;
+extern int ICON_SIZE_LARGE;
+
 // Audio and Video Settings
 extern int MUSIC_VOLUME;
 extern int SOUND_VOLUME;

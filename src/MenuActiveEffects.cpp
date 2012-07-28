@@ -25,6 +25,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "Menu.h"
 #include "MenuActiveEffects.h"
 #include "ModManager.h"
+#include "Settings.h"
 #include "SharedResources.h"
 #include "StatBlock.h"
 #include "FileParser.h"
@@ -86,21 +87,21 @@ void MenuActiveEffects::loadGraphics() {
 void MenuActiveEffects::renderIcon(int icon_id, int index, int current, int max){
 	SDL_Rect pos,src,overlay;
 	if (orientation == 0) {
-		pos.x = window_area.x + (index * 32);
+		pos.x = window_area.x + (index * ICON_SIZE_SMALL);
 		pos.y = window_area.y;
 	} else if (orientation == 1) {
 		pos.x = window_area.x;
-		pos.y = window_area.y + (index * 32);;
+		pos.y = window_area.y + (index * ICON_SIZE_SMALL);;
 	}
 	
-	src.x = (icon_id % 16) * 32;
-	src.y = (icon_id / 16) * 32;
-	src.w = src.h = 32;
+	src.x = (icon_id % 16) * ICON_SIZE_SMALL;
+	src.y = (icon_id / 16) * ICON_SIZE_SMALL;
+	src.w = src.h = ICON_SIZE_SMALL;
 
 	overlay.x = 0;
-	overlay.y = 32 * ((float)current/max);
-	overlay.w = 32;
-	overlay.h = 32 - overlay.y;
+	overlay.y = ICON_SIZE_SMALL * ((float)current/max);
+	overlay.w = ICON_SIZE_SMALL;
+	overlay.h = ICON_SIZE_SMALL - overlay.y;
 
 	SDL_BlitSurface(icons,&src,screen,&pos);
 	SDL_BlitSurface(timer,&overlay,screen,&pos);

@@ -103,30 +103,30 @@ GameStateNew::GameStateNew() : GameState() {
 	  infile.close();
 	} else fprintf(stderr, "Unable to open gamenew.txt!\n");
 
-	button_prev->pos.x += (VIEW_W - 640)/2;
-	button_prev->pos.y += (VIEW_H - 480)/2;
+	button_prev->pos.x += (VIEW_W - FRAME_W)/2;
+	button_prev->pos.y += (VIEW_H - FRAME_H)/2;
 
-	button_next->pos.x += (VIEW_W - 640)/2;
-	button_next->pos.y += (VIEW_H - 480)/2;
+	button_next->pos.x += (VIEW_W - FRAME_W)/2;
+	button_next->pos.y += (VIEW_H - FRAME_H)/2;
 
-	name.x += (VIEW_W - 640)/2;
-	name.y += (VIEW_H - 480)/2;
+	name.x += (VIEW_W - FRAME_W)/2;
+	name.y += (VIEW_H - FRAME_H)/2;
 
 	input_name->setPosition(name.x, name.y);
 
 	if (DEFAULT_NAME != "") input_name->setText(DEFAULT_NAME);
 
-	button_permadeath->pos.x += (VIEW_W - 640)/2;
-	button_permadeath->pos.y += (VIEW_H - 480)/2;
+	button_permadeath->pos.x += (VIEW_W - FRAME_W)/2;
+	button_permadeath->pos.y += (VIEW_H - FRAME_H)/2;
 
-	portrait_label.x += (VIEW_W - 640)/2;
-	portrait_label.y += (VIEW_H - 480)/2;
+	portrait_label.x += (VIEW_W - FRAME_W)/2;
+	portrait_label.y += (VIEW_H - FRAME_H)/2;
 
-	name_label.x += (VIEW_W - 640)/2;
-	name_label.y += (VIEW_H - 480)/2;
+	name_label.x += (VIEW_W - FRAME_W)/2;
+	name_label.y += (VIEW_H - FRAME_H)/2;
 
-	permadeath_label.x += (VIEW_W - 640)/2;
-	permadeath_label.y += (VIEW_H - 480)/2;
+	permadeath_label.x += (VIEW_W - FRAME_W)/2;
+	permadeath_label.y += (VIEW_H - FRAME_H)/2;
 
 	// set up labels
 	label_portrait = new WidgetLabel();
@@ -264,8 +264,8 @@ void GameStateNew::render() {
 	src.w = dest.w = portrait_pos.w;
 	src.h = dest.h = portrait_pos.h;
 	src.x = src.y = 0;
-	dest.x = portrait_pos.x + (VIEW_W - 640)/2;
-	dest.y = portrait_pos.y + (VIEW_H - 480)/2;
+	dest.x = portrait_pos.x + (VIEW_W - FRAME_W)/2;
+	dest.y = portrait_pos.y + (VIEW_H - FRAME_H)/2;
 
 	if (portrait != NULL) {
 		SDL_BlitSurface(portrait_image, &src, screen, &dest);

@@ -88,8 +88,8 @@ void ItemManager::load(const string& filename) {
 			else if (infile.key == "level")
 				items[id].level = atoi(infile.val.c_str());
 			else if (infile.key == "icon") {
-				items[id].icon32 = atoi(infile.nextValue().c_str());
-				items[id].icon64 = atoi(infile.nextValue().c_str());
+				items[id].icon_small = atoi(infile.nextValue().c_str());
+				items[id].icon_large = atoi(infile.nextValue().c_str());
 			}
 			else if (infile.key == "quality") {
 				if (infile.val == "low")
@@ -228,21 +228,21 @@ void ItemManager::loadSounds() {
  */
 void ItemManager::loadIcons() {
 
-	icons32 = IMG_Load(mods->locate("images/icons/icons32.png").c_str());
-	icons64 = IMG_Load(mods->locate("images/icons/icons64.png").c_str());
+	icons_small = IMG_Load(mods->locate("images/icons/icons_small.png").c_str());
+	icons_large = IMG_Load(mods->locate("images/icons/icons_large.png").c_str());
 
-	if(!icons32 || !icons64) {
+	if(!icons_small || !icons_large) {
 		fprintf(stderr, "Couldn't load icons: %s\n", IMG_GetError());
 		SDL_Quit();
 	}
 
 	// optimize
-	SDL_Surface *cleanup = icons32;
-	icons32 = SDL_DisplayFormatAlpha(icons32);
+	SDL_Surface *cleanup = icons_small;
+	icons_small = SDL_DisplayFormatAlpha(icons_small);
 	SDL_FreeSurface(cleanup);
 
-	cleanup = icons64;
-	icons64 = SDL_DisplayFormatAlpha(icons64);
+	cleanup = icons_large;
+	icons_large = SDL_DisplayFormatAlpha(icons_large);
 	SDL_FreeSurface(cleanup);
 }
 
@@ -265,7 +265,7 @@ void ItemManager::shrinkItems() {
 }
 
 /**
- * Renders icons at 32px size or 64px size
+ * Renders icons at small size or large size
  * Also display the stack size
  */
 void ItemManager::renderIcon(ItemStack stack, int x, int y, int size) {
@@ -274,17 +274,17 @@ void ItemManager::renderIcon(ItemStack stack, int x, int y, int size) {
 	dest.x = x;
 	dest.y = y;
 	src.w = src.h = dest.w = dest.h = size;
-	if (size == ICON_SIZE_32) {
-		columns = icons32->w / 32;
-		src.x = (items[stack.item].icon32 % columns) * size;
-		src.y = (items[stack.item].icon32 / columns) * size;
-		SDL_BlitSurface(icons32, &src, screen, &dest);
+	if (size == ICON_SIZE_SMALL) {
+		columns = icons_small->w / ICON_SIZE_SMALL;
+		src.x = (items[stack.item].icon_small % columns) * size;
+		src.y = (items[stack.item].icon_small / columns) * size;
+		SDL_BlitSurface(icons_small, &src, screen, &dest);
 	}
-	else if (size == ICON_SIZE_64) {
-		columns = icons64->w / 64;
-		src.x = (items[stack.item].icon64 % columns) * size;
-		src.y = (items[stack.item].icon64 / columns) * size;
-		SDL_BlitSurface(icons64, &src, screen, &dest);
+	else if (size == ICON_SIZE_LARGE) {
+		columns = icons_large->w / ICON_SIZE_LARGE;
+		src.x = (items[stack.item].icon_large % columns) * size;
+		src.y = (items[stack.item].icon_large / columns) * size;
+		SDL_BlitSurface(icons_large, &src, screen, &dest);
 	}
 
 	if( stack.quantity > 1 || items[stack.item].max_quantity > 1) {
@@ -483,8 +483,8 @@ TooltipData ItemManager::getTooltip(int item, StatBlock *stats, bool vendor_view
 }
 
 ItemManager::~ItemManager() {
-	SDL_FreeSurface(icons32);
-	SDL_FreeSurface(icons64);
+	SDL_FreeSurface(icons_small);
+	SDL_FreeSurface(icons_large);
 
 	if (audio) {
 		for (int i=0; i<12; i++) {

@@ -106,8 +106,8 @@ void MenuVendor::update() {
 	tabControl->setMainArea(tabs_area.x, tabs_area.y-18, tabs_area.w, tabs_area.h+18);
 	tabControl->updateHeader();
 
-	stock[VENDOR_BUY].init( VENDOR_SLOTS, items, slots_area, ICON_SIZE_32, slots_cols);
-	stock[VENDOR_SELL].init( VENDOR_SLOTS, items, slots_area, ICON_SIZE_32, slots_cols);
+	stock[VENDOR_BUY].init( VENDOR_SLOTS, items, slots_area, ICON_SIZE_SMALL, slots_cols);
+	stock[VENDOR_SELL].init( VENDOR_SLOTS, items, slots_area, ICON_SIZE_SMALL, slots_cols);
 
 	closeButton->pos.x = window_area.x+close_pos.x;
 	closeButton->pos.y = window_area.y+close_pos.y;

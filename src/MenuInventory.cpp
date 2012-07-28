@@ -123,11 +123,11 @@ void MenuInventory::update() {
 
 	carried_area.x += window_area.x;
 	carried_area.y += window_area.y;
-	carried_area.w = carried_cols*32;
-	carried_area.h = carried_rows*32;
+	carried_area.w = carried_cols*ICON_SIZE_SMALL;
+	carried_area.h = carried_rows*ICON_SIZE_SMALL;
 
-	inventory[EQUIPMENT].init(MAX_EQUIPPED, items, equipped_area, ICON_SIZE_64, 4);
-	inventory[CARRIED].init(MAX_CARRIED, items, carried_area, ICON_SIZE_32, carried_cols);
+	inventory[EQUIPMENT].init(MAX_EQUIPPED, items, equipped_area, ICON_SIZE_LARGE, 4);
+	inventory[CARRIED].init(MAX_CARRIED, items, carried_area, ICON_SIZE_SMALL, carried_cols);
 
 	closeButton->pos.x = window_area.x+close_pos.x;
 	closeButton->pos.y = window_area.y+close_pos.y;
