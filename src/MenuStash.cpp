@@ -35,6 +35,7 @@ MenuStash::MenuStash(ItemManager *_items, StatBlock *_stats) {
 	stats = _stats;
 
 	visible = false;
+	updated = false;
 	loadGraphics();
 
 	closeButton = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
@@ -131,7 +132,6 @@ void MenuStash::render() {
  */
 ItemStack MenuStash::click(InputState * input) {
 	ItemStack stack = stock.click(input);
-	saveInventory();
 	return stack;
 }
 
@@ -140,39 +140,18 @@ ItemStack MenuStash::click(InputState * input) {
  */
 void MenuStash::itemReturn(ItemStack stack) {
 	stock.itemReturn(stack);
-	saveInventory();
 }
 
 void MenuStash::add(ItemStack stack) {
 	stock.add(stack);
-	saveInventory();
 }
 
 TooltipData MenuStash::checkTooltip(Point mouse) {
 	return stock.checkTooltip( mouse, stats, true);
 }
 
-bool MenuStash::full() {
-	return stock.full();
-}
-
-/**
- * Apply the stash inventory
- */
-void MenuStash::setInventory() {
-	for (int i=0; i<STASH_SLOTS; i++) {
-		// stock[i] = stash_stock[i];
-	}
-}
-
-/**
- * Temporarily save the stash inventory (it's saved to disk elsewhere)
- */
-void MenuStash::saveInventory() {
-	for (int i=0; i<STASH_SLOTS; i++) {
-		// stash_stock[i] = stock[i];
-	}
-
+bool MenuStash::full(int item) {
+	return stock.full(item);
 }
 
 MenuStash::~MenuStash() {

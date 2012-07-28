@@ -103,6 +103,7 @@ void GameStatePlay::resetGame() {
 	menu->log->clear();
 	quests->createQuestList();
 	menu->hudlog->clear();
+	loadStash();
 
 	// Finalize new character settings
 	menu->talker->setHero(pc->stats.name, pc->stats.portrait);
@@ -495,6 +496,12 @@ void GameStatePlay::checkStash() {
 			if (menu->stash->visible) {
 				menu->stash->visible = false;
 			}
+		}
+
+		// If the stash has been updated, save the game
+		if (menu->stash->updated) {
+			menu->stash->updated = false;
+			saveGame();
 		}
 	}
 }

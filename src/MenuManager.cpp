@@ -381,6 +381,30 @@ void MenuManager::logic() {
 				}
 			}
 
+			if (stash->visible && isWithin(stash->window_area,inpt->mouse)) {
+				inpt->lock[MAIN1] = true;
+				if (inpt->pressing[CTRL]) {
+					// take an item from the stash
+					stack = stash->click(inpt);
+					if (stack.item > 0) {
+						if( inv->full(stack.item)) {
+							// Can we say "Not enough place" ?
+							stash->itemReturn( stack);
+						} else if( ! inv->stashRemove( stack)) {
+							stash->itemReturn( stack);
+						}
+						stash->updated = true;
+					}
+				} else {
+					// start dragging a stash item
+					drag_stack = stash->click(inpt);
+					if (drag_stack.item > 0) {
+						dragging = true;
+						drag_src = DRAG_SRC_STASH;
+					}
+				}
+			}
+
 			if(log->visible && isWithin(log->window_area,inpt->mouse)) {
 				inpt->lock[MAIN1] = true;
 				log->tabsLogic();
@@ -397,6 +421,15 @@ void MenuManager::logic() {
 							// The vendor could have a limited amount of money in the future. It will be tested here.
 							if (inv->sell(stack)) {
 								vendor->add(stack);
+							}
+							else {
+								inv->itemReturn(stack);
+							}
+						}
+						else if (stash->visible) {
+							if (inv->stashAdd(stack) && !stash->full(stack.item)) {
+								stash->add(stack);
+								stash->updated = true;
 							}
 							else {
 								inv->itemReturn(stack);
@@ -495,6 +528,16 @@ void MenuManager::logic() {
 					}
 					drag_stack.item = 0;
 				}
+				else if (stash->visible && isWithin(stash->slots_area, inpt->mouse)) {
+					if (inv->stashAdd( drag_stack) && !stash->full(drag_stack.item)) {
+						stash->add( drag_stack);
+						stash->updated = true;
+					}
+					else {
+						inv->itemReturn(drag_stack);
+					}
+					drag_stack.item = 0;
+				}
 				else {
 					// if dragging and the source was inventory, drop item to the floor
 
@@ -526,6 +569,25 @@ void MenuManager::logic() {
 				}
 				else {
 					vendor->itemReturn(drag_stack);
+				}
+			}
+
+			else if (drag_src == DRAG_SRC_STASH) {
+
+				// dropping an item from vendor (we only allow to drop into the carried area)
+				if (inv->visible && isWithin( inv->carried_area, inpt->mouse)) {
+					if( inv->full(drag_stack.item)) {
+						// Can we say "Not enough place" ?
+						stash->itemReturn( drag_stack);
+					}
+					else if( ! inv->stashRemove( drag_stack, inpt->mouse)) {
+						stash->itemReturn( drag_stack);
+					}
+					stash->updated = true;
+					drag_stack.item = 0;
+				}
+				else {
+					stash->itemReturn(drag_stack);
 				}
 			}
 
@@ -580,6 +642,9 @@ void MenuManager::render() {
 	if (vendor->visible && isWithin(vendor->window_area,inpt->mouse)) {
 		tip_new = vendor->checkTooltip(inpt->mouse);
 	}
+	if (stash->visible && isWithin(stash->window_area,inpt->mouse)) {
+		tip_new = stash->checkTooltip(inpt->mouse);
+	}
 	if (pow->visible && isWithin(pow->window_area,inpt->mouse)) {
 		tip_new = pow->checkTooltip(inpt->mouse);
 	}
@@ -606,7 +671,7 @@ void MenuManager::render() {
 
 	// draw icon under cursor if dragging
 	if (dragging) {
-		if (drag_src == DRAG_SRC_INVENTORY || drag_src == DRAG_SRC_VENDOR)
+		if (drag_src == DRAG_SRC_INVENTORY || drag_src == DRAG_SRC_VENDOR || drag_src == DRAG_SRC_STASH)
 			items->renderIcon(drag_stack, inpt->mouse.x - 16, inpt->mouse.y - 16, ICON_SIZE_32);
 		else if (drag_src == DRAG_SRC_POWERS || drag_src == DRAG_SRC_ACTIONBAR)
 			renderIcon(powers->powers[drag_power].icon, inpt->mouse.x-16, inpt->mouse.y-16);
