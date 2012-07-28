@@ -93,7 +93,7 @@ void LootManager::loadGraphics() {
 
 	// check all items in the item database
 	for (unsigned int i=0; i < items->items.size(); i++) {
-		anim_id = items->items[i].loot;
+		anim_id = items->items[i].loot_animation;
 
 		new_anim = true;
 
@@ -547,7 +547,7 @@ void LootManager::addRenders(vector<Renderable> &renderables) {
 		if (it->stack.item > 0) {
 			// item
 			for (int i=0; i<animation_count; i++) {
-				if (items->items[it->stack.item].loot == animation_id[i])
+				if (items->items[it->stack.item].loot_animation == animation_id[i])
 					r.sprite = flying_loot[i];
 			}
 		}

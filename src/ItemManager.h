@@ -87,7 +87,7 @@ public:
 	int bonus_val[ITEM_MAX_BONUSES];       // amount to increase (used with bonus_stat)
 	int sfx;              // the item sound when it hits the floor or inventory, etc
 	std::string gfx;           // the sprite layer shown when this item is equipped
-	std::string loot;          // the flying loot animation for this item
+	std::string loot_animation;// the flying loot animation for this item
 	int power;            // this item can be dragged to the action bar and used as a power
 	int power_mod;        // alter powers when this item is equipped (e.g. shoot arrows from bows)
 	std::string power_desc;    // shows up in green text on the tooltip
@@ -114,7 +114,7 @@ public:
 		req_val = 0;
 		sfx = SFX_NONE;
 		gfx = "";
-		loot = "";
+		loot_animation = "";
 		power = -1;
 		power_mod = -1;
 		power_desc = "";
