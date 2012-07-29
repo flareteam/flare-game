@@ -685,7 +685,6 @@ void GameStateConfig::logic ()
 
 		// Ok/Cancel Buttons
 		if (ok_button->checkClick()) {
-			saveSettings();
 			inpt->saveKeyBindings();
 			if (setMods()) {
 				reload_music = true;
@@ -696,6 +695,7 @@ void GameStateConfig::logic ()
 			loadMiscSettings();
 			refreshFont();
 			applyVideoSettings(screen, width, height);
+			saveSettings();
 			if ((ENABLE_JOYSTICK) && (SDL_NumJoysticks() > 0)) {
 				SDL_JoystickClose(joy);
 				joy = SDL_JoystickOpen(JOYSTICK_DEVICE);
