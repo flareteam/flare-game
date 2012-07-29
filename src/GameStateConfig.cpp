@@ -435,6 +435,10 @@ GameStateConfig::GameStateConfig ()
 	optiontab[child_widget.size()-1] = 0;
 
 	// Add just some Labels
+	settings_lb[39]->set(msg->get("Disable for performance"));
+	child_widget.push_back(settings_lb[39]);
+	optiontab[child_widget.size()-1] = 0;
+
 	settings_lb[40]->set(msg->get("Disable for performance"));
 	child_widget.push_back(settings_lb[40]);
 	optiontab[child_widget.size()-1] = 0;
@@ -443,12 +447,8 @@ GameStateConfig::GameStateConfig ()
 	child_widget.push_back(settings_lb[41]);
 	optiontab[child_widget.size()-1] = 0;
 
-	settings_lb[42]->set(msg->get("Disable for performance"));
+	settings_lb[42]->set(msg->get("Experimental"));
 	child_widget.push_back(settings_lb[42]);
-	optiontab[child_widget.size()-1] = 0;
-
-	settings_lb[43]->set(msg->get("Experimental"));
-	child_widget.push_back(settings_lb[43]);
 	optiontab[child_widget.size()-1] = 0;
 
 	//Define ComboBoxes and their Labels
