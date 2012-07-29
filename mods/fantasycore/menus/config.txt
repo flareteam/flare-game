@@ -4,36 +4,36 @@
 # Buttons don't have separate labels
 
 [video]
-resolution=80,48,48,64
-fullscreen=352,72,384,64
-hwsurface=352,104,384,96
-doublebuf=352,136,384,128
-hws_note=416,104
-dbuf_note=416,136
-change_gamma=352,168,384,160
-gamma=352,200,384,192
-texture_quality=352,240,384,232
-animated_tiles=352,272,384,264
-anim_tiles_note=416,272
-test_note=416,168
+resolution=64,16,32,32
+fullscreen=352,40,384,32
+hwsurface=352,72,384,64
+doublebuf=352,104,384,96
+hws_note=416,40
+dbuf_note=416,72
+change_gamma=352,136,384,128
+gamma=352,168,384,160
+texture_quality=352,200,384,192
+animated_tiles=352,232,384,224
+anim_tiles_note=416,232
+test_note=416,104
 
 [audio]
-music_volume=240,38,272,32
-sound_volume=240,72,272,64
+music_volume=224,8,256,0
+sound_volume=224,40,256,32
 
 [interface]
-combat_text=240,38,272,32
-language=240,72,272,64
+combat_text=224,8,256,0
+language=224,40,256,32
 
 [input]
-mouse_move=240,38,272,32
-enable_joystick=240,72,272,64
-joystick_device=240,104,272,96
+mouse_move=224,8,256,0
+enable_joystick=224,40,256,32
+joystick_device=224,72,256,64
 
 [key_bindings]
 
 # scrollpane values are positions x, y and sizes width, height
-scrollpane=10,30,600,350
+scrollpane=0,4,600,320
 
 keybinds_bg_color=26,26,26
 cancel=160,10,202,10
@@ -66,9 +66,9 @@ delete=160,730,202,730
 secondary_offset=145,0
 
 [mods]
-activemods=435,48,400,64
-inactivemods=125,48,90,64
-activemods_shiftup=560,150
-activemods_shiftdown=560,190
-activemods_deactivate=249,190
-inactivemods_activate=249,150
+activemods=416,16,384,32
+inactivemods=96,16,64,32
+activemods_shiftup=544,128
+activemods_shiftdown=544,160
+activemods_deactivate=224,160
+inactivemods_activate=224,128
