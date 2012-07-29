@@ -329,25 +329,25 @@ void MenuCharacter::refreshStats() {
 
 	if (show_stat[4]) {
 		ss.str("");
-		ss << msg->get("Accuracy (vs level 1):") << " " << stats->accuracy << "%";
+		ss << msg->get("Accuracy (vs lvl 1):") << " " << stats->accuracy << "%";
 		statList->append(ss.str(),msg->get("Each point of Offense grants +%d accuracy. Each level grants +%d accuracy", stats->accuracy_per_offense, stats->accuracy_per_level));
 	}
 
 	if (show_stat[5]) {
 		ss.str("");
-		ss << msg->get("Accuracy (vs level 5):") << " " << (stats->accuracy-20) << "%";
+		ss << msg->get("Accuracy (vs lvl 5):") << " " << (stats->accuracy-20) << "%";
 		statList->append(ss.str(),msg->get("Each point of Offense grants +%d accuracy. Each level grants +%d accuracy", stats->accuracy_per_offense, stats->accuracy_per_level));
 	}
 
 	if (show_stat[6]) {
 		ss.str("");
-		ss << msg->get("Avoidance (vs level 1):") << " " << stats->avoidance << "%";
+		ss << msg->get("Avoidance (vs lvl 1):") << " " << stats->avoidance << "%";
 		statList->append(ss.str(),msg->get("Each point of Defense grants +%d avoidance. Each level grants +%d accuracy", stats->avoidance_per_defense, stats->avoidance_per_level));
 	}
 
 	if (show_stat[7]) {
 		ss.str("");
-		ss << msg->get("Avoidance (vs level 5):") << " " << (stats->avoidance-20) << "%";
+		ss << msg->get("Avoidance (vs lvl 5):") << " " << (stats->avoidance-20) << "%";
 		statList->append(ss.str(),msg->get("Each point of Defense grants +%d avoidance. Each level grants +%d accuracy", stats->avoidance_per_defense, stats->avoidance_per_level));
 	}
 
