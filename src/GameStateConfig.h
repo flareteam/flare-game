@@ -54,6 +54,9 @@ private:
 	int optiontab[120];
 	SDL_Rect* video_modes;
 
+	SDL_Rect menuConfirm_area;
+	std::string menuConfirm_align;
+
 	std::vector<std::string> language_ISO;
 	std::vector<std::string> language_full;
 

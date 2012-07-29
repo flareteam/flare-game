@@ -111,6 +111,27 @@ GameStateLoad::GameStateLoad() : GameState() {
 	  infile.close();
 	} else fprintf(stderr, "Unable to open gameload.txt!\n");
 
+	// Load the MenuConfirm positions and alignments from menus/menus.txt
+	if (infile.open(mods->locate("menus/menus.txt"))) {
+		while (infile.next()) {
+			infile.val = infile.val + ',';
+
+			if (infile.key == "confirm") {
+				confirm->window_area.x = eatFirstInt(infile.val, ',');
+				confirm->window_area.y = eatFirstInt(infile.val, ',');
+				confirm->window_area.w = eatFirstInt(infile.val, ',');
+				confirm->window_area.h = eatFirstInt(infile.val, ',');
+				confirm->alignment = eatFirstString(infile.val, ',');
+				confirm->align();
+				confirm->update();
+				break;
+			}
+		}
+	} else {
+		fprintf(stderr, "Unable to open menus.txt!\n");
+	}
+	infile.close();
+
 	button_action->pos.x += (VIEW_W - FRAME_W)/2;
 	button_action->pos.y += (VIEW_H - FRAME_H)/2;
 	button_action->refresh();

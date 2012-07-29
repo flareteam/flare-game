@@ -207,7 +207,10 @@ GameStateConfig::GameStateConfig ()
 			else if (infile.key == "activemods_shiftdown") setting_num = 48;//button
 			else if (infile.key == "activemods_deactivate") setting_num = 49;//button
 			else if (infile.key == "inactivemods_activate") setting_num = 50;//button
-			else if (infile.key == "secondary_offset") {offset_x = x1; offset_y = y1;}
+			else if (infile.key == "secondary_offset") {
+				offset_x = x1;
+				offset_y = y1;
+			}
 			else if (infile.key == "keybinds_bg_color") {
 				// background color for keybinds scrollbox
 				scrollpane_color.x = x1;
@@ -262,6 +265,30 @@ GameStateConfig::GameStateConfig ()
 		  }
 		} else fprintf(stderr, "Unable to open config.txt!\n");
 		infile.close();
+
+	// Load the MenuConfirm positions and alignments from menus/menus.txt
+	if (infile.open(mods->locate("menus/menus.txt"))) {
+		while (infile.next()) {
+			infile.val = infile.val + ',';
+
+			if (infile.key == "confirm") {
+				menuConfirm_area.x = eatFirstInt(infile.val, ',');
+				menuConfirm_area.y = eatFirstInt(infile.val, ',');
+				menuConfirm_area.w = eatFirstInt(infile.val, ',');
+				menuConfirm_area.h = eatFirstInt(infile.val, ',');
+				menuConfirm_align = eatFirstString(infile.val, ',');
+				break;
+			}
+		}
+	} else {
+		fprintf(stderr, "Unable to open menus.txt!\n");
+	}
+	infile.close();
+
+	defaults_confirm->window_area = menuConfirm_area;
+	defaults_confirm->alignment = menuConfirm_align;
+	defaults_confirm->align();
+	defaults_confirm->update();
 
 	// Allocate KeyBindings ScrollBox
 	input_scrollbox = new WidgetScrollBox(scrollpane.w, scrollpane.h);
@@ -802,6 +829,10 @@ void GameStateConfig::logic ()
 							confirm_msg = msg->get("Press a key to assign: ") + binding_name[i-25];
 						delete input_confirm;
 						input_confirm = new MenuConfirm("",confirm_msg);
+						input_confirm->window_area = menuConfirm_area;
+						input_confirm->alignment = menuConfirm_align;
+						input_confirm->align();
+						input_confirm->update();
 						input_confirm->visible = true;
 						input_key = i;
 						inpt->last_button = -1;
