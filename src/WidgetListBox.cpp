@@ -413,8 +413,8 @@ void WidgetListBox::refresh() {
 		int font_y = rows[i].y + (rows[i].h/2);
 
 		if (i<list_amount) {
-			if (values[i+cursor].length() > (float)pos.w/6.5) {
-				temp = values[i+cursor].substr(0,19);
+			if (values[i+cursor].length() > (float)pos.w/5.3) {
+				temp = values[i+cursor].substr(0,23);
 				temp.append("...");
 			} else {
 				temp = values[i+cursor];

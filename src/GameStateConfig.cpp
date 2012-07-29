@@ -71,8 +71,8 @@ GameStateConfig::GameStateConfig ()
 	defaults_button = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
 	cancel_button = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
 
-	input_confirm = new MenuConfirm("",msg->get("Press a key to assign: "));
-	defaults_confirm = new MenuConfirm(msg->get("Defaults"),msg->get("Set ALL settings to default?"));
+	input_confirm = new MenuConfirm("",msg->get("Assign: "));
+	defaults_confirm = new MenuConfirm(msg->get("Defaults"),msg->get("Reset ALL settings?"));
 
 	// Allocate Labels
 	for (unsigned int i = 0; i < 46; i++) {
@@ -408,15 +408,15 @@ GameStateConfig::GameStateConfig ()
 	optiontab[child_widget.size()-1] = 0;
 
 	// Add just some Labels
-	settings_lb[40]->set(msg->get("Try disabling for performance"));
+	settings_lb[40]->set(msg->get("Disable for performance"));
 	child_widget.push_back(settings_lb[40]);
 	optiontab[child_widget.size()-1] = 0;
 
-	settings_lb[41]->set(msg->get("Try disabling for performance"));
+	settings_lb[41]->set(msg->get("Disable for performance"));
 	child_widget.push_back(settings_lb[41]);
 	optiontab[child_widget.size()-1] = 0;
 
-	settings_lb[42]->set(msg->get("Try disabling for performance"));
+	settings_lb[42]->set(msg->get("Disable for performance"));
 	child_widget.push_back(settings_lb[42]);
 	optiontab[child_widget.size()-1] = 0;
 
@@ -489,8 +489,8 @@ GameStateConfig::GameStateConfig ()
 	optiontab[child_widget.size()-1] = 5;
 
 	// Add Button labels for Mods ListBoxes
-	settings_btn[2]->label = msg->get("<< Deactivate");
-	settings_btn[3]->label = msg->get("Activate >>");
+	settings_btn[2]->label = msg->get("<< Disable");
+	settings_btn[3]->label = msg->get("Enable >>");
 
 	for (unsigned int i=0; i<4; i++) {
 		settings_btn[i]->refresh();
@@ -797,9 +797,9 @@ void GameStateConfig::logic ()
 					if (settings_key[i]->checkClick(mouse.x,mouse.y)) {
 						std::string confirm_msg;
 						if (i < 25)
-							confirm_msg = msg->get("Press a key to assign: ") + binding_name[i];
+							confirm_msg = msg->get("Assign: ") + binding_name[i];
 						else
-							confirm_msg = msg->get("Press a key to assign: ") + binding_name[i-25];
+							confirm_msg = msg->get("Assign: ") + binding_name[i-25];
 						delete input_confirm;
 						input_confirm = new MenuConfirm("",confirm_msg);
 						input_confirm->visible = true;

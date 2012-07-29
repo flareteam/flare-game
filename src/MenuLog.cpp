@@ -78,9 +78,9 @@ MenuLog::MenuLog() {
 	tabControl = new WidgetTabControl(LOG_TYPE_COUNT);
 
 	// Define the header.
-	tabControl->setTabTitle(LOG_TYPE_MESSAGES, msg->get("Messages"));
+	tabControl->setTabTitle(LOG_TYPE_MESSAGES, msg->get("Notes"));
 	tabControl->setTabTitle(LOG_TYPE_QUESTS, msg->get("Quests"));
-	tabControl->setTabTitle(LOG_TYPE_STATISTICS, msg->get("Statistics"));
+	tabControl->setTabTitle(LOG_TYPE_STATISTICS, msg->get("Stats"));
 
 	paragraph_spacing = font->getLineHeight()/2;
 
