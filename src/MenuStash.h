@@ -63,6 +63,8 @@ public:
 	void add(ItemStack stack);
 	TooltipData checkTooltip(Point mouse);
 	bool full(int item);
+	void drop(Point mouse, ItemStack stack);
+	void add(ItemStack stack, int slot);
 
 	bool visible;
 	SDL_Rect slots_area;
