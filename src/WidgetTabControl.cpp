@@ -199,7 +199,7 @@ void WidgetTabControl::renderTab(int number, SDL_Surface *target)
 		SDL_BlitSurface(inactiveTabSurface, &src, target, &dest);
 
 	// Draw tab’s right edge.
-	src.x = 128 - tabPadding.x;
+	src.x = activeTabSurface->w - tabPadding.x;
 	src.w = tabPadding.x;
 	dest.x = tabs[i].x + tabs[i].w - tabPadding.x;
 
