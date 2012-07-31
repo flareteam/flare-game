@@ -280,6 +280,8 @@ void loadTilesetSettings() {
 			else if (infile.key == "tile_size") {
 				TILE_W = atoi(infile.nextValue().c_str());
 				TILE_H = atoi(infile.nextValue().c_str());
+				TILE_W_HALF = TILE_W /2;
+				TILE_H_HALF = TILE_H /2;
 			}
 			else if (infile.key == "orientation") {
 				if (infile.val == "isometric")
