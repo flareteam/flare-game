@@ -25,7 +25,7 @@ mods in priority order when loading data files.
 #ifndef MOD_MANAGER_H
 #define MOD_MANAGER_H
 
-#define FALLBACK_MOD "fantasycore"
+#define FALLBACK_MOD "default"
 
 #include <string>
 #include <map>
