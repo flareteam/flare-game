@@ -443,7 +443,6 @@ void MenuManager::logic() {
 					}
 				}
 				else {
-					if (vendor->visible) vendor->setTab(VENDOR_SELL);
 					inpt->lock[MAIN1] = true;
 					drag_stack = inv->click(inpt);
 					if (drag_stack.item > 0) {
@@ -521,6 +520,7 @@ void MenuManager::logic() {
 				}
 				else if (vendor->visible && isWithin(vendor->slots_area, inpt->mouse)) {
 					if (inv->sell( drag_stack)) {
+						vendor->setTab(VENDOR_SELL);
 						vendor->add( drag_stack);
 					}
 					else {
