@@ -508,9 +508,9 @@ void GameStateLoad::render() {
 			// render character preview
 			dest.x = slot_pos[slot].x + sprites_pos.x;
 			dest.y = slot_pos[slot].y + sprites_pos.y;
-			src.x = current_frame * 128;
+			src.x = current_frame * preview_pos.h;
 			src.y = 0;
-			src.w = src.h = 128;
+			src.w = src.h = preview_pos.h;
 
 			SDL_BlitSurface(sprites[slot], &src, screen, &dest);
 		}

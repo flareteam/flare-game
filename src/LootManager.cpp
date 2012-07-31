@@ -44,6 +44,7 @@ LootManager::LootManager(ItemManager *_items, MapRenderer *_map, StatBlock *_her
 
 	tip = new WidgetTooltip();
 
+	// FIXME don't hardcode this
 	tooltip_margin = 32; // pixels between loot drop center and label
 
 	animation_count = 0;

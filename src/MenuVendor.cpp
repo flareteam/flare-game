@@ -94,8 +94,8 @@ void MenuVendor::loadGraphics() {
 void MenuVendor::update() {
 	slots_area.x += window_area.x;
 	slots_area.y += window_area.y;
-	slots_area.w = slots_cols*32;
-	slots_area.h = slots_rows*32;
+	slots_area.w = slots_cols*ICON_SIZE_SMALL;
+	slots_area.h = slots_rows*ICON_SIZE_SMALL;
 
 	SDL_Rect tabs_area = slots_area;
 

@@ -155,7 +155,7 @@ MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_i
 
 void MenuPowers::update() {
 	for (int i=0; i<POWER_SLOTS_COUNT; i++) {
-		slots[i].w = slots[i].h = 32;
+		slots[i].w = slots[i].h = ICON_SIZE_SMALL;
 		slots[i].x = window_area.x + power_cell[i].pos.x;
 		slots[i].y = window_area.y + power_cell[i].pos.y;
 	}
@@ -427,8 +427,8 @@ void MenuPowers::displayBuild(int power_id) {
 
 	src_unlock.x = 0;
 	src_unlock.y = 0;
-	src_unlock.w = 32;
-	src_unlock.h = 32;
+	src_unlock.w = ICON_SIZE_SMALL;
+	src_unlock.h = ICON_SIZE_SMALL;
 
 	for (int i=0; i<POWER_SLOTS_COUNT; i++) {
 		if (power_cell[i].id == power_id) {
@@ -607,7 +607,7 @@ void MenuPowers::renderPowers(int tab_num) {
 
 	SDL_Rect disabled_src;
 	disabled_src.x = disabled_src.y = 0;
-	disabled_src.w = disabled_src.h = 32;
+	disabled_src.w = disabled_src.h = ICON_SIZE_SMALL;
 
 	for (int i=0; i<POWER_SLOTS_COUNT; i++) {
 		bool power_in_vector = false;
