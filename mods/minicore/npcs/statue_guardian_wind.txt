@@ -1,0 +1,33 @@
+name=Statue Guardian (Wind)
+
+# talker info
+talker=true
+
+# animation info
+gfx=statue_guardian_wind
+render_size=32,64
+render_offset=16,56
+anim_frames=8
+anim_duration=5
+
+# voiceover files
+
+[dialog]
+requires_not=lb_wind_password
+him=Who goes there?
+you=A friend of the masters.
+set_status=lb_wind_locked
+set_status=lb_wind_attack
+him=Intruder! You shall not interrupt the masters' work!
+
+[dialog]
+requires_status=lb_wind_password
+him=Who goes there?
+you=Grisbon.
+set_status=lb_wind_unlocked
+reward_xp=100
+him=Welcome, Master Grisbon.
+
+[dialog]
+requires_status=lb_wind_unlocked
+him=Welcome, Master Grisbon.
