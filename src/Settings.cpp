@@ -128,6 +128,7 @@ bool AUTOPICKUP_GOLD = false;
 bool MENUS_PAUSE = false;
 std::string DEFAULT_NAME = "";
 bool SAVE_HPMP = false;
+bool ENABLE_PLAYGAME = false;
 
 
 /**
@@ -352,6 +353,8 @@ void loadMiscSettings() {
 				MIN_VIEW_H = atoi(infile.val.c_str());
 				if (VIEW_H < MIN_VIEW_H) VIEW_H = MIN_VIEW_H;
 				VIEW_H_HALF = VIEW_H/2;
+			} else if (infile.key == "enable_playgame") {
+				ENABLE_PLAYGAME = atoi(infile.val.c_str());
 			}
 		}
 		infile.close();
