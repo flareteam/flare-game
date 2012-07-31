@@ -862,11 +862,10 @@ void GameStateConfig::logic ()
 
 void GameStateConfig::render ()
 {
-	SDL_Rect	pos = tabControl->getContentArea();
-	pos.x = pos.x-12;
-	pos.y = pos.y-12;
-	pos.w = 640;
-	pos.h = 380;
+	int tabheight = tabControl->getTabHeight();
+	SDL_Rect	pos;
+	pos.x = (VIEW_W-FRAME_W)/2;
+	pos.y = (VIEW_H-FRAME_H)/2 + tabheight - tabheight/16;
 
 	SDL_BlitSurface(background,NULL,screen,&pos);
 
