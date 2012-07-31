@@ -127,7 +127,7 @@ GameStateConfig::GameStateConfig ()
 	// Remove active mods from the available mods list
 	for (unsigned int i = 0; i<mods->mod_list.size(); i++) {
 		for (unsigned int j = 0; j<mod_dirs.size(); j++) {
-			if (mods->mod_list[i] == mod_dirs[j]) mod_dirs[j].erase();
+			if (mods->mod_list[i] == mod_dirs[j] || FALLBACK_MOD == mod_dirs[j]) mod_dirs[j].erase();
 		}
 	}
 	settings_lstb[1] = new WidgetListBox(mods_total, 10, mods->locate("images/menus/buttons/listbox_default.png"));
@@ -499,7 +499,8 @@ GameStateConfig::GameStateConfig ()
 
 	settings_lstb[1]->multi_select = true;
 	for (unsigned int i = 0; i < mods->mod_list.size() ; i++) {
-		settings_lstb[1]->append(mods->mod_list[i],"");
+		if (mods->mod_list[i] != FALLBACK_MOD)
+			settings_lstb[1]->append(mods->mod_list[i],"");
 	}
 	child_widget.push_back(settings_lstb[1]);
 	optiontab[child_widget.size()-1] = 5;
