@@ -45,6 +45,7 @@ NPCManager::NPCManager(MapRenderer *_map, LootManager *_loot, ItemManager *_item
 		npcs[i] = NULL;
 	}
 
+	// FIXME don't hardcode this
 	tooltip_margin = 64;
 }
 

@@ -83,8 +83,8 @@ void MenuStash::loadGraphics() {
 void MenuStash::update() {
 	slots_area.x += window_area.x;
 	slots_area.y += window_area.y;
-	slots_area.w = slots_cols*32;
-	slots_area.h = slots_rows*32;
+	slots_area.w = slots_cols*ICON_SIZE_SMALL;
+	slots_area.h = slots_rows*ICON_SIZE_SMALL;
 
 	stock.init( STASH_SLOTS, items, slots_area, ICON_SIZE_SMALL, slots_cols);
 
