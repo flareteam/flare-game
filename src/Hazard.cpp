@@ -22,7 +22,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * These are generated whenever something makes any attack
  */
 
-#include "FIleParser.h"
+#include "FileParser.h"
 #include "Hazard.h"
 #include "MapCollision.h"
 #include "SharedResources.h"
