@@ -74,8 +74,8 @@ Hazard::Hazard() {
 	base_speed = 0;
 
 	FileParser infile;
-	// load loot animation settings from engine config file
-	if (infile.open(mods->locate("engine/misc.txt").c_str())) {
+	// load hazard animation settings from engine config file
+	if (infile.open(mods->locate("engine/effects.txt").c_str())) {
 		while (infile.next()) {
 			infile.val = infile.val + ',';
 
@@ -90,7 +90,7 @@ Hazard::Hazard() {
 		infile.close();
 	}
 	else {
-		fprintf(stderr, "Could not open misc.txt config file!\n");
+		fprintf(stderr, "Could not open effects.txt config file!\n");
 	}
 }
 
