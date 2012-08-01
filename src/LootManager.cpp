@@ -46,8 +46,29 @@ LootManager::LootManager(ItemManager *_items, MapRenderer *_map, StatBlock *_her
 
 	tip = new WidgetTooltip();
 
-	// FIXME don't hardcode this
-	tooltip_margin = 32; // pixels between loot drop center and label
+	FileParser infile;
+	// load loot animation settings from engine config file
+	if (infile.open(mods->locate("engine/loot.txt").c_str())) {
+		while (infile.next()) {
+			infile.val = infile.val + ',';
+
+			if (infile.key == "loot_animation") {
+				animation_pos.x = eatFirstInt(infile.val, ',');
+				animation_pos.y = eatFirstInt(infile.val, ',');
+				animation_pos.w = eatFirstInt(infile.val, ',');
+				animation_pos.h = eatFirstInt(infile.val, ',');
+			} else if (infile.key == "loot_animation_offset") {
+				animation_offset.x = eatFirstInt(infile.val, ',');
+				animation_offset.y = eatFirstInt(infile.val, ',');
+			} else if (infile.key == "tooltip_margin") {
+				tooltip_margin = eatFirstInt(infile.val, ',');
+			}
+		}
+		infile.close();
+	}
+	else {
+		fprintf(stderr, "Could not open loot.txt config file!\n");
+	}
 
 	animation_count = 0;
 
@@ -83,28 +104,6 @@ LootManager::LootManager(ItemManager *_items, MapRenderer *_map, StatBlock *_her
 	else
 		exit(25);
 		// TODO: make sure only one instance of the lootmanager is created.
-
-	FileParser infile;
-	// load loot animation settings from engine config file
-	if (infile.open(mods->locate("engine/loot.txt").c_str())) {
-		while (infile.next()) {
-			infile.val = infile.val + ',';
-
-			if (infile.key == "loot_animation") {
-				animation_pos.x = eatFirstInt(infile.val, ',');
-				animation_pos.y = eatFirstInt(infile.val, ',');
-				animation_pos.w = eatFirstInt(infile.val, ',');
-				animation_pos.h = eatFirstInt(infile.val, ',');
-			} else if (infile.key == "loot_animation_offset") {
-				animation_offset.x = eatFirstInt(infile.val, ',');
-				animation_offset.y = eatFirstInt(infile.val, ',');
-			}
-		}
-		infile.close();
-	}
-	else {
-		fprintf(stderr, "Could not open loot.txt config file!\n");
-	}
 }
 
 /**

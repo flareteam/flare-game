@@ -136,7 +136,7 @@ public:
 
 	void addRenders(std::vector<Renderable> &renderables);
 
-	int tooltip_margin;
+	int tooltip_margin; // pixels between loot drop center and label
 	bool full_msg;
 };
 
