@@ -4,13 +4,13 @@
 # topleft, top, topright, left, center, right, bottomleft, bottom, bottomright
 
 [menus]
-hp=-256,-48,128,128,bottom
-mp=256,-48,128,128,bottom
-xp=0,-48,106,26,bottom
+hp=-336,0,128,128,bottom
+mp=336,0,128,128,bottom
+xp=-128,-32,326,10,bottom
 effects=0,0,0,0,topleft
 hudlog=32,-40,224,0,bottomleft
 actionbar=0,0,640,35,bottom
-enemy=0,-40,212,18,bottom
+enemy=0,0,106,33,top
 vendor=0,0,320,416,left
 talker=0,0,640,416,center
 exit=0,0,192,64,center
@@ -20,3 +20,4 @@ inventory=0,0,320,416,right
 powers=0,0,320,416,right
 log=0,0,320,416,left
 stash=0,0,320,416,left
+confirm=0,0,192,64,center
