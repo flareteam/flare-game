@@ -201,9 +201,13 @@ public:
 	int shield_hp; // shield
 	int shield_hp_total;
 	int shield_frame;
+	SDL_Rect frame_size_sh;
+	Point frame_offset_sh;
 	bool blocking;
 	int vengeance_stacks;
 	int vengeance_frame;
+	SDL_Rect frame_size_veg;
+	Point frame_offset_veg;
 
 	int speed;
 	int dspeed;
