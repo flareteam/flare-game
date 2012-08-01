@@ -68,8 +68,7 @@ MenuVendor::MenuVendor(ItemManager *_items, StatBlock *_stats) {
 			} else if (infile.key == "vendor_rows"){
 				slots_rows = eatFirstInt(infile.val,',');
 			} else if (infile.key == "title"){
-				title_pos.x =  eatFirstInt(infile.val,',');
-				title_pos.y =  eatFirstInt(infile.val,',');
+				title_lbl =  eatLabelInfo(infile.val);
 			}
 		}
 		infile.close();
@@ -150,9 +149,11 @@ void MenuVendor::render() {
 	closeButton->render();
 
 	// text overlay
-	WidgetLabel label;
-	label.set(window_area.x+title_pos.x, window_area.y+title_pos.y, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Vendor") + " - " + npc->name, FONT_WHITE);
-	label.render();
+	if (!title_lbl.hidden) {
+		WidgetLabel label;
+		label.set(window_area.x+title_lbl.x, window_area.y+title_lbl.y, title_lbl.justify, title_lbl.valign, msg->get("Vendor") + " - " + npc->name, FONT_WHITE);
+		label.render();
+	}
 
 	// render tabs
 	tabControl->render();

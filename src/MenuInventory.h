@@ -23,6 +23,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #define MENU_INVENTORY_H
 
 #include "MenuItemStorage.h"
+#include "WidgetLabel.h"
 
 #include <SDL.h>
 #include <SDL_image.h>
@@ -65,12 +66,12 @@ private:
 
 	// label and widget positions
 	Point close_pos;
-	Point title_pos;
-	Point main_lbl_pos;
-	Point body_lbl_pos;
-	Point off_lbl_pos;
-	Point artifact_lbl_pos;
-	Point gold_pos;
+	LabelInfo title_lbl;
+	LabelInfo main_lbl;
+	LabelInfo body_lbl;
+	LabelInfo off_lbl;
+	LabelInfo artifact_lbl;
+	LabelInfo gold_lbl;
 	SDL_Rect help_pos;
 	int carried_cols;
 	int carried_rows;

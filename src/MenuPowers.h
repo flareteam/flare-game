@@ -26,6 +26,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "Menu.h"
 #include "Utils.h"
 #include "WidgetButton.h"
+#include "WidgetLabel.h"
 #include "WidgetTabControl.h"
 
 #include <SDL.h>
@@ -70,7 +71,7 @@ private:
 	WidgetButton *closeButton;
 	bool pressed;
 
-	Point title_pos;
+	LabelInfo title_lbl;
 	Point close_pos;
 	Point unspent_pos;
 	SDL_Rect tab_area;

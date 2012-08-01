@@ -115,8 +115,7 @@ MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_i
 		} else if (infile.key == "requires_power") {
 			power_cell[counter].requires_power = eatFirstInt(infile.val, ',');
 		} else if (infile.key == "title") {
-			title_pos.x = eatFirstInt(infile.val, ',');
-			title_pos.y = eatFirstInt(infile.val, ',');
+			title_lbl = eatLabelInfo(infile.val);
 		} else if (infile.key == "close") {
 			close_pos.x = eatFirstInt(infile.val, ',');
 			close_pos.y = eatFirstInt(infile.val, ',');
@@ -160,7 +159,7 @@ void MenuPowers::update() {
 		slots[i].y = window_area.y + power_cell[i].pos.y;
 	}
 
-	label_powers.set(window_area.x+title_pos.x, window_area.y+title_pos.y, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Powers"), FONT_WHITE);
+	label_powers.set(window_area.x+title_lbl.x, window_area.y+title_lbl.y, title_lbl.justify, title_lbl.valign, msg->get("Powers"), FONT_WHITE);
 
 	closeButton->pos.x = window_area.x+close_pos.x;
 	closeButton->pos.y = window_area.y+close_pos.y;
@@ -404,7 +403,7 @@ void MenuPowers::render() {
 	closeButton->render();
 
 	// text overlay
-	label_powers.render();
+	if (!title_lbl.hidden) label_powers.render();
 
 	// stats
 	stringstream ss;
