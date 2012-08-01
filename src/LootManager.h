@@ -105,6 +105,8 @@ private:
 	// animation vars
 	int anim_loot_frames;
 	int anim_loot_duration;
+	SDL_Rect animation_pos;
+	Point animation_offset;
 
 	// enemies which should drop loot, but didnt yet.
 	std::vector<const Enemy*> enemiesDroppingLoot;
