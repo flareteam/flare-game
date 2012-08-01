@@ -3,7 +3,7 @@
 # some items have two more values, width and height
 
 close=294,2
-title=160,8
+title=160,8,center,top
 
 upgrade_physical=110,64
 upgrade_mental=110,88
@@ -13,22 +13,22 @@ upgrade_defense=250,88
 statlist=24,128
 
 name=80,32,104,16
-label_name=72,40
+label_name=72,40,right,center
 
 level=272,32,32,16
-label_level=264,40
+label_level=264,40,right,center
 
 physical=16,64,16,16
-label_physical=40,72
+label_physical=40,72,left,center
 
 mental=16,88,16,16
-label_mental=40,96
+label_mental=40,96,left,center
 
 offense=156,64,16,16
-label_offense=180,72
+label_offense=180,72,left,center
 
 defense=156,88,16,16
-label_defense=180,96
+label_defense=180,96,left,center
 
 unspent=96,106,120,16
 
@@ -36,12 +36,6 @@ unspent=96,106,120,16
 # item visibility
 # these are boolean. 0 to hide, 1 to show
 
-show_name=1
-show_level=1
-show_physical=1
-show_mental=1
-show_offense=1
-show_defense=1
 show_unspent=1
 show_upgrade_physical=1
 show_upgrade_mental=1
