@@ -11,7 +11,7 @@ dmg=8,16
 bonus=crit,50
 sfx=wood
 gfx=rod
-loot=rod
+loot_animation=rod
 price=1337
 power=115
 power_desc=Use: Shock
@@ -23,7 +23,7 @@ quality=epic
 icon=113,17
 type=artifact
 sfx=leather
-loot=boots
+loot_animation=boots
 bonus=speed,12
 power=114
 power_desc=Use: Teleport
@@ -35,7 +35,7 @@ quality=epic
 icon=114,18
 type=artifact
 sfx=gem
-loot=ring
+loot_animation=ring
 bonus=HP regen,1000
 
 # Quest Items
@@ -47,7 +47,7 @@ icon=116,20
 power_desc=This tome bears the seal of the Averguard
 type=quest
 sfx=object
-loot=book
+loot_animation=book
 pickup_status=ak_tome_found
 
 [item]
@@ -57,7 +57,7 @@ icon=40
 power_desc=Opens special doors in Averguard Keep
 type=quest
 sfx=gem
-loot=gem
+loot_animation=gem
 pickup_status=ak_key_found
 
 [item]
@@ -68,7 +68,7 @@ icon=36
 power_desc=Etched runes surround this talisman
 type=quest
 sfx=gem
-loot=gem
+loot_animation=gem
 pickup_status=ak_talisman_found
 
 
