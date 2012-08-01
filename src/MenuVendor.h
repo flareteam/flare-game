@@ -23,6 +23,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #define MENU_VENDOR_H
 
 #include "MenuItemStorage.h"
+#include "WidgetLabel.h"
 
 #include <SDL.h>
 #include <SDL_image.h>
@@ -54,7 +55,7 @@ private:
 
 	// label and widget positions
 	Point close_pos;
-	Point title_pos;
+	LabelInfo title;
 	int slots_cols;
 	int slots_rows;
 	int activetab;

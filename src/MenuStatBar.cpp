@@ -59,8 +59,7 @@ MenuStatBar::MenuStatBar(std::string type) {
 				bar_pos.h = eatFirstInt(infile.val,',');
 			} else if(infile.key == "text_pos") {
 				custom_text_pos = true;
-				text_pos.x = eatFirstInt(infile.val,',');
-				text_pos.y = eatFirstInt(infile.val,',');
+				text_pos = eatLabelInfo(infile.val);
 			} else if(infile.key == "orientation") {
 				orientation = eatFirstInt(infile.val,',');
 			}
@@ -140,19 +139,21 @@ void MenuStatBar::render() {
 	}
 
 	// if mouseover, draw text
-	if (custom_text_pos)
-		label->set(bar_dest.x+text_pos.x, bar_dest.y+text_pos.y, JUSTIFY_LEFT, VALIGN_TOP, "", FONT_WHITE);
-	else
-		label->set(bar_dest.x+bar_pos.w/2, bar_dest.y+bar_pos.h/2, JUSTIFY_CENTER, VALIGN_CENTER, "", FONT_WHITE);
-
-	if (isWithin(bar_dest,mouse)) {
-		stringstream ss;
-		if (custom_string != "")
-			ss << custom_string;
+	if (!text_pos.hidden) {
+		if (custom_text_pos)
+			label->set(bar_dest.x+text_pos.x, bar_dest.y+text_pos.y, text_pos.justify, text_pos.valign, "", FONT_WHITE);
 		else
-			ss << stat_cur << "/" << stat_max;
-		label->set(ss.str());
-		label->render();
+			label->set(bar_dest.x+bar_pos.w/2, bar_dest.y+bar_pos.h/2, JUSTIFY_CENTER, VALIGN_CENTER, "", FONT_WHITE);
+
+		if (isWithin(bar_dest,mouse)) {
+			stringstream ss;
+			if (custom_string != "")
+				ss << custom_string;
+			else
+				ss << stat_cur << "/" << stat_max;
+			label->set(ss.str());
+			label->render();
+		}
 	}
 }
 

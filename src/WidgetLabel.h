@@ -33,6 +33,14 @@ const int VALIGN_CENTER = 0;
 const int VALIGN_TOP = 1;
 const int VALIGN_BOTTOM = 1;
 
+typedef struct LabelInfo {
+	int x,y;
+	int justify,valign;
+	bool hidden;
+}LabelInfo;
+
+LabelInfo eatLabelInfo(std::string val);
+
 class WidgetLabel : public Widget {
 private:
 

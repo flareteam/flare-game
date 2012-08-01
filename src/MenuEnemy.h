@@ -26,6 +26,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "Enemy.h"
 #include "Settings.h"
+#include "WidgetLabel.h"
 
 #include <SDL.h>
 #include <SDL_image.h>
@@ -37,7 +38,7 @@ private:
 	SDL_Surface *background;
 	SDL_Surface *bar_hp;
 	SDL_Rect bar_pos;
-	SDL_Rect text_pos;
+	LabelInfo text_pos;
 	bool custom_text_pos;
 public:
 	MenuEnemy();
