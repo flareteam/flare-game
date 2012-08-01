@@ -73,23 +73,17 @@ MenuInventory::MenuInventory(ItemManager *_items, StatBlock *_stats, PowerManage
 			} else if (infile.key == "carried_rows"){
 				carried_rows = eatFirstInt(infile.val,',');
 			} else if (infile.key == "title"){
-				title_pos.x =  eatFirstInt(infile.val,',');
-				title_pos.y =  eatFirstInt(infile.val,',');
+				title =  eatLabelInfo(infile.val);
 			} else if (infile.key == "main_hand_label"){
-				main_lbl_pos.x = eatFirstInt(infile.val,',');
-				main_lbl_pos.y = eatFirstInt(infile.val,',');
+				main_lbl =  eatLabelInfo(infile.val);
 			} else if (infile.key == "body_label"){
-				body_lbl_pos.x = eatFirstInt(infile.val,',');
-				body_lbl_pos.y = eatFirstInt(infile.val,',');
+				body_lbl =  eatLabelInfo(infile.val);
 			} else if (infile.key == "off_hand_label"){
-				off_lbl_pos.x = eatFirstInt(infile.val,',');
-				off_lbl_pos.y = eatFirstInt(infile.val,',');
+				off_lbl =  eatLabelInfo(infile.val);
 			} else if (infile.key == "artifact_label"){
-				artifact_lbl_pos.x = eatFirstInt(infile.val,',');
-				artifact_lbl_pos.y = eatFirstInt(infile.val,',');
+				artifact_lbl =  eatLabelInfo(infile.val);
 			} else if (infile.key == "gold"){
-				gold_pos.x = eatFirstInt(infile.val,',');
-				gold_pos.y = eatFirstInt(infile.val,',');
+				gold_lbl =  eatLabelInfo(infile.val);
 			} else if (infile.key == "help"){
 				help_pos.x = eatFirstInt(infile.val,',');
 				help_pos.y = eatFirstInt(infile.val,',');
@@ -170,18 +164,30 @@ void MenuInventory::render() {
 
 	// text overlay
 	WidgetLabel label;
-	label.set(window_area.x+title_pos.x, window_area.y+title_pos.y, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Inventory"), FONT_WHITE);
-	label.render();
-	label.set(window_area.x+main_lbl_pos.x, window_area.y+main_lbl_pos.y, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Main Hand"), FONT_WHITE);
-	label.render();
-	label.set(window_area.x+body_lbl_pos.x, window_area.y+body_lbl_pos.y, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Body"), FONT_WHITE);
-	label.render();
-	label.set(window_area.x+off_lbl_pos.x, window_area.y+off_lbl_pos.y, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Off Hand"), FONT_WHITE);
-	label.render();
-	label.set(window_area.x+artifact_lbl_pos.x, window_area.y+artifact_lbl_pos.y, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Artifact"), FONT_WHITE);
-	label.render();
-	label.set(window_area.x+gold_pos.x, window_area.y+gold_pos.y, JUSTIFY_RIGHT, VALIGN_TOP, msg->get("%d Gold", gold), FONT_WHITE);
-	label.render();
+	if (!title.hidden) {
+		label.set(window_area.x+title.x, window_area.y+title.y, title.justify, title.valign, msg->get("Inventory"), FONT_WHITE);
+		label.render();
+	}
+	if (!main_lbl.hidden) {
+		label.set(window_area.x+main_lbl.x, window_area.y+main_lbl.y, main_lbl.justify, main_lbl.valign, msg->get("Main Hand"), FONT_WHITE);
+		label.render();
+	}
+	if (!body_lbl.hidden) {
+		label.set(window_area.x+body_lbl.x, window_area.y+body_lbl.y, body_lbl.justify, body_lbl.valign, msg->get("Body"), FONT_WHITE);
+		label.render();
+	}
+	if (!off_lbl.hidden) {
+		label.set(window_area.x+off_lbl.x, window_area.y+off_lbl.y, off_lbl.justify, off_lbl.valign, msg->get("Off Hand"), FONT_WHITE);
+		label.render();
+	}
+	if (!artifact_lbl.hidden) {
+		label.set(window_area.x+artifact_lbl.x, window_area.y+artifact_lbl.y, artifact_lbl.justify, artifact_lbl.valign, msg->get("Artifact"), FONT_WHITE);
+		label.render();
+	}
+	if (!gold_lbl.hidden) {
+		label.set(window_area.x+gold_lbl.x, window_area.y+gold_lbl.y, gold_lbl.justify, gold_lbl.valign, msg->get("%d Gold", gold), FONT_WHITE);
+		label.render();
+	}
 
 	inventory[EQUIPMENT].render();
 	inventory[CARRIED].render();

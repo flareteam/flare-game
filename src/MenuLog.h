@@ -26,6 +26,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <SDL_image.h>
 
 #include "Utils.h"
+#include "WidgetLabel.h"
 
 #include <string>
 #include <vector>
@@ -59,7 +60,7 @@ private:
 	SDL_Rect tab_rect[LOG_TYPE_COUNT];
 	int paragraph_spacing;
 
-	Point title_pos;
+	LabelInfo title;
 	Point close_pos;
 	SDL_Rect tab_area;
 	int tab_content_y;

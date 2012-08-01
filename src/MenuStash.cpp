@@ -57,8 +57,7 @@ MenuStash::MenuStash(ItemManager *_items, StatBlock *_stats) {
 			} else if (infile.key == "stash_rows"){
 				slots_rows = eatFirstInt(infile.val,',');
 			} else if (infile.key == "title"){
-				title_pos.x =  eatFirstInt(infile.val,',');
-				title_pos.y =  eatFirstInt(infile.val,',');
+				title =  eatLabelInfo(infile.val);
 			}
 		}
 		infile.close();
@@ -118,9 +117,11 @@ void MenuStash::render() {
 	closeButton->render();
 
 	// text overlay
-	WidgetLabel label;
-	label.set(window_area.x+title_pos.x, window_area.y+title_pos.y, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Shared Stash"), FONT_WHITE);
-	label.render();
+	if (!title.hidden) {
+		WidgetLabel label;
+		label.set(window_area.x+title.x, window_area.y+title.y, title.justify, title.valign, msg->get("Shared Stash"), FONT_WHITE);
+		label.render();
+	}
 
 	// show stock
 	stock.render();

@@ -26,6 +26,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #define MENU_STATBAR_H
 
 #include "Utils.h"
+#include "WidgetLabel.h"
 
 #include <SDL.h>
 #include <SDL_image.h>
@@ -41,7 +42,7 @@ private:
 	int stat_max;
 	Point mouse;
 	SDL_Rect bar_pos;
-	Point text_pos;
+	LabelInfo text_pos;
 	bool orientation;
 	bool custom_text_pos;
 	std::string custom_string;
