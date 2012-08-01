@@ -29,6 +29,7 @@ void MenuItemStorage::init(int _slot_number, ItemManager *_items, SDL_Rect _area
 	area = _area;
 	icon_size = _icon_size;
 	nb_cols = _nb_cols;
+	drag_prev_slot = -1;
 }
 
 void MenuItemStorage::render() {
