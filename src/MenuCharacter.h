@@ -84,7 +84,7 @@ private:
 
 	// label and widget positions
 	Point close_pos;
-	LabelInfo title_lbl;
+	LabelInfo title;
 	Point upgrade_pos[4];
 	Point statlist_pos;
 	LabelInfo label_pos[CSTAT_COUNT-1]; //unspent points doesn't have a separate label

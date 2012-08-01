@@ -73,7 +73,7 @@ MenuInventory::MenuInventory(ItemManager *_items, StatBlock *_stats, PowerManage
 			} else if (infile.key == "carried_rows"){
 				carried_rows = eatFirstInt(infile.val,',');
 			} else if (infile.key == "title"){
-				title_lbl =  eatLabelInfo(infile.val);
+				title =  eatLabelInfo(infile.val);
 			} else if (infile.key == "main_hand_label"){
 				main_lbl =  eatLabelInfo(infile.val);
 			} else if (infile.key == "body_label"){
@@ -164,8 +164,8 @@ void MenuInventory::render() {
 
 	// text overlay
 	WidgetLabel label;
-	if (!title_lbl.hidden) {
-		label.set(window_area.x+title_lbl.x, window_area.y+title_lbl.y, title_lbl.justify, title_lbl.valign, msg->get("Inventory"), FONT_WHITE);
+	if (!title.hidden) {
+		label.set(window_area.x+title.x, window_area.y+title.y, title.justify, title.valign, msg->get("Inventory"), FONT_WHITE);
 		label.render();
 	}
 	if (!main_lbl.hidden) {

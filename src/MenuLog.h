@@ -60,7 +60,7 @@ private:
 	SDL_Rect tab_rect[LOG_TYPE_COUNT];
 	int paragraph_spacing;
 
-	LabelInfo title_lbl;
+	LabelInfo title;
 	Point close_pos;
 	SDL_Rect tab_area;
 	int tab_content_y;

@@ -81,7 +81,7 @@ MenuCharacter::MenuCharacter(StatBlock *_stats) {
 				close_pos.x = eatFirstInt(infile.val,',');
 				close_pos.y = eatFirstInt(infile.val,',');
 			} else if(infile.key == "title") {
-				title_lbl = eatLabelInfo(infile.val);
+				title = eatLabelInfo(infile.val);
 			} else if(infile.key == "upgrade_physical") {
 				upgrade_pos[0].x = eatFirstInt(infile.val,',');
 				upgrade_pos[0].y = eatFirstInt(infile.val,',');
@@ -204,7 +204,7 @@ void MenuCharacter::update() {
 	closeButton->pos.y = window_area.y + close_pos.y;
 
 	// menu title
-	labelCharacter->set(window_area.x+title_lbl.x, window_area.y+title_lbl.y, title_lbl.justify, title_lbl.valign, msg->get("Character"), FONT_WHITE);
+	labelCharacter->set(window_area.x+title.x, window_area.y+title.y, title.justify, title.valign, msg->get("Character"), FONT_WHITE);
 
 	// upgrade buttons
 	for (int i=0; i<4; i++) {

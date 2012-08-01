@@ -55,7 +55,7 @@ private:
 
 	// label and widget positions
 	Point close_pos;
-	LabelInfo title_lbl;
+	LabelInfo title;
 	int slots_cols;
 	int slots_rows;
 	int activetab;

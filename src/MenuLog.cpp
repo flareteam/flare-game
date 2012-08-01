@@ -45,7 +45,7 @@ MenuLog::MenuLog() {
 			infile.val = infile.val + ',';
 
 			if(infile.key == "title") {
-				title_lbl = eatLabelInfo(infile.val);
+				title = eatLabelInfo(infile.val);
 			} else if(infile.key == "close") {
 				close_pos.x = eatFirstInt(infile.val,',');
 				close_pos.y = eatFirstInt(infile.val,',');
@@ -162,9 +162,9 @@ void MenuLog::render() {
 	closeButton->render();
 
 	// Text overlay.
-	if (!title_lbl.hidden) {
+	if (!title.hidden) {
 		WidgetLabel label;
-		label.set(window_area.x+title_lbl.x, window_area.y+title_lbl.y, title_lbl.justify, title_lbl.valign, msg->get("Log"), FONT_WHITE);
+		label.set(window_area.x+title.x, window_area.y+title.y, title.justify, title.valign, msg->get("Log"), FONT_WHITE);
 		label.render();
 	}
 

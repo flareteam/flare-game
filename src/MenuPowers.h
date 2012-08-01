@@ -71,7 +71,7 @@ private:
 	WidgetButton *closeButton;
 	bool pressed;
 
-	LabelInfo title_lbl;
+	LabelInfo title;
 	Point close_pos;
 	Point unspent_pos;
 	SDL_Rect tab_area;
