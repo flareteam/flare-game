@@ -22,9 +22,12 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * These are generated whenever something makes any attack
  */
 
+#include "FIleParser.h"
 #include "Hazard.h"
 #include "MapCollision.h"
+#include "SharedResources.h"
 #include "Settings.h"
+#include "UtilsParsing.h"
 
 using namespace std;
 
@@ -47,10 +50,7 @@ Hazard::Hazard() {
 	frame_duration=1;
 	frame_loop=1;
 	active_frame=-1;
-	frame_size.x = 64;
-	frame_size.y = 64;
-	frame_offset.x = 32;
-	frame_offset.y = 32;
+
 	delay_frames = 0;
 	complete_animation = false;
 	floor=false;
@@ -71,7 +71,27 @@ Hazard::Hazard() {
 	wall_power = -1;
 	hit_wall = false;
 	equipment_modified = false;
-	base_speed = 0; 
+	base_speed = 0;
+
+	FileParser infile;
+	// load hazard animation settings from engine config file
+	if (infile.open(mods->locate("engine/effects.txt").c_str())) {
+		while (infile.next()) {
+			infile.val = infile.val + ',';
+
+			if (infile.key == "frame_size") {
+				frame_size.x = eatFirstInt(infile.val, ',');
+				frame_size.y = eatFirstInt(infile.val, ',');
+			} else if (infile.key == "frame_offset") {
+				frame_offset.x = eatFirstInt(infile.val, ',');
+				frame_offset.y = eatFirstInt(infile.val, ',');
+			}
+		}
+		infile.close();
+	}
+	else {
+		fprintf(stderr, "Could not open effects.txt config file!\n");
+	}
 }
 
 void Hazard::setCollision(MapCollision *_collider) {

@@ -105,6 +105,8 @@ private:
 	// animation vars
 	int anim_loot_frames;
 	int anim_loot_duration;
+	SDL_Rect animation_pos;
+	Point animation_offset;
 
 	// enemies which should drop loot, but didnt yet.
 	std::vector<const Enemy*> enemiesDroppingLoot;
@@ -134,7 +136,7 @@ public:
 
 	void addRenders(std::vector<Renderable> &renderables);
 
-	int tooltip_margin;
+	int tooltip_margin; // pixels between loot drop center and label
 	bool full_msg;
 };
 

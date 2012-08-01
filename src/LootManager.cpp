@@ -22,10 +22,12 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "EnemyManager.h"
+#include "FileParser.h"
 #include "LootManager.h"
 #include "Menu.h"
 #include "MenuInventory.h"
 #include "SharedResources.h"
+#include "UtilsParsing.h"
 
 #include <sstream>
 #include <iostream>
@@ -44,8 +46,29 @@ LootManager::LootManager(ItemManager *_items, MapRenderer *_map, StatBlock *_her
 
 	tip = new WidgetTooltip();
 
-	// FIXME don't hardcode this
-	tooltip_margin = 32; // pixels between loot drop center and label
+	FileParser infile;
+	// load loot animation settings from engine config file
+	if (infile.open(mods->locate("engine/loot.txt").c_str())) {
+		while (infile.next()) {
+			infile.val = infile.val + ',';
+
+			if (infile.key == "loot_animation") {
+				animation_pos.x = eatFirstInt(infile.val, ',');
+				animation_pos.y = eatFirstInt(infile.val, ',');
+				animation_pos.w = eatFirstInt(infile.val, ',');
+				animation_pos.h = eatFirstInt(infile.val, ',');
+			} else if (infile.key == "loot_animation_offset") {
+				animation_offset.x = eatFirstInt(infile.val, ',');
+				animation_offset.y = eatFirstInt(infile.val, ',');
+			} else if (infile.key == "tooltip_margin") {
+				tooltip_margin = eatFirstInt(infile.val, ',');
+			}
+		}
+		infile.close();
+	}
+	else {
+		fprintf(stderr, "Could not open loot.txt config file!\n");
+	}
 
 	animation_count = 0;
 
@@ -534,15 +557,12 @@ void LootManager::addRenders(vector<Renderable> &renderables) {
 		r.map_pos.x = it->pos.x;
 		r.map_pos.y = it->pos.y;
 
-		// Right now the animation settings (number of frames, speed, frame size)
-		// are hard coded.  At least move these to consts in the header.
-
-		r.src.x = (it->frame / anim_loot_duration) * 64;
+		r.src.x = (it->frame / anim_loot_duration) * animation_pos.w;
 		r.src.y = 0;
-		r.src.w = 64;
-		r.src.h = 128;
-		r.offset.x = 32;
-		r.offset.y = 112;
+		r.src.w = animation_pos.w;
+		r.src.h = animation_pos.h;
+		r.offset.x = animation_offset.x;
+		r.offset.y = animation_offset.y;
 		r.object_layer = true;
 
 		if (it->stack.item > 0) {
