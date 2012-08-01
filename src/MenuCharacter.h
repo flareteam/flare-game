@@ -26,6 +26,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <SDL_image.h>
 #include <SDL_mixer.h>
 
+#include "WidgetLabel.h"
 #include "WidgetTooltip.h"
 
 #include <string>
@@ -83,10 +84,10 @@ private:
 
 	// label and widget positions
 	Point close_pos;
-	Point title_pos;
+	LabelInfo title_lbl;
 	Point upgrade_pos[4];
 	Point statlist_pos;
-	Point label_pos[CSTAT_COUNT-1]; //unspent points doesn't have a separate label
+	LabelInfo label_pos[CSTAT_COUNT-1]; //unspent points doesn't have a separate label
 	SDL_Rect value_pos[CSTAT_COUNT];
 	bool show_upgrade[4];
 	bool show_stat[14];
