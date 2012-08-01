@@ -176,8 +176,8 @@ void ItemManager::load(const string& filename) {
 			}
 			else if (infile.key == "gfx")
 				items[id].gfx = infile.val;
-			else if (infile.key == "loot")
-				items[id].loot = infile.val;
+			else if (infile.key == "loot_animation")
+				items[id].loot_animation = infile.val;
 			else if (infile.key == "power")
 				items[id].power = atoi(infile.val.c_str());
 			else if (infile.key == "power_mod")
