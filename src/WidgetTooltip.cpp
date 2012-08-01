@@ -19,6 +19,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * class WidgetTooltip
  */
 
+#include "FileParser.h"
 #include "WidgetTooltip.h"
 #include "SharedResources.h"
 #include "Settings.h"
@@ -29,11 +30,24 @@ using namespace std;
 
 WidgetTooltip::WidgetTooltip() {
 
-	// TODO: Put these values in an engine config file
-	
-	offset=12; // distance between cursor and tooltip
-	width=160; // max width of tooltips (wrap text)
-	margin=4; // outer margin between tooltip text and the edge of the tooltip background
+	FileParser infile;
+	// load tooltip settings from engine config file
+	if (infile.open(mods->locate("engine/misc.txt").c_str())) {
+		while (infile.next()) {
+			if (infile.key == "tooltip_offset") {
+				offset = atoi(infile.val.c_str());
+			} else if (infile.key == "tooltip_width") {
+				width = atoi(infile.val.c_str());
+			} else if (infile.key == "tooltip_margin") {
+				margin = atoi(infile.val.c_str());
+			}
+		}
+		infile.close();
+	}
+	else {
+		fprintf(stderr, "No misc engine settings config file found!\n");
+	}
+
 }
 
 /**

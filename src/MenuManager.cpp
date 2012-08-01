@@ -443,7 +443,6 @@ void MenuManager::logic() {
 					}
 				}
 				else {
-					if (vendor->visible) vendor->setTab(VENDOR_SELL);
 					inpt->lock[MAIN1] = true;
 					drag_stack = inv->click(inpt);
 					if (drag_stack.item > 0) {
@@ -521,6 +520,7 @@ void MenuManager::logic() {
 				}
 				else if (vendor->visible && isWithin(vendor->slots_area, inpt->mouse)) {
 					if (inv->sell( drag_stack)) {
+						vendor->setTab(VENDOR_SELL);
 						vendor->add( drag_stack);
 					}
 					else {
@@ -530,7 +530,7 @@ void MenuManager::logic() {
 				}
 				else if (stash->visible && isWithin(stash->slots_area, inpt->mouse)) {
 					if (inv->stashAdd( drag_stack) && !stash->full(drag_stack.item)) {
-						stash->add( drag_stack);
+						stash->drop(inpt->mouse, drag_stack);
 						stash->updated = true;
 					}
 					else {
@@ -574,20 +574,24 @@ void MenuManager::logic() {
 
 			else if (drag_src == DRAG_SRC_STASH) {
 
-				// dropping an item from vendor (we only allow to drop into the carried area)
+				// dropping an item from stash (we only allow to drop into the carried area)
 				if (inv->visible && isWithin( inv->carried_area, inpt->mouse)) {
 					if( inv->full(drag_stack.item)) {
 						// Can we say "Not enough place" ?
 						stash->itemReturn( drag_stack);
 					}
-					else if( ! inv->stashRemove( drag_stack, inpt->mouse)) {
-						stash->itemReturn( drag_stack);
-					}
+					// else if( ! inv->stashRemove( drag_stack, inpt->mouse)) {
+					// 	stash->itemReturn( drag_stack);
+					// }
+					inv->drop(inpt->mouse,drag_stack);
 					stash->updated = true;
 					drag_stack.item = 0;
 				}
+				else if (stash->visible && isWithin(stash->slots_area, inpt->mouse)) {
+					stash->drop(inpt->mouse,drag_stack);
+				}
 				else {
-					stash->itemReturn(drag_stack);
+					stash->itemReturn( drag_stack);
 				}
 			}
 

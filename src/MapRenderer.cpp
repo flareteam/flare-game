@@ -1056,6 +1056,7 @@ void MapRenderer::checkTooltip() {
 			}
 
 			tip_pos.x = r.x + r.w/2;
+			// FIXME should depend on art resolution
 			tip_pos.y = r.y;
 			tip->render(tip_buf, tip_pos, STYLE_TOPLABEL);
 		}

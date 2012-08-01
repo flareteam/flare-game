@@ -49,6 +49,8 @@ extern int VIEW_W;
 extern int VIEW_H;
 extern int VIEW_W_HALF;
 extern int VIEW_H_HALF;
+extern int MIN_VIEW_W;
+extern int MIN_VIEW_H;
 extern bool DOUBLEBUF;
 extern bool HWSURFACE;
 extern float GAMMA;
@@ -67,6 +69,7 @@ extern bool COMBAT_TEXT;
 extern bool MENUS_PAUSE;
 extern std::string DEFAULT_NAME;
 extern bool SAVE_HPMP;
+extern bool ENABLE_PLAYGAME;
 
 // Tile Settings
 extern int UNITS_PER_TILE;

@@ -117,9 +117,9 @@ public:
 
 class WidgetTooltip {
 private:
-	int offset;
-	int width;
-	int margin;
+	int offset; // distance between cursor and tooltip
+	int width; // max width of tooltips (wrap text)
+	int margin; // outer margin between tooltip text and the edge of the tooltip background
 public:
 	WidgetTooltip();
 	Point calcPosition(int style, Point pos, Point size);

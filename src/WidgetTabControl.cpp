@@ -27,28 +27,28 @@ using namespace std;
  */
 WidgetTabControl::WidgetTabControl(int amount) {
 
-  // Based on given amount:
-  tabsAmount = amount;
-  titles = new std::string[tabsAmount];
-  tabs = new SDL_Rect[tabsAmount];
+	// Based on given amount:
+	tabsAmount = amount;
+	titles = new std::string[tabsAmount];
+	tabs = new SDL_Rect[tabsAmount];
 
-  // Predefined:
-  activeTab = 0;
-  tabPadding.x = 6;
-  tabPadding.y = 4;
+	// Predefined:
+	activeTab = 0;
+	tabPadding.x = 8;
+	tabPadding.y = 4;
 
-  // Load needed graphics.
-  loadGraphics();
+	// Load needed graphics.
+	loadGraphics();
 
 }
 /**
  * Class destructor.
  */
 WidgetTabControl::~WidgetTabControl() {
-  SDL_FreeSurface(activeTabSurface);
-  SDL_FreeSurface(inactiveTabSurface);
-  delete[] titles;
-  delete[] tabs;
+	SDL_FreeSurface(activeTabSurface);
+	SDL_FreeSurface(inactiveTabSurface);
+	delete[] titles;
+	delete[] tabs;
 }
 
 /**
@@ -59,7 +59,7 @@ WidgetTabControl::~WidgetTabControl() {
  * @param updateHeader  Whether or not the header should be updated.
  */
 void WidgetTabControl::setTabTitle(int number, const std::string& title) {
-  titles[number] = title;
+	titles[number] = title;
 }
 
 /**
@@ -68,7 +68,7 @@ void WidgetTabControl::setTabTitle(int number, const std::string& title) {
  * For example, if the first tab is open, it will return 0.
  */
 int WidgetTabControl::getActiveTab() {
-  return activeTab;
+	return activeTab;
 }
 
 /**
@@ -81,17 +81,17 @@ int WidgetTabControl::getActiveTab() {
  */
 void WidgetTabControl::setMainArea(int x, int y, int width, int height)
 {
-  // Set tabs area.
-  tabsArea.x = x;
-  tabsArea.y = y;
-  tabsArea.w = width;
-  tabsArea.h = 20;
+	// Set tabs area.
+	tabsArea.x = x;
+	tabsArea.y = y;
+	tabsArea.w = width;
+	tabsArea.h = activeTabSurface->h;
 
-  // Set content area.
-  contentArea.x = x + 8;
-  contentArea.y = y + 26;
-  contentArea.w = width - 16;
-  contentArea.h = height - 20;
+	// Set content area.
+	contentArea.x = x + 8;
+	contentArea.y = y + tabsArea.h+8;
+	contentArea.w = width - 16;
+	contentArea.h = height - tabsArea.h;
 }
 
 /**
@@ -101,16 +101,16 @@ void WidgetTabControl::setMainArea(int x, int y, int width, int height)
  */
 void WidgetTabControl::updateHeader()
 {
-  for (int i=0; i<tabsAmount; i++) {
-    tabs[i].y = tabsArea.y;
-    tabs[i].h = tabsArea.h;
+	for (int i=0; i<tabsAmount; i++) {
+		tabs[i].y = tabsArea.y;
+		tabs[i].h = tabsArea.h;
 
-    if (i==0) tabs[i].x = tabsArea.x;
-    else tabs[i].x = tabs[i-1].x + tabs[i-1].w;
+		if (i==0) tabs[i].x = tabsArea.x;
+		else tabs[i].x = tabs[i-1].x + tabs[i-1].w;
 
-    tabs[i].w = tabPadding.x + font->calc_width(titles[i]) + tabPadding.x;
+		tabs[i].w = tabPadding.x + font->calc_width(titles[i]) + tabPadding.x;
 
-  }
+	}
 }
 
 /**
@@ -118,28 +118,28 @@ void WidgetTabControl::updateHeader()
  */
 void WidgetTabControl::loadGraphics()
 {
-  activeTabSurface = IMG_Load(mods->locate("images/menus/tab_active.png").c_str());
-  inactiveTabSurface = IMG_Load(mods->locate("images/menus/tab_inactive.png").c_str());
+	activeTabSurface = IMG_Load(mods->locate("images/menus/tab_active.png").c_str());
+	inactiveTabSurface = IMG_Load(mods->locate("images/menus/tab_inactive.png").c_str());
 
-  if(!activeTabSurface || !inactiveTabSurface) {
-    fprintf(stderr, "Could not load image: %s\n", IMG_GetError());
-    SDL_Quit();
-  }
+	if(!activeTabSurface || !inactiveTabSurface) {
+		fprintf(stderr, "Could not load image: %s\n", IMG_GetError());
+		SDL_Quit();
+	}
 
-  SDL_Surface *cleanup;
+	SDL_Surface *cleanup;
 
-  cleanup = activeTabSurface;
-  activeTabSurface = SDL_DisplayFormatAlpha(activeTabSurface);
-  SDL_FreeSurface(cleanup);
+	cleanup = activeTabSurface;
+	activeTabSurface = SDL_DisplayFormatAlpha(activeTabSurface);
+	SDL_FreeSurface(cleanup);
 
-  cleanup = inactiveTabSurface;
-  inactiveTabSurface = SDL_DisplayFormatAlpha(inactiveTabSurface);
-  SDL_FreeSurface(cleanup);
+	cleanup = inactiveTabSurface;
+	inactiveTabSurface = SDL_DisplayFormatAlpha(inactiveTabSurface);
+	SDL_FreeSurface(cleanup);
 }
 
 void WidgetTabControl::logic()
 {
-  logic(inpt->mouse.x,inpt->mouse.y);
+	logic(inpt->mouse.x,inpt->mouse.y);
 }
 
 /**
@@ -149,17 +149,17 @@ void WidgetTabControl::logic()
  */
 void WidgetTabControl::logic(int x, int y)
 {
-  Point mouse = {x,y};
-  // If the click was in the tabs area;
-  if(isWithin(tabsArea, mouse) && inpt->pressing[MAIN1]) {
-    // Mark the clicked tab as activeTab.
-    for (int i=0; i<tabsAmount; i++) {
-      if(isWithin(tabs[i], mouse)) {
-        activeTab = i;
-        return;
-      }
-    }
-  }
+	Point mouse = {x,y};
+	// If the click was in the tabs area;
+	if(isWithin(tabsArea, mouse) && inpt->pressing[MAIN1]) {
+		// Mark the clicked tab as activeTab.
+		for (int i=0; i<tabsAmount; i++) {
+			if(isWithin(tabs[i], mouse)) {
+				activeTab = i;
+				return;
+			}
+		}
+	}
 }
 
 /**
@@ -169,12 +169,12 @@ void WidgetTabControl::logic(int x, int y)
  */
 void WidgetTabControl::render(SDL_Surface *target)
 {
-  if (target == NULL) {
-    target = screen;
-  }
-  for (int i=0; i<tabsAmount; i++) {
-    renderTab(i,target);
-  }
+	if (target == NULL) {
+		target = screen;
+	}
+	for (int i=0; i<tabsAmount; i++) {
+		renderTab(i,target);
+	}
 }
 
 /**
@@ -182,41 +182,41 @@ void WidgetTabControl::render(SDL_Surface *target)
  */
 void WidgetTabControl::renderTab(int number, SDL_Surface *target)
 {
-  int i = number;
-  SDL_Rect src;
-  SDL_Rect dest;
+	int i = number;
+	SDL_Rect src;
+	SDL_Rect dest;
 
-  // Draw tab’s background.
-  src.x = src.y = 0;
-  dest.x = tabs[i].x;
-  dest.y = tabs[i].y;
-  src.w = tabs[i].w;
-  src.h = tabs[i].h;
+	// Draw tab’s background.
+	src.x = src.y = 0;
+	dest.x = tabs[i].x;
+	dest.y = tabs[i].y;
+	src.w = tabs[i].w;
+	src.h = tabs[i].h;
 
-  if (i == activeTab)
-    SDL_BlitSurface(activeTabSurface, &src, target, &dest);
-  else
-    SDL_BlitSurface(inactiveTabSurface, &src, target, &dest);
+	if (i == activeTab)
+		SDL_BlitSurface(activeTabSurface, &src, target, &dest);
+	else
+		SDL_BlitSurface(inactiveTabSurface, &src, target, &dest);
 
-  // Draw tab’s right edge.
-  src.x = 128 - tabPadding.x;
-  src.w = tabPadding.x;
-  dest.x = tabs[i].x + tabs[i].w - tabPadding.x;
+	// Draw tab’s right edge.
+	src.x = activeTabSurface->w - tabPadding.x;
+	src.w = tabPadding.x;
+	dest.x = tabs[i].x + tabs[i].w - tabPadding.x;
 
-  if (i == activeTab)
-    SDL_BlitSurface(activeTabSurface, &src, target, &dest);
-  else
-    SDL_BlitSurface(inactiveTabSurface, &src, target, &dest);
+	if (i == activeTab)
+		SDL_BlitSurface(activeTabSurface, &src, target, &dest);
+	else
+		SDL_BlitSurface(inactiveTabSurface, &src, target, &dest);
 
-  // Set tab’s label font color.
-  int fontColor;
-  if (i == activeTab) fontColor = FONT_WHITE;
-  else fontColor = FONT_GREY;
+	// Set tab’s label font color.
+	int fontColor;
+	if (i == activeTab) fontColor = FONT_WHITE;
+	else fontColor = FONT_GREY;
 
-  // Draw tab’s label.
-  WidgetLabel label;
-  label.set(tabs[i].x + tabPadding.x, tabs[i].y + tabPadding.y, JUSTIFY_LEFT, VALIGN_TOP, titles[i], fontColor);
-  label.render(target);
+	// Draw tab’s label.
+	WidgetLabel label;
+	label.set(tabs[i].x + tabPadding.x, tabs[i].y + tabs[i].h/2, JUSTIFY_LEFT, VALIGN_CENTER, titles[i], fontColor);
+	label.render(target);
 }
 
 /**
@@ -224,5 +224,5 @@ void WidgetTabControl::renderTab(int number, SDL_Surface *target)
  */
 SDL_Rect WidgetTabControl::getContentArea()
 {
-  return contentArea;
+	return contentArea;
 }

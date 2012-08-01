@@ -215,7 +215,7 @@ void FontEngine::render(const std::string& text, int x, int y, int justify, SDL_
 	dest_rect.x = dest_x;
 	dest_rect.y = dest_y;
 
-	if (render_blended) {
+	if (render_blended && target != screen) {
 		ttf = TTF_RenderUTF8_Blended(ttfont, text.c_str(), colors[color]);
 		
 		// preserve alpha transparency of text buffers

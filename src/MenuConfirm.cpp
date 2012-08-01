@@ -29,25 +29,12 @@ MenuConfirm::MenuConfirm(const string& _buttonMsg, const string& _boxMsg) : Menu
 	// Text to display in confirmation box
 	boxMsg = _boxMsg;
 
-	window_area.w = 192;
-	window_area.h = 64;
-	window_area.x = (VIEW_W/2) - (window_area.w/2);
-	window_area.y = (VIEW_H - window_area.h)/2;
-
 	if (hasConfirmButton) {
 		buttonConfirm = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
 		buttonConfirm->label = _buttonMsg;
-		buttonConfirm->pos.x = VIEW_W_HALF - buttonConfirm->pos.w/2;
-		buttonConfirm->pos.y = VIEW_H/2;
-		buttonConfirm->refresh();
 	}
 
 	buttonClose = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
-	buttonClose->pos.x = window_area.x + window_area.w;
-	buttonClose->pos.y = window_area.y;
-	if (hasConfirmButton) {
-	label.set(window_area.x + window_area.w/2, window_area.y + 10, JUSTIFY_CENTER, VALIGN_TOP, boxMsg, FONT_WHITE);
-	} else label.set(window_area.x + window_area.w/2, window_area.y + 25, JUSTIFY_CENTER, VALIGN_TOP, boxMsg, FONT_WHITE);
 
 	loadGraphics();
 }
@@ -63,6 +50,20 @@ void MenuConfirm::loadGraphics() {
 	SDL_Surface *cleanup = background;
 	background = SDL_DisplayFormatAlpha(background);
 	SDL_FreeSurface(cleanup);
+}
+
+void MenuConfirm::update() {
+	if (hasConfirmButton) {
+		buttonConfirm->pos.x = VIEW_W_HALF - buttonConfirm->pos.w/2;
+		buttonConfirm->pos.y = VIEW_H/2;
+		buttonConfirm->refresh();
+		label.set(window_area.x + window_area.w/2, window_area.y + window_area.h - (buttonConfirm->pos.h * 2), JUSTIFY_CENTER, VALIGN_TOP, boxMsg, FONT_WHITE);
+	} else {
+		label.set(window_area.x + window_area.w/2, window_area.y + (window_area.h / 4), JUSTIFY_CENTER, VALIGN_TOP, boxMsg, FONT_WHITE);
+	}
+
+	buttonClose->pos.x = window_area.x + window_area.w;
+	buttonClose->pos.y = window_area.y;
 }
 
 void MenuConfirm::logic() {

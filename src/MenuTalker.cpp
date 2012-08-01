@@ -72,6 +72,29 @@ MenuTalker::MenuTalker(CampaignManager *_camp) {
 			} else if (infile.key == "vendor"){
 				vendor_pos.x = eatFirstInt(infile.val,',');
 				vendor_pos.y = eatFirstInt(infile.val,',');
+			} else if (infile.key == "dialogbox"){
+				dialog_pos.x = eatFirstInt(infile.val,',');
+				dialog_pos.y = eatFirstInt(infile.val,',');
+				dialog_pos.w = eatFirstInt(infile.val,',');
+				dialog_pos.h = eatFirstInt(infile.val,',');
+			} else if (infile.key == "dialogtext"){
+				text_pos.x = eatFirstInt(infile.val,',');
+				text_pos.y = eatFirstInt(infile.val,',');
+				text_pos.w = eatFirstInt(infile.val,',');
+				text_pos.h = eatFirstInt(infile.val,',');
+			} else if (infile.key == "text_offset"){
+				text_offset.x = eatFirstInt(infile.val,',');
+				text_offset.y = eatFirstInt(infile.val,',');
+			} else if (infile.key == "portrait_he"){
+				portrait_he.x = eatFirstInt(infile.val,',');
+				portrait_he.y = eatFirstInt(infile.val,',');
+				portrait_he.w = eatFirstInt(infile.val,',');
+				portrait_he.h = eatFirstInt(infile.val,',');
+			} else if (infile.key == "portrait_you"){
+				portrait_you.x = eatFirstInt(infile.val,',');
+				portrait_you.y = eatFirstInt(infile.val,',');
+				portrait_you.w = eatFirstInt(infile.val,',');
+				portrait_you.h = eatFirstInt(infile.val,',');
 			}
 		}
 		infile.close();
@@ -187,8 +210,8 @@ void MenuTalker::createBuffer() {
 
 	// render text to back buffer
 	SDL_FreeSurface(msg_buffer);
-	msg_buffer = createAlphaSurface(576,96);
-	font->render(line, 16, 16, JUSTIFY_LEFT, msg_buffer, 544, FONT_WHITE);
+	msg_buffer = createAlphaSurface(text_pos.w,text_pos.h);
+	font->render(line, text_offset.x, text_offset.y, JUSTIFY_LEFT, msg_buffer, text_pos.w - text_offset.x*2, FONT_WHITE);
 
 }
 
@@ -203,36 +226,36 @@ void MenuTalker::render() {
 	// dialog box
 	src.x = 0;
 	src.y = 0;
-	dest.x = offset_x;
-	dest.y = offset_y + 320;
-	src.w = dest.w = 640;
-	src.h = dest.h = 96;
+	dest.x = offset_x + dialog_pos.x;
+	dest.y = offset_y + dialog_pos.y;
+	src.w = dest.w = dialog_pos.w;
+	src.h = dest.h = dialog_pos.h;
 	SDL_BlitSurface(background, &src, screen, &dest);
 
 	// show active portrait
 	string etype = npc->dialog[dialog_node][event_cursor].type;
 	if (etype == "him" || etype == "her") {
 		if (npc->portrait != NULL) {
-			src.w = dest.w = 320;
-			src.h = dest.h = 320;
-			dest.x = offset_x + 32;
-			dest.y = offset_y;
+			src.w = dest.w = portrait_he.w;
+			src.h = dest.h = portrait_he.h;
+			dest.x = offset_x + portrait_he.x;
+			dest.y = offset_y + portrait_he.y;
 			SDL_BlitSurface(npc->portrait, &src, screen, &dest);
 		}
 	}
 	else if (etype == "you") {
 		if (portrait != NULL) {
-			src.w = dest.w = 320;
-			src.h = dest.h = 320;
-			dest.x = offset_x + 288;
-			dest.y = offset_y;
+			src.w = dest.w = portrait_you.w;
+			src.h = dest.h = portrait_you.h;
+			dest.x = offset_x + portrait_you.x;
+			dest.y = offset_y + portrait_you.y;
 			SDL_BlitSurface(portrait, &src, screen, &dest);
 		}
 	}
 
 	// text overlay
-	dest.x = offset_x+32;
-	dest.y = offset_y+320;
+	dest.x = offset_x + text_pos.x;
+	dest.y = offset_y + text_pos.y;
 	SDL_BlitSurface(msg_buffer, NULL, screen, &dest);
 
 	// show advance button if there are more event components, or close button if not

@@ -97,6 +97,8 @@ int VIEW_W;
 int VIEW_H;
 int VIEW_W_HALF = VIEW_W/2;
 int VIEW_H_HALF = VIEW_H/2;
+int MIN_VIEW_W = -1;
+int MIN_VIEW_H = -1;
 bool DOUBLEBUF;
 bool HWSURFACE;
 float GAMMA;
@@ -126,6 +128,7 @@ bool AUTOPICKUP_GOLD = false;
 bool MENUS_PAUSE = false;
 std::string DEFAULT_NAME = "";
 bool SAVE_HPMP = false;
+bool ENABLE_PLAYGAME = false;
 
 
 /**
@@ -277,6 +280,8 @@ void loadTilesetSettings() {
 			else if (infile.key == "tile_size") {
 				TILE_W = atoi(infile.nextValue().c_str());
 				TILE_H = atoi(infile.nextValue().c_str());
+				TILE_W_HALF = TILE_W /2;
+				TILE_H_HALF = TILE_H /2;
 			}
 			else if (infile.key == "orientation") {
 				if (infile.val == "isometric")
@@ -342,6 +347,16 @@ void loadMiscSettings() {
 				ICON_SIZE_SMALL = atoi(infile.val.c_str());
 			} else if (infile.key == "large_icon_size") {
 				ICON_SIZE_LARGE = atoi(infile.val.c_str());
+			} else if (infile.key == "required_width") {
+				MIN_VIEW_W = atoi(infile.val.c_str());
+				if (VIEW_W < MIN_VIEW_W) VIEW_W = MIN_VIEW_W;
+				VIEW_W_HALF = VIEW_W/2;
+			} else if (infile.key == "required_height") {
+				MIN_VIEW_H = atoi(infile.val.c_str());
+				if (VIEW_H < MIN_VIEW_H) VIEW_H = MIN_VIEW_H;
+				VIEW_H_HALF = VIEW_H/2;
+			} else if (infile.key == "enable_playgame") {
+				ENABLE_PLAYGAME = atoi(infile.val.c_str());
 			}
 		}
 		infile.close();

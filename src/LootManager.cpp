@@ -44,6 +44,7 @@ LootManager::LootManager(ItemManager *_items, MapRenderer *_map, StatBlock *_her
 
 	tip = new WidgetTooltip();
 
+	// FIXME don't hardcode this
 	tooltip_margin = 32; // pixels between loot drop center and label
 
 	animation_count = 0;
@@ -417,7 +418,7 @@ void LootManager::determineLootByClass(const Enemy *e, Point pos) {
  */
 int LootManager::randomItem(int base_level) {
 	int level = lootLevel(base_level);
-	if (level > 0 && loot_table_count[level] > 0) {
+	if (level > 0 && loot_table_count[level] > 0 && loot_table_count[level] < 1024) {
 		int roll = rand() % loot_table_count[level];
 		return loot_table[level][roll];
 	}

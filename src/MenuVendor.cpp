@@ -70,9 +70,6 @@ MenuVendor::MenuVendor(ItemManager *_items, StatBlock *_stats) {
 			} else if (infile.key == "title"){
 				title_pos.x =  eatFirstInt(infile.val,',');
 				title_pos.y =  eatFirstInt(infile.val,',');
-			} else if (infile.key == "name"){
-				name_pos.x =  eatFirstInt(infile.val,',');
-				name_pos.y =  eatFirstInt(infile.val,',');
 			}
 		}
 		infile.close();
@@ -97,13 +94,14 @@ void MenuVendor::loadGraphics() {
 void MenuVendor::update() {
 	slots_area.x += window_area.x;
 	slots_area.y += window_area.y;
-	slots_area.w = slots_cols*32;
-	slots_area.h = slots_rows*32;
+	slots_area.w = slots_cols*ICON_SIZE_SMALL;
+	slots_area.h = slots_rows*ICON_SIZE_SMALL;
 
 	SDL_Rect tabs_area = slots_area;
 
 	//TODO: Put tabcontrol posistion in vendor.txt
-	tabControl->setMainArea(tabs_area.x, tabs_area.y-18, tabs_area.w, tabs_area.h+18);
+	int tabheight = tabControl->getTabHeight();
+	tabControl->setMainArea(tabs_area.x, tabs_area.y-tabheight, tabs_area.w, tabs_area.h+tabheight);
 	tabControl->updateHeader();
 
 	stock[VENDOR_BUY].init( VENDOR_SLOTS, items, slots_area, ICON_SIZE_SMALL, slots_cols);
@@ -153,9 +151,7 @@ void MenuVendor::render() {
 
 	// text overlay
 	WidgetLabel label;
-	label.set(window_area.x+title_pos.x, window_area.y+title_pos.y, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Vendor"), FONT_WHITE);
-	label.render();
-	label.set(window_area.x+name_pos.x, window_area.y+name_pos.y, JUSTIFY_CENTER, VALIGN_TOP, npc->name, FONT_WHITE);
+	label.set(window_area.x+title_pos.x, window_area.y+title_pos.y, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Vendor") + " - " + npc->name, FONT_WHITE);
 	label.render();
 
 	// render tabs
