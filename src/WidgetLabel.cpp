@@ -28,6 +28,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 using namespace std;
 
+/**
+ * This is used in menus (e.g. MenuInventory) when parsing their config files
+ */
 LabelInfo eatLabelInfo(string val) {
 	LabelInfo info;
 	string justify,valign;
