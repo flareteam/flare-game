@@ -69,6 +69,7 @@ extern bool COMBAT_TEXT;
 extern bool MENUS_PAUSE;
 extern std::string DEFAULT_NAME;
 extern bool SAVE_HPMP;
+extern bool ENABLE_PLAYGAME;
 
 // Tile Settings
 extern int UNITS_PER_TILE;

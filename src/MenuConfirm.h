@@ -36,6 +36,7 @@ public:
 	MenuConfirm(const std::string&, const std::string&);
 	~MenuConfirm();
 
+	void update();
 	void logic();
 	virtual void render();
 

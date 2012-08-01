@@ -67,12 +67,15 @@ GameStateConfig::GameStateConfig ()
 
 	// Initialize Widgets
 	tabControl = new WidgetTabControl(6);
+	tabControl->setMainArea(((VIEW_W - FRAME_W)/2)+3, (VIEW_H - FRAME_H)/2, FRAME_W, FRAME_H);
+	SDL_Rect frame = tabControl->getContentArea();
+
 	ok_button = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
 	defaults_button = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
 	cancel_button = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
 
-	input_confirm = new MenuConfirm("",msg->get("Press a key to assign: "));
-	defaults_confirm = new MenuConfirm(msg->get("Defaults"),msg->get("Set ALL settings to default?"));
+	input_confirm = new MenuConfirm("",msg->get("Assign: "));
+	defaults_confirm = new MenuConfirm(msg->get("Defaults"),msg->get("Reset ALL settings?"));
 
 	// Allocate Labels
 	for (unsigned int i = 0; i < 46; i++) {
@@ -124,7 +127,7 @@ GameStateConfig::GameStateConfig ()
 	// Remove active mods from the available mods list
 	for (unsigned int i = 0; i<mods->mod_list.size(); i++) {
 		for (unsigned int j = 0; j<mod_dirs.size(); j++) {
-			if (mods->mod_list[i] == mod_dirs[j]) mod_dirs[j].erase();
+			if (mods->mod_list[i] == mod_dirs[j] || FALLBACK_MOD == mod_dirs[j]) mod_dirs[j].erase();
 		}
 	}
 	settings_lstb[1] = new WidgetListBox(mods_total, 10, mods->locate("images/menus/buttons/listbox_default.png"));
@@ -207,7 +210,10 @@ GameStateConfig::GameStateConfig ()
 			else if (infile.key == "activemods_shiftdown") setting_num = 48;//button
 			else if (infile.key == "activemods_deactivate") setting_num = 49;//button
 			else if (infile.key == "inactivemods_activate") setting_num = 50;//button
-			else if (infile.key == "secondary_offset") {offset_x = x1; offset_y = y1;}
+			else if (infile.key == "secondary_offset") {
+				offset_x = x1;
+				offset_y = y1;
+			}
 			else if (infile.key == "keybinds_bg_color") {
 				// background color for keybinds scrollbox
 				scrollpane_color.x = x1;
@@ -228,34 +234,34 @@ GameStateConfig::GameStateConfig ()
 					settings_lb[setting_num-1]->setY(y1);
 				} else if (setting_num < 47) {
 					// all labels except keybinding labels
-					settings_lb[setting_num-1]->setX((VIEW_W - FRAME_W)/2 + x1);
-					settings_lb[setting_num-1]->setY((VIEW_H - FRAME_H)/2 + y1);
+					settings_lb[setting_num-1]->setX(frame.x + x1);
+					settings_lb[setting_num-1]->setY(frame.y + y1);
 				}
 
 				if (setting_num < 10) {
 					//checkboxes positions
-					settings_cb[setting_num-1]->pos.x = (VIEW_W - FRAME_W)/2 + x2;
-					settings_cb[setting_num-1]->pos.y = (VIEW_H - FRAME_H)/2 + y2;
+					settings_cb[setting_num-1]->pos.x = frame.x + x2;
+					settings_cb[setting_num-1]->pos.y = frame.y + y2;
 				} else if ((setting_num > 9) && (setting_num < 13)) {
 					//sliders positions
-					settings_sl[setting_num-10]->pos.x = (VIEW_W - FRAME_W)/2 + x2;
-					settings_sl[setting_num-10]->pos.y = (VIEW_H - FRAME_H)/2 + y2;
+					settings_sl[setting_num-10]->pos.x = frame.x + x2;
+					settings_sl[setting_num-10]->pos.y = frame.y + y2;
 				} else if ((setting_num > 12) && (setting_num < 15)) {
 					//comboboxes positions
-					settings_cmb[setting_num-13]->pos.x = (VIEW_W - FRAME_W)/2 + x2;
-					settings_cmb[setting_num-13]->pos.y = (VIEW_H - FRAME_H)/2 + y2;
+					settings_cmb[setting_num-13]->pos.x = frame.x + x2;
+					settings_cmb[setting_num-13]->pos.y = frame.y + y2;
 				} else if (setting_num > 14 && setting_num < 40) {
 					//keybinding buttons positions
 					settings_key[setting_num-15]->pos.x = x2;
 					settings_key[setting_num-15]->pos.y = y2;
 				} else if (setting_num > 43 && setting_num < 47) {
 					//listboxes positions
-					settings_lstb[setting_num-44]->pos.x = (VIEW_W - FRAME_W)/2 + x2;
-					settings_lstb[setting_num-44]->pos.y = (VIEW_H - FRAME_H)/2 + y2;
+					settings_lstb[setting_num-44]->pos.x = frame.x + x2;
+					settings_lstb[setting_num-44]->pos.y = frame.y + y2;
 				} else if (setting_num > 46 && setting_num < 51) {
 					//mods config buttons positions
-					settings_btn[setting_num-47]->pos.x = (VIEW_W - FRAME_W)/2 + x1;
-					settings_btn[setting_num-47]->pos.y = (VIEW_H - FRAME_H)/2 + y1;
+					settings_btn[setting_num-47]->pos.x = frame.x + x1;
+					settings_btn[setting_num-47]->pos.y = frame.y + y1;
 				}
 			}
 
@@ -263,17 +269,38 @@ GameStateConfig::GameStateConfig ()
 		} else fprintf(stderr, "Unable to open config.txt!\n");
 		infile.close();
 
+	// Load the MenuConfirm positions and alignments from menus/menus.txt
+	if (infile.open(mods->locate("menus/menus.txt"))) {
+		while (infile.next()) {
+			infile.val = infile.val + ',';
+
+			if (infile.key == "confirm") {
+				menuConfirm_area.x = eatFirstInt(infile.val, ',');
+				menuConfirm_area.y = eatFirstInt(infile.val, ',');
+				menuConfirm_area.w = eatFirstInt(infile.val, ',');
+				menuConfirm_area.h = eatFirstInt(infile.val, ',');
+				menuConfirm_align = eatFirstString(infile.val, ',');
+				break;
+			}
+		}
+	} else {
+		fprintf(stderr, "Unable to open menus.txt!\n");
+	}
+	infile.close();
+
+	defaults_confirm->window_area = menuConfirm_area;
+	defaults_confirm->alignment = menuConfirm_align;
+	defaults_confirm->align();
+	defaults_confirm->update();
+
 	// Allocate KeyBindings ScrollBox
 	input_scrollbox = new WidgetScrollBox(scrollpane.w, scrollpane.h);
-	input_scrollbox->pos.x = scrollpane.x + (VIEW_W - FRAME_W)/2;
-	input_scrollbox->pos.y = scrollpane.y + (VIEW_H - FRAME_H)/2;
+	input_scrollbox->pos.x = scrollpane.x + frame.x;
+	input_scrollbox->pos.y = scrollpane.y + frame.y;
 	input_scrollbox->resize(780);
 	input_scrollbox->bg.r = scrollpane_color.x;
 	input_scrollbox->bg.g = scrollpane_color.y;
 	input_scrollbox->bg.b = scrollpane_color.w;
-
-	// Initialize the tab control.
-	tabControl->setMainArea(((VIEW_W - FRAME_W)/2)+3, (VIEW_H - FRAME_H)/2, FRAME_W, FRAME_H);
 
 	// Set positions of secondary key bindings
 	for (unsigned int i = 25; i < 50; i++) {
@@ -408,20 +435,20 @@ GameStateConfig::GameStateConfig ()
 	optiontab[child_widget.size()-1] = 0;
 
 	// Add just some Labels
-	settings_lb[40]->set(msg->get("Try disabling for performance"));
+	settings_lb[39]->set(msg->get("Disable for performance"));
+	child_widget.push_back(settings_lb[39]);
+	optiontab[child_widget.size()-1] = 0;
+
+	settings_lb[40]->set(msg->get("Disable for performance"));
 	child_widget.push_back(settings_lb[40]);
 	optiontab[child_widget.size()-1] = 0;
 
-	settings_lb[41]->set(msg->get("Try disabling for performance"));
+	settings_lb[41]->set(msg->get("Disable for performance"));
 	child_widget.push_back(settings_lb[41]);
 	optiontab[child_widget.size()-1] = 0;
 
-	settings_lb[42]->set(msg->get("Try disabling for performance"));
+	settings_lb[42]->set(msg->get("Experimental"));
 	child_widget.push_back(settings_lb[42]);
-	optiontab[child_widget.size()-1] = 0;
-
-	settings_lb[43]->set(msg->get("Experimental"));
-	child_widget.push_back(settings_lb[43]);
 	optiontab[child_widget.size()-1] = 0;
 
 	//Define ComboBoxes and their Labels
@@ -472,7 +499,8 @@ GameStateConfig::GameStateConfig ()
 
 	settings_lstb[1]->multi_select = true;
 	for (unsigned int i = 0; i < mods->mod_list.size() ; i++) {
-		settings_lstb[1]->append(mods->mod_list[i],"");
+		if (mods->mod_list[i] != FALLBACK_MOD)
+			settings_lstb[1]->append(mods->mod_list[i],"");
 	}
 	child_widget.push_back(settings_lstb[1]);
 	optiontab[child_widget.size()-1] = 5;
@@ -489,8 +517,8 @@ GameStateConfig::GameStateConfig ()
 	optiontab[child_widget.size()-1] = 5;
 
 	// Add Button labels for Mods ListBoxes
-	settings_btn[2]->label = msg->get("<< Deactivate");
-	settings_btn[3]->label = msg->get("Activate >>");
+	settings_btn[2]->label = msg->get("<< Disable");
+	settings_btn[3]->label = msg->get("Enable >>");
 
 	for (unsigned int i=0; i<4; i++) {
 		settings_btn[i]->refresh();
@@ -797,11 +825,15 @@ void GameStateConfig::logic ()
 					if (settings_key[i]->checkClick(mouse.x,mouse.y)) {
 						std::string confirm_msg;
 						if (i < 25)
-							confirm_msg = msg->get("Press a key to assign: ") + binding_name[i];
+							confirm_msg = msg->get("Assign: ") + binding_name[i];
 						else
-							confirm_msg = msg->get("Press a key to assign: ") + binding_name[i-25];
+							confirm_msg = msg->get("Assign: ") + binding_name[i-25];
 						delete input_confirm;
 						input_confirm = new MenuConfirm("",confirm_msg);
+						input_confirm->window_area = menuConfirm_area;
+						input_confirm->alignment = menuConfirm_align;
+						input_confirm->align();
+						input_confirm->update();
 						input_confirm->visible = true;
 						input_key = i;
 						inpt->last_button = -1;
@@ -820,7 +852,7 @@ void GameStateConfig::logic ()
 		} else if (settings_btn[0]->checkClick()) {
 			settings_lstb[1]->shiftUp();
 		} else if (settings_btn[1]->checkClick()) {
-			settings_lstb[2]->shiftDown();
+			settings_lstb[1]->shiftDown();
 		} else if (settings_btn[2]->checkClick()) {
 			disableMods();
 		} else if (settings_btn[3]->checkClick()) {
@@ -831,11 +863,10 @@ void GameStateConfig::logic ()
 
 void GameStateConfig::render ()
 {
-	SDL_Rect	pos = tabControl->getContentArea();
-	pos.x = pos.x-12;
-	pos.y = pos.y-12;
-	pos.w = 640;
-	pos.h = 380;
+	int tabheight = tabControl->getTabHeight();
+	SDL_Rect	pos;
+	pos.x = (VIEW_W-FRAME_W)/2;
+	pos.y = (VIEW_H-FRAME_H)/2 + tabheight - tabheight/16;
 
 	SDL_BlitSurface(background,NULL,screen,&pos);
 

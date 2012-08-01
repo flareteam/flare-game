@@ -83,8 +83,8 @@ void MenuStash::loadGraphics() {
 void MenuStash::update() {
 	slots_area.x += window_area.x;
 	slots_area.y += window_area.y;
-	slots_area.w = slots_cols*32;
-	slots_area.h = slots_rows*32;
+	slots_area.w = slots_cols*ICON_SIZE_SMALL;
+	slots_area.h = slots_rows*ICON_SIZE_SMALL;
 
 	stock.init( STASH_SLOTS, items, slots_area, ICON_SIZE_SMALL, slots_cols);
 
@@ -127,6 +127,86 @@ void MenuStash::render() {
 }
 
 /**
+ * Dragging and dropping an item can be used to rearrange the stash
+ */
+void MenuStash::drop(Point mouse, ItemStack stack) {
+	int slot;
+	int drag_prev_slot;
+
+	items->playSound(stack.item);
+
+	slot = stock.slotOver(mouse);
+	drag_prev_slot = stock.drag_prev_slot;
+
+	if (slot != drag_prev_slot) {
+		if (stock[slot].item == stack.item) {
+			// Merge the stacks
+			add(stack, slot);
+		}
+		else if (stock[slot].item == 0) {
+			// Drop the stack
+			stock[slot] = stack;
+		}
+		else if (stock[drag_prev_slot].item == 0) { // Check if the previous slot is free (could still be used if SHIFT was used).
+			// Swap the two stacks
+			itemReturn(stock[slot]);
+			stock[slot] = stack;
+		} else {
+			itemReturn( stack);
+		}
+	}
+	else {
+		itemReturn(stack); // cancel
+	}
+
+}
+
+void MenuStash::add(ItemStack stack, int slot) {
+	int max_quantity;
+	int quantity_added;
+	int i;
+
+	if( stack.item != 0) {
+		max_quantity = items->items[stack.item].max_quantity;
+		if( slot > -1 && stock[slot].item != 0 && stock[slot].item != stack.item) {
+			// the proposed slot isn't available, search for another one
+			slot = -1;
+		}
+		// first search of stack to complete if the item is stackable
+		i = 0;
+		while( max_quantity > 1 && slot == -1 && i < STASH_SLOTS) {
+			if (stock[i].item == stack.item && stock[i].quantity < max_quantity) {
+				slot = i;
+			}
+			i++;
+		}
+		// then an empty slot
+		i = 0;
+		while( slot == -1 && i < STASH_SLOTS) {
+			if (stock[i].item == 0) {
+				slot = i;
+			}
+			i++;
+		}
+		if( slot != -1) {
+			// Add
+			quantity_added = min( stack.quantity, max_quantity - stock[slot].quantity);
+			stock[slot].item = stack.item;
+			stock[slot].quantity += quantity_added;
+			stack.quantity -= quantity_added;
+			// Add back the remaining
+			if( stack.quantity > 0) {
+				add( stack);
+			}
+		}
+		else {
+			// No available slot, drop
+			// TODO: We should drop on the floor an item we can't store
+		}
+	}
+}
+
+/**
  * Start dragging a vendor item
  * Players can drag an item to their inventory.
  */
@@ -143,11 +223,13 @@ void MenuStash::itemReturn(ItemStack stack) {
 }
 
 void MenuStash::add(ItemStack stack) {
+	items->playSound(stack.item);
+
 	stock.add(stack);
 }
 
 TooltipData MenuStash::checkTooltip(Point mouse) {
-	return stock.checkTooltip( mouse, stats, true);
+	return stock.checkTooltip( mouse, stats, false);
 }
 
 bool MenuStash::full(int item) {

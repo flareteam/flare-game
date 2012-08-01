@@ -54,8 +54,6 @@ MenuLog::MenuLog() {
 				tab_area.y = eatFirstInt(infile.val,',');
 				tab_area.w = eatFirstInt(infile.val,',');
 				tab_area.h = eatFirstInt(infile.val,',');
-			} else if(infile.key == "tab_content_offset") {
-				tab_content_y = eatFirstInt(infile.val,',');
 			} else if(infile.key == "tab_bg_color") {
 				tab_bg.r = eatFirstInt(infile.val,',');
 				tab_bg.g = eatFirstInt(infile.val,',');
@@ -78,9 +76,9 @@ MenuLog::MenuLog() {
 	tabControl = new WidgetTabControl(LOG_TYPE_COUNT);
 
 	// Define the header.
-	tabControl->setTabTitle(LOG_TYPE_MESSAGES, msg->get("Messages"));
+	tabControl->setTabTitle(LOG_TYPE_MESSAGES, msg->get("Notes"));
 	tabControl->setTabTitle(LOG_TYPE_QUESTS, msg->get("Quests"));
-	tabControl->setTabTitle(LOG_TYPE_STATISTICS, msg->get("Statistics"));
+	tabControl->setTabTitle(LOG_TYPE_STATISTICS, msg->get("Stats"));
 
 	paragraph_spacing = font->getLineHeight()/2;
 
@@ -114,7 +112,7 @@ void MenuLog::update() {
 
 	for (int i=0; i<LOG_TYPE_COUNT; i++) {
 		msg_buffer[i]->pos.x = window_area.x+tab_area.x;
-		msg_buffer[i]->pos.y = window_area.y+tab_area.y+tab_content_y;
+		msg_buffer[i]->pos.y = window_area.y+tab_area.y+tabControl->getTabHeight();
 	}
 }
 
