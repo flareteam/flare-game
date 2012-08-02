@@ -7,7 +7,7 @@ power=100
 power_desc=Restore 25 HP
 type=consumable
 sfx=potion
-loot=hp_potion
+loot_animation=hp_potion
 price=25
 max_quantity=10
 rand_vendor=3
@@ -21,7 +21,7 @@ power=101
 power_desc=Restore 25 MP
 type=consumable
 sfx=potion
-loot=mp_potion
+loot_animation=mp_potion
 price=25
 max_quantity=10
 rand_vendor=3
@@ -35,7 +35,7 @@ power=102
 power_desc=Restore 75 HP
 type=consumable
 sfx=potion
-loot=hp_potion
+loot_animation=hp_potion
 price=75
 max_quantity=10
 rand_vendor=2
@@ -49,7 +49,7 @@ power=103
 power_desc=Restore 75 MP
 type=consumable
 sfx=potion
-loot=mp_potion
+loot_animation=mp_potion
 price=75
 max_quantity=10
 rand_vendor=2
@@ -62,7 +62,7 @@ quality=high
 icon=36
 type=gem
 sfx=gem
-loot=gem
+loot_animation=gem
 price=500
 max_quantity=100
 
@@ -74,7 +74,7 @@ quality=high
 icon=37
 type=gem
 sfx=gem
-loot=gem
+loot_animation=gem
 price=400
 max_quantity=100
 
@@ -86,7 +86,7 @@ quality=high
 icon=38
 type=gem
 sfx=gem
-loot=gem
+loot_animation=gem
 price=450
 max_quantity=100
 
@@ -98,7 +98,7 @@ quality=high
 icon=39
 type=gem
 sfx=gem
-loot=gem
+loot_animation=gem
 price=350
 max_quantity=100
 
@@ -110,11 +110,11 @@ max_quantity=100
 #type=artifact
 #icon=100,4
 #sfx=wood
-#loot=wand
+#loot_animation=wand
 #price=1
 #max_quantity=100
 #rand_vendor=75
-#rand_loot=25
+#rand_loot_animation=25
 
 [item]
 id=12
@@ -125,7 +125,7 @@ power=129
 power_desc=Blink to a nearby location
 type=consumable
 sfx=page
-loot=scroll
+loot_animation=scroll
 price=45
 max_quantity=10
 rand_vendor=3
@@ -136,10 +136,10 @@ name=Scroll of Time Stop
 level=6
 icon=52
 power=130
-power_desc=Stun nearby enemies for 10 seconds 
+power_desc=Stun nearby enemies for 10 seconds
 type=consumable
 sfx=page
-loot=scroll
+loot_animation=scroll
 price=50
 max_quantity=10
 rand_vendor=3
@@ -150,10 +150,10 @@ name=Scroll of Haste
 level=5
 icon=48
 power=131
-power_desc=Double run and attack speed for 20 seconds 
+power_desc=Double run and attack speed for 20 seconds
 type=consumable
 sfx=page
-loot=scroll
+loot_animation=scroll
 price=40
 max_quantity=10
 rand_vendor=3
@@ -167,9 +167,10 @@ type=body
 icon=112,16
 sfx=cloth
 gfx=clothes
-loot=clothes
+loot_animation=clothes
 price=7
 stepfx=cloth
+class=goblindrop
 
 [item]
 id=51
@@ -180,9 +181,10 @@ type=body
 icon=112,16
 sfx=cloth
 gfx=clothes
-loot=clothes
+loot_animation=clothes
 price=3
 stepfx=cloth
+class=goblindrop
 
 [item]
 id=55
@@ -194,7 +196,7 @@ icon=112,16
 bonus=HP,3
 sfx=cloth
 gfx=clothes
-loot=clothes
+loot_animation=clothes
 price=14
 stepfx=cloth
 
@@ -208,7 +210,7 @@ icon=112,16
 bonus=HP regen,2
 sfx=cloth
 gfx=clothes
-loot=clothes
+loot_animation=clothes
 price=16
 stepfx=cloth
 
@@ -222,7 +224,7 @@ icon=112,16
 bonus=MP,3
 sfx=cloth
 gfx=clothes
-loot=clothes
+loot_animation=clothes
 price=15
 stepfx=cloth
 
@@ -236,7 +238,7 @@ icon=112,16
 bonus=MP regen,2
 sfx=cloth
 gfx=clothes
-loot=clothes
+loot_animation=clothes
 price=18
 stepfx=cloth
 
@@ -250,7 +252,7 @@ icon=112,16
 abs=0,1
 sfx=cloth
 gfx=clothes
-loot=clothes
+loot_animation=clothes
 price=19
 stepfx=cloth
 
@@ -264,7 +266,7 @@ icon=112,16
 bonus=accuracy,2
 sfx=cloth
 gfx=clothes
-loot=clothes
+loot_animation=clothes
 price=11
 stepfx=cloth
 
@@ -278,7 +280,7 @@ icon=112,16
 bonus=avoidance,4
 sfx=cloth
 gfx=clothes
-loot=clothes
+loot_animation=clothes
 price=12
 stepfx=cloth
 
@@ -292,7 +294,7 @@ icon=112,16
 bonus=fire resist,10
 sfx=cloth
 gfx=clothes
-loot=clothes
+loot_animation=clothes
 price=9
 stepfx=cloth
 
@@ -306,7 +308,7 @@ icon=112,16
 bonus=ice resist,10
 sfx=cloth
 gfx=clothes
-loot=clothes
+loot_animation=clothes
 price=8
 stepfx=cloth
 
@@ -320,7 +322,7 @@ icon=112,16
 bonus=crit,2
 sfx=cloth
 gfx=clothes
-loot=clothes
+loot_animation=clothes
 price=21
 stepfx=cloth
 
@@ -335,7 +337,7 @@ abs=0,1
 bonus=HP,6
 sfx=cloth
 gfx=clothes
-loot=clothes
+loot_animation=clothes
 price=35
 stepfx=cloth
 
@@ -350,7 +352,7 @@ abs=0,1
 bonus=HP regen,4
 sfx=cloth
 gfx=clothes
-loot=clothes
+loot_animation=clothes
 price=39
 stepfx=cloth
 
@@ -365,7 +367,7 @@ abs=0,1
 bonus=MP,6
 sfx=cloth
 gfx=clothes
-loot=clothes
+loot_animation=clothes
 price=37
 stepfx=cloth
 
@@ -380,7 +382,7 @@ abs=0,1
 bonus=MP regen,4
 sfx=cloth
 gfx=clothes
-loot=clothes
+loot_animation=clothes
 price=41
 stepfx=cloth
 
@@ -394,7 +396,7 @@ icon=112,16
 abs=1
 sfx=cloth
 gfx=clothes
-loot=clothes
+loot_animation=clothes
 price=43
 stepfx=cloth
 
@@ -409,7 +411,7 @@ abs=0,1
 bonus=accuracy,5
 sfx=cloth
 gfx=clothes
-loot=clothes
+loot_animation=clothes
 price=30
 stepfx=cloth
 
@@ -424,7 +426,7 @@ abs=0,1
 bonus=avoidance,7
 sfx=cloth
 gfx=clothes
-loot=clothes
+loot_animation=clothes
 price=32
 stepfx=cloth
 
@@ -439,7 +441,7 @@ abs=0,1
 bonus=fire resist,15
 sfx=cloth
 gfx=clothes
-loot=clothes
+loot_animation=clothes
 price=28
 stepfx=cloth
 
@@ -454,7 +456,7 @@ abs=0,1
 bonus=ice resist,15
 sfx=cloth
 gfx=clothes
-loot=clothes
+loot_animation=clothes
 price=26
 stepfx=cloth
 
@@ -469,7 +471,7 @@ abs=0,1
 bonus=crit,4
 sfx=cloth
 gfx=clothes
-loot=clothes
+loot_animation=clothes
 price=45
 stepfx=cloth
 
@@ -484,7 +486,7 @@ abs=1
 bonus=HP,9
 sfx=cloth
 gfx=clothes
-loot=clothes
+loot_animation=clothes
 price=70
 stepfx=cloth
 
@@ -499,7 +501,7 @@ abs=1
 bonus=HP regen,6
 sfx=cloth
 gfx=clothes
-loot=clothes
+loot_animation=clothes
 price=77
 stepfx=cloth
 
@@ -514,7 +516,7 @@ abs=1
 bonus=MP,9
 sfx=cloth
 gfx=clothes
-loot=clothes
+loot_animation=clothes
 price=73
 stepfx=cloth
 
@@ -529,7 +531,7 @@ abs=1
 bonus=MP regen,6
 sfx=cloth
 gfx=clothes
-loot=clothes
+loot_animation=clothes
 price=80
 stepfx=cloth
 
@@ -544,7 +546,7 @@ abs=1
 bonus=accuracy,8
 sfx=cloth
 gfx=clothes
-loot=clothes
+loot_animation=clothes
 price=63
 stepfx=cloth
 
@@ -559,7 +561,7 @@ abs=1
 bonus=avoidance,10
 sfx=cloth
 gfx=clothes
-loot=clothes
+loot_animation=clothes
 price=66
 stepfx=cloth
 
@@ -574,7 +576,7 @@ abs=1
 bonus=fire resist,20
 sfx=cloth
 gfx=clothes
-loot=clothes
+loot_animation=clothes
 price=59
 stepfx=cloth
 
@@ -589,7 +591,7 @@ abs=1
 bonus=ice resist,20
 sfx=cloth
 gfx=clothes
-loot=clothes
+loot_animation=clothes
 price=56
 stepfx=cloth
 
@@ -604,7 +606,7 @@ abs=1
 bonus=crit,6
 sfx=cloth
 gfx=clothes
-loot=clothes
+loot_animation=clothes
 price=84
 stepfx=cloth
 
@@ -619,8 +621,9 @@ dmg=2,6
 req=p,2
 sfx=metal
 gfx=dagger
-loot=dagger
+loot_animation=dagger
 price=10
+class=goblindrop
 
 [item]
 id=101
@@ -633,8 +636,9 @@ dmg=1,5
 req=p,2
 sfx=metal
 gfx=dagger
-loot=dagger
+loot_animation=dagger
 price=3
+class=goblindrop
 
 [item]
 id=102
@@ -648,8 +652,9 @@ bonus=accuracy,-3
 req=p,2
 sfx=metal
 gfx=dagger
-loot=dagger
+loot_animation=dagger
 price=7
+class=goblindrop
 
 [item]
 id=103
@@ -663,7 +668,7 @@ bonus=crit,-2
 req=p,2
 sfx=metal
 gfx=dagger
-loot=dagger
+loot_animation=dagger
 price=5
 
 [item]
@@ -678,7 +683,7 @@ bonus=HP,4
 req=p,2
 sfx=metal
 gfx=dagger
-loot=dagger
+loot_animation=dagger
 price=20
 
 [item]
@@ -693,7 +698,7 @@ bonus=HP regen,2
 req=p,2
 sfx=metal
 gfx=dagger
-loot=dagger
+loot_animation=dagger
 price=24
 
 [item]
@@ -708,7 +713,7 @@ bonus=MP,2
 req=p,2
 sfx=metal
 gfx=dagger
-loot=dagger
+loot_animation=dagger
 price=22
 
 [item]
@@ -723,7 +728,7 @@ bonus=MP regen,2
 req=p,2
 sfx=metal
 gfx=dagger
-loot=dagger
+loot_animation=dagger
 price=26
 
 [item]
@@ -737,7 +742,7 @@ dmg=3,7
 req=p,2
 sfx=metal
 gfx=dagger
-loot=dagger
+loot_animation=dagger
 price=28
 
 [item]
@@ -752,7 +757,7 @@ bonus=accuracy,3
 req=p,2
 sfx=metal
 gfx=dagger
-loot=dagger
+loot_animation=dagger
 price=16
 
 [item]
@@ -767,7 +772,7 @@ bonus=avoidance,3
 req=p,2
 sfx=metal
 gfx=dagger
-loot=dagger
+loot_animation=dagger
 price=18
 
 [item]
@@ -782,7 +787,7 @@ bonus=fire resist,8
 req=p,2
 sfx=metal
 gfx=dagger
-loot=dagger
+loot_animation=dagger
 price=14
 
 [item]
@@ -797,7 +802,7 @@ bonus=ice resist,8
 req=p,2
 sfx=metal
 gfx=dagger
-loot=dagger
+loot_animation=dagger
 price=12
 
 [item]
@@ -812,7 +817,7 @@ bonus=crit,2
 req=p,2
 sfx=metal
 gfx=dagger
-loot=dagger
+loot_animation=dagger
 price=30
 
 [item]
@@ -827,7 +832,7 @@ bonus=HP,7
 req=p,2
 sfx=metal
 gfx=dagger
-loot=dagger
+loot_animation=dagger
 price=50
 
 [item]
@@ -842,7 +847,7 @@ bonus=HP regen,4
 req=p,2
 sfx=metal
 gfx=dagger
-loot=dagger
+loot_animation=dagger
 price=56
 
 [item]
@@ -857,7 +862,7 @@ bonus=MP,5
 req=p,2
 sfx=metal
 gfx=dagger
-loot=dagger
+loot_animation=dagger
 price=53
 
 [item]
@@ -872,7 +877,7 @@ bonus=MP regen,4
 req=p,2
 sfx=metal
 gfx=dagger
-loot=dagger
+loot_animation=dagger
 price=59
 
 [item]
@@ -886,7 +891,7 @@ dmg=4,8
 req=p,2
 sfx=metal
 gfx=dagger
-loot=dagger
+loot_animation=dagger
 price=62
 
 [item]
@@ -901,7 +906,7 @@ bonus=accuracy,6
 req=p,2
 sfx=metal
 gfx=dagger
-loot=dagger
+loot_animation=dagger
 price=44
 
 [item]
@@ -916,7 +921,7 @@ bonus=avoidance,6
 req=p,2
 sfx=metal
 gfx=dagger
-loot=dagger
+loot_animation=dagger
 price=47
 
 [item]
@@ -931,7 +936,7 @@ bonus=fire resist,11
 req=p,2
 sfx=metal
 gfx=dagger
-loot=dagger
+loot_animation=dagger
 price=41
 
 [item]
@@ -946,7 +951,7 @@ bonus=ice resist,11
 req=p,2
 sfx=metal
 gfx=dagger
-loot=dagger
+loot_animation=dagger
 price=38
 
 [item]
@@ -961,7 +966,7 @@ bonus=crit,4
 req=p,2
 sfx=metal
 gfx=dagger
-loot=dagger
+loot_animation=dagger
 price=65
 
 [item]
@@ -976,7 +981,7 @@ bonus=HP,10
 req=p,2
 sfx=metal
 gfx=dagger
-loot=dagger
+loot_animation=dagger
 price=100
 
 [item]
@@ -991,7 +996,7 @@ bonus=HP regen,6
 req=p,2
 sfx=metal
 gfx=dagger
-loot=dagger
+loot_animation=dagger
 price=110
 
 [item]
@@ -1006,7 +1011,7 @@ bonus=MP,8
 req=p,2
 sfx=metal
 gfx=dagger
-loot=dagger
+loot_animation=dagger
 price=105
 
 [item]
@@ -1021,7 +1026,7 @@ bonus=MP regen,6
 req=p,2
 sfx=metal
 gfx=dagger
-loot=dagger
+loot_animation=dagger
 price=115
 
 [item]
@@ -1036,7 +1041,7 @@ bonus=accuracy,9
 req=p,2
 sfx=metal
 gfx=dagger
-loot=dagger
+loot_animation=dagger
 price=90
 
 [item]
@@ -1051,7 +1056,7 @@ bonus=avoidance,9
 req=p,2
 sfx=metal
 gfx=dagger
-loot=dagger
+loot_animation=dagger
 price=95
 
 [item]
@@ -1066,7 +1071,7 @@ bonus=fire resist,14
 req=p,2
 sfx=metal
 gfx=dagger
-loot=dagger
+loot_animation=dagger
 price=85
 
 [item]
@@ -1081,7 +1086,7 @@ bonus=ice resist,14
 req=p,2
 sfx=metal
 gfx=dagger
-loot=dagger
+loot_animation=dagger
 price=80
 
 [item]
@@ -1096,7 +1101,7 @@ bonus=crit,6
 req=p,2
 sfx=metal
 gfx=dagger
-loot=dagger
+loot_animation=dagger
 price=120
 
 [item]
@@ -1110,7 +1115,7 @@ dmg=3,8
 req=p,3
 sfx=metal
 gfx=shortsword
-loot=shortsword
+loot_animation=shortsword
 price=20
 
 [item]
@@ -1124,7 +1129,7 @@ dmg=2,7
 req=p,3
 sfx=metal
 gfx=shortsword
-loot=shortsword
+loot_animation=shortsword
 price=6
 
 [item]
@@ -1139,7 +1144,7 @@ bonus=accuracy,-3
 req=p,3
 sfx=metal
 gfx=shortsword
-loot=shortsword
+loot_animation=shortsword
 price=14
 
 [item]
@@ -1154,7 +1159,7 @@ bonus=crit,-2
 req=p,3
 sfx=metal
 gfx=shortsword
-loot=shortsword
+loot_animation=shortsword
 price=10
 
 [item]
@@ -1169,7 +1174,7 @@ bonus=HP,4
 req=p,3
 sfx=metal
 gfx=shortsword
-loot=shortsword
+loot_animation=shortsword
 price=40
 
 [item]
@@ -1184,7 +1189,7 @@ bonus=HP regen,2
 req=p,3
 sfx=metal
 gfx=shortsword
-loot=shortsword
+loot_animation=shortsword
 price=48
 
 [item]
@@ -1199,7 +1204,7 @@ bonus=MP,2
 req=p,3
 sfx=metal
 gfx=shortsword
-loot=shortsword
+loot_animation=shortsword
 price=44
 
 [item]
@@ -1214,7 +1219,7 @@ bonus=MP regen,2
 req=p,3
 sfx=metal
 gfx=shortsword
-loot=shortsword
+loot_animation=shortsword
 price=52
 
 [item]
@@ -1228,7 +1233,7 @@ dmg=4,9
 req=p,3
 sfx=metal
 gfx=shortsword
-loot=shortsword
+loot_animation=shortsword
 price=56
 
 [item]
@@ -1243,7 +1248,7 @@ bonus=accuracy,3
 req=p,3
 sfx=metal
 gfx=shortsword
-loot=shortsword
+loot_animation=shortsword
 price=32
 
 [item]
@@ -1258,7 +1263,7 @@ bonus=avoidance,3
 req=p,3
 sfx=metal
 gfx=shortsword
-loot=shortsword
+loot_animation=shortsword
 price=36
 
 [item]
@@ -1273,7 +1278,7 @@ bonus=fire resist,8
 req=p,3
 sfx=metal
 gfx=shortsword
-loot=shortsword
+loot_animation=shortsword
 price=28
 
 [item]
@@ -1288,7 +1293,7 @@ bonus=ice resist,8
 req=p,3
 sfx=metal
 gfx=shortsword
-loot=shortsword
+loot_animation=shortsword
 price=24
 
 [item]
@@ -1303,7 +1308,7 @@ bonus=crit,2
 req=p,3
 sfx=metal
 gfx=shortsword
-loot=shortsword
+loot_animation=shortsword
 price=60
 
 [item]
@@ -1318,7 +1323,7 @@ bonus=HP,7
 req=p,3
 sfx=metal
 gfx=shortsword
-loot=shortsword
+loot_animation=shortsword
 price=100
 
 [item]
@@ -1333,7 +1338,7 @@ bonus=HP regen,4
 req=p,3
 sfx=metal
 gfx=shortsword
-loot=shortsword
+loot_animation=shortsword
 price=112
 
 [item]
@@ -1348,7 +1353,7 @@ bonus=MP,5
 req=p,3
 sfx=metal
 gfx=shortsword
-loot=shortsword
+loot_animation=shortsword
 price=106
 
 [item]
@@ -1363,7 +1368,7 @@ bonus=MP regen,4
 req=p,3
 sfx=metal
 gfx=shortsword
-loot=shortsword
+loot_animation=shortsword
 price=118
 
 [item]
@@ -1377,7 +1382,7 @@ dmg=5,10
 req=p,3
 sfx=metal
 gfx=shortsword
-loot=shortsword
+loot_animation=shortsword
 price=124
 
 [item]
@@ -1392,7 +1397,7 @@ bonus=accuracy,6
 req=p,3
 sfx=metal
 gfx=shortsword
-loot=shortsword
+loot_animation=shortsword
 price=88
 
 [item]
@@ -1407,7 +1412,7 @@ bonus=avoidance,6
 req=p,3
 sfx=metal
 gfx=shortsword
-loot=shortsword
+loot_animation=shortsword
 price=94
 
 [item]
@@ -1422,7 +1427,7 @@ bonus=fire resist,11
 req=p,3
 sfx=metal
 gfx=shortsword
-loot=shortsword
+loot_animation=shortsword
 price=82
 
 [item]
@@ -1437,7 +1442,7 @@ bonus=ice resist,11
 req=p,3
 sfx=metal
 gfx=shortsword
-loot=shortsword
+loot_animation=shortsword
 price=76
 
 [item]
@@ -1452,7 +1457,7 @@ bonus=crit,4
 req=p,3
 sfx=metal
 gfx=shortsword
-loot=shortsword
+loot_animation=shortsword
 price=130
 
 [item]
@@ -1467,7 +1472,7 @@ bonus=HP,10
 req=p,3
 sfx=metal
 gfx=shortsword
-loot=shortsword
+loot_animation=shortsword
 price=200
 
 [item]
@@ -1482,7 +1487,7 @@ bonus=HP regen,6
 req=p,3
 sfx=metal
 gfx=shortsword
-loot=shortsword
+loot_animation=shortsword
 price=220
 
 [item]
@@ -1497,7 +1502,7 @@ bonus=MP,8
 req=p,3
 sfx=metal
 gfx=shortsword
-loot=shortsword
+loot_animation=shortsword
 price=210
 
 [item]
@@ -1512,7 +1517,7 @@ bonus=MP regen,6
 req=p,3
 sfx=metal
 gfx=shortsword
-loot=shortsword
+loot_animation=shortsword
 price=230
 
 [item]
@@ -1527,7 +1532,7 @@ bonus=accuracy,9
 req=p,3
 sfx=metal
 gfx=shortsword
-loot=shortsword
+loot_animation=shortsword
 price=180
 
 [item]
@@ -1542,7 +1547,7 @@ bonus=avoidance,9
 req=p,3
 sfx=metal
 gfx=shortsword
-loot=shortsword
+loot_animation=shortsword
 price=190
 
 [item]
@@ -1557,7 +1562,7 @@ bonus=fire resist,14
 req=p,3
 sfx=metal
 gfx=shortsword
-loot=shortsword
+loot_animation=shortsword
 price=170
 
 [item]
@@ -1572,7 +1577,7 @@ bonus=ice resist,14
 req=p,3
 sfx=metal
 gfx=shortsword
-loot=shortsword
+loot_animation=shortsword
 price=160
 
 [item]
@@ -1587,7 +1592,7 @@ bonus=crit,6
 req=p,3
 sfx=metal
 gfx=shortsword
-loot=shortsword
+loot_animation=shortsword
 price=240
 
 [item]
@@ -1601,7 +1606,7 @@ dmg=4,10
 req=p,4
 sfx=metal
 gfx=longsword
-loot=longsword
+loot_animation=longsword
 price=50
 
 [item]
@@ -1615,7 +1620,7 @@ dmg=3,9
 req=p,4
 sfx=metal
 gfx=longsword
-loot=longsword
+loot_animation=longsword
 price=15
 
 [item]
@@ -1630,7 +1635,7 @@ bonus=accuracy,-3
 req=p,4
 sfx=metal
 gfx=longsword
-loot=longsword
+loot_animation=longsword
 price=35
 
 [item]
@@ -1645,7 +1650,7 @@ bonus=crit,-2
 req=p,4
 sfx=metal
 gfx=longsword
-loot=longsword
+loot_animation=longsword
 price=25
 
 [item]
@@ -1660,7 +1665,7 @@ bonus=HP,4
 req=p,4
 sfx=metal
 gfx=longsword
-loot=longsword
+loot_animation=longsword
 price=100
 
 [item]
@@ -1675,7 +1680,7 @@ bonus=HP regen,2
 req=p,4
 sfx=metal
 gfx=longsword
-loot=longsword
+loot_animation=longsword
 price=120
 
 [item]
@@ -1690,7 +1695,7 @@ bonus=MP,2
 req=p,4
 sfx=metal
 gfx=longsword
-loot=longsword
+loot_animation=longsword
 price=110
 
 [item]
@@ -1705,7 +1710,7 @@ bonus=MP regen,2
 req=p,4
 sfx=metal
 gfx=longsword
-loot=longsword
+loot_animation=longsword
 price=130
 
 [item]
@@ -1719,7 +1724,7 @@ dmg=5,11
 req=p,4
 sfx=metal
 gfx=longsword
-loot=longsword
+loot_animation=longsword
 price=140
 
 [item]
@@ -1734,7 +1739,7 @@ bonus=accuracy,3
 req=p,4
 sfx=metal
 gfx=longsword
-loot=longsword
+loot_animation=longsword
 price=80
 
 [item]
@@ -1749,7 +1754,7 @@ bonus=avoidance,3
 req=p,4
 sfx=metal
 gfx=longsword
-loot=longsword
+loot_animation=longsword
 price=90
 
 [item]
@@ -1764,7 +1769,7 @@ bonus=fire resist,8
 req=p,4
 sfx=metal
 gfx=longsword
-loot=longsword
+loot_animation=longsword
 price=70
 
 [item]
@@ -1779,7 +1784,7 @@ bonus=ice resist,8
 req=p,4
 sfx=metal
 gfx=longsword
-loot=longsword
+loot_animation=longsword
 price=60
 
 [item]
@@ -1794,7 +1799,7 @@ bonus=crit,2
 req=p,4
 sfx=metal
 gfx=longsword
-loot=longsword
+loot_animation=longsword
 price=150
 
 [item]
@@ -1809,7 +1814,7 @@ bonus=HP,7
 req=p,4
 sfx=metal
 gfx=longsword
-loot=longsword
+loot_animation=longsword
 price=250
 
 [item]
@@ -1824,7 +1829,7 @@ bonus=HP regen,4
 req=p,4
 sfx=metal
 gfx=longsword
-loot=longsword
+loot_animation=longsword
 price=280
 
 [item]
@@ -1839,7 +1844,7 @@ bonus=MP,5
 req=p,4
 sfx=metal
 gfx=longsword
-loot=longsword
+loot_animation=longsword
 price=265
 
 [item]
@@ -1854,7 +1859,7 @@ bonus=MP regen,4
 req=p,4
 sfx=metal
 gfx=longsword
-loot=longsword
+loot_animation=longsword
 price=295
 
 [item]
@@ -1868,7 +1873,7 @@ dmg=6,12
 req=p,4
 sfx=metal
 gfx=longsword
-loot=longsword
+loot_animation=longsword
 price=310
 
 [item]
@@ -1883,7 +1888,7 @@ bonus=accuracy,6
 req=p,4
 sfx=metal
 gfx=longsword
-loot=longsword
+loot_animation=longsword
 price=220
 
 [item]
@@ -1898,7 +1903,7 @@ bonus=avoidance,6
 req=p,4
 sfx=metal
 gfx=longsword
-loot=longsword
+loot_animation=longsword
 price=235
 
 [item]
@@ -1913,7 +1918,7 @@ bonus=fire resist,11
 req=p,4
 sfx=metal
 gfx=longsword
-loot=longsword
+loot_animation=longsword
 price=205
 
 [item]
@@ -1928,7 +1933,7 @@ bonus=ice resist,11
 req=p,4
 sfx=metal
 gfx=longsword
-loot=longsword
+loot_animation=longsword
 price=190
 
 [item]
@@ -1943,7 +1948,7 @@ bonus=crit,4
 req=p,4
 sfx=metal
 gfx=longsword
-loot=longsword
+loot_animation=longsword
 price=325
 
 [item]
@@ -1958,7 +1963,7 @@ bonus=HP,10
 req=p,4
 sfx=metal
 gfx=longsword
-loot=longsword
+loot_animation=longsword
 price=500
 
 [item]
@@ -1973,7 +1978,7 @@ bonus=HP regen,6
 req=p,4
 sfx=metal
 gfx=longsword
-loot=longsword
+loot_animation=longsword
 price=550
 
 [item]
@@ -1988,7 +1993,7 @@ bonus=MP,8
 req=p,4
 sfx=metal
 gfx=longsword
-loot=longsword
+loot_animation=longsword
 price=525
 
 [item]
@@ -2003,7 +2008,7 @@ bonus=MP regen,6
 req=p,4
 sfx=metal
 gfx=longsword
-loot=longsword
+loot_animation=longsword
 price=575
 
 [item]
@@ -2018,7 +2023,7 @@ bonus=accuracy,9
 req=p,4
 sfx=metal
 gfx=longsword
-loot=longsword
+loot_animation=longsword
 price=450
 
 [item]
@@ -2033,7 +2038,7 @@ bonus=avoidance,9
 req=p,4
 sfx=metal
 gfx=longsword
-loot=longsword
+loot_animation=longsword
 price=475
 
 [item]
@@ -2048,7 +2053,7 @@ bonus=fire resist,14
 req=p,4
 sfx=metal
 gfx=longsword
-loot=longsword
+loot_animation=longsword
 price=425
 
 [item]
@@ -2063,7 +2068,7 @@ bonus=ice resist,14
 req=p,4
 sfx=metal
 gfx=longsword
-loot=longsword
+loot_animation=longsword
 price=400
 
 [item]
@@ -2078,7 +2083,7 @@ bonus=crit,6
 req=p,4
 sfx=metal
 gfx=longsword
-loot=longsword
+loot_animation=longsword
 price=600
 
 [item]
@@ -2092,7 +2097,7 @@ dmg=5,12
 req=p,5
 sfx=metal
 gfx=greatsword
-loot=greatsword
+loot_animation=greatsword
 price=100
 
 [item]
@@ -2106,7 +2111,7 @@ dmg=4,11
 req=p,5
 sfx=metal
 gfx=greatsword
-loot=greatsword
+loot_animation=greatsword
 price=30
 
 [item]
@@ -2121,7 +2126,7 @@ bonus=accuracy,-3
 req=p,5
 sfx=metal
 gfx=greatsword
-loot=greatsword
+loot_animation=greatsword
 price=70
 
 [item]
@@ -2136,7 +2141,7 @@ bonus=crit,-2
 req=p,5
 sfx=metal
 gfx=greatsword
-loot=greatsword
+loot_animation=greatsword
 price=50
 
 [item]
@@ -2151,7 +2156,7 @@ bonus=HP,4
 req=p,5
 sfx=metal
 gfx=greatsword
-loot=greatsword
+loot_animation=greatsword
 price=200
 
 [item]
@@ -2166,7 +2171,7 @@ bonus=HP regen,2
 req=p,5
 sfx=metal
 gfx=greatsword
-loot=greatsword
+loot_animation=greatsword
 price=240
 
 [item]
@@ -2181,7 +2186,7 @@ bonus=MP,2
 req=p,5
 sfx=metal
 gfx=greatsword
-loot=greatsword
+loot_animation=greatsword
 price=220
 
 [item]
@@ -2196,7 +2201,7 @@ bonus=MP regen,2
 req=p,5
 sfx=metal
 gfx=greatsword
-loot=greatsword
+loot_animation=greatsword
 price=260
 
 [item]
@@ -2210,7 +2215,7 @@ dmg=6,13
 req=p,5
 sfx=metal
 gfx=greatsword
-loot=greatsword
+loot_animation=greatsword
 price=280
 
 [item]
@@ -2225,7 +2230,7 @@ bonus=accuracy,3
 req=p,5
 sfx=metal
 gfx=greatsword
-loot=greatsword
+loot_animation=greatsword
 price=160
 
 [item]
@@ -2240,7 +2245,7 @@ bonus=avoidance,3
 req=p,5
 sfx=metal
 gfx=greatsword
-loot=greatsword
+loot_animation=greatsword
 price=180
 
 [item]
@@ -2255,7 +2260,7 @@ bonus=fire resist,8
 req=p,5
 sfx=metal
 gfx=greatsword
-loot=greatsword
+loot_animation=greatsword
 price=140
 
 [item]
@@ -2270,7 +2275,7 @@ bonus=ice resist,8
 req=p,5
 sfx=metal
 gfx=greatsword
-loot=greatsword
+loot_animation=greatsword
 price=120
 
 [item]
@@ -2285,7 +2290,7 @@ bonus=crit,2
 req=p,5
 sfx=metal
 gfx=greatsword
-loot=greatsword
+loot_animation=greatsword
 price=300
 
 [item]
@@ -2300,7 +2305,7 @@ bonus=HP,7
 req=p,5
 sfx=metal
 gfx=greatsword
-loot=greatsword
+loot_animation=greatsword
 price=500
 
 [item]
@@ -2315,7 +2320,7 @@ bonus=HP regen,4
 req=p,5
 sfx=metal
 gfx=greatsword
-loot=greatsword
+loot_animation=greatsword
 price=560
 
 [item]
@@ -2330,7 +2335,7 @@ bonus=MP,5
 req=p,5
 sfx=metal
 gfx=greatsword
-loot=greatsword
+loot_animation=greatsword
 price=530
 
 [item]
@@ -2345,7 +2350,7 @@ bonus=MP regen,4
 req=p,5
 sfx=metal
 gfx=greatsword
-loot=greatsword
+loot_animation=greatsword
 price=590
 
 [item]
@@ -2359,7 +2364,7 @@ dmg=7,14
 req=p,5
 sfx=metal
 gfx=greatsword
-loot=greatsword
+loot_animation=greatsword
 price=620
 
 [item]
@@ -2374,7 +2379,7 @@ bonus=accuracy,6
 req=p,5
 sfx=metal
 gfx=greatsword
-loot=greatsword
+loot_animation=greatsword
 price=440
 
 [item]
@@ -2389,7 +2394,7 @@ bonus=avoidance,6
 req=p,5
 sfx=metal
 gfx=greatsword
-loot=greatsword
+loot_animation=greatsword
 price=470
 
 [item]
@@ -2404,7 +2409,7 @@ bonus=fire resist,11
 req=p,5
 sfx=metal
 gfx=greatsword
-loot=greatsword
+loot_animation=greatsword
 price=410
 
 [item]
@@ -2419,7 +2424,7 @@ bonus=ice resist,11
 req=p,5
 sfx=metal
 gfx=greatsword
-loot=greatsword
+loot_animation=greatsword
 price=380
 
 [item]
@@ -2434,7 +2439,7 @@ bonus=crit,4
 req=p,5
 sfx=metal
 gfx=greatsword
-loot=greatsword
+loot_animation=greatsword
 price=650
 
 [item]
@@ -2449,7 +2454,7 @@ bonus=HP,10
 req=p,5
 sfx=metal
 gfx=greatsword
-loot=greatsword
+loot_animation=greatsword
 price=1000
 
 [item]
@@ -2464,7 +2469,7 @@ bonus=HP regen,6
 req=p,5
 sfx=metal
 gfx=greatsword
-loot=greatsword
+loot_animation=greatsword
 price=1100
 
 [item]
@@ -2479,7 +2484,7 @@ bonus=MP,8
 req=p,5
 sfx=metal
 gfx=greatsword
-loot=greatsword
+loot_animation=greatsword
 price=1050
 
 [item]
@@ -2494,7 +2499,7 @@ bonus=MP regen,6
 req=p,5
 sfx=metal
 gfx=greatsword
-loot=greatsword
+loot_animation=greatsword
 price=1150
 
 [item]
@@ -2509,7 +2514,7 @@ bonus=accuracy,9
 req=p,5
 sfx=metal
 gfx=greatsword
-loot=greatsword
+loot_animation=greatsword
 price=900
 
 [item]
@@ -2524,7 +2529,7 @@ bonus=avoidance,9
 req=p,5
 sfx=metal
 gfx=greatsword
-loot=greatsword
+loot_animation=greatsword
 price=950
 
 [item]
@@ -2539,7 +2544,7 @@ bonus=fire resist,14
 req=p,5
 sfx=metal
 gfx=greatsword
-loot=greatsword
+loot_animation=greatsword
 price=850
 
 [item]
@@ -2554,7 +2559,7 @@ bonus=ice resist,14
 req=p,5
 sfx=metal
 gfx=greatsword
-loot=greatsword
+loot_animation=greatsword
 price=800
 
 [item]
@@ -2569,7 +2574,7 @@ bonus=crit,6
 req=p,5
 sfx=metal
 gfx=greatsword
-loot=greatsword
+loot_animation=greatsword
 price=1200
 
 [item]
@@ -2583,7 +2588,7 @@ dmg=2,6
 req=m,2
 sfx=wood
 gfx=wand
-loot=wand
+loot_animation=wand
 price=14
 
 [item]
@@ -2597,7 +2602,7 @@ dmg=1,5
 req=m,2
 sfx=wood
 gfx=wand
-loot=wand
+loot_animation=wand
 price=4
 
 [item]
@@ -2612,7 +2617,7 @@ bonus=accuracy,-3
 req=m,2
 sfx=wood
 gfx=wand
-loot=wand
+loot_animation=wand
 price=9
 
 [item]
@@ -2627,7 +2632,7 @@ bonus=crit,-2
 req=m,2
 sfx=wood
 gfx=wand
-loot=wand
+loot_animation=wand
 price=7
 
 [item]
@@ -2642,7 +2647,7 @@ bonus=HP,2
 req=m,2
 sfx=wood
 gfx=wand
-loot=wand
+loot_animation=wand
 price=28
 
 [item]
@@ -2657,7 +2662,7 @@ bonus=HP regen,2
 req=m,2
 sfx=wood
 gfx=wand
-loot=wand
+loot_animation=wand
 price=33
 
 [item]
@@ -2672,7 +2677,7 @@ bonus=MP,4
 req=m,2
 sfx=wood
 gfx=wand
-loot=wand
+loot_animation=wand
 price=30
 
 [item]
@@ -2687,7 +2692,7 @@ bonus=MP regen,2
 req=m,2
 sfx=wood
 gfx=wand
-loot=wand
+loot_animation=wand
 price=36
 
 [item]
@@ -2701,7 +2706,7 @@ dmg=3,7
 req=m,2
 sfx=wood
 gfx=wand
-loot=wand
+loot_animation=wand
 price=39
 
 [item]
@@ -2716,7 +2721,7 @@ bonus=accuracy,3
 req=m,2
 sfx=wood
 gfx=wand
-loot=wand
+loot_animation=wand
 price=22
 
 [item]
@@ -2731,7 +2736,7 @@ bonus=avoidance,3
 req=m,2
 sfx=wood
 gfx=wand
-loot=wand
+loot_animation=wand
 price=25
 
 [item]
@@ -2746,7 +2751,7 @@ bonus=fire resist,8
 req=m,2
 sfx=wood
 gfx=wand
-loot=wand
+loot_animation=wand
 price=19
 
 [item]
@@ -2761,7 +2766,7 @@ bonus=ice resist,8
 req=m,2
 sfx=wood
 gfx=wand
-loot=wand
+loot_animation=wand
 price=16
 
 [item]
@@ -2776,7 +2781,7 @@ bonus=crit,2
 req=m,2
 sfx=wood
 gfx=wand
-loot=wand
+loot_animation=wand
 price=42
 
 [item]
@@ -2791,7 +2796,7 @@ bonus=HP,5
 req=m,2
 sfx=wood
 gfx=wand
-loot=wand
+loot_animation=wand
 price=70
 
 [item]
@@ -2806,7 +2811,7 @@ bonus=HP regen,4
 req=m,2
 sfx=wood
 gfx=wand
-loot=wand
+loot_animation=wand
 price=78
 
 [item]
@@ -2821,7 +2826,7 @@ bonus=MP,7
 req=m,2
 sfx=wood
 gfx=wand
-loot=wand
+loot_animation=wand
 price=74
 
 [item]
@@ -2836,7 +2841,7 @@ bonus=MP regen,4
 req=m,2
 sfx=wood
 gfx=wand
-loot=wand
+loot_animation=wand
 price=82
 
 [item]
@@ -2850,7 +2855,7 @@ dmg=4,8
 req=m,2
 sfx=wood
 gfx=wand
-loot=wand
+loot_animation=wand
 price=86
 
 [item]
@@ -2865,7 +2870,7 @@ bonus=accuracy,6
 req=m,2
 sfx=wood
 gfx=wand
-loot=wand
+loot_animation=wand
 price=61
 
 [item]
@@ -2880,7 +2885,7 @@ bonus=avoidance,6
 req=m,2
 sfx=wood
 gfx=wand
-loot=wand
+loot_animation=wand
 price=65
 
 [item]
@@ -2895,7 +2900,7 @@ bonus=fire resist,11
 req=m,2
 sfx=wood
 gfx=wand
-loot=wand
+loot_animation=wand
 price=57
 
 [item]
@@ -2910,7 +2915,7 @@ bonus=ice resist,11
 req=m,2
 sfx=wood
 gfx=wand
-loot=wand
+loot_animation=wand
 price=53
 
 [item]
@@ -2925,7 +2930,7 @@ bonus=crit,4
 req=m,2
 sfx=wood
 gfx=wand
-loot=wand
+loot_animation=wand
 price=91
 
 [item]
@@ -2940,7 +2945,7 @@ bonus=HP,8
 req=m,2
 sfx=wood
 gfx=wand
-loot=wand
+loot_animation=wand
 price=140
 
 [item]
@@ -2955,7 +2960,7 @@ bonus=HP regen,6
 req=m,2
 sfx=wood
 gfx=wand
-loot=wand
+loot_animation=wand
 price=154
 
 [item]
@@ -2970,7 +2975,7 @@ bonus=MP,10
 req=m,2
 sfx=wood
 gfx=wand
-loot=wand
+loot_animation=wand
 price=147
 
 [item]
@@ -2985,7 +2990,7 @@ bonus=MP regen,6
 req=m,2
 sfx=wood
 gfx=wand
-loot=wand
+loot_animation=wand
 price=161
 
 [item]
@@ -3000,7 +3005,7 @@ bonus=accuracy,9
 req=m,2
 sfx=wood
 gfx=wand
-loot=wand
+loot_animation=wand
 price=126
 
 [item]
@@ -3015,7 +3020,7 @@ bonus=avoidance,9
 req=m,2
 sfx=wood
 gfx=wand
-loot=wand
+loot_animation=wand
 price=133
 
 [item]
@@ -3030,7 +3035,7 @@ bonus=fire resist,14
 req=m,2
 sfx=wood
 gfx=wand
-loot=wand
+loot_animation=wand
 price=119
 
 [item]
@@ -3045,7 +3050,7 @@ bonus=ice resist,14
 req=m,2
 sfx=wood
 gfx=wand
-loot=wand
+loot_animation=wand
 price=112
 
 [item]
@@ -3060,7 +3065,7 @@ bonus=crit,6
 req=m,2
 sfx=wood
 gfx=wand
-loot=wand
+loot_animation=wand
 price=168
 
 [item]
@@ -3074,7 +3079,7 @@ dmg=3,8
 req=m,3
 sfx=wood
 gfx=rod
-loot=rod
+loot_animation=rod
 price=26
 
 [item]
@@ -3088,7 +3093,7 @@ dmg=2,7
 req=m,3
 sfx=wood
 gfx=rod
-loot=rod
+loot_animation=rod
 price=7
 
 [item]
@@ -3103,7 +3108,7 @@ bonus=accuracy,-3
 req=m,3
 sfx=wood
 gfx=rod
-loot=rod
+loot_animation=rod
 price=18
 
 [item]
@@ -3118,7 +3123,7 @@ bonus=crit,-2
 req=m,3
 sfx=wood
 gfx=rod
-loot=rod
+loot_animation=rod
 price=13
 
 [item]
@@ -3133,7 +3138,7 @@ bonus=HP,2
 req=m,3
 sfx=wood
 gfx=rod
-loot=rod
+loot_animation=rod
 price=52
 
 [item]
@@ -3148,7 +3153,7 @@ bonus=HP regen,2
 req=m,3
 sfx=wood
 gfx=rod
-loot=rod
+loot_animation=rod
 price=62
 
 [item]
@@ -3163,7 +3168,7 @@ bonus=MP,4
 req=m,3
 sfx=wood
 gfx=rod
-loot=rod
+loot_animation=rod
 price=57
 
 [item]
@@ -3178,7 +3183,7 @@ bonus=MP regen,2
 req=m,3
 sfx=wood
 gfx=rod
-loot=rod
+loot_animation=rod
 price=67
 
 [item]
@@ -3192,7 +3197,7 @@ dmg=4,9
 req=m,3
 sfx=wood
 gfx=rod
-loot=rod
+loot_animation=rod
 price=72
 
 [item]
@@ -3207,7 +3212,7 @@ bonus=accuracy,3
 req=m,3
 sfx=wood
 gfx=rod
-loot=rod
+loot_animation=rod
 price=41
 
 [item]
@@ -3222,7 +3227,7 @@ bonus=avoidance,3
 req=m,3
 sfx=wood
 gfx=rod
-loot=rod
+loot_animation=rod
 price=46
 
 [item]
@@ -3237,7 +3242,7 @@ bonus=fire resist,8
 req=m,3
 sfx=wood
 gfx=rod
-loot=rod
+loot_animation=rod
 price=36
 
 [item]
@@ -3252,7 +3257,7 @@ bonus=ice resist,8
 req=m,3
 sfx=wood
 gfx=rod
-loot=rod
+loot_animation=rod
 price=31
 
 [item]
@@ -3267,7 +3272,7 @@ bonus=crit,2
 req=m,3
 sfx=wood
 gfx=rod
-loot=rod
+loot_animation=rod
 price=78
 
 [item]
@@ -3282,7 +3287,7 @@ bonus=HP,5
 req=m,3
 sfx=wood
 gfx=rod
-loot=rod
+loot_animation=rod
 price=130
 
 [item]
@@ -3297,7 +3302,7 @@ bonus=HP regen,4
 req=m,3
 sfx=wood
 gfx=rod
-loot=rod
+loot_animation=rod
 price=145
 
 [item]
@@ -3312,7 +3317,7 @@ bonus=MP,7
 req=m,3
 sfx=wood
 gfx=rod
-loot=rod
+loot_animation=rod
 price=137
 
 [item]
@@ -3327,7 +3332,7 @@ bonus=MP regen,4
 req=m,3
 sfx=wood
 gfx=rod
-loot=rod
+loot_animation=rod
 price=153
 
 [item]
@@ -3341,7 +3346,7 @@ dmg=5,10
 req=m,3
 sfx=wood
 gfx=rod
-loot=rod
+loot_animation=rod
 price=161
 
 [item]
@@ -3356,7 +3361,7 @@ bonus=accuracy,6
 req=m,3
 sfx=wood
 gfx=rod
-loot=rod
+loot_animation=rod
 price=114
 
 [item]
@@ -3371,7 +3376,7 @@ bonus=avoidance,6
 req=m,3
 sfx=wood
 gfx=rod
-loot=rod
+loot_animation=rod
 price=122
 
 [item]
@@ -3386,7 +3391,7 @@ bonus=fire resist,11
 req=m,3
 sfx=wood
 gfx=rod
-loot=rod
+loot_animation=rod
 price=106
 
 [item]
@@ -3401,7 +3406,7 @@ bonus=ice resist,11
 req=m,3
 sfx=wood
 gfx=rod
-loot=rod
+loot_animation=rod
 price=98
 
 [item]
@@ -3416,7 +3421,7 @@ bonus=crit,4
 req=m,3
 sfx=wood
 gfx=rod
-loot=rod
+loot_animation=rod
 price=169
 
 [item]
@@ -3431,7 +3436,7 @@ bonus=HP,8
 req=m,3
 sfx=wood
 gfx=rod
-loot=rod
+loot_animation=rod
 price=260
 
 [item]
@@ -3446,7 +3451,7 @@ bonus=HP regen,6
 req=m,3
 sfx=wood
 gfx=rod
-loot=rod
+loot_animation=rod
 price=286
 
 [item]
@@ -3461,7 +3466,7 @@ bonus=MP,10
 req=m,3
 sfx=wood
 gfx=rod
-loot=rod
+loot_animation=rod
 price=273
 
 [item]
@@ -3476,7 +3481,7 @@ bonus=MP regen,6
 req=m,3
 sfx=wood
 gfx=rod
-loot=rod
+loot_animation=rod
 price=299
 
 [item]
@@ -3491,7 +3496,7 @@ bonus=accuracy,9
 req=m,3
 sfx=wood
 gfx=rod
-loot=rod
+loot_animation=rod
 price=234
 
 [item]
@@ -3506,7 +3511,7 @@ bonus=avoidance,9
 req=m,3
 sfx=wood
 gfx=rod
-loot=rod
+loot_animation=rod
 price=247
 
 [item]
@@ -3521,7 +3526,7 @@ bonus=fire resist,14
 req=m,3
 sfx=wood
 gfx=rod
-loot=rod
+loot_animation=rod
 price=221
 
 [item]
@@ -3536,7 +3541,7 @@ bonus=ice resist,14
 req=m,3
 sfx=wood
 gfx=rod
-loot=rod
+loot_animation=rod
 price=208
 
 [item]
@@ -3551,7 +3556,7 @@ bonus=crit,6
 req=m,3
 sfx=wood
 gfx=rod
-loot=rod
+loot_animation=rod
 price=312
 
 [item]
@@ -3565,7 +3570,7 @@ dmg=4,10
 req=m,4
 sfx=wood
 gfx=staff
-loot=staff
+loot_animation=staff
 price=65
 
 [item]
@@ -3579,7 +3584,7 @@ dmg=3,9
 req=m,4
 sfx=wood
 gfx=staff
-loot=staff
+loot_animation=staff
 price=19
 
 [item]
@@ -3594,7 +3599,7 @@ bonus=accuracy,-3
 req=m,4
 sfx=wood
 gfx=staff
-loot=staff
+loot_animation=staff
 price=45
 
 [item]
@@ -3609,7 +3614,7 @@ bonus=crit,-2
 req=m,4
 sfx=wood
 gfx=staff
-loot=staff
+loot_animation=staff
 price=32
 
 [item]
@@ -3624,7 +3629,7 @@ bonus=HP,2
 req=m,4
 sfx=wood
 gfx=staff
-loot=staff
+loot_animation=staff
 price=130
 
 [item]
@@ -3639,7 +3644,7 @@ bonus=HP regen,2
 req=m,4
 sfx=wood
 gfx=staff
-loot=staff
+loot_animation=staff
 price=156
 
 [item]
@@ -3654,7 +3659,7 @@ bonus=MP,4
 req=m,4
 sfx=wood
 gfx=staff
-loot=staff
+loot_animation=staff
 price=143
 
 [item]
@@ -3669,7 +3674,7 @@ bonus=MP regen,2
 req=m,4
 sfx=wood
 gfx=staff
-loot=staff
+loot_animation=staff
 price=169
 
 [item]
@@ -3683,7 +3688,7 @@ dmg=5,11
 req=m,4
 sfx=wood
 gfx=staff
-loot=staff
+loot_animation=staff
 price=182
 
 [item]
@@ -3698,7 +3703,7 @@ bonus=accuracy,3
 req=m,4
 sfx=wood
 gfx=staff
-loot=staff
+loot_animation=staff
 price=104
 
 [item]
@@ -3713,7 +3718,7 @@ bonus=avoidance,3
 req=m,4
 sfx=wood
 gfx=staff
-loot=staff
+loot_animation=staff
 price=117
 
 [item]
@@ -3728,7 +3733,7 @@ bonus=fire resist,8
 req=m,4
 sfx=wood
 gfx=staff
-loot=staff
+loot_animation=staff
 price=91
 
 [item]
@@ -3743,7 +3748,7 @@ bonus=ice resist,8
 req=m,4
 sfx=wood
 gfx=staff
-loot=staff
+loot_animation=staff
 price=78
 
 [item]
@@ -3758,7 +3763,7 @@ bonus=crit,2
 req=m,4
 sfx=wood
 gfx=staff
-loot=staff
+loot_animation=staff
 price=195
 
 [item]
@@ -3773,7 +3778,7 @@ bonus=HP,5
 req=m,4
 sfx=wood
 gfx=staff
-loot=staff
+loot_animation=staff
 price=325
 
 [item]
@@ -3788,7 +3793,7 @@ bonus=HP regen,4
 req=m,4
 sfx=wood
 gfx=staff
-loot=staff
+loot_animation=staff
 price=364
 
 [item]
@@ -3803,7 +3808,7 @@ bonus=MP,7
 req=m,4
 sfx=wood
 gfx=staff
-loot=staff
+loot_animation=staff
 price=344
 
 [item]
@@ -3818,7 +3823,7 @@ bonus=MP regen,4
 req=m,4
 sfx=wood
 gfx=staff
-loot=staff
+loot_animation=staff
 price=383
 
 [item]
@@ -3832,7 +3837,7 @@ dmg=6,12
 req=m,4
 sfx=wood
 gfx=staff
-loot=staff
+loot_animation=staff
 price=403
 
 [item]
@@ -3847,7 +3852,7 @@ bonus=accuracy,6
 req=m,4
 sfx=wood
 gfx=staff
-loot=staff
+loot_animation=staff
 price=286
 
 [item]
@@ -3862,7 +3867,7 @@ bonus=avoidance,6
 req=m,4
 sfx=wood
 gfx=staff
-loot=staff
+loot_animation=staff
 price=305
 
 [item]
@@ -3877,7 +3882,7 @@ bonus=fire resist,11
 req=m,4
 sfx=wood
 gfx=staff
-loot=staff
+loot_animation=staff
 price=266
 
 [item]
@@ -3892,7 +3897,7 @@ bonus=ice resist,11
 req=m,4
 sfx=wood
 gfx=staff
-loot=staff
+loot_animation=staff
 price=247
 
 [item]
@@ -3907,7 +3912,7 @@ bonus=crit,4
 req=m,4
 sfx=wood
 gfx=staff
-loot=staff
+loot_animation=staff
 price=422
 
 [item]
@@ -3922,7 +3927,7 @@ bonus=HP,8
 req=m,4
 sfx=wood
 gfx=staff
-loot=staff
+loot_animation=staff
 price=650
 
 [item]
@@ -3937,7 +3942,7 @@ bonus=HP regen,6
 req=m,4
 sfx=wood
 gfx=staff
-loot=staff
+loot_animation=staff
 price=715
 
 [item]
@@ -3952,7 +3957,7 @@ bonus=MP,10
 req=m,4
 sfx=wood
 gfx=staff
-loot=staff
+loot_animation=staff
 price=682
 
 [item]
@@ -3967,7 +3972,7 @@ bonus=MP regen,6
 req=m,4
 sfx=wood
 gfx=staff
-loot=staff
+loot_animation=staff
 price=747
 
 [item]
@@ -3982,7 +3987,7 @@ bonus=accuracy,9
 req=m,4
 sfx=wood
 gfx=staff
-loot=staff
+loot_animation=staff
 price=585
 
 [item]
@@ -3997,7 +4002,7 @@ bonus=avoidance,9
 req=m,4
 sfx=wood
 gfx=staff
-loot=staff
+loot_animation=staff
 price=617
 
 [item]
@@ -4012,7 +4017,7 @@ bonus=fire resist,14
 req=m,4
 sfx=wood
 gfx=staff
-loot=staff
+loot_animation=staff
 price=552
 
 [item]
@@ -4027,7 +4032,7 @@ bonus=ice resist,14
 req=m,4
 sfx=wood
 gfx=staff
-loot=staff
+loot_animation=staff
 price=520
 
 [item]
@@ -4042,7 +4047,7 @@ bonus=crit,6
 req=m,4
 sfx=wood
 gfx=staff
-loot=staff
+loot_animation=staff
 price=780
 
 [item]
@@ -4056,7 +4061,7 @@ dmg=5,12
 req=m,5
 sfx=wood
 gfx=greatstaff
-loot=greatstaff
+loot_animation=greatstaff
 price=115
 
 [item]
@@ -4070,7 +4075,7 @@ dmg=4,11
 req=m,5
 sfx=wood
 gfx=greatstaff
-loot=greatstaff
+loot_animation=greatstaff
 price=34
 
 [item]
@@ -4085,7 +4090,7 @@ bonus=accuracy,-3
 req=m,5
 sfx=wood
 gfx=greatstaff
-loot=greatstaff
+loot_animation=greatstaff
 price=80
 
 [item]
@@ -4100,7 +4105,7 @@ bonus=crit,-2
 req=m,5
 sfx=wood
 gfx=greatstaff
-loot=greatstaff
+loot_animation=greatstaff
 price=57
 
 [item]
@@ -4115,7 +4120,7 @@ bonus=HP,2
 req=m,5
 sfx=wood
 gfx=greatstaff
-loot=greatstaff
+loot_animation=greatstaff
 price=230
 
 [item]
@@ -4130,7 +4135,7 @@ bonus=HP regen,2
 req=m,5
 sfx=wood
 gfx=greatstaff
-loot=greatstaff
+loot_animation=greatstaff
 price=276
 
 [item]
@@ -4145,7 +4150,7 @@ bonus=MP,4
 req=m,5
 sfx=wood
 gfx=greatstaff
-loot=greatstaff
+loot_animation=greatstaff
 price=253
 
 [item]
@@ -4160,7 +4165,7 @@ bonus=MP regen,2
 req=m,5
 sfx=wood
 gfx=greatstaff
-loot=greatstaff
+loot_animation=greatstaff
 price=299
 
 [item]
@@ -4174,7 +4179,7 @@ dmg=6,13
 req=m,5
 sfx=wood
 gfx=greatstaff
-loot=greatstaff
+loot_animation=greatstaff
 price=322
 
 [item]
@@ -4189,7 +4194,7 @@ bonus=accuracy,3
 req=m,5
 sfx=wood
 gfx=greatstaff
-loot=greatstaff
+loot_animation=greatstaff
 price=184
 
 [item]
@@ -4204,7 +4209,7 @@ bonus=avoidance,3
 req=m,5
 sfx=wood
 gfx=greatstaff
-loot=greatstaff
+loot_animation=greatstaff
 price=207
 
 [item]
@@ -4219,7 +4224,7 @@ bonus=fire resist,8
 req=m,5
 sfx=wood
 gfx=greatstaff
-loot=greatstaff
+loot_animation=greatstaff
 price=161
 
 [item]
@@ -4234,7 +4239,7 @@ bonus=ice resist,8
 req=m,5
 sfx=wood
 gfx=greatstaff
-loot=greatstaff
+loot_animation=greatstaff
 price=138
 
 [item]
@@ -4249,7 +4254,7 @@ bonus=crit,2
 req=m,5
 sfx=wood
 gfx=greatstaff
-loot=greatstaff
+loot_animation=greatstaff
 price=345
 
 [item]
@@ -4264,7 +4269,7 @@ bonus=HP,5
 req=m,5
 sfx=wood
 gfx=greatstaff
-loot=greatstaff
+loot_animation=greatstaff
 price=575
 
 [item]
@@ -4279,7 +4284,7 @@ bonus=HP regen,4
 req=m,5
 sfx=wood
 gfx=greatstaff
-loot=greatstaff
+loot_animation=greatstaff
 price=644
 
 [item]
@@ -4294,7 +4299,7 @@ bonus=MP,7
 req=m,5
 sfx=wood
 gfx=greatstaff
-loot=greatstaff
+loot_animation=greatstaff
 price=609
 
 [item]
@@ -4309,7 +4314,7 @@ bonus=MP regen,4
 req=m,5
 sfx=wood
 gfx=greatstaff
-loot=greatstaff
+loot_animation=greatstaff
 price=678
 
 [item]
@@ -4323,7 +4328,7 @@ dmg=7,14
 req=m,5
 sfx=wood
 gfx=greatstaff
-loot=greatstaff
+loot_animation=greatstaff
 price=713
 
 [item]
@@ -4338,7 +4343,7 @@ bonus=accuracy,6
 req=m,5
 sfx=wood
 gfx=greatstaff
-loot=greatstaff
+loot_animation=greatstaff
 price=506
 
 [item]
@@ -4353,7 +4358,7 @@ bonus=avoidance,6
 req=m,5
 sfx=wood
 gfx=greatstaff
-loot=greatstaff
+loot_animation=greatstaff
 price=540
 
 [item]
@@ -4368,7 +4373,7 @@ bonus=fire resist,11
 req=m,5
 sfx=wood
 gfx=greatstaff
-loot=greatstaff
+loot_animation=greatstaff
 price=471
 
 [item]
@@ -4383,7 +4388,7 @@ bonus=ice resist,11
 req=m,5
 sfx=wood
 gfx=greatstaff
-loot=greatstaff
+loot_animation=greatstaff
 price=437
 
 [item]
@@ -4398,7 +4403,7 @@ bonus=crit,4
 req=m,5
 sfx=wood
 gfx=greatstaff
-loot=greatstaff
+loot_animation=greatstaff
 price=747
 
 [item]
@@ -4413,7 +4418,7 @@ bonus=HP,8
 req=m,5
 sfx=wood
 gfx=greatstaff
-loot=greatstaff
+loot_animation=greatstaff
 price=1150
 
 [item]
@@ -4428,7 +4433,7 @@ bonus=HP regen,6
 req=m,5
 sfx=wood
 gfx=greatstaff
-loot=greatstaff
+loot_animation=greatstaff
 price=1265
 
 [item]
@@ -4443,7 +4448,7 @@ bonus=MP,10
 req=m,5
 sfx=wood
 gfx=greatstaff
-loot=greatstaff
+loot_animation=greatstaff
 price=1207
 
 [item]
@@ -4458,7 +4463,7 @@ bonus=MP regen,6
 req=m,5
 sfx=wood
 gfx=greatstaff
-loot=greatstaff
+loot_animation=greatstaff
 price=1322
 
 [item]
@@ -4473,7 +4478,7 @@ bonus=accuracy,9
 req=m,5
 sfx=wood
 gfx=greatstaff
-loot=greatstaff
+loot_animation=greatstaff
 price=1035
 
 [item]
@@ -4488,7 +4493,7 @@ bonus=avoidance,9
 req=m,5
 sfx=wood
 gfx=greatstaff
-loot=greatstaff
+loot_animation=greatstaff
 price=1092
 
 [item]
@@ -4503,7 +4508,7 @@ bonus=fire resist,14
 req=m,5
 sfx=wood
 gfx=greatstaff
-loot=greatstaff
+loot_animation=greatstaff
 price=977
 
 [item]
@@ -4518,7 +4523,7 @@ bonus=ice resist,14
 req=m,5
 sfx=wood
 gfx=greatstaff
-loot=greatstaff
+loot_animation=greatstaff
 price=920
 
 [item]
@@ -4533,7 +4538,7 @@ bonus=crit,6
 req=m,5
 sfx=wood
 gfx=greatstaff
-loot=greatstaff
+loot_animation=greatstaff
 price=1380
 
 [item]
@@ -4548,7 +4553,7 @@ power_mod=120
 req=o,2
 sfx=wood
 gfx=slingshot
-loot=slingshot
+loot_animation=slingshot
 price=8
 
 [item]
@@ -4563,7 +4568,7 @@ power_mod=120
 req=o,2
 sfx=wood
 gfx=slingshot
-loot=slingshot
+loot_animation=slingshot
 price=2
 
 [item]
@@ -4579,7 +4584,7 @@ power_mod=120
 req=o,2
 sfx=wood
 gfx=slingshot
-loot=slingshot
+loot_animation=slingshot
 price=5
 
 [item]
@@ -4595,7 +4600,7 @@ power_mod=120
 req=o,2
 sfx=wood
 gfx=slingshot
-loot=slingshot
+loot_animation=slingshot
 price=4
 
 [item]
@@ -4611,7 +4616,7 @@ power_mod=120
 req=o,2
 sfx=wood
 gfx=slingshot
-loot=slingshot
+loot_animation=slingshot
 price=16
 
 [item]
@@ -4627,7 +4632,7 @@ power_mod=120
 req=o,2
 sfx=wood
 gfx=slingshot
-loot=slingshot
+loot_animation=slingshot
 price=19
 
 [item]
@@ -4643,7 +4648,7 @@ power_mod=120
 req=o,2
 sfx=wood
 gfx=slingshot
-loot=slingshot
+loot_animation=slingshot
 price=17
 
 [item]
@@ -4659,7 +4664,7 @@ power_mod=120
 req=o,2
 sfx=wood
 gfx=slingshot
-loot=slingshot
+loot_animation=slingshot
 price=20
 
 [item]
@@ -4674,7 +4679,7 @@ power_mod=120
 req=o,2
 sfx=wood
 gfx=slingshot
-loot=slingshot
+loot_animation=slingshot
 price=22
 
 [item]
@@ -4690,7 +4695,7 @@ power_mod=120
 req=o,2
 sfx=wood
 gfx=slingshot
-loot=slingshot
+loot_animation=slingshot
 price=12
 
 [item]
@@ -4706,7 +4711,7 @@ power_mod=120
 req=o,2
 sfx=wood
 gfx=slingshot
-loot=slingshot
+loot_animation=slingshot
 price=14
 
 [item]
@@ -4723,7 +4728,7 @@ power_desc=Fire Ammo
 req=o,2
 sfx=wood
 gfx=slingshot
-loot=slingshot
+loot_animation=slingshot
 price=11
 
 [item]
@@ -4740,7 +4745,7 @@ power_desc=Ice Ammo
 req=o,2
 sfx=wood
 gfx=slingshot
-loot=slingshot
+loot_animation=slingshot
 price=9
 
 [item]
@@ -4756,7 +4761,7 @@ power_mod=120
 req=o,2
 sfx=wood
 gfx=slingshot
-loot=slingshot
+loot_animation=slingshot
 price=24
 
 [item]
@@ -4772,7 +4777,7 @@ power_mod=120
 req=o,2
 sfx=wood
 gfx=slingshot
-loot=slingshot
+loot_animation=slingshot
 price=40
 
 [item]
@@ -4788,7 +4793,7 @@ power_mod=120
 req=o,2
 sfx=wood
 gfx=slingshot
-loot=slingshot
+loot_animation=slingshot
 price=44
 
 [item]
@@ -4804,7 +4809,7 @@ power_mod=120
 req=o,2
 sfx=wood
 gfx=slingshot
-loot=slingshot
+loot_animation=slingshot
 price=42
 
 [item]
@@ -4820,7 +4825,7 @@ power_mod=120
 req=o,2
 sfx=wood
 gfx=slingshot
-loot=slingshot
+loot_animation=slingshot
 price=47
 
 [item]
@@ -4835,7 +4840,7 @@ power_mod=120
 req=o,2
 sfx=wood
 gfx=slingshot
-loot=slingshot
+loot_animation=slingshot
 price=49
 
 [item]
@@ -4851,7 +4856,7 @@ power_mod=120
 req=o,2
 sfx=wood
 gfx=slingshot
-loot=slingshot
+loot_animation=slingshot
 price=35
 
 [item]
@@ -4867,7 +4872,7 @@ power_mod=120
 req=o,2
 sfx=wood
 gfx=slingshot
-loot=slingshot
+loot_animation=slingshot
 price=37
 
 [item]
@@ -4884,7 +4889,7 @@ power_desc=Fire Ammo
 req=o,2
 sfx=wood
 gfx=slingshot
-loot=slingshot
+loot_animation=slingshot
 price=32
 
 [item]
@@ -4901,7 +4906,7 @@ power_desc=Ice Ammo
 req=o,2
 sfx=wood
 gfx=slingshot
-loot=slingshot
+loot_animation=slingshot
 price=30
 
 [item]
@@ -4917,7 +4922,7 @@ power_mod=120
 req=o,2
 sfx=wood
 gfx=slingshot
-loot=slingshot
+loot_animation=slingshot
 price=52
 
 [item]
@@ -4933,7 +4938,7 @@ power_mod=120
 req=o,2
 sfx=wood
 gfx=slingshot
-loot=slingshot
+loot_animation=slingshot
 price=80
 
 [item]
@@ -4949,7 +4954,7 @@ power_mod=120
 req=o,2
 sfx=wood
 gfx=slingshot
-loot=slingshot
+loot_animation=slingshot
 price=88
 
 [item]
@@ -4965,7 +4970,7 @@ power_mod=120
 req=o,2
 sfx=wood
 gfx=slingshot
-loot=slingshot
+loot_animation=slingshot
 price=84
 
 [item]
@@ -4981,7 +4986,7 @@ power_mod=120
 req=o,2
 sfx=wood
 gfx=slingshot
-loot=slingshot
+loot_animation=slingshot
 price=92
 
 [item]
@@ -4997,7 +5002,7 @@ power_mod=120
 req=o,2
 sfx=wood
 gfx=slingshot
-loot=slingshot
+loot_animation=slingshot
 price=72
 
 [item]
@@ -5013,7 +5018,7 @@ power_mod=120
 req=o,2
 sfx=wood
 gfx=slingshot
-loot=slingshot
+loot_animation=slingshot
 price=76
 
 [item]
@@ -5030,7 +5035,7 @@ power_desc=Fire Ammo
 req=o,2
 sfx=wood
 gfx=slingshot
-loot=slingshot
+loot_animation=slingshot
 price=68
 
 [item]
@@ -5047,7 +5052,7 @@ power_desc=Ice Ammo
 req=o,2
 sfx=wood
 gfx=slingshot
-loot=slingshot
+loot_animation=slingshot
 price=64
 
 [item]
@@ -5063,7 +5068,7 @@ power_mod=120
 req=o,2
 sfx=wood
 gfx=slingshot
-loot=slingshot
+loot_animation=slingshot
 price=96
 
 [item]
@@ -5078,7 +5083,7 @@ power_mod=121
 req=o,3
 sfx=wood
 gfx=shortbow
-loot=shortbow
+loot_animation=shortbow
 price=24
 
 [item]
@@ -5093,7 +5098,7 @@ power_mod=121
 req=o,3
 sfx=wood
 gfx=shortbow
-loot=shortbow
+loot_animation=shortbow
 price=7
 
 [item]
@@ -5109,7 +5114,7 @@ power_mod=121
 req=o,3
 sfx=wood
 gfx=shortbow
-loot=shortbow
+loot_animation=shortbow
 price=16
 
 [item]
@@ -5125,7 +5130,7 @@ power_mod=121
 req=o,3
 sfx=wood
 gfx=shortbow
-loot=shortbow
+loot_animation=shortbow
 price=12
 
 [item]
@@ -5141,7 +5146,7 @@ power_mod=121
 req=o,3
 sfx=wood
 gfx=shortbow
-loot=shortbow
+loot_animation=shortbow
 price=48
 
 [item]
@@ -5157,7 +5162,7 @@ power_mod=121
 req=o,3
 sfx=wood
 gfx=shortbow
-loot=shortbow
+loot_animation=shortbow
 price=57
 
 [item]
@@ -5173,7 +5178,7 @@ power_mod=121
 req=o,3
 sfx=wood
 gfx=shortbow
-loot=shortbow
+loot_animation=shortbow
 price=52
 
 [item]
@@ -5189,7 +5194,7 @@ power_mod=121
 req=o,3
 sfx=wood
 gfx=shortbow
-loot=shortbow
+loot_animation=shortbow
 price=62
 
 [item]
@@ -5204,7 +5209,7 @@ power_mod=121
 req=o,3
 sfx=wood
 gfx=shortbow
-loot=shortbow
+loot_animation=shortbow
 price=67
 
 [item]
@@ -5220,7 +5225,7 @@ power_mod=121
 req=o,3
 sfx=wood
 gfx=shortbow
-loot=shortbow
+loot_animation=shortbow
 price=38
 
 [item]
@@ -5236,7 +5241,7 @@ power_mod=121
 req=o,3
 sfx=wood
 gfx=shortbow
-loot=shortbow
+loot_animation=shortbow
 price=43
 
 [item]
@@ -5253,7 +5258,7 @@ power_desc=Fire Ammo
 req=o,3
 sfx=wood
 gfx=shortbow
-loot=shortbow
+loot_animation=shortbow
 price=33
 
 [item]
@@ -5270,7 +5275,7 @@ power_desc=Ice Ammo
 req=o,3
 sfx=wood
 gfx=shortbow
-loot=shortbow
+loot_animation=shortbow
 price=28
 
 [item]
@@ -5286,7 +5291,7 @@ power_mod=121
 req=o,3
 sfx=wood
 gfx=shortbow
-loot=shortbow
+loot_animation=shortbow
 price=72
 
 [item]
@@ -5302,7 +5307,7 @@ power_mod=121
 req=o,3
 sfx=wood
 gfx=shortbow
-loot=shortbow
+loot_animation=shortbow
 price=120
 
 [item]
@@ -5318,7 +5323,7 @@ power_mod=121
 req=o,3
 sfx=wood
 gfx=shortbow
-loot=shortbow
+loot_animation=shortbow
 price=134
 
 [item]
@@ -5334,7 +5339,7 @@ power_mod=121
 req=o,3
 sfx=wood
 gfx=shortbow
-loot=shortbow
+loot_animation=shortbow
 price=127
 
 [item]
@@ -5350,7 +5355,7 @@ power_mod=121
 req=o,3
 sfx=wood
 gfx=shortbow
-loot=shortbow
+loot_animation=shortbow
 price=141
 
 [item]
@@ -5365,7 +5370,7 @@ power_mod=121
 req=o,3
 sfx=wood
 gfx=shortbow
-loot=shortbow
+loot_animation=shortbow
 price=148
 
 [item]
@@ -5381,7 +5386,7 @@ power_mod=121
 req=o,3
 sfx=wood
 gfx=shortbow
-loot=shortbow
+loot_animation=shortbow
 price=105
 
 [item]
@@ -5397,7 +5402,7 @@ power_mod=121
 req=o,3
 sfx=wood
 gfx=shortbow
-loot=shortbow
+loot_animation=shortbow
 price=112
 
 [item]
@@ -5414,7 +5419,7 @@ power_desc=Fire Ammo
 req=o,3
 sfx=wood
 gfx=shortbow
-loot=shortbow
+loot_animation=shortbow
 price=98
 
 [item]
@@ -5431,7 +5436,7 @@ power_desc=Ice Ammo
 req=o,3
 sfx=wood
 gfx=shortbow
-loot=shortbow
+loot_animation=shortbow
 price=91
 
 [item]
@@ -5447,7 +5452,7 @@ power_mod=121
 req=o,3
 sfx=wood
 gfx=shortbow
-loot=shortbow
+loot_animation=shortbow
 price=156
 
 [item]
@@ -5463,7 +5468,7 @@ power_mod=121
 req=o,3
 sfx=wood
 gfx=shortbow
-loot=shortbow
+loot_animation=shortbow
 price=240
 
 [item]
@@ -5479,7 +5484,7 @@ power_mod=121
 req=o,3
 sfx=wood
 gfx=shortbow
-loot=shortbow
+loot_animation=shortbow
 price=264
 
 [item]
@@ -5495,7 +5500,7 @@ power_mod=121
 req=o,3
 sfx=wood
 gfx=shortbow
-loot=shortbow
+loot_animation=shortbow
 price=252
 
 [item]
@@ -5511,7 +5516,7 @@ power_mod=121
 req=o,3
 sfx=wood
 gfx=shortbow
-loot=shortbow
+loot_animation=shortbow
 price=276
 
 [item]
@@ -5527,7 +5532,7 @@ power_mod=121
 req=o,3
 sfx=wood
 gfx=shortbow
-loot=shortbow
+loot_animation=shortbow
 price=216
 
 [item]
@@ -5543,7 +5548,7 @@ power_mod=121
 req=o,3
 sfx=wood
 gfx=shortbow
-loot=shortbow
+loot_animation=shortbow
 price=228
 
 [item]
@@ -5560,7 +5565,7 @@ power_desc=Fire Ammo
 req=o,3
 sfx=wood
 gfx=shortbow
-loot=shortbow
+loot_animation=shortbow
 price=204
 
 [item]
@@ -5577,7 +5582,7 @@ power_desc=Ice Ammo
 req=o,3
 sfx=wood
 gfx=shortbow
-loot=shortbow
+loot_animation=shortbow
 price=192
 
 [item]
@@ -5593,7 +5598,7 @@ power_mod=121
 req=o,3
 sfx=wood
 gfx=shortbow
-loot=shortbow
+loot_animation=shortbow
 price=288
 
 [item]
@@ -5608,7 +5613,7 @@ power_mod=121
 req=o,4
 sfx=wood
 gfx=longbow
-loot=longbow
+loot_animation=longbow
 price=60
 
 [item]
@@ -5623,7 +5628,7 @@ power_mod=121
 req=o,4
 sfx=wood
 gfx=longbow
-loot=longbow
+loot_animation=longbow
 price=18
 
 [item]
@@ -5639,7 +5644,7 @@ power_mod=121
 req=o,4
 sfx=wood
 gfx=longbow
-loot=longbow
+loot_animation=longbow
 price=42
 
 [item]
@@ -5655,7 +5660,7 @@ power_mod=121
 req=o,4
 sfx=wood
 gfx=longbow
-loot=longbow
+loot_animation=longbow
 price=30
 
 [item]
@@ -5671,7 +5676,7 @@ power_mod=121
 req=o,4
 sfx=wood
 gfx=longbow
-loot=longbow
+loot_animation=longbow
 price=120
 
 [item]
@@ -5687,7 +5692,7 @@ power_mod=121
 req=o,4
 sfx=wood
 gfx=longbow
-loot=longbow
+loot_animation=longbow
 price=144
 
 [item]
@@ -5703,7 +5708,7 @@ power_mod=121
 req=o,4
 sfx=wood
 gfx=longbow
-loot=longbow
+loot_animation=longbow
 price=132
 
 [item]
@@ -5719,7 +5724,7 @@ power_mod=121
 req=o,4
 sfx=wood
 gfx=longbow
-loot=longbow
+loot_animation=longbow
 price=156
 
 [item]
@@ -5734,7 +5739,7 @@ power_mod=121
 req=o,4
 sfx=wood
 gfx=longbow
-loot=longbow
+loot_animation=longbow
 price=168
 
 [item]
@@ -5750,7 +5755,7 @@ power_mod=121
 req=o,4
 sfx=wood
 gfx=longbow
-loot=longbow
+loot_animation=longbow
 price=96
 
 [item]
@@ -5766,7 +5771,7 @@ power_mod=121
 req=o,4
 sfx=wood
 gfx=longbow
-loot=longbow
+loot_animation=longbow
 price=108
 
 [item]
@@ -5783,7 +5788,7 @@ power_desc=Fire Ammo
 req=o,4
 sfx=wood
 gfx=longbow
-loot=longbow
+loot_animation=longbow
 price=84
 
 [item]
@@ -5800,7 +5805,7 @@ power_desc=Ice Ammo
 req=o,4
 sfx=wood
 gfx=longbow
-loot=longbow
+loot_animation=longbow
 price=72
 
 [item]
@@ -5816,7 +5821,7 @@ power_mod=121
 req=o,4
 sfx=wood
 gfx=longbow
-loot=longbow
+loot_animation=longbow
 price=180
 
 [item]
@@ -5832,7 +5837,7 @@ power_mod=121
 req=o,4
 sfx=wood
 gfx=longbow
-loot=longbow
+loot_animation=longbow
 price=300
 
 [item]
@@ -5848,7 +5853,7 @@ power_mod=121
 req=o,4
 sfx=wood
 gfx=longbow
-loot=longbow
+loot_animation=longbow
 price=336
 
 [item]
@@ -5864,7 +5869,7 @@ power_mod=121
 req=o,4
 sfx=wood
 gfx=longbow
-loot=longbow
+loot_animation=longbow
 price=318
 
 [item]
@@ -5880,7 +5885,7 @@ power_mod=121
 req=o,4
 sfx=wood
 gfx=longbow
-loot=longbow
+loot_animation=longbow
 price=354
 
 [item]
@@ -5895,7 +5900,7 @@ power_mod=121
 req=o,4
 sfx=wood
 gfx=longbow
-loot=longbow
+loot_animation=longbow
 price=372
 
 [item]
@@ -5911,7 +5916,7 @@ power_mod=121
 req=o,4
 sfx=wood
 gfx=longbow
-loot=longbow
+loot_animation=longbow
 price=264
 
 [item]
@@ -5927,7 +5932,7 @@ power_mod=121
 req=o,4
 sfx=wood
 gfx=longbow
-loot=longbow
+loot_animation=longbow
 price=282
 
 [item]
@@ -5944,7 +5949,7 @@ power_desc=Fire Ammo
 req=o,4
 sfx=wood
 gfx=longbow
-loot=longbow
+loot_animation=longbow
 price=246
 
 [item]
@@ -5961,7 +5966,7 @@ power_desc=Ice Ammo
 req=o,4
 sfx=wood
 gfx=longbow
-loot=longbow
+loot_animation=longbow
 price=228
 
 [item]
@@ -5977,7 +5982,7 @@ power_mod=121
 req=o,4
 sfx=wood
 gfx=longbow
-loot=longbow
+loot_animation=longbow
 price=390
 
 [item]
@@ -5993,7 +5998,7 @@ power_mod=121
 req=o,4
 sfx=wood
 gfx=longbow
-loot=longbow
+loot_animation=longbow
 price=600
 
 [item]
@@ -6009,7 +6014,7 @@ power_mod=121
 req=o,4
 sfx=wood
 gfx=longbow
-loot=longbow
+loot_animation=longbow
 price=660
 
 [item]
@@ -6025,7 +6030,7 @@ power_mod=121
 req=o,4
 sfx=wood
 gfx=longbow
-loot=longbow
+loot_animation=longbow
 price=630
 
 [item]
@@ -6041,7 +6046,7 @@ power_mod=121
 req=o,4
 sfx=wood
 gfx=longbow
-loot=longbow
+loot_animation=longbow
 price=690
 
 [item]
@@ -6057,7 +6062,7 @@ power_mod=121
 req=o,4
 sfx=wood
 gfx=longbow
-loot=longbow
+loot_animation=longbow
 price=540
 
 [item]
@@ -6073,7 +6078,7 @@ power_mod=121
 req=o,4
 sfx=wood
 gfx=longbow
-loot=longbow
+loot_animation=longbow
 price=570
 
 [item]
@@ -6090,7 +6095,7 @@ power_desc=Fire Ammo
 req=o,4
 sfx=wood
 gfx=longbow
-loot=longbow
+loot_animation=longbow
 price=510
 
 [item]
@@ -6107,7 +6112,7 @@ power_desc=Ice Ammo
 req=o,4
 sfx=wood
 gfx=longbow
-loot=longbow
+loot_animation=longbow
 price=480
 
 [item]
@@ -6123,7 +6128,7 @@ power_mod=121
 req=o,4
 sfx=wood
 gfx=longbow
-loot=longbow
+loot_animation=longbow
 price=720
 
 [item]
@@ -6138,7 +6143,7 @@ power_mod=121
 req=o,5
 sfx=wood
 gfx=greatbow
-loot=greatbow
+loot_animation=greatbow
 price=110
 
 [item]
@@ -6153,7 +6158,7 @@ power_mod=121
 req=o,5
 sfx=wood
 gfx=greatbow
-loot=greatbow
+loot_animation=greatbow
 price=33
 
 [item]
@@ -6169,7 +6174,7 @@ power_mod=121
 req=o,5
 sfx=wood
 gfx=greatbow
-loot=greatbow
+loot_animation=greatbow
 price=77
 
 [item]
@@ -6185,7 +6190,7 @@ power_mod=121
 req=o,5
 sfx=wood
 gfx=greatbow
-loot=greatbow
+loot_animation=greatbow
 price=55
 
 [item]
@@ -6201,7 +6206,7 @@ power_mod=121
 req=o,5
 sfx=wood
 gfx=greatbow
-loot=greatbow
+loot_animation=greatbow
 price=220
 
 [item]
@@ -6217,7 +6222,7 @@ power_mod=121
 req=o,5
 sfx=wood
 gfx=greatbow
-loot=greatbow
+loot_animation=greatbow
 price=264
 
 [item]
@@ -6233,7 +6238,7 @@ power_mod=121
 req=o,5
 sfx=wood
 gfx=greatbow
-loot=greatbow
+loot_animation=greatbow
 price=242
 
 [item]
@@ -6249,7 +6254,7 @@ power_mod=121
 req=o,5
 sfx=wood
 gfx=greatbow
-loot=greatbow
+loot_animation=greatbow
 price=286
 
 [item]
@@ -6264,7 +6269,7 @@ power_mod=121
 req=o,5
 sfx=wood
 gfx=greatbow
-loot=greatbow
+loot_animation=greatbow
 price=308
 
 [item]
@@ -6280,7 +6285,7 @@ power_mod=121
 req=o,5
 sfx=wood
 gfx=greatbow
-loot=greatbow
+loot_animation=greatbow
 price=176
 
 [item]
@@ -6296,7 +6301,7 @@ power_mod=121
 req=o,5
 sfx=wood
 gfx=greatbow
-loot=greatbow
+loot_animation=greatbow
 price=198
 
 [item]
@@ -6313,7 +6318,7 @@ power_desc=Fire Ammo
 req=o,5
 sfx=wood
 gfx=greatbow
-loot=greatbow
+loot_animation=greatbow
 price=154
 
 [item]
@@ -6330,7 +6335,7 @@ power_desc=Ice Ammo
 req=o,5
 sfx=wood
 gfx=greatbow
-loot=greatbow
+loot_animation=greatbow
 price=132
 
 [item]
@@ -6346,7 +6351,7 @@ power_mod=121
 req=o,5
 sfx=wood
 gfx=greatbow
-loot=greatbow
+loot_animation=greatbow
 price=330
 
 [item]
@@ -6362,7 +6367,7 @@ power_mod=121
 req=o,5
 sfx=wood
 gfx=greatbow
-loot=greatbow
+loot_animation=greatbow
 price=550
 
 [item]
@@ -6378,7 +6383,7 @@ power_mod=121
 req=o,5
 sfx=wood
 gfx=greatbow
-loot=greatbow
+loot_animation=greatbow
 price=616
 
 [item]
@@ -6394,7 +6399,7 @@ power_mod=121
 req=o,5
 sfx=wood
 gfx=greatbow
-loot=greatbow
+loot_animation=greatbow
 price=583
 
 [item]
@@ -6410,7 +6415,7 @@ power_mod=121
 req=o,5
 sfx=wood
 gfx=greatbow
-loot=greatbow
+loot_animation=greatbow
 price=649
 
 [item]
@@ -6425,7 +6430,7 @@ power_mod=121
 req=o,5
 sfx=wood
 gfx=greatbow
-loot=greatbow
+loot_animation=greatbow
 price=682
 
 [item]
@@ -6441,7 +6446,7 @@ power_mod=121
 req=o,5
 sfx=wood
 gfx=greatbow
-loot=greatbow
+loot_animation=greatbow
 price=484
 
 [item]
@@ -6457,7 +6462,7 @@ power_mod=121
 req=o,5
 sfx=wood
 gfx=greatbow
-loot=greatbow
+loot_animation=greatbow
 price=517
 
 [item]
@@ -6474,7 +6479,7 @@ power_desc=Fire Ammo
 req=o,5
 sfx=wood
 gfx=greatbow
-loot=greatbow
+loot_animation=greatbow
 price=451
 
 [item]
@@ -6491,7 +6496,7 @@ power_desc=Ice Ammo
 req=o,5
 sfx=wood
 gfx=greatbow
-loot=greatbow
+loot_animation=greatbow
 price=418
 
 [item]
@@ -6507,7 +6512,7 @@ power_mod=121
 req=o,5
 sfx=wood
 gfx=greatbow
-loot=greatbow
+loot_animation=greatbow
 price=715
 
 [item]
@@ -6523,7 +6528,7 @@ power_mod=121
 req=o,5
 sfx=wood
 gfx=greatbow
-loot=greatbow
+loot_animation=greatbow
 price=1100
 
 [item]
@@ -6539,7 +6544,7 @@ power_mod=121
 req=o,5
 sfx=wood
 gfx=greatbow
-loot=greatbow
+loot_animation=greatbow
 price=1210
 
 [item]
@@ -6555,7 +6560,7 @@ power_mod=121
 req=o,5
 sfx=wood
 gfx=greatbow
-loot=greatbow
+loot_animation=greatbow
 price=1155
 
 [item]
@@ -6571,7 +6576,7 @@ power_mod=121
 req=o,5
 sfx=wood
 gfx=greatbow
-loot=greatbow
+loot_animation=greatbow
 price=1265
 
 [item]
@@ -6587,7 +6592,7 @@ power_mod=121
 req=o,5
 sfx=wood
 gfx=greatbow
-loot=greatbow
+loot_animation=greatbow
 price=990
 
 [item]
@@ -6603,7 +6608,7 @@ power_mod=121
 req=o,5
 sfx=wood
 gfx=greatbow
-loot=greatbow
+loot_animation=greatbow
 price=1045
 
 [item]
@@ -6620,7 +6625,7 @@ power_desc=Fire Ammo
 req=o,5
 sfx=wood
 gfx=greatbow
-loot=greatbow
+loot_animation=greatbow
 price=935
 
 [item]
@@ -6637,7 +6642,7 @@ power_desc=Ice Ammo
 req=o,5
 sfx=wood
 gfx=greatbow
-loot=greatbow
+loot_animation=greatbow
 price=880
 
 [item]
@@ -6653,7 +6658,7 @@ power_mod=121
 req=o,5
 sfx=wood
 gfx=greatbow
-loot=greatbow
+loot_animation=greatbow
 price=1320
 
 
@@ -6668,7 +6673,7 @@ abs=1
 req=d,2
 sfx=leather
 gfx=leather_armor
-loot=leather_armor
+loot_animation=leather_armor
 price=17
 stepfx=leather
 
@@ -6683,7 +6688,7 @@ abs=0,1
 req=d,2
 sfx=leather
 gfx=leather_armor
-loot=leather_armor
+loot_animation=leather_armor
 price=5
 stepfx=leather
 
@@ -6699,7 +6704,7 @@ bonus=avoidance,-4
 req=d,2
 sfx=leather
 gfx=leather_armor
-loot=leather_armor
+loot_animation=leather_armor
 price=11
 stepfx=leather
 
@@ -6715,7 +6720,7 @@ bonus=HP,3
 req=d,2
 sfx=leather
 gfx=leather_armor
-loot=leather_armor
+loot_animation=leather_armor
 price=34
 stepfx=leather
 
@@ -6731,7 +6736,7 @@ bonus=HP regen,2
 req=d,2
 sfx=leather
 gfx=leather_armor
-loot=leather_armor
+loot_animation=leather_armor
 price=40
 stepfx=leather
 
@@ -6747,7 +6752,7 @@ bonus=MP,3
 req=d,2
 sfx=leather
 gfx=leather_armor
-loot=leather_armor
+loot_animation=leather_armor
 price=37
 stepfx=leather
 
@@ -6763,7 +6768,7 @@ bonus=MP regen,2
 req=d,2
 sfx=leather
 gfx=leather_armor
-loot=leather_armor
+loot_animation=leather_armor
 price=44
 stepfx=leather
 
@@ -6778,7 +6783,7 @@ abs=1,2
 req=d,2
 sfx=leather
 gfx=leather_armor
-loot=leather_armor
+loot_animation=leather_armor
 price=47
 stepfx=leather
 
@@ -6794,7 +6799,7 @@ bonus=accuracy,2
 req=d,2
 sfx=leather
 gfx=leather_armor
-loot=leather_armor
+loot_animation=leather_armor
 price=27
 stepfx=leather
 
@@ -6810,7 +6815,7 @@ bonus=avoidance,4
 req=d,2
 sfx=leather
 gfx=leather_armor
-loot=leather_armor
+loot_animation=leather_armor
 price=30
 stepfx=leather
 
@@ -6826,7 +6831,7 @@ bonus=fire resist,10
 req=d,2
 sfx=leather
 gfx=leather_armor
-loot=leather_armor
+loot_animation=leather_armor
 price=23
 stepfx=leather
 
@@ -6842,7 +6847,7 @@ bonus=ice resist,10
 req=d,2
 sfx=leather
 gfx=leather_armor
-loot=leather_armor
+loot_animation=leather_armor
 price=20
 stepfx=leather
 
@@ -6858,7 +6863,7 @@ bonus=crit,2
 req=d,2
 sfx=leather
 gfx=leather_armor
-loot=leather_armor
+loot_animation=leather_armor
 price=51
 stepfx=leather
 
@@ -6874,7 +6879,7 @@ bonus=HP,6
 req=d,2
 sfx=leather
 gfx=leather_armor
-loot=leather_armor
+loot_animation=leather_armor
 price=85
 stepfx=leather
 
@@ -6890,7 +6895,7 @@ bonus=HP regen,4
 req=d,2
 sfx=leather
 gfx=leather_armor
-loot=leather_armor
+loot_animation=leather_armor
 price=95
 stepfx=leather
 
@@ -6906,7 +6911,7 @@ bonus=MP,6
 req=d,2
 sfx=leather
 gfx=leather_armor
-loot=leather_armor
+loot_animation=leather_armor
 price=90
 stepfx=leather
 
@@ -6922,7 +6927,7 @@ bonus=MP regen,4
 req=d,2
 sfx=leather
 gfx=leather_armor
-loot=leather_armor
+loot_animation=leather_armor
 price=100
 stepfx=leather
 
@@ -6937,7 +6942,7 @@ abs=2
 req=d,2
 sfx=leather
 gfx=leather_armor
-loot=leather_armor
+loot_animation=leather_armor
 price=105
 stepfx=leather
 
@@ -6953,7 +6958,7 @@ bonus=accuracy,5
 req=d,2
 sfx=leather
 gfx=leather_armor
-loot=leather_armor
+loot_animation=leather_armor
 price=74
 stepfx=leather
 
@@ -6969,7 +6974,7 @@ bonus=avoidance,7
 req=d,2
 sfx=leather
 gfx=leather_armor
-loot=leather_armor
+loot_animation=leather_armor
 price=79
 stepfx=leather
 
@@ -6985,7 +6990,7 @@ bonus=fire resist,15
 req=d,2
 sfx=leather
 gfx=leather_armor
-loot=leather_armor
+loot_animation=leather_armor
 price=69
 stepfx=leather
 
@@ -7001,7 +7006,7 @@ bonus=ice resist,15
 req=d,2
 sfx=leather
 gfx=leather_armor
-loot=leather_armor
+loot_animation=leather_armor
 price=64
 stepfx=leather
 
@@ -7017,7 +7022,7 @@ bonus=crit,4
 req=d,2
 sfx=leather
 gfx=leather_armor
-loot=leather_armor
+loot_animation=leather_armor
 price=110
 stepfx=leather
 
@@ -7033,7 +7038,7 @@ bonus=HP,9
 req=d,2
 sfx=leather
 gfx=leather_armor
-loot=leather_armor
+loot_animation=leather_armor
 price=170
 stepfx=leather
 
@@ -7049,7 +7054,7 @@ bonus=HP regen,6
 req=d,2
 sfx=leather
 gfx=leather_armor
-loot=leather_armor
+loot_animation=leather_armor
 price=187
 stepfx=leather
 
@@ -7065,7 +7070,7 @@ bonus=MP,9
 req=d,2
 sfx=leather
 gfx=leather_armor
-loot=leather_armor
+loot_animation=leather_armor
 price=178
 stepfx=leather
 
@@ -7081,7 +7086,7 @@ bonus=MP regen,6
 req=d,2
 sfx=leather
 gfx=leather_armor
-loot=leather_armor
+loot_animation=leather_armor
 price=195
 stepfx=leather
 
@@ -7097,7 +7102,7 @@ bonus=accuracy,8
 req=d,2
 sfx=leather
 gfx=leather_armor
-loot=leather_armor
+loot_animation=leather_armor
 price=153
 stepfx=leather
 
@@ -7113,7 +7118,7 @@ bonus=avoidance,10
 req=d,2
 sfx=leather
 gfx=leather_armor
-loot=leather_armor
+loot_animation=leather_armor
 price=161
 stepfx=leather
 
@@ -7129,7 +7134,7 @@ bonus=fire resist,20
 req=d,2
 sfx=leather
 gfx=leather_armor
-loot=leather_armor
+loot_animation=leather_armor
 price=144
 stepfx=leather
 
@@ -7145,7 +7150,7 @@ bonus=ice resist,20
 req=d,2
 sfx=leather
 gfx=leather_armor
-loot=leather_armor
+loot_animation=leather_armor
 price=136
 stepfx=leather
 
@@ -7161,7 +7166,7 @@ bonus=crit,6
 req=d,2
 sfx=leather
 gfx=leather_armor
-loot=leather_armor
+loot_animation=leather_armor
 price=204
 stepfx=leather
 
@@ -7176,7 +7181,7 @@ abs=0,2
 req=d,3
 sfx=wood
 gfx=buckler
-loot=buckler
+loot_animation=buckler
 price=30
 
 [item]
@@ -7190,7 +7195,7 @@ abs=0,1
 req=d,3
 sfx=wood
 gfx=buckler
-loot=buckler
+loot_animation=buckler
 price=9
 
 [item]
@@ -7205,7 +7210,7 @@ bonus=avoidance,-4
 req=d,3
 sfx=wood
 gfx=buckler
-loot=buckler
+loot_animation=buckler
 price=21
 
 [item]
@@ -7220,7 +7225,7 @@ bonus=HP,3
 req=d,3
 sfx=wood
 gfx=buckler
-loot=buckler
+loot_animation=buckler
 price=60
 
 [item]
@@ -7235,7 +7240,7 @@ bonus=HP regen,2
 req=d,3
 sfx=wood
 gfx=buckler
-loot=buckler
+loot_animation=buckler
 price=72
 
 [item]
@@ -7250,7 +7255,7 @@ bonus=MP,3
 req=d,3
 sfx=wood
 gfx=buckler
-loot=buckler
+loot_animation=buckler
 price=66
 
 [item]
@@ -7265,7 +7270,7 @@ bonus=MP regen,2
 req=d,3
 sfx=wood
 gfx=buckler
-loot=buckler
+loot_animation=buckler
 price=78
 
 [item]
@@ -7279,7 +7284,7 @@ abs=0,3
 req=d,3
 sfx=wood
 gfx=buckler
-loot=buckler
+loot_animation=buckler
 price=84
 
 [item]
@@ -7294,7 +7299,7 @@ bonus=accuracy,2
 req=d,3
 sfx=wood
 gfx=buckler
-loot=buckler
+loot_animation=buckler
 price=48
 
 [item]
@@ -7309,7 +7314,7 @@ bonus=avoidance,4
 req=d,3
 sfx=wood
 gfx=buckler
-loot=buckler
+loot_animation=buckler
 price=54
 
 [item]
@@ -7324,7 +7329,7 @@ bonus=fire resist,10
 req=d,3
 sfx=wood
 gfx=buckler
-loot=buckler
+loot_animation=buckler
 price=42
 
 [item]
@@ -7339,7 +7344,7 @@ bonus=ice resist,10
 req=d,3
 sfx=wood
 gfx=buckler
-loot=buckler
+loot_animation=buckler
 price=36
 
 [item]
@@ -7354,7 +7359,7 @@ bonus=crit,2
 req=d,3
 sfx=wood
 gfx=buckler
-loot=buckler
+loot_animation=buckler
 price=90
 
 [item]
@@ -7369,7 +7374,7 @@ bonus=HP,6
 req=d,3
 sfx=wood
 gfx=buckler
-loot=buckler
+loot_animation=buckler
 price=150
 
 [item]
@@ -7384,7 +7389,7 @@ bonus=HP regen,4
 req=d,3
 sfx=wood
 gfx=buckler
-loot=buckler
+loot_animation=buckler
 price=168
 
 [item]
@@ -7399,7 +7404,7 @@ bonus=MP,6
 req=d,3
 sfx=wood
 gfx=buckler
-loot=buckler
+loot_animation=buckler
 price=159
 
 [item]
@@ -7414,7 +7419,7 @@ bonus=MP regen,4
 req=d,3
 sfx=wood
 gfx=buckler
-loot=buckler
+loot_animation=buckler
 price=177
 
 [item]
@@ -7428,7 +7433,7 @@ abs=1,3
 req=d,3
 sfx=wood
 gfx=buckler
-loot=buckler
+loot_animation=buckler
 price=186
 
 [item]
@@ -7443,7 +7448,7 @@ bonus=accuracy,5
 req=d,3
 sfx=wood
 gfx=buckler
-loot=buckler
+loot_animation=buckler
 price=132
 
 [item]
@@ -7458,7 +7463,7 @@ bonus=avoidance,7
 req=d,3
 sfx=wood
 gfx=buckler
-loot=buckler
+loot_animation=buckler
 price=141
 
 [item]
@@ -7473,7 +7478,7 @@ bonus=fire resist,15
 req=d,3
 sfx=wood
 gfx=buckler
-loot=buckler
+loot_animation=buckler
 price=123
 
 [item]
@@ -7488,7 +7493,7 @@ bonus=ice resist,15
 req=d,3
 sfx=wood
 gfx=buckler
-loot=buckler
+loot_animation=buckler
 price=114
 
 [item]
@@ -7503,7 +7508,7 @@ bonus=crit,4
 req=d,3
 sfx=wood
 gfx=buckler
-loot=buckler
+loot_animation=buckler
 price=195
 
 [item]
@@ -7518,7 +7523,7 @@ bonus=HP,9
 req=d,3
 sfx=wood
 gfx=buckler
-loot=buckler
+loot_animation=buckler
 price=300
 
 [item]
@@ -7533,7 +7538,7 @@ bonus=HP regen,6
 req=d,3
 sfx=wood
 gfx=buckler
-loot=buckler
+loot_animation=buckler
 price=330
 
 [item]
@@ -7548,7 +7553,7 @@ bonus=MP,9
 req=d,3
 sfx=wood
 gfx=buckler
-loot=buckler
+loot_animation=buckler
 price=315
 
 [item]
@@ -7563,7 +7568,7 @@ bonus=MP regen,6
 req=d,3
 sfx=wood
 gfx=buckler
-loot=buckler
+loot_animation=buckler
 price=345
 
 [item]
@@ -7578,7 +7583,7 @@ bonus=accuracy,8
 req=d,3
 sfx=wood
 gfx=buckler
-loot=buckler
+loot_animation=buckler
 price=270
 
 [item]
@@ -7593,7 +7598,7 @@ bonus=avoidance,10
 req=d,3
 sfx=wood
 gfx=buckler
-loot=buckler
+loot_animation=buckler
 price=285
 
 [item]
@@ -7608,7 +7613,7 @@ bonus=fire resist,20
 req=d,3
 sfx=wood
 gfx=buckler
-loot=buckler
+loot_animation=buckler
 price=255
 
 [item]
@@ -7623,7 +7628,7 @@ bonus=ice resist,20
 req=d,3
 sfx=wood
 gfx=buckler
-loot=buckler
+loot_animation=buckler
 price=240
 
 [item]
@@ -7638,7 +7643,7 @@ bonus=crit,6
 req=d,3
 sfx=wood
 gfx=buckler
-loot=buckler
+loot_animation=buckler
 price=360
 
 [item]
@@ -7652,7 +7657,7 @@ abs=2
 req=d,4
 sfx=maille
 gfx=steel_armor
-loot=steel_armor
+loot_animation=steel_armor
 price=75
 stepfx=metal
 
@@ -7667,7 +7672,7 @@ abs=1,2
 req=d,4
 sfx=maille
 gfx=steel_armor
-loot=steel_armor
+loot_animation=steel_armor
 price=22
 stepfx=metal
 
@@ -7683,7 +7688,7 @@ bonus=avoidance,-4
 req=d,4
 sfx=maille
 gfx=steel_armor
-loot=steel_armor
+loot_animation=steel_armor
 price=52
 stepfx=metal
 
@@ -7699,7 +7704,7 @@ bonus=HP,3
 req=d,4
 sfx=maille
 gfx=steel_armor
-loot=steel_armor
+loot_animation=steel_armor
 price=150
 stepfx=metal
 
@@ -7715,7 +7720,7 @@ bonus=HP regen,2
 req=d,4
 sfx=maille
 gfx=steel_armor
-loot=steel_armor
+loot_animation=steel_armor
 price=180
 stepfx=metal
 
@@ -7731,7 +7736,7 @@ bonus=MP,3
 req=d,4
 sfx=maille
 gfx=steel_armor
-loot=steel_armor
+loot_animation=steel_armor
 price=165
 stepfx=metal
 
@@ -7747,7 +7752,7 @@ bonus=MP regen,2
 req=d,4
 sfx=maille
 gfx=steel_armor
-loot=steel_armor
+loot_animation=steel_armor
 price=195
 stepfx=metal
 
@@ -7762,7 +7767,7 @@ abs=2,3
 req=d,4
 sfx=maille
 gfx=steel_armor
-loot=steel_armor
+loot_animation=steel_armor
 price=210
 stepfx=metal
 
@@ -7778,7 +7783,7 @@ bonus=accuracy,2
 req=d,4
 sfx=maille
 gfx=steel_armor
-loot=steel_armor
+loot_animation=steel_armor
 price=120
 stepfx=metal
 
@@ -7794,7 +7799,7 @@ bonus=avoidance,4
 req=d,4
 sfx=maille
 gfx=steel_armor
-loot=steel_armor
+loot_animation=steel_armor
 price=135
 stepfx=metal
 
@@ -7810,7 +7815,7 @@ bonus=fire resist,10
 req=d,4
 sfx=maille
 gfx=steel_armor
-loot=steel_armor
+loot_animation=steel_armor
 price=105
 stepfx=metal
 
@@ -7826,7 +7831,7 @@ bonus=ice resist,10
 req=d,4
 sfx=maille
 gfx=steel_armor
-loot=steel_armor
+loot_animation=steel_armor
 price=90
 stepfx=metal
 
@@ -7842,7 +7847,7 @@ bonus=crit,2
 req=d,4
 sfx=maille
 gfx=steel_armor
-loot=steel_armor
+loot_animation=steel_armor
 price=225
 stepfx=metal
 
@@ -7858,7 +7863,7 @@ bonus=HP,6
 req=d,4
 sfx=maille
 gfx=steel_armor
-loot=steel_armor
+loot_animation=steel_armor
 price=375
 stepfx=metal
 
@@ -7874,7 +7879,7 @@ bonus=HP regen,4
 req=d,4
 sfx=maille
 gfx=steel_armor
-loot=steel_armor
+loot_animation=steel_armor
 price=420
 stepfx=metal
 
@@ -7890,7 +7895,7 @@ bonus=MP,6
 req=d,4
 sfx=maille
 gfx=steel_armor
-loot=steel_armor
+loot_animation=steel_armor
 price=397
 stepfx=metal
 
@@ -7906,7 +7911,7 @@ bonus=MP regen,4
 req=d,4
 sfx=maille
 gfx=steel_armor
-loot=steel_armor
+loot_animation=steel_armor
 price=442
 stepfx=metal
 
@@ -7921,7 +7926,7 @@ abs=3
 req=d,4
 sfx=maille
 gfx=steel_armor
-loot=steel_armor
+loot_animation=steel_armor
 price=465
 stepfx=metal
 
@@ -7937,7 +7942,7 @@ bonus=accuracy,5
 req=d,4
 sfx=maille
 gfx=steel_armor
-loot=steel_armor
+loot_animation=steel_armor
 price=330
 stepfx=metal
 
@@ -7953,7 +7958,7 @@ bonus=avoidance,7
 req=d,4
 sfx=maille
 gfx=steel_armor
-loot=steel_armor
+loot_animation=steel_armor
 price=352
 stepfx=metal
 
@@ -7969,7 +7974,7 @@ bonus=fire resist,15
 req=d,4
 sfx=maille
 gfx=steel_armor
-loot=steel_armor
+loot_animation=steel_armor
 price=307
 stepfx=metal
 
@@ -7985,7 +7990,7 @@ bonus=ice resist,15
 req=d,4
 sfx=maille
 gfx=steel_armor
-loot=steel_armor
+loot_animation=steel_armor
 price=285
 stepfx=metal
 
@@ -8001,7 +8006,7 @@ bonus=crit,4
 req=d,4
 sfx=maille
 gfx=steel_armor
-loot=steel_armor
+loot_animation=steel_armor
 price=487
 stepfx=metal
 
@@ -8017,7 +8022,7 @@ bonus=HP,9
 req=d,4
 sfx=maille
 gfx=steel_armor
-loot=steel_armor
+loot_animation=steel_armor
 price=750
 stepfx=metal
 
@@ -8033,7 +8038,7 @@ bonus=HP regen,6
 req=d,4
 sfx=maille
 gfx=steel_armor
-loot=steel_armor
+loot_animation=steel_armor
 price=825
 stepfx=metal
 
@@ -8049,7 +8054,7 @@ bonus=MP,9
 req=d,4
 sfx=maille
 gfx=steel_armor
-loot=steel_armor
+loot_animation=steel_armor
 price=787
 stepfx=metal
 
@@ -8065,7 +8070,7 @@ bonus=MP regen,6
 req=d,4
 sfx=maille
 gfx=steel_armor
-loot=steel_armor
+loot_animation=steel_armor
 price=862
 stepfx=metal
 
@@ -8081,7 +8086,7 @@ bonus=accuracy,8
 req=d,4
 sfx=maille
 gfx=steel_armor
-loot=steel_armor
+loot_animation=steel_armor
 price=675
 stepfx=metal
 
@@ -8097,7 +8102,7 @@ bonus=avoidance,10
 req=d,4
 sfx=maille
 gfx=steel_armor
-loot=steel_armor
+loot_animation=steel_armor
 price=712
 stepfx=metal
 
@@ -8113,7 +8118,7 @@ bonus=fire resist,20
 req=d,4
 sfx=maille
 gfx=steel_armor
-loot=steel_armor
+loot_animation=steel_armor
 price=637
 stepfx=metal
 
@@ -8129,7 +8134,7 @@ bonus=ice resist,20
 req=d,4
 sfx=maille
 gfx=steel_armor
-loot=steel_armor
+loot_animation=steel_armor
 price=600
 stepfx=metal
 
@@ -8145,7 +8150,7 @@ bonus=crit,6
 req=d,4
 sfx=maille
 gfx=steel_armor
-loot=steel_armor
+loot_animation=steel_armor
 price=900
 stepfx=metal
 
@@ -8160,7 +8165,7 @@ abs=1,3
 req=d,5
 sfx=heavy
 gfx=shield
-loot=shield
+loot_animation=shield
 price=90
 
 [item]
@@ -8174,7 +8179,7 @@ abs=0,3
 req=d,5
 sfx=heavy
 gfx=shield
-loot=shield
+loot_animation=shield
 price=27
 
 [item]
@@ -8189,7 +8194,7 @@ bonus=avoidance,-4
 req=d,5
 sfx=heavy
 gfx=shield
-loot=shield
+loot_animation=shield
 price=63
 
 [item]
@@ -8204,7 +8209,7 @@ bonus=HP,3
 req=d,5
 sfx=heavy
 gfx=shield
-loot=shield
+loot_animation=shield
 price=180
 
 [item]
@@ -8219,7 +8224,7 @@ bonus=HP regen,2
 req=d,5
 sfx=heavy
 gfx=shield
-loot=shield
+loot_animation=shield
 price=216
 
 [item]
@@ -8234,7 +8239,7 @@ bonus=MP,3
 req=d,5
 sfx=heavy
 gfx=shield
-loot=shield
+loot_animation=shield
 price=198
 
 [item]
@@ -8249,7 +8254,7 @@ bonus=MP regen,2
 req=d,5
 sfx=heavy
 gfx=shield
-loot=shield
+loot_animation=shield
 price=234
 
 [item]
@@ -8263,7 +8268,7 @@ abs=1,4
 req=d,5
 sfx=heavy
 gfx=shield
-loot=shield
+loot_animation=shield
 price=252
 
 [item]
@@ -8278,7 +8283,7 @@ bonus=accuracy,2
 req=d,5
 sfx=heavy
 gfx=shield
-loot=shield
+loot_animation=shield
 price=144
 
 [item]
@@ -8293,7 +8298,7 @@ bonus=avoidance,4
 req=d,5
 sfx=heavy
 gfx=shield
-loot=shield
+loot_animation=shield
 price=162
 
 [item]
@@ -8308,7 +8313,7 @@ bonus=fire resist,10
 req=d,5
 sfx=heavy
 gfx=shield
-loot=shield
+loot_animation=shield
 price=126
 
 [item]
@@ -8323,7 +8328,7 @@ bonus=ice resist,10
 req=d,5
 sfx=heavy
 gfx=shield
-loot=shield
+loot_animation=shield
 price=108
 
 [item]
@@ -8338,7 +8343,7 @@ bonus=crit,2
 req=d,5
 sfx=heavy
 gfx=shield
-loot=shield
+loot_animation=shield
 price=270
 
 [item]
@@ -8353,7 +8358,7 @@ bonus=HP,6
 req=d,5
 sfx=heavy
 gfx=shield
-loot=shield
+loot_animation=shield
 price=450
 
 [item]
@@ -8368,7 +8373,7 @@ bonus=HP regen,4
 req=d,5
 sfx=heavy
 gfx=shield
-loot=shield
+loot_animation=shield
 price=504
 
 [item]
@@ -8383,7 +8388,7 @@ bonus=MP,6
 req=d,5
 sfx=heavy
 gfx=shield
-loot=shield
+loot_animation=shield
 price=477
 
 [item]
@@ -8398,7 +8403,7 @@ bonus=MP regen,4
 req=d,5
 sfx=heavy
 gfx=shield
-loot=shield
+loot_animation=shield
 price=531
 
 [item]
@@ -8412,7 +8417,7 @@ abs=2,4
 req=d,5
 sfx=heavy
 gfx=shield
-loot=shield
+loot_animation=shield
 price=558
 
 [item]
@@ -8427,7 +8432,7 @@ bonus=accuracy,5
 req=d,5
 sfx=heavy
 gfx=shield
-loot=shield
+loot_animation=shield
 price=396
 
 [item]
@@ -8442,7 +8447,7 @@ bonus=avoidance,7
 req=d,5
 sfx=heavy
 gfx=shield
-loot=shield
+loot_animation=shield
 price=423
 
 [item]
@@ -8457,7 +8462,7 @@ bonus=fire resist,15
 req=d,5
 sfx=heavy
 gfx=shield
-loot=shield
+loot_animation=shield
 price=369
 
 [item]
@@ -8472,7 +8477,7 @@ bonus=ice resist,15
 req=d,5
 sfx=heavy
 gfx=shield
-loot=shield
+loot_animation=shield
 price=342
 
 [item]
@@ -8487,7 +8492,7 @@ bonus=crit,4
 req=d,5
 sfx=heavy
 gfx=shield
-loot=shield
+loot_animation=shield
 price=585
 
 [item]
@@ -8502,7 +8507,7 @@ bonus=HP,9
 req=d,5
 sfx=heavy
 gfx=shield
-loot=shield
+loot_animation=shield
 price=900
 
 [item]
@@ -8517,7 +8522,7 @@ bonus=HP regen,6
 req=d,5
 sfx=heavy
 gfx=shield
-loot=shield
+loot_animation=shield
 price=990
 
 [item]
@@ -8532,7 +8537,7 @@ bonus=MP,9
 req=d,5
 sfx=heavy
 gfx=shield
-loot=shield
+loot_animation=shield
 price=945
 
 [item]
@@ -8547,7 +8552,7 @@ bonus=MP regen,6
 req=d,5
 sfx=heavy
 gfx=shield
-loot=shield
+loot_animation=shield
 price=1035
 
 [item]
@@ -8562,7 +8567,7 @@ bonus=accuracy,8
 req=d,5
 sfx=heavy
 gfx=shield
-loot=shield
+loot_animation=shield
 price=810
 
 [item]
@@ -8577,7 +8582,7 @@ bonus=avoidance,10
 req=d,5
 sfx=heavy
 gfx=shield
-loot=shield
+loot_animation=shield
 price=855
 
 [item]
@@ -8592,7 +8597,7 @@ bonus=fire resist,20
 req=d,5
 sfx=heavy
 gfx=shield
-loot=shield
+loot_animation=shield
 price=765
 
 [item]
@@ -8607,7 +8612,7 @@ bonus=ice resist,20
 req=d,5
 sfx=heavy
 gfx=shield
-loot=shield
+loot_animation=shield
 price=720
 
 [item]
@@ -8622,7 +8627,7 @@ bonus=crit,6
 req=d,5
 sfx=heavy
 gfx=shield
-loot=shield
+loot_animation=shield
 price=1080
 
 [item]
@@ -8633,7 +8638,7 @@ quality=normal
 type=artifact
 icon=115,19
 sfx=leather
-loot=belt
+loot_animation=belt
 price=15
 
 [item]
@@ -8644,7 +8649,7 @@ quality=low
 type=artifact
 icon=115,19
 sfx=leather
-loot=belt
+loot_animation=belt
 price=7
 
 [item]
@@ -8656,7 +8661,7 @@ type=artifact
 icon=115,19
 bonus=HP,5
 sfx=leather
-loot=belt
+loot_animation=belt
 price=30
 
 [item]
@@ -8668,7 +8673,7 @@ type=artifact
 icon=115,19
 bonus=MP,5
 sfx=leather
-loot=belt
+loot_animation=belt
 price=33
 
 [item]
@@ -8680,7 +8685,7 @@ type=artifact
 icon=115,19
 bonus=HP,10
 sfx=leather
-loot=belt
+loot_animation=belt
 price=75
 
 [item]
@@ -8692,7 +8697,7 @@ type=artifact
 icon=115,19
 bonus=MP,10
 sfx=leather
-loot=belt
+loot_animation=belt
 price=79
 
 [item]
@@ -8704,7 +8709,7 @@ type=artifact
 icon=115,19
 bonus=HP,15
 sfx=leather
-loot=belt
+loot_animation=belt
 price=150
 
 [item]
@@ -8716,7 +8721,7 @@ type=artifact
 icon=115,19
 bonus=MP,15
 sfx=leather
-loot=belt
+loot_animation=belt
 price=157
 
 [item]
@@ -8727,7 +8732,7 @@ quality=normal
 type=artifact
 icon=113,17
 sfx=leather
-loot=boots
+loot_animation=boots
 price=25
 
 [item]
@@ -8738,7 +8743,7 @@ quality=low
 type=artifact
 icon=113,17
 sfx=leather
-loot=boots
+loot_animation=boots
 price=12
 
 [item]
@@ -8750,7 +8755,7 @@ type=artifact
 icon=113,17
 bonus=speed,3
 sfx=leather
-loot=boots
+loot_animation=boots
 price=80
 
 [item]
@@ -8762,7 +8767,7 @@ type=artifact
 icon=113,17
 bonus=avoidance,5
 sfx=leather
-loot=boots
+loot_animation=boots
 price=45
 
 [item]
@@ -8774,7 +8779,7 @@ type=artifact
 icon=113,17
 bonus=speed,6
 sfx=leather
-loot=boots
+loot_animation=boots
 price=170
 
 [item]
@@ -8786,7 +8791,7 @@ type=artifact
 icon=113,17
 bonus=avoidance,10
 sfx=leather
-loot=boots
+loot_animation=boots
 price=117
 
 [item]
@@ -8798,7 +8803,7 @@ type=artifact
 icon=113,17
 bonus=speed,9
 sfx=leather
-loot=boots
+loot_animation=boots
 price=312
 
 [item]
@@ -8810,7 +8815,7 @@ type=artifact
 icon=113,17
 bonus=avoidance,15
 sfx=leather
-loot=boots
+loot_animation=boots
 price=237
 
 [item]
@@ -8821,7 +8826,7 @@ quality=normal
 type=artifact
 icon=114,18
 sfx=gem
-loot=ring
+loot_animation=ring
 price=80
 
 [item]
@@ -8832,7 +8837,7 @@ quality=low
 type=artifact
 icon=114,18
 sfx=gem
-loot=ring
+loot_animation=ring
 price=40
 
 [item]
@@ -8844,7 +8849,7 @@ type=artifact
 icon=114,18
 bonus=HP regen,4
 sfx=gem
-loot=ring
+loot_animation=ring
 price=192
 
 [item]
@@ -8856,7 +8861,7 @@ type=artifact
 icon=114,18
 bonus=MP regen,4
 sfx=gem
-loot=ring
+loot_animation=ring
 price=208
 
 [item]
@@ -8868,7 +8873,7 @@ type=artifact
 icon=114,18
 bonus=HP regen,8
 sfx=gem
-loot=ring
+loot_animation=ring
 price=448
 
 [item]
@@ -8880,7 +8885,7 @@ type=artifact
 icon=114,18
 bonus=MP regen,8
 sfx=gem
-loot=ring
+loot_animation=ring
 price=472
 
 [item]
@@ -8892,7 +8897,7 @@ type=artifact
 icon=114,18
 bonus=HP regen,12
 sfx=gem
-loot=ring
+loot_animation=ring
 price=880
 
 [item]
@@ -8904,7 +8909,7 @@ type=artifact
 icon=114,18
 bonus=MP regen,12
 sfx=gem
-loot=ring
+loot_animation=ring
 price=920
 
 [item]
@@ -8916,7 +8921,7 @@ power=139
 power_desc=Transform back to human
 type=consumable
 sfx=page
-loot=scroll
+loot_animation=scroll
 price=200
 max_quantity=10
 rand_vendor=3

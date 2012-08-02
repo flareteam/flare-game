@@ -1,0 +1,37 @@
+name=Statue Guardian (Fire)
+
+# talker info
+talker=true
+
+# animation info
+gfx=statue_guardian_fire
+render_size=32,64
+render_offset=16,56
+anim_frames=8
+anim_duration=5
+
+# voiceover files
+
+[dialog]
+requires_not=lb_fire_password
+him=Who goes there?
+you=I came here to kill lots of monsters.
+set_status=lb_fire_locked
+set_status=lb_fire_attack
+him=Intruder! You shall not interrupt the masters' work!
+
+[dialog]
+requires_status=lb_fire_password
+him=Who goes there?
+you=Vesuvvio.
+him=...Are you feeling alright, Master Vesuvvio? You did not refer to yourself as "the Destroyer."
+him=Have your brothers been teasing you about your real name being Stootley again?
+you=Er, no. It's all right. I'm Vesuvvio the Destroyer.
+set_status=lb_fire_unlocked
+reward_xp=100
+him=Then welcome, Master Vesuvvio, may you enjoy your destruction tonight.
+you=(This Vesuvvio guy sure is strange...)
+
+[dialog]
+requires_status=lb_fire_unlocked
+him=Welcome, Master Vesuvvio, may you enjoy your destruction tonight.
