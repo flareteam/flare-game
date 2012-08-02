@@ -53,6 +53,8 @@ PowerManager::PowerManager() {
 
 	used_item=-1;
 
+	log_msg = "";
+
 	loadGraphics();
 	loadAll();
 }
@@ -360,6 +362,9 @@ void PowerManager::loadPowers(const std::string& filename) {
 			}
 
 			// spawn info
+			else if (infile.key == "spawn_num") {
+				powers[input_id].spawn_num = atoi(infile.val.c_str());
+			}
 			else if (infile.key == "spawn_type") {
 				powers[input_id].spawn_type = infile.val;
 			}
@@ -555,11 +560,15 @@ bool PowerManager::hasValidTarget(int power_index, StatBlock *src_stats, Point t
 	return true;
 }
 
+Point PowerManager::targetNeighbor(Point target, int range) {
+	return targetNeighbor(target,range,false);
+}
+
 /**
  * Try to retarget the power to one of the 8 adjacent tiles
  * Returns the retargeted position on success, returns the original position on failure
  */
-Point PowerManager::targetNeighbor(Point target, int range) {
+Point PowerManager::targetNeighbor(Point target, int range, bool ignore_blocked) {
 	Point new_target = target;
 	std::vector<Point> valid_tiles;
 
@@ -568,7 +577,7 @@ Point PowerManager::targetNeighbor(Point target, int range) {
 			if (i == 0 && j == 0) continue; // skip the middle tile
 			new_target.x = target.x+UNITS_PER_TILE*i;
 			new_target.y = target.y+UNITS_PER_TILE*j;
-			if (collider->valid_position(new_target.x,new_target.y,MOVEMENT_NORMAL))
+			if (collider->valid_position(new_target.x,new_target.y,MOVEMENT_NORMAL) || ignore_blocked)
 				valid_tiles.push_back(new_target);
 		}
 	}
@@ -723,7 +732,7 @@ void PowerManager::initHazard(int power_index, StatBlock *src_stats, Point targe
 		haz->pos = calcVector(src_stats->pos, src_stats->direction, src_stats->melee_range);
 	}
 	if (powers[power_index].target_neighbor > 0) {
-		Point new_target = targetNeighbor(src_stats->pos,powers[power_index].target_neighbor);
+		Point new_target = targetNeighbor(src_stats->pos,powers[power_index].target_neighbor,true);
 		haz->pos.x = (float)new_target.x;
 		haz->pos.y = (float)new_target.y;
 	}
@@ -1096,9 +1105,9 @@ bool PowerManager::spawn(int power_index, StatBlock *src_stats, Point target) {
 	}
 
 	espawn.direction = calcDirection(src_stats->pos.x, src_stats->pos.y, target.x, target.y);
-
-	enemies.push(espawn);
-
+	for (int i=0; i < powers[power_index].spawn_num; i++) {
+		enemies.push(espawn);
+	}
 	// pay costs
 	if (src_stats->hero && powers[power_index].requires_mp > 0) src_stats->mp -= powers[power_index].requires_mp;
 	if (src_stats->hero && powers[power_index].requires_item != -1) used_item = powers[power_index].requires_item;
@@ -1127,6 +1136,11 @@ bool PowerManager::spawn(const std::string& enemy_type, Point target) {
  * Transform into a creature. Fully replaces entity characteristics
  */
 bool PowerManager::transform(int power_index, StatBlock *src_stats, Point target) {
+
+	if (src_stats->transformed && powers[power_index].spawn_type != "untransform") {
+		log_msg = msg->get("You are already transformed, untransform first.");
+		return false;
+	}
 
 	// apply any buffs
 	buff(power_index, src_stats, target);
@@ -1187,12 +1201,10 @@ bool PowerManager::activate(int power_index, StatBlock *src_stats, Point target)
 PowerManager::~PowerManager() {
 
 	for (int i=0; i<gfx_count; i++) {
-		if (gfx[i] != NULL)
-			SDL_FreeSurface(gfx[i]);
+		SDL_FreeSurface(gfx[i]);
 	}
     for (int i=0; i<sfx_count; i++) {
-        if (sfx[i] != NULL)
-            Mix_FreeChunk(sfx[i]);
+		Mix_FreeChunk(sfx[i]);
     }
 
 	SDL_FreeSurface(runes);

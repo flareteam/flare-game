@@ -44,8 +44,10 @@ MapRenderer::MapRenderer(CampaignManager *_camp) {
 	clearEvents();
 	enemy_awaiting_queue = false;
 	npc_awaiting_queue = false;
+	group_awaiting_queue = false;
 	new_enemy.clear();
 	new_npc.clear();
+	new_group.clear();
 
 	sfx = NULL;
 	sfx_filename = "";
@@ -64,8 +66,9 @@ void MapRenderer::clearEvents() {
 void MapRenderer::playSFX(string filename) {
 	// only load from file if the requested soundfx isn't already loaded
 	if (filename != sfx_filename) {
-		if (sfx) Mix_FreeChunk(sfx);
-		if (audio == true) {
+		Mix_FreeChunk(sfx);
+		sfx = NULL;
+		if (audio) {
 			sfx = Mix_LoadWAV((mods->locate(filename)).c_str());
 			sfx_filename = filename;
 		}
@@ -1055,6 +1058,7 @@ void MapRenderer::checkTooltip() {
 			}
 
 			tip_pos.x = r.x + r.w/2;
+			// FIXME should depend on art resolution
 			tip_pos.y = r.y;
 			tip->render(tip_buf, tip_pos, STYLE_TOPLABEL);
 		}
@@ -1198,6 +1202,11 @@ bool MapRenderer::executeEvent(Map_Event &ev) {
 			powers->activate(power_index, dummy, target);
 
 		}
+		else if (ec->type == "stash") {
+			stash = true;
+			stash_pos.x = ev.location.x * UNITS_PER_TILE + UNITS_PER_TILE/2;
+			stash_pos.y = ev.location.y * UNITS_PER_TILE + UNITS_PER_TILE/2;
+		}
 	}
 	if (ev.type == "run_once" || destroy_event)
 		return true;
@@ -1210,7 +1219,7 @@ MapRenderer::~MapRenderer() {
 		Mix_HaltMusic();
 		Mix_FreeMusic(music);
 	}
-	if (sfx) Mix_FreeChunk(sfx);
+	Mix_FreeChunk(sfx);
 
 	SDL_FreeSurface(backgroundsurface);
 	tip_buf.clear();

@@ -56,6 +56,7 @@ private:
 	SDL_Rect dest;
 	SDL_Surface *ttf;
 	TTF_Font *ttfont;
+	bool render_blended;
 
 public:
 	FontEngine();

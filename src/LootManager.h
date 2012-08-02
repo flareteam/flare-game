@@ -35,6 +35,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 class EnemyManager;
 class MapRenderer;
+class MenuInventory;
 class WidgetTooltip;
 
 struct LootDef {
@@ -104,6 +105,8 @@ private:
 	// animation vars
 	int anim_loot_frames;
 	int anim_loot_duration;
+	SDL_Rect animation_pos;
+	Point animation_offset;
 
 	// enemies which should drop loot, but didnt yet.
 	std::vector<const Enemy*> enemiesDroppingLoot;
@@ -122,18 +125,18 @@ public:
 	void addEnemyLoot(const Enemy *e);
 	void checkMapForLoot();
 	bool isFlying(const LootDef &ld);
-	void determineLoot(int base_level, Point pos); // uniformly distributed within the base_level set
-	void determineLootWithProbability(const Enemy *e, Point pos); // distributed according to enemies loot type probabilities.
+	void determineLoot(int base_level, Point pos); // uniformly distributed within the base_level set, randomly chosen
+	void determineLootByClass(const Enemy *e, Point pos); // distributed according to enemies loot type probabilities, only from specific item class
 	int randomItem(int base_level);
 	void addLoot(ItemStack stack, Point pos);
 	void addGold(int count, Point pos);
 	void removeLoot(int index);
-	ItemStack checkPickup(Point mouse, Point cam, Point hero_pos, int &gold, bool inv_full);
-	ItemStack checkAutoPickup(Point cam, Point hero_pos, int &gold, bool inv_full);
+	ItemStack checkPickup(Point mouse, Point cam, Point hero_pos, int &gold, MenuInventory *inv);
+	ItemStack checkAutoPickup(Point cam, Point hero_pos, int &gold, MenuInventory *inv);
 
 	void addRenders(std::vector<Renderable> &renderables);
 
-	int tooltip_margin;
+	int tooltip_margin; // pixels between loot drop center and label
 	bool full_msg;
 };
 

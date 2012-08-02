@@ -41,6 +41,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "MenuLog.h"
 #include "MenuManager.h"
 #include "MenuMiniMap.h"
+#include "MenuStash.h"
 #include "MenuTalker.h"
 #include "MenuVendor.h"
 #include "NPC.h"
@@ -70,14 +71,14 @@ GameStatePlay::GameStatePlay() : GameState() {
 	hazards = new HazardManager(powers, pc, enemies);
 	menu = new MenuManager(powers, &pc->stats, camp, items);
 	loot = new LootManager(items, map, &pc->stats);
-	npcs = new NPCManager(map, loot, items);
+	npcs = new NPCManager(map, loot, items, &pc->stats);
 	quests = new QuestLog(camp, menu->log);
 
 	// assign some object pointers after object creation, based on dependency order
 	camp->items = items;
 	camp->carried_items = &menu->inv->inventory[CARRIED];
 	camp->currency = &menu->inv->gold;
-	camp->xp = &pc->stats.xp;
+	camp->hero = &pc->stats;
 	map->powers = powers;
 
 	// display the name of the map in the upper-right hand corner
@@ -102,6 +103,7 @@ void GameStatePlay::resetGame() {
 	menu->log->clear();
 	quests->createQuestList();
 	menu->hudlog->clear();
+	loadStash();
 
 	// Finalize new character settings
 	menu->talker->setHero(pc->stats.name, pc->stats.portrait);
@@ -159,7 +161,7 @@ void GameStatePlay::checkLoot() {
 
 	// Autopickup
     if (pc->stats.alive && AUTOPICKUP_GOLD) {
-        pickup = loot->checkAutoPickup(map->cam, pc->stats.pos, gold, menu->inv->full());
+        pickup = loot->checkAutoPickup(map->cam, pc->stats.pos, gold, menu->inv);
         if (gold > 0) {
             menu->inv->addGold(gold);
         }
@@ -168,7 +170,7 @@ void GameStatePlay::checkLoot() {
 	// Pickup with mouse click
 	if (inpt->pressing[MAIN1] && !inpt->lock[MAIN1] && pc->stats.alive) {
 
-		pickup = loot->checkPickup(inpt->mouse, map->cam, pc->stats.pos, gold, menu->inv->full());
+		pickup = loot->checkPickup(inpt->mouse, map->cam, pc->stats.pos, gold, menu->inv);
 		if (pickup.item > 0) {
 			inpt->lock[MAIN1] = true;
 			menu->inv->add(pickup);
@@ -298,6 +300,12 @@ void GameStatePlay::checkLog() {
 		menu->hudlog->add(menu->inv->log_msg);
 		menu->inv->log_msg = "";
 	}
+
+	// PowerManager has hints for powers
+	if (powers->log_msg != "") {
+		menu->hudlog->add(powers->log_msg);
+		powers->log_msg = "";
+	}
 }
 
 void GameStatePlay::checkEquipmentChange() {
@@ -410,6 +418,7 @@ void GameStatePlay::checkNPCInteraction() {
 		if (menu->talker->vendor_visible && !menu->vendor->talker_visible) {
 
 			// begin trading
+			menu->vendor->setTab(0); // Show the NPC's inventory as opposed to the buyback tab
 			menu->vendor->npc = npcs->npcs[npc_id];
 			menu->vendor->setInventory();
 			menu->closeAll(false);
@@ -468,6 +477,35 @@ void GameStatePlay::checkNPCInteraction() {
 
 }
 
+void GameStatePlay::checkStash() {
+	int max_interact_distance = UNITS_PER_TILE * 4;
+	int interact_distance = max_interact_distance+1;
+
+	if (map->stash) {
+		// If triggered, open the stash and inventory menus
+		menu->inv->visible = true;
+		menu->stash->visible = true;
+		map->stash = false;
+	} else {
+		// Close stash if inventory is closed
+		if (!menu->inv->visible) menu->stash->visible = false;
+
+		// If the player walks away from the stash, close its menu
+		interact_distance = (int)calcDist(pc->stats.pos, map->stash_pos);
+		if (interact_distance > max_interact_distance || !pc->stats.alive) {
+			if (menu->stash->visible) {
+				menu->stash->visible = false;
+			}
+		}
+
+		// If the stash has been updated, save the game
+		if (menu->stash->updated) {
+			menu->stash->updated = false;
+			saveGame();
+		}
+	}
+}
+
 /**
  * Process all actions for a single frame
  * This includes some message passing between child object
@@ -506,6 +544,7 @@ void GameStatePlay::logic() {
 	checkLog();
 	checkEquipmentChange();
 	checkConsumable();
+	checkStash();
 	checkCancel();
 
 	map->logic();
@@ -516,10 +555,11 @@ void GameStatePlay::logic() {
 	if (pc->setPowers) {
 		pc->setPowers = false;
 		menu->closeAll(false);
-		// save ActionBar state
+		// save ActionBar state and lock slots from removing/replacing power
 		for (int i=0; i<12 ; i++) {
 			menu->act->actionbar[i] = menu->act->hotkeys[i];
 			menu->act->hotkeys[i] = -1;
+			menu->act->locked[i] = true;
 		}
 		int count = 10;
 		for (int i=0; i<4 ; i++) {
@@ -536,7 +576,10 @@ void GameStatePlay::logic() {
 		pc->revertPowers = false;
 
 		// restore ActionBar state
-		for (int i=0; i<12 ; i++) menu->act->hotkeys[i] = menu->act->actionbar[i];
+		for (int i=0; i<12 ; i++) {
+			menu->act->hotkeys[i] = menu->act->actionbar[i];
+			menu->act->locked[i] = false;
+		}
 	}
 }
 

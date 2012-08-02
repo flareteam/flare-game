@@ -210,8 +210,7 @@ void Avatar::loadStepFX(const string& stepname) {
 
 	// clear previous sounds
 	for (int i=0; i<4; i++) {
-		if (sound_steps[i])
-			Mix_FreeChunk(sound_steps[i]);
+		Mix_FreeChunk(sound_steps[i]);
 		sound_steps[i] = NULL;
 	}
 

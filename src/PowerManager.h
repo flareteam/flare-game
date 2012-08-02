@@ -183,6 +183,7 @@ public:
 	// spawn info
 	std::string spawn_type;
 	int target_neighbor;
+	int spawn_num;
 
 	Power() {
 		type = -1;
@@ -272,6 +273,7 @@ public:
 
 		allow_power_mod = false;
 		spawn_type = "";
+		spawn_num = 1;
 		target_neighbor = 0;
 	}
 
@@ -296,6 +298,7 @@ private:
 	int calcDirection(int origin_x, int origin_y, int target_x, int target_y);
 	Point limitRange(int range, Point src, Point target);
 	Point targetNeighbor(Point target, int range);
+	Point targetNeighbor(Point target, int range, bool ignore_blocked);
 	void initHazard(int powernum, StatBlock *src_stats, Point target, Hazard *haz);
 	void buff(int power_index, StatBlock *src_stats, Point target);
 	void playSound(int power_index, StatBlock *src_stats);
@@ -310,6 +313,8 @@ private:
 public:
 	PowerManager();
 	~PowerManager();
+
+	std::string log_msg;
 
 	void handleNewMap(MapCollision *_collider);
 	bool activate(int power_index, StatBlock *src_stats, Point target);

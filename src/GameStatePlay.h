@@ -75,6 +75,7 @@ private:
 	void checkConsumable();
 	void checkNotifications();
 	void checkNPCInteraction();
+	void checkStash();
 
 	int npc_id;
 
@@ -87,6 +88,7 @@ public:
 	void showFPS(int fps);
 	void saveGame();
 	void loadGame();
+	void loadStash();
 	void resetGame();
 
 	Avatar *pc;

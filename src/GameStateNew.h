@@ -67,6 +67,12 @@ private:
 	WidgetCheckBox *button_permadeath;
 	WidgetLabel *label_permadeath;
 
+	Point name;
+	Point portrait_label;
+	Point name_label;
+	Point permadeath_label;
+	SDL_Rect portrait_pos;
+
 public:
 	GameStateNew();
 	~GameStateNew();

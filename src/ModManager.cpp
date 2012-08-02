@@ -59,6 +59,9 @@ void ModManager::loadModList() {
 		}
 	}
 
+	// Add the fallback mod by default
+	mod_list.push_back(FALLBACK_MOD);
+
 	while (!infile.eof()) {
 		line = getLine(infile);
 

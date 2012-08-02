@@ -33,6 +33,7 @@ using namespace std;
 #include "SharedResources.h"
 
 GameSwitcher *gswitch;
+SDL_Surface *titlebar_icon;
 
 /**
  * Game initialization.
@@ -49,7 +50,7 @@ static void init() {
 
 	// SDL Inits
 	if ( SDL_Init (SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_JOYSTICK) < 0 ) {
-        fprintf(stderr, "Could not initialize SDL: %s\n", SDL_GetError());
+		fprintf(stderr, "Could not initialize SDL: %s\n", SDL_GetError());
 		exit(1);
 	}
 
@@ -75,14 +76,21 @@ static void init() {
     // Load autopickup settings (must be after ModManager is initialized)
     loadAutoPickupSettings();
 
+    // Load miscellaneous settings
+    loadMiscSettings();
+
 	// Add Window Titlebar Icon
-	SDL_WM_SetIcon(IMG_Load(mods->locate("images/logo/icon.png").c_str()),NULL);
+	titlebar_icon = IMG_Load(mods->locate("images/logo/icon.png").c_str());
+	SDL_WM_SetIcon(titlebar_icon, NULL);
 
 	// Create window
+	if (MIN_VIEW_W != -1 && MIN_VIEW_H != -1) {
+		fprintf (stderr, "A mod is requiring a minimum resolution of %dx%d\n", MIN_VIEW_W, MIN_VIEW_H);
+	}
 	screen = SDL_SetVideoMode (VIEW_W, VIEW_H, 0, flags);
 	if (screen == NULL) {
 
-        fprintf (stderr, "Error during SDL_SetVideoMode: %s\n", SDL_GetError());
+		fprintf (stderr, "Error during SDL_SetVideoMode: %s\n", SDL_GetError());
 		SDL_Quit();
 		exit(1);
 	}
@@ -90,7 +98,7 @@ static void init() {
 	// Set Gamma
 	SDL_SetGamma(GAMMA,GAMMA,GAMMA);
 
-    audio = true;
+	audio = true;
 
 	if (Mix_OpenAudio(22050, AUDIO_S16SYS, 2, 1024)) {
 		fprintf (stderr, "Error during Mix_OpenAudio: %s\n", SDL_GetError());
@@ -115,8 +123,8 @@ static void init() {
 	printf("Using joystick #%d.\n", JOYSTICK_DEVICE);
 
 	// Set sound effects volume from settings file
-    if (audio == true)
-    	Mix_Volume(-1, SOUND_VOLUME);
+	if (audio == true)
+		Mix_Volume(-1, SOUND_VOLUME);
 
 	// Window title
 	const char* title = msg->get("Flare").c_str();
@@ -165,6 +173,7 @@ static void cleanup() {
 	delete msg;
 	delete mods;
 	SDL_FreeSurface(screen);
+	SDL_FreeSurface(titlebar_icon);
 
 	Mix_CloseAudio();
 	SDL_Quit();

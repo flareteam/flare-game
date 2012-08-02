@@ -51,11 +51,11 @@ MenuEnemy::MenuEnemy() {
 				bar_pos.h = eatFirstInt(infile.val,',');
 			} else if(infile.key == "text_pos") {
 				custom_text_pos = true;
-				text_pos.x = eatFirstInt(infile.val,',');
-				text_pos.y = eatFirstInt(infile.val,',');
+				text_pos = eatLabelInfo(infile.val);
 			}
 		}
-	}
+		infile.close();
+	} else fprintf(stderr, "Unable to open enemy.txt!\n");
 
 	loadGraphics();
 	enemy = NULL;
@@ -129,17 +129,19 @@ void MenuEnemy::render() {
 	else
 		ss << msg->get("Dead");
 
-	WidgetLabel label;
+	if (!text_pos.hidden) {
+		WidgetLabel label;
 
-	if (custom_text_pos) {
-		label.set(window_area.x+text_pos.x, window_area.y+text_pos.y, JUSTIFY_LEFT, VALIGN_TOP, msg->get("%s level %d", enemy->stats.level, enemy->stats.name), FONT_WHITE);
-	} else {
-		label.set(window_area.x+bar_pos.x+bar_pos.w/2, window_area.y+bar_pos.y-9, JUSTIFY_CENTER, VALIGN_CENTER, msg->get("%s level %d", enemy->stats.level, enemy->stats.name), FONT_WHITE);
+		if (custom_text_pos) {
+			label.set(window_area.x+text_pos.x, window_area.y+text_pos.y, text_pos.justify, text_pos.valign, msg->get("%s level %d", enemy->stats.level, enemy->stats.name), FONT_WHITE);
+		} else {
+			label.set(window_area.x+bar_pos.x+bar_pos.w/2, window_area.y+bar_pos.y-9, JUSTIFY_CENTER, VALIGN_CENTER, msg->get("%s level %d", enemy->stats.level, enemy->stats.name), FONT_WHITE);
+		}
+		label.render();
+
+		label.set(window_area.x+bar_pos.x+bar_pos.w/2, window_area.y+bar_pos.y+bar_pos.h/2, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
+		label.render();
 	}
-	label.render();
-
-	label.set(window_area.x+bar_pos.x+bar_pos.w/2, window_area.y+bar_pos.y+bar_pos.h/2, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
-	label.render();
 
 
 	//SDL_UpdateRects(screen, 1, &dest);

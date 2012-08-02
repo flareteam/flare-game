@@ -56,7 +56,7 @@ void MenuExit::update() {
 	buttonClose->pos.x = window_area.x + window_area.w;
 	buttonClose->pos.y = window_area.y;
 
-	label.set(window_area.x + window_area.w/2, window_area.y + 10, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Save and exit to title?"), FONT_WHITE);
+	label.set(window_area.x + window_area.w/2, window_area.y + window_area.h - (buttonExit->pos.h * 2), JUSTIFY_CENTER, VALIGN_TOP, msg->get("Save and exit to title?"), FONT_WHITE);
 }
 
 void MenuExit::logic() {

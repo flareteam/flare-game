@@ -71,6 +71,7 @@ public:
 	void clear();
 	void shiftUp();
 	void shiftDown();
+	std::string getValue();
 	std::string getValue(int index);
 	std::string getTooltip(int index);
 	int getSize();
@@ -84,6 +85,7 @@ public:
 	bool pressed;
 	bool *selected;
 	bool multi_select;
+	bool can_deselect;
 };
 
 #endif

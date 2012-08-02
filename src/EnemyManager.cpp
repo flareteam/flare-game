@@ -122,16 +122,11 @@ void EnemyManager::handleNewMap () {
 		SDL_FreeSurface(sprites[j]);
 	}
 	for (int j=0; j<sfx_count; j++) {
-		if (sound_phys[j])
-			Mix_FreeChunk(sound_phys[j]);
-		if (sound_ment[j])
-			Mix_FreeChunk(sound_ment[j]);
-		if (sound_hit[j])
-			Mix_FreeChunk(sound_hit[j]);
-		if (sound_die[j])
-			Mix_FreeChunk(sound_die[j]);
-		if (sound_critdie[j])
-			Mix_FreeChunk(sound_critdie[j]);
+		Mix_FreeChunk(sound_phys[j]);
+		Mix_FreeChunk(sound_ment[j]);
+		Mix_FreeChunk(sound_hit[j]);
+		Mix_FreeChunk(sound_die[j]);
+		Mix_FreeChunk(sound_critdie[j]);
 	}
 	gfx_count = 0;
 	sfx_count = 0;
@@ -316,15 +311,10 @@ EnemyManager::~EnemyManager() {
 		SDL_FreeSurface(sprites[i]);
 	}
 	for (int i=0; i<sfx_count; i++) {
-		if (sound_phys[i])
-			Mix_FreeChunk(sound_phys[i]);
-		if (sound_ment[i])
-			Mix_FreeChunk(sound_ment[i]);
-		if (sound_hit[i])
-			Mix_FreeChunk(sound_hit[i]);
-		if (sound_die[i])
-			Mix_FreeChunk(sound_die[i]);
-		if (sound_critdie[i])
-			Mix_FreeChunk(sound_critdie[i]);
+		Mix_FreeChunk(sound_phys[i]);
+		Mix_FreeChunk(sound_ment[i]);
+		Mix_FreeChunk(sound_hit[i]);
+		Mix_FreeChunk(sound_die[i]);
+		Mix_FreeChunk(sound_critdie[i]);
 	}
 }

@@ -33,6 +33,13 @@ extern std::string PATH_DATA; // common game data
 extern std::string FILE_SETTINGS;     // Name of the settings file (e.g. "settings.txt").
 extern std::string FILE_KEYBINDINGS;  // Name of the key bindings file (e.g. "keybindings.txt").
 
+// Main Menu frame size
+extern int FRAME_W;
+extern int FRAME_H;
+
+extern int ICON_SIZE_SMALL;
+extern int ICON_SIZE_LARGE;
+
 // Audio and Video Settings
 extern int MUSIC_VOLUME;
 extern int SOUND_VOLUME;
@@ -42,6 +49,8 @@ extern int VIEW_W;
 extern int VIEW_H;
 extern int VIEW_W_HALF;
 extern int VIEW_H_HALF;
+extern int MIN_VIEW_W;
+extern int MIN_VIEW_H;
 extern bool DOUBLEBUF;
 extern bool HWSURFACE;
 extern float GAMMA;
@@ -58,6 +67,9 @@ extern bool COMBAT_TEXT;
 
 // Engine Settings
 extern bool MENUS_PAUSE;
+extern std::string DEFAULT_NAME;
+extern bool SAVE_HPMP;
+extern bool ENABLE_PLAYGAME;
 
 // Tile Settings
 extern int UNITS_PER_TILE;
@@ -82,6 +94,7 @@ extern bool AUTOPICKUP_GOLD;
 void setPaths();
 void loadTilesetSettings();
 void loadAutoPickupSettings();
+void loadMiscSettings();
 bool loadSettings();
 bool saveSettings();
 bool loadDefaults();

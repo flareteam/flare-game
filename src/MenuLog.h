@@ -25,9 +25,16 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <SDL.h>
 #include <SDL_image.h>
 
+#include "Utils.h"
+#include "WidgetLabel.h"
+
 #include <string>
+#include <vector>
+
+#include "Utils.h"
 
 class WidgetButton;
+class WidgetScrollBox;
 class WidgetTabControl;
 
 const int MAX_LOG_MESSAGES = 32;
@@ -42,16 +49,23 @@ private:
 
 	SDL_Surface *background;
 	WidgetButton *closeButton;
-  WidgetTabControl *tabControl;
+	WidgetTabControl *tabControl;
 	
 	void loadGraphics();
 	
-	std::string log_msg[LOG_TYPE_COUNT][MAX_LOG_MESSAGES];
-	SDL_Surface *msg_buffer[LOG_TYPE_COUNT][MAX_LOG_MESSAGES];
+	std::vector<std::string> log_msg[LOG_TYPE_COUNT];
+	WidgetScrollBox *msg_buffer[LOG_TYPE_COUNT];
 	int log_count[LOG_TYPE_COUNT];
 	std::string tab_labels[LOG_TYPE_COUNT];
 	SDL_Rect tab_rect[LOG_TYPE_COUNT];
 	int paragraph_spacing;
+
+	LabelInfo title;
+	Point close_pos;
+	SDL_Rect tab_area;
+	int tab_content_y;
+	int tab_content_indent;
+	SDL_Color tab_bg;
 	
 public:
 	MenuLog();
@@ -61,6 +75,7 @@ public:
 	void logic();
 	void tabsLogic();
 	void render();
+	void refresh(int log_type);
 	void add(const std::string& s, int log_type);
 	void remove(int msg_index, int log_type);
 	void clear(int log_type);

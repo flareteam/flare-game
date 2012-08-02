@@ -46,6 +46,7 @@ public:
 	void rewardItem(ItemStack istack);
 	void rewardCurrency(int amount);
 	void rewardXP(int amount);
+	void restoreHPMP(std::string s);
 	void addMsg(const std::string& msg);
 
 	std::vector<std::string> status;
@@ -56,7 +57,7 @@ public:
 	ItemManager *items;
 	MenuItemStorage *carried_items;
 	int *currency;
-	int *xp;
+	StatBlock * hero;
 
 	bool quest_update;
 };

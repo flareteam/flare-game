@@ -110,6 +110,7 @@ Set (FLARE_SOURCES
 	./src/MenuManager.cpp
 	./src/MenuMiniMap.cpp
 	./src/MenuPowers.cpp
+	./src/MenuStash.cpp
 	./src/MenuStatBar.cpp
 	./src/MenuTalker.cpp
 	./src/MenuVendor.cpp

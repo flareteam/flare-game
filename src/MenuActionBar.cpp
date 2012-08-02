@@ -45,8 +45,8 @@ MenuActionBar::MenuActionBar(PowerManager *_powers, StatBlock *_hero, SDL_Surfac
 
 	src.x = 0;
 	src.y = 0;
-	src.w = 32;
-	src.h = 32;
+	src.w = ICON_SIZE_SMALL;
+	src.h = ICON_SIZE_SMALL;
 	drag_prev_slot = -1;
 	default_M1 = -1;
 
@@ -200,6 +200,7 @@ void MenuActionBar::clear() {
 		actionbar[i] = -1;
 		slot_item_count[i] = -1;
 		slot_enabled[i] = true;
+		locked[i] = false;
 	}
 
     // clear menu notifications
@@ -242,7 +243,7 @@ void MenuActionBar::loadGraphics() {
 }
 
 /**
- * generic render 32-pixel icon
+ * generic render small icon
  */
 void MenuActionBar::renderIcon(int icon_id, int x, int y) {
 	SDL_Rect icon_src;
@@ -250,9 +251,9 @@ void MenuActionBar::renderIcon(int icon_id, int x, int y) {
 
 	icon_dest.x = x;
 	icon_dest.y = y;
-	icon_src.w = icon_src.h = icon_dest.w = icon_dest.h = 32;
-	icon_src.x = (icon_id % 16) * 32;
-	icon_src.y = (icon_id / 16) * 32;
+	icon_src.w = icon_src.h = icon_dest.w = icon_dest.h = ICON_SIZE_SMALL;
+	icon_src.x = (icon_id % 16) * ICON_SIZE_SMALL;
+	icon_src.y = (icon_id / 16) * ICON_SIZE_SMALL;
 	SDL_BlitSurface(icons, &icon_src, screen, &icon_dest);
 }
 
@@ -261,9 +262,9 @@ void MenuActionBar::renderAttention(int menu_id) {
 	SDL_Rect dest;
 
     // x-value is 12 hotkeys and 4 empty slots over
-	dest.x = window_area.x + (menu_id * 32) + 32*15;
+	dest.x = window_area.x + (menu_id * ICON_SIZE_SMALL) + ICON_SIZE_SMALL*15;
 	dest.y = window_area.y+3;
-    dest.w = dest.h = 32;
+    dest.w = dest.h = ICON_SIZE_SMALL;
 	SDL_BlitSurface(attention, NULL, screen, &dest);
 }
 
@@ -290,14 +291,14 @@ void MenuActionBar::render() {
 
 	// draw hotkeyed icons
 	src.x = src.y = 0;
-	src.w = src.h = dest.w = dest.h = 32;
+	src.w = src.h = dest.w = dest.h = ICON_SIZE_SMALL;
 	dest.y = window_area.y+3;
 	for (int i=0; i<12; i++) {
 
 		if (i<=9)
-			dest.x = window_area.x + (i * 32) + 32;
+			dest.x = window_area.x + (i * ICON_SIZE_SMALL) + ICON_SIZE_SMALL;
 		else
-			dest.x = window_area.x + (i * 32) + 64;
+			dest.x = window_area.x + (i * ICON_SIZE_SMALL) + ICON_SIZE_SMALL * 2;
 
 		if (hotkeys[i] != -1) {
 			const Power &power = powers->getPower(hotkeys[i]);
@@ -344,12 +345,12 @@ void MenuActionBar::renderCooldowns() {
 
 			item_src.x = 0;
 			item_src.y = 0;
-			item_src.h = 32;
-			item_src.w = 32;
+			item_src.h = ICON_SIZE_SMALL;
+			item_src.w = ICON_SIZE_SMALL;
 
 			// Wipe from bottom to top
 			if (hero->hero_cooldown[hotkeys[i]]) {
-				item_src.h = 32 * (hero->hero_cooldown[hotkeys[i]] / (float)powers->powers[hotkeys[i]].cooldown);
+				item_src.h = ICON_SIZE_SMALL * (hero->hero_cooldown[hotkeys[i]] / (float)powers->powers[hotkeys[i]].cooldown);
 			}
 
 			// SDL_BlitSurface will write to these Rects, so make a copy
@@ -421,6 +422,7 @@ TooltipData MenuActionBar::checkTooltip(Point mouse) {
 void MenuActionBar::drop(Point mouse, int power_index, bool rearranging) {
 	for (int i=0; i<12; i++) {
 		if (isWithin(slots[i], mouse)) {
+			if (locked[i] && hotkeys[i] != -1) return;
 			if (rearranging) {
 				hotkeys[drag_prev_slot] = hotkeys[i];
 			}
@@ -436,6 +438,7 @@ void MenuActionBar::drop(Point mouse, int power_index, bool rearranging) {
 void MenuActionBar::remove(Point mouse) {
 	for (int i=0; i<12; i++) {
 		if (isWithin(slots[i], mouse)) {
+			if (locked[i]) return;
 			hotkeys[i] = -1;
 			return;
 		}
@@ -485,6 +488,7 @@ int MenuActionBar::checkDrag(Point mouse) {
 
 	for (int i=0; i<12; i++) {
 		if (isWithin(slots[i], mouse)) {
+			if (locked[i]) return -1;
 			drag_prev_slot = i;
 			power_index = hotkeys[i];
 			hotkeys[i] = -1;

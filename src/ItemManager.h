@@ -34,9 +34,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 class StatBlock;
 
-const int ICON_SIZE_32 = 32;
-const int ICON_SIZE_64 = 64;
-
 const int ITEM_TYPE_OTHER = -1;
 const int ITEM_TYPE_MAIN = 0;
 const int ITEM_TYPE_BODY = 1;
@@ -78,8 +75,8 @@ public:
 	int level;            // rough estimate of quality, used in the loot algorithm
 	int quality;          // low, normal, high, epic; corresponds to item name color
 	int type;             // equipment slot or base item type
-	int icon32;           // icon index on the 32x32 pixel sheet
-	int icon64;           // icon index on the 64x64 pixel sheet (used for equippable items)
+	int icon_small;       // icon index on small pixel sheet
+	int icon_large;       // icon index on large pixel sheet (used for equippable items)
 	int dmg_min;          // minimum damage amount (weapons only)
 	int dmg_max;          // maximum damage amount (weapons only)
 	int abs_min;          // minimum absorb amount (armors and shields only)
@@ -90,7 +87,7 @@ public:
 	int bonus_val[ITEM_MAX_BONUSES];       // amount to increase (used with bonus_stat)
 	int sfx;              // the item sound when it hits the floor or inventory, etc
 	std::string gfx;           // the sprite layer shown when this item is equipped
-	std::string loot;          // the flying loot animation for this item
+	std::string loot_animation;// the flying loot animation for this item
 	int power;            // this item can be dragged to the action bar and used as a power
 	int power_mod;        // alter powers when this item is equipped (e.g. shoot arrows from bows)
 	std::string power_desc;    // shows up in green text on the tooltip
@@ -106,8 +103,8 @@ public:
 		name = "";
 		level = 0;
 		quality = ITEM_QUALITY_NORMAL;
-		icon32 = 0;
-		icon64 = 0;
+		icon_small = 0;
+		icon_large = 0;
 		type = -1;
 		dmg_min = 0;
 		dmg_max = 0;
@@ -117,7 +114,7 @@ public:
 		req_val = 0;
 		sfx = SFX_NONE;
 		gfx = "";
-		loot = "";
+		loot_animation = "";
 		power = -1;
 		power_mod = -1;
 		power_desc = "";
@@ -148,8 +145,8 @@ public:
 
 class ItemManager {
 private:
-	SDL_Surface *icons32;
-	SDL_Surface *icons64; // item db is the only module that currently uses the 64px icons
+	SDL_Surface *icons_small;
+	SDL_Surface *icons_large; // item db is the only module that currently uses the 64px icons
 	SDL_Rect src;
 	SDL_Rect dest;
 	Mix_Chunk *sfx[12];
@@ -169,6 +166,11 @@ public:
 	TooltipData getShortTooltip(ItemStack item);
 
 	std::vector<Item> items;
+
+	std::vector<std::string> item_class_names; // a vector of all defined classes of items
+	// belongs to the item_class_names vector and contains a vector of item ids which belong to that specific class.
+	std::vector<std::vector<unsigned int> > item_class_items;
+
 	int vendor_ratio;
 };
 

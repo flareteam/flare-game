@@ -24,19 +24,19 @@ using namespace std;
 
 
 WidgetInput::WidgetInput() {
-	
+
 	enabled = true;
 	inFocus = false;
 	pressed = false;
 	hover = false;
 	max_characters = 20;
-	
+
 	loadGraphics(mods->locate("images/menus/input.png"));
 
 	// position
 	pos.w = background->w;
 	pos.h = background->h/2;
-	
+
 	cursor_frame = 0;
 
 	render_to_alpha = false;
@@ -51,7 +51,7 @@ void WidgetInput::loadGraphics(const string& filename) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 		SDL_Quit();
 	}
-	
+
 	// optimize
 	SDL_Surface *cleanup = background;
 	background = SDL_DisplayFormatAlpha(background);
@@ -94,7 +94,7 @@ bool WidgetInput::logic(int x, int y) {
 				text = text.substr(0, max_characters);
 			}
 		}
-			
+
 		// handle backspaces
 		if (!inpt->lock[DEL] && inpt->pressing[DEL]) {
 			inpt->lock[DEL] = true;
@@ -108,7 +108,7 @@ bool WidgetInput::logic(int x, int y) {
 		// cursor visible one second, invisible the next
 		cursor_frame++;
 		if (cursor_frame == FRAMES_PER_SEC+FRAMES_PER_SEC) cursor_frame = 0;
-		
+
 	}
 	return true;
 }
@@ -152,7 +152,7 @@ void WidgetInput::render(SDL_Surface *target) {
 void WidgetInput::setPosition(int x, int y) {
 	pos.x = x;
 	pos.y = y;
-	
+
 	font_pos.x = pos.x  + (font->getFontHeight()/2);
 	font_pos.y = pos.y + (pos.h/2) - (font->getFontHeight()/2);
 }
@@ -168,25 +168,29 @@ bool WidgetInput::checkClick() {
 	// main click released, so the button state goes back to unpressed
 	if (pressed && !inpt->lock[MAIN1]) {
 		pressed = false;
-		
+
 		if (isWithin(pos, inpt->mouse)) {
-		
+
 			// activate upon release
 			return true;
 		}
 	}
 
 	pressed = false;
-	
+
 	// detect new click
 	if (inpt->pressing[MAIN1]) {
 		if (isWithin(pos, inpt->mouse)) {
-		
+
 			inpt->lock[MAIN1] = true;
 			pressed = true;
 
 		}
 	}
 	return false;
+}
+
+WidgetInput::~WidgetInput() {
+	SDL_FreeSurface(background);
 }
 

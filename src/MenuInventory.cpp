@@ -19,12 +19,14 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * class MenuInventory
  */
 
+#include "FileParser.h"
 #include "Menu.h"
 #include "MenuInventory.h"
 #include "PowerManager.h"
 #include "SharedResources.h"
 #include "Settings.h"
 #include "StatBlock.h"
+#include "UtilsParsing.h"
 #include "WidgetButton.h"
 
 #include <sstream>
@@ -36,7 +38,7 @@ MenuInventory::MenuInventory(ItemManager *_items, StatBlock *_stats, PowerManage
 	items = _items;
 	stats = _stats;
 	powers = _powers;
-
+	MAX_CARRIED = 64;
 	visible = false;
 	loadGraphics();
 
@@ -48,6 +50,51 @@ MenuInventory::MenuInventory(ItemManager *_items, StatBlock *_stats, PowerManage
 	log_msg = "";
 
 	closeButton = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
+
+	// Load config settings
+	FileParser infile;
+	if(infile.open(mods->locate("menus/inventory.txt"))) {
+		while(infile.next()) {
+			infile.val = infile.val + ',';
+
+			if(infile.key == "close") {
+				close_pos.x = eatFirstInt(infile.val,',');
+				close_pos.y = eatFirstInt(infile.val,',');
+			} else if(infile.key == "equipped_area") {
+				equipped_area.x = eatFirstInt(infile.val,',');
+				equipped_area.y = eatFirstInt(infile.val,',');
+				equipped_area.w = eatFirstInt(infile.val,',');
+				equipped_area.h = eatFirstInt(infile.val,',');
+			} else if(infile.key == "carried_area") {
+				carried_area.x = eatFirstInt(infile.val,',');
+				carried_area.y = eatFirstInt(infile.val,',');
+			} else if (infile.key == "carried_cols"){
+				carried_cols = eatFirstInt(infile.val,',');
+			} else if (infile.key == "carried_rows"){
+				carried_rows = eatFirstInt(infile.val,',');
+			} else if (infile.key == "title"){
+				title =  eatLabelInfo(infile.val);
+			} else if (infile.key == "main_hand_label"){
+				main_lbl =  eatLabelInfo(infile.val);
+			} else if (infile.key == "body_label"){
+				body_lbl =  eatLabelInfo(infile.val);
+			} else if (infile.key == "off_hand_label"){
+				off_lbl =  eatLabelInfo(infile.val);
+			} else if (infile.key == "artifact_label"){
+				artifact_lbl =  eatLabelInfo(infile.val);
+			} else if (infile.key == "gold"){
+				gold_lbl =  eatLabelInfo(infile.val);
+			} else if (infile.key == "help"){
+				help_pos.x = eatFirstInt(infile.val,',');
+				help_pos.y = eatFirstInt(infile.val,',');
+				help_pos.w = eatFirstInt(infile.val,',');
+				help_pos.h = eatFirstInt(infile.val,',');
+			}
+		}
+		infile.close();
+	} else fprintf(stderr, "Unable to open inventory.txt!\n");
+
+	MAX_CARRIED = carried_cols * carried_rows;
 }
 
 void MenuInventory::loadGraphics() {
@@ -65,21 +112,19 @@ void MenuInventory::loadGraphics() {
 }
 
 void MenuInventory::update() {
-	equipped_area.x = window_area.x + 32;
-	equipped_area.y = window_area.y + 48;
-	equipped_area.w = 256;
-	equipped_area.h = 64;
+	equipped_area.x += window_area.x;
+	equipped_area.y += window_area.y;
 
-	carried_area.x = window_area.x + 32;
-	carried_area.y = window_area.y + 128;
-	carried_area.w = 256;
-	carried_area.h = 256;
+	carried_area.x += window_area.x;
+	carried_area.y += window_area.y;
+	carried_area.w = carried_cols*ICON_SIZE_SMALL;
+	carried_area.h = carried_rows*ICON_SIZE_SMALL;
 
-	inventory[EQUIPMENT].init(MAX_EQUIPPED, items, equipped_area, ICON_SIZE_64, 4);
-	inventory[CARRIED].init(MAX_CARRIED, items, carried_area, ICON_SIZE_32, 8);
+	inventory[EQUIPMENT].init(MAX_EQUIPPED, items, equipped_area, ICON_SIZE_LARGE, 4);
+	inventory[CARRIED].init(MAX_CARRIED, items, carried_area, ICON_SIZE_SMALL, carried_cols);
 
-	closeButton->pos.x = window_area.x+294;
-	closeButton->pos.y = window_area.y+2;
+	closeButton->pos.x = window_area.x+close_pos.x;
+	closeButton->pos.y = window_area.y+close_pos.y;
 }
 
 void MenuInventory::logic() {
@@ -119,18 +164,30 @@ void MenuInventory::render() {
 
 	// text overlay
 	WidgetLabel label;
-	label.set(window_area.x+160, window_area.y+8, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Inventory"), FONT_WHITE);
-	label.render();
-	label.set(window_area.x+64, window_area.y+34, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Main Hand"), FONT_WHITE);
-	label.render();
-	label.set(window_area.x+128, window_area.y+34, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Body"), FONT_WHITE);
-	label.render();
-	label.set(window_area.x+192, window_area.y+34, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Off Hand"), FONT_WHITE);
-	label.render();
-	label.set(window_area.x+256, window_area.y+34, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Artifact"), FONT_WHITE);
-	label.render();
-	label.set(window_area.x+288, window_area.y+114, JUSTIFY_RIGHT, VALIGN_TOP, msg->get("%d Gold", gold), FONT_WHITE);
-	label.render();
+	if (!title.hidden) {
+		label.set(window_area.x+title.x, window_area.y+title.y, title.justify, title.valign, msg->get("Inventory"), FONT_WHITE);
+		label.render();
+	}
+	if (!main_lbl.hidden) {
+		label.set(window_area.x+main_lbl.x, window_area.y+main_lbl.y, main_lbl.justify, main_lbl.valign, msg->get("Main Hand"), FONT_WHITE);
+		label.render();
+	}
+	if (!body_lbl.hidden) {
+		label.set(window_area.x+body_lbl.x, window_area.y+body_lbl.y, body_lbl.justify, body_lbl.valign, msg->get("Body"), FONT_WHITE);
+		label.render();
+	}
+	if (!off_lbl.hidden) {
+		label.set(window_area.x+off_lbl.x, window_area.y+off_lbl.y, off_lbl.justify, off_lbl.valign, msg->get("Off Hand"), FONT_WHITE);
+		label.render();
+	}
+	if (!artifact_lbl.hidden) {
+		label.set(window_area.x+artifact_lbl.x, window_area.y+artifact_lbl.y, artifact_lbl.justify, artifact_lbl.valign, msg->get("Artifact"), FONT_WHITE);
+		label.render();
+	}
+	if (!gold_lbl.hidden) {
+		label.set(window_area.x+gold_lbl.x, window_area.y+gold_lbl.y, gold_lbl.justify, gold_lbl.valign, msg->get("%d Gold", gold), FONT_WHITE);
+		label.render();
+	}
 
 	inventory[EQUIPMENT].render();
 	inventory[CARRIED].render();
@@ -159,7 +216,7 @@ TooltipData MenuInventory::checkTooltip(Point mouse) {
 	if( area > -1) {
 		tip = inventory[area].checkTooltip( mouse, stats, false);
 	}
-	else if (mouse.x >= window_area.x + 2 && mouse.y >= window_area.y+2 && mouse.x < window_area.x+26 && mouse.y < window_area.y+26) {
+	else if (mouse.x >= window_area.x + help_pos.x && mouse.y >= window_area.y+help_pos.y && mouse.x < window_area.x+help_pos.x+help_pos.w && mouse.y < window_area.y+help_pos.y+help_pos.h) {
 		tip.lines[tip.num_lines++] = msg->get("Use SHIFT to move only one item.");
 		tip.lines[tip.num_lines++] = msg->get("CTRL-click a carried item to sell it.");
 	}
@@ -264,7 +321,7 @@ void MenuInventory::drop(Point mouse, ItemStack stack) {
 			}
 		}
 		else {
-		    // note: equipment slots 0-3 correspond with item types 0-3
+			// note: equipment slots 0-3 correspond with item types 0-3
 			// also check to see if the hero meets the requirements
 			if (inventory[area][slot].item == stack.item) {
 				// Merge the stacks
@@ -477,6 +534,35 @@ bool MenuInventory::buy(ItemStack stack, Point mouse) {
 }
 
 /**
+ * Similar to buy(), but for use with stash
+ */
+bool MenuInventory::stashRemove(ItemStack stack, Point mouse) {
+	int area;
+	int slot = -1;
+
+	area = areaOver( mouse);
+	if( area > -1) {
+		slot = inventory[area].slotOver( mouse);
+	}
+	if( slot > -1) {
+		add( stack, area, slot);
+	}
+	else {
+		add(stack);
+	}
+	return true;
+}
+
+/**
+ * Similar to sell(), but for use with stash
+ */
+bool MenuInventory::stashAdd(ItemStack stack) {
+	// items that have no price cannot be stored
+	if (items->items[stack.item].price == 0) return false;
+
+	return true;
+}
+/**
  * Sell a specific stack of items
  */
 bool MenuInventory::sell(ItemStack stack) {
@@ -499,8 +585,8 @@ bool MenuInventory::sell(ItemStack stack) {
  * Cannot pick up new items if the inventory is full.
  * Full means no more carrying capacity (equipped capacity is ignored)
  */
-bool MenuInventory::full() {
-	return inventory[CARRIED].full();
+bool MenuInventory::full(int item) {
+	return inventory[CARRIED].full(item);
 }
 
 /**

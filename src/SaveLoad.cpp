@@ -34,6 +34,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "MenuInventory.h"
 #include "MenuManager.h"
 #include "MenuPowers.h"
+#include "MenuStash.h"
 #include "MenuTalker.h"
 #include "Settings.h"
 #include "UtilsFileSystem.h"
@@ -73,6 +74,9 @@ void GameStatePlay::saveGame() {
 
 		// current experience
 		outfile << "xp=" << pc->stats.xp << "\n";
+
+		// hp and mp
+		if (SAVE_HPMP) outfile << "hpmp=" << pc->stats.hp << "," << pc->stats.mp << "\n";
 
 		// stat spec
 		outfile << "build=" << pc->stats.physical_character << "," << pc->stats.mental_character << "," << pc->stats.offense_character << "," << pc->stats.defense_character << "\n";
@@ -120,12 +124,29 @@ void GameStatePlay::saveGame() {
 
 		outfile.close();
 	}
+
+	// Save stash
+	ss.str("");
+	ss << PATH_USER << "stash.txt";
+
+	outfile.open(ss.str().c_str(), ios::out);
+
+	if (outfile.is_open()) {
+		outfile << "item=" << menu->stash->stock.getItems() << "\n";
+		outfile << "quantity=" << menu->stash->stock.getQuantities() << "\n";
+
+		outfile << endl;
+
+		outfile.close();
+	}
 }
 
 /**
  * When loading the game, load from file if possible
  */
 void GameStatePlay::loadGame() {
+	int saved_hp = 0;
+	int saved_mp = 0;
 
 	// game slots are currently 1-4
 	if (game_slot == 0) return;
@@ -145,7 +166,7 @@ void GameStatePlay::loadGame() {
 		while (infile.next()) {
 			if (infile.key == "name") pc->stats.name = infile.val;
 			else if (infile.key == "permadeath") {
-			    pc->stats.permadeath = atoi(infile.val.c_str());
+				pc->stats.permadeath = atoi(infile.val.c_str());
 			}
 			else if (infile.key == "option") {
 				pc->stats.base = infile.nextValue();
@@ -153,6 +174,10 @@ void GameStatePlay::loadGame() {
 				pc->stats.portrait = infile.nextValue();
 			}
 			else if (infile.key == "xp") pc->stats.xp = atoi(infile.val.c_str());
+			else if (infile.key == "hpmp") {
+				saved_hp = atoi(infile.nextValue().c_str());
+				saved_mp = atoi(infile.nextValue().c_str());
+			}
 			else if (infile.key == "build") {
 				pc->stats.physical_character = atoi(infile.nextValue().c_str());
 				pc->stats.mental_character = atoi(infile.nextValue().c_str());
@@ -214,11 +239,32 @@ void GameStatePlay::loadGame() {
 		infile.close();
 	}
 
+	// Load stash
+	ss.str("");
+	ss << PATH_USER << "stash.txt";
+
+	if (infile.open(ss.str())) {
+		while (infile.next()) {
+			if (infile.key == "item") {
+				menu->stash->stock.setItems(infile.val);
+			}
+			else if (infile.key == "quantity") {
+				menu->stash->stock.setQuantities(infile.val);
+			}
+		}
+		infile.close();
+	}
+
 	// initialize vars
 	pc->stats.recalc();
 	menu->inv->applyEquipment(menu->inv->inventory[EQUIPMENT].storage);
-	pc->stats.hp = pc->stats.maxhp;
-	pc->stats.mp = pc->stats.maxmp;
+	if (SAVE_HPMP) {
+		pc->stats.hp = saved_hp;
+		pc->stats.mp = saved_mp;
+	} else {
+		pc->stats.hp = pc->stats.maxhp;
+		pc->stats.mp = pc->stats.maxmp;
+	}
 
 	// reset character menu
 	menu->chr->refreshStats();
@@ -234,3 +280,25 @@ void GameStatePlay::loadGame() {
 
 }
 
+/*
+ * This is used to load the stash when starting a new game
+ */
+void GameStatePlay::loadStash() {
+	// Load stash
+	FileParser infile;
+	stringstream ss;
+	ss.str("");
+	ss << PATH_USER << "stash.txt";
+
+	if (infile.open(ss.str())) {
+		while (infile.next()) {
+			if (infile.key == "item") {
+				menu->stash->stock.setItems(infile.val);
+			}
+			else if (infile.key == "quantity") {
+				menu->stash->stock.setQuantities(infile.val);
+			}
+		}
+		infile.close();
+	}
+}

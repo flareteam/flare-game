@@ -182,6 +182,9 @@ public:
 	int stun_duration_total;
 	int immobilize_duration;
 	int immobilize_duration_total;
+
+	void clearNegativeEffects();
+
 	int immunity_duration;
 	int immunity_duration_total;
 	int transform_duration;
@@ -198,9 +201,13 @@ public:
 	int shield_hp; // shield
 	int shield_hp_total;
 	int shield_frame;
+	SDL_Rect frame_size_sh;
+	Point frame_offset_sh;
 	bool blocking;
 	int vengeance_stacks;
 	int vengeance_frame;
+	SDL_Rect frame_size_veg;
+	Point frame_offset_veg;
 
 	int speed;
 	int dspeed;
@@ -242,9 +249,10 @@ public:
 	int activated_powerslot;
 
 	int loot_chance;
-	std::vector<std::string> loot_types; // which kind of loot is able to be dropped.
-	std::vector<int> loot_prob;     // weights for each kind of drop.
-	int loot_prob_sum;              // sum of all loot_prob entries.
+	std::vector<std::string> item_classes; // which kind of loot is able to be dropped
+	// the strings given in item_class correspond to the item class
+	std::vector<int> item_class_prob;      // weights for each kind of drop.
+	int item_class_prob_sum;               // sum of all loot_prob entries.
 
 	// for the teleport spell
 	bool teleportation;

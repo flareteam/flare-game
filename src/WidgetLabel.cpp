@@ -24,8 +24,38 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "WidgetLabel.h"
 #include "SharedResources.h"
 #include "SDL_gfxBlitFunc.h"
+#include "UtilsParsing.h"
 
 using namespace std;
+
+/**
+ * This is used in menus (e.g. MenuInventory) when parsing their config files
+ */
+LabelInfo eatLabelInfo(string val) {
+	LabelInfo info;
+	string justify,valign;
+
+	std::string tmp = eatFirstString(val,',');
+	if (tmp == "hidden") {
+		info.hidden = true;
+	} else {
+		info.hidden = false;
+		info.x = atoi(tmp.c_str());
+		info.y = eatFirstInt(val,',');
+		justify = eatFirstString(val,',');
+		valign = eatFirstString(val,',');
+
+		if (justify == "left") info.justify = JUSTIFY_LEFT;
+		else if (justify == "center") info.justify = JUSTIFY_CENTER;
+		else if (justify == "right") info.justify = JUSTIFY_RIGHT;
+
+		if (valign == "top") info.valign = VALIGN_TOP;
+		else if (valign == "center") info.valign = VALIGN_CENTER;
+		else if (valign == "bottom") info.valign = VALIGN_BOTTOM;
+	}
+
+	return info;
+}
 
 
 WidgetLabel::WidgetLabel() {

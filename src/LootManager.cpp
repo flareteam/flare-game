@@ -22,10 +22,15 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "EnemyManager.h"
+#include "FileParser.h"
 #include "LootManager.h"
+#include "Menu.h"
+#include "MenuInventory.h"
 #include "SharedResources.h"
+#include "UtilsParsing.h"
 
 #include <sstream>
+#include <iostream>
 
 using namespace std;
 
@@ -41,7 +46,29 @@ LootManager::LootManager(ItemManager *_items, MapRenderer *_map, StatBlock *_her
 
 	tip = new WidgetTooltip();
 
-	tooltip_margin = 32; // pixels between loot drop center and label
+	FileParser infile;
+	// load loot animation settings from engine config file
+	if (infile.open(mods->locate("engine/loot.txt").c_str())) {
+		while (infile.next()) {
+			infile.val = infile.val + ',';
+
+			if (infile.key == "loot_animation") {
+				animation_pos.x = eatFirstInt(infile.val, ',');
+				animation_pos.y = eatFirstInt(infile.val, ',');
+				animation_pos.w = eatFirstInt(infile.val, ',');
+				animation_pos.h = eatFirstInt(infile.val, ',');
+			} else if (infile.key == "loot_animation_offset") {
+				animation_offset.x = eatFirstInt(infile.val, ',');
+				animation_offset.y = eatFirstInt(infile.val, ',');
+			} else if (infile.key == "tooltip_margin") {
+				tooltip_margin = eatFirstInt(infile.val, ',');
+			}
+		}
+		infile.close();
+	}
+	else {
+		fprintf(stderr, "Could not open loot.txt config file!\n");
+	}
 
 	animation_count = 0;
 
@@ -90,7 +117,7 @@ void LootManager::loadGraphics() {
 
 	// check all items in the item database
 	for (unsigned int i=0; i < items->items.size(); i++) {
-		anim_id = items->items[i].loot;
+		anim_id = items->items[i].loot_animation;
 
 		new_anim = true;
 
@@ -274,10 +301,10 @@ void LootManager::checkEnemiesForLoot() {
 				pos = e->stats.pos;
 
 			// if no probability density function  is given, do a random loot
-			if (e->stats.loot_types.empty())
+			if (e->stats.item_classes.empty())
 				determineLoot(e->stats.level, pos);
 			else
-				determineLootWithProbability(e, pos);
+				determineLootByClass(e, pos);
 		}
 	}
 	enemiesDroppingLoot.clear();
@@ -366,40 +393,42 @@ void LootManager::determineLoot(int base_level, Point pos) {
 	}
 }
 
-void LootManager::determineLootWithProbability(const Enemy *e, Point pos) {
+void LootManager::determineLootByClass(const Enemy *e, Point pos) {
 	// quality level of loot
 	int level = lootLevel(e->stats.level);
 	if (level <= 0)
 		return;
 
 	// roll a dice to select the type
-	int typeSelector = rand() % e->stats.loot_prob_sum;
+	int typeSelector = rand() % e->stats.item_class_prob_sum;
 	int typeSelectorIndex = 0;
 
 	// look up type hit by dice with correct probabilities
-	while (typeSelector >= e->stats.loot_prob[typeSelectorIndex]) {
-		typeSelector -= e->stats.loot_prob[typeSelectorIndex];
+	while (typeSelector >= e->stats.item_class_prob[typeSelectorIndex]) {
+		typeSelector -= e->stats.item_class_prob[typeSelectorIndex];
 		typeSelectorIndex++;
 	}
-	string loot_type = e->stats.loot_types[typeSelectorIndex];
+	string item_class = e->stats.item_classes[typeSelectorIndex];
 
-	if (loot_type == "gold")
+	if (item_class == "gold")
 		addGold(rand() % (level * 2) + level, pos);
 	else {
-		// look up all items of the determined type
-		vector<int> possible_loots;
-		for (int i = 0; i < loot_table_count[level]; i++) {
-			const int itemIndex = loot_table[level][i];
-			if (items->items[itemIndex].loot == loot_type)
-				possible_loots.push_back(itemIndex);
+		// search for the itemclass
+		unsigned int index;
+		for (index = 0; index < items->item_class_names.size(); index++) {
+			if (items->item_class_names[index] == item_class)
+				break;
+		}
+		if (index == items->item_class_names.size()) {
+			// item class name not found:
+			cout << "item class " << item_class << " has no items." << endl;
+			return;
 		}
 
-		// if there are items matching the seleected type,
-		// add a random item of that type.
-		if (level > 0 && possible_loots.size() > 0) {
-			int roll = rand() % possible_loots.size();
+		if (level > 0 && items->item_class_items[index].size() > 0) {
+			int roll = rand() % items->item_class_items[index].size();
 			ItemStack new_loot;
-			new_loot.item = possible_loots[roll];
+			new_loot.item = items->item_class_items[index][roll];
 			new_loot.quantity = rand() % items->items[new_loot.item].rand_loot + 1;
 			addLoot(new_loot, pos);
 		}
@@ -412,7 +441,7 @@ void LootManager::determineLootWithProbability(const Enemy *e, Point pos) {
  */
 int LootManager::randomItem(int base_level) {
 	int level = lootLevel(base_level);
-	if (level > 0 && loot_table_count[level] > 0) {
+	if (level > 0 && loot_table_count[level] > 0 && loot_table_count[level] < 1024) {
 		int roll = rand() % loot_table_count[level];
 		return loot_table[level][roll];
 	}
@@ -448,7 +477,7 @@ void LootManager::addGold(int count, Point pos) {
  * screen coordinates to map locations.  We need the hero position because
  * the hero has to be within range to pick up an item.
  */
-ItemStack LootManager::checkPickup(Point mouse, Point cam, Point hero_pos, int &gold, bool inv_full) {
+ItemStack LootManager::checkPickup(Point mouse, Point cam, Point hero_pos, int &gold, MenuInventory *inv) {
 	Point p;
 	SDL_Rect r;
 	ItemStack loot_stack;
@@ -477,7 +506,7 @@ ItemStack LootManager::checkPickup(Point mouse, Point cam, Point hero_pos, int &
 			if (mouse.x > r.x && mouse.x < r.x+r.w &&
 				mouse.y > r.y && mouse.y < r.y+r.h) {
 
-				if (it->stack.item > 0 && !inv_full) {
+				if (it->stack.item > 0 && !(inv->full(it->stack.item))) {
 					loot_stack = it->stack;
 					loot.erase(it);
 					return loot_stack;
@@ -501,7 +530,7 @@ ItemStack LootManager::checkPickup(Point mouse, Point cam, Point hero_pos, int &
  * Autopickup loot if enabled in the engine
  * Currently, only gold is checked for autopickup
  */
-ItemStack LootManager::checkAutoPickup(Point cam, Point hero_pos, int &gold, bool inv_full) {
+ItemStack LootManager::checkAutoPickup(Point cam, Point hero_pos, int &gold, MenuInventory *inv) {
 	ItemStack loot_stack;
 	gold = 0;
 	loot_stack.item = 0;
@@ -528,21 +557,18 @@ void LootManager::addRenders(vector<Renderable> &renderables) {
 		r.map_pos.x = it->pos.x;
 		r.map_pos.y = it->pos.y;
 
-		// Right now the animation settings (number of frames, speed, frame size)
-		// are hard coded.  At least move these to consts in the header.
-
-		r.src.x = (it->frame / anim_loot_duration) * 64;
+		r.src.x = (it->frame / anim_loot_duration) * animation_pos.w;
 		r.src.y = 0;
-		r.src.w = 64;
-		r.src.h = 128;
-		r.offset.x = 32;
-		r.offset.y = 112;
+		r.src.w = animation_pos.w;
+		r.src.h = animation_pos.h;
+		r.offset.x = animation_offset.x;
+		r.offset.y = animation_offset.y;
 		r.object_layer = true;
 
 		if (it->stack.item > 0) {
 			// item
 			for (int i=0; i<animation_count; i++) {
-				if (items->items[it->stack.item].loot == animation_id[i])
+				if (items->items[it->stack.item].loot_animation == animation_id[i])
 					r.sprite = flying_loot[i];
 			}
 		}
@@ -562,12 +588,12 @@ void LootManager::addRenders(vector<Renderable> &renderables) {
 LootManager::~LootManager() {
 
 	for (int i=0; i<64; i++)
-		if (flying_loot[i])
-			SDL_FreeSurface(flying_loot[i]);
+		SDL_FreeSurface(flying_loot[i]);
+
 	for (int i=0; i<3; i++)
-		if (flying_gold[i])
-			SDL_FreeSurface(flying_gold[i]);
-	if (loot_flip) Mix_FreeChunk(loot_flip);
+		SDL_FreeSurface(flying_gold[i]);
+
+	Mix_FreeChunk(loot_flip);
 
 	// clear loot tooltips to free buffer memory
 	loot.clear();

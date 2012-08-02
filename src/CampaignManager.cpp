@@ -23,6 +23,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "CampaignManager.h"
 #include "MenuItemStorage.h"
+#include "StatBlock.h"
 #include "SharedResources.h"
 #include "UtilsParsing.h"
 
@@ -39,7 +40,7 @@ CampaignManager::CampaignManager() {
 	items = NULL;
 	carried_items = NULL;
 	currency = NULL;
-	xp = NULL;
+	hero = NULL;
 
 	log_msg = "";
 	quest_update = true;
@@ -128,7 +129,7 @@ void CampaignManager::removeItem(int item_id) {
 
 void CampaignManager::rewardItem(ItemStack istack) {
 
-	if (carried_items->full()) {
+	if (carried_items->full(istack.item)) {
 		drop_stack.item = istack.item;
 		drop_stack.quantity = istack.quantity;
 	}
@@ -151,8 +152,34 @@ void CampaignManager::rewardCurrency(int amount) {
 }
 
 void CampaignManager::rewardXP(int amount) {
-	*xp += amount;
+	hero->xp += amount;
 	addMsg(msg->get("You receive %d XP.", amount));
+}
+
+void CampaignManager::restoreHPMP(std::string s) {
+	if (s == "hp") {
+		hero->hp = hero->maxhp;
+		addMsg(msg->get("HP restored."));
+	}
+	else if (s == "mp") {
+		hero->mp = hero->maxmp;
+		addMsg(msg->get("MP restored."));
+	}
+	else if (s == "hpmp") {
+		hero->hp = hero->maxhp;
+		hero->mp = hero->maxmp;
+		addMsg(msg->get("HP and MP restored."));
+	}
+	else if (s == "status") {
+		hero->clearNegativeEffects();
+		addMsg(msg->get("Negative effects removed."));
+	}
+	else if (s == "all") {
+		hero->hp = hero->maxhp;
+		hero->mp = hero->maxmp;
+		hero->clearNegativeEffects();
+		addMsg(msg->get("HP and MP restored, negative effects removed"));
+	}
 }
 
 void CampaignManager::addMsg(const string& new_msg) {

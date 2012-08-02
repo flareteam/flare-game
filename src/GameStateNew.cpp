@@ -30,6 +30,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "GameStatePlay.h"
 #include "Settings.h"
 #include "SharedResources.h"
+#include "UtilsParsing.h"
 #include "WidgetButton.h"
 #include "WidgetCheckBox.h"
 #include "WidgetInput.h"
@@ -59,29 +60,81 @@ GameStateNew::GameStateNew() : GameState() {
 	button_create->refresh();
 
 	button_prev = new WidgetButton(mods->locate("images/menus/buttons/left.png"));
-	button_prev->pos.x = VIEW_W_HALF - 160 - button_prev->pos.w;
-	button_prev->pos.y = VIEW_H_HALF - button_prev->pos.h;
-
 	button_next = new WidgetButton(mods->locate("images/menus/buttons/right.png"));
-	button_next->pos.x = VIEW_W_HALF + 160;
-	button_next->pos.y = VIEW_H_HALF - button_next->pos.h;
-
 	input_name = new WidgetInput();
-	input_name->setPosition(VIEW_W_HALF - input_name->pos.w/2, VIEW_H_HALF+164);
-
 	button_permadeath = new WidgetCheckBox(mods->locate(
 												"images/menus/buttons/checkbox_default.png"));
-	button_permadeath->pos.x = input_name->pos.x;
-	button_permadeath->pos.y = input_name->pos.y + input_name->pos.h + 5;
+
+	// Read positions from config file 
+	FileParser infile;
+	int counter = -1;
+	if (infile.open(mods->locate("menus/gamenew.txt"))) {
+	  while (infile.next()) {
+		infile.val = infile.val + ',';
+
+		if (infile.key == "button_prev") {
+			button_prev->pos.x = eatFirstInt(infile.val, ',');
+			button_prev->pos.y = eatFirstInt(infile.val, ',');
+		} else if (infile.key == "button_next") {
+			button_next->pos.x = eatFirstInt(infile.val, ',');
+			button_next->pos.y = eatFirstInt(infile.val, ',');
+		} else if (infile.key == "button_permadeath") {
+			button_permadeath->pos.x = eatFirstInt(infile.val, ',');
+			button_permadeath->pos.y = eatFirstInt(infile.val, ',');
+		} else if (infile.key == "name_input") {
+			name.x = eatFirstInt(infile.val, ',');
+			name.y = eatFirstInt(infile.val, ',');
+		} else if (infile.key == "portrait_label") {
+			portrait_label.x = eatFirstInt(infile.val, ',');
+			portrait_label.y = eatFirstInt(infile.val, ',');
+		} else if (infile.key == "name_label") {
+			name_label.x = eatFirstInt(infile.val, ',');
+			name_label.y = eatFirstInt(infile.val, ',');
+		} else if (infile.key == "permadeath_label") {
+			permadeath_label.x = eatFirstInt(infile.val, ',');
+			permadeath_label.y = eatFirstInt(infile.val, ',');
+		} else if (infile.key == "portrait") {
+			portrait_pos.x = eatFirstInt(infile.val, ',');
+			portrait_pos.y = eatFirstInt(infile.val, ',');
+			portrait_pos.w = eatFirstInt(infile.val, ',');
+			portrait_pos.h = eatFirstInt(infile.val, ',');
+		}
+	  }
+	  infile.close();
+	} else fprintf(stderr, "Unable to open gamenew.txt!\n");
+
+	button_prev->pos.x += (VIEW_W - FRAME_W)/2;
+	button_prev->pos.y += (VIEW_H - FRAME_H)/2;
+
+	button_next->pos.x += (VIEW_W - FRAME_W)/2;
+	button_next->pos.y += (VIEW_H - FRAME_H)/2;
+
+	name.x += (VIEW_W - FRAME_W)/2;
+	name.y += (VIEW_H - FRAME_H)/2;
+
+	input_name->setPosition(name.x, name.y);
+
+	if (DEFAULT_NAME != "") input_name->setText(DEFAULT_NAME);
+
+	button_permadeath->pos.x += (VIEW_W - FRAME_W)/2;
+	button_permadeath->pos.y += (VIEW_H - FRAME_H)/2;
+
+	portrait_label.x += (VIEW_W - FRAME_W)/2;
+	portrait_label.y += (VIEW_H - FRAME_H)/2;
+
+	name_label.x += (VIEW_W - FRAME_W)/2;
+	name_label.y += (VIEW_H - FRAME_H)/2;
+
+	permadeath_label.x += (VIEW_W - FRAME_W)/2;
+	permadeath_label.y += (VIEW_H - FRAME_H)/2;
 
 	// set up labels
 	label_portrait = new WidgetLabel();
-	label_portrait->set(VIEW_W_HALF, VIEW_H_HALF-200, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Choose a Portrait"), FONT_GREY);
+	label_portrait->set(portrait_label.x, portrait_label.y, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Choose a Portrait"), FONT_GREY);
 	label_name = new WidgetLabel();
-	label_name->set(VIEW_W_HALF, VIEW_H_HALF+148, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Choose a Name"), FONT_GREY);
+	label_name->set(name_label.x, name_label.y, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Choose a Name"), FONT_GREY);
 	label_permadeath = new WidgetLabel();
-	label_permadeath->set(button_permadeath->pos.x + button_permadeath->pos.w + 5, button_permadeath->pos.y + button_permadeath->pos.h/2,
-															JUSTIFY_LEFT, VALIGN_CENTER, msg->get("Permadeath?"), FONT_GREY);
+	label_permadeath->set(permadeath_label.x, permadeath_label.y, JUSTIFY_LEFT, VALIGN_CENTER, msg->get("Permadeath?"), FONT_GREY);
 
 	loadGraphics();
 	loadOptions("hero_options.txt");
@@ -147,7 +200,7 @@ void GameStateNew::logic() {
 	button_permadeath->checkClick();
 
 	// require character name
-	if (input_name->getText() == "") {
+	if (input_name->getText() == "" && DEFAULT_NAME == "") {
 		if (button_create->enabled) {
 			button_create->enabled = false;
 			button_create->refresh();
@@ -190,7 +243,7 @@ void GameStateNew::logic() {
 		loadPortrait(portrait[current_option]);
 	}
 
-	input_name->logic();
+	if (DEFAULT_NAME == "") input_name->logic();
 
 }
 
@@ -208,10 +261,11 @@ void GameStateNew::render() {
 	SDL_Rect src;
 	SDL_Rect dest;
 
-	src.w = src.h = dest.w = dest.h = 320;
+	src.w = dest.w = portrait_pos.w;
+	src.h = dest.h = portrait_pos.h;
 	src.x = src.y = 0;
-	dest.x = VIEW_W_HALF - 160;
-	dest.y = VIEW_H_HALF - 180;
+	dest.x = portrait_pos.x + (VIEW_W - FRAME_W)/2;
+	dest.y = portrait_pos.y + (VIEW_H - FRAME_H)/2;
 
 	if (portrait != NULL) {
 		SDL_BlitSurface(portrait_image, &src, screen, &dest);
@@ -222,7 +276,7 @@ void GameStateNew::render() {
 
 	// display labels
 	label_portrait->render();
-	label_name->render();
+	if (DEFAULT_NAME == "") label_name->render();
 	label_permadeath->render();
 }
 

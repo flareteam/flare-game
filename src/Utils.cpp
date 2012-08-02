@@ -84,8 +84,8 @@ Point center_tile(Point p) {
 }
 
 Point collision_to_map(Point p) {
-	p.x = (p.x << TILE_SHIFT) + TILE_W_HALF;
-	p.y = (p.y << TILE_SHIFT) + TILE_H_HALF;
+	p.x = (p.x << TILE_SHIFT) + UNITS_PER_TILE/2;
+	p.y = (p.y << TILE_SHIFT) + UNITS_PER_TILE/2;
 	return p;
 }
 

@@ -128,9 +128,9 @@ StatBlock::StatBlock() {
 	infile.close();
 
 	loot_chance = 50;
-	loot_types = vector<string>();
-	loot_prob = vector<int>();
-	loot_prob_sum = 0;
+	item_classes = vector<string>();
+	item_class_prob = vector<int>();
+	item_class_prob_sum = 0;
 	teleportation = false;
 
 	for (int i=0; i<POWERSLOT_COUNT; i++) {
@@ -191,6 +191,35 @@ StatBlock::StatBlock() {
 	avoidance_per_defense = 5;
 	crit_base = 5;
 	crit_per_level = 1;
+
+	// load static effects animation settings from engine config file
+	if (infile.open(mods->locate("engine/effects.txt").c_str())) {
+		while (infile.next()) {
+			infile.val = infile.val + ',';
+
+			if (infile.key == "frame_size_sh") {
+				frame_size_sh.x = eatFirstInt(infile.val, ',');
+				frame_size_sh.y = eatFirstInt(infile.val, ',');
+				frame_size_sh.w = eatFirstInt(infile.val, ',');
+				frame_size_sh.h = eatFirstInt(infile.val, ',');
+			} else if (infile.key == "frame_offset_sh") {
+				frame_offset_sh.x = eatFirstInt(infile.val, ',');
+				frame_offset_sh.y = eatFirstInt(infile.val, ',');
+			} else if (infile.key == "frame_size_veg") {
+				frame_size_veg.x = eatFirstInt(infile.val, ',');
+				frame_size_veg.y = eatFirstInt(infile.val, ',');
+				frame_size_veg.w = eatFirstInt(infile.val, ',');
+				frame_size_veg.h = eatFirstInt(infile.val, ',');
+			} else if (infile.key == "frame_offset_veg") {
+				frame_offset_veg.x = eatFirstInt(infile.val, ',');
+				frame_offset_veg.y = eatFirstInt(infile.val, ',');
+			}
+		}
+		infile.close();
+	}
+	else {
+		fprintf(stderr, "Could not open effects.txt config file!\n");
+	}
 }
 
 /**
@@ -216,18 +245,18 @@ void StatBlock::load(const string& filename) {
 			// enemy death rewards and events
 			else if (infile.key == "xp") xp = num;
 			else if (infile.key == "loot_chance") loot_chance = num;
-			else if (infile.key == "loot_type") {
+			else if (infile.key == "item_class") {
 				string str;
 				while ((str = infile.nextValue()) != "") {
 					if (!isInt(str)) {
-						loot_types.push_back(str);
-						loot_prob.push_back(1);
-						loot_prob_sum++;
+						item_classes.push_back(str);
+						item_class_prob.push_back(1);
+						item_class_prob_sum++;
 					}
 					else {
 						num = atoi(str.c_str());
-						loot_prob[loot_types.size()-1] = num;
-						loot_prob_sum += num - 1; // one was already added, so add one less
+						item_class_prob[item_classes.size()-1] = num;
+						item_class_prob_sum += num - 1; // one was already added, so add one less
 					}
 				}
 			}
@@ -518,21 +547,21 @@ Renderable StatBlock::getEffectRender(int effect_type) {
 	r.map_pos.y = pos.y;
 
 	if (effect_type == STAT_EFFECT_SHIELD) {
-		r.src.x = (shield_frame/3) * 128;
-		r.src.y = 0;
-		r.src.w = 128;
-		r.src.h = 128;
-		r.offset.x = 64;
-		r.offset.y = 96;
+		r.src.x = (shield_frame/3) * frame_size_sh.w;
+		r.src.y = frame_size_sh.y;
+		r.src.w = frame_size_sh.w;
+		r.src.h = frame_size_sh.h;
+		r.offset.x = frame_offset_sh.x;
+		r.offset.y = frame_offset_sh.y;
 		r.object_layer = true;
 	}
 	else if (effect_type == STAT_EFFECT_VENGEANCE) {
-		r.src.x = (vengeance_frame/6) * 64;
-		r.src.y = 128;
-		r.src.w = 64;
-		r.src.h = 64;
-		r.offset.x = 32;
-		r.offset.y = 32;
+		r.src.x = (vengeance_frame/6) * frame_size_veg.w;
+		r.src.y = frame_size_veg.y;
+		r.src.w = frame_size_veg.w;
+		r.src.h = frame_size_veg.h;
+		r.offset.x = frame_offset_veg.x;
+		r.offset.y = frame_offset_veg.y;
 		r.object_layer = false;
 	}
 	return r;
@@ -613,4 +642,11 @@ void StatBlock::loadHeroStats() {
 	  infile.close();
 	  statsLoaded = true;
 	} else fprintf(stderr, "Unable to open stats.txt!\n");
+}
+
+void StatBlock::clearNegativeEffects() {
+	slow_duration = 0;
+	bleed_duration = 0;
+	stun_duration = 0;
+	immobilize_duration = 0;
 }

@@ -23,6 +23,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #define MENU_INVENTORY_H
 
 #include "MenuItemStorage.h"
+#include "WidgetLabel.h"
 
 #include <SDL.h>
 #include <SDL_image.h>
@@ -39,7 +40,6 @@ const int EQUIPMENT = 0;
 const int CARRIED = 1;
 
 const int MAX_EQUIPPED = 4;
-const int MAX_CARRIED = 64;
 
 enum InventorySlotsType {
 	SLOT_MAIN = 0,
@@ -61,7 +61,21 @@ private:
 
 	SDL_Surface *background;
 	WidgetButton *closeButton;
-	
+
+	int MAX_CARRIED;
+
+	// label and widget positions
+	Point close_pos;
+	LabelInfo title;
+	LabelInfo main_lbl;
+	LabelInfo body_lbl;
+	LabelInfo off_lbl;
+	LabelInfo artifact_lbl;
+	LabelInfo gold_lbl;
+	SDL_Rect help_pos;
+	int carried_cols;
+	int carried_rows;
+
 public:
 	MenuInventory(ItemManager *items, StatBlock *stats, PowerManager *powers);
 	~MenuInventory();
@@ -80,8 +94,10 @@ public:
 	void addGold(int count);
 	bool buy(ItemStack stack, Point mouse = Point());
 	bool sell(ItemStack stack);
+	bool stashRemove(ItemStack stack, Point mouse = Point());
+	bool stashAdd(ItemStack stack);
 
-	bool full();
+	bool full(int item);
 	int getItemCountCarried(int item);
 	bool isItemEquipped(int item);
 	bool requirementsMet(int item);

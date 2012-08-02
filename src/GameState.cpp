@@ -23,6 +23,7 @@ GameState::GameState() {
 
 	exitRequested = false;
 	hasMusic = false;
+	reload_music = false;
 }
 
 GameState* GameState::getRequestedGameState() {

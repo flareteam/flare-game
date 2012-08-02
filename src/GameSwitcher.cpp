@@ -83,6 +83,11 @@ void GameSwitcher::logic() {
 
 	// Check if the GameState wants to quit the application
 	done = currentState->isExitRequested();
+
+	if (currentState->reload_music) {
+		loadMusic();
+		currentState->reload_music = false;
+	}
 }
 
 void GameSwitcher::render() {

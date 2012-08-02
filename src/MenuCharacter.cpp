@@ -80,6 +80,8 @@ MenuCharacter::MenuCharacter(StatBlock *_stats) {
 			if(infile.key == "close") {
 				close_pos.x = eatFirstInt(infile.val,',');
 				close_pos.y = eatFirstInt(infile.val,',');
+			} else if(infile.key == "title") {
+				title = eatLabelInfo(infile.val);
 			} else if(infile.key == "upgrade_physical") {
 				upgrade_pos[0].x = eatFirstInt(infile.val,',');
 				upgrade_pos[0].y = eatFirstInt(infile.val,',');
@@ -96,23 +98,23 @@ MenuCharacter::MenuCharacter(StatBlock *_stats) {
 				statlist_pos.x = eatFirstInt(infile.val,',');
 				statlist_pos.y = eatFirstInt(infile.val,',');
 			} else if(infile.key == "label_name") {
-				label_pos[0].x = eatFirstInt(infile.val,',');
-				label_pos[0].y = eatFirstInt(infile.val,',');
+				label_pos[0] = eatLabelInfo(infile.val);
+				cstat[CSTAT_NAME].visible = !label_pos[0].hidden;
 			} else if(infile.key == "label_level") {
-				label_pos[1].x = eatFirstInt(infile.val,',');
-				label_pos[1].y = eatFirstInt(infile.val,',');
+				label_pos[1] = eatLabelInfo(infile.val);
+				cstat[CSTAT_LEVEL].visible = !label_pos[1].hidden;
 			} else if(infile.key == "label_physical") {
-				label_pos[2].x = eatFirstInt(infile.val,',');
-				label_pos[2].y = eatFirstInt(infile.val,',');
+				label_pos[2] = eatLabelInfo(infile.val);
+				cstat[CSTAT_PHYSICAL].visible = !label_pos[2].hidden;
 			} else if(infile.key == "label_mental") {
-				label_pos[3].x = eatFirstInt(infile.val,',');
-				label_pos[3].y = eatFirstInt(infile.val,',');
+				label_pos[3] = eatLabelInfo(infile.val);
+				cstat[CSTAT_MENTAL].visible = !label_pos[3].hidden;
 			} else if(infile.key == "label_offense") {
-				label_pos[4].x = eatFirstInt(infile.val,',');
-				label_pos[4].y = eatFirstInt(infile.val,',');
+				label_pos[4] = eatLabelInfo(infile.val);
+				cstat[CSTAT_OFFENSE].visible = !label_pos[4].hidden;
 			} else if(infile.key == "label_defense") {
-				label_pos[5].x = eatFirstInt(infile.val,',');
-				label_pos[5].y = eatFirstInt(infile.val,',');
+				label_pos[5] = eatLabelInfo(infile.val);
+				cstat[CSTAT_DEFENSE].visible = !label_pos[5].hidden;
 			} else if(infile.key == "name") {
 				value_pos[0].x = eatFirstInt(infile.val,',');
 				value_pos[0].y = eatFirstInt(infile.val,',');
@@ -148,18 +150,6 @@ MenuCharacter::MenuCharacter(StatBlock *_stats) {
 				value_pos[6].y = eatFirstInt(infile.val,',');
 				value_pos[6].w = eatFirstInt(infile.val,',');
 				value_pos[6].h = eatFirstInt(infile.val,',');
-			} else if (infile.key == "show_name"){
-				if (eatFirstInt(infile.val,',') == 0) cstat[CSTAT_NAME].visible = false;
-			} else if (infile.key == "show_level"){
-				if (eatFirstInt(infile.val,',') == 0) cstat[CSTAT_LEVEL].visible = false;
-			} else if (infile.key == "show_physical"){
-				if (eatFirstInt(infile.val,',') == 0) cstat[CSTAT_PHYSICAL].visible = false;
-			} else if (infile.key == "show_mental"){
-				if (eatFirstInt(infile.val,',') == 0) cstat[CSTAT_MENTAL].visible = false;
-			} else if (infile.key == "show_offense"){
-				if (eatFirstInt(infile.val,',') == 0) cstat[CSTAT_OFFENSE].visible = false;
-			} else if (infile.key == "show_defense"){
-				if (eatFirstInt(infile.val,',') == 0) cstat[CSTAT_DEFENSE].visible = false;
 			} else if (infile.key == "show_unspent"){
 				if (eatFirstInt(infile.val,',') == 0) cstat[CSTAT_UNSPENT].visible = false;
 			} else if (infile.key == "show_upgrade_physical"){
@@ -200,7 +190,8 @@ MenuCharacter::MenuCharacter(StatBlock *_stats) {
 				if (eatFirstInt(infile.val,',') == 0) show_stat[13] = false;
 			}
 		}
-	}
+		infile.close();
+	} else fprintf(stderr, "Unable to open character.txt!\n");
 
 	loadGraphics();
 }
@@ -213,7 +204,7 @@ void MenuCharacter::update() {
 	closeButton->pos.y = window_area.y + close_pos.y;
 
 	// menu title
-	labelCharacter->set(window_area.x+window_area.w/2, window_area.y+16, JUSTIFY_CENTER, VALIGN_CENTER, msg->get("Character"), FONT_WHITE);
+	labelCharacter->set(window_area.x+title.x, window_area.y+title.y, title.justify, title.valign, msg->get("Character"), FONT_WHITE);
 
 	// upgrade buttons
 	for (int i=0; i<4; i++) {
@@ -226,12 +217,12 @@ void MenuCharacter::update() {
 	statList->pos.y = window_area.y+statlist_pos.y;
 
 	// setup static labels
-	cstat[CSTAT_NAME].label->set(window_area.x+label_pos[0].x, window_area.y+label_pos[0].y, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("Name"), FONT_WHITE);
-	cstat[CSTAT_LEVEL].label->set(window_area.x+label_pos[1].x, window_area.y+label_pos[1].y, JUSTIFY_RIGHT, VALIGN_CENTER, msg->get("Level"), FONT_WHITE);
-	cstat[CSTAT_PHYSICAL].label->set(window_area.x+label_pos[2].x, window_area.y+label_pos[2].y, JUSTIFY_LEFT, VALIGN_CENTER, msg->get("Physical"), FONT_WHITE);
-	cstat[CSTAT_MENTAL].label->set(window_area.x+label_pos[3].x, window_area.y+label_pos[3].y, JUSTIFY_LEFT, VALIGN_CENTER, msg->get("Mental"), FONT_WHITE);
-	cstat[CSTAT_OFFENSE].label->set(window_area.x+label_pos[4].x, window_area.y+label_pos[4].y, JUSTIFY_LEFT, VALIGN_CENTER, msg->get("Offense"), FONT_WHITE);
-	cstat[CSTAT_DEFENSE].label->set(window_area.x+label_pos[5].x, window_area.y+label_pos[5].y, JUSTIFY_LEFT, VALIGN_CENTER, msg->get("Defense"), FONT_WHITE);
+	cstat[CSTAT_NAME].label->set(window_area.x+label_pos[0].x, window_area.y+label_pos[0].y, label_pos[0].justify, label_pos[0].valign, msg->get("Name"), FONT_WHITE);
+	cstat[CSTAT_LEVEL].label->set(window_area.x+label_pos[1].x, window_area.y+label_pos[1].y, label_pos[1].justify, label_pos[1].valign, msg->get("Level"), FONT_WHITE);
+	cstat[CSTAT_PHYSICAL].label->set(window_area.x+label_pos[2].x, window_area.y+label_pos[2].y, label_pos[2].justify, label_pos[2].valign, msg->get("Physical"), FONT_WHITE);
+	cstat[CSTAT_MENTAL].label->set(window_area.x+label_pos[3].x, window_area.y+label_pos[3].y, label_pos[3].justify, label_pos[3].valign, msg->get("Mental"), FONT_WHITE);
+	cstat[CSTAT_OFFENSE].label->set(window_area.x+label_pos[4].x, window_area.y+label_pos[4].y, label_pos[4].justify, label_pos[4].valign, msg->get("Offense"), FONT_WHITE);
+	cstat[CSTAT_DEFENSE].label->set(window_area.x+label_pos[5].x, window_area.y+label_pos[5].y, label_pos[5].justify, label_pos[5].valign, msg->get("Defense"), FONT_WHITE);
 
 	// setup hotspot locations
 	cstat[CSTAT_NAME].setHover(window_area.x+value_pos[0].x, window_area.y+value_pos[0].y, value_pos[0].w, value_pos[0].h);
@@ -325,26 +316,26 @@ void MenuCharacter::refreshStats() {
 
 	if (show_stat[4]) {
 		ss.str("");
-		ss << msg->get("Accuracy (vs level 1):") << " " << stats->accuracy << "%";
+		ss << msg->get("Accuracy (vs lvl 1):") << " " << stats->accuracy << "%";
 		statList->append(ss.str(),msg->get("Each point of Offense grants +%d accuracy. Each level grants +%d accuracy", stats->accuracy_per_offense, stats->accuracy_per_level));
 	}
 
 	if (show_stat[5]) {
 		ss.str("");
-		ss << msg->get("Accuracy (vs level 5):") << " " << (stats->accuracy-20) << "%";
+		ss << msg->get("Accuracy (vs lvl 5):") << " " << (stats->accuracy-20) << "%";
 		statList->append(ss.str(),msg->get("Each point of Offense grants +%d accuracy. Each level grants +%d accuracy", stats->accuracy_per_offense, stats->accuracy_per_level));
 	}
 
 	if (show_stat[6]) {
 		ss.str("");
-		ss << msg->get("Avoidance (vs level 1):") << " " << stats->avoidance << "%";
-		statList->append(ss.str(),msg->get("Each point of Defense grants +%d avoidance. Each level grants +%d accuracy", stats->avoidance_per_defense, stats->avoidance_per_level));
+		ss << msg->get("Avoidance (vs lvl 1):") << " " << stats->avoidance << "%";
+		statList->append(ss.str(),msg->get("Each point of Defense grants +%d avoidance. Each level grants +%d avoidance", stats->avoidance_per_defense, stats->avoidance_per_level));
 	}
 
 	if (show_stat[7]) {
 		ss.str("");
-		ss << msg->get("Avoidance (vs level 5):") << " " << (stats->avoidance-20) << "%";
-		statList->append(ss.str(),msg->get("Each point of Defense grants +%d avoidance. Each level grants +%d accuracy", stats->avoidance_per_defense, stats->avoidance_per_level));
+		ss << msg->get("Avoidance (vs lvl 5):") << " " << (stats->avoidance-20) << "%";
+		statList->append(ss.str(),msg->get("Each point of Defense grants +%d avoidance. Each level grants +%d avoidance", stats->avoidance_per_defense, stats->avoidance_per_level));
 	}
 
 	if (show_stat[8]) {

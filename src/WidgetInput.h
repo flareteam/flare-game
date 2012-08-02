@@ -46,17 +46,19 @@ protected:
 	std::string text; // the text that has been typed into the box
 	unsigned int max_characters;
 	int cursor_frame;
-	
+
 	Point font_pos;
 
 public:
 	WidgetInput();
-	
+	~WidgetInput();
+
 	void logic();
 	bool logic(int x, int y);
 	void render(SDL_Surface *target = NULL);
 	bool checkClick();
 	std::string getText() { return text; }
+	void setText(std::string _text) { text = _text; }
 	void setPosition(int x, int y);
 
 	SDL_Rect pos;

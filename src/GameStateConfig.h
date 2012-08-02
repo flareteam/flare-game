@@ -54,6 +54,9 @@ private:
 	int optiontab[120];
 	SDL_Rect* video_modes;
 
+	SDL_Rect menuConfirm_area;
+	std::string menuConfirm_align;
+
 	std::vector<std::string> language_ISO;
 	std::vector<std::string> language_full;
 
@@ -81,8 +84,8 @@ private:
 	WidgetSlider        * settings_sl[3];
 	WidgetCheckBox      * settings_cb[9];
 	WidgetButton        * settings_key[50];
-	WidgetComboBox      * settings_cmb[3];
-	WidgetListBox       * settings_lstb[2];
+	WidgetComboBox      * settings_cmb[2];
+	WidgetListBox       * settings_lstb[3];
 	WidgetButton        * settings_btn[4];
 	WidgetScrollBox     * input_scrollbox;
 	MenuConfirm         * input_confirm;
@@ -90,6 +93,9 @@ private:
 
 	int input_key;
 	int mods_total;
+	bool check_resolution;
+	SDL_Rect scrollpane;
+	SDL_Rect scrollpane_color;
 };
 
 #endif

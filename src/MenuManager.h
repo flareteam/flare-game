@@ -43,6 +43,7 @@ class MenuVendor;
 class MenuTalker;
 class MenuExit;
 class MenuActiveEffects;
+class MenuStash;
 class CampaignManager;
 class ItemManager;
 class PowerManager;
@@ -52,6 +53,7 @@ const int DRAG_SRC_POWERS = 1;
 const int DRAG_SRC_INVENTORY = 2;
 const int DRAG_SRC_ACTIONBAR = 3;
 const int DRAG_SRC_VENDOR = 4;
+const int DRAG_SRC_STASH = 5;
 
 class MenuManager {
 private:
@@ -103,6 +105,7 @@ public:
 	MenuTalker *talker;
 	MenuExit *exit;
 	MenuActiveEffects *effects;
+	MenuStash *stash;
 	
 	bool pause;
 	bool menus_open;

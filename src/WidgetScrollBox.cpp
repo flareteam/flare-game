@@ -30,7 +30,7 @@ WidgetScrollBox::WidgetScrollBox(int width, int height) {
 	pos.w = width;
 	pos.h = height;
 	cursor = 0;
-	bg_color = 0x1a1a1a;
+	bg.r = bg.g = bg.b = 0;
 	contents = NULL;
 	scrollbar = new WidgetScrollBar(mods->locate("images/menus/buttons/scrollbar_default.png"));
 	update = true;
@@ -67,18 +67,20 @@ void WidgetScrollBox::logic() {
 void WidgetScrollBox::logic(int x, int y) {
 	Point mouse = {x,y};
 	// check ScrollBar clicks
-	switch (scrollbar->checkClick(mouse.x,mouse.y)) {
-		case 1:
-			scroll(-20);
-			break;
-		case 2:
-			scroll(20);
-			break;
-		case 3:
-			cursor = scrollbar->getValue();
-			break;
-		default:
-			break;
+	if (contents->h > pos.h) {
+		switch (scrollbar->checkClick(mouse.x,mouse.y)) {
+			case 1:
+				scroll(-20);
+				break;
+			case 2:
+				scroll(20);
+				break;
+			case 3:
+				cursor = scrollbar->getValue();
+				break;
+			default:
+				break;
+		}
 	}
 }
 
@@ -87,7 +89,7 @@ void WidgetScrollBox::resize(int h) {
 
 	if (pos.h > h) h = pos.h;
 	contents = createAlphaSurface(pos.w,h);
-	SDL_FillRect(contents,NULL,bg_color);
+	SDL_FillRect(contents,NULL,SDL_MapRGB(contents->format,bg.r,bg.g,bg.b));
 	SDL_SetAlpha(contents, 0, 0);
 
 	cursor = 0;
@@ -103,7 +105,7 @@ void WidgetScrollBox::refresh() {
 		}
 
 		contents = createAlphaSurface(pos.w,h);
-		SDL_FillRect(contents,NULL,bg_color);
+		SDL_FillRect(contents,NULL,SDL_MapRGB(contents->format,bg.r,bg.g,bg.b));
 		SDL_SetAlpha(contents, 0, 0);
 	}
 
@@ -126,7 +128,7 @@ void WidgetScrollBox::render(SDL_Surface *target) {
 		SDL_gfxBlitRGBA(contents, &src, target, &dest);
 	else
 		SDL_BlitSurface(contents, &src, target, &dest);
-	scrollbar->render(target);
+	if (contents->h > pos.h) scrollbar->render(target);
 	update = false;
 }
 

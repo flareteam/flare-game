@@ -64,7 +64,7 @@ NPC::NPC(MapRenderer *_map, ItemManager *_items) : Entity(_map) {
  *
  * @param npc_id Config file loaded at npcs/[npc_id].txt
  */
-void NPC::load(const string& npc_id) {
+void NPC::load(const string& npc_id, int hero_level) {
 
 	FileParser infile;
 	ItemStack stack;
@@ -97,6 +97,8 @@ void NPC::load(const string& npc_id) {
 				}
 				else if (infile.key == "reward_xp")
 					e.x = atoi(infile.val.c_str());
+				else if (infile.key == "restore")
+					e.s = infile.val;
 				else if (infile.key == "reward_currency")
 					e.x = atoi(infile.val.c_str());
 				else if (infile.key == "remove_item")
@@ -113,7 +115,12 @@ void NPC::load(const string& npc_id) {
 					name = msg->get(infile.val);
 				}
 				else if (infile.key == "level") {
-					level = atoi(infile.val.c_str());
+					if (infile.val == "hero") {
+						level = hero_level;
+					}
+					else {
+						level = atoi(infile.val.c_str());
+					}
 				}
 				else if (infile.key == "gfx") {
 					filename_sprites = infile.val;
@@ -314,6 +321,9 @@ bool NPC::processDialog(unsigned int dialog_node, unsigned int &event_cursor) {
 		}
 		else if (dialog[dialog_node][event_cursor].type == "reward_xp") {
 			map->camp->rewardXP(dialog[dialog_node][event_cursor].x);
+		}
+		else if (dialog[dialog_node][event_cursor].type == "restore") {
+			map->camp->restoreHPMP(dialog[dialog_node][event_cursor].s);
 		}
 		else if (dialog[dialog_node][event_cursor].type == "reward_currency") {
 			map->camp->rewardCurrency(dialog[dialog_node][event_cursor].x);
