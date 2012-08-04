@@ -165,27 +165,27 @@ void MenuInventory::render() {
 	// text overlay
 	WidgetLabel label;
 	if (!title.hidden) {
-		label.set(window_area.x+title.x, window_area.y+title.y, title.justify, title.valign, msg->get("Inventory"), FONT_WHITE);
+		label.set(window_area.x+title.x, window_area.y+title.y, title.justify, title.valign, msg->get("Inventory"), font->getColor("menu_normal"));
 		label.render();
 	}
 	if (!main_lbl.hidden) {
-		label.set(window_area.x+main_lbl.x, window_area.y+main_lbl.y, main_lbl.justify, main_lbl.valign, msg->get("Main Hand"), FONT_WHITE);
+		label.set(window_area.x+main_lbl.x, window_area.y+main_lbl.y, main_lbl.justify, main_lbl.valign, msg->get("Main Hand"), font->getColor("menu_normal"));
 		label.render();
 	}
 	if (!body_lbl.hidden) {
-		label.set(window_area.x+body_lbl.x, window_area.y+body_lbl.y, body_lbl.justify, body_lbl.valign, msg->get("Body"), FONT_WHITE);
+		label.set(window_area.x+body_lbl.x, window_area.y+body_lbl.y, body_lbl.justify, body_lbl.valign, msg->get("Body"), font->getColor("menu_normal"));
 		label.render();
 	}
 	if (!off_lbl.hidden) {
-		label.set(window_area.x+off_lbl.x, window_area.y+off_lbl.y, off_lbl.justify, off_lbl.valign, msg->get("Off Hand"), FONT_WHITE);
+		label.set(window_area.x+off_lbl.x, window_area.y+off_lbl.y, off_lbl.justify, off_lbl.valign, msg->get("Off Hand"), font->getColor("menu_normal"));
 		label.render();
 	}
 	if (!artifact_lbl.hidden) {
-		label.set(window_area.x+artifact_lbl.x, window_area.y+artifact_lbl.y, artifact_lbl.justify, artifact_lbl.valign, msg->get("Artifact"), FONT_WHITE);
+		label.set(window_area.x+artifact_lbl.x, window_area.y+artifact_lbl.y, artifact_lbl.justify, artifact_lbl.valign, msg->get("Artifact"), font->getColor("menu_normal"));
 		label.render();
 	}
 	if (!gold_lbl.hidden) {
-		label.set(window_area.x+gold_lbl.x, window_area.y+gold_lbl.y, gold_lbl.justify, gold_lbl.valign, msg->get("%d Gold", gold), FONT_WHITE);
+		label.set(window_area.x+gold_lbl.x, window_area.y+gold_lbl.y, gold_lbl.justify, gold_lbl.valign, msg->get("%d Gold", gold), font->getColor("menu_normal"));
 		label.render();
 	}
 

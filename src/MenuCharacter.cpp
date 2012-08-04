@@ -204,7 +204,7 @@ void MenuCharacter::update() {
 	closeButton->pos.y = window_area.y + close_pos.y;
 
 	// menu title
-	labelCharacter->set(window_area.x+title.x, window_area.y+title.y, title.justify, title.valign, msg->get("Character"), FONT_WHITE);
+	labelCharacter->set(window_area.x+title.x, window_area.y+title.y, title.justify, title.valign, msg->get("Character"), font->getColor("menu_normal"));
 
 	// upgrade buttons
 	for (int i=0; i<4; i++) {
@@ -217,12 +217,12 @@ void MenuCharacter::update() {
 	statList->pos.y = window_area.y+statlist_pos.y;
 
 	// setup static labels
-	cstat[CSTAT_NAME].label->set(window_area.x+label_pos[0].x, window_area.y+label_pos[0].y, label_pos[0].justify, label_pos[0].valign, msg->get("Name"), FONT_WHITE);
-	cstat[CSTAT_LEVEL].label->set(window_area.x+label_pos[1].x, window_area.y+label_pos[1].y, label_pos[1].justify, label_pos[1].valign, msg->get("Level"), FONT_WHITE);
-	cstat[CSTAT_PHYSICAL].label->set(window_area.x+label_pos[2].x, window_area.y+label_pos[2].y, label_pos[2].justify, label_pos[2].valign, msg->get("Physical"), FONT_WHITE);
-	cstat[CSTAT_MENTAL].label->set(window_area.x+label_pos[3].x, window_area.y+label_pos[3].y, label_pos[3].justify, label_pos[3].valign, msg->get("Mental"), FONT_WHITE);
-	cstat[CSTAT_OFFENSE].label->set(window_area.x+label_pos[4].x, window_area.y+label_pos[4].y, label_pos[4].justify, label_pos[4].valign, msg->get("Offense"), FONT_WHITE);
-	cstat[CSTAT_DEFENSE].label->set(window_area.x+label_pos[5].x, window_area.y+label_pos[5].y, label_pos[5].justify, label_pos[5].valign, msg->get("Defense"), FONT_WHITE);
+	cstat[CSTAT_NAME].label->set(window_area.x+label_pos[0].x, window_area.y+label_pos[0].y, label_pos[0].justify, label_pos[0].valign, msg->get("Name"), font->getColor("menu_normal"));
+	cstat[CSTAT_LEVEL].label->set(window_area.x+label_pos[1].x, window_area.y+label_pos[1].y, label_pos[1].justify, label_pos[1].valign, msg->get("Level"), font->getColor("menu_normal"));
+	cstat[CSTAT_PHYSICAL].label->set(window_area.x+label_pos[2].x, window_area.y+label_pos[2].y, label_pos[2].justify, label_pos[2].valign, msg->get("Physical"), font->getColor("menu_normal"));
+	cstat[CSTAT_MENTAL].label->set(window_area.x+label_pos[3].x, window_area.y+label_pos[3].y, label_pos[3].justify, label_pos[3].valign, msg->get("Mental"), font->getColor("menu_normal"));
+	cstat[CSTAT_OFFENSE].label->set(window_area.x+label_pos[4].x, window_area.y+label_pos[4].y, label_pos[4].justify, label_pos[4].valign, msg->get("Offense"), font->getColor("menu_normal"));
+	cstat[CSTAT_DEFENSE].label->set(window_area.x+label_pos[5].x, window_area.y+label_pos[5].y, label_pos[5].justify, label_pos[5].valign, msg->get("Defense"), font->getColor("menu_normal"));
 
 	// setup hotspot locations
 	cstat[CSTAT_NAME].setHover(window_area.x+value_pos[0].x, window_area.y+value_pos[0].y, value_pos[0].w, value_pos[0].h);
@@ -258,11 +258,11 @@ void MenuCharacter::refreshStats() {
 	stringstream ss;
 
 	// update stat text
-	cstat[CSTAT_NAME].value->set(window_area.x+value_pos[0].x+4, window_area.y+value_pos[0].y+value_pos[0].h/2, JUSTIFY_LEFT, VALIGN_CENTER, stats->name, FONT_WHITE);
+	cstat[CSTAT_NAME].value->set(window_area.x+value_pos[0].x+4, window_area.y+value_pos[0].y+value_pos[0].h/2, JUSTIFY_LEFT, VALIGN_CENTER, stats->name, font->getColor("menu_normal"));
 
 	ss.str("");
 	ss << stats->level;
-	cstat[CSTAT_LEVEL].value->set(window_area.x+value_pos[1].x+value_pos[1].w/2, window_area.y+value_pos[1].y+value_pos[1].h/2, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
+	cstat[CSTAT_LEVEL].value->set(window_area.x+value_pos[1].x+value_pos[1].w/2, window_area.y+value_pos[1].y+value_pos[1].h/2, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), font->getColor("menu_normal"));
 
 	ss.str("");
 	ss << stats->get_physical();

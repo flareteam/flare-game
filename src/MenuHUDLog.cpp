@@ -104,7 +104,7 @@ void MenuHUDLog::add(const string& s) {
 	// render the log entry and store it in a buffer
 	Point size = font->calc_size(s, window_area.w);
 	msg_buffer[log_count] = createAlphaSurface(size.x, size.y);
-	font->renderShadowed(s, 0, 0, JUSTIFY_LEFT, msg_buffer[log_count], window_area.w, FONT_WHITE);
+	font->renderShadowed(s, 0, 0, JUSTIFY_LEFT, msg_buffer[log_count], window_area.w, font->getColor("menu_normal"));
 
 	log_count++;
 }

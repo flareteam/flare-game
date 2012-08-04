@@ -267,7 +267,7 @@ void LootManager::renderTooltips(Point cam) {
 				}
 				else {
 					it->tip.num_lines = 1;
-					it->tip.colors[0] = FONT_WHITE;
+					it->tip.colors[0] = font->getColor("menu_normal");
 					ss << msg->get("%d Gold", it->gold);
 					it->tip.lines[0] = ss.str();
 					ss.str("");

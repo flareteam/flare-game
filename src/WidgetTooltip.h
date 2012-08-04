@@ -106,7 +106,7 @@ public:
 		num_lines = 0;
 		for (int i=0; i<TOOLTIP_MAX_LINES; i++) {
 			lines[i] = "";
-			colors[i] = FONT_WHITE;
+			colors[i] = font->getColor("widget_normal");
 		}
 		SDL_FreeSurface(tip_buffer);
 		tip_buffer = NULL;

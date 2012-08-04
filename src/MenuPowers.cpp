@@ -159,7 +159,7 @@ void MenuPowers::update() {
 		slots[i].y = window_area.y + power_cell[i].pos.y;
 	}
 
-	label_powers.set(window_area.x+title.x, window_area.y+title.y, title.justify, title.valign, msg->get("Powers"), FONT_WHITE);
+	label_powers.set(window_area.x+title.x, window_area.y+title.y, title.justify, title.valign, msg->get("Powers"), font->getColor("menu_normal"));
 
 	closeButton->pos.x = window_area.x+close_pos.x;
 	closeButton->pos.y = window_area.y+close_pos.y;

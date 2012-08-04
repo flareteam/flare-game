@@ -152,7 +152,7 @@ void WidgetButton::refresh() {
 	if (label != "") {
 	
 		// render text
-		SDL_Color font_color = font->getColor("combat_heal");
+		SDL_Color font_color = font->getColor("widget_normal");
 		if (!enabled) font_color = font->getColor("widget_disabled");
 
 		int font_x = pos.x + (pos.w/2);

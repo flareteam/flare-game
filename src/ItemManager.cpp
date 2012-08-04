@@ -312,7 +312,7 @@ void ItemManager::renderIcon(ItemStack stack, int x, int y, int size) {
 		ss << stack.quantity;
 
 		WidgetLabel label;
-		label.set(dest.x + 2, dest.y + 2, JUSTIFY_LEFT, VALIGN_TOP, ss.str(), font->getColor("normal"));
+		label.set(dest.x + 2, dest.y + 2, JUSTIFY_LEFT, VALIGN_TOP, ss.str(), font->getColor("item_normal"));
 		label.render();
 	}
 }
@@ -344,13 +344,13 @@ TooltipData ItemManager::getShortTooltip(ItemStack stack) {
 
 	// color quality
 	if (items[stack.item].quality == ITEM_QUALITY_LOW) {
-		tip.colors[0] = font->getColor("low");
+		tip.colors[0] = font->getColor("item_low");
 	}
 	else if (items[stack.item].quality == ITEM_QUALITY_HIGH) {
-		tip.colors[0] = font->getColor("high");
+		tip.colors[0] = font->getColor("item_high");
 	}
 	else if (items[stack.item].quality == ITEM_QUALITY_EPIC) {
-		tip.colors[0] = font->getColor("epic");
+		tip.colors[0] = font->getColor("item_epic");
 	}
 
 	return tip;
@@ -369,13 +369,13 @@ TooltipData ItemManager::getTooltip(int item, StatBlock *stats, bool vendor_view
 
 	// color quality
 	if (items[item].quality == ITEM_QUALITY_LOW) {
-		tip.colors[0] = font->getColor("low");
+		tip.colors[0] = font->getColor("item_low");
 	}
 	else if (items[item].quality == ITEM_QUALITY_HIGH) {
-		tip.colors[0] = font->getColor("high");
+		tip.colors[0] = font->getColor("item_high");
 	}
 	else if (items[item].quality == ITEM_QUALITY_EPIC) {
-		tip.colors[0] = font->getColor("epic");
+		tip.colors[0] = font->getColor("item_epic");
 	}
 
 	// level
