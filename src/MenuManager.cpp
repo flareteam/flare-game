@@ -466,7 +466,7 @@ void MenuManager::logic() {
 				inpt->lock[MAIN1] = true;
 
 				// ctrl-click action bar to clear that slot
-				if (inpt->pressing[CTRL] && !stats->transformed) {
+				if (inpt->pressing[CTRL]) {
 					act->remove(inpt->mouse);
 				}
 				// allow drag-to-rearrange action bar
@@ -499,6 +499,9 @@ void MenuManager::logic() {
 			else if (drag_src == DRAG_SRC_ACTIONBAR) {
 				if (isWithin(act->numberArea,inpt->mouse) || isWithin(act->mouseArea,inpt->mouse)) {
 					act->drop(inpt->mouse, drag_power, 1);
+				// for locked slots forbid power dropping
+				} else if (act->locked[act->drag_prev_slot]) {
+					act->hotkeys[act->drag_prev_slot] = drag_power;
 				}
 			}
 
