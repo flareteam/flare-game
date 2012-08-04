@@ -53,7 +53,7 @@ GameStateNew::GameStateNew() : GameState() {
 	button_exit->refresh();
 
 	button_create = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
-	button_create->label = msg->get("Create Character");
+	button_create->label = msg->get("Create");
 	button_create->pos.x = VIEW_W_HALF + button_create->pos.w/2;
 	button_create->pos.y = VIEW_H - button_create->pos.h;
 	button_create->enabled = false;
