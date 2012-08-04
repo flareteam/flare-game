@@ -22,8 +22,10 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * Most commonly this involves vendor and conversation townspeople.
  */
 
+#include "FileParser.h"
 #include "NPCManager.h"
 #include "NPC.h"
+#include "SharedResources.h"
 #include "MapRenderer.h"
 #include "LootManager.h"
 #include "StatBlock.h"
@@ -45,8 +47,19 @@ NPCManager::NPCManager(MapRenderer *_map, LootManager *_loot, ItemManager *_item
 		npcs[i] = NULL;
 	}
 
-	// FIXME don't hardcode this
-	tooltip_margin = 64;
+	FileParser infile;
+	// load tooltip_margin from engine config file
+	if (infile.open(mods->locate("engine/tooltips.txt").c_str())) {
+		while (infile.next()) {
+			if (infile.key == "npc_tooltip_margin") {
+				tooltip_margin = atoi(infile.val.c_str());
+			}
+		}
+		infile.close();
+	}
+	else {
+		fprintf(stderr, "No tooltips engine settings config file found!\n");
+	}
 }
 
 void NPCManager::addRenders(std::vector<Renderable> &r) {
