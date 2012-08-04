@@ -643,7 +643,7 @@ void GameStatePlay::render() {
 void GameStatePlay::showFPS(int fps) {
 	stringstream ss;
 	ss << fps << "fps";
-	label_fps->set(VIEW_W >> 1, 2, JUSTIFY_CENTER, VALIGN_TOP, ss.str(), FONT_GREY);
+	label_fps->set(VIEW_W >> 1, 2, JUSTIFY_CENTER, VALIGN_TOP, ss.str(), font->getColor("fps_meter"));
 	label_fps->render();
 }
 

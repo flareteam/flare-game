@@ -283,7 +283,7 @@ void MenuCharacter::refreshStats() {
 	ss.str("");
 	if (skill_points > 0) ss << skill_points << " " << msg->get("points remaining");
 	else ss.str("");
-	cstat[CSTAT_UNSPENT].value->set(window_area.x+value_pos[6].x+value_pos[6].w/2, window_area.y+value_pos[6].y+value_pos[6].h/2, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_GREEN);
+	cstat[CSTAT_UNSPENT].value->set(window_area.x+value_pos[6].x+value_pos[6].w/2, window_area.y+value_pos[6].y+value_pos[6].h/2, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), font->getColor("menu_bonus"));
 	ss.str("");
 
 	// scrolling stat list
@@ -421,10 +421,10 @@ void MenuCharacter::refreshStats() {
 /**
  * Color-coding for positive/negative/no bonus
  */
-int MenuCharacter::bonusColor(int stat) {
-	if (stat > 0) return FONT_GREEN;
-	if (stat < 0) return FONT_RED;
-	return FONT_WHITE;
+SDL_Color MenuCharacter::bonusColor(int stat) {
+	if (stat > 0) return font->getColor("menu_bonus");
+	if (stat < 0) return font->getColor("menu_penalty");
+	return font->getColor("menu_label");
 }
 
 void MenuCharacter::logic() {

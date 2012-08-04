@@ -21,7 +21,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "FileParser.h"
 #include "WidgetTooltip.h"
-#include "SharedResources.h"
 #include "Settings.h"
 #include "Utils.h"
 

@@ -206,8 +206,8 @@ void WidgetComboBox::refresh() {
 		label = values[selected];
 	}
 	if (label != "") {
-		int font_color = FONT_WHITE;
-		if (!enabled) font_color = FONT_GRAY;
+		SDL_Color font_color = font->getColor("widget_normal");
+		if (!enabled) font_color = font->getColor("widget_disabled");
 
 		int font_x = pos.x + 8;
 		int font_y = pos.y + (pos.h/2);
@@ -218,15 +218,15 @@ void WidgetComboBox::refresh() {
 	// Draw the labels for each option if the menu is open
 	if(pressed) {
 		for(int i=0;i<cmbAmount;i++) {
-			int font_color;
+			SDL_Color font_color;
 			if(isWithin(rows[i], mouse_point)) {
-				font_color = FONT_WHITE;
+				font_color = font->getColor("widget_normal");
 				if(i<cmbAmount-1) {
 					if(isWithin(rows[i+1], mouse_point))
-						font_color = FONT_GRAY;
+						font_color = font->getColor("widget_disabled");
 				}
 			} else {
-				font_color = FONT_GRAY;
+				font_color = font->getColor("widget_disabled");
 			}
 			if (values[i].length() > 23) {
 				temp = values[i].substr(0,20);

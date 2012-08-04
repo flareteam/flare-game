@@ -312,7 +312,7 @@ void ItemManager::renderIcon(ItemStack stack, int x, int y, int size) {
 		ss << stack.quantity;
 
 		WidgetLabel label;
-		label.set(dest.x + 2, dest.y + 2, JUSTIFY_LEFT, VALIGN_TOP, ss.str(), FONT_WHITE);
+		label.set(dest.x + 2, dest.y + 2, JUSTIFY_LEFT, VALIGN_TOP, ss.str(), font->getColor("normal"));
 		label.render();
 	}
 }
@@ -344,13 +344,13 @@ TooltipData ItemManager::getShortTooltip(ItemStack stack) {
 
 	// color quality
 	if (items[stack.item].quality == ITEM_QUALITY_LOW) {
-		tip.colors[0] = FONT_GRAY;
+		tip.colors[0] = font->getColor("low");
 	}
 	else if (items[stack.item].quality == ITEM_QUALITY_HIGH) {
-		tip.colors[0] = FONT_GREEN;
+		tip.colors[0] = font->getColor("high");
 	}
 	else if (items[stack.item].quality == ITEM_QUALITY_EPIC) {
-		tip.colors[0] = FONT_BLUE;
+		tip.colors[0] = font->getColor("epic");
 	}
 
 	return tip;
@@ -369,13 +369,13 @@ TooltipData ItemManager::getTooltip(int item, StatBlock *stats, bool vendor_view
 
 	// color quality
 	if (items[item].quality == ITEM_QUALITY_LOW) {
-		tip.colors[0] = FONT_GRAY;
+		tip.colors[0] = font->getColor("low");
 	}
 	else if (items[item].quality == ITEM_QUALITY_HIGH) {
-		tip.colors[0] = FONT_GREEN;
+		tip.colors[0] = font->getColor("high");
 	}
 	else if (items[item].quality == ITEM_QUALITY_EPIC) {
-		tip.colors[0] = FONT_BLUE;
+		tip.colors[0] = font->getColor("epic");
 	}
 
 	// level
@@ -437,11 +437,11 @@ TooltipData ItemManager::getTooltip(int item, StatBlock *stats, bool vendor_view
 	while (items[item].bonus_stat[bonus_counter] != "") {
 		if (items[item].bonus_val[bonus_counter] > 0) {
 			modifier = msg->get("Increases %s by %d", items[item].bonus_val[bonus_counter], msg->get(items[item].bonus_stat[bonus_counter]));
-			tip.colors[tip.num_lines] = FONT_GREEN;
+			tip.colors[tip.num_lines] = font->getColor("item_bonus");
 		}
 		else {
 			modifier = msg->get("Decreases %s by %d", items[item].bonus_val[bonus_counter], msg->get(items[item].bonus_stat[bonus_counter]));
-			tip.colors[tip.num_lines] = FONT_RED;
+			tip.colors[tip.num_lines] = font->getColor("item_penalty");
 		}
 		tip.lines[tip.num_lines++] = modifier;
 		bonus_counter++;
@@ -450,26 +450,26 @@ TooltipData ItemManager::getTooltip(int item, StatBlock *stats, bool vendor_view
 
 	// power
 	if (items[item].power_desc != "") {
-		tip.colors[tip.num_lines] = FONT_GREEN;
+		tip.colors[tip.num_lines] = font->getColor("item_bonus");
 		tip.lines[tip.num_lines++] = items[item].power_desc;
 	}
 
 	// requirement
 	if (items[item].req_val > 0) {
 		if (items[item].req_stat == REQUIRES_PHYS) {
-			if (stats->get_physical() < items[item].req_val) tip.colors[tip.num_lines] = FONT_RED;
+			if (stats->get_physical() < items[item].req_val) tip.colors[tip.num_lines] = font->getColor("requirements_notmet");
 			tip.lines[tip.num_lines++] = msg->get("Requires Physical %d", items[item].req_val);
 		}
 		else if (items[item].req_stat == REQUIRES_MENT) {
-			if (stats->get_mental() < items[item].req_val) tip.colors[tip.num_lines] = FONT_RED;
+			if (stats->get_mental() < items[item].req_val) tip.colors[tip.num_lines] = font->getColor("requirements_notmet");
 			tip.lines[tip.num_lines++] = msg->get("Requires Mental %d", items[item].req_val);
 		}
 		else if (items[item].req_stat == REQUIRES_OFF) {
-			if (stats->get_offense() < items[item].req_val) tip.colors[tip.num_lines] = FONT_RED;
+			if (stats->get_offense() < items[item].req_val) tip.colors[tip.num_lines] = font->getColor("requirements_notmet");
 			tip.lines[tip.num_lines++] = msg->get("Requires Offense %d", items[item].req_val);
 		}
 		else if (items[item].req_stat == REQUIRES_DEF) {
-			if (stats->get_defense() < items[item].req_val) tip.colors[tip.num_lines] = FONT_RED;
+			if (stats->get_defense() < items[item].req_val) tip.colors[tip.num_lines] = font->getColor("requirements_notmet");
 			tip.lines[tip.num_lines++] = msg->get("Requires Defense %d", items[item].req_val);
 		}
 	}
@@ -478,7 +478,7 @@ TooltipData ItemManager::getTooltip(int item, StatBlock *stats, bool vendor_view
 	if (items[item].price > 0) {
 
 		if (vendor_view) {
-			if (stats->gold < items[item].price) tip.colors[tip.num_lines] = FONT_RED;
+			if (stats->gold < items[item].price) tip.colors[tip.num_lines] = font->getColor("requirements_notmet");
 			if (items[item].max_quantity <= 1)
 				tip.lines[tip.num_lines++] = msg->get("Buy Price: %d gold", items[item].price);
 			else
