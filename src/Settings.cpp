@@ -333,13 +333,24 @@ void loadAutoPickupSettings() {
 void loadMiscSettings() {
 	FileParser infile;
 	// load miscellaneous settings from engine config
+	// misc.txt
 	if (infile.open(mods->locate("engine/misc.txt").c_str())) {
 		while (infile.next()) {
 			if (infile.key == "save_hpmp") {
 				SAVE_HPMP = atoi(infile.val.c_str());
 			} else if (infile.key == "default_name") {
 				DEFAULT_NAME = infile.val.c_str();
-			} else if (infile.key == "menu_frame_width") {
+			}
+		}
+		infile.close();
+	}
+	else {
+		fprintf(stderr, "No misc engine settings config found!\n");
+	}
+	// resolutions.txt
+	if (infile.open(mods->locate("engine/resolutions.txt").c_str())) {
+		while (infile.next()) {
+			if (infile.key == "menu_frame_width") {
 				FRAME_W = atoi(infile.val.c_str());
 			} else if (infile.key == "menu_frame_height") {
 				FRAME_H = atoi(infile.val.c_str());
@@ -355,14 +366,24 @@ void loadMiscSettings() {
 				MIN_VIEW_H = atoi(infile.val.c_str());
 				if (VIEW_H < MIN_VIEW_H) VIEW_H = MIN_VIEW_H;
 				VIEW_H_HALF = VIEW_H/2;
-			} else if (infile.key == "enable_playgame") {
+			}
+		}
+		infile.close();
+	}
+	else {
+		fprintf(stderr, "No resolutions engine settings config found!\n");
+	}
+	// gameplay.txt
+	if (infile.open(mods->locate("engine/gameplay.txt").c_str())) {
+		while (infile.next()) {
+			if (infile.key == "enable_playgame") {
 				ENABLE_PLAYGAME = atoi(infile.val.c_str());
 			}
 		}
 		infile.close();
 	}
 	else {
-		fprintf(stderr, "No misc engine settings config found!\n");
+		fprintf(stderr, "No gameplay engine settings config found!\n");
 	}
 }
 

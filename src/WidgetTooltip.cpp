@@ -32,7 +32,7 @@ WidgetTooltip::WidgetTooltip() {
 
 	FileParser infile;
 	// load tooltip settings from engine config file
-	if (infile.open(mods->locate("engine/misc.txt").c_str())) {
+	if (infile.open(mods->locate("engine/tooltips.txt").c_str())) {
 		while (infile.next()) {
 			if (infile.key == "tooltip_offset") {
 				offset = atoi(infile.val.c_str());
@@ -45,7 +45,7 @@ WidgetTooltip::WidgetTooltip() {
 		infile.close();
 	}
 	else {
-		fprintf(stderr, "No misc engine settings config file found!\n");
+		fprintf(stderr, "No tooltips engine settings config file found!\n");
 	}
 
 }
