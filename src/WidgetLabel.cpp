@@ -62,7 +62,7 @@ WidgetLabel::WidgetLabel() {
 
 	text_buffer = NULL;
 	text = "";
-	color = FONT_WHITE;
+	color = font->getColor("widget_normal");
 	x_origin = y_origin = 0;
 	justify = JUSTIFY_LEFT;
 	valign = VALIGN_TOP;
@@ -99,7 +99,7 @@ void WidgetLabel::render(SDL_Surface *target) {
 /**
  * A shortcut function to set all attributes simultaneously.
  */
-void WidgetLabel::set(int _x, int _y, int _justify, int _valign, const string& _text, int _color) {
+void WidgetLabel::set(int _x, int _y, int _justify, int _valign, const string& _text, SDL_Color _color) {
 
 	bool changed = false;
 
@@ -115,7 +115,7 @@ void WidgetLabel::set(int _x, int _y, int _justify, int _valign, const string& _
 		text = _text;
 		changed = true;
 	}
-	if (color != _color) {
+	if (color.r != _color.r && color.g != _color.g && color.b != _color.b) {
 		color = _color;
 		changed = true;
 	}
@@ -195,8 +195,8 @@ void WidgetLabel::setValign(int _valign) {
 /**
  * Set text color.
  */
-void WidgetLabel::setColor(int _color) {
-	if (color != _color) {
+void WidgetLabel::setColor(SDL_Color _color) {
+	if (color.r != _color.r && color.g != _color.g && color.b != _color.b) {
 		color = _color;
 		applyOffsets();
 		refresh();

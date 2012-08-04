@@ -209,9 +209,9 @@ void WidgetTabControl::renderTab(int number, SDL_Surface *target)
 		SDL_BlitSurface(inactiveTabSurface, &src, target, &dest);
 
 	// Set tab’s label font color.
-	int fontColor;
-	if (i == activeTab) fontColor = FONT_WHITE;
-	else fontColor = FONT_GREY;
+	SDL_Color fontColor;
+	if (i == activeTab) fontColor = font->getColor("widget_normal");
+	else fontColor = font->getColor("widget_disabled");
 
 	// Draw tab’s label.
 	WidgetLabel label;

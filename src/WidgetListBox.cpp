@@ -421,9 +421,9 @@ void WidgetListBox::refresh() {
 			}
 
 			if(selected[i+cursor]) {
-				vlabels[i].set(font_x, font_y, JUSTIFY_LEFT, VALIGN_CENTER, temp, FONT_WHITE);
+				vlabels[i].set(font_x, font_y, JUSTIFY_LEFT, VALIGN_CENTER, temp, font->getColor("widget_normal"));
 			} else {
-				vlabels[i].set(font_x, font_y, JUSTIFY_LEFT, VALIGN_CENTER, temp, FONT_GRAY);
+				vlabels[i].set(font_x, font_y, JUSTIFY_LEFT, VALIGN_CENTER, temp, font->getColor("widget_disabled"));
 			}
 		}
 	}

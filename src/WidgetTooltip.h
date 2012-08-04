@@ -22,7 +22,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef WIDGET_TOOLTIP_H
 #define WIDGET_TOOLTIP_H
 
-#include "FontEngine.h"
+#include "SharedResources.h"
 #include "Utils.h"
 
 #include <SDL.h>
@@ -47,7 +47,7 @@ const int TOOLTIP_MAX_LINES = 16;
 class TooltipData {
 public:
 	std::string lines[TOOLTIP_MAX_LINES];
-	int colors[TOOLTIP_MAX_LINES];
+	SDL_Color colors[TOOLTIP_MAX_LINES];
 	int num_lines;
 	SDL_Surface *tip_buffer;
 
@@ -57,7 +57,7 @@ public:
 		tip_buffer = NULL;
 		for (int i=0; i<TOOLTIP_MAX_LINES; i++) {
 			lines[i] = "";
-			colors[i] = FONT_WHITE;
+			colors[i] = font->getColor("tooltip_default");
 		}
 	}
 
@@ -106,7 +106,7 @@ public:
 		num_lines = 0;
 		for (int i=0; i<TOOLTIP_MAX_LINES; i++) {
 			lines[i] = "";
-			colors[i] = FONT_WHITE;
+			colors[i] = font->getColor("widget_normal");
 		}
 		SDL_FreeSurface(tip_buffer);
 		tip_buffer = NULL;

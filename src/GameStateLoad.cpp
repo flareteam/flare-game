@@ -477,7 +477,7 @@ void GameStateLoad::render() {
 			label_loading->set(msg->get("Loading saved game..."));
 		}
 
-		label_loading->set(label.x, label.y, JUSTIFY_CENTER, VALIGN_TOP, label_loading->get(), FONT_WHITE);
+		label_loading->set(label.x, label.y, JUSTIFY_CENTER, VALIGN_TOP, label_loading->get(), font->getColor("menu_normal"));
 		label_loading->render();
 	}
 
@@ -488,7 +488,7 @@ void GameStateLoad::render() {
 			// name
 			label.x = slot_pos[slot].x + name_pos.x;
 			label.y = slot_pos[slot].y + name_pos.y;
-			label_slots->set(label.x, label.y, JUSTIFY_LEFT, VALIGN_TOP, stats[slot].name, FONT_WHITE);
+			label_slots->set(label.x, label.y, JUSTIFY_LEFT, VALIGN_TOP, stats[slot].name, font->getColor("menu_normal"));
 			label_slots->render();
 
 			// level
@@ -496,13 +496,13 @@ void GameStateLoad::render() {
 			label.x = slot_pos[slot].x + level_pos.x;
 			label.y = slot_pos[slot].y + level_pos.y;
 			ss << msg->get("Level %d %s", stats[slot].level, msg->get(stats[slot].character_class));
-			label_slots->set(label.x, label.y, JUSTIFY_LEFT, VALIGN_TOP, ss.str(), FONT_WHITE);
+			label_slots->set(label.x, label.y, JUSTIFY_LEFT, VALIGN_TOP, ss.str(), font->getColor("menu_normal"));
 			label_slots->render();
 
 			// map
 			label.x = slot_pos[slot].x + map_pos.x;
 			label.y = slot_pos[slot].y + map_pos.y;
-			label_slots->set(label.x, label.y, JUSTIFY_LEFT, VALIGN_TOP, current_map[slot], FONT_WHITE);
+			label_slots->set(label.x, label.y, JUSTIFY_LEFT, VALIGN_TOP, current_map[slot], font->getColor("menu_normal"));
 			label_slots->render();
 
 			// render character preview
@@ -517,7 +517,7 @@ void GameStateLoad::render() {
 		else {
 			label.x = slot_pos[slot].x + name_pos.x;
 			label.y = slot_pos[slot].y + name_pos.y;
-			label_slots->set(label.x, label.y, JUSTIFY_LEFT, VALIGN_TOP, msg->get("Empty Slot"), FONT_WHITE);
+			label_slots->set(label.x, label.y, JUSTIFY_LEFT, VALIGN_TOP, msg->get("Empty Slot"), font->getColor("menu_normal"));
 			label_slots->render();
 		}
 	}

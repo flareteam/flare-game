@@ -619,7 +619,7 @@ void GameStatePlay::render() {
 	map->render(renderables);
 
 	// display the name of the map in the upper-right hand corner
-	label_mapname->set(VIEW_W-2, 2, JUSTIFY_RIGHT, VALIGN_TOP, map->title, FONT_WHITE);
+	label_mapname->set(VIEW_W-2, 2, JUSTIFY_RIGHT, VALIGN_TOP, map->title, font->getColor("menu_normal"));
 	label_mapname->render();
 
 	// mouseover tooltips
@@ -643,7 +643,7 @@ void GameStatePlay::render() {
 void GameStatePlay::showFPS(int fps) {
 	stringstream ss;
 	ss << fps << "fps";
-	label_fps->set(VIEW_W >> 1, 2, JUSTIFY_CENTER, VALIGN_TOP, ss.str(), FONT_GREY);
+	label_fps->set(VIEW_W >> 1, 2, JUSTIFY_CENTER, VALIGN_TOP, ss.str(), font->getColor("fps_meter"));
 	label_fps->render();
 }
 

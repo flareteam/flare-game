@@ -25,7 +25,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "CombatText.h"
-#include "FontEngine.h"
+#include "SharedResources.h"
 #include "Settings.h"
 #include <iostream>
 #include <sstream>
@@ -84,13 +84,13 @@ void CombatText::render() {
         it->pos.y--;
         int type = it->displaytype;
         if (type == DISPLAY_DAMAGE)
-            it->label->set(it->pos.x, it->pos.y, JUSTIFY_CENTER, VALIGN_BOTTOM, it->text, FONT_WHITE);
+            it->label->set(it->pos.x, it->pos.y, JUSTIFY_CENTER, VALIGN_BOTTOM, it->text, font->getColor("combat_give_damage"));
         else if (type == DISPLAY_CRIT || type == DISPLAY_MISS)
-            it->label->set(it->pos.x, it->pos.y, JUSTIFY_CENTER, VALIGN_BOTTOM, it->text, FONT_RED);
+            it->label->set(it->pos.x, it->pos.y, JUSTIFY_CENTER, VALIGN_BOTTOM, it->text, font->getColor("combat_take_damage"));
         else if (type == DISPLAY_HEAL)
-            it->label->set(it->pos.x, it->pos.y, JUSTIFY_CENTER, VALIGN_BOTTOM, it->text, FONT_GREEN);
+            it->label->set(it->pos.x, it->pos.y, JUSTIFY_CENTER, VALIGN_BOTTOM, it->text, font->getColor("combat_heal"));
         else if (type == DISPLAY_SHIELD)
-            it->label->set(it->pos.x, it->pos.y, JUSTIFY_CENTER, VALIGN_BOTTOM, it->text, FONT_BLUE);
+            it->label->set(it->pos.x, it->pos.y, JUSTIFY_CENTER, VALIGN_BOTTOM, it->text, font->getColor("combat_shield"));
         if (it->lifespan > 0)
 		    it->label->render();
     }

@@ -119,7 +119,7 @@ void MenuStash::render() {
 	// text overlay
 	if (!title.hidden) {
 		WidgetLabel label;
-		label.set(window_area.x+title.x, window_area.y+title.y, title.justify, title.valign, msg->get("Shared Stash"), FONT_WHITE);
+		label.set(window_area.x+title.x, window_area.y+title.y, title.justify, title.valign, msg->get("Shared Stash"), font->getColor("menu_normal"));
 		label.render();
 	}
 

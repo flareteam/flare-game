@@ -130,11 +130,11 @@ GameStateNew::GameStateNew() : GameState() {
 
 	// set up labels
 	label_portrait = new WidgetLabel();
-	label_portrait->set(portrait_label.x, portrait_label.y, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Choose a Portrait"), FONT_GREY);
+	label_portrait->set(portrait_label.x, portrait_label.y, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Choose a Portrait"), font->getColor("menu_label"));
 	label_name = new WidgetLabel();
-	label_name->set(name_label.x, name_label.y, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Choose a Name"), FONT_GREY);
+	label_name->set(name_label.x, name_label.y, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Choose a Name"), font->getColor("menu_label"));
 	label_permadeath = new WidgetLabel();
-	label_permadeath->set(permadeath_label.x, permadeath_label.y, JUSTIFY_LEFT, VALIGN_CENTER, msg->get("Permadeath?"), FONT_GREY);
+	label_permadeath->set(permadeath_label.x, permadeath_label.y, JUSTIFY_LEFT, VALIGN_CENTER, msg->get("Permadeath?"), font->getColor("menu_label"));
 
 	loadGraphics();
 	loadOptions("hero_options.txt");

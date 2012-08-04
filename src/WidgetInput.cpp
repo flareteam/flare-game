@@ -137,14 +137,14 @@ void WidgetInput::render(SDL_Surface *target) {
 		SDL_BlitSurface(background, &src, target, &pos);
 
 	if (!inFocus) {
-		font->render(text, font_pos.x, font_pos.y, JUSTIFY_LEFT, target, FONT_WHITE);
+		font->render(text, font_pos.x, font_pos.y, JUSTIFY_LEFT, target, font->getColor("widget_normal"));
 	}
 	else {
 		if (cursor_frame < FRAMES_PER_SEC) {
-			font->renderShadowed(text + "|", font_pos.x, font_pos.y, JUSTIFY_LEFT, target, FONT_WHITE);
+			font->renderShadowed(text + "|", font_pos.x, font_pos.y, JUSTIFY_LEFT, target, font->getColor("menu_normal"));
 		}
 		else {
-			font->renderShadowed(text, font_pos.x, font_pos.y, JUSTIFY_LEFT, target, FONT_WHITE);
+			font->renderShadowed(text, font_pos.x, font_pos.y, JUSTIFY_LEFT, target, font->getColor("menu_normal"));
 		}
 	}
 }
