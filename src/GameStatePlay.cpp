@@ -559,17 +559,20 @@ void GameStatePlay::logic() {
 		for (int i=0; i<12 ; i++) {
 			menu->act->actionbar[i] = menu->act->hotkeys[i];
 			menu->act->hotkeys[i] = -1;
-			menu->act->locked[i] = true;
 		}
 		int count = 10;
 		for (int i=0; i<4 ; i++) {
 			if (pc->charmed_stats->power_index[i] != -1) {
 				menu->act->hotkeys[count] = pc->charmed_stats->power_index[i];
+				menu->act->locked[count] = true;
 				count++;
 			}
 			if (count == 12) count = 0;
 		}
-		if (pc->stats.manual_untransform) menu->act->hotkeys[count] = 136; //untransform power
+		if (pc->stats.manual_untransform) {
+			menu->act->hotkeys[count] = 136; //untransform power
+			menu->act->locked[count] = true;
+		}
 	}
 	// revert hero powers
 	if (pc->revertPowers) {

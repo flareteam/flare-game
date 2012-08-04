@@ -422,10 +422,13 @@ TooltipData MenuActionBar::checkTooltip(Point mouse) {
 void MenuActionBar::drop(Point mouse, int power_index, bool rearranging) {
 	for (int i=0; i<12; i++) {
 		if (isWithin(slots[i], mouse)) {
-			if (locked[i] && hotkeys[i] != -1) return;
 			if (rearranging) {
+				if ((locked[i] && !locked[drag_prev_slot]) || (!locked[i] && locked[drag_prev_slot])) {
+					locked[i] = !locked[i];
+					locked[drag_prev_slot] = !locked[drag_prev_slot];
+				}
 				hotkeys[drag_prev_slot] = hotkeys[i];
-			}
+			} else if (locked[i]) return;
 			hotkeys[i] = power_index;
 			return;
 		}
@@ -488,7 +491,6 @@ int MenuActionBar::checkDrag(Point mouse) {
 
 	for (int i=0; i<12; i++) {
 		if (isWithin(slots[i], mouse)) {
-			if (locked[i]) return -1;
 			drag_prev_slot = i;
 			power_index = hotkeys[i];
 			hotkeys[i] = -1;
