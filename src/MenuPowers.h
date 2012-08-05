@@ -91,6 +91,9 @@ private:
 	bool powerUnlockable(int power_index);
 	void renderPowers(int tab_num);
 
+	SDL_Color color_bonus;
+	SDL_Color color_penalty;
+
 public:
 	static MenuPowers *getInstance();
 	MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_icons);

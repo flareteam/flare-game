@@ -79,6 +79,8 @@ private:
 
 	int npc_id;
 
+	SDL_Color color_normal;
+
 public:
 	GameStatePlay();
 	~GameStatePlay();

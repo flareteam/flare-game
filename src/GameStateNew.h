@@ -73,6 +73,8 @@ private:
 	Point permadeath_label;
 	SDL_Rect portrait_pos;
 
+	SDL_Color color_normal;
+
 public:
 	GameStateNew();
 	~GameStateNew();

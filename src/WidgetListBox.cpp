@@ -61,6 +61,9 @@ WidgetListBox::WidgetListBox(int amount, int height, const std::string& _fileNam
 	scrollbar = new WidgetScrollBar(mods->locate("images/menus/buttons/scrollbar_default.png"));
 
 	render_to_alpha = false;
+
+	color_normal = font->getColor("widget_normal");
+	color_disabled = font->getColor("widget_disabled");
 }
 
 void WidgetListBox::loadArt() {
@@ -421,9 +424,9 @@ void WidgetListBox::refresh() {
 			}
 
 			if(selected[i+cursor]) {
-				vlabels[i].set(font_x, font_y, JUSTIFY_LEFT, VALIGN_CENTER, temp, font->getColor("widget_normal"));
+				vlabels[i].set(font_x, font_y, JUSTIFY_LEFT, VALIGN_CENTER, temp, color_normal);
 			} else {
-				vlabels[i].set(font_x, font_y, JUSTIFY_LEFT, VALIGN_CENTER, temp, font->getColor("widget_disabled"));
+				vlabels[i].set(font_x, font_y, JUSTIFY_LEFT, VALIGN_CENTER, temp, color_disabled);
 			}
 		}
 	}

@@ -100,6 +100,7 @@ MenuTalker::MenuTalker(CampaignManager *_camp) {
 		infile.close();
 	} else fprintf(stderr, "Unable to open talker.txt!\n");
 
+	color_normal = font->getColor("menu_normal");
 }
 
 void MenuTalker::loadGraphics() {
@@ -211,7 +212,7 @@ void MenuTalker::createBuffer() {
 	// render text to back buffer
 	SDL_FreeSurface(msg_buffer);
 	msg_buffer = createAlphaSurface(text_pos.w,text_pos.h);
-	font->render(line, text_offset.x, text_offset.y, JUSTIFY_LEFT, msg_buffer, text_pos.w - text_offset.x*2, font->getColor("menu_normal"));
+	font->render(line, text_offset.x, text_offset.y, JUSTIFY_LEFT, msg_buffer, text_pos.w - text_offset.x*2, color_normal);
 
 }
 

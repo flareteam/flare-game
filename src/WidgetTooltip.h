@@ -57,7 +57,7 @@ public:
 		tip_buffer = NULL;
 		for (int i=0; i<TOOLTIP_MAX_LINES; i++) {
 			lines[i] = "";
-			colors[i] = font->getColor("tooltip_default");
+			colors[i] = font->getColor("widget_normal");
 		}
 	}
 

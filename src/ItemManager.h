@@ -156,6 +156,14 @@ private:
 	void loadSounds();
 	void loadIcons();
 	void shrinkItems();
+
+	SDL_Color color_normal;
+	SDL_Color color_low;
+	SDL_Color color_high;
+	SDL_Color color_epic;
+	SDL_Color color_bonus;
+	SDL_Color color_penalty;
+	SDL_Color color_requirements_not_met;
 public:
 	ItemManager();
 	~ItemManager();

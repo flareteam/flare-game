@@ -150,6 +150,9 @@ MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_i
 	}
 
 	menuPowers = this;
+
+	color_bonus = font->getColor("menu_bonus");
+	color_penalty = font->getColor("menu_penalty");
 }
 
 void MenuPowers::update() {
@@ -463,31 +466,31 @@ TooltipData MenuPowers::checkTooltip(Point mouse) {
 
 				// add requirement
 				if ((power_cell[i].requires_physoff > 0) && (stats->physoff < power_cell[i].requires_physoff)) {
-					tip.colors[tip.num_lines] = font->getColor("menu_penalty");
+					tip.colors[tip.num_lines] = color_penalty;
 					tip.lines[tip.num_lines++] = msg->get("Requires Physical Offense %d", power_cell[i].requires_physoff);
 				} else if((power_cell[i].requires_physoff > 0) && (stats->physoff >= power_cell[i].requires_physoff)) {
 					tip.lines[tip.num_lines++] = msg->get("Requires Physical Offense %d", power_cell[i].requires_physoff);
 				}
 				if ((power_cell[i].requires_physdef > 0) && (stats->physdef < power_cell[i].requires_physdef)) {
-					tip.colors[tip.num_lines] = font->getColor("menu_penalty");
+					tip.colors[tip.num_lines] = color_penalty;
 					tip.lines[tip.num_lines++] = msg->get("Requires Physical Defense %d", power_cell[i].requires_physdef);
 				} else if ((power_cell[i].requires_physdef > 0) && (stats->physdef >= power_cell[i].requires_physdef)) {
 					tip.lines[tip.num_lines++] = msg->get("Requires Physical Defense %d", power_cell[i].requires_physdef);
 				}
 				if ((power_cell[i].requires_mentoff > 0) && (stats->mentoff < power_cell[i].requires_mentoff)) {
-					tip.colors[tip.num_lines] = font->getColor("menu_penalty");
+					tip.colors[tip.num_lines] = color_penalty;
 					tip.lines[tip.num_lines++] = msg->get("Requires Mental Offense %d", power_cell[i].requires_mentoff);
 				} else if ((power_cell[i].requires_mentoff > 0) && (stats->mentoff >= power_cell[i].requires_mentoff)) {
 					tip.lines[tip.num_lines++] = msg->get("Requires Mental Offense %d", power_cell[i].requires_mentoff);
 				}
 				if ((power_cell[i].requires_mentdef > 0) && (stats->mentdef < power_cell[i].requires_mentdef)) {
-					tip.colors[tip.num_lines] = font->getColor("menu_penalty");
+					tip.colors[tip.num_lines] = color_penalty;
 					tip.lines[tip.num_lines++] = msg->get("Requires Mental Defense %d", power_cell[i].requires_mentdef);
 				} else if ((power_cell[i].requires_mentdef > 0) && (stats->mentdef >= power_cell[i].requires_mentdef)) {
 					tip.lines[tip.num_lines++] = msg->get("Requires Mental Defense %d", power_cell[i].requires_mentdef);
 				}
 				if ((power_cell[i].requires_offense > 0) && (stats->get_offense() < power_cell[i].requires_offense)) {
-					tip.colors[tip.num_lines] = font->getColor("menu_penalty");
+					tip.colors[tip.num_lines] = color_penalty;
 					tip.lines[tip.num_lines++] = msg->get("Requires Offense %d", power_cell[i].requires_offense);
 				} else if ((power_cell[i].requires_offense > 0) && (stats->get_offense() >= power_cell[i].requires_offense)) {
 					tip.lines[tip.num_lines++] = msg->get("Requires Offense %d", power_cell[i].requires_offense);
@@ -510,7 +513,7 @@ TooltipData MenuPowers::checkTooltip(Point mouse) {
 
 				// Draw required Level Tooltip
 				if ((power_cell[i].requires_level > 0) && stats->level < power_cell[i].requires_level) {
-					tip.colors[tip.num_lines] = font->getColor("menu_penalty");
+					tip.colors[tip.num_lines] = color_penalty;
 					tip.lines[tip.num_lines++] = msg->get("Requires Level %d", power_cell[i].requires_level);
 				}
 				else if ((power_cell[i].requires_level > 0) && stats->level >= power_cell[i].requires_level) {
@@ -521,7 +524,7 @@ TooltipData MenuPowers::checkTooltip(Point mouse) {
 				if ((power_cell[i].requires_point) &&
 					!(find(powers_list.begin(), powers_list.end(), power_cell[i].id) != powers_list.end()) &&
 					(points_left < 1)) {
-						tip.colors[tip.num_lines] = font->getColor("menu_penalty");
+						tip.colors[tip.num_lines] = color_penalty;
 						tip.lines[tip.num_lines++] = msg->get("Requires %d Skill Point", power_cell[i].requires_point);
 				}
 				else if ((power_cell[i].requires_point) &&
@@ -534,14 +537,14 @@ TooltipData MenuPowers::checkTooltip(Point mouse) {
 					!(find(powers_list.begin(), powers_list.end(), power_cell[i].id) != powers_list.end()) &&
 					(points_left > 0) &&
 					powerUnlockable(power_cell[i].id) && (points_left > 0)) {
-						tip.colors[tip.num_lines] = font->getColor("menu_bonus");
+						tip.colors[tip.num_lines] = color_bonus;
 						tip.lines[tip.num_lines++] = msg->get("Click to Unlock");
 					}
 
 
 				// Required Power Tooltip
 				if ((power_cell[i].requires_power != -1) && !(requirementsMet(power_cell[i].id))) {
-					tip.colors[tip.num_lines] = font->getColor("menu_penalty");
+					tip.colors[tip.num_lines] = color_penalty;
 					tip.lines[tip.num_lines++] = msg->get("Requires Power: %s", powers->powers[power_cell[i].requires_power].name);
 				}
 				else if ((power_cell[i].requires_power != -1) && (requirementsMet(power_cell[i].id))) {
