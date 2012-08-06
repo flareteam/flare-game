@@ -42,6 +42,8 @@ WidgetButton::WidgetButton(const std::string& _fileName)
 	pos.w = buttons->w;
 	pos.h = (buttons->h / 4); //height of one button
 
+	color_normal = font->getColor("widget_normal");
+	color_disabled = font->getColor("widget_disabled");
 }
 
 void WidgetButton::loadArt() {
@@ -151,14 +153,13 @@ void WidgetButton::render(SDL_Surface *target) {
 void WidgetButton::refresh() {
 	if (label != "") {
 	
-		// render text
-		SDL_Color font_color = font->getColor("widget_normal");
-		if (!enabled) font_color = font->getColor("widget_disabled");
-
 		int font_x = pos.x + (pos.w/2);
 		int font_y = pos.y + (pos.h/2);
 
-		wlabel.set(font_x, font_y, JUSTIFY_CENTER, VALIGN_CENTER, label, font_color);
+		if (enabled)
+			wlabel.set(font_x, font_y, JUSTIFY_CENTER, VALIGN_CENTER, label, color_normal);
+		else
+			wlabel.set(font_x, font_y, JUSTIFY_CENTER, VALIGN_CENTER, label, color_disabled);
 	}
 }
 

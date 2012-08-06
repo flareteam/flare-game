@@ -66,6 +66,7 @@ private:
 	int tab_content_y;
 	int tab_content_indent;
 	SDL_Color tab_bg;
+	SDL_Color color_normal;
 	
 public:
 	MenuLog();

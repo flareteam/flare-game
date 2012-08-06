@@ -40,6 +40,8 @@ WidgetTabControl::WidgetTabControl(int amount) {
 	// Load needed graphics.
 	loadGraphics();
 
+	color_normal = font->getColor("widget_normal");
+	color_disabled = font->getColor("widget_disabled");
 }
 /**
  * Class destructor.
@@ -210,8 +212,8 @@ void WidgetTabControl::renderTab(int number, SDL_Surface *target)
 
 	// Set tab’s label font color.
 	SDL_Color fontColor;
-	if (i == activeTab) fontColor = font->getColor("widget_normal");
-	else fontColor = font->getColor("widget_disabled");
+	if (i == activeTab) fontColor = color_normal;
+	else fontColor = color_disabled;
 
 	// Draw tab’s label.
 	WidgetLabel label;

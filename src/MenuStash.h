@@ -51,6 +51,7 @@ private:
 	LabelInfo title;
 	int slots_cols;
 	int slots_rows;
+	SDL_Color color_normal;
 
 public:
 	MenuStash(ItemManager *items, StatBlock *stats);

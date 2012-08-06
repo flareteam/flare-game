@@ -57,6 +57,8 @@ private:
 	SDL_Rect *rows;
 	WidgetTooltip *tip;
 	WidgetScrollBar *scrollbar;
+	SDL_Color color_normal;
+	SDL_Color color_disabled;
 	
 public:
 	WidgetListBox(int amount, int height, const std::string& _fileName);

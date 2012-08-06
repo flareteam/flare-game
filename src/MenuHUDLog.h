@@ -43,6 +43,8 @@ private:
 
 	int log_count;
 	int paragraph_spacing;
+
+	SDL_Color color_normal;
 	
 	
 public:

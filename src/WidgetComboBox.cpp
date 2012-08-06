@@ -49,6 +49,9 @@ WidgetComboBox::WidgetComboBox(int amount, const std::string& _fileName)
 	pos.h = (comboboxs->h / 4); //height of one ComboBox
 
 	render_to_alpha = false;
+
+	color_normal = font->getColor("widget_normal");
+	color_disabled = font->getColor("widget_disabled");
 }
 
 void WidgetComboBox::loadArt() {
@@ -206,8 +209,8 @@ void WidgetComboBox::refresh() {
 		label = values[selected];
 	}
 	if (label != "") {
-		SDL_Color font_color = font->getColor("widget_normal");
-		if (!enabled) font_color = font->getColor("widget_disabled");
+		SDL_Color font_color = color_normal;
+		if (!enabled) font_color = color_disabled;
 
 		int font_x = pos.x + 8;
 		int font_y = pos.y + (pos.h/2);
@@ -220,13 +223,13 @@ void WidgetComboBox::refresh() {
 		for(int i=0;i<cmbAmount;i++) {
 			SDL_Color font_color;
 			if(isWithin(rows[i], mouse_point)) {
-				font_color = font->getColor("widget_normal");
+				font_color = color_normal;
 				if(i<cmbAmount-1) {
 					if(isWithin(rows[i+1], mouse_point))
-						font_color = font->getColor("widget_disabled");
+						font_color = color_disabled;
 				}
 			} else {
-				font_color = font->getColor("widget_disabled");
+				font_color = color_disabled;
 			}
 			if (values[i].length() > 23) {
 				temp = values[i].substr(0,20);
