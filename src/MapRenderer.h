@@ -132,6 +132,8 @@ public:
 	Point pos;
 	int direction;
 	std::queue<Point> waypoints;
+	bool wander;
+	SDL_Rect wander_area;
 
 	void clear() {
 		pos.x = 0;
@@ -141,6 +143,11 @@ public:
 		type = "";
 		std::queue<Point> empty;
 		waypoints = empty;
+		wander = false;
+		wander_area.x = 0;
+		wander_area.y = 0;
+		wander_area.w = 0;
+		wander_area.h = 0;
 	}
 };
 
