@@ -129,6 +129,7 @@ GameStateNew::GameStateNew() : GameState() {
 	permadeath_label.y += (VIEW_H - FRAME_H)/2;
 
 	// set up labels
+	color_normal = font->getColor("menu_normal");
 	label_portrait = new WidgetLabel();
 	label_portrait->set(portrait_label.x, portrait_label.y, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Choose a Portrait"), color_normal);
 	label_name = new WidgetLabel();
@@ -139,8 +140,6 @@ GameStateNew::GameStateNew() : GameState() {
 	loadGraphics();
 	loadOptions("hero_options.txt");
 	loadPortrait(portrait[0]);
-
-	color_normal = font->getColor("menu_normal");
 }
 
 void GameStateNew::loadGraphics() {
