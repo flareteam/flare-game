@@ -70,7 +70,7 @@ void MenuActionBar::update() {
 		infile.val = infile.val + ',';
 
 		if (infile.key == "default_M1_power") {
-			default_M1 = window_area.x+eatFirstInt(infile.val, ',');
+			default_M1 = eatFirstInt(infile.val, ',');
 		}else if (infile.key == "slot1") {
 			slots[0].x = window_area.x+eatFirstInt(infile.val, ',');
 			slots[0].y = window_area.y+eatFirstInt(infile.val, ',');
