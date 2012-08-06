@@ -224,6 +224,12 @@ public:
     int waypoint_pause;
     int waypoint_pause_ticks;
 
+	// wandering area
+	bool wander;
+	SDL_Rect wander_area;
+	int wander_ticks;
+	int wander_pause_ticks;
+
 	// enemy behavioral stats
 	int chance_pursue;
 	int chance_flee;

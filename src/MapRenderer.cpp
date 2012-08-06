@@ -264,6 +264,12 @@ int MapRenderer::load(string filename) {
 						a = infile.nextValue();
 						b = infile.nextValue();
 					}
+				} else if (infile.key == "wander_area") {
+					new_enemy.wander = true;
+					new_enemy.wander_area.x = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
+					new_enemy.wander_area.y = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
+					new_enemy.wander_area.w = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
+					new_enemy.wander_area.h = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
 				}
 			}
 			else if (infile.section == "enemygroup") {

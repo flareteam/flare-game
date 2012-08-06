@@ -145,6 +145,8 @@ void EnemyManager::handleNewMap () {
 		e->stats.pos.x = me.pos.x;
 		e->stats.pos.y = me.pos.y;
 		e->stats.direction = me.direction;
+		e->stats.wander = me.wander;
+		e->stats.wander_area = me.wander_area;
 		e->stats.load("enemies/" + me.type + ".txt");
 		if (e->stats.animations != "") {
 			// load the animation file if specified

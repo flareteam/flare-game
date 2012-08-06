@@ -114,6 +114,11 @@ StatBlock::StatBlock() {
 	waypoint_pause = 0;
 	waypoint_pause_ticks = 0;
 
+	// wandering
+	wander= false;
+	wander_ticks = 0;
+	wander_pause_ticks = 0;
+
 	// xp table
 	// default to MAX_INT
 	for (int i=0; i<MAX_CHARACTER_LEVEL; i++) {
