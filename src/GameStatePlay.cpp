@@ -125,8 +125,10 @@ void GameStatePlay::checkEnemyFocus() {
 	if (enemy != NULL) {
 
 		// if there's a living creature in focus, display its stats
-		menu->enemy->enemy = enemy;
-		menu->enemy->timeout = MENU_ENEMY_TIMEOUT;
+		if (!enemy->stats.suppress_hp) {
+			menu->enemy->enemy = enemy;
+			menu->enemy->timeout = MENU_ENEMY_TIMEOUT;
+		}
 	}
 	else {
 
