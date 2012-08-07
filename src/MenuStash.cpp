@@ -69,7 +69,7 @@ MenuStash::MenuStash(ItemManager *_items, StatBlock *_stats) {
 }
 
 void MenuStash::loadGraphics() {
-	background = IMG_Load(mods->locate("images/menus/vendor.png").c_str());
+	background = IMG_Load(mods->locate("images/menus/stash.png").c_str());
 	if(!background) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 		SDL_Quit();
