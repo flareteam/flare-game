@@ -440,14 +440,13 @@ void MenuCharacter::logic() {
 	}
 
 	int spent = stats->physical_character + stats->mental_character + stats->offense_character + stats->defense_character -4;
-	int max_spendable_stat_points = 16;
 	skill_points = stats->level - spent;
 
-	if (spent < stats->level && spent < max_spendable_stat_points) {
-		if (stats->physical_character < 5 && show_upgrade[0]) upgradeButton[0]->enabled = true;
-		if (stats->mental_character  < 5 && show_upgrade[1]) upgradeButton[1]->enabled = true;
-		if (stats->offense_character < 5 && show_upgrade[2]) upgradeButton[2]->enabled = true;
-		if (stats->defense_character < 5 && show_upgrade[3]) upgradeButton[3]->enabled = true;
+	if (spent < stats->level && spent < stats->max_spendable_stat_points) {
+		if (stats->physical_character < stats->max_points_per_stat && show_upgrade[0]) upgradeButton[0]->enabled = true;
+		if (stats->mental_character  < stats->max_points_per_stat && show_upgrade[1]) upgradeButton[1]->enabled = true;
+		if (stats->offense_character < stats->max_points_per_stat && show_upgrade[2]) upgradeButton[2]->enabled = true;
+		if (stats->defense_character < stats->max_points_per_stat && show_upgrade[3]) upgradeButton[3]->enabled = true;
 	}
 
 	if (upgradeButton[0]->checkClick()) physical_up = true;
@@ -527,11 +526,10 @@ bool MenuCharacter::checkUpgrade() {
 	mouse.y = inpt->mouse.y;
 
 	int spent = stats->physical_character + stats->mental_character + stats->offense_character + stats->defense_character -4;
-	int max_spendable_stat_points = 16;
 	skill_points = stats->level - spent;
 
 	// check to see if there are skill points available
-	if (spent < stats->level && spent < max_spendable_stat_points) {
+	if (spent < stats->level && spent < stats->max_spendable_stat_points) {
 
 		// check mouse hotspots
 

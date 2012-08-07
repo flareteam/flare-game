@@ -389,13 +389,12 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 	bool allowed_to_use_power;
 
 	// check level up
-	int max_spendable_stat_points = 16;
 	if (stats.xp >= stats.xp_table[stats.level] && stats.level < MAX_CHARACTER_LEVEL) {
 		stats.level_up = true;
 		stats.level++;
 		stringstream ss;
 		ss << msg->get("Congratulations, you have reached level %d!", stats.level);
-		if (stats.level < max_spendable_stat_points) {
+		if (stats.level < stats.max_spendable_stat_points) {
 			ss << " " << msg->get("You may increase one attribute through the Character Menu.");
 			newLevelNotification = true;
 		}
