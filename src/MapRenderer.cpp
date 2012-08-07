@@ -931,6 +931,10 @@ void MapRenderer::checkEvents(Point loc) {
 	vector<Map_Event>::iterator it;
 
 	for (it = events.begin(); it < events.end(); it++) {
+	
+		// skip inactive events
+		if (!isActive(*it)) continue;
+	
 		if (maploc.x >= (*it).location.x &&
 			maploc.y >= (*it).location.y &&
 			maploc.x <= (*it).location.x + (*it).location.w-1 &&
@@ -1092,16 +1096,18 @@ bool MapRenderer::executeEvent(Map_Event &ev) {
 	for (int i=0; i<ev.comp_num; i++) {
 		ec = &ev.components[i];
 
-		if (ec->type == "requires_status") {
-			if (!camp->checkStatus(ec->s)) return false;
-		}
-		else if (ec->type == "requires_not") {
-			if (camp->checkStatus(ec->s)) return false;
-		}
-		else if (ec->type == "requires_item") {
-			if (!camp->checkItem(ec->x)) return false;
-		}
-		else if (ec->type == "set_status") {
+		// requirements should be checked by isActive() before calling executeEvent()		
+		//if (ec->type == "requires_status") {
+		//	if (!camp->checkStatus(ec->s)) return false;
+		//}
+		//else if (ec->type == "requires_not") {
+		//	if (camp->checkStatus(ec->s)) return false;
+		//}
+		//else if (ec->type == "requires_item") {
+		//	if (!camp->checkItem(ec->x)) return false;
+		//}
+		
+		if (ec->type == "set_status") {
 			camp->setStatus(ec->s);
 		}
 		else if (ec->type == "unset_status") {
