@@ -293,6 +293,8 @@ public:
 	int animationSpeed;
 
 	// formula numbers
+	int max_spendable_stat_points;
+	int max_points_per_stat;
 	int hp_base;
 	int hp_per_level;
 	int hp_per_physical;
