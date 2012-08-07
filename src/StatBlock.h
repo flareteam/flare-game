@@ -253,6 +253,7 @@ public:
 	int cooldown_ticks;
 	int cooldown; // min. # of frames between abilities
 	int activated_powerslot;
+	bool suppress_hp; // hide an enemy HP bar
 
 	int loot_chance;
 	std::vector<std::string> item_classes; // which kind of loot is able to be dropped
