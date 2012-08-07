@@ -51,6 +51,7 @@ StatBlock::StatBlock() {
 	flying = false;
 	intangible = false;
 	facing = true;
+	suppress_hp = false;
 
 	// core stats
 	offense_character = defense_character = physical_character = mental_character = 0;
@@ -350,6 +351,9 @@ void StatBlock::load(const string& filename) {
 
 			else if (infile.key == "animations") animations = infile.val;
 			else if (infile.key == "animation_speed") animationSpeed = num;
+
+			// hide enemy HP bar
+			else if (infile.key == "suppress_hp") suppress_hp = num;
 		}
 		infile.close();
 	}
