@@ -100,6 +100,26 @@ bool WidgetListBox::checkClick(int x, int y) {
 	refresh();
 	tip_new = checkTooltip(mouse);
 
+	// check scroll wheel
+	SDL_Rect scroll_area;
+	scroll_area.x = rows[0].x;
+	scroll_area.y = rows[0].y;
+	scroll_area.w = rows[0].w;
+	scroll_area.h = rows[0].h * list_height;
+	if (isWithin(scroll_area,mouse)) {
+		if (inpt->scroll_up) {
+			scrollUp();
+			inpt->scroll_up = false;
+		}
+		if (inpt->scroll_down) {
+			scrollDown();
+			inpt->scroll_down = false;
+		}
+	} else {
+		inpt->scroll_up = false;
+		inpt->scroll_down = false;
+	}
+
 	// check ScrollBar clicks
 	if (has_scroll_bar) {
 		switch (scrollbar->checkClick(mouse.x,mouse.y)) {
