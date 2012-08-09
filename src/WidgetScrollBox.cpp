@@ -66,6 +66,27 @@ void WidgetScrollBox::logic() {
 
 void WidgetScrollBox::logic(int x, int y) {
 	Point mouse = {x,y};
+
+	// check scroll wheel
+	SDL_Rect scroll_area;
+	scroll_area.x = pos.x;
+	scroll_area.y = pos.y;
+	scroll_area.w = contents->w;
+	scroll_area.h = contents->h;
+	if (isWithin(pos,mouse)) {
+		if (inpt->scroll_up) {
+			scroll(-20);
+			inpt->scroll_up = false;
+		}
+		if (inpt->scroll_down) {
+			scroll(20);
+			inpt->scroll_down = false;
+		}
+	} else {
+		inpt->scroll_up = false;
+		inpt->scroll_down = false;
+	}
+
 	// check ScrollBar clicks
 	if (contents->h > pos.h) {
 		switch (scrollbar->checkClick(mouse.x,mouse.y)) {

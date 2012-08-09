@@ -90,6 +90,8 @@ public:
 	std::string inkeys;
 	int last_key;
 	int last_button;
+	bool scroll_up;
+	bool scroll_down;
 };
 
 #endif
