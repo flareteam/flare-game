@@ -376,13 +376,13 @@ void MenuCharacter::refreshStats() {
 
 	if (show_stat[12]) {
 		ss.str("");
-		ss << msg->get("Fire Resistance:") << " " << (100 - stats->attunement_fire) << "%";
+		ss << msg->get("Fire Resistance:") << " " << (100 - stats->vulnerable_fire) << "%";
 		statList->append(ss.str(),"");
 	}
 
 	if (show_stat[13]) {
 		ss.str("");
-		ss << msg->get("Ice Resistance:") << " " << (100 - stats->attunement_ice) << "%";
+		ss << msg->get("Ice Resistance:") << " " << (100 - stats->vulnerable_ice) << "%";
 		statList->append(ss.str(),"");
 	}
 

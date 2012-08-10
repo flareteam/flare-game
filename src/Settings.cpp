@@ -124,6 +124,12 @@ std::string LANGUAGE = "en";
 int AUTOPICKUP_RANGE = 0;
 bool AUTOPICKUP_GOLD = false;
 
+// Combat calculation caps (percentage)
+int MAX_ABSORB = 90;
+int MAX_RESIST = 90;
+int MAX_BLOCK = 100;
+int MAX_AVOIDANCE = 99;
+
 // Other Settings
 bool MENUS_PAUSE = false;
 std::string DEFAULT_NAME = "";
@@ -384,6 +390,24 @@ void loadMiscSettings() {
 	}
 	else {
 		fprintf(stderr, "No gameplay engine settings config found!\n");
+	}
+	// combat.txt
+	if (infile.open(mods->locate("engine/combat.txt").c_str())) {
+		while (infile.next()) {
+			if (infile.key == "max_absorb_percent") {
+				MAX_ABSORB = atoi(infile.val.c_str());
+			} else if (infile.key == "max_resist_percent") {
+				MAX_RESIST = atoi(infile.val.c_str());
+			} else if (infile.key == "max_block_percent") {
+				MAX_BLOCK = atoi(infile.val.c_str());
+			} else if (infile.key == "max_avoidance_percent") {
+				MAX_AVOIDANCE = atoi(infile.val.c_str());
+			}
+		}
+		infile.close();
+	}
+	else {
+		fprintf(stderr, "No combat engine settings config found!\n");
 	}
 }
 
