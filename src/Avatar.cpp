@@ -697,6 +697,7 @@ bool Avatar::takeHit(Hazard h) {
 			dmg = dmg - absorption;
 			if (dmg <= 0) {
 				dmg = 0;
+				if ((stats.blocking && MAX_BLOCK < 100) || MAX_ABSORB < 100) dmg = 1;
 				if (sound_block)
 					Mix_PlayChannel(-1, sound_block, 0);
 				activeAnimation->reset(); // shield stutter
