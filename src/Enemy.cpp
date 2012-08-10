@@ -188,7 +188,7 @@ bool Enemy::takeHit(Hazard h) {
 			dmg = dmg - absorption;
 			if (dmg < 0) {
 				dmg = 0;
-				if (MAX_ABSORB < 100 || (resist && MAX_RESIST < 100)) dmg = 1;
+				if ((MAX_ABSORB < 100 && !resist) || (resist && MAX_RESIST < 100)) dmg = 1;
 			}
 		}
 
