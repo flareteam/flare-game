@@ -346,14 +346,6 @@ void loadMiscSettings() {
 				SAVE_HPMP = atoi(infile.val.c_str());
 			} else if (infile.key == "default_name") {
 				DEFAULT_NAME = infile.val.c_str();
-			} else if (infile.key == "max_absorb_percent") {
-				MAX_ABSORB = atoi(infile.val.c_str());
-			} else if (infile.key == "max_resist_percent") {
-				MAX_RESIST = atoi(infile.val.c_str());
-			} else if (infile.key == "max_block_percent") {
-				MAX_BLOCK = atoi(infile.val.c_str());
-			} else if (infile.key == "max_avoidance_percent") {
-				MAX_AVOIDANCE = atoi(infile.val.c_str());
 			}
 		}
 		infile.close();
@@ -398,6 +390,24 @@ void loadMiscSettings() {
 	}
 	else {
 		fprintf(stderr, "No gameplay engine settings config found!\n");
+	}
+	// combat.txt
+	if (infile.open(mods->locate("engine/combat.txt").c_str())) {
+		while (infile.next()) {
+			if (infile.key == "max_absorb_percent") {
+				MAX_ABSORB = atoi(infile.val.c_str());
+			} else if (infile.key == "max_resist_percent") {
+				MAX_RESIST = atoi(infile.val.c_str());
+			} else if (infile.key == "max_block_percent") {
+				MAX_BLOCK = atoi(infile.val.c_str());
+			} else if (infile.key == "max_avoidance_percent") {
+				MAX_AVOIDANCE = atoi(infile.val.c_str());
+			}
+		}
+		infile.close();
+	}
+	else {
+		fprintf(stderr, "No combat engine settings config found!\n");
 	}
 }
 
