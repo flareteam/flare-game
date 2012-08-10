@@ -179,7 +179,10 @@ bool Enemy::takeHit(Hazard h) {
 				if ((dmg*100)/absorption > MAX_ABSORB) absorption = (float)absorption * (MAX_ABSORB/100.0);
 			}
 			dmg = dmg - absorption;
-			if (dmg < 0) dmg = 0;
+			if (dmg < 0) {
+				dmg = 0;
+				if (MAX_ABSORB < 100 && MAX_RESIST < 100) dmg = 1;
+			}
 		}
 
 		// check for crits
