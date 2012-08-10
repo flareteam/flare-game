@@ -170,8 +170,8 @@ public:
 	bool wielding_mental;
 	bool wielding_offense;
 	bool ammo_arrows;
-	int attunement_fire;
-	int attunement_ice;
+	int vulnerable_fire;
+	int vulnerable_ice;
 
 	// buff and debuff stats
 	int slow_duration;

@@ -665,10 +665,10 @@ bool Avatar::takeHit(Hazard h) {
 		// apply elemental resistance
 		// TODO: make this generic
 		if (h.trait_elemental == ELEMENT_FIRE) {
-			dmg = (dmg * stats.attunement_fire) / 100;
+			dmg = (dmg * stats.vulnerable_fire) / 100;
 		}
 		if (h.trait_elemental == ELEMENT_WATER) {
-			dmg = (dmg * stats.attunement_ice) / 100;
+			dmg = (dmg * stats.vulnerable_ice) / 100;
 		}
 
 		// apply absorption
@@ -826,11 +826,11 @@ void Avatar::transform() {
 	stats.crit = charmed_stats->crit;
 
 	// resistances
-	if (charmed_stats->attunement_fire < stats.attunement_fire)
-	stats.attunement_fire = charmed_stats->attunement_fire;
+	if (charmed_stats->vulnerable_fire < stats.vulnerable_fire)
+	stats.vulnerable_fire = charmed_stats->vulnerable_fire;
 
-	if (charmed_stats->attunement_ice < stats.attunement_ice)
-	stats.attunement_ice = charmed_stats->attunement_ice;
+	if (charmed_stats->vulnerable_ice < stats.vulnerable_ice)
+	stats.vulnerable_ice = charmed_stats->vulnerable_ice;
 
 	loadStepFX("NULL");
 }
@@ -872,8 +872,8 @@ void Avatar::untransform() {
 	stats.accuracy = hero_stats->accuracy;
 	stats.crit = hero_stats->crit;
 
-	stats.attunement_fire = hero_stats->attunement_fire;
-	stats.attunement_ice = hero_stats->attunement_ice;
+	stats.vulnerable_fire = hero_stats->vulnerable_fire;
+	stats.vulnerable_ice = hero_stats->vulnerable_ice;
 
 	delete charmed_stats;
 	delete hero_stats;

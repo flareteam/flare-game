@@ -155,8 +155,8 @@ StatBlock::StatBlock() {
 	ranged_weapon_power = -1;
 	mental_weapon_power = -1;
 
-	attunement_fire = 100;
-	attunement_ice = 100;
+	vulnerable_fire = 100;
+	vulnerable_ice = 100;
 
 	gold = 0;
 	death_penalty = false;
@@ -345,8 +345,8 @@ void StatBlock::load(const string& filename) {
 			else if (infile.key == "melee_range") melee_range = num;
 			else if (infile.key == "threat_range") threat_range = num;
 
-			else if (infile.key == "attunement_fire") attunement_fire=num;
-			else if (infile.key == "attunement_ice") attunement_ice=num;
+			else if (infile.key == "vulnerable_fire") vulnerable_fire=num;
+			else if (infile.key == "vulnerable_ice") vulnerable_ice=num;
 
 			// animation stats
 			else if (infile.key == "melee_weapon_power") melee_weapon_power = num;

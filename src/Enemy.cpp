@@ -157,10 +157,10 @@ bool Enemy::takeHit(Hazard h) {
 		// apply elemental resistance
 		// TODO: make this generic
 		if (h.trait_elemental == ELEMENT_FIRE) {
-			dmg = (dmg * stats.attunement_fire) / 100;
+			dmg = (dmg * stats.vulnerable_fire) / 100;
 		}
 		if (h.trait_elemental == ELEMENT_WATER) {
-			dmg = (dmg * stats.attunement_ice) / 100;
+			dmg = (dmg * stats.vulnerable_ice) / 100;
 		}
 
 		// substract absorption from armor

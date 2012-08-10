@@ -693,8 +693,8 @@ void MenuInventory::applyEquipment(ItemStack *equipped) {
 	stats->absorb_min = stats->absorb_max = 0;
 	stats->speed = 14;
 	stats->dspeed = 10;
-	stats->attunement_fire = 100;
-	stats->attunement_ice = 100;
+	stats->vulnerable_fire = 100;
+	stats->vulnerable_ice = 100;
 
 	// reset wielding vars
 	stats->wielding_physical = false;
@@ -768,9 +768,9 @@ void MenuInventory::applyEquipment(ItemStack *equipped) {
 				stats->dspeed += ((pc_items[item_id].bonus_val[bonus_counter]) * 2) /3;
 			}
 			else if (pc_items[item_id].bonus_stat[bonus_counter] == "fire resist")
-				stats->attunement_fire -= pc_items[item_id].bonus_val[bonus_counter];
+				stats->vulnerable_fire -= pc_items[item_id].bonus_val[bonus_counter];
 			else if (pc_items[item_id].bonus_stat[bonus_counter] == "ice resist")
-				stats->attunement_ice -= pc_items[item_id].bonus_val[bonus_counter];
+				stats->vulnerable_ice -= pc_items[item_id].bonus_val[bonus_counter];
 			else if (pc_items[item_id].bonus_stat[bonus_counter] == "offense")
 				stats->offense_additional += pc_items[item_id].bonus_val[bonus_counter];
 			else if (pc_items[item_id].bonus_stat[bonus_counter] == "defense")
