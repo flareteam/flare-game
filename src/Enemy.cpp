@@ -161,14 +161,18 @@ bool Enemy::takeHit(Hazard h) {
 		int vulnerable;
 		bool resist = false;
 		if (h.trait_elemental == ELEMENT_FIRE) {
-			resist = true;
-			if (MAX_RESIST < stats.vulnerable_fire) vulnerable = MAX_RESIST;
+			if (MAX_RESIST < stats.vulnerable_fire) {
+				vulnerable = MAX_RESIST;
+				resist = true;
+			}
 			else vulnerable = stats.vulnerable_fire;
 			dmg = (dmg * vulnerable) / 100;
 		}
 		if (h.trait_elemental == ELEMENT_WATER) {
-			resist = true;
-			if (MAX_RESIST < stats.vulnerable_ice) vulnerable = MAX_RESIST;
+			if (MAX_RESIST < stats.vulnerable_ice) {
+				vulnerable = MAX_RESIST;
+				resist = true;
+			}
 			else vulnerable = stats.vulnerable_ice;
 			dmg = (dmg * vulnerable) / 100;
 		}
