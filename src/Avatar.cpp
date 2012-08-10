@@ -666,20 +666,13 @@ bool Avatar::takeHit(Hazard h) {
 		// apply elemental resistance
 		// TODO: make this generic
 		int vulnerable;
-		bool resist = false;
 		if (h.trait_elemental == ELEMENT_FIRE) {
-			if (MAX_RESIST < stats.vulnerable_fire) {
-				vulnerable = MAX_RESIST;
-				resist = true;
-			}
+			if (MAX_RESIST < stats.vulnerable_fire) vulnerable = MAX_RESIST;
 			else vulnerable = stats.vulnerable_fire;
 			dmg = (dmg * vulnerable) / 100;
 		}
 		if (h.trait_elemental == ELEMENT_WATER) {
-			if (MAX_RESIST < stats.vulnerable_ice) {
-				vulnerable = MAX_RESIST;
-				resist = true;
-			}
+			if (MAX_RESIST < stats.vulnerable_ice) vulnerable = MAX_RESIST;
 			else vulnerable = stats.vulnerable_ice;
 			dmg = (dmg * vulnerable) / 100;
 		}
@@ -704,7 +697,6 @@ bool Avatar::takeHit(Hazard h) {
 			dmg = dmg - absorption;
 			if (dmg <= 0) {
 				dmg = 0;
-				if (((stats.blocking && MAX_BLOCK < 100) || (!stats.blocking && MAX_ABSORB < 100)) || (resist && MAX_RESIST < 100)) dmg = 1;
 				if (sound_block)
 					Mix_PlayChannel(-1, sound_block, 0);
 				activeAnimation->reset(); // shield stutter

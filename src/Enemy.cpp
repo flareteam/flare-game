@@ -159,20 +159,13 @@ bool Enemy::takeHit(Hazard h) {
 		// apply elemental resistance
 		// TODO: make this generic
 		int vulnerable;
-		bool resist = false;
 		if (h.trait_elemental == ELEMENT_FIRE) {
-			if (MAX_RESIST < stats.vulnerable_fire) {
-				vulnerable = MAX_RESIST;
-				resist = true;
-			}
+			if (MAX_RESIST < stats.vulnerable_fire) vulnerable = MAX_RESIST;
 			else vulnerable = stats.vulnerable_fire;
 			dmg = (dmg * vulnerable) / 100;
 		}
 		if (h.trait_elemental == ELEMENT_WATER) {
-			if (MAX_RESIST < stats.vulnerable_ice) {
-				vulnerable = MAX_RESIST;
-				resist = true;
-			}
+			if (MAX_RESIST < stats.vulnerable_ice) vulnerable = MAX_RESIST;
 			else vulnerable = stats.vulnerable_ice;
 			dmg = (dmg * vulnerable) / 100;
 		}
@@ -186,10 +179,7 @@ bool Enemy::takeHit(Hazard h) {
 				if ((dmg*100)/absorption > MAX_ABSORB) absorption = (float)absorption * (MAX_ABSORB/100.0);
 			}
 			dmg = dmg - absorption;
-			if (dmg < 0) {
-				dmg = 0;
-				if (MAX_ABSORB < 100 || (resist && MAX_RESIST < 100)) dmg = 1;
-			}
+			if (dmg < 0) dmg = 0;
 		}
 
 		// check for crits
