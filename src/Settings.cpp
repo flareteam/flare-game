@@ -124,6 +124,12 @@ std::string LANGUAGE = "en";
 int AUTOPICKUP_RANGE = 0;
 bool AUTOPICKUP_GOLD = false;
 
+// Combat calculation caps (percentage)
+int MAX_ABSORB = 90;
+int MAX_RESIST = 90;
+int MAX_BLOCK = 100;
+int MAX_AVOIDANCE = 99;
+
 // Other Settings
 bool MENUS_PAUSE = false;
 std::string DEFAULT_NAME = "";

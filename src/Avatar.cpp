@@ -653,6 +653,7 @@ bool Avatar::takeHit(Hazard h) {
 		// check miss
 		int avoidance = stats.avoidance;
 		if (stats.blocking) avoidance *= 2;
+		if (MAX_AVOIDANCE < avoidance) avoidance = MAX_AVOIDANCE;
 		if (rand() % 100 > (h.accuracy - avoidance + 25)) {
 			combat_text->addMessage("miss", stats.pos, DISPLAY_MISS);
 			return false;
@@ -664,11 +665,16 @@ bool Avatar::takeHit(Hazard h) {
 
 		// apply elemental resistance
 		// TODO: make this generic
+		int vulnerable;
 		if (h.trait_elemental == ELEMENT_FIRE) {
-			dmg = (dmg * stats.vulnerable_fire) / 100;
+			if (MAX_RESIST < stats.vulnerable_fire) vulnerable = MAX_RESIST;
+			else vulnerable = stats.vulnerable_fire;
+			dmg = (dmg * vulnerable) / 100;
 		}
 		if (h.trait_elemental == ELEMENT_WATER) {
-			dmg = (dmg * stats.vulnerable_ice) / 100;
+			if (MAX_RESIST < stats.vulnerable_ice) vulnerable = MAX_RESIST;
+			else vulnerable = stats.vulnerable_ice;
+			dmg = (dmg * vulnerable) / 100;
 		}
 
 		// apply absorption
@@ -677,10 +683,18 @@ bool Avatar::takeHit(Hazard h) {
 			if (stats.absorb_min == stats.absorb_max) absorption = stats.absorb_min;
 			else absorption = stats.absorb_min + (rand() % (stats.absorb_max - stats.absorb_min + 1));
 
-			if (stats.blocking) absorption += absorption + stats.absorb_max; // blocking doubles your absorb amount
+			if (stats.blocking) {
+				absorption += absorption + stats.absorb_max; // blocking doubles your absorb amount
+				if (absorption > 0) {
+					if ((dmg*100)/absorption > MAX_BLOCK) absorption = (float)absorption * (MAX_BLOCK/100.0);
+				}
+			} else {
+				if (absorption > 0) {
+					if ((dmg*100)/absorption > MAX_ABSORB) absorption = (float)absorption * (MAX_ABSORB/100.0);
+				}
+			}
 
 			dmg = dmg - absorption;
-			if (dmg < 1 && !stats.blocking) dmg = 1; // when blocking, dmg can be reduced to 0
 			if (dmg <= 0) {
 				dmg = 0;
 				if (sound_block)
