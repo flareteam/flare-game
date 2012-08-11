@@ -28,16 +28,9 @@ using namespace std;
 
 MenuHUDLog::MenuHUDLog() {
 
-	log_count = 0;
 	list_area.x = 224;
 	list_area.y = 416;
 	paragraph_spacing = font->getLineHeight()/2;
-
-	for (int i=0; i<MAX_HUD_MESSAGES; i++) {
-		msg_buffer[i] = NULL;
-		log_msg[i] = "";
-		msg_age[i] = 0;
-	}
 
 	color_normal = font->getColor("menu_normal");
 }
@@ -56,8 +49,11 @@ int MenuHUDLog::calcDuration(const string& s) {
  * Age messages
  */
 void MenuHUDLog::logic() {
-	for (int i=0; i<log_count; i++) {
-		if (msg_age[i] > 0) msg_age[i]--;
+	for (unsigned i=0; i<msg_age.size(); i++) {
+		if (msg_age[i] > 0)
+			msg_age[i]--;
+		else
+			remove(i);
 	}
 }
 
@@ -73,7 +69,7 @@ void MenuHUDLog::render() {
 
 
 	// go through new messages
-	for (int i=log_count-1; i>=0; i--) {
+	for (int i=msg_age.size()-1; i>=0; i--) {
 		if (msg_age[i] > 0 && dest.y > 64) {
 
 			dest.y -= msg_buffer[i]->h + paragraph_spacing;
@@ -89,56 +85,44 @@ void MenuHUDLog::render() {
  */
 void MenuHUDLog::add(const string& s) {
 
-	if (log_count == MAX_HUD_MESSAGES) {
-		remove(0); // remove the oldest message
-	}
-
 	// add new message
-	log_msg[log_count] = s;
-	msg_age[log_count] = calcDuration(s);
+	log_msg.push_back(s);
+	msg_age.push_back(calcDuration(s));
 
 	// force HUD messages to vanish in order
-	if (log_count > 0) {
-		if (msg_age[log_count] < msg_age[log_count-1])
-			msg_age[log_count] = msg_age[log_count-1];
+	if (msg_age.size() > 1) {
+		const int last = msg_age.size();
+		if (msg_age[last] < msg_age[last-1])
+			msg_age[last] = msg_age[last-1];
 	}
 
 	// render the log entry and store it in a buffer
 	Point size = font->calc_size(s, window_area.w);
-	msg_buffer[log_count] = createAlphaSurface(size.x, size.y);
-	font->renderShadowed(s, 0, 0, JUSTIFY_LEFT, msg_buffer[log_count], window_area.w, color_normal);
-
-	log_count++;
+	msg_buffer.push_back(createAlphaSurface(size.x, size.y));
+	font->renderShadowed(s, 0, 0, JUSTIFY_LEFT, msg_buffer.back(), window_area.w, color_normal);
 }
 
 /**
  * Remove the given message from the list
  */
 void MenuHUDLog::remove(int msg_index) {
-
-	SDL_FreeSurface(msg_buffer[msg_index]);
-	msg_buffer[msg_index] = NULL;
-
-	for (int i=msg_index; i<MAX_HUD_MESSAGES-1; i++) {
-		log_msg[i] = log_msg[i+1];
-		msg_age[i] = msg_age[i+1];
-		msg_buffer[i] = msg_buffer[i+1];
-	}
-
-	log_count--;
+	SDL_FreeSurface(msg_buffer.at(msg_index));
+	msg_buffer.erase(msg_buffer.begin()+msg_index);
+	msg_age.erase(msg_age.begin()+msg_index);
+	log_msg.erase(log_msg.begin()+msg_index);
 }
 
 void MenuHUDLog::clear() {
-	log_count = 0;
-	for (int i=0; i<MAX_HUD_MESSAGES; i++) {
+	for (unsigned i=0; i<msg_buffer.size(); i++) {
 		SDL_FreeSurface(msg_buffer[i]);
-		msg_buffer[i] = NULL;
 	}
-
+	msg_buffer.clear();
+	msg_age.clear();
+	log_msg.clear();
 }
 
 MenuHUDLog::~MenuHUDLog() {
-	for (int i=0; i<MAX_HUD_MESSAGES; i++) {
+	for (unsigned i=0; i<msg_buffer.size(); i++) {
 		SDL_FreeSurface(msg_buffer[i]);
 	}
 }

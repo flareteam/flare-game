@@ -28,25 +28,21 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <SDL_image.h>
 
 #include <string>
-
-
-const int MAX_HUD_MESSAGES = 16;
+#include <vector>
 
 class MenuHUDLog : public Menu {
 private:
 
 	int calcDuration(const std::string& s);
 
-	std::string log_msg[MAX_HUD_MESSAGES];
-	int msg_age[MAX_HUD_MESSAGES];
-	SDL_Surface *msg_buffer[MAX_HUD_MESSAGES];
+	std::vector<std::string> log_msg;
+	std::vector<int> msg_age;
+	std::vector<SDL_Surface*> msg_buffer;
 
-	int log_count;
 	int paragraph_spacing;
 
 	SDL_Color color_normal;
-	
-	
+
 public:
 
 	MenuHUDLog();
@@ -56,7 +52,7 @@ public:
 	void add(const std::string& s);
 	void remove(int msg_index);
 	void clear();
-	
+
 	Point list_area;
 };
 
