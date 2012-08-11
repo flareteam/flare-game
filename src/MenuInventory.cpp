@@ -687,12 +687,16 @@ void MenuInventory::applyEquipment(ItemStack *equipped) {
 	// defaults
 	stats->recalc();
 	stats->offense_additional = stats->defense_additional = stats->physical_additional = stats->mental_additional = 0;
-	stats->dmg_melee_min = stats->dmg_ment_min = 1;
-	stats->dmg_melee_max = stats->dmg_ment_max = 4;
-	stats->dmg_ranged_min = stats->dmg_ranged_max = 0;
-	stats->absorb_min = stats->absorb_max = 0;
-	stats->speed = 14;
-	stats->dspeed = 10;
+	stats->dmg_melee_min = stats->dmg_melee_min_default;
+	stats->dmg_melee_max = stats->dmg_melee_max_default;
+	stats->dmg_ranged_min = stats->dmg_ranged_min_default;
+	stats->dmg_ranged_max = stats->dmg_ranged_max_default;
+	stats->dmg_ment_min = stats->dmg_ment_min_default;
+	stats->dmg_ment_max = stats->dmg_ment_max_default;
+	stats->absorb_min = stats->absorb_min_default;
+	stats->absorb_max = stats->absorb_max_default;
+	stats->speed = stats->speed_default;
+	stats->dspeed = stats->dspeed_default;
 	stats->vulnerable_fire = 100;
 	stats->vulnerable_ice = 100;
 
