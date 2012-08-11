@@ -96,9 +96,6 @@ void TileSet::load(const std::string& filename) {
 				infile.val = infile.val + ',';
 				unsigned index = eatFirstInt(infile.val, ',');
 
-				if (first_tile_passed && index > tiles.size())
-					cerr << "Warning: non-continous tileset indexes in " << filename << ". This may blow up memory usage." << endl;
-
 				first_tile_passed = true;
 
 				if (index >= tiles.size())
