@@ -49,6 +49,7 @@ PowerManager::PowerManager() {
 	}
 
 	// TODO: generalize Vengeance
+	powers.resize(POWER_VENGEANCE + 1);
 	powers[POWER_VENGEANCE].type = POWTYPE_SINGLE;
 
 	used_item=-1;
@@ -95,6 +96,8 @@ void PowerManager::loadPowers(const std::string& filename) {
 			// data to the correct power.
 			if (infile.key == "id") {
 				input_id = atoi(infile.val.c_str());
+				if ((int)powers.size() < input_id + 1)
+					powers.resize(input_id + 1);
 			}
 			else if (infile.key == "type") {
 				if (infile.val == "single") powers[input_id].type = POWTYPE_SINGLE;
