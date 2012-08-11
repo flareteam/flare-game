@@ -1048,7 +1048,7 @@ void GameStateConfig::refreshFont() {
  * Tries to apply the selected video settings, reverting back to the old settings upon failure
  */
 bool GameStateConfig::applyVideoSettings(SDL_Surface *src, int width, int height) {
-	if (MIN_VIEW_W != -1 && MIN_VIEW_H != -1) {
+	if (MIN_VIEW_W > width && MIN_VIEW_H > height) {
 		fprintf (stderr, "A mod is requiring a minimum resolution of %dx%d\n", MIN_VIEW_W, MIN_VIEW_H);
 		if (width < MIN_VIEW_W) width = MIN_VIEW_W;
 		if (height < MIN_VIEW_H) height = MIN_VIEW_H;
