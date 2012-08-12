@@ -61,7 +61,6 @@ private:
 	CampaignManager *camp;
 	QuestLog *quests;
 
-	WidgetLabel *label_mapname;
 	WidgetLabel *label_fps;
 
 	bool restrictPowerUse();
