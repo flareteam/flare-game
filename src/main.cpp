@@ -84,9 +84,6 @@ static void init() {
 	SDL_WM_SetIcon(titlebar_icon, NULL);
 
 	// Create window
-	if (MIN_VIEW_W != -1 && MIN_VIEW_H != -1) {
-		fprintf (stderr, "A mod is requiring a minimum resolution of %dx%d\n", MIN_VIEW_W, MIN_VIEW_H);
-	}
 	screen = SDL_SetVideoMode (VIEW_W, VIEW_H, 0, flags);
 	if (screen == NULL) {
 

@@ -159,6 +159,8 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 	loadSounds();
 
 	done = false;
+
+	closeAll(false); // make sure all togglable menus start closed
 }
 
 /**

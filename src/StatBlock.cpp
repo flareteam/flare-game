@@ -70,14 +70,16 @@ StatBlock::StatBlock() {
 
 
 	// equipment stats
-	dmg_melee_min = 1;
-	dmg_melee_max = 4;
-	dmg_ment_min = 0;
-	dmg_ment_max = 0;
-	dmg_ranged_min = 0;
-	dmg_ranged_max = 0;
-	absorb_min = 0;
-	absorb_max = 0;
+	dmg_melee_min = dmg_melee_min_default = 1;
+	dmg_melee_max = dmg_melee_max_default = 4;
+	dmg_ment_min = dmg_ment_min_default = 0;
+	dmg_ment_max = dmg_ment_max_default = 0;
+	dmg_ranged_min = dmg_ranged_min_default = 0;
+	dmg_ranged_max = dmg_ranged_max_default = 0;
+	absorb_min = absorb_min_default = 0;
+	absorb_max = absorb_max_default = 0;
+	speed = speed_default = 14;
+	dspeed = dspeed_default = 10;
 	wielding_physical = false;
 	wielding_mental = false;
 	wielding_offense = false;
@@ -652,6 +654,26 @@ void StatBlock::loadHeroStats() {
 			crit_base = value;
 		} else if (infile.key == "crit_per_level") {
 			crit_per_level = value;
+		} else if (infile.key == "dmg_melee_min") {
+			dmg_melee_min = dmg_melee_min_default = value;
+		} else if (infile.key == "dmg_melee_max") {
+			dmg_melee_max = dmg_melee_max_default = value;
+		} else if (infile.key == "dmg_ranged_min") {
+			dmg_ranged_min = dmg_ranged_min_default = value;
+		} else if (infile.key == "dmg_ranged_max") {
+			dmg_ranged_max = dmg_ranged_max_default = value;
+		} else if (infile.key == "dmg_ment_min") {
+			dmg_ment_min = dmg_ment_min_default = value;
+		} else if (infile.key == "dmg_ment_max") {
+			dmg_ment_max = dmg_ment_max_default = value;
+		} else if (infile.key == "absorb_min") {
+			absorb_min = absorb_min_default = value;
+		} else if (infile.key == "absorb_max") {
+			absorb_max = absorb_max_default = value;
+		} else if (infile.key == "speed") {
+			speed = speed_default = value;
+		} else if (infile.key == "dspeed") {
+			dspeed = dspeed_default = value;
 		}
 	  }
 	  infile.close();

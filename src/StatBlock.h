@@ -157,6 +157,18 @@ public:
 	// overall stats
 	int crit;
 
+	// default equipment stats
+	int dmg_melee_min_default;
+	int dmg_melee_max_default;
+	int dmg_ment_min_default;
+	int dmg_ment_max_default;
+	int dmg_ranged_min_default;
+	int dmg_ranged_max_default;
+	int absorb_min_default;
+	int absorb_max_default;
+	int speed_default;
+	int dspeed_default;
+
 	// equipment stats
 	int dmg_melee_min;
 	int dmg_melee_max;
