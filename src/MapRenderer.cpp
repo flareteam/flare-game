@@ -57,6 +57,7 @@ MapRenderer::MapRenderer(CampaignManager *_camp) {
 
 	backgroundsurface = 0;
 	repaint_background = false;
+	stash = false;
 }
 
 void MapRenderer::clearEvents() {

@@ -81,9 +81,6 @@ GameStatePlay::GameStatePlay() : GameState() {
 	camp->hero = &pc->stats;
 	map->powers = powers;
 
-	// display the name of the map in the upper-right hand corner
-	label_mapname = new WidgetLabel();
-
 	label_fps = new WidgetLabel();
 
 	color_normal = font->getColor("menu_normal");
@@ -625,10 +622,6 @@ void GameStatePlay::render() {
 	// render the static map layers plus the renderables
 	map->render(renderables);
 
-	// display the name of the map in the upper-right hand corner
-	label_mapname->set(VIEW_W-2, 2, JUSTIFY_RIGHT, VALIGN_TOP, map->title, color_normal);
-	label_mapname->render();
-
 	// mouseover tooltips
 	loot->renderTooltips(map->cam);
 	npcs->renderTooltips(map->cam, inpt->mouse);
@@ -637,6 +630,7 @@ void GameStatePlay::render() {
 		menu->mini->prerender(&map->collider, map->w, map->h);
 		map->map_change = false;
 	}
+	menu->mini->getMapTitle(map->title);
 	menu->mini->render(pc->stats.pos);
 	menu->render();
 
@@ -668,6 +662,5 @@ GameStatePlay::~GameStatePlay() {
 	delete powers;
 
 	delete label_fps;
-	delete label_mapname;
 }
 

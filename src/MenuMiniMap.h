@@ -24,8 +24,10 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include <SDL.h>
 #include "Utils.h"
+#include "WidgetLabel.h"
 
 class MapCollision;
+class WidgetLabel;
 
 class MenuMiniMap : public Menu {
 private:
@@ -35,6 +37,10 @@ private:
 
 	SDL_Surface *map_surface;
 	Point map_size;
+
+	SDL_Rect pos;
+	LabelInfo text_pos;
+	WidgetLabel *label;
 
 	void createMapSurface();
 	void renderIso(Point hero_pos);
@@ -49,6 +55,7 @@ public:
 	void render();
 	void render(Point hero_pos);
 	void prerender(MapCollision *collider, int map_w, int map_h);
+	void getMapTitle(std::string map_title);
 };
 
 
