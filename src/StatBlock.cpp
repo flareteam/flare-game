@@ -72,10 +72,10 @@ StatBlock::StatBlock() {
 	// equipment stats
 	dmg_melee_min = dmg_melee_min_default = 1;
 	dmg_melee_max = dmg_melee_max_default = 4;
-	dmg_ment_min = dmg_ment_min_default = 0;
-	dmg_ment_max = dmg_ment_max_default = 0;
-	dmg_ranged_min = dmg_ranged_min_default = 0;
-	dmg_ranged_max = dmg_ranged_max_default = 0;
+	dmg_ment_min = dmg_ment_min_default = 1;
+	dmg_ment_max = dmg_ment_max_default = 4;
+	dmg_ranged_min = dmg_ranged_min_default = 1;
+	dmg_ranged_max = dmg_ranged_max_default = 4;
 	absorb_min = absorb_min_default = 0;
 	absorb_max = absorb_max_default = 0;
 	speed = speed_default = 14;
