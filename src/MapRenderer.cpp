@@ -550,6 +550,10 @@ int MapRenderer::load(string filename) {
 	}
 	tset.load(this->tileset);
 
+	// some events automatically trigger when the map loads
+	// e.g. change map state based on campaign status
+	executeOnLoadEvents();
+	
 	return 0;
 }
 
@@ -926,6 +930,22 @@ void MapRenderer::renderOrtho(vector<Renderable> &r) {
 	checkTooltip();
 }
 
+void MapRenderer::executeOnLoadEvents() {
+	vector<Map_Event>::iterator it;
+
+	for (it = events.begin(); it < events.end(); it++) {
+	
+		// skip inactive events
+		if (!isActive(*it)) continue;
+		
+		if ((*it).type == "on_load") {
+			if (executeEvent(*it))
+				events.erase(it);
+		}
+	}
+}
+
+
 void MapRenderer::checkEvents(Point loc) {
 	Point maploc;
 	maploc.x = loc.x >> TILE_SHIFT;
@@ -1222,7 +1242,7 @@ bool MapRenderer::executeEvent(Map_Event &ev) {
 			stash_pos.y = ev.location.y * UNITS_PER_TILE + UNITS_PER_TILE/2;
 		}
 	}
-	if (ev.type == "run_once" || destroy_event)
+	if (ev.type == "run_once" || ev.type == "on_load" || destroy_event)
 		return true;
 	else
 		return false;

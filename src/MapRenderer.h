@@ -178,6 +178,9 @@ private:
 	unsigned short object[256][256];
 	unsigned short collision[256][256];
 
+	// some events are automatically triggered when the map is loaded
+	void executeOnLoadEvents();
+	
 	// offset in screen/surface coordinates.
 	void renderIsoBackground(SDL_Surface *wheretorender, Point camwithoffset);
 	void renderIsoBackObjects(std::vector<Renderable> &r);
@@ -218,6 +221,7 @@ public:
 	int load(std::string filename);
 	void logic();
 	void render(std::vector<Renderable> &r);
+
 	void clearEvents();
 	void checkEvents(Point loc);
 	void checkEventClick();
