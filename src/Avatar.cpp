@@ -406,7 +406,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 
 	// check for bleeding spurt
 	if (stats.bleed_duration % 30 == 1) {
-		CombatText::Instance()->addMessage(1, stats.pos, DISPLAY_DAMAGE);
+		CombatText::Instance()->addMessage(1, stats.pos, COMBAT_MESSAGE_DAMAGE);
 		powers->activate(POWER_SPARK_BLOOD, &stats, stats.pos);
 	}
 	// check for bleeding to death
@@ -655,7 +655,7 @@ bool Avatar::takeHit(Hazard h) {
 		if (stats.blocking) avoidance *= 2;
 		if (MAX_AVOIDANCE < avoidance) avoidance = MAX_AVOIDANCE;
 		if (rand() % 100 > (h.accuracy - avoidance + 25)) {
-			combat_text->addMessage("miss", stats.pos, DISPLAY_MISS);
+			combat_text->addMessage("miss", stats.pos, COMBAT_MESSAGE_MISS);
 			return false;
 		}
 
@@ -711,7 +711,7 @@ bool Avatar::takeHit(Hazard h) {
 
 
 		int prev_hp = stats.hp;
-		combat_text->addMessage(dmg, stats.pos, DISPLAY_DAMAGE);
+		combat_text->addMessage(dmg, stats.pos, COMBAT_MESSAGE_DAMAGE);
 		stats.takeDamage(dmg);
 
 		// after effects
@@ -728,7 +728,7 @@ bool Avatar::takeHit(Hazard h) {
 			}
 			if (h.hp_steal != 0) {
 				int steal_amt = (int)ceil((float)dmg * (float)h.hp_steal / 100.0);
-				combat_text->addMessage(steal_amt, h.src_stats->pos, DISPLAY_HEAL);
+				combat_text->addMessage(steal_amt, h.src_stats->pos, COMBAT_MESSAGE_BUFF);
 				h.src_stats->hp += steal_amt;
 				if (h.src_stats->hp > h.src_stats->maxhp) h.src_stats->hp = h.src_stats->maxhp;
 			}

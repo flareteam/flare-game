@@ -147,7 +147,7 @@ bool Enemy::takeHit(Hazard h) {
 		int avoidance = stats.avoidance;
 		if (MAX_AVOIDANCE < avoidance) avoidance = MAX_AVOIDANCE;
 		if (rand() % 100 > (h.accuracy - avoidance + 25)) {
-		    combat_text->addMessage("miss", stats.pos, DISPLAY_MISS);
+		    combat_text->addMessage("miss", stats.pos, COMBAT_MESSAGE_MISS);
 		    return false;
 		}
 
@@ -200,11 +200,11 @@ bool Enemy::takeHit(Hazard h) {
 			map->shaky_cam_ticks = FRAMES_PER_SEC/2;
 
 			// show crit damage
-		    combat_text->addMessage(dmg, stats.pos, DISPLAY_CRIT);
+		    combat_text->addMessage(dmg, stats.pos, COMBAT_MESSAGE_CRIT);
 		}
 		else {
 		    // show normal damage
-		    combat_text->addMessage(dmg, stats.pos, DISPLAY_DAMAGE);
+		    combat_text->addMessage(dmg, stats.pos, COMBAT_MESSAGE_DAMAGE);
 		}
 
 		// apply damage
@@ -227,7 +227,7 @@ bool Enemy::takeHit(Hazard h) {
 			}
 			if (h.hp_steal != 0) {
 			    int heal_amt = (int)ceil((float)dmg * (float)h.hp_steal / 100.0);
-    			combat_text->addMessage(heal_amt, h.src_stats->pos, DISPLAY_HEAL);
+    			combat_text->addMessage(heal_amt, h.src_stats->pos, COMBAT_MESSAGE_BUFF);
 				h.src_stats->hp += heal_amt;
 				if (h.src_stats->hp > h.src_stats->maxhp) h.src_stats->hp = h.src_stats->maxhp;
 			}
