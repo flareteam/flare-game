@@ -564,7 +564,7 @@ void MapRenderer::loadMusic() {
 		Mix_FreeMusic(music);
 		music = NULL;
 	}
-	if (audio == true) {
+	if (audio && MUSIC_VOLUME) {
 		music = Mix_LoadMUS((mods->locate("music/" + this->music_filename)).c_str());
 		if(!music)
 			printf("Mix_LoadMUS: %s\n", Mix_GetError());

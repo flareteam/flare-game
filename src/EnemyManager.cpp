@@ -85,7 +85,7 @@ void EnemyManager::loadSounds(const string& type_id) {
         }
     }
 
-    if (audio == true) {
+    if (audio && SOUND_VOLUME) {
         sound_phys[sfx_count] = Mix_LoadWAV(mods->locate("soundfx/enemies/" + type_id + "_phys.ogg").c_str());
         sound_ment[sfx_count] = Mix_LoadWAV(mods->locate("soundfx/enemies/" + type_id + "_ment.ogg").c_str());
         sound_hit[sfx_count] = Mix_LoadWAV(mods->locate("soundfx/enemies/" + type_id + "_hit.ogg").c_str());

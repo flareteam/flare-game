@@ -181,7 +181,7 @@ void MenuManager::loadIcons() {
 }
 
 void MenuManager::loadSounds() {
-	if (audio == true) {
+	if (audio && SOUND_VOLUME) {
 		sfx_open = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_page.ogg").c_str());
 		sfx_close = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_book.ogg").c_str());
 
