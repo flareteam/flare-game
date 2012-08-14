@@ -235,7 +235,7 @@ void ItemManager::load(const string& filename) {
 void ItemManager::loadSounds() {
 	memset(sfx, 0, sizeof(sfx));
 
-	if (audio) {
+	if (audio && SOUND_VOLUME) {
 		sfx[SFX_BOOK] = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_book.ogg").c_str());
 		sfx[SFX_CLOTH] = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_cloth.ogg").c_str());
 		sfx[SFX_COINS] = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_coins.ogg").c_str());

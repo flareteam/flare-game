@@ -434,7 +434,7 @@ int PowerManager::loadSFX(const string& filename) {
         }
 
         // we don't already have this sound loaded, so load it
-        if (audio ==  true) {
+        if (audio && SOUND_VOLUME) {
             sfx[sfx_count] = Mix_LoadWAV(mods->locate("soundfx/powers/" + filename).c_str());
             if(!sfx[sfx_count]) {
                 fprintf(stderr, "Couldn't load power soundfx: %s\n", filename.c_str());

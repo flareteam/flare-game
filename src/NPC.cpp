@@ -212,7 +212,7 @@ void NPC::loadGraphics(const string& filename_sprites, const string& filename_po
  */
 void NPC::loadSound(const string& filename, int type) {
 
-	if (type == NPC_VOX_INTRO) {
+	if (type == NPC_VOX_INTRO && SOUND_VOLUME) {
 
 		// if too many already loaded, skip this one
 		if (audio) {

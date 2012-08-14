@@ -46,7 +46,7 @@ GameSwitcher::GameSwitcher() {
 
 void GameSwitcher::loadMusic() {
 
-    if (audio == true) {
+    if (audio && MUSIC_VOLUME) {
         music = Mix_LoadMUS((mods->locate("music/title_theme.ogg")).c_str());
         if (!music)
           printf("Mix_LoadMUS: %s\n", Mix_GetError());
