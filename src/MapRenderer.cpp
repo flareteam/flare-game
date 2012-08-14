@@ -933,7 +933,9 @@ void MapRenderer::renderOrtho(vector<Renderable> &r) {
 void MapRenderer::executeOnLoadEvents() {
 	vector<Map_Event>::iterator it;
 
-	for (it = events.begin(); it < events.end(); it++) {
+	// loop in reverse because we may erase elements
+	for (it = events.end(); it != events.begin(); ) {
+		it--;
 	
 		// skip inactive events
 		if (!isActive(*it)) continue;
@@ -952,7 +954,9 @@ void MapRenderer::checkEvents(Point loc) {
 	maploc.y = loc.y >> TILE_SHIFT;
 	vector<Map_Event>::iterator it;
 
-	for (it = events.begin(); it < events.end(); it++) {
+	// loop in reverse because we may erase elements
+	for (it = events.end(); it != events.begin(); ) {
+		it--;
 	
 		// skip inactive events
 		if (!isActive(*it)) continue;
