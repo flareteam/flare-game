@@ -640,8 +640,18 @@ void PowerManager::initHazard(int power_index, StatBlock *src_stats, Point targe
 	haz->dmg_max = (int)ceil(haz->dmg_max * powers[power_index].damage_multiplier / 100.0);
 
 	//apply stat bonuses
-	haz->dmg_min = haz->dmg_min + (src_stats->get_physical()*src_stats->bonus_per_physical) + (src_stats->get_mental()*src_stats->bonus_per_mental) + (src_stats->get_offense()*src_stats->bonus_per_offense) + (src_stats->get_defense()*src_stats->bonus_per_defense);
-	haz->dmg_max = haz->dmg_max + (src_stats->get_physical()*src_stats->bonus_per_physical) + (src_stats->get_mental()*src_stats->bonus_per_mental) + (src_stats->get_offense()*src_stats->bonus_per_offense) + (src_stats->get_defense()*src_stats->bonus_per_defense);
+	if (powers[power_index].base_damage == BASE_DAMAGE_MELEE) {
+		haz->dmg_min += src_stats->get_physical() * src_stats->bonus_per_physical;
+		haz->dmg_max += src_stats->get_physical() * src_stats->bonus_per_physical;
+	}
+	else if (powers[power_index].base_damage == BASE_DAMAGE_RANGED) {
+		haz->dmg_min += src_stats->get_offense() * src_stats->bonus_per_offense;
+		haz->dmg_max += src_stats->get_offense() * src_stats->bonus_per_offense;
+	}
+	else if (powers[power_index].base_damage == BASE_DAMAGE_MENT) {
+		haz->dmg_min += src_stats->get_mental() * src_stats->bonus_per_mental;
+		haz->dmg_max += src_stats->get_mental() * src_stats->bonus_per_mental;
+	}
 
 	// Only apply stats from powers that are not defaults
 	// If we do this, we can init with multiple power layers
