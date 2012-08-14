@@ -118,6 +118,12 @@ public:
 	int physical_additional;
 	int mental_additional;
 
+	// bonuses for base stats
+	int bonus_per_physical;
+	int bonus_per_mental;
+	int bonus_per_offense;
+	int bonus_per_defense;
+
 	// getters for full base stats (character + additional)
 	int get_offense()  const { return offense_character + offense_additional; }
 	int get_defense()  const { return defense_character + defense_additional; }
