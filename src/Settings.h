@@ -91,6 +91,12 @@ extern std::string LANGUAGE;
 extern int AUTOPICKUP_RANGE;
 extern bool AUTOPICKUP_GOLD;
 
+// Combat calculation caps
+extern int MAX_ABSORB;
+extern int MAX_RESIST;
+extern int MAX_BLOCK;
+extern int MAX_AVOIDANCE;
+
 void setPaths();
 void loadTilesetSettings();
 void loadAutoPickupSettings();

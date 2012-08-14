@@ -61,7 +61,6 @@ private:
 	CampaignManager *camp;
 	QuestLog *quests;
 
-	WidgetLabel *label_mapname;
 	WidgetLabel *label_fps;
 
 	bool restrictPowerUse();
@@ -78,6 +77,8 @@ private:
 	void checkStash();
 
 	int npc_id;
+
+	SDL_Color color_normal;
 
 public:
 	GameStatePlay();

@@ -95,6 +95,8 @@ MenuInventory::MenuInventory(ItemManager *_items, StatBlock *_stats, PowerManage
 	} else fprintf(stderr, "Unable to open inventory.txt!\n");
 
 	MAX_CARRIED = carried_cols * carried_rows;
+
+	color_normal = font->getColor("menu_normal");
 }
 
 void MenuInventory::loadGraphics() {
@@ -165,27 +167,27 @@ void MenuInventory::render() {
 	// text overlay
 	WidgetLabel label;
 	if (!title.hidden) {
-		label.set(window_area.x+title.x, window_area.y+title.y, title.justify, title.valign, msg->get("Inventory"), FONT_WHITE);
+		label.set(window_area.x+title.x, window_area.y+title.y, title.justify, title.valign, msg->get("Inventory"), color_normal);
 		label.render();
 	}
 	if (!main_lbl.hidden) {
-		label.set(window_area.x+main_lbl.x, window_area.y+main_lbl.y, main_lbl.justify, main_lbl.valign, msg->get("Main Hand"), FONT_WHITE);
+		label.set(window_area.x+main_lbl.x, window_area.y+main_lbl.y, main_lbl.justify, main_lbl.valign, msg->get("Main Hand"), color_normal);
 		label.render();
 	}
 	if (!body_lbl.hidden) {
-		label.set(window_area.x+body_lbl.x, window_area.y+body_lbl.y, body_lbl.justify, body_lbl.valign, msg->get("Body"), FONT_WHITE);
+		label.set(window_area.x+body_lbl.x, window_area.y+body_lbl.y, body_lbl.justify, body_lbl.valign, msg->get("Body"), color_normal);
 		label.render();
 	}
 	if (!off_lbl.hidden) {
-		label.set(window_area.x+off_lbl.x, window_area.y+off_lbl.y, off_lbl.justify, off_lbl.valign, msg->get("Off Hand"), FONT_WHITE);
+		label.set(window_area.x+off_lbl.x, window_area.y+off_lbl.y, off_lbl.justify, off_lbl.valign, msg->get("Off Hand"), color_normal);
 		label.render();
 	}
 	if (!artifact_lbl.hidden) {
-		label.set(window_area.x+artifact_lbl.x, window_area.y+artifact_lbl.y, artifact_lbl.justify, artifact_lbl.valign, msg->get("Artifact"), FONT_WHITE);
+		label.set(window_area.x+artifact_lbl.x, window_area.y+artifact_lbl.y, artifact_lbl.justify, artifact_lbl.valign, msg->get("Artifact"), color_normal);
 		label.render();
 	}
 	if (!gold_lbl.hidden) {
-		label.set(window_area.x+gold_lbl.x, window_area.y+gold_lbl.y, gold_lbl.justify, gold_lbl.valign, msg->get("%d Gold", gold), FONT_WHITE);
+		label.set(window_area.x+gold_lbl.x, window_area.y+gold_lbl.y, gold_lbl.justify, gold_lbl.valign, msg->get("%d Gold", gold), color_normal);
 		label.render();
 	}
 
@@ -685,14 +687,18 @@ void MenuInventory::applyEquipment(ItemStack *equipped) {
 	// defaults
 	stats->recalc();
 	stats->offense_additional = stats->defense_additional = stats->physical_additional = stats->mental_additional = 0;
-	stats->dmg_melee_min = stats->dmg_ment_min = 1;
-	stats->dmg_melee_max = stats->dmg_ment_max = 4;
-	stats->dmg_ranged_min = stats->dmg_ranged_max = 0;
-	stats->absorb_min = stats->absorb_max = 0;
-	stats->speed = 14;
-	stats->dspeed = 10;
-	stats->attunement_fire = 100;
-	stats->attunement_ice = 100;
+	stats->dmg_melee_min = stats->dmg_melee_min_default;
+	stats->dmg_melee_max = stats->dmg_melee_max_default;
+	stats->dmg_ranged_min = stats->dmg_ranged_min_default;
+	stats->dmg_ranged_max = stats->dmg_ranged_max_default;
+	stats->dmg_ment_min = stats->dmg_ment_min_default;
+	stats->dmg_ment_max = stats->dmg_ment_max_default;
+	stats->absorb_min = stats->absorb_min_default;
+	stats->absorb_max = stats->absorb_max_default;
+	stats->speed = stats->speed_default;
+	stats->dspeed = stats->dspeed_default;
+	stats->vulnerable_fire = 100;
+	stats->vulnerable_ice = 100;
 
 	// reset wielding vars
 	stats->wielding_physical = false;
@@ -766,9 +772,9 @@ void MenuInventory::applyEquipment(ItemStack *equipped) {
 				stats->dspeed += ((pc_items[item_id].bonus_val[bonus_counter]) * 2) /3;
 			}
 			else if (pc_items[item_id].bonus_stat[bonus_counter] == "fire resist")
-				stats->attunement_fire -= pc_items[item_id].bonus_val[bonus_counter];
+				stats->vulnerable_fire -= pc_items[item_id].bonus_val[bonus_counter];
 			else if (pc_items[item_id].bonus_stat[bonus_counter] == "ice resist")
-				stats->attunement_ice -= pc_items[item_id].bonus_val[bonus_counter];
+				stats->vulnerable_ice -= pc_items[item_id].bonus_val[bonus_counter];
 			else if (pc_items[item_id].bonus_stat[bonus_counter] == "offense")
 				stats->offense_additional += pc_items[item_id].bonus_val[bonus_counter];
 			else if (pc_items[item_id].bonus_stat[bonus_counter] == "defense")

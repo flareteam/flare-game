@@ -66,6 +66,12 @@ void BehaviorStandard::doUpkeep() {
 	if (e->stats.waypoint_pause_ticks > 0)
 		e->stats.waypoint_pause_ticks--;
 
+	if (e->stats.wander_ticks > 0)
+		e->stats.wander_ticks--;
+
+	if (e->stats.wander_pause_ticks > 0)
+		e->stats.wander_pause_ticks--;
+
 	// check for bleeding to death
 	if (e->stats.hp <= 0 && !(e->stats.cur_state == ENEMY_DEAD || e->stats.cur_state == ENEMY_CRITDEAD)) {
 		e->doRewards();
@@ -144,16 +150,24 @@ void BehaviorStandard::findTarget() {
 		e->stats.in_combat = false;
 	}
 
-	// by default, the enemy pursues the hero directly
-	pursue_pos.x = e->stats.hero_pos.x;
-	pursue_pos.y = e->stats.hero_pos.y;
+	// if the creature is a wanderer, pick a random point within the wander area to travel to
+	if (e->stats.wander && !e->stats.in_combat && e->stats.wander_area.w > 0 && e->stats.wander_area.h > 0) {
+		if (e->stats.wander_ticks == 0) {
+			pursue_pos.x = e->stats.wander_area.x + (rand() % (e->stats.wander_area.w));
+			pursue_pos.y = e->stats.wander_area.y + (rand() % (e->stats.wander_area.h));
+			e->stats.wander_ticks = (rand() % 150) + 150;
+		}
+	} else {
+		// by default, the enemy pursues the hero directly
+		pursue_pos.x = e->stats.hero_pos.x;
+		pursue_pos.y = e->stats.hero_pos.y;
 
-	if (!(e->stats.in_combat || e->stats.waypoints.empty())) {
-	    Point waypoint = e->stats.waypoints.front();
-	    pursue_pos.x = waypoint.x;
-	    pursue_pos.y = waypoint.y;
+		if (!(e->stats.in_combat || e->stats.waypoints.empty())) {
+			Point waypoint = e->stats.waypoints.front();
+			pursue_pos.x = waypoint.x;
+			pursue_pos.y = waypoint.y;
+		}
 	}
-
 }
 
 
@@ -240,7 +254,7 @@ void BehaviorStandard::checkMove() {
 	if (e->stats.stun_duration) return;
 
 	// handle not being in combat and (not patrolling waypoints or waiting at waypoint)
-	if (!e->stats.in_combat && (e->stats.waypoints.empty() || e->stats.waypoint_pause_ticks > 0)) {
+	if (!e->stats.in_combat && (e->stats.waypoints.empty() || e->stats.waypoint_pause_ticks > 0) && (!e->stats.wander || e->stats.wander_pause_ticks > 0)) {
 
 		if (e->stats.cur_state == ENEMY_MOVE) {
 			e->newState(ENEMY_STANCE);
@@ -327,6 +341,17 @@ void BehaviorStandard::checkMove() {
 	        e->stats.waypoints.push(waypoint);
 	        e->stats.waypoint_pause_ticks = e->stats.waypoint_pause;
 	    }
+	}
+
+	// if a wandering enemy reaches its destination early, reset wander_ticks
+	if (e->stats.wander) {
+	    Point pos = e->stats.pos;
+	    if (abs(pursue_pos.x - pos.x) < UNITS_PER_TILE/2 && abs(pursue_pos.y - pos.y) < UNITS_PER_TILE/2) {
+			e->stats.wander_ticks = 0;
+		}
+		if (e->stats.wander_ticks == 0 && e->stats.wander_pause_ticks == 0) {
+			e->stats.wander_pause_ticks = rand() % 60;
+		}
 	}
 
 	// re-block current space to allow correct movement

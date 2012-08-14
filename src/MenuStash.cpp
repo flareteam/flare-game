@@ -64,10 +64,12 @@ MenuStash::MenuStash(ItemManager *_items, StatBlock *_stats) {
 	} else fprintf(stderr, "Unable to open stash.txt!\n");
 
 	STASH_SLOTS = slots_cols * slots_rows;
+
+	color_normal = font->getColor("menu_normal");
 }
 
 void MenuStash::loadGraphics() {
-	background = IMG_Load(mods->locate("images/menus/vendor.png").c_str());
+	background = IMG_Load(mods->locate("images/menus/stash.png").c_str());
 	if(!background) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 		SDL_Quit();
@@ -119,7 +121,7 @@ void MenuStash::render() {
 	// text overlay
 	if (!title.hidden) {
 		WidgetLabel label;
-		label.set(window_area.x+title.x, window_area.y+title.y, title.justify, title.valign, msg->get("Shared Stash"), FONT_WHITE);
+		label.set(window_area.x+title.x, window_area.y+title.y, title.justify, title.valign, msg->get("Shared Stash"), color_normal);
 		label.render();
 	}
 

@@ -40,6 +40,8 @@ WidgetInput::WidgetInput() {
 	cursor_frame = 0;
 
 	render_to_alpha = false;
+
+	color_normal = font->getColor("widget_normal");
 }
 
 void WidgetInput::loadGraphics(const string& filename) {
@@ -137,14 +139,14 @@ void WidgetInput::render(SDL_Surface *target) {
 		SDL_BlitSurface(background, &src, target, &pos);
 
 	if (!inFocus) {
-		font->render(text, font_pos.x, font_pos.y, JUSTIFY_LEFT, target, FONT_WHITE);
+		font->render(text, font_pos.x, font_pos.y, JUSTIFY_LEFT, target, color_normal);
 	}
 	else {
 		if (cursor_frame < FRAMES_PER_SEC) {
-			font->renderShadowed(text + "|", font_pos.x, font_pos.y, JUSTIFY_LEFT, target, FONT_WHITE);
+			font->renderShadowed(text + "|", font_pos.x, font_pos.y, JUSTIFY_LEFT, target, color_normal);
 		}
 		else {
-			font->renderShadowed(text, font_pos.x, font_pos.y, JUSTIFY_LEFT, target, FONT_WHITE);
+			font->renderShadowed(text, font_pos.x, font_pos.y, JUSTIFY_LEFT, target, color_normal);
 		}
 	}
 }

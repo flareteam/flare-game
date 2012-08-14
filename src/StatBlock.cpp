@@ -51,6 +51,7 @@ StatBlock::StatBlock() {
 	flying = false;
 	intangible = false;
 	facing = true;
+	suppress_hp = false;
 
 	// core stats
 	offense_character = defense_character = physical_character = mental_character = 0;
@@ -69,14 +70,16 @@ StatBlock::StatBlock() {
 
 
 	// equipment stats
-	dmg_melee_min = 1;
-	dmg_melee_max = 4;
-	dmg_ment_min = 0;
-	dmg_ment_max = 0;
-	dmg_ranged_min = 0;
-	dmg_ranged_max = 0;
-	absorb_min = 0;
-	absorb_max = 0;
+	dmg_melee_min = dmg_melee_min_default = 1;
+	dmg_melee_max = dmg_melee_max_default = 4;
+	dmg_ment_min = dmg_ment_min_default = 1;
+	dmg_ment_max = dmg_ment_max_default = 4;
+	dmg_ranged_min = dmg_ranged_min_default = 1;
+	dmg_ranged_max = dmg_ranged_max_default = 4;
+	absorb_min = absorb_min_default = 0;
+	absorb_max = absorb_max_default = 0;
+	speed = speed_default = 14;
+	dspeed = dspeed_default = 10;
 	wielding_physical = false;
 	wielding_mental = false;
 	wielding_offense = false;
@@ -114,6 +117,14 @@ StatBlock::StatBlock() {
 	waypoint_pause = 0;
 	waypoint_pause_ticks = 0;
 
+	// wandering
+	wander= false;
+	wander_ticks = 0;
+	wander_pause_ticks = 0;
+
+	max_spendable_stat_points = 0;
+	max_points_per_stat = 0;
+
 	// xp table
 	// default to MAX_INT
 	for (int i=0; i<MAX_CHARACTER_LEVEL; i++) {
@@ -125,6 +136,7 @@ StatBlock::StatBlock() {
 	while(infile.next()) {
 	    xp_table[atoi(infile.key.c_str()) - 1] = atoi(infile.val.c_str());
 	}
+	max_spendable_stat_points = atoi(infile.key.c_str());
 	infile.close();
 
 	loot_chance = 50;
@@ -145,8 +157,8 @@ StatBlock::StatBlock() {
 	ranged_weapon_power = -1;
 	mental_weapon_power = -1;
 
-	attunement_fire = 100;
-	attunement_ice = 100;
+	vulnerable_fire = 100;
+	vulnerable_ice = 100;
 
 	gold = 0;
 	death_penalty = false;
@@ -335,8 +347,8 @@ void StatBlock::load(const string& filename) {
 			else if (infile.key == "melee_range") melee_range = num;
 			else if (infile.key == "threat_range") threat_range = num;
 
-			else if (infile.key == "attunement_fire") attunement_fire=num;
-			else if (infile.key == "attunement_ice") attunement_ice=num;
+			else if (infile.key == "vulnerable_fire") vulnerable_fire=num;
+			else if (infile.key == "vulnerable_ice") vulnerable_ice=num;
 
 			// animation stats
 			else if (infile.key == "melee_weapon_power") melee_weapon_power = num;
@@ -345,6 +357,9 @@ void StatBlock::load(const string& filename) {
 
 			else if (infile.key == "animations") animations = infile.val;
 			else if (infile.key == "animation_speed") animationSpeed = num;
+
+			// hide enemy HP bar
+			else if (infile.key == "suppress_hp") suppress_hp = num;
 		}
 		infile.close();
 	}
@@ -594,10 +609,12 @@ void StatBlock::loadHeroStats() {
 	FileParser infile;
 	if (infile.open(mods->locate("engine/stats.txt"))) {
 	  while (infile.next()) {
-		infile.val = infile.val + ',';
-		value = eatFirstInt(infile.val, ',');
 
-		if (infile.key == "hp_base") {
+		value = atoi(infile.val.c_str());
+
+		if (infile.key == "max_points_per_stat") {
+			max_points_per_stat = value;
+		} else if (infile.key == "hp_base") {
 			hp_base = value;
 		} else if (infile.key == "hp_per_level") {
 			hp_per_level = value;
@@ -637,9 +654,30 @@ void StatBlock::loadHeroStats() {
 			crit_base = value;
 		} else if (infile.key == "crit_per_level") {
 			crit_per_level = value;
+		} else if (infile.key == "dmg_melee_min") {
+			dmg_melee_min = dmg_melee_min_default = value;
+		} else if (infile.key == "dmg_melee_max") {
+			dmg_melee_max = dmg_melee_max_default = value;
+		} else if (infile.key == "dmg_ranged_min") {
+			dmg_ranged_min = dmg_ranged_min_default = value;
+		} else if (infile.key == "dmg_ranged_max") {
+			dmg_ranged_max = dmg_ranged_max_default = value;
+		} else if (infile.key == "dmg_ment_min") {
+			dmg_ment_min = dmg_ment_min_default = value;
+		} else if (infile.key == "dmg_ment_max") {
+			dmg_ment_max = dmg_ment_max_default = value;
+		} else if (infile.key == "absorb_min") {
+			absorb_min = absorb_min_default = value;
+		} else if (infile.key == "absorb_max") {
+			absorb_max = absorb_max_default = value;
+		} else if (infile.key == "speed") {
+			speed = speed_default = value;
+		} else if (infile.key == "dspeed") {
+			dspeed = dspeed_default = value;
 		}
 	  }
 	  infile.close();
+	  if (max_points_per_stat == 0) max_points_per_stat = max_spendable_stat_points / 4 + 1;
 	  statsLoaded = true;
 	} else fprintf(stderr, "Unable to open stats.txt!\n");
 }

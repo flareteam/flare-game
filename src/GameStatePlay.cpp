@@ -81,10 +81,9 @@ GameStatePlay::GameStatePlay() : GameState() {
 	camp->hero = &pc->stats;
 	map->powers = powers;
 
-	// display the name of the map in the upper-right hand corner
-	label_mapname = new WidgetLabel();
-
 	label_fps = new WidgetLabel();
+
+	color_normal = font->getColor("menu_normal");
 }
 
 /**
@@ -123,8 +122,10 @@ void GameStatePlay::checkEnemyFocus() {
 	if (enemy != NULL) {
 
 		// if there's a living creature in focus, display its stats
-		menu->enemy->enemy = enemy;
-		menu->enemy->timeout = MENU_ENEMY_TIMEOUT;
+		if (!enemy->stats.suppress_hp) {
+			menu->enemy->enemy = enemy;
+			menu->enemy->timeout = MENU_ENEMY_TIMEOUT;
+		}
 	}
 	else {
 
@@ -559,17 +560,20 @@ void GameStatePlay::logic() {
 		for (int i=0; i<12 ; i++) {
 			menu->act->actionbar[i] = menu->act->hotkeys[i];
 			menu->act->hotkeys[i] = -1;
-			menu->act->locked[i] = true;
 		}
 		int count = 10;
 		for (int i=0; i<4 ; i++) {
 			if (pc->charmed_stats->power_index[i] != -1) {
 				menu->act->hotkeys[count] = pc->charmed_stats->power_index[i];
+				menu->act->locked[count] = true;
 				count++;
 			}
 			if (count == 12) count = 0;
 		}
-		if (pc->stats.manual_untransform) menu->act->hotkeys[count] = 136; //untransform power
+		if (pc->stats.manual_untransform) {
+			menu->act->hotkeys[count] = 136; //untransform power
+			menu->act->locked[count] = true;
+		}
 	}
 	// revert hero powers
 	if (pc->revertPowers) {
@@ -618,10 +622,6 @@ void GameStatePlay::render() {
 	// render the static map layers plus the renderables
 	map->render(renderables);
 
-	// display the name of the map in the upper-right hand corner
-	label_mapname->set(VIEW_W-2, 2, JUSTIFY_RIGHT, VALIGN_TOP, map->title, FONT_WHITE);
-	label_mapname->render();
-
 	// mouseover tooltips
 	loot->renderTooltips(map->cam);
 	npcs->renderTooltips(map->cam, inpt->mouse);
@@ -630,6 +630,7 @@ void GameStatePlay::render() {
 		menu->mini->prerender(&map->collider, map->w, map->h);
 		map->map_change = false;
 	}
+	menu->mini->getMapTitle(map->title);
 	menu->mini->render(pc->stats.pos);
 	menu->render();
 
@@ -643,7 +644,7 @@ void GameStatePlay::render() {
 void GameStatePlay::showFPS(int fps) {
 	stringstream ss;
 	ss << fps << "fps";
-	label_fps->set(VIEW_W >> 1, 2, JUSTIFY_CENTER, VALIGN_TOP, ss.str(), FONT_GREY);
+	label_fps->set(VIEW_W >> 1, 2, JUSTIFY_CENTER, VALIGN_TOP, ss.str(), color_normal);
 	label_fps->render();
 }
 
@@ -661,6 +662,5 @@ GameStatePlay::~GameStatePlay() {
 	delete powers;
 
 	delete label_fps;
-	delete label_mapname;
 }
 

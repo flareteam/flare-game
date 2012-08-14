@@ -86,6 +86,7 @@ MenuLog::MenuLog() {
 
 	closeButton = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
 
+	color_normal = font->getColor("menu_normal");
 }
 
 void MenuLog::loadGraphics() {
@@ -164,7 +165,7 @@ void MenuLog::render() {
 	// Text overlay.
 	if (!title.hidden) {
 		WidgetLabel label;
-		label.set(window_area.x+title.x, window_area.y+title.y, title.justify, title.valign, msg->get("Log"), FONT_WHITE);
+		label.set(window_area.x+title.x, window_area.y+title.y, title.justify, title.valign, msg->get("Log"), color_normal);
 		label.render();
 	}
 
@@ -182,7 +183,7 @@ void MenuLog::render() {
 		for (unsigned int i=log_msg[active_log].size(); i>0; i--) {
 			int widthLimit = tabControl->getContentArea().w;
 			Point size = font->calc_size(log_msg[active_log][i-1], widthLimit);
-			font->renderShadowed(log_msg[active_log][i-1], tab_content_indent, total_size, JUSTIFY_LEFT, msg_buffer[active_log]->contents, widthLimit, FONT_WHITE);
+			font->renderShadowed(log_msg[active_log][i-1], tab_content_indent, total_size, JUSTIFY_LEFT, msg_buffer[active_log]->contents, widthLimit, color_normal);
 			total_size+=size.y+paragraph_spacing;
 		}
 	}

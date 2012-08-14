@@ -68,6 +68,8 @@ MenuStatBar::MenuStatBar(std::string type) {
 	} else fprintf(stderr, "Unable to open %s.txt!\n", type.c_str());
 
 	loadGraphics(type);
+
+	color_normal = font->getColor("menu_normal");
 }
 
 void MenuStatBar::loadGraphics(std::string type) {
@@ -141,9 +143,9 @@ void MenuStatBar::render() {
 	// if mouseover, draw text
 	if (!text_pos.hidden) {
 		if (custom_text_pos)
-			label->set(bar_dest.x+text_pos.x, bar_dest.y+text_pos.y, text_pos.justify, text_pos.valign, "", FONT_WHITE);
+			label->set(bar_dest.x+text_pos.x, bar_dest.y+text_pos.y, text_pos.justify, text_pos.valign, "", color_normal);
 		else
-			label->set(bar_dest.x+bar_pos.w/2, bar_dest.y+bar_pos.h/2, JUSTIFY_CENTER, VALIGN_CENTER, "", FONT_WHITE);
+			label->set(bar_dest.x+bar_pos.w/2, bar_dest.y+bar_pos.h/2, JUSTIFY_CENTER, VALIGN_CENTER, "", color_normal);
 
 		if (isWithin(bar_dest,mouse)) {
 			stringstream ss;

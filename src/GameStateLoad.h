@@ -88,6 +88,8 @@ private:
 	SDL_Rect portrait_pos;
 	SDL_Rect gameslot_pos;
 	SDL_Rect preview_pos;
+
+	SDL_Color color_normal;
 	
 public:
 	GameStateLoad();

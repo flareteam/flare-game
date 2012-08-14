@@ -53,7 +53,7 @@ GameStateNew::GameStateNew() : GameState() {
 	button_exit->refresh();
 
 	button_create = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
-	button_create->label = msg->get("Create Character");
+	button_create->label = msg->get("Create");
 	button_create->pos.x = VIEW_W_HALF + button_create->pos.w/2;
 	button_create->pos.y = VIEW_H - button_create->pos.h;
 	button_create->enabled = false;
@@ -129,12 +129,13 @@ GameStateNew::GameStateNew() : GameState() {
 	permadeath_label.y += (VIEW_H - FRAME_H)/2;
 
 	// set up labels
+	color_normal = font->getColor("menu_normal");
 	label_portrait = new WidgetLabel();
-	label_portrait->set(portrait_label.x, portrait_label.y, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Choose a Portrait"), FONT_GREY);
+	label_portrait->set(portrait_label.x, portrait_label.y, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Choose a Portrait"), color_normal);
 	label_name = new WidgetLabel();
-	label_name->set(name_label.x, name_label.y, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Choose a Name"), FONT_GREY);
+	label_name->set(name_label.x, name_label.y, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Choose a Name"), color_normal);
 	label_permadeath = new WidgetLabel();
-	label_permadeath->set(permadeath_label.x, permadeath_label.y, JUSTIFY_LEFT, VALIGN_CENTER, msg->get("Permadeath?"), FONT_GREY);
+	label_permadeath->set(permadeath_label.x, permadeath_label.y, JUSTIFY_LEFT, VALIGN_CENTER, msg->get("Permadeath?"), color_normal);
 
 	loadGraphics();
 	loadOptions("hero_options.txt");

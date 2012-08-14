@@ -19,12 +19,13 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * class MenuMiniMap
  */
 
-
+#include "FileParser.h"
 #include "Menu.h"
 #include "MenuMiniMap.h"
 #include "MapCollision.h"
 #include "SharedResources.h"
 #include "Settings.h"
+#include "UtilsParsing.h"
 
 #include <iostream>
 using namespace std;
@@ -36,6 +37,32 @@ MenuMiniMap::MenuMiniMap() {
 	color_wall = SDL_MapRGB(map_surface->format, 128,128,128);
 	color_obst = SDL_MapRGB(map_surface->format, 64,64,64);
 	color_hero = SDL_MapRGB(map_surface->format, 255,255,255);
+
+	// Load config settings
+	FileParser infile;
+	if(infile.open(mods->locate("menus/minimap.txt"))) {
+		while(infile.next()) {
+			infile.val = infile.val + ',';
+
+			if(infile.key == "pos") {
+				pos.x = eatFirstInt(infile.val,',');
+				pos.y = eatFirstInt(infile.val,',');
+				pos.w = eatFirstInt(infile.val,',');
+				pos.h = eatFirstInt(infile.val,',');
+			} else if(infile.key == "text_pos") {
+				text_pos = eatLabelInfo(infile.val);
+			}
+		}
+		infile.close();
+	} else fprintf(stderr, "Unable to open menus/minimap.txt!\n");
+
+	// label for map name
+	label = new WidgetLabel();
+
+}
+
+void MenuMiniMap::getMapTitle(std::string map_title) {
+	label->set(window_area.x+text_pos.x, window_area.y+text_pos.y, text_pos.justify, text_pos.valign, map_title, font->getColor("menu_normal"));
 }
 
 void MenuMiniMap::createMapSurface() {
@@ -53,6 +80,7 @@ void MenuMiniMap::render() {
 }
 
 void MenuMiniMap::render(Point hero_pos) {
+	if (!text_pos.hidden) label->render();
 
 	if (TILESET_ORIENTATION == TILESET_ISOMETRIC)
 		renderIso(hero_pos);
@@ -80,23 +108,25 @@ void MenuMiniMap::renderOrtho(Point hero_pos) {
 	const int heroy = hero_pos.y / UNITS_PER_TILE;
 
 	SDL_Rect clip;
-	clip.x = herox - window_area.w/2;
-	clip.y = heroy - window_area.w/2;
-	clip.w = clip.h = window_area.w;
+	clip.x = herox - pos.w/2;
+	clip.y = heroy - pos.h/2;
+	clip.w = pos.w;
+	clip.h = pos.h;
 
 	SDL_Rect map_area;
-	map_area.x = window_area.x;
-	map_area.y = window_area.y;
-	map_area.w = map_area.h = window_area.w;
+	map_area.x = window_area.x + pos.x;
+	map_area.y = window_area.y + pos.y;
+	map_area.w = pos.w;
+	map_area.h = pos.h;
 
 	SDL_BlitSurface(map_surface, &clip ,screen, &map_area);
 
 	SDL_LockSurface(screen);
-	drawPixel(screen, window_area.x + window_area.w/2, window_area.y + window_area.h/2, color_hero);
-	drawPixel(screen, window_area.x + window_area.w/2 + 1, window_area.y + window_area.h/2, color_hero);
-	drawPixel(screen, window_area.x + window_area.w/2 - 1, window_area.y + window_area.h/2, color_hero);
-	drawPixel(screen, window_area.x + window_area.w/2, window_area.y + window_area.h/2 + 1, color_hero);
-	drawPixel(screen, window_area.x + window_area.w/2, window_area.y + window_area.h/2 - 1, color_hero);
+	drawPixel(screen, window_area.x + pos.x + pos.w/2, window_area.y + pos.y + pos.h/2, color_hero);
+	drawPixel(screen, window_area.x + pos.x + pos.w/2 + 1, window_area.y + pos.y + pos.h/2, color_hero);
+	drawPixel(screen, window_area.x + pos.x + pos.w/2 - 1, window_area.y + pos.y + pos.h/2, color_hero);
+	drawPixel(screen, window_area.x + pos.x + pos.w/2, window_area.y + pos.y + pos.h/2 + 1, color_hero);
+	drawPixel(screen, window_area.x + pos.x + pos.w/2, window_area.y + pos.y + pos.h/2 - 1, color_hero);
 	SDL_UnlockSurface(screen);
 }
 
@@ -111,19 +141,21 @@ void MenuMiniMap::renderIso(Point hero_pos) {
 	const int herox_screen = herox - heroy + std::max(map_size.x, map_size.y);
 
 	SDL_Rect clip;
-	clip.x = herox_screen - window_area.w/2;
-	clip.y = heroy_screen - window_area.w/2;
-	clip.w = clip.h = window_area.w;
+	clip.x = herox_screen - pos.w/2;
+	clip.y = heroy_screen - pos.h/2;
+	clip.w = pos.w;
+	clip.h = pos.h;
 
 	SDL_Rect map_area;
-	map_area.x = window_area.x;
-	map_area.y = window_area.y;
-	map_area.w = map_area.h = window_area.w;
+	map_area.x = window_area.x + pos.x;
+	map_area.y = window_area.y + pos.y;
+	map_area.w = pos.w;
+	map_area.h = pos.h;
 
 	SDL_BlitSurface(map_surface, &clip ,screen, &map_area);
 	SDL_LockSurface(screen);
-	drawPixel(screen, window_area.x + window_area.w/2, window_area.y + window_area.h/2, color_hero);
-	drawPixel(screen, window_area.x + window_area.w/2 - 1, window_area.y + window_area.h/2, color_hero);
+	drawPixel(screen, window_area.x + pos.x + pos.w/2, window_area.y + pos.y + pos.h/2, color_hero);
+	drawPixel(screen, window_area.x + pos.x + pos.w/2 - 1, window_area.y + pos.y + pos.h/2, color_hero);
 	SDL_UnlockSurface(screen);
 }
 
@@ -201,4 +233,5 @@ void MenuMiniMap::prerenderIso(MapCollision *collider) {
 
 MenuMiniMap::~MenuMiniMap() {
 	SDL_FreeSurface(map_surface);
+	delete label;
 }

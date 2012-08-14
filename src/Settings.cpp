@@ -124,6 +124,12 @@ std::string LANGUAGE = "en";
 int AUTOPICKUP_RANGE = 0;
 bool AUTOPICKUP_GOLD = false;
 
+// Combat calculation caps (percentage)
+int MAX_ABSORB = 90;
+int MAX_RESIST = 90;
+int MAX_BLOCK = 100;
+int MAX_AVOIDANCE = 99;
+
 // Other Settings
 bool MENUS_PAUSE = false;
 std::string DEFAULT_NAME = "";
@@ -333,13 +339,24 @@ void loadAutoPickupSettings() {
 void loadMiscSettings() {
 	FileParser infile;
 	// load miscellaneous settings from engine config
+	// misc.txt
 	if (infile.open(mods->locate("engine/misc.txt").c_str())) {
 		while (infile.next()) {
 			if (infile.key == "save_hpmp") {
 				SAVE_HPMP = atoi(infile.val.c_str());
 			} else if (infile.key == "default_name") {
 				DEFAULT_NAME = infile.val.c_str();
-			} else if (infile.key == "menu_frame_width") {
+			}
+		}
+		infile.close();
+	}
+	else {
+		fprintf(stderr, "No misc engine settings config found!\n");
+	}
+	// resolutions.txt
+	if (infile.open(mods->locate("engine/resolutions.txt").c_str())) {
+		while (infile.next()) {
+			if (infile.key == "menu_frame_width") {
 				FRAME_W = atoi(infile.val.c_str());
 			} else if (infile.key == "menu_frame_height") {
 				FRAME_H = atoi(infile.val.c_str());
@@ -355,14 +372,42 @@ void loadMiscSettings() {
 				MIN_VIEW_H = atoi(infile.val.c_str());
 				if (VIEW_H < MIN_VIEW_H) VIEW_H = MIN_VIEW_H;
 				VIEW_H_HALF = VIEW_H/2;
-			} else if (infile.key == "enable_playgame") {
+			}
+		}
+		infile.close();
+	}
+	else {
+		fprintf(stderr, "No resolutions engine settings config found!\n");
+	}
+	// gameplay.txt
+	if (infile.open(mods->locate("engine/gameplay.txt").c_str())) {
+		while (infile.next()) {
+			if (infile.key == "enable_playgame") {
 				ENABLE_PLAYGAME = atoi(infile.val.c_str());
 			}
 		}
 		infile.close();
 	}
 	else {
-		fprintf(stderr, "No misc engine settings config found!\n");
+		fprintf(stderr, "No gameplay engine settings config found!\n");
+	}
+	// combat.txt
+	if (infile.open(mods->locate("engine/combat.txt").c_str())) {
+		while (infile.next()) {
+			if (infile.key == "max_absorb_percent") {
+				MAX_ABSORB = atoi(infile.val.c_str());
+			} else if (infile.key == "max_resist_percent") {
+				MAX_RESIST = atoi(infile.val.c_str());
+			} else if (infile.key == "max_block_percent") {
+				MAX_BLOCK = atoi(infile.val.c_str());
+			} else if (infile.key == "max_avoidance_percent") {
+				MAX_AVOIDANCE = atoi(infile.val.c_str());
+			}
+		}
+		infile.close();
+	}
+	else {
+		fprintf(stderr, "No combat engine settings config found!\n");
 	}
 }
 

@@ -57,6 +57,8 @@ private:
 	SDL_Rect portrait_he;
 	SDL_Rect portrait_you; 
 
+	SDL_Color color_normal;
+
 public:
 	MenuTalker(CampaignManager *camp);
 	~MenuTalker();

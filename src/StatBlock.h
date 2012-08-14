@@ -157,6 +157,18 @@ public:
 	// overall stats
 	int crit;
 
+	// default equipment stats
+	int dmg_melee_min_default;
+	int dmg_melee_max_default;
+	int dmg_ment_min_default;
+	int dmg_ment_max_default;
+	int dmg_ranged_min_default;
+	int dmg_ranged_max_default;
+	int absorb_min_default;
+	int absorb_max_default;
+	int speed_default;
+	int dspeed_default;
+
 	// equipment stats
 	int dmg_melee_min;
 	int dmg_melee_max;
@@ -170,8 +182,8 @@ public:
 	bool wielding_mental;
 	bool wielding_offense;
 	bool ammo_arrows;
-	int attunement_fire;
-	int attunement_ice;
+	int vulnerable_fire;
+	int vulnerable_ice;
 
 	// buff and debuff stats
 	int slow_duration;
@@ -224,6 +236,12 @@ public:
     int waypoint_pause;
     int waypoint_pause_ticks;
 
+	// wandering area
+	bool wander;
+	SDL_Rect wander_area;
+	int wander_ticks;
+	int wander_pause_ticks;
+
 	// enemy behavioral stats
 	int chance_pursue;
 	int chance_flee;
@@ -247,6 +265,7 @@ public:
 	int cooldown_ticks;
 	int cooldown; // min. # of frames between abilities
 	int activated_powerslot;
+	bool suppress_hp; // hide an enemy HP bar
 
 	int loot_chance;
 	std::vector<std::string> item_classes; // which kind of loot is able to be dropped
@@ -286,6 +305,8 @@ public:
 	int animationSpeed;
 
 	// formula numbers
+	int max_spendable_stat_points;
+	int max_points_per_stat;
 	int hp_base;
 	int hp_per_level;
 	int hp_per_physical;

@@ -25,10 +25,17 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "CombatText.h"
-#include "FontEngine.h"
+#include "SharedResources.h"
 #include "Settings.h"
 #include <iostream>
 #include <sstream>
+
+CombatText::CombatText() {
+	color_normal = font->getColor("combat_normal");
+	color_crit = font->getColor("combat_crit");
+	color_heal = font->getColor("combat_heal");
+	color_shield = font->getColor("combat_shield");
+}
 
 // Global static pointer used to ensure a single instance of the class.
 CombatText* CombatText::m_pInstance = NULL;
@@ -84,13 +91,13 @@ void CombatText::render() {
         it->pos.y--;
         int type = it->displaytype;
         if (type == DISPLAY_DAMAGE)
-            it->label->set(it->pos.x, it->pos.y, JUSTIFY_CENTER, VALIGN_BOTTOM, it->text, FONT_WHITE);
+            it->label->set(it->pos.x, it->pos.y, JUSTIFY_CENTER, VALIGN_BOTTOM, it->text, color_normal);
         else if (type == DISPLAY_CRIT || type == DISPLAY_MISS)
-            it->label->set(it->pos.x, it->pos.y, JUSTIFY_CENTER, VALIGN_BOTTOM, it->text, FONT_RED);
+            it->label->set(it->pos.x, it->pos.y, JUSTIFY_CENTER, VALIGN_BOTTOM, it->text, color_crit);
         else if (type == DISPLAY_HEAL)
-            it->label->set(it->pos.x, it->pos.y, JUSTIFY_CENTER, VALIGN_BOTTOM, it->text, FONT_GREEN);
+            it->label->set(it->pos.x, it->pos.y, JUSTIFY_CENTER, VALIGN_BOTTOM, it->text, color_heal);
         else if (type == DISPLAY_SHIELD)
-            it->label->set(it->pos.x, it->pos.y, JUSTIFY_CENTER, VALIGN_BOTTOM, it->text, FONT_BLUE);
+            it->label->set(it->pos.x, it->pos.y, JUSTIFY_CENTER, VALIGN_BOTTOM, it->text, color_shield);
         if (it->lifespan > 0)
 		    it->label->render();
     }

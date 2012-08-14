@@ -75,7 +75,7 @@ private:
 	CharStat cstat[CSTAT_COUNT];
 
 	void loadGraphics();
-	int bonusColor(int stat);
+	SDL_Color bonusColor(int stat);
 	int skill_points;
 	bool physical_up;
 	bool mental_up;

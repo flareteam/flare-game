@@ -46,6 +46,9 @@ private:
 	Mix_Chunk *click;
 	
 	WidgetLabel wlabel;
+
+	SDL_Color color_normal;
+	SDL_Color color_disabled;
 	
 public:
 	WidgetButton(const std::string& _fileName);

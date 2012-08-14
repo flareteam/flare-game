@@ -389,13 +389,12 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 	bool allowed_to_use_power;
 
 	// check level up
-	int max_spendable_stat_points = 16;
 	if (stats.xp >= stats.xp_table[stats.level] && stats.level < MAX_CHARACTER_LEVEL) {
 		stats.level_up = true;
 		stats.level++;
 		stringstream ss;
 		ss << msg->get("Congratulations, you have reached level %d!", stats.level);
-		if (stats.level < max_spendable_stat_points) {
+		if (stats.level < stats.max_spendable_stat_points) {
 			ss << " " << msg->get("You may increase one attribute through the Character Menu.");
 			newLevelNotification = true;
 		}
@@ -654,6 +653,7 @@ bool Avatar::takeHit(Hazard h) {
 		// check miss
 		int avoidance = stats.avoidance;
 		if (stats.blocking) avoidance *= 2;
+		if (MAX_AVOIDANCE < avoidance) avoidance = MAX_AVOIDANCE;
 		if (rand() % 100 > (h.accuracy - avoidance + 25)) {
 			combat_text->addMessage("miss", stats.pos, DISPLAY_MISS);
 			return false;
@@ -665,11 +665,16 @@ bool Avatar::takeHit(Hazard h) {
 
 		// apply elemental resistance
 		// TODO: make this generic
+		int vulnerable;
 		if (h.trait_elemental == ELEMENT_FIRE) {
-			dmg = (dmg * stats.attunement_fire) / 100;
+			if (MAX_RESIST < stats.vulnerable_fire) vulnerable = MAX_RESIST;
+			else vulnerable = stats.vulnerable_fire;
+			dmg = (dmg * vulnerable) / 100;
 		}
 		if (h.trait_elemental == ELEMENT_WATER) {
-			dmg = (dmg * stats.attunement_ice) / 100;
+			if (MAX_RESIST < stats.vulnerable_ice) vulnerable = MAX_RESIST;
+			else vulnerable = stats.vulnerable_ice;
+			dmg = (dmg * vulnerable) / 100;
 		}
 
 		// apply absorption
@@ -678,12 +683,26 @@ bool Avatar::takeHit(Hazard h) {
 			if (stats.absorb_min == stats.absorb_max) absorption = stats.absorb_min;
 			else absorption = stats.absorb_min + (rand() % (stats.absorb_max - stats.absorb_min + 1));
 
-			if (stats.blocking) absorption += absorption + stats.absorb_max; // blocking doubles your absorb amount
+			if (stats.blocking) {
+				absorption += absorption + stats.absorb_max; // blocking doubles your absorb amount
+				if (absorption > 0) {
+					if ((dmg*100)/absorption > MAX_BLOCK) absorption = (float)absorption * (MAX_BLOCK/100.0);
+				}
+			} else {
+				if (absorption > 0) {
+					if ((dmg*100)/absorption > MAX_ABSORB) absorption = (float)absorption * (MAX_ABSORB/100.0);
+				}
+			}
 
 			dmg = dmg - absorption;
-			if (dmg < 1 && !stats.blocking) dmg = 1; // when blocking, dmg can be reduced to 0
 			if (dmg <= 0) {
 				dmg = 0;
+				if (h.trait_elemental < 0) {
+					if (stats.blocking && MAX_BLOCK < 100) dmg = 1;
+					else if (!stats.blocking && MAX_ABSORB < 100) dmg = 1;
+				} else {
+					if (MAX_RESIST < 100) dmg = 1;
+				}
 				if (sound_block)
 					Mix_PlayChannel(-1, sound_block, 0);
 				activeAnimation->reset(); // shield stutter
@@ -827,11 +846,11 @@ void Avatar::transform() {
 	stats.crit = charmed_stats->crit;
 
 	// resistances
-	if (charmed_stats->attunement_fire < stats.attunement_fire)
-	stats.attunement_fire = charmed_stats->attunement_fire;
+	if (charmed_stats->vulnerable_fire < stats.vulnerable_fire)
+	stats.vulnerable_fire = charmed_stats->vulnerable_fire;
 
-	if (charmed_stats->attunement_ice < stats.attunement_ice)
-	stats.attunement_ice = charmed_stats->attunement_ice;
+	if (charmed_stats->vulnerable_ice < stats.vulnerable_ice)
+	stats.vulnerable_ice = charmed_stats->vulnerable_ice;
 
 	loadStepFX("NULL");
 }
@@ -873,8 +892,8 @@ void Avatar::untransform() {
 	stats.accuracy = hero_stats->accuracy;
 	stats.crit = hero_stats->crit;
 
-	stats.attunement_fire = hero_stats->attunement_fire;
-	stats.attunement_ice = hero_stats->attunement_ice;
+	stats.vulnerable_fire = hero_stats->vulnerable_fire;
+	stats.vulnerable_ice = hero_stats->vulnerable_ice;
 
 	delete charmed_stats;
 	delete hero_stats;

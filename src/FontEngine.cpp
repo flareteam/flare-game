@@ -71,6 +71,7 @@ FontEngine::FontEngine() {
 			}
 		}
 	}
+	infile.close();
 	font_path = mods->locate("fonts/" + font_path);
 	ttfont = TTF_OpenFont(font_path.c_str(), font_pt);
 	if(!ttfont) printf("TTF_OpenFont: %s\n", TTF_GetError());
@@ -82,19 +83,26 @@ FontEngine::FontEngine() {
 	// set the font colors
 	// RGB values, the last value is 'unused'. For info,
 	// see http://www.libsdl.org/cgi/docwiki.cgi/SDL_Color
-	SDL_Color white = {255,255,255,0};
-	SDL_Color red = {255,0,0,0};
-	SDL_Color green = {0,255,0,0};
-	SDL_Color blue = {0,0,255,0};
-	SDL_Color grey = {128,128,128,0};
-	SDL_Color black = {0,0,0,0};
+	SDL_Color color;
+	if (infile.open(mods->locate("engine/font_colors.txt"))) {
+		while (infile.next()) {
+			infile.val = infile.val + ',';
+			color.r = eatFirstInt(infile.val,',');
+			color.g = eatFirstInt(infile.val,',');
+			color.b = eatFirstInt(infile.val,',');
+			color_map[infile.key] = color;
+		}
+	}
+	infile.close();
+}
 
-	colors[FONT_WHITE] = white;
-	colors[FONT_RED] = red;
-	colors[FONT_GREEN] = green;
-	colors[FONT_BLUE] = blue;
-	colors[FONT_GREY] = grey;
-	colors[FONT_BLACK] = black;
+SDL_Color FontEngine::getColor(string _color) {
+	map<string,SDL_Color>::iterator it,end;
+	for (it=color_map.begin(), end=color_map.end(); it!=end; it++) {
+		if (_color.compare(it->first) == 0) return it->second;
+	}
+	// If all else fails, return white;
+	return FONT_WHITE;
 }
 
 /**
@@ -182,7 +190,7 @@ Point FontEngine::calc_size(const std::string& text_with_newlines, int width) {
  * Render the given text at (x,y) on the target image.
  * Justify is left, right, or center
  */
-void FontEngine::render(const std::string& text, int x, int y, int justify, SDL_Surface *target, int color) {
+void FontEngine::render(const std::string& text, int x, int y, int justify, SDL_Surface *target, SDL_Color color) {
 	int dest_x = -1;
 	int dest_y = -1;
 
@@ -216,14 +224,14 @@ void FontEngine::render(const std::string& text, int x, int y, int justify, SDL_
 	dest_rect.y = dest_y;
 
 	if (render_blended && target != screen) {
-		ttf = TTF_RenderUTF8_Blended(ttfont, text.c_str(), colors[color]);
+		ttf = TTF_RenderUTF8_Blended(ttfont, text.c_str(), color);
 		
 		// preserve alpha transparency of text buffers
 		if (ttf != NULL) SDL_gfxBlitRGBA(ttf, NULL, target, &dest_rect);
 	}
 	else {
-		ttf = TTF_RenderUTF8_Solid(ttfont, text.c_str(), colors[color]);
-		if (ttf != NULL) SDL_BlitSurface(ttf, NULL, target, &dest_rect);		
+		ttf = TTF_RenderUTF8_Solid(ttfont, text.c_str(), color);
+		if (ttf != NULL) SDL_BlitSurface(ttf, NULL, target, &dest_rect);
 	}
 	
 	SDL_FreeSurface(ttf);
@@ -233,7 +241,7 @@ void FontEngine::render(const std::string& text, int x, int y, int justify, SDL_
 /**
  * Word wrap to width
  */
-void FontEngine::render(const std::string& text, int x, int y, int justify, SDL_Surface *target, int width, int color) {
+void FontEngine::render(const std::string& text, int x, int y, int justify, SDL_Surface *target, int width, SDL_Color color) {
 
 	string fulltext = text + " ";
 	cursor_y = y;
@@ -274,12 +282,12 @@ void FontEngine::render(const std::string& text, int x, int y, int justify, SDL_
 
 }
 
-void FontEngine::renderShadowed(const std::string& text, int x, int y, int justify, SDL_Surface *target, int color) {
+void FontEngine::renderShadowed(const std::string& text, int x, int y, int justify, SDL_Surface *target, SDL_Color color) {
 	render(text, x+1, y+1, justify, target, FONT_BLACK);
 	render(text, x, y, justify, target, color);
 }
 
-void FontEngine::renderShadowed(const std::string& text, int x, int y, int justify, SDL_Surface *target, int width, int color) {
+void FontEngine::renderShadowed(const std::string& text, int x, int y, int justify, SDL_Surface *target, int width, SDL_Color color) {
 	render(text, x+1, y+1, justify, target, width, FONT_BLACK);
 	render(text, x, y, justify, target, width, color);
 }

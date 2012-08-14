@@ -60,6 +60,8 @@ MenuEnemy::MenuEnemy() {
 	loadGraphics();
 	enemy = NULL;
 	timeout = 0;
+
+	color_normal = font->getColor("menu_normal");
 }
 
 void MenuEnemy::loadGraphics() {
@@ -133,13 +135,13 @@ void MenuEnemy::render() {
 		WidgetLabel label;
 
 		if (custom_text_pos) {
-			label.set(window_area.x+text_pos.x, window_area.y+text_pos.y, text_pos.justify, text_pos.valign, msg->get("%s level %d", enemy->stats.level, enemy->stats.name), FONT_WHITE);
+			label.set(window_area.x+text_pos.x, window_area.y+text_pos.y, text_pos.justify, text_pos.valign, msg->get("%s level %d", enemy->stats.level, enemy->stats.name), color_normal);
 		} else {
-			label.set(window_area.x+bar_pos.x+bar_pos.w/2, window_area.y+bar_pos.y-9, JUSTIFY_CENTER, VALIGN_CENTER, msg->get("%s level %d", enemy->stats.level, enemy->stats.name), FONT_WHITE);
+			label.set(window_area.x+bar_pos.x+bar_pos.w/2, window_area.y+bar_pos.y-9, JUSTIFY_CENTER, VALIGN_CENTER, msg->get("%s level %d", enemy->stats.level, enemy->stats.name), color_normal);
 		}
 		label.render();
 
-		label.set(window_area.x+bar_pos.x+bar_pos.w/2, window_area.y+bar_pos.y+bar_pos.h/2, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), FONT_WHITE);
+		label.set(window_area.x+bar_pos.x+bar_pos.w/2, window_area.y+bar_pos.y+bar_pos.h/2, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), font->getColor("menu_normal"));
 		label.render();
 	}
 

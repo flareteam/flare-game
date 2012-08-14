@@ -144,7 +144,9 @@ bool Enemy::takeHit(Hazard h) {
 	    CombatText *combat_text = CombatText::Instance();
 
 		// if it's a miss, do nothing
-		if (rand() % 100 > (h.accuracy - stats.avoidance + 25)) {
+		int avoidance = stats.avoidance;
+		if (MAX_AVOIDANCE < avoidance) avoidance = MAX_AVOIDANCE;
+		if (rand() % 100 > (h.accuracy - avoidance + 25)) {
 		    combat_text->addMessage("miss", stats.pos, DISPLAY_MISS);
 		    return false;
 		}
@@ -156,11 +158,16 @@ bool Enemy::takeHit(Hazard h) {
 
 		// apply elemental resistance
 		// TODO: make this generic
+		int vulnerable;
 		if (h.trait_elemental == ELEMENT_FIRE) {
-			dmg = (dmg * stats.attunement_fire) / 100;
+			if (MAX_RESIST < stats.vulnerable_fire) vulnerable = MAX_RESIST;
+			else vulnerable = stats.vulnerable_fire;
+			dmg = (dmg * vulnerable) / 100;
 		}
 		if (h.trait_elemental == ELEMENT_WATER) {
-			dmg = (dmg * stats.attunement_ice) / 100;
+			if (MAX_RESIST < stats.vulnerable_ice) vulnerable = MAX_RESIST;
+			else vulnerable = stats.vulnerable_ice;
+			dmg = (dmg * vulnerable) / 100;
 		}
 
 		// substract absorption from armor
@@ -168,9 +175,18 @@ bool Enemy::takeHit(Hazard h) {
 		if (!h.trait_armor_penetration) { // armor penetration ignores all absorption
 			if (stats.absorb_min == stats.absorb_max) absorption = stats.absorb_min;
 			else absorption = stats.absorb_min + (rand() % (stats.absorb_max - stats.absorb_min + 1));
+			if (absorption > 0) {
+				if ((dmg*100)/absorption > MAX_ABSORB) absorption = (float)absorption * (MAX_ABSORB/100.0);
+			}
 			dmg = dmg - absorption;
-			if (dmg < 1 && h.dmg_min >= 1) dmg = 1; // TODO: when blocking, dmg can be reduced to 0
-			if (dmg < 0) dmg = 0;
+			if (dmg < 0) {
+				dmg = 0;
+				if (h.trait_elemental < 0) {
+					if (MAX_ABSORB < 100) dmg = 1;
+				} else {
+					if (MAX_RESIST < 100) dmg = 1;
+				}
+			}
 		}
 
 		// check for crits

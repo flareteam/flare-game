@@ -46,6 +46,8 @@ InputState::InputState(void) {
 		joy_pressing[key] = false;
 	}
 	done = false;
+
+	scroll_up = scroll_down = false;
 	
 	loadKeyBindings();
 	
@@ -233,9 +235,15 @@ void InputState::handle(bool dump_event) {
 		switch (event.type) {
 
 			case SDL_MOUSEBUTTONDOWN:
-				for (int key=0; key<key_count; key++) {
-					if (event.button.button == binding[key] || event.button.button == binding_alt[key]) {
-						pressing[key] = true;
+				if (event.button.button == SDL_BUTTON_WHEELUP) {
+					scroll_up = true;
+				} else if (event.button.button == SDL_BUTTON_WHEELDOWN) {
+					scroll_down = true;
+				}else {
+					for (int key=0; key<key_count; key++) {
+						if (event.button.button == binding[key] || event.button.button == binding_alt[key]) {
+							pressing[key] = true;
+						}
 					}
 				}
 				break;

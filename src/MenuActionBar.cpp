@@ -70,7 +70,7 @@ void MenuActionBar::update() {
 		infile.val = infile.val + ',';
 
 		if (infile.key == "default_M1_power") {
-			default_M1 = window_area.x+eatFirstInt(infile.val, ',');
+			default_M1 = eatFirstInt(infile.val, ',');
 		}else if (infile.key == "slot1") {
 			slots[0].x = window_area.x+eatFirstInt(infile.val, ',');
 			slots[0].y = window_area.y+eatFirstInt(infile.val, ',');
@@ -175,21 +175,21 @@ void MenuActionBar::update() {
 	// set keybinding labels
 	for (unsigned int i=0; i<10; i++) {
 		if (inpt->binding[i+6] < 8)
-			labels[i]->set(slots[i].x+slots[i].w, slots[i].y+slots[i].h-12, JUSTIFY_RIGHT, VALIGN_TOP, mouse_button[inpt->binding[i+6]-1], FONT_WHITE);
+			labels[i]->set(slots[i].x+slots[i].w, slots[i].y+slots[i].h-12, JUSTIFY_RIGHT, VALIGN_TOP, mouse_button[inpt->binding[i+6]-1], font->getColor("menu_normal"));
 		else
-			labels[i]->set(slots[i].x+slots[i].w, slots[i].y+slots[i].h-12, JUSTIFY_RIGHT, VALIGN_TOP, SDL_GetKeyName((SDLKey)inpt->binding[i+6]), FONT_WHITE);
+			labels[i]->set(slots[i].x+slots[i].w, slots[i].y+slots[i].h-12, JUSTIFY_RIGHT, VALIGN_TOP, SDL_GetKeyName((SDLKey)inpt->binding[i+6]), font->getColor("menu_normal"));
 	}
 	for (unsigned int i=0; i<2; i++) {
 		if (inpt->binding[i+20] < 8)
-			labels[i+10]->set(slots[i+10].x+slots[i+10].w, slots[i+10].y+slots[i+10].h-12, JUSTIFY_RIGHT, VALIGN_TOP, mouse_button[inpt->binding[i+20]-1], FONT_WHITE);
+			labels[i+10]->set(slots[i+10].x+slots[i+10].w, slots[i+10].y+slots[i+10].h-12, JUSTIFY_RIGHT, VALIGN_TOP, mouse_button[inpt->binding[i+20]-1], font->getColor("menu_normal"));
 		else
-			labels[i+10]->set(slots[i+10].x+slots[i+10].w, slots[i+10].y+slots[i+10].h-12, JUSTIFY_RIGHT, VALIGN_TOP, SDL_GetKeyName((SDLKey)inpt->binding[i+20]), FONT_WHITE);
+			labels[i+10]->set(slots[i+10].x+slots[i+10].w, slots[i+10].y+slots[i+10].h-12, JUSTIFY_RIGHT, VALIGN_TOP, SDL_GetKeyName((SDLKey)inpt->binding[i+20]), font->getColor("menu_normal"));
 	}
 	for (unsigned int i=0; i<4; i++) {
 		if (inpt->binding[i+16] < 8)
-			labels[i+12]->set(menus[i].x+menus[i].w, menus[i].y+menus[i].h-12, JUSTIFY_RIGHT, VALIGN_TOP, mouse_button[inpt->binding[i+16]-1], FONT_WHITE);
+			labels[i+12]->set(menus[i].x+menus[i].w, menus[i].y+menus[i].h-12, JUSTIFY_RIGHT, VALIGN_TOP, mouse_button[inpt->binding[i+16]-1], font->getColor("menu_normal"));
 		else
-			labels[i+12]->set(menus[i].x+menus[i].w, menus[i].y+menus[i].h-12, JUSTIFY_RIGHT, VALIGN_TOP, SDL_GetKeyName((SDLKey)inpt->binding[i+16]), FONT_WHITE);
+			labels[i+12]->set(menus[i].x+menus[i].w, menus[i].y+menus[i].h-12, JUSTIFY_RIGHT, VALIGN_TOP, SDL_GetKeyName((SDLKey)inpt->binding[i+16]), font->getColor("menu_normal"));
 	}
 }
 
@@ -377,7 +377,7 @@ void MenuActionBar::renderItemCounts() {
 			ss << slot_item_count[i];
 
 			WidgetLabel label;
-			label.set(slots[i].x, slots[i].y, JUSTIFY_LEFT, VALIGN_TOP, ss.str(), FONT_WHITE);
+			label.set(slots[i].x, slots[i].y, JUSTIFY_LEFT, VALIGN_TOP, ss.str(), font->getColor("menu_normal"));
 			label.render();
 		}
 	}
@@ -422,10 +422,13 @@ TooltipData MenuActionBar::checkTooltip(Point mouse) {
 void MenuActionBar::drop(Point mouse, int power_index, bool rearranging) {
 	for (int i=0; i<12; i++) {
 		if (isWithin(slots[i], mouse)) {
-			if (locked[i] && hotkeys[i] != -1) return;
 			if (rearranging) {
+				if ((locked[i] && !locked[drag_prev_slot]) || (!locked[i] && locked[drag_prev_slot])) {
+					locked[i] = !locked[i];
+					locked[drag_prev_slot] = !locked[drag_prev_slot];
+				}
 				hotkeys[drag_prev_slot] = hotkeys[i];
-			}
+			} else if (locked[i]) return;
 			hotkeys[i] = power_index;
 			return;
 		}
@@ -488,7 +491,6 @@ int MenuActionBar::checkDrag(Point mouse) {
 
 	for (int i=0; i<12; i++) {
 		if (isWithin(slots[i], mouse)) {
-			if (locked[i]) return -1;
 			drag_prev_slot = i;
 			power_index = hotkeys[i];
 			hotkeys[i] = -1;

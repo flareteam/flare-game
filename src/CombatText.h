@@ -60,11 +60,15 @@ public:
 private:
     Point cam;
     std::vector<Combat_Text_Item> combat_text;
-    CombatText(){};
+    CombatText();
     CombatText(CombatText const&){};
 
     static CombatText* m_pInstance;
 
+	SDL_Color color_normal;
+	SDL_Color color_crit;
+	SDL_Color color_heal;
+	SDL_Color color_shield;
 };
 
 #endif

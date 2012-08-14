@@ -61,6 +61,9 @@ WidgetListBox::WidgetListBox(int amount, int height, const std::string& _fileNam
 	scrollbar = new WidgetScrollBar(mods->locate("images/menus/buttons/scrollbar_default.png"));
 
 	render_to_alpha = false;
+
+	color_normal = font->getColor("widget_normal");
+	color_disabled = font->getColor("widget_disabled");
 }
 
 void WidgetListBox::loadArt() {
@@ -96,6 +99,26 @@ bool WidgetListBox::checkClick(int x, int y) {
 
 	refresh();
 	tip_new = checkTooltip(mouse);
+
+	// check scroll wheel
+	SDL_Rect scroll_area;
+	scroll_area.x = rows[0].x;
+	scroll_area.y = rows[0].y;
+	scroll_area.w = rows[0].w;
+	scroll_area.h = rows[0].h * list_height;
+	if (isWithin(scroll_area,mouse)) {
+		if (inpt->scroll_up) {
+			scrollUp();
+			inpt->scroll_up = false;
+		}
+		if (inpt->scroll_down) {
+			scrollDown();
+			inpt->scroll_down = false;
+		}
+	} else {
+		inpt->scroll_up = false;
+		inpt->scroll_down = false;
+	}
 
 	// check ScrollBar clicks
 	if (has_scroll_bar) {
@@ -421,9 +444,9 @@ void WidgetListBox::refresh() {
 			}
 
 			if(selected[i+cursor]) {
-				vlabels[i].set(font_x, font_y, JUSTIFY_LEFT, VALIGN_CENTER, temp, FONT_WHITE);
+				vlabels[i].set(font_x, font_y, JUSTIFY_LEFT, VALIGN_CENTER, temp, color_normal);
 			} else {
-				vlabels[i].set(font_x, font_y, JUSTIFY_LEFT, VALIGN_CENTER, temp, FONT_GRAY);
+				vlabels[i].set(font_x, font_y, JUSTIFY_LEFT, VALIGN_CENTER, temp, color_disabled);
 			}
 		}
 	}

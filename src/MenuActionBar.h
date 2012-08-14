@@ -80,7 +80,7 @@ public:
 
 	int hotkeys[12]; // refer to power_index in PowerManager
 	int actionbar[12]; // temp for shapeshifting
-	bool locked[12]; // if slot is locked, you cannot drop or replace it
+	bool locked[12]; // if slot is locked, you cannot drop it
 	SDL_Rect slots[12]; // the location of hotkey slots
 	SDL_Rect menus[4]; // the location of the menu buttons
 	int slot_item_count[12]; // -1 means this power isn't item based.  0 means out of items.  1+ means sufficient items.

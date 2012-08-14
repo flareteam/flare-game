@@ -54,6 +54,9 @@ private:
 	std::string *values;
 	WidgetLabel *vlabels;
 	SDL_Rect *rows;
+
+	SDL_Color color_normal;
+	SDL_Color color_disabled;
 	
 public:
 	WidgetComboBox(int amount, const std::string& _fileName);
