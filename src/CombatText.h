@@ -33,11 +33,10 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <vector>
 #include <string>
 
-#define DISPLAY_DAMAGE 0
-#define DISPLAY_CRIT 1
-#define DISPLAY_HEAL 2
-#define DISPLAY_MISS 3
-#define DISPLAY_SHIELD 4
+#define COMBAT_MESSAGE_DAMAGE 0
+#define COMBAT_MESSAGE_CRIT 1
+#define COMBAT_MESSAGE_MISS 2
+#define COMBAT_MESSAGE_BUFF 3
 
 class WIdgetLabel;
 
@@ -65,10 +64,7 @@ private:
 
     static CombatText* m_pInstance;
 
-	SDL_Color color_normal;
-	SDL_Color color_crit;
-	SDL_Color color_heal;
-	SDL_Color color_shield;
+	SDL_Color msg_color[4];
 };
 
 #endif
