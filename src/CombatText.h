@@ -38,7 +38,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #define COMBAT_MESSAGE_MISS 2
 #define COMBAT_MESSAGE_BUFF 3
 
-class WIdgetLabel;
+class WidgetLabel;
 
 struct Combat_Text_Item {
 	WidgetLabel *label;
