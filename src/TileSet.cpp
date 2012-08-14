@@ -89,14 +89,11 @@ void TileSet::load(const std::string& filename) {
 	string img;
 
 	if (infile.open(mods->locate("tilesetdefs/" + filename))) {
-		bool first_tile_passed = false;
 		while (infile.next()) {
 			if (infile.key == "tile") {
 
 				infile.val = infile.val + ',';
 				unsigned index = eatFirstInt(infile.val, ',');
-
-				first_tile_passed = true;
 
 				if (index >= tiles.size())
 					tiles.resize(index + 1);
