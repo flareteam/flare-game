@@ -151,11 +151,8 @@ void ItemManager::load(const string& filename) {
 				items[id].req_val = atoi(infile.nextValue().c_str());
 			}
 			else if (infile.key == "bonus") {
-				if (bonus_counter < ITEM_MAX_BONUSES) {
-					items[id].bonus_stat[bonus_counter] = infile.nextValue();
-					items[id].bonus_val[bonus_counter] = atoi(infile.nextValue().c_str());
-					bonus_counter++;
-				}
+				items[id].bonus_stat.push_back(infile.nextValue());
+				items[id].bonus_val.push_back(atoi(infile.nextValue().c_str()));
 			}
 			else if (infile.key == "sfx") {
 				if (infile.val == "book")
@@ -441,20 +438,25 @@ TooltipData ItemManager::getTooltip(int item, StatBlock *stats, bool vendor_view
 	}
 
 	// bonuses
-	int bonus_counter = 0;
+	unsigned bonus_counter = 0;
 	string modifier;
-	while (items[item].bonus_stat[bonus_counter] != "") {
+	while (bonus_counter < items[item].bonus_val.size() && items[item].bonus_stat[bonus_counter] != "") {
 		if (items[item].bonus_val[bonus_counter] > 0) {
-			modifier = msg->get("Increases %s by %d", items[item].bonus_val[bonus_counter], msg->get(items[item].bonus_stat[bonus_counter]));
+			modifier = msg->get("Increases %s by %d",
+					items[item].bonus_val[bonus_counter],
+					msg->get(items[item].bonus_stat[bonus_counter]));
+
 			tip.colors[tip.num_lines] = color_bonus;
 		}
 		else {
-			modifier = msg->get("Decreases %s by %d", items[item].bonus_val[bonus_counter], msg->get(items[item].bonus_stat[bonus_counter]));
+			modifier = msg->get("Decreases %s by %d",
+					items[item].bonus_val[bonus_counter],
+					msg->get(items[item].bonus_stat[bonus_counter]));
+
 			tip.colors[tip.num_lines] = color_penalty;
 		}
 		tip.lines[tip.num_lines++] = modifier;
 		bonus_counter++;
-		if (bonus_counter == ITEM_MAX_BONUSES) break;
 	}
 
 	// power

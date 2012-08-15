@@ -71,7 +71,7 @@ const int ITEM_MAX_BONUSES = 8;
 
 class Item {
 public:
-	std::string name;          // item name displayed on long and short tool tips
+	std::string name;     // item name displayed on long and short tool tips
 	int level;            // rough estimate of quality, used in the loot algorithm
 	int quality;          // low, normal, high, epic; corresponds to item name color
 	int type;             // equipment slot or base item type
@@ -83,8 +83,8 @@ public:
 	int abs_max;          // maximum absorb amount (armors and shields only)
 	int req_stat;         // physical, mental, offense, defense
 	int req_val;          // 1-5 (used with req_stat)
-	std::string bonus_stat[ITEM_MAX_BONUSES];   // stat to increase/decrease e.g. hp, accuracy, speed
-	int bonus_val[ITEM_MAX_BONUSES];       // amount to increase (used with bonus_stat)
+	std::vector<std::string> bonus_stat;   // stat to increase/decrease e.g. hp, accuracy, speed
+	std::vector<int> bonus_val;       // amount to increase (used with bonus_stat)
 	int sfx;              // the item sound when it hits the floor or inventory, etc
 	std::string gfx;           // the sprite layer shown when this item is equipped
 	std::string loot_animation;// the flying loot animation for this item
@@ -125,11 +125,6 @@ public:
 		rand_vendor = 1;
 		pickup_status = "";
 		stepfx = "";
-
-		for (int j=0; j<ITEM_MAX_BONUSES; j++) {
-			bonus_stat[j] = "";
-			bonus_val[j] = 0;
-		}
 	}
 	~Item() {
 
