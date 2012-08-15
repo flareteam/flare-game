@@ -116,12 +116,11 @@ MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_i
 			power_cell[counter].requires_power = eatFirstInt(infile.val, ',');
 		} else if (infile.key == "title") {
 			title = eatLabelInfo(infile.val);
+		} else if (infile.key == "unspent_points") {
+			unspent_points = eatLabelInfo(infile.val);
 		} else if (infile.key == "close") {
 			close_pos.x = eatFirstInt(infile.val, ',');
 			close_pos.y = eatFirstInt(infile.val, ',');
-		} else if (infile.key == "unspent_points") {
-			unspent_pos.x = eatFirstInt(infile.val, ',');
-			unspent_pos.y = eatFirstInt(infile.val, ',');
 		} else if (infile.key == "tab_area") {
 			tab_area.x = eatFirstInt(infile.val, ',');
 			tab_area.y = eatFirstInt(infile.val, ',');
@@ -167,7 +166,7 @@ void MenuPowers::update() {
 	closeButton->pos.x = window_area.x+close_pos.x;
 	closeButton->pos.y = window_area.y+close_pos.y;
 
-	stat_up.set(window_area.x+unspent_pos.x, window_area.y+unspent_pos.y, JUSTIFY_CENTER, VALIGN_TOP, "", font->getColor("menu_bonus"));
+	stat_up.set(window_area.x+unspent_points.x, window_area.y+unspent_points.y, unspent_points.justify, unspent_points.valign, "", font->getColor("menu_bonus"));
 	points_left = stats->level - powers_list.size();
 
 	// If we have more than one tab, create TabControl
@@ -409,15 +408,17 @@ void MenuPowers::render() {
 	if (!title.hidden) label_powers.render();
 
 	// stats
-	stringstream ss;
+	if (!unspent_points.hidden) {
+		stringstream ss;
 
-	ss.str("");
-	points_left = stats->level - powers_list.size();
-	if (points_left !=0) {
-		ss << "Unspent skill points:" << " " << points_left;
+		ss.str("");
+		points_left = stats->level - powers_list.size();
+		if (points_left !=0) {
+			ss << "Unspent skill points:" << " " << points_left;
+		}
+		stat_up.set(ss.str());
+		stat_up.render();
 	}
-	stat_up.set(ss.str());
-	stat_up.render();
 }
 
 /**
