@@ -65,6 +65,8 @@ private:
     static CombatText* m_pInstance;
 
 	SDL_Color msg_color[4];
+	int duration;
+	int speed;
 };
 
 #endif
