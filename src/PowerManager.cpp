@@ -49,6 +49,7 @@ PowerManager::PowerManager() {
 	}
 
 	// TODO: generalize Vengeance
+	powers.resize(POWER_VENGEANCE + 1);
 	powers[POWER_VENGEANCE].type = POWTYPE_SINGLE;
 
 	used_item=-1;
@@ -95,6 +96,8 @@ void PowerManager::loadPowers(const std::string& filename) {
 			// data to the correct power.
 			if (infile.key == "id") {
 				input_id = atoi(infile.val.c_str());
+				if ((int)powers.size() < input_id + 1)
+					powers.resize(input_id + 1);
 			}
 			else if (infile.key == "type") {
 				if (infile.val == "single") powers[input_id].type = POWTYPE_SINGLE;
@@ -431,7 +434,7 @@ int PowerManager::loadSFX(const string& filename) {
         }
 
         // we don't already have this sound loaded, so load it
-        if (audio ==  true) {
+        if (audio && SOUND_VOLUME) {
             sfx[sfx_count] = Mix_LoadWAV(mods->locate("soundfx/powers/" + filename).c_str());
             if(!sfx[sfx_count]) {
                 fprintf(stderr, "Couldn't load power soundfx: %s\n", filename.c_str());
@@ -636,6 +639,20 @@ void PowerManager::initHazard(int power_index, StatBlock *src_stats, Point targe
 	haz->dmg_min = (int)ceil(haz->dmg_min * powers[power_index].damage_multiplier / 100.0);
 	haz->dmg_max = (int)ceil(haz->dmg_max * powers[power_index].damage_multiplier / 100.0);
 
+	//apply stat bonuses
+	if (powers[power_index].base_damage == BASE_DAMAGE_MELEE) {
+		haz->dmg_min += src_stats->get_physical() * src_stats->bonus_per_physical;
+		haz->dmg_max += src_stats->get_physical() * src_stats->bonus_per_physical;
+	}
+	else if (powers[power_index].base_damage == BASE_DAMAGE_RANGED) {
+		haz->dmg_min += src_stats->get_offense() * src_stats->bonus_per_offense;
+		haz->dmg_max += src_stats->get_offense() * src_stats->bonus_per_offense;
+	}
+	else if (powers[power_index].base_damage == BASE_DAMAGE_MENT) {
+		haz->dmg_min += src_stats->get_mental() * src_stats->bonus_per_mental;
+		haz->dmg_max += src_stats->get_mental() * src_stats->bonus_per_mental;
+	}
+
 	// Only apply stats from powers that are not defaults
 	// If we do this, we can init with multiple power layers
 	// (e.g. base spell plus weapon type)
@@ -771,13 +788,13 @@ void PowerManager::buff(int power_index, StatBlock *src_stats, Point target) {
 	// heal for ment weapon damage * damage multiplier
 	if (powers[power_index].buff_heal) {
 		int heal_amt = 0;
-		int heal_max = (int)ceil(src_stats->dmg_ment_max * powers[power_index].damage_multiplier / 100.0);
-		int heal_min = (int)ceil(src_stats->dmg_ment_min * powers[power_index].damage_multiplier / 100.0);
+		int heal_max = (int)ceil(src_stats->dmg_ment_max * powers[power_index].damage_multiplier / 100.0) + (src_stats->get_mental()*src_stats->bonus_per_mental);
+		int heal_min = (int)ceil(src_stats->dmg_ment_min * powers[power_index].damage_multiplier / 100.0) + (src_stats->get_mental()*src_stats->bonus_per_mental);
 		if (heal_max > heal_min)
 			heal_amt = rand() % (heal_max - heal_min) + heal_min;
 		else // avoid div by 0
 			heal_amt = heal_min;
-		CombatText::Instance()->addMessage(heal_amt, src_stats->pos, DISPLAY_HEAL);
+		CombatText::Instance()->addMessage(heal_amt, src_stats->pos, COMBAT_MESSAGE_BUFF);
 		src_stats->hp += heal_amt;
 		if (src_stats->hp > src_stats->maxhp) src_stats->hp = src_stats->maxhp;
 	}
@@ -796,8 +813,8 @@ void PowerManager::buff(int power_index, StatBlock *src_stats, Point target) {
 
 	// charge shield to max ment weapon damage * damage multiplier
 	if (powers[power_index].buff_shield) {
-	    int shield_amt = (int)ceil(src_stats->dmg_ment_max * powers[power_index].damage_multiplier / 100.0);
-	    CombatText::Instance()->addMessage(shield_amt, src_stats->pos, DISPLAY_SHIELD);
+	    int shield_amt = (int)ceil(src_stats->dmg_ment_max * powers[power_index].damage_multiplier / 100.0) + (src_stats->get_mental()*src_stats->bonus_per_mental);
+	    CombatText::Instance()->addMessage(shield_amt, src_stats->pos, COMBAT_MESSAGE_BUFF);
 		src_stats->shield_hp = src_stats->shield_hp_total = shield_amt;
 	}
 

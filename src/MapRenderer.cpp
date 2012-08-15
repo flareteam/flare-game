@@ -550,6 +550,10 @@ int MapRenderer::load(string filename) {
 	}
 	tset.load(this->tileset);
 
+	// some events automatically trigger when the map loads
+	// e.g. change map state based on campaign status
+	executeOnLoadEvents();
+	
 	return 0;
 }
 
@@ -560,7 +564,7 @@ void MapRenderer::loadMusic() {
 		Mix_FreeMusic(music);
 		music = NULL;
 	}
-	if (audio == true) {
+	if (audio && MUSIC_VOLUME) {
 		music = Mix_LoadMUS((mods->locate("music/" + this->music_filename)).c_str());
 		if(!music)
 			printf("Mix_LoadMUS: %s\n", Mix_GetError());
@@ -926,13 +930,33 @@ void MapRenderer::renderOrtho(vector<Renderable> &r) {
 	checkTooltip();
 }
 
+void MapRenderer::executeOnLoadEvents() {
+	vector<Map_Event>::iterator it;
+
+	// loop in reverse because we may erase elements
+	for (it = events.end(); it != events.begin(); ) {
+		it--;
+	
+		// skip inactive events
+		if (!isActive(*it)) continue;
+		
+		if ((*it).type == "on_load") {
+			if (executeEvent(*it))
+				events.erase(it);
+		}
+	}
+}
+
+
 void MapRenderer::checkEvents(Point loc) {
 	Point maploc;
 	maploc.x = loc.x >> TILE_SHIFT;
 	maploc.y = loc.y >> TILE_SHIFT;
 	vector<Map_Event>::iterator it;
 
-	for (it = events.begin(); it < events.end(); it++) {
+	// loop in reverse because we may erase elements
+	for (it = events.end(); it != events.begin(); ) {
+		it--;
 	
 		// skip inactive events
 		if (!isActive(*it)) continue;
@@ -1222,7 +1246,7 @@ bool MapRenderer::executeEvent(Map_Event &ev) {
 			stash_pos.y = ev.location.y * UNITS_PER_TILE + UNITS_PER_TILE/2;
 		}
 	}
-	if (ev.type == "run_once" || destroy_event)
+	if (ev.type == "run_once" || ev.type == "on_load" || destroy_event)
 		return true;
 	else
 		return false;

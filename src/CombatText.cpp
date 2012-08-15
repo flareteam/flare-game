@@ -25,16 +25,34 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "CombatText.h"
+#include "FileParser.h"
 #include "SharedResources.h"
 #include "Settings.h"
 #include <iostream>
 #include <sstream>
 
 CombatText::CombatText() {
-	color_normal = font->getColor("combat_normal");
-	color_crit = font->getColor("combat_crit");
-	color_heal = font->getColor("combat_heal");
-	color_shield = font->getColor("combat_shield");
+	msg_color[COMBAT_MESSAGE_DAMAGE] = font->getColor("combat_damage");
+	msg_color[COMBAT_MESSAGE_CRIT] = font->getColor("combat_crit");
+	msg_color[COMBAT_MESSAGE_BUFF] = font->getColor("combat_buff");
+	msg_color[COMBAT_MESSAGE_MISS] = font->getColor("combat_miss");	
+
+	duration = 30;
+	speed = 1;
+
+	// Load config settings
+	FileParser infile;
+	if(infile.open(mods->locate("engine/combat_text.txt"))) {
+		while(infile.next()) {
+			if(infile.key == "duration") {
+				duration = atoi(infile.val.c_str());
+			} else if(infile.key == "speed") {
+				speed = atoi(infile.val.c_str());
+			}
+		}
+		infile.close();
+	} else fprintf(stderr, "Unable to open combat_text.txt!\n");
+
 }
 
 // Global static pointer used to ensure a single instance of the class.
@@ -59,7 +77,7 @@ void CombatText::addMessage(std::string message, Point location, int displaytype
         c->pos = p;
         c->label = label;
         c->text = message;
-        c->lifespan = 30;
+        c->lifespan = duration;
         c->displaytype = displaytype;
         combat_text.push_back(*c);
         delete c;
@@ -78,7 +96,7 @@ void CombatText::addMessage(int num, Point location, int displaytype) {
         ss << num;
         c->text = ss.str();
 
-        c->lifespan = 30;
+        c->lifespan = duration;
         c->displaytype = displaytype;
         combat_text.push_back(*c);
         delete c;
@@ -88,18 +106,13 @@ void CombatText::addMessage(int num, Point location, int displaytype) {
 void CombatText::render() {
 	for(std::vector<Combat_Text_Item>::iterator it = combat_text.begin(); it != combat_text.end(); it++) {
         it->lifespan--;
-        it->pos.y--;
-        int type = it->displaytype;
-        if (type == DISPLAY_DAMAGE)
-            it->label->set(it->pos.x, it->pos.y, JUSTIFY_CENTER, VALIGN_BOTTOM, it->text, color_normal);
-        else if (type == DISPLAY_CRIT || type == DISPLAY_MISS)
-            it->label->set(it->pos.x, it->pos.y, JUSTIFY_CENTER, VALIGN_BOTTOM, it->text, color_crit);
-        else if (type == DISPLAY_HEAL)
-            it->label->set(it->pos.x, it->pos.y, JUSTIFY_CENTER, VALIGN_BOTTOM, it->text, color_heal);
-        else if (type == DISPLAY_SHIELD)
-            it->label->set(it->pos.x, it->pos.y, JUSTIFY_CENTER, VALIGN_BOTTOM, it->text, color_shield);
-        if (it->lifespan > 0)
-		    it->label->render();
+        it->pos.y -= speed;
+		
+		it->label->set(it->pos.x, it->pos.y, JUSTIFY_CENTER, VALIGN_BOTTOM, it->text, msg_color[it->displaytype]);
+		
+		if (it->lifespan > 0)
+			it->label->render();
+		
     }
     // delete expired messages
     while (combat_text.size() > 0 && combat_text.begin()->lifespan <= 0) {

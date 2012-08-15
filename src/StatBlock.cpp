@@ -56,6 +56,7 @@ StatBlock::StatBlock() {
 	// core stats
 	offense_character = defense_character = physical_character = mental_character = 0;
 	offense_additional = defense_additional = physical_additional = mental_additional = 0;
+	bonus_per_offense = bonus_per_defense = bonus_per_physical = bonus_per_mental = 0;
 	physoff = physdef = mentoff = mentdef = 0;
 	physment = offdef = 0;
 	character_class="";
@@ -674,6 +675,14 @@ void StatBlock::loadHeroStats() {
 			speed = speed_default = value;
 		} else if (infile.key == "dspeed") {
 			dspeed = dspeed_default = value;
+		} else if (infile.key == "bonus_per_physical") {
+			bonus_per_physical = value;
+		} else if (infile.key == "bonus_per_mental") {
+			bonus_per_mental = value;
+		} else if (infile.key == "bonus_per_offense") {
+			bonus_per_offense = value;
+		} else if (infile.key == "bonus_per_defense") {
+			bonus_per_defense = value;
 		}
 	  }
 	  infile.close();

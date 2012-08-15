@@ -48,7 +48,7 @@ MenuCharacter::MenuCharacter(StatBlock *_stats) {
 		cstat[i].hover.w = cstat[i].hover.h = 0;
 		cstat[i].visible = true;
 	}
-	for (int i=0; i<14; i++) {
+	for (int i=0; i<15; i++) {
 		show_stat[i] = true;
 	}
 
@@ -69,7 +69,7 @@ MenuCharacter::MenuCharacter(StatBlock *_stats) {
 	labelCharacter = new WidgetLabel();
 
 	// stat list
-	statList = new WidgetListBox(14, 10, mods->locate("images/menus/buttons/listbox_char.png"));
+	statList = new WidgetListBox(15, 10, mods->locate("images/menus/buttons/listbox_char.png"));
 
 	// Load config settings
 	FileParser infile;
@@ -180,14 +180,16 @@ MenuCharacter::MenuCharacter(StatBlock *_stats) {
 				if (eatFirstInt(infile.val,',') == 0) show_stat[8] = false;
 			} else if (infile.key == "show_ranged"){
 				if (eatFirstInt(infile.val,',') == 0) show_stat[9] = false;
-			} else if (infile.key == "show_crit"){
+			} else if (infile.key == "show_mental"){
 				if (eatFirstInt(infile.val,',') == 0) show_stat[10] = false;
-			} else if (infile.key == "show_absorb"){
+			} else if (infile.key == "show_crit"){
 				if (eatFirstInt(infile.val,',') == 0) show_stat[11] = false;
-			} else if (infile.key == "show_resist_fire"){
+			} else if (infile.key == "show_absorb"){
 				if (eatFirstInt(infile.val,',') == 0) show_stat[12] = false;
-			} else if (infile.key == "show_resist_ice"){
+			} else if (infile.key == "show_resist_fire"){
 				if (eatFirstInt(infile.val,',') == 0) show_stat[13] = false;
+			} else if (infile.key == "show_resist_ice"){
+				if (eatFirstInt(infile.val,',') == 0) show_stat[14] = false;
 			}
 		}
 		infile.close();
@@ -338,33 +340,48 @@ void MenuCharacter::refreshStats() {
 		statList->append(ss.str(),msg->get("Each point of Defense grants +%d avoidance. Each level grants +%d avoidance", stats->avoidance_per_defense, stats->avoidance_per_level));
 	}
 
+	int bonus;
+	
 	if (show_stat[8]) {
+		bonus = stats->get_physical() * stats->bonus_per_physical;
 		ss.str("");
 		ss << msg->get("Melee Damage:") << " ";
-		if (stats->dmg_melee_max >= stats->dmg_ment_max)
-			ss << stats->dmg_melee_min << "-" << stats->dmg_melee_max;
+		if (stats->dmg_melee_max > 0)
+			ss << stats->dmg_melee_min + bonus << "-" << stats->dmg_melee_max + bonus;
 		else
-			ss << stats->dmg_ment_min << "-" << stats->dmg_ment_max;
+			ss << "-";
 		statList->append(ss.str(),"");
 	}
 
 	if (show_stat[9]) {
+		bonus = stats->get_offense() * stats->bonus_per_offense;
 		ss.str("");
 		ss << msg->get("Ranged Damage:") << " ";
 		if (stats->dmg_ranged_max > 0)
-			ss << stats->dmg_ranged_min << "-" << stats->dmg_ranged_max;
+			ss << stats->dmg_ranged_min + bonus << "-" << stats->dmg_ranged_max + bonus;
 		else
 			ss << "-";
 		statList->append(ss.str(),"");
 	}
 
 	if (show_stat[10]) {
+		bonus = stats->get_mental() * stats->bonus_per_mental;
+		ss.str("");
+		ss << msg->get("Mental Damage:") << " ";
+		if (stats->dmg_ment_max > 0)
+			ss << stats->dmg_ment_min + bonus << "-" << stats->dmg_ment_max + bonus;
+		else
+			ss << "-";
+		statList->append(ss.str(),"");
+	}
+
+	if (show_stat[11]) {
 		ss.str("");
 		ss << msg->get("Crit:") << " " << stats->crit << "%";
 		statList->append(ss.str(),"");
 	}
 
-	if (show_stat[11]) {
+	if (show_stat[12]) {
 		ss.str("");
 		ss << msg->get("Absorb:") << " ";
 		if (stats->absorb_min == stats->absorb_max)
@@ -374,13 +391,13 @@ void MenuCharacter::refreshStats() {
 		statList->append(ss.str(),"");
 	}
 
-	if (show_stat[12]) {
+	if (show_stat[13]) {
 		ss.str("");
 		ss << msg->get("Fire Resistance:") << " " << (100 - stats->vulnerable_fire) << "%";
 		statList->append(ss.str(),"");
 	}
 
-	if (show_stat[13]) {
+	if (show_stat[14]) {
 		ss.str("");
 		ss << msg->get("Ice Resistance:") << " " << (100 - stats->vulnerable_ice) << "%";
 		statList->append(ss.str(),"");
