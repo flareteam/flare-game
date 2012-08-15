@@ -72,8 +72,8 @@ private:
 	bool pressed;
 
 	LabelInfo title;
+	LabelInfo unspent_points;
 	Point close_pos;
-	Point unspent_pos;
 	SDL_Rect tab_area;
 
 	int points_left;
