@@ -13,14 +13,10 @@ anim_frames=12
 anim_duration=10
 
 [dialog]
-set_status=fr_welcome
+requires_not=fr_rilrak_search
 him=Welcome to my mines, stranger. If you have the back for it, I've got the work.
 you=I heard you might have something more interesting.
 him=Ah, you're the adventurer? If you seek out danger you're in the right place. We had two guards stationed here; both were recalled to Ancelot. Now we're vulnerable.
-
-[dialog]
-requires_status=fr_welcome
-requires_not=fr_rilrak_search
 him=We're having problems. Goblins. All the noise from our mining is drawing their attention. We can't have them thinking we're easy prey.
 set_status=fr_rilrak_search
 unset_status=fr_rilrak_defeated
