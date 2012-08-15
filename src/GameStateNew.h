@@ -17,7 +17,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 /**
  * GameStateNew
- * 
+ *
  * Handle player choices when starting a new game
  * (e.g. character appearance)
  */
@@ -33,14 +33,12 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include <string>
 #include <sstream>
+#include <vector>
 
 class WidgetButton;
 class WidgetCheckBox;
 class WidgetInput;
 class WidgetLabel;
-
-
-const int PLAYER_OPTION_MAX = 32;
 
 class GameStateNew : public GameState {
 private:
@@ -49,9 +47,9 @@ private:
 	void loadPortrait(const std::string& portrait_filename);
 	void loadOptions(const std::string& option_filename);
 
-	std::string base[PLAYER_OPTION_MAX];
-	std::string head[PLAYER_OPTION_MAX];
-	std::string portrait[PLAYER_OPTION_MAX];
+	std::vector<std::string> base;
+	std::vector<std::string> head;
+	std::vector<std::string> portrait;
 	int option_count;
 	int current_option;
 
@@ -81,7 +79,7 @@ public:
 	void logic();
 	void render();
 	int game_slot;
-	
+
 };
 
 #endif

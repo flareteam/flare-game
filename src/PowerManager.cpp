@@ -39,15 +39,6 @@ using namespace std;
  */
 PowerManager::PowerManager() {
 
-	gfx_count = 0;
-	sfx_count = 0;
-	for (int i=0; i<POWER_MAX_GFX; i++) {
-		gfx[i] = NULL;
-	}
-	for (int i=0; i<POWER_MAX_SFX; i++) {
-		sfx[i] = NULL;
-	}
-
 	// TODO: generalize Vengeance
 	powers.resize(POWER_VENGEANCE + 1);
 	powers[POWER_VENGEANCE].type = POWTYPE_SINGLE;
@@ -386,33 +377,26 @@ void PowerManager::loadPowers(const std::string& filename) {
  * @return The gfx[] array index for this graphic, or -1 upon load failure
  */
 int PowerManager::loadGFX(const string& filename) {
-
-	// currently we restrict the total number of unique power sprite sets
-	if (gfx_count == POWER_MAX_GFX) return -1;
-
 	// first check to make sure the sprite isn't already loaded
-	for (int i=0; i<gfx_count; i++) {
+	for (unsigned i=0; i<gfx_filenames.size(); i++) {
 		if (gfx_filenames[i] == filename) {
 			return i; // already have this one
 		}
 	}
 
 	// we don't already have this sprite loaded, so load it
-	gfx[gfx_count] = IMG_Load(mods->locate("images/powers/" + filename).c_str());
-	if(!gfx[gfx_count]) {
+	SDL_Surface* surface = IMG_Load(mods->locate("images/powers/" + filename).c_str());
+	if(!surface) {
 		fprintf(stderr, "Couldn't load power sprites: %s\n", IMG_GetError());
 		return -1;
 	}
+	gfx_filenames.push_back(filename);
+	gfx.push_back(SDL_DisplayFormatAlpha(surface));
 
 	// optimize
-	SDL_Surface *cleanup = gfx[gfx_count];
-	gfx[gfx_count] = SDL_DisplayFormatAlpha(gfx[gfx_count]);
-	SDL_FreeSurface(cleanup);
+	SDL_FreeSurface(surface);
 
-	// success; perform record-keeping
-	gfx_filenames[gfx_count] = filename;
-	gfx_count++;
-	return gfx_count-1;
+	return gfx.size() - 1;
 }
 
 /**
@@ -423,31 +407,29 @@ int PowerManager::loadGFX(const string& filename) {
  */
 int PowerManager::loadSFX(const string& filename) {
 
-        // currently we restrict the total number of unique power sounds
-        if (sfx_count == POWER_MAX_SFX) return -1;
-
         // first check to make sure the sound isn't already loaded
-        for (int i=0; i<sfx_count; i++) {
+        for (unsigned i=0; i<sfx_filenames.size(); i++) {
             if (sfx_filenames[i] == filename) {
                 return i; // already have this one
             }
         }
 
         // we don't already have this sound loaded, so load it
+        Mix_Chunk* sound;
         if (audio && SOUND_VOLUME) {
-            sfx[sfx_count] = Mix_LoadWAV(mods->locate("soundfx/powers/" + filename).c_str());
-            if(!sfx[sfx_count]) {
+            sound = Mix_LoadWAV(mods->locate("soundfx/powers/" + filename).c_str());
+            if(!sound) {
                 fprintf(stderr, "Couldn't load power soundfx: %s\n", filename.c_str());
                 return -1;
             }
         } else {
-            sfx[sfx_count] = NULL;
+            sound = NULL;
         }
 
         // success; perform record-keeping
-        sfx_filenames[sfx_count] = filename;
-        sfx_count++;
-        return sfx_count-1;
+        sfx_filenames.push_back(filename);
+        sfx.push_back(sound);
+        return sfx.size() - 1;
 }
 
 
@@ -1216,12 +1198,17 @@ bool PowerManager::activate(int power_index, StatBlock *src_stats, Point target)
 
 PowerManager::~PowerManager() {
 
-	for (int i=0; i<gfx_count; i++) {
+	for (unsigned i=0; i<gfx.size(); i++) {
 		SDL_FreeSurface(gfx[i]);
 	}
-    for (int i=0; i<sfx_count; i++) {
+	gfx.clear();
+	gfx_filenames.clear();
+
+    for (unsigned i=0; i<sfx.size(); i++) {
 		Mix_FreeChunk(sfx[i]);
-    }
+	}
+	sfx.clear();
+	sfx_filenames.clear();
 
 	SDL_FreeSurface(runes);
 }

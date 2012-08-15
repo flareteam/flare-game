@@ -41,7 +41,6 @@ using namespace std;
 
 GameStateNew::GameStateNew() : GameState() {
 	game_slot = 0;
-	option_count = 0;
 	current_option = 0;
 	portrait_image = NULL;
 
@@ -65,7 +64,7 @@ GameStateNew::GameStateNew() : GameState() {
 	button_permadeath = new WidgetCheckBox(mods->locate(
 												"images/menus/buttons/checkbox_default.png"));
 
-	// Read positions from config file 
+	// Read positions from config file
 	FileParser infile;
 
 	if (infile.open(mods->locate("menus/gamenew.txt"))) {
@@ -182,16 +181,10 @@ void GameStateNew::loadOptions(const string& filename) {
 	if (!fin.open(mods->locate("engine/" + filename))) return;
 
 	while (fin.next()) {
-
-		// if at the max allowed base+look options, skip the rest of the file
-		// TODO: remove static array size limit
-		if (option_count == PLAYER_OPTION_MAX-1) break;
-
 		if (fin.key == "option") {
-			base[option_count] = fin.nextValue();
-			head[option_count] = fin.nextValue();
-			portrait[option_count] = fin.nextValue();
-			option_count++;
+			base.push_back(fin.nextValue());
+			head.push_back(fin.nextValue());
+			portrait.push_back(fin.nextValue());
 		}
 	}
 	fin.close();
@@ -235,17 +228,16 @@ void GameStateNew::logic() {
 	// scroll through portrait options
 	if (button_next->checkClick()) {
 		current_option++;
-		if (current_option == option_count) current_option = 0;
+		if (current_option == (int)base.size()) current_option = 0;
 		loadPortrait(portrait[current_option]);
 	}
 	else if (button_prev->checkClick()) {
 		current_option--;
-		if (current_option == -1) current_option = option_count-1;
+		if (current_option == -1) current_option = base.size()-1;
 		loadPortrait(portrait[current_option]);
 	}
 
 	if (DEFAULT_NAME == "") input_name->logic();
-
 }
 
 void GameStateNew::render() {
@@ -268,12 +260,8 @@ void GameStateNew::render() {
 	dest.x = portrait_pos.x + (VIEW_W - FRAME_W)/2;
 	dest.y = portrait_pos.y + (VIEW_H - FRAME_H)/2;
 
-	if (portrait != NULL) {
-		SDL_BlitSurface(portrait_image, &src, screen, &dest);
-	}
-	if (portrait_border != NULL) {
-		SDL_BlitSurface(portrait_border, &src, screen, &dest);
-	}
+	SDL_BlitSurface(portrait_image, &src, screen, &dest);
+	SDL_BlitSurface(portrait_border, &src, screen, &dest);
 
 	// display labels
 	label_portrait->render();
