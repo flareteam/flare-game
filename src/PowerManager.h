@@ -34,14 +34,13 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <string>
 #include <queue>
 #include <cassert>
+#include <vector>
 
 class Hazard;
 class MapCollision;
 class StatBlock;
 
 const int POWER_COUNT = 1024;
-const int POWER_MAX_GFX = 64;
-const int POWER_MAX_SFX = 64;
 
 const int POWTYPE_SINGLE = 2;
 const int POWTYPE_MISSILE = 3;
@@ -290,10 +289,8 @@ private:
 
 	int loadGFX(const std::string& filename);
 	int loadSFX(const std::string& filename);
-	std::string gfx_filenames[POWER_MAX_GFX];
-	std::string sfx_filenames[POWER_MAX_SFX];
-	int gfx_count;
-	int sfx_count;
+	std::vector<std::string> gfx_filenames;
+	std::vector<std::string> sfx_filenames;
 
 	int calcDirection(int origin_x, int origin_y, int target_x, int target_y);
 	Point limitRange(int range, Point src, Point target);
@@ -329,8 +326,8 @@ public:
 	std::queue<Map_Enemy> enemies; // output; read by PowerManager
 
 	// shared images/sounds for power special effects
-	SDL_Surface *gfx[POWER_MAX_GFX];
-	Mix_Chunk *sfx[POWER_MAX_SFX];
+	std::vector<SDL_Surface*> gfx;
+	std::vector<Mix_Chunk*> sfx;
 
 	SDL_Surface *runes;
 
