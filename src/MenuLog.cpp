@@ -174,7 +174,6 @@ void MenuLog::render() {
 
 	// Display latest log messages for the active tab.
 
-	int display_number = 0;
 	int total_size = tab_content_indent;
 	int active_log = tabControl->getActiveTab();
 	SDL_Rect contentArea = tabControl->getContentArea();

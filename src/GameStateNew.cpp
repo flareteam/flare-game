@@ -67,7 +67,7 @@ GameStateNew::GameStateNew() : GameState() {
 
 	// Read positions from config file 
 	FileParser infile;
-	int counter = -1;
+
 	if (infile.open(mods->locate("menus/gamenew.txt"))) {
 	  while (infile.next()) {
 		infile.val = infile.val + ',';

@@ -913,7 +913,6 @@ void PowerManager::playSound(int power_index, StatBlock *src_stats) {
  */
 bool PowerManager::effect(int power_index, StatBlock *src_stats, Point target) {
 
-	Point dest;
 	int count = powers[power_index].missile_num;
 	if (count < 1) count = 1;
 	if (powers[power_index].use_hazard) {

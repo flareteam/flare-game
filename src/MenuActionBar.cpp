@@ -64,7 +64,7 @@ void MenuActionBar::update() {
 
 	// Read data from config file
 	FileParser infile;
-	int counter = -1;
+
 	if (infile.open(mods->locate("menus/actionbar.txt"))) {
 	  while (infile.next()) {
 		infile.val = infile.val + ',';
