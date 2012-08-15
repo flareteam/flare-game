@@ -42,7 +42,7 @@ CombatText::CombatText() {
 
 	// Load config settings
 	FileParser infile;
-	if(infile.open(mods->locate("engine/font_combat_text.txt"))) {
+	if(infile.open(mods->locate("engine/combat_text.txt"))) {
 		while(infile.next()) {
 			if(infile.key == "duration") {
 				duration = atoi(infile.val.c_str());
@@ -51,7 +51,7 @@ CombatText::CombatText() {
 			}
 		}
 		infile.close();
-	} else fprintf(stderr, "Unable to open font_combat_text.txt!\n");
+	} else fprintf(stderr, "Unable to open combat_text.txt!\n");
 
 }
 
