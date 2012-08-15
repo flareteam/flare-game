@@ -268,12 +268,8 @@ void GameStateNew::render() {
 	dest.x = portrait_pos.x + (VIEW_W - FRAME_W)/2;
 	dest.y = portrait_pos.y + (VIEW_H - FRAME_H)/2;
 
-	if (portrait != NULL) {
-		SDL_BlitSurface(portrait_image, &src, screen, &dest);
-	}
-	if (portrait_border != NULL) {
-		SDL_BlitSurface(portrait_border, &src, screen, &dest);
-	}
+	SDL_BlitSurface(portrait_image, &src, screen, &dest);
+	SDL_BlitSurface(portrait_border, &src, screen, &dest);
 
 	// display labels
 	label_portrait->render();
