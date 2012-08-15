@@ -23,13 +23,19 @@ avoidance_per_defense=5
 crit_base=5
 crit_per_level=1
 
-#dmg_melee_min=1
-#dmg_melee_max=4
-#dmg_ment_min=1
-#dmg_ment_max=4
-#dmg_ranged_min=1
-#dmg_ranged_max=4
+dmg_melee_min=0
+dmg_melee_max=3
+dmg_ment_min=0
+dmg_ment_max=3
+dmg_ranged_min=0
+dmg_ranged_max=3
+
 #absorb_min=0
 #absorb_max=0
 #speed=14
 #dspeed=10
+
+bonus_per_physical=1
+bonus_per_mental=1
+bonus_per_offense=1
+bonus_per_defense=1
