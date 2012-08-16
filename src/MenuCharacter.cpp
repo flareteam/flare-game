@@ -199,7 +199,6 @@ MenuCharacter::MenuCharacter(StatBlock *_stats) {
 }
 
 void MenuCharacter::update() {
-	// TODO put item position info in a config file
 
 	// close button
 	closeButton->pos.x = window_area.x + close_pos.x;

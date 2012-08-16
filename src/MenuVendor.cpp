@@ -100,7 +100,6 @@ void MenuVendor::update() {
 
 	SDL_Rect tabs_area = slots_area;
 
-	//TODO: Put tabcontrol posistion in vendor.txt
 	int tabheight = tabControl->getTabHeight();
 	tabControl->setMainArea(tabs_area.x, tabs_area.y-tabheight, tabs_area.w, tabs_area.h+tabheight);
 	tabControl->updateHeader();
