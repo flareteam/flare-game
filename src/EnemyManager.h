@@ -37,8 +37,8 @@ private:
 
 	MapRenderer *map;
 	PowerManager *powers;
-	void loadGraphics(const std::string& type_id);
-	void loadSounds(const std::string& type_id);
+	bool loadGraphics(const std::string& type_id);
+	bool loadSounds(const std::string& type_id);
 
 	std::string gfx_prefixes[max_gfx];
 	int gfx_count;
