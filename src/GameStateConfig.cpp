@@ -712,7 +712,8 @@ void GameStateConfig::logic ()
 		tabControl->logic();
 
 		// Ok/Cancel Buttons
-		if (ok_button->checkClick()) {
+		if (ok_button->checkClick() || (inpt->pressing[ACCEPT] && !inpt->lock[ACCEPT])) {
+			inpt->lock[ACCEPT] = true;
 			inpt->saveKeyBindings();
 			if (setMods()) {
 				reload_music = true;
@@ -732,7 +733,8 @@ void GameStateConfig::logic ()
 			requestedGameState = new GameStateTitle();
 		} else if (defaults_button->checkClick()) {
 			defaults_confirm->visible = true;
-		} else if (cancel_button->checkClick()) {
+		} else if (cancel_button->checkClick() || (inpt->pressing[CANCEL] && !inpt->lock[CANCEL])) {
+			inpt->lock[CANCEL] = true;
 			check_resolution = false;
 			loadSettings();
 			loadMiscSettings();

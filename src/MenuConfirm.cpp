@@ -68,13 +68,19 @@ void MenuConfirm::update() {
 
 void MenuConfirm::logic() {
 	if (visible && hasConfirmButton) {
-	  if(buttonConfirm->checkClick())
-	    confirmClicked = true;
-	  if(buttonClose->checkClick())
-	    visible = false;
+		if(buttonConfirm->checkClick() || (inpt->pressing[ACCEPT] && !inpt->lock[ACCEPT])) {
+			inpt->lock[ACCEPT] = true;
+			confirmClicked = true;
+		}
+		if(buttonClose->checkClick() || (inpt->pressing[CANCEL] && !inpt->lock[CANCEL])) {
+			inpt->lock[CANCEL] = true;
+			visible = false;
+		}
 	} else if (visible && !hasConfirmButton) {
-	  if(buttonClose->checkClick())
-	    visible = false;
+		if(buttonClose->checkClick() || (inpt->pressing[CANCEL] && !inpt->lock[CANCEL])) {
+			inpt->lock[CANCEL] = true;
+			visible = false;
+		}
 	}
 }
 

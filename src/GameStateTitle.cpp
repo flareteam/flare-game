@@ -73,8 +73,19 @@ void GameStateTitle::loadGraphics() {
 }
 
 void GameStateTitle::logic() {
-	if (ENABLE_PLAYGAME) button_play->enabled = true;
-	else button_play->enabled = false;
+	if (ENABLE_PLAYGAME) {
+		button_play->enabled = true;
+		if (inpt->pressing[ACCEPT] && !inpt->lock[ACCEPT]) {
+			inpt->lock[ACCEPT] = true;
+			delete requestedGameState;
+			requestedGameState = new GameStateLoad();
+		} else if (inpt->pressing[CANCEL] && !inpt->lock[CANCEL]) {
+			inpt->lock[CANCEL] = true;
+			exitRequested = true;
+		}
+	} else {
+		button_play->enabled = false;
+	}
 
 	if (button_play->checkClick()) {
 		delete requestedGameState;

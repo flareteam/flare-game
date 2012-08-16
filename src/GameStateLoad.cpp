@@ -201,6 +201,8 @@ void GameStateLoad::loadPortrait(int slot) {
 	SDL_FreeSurface(portrait);
 	portrait = NULL;
 
+	if (slot < 0) return;
+
 	if (stats[slot].name == "") return;
 
 	portrait = IMG_Load(mods->locate("images/portraits/" + stats[slot].portrait + ".png").c_str());
@@ -341,35 +343,110 @@ void GameStateLoad::logic() {
 	else
 		current_frame = (63 - frame_ticker) / 8;
 
-	if (button_exit->checkClick()) {
-		delete requestedGameState;
-		requestedGameState = new GameStateTitle();
-	}
-
-	if(loading_requested) {
-		loading = true;
-		loading_requested = false;
-		logicLoading();
-	}
-
-	if (button_action->checkClick()) {
-		if (stats[selected_slot].name == "") {
-			// create a new game
-			GameStateNew* newgame = new GameStateNew();
-			newgame->game_slot = selected_slot + 1;
-			requestedGameState = newgame;
+	if (!confirm->visible) {
+		if (inpt->pressing[CANCEL] && !inpt->lock[CANCEL] && selected_slot >= 0) {
+			inpt->lock[CANCEL] = true;
+			selected_slot = -1;
+			loadPortrait(selected_slot);
+			button_action->label = msg->get("New Game");
+			button_action->enabled = false;
+			button_alternate->enabled = false;
+			button_action->refresh();
+			button_alternate->refresh();
 		}
-		else {
-			loading_requested = true;
+		if (button_exit->checkClick() || (inpt->pressing[CANCEL] && !inpt->lock[CANCEL])) {
+			inpt->lock[CANCEL] = true;
+			delete requestedGameState;
+			requestedGameState = new GameStateTitle();
 		}
-	}
-	if (button_alternate->checkClick())
-	{
-		// Display pop-up to make sure save should be deleted
-		confirm->visible = true;
-		confirm->render();
-	}
-	if (confirm->visible) {
+
+		if(loading_requested) {
+			loading = true;
+			loading_requested = false;
+			logicLoading();
+		}
+
+		if (button_action->checkClick() || (inpt->pressing[ACCEPT] && !inpt->lock[ACCEPT] && button_action->enabled)) {
+			inpt->lock[ACCEPT] = true;
+			if (stats[selected_slot].name == "") {
+				// create a new game
+				GameStateNew* newgame = new GameStateNew();
+				newgame->game_slot = selected_slot + 1;
+				requestedGameState = newgame;
+			}
+			else {
+				loading_requested = true;
+			}
+		}
+		if (button_alternate->checkClick() || (inpt->pressing[DEL] && !inpt->lock[DEL] && button_alternate->enabled)) {
+			inpt->lock[DEL] = true;
+			// Display pop-up to make sure save should be deleted
+			confirm->visible = true;
+			confirm->render();
+		}
+		// check clicking game slot
+		if (inpt->pressing[MAIN1] && !inpt->lock[MAIN1]) {
+			for (int i=0; i<GAME_SLOT_MAX; i++) {
+				if (isWithin(slot_pos[i], inpt->mouse)) {
+					selected_slot = i;
+					inpt->lock[MAIN1] = true;
+					loadPortrait(selected_slot);
+
+					button_action->enabled = true;
+					if (stats[selected_slot].name == "") {
+						button_action->label = msg->get("New Game");
+						button_alternate->enabled = false;
+					}
+					else {
+						button_action->label = msg->get("Load Game");
+						button_alternate->enabled = true;
+					}
+					button_action->refresh();
+					button_alternate->refresh();
+
+				}
+			}
+		}
+		// check arrow keys
+		if (inpt->pressing[DOWN] && !inpt->lock[DOWN] && !inpt->lock[MAIN1]) {
+			inpt->lock[DOWN] = true;
+			selected_slot += 1;
+			if (selected_slot > GAME_SLOT_MAX-1) selected_slot = GAME_SLOT_MAX-1;
+
+			loadPortrait(selected_slot);
+
+			button_action->enabled = true;
+			if (stats[selected_slot].name == "") {
+				button_action->label = msg->get("New Game");
+				button_alternate->enabled = false;
+			}
+			else {
+				button_action->label = msg->get("Load Game");
+				button_alternate->enabled = true;
+			}
+			button_action->refresh();
+			button_alternate->refresh();
+		}
+		if (inpt->pressing[UP] && !inpt->lock[UP] && !inpt->lock[MAIN1]) {
+			inpt->lock[UP] = true;
+			selected_slot -= 1;
+			if (selected_slot < 0) selected_slot = 0;
+
+			loadPortrait(selected_slot);
+
+			button_action->enabled = true;
+			if (stats[selected_slot].name == "") {
+				button_action->label = msg->get("New Game");
+				button_alternate->enabled = false;
+			}
+			else {
+				button_action->label = msg->get("Load Game");
+				button_alternate->enabled = true;
+			}
+			button_action->refresh();
+			button_alternate->refresh();
+		}
+	} else if (confirm->visible) {
 		confirm->logic();
 		if(confirm->confirmClicked) {
 			stringstream filename;
@@ -389,29 +466,6 @@ void GameStateLoad::logic() {
 
 			confirm->visible = false;
 			confirm->confirmClicked = false;
-		}
-	}
-	// check clicking game slot
-	if (inpt->pressing[MAIN1] && !inpt->lock[MAIN1]) {
-		for (int i=0; i<GAME_SLOT_MAX; i++) {
-			if (isWithin(slot_pos[i], inpt->mouse)) {
-				selected_slot = i;
-				inpt->lock[MAIN1] = true;
-				loadPortrait(selected_slot);
-
-				button_action->enabled = true;
-				if (stats[selected_slot].name == "") {
-					button_action->label = msg->get("New Game");
-					button_alternate->enabled = false;
-				}
-				else {
-					button_action->label = msg->get("Load Game");
-					button_alternate->enabled = true;
-				}
-				button_action->refresh();
-				button_alternate->refresh();
-
-			}
 		}
 	}
 }
