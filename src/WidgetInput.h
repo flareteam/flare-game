@@ -39,7 +39,6 @@ protected:
 	SDL_Surface *background;
 
 	bool enabled;
-	bool inFocus;
 	bool pressed;
 	bool hover;
 
@@ -64,6 +63,7 @@ public:
 	void setPosition(int x, int y);
 
 	SDL_Rect pos;
+	bool inFocus;
 };
 
 #endif

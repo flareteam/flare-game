@@ -195,6 +195,10 @@ void GameStateNew::logic() {
 
 	// require character name
 	if (input_name->getText() == "" && DEFAULT_NAME == "") {
+		if (inpt->pressing[ACCEPT]) {
+			inpt->pressing[ACCEPT] = false;
+			input_name->inFocus = true;
+		}
 		if (button_create->enabled) {
 			button_create->enabled = false;
 			button_create->refresh();
@@ -207,12 +211,18 @@ void GameStateNew::logic() {
 		}
 	}
 
-	if (button_exit->checkClick()) {
+	if (inpt->pressing[CANCEL] && input_name->inFocus) {
+		inpt->pressing[CANCEL] = false;
+		input_name->inFocus = false;
+	}
+	if (button_exit->checkClick() || (inpt->pressing[CANCEL] && !input_name->inFocus)) {
+		inpt->pressing[CANCEL] = false;
 		delete requestedGameState;
 		requestedGameState = new GameStateLoad();
 	}
 
-	if (button_create->checkClick()) {
+	if (button_create->checkClick() || (inpt->pressing[ACCEPT] && button_create->enabled)) {
+		inpt->pressing[ACCEPT] = false;
 		// start the new game
 		GameStatePlay* play = new GameStatePlay();
 		play->pc->stats.base = base[current_option];
@@ -226,12 +236,14 @@ void GameStateNew::logic() {
 	}
 
 	// scroll through portrait options
-	if (button_next->checkClick()) {
+	if (button_next->checkClick() || (inpt->pressing[RIGHT] && !input_name->inFocus)) {
+		inpt->pressing[RIGHT] = false;
 		current_option++;
 		if (current_option == (int)base.size()) current_option = 0;
 		loadPortrait(portrait[current_option]);
 	}
-	else if (button_prev->checkClick()) {
+	else if (button_prev->checkClick() || (inpt->pressing[LEFT] && !input_name->inFocus)) {
+		inpt->pressing[LEFT] = false;
 		current_option--;
 		if (current_option == -1) current_option = base.size()-1;
 		loadPortrait(portrait[current_option]);
