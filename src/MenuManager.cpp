@@ -365,12 +365,18 @@ void MenuManager::logic() {
 					// buy item from a vendor
 					stack = vendor->click(inpt);
 					if (stack.item > 0) {
-						if( inv->full(stack.item)) {
-							// Can we say "Not enough place" ?
+						if( ! inv->buy( stack)) {
+							log->add(msg->get("Not enough money."), LOG_TYPE_MESSAGES);
+							hudlog->add(msg->get("Not enough money."));
 							vendor->itemReturn( stack);
-						} else if( ! inv->buy( stack)) {
-							// Can we say "Not enough money" ? (here or in MenuInventory::buy())
-							vendor->itemReturn( stack);
+						} else {
+							if( inv->full(stack.item)) {
+								log->add(msg->get("Inventory is full."), LOG_TYPE_MESSAGES);
+								hudlog->add(msg->get("Inventory is full."));
+								drop_stack = stack;
+							} else {
+								inv->add(stack);
+							}
 						}
 					}
 				} else {
@@ -390,10 +396,11 @@ void MenuManager::logic() {
 					stack = stash->click(inpt);
 					if (stack.item > 0) {
 						if( inv->full(stack.item)) {
-							// Can we say "Not enough place" ?
-							stash->itemReturn( stack);
-						} else if( ! inv->stashRemove( stack)) {
-							stash->itemReturn( stack);
+							log->add(msg->get("Inventory is full."), LOG_TYPE_MESSAGES);
+							hudlog->add(msg->get("Inventory is full."));
+							drop_stack = stack;
+						} else {
+							inv->add(stack);
 						}
 						stash->updated = true;
 					}
@@ -562,15 +569,21 @@ void MenuManager::logic() {
 
 				// dropping an item from vendor (we only allow to drop into the carried area)
 				if (inv->visible && isWithin( inv->carried_area, inpt->mouse)) {
-					if( inv->full(drag_stack.item)) {
-						// Can we say "Not enough place" ?
+					if( ! inv->buy( drag_stack, inpt->mouse)) {
+						log->add(msg->get("Not enough money."), LOG_TYPE_MESSAGES);
+						hudlog->add(msg->get("Not enough money."));
 						vendor->itemReturn( drag_stack);
-					}
-					else if( ! inv->buy( drag_stack, inpt->mouse)) {
-						// Can we say "Not enough money" ? (here or in MenuInventory::buy())
-						vendor->itemReturn( drag_stack);
+					} else {
+						if( inv->full(drag_stack.item)) {
+							log->add(msg->get("Inventory is full."), LOG_TYPE_MESSAGES);
+							hudlog->add(msg->get("Inventory is full."));
+							drop_stack = drag_stack;
+						} else {
+							inv->drop(inpt->mouse,drag_stack);
+						}
 					}
 					drag_stack.item = 0;
+					drag_stack.quantity = 0;
 				}
 				else {
 					vendor->itemReturn(drag_stack);
@@ -582,15 +595,20 @@ void MenuManager::logic() {
 				// dropping an item from stash (we only allow to drop into the carried area)
 				if (inv->visible && isWithin( inv->carried_area, inpt->mouse)) {
 					if( inv->full(drag_stack.item)) {
-						// Can we say "Not enough place" ?
-						stash->itemReturn( drag_stack);
+						log->add(msg->get("Inventory is full."), LOG_TYPE_MESSAGES);
+						hudlog->add(msg->get("Inventory is full."));
+						// quest items cannot be dropped
+						if (items->items[drag_stack.item].type != ITEM_TYPE_QUEST) {
+							drop_stack = drag_stack;
+						} else {
+							stash->itemReturn(drag_stack);
+						}
+					} else {
+						inv->drop(inpt->mouse,drag_stack);
 					}
-					// else if( ! inv->stashRemove( drag_stack, inpt->mouse)) {
-					// 	stash->itemReturn( drag_stack);
-					// }
-					inv->drop(inpt->mouse,drag_stack);
 					stash->updated = true;
 					drag_stack.item = 0;
+					drag_stack.quantity = 0;
 				}
 				else if (stash->visible && isWithin(stash->slots_area, inpt->mouse)) {
 					stash->drop(inpt->mouse,drag_stack);

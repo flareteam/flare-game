@@ -78,7 +78,6 @@ public:
 	void itemReturn(ItemStack stack);
 	void add(ItemStack stack);
 	TooltipData checkTooltip(Point mouse);
-	bool full();
 	void setInventory();
 	void saveInventory();
 	void sort(int type);

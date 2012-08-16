@@ -95,7 +95,6 @@ public:
 	void addGold(int count);
 	bool buy(ItemStack stack, Point mouse = Point());
 	bool sell(ItemStack stack);
-	bool stashRemove(ItemStack stack, Point mouse = Point());
 	bool stashAdd(ItemStack stack);
 
 	bool full(int item);

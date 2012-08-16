@@ -149,7 +149,6 @@ void ItemStorage::add( ItemStack stack, int slot) {
 		}
 		else {
 			// No available slot, drop
-			// TODO: We should drop on the floor an item we can't store
 		}
 	}
 }
@@ -191,10 +190,6 @@ int compareItemStack (const void *a, const void *b)
 
 void ItemStorage::sort() {
 	qsort(storage, slot_number, sizeof(ItemStack), compareItemStack);
-}
-
-bool ItemStorage::full() {
-	return full(0);
 }
 
 bool ItemStorage::full(int item) {
