@@ -711,10 +711,10 @@ void MapRenderer::renderIsoBackground(SDL_Surface *wheretorender, Point offset) 
 
 	for (unsigned short y = max_tiles_height ; y; --y) {
 		unsigned short tiles_width = 0;
-		if (i < 0) {
-			j += i;
-			tiles_width -= i;
-			i = 0;
+		if (i < -1) {
+			j += i + 1;
+			tiles_width -= i + 1;
+			i = -1;
 		}
 		short j_end = std::max((j+i-w+1), std::max(j - max_tiles_width, 0));
 
