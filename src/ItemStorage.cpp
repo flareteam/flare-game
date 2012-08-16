@@ -149,7 +149,6 @@ void ItemStorage::add( ItemStack stack, int slot) {
 		}
 		else {
 			// No available slot, drop
-			// TODO: We should drop on the floor an item we can't store
 		}
 	}
 }
