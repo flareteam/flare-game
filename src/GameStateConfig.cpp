@@ -482,7 +482,7 @@ GameStateConfig::GameStateConfig ()
 
 	// Add Key Binding objects
 	for (unsigned int i = 14; i < 39; i++) {
-		 settings_lb[i]->set(binding_name[i-14]);
+		 settings_lb[i]->set(msg->get(binding_name[i-14]));
 		 settings_lb[i]->setJustify(JUSTIFY_RIGHT);
 		 child_widget.push_back(settings_lb[i]);
 		 optiontab[child_widget.size()-1] = 4;
