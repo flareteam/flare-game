@@ -59,7 +59,7 @@ GameStateTitle::GameStateTitle() : GameState() {
 
 void GameStateTitle::loadGraphics() {
 
-	logo = IMG_Load(mods->locate("images/menus/logo.png").c_str());
+	SDL_Surface *cleanup = IMG_Load(mods->locate("images/menus/logo.png").c_str());
 
 	if(!logo) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
@@ -67,8 +67,7 @@ void GameStateTitle::loadGraphics() {
 	}
 
 	// optimize
-	SDL_Surface *cleanup = logo;
-	logo = SDL_DisplayFormatAlpha(logo);
+	logo = SDL_DisplayFormatAlpha(cleanup);
 	SDL_FreeSurface(cleanup);
 }
 
@@ -92,8 +91,8 @@ void GameStateTitle::logic() {
 		requestedGameState = new GameStateLoad();
 	} else if (button_cfg->checkClick()) {
 		delete requestedGameState;
-        requestedGameState = new GameStateConfig();
-    } else if (button_exit->checkClick()) {
+		requestedGameState = new GameStateConfig();
+	} else if (button_exit->checkClick()) {
 		exitRequested = true;
 	}
 }
