@@ -195,8 +195,8 @@ void GameStateNew::logic() {
 
 	// require character name
 	if (input_name->getText() == "" && DEFAULT_NAME == "") {
-		if (inpt->pressing[ACCEPT]) {
-			inpt->pressing[ACCEPT] = false;
+		if (inpt->pressing[ACCEPT] && !inpt->lock[ACCEPT]) {
+			inpt->lock[ACCEPT] = true;
 			input_name->inFocus = true;
 		}
 		if (button_create->enabled) {
@@ -211,18 +211,18 @@ void GameStateNew::logic() {
 		}
 	}
 
-	if (inpt->pressing[CANCEL] && input_name->inFocus) {
-		inpt->pressing[CANCEL] = false;
+	if (inpt->pressing[CANCEL] && !inpt->lock[CANCEL] && input_name->inFocus) {
+		inpt->lock[CANCEL] = true;
 		input_name->inFocus = false;
 	}
-	if (button_exit->checkClick() || (inpt->pressing[CANCEL] && !input_name->inFocus)) {
-		inpt->pressing[CANCEL] = false;
+	if (button_exit->checkClick() || (inpt->pressing[CANCEL] && !inpt->lock[CANCEL] && !input_name->inFocus)) {
+		inpt->lock[CANCEL] = true;
 		delete requestedGameState;
 		requestedGameState = new GameStateLoad();
 	}
 
-	if (button_create->checkClick() || (inpt->pressing[ACCEPT] && button_create->enabled)) {
-		inpt->pressing[ACCEPT] = false;
+	if (button_create->checkClick() || (inpt->pressing[ACCEPT] && !inpt->lock[ACCEPT] && button_create->enabled)) {
+		inpt->lock[ACCEPT] = true;
 		// start the new game
 		GameStatePlay* play = new GameStatePlay();
 		play->pc->stats.base = base[current_option];
@@ -236,14 +236,14 @@ void GameStateNew::logic() {
 	}
 
 	// scroll through portrait options
-	if (button_next->checkClick() || (inpt->pressing[RIGHT] && !input_name->inFocus)) {
-		inpt->pressing[RIGHT] = false;
+	if (button_next->checkClick() || (inpt->pressing[RIGHT] && !inpt->lock[RIGHT] && !input_name->inFocus)) {
+		inpt->lock[RIGHT] = true;
 		current_option++;
 		if (current_option == (int)base.size()) current_option = 0;
 		loadPortrait(portrait[current_option]);
 	}
-	else if (button_prev->checkClick() || (inpt->pressing[LEFT] && !input_name->inFocus)) {
-		inpt->pressing[LEFT] = false;
+	else if (button_prev->checkClick() || (inpt->pressing[LEFT] && !inpt->lock[LEFT] && !input_name->inFocus)) {
+		inpt->lock[LEFT] = true;
 		current_option--;
 		if (current_option == -1) current_option = base.size()-1;
 		loadPortrait(portrait[current_option]);
