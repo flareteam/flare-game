@@ -711,22 +711,23 @@ void MapRenderer::renderIsoBackground(SDL_Surface *wheretorender, Point offset) 
 
 	for (unsigned short y = max_tiles_height ; y; --y) {
 		unsigned short tiles_width = 0;
+
+		// make sure the isometric corners are not rendered:
 		if (i < -1) {
 			j += i + 1;
 			tiles_width -= i + 1;
 			i = -1;
 		}
+		short d = j - h;
+		if (d >= 0) {
+			j -= d; tiles_width += d; i += d;
+		}
 		short j_end = std::max((j+i-w+1), std::max(j - max_tiles_width, 0));
 
+		// draw one horizontal line
 		while (j > j_end) {
 			--j; ++i;
 			++tiles_width;
-
-			short d = j - h;
-			if (d >= 0) {
-				j -= d; tiles_width += d; i += d;
-				continue;
-			}
 
 			unsigned short current_tile = background[i][j];
 
