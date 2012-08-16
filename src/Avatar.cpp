@@ -202,8 +202,7 @@ void Avatar::loadSounds() {
  */
 void Avatar::loadStepFX(const string& stepname) {
 
-	// TODO: put default step sound in engine config file
-	string filename = "cloth";
+	string filename = stats.sfx_step;
 	if (stepname != "") {
 		filename = stepname;
 	}

@@ -310,6 +310,9 @@ public:
 	std::string animations;
 	int animationSpeed;
 
+	// default sounds
+	std::string sfx_step;
+
 	// formula numbers
 	int max_spendable_stat_points;
 	int max_points_per_stat;

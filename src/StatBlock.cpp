@@ -182,6 +182,9 @@ StatBlock::StatBlock() {
 	// default animation speed
 	animationSpeed = 100;
 
+	// default step sound
+	sfx_step = "cloth";
+
 	statsLoaded = false;
 	// formula numbers. Used only for hero
 	hp_base = 10;
@@ -683,6 +686,8 @@ void StatBlock::loadHeroStats() {
 			bonus_per_offense = value;
 		} else if (infile.key == "bonus_per_defense") {
 			bonus_per_defense = value;
+		} else if (infile.key == "sfx_step") {
+			sfx_step = infile.val;
 		}
 	  }
 	  infile.close();
