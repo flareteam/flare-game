@@ -44,22 +44,21 @@ EnemyManager::EnemyManager(PowerManager *_powers, MapRenderer *_map) {
 /**
  * Enemies share graphic/sound resources (usually there are groups of similar enemies)
  */
-void EnemyManager::loadGraphics(const string& type_id) {
+bool EnemyManager::loadGraphics(const string& type_id) {
 
-	// TODO: throw an error if a map tries to use too many monsters
-	if (gfx_count == max_gfx) return;
+	if (gfx_count == max_enemy_gfx) return false;
 
 	// first check to make sure the sprite isn't already loaded
 	for (int i=0; i<gfx_count; i++) {
 		if (gfx_prefixes[i] == type_id) {
-			return; // already have this one
+			return true; // already have this one
 		}
 	}
 
 	sprites[gfx_count] = IMG_Load(mods->locate("images/enemies/" + type_id + ".png").c_str());
 	if(!sprites[gfx_count]) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
-		SDL_Quit();
+		return false;
 	}
 	SDL_SetColorKey( sprites[gfx_count], SDL_SRCCOLORKEY, SDL_MapRGB(sprites[gfx_count]->format, 255, 0, 255) );
 
@@ -71,17 +70,17 @@ void EnemyManager::loadGraphics(const string& type_id) {
 	gfx_prefixes[gfx_count] = type_id;
 	gfx_count++;
 
+	return true;
 }
 
-void EnemyManager::loadSounds(const string& type_id) {
+bool EnemyManager::loadSounds(const string& type_id) {
 
-    // TODO: throw an error if a map tries to use too many monsters
-    if (sfx_count == max_sfx) return;
+    if (sfx_count == max_enemy_sfx) return false;
 
     // first check to make sure the sprite isn't already loaded
     for (int i=0; i<sfx_count; i++) {
         if (sfx_prefixes[i] == type_id) {
-            return; // already have this one
+            return true; // already have this one
         }
     }
 
@@ -101,6 +100,8 @@ void EnemyManager::loadSounds(const string& type_id) {
 
     sfx_prefixes[sfx_count] = type_id;
     sfx_count++;
+
+	return true;
 }
 
 /**
@@ -155,8 +156,14 @@ void EnemyManager::handleNewMap () {
 		else {
 			cerr << "Warning: no animation file specified for entity: " << me.type << endl;
 		}
-		loadGraphics(e->stats.gfx_prefix);
-		loadSounds(e->stats.sfx_prefix);
+		if (!loadGraphics(e->stats.gfx_prefix)) {
+			cerr << "Warning: could not load graphics prefix: " << e->stats.gfx_prefix << endl;
+			continue;
+		}
+		if (!loadSounds(e->stats.sfx_prefix)) {
+			cerr << "Warning: could not load sounds prefix: " << e->stats.sfx_prefix << endl;
+			continue;
+		}
 		enemies.push_back(e);
 	}
 }

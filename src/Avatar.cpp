@@ -49,6 +49,8 @@ Avatar::Avatar(PowerManager *_powers, MapRenderer *_map) : Entity(_map), powers(
 
 void Avatar::init() {
 
+	stats.hero_cooldown.resize(POWER_COUNT);
+
 	// name, base, look are set by GameStateNew so don't reset it here
 
 	// other init
@@ -202,8 +204,7 @@ void Avatar::loadSounds() {
  */
 void Avatar::loadStepFX(const string& stepname) {
 
-	// TODO: put default step sound in engine config file
-	string filename = "cloth";
+	string filename = stats.sfx_step;
 	if (stepname != "") {
 		filename = stepname;
 	}

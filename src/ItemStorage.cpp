@@ -193,7 +193,6 @@ void ItemStorage::sort() {
 	qsort(storage, slot_number, sizeof(ItemStack), compareItemStack);
 }
 
-//TODO: handle stackable items
 bool ItemStorage::full() {
 	return full(0);
 }

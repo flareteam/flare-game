@@ -232,7 +232,7 @@ public:
 	Point pos;
 	Point forced_speed;
 	int direction;
-	int hero_cooldown[1024]; //TODO: fix this to use POWER_COUNT... right now it can't #include "PowerManager.h"
+	std::vector<int> hero_cooldown;
 
 	// state
 	int cur_state;
@@ -309,6 +309,9 @@ public:
 
 	std::string animations;
 	int animationSpeed;
+
+	// default sounds
+	std::string sfx_step;
 
 	// formula numbers
 	int max_spendable_stat_points;

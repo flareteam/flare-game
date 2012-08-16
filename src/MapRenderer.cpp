@@ -890,7 +890,7 @@ void MapRenderer::renderOrthoFrontObjects(std::vector<Renderable> &r) {
 	vector<Renderable>::iterator r_cursor = r.begin();
 	vector<Renderable>::iterator r_end = r.end();
 
-	// todo: trim by screen rect
+	// TODO: trim by screen rect
 	// object layer
 	for (j=0; j<h; j++) {
 		for (i=0; i<w; i++) {
