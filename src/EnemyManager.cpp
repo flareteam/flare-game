@@ -46,7 +46,7 @@ EnemyManager::EnemyManager(PowerManager *_powers, MapRenderer *_map) {
  */
 bool EnemyManager::loadGraphics(const string& type_id) {
 
-	if (gfx_count == max_gfx) return false;
+	if (gfx_count == max_enemy_gfx) return false;
 
 	// first check to make sure the sprite isn't already loaded
 	for (int i=0; i<gfx_count; i++) {
@@ -75,7 +75,7 @@ bool EnemyManager::loadGraphics(const string& type_id) {
 
 bool EnemyManager::loadSounds(const string& type_id) {
 
-    if (sfx_count == max_sfx) return false;
+    if (sfx_count == max_enemy_sfx) return false;
 
     // first check to make sure the sprite isn't already loaded
     for (int i=0; i<sfx_count; i++) {
