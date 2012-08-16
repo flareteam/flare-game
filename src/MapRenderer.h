@@ -228,8 +228,8 @@ public:
 
 	// vars
 	std::string title;
-	int w;
-	int h;
+	short w;
+	short h;
 	Point cam;
 	Point hero_tile;
 	Point spawn;
