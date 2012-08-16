@@ -56,6 +56,8 @@ MapRenderer::MapRenderer(CampaignManager *_camp) {
 	shaky_cam_ticks = 0;
 
 	backgroundsurface = 0;
+	backgroundsurfaceoffset.x = 0;
+	backgroundsurfaceoffset.y = 0;
 	repaint_background = false;
 	stash = false;
 }
