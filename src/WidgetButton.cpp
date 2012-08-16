@@ -51,7 +51,7 @@ void WidgetButton::loadArt() {
 	// load button images
 	SDL_Surface *cleanup = IMG_Load(fileName.c_str());
 
-	if(!buttons) {
+	if(!cleanup) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 		SDL_Quit();
 		exit(1); // or abort ??

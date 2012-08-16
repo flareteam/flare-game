@@ -61,7 +61,7 @@ void GameStateTitle::loadGraphics() {
 
 	SDL_Surface *cleanup = IMG_Load(mods->locate("images/menus/logo.png").c_str());
 
-	if(!logo) {
+	if(!cleanup) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 		SDL_Quit();
 	}
