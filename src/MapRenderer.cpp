@@ -555,7 +555,7 @@ int MapRenderer::load(string filename) {
 	// some events automatically trigger when the map loads
 	// e.g. change map state based on campaign status
 	executeOnLoadEvents();
-	
+
 	return 0;
 }
 
@@ -711,11 +711,22 @@ void MapRenderer::renderIsoBackground(SDL_Surface *wheretorender, Point offset) 
 
 	for (unsigned short y = max_tiles_height ; y; --y) {
 		unsigned short tiles_width = 0;
-		for (unsigned short x = max_tiles_width; x ; --x) {
+		if (i < 0) {
+			j += i;
+			tiles_width -= i;
+			i = 0;
+		}
+		short j_end = std::max((j+i-w+1), std::max(j - max_tiles_width, 0));
+
+		while (j > j_end) {
 			--j; ++i;
 			++tiles_width;
-			if (j >= h || i < 0) continue;
-			if (j < 0 || i >= w) break;
+
+			short d = j - h;
+			if (d >= 0) {
+				j -= d; tiles_width += d; i += d;
+				continue;
+			}
 
 			unsigned short current_tile = background[i][j];
 
@@ -938,10 +949,10 @@ void MapRenderer::executeOnLoadEvents() {
 	// loop in reverse because we may erase elements
 	for (it = events.end(); it != events.begin(); ) {
 		it--;
-	
+
 		// skip inactive events
 		if (!isActive(*it)) continue;
-		
+
 		if ((*it).type == "on_load") {
 			if (executeEvent(*it))
 				events.erase(it);
@@ -959,10 +970,10 @@ void MapRenderer::checkEvents(Point loc) {
 	// loop in reverse because we may erase elements
 	for (it = events.end(); it != events.begin(); ) {
 		it--;
-	
+
 		// skip inactive events
 		if (!isActive(*it)) continue;
-	
+
 		if (maploc.x >= (*it).location.x &&
 			maploc.y >= (*it).location.y &&
 			maploc.x <= (*it).location.x + (*it).location.w-1 &&
@@ -1124,7 +1135,7 @@ bool MapRenderer::executeEvent(Map_Event &ev) {
 	for (int i=0; i<ev.comp_num; i++) {
 		ec = &ev.components[i];
 
-		// requirements should be checked by isActive() before calling executeEvent()		
+		// requirements should be checked by isActive() before calling executeEvent()
 		//if (ec->type == "requires_status") {
 		//	if (!camp->checkStatus(ec->s)) return false;
 		//}
@@ -1134,7 +1145,7 @@ bool MapRenderer::executeEvent(Map_Event &ev) {
 		//else if (ec->type == "requires_item") {
 		//	if (!camp->checkItem(ec->x)) return false;
 		//}
-		
+
 		if (ec->type == "set_status") {
 			camp->setStatus(ec->s);
 		}
