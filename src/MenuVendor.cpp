@@ -196,10 +196,6 @@ TooltipData MenuVendor::checkTooltip(Point mouse) {
 	return stock[activetab].checkTooltip( mouse, stats, true);
 }
 
-bool MenuVendor::full() {
-	return stock[activetab].full();
-}
-
 /**
  * Several NPCs vendors can share this menu.
  * When the player talks to a new NPC, apply that NPC's inventory

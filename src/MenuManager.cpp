@@ -374,6 +374,8 @@ void MenuManager::logic() {
 								log->add(msg->get("Inventory is full."), LOG_TYPE_MESSAGES);
 								hudlog->add(msg->get("Inventory is full."));
 								drop_stack = stack;
+							} else {
+								inv->add(stack);
 							}
 						}
 					}
@@ -397,8 +399,8 @@ void MenuManager::logic() {
 							log->add(msg->get("Inventory is full."), LOG_TYPE_MESSAGES);
 							hudlog->add(msg->get("Inventory is full."));
 							drop_stack = stack;
-						} else if( ! inv->stashRemove( stack)) {
-							stash->itemReturn( stack);
+						} else {
+							inv->add(stack);
 						}
 						stash->updated = true;
 					}
@@ -576,6 +578,8 @@ void MenuManager::logic() {
 							log->add(msg->get("Inventory is full."), LOG_TYPE_MESSAGES);
 							hudlog->add(msg->get("Inventory is full."));
 							drop_stack = drag_stack;
+						} else {
+							inv->drop(inpt->mouse,drag_stack);
 						}
 					}
 					drag_stack.item = 0;

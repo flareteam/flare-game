@@ -509,49 +509,17 @@ void MenuInventory::addGold(int count) {
  * (Handle the drop into the equipment area, but add() don't handle it well in all circonstances. MenuManager::logic() allow only into the carried area.)
  */
 bool MenuInventory::buy(ItemStack stack, Point mouse) {
-	int area;
-	int slot = -1;
 	int count = items->items[stack.item].price * stack.quantity;
 
 	if( gold >= count) {
 		gold -= count;
 
-		area = areaOver( mouse);
-		if( area > -1) {
-			slot = inventory[area].slotOver( mouse);
-		}
-		if( slot > -1) {
-			add( stack, area, slot);
-		}
-		else {
-			add(stack);
-		}
 		items->playCoinsSound();
 		return true;
 	}
 	else {
 		return false;
 	}
-}
-
-/**
- * Similar to buy(), but for use with stash
- */
-bool MenuInventory::stashRemove(ItemStack stack, Point mouse) {
-	int area;
-	int slot = -1;
-
-	area = areaOver( mouse);
-	if( area > -1) {
-		slot = inventory[area].slotOver( mouse);
-	}
-	if( slot > -1) {
-		add( stack, area, slot);
-	}
-	else {
-		add(stack);
-	}
-	return true;
 }
 
 /**
