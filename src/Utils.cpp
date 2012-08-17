@@ -330,6 +330,8 @@ bool checkPixel(Point px, SDL_Surface *surface) {
 
 		case 4:
 			pixel = *(Uint32 *)p;
+		default:
+			pixel = 0;
 	}
 
 	Uint8 r,g,b,a;

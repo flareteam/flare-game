@@ -250,7 +250,7 @@ bool MenuPowers::requirementsMet(int power_index) {
 	if (power_index == -1) return true;
 
 	// Find cell with our power
-	int id;
+	int id = 0;
 	for (int i=0; i<POWER_SLOTS_COUNT; i++) {
 		if (power_cell[i].id == power_index) {
 		id = i;
@@ -286,7 +286,7 @@ bool MenuPowers::powerUnlockable(int power_index) {
 	if (power_index == -1) return true;
 
 	// Find cell with our power
-	int id;
+	int id = 0;
 	for (int i=0; i<POWER_SLOTS_COUNT; i++) {
 		if (power_cell[i].id == power_index) {
 		id = i;
