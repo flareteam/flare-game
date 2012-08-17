@@ -157,17 +157,18 @@ void TileSet::logic() {
 
 	if (ANIMATED_TILES) {
 		for (unsigned i = 0; i < anim.size() ; i++) {
-			if ((anim[i].frames > 1) && anim[i].duration == anim[i].frame_duration[anim[i].current_frame-1]) {
-				tiles[i].src.x = anim[i].pos[anim[i].current_frame-1].x;
-				tiles[i].src.y = anim[i].pos[anim[i].current_frame-1].y;
-				anim[i].duration = 0;
-				if (anim[i].current_frame == anim[i].frames) {
-					anim[i].current_frame = 1;
-				} else anim[i].current_frame++;
-			} else if (anim[i].frames > 1) anim[i].duration++;
+			Tile_Anim &an = anim[i];
+			if (!an.frames)
+				continue;
+			if (an.duration >= an.frame_duration[an.current_frame]) {
+				tiles[i].src.x = an.pos[an.current_frame].x;
+				tiles[i].src.y = an.pos[an.current_frame].y;
+				an.duration = 0;
+				an.current_frame = (an.current_frame + 1) % an.frames;
+			}
+			an.duration++;
 		}
 	}
-
 }
 
 TileSet::~TileSet() {
