@@ -48,7 +48,7 @@ MenuCharacter::MenuCharacter(StatBlock *_stats) {
 		cstat[i].hover.w = cstat[i].hover.h = 0;
 		cstat[i].visible = true;
 	}
-	for (int i=0; i<15; i++) {
+	for (int i=0; i<14; i++) {
 		show_stat[i] = true;
 	}
 
