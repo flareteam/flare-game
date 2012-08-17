@@ -318,20 +318,26 @@ bool checkPixel(Point px, SDL_Surface *surface) {
 	switch (bpp) {
 		case 1:
 			pixel = *p;
+			break;
 
 		case 2:
 			pixel = *(Uint16 *)p;
+			break;
 
 		case 3:
 			if (SDL_BYTEORDER == SDL_BIG_ENDIAN)
 				pixel = p[0] << 16 | p[1] << 8 | p[2];
 			else
 				pixel = p[0] | p[1] << 8 | p[2] << 16;
+			break;
 
 		case 4:
 			pixel = *(Uint32 *)p;
+			break;
+
 		default:
-			pixel = 0;
+			SDL_UnlockSurface(surface);
+			return false;
 	}
 
 	Uint8 r,g,b,a;
