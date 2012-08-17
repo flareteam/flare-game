@@ -572,7 +572,6 @@ Renderable StatBlock::getEffectRender(int effect_type) {
 		r.src.h = frame_size_sh.h;
 		r.offset.x = frame_offset_sh.x;
 		r.offset.y = frame_offset_sh.y;
-		r.object_layer = true;
 	}
 	else if (effect_type == STAT_EFFECT_VENGEANCE) {
 		r.src.x = (vengeance_frame/6) * frame_size_veg.w;
@@ -581,7 +580,6 @@ Renderable StatBlock::getEffectRender(int effect_type) {
 		r.src.h = frame_size_veg.h;
 		r.offset.x = frame_offset_veg.x;
 		r.offset.y = frame_offset_veg.y;
-		r.object_layer = false;
 	}
 	return r;
 }

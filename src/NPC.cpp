@@ -363,7 +363,6 @@ Renderable NPC::getRender() {
 	r.src.h = render_size.y;
 	r.offset.x = render_offset.x;
 	r.offset.y = render_offset.y;
-	r.object_layer = true;
 
 	return r;
 }

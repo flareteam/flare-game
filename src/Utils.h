@@ -44,7 +44,6 @@ struct Renderable {
 	Point map_pos; // The map location on the floor between someone's feet
 	Point offset;  // offset from map_pos to topleft corner of sprite
 	Point tile;    // The tile which this renderable belongs to (i.e. for blocking that tile)
-	bool object_layer;
 };
 
 class Event_Component {

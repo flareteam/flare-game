@@ -294,7 +294,7 @@ void EnemyManager::checkEnemiesforXP(StatBlock *stats) {
  *
  * This wrapper function is necessary because EnemyManager holds shared sprites for identical-looking enemies
  */
-void EnemyManager::addRenders(vector<Renderable> &r) {
+void EnemyManager::addRenders(vector<Renderable> &r, vector<Renderable> &r_dead) {
 	vector<Enemy*>::iterator it;
 	for (it = enemies.begin(); it != enemies.end(); it++) {
 		Renderable re = (*it)->getRender();
@@ -302,11 +302,13 @@ void EnemyManager::addRenders(vector<Renderable> &r) {
 			if (gfx_prefixes[i] == (*it)->stats.gfx_prefix)
 				re.sprite = sprites[i];
 		}
-		r.push_back(re);
+		// draw corpses below objects so that floor loot is more visible
+		bool dead = (*it)->stats.corpse;
+		(dead ? r_dead : r).push_back(re);
 		if ((*it)->stats.shield_hp > 0) {
 			re = (*it)->stats.getEffectRender(STAT_EFFECT_SHIELD);
 			re.sprite = powers->gfx[powers->powers[POWER_SHIELD].gfx_index]; // TODO: parameter
-			r.push_back(re);
+			(dead ? r_dead : r).push_back(re);
 		}
 	}
 }
