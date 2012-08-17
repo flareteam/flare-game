@@ -230,7 +230,7 @@ public:
 	int dspeed;
 	Point pos;
 	Point forced_speed;
-	int direction;
+	char direction;
 	std::vector<int> hero_cooldown;
 
 	// state

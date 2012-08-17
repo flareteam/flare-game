@@ -134,13 +134,13 @@ GameStateConfig::GameStateConfig ()
 	settings_lstb[2] = new WidgetListBox(mods_total, 10, mods->locate("images/menus/buttons/listbox_default.png"));
 
 	//Load the menu configuration from file
-	int x1;
-	int y1;
-	int x2;
-	int y2;
-	int setting_num;
-	int offset_x;
-	int offset_y;
+	int x1 = 0;
+	int y1 = 0;
+	int x2 = 0;
+	int y2 = 0;
+	int setting_num = 0;
+	int offset_x = 0;
+	int offset_y = 0;
 
 	FileParser infile;
 	if (infile.open(mods->locate("menus/config.txt"))) {
