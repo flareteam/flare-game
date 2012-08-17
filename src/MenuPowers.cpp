@@ -55,29 +55,10 @@ MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_i
 	tabs_count = 1;
 	pressed = false;
 
-	for (int i=0; i<POWER_SLOTS_COUNT; i++) {
-		power_cell[i].id = -1;
-		power_cell[i].tab = 0;
-		power_cell[i].pos.x = 0;
-		power_cell[i].pos.y = 0;
-		power_cell[i].requires_mentdef = 0;
-		power_cell[i].requires_mentoff = 0;
-		power_cell[i].requires_physoff = 0;
-		power_cell[i].requires_physdef = 0;
-		power_cell[i].requires_defense = 0;
-		power_cell[i].requires_offense = 0;
-		power_cell[i].requires_physical = 0;
-		power_cell[i].requires_mental = 0;
-		power_cell[i].requires_level = 0;
-		power_cell[i].requires_power = -1;
-		power_cell[i].requires_point = false;
-	}
-
 	closeButton = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
 
 	// Read powers data from config file
 	FileParser infile;
-	int counter = -1;
 	if (infile.open(mods->locate("menus/powers.txt"))) {
 	  while (infile.next()) {
 		infile.val = infile.val + ',';
@@ -87,33 +68,35 @@ MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_i
 		} else if (infile.key == "tab_tree") {
 			tree_image_files.push_back(eatFirstString(infile.val, ','));
 		} else if (infile.key == "id") {
-			counter++;
-			power_cell[counter].id = eatFirstInt(infile.val, ',');
+			power_cell.push_back(Power_Menu_Cell());
+			slots.push_back(SDL_Rect());
+			power_cell.back().id = eatFirstInt(infile.val, ',');
 		} else if (infile.key == "position") {
-			power_cell[counter].pos.x = eatFirstInt(infile.val, ',');
-			power_cell[counter].pos.y = eatFirstInt(infile.val, ',');
+			power_cell.back().pos.x = eatFirstInt(infile.val, ',');
+			power_cell.back().pos.y = eatFirstInt(infile.val, ',');
 		} else if (infile.key == "requires_physoff") {
-			power_cell[counter].requires_physoff = eatFirstInt(infile.val, ',');
+			power_cell.back().requires_physoff = eatFirstInt(infile.val, ',');
 		} else if (infile.key == "requires_physdef") {
-			power_cell[counter].requires_physdef = eatFirstInt(infile.val, ',');
+			power_cell.back().requires_physdef = eatFirstInt(infile.val, ',');
 		} else if (infile.key == "requires_mentoff") {
-			power_cell[counter].requires_mentoff = eatFirstInt(infile.val, ',');
+			power_cell.back().requires_mentoff = eatFirstInt(infile.val, ',');
 		} else if (infile.key == "requires_mentdef") {
-			power_cell[counter].requires_mentdef = eatFirstInt(infile.val, ',');
+			power_cell.back().requires_mentdef = eatFirstInt(infile.val, ',');
 		} else if (infile.key == "requires_defense") {
-			power_cell[counter].requires_defense = eatFirstInt(infile.val, ',');
+			power_cell.back().requires_defense = eatFirstInt(infile.val, ',');
 		} else if (infile.key == "requires_offense") {
-			power_cell[counter].requires_offense = eatFirstInt(infile.val, ',');
+			power_cell.back().requires_offense = eatFirstInt(infile.val, ',');
 		} else if (infile.key == "requires_physical") {
-			power_cell[counter].requires_physical = eatFirstInt(infile.val, ',');
+			power_cell.back().requires_physical = eatFirstInt(infile.val, ',');
 		} else if (infile.key == "requires_mental") {
-			power_cell[counter].requires_mental = eatFirstInt(infile.val, ',');
+			power_cell.back().requires_mental = eatFirstInt(infile.val, ',');
 		} else if (infile.key == "requires_point") {
-			if (infile.val == "true,") power_cell[counter].requires_point = true;
+			if (infile.val == "true,")
+				power_cell.back().requires_point = true;
 		} else if (infile.key == "requires_level") {
-			power_cell[counter].requires_level = eatFirstInt(infile.val, ',');
+			power_cell.back().requires_level = eatFirstInt(infile.val, ',');
 		} else if (infile.key == "requires_power") {
-			power_cell[counter].requires_power = eatFirstInt(infile.val, ',');
+			power_cell.back().requires_power = eatFirstInt(infile.val, ',');
 		} else if (infile.key == "title") {
 			title = eatLabelInfo(infile.val);
 		} else if (infile.key == "unspent_points") {
@@ -130,7 +113,7 @@ MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_i
 			tabs_count = eatFirstInt(infile.val, ',');
 			if (tabs_count < 1) tabs_count = 1;
 		} else if (infile.key == "tab") {
-			power_cell[counter].tab = eatFirstInt(infile.val, ',');
+			power_cell.back().tab = eatFirstInt(infile.val, ',');
 		}
 
 	  }
@@ -155,7 +138,7 @@ MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_i
 }
 
 void MenuPowers::update() {
-	for (int i=0; i<POWER_SLOTS_COUNT; i++) {
+	for (unsigned i=0; i<power_cell.size(); i++) {
 		slots[i].w = slots[i].h = ICON_SIZE_SMALL;
 		slots[i].x = window_area.x + power_cell[i].pos.x;
 		slots[i].y = window_area.y + power_cell[i].pos.y;
@@ -242,7 +225,7 @@ void MenuPowers::renderIcon(int icon_id, int x, int y) {
 
 int MenuPowers::id_by_powerIndex(int power_index) {
 	// Find cell with our power
-	for (int i=0; i<POWER_SLOTS_COUNT; i++)
+	for (unsigned i=0; i<power_cell.size(); i++)
 		if (power_cell[i].id == power_index)
 			return i;
 
@@ -315,7 +298,7 @@ int MenuPowers::click(Point mouse) {
 	// if we have tabCOntrol
 	if (tabs_count > 1) {
 		int active_tab = tabControl->getActiveTab();
-		for (int i=0; i<POWER_SLOTS_COUNT; i++) {
+		for (unsigned i=0; i<power_cell.size(); i++) {
 			if (isWithin(slots[i], mouse) && (power_cell[i].id != -1) && (power_cell[i].tab == active_tab)) {
 				if (requirementsMet(power_cell[i].id)) return power_cell[i].id;
 				else return -1;
@@ -323,7 +306,7 @@ int MenuPowers::click(Point mouse) {
 		}
 	// if have don't have tabs
 	} else {
-		for (int i=0; i<POWER_SLOTS_COUNT; i++) {
+		for (unsigned i=0; i<power_cell.size(); i++) {
 			if (isWithin(slots[i], mouse) && (power_cell[i].id != -1)) {
 				if (requirementsMet(power_cell[i].id)) return power_cell[i].id;
 				else return -1;
@@ -340,16 +323,20 @@ void MenuPowers::unlock_click(Point mouse) {
 	// if we have tabCOntrol
 	if (tabs_count > 1) {
 		int active_tab = tabControl->getActiveTab();
-		for (int i=0; i<POWER_SLOTS_COUNT; i++) {
-			if (isWithin(slots[i], mouse) && (power_cell[i].id != -1) && (powerUnlockable(power_cell[i].id)) && points_left > 0 && power_cell[i].requires_point && power_cell[i].tab == active_tab) {
+		for (unsigned i=0; i<power_cell.size(); i++) {
+			if (isWithin(slots[i], mouse) && (power_cell[i].id != -1)
+					&& (powerUnlockable(power_cell[i].id)) && points_left > 0
+					&& power_cell[i].requires_point && power_cell[i].tab == active_tab) {
 				powers_list.push_back(power_cell[i].id);
 				points_left = stats->level - powers_list.size();
 			}
 		}
 	// if have don't have tabs
 	} else {
-		for (int i=0; i<POWER_SLOTS_COUNT; i++) {
-			if (isWithin(slots[i], mouse) && (power_cell[i].id != -1) && (powerUnlockable(power_cell[i].id)) && points_left > 0 && power_cell[i].requires_point) {
+		for (unsigned i=0; i<power_cell.size(); i++) {
+			if (isWithin(slots[i], mouse) && (power_cell[i].id != -1)
+					&& (powerUnlockable(power_cell[i].id))
+					&& points_left > 0 && power_cell[i].requires_point) {
 				powers_list.push_back(power_cell[i].id);
 				points_left = stats->level - powers_list.size();
 			}
@@ -422,17 +409,14 @@ void MenuPowers::render() {
  */
 void MenuPowers::displayBuild(int power_id) {
 	SDL_Rect src_unlock;
-//	SDL_Rect dest;
 
 	src_unlock.x = 0;
 	src_unlock.y = 0;
 	src_unlock.w = ICON_SIZE_SMALL;
 	src_unlock.h = ICON_SIZE_SMALL;
 
-	for (int i=0; i<POWER_SLOTS_COUNT; i++) {
+	for (unsigned i=0; i<power_cell.size(); i++) {
 		if (power_cell[i].id == power_id) {
-//			dest.x = window_area.x + power_cell[i].pos.x;
-//			dest.y = window_area.y + power_cell[i].pos.y;
 			SDL_BlitSurface(powers_unlock, &src_unlock, screen, &slots[i]);
 		}
 	}
@@ -445,7 +429,7 @@ TooltipData MenuPowers::checkTooltip(Point mouse) {
 
 	TooltipData tip;
 
-		for (int i=0; i<POWER_SLOTS_COUNT; i++) {
+		for (unsigned i=0; i<power_cell.size(); i++) {
 
 			if ((tabs_count > 1) && (tabControl->getActiveTab() != power_cell[i].tab)) continue;
 
@@ -601,7 +585,7 @@ void MenuPowers::renderPowers(int tab_num) {
 	disabled_src.x = disabled_src.y = 0;
 	disabled_src.w = disabled_src.h = ICON_SIZE_SMALL;
 
-	for (int i=0; i<POWER_SLOTS_COUNT; i++) {
+	for (unsigned i=0; i<power_cell.size(); i++) {
 		bool power_in_vector = false;
 
 		// Continue if slot is not filled with data
