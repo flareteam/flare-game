@@ -495,9 +495,7 @@ void GameStatePlay::checkStash() {
 		// If the player walks away from the stash, close its menu
 		interact_distance = (int)calcDist(pc->stats.pos, map->stash_pos);
 		if (interact_distance > max_interact_distance || !pc->stats.alive) {
-			if (menu->stash->visible) {
-				menu->stash->visible = false;
-			}
+			menu->stash->visible = false;
 		}
 
 		// If the stash has been updated, save the game
