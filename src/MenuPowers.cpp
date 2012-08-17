@@ -75,7 +75,7 @@ MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_i
 
 	closeButton = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
 
-	// Read powers data from config file 
+	// Read powers data from config file
 	FileParser infile;
 	int counter = -1;
 	if (infile.open(mods->locate("menus/powers.txt"))) {
@@ -171,7 +171,7 @@ void MenuPowers::update() {
 
 	// If we have more than one tab, create TabControl
 	if (tabs_count > 1) {
-		tabControl = new WidgetTabControl(tabs_count); 
+		tabControl = new WidgetTabControl(tabs_count);
 
 		// Initialize the tab control.
 		tabControl->setMainArea(window_area.x+tab_area.x, window_area.y+tab_area.y, tab_area.w, tab_area.h);
@@ -195,7 +195,7 @@ void MenuPowers::loadGraphics() {
 
 	powers_unlock = IMG_Load(mods->locate("images/menus/powers_unlock.png").c_str());
 	overlay_disabled = IMG_Load(mods->locate("images/menus/disabled.png").c_str());
-	
+
 	for (unsigned int i=0; i<tree_surf.size(); i++) {
 		if(!background || !tree_surf[i] || !powers_unlock || !overlay_disabled) {
 			fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
@@ -217,7 +217,7 @@ void MenuPowers::loadGraphics() {
 	cleanup = powers_unlock;
 	powers_unlock = SDL_DisplayFormatAlpha(powers_unlock);
 	SDL_FreeSurface(cleanup);
-	
+
 	if (overlay_disabled != NULL) {
 		cleanup = overlay_disabled;
 		overlay_disabled = SDL_DisplayFormatAlpha(overlay_disabled);
@@ -240,6 +240,15 @@ void MenuPowers::renderIcon(int icon_id, int x, int y) {
 	SDL_BlitSurface(icons, &icon_src, screen, &icon_dest);
 }
 
+int MenuPowers::id_by_powerIndex(int power_index) {
+	// Find cell with our power
+	for (int i=0; i<POWER_SLOTS_COUNT; i++)
+		if (power_cell[i].id == power_index)
+			return i;
+
+	return -1;
+}
+
 /**
  * With great power comes great stat requirements.
  */
@@ -249,14 +258,7 @@ bool MenuPowers::requirementsMet(int power_index) {
 	// Power with index -1 doesn't exist and is always enabled
 	if (power_index == -1) return true;
 
-	// Find cell with our power
-	int id = 0;
-	for (int i=0; i<POWER_SLOTS_COUNT; i++) {
-		if (power_cell[i].id == power_index) {
-		id = i;
-		break;
-		}
-	}
+	int id = id_by_powerIndex(power_index);
 
 	// If power_id is saved into vector, it's unlocked anyway
 	if (find(powers_list.begin(), powers_list.end(), power_index) != powers_list.end()) return true;
@@ -286,13 +288,7 @@ bool MenuPowers::powerUnlockable(int power_index) {
 	if (power_index == -1) return true;
 
 	// Find cell with our power
-	int id = 0;
-	for (int i=0; i<POWER_SLOTS_COUNT; i++) {
-		if (power_cell[i].id == power_index) {
-		id = i;
-		break;
-		}
-	}
+	int id = id_by_powerIndex(power_index);
 
 	// If we already have a power, don't try to unlock it
 	if (requirementsMet(power_index)) return false;
@@ -534,7 +530,7 @@ TooltipData MenuPowers::checkTooltip(Point mouse) {
 						tip.lines[tip.num_lines++] = msg->get("Requires %d Skill Point", power_cell[i].requires_point);
 
 				// Draw unlock power Tooltip
-				if (power_cell[i].requires_point && 
+				if (power_cell[i].requires_point &&
 					!(find(powers_list.begin(), powers_list.end(), power_cell[i].id) != powers_list.end()) &&
 					(points_left > 0) &&
 					powerUnlockable(power_cell[i].id) && (points_left > 0)) {
@@ -573,7 +569,7 @@ MenuPowers::~MenuPowers() {
 	for (unsigned int i=0; i<tree_surf.size(); i++) SDL_FreeSurface(tree_surf[i]);
 	SDL_FreeSurface(powers_unlock);
 	SDL_FreeSurface(overlay_disabled);
-	
+
 	delete closeButton;
 	if (tabs_count > 1) delete tabControl;
 	menuPowers = NULL;
@@ -585,18 +581,11 @@ MenuPowers::~MenuPowers() {
 bool MenuPowers::meetsUsageStats(unsigned powerid) {
 
 	// Find cell with our power
-	int id = -1;
-	for (int i=0; i<POWER_SLOTS_COUNT; i++) {
-		if (power_cell[i].id == (int)powerid) {
-		id = i;
-		break;
-		}
-	}
-	
+	int id = id_by_powerIndex(powerid);
 	// If we didn't find power in power_menu, than it has no stats requirements
 	if (id == -1) return true;
 
-	return stats->physoff >= power_cell[id].requires_physoff	
+	return stats->physoff >= power_cell[id].requires_physoff
 		&& stats->physdef >= power_cell[id].requires_physdef
 		&& stats->mentoff >= power_cell[id].requires_mentoff
 		&& stats->mentdef >= power_cell[id].requires_mentdef
@@ -627,7 +616,7 @@ void MenuPowers::renderPowers(int tab_num) {
 			displayBuild(power_cell[i].id);
 		}
 		else {
-		
+
 			if (overlay_disabled != NULL) {
 				SDL_BlitSurface(overlay_disabled, &disabled_src, screen, &slots[i]);
 			}

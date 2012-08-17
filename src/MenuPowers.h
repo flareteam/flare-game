@@ -94,6 +94,8 @@ private:
 	SDL_Color color_bonus;
 	SDL_Color color_penalty;
 
+	int id_by_powerIndex(int power_index);
+
 public:
 	static MenuPowers *getInstance();
 	MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_icons);
