@@ -665,17 +665,13 @@ bool Avatar::takeHit(Hazard h) {
 		else dmg = h.dmg_min + (rand() % (h.dmg_max - h.dmg_min + 1));
 
 		// apply elemental resistance
-		// TODO: make this generic
 		int vulnerable;
-		if (h.trait_elemental == ELEMENT_FIRE) {
-			if (MAX_RESIST < stats.vulnerable_fire) vulnerable = MAX_RESIST;
-			else vulnerable = stats.vulnerable_fire;
-			dmg = (dmg * vulnerable) / 100;
-		}
-		if (h.trait_elemental == ELEMENT_WATER) {
-			if (MAX_RESIST < stats.vulnerable_ice) vulnerable = MAX_RESIST;
-			else vulnerable = stats.vulnerable_ice;
-			dmg = (dmg * vulnerable) / 100;
+		for (unsigned int i=0; i<stats.vulnerable.size(); i++) {
+			if (h.trait_elemental == (signed)i) {
+				if (MAX_RESIST < stats.vulnerable[i]) vulnerable = MAX_RESIST;
+				else vulnerable = stats.vulnerable[i];
+				dmg = (dmg * vulnerable) / 100;
+			}
 		}
 
 		// apply absorption
@@ -847,11 +843,10 @@ void Avatar::transform() {
 	stats.crit = charmed_stats->crit;
 
 	// resistances
-	if (charmed_stats->vulnerable_fire < stats.vulnerable_fire)
-	stats.vulnerable_fire = charmed_stats->vulnerable_fire;
-
-	if (charmed_stats->vulnerable_ice < stats.vulnerable_ice)
-	stats.vulnerable_ice = charmed_stats->vulnerable_ice;
+	for (unsigned int i=0; i<stats.vulnerable.size(); i++) {
+		if (charmed_stats->vulnerable[i] < stats.vulnerable[i])
+		stats.vulnerable[i] = charmed_stats->vulnerable[i];
+	}
 
 	loadStepFX("NULL");
 }
@@ -893,8 +888,9 @@ void Avatar::untransform() {
 	stats.accuracy = hero_stats->accuracy;
 	stats.crit = hero_stats->crit;
 
-	stats.vulnerable_fire = hero_stats->vulnerable_fire;
-	stats.vulnerable_ice = hero_stats->vulnerable_ice;
+	for (unsigned int i=0; i<stats.vulnerable.size(); i++) {
+		stats.vulnerable[i] = hero_stats->vulnerable[i];
+	}
 
 	delete charmed_stats;
 	delete hero_stats;

@@ -130,6 +130,9 @@ int MAX_RESIST = 90;
 int MAX_BLOCK = 100;
 int MAX_AVOIDANCE = 99;
 
+// Elemental types
+std::vector<std::string> ELEMENTS;
+
 // Other Settings
 bool MENUS_PAUSE = false;
 std::string DEFAULT_NAME = "";
@@ -408,6 +411,28 @@ void loadMiscSettings() {
 	}
 	else {
 		fprintf(stderr, "No combat engine settings config found!\n");
+	}
+	// elements.txt
+	ifstream infiles;
+	std::string line, starts_with;
+	infiles.open(mods->locate("engine/elements.txt").c_str(), ios::in);
+	if (infiles.is_open()){
+		while (!infiles.eof()) {
+			line = getLine(infiles);
+
+			// skip ahead if this line is empty
+			if (line.length() == 0) continue;
+
+			// skip comments
+			starts_with = line.at(0);
+			if (starts_with == "#") continue;
+
+			ELEMENTS.push_back(line);
+		}
+		infiles.close();
+	}
+	else {
+		fprintf(stderr, "No elemental settings config found!\n");
 	}
 }
 
