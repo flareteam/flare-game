@@ -309,7 +309,7 @@ void MenuCharacter::refreshStats() {
 
 	if (show_stat[3]) {
 		ss.str("");
-		ss << msg->get("MP Regen:") << " " << stats->hp_per_minute;
+		ss << msg->get("MP Regen:") << " " << stats->mp_per_minute;
 		statList->append(ss.str(),msg->get("Ticks of MP regen per minute. Each point of Mental grants +%d MP regen. Each level grants +%d MP regen", stats->mp_regen_per_mental, stats->mp_regen_per_level));
 	}
 
