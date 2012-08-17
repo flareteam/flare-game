@@ -61,7 +61,7 @@ bool Entity::move() {
 		speed_straight *= 2;
 	}
 
-	bool full_move;
+	bool full_move = false;
 
 	switch (stats.direction) {
 		case 0:

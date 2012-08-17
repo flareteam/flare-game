@@ -334,6 +334,7 @@ bool checkPixel(Point px, SDL_Surface *surface) {
 		case 4:
 			pixel = *(Uint32 *)p;
 			break;
+
 		default:
 			SDL_UnlockSurface(surface);
 			return false;
