@@ -47,7 +47,7 @@ public:
 	void expire(int index);
 	void checkNewHazards();
 	void handleNewMap(MapCollision *_collider);
-	void addRenders(std::vector<Renderable> &r);
+	void addRenders(std::vector<Renderable> &r, std::vector<Renderable> &r_dead);
 
 	std::vector<Hazard*> h;
 };

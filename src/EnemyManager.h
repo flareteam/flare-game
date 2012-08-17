@@ -57,7 +57,7 @@ public:
 	void handleNewMap();
 	void handleSpawn();
 	void logic();
-	void addRenders(std::vector<Renderable> &r);
+	void addRenders(std::vector<Renderable> &r, std::vector<Renderable> &r_dead);
 	void checkEnemiesforXP(StatBlock *stats);
 	Enemy *enemyFocus(Point mouse, Point cam, bool alive_only);
 

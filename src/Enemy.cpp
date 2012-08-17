@@ -317,10 +317,6 @@ Renderable Enemy::getRender() {
 	Renderable r = activeAnimation->getCurrentFrame(stats.direction);
 	r.map_pos.x = stats.pos.x;
 	r.map_pos.y = stats.pos.y;
-
-	// draw corpses below objects so that floor loot is more visible
-	r.object_layer = !stats.corpse;
-
 	return r;
 }
 

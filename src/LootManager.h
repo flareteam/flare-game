@@ -134,7 +134,7 @@ public:
 	ItemStack checkPickup(Point mouse, Point cam, Point hero_pos, int &gold, MenuInventory *inv);
 	ItemStack checkAutoPickup(Point cam, Point hero_pos, int &gold, MenuInventory *inv);
 
-	void addRenders(std::vector<Renderable> &renderables);
+	void addRenders(std::vector<Renderable> &ren, std::vector<Renderable> &ren_dead);
 
 	int tooltip_margin; // pixels between loot drop center and label
 	bool full_msg;

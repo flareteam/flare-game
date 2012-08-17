@@ -641,10 +641,15 @@ bool zcompare_ortho(const Renderable &r1, const Renderable &r2) {
 	return true;
 }
 
-void MapRenderer::render(vector<Renderable> &r) {
+void MapRenderer::render(vector<Renderable> &r, vector<Renderable> &r_dead) {
 
 	vector<Renderable>::iterator it;
 	for (it = r.begin(); it != r.end(); it++) {
+		// calculate tile
+		it->tile.x = it->map_pos.x >> TILE_SHIFT;
+		it->tile.y = it->map_pos.y >> TILE_SHIFT;
+	}
+	for (it = r_dead.begin(); it != r_dead.end(); it++) {
 		// calculate tile
 		it->tile.x = it->map_pos.x >> TILE_SHIFT;
 		it->tile.y = it->map_pos.y >> TILE_SHIFT;
@@ -661,10 +666,12 @@ void MapRenderer::render(vector<Renderable> &r) {
 
 	if (TILESET_ORIENTATION == TILESET_ORTHOGONAL) {
 		std::sort(r.begin(), r.end(), zcompare_ortho);
-		renderOrtho(r);
+		std::sort(r_dead.begin(), r_dead.end(), zcompare_ortho);
+		renderOrtho(r, r_dead);
 	} else {
 		std::sort(r.begin(), r.end(), zcompare_iso);
-		renderIso(r);
+		std::sort(r_dead.begin(), r_dead.end(), zcompare_iso);
+		renderIso(r, r_dead);
 	}
 }
 
@@ -695,6 +702,14 @@ void MapRenderer::createBackgroundSurface() {
 	}
 	backgroundsurface = SDL_DisplayFormat(surface);
 	SDL_FreeSurface(surface);
+}
+
+void MapRenderer::drawRenderable(vector<Renderable>::iterator r_cursor) {
+	SDL_Rect dest;
+	Point p = map_to_screen(r_cursor->map_pos.x, r_cursor->map_pos.y, shakycam.x, shakycam.y);
+	dest.x = p.x - r_cursor->offset.x;
+	dest.y = p.y - r_cursor->offset.y;
+	SDL_BlitSurface(r_cursor->sprite, &r_cursor->src, screen, &dest);
 }
 
 void MapRenderer::renderIsoBackground(SDL_Surface *wheretorender, Point offset) {
@@ -752,15 +767,9 @@ void MapRenderer::renderIsoBackground(SDL_Surface *wheretorender, Point offset) 
 
 void MapRenderer::renderIsoBackObjects(vector<Renderable> &r) {
 	SDL_Rect dest;
-	// some renderables are drawn above the background and below the objects
 	vector<Renderable>::iterator it;
 	for (it = r.begin(); it != r.end(); it++) {
-		if (!it->object_layer) {
-			Point p = map_to_screen(it->map_pos.x, it->map_pos.y, shakycam.x, shakycam.y);
-			dest.x = p.x - it->offset.x;
-			dest.y = p.y - it->offset.y;
-			SDL_BlitSurface(it->sprite, &(it->src), screen, &dest);
-		}
+		drawRenderable(it);
 	}
 }
 
@@ -815,13 +824,7 @@ void MapRenderer::renderIsoFrontObjects(vector<Renderable> &r) {
 
 			// some renderable entities go in this layer
 			while (r_cursor != r_end && r_cursor->tile.x == i && r_cursor->tile.y == j) {
-				if (r_cursor->object_layer) {
-					// draw renderable
-					Point p = map_to_screen(r_cursor->map_pos.x, r_cursor->map_pos.y, shakycam.x, shakycam.y);
-					dest.x = p.x - r_cursor->offset.x;
-					dest.y = p.y - r_cursor->offset.y;
-					SDL_BlitSurface(r_cursor->sprite, &(r_cursor->src), screen, &dest);
-				}
+				drawRenderable(r_cursor);
 				r_cursor++;
 			}
 		}
@@ -836,14 +839,14 @@ void MapRenderer::renderIsoFrontObjects(vector<Renderable> &r) {
 	}
 }
 
-void MapRenderer::renderIso(vector<Renderable> &r) {
+void MapRenderer::renderIso(vector<Renderable> &r, vector<Renderable> &r_dead) {
+	const Point nulloffset = {0, 0};
 	if (ANIMATED_TILES) {
-		Point off = {0, 0};
-		renderIsoBackground(screen, off);
+		renderIsoBackground(screen, nulloffset);
 	}
 	else {
-		if (abs(shakycam.x - backgroundsurfaceoffset.x) > 2 * UNITS_PER_TILE
-			|| abs(shakycam.y - backgroundsurfaceoffset.y) > 2 * UNITS_PER_TILE
+		if (abs(shakycam.x - backgroundsurfaceoffset.x) > 4 * UNITS_PER_TILE
+			|| abs(shakycam.y - backgroundsurfaceoffset.y) > 4 * UNITS_PER_TILE
 			|| repaint_background) {
 
 			if (!backgroundsurface)
@@ -865,8 +868,7 @@ void MapRenderer::renderIso(vector<Renderable> &r) {
 		src.h = 2 * VIEW_H;
 		SDL_BlitSurface(backgroundsurface, &src, screen , 0);
 	}
-
-	renderIsoBackObjects(r);
+	renderIsoBackObjects(r_dead);
 	renderIsoFrontObjects(r);
 	checkTooltip();
 }
@@ -897,15 +899,8 @@ void MapRenderer::renderOrthoBackObjects(std::vector<Renderable> &r) {
 	SDL_Rect dest;
 	// some renderables are drawn above the background and below the objects
 	vector<Renderable>::iterator it;
-	for (it = r.begin(); it != r.end(); it++) {
-		if (!it->object_layer) {
-			// draw renderable
-			Point p = map_to_screen(it->map_pos.x, it->map_pos.y, shakycam.x, shakycam.y);
-			dest.x = p.x - it->offset.x;
-			dest.y = p.y - it->offset.y;
-			SDL_BlitSurface(it->sprite, &it->src, screen, &dest);
-		}
-	}
+	for (it = r.begin(); it != r.end(); it++)
+		drawRenderable(it);
 }
 
 void MapRenderer::renderOrthoFrontObjects(std::vector<Renderable> &r) {
@@ -933,24 +928,17 @@ void MapRenderer::renderOrthoFrontObjects(std::vector<Renderable> &r) {
 
 			// some renderable entities go in this layer
 			while (r_cursor != r_end && r_cursor->tile.x == i && r_cursor->tile.y == j) {
-				if (r_cursor->object_layer) {
-					// draw renderable
-					Point p = map_to_screen(r_cursor->map_pos.x, r_cursor->map_pos.y, shakycam.x, shakycam.y);
-					dest.x = p.x - r_cursor->offset.x;
-					dest.y = p.y - r_cursor->offset.y;
-					SDL_BlitSurface(r_cursor->sprite, &r_cursor->src, screen, &dest);
-				}
-
+				drawRenderable(r_cursor);
 				r_cursor++;
 			}
 		}
 	}
 }
 
-void MapRenderer::renderOrtho(vector<Renderable> &r) {
+void MapRenderer::renderOrtho(vector<Renderable> &r, vector<Renderable> &r_dead) {
 
 	renderOrthoBackground();
-	renderOrthoBackObjects(r);
+	renderOrthoBackObjects(r_dead);
 	renderOrthoFrontObjects(r);
 	//render event tooltips
 	checkTooltip();
@@ -1194,7 +1182,7 @@ bool MapRenderer::executeEvent(Map_Event &ev) {
 			}
 			else if (ec->s == "background") {
 				background[ec->x][ec->y] = ec->z;
-				repaint_background = true;
+				repaint_background = false;
 			}
 			map_change = true;
 		}

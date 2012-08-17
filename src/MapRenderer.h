@@ -179,17 +179,18 @@ private:
 
 	// some events are automatically triggered when the map is loaded
 	void executeOnLoadEvents();
-	
+
+	void drawRenderable(std::vector<Renderable>::iterator r_cursor);
 	// offset in screen/surface coordinates.
-	void renderIsoBackground(SDL_Surface *wheretorender, Point camwithoffset);
+	void renderIsoBackground(SDL_Surface *wheretorender, Point offset);
 	void renderIsoBackObjects(std::vector<Renderable> &r);
 	void renderIsoFrontObjects(std::vector<Renderable> &r);
-	void renderIso(std::vector<Renderable> &r);
+	void renderIso(std::vector<Renderable> &r, std::vector<Renderable> &r_dead);
 
 	void renderOrthoBackground();
 	void renderOrthoBackObjects(std::vector<Renderable> &r);
 	void renderOrthoFrontObjects(std::vector<Renderable> &r);
-	void renderOrtho(std::vector<Renderable> &r);
+	void renderOrtho(std::vector<Renderable> &r, std::vector<Renderable> &r_dead);
 
 	Point shakycam;
 	bool new_music;
@@ -219,7 +220,7 @@ public:
 
 	int load(std::string filename);
 	void logic();
-	void render(std::vector<Renderable> &r);
+	void render(std::vector<Renderable> &r, std::vector<Renderable> &r_dead);
 
 	void clearEvents();
 	void checkEvents(Point loc);

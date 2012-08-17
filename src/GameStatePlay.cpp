@@ -495,9 +495,7 @@ void GameStatePlay::checkStash() {
 		// If the player walks away from the stash, close its menu
 		interact_distance = (int)calcDist(pc->stats.pos, map->stash_pos);
 		if (interact_distance > max_interact_distance || !pc->stats.alive) {
-			if (menu->stash->visible) {
-				menu->stash->visible = false;
-			}
+			menu->stash->visible = false;
 		}
 
 		// If the stash has been updated, save the game
@@ -595,33 +593,36 @@ void GameStatePlay::logic() {
 void GameStatePlay::render() {
 
 	// Create a list of Renderables from all objects not already on the map.
-	vector<Renderable> renderables;
+	// split the list into the beings alive (may move) and dead beings (must not move)
+	vector<Renderable> rens;
+	vector<Renderable> rens_dead;
 
-	renderables.push_back(pc->getRender()); // Avatar
+	Renderable pc_hero = pc->getRender();
+	rens.push_back(pc_hero); // Avatar
 
 	// get additional hero overlays
 	if (pc->stats.shield_hp > 0) {
 		Renderable re = pc->stats.getEffectRender(STAT_EFFECT_SHIELD);
 		re.sprite = powers->gfx[powers->powers[POWER_SHIELD].gfx_index]; // TODO: parameter
-		renderables.push_back(re);
+		rens.push_back(re);
 	}
 	if (pc->stats.vengeance_stacks > 0) {
 		Renderable re = pc->stats.getEffectRender(STAT_EFFECT_VENGEANCE);
 		re.sprite = powers->runes;
-		renderables.push_back(re);
+		rens.push_back(re);
 	}
 
-	enemies->addRenders(renderables);
+	enemies->addRenders(rens, rens_dead);
 
-	npcs->addRenders(renderables);
+	npcs->addRenders(rens); // npcs cannot be dead
 
-	loot->addRenders(renderables);
+	loot->addRenders(rens, rens_dead);
 
-	hazards->addRenders(renderables);
+	hazards->addRenders(rens, rens_dead);
 
 
 	// render the static map layers plus the renderables
-	map->render(renderables);
+	map->render(rens, rens_dead);
 
 	// mouseover tooltips
 	loot->renderTooltips(map->cam);
