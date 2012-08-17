@@ -188,8 +188,7 @@ public:
 	bool wielding_mental;
 	bool wielding_offense;
 	bool ammo_arrows;
-	int vulnerable_fire;
-	int vulnerable_ice;
+	std::vector<int> vulnerable;
 
 	// buff and debuff stats
 	int slow_duration;

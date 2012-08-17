@@ -246,14 +246,9 @@ void PowerManager::loadPowers(const std::string& filename) {
 				powers[input_id].trait_crits_impaired = atoi(infile.val.c_str());
 			}
 			else if (infile.key == "trait_elemental") {
-				if (infile.val == "wood") powers[input_id].trait_elemental = ELEMENT_WOOD;
-				else if (infile.val == "metal") powers[input_id].trait_elemental = ELEMENT_METAL;
-				else if (infile.val == "wind") powers[input_id].trait_elemental = ELEMENT_WIND;
-				else if (infile.val == "water") powers[input_id].trait_elemental = ELEMENT_WATER;
-				else if (infile.val == "earth") powers[input_id].trait_elemental = ELEMENT_EARTH;
-				else if (infile.val == "fire") powers[input_id].trait_elemental = ELEMENT_FIRE;
-				else if (infile.val == "shadow") powers[input_id].trait_elemental = ELEMENT_SHADOW;
-				else if (infile.val == "light") powers[input_id].trait_elemental = ELEMENT_LIGHT;
+				for (unsigned int i=0; i<ELEMENTS.size(); i++) {
+					if (infile.val == ELEMENTS[i]) powers[input_id].trait_elemental = i;
+				}
 			}
 			else if (infile.key == "forced_move") {
 				powers[input_id].forced_move_speed = atoi(infile.nextValue().c_str());

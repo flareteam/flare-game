@@ -664,8 +664,9 @@ void MenuInventory::applyEquipment(ItemStack *equipped) {
 	stats->absorb_max = stats->absorb_max_default;
 	stats->speed = stats->speed_default;
 	stats->dspeed = stats->dspeed_default;
-	stats->vulnerable_fire = 100;
-	stats->vulnerable_ice = 100;
+	for (unsigned int i=0; i<stats->vulnerable.size(); i++) {
+		stats->vulnerable[i] = 100;
+	}
 
 	// reset wielding vars
 	stats->wielding_physical = false;
@@ -739,10 +740,6 @@ void MenuInventory::applyEquipment(ItemStack *equipped) {
 				// 3 ordinal, 2 diagonal is rounding pythagorus
 				stats->dspeed += ((item.bonus_val[bonus_counter]) * 2) /3;
 			}
-			else if (item.bonus_stat[bonus_counter] == "fire resist")
-				stats->vulnerable_fire -= item.bonus_val[bonus_counter];
-			else if (item.bonus_stat[bonus_counter] == "ice resist")
-				stats->vulnerable_ice -= item.bonus_val[bonus_counter];
 			else if (item.bonus_stat[bonus_counter] == "offense")
 				stats->offense_additional += item.bonus_val[bonus_counter];
 			else if (item.bonus_stat[bonus_counter] == "defense")
@@ -756,6 +753,11 @@ void MenuInventory::applyEquipment(ItemStack *equipped) {
 				stats->defense_additional += item.bonus_val[bonus_counter];
 				stats->physical_additional += item.bonus_val[bonus_counter];
 				stats->mental_additional += item.bonus_val[bonus_counter];
+			}
+
+			for (unsigned int j=0; j<ELEMENTS.size(); j++) {
+				if (item.bonus_stat[bonus_counter] == ELEMENTS[j] + " resist")
+					stats->vulnerable[j] -= item.bonus_val[bonus_counter];
 			}
 
 			bonus_counter++;

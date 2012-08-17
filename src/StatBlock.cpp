@@ -158,8 +158,9 @@ StatBlock::StatBlock() {
 	ranged_weapon_power = -1;
 	mental_weapon_power = -1;
 
-	vulnerable_fire = 100;
-	vulnerable_ice = 100;
+	for (unsigned int i=0; i<ELEMENTS.size(); i++) {
+		vulnerable.push_back(100);
+	}
 
 	gold = 0;
 	death_penalty = false;
@@ -351,9 +352,6 @@ void StatBlock::load(const string& filename) {
 			else if (infile.key == "melee_range") melee_range = num;
 			else if (infile.key == "threat_range") threat_range = num;
 
-			else if (infile.key == "vulnerable_fire") vulnerable_fire=num;
-			else if (infile.key == "vulnerable_ice") vulnerable_ice=num;
-
 			// animation stats
 			else if (infile.key == "melee_weapon_power") melee_weapon_power = num;
 			else if (infile.key == "mental_weapon_power") mental_weapon_power = num;
@@ -364,6 +362,10 @@ void StatBlock::load(const string& filename) {
 
 			// hide enemy HP bar
 			else if (infile.key == "suppress_hp") suppress_hp = num;
+
+			for (unsigned int i=0; i<ELEMENTS.size(); i++) {
+				if (infile.key == "vulnerable_" + ELEMENTS[i]) vulnerable[i] = num;
+			}
 		}
 		infile.close();
 	}

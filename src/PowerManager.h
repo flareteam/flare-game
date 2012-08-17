@@ -59,17 +59,6 @@ const int BASE_DAMAGE_MELEE = 1;
 const int BASE_DAMAGE_RANGED = 2;
 const int BASE_DAMAGE_MENT = 3;
 
-// this elemental list covers the western 4, eastern 5, and classic rpg light vs. shadow
-// TODO: user-defined element list?
-const int ELEMENT_WOOD = 0;
-const int ELEMENT_METAL = 1;
-const int ELEMENT_WIND = 2;
-const int ELEMENT_WATER = 3;
-const int ELEMENT_EARTH = 4;
-const int ELEMENT_FIRE = 5;
-const int ELEMENT_SHADOW = 6;
-const int ELEMENT_LIGHT = 7;
-
 // when casting a spell/power, the hazard starting position is
 // either the source (the avatar or enemy), the target (mouse click position),
 // or melee range in the direction that the source is facing
