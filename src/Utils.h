@@ -38,12 +38,13 @@ struct FPoint {
 
 // message passing struct for various sprites rendered map inline
 struct Renderable {
-	Point map_pos;
-	SDL_Surface *sprite;
-	SDL_Rect src;
-	Point offset;
+	SDL_Surface *sprite; // image to be used
+	SDL_Rect src; // location on the sprite in pixel coordinates.
+
+	Point map_pos; // The map location on the floor between someone's feet
+	Point offset;  // offset from map_pos to topleft corner of sprite
+	Point tile;    // The tile which this renderable belongs to (i.e. for blocking that tile)
 	bool object_layer;
-	Point tile;
 };
 
 class Event_Component {
