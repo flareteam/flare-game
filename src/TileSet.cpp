@@ -124,16 +124,8 @@ void TileSet::load(const std::string& filename) {
 				if (TILE_ID >= anim.size())
 					anim.resize(TILE_ID + 1);
 
-				anim[TILE_ID].pos.resize(1);
-				anim[TILE_ID].frame_duration.resize(1);
-
-				anim[TILE_ID].pos[frame].x = atoi(infile.nextValue().c_str());
-				anim[TILE_ID].pos[frame].y = atoi(infile.nextValue().c_str());
-				anim[TILE_ID].frame_duration[frame] = atoi(infile.nextValue().c_str());
-
 				string repeat_val = infile.nextValue();
 				while (repeat_val != "") {
-					frame++;
 					anim[TILE_ID].frames++;
 					anim[TILE_ID].pos.resize(frame + 1);
 					anim[TILE_ID].frame_duration.resize(frame + 1);
@@ -141,10 +133,10 @@ void TileSet::load(const std::string& filename) {
 					anim[TILE_ID].pos[frame].y = atoi(infile.nextValue().c_str());
 					anim[TILE_ID].frame_duration[frame] = atoi(infile.nextValue().c_str());
 
+					frame++;
 					repeat_val = infile.nextValue();
 				}
 			}
-
 		}
 		infile.close();
 		loadGraphics(img);
