@@ -39,8 +39,6 @@ class WidgetButton;
 const int EQUIPMENT = 0;
 const int CARRIED = 1;
 
-const int MAX_EQUIPPED = 4;
-
 enum InventorySlotsType {
 	SLOT_MAIN = 0,
 	SLOT_BODY = 1,
@@ -62,15 +60,12 @@ private:
 	SDL_Surface *background;
 	WidgetButton *closeButton;
 
+	int MAX_EQUIPPED;
 	int MAX_CARRIED;
 
 	// label and widget positions
 	Point close_pos;
 	LabelInfo title;
-	LabelInfo main_lbl;
-	LabelInfo body_lbl;
-	LabelInfo off_lbl;
-	LabelInfo artifact_lbl;
 	LabelInfo gold_lbl;
 	SDL_Rect help_pos;
 	int carried_cols;
@@ -107,7 +102,9 @@ public:
 	bool visible;
 
 	SDL_Rect carried_area;
-	SDL_Rect equipped_area;
+	std::vector<SDL_Rect> equipped_area;
+	std::vector<std::string> slot_type;
+	std::vector<std::string> slot_desc;
 
 	MenuItemStorage inventory[2];
 	int gold;
