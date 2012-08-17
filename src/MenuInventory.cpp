@@ -38,6 +38,7 @@ MenuInventory::MenuInventory(ItemManager *_items, StatBlock *_stats, PowerManage
 	items = _items;
 	stats = _stats;
 	powers = _powers;
+	MAX_EQUIPPED = 4;
 	MAX_CARRIED = 64;
 	visible = false;
 	loadGraphics();
@@ -52,6 +53,7 @@ MenuInventory::MenuInventory(ItemManager *_items, StatBlock *_stats, PowerManage
 	closeButton = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
 
 	// Load config settings
+	SDL_Rect equipment_slot;
 	FileParser infile;
 	if(infile.open(mods->locate("menus/inventory.txt"))) {
 		while(infile.next()) {
@@ -60,11 +62,16 @@ MenuInventory::MenuInventory(ItemManager *_items, StatBlock *_stats, PowerManage
 			if(infile.key == "close") {
 				close_pos.x = eatFirstInt(infile.val,',');
 				close_pos.y = eatFirstInt(infile.val,',');
-			} else if(infile.key == "equipped_area") {
-				equipped_area.x = eatFirstInt(infile.val,',');
-				equipped_area.y = eatFirstInt(infile.val,',');
-				equipped_area.w = eatFirstInt(infile.val,',');
-				equipped_area.h = eatFirstInt(infile.val,',');
+			} else if(infile.key == "equipment_slot") {
+				equipment_slot.x = eatFirstInt(infile.val,',');
+				equipment_slot.y = eatFirstInt(infile.val,',');
+				equipment_slot.w = ICON_SIZE_LARGE;
+				equipment_slot.h = ICON_SIZE_LARGE;
+				equipped_area.push_back(equipment_slot);
+				slot_type.push_back(eatFirstString(infile.val,','));
+				slot_desc.push_back(eatFirstString(infile.val,','));
+			} else if(infile.key == "equipment_slots") {
+				MAX_EQUIPPED = eatFirstInt(infile.val,',');
 			} else if(infile.key == "carried_area") {
 				carried_area.x = eatFirstInt(infile.val,',');
 				carried_area.y = eatFirstInt(infile.val,',');
@@ -74,14 +81,6 @@ MenuInventory::MenuInventory(ItemManager *_items, StatBlock *_stats, PowerManage
 				carried_rows = eatFirstInt(infile.val,',');
 			} else if (infile.key == "title"){
 				title =  eatLabelInfo(infile.val);
-			} else if (infile.key == "main_hand_label"){
-				main_lbl =  eatLabelInfo(infile.val);
-			} else if (infile.key == "body_label"){
-				body_lbl =  eatLabelInfo(infile.val);
-			} else if (infile.key == "off_hand_label"){
-				off_lbl =  eatLabelInfo(infile.val);
-			} else if (infile.key == "artifact_label"){
-				artifact_lbl =  eatLabelInfo(infile.val);
 			} else if (infile.key == "gold"){
 				gold_lbl =  eatLabelInfo(infile.val);
 			} else if (infile.key == "help"){
@@ -114,15 +113,17 @@ void MenuInventory::loadGraphics() {
 }
 
 void MenuInventory::update() {
-	equipped_area.x += window_area.x;
-	equipped_area.y += window_area.y;
+	for (int i=0; i<MAX_EQUIPPED; i++) {
+		equipped_area[i].x += window_area.x;
+		equipped_area[i].y += window_area.y;
+	}
 
 	carried_area.x += window_area.x;
 	carried_area.y += window_area.y;
 	carried_area.w = carried_cols*ICON_SIZE_SMALL;
 	carried_area.h = carried_rows*ICON_SIZE_SMALL;
 
-	inventory[EQUIPMENT].init(MAX_EQUIPPED, items, equipped_area, ICON_SIZE_LARGE, 4);
+	inventory[EQUIPMENT].init(MAX_EQUIPPED, items, equipped_area, ICON_SIZE_LARGE, slot_type);
 	inventory[CARRIED].init(MAX_CARRIED, items, carried_area, ICON_SIZE_SMALL, carried_cols);
 
 	closeButton->pos.x = window_area.x+close_pos.x;
@@ -170,22 +171,6 @@ void MenuInventory::render() {
 		label.set(window_area.x+title.x, window_area.y+title.y, title.justify, title.valign, msg->get("Inventory"), color_normal);
 		label.render();
 	}
-	if (!main_lbl.hidden) {
-		label.set(window_area.x+main_lbl.x, window_area.y+main_lbl.y, main_lbl.justify, main_lbl.valign, msg->get("Main Hand"), color_normal);
-		label.render();
-	}
-	if (!body_lbl.hidden) {
-		label.set(window_area.x+body_lbl.x, window_area.y+body_lbl.y, body_lbl.justify, body_lbl.valign, msg->get("Body"), color_normal);
-		label.render();
-	}
-	if (!off_lbl.hidden) {
-		label.set(window_area.x+off_lbl.x, window_area.y+off_lbl.y, off_lbl.justify, off_lbl.valign, msg->get("Off Hand"), color_normal);
-		label.render();
-	}
-	if (!artifact_lbl.hidden) {
-		label.set(window_area.x+artifact_lbl.x, window_area.y+artifact_lbl.y, artifact_lbl.justify, artifact_lbl.valign, msg->get("Artifact"), color_normal);
-		label.render();
-	}
 	if (!gold_lbl.hidden) {
 		label.set(window_area.x+gold_lbl.x, window_area.y+gold_lbl.y, gold_lbl.justify, gold_lbl.valign, msg->get("%d Gold", gold), color_normal);
 		label.render();
@@ -196,11 +181,14 @@ void MenuInventory::render() {
 }
 
 int MenuInventory::areaOver(Point mouse) {
-	if (isWithin(equipped_area, mouse)) {
-		return EQUIPMENT;
-	}
-	else if (isWithin(carried_area, mouse)) {
+	if (isWithin(carried_area, mouse)) {
 		return CARRIED;
+	} else {
+		for (unsigned int i=0; i<equipped_area.size(); i++) {
+			if (isWithin(equipped_area[i], mouse)) {
+				return EQUIPMENT;
+			}
+		}
 	}
 	return -1;
 }
@@ -212,11 +200,17 @@ int MenuInventory::areaOver(Point mouse) {
  */
 TooltipData MenuInventory::checkTooltip(Point mouse) {
 	int area;
+	int slot;
 	TooltipData tip;
 
 	area = areaOver( mouse);
-	if( area > -1) {
+	slot = inventory[area].slotOver(mouse);
+
+	if (area > -1 && inventory[area][slot].item > 0) {
 		tip = inventory[area].checkTooltip( mouse, stats, false);
+	}
+	else if (area == EQUIPMENT && inventory[area][slot].item == 0) {
+		tip.lines[tip.num_lines++] = slot_desc[slot];
 	}
 	else if (mouse.x >= window_area.x + help_pos.x && mouse.y >= window_area.y+help_pos.y && mouse.x < window_area.x+help_pos.x+help_pos.w && mouse.y < window_area.y+help_pos.y+help_pos.h) {
 		tip.lines[tip.num_lines++] = msg->get("Use SHIFT to move only one item.");
