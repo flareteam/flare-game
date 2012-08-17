@@ -5,7 +5,13 @@
 close=294,2
 help=2,2,24,24
 
-equipped_area=32,48,256,64
+# define x,y position, slot type, slot description/name
+equipment_slot=32,48,main,Main Hand
+equipment_slot=96,48,body,Body
+equipment_slot=160,48,off,Off Hand
+equipment_slot=224,48,artifact,Artifact
+
+equipment_slots=4
 carried_area=32,128
 carried_cols=8
 carried_rows=8
