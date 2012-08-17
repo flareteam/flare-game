@@ -180,6 +180,7 @@ private:
 	// some events are automatically triggered when the map is loaded
 	void executeOnLoadEvents();
 
+	void drawRenderable(std::vector<Renderable>::iterator r_cursor);
 	// offset in screen/surface coordinates.
 	void renderIsoBackground(SDL_Surface *wheretorender, Point offset);
 	void renderIsoBackObjects(std::vector<Renderable> &r);

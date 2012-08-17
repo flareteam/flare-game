@@ -704,6 +704,14 @@ void MapRenderer::createBackgroundSurface() {
 	SDL_FreeSurface(surface);
 }
 
+void MapRenderer::drawRenderable(vector<Renderable>::iterator r_cursor) {
+	SDL_Rect dest;
+	Point p = map_to_screen(r_cursor->map_pos.x, r_cursor->map_pos.y, shakycam.x, shakycam.y);
+	dest.x = p.x - r_cursor->offset.x;
+	dest.y = p.y - r_cursor->offset.y;
+	SDL_BlitSurface(r_cursor->sprite, &r_cursor->src, screen, &dest);
+}
+
 void MapRenderer::renderIsoBackground(SDL_Surface *wheretorender, Point offset) {
 	short int i;
 	short int j;
@@ -761,10 +769,7 @@ void MapRenderer::renderIsoBackObjects(vector<Renderable> &r) {
 	SDL_Rect dest;
 	vector<Renderable>::iterator it;
 	for (it = r.begin(); it != r.end(); it++) {
-		Point p = map_to_screen(it->map_pos.x, it->map_pos.y, shakycam.x, shakycam.y);
-		dest.x = p.x - it->offset.x;
-		dest.y = p.y - it->offset.y;
-		SDL_BlitSurface(it->sprite, &(it->src), screen, &dest);
+		drawRenderable(it);
 	}
 }
 
@@ -819,11 +824,7 @@ void MapRenderer::renderIsoFrontObjects(vector<Renderable> &r) {
 
 			// some renderable entities go in this layer
 			while (r_cursor != r_end && r_cursor->tile.x == i && r_cursor->tile.y == j) {
-				// draw renderable
-				Point p = map_to_screen(r_cursor->map_pos.x, r_cursor->map_pos.y, shakycam.x, shakycam.y);
-				dest.x = p.x - r_cursor->offset.x;
-				dest.y = p.y - r_cursor->offset.y;
-				SDL_BlitSurface(r_cursor->sprite, &(r_cursor->src), screen, &dest);
+				drawRenderable(r_cursor);
 				r_cursor++;
 			}
 		}
@@ -898,13 +899,8 @@ void MapRenderer::renderOrthoBackObjects(std::vector<Renderable> &r) {
 	SDL_Rect dest;
 	// some renderables are drawn above the background and below the objects
 	vector<Renderable>::iterator it;
-	for (it = r.begin(); it != r.end(); it++) {
-		// draw renderable
-		Point p = map_to_screen(it->map_pos.x, it->map_pos.y, shakycam.x, shakycam.y);
-		dest.x = p.x - it->offset.x;
-		dest.y = p.y - it->offset.y;
-		SDL_BlitSurface(it->sprite, &it->src, screen, &dest);
-	}
+	for (it = r.begin(); it != r.end(); it++)
+		drawRenderable(it);
 }
 
 void MapRenderer::renderOrthoFrontObjects(std::vector<Renderable> &r) {
@@ -932,11 +928,7 @@ void MapRenderer::renderOrthoFrontObjects(std::vector<Renderable> &r) {
 
 			// some renderable entities go in this layer
 			while (r_cursor != r_end && r_cursor->tile.x == i && r_cursor->tile.y == j) {
-				// draw renderable
-				Point p = map_to_screen(r_cursor->map_pos.x, r_cursor->map_pos.y, shakycam.x, shakycam.y);
-				dest.x = p.x - r_cursor->offset.x;
-				dest.y = p.y - r_cursor->offset.y;
-				SDL_BlitSurface(r_cursor->sprite, &r_cursor->src, screen, &dest);
+				drawRenderable(r_cursor);
 				r_cursor++;
 			}
 		}
