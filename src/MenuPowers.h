@@ -39,19 +39,19 @@ class StatBlock;
 class TooltipData;
 
 struct Power_Menu_Cell {
-	int id;
-	int tab;
+	short id;
+	short tab;
 	Point pos;
-	int requires_physoff;
-	int requires_physdef;
-	int requires_mentoff;
-	int requires_mentdef;
-	int requires_defense;
-	int requires_offense;
-	int requires_physical;
-	int requires_mental;
-	int requires_level;
-	int requires_power;
+	short requires_physoff;
+	short requires_physdef;
+	short requires_mentoff;
+	short requires_mentdef;
+	short requires_defense;
+	short requires_offense;
+	short requires_physical;
+	short requires_mental;
+	short requires_level;
+	short requires_power;
 	bool requires_point;
 	Power_Menu_Cell() {
 		id = -1;
@@ -91,8 +91,8 @@ private:
 	Point close_pos;
 	SDL_Rect tab_area;
 
-	int points_left;
-	int tabs_count;
+	short points_left;
+	short tabs_count;
 	std::vector<std::string> tab_titles;
 	std::vector<std::string> tree_image_files;
 
@@ -109,7 +109,7 @@ private:
 	SDL_Color color_bonus;
 	SDL_Color color_penalty;
 
-	int id_by_powerIndex(int power_index);
+	short id_by_powerIndex(short power_index);
 
 public:
 	static MenuPowers *getInstance();
