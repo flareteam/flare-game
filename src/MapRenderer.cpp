@@ -710,23 +710,24 @@ void MapRenderer::renderIsoBackground(SDL_Surface *wheretorender, Point offset) 
 	i = upperright.x / UNITS_PER_TILE - tiles_outside_ofscreen;
 
 	for (unsigned short y = max_tiles_height ; y; --y) {
-		unsigned short tiles_width = 0;
-		if (i < 0) {
-			j += i;
-			tiles_width -= i;
-			i = 0;
+		short tiles_width = 0;
+
+		// make sure the isometric corners are not rendered:
+		if (i < -1) {
+			j += i + 1;
+			tiles_width -= i + 1;
+			i = -1;
+		}
+		short d = j - h;
+		if (d >= 0) {
+			j -= d; tiles_width += d; i += d;
 		}
 		short j_end = std::max((j+i-w+1), std::max(j - max_tiles_width, 0));
 
+		// draw one horizontal line
 		while (j > j_end) {
 			--j; ++i;
 			++tiles_width;
-
-			short d = j - h;
-			if (d >= 0) {
-				j -= d; tiles_width += d; i += d;
-				continue;
-			}
 
 			unsigned short current_tile = background[i][j];
 
@@ -783,12 +784,24 @@ void MapRenderer::renderIsoFrontObjects(vector<Renderable> &r) {
 		r_cursor++;
 
 	for (unsigned short y = max_tiles_height ; y; --y) {
-		unsigned short tiles_width = 0;
-		for (unsigned short x = max_tiles_width; x ; --x) {
+		short tiles_width = 0;
+
+		// make sure the isometric corners are not rendered:
+		if (i < -1) {
+			j += i + 1;
+			tiles_width -= i + 1;
+			i = -1;
+		}
+		short d = j - h;
+		if (d >= 0) {
+			j -= d; tiles_width += d; i += d;
+		}
+		short j_end = std::max((j+i-w+1), std::max(j - max_tiles_width, 0));
+
+		// draw one horizontal line
+		while (j > j_end) {
 			--j; ++i;
 			++tiles_width;
-			if (j >= h || i < 0) continue;
-			if (j < 0 || i >= w) break;
 
 			unsigned short current_tile = object[i][j];
 
