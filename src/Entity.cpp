@@ -188,32 +188,18 @@ void Entity::loadAnimations(const string& filename) {
 				if (duration < 1) duration=1;
 			}
 		}
-		else if (parser.key == "type") {
+		else if (parser.key == "type")
 			type = parser.val;
-		}
-		else if (parser.key == "render_size_x") {
-			if (isInt(parser.val)) {
-				render_size.x = atoi(parser.val.c_str());
-			}
-		}
-		else if (parser.key == "render_size_y") {
-			if (isInt(parser.val)) {
-				render_size.y = atoi(parser.val.c_str());
-			}
-		}
-		else if (parser.key == "render_offset_x") {
-			if (isInt(parser.val)) {
-				render_offset.x = atoi(parser.val.c_str());
-			}
-		}
-		else if (parser.key == "render_offset_y") {
-			if (isInt(parser.val)) {
-				render_offset.y = atoi(parser.val.c_str());
-			}
-		}
-		else if (parser.key == "active_frame") {
-			active_frame = atoi(parser.val.c_str());
-		}
+		else if (parser.key == "render_size_x")
+			render_size.x = toInt(parser.val);
+		else if (parser.key == "render_size_y")
+			render_size.y = toInt(parser.val);
+		else if (parser.key == "render_offset_x")
+			render_offset.x = toInt(parser.val);
+		else if (parser.key == "render_offset_y")
+			render_offset.y = toInt(parser.val);
+		else if (parser.key == "active_frame")
+			active_frame = toInt(parser.val);
 
 		if (name == "") {
 			// This is the first animation

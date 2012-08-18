@@ -32,8 +32,14 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "Utils.h"
 #include <string>
 
-class Animation {
+enum animation_type {
+	NONE,
+	PLAY_ONCE, // just iterates over the images one time. it holds the final image when finished.
+	LOOPED,    // going over the images again and again.
+	BACK_FORTH // iterate from index=0 to maxframe and back again. keeps holding the first image afterwards.
+};
 
+class Animation {
 protected:
 	std::string name;
 
@@ -46,7 +52,7 @@ protected:
 	int position;
 	int frames;
 	int duration;
-	std::string type; // eg. play_once or looped
+	animation_type type;
 	int cur_frame;
 	int disp_frame;
 	int mid_frame;

@@ -28,6 +28,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "Animation.h"
 
+#include <iostream>
+using namespace std;
+
 Animation::Animation()
 	: name("")
 	, sprites(NULL)
@@ -36,7 +39,7 @@ Animation::Animation()
 	, position(0)
 	, frames(0)
 	, duration(0)
-	, type("")
+	, type(NONE)
 	, cur_frame(0)
 	, disp_frame(0)
 	, mid_frame(0)
@@ -61,11 +64,20 @@ void Animation::init(std::string _name,
 	position = _position;
 	frames = _frames;
 	duration = _duration;
-	type = _type;
-	if (type == "play_once" || type == "looped") {
+
+	if (_type == "play_once")
+		type = PLAY_ONCE;
+	else if (_type == "back_forth")
+		type = BACK_FORTH;
+	else if (_type == "looped")
+		type = LOOPED;
+	else
+		cout << "Warning: animation type " << _type << " is unknown" << endl;
+
+	if (type == PLAY_ONCE || type == LOOPED) {
 		max_frame = frames * duration;
 	}
-	else if (type == "back_forth") {
+	else if (type == BACK_FORTH) {
 		mid_frame = frames * duration;
 		max_frame = mid_frame + mid_frame;
 	}
@@ -73,7 +85,7 @@ void Animation::init(std::string _name,
 
 void Animation::advanceFrame() {
 
-	if (type == "play_once") {
+	if (type == PLAY_ONCE) {
 		if (cur_frame < max_frame - 1) {
 			cur_frame++;
 		}
@@ -82,7 +94,7 @@ void Animation::advanceFrame() {
 		}
 		disp_frame = (cur_frame / duration) + position;
 	}
-	else if (type == "looped") {
+	else if (type == LOOPED) {
 		cur_frame++;
 		if (cur_frame == max_frame) {
 			cur_frame = 0;
@@ -92,7 +104,7 @@ void Animation::advanceFrame() {
 		disp_frame = (cur_frame / duration) + position;
 
 	}
-	else if (type == "back_forth") {
+	else if (type == BACK_FORTH) {
 		cur_frame++;
 
 		if (cur_frame == max_frame) {

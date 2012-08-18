@@ -23,6 +23,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "WidgetTooltip.h"
 #include "Settings.h"
 #include "Utils.h"
+#include "UtilsParsing.h"
 
 using namespace std;
 
@@ -33,13 +34,12 @@ WidgetTooltip::WidgetTooltip() {
 	// load tooltip settings from engine config file
 	if (infile.open(mods->locate("engine/tooltips.txt").c_str())) {
 		while (infile.next()) {
-			if (infile.key == "tooltip_offset") {
-				offset = atoi(infile.val.c_str());
-			} else if (infile.key == "tooltip_width") {
-				width = atoi(infile.val.c_str());
-			} else if (infile.key == "tooltip_margin") {
-				margin = atoi(infile.val.c_str());
-			}
+			if (infile.key == "tooltip_offset")
+				offset = toInt(infile.val);
+			else if (infile.key == "tooltip_width")
+				width = toInt(infile.val);
+			else if (infile.key == "tooltip_margin")
+				margin = toInt(infile.val);
 		}
 		infile.close();
 	}
@@ -87,7 +87,7 @@ Point WidgetTooltip::calcPosition(int style, Point pos, Point size) {
 			tip_pos.y = pos.y - offset - size.y;
 		}
 	}
-	
+
 	return tip_pos;
 }
 
@@ -107,13 +107,13 @@ void WidgetTooltip::render(TooltipData &tip, Point pos, int style, SDL_Surface *
 	Point size;
 	size.x = tip.tip_buffer->w;
 	size.y = tip.tip_buffer->h;
-		
+
 	Point tip_pos = calcPosition(style, pos, size);
 
 	SDL_Rect dest;
 	dest.x = tip_pos.x;
 	dest.y = tip_pos.y;
-	
+
 	SDL_BlitSurface(tip.tip_buffer, NULL, target, &dest);
 }
 
@@ -122,29 +122,29 @@ void WidgetTooltip::render(TooltipData &tip, Point pos, int style, SDL_Surface *
  * Instead of doing this each frame, do it once and cache the result.
  */
 void WidgetTooltip::createBuffer(TooltipData &tip) {
-	
+
 	// concat multi-line tooltip, used in determining total display size
 	string fulltext;
 	fulltext = tip.lines[0];
 	for (int i=1; i<tip.num_lines; i++) {
 		fulltext = fulltext + "\n" + tip.lines[i];
 	}
-	
+
 	// calculate the full size to display a multi-line tooltip
 	Point size = font->calc_size(fulltext, width);
-	
+
 	// WARNING: dynamic memory allocation. Be careful of memory leaks.
 	tip.tip_buffer = createAlphaSurface(size.x + margin+margin, size.y + margin+margin);
 
 	// Currently tooltips are always opaque
 	SDL_SetAlpha(tip.tip_buffer, 0, 0);
-	
+
 	// style the tooltip background
 	// currently this is plain black
 	SDL_FillRect(tip.tip_buffer, NULL, 0);
-	
+
 	int cursor_y = margin;
-	
+
 	for (int i=0; i<tip.num_lines; i++) {
 		font->render(tip.lines[i], margin, cursor_y, JUSTIFY_LEFT, tip.tip_buffer, size.x, tip.colors[i]);
 		cursor_y = font->cursor_y;
