@@ -413,6 +413,7 @@ void loadMiscSettings() {
 	ifstream infiles;
 	std::string line, starts_with;
 	infiles.open(mods->locate("engine/elements.txt").c_str(), ios::in);
+	ELEMENTS.clear();
 	if (infiles.is_open()){
 		while (!infiles.eof()) {
 			line = getLine(infiles);
