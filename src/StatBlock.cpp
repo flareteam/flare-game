@@ -158,10 +158,7 @@ StatBlock::StatBlock() {
 	ranged_weapon_power = -1;
 	mental_weapon_power = -1;
 
-	vulnerable.clear();
-	for (unsigned int i=0; i<ELEMENTS.size(); i++) {
-		vulnerable.push_back(100);
-	}
+	vulnerable = std::vector<int>(ELEMENTS.size(), 100);
 
 	gold = 0;
 	death_penalty = false;
