@@ -20,7 +20,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  *
  * The Animation class handles the logic of advancing frames based on the animation type
  * and returning a renderable frame.
- * 
+ *
  * The intention with the class is to keep it as flexible as possible so that the animations
  * can be used not only for character animations but any animated in-game objects.
  */
@@ -55,7 +55,9 @@ protected:
 	int active_frame;
 
 public:
-	Animation(std::string, Point _render_size, Point _render_offset, int position, int frames, int duration, std::string, int _active_frame);
+	Animation();
+
+	void init(std::string, Point _render_size, Point _render_offset, int position, int frames, int duration, std::string, int _active_frame);
 
 	// advance the animation one frame
 	void advanceFrame();
@@ -64,15 +66,15 @@ public:
 
 	int getCurFrame() { return cur_frame; }
 	int getMaxFrame() { return max_frame; }
-	
+
 	bool isFirstFrame() { return cur_frame == 1; }
 	bool isMiddleFrame() { return cur_frame == mid_frame; }
 	bool isLastFrame() { return cur_frame == (max_frame -1); }
-	
+
 	//bool isActiveFrame() { return cur_frame == active_frame; }
 	bool isActiveFrame() { return cur_frame == max_frame /2; }
-	
-	
+
+
 	// in a looped animation returns how many times it's been played
 	// in a play once animation returns 1 when the animation is finished
 	int getTimesPlayed() { return timesPlayed; }

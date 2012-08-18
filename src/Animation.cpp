@@ -1,5 +1,6 @@
 /*
 Copyright © 2011-2012 kitano
+Copyright © 2012 Stefan Beller
 
 This file is part of FLARE.
 
@@ -27,19 +28,46 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "Animation.h"
 
-Animation::Animation(std::string _name, Point _render_size, Point _render_offset, int _position, int _frames, int _duration, std::string _type, int /*_active_frame*/)
-	: name(_name), sprites(NULL),
-	  render_size(_render_size), render_offset(_render_offset),
-	  position(_position), frames(_frames), duration(_duration), type(_type),
-	  cur_frame(0), disp_frame(0), mid_frame(0), max_frame(0), timesPlayed(0), active_frame(0) {
+Animation::Animation()
+	: name("")
+	, sprites(NULL)
+	, render_size(Point())
+	, render_offset(Point())
+	, position(0)
+	, frames(0)
+	, duration(0)
+	, type("")
+	, cur_frame(0)
+	, disp_frame(0)
+	, mid_frame(0)
+	, max_frame(0)
+	, timesPlayed(0)
+	, active_frame(0)
+{
+}
 
+void Animation::init(std::string _name,
+				Point _render_size,
+				Point _render_offset,
+				int _position,
+				int _frames,
+				int _duration,
+				std::string _type,
+				int /*_active_frame*/)
+{
+	name = _name;
+	render_size = _render_size;
+	render_offset = _render_offset;
+	position = _position;
+	frames = _frames;
+	duration = _duration;
+	type = _type;
 	if (type == "play_once" || type == "looped") {
 		max_frame = frames * duration;
 	}
 	else if (type == "back_forth") {
 		mid_frame = frames * duration;
 		max_frame = mid_frame + mid_frame;
-
 	}
 }
 
@@ -72,14 +100,12 @@ void Animation::advanceFrame() {
 			//animation has completed one loop
 			timesPlayed++;
 		}
-
 		if (cur_frame >= mid_frame) {
 			disp_frame = (max_frame -1 - cur_frame) / duration + position;
 		}
 		else {
 			disp_frame = cur_frame / duration + position;
 		}
-
 	}
 }
 

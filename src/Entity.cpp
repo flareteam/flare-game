@@ -160,7 +160,9 @@ void Entity::loadAnimations(const string& filename) {
 	do {
 		// create the animation if finished parsing a section
 		if (parser.new_section) {
-			animations.push_back(new Animation(name, render_size, render_offset,  position, frames, duration, type, active_frame));
+			Animation *a = new Animation();
+			a->init(name, render_size, render_offset,  position, frames, duration, type, active_frame);
+			animations.push_back(a);
 		}
 
 		if (parser.key == "position") {
@@ -222,7 +224,9 @@ void Entity::loadAnimations(const string& filename) {
 	while (parser.next());
 
 	// add final animation
-	animations.push_back(new Animation(name, render_size, render_offset, position, frames, duration, type, active_frame));
+	Animation *a = new Animation();
+	a->init(name, render_size, render_offset, position, frames, duration, type, active_frame);
+	animations.push_back(a);
 
 
 	// set the default animation
