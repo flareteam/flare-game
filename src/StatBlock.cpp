@@ -135,9 +135,9 @@ StatBlock::StatBlock() {
 	FileParser infile;
 	infile.open(mods->locate("engine/xp_table.txt"));
 	while(infile.next()) {
-	    xp_table[atoi(infile.key.c_str()) - 1] = atoi(infile.val.c_str());
+		xp_table[toInt(infile.key) - 1] = toInt(infile.val);
 	}
-	max_spendable_stat_points = atoi(infile.key.c_str());
+	max_spendable_stat_points = toInt(infile.key);
 	infile.close();
 
 	loot_chance = 50;
@@ -158,10 +158,7 @@ StatBlock::StatBlock() {
 	ranged_weapon_power = -1;
 	mental_weapon_power = -1;
 
-	vulnerable.clear();
-	for (unsigned int i=0; i<ELEMENTS.size(); i++) {
-		vulnerable.push_back(100);
-	}
+	vulnerable = std::vector<int>(ELEMENTS.size(), 100);
 
 	gold = 0;
 	death_penalty = false;
@@ -211,7 +208,7 @@ StatBlock::StatBlock() {
 	crit_per_level = 1;
 
 	// load static effects animation settings from engine config file
-	if (infile.open(mods->locate("engine/effects.txt").c_str())) {
+	if (infile.open(mods->locate("engine/effects.txt"))) {
 		while (infile.next()) {
 			infile.val = infile.val + ',';
 
@@ -249,7 +246,7 @@ void StatBlock::load(const string& filename) {
 
 	if (infile.open(mods->locate(filename))) {
 		while (infile.next()) {
-			if (isInt(infile.val)) num = atoi(infile.val.c_str());
+			if (isInt(infile.val)) num = toInt(infile.val);
 
 			if (infile.key == "name") name = msg->get(infile.val);
 			else if (infile.key == "humanoid") {
@@ -272,7 +269,7 @@ void StatBlock::load(const string& filename) {
 						item_class_prob_sum++;
 					}
 					else {
-						num = atoi(str.c_str());
+						num = toInt(str);
 						item_class_prob[item_classes.size()-1] = num;
 						item_class_prob_sum += num - 1; // one was already added, so add one less
 					}
@@ -283,7 +280,7 @@ void StatBlock::load(const string& filename) {
 			else if (infile.key == "quest_loot") {
 				quest_loot_requires = infile.nextValue();
 				quest_loot_not = infile.nextValue();
-				quest_loot_id = atoi(infile.nextValue().c_str());
+				quest_loot_id = toInt(infile.nextValue());
 			}
 			// combat stats
 			else if (infile.key == "hp") {
@@ -615,7 +612,7 @@ void StatBlock::loadHeroStats() {
 	if (infile.open(mods->locate("engine/stats.txt"))) {
 	  while (infile.next()) {
 
-		value = atoi(infile.val.c_str());
+		value = toInt(infile.val);
 
 		if (infile.key == "max_points_per_stat") {
 			max_points_per_stat = value;

@@ -160,58 +160,40 @@ void Entity::loadAnimations(const string& filename) {
 	do {
 		// create the animation if finished parsing a section
 		if (parser.new_section) {
-			animations.push_back(new Animation(name, render_size, render_offset,  position, frames, duration, type, active_frame));
+			Animation *a = new Animation();
+			a->init(name, render_size, render_offset,  position, frames, duration, type, active_frame);
+			animations.push_back(a);
 		}
 
 		if (parser.key == "position") {
-			if (isInt(parser.val)) {
-				position = atoi(parser.val.c_str());
-			}
+			position = toInt(parser.val);
 		}
 		else if (parser.key == "frames") {
-			if (isInt(parser.val)) {
-				frames = atoi(parser.val.c_str());
-			}
+			frames = toInt(parser.val);
 		}
 		else if (parser.key == "duration") {
-			if (isInt(parser.val)) {
-				int ms_per_frame = atoi(parser.val.c_str());
+			int ms_per_frame = toInt(parser.val);
 
-				duration = (int)round((float)ms_per_frame / (1000.0 / (float)FRAMES_PER_SEC));
+			duration = (int)round((float)ms_per_frame / (1000.0 / (float)FRAMES_PER_SEC));
 
-				// adjust duration according to the entity's animation speed
-				duration = (duration * 100) / stats.animationSpeed;
+			// adjust duration according to the entity's animation speed
+			duration = (duration * 100) / stats.animationSpeed;
 
-				// TEMP: if an animation is too fast, display one frame per fps anyway
-				if (duration < 1) duration=1;
-			}
+			// TEMP: if an animation is too fast, display one frame per fps anyway
+			if (duration < 1) duration=1;
 		}
-		else if (parser.key == "type") {
+		else if (parser.key == "type")
 			type = parser.val;
-		}
-		else if (parser.key == "render_size_x") {
-			if (isInt(parser.val)) {
-				render_size.x = atoi(parser.val.c_str());
-			}
-		}
-		else if (parser.key == "render_size_y") {
-			if (isInt(parser.val)) {
-				render_size.y = atoi(parser.val.c_str());
-			}
-		}
-		else if (parser.key == "render_offset_x") {
-			if (isInt(parser.val)) {
-				render_offset.x = atoi(parser.val.c_str());
-			}
-		}
-		else if (parser.key == "render_offset_y") {
-			if (isInt(parser.val)) {
-				render_offset.y = atoi(parser.val.c_str());
-			}
-		}
-		else if (parser.key == "active_frame") {
-			active_frame = atoi(parser.val.c_str());
-		}
+		else if (parser.key == "render_size_x")
+			render_size.x = toInt(parser.val);
+		else if (parser.key == "render_size_y")
+			render_size.y = toInt(parser.val);
+		else if (parser.key == "render_offset_x")
+			render_offset.x = toInt(parser.val);
+		else if (parser.key == "render_offset_y")
+			render_offset.y = toInt(parser.val);
+		else if (parser.key == "active_frame")
+			active_frame = toInt(parser.val);
 
 		if (name == "") {
 			// This is the first animation
@@ -222,7 +204,9 @@ void Entity::loadAnimations(const string& filename) {
 	while (parser.next());
 
 	// add final animation
-	animations.push_back(new Animation(name, render_size, render_offset, position, frames, duration, type, active_frame));
+	Animation *a = new Animation();
+	a->init(name, render_size, render_offset, position, frames, duration, type, active_frame);
+	animations.push_back(a);
 
 
 	// set the default animation

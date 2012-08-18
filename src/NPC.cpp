@@ -25,8 +25,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "ItemManager.h"
 #include "MapRenderer.h"
 #include "SharedResources.h"
-
-#include <sstream>
+#include "UtilsParsing.h"
 
 using namespace std;
 
@@ -85,24 +84,24 @@ void NPC::load(const string& npc_id, int hero_level) {
 				else if (infile.key == "requires_not")
 					e.s = infile.val;
 				else if (infile.key == "requires_item")
-					e.x = atoi(infile.val.c_str());
+					e.x = toInt(infile.val);
 				else if (infile.key == "him" || infile.key == "her")
 					e.s = msg->get(infile.val);
 				else if (infile.key == "you")
 					e.s = msg->get(infile.val);
 				else if (infile.key == "reward_item") {
 					// id,count
-					e.x = atoi(infile.nextValue().c_str());
-					e.y = atoi(infile.val.c_str());
+					e.x = toInt(infile.nextValue());
+					e.y = toInt(infile.val);
 				}
 				else if (infile.key == "reward_xp")
-					e.x = atoi(infile.val.c_str());
+					e.x = toInt(infile.val);
 				else if (infile.key == "restore")
 					e.s = infile.val;
 				else if (infile.key == "reward_currency")
-					e.x = atoi(infile.val.c_str());
+					e.x = toInt(infile.val);
 				else if (infile.key == "remove_item")
-					e.x = atoi(infile.val.c_str());
+					e.x = toInt(infile.val);
 				else if (infile.key == "set_status")
 					e.s = infile.val;
 				else if (infile.key == "unset_status")
@@ -115,29 +114,27 @@ void NPC::load(const string& npc_id, int hero_level) {
 					name = msg->get(infile.val);
 				}
 				else if (infile.key == "level") {
-					if (infile.val == "hero") {
+					if (infile.val == "hero")
 						level = hero_level;
-					}
-					else {
-						level = atoi(infile.val.c_str());
-					}
+					else
+						level = toInt(infile.val);
 				}
 				else if (infile.key == "gfx") {
 					filename_sprites = infile.val;
 				}
 				else if (infile.key == "render_size") {
-					render_size.x = atoi(infile.nextValue().c_str());
-					render_size.y = atoi(infile.val.c_str());
+					render_size.x = toInt(infile.nextValue());
+					render_size.y = toInt(infile.val);
 				}
 				else if (infile.key == "render_offset") {
-					render_offset.x = atoi(infile.nextValue().c_str());
-					render_offset.y = atoi(infile.val.c_str());
+					render_offset.x = toInt(infile.nextValue());
+					render_offset.y = toInt(infile.val);
 				}
 				else if (infile.key == "anim_frames") {
-					anim_frames = atoi(infile.val.c_str());
+					anim_frames = toInt(infile.val);
 				}
 				else if (infile.key == "anim_duration") {
-					anim_duration = atoi(infile.val.c_str());
+					anim_duration = toInt(infile.val);
 				}
 
 				// handle talkers
@@ -155,12 +152,12 @@ void NPC::load(const string& npc_id, int hero_level) {
 				else if (infile.key == "constant_stock") {
 					stack.quantity = 1;
 					while (infile.val != "") {
-						stack.item = atoi(infile.nextValue().c_str());
+						stack.item = toInt(infile.nextValue());
 						stock.add(stack);
 					}
 				}
 				else if (infile.key == "random_stock") {
-					random_stock = atoi(infile.val.c_str());
+					random_stock = toInt(infile.val);
 				}
 
 				// handle vocals
@@ -288,9 +285,6 @@ int NPC::chooseDialogNode() {
  * Return false if the dialog has ended
  */
 bool NPC::processDialog(unsigned int dialog_node, unsigned int &event_cursor) {
-
-	stringstream ss;
-	ss.str("");
 
 	while (event_cursor < dialog[dialog_node].size()) {
 

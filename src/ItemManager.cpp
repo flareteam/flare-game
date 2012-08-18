@@ -25,6 +25,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "Settings.h"
 #include "StatBlock.h"
 #include "UtilsFileSystem.h"
+#include "UtilsParsing.h"
 #include "WidgetLabel.h"
 
 #include <sstream>
@@ -84,7 +85,7 @@ void ItemManager::load(const string& filename) {
 
 		while (infile.next()) {
 			if (infile.key == "id") {
-				id = atoi(infile.val.c_str());
+				id = toInt(infile.val);
 				if (id >= items.size()) {
 					// *2 to amortize the resizing to O(log(n)).
 					items.resize((2*id) + 1);
@@ -95,10 +96,10 @@ void ItemManager::load(const string& filename) {
 			else if (infile.key == "name")
 				items[id].name = msg->get(infile.val);
 			else if (infile.key == "level")
-				items[id].level = atoi(infile.val.c_str());
+				items[id].level = toInt(infile.val);
 			else if (infile.key == "icon") {
-				items[id].icon_small = atoi(infile.nextValue().c_str());
-				items[id].icon_large = atoi(infile.nextValue().c_str());
+				items[id].icon_small = toInt(infile.nextValue());
+				items[id].icon_large = toInt(infile.nextValue());
 			}
 			else if (infile.key == "quality") {
 				if (infile.val == "low")
@@ -125,16 +126,16 @@ void ItemManager::load(const string& filename) {
 					items[id].type = ITEM_TYPE_QUEST;
 			}
 			else if (infile.key == "dmg") {
-				items[id].dmg_min = atoi(infile.nextValue().c_str());
+				items[id].dmg_min = toInt(infile.nextValue());
 				if (infile.val.length() > 0)
-					items[id].dmg_max = atoi(infile.nextValue().c_str());
+					items[id].dmg_max = toInt(infile.nextValue());
 				else
 					items[id].dmg_max = items[id].dmg_min;
 			}
 			else if (infile.key == "abs") {
-				items[id].abs_min = atoi(infile.nextValue().c_str());
+				items[id].abs_min = toInt(infile.nextValue());
 				if (infile.val.length() > 0)
-					items[id].abs_max = atoi(infile.nextValue().c_str());
+					items[id].abs_max = toInt(infile.nextValue());
 				else
 					items[id].abs_max = items[id].abs_min;
 			}
@@ -148,11 +149,11 @@ void ItemManager::load(const string& filename) {
 					items[id].req_stat = REQUIRES_OFF;
 				else if (s == "d")
 					items[id].req_stat = REQUIRES_DEF;
-				items[id].req_val = atoi(infile.nextValue().c_str());
+				items[id].req_val = toInt(infile.nextValue());
 			}
 			else if (infile.key == "bonus") {
 				items[id].bonus_stat.push_back(infile.nextValue());
-				items[id].bonus_val.push_back(atoi(infile.nextValue().c_str()));
+				items[id].bonus_val.push_back(toInt(infile.nextValue()));
 			}
 			else if (infile.key == "sfx") {
 				if (infile.val == "book")
@@ -185,21 +186,21 @@ void ItemManager::load(const string& filename) {
 			else if (infile.key == "loot_animation")
 				items[id].loot_animation = infile.val;
 			else if (infile.key == "power")
-				items[id].power = atoi(infile.val.c_str());
+				items[id].power = toInt(infile.val);
 			else if (infile.key == "power_mod")
-				items[id].power_mod = atoi(infile.val.c_str());
+				items[id].power_mod = toInt(infile.val);
 			else if (infile.key == "power_desc")
 				items[id].power_desc = msg->get(infile.val);
 			else if (infile.key == "price")
-				items[id].price = atoi(infile.val.c_str());
+				items[id].price = toInt(infile.val);
 			else if (infile.key == "price_sell")
-				items[id].price_sell = atoi(infile.val.c_str());
+				items[id].price_sell = toInt(infile.val);
 			else if (infile.key == "max_quantity")
-				items[id].max_quantity = atoi(infile.val.c_str());
+				items[id].max_quantity = toInt(infile.val);
 			else if (infile.key == "rand_loot")
-				items[id].rand_loot = atoi(infile.val.c_str());
+				items[id].rand_loot = toInt(infile.val);
 			else if (infile.key == "rand_vendor")
-				items[id].rand_vendor = atoi(infile.val.c_str());
+				items[id].rand_vendor = toInt(infile.val);
 			else if (infile.key == "pickup_status")
 				items[id].pickup_status = infile.val;
 			else if (infile.key == "stepfx")

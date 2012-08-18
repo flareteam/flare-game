@@ -25,6 +25,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "UtilsFileSystem.h"
 #include "UtilsParsing.h"
 
+#include <iostream>
 using namespace std;
 
 MapRenderer::MapRenderer(CampaignManager *_camp) {
@@ -72,7 +73,7 @@ void MapRenderer::playSFX(string filename) {
 		Mix_FreeChunk(sfx);
 		sfx = NULL;
 		if (audio) {
-			sfx = Mix_LoadWAV((mods->locate(filename)).c_str());
+			sfx = Mix_LoadWAV(mods->locate(filename).c_str());
 			sfx_filename = filename;
 		}
 	}
@@ -183,10 +184,10 @@ int MapRenderer::load(string filename) {
 					this->title = msg->get(infile.val);
 				}
 				else if (infile.key == "width") {
-					this->w = atoi(infile.val.c_str());
+					this->w = toInt(infile.val);
 				}
 				else if (infile.key == "height") {
-					this->h = atoi(infile.val.c_str());
+					this->h = toInt(infile.val);
 				}
 				else if (infile.key == "tileset") {
 					this->tileset = infile.val;
@@ -201,9 +202,9 @@ int MapRenderer::load(string filename) {
 					}
 				}
 				else if (infile.key == "location") {
-					spawn.x = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
-					spawn.y = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
-					spawn_dir = atoi(infile.nextValue().c_str());
+					spawn.x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+					spawn.y = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+					spawn_dir = toInt(infile.nextValue());
 				}
 			}
 			else if (infile.section == "layer") {
@@ -249,11 +250,11 @@ int MapRenderer::load(string filename) {
 					new_enemy.type = infile.val;
 				}
 				else if (infile.key == "location") {
-					new_enemy.pos.x = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
-					new_enemy.pos.y = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+					new_enemy.pos.x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+					new_enemy.pos.y = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
 				}
 				else if (infile.key == "direction") {
-					new_enemy.direction = atoi(infile.val.c_str());
+					new_enemy.direction = toInt(infile.val);
 				}
 				else if (infile.key == "waypoints") {
 					string none = "";
@@ -262,18 +263,18 @@ int MapRenderer::load(string filename) {
 
 					while (a != none) {
 						Point p;
-						p.x = atoi(a.c_str()) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
-						p.y = atoi(b.c_str()) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
+						p.x = toInt(a) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
+						p.y = toInt(b) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
 						new_enemy.waypoints.push(p);
 						a = infile.nextValue();
 						b = infile.nextValue();
 					}
 				} else if (infile.key == "wander_area") {
 					new_enemy.wander = true;
-					new_enemy.wander_area.x = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
-					new_enemy.wander_area.y = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
-					new_enemy.wander_area.w = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
-					new_enemy.wander_area.h = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
+					new_enemy.wander_area.x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
+					new_enemy.wander_area.y = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
+					new_enemy.wander_area.w = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
+					new_enemy.wander_area.h = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
 				}
 			}
 			else if (infile.section == "enemygroup") {
@@ -281,21 +282,21 @@ int MapRenderer::load(string filename) {
 					new_group.category = infile.val;
 				}
 				else if (infile.key == "level") {
-					new_group.levelmin = atoi(infile.nextValue().c_str());
-					new_group.levelmax = atoi(infile.nextValue().c_str());
+					new_group.levelmin = toInt(infile.nextValue());
+					new_group.levelmax = toInt(infile.nextValue());
 				}
 				else if (infile.key == "location") {
-					new_group.pos.x = atoi(infile.nextValue().c_str());
-					new_group.pos.y = atoi(infile.nextValue().c_str());
-					new_group.area.x = atoi(infile.nextValue().c_str());
-					new_group.area.y = atoi(infile.nextValue().c_str());
+					new_group.pos.x = toInt(infile.nextValue());
+					new_group.pos.y = toInt(infile.nextValue());
+					new_group.area.x = toInt(infile.nextValue());
+					new_group.area.y = toInt(infile.nextValue());
 				}
 				else if (infile.key == "number") {
-					new_group.numbermin = atoi(infile.nextValue().c_str());
-					new_group.numbermax = atoi(infile.nextValue().c_str());
+					new_group.numbermin = toInt(infile.nextValue());
+					new_group.numbermax = toInt(infile.nextValue());
 				}
 				else if (infile.key == "chance") {
-					new_group.chance = atoi(infile.nextValue().c_str()) / 100.0f;
+					new_group.chance = toInt(infile.nextValue()) / 100.0f;
 					if (new_group.chance > 1.0f) {
 						new_group.chance = 1.0f;
 					}
@@ -309,8 +310,8 @@ int MapRenderer::load(string filename) {
 					new_npc.id = infile.val;
 				}
 				else if (infile.key == "location") {
-					new_npc.pos.x = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
-					new_npc.pos.y = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+					new_npc.pos.x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+					new_npc.pos.y = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
 				}
 			}
 			else if (infile.section == "event") {
@@ -318,38 +319,38 @@ int MapRenderer::load(string filename) {
 					events.back().type = infile.val;
 				}
 				else if (infile.key == "location") {
-					events.back().location.x = atoi(infile.nextValue().c_str());
-					events.back().location.y = atoi(infile.nextValue().c_str());
-					events.back().location.w = atoi(infile.nextValue().c_str());
-					events.back().location.h = atoi(infile.nextValue().c_str());
+					events.back().location.x = toInt(infile.nextValue());
+					events.back().location.y = toInt(infile.nextValue());
+					events.back().location.w = toInt(infile.nextValue());
+					events.back().location.h = toInt(infile.nextValue());
 				}
 				else if (infile.key == "hotspot") {
-					events.back().hotspot.x = atoi(infile.nextValue().c_str());
-					events.back().hotspot.y = atoi(infile.nextValue().c_str());
-					events.back().hotspot.w = atoi(infile.nextValue().c_str());
-					events.back().hotspot.h = atoi(infile.nextValue().c_str());
+					events.back().hotspot.x = toInt(infile.nextValue());
+					events.back().hotspot.y = toInt(infile.nextValue());
+					events.back().hotspot.w = toInt(infile.nextValue());
+					events.back().hotspot.h = toInt(infile.nextValue());
 				}
 				else if (infile.key == "tooltip") {
 					events.back().tooltip = msg->get(infile.val);
 				}
 				else if (infile.key == "power_path") {
-					events.back().power_src.x = atoi(infile.nextValue().c_str());
-					events.back().power_src.y = atoi(infile.nextValue().c_str());
+					events.back().power_src.x = toInt(infile.nextValue());
+					events.back().power_src.y = toInt(infile.nextValue());
 					string dest = infile.nextValue();
 					if (dest == "hero") {
 						events.back().targetHero = true;
 					}
 					else {
-						events.back().power_dest.x = atoi(dest.c_str());
-						events.back().power_dest.y = atoi(infile.nextValue().c_str());
+						events.back().power_dest.x = toInt(dest);
+						events.back().power_dest.y = toInt(infile.nextValue());
 					}
 				}
 				else if (infile.key == "power_damage") {
-					events.back().damagemin = atoi(infile.nextValue().c_str());
-					events.back().damagemax = atoi(infile.nextValue().c_str());
+					events.back().damagemin = toInt(infile.nextValue());
+					events.back().damagemax = toInt(infile.nextValue());
 				}
 				else if (infile.key == "cooldown") {
-					events.back().cooldown = atoi(infile.val.c_str());
+					events.back().cooldown = toInt(infile.val);
 				}
 				else {
 					// new event component
@@ -358,18 +359,18 @@ int MapRenderer::load(string filename) {
 
 					if (infile.key == "intermap") {
 						e->s = infile.nextValue();
-						e->x = atoi(infile.nextValue().c_str());
-						e->y = atoi(infile.nextValue().c_str());
+						e->x = toInt(infile.nextValue());
+						e->y = toInt(infile.nextValue());
 					}
 					else if (infile.key == "intramap") {
-						e->x = atoi(infile.nextValue().c_str());
-						e->y = atoi(infile.nextValue().c_str());
+						e->x = toInt(infile.nextValue());
+						e->y = toInt(infile.nextValue());
 					}
 					else if (infile.key == "mapmod") {
 						e->s = infile.nextValue();
-						e->x = atoi(infile.nextValue().c_str());
-						e->y = atoi(infile.nextValue().c_str());
-						e->z = atoi(infile.nextValue().c_str());
+						e->x = toInt(infile.nextValue());
+						e->y = toInt(infile.nextValue());
+						e->z = toInt(infile.nextValue());
 
 						// add repeating mapmods
 						string repeat_val = infile.nextValue();
@@ -378,9 +379,9 @@ int MapRenderer::load(string filename) {
 							e = &events.back().components[events.back().comp_num];
 							e->type = infile.key;
 							e->s = repeat_val;
-							e->x = atoi(infile.nextValue().c_str());
-							e->y = atoi(infile.nextValue().c_str());
-							e->z = atoi(infile.nextValue().c_str());
+							e->x = toInt(infile.nextValue());
+							e->y = toInt(infile.nextValue());
+							e->z = toInt(infile.nextValue());
 
 							repeat_val = infile.nextValue();
 						}
@@ -390,9 +391,9 @@ int MapRenderer::load(string filename) {
 					}
 					else if (infile.key == "loot") {
 						e->s = infile.nextValue();
-						e->x = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
-						e->y = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
-						e->z = atoi(infile.nextValue().c_str());
+						e->x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+						e->y = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+						e->z = toInt(infile.nextValue());
 
 						// add repeating loot
 						string repeat_val = infile.nextValue();
@@ -401,9 +402,9 @@ int MapRenderer::load(string filename) {
 							e = &events.back().components[events.back().comp_num];
 							e->type = infile.key;
 							e->s = repeat_val;
-							e->x = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
-							e->y = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
-							e->z = atoi(infile.nextValue().c_str());
+							e->x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+							e->y = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+							e->z = toInt(infile.nextValue());
 
 							repeat_val = infile.nextValue();
 						}
@@ -412,7 +413,7 @@ int MapRenderer::load(string filename) {
 						e->s = msg->get(infile.val);
 					}
 					else if (infile.key == "shakycam") {
-						e->x = atoi(infile.val.c_str());
+						e->x = toInt(infile.val);
 					}
 					else if (infile.key == "requires_status") {
 						e->s = infile.nextValue();
@@ -443,7 +444,7 @@ int MapRenderer::load(string filename) {
 						}
 					}
 					else if (infile.key == "requires_item") {
-						e->x = atoi(infile.nextValue().c_str());
+						e->x = toInt(infile.nextValue());
 
 						// add repeating requires_item
 						string repeat_val = infile.nextValue();
@@ -451,7 +452,7 @@ int MapRenderer::load(string filename) {
 							events.back().comp_num++;
 							e = &events.back().components[events.back().comp_num];
 							e->type = infile.key;
-							e->x = atoi(repeat_val.c_str());
+							e->x = toInt(repeat_val);
 
 							repeat_val = infile.nextValue();
 						}
@@ -485,7 +486,7 @@ int MapRenderer::load(string filename) {
 						}
 					}
 					else if (infile.key == "remove_item") {
-						e->x = atoi(infile.nextValue().c_str());
+						e->x = toInt(infile.nextValue());
 
 						// add repeating remove_item
 						string repeat_val = infile.nextValue();
@@ -493,22 +494,22 @@ int MapRenderer::load(string filename) {
 							events.back().comp_num++;
 							e = &events.back().components[events.back().comp_num];
 							e->type = infile.key;
-							e->x = atoi(repeat_val.c_str());
+							e->x = toInt(repeat_val);
 
 							repeat_val = infile.nextValue();
 						}
 					}
 					else if (infile.key == "reward_xp") {
-						e->x = atoi(infile.val.c_str());
+						e->x = toInt(infile.val);
 					}
 					else if (infile.key == "power") {
-						e->x = atoi(infile.val.c_str());
+						e->x = toInt(infile.val);
 					}
 					else if (infile.key == "spawn") {
 
 						e->s = infile.nextValue();
-						e->x = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
-						e->y = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+						e->x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+						e->y = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
 
 						// add repeating spawn
 						string repeat_val = infile.nextValue();
@@ -518,8 +519,8 @@ int MapRenderer::load(string filename) {
 							e->type = infile.key;
 
 							e->s = repeat_val;
-							e->x = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
-							e->y = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+							e->x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+							e->y = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
 
 							repeat_val = infile.nextValue();
 						}
@@ -567,9 +568,9 @@ void MapRenderer::loadMusic() {
 		music = NULL;
 	}
 	if (audio && MUSIC_VOLUME) {
-		music = Mix_LoadMUS((mods->locate("music/" + this->music_filename)).c_str());
+		music = Mix_LoadMUS(mods->locate("music/" + this->music_filename).c_str());
 		if(!music)
-			printf("Mix_LoadMUS: %s\n", Mix_GetError());
+			cout << "Mix_LoadMUS: "<< Mix_GetError()<<endl;
 	}
 
 	if (music) {

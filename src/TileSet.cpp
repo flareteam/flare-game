@@ -119,7 +119,7 @@ void TileSet::load(const std::string& filename) {
 			}
 			else if (infile.key == "animation") {
 				int frame = 0;
-				unsigned TILE_ID = atoi(infile.nextValue().c_str());
+				unsigned TILE_ID = toInt(infile.nextValue());
 
 				if (TILE_ID >= anim.size())
 					anim.resize(TILE_ID + 1);
@@ -129,9 +129,9 @@ void TileSet::load(const std::string& filename) {
 					anim[TILE_ID].frames++;
 					anim[TILE_ID].pos.resize(frame + 1);
 					anim[TILE_ID].frame_duration.resize(frame + 1);
-					anim[TILE_ID].pos[frame].x = atoi(repeat_val.c_str());
-					anim[TILE_ID].pos[frame].y = atoi(infile.nextValue().c_str());
-					anim[TILE_ID].frame_duration[frame] = atoi(infile.nextValue().c_str());
+					anim[TILE_ID].pos[frame].x = toInt(repeat_val);
+					anim[TILE_ID].pos[frame].y = toInt(infile.nextValue());
+					anim[TILE_ID].frame_duration[frame] = toInt(infile.nextValue());
 
 					frame++;
 					repeat_val = infile.nextValue();

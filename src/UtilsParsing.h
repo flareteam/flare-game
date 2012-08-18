@@ -37,5 +37,6 @@ std::string getLine(std::ifstream& infile);
 bool tryParseValue(const std::type_info & type, const char * value, void * output);
 bool tryParseValue(const std::type_info & type, const std::string & value, void * output);
 std::string toString(const std::type_info & type, void * value);
+int toInt(const std::string& s, int default_value = 0);
 
 #endif
