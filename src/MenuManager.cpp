@@ -310,6 +310,8 @@ void MenuManager::logic() {
 			chr->visible = true;
 			if (sfx_open)
 				Mix_PlayChannel(-1, sfx_open, 0);
+			// Make sure the stat list isn't scrolled when we open the character menu
+			inpt->resetScroll();
 		}
 	}
 
@@ -325,6 +327,8 @@ void MenuManager::logic() {
 			log->visible = true;
 			if (sfx_open)
 				Mix_PlayChannel(-1, sfx_open, 0);
+			// Make sure the log isn't scrolled when we open the log menu
+			inpt->resetScroll();
 		}
 	}
 

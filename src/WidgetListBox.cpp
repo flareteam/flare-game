@@ -109,15 +109,14 @@ bool WidgetListBox::checkClick(int x, int y) {
 	if (isWithin(scroll_area,mouse)) {
 		if (inpt->scroll_up) {
 			scrollUp();
-			inpt->scroll_up = false;
+			inpt->resetScroll();
 		}
 		if (inpt->scroll_down) {
 			scrollDown();
-			inpt->scroll_down = false;
+			inpt->resetScroll();
 		}
 	} else {
-		inpt->scroll_up = false;
-		inpt->scroll_down = false;
+		inpt->resetScroll();
 	}
 
 	// check ScrollBar clicks
