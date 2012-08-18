@@ -223,7 +223,7 @@ void MenuPowers::renderIcon(int icon_id, int x, int y) {
 	SDL_BlitSurface(icons, &icon_src, screen, &icon_dest);
 }
 
-int MenuPowers::id_by_powerIndex(int power_index) {
+short MenuPowers::id_by_powerIndex(short power_index) {
 	// Find cell with our power
 	for (unsigned i=0; i<power_cell.size(); i++)
 		if (power_cell[i].id == power_index)
@@ -295,11 +295,11 @@ bool MenuPowers::powerUnlockable(int power_index) {
  */
 int MenuPowers::click(Point mouse) {
 
-	// if we have tabCOntrol
+	// if we have tabControl
 	if (tabs_count > 1) {
 		int active_tab = tabControl->getActiveTab();
 		for (unsigned i=0; i<power_cell.size(); i++) {
-			if (isWithin(slots[i], mouse) && (power_cell[i].id != -1) && (power_cell[i].tab == active_tab)) {
+			if (isWithin(slots[i], mouse) && (power_cell[i].tab == active_tab)) {
 				if (requirementsMet(power_cell[i].id)) return power_cell[i].id;
 				else return -1;
 			}
@@ -307,7 +307,7 @@ int MenuPowers::click(Point mouse) {
 	// if have don't have tabs
 	} else {
 		for (unsigned i=0; i<power_cell.size(); i++) {
-			if (isWithin(slots[i], mouse) && (power_cell[i].id != -1)) {
+			if (isWithin(slots[i], mouse)) {
 				if (requirementsMet(power_cell[i].id)) return power_cell[i].id;
 				else return -1;
 			}
@@ -324,7 +324,7 @@ void MenuPowers::unlock_click(Point mouse) {
 	if (tabs_count > 1) {
 		int active_tab = tabControl->getActiveTab();
 		for (unsigned i=0; i<power_cell.size(); i++) {
-			if (isWithin(slots[i], mouse) && (power_cell[i].id != -1)
+			if (isWithin(slots[i], mouse)
 					&& (powerUnlockable(power_cell[i].id)) && points_left > 0
 					&& power_cell[i].requires_point && power_cell[i].tab == active_tab) {
 				powers_list.push_back(power_cell[i].id);
@@ -334,7 +334,7 @@ void MenuPowers::unlock_click(Point mouse) {
 	// if have don't have tabs
 	} else {
 		for (unsigned i=0; i<power_cell.size(); i++) {
-			if (isWithin(slots[i], mouse) && (power_cell[i].id != -1)
+			if (isWithin(slots[i], mouse)
 					&& (powerUnlockable(power_cell[i].id))
 					&& points_left > 0 && power_cell[i].requires_point) {
 				powers_list.push_back(power_cell[i].id);
@@ -433,7 +433,7 @@ TooltipData MenuPowers::checkTooltip(Point mouse) {
 
 			if ((tabs_count > 1) && (tabControl->getActiveTab() != power_cell[i].tab)) continue;
 
-			if (isWithin(slots[i], mouse) && (power_cell[i].id != -1)) {
+			if (isWithin(slots[i], mouse)) {
 				tip.lines[tip.num_lines++] = powers->powers[power_cell[i].id].name;
 				tip.lines[tip.num_lines++] = powers->powers[power_cell[i].id].description;
 
@@ -589,7 +589,7 @@ void MenuPowers::renderPowers(int tab_num) {
 		bool power_in_vector = false;
 
 		// Continue if slot is not filled with data
-		if ((power_cell[i].id == -1) || (power_cell[i].tab != tab_num)) continue;
+		if (power_cell[i].tab != tab_num) continue;
 
 		if (find(powers_list.begin(), powers_list.end(), power_cell[i].id) != powers_list.end()) power_in_vector = true;
 
@@ -600,7 +600,6 @@ void MenuPowers::renderPowers(int tab_num) {
 			displayBuild(power_cell[i].id);
 		}
 		else {
-
 			if (overlay_disabled != NULL) {
 				SDL_BlitSurface(overlay_disabled, &disabled_src, screen, &slots[i]);
 			}
