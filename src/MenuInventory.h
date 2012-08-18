@@ -39,14 +39,6 @@ class WidgetButton;
 const int EQUIPMENT = 0;
 const int CARRIED = 1;
 
-enum InventorySlotsType {
-	SLOT_MAIN = 0,
-	SLOT_BODY = 1,
-	SLOT_OFF = 2,
-	SLOT_ARTIFACT = 3
-};
-
-
 class MenuInventory : public Menu {
 private:
 	ItemManager *items;
@@ -56,6 +48,7 @@ private:
 	void loadGraphics();
 	int areaOver(Point mouse);
 	void updateEquipment(int slot);
+	int getSlotIndex(std::string type);
 
 	SDL_Surface *background;
 	WidgetButton *closeButton;

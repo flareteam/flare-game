@@ -34,15 +34,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 class StatBlock;
 
-const int ITEM_TYPE_OTHER = -1;
-const int ITEM_TYPE_MAIN = 0;
-const int ITEM_TYPE_BODY = 1;
-const int ITEM_TYPE_OFF = 2;
-const int ITEM_TYPE_ARTIFACT = 3;
-const int ITEM_TYPE_CONSUMABLE = 4;
-const int ITEM_TYPE_GEM = 5;
-const int ITEM_TYPE_QUEST = 6;
-
 const int REQUIRES_PHYS = 0;
 const int REQUIRES_MENT = 1;
 const int REQUIRES_OFF = 2;
@@ -74,7 +65,7 @@ public:
 	std::string name;     // item name displayed on long and short tool tips
 	int level;            // rough estimate of quality, used in the loot algorithm
 	int quality;          // low, normal, high, epic; corresponds to item name color
-	int type;             // equipment slot or base item type
+	std::string type;     // equipment slot or base item type
 	int icon_small;       // icon index on small pixel sheet
 	int icon_large;       // icon index on large pixel sheet (used for equippable items)
 	int dmg_min;          // minimum damage amount (weapons only)
@@ -105,7 +96,7 @@ public:
 		quality = ITEM_QUALITY_NORMAL;
 		icon_small = 0;
 		icon_large = 0;
-		type = -1;
+		type = "other";
 		dmg_min = 0;
 		dmg_max = 0;
 		abs_min = 0;

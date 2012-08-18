@@ -42,13 +42,10 @@ void MenuItemStorage::init(int _slot_number, ItemManager *_items, vector<SDL_Rec
 	nb_cols = 0;
 	slot_type = _slot_type;
 	drag_prev_slot = -1;
-	if ((slot_type.size() != (unsigned)slot_number) || (area.size() != (unsigned)slot_number)) {
-		fprintf(stderr, "Slots number doesn't match slots area or slots type number. Check your menus/inventory.txt\n");
-		SDL_Quit();
-	}
 }
 
 void MenuItemStorage::render() {
+	//FIXME Put item into slot based on item type, not order
 	for (int i=0; i<slot_number; i++) {
 		if (storage[i].item > 0 && nb_cols > 0) {
 			items->renderIcon(storage[i], area[0].x + (i % nb_cols * icon_size), area[0].y + (i / nb_cols * icon_size), icon_size);
