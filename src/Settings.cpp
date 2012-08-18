@@ -155,11 +155,11 @@ void setPaths() {
 	PATH_CONF = "config";
 	PATH_USER = "saves";
 	PATH_DATA = "";
-	
+
 	// TODO: place config and save data in the user's home, windows style
 	createDir(PATH_CONF);
 	createDir(PATH_USER);
-	
+
 	PATH_CONF = PATH_CONF + "/";
 	PATH_USER = PATH_USER + "/";
 }
@@ -174,10 +174,10 @@ void setPaths() {
 void setPaths() {
 
 	string engine_folder = "flare";
-	
+
 	// attempting to follow this spec:
 	// http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
-	
+
 	// set config path (settings, keybindings)
 	// $XDG_CONFIG_HOME/flare/
 	if (getenv("XDG_CONFIG_HOME") != NULL) {
@@ -217,7 +217,7 @@ void setPaths() {
 		PATH_USER = "./saves/";
 		createDir(PATH_USER);
 	}
-	
+
 	// data folder
 	// while PATH_CONF and PATH_USER are created if not found,
 	// PATH_DATA must already have the game data for the game to work.
@@ -246,18 +246,18 @@ void setPaths() {
 	PATH_DATA = DATA_INSTALL_DIR "/";
 	if (dirExists(PATH_DATA)) return; // NOTE: early exit
 #endif
-	
+
 	// check /usr/local/share/flare/ and /usr/share/flare/ next
 	PATH_DATA = "/usr/local/share/" + engine_folder + "/";
 	if (dirExists(PATH_DATA)) return; // NOTE: early exit
-	
+
 	PATH_DATA = "/usr/share/" + engine_folder + "/";
 	if (dirExists(PATH_DATA)) return; // NOTE: early exit
-	
+
 	// check "games" variants of these
 	PATH_DATA = "/usr/local/share/games/" + engine_folder + "/";
 	if (dirExists(PATH_DATA)) return; // NOTE: early exit
-	
+
 	PATH_DATA = "/usr/share/games/" + engine_folder + "/";
 	if (dirExists(PATH_DATA)) return; // NOTE: early exit
 
@@ -284,11 +284,11 @@ void loadTilesetSettings() {
 	if (infile.open(mods->locate("engine/tileset_config.txt").c_str())) {
 		while (infile.next()) {
 			if (infile.key == "units_per_tile") {
-				UNITS_PER_TILE = atoi(infile.val.c_str());
+				UNITS_PER_TILE = toInt(infile.val);
 			}
 			else if (infile.key == "tile_size") {
-				TILE_W = atoi(infile.nextValue().c_str());
-				TILE_H = atoi(infile.nextValue().c_str());
+				TILE_W = toInt(infile.nextValue());
+				TILE_H = toInt(infile.nextValue());
 				TILE_W_HALF = TILE_W /2;
 				TILE_H_HALF = TILE_H /2;
 			}
@@ -324,13 +324,10 @@ void loadAutoPickupSettings() {
 	// load autopickup settings from engine config
 	if (infile.open(mods->locate("engine/autopickup.txt").c_str())) {
 		while (infile.next()) {
-			if (infile.key == "range") {
-				AUTOPICKUP_RANGE = atoi(infile.val.c_str());
-			}
-			else if (infile.key == "gold") {
-				if (atoi(infile.val.c_str()) == 1) AUTOPICKUP_GOLD = true;
-                else AUTOPICKUP_GOLD = false;
-			}
+			if (infile.key == "range")
+				AUTOPICKUP_RANGE = toInt(infile.val);
+			else if (infile.key == "gold")
+				AUTOPICKUP_GOLD = (toInt(infile.val) == 1);
 		}
 		infile.close();
 	}
@@ -346,7 +343,7 @@ void loadMiscSettings() {
 	if (infile.open(mods->locate("engine/misc.txt").c_str())) {
 		while (infile.next()) {
 			if (infile.key == "save_hpmp") {
-				SAVE_HPMP = atoi(infile.val.c_str());
+				SAVE_HPMP = toInt(infile.val);
 			} else if (infile.key == "default_name") {
 				DEFAULT_NAME = infile.val.c_str();
 			}
@@ -359,20 +356,20 @@ void loadMiscSettings() {
 	// resolutions.txt
 	if (infile.open(mods->locate("engine/resolutions.txt").c_str())) {
 		while (infile.next()) {
-			if (infile.key == "menu_frame_width") {
-				FRAME_W = atoi(infile.val.c_str());
-			} else if (infile.key == "menu_frame_height") {
-				FRAME_H = atoi(infile.val.c_str());
-			} else if (infile.key == "small_icon_size") {
-				ICON_SIZE_SMALL = atoi(infile.val.c_str());
-			} else if (infile.key == "large_icon_size") {
-				ICON_SIZE_LARGE = atoi(infile.val.c_str());
-			} else if (infile.key == "required_width") {
-				MIN_VIEW_W = atoi(infile.val.c_str());
+			if (infile.key == "menu_frame_width")
+				FRAME_W = toInt(infile.val);
+			else if (infile.key == "menu_frame_height")
+				FRAME_H = toInt(infile.val);
+			else if (infile.key == "small_icon_size")
+				ICON_SIZE_SMALL = toInt(infile.val);
+			else if (infile.key == "large_icon_size")
+				ICON_SIZE_LARGE = toInt(infile.val);
+			else if (infile.key == "required_width") {
+				MIN_VIEW_W = toInt(infile.val);
 				if (VIEW_W < MIN_VIEW_W) VIEW_W = MIN_VIEW_W;
 				VIEW_W_HALF = VIEW_W/2;
 			} else if (infile.key == "required_height") {
-				MIN_VIEW_H = atoi(infile.val.c_str());
+				MIN_VIEW_H = toInt(infile.val);
 				if (VIEW_H < MIN_VIEW_H) VIEW_H = MIN_VIEW_H;
 				VIEW_H_HALF = VIEW_H/2;
 			}
@@ -386,7 +383,7 @@ void loadMiscSettings() {
 	if (infile.open(mods->locate("engine/gameplay.txt").c_str())) {
 		while (infile.next()) {
 			if (infile.key == "enable_playgame") {
-				ENABLE_PLAYGAME = atoi(infile.val.c_str());
+				ENABLE_PLAYGAME = toInt(infile.val);
 			}
 		}
 		infile.close();
@@ -398,13 +395,13 @@ void loadMiscSettings() {
 	if (infile.open(mods->locate("engine/combat.txt").c_str())) {
 		while (infile.next()) {
 			if (infile.key == "max_absorb_percent") {
-				MAX_ABSORB = atoi(infile.val.c_str());
+				MAX_ABSORB = toInt(infile.val);
 			} else if (infile.key == "max_resist_percent") {
-				MAX_RESIST = atoi(infile.val.c_str());
+				MAX_RESIST = toInt(infile.val);
 			} else if (infile.key == "max_block_percent") {
-				MAX_BLOCK = atoi(infile.val.c_str());
+				MAX_BLOCK = toInt(infile.val);
 			} else if (infile.key == "max_avoidance_percent") {
-				MAX_AVOIDANCE = atoi(infile.val.c_str());
+				MAX_AVOIDANCE = toInt(infile.val);
 			}
 		}
 		infile.close();
@@ -475,7 +472,7 @@ bool saveSettings() {
 	outfile.open((PATH_CONF + FILE_SETTINGS).c_str(), ios::out);
 
 	if (outfile.is_open()) {
-	
+
 		for (int i = 0; i < config_size; i++) {
 
 			// write additional newline before the next section

@@ -28,6 +28,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "FileParser.h"
 #include "SharedResources.h"
 #include "Settings.h"
+#include "UtilsParsing.h"
 #include <iostream>
 #include <sstream>
 
@@ -35,7 +36,7 @@ CombatText::CombatText() {
 	msg_color[COMBAT_MESSAGE_DAMAGE] = font->getColor("combat_damage");
 	msg_color[COMBAT_MESSAGE_CRIT] = font->getColor("combat_crit");
 	msg_color[COMBAT_MESSAGE_BUFF] = font->getColor("combat_buff");
-	msg_color[COMBAT_MESSAGE_MISS] = font->getColor("combat_miss");	
+	msg_color[COMBAT_MESSAGE_MISS] = font->getColor("combat_miss");
 
 	duration = 30;
 	speed = 1;
@@ -45,9 +46,9 @@ CombatText::CombatText() {
 	if(infile.open(mods->locate("engine/combat_text.txt"))) {
 		while(infile.next()) {
 			if(infile.key == "duration") {
-				duration = atoi(infile.val.c_str());
+				duration = toInt(infile.val);
 			} else if(infile.key == "speed") {
-				speed = atoi(infile.val.c_str());
+				speed = toInt(infile.val);
 			}
 		}
 		infile.close();
@@ -107,12 +108,12 @@ void CombatText::render() {
 	for(std::vector<Combat_Text_Item>::iterator it = combat_text.begin(); it != combat_text.end(); it++) {
         it->lifespan--;
         it->pos.y -= speed;
-		
+
 		it->label->set(it->pos.x, it->pos.y, JUSTIFY_CENTER, VALIGN_BOTTOM, it->text, msg_color[it->displaytype]);
-		
+
 		if (it->lifespan > 0)
 			it->label->render();
-		
+
     }
     // delete expired messages
     while (combat_text.size() > 0 && combat_text.begin()->lifespan <= 0) {

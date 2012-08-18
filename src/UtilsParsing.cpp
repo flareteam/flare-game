@@ -151,7 +151,7 @@ int eatFirstInt(string &s, char separator) {
 		s = "";
 		return 0; // not found
 	}
-	int num = atoi(s.substr(0, seppos).c_str());
+	int num = toInt(s.substr(0, seppos));
 	s = s.substr(seppos+1, s.length());
 	return num;
 }

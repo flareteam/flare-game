@@ -166,27 +166,21 @@ void Entity::loadAnimations(const string& filename) {
 		}
 
 		if (parser.key == "position") {
-			if (isInt(parser.val)) {
-				position = atoi(parser.val.c_str());
-			}
+			position = toInt(parser.val);
 		}
 		else if (parser.key == "frames") {
-			if (isInt(parser.val)) {
-				frames = atoi(parser.val.c_str());
-			}
+			frames = toInt(parser.val);
 		}
 		else if (parser.key == "duration") {
-			if (isInt(parser.val)) {
-				int ms_per_frame = atoi(parser.val.c_str());
+			int ms_per_frame = toInt(parser.val);
 
-				duration = (int)round((float)ms_per_frame / (1000.0 / (float)FRAMES_PER_SEC));
+			duration = (int)round((float)ms_per_frame / (1000.0 / (float)FRAMES_PER_SEC));
 
-				// adjust duration according to the entity's animation speed
-				duration = (duration * 100) / stats.animationSpeed;
+			// adjust duration according to the entity's animation speed
+			duration = (duration * 100) / stats.animationSpeed;
 
-				// TEMP: if an animation is too fast, display one frame per fps anyway
-				if (duration < 1) duration=1;
-			}
+			// TEMP: if an animation is too fast, display one frame per fps anyway
+			if (duration < 1) duration=1;
 		}
 		else if (parser.key == "type")
 			type = parser.val;

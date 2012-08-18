@@ -152,12 +152,12 @@ void NPC::load(const string& npc_id, int hero_level) {
 				else if (infile.key == "constant_stock") {
 					stack.quantity = 1;
 					while (infile.val != "") {
-						stack.item = atoi(infile.nextValue().c_str());
+						stack.item = toInt(infile.nextValue());
 						stock.add(stack);
 					}
 				}
 				else if (infile.key == "random_stock") {
-					random_stock = atoi(infile.val.c_str());
+					random_stock = toInt(infile.val);
 				}
 
 				// handle vocals
