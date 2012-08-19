@@ -110,20 +110,7 @@ void ItemManager::load(const string& filename) {
 					items[id].quality = ITEM_QUALITY_EPIC;
 			}
 			else if (infile.key == "type") {
-				if (infile.val == "main")
-					items[id].type = ITEM_TYPE_MAIN;
-				else if (infile.val == "body")
-					items[id].type = ITEM_TYPE_BODY;
-				else if (infile.val == "off")
-					items[id].type = ITEM_TYPE_OFF;
-				else if (infile.val == "artifact")
-					items[id].type = ITEM_TYPE_ARTIFACT;
-				else if (infile.val == "consumable")
-					items[id].type = ITEM_TYPE_CONSUMABLE;
-				else if (infile.val == "gem")
-					items[id].type = ITEM_TYPE_GEM;
-				else if (infile.val == "quest")
-					items[id].type = ITEM_TYPE_QUEST;
+					items[id].type = infile.val;
 			}
 			else if (infile.key == "dmg") {
 				items[id].dmg_min = toInt(infile.nextValue());
@@ -391,20 +378,20 @@ TooltipData ItemManager::getTooltip(int item, StatBlock *stats, bool vendor_view
 	}
 
 	// type
-	if (items[item].type != ITEM_TYPE_OTHER) {
-		if (items[item].type == ITEM_TYPE_MAIN)
+	if (items[item].type != "other") {
+		if (items[item].type == "main")
 			tip.lines[tip.num_lines++] = msg->get("Main Hand");
-		else if (items[item].type == ITEM_TYPE_BODY)
+		else if (items[item].type == "body")
 			tip.lines[tip.num_lines++] = msg->get("Body");
-		else if (items[item].type == ITEM_TYPE_OFF)
+		else if (items[item].type == "off")
 			tip.lines[tip.num_lines++] = msg->get("Off Hand");
-		else if (items[item].type == ITEM_TYPE_ARTIFACT)
+		else if (items[item].type == "artifact")
 			tip.lines[tip.num_lines++] = msg->get("Artifact");
-		else if (items[item].type == ITEM_TYPE_CONSUMABLE)
+		else if (items[item].type == "consumable")
 			tip.lines[tip.num_lines++] = msg->get("Consumable");
-		else if (items[item].type == ITEM_TYPE_GEM)
+		else if (items[item].type == "gem")
 			tip.lines[tip.num_lines++] = msg->get("Gem");
-		else if (items[item].type == ITEM_TYPE_QUEST)
+		else if (items[item].type == "quest")
 			tip.lines[tip.num_lines++] = msg->get("Quest Item");
 	}
 

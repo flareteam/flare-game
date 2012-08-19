@@ -348,7 +348,7 @@ void GameStatePlay::checkLootDrop() {
  */
 void GameStatePlay::checkConsumable() {
 	if (powers->used_item != -1) {
-		if (menu->items->items[powers->used_item].type == ITEM_TYPE_CONSUMABLE) {
+		if (menu->items->items[powers->used_item].type == "consumable") {
 			menu->inv->remove(powers->used_item);
 			powers->used_item = -1;
 		}

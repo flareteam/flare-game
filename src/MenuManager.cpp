@@ -558,7 +558,7 @@ void MenuManager::logic() {
 					// if dragging and the source was inventory, drop item to the floor
 
 					// quest items cannot be dropped
-					if (items->items[drag_stack.item].type != ITEM_TYPE_QUEST) {
+					if (items->items[drag_stack.item].type != "quest") {
 						drop_stack = drag_stack;
 						drag_stack.item = 0;
 						drag_stack.quantity = 0;
@@ -602,7 +602,7 @@ void MenuManager::logic() {
 						log->add(msg->get("Inventory is full."), LOG_TYPE_MESSAGES);
 						hudlog->add(msg->get("Inventory is full."));
 						// quest items cannot be dropped
-						if (items->items[drag_stack.item].type != ITEM_TYPE_QUEST) {
+						if (items->items[drag_stack.item].type != "quest") {
 							drop_stack = drag_stack;
 						} else {
 							stash->itemReturn(drag_stack);
@@ -641,7 +641,7 @@ void MenuManager::logic() {
 
 		if (act->hotkeys[i] != -1) {
 			int item_id = powers->powers[act->hotkeys[i]].requires_item;
-			if (item_id != -1 && items->items[item_id].type == ITEM_TYPE_CONSUMABLE) {
+			if (item_id != -1 && items->items[item_id].type == "consumable") {
 				act->slot_item_count[i] = inv->getItemCountCarried(item_id);
 				if (act->slot_item_count[i] == 0) {
 					act->slot_enabled[i] = false;

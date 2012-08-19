@@ -65,13 +65,10 @@ MenuInventory::MenuInventory(ItemManager *_items, StatBlock *_stats, PowerManage
 			} else if(infile.key == "equipment_slot") {
 				equipment_slot.x = eatFirstInt(infile.val,',');
 				equipment_slot.y = eatFirstInt(infile.val,',');
-				equipment_slot.w = ICON_SIZE_LARGE;
-				equipment_slot.h = ICON_SIZE_LARGE;
+				equipment_slot.w = equipment_slot.h = eatFirstInt(infile.val,',');
 				equipped_area.push_back(equipment_slot);
 				slot_type.push_back(eatFirstString(infile.val,','));
 				slot_desc.push_back(eatFirstString(infile.val,','));
-			} else if(infile.key == "equipment_slots") {
-				MAX_EQUIPPED = eatFirstInt(infile.val,',');
 			} else if(infile.key == "carried_area") {
 				carried_area.x = eatFirstInt(infile.val,',');
 				carried_area.y = eatFirstInt(infile.val,',');
@@ -93,6 +90,7 @@ MenuInventory::MenuInventory(ItemManager *_items, StatBlock *_stats, PowerManage
 		infile.close();
 	} else fprintf(stderr, "Unable to open inventory.txt!\n");
 
+	MAX_EQUIPPED = equipped_area.size();
 	MAX_CARRIED = carried_cols * carried_rows;
 
 	color_normal = font->getColor("menu_normal");
@@ -123,7 +121,7 @@ void MenuInventory::update() {
 	carried_area.w = carried_cols*ICON_SIZE_SMALL;
 	carried_area.h = carried_rows*ICON_SIZE_SMALL;
 
-	inventory[EQUIPMENT].init(MAX_EQUIPPED, items, equipped_area, ICON_SIZE_LARGE, slot_type);
+	inventory[EQUIPMENT].init(MAX_EQUIPPED, items, equipped_area, slot_type);
 	inventory[CARRIED].init(MAX_CARRIED, items, carried_area, ICON_SIZE_SMALL, carried_cols);
 
 	closeButton->pos.x = window_area.x+close_pos.x;
@@ -272,7 +270,7 @@ void MenuInventory::drop(Point mouse, ItemStack stack) {
 		// make sure the item is going to the correct slot
 		// note: equipment slots 0-3 correspond with item types 0-3
 		// also check to see if the hero meets the requirements
-		if (drag_prev_src == CARRIED && slot == items->items[stack.item].type && requirementsMet(stack.item)) {
+		if (drag_prev_src == CARRIED && slot_type[slot] == items->items[stack.item].type && requirementsMet(stack.item)) {
 			if( inventory[area][slot].item == stack.item) {
 				// Merge the stacks
 				add( stack, area, slot);
@@ -330,7 +328,7 @@ void MenuInventory::drop(Point mouse, ItemStack stack) {
 			else if(
 				inventory[EQUIPMENT][drag_prev_slot].item == 0
 				&& inventory[CARRIED][slot].item != stack.item
-				&& items->items[inventory[CARRIED][slot].item].type == drag_prev_slot
+				&& items->items[inventory[CARRIED][slot].item].type == slot_type[drag_prev_slot]
 				&& requirementsMet(inventory[CARRIED][slot].item)
 			) { // The whole equipped stack is dropped on an empty carried slot or on a wearable item
 				// Swap the two stacks
@@ -365,7 +363,7 @@ void MenuInventory::activate(InputState * input) {
 	slot = inventory[CARRIED].slotOver(input->mouse);
 
 	// use a consumable item
-	if (items->items[inventory[CARRIED][slot].item].type == ITEM_TYPE_CONSUMABLE) {
+	if (items->items[inventory[CARRIED][slot].item].type == "consumable") {
 
 		//don't use untransform item if hero is not transformed
 		if (powers->powers[items->items[inventory[CARRIED][slot].item].power].spawn_type == "untransform" && !stats->transformed) return;
@@ -386,11 +384,14 @@ void MenuInventory::activate(InputState * input) {
 	}
 	// equip an item
 	else {
-		equip_slot = items->items[inventory[CARRIED][slot].item].type;
-		if (equip_slot == ITEM_TYPE_MAIN ||
-			 equip_slot == ITEM_TYPE_BODY ||
-			 equip_slot == ITEM_TYPE_OFF ||
-			 equip_slot == ITEM_TYPE_ARTIFACT) {
+		equip_slot = getSlotIndex(items->items[inventory[CARRIED][slot].item].type);
+		if (equip_slot == -1) {
+			fprintf(stderr, "Can't find equip slot, corresponding to type %s\n", items->items[inventory[CARRIED][slot].item].type.c_str());
+		}
+		if (slot_type[equip_slot] == "main" ||
+			slot_type[equip_slot] == "body" ||
+			slot_type[equip_slot] == "off" ||
+			slot_type[equip_slot] == "artifact") {
 			if (requirementsMet(inventory[CARRIED][slot].item)) {
 				stack = click( input);
 				if( inventory[EQUIPMENT][equip_slot].item == stack.item) {
@@ -587,7 +588,13 @@ bool MenuInventory::requirementsMet(int item) {
 }
 
 void MenuInventory::updateEquipment(int slot) {
-	if (slot < SLOT_ARTIFACT) {
+
+	if (slot == -1) {
+		//FIXME What todo here
+		//return;
+		changed_equipment = true;
+	}
+	else if (slot_type[slot] != "artifact") {
 		changed_equipment = true;
 	}
 	else {
@@ -613,7 +620,7 @@ void MenuInventory::applyEquipment(ItemStack *equipped) {
 	{
 		checkRequired = false;
 		stats->offense_additional = stats->defense_additional = stats->physical_additional = stats->mental_additional = 0;
-		for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < MAX_EQUIPPED; i++) {
 			int item_id = equipped[i].item;
 			const Item &item = pc_items[item_id];
 			bonus_counter = 0;
@@ -635,7 +642,7 @@ void MenuInventory::applyEquipment(ItemStack *equipped) {
 				bonus_counter++;
 			}
 		}
-		for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < MAX_EQUIPPED; i++) {
 			if (!requirementsMet(equipped[i].item)) {
 				add(equipped[i]);
 				equipped[i].item = 0;
@@ -668,7 +675,7 @@ void MenuInventory::applyEquipment(ItemStack *equipped) {
 	stats->wielding_offense = false;
 
 	// main hand weapon
-	int item_id = equipped[SLOT_MAIN].item;
+	int item_id = equipped[getSlotIndex("main")].item;
 	if (item_id > 0) {
 		const Item &item = pc_items[item_id];
 		if (item.req_stat == REQUIRES_PHYS) {
@@ -685,7 +692,7 @@ void MenuInventory::applyEquipment(ItemStack *equipped) {
 		}
 	}
 	// off hand item
-	item_id = equipped[SLOT_OFF].item;
+	item_id = equipped[getSlotIndex("off")].item;
 	if (item_id > 0) {
 		const Item &item = pc_items[item_id];
 		if (item.req_stat == REQUIRES_OFF) {
@@ -700,7 +707,7 @@ void MenuInventory::applyEquipment(ItemStack *equipped) {
 		}
 	}
 	// body item
-	item_id = equipped[SLOT_BODY].item;
+	item_id = equipped[getSlotIndex("body")].item;
 	if (item_id > 0) {
 		const Item &item = pc_items[item_id];
 		stats->absorb_min += item.abs_min;
@@ -708,7 +715,7 @@ void MenuInventory::applyEquipment(ItemStack *equipped) {
 	}
 
 	// apply bonuses from all items
-	for (int i=0; i<4; i++) {
+	for (int i=0; i<MAX_EQUIPPED; i++) {
 		item_id = equipped[i].item;
 		const Item &item = pc_items[item_id];
 		bonus_counter = 0;
@@ -769,6 +776,13 @@ void MenuInventory::applyEquipment(ItemStack *equipped) {
 	else
 		stats->mp = stats->maxmp;
 
+}
+
+int MenuInventory::getSlotIndex(std::string type) {
+	for (unsigned int i=0; i<slot_type.size(); i++) {
+		if (type == slot_type[i]) return i;
+	}
+	return -1;
 }
 
 MenuInventory::~MenuInventory() {
