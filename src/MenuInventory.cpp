@@ -65,8 +65,7 @@ MenuInventory::MenuInventory(ItemManager *_items, StatBlock *_stats, PowerManage
 			} else if(infile.key == "equipment_slot") {
 				equipment_slot.x = eatFirstInt(infile.val,',');
 				equipment_slot.y = eatFirstInt(infile.val,',');
-				equipment_slot.w = ICON_SIZE_LARGE;
-				equipment_slot.h = ICON_SIZE_LARGE;
+				equipment_slot.w = equipment_slot.h = eatFirstInt(infile.val,',');
 				equipped_area.push_back(equipment_slot);
 				slot_type.push_back(eatFirstString(infile.val,','));
 				slot_desc.push_back(eatFirstString(infile.val,','));
@@ -122,7 +121,7 @@ void MenuInventory::update() {
 	carried_area.w = carried_cols*ICON_SIZE_SMALL;
 	carried_area.h = carried_rows*ICON_SIZE_SMALL;
 
-	inventory[EQUIPMENT].init(MAX_EQUIPPED, items, equipped_area, ICON_SIZE_LARGE, slot_type);
+	inventory[EQUIPMENT].init(MAX_EQUIPPED, items, equipped_area, slot_type);
 	inventory[CARRIED].init(MAX_CARRIED, items, carried_area, ICON_SIZE_SMALL, carried_cols);
 
 	closeButton->pos.x = window_area.x+close_pos.x;
@@ -621,7 +620,7 @@ void MenuInventory::applyEquipment(ItemStack *equipped) {
 	{
 		checkRequired = false;
 		stats->offense_additional = stats->defense_additional = stats->physical_additional = stats->mental_additional = 0;
-		for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < MAX_EQUIPPED; i++) {
 			int item_id = equipped[i].item;
 			const Item &item = pc_items[item_id];
 			bonus_counter = 0;
@@ -643,7 +642,7 @@ void MenuInventory::applyEquipment(ItemStack *equipped) {
 				bonus_counter++;
 			}
 		}
-		for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < MAX_EQUIPPED; i++) {
 			if (!requirementsMet(equipped[i].item)) {
 				add(equipped[i]);
 				equipped[i].item = 0;
@@ -716,7 +715,7 @@ void MenuInventory::applyEquipment(ItemStack *equipped) {
 	}
 
 	// apply bonuses from all items
-	for (int i=0; i<4; i++) {
+	for (int i=0; i<MAX_EQUIPPED; i++) {
 		item_id = equipped[i].item;
 		const Item &item = pc_items[item_id];
 		bonus_counter = 0;
