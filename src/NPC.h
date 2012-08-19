@@ -43,8 +43,6 @@ class NPC : public Entity {
 protected:
 	ItemManager *items;
 
-	// animation info
-	SDL_Surface *sprites;
 	int anim_frames;
 	int anim_duration;
 	int current_frame;
@@ -88,7 +86,6 @@ public:
 	// outer vector is addressing the dialog and the inner vector is
 	// addressing the events during one dialog
 	std::vector<std::vector<Event_Component> > dialog;
-
 };
 
 #endif
