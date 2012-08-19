@@ -14,19 +14,27 @@ anim_duration=10
 
 [dialog]
 requires_not=fr_rilrak_search
+voice=martigan1.ogg
 him=Welcome to my mines, stranger. If you have the back for it, I've got the work.
+voice=sil.ogg
 you=I heard you might have something more interesting.
+voice=martigan2.ogg
 him=Ah, you're the adventurer? If you seek out danger you're in the right place. We had two guards stationed here; both were recalled to Ancelot. Now we're vulnerable.
+voice=martigan3.ogg
 him=We're having problems. Goblins. All the noise from our mining is drawing their attention. We can't have them thinking we're easy prey.
 set_status=fr_rilrak_search
 unset_status=fr_rilrak_defeated
 reward_currency=20
+voice=martigan4.ogg
 him=Attack their encampment up river from here. 20 gold now, 80 more when you return.
+voice=sil.ogg
 
 [dialog]
 requires_status=fr_rilrak_search
 requires_not=fr_rilrak_defeated
+voice=martigan5.ogg
 him=The goblins have an encampment up the river from here on the west side. Clear them out and I'll pay you 80 gold.
+voice=sil.ogg
 
 [dialog]
 requires_status=fr_rilrak_search
@@ -35,9 +43,12 @@ requires_not=fr_rilrak_reward
 set_status=fr_rilrak_reward
 reward_currency=80
 reward_xp=50
+voice=martigan6.ogg
 him=Unfortunate work, but my workers will sleep safe tonight. Here's your reward.
+voice=sil.ogg
 
 [dialog]
 requires_status=fr_rilrak_reward
+voice=martigan7.ogg
 him=A member of the Order passed through our camp a few days ago. He left for the tower ruins in Ydrakka Pass.
-
+voice=sil.ogg
