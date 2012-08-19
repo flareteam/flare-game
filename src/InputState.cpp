@@ -47,7 +47,7 @@ InputState::InputState(void) {
 	}
 	done = false;
 
-	scroll_up = scroll_down = false;
+	resetScroll();
 
 	loadKeyBindings();
 
@@ -562,6 +562,11 @@ void InputState::handle(bool dump_event) {
 	}
 
 
+}
+
+void InputState::resetScroll() {
+	scroll_up = false;
+	scroll_down = false;
 }
 
 InputState::~InputState() {
