@@ -37,6 +37,7 @@ class MapRenderer;
 
 const int NPC_VENDOR_MAX_STOCK = 80;
 const int NPC_VOX_INTRO = 0;
+const int NPC_VOX_QUEST = 1;
 
 class NPC : public Entity {
 protected:
@@ -53,9 +54,9 @@ public:
 	~NPC();
 	void load(const std::string& npc_id, int hero_level);
 	void loadGraphics(const std::string& filename_sprites, const std::string& filename_portrait);
-	void loadSound(const std::string& filename, int type);
+	int loadSound(const std::string& filename, int type);
 	void logic();
-	bool playSound(int type);
+	bool playSound(int type, int id=-1);
 	int chooseDialogNode();
 	bool processDialog(unsigned int dialog_node, unsigned int& event_cursor);
 	virtual Renderable getRender();
@@ -81,6 +82,7 @@ public:
 
 	// vocals
 	std::vector<Mix_Chunk*> vox_intro;
+	std::vector<Mix_Chunk*> vox_quests;
 
 	// story and dialog options
 	// outer vector is addressing the dialog and the inner vector is
