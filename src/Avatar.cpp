@@ -99,9 +99,7 @@ void Avatar::init() {
 	revertPowers = false;
 	last_transform = "";
 
-	for (int i = 0; i < POWER_COUNT; i++) {
-		stats.hero_cooldown[i] = 0;
-	}
+	stats.hero_cooldown = vector<int>(POWER_COUNT, 0);
 
 	for (int i=0; i<4; i++) {
 		sound_steps[i] = NULL;
