@@ -129,8 +129,10 @@ void MenuLog::logic() {
 
 	for (int i=0; i<LOG_TYPE_COUNT; i++) {
 		msg_buffer[i]->refresh();
-		msg_buffer[i]->logic();
 	}
+
+	int active_log = tabControl->getActiveTab();
+	msg_buffer[active_log]->logic();
 }
 
 /**
