@@ -256,7 +256,7 @@ intermap=frontier_plains.txt,248,186
 # Shared stash
 type=stash
 location=22,28,1,1
-hotspot=-32,-48,64,64
+hotspot=location
 soundfx=soundfx/wood_open.ogg
 stash=true
 tooltip=Shared Stash
@@ -280,7 +280,7 @@ requires_status=waypoint_frontier_outpost
 # Warp Zone
 type=teleport
 location=33,9,2,2
-hotspot=-64,-16,128,64
+hotspot=location
 intermap=warp_zone.txt,29,44
 tooltip=Warp Zone
 
