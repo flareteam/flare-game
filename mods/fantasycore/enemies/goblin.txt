@@ -10,7 +10,7 @@ gfx_prefix=goblin
 animations=goblin
 animation_speed=75
 
-loot_chance=100
+loot_chance=15
 
 # The item_class is a list of strings, which describe which kind of loot
 # is being dropped. The strings should match the "class" entry in the item
@@ -22,7 +22,7 @@ loot_chance=100
 # the distribution is steps of 10 percents.
 # Gold will be dropped in 10 percent of the cases. In 90 percent there
 # will be items, which belong to the goblindrop class.
-item_class=gold,1,goblindrop,9
+#item_class=gold,1,goblindrop,9
 
 # combat stats
 hp=6
