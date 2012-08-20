@@ -5,15 +5,22 @@
 close=294,2
 help=2,2,24,24
 
-# define x,y position, slot size, slot type, slot description/name
-equipment_slot=32,48,64,main,Main Hand
-equipment_slot=96,48,64,body,Body
-equipment_slot=160,48,64,off,Off Hand
-equipment_slot=224,48,64,artifact,Artifact
+# define x,y position, slot size, slot type
+equipment_slot=32,48,64,main
+slot_name=Main Hand
+
+equipment_slot=96,48,64,body
+slot_name=Body
+
+equipment_slot=160,48,64,off
+slot_name=Off Hand
+
+equipment_slot=224,48,64,artifact
+slot_name=Artifact
 
 carried_area=32,128
 carried_cols=8
 carried_rows=8
 
-title=160,8,center,top
+caption=160,8,center,top
 gold=288,114,right,top
