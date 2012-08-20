@@ -34,15 +34,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 class StatBlock;
 
-const int ITEM_TYPE_OTHER = -1;
-const int ITEM_TYPE_MAIN = 0;
-const int ITEM_TYPE_BODY = 1;
-const int ITEM_TYPE_OFF = 2;
-const int ITEM_TYPE_ARTIFACT = 3;
-const int ITEM_TYPE_CONSUMABLE = 4;
-const int ITEM_TYPE_GEM = 5;
-const int ITEM_TYPE_QUEST = 6;
-
 const int REQUIRES_PHYS = 0;
 const int REQUIRES_MENT = 1;
 const int REQUIRES_OFF = 2;
@@ -71,10 +62,10 @@ const int ITEM_MAX_BONUSES = 8;
 
 class Item {
 public:
-	std::string name;          // item name displayed on long and short tool tips
+	std::string name;     // item name displayed on long and short tool tips
 	int level;            // rough estimate of quality, used in the loot algorithm
 	int quality;          // low, normal, high, epic; corresponds to item name color
-	int type;             // equipment slot or base item type
+	std::string type;     // equipment slot or base item type
 	int icon_small;       // icon index on small pixel sheet
 	int icon_large;       // icon index on large pixel sheet (used for equippable items)
 	int dmg_min;          // minimum damage amount (weapons only)
@@ -83,8 +74,8 @@ public:
 	int abs_max;          // maximum absorb amount (armors and shields only)
 	int req_stat;         // physical, mental, offense, defense
 	int req_val;          // 1-5 (used with req_stat)
-	std::string bonus_stat[ITEM_MAX_BONUSES];   // stat to increase/decrease e.g. hp, accuracy, speed
-	int bonus_val[ITEM_MAX_BONUSES];       // amount to increase (used with bonus_stat)
+	std::vector<std::string> bonus_stat;   // stat to increase/decrease e.g. hp, accuracy, speed
+	std::vector<int> bonus_val;       // amount to increase (used with bonus_stat)
 	int sfx;              // the item sound when it hits the floor or inventory, etc
 	std::string gfx;           // the sprite layer shown when this item is equipped
 	std::string loot_animation;// the flying loot animation for this item
@@ -105,7 +96,7 @@ public:
 		quality = ITEM_QUALITY_NORMAL;
 		icon_small = 0;
 		icon_large = 0;
-		type = -1;
+		type = "other";
 		dmg_min = 0;
 		dmg_max = 0;
 		abs_min = 0;
@@ -125,11 +116,6 @@ public:
 		rand_vendor = 1;
 		pickup_status = "";
 		stepfx = "";
-
-		for (int j=0; j<ITEM_MAX_BONUSES; j++) {
-			bonus_stat[j] = "";
-			bonus_val[j] = 0;
-		}
 	}
 	~Item() {
 

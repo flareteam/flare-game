@@ -45,17 +45,17 @@ GameSwitcher::GameSwitcher() {
 }
 
 void GameSwitcher::loadMusic() {
+	if (audio && MUSIC_VOLUME) {
+		Mix_FreeMusic(music);
+		music = Mix_LoadMUS((mods->locate("music/title_theme.ogg")).c_str());
+		if (!music)
+		  printf("Mix_LoadMUS: %s\n", Mix_GetError());
+	}
 
-    if (audio && MUSIC_VOLUME) {
-        music = Mix_LoadMUS((mods->locate("music/title_theme.ogg")).c_str());
-        if (!music)
-          printf("Mix_LoadMUS: %s\n", Mix_GetError());
-    }
-
-    if (music) {
-        Mix_VolumeMusic(MUSIC_VOLUME);
-        Mix_PlayMusic(music, -1);
-    }
+	if (music) {
+		Mix_VolumeMusic(MUSIC_VOLUME);
+		Mix_PlayMusic(music, -1);
+	}
 }
 
 void GameSwitcher::logic() {
@@ -96,7 +96,6 @@ void GameSwitcher::render() {
 
 GameSwitcher::~GameSwitcher() {
 	delete currentState;
-    if (music)
-        Mix_FreeMusic(music);
+	Mix_FreeMusic(music);
 }
 

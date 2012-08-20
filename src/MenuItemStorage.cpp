@@ -26,27 +26,45 @@ using namespace std;
 
 void MenuItemStorage::init(int _slot_number, ItemManager *_items, SDL_Rect _area, int _icon_size, int _nb_cols) {
 	ItemStorage::init( _slot_number, _items);
-	area = _area;
+	area.push_back(_area);
 	icon_size = _icon_size;
 	nb_cols = _nb_cols;
 	drag_prev_slot = -1;
 }
 
+/**
+ * Overloaded function for case, if slot positions are predefined
+ */
+void MenuItemStorage::init(int _slot_number, ItemManager *_items, vector<SDL_Rect> _area, vector<string> _slot_type) {
+	ItemStorage::init( _slot_number, _items);
+	area = _area;
+	icon_size = 0;
+	nb_cols = 0;
+	slot_type = _slot_type;
+	drag_prev_slot = -1;
+}
+
 void MenuItemStorage::render() {
+	//FIXME If slot order was changed, items will be equipped in wrong slots
 	for (int i=0; i<slot_number; i++) {
-		if (storage[i].item > 0) {
-			items->renderIcon(storage[i], area.x + (i % nb_cols * icon_size), area.y + (i / nb_cols * icon_size), icon_size);
-		}	
+		if (storage[i].item > 0 && nb_cols > 0) {
+			items->renderIcon(storage[i], area[0].x + (i % nb_cols * icon_size), area[0].y + (i / nb_cols * icon_size), icon_size);
+		} else if (storage[i].item > 0 && nb_cols == 0) {
+			items->renderIcon(storage[i], area[i].x, area[i].y, area[i].w);
+		}
 	}
 }
 
 int MenuItemStorage::slotOver(Point mouse) {
-	if( isWithin( area, mouse)) {
-		return (mouse.x - area.x) / icon_size + (mouse.y - area.y) / icon_size * nb_cols;
+	if (isWithin(area[0], mouse) && nb_cols > 0) {
+		return (mouse.x - area[0].x) / icon_size + (mouse.y - area[0].y) / icon_size * nb_cols;
 	}
-	else {
-		return -1;
+	else if (nb_cols == 0) {
+		for (unsigned int i=0; i<area.size(); i++) {
+			if (isWithin(area[i], mouse)) return i;
+		}
 	}
+	return -1;
 }
 
 TooltipData MenuItemStorage::checkTooltip(Point mouse, StatBlock *stats, bool vendor_view) {

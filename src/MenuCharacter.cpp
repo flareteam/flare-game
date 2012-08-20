@@ -48,7 +48,7 @@ MenuCharacter::MenuCharacter(StatBlock *_stats) {
 		cstat[i].hover.w = cstat[i].hover.h = 0;
 		cstat[i].visible = true;
 	}
-	for (int i=0; i<15; i++) {
+	for (int i=0; i<14; i++) {
 		show_stat[i] = true;
 	}
 
@@ -69,7 +69,7 @@ MenuCharacter::MenuCharacter(StatBlock *_stats) {
 	labelCharacter = new WidgetLabel();
 
 	// stat list
-	statList = new WidgetListBox(15, 10, mods->locate("images/menus/buttons/listbox_char.png"));
+	statList = new WidgetListBox(13+stats->vulnerable.size(), 10, mods->locate("images/menus/buttons/listbox_char.png"));
 
 	// Load config settings
 	FileParser infile;
@@ -186,10 +186,8 @@ MenuCharacter::MenuCharacter(StatBlock *_stats) {
 				if (eatFirstInt(infile.val,',') == 0) show_stat[11] = false;
 			} else if (infile.key == "show_absorb"){
 				if (eatFirstInt(infile.val,',') == 0) show_stat[12] = false;
-			} else if (infile.key == "show_resist_fire"){
+			} else if (infile.key == "show_resists"){
 				if (eatFirstInt(infile.val,',') == 0) show_stat[13] = false;
-			} else if (infile.key == "show_resist_ice"){
-				if (eatFirstInt(infile.val,',') == 0) show_stat[14] = false;
 			}
 		}
 		infile.close();
@@ -199,7 +197,6 @@ MenuCharacter::MenuCharacter(StatBlock *_stats) {
 }
 
 void MenuCharacter::update() {
-	// TODO put item position info in a config file
 
 	// close button
 	closeButton->pos.x = window_area.x + close_pos.x;
@@ -312,7 +309,7 @@ void MenuCharacter::refreshStats() {
 
 	if (show_stat[3]) {
 		ss.str("");
-		ss << msg->get("MP Regen:") << " " << stats->hp_per_minute;
+		ss << msg->get("MP Regen:") << " " << stats->mp_per_minute;
 		statList->append(ss.str(),msg->get("Ticks of MP regen per minute. Each point of Mental grants +%d MP regen. Each level grants +%d MP regen", stats->mp_regen_per_mental, stats->mp_regen_per_level));
 	}
 
@@ -392,15 +389,13 @@ void MenuCharacter::refreshStats() {
 	}
 
 	if (show_stat[13]) {
-		ss.str("");
-		ss << msg->get("Fire Resistance:") << " " << (100 - stats->vulnerable_fire) << "%";
-		statList->append(ss.str(),"");
-	}
-
-	if (show_stat[14]) {
-		ss.str("");
-		ss << msg->get("Ice Resistance:") << " " << (100 - stats->vulnerable_ice) << "%";
-		statList->append(ss.str(),"");
+		for (unsigned int j=0; j<stats->vulnerable.size(); j++) {
+			ss.str("");
+			std::string element = ELEMENTS[j];
+			element[0] = toupper((unsigned char)element[0]);
+			ss << msg->get(element+" Resistance:") << " " << (100 - stats->vulnerable[j]) << "%";
+			statList->append(ss.str(),"");
+		}
 	}
 
 	// update tool tips

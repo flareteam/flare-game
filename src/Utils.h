@@ -38,12 +38,12 @@ struct FPoint {
 
 // message passing struct for various sprites rendered map inline
 struct Renderable {
-	Point map_pos;
-	SDL_Surface *sprite;
-	SDL_Rect src;
-	Point offset;
-	bool object_layer;
-	Point tile;
+	SDL_Surface *sprite; // image to be used
+	SDL_Rect src; // location on the sprite in pixel coordinates.
+
+	Point map_pos; // The map location on the floor between someone's feet
+	Point offset;  // offset from map_pos to topleft corner of sprite
+	Point tile;    // The tile which this renderable belongs to (i.e. for blocking that tile)
 };
 
 class Event_Component {
@@ -75,6 +75,7 @@ bool isWithin(SDL_Rect r, Point target);
 void drawPixel(SDL_Surface *screen, int x, int y, Uint32 color);
 void drawLine(SDL_Surface *screen, int x0, int y0, int x1, int y1, Uint32 color);
 void drawLine(SDL_Surface *screen, Point pos0, Point pos1, Uint32 color);
+bool checkPixel(Point px, SDL_Surface *surface);
 
 /**
  * Creates a SDL_Surface.

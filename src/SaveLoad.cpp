@@ -166,26 +166,26 @@ void GameStatePlay::loadGame() {
 		while (infile.next()) {
 			if (infile.key == "name") pc->stats.name = infile.val;
 			else if (infile.key == "permadeath") {
-				pc->stats.permadeath = atoi(infile.val.c_str());
+				pc->stats.permadeath = toInt(infile.val);
 			}
 			else if (infile.key == "option") {
 				pc->stats.base = infile.nextValue();
 				pc->stats.head = infile.nextValue();
 				pc->stats.portrait = infile.nextValue();
 			}
-			else if (infile.key == "xp") pc->stats.xp = atoi(infile.val.c_str());
+			else if (infile.key == "xp") pc->stats.xp = toInt(infile.val);
 			else if (infile.key == "hpmp") {
-				saved_hp = atoi(infile.nextValue().c_str());
-				saved_mp = atoi(infile.nextValue().c_str());
+				saved_hp = toInt(infile.nextValue());
+				saved_mp = toInt(infile.nextValue());
 			}
 			else if (infile.key == "build") {
-				pc->stats.physical_character = atoi(infile.nextValue().c_str());
-				pc->stats.mental_character = atoi(infile.nextValue().c_str());
-				pc->stats.offense_character = atoi(infile.nextValue().c_str());
-				pc->stats.defense_character = atoi(infile.nextValue().c_str());
+				pc->stats.physical_character = toInt(infile.nextValue());
+				pc->stats.mental_character = toInt(infile.nextValue());
+				pc->stats.offense_character = toInt(infile.nextValue());
+				pc->stats.defense_character = toInt(infile.nextValue());
 			}
 			else if (infile.key == "gold") {
-				menu->inv->gold = atoi(infile.val.c_str());
+				menu->inv->gold = toInt(infile.val);
 			}
 			else if (infile.key == "equipped") {
 				menu->inv->inventory[EQUIPMENT].setItems(infile.val);
@@ -203,8 +203,8 @@ void GameStatePlay::loadGame() {
 				map->teleport_mapname = infile.nextValue();
 
 				if (fileExists(mods->locate("maps/" + map->teleport_mapname))) {
-					map->teleport_destination.x = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
-					map->teleport_destination.y = atoi(infile.nextValue().c_str()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+					map->teleport_destination.x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+					map->teleport_destination.y = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
 					map->teleportation = true;
 
 					// prevent spawn.txt from putting us on the starting map
@@ -220,17 +220,17 @@ void GameStatePlay::loadGame() {
 			}
 			else if (infile.key == "actionbar") {
 				for (int i=0; i<12; i++)
-					hotkeys[i] = atoi(infile.nextValue().c_str());
+					hotkeys[i] = toInt(infile.nextValue());
 				menu->act->set(hotkeys);
 			}
 			else if (infile.key == "transformed") {
-				pc->stats.transform_type = infile.nextValue().c_str();
+				pc->stats.transform_type = infile.nextValue();
 				if (pc->stats.transform_type != "") pc->stats.transform_duration = -1;
 			}
 			else if (infile.key == "powers") {
 				string power;
 				while ( (power = infile.nextValue()) != "") {
-					menu->pow->powers_list.push_back(atoi(power.c_str()));
+					menu->pow->powers_list.push_back(toInt(power));
 				}
 			}
 			else if (infile.key == "campaign") camp->setAll(infile.val);

@@ -157,17 +157,13 @@ bool Enemy::takeHit(Hazard h) {
 		else dmg = h.dmg_min;
 
 		// apply elemental resistance
-		// TODO: make this generic
 		int vulnerable;
-		if (h.trait_elemental == ELEMENT_FIRE) {
-			if (MAX_RESIST < stats.vulnerable_fire) vulnerable = MAX_RESIST;
-			else vulnerable = stats.vulnerable_fire;
-			dmg = (dmg * vulnerable) / 100;
-		}
-		if (h.trait_elemental == ELEMENT_WATER) {
-			if (MAX_RESIST < stats.vulnerable_ice) vulnerable = MAX_RESIST;
-			else vulnerable = stats.vulnerable_ice;
-			dmg = (dmg * vulnerable) / 100;
+		for (unsigned int i=0; i<stats.vulnerable.size(); i++) {
+			if (h.trait_elemental == (signed)i) {
+				if (MAX_RESIST < stats.vulnerable[i]) vulnerable = MAX_RESIST;
+				else vulnerable = stats.vulnerable[i];
+				dmg = (dmg * vulnerable) / 100;
+			}
 		}
 
 		// substract absorption from armor
@@ -321,10 +317,6 @@ Renderable Enemy::getRender() {
 	Renderable r = activeAnimation->getCurrentFrame(stats.direction);
 	r.map_pos.x = stats.pos.x;
 	r.map_pos.y = stats.pos.y;
-
-	// draw corpses below objects so that floor loot is more visible
-	r.object_layer = !stats.corpse;
-
 	return r;
 }
 

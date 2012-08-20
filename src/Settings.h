@@ -23,6 +23,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #define SETTINGS_H
 
 #include <string>
+#include <vector>
 
 // Path info
 extern std::string PATH_CONF; // user-configurable settings files
@@ -96,6 +97,9 @@ extern int MAX_ABSORB;
 extern int MAX_RESIST;
 extern int MAX_BLOCK;
 extern int MAX_AVOIDANCE;
+
+// Elemental types
+extern std::vector<std::string> ELEMENTS;
 
 void setPaths();
 void loadTilesetSettings();

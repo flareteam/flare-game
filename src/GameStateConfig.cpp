@@ -134,13 +134,13 @@ GameStateConfig::GameStateConfig ()
 	settings_lstb[2] = new WidgetListBox(mods_total, 10, mods->locate("images/menus/buttons/listbox_default.png"));
 
 	//Load the menu configuration from file
-	int x1;
-	int y1;
-	int x2;
-	int y2;
-	int setting_num;
-	int offset_x;
-	int offset_y;
+	int x1 = 0;
+	int y1 = 0;
+	int x2 = 0;
+	int y2 = 0;
+	int setting_num = 0;
+	int offset_x = 0;
+	int offset_y = 0;
 
 	FileParser infile;
 	if (infile.open(mods->locate("menus/config.txt"))) {
@@ -482,7 +482,7 @@ GameStateConfig::GameStateConfig ()
 
 	// Add Key Binding objects
 	for (unsigned int i = 14; i < 39; i++) {
-		 settings_lb[i]->set(binding_name[i-14]);
+		 settings_lb[i]->set(msg->get(binding_name[i-14]));
 		 settings_lb[i]->setJustify(JUSTIFY_RIGHT);
 		 child_widget.push_back(settings_lb[i]);
 		 optiontab[child_widget.size()-1] = 4;
@@ -712,7 +712,8 @@ void GameStateConfig::logic ()
 		tabControl->logic();
 
 		// Ok/Cancel Buttons
-		if (ok_button->checkClick()) {
+		if (ok_button->checkClick() || (inpt->pressing[ACCEPT] && !inpt->lock[ACCEPT])) {
+			inpt->lock[ACCEPT] = true;
 			inpt->saveKeyBindings();
 			if (setMods()) {
 				reload_music = true;
@@ -732,7 +733,8 @@ void GameStateConfig::logic ()
 			requestedGameState = new GameStateTitle();
 		} else if (defaults_button->checkClick()) {
 			defaults_confirm->visible = true;
-		} else if (cancel_button->checkClick()) {
+		} else if (cancel_button->checkClick() || (inpt->pressing[CANCEL] && !inpt->lock[CANCEL])) {
+			inpt->lock[CANCEL] = true;
 			check_resolution = false;
 			loadSettings();
 			loadMiscSettings();

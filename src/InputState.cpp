@@ -36,7 +36,7 @@ InputState::InputState(void) {
 	SDL_EnableUNICODE(true);
 
 	defaultQwertyKeyBindings();
-	
+
 	for (int key=0; key<key_count; key++) {
 		pressing[key] = false;
 		lock[key] = false;
@@ -47,10 +47,10 @@ InputState::InputState(void) {
 	}
 	done = false;
 
-	scroll_up = scroll_down = false;
-	
+	resetScroll();
+
 	loadKeyBindings();
-	
+
 }
 
 
@@ -62,14 +62,14 @@ void InputState::defaultQwertyKeyBindings ()
 	binding[DOWN] = SDLK_s;
 	binding[LEFT] = SDLK_a;
 	binding[RIGHT] = SDLK_d;
-	
+
 	binding_alt[CANCEL] = SDLK_ESCAPE;
 	binding_alt[ACCEPT] = SDLK_SPACE;
 	binding_alt[UP] = SDLK_UP;
 	binding_alt[DOWN] = SDLK_DOWN;
 	binding_alt[LEFT] = SDLK_LEFT;
 	binding_alt[RIGHT] = SDLK_RIGHT;
-	
+
 	binding[BAR_1] = binding_alt[BAR_1] = SDLK_1;
 	binding[BAR_2] = binding_alt[BAR_2] = SDLK_2;
 	binding[BAR_3] = binding_alt[BAR_3] = SDLK_3;
@@ -80,15 +80,15 @@ void InputState::defaultQwertyKeyBindings ()
 	binding[BAR_8] = binding_alt[BAR_8] = SDLK_8;
 	binding[BAR_9] = binding_alt[BAR_9] = SDLK_9;
 	binding[BAR_0] = binding_alt[BAR_0] = SDLK_0;
-	
+
 	binding[CHARACTER] = binding_alt[CHARACTER] = SDLK_c;
 	binding[INVENTORY] = binding_alt[INVENTORY] = SDLK_i;
 	binding[POWERS] = binding_alt[POWERS] = SDLK_p;
 	binding[LOG] = binding_alt[LOG] = SDLK_l;
-	
+
 	binding[MAIN1] = binding_alt[MAIN1] = SDL_BUTTON_LEFT;
 	binding[MAIN2] = binding_alt[MAIN2] = SDL_BUTTON_RIGHT;
-	
+
 	binding[CTRL] = SDLK_LCTRL;
 	binding_alt[CTRL] = SDLK_RCTRL;
 	binding[SHIFT] = SDLK_LSHIFT;
@@ -112,14 +112,14 @@ void InputState::loadKeyBindings() {
 		saveKeyBindings();
 		return;
 	}
-	
+
 	while (infile.next()) {
 
 		key1 = eatFirstInt(infile.val, ',');
-		key2 = atoi(infile.val.c_str());
-		
+		key2 = toInt(infile.val);
+
 		cursor = -1;
-		
+
 		if (infile.key == "cancel") cursor = CANCEL;
 		else if (infile.key == "accept") cursor = ACCEPT;
 		else if (infile.key == "up") cursor = UP;
@@ -145,7 +145,7 @@ void InputState::loadKeyBindings() {
 		else if (infile.key == "ctrl") cursor = CTRL;
 		else if (infile.key == "shift") cursor = SHIFT;
 		else if (infile.key == "delete") cursor = DEL;
-		
+
 		if (cursor != -1) {
 			binding[cursor] = key1;
 			binding_alt[cursor] = key2;
@@ -163,7 +163,7 @@ void InputState::saveKeyBindings() {
 	outfile.open((PATH_CONF + FILE_KEYBINDINGS).c_str(), ios::out);
 
 	if (outfile.is_open()) {
-	
+
 		outfile << "cancel=" << binding[CANCEL] << "," << binding_alt[CANCEL] << "\n";
 		outfile << "accept=" << binding[ACCEPT] << "," << binding_alt[ACCEPT] << "\n";
 		outfile << "up=" << binding[UP] << "," << binding_alt[UP] << "\n";
@@ -189,7 +189,7 @@ void InputState::saveKeyBindings() {
 		outfile << "ctrl=" << binding[CTRL] << "," << binding_alt[CTRL] << "\n";
 		outfile << "shift=" << binding[SHIFT] << "," << binding_alt[SHIFT] << "\n";
 		outfile << "delete=" << binding[DEL] << "," << binding_alt[DEL] << "\n";
-		
+
 		outfile.close();
 	}
 
@@ -562,6 +562,11 @@ void InputState::handle(bool dump_event) {
 	}
 
 
+}
+
+void InputState::resetScroll() {
+	scroll_up = false;
+	scroll_down = false;
 }
 
 InputState::~InputState() {

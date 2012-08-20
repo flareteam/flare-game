@@ -36,7 +36,7 @@ WidgetButton::WidgetButton(const std::string& _fileName)
 	pressed = false;
 	hover = false;
 	render_to_alpha = false;
-	
+
 	loadArt();
 
 	pos.w = buttons->w;
@@ -49,17 +49,16 @@ WidgetButton::WidgetButton(const std::string& _fileName)
 void WidgetButton::loadArt() {
 
 	// load button images
-	buttons = IMG_Load(fileName.c_str());
+	SDL_Surface *cleanup = IMG_Load(fileName.c_str());
 
-	if(!buttons) {
+	if(!cleanup) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 		SDL_Quit();
 		exit(1); // or abort ??
 	}
-	
+
 	// optimize
-	SDL_Surface *cleanup = buttons;
-	buttons = SDL_DisplayFormatAlpha(buttons);
+	buttons = SDL_DisplayFormatAlpha(cleanup);
 	SDL_FreeSurface(cleanup);
 }
 
@@ -93,20 +92,20 @@ bool WidgetButton::checkClick(int x, int y) {
 	// main click released, so the button state goes back to unpressed
 	if (pressed && !inpt->lock[MAIN1]) {
 		pressed = false;
-		
+
 		if (isWithin(pos, mouse)) {
-		
+
 			// activate upon release
 			return true;
 		}
 	}
 
 	pressed = false;
-	
+
 	// detect new click
 	if (inpt->pressing[MAIN1]) {
 		if (isWithin(pos, mouse)) {
-		
+
 			inpt->lock[MAIN1] = true;
 			pressed = true;
 
@@ -124,7 +123,7 @@ void WidgetButton::render(SDL_Surface *target) {
 	src.x = 0;
 	src.w = pos.w;
 	src.h = pos.h;
-	
+
 	// the "button" surface contains button variations.
 	// choose which variation to display.
 	if (!enabled)
@@ -135,7 +134,7 @@ void WidgetButton::render(SDL_Surface *target) {
 		src.y = BUTTON_GFX_HOVER * pos.h;
 	else
 		src.y = BUTTON_GFX_NORMAL * pos.h;
-	
+
 	// create a temporary rect so we don't modify pos
 	SDL_Rect offset = pos;
 
@@ -152,7 +151,7 @@ void WidgetButton::render(SDL_Surface *target) {
  */
 void WidgetButton::refresh() {
 	if (label != "") {
-	
+
 		int font_x = pos.x + (pos.w/2);
 		int font_y = pos.y + (pos.h/2);
 

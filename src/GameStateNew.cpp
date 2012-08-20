@@ -41,7 +41,6 @@ using namespace std;
 
 GameStateNew::GameStateNew() : GameState() {
 	game_slot = 0;
-	option_count = 0;
 	current_option = 0;
 	portrait_image = NULL;
 
@@ -65,9 +64,9 @@ GameStateNew::GameStateNew() : GameState() {
 	button_permadeath = new WidgetCheckBox(mods->locate(
 												"images/menus/buttons/checkbox_default.png"));
 
-	// Read positions from config file 
+	// Read positions from config file
 	FileParser infile;
-	int counter = -1;
+
 	if (infile.open(mods->locate("menus/gamenew.txt"))) {
 	  while (infile.next()) {
 		infile.val = infile.val + ',';
@@ -182,16 +181,10 @@ void GameStateNew::loadOptions(const string& filename) {
 	if (!fin.open(mods->locate("engine/" + filename))) return;
 
 	while (fin.next()) {
-
-		// if at the max allowed base+look options, skip the rest of the file
-		// TODO: remove static array size limit
-		if (option_count == PLAYER_OPTION_MAX-1) break;
-
 		if (fin.key == "option") {
-			base[option_count] = fin.nextValue();
-			head[option_count] = fin.nextValue();
-			portrait[option_count] = fin.nextValue();
-			option_count++;
+			base.push_back(fin.nextValue());
+			head.push_back(fin.nextValue());
+			portrait.push_back(fin.nextValue());
 		}
 	}
 	fin.close();
@@ -202,6 +195,10 @@ void GameStateNew::logic() {
 
 	// require character name
 	if (input_name->getText() == "" && DEFAULT_NAME == "") {
+		if (inpt->pressing[ACCEPT] && !inpt->lock[ACCEPT]) {
+			inpt->lock[ACCEPT] = true;
+			input_name->inFocus = true;
+		}
 		if (button_create->enabled) {
 			button_create->enabled = false;
 			button_create->refresh();
@@ -214,12 +211,18 @@ void GameStateNew::logic() {
 		}
 	}
 
-	if (button_exit->checkClick()) {
+	if (inpt->pressing[CANCEL] && !inpt->lock[CANCEL] && input_name->inFocus) {
+		inpt->lock[CANCEL] = true;
+		input_name->inFocus = false;
+	}
+	if (button_exit->checkClick() || (inpt->pressing[CANCEL] && !inpt->lock[CANCEL] && !input_name->inFocus)) {
+		inpt->lock[CANCEL] = true;
 		delete requestedGameState;
 		requestedGameState = new GameStateLoad();
 	}
 
-	if (button_create->checkClick()) {
+	if (button_create->checkClick() || (inpt->pressing[ACCEPT] && !inpt->lock[ACCEPT] && button_create->enabled)) {
+		inpt->lock[ACCEPT] = true;
 		// start the new game
 		GameStatePlay* play = new GameStatePlay();
 		play->pc->stats.base = base[current_option];
@@ -233,19 +236,20 @@ void GameStateNew::logic() {
 	}
 
 	// scroll through portrait options
-	if (button_next->checkClick()) {
+	if (button_next->checkClick() || (inpt->pressing[RIGHT] && !inpt->lock[RIGHT] && !input_name->inFocus)) {
+		inpt->lock[RIGHT] = true;
 		current_option++;
-		if (current_option == option_count) current_option = 0;
+		if (current_option == (int)base.size()) current_option = 0;
 		loadPortrait(portrait[current_option]);
 	}
-	else if (button_prev->checkClick()) {
+	else if (button_prev->checkClick() || (inpt->pressing[LEFT] && !inpt->lock[LEFT] && !input_name->inFocus)) {
+		inpt->lock[LEFT] = true;
 		current_option--;
-		if (current_option == -1) current_option = option_count-1;
+		if (current_option == -1) current_option = base.size()-1;
 		loadPortrait(portrait[current_option]);
 	}
 
 	if (DEFAULT_NAME == "") input_name->logic();
-
 }
 
 void GameStateNew::render() {
@@ -268,12 +272,8 @@ void GameStateNew::render() {
 	dest.x = portrait_pos.x + (VIEW_W - FRAME_W)/2;
 	dest.y = portrait_pos.y + (VIEW_H - FRAME_H)/2;
 
-	if (portrait != NULL) {
-		SDL_BlitSurface(portrait_image, &src, screen, &dest);
-	}
-	if (portrait_border != NULL) {
-		SDL_BlitSurface(portrait_border, &src, screen, &dest);
-	}
+	SDL_BlitSurface(portrait_image, &src, screen, &dest);
+	SDL_BlitSurface(portrait_border, &src, screen, &dest);
 
 	// display labels
 	label_portrait->render();

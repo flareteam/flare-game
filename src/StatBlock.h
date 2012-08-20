@@ -188,8 +188,7 @@ public:
 	bool wielding_mental;
 	bool wielding_offense;
 	bool ammo_arrows;
-	int vulnerable_fire;
-	int vulnerable_ice;
+	std::vector<int> vulnerable;
 
 	// buff and debuff stats
 	int slow_duration;
@@ -231,8 +230,8 @@ public:
 	int dspeed;
 	Point pos;
 	Point forced_speed;
-	int direction;
-	int hero_cooldown[1024]; //TODO: fix this to use POWER_COUNT... right now it can't #include "PowerManager.h"
+	char direction;
+	std::vector<int> hero_cooldown;
 
 	// state
 	int cur_state;
@@ -309,6 +308,9 @@ public:
 
 	std::string animations;
 	int animationSpeed;
+
+	// default sounds
+	std::string sfx_step;
 
 	// formula numbers
 	int max_spendable_stat_points;

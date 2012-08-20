@@ -115,7 +115,7 @@ void WidgetLabel::set(int _x, int _y, int _justify, int _valign, const string& _
 		text = _text;
 		changed = true;
 	}
-	if (color.r != _color.r && color.g != _color.g && color.b != _color.b) {
+	if (color.r != _color.r || color.g != _color.g || color.b != _color.b) {
 		color = _color;
 		changed = true;
 	}

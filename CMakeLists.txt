@@ -10,11 +10,12 @@ if (MSVC)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /wd4099 /wd4244")
 else (MSVC)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wno-unused -Wshadow -Woverloaded-virtual")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-enforce-eh-specs -fno-math-errno -fno-exceptions")
 endif (MSVC)
 if(CMAKE_BUILD_TYPE STREQUAL "Release")
-  set(CMAKE_CXX_FLAGS_RELEASE "-O2 -g0 -flto -fwhole-program")
+  set(CMAKE_CXX_FLAGS_RELEASE "-O2 -g0 -flto")
 elseif(CMAKE_BUILD_TYPE STREQUAL "RelWithDebInfo")
-  set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-O2 -g")
+  set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-O2 -g -flto")
 elseif(CMAKE_BUILD_TYPE STREQUAL "MinSizeRel")
   set(CMAKE_CXX_FLAGS_MINSIZEREL "-Os -g0")
 elseif(CMAKE_BUILD_TYPE STREQUAL "Debug")
@@ -66,7 +67,7 @@ EndIf (NOT SDLTTF_FOUND)
 
 # Sources
 
-Set (FLARE_SOURCES 
+Set (FLARE_SOURCES
 	./src/Entity.cpp
 	./src/Animation.cpp
 	./src/AStarNode.cpp
@@ -146,7 +147,7 @@ Set (FLARE_SOURCES
 
 # Add icon and file info to executable for Windows systems
 IF (WIN32)
-  SET(FLARE_SOURCES 
+  SET(FLARE_SOURCES
     ${FLARE_SOURCES}
     ./src/Flare.rc
     )

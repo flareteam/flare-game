@@ -30,7 +30,7 @@ bool isInt(const string& s) {
 	if (s == "") return false;
 
 	int start=0;
-	
+
 	// allow a negative sign as the first char
 	if (s.at(0) == '-') start=1;
 
@@ -58,10 +58,10 @@ unsigned short xtoi(const string& hex) {
 	char c0 = hex.at(0);
 	char c1 = hex.at(1);
 	unsigned short val;
-	
+
 	val = xtoi(c0) * 16;
 	val = val + xtoi(c1);
-	
+
 	return val;
 }
 
@@ -106,7 +106,7 @@ char btox(bool b1, bool b2, bool b3, bool b4) {
  */
 string trim(const string& s, char c) {
 	if (s.length() == 0) return "";
-	
+
 	unsigned int first = 0;
 	unsigned int last = s.length()-1;
 
@@ -151,7 +151,7 @@ int eatFirstInt(string &s, char separator) {
 		s = "";
 		return 0; // not found
 	}
-	int num = atoi(s.substr(0, seppos).c_str());
+	int num = toInt(s.substr(0, seppos));
 	s = s.substr(seppos+1, s.length());
 	return num;
 }
@@ -203,7 +203,7 @@ string getLine(ifstream &infile) {
 	if (!getline(infile, line))
 		return "";
 	line = stripCarriageReturn(line);
-	return line; 
+	return line;
 }
 
 bool tryParseValue(const type_info & type, const char * value, void * output) {
@@ -249,3 +249,13 @@ std::string toString(const type_info & type, void * value) {
 
 	return stream.str();
 }
+
+int toInt(const string& s, int default_value) {
+	int result;
+	if (!(stringstream(s) >> result))
+		result = default_value;
+	return result;
+}
+
+
+

@@ -80,6 +80,7 @@ public:
 	void loadKeyBindings();
 	void saveKeyBindings();
 	void handle(bool dump_event);
+	void resetScroll();
 
 	bool pressing[key_count];
 	bool lock[key_count];

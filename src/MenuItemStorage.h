@@ -31,12 +31,14 @@ class TooltipData;
 
 class MenuItemStorage : public ItemStorage {
 protected:
-	SDL_Rect area;
+	std::vector<SDL_Rect> area;
 	int icon_size;
 	int nb_cols;
+	std::vector<std::string> slot_type;
 
 public:
 	void init(int _slot_number, ItemManager *_items, SDL_Rect _area, int icon_size, int nb_cols);
+	void init(int _slot_number, ItemManager *_items, std::vector<SDL_Rect> _area, std::vector<std::string> _slot_type);
 
 	// rendering
 	void render();

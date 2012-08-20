@@ -25,6 +25,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "Settings.h"
 #include "StatBlock.h"
 #include "UtilsFileSystem.h"
+#include "UtilsParsing.h"
 #include "WidgetLabel.h"
 
 #include <sstream>
@@ -84,7 +85,7 @@ void ItemManager::load(const string& filename) {
 
 		while (infile.next()) {
 			if (infile.key == "id") {
-				id = atoi(infile.val.c_str());
+				id = toInt(infile.val);
 				if (id >= items.size()) {
 					// *2 to amortize the resizing to O(log(n)).
 					items.resize((2*id) + 1);
@@ -95,10 +96,10 @@ void ItemManager::load(const string& filename) {
 			else if (infile.key == "name")
 				items[id].name = msg->get(infile.val);
 			else if (infile.key == "level")
-				items[id].level = atoi(infile.val.c_str());
+				items[id].level = toInt(infile.val);
 			else if (infile.key == "icon") {
-				items[id].icon_small = atoi(infile.nextValue().c_str());
-				items[id].icon_large = atoi(infile.nextValue().c_str());
+				items[id].icon_small = toInt(infile.nextValue());
+				items[id].icon_large = toInt(infile.nextValue());
 			}
 			else if (infile.key == "quality") {
 				if (infile.val == "low")
@@ -109,32 +110,19 @@ void ItemManager::load(const string& filename) {
 					items[id].quality = ITEM_QUALITY_EPIC;
 			}
 			else if (infile.key == "type") {
-				if (infile.val == "main")
-					items[id].type = ITEM_TYPE_MAIN;
-				else if (infile.val == "body")
-					items[id].type = ITEM_TYPE_BODY;
-				else if (infile.val == "off")
-					items[id].type = ITEM_TYPE_OFF;
-				else if (infile.val == "artifact")
-					items[id].type = ITEM_TYPE_ARTIFACT;
-				else if (infile.val == "consumable")
-					items[id].type = ITEM_TYPE_CONSUMABLE;
-				else if (infile.val == "gem")
-					items[id].type = ITEM_TYPE_GEM;
-				else if (infile.val == "quest")
-					items[id].type = ITEM_TYPE_QUEST;
+					items[id].type = infile.val;
 			}
 			else if (infile.key == "dmg") {
-				items[id].dmg_min = atoi(infile.nextValue().c_str());
+				items[id].dmg_min = toInt(infile.nextValue());
 				if (infile.val.length() > 0)
-					items[id].dmg_max = atoi(infile.nextValue().c_str());
+					items[id].dmg_max = toInt(infile.nextValue());
 				else
 					items[id].dmg_max = items[id].dmg_min;
 			}
 			else if (infile.key == "abs") {
-				items[id].abs_min = atoi(infile.nextValue().c_str());
+				items[id].abs_min = toInt(infile.nextValue());
 				if (infile.val.length() > 0)
-					items[id].abs_max = atoi(infile.nextValue().c_str());
+					items[id].abs_max = toInt(infile.nextValue());
 				else
 					items[id].abs_max = items[id].abs_min;
 			}
@@ -148,14 +136,11 @@ void ItemManager::load(const string& filename) {
 					items[id].req_stat = REQUIRES_OFF;
 				else if (s == "d")
 					items[id].req_stat = REQUIRES_DEF;
-				items[id].req_val = atoi(infile.nextValue().c_str());
+				items[id].req_val = toInt(infile.nextValue());
 			}
 			else if (infile.key == "bonus") {
-				if (bonus_counter < ITEM_MAX_BONUSES) {
-					items[id].bonus_stat[bonus_counter] = infile.nextValue();
-					items[id].bonus_val[bonus_counter] = atoi(infile.nextValue().c_str());
-					bonus_counter++;
-				}
+				items[id].bonus_stat.push_back(infile.nextValue());
+				items[id].bonus_val.push_back(toInt(infile.nextValue()));
 			}
 			else if (infile.key == "sfx") {
 				if (infile.val == "book")
@@ -188,21 +173,21 @@ void ItemManager::load(const string& filename) {
 			else if (infile.key == "loot_animation")
 				items[id].loot_animation = infile.val;
 			else if (infile.key == "power")
-				items[id].power = atoi(infile.val.c_str());
+				items[id].power = toInt(infile.val);
 			else if (infile.key == "power_mod")
-				items[id].power_mod = atoi(infile.val.c_str());
+				items[id].power_mod = toInt(infile.val);
 			else if (infile.key == "power_desc")
 				items[id].power_desc = msg->get(infile.val);
 			else if (infile.key == "price")
-				items[id].price = atoi(infile.val.c_str());
+				items[id].price = toInt(infile.val);
 			else if (infile.key == "price_sell")
-				items[id].price_sell = atoi(infile.val.c_str());
+				items[id].price_sell = toInt(infile.val);
 			else if (infile.key == "max_quantity")
-				items[id].max_quantity = atoi(infile.val.c_str());
+				items[id].max_quantity = toInt(infile.val);
 			else if (infile.key == "rand_loot")
-				items[id].rand_loot = atoi(infile.val.c_str());
+				items[id].rand_loot = toInt(infile.val);
 			else if (infile.key == "rand_vendor")
-				items[id].rand_vendor = atoi(infile.val.c_str());
+				items[id].rand_vendor = toInt(infile.val);
 			else if (infile.key == "pickup_status")
 				items[id].pickup_status = infile.val;
 			else if (infile.key == "stepfx")
@@ -393,20 +378,20 @@ TooltipData ItemManager::getTooltip(int item, StatBlock *stats, bool vendor_view
 	}
 
 	// type
-	if (items[item].type != ITEM_TYPE_OTHER) {
-		if (items[item].type == ITEM_TYPE_MAIN)
+	if (items[item].type != "other") {
+		if (items[item].type == "main")
 			tip.lines[tip.num_lines++] = msg->get("Main Hand");
-		else if (items[item].type == ITEM_TYPE_BODY)
+		else if (items[item].type == "body")
 			tip.lines[tip.num_lines++] = msg->get("Body");
-		else if (items[item].type == ITEM_TYPE_OFF)
+		else if (items[item].type == "off")
 			tip.lines[tip.num_lines++] = msg->get("Off Hand");
-		else if (items[item].type == ITEM_TYPE_ARTIFACT)
+		else if (items[item].type == "artifact")
 			tip.lines[tip.num_lines++] = msg->get("Artifact");
-		else if (items[item].type == ITEM_TYPE_CONSUMABLE)
+		else if (items[item].type == "consumable")
 			tip.lines[tip.num_lines++] = msg->get("Consumable");
-		else if (items[item].type == ITEM_TYPE_GEM)
+		else if (items[item].type == "gem")
 			tip.lines[tip.num_lines++] = msg->get("Gem");
-		else if (items[item].type == ITEM_TYPE_QUEST)
+		else if (items[item].type == "quest")
 			tip.lines[tip.num_lines++] = msg->get("Quest Item");
 	}
 
@@ -441,20 +426,25 @@ TooltipData ItemManager::getTooltip(int item, StatBlock *stats, bool vendor_view
 	}
 
 	// bonuses
-	int bonus_counter = 0;
+	unsigned bonus_counter = 0;
 	string modifier;
-	while (items[item].bonus_stat[bonus_counter] != "") {
+	while (bonus_counter < items[item].bonus_val.size() && items[item].bonus_stat[bonus_counter] != "") {
 		if (items[item].bonus_val[bonus_counter] > 0) {
-			modifier = msg->get("Increases %s by %d", items[item].bonus_val[bonus_counter], msg->get(items[item].bonus_stat[bonus_counter]));
+			modifier = msg->get("Increases %s by %d",
+					items[item].bonus_val[bonus_counter],
+					msg->get(items[item].bonus_stat[bonus_counter]));
+
 			tip.colors[tip.num_lines] = color_bonus;
 		}
 		else {
-			modifier = msg->get("Decreases %s by %d", items[item].bonus_val[bonus_counter], msg->get(items[item].bonus_stat[bonus_counter]));
+			modifier = msg->get("Decreases %s by %d",
+					items[item].bonus_val[bonus_counter],
+					msg->get(items[item].bonus_stat[bonus_counter]));
+
 			tip.colors[tip.num_lines] = color_penalty;
 		}
 		tip.lines[tip.num_lines++] = modifier;
 		bonus_counter++;
-		if (bonus_counter == ITEM_MAX_BONUSES) break;
 	}
 
 	// power

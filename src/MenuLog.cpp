@@ -129,8 +129,10 @@ void MenuLog::logic() {
 
 	for (int i=0; i<LOG_TYPE_COUNT; i++) {
 		msg_buffer[i]->refresh();
-		msg_buffer[i]->logic();
 	}
+
+	int active_log = tabControl->getActiveTab();
+	msg_buffer[active_log]->logic();
 }
 
 /**
@@ -174,7 +176,6 @@ void MenuLog::render() {
 
 	// Display latest log messages for the active tab.
 
-	int display_number = 0;
 	int total_size = tab_content_indent;
 	int active_log = tabControl->getActiveTab();
 	SDL_Rect contentArea = tabControl->getContentArea();

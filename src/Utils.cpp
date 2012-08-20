@@ -300,3 +300,59 @@ SDL_Surface* createSurface(int width, int height) {
 
 	return surface;
 }
+
+/*
+ * Returns false if a pixel at Point px is transparent
+ *
+ * Source: SDL Documentation
+ * http://www.libsdl.org/cgi/docwiki.cgi/Introduction_to_SDL_Video#getpixel
+ */
+bool checkPixel(Point px, SDL_Surface *surface) {
+	SDL_LockSurface(surface);
+
+	int bpp = surface->format->BytesPerPixel;
+	/* Here p is the address to the pixel we want to retrieve */
+	Uint8 *p = (Uint8 *)surface->pixels + px.y * surface->pitch + px.x * bpp;
+	Uint32 pixel;
+
+	switch (bpp) {
+		case 1:
+			pixel = *p;
+			break;
+
+		case 2:
+			pixel = *(Uint16 *)p;
+			break;
+
+		case 3:
+			if (SDL_BYTEORDER == SDL_BIG_ENDIAN)
+				pixel = p[0] << 16 | p[1] << 8 | p[2];
+			else
+				pixel = p[0] | p[1] << 8 | p[2] << 16;
+			break;
+
+		case 4:
+			pixel = *(Uint32 *)p;
+			break;
+
+		default:
+			SDL_UnlockSurface(surface);
+			return false;
+	}
+
+	Uint8 r,g,b,a;
+	SDL_GetRGBA(pixel, surface->format, &r, &g, &b, &a);
+
+	if (r == 255 && g == 0 && b ==255 && a == 255) {
+		SDL_UnlockSurface(surface);
+		return false;
+	}
+	if (a == 0) {
+		SDL_UnlockSurface(surface);
+		return false;
+	}
+
+	SDL_UnlockSurface(surface);
+
+	return true;
+}

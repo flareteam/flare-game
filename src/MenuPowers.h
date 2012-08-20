@@ -38,30 +38,45 @@ class PowerManager;
 class StatBlock;
 class TooltipData;
 
-const int POWER_SLOTS_COUNT = 60;
-
 struct Power_Menu_Cell {
-	int id;
-	int tab;
+	short id;
+	short tab;
 	Point pos;
-	int requires_physoff;
-	int requires_physdef;
-	int requires_mentoff;
-	int requires_mentdef;
-	int requires_defense;
-	int requires_offense;
-	int requires_physical;
-	int requires_mental;
-	int requires_level;
-	int requires_power;
+	short requires_physoff;
+	short requires_physdef;
+	short requires_mentoff;
+	short requires_mentdef;
+	short requires_defense;
+	short requires_offense;
+	short requires_physical;
+	short requires_mental;
+	short requires_level;
+	short requires_power;
 	bool requires_point;
+	Power_Menu_Cell() {
+		id = -1;
+		tab = 0;
+		pos.x = 0;
+		pos.y = 0;
+		requires_mentdef = 0;
+		requires_mentoff = 0;
+		requires_physoff = 0;
+		requires_physdef = 0;
+		requires_defense = 0;
+		requires_offense = 0;
+		requires_physical = 0;
+		requires_mental = 0;
+		requires_level = 0;
+		requires_power = -1;
+		requires_point = false;
+	}
 };
 
 class MenuPowers : public Menu {
 private:
 	StatBlock *stats;
 	PowerManager *powers;
-	Power_Menu_Cell power_cell[POWER_SLOTS_COUNT];
+	std::vector<Power_Menu_Cell> power_cell;
 
 	SDL_Surface *background;
 	SDL_Surface *icons;
@@ -72,12 +87,12 @@ private:
 	bool pressed;
 
 	LabelInfo title;
+	LabelInfo unspent_points;
 	Point close_pos;
-	Point unspent_pos;
 	SDL_Rect tab_area;
 
-	int points_left;
-	int tabs_count;
+	short points_left;
+	short tabs_count;
 	std::vector<std::string> tab_titles;
 	std::vector<std::string> tree_image_files;
 
@@ -94,6 +109,8 @@ private:
 	SDL_Color color_bonus;
 	SDL_Color color_penalty;
 
+	short id_by_powerIndex(short power_index);
+
 public:
 	static MenuPowers *getInstance();
 	MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_icons);
@@ -108,7 +125,7 @@ public:
 	bool meetsUsageStats(unsigned powerid);
 
 	bool visible;
-	SDL_Rect slots[POWER_SLOTS_COUNT]; // the location of power slots
+	std::vector<SDL_Rect> slots; // the location of power slots
 	std::vector<int> powers_list;
 
 };
