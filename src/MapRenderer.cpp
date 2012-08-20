@@ -325,10 +325,18 @@ int MapRenderer::load(string filename) {
 					events.back().location.h = toInt(infile.nextValue());
 				}
 				else if (infile.key == "hotspot") {
-					events.back().hotspot.x = toInt(infile.nextValue());
-					events.back().hotspot.y = toInt(infile.nextValue());
-					events.back().hotspot.w = toInt(infile.nextValue());
-					events.back().hotspot.h = toInt(infile.nextValue());
+					if (infile.val == "location") {
+						events.back().hotspot.x = events.back().location.x;
+						events.back().hotspot.y = events.back().location.y;
+						events.back().hotspot.w = events.back().location.w;
+						events.back().hotspot.h = events.back().location.h;
+					}
+					else {
+						events.back().hotspot.x = toInt(infile.nextValue());
+						events.back().hotspot.y = toInt(infile.nextValue());
+						events.back().hotspot.w = toInt(infile.nextValue());
+						events.back().hotspot.h = toInt(infile.nextValue());
+					}
 				}
 				else if (infile.key == "tooltip") {
 					events.back().tooltip = msg->get(infile.val);
