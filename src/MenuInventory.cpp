@@ -68,6 +68,7 @@ MenuInventory::MenuInventory(ItemManager *_items, StatBlock *_stats, PowerManage
 				equipment_slot.w = equipment_slot.h = eatFirstInt(infile.val,',');
 				equipped_area.push_back(equipment_slot);
 				slot_type.push_back(eatFirstString(infile.val,','));
+			} else if(infile.key == "slot_name") {
 				slot_desc.push_back(eatFirstString(infile.val,','));
 			} else if(infile.key == "carried_area") {
 				carried_area.x = eatFirstInt(infile.val,',');
@@ -76,7 +77,7 @@ MenuInventory::MenuInventory(ItemManager *_items, StatBlock *_stats, PowerManage
 				carried_cols = eatFirstInt(infile.val,',');
 			} else if (infile.key == "carried_rows"){
 				carried_rows = eatFirstInt(infile.val,',');
-			} else if (infile.key == "title"){
+			} else if (infile.key == "caption"){
 				title =  eatLabelInfo(infile.val);
 			} else if (infile.key == "gold"){
 				gold_lbl =  eatLabelInfo(infile.val);
@@ -208,7 +209,7 @@ TooltipData MenuInventory::checkTooltip(Point mouse) {
 		tip = inventory[area].checkTooltip( mouse, stats, false);
 	}
 	else if (area == EQUIPMENT && inventory[area][slot].item == 0) {
-		tip.lines[tip.num_lines++] = slot_desc[slot];
+		tip.lines[tip.num_lines++] = msg->get(slot_desc[slot]);
 	}
 	else if (mouse.x >= window_area.x + help_pos.x && mouse.y >= window_area.y+help_pos.y && mouse.x < window_area.x+help_pos.x+help_pos.w && mouse.y < window_area.y+help_pos.y+help_pos.h) {
 		tip.lines[tip.num_lines++] = msg->get("Use SHIFT to move only one item.");
