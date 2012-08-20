@@ -192,7 +192,7 @@ void GameStatePlay::loadGame() {
 			}
 			else if (infile.key == "equipped_quantity") {
 				menu->inv->inventory[EQUIPMENT].setQuantities(infile.val);
-				menu->inv->inventory[EQUIPMENT].sortItems();
+				menu->inv->inventory[EQUIPMENT].fillEquipmentSlots();
 			}
 			else if (infile.key == "carried") {
 				menu->inv->inventory[CARRIED].setItems(infile.val);
