@@ -45,7 +45,6 @@ void MenuItemStorage::init(int _slot_number, ItemManager *_items, vector<SDL_Rec
 }
 
 void MenuItemStorage::render() {
-	//FIXME If slot order was changed, items will be equipped in wrong slots
 	for (int i=0; i<slot_number; i++) {
 		if (storage[i].item > 0 && nb_cols > 0) {
 			items->renderIcon(storage[i], area[0].x + (i % nb_cols * icon_size), area[0].y + (i / nb_cols * icon_size), icon_size);
@@ -98,5 +97,31 @@ ItemStack MenuItemStorage::click(InputState * input) {
 void MenuItemStorage::itemReturn(ItemStack stack) {
 	add( stack, drag_prev_slot);
 	drag_prev_slot = -1;
+}
+
+/**
+ * Sort storage array, so items order matches slots order
+ */
+void MenuItemStorage::sortItems() {
+	int temp;
+	for (int i=0; i<slot_number; i++) {
+		// if there is no item, go to next position
+		if (storage[i].item == 0) continue;
+		// check if types don't match
+		if (slot_type[i] != items->items[storage[i].item].type) {
+			for (int j=i; j<slot_number; j++) {
+				// search for item of needed type
+				if (items->items[storage[j].item].type == slot_type[i]) {
+					// put item(s) into correct position
+					temp = storage[i].item;
+					storage[i].item = storage[j].item;
+					storage[j].item = temp;
+					temp = storage[i].quantity;
+					storage[i].quantity = storage[j].quantity;
+					storage[j].quantity = temp;
+				}
+			}
+		}
+	}
 }
 
