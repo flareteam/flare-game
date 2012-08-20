@@ -1016,8 +1016,12 @@ void MapRenderer::checkEventClick() {
 		// skip events on cooldown
 		if ((*it).cooldown_ticks != 0) continue;
 
-		for (int x=it->location.x; x < it->location.x + it->location.w; ++x) {
-			for (int y=it->location.y; y < it->location.y + it->location.h; ++y) {
+		if (!((abs(cam.x - (*it).location.x * UNITS_PER_TILE) < CLICK_RANGE)
+				&& (abs(cam.y - (*it).location.y * UNITS_PER_TILE) < CLICK_RANGE)))
+			continue;
+
+		for (int x=it->hotspot.x; x < it->hotspot.x + it->hotspot.w; ++x) {
+			for (int y=it->hotspot.y; y < it->hotspot.y + it->hotspot.h; ++y) {
 
 				bool backgroundmatch = false;
 				bool objectmatch = false;
@@ -1061,9 +1065,7 @@ void MapRenderer::checkEventClick() {
 						objectmatch = checkPixel(p1, tset.sprites);
 					}
 				}
-				if ((backgroundmatch || objectmatch)
-						&& (abs(cam.x - (*it).location.x * UNITS_PER_TILE) < CLICK_RANGE)
-						&& (abs(cam.y - (*it).location.y * UNITS_PER_TILE) < CLICK_RANGE)) {
+				if (backgroundmatch || objectmatch) {
 					inpt->lock[MAIN1] = true;
 					if (executeEvent(*it))
 						events.erase(it);
