@@ -46,7 +46,7 @@ public:
 	TooltipData checkTooltip(Point mouse, StatBlock *stats, bool vendor_view);
 	ItemStack click(InputState * input);
 	void itemReturn(ItemStack stack);
-	void sortItems();
+	void fillEquipmentSlots();
 
 	int drag_prev_slot;
 };
