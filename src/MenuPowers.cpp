@@ -97,7 +97,7 @@ MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_i
 			power_cell.back().requires_level = eatFirstInt(infile.val, ',');
 		} else if (infile.key == "requires_power") {
 			power_cell.back().requires_power = eatFirstInt(infile.val, ',');
-		} else if (infile.key == "title") {
+		} else if (infile.key == "caption") {
 			title = eatLabelInfo(infile.val);
 		} else if (infile.key == "unspent_points") {
 			unspent_points = eatLabelInfo(infile.val);
@@ -161,7 +161,7 @@ void MenuPowers::update() {
 
 		// Define the header.
 		for (int i=0; i<tabs_count; i++)
-			tabControl->setTabTitle(i, tab_titles[i]);
+			tabControl->setTabTitle(i, msg->get(tab_titles[i]));
 		tabControl->updateHeader();
 	}
 }

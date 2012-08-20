@@ -44,7 +44,7 @@ MenuLog::MenuLog() {
 		while(infile.next()) {
 			infile.val = infile.val + ',';
 
-			if(infile.key == "title") {
+			if(infile.key == "caption") {
 				title = eatLabelInfo(infile.val);
 			} else if(infile.key == "close") {
 				close_pos.x = eatFirstInt(infile.val,',');

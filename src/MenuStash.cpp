@@ -56,7 +56,7 @@ MenuStash::MenuStash(ItemManager *_items, StatBlock *_stats) {
 				slots_cols = eatFirstInt(infile.val,',');
 			} else if (infile.key == "stash_rows"){
 				slots_rows = eatFirstInt(infile.val,',');
-			} else if (infile.key == "title"){
+			} else if (infile.key == "caption"){
 				title =  eatLabelInfo(infile.val);
 			}
 		}
