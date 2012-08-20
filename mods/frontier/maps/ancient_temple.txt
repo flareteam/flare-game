@@ -423,7 +423,7 @@ soundfx=soundfx/powers/teleport.ogg
 # island chest
 type=run_once
 location=23,12,1,1
-hotspot=-16,-28,32,36
+hotspot=location
 loot=random,22,13,3;random,23,13,4;random,24,13,3
 mapmod=object,23,12,161
 soundfx=soundfx/wood_open.ogg
@@ -433,7 +433,7 @@ tooltip=Treasure Chest
 # island chest
 type=run_once
 location=24,11,1,1
-hotspot=-16,-28,32,36
+hotspot=location
 loot=random,25,10,3;random,25,11,4;random,25,12,3
 mapmod=object,24,11,160
 soundfx=soundfx/wood_open.ogg
@@ -443,7 +443,7 @@ tooltip=Treasure Chest
 # book stand
 type=run_once
 location=39,9,1,1
-hotspot=-16,-48,32,56
+hotspot=location
 mapmod=object,39,9,165
 msg=Tho' Nature, red in tooth and claw; With ravine, shriek'd against his creed
 soundfx=soundfx/inventory/inventory_page.ogg
@@ -466,7 +466,7 @@ spawn=zombie_brute,48,81
 type=trap
 location=24,81,1,1
 cooldown=90
-hotspot=-32,-16,64,32
+hotspot=location
 power=160
 power_damage=10,15
 
@@ -475,7 +475,7 @@ power_damage=10,15
 type=trap
 location=23,81,1,1
 cooldown=90
-hotspot=-32,-16,64,32
+hotspot=location
 power=160
 power_damage=10,15
 
@@ -484,7 +484,7 @@ power_damage=10,15
 type=trap
 location=20,82,1,1
 cooldown=90
-hotspot=-32,-16,64,32
+hotspot=location
 power=160
 power_damage=10,15
 
@@ -493,7 +493,7 @@ power_damage=10,15
 type=trap
 location=22,81,1,1
 cooldown=90
-hotspot=-32,-16,64,32
+hotspot=location
 power=160
 power_damage=10,15
 
@@ -502,7 +502,7 @@ power_damage=10,15
 type=trap
 location=20,81,1,1
 cooldown=90
-hotspot=-32,-16,64,32
+hotspot=location
 power=160
 power_damage=10,15
 
@@ -511,7 +511,7 @@ power_damage=10,15
 type=trap
 location=21,81,1,1
 cooldown=90
-hotspot=-32,-16,64,32
+hotspot=location
 power=160
 power_damage=10,15
 
@@ -520,7 +520,7 @@ power_damage=10,15
 type=trap
 location=16,84,1,1
 cooldown=90
-hotspot=-32,-16,64,32
+hotspot=location
 power=160
 power_damage=10,15
 
@@ -529,7 +529,7 @@ power_damage=10,15
 type=trap
 location=20,83,1,1
 cooldown=90
-hotspot=-32,-16,64,32
+hotspot=location
 power=160
 power_damage=10,15
 
@@ -538,7 +538,7 @@ power_damage=10,15
 type=trap
 location=19,84,1,1
 cooldown=90
-hotspot=-32,-16,64,32
+hotspot=location
 power=160
 power_damage=10,15
 
@@ -547,7 +547,7 @@ power_damage=10,15
 type=trap
 location=20,84,1,1
 cooldown=90
-hotspot=-32,-16,64,32
+hotspot=location
 power=160
 power_damage=10,15
 
@@ -556,7 +556,7 @@ power_damage=10,15
 type=trap
 location=17,84,1,1
 cooldown=90
-hotspot=-32,-16,64,32
+hotspot=location
 power=160
 power_damage=10,15
 
@@ -565,7 +565,7 @@ power_damage=10,15
 type=trap
 location=16,82,1,1
 cooldown=90
-hotspot=-32,-16,64,32
+hotspot=location
 power=160
 power_damage=10,15
 
@@ -574,7 +574,7 @@ power_damage=10,15
 type=trap
 location=18,84,1,1
 cooldown=90
-hotspot=-32,-16,64,32
+hotspot=location
 power=160
 power_damage=10,15
 
@@ -583,7 +583,7 @@ power_damage=10,15
 type=trap
 location=16,83,1,1
 cooldown=90
-hotspot=-32,-16,64,32
+hotspot=location
 power=160
 power_damage=10,15
 
