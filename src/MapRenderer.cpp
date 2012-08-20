@@ -1000,9 +1000,20 @@ void MapRenderer::checkEventClick() {
 	if (!inpt->pressing[MAIN1]) return;
 	else if (inpt->lock[MAIN1]) return;
 
-	Point p;
-	SDL_Rect r;
 	vector<Map_Event>::iterator it;
+
+	SDL_Surface *clickable = createAlphaSurface(VIEW_W,VIEW_H);
+	SDL_Rect src;
+	src.x=0;
+	src.y=0;
+	src.w=VIEW_W;
+	src.h=VIEW_H;
+	SDL_FillRect(clickable , &src , SDL_MapRGBA(clickable->format , 0 , 0 , 0, 255));
+	for (int screenx=0; screenx<VIEW_W; screenx++) {
+	for (int screeny=0; screeny<VIEW_H; screeny++) {
+	Point checkedPoint;
+	checkedPoint.x = screenx;
+	checkedPoint.y = screeny;
 
 	// work backwards through events because events can be erased in the loop.
 	// this prevents the iterator from becoming invalid.
@@ -1018,22 +1029,77 @@ void MapRenderer::checkEventClick() {
 		// skip events on cooldown
 		if ((*it).cooldown_ticks != 0) continue;
 
-		p = map_to_screen((*it).location.x * UNITS_PER_TILE + UNITS_PER_TILE/2, (*it).location.y * UNITS_PER_TILE + UNITS_PER_TILE/2, cam.x, cam.y);
-		r.x = p.x + (*it).hotspot.x;
-		r.y = p.y + (*it).hotspot.y;
-		r.h = (*it).hotspot.h;
-		r.w = (*it).hotspot.w;
+		for (int x=it->location.x; x < it->location.x + it->location.w; ++x) {
+			for (int y=it->location.y; y < it->location.y + it->location.h; ++y) {
 
-		// execute if mouse in hotspot && hero within range
-		if (isWithin(r, inpt->mouse)
-				&& (abs(cam.x - (*it).location.x * UNITS_PER_TILE) < CLICK_RANGE
-				&& abs(cam.y - (*it).location.y * UNITS_PER_TILE) < CLICK_RANGE)) {
+				bool backgroundmatch = false;
+				bool objectmatch = false;
 
-			inpt->lock[MAIN1] = true;
-			if (executeEvent(*it))
-				events.erase(it);
+				// first check if mouse pointer is in rectangle of that tile:
+				Point p = map_to_screen(x * UNITS_PER_TILE,
+										y * UNITS_PER_TILE,
+										shakycam.x,
+										shakycam.y);
+				p = center_tile(p);
+
+				if (const short current_tile = background[x][y]) {
+					SDL_Rect dest;
+					dest.x = p.x - tset.tiles[current_tile].offset.x;
+					dest.y = p.y - tset.tiles[current_tile].offset.y;
+					dest.w = tset.tiles[current_tile].src.w;
+					dest.h = tset.tiles[current_tile].src.h;
+
+					if (isWithin(dest, checkedPoint)) {
+						// Now that the mouse is within the rectangle of the tile, we can check for
+						// pixel precision. We need to have checked the rectangle first, because
+						// otherwise the pixel precise check might hit a neighbouring tile in the
+						// tileset. We need to calculate the point relative to the
+						Point p1;
+						p1.x = checkedPoint.x - dest.x + tset.tiles[current_tile].src.x;
+						p1.y = checkedPoint.y - dest.y + tset.tiles[current_tile].src.y;
+						backgroundmatch = checkPixel(p1, tset.sprites);
+					}
+				}
+				if (const short current_tile = object[x][y]) {
+					SDL_Rect dest;
+					dest.x = p.x - tset.tiles[current_tile].offset.x;
+					dest.y = p.y - tset.tiles[current_tile].offset.y;
+					dest.w = tset.tiles[current_tile].src.w;
+					dest.h = tset.tiles[current_tile].src.h;
+
+					if (isWithin(dest, checkedPoint)) {
+						// Now that the mouse is within the rectangle of the tile, we can check for
+						// pixel precision. We need to have checked the rectangle first, because
+						// otherwise the pixel precise check might hit a neighbouring tile in the
+						// tileset. We need to calculate the point relative to the
+						Point p1;
+						p1.x = checkedPoint.x - dest.x + tset.tiles[current_tile].src.x;
+						p1.y = checkedPoint.y - dest.y + tset.tiles[current_tile].src.y;
+						objectmatch = checkPixel(p1, tset.sprites);
+					}
+				}
+				if (backgroundmatch || objectmatch
+						&& (abs(cam.x - (*it).location.x * UNITS_PER_TILE) < CLICK_RANGE)
+						&& (abs(cam.y - (*it).location.y * UNITS_PER_TILE) < CLICK_RANGE)) {
+					drawPixel(clickable, screenx, screeny, SDL_MapRGB(clickable->format, 255,255,255));
+					inpt->lock[MAIN1] = true;
+					if (executeEvent(*it))
+						events.erase(it);
+				}
+			}
 		}
 	}
+}
+}
+
+SDL_Rect dst;
+dst.x=0;
+dst.y=0;
+
+SDL_BlitSurface(clickable, &src, screen, &dst);
+cout << "done"<<endl;
+SDL_Flip(screen);
+sleep(1);
 }
 
 bool MapRenderer::isActive(const Map_Event &e){
