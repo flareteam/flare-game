@@ -767,7 +767,6 @@ void MapRenderer::renderIsoBackground(SDL_Surface *wheretorender, Point offset) 
 }
 
 void MapRenderer::renderIsoBackObjects(vector<Renderable> &r) {
-	SDL_Rect dest;
 	vector<Renderable>::iterator it;
 	for (it = r.begin(); it != r.end(); it++) {
 		drawRenderable(it);
@@ -897,7 +896,6 @@ void MapRenderer::renderOrthoBackground() {
 }
 
 void MapRenderer::renderOrthoBackObjects(std::vector<Renderable> &r) {
-	SDL_Rect dest;
 	// some renderables are drawn above the background and below the objects
 	vector<Renderable>::iterator it;
 	for (it = r.begin(); it != r.end(); it++)
