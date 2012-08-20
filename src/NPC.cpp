@@ -106,6 +106,9 @@ void NPC::load(const string& npc_id, int hero_level) {
 					e.s = infile.val;
 				else if (infile.key == "unset_status")
 					e.s = infile.val;
+				else if (infile.key == "voice") {
+					e.x = loadSound(infile.val, NPC_VOX_QUEST);
+				}
 
 				dialog.back().push_back(e);
 			}
@@ -206,18 +209,28 @@ void NPC::loadGraphics(const string& filename_sprites, const string& filename_po
 /**
  * filename assumes the file is in soundfx/npcs/
  * type is a const int enum, see NPC.h
+ * returns -1 if not loaded or error.
+ * returns index in specific vector where to be found.
  */
-void NPC::loadSound(const string& filename, int type) {
+int NPC::loadSound(const string& filename, int type) {
 
-	if (type == NPC_VOX_INTRO && SOUND_VOLUME) {
+	if (!SOUND_VOLUME || !audio)
+		return -1;
 
-		// if too many already loaded, skip this one
-		if (audio) {
-			Mix_Chunk *a = Mix_LoadWAV(mods->locate("soundfx/npcs/" + filename).c_str());
-			if (a)
-				vox_intro.push_back(a);
-		}
+	Mix_Chunk *a = Mix_LoadWAV(mods->locate("soundfx/npcs/" + filename).c_str());
+	if (!a)
+		return -1;
+
+	if (type == NPC_VOX_INTRO) {
+		vox_intro.push_back(a);
+		return vox_intro.size()-1;
 	}
+
+	if (type == NPC_VOX_QUEST) {
+		vox_quests.push_back(a);
+		return vox_quests.size()-1;
+	}
+	return -1;
 }
 
 void NPC::logic() {
@@ -230,15 +243,29 @@ void NPC::logic() {
 
 }
 
+// of the audio which is played. If no Mix_Chunk is played, -1
+static int current_channel = -1;
+void sound_ended(int channel) {
+	if (channel==current_channel)
+		current_channel = -1;
+}
+
 /**
  * type is a const int enum, see NPC.h
  */
-bool NPC::playSound(int type) {
-	int roll;
+bool NPC::playSound(int type, int id) {
 	if (type == NPC_VOX_INTRO) {
+		int roll;
 		if (vox_intro.empty()) return false;
 		roll = rand() % vox_intro.size();
 		Mix_PlayChannel(-1, vox_intro[roll], 0);
+		return true;
+	}
+	if (type == NPC_VOX_QUEST) {
+		if (id < 0 || id >= (int)vox_quests.size()) return false;
+		if (current_channel != -1) Mix_HaltChannel(current_channel);
+		Mix_ChannelFinished(&sound_ended);
+		current_channel=Mix_PlayChannel(-1, vox_quests[id], 0);
 		return true;
 	}
 	return false;
@@ -330,6 +357,9 @@ bool NPC::processDialog(unsigned int dialog_node, unsigned int &event_cursor) {
 		}
 		else if (dialog[dialog_node][event_cursor].type == "remove_item") {
 			map->camp->removeItem(dialog[dialog_node][event_cursor].x);
+		}
+		else if (dialog[dialog_node][event_cursor].type == "voice") {
+			playSound(NPC_VOX_QUEST, dialog[dialog_node][event_cursor].x);
 		}
 		else if (dialog[dialog_node][event_cursor].type == "") {
 			// conversation ends
