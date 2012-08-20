@@ -1002,19 +1002,6 @@ void MapRenderer::checkEventClick() {
 
 	vector<Map_Event>::iterator it;
 
-	SDL_Surface *clickable = createAlphaSurface(VIEW_W,VIEW_H);
-	SDL_Rect src;
-	src.x=0;
-	src.y=0;
-	src.w=VIEW_W;
-	src.h=VIEW_H;
-	SDL_FillRect(clickable , &src , SDL_MapRGBA(clickable->format , 0 , 0 , 0, 255));
-	for (int screenx=0; screenx<VIEW_W; screenx++) {
-	for (int screeny=0; screeny<VIEW_H; screeny++) {
-	Point checkedPoint;
-	checkedPoint.x = screenx;
-	checkedPoint.y = screeny;
-
 	// work backwards through events because events can be erased in the loop.
 	// this prevents the iterator from becoming invalid.
 	for (it = events.end(); it != events.begin(); ) {
@@ -1035,7 +1022,6 @@ void MapRenderer::checkEventClick() {
 				bool backgroundmatch = false;
 				bool objectmatch = false;
 
-				// first check if mouse pointer is in rectangle of that tile:
 				Point p = map_to_screen(x * UNITS_PER_TILE,
 										y * UNITS_PER_TILE,
 										shakycam.x,
@@ -1043,20 +1029,21 @@ void MapRenderer::checkEventClick() {
 				p = center_tile(p);
 
 				if (const short current_tile = background[x][y]) {
+					// first check if mouse pointer is in rectangle of that tile:
 					SDL_Rect dest;
 					dest.x = p.x - tset.tiles[current_tile].offset.x;
 					dest.y = p.y - tset.tiles[current_tile].offset.y;
 					dest.w = tset.tiles[current_tile].src.w;
 					dest.h = tset.tiles[current_tile].src.h;
 
-					if (isWithin(dest, checkedPoint)) {
+					if (isWithin(dest, inpt->mouse)) {
 						// Now that the mouse is within the rectangle of the tile, we can check for
 						// pixel precision. We need to have checked the rectangle first, because
 						// otherwise the pixel precise check might hit a neighbouring tile in the
 						// tileset. We need to calculate the point relative to the
 						Point p1;
-						p1.x = checkedPoint.x - dest.x + tset.tiles[current_tile].src.x;
-						p1.y = checkedPoint.y - dest.y + tset.tiles[current_tile].src.y;
+						p1.x = inpt->mouse.x - dest.x + tset.tiles[current_tile].src.x;
+						p1.y = inpt->mouse.y - dest.y + tset.tiles[current_tile].src.y;
 						backgroundmatch = checkPixel(p1, tset.sprites);
 					}
 				}
@@ -1067,21 +1054,16 @@ void MapRenderer::checkEventClick() {
 					dest.w = tset.tiles[current_tile].src.w;
 					dest.h = tset.tiles[current_tile].src.h;
 
-					if (isWithin(dest, checkedPoint)) {
-						// Now that the mouse is within the rectangle of the tile, we can check for
-						// pixel precision. We need to have checked the rectangle first, because
-						// otherwise the pixel precise check might hit a neighbouring tile in the
-						// tileset. We need to calculate the point relative to the
+					if (isWithin(dest, inpt->mouse)) {
 						Point p1;
-						p1.x = checkedPoint.x - dest.x + tset.tiles[current_tile].src.x;
-						p1.y = checkedPoint.y - dest.y + tset.tiles[current_tile].src.y;
+						p1.x = inpt->mouse.x - dest.x + tset.tiles[current_tile].src.x;
+						p1.y = inpt->mouse.y - dest.y + tset.tiles[current_tile].src.y;
 						objectmatch = checkPixel(p1, tset.sprites);
 					}
 				}
-				if (backgroundmatch || objectmatch
+				if ((backgroundmatch || objectmatch)
 						&& (abs(cam.x - (*it).location.x * UNITS_PER_TILE) < CLICK_RANGE)
 						&& (abs(cam.y - (*it).location.y * UNITS_PER_TILE) < CLICK_RANGE)) {
-					drawPixel(clickable, screenx, screeny, SDL_MapRGB(clickable->format, 255,255,255));
 					inpt->lock[MAIN1] = true;
 					if (executeEvent(*it))
 						events.erase(it);
@@ -1089,17 +1071,6 @@ void MapRenderer::checkEventClick() {
 			}
 		}
 	}
-}
-}
-
-SDL_Rect dst;
-dst.x=0;
-dst.y=0;
-
-SDL_BlitSurface(clickable, &src, screen, &dst);
-cout << "done"<<endl;
-SDL_Flip(screen);
-sleep(1);
 }
 
 bool MapRenderer::isActive(const Map_Event &e){
