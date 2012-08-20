@@ -29,7 +29,7 @@ def extract(filename):
     if os.path.exists(filename):
         infile = open(filename, 'r')
         triggers = ['msg', 'him', 'her', 'you', 'name', 'title', 'tooltip',
-                'power_desc', 'quest_text', 'description']
+                'power_desc', 'quest_text', 'description', 'item_type', 'slot_name', 'tab_title']
         for i,line in enumerate(infile):
             for trigger in triggers:
                 if line.startswith(trigger + '='):
@@ -84,6 +84,8 @@ def get_quests():
 
 # HERE'S THE MAIN EXECUTION
 extract('../items/items.txt')
+extract('../menus/inventory.txt')
+extract('../menus/powers.txt')
 extract('../powers/powers.txt')
 
 if os.path.exists('../enemies'):
