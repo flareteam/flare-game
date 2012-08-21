@@ -221,17 +221,18 @@ bool Enemy::takeHit(Hazard h) {
 				stats.forced_speed.x = ceil((float)h.forced_move_speed * cos(theta));
 				stats.forced_speed.y = ceil((float)h.forced_move_speed * sin(theta));
 			}
-			if (h.hp_steal != 0) {
-			    int heal_amt = (int)ceil((float)dmg * (float)h.hp_steal / 100.0);
-    			combat_text->addMessage(heal_amt, h.src_stats->pos, COMBAT_MESSAGE_BUFF);
-				h.src_stats->hp += heal_amt;
-				if (h.src_stats->hp > h.src_stats->maxhp) h.src_stats->hp = h.src_stats->maxhp;
-			}
-			if (h.mp_steal != 0) {
-				h.src_stats->mp += (int)ceil((float)dmg * (float)h.mp_steal / 100.0);
-				if (h.src_stats->mp > h.src_stats->maxmp) h.src_stats->mp = h.src_stats->maxmp;
-			}
 		}
+		
+		if (h.hp_steal != 0) {
+		    int heal_amt = (int)ceil((float)dmg * (float)h.hp_steal / 100.0);
+    		combat_text->addMessage(heal_amt, h.src_stats->pos, COMBAT_MESSAGE_BUFF);
+			h.src_stats->hp += heal_amt;
+			if (h.src_stats->hp > h.src_stats->maxhp) h.src_stats->hp = h.src_stats->maxhp;
+		}
+		if (h.mp_steal != 0) {
+			h.src_stats->mp += (int)ceil((float)dmg * (float)h.mp_steal / 100.0);
+			if (h.src_stats->mp > h.src_stats->maxmp) h.src_stats->mp = h.src_stats->maxmp;
+		}		
 
 		// post effect power
 		if (h.post_power >= 0 && dmg > 0) {
