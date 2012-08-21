@@ -121,7 +121,7 @@ public:
 	TooltipData checkTooltip(Point mouse);
 	bool requirementsMet(int power_index);
 	int click(Point mouse);
-	void unlock_click(Point mouse);
+	bool unlockClick(Point mouse);
 	bool meetsUsageStats(unsigned powerid);
 
 	bool visible;

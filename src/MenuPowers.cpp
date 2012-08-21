@@ -319,7 +319,8 @@ int MenuPowers::click(Point mouse) {
 /**
  * Unlock a power
  */
-void MenuPowers::unlock_click(Point mouse) {
+bool MenuPowers::unlockClick(Point mouse) {
+
 	// if we have tabCOntrol
 	if (tabs_count > 1) {
 		int active_tab = tabControl->getActiveTab();
@@ -329,6 +330,7 @@ void MenuPowers::unlock_click(Point mouse) {
 					&& power_cell[i].requires_point && power_cell[i].tab == active_tab) {
 				powers_list.push_back(power_cell[i].id);
 				points_left = stats->level - powers_list.size();
+				return true;
 			}
 		}
 	// if have don't have tabs
@@ -339,9 +341,11 @@ void MenuPowers::unlock_click(Point mouse) {
 					&& points_left > 0 && power_cell[i].requires_point) {
 				powers_list.push_back(power_cell[i].id);
 				points_left = stats->level - powers_list.size();
+				return true;
 			}
 		}
 	}
+	return false;
 }
 
 void MenuPowers::logic() {
