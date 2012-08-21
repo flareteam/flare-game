@@ -467,11 +467,16 @@ void MenuManager::logic() {
 			// pick up a power
 			if (pow->visible && isWithin(pow->window_area,inpt->mouse)) {
 				inpt->lock[MAIN1] = true;
-				pow->unlock_click(inpt->mouse);
-				drag_power = pow->click(inpt->mouse);
-				if (drag_power > -1) {
-					dragging = true;
-					drag_src = DRAG_SRC_POWERS;
+				
+				// check for unlock first
+				if (!pow->unlockClick(inpt->mouse)) {
+				
+					// otherwise, check for dragging
+					drag_power = pow->click(inpt->mouse);
+					if (drag_power > -1) {
+						dragging = true;
+						drag_src = DRAG_SRC_POWERS;
+					}
 				}
 			}
 			// action bar
