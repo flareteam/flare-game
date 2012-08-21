@@ -151,18 +151,20 @@ void Entity::loadAnimations(const string& filename) {
 	string type = "";
 	string firstAnimation = "";
 	int active_frame = 0;
+	bool first_section=true;
 
 	// Parse the file and on each new section create an animation object from the data parsed previously
-
 	parser.next();
-	parser.new_section = false; // do not create the first animation object until parser has parsed first section
 
 	do {
 		// create the animation if finished parsing a section
 		if (parser.new_section) {
-			Animation *a = new Animation();
-			a->init(name, render_size, render_offset,  position, frames, duration, type, active_frame);
-			animations.push_back(a);
+			if (!first_section) {
+				Animation *a = new Animation();
+				a->init(name, render_size, render_offset,  position, frames, duration, type, active_frame);
+				animations.push_back(a);
+			}
+			first_section = false;
 		}
 
 		if (parser.key == "position") {
