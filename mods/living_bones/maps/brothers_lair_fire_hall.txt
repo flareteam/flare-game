@@ -267,7 +267,7 @@ intermap=brothers_lair_atrium.txt,14,2
 # Barrel
 type=run_once
 location=23,64,1,1
-hotspot=-16,-36,32,44
+hotspot=location
 loot=random,24,63,6
 mapmod=object,23,64,162
 soundfx=soundfx/wood_open.ogg
@@ -277,7 +277,7 @@ tooltip=Barrel
 # Barrel
 type=run_once
 location=22,64,1,1
-hotspot=-16,-36,32,44
+hotspot=location
 loot=random,22,63,7
 mapmod=object,22,64,162
 soundfx=soundfx/wood_open.ogg
@@ -287,7 +287,7 @@ tooltip=Barrel
 # Crate
 type=run_once
 location=21,64,1,1
-hotspot=-16,-30,32,36
+hotspot=location
 loot=random,21,63,7
 mapmod=object,21,64,163
 soundfx=soundfx/wood_open.ogg
@@ -297,7 +297,7 @@ tooltip=Crate
 # Crate
 type=run_once
 location=23,63,1,1
-hotspot=-16,-30,32,36
+hotspot=location
 loot=random,23,62,7
 mapmod=object,23,63,163
 soundfx=soundfx/wood_open.ogg
@@ -323,7 +323,7 @@ power_path=0,0,24,20
 # Vesuvvio's Chest
 type=run_once
 location=21,60,1,1
-hotspot=-16,-36,32,44
+hotspot=location
 loot=random,22,60,10
 mapmod=object,21,60,160
 requires_item=9102
@@ -337,7 +337,7 @@ unset_status=lb_fire_key
 # Vesuvvio's Chest Locked
 type=run_always
 location=21,60,1,1
-hotspot=-16,-36,32,44
+hotspot=location
 power=18
 power_damage=20,25
 power_path=21,60,21,60
@@ -348,7 +348,7 @@ tooltip=Runed Chest
 # Vesuvvio's Diary
 type=run_always
 location=19,16,1,1
-hotspot=-16,-48,32,56
+hotspot=location
 mapmod=object,19,16,165
 msg="Today Pompeii got a little over-excited to meet me and blew himself up. So I had to go into the caves and catch myself a NEW antlion burster. Again. I think I'm going to name this one 'Krakatoa'. ~Vesuvvio (the Destroyer)"
 set_status=lb_fire_password

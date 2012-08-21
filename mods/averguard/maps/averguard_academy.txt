@@ -6,6 +6,10 @@ tileset=tileset_dungeon.txt
 location=62,3,7
 music=dungeon_theme.ogg
 
+[tilesets]
+tileset=../../../tiled/tiled_collision.png,64,32
+tileset=../../../tiled/tiled_dungeon.png,64,128
+
 [layer]
 type=background
 format=dec
@@ -327,61 +331,67 @@ type=teleport
 location=62,2,2,1
 intermap=averguard_atrium.txt,9,57
 
-# next 5 are bookstands throughout the library
+
 [event]
+# bookstand
 location=31,22,1,1
-hotspot=-16,-48,32,56
+hotspot=location
 tooltip=Book Stand
 mapmod=object,31,22,165
 soundfx=soundfx/inventory/inventory_page.ogg
 msg="Some say the Averguard Academy is the greatest collection of knowledge within the empire."
 
 [event]
+# bookstand
 location=28,22,1,1
-hotspot=-16,-48,32,56
+hotspot=location
 tooltip=Book Stand
 mapmod=object,28,22,165
 soundfx=soundfx/inventory/inventory_page.ogg
 msg="Professor Langlier is High Sage of the Averguard.  Several volumes kept here are his own writings."
 
 [event]
+# bookstand
 location=25,22,1,1
-hotspot=-16,-48,32,56
+hotspot=location
 tooltip=Book Stand
 mapmod=object,25,22,165
 soundfx=soundfx/inventory/inventory_page.ogg
 msg="The Academy is only open to oathkeeping members of the Averguard.  Few others know of its existence."
 
 [event]
+# bookstand
 location=22,31,1,1
-hotspot=-16,-48,32,56
+hotspot=location
 tooltip=Book Stand
 mapmod=object,22,31,164
 soundfx=soundfx/inventory/inventory_page.ogg
 msg="The peasants could not be trusted with literacy.  Most gave up their books without incident."
 
 [event]
+# bookstand
 type=run_once
 location=20,75,2,1
-hotspot=-16,-48,32,56
+hotspot=location
 tooltip=Book Stand
 mapmod=object,20,75,164
 soundfx=soundfx/inventory/inventory_page.ogg
 msg=This false book has a secret compartment.
 loot=id,21,75,2
 
-# next 4 are barrels in the storage location
 [event]
+# barrel
 type=run_once
-hotspot=-16,-36,32,44
+hotspot=location
 tooltip=Barrel
 location=10,49,1,1
 mapmod=object,10,49,162
 soundfx=soundfx/wood_open.ogg
 
 [event]
+# barrel
 type=run_once
-hotspot=-16,-36,32,44
+hotspot=location
 tooltip=Barrel
 location=10,48,1,1
 mapmod=object,10,48,162
@@ -389,25 +399,27 @@ soundfx=soundfx/wood_open.ogg
 loot=random,11,48,1
 
 [event]
+# barrel
 type=run_once
-hotspot=-16,-36,32,44
+hotspot=location
 tooltip=Barrel
 location=10,47,1,1
 mapmod=object,10,47,162
 soundfx=soundfx/wood_open.ogg
 
 [event]
+# barrel
 type=run_once
-hotspot=-16,-36,32,44
+hotspot=location
 tooltip=Barrel
 location=12,49,1,1
 mapmod=object,12,49,162
 soundfx=soundfx/wood_open.ogg
 
-# next 3 are crates in the storage location
 [event]
+# crate
 type=run_once
-hotspot=-16,-30,32,36
+hotspot=location
 tooltip=Crate
 location=11,46,1,1
 mapmod=object,11,46,163
@@ -415,47 +427,50 @@ soundfx=soundfx/wood_open.ogg
 loot=random,12,46,1
 
 [event]
+# crate
 type=run_once
-hotspot=-16,-30,32,36
+hotspot=location
 tooltip=Crate
 location=13,49,1,1
 mapmod=object,13,49,163
 soundfx=soundfx/wood_open.ogg
 
 [event]
+# crate
 type=run_once
-hotspot=-16,-30,32,36
+hotspot=location
 tooltip=Crate
 location=15,49,1,1
 mapmod=object,15,49,163
 soundfx=soundfx/wood_open.ogg
 loot=random,14,48,1
 
-# boss tomb
 [event]
+# boss tomb
 type=run_once
 location=3,88,5,5
 msg=This tomb glows with magical runes.
 
 [event]
+# boss tomb
 type=run_once
 location=4,90,1,2
-hotspot=-58,-50,80,75
+hotspot=location
 tooltip=Langlier's Tomb
 loot=random,5,90,5
 loot=random,5,91,6
 
-# teleport chest
 [event]
+# teleport chest
 type=run_once
-hotspot=-16,-28,32,36
+hotspot=location
 tooltip=Treasure Chest
 location=45,97,1,1
 mapmod=object,45,97,161
 loot=random,45,98,7
 
-# entrance guards
 [enemy]
+# entrance guards
 type=skeletal_mage
 location=60,14
 direction=3
@@ -478,15 +493,15 @@ location=50,25
 type=zombie
 location=50,30
 
-# foyer
 [enemygroup]
+# foyer
 type=undead
 level=4,6
 number=2,3
 location=34,26,9,14
 
-# north book location
 [enemygroup]
+# north book location
 location=15,22,18,18
 type=zombie
 level=3,5
@@ -504,8 +519,8 @@ type=undead
 level=3,5
 number=1,2
 
-# center book location
 [enemygroup]
+# center book location
 type=zombie
 location=25,42,30,30
 level=3,5
@@ -529,20 +544,21 @@ location=51,66,7,9
 level=3,5
 number=1,3
 
-#south book location
 [enemygroup]
+# south book location
 type=undead
 location=13,68,12,8
 level=3,5
 number=2,4
 
-#guards teleport chest
 [enemy]
+# guards teleport chest
 type=zombie
 location=45,85
 
-#langlier's location
+
 [enemygroup]
+# langlier's location
 type=antlion
 location=10,67,17,26
 number=3,5

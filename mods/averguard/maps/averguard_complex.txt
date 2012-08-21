@@ -6,6 +6,10 @@ tileset=tileset_dungeon.txt
 location=98,70,1
 music=dungeon_theme.ogg
 
+[tilesets]
+tileset=../../../tiled/tiled_collision.png,64,32
+tileset=../../../tiled/tiled_dungeon.png,64,128
+
 [layer]
 type=background
 format=dec
@@ -391,7 +395,7 @@ intermap=averguard_atrium.txt,2,52
 [event]
 type=run_once
 location=85,74,1,1
-hotspot=-16,-30,32,36
+hotspot=location
 tooltip=Crate
 mapmod=object,85,74,163
 soundfx=soundfx/wood_open.ogg
@@ -401,7 +405,7 @@ loot=random,86,74,2
 [event]
 type=run_once
 location=74,63,1,1
-hotspot=-16,-36,32,44
+hotspot=location
 tooltip=Barrel
 mapmod=object,74,63,162
 soundfx=soundfx/wood_open.ogg
@@ -410,7 +414,7 @@ loot=random,74,64,2
 [event]
 type=run_once
 location=73,62,1,1
-hotspot=-16,-36,32,44
+hotspot=location
 tooltip=Barrel
 mapmod=object,73,62,162
 soundfx=soundfx/wood_open.ogg
@@ -419,7 +423,7 @@ loot=random,72,62,2
 [event]
 type=run_once
 location=74,62,1,1
-hotspot=-16,-36,32,44
+hotspot=location
 tooltip=Barrel
 mapmod=object,74,62,162
 soundfx=soundfx/wood_open.ogg
@@ -429,7 +433,7 @@ loot=random,74,61,2
 [event]
 type=run_once
 location=72,96,1,1
-hotspot=-16,-36,32,44
+hotspot=location
 tooltip=Barrel
 mapmod=object,72,96,162
 soundfx=soundfx/wood_open.ogg
@@ -438,7 +442,7 @@ loot=random,73,96,2
 [event]
 type=run_once
 location=72,97,1,1
-hotspot=-16,-30,32,36
+hotspot=location
 tooltip=Crate
 mapmod=object,72,97,163
 soundfx=soundfx/wood_open.ogg
@@ -448,7 +452,7 @@ loot=random,73,97,2
 [event]
 type=run_once
 location=73,110,1,1
-hotspot=-16,-30,32,36
+hotspot=location
 tooltip=Crate
 mapmod=object,73,110,163
 soundfx=soundfx/wood_open.ogg
@@ -457,7 +461,7 @@ loot=random,72,109,5
 # conference room book
 [event]
 location=50,90,1,1
-hotspot=-16,-48,32,56
+hotspot=location
 tooltip=Book Stand
 mapmod=object,50,90,164
 soundfx=soundfx/inventory/inventory_page.ogg
@@ -467,7 +471,7 @@ msg=This book is entitled "Training Your Antlion". Chapter 1 is "How Not To Get 
 [event]
 type=run_once
 location=41,59,1,1
-hotspot=-16,-28,32,36
+hotspot=location
 tooltip=Treasure Chest
 mapmod=object,41,59,160
 soundfx=soundfx/wood_open.ogg
@@ -476,7 +480,7 @@ loot=random,42,59,3
 [event]
 type=run_once
 location=41,57,1,1
-hotspot=-16,-28,32,36
+hotspot=location
 tooltip=Treasure Chest
 mapmod=object,41,57,160
 soundfx=soundfx/wood_open.ogg
@@ -485,7 +489,7 @@ loot=random,42,57,4
 [event]
 type=run_once
 location=41,55,1,1
-hotspot=-16,-28,32,36
+hotspot=location
 tooltip=Treasure Chest
 mapmod=object,41,55,160
 soundfx=soundfx/wood_open.ogg
@@ -494,7 +498,7 @@ loot=random,42,55,5
 [event]
 type=run_once
 location=41,53,1,1
-hotspot=-16,-28,32,36
+hotspot=location
 tooltip=Treasure Chest
 mapmod=object,41,53,160
 soundfx=soundfx/wood_open.ogg
@@ -503,7 +507,7 @@ loot=random,42,53,4
 [event]
 type=run_once
 location=41,51,1,1
-hotspot=-16,-28,32,36
+hotspot=location
 tooltip=Treasure Chest
 mapmod=object,41,51,160
 soundfx=soundfx/wood_open.ogg
@@ -513,7 +517,7 @@ loot=random,42,51,3
 [event]
 type=run_once
 location=50,28,1,1
-hotspot=-16,-36,32,44
+hotspot=location
 tooltip=Barrel
 mapmod=object,50,28,162
 soundfx=soundfx/wood_open.ogg
@@ -522,7 +526,7 @@ loot=random,51,28,3
 [event]
 type=run_once
 location=50,29,1,1
-hotspot=-16,-30,32,36
+hotspot=location
 tooltip=Crate
 mapmod=object,50,29,163
 soundfx=soundfx/wood_open.ogg
@@ -531,7 +535,7 @@ loot=random,51,29,3
 [event]
 type=run_once
 location=55,28,1,1
-hotspot=-16,-30,32,36
+hotspot=location
 tooltip=Crate
 mapmod=object,55,28,163
 soundfx=soundfx/wood_open.ogg
@@ -540,7 +544,7 @@ loot=random,54,28,3
 [event]
 type=run_once
 location=55,29,1,1
-hotspot=-16,-36,32,44
+hotspot=location
 tooltip=Barrel
 mapmod=object,55,29,162
 soundfx=soundfx/wood_open.ogg
@@ -550,7 +554,7 @@ loot=random,54,29,3
 [event]
 type=run_once
 location=9,20,1,1
-hotspot=-16,-28,32,36
+hotspot=location
 tooltip=Treasure Chest
 mapmod=object,9,20,160
 soundfx=soundfx/wood_open.ogg
@@ -560,7 +564,7 @@ loot=random,9,21,7
 [event]
 type=run_once
 location=9,29,1,1
-hotspot=-16,-28,32,36
+hotspot=location
 tooltip=Treasure Chest
 mapmod=object,9,29,160
 soundfx=soundfx/wood_open.ogg
@@ -876,7 +880,7 @@ direction=4
 [event]
 type=run_once
 location=12,24,1,2
-hotspot=-58,-28,80,45
+hotspot=location
 tooltip=Switch System
 soundfx=soundfx/door_open.ogg
 mapmod=object,12,24,166
