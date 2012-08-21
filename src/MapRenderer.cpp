@@ -142,6 +142,7 @@ int MapRenderer::load(string filename) {
 	clearEvents();
 
 	bool collider_set = false;
+	show_tooltip = false;
 
 	if (infile.open(mods->locate("maps/" + filename))) {
 		while (infile.next()) {
@@ -1001,12 +1002,7 @@ void MapRenderer::checkEvents(Point loc) {
  * This function checks valid mouse clicks against all clickable events, and
  * executes
  */
-void MapRenderer::checkEventClick() {
-
-	// only check events if the player is clicking
-	// and allowed to click
-	if (!inpt->pressing[MAIN1]) return;
-	else if (inpt->lock[MAIN1]) return;
+void MapRenderer::checkHotspots() {
 
 	vector<Map_Event>::iterator it;
 
@@ -1014,19 +1010,6 @@ void MapRenderer::checkEventClick() {
 	// this prevents the iterator from becoming invalid.
 	for (it = events.end(); it != events.begin(); ) {
 		it--;
-
-		// skip inactive events
-		if (!isActive(*it)) continue;
-
-		// skip events without hotspots
-		if ((*it).hotspot.h == 0) continue;
-
-		// skip events on cooldown
-		if ((*it).cooldown_ticks != 0) continue;
-
-		if (!((abs(cam.x - (*it).location.x * UNITS_PER_TILE) < CLICK_RANGE)
-				&& (abs(cam.y - (*it).location.y * UNITS_PER_TILE) < CLICK_RANGE)))
-			continue;
 
 		for (int x=it->hotspot.x; x < it->hotspot.x + it->hotspot.w; ++x) {
 			for (int y=it->hotspot.y; y < it->hotspot.y + it->hotspot.h; ++y) {
@@ -1057,6 +1040,8 @@ void MapRenderer::checkEventClick() {
 						p1.x = inpt->mouse.x - dest.x + tset.tiles[current_tile].src.x;
 						p1.y = inpt->mouse.y - dest.y + tset.tiles[current_tile].src.y;
 						backgroundmatch = checkPixel(p1, tset.sprites);
+						tip_pos.x = dest.x + dest.w/2;
+						tip_pos.y = dest.y;
 					}
 				}
 				if (const short current_tile = object[x][y]) {
@@ -1071,13 +1056,42 @@ void MapRenderer::checkEventClick() {
 						p1.x = inpt->mouse.x - dest.x + tset.tiles[current_tile].src.x;
 						p1.y = inpt->mouse.y - dest.y + tset.tiles[current_tile].src.y;
 						objectmatch = checkPixel(p1, tset.sprites);
+						tip_pos.x = dest.x + dest.w/2;
+						tip_pos.y = dest.y;
 					}
 				}
 				if (backgroundmatch || objectmatch) {
+					// new tooltip?
+					show_tooltip = true;
+					if (tip_buf.lines[0] != (*it).tooltip) {
+						tip_buf.clear();
+						tip_buf.num_lines = 1;
+						tip_buf.lines[0] = (*it).tooltip;
+					}
+
+					// only check events if the player is clicking
+					// and allowed to click
+					if (!inpt->pressing[MAIN1]) return;
+					else if (inpt->lock[MAIN1]) return;
+
+					// skip inactive events
+					if (!isActive(*it)) continue;
+
+					// skip events without hotspots
+					if ((*it).hotspot.h == 0) continue;
+
+					// skip events on cooldown
+					if ((*it).cooldown_ticks != 0) continue;
+
+					if (!((abs(cam.x - (*it).location.x * UNITS_PER_TILE) < CLICK_RANGE)
+							&& (abs(cam.y - (*it).location.y * UNITS_PER_TILE) < CLICK_RANGE)))
+						continue;
+
 					inpt->lock[MAIN1] = true;
 					if (executeEvent(*it))
 						events.erase(it);
-				}
+					return;
+				} else show_tooltip = false;
 			}
 		}
 	}
@@ -1105,60 +1119,8 @@ bool MapRenderer::isActive(const Map_Event &e){
 }
 
 void MapRenderer::checkTooltip() {
-	Point p;
-	SDL_Rect r;
-	Point tip_pos;
-
-	vector<Map_Event>::iterator it;
-	for (it = events.begin(); it != events.end(); it++) {
-		if(!isActive(*it)) continue;
-
-		p = map_to_screen((*it).location.x * UNITS_PER_TILE + UNITS_PER_TILE/2, (*it).location.y * UNITS_PER_TILE + UNITS_PER_TILE/2, cam.x, cam.y);
-		r.x = p.x + (*it).hotspot.x;
-		r.y = p.y + (*it).hotspot.y;
-		r.h = (*it).hotspot.h;
-		r.w = (*it).hotspot.w;
-
-		// DEBUG TOOL: outline hotspot
-#ifdef DEBUG
-		SDL_Rect screen_size;
-		screen_size.x = screen_size.y = 0;
-		screen_size.w = VIEW_W;
-		screen_size.h = VIEW_H;
-		Point pixpos;
-		pixpos.x = r.x;
-		pixpos.y = r.y;
-		if (isWithin(screen_size, pixpos))
-			drawPixel(screen, r.x, r.y, 255);
-		pixpos.x = r.x+r.w;
-		pixpos.y = r.y;
-		if (isWithin(screen_size, pixpos))
-			drawPixel(screen, r.x+r.w, r.y, 255);
-		pixpos.x = r.x;
-		pixpos.y = r.y+r.h;
-		if (isWithin(screen_size, pixpos))
-			drawPixel(screen, r.x, r.y+r.h, 255);
-		pixpos.x = r.x+r.w;
-		pixpos.y = r.y+r.h;
-		if (isWithin(screen_size, pixpos))
-			drawPixel(screen, r.x+r.w, r.y+r.h, 255);
-#endif
-
-		if (isWithin(r,inpt->mouse) && (*it).tooltip != "") {
-
-			// new tooltip?
-			if (tip_buf.lines[0] != (*it).tooltip) {
-				tip_buf.clear();
-				tip_buf.num_lines = 1;
-				tip_buf.lines[0] = (*it).tooltip;
-			}
-
-			tip_pos.x = r.x + r.w/2;
-			// FIXME should depend on art resolution
-			tip_pos.y = r.y;
-			tip->render(tip_buf, tip_pos, STYLE_TOPLABEL);
-		}
-	}
+	if (show_tooltip)
+		tip->render(tip_buf, tip_pos, STYLE_TOPLABEL);
 }
 
 /**
