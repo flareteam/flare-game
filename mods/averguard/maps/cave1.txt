@@ -6,6 +6,10 @@ tileset=tileset_cave.txt
 location=4,12,5
 music=cave_theme.ogg
 
+[tilesets]
+tileset=../../../tiled/tiled_collision.png,64,32
+tileset=../../../tiled/tiled_dungeon.png,64,128
+
 [layer]
 type=background
 format=dec
@@ -321,24 +325,25 @@ data=
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
 
-# exit to goblin warrens
 [event]
+# exit to goblin warrens
 type=teleport
 location=2,12,1,2
 intermap=goblin_warrens.txt,51,14
 
-#exit to lost mines level 1
+
 [event]
+# exit to lost mines level 1
 type=teleport
 location=15,68,2,1
 intermap=lost_mines1.txt,53,5
 
-# Trader in the goblin room
+
 [npc]
+# Trader in the goblin room
 type=captured_trader
 location=72,31
 
-# mine cart in large pillar room
 [event]
 type=run_once
 location=42,4,1,1
@@ -347,11 +352,10 @@ tooltip=Mine Cart
 mapmod=object,42,4,129
 loot=random,43,5,6
 
-# two-barrel room
 [event]
 type=run_once
 location=2,29,1,1
-hotspot=-16,-36,32,44
+hotspot=location
 tooltip=Barrel
 soundfx=soundfx/wood_open.ogg
 mapmod=object,2,29,178
@@ -360,13 +364,12 @@ loot=random,3,29,5
 [event]
 type=run_once
 location=2,30,1,1
-hotspot=-16,-36,32,44
+hotspot=location
 tooltip=Barrel
 soundfx=soundfx/wood_open.ogg
 mapmod=object,2,30,178
 loot=random,3,30,5
 
-# minecart in mine room
 [event]
 type=run_once
 location=17,48,1,1
@@ -375,21 +378,19 @@ tooltip=Mine Cart
 mapmod=object,17,48,128
 loot=random,18,48,6
 
-# single chest room
 [event]
 type=run_once
 location=34,25,1,1
-hotspot=-16,-28,32,36
+hotspot=location
 tooltip=Treasure Chest
 soundfx=soundfx/wood_open.ogg
 mapmod=object,34,25,177
 loot=random,34,26,7
 
-# chest and barrel room
 [event]
 type=run_once
 location=87,53,1,1
-hotspot=-16,-28,32,36
+hotspot=location
 tooltip=Treasure Chest
 soundfx=soundfx/wood_open.ogg
 mapmod=object,87,53,177
@@ -398,27 +399,28 @@ loot=random,87,54,7
 [event]
 type=run_once
 location=90,53,1,1
-hotspot=-16,-36,32,44
+hotspot=location
 tooltip=Barrel
 soundfx=soundfx/wood_open.ogg
 mapmod=object,90,53,178
 loot=random,90,54,5
 
-# crate in nest hallway
 [event]
+# crate in nest hallway
 type=run_once
 location=59,61,1,1
-hotspot=-16,-30,32,36
+hotspot=location
 tooltip=Crate
 soundfx=soundfx/wood_open.ogg
 mapmod=object,59,61,179
 loot=random,60,61,5
 
-# nest treasure
+
 [event]
+# nest treasure
 type=run_once
 location=29,75,1,1
-hotspot=-16,-36,32,44
+hotspot=location
 tooltip=Barrel
 soundfx=soundfx/wood_open.ogg
 mapmod=object,29,75,178
@@ -427,7 +429,7 @@ loot=random,30,75,5
 [event]
 type=run_once
 location=29,76,1,1
-hotspot=-16,-36,32,44
+hotspot=location
 tooltip=Barrel
 soundfx=soundfx/wood_open.ogg
 mapmod=object,29,76,178
@@ -436,7 +438,7 @@ loot=random,30,76,5
 [event]
 type=run_once
 location=43,92,1,1
-hotspot=-16,-28,32,36
+hotspot=location
 tooltip=Treasure Chest
 soundfx=soundfx/wood_open.ogg
 mapmod=object,43,92,176
@@ -444,9 +446,8 @@ loot=random,44,92,9
 loot=random,45,91,8
 loot=random,45,93,8
 
-# entry room
-# two hatchlings spawn
 [event]
+# two hatchlings spawn
 type=run_once
 location=8,8,5,5
 power=134
@@ -463,8 +464,6 @@ power_path=12,12,hero
 type=run_once
 location=19,14,3,3
 msg=The crumbling walls of the south tunnel are held up by planks of rotting wood.
-
-#large pillar room
 
 [enemy]
 type=antlion_hatchling
@@ -514,7 +513,6 @@ location=53,18
 type=antlion_slasher
 location=54,17
 
-#small stalagmite room
 [enemy]
 type=antlion_spitter
 location=48,26
@@ -543,7 +541,6 @@ location=49,27
 type=antlion_hatchling
 location=55,33
 
-#goblin sacrifice room
 [enemy]
 type=goblin_charger
 location=67,27
@@ -577,7 +574,6 @@ location=71,30,3,2
 msg=Talrych says, "You arrived just in time.  Please, take this."
 loot=random,73,32,6
 
-#first south room
 [enemy]
 type=skeletal_archer
 location=16,29
@@ -619,7 +615,6 @@ soundfx=soundfx/powers/quake.ogg
 msg=The walls collapse inward and rubble blocks off the passage!
 shakycam=60
 
-#mine tracks room
 [enemy]
 type=skeletal_archer
 location=17,50
@@ -649,8 +644,8 @@ mapmod=collision,14,45,0
 mapmod=collision,13,45,0
 soundfx=soundfx/door_open.ogg
 
-#misc tunnels
 [enemy]
+# misc tunnels
 type=antlion_blinker
 location=39,39
 
@@ -674,8 +669,9 @@ location=70,56
 type=antlion_blinker
 location=85,68
 
-#pathway to antlion nest
+
 [enemy]
+# pathway to antlion nest
 type=antlion_spitter
 location=63,64
 
@@ -715,8 +711,9 @@ location=61,76
 type=antlion_hatchling
 location=62,75
 
-#antlion nest
+
 [enemy]
+# antlion nest
 type=antlion_burster
 location=38,63
 
@@ -781,14 +778,13 @@ location=39,71
 [enemy]
 type=antlion_hatchling
 location=44,74
+
 [enemy]
 type=antlion_hatchling
 location=43,75
+
 [enemy]
 type=antlion_hatchling
 location=46,77
 
-#[enemy]
-#type=antlion_queen (NYI)
-#location=46,92,3
 

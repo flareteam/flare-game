@@ -6,6 +6,10 @@ tileset=tileset_dungeon.txt
 location=28,76,3
 music=dungeon_theme.ogg
 
+[tilesets]
+tileset=../../../tiled/tiled_collision.png,64,32
+tileset=../../../tiled/tiled_dungeon.png,64,128
+
 [layer]
 type=background
 format=dec
@@ -286,7 +290,7 @@ intermap=ydrakka_pass.txt,92,54
 # dorm room chest
 type=run_once
 location=3,36,1,1
-hotspot=-16,-28,32,36
+hotspot=location
 tooltip=Treasure Chest
 mapmod=object,3,36,160
 soundfx=soundfx/wood_open.ogg
@@ -296,7 +300,7 @@ loot=random,4,36,3
 # dorm room barrel
 type=run_once
 location=1,32,1,1
-hotspot=-16,-36,32,44
+hotspot=location
 tooltip=Barrel
 mapmod=object,1,32,162
 soundfx=soundfx/wood_open.ogg
@@ -306,7 +310,7 @@ loot=random,2,32,2
 # dorm room book
 type=run_once
 location=2,28,1,1
-hotspot=-16,-48,32,56
+hotspot=location
 tooltip=Book Stand
 requires_status=ak_ukkonen_search
 requires_not=ak_tome_found
@@ -316,31 +320,31 @@ msg=This book bears the seal of the Averguard
 loot=id,2,29,9000
 
 [event]
-#overlook book 1
+# overlook book 1
 location=38,51,1,1
-hotspot=-16,-48,32,56
+hotspot=location
 tooltip=Book Stand
 mapmod=object,38,51,164
 soundfx=soundfx/inventory/inventory_page.ogg
 msg="In the Age of Settlement, the Averguard Knights defended peasants against the chaos of the wilderness."
 
 [event]
-#overlook book 2
+# overlook book 2
 location=38,46,1,1
-hotspot=-16,-48,32,56
+hotspot=location
 tooltip=Book Stand
 mapmod=object,38,46,164
 soundfx=soundfx/inventory/inventory_page.ogg
 msg="Sir Evan Maddox led the Averguard when the plague struck.  Powerful clerics from the corners of the world were brought here.  By the time a cure was found it was too late."
 
 [event]
-#brazier sound effect
+# brazier sound effect
 location=40,41,4,16
 cooldown=120
 soundfx=soundfx/environment/open_fire.ogg
 
 [event]
-#brazier sound effect
+# brazier sound effect
 location=4,29,5,9
 cooldown=120
 soundfx=soundfx/environment/open_fire.ogg
