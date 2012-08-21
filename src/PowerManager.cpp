@@ -635,49 +635,34 @@ void PowerManager::initHazard(int power_index, StatBlock *src_stats, Point targe
 	// If we do this, we can init with multiple power layers
 	// (e.g. base spell plus weapon type)
 
-	if (powers[power_index].gfx_index != -1) {
+	if (powers[power_index].gfx_index != -1)
 		haz->sprites = gfx[powers[power_index].gfx_index];
-	}
-	if (powers[power_index].rendered) {
+	if (powers[power_index].rendered)
 		haz->rendered = powers[power_index].rendered;
-	}
-	if (powers[power_index].lifespan != 0) {
+	if (powers[power_index].lifespan != 0)
 		haz->lifespan = powers[power_index].lifespan;
-	}
-	if (powers[power_index].frame_loop != 1) {
+	if (powers[power_index].frame_loop != 1)
 		haz->frame_loop = powers[power_index].frame_loop;
-	}
-	if (powers[power_index].frame_duration != 1) {
+	if (powers[power_index].frame_duration != 1)
 		haz->frame_duration = powers[power_index].frame_duration;
-	}
-	if (powers[power_index].frame_size.x != 0) {
+	if (powers[power_index].frame_size.x != 0)
 		haz->frame_size.x = powers[power_index].frame_size.x;
-	}
-	if (powers[power_index].frame_size.y != 0) {
+	if (powers[power_index].frame_size.y != 0)
 		haz->frame_size.y = powers[power_index].frame_size.y;
-	}
-	if (powers[power_index].frame_offset.x != 0) {
+	if (powers[power_index].frame_offset.x != 0)
 		haz->frame_offset.x = powers[power_index].frame_offset.x;
-	}
-	if (powers[power_index].frame_offset.y != 0) {
+	if (powers[power_index].frame_offset.y != 0)
 		haz->frame_offset.y = powers[power_index].frame_offset.y;
-	}
-	if (powers[power_index].directional) {
+	if (powers[power_index].directional)
 		haz->direction = calcDirection(src_stats->pos.x, src_stats->pos.y, target.x, target.y);
-	}
-	else if (powers[power_index].visual_random != 0) {
+	else if (powers[power_index].visual_random)
 		haz->visual_option = rand() % powers[power_index].visual_random;
-	}
-	else if (powers[power_index].visual_option != 0) {
+	else if (powers[power_index].visual_option)
 		haz->visual_option = powers[power_index].visual_option;
-	}
+
 	haz->floor = powers[power_index].floor;
-	if (powers[power_index].speed > 0) {
-		haz->base_speed = powers[power_index].speed;
-	}
-	if (powers[power_index].complete_animation) {
-		haz->complete_animation = true;
-	}
+	haz->base_speed = powers[power_index].speed;
+	haz->complete_animation = powers[power_index].complete_animation;
 
 	// combat traits
 	if (powers[power_index].no_attack) {

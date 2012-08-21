@@ -97,7 +97,7 @@ MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_i
 			power_cell.back().requires_level = eatFirstInt(infile.val, ',');
 		} else if (infile.key == "requires_power") {
 			power_cell.back().requires_power = eatFirstInt(infile.val, ',');
-		} else if (infile.key == "title") {
+		} else if (infile.key == "caption") {
 			title = eatLabelInfo(infile.val);
 		} else if (infile.key == "unspent_points") {
 			unspent_points = eatLabelInfo(infile.val);
@@ -161,7 +161,7 @@ void MenuPowers::update() {
 
 		// Define the header.
 		for (int i=0; i<tabs_count; i++)
-			tabControl->setTabTitle(i, tab_titles[i]);
+			tabControl->setTabTitle(i, msg->get(tab_titles[i]));
 		tabControl->updateHeader();
 	}
 }
@@ -477,16 +477,19 @@ TooltipData MenuPowers::checkTooltip(Point mouse) {
 					tip.lines[tip.num_lines++] = msg->get("Requires Offense %d", power_cell[i].requires_offense);
 				}
 				if ((power_cell[i].requires_defense > 0) && (stats->get_defense() < power_cell[i].requires_defense)) {
+					tip.colors[tip.num_lines] = color_penalty;
 					tip.lines[tip.num_lines++] = msg->get("Requires Defense %d", power_cell[i].requires_defense);
 				} else if ((power_cell[i].requires_defense > 0) && (stats->get_defense() >= power_cell[i].requires_defense)) {
 					tip.lines[tip.num_lines++] = msg->get("Requires Defense %d", power_cell[i].requires_defense);
 				}
 				if ((power_cell[i].requires_physical > 0) && (stats->get_physical() < power_cell[i].requires_physical)) {
+					tip.colors[tip.num_lines] = color_penalty;
 					tip.lines[tip.num_lines++] = msg->get("Requires Physical %d", power_cell[i].requires_physical);
 				} else if ((power_cell[i].requires_physical > 0) && (stats->get_physical() >= power_cell[i].requires_physical)) {
 					tip.lines[tip.num_lines++] = msg->get("Requires Physical %d", power_cell[i].requires_physical);
 				}
 				if ((power_cell[i].requires_mental > 0) && (stats->get_mental() < power_cell[i].requires_mental)) {
+					tip.colors[tip.num_lines] = color_penalty;
 					tip.lines[tip.num_lines++] = msg->get("Requires Mental %d", power_cell[i].requires_mental);
 				} else if ((power_cell[i].requires_mental > 0) && (stats->get_mental() >= power_cell[i].requires_mental)) {
 					tip.lines[tip.num_lines++] = msg->get("Requires Mental %d", power_cell[i].requires_mental);

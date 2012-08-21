@@ -80,7 +80,7 @@ MenuCharacter::MenuCharacter(StatBlock *_stats) {
 			if(infile.key == "close") {
 				close_pos.x = eatFirstInt(infile.val,',');
 				close_pos.y = eatFirstInt(infile.val,',');
-			} else if(infile.key == "title") {
+			} else if(infile.key == "caption") {
 				title = eatLabelInfo(infile.val);
 			} else if(infile.key == "upgrade_physical") {
 				upgrade_pos[0].x = eatFirstInt(infile.val,',');

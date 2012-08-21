@@ -109,7 +109,7 @@ void ItemManager::load(const string& filename) {
 				else if (infile.val == "epic")
 					items[id].quality = ITEM_QUALITY_EPIC;
 			}
-			else if (infile.key == "type") {
+			else if (infile.key == "item_type") {
 					items[id].type = infile.val;
 			}
 			else if (infile.key == "dmg") {
@@ -380,19 +380,13 @@ TooltipData ItemManager::getTooltip(int item, StatBlock *stats, bool vendor_view
 	// type
 	if (items[item].type != "other") {
 		if (items[item].type == "main")
-			tip.lines[tip.num_lines++] = msg->get("Main Hand");
-		else if (items[item].type == "body")
-			tip.lines[tip.num_lines++] = msg->get("Body");
+			tip.lines[tip.num_lines++] = msg->get("main hand");
 		else if (items[item].type == "off")
-			tip.lines[tip.num_lines++] = msg->get("Off Hand");
-		else if (items[item].type == "artifact")
-			tip.lines[tip.num_lines++] = msg->get("Artifact");
-		else if (items[item].type == "consumable")
-			tip.lines[tip.num_lines++] = msg->get("Consumable");
-		else if (items[item].type == "gem")
-			tip.lines[tip.num_lines++] = msg->get("Gem");
+			tip.lines[tip.num_lines++] = msg->get("off hand");
 		else if (items[item].type == "quest")
-			tip.lines[tip.num_lines++] = msg->get("Quest Item");
+			tip.lines[tip.num_lines++] = msg->get("quest item");
+		else
+			tip.lines[tip.num_lines++] = msg->get(items[item].type);
 	}
 
 	// damage
