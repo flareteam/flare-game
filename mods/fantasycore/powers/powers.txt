@@ -36,7 +36,7 @@ id=2
 name=Channel
 type=missile
 icon=2
-description=Channel a bolt of magic through your mental weapon for zero MP
+description=Basic magic attack
 new_state=swing
 requires_mental_weapon=true
 face=true
@@ -372,6 +372,50 @@ radius=512
 multitarget=true
 stun_duration=150
 base_damage=none
+
+[power]
+id=20
+name=Heroic Swing
+type=effect
+icon=1
+description=Melee attack with 10% HP steal
+new_state=swing
+face=true
+use_hazard=true
+rendered=false
+aim_assist=32
+base_damage=melee
+lifespan=1
+radius=64
+starting_pos=melee
+allow_power_mod=true
+hp_steal=10
+
+[power]
+id=21
+name=Greater Channel
+type=missile
+icon=2
+description=Magic attack with 10% MP steal
+new_state=swing
+requires_mental_weapon=true
+face=true
+directional=true
+gfx=channel.png
+use_hazard=true
+rendered=true
+aim_assist=32
+base_damage=ment
+lifespan=8
+radius=64
+speed=24
+frame_loop=0
+frame_duration=2
+frame_size=64,64
+frame_offset=32,64
+starting_pos=melee
+mp_steal=10
+
 
 [power]
 id=30

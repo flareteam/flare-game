@@ -121,7 +121,7 @@ intermap=cave_of_living_bones2.txt,3,38
 # Crate of Blasting Powder
 type=run_once
 location=6,6,1,1
-hotspot=-16,-30,32,36
+hotspot=location
 mapmod=object,6,6,0
 mapmod=collision,6,6,0
 set_status=lb_has_explosive
@@ -131,7 +131,7 @@ tooltip=Crate of Blasting Powder
 # Barrel
 type=run_once
 location=5,6,1,1
-hotspot=-16,-36,32,44
+hotspot=location
 loot=random,6,7,7
 mapmod=object,5,6,178
 soundfx=soundfx/wood_open.ogg
@@ -141,7 +141,7 @@ tooltip=Barrel
 # Barrel
 type=run_once
 location=3,18,1,1
-hotspot=-16,-36,32,44
+hotspot=location
 loot=random,4,19,7
 mapmod=object,3,18,178
 soundfx=soundfx/wood_open.ogg
