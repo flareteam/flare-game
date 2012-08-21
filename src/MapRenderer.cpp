@@ -325,10 +325,18 @@ int MapRenderer::load(string filename) {
 					events.back().location.h = toInt(infile.nextValue());
 				}
 				else if (infile.key == "hotspot") {
-					events.back().hotspot.x = toInt(infile.nextValue());
-					events.back().hotspot.y = toInt(infile.nextValue());
-					events.back().hotspot.w = toInt(infile.nextValue());
-					events.back().hotspot.h = toInt(infile.nextValue());
+					if (infile.val == "location") {
+						events.back().hotspot.x = events.back().location.x;
+						events.back().hotspot.y = events.back().location.y;
+						events.back().hotspot.w = events.back().location.w;
+						events.back().hotspot.h = events.back().location.h;
+					}
+					else {
+						events.back().hotspot.x = toInt(infile.nextValue());
+						events.back().hotspot.y = toInt(infile.nextValue());
+						events.back().hotspot.w = toInt(infile.nextValue());
+						events.back().hotspot.h = toInt(infile.nextValue());
+					}
 				}
 				else if (infile.key == "tooltip") {
 					events.back().tooltip = msg->get(infile.val);
@@ -1000,8 +1008,6 @@ void MapRenderer::checkEventClick() {
 	if (!inpt->pressing[MAIN1]) return;
 	else if (inpt->lock[MAIN1]) return;
 
-	Point p;
-	SDL_Rect r;
 	vector<Map_Event>::iterator it;
 
 	// work backwards through events because events can be erased in the loop.
@@ -1018,20 +1024,61 @@ void MapRenderer::checkEventClick() {
 		// skip events on cooldown
 		if ((*it).cooldown_ticks != 0) continue;
 
-		p = map_to_screen((*it).location.x * UNITS_PER_TILE + UNITS_PER_TILE/2, (*it).location.y * UNITS_PER_TILE + UNITS_PER_TILE/2, cam.x, cam.y);
-		r.x = p.x + (*it).hotspot.x;
-		r.y = p.y + (*it).hotspot.y;
-		r.h = (*it).hotspot.h;
-		r.w = (*it).hotspot.w;
+		if (!((abs(cam.x - (*it).location.x * UNITS_PER_TILE) < CLICK_RANGE)
+				&& (abs(cam.y - (*it).location.y * UNITS_PER_TILE) < CLICK_RANGE)))
+			continue;
 
-		// execute if mouse in hotspot && hero within range
-		if (isWithin(r, inpt->mouse)
-				&& (abs(cam.x - (*it).location.x * UNITS_PER_TILE) < CLICK_RANGE
-				&& abs(cam.y - (*it).location.y * UNITS_PER_TILE) < CLICK_RANGE)) {
+		for (int x=it->hotspot.x; x < it->hotspot.x + it->hotspot.w; ++x) {
+			for (int y=it->hotspot.y; y < it->hotspot.y + it->hotspot.h; ++y) {
 
-			inpt->lock[MAIN1] = true;
-			if (executeEvent(*it))
-				events.erase(it);
+				bool backgroundmatch = false;
+				bool objectmatch = false;
+
+				Point p = map_to_screen(x * UNITS_PER_TILE,
+										y * UNITS_PER_TILE,
+										shakycam.x,
+										shakycam.y);
+				p = center_tile(p);
+
+				if (const short current_tile = background[x][y]) {
+					// first check if mouse pointer is in rectangle of that tile:
+					SDL_Rect dest;
+					dest.x = p.x - tset.tiles[current_tile].offset.x;
+					dest.y = p.y - tset.tiles[current_tile].offset.y;
+					dest.w = tset.tiles[current_tile].src.w;
+					dest.h = tset.tiles[current_tile].src.h;
+
+					if (isWithin(dest, inpt->mouse)) {
+						// Now that the mouse is within the rectangle of the tile, we can check for
+						// pixel precision. We need to have checked the rectangle first, because
+						// otherwise the pixel precise check might hit a neighbouring tile in the
+						// tileset. We need to calculate the point relative to the
+						Point p1;
+						p1.x = inpt->mouse.x - dest.x + tset.tiles[current_tile].src.x;
+						p1.y = inpt->mouse.y - dest.y + tset.tiles[current_tile].src.y;
+						backgroundmatch = checkPixel(p1, tset.sprites);
+					}
+				}
+				if (const short current_tile = object[x][y]) {
+					SDL_Rect dest;
+					dest.x = p.x - tset.tiles[current_tile].offset.x;
+					dest.y = p.y - tset.tiles[current_tile].offset.y;
+					dest.w = tset.tiles[current_tile].src.w;
+					dest.h = tset.tiles[current_tile].src.h;
+
+					if (isWithin(dest, inpt->mouse)) {
+						Point p1;
+						p1.x = inpt->mouse.x - dest.x + tset.tiles[current_tile].src.x;
+						p1.y = inpt->mouse.y - dest.y + tset.tiles[current_tile].src.y;
+						objectmatch = checkPixel(p1, tset.sprites);
+					}
+				}
+				if (backgroundmatch || objectmatch) {
+					inpt->lock[MAIN1] = true;
+					if (executeEvent(*it))
+						events.erase(it);
+				}
+			}
 		}
 	}
 }
