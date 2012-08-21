@@ -342,7 +342,7 @@ location=41,18,1,1
 # cliff passage container
 type=run_once
 location=20,43,1,1
-hotspot=-24,-32,48,48
+hotspot=location
 loot=random,21,44,3
 mapmod=object,20,43,99
 soundfx=soundfx/wood_open.ogg
@@ -352,7 +352,7 @@ tooltip=Supplies
 # boss container 1
 type=run_once
 location=10,13,1,1
-hotspot=-24,-32,48,48
+hotspot=location
 loot=random,11,13,4
 mapmod=object,10,13,99
 soundfx=soundfx/wood_open.ogg
@@ -362,7 +362,7 @@ tooltip=Supplies
 # boss container 2
 type=run_once
 location=9,15,1,1
-hotspot=-24,-32,48,48
+hotspot=location
 loot=random,10,15,4
 mapmod=object,9,15,97
 soundfx=soundfx/wood_open.ogg
@@ -372,7 +372,7 @@ tooltip=Supplies
 # pier container
 type=run_once
 location=38,27,1,1
-hotspot=-24,-32,48,48
+hotspot=location
 loot=random,38,26,3
 mapmod=object,38,27,97
 soundfx=soundfx/wood_open.ogg

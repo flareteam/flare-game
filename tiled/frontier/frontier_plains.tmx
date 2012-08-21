@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="isometric" width="256" height="256" tilewidth="64" tileheight="32">
  <properties>
   <property name="music" value="overworld_theme.ogg"/>
@@ -22,10 +23,10 @@
   <tileoffset x="-32" y="0"/>
   <image source="../grassland/grassland_trees.png" width="1024" height="512"/>
  </tileset>
- <tileset firstgid="264" name="tiled_grassland_2x2" tilewidth="128" tileheight="64">
+ <tileset firstgid="256" name="tiled_grassland_2x2" tilewidth="128" tileheight="64">
   <tileoffset x="0" y="16"/>
   <image source="../grassland/tiled_grassland_2x2.png" width="512" height="512"/>
- </tileset>  
+ </tileset>
  <layer name="background" width="256" height="256">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -832,10 +833,9 @@
     <property name="intermap" value="ancient_temple.txt,49,99"/>
    </properties>
   </object>
-  <object x="3616" y="4224"/>
   <object name="camp supply" type="run_once" x="3744" y="1120" width="32" height="32">
    <properties>
-    <property name="hotspot" value="-24,-32,48,48"/>
+    <property name="hotspot" value="location"/>
     <property name="loot" value="random,117,36,2"/>
     <property name="mapmod" value="object,117,35,99"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -844,7 +844,7 @@
   </object>
   <object name="camp supply" type="run_once" x="1600" y="960" width="32" height="32">
    <properties>
-    <property name="hotspot" value="-24,-32,48,48"/>
+    <property name="hotspot" value="location"/>
     <property name="loot" value="random,50,31,2"/>
     <property name="mapmod" value="object,50,30,97"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -853,7 +853,7 @@
   </object>
   <object name="camp supply" type="run_once" x="4000" y="1376" width="32" height="32">
    <properties>
-    <property name="hotspot" value="-24,-32,48,48"/>
+    <property name="hotspot" value="location"/>
     <property name="loot" value="random,124,43,2"/>
     <property name="mapmod" value="object,125,43,97"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -862,7 +862,7 @@
   </object>
   <object name="camp supply" type="run_once" x="3648" y="3104" width="32" height="32">
    <properties>
-    <property name="hotspot" value="-24,-32,48,48"/>
+    <property name="hotspot" value="location"/>
     <property name="loot" value="random,114,98,1"/>
     <property name="mapmod" value="object,114,97,99"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>

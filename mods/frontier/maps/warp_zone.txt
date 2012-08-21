@@ -212,7 +212,7 @@ data=
 [event]
 type=teleport
 location=22,45,2,2
-hotspot=-64,-16,128,64
+hotspot=location
 intermap=ancient_temple.txt,47,94
 requires_status=waypoint_ancient_temple
 tooltip=Ancient Temple
@@ -220,14 +220,14 @@ tooltip=Ancient Temple
 [event]
 type=teleport
 location=30,45,2,2
-hotspot=-64,-16,128,64
+hotspot=location
 intermap=frontier_outpost.txt,36,12
 tooltip=Frontier Outpost
 
 [event]
 type=teleport
 location=30,37,2,2
-hotspot=-64,-16,128,64
+hotspot=location
 intermap=ydrakka_pass.txt,99,49
 requires_status=waypoint_ydrakka_pass
 tooltip=Ydrakka Pass
@@ -235,14 +235,14 @@ tooltip=Ydrakka Pass
 [event]
 type=teleport
 location=30,29,2,2
-hotspot=-64,-16,128,64
+hotspot=location
 requires_status=waypoint_averguard_atrium
 tooltip=Averguard Atrium
 
 [event]
 type=teleport
 location=38,37,2,2
-hotspot=-64,-16,128,64
+hotspot=location
 requires_status=waypoint_brothers_lair_atrium
 tooltip=Brothers Lair Atrium
 

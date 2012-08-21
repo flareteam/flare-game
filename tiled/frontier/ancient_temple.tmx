@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="isometric" width="104" height="104" tilewidth="64" tileheight="32" backgroundcolor="#000000">
  <properties>
   <property name="music" value="safe_room_theme.ogg"/>
@@ -434,7 +435,7 @@
   </object>
   <object name="island chest" type="run_once" x="736" y="384" width="32" height="32">
    <properties>
-    <property name="hotspot" value="-16,-28,32,36"/>
+    <property name="hotspot" value="location"/>
     <property name="loot" value="random,22,13,3;random,23,13,4;random,24,13,3"/>
     <property name="mapmod" value="object,23,12,161"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -443,7 +444,7 @@
   </object>
   <object name="island chest" type="run_once" x="768" y="352" width="32" height="32">
    <properties>
-    <property name="hotspot" value="-16,-28,32,36"/>
+    <property name="hotspot" value="location"/>
     <property name="loot" value="random,25,10,3;random,25,11,4;random,25,12,3"/>
     <property name="mapmod" value="object,24,11,160"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -452,7 +453,7 @@
   </object>
   <object name="book stand" type="run_once" x="1248" y="288" width="32" height="32">
    <properties>
-    <property name="hotspot" value="-16,-48,32,56"/>
+    <property name="hotspot" value="location"/>
     <property name="mapmod" value="object,39,9,165"/>
     <property name="msg" value="Tho' Nature, red in tooth and claw; With ravine, shriek'd against his creed"/>
     <property name="soundfx" value="soundfx/inventory/inventory_page.ogg"/>
@@ -473,7 +474,7 @@
   <object name="floor spikes" type="trap" x="768" y="2592" width="32" height="32">
    <properties>
     <property name="cooldown" value="90"/>
-    <property name="hotspot" value="-32,-16,64,32"/>
+    <property name="hotspot" value="location"/>
     <property name="power" value="160"/>
     <property name="power_damage" value="10,15"/>
    </properties>
@@ -481,7 +482,7 @@
   <object name="floor spikes" type="trap" x="736" y="2592" width="32" height="32">
    <properties>
     <property name="cooldown" value="90"/>
-    <property name="hotspot" value="-32,-16,64,32"/>
+    <property name="hotspot" value="location"/>
     <property name="power" value="160"/>
     <property name="power_damage" value="10,15"/>
    </properties>
@@ -489,7 +490,7 @@
   <object name="floor spikes" type="trap" x="640" y="2624" width="32" height="32">
    <properties>
     <property name="cooldown" value="90"/>
-    <property name="hotspot" value="-32,-16,64,32"/>
+    <property name="hotspot" value="location"/>
     <property name="power" value="160"/>
     <property name="power_damage" value="10,15"/>
    </properties>
@@ -497,7 +498,7 @@
   <object name="floor spikes" type="trap" x="704" y="2592" width="32" height="32">
    <properties>
     <property name="cooldown" value="90"/>
-    <property name="hotspot" value="-32,-16,64,32"/>
+    <property name="hotspot" value="location"/>
     <property name="power" value="160"/>
     <property name="power_damage" value="10,15"/>
    </properties>
@@ -505,7 +506,7 @@
   <object name="floor spikes" type="trap" x="640" y="2592" width="32" height="32">
    <properties>
     <property name="cooldown" value="90"/>
-    <property name="hotspot" value="-32,-16,64,32"/>
+    <property name="hotspot" value="location"/>
     <property name="power" value="160"/>
     <property name="power_damage" value="10,15"/>
    </properties>
@@ -513,7 +514,7 @@
   <object name="floor spikes" type="trap" x="672" y="2592" width="32" height="32">
    <properties>
     <property name="cooldown" value="90"/>
-    <property name="hotspot" value="-32,-16,64,32"/>
+    <property name="hotspot" value="location"/>
     <property name="power" value="160"/>
     <property name="power_damage" value="10,15"/>
    </properties>
@@ -521,7 +522,7 @@
   <object name="floor spikes" type="trap" x="512" y="2688" width="32" height="32">
    <properties>
     <property name="cooldown" value="90"/>
-    <property name="hotspot" value="-32,-16,64,32"/>
+    <property name="hotspot" value="location"/>
     <property name="power" value="160"/>
     <property name="power_damage" value="10,15"/>
    </properties>
@@ -529,7 +530,7 @@
   <object name="floor spikes" type="trap" x="640" y="2656" width="32" height="32">
    <properties>
     <property name="cooldown" value="90"/>
-    <property name="hotspot" value="-32,-16,64,32"/>
+    <property name="hotspot" value="location"/>
     <property name="power" value="160"/>
     <property name="power_damage" value="10,15"/>
    </properties>
@@ -537,7 +538,7 @@
   <object name="floor spikes" type="trap" x="608" y="2688" width="32" height="32">
    <properties>
     <property name="cooldown" value="90"/>
-    <property name="hotspot" value="-32,-16,64,32"/>
+    <property name="hotspot" value="location"/>
     <property name="power" value="160"/>
     <property name="power_damage" value="10,15"/>
    </properties>
@@ -545,7 +546,7 @@
   <object name="floor spikes" type="trap" x="640" y="2688" width="32" height="32">
    <properties>
     <property name="cooldown" value="90"/>
-    <property name="hotspot" value="-32,-16,64,32"/>
+    <property name="hotspot" value="location"/>
     <property name="power" value="160"/>
     <property name="power_damage" value="10,15"/>
    </properties>
@@ -553,7 +554,7 @@
   <object name="floor spikes" type="trap" x="544" y="2688" width="32" height="32">
    <properties>
     <property name="cooldown" value="90"/>
-    <property name="hotspot" value="-32,-16,64,32"/>
+    <property name="hotspot" value="location"/>
     <property name="power" value="160"/>
     <property name="power_damage" value="10,15"/>
    </properties>
@@ -561,7 +562,7 @@
   <object name="floor spikes" type="trap" x="512" y="2624" width="32" height="32">
    <properties>
     <property name="cooldown" value="90"/>
-    <property name="hotspot" value="-32,-16,64,32"/>
+    <property name="hotspot" value="location"/>
     <property name="power" value="160"/>
     <property name="power_damage" value="10,15"/>
    </properties>
@@ -569,7 +570,7 @@
   <object name="floor spikes" type="trap" x="576" y="2688" width="32" height="32">
    <properties>
     <property name="cooldown" value="90"/>
-    <property name="hotspot" value="-32,-16,64,32"/>
+    <property name="hotspot" value="location"/>
     <property name="power" value="160"/>
     <property name="power_damage" value="10,15"/>
    </properties>
@@ -577,7 +578,7 @@
   <object name="floor spikes" type="trap" x="512" y="2656" width="32" height="32">
    <properties>
     <property name="cooldown" value="90"/>
-    <property name="hotspot" value="-32,-16,64,32"/>
+    <property name="hotspot" value="location"/>
     <property name="power" value="160"/>
     <property name="power_damage" value="10,15"/>
    </properties>
@@ -594,12 +595,11 @@
   <object x="1440" y="3040"/>
   <object name="Waypoint" type="teleport" x="1408" y="2976" width="64" height="64">
    <properties>
-    <property name="hotspot" value="-64,-16,128,64"/>
+    <property name="hotspot" value="location"/>
     <property name="intermap" value="warp_zone.txt,22,44"/>
     <property name="tooltip" value="Warp Zone"/>
    </properties>
   </object>
-  <object x="1276" y="3098"/>
   <object type="on_load" x="1216" y="2880" width="32" height="32">
    <properties>
     <property name="mapmod" value="background,44,94,265"/>
@@ -721,15 +721,6 @@
    <properties>
     <property name="level" value="3,3"/>
     <property name="number" value="1,3"/>
-   </properties>
-  </object>
-  <object name="island chest" type="run_once" x="783" y="390" width="32" height="32">
-   <properties>
-    <property name="hotspot" value="-16,-28,32,36"/>
-    <property name="loot" value="random,22,13,3;random,23,13,4;random,24,13,3"/>
-    <property name="mapmod" value="object,23,12,161"/>
-    <property name="soundfx" value="soundfx/wood_open.ogg"/>
-    <property name="tooltip" value="Treasure Chest"/>
    </properties>
   </object>
  </objectgroup>
