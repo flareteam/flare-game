@@ -158,6 +158,8 @@ private:
 
 	WidgetTooltip *tip;
 	TooltipData tip_buf;
+	Point tip_pos;
+	bool show_tooltip;
 
 	// map events can play random soundfx
 	Mix_Chunk *sfx;
@@ -224,7 +226,7 @@ public:
 
 	void clearEvents();
 	void checkEvents(Point loc);
-	void checkEventClick();
+	void checkHotspots();
 	void checkTooltip();
 
 	// vars
