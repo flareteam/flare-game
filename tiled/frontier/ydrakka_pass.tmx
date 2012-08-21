@@ -342,7 +342,7 @@
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
 </data>
  </layer>
- <objectgroup name="event" width="256" height="100">
+ <objectgroup name="event" width="256" height="100" visible="0">
   <object name="to Goblin Warrens" type="teleport" x="2944" y="1696" width="32" height="32">
    <properties>
     <property name="intermap" value="goblin_warrens.txt,29,79"/>
@@ -379,7 +379,7 @@
   </object>
   <object name="Warp Zone" type="teleport" x="3232" y="1472" width="64" height="64">
    <properties>
-    <property name="hotspot" value="-64,-16,128,64"/>
+    <property name="hotspot" value="location"/>
     <property name="intermap" value="warp_zone.txt,29,36"/>
     <property name="tooltip" value="Warp Zone"/>
    </properties>

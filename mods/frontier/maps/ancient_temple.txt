@@ -600,7 +600,7 @@ set_status=waypoint_ancient_temple
 # Waypoint
 type=teleport
 location=44,93,2,2
-hotspot=-64,-16,128,64
+hotspot=location
 intermap=warp_zone.txt,22,44
 tooltip=Warp Zone
 
@@ -717,16 +717,6 @@ type=wyvern
 location=21,9,6,6
 level=3,3
 number=1,3
-
-[enemygroup]
-# island chest
-type=run_once
-location=24.4688,12.1875,1,1
-hotspot=-16,-28,32,36
-loot=random,22,13,3;random,23,13,4;random,24,13,3
-mapmod=object,23,12,161
-soundfx=soundfx/wood_open.ogg
-tooltip=Treasure Chest
 
 [enemy]
 type=cursed_grave
