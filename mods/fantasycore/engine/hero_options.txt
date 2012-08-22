@@ -33,3 +33,24 @@ option=female,head_long,female07
 option=female,head_long,female08
 option=female,head_long,female09
 
+# layer=type,x,y,w,h
+
+# assuming the hero is right-handed, we know the layer z-order
+# copy the furthest hand first
+# row 0,1 main hand
+layer=main,0,0,4096,256
+# row 6,7 main hand
+layer=main,0,768,4096,256
+# row 2-5 off hand
+layer=off,0,256,4096,512
+# copy the head in the middle
+# head
+layer=head,0,0,4096,1024
+# copy the closest hand last
+# row 0,1 off hand
+layer=off,0,0,4096,256
+# row 6,7 off hand
+layer=off,0,768,4096,256
+# row 2-5 main hand
+layer=main,0,256,4096,512
+
