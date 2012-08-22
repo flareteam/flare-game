@@ -355,7 +355,7 @@ void MenuInventory::drop(Point mouse, ItemStack stack) {
  */
 void MenuInventory::activate(InputState * input) {
 	int slot;
-	int equip_slot;
+	int equip_slot = -1;
 	ItemStack stack;
 	Point nullpt;
 	nullpt.x = nullpt.y = 0;
@@ -389,14 +389,25 @@ void MenuInventory::activate(InputState * input) {
 	}
 	// equip an item
 	else {
-		equip_slot = getSlotIndex(items->items[inventory[CARRIED][slot].item].type);
-		if (equip_slot == -1) {
-			fprintf(stderr, "Can't find equip slot, corresponding to type %s\n", items->items[inventory[CARRIED][slot].item].type.c_str());
+		// find first empty(or just first) slot for item to equip
+		for (int i = 0; i < MAX_EQUIPPED; i++) {
+			// first check for first empty
+			if ((slot_type[i] == items->items[inventory[CARRIED][slot].item].type) &&
+				(inventory[EQUIPMENT].storage[i].item == 0)) {
+				equip_slot = i;
+			}
 		}
-		if (slot_type[equip_slot] == "main" ||
-			slot_type[equip_slot] == "body" ||
-			slot_type[equip_slot] == "off" ||
-			slot_type[equip_slot] == "artifact") {
+		if (equip_slot == -1) {
+			// if empty not found, use just first
+			for (int i = 0; i < MAX_EQUIPPED; i++) {
+				// first check for first empty
+				if (slot_type[i] == items->items[inventory[CARRIED][slot].item].type) {
+					equip_slot = i;
+				}
+			}
+		}
+
+		if (equip_slot != -1) {
 			if (requirementsMet(inventory[CARRIED][slot].item)) {
 				stack = click( input);
 				if( inventory[EQUIPMENT][equip_slot].item == stack.item) {
@@ -421,7 +432,7 @@ void MenuInventory::activate(InputState * input) {
 				updateEquipment( equip_slot);
 				items->playSound(inventory[EQUIPMENT][equip_slot].item);
 			}
-		}
+		} else fprintf(stderr, "Can't find equip slot, corresponding to type %s\n", items->items[inventory[CARRIED][slot].item].type.c_str());
 	}
 }
 
@@ -792,13 +803,6 @@ void MenuInventory::applyEquipment(ItemStack *equipped) {
 	else
 		stats->mp = stats->maxmp;
 
-}
-
-int MenuInventory::getSlotIndex(std::string type) {
-	for (unsigned int i=0; i<slot_type.size(); i++) {
-		if (type == slot_type[i]) return i;
-	}
-	return -1;
 }
 
 MenuInventory::~MenuInventory() {
