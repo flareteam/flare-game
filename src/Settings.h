@@ -62,6 +62,7 @@ extern bool ANIMATED_TILES;
 extern bool MOUSE_MOVE;
 extern bool ENABLE_JOYSTICK;
 extern int JOYSTICK_DEVICE;
+extern bool MOUSE_AIM;
 
 // User Options
 extern bool COMBAT_TEXT;

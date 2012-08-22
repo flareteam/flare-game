@@ -33,6 +33,10 @@ using namespace std;
 #include "UtilsFileSystem.h"
 #include "SharedResources.h"
 
+#ifdef _MSC_VER
+#define log2(x)	logf(x)/logf(2)
+#endif
+
 struct ConfigEntry
 {
 	const char * name;
@@ -57,7 +61,8 @@ ConfigEntry config[] = {
 	{ "joystick_device",  &typeid(JOYSTICK_DEVICE), "0",   &JOYSTICK_DEVICE, NULL},
 	{ "language",         &typeid(LANGUAGE),        "en",  &LANGUAGE,        "2-letter language code."},
 	{ "gamma",            &typeid(GAMMA),           "1.0", &GAMMA,           "screen gamma (0.5 = darkest, 2.0 = lightest)"},
-	{ "texture_quality",  &typeid(TEXTURE_QUALITY), "1",   &TEXTURE_QUALITY, "texture quality (0 = low quality, 1 = high quality)"}
+	{ "texture_quality",  &typeid(TEXTURE_QUALITY), "1",   &TEXTURE_QUALITY, "texture quality (0 = low quality, 1 = high quality)"},
+	{ "mouse_aim",        &typeid(MOUSE_AIM),       "1",   &MOUSE_AIM,       "use mouse to aim. 1 enable, 0 disable."}
 };
 const int config_size = sizeof(config) / sizeof(ConfigEntry);
 
@@ -116,6 +121,7 @@ bool COMBAT_TEXT;
 bool MOUSE_MOVE;
 bool ENABLE_JOYSTICK;
 int JOYSTICK_DEVICE;
+bool MOUSE_AIM;
 
 // Language Settings
 std::string LANGUAGE = "en";
