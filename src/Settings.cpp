@@ -33,6 +33,10 @@ using namespace std;
 #include "UtilsFileSystem.h"
 #include "SharedResources.h"
 
+#ifdef _MSC_VER
+#define log2(x)	logf(x)/logf(2)
+#endif
+
 struct ConfigEntry
 {
 	const char * name;

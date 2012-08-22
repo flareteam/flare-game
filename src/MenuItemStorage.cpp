@@ -104,8 +104,8 @@ void MenuItemStorage::itemReturn(ItemStack stack) {
  */
 void MenuItemStorage::fillEquipmentSlots() {
 	// create temporary arrays
-	int equip_item[slot_number];
-	int equip_quantity[slot_number];
+	int *equip_item = new int[slot_number];
+	int *equip_quantity = new int[slot_number];;
 
 	// initialize arrays
 	for (int i=0; i<slot_number; i++) {
@@ -129,5 +129,7 @@ void MenuItemStorage::fillEquipmentSlots() {
 			}
 		}
 	}
+	delete [] equip_item;
+	delete [] equip_quantity;
 }
 

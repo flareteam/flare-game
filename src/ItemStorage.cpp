@@ -66,6 +66,10 @@ void ItemStorage::setQuantities(string s) {
 	}
 }
 
+int ItemStorage::getSlotNumber() {
+	return slot_number;
+}
+
 /**
  * Convert storage array to a CSV list of items id for savefile
  */
