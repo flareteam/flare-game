@@ -48,7 +48,6 @@ private:
 	void loadGraphics();
 	int areaOver(Point mouse);
 	void updateEquipment(int slot);
-	int getSlotIndex(std::string type);
 
 	SDL_Surface *background;
 	WidgetButton *closeButton;
