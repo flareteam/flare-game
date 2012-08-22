@@ -315,14 +315,22 @@ void GameStatePlay::checkEquipmentChange() {
 
 		pc->untransform_triggered = false;
 
-		vector<string> img_gfx;
+		vector<Layer_gfx> img_gfx;
+		Layer_gfx gfx;
 		// load only displayable layers
 		for (int i=0; i<menu->inv->inventory[EQUIPMENT].getSlotNumber(); i++) {
 			for (unsigned int j=0; j<pc->layer_def.size(); j++) {
 				if (menu->inv->inventory[EQUIPMENT].slot_type[i] == pc->layer_def[j].type) {
-					img_gfx.push_back(menu->items->items[menu->inv->inventory[EQUIPMENT][i].item].gfx);
+					gfx.gfx = menu->items->items[menu->inv->inventory[EQUIPMENT][i].item].gfx;
+					gfx.type = menu->inv->inventory[EQUIPMENT].slot_type[i];
+					img_gfx.push_back(gfx);
 					break;
 				}
+			}
+			if (menu->inv->inventory[EQUIPMENT].slot_type[i] == "body") {
+				gfx.gfx = menu->items->items[menu->inv->inventory[EQUIPMENT][i].item].gfx;
+				gfx.type = menu->inv->inventory[EQUIPMENT].slot_type[i];
+				img_gfx.push_back(gfx);
 			}
 		}
 		pc->loadGraphics(img_gfx);

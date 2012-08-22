@@ -128,7 +128,7 @@ void Avatar::loadLayerDefinitions() {
 			infile.val = infile.val + ',';
 
 			if(infile.key == "layer") {
-				temp.type = eatFirstInt(infile.val,',');
+				temp.type = eatFirstString(infile.val,',');
 				temp.pos.x = eatFirstInt(infile.val,',');
 				temp.pos.y = eatFirstInt(infile.val,',');
 				temp.pos.w = eatFirstInt(infile.val,',');
@@ -147,40 +147,46 @@ int Avatar::findGfx(std::string type) {
 	return -1;
 }
 
-void Avatar::loadGraphics(std::vector<std::string> _img_gfx) {
+void Avatar::loadGraphics(std::vector<Layer_gfx> _img_gfx) {
 	bool change_graphics = false;
 	vector<SDL_Surface*> gfx_surf;
+	short body = -1;
 	SDL_Rect src;
 	SDL_Rect dest;
 
 	// Default appearance
-	// TODO remove hardcoded index
-	if (_img_gfx[1] == "") _img_gfx[1] = "clothes";
+	// Find body gfx index
+	for (unsigned int i=0; i<_img_gfx.size(); i++) {
+		if (_img_gfx[i].type == "body") body = i;
+	}
+	if (body != -1) {
+		if (_img_gfx[body].gfx == "") _img_gfx[body].gfx = "clothes";
+	}
 
 	// Check if we really need to change the graphics
 	for (unsigned int i=0; i<_img_gfx.size(); i++) {
-		if (img_gfx[i] != _img_gfx[i]) {
+		if (img_gfx[i] != _img_gfx[i].gfx) {
 			change_graphics = true;
 			break;
 		}
 	}
 	if (change_graphics) {
 		for (unsigned int i=0; i<_img_gfx.size(); i++) {
-			img_gfx[i] =_img_gfx[i];
+			img_gfx[i] =_img_gfx[i].gfx;
 		}
 	} else return;
 
 	// composite the hero graphic
 	if (sprites) SDL_FreeSurface(sprites);
-	sprites = IMG_Load(mods->locate("images/avatar/" + stats.base + "/" + img_gfx[1] + ".png").c_str());
+	sprites = IMG_Load(mods->locate("images/avatar/" + stats.base + "/" + img_gfx[body] + ".png").c_str());
 
 	for (unsigned int i=0; i<layer_def.size(); i++) {
 		int k = findGfx(layer_def[i].type);
 
-		if (img_gfx[k] != "") {
-			if (layer_def[i].type == "head"){
+		if (layer_def[i].type == "head")
 				gfx_surf.push_back(IMG_Load(mods->locate("images/avatar/" + stats.base + "/" + stats.head + ".png").c_str()));
-			} else
+
+		if (img_gfx[k] != "") {
 			gfx_surf.push_back(IMG_Load(mods->locate("images/avatar/" + stats.base + "/" + img_gfx[k] + ".png").c_str()));
 		}
 		else gfx_surf.push_back(NULL);

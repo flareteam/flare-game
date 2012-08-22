@@ -62,6 +62,15 @@ struct Layer_def {
 	}
 };
 
+struct Layer_gfx {
+	std::string gfx;
+	std::string type;
+	Layer_gfx() {
+		gfx = "";
+		type = "";
+	}
+};
+
 class Avatar : public Entity {
 private:
 
@@ -92,7 +101,7 @@ public:
 	void loadLayerDefinitions();
 	std::vector<Layer_def> layer_def;
 	int findGfx(std::string type);
-	void loadGraphics(std::vector<std::string> _img_gfx);
+	void loadGraphics(std::vector<Layer_gfx> _img_gfx);
 	void loadSounds();
 	void loadStepFX(const std::string& stepname);
 
