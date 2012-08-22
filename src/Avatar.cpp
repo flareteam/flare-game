@@ -274,7 +274,7 @@ void Avatar::handlePower(int actionbar_power) {
 	if (actionbar_power != -1 && stats.cooldown_ticks == 0) {
 		const Power &power = powers->getPower(actionbar_power);
 		Point target = screen_to_map(inpt->mouse.x,  inpt->mouse.y + power.aim_assist, stats.pos.x, stats.pos.y);
-		if (ENABLE_JOYSTICK) {
+		if (!MOUSE_AIM) {
 			switch (stats.direction) {
 				case 0:
 					target = screen_to_map(VIEW_W_HALF-128, VIEW_H_HALF, stats.pos.x, stats.pos.y);
