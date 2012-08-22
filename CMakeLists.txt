@@ -7,11 +7,20 @@ Set (VERSION "0.16")
 
 # Default definitions
 if (MSVC)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /wd4099 /wd4244")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /wd4099 /wd4244")
 else (MSVC)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wno-unused -Wshadow -Woverloaded-virtual")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-enforce-eh-specs -fno-math-errno -fno-exceptions")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wno-unused -Wshadow -Woverloaded-virtual")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-math-errno -fno-exceptions")
 endif (MSVC)
+
+if (CMAKE_CXX_COMPILER MATCHES "clang")
+  # clang needs lstdc++ linked explicitly:
+  set(CMAKE_LD_FLAGS "-lstdc++")
+else (CMAKE_CXX_COMPILER MATCHES "clang")
+  # assume gcc:
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-enforce-eh-specs")
+endif (CMAKE_CXX_COMPILER MATCHES "clang")
+
 if(CMAKE_BUILD_TYPE STREQUAL "Release")
   set(CMAKE_CXX_FLAGS_RELEASE "-O2 -g0 -flto")
 elseif(CMAKE_BUILD_TYPE STREQUAL "RelWithDebInfo")
@@ -160,7 +169,7 @@ If (NOT SDLMAIN_LIBRARY)
   Set (SDLMAIN_LIBRARY "")
 EndIf (NOT SDLMAIN_LIBRARY)
 
-Target_Link_Libraries (flare ${SDL_LIBRARY} ${SDLMIXER_LIBRARY} ${SDLIMAGE_LIBRARY} ${SDLTTF_LIBRARY} ${SDLMAIN_LIBRARY})
+Target_Link_Libraries (flare ${CMAKE_LD_FLAGS} ${SDL_LIBRARY} ${SDLMIXER_LIBRARY} ${SDLIMAGE_LIBRARY} ${SDLTTF_LIBRARY} ${SDLMAIN_LIBRARY})
 
 
 # desktop file
