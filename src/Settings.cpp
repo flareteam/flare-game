@@ -306,7 +306,7 @@ void loadTilesetSettings() {
 	}
 
 	// Init automatically calculated parameters
-	TILE_SHIFT = log2(UNITS_PER_TILE);
+	TILE_SHIFT = logf(UNITS_PER_TILE)/logf(2);
 	VIEW_W_HALF = VIEW_W / 2;
 	VIEW_H_HALF = VIEW_H / 2;
 	if (TILESET_ORIENTATION == TILESET_ISOMETRIC) {
