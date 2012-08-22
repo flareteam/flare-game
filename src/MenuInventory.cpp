@@ -656,69 +656,62 @@ void MenuInventory::applyEquipment(ItemStack *equipped) {
 	// defaults
 	stats->recalc();
 	stats->offense_additional = stats->defense_additional = stats->physical_additional = stats->mental_additional = 0;
-	stats->dmg_melee_min = stats->dmg_melee_min_default;
-	stats->dmg_melee_max = stats->dmg_melee_max_default;
-	stats->dmg_ranged_min = stats->dmg_ranged_min_default;
-	stats->dmg_ranged_max = stats->dmg_ranged_max_default;
-	stats->dmg_ment_min = stats->dmg_ment_min_default;
-	stats->dmg_ment_max = stats->dmg_ment_max_default;
-	stats->absorb_min = stats->absorb_min_default;
-	stats->absorb_max = stats->absorb_max_default;
 	stats->speed = stats->speed_default;
 	stats->dspeed = stats->dspeed_default;
 	for (unsigned int i=0; i<stats->vulnerable.size(); i++) {
 		stats->vulnerable[i] = 100;
 	}
 
+	// the default for weapons/absorb are not added to equipped items
+	// later this function they are applied if the defaults aren't met
+	stats->dmg_melee_min = stats->dmg_melee_max = 0;
+	stats->dmg_ranged_min = stats->dmg_ranged_max = 0;
+	stats->dmg_ment_min = stats->dmg_ment_max = 0;
+	stats->absorb_min = stats->absorb_max = 0;
+
 	// reset wielding vars
 	stats->wielding_physical = false;
 	stats->wielding_mental = false;
 	stats->wielding_offense = false;
 
-	// main hand weapon
-	int item_id = equipped[getSlotIndex("main")].item;
-	if (item_id > 0) {
-		const Item &item = pc_items[item_id];
-		if (item.req_stat == REQUIRES_PHYS) {
-			stats->dmg_melee_min = item.dmg_min;
-			stats->dmg_melee_max = item.dmg_max;
-			stats->melee_weapon_power = item.power_mod;
-			stats->wielding_physical = true;
-		}
-		else if (item.req_stat == REQUIRES_MENT) {
-			stats->dmg_ment_min = item.dmg_min;
-			stats->dmg_ment_max = item.dmg_max;
-			stats->mental_weapon_power = item.power_mod;
-			stats->wielding_mental = true;
-		}
-	}
-	// off hand item
-	item_id = equipped[getSlotIndex("off")].item;
-	if (item_id > 0) {
-		const Item &item = pc_items[item_id];
-		if (item.req_stat == REQUIRES_OFF) {
-			stats->dmg_ranged_min = item.dmg_min;
-			stats->dmg_ranged_max = item.dmg_max;
-			stats->ranged_weapon_power = item.power_mod;
-			stats->wielding_offense = true;
-		}
-		else if (item.req_stat == REQUIRES_DEF) {
-			stats->absorb_min += item.abs_min;
-			stats->absorb_max += item.abs_max;
-		}
-	}
-	// body item
-	item_id = equipped[getSlotIndex("body")].item;
-	if (item_id > 0) {
-		const Item &item = pc_items[item_id];
-		stats->absorb_min += item.abs_min;
-		stats->absorb_max += item.abs_max;
-	}
+	int item_id;
 
-	// apply bonuses from all items
+	// apply stats from all items
 	for (int i=0; i<MAX_EQUIPPED; i++) {
 		item_id = equipped[i].item;
 		const Item &item = pc_items[item_id];
+		
+		// apply base stats
+		stats->dmg_melee_min += item.dmg_melee_min;
+		stats->dmg_melee_max += item.dmg_melee_max;
+		stats->dmg_ranged_min += item.dmg_ranged_min;
+		stats->dmg_ranged_max += item.dmg_ranged_max;
+		stats->dmg_ment_min += item.dmg_ment_min;
+		stats->dmg_ment_max += item.dmg_ment_max;
+		
+		// TODO: add a separate wielding stat to items
+		// e.g. we might want a ring that gives bonus ranged damage but
+		// we still need a bow to shoot arrows.
+		if (item.dmg_melee_max > 0) {
+			stats->wielding_physical = true;
+			if (item.power_mod != -1) {
+				stats->melee_weapon_power = item.power_mod;
+			}
+		}
+		if (item.dmg_ranged_max > 0) {
+			stats->wielding_offense = true;
+			if (item.power_mod != -1) {
+				stats->ranged_weapon_power = item.power_mod;
+			}
+		}
+		if (item.dmg_ment_max > 0) {
+			stats->wielding_mental = true;
+			if (item.power_mod != -1) {
+				stats->mental_weapon_power = item.power_mod;
+			}
+		}
+		
+		// apply various bonuses
 		bonus_counter = 0;
 		while (bonus_counter < item.bonus_stat.size() && item.bonus_stat[bonus_counter] != "") {
 
@@ -765,6 +758,24 @@ void MenuInventory::applyEquipment(ItemStack *equipped) {
 			bonus_counter++;
 		}
 	}
+
+	// increase damage and absorb to minimum amounts
+	if (stats->dmg_melee_min < stats->dmg_melee_min_default)
+		stats->dmg_melee_min = stats->dmg_melee_min_default;
+	if (stats->dmg_melee_max < stats->dmg_melee_max_default)
+		stats->dmg_melee_max = stats->dmg_melee_max_default;
+	if (stats->dmg_ranged_min < stats->dmg_ranged_min_default)
+		stats->dmg_ranged_min = stats->dmg_ranged_min_default;
+	if (stats->dmg_ranged_max < stats->dmg_ranged_max_default)
+		stats->dmg_ranged_max = stats->dmg_ranged_max_default;
+	if (stats->dmg_ment_min < stats->dmg_ment_min_default)
+		stats->dmg_ment_min = stats->dmg_ment_min_default;
+	if (stats->dmg_ment_max < stats->dmg_ment_max_default)
+		stats->dmg_ment_max = stats->dmg_ment_max_default;
+	if (stats->absorb_min < stats->absorb_min_default)		
+		stats->absorb_min = stats->absorb_min_default;
+	if (stats->absorb_max < stats->absorb_max_default)				
+		stats->absorb_max = stats->absorb_max_default;
 
 	// apply previous hp/mp
 	if (prev_hp < stats->maxhp)

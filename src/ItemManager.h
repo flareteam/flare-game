@@ -68,10 +68,14 @@ public:
 	std::string type;     // equipment slot or base item type
 	int icon_small;       // icon index on small pixel sheet
 	int icon_large;       // icon index on large pixel sheet (used for equippable items)
-	int dmg_min;          // minimum damage amount (weapons only)
-	int dmg_max;          // maximum damage amount (weapons only)
-	int abs_min;          // minimum absorb amount (armors and shields only)
-	int abs_max;          // maximum absorb amount (armors and shields only)
+	int dmg_melee_min;    // minimum damage amount (melee)
+	int dmg_melee_max;    // maximum damage amount (melee)
+	int dmg_ranged_min;   // minimum damage amount (ranged)
+	int dmg_ranged_max;   // maximum damage amount (ranged)
+	int dmg_ment_min;     // minimum damage amount (mental)
+	int dmg_ment_max;     // maximum damage amount (mental)
+	int abs_min;          // minimum absorb amount
+	int abs_max;          // maximum absorb amount
 	int req_stat;         // physical, mental, offense, defense
 	int req_val;          // 1-5 (used with req_stat)
 	std::vector<std::string> bonus_stat;   // stat to increase/decrease e.g. hp, accuracy, speed
@@ -97,8 +101,12 @@ public:
 		icon_small = 0;
 		icon_large = 0;
 		type = "other";
-		dmg_min = 0;
-		dmg_max = 0;
+		dmg_melee_min = 0;
+		dmg_melee_max = 0;
+		dmg_ranged_min = 0;
+		dmg_ranged_max = 0;
+		dmg_ment_min = 0;
+		dmg_ment_max = 0;
 		abs_min = 0;
 		abs_max = 0;
 		req_stat = 0;

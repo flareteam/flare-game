@@ -112,12 +112,26 @@ void ItemManager::load(const string& filename) {
 			else if (infile.key == "item_type") {
 					items[id].type = infile.val;
 			}
-			else if (infile.key == "dmg") {
-				items[id].dmg_min = toInt(infile.nextValue());
+			else if (infile.key == "dmg_melee") {
+				items[id].dmg_melee_min = toInt(infile.nextValue());
 				if (infile.val.length() > 0)
-					items[id].dmg_max = toInt(infile.nextValue());
+					items[id].dmg_melee_max = toInt(infile.nextValue());
 				else
-					items[id].dmg_max = items[id].dmg_min;
+					items[id].dmg_melee_max = items[id].dmg_melee_min;
+			}
+			else if (infile.key == "dmg_ranged") {
+				items[id].dmg_ranged_min = toInt(infile.nextValue());
+				if (infile.val.length() > 0)
+					items[id].dmg_ranged_max = toInt(infile.nextValue());
+				else
+					items[id].dmg_ranged_max = items[id].dmg_ranged_min;
+			}
+			else if (infile.key == "dmg_ment") {
+				items[id].dmg_ment_min = toInt(infile.nextValue());
+				if (infile.val.length() > 0)
+					items[id].dmg_ment_max = toInt(infile.nextValue());
+				else
+					items[id].dmg_ment_max = items[id].dmg_ment_min;
 			}
 			else if (infile.key == "abs") {
 				items[id].abs_min = toInt(infile.nextValue());
@@ -390,25 +404,23 @@ TooltipData ItemManager::getTooltip(int item, StatBlock *stats, bool vendor_view
 	}
 
 	// damage
-	if (items[item].dmg_max > 0) {
-		if (items[item].req_stat == REQUIRES_PHYS) {
-			if (items[item].dmg_min < items[item].dmg_max)
-				tip.lines[tip.num_lines++] = msg->get("Melee damage: %d-%d", items[item].dmg_min, items[item].dmg_max);
-			else
-				tip.lines[tip.num_lines++] = msg->get("Melee damage: %d", items[item].dmg_max);
-		}
-		else if (items[item].req_stat == REQUIRES_MENT) {
-			if (items[item].dmg_min < items[item].dmg_max)
-				tip.lines[tip.num_lines++] = msg->get("Mental damage: %d-%d", items[item].dmg_min, items[item].dmg_max);
-			else
-				tip.lines[tip.num_lines++] = msg->get("Mental damage: %d", items[item].dmg_max);
-		}
-		else if (items[item].req_stat == REQUIRES_OFF) {
-			if (items[item].dmg_min < items[item].dmg_max)
-				tip.lines[tip.num_lines++] = msg->get("Ranged damage: %d-%d", items[item].dmg_min, items[item].dmg_max);
-			else
-				tip.lines[tip.num_lines++] = msg->get("Ranged damage: %d", items[item].dmg_max);
-		}
+	if (items[item].dmg_melee_max > 0) {
+		if (items[item].dmg_melee_min < items[item].dmg_melee_max)
+			tip.lines[tip.num_lines++] = msg->get("Melee damage: %d-%d", items[item].dmg_melee_min, items[item].dmg_melee_max);
+		else
+			tip.lines[tip.num_lines++] = msg->get("Melee damage: %d", items[item].dmg_melee_max);
+	}
+	if (items[item].dmg_ranged_max > 0) {
+		if (items[item].dmg_ranged_min < items[item].dmg_ranged_max)
+			tip.lines[tip.num_lines++] = msg->get("Ranged damage: %d-%d", items[item].dmg_ranged_min, items[item].dmg_ranged_max);
+		else
+			tip.lines[tip.num_lines++] = msg->get("Ranged damage: %d", items[item].dmg_ranged_max);
+	}
+	if (items[item].dmg_ment_max > 0) {
+		if (items[item].dmg_ment_min < items[item].dmg_ment_max)
+			tip.lines[tip.num_lines++] = msg->get("Mental damage: %d-%d", items[item].dmg_ment_min, items[item].dmg_ment_max);
+		else
+			tip.lines[tip.num_lines++] = msg->get("Mental damage: %d", items[item].dmg_ment_max);
 	}
 
 	// absorb
