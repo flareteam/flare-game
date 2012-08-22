@@ -696,11 +696,15 @@ void MenuManager::render() {
 		// when we render a tooltip it buffers the rasterized text for performance.
 		// If this new tooltip is the same as the existing one, reuse.
 
-		// TODO: comparing the first line of a tooltip works in all existing cases,
-		// but may not hold true in the future.
-		if (tip_new.lines[0] != tip_buf.lines[0]) {
-			tip_buf.clear();
-			tip_buf = tip_new;
+		for (int i=0; i<TOOLTIP_MAX_LINES; i++) {
+			// if both lines are empty, we can assume the tooltip has no more content
+			if (tip_new.lines[i] == "" && tip_buf.lines[i] == "") break;
+
+			if (tip_new.lines[i] != tip_buf.lines[i]) {
+				tip_buf.clear();
+				tip_buf = tip_new;
+				break;
+			}
 		}
 		tip->render(tip_buf, inpt->mouse, STYLE_FLOAT);
 	}
