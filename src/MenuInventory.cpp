@@ -363,8 +363,12 @@ void MenuInventory::activate(InputState * input) {
 	// clicked a carried item
 	slot = inventory[CARRIED].slotOver(input->mouse);
 
+	// can't interact with quest items
+	if (items->items[inventory[CARRIED][slot].item].type == "quest") {
+		return;
+	}
 	// use a consumable item
-	if (items->items[inventory[CARRIED][slot].item].type == "consumable") {
+	else if (items->items[inventory[CARRIED][slot].item].type == "consumable") {
 
 		//don't use untransform item if hero is not transformed
 		if (powers->powers[items->items[inventory[CARRIED][slot].item].power].spawn_type == "untransform" && !stats->transformed) return;
