@@ -400,9 +400,9 @@ void MenuInventory::activate(InputState * input) {
 		if (equip_slot == -1) {
 			// if empty not found, use just first
 			for (int i = 0; i < MAX_EQUIPPED; i++) {
-				// first check for first empty
 				if (slot_type[i] == items->items[inventory[CARRIED][slot].item].type) {
 					equip_slot = i;
+					break;
 				}
 			}
 		}
