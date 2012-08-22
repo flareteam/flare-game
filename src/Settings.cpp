@@ -33,6 +33,10 @@ using namespace std;
 #include "UtilsFileSystem.h"
 #include "SharedResources.h"
 
+#ifdef _MSC_VER
+#define log2(x)	logf(x)/logf(2)
+#endif
+
 struct ConfigEntry
 {
 	const char * name;
@@ -306,7 +310,7 @@ void loadTilesetSettings() {
 	}
 
 	// Init automatically calculated parameters
-	TILE_SHIFT = logf(UNITS_PER_TILE)/logf(2);
+	TILE_SHIFT = log2(UNITS_PER_TILE);
 	VIEW_W_HALF = VIEW_W / 2;
 	VIEW_H_HALF = VIEW_H / 2;
 	if (TILESET_ORIENTATION == TILESET_ISOMETRIC) {
