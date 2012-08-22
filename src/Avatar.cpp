@@ -183,10 +183,10 @@ void Avatar::loadGraphics(std::vector<Layer_gfx> _img_gfx) {
 	for (unsigned int i=0; i<layer_def.size(); i++) {
 		int k = findGfx(layer_def[i].type);
 
-		if (layer_def[i].type == "head")
+		if (layer_def[i].type == "head") {
 				gfx_surf.push_back(IMG_Load(mods->locate("images/avatar/" + stats.base + "/" + stats.head + ".png").c_str()));
-
-		if (img_gfx[k] != "") {
+		}
+		else if (img_gfx[k] != "") {
 			gfx_surf.push_back(IMG_Load(mods->locate("images/avatar/" + stats.base + "/" + img_gfx[k] + ".png").c_str()));
 		}
 		else gfx_surf.push_back(NULL);
