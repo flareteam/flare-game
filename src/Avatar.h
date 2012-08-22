@@ -54,6 +54,13 @@ enum AvatarState {
 	AVATAR_SHOOT = 7
 };
 
+struct Layer_def {
+	std::string type;
+	SDL_Rect pos;
+	Layer_def() {
+		type = "";
+	}
+};
 
 class Avatar : public Entity {
 private:
@@ -72,9 +79,7 @@ private:
 	Mix_Chunk *sound_steps[4];
 	Mix_Chunk *level_up;
 
-	std::string img_main;
-	std::string img_armor;
-	std::string img_off;
+	std::vector<std::string> img_gfx;
 
 	bool transform_triggered;
 	std::string last_transform;
@@ -84,7 +89,10 @@ public:
 	~Avatar();
 
 	void init();
-	void loadGraphics(const std::string& img_main, std::string img_armor, const std::string& img_off);
+	void loadLayerDefinitions();
+	std::vector<Layer_def> layer_def;
+	int findGfx(std::string type);
+	void loadGraphics(std::vector<std::string> _img_gfx);
 	void loadSounds();
 	void loadStepFX(const std::string& stepname);
 

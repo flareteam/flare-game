@@ -26,10 +26,12 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "Animation.h"
 #include "Avatar.h"
 #include "CombatText.h"
+#include "FIleParser.h"
 #include "Hazard.h"
 #include "MapRenderer.h"
 #include "PowerManager.h"
 #include "SharedResources.h"
+#include "UtilsParsing.h"
 
 #include <sstream>
 
@@ -45,6 +47,8 @@ Avatar::Avatar(PowerManager *_powers, MapRenderer *_map) : Entity(_map), powers(
 
 	// load the hero's animations from hero definition file
 	loadAnimations("animations/hero.txt");
+
+	loadLayerDefinitions();
 }
 
 void Avatar::init() {
@@ -89,9 +93,10 @@ void Avatar::init() {
 
 	haz = NULL;
 
-	img_main = "";
-	img_armor = "";
-	img_off = "";
+	// TODO hardcoded
+	for (int i=0; i<4; i++) {
+		img_gfx.push_back("");
+	}
 
 	transform_triggered = false;
 	untransform_triggered = false;
@@ -112,69 +117,89 @@ void Avatar::init() {
 	level_up = NULL;
 }
 
-void Avatar::loadGraphics(const string& _img_main, string _img_armor, const string& _img_off) {
-	SDL_Surface *gfx_main = NULL;
-	SDL_Surface *gfx_off = NULL;
-	SDL_Surface *gfx_head = NULL;
+/**
+ * Load avatar sprite layer definitions into vector.
+ */
+void Avatar::loadLayerDefinitions() {
+	Layer_def temp;
+	FileParser infile;
+	if(infile.open(mods->locate("engine/hero_options.txt"))) {
+		while(infile.next()) {
+			infile.val = infile.val + ',';
+
+			if(infile.key == "layer") {
+				temp.type = eatFirstInt(infile.val,',');
+				temp.pos.x = eatFirstInt(infile.val,',');
+				temp.pos.y = eatFirstInt(infile.val,',');
+				temp.pos.w = eatFirstInt(infile.val,',');
+				temp.pos.h = eatFirstInt(infile.val,',');
+				layer_def.push_back(temp);
+			}
+		}
+		infile.close();
+	} else fprintf(stderr, "Unable to open hero_options.txt!\n");
+}
+
+int Avatar::findGfx(std::string type) {
+	for (unsigned int i=0; i<layer_def.size(); i++) {
+		if (type == layer_def[i].type) return i;
+	}
+	return -1;
+}
+
+void Avatar::loadGraphics(std::vector<std::string> _img_gfx) {
+	bool change_graphics = false;
+	vector<SDL_Surface*> gfx_surf;
 	SDL_Rect src;
 	SDL_Rect dest;
 
 	// Default appearance
-	if (_img_armor == "") _img_armor = "clothes";
+	// TODO remove hardcoded index
+	if (_img_gfx[1] == "") _img_gfx[1] = "clothes";
 
 	// Check if we really need to change the graphics
-	if (_img_main != img_main || _img_armor != img_armor || _img_off != img_off) {
-		img_main = _img_main;
-		img_armor = _img_armor;
-		img_off = _img_off;
-
-		// composite the hero graphic
-		if (sprites) SDL_FreeSurface(sprites);
-		sprites = IMG_Load(mods->locate("images/avatar/" + stats.base + "/" + img_armor + ".png").c_str());
-		if (img_main != "") gfx_main = IMG_Load(mods->locate("images/avatar/" + stats.base + "/" + img_main + ".png").c_str());
-		if (img_off != "") gfx_off = IMG_Load(mods->locate("images/avatar/" + stats.base + "/" + img_off + ".png").c_str());
-		gfx_head = IMG_Load(mods->locate("images/avatar/" + stats.base + "/" + stats.head + ".png").c_str());
-
-
-		// assuming the hero is right-handed, we know the layer z-order
-		// copy the furthest hand first
-		src.w = dest.w = 4096;
-		src.h = dest.h = 256;
-		src.x = dest.x = 0;
-		src.y = dest.y = 0;
-		if (gfx_main) SDL_gfxBlitRGBA(gfx_main, &src, sprites, &dest); // row 0,1 main hand
-		src.y = dest.y = 768;
-		if (gfx_main) SDL_gfxBlitRGBA(gfx_main, &src, sprites, &dest); // row 6,7 main hand
-		src.h = dest.h = 512;
-		src.y = dest.y = 256;
-		if (gfx_off) SDL_gfxBlitRGBA(gfx_off, &src, sprites, &dest); // row 2-5 off hand
-
-		// copy the head in the middle
-		src.h = dest.h = 1024;
-		src.y = dest.y = 0;
-		if (gfx_head) SDL_gfxBlitRGBA(gfx_head, &src, sprites, &dest); // head
-
-		// copy the closest hand last
-		src.w = dest.w = 4096;
-		src.h = dest.h = 256;
-		src.x = dest.x = 0;
-		src.y = dest.y = 0;
-		if (gfx_off) SDL_gfxBlitRGBA(gfx_off, &src, sprites, &dest); // row 0,1 off hand
-		src.y = dest.y = 768;
-		if (gfx_off) SDL_gfxBlitRGBA(gfx_off, &src, sprites, &dest); // row 6,7 off hand
-		src.h = dest.h = 512;
-		src.y = dest.y = 256;
-		if (gfx_main) SDL_gfxBlitRGBA(gfx_main, &src, sprites, &dest); // row 2-5 main hand
-
-		if (gfx_main) SDL_FreeSurface(gfx_main);
-		if (gfx_off) SDL_FreeSurface(gfx_off);
-		if (gfx_head) SDL_FreeSurface(gfx_head);
-
-		// optimize
-		SDL_Surface *cleanup = sprites;
-		sprites = SDL_DisplayFormatAlpha(sprites);
-		SDL_FreeSurface(cleanup);
+	for (unsigned int i=0; i<_img_gfx.size(); i++) {
+		if (img_gfx[i] != _img_gfx[i]) {
+			change_graphics = true;
+			break;
+		}
 	}
+	if (change_graphics) {
+		for (unsigned int i=0; i<_img_gfx.size(); i++) {
+			img_gfx[i] =_img_gfx[i];
+		}
+	} else return;
+
+	// composite the hero graphic
+	if (sprites) SDL_FreeSurface(sprites);
+	sprites = IMG_Load(mods->locate("images/avatar/" + stats.base + "/" + img_gfx[1] + ".png").c_str());
+
+	for (unsigned int i=0; i<layer_def.size(); i++) {
+		int k = findGfx(layer_def[i].type);
+
+		if (img_gfx[k] != "") {
+			if (layer_def[i].type == "head"){
+				gfx_surf.push_back(IMG_Load(mods->locate("images/avatar/" + stats.base + "/" + stats.head + ".png").c_str()));
+			} else
+			gfx_surf.push_back(IMG_Load(mods->locate("images/avatar/" + stats.base + "/" + img_gfx[k] + ".png").c_str()));
+		}
+		else gfx_surf.push_back(NULL);
+
+		src.w = dest.w = layer_def[i].pos.w;
+		src.h = dest.h = layer_def[i].pos.h;
+		src.x = dest.x = layer_def[i].pos.x;
+		src.y = dest.y = layer_def[i].pos.y;
+		if (gfx_surf[i]) {
+			SDL_gfxBlitRGBA(gfx_surf[i], &src, sprites, &dest);
+			SDL_FreeSurface(gfx_surf[i]);
+		}
+
+	}
+
+	// optimize
+	SDL_Surface *cleanup = sprites;
+	sprites = SDL_DisplayFormatAlpha(sprites);
+	SDL_FreeSurface(cleanup);
 }
 
 void Avatar::loadSounds() {
@@ -769,7 +794,7 @@ void Avatar::transform() {
 	charmed_stats = new StatBlock();
 	charmed_stats->load("enemies/" + stats.transform_type + ".txt");
 
-	img_armor = charmed_stats->gfx_prefix;
+	//img_armor = charmed_stats->gfx_prefix;
 
 	// transform the hero graphic
 	if (last_transform != charmed_stats->gfx_prefix) {

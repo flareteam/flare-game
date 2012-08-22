@@ -40,6 +40,7 @@ public:
 
 	void setItems(std::string s);
 	void setQuantities(std::string s);
+	int getSlotNumber();
 	std::string getItems();
 	std::string getQuantities();
 	void add(ItemStack stack, int slot = -1);

@@ -315,9 +315,17 @@ void GameStatePlay::checkEquipmentChange() {
 
 		pc->untransform_triggered = false;
 
-		pc->loadGraphics(menu->items->items[menu->inv->inventory[EQUIPMENT][0].item].gfx,
-		                 menu->items->items[menu->inv->inventory[EQUIPMENT][1].item].gfx,
-		                 menu->items->items[menu->inv->inventory[EQUIPMENT][2].item].gfx);
+		vector<string> img_gfx;
+		// load only displayable layers
+		for (int i=0; i<menu->inv->inventory[EQUIPMENT].getSlotNumber(); i++) {
+			for (unsigned int j=0; j<pc->layer_def.size(); j++) {
+				if (menu->inv->inventory[EQUIPMENT].slot_type[i] == pc->layer_def[j].type) {
+					img_gfx.push_back(menu->items->items[menu->inv->inventory[EQUIPMENT][i].item].gfx);
+					break;
+				}
+			}
+		}
+		pc->loadGraphics(img_gfx);
 
 		pc->loadStepFX(menu->items->items[menu->inv->inventory[EQUIPMENT][1].item].stepfx);
 

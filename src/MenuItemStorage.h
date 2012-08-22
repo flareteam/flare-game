@@ -34,7 +34,6 @@ protected:
 	std::vector<SDL_Rect> area;
 	int icon_size;
 	int nb_cols;
-	std::vector<std::string> slot_type;
 
 public:
 	void init(int _slot_number, ItemManager *_items, SDL_Rect _area, int icon_size, int nb_cols);
@@ -47,6 +46,7 @@ public:
 	ItemStack click(InputState * input);
 	void itemReturn(ItemStack stack);
 	void fillEquipmentSlots();
+	std::vector<std::string> slot_type;
 
 	int drag_prev_slot;
 };
