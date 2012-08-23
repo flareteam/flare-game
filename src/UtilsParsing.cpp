@@ -19,6 +19,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <cstdlib>
 #include <fstream>
 #include <sstream>
+#include <iostream>
 
 using namespace std;
 
@@ -219,11 +220,22 @@ bool tryParseValue(const type_info & type, const std::string & value, void * out
 		stream>>(bool&)*((bool*)output);
 	} else if (type == typeid(int)) {
 		stream>>(int&)*((int*)output);
+	} else if (type == typeid(unsigned int)) {
+		stream>>(unsigned int&)*((unsigned int*)output);
+	} else if (type == typeid(short)) {
+		stream>>(short&)*((short*)output);
+	} else if (type == typeid(unsigned short)) {
+		stream>>(unsigned short&)*((unsigned short*)output);
+	} else if (type == typeid(char)) {
+		stream>>(char&)*((char*)output);
+	} else if (type == typeid(unsigned char)) {
+		stream>>(unsigned char&)*((unsigned char*)output);
 	} else if (type == typeid(float)) {
 		stream>>(float&)*((float*)output);
 	} else if (type == typeid(std::string)) {
 		*((string *)output) = value;
 	} else {
+			cout << __FUNCTION__ << ": a required type is not defined!" <<endl;
 		return false;
 	}
 
