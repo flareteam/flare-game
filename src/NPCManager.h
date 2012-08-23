@@ -37,9 +37,6 @@ class MapRenderer;
 class StatBlock;
 class NPC;
 
-// max number of NPCs for a single map
-const int MAX_NPC_COUNT = 32;
-
 class NPCManager {
 private:
 	MapRenderer *map;
@@ -52,7 +49,7 @@ private:
 public:
 	NPCManager(MapRenderer *_map, LootManager *_loot, ItemManager *_items, StatBlock *stats);
 	~NPCManager();
-	NPC *npcs[MAX_NPC_COUNT];
+	std::vector<NPC*> npcs;
 	void handleNewMap();
 	void logic();
 	void addRenders(std::vector<Renderable> &r);

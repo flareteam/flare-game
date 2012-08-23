@@ -42,11 +42,6 @@ NPCManager::NPCManager(MapRenderer *_map, LootManager *_loot, ItemManager *_item
 
 	tip = new WidgetTooltip();
 
-	npc_count = 0;
-	for (int i=0; i<MAX_NPC_COUNT; i++) {
-		npcs[i] = NULL;
-	}
-
 	FileParser infile;
 	// load tooltip_margin from engine config file
 	if (infile.open(mods->locate("engine/tooltips.txt").c_str())) {
@@ -63,7 +58,7 @@ NPCManager::NPCManager(MapRenderer *_map, LootManager *_loot, ItemManager *_item
 }
 
 void NPCManager::addRenders(std::vector<Renderable> &r) {
-	for (int i=0; i<npc_count; i++) {
+	for (unsigned i=0; i<npcs.size(); i++) {
 		r.push_back(npcs[i]->getRender());
 	}
 }
@@ -74,39 +69,36 @@ void NPCManager::handleNewMap() {
 	ItemStack item_roll;
 
 	// remove existing NPCs
-	for (int i=0; i<npc_count; i++) {
+	for (unsigned i=0; i<npcs.size(); i++)
 		delete(npcs[i]);
-		npcs[i] = NULL;
-	}
 
-	npc_count = 0;
+	npcs.clear();
 
 	// read the queued NPCs in the map file
 	while (!map->npcs.empty()) {
 		mn = map->npcs.front();
 		map->npcs.pop();
 
-		npcs[npc_count] = new NPC(map, items);
-		npcs[npc_count]->load(mn.id, stats->level);
-		npcs[npc_count]->pos.x = mn.pos.x;
-		npcs[npc_count]->pos.y = mn.pos.y;
+		NPC *npc = new NPC(map, items);
+		npc->load(mn.id, stats->level);
+		npc->pos.x = mn.pos.x;
+		npc->pos.y = mn.pos.y;
 
 		// if this NPC needs randomized items
-		while (npcs[npc_count]->random_stock > 0 && npcs[npc_count]->stock_count < NPC_VENDOR_MAX_STOCK) {
-			item_roll.item = loot->randomItem(npcs[npc_count]->level);
+		while (npc->random_stock > 0 && npc->stock_count < NPC_VENDOR_MAX_STOCK) {
+			item_roll.item = loot->randomItem(npc->level);
 			item_roll.quantity = rand() % items->items[item_roll.item].rand_vendor + 1;
-			npcs[npc_count]->stock.add( item_roll);
-			npcs[npc_count]->random_stock--;
+			npc->stock.add(item_roll);
+			npc->random_stock--;
 		}
-		npcs[npc_count]->stock.sort();
-
-		npc_count++;
+		npc->stock.sort();
+		npcs.push_back(npc);
 	}
 
 }
 
 void NPCManager::logic() {
-	for (int i=0; i<npc_count; i++) {
+	for (unsigned i=0; i<npcs.size(); i++) {
 		npcs[i]->logic();
 	}
 }
@@ -114,7 +106,7 @@ void NPCManager::logic() {
 int NPCManager::checkNPCClick(Point mouse, Point cam) {
 	Point p;
 	SDL_Rect r;
-	for(int i=0; i<npc_count; i++) {
+	for (unsigned i=0; i<npcs.size(); i++) {
 
 		p = map_to_screen(npcs[i]->pos.x, npcs[i]->pos.y, cam.x, cam.y);
 
@@ -137,7 +129,7 @@ void NPCManager::renderTooltips(Point cam, Point mouse) {
 	Point p;
 	SDL_Rect r;
 
-	for(int i=0; i<npc_count; i++) {
+	for (unsigned i=0; i<npcs.size(); i++) {
 
 		p = map_to_screen(npcs[i]->pos.x, npcs[i]->pos.y, cam.x, cam.y);
 
@@ -166,7 +158,7 @@ void NPCManager::renderTooltips(Point cam, Point mouse) {
 }
 
 NPCManager::~NPCManager() {
-	for (int i=0; i<npc_count; i++) {
+	for (unsigned i=0; i<npcs.size(); i++) {
 		delete npcs[i];
 	}
 
