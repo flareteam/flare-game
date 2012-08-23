@@ -97,6 +97,7 @@ void Avatar::init() {
 	for (int i=0; i<4; i++) {
 		img_gfx.push_back("");
 	}
+	body = -1;
 
 	transform_triggered = false;
 	untransform_triggered = false;
@@ -150,18 +151,17 @@ int Avatar::findGfx(std::string type) {
 void Avatar::loadGraphics(std::vector<Layer_gfx> _img_gfx) {
 	bool change_graphics = false;
 	vector<SDL_Surface*> gfx_surf;
-	short body = -1;
 	SDL_Rect src;
 	SDL_Rect dest;
 
 	// Default appearance
 	// Find body gfx index
-	for (unsigned int i=0; i<_img_gfx.size(); i++) {
-		if (_img_gfx[i].type == "body") body = i;
+	if (body == -1) {
+		for (unsigned int i=0; i<_img_gfx.size(); i++) {
+			if (_img_gfx[i].type == "body") body = i;
+		}
 	}
-	if (body != -1) {
-		if (_img_gfx[body].gfx == "") _img_gfx[body].gfx = "clothes";
-	}
+	if (_img_gfx[body].gfx == "") _img_gfx[body].gfx = "clothes";
 
 	// Check if we really need to change the graphics
 	for (unsigned int i=0; i<_img_gfx.size(); i++) {
@@ -800,7 +800,7 @@ void Avatar::transform() {
 	charmed_stats = new StatBlock();
 	charmed_stats->load("enemies/" + stats.transform_type + ".txt");
 
-	//img_armor = charmed_stats->gfx_prefix;
+	img_gfx[body] = charmed_stats->gfx_prefix;
 
 	// transform the hero graphic
 	if (last_transform != charmed_stats->gfx_prefix) {
