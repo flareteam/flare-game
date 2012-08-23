@@ -131,14 +131,6 @@ StatBlock::StatBlock() {
 	for (int i=0; i<MAX_CHARACTER_LEVEL; i++) {
 		xp_table[i] = std::numeric_limits<int>::max();
 	}
-	// overwrite with data from config
-	FileParser infile;
-	infile.open(mods->locate("engine/xp_table.txt"));
-	while(infile.next()) {
-		xp_table[toInt(infile.key) - 1] = toInt(infile.val);
-	}
-	max_spendable_stat_points = toInt(infile.key);
-	infile.close();
 
 	loot_chance = 50;
 	item_classes = vector<string>();
@@ -208,6 +200,7 @@ StatBlock::StatBlock() {
 	crit_per_level = 1;
 
 	// load static effects animation settings from engine config file
+	FileParser infile;
 	if (infile.open(mods->locate("engine/effects.txt"))) {
 		while (infile.next()) {
 			infile.val = infile.val + ',';
@@ -692,6 +685,14 @@ void StatBlock::loadHeroStats() {
 	  if (max_points_per_stat == 0) max_points_per_stat = max_spendable_stat_points / 4 + 1;
 	  statsLoaded = true;
 	} else fprintf(stderr, "Unable to open stats.txt!\n");
+
+	// Load the XP table as well
+	infile.open(mods->locate("engine/xp_table.txt"));
+	while(infile.next()) {
+		xp_table[toInt(infile.key) - 1] = toInt(infile.val);
+	}
+	max_spendable_stat_points = toInt(infile.key);
+	infile.close();
 }
 
 void StatBlock::clearNegativeEffects() {
