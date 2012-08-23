@@ -388,13 +388,13 @@ void StatBlock::takeDamage(int dmg) {
  */
 void StatBlock::recalc() {
 
+	if (!statsLoaded) loadHeroStats();
+
 	level = 0;
 	for (int i=0; i<MAX_CHARACTER_LEVEL; i++) {
 		if (xp >= xp_table[i])
 			level=i+1;
 	}
-
-	if (!statsLoaded) loadHeroStats();
 
 	int lev0 = level -1;
 	int phys0 = get_physical() -1;
