@@ -686,32 +686,10 @@ void MapRenderer::render(vector<Renderable> &r, vector<Renderable> &r_dead) {
 }
 
 void MapRenderer::createBackgroundSurface() {
-
-	Uint32 rmask, gmask, bmask, amask;
-#if SDL_BYTEORDER == SDL_BIG_ENDIAN
-	rmask = 0xff000000;
-	gmask = 0x00ff0000;
-	bmask = 0x0000ff00;
-	amask = 0x000000ff;
-#else
-	rmask = 0x000000ff;
-	gmask = 0x0000ff00;
-	bmask = 0x00ff0000;
-	amask = 0xff000000;
-#endif
-
 	SDL_FreeSurface(backgroundsurface);
-	SDL_Surface *surface;
-	if (HWSURFACE)
-		surface = SDL_CreateRGBSurface(SDL_HWSURFACE|SDL_SRCALPHA, 2 * VIEW_W, 2 * VIEW_H, 32, rmask, gmask, bmask, amask);
-	else
-		surface = SDL_CreateRGBSurface(SDL_SWSURFACE|SDL_SRCALPHA, 2 * VIEW_W, 2 * VIEW_H, 32, rmask, gmask, bmask, amask);
-
-	if (surface == NULL) {
-		fprintf(stderr, "CreateRGBSurface failed: %s\n", SDL_GetError());
-	}
-	backgroundsurface = SDL_DisplayFormat(surface);
-	SDL_FreeSurface(surface);
+	backgroundsurface = createSurface(2 * VIEW_W, 2 * VIEW_H);
+	// background has no alpha:
+	SDL_SetColorKey(backgroundsurface, 0, 0);
 }
 
 void MapRenderer::drawRenderable(vector<Renderable>::iterator r_cursor) {
