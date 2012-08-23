@@ -76,34 +76,35 @@ string FILE_SETTINGS	= "settings.txt";
 string FILE_KEYBINDINGS = "keybindings.txt";
 
 // Tile Settings
-int UNITS_PER_TILE = 64;
-int TILE_SHIFT = 6; // for fast bitshift divides
-int UNITS_PER_PIXEL_X = 2;
-int UNITS_PER_PIXEL_Y = 4;
-int TILE_W = 64;
-int TILE_H = 32;
-int TILE_W_HALF = TILE_W/2;
-int TILE_H_HALF = TILE_H/2;
-int TILESET_ISOMETRIC = 0;
-int TILESET_ORTHOGONAL = 1;
-int TILESET_ORIENTATION = TILESET_ISOMETRIC;
+unsigned short UNITS_PER_TILE = 64;
+unsigned short TILE_SHIFT = 6; // for fast bitshift divides
+unsigned short UNITS_PER_PIXEL_X = 2;
+unsigned short UNITS_PER_PIXEL_Y = 4;
+unsigned short TILE_W = 64;
+unsigned short TILE_H = 32;
+unsigned short TILE_W_HALF = TILE_W/2;
+unsigned short TILE_H_HALF = TILE_H/2;
+unsigned short TILESET_ISOMETRIC = 0;
+unsigned short TILESET_ORTHOGONAL = 1;
+unsigned short TILESET_ORIENTATION = TILESET_ISOMETRIC;
 
 // Main Menu frame size
-int FRAME_W;
-int FRAME_H;
+unsigned short FRAME_W;
+unsigned short FRAME_H;
 
-int ICON_SIZE_SMALL;
-int ICON_SIZE_LARGE;
+unsigned short ICON_SIZE_SMALL;
+unsigned short ICON_SIZE_LARGE;
 
 // Video Settings
 bool FULLSCREEN;
-int FRAMES_PER_SEC = 30;
-int VIEW_W;
-int VIEW_H;
-int VIEW_W_HALF = VIEW_W/2;
-int VIEW_H_HALF = VIEW_H/2;
-int MIN_VIEW_W = -1;
-int MIN_VIEW_H = -1;
+unsigned short FRAMES_PER_SEC = 30;
+unsigned char BITS_PER_PIXEL = 32;
+unsigned short VIEW_W;
+unsigned short VIEW_H;
+unsigned short VIEW_W_HALF = VIEW_W/2;
+unsigned short VIEW_H_HALF = VIEW_H/2;
+short MIN_VIEW_W = -1;
+short MIN_VIEW_H = -1;
 bool DOUBLEBUF;
 bool HWSURFACE;
 float GAMMA;
@@ -111,8 +112,8 @@ bool TEXTURE_QUALITY;
 bool ANIMATED_TILES;
 
 // Audio Settings
-int MUSIC_VOLUME;
-int SOUND_VOLUME;
+unsigned char MUSIC_VOLUME;
+unsigned char SOUND_VOLUME;
 
 // User Preferences
 bool COMBAT_TEXT;
@@ -127,14 +128,14 @@ bool MOUSE_AIM;
 std::string LANGUAGE = "en";
 
 // Autopickup Settings
-int AUTOPICKUP_RANGE = 0;
+unsigned short AUTOPICKUP_RANGE = 0;
 bool AUTOPICKUP_GOLD = false;
 
 // Combat calculation caps (percentage)
-int MAX_ABSORB = 90;
-int MAX_RESIST = 90;
-int MAX_BLOCK = 100;
-int MAX_AVOIDANCE = 99;
+short MAX_ABSORB = 90;
+short MAX_RESIST = 90;
+short MAX_BLOCK = 100;
+short MAX_AVOIDANCE = 99;
 
 // Elemental types
 std::vector<std::string> ELEMENTS;

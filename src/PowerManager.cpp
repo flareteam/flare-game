@@ -970,13 +970,12 @@ bool PowerManager::missile(int power_index, StatBlock *src_stats, Point target) 
  */
 bool PowerManager::repeater(int power_index, StatBlock *src_stats, Point target) {
 
-
 	// pay costs up front
 	if (src_stats->hero && powers[power_index].requires_mp > 0) src_stats->mp -= powers[power_index].requires_mp;
 	if (src_stats->hero && powers[power_index].requires_item != -1) used_item = powers[power_index].requires_item;
 
 	//initialize variables
-	Hazard *haz[10];
+	vector<Hazard*> haz = vector<Hazard*>(powers[power_index].repeater_num);
 	FPoint location_iterator;
 	FPoint speed;
 	int delay_iterator;

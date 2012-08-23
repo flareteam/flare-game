@@ -686,32 +686,11 @@ void MapRenderer::render(vector<Renderable> &r, vector<Renderable> &r_dead) {
 }
 
 void MapRenderer::createBackgroundSurface() {
-
-	Uint32 rmask, gmask, bmask, amask;
-#if SDL_BYTEORDER == SDL_BIG_ENDIAN
-	rmask = 0xff000000;
-	gmask = 0x00ff0000;
-	bmask = 0x0000ff00;
-	amask = 0x000000ff;
-#else
-	rmask = 0x000000ff;
-	gmask = 0x0000ff00;
-	bmask = 0x00ff0000;
-	amask = 0xff000000;
-#endif
-
 	SDL_FreeSurface(backgroundsurface);
-	SDL_Surface *surface;
-	if (HWSURFACE)
-		surface = SDL_CreateRGBSurface(SDL_HWSURFACE|SDL_SRCALPHA, 2 * VIEW_W, 2 * VIEW_H, 32, rmask, gmask, bmask, amask);
-	else
-		surface = SDL_CreateRGBSurface(SDL_SWSURFACE|SDL_SRCALPHA, 2 * VIEW_W, 2 * VIEW_H, 32, rmask, gmask, bmask, amask);
-
-	if (surface == NULL) {
-		fprintf(stderr, "CreateRGBSurface failed: %s\n", SDL_GetError());
-	}
-	backgroundsurface = SDL_DisplayFormat(surface);
-	SDL_FreeSurface(surface);
+	backgroundsurface = createSurface(VIEW_W + 2 * TILE_W * tiles_outside_of_screen,
+			VIEW_H + 2 * TILE_H * tiles_outside_of_screen);
+	// background has no alpha:
+	SDL_SetColorKey(backgroundsurface, 0, 0);
 }
 
 void MapRenderer::drawRenderable(vector<Renderable>::iterator r_cursor) {
@@ -726,13 +705,11 @@ void MapRenderer::renderIsoBackground(SDL_Surface *wheretorender, Point offset) 
 	short int i;
 	short int j;
 	SDL_Rect dest;
-
 	const Point upperright = screen_to_map(0, 0, shakycam.x, shakycam.y);
-	const short tiles_outside_ofscreen = 12;
-	const short max_tiles_width = (VIEW_W / TILE_W) + 2 * tiles_outside_ofscreen;
-	const short max_tiles_height = (2 * VIEW_H / TILE_H) + 2 * tiles_outside_ofscreen;
+	const short max_tiles_width = (VIEW_W / TILE_W) + 2 * tiles_outside_of_screen;
+	const short max_tiles_height = (2 * VIEW_H / TILE_H) + 2 * tiles_outside_of_screen;
 	j = upperright.y / UNITS_PER_TILE;
-	i = upperright.x / UNITS_PER_TILE - tiles_outside_ofscreen;
+	i = upperright.x / UNITS_PER_TILE - tiles_outside_of_screen;
 
 	for (unsigned short y = max_tiles_height ; y; --y) {
 		short tiles_width = 0;
@@ -777,9 +754,8 @@ void MapRenderer::renderIsoBackground(SDL_Surface *wheretorender, Point offset) 
 
 void MapRenderer::renderIsoBackObjects(vector<Renderable> &r) {
 	vector<Renderable>::iterator it;
-	for (it = r.begin(); it != r.end(); it++) {
+	for (it = r.begin(); it != r.end(); it++)
 		drawRenderable(it);
-	}
 }
 
 void MapRenderer::renderIsoFrontObjects(vector<Renderable> &r) {
@@ -787,16 +763,15 @@ void MapRenderer::renderIsoFrontObjects(vector<Renderable> &r) {
 	short int j;
 	SDL_Rect dest;
 	const Point upperright = screen_to_map(0, 0, shakycam.x, shakycam.y);
-	const short tiles_outside_ofscreen = 12;
-	const short max_tiles_width = (VIEW_W / TILE_W) + 2 * tiles_outside_ofscreen;
-	const short max_tiles_height = (2 * VIEW_H / TILE_H) + 2 * tiles_outside_ofscreen;
+	const short max_tiles_width = (VIEW_W / TILE_W) + 2 * tiles_outside_of_screen;
+	const short max_tiles_height = (2 * VIEW_H / TILE_H) + 2 * tiles_outside_of_screen;
 
 	vector<Renderable>::iterator r_cursor = r.begin();
 	vector<Renderable>::iterator r_end = r.end();
 
 	// object layer
 	j = upperright.y / UNITS_PER_TILE;
-	i = upperright.x / UNITS_PER_TILE - tiles_outside_ofscreen;
+	i = upperright.x / UNITS_PER_TILE - tiles_outside_of_screen;
 
 	while (r_cursor != r_end && (r_cursor->tile.x + r_cursor->tile.y < i + j || r_cursor->tile.x < i))
 		r_cursor++;
@@ -854,8 +829,8 @@ void MapRenderer::renderIso(vector<Renderable> &r, vector<Renderable> &r_dead) {
 		renderIsoBackground(screen, nulloffset);
 	}
 	else {
-		if (abs(shakycam.x - backgroundsurfaceoffset.x) > 4 * UNITS_PER_TILE
-			|| abs(shakycam.y - backgroundsurfaceoffset.y) > 4 * UNITS_PER_TILE
+		if (abs(shakycam.x - backgroundsurfaceoffset.x) > movedistance_to_rerender * UNITS_PER_TILE
+			|| abs(shakycam.y - backgroundsurfaceoffset.y) > movedistance_to_rerender * UNITS_PER_TILE
 			|| repaint_background) {
 
 			if (!backgroundsurface)
@@ -866,7 +841,7 @@ void MapRenderer::renderIso(vector<Renderable> &r, vector<Renderable> &r_dead) {
 			backgroundsurfaceoffset = shakycam;
 
 			SDL_FillRect(backgroundsurface, 0, 0);
-			Point off = {VIEW_W_HALF, VIEW_H_HALF};
+			Point off = {TILE_W * tiles_outside_of_screen, TILE_H * tiles_outside_of_screen};
 			renderIsoBackground(backgroundsurface, off);
 		}
 		Point p = map_to_screen(shakycam.x, shakycam.y , backgroundsurfaceoffset.x, backgroundsurfaceoffset.y);
