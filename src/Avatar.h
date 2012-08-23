@@ -89,6 +89,7 @@ private:
 	Mix_Chunk *level_up;
 
 	std::vector<std::string> img_gfx;
+	short body;
 
 	bool transform_triggered;
 	std::string last_transform;
