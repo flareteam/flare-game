@@ -43,22 +43,20 @@ class Animation {
 protected:
 	std::string name;
 
-	// The sprite sheet
 	SDL_Surface* sprites;
-
-	// Animation data
-	Point render_size;
-	Point render_offset;
-	int position;
-	int frames;
-	int duration;
 	animation_type type;
-	int cur_frame;
-	int disp_frame;
-	int mid_frame;
-	int max_frame;
-	int timesPlayed;
-	int active_frame;
+
+	short cur_frame;        // which frame in this animation is currently being displayed? range: 0..gfx.size()-1
+	short duration;         // how many ticks is the current image being displayed yet? range: 0..duration[cur_frame]-1
+	short additional_data;  // additional state depending on type:
+							// if type == BACK_FORTH then it is 1 for advancing, and -1 for going back, 0 at the end
+							// if type == LOOPED, then it is the number of loops still to be completed, i.e. from n to 0.
+							// if type == PLAY_ONCE or NONE, this has no meaning.
+
+	// Frame data:
+	std::vector<SDL_Rect> gfx; // position on the spritesheet to be used.
+	std::vector<Point> render_offset; // "virtual point on the floor"
+	std::vector<int> duration; //duration of each individual image
 
 public:
 	Animation();
@@ -74,7 +72,6 @@ public:
 	int getMaxFrame() { return max_frame; }
 
 	bool isFirstFrame() { return cur_frame == 1; }
-	bool isMiddleFrame() { return cur_frame == mid_frame; }
 	bool isLastFrame() { return cur_frame == (max_frame -1); }
 
 	//bool isActiveFrame() { return cur_frame == active_frame; }
