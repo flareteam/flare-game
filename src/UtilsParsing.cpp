@@ -235,7 +235,7 @@ bool tryParseValue(const type_info & type, const std::string & value, void * out
 	} else if (type == typeid(std::string)) {
 		*((string *)output) = value;
 	} else {
-			cout << __FUNCTION__ << ": a required type is not defined!" <<endl;
+		cout << __FUNCTION__ << ": a required type is not defined!" << endl;
 		return false;
 	}
 
@@ -266,6 +266,7 @@ std::string toString(const type_info & type, void * value) {
 	} else if (type == typeid(std::string)) {
 		return (string &)*((string *)value);
 	} else {
+		cout << __FUNCTION__ << ": a required type is not defined!" << endl;
 		return "";
 	}
 
