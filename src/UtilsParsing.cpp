@@ -251,6 +251,16 @@ std::string toString(const type_info & type, void * value) {
 		stream<<*((bool*)value);
 	} else if (type == typeid(int)) {
 		stream<<*((int*)value);
+	} else if (type == typeid(unsigned int)) {
+		stream<<*((unsigned int*)value);
+	} else if (type == typeid(short)) {
+		stream<<*((short*)value);
+	} else if (type == typeid(unsigned short)) {
+		stream<<*((unsigned short*)value);
+	} else if (type == typeid(char)) {
+		stream<<*((char*)value);
+	} else if (type == typeid(unsigned char)) {
+		stream<<*((unsigned char*)value);
 	} else if (type == typeid(float)) {
 		stream<<*((float*)value);
 	} else if (type == typeid(std::string)) {
