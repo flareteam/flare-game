@@ -496,7 +496,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 
 			stepfx = rand() % 4;
 
-			if (activeAnimation->getCurFrame() == 1 || activeAnimation->getCurFrame() == activeAnimation->getMaxFrame()/2) {
+			if (activeAnimation->isFirstFrame() || activeAnimation->isActiveFrame()) {
 				if (sound_steps[stepfx])
 					Mix_PlayChannel(-1, sound_steps[stepfx], 0);
 			}
@@ -531,13 +531,13 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 
 			setAnimation("melee");
 
-			if (activeAnimation->getCurFrame() == 1) {
+			if (activeAnimation->isFirstFrame()) {
 				if (sound_melee)
 					Mix_PlayChannel(-1, sound_melee, 0);
 			}
 
 			// do power
-			if (activeAnimation->getCurFrame()  == activeAnimation->getMaxFrame()/2) {
+			if (activeAnimation->isActiveFrame()) {
 				powers->activate(current_power, &stats, act_target);
 			}
 
@@ -552,7 +552,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 			setAnimation("ment");
 
 			// do power
-			if (activeAnimation->getCurFrame() == activeAnimation->getMaxFrame()/2) {
+			if (activeAnimation->isActiveFrame()) {
 				powers->activate(current_power, &stats, act_target);
 			}
 
@@ -568,7 +568,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 			setAnimation("ranged");
 
 			// do power
-			if (activeAnimation->getCurFrame() == activeAnimation->getMaxFrame()/2) {
+			if (activeAnimation->isActiveFrame()) {
 				powers->activate(current_power, &stats, act_target);
 			}
 
@@ -606,7 +606,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 
 			setAnimation("die");
 
-			if (activeAnimation->getCurFrame() == 1 && activeAnimation->getTimesPlayed() < 1) {
+			if (activeAnimation->isFirstFrame() && activeAnimation->getTimesPlayed() < 1) {
 				if (sound_die)
 					Mix_PlayChannel(-1, sound_die, 0);
 				if (stats.permadeath) {

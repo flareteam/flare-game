@@ -86,9 +86,6 @@ public:
 	// return the Renderable of the current frame
 	Renderable getCurrentFrame(int direction);
 
-	int getCurFrame() { return cur_frame; }
-	int getMaxFrame() { return number_frames; }
-
 	bool isFirstFrame() { return cur_frame == 0; }
 	bool isLastFrame() { return cur_frame == number_frames; }
 	bool isActiveFrame() { return cur_frame == number_frames /2; }
