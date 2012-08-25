@@ -70,15 +70,22 @@ protected:
 	std::vector<Point> render_offset; // "virtual point on the floor"
 	std::vector<short> duration; //duration of each individual image
 
-	void dumpDebug();
-
 public:
 	Animation(std::string _name, std::string _type);
 
-	// traditional way to create an animation.
-	void setup(Point render_size, Point render_offset, int _position, int _frames, int _duration, int _active_frame);
+	// Traditional way to create an animation.
+	// The frames are stored in a grid like fashion, so the individual frame
+	// position can be calculated based on a few things.
+	// The spritesheet has 8 rows, each containing the data of one direction.
+	// Within a row starting at (_position) there will be (_frames) frames,
+	// which all belong to this animation.
+	// The render_offset is constant for all frames. The render_size is also
+	// the grid size.
+	void setupUncompressed(Point render_size, Point render_offset, int _position, int _frames, int _duration, int _active_frame);
 
-	void addFrame(SDL_Rect sdl_rect, unsigned short _duration, Point _render_offset);
+	void setup(unsigned short _frames, unsigned short _duration);
+	void addFrame(unsigned short index, unsigned short direction, SDL_Rect sdl_rect, Point _render_offset);
+
 	void doneLoading();
 	// advance the animation one frame
 	void advanceFrame();

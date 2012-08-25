@@ -49,7 +49,7 @@ Animation::Animation(std::string _name, std::string _type)
 		cout << "Warning: animation type " << _type << " is unknown" << endl;
 }
 
-void Animation::setup(Point _render_size, Point _render_offset, int _position, int _frames, int _duration, int _active_frame) {
+void Animation::setupUncompressed(Point _render_size, Point _render_offset, int _position, int _frames, int _duration, int _active_frame) {
 	if (type == PLAY_ONCE) {
 		number_frames = _frames * _duration;
 		additional_data = 0;
@@ -82,24 +82,35 @@ void Animation::setup(Point _render_size, Point _render_offset, int _position, i
 	}
 }
 
-void Animation::addFrame(SDL_Rect sdl_rect, unsigned short _duration, Point _render_offset) {
-	gfx.push_back(sdl_rect);
-	render_offset.push_back(_render_offset);
-	duration.push_back(_duration);
-	switch (type) {
-	case PLAY_ONCE:
-		number_frames += _duration;
-		break;
-	case BACK_FORTH:
-		number_frames += 2 * _duration;
-		break;
-	case LOOPED:
-		number_frames += additional_data;
-		break;
-	case NONE:
-		cout << "adding a frame to NONE type animation." << endl;
-		break;
+void Animation::setup(unsigned short _frames, unsigned short _duration) {
+	if (type == PLAY_ONCE) {
+		number_frames = _frames * _duration;
+		additional_data = 0;
+	} else if (type == LOOPED) {
+		number_frames = _frames * _duration;
+		additional_data = 0;
+	} else if (type == BACK_FORTH) {
+		number_frames = 2 * _frames * _duration;
+		additional_data = 1;
 	}
+	cur_frame = 0;
+	cur_frame_index = 0;
+	cur_frame_duration = 0;
+	times_played = 0;
+
+	gfx.resize(8*_frames);
+	render_offset.resize(8*_frames);
+	duration.resize(8*_frames);
+	for (unsigned short i = 0; i < duration.size(); i++)
+		duration[i] = _duration;
+}
+
+void Animation::addFrame(	unsigned short index,
+							unsigned short direction,
+							SDL_Rect sdl_rect,
+							Point _render_offset) {
+	gfx[8*index+direction] = sdl_rect;
+	render_offset[8*index+direction] = _render_offset;
 }
 
 void Animation::doneLoading() {
