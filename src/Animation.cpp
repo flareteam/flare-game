@@ -31,92 +31,122 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <iostream>
 using namespace std;
 
-Animation::Animation()
-	: name("")
+Animation::Animation(std::string _name, std::string _type)
+	: name(_name)
+	, type(	_type == "play_once" ? PLAY_ONCE :
+			_type == "back_forth" ? BACK_FORTH :
+			_type == "looped" ? LOOPED :
+			NONE)
 	, sprites(NULL)
-	, render_size(Point())
-	, render_offset(Point())
-	, position(0)
-	, frames(0)
-	, duration(0)
-	, type(NONE)
 	, cur_frame(0)
-	, disp_frame(0)
-	, mid_frame(0)
-	, max_frame(0)
-	, timesPlayed(0)
-	, active_frame(0)
+	, cur_frame_duration(0)
+	, additional_data(0)
+	, gfx(std::vector<SDL_Rect>())
+	, render_offset(std::vector<Point>())
+	, duration(std::vector<short>())
 {
-}
-
-void Animation::init(std::string _name,
-				Point _render_size,
-				Point _render_offset,
-				int _position,
-				int _frames,
-				int _duration,
-				std::string _type,
-				int /*_active_frame*/)
-{
-	name = _name;
-	render_size = _render_size;
-	render_offset = _render_offset;
-	position = _position;
-	frames = _frames;
-	duration = _duration;
-
-	if (_type == "play_once")
-		type = PLAY_ONCE;
-	else if (_type == "back_forth")
-		type = BACK_FORTH;
-	else if (_type == "looped")
-		type = LOOPED;
-	else
+	if (type == NONE)
 		cout << "Warning: animation type " << _type << " is unknown" << endl;
+}
 
-	if (type == PLAY_ONCE || type == LOOPED) {
-		max_frame = frames * duration;
+void Animation::setup(Point _render_size, Point _render_offset, int _position, int _frames, int _duration, int _active_frame) {
+	if (type == PLAY_ONCE) {
+		number_frames = _frames * _duration;
+		additional_data = 0;
+	} else if (type == LOOPED) {
+		number_frames = _frames * _duration;
+		additional_data = 0;
+	} else if (type == BACK_FORTH) {
+		number_frames = 2 * _frames * _duration;
+		additional_data = 1;
 	}
-	else if (type == BACK_FORTH) {
-		mid_frame = frames * duration;
-		max_frame = mid_frame + mid_frame;
+	cur_frame = 0;
+	cur_frame_index = 0;
+	cur_frame_duration = 0;
+	times_played = 0;
+
+	gfx.resize(8*_frames);
+	render_offset.resize(8*_frames);
+	duration.resize(8*_frames);
+	for (unsigned short i = 0 ; i < _frames; i++) {
+		int base_index = 8*i;
+		for (unsigned short direction = 0 ; direction < 8; direction++) {
+			gfx[base_index + direction].x = _render_size.x * (_position + i);
+			gfx[base_index + direction].y = _render_size.y * direction;
+			gfx[base_index + direction].w = _render_size.x;
+			gfx[base_index + direction].h = _render_size.y;
+			render_offset[base_index + direction].x = _render_offset.x;
+			render_offset[base_index + direction].y = _render_offset.y;
+			duration[base_index + direction] = _duration;
+		}
 	}
 }
+
+void Animation::addFrame(SDL_Rect sdl_rect, unsigned short _duration, Point _render_offset) {
+	gfx.push_back(sdl_rect);
+	render_offset.push_back(_render_offset);
+	duration.push_back(_duration);
+	switch (type) {
+	case PLAY_ONCE:
+		number_frames += _duration;
+		break;
+	case BACK_FORTH:
+		number_frames += 2 * _duration;
+		break;
+	case LOOPED:
+		number_frames += additional_data;
+		break;
+	case NONE:
+		cout << "adding a frame to NONE type animation." << endl;
+		break;
+	}
+}
+
+void Animation::doneLoading() {
+	// here we make sure
+	gfx.reserve(gfx.size()); // position on the spritesheet to be used.
+	render_offset.reserve(render_offset.size()); // "virtual point on the floor"
+	duration.reserve(duration.size()); //duration of each individual image
+}
+
 
 void Animation::advanceFrame() {
+	cur_frame_duration++;
+	cur_frame++;
 
-	if (type == PLAY_ONCE) {
-		if (cur_frame < max_frame - 1) {
-			cur_frame++;
-		}
-		else {
-			timesPlayed = 1;
-		}
-		disp_frame = (cur_frame / duration) + position;
-	}
-	else if (type == LOOPED) {
-		cur_frame++;
-		if (cur_frame == max_frame) {
-			cur_frame = 0;
-			//animation has completed one loop
-			timesPlayed++;
-		}
-		disp_frame = (cur_frame / duration) + position;
+	if (cur_frame_duration > duration[cur_frame_index]) {
+		cur_frame_duration = 0;
+		unsigned short last_base_index = (gfx.size()/8)-1;
+		switch(type) {
+		case PLAY_ONCE:
 
-	}
-	else if (type == BACK_FORTH) {
-		cur_frame++;
+			if (cur_frame_index < last_base_index)
+				cur_frame_index++;
+			else
+				times_played = 1;
+			break;
 
-		if (cur_frame == max_frame) {
-			cur_frame = 0;
-			//animation has completed one loop
-			timesPlayed++;
-		}
-		if (cur_frame >= mid_frame) {
-			disp_frame = (max_frame -1 - cur_frame) / duration + position;
-		}
-		else {
-			disp_frame = cur_frame / duration + position;
+		case LOOPED:
+			if (cur_frame_index < last_base_index) {
+				cur_frame_index++;
+			}
+			else {
+				cur_frame_index = 0;
+				times_played++;
+			}
+			break;
+
+		case BACK_FORTH:
+			cur_frame_index += additional_data;
+			if (cur_frame_index == last_base_index) // switch to going back
+				additional_data = -1;
+			else if (cur_frame_index == 0) // stop
+				additional_data = 0;
+				times_played = 1;
+			break;
+
+		case NONE:
+			break;
 		}
 	}
 }
@@ -124,23 +154,24 @@ void Animation::advanceFrame() {
 Renderable Animation::getCurrentFrame(int direction) {
 	Renderable r;
 
-	// if the animation contains the spritesheet
-	if (sprites != NULL) {
+	if (sprites != NULL)
 		r.sprite = sprites;
-	}
 
-	r.src.x = render_size.x * disp_frame;
-	r.src.y = render_size.y * direction;
-	r.src.w = render_size.x;
-	r.src.h = render_size.y;
-	r.offset.x = render_offset.x;
-	r.offset.y = render_offset.y; // 112
+	const int index = (8*cur_frame_index) + direction;
+	r.src.x = gfx[index].x;
+	r.src.y = gfx[index].y;
+	r.src.w = gfx[index].w;
+	r.src.h = gfx[index].h;
+	r.offset.x = render_offset[index].x;
+	r.offset.y = render_offset[index].y;
+
 	return r;
 }
 
 void Animation::reset() {
 	cur_frame = 0;
-	disp_frame = (cur_frame / duration) + position;
-	timesPlayed = 0;
+	cur_frame_duration = 0;
+	cur_frame_index = 0;
+	times_played = 0;
+	additional_data = 1;
 }
-
