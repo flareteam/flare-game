@@ -125,7 +125,7 @@ void Animation::advanceFrame() {
 	cur_frame_duration++;
 	cur_frame++;
 
-	if (cur_frame_duration > duration[cur_frame_index]) {
+	if (cur_frame_duration >= duration[cur_frame_index]) {
 		cur_frame_duration = 0;
 		unsigned short last_base_index = (gfx.size()/8)-1;
 		switch(type) {
