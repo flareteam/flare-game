@@ -34,6 +34,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include <string>
 #include <vector>
+#include <iostream>
 
 enum animation_type {
 	NONE       = 0,
@@ -85,8 +86,8 @@ public:
 
 	void setup(unsigned short _frames, unsigned short _duration);
 	void addFrame(unsigned short index, unsigned short direction, SDL_Rect sdl_rect, Point _render_offset);
-
 	void doneLoading();
+
 	// advance the animation one frame
 	void advanceFrame();
 
@@ -94,7 +95,7 @@ public:
 	Renderable getCurrentFrame(int direction);
 
 	bool isFirstFrame() { return cur_frame == 0; }
-	bool isLastFrame() { return cur_frame == number_frames; }
+	bool isLastFrame() { return cur_frame == number_frames - 1; }
 	bool isActiveFrame() { return cur_frame == number_frames /2; }
 
 	// in a looped animation returns how many times it's been played

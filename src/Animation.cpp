@@ -122,6 +122,7 @@ void Animation::doneLoading() {
 
 
 void Animation::advanceFrame() {
+
 	cur_frame_duration++;
 	cur_frame++;
 
@@ -143,17 +144,27 @@ void Animation::advanceFrame() {
 			}
 			else {
 				cur_frame_index = 0;
+				cur_frame = 0;
 				times_played++;
 			}
 			break;
 
 		case BACK_FORTH:
-			cur_frame_index += additional_data;
-			if (cur_frame_index == last_base_index) // switch to going back
-				additional_data = -1;
-			else if (cur_frame_index == 0) // stop
-				additional_data = 0;
-				times_played = 1;
+			if (additional_data == 1) {
+				if (cur_frame_index < last_base_index)
+					cur_frame_index++;
+				else
+					additional_data = -1;
+			}
+			else if (additional_data == -1) {
+				if (cur_frame_index > 0)
+					cur_frame_index--;
+				else {
+					additional_data = 1;
+					cur_frame = 0;
+					times_played++;
+				}
+			}
 			break;
 
 		case NONE:
