@@ -1036,19 +1036,6 @@ void MapRenderer::checkHotspots() {
 					}
 				}
 				if (backgroundmatch || objectmatch) {
-					// new tooltip?
-					show_tooltip = true;
-					if (tip_buf.lines[0] != (*it).tooltip) {
-						tip_buf.clear();
-						tip_buf.num_lines = 1;
-						tip_buf.lines[0] = (*it).tooltip;
-					}
-
-					// only check events if the player is clicking
-					// and allowed to click
-					if (!inpt->pressing[MAIN1]) return;
-					else if (inpt->lock[MAIN1]) return;
-
 					// skip inactive events
 					if (!isActive(*it)) continue;
 
@@ -1061,6 +1048,19 @@ void MapRenderer::checkHotspots() {
 					if (!((abs(cam.x - (*it).location.x * UNITS_PER_TILE) < CLICK_RANGE)
 							&& (abs(cam.y - (*it).location.y * UNITS_PER_TILE) < CLICK_RANGE)))
 						continue;
+
+					// new tooltip?
+					show_tooltip = true;
+					if (tip_buf.lines[0] != (*it).tooltip) {
+						tip_buf.clear();
+						tip_buf.num_lines = 1;
+						tip_buf.lines[0] = (*it).tooltip;
+					}
+
+					// only check events if the player is clicking
+					// and allowed to click
+					if (!inpt->pressing[MAIN1]) return;
+					else if (inpt->lock[MAIN1]) return;
 
 					inpt->lock[MAIN1] = true;
 					if (executeEvent(*it))
