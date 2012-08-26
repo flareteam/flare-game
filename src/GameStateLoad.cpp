@@ -32,6 +32,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "UtilsParsing.h"
 #include "WidgetLabel.h"
 
+#include <algorithm>
 
 using namespace std;
 
@@ -131,6 +132,16 @@ GameStateLoad::GameStateLoad() : GameState() {
 		fprintf(stderr, "Unable to open menus.txt!\n");
 	}
 	infile.close();
+
+	// get displayable types list
+	if(infile.open(mods->locate("engine/hero_options.txt"))) {
+		while(infile.next()) {
+			if(infile.key == "layer") {
+				preview_layer.push_back(infile.nextValue());
+			}
+		}
+		infile.close();
+	} else fprintf(stderr, "Unable to open hero_options.txt!\n");
 
 	button_action->pos.x += (VIEW_W - FRAME_W)/2;
 	button_action->pos.y += (VIEW_H - FRAME_H)/2;
@@ -261,9 +272,11 @@ void GameStateLoad::readGameSlot(int slot) {
 			stats[slot].defense_character = atoi(infile.nextValue().c_str());
 		}
 		else if (infile.key == "equipped") {
-			equipped[slot][0] = atoi(infile.nextValue().c_str());
-			equipped[slot][1] = atoi(infile.nextValue().c_str());
-			equipped[slot][2] = atoi(infile.nextValue().c_str());
+			string repeat_val = infile.nextValue();
+			while (repeat_val != "") {
+				equipped[slot].push_back(toInt(repeat_val));
+				repeat_val = infile.nextValue();
+			}
 		}
 		else if (infile.key == "option") {
 			stats[slot].base = infile.nextValue();
@@ -283,45 +296,50 @@ void GameStateLoad::readGameSlot(int slot) {
 
 void GameStateLoad::loadPreview(int slot) {
 
-	string img_main;
-	string img_body;
-	string img_off;
-
-	SDL_Surface *gfx_main = NULL;
-	SDL_Surface *gfx_off = NULL;
-	SDL_Surface *gfx_head = NULL;
+	vector<string> img_gfx;
+	vector<SDL_Surface*> gfx_surf;
 	SDL_Rect dest;
+	short body = -1;
 
-	if (equipped[slot][0] != 0)	img_main = items->items[equipped[slot][0]].gfx;
-	if (equipped[slot][1] != 0)	img_body = items->items[equipped[slot][1]].gfx;
-	else img_body = "clothes";
-	if (equipped[slot][2] != 0)	img_off = items->items[equipped[slot][2]].gfx;
-	
+	for (unsigned int i=0; i<equipped[slot].size(); i++) {
+		if ((equipped[slot][i] != 0) && (items->items[equipped[slot][i]].type == "body")) {
+			img_gfx.push_back(items->items[equipped[slot][i]].gfx);
+			body = img_gfx.size()-1;
+		}
+		else if ((equipped[slot][i] != 0) &&
+				find(preview_layer.begin(), preview_layer.end(), items->items[equipped[slot][i]].type) != preview_layer.end())
+			img_gfx.push_back(items->items[equipped[slot][i]].gfx);
+	}
+	if (body == -1) {
+		img_gfx.push_back("clothes");
+		body = img_gfx.size()-1;
+	}
 	// load the body as the base image
 	// we'll blit the other layers onto it
-	sprites[slot] = IMG_Load(mods->locate("images/avatar/" + stats[slot].base + "/preview/" + img_body + ".png").c_str());
+	sprites[slot] = IMG_Load(mods->locate("images/avatar/" + stats[slot].base + "/preview/" + img_gfx[body] + ".png").c_str());
 
 	// composite the hero graphic
-	if (img_main != "") gfx_main = IMG_Load(mods->locate("images/avatar/" + stats[slot].base + "/preview/" + img_main + ".png").c_str());
-	if (img_off != "") gfx_off = IMG_Load(mods->locate("images/avatar/" + stats[slot].base + "/preview/" + img_off + ".png").c_str());
-	gfx_head = IMG_Load(mods->locate("images/avatar/" + stats[slot].base + "/preview/" + stats[slot].head + ".png").c_str());
+	for (unsigned int i=0; i<img_gfx.size(); i++) {
+		if (img_gfx[i] != "") gfx_surf.push_back(IMG_Load(mods->locate("images/avatar/" + stats[slot].base + "/preview/" + img_gfx[i] + ".png").c_str()));
+	}
+	gfx_surf.push_back(IMG_Load(mods->locate("images/avatar/" + stats[slot].base + "/preview/" + stats[slot].head + ".png").c_str()));
 
-	if (gfx_main) SDL_SetColorKey(gfx_main, SDL_SRCCOLORKEY, SDL_MapRGB(gfx_main->format, 255, 0, 255));
-	if (gfx_off) SDL_SetColorKey(gfx_off, SDL_SRCCOLORKEY, SDL_MapRGB(gfx_off->format, 255, 0, 255));
-	if (gfx_head) SDL_SetColorKey(gfx_head, SDL_SRCCOLORKEY, SDL_MapRGB(gfx_head->format, 255, 0, 255));
+	for (unsigned int i=0; i<gfx_surf.size(); i++) {
+		if (gfx_surf[i]) SDL_SetColorKey(gfx_surf[i], SDL_SRCCOLORKEY, SDL_MapRGB(gfx_surf[i]->format, 255, 0, 255));
+	}
 
 	dest.x = preview_pos.x;
 	dest.y = preview_pos.y;
 	dest.w = preview_pos.w;
 	dest.h = preview_pos.h;
 
-	if (gfx_main) SDL_gfxBlitRGBA(gfx_main, NULL, sprites[slot], &dest);
-	if (gfx_off) SDL_gfxBlitRGBA(gfx_off, NULL, sprites[slot], &dest);
-	if (gfx_head) SDL_gfxBlitRGBA(gfx_head, NULL, sprites[slot], &dest);
+	for (unsigned int i=0; i<gfx_surf.size(); i++) {
+		if (gfx_surf[i]) SDL_gfxBlitRGBA(gfx_surf[i], NULL, sprites[slot], &dest);
+	}
 
-	if (gfx_main) SDL_FreeSurface(gfx_main);
-	if (gfx_off) SDL_FreeSurface(gfx_off);
-	if (gfx_head) SDL_FreeSurface(gfx_head);
+	for (unsigned int i=0; i<gfx_surf.size(); i++) {
+		if (gfx_surf[i]) SDL_FreeSurface(gfx_surf[i]);
+	}
 
 	// optimize
 	if (sprites[slot]) {
