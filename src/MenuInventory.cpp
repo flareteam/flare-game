@@ -766,7 +766,7 @@ void MenuInventory::applyEquipment(ItemStack *equipped) {
 			}
 
 			for (unsigned int j=0; j<ELEMENTS.size(); j++) {
-				if (item.bonus_stat[bonus_counter] == ELEMENTS[j] + " resist")
+				if (item.bonus_stat[bonus_counter] == ELEMENTS[j].name + " resist")
 					stats->vulnerable[j] -= item.bonus_val[bonus_counter];
 			}
 

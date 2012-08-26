@@ -391,9 +391,7 @@ void MenuCharacter::refreshStats() {
 	if (show_stat[13]) {
 		for (unsigned int j=0; j<stats->vulnerable.size(); j++) {
 			ss.str("");
-			std::string element = ELEMENTS[j];
-			element[0] = toupper((unsigned char)element[0]);
-			ss << msg->get(element+" Resistance:") << " " << (100 - stats->vulnerable[j]) << "%";
+			ss << ELEMENTS[j].resist << ": " << (100 - stats->vulnerable[j]) << "%";
 			statList->append(ss.str(),"");
 		}
 	}

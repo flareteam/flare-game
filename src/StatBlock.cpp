@@ -355,7 +355,7 @@ void StatBlock::load(const string& filename) {
 			else if (infile.key == "suppress_hp") suppress_hp = num;
 
 			for (unsigned int i=0; i<ELEMENTS.size(); i++) {
-				if (infile.key == "vulnerable_" + ELEMENTS[i]) vulnerable[i] = num;
+				if (infile.key == "vulnerable_" + ELEMENTS[i].name) vulnerable[i] = num;
 			}
 		}
 		infile.close();
