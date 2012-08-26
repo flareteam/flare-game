@@ -382,18 +382,18 @@ loot=id,21,75,2
 [event]
 # barrel
 type=run_once
-hotspot=location
 tooltip=Barrel
 location=10,49,1,1
+hotspot=location
 mapmod=object,10,49,162
 soundfx=soundfx/wood_open.ogg
 
 [event]
 # barrel
 type=run_once
-hotspot=location
 tooltip=Barrel
 location=10,48,1,1
+hotspot=location
 mapmod=object,10,48,162
 soundfx=soundfx/wood_open.ogg
 loot=random,11,48,1
@@ -401,27 +401,27 @@ loot=random,11,48,1
 [event]
 # barrel
 type=run_once
-hotspot=location
 tooltip=Barrel
 location=10,47,1,1
+hotspot=location
 mapmod=object,10,47,162
 soundfx=soundfx/wood_open.ogg
 
 [event]
 # barrel
 type=run_once
-hotspot=location
 tooltip=Barrel
 location=12,49,1,1
+hotspot=location
 mapmod=object,12,49,162
 soundfx=soundfx/wood_open.ogg
 
 [event]
 # crate
 type=run_once
-hotspot=location
 tooltip=Crate
 location=11,46,1,1
+hotspot=location
 mapmod=object,11,46,163
 soundfx=soundfx/wood_open.ogg
 loot=random,12,46,1
@@ -429,18 +429,18 @@ loot=random,12,46,1
 [event]
 # crate
 type=run_once
-hotspot=location
 tooltip=Crate
 location=13,49,1,1
+hotspot=location
 mapmod=object,13,49,163
 soundfx=soundfx/wood_open.ogg
 
 [event]
 # crate
 type=run_once
-hotspot=location
 tooltip=Crate
 location=15,49,1,1
+hotspot=location
 mapmod=object,15,49,163
 soundfx=soundfx/wood_open.ogg
 loot=random,14,48,1
@@ -463,9 +463,9 @@ loot=random,5,91,6
 [event]
 # teleport chest
 type=run_once
-hotspot=location
 tooltip=Treasure Chest
 location=45,97,1,1
+hotspot=location
 mapmod=object,45,97,161
 loot=random,45,98,7
 
