@@ -39,7 +39,7 @@ public:
 	bool open(const std::string& filename);
 	void close();
 	bool next();
-	std::string nextValue();
+	std::string nextValue(); // next value inside one line.
 	std::string getRawLine();
 
 	bool new_section;

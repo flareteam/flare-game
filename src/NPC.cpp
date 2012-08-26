@@ -399,4 +399,8 @@ NPC::~NPC() {
 		Mix_FreeChunk(vox_intro.back());
 		vox_intro.pop_back();
 	}
+	while (!vox_quests.empty()) {
+		Mix_FreeChunk(vox_quests.back());
+		vox_quests.pop_back();
+	}
 }

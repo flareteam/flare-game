@@ -791,6 +791,8 @@ void GameStateConfig::logic ()
 	else if (active_tab == 1 && !defaults_confirm->visible) {
 		if (audio) {
 			if (settings_sl[0]->checkClick()) {
+				if (MUSIC_VOLUME == 0)
+					reload_music = true;
 				MUSIC_VOLUME=settings_sl[0]->getValue();
 				Mix_VolumeMusic(MUSIC_VOLUME);
 			} else if (settings_sl[1]->checkClick()) {

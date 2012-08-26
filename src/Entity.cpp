@@ -152,6 +152,8 @@ void Entity::loadAnimations(const string& filename) {
 	string firstAnimation = "";
 	int active_frame = 0;
 	bool first_section=true;
+	bool compressed_loading=false; // is reset every section to false, set by frame keyword
+	Animation *newanim;
 
 	// Parse the file and on each new section create an animation object from the data parsed previously
 	parser.next();
@@ -159,12 +161,13 @@ void Entity::loadAnimations(const string& filename) {
 	do {
 		// create the animation if finished parsing a section
 		if (parser.new_section) {
-			if (!first_section) {
-				Animation *a = new Animation();
-				a->init(name, render_size, render_offset,  position, frames, duration, type, active_frame);
+			if (!first_section && !compressed_loading) {
+				Animation *a = new Animation(name, type);
+				a->setupUncompressed(render_size, render_offset,  position, frames, duration, active_frame);
 				animations.push_back(a);
 			}
 			first_section = false;
+			compressed_loading = false;
 		}
 
 		if (parser.key == "position") {
@@ -177,7 +180,6 @@ void Entity::loadAnimations(const string& filename) {
 			int ms_per_frame = toInt(parser.val);
 
 			duration = (int)round((float)ms_per_frame / (1000.0 / (float)FRAMES_PER_SEC));
-
 			// adjust duration according to the entity's animation speed
 			duration = (duration * 100) / stats.animationSpeed;
 
@@ -196,6 +198,26 @@ void Entity::loadAnimations(const string& filename) {
 			render_offset.y = toInt(parser.val);
 		else if (parser.key == "active_frame")
 			active_frame = toInt(parser.val);
+		else if (parser.key == "frame") {
+			if (compressed_loading == false) { // first frame statement in section
+				newanim = new Animation(name, type);
+				newanim->setup(frames, duration);
+				animations.push_back(newanim);
+				compressed_loading = true;
+			}
+			// frame = index, direction, x, y, w, h, offsetx, offsety
+			SDL_Rect r;
+			Point offset;
+			const int index = toInt(parser.nextValue());
+			const int direction = toInt(parser.nextValue());
+			r.x = toInt(parser.nextValue());
+			r.y = toInt(parser.nextValue());
+			r.w = toInt(parser.nextValue());
+			r.h = toInt(parser.nextValue());
+			offset.x = toInt(parser.nextValue());
+			offset.y = toInt(parser.nextValue());
+			newanim->addFrame(index, direction, r, offset);
+		}
 
 		if (name == "") {
 			// This is the first animation
@@ -205,11 +227,12 @@ void Entity::loadAnimations(const string& filename) {
 	}
 	while (parser.next());
 
-	// add final animation
-	Animation *a = new Animation();
-	a->init(name, render_size, render_offset, position, frames, duration, type, active_frame);
-	animations.push_back(a);
-
+	if (!compressed_loading) {
+		// add final animation
+		Animation *a = new Animation(name, type);
+		a->setupUncompressed(render_size, render_offset, position, frames, duration, active_frame);
+		animations.push_back(a);
+	}
 
 	// set the default animation
 	if (firstAnimation != "") {
