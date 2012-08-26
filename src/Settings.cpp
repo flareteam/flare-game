@@ -138,7 +138,7 @@ short MAX_BLOCK = 100;
 short MAX_AVOIDANCE = 99;
 
 // Elemental types
-std::vector<std::string> ELEMENTS;
+std::vector<Element> ELEMENTS;
 
 // Other Settings
 bool MENUS_PAUSE = false;
@@ -417,24 +417,19 @@ void loadMiscSettings() {
 		fprintf(stderr, "No combat engine settings config found!\n");
 	}
 	// elements.txt
-	ifstream infiles;
-	std::string line, starts_with;
-	infiles.open(mods->locate("engine/elements.txt").c_str(), ios::in);
-	ELEMENTS.clear();
-	if (infiles.is_open()){
-		while (!infiles.eof()) {
-			line = getLine(infiles);
-
-			// skip ahead if this line is empty
-			if (line.length() == 0) continue;
-
-			// skip comments
-			starts_with = line.at(0);
-			if (starts_with == "#") continue;
-
-			ELEMENTS.push_back(line);
+	if (infile.open(mods->locate("engine/elements.txt").c_str())) {
+		Element e;
+		ELEMENTS.clear();
+		while (infile.next()) {
+			if (infile.new_section) {
+				if (infile.section == "element" && e.name != "") {
+					ELEMENTS.push_back(e);
+				}
+			}
+			if (infile.key == "name") e.name = msg->get(infile.val);
+			else if (infile.key == "resist") e.resist = msg->get(infile.val);
 		}
-		infiles.close();
+		infile.close();
 	}
 	else {
 		fprintf(stderr, "No elemental settings config found!\n");

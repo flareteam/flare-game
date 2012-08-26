@@ -248,7 +248,7 @@ void PowerManager::loadPowers(const std::string& filename) {
 			}
 			else if (infile.key == "trait_elemental") {
 				for (unsigned int i=0; i<ELEMENTS.size(); i++) {
-					if (infile.val == ELEMENTS[i]) powers[input_id].trait_elemental = i;
+					if (infile.val == ELEMENTS[i].name) powers[input_id].trait_elemental = i;
 				}
 			}
 			else if (infile.key == "forced_move") {

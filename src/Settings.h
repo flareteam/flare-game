@@ -25,6 +25,11 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <string>
 #include <vector>
 
+typedef struct Element{
+	std::string name;
+	std::string resist;
+}Element;
+
 // Path info
 extern std::string PATH_CONF; // user-configurable settings files
 extern std::string PATH_USER; // important per-user data (saves)
@@ -101,7 +106,7 @@ extern short MAX_BLOCK;
 extern short MAX_AVOIDANCE;
 
 // Elemental types
-extern std::vector<std::string> ELEMENTS;
+extern std::vector<Element> ELEMENTS;
 
 void setPaths();
 void loadTilesetSettings();
