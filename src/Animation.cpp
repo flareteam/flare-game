@@ -50,24 +50,8 @@ Animation::Animation(std::string _name, std::string _type)
 }
 
 void Animation::setupUncompressed(Point _render_size, Point _render_offset, int _position, int _frames, int _duration, int _active_frame) {
-	if (type == PLAY_ONCE) {
-		number_frames = _frames * _duration;
-		additional_data = 0;
-	} else if (type == LOOPED) {
-		number_frames = _frames * _duration;
-		additional_data = 0;
-	} else if (type == BACK_FORTH) {
-		number_frames = 2 * _frames * _duration;
-		additional_data = 1;
-	}
-	cur_frame = 0;
-	cur_frame_index = 0;
-	cur_frame_duration = 0;
-	times_played = 0;
+	setup(_frames, _duration);
 
-	gfx.resize(8*_frames);
-	render_offset.resize(8*_frames);
-	duration.resize(8*_frames);
 	for (unsigned short i = 0 ; i < _frames; i++) {
 		int base_index = 8*i;
 		for (unsigned short direction = 0 ; direction < 8; direction++) {
@@ -77,7 +61,6 @@ void Animation::setupUncompressed(Point _render_size, Point _render_offset, int 
 			gfx[base_index + direction].h = _render_size.y;
 			render_offset[base_index + direction].x = _render_offset.x;
 			render_offset[base_index + direction].y = _render_offset.y;
-			duration[base_index + direction] = _duration;
 		}
 	}
 }
