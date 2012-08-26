@@ -29,7 +29,7 @@ def extract(filename):
     if os.path.exists(filename):
         infile = open(filename, 'r')
         triggers = ['msg', 'him', 'her', 'you', 'name', 'title', 'tooltip',
-                'power_desc', 'quest_text', 'description', 'item_type', 'slot_name', 'tab_title']
+                'power_desc', 'quest_text', 'description', 'item_type', 'slot_name', 'tab_title', 'resist']
         for i,line in enumerate(infile):
             for trigger in triggers:
                 if line.startswith(trigger + '='):
@@ -87,6 +87,7 @@ extract('../items/items.txt')
 extract('../menus/inventory.txt')
 extract('../menus/powers.txt')
 extract('../powers/powers.txt')
+extract('../engine/elements.txt')
 
 if os.path.exists('../enemies'):
 	for filename in os.listdir('../enemies'):
