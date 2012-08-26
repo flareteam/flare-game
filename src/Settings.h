@@ -47,8 +47,8 @@ extern unsigned short ICON_SIZE_SMALL;
 extern unsigned short ICON_SIZE_LARGE;
 
 // Audio and Video Settings
-extern unsigned char MUSIC_VOLUME;
-extern unsigned char SOUND_VOLUME;
+extern unsigned short MUSIC_VOLUME;
+extern unsigned short SOUND_VOLUME;
 extern bool FULLSCREEN;
 extern unsigned char BITS_PER_PIXEL;
 extern unsigned short FRAMES_PER_SEC;
