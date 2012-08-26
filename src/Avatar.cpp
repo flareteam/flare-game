@@ -93,10 +93,7 @@ void Avatar::init() {
 
 	haz = NULL;
 
-	// TODO hardcoded
-	for (int i=0; i<4; i++) {
-		img_gfx.push_back("");
-	}
+	img_gfx.resize(4,"");
 	body = -1;
 
 	transform_triggered = false;
@@ -153,6 +150,8 @@ void Avatar::loadGraphics(std::vector<Layer_gfx> _img_gfx) {
 	vector<SDL_Surface*> gfx_surf;
 	SDL_Rect src;
 	SDL_Rect dest;
+
+	if (img_gfx.size() < _img_gfx.size()) img_gfx.resize(_img_gfx.size(), "");
 
 	// Default appearance
 	// Find body gfx index
