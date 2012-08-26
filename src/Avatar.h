@@ -101,7 +101,7 @@ public:
 	void init();
 	void loadLayerDefinitions();
 	std::vector<Layer_def> layer_def;
-	int findGfx(std::string type);
+	int findGfx(std::vector<Layer_gfx> _img_gfx, std::string type);
 	void loadGraphics(std::vector<Layer_gfx> _img_gfx);
 	void loadSounds();
 	void loadStepFX(const std::string& stepname);

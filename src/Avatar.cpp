@@ -138,9 +138,12 @@ void Avatar::loadLayerDefinitions() {
 	} else fprintf(stderr, "Unable to open hero_options.txt!\n");
 }
 
-int Avatar::findGfx(std::string type) {
-	for (unsigned int i=0; i<layer_def.size(); i++) {
-		if (type == layer_def[i].type) return i;
+/**
+ * Return index of item with "type" inside image gfx vector.
+ */
+int Avatar::findGfx(std::vector<Layer_gfx> _img_gfx, std::string type) {
+	for (unsigned int i=0; i<_img_gfx.size(); i++) {
+		if (type == _img_gfx[i].type) return i;
 	}
 	return -1;
 }
@@ -180,7 +183,8 @@ void Avatar::loadGraphics(std::vector<Layer_gfx> _img_gfx) {
 	sprites = IMG_Load(mods->locate("images/avatar/" + stats.base + "/" + img_gfx[body] + ".png").c_str());
 
 	for (unsigned int i=0; i<layer_def.size(); i++) {
-		int k = findGfx(layer_def[i].type);
+		// find item, that should be rendered on current layer
+		int k = findGfx(_img_gfx, layer_def[i].type);
 
 		if (layer_def[i].type == "head") {
 				gfx_surf.push_back(IMG_Load(mods->locate("images/avatar/" + stats.base + "/" + stats.head + ".png").c_str()));
