@@ -1,7 +1,6 @@
 # dungeon and ruins interior tile set
 
 img=tileset_dungeon.png
-# transparency=255,0,255
 
 tile=16,0,320,32,16,16,8
 tile=17,32,320,32,16,16,8
@@ -176,3 +175,10 @@ tile=242,64,448,32,64,16,56
 tile=243,96,448,32,64,16,56
 tile=244,128,448,32,64,16,56
 tile=245,160,448,32,64,16,56
+
+# teleporter circles
+tile=264,0,416,64,32,16,16
+tile=265,64,416,64,32,16,16
+
+# teleporter animation
+animation=265;64,416,1;128,416,1;192,416,1;256,416,1
