@@ -803,7 +803,8 @@ void Avatar::transform() {
 	charmed_stats = new StatBlock();
 	charmed_stats->load("enemies/" + stats.transform_type + ".txt");
 
-	img_gfx[body] = charmed_stats->gfx_prefix;
+	if (img_gfx.size() < 1) img_gfx.resize(1);
+	img_gfx[0] = charmed_stats->gfx_prefix;
 
 	// transform the hero graphic
 	if (last_transform != charmed_stats->gfx_prefix) {
