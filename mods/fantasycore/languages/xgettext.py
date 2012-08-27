@@ -84,6 +84,7 @@ def get_quests():
 
 # HERE'S THE MAIN EXECUTION
 extract('../items/items.txt')
+extract('../items/types.txt')
 extract('../menus/inventory.txt')
 extract('../menus/powers.txt')
 extract('../powers/powers.txt')
