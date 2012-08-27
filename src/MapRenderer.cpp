@@ -1050,7 +1050,8 @@ void MapRenderer::checkHotspots() {
 						continue;
 
 					// new tooltip?
-					show_tooltip = true;
+					if (!(*it).tooltip.empty())
+						show_tooltip = true;
 					if (tip_buf.lines[0] != (*it).tooltip) {
 						tip_buf.clear();
 						tip_buf.num_lines = 1;
