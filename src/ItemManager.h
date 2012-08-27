@@ -28,6 +28,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <SDL_image.h>
 #include <SDL_mixer.h>
 
+#include <map>
 #include <string>
 #include <stdint.h>
 #include <vector>
@@ -146,6 +147,7 @@ private:
 	Mix_Chunk *sfx[12];
 
 	void load(const std::string& filename);
+	void loadTypes(const std::string& filename);
 	void loadAll();
 	void loadSounds();
 	void loadIcons();
@@ -166,8 +168,10 @@ public:
 	void playCoinsSound();
 	TooltipData getTooltip(int item, StatBlock *stats, bool vendor_view);
 	TooltipData getShortTooltip(ItemStack item);
+	std::string getItemType(std::string _type);
 
 	std::vector<Item> items;
+	std::map<std::string,std::string> item_types;
 
 	std::vector<std::string> item_class_names; // a vector of all defined classes of items
 	// belongs to the item_class_names vector and contains a vector of item ids which belong to that specific class.

@@ -66,6 +66,12 @@ void ItemManager::loadAll() {
 		if (fileExists(test_path)) {
 			this->load(test_path);
 		}
+
+		test_path = PATH_DATA + "mods/" + mods->mod_list[i] + "/items/types.txt";
+
+		if (fileExists(test_path)) {
+			this->loadTypes(test_path);
+		}
 	}
 	shrinkItems();
 }
@@ -231,6 +237,34 @@ void ItemManager::load(const string& filename) {
 	}
 }
 
+void ItemManager::loadTypes(const string& filename) {
+	FileParser infile;
+	string type,description;
+	type = description = "";
+
+	if (infile.open(filename)) {
+		while (infile.next()) {
+			if (infile.key == "name") type = infile.val;
+			else if (infile.key == "description") description = infile.val;
+
+			if (type != "" && description != "") {
+				item_types[type] = description;
+				type = description = "";
+			}
+		}
+		infile.close();
+	}
+}
+
+string ItemManager::getItemType(std::string _type) {
+	map<string,string>::iterator it,end;
+	for (it=item_types.begin(), end=item_types.end(); it!=end; it++) {
+		if (_type.compare(it->first) == 0) return it->second;
+	}
+	// If all else fails, return the original string
+	return _type;
+}
+
 void ItemManager::loadSounds() {
 	memset(sfx, 0, sizeof(sfx));
 
@@ -393,14 +427,7 @@ TooltipData ItemManager::getTooltip(int item, StatBlock *stats, bool vendor_view
 
 	// type
 	if (items[item].type != "other") {
-		if (items[item].type == "main")
-			tip.lines[tip.num_lines++] = msg->get("main hand");
-		else if (items[item].type == "off")
-			tip.lines[tip.num_lines++] = msg->get("off hand");
-		else if (items[item].type == "quest")
-			tip.lines[tip.num_lines++] = msg->get("quest item");
-		else
-			tip.lines[tip.num_lines++] = msg->get(items[item].type);
+		tip.lines[tip.num_lines++] = msg->get(getItemType(items[item].type));
 	}
 
 	// damage
