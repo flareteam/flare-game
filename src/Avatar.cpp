@@ -97,7 +97,6 @@ void Avatar::init() {
 	body = -1;
 
 	transform_triggered = false;
-	untransform_triggered = false;
 	setPowers = false;
 	revertPowers = false;
 	last_transform = "";
@@ -803,8 +802,6 @@ void Avatar::transform() {
 	charmed_stats = new StatBlock();
 	charmed_stats->load("enemies/" + stats.transform_type + ".txt");
 
-	img_gfx[body] = charmed_stats->gfx_prefix;
-
 	// transform the hero graphic
 	if (last_transform != charmed_stats->gfx_prefix) {
 		if (transformed_sprites) SDL_FreeSurface(transformed_sprites);
@@ -889,7 +886,6 @@ void Avatar::untransform() {
 
 	stats.transformed = false;
 	transform_triggered = false;
-	untransform_triggered = true;
 	stats.transform_type = "";
 	revertPowers = true;
 
