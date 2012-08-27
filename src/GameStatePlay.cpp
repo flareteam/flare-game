@@ -313,8 +313,6 @@ void GameStatePlay::checkLog() {
 void GameStatePlay::checkEquipmentChange() {
 	if (menu->inv->changed_equipment) {
 
-		pc->untransform_triggered = false;
-
 		vector<Layer_gfx> img_gfx;
 		Layer_gfx gfx;
 		// load only displayable layers

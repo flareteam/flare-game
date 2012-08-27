@@ -97,7 +97,6 @@ void Avatar::init() {
 	body = -1;
 
 	transform_triggered = false;
-	untransform_triggered = false;
 	setPowers = false;
 	revertPowers = false;
 	last_transform = "";
@@ -887,7 +886,6 @@ void Avatar::untransform() {
 
 	stats.transformed = false;
 	transform_triggered = false;
-	untransform_triggered = true;
 	stats.transform_type = "";
 	revertPowers = true;
 
