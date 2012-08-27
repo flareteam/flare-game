@@ -115,7 +115,6 @@ public:
 	// transformation handling
 	void transform();
 	void untransform();
-	bool untransform_triggered;
 	bool setPowers;
 	bool revertPowers;
 	StatBlock *hero_stats;

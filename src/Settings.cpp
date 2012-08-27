@@ -112,8 +112,8 @@ bool TEXTURE_QUALITY;
 bool ANIMATED_TILES;
 
 // Audio Settings
-unsigned char MUSIC_VOLUME;
-unsigned char SOUND_VOLUME;
+unsigned short MUSIC_VOLUME;
+unsigned short SOUND_VOLUME;
 
 // User Preferences
 bool COMBAT_TEXT;
