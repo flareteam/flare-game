@@ -72,8 +72,18 @@ void ItemManager::loadAll() {
 		if (fileExists(test_path)) {
 			this->loadTypes(test_path);
 		}
+
+		test_path = PATH_DATA + "mods/" + mods->mod_list[i] + "/items/sets.txt";
+
+		if (fileExists(test_path)) {
+			this->loadSets(test_path);
+		}
 	}
-	shrinkItems();
+	if (items.size() > 0) shrinkItems();
+	else fprintf(stderr, "No items were found.\n");
+
+	if (item_sets.size() > 0) shrinkItemSets();
+	else printf("No item sets were found.\n");
 }
 
 /**
@@ -85,7 +95,6 @@ void ItemManager::load(const string& filename) {
 	FileParser infile;
 	unsigned int id = 0;
 	string s;
-	int bonus_counter = 0;
 
 	if (infile.open(filename)) {
 
@@ -96,8 +105,6 @@ void ItemManager::load(const string& filename) {
 					// *2 to amortize the resizing to O(log(n)).
 					items.resize((2*id) + 1);
 				}
-				// new item, reset bonus counter
-				bonus_counter = 0;
 			}
 			else if (infile.key == "name")
 				items[id].name = msg->get(infile.val);
@@ -265,6 +272,49 @@ string ItemManager::getItemType(std::string _type) {
 	return _type;
 }
 
+void ItemManager::loadSets(const string& filename) {
+	unsigned int id = 0;
+	FileParser infile;
+	if (infile.open(filename)) {
+		while (infile.next()) {
+			if (infile.key == "id") {
+				id = toInt(infile.val);
+				if (id >= item_sets.size()) {
+					// *2 to amortize the resizing to O(log(n)).
+					item_sets.resize((2*id) + 1);
+				}
+			}
+			else if (infile.key == "name") {
+				item_sets[id].name = msg->get(infile.val);
+			}
+			else if (infile.key == "description") {
+				item_sets[id].description = msg->get(infile.val);
+			}
+			else if (infile.key == "items") {
+				string item_id = infile.nextValue();
+				while (item_id != "") {
+					items[toInt(item_id)].set = id;
+					item_sets[id].items.push_back(toInt(item_id));
+					item_id = infile.nextValue();
+				}
+			}
+			else if (infile.key == "color") {
+				item_sets[id].color.r = toInt(infile.nextValue());
+				item_sets[id].color.g = toInt(infile.nextValue());
+				item_sets[id].color.b = toInt(infile.nextValue());
+			}
+			else if (infile.key == "bonus") {
+				Set_bonus bonus;
+				bonus.requirement = toInt(infile.nextValue());
+				bonus.bonus_stat = infile.nextValue();
+				bonus.bonus_val = toInt(infile.nextValue());
+				item_sets[id].bonus.push_back(bonus);
+			}
+		}
+		infile.close();
+	}
+}
+
 void ItemManager::loadSounds() {
 	memset(sfx, 0, sizeof(sfx));
 
@@ -323,6 +373,14 @@ void ItemManager::shrinkItems() {
 		i--;
 
 	items.resize(i + 1);
+}
+
+void ItemManager::shrinkItemSets() {
+	unsigned i = item_sets.size() - 1;
+	while (item_sets[i].name == "")
+		i--;
+
+	item_sets.resize(i + 1);
 }
 
 /**
@@ -385,7 +443,10 @@ TooltipData ItemManager::getShortTooltip(ItemStack stack) {
 	tip.lines[tip.num_lines++] = ss.str();
 
 	// color quality
-	if (items[stack.item].quality == ITEM_QUALITY_LOW) {
+	if (items[stack.item].set > 0) {
+		tip.colors[0] = item_sets[items[stack.item].set].color;
+	}
+	else if (items[stack.item].quality == ITEM_QUALITY_LOW) {
 		tip.colors[0] = color_low;
 	}
 	else if (items[stack.item].quality == ITEM_QUALITY_HIGH) {
@@ -410,7 +471,16 @@ TooltipData ItemManager::getTooltip(int item, StatBlock *stats, bool vendor_view
 	tip.lines[tip.num_lines++] = items[item].name;
 
 	// color quality
-	if (items[item].quality == ITEM_QUALITY_LOW) {
+	if (items[item].set > 0) {
+		tip.colors[0] = item_sets[items[item].set].color;
+		// item set name
+		tip.colors[tip.num_lines] = item_sets[items[item].set].color;
+		tip.lines[tip.num_lines++] = msg->get(item_sets[items[item].set].name);
+		// item set description
+		tip.colors[tip.num_lines] = item_sets[items[item].set].color;
+		tip.lines[tip.num_lines++] = msg->get(item_sets[items[item].set].description);
+	}
+	else if (items[item].quality == ITEM_QUALITY_LOW) {
 		tip.colors[0] = color_low;
 	}
 	else if (items[item].quality == ITEM_QUALITY_HIGH) {
@@ -528,6 +598,42 @@ TooltipData ItemManager::getTooltip(int item, StatBlock *stats, bool vendor_view
 			else
 				tip.lines[tip.num_lines++] = msg->get("Sell Price: %d gold each", price_per_unit);
 		}
+	}
+
+	if (items[item].set > 0) {
+			tip.colors[tip.num_lines] = item_sets[items[item].set].color;
+			tip.lines[tip.num_lines++] = msg->get("Set Item Bonuses");
+			// item set bonuses
+			ItemSet set = item_sets[items[item].set];
+			bonus_counter = 0;
+			int items_counter = 1;
+			modifier = "";
+			while (bonus_counter < set.bonus.size() && set.bonus[bonus_counter].bonus_stat != "") {
+				if (set.bonus[bonus_counter].bonus_val > 0) {
+					if (items_counter < set.bonus[bonus_counter].requirement) {
+						tip.lines[tip.num_lines++] = msg->get("%d items", set.bonus[bonus_counter].requirement);
+						items_counter = set.bonus[bonus_counter].requirement;
+					}
+					modifier = msg->get("Increases %s by %d",
+							set.bonus[bonus_counter].bonus_val,
+							msg->get(set.bonus[bonus_counter].bonus_stat));
+
+					tip.colors[tip.num_lines] = color_bonus;
+				}
+				else {
+					if (items_counter < set.bonus[bonus_counter].requirement) {
+						tip.lines[tip.num_lines++] = msg->get("%d items", set.bonus[bonus_counter].requirement);
+						items_counter = set.bonus[bonus_counter].requirement;
+					}
+					modifier = msg->get("Decreases %s by %d",
+							set.bonus[bonus_counter].bonus_val,
+							msg->get(set.bonus[bonus_counter].bonus_stat));
+
+					tip.colors[tip.num_lines] = color_penalty;
+				}
+				tip.lines[tip.num_lines++] = modifier;
+				bonus_counter++;
+			}
 	}
 
 	return tip;

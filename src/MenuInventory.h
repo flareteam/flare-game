@@ -63,6 +63,7 @@ private:
 	int carried_cols;
 	int carried_rows;
 	SDL_Color color_normal;
+	SDL_Color color_high;
 
 public:
 	MenuInventory(ItemManager *items, StatBlock *stats, PowerManager *powers);
