@@ -68,7 +68,6 @@ public:
 	void drop(Point mouse, ItemStack stack);
 	void add(ItemStack stack, int slot);
 
-	bool visible;
 	SDL_Rect slots_area;
 	MenuItemStorage stock;
 	bool updated;

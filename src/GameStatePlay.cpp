@@ -218,6 +218,8 @@ void GameStatePlay::checkTeleport() {
 			npcs->handleNewMap();
 			menu->vendor->npc = NULL;
 			menu->vendor->visible = false;
+			menu->talker->visible = false;
+			menu->stash->visible = false;
 			menu->mini->prerender(&map->collider, map->w, map->h);
 			npc_id = -1;
 

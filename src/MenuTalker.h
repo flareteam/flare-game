@@ -55,7 +55,7 @@ private:
 	SDL_Rect text_pos;
 	Point text_offset;
 	SDL_Rect portrait_he;
-	SDL_Rect portrait_you; 
+	SDL_Rect portrait_you;
 
 	SDL_Color color_normal;
 
@@ -72,7 +72,6 @@ public:
 	void setHero(const std::string& name, const std::string& portrait_filename);
 	void createBuffer();
 
-	bool visible;
 	bool vendor_visible;
 	bool has_vendor_button;
 
