@@ -421,13 +421,13 @@ void loadMiscSettings() {
 		Element e;
 		ELEMENTS.clear();
 		while (infile.next()) {
-			if (infile.new_section) {
-				if (infile.section == "element" && e.name != "") {
-					ELEMENTS.push_back(e);
-				}
-			}
 			if (infile.key == "name") e.name = msg->get(infile.val);
 			else if (infile.key == "resist") e.resist = msg->get(infile.val);
+
+			if (e.name != "" && e.resist != "") {
+				ELEMENTS.push_back(e);
+				e.name = e.resist = "";
+			}
 		}
 		infile.close();
 	}
