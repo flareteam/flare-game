@@ -95,7 +95,6 @@ void ItemManager::load(const string& filename) {
 	FileParser infile;
 	unsigned int id = 0;
 	string s;
-	int bonus_counter = 0;
 
 	if (infile.open(filename)) {
 
@@ -106,8 +105,6 @@ void ItemManager::load(const string& filename) {
 					// *2 to amortize the resizing to O(log(n)).
 					items.resize((2*id) + 1);
 				}
-				// new item, reset bonus counter
-				bonus_counter = 0;
 			}
 			else if (infile.key == "name")
 				items[id].name = msg->get(infile.val);
