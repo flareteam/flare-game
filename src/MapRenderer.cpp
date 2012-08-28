@@ -829,8 +829,8 @@ void MapRenderer::renderIso(vector<Renderable> &r, vector<Renderable> &r_dead) {
 		renderIsoBackground(screen, nulloffset);
 	}
 	else {
-		if (abs(shakycam.x - backgroundsurfaceoffset.x) > movedistance_to_rerender * UNITS_PER_TILE
-			|| abs(shakycam.y - backgroundsurfaceoffset.y) > movedistance_to_rerender * UNITS_PER_TILE
+		if (abs(shakycam.x - backgroundsurfaceoffset.x) > movedistance_to_rerender * TILE_W
+			|| abs(shakycam.y - backgroundsurfaceoffset.y) > movedistance_to_rerender * TILE_H
 			|| repaint_background) {
 
 			if (!backgroundsurface)
@@ -841,7 +841,7 @@ void MapRenderer::renderIso(vector<Renderable> &r, vector<Renderable> &r_dead) {
 			backgroundsurfaceoffset = shakycam;
 
 			SDL_FillRect(backgroundsurface, 0, 0);
-			Point off = {TILE_W * tiles_outside_of_screen, TILE_H * tiles_outside_of_screen};
+			Point off = {VIEW_W_HALF, VIEW_H_HALF};
 			renderIsoBackground(backgroundsurface, off);
 		}
 		Point p = map_to_screen(shakycam.x, shakycam.y , backgroundsurfaceoffset.x, backgroundsurfaceoffset.y);
