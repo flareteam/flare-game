@@ -89,10 +89,8 @@ public:
 	int getItemCountCarried(int item);
 	bool isItemEquipped(int item);
 	bool requirementsMet(int item);
-	
-	void applyEquipment(ItemStack *equipped);
 
-	bool visible;
+	void applyEquipment(ItemStack *equipped);
 
 	SDL_Rect carried_area;
 	std::vector<SDL_Rect> equipped_area;
@@ -107,7 +105,7 @@ public:
 	// so we only update the hero sprites when non-artifact changes occur.
 	bool changed_equipment;
 	bool changed_artifact;
-	
+
 	std::string log_msg;
 
 };

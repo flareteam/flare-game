@@ -82,7 +82,6 @@ public:
 	void saveInventory();
 	void sort(int type);
 
-	bool visible;
 	bool talker_visible;
 	SDL_Rect slots_area;
 };
