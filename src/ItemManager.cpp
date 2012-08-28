@@ -79,8 +79,11 @@ void ItemManager::loadAll() {
 			this->loadSets(test_path);
 		}
 	}
-	shrinkItems();
-	shrinkItemSets();
+	if (items.size() > 0) shrinkItems();
+	else fprintf(stderr, "No items were found.\n");
+
+	if (item_sets.size() > 0) shrinkItemSets();
+	else printf("No item sets were found.\n");
 }
 
 /**
