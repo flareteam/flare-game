@@ -72,8 +72,15 @@ void ItemManager::loadAll() {
 		if (fileExists(test_path)) {
 			this->loadTypes(test_path);
 		}
+
+		test_path = PATH_DATA + "mods/" + mods->mod_list[i] + "/items/sets.txt";
+
+		if (fileExists(test_path)) {
+			this->loadSets(test_path);
+		}
 	}
 	shrinkItems();
+	shrinkItemSets();
 }
 
 /**
@@ -265,6 +272,45 @@ string ItemManager::getItemType(std::string _type) {
 	return _type;
 }
 
+void ItemManager::loadSets(const string& filename) {
+	unsigned int id = 0;
+	FileParser infile;
+	if (infile.open(filename)) {
+		while (infile.next()) {
+			if (infile.key == "id") {
+				id = toInt(infile.val);
+				if (id >= item_sets.size()) {
+					// *2 to amortize the resizing to O(log(n)).
+					item_sets.resize((2*id) + 1);
+				}
+			}
+			else if (infile.key == "name") {
+				item_sets[id].name = msg->get(infile.val);
+			}
+			else if (infile.key == "description") {
+				item_sets[id].description = msg->get(infile.val);
+			}
+			else if (infile.key == "items") {
+				string item_id = infile.nextValue();
+				while (item_id != "") {
+					items[toInt(item_id)].set = id;
+					item_sets[id].items.push_back(toInt(item_id));
+					item_id = infile.nextValue();
+				}
+			}
+			else if (infile.key == "color") {
+				item_sets[id].color.r = toInt(infile.nextValue());
+				item_sets[id].color.g = toInt(infile.nextValue());
+				item_sets[id].color.b = toInt(infile.nextValue());
+			}
+			else if (infile.key == "bonus_desc") {
+				item_sets[id].bonus_desc = infile.val;
+			}
+		}
+		infile.close();
+	}
+}
+
 void ItemManager::loadSounds() {
 	memset(sfx, 0, sizeof(sfx));
 
@@ -323,6 +369,14 @@ void ItemManager::shrinkItems() {
 		i--;
 
 	items.resize(i + 1);
+}
+
+void ItemManager::shrinkItemSets() {
+	unsigned i = item_sets.size() - 1;
+	while (item_sets[i].name == "")
+		i--;
+
+	item_sets.resize(i + 1);
 }
 
 /**
@@ -385,7 +439,10 @@ TooltipData ItemManager::getShortTooltip(ItemStack stack) {
 	tip.lines[tip.num_lines++] = ss.str();
 
 	// color quality
-	if (items[stack.item].quality == ITEM_QUALITY_LOW) {
+	if (items[stack.item].set > 0) {
+		tip.colors[0] = item_sets[items[stack.item].set].color;
+	}
+	else if (items[stack.item].quality == ITEM_QUALITY_LOW) {
 		tip.colors[0] = color_low;
 	}
 	else if (items[stack.item].quality == ITEM_QUALITY_HIGH) {
@@ -410,7 +467,16 @@ TooltipData ItemManager::getTooltip(int item, StatBlock *stats, bool vendor_view
 	tip.lines[tip.num_lines++] = items[item].name;
 
 	// color quality
-	if (items[item].quality == ITEM_QUALITY_LOW) {
+	if (items[item].set > 0) {
+		tip.colors[0] = item_sets[items[item].set].color;
+		// item set name
+		tip.colors[tip.num_lines] = item_sets[items[item].set].color;
+		tip.lines[tip.num_lines++] = msg->get(item_sets[items[item].set].name);
+		// item set description
+		tip.colors[tip.num_lines] = item_sets[items[item].set].color;
+		tip.lines[tip.num_lines++] = msg->get(item_sets[items[item].set].description);
+	}
+	else if (items[item].quality == ITEM_QUALITY_LOW) {
 		tip.colors[0] = color_low;
 	}
 	else if (items[item].quality == ITEM_QUALITY_HIGH) {

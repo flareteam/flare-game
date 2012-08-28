@@ -65,6 +65,7 @@ class Item {
 public:
 	std::string name;     // item name displayed on long and short tool tips
 	int level;            // rough estimate of quality, used in the loot algorithm
+	int set;              // item can be attached to item set
 	int quality;          // low, normal, high, epic; corresponds to item name color
 	std::string type;     // equipment slot or base item type
 	int icon_small;       // icon index on small pixel sheet
@@ -98,6 +99,7 @@ public:
 	Item() {
 		name = "";
 		level = 0;
+		set = 0;
 		quality = ITEM_QUALITY_NORMAL;
 		icon_small = 0;
 		icon_large = 0;
@@ -131,6 +133,27 @@ public:
 	}
 };
 
+class ItemSet {
+public:
+	std::string name;            // item set name displayed on long and short tool tips
+	std::string description;     // item set description
+	std::vector<int> items;      // items, included into set
+	std::string bonus_desc;
+	SDL_Color color;
+
+	ItemSet() {
+		name = "";
+		description = "";
+		bonus_desc = "";
+		color.r = 255;
+		color.g = 255;
+		color.b = 255;
+	}
+	~ItemSet() {
+
+	}
+};
+
 class ItemStack {
 public:
 	int item;
@@ -148,10 +171,12 @@ private:
 
 	void load(const std::string& filename);
 	void loadTypes(const std::string& filename);
+	void loadSets(const std::string& filename);
 	void loadAll();
 	void loadSounds();
 	void loadIcons();
 	void shrinkItems();
+	void shrinkItemSets();
 
 	SDL_Color color_normal;
 	SDL_Color color_low;
@@ -172,6 +197,7 @@ public:
 
 	std::vector<Item> items;
 	std::map<std::string,std::string> item_types;
+	std::vector<ItemSet> item_sets;
 
 	std::vector<std::string> item_class_names; // a vector of all defined classes of items
 	// belongs to the item_class_names vector and contains a vector of item ids which belong to that specific class.
