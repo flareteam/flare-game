@@ -61,6 +61,17 @@ const int ITEM_QUALITY_EPIC = 3;
 
 const int ITEM_MAX_BONUSES = 8;
 
+struct Set_bonus {
+	int requirement;
+	std::string bonus_stat;
+	int bonus_val;
+	Set_bonus() {
+		requirement = 0;
+		bonus_stat = "";
+		bonus_val = 0;
+	}
+};
+
 class Item {
 public:
 	std::string name;     // item name displayed on long and short tool tips
@@ -138,13 +149,12 @@ public:
 	std::string name;            // item set name displayed on long and short tool tips
 	std::string description;     // item set description
 	std::vector<int> items;      // items, included into set
-	std::string bonus_desc;
+	std::vector<Set_bonus> bonus;// vector with stats to increase/decrease
 	SDL_Color color;
 
 	ItemSet() {
 		name = "";
 		description = "";
-		bonus_desc = "";
 		color.r = 255;
 		color.g = 255;
 		color.b = 255;

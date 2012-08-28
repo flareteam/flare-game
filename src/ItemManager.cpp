@@ -303,8 +303,12 @@ void ItemManager::loadSets(const string& filename) {
 				item_sets[id].color.g = toInt(infile.nextValue());
 				item_sets[id].color.b = toInt(infile.nextValue());
 			}
-			else if (infile.key == "bonus_desc") {
-				item_sets[id].bonus_desc = infile.val;
+			else if (infile.key == "bonus") {
+				Set_bonus bonus;
+				bonus.requirement = toInt(infile.nextValue());
+				bonus.bonus_stat = infile.nextValue();
+				bonus.bonus_val = toInt(infile.nextValue());
+				item_sets[id].bonus.push_back(bonus);
 			}
 		}
 		infile.close();
@@ -594,6 +598,42 @@ TooltipData ItemManager::getTooltip(int item, StatBlock *stats, bool vendor_view
 			else
 				tip.lines[tip.num_lines++] = msg->get("Sell Price: %d gold each", price_per_unit);
 		}
+	}
+
+	if (items[item].set > 0) {
+			tip.colors[tip.num_lines] = item_sets[items[item].set].color;
+			tip.lines[tip.num_lines++] = msg->get("Set Item Bonuses");
+			// item set bonuses
+			ItemSet set = item_sets[items[item].set];
+			bonus_counter = 0;
+			int items_counter = 1;
+			modifier = "";
+			while (bonus_counter < set.bonus.size() && set.bonus[bonus_counter].bonus_stat != "") {
+				if (set.bonus[bonus_counter].bonus_val > 0) {
+					if (items_counter < set.bonus[bonus_counter].requirement) {
+						tip.lines[tip.num_lines++] = msg->get("%d items", set.bonus[bonus_counter].requirement);
+						items_counter = set.bonus[bonus_counter].requirement;
+					}
+					modifier = msg->get("Increases %s by %d",
+							set.bonus[bonus_counter].bonus_val,
+							msg->get(set.bonus[bonus_counter].bonus_stat));
+
+					tip.colors[tip.num_lines] = color_bonus;
+				}
+				else {
+					if (items_counter < set.bonus[bonus_counter].requirement) {
+						tip.lines[tip.num_lines++] = msg->get("%d items", set.bonus[bonus_counter].requirement);
+						items_counter = set.bonus[bonus_counter].requirement;
+					}
+					modifier = msg->get("Decreases %s by %d",
+							set.bonus[bonus_counter].bonus_val,
+							msg->get(set.bonus[bonus_counter].bonus_stat));
+
+					tip.colors[tip.num_lines] = color_penalty;
+				}
+				tip.lines[tip.num_lines++] = modifier;
+				bonus_counter++;
+			}
 	}
 
 	return tip;

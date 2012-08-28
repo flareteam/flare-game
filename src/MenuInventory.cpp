@@ -212,8 +212,6 @@ TooltipData MenuInventory::checkTooltip(Point mouse) {
 		int set_id = items->items[inventory[area][slot].item].set;
 		if (set_id > 0) {
 			vector<int> equipped;
-			tip.colors[tip.num_lines] = items->item_sets[set_id].color;
-			tip.lines[tip.num_lines++] = items->item_sets[set_id].bonus_desc;
 			// search equipped items
 			for (unsigned int i=0; i<items->item_sets[set_id].items.size(); i++) {
 				int item = items->item_sets[set_id].items[i];

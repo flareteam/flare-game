@@ -32,7 +32,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 const int STYLE_FLOAT = 0;
 const int STYLE_TOPLABEL = 1;
 
-const int TOOLTIP_MAX_LINES = 16;
+const int TOOLTIP_MAX_LINES = 25;
 
 /**
  * TooltipData contains the text and line colors for one tool tip.
