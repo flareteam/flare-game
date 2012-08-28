@@ -52,7 +52,7 @@ struct CharStat {
 	SDL_Rect hover;
 	TooltipData tip;
 	bool visible;
-	
+
 	void setHover(int x, int y, int w, int h) {
 		hover.x=x;
 		hover.y=y;
@@ -92,7 +92,7 @@ private:
 	bool show_upgrade[4];
 	bool show_stat[14];
 
-	
+
 public:
 	MenuCharacter(StatBlock *stats);
 	~MenuCharacter();
@@ -103,7 +103,6 @@ public:
 	TooltipData checkTooltip();
 	bool checkUpgrade();
 
-	bool visible;
 	bool newPowerNotification;
 
 };

@@ -50,9 +50,9 @@ private:
 	SDL_Surface *background;
 	WidgetButton *closeButton;
 	WidgetTabControl *tabControl;
-	
+
 	void loadGraphics();
-	
+
 	std::vector<std::string> log_msg[LOG_TYPE_COUNT];
 	WidgetScrollBox *msg_buffer[LOG_TYPE_COUNT];
 	int log_count[LOG_TYPE_COUNT];
@@ -67,7 +67,7 @@ private:
 	int tab_content_indent;
 	SDL_Color tab_bg;
 	SDL_Color color_normal;
-	
+
 public:
 	MenuLog();
 	~MenuLog();
@@ -81,9 +81,6 @@ public:
 	void remove(int msg_index, int log_type);
 	void clear(int log_type);
 	void clear();
-	
-	bool visible;
-
 };
 
 #endif
