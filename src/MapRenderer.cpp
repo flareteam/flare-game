@@ -905,6 +905,7 @@ void MapRenderer::renderIso(vector<Renderable> &r, vector<Renderable> &r_dead) {
 		src.h = 2 * VIEW_H;
 		SDL_BlitSurface(backgroundsurface, &src, screen , 0);
 	}
+	renderIsoFringe(screen, nulloffset);
 	renderIsoBackObjects(r_dead);
 	renderIsoFrontObjects(r);
 	checkTooltip();
