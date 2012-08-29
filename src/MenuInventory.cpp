@@ -708,7 +708,7 @@ void MenuInventory::applyEquipment(ItemStack *equipped) {
 		for (unsigned k=0; k<set.size(); k++) {
 			temp_set = items->item_sets[set[k]];
 			for (bonus_counter=0; bonus_counter<temp_set.bonus.size(); bonus_counter++) {
-				if (temp_set.bonus[bonus_counter].requirement != (unsigned)quantity[k]) continue;
+				if (temp_set.bonus[bonus_counter].requirement != quantity[k]) continue;
 
 				if (temp_set.bonus[bonus_counter].bonus_stat == "offense")
 					stats->offense_additional += temp_set.bonus[bonus_counter].bonus_val;
@@ -907,7 +907,7 @@ void MenuInventory::applyItemSetBonuses(ItemStack *equipped) {
 	for (unsigned k=0; k<set.size(); k++) {
 		temp_set = items->item_sets[set[k]];
 		for (bonus_counter=0; bonus_counter<temp_set.bonus.size(); bonus_counter++) {
-			if (temp_set.bonus[bonus_counter].requirement != (unsigned)quantity[k]) continue;
+			if (temp_set.bonus[bonus_counter].requirement != quantity[k]) continue;
 
 			if (temp_set.bonus[bonus_counter].bonus_stat == "HP")
 				stats->maxhp += temp_set.bonus[bonus_counter].bonus_val;
