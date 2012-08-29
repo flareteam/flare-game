@@ -798,6 +798,71 @@ void MenuInventory::applyEquipment(ItemStack *equipped) {
 
 			bonus_counter++;
 		}
+
+	}
+
+	// calculate bonuses. added by item sets
+	vector<int> set;
+	vector<int> quantity;
+	vector<int>::iterator it;
+	for (int i=0; i<MAX_EQUIPPED; i++) {
+		item_id = equipped[i].item;
+		it = find(set.begin(), set.end(), items->items[item_id].set);
+		if (items->items[item_id].set > 0 && it != set.end()) {
+			quantity[distance(set.begin(), it)] += 1;
+		}
+		else if (items->items[item_id].set > 0) {
+			set.push_back(items->items[item_id].set);
+			quantity.push_back(1);
+		}
+	}
+	// apply item set bonuses
+	ItemSet temp_set;
+	for (unsigned k=0; k<set.size(); k++) {
+		temp_set = items->item_sets[set[k]];
+		for (bonus_counter=0; bonus_counter<temp_set.bonus.size(); bonus_counter++) {
+			if (temp_set.bonus[bonus_counter].requirement != (unsigned)quantity[k]) continue;
+
+			if (temp_set.bonus[bonus_counter].bonus_stat == "HP")
+				stats->maxhp += temp_set.bonus[bonus_counter].bonus_val;
+			else if (temp_set.bonus[bonus_counter].bonus_stat == "HP regen")
+				stats->hp_per_minute += temp_set.bonus[bonus_counter].bonus_val;
+			else if (temp_set.bonus[bonus_counter].bonus_stat == "MP")
+				stats->maxmp += temp_set.bonus[bonus_counter].bonus_val;
+			else if (temp_set.bonus[bonus_counter].bonus_stat == "MP regen")
+				stats->mp_per_minute += temp_set.bonus[bonus_counter].bonus_val;
+			else if (temp_set.bonus[bonus_counter].bonus_stat == "accuracy")
+				stats->accuracy += temp_set.bonus[bonus_counter].bonus_val;
+			else if (temp_set.bonus[bonus_counter].bonus_stat == "avoidance")
+				stats->avoidance += temp_set.bonus[bonus_counter].bonus_val;
+			else if (temp_set.bonus[bonus_counter].bonus_stat == "crit")
+				stats->crit += temp_set.bonus[bonus_counter].bonus_val;
+			else if (temp_set.bonus[bonus_counter].bonus_stat == "speed") {
+				stats->speed += temp_set.bonus[bonus_counter].bonus_val;
+				// speed bonuses are in multiples of 3
+				// 3 ordinal, 2 diagonal is rounding pythagorus
+				stats->dspeed += ((temp_set.bonus[bonus_counter].bonus_val) * 2) /3;
+			}
+			else if (temp_set.bonus[bonus_counter].bonus_stat == "offense")
+				stats->offense_additional += temp_set.bonus[bonus_counter].bonus_val;
+			else if (temp_set.bonus[bonus_counter].bonus_stat == "defense")
+				stats->defense_additional += temp_set.bonus[bonus_counter].bonus_val;
+			else if (temp_set.bonus[bonus_counter].bonus_stat == "physical")
+				stats->physical_additional += temp_set.bonus[bonus_counter].bonus_val;
+			else if (temp_set.bonus[bonus_counter].bonus_stat == "mental")
+				stats->mental_additional += temp_set.bonus[bonus_counter].bonus_val;
+			else if (temp_set.bonus[bonus_counter].bonus_stat == "all basic stats") {
+				stats->offense_additional += temp_set.bonus[bonus_counter].bonus_val;
+				stats->defense_additional += temp_set.bonus[bonus_counter].bonus_val;
+				stats->physical_additional += temp_set.bonus[bonus_counter].bonus_val;
+				stats->mental_additional += temp_set.bonus[bonus_counter].bonus_val;
+			}
+
+			for (unsigned int j=0; j<ELEMENTS.size(); j++) {
+				if (temp_set.bonus[bonus_counter].bonus_stat == ELEMENTS[j].name + " resist")
+					stats->vulnerable[j] -= temp_set.bonus[bonus_counter].bonus_val;
+			}
+		}
 	}
 
 	// increase damage and absorb to minimum amounts
