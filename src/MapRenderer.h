@@ -176,6 +176,7 @@ private:
 	std::vector<Map_Event> events;
 
 	unsigned short background[256][256];
+	unsigned short fringe[256][256];
 	unsigned short object[256][256];
 	unsigned short collision[256][256];
 
@@ -203,11 +204,13 @@ private:
 	void drawRenderable(std::vector<Renderable>::iterator r_cursor);
 	// offset in screen/surface coordinates.
 	void renderIsoBackground(SDL_Surface *wheretorender, Point offset);
+	void renderIsoFringe(SDL_Surface *wheretorender, Point offset);
 	void renderIsoBackObjects(std::vector<Renderable> &r);
 	void renderIsoFrontObjects(std::vector<Renderable> &r);
 	void renderIso(std::vector<Renderable> &r, std::vector<Renderable> &r_dead);
 
 	void renderOrthoBackground();
+	void renderOrthoFringe();
 	void renderOrthoBackObjects(std::vector<Renderable> &r);
 	void renderOrthoFrontObjects(std::vector<Renderable> &r);
 	void renderOrtho(std::vector<Renderable> &r, std::vector<Renderable> &r_dead);
