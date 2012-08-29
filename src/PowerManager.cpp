@@ -681,7 +681,7 @@ void PowerManager::initHazard(int power_index, StatBlock *src_stats, Point targe
 		haz->trait_armor_penetration = true;
 	}
 	haz->trait_crits_impaired = powers[power_index].trait_crits_impaired;
-	if (powers[power_index].trait_elemental) {
+	if (powers[power_index].trait_elemental != -1) {
 		haz->trait_elemental = powers[power_index].trait_elemental;
 	}
 
