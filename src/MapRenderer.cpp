@@ -224,6 +224,7 @@ int MapRenderer::load(string filename) {
 							val = infile.getRawLine() + ',';
 							for (int i=0; i<w; i++) {
 								if (cur_layer == "background") background[i][j] = eatFirstHex(val, ',');
+								else if (cur_layer == "fringe") fringe[i][j] = eatFirstHex(val, ',');
 								else if (cur_layer == "object") object[i][j] = eatFirstHex(val, ',');
 								else if (cur_layer == "collision") collision[i][j] = eatFirstHex(val, ',');
 							}
@@ -234,6 +235,7 @@ int MapRenderer::load(string filename) {
 							val = infile.getRawLine() + ',';
 							for (int i=0; i<w; i++) {
 								if (cur_layer == "background") background[i][j] = eatFirstInt(val, ',');
+								else if (cur_layer == "fringe") fringe[i][j] = eatFirstInt(val, ',');
 								else if (cur_layer == "object") object[i][j] = eatFirstInt(val, ',');
 								else if (cur_layer == "collision") collision[i][j] = eatFirstInt(val, ',');
 							}
@@ -752,6 +754,57 @@ void MapRenderer::renderIsoBackground(SDL_Surface *wheretorender, Point offset) 
 	}
 }
 
+void MapRenderer::renderIsoFringe(SDL_Surface *wheretorender, Point offset) {
+	short int i;
+	short int j;
+	SDL_Rect dest;
+	const Point upperright = screen_to_map(0, 0, shakycam.x, shakycam.y);
+	const short max_tiles_width = (VIEW_W / TILE_W) + 2 * tiles_outside_of_screen;
+	const short max_tiles_height = (2 * VIEW_H / TILE_H) + 2 * tiles_outside_of_screen;
+	j = upperright.y / UNITS_PER_TILE;
+	i = upperright.x / UNITS_PER_TILE - tiles_outside_of_screen;
+
+	for (unsigned short y = max_tiles_height ; y; --y) {
+		short tiles_width = 0;
+
+		// make sure the isometric corners are not rendered:
+		if (i < -1) {
+			j += i + 1;
+			tiles_width -= i + 1;
+			i = -1;
+		}
+		short d = j - h;
+		if (d >= 0) {
+			j -= d; tiles_width += d; i += d;
+		}
+		short j_end = std::max((j+i-w+1), std::max(j - max_tiles_width, 0));
+
+		// draw one horizontal line
+		while (j > j_end) {
+			--j; ++i;
+			++tiles_width;
+
+			unsigned short current_tile = fringe[i][j];
+
+			if (current_tile) {
+				Point p = map_to_screen(i * UNITS_PER_TILE, j * UNITS_PER_TILE, shakycam.x, shakycam.y);
+				p = center_tile(p);
+				dest.x = p.x - tset.tiles[current_tile].offset.x + offset.x;
+				dest.y = p.y - tset.tiles[current_tile].offset.y + offset.y;
+				// no need to set w and h in dest, as it is ignored
+				// by SDL_BlitSurface
+				SDL_BlitSurface(tset.sprites, &(tset.tiles[current_tile].src), wheretorender, &dest);
+			}
+		}
+		j += tiles_width;
+		i -= tiles_width;
+		if (y % 2)
+			i++;
+		else
+			j++;
+	}
+}
+
 void MapRenderer::renderIsoBackObjects(vector<Renderable> &r) {
 	vector<Renderable>::iterator it;
 	for (it = r.begin(); it != r.end(); it++)
@@ -879,6 +932,28 @@ void MapRenderer::renderOrthoBackground() {
 	}
 }
 
+void MapRenderer::renderOrthoFringe() {
+	short int i;
+	short int j;
+	SDL_Rect dest;
+	unsigned short current_tile;
+
+	for (j=0; j<h; j++) {
+		for (i=0; i<w; i++) {
+
+			current_tile = fringe[i][j];
+
+			if (current_tile) {
+				Point p = map_to_screen(i * UNITS_PER_TILE, j * UNITS_PER_TILE, shakycam.x, shakycam.y);
+				p = center_tile(p);
+				dest.x = p.x - tset.tiles[current_tile].offset.x;
+				dest.y = p.y - tset.tiles[current_tile].offset.y;
+				SDL_BlitSurface(tset.sprites, &(tset.tiles[current_tile].src), screen, &dest);
+			}
+		}
+	}
+}
+
 void MapRenderer::renderOrthoBackObjects(std::vector<Renderable> &r) {
 	// some renderables are drawn above the background and below the objects
 	vector<Renderable>::iterator it;
@@ -921,6 +996,7 @@ void MapRenderer::renderOrthoFrontObjects(std::vector<Renderable> &r) {
 void MapRenderer::renderOrtho(vector<Renderable> &r, vector<Renderable> &r_dead) {
 
 	renderOrthoBackground();
+	renderOrthoFringe();
 	renderOrthoBackObjects(r_dead);
 	renderOrthoFrontObjects(r);
 	//render event tooltips
@@ -1163,6 +1239,9 @@ bool MapRenderer::executeEvent(Map_Event &ev) {
 			}
 			else if (ec->s == "object") {
 				object[ec->x][ec->y] = ec->z;
+			}
+			else if (ec->s == "fringe") {
+				fringe[ec->x][ec->y] = ec->z;
 			}
 			else if (ec->s == "background") {
 				background[ec->x][ec->y] = ec->z;
