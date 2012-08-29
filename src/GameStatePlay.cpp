@@ -81,9 +81,11 @@ GameStatePlay::GameStatePlay() : GameState() {
 	camp->hero = &pc->stats;
 	map->powers = powers;
 
-	label_fps = new WidgetLabel();
-
 	color_normal = font->getColor("menu_normal");
+
+	label_fps = new WidgetLabel();
+	loading = new WidgetLabel();
+	loading->set(VIEW_W_HALF, VIEW_H_HALF, JUSTIFY_CENTER, VALIGN_CENTER, "Loading...", color_normal);
 }
 
 /**
@@ -209,6 +211,7 @@ void GameStatePlay::checkTeleport() {
 
 		// process intermap teleport
 		if (map->teleportation && map->teleport_mapname != "") {
+			showLoading();
 			map->load(map->teleport_mapname);
 			enemies->handleNewMap();
 			hazards->handleNewMap(&map->collider);
@@ -666,6 +669,12 @@ void GameStatePlay::showFPS(int fps) {
 	label_fps->render();
 }
 
+void GameStatePlay::showLoading() {
+	SDL_FillRect(screen,NULL,0);
+	loading->render();
+	SDL_Flip(screen);
+}
+
 GameStatePlay::~GameStatePlay() {
 	delete quests;
 	delete npcs;
@@ -680,5 +689,6 @@ GameStatePlay::~GameStatePlay() {
 	delete powers;
 
 	delete label_fps;
+	delete loading;
 }
 
