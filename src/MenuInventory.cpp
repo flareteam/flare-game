@@ -655,15 +655,16 @@ void MenuInventory::applyEquipment(ItemStack *equipped) {
 	int prev_mp = stats->mp;
 
 	const vector<Item> &pc_items = items->items;
+	int item_id;
 
-	// calculate bonuses to basic stats and check that each equipped item fit requirements
+	// calculate bonuses to basic stats, added by items
 	bool checkRequired = true;
 	while(checkRequired)
 	{
 		checkRequired = false;
 		stats->offense_additional = stats->defense_additional = stats->physical_additional = stats->mental_additional = 0;
 		for (int i = 0; i < MAX_EQUIPPED; i++) {
-			int item_id = equipped[i].item;
+			item_id = equipped[i].item;
 			const Item &item = pc_items[item_id];
 			bonus_counter = 0;
 			while (bonus_counter < item.bonus_stat.size() && item.bonus_stat[bonus_counter] != "") {
@@ -684,6 +685,48 @@ void MenuInventory::applyEquipment(ItemStack *equipped) {
 				bonus_counter++;
 			}
 		}
+
+		// calculate bonuses. added by item sets
+		vector<int> set;
+		vector<int> quantity;
+		vector<int>::iterator it;
+		bonus_counter = 0;
+
+		for (int i=0; i<MAX_EQUIPPED; i++) {
+			item_id = equipped[i].item;
+			it = find(set.begin(), set.end(), items->items[item_id].set);
+			if (items->items[item_id].set > 0 && it != set.end()) {
+				quantity[distance(set.begin(), it)] += 1;
+			}
+			else if (items->items[item_id].set > 0) {
+				set.push_back(items->items[item_id].set);
+				quantity.push_back(1);
+			}
+		}
+		// calculate bonuses to basic stats, added by item sets
+		ItemSet temp_set;
+		for (unsigned k=0; k<set.size(); k++) {
+			temp_set = items->item_sets[set[k]];
+			for (bonus_counter=0; bonus_counter<temp_set.bonus.size(); bonus_counter++) {
+				if (temp_set.bonus[bonus_counter].requirement != (unsigned)quantity[k]) continue;
+
+				if (temp_set.bonus[bonus_counter].bonus_stat == "offense")
+					stats->offense_additional += temp_set.bonus[bonus_counter].bonus_val;
+				else if (temp_set.bonus[bonus_counter].bonus_stat == "defense")
+					stats->defense_additional += temp_set.bonus[bonus_counter].bonus_val;
+				else if (temp_set.bonus[bonus_counter].bonus_stat == "physical")
+					stats->physical_additional += temp_set.bonus[bonus_counter].bonus_val;
+				else if (temp_set.bonus[bonus_counter].bonus_stat == "mental")
+					stats->mental_additional += temp_set.bonus[bonus_counter].bonus_val;
+				else if (temp_set.bonus[bonus_counter].bonus_stat == "all basic stats") {
+					stats->offense_additional += temp_set.bonus[bonus_counter].bonus_val;
+					stats->defense_additional += temp_set.bonus[bonus_counter].bonus_val;
+					stats->physical_additional += temp_set.bonus[bonus_counter].bonus_val;
+					stats->mental_additional += temp_set.bonus[bonus_counter].bonus_val;
+				}
+			}
+		}
+		// check that each equipped item fit requirements
 		for (int i = 0; i < MAX_EQUIPPED; i++) {
 			if (!requirementsMet(equipped[i].item)) {
 				add(equipped[i]);
@@ -715,6 +758,44 @@ void MenuInventory::applyEquipment(ItemStack *equipped) {
 	stats->wielding_mental = false;
 	stats->wielding_offense = false;
 
+
+	applyItemStats(equipped);
+	applyItemSetBonuses(equipped);
+
+	// increase damage and absorb to minimum amounts
+	if (stats->dmg_melee_min < stats->dmg_melee_min_default)
+		stats->dmg_melee_min = stats->dmg_melee_min_default;
+	if (stats->dmg_melee_max < stats->dmg_melee_max_default)
+		stats->dmg_melee_max = stats->dmg_melee_max_default;
+	if (stats->dmg_ranged_min < stats->dmg_ranged_min_default)
+		stats->dmg_ranged_min = stats->dmg_ranged_min_default;
+	if (stats->dmg_ranged_max < stats->dmg_ranged_max_default)
+		stats->dmg_ranged_max = stats->dmg_ranged_max_default;
+	if (stats->dmg_ment_min < stats->dmg_ment_min_default)
+		stats->dmg_ment_min = stats->dmg_ment_min_default;
+	if (stats->dmg_ment_max < stats->dmg_ment_max_default)
+		stats->dmg_ment_max = stats->dmg_ment_max_default;
+	if (stats->absorb_min < stats->absorb_min_default)
+		stats->absorb_min = stats->absorb_min_default;
+	if (stats->absorb_max < stats->absorb_max_default)
+		stats->absorb_max = stats->absorb_max_default;
+
+	// apply previous hp/mp
+	if (prev_hp < stats->maxhp)
+		stats->hp = prev_hp;
+	else
+		stats->hp = stats->maxhp;
+
+	if (prev_mp < stats->maxmp)
+		stats->mp = prev_mp;
+	else
+		stats->mp = stats->maxmp;
+
+}
+
+void MenuInventory::applyItemStats(ItemStack *equipped) {
+	unsigned bonus_counter;
+	const vector<Item> &pc_items = items->items;
 	int item_id;
 
 	// apply stats from all items
@@ -800,11 +881,16 @@ void MenuInventory::applyEquipment(ItemStack *equipped) {
 		}
 
 	}
+}
 
+void MenuInventory::applyItemSetBonuses(ItemStack *equipped) {
 	// calculate bonuses. added by item sets
 	vector<int> set;
 	vector<int> quantity;
 	vector<int>::iterator it;
+	unsigned bonus_counter = 0;
+	int item_id;
+
 	for (int i=0; i<MAX_EQUIPPED; i++) {
 		item_id = equipped[i].item;
 		it = find(set.begin(), set.end(), items->items[item_id].set);
@@ -864,36 +950,6 @@ void MenuInventory::applyEquipment(ItemStack *equipped) {
 			}
 		}
 	}
-
-	// increase damage and absorb to minimum amounts
-	if (stats->dmg_melee_min < stats->dmg_melee_min_default)
-		stats->dmg_melee_min = stats->dmg_melee_min_default;
-	if (stats->dmg_melee_max < stats->dmg_melee_max_default)
-		stats->dmg_melee_max = stats->dmg_melee_max_default;
-	if (stats->dmg_ranged_min < stats->dmg_ranged_min_default)
-		stats->dmg_ranged_min = stats->dmg_ranged_min_default;
-	if (stats->dmg_ranged_max < stats->dmg_ranged_max_default)
-		stats->dmg_ranged_max = stats->dmg_ranged_max_default;
-	if (stats->dmg_ment_min < stats->dmg_ment_min_default)
-		stats->dmg_ment_min = stats->dmg_ment_min_default;
-	if (stats->dmg_ment_max < stats->dmg_ment_max_default)
-		stats->dmg_ment_max = stats->dmg_ment_max_default;
-	if (stats->absorb_min < stats->absorb_min_default)		
-		stats->absorb_min = stats->absorb_min_default;
-	if (stats->absorb_max < stats->absorb_max_default)				
-		stats->absorb_max = stats->absorb_max_default;
-
-	// apply previous hp/mp
-	if (prev_hp < stats->maxhp)
-		stats->hp = prev_hp;
-	else
-		stats->hp = stats->maxhp;
-
-	if (prev_mp < stats->maxmp)
-		stats->mp = prev_mp;
-	else
-		stats->mp = stats->maxmp;
-
 }
 
 MenuInventory::~MenuInventory() {

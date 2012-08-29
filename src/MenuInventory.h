@@ -91,6 +91,8 @@ public:
 	bool requirementsMet(int item);
 
 	void applyEquipment(ItemStack *equipped);
+	void applyItemStats(ItemStack *equipped);
+	void applyItemSetBonuses(ItemStack *equipped);
 
 	SDL_Rect carried_area;
 	std::vector<SDL_Rect> equipped_area;
