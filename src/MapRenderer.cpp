@@ -880,6 +880,7 @@ void MapRenderer::renderIso(vector<Renderable> &r, vector<Renderable> &r_dead) {
 	const Point nulloffset = {0, 0};
 	if (ANIMATED_TILES) {
 		renderIsoBackground(screen, nulloffset);
+		renderIsoFringe(screen, nulloffset);
 	}
 	else {
 		if (abs(shakycam.x - backgroundsurfaceoffset.x) > movedistance_to_rerender * TILE_W
@@ -896,6 +897,7 @@ void MapRenderer::renderIso(vector<Renderable> &r, vector<Renderable> &r_dead) {
 			SDL_FillRect(backgroundsurface, 0, 0);
 			Point off = {VIEW_W_HALF, VIEW_H_HALF};
 			renderIsoBackground(backgroundsurface, off);
+			renderIsoFringe(backgroundsurface, off);
 		}
 		Point p = map_to_screen(shakycam.x, shakycam.y , backgroundsurfaceoffset.x, backgroundsurfaceoffset.y);
 		SDL_Rect src;
@@ -905,7 +907,6 @@ void MapRenderer::renderIso(vector<Renderable> &r, vector<Renderable> &r_dead) {
 		src.h = 2 * VIEW_H;
 		SDL_BlitSurface(backgroundsurface, &src, screen , 0);
 	}
-	renderIsoFringe(screen, nulloffset);
 	renderIsoBackObjects(r_dead);
 	renderIsoFrontObjects(r);
 	checkTooltip();
