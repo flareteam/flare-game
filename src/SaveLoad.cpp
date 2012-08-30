@@ -122,7 +122,9 @@ void GameStatePlay::saveGame() {
 
 		outfile << endl;
 
+		if (outfile.bad()) fprintf(stderr, "Unable to save the game. No write access or disk is full!\n");
 		outfile.close();
+		outfile.clear();
 	}
 
 	// Save stash
@@ -137,7 +139,9 @@ void GameStatePlay::saveGame() {
 
 		outfile << endl;
 
+		if (outfile.bad()) fprintf(stderr, "Unable to save stash. No write access or disk is full!\n");
 		outfile.close();
+		outfile.clear();
 	}
 }
 

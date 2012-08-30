@@ -1159,7 +1159,9 @@ bool GameStateConfig::setMods() {
 			outfile<<mods->mod_list[i]<<"\n";
 		}
 	}
+	if (outfile.bad()) fprintf(stderr, "Unable to save mod list into file. No write access or disk is full!\n");
 	outfile.close();
+	outfile.clear();
 	if (mods->mod_list != temp_list) return true;
 	else return false;
 }

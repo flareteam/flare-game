@@ -467,7 +467,9 @@ bool saveSettings() {
 			outfile<<config[i].name<<"="<<toString(*config[i].type, config[i].storage)<<"\n";
 		}
 
+		if (outfile.bad()) fprintf(stderr, "Unable to write settings file. No write access or disk is full!\n");
 		outfile.close();
+		outfile.clear();
 	}
 	return true;
 }
