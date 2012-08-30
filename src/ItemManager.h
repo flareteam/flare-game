@@ -100,7 +100,7 @@ public:
 	int power_mod;        // alter powers when this item is equipped (e.g. shoot arrows from bows)
 	std::string power_desc;    // shows up in green text on the tooltip
 	int price;            // if price = 0 the item cannot be sold
-	int price_sell;       // if price_sell = 0, the sell price is price/vendor_ratio
+	int price_sell;       // if price_sell = 0, the sell price is price*vendor_ratio
 	int max_quantity;     // max count per stack
 	int rand_loot;        // max amount appearing in a loot stack
 	int rand_vendor;      // max amount appearing in a vendor stack
@@ -212,8 +212,6 @@ public:
 	std::vector<std::string> item_class_names; // a vector of all defined classes of items
 	// belongs to the item_class_names vector and contains a vector of item ids which belong to that specific class.
 	std::vector<std::vector<unsigned int> > item_class_items;
-
-	int vendor_ratio;
 };
 
 #endif

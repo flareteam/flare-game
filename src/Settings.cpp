@@ -140,6 +140,10 @@ short MAX_AVOIDANCE = 99;
 // Elemental types
 std::vector<Element> ELEMENTS;
 
+// Currency settings
+std::string CURRENCY = "gold";
+float VENDOR_RATIO = 0.25;
+
 // Other Settings
 bool MENUS_PAUSE = false;
 std::string DEFAULT_NAME = "";

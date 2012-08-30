@@ -615,7 +615,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 					log_msg = msg->get("You are defeated. Game over! Press Enter to exit to Title.");
 				}
 				else {
-					log_msg = msg->get("You are defeated.  You lose half your gold.  Press Enter to continue.");
+					log_msg = msg->get("You are defeated.  You lose half your %s.  Press Enter to continue.", CURRENCY);
 				}
 			}
 

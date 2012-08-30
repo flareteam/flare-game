@@ -172,7 +172,7 @@ void MenuInventory::render() {
 		label.render();
 	}
 	if (!gold_lbl.hidden) {
-		label.set(window_area.x+gold_lbl.x, window_area.y+gold_lbl.y, gold_lbl.justify, gold_lbl.valign, msg->get("%d Gold", gold), color_normal);
+		label.set(window_area.x+gold_lbl.x, window_area.y+gold_lbl.y, gold_lbl.justify, gold_lbl.valign, msg->get("%d %s", gold, CURRENCY), color_normal);
 		label.render();
 	}
 
@@ -579,7 +579,7 @@ bool MenuInventory::sell(ItemStack stack) {
 	if(items->items[stack.item].price_sell != 0)
 		value_each = items->items[stack.item].price_sell;
 	else
-		value_each = items->items[stack.item].price / items->vendor_ratio;
+		value_each = (float)items->items[stack.item].price * VENDOR_RATIO;
 	if (value_each == 0) value_each = 1;
 	int value = value_each * stack.quantity;
 	gold += value;
