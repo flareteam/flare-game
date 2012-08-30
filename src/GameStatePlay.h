@@ -63,6 +63,7 @@ private:
 
 	WidgetLabel *label_fps;
 	WidgetLabel *loading;
+	SDL_Surface *loading_bg;
 
 	bool restrictPowerUse();
 	void checkEnemyFocus();
