@@ -680,7 +680,7 @@ void GameStatePlay::showFPS(int fps) {
 }
 
 void GameStatePlay::showLoading() {
-	SDL_FillRect(screen,NULL,0);
+	// SDL_FillRect(screen,NULL,0);
 
 	SDL_Rect dest;
 	dest.x = VIEW_W_HALF - loading_bg->w/2;

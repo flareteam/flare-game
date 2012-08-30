@@ -142,12 +142,13 @@ static void mainLoop (const vector<string>	& args) {
 
 	while ( !done ) {
 
-		// black out
-		SDL_FillRect(screen, NULL, 0);
-
 		SDL_PumpEvents();
 		inpt->handle(debug_event);
 		gswitch->logic();
+		
+		// black out
+		SDL_FillRect(screen, NULL, 0);		
+		
 		gswitch->render();
 
 		// Engine done means the user escapes the main game menu.
