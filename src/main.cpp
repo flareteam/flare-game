@@ -73,9 +73,6 @@ static void init() {
     // Load tileset options (must be after ModManager is initialized)
 	loadTilesetSettings();
 
-    // Load autopickup settings (must be after ModManager is initialized)
-    loadAutoPickupSettings();
-
     // Load miscellaneous settings
     loadMiscSettings();
 

@@ -110,7 +110,6 @@ extern std::vector<Element> ELEMENTS;
 
 void setPaths();
 void loadTilesetSettings();
-void loadAutoPickupSettings();
 void loadMiscSettings();
 bool loadSettings();
 bool saveSettings();
