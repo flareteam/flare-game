@@ -38,7 +38,6 @@ using namespace std;
 ItemManager::ItemManager() {
 	items = vector<Item>();
 
-	vendor_ratio = 4; // this means scrap/vendor pays 1/4th price to buy items from hero
 	loadAll();
 	loadSounds();
 	loadIcons();
@@ -591,7 +590,7 @@ TooltipData ItemManager::getTooltip(int item, StatBlock *stats, bool vendor_view
 			if(items[item].price_sell != 0)
 				price_per_unit = items[item].price_sell;
 			else
-				price_per_unit = items[item].price/vendor_ratio;
+				price_per_unit = (float)items[item].price*VENDOR_RATIO;
 			if (price_per_unit == 0) price_per_unit = 1;
 			if (items[item].max_quantity <= 1)
 				tip.lines[tip.num_lines++] = msg->get("Sell Price: %d %s", price_per_unit, CURRENCY);

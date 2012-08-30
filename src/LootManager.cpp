@@ -68,6 +68,8 @@ LootManager::LootManager(ItemManager *_items, MapRenderer *_map, StatBlock *_her
                 AUTOPICKUP_GOLD = eatFirstInt(infile.val, ',');
 			} else if (infile.key == "currency_name") {
                 CURRENCY = eatFirstString(infile.val, ',');
+			} else if (infile.key == "vendor_ratio") {
+                VENDOR_RATIO = (float)eatFirstInt(infile.val, ',') / 100.0;
             }
 		}
 		infile.close();

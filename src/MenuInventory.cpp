@@ -579,7 +579,7 @@ bool MenuInventory::sell(ItemStack stack) {
 	if(items->items[stack.item].price_sell != 0)
 		value_each = items->items[stack.item].price_sell;
 	else
-		value_each = items->items[stack.item].price / items->vendor_ratio;
+		value_each = (float)items->items[stack.item].price * VENDOR_RATIO;
 	if (value_each == 0) value_each = 1;
 	int value = value_each * stack.quantity;
 	gold += value;
