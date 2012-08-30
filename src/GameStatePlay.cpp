@@ -81,9 +81,21 @@ GameStatePlay::GameStatePlay() : GameState() {
 	camp->hero = &pc->stats;
 	map->powers = powers;
 
-	label_fps = new WidgetLabel();
-
 	color_normal = font->getColor("menu_normal");
+
+	label_fps = new WidgetLabel();
+	loading = new WidgetLabel();
+	loading->set(VIEW_W_HALF, VIEW_H_HALF, JUSTIFY_CENTER, VALIGN_CENTER, "Loading...", color_normal);
+
+	// Load the loading screen image (we currently use the confirm dialog background)
+	loading_bg = IMG_Load(mods->locate("images/menus/confirm_bg.png").c_str());
+	if(!loading_bg) {
+		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
+		SDL_Quit();
+	}
+	SDL_Surface *cleanup = loading_bg;
+	loading_bg = SDL_DisplayFormatAlpha(loading_bg);
+	SDL_FreeSurface(cleanup);
 }
 
 /**
@@ -209,6 +221,7 @@ void GameStatePlay::checkTeleport() {
 
 		// process intermap teleport
 		if (map->teleportation && map->teleport_mapname != "") {
+			showLoading();
 			map->load(map->teleport_mapname);
 			enemies->handleNewMap();
 			hazards->handleNewMap(&map->collider);
@@ -666,6 +679,19 @@ void GameStatePlay::showFPS(int fps) {
 	label_fps->render();
 }
 
+void GameStatePlay::showLoading() {
+	SDL_FillRect(screen,NULL,0);
+
+	SDL_Rect dest;
+	dest.x = VIEW_W_HALF - loading_bg->w/2;
+	dest.y = VIEW_H_HALF - loading_bg->h/2;
+
+	SDL_BlitSurface(loading_bg,NULL,screen,&dest);
+	loading->render();
+
+	SDL_Flip(screen);
+}
+
 GameStatePlay::~GameStatePlay() {
 	delete quests;
 	delete npcs;
@@ -680,5 +706,8 @@ GameStatePlay::~GameStatePlay() {
 	delete powers;
 
 	delete label_fps;
+	delete loading;
+
+	SDL_FreeSurface(loading_bg);
 }
 

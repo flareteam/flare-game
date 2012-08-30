@@ -62,6 +62,8 @@ private:
 	QuestLog *quests;
 
 	WidgetLabel *label_fps;
+	WidgetLabel *loading;
+	SDL_Surface *loading_bg;
 
 	bool restrictPowerUse();
 	void checkEnemyFocus();
@@ -75,6 +77,7 @@ private:
 	void checkNotifications();
 	void checkNPCInteraction();
 	void checkStash();
+	void showLoading();
 
 	int npc_id;
 
