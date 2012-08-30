@@ -178,6 +178,7 @@ private:
 	unsigned short background[256][256];
 	unsigned short fringe[256][256];
 	unsigned short object[256][256];
+	unsigned short foreground[256][256];
 	unsigned short collision[256][256];
 
 	// This determines the size of the backgroundsurface outside the actual
@@ -207,12 +208,14 @@ private:
 	void renderIsoFringe(SDL_Surface *wheretorender, Point offset);
 	void renderIsoBackObjects(std::vector<Renderable> &r);
 	void renderIsoFrontObjects(std::vector<Renderable> &r);
+	void renderIsoForeground(SDL_Surface *wheretorender, Point offset);
 	void renderIso(std::vector<Renderable> &r, std::vector<Renderable> &r_dead);
 
 	void renderOrthoBackground();
 	void renderOrthoFringe();
 	void renderOrthoBackObjects(std::vector<Renderable> &r);
 	void renderOrthoFrontObjects(std::vector<Renderable> &r);
+	void renderOrthoForeground();
 	void renderOrtho(std::vector<Renderable> &r, std::vector<Renderable> &r_dead);
 	
 	void clearLayers();
