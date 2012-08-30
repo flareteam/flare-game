@@ -323,20 +323,6 @@ void loadTilesetSettings() {
 	}
 }
 
-void loadAutoPickupSettings() {
-	FileParser infile;
-	// load autopickup settings from engine config
-	if (infile.open(mods->locate("engine/autopickup.txt").c_str())) {
-		while (infile.next()) {
-			if (infile.key == "range")
-				AUTOPICKUP_RANGE = toInt(infile.val);
-			else if (infile.key == "gold")
-				AUTOPICKUP_GOLD = (toInt(infile.val) == 1);
-		}
-		infile.close();
-	} else fprintf(stderr, "Unable to open engine/autopickup.txt! Turning autopickup off by default.\n");
-}
-
 void loadMiscSettings() {
 	FileParser infile;
 	// load miscellaneous settings from engine config

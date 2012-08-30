@@ -62,7 +62,11 @@ LootManager::LootManager(ItemManager *_items, MapRenderer *_map, StatBlock *_her
 				animation_offset.y = eatFirstInt(infile.val, ',');
 			} else if (infile.key == "tooltip_margin") {
 				tooltip_margin = eatFirstInt(infile.val, ',');
-			}
+			} else if (infile.key == "autopickup_range") {
+                AUTOPICKUP_RANGE = eatFirstInt(infile.val, ',');
+			} else if (infile.key == "autopickup_currency") {
+                AUTOPICKUP_GOLD = eatFirstInt(infile.val, ',');
+            }
 		}
 		infile.close();
 	} else fprintf(stderr, "Unable to open engine/loot.txt!\n");
