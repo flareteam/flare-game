@@ -241,7 +241,7 @@ void ItemManager::load(const string& filename) {
 
 		}
 		infile.close();
-	}
+	} else fprintf(stderr, "Unable to open %s!\n", filename.c_str());
 }
 
 void ItemManager::loadTypes(const string& filename) {
@@ -260,7 +260,7 @@ void ItemManager::loadTypes(const string& filename) {
 			}
 		}
 		infile.close();
-	}
+	} else fprintf(stderr, "Unable to open %s!\n", filename.c_str());
 }
 
 string ItemManager::getItemType(std::string _type) {
@@ -312,7 +312,7 @@ void ItemManager::loadSets(const string& filename) {
 			}
 		}
 		infile.close();
-	}
+	} else fprintf(stderr, "Unable to open %s!\n", filename.c_str());
 }
 
 void ItemManager::loadSounds() {

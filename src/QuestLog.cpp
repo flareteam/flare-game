@@ -118,7 +118,7 @@ void QuestLog::load(const std::string& filename) {
 
 		}
 		infile.close();
-	}
+	} else fprintf(stderr, "Unable to open quests/%s!\n", filename.c_str());
 }
 
 void QuestLog::logic() {

@@ -170,7 +170,7 @@ void NPC::load(const string& npc_id, int hero_level) {
 			}
 		}
 		infile.close();
-	}
+	} else fprintf(stderr, "Unable to open npcs/%s.txt!\n", npc_id.c_str());
 	loadGraphics(filename_sprites, filename_portrait);
 }
 

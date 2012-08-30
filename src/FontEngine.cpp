@@ -56,8 +56,8 @@ FontEngine::FontEngine() {
 				if (infile.val == "blended") render_blended = true;
 			}
 		}
-	}
-	infile.close();
+		infile.close();
+	} else fprintf(stderr, "Unable to open engine/font_settings.txt!\n");
 	// Redefine font to language specific if avaliable
 	std::string local_font;
 	if (infile.open(mods->locate("engine/languages.txt"))) {
@@ -70,8 +70,8 @@ FontEngine::FontEngine() {
 			   }
 			}
 		}
-	}
-	infile.close();
+		infile.close();
+	} else fprintf(stderr, "Unable to open engine/languages.txt!\n");
 	font_path = mods->locate("fonts/" + font_path);
 	ttfont = TTF_OpenFont(font_path.c_str(), font_pt);
 	if(!ttfont) printf("TTF_OpenFont: %s\n", TTF_GetError());
@@ -92,8 +92,8 @@ FontEngine::FontEngine() {
 			color.b = eatFirstInt(infile.val,',');
 			color_map[infile.key] = color;
 		}
-	}
-	infile.close();
+		infile.close();
+	} else fprintf(stderr, "Unable to open engine/font_colors.txt!\n");
 }
 
 SDL_Color FontEngine::getColor(string _color) {

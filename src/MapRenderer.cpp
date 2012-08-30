@@ -557,7 +557,7 @@ int MapRenderer::load(string filename) {
 			push_enemy_group(new_group);
 			group_awaiting_queue = false;
 		}
-	}
+	}  else fprintf(stderr, "Unable to open maps/%s!\n", filename.c_str());
 
 	if (this->new_music) {
 		loadMusic();

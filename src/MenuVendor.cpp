@@ -72,7 +72,7 @@ MenuVendor::MenuVendor(ItemManager *_items, StatBlock *_stats) {
 			}
 		}
 		infile.close();
-	} else fprintf(stderr, "Unable to open vendor.txt!\n");
+	} else fprintf(stderr, "Unable to open menus/vendor.txt!\n");
 
 	VENDOR_SLOTS = slots_cols * slots_rows;
 

@@ -40,13 +40,13 @@ MessageEngine::MessageEngine() {
 				messages.insert(pair<string,string>(infile.key, infile.val));
 			}
 		    infile.close();
-		}
+		} else fprintf(stderr, "Unable to open mods/%s/languages/engine.%s.po!\n", mods->mod_list[i].c_str(), LANGUAGE.c_str());
 		if (infile.open(path + "data." + LANGUAGE + ".po")) {
 			while (infile.next()) {
 				messages.insert(pair<string,string>(infile.key, infile.val));
 			}
 		    infile.close();
-		}
+		} else fprintf(stderr, "Unable to open mods/%s/languages/data.%s.po!\n", mods->mod_list[i].c_str(), LANGUAGE.c_str());
 
 	}
 }

@@ -134,7 +134,7 @@ void Avatar::loadLayerDefinitions() {
 			}
 		}
 		infile.close();
-	} else fprintf(stderr, "Unable to open hero_options.txt!\n");
+	} else fprintf(stderr, "Unable to open engine/hero_options.txt!\n");
 }
 
 /**

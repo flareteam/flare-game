@@ -166,8 +166,8 @@ void MenuActionBar::update() {
 		}
 
 	  }
-	} else fprintf(stderr, "Unable to open actionbar.txt!\n");
-	infile.close();
+	  infile.close();
+	} else fprintf(stderr, "Unable to open menus/actionbar.txt!\n");
 
 	// screen areas occupied by the three main sections
 	numberArea.y = mouseArea.y = menuArea.y = window_area.y;

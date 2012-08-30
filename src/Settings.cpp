@@ -307,10 +307,7 @@ void loadTilesetSettings() {
 			}
 		}
 		infile.close();
-	}
-	else {
-		fprintf(stderr, "No tileset config found! Defaulting to 64x32 isometric tiles.\n");
-	}
+	} else fprintf(stderr, "Unable to open engine/tileset_config.txt! Defaulting to 64x32 isometric tiles.\n");
 
 	// Init automatically calculated parameters
 	TILE_SHIFT = log2(UNITS_PER_TILE);
@@ -337,10 +334,7 @@ void loadAutoPickupSettings() {
 				AUTOPICKUP_GOLD = (toInt(infile.val) == 1);
 		}
 		infile.close();
-	}
-	else {
-		fprintf(stderr, "No autopickup config found! Turning autopickup off by default.\n");
-	}
+	} else fprintf(stderr, "Unable to open engine/autopickup.txt! Turning autopickup off by default.\n");
 }
 
 void loadMiscSettings() {
@@ -356,10 +350,7 @@ void loadMiscSettings() {
 			}
 		}
 		infile.close();
-	}
-	else {
-		fprintf(stderr, "No misc engine settings config found!\n");
-	}
+	} else fprintf(stderr, "Unable to open engine/misc.txt!\n");
 	// resolutions.txt
 	if (infile.open(mods->locate("engine/resolutions.txt").c_str())) {
 		while (infile.next()) {
@@ -382,10 +373,7 @@ void loadMiscSettings() {
 			}
 		}
 		infile.close();
-	}
-	else {
-		fprintf(stderr, "No resolutions engine settings config found!\n");
-	}
+	} else fprintf(stderr, "Unable to open engine/resolutions.txt!\n");
 	// gameplay.txt
 	if (infile.open(mods->locate("engine/gameplay.txt").c_str())) {
 		while (infile.next()) {
@@ -394,10 +382,7 @@ void loadMiscSettings() {
 			}
 		}
 		infile.close();
-	}
-	else {
-		fprintf(stderr, "No gameplay engine settings config found!\n");
-	}
+	} else fprintf(stderr, "Unable to open engine/gameplay.txt!\n");
 	// combat.txt
 	if (infile.open(mods->locate("engine/combat.txt").c_str())) {
 		while (infile.next()) {
@@ -412,10 +397,7 @@ void loadMiscSettings() {
 			}
 		}
 		infile.close();
-	}
-	else {
-		fprintf(stderr, "No combat engine settings config found!\n");
-	}
+	} else fprintf(stderr, "Unable to open engine/combat.txt!\n");
 	// elements.txt
 	if (infile.open(mods->locate("engine/elements.txt").c_str())) {
 		Element e;
@@ -430,10 +412,7 @@ void loadMiscSettings() {
 			}
 		}
 		infile.close();
-	}
-	else {
-		fprintf(stderr, "No elemental settings config found!\n");
-	}
+	} else fprintf(stderr, "Unable to open engine/elements.txt!\n");
 }
 
 bool loadSettings() {

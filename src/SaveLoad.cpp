@@ -238,7 +238,7 @@ void GameStatePlay::loadGame() {
 		}
 
 		infile.close();
-	}
+	} else fprintf(stderr, "Unable to open %s!\n", ss.str().c_str());
 
 	// Load stash
 	ss.str("");
@@ -254,7 +254,7 @@ void GameStatePlay::loadGame() {
 			}
 		}
 		infile.close();
-	}
+	}  else fprintf(stderr, "Unable to open %s!\n", ss.str().c_str());
 
 	// initialize vars
 	pc->stats.recalc();
@@ -301,5 +301,5 @@ void GameStatePlay::loadStash() {
 			}
 		}
 		infile.close();
-	}
+	}  else fprintf(stderr, "Unable to open %s!\n", ss.str().c_str());
 }
