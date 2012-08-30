@@ -52,7 +52,7 @@ CombatText::CombatText() {
 			}
 		}
 		infile.close();
-	} else fprintf(stderr, "Unable to open combat_text.txt!\n");
+	} else fprintf(stderr, "Unable to open engine/combat_text.txt!\n");
 
 }
 

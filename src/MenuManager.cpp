@@ -129,10 +129,8 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 			}
 
 		}
-	} else {
-		fprintf(stderr, "Unable to open menus.txt!\n");
-	}
-	infile.close();
+		infile.close();
+	} else fprintf(stderr, "Unable to open menus/menus.txt!\n");
 
 	// Some menus need to be updated to apply their new dimensions
 	act->update();

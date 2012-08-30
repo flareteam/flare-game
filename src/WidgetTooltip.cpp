@@ -43,9 +43,7 @@ WidgetTooltip::WidgetTooltip() {
 		}
 		infile.close();
 	}
-	else {
-		fprintf(stderr, "No tooltips engine settings config file found!\n");
-	}
+	else fprintf(stderr, "Unable to open engine/tooltips.txt!\n");
 
 }
 

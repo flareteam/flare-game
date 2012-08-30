@@ -224,10 +224,7 @@ StatBlock::StatBlock() {
 			}
 		}
 		infile.close();
-	}
-	else {
-		fprintf(stderr, "Could not open effects.txt config file!\n");
-	}
+	} else fprintf(stderr, "Unable to open engine/effects.txt!\n");
 }
 
 /**
@@ -359,7 +356,7 @@ void StatBlock::load(const string& filename) {
 			}
 		}
 		infile.close();
-	}
+	} else fprintf(stderr, "Unable to open %s!\n", filename.c_str());
 }
 
 /**
@@ -684,15 +681,16 @@ void StatBlock::loadHeroStats() {
 	  infile.close();
 	  if (max_points_per_stat == 0) max_points_per_stat = max_spendable_stat_points / 4 + 1;
 	  statsLoaded = true;
-	} else fprintf(stderr, "Unable to open stats.txt!\n");
+	} else fprintf(stderr, "Unable to open engine/stats.txt!\n");
 
 	// Load the XP table as well
-	infile.open(mods->locate("engine/xp_table.txt"));
-	while(infile.next()) {
-		xp_table[toInt(infile.key) - 1] = toInt(infile.val);
-	}
-	max_spendable_stat_points = toInt(infile.key);
-	infile.close();
+	if (infile.open(mods->locate("engine/xp_table.txt"))) {
+		while(infile.next()) {
+			xp_table[toInt(infile.key) - 1] = toInt(infile.val);
+		}
+		max_spendable_stat_points = toInt(infile.key);
+		infile.close();
+	} else fprintf(stderr, "Unable to open engine/xp_table.txt!\n");
 }
 
 void StatBlock::clearNegativeEffects() {

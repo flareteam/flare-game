@@ -110,7 +110,7 @@ GameStateLoad::GameStateLoad() : GameState() {
 		}
 	  }
 	  infile.close();
-	} else fprintf(stderr, "Unable to open gameload.txt!\n");
+	} else fprintf(stderr, "Unable to open menus/gameload.txt!\n");
 
 	// Load the MenuConfirm positions and alignments from menus/menus.txt
 	if (infile.open(mods->locate("menus/menus.txt"))) {
@@ -128,10 +128,8 @@ GameStateLoad::GameStateLoad() : GameState() {
 				break;
 			}
 		}
-	} else {
-		fprintf(stderr, "Unable to open menus.txt!\n");
-	}
-	infile.close();
+		infile.close();
+	} else fprintf(stderr, "Unable to open menus/menus.txt!\n");
 
 	// get displayable types list
 	if(infile.open(mods->locate("engine/hero_options.txt"))) {
@@ -141,7 +139,7 @@ GameStateLoad::GameStateLoad() : GameState() {
 			}
 		}
 		infile.close();
-	} else fprintf(stderr, "Unable to open hero_options.txt!\n");
+	} else fprintf(stderr, "Unable to open engine/hero_options.txt!\n");
 
 	button_action->pos.x += (VIEW_W - FRAME_W)/2;
 	button_action->pos.y += (VIEW_H - FRAME_H)/2;

@@ -122,7 +122,9 @@ void GameStatePlay::saveGame() {
 
 		outfile << endl;
 
+		if (outfile.bad()) fprintf(stderr, "Unable to save the game. No write access or disk is full!\n");
 		outfile.close();
+		outfile.clear();
 	}
 
 	// Save stash
@@ -137,7 +139,9 @@ void GameStatePlay::saveGame() {
 
 		outfile << endl;
 
+		if (outfile.bad()) fprintf(stderr, "Unable to save stash. No write access or disk is full!\n");
 		outfile.close();
+		outfile.clear();
 	}
 }
 
@@ -238,7 +242,7 @@ void GameStatePlay::loadGame() {
 		}
 
 		infile.close();
-	}
+	} else fprintf(stderr, "Unable to open %s!\n", ss.str().c_str());
 
 	// Load stash
 	ss.str("");
@@ -254,7 +258,7 @@ void GameStatePlay::loadGame() {
 			}
 		}
 		infile.close();
-	}
+	}  else fprintf(stderr, "Unable to open %s!\n", ss.str().c_str());
 
 	// initialize vars
 	pc->stats.recalc();
@@ -301,5 +305,5 @@ void GameStatePlay::loadStash() {
 			}
 		}
 		infile.close();
-	}
+	}  else fprintf(stderr, "Unable to open %s!\n", ss.str().c_str());
 }

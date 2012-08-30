@@ -65,10 +65,7 @@ LootManager::LootManager(ItemManager *_items, MapRenderer *_map, StatBlock *_her
 			}
 		}
 		infile.close();
-	}
-	else {
-		fprintf(stderr, "Could not open loot.txt config file!\n");
-	}
+	} else fprintf(stderr, "Unable to open engine/loot.txt!\n");
 
 	animation_count = 0;
 

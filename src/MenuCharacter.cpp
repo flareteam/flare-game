@@ -191,7 +191,7 @@ MenuCharacter::MenuCharacter(StatBlock *_stats) {
 			}
 		}
 		infile.close();
-	} else fprintf(stderr, "Unable to open character.txt!\n");
+	} else fprintf(stderr, "Unable to open menus/character.txt!\n");
 
 	loadGraphics();
 }

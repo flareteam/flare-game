@@ -88,10 +88,7 @@ Hazard::Hazard() {
 			}
 		}
 		infile.close();
-	}
-	else {
-		fprintf(stderr, "Could not open effects.txt config file!\n");
-	}
+	} else fprintf(stderr, "Unable to open engine/effects.txt!\n");
 }
 
 void Hazard::setCollision(MapCollision *_collider) {

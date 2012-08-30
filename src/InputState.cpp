@@ -190,7 +190,9 @@ void InputState::saveKeyBindings() {
 		outfile << "shift=" << binding[SHIFT] << "," << binding_alt[SHIFT] << "\n";
 		outfile << "delete=" << binding[DEL] << "," << binding_alt[DEL] << "\n";
 
+		if (outfile.bad()) fprintf(stderr, "Unable to write keybindings config file. No write access or disk is full!\n");
 		outfile.close();
+		outfile.clear();
 	}
 
 }

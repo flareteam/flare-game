@@ -98,7 +98,7 @@ MenuTalker::MenuTalker(CampaignManager *_camp) {
 			}
 		}
 		infile.close();
-	} else fprintf(stderr, "Unable to open talker.txt!\n");
+	} else fprintf(stderr, "Unable to open menus/talker.txt!\n");
 
 	color_normal = font->getColor("menu_normal");
 }
