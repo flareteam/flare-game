@@ -66,6 +66,8 @@ LootManager::LootManager(ItemManager *_items, MapRenderer *_map, StatBlock *_her
                 AUTOPICKUP_RANGE = eatFirstInt(infile.val, ',');
 			} else if (infile.key == "autopickup_currency") {
                 AUTOPICKUP_GOLD = eatFirstInt(infile.val, ',');
+			} else if (infile.key == "currency_name") {
+                CURRENCY = eatFirstString(infile.val, ',');
             }
 		}
 		infile.close();
@@ -269,7 +271,7 @@ void LootManager::renderTooltips(Point cam) {
 				else {
 					it->tip.num_lines = 1;
 					it->tip.colors[0] = font->getColor("menu_normal");
-					ss << msg->get("%d Gold", it->gold);
+					ss << msg->get("%d %s", it->gold, CURRENCY);
 					it->tip.lines[0] = ss.str();
 					ss.str("");
 				}

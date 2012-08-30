@@ -172,7 +172,7 @@ void MenuInventory::render() {
 		label.render();
 	}
 	if (!gold_lbl.hidden) {
-		label.set(window_area.x+gold_lbl.x, window_area.y+gold_lbl.y, gold_lbl.justify, gold_lbl.valign, msg->get("%d Gold", gold), color_normal);
+		label.set(window_area.x+gold_lbl.x, window_area.y+gold_lbl.y, gold_lbl.justify, gold_lbl.valign, msg->get("%d %s", gold, CURRENCY), color_normal);
 		label.render();
 	}
 

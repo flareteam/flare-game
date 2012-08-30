@@ -145,6 +145,7 @@ bool MENUS_PAUSE = false;
 std::string DEFAULT_NAME = "";
 bool SAVE_HPMP = false;
 bool ENABLE_PLAYGAME = false;
+std::string CURRENCY = "gold";
 
 
 /**

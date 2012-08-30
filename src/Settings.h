@@ -108,6 +108,9 @@ extern short MAX_AVOIDANCE;
 // Elemental types
 extern std::vector<Element> ELEMENTS;
 
+// Common strings
+extern std::string CURRENCY;
+
 void setPaths();
 void loadTilesetSettings();
 void loadMiscSettings();
