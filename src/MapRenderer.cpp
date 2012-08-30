@@ -140,6 +140,7 @@ int MapRenderer::load(string filename) {
 	string data_format;
 
 	clearEvents();
+	clearLayers();
 
 	bool collider_set = false;
 	show_tooltip = false;
@@ -569,6 +570,21 @@ int MapRenderer::load(string filename) {
 	executeOnLoadEvents();
 
 	return 0;
+}
+
+/**
+ * No guarantee that maps will use all layers
+ * Clear all tile layers (e.g. when loading a map)
+ */
+void MapRenderer::clearLayers() {
+	for (int i=0; i<256; i++) {
+		for (int j=0; j<256; j++) {
+			background[i][j] = 0;
+			fringe[i][j] = 0;
+			object[i][j] = 0;
+			collision[i][j] = 0;
+		}
+	}
 }
 
 void MapRenderer::loadMusic() {
