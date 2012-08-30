@@ -895,23 +895,15 @@ void MapRenderer::renderIsoFrontObjects(vector<Renderable> &r) {
 	}
 }
 
-void MapRenderer::renderIsoForeground(vector<Renderable> &r) {
+void MapRenderer::renderIsoForeground(SDL_Surface *wheretorender, Point offset) {
 	short int i;
 	short int j;
 	SDL_Rect dest;
 	const Point upperright = screen_to_map(0, 0, shakycam.x, shakycam.y);
 	const short max_tiles_width = (VIEW_W / TILE_W) + 2 * tiles_outside_of_screen;
 	const short max_tiles_height = (2 * VIEW_H / TILE_H) + 2 * tiles_outside_of_screen;
-
-	vector<Renderable>::iterator r_cursor = r.begin();
-	vector<Renderable>::iterator r_end = r.end();
-
-	// foreground layer
 	j = upperright.y / UNITS_PER_TILE;
 	i = upperright.x / UNITS_PER_TILE - tiles_outside_of_screen;
-
-	while (r_cursor != r_end && (r_cursor->tile.x + r_cursor->tile.y < i + j || r_cursor->tile.x < i))
-		r_cursor++;
 
 	for (unsigned short y = max_tiles_height ; y; --y) {
 		short tiles_width = 0;
@@ -938,15 +930,11 @@ void MapRenderer::renderIsoForeground(vector<Renderable> &r) {
 			if (current_tile) {
 				Point p = map_to_screen(i * UNITS_PER_TILE, j * UNITS_PER_TILE, shakycam.x, shakycam.y);
 				p = center_tile(p);
-				dest.x = p.x - tset.tiles[current_tile].offset.x;
-				dest.y = p.y - tset.tiles[current_tile].offset.y;
-				SDL_BlitSurface(tset.sprites, &(tset.tiles[current_tile].src), screen, &dest);
-			}
-
-			// some renderable entities go in this layer
-			while (r_cursor != r_end && r_cursor->tile.x == i && r_cursor->tile.y == j) {
-				drawRenderable(r_cursor);
-				r_cursor++;
+				dest.x = p.x - tset.tiles[current_tile].offset.x + offset.x;
+				dest.y = p.y - tset.tiles[current_tile].offset.y + offset.y;
+				// no need to set w and h in dest, as it is ignored
+				// by SDL_BlitSurface
+				SDL_BlitSurface(tset.sprites, &(tset.tiles[current_tile].src), wheretorender, &dest);
 			}
 		}
 		j += tiles_width;
@@ -955,8 +943,6 @@ void MapRenderer::renderIsoForeground(vector<Renderable> &r) {
 			i++;
 		else
 			j++;
-		while (r_cursor != r_end && (r_cursor->tile.x + r_cursor->tile.y < i + j || r_cursor->tile.x <= i))
-			r_cursor++;
 	}
 }
 
@@ -993,7 +979,7 @@ void MapRenderer::renderIso(vector<Renderable> &r, vector<Renderable> &r_dead) {
 	}
 	renderIsoBackObjects(r_dead);
 	renderIsoFrontObjects(r);
-	renderIsoForeground(r);
+	renderIsoForeground(screen, nulloffset);
 	checkTooltip();
 }
 
@@ -1080,16 +1066,12 @@ void MapRenderer::renderOrthoFrontObjects(std::vector<Renderable> &r) {
 	}
 }
 
-void MapRenderer::renderOrthoForeground(std::vector<Renderable> &r) {
+void MapRenderer::renderOrthoForeground() {
 	short int i;
 	short int j;
 	SDL_Rect dest;
 	unsigned short current_tile;
-	vector<Renderable>::iterator r_cursor = r.begin();
-	vector<Renderable>::iterator r_end = r.end();
 
-	// TODO: trim by screen rect
-	// foreground layer
 	for (j=0; j<h; j++) {
 		for (i=0; i<w; i++) {
 
@@ -1102,12 +1084,6 @@ void MapRenderer::renderOrthoForeground(std::vector<Renderable> &r) {
 				dest.y = p.y - tset.tiles[current_tile].offset.y;
 				SDL_BlitSurface(tset.sprites, &(tset.tiles[current_tile].src), screen, &dest);
 			}
-
-			// some renderable entities go in this layer
-			while (r_cursor != r_end && r_cursor->tile.x == i && r_cursor->tile.y == j) {
-				drawRenderable(r_cursor);
-				r_cursor++;
-			}
 		}
 	}
 }
@@ -1118,7 +1094,7 @@ void MapRenderer::renderOrtho(vector<Renderable> &r, vector<Renderable> &r_dead)
 	renderOrthoFringe();
 	renderOrthoBackObjects(r_dead);
 	renderOrthoFrontObjects(r);
-	renderOrthoForeground(r);
+	renderOrthoForeground();
 	//render event tooltips
 	checkTooltip();
 }

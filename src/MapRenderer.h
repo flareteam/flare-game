@@ -208,14 +208,14 @@ private:
 	void renderIsoFringe(SDL_Surface *wheretorender, Point offset);
 	void renderIsoBackObjects(std::vector<Renderable> &r);
 	void renderIsoFrontObjects(std::vector<Renderable> &r);
-	void renderIsoForeground(std::vector<Renderable> &r);
+	void renderIsoForeground(SDL_Surface *wheretorender, Point offset);
 	void renderIso(std::vector<Renderable> &r, std::vector<Renderable> &r_dead);
 
 	void renderOrthoBackground();
 	void renderOrthoFringe();
 	void renderOrthoBackObjects(std::vector<Renderable> &r);
 	void renderOrthoFrontObjects(std::vector<Renderable> &r);
-	void renderOrthoForeground(std::vector<Renderable> &r);
+	void renderOrthoForeground();
 	void renderOrtho(std::vector<Renderable> &r, std::vector<Renderable> &r_dead);
 	
 	void clearLayers();
