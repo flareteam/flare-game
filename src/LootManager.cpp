@@ -70,6 +70,12 @@ LootManager::LootManager(ItemManager *_items, MapRenderer *_map, StatBlock *_her
                 CURRENCY = eatFirstString(infile.val, ',');
 			} else if (infile.key == "vendor_ratio") {
                 VENDOR_RATIO = (float)eatFirstInt(infile.val, ',') / 100.0;
+			} else if (infile.key == "currency_range") {
+				CurrencyRange cr;
+				cr.filename = eatFirstString(infile.val, ',');
+				cr.low = eatFirstInt(infile.val, ',');
+				cr.high = eatFirstInt(infile.val, ',');
+				currency_range.push_back(cr);
             }
 		}
 		infile.close();
@@ -145,9 +151,9 @@ void LootManager::loadGraphics() {
 	}
 
 	// gold
-	flying_gold[0] = IMG_Load(mods->locate("images/loot/coins5.png").c_str());
-	flying_gold[1] = IMG_Load(mods->locate("images/loot/coins25.png").c_str());
-	flying_gold[2] = IMG_Load(mods->locate("images/loot/coins100.png").c_str());
+	for (unsigned int i=0; i<currency_range.size(); i++) {
+		flying_currency.push_back(IMG_Load(mods->locate("images/loot/"+currency_range[i].filename+".png").c_str()));
+	}
 
 	// set magic pink transparency
 	for (int i=0; i<animation_count; i++) {
@@ -158,12 +164,12 @@ void LootManager::loadGraphics() {
 		flying_loot[i] = SDL_DisplayFormatAlpha(flying_loot[i]);
 		SDL_FreeSurface(cleanup);
 	}
-	for (int i=0; i<3; i++) {
-		SDL_SetColorKey( flying_gold[i], SDL_SRCCOLORKEY, SDL_MapRGB(flying_gold[i]->format, 255, 0, 255) );
+	for (unsigned int i=0; i<flying_currency.size(); i++) {
+		SDL_SetColorKey( flying_currency[i], SDL_SRCCOLORKEY, SDL_MapRGB(flying_currency[i]->format, 255, 0, 255) );
 
 		// optimize
-		SDL_Surface *cleanup = flying_gold[i];
-		flying_gold[i] = SDL_DisplayFormatAlpha(flying_gold[i]);
+		SDL_Surface *cleanup = flying_currency[i];
+		flying_currency[i] = SDL_DisplayFormatAlpha(flying_currency[i]);
 		SDL_FreeSurface(cleanup);
 	}
 }
@@ -578,12 +584,14 @@ void LootManager::addRenders(vector<Renderable> &ren, vector<Renderable> &ren_de
 		}
 		else if (it->gold > 0) {
 			// gold
-			if (it->gold <= 9)
-				r.sprite = flying_gold[0];
-			else if (it->gold <= 25)
-				r.sprite = flying_gold[1];
-			else
-				r.sprite = flying_gold[2];
+			for (unsigned int i=0; i<currency_range.size(); i++) {
+				if (it->gold >= currency_range[i].low && (it->gold <= currency_range[i].high || currency_range[i].high == -1)) {
+					r.sprite = flying_currency[i];
+					break;
+				} else {
+					r.sprite = flying_currency[currency_range.size()-1];
+				}
+			}
 		}
 		(it->frame == frame_count ? ren_dead : ren).push_back(r);
 	}
@@ -594,8 +602,8 @@ LootManager::~LootManager() {
 	for (int i=0; i<64; i++)
 		SDL_FreeSurface(flying_loot[i]);
 
-	for (int i=0; i<3; i++)
-		SDL_FreeSurface(flying_gold[i]);
+	for (unsigned int i=0; i<flying_currency.size(); i++)
+		SDL_FreeSurface(flying_currency[i]);
 
 	Mix_FreeChunk(loot_flip);
 

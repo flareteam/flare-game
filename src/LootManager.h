@@ -56,6 +56,12 @@ struct LootDef {
 	}
 };
 
+struct CurrencyRange {
+	std::string filename;
+	int low;
+	int high;
+};
+
 
 // this means that normal items are 10x more common than epic items
 // these numbers have to be balanced by various factors
@@ -84,7 +90,7 @@ private:
 
 
 	SDL_Surface *flying_loot[64];
-	SDL_Surface *flying_gold[3];
+	std::vector<SDL_Surface*> flying_currency;
 
 	std::string animation_id[64];
 	int animation_count;
@@ -107,6 +113,7 @@ private:
 	int anim_loot_duration;
 	SDL_Rect animation_pos;
 	Point animation_offset;
+	std::vector<CurrencyRange> currency_range;
 
 	// enemies which should drop loot, but didnt yet.
 	std::vector<const Enemy*> enemiesDroppingLoot;
