@@ -67,7 +67,7 @@ LootManager::LootManager(ItemManager *_items, MapRenderer *_map, StatBlock *_her
 			} else if (infile.key == "autopickup_currency") {
                 AUTOPICKUP_CURRENCY = eatFirstInt(infile.val, ',');
 			} else if (infile.key == "currency_name") {
-                CURRENCY = eatFirstString(infile.val, ',');
+                CURRENCY = msg->get(eatFirstString(infile.val, ','));
 			} else if (infile.key == "vendor_ratio") {
                 VENDOR_RATIO = (float)eatFirstInt(infile.val, ',') / 100.0;
 			} else if (infile.key == "currency_range") {
