@@ -42,7 +42,7 @@ struct LootDef {
 	ItemStack stack;
 	int frame;
 	Point pos;
-	int gold;
+	int currency;
 	TooltipData tip;
 
 	void clear() {
@@ -51,9 +51,15 @@ struct LootDef {
 		frame = 0;
 		pos.x = 0;
 		pos.y = 0;
-		gold = 0;
+		currency = 0;
 		tip.clear();
 	}
+};
+
+struct CurrencyRange {
+	std::string filename;
+	int low;
+	int high;
 };
 
 
@@ -84,7 +90,7 @@ private:
 
 
 	SDL_Surface *flying_loot[64];
-	SDL_Surface *flying_gold[3];
+	std::vector<SDL_Surface*> flying_currency;
 
 	std::string animation_id[64];
 	int animation_count;
@@ -107,6 +113,7 @@ private:
 	int anim_loot_duration;
 	SDL_Rect animation_pos;
 	Point animation_offset;
+	std::vector<CurrencyRange> currency_range;
 
 	// enemies which should drop loot, but didnt yet.
 	std::vector<const Enemy*> enemiesDroppingLoot;
@@ -129,10 +136,10 @@ public:
 	void determineLootByClass(const Enemy *e, Point pos); // distributed according to enemies loot type probabilities, only from specific item class
 	int randomItem(int base_level);
 	void addLoot(ItemStack stack, Point pos);
-	void addGold(int count, Point pos);
+	void addCurrency(int count, Point pos);
 	void removeLoot(int index);
-	ItemStack checkPickup(Point mouse, Point cam, Point hero_pos, int &gold, MenuInventory *inv);
-	ItemStack checkAutoPickup(Point cam, Point hero_pos, int &gold, MenuInventory *inv);
+	ItemStack checkPickup(Point mouse, Point cam, Point hero_pos, int &currency, MenuInventory *inv);
+	ItemStack checkAutoPickup(Point cam, Point hero_pos, int &currency, MenuInventory *inv);
 
 	void addRenders(std::vector<Renderable> &ren, std::vector<Renderable> &ren_dead);
 

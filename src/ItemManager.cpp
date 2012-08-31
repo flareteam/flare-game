@@ -579,7 +579,7 @@ TooltipData ItemManager::getTooltip(int item, StatBlock *stats, bool vendor_view
 	if (items[item].price > 0) {
 
 		if (vendor_view) {
-			if (stats->gold < items[item].price) tip.colors[tip.num_lines] = color_requirements_not_met;
+			if (stats->currency < items[item].price) tip.colors[tip.num_lines] = color_requirements_not_met;
 			if (items[item].max_quantity <= 1)
 				tip.lines[tip.num_lines++] = msg->get("Buy Price: %d %s", items[item].price, CURRENCY);
 			else

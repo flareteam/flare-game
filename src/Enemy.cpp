@@ -267,7 +267,7 @@ bool Enemy::takeHit(Hazard h) {
 }
 
 /**
- * Upon enemy death, handle rewards (gold, xp, loot)
+ * Upon enemy death, handle rewards (currency, xp, loot)
  */
 void Enemy::doRewards() {
 	bool loot_drop = false;

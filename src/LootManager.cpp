@@ -65,11 +65,17 @@ LootManager::LootManager(ItemManager *_items, MapRenderer *_map, StatBlock *_her
 			} else if (infile.key == "autopickup_range") {
                 AUTOPICKUP_RANGE = eatFirstInt(infile.val, ',');
 			} else if (infile.key == "autopickup_currency") {
-                AUTOPICKUP_GOLD = eatFirstInt(infile.val, ',');
+                AUTOPICKUP_CURRENCY = eatFirstInt(infile.val, ',');
 			} else if (infile.key == "currency_name") {
                 CURRENCY = eatFirstString(infile.val, ',');
 			} else if (infile.key == "vendor_ratio") {
                 VENDOR_RATIO = (float)eatFirstInt(infile.val, ',') / 100.0;
+			} else if (infile.key == "currency_range") {
+				CurrencyRange cr;
+				cr.filename = eatFirstString(infile.val, ',');
+				cr.low = eatFirstInt(infile.val, ',');
+				cr.high = eatFirstInt(infile.val, ',');
+				currency_range.push_back(cr);
             }
 		}
 		infile.close();
@@ -144,10 +150,10 @@ void LootManager::loadGraphics() {
 		}
 	}
 
-	// gold
-	flying_gold[0] = IMG_Load(mods->locate("images/loot/coins5.png").c_str());
-	flying_gold[1] = IMG_Load(mods->locate("images/loot/coins25.png").c_str());
-	flying_gold[2] = IMG_Load(mods->locate("images/loot/coins100.png").c_str());
+	// currency
+	for (unsigned int i=0; i<currency_range.size(); i++) {
+		flying_currency.push_back(IMG_Load(mods->locate("images/loot/"+currency_range[i].filename+".png").c_str()));
+	}
 
 	// set magic pink transparency
 	for (int i=0; i<animation_count; i++) {
@@ -158,12 +164,12 @@ void LootManager::loadGraphics() {
 		flying_loot[i] = SDL_DisplayFormatAlpha(flying_loot[i]);
 		SDL_FreeSurface(cleanup);
 	}
-	for (int i=0; i<3; i++) {
-		SDL_SetColorKey( flying_gold[i], SDL_SRCCOLORKEY, SDL_MapRGB(flying_gold[i]->format, 255, 0, 255) );
+	for (unsigned int i=0; i<flying_currency.size(); i++) {
+		SDL_SetColorKey( flying_currency[i], SDL_SRCCOLORKEY, SDL_MapRGB(flying_currency[i]->format, 255, 0, 255) );
 
 		// optimize
-		SDL_Surface *cleanup = flying_gold[i];
-		flying_gold[i] = SDL_DisplayFormatAlpha(flying_gold[i]);
+		SDL_Surface *cleanup = flying_currency[i];
+		flying_currency[i] = SDL_DisplayFormatAlpha(flying_currency[i]);
 		SDL_FreeSurface(cleanup);
 	}
 }
@@ -273,7 +279,7 @@ void LootManager::renderTooltips(Point cam) {
 				else {
 					it->tip.num_lines = 1;
 					it->tip.colors[0] = font->getColor("menu_normal");
-					ss << msg->get("%d %s", it->gold, CURRENCY);
+					ss << msg->get("%d %s", it->currency, CURRENCY);
 					it->tip.lines[0] = ss.str();
 					ss.str("");
 				}
@@ -342,7 +348,7 @@ void LootManager::checkMapForLoot() {
 			addLoot(new_loot, p);
 		}
 		else if (ec->s == "currency") {
-			addGold(ec->z, p);
+			addCurrency(ec->z, p);
 		}
 		map->loot.pop();
 	}
@@ -392,8 +398,8 @@ void LootManager::determineLoot(int base_level, Point pos) {
 			addLoot(new_loot, pos);
 		}
 		else {
-			// gold range is level to 3x level
-			addGold(rand() % (level * 2) + level, pos);
+			// currency range is level to 3x level
+			addCurrency(rand() % (level * 2) + level, pos);
 		}
 	}
 }
@@ -415,8 +421,8 @@ void LootManager::determineLootByClass(const Enemy *e, Point pos) {
 	}
 	string item_class = e->stats.item_classes[typeSelectorIndex];
 
-	if (item_class == "gold")
-		addGold(rand() % (level * 2) + level, pos);
+	if (item_class == "currency")
+		addCurrency(rand() % (level * 2) + level, pos);
 	else {
 		// search for the itemclass
 		unsigned int index;
@@ -460,19 +466,19 @@ void LootManager::addLoot(ItemStack stack, Point pos) {
 	ld.pos.x = pos.x;
 	ld.pos.y = pos.y;
 	ld.frame = 0;
-	ld.gold = 0;
+	ld.currency = 0;
 	loot.push_back(ld);
 	if (loot_flip) Mix_PlayChannel(-1, loot_flip, 0);
 }
 
-void LootManager::addGold(int count, Point pos) {
+void LootManager::addCurrency(int count, Point pos) {
 	LootDef ld;
 	ld.stack.item = 0;
 	ld.stack.quantity = 0;
 	ld.pos.x = pos.x;
 	ld.pos.y = pos.y;
 	ld.frame = 0;
-	ld.gold = count;
+	ld.currency = count;
 	loot.push_back(ld);
 	if (loot_flip) Mix_PlayChannel(-1, loot_flip, 0);
 }
@@ -482,11 +488,11 @@ void LootManager::addGold(int count, Point pos) {
  * screen coordinates to map locations.  We need the hero position because
  * the hero has to be within range to pick up an item.
  */
-ItemStack LootManager::checkPickup(Point mouse, Point cam, Point hero_pos, int &gold, MenuInventory *inv) {
+ItemStack LootManager::checkPickup(Point mouse, Point cam, Point hero_pos, int &currency, MenuInventory *inv) {
 	Point p;
 	SDL_Rect r;
 	ItemStack loot_stack;
-	gold = 0;
+	currency = 0;
 	loot_stack.item = 0;
 	loot_stack.quantity = 0;
 
@@ -519,8 +525,8 @@ ItemStack LootManager::checkPickup(Point mouse, Point cam, Point hero_pos, int &
 				else if (it->stack.item > 0) {
 					full_msg = true;
 				}
-				else if (it->gold > 0) {
-					gold = it->gold;
+				else if (it->currency > 0) {
+					currency = it->currency;
 					loot.erase(it);
 
 					return loot_stack;
@@ -533,11 +539,11 @@ ItemStack LootManager::checkPickup(Point mouse, Point cam, Point hero_pos, int &
 
 /**
  * Autopickup loot if enabled in the engine
- * Currently, only gold is checked for autopickup
+ * Currently, only currency is checked for autopickup
  */
-ItemStack LootManager::checkAutoPickup(Point cam, Point hero_pos, int &gold, MenuInventory *inv) {
+ItemStack LootManager::checkAutoPickup(Point cam, Point hero_pos, int &currency, MenuInventory *inv) {
 	ItemStack loot_stack;
-	gold = 0;
+	currency = 0;
 	loot_stack.item = 0;
 	loot_stack.quantity = 0;
 
@@ -545,8 +551,8 @@ ItemStack LootManager::checkAutoPickup(Point cam, Point hero_pos, int &gold, Men
 	for (it = loot.end(); it != loot.begin(); ) {
 		it--;
 		if (abs(hero_pos.x - it->pos.x) < AUTOPICKUP_RANGE && abs(hero_pos.y - it->pos.y) < AUTOPICKUP_RANGE && !isFlying(*it)) {
-			if (it->gold > 0 && AUTOPICKUP_GOLD) {
-				gold = it->gold;
+			if (it->currency > 0 && AUTOPICKUP_CURRENCY) {
+				currency = it->currency;
 				loot.erase(it);
 				return loot_stack;
 			}
@@ -576,14 +582,16 @@ void LootManager::addRenders(vector<Renderable> &ren, vector<Renderable> &ren_de
 					r.sprite = flying_loot[i];
 			}
 		}
-		else if (it->gold > 0) {
-			// gold
-			if (it->gold <= 9)
-				r.sprite = flying_gold[0];
-			else if (it->gold <= 25)
-				r.sprite = flying_gold[1];
-			else
-				r.sprite = flying_gold[2];
+		else if (it->currency > 0) {
+			// currency
+			for (unsigned int i=0; i<currency_range.size(); i++) {
+				if (it->currency >= currency_range[i].low && (it->currency <= currency_range[i].high || currency_range[i].high == -1)) {
+					r.sprite = flying_currency[i];
+					break;
+				} else {
+					r.sprite = flying_currency[currency_range.size()-1];
+				}
+			}
 		}
 		(it->frame == frame_count ? ren_dead : ren).push_back(r);
 	}
@@ -594,8 +602,8 @@ LootManager::~LootManager() {
 	for (int i=0; i<64; i++)
 		SDL_FreeSurface(flying_loot[i]);
 
-	for (int i=0; i<3; i++)
-		SDL_FreeSurface(flying_gold[i]);
+	for (unsigned int i=0; i<flying_currency.size(); i++)
+		SDL_FreeSurface(flying_currency[i]);
 
 	Mix_FreeChunk(loot_flip);
 

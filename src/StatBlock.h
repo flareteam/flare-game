@@ -288,7 +288,7 @@ public:
 	int ranged_weapon_power;
 
 	// for purchasing tracking
-	int gold;
+	int currency;
 
 	// marked for death
 	bool death_penalty;

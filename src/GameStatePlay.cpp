@@ -77,7 +77,7 @@ GameStatePlay::GameStatePlay() : GameState() {
 	// assign some object pointers after object creation, based on dependency order
 	camp->items = items;
 	camp->carried_items = &menu->inv->inventory[CARRIED];
-	camp->currency = &menu->inv->gold;
+	camp->currency = &menu->inv->currency;
 	camp->hero = &pc->stats;
 	map->powers = powers;
 
@@ -105,12 +105,12 @@ void GameStatePlay::resetGame() {
 	map->load("spawn.txt");
 	camp->clearAll();
 	pc->init();
-	pc->stats.gold = 0;
+	pc->stats.currency = 0;
 	menu->act->clear();
 	menu->inv->inventory[0].clear();
 	menu->inv->inventory[1].clear();
 	menu->inv->changed_equipment = true;
-	menu->inv->gold = 0;
+	menu->inv->currency = 0;
 	menu->log->clear();
 	quests->createQuestList();
 	menu->hudlog->clear();
@@ -170,29 +170,29 @@ bool GameStatePlay::restrictPowerUse() {
 void GameStatePlay::checkLoot() {
 
 	ItemStack pickup;
-	int gold;
+	int currency;
 
 	// Autopickup
-    if (pc->stats.alive && AUTOPICKUP_GOLD) {
-        pickup = loot->checkAutoPickup(map->cam, pc->stats.pos, gold, menu->inv);
-        if (gold > 0) {
-            menu->inv->addGold(gold);
+    if (pc->stats.alive && AUTOPICKUP_CURRENCY) {
+        pickup = loot->checkAutoPickup(map->cam, pc->stats.pos, currency, menu->inv);
+        if (currency > 0) {
+            menu->inv->addCurrency(currency);
         }
     }
 
 	// Pickup with mouse click
 	if (inpt->pressing[MAIN1] && !inpt->lock[MAIN1] && pc->stats.alive) {
 
-		pickup = loot->checkPickup(inpt->mouse, map->cam, pc->stats.pos, gold, menu->inv);
+		pickup = loot->checkPickup(inpt->mouse, map->cam, pc->stats.pos, currency, menu->inv);
 		if (pickup.item > 0) {
 			inpt->lock[MAIN1] = true;
 			menu->inv->add(pickup);
 
 			camp->setStatus(menu->items->items[pickup.item].pickup_status);
 		}
-		else if (gold > 0) {
+		else if (currency > 0) {
 			inpt->lock[MAIN1] = true;
-			menu->inv->addGold(gold);
+			menu->inv->addCurrency(currency);
 		}
 		if (loot->full_msg) {
 			inpt->lock[MAIN1] = true;
