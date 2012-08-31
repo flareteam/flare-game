@@ -31,6 +31,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <sstream>
 #include <fstream>
 #include <cstring>
+#include <climits>
 
 using namespace std;
 
@@ -92,20 +93,29 @@ void ItemManager::loadAll() {
  */
 void ItemManager::load(const string& filename) {
 	FileParser infile;
-	unsigned int id = 0;
+	int id = 0;
+	bool id_line;
 	string s;
 
 	if (infile.open(filename)) {
 
 		while (infile.next()) {
 			if (infile.key == "id") {
+				id_line = true;
 				id = toInt(infile.val);
-				if (id >= items.size()) {
+				if (id > 0 && id < (INT_MAX-1) && id >= (int)items.size()) {
 					// *2 to amortize the resizing to O(log(n)).
 					items.resize((2*id) + 1);
 				}
+			} else id_line = false;
+
+			if (id < 1 || id > (INT_MAX-1)) {
+				if (id_line) fprintf(stderr, "Item index %d out of bounds 1-%d, skipping\n", id, INT_MAX);
+				continue;
 			}
-			else if (infile.key == "name")
+			if (id_line) continue;
+			
+			if (infile.key == "name")
 				items[id].name = msg->get(infile.val);
 			else if (infile.key == "level")
 				items[id].level = toInt(infile.val);
@@ -198,8 +208,12 @@ void ItemManager::load(const string& filename) {
 				items[id].gfx = infile.val;
 			else if (infile.key == "loot_animation")
 				items[id].loot_animation = infile.val;
-			else if (infile.key == "power")
-				items[id].power = toInt(infile.val);
+			else if (infile.key == "power") {
+				if (toInt(infile.val) > -1 && toInt(infile.val) < (INT_MAX-1)) {
+					items[id].power = toInt(infile.val);
+				}
+				else fprintf(stderr, "Power index %d inside item %d definition out of bounds 0-%d, skipping item\n", toInt(infile.val), id, INT_MAX);
+			}
 			else if (infile.key == "power_mod")
 				items[id].power_mod = toInt(infile.val);
 			else if (infile.key == "power_desc")
@@ -272,18 +286,27 @@ string ItemManager::getItemType(std::string _type) {
 }
 
 void ItemManager::loadSets(const string& filename) {
-	unsigned int id = 0;
+	int id = 0;
+	bool id_line;
 	FileParser infile;
 	if (infile.open(filename)) {
 		while (infile.next()) {
 			if (infile.key == "id") {
+				id_line = true;
 				id = toInt(infile.val);
-				if (id >= item_sets.size()) {
+				if (id > 0 && id < (INT_MAX-1) && id >= (int)item_sets.size()) {
 					// *2 to amortize the resizing to O(log(n)).
 					item_sets.resize((2*id) + 1);
 				}
+			} else id_line = false;
+
+			if (id < 1 || id > (INT_MAX-1)) {
+				if (id_line) fprintf(stderr, "Item set index %d out of bounds 1-%d, skipping\n", id, INT_MAX);
+				continue;
 			}
-			else if (infile.key == "name") {
+			if (id_line) continue;
+
+			if (infile.key == "name") {
 				item_sets[id].name = msg->get(infile.val);
 			}
 			else if (infile.key == "description") {
@@ -292,9 +315,11 @@ void ItemManager::loadSets(const string& filename) {
 			else if (infile.key == "items") {
 				string item_id = infile.nextValue();
 				while (item_id != "") {
-					items[toInt(item_id)].set = id;
-					item_sets[id].items.push_back(toInt(item_id));
-					item_id = infile.nextValue();
+					if (toInt(item_id) > 0 && toInt(item_id) < (INT_MAX-1)) {
+						items[toInt(item_id)].set = id;
+						item_sets[id].items.push_back(toInt(item_id));
+						item_id = infile.nextValue();
+					} else fprintf(stderr, "Item index %d inside item set %s definition out of bounds 1-%d, skipping item\n", toInt(item_id), item_sets[id].name.c_str(), INT_MAX);
 				}
 			}
 			else if (infile.key == "color") {

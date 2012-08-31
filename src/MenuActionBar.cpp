@@ -34,6 +34,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include <string>
 #include <sstream>
+#include <climits>
 
 using namespace std;
 
@@ -70,7 +71,10 @@ void MenuActionBar::update() {
 		infile.val = infile.val + ',';
 
 		if (infile.key == "default_M1_power") {
-			default_M1 = eatFirstInt(infile.val, ',');
+			int power_id = eatFirstInt(infile.val, ',');
+			if (power_id > -1 && power_id < (INT_MAX-1)) {
+				default_M1 = power_id;
+			} else fprintf(stderr, "Power index %d for ActionBar default power out of bounds 0-%d, skipping\n", power_id, INT_MAX);
 		}else if (infile.key == "slot1") {
 			slots[0].x = window_area.x+eatFirstInt(infile.val, ',');
 			slots[0].y = window_area.y+eatFirstInt(infile.val, ',');
