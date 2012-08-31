@@ -32,6 +32,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include <cmath>
 #include <iostream>
+#include <climits>
 using namespace std;
 
 
@@ -81,17 +82,26 @@ void PowerManager::loadPowers(const std::string& filename) {
 
 	FileParser infile;
 	int input_id = 0;
+	bool id_line;
 
 	if (infile.open(filename)) {
 		while (infile.next()) {
 			// id needs to be the first component of each power.  That is how we write
 			// data to the correct power.
 			if (infile.key == "id") {
+				id_line = true;
 				input_id = toInt(infile.val);
-				if ((int)powers.size() < input_id + 1)
+				if (input_id > -1 && input_id < (INT_MAX-1) && (int)powers.size() < input_id + 1)
 					powers.resize(input_id + 1);
+			} else id_line = false;
+
+			if (input_id < 0 || input_id > (INT_MAX-1)) {
+				if (id_line) fprintf(stderr, "Power index %d out of bounds 0-%d, skipping\n", input_id, INT_MAX);
+				continue;
 			}
-			else if (infile.key == "type") {
+			if (id_line) continue;
+
+			if (infile.key == "type") {
 				if (infile.val == "single") powers[input_id].type = POWTYPE_SINGLE;
 				else if (infile.val == "effect") powers[input_id].type = POWTYPE_EFFECT;
 				else if (infile.val == "missile") powers[input_id].type = POWTYPE_MISSILE;

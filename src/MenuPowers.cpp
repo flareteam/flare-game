@@ -34,6 +34,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <string>
 #include <sstream>
 #include <iostream>
+#include <climits>
 
 using namespace std;
 MenuPowers *menuPowers = NULL;
@@ -54,6 +55,8 @@ MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_i
 	points_left = 0;
 	tabs_count = 1;
 	pressed = false;
+	bool id_line;
+	int id;
 
 	closeButton = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
 
@@ -67,10 +70,41 @@ MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_i
 			tab_titles.push_back(eatFirstString(infile.val, ','));
 		} else if (infile.key == "tab_tree") {
 			tree_image_files.push_back(eatFirstString(infile.val, ','));
-		} else if (infile.key == "id") {
-			power_cell.push_back(Power_Menu_Cell());
-			slots.push_back(SDL_Rect());
-			power_cell.back().id = eatFirstInt(infile.val, ',');
+		} else if (infile.key == "caption") {
+			title = eatLabelInfo(infile.val);
+		} else if (infile.key == "unspent_points") {
+			unspent_points = eatLabelInfo(infile.val);
+		} else if (infile.key == "close") {
+			close_pos.x = eatFirstInt(infile.val, ',');
+			close_pos.y = eatFirstInt(infile.val, ',');
+		} else if (infile.key == "tab_area") {
+			tab_area.x = eatFirstInt(infile.val, ',');
+			tab_area.y = eatFirstInt(infile.val, ',');
+			tab_area.w = eatFirstInt(infile.val, ',');
+			tab_area.h = eatFirstInt(infile.val, ',');
+		} else if (infile.key == "tabs") {
+			tabs_count = eatFirstInt(infile.val, ',');
+			if (tabs_count < 1) tabs_count = 1;
+		}
+		
+		if (infile.key == "id") {
+			id = eatFirstInt(infile.val, ',');
+			id_line = true;
+			if (id > -1 && id < (INT_MAX-1)) {
+				power_cell.push_back(Power_Menu_Cell());
+				slots.push_back(SDL_Rect());
+				power_cell.back().id = id;
+			}
+		} else id_line = false;
+		
+		if (id < 0 || id > (INT_MAX-1)) {
+			if (id_line) fprintf(stderr, "Power index %d inside power menu definition out of bounds 0-%d, skipping\n", id, INT_MAX);
+			continue;
+		}
+		if (id_line) continue;
+		
+		if (infile.key == "tab") {
+			power_cell.back().tab = eatFirstInt(infile.val, ',');
 		} else if (infile.key == "position") {
 			power_cell.back().pos.x = eatFirstInt(infile.val, ',');
 			power_cell.back().pos.y = eatFirstInt(infile.val, ',');
@@ -97,23 +131,6 @@ MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_i
 			power_cell.back().requires_level = eatFirstInt(infile.val, ',');
 		} else if (infile.key == "requires_power") {
 			power_cell.back().requires_power = eatFirstInt(infile.val, ',');
-		} else if (infile.key == "caption") {
-			title = eatLabelInfo(infile.val);
-		} else if (infile.key == "unspent_points") {
-			unspent_points = eatLabelInfo(infile.val);
-		} else if (infile.key == "close") {
-			close_pos.x = eatFirstInt(infile.val, ',');
-			close_pos.y = eatFirstInt(infile.val, ',');
-		} else if (infile.key == "tab_area") {
-			tab_area.x = eatFirstInt(infile.val, ',');
-			tab_area.y = eatFirstInt(infile.val, ',');
-			tab_area.w = eatFirstInt(infile.val, ',');
-			tab_area.h = eatFirstInt(infile.val, ',');
-		} else if (infile.key == "tabs") {
-			tabs_count = eatFirstInt(infile.val, ',');
-			if (tabs_count < 1) tabs_count = 1;
-		} else if (infile.key == "tab") {
-			power_cell.back().tab = eatFirstInt(infile.val, ',');
 		}
 
 	  }
