@@ -129,7 +129,7 @@ std::string LANGUAGE = "en";
 
 // Autopickup Settings
 unsigned short AUTOPICKUP_RANGE = 0;
-bool AUTOPICKUP_GOLD = false;
+bool AUTOPICKUP_CURRENCY = false;
 
 // Combat calculation caps (percentage)
 short MAX_ABSORB = 90;
@@ -141,7 +141,7 @@ short MAX_AVOIDANCE = 99;
 std::vector<Element> ELEMENTS;
 
 // Currency settings
-std::string CURRENCY = "gold";
+std::string CURRENCY = "Gold";
 float VENDOR_RATIO = 0.25;
 
 // Other Settings

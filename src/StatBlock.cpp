@@ -152,7 +152,7 @@ StatBlock::StatBlock() {
 
 	vulnerable = std::vector<int>(ELEMENTS.size(), 100);
 
-	gold = 0;
+	currency = 0;
 	death_penalty = false;
 
 	// campaign status interaction

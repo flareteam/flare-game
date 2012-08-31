@@ -58,7 +58,7 @@ private:
 	// label and widget positions
 	Point close_pos;
 	LabelInfo title;
-	LabelInfo gold_lbl;
+	LabelInfo currency_lbl;
 	SDL_Rect help_pos;
 	int carried_cols;
 	int carried_rows;
@@ -80,7 +80,7 @@ public:
 
 	void add( ItemStack stack, int area = CARRIED, int slot = -1);
 	void remove(int item);
-	void addGold(int count);
+	void addCurrency(int count);
 	bool buy(ItemStack stack, Point mouse = Point());
 	bool sell(ItemStack stack);
 	bool stashAdd(ItemStack stack);
@@ -100,7 +100,7 @@ public:
 	std::vector<std::string> slot_desc;
 
 	MenuItemStorage inventory[2];
-	int gold;
+	int currency;
 	int drag_prev_src;
 
 	// the following two are separate because artifacts don't display on the hero.

@@ -81,8 +81,8 @@ void GameStatePlay::saveGame() {
 		// stat spec
 		outfile << "build=" << pc->stats.physical_character << "," << pc->stats.mental_character << "," << pc->stats.offense_character << "," << pc->stats.defense_character << "\n";
 
-		// current gold
-		outfile << "gold=" << menu->inv->gold << "\n";
+		// current currency
+		outfile << "currency=" << menu->inv->currency << "\n";
 
 		// equipped gear
 		outfile << "equipped=" << menu->inv->inventory[EQUIPMENT].getItems() << "\n";
@@ -188,8 +188,8 @@ void GameStatePlay::loadGame() {
 				pc->stats.offense_character = toInt(infile.nextValue());
 				pc->stats.defense_character = toInt(infile.nextValue());
 			}
-			else if (infile.key == "gold") {
-				menu->inv->gold = toInt(infile.val);
+			else if (infile.key == "currency") {
+				menu->inv->currency = toInt(infile.val);
 			}
 			else if (infile.key == "equipped") {
 				menu->inv->inventory[EQUIPMENT].setItems(infile.val);

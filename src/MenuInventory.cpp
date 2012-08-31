@@ -43,7 +43,7 @@ MenuInventory::MenuInventory(ItemManager *_items, StatBlock *_stats, PowerManage
 	visible = false;
 	loadGraphics();
 
-	gold = 0;
+	currency = 0;
 
 	drag_prev_src = -1;
 	changed_equipment = true;
@@ -79,8 +79,8 @@ MenuInventory::MenuInventory(ItemManager *_items, StatBlock *_stats, PowerManage
 				carried_rows = eatFirstInt(infile.val,',');
 			} else if (infile.key == "caption"){
 				title =  eatLabelInfo(infile.val);
-			} else if (infile.key == "gold"){
-				gold_lbl =  eatLabelInfo(infile.val);
+			} else if (infile.key == "currency"){
+				currency_lbl =  eatLabelInfo(infile.val);
 			} else if (infile.key == "help"){
 				help_pos.x = eatFirstInt(infile.val,',');
 				help_pos.y = eatFirstInt(infile.val,',');
@@ -132,14 +132,14 @@ void MenuInventory::update() {
 
 void MenuInventory::logic() {
 
-	// if the player has just died, the penalty is half his current gold.
+	// if the player has just died, the penalty is half his current currency.
 	if (stats->death_penalty) {
-		gold = gold/2;
+		currency = currency/2;
 		stats->death_penalty = false;
 	}
 
-	// a copy of gold is kept in stats, to help with various situations
-	stats->gold = gold;
+	// a copy of currency is kept in stats, to help with various situations
+	stats->currency = currency;
 
 	// check close button
 	if (visible) {
@@ -171,8 +171,8 @@ void MenuInventory::render() {
 		label.set(window_area.x+title.x, window_area.y+title.y, title.justify, title.valign, msg->get("Inventory"), color_normal);
 		label.render();
 	}
-	if (!gold_lbl.hidden) {
-		label.set(window_area.x+gold_lbl.x, window_area.y+gold_lbl.y, gold_lbl.justify, gold_lbl.valign, msg->get("%d %s", gold, CURRENCY), color_normal);
+	if (!currency_lbl.hidden) {
+		label.set(window_area.x+currency_lbl.x, window_area.y+currency_lbl.y, currency_lbl.justify, currency_lbl.valign, msg->get("%d %s", currency, CURRENCY), color_normal);
 		label.render();
 	}
 
@@ -534,22 +534,22 @@ void MenuInventory::remove(int item) {
 }
 
 /**
- * Add gold to the current total
+ * Add currency to the current total
  */
-void MenuInventory::addGold(int count) {
-	gold += count;
+void MenuInventory::addCurrency(int count) {
+	currency += count;
 	items->playCoinsSound();
 }
 
 /**
- * Check if there is enough gold to buy the given stack, and if so remove it from the current total and add the stack.
+ * Check if there is enough currency to buy the given stack, and if so remove it from the current total and add the stack.
  * (Handle the drop into the equipment area, but add() don't handle it well in all circonstances. MenuManager::logic() allow only into the carried area.)
  */
 bool MenuInventory::buy(ItemStack stack, Point mouse) {
 	int count = items->items[stack.item].price * stack.quantity;
 
-	if( gold >= count) {
-		gold -= count;
+	if( currency >= count) {
+		currency -= count;
 
 		items->playCoinsSound();
 		return true;
@@ -582,7 +582,7 @@ bool MenuInventory::sell(ItemStack stack) {
 		value_each = (float)items->items[stack.item].price * VENDOR_RATIO;
 	if (value_each == 0) value_each = 1;
 	int value = value_each * stack.quantity;
-	gold += value;
+	currency += value;
 	items->playCoinsSound();
 	return true;
 }

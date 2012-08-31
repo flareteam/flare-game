@@ -97,7 +97,7 @@ extern std::string LANGUAGE;
 
 // Autopickup Settings
 extern unsigned short AUTOPICKUP_RANGE;
-extern bool AUTOPICKUP_GOLD;
+extern bool AUTOPICKUP_CURRENCY;
 
 // Combat calculation caps
 extern short MAX_ABSORB;

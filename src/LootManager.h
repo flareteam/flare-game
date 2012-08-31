@@ -42,7 +42,7 @@ struct LootDef {
 	ItemStack stack;
 	int frame;
 	Point pos;
-	int gold;
+	int currency;
 	TooltipData tip;
 
 	void clear() {
@@ -51,7 +51,7 @@ struct LootDef {
 		frame = 0;
 		pos.x = 0;
 		pos.y = 0;
-		gold = 0;
+		currency = 0;
 		tip.clear();
 	}
 };
@@ -136,10 +136,10 @@ public:
 	void determineLootByClass(const Enemy *e, Point pos); // distributed according to enemies loot type probabilities, only from specific item class
 	int randomItem(int base_level);
 	void addLoot(ItemStack stack, Point pos);
-	void addGold(int count, Point pos);
+	void addCurrency(int count, Point pos);
 	void removeLoot(int index);
-	ItemStack checkPickup(Point mouse, Point cam, Point hero_pos, int &gold, MenuInventory *inv);
-	ItemStack checkAutoPickup(Point cam, Point hero_pos, int &gold, MenuInventory *inv);
+	ItemStack checkPickup(Point mouse, Point cam, Point hero_pos, int &currency, MenuInventory *inv);
+	ItemStack checkAutoPickup(Point cam, Point hero_pos, int &currency, MenuInventory *inv);
 
 	void addRenders(std::vector<Renderable> &ren, std::vector<Renderable> &ren_dead);
 
