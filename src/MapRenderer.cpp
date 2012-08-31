@@ -1150,6 +1150,7 @@ void MapRenderer::checkEvents(Point loc) {
  * executes
  */
 void MapRenderer::checkHotspots() {
+	show_tooltip = false;
 
 	vector<Map_Event>::iterator it;
 
