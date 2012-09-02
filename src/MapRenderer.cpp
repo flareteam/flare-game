@@ -722,7 +722,7 @@ void MapRenderer::drawRenderable(vector<Renderable>::iterator r_cursor) {
 	SDL_BlitSurface(r_cursor->sprite, &r_cursor->src, screen, &dest);
 }
 
-void MapRenderer::renderIsoBackground(SDL_Surface *wheretorender, Point offset) {
+void MapRenderer::renderIsoLayer(SDL_Surface *wheretorender, Point offset, const unsigned short layerdata[256][256]) {
 	short int i;
 	short int j;
 	SDL_Rect dest;
@@ -752,58 +752,7 @@ void MapRenderer::renderIsoBackground(SDL_Surface *wheretorender, Point offset) 
 			--j; ++i;
 			++tiles_width;
 
-			unsigned short current_tile = background[i][j];
-
-			if (current_tile) {
-				Point p = map_to_screen(i * UNITS_PER_TILE, j * UNITS_PER_TILE, shakycam.x, shakycam.y);
-				p = center_tile(p);
-				dest.x = p.x - tset.tiles[current_tile].offset.x + offset.x;
-				dest.y = p.y - tset.tiles[current_tile].offset.y + offset.y;
-				// no need to set w and h in dest, as it is ignored
-				// by SDL_BlitSurface
-				SDL_BlitSurface(tset.sprites, &(tset.tiles[current_tile].src), wheretorender, &dest);
-			}
-		}
-		j += tiles_width;
-		i -= tiles_width;
-		if (y % 2)
-			i++;
-		else
-			j++;
-	}
-}
-
-void MapRenderer::renderIsoFringe(SDL_Surface *wheretorender, Point offset) {
-	short int i;
-	short int j;
-	SDL_Rect dest;
-	const Point upperright = screen_to_map(0, 0, shakycam.x, shakycam.y);
-	const short max_tiles_width = (VIEW_W / TILE_W) + 2 * tiles_outside_of_screen;
-	const short max_tiles_height = (2 * VIEW_H / TILE_H) + 2 * tiles_outside_of_screen;
-	j = upperright.y / UNITS_PER_TILE;
-	i = upperright.x / UNITS_PER_TILE - tiles_outside_of_screen;
-
-	for (unsigned short y = max_tiles_height ; y; --y) {
-		short tiles_width = 0;
-
-		// make sure the isometric corners are not rendered:
-		if (i < -1) {
-			j += i + 1;
-			tiles_width -= i + 1;
-			i = -1;
-		}
-		short d = j - h;
-		if (d >= 0) {
-			j -= d; tiles_width += d; i += d;
-		}
-		short j_end = std::max((j+i-w+1), std::max(j - max_tiles_width, 0));
-
-		// draw one horizontal line
-		while (j > j_end) {
-			--j; ++i;
-			++tiles_width;
-
-			unsigned short current_tile = fringe[i][j];
+			unsigned short current_tile = layerdata[i][j];
 
 			if (current_tile) {
 				Point p = map_to_screen(i * UNITS_PER_TILE, j * UNITS_PER_TILE, shakycam.x, shakycam.y);
@@ -895,62 +844,11 @@ void MapRenderer::renderIsoFrontObjects(vector<Renderable> &r) {
 	}
 }
 
-void MapRenderer::renderIsoForeground(SDL_Surface *wheretorender, Point offset) {
-	short int i;
-	short int j;
-	SDL_Rect dest;
-	const Point upperright = screen_to_map(0, 0, shakycam.x, shakycam.y);
-	const short max_tiles_width = (VIEW_W / TILE_W) + 2 * tiles_outside_of_screen;
-	const short max_tiles_height = (2 * VIEW_H / TILE_H) + 2 * tiles_outside_of_screen;
-	j = upperright.y / UNITS_PER_TILE;
-	i = upperright.x / UNITS_PER_TILE - tiles_outside_of_screen;
-
-	for (unsigned short y = max_tiles_height ; y; --y) {
-		short tiles_width = 0;
-
-		// make sure the isometric corners are not rendered:
-		if (i < -1) {
-			j += i + 1;
-			tiles_width -= i + 1;
-			i = -1;
-		}
-		short d = j - h;
-		if (d >= 0) {
-			j -= d; tiles_width += d; i += d;
-		}
-		short j_end = std::max((j+i-w+1), std::max(j - max_tiles_width, 0));
-
-		// draw one horizontal line
-		while (j > j_end) {
-			--j; ++i;
-			++tiles_width;
-
-			unsigned short current_tile = foreground[i][j];
-
-			if (current_tile) {
-				Point p = map_to_screen(i * UNITS_PER_TILE, j * UNITS_PER_TILE, shakycam.x, shakycam.y);
-				p = center_tile(p);
-				dest.x = p.x - tset.tiles[current_tile].offset.x + offset.x;
-				dest.y = p.y - tset.tiles[current_tile].offset.y + offset.y;
-				// no need to set w and h in dest, as it is ignored
-				// by SDL_BlitSurface
-				SDL_BlitSurface(tset.sprites, &(tset.tiles[current_tile].src), wheretorender, &dest);
-			}
-		}
-		j += tiles_width;
-		i -= tiles_width;
-		if (y % 2)
-			i++;
-		else
-			j++;
-	}
-}
-
 void MapRenderer::renderIso(vector<Renderable> &r, vector<Renderable> &r_dead) {
 	const Point nulloffset = {0, 0};
 	if (ANIMATED_TILES) {
-		renderIsoBackground(screen, nulloffset);
-		renderIsoFringe(screen, nulloffset);
+		renderIsoLayer(screen, nulloffset, background);
+		renderIsoLayer(screen, nulloffset, fringe);
 	}
 	else {
 		if (abs(shakycam.x - backgroundsurfaceoffset.x) > movedistance_to_rerender * TILE_W
@@ -966,8 +864,8 @@ void MapRenderer::renderIso(vector<Renderable> &r, vector<Renderable> &r_dead) {
 
 			SDL_FillRect(backgroundsurface, 0, 0);
 			Point off = {VIEW_W_HALF, VIEW_H_HALF};
-			renderIsoBackground(backgroundsurface, off);
-			renderIsoFringe(backgroundsurface, off);
+			renderIsoLayer(backgroundsurface, off, background);
+			renderIsoLayer(backgroundsurface, off, fringe);
 		}
 		Point p = map_to_screen(shakycam.x, shakycam.y , backgroundsurfaceoffset.x, backgroundsurfaceoffset.y);
 		SDL_Rect src;
@@ -979,11 +877,11 @@ void MapRenderer::renderIso(vector<Renderable> &r, vector<Renderable> &r_dead) {
 	}
 	renderIsoBackObjects(r_dead);
 	renderIsoFrontObjects(r);
-	renderIsoForeground(screen, nulloffset);
+	renderIsoLayer(screen, nulloffset, foreground);
 	checkTooltip();
 }
 
-void MapRenderer::renderOrthoBackground() {
+void MapRenderer::renderOrthoLayer(const unsigned short layerdata[256][256]) {
 	short int i;
 	short int j;
 	SDL_Rect dest;
@@ -992,29 +890,7 @@ void MapRenderer::renderOrthoBackground() {
 	for (j=0; j<h; j++) {
 		for (i=0; i<w; i++) {
 
-			current_tile = background[i][j];
-
-			if (current_tile) {
-				Point p = map_to_screen(i * UNITS_PER_TILE, j * UNITS_PER_TILE, shakycam.x, shakycam.y);
-				p = center_tile(p);
-				dest.x = p.x - tset.tiles[current_tile].offset.x;
-				dest.y = p.y - tset.tiles[current_tile].offset.y;
-				SDL_BlitSurface(tset.sprites, &(tset.tiles[current_tile].src), screen, &dest);
-			}
-		}
-	}
-}
-
-void MapRenderer::renderOrthoFringe() {
-	short int i;
-	short int j;
-	SDL_Rect dest;
-	unsigned short current_tile;
-
-	for (j=0; j<h; j++) {
-		for (i=0; i<w; i++) {
-
-			current_tile = fringe[i][j];
+			current_tile = layerdata[i][j];
 
 			if (current_tile) {
 				Point p = map_to_screen(i * UNITS_PER_TILE, j * UNITS_PER_TILE, shakycam.x, shakycam.y);
@@ -1066,35 +942,13 @@ void MapRenderer::renderOrthoFrontObjects(std::vector<Renderable> &r) {
 	}
 }
 
-void MapRenderer::renderOrthoForeground() {
-	short int i;
-	short int j;
-	SDL_Rect dest;
-	unsigned short current_tile;
-
-	for (j=0; j<h; j++) {
-		for (i=0; i<w; i++) {
-
-			current_tile = foreground[i][j];
-
-			if (current_tile) {
-				Point p = map_to_screen(i * UNITS_PER_TILE, j * UNITS_PER_TILE, shakycam.x, shakycam.y);
-				p = center_tile(p);
-				dest.x = p.x - tset.tiles[current_tile].offset.x;
-				dest.y = p.y - tset.tiles[current_tile].offset.y;
-				SDL_BlitSurface(tset.sprites, &(tset.tiles[current_tile].src), screen, &dest);
-			}
-		}
-	}
-}
-
 void MapRenderer::renderOrtho(vector<Renderable> &r, vector<Renderable> &r_dead) {
 
-	renderOrthoBackground();
-	renderOrthoFringe();
+	renderOrthoLayer(background);
+	renderOrthoLayer(fringe);
 	renderOrthoBackObjects(r_dead);
 	renderOrthoFrontObjects(r);
-	renderOrthoForeground();
+	renderOrthoLayer(foreground);
 	//render event tooltips
 	checkTooltip();
 }
