@@ -123,6 +123,7 @@ public:
 	int click(Point mouse);
 	bool unlockClick(Point mouse);
 	bool meetsUsageStats(unsigned powerid);
+	short getUnspent() { return points_left; }
 
 	std::vector<SDL_Rect> slots; // the location of power slots
 	std::vector<int> powers_list;
