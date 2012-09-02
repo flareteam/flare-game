@@ -295,6 +295,8 @@ void MenuManager::logic() {
 				Mix_PlayChannel(-1, sfx_open, 0);
 		}
 	}
+	if (pow->getUnspent() > 0) act->requires_attention[MENU_POWERS] = true;
+	else act->requires_attention[MENU_POWERS] = false;
 
 	// character menu toggleggle
 	if (((inpt->pressing[CHARACTER] && !key_lock && !dragging) || clicking_character) && stats->humanoid) {
@@ -312,6 +314,8 @@ void MenuManager::logic() {
 			inpt->resetScroll();
 		}
 	}
+	if (chr->getUnspent() > 0) act->requires_attention[MENU_CHARACTER] = true;
+	else act->requires_attention[MENU_CHARACTER] = false;
 
 	// log menu toggle
 	if ((inpt->pressing[LOG] && !key_lock && !dragging) || clicking_log) {

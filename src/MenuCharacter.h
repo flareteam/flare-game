@@ -102,6 +102,7 @@ public:
 	void refreshStats();
 	TooltipData checkTooltip();
 	bool checkUpgrade();
+	int getUnspent() { return skill_points; }
 
 	bool newPowerNotification;
 
