@@ -579,7 +579,7 @@ bool MenuInventory::sell(ItemStack stack) {
 	if(items->items[stack.item].price_sell != 0)
 		value_each = items->items[stack.item].price_sell;
 	else
-		value_each = (float)items->items[stack.item].price * VENDOR_RATIO;
+		value_each = static_cast<int>(items->items[stack.item].price * VENDOR_RATIO);
 	if (value_each == 0) value_each = 1;
 	int value = value_each * stack.quantity;
 	currency += value;
@@ -802,7 +802,7 @@ void MenuInventory::applyItemStats(ItemStack *equipped) {
 	for (int i=0; i<MAX_EQUIPPED; i++) {
 		item_id = equipped[i].item;
 		const Item &item = pc_items[item_id];
-		
+
 		// apply base stats
 		stats->dmg_melee_min += item.dmg_melee_min;
 		stats->dmg_melee_max += item.dmg_melee_max;
@@ -810,7 +810,7 @@ void MenuInventory::applyItemStats(ItemStack *equipped) {
 		stats->dmg_ranged_max += item.dmg_ranged_max;
 		stats->dmg_ment_min += item.dmg_ment_min;
 		stats->dmg_ment_max += item.dmg_ment_max;
-		
+
 		// TODO: add a separate wielding stat to items
 		// e.g. we might want a ring that gives bonus ranged damage but
 		// we still need a bow to shoot arrows.
@@ -832,7 +832,7 @@ void MenuInventory::applyItemStats(ItemStack *equipped) {
 				stats->mental_weapon_power = item.power_mod;
 			}
 		}
-		
+
 		// apply various bonuses
 		bonus_counter = 0;
 		while (bonus_counter < item.bonus_stat.size() && item.bonus_stat[bonus_counter] != "") {

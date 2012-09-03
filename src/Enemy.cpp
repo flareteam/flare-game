@@ -172,7 +172,8 @@ bool Enemy::takeHit(Hazard h) {
 			if (stats.absorb_min == stats.absorb_max) absorption = stats.absorb_min;
 			else absorption = stats.absorb_min + (rand() % (stats.absorb_max - stats.absorb_min + 1));
 			if (absorption > 0) {
-				if ((dmg*100)/absorption > MAX_ABSORB) absorption = (float)absorption * (MAX_ABSORB/100.0);
+				if ((dmg*100)/absorption > MAX_ABSORB)
+					absorption = (absorption * MAX_ABSORB) / 100;
 			}
 			dmg = dmg - absorption;
 			if (dmg < 0) {
@@ -218,21 +219,21 @@ bool Enemy::takeHit(Hazard h) {
 			if (h.forced_move_duration > stats.forced_move_duration) stats.forced_move_duration_total = stats.forced_move_duration = h.forced_move_duration;
 			if (h.forced_move_speed != 0) {
 				float theta = powers->calcTheta(stats.hero_pos.x, stats.hero_pos.y, stats.pos.x, stats.pos.y);
-				stats.forced_speed.x = ceil((float)h.forced_move_speed * cos(theta));
-				stats.forced_speed.y = ceil((float)h.forced_move_speed * sin(theta));
+				stats.forced_speed.x = static_cast<int>(ceil(h.forced_move_speed * cos(theta)));
+				stats.forced_speed.y = static_cast<int>(ceil(h.forced_move_speed * sin(theta)));
 			}
 		}
-		
+
 		if (h.hp_steal != 0) {
-		    int heal_amt = (int)ceil((float)dmg * (float)h.hp_steal / 100.0);
-    		combat_text->addMessage(heal_amt, h.src_stats->pos, COMBAT_MESSAGE_BUFF);
+			int heal_amt = (dmg * h.hp_steal) / 100;
+			combat_text->addMessage(heal_amt, h.src_stats->pos, COMBAT_MESSAGE_BUFF);
 			h.src_stats->hp += heal_amt;
 			if (h.src_stats->hp > h.src_stats->maxhp) h.src_stats->hp = h.src_stats->maxhp;
 		}
 		if (h.mp_steal != 0) {
 			h.src_stats->mp += (int)ceil((float)dmg * (float)h.mp_steal / 100.0);
 			if (h.src_stats->mp > h.src_stats->maxmp) h.src_stats->mp = h.src_stats->maxmp;
-		}		
+		}
 
 		// post effect power
 		if (h.post_power >= 0 && dmg > 0) {
