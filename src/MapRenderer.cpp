@@ -221,7 +221,7 @@ int MapRenderer::load(string filename) {
 		}
 		else if (infile.section == "layer") {
 			if (infile.key == "type") {
-				cur_layer = new unsigned short[256][256];
+				cur_layer = new unsigned short[w][256];
 				if (infile.val == "background") background = cur_layer;
 				else if (infile.val == "fringe") fringe = cur_layer;
 				else if (infile.val == "object") object = cur_layer;
