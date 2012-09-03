@@ -175,11 +175,14 @@ private:
 	// map events
 	std::vector<Map_Event> events;
 
-	unsigned short background[256][256];
-	unsigned short fringe[256][256];
-	unsigned short object[256][256];
-	unsigned short foreground[256][256];
-	unsigned short collision[256][256];
+
+	typedef unsigned short maprow[256];
+
+	maprow *background;
+	maprow *fringe;
+	maprow *object; // must exist in each map!
+	maprow *foreground;
+	maprow *collision; // must exist in each map!
 
 	// This determines the size of the backgroundsurface outside the actual
 	// screen. So this setting depends on the movedistance_to_rerender and
