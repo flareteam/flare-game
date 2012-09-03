@@ -49,8 +49,9 @@ Animation::Animation(std::string _name, std::string _type)
 		cout << "Warning: animation type " << _type << " is unknown" << endl;
 }
 
-void Animation::setupUncompressed(Point _render_size, Point _render_offset, int _position, int _frames, int _duration, int _active_frame) {
+void Animation::setupUncompressed(Point _render_size, Point _render_offset, int _position, int _frames, int _duration) {
 	setup(_frames, _duration);
+
 
 	for (unsigned short i = 0 ; i < _frames; i++) {
 		int base_index = 8*i;

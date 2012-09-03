@@ -713,13 +713,11 @@ bool Avatar::takeHit(Hazard h) {
 
 			if (stats.blocking) {
 				absorption += absorption + stats.absorb_max; // blocking doubles your absorb amount
-				if (absorption > 0) {
-					if ((dmg*100)/absorption > MAX_BLOCK) absorption = (float)absorption * (MAX_BLOCK/100.0);
-				}
-			} else {
-				if (absorption > 0) {
-					if ((dmg*100)/absorption > MAX_ABSORB) absorption = (float)absorption * (MAX_ABSORB/100.0);
-				}
+			}
+
+			if (absorption > 0) {
+				if ((dmg*100)/absorption > MAX_ABSORB)
+					absorption = (absorption * MAX_BLOCK) /100;
 			}
 
 			dmg = dmg - absorption;
@@ -751,14 +749,13 @@ bool Avatar::takeHit(Hazard h) {
 			if (h.forced_move_duration > stats.forced_move_duration) stats.forced_move_duration_total = stats.forced_move_duration = h.forced_move_duration;
 			if (h.forced_move_speed != 0) {
 				float theta = powers->calcTheta(h.src_stats->pos.x, h.src_stats->pos.y, stats.pos.x, stats.pos.y);
-				stats.forced_speed.x = ceil((float)h.forced_move_speed * cos(theta));
-				stats.forced_speed.y = ceil((float)h.forced_move_speed * sin(theta));
+				stats.forced_speed.x = static_cast<int>(ceil(h.forced_move_speed * cos(theta)));
+				stats.forced_speed.y = static_cast<int>(ceil(h.forced_move_speed * sin(theta)));
 			}
 			if (h.hp_steal != 0) {
-				int steal_amt = (int)ceil((float)dmg * (float)h.hp_steal / 100.0);
+				int steal_amt = (dmg * h.hp_steal) / 100;
 				combat_text->addMessage(steal_amt, h.src_stats->pos, COMBAT_MESSAGE_BUFF);
-				h.src_stats->hp += steal_amt;
-				if (h.src_stats->hp > h.src_stats->maxhp) h.src_stats->hp = h.src_stats->maxhp;
+				h.src_stats->hp = min(h.src_stats->hp + steal_amt, h.src_stats->maxhp);
 			}
 			// if (h.mp_steal != 0) { //enemies don't have MP
 		}

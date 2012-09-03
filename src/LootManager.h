@@ -139,7 +139,7 @@ public:
 	void addCurrency(int count, Point pos);
 	void removeLoot(int index);
 	ItemStack checkPickup(Point mouse, Point cam, Point hero_pos, int &currency, MenuInventory *inv);
-	ItemStack checkAutoPickup(Point cam, Point hero_pos, int &currency, MenuInventory *inv);
+	ItemStack checkAutoPickup(Point hero_pos, int &currency);
 
 	void addRenders(std::vector<Renderable> &ren, std::vector<Renderable> &ren_dead);
 

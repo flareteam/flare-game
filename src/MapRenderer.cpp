@@ -28,6 +28,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <iostream>
 using namespace std;
 
+const int CLICK_RANGE = 3 * UNITS_PER_TILE; //for activating events
+
 MapRenderer::MapRenderer(CampaignManager *_camp) {
 
 	camp = _camp;
@@ -49,6 +51,12 @@ MapRenderer::MapRenderer(CampaignManager *_camp) {
 	new_enemy.clear();
 	new_npc.clear();
 	new_group.clear();
+
+	background = 0;
+	fringe = 0;
+	object = 0;
+	foreground = 0;
+	collision = 0;
 
 	sfx = NULL;
 	sfx_filename = "";
@@ -136,430 +144,414 @@ void MapRenderer::push_enemy_group(Map_Group g) {
 int MapRenderer::load(string filename) {
 	FileParser infile;
 	string val;
-	string cur_layer;
 	string data_format;
+	maprow *cur_layer;
 
 	clearEvents();
 	clearLayers();
 
-	bool collider_set = false;
 	show_tooltip = false;
 
-	if (infile.open(mods->locate("maps/" + filename))) {
-		while (infile.next()) {
-			if (infile.new_section) {
-				data_format = "dec"; // default
+	if (!infile.open(mods->locate("maps/" + filename))) {
+		cerr << "Unable to open maps/" << filename << endl;
+		return 0;
+	}
 
-				if (enemy_awaiting_queue) {
-					enemies.push(new_enemy);
-					enemy_awaiting_queue = false;
-				}
-				if (npc_awaiting_queue) {
-					npcs.push(new_npc);
-					npc_awaiting_queue = false;
-				}
-				if (group_awaiting_queue) {
-					push_enemy_group(new_group);
-					group_awaiting_queue = false;
-				}
+	while (infile.next()) {
+		if (infile.new_section) {
+			data_format = "dec"; // default
 
-				// for sections that are stored in collections, add a new object here
-				if (infile.section == "enemy") {
-					new_enemy.clear();
-					enemy_awaiting_queue = true;
-				}
-				else if (infile.section == "enemygroup") {
-					new_group.clear();
-					group_awaiting_queue = true;
-				}
-				else if (infile.section == "npc") {
-					new_npc.clear();
-					npc_awaiting_queue = true;
-				}
-				else if (infile.section == "event") {
-					events.push_back(Map_Event());
-				}
-
+			if (enemy_awaiting_queue) {
+				enemies.push(new_enemy);
+				enemy_awaiting_queue = false;
 			}
-			if (infile.section == "header") {
-				if (infile.key == "title") {
-					this->title = msg->get(infile.val);
-				}
-				else if (infile.key == "width") {
-					this->w = toInt(infile.val);
-				}
-				else if (infile.key == "height") {
-					this->h = toInt(infile.val);
-				}
-				else if (infile.key == "tileset") {
-					this->tileset = infile.val;
-				}
-				else if (infile.key == "music") {
-					if (this->music_filename == infile.val) {
-						this->new_music = false;
-					}
-					else {
-						this->music_filename = infile.val;
-						this->new_music = true;
-					}
-				}
-				else if (infile.key == "location") {
-					spawn.x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
-					spawn.y = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
-					spawn_dir = toInt(infile.nextValue());
-				}
+			if (npc_awaiting_queue) {
+				npcs.push(new_npc);
+				npc_awaiting_queue = false;
 			}
-			else if (infile.section == "layer") {
-				if (infile.key == "type") {
-					cur_layer = infile.val;
-				}
-				else if (infile.key == "format") {
-					data_format = infile.val;
-				}
-				else if (infile.key == "data") {
-					// layer map data handled as a special case
-
-					// The next h lines must contain layer data.  TODO: err
-					if (data_format == "hex") {
-						for (int j=0; j<h; j++) {
-							val = infile.getRawLine() + ',';
-							for (int i=0; i<w; i++) {
-								if (cur_layer == "background") background[i][j] = eatFirstHex(val, ',');
-								else if (cur_layer == "fringe") fringe[i][j] = eatFirstHex(val, ',');
-								else if (cur_layer == "object") object[i][j] = eatFirstHex(val, ',');
-								else if (cur_layer == "foreground") foreground[i][j] = eatFirstHex(val, ',');
-								else if (cur_layer == "collision") collision[i][j] = eatFirstHex(val, ',');
-							}
-						}
-					}
-					else if (data_format == "dec") {
-						for (int j=0; j<h; j++) {
-							val = infile.getRawLine() + ',';
-							for (int i=0; i<w; i++) {
-								if (cur_layer == "background") background[i][j] = eatFirstInt(val, ',');
-								else if (cur_layer == "fringe") fringe[i][j] = eatFirstInt(val, ',');
-								else if (cur_layer == "object") object[i][j] = eatFirstInt(val, ',');
-								else if (cur_layer == "foreground") foreground[i][j] = eatFirstInt(val, ',');
-								else if (cur_layer == "collision") collision[i][j] = eatFirstInt(val, ',');
-							}
-						}
-					}
-					if ((cur_layer == "collision") && !collider_set) {
-						collider.setmap(collision);
-						collider.map_size.x = w;
-						collider.map_size.y = h;
-					}
-				}
+			if (group_awaiting_queue) {
+				push_enemy_group(new_group);
+				group_awaiting_queue = false;
 			}
-			else if (infile.section == "enemy") {
-				if (infile.key == "type") {
-					new_enemy.type = infile.val;
-				}
-				else if (infile.key == "location") {
-					new_enemy.pos.x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
-					new_enemy.pos.y = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
-				}
-				else if (infile.key == "direction") {
-					new_enemy.direction = toInt(infile.val);
-				}
-				else if (infile.key == "waypoints") {
-					string none = "";
-					string a = infile.nextValue();
-					string b = infile.nextValue();
 
-					while (a != none) {
-						Point p;
-						p.x = toInt(a) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
-						p.y = toInt(b) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
-						new_enemy.waypoints.push(p);
-						a = infile.nextValue();
-						b = infile.nextValue();
-					}
-				} else if (infile.key == "wander_area") {
-					new_enemy.wander = true;
-					new_enemy.wander_area.x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
-					new_enemy.wander_area.y = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
-					new_enemy.wander_area.w = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
-					new_enemy.wander_area.h = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
-				}
+			// for sections that are stored in collections, add a new object here
+			if (infile.section == "enemy") {
+				new_enemy.clear();
+				enemy_awaiting_queue = true;
 			}
 			else if (infile.section == "enemygroup") {
-				if (infile.key == "type") {
-					new_group.category = infile.val;
-				}
-				else if (infile.key == "level") {
-					new_group.levelmin = toInt(infile.nextValue());
-					new_group.levelmax = toInt(infile.nextValue());
-				}
-				else if (infile.key == "location") {
-					new_group.pos.x = toInt(infile.nextValue());
-					new_group.pos.y = toInt(infile.nextValue());
-					new_group.area.x = toInt(infile.nextValue());
-					new_group.area.y = toInt(infile.nextValue());
-				}
-				else if (infile.key == "number") {
-					new_group.numbermin = toInt(infile.nextValue());
-					new_group.numbermax = toInt(infile.nextValue());
-				}
-				else if (infile.key == "chance") {
-					new_group.chance = toInt(infile.nextValue()) / 100.0f;
-					if (new_group.chance > 1.0f) {
-						new_group.chance = 1.0f;
-					}
-					if (new_group.chance < 0.0f) {
-						new_group.chance = 0.0f;
-					}
-				}
+				new_group.clear();
+				group_awaiting_queue = true;
 			}
 			else if (infile.section == "npc") {
-				if (infile.key == "type") {
-					new_npc.id = infile.val;
-				}
-				else if (infile.key == "location") {
-					new_npc.pos.x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
-					new_npc.pos.y = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
-				}
+				new_npc.clear();
+				npc_awaiting_queue = true;
 			}
 			else if (infile.section == "event") {
-				if (infile.key == "type") {
-					events.back().type = infile.val;
-				}
-				else if (infile.key == "location") {
-					events.back().location.x = toInt(infile.nextValue());
-					events.back().location.y = toInt(infile.nextValue());
-					events.back().location.w = toInt(infile.nextValue());
-					events.back().location.h = toInt(infile.nextValue());
-				}
-				else if (infile.key == "hotspot") {
-					if (infile.val == "location") {
-						events.back().hotspot.x = events.back().location.x;
-						events.back().hotspot.y = events.back().location.y;
-						events.back().hotspot.w = events.back().location.w;
-						events.back().hotspot.h = events.back().location.h;
-					}
-					else {
-						events.back().hotspot.x = toInt(infile.nextValue());
-						events.back().hotspot.y = toInt(infile.nextValue());
-						events.back().hotspot.w = toInt(infile.nextValue());
-						events.back().hotspot.h = toInt(infile.nextValue());
-					}
-				}
-				else if (infile.key == "tooltip") {
-					events.back().tooltip = msg->get(infile.val);
-				}
-				else if (infile.key == "power_path") {
-					events.back().power_src.x = toInt(infile.nextValue());
-					events.back().power_src.y = toInt(infile.nextValue());
-					string dest = infile.nextValue();
-					if (dest == "hero") {
-						events.back().targetHero = true;
-					}
-					else {
-						events.back().power_dest.x = toInt(dest);
-						events.back().power_dest.y = toInt(infile.nextValue());
-					}
-				}
-				else if (infile.key == "power_damage") {
-					events.back().damagemin = toInt(infile.nextValue());
-					events.back().damagemax = toInt(infile.nextValue());
-				}
-				else if (infile.key == "cooldown") {
-					events.back().cooldown = toInt(infile.val);
+				events.push_back(Map_Event());
+			}
+
+		}
+		if (infile.section == "header") {
+			if (infile.key == "title") {
+				this->title = msg->get(infile.val);
+			}
+			else if (infile.key == "width") {
+				this->w = toInt(infile.val);
+			}
+			else if (infile.key == "height") {
+				this->h = toInt(infile.val);
+			}
+			else if (infile.key == "tileset") {
+				this->tileset = infile.val;
+			}
+			else if (infile.key == "music") {
+				if (this->music_filename == infile.val) {
+					this->new_music = false;
 				}
 				else {
-					// new event component
-					Event_Component *e = &(events.back()).components[events.back().comp_num];
-					e->type = infile.key;
+					this->music_filename = infile.val;
+					this->new_music = true;
+				}
+			}
+			else if (infile.key == "location") {
+				spawn.x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+				spawn.y = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+				spawn_dir = toInt(infile.nextValue());
+			}
+		}
+		else if (infile.section == "layer") {
+			if (infile.key == "type") {
+				cur_layer = new unsigned short[w][256];
+				if (infile.val == "background") background = cur_layer;
+				else if (infile.val == "fringe") fringe = cur_layer;
+				else if (infile.val == "object") object = cur_layer;
+				else if (infile.val == "foreground") foreground = cur_layer;
+				else if (infile.val == "collision") collision = cur_layer;
+			}
+			else if (infile.key == "format") {
+				data_format = infile.val;
+			}
+			else if (infile.key == "data") {
+				// layer map data handled as a special case
+				// The next h lines must contain layer data.  TODO: err
+				for (int j=0; j<h; j++) {
+					val = infile.getRawLine() + ',';
+					for (int i=0; i<w; i++)
+						cur_layer[i][j] = eatFirstInt(val, ',', (data_format == "hex" ? std::hex : std::dec));
+				}
+				if (cur_layer == collision)
+					collider.setmap(collision, w, h);
+			}
+		}
+		else if (infile.section == "enemy") {
+			if (infile.key == "type") {
+				new_enemy.type = infile.val;
+			}
+			else if (infile.key == "location") {
+				new_enemy.pos.x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+				new_enemy.pos.y = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+			}
+			else if (infile.key == "direction") {
+				new_enemy.direction = toInt(infile.val);
+			}
+			else if (infile.key == "waypoints") {
+				string none = "";
+				string a = infile.nextValue();
+				string b = infile.nextValue();
 
-					if (infile.key == "intermap") {
-						e->s = infile.nextValue();
-						e->x = toInt(infile.nextValue());
-						e->y = toInt(infile.nextValue());
-					}
-					else if (infile.key == "intramap") {
-						e->x = toInt(infile.nextValue());
-						e->y = toInt(infile.nextValue());
-					}
-					else if (infile.key == "mapmod") {
-						e->s = infile.nextValue();
-						e->x = toInt(infile.nextValue());
-						e->y = toInt(infile.nextValue());
-						e->z = toInt(infile.nextValue());
-
-						// add repeating mapmods
-						string repeat_val = infile.nextValue();
-						while (repeat_val != "") {
-							events.back().comp_num++;
-							e = &events.back().components[events.back().comp_num];
-							e->type = infile.key;
-							e->s = repeat_val;
-							e->x = toInt(infile.nextValue());
-							e->y = toInt(infile.nextValue());
-							e->z = toInt(infile.nextValue());
-
-							repeat_val = infile.nextValue();
-						}
-					}
-					else if (infile.key == "soundfx") {
-						e->s = infile.val;
-					}
-					else if (infile.key == "loot") {
-						e->s = infile.nextValue();
-						e->x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
-						e->y = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
-						e->z = toInt(infile.nextValue());
-
-						// add repeating loot
-						string repeat_val = infile.nextValue();
-						while (repeat_val != "") {
-							events.back().comp_num++;
-							e = &events.back().components[events.back().comp_num];
-							e->type = infile.key;
-							e->s = repeat_val;
-							e->x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
-							e->y = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
-							e->z = toInt(infile.nextValue());
-
-							repeat_val = infile.nextValue();
-						}
-					}
-					else if (infile.key == "msg") {
-						e->s = msg->get(infile.val);
-					}
-					else if (infile.key == "shakycam") {
-						e->x = toInt(infile.val);
-					}
-					else if (infile.key == "requires_status") {
-						e->s = infile.nextValue();
-
-						// add repeating requires_status
-						string repeat_val = infile.nextValue();
-						while (repeat_val != "") {
-							events.back().comp_num++;
-							e = &events.back().components[events.back().comp_num];
-							e->type = infile.key;
-							e->s = repeat_val;
-
-							repeat_val = infile.nextValue();
-						}
-					}
-					else if (infile.key == "requires_not") {
-						e->s = infile.nextValue();
-
-						// add repeating requires_not
-						string repeat_val = infile.nextValue();
-						while (repeat_val != "") {
-							events.back().comp_num++;
-							e = &events.back().components[events.back().comp_num];
-							e->type = infile.key;
-							e->s = repeat_val;
-
-							repeat_val = infile.nextValue();
-						}
-					}
-					else if (infile.key == "requires_item") {
-						e->x = toInt(infile.nextValue());
-
-						// add repeating requires_item
-						string repeat_val = infile.nextValue();
-						while (repeat_val != "") {
-							events.back().comp_num++;
-							e = &events.back().components[events.back().comp_num];
-							e->type = infile.key;
-							e->x = toInt(repeat_val);
-
-							repeat_val = infile.nextValue();
-						}
-					}
-					else if (infile.key == "set_status") {
-						e->s = infile.nextValue();
-
-						// add repeating set_status
-						string repeat_val = infile.nextValue();
-						while (repeat_val != "") {
-							events.back().comp_num++;
-							e = &events.back().components[events.back().comp_num];
-							e->type = infile.key;
-							e->s = repeat_val;
-
-							repeat_val = infile.nextValue();
-						}
-					}
-					else if (infile.key == "unset_status") {
-						e->s = infile.nextValue();
-
-						// add repeating unset_status
-						string repeat_val = infile.nextValue();
-						while (repeat_val != "") {
-							events.back().comp_num++;
-							e = &events.back().components[events.back().comp_num];
-							e->type = infile.key;
-							e->s = repeat_val;
-
-							repeat_val = infile.nextValue();
-						}
-					}
-					else if (infile.key == "remove_item") {
-						e->x = toInt(infile.nextValue());
-
-						// add repeating remove_item
-						string repeat_val = infile.nextValue();
-						while (repeat_val != "") {
-							events.back().comp_num++;
-							e = &events.back().components[events.back().comp_num];
-							e->type = infile.key;
-							e->x = toInt(repeat_val);
-
-							repeat_val = infile.nextValue();
-						}
-					}
-					else if (infile.key == "reward_xp") {
-						e->x = toInt(infile.val);
-					}
-					else if (infile.key == "power") {
-						e->x = toInt(infile.val);
-					}
-					else if (infile.key == "spawn") {
-
-						e->s = infile.nextValue();
-						e->x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
-						e->y = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
-
-						// add repeating spawn
-						string repeat_val = infile.nextValue();
-						while (repeat_val != "") {
-							events.back().comp_num++;
-							e = &events.back().components[events.back().comp_num];
-							e->type = infile.key;
-
-							e->s = repeat_val;
-							e->x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
-							e->y = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
-
-							repeat_val = infile.nextValue();
-						}
-					}
-					events.back().comp_num++;
+				while (a != none) {
+					Point p;
+					p.x = toInt(a) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
+					p.y = toInt(b) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
+					new_enemy.waypoints.push(p);
+					a = infile.nextValue();
+					b = infile.nextValue();
+				}
+			} else if (infile.key == "wander_area") {
+				new_enemy.wander = true;
+				new_enemy.wander_area.x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
+				new_enemy.wander_area.y = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
+				new_enemy.wander_area.w = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
+				new_enemy.wander_area.h = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
+			}
+		}
+		else if (infile.section == "enemygroup") {
+			if (infile.key == "type") {
+				new_group.category = infile.val;
+			}
+			else if (infile.key == "level") {
+				new_group.levelmin = toInt(infile.nextValue());
+				new_group.levelmax = toInt(infile.nextValue());
+			}
+			else if (infile.key == "location") {
+				new_group.pos.x = toInt(infile.nextValue());
+				new_group.pos.y = toInt(infile.nextValue());
+				new_group.area.x = toInt(infile.nextValue());
+				new_group.area.y = toInt(infile.nextValue());
+			}
+			else if (infile.key == "number") {
+				new_group.numbermin = toInt(infile.nextValue());
+				new_group.numbermax = toInt(infile.nextValue());
+			}
+			else if (infile.key == "chance") {
+				new_group.chance = toInt(infile.nextValue()) / 100.0f;
+				if (new_group.chance > 1.0f) {
+					new_group.chance = 1.0f;
+				}
+				if (new_group.chance < 0.0f) {
+					new_group.chance = 0.0f;
 				}
 			}
 		}
+		else if (infile.section == "npc") {
+			if (infile.key == "type") {
+				new_npc.id = infile.val;
+			}
+			else if (infile.key == "location") {
+				new_npc.pos.x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+				new_npc.pos.y = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+			}
+		}
+		else if (infile.section == "event") {
+			if (infile.key == "type") {
+				events.back().type = infile.val;
+			}
+			else if (infile.key == "location") {
+				events.back().location.x = toInt(infile.nextValue());
+				events.back().location.y = toInt(infile.nextValue());
+				events.back().location.w = toInt(infile.nextValue());
+				events.back().location.h = toInt(infile.nextValue());
+			}
+			else if (infile.key == "hotspot") {
+				if (infile.val == "location") {
+					events.back().hotspot.x = events.back().location.x;
+					events.back().hotspot.y = events.back().location.y;
+					events.back().hotspot.w = events.back().location.w;
+					events.back().hotspot.h = events.back().location.h;
+				}
+				else {
+					events.back().hotspot.x = toInt(infile.nextValue());
+					events.back().hotspot.y = toInt(infile.nextValue());
+					events.back().hotspot.w = toInt(infile.nextValue());
+					events.back().hotspot.h = toInt(infile.nextValue());
+				}
+			}
+			else if (infile.key == "tooltip") {
+				events.back().tooltip = msg->get(infile.val);
+			}
+			else if (infile.key == "power_path") {
+				events.back().power_src.x = toInt(infile.nextValue());
+				events.back().power_src.y = toInt(infile.nextValue());
+				string dest = infile.nextValue();
+				if (dest == "hero") {
+					events.back().targetHero = true;
+				}
+				else {
+					events.back().power_dest.x = toInt(dest);
+					events.back().power_dest.y = toInt(infile.nextValue());
+				}
+			}
+			else if (infile.key == "power_damage") {
+				events.back().damagemin = toInt(infile.nextValue());
+				events.back().damagemax = toInt(infile.nextValue());
+			}
+			else if (infile.key == "cooldown") {
+				events.back().cooldown = toInt(infile.val);
+			}
+			else {
+				// new event component
+				Event_Component *e = &(events.back()).components[events.back().comp_num];
+				e->type = infile.key;
 
-		infile.close();
+				if (infile.key == "intermap") {
+					e->s = infile.nextValue();
+					e->x = toInt(infile.nextValue());
+					e->y = toInt(infile.nextValue());
+				}
+				else if (infile.key == "intramap") {
+					e->x = toInt(infile.nextValue());
+					e->y = toInt(infile.nextValue());
+				}
+				else if (infile.key == "mapmod") {
+					e->s = infile.nextValue();
+					e->x = toInt(infile.nextValue());
+					e->y = toInt(infile.nextValue());
+					e->z = toInt(infile.nextValue());
 
-		// reached end of file.  Handle any final sections.
-		if (enemy_awaiting_queue) {
-			enemies.push(new_enemy);
-			enemy_awaiting_queue = false;
+					// add repeating mapmods
+					string repeat_val = infile.nextValue();
+					while (repeat_val != "") {
+						events.back().comp_num++;
+						e = &events.back().components[events.back().comp_num];
+						e->type = infile.key;
+						e->s = repeat_val;
+						e->x = toInt(infile.nextValue());
+						e->y = toInt(infile.nextValue());
+						e->z = toInt(infile.nextValue());
+
+						repeat_val = infile.nextValue();
+					}
+				}
+				else if (infile.key == "soundfx") {
+					e->s = infile.val;
+				}
+				else if (infile.key == "loot") {
+					e->s = infile.nextValue();
+					e->x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+					e->y = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+					e->z = toInt(infile.nextValue());
+
+					// add repeating loot
+					string repeat_val = infile.nextValue();
+					while (repeat_val != "") {
+						events.back().comp_num++;
+						e = &events.back().components[events.back().comp_num];
+						e->type = infile.key;
+						e->s = repeat_val;
+						e->x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+						e->y = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+						e->z = toInt(infile.nextValue());
+
+						repeat_val = infile.nextValue();
+					}
+				}
+				else if (infile.key == "msg") {
+					e->s = msg->get(infile.val);
+				}
+				else if (infile.key == "shakycam") {
+					e->x = toInt(infile.val);
+				}
+				else if (infile.key == "requires_status") {
+					e->s = infile.nextValue();
+
+					// add repeating requires_status
+					string repeat_val = infile.nextValue();
+					while (repeat_val != "") {
+						events.back().comp_num++;
+						e = &events.back().components[events.back().comp_num];
+						e->type = infile.key;
+						e->s = repeat_val;
+
+						repeat_val = infile.nextValue();
+					}
+				}
+				else if (infile.key == "requires_not") {
+					e->s = infile.nextValue();
+
+					// add repeating requires_not
+					string repeat_val = infile.nextValue();
+					while (repeat_val != "") {
+						events.back().comp_num++;
+						e = &events.back().components[events.back().comp_num];
+						e->type = infile.key;
+						e->s = repeat_val;
+
+						repeat_val = infile.nextValue();
+					}
+				}
+				else if (infile.key == "requires_item") {
+					e->x = toInt(infile.nextValue());
+
+					// add repeating requires_item
+					string repeat_val = infile.nextValue();
+					while (repeat_val != "") {
+						events.back().comp_num++;
+						e = &events.back().components[events.back().comp_num];
+						e->type = infile.key;
+						e->x = toInt(repeat_val);
+
+						repeat_val = infile.nextValue();
+					}
+				}
+				else if (infile.key == "set_status") {
+					e->s = infile.nextValue();
+
+					// add repeating set_status
+					string repeat_val = infile.nextValue();
+					while (repeat_val != "") {
+						events.back().comp_num++;
+						e = &events.back().components[events.back().comp_num];
+						e->type = infile.key;
+						e->s = repeat_val;
+
+						repeat_val = infile.nextValue();
+					}
+				}
+				else if (infile.key == "unset_status") {
+					e->s = infile.nextValue();
+
+					// add repeating unset_status
+					string repeat_val = infile.nextValue();
+					while (repeat_val != "") {
+						events.back().comp_num++;
+						e = &events.back().components[events.back().comp_num];
+						e->type = infile.key;
+						e->s = repeat_val;
+
+						repeat_val = infile.nextValue();
+					}
+				}
+				else if (infile.key == "remove_item") {
+					e->x = toInt(infile.nextValue());
+
+					// add repeating remove_item
+					string repeat_val = infile.nextValue();
+					while (repeat_val != "") {
+						events.back().comp_num++;
+						e = &events.back().components[events.back().comp_num];
+						e->type = infile.key;
+						e->x = toInt(repeat_val);
+
+						repeat_val = infile.nextValue();
+					}
+				}
+				else if (infile.key == "reward_xp") {
+					e->x = toInt(infile.val);
+				}
+				else if (infile.key == "power") {
+					e->x = toInt(infile.val);
+				}
+				else if (infile.key == "spawn") {
+
+					e->s = infile.nextValue();
+					e->x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+					e->y = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+
+					// add repeating spawn
+					string repeat_val = infile.nextValue();
+					while (repeat_val != "") {
+						events.back().comp_num++;
+						e = &events.back().components[events.back().comp_num];
+						e->type = infile.key;
+
+						e->s = repeat_val;
+						e->x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+						e->y = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+
+						repeat_val = infile.nextValue();
+					}
+				}
+				events.back().comp_num++;
+			}
 		}
-		if (npc_awaiting_queue) {
-			npcs.push(new_npc);
-			npc_awaiting_queue = false;
-		}
-		if (group_awaiting_queue){
-			push_enemy_group(new_group);
-			group_awaiting_queue = false;
-		}
-	}  else fprintf(stderr, "Unable to open maps/%s!\n", filename.c_str());
+	}
+
+	infile.close();
+
+	// reached end of file.  Handle any final sections.
+	if (enemy_awaiting_queue) {
+		enemies.push(new_enemy);
+		enemy_awaiting_queue = false;
+	}
+	if (npc_awaiting_queue) {
+		npcs.push(new_npc);
+		npc_awaiting_queue = false;
+	}
+	if (group_awaiting_queue){
+		push_enemy_group(new_group);
+		group_awaiting_queue = false;
+	}
 
 	if (this->new_music) {
 		loadMusic();
@@ -579,15 +571,11 @@ int MapRenderer::load(string filename) {
  * Clear all tile layers (e.g. when loading a map)
  */
 void MapRenderer::clearLayers() {
-	for (int i=0; i<256; i++) {
-		for (int j=0; j<256; j++) {
-			background[i][j] = 0;
-			fringe[i][j] = 0;
-			object[i][j] = 0;
-			foreground[i][j] = 0;
-			collision[i][j] = 0;
-		}
-	}
+	delete background;
+	delete fringe;
+	delete object;
+	delete foreground;
+	delete collision;
 }
 
 void MapRenderer::loadMusic() {
@@ -847,8 +835,8 @@ void MapRenderer::renderIsoFrontObjects(vector<Renderable> &r) {
 void MapRenderer::renderIso(vector<Renderable> &r, vector<Renderable> &r_dead) {
 	const Point nulloffset = {0, 0};
 	if (ANIMATED_TILES) {
-		renderIsoLayer(screen, nulloffset, background);
-		renderIsoLayer(screen, nulloffset, fringe);
+		if (background) renderIsoLayer(screen, nulloffset, background);
+		if (fringe) renderIsoLayer(screen, nulloffset, fringe);
 	}
 	else {
 		if (abs(shakycam.x - backgroundsurfaceoffset.x) > movedistance_to_rerender * TILE_W
@@ -864,8 +852,8 @@ void MapRenderer::renderIso(vector<Renderable> &r, vector<Renderable> &r_dead) {
 
 			SDL_FillRect(backgroundsurface, 0, 0);
 			Point off = {VIEW_W_HALF, VIEW_H_HALF};
-			renderIsoLayer(backgroundsurface, off, background);
-			renderIsoLayer(backgroundsurface, off, fringe);
+			if (background) renderIsoLayer(backgroundsurface, off, background);
+			if (fringe) renderIsoLayer(backgroundsurface, off, fringe);
 		}
 		Point p = map_to_screen(shakycam.x, shakycam.y , backgroundsurfaceoffset.x, backgroundsurfaceoffset.y);
 		SDL_Rect src;
@@ -877,7 +865,7 @@ void MapRenderer::renderIso(vector<Renderable> &r, vector<Renderable> &r_dead) {
 	}
 	renderIsoBackObjects(r_dead);
 	renderIsoFrontObjects(r);
-	renderIsoLayer(screen, nulloffset, foreground);
+	if (foreground) renderIsoLayer(screen, nulloffset, foreground);
 	checkTooltip();
 }
 
@@ -943,12 +931,11 @@ void MapRenderer::renderOrthoFrontObjects(std::vector<Renderable> &r) {
 }
 
 void MapRenderer::renderOrtho(vector<Renderable> &r, vector<Renderable> &r_dead) {
-
-	renderOrthoLayer(background);
-	renderOrthoLayer(fringe);
+	if (background) renderOrthoLayer(background);
+	if (fringe) renderOrthoLayer(fringe);
 	renderOrthoBackObjects(r_dead);
 	renderOrthoFrontObjects(r);
-	renderOrthoLayer(foreground);
+	if (foreground) renderOrthoLayer(foreground);
 	//render event tooltips
 	checkTooltip();
 }

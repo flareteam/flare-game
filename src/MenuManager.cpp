@@ -295,8 +295,7 @@ void MenuManager::logic() {
 				Mix_PlayChannel(-1, sfx_open, 0);
 		}
 	}
-	if (pow->getUnspent() > 0) act->requires_attention[MENU_POWERS] = true;
-	else act->requires_attention[MENU_POWERS] = false;
+	act->requires_attention[MENU_POWERS] = pow->getUnspent() > 0;
 
 	// character menu toggleggle
 	if (((inpt->pressing[CHARACTER] && !key_lock && !dragging) || clicking_character) && stats->humanoid) {
@@ -314,8 +313,7 @@ void MenuManager::logic() {
 			inpt->resetScroll();
 		}
 	}
-	if (chr->getUnspent() > 0) act->requires_attention[MENU_CHARACTER] = true;
-	else act->requires_attention[MENU_CHARACTER] = false;
+	act->requires_attention[MENU_CHARACTER] = chr->getUnspent() > 0;
 
 	// log menu toggle
 	if ((inpt->pressing[LOG] && !key_lock && !dragging) || clicking_log) {
@@ -469,10 +467,10 @@ void MenuManager::logic() {
 			// pick up a power
 			if (pow->visible && isWithin(pow->window_area,inpt->mouse)) {
 				inpt->lock[MAIN1] = true;
-				
+
 				// check for unlock first
 				if (!pow->unlockClick(inpt->mouse)) {
-				
+
 					// otherwise, check for dragging
 					drag_power = pow->click(inpt->mouse);
 					if (drag_power > -1) {
@@ -580,7 +578,7 @@ void MenuManager::logic() {
 
 				// dropping an item from vendor (we only allow to drop into the carried area)
 				if (inv->visible && isWithin( inv->carried_area, inpt->mouse)) {
-					if( ! inv->buy( drag_stack, inpt->mouse)) {
+					if( ! inv->buy( drag_stack)) {
 						log->add(msg->get("Not enough money."), LOG_TYPE_MESSAGES);
 						hudlog->add(msg->get("Not enough money."));
 						vendor->itemReturn( drag_stack);

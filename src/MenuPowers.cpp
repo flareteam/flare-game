@@ -86,7 +86,7 @@ MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_i
 			tabs_count = eatFirstInt(infile.val, ',');
 			if (tabs_count < 1) tabs_count = 1;
 		}
-		
+
 		if (infile.key == "id") {
 			id = eatFirstInt(infile.val, ',');
 			id_line = true;
@@ -96,13 +96,13 @@ MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_i
 				power_cell.back().id = id;
 			}
 		} else id_line = false;
-		
+
 		if (id < 0 || id > (INT_MAX-1)) {
 			if (id_line) fprintf(stderr, "Power index %d inside power menu definition out of bounds 0-%d, skipping\n", id, INT_MAX);
 			continue;
 		}
 		if (id_line) continue;
-		
+
 		if (infile.key == "tab") {
 			power_cell.back().tab = eatFirstInt(infile.val, ',');
 		} else if (infile.key == "position") {
@@ -559,7 +559,7 @@ TooltipData MenuPowers::checkTooltip(Point mouse) {
 				}
 				// add cooldown time
 				if (powers->powers[power_cell[i].id].cooldown > 0) {
-					tip.lines[tip.num_lines++] = msg->get("Cooldown: %d seconds", powers->powers[power_cell[i].id].cooldown / 1000.0);
+					tip.lines[tip.num_lines++] = msg->get("Cooldown: %d seconds", powers->powers[power_cell[i].id].cooldown / 1000);
 				}
 
 				return tip;

@@ -178,7 +178,6 @@ void MenuLog::render() {
 
 	int total_size = tab_content_indent;
 	int active_log = tabControl->getActiveTab();
-	SDL_Rect contentArea = tabControl->getContentArea();
 
 	if (msg_buffer[active_log]->update) {
 		for (unsigned int i=log_msg[active_log].size(); i>0; i--) {

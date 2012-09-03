@@ -615,7 +615,7 @@ TooltipData ItemManager::getTooltip(int item, StatBlock *stats, bool vendor_view
 			if(items[item].price_sell != 0)
 				price_per_unit = items[item].price_sell;
 			else
-				price_per_unit = (float)items[item].price*VENDOR_RATIO;
+				price_per_unit = static_cast<int>(items[item].price * VENDOR_RATIO);
 			if (price_per_unit == 0) price_per_unit = 1;
 			if (items[item].max_quantity <= 1)
 				tip.lines[tip.num_lines++] = msg->get("Sell Price: %d %s", price_per_unit, CURRENCY);

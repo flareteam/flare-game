@@ -96,11 +96,10 @@ int WidgetScrollBar::checkClick(int x, int y) {
 		if (!inpt->lock[MAIN1]) {
 			pressed_knob = false;
 		}
-		float tmp;
-		tmp = mouse.y - pos_up.y;
+		int tmp = mouse.y - pos_up.y;
 
 		pos_knob.y = pos_up.y + tmp;
-		value = tmp*((float)maximum/bar_height);
+		value = (tmp * maximum)/bar_height;
 		set();
 
 		return 3;
@@ -129,15 +128,8 @@ int WidgetScrollBar::checkClick(int x, int y) {
 }
 
 void WidgetScrollBar::set() {
-	pos_knob.y = pos_up.y + ((float)value/((float)maximum/bar_height));
-	if (pos_knob.y < pos_up.y+pos_up.h) {
-		pos_knob.y = pos_up.y+pos_up.h;
-		value = 0;
-	}
-	if (pos_knob.y+pos_knob.h > pos_down.y) {
-		pos_knob.y = pos_down.y-pos_knob.h;
-		value = maximum;
-	}
+	value = max(0, min(maximum, value));
+	pos_knob.y = pos_up.y + (value * bar_height / maximum);
 }
 
 int WidgetScrollBar::getValue() {

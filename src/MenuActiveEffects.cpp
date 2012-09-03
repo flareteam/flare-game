@@ -93,13 +93,13 @@ void MenuActiveEffects::renderIcon(int icon_id, int index, int current, int max)
 		pos.x = window_area.x;
 		pos.y = window_area.y + (index * ICON_SIZE_SMALL);;
 	}
-	
+
 	src.x = (icon_id % 16) * ICON_SIZE_SMALL;
 	src.y = (icon_id / 16) * ICON_SIZE_SMALL;
 	src.w = src.h = ICON_SIZE_SMALL;
 
 	overlay.x = 0;
-	overlay.y = ICON_SIZE_SMALL * ((float)current/max);
+	overlay.y = (ICON_SIZE_SMALL * current) / max;
 	overlay.w = ICON_SIZE_SMALL;
 	overlay.h = ICON_SIZE_SMALL - overlay.y;
 

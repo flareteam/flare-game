@@ -338,7 +338,7 @@ void MenuCharacter::refreshStats() {
 	}
 
 	int bonus;
-	
+
 	if (show_stat[8]) {
 		bonus = stats->get_physical() * stats->bonus_per_physical;
 		ss.str("");
@@ -530,18 +530,11 @@ TooltipData MenuCharacter::checkTooltip() {
  * Return true if a stat was upgraded.
  */
 bool MenuCharacter::checkUpgrade() {
-
-	Point mouse;
-	mouse.x = inpt->mouse.x;
-	mouse.y = inpt->mouse.y;
-
 	int spent = stats->physical_character + stats->mental_character + stats->offense_character + stats->defense_character -4;
 	skill_points = stats->level - spent;
 
 	// check to see if there are skill points available
 	if (spent < stats->level && spent < stats->max_spendable_stat_points) {
-
-		// check mouse hotspots
 
 		// physical
 		if (physical_up) {

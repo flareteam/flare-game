@@ -82,7 +82,7 @@ public:
 	// which all belong to this animation.
 	// The render_offset is constant for all frames. The render_size is also
 	// the grid size.
-	void setupUncompressed(Point render_size, Point render_offset, int _position, int _frames, int _duration, int _active_frame);
+	void setupUncompressed(Point render_size, Point render_offset, int _position, int _frames, int _duration);
 
 	void setup(unsigned short _frames, unsigned short _duration);
 	void addFrame(unsigned short index, unsigned short direction, SDL_Rect sdl_rect, Point _render_offset);

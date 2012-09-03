@@ -354,7 +354,7 @@ void MenuActionBar::renderCooldowns() {
 
 			// Wipe from bottom to top
 			if (hero->hero_cooldown[hotkeys[i]]) {
-				item_src.h = ICON_SIZE_SMALL * (hero->hero_cooldown[hotkeys[i]] / (float)powers->powers[hotkeys[i]].cooldown);
+				item_src.h = (ICON_SIZE_SMALL * hero->hero_cooldown[hotkeys[i]]) / powers->powers[hotkeys[i]].cooldown;
 			}
 
 			// SDL_BlitSurface will write to these Rects, so make a copy

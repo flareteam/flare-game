@@ -962,7 +962,10 @@ bool PowerManager::missile(int power_index, StatBlock *src_stats, Point target) 
 
 		//calculate direction based on trajectory, not actual target (UNITS_PER_TILE reduces round off error)
 		if (powers[power_index].directional)
-			haz->direction = calcDirection(src.x, src.y, src.x + UNITS_PER_TILE * haz->speed.x, src.y + UNITS_PER_TILE * haz->speed.y);
+			haz->direction = calcDirection(
+					src.x, src.y,
+					static_cast<int>(src.x + UNITS_PER_TILE * haz->speed.x),
+					static_cast<int>(src.y + UNITS_PER_TILE * haz->speed.y));
 
 		hazards.push(haz);
 	}
@@ -1076,17 +1079,17 @@ bool PowerManager::spawn(int power_index, StatBlock *src_stats, Point target) {
 
 	// enemy spawning position
 	if (powers[power_index].starting_pos == STARTING_POS_SOURCE) {
-		espawn.pos.x = (float)src_stats->pos.x;
-		espawn.pos.y = (float)src_stats->pos.y;
+		espawn.pos.x = src_stats->pos.x;
+		espawn.pos.y = src_stats->pos.y;
 	}
 	else if (powers[power_index].starting_pos == STARTING_POS_TARGET) {
-		espawn.pos.x = (float)target.x;
-		espawn.pos.y = (float)target.y;
+		espawn.pos.x = target.x;
+		espawn.pos.y = target.y;
 	}
 	else if (powers[power_index].starting_pos == STARTING_POS_MELEE) {
 		FPoint fpos = calcVector(src_stats->pos, src_stats->direction, src_stats->melee_range);
-		espawn.pos.x = (int)fpos.x;
-		espawn.pos.y = (int)fpos.y;
+		espawn.pos.x = static_cast<int>(fpos.x);
+		espawn.pos.y = static_cast<int>(fpos.y);
 	}
 	if (powers[power_index].target_neighbor > 0) {
 		espawn.pos = targetNeighbor(src_stats->pos,powers[power_index].target_neighbor);

@@ -152,14 +152,8 @@ void MenuInventory::logic() {
 void MenuInventory::render() {
 	if (!visible) return;
 
-	SDL_Rect src;
-
 	// background
 	SDL_Rect dest = window_area;
-	src.x = 0;
-	src.y = 0;
-	src.w = window_area.w;
-	src.h = window_area.h;
 	SDL_BlitSurface(background, NULL, screen, &dest);
 
 	// close button
@@ -545,7 +539,7 @@ void MenuInventory::addCurrency(int count) {
  * Check if there is enough currency to buy the given stack, and if so remove it from the current total and add the stack.
  * (Handle the drop into the equipment area, but add() don't handle it well in all circonstances. MenuManager::logic() allow only into the carried area.)
  */
-bool MenuInventory::buy(ItemStack stack, Point mouse) {
+bool MenuInventory::buy(ItemStack stack) {
 	int count = items->items[stack.item].price * stack.quantity;
 
 	if( currency >= count) {
@@ -579,7 +573,7 @@ bool MenuInventory::sell(ItemStack stack) {
 	if(items->items[stack.item].price_sell != 0)
 		value_each = items->items[stack.item].price_sell;
 	else
-		value_each = (float)items->items[stack.item].price * VENDOR_RATIO;
+		value_each = static_cast<int>(items->items[stack.item].price * VENDOR_RATIO);
 	if (value_each == 0) value_each = 1;
 	int value = value_each * stack.quantity;
 	currency += value;
@@ -802,7 +796,7 @@ void MenuInventory::applyItemStats(ItemStack *equipped) {
 	for (int i=0; i<MAX_EQUIPPED; i++) {
 		item_id = equipped[i].item;
 		const Item &item = pc_items[item_id];
-		
+
 		// apply base stats
 		stats->dmg_melee_min += item.dmg_melee_min;
 		stats->dmg_melee_max += item.dmg_melee_max;
@@ -810,7 +804,7 @@ void MenuInventory::applyItemStats(ItemStack *equipped) {
 		stats->dmg_ranged_max += item.dmg_ranged_max;
 		stats->dmg_ment_min += item.dmg_ment_min;
 		stats->dmg_ment_max += item.dmg_ment_max;
-		
+
 		// TODO: add a separate wielding stat to items
 		// e.g. we might want a ring that gives bonus ranged damage but
 		// we still need a bow to shoot arrows.
@@ -832,7 +826,7 @@ void MenuInventory::applyItemStats(ItemStack *equipped) {
 				stats->mental_weapon_power = item.power_mod;
 			}
 		}
-		
+
 		// apply various bonuses
 		bonus_counter = 0;
 		while (bonus_counter < item.bonus_stat.size() && item.bonus_stat[bonus_counter] != "") {

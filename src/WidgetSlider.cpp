@@ -19,6 +19,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * class WidgetSlider
  */
 
+#include <algorithm>
 #include <iostream>
 #include <string>
 #include <SDL.h>
@@ -102,18 +103,12 @@ bool WidgetSlider::checkClick (int x, int y)
 		if (!inpt->lock[MAIN1]) {
 			pressed = false;
 		}
+
 		// set the value of the slider
-		float tmp;
-		if (mouse.x < pos.x) {
-			tmp = 0;
-		} else if (mouse.x > pos.x+pos.w) {
-			tmp = pos.w;
-		} else {
-			tmp = mouse.x - pos.x;
-		}
+		int tmp = std::max(0, std::min(mouse.x - pos.x, static_cast<int>(pos.w)));
 
 		pos_knob.x = pos.x + tmp - (pos_knob.w/2);
-		value = tmp*((float)(maximum-minimum)/pos.w)+minimum;
+		value = minimum + (tmp*(maximum-minimum))/pos.w;
 
 		return true;
 	}
@@ -127,7 +122,7 @@ void WidgetSlider::set (int min, int max, int val)
 	maximum = max;
 	value = val;
 
-	pos_knob.x = pos.x + ((float)(val-min)/((float)(max-min)/pos.w)) - (pos_knob.w/2);
+	pos_knob.x = pos.x + ((val-min)* pos.w)/(max-min) - (pos_knob.w/2);
 	pos_knob.y = pos.y;
 }
 
