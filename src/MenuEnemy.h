@@ -31,8 +31,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <SDL.h>
 #include <SDL_image.h>
 
-const int MENU_ENEMY_TIMEOUT = FRAMES_PER_SEC * 10;
-
 class MenuEnemy : public Menu {
 private:
 	SDL_Surface *background;

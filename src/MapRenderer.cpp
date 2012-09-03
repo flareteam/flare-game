@@ -28,6 +28,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <iostream>
 using namespace std;
 
+const int CLICK_RANGE = 3 * UNITS_PER_TILE; //for activating events
+
 MapRenderer::MapRenderer(CampaignManager *_camp) {
 
 	camp = _camp;

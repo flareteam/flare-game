@@ -578,7 +578,7 @@ void MenuManager::logic() {
 
 				// dropping an item from vendor (we only allow to drop into the carried area)
 				if (inv->visible && isWithin( inv->carried_area, inpt->mouse)) {
-					if( ! inv->buy( drag_stack, inpt->mouse)) {
+					if( ! inv->buy( drag_stack)) {
 						log->add(msg->get("Not enough money."), LOG_TYPE_MESSAGES);
 						hudlog->add(msg->get("Not enough money."));
 						vendor->itemReturn( drag_stack);

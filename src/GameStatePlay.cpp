@@ -52,6 +52,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 using namespace std;
 
+const int MENU_ENEMY_TIMEOUT = FRAMES_PER_SEC * 10;
 
 GameStatePlay::GameStatePlay() : GameState() {
 
@@ -174,7 +175,7 @@ void GameStatePlay::checkLoot() {
 
 	// Autopickup
     if (pc->stats.alive && AUTOPICKUP_CURRENCY) {
-        pickup = loot->checkAutoPickup(map->cam, pc->stats.pos, currency, menu->inv);
+        pickup = loot->checkAutoPickup(pc->stats.pos, currency);
         if (currency > 0) {
             menu->inv->addCurrency(currency);
         }

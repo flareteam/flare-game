@@ -152,14 +152,8 @@ void MenuInventory::logic() {
 void MenuInventory::render() {
 	if (!visible) return;
 
-	SDL_Rect src;
-
 	// background
 	SDL_Rect dest = window_area;
-	src.x = 0;
-	src.y = 0;
-	src.w = window_area.w;
-	src.h = window_area.h;
 	SDL_BlitSurface(background, NULL, screen, &dest);
 
 	// close button
@@ -545,7 +539,7 @@ void MenuInventory::addCurrency(int count) {
  * Check if there is enough currency to buy the given stack, and if so remove it from the current total and add the stack.
  * (Handle the drop into the equipment area, but add() don't handle it well in all circonstances. MenuManager::logic() allow only into the carried area.)
  */
-bool MenuInventory::buy(ItemStack stack, Point mouse) {
+bool MenuInventory::buy(ItemStack stack) {
 	int count = items->items[stack.item].price * stack.quantity;
 
 	if( currency >= count) {

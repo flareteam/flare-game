@@ -150,8 +150,6 @@ public:
 	}
 };
 
-const int CLICK_RANGE = 3 * UNITS_PER_TILE; //for activating events
-
 class MapRenderer {
 private:
 	Mix_Music *music;

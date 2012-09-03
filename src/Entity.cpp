@@ -150,7 +150,6 @@ void Entity::loadAnimations(const string& filename) {
 	Point render_offset;
 	string type = "";
 	string firstAnimation = "";
-	int active_frame = 0;
 	bool first_section=true;
 	bool compressed_loading=false; // is reset every section to false, set by frame keyword
 	Animation *newanim;
@@ -163,7 +162,7 @@ void Entity::loadAnimations(const string& filename) {
 		if (parser.new_section) {
 			if (!first_section && !compressed_loading) {
 				Animation *a = new Animation(name, type);
-				a->setupUncompressed(render_size, render_offset,  position, frames, duration, active_frame);
+				a->setupUncompressed(render_size, render_offset,  position, frames, duration);
 				animations.push_back(a);
 			}
 			first_section = false;
@@ -197,7 +196,7 @@ void Entity::loadAnimations(const string& filename) {
 		else if (parser.key == "render_offset_y")
 			render_offset.y = toInt(parser.val);
 		else if (parser.key == "active_frame")
-			active_frame = toInt(parser.val);
+			cout << "active frames in entities not supported" << endl;
 		else if (parser.key == "frame") {
 			if (compressed_loading == false) { // first frame statement in section
 				newanim = new Animation(name, type);
@@ -230,7 +229,7 @@ void Entity::loadAnimations(const string& filename) {
 	if (!compressed_loading) {
 		// add final animation
 		Animation *a = new Animation(name, type);
-		a->setupUncompressed(render_size, render_offset, position, frames, duration, active_frame);
+		a->setupUncompressed(render_size, render_offset, position, frames, duration);
 		animations.push_back(a);
 	}
 
