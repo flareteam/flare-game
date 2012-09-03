@@ -248,11 +248,9 @@ int MapRenderer::load(string filename) {
 							cur_layer[i][j] = eatFirstInt(val, ',');
 					}
 				}
-				if (cur_layer == collision) {
-					collider.setmap(collision);
-					collider.map_size.x = w;
-					collider.map_size.y = h;
 				}
+				if (cur_layer == collision)
+					collider.setmap(collision, w, h);
 			}
 		}
 		else if (infile.section == "enemy") {
