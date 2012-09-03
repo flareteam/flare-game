@@ -167,7 +167,6 @@ void MenuPowers::update() {
 	closeButton->pos.y = window_area.y+close_pos.y;
 
 	stat_up.set(window_area.x+unspent_points.x, window_area.y+unspent_points.y, unspent_points.justify, unspent_points.valign, "", font->getColor("menu_bonus"));
-	points_left = stats->level - powers_list.size();
 
 	// If we have more than one tab, create TabControl
 	if (tabs_count > 1) {
@@ -346,7 +345,6 @@ bool MenuPowers::unlockClick(Point mouse) {
 					&& (powerUnlockable(power_cell[i].id)) && points_left > 0
 					&& power_cell[i].requires_point && power_cell[i].tab == active_tab) {
 				powers_list.push_back(power_cell[i].id);
-				points_left = stats->level - powers_list.size();
 				return true;
 			}
 		}
@@ -357,7 +355,6 @@ bool MenuPowers::unlockClick(Point mouse) {
 					&& (powerUnlockable(power_cell[i].id))
 					&& points_left > 0 && power_cell[i].requires_point) {
 				powers_list.push_back(power_cell[i].id);
-				points_left = stats->level - powers_list.size();
 				return true;
 			}
 		}
@@ -366,6 +363,7 @@ bool MenuPowers::unlockClick(Point mouse) {
 }
 
 void MenuPowers::logic() {
+	points_left = stats->level - powers_list.size();
 	if (!visible) return;
 
 	if (closeButton->checkClick()) {
@@ -416,7 +414,6 @@ void MenuPowers::render() {
 		stringstream ss;
 
 		ss.str("");
-		points_left = stats->level - powers_list.size();
 		if (points_left !=0) {
 			ss << "Unspent skill points:" << " " << points_left;
 		}
