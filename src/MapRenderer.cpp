@@ -142,8 +142,8 @@ void MapRenderer::push_enemy_group(Map_Group g) {
 int MapRenderer::load(string filename) {
 	FileParser infile;
 	string val;
-	string cur_layer;
 	string data_format;
+	maprow *cur_layer;
 
 	clearEvents();
 	clearLayers();
@@ -221,12 +221,12 @@ int MapRenderer::load(string filename) {
 		}
 		else if (infile.section == "layer") {
 			if (infile.key == "type") {
-				cur_layer = infile.val;
-				if (cur_layer == "background") background = new unsigned short[256][256];
-				else if (cur_layer == "fringe") fringe = new unsigned short[256][256];
-				else if (cur_layer == "object") object = new unsigned short[256][256];
-				else if (cur_layer == "foreground") foreground = new unsigned short[256][256];
-				else if (cur_layer == "collision") collision = new unsigned short[256][256];
+				cur_layer = new unsigned short[256][256];
+				if (infile.val == "background") background = cur_layer;
+				else if (infile.val == "fringe") fringe = cur_layer;
+				else if (infile.val == "object") object = cur_layer;
+				else if (infile.val == "foreground") foreground = cur_layer;
+				else if (infile.val == "collision") collision = cur_layer;
 			}
 			else if (infile.key == "format") {
 				data_format = infile.val;
@@ -238,28 +238,18 @@ int MapRenderer::load(string filename) {
 				if (data_format == "hex") {
 					for (int j=0; j<h; j++) {
 						val = infile.getRawLine() + ',';
-						for (int i=0; i<w; i++) {
-							if (cur_layer == "background") background[i][j] = eatFirstHex(val, ',');
-							else if (cur_layer == "fringe") fringe[i][j] = eatFirstHex(val, ',');
-							else if (cur_layer == "object") object[i][j] = eatFirstHex(val, ',');
-							else if (cur_layer == "foreground") foreground[i][j] = eatFirstHex(val, ',');
-							else if (cur_layer == "collision") collision[i][j] = eatFirstHex(val, ',');
-						}
+						for (int i=0; i<w; i++)
+							cur_layer[i][j] = eatFirstHex(val, ',');
 					}
 				}
 				else if (data_format == "dec") {
 					for (int j=0; j<h; j++) {
 						val = infile.getRawLine() + ',';
-						for (int i=0; i<w; i++) {
-							if (cur_layer == "background") background[i][j] = eatFirstInt(val, ',');
-							else if (cur_layer == "fringe") fringe[i][j] = eatFirstInt(val, ',');
-							else if (cur_layer == "object") object[i][j] = eatFirstInt(val, ',');
-							else if (cur_layer == "foreground") foreground[i][j] = eatFirstInt(val, ',');
-							else if (cur_layer == "collision") collision[i][j] = eatFirstInt(val, ',');
-						}
+						for (int i=0; i<w; i++)
+							cur_layer[i][j] = eatFirstInt(val, ',');
 					}
 				}
-				if ((cur_layer == "collision") && !collider_set) {
+				if ((cur_layer == collision) && !collider_set) {
 					collider.setmap(collision);
 					collider.map_size.x = w;
 					collider.map_size.y = h;
