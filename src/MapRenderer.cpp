@@ -148,7 +148,6 @@ int MapRenderer::load(string filename) {
 	clearEvents();
 	clearLayers();
 
-	bool collider_set = false;
 	show_tooltip = false;
 
 	if (!infile.open(mods->locate("maps/" + filename))) {
@@ -249,7 +248,7 @@ int MapRenderer::load(string filename) {
 							cur_layer[i][j] = eatFirstInt(val, ',');
 					}
 				}
-				if ((cur_layer == collision) && !collider_set) {
+				if (cur_layer == collision) {
 					collider.setmap(collision);
 					collider.map_size.x = w;
 					collider.map_size.y = h;
