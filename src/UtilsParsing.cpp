@@ -146,24 +146,13 @@ void parse_key_pair(const string& s, string &key, string &val) {
  *
  * This is basically a really lazy "split" replacement
  */
-int eatFirstInt(string &s, char separator) {
+int eatFirstInt(string &s, char separator, std::ios_base& (*f)(std::ios_base&)) {
 	size_t seppos = s.find_first_of(separator);
 	if (seppos == string::npos) {
 		s = "";
 		return 0; // not found
 	}
-	int num = toInt(s.substr(0, seppos));
-	s = s.substr(seppos+1, s.length());
-	return num;
-}
-
-unsigned short eatFirstHex(string &s, char separator) {
-	size_t seppos = s.find_first_of(separator);
-	if (seppos == string::npos) {
-		s = "";
-		return 0; // not found
-	}
-	unsigned short num = xtoi(s.substr(0, seppos));
+	int num = toInt(s.substr(0, seppos), f);
 	s = s.substr(seppos+1, s.length());
 	return num;
 }
@@ -273,9 +262,9 @@ std::string toString(const type_info & type, void * value) {
 	return stream.str();
 }
 
-int toInt(const string& s, int default_value) {
+int toInt(const string& s, std::ios_base& (*f)(std::ios_base&), int default_value) {
 	int result;
-	if (!(stringstream(s) >> result))
+	if (!(stringstream(s) >> f >> result))
 		result = default_value;
 	return result;
 }

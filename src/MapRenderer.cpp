@@ -232,22 +232,11 @@ int MapRenderer::load(string filename) {
 			}
 			else if (infile.key == "data") {
 				// layer map data handled as a special case
-
 				// The next h lines must contain layer data.  TODO: err
-				if (data_format == "hex") {
-					for (int j=0; j<h; j++) {
-						val = infile.getRawLine() + ',';
-						for (int i=0; i<w; i++)
-							cur_layer[i][j] = eatFirstHex(val, ',');
-					}
-				}
-				else if (data_format == "dec") {
-					for (int j=0; j<h; j++) {
-						val = infile.getRawLine() + ',';
-						for (int i=0; i<w; i++)
-							cur_layer[i][j] = eatFirstInt(val, ',');
-					}
-				}
+				for (int j=0; j<h; j++) {
+					val = infile.getRawLine() + ',';
+					for (int i=0; i<w; i++)
+						cur_layer[i][j] = eatFirstInt(val, ',', (data_format == "hex" ? std::hex : std::dec));
 				}
 				if (cur_layer == collision)
 					collider.setmap(collision, w, h);
