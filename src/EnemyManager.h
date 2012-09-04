@@ -28,9 +28,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "Utils.h"
 #include "PowerManager.h"
 
-const int max_enemy_sfx = 8;
-const int max_enemy_gfx = 32;
-
 class EnemyManager {
 private:
 
@@ -39,17 +36,15 @@ private:
 	bool loadGraphics(const std::string& type_id);
 	bool loadSounds(const std::string& type_id);
 
-	std::string gfx_prefixes[max_enemy_gfx];
-	int gfx_count;
-	std::string sfx_prefixes[max_enemy_sfx];
-	int sfx_count;
+	std::vector<std::string> gfx_prefixes;
+	std::vector<SDL_Surface*> sprites;
 
-	SDL_Surface *sprites[max_enemy_gfx];
-	Mix_Chunk *sound_phys[max_enemy_sfx];
-	Mix_Chunk *sound_ment[max_enemy_sfx];
-	Mix_Chunk *sound_hit[max_enemy_sfx];
-	Mix_Chunk *sound_die[max_enemy_sfx];
-	Mix_Chunk *sound_critdie[max_enemy_sfx];
+	std::vector<std::string> sfx_prefixes;
+	std::vector<Mix_Chunk*> sound_phys;
+	std::vector<Mix_Chunk*> sound_ment;
+	std::vector<Mix_Chunk*> sound_hit;
+	std::vector<Mix_Chunk*> sound_die;
+	std::vector<Mix_Chunk*> sound_critdie;
 
 public:
 	EnemyManager(PowerManager *_powers, MapRenderer *_map);
