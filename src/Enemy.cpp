@@ -174,6 +174,7 @@ bool Enemy::takeHit(Hazard h) {
 			if (absorption > 0) {
 				if ((dmg*100)/absorption > MAX_ABSORB)
 					absorption = (absorption * MAX_ABSORB) / 100;
+				if (absorption == 0) absorption = 1;
 			}
 			dmg = dmg - absorption;
 			if (dmg < 0) {
