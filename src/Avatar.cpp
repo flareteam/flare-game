@@ -754,6 +754,7 @@ bool Avatar::takeHit(Hazard h) {
 			}
 			if (h.hp_steal != 0) {
 				int steal_amt = (dmg * h.hp_steal) / 100;
+				if (steal_amt == 0 && dmg > 0) steal_amt = 1;
 				combat_text->addMessage(steal_amt, h.src_stats->pos, COMBAT_MESSAGE_BUFF);
 				h.src_stats->hp = min(h.src_stats->hp + steal_amt, h.src_stats->maxhp);
 			}
