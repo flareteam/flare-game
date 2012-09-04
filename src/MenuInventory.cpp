@@ -827,6 +827,10 @@ void MenuInventory::applyItemStats(ItemStack *equipped) {
 			}
 		}
 
+		// apply absorb bonus
+		stats->absorb_min += item.abs_min;
+		stats->absorb_max += item.abs_max;
+
 		// apply various bonuses
 		bonus_counter = 0;
 		while (bonus_counter < item.bonus_stat.size() && item.bonus_stat[bonus_counter] != "") {

@@ -98,13 +98,16 @@ void MenuActiveEffects::renderIcon(int icon_id, int index, int current, int max)
 	src.y = (icon_id / 16) * ICON_SIZE_SMALL;
 	src.w = src.h = ICON_SIZE_SMALL;
 
-	overlay.x = 0;
-	overlay.y = (ICON_SIZE_SMALL * current) / max;
-	overlay.w = ICON_SIZE_SMALL;
-	overlay.h = ICON_SIZE_SMALL - overlay.y;
-
 	SDL_BlitSurface(icons,&src,screen,&pos);
-	SDL_BlitSurface(timer,&overlay,screen,&pos);
+
+	if (max > 0) {
+		overlay.x = 0;
+		overlay.y = (ICON_SIZE_SMALL * current) / max;
+		overlay.w = ICON_SIZE_SMALL;
+		overlay.h = ICON_SIZE_SMALL - overlay.y;
+
+		SDL_BlitSurface(timer,&overlay,screen,&pos);
+	}
 }
 
 void MenuActiveEffects::update(StatBlock *_stats) {
