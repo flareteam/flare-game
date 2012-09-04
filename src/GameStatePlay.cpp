@@ -1,5 +1,6 @@
 /*
 Copyright © 2011-2012 Clint Bellanger
+Copyright © 2012 Henrik Andersson
 
 This file is part of FLARE.
 
@@ -432,17 +433,18 @@ void GameStatePlay::checkNPCInteraction() {
 	// if close enough to the NPC, open the appropriate interaction screen
 	if (npc_click != -1 && interact_distance < max_interact_distance && pc->stats.alive && pc->stats.humanoid) {
 		inpt->lock[MAIN1] = true;
+		bool npc_have_dialog = !(npcs->npcs[npc_id]->chooseDialogNode() == NPC_NO_DIALOG_AVAIL);
 
-		if ((npcs->npcs[npc_id]->vendor && !npcs->npcs[npc_id]->talker)) {
+		if (npcs->npcs[npc_id]->vendor && !npc_have_dialog) {
 			menu->vendor->talker_visible = false;
 			menu->talker->vendor_visible = true;
 		}
-		else if (npcs->npcs[npc_id]->talker) {
+		else if (npcs->npcs[npc_id]->talker && npc_have_dialog) {
 			menu->vendor->talker_visible = true;
 			menu->talker->vendor_visible = false;
 
 			npcs->npcs[npc_id]->playSound(NPC_VOX_INTRO);
-        }
+		}
 	}
 
 	if (npc_id != -1 && interact_distance < max_interact_distance && pc->stats.alive && pc->stats.humanoid) {

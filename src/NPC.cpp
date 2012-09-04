@@ -1,5 +1,6 @@
 /*
 Copyright © 2011-2012 Clint Bellanger
+Copyright © 2012 Henrik Andersson
 
 This file is part of FLARE.
 
@@ -277,6 +278,8 @@ bool NPC::playSound(int type, int id) {
  * Determine the correct dialog node by the place in the story line
  */
 int NPC::chooseDialogNode() {
+        if (!talker)
+                return NPC_NO_DIALOG_AVAIL;
 
 	// NPC dialog nodes are listed in timeline order
 	// So check from the bottom of the list up
@@ -302,7 +305,7 @@ int NPC::chooseDialogNode() {
 			}
 		}
 	}
-	return 0;
+	return NPC_NO_DIALOG_AVAIL;
 }
 
 
