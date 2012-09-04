@@ -38,6 +38,7 @@ class MapRenderer;
 const int NPC_VENDOR_MAX_STOCK = 80;
 const int NPC_VOX_INTRO = 0;
 const int NPC_VOX_QUEST = 1;
+const int NPC_NO_DIALOG_AVAIL = -1;
 
 class NPC : public Entity {
 protected:
