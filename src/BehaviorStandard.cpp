@@ -232,7 +232,8 @@ void BehaviorStandard::checkPower() {
 
 		// if we're at the active frame of a power animation,
 		// activate the power and set the local and global cooldowns
-		if (e->activeAnimation->isActiveFrame()) {
+		if (e->activeAnimation->isActiveFrame() || e->instant_power) {
+			e->instant_power = false;
 
 			int power_slot =  e->stats.activated_powerslot;
 			int power_id = e->stats.power_index[e->stats.activated_powerslot];
@@ -396,6 +397,7 @@ void BehaviorStandard::updateState() {
 			if (power_state == POWSTATE_SWING) e->setAnimation("melee");
 			else if (power_state == POWSTATE_SHOOT) e->setAnimation("ranged");
 			else if (power_state == POWSTATE_CAST) e->setAnimation("ment");
+			else if (power_state == POWSTATE_INSTANT) e->instant_power = true;
 
 			// sound effect based on power type
 			if (e->activeAnimation->isFirstFrame()) {

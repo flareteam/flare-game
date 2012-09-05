@@ -376,6 +376,10 @@ void Avatar::handlePower(int actionbar_power) {
 				stats.cur_state = AVATAR_BLOCK;
 				stats.blocking = true;
 				break;
+
+			case POWSTATE_INSTANT:	// handle instant powers
+				powers->activate(current_power, &stats, target);
+				break;
 		}
 	}
 }

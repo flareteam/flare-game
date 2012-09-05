@@ -123,6 +123,7 @@ void PowerManager::loadPowers(const std::string& filename) {
 				else if (infile.val == "shoot") powers[input_id].new_state = POWSTATE_SHOOT;
 				else if (infile.val == "cast") powers[input_id].new_state = POWSTATE_CAST;
 				else if (infile.val == "block") powers[input_id].new_state = POWSTATE_BLOCK;
+				else if (infile.val == "instant") powers[input_id].new_state = POWSTATE_INSTANT;
 			}
 			else if (infile.key == "face") {
 				if (infile.val == "true") powers[input_id].face = true;
