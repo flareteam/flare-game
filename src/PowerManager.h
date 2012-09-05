@@ -53,6 +53,7 @@ const int POWSTATE_SWING = 0;
 const int POWSTATE_CAST = 1;
 const int POWSTATE_SHOOT = 2;
 const int POWSTATE_BLOCK = 3;
+const int POWSTATE_INSTANT = 4;
 
 const int BASE_DAMAGE_NONE = 0;
 const int BASE_DAMAGE_MELEE = 1;

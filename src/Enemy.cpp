@@ -53,6 +53,7 @@ Enemy::Enemy(PowerManager *_powers, MapRenderer *_map) : Entity(_map) {
 	sfx_die = false;
 	sfx_critdie = false;
 	reward_xp = false;
+	instant_power = false;
 
 	eb = NULL;
 }

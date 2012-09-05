@@ -393,6 +393,10 @@ void MenuInventory::activate(InputState * input) {
 		//don't use untransform item if hero is not transformed
 		if (powers->powers[items->items[inventory[CARRIED][slot].item].power].spawn_type == "untransform" && !stats->transformed) return;
 
+		//check for power cooldown
+		if (stats->hero_cooldown[items->items[inventory[CARRIED][slot].item].power] > 0) return;
+		else stats->hero_cooldown[items->items[inventory[CARRIED][slot].item].power] = powers->powers[items->items[inventory[CARRIED][slot].item].power].cooldown;
+
 		// if this item requires targeting it can't be used this way
 		if (!powers->powers[items->items[inventory[CARRIED][slot].item].power].requires_targeting) {
 

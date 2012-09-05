@@ -68,6 +68,7 @@ public:
 
 	// other flags
 	bool reward_xp;
+	bool instant_power;
 };
 
 
