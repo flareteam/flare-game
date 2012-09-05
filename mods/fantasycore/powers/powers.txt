@@ -733,19 +733,21 @@ type=effect
 icon=32
 name=Health Potion
 sfx=potion.ogg
-new_state=cast
+new_state=instant
 requires_item=1
 buff_restore_hp=25
+cooldown=600
 
 [power]
 id=101
 type=effect
 icon=33
 name=Mana Potion
-new_state=cast
+new_state=instant
 sfx=potion.ogg
 requires_item=2
 buff_restore_mp=25
+cooldown=600
 
 [power]
 id=102
@@ -753,19 +755,21 @@ type=effect
 icon=34
 name=Health Flask
 sfx=potion.ogg
-new_state=cast
+new_state=instant
 requires_item=3
 buff_restore_hp=75
+cooldown=600
 
 [power]
 id=103
 type=effect
 icon=35
 name=Mana Flask
-new_state=cast
+new_state=instant
 sfx=potion.ogg
 requires_item=4
 buff_restore_mp=75
+cooldown=600
 
 
 [power]
