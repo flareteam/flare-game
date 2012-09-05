@@ -128,8 +128,8 @@ public:
 		sfx = SFX_NONE;
 		gfx = "";
 		loot_animation = "";
-		power = -1;
-		power_mod = -1;
+		power = 0;
+		power_mod = 0;
 		power_desc = "";
 		price = 0;
 		price_sell = 0;

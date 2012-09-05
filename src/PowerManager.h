@@ -67,7 +67,6 @@ const int STARTING_POS_SOURCE = 0;
 const int STARTING_POS_TARGET = 1;
 const int STARTING_POS_MELEE = 2;
 
-// first 20 powers coincide with power tree
 // TODO: remove this restriction
 const int POWER_SHIELD = 11;
 const int POWER_VENGEANCE = 17;
@@ -257,8 +256,8 @@ public:
 		buff_restore_hp = 0;
 		buff_restore_mp = 0;
 
-		post_power = -1;
-		wall_power = -1;
+		post_power = 0;
+		wall_power = 0;
 
 		allow_power_mod = false;
 		spawn_type = "";

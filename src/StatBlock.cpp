@@ -140,15 +140,15 @@ StatBlock::StatBlock() {
 
 	for (int i=0; i<POWERSLOT_COUNT; i++) {
 		power_chance[i] = 0;
-		power_index[i] = -1;
+		power_index[i] = 0;
 		power_cooldown[i] = 0;
 		power_ticks[i] = 0;
 	}
 	melee_range = 64;
 
-	melee_weapon_power = -1;
-	ranged_weapon_power = -1;
-	mental_weapon_power = -1;
+	melee_weapon_power = 0;
+	ranged_weapon_power = 0;
+	mental_weapon_power = 0;
 
 	vulnerable = std::vector<int>(ELEMENTS.size(), 100);
 

@@ -67,7 +67,7 @@ struct Power_Menu_Cell {
 		requires_physical = 0;
 		requires_mental = 0;
 		requires_level = 0;
-		requires_power = -1;
+		requires_power = 0;
 		requires_point = false;
 	}
 };

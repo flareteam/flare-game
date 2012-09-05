@@ -590,11 +590,11 @@ void GameStatePlay::logic() {
 		// save ActionBar state and lock slots from removing/replacing power
 		for (int i=0; i<12 ; i++) {
 			menu->act->actionbar[i] = menu->act->hotkeys[i];
-			menu->act->hotkeys[i] = -1;
+			menu->act->hotkeys[i] = 0;
 		}
 		int count = 10;
 		for (int i=0; i<4 ; i++) {
-			if (pc->charmed_stats->power_index[i] != -1) {
+			if (pc->charmed_stats->power_index[i] != 0) {
 				menu->act->hotkeys[count] = pc->charmed_stats->power_index[i];
 				menu->act->locked[count] = true;
 				count++;

@@ -43,7 +43,7 @@ Hazard::Hazard() {
 	dmg_min = 0;
 	dmg_max = 0;
 	crit_chance = 0;
-	power_index = -1;
+	power_index = 0;
 	rendered = false;
 	lifespan=1;
 	frame=0;
@@ -67,8 +67,8 @@ Hazard::Hazard() {
 	trait_crits_impaired = 0;
 	trait_elemental = -1;
 	remove_now = false;
-	post_power = -1;
-	wall_power = -1;
+	post_power = 0;
+	wall_power = 0;
 	hit_wall = false;
 	equipment_modified = false;
 	base_speed = 0;
