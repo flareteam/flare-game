@@ -224,8 +224,15 @@ void GameStatePlay::loadGame() {
 				}
 			}
 			else if (infile.key == "actionbar") {
-				for (int i=0; i<12; i++)
-					hotkeys[i] = toInt(infile.nextValue());
+				int slot;
+				for (int i=0; i<12; i++) {
+					slot = toInt(infile.nextValue());
+					if (slot > 0) hotkeys[i] = slot;
+					else {
+						fprintf(stderr, "Hotkey power on position %d has negative id, skipping\n", i);
+						hotkeys[i] = 0;
+					}
+				}
 				menu->act->set(hotkeys);
 			}
 			else if (infile.key == "transformed") {
