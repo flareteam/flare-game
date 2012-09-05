@@ -814,19 +814,19 @@ void MenuInventory::applyItemStats(ItemStack *equipped) {
 		// we still need a bow to shoot arrows.
 		if (item.dmg_melee_max > 0) {
 			stats->wielding_physical = true;
-			if (item.power_mod != -1) {
+			if (item.power_mod != 0) {
 				stats->melee_weapon_power = item.power_mod;
 			}
 		}
 		if (item.dmg_ranged_max > 0) {
 			stats->wielding_offense = true;
-			if (item.power_mod != -1) {
+			if (item.power_mod != 0) {
 				stats->ranged_weapon_power = item.power_mod;
 			}
 		}
 		if (item.dmg_ment_max > 0) {
 			stats->wielding_mental = true;
-			if (item.power_mod != -1) {
+			if (item.power_mod != 0) {
 				stats->mental_weapon_power = item.power_mod;
 			}
 		}

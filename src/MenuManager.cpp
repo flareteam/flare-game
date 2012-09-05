@@ -148,7 +148,7 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 	dragging = false;
 	drag_stack.item = 0;
 	drag_stack.quantity = 0;
-	drag_power = -1;
+	drag_power = 0;
 	drag_src = 0;
 	drop_stack.item = 0;
 	drop_stack.quantity = 0;
@@ -473,7 +473,7 @@ void MenuManager::logic() {
 
 					// otherwise, check for dragging
 					drag_power = pow->click(inpt->mouse);
-					if (drag_power > -1) {
+					if (drag_power > 0) {
 						dragging = true;
 						drag_src = DRAG_SRC_POWERS;
 					}
@@ -490,7 +490,7 @@ void MenuManager::logic() {
 				// allow drag-to-rearrange action bar
 				else if (!isWithin(act->menuArea, inpt->mouse)) {
 					drag_power = act->checkDrag(inpt->mouse);
-					if (drag_power > -1) {
+					if (drag_power > 0) {
 						dragging = true;
 						drag_src = DRAG_SRC_ACTIONBAR;
 					}
@@ -535,7 +535,7 @@ void MenuManager::logic() {
 					inv->itemReturn(drag_stack);
 
 					// put an item with a power on the action bar
-					if (items->items[drag_stack.item].power != -1) {
+					if (items->items[drag_stack.item].power != 0) {
 						act->drop(inpt->mouse, items->items[drag_stack.item].power, false);
 					}
 				}

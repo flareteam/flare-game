@@ -91,12 +91,12 @@ void PowerManager::loadPowers(const std::string& filename) {
 			if (infile.key == "id") {
 				id_line = true;
 				input_id = toInt(infile.val);
-				if (input_id > -1 && input_id < (INT_MAX-1) && (int)powers.size() < input_id + 1)
+				if (input_id > 0 && (int)powers.size() < input_id + 1)
 					powers.resize(input_id + 1);
 			} else id_line = false;
 
-			if (input_id < 0 || input_id > (INT_MAX-1)) {
-				if (id_line) fprintf(stderr, "Power index %d out of bounds 0-%d, skipping\n", input_id, INT_MAX);
+			if (input_id < 1) {
+				if (id_line) fprintf(stderr, "Power index out of bounds 1-%d, skipping\n", INT_MAX);
 				continue;
 			}
 			if (id_line) continue;
@@ -729,24 +729,24 @@ void PowerManager::initHazard(int power_index, StatBlock *src_stats, Point targe
 	}
 
 	// pre/post power effects
-	if (powers[power_index].post_power != -1) {
+	if (powers[power_index].post_power != 0) {
 		haz->post_power = powers[power_index].post_power;
 	}
-	if (powers[power_index].wall_power != -1) {
+	if (powers[power_index].wall_power != 0) {
 		haz->wall_power = powers[power_index].wall_power;
 	}
 
 	// if equipment has special powers, apply it here (if it hasn't already been applied)
 	if (!haz->equipment_modified && powers[power_index].allow_power_mod) {
-		if (powers[power_index].base_damage == BASE_DAMAGE_MELEE && src_stats->melee_weapon_power != -1) {
+		if (powers[power_index].base_damage == BASE_DAMAGE_MELEE && src_stats->melee_weapon_power != 0) {
 			haz->equipment_modified = true;
 			initHazard(src_stats->melee_weapon_power, src_stats, target, haz);
 		}
-		else if (powers[power_index].base_damage == BASE_DAMAGE_MENT && src_stats->mental_weapon_power != -1) {
+		else if (powers[power_index].base_damage == BASE_DAMAGE_MENT && src_stats->mental_weapon_power != 0) {
 			haz->equipment_modified = true;
 			initHazard(src_stats->mental_weapon_power, src_stats, target, haz);
 		}
-		else if (powers[power_index].base_damage == BASE_DAMAGE_RANGED && src_stats->ranged_weapon_power != -1) {
+		else if (powers[power_index].base_damage == BASE_DAMAGE_RANGED && src_stats->ranged_weapon_power != 0) {
 			haz->equipment_modified = true;
 			initHazard(src_stats->ranged_weapon_power, src_stats, target, haz);
 		}
@@ -850,17 +850,17 @@ void PowerManager::playSound(int power_index, StatBlock *src_stats) {
 	bool play_base_sound = false;
 
 	if (powers[power_index].allow_power_mod) {
-		if (powers[power_index].base_damage == BASE_DAMAGE_MELEE && src_stats->melee_weapon_power != -1
+		if (powers[power_index].base_damage == BASE_DAMAGE_MELEE && src_stats->melee_weapon_power != 0
 				&& powers[src_stats->melee_weapon_power].sfx_index != -1) {
             if (sfx[powers[src_stats->melee_weapon_power].sfx_index])
     			Mix_PlayChannel(-1,sfx[powers[src_stats->melee_weapon_power].sfx_index],0);
 		}
-		else if (powers[power_index].base_damage == BASE_DAMAGE_MENT && src_stats->mental_weapon_power != -1
+		else if (powers[power_index].base_damage == BASE_DAMAGE_MENT && src_stats->mental_weapon_power != 0
 				&& powers[src_stats->mental_weapon_power].sfx_index != -1) {
             if (sfx[powers[src_stats->mental_weapon_power].sfx_index])
                 Mix_PlayChannel(-1,sfx[powers[src_stats->mental_weapon_power].sfx_index],0);
 		}
-		else if (powers[power_index].base_damage == BASE_DAMAGE_RANGED && src_stats->ranged_weapon_power != -1
+		else if (powers[power_index].base_damage == BASE_DAMAGE_RANGED && src_stats->ranged_weapon_power != 0
 				&& powers[src_stats->ranged_weapon_power].sfx_index != -1) {
             if (sfx[powers[src_stats->ranged_weapon_power].sfx_index])
                 Mix_PlayChannel(-1,sfx[powers[src_stats->ranged_weapon_power].sfx_index],0);

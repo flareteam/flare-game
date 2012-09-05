@@ -90,15 +90,15 @@ MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_i
 		if (infile.key == "id") {
 			id = eatFirstInt(infile.val, ',');
 			id_line = true;
-			if (id > -1 && id < (INT_MAX-1)) {
+			if (id > 0) {
 				power_cell.push_back(Power_Menu_Cell());
 				slots.push_back(SDL_Rect());
 				power_cell.back().id = id;
 			}
 		} else id_line = false;
 
-		if (id < 0 || id > (INT_MAX-1)) {
-			if (id_line) fprintf(stderr, "Power index %d inside power menu definition out of bounds 0-%d, skipping\n", id, INT_MAX);
+		if (id < 1) {
+			if (id_line) fprintf(stderr, "Power index inside power menu definition out of bounds 1-%d, skipping\n", INT_MAX);
 			continue;
 		}
 		if (id_line) continue;
@@ -253,11 +253,14 @@ short MenuPowers::id_by_powerIndex(short power_index) {
  */
 bool MenuPowers::requirementsMet(int power_index) {
 
-	// power_index can be -1 during recursive call if requires_power is not defined.
-	// Power with index -1 doesn't exist and is always enabled
-	if (power_index == -1) return true;
+	// power_index can be 0 during recursive call if requires_power is not defined.
+	// Power with index 0 doesn't exist and is always enabled
+	if (power_index == 0) return true;
 
 	int id = id_by_powerIndex(power_index);
+
+	// If we didn't find power in power_menu, than it has no requirements
+	if (id == -1) return true;
 
 	// If power_id is saved into vector, it's unlocked anyway
 	if (find(powers_list.begin(), powers_list.end(), power_index) != powers_list.end()) return true;
@@ -282,12 +285,15 @@ bool MenuPowers::requirementsMet(int power_index) {
  */
 bool MenuPowers::powerUnlockable(int power_index) {
 
-	// power_index can be -1 during recursive call if requires_power is not defined.
-	// Power with index -1 doesn't exist and is always enabled
-	if (power_index == -1) return true;
+	// power_index can be 0 during recursive call if requires_power is not defined.
+	// Power with index 0 doesn't exist and is always enabled
+	if (power_index == 0) return true;
 
 	// Find cell with our power
 	int id = id_by_powerIndex(power_index);
+
+	// If we didn't find power in power_menu, than it has no requirements
+	if (id == -1) return true;
 
 	// If we already have a power, don't try to unlock it
 	if (requirementsMet(power_index)) return false;
@@ -317,7 +323,7 @@ int MenuPowers::click(Point mouse) {
 		for (unsigned i=0; i<power_cell.size(); i++) {
 			if (isWithin(slots[i], mouse) && (power_cell[i].tab == active_tab)) {
 				if (requirementsMet(power_cell[i].id)) return power_cell[i].id;
-				else return -1;
+				else return 0;
 			}
 		}
 	// if have don't have tabs
@@ -325,11 +331,11 @@ int MenuPowers::click(Point mouse) {
 		for (unsigned i=0; i<power_cell.size(); i++) {
 			if (isWithin(slots[i], mouse)) {
 				if (requirementsMet(power_cell[i].id)) return power_cell[i].id;
-				else return -1;
+				else return 0;
 			}
 		}
 	}
-	return -1;
+	return 0;
 }
 
 /**
@@ -545,11 +551,11 @@ TooltipData MenuPowers::checkTooltip(Point mouse) {
 
 
 				// Required Power Tooltip
-				if ((power_cell[i].requires_power != -1) && !(requirementsMet(power_cell[i].id))) {
+				if ((power_cell[i].requires_power != 0) && !(requirementsMet(power_cell[i].id))) {
 					tip.colors[tip.num_lines] = color_penalty;
 					tip.lines[tip.num_lines++] = msg->get("Requires Power: %s", powers->powers[power_cell[i].requires_power].name);
 				}
-				else if ((power_cell[i].requires_power != -1) && (requirementsMet(power_cell[i].id))) {
+				else if ((power_cell[i].requires_power != 0) && (requirementsMet(power_cell[i].id))) {
 					tip.lines[tip.num_lines++] = msg->get("Requires Power: %s", powers->powers[power_cell[i].requires_power].name);
 				}
 

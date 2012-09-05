@@ -64,7 +64,7 @@ void Avatar::init() {
 	stats.pos.x = map->spawn.x;
 	stats.pos.y = map->spawn.y;
 	stats.direction = map->spawn_dir;
-	current_power = -1;
+	current_power = 0;
 	newLevelNotification = false;
 
 	lockSwing = false;
@@ -304,7 +304,7 @@ void Avatar::set_direction() {
 }
 
 void Avatar::handlePower(int actionbar_power) {
-	if (actionbar_power != -1 && stats.cooldown_ticks == 0) {
+	if (actionbar_power != 0 && stats.cooldown_ticks == 0) {
 		const Power &power = powers->getPower(actionbar_power);
 		Point target = screen_to_map(inpt->mouse.x,  inpt->mouse.y + power.aim_assist, stats.pos.x, stats.pos.y);
 		if (!MOUSE_AIM) {
@@ -391,7 +391,7 @@ void Avatar::handlePower(int actionbar_power) {
  * - calculate the next frame of animation
  * - calculate camera position based on avatar position
  *
- * @param actionbar_power The actionbar power activated.  -1 means no power.
+ * @param actionbar_power The actionbar power activated.  0 means no power.
  * @param restrictPowerUse rather or not to allow power usage on mouse1
  */
 void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
@@ -773,7 +773,7 @@ bool Avatar::takeHit(Hazard h) {
 		}
 
 		// post effect power
-		if (h.post_power >= 0 && dmg > 0) {
+		if (h.post_power > 0 && dmg > 0) {
 			powers->activate(h.post_power, h.src_stats, stats.pos);
 		}
 

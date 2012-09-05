@@ -55,7 +55,7 @@ void HazardManager::logic() {
 
 
 		// if a moving hazard hits a wall, check for an after-effect
-		if (h[i]->hit_wall && h[i]->wall_power >= 0) {
+		if (h[i]->hit_wall && h[i]->wall_power > 0) {
 			Point target;
 			target.x = (int)(h[i]->pos.x);
 			target.y = (int)(h[i]->pos.y);

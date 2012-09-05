@@ -49,7 +49,7 @@ MenuActionBar::MenuActionBar(PowerManager *_powers, StatBlock *_hero, SDL_Surfac
 	src.w = ICON_SIZE_SMALL;
 	src.h = ICON_SIZE_SMALL;
 	drag_prev_slot = -1;
-	default_M1 = -1;
+	default_M1 = 0;
 
 	clear();
 
@@ -72,9 +72,9 @@ void MenuActionBar::update() {
 
 		if (infile.key == "default_M1_power") {
 			int power_id = eatFirstInt(infile.val, ',');
-			if (power_id > -1 && power_id < (INT_MAX-1)) {
+			if (power_id > 0) {
 				default_M1 = power_id;
-			} else fprintf(stderr, "Power index %d for ActionBar default power out of bounds 0-%d, skipping\n", power_id, INT_MAX);
+			} else fprintf(stderr, "Power index for ActionBar default power out of bounds 1-%d, skipping\n", INT_MAX);
 		}else if (infile.key == "slot1") {
 			slots[0].x = window_area.x+eatFirstInt(infile.val, ',');
 			slots[0].y = window_area.y+eatFirstInt(infile.val, ',');
@@ -200,8 +200,8 @@ void MenuActionBar::update() {
 void MenuActionBar::clear() {
 	// clear action bar
 	for (int i=0; i<12; i++) {
-		hotkeys[i] = -1;
-		actionbar[i] = -1;
+		hotkeys[i] = 0;
+		actionbar[i] = 0;
 		slot_item_count[i] = -1;
 		slot_enabled[i] = true;
 		locked[i] = false;
@@ -214,7 +214,7 @@ void MenuActionBar::clear() {
 	// default: LMB set to basic melee attack
 	hotkeys[10] = 1;
 	// redefine from config file
-	if (default_M1 != -1) hotkeys[10] = default_M1;
+	if (default_M1 != 0) hotkeys[10] = default_M1;
 }
 
 void MenuActionBar::loadGraphics() {
@@ -304,7 +304,7 @@ void MenuActionBar::render() {
 		else
 			dest.x = window_area.x + (i * ICON_SIZE_SMALL) + ICON_SIZE_SMALL * 2;
 
-		if (hotkeys[i] != -1) {
+		if (hotkeys[i] != 0) {
 			const Power &power = powers->getPower(hotkeys[i]);
 			slot_enabled[i] = (hero->hero_cooldown[hotkeys[i]] == 0)
 						   && (slot_item_count[i] != 0)
@@ -410,7 +410,7 @@ TooltipData MenuActionBar::checkTooltip(Point mouse) {
 		return tip;
 	}
 	for (int i=0; i<12; i++) {
-		if (hotkeys[i] != -1) {
+		if (hotkeys[i] != 0) {
 			if (isWithin(slots[i], mouse)) {
 				tip.lines[tip.num_lines++] = powers->powers[hotkeys[i]].name;
 			}
@@ -446,7 +446,7 @@ void MenuActionBar::remove(Point mouse) {
 	for (int i=0; i<12; i++) {
 		if (isWithin(slots[i], mouse)) {
 			if (locked[i]) return;
-			hotkeys[i] = -1;
+			hotkeys[i] = 0;
 			return;
 		}
 	}
@@ -484,7 +484,7 @@ int MenuActionBar::checkAction(Point mouse) {
 	// joystick actions
 	if (inpt->joy_pressing[0] && slot_enabled[10]) return hotkeys[10];
 	if (inpt->joy_pressing[1] && slot_enabled[11]) return hotkeys[11];
-	return -1;
+	return 0;
 }
 
 /**
@@ -497,12 +497,12 @@ int MenuActionBar::checkDrag(Point mouse) {
 		if (isWithin(slots[i], mouse)) {
 			drag_prev_slot = i;
 			power_index = hotkeys[i];
-			hotkeys[i] = -1;
+			hotkeys[i] = 0;
 			return power_index;
 		}
 	}
 
-	return -1;
+	return 0;
  }
 
 /**
