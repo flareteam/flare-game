@@ -2,19 +2,6 @@
 # Do not change power with id=136 called Disenchant
 
 [power]
-id=0
-name=Shoot
-type=missile
-icon=0
-description=Basic ranged attack
-new_state=shoot
-face=true
-requires_offense_weapon=true
-base_damage=ranged
-aim_assist=32
-allow_power_mod=true
-
-[power]
 id=1
 name=Swing
 type=effect
@@ -415,6 +402,19 @@ frame_size=64,64
 frame_offset=32,64
 starting_pos=melee
 mp_steal=10
+
+[power]
+id=22
+name=Shoot
+type=missile
+icon=0
+description=Basic ranged attack
+new_state=shoot
+face=true
+requires_offense_weapon=true
+base_damage=ranged
+aim_assist=32
+allow_power_mod=true
 
 
 [power]
