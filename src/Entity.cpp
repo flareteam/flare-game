@@ -178,7 +178,7 @@ void Entity::loadAnimations(const string& filename) {
 		else if (parser.key == "duration") {
 			int ms_per_frame = toInt(parser.val);
 
-			duration = (int)round((float)ms_per_frame / (1000.0 / (float)FRAMES_PER_SEC));
+			duration = (int)round((float)ms_per_frame / (1000.0 / (float)MAX_FRAMES_PER_SEC));
 			// adjust duration according to the entity's animation speed
 			duration = (duration * 100) / stats.animationSpeed;
 

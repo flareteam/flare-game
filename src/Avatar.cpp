@@ -676,7 +676,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 
 	// decrement all cooldowns
 	for (int i = 0; i < POWER_COUNT; i++){
-		stats.hero_cooldown[i] -= 1000 / FRAMES_PER_SEC;
+		stats.hero_cooldown[i] -= 1000 / MAX_FRAMES_PER_SEC;
 		if (stats.hero_cooldown[i] < 0) stats.hero_cooldown[i] = 0;
 	}
 

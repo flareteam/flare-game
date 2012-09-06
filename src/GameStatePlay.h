@@ -62,7 +62,6 @@ private:
 	CampaignManager *camp;
 	QuestLog *quests;
 
-	WidgetLabel *label_fps;
 	WidgetLabel *loading;
 	SDL_Surface *loading_bg;
 

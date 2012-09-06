@@ -131,8 +131,8 @@ static void init() {
 static void mainLoop (const vector<string>	& args) {
 
 	bool done = false;
-	int fps = FRAMES_PER_SEC;
-	int delay = 1000/fps;
+	int max_fps = MAX_FRAMES_PER_SEC;
+	int delay = 1000/max_fps;
 	int prevTicks = SDL_GetTicks();
 	int nowTicks;
 	bool debug_event = binary_search(args.begin(), args.end(), string("--debug_event"));
@@ -154,6 +154,7 @@ static void mainLoop (const vector<string>	& args) {
 
 		nowTicks = SDL_GetTicks();
 		if (nowTicks - prevTicks < delay) SDL_Delay(delay - (nowTicks - prevTicks));
+		gswitch->showFPS(1000 / (SDL_GetTicks() - prevTicks));
 		prevTicks = SDL_GetTicks();
 
 		SDL_Flip(screen);

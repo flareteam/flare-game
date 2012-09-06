@@ -469,7 +469,7 @@ void StatBlock::logic() {
 	// HP regen
 	if (hp_per_minute > 0 && hp < maxhp && hp > 0) {
 		hp_ticker++;
-		if (hp_ticker >= (60 * FRAMES_PER_SEC)/hp_per_minute) {
+		if (hp_ticker >= (60 * MAX_FRAMES_PER_SEC)/hp_per_minute) {
 			hp++;
 			hp_ticker = 0;
 		}
@@ -478,7 +478,7 @@ void StatBlock::logic() {
 	// MP regen
 	if (mp_per_minute > 0 && mp < maxmp && hp > 0) {
 		mp_ticker++;
-		if (mp_ticker >= (60 * FRAMES_PER_SEC)/mp_per_minute) {
+		if (mp_ticker >= (60 * MAX_FRAMES_PER_SEC)/mp_per_minute) {
 			mp++;
 			mp_ticker = 0;
 		}
@@ -505,12 +505,12 @@ void StatBlock::logic() {
 		transform_duration--;
 
 	// apply bleed
-	if (bleed_duration % FRAMES_PER_SEC == 1) {
+	if (bleed_duration % MAX_FRAMES_PER_SEC == 1) {
 		takeDamage(1);
 	}
 
 	// apply healing over time
-	if (hot_duration % FRAMES_PER_SEC == 1) {
+	if (hot_duration % MAX_FRAMES_PER_SEC == 1) {
 		hp += hot_value;
 		if (hp > maxhp) hp = maxhp;
 	}

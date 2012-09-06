@@ -98,7 +98,7 @@ unsigned short ICON_SIZE_LARGE;
 
 // Video Settings
 bool FULLSCREEN;
-unsigned short FRAMES_PER_SEC = 30;
+unsigned short MAX_FRAMES_PER_SEC = 30;
 unsigned char BITS_PER_PIXEL = 32;
 unsigned short VIEW_W;
 unsigned short VIEW_H;

@@ -1,5 +1,6 @@
 /*
 Copyright © 2011-2012 Clint Bellanger
+Copyright © 2012 Igor Paliychuk
 
 This file is part of FLARE.
 
@@ -21,6 +22,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_mixer.h>
+
+#include "Utils.h"
+#include "WidgetLabel.h"
 
 const int GAME_STATE_TITLE = 0;
 const int GAME_STATE_PLAY = 1;
@@ -47,12 +51,18 @@ private:
 	Mix_Music *music;
 	
 	GameState *currentState;
+
+	WidgetLabel *label_fps;
+	Point fps_position;
+	SDL_Color fps_color;
+	bool show_fps;
 	
 public:
 	GameSwitcher();
 	void loadMusic();
 	void logic();
 	void render();
+	void showFPS(int fps);
 	~GameSwitcher();
 	
 	bool done;
