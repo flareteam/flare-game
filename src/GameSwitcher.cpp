@@ -83,6 +83,7 @@ void GameSwitcher::logic() {
                     Mix_PlayMusic(music, -1);
             }
         }
+		loadFPS();
 	}
 
 	currentState->logic();
@@ -94,7 +95,6 @@ void GameSwitcher::logic() {
 		loadMusic();
 		currentState->reload_music = false;
 	}
-	loadFPS();
 }
 
 void GameSwitcher::showFPS(int fps) {
