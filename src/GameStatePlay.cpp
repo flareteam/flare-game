@@ -54,7 +54,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 using namespace std;
 
-const int MENU_ENEMY_TIMEOUT = FRAMES_PER_SEC * 10;
+const int MENU_ENEMY_TIMEOUT = MAX_FRAMES_PER_SEC * 10;
 
 GameStatePlay::GameStatePlay() : GameState() {
 
@@ -86,7 +86,6 @@ GameStatePlay::GameStatePlay() : GameState() {
 
 	color_normal = font->getColor("menu_normal");
 
-	label_fps = new WidgetLabel();
 	loading = new WidgetLabel();
 	loading->set(VIEW_W_HALF, VIEW_H_HALF, JUSTIFY_CENTER, VALIGN_CENTER, "Loading...", color_normal);
 
@@ -676,13 +675,6 @@ void GameStatePlay::render() {
     combat_text->render();
 }
 
-void GameStatePlay::showFPS(int fps) {
-	stringstream ss;
-	ss << fps << "fps";
-	label_fps->set(VIEW_W >> 1, 2, JUSTIFY_CENTER, VALIGN_TOP, ss.str(), color_normal);
-	label_fps->render();
-}
-
 void GameStatePlay::showLoading() {
 	// SDL_FillRect(screen,NULL,0);
 
@@ -709,7 +701,6 @@ GameStatePlay::~GameStatePlay() {
 	delete items;
 	delete powers;
 
-	delete label_fps;
 	delete loading;
 
 	SDL_FreeSurface(loading_bg);

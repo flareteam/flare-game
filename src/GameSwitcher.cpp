@@ -1,5 +1,6 @@
 /*
 Copyright © 2011-2012 Clint Bellanger
+Copyright © 2012 Igor Paliychuk
 
 This file is part of FLARE.
 
@@ -32,15 +33,41 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "GameStateTitle.h"
 #include "SharedResources.h"
 #include "Settings.h"
+#include "FileParser.h"
+#include "UtilsParsing.h"
+
+#include <sstream>
 
 GameSwitcher::GameSwitcher() {
 
 	// The initial state is the title screen
 	currentState = new GameStateTitle();
 
+	label_fps = new WidgetLabel();
 	done = false;
 	music = NULL;
 	loadMusic();
+
+	// Load FPS rendering settings
+	FileParser infile;
+	if(infile.open(mods->locate("menus/fps.txt"))) {
+		while(infile.next()) {
+			infile.val = infile.val + ',';
+
+			if(infile.key == "show_fps") {
+				show_fps = eatFirstInt(infile.val,',');
+			} else if(infile.key == "position") {
+				fps_position.x = eatFirstInt(infile.val,',');
+				fps_position.y = eatFirstInt(infile.val,',');
+			} else if(infile.key == "color") {
+				fps_color.r = eatFirstInt(infile.val,',');
+				fps_color.g = eatFirstInt(infile.val,',');
+				fps_color.b = eatFirstInt(infile.val,',');
+			}
+		}
+		infile.close();
+	} else fprintf(stderr, "Unable to open menus/fps.txt!\n");
+
 
 }
 
@@ -90,12 +117,21 @@ void GameSwitcher::logic() {
 	}
 }
 
+void GameSwitcher::showFPS(int fps) {
+	if (!show_fps) return;
+	std::stringstream ss;
+	ss << fps << "fps";
+	label_fps->set(fps_position.x, fps_position.y, JUSTIFY_CENTER, VALIGN_TOP, ss.str(), fps_color);
+	label_fps->render();
+}
+
 void GameSwitcher::render() {
 	currentState->render();
 }
 
 GameSwitcher::~GameSwitcher() {
 	delete currentState;
+	delete label_fps;
 	Mix_FreeMusic(music);
 }
 

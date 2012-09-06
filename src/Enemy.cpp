@@ -37,7 +37,7 @@ Enemy::Enemy(PowerManager *_powers, MapRenderer *_map) : Entity(_map) {
 	powers = _powers;
 
 	stats.cur_state = ENEMY_STANCE;
-	stats.turn_ticks = FRAMES_PER_SEC;
+	stats.turn_ticks = MAX_FRAMES_PER_SEC;
 	//stats.patrol_ticks = 0; //no longer needed due to A*
 	stats.cooldown = 0;
 	stats.last_seen.x = -1;
@@ -196,7 +196,7 @@ bool Enemy::takeHit(Hazard h) {
 		bool crit = (rand() % 100) < true_crit_chance;
 		if (crit) {
 			dmg = dmg + h.dmg_max;
-			map->shaky_cam_ticks = FRAMES_PER_SEC/2;
+			map->shaky_cam_ticks = MAX_FRAMES_PER_SEC/2;
 
 			// show crit damage
 		    combat_text->addMessage(dmg, stats.pos, COMBAT_MESSAGE_CRIT);

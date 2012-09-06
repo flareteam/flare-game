@@ -109,7 +109,7 @@ bool WidgetInput::logic(int x, int y) {
 		// animate cursor
 		// cursor visible one second, invisible the next
 		cursor_frame++;
-		if (cursor_frame == FRAMES_PER_SEC+FRAMES_PER_SEC) cursor_frame = 0;
+		if (cursor_frame == MAX_FRAMES_PER_SEC+MAX_FRAMES_PER_SEC) cursor_frame = 0;
 
 	}
 	return true;
@@ -142,7 +142,7 @@ void WidgetInput::render(SDL_Surface *target) {
 		font->render(text, font_pos.x, font_pos.y, JUSTIFY_LEFT, target, color_normal);
 	}
 	else {
-		if (cursor_frame < FRAMES_PER_SEC) {
+		if (cursor_frame < MAX_FRAMES_PER_SEC) {
 			font->renderShadowed(text + "|", font_pos.x, font_pos.y, JUSTIFY_LEFT, target, color_normal);
 		}
 		else {

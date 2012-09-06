@@ -41,7 +41,7 @@ MenuHUDLog::MenuHUDLog() {
  */
 int MenuHUDLog::calcDuration(const string& s) {
 	// 5 seconds plus an extra second per 10 letters
-	return FRAMES_PER_SEC * 5 + s.length() * (FRAMES_PER_SEC/10);
+	return MAX_FRAMES_PER_SEC * 5 + s.length() * (MAX_FRAMES_PER_SEC/10);
 }
 
 /**
