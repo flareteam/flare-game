@@ -203,7 +203,7 @@ bool Enemy::takeHit(Hazard h) {
 		}
 		else {
 		    // show normal damage
-		    combat_text->addMessage(dmg, stats.pos, COMBAT_MESSAGE_DAMAGE);
+		    combat_text->addMessage(dmg, stats.pos, COMBAT_MESSAGE_GIVEDMG);
 		}
 
 		// apply damage

@@ -443,7 +443,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 
 	// check for bleeding spurt
 	if (stats.bleed_duration % 30 == 1) {
-		CombatText::Instance()->addMessage(1, stats.pos, COMBAT_MESSAGE_DAMAGE);
+		CombatText::Instance()->addMessage(1, stats.pos, COMBAT_MESSAGE_TAKEDMG);
 		powers->activate(POWER_SPARK_BLOOD, &stats, stats.pos);
 	}
 	// check for bleeding to death
@@ -749,7 +749,7 @@ bool Avatar::takeHit(Hazard h) {
 
 
 		int prev_hp = stats.hp;
-		combat_text->addMessage(dmg, stats.pos, COMBAT_MESSAGE_DAMAGE);
+		combat_text->addMessage(dmg, stats.pos, COMBAT_MESSAGE_TAKEDMG);
 		stats.takeDamage(dmg);
 
 		// after effects

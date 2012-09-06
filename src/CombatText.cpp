@@ -33,7 +33,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <sstream>
 
 CombatText::CombatText() {
-	msg_color[COMBAT_MESSAGE_DAMAGE] = font->getColor("combat_damage");
+	msg_color[COMBAT_MESSAGE_GIVEDMG] = font->getColor("combat_givedmg");
+	msg_color[COMBAT_MESSAGE_TAKEDMG] = font->getColor("combat_takedmg");
 	msg_color[COMBAT_MESSAGE_CRIT] = font->getColor("combat_crit");
 	msg_color[COMBAT_MESSAGE_BUFF] = font->getColor("combat_buff");
 	msg_color[COMBAT_MESSAGE_MISS] = font->getColor("combat_miss");

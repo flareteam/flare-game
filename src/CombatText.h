@@ -33,10 +33,11 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <vector>
 #include <string>
 
-#define COMBAT_MESSAGE_DAMAGE 0
-#define COMBAT_MESSAGE_CRIT 1
-#define COMBAT_MESSAGE_MISS 2
-#define COMBAT_MESSAGE_BUFF 3
+#define COMBAT_MESSAGE_GIVEDMG 0
+#define COMBAT_MESSAGE_TAKEDMG 1
+#define COMBAT_MESSAGE_CRIT 2
+#define COMBAT_MESSAGE_MISS 3
+#define COMBAT_MESSAGE_BUFF 4
 
 class WidgetLabel;
 
@@ -64,7 +65,7 @@ private:
 
     static CombatText* m_pInstance;
 
-	SDL_Color msg_color[4];
+	SDL_Color msg_color[5];
 	int duration;
 	int speed;
 };
