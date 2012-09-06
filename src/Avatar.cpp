@@ -182,6 +182,11 @@ void Avatar::loadGraphics(std::vector<Layer_gfx> _img_gfx) {
 	if (sprites) SDL_FreeSurface(sprites);
 	sprites = IMG_Load(mods->locate("images/avatar/" + stats.base + "/" + img_gfx[body] + ".png").c_str());
 
+	if (sprites == NULL) {
+		fprintf(stderr, "Couldn't load body image: %s\n", IMG_GetError());
+		SDL_Quit();
+	}
+
 	for (unsigned int i=0; i<layer_def.size(); i++) {
 		// find item, that should be rendered on current layer
 		int k = findGfx(_img_gfx, layer_def[i].type);

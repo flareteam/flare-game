@@ -51,8 +51,22 @@ void ItemStorage::setItems(string s) {
 	s = s + ',';
 	for (int i=0; i<slot_number; i++) {
 		storage[i].item = eatFirstInt(s, ',');
-		if( storage[i].item != 0) storage[i].quantity = 1;
-		else storage[i].quantity = 0;
+		// check if such item exists to avoid crash if savegame was modified manually
+		if (storage[i].item < 0) {
+			fprintf(stderr, "Item on position %d has negative id, skipping\n", i);
+			storage[i].item = 0;
+			storage[i].quantity = 0;
+		}
+		else if ((unsigned)storage[i].item > items->items.size()-1) {
+			fprintf(stderr, "Item id (%d) out of bounds 1-%d, skipping\n", storage[i].item, items->items.size());
+			storage[i].item = 0;
+			storage[i].quantity = 0;
+		}
+		else if (storage[i].item != 0 && items->items[storage[i].item].name == "") {
+			fprintf(stderr, "Item with id=%d. found on position %d does not exist, skipping\n", storage[i].item, i);
+			storage[i].item = 0;
+			storage[i].quantity = 0;
+		}
 	}
 }
 
@@ -63,6 +77,10 @@ void ItemStorage::setQuantities(string s) {
 	s = s + ',';
 	for (int i=0; i<slot_number; i++) {
 		storage[i].quantity = eatFirstInt(s, ',');
+		if (storage[i].quantity < 0) {
+			fprintf(stderr, "Items quantity on position %d is negative, setting to zero\n", i);
+			storage[i].quantity = 0;
+		}
 	}
 }
 

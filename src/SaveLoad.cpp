@@ -37,6 +37,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "MenuPowers.h"
 #include "MenuStash.h"
 #include "MenuTalker.h"
+#include "PowerManager.h"
 #include "Settings.h"
 #include "UtilsFileSystem.h"
 #include "UtilsParsing.h"
@@ -86,12 +87,12 @@ void GameStatePlay::saveGame() {
 		outfile << "currency=" << menu->inv->currency << "\n";
 
 		// equipped gear
-		outfile << "equipped=" << menu->inv->inventory[EQUIPMENT].getItems() << "\n";
 		outfile << "equipped_quantity=" << menu->inv->inventory[EQUIPMENT].getQuantities() << "\n";
+		outfile << "equipped=" << menu->inv->inventory[EQUIPMENT].getItems() << "\n";
 
 		// carried items
-		outfile << "carried=" << menu->inv->inventory[CARRIED].getItems() << "\n";
 		outfile << "carried_quantity=" << menu->inv->inventory[CARRIED].getQuantities() << "\n";
+		outfile << "carried=" << menu->inv->inventory[CARRIED].getItems() << "\n";
 
 		// spawn point
 		outfile << "spawn=" << map->respawn_map << "," << map->respawn_point.x/UNITS_PER_TILE << "," << map->respawn_point.y/UNITS_PER_TILE << "\n";
@@ -135,8 +136,8 @@ void GameStatePlay::saveGame() {
 	outfile.open(ss.str().c_str(), ios::out);
 
 	if (outfile.is_open()) {
-		outfile << "item=" << menu->stash->stock.getItems() << "\n";
 		outfile << "quantity=" << menu->stash->stock.getQuantities() << "\n";
+		outfile << "item=" << menu->stash->stock.getItems() << "\n";
 
 		outfile << endl;
 
@@ -178,19 +179,47 @@ void GameStatePlay::loadGame() {
 				pc->stats.head = infile.nextValue();
 				pc->stats.portrait = infile.nextValue();
 			}
-			else if (infile.key == "xp") pc->stats.xp = toInt(infile.val);
+			else if (infile.key == "xp") {
+				pc->stats.xp = toInt(infile.val);
+				if (pc->stats.xp < 0) {
+					fprintf(stderr, "XP value is out of bounds, setting to zero\n");
+					pc->stats.xp = 0;
+				}
+			}
 			else if (infile.key == "hpmp") {
 				saved_hp = toInt(infile.nextValue());
 				saved_mp = toInt(infile.nextValue());
+				if (saved_hp < 0 || saved_hp > pc->stats.maxhp ||
+					saved_mp < 0 || saved_mp > pc->stats.maxmp) {
+
+					fprintf(stderr, "MP/HP value is out of bounds, setting to maximum\n");
+					saved_hp = pc->stats.maxhp;
+					saved_mp = pc->stats.maxmp;
+				}
 			}
 			else if (infile.key == "build") {
 				pc->stats.physical_character = toInt(infile.nextValue());
 				pc->stats.mental_character = toInt(infile.nextValue());
 				pc->stats.offense_character = toInt(infile.nextValue());
 				pc->stats.defense_character = toInt(infile.nextValue());
+				if (pc->stats.physical_character < 0 || pc->stats.physical_character > pc->stats.max_points_per_stat ||
+					pc->stats.mental_character < 0 || pc->stats.mental_character > pc->stats.max_points_per_stat ||
+					pc->stats.offense_character < 0 || pc->stats.offense_character > pc->stats.max_points_per_stat ||
+					pc->stats.defense_character < 0 || pc->stats.defense_character > pc->stats.max_points_per_stat) {
+					
+					fprintf(stderr, "Some basic stats are out of bounds, setting to zero\n");
+					pc->stats.physical_character = 0;
+					pc->stats.mental_character = 0;
+					pc->stats.offense_character = 0;
+					pc->stats.defense_character = 0;
+				}
 			}
 			else if (infile.key == "currency") {
 				menu->inv->currency = toInt(infile.val);
+				if (menu->inv->currency < 0) {
+					fprintf(stderr, "Currency value out of bounds, setting to zero\n");
+					menu->inv->currency = 0;
+				}
 			}
 			else if (infile.key == "equipped") {
 				menu->inv->inventory[EQUIPMENT].setItems(infile.val);
@@ -217,6 +246,7 @@ void GameStatePlay::loadGame() {
 					map->clearEvents();
 				}
 				else {
+					fprintf(stderr, "Unable to find maps/%s, loading spawn.txt\n", map->teleport_mapname.c_str());
 					map->teleport_mapname = "spawn.txt";
 					map->teleport_destination.x = 1;
 					map->teleport_destination.y = 1;
@@ -225,12 +255,18 @@ void GameStatePlay::loadGame() {
 				}
 			}
 			else if (infile.key == "actionbar") {
-				int slot;
 				for (int i=0; i<12; i++) {
-					slot = toInt(infile.nextValue());
-					if (slot > -1) hotkeys[i] = slot;
-					else {
+					hotkeys[i] = toInt(infile.nextValue());
+					if (hotkeys[i] < 0) {
 						fprintf(stderr, "Hotkey power on position %d has negative id, skipping\n", i);
+						hotkeys[i] = 0;
+					}
+					else if ((unsigned)hotkeys[i] > powers->powers.size()-1) {
+						fprintf(stderr, "Hotkey power id (%d) out of bounds 1-%d, skipping\n", hotkeys[i], powers->powers.size());
+						hotkeys[i] = 0;
+					}
+					else if (hotkeys[i] != 0 && powers->powers[hotkeys[i]].name == "") {
+						fprintf(stderr, "Hotkey power with id=%d, found on position %d does not exist, skipping\n", hotkeys[i], i);
 						hotkeys[i] = 0;
 					}
 				}
