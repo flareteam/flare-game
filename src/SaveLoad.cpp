@@ -246,6 +246,7 @@ void GameStatePlay::loadGame() {
 					map->clearEvents();
 				}
 				else {
+					fprintf(stderr, "Unable to find maps/%s, loading spawn.txt\n", map->teleport_mapname.c_str());
 					map->teleport_mapname = "spawn.txt";
 					map->teleport_destination.x = 1;
 					map->teleport_destination.y = 1;
