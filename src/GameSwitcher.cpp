@@ -54,11 +54,10 @@ GameSwitcher::GameSwitcher() {
 		while(infile.next()) {
 			infile.val = infile.val + ',';
 
-			if(infile.key == "show_fps") {
-				show_fps = eatFirstInt(infile.val,',');
-			} else if(infile.key == "position") {
+			if(infile.key == "position") {
 				fps_position.x = eatFirstInt(infile.val,',');
 				fps_position.y = eatFirstInt(infile.val,',');
+				fps_corner = eatFirstString(infile.val,',');
 			} else if(infile.key == "color") {
 				fps_color.r = eatFirstInt(infile.val,',');
 				fps_color.g = eatFirstInt(infile.val,',');
@@ -118,10 +117,30 @@ void GameSwitcher::logic() {
 }
 
 void GameSwitcher::showFPS(int fps) {
-	if (!show_fps) return;
+	if (!SHOW_FPS) return;
+
 	std::stringstream ss;
-	ss << fps << "fps";
-	label_fps->set(fps_position.x, fps_position.y, JUSTIFY_CENTER, VALIGN_TOP, ss.str(), fps_color);
+	ss << fps << " fps";
+
+	Point p;
+	int w = font->calc_width(ss.str());
+	int h = font->getLineHeight();
+
+	if (fps_corner == "top_left") {
+		p.x = fps_position.x;
+		p.y = fps_position.y;
+	} else if (fps_corner == "top_right") {
+		p.x = fps_position.x+VIEW_W-w;
+		p.y = fps_position.y;
+	} else if (fps_corner == "bottom_left") {
+		p.x = fps_position.x;
+		p.y = fps_position.y+VIEW_H-h;
+	} else if (fps_corner == "bottom_right") {
+		p.x = fps_position.x+VIEW_W-w;
+		p.y = fps_position.y+VIEW_H-h;
+	}
+
+	label_fps->set(p.x, p.y, JUSTIFY_LEFT, VALIGN_TOP, ss.str(), fps_color);
 	label_fps->render();
 }
 

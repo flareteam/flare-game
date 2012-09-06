@@ -79,6 +79,7 @@ extern bool MENUS_PAUSE;
 extern std::string DEFAULT_NAME;
 extern bool SAVE_HPMP;
 extern bool ENABLE_PLAYGAME;
+extern bool SHOW_FPS;
 
 // Tile Settings
 extern unsigned short UNITS_PER_TILE;

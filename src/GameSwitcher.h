@@ -55,7 +55,7 @@ private:
 	WidgetLabel *label_fps;
 	Point fps_position;
 	SDL_Color fps_color;
-	bool show_fps;
+	std::string fps_corner;
 	
 public:
 	GameSwitcher();
