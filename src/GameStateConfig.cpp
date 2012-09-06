@@ -420,10 +420,10 @@ GameStateConfig::GameStateConfig ()
 	settings_lb[10]->set(msg->get("Show FPS"));
 	settings_lb[10]->setJustify(JUSTIFY_RIGHT);
 	child_widget.push_back(settings_lb[10]);
-	optiontab[child_widget.size()-1] = 0;
+	optiontab[child_widget.size()-1] = 2;
 
 	child_widget.push_back(settings_cb[10]);
-	optiontab[child_widget.size()-1] = 0;
+	optiontab[child_widget.size()-1] = 2;
 
 	//Define Sliders and their Labels
 	settings_lb[11]->set(msg->get("Music Volume"));
@@ -794,9 +794,6 @@ void GameStateConfig::logic ()
 		} else if (settings_sl[2]->checkClick()) {
 			GAMMA=(float)(settings_sl[2]->getValue())*0.1;
 			SDL_SetGamma(GAMMA,GAMMA,GAMMA);
-		} else if (settings_cb[10]->checkClick()) {
-			if (settings_cb[10]->isChecked()) SHOW_FPS=true;
-			else SHOW_FPS=false;
 		}
 	}
 	// tab 1 (audio)
@@ -823,6 +820,9 @@ void GameStateConfig::logic ()
 			LANGUAGE = language_ISO[active];
 			delete msg;
 			msg = new MessageEngine();
+		} else if (settings_cb[10]->checkClick()) {
+			if (settings_cb[10]->isChecked()) SHOW_FPS=true;
+			else SHOW_FPS=false;
 		}
 	}
 	// tab 3 (input)

@@ -47,27 +47,7 @@ GameSwitcher::GameSwitcher() {
 	done = false;
 	music = NULL;
 	loadMusic();
-
-	// Load FPS rendering settings
-	FileParser infile;
-	if(infile.open(mods->locate("menus/fps.txt"))) {
-		while(infile.next()) {
-			infile.val = infile.val + ',';
-
-			if(infile.key == "position") {
-				fps_position.x = eatFirstInt(infile.val,',');
-				fps_position.y = eatFirstInt(infile.val,',');
-				fps_corner = eatFirstString(infile.val,',');
-			} else if(infile.key == "color") {
-				fps_color.r = eatFirstInt(infile.val,',');
-				fps_color.g = eatFirstInt(infile.val,',');
-				fps_color.b = eatFirstInt(infile.val,',');
-			}
-		}
-		infile.close();
-	} else fprintf(stderr, "Unable to open menus/fps.txt!\n");
-
-
+	loadFPS();
 }
 
 void GameSwitcher::loadMusic() {
@@ -103,6 +83,7 @@ void GameSwitcher::logic() {
                     Mix_PlayMusic(music, -1);
             }
         }
+		loadFPS();
 	}
 
 	currentState->logic();
@@ -118,30 +99,47 @@ void GameSwitcher::logic() {
 
 void GameSwitcher::showFPS(int fps) {
 	if (!SHOW_FPS) return;
-
 	std::stringstream ss;
 	ss << fps << " fps";
+	label_fps->set(fps_position.x, fps_position.y, JUSTIFY_LEFT, VALIGN_TOP, ss.str(), fps_color);
+	label_fps->render();
+}
 
-	Point p;
-	int w = font->calc_width(ss.str());
+void GameSwitcher::loadFPS() {
+	// Load FPS rendering settings
+	FileParser infile;
+	if(infile.open(mods->locate("menus/fps.txt"))) {
+		while(infile.next()) {
+			infile.val = infile.val + ',';
+
+			if(infile.key == "position") {
+				fps_position.x = eatFirstInt(infile.val,',');
+				fps_position.y = eatFirstInt(infile.val,',');
+				fps_corner = eatFirstString(infile.val,',');
+			} else if(infile.key == "color") {
+				fps_color.r = eatFirstInt(infile.val,',');
+				fps_color.g = eatFirstInt(infile.val,',');
+				fps_color.b = eatFirstInt(infile.val,',');
+			}
+		}
+		infile.close();
+	} else fprintf(stderr, "Unable to open menus/fps.txt!\n");
+
+	// this is a dummy string used to approximate the fps position when aligned to the right
+	int w = font->calc_width("00 fps");
 	int h = font->getLineHeight();
 
 	if (fps_corner == "top_left") {
-		p.x = fps_position.x;
-		p.y = fps_position.y;
+		// relative to {0,0}, so no changes
 	} else if (fps_corner == "top_right") {
-		p.x = fps_position.x+VIEW_W-w;
-		p.y = fps_position.y;
+		fps_position.x += VIEW_W-w;
 	} else if (fps_corner == "bottom_left") {
-		p.x = fps_position.x;
-		p.y = fps_position.y+VIEW_H-h;
+		fps_position.y += VIEW_H-h;
 	} else if (fps_corner == "bottom_right") {
-		p.x = fps_position.x+VIEW_W-w;
-		p.y = fps_position.y+VIEW_H-h;
+		fps_position.x += VIEW_W-w;
+		fps_position.y += VIEW_H-h;
 	}
 
-	label_fps->set(p.x, p.y, JUSTIFY_LEFT, VALIGN_TOP, ss.str(), fps_color);
-	label_fps->render();
 }
 
 void GameSwitcher::render() {

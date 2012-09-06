@@ -60,6 +60,7 @@ private:
 public:
 	GameSwitcher();
 	void loadMusic();
+	void loadFPS();
 	void logic();
 	void render();
 	void showFPS(int fps);
