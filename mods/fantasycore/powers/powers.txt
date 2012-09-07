@@ -258,7 +258,7 @@ delay=3
 visual_random=3
 rendered=true
 complete_animation=true
-repeater_num=10
+count=10
 
 [power]
 id=15
@@ -294,7 +294,7 @@ icon=16
 description=Shoot three projectiles simultaneously
 new_state=shoot
 face=true
-missile_num=3
+count=3
 missile_angle=15
 requires_offense_weapon=true
 requires_mp=1
@@ -431,7 +431,7 @@ base_damage=ranged
 starting_pos=melee
 aim_assist=32
 allow_power_mod=true
-missile_num=5
+count=5
 delay=2
 damage_multiplier=66
 cooldown=5000
@@ -590,7 +590,7 @@ slow_duration=60
 post_power=126
 wall_power=126
 #missile num needs to be odd, or the player can avoid just by standing there
-missile_num=9
+count=9
 missile_angle=40
 
 [power]
@@ -743,7 +743,7 @@ speed=48
 frame_size=64,64
 frame_offset=32,64
 wall_power=124
-missile_num=3
+count=3
 missile_angle=15
 
 [power]
@@ -840,7 +840,7 @@ trait_elemental=wind
 post_power=126
 wall_power=126
 requires_item=1021
-missile_num=5
+count=5
 angle_variance=15
 speed_variance=7
 
@@ -1218,7 +1218,7 @@ delay=6
 visual_random=4
 rendered=true
 complete_animation=true
-repeater_num=10
+count=10
 
 [power]
 id=160
