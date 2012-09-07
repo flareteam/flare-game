@@ -262,7 +262,7 @@ void GameStatePlay::loadGame() {
 						hotkeys[i] = 0;
 					}
 					else if ((unsigned)hotkeys[i] > powers->powers.size()-1) {
-						fprintf(stderr, "Hotkey power id (%d) out of bounds 1-%d, skipping\n", hotkeys[i], powers->powers.size());
+						fprintf(stderr, "Hotkey power id (%d) out of bounds 1-%d, skipping\n", hotkeys[i], (int)powers->powers.size());
 						hotkeys[i] = 0;
 					}
 					else if (hotkeys[i] != 0 && powers->powers[hotkeys[i]].name == "") {
