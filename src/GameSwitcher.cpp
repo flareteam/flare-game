@@ -36,7 +36,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "FileParser.h"
 #include "UtilsParsing.h"
 
-#include <sstream>
+using namespace std;
 
 GameSwitcher::GameSwitcher() {
 
@@ -65,25 +65,17 @@ void GameSwitcher::loadMusic() {
 }
 
 void GameSwitcher::logic() {
-
-	/*
-	*  Check if a the game state is to be changed and change it if necessary, deleting the old state
-	*/
-	if (currentState->getRequestedGameState() != NULL) {
-		GameState* newState = currentState->getRequestedGameState();
-
+	// Check if a the game state is to be changed and change it if necessary, deleting the old state
+	GameState* newState = currentState->getRequestedGameState();
+	if (newState != NULL) {
 		delete currentState;
-
 		currentState = newState;
 
 		// if this game state does not provide music, use the title theme
-        if (!currentState->hasMusic) {
-            if (!Mix_PlayingMusic()) {
-                if (music)
-                    Mix_PlayMusic(music, -1);
-            }
-        }
-		loadFPS();
+		if (!currentState->hasMusic)
+			if (!Mix_PlayingMusic())
+				if (music)
+					Mix_PlayMusic(music, -1);
 	}
 
 	currentState->logic();
@@ -99,9 +91,8 @@ void GameSwitcher::logic() {
 
 void GameSwitcher::showFPS(int fps) {
 	if (!SHOW_FPS) return;
-	std::stringstream ss;
-	ss << fps << " fps";
-	label_fps->set(fps_position.x, fps_position.y, JUSTIFY_LEFT, VALIGN_TOP, ss.str(), fps_color);
+	string sfps = toString(typeid(fps), &fps);
+	label_fps->set(fps_position.x, fps_position.y, JUSTIFY_CENTER, VALIGN_TOP, sfps, fps_color);
 	label_fps->render();
 }
 
