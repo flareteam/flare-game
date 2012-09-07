@@ -43,12 +43,11 @@ class StatBlock;
 
 const int POWER_COUNT = 1024;
 
-const int POWTYPE_SINGLE = 2;
-const int POWTYPE_MISSILE = 3;
-const int POWTYPE_REPEATER = 4;
-const int POWTYPE_EFFECT = 5;
-const int POWTYPE_SPAWN = 6;
-const int POWTYPE_TRANSFORM = 7;
+const int POWTYPE_EFFECT = 0;
+const int POWTYPE_MISSILE = 1;
+const int POWTYPE_REPEATER = 2;
+const int POWTYPE_SPAWN = 3;
+const int POWTYPE_TRANSFORM = 4;
 
 const int POWSTATE_SWING = 0;
 const int POWSTATE_CAST = 1;
@@ -70,7 +69,6 @@ const int STARTING_POS_MELEE = 2;
 
 // TODO: remove this restriction
 const int POWER_SHIELD = 11;
-const int POWER_VENGEANCE = 17;
 const int POWER_SPARK_BLOOD = 127;
 
 class Power {
@@ -84,6 +82,7 @@ public:
 	bool face; // does the user turn to face the mouse cursor when using this power?
 	int source_type; //hero, neutral, or enemy
 	bool beacon; //true if it's just an ememy calling its allies
+	int count; // number of hazards/effects or spawns created
 
 	// power requirements
 	bool requires_physical_weapon;
@@ -132,7 +131,6 @@ public:
 	int mp_steal;
 
 	//missile traits
-	int missile_num;
 	int missile_angle;
 	int angle_variance;
 	int speed_variance;
@@ -140,7 +138,6 @@ public:
 	//repeater traits
 	int delay;
 	int start_frame;
-	int repeater_num;
 
 	int trait_elemental; // enum. of elements
 	bool trait_armor_penetration;
@@ -172,7 +169,6 @@ public:
 	// spawn info
 	std::string spawn_type;
 	int target_neighbor;
-	int spawn_num;
 
 	Power() {
 		type = -1;
@@ -183,6 +179,7 @@ public:
 		face=false;
 		source_type=-1;
 		beacon=false;
+		count=1;
 
 		requires_physical_weapon = false;
 		requires_offense_weapon = false;
@@ -226,14 +223,12 @@ public:
 		hp_steal = 0;
 		mp_steal = 0;
 
-		missile_num = 1;
 		missile_angle = 0;
 		angle_variance = 0;
 		speed_variance = 0;
 
 		delay = 0;
 		start_frame = 0;
-		repeater_num = 1;
 
 		trait_elemental = -1;
 		trait_armor_penetration = false;
@@ -262,7 +257,6 @@ public:
 
 		allow_power_mod = false;
 		spawn_type = "";
-		spawn_num = 1;
 		target_neighbor = 0;
 	}
 
@@ -293,7 +287,6 @@ private:
 	bool effect(int powernum, StatBlock *src_stats, Point target);
 	bool missile(int powernum, StatBlock *src_stats, Point target);
 	bool repeater(int powernum, StatBlock *src_stats, Point target);
-	bool single(int powernum, StatBlock *src_stats, Point target);
 	bool spawn(int powernum, StatBlock *src_stats, Point target);
 	bool transform(int powernum, StatBlock *src_stats, Point target);
 

@@ -42,10 +42,6 @@ using namespace std;
  */
 PowerManager::PowerManager() {
 
-	// TODO: generalize Vengeance
-	powers.resize(POWER_VENGEANCE + 1);
-	powers[POWER_VENGEANCE].type = POWTYPE_SINGLE;
-
 	used_item=-1;
 
 	log_msg = "";
@@ -103,8 +99,7 @@ void PowerManager::loadPowers(const std::string& filename) {
 			if (id_line) continue;
 
 			if (infile.key == "type") {
-				if (infile.val == "single") powers[input_id].type = POWTYPE_SINGLE;
-				else if (infile.val == "effect") powers[input_id].type = POWTYPE_EFFECT;
+				if (infile.val == "effect") powers[input_id].type = POWTYPE_EFFECT;
 				else if (infile.val == "missile") powers[input_id].type = POWTYPE_MISSILE;
 				else if (infile.val == "repeater") powers[input_id].type = POWTYPE_REPEATER;
 				else if (infile.val == "spawn") powers[input_id].type = POWTYPE_SPAWN;
@@ -137,6 +132,10 @@ void PowerManager::loadPowers(const std::string& filename) {
 			else if (infile.key == "beacon") {
 				if (infile.val == "true") powers[input_id].beacon = true;
 			}
+			else if (infile.key == "count") {
+				powers[input_id].count = toInt(infile.val);
+			}			
+			
 			// power requirements
 			else if (infile.key == "requires_physical_weapon") {
 				if (infile.val == "true") powers[input_id].requires_physical_weapon = true;
@@ -278,9 +277,6 @@ void PowerManager::loadPowers(const std::string& filename) {
 				powers[input_id].mp_steal = toInt(infile.val);
 			}
 			//missile modifiers
-			else if (infile.key == "missile_num") {
-				powers[input_id].missile_num = toInt(infile.val);
-			}
 			else if (infile.key == "missile_angle") {
 				powers[input_id].missile_angle = toInt(infile.val);
 			}
@@ -297,9 +293,7 @@ void PowerManager::loadPowers(const std::string& filename) {
 			else if (infile.key == "start_frame") {
 				powers[input_id].start_frame = toInt(infile.val);
 			}
-			else if (infile.key == "repeater_num") {
-				powers[input_id].repeater_num = toInt(infile.val);
-			}
+
 			// buff/debuff durations
 			else if (infile.key == "bleed_duration") {
 				powers[input_id].bleed_duration = toInt(infile.val);
@@ -364,9 +358,6 @@ void PowerManager::loadPowers(const std::string& filename) {
 			}
 
 			// spawn info
-			else if (infile.key == "spawn_num") {
-				powers[input_id].spawn_num = toInt(infile.val);
-			}
 			else if (infile.key == "spawn_type") {
 				powers[input_id].spawn_type = infile.val;
 			}
@@ -910,13 +901,17 @@ void PowerManager::playSound(int power_index, StatBlock *src_stats) {
  */
 bool PowerManager::effect(int power_index, StatBlock *src_stats, Point target) {
 
-	int count = powers[power_index].missile_num;
-	if (count < 1) count = 1;
+	int delay_iterator = 0;	
+	
 	if (powers[power_index].use_hazard) {
-		for (int i=0; i < count; i++) {
+		for (int i=0; i < powers[power_index].count; i++) {
 			Hazard *haz = new Hazard();
 			initHazard(power_index, src_stats, target, haz);
 
+			// add optional delay
+			haz->delay_frames = delay_iterator;
+			delay_iterator += powers[power_index].delay;
+			
 			// Hazard memory is now the responsibility of HazardManager
 			hazards.push(haz);
 		}
@@ -965,11 +960,11 @@ bool PowerManager::missile(int power_index, StatBlock *src_stats, Point target) 
 	int delay_iterator = 0;
 
 	//generate hazards
-	for (int i=0; i < powers[power_index].missile_num; i++) {
+	for (int i=0; i < powers[power_index].count; i++) {
 		haz = new Hazard();
 
 		//calculate individual missile angle
-		float offset_angle = ((1.0 - powers[power_index].missile_num)/2 + i) * (powers[power_index].missile_angle * pi / 180.0);
+		float offset_angle = ((1.0 - powers[power_index].count)/2 + i) * (powers[power_index].missile_angle * pi / 180.0);
 		float variance = 0;
 		if (powers[power_index].angle_variance != 0)
 			variance = pow(-1.0f, (rand() % 2) - 1) * (rand() % powers[power_index].angle_variance) * pi / 180.0; //random between 0 and angle_variance away
@@ -1019,10 +1014,10 @@ bool PowerManager::repeater(int power_index, StatBlock *src_stats, Point target)
 	if (src_stats->hero && powers[power_index].requires_item != -1) used_item = powers[power_index].requires_item;
 
 	//initialize variables
-	vector<Hazard*> haz = vector<Hazard*>(powers[power_index].repeater_num);
+	Hazard *haz;
 	FPoint location_iterator;
 	FPoint speed;
-	int delay_iterator;
+	int delay_iterator = 0;
 	int map_speed = 64;
 
 	// calculate polar coordinates angle
@@ -1033,11 +1028,10 @@ bool PowerManager::repeater(int power_index, StatBlock *src_stats, Point target)
 
 	location_iterator.x = (float)src_stats->pos.x;
 	location_iterator.y = (float)src_stats->pos.y;
-	delay_iterator = 0;
 
 	playSound(power_index, src_stats);
 
-	for (int i=0; i<powers[power_index].repeater_num; i++) {
+	for (int i=0; i<powers[power_index].count; i++) {
 
 		location_iterator.x += speed.x;
 		location_iterator.y += speed.y;
@@ -1047,52 +1041,23 @@ bool PowerManager::repeater(int power_index, StatBlock *src_stats, Point target)
 			break; // no more hazards
 		}
 
-		haz[i] = new Hazard();
-		initHazard(power_index, src_stats, target, haz[i]);
+		haz = new Hazard();
+		initHazard(power_index, src_stats, target, haz);
 
-		haz[i]->pos.x = location_iterator.x;
-		haz[i]->pos.y = location_iterator.y;
-		haz[i]->delay_frames = delay_iterator;
+		haz->pos.x = location_iterator.x;
+		haz->pos.y = location_iterator.y;
+		haz->delay_frames = delay_iterator;
 		delay_iterator += powers[power_index].delay;
 
-		haz[i]->frame = powers[power_index].start_frame; // start at bottom frame
+		haz->frame = powers[power_index].start_frame; // start at bottom frame
 
-		hazards.push(haz[i]);
+		hazards.push(haz);
 	}
 
 	return true;
 
 }
 
-
-/**
- * Basic single-frame area hazard
- */
-bool PowerManager::single(int power_index, StatBlock *src_stats, Point target) {
-
-	Hazard *haz = new Hazard();
-
-	initHazard(power_index, src_stats, target, haz);
-
-	// specific powers have different stats here
-	if (power_index == POWER_VENGEANCE) {
-		haz->pos = calcVector(src_stats->pos, src_stats->direction, src_stats->melee_range);
-		haz->dmg_min = src_stats->dmg_melee_min;
-		haz->dmg_max = src_stats->dmg_melee_max;
-		haz->radius = 64;
-		src_stats->mp--;
-
-		// use vengeance stacks
-		haz->accuracy += src_stats->vengeance_stacks * 25;
-		haz->crit_chance += src_stats->vengeance_stacks * 25;
-		src_stats->vengeance_stacks = 0;
-	}
-
-	hazards.push(haz);
-
-	// Hazard memory is now the responsibility of HazardManager
-	return true;
-}
 
 /**
  * Spawn a creature. Does not create a hazard
@@ -1127,7 +1092,7 @@ bool PowerManager::spawn(int power_index, StatBlock *src_stats, Point target) {
 	}
 
 	espawn.direction = calcDirection(src_stats->pos.x, src_stats->pos.y, target.x, target.y);
-	for (int i=0; i < powers[power_index].spawn_num; i++) {
+	for (int i=0; i < powers[power_index].count; i++) {
 		enemies.push(espawn);
 	}
 	// pay costs
@@ -1204,8 +1169,8 @@ bool PowerManager::activate(int power_index, StatBlock *src_stats, Point target)
 
 	// logic for different types of powers are very different.  We allow these
 	// separate functions to handle the details.
-	if (powers[power_index].type == POWTYPE_SINGLE)
-		return single(power_index, src_stats, target);
+	if (powers[power_index].type == POWTYPE_EFFECT)
+		return effect(power_index, src_stats, target);
 	else if (powers[power_index].type == POWTYPE_MISSILE)
 		return missile(power_index, src_stats, target);
 	else if (powers[power_index].type == POWTYPE_REPEATER)
