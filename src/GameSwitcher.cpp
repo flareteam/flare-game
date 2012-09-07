@@ -91,8 +91,8 @@ void GameSwitcher::logic() {
 
 void GameSwitcher::showFPS(int fps) {
 	if (!SHOW_FPS) return;
-	string sfps = toString(typeid(fps), &fps);
-	label_fps->set(fps_position.x, fps_position.y, JUSTIFY_CENTER, VALIGN_TOP, sfps, fps_color);
+	string sfps = toString(typeid(fps), &fps) + string(" fps");
+	label_fps->set(fps_position.x, fps_position.y, JUSTIFY_LEFT, VALIGN_TOP, sfps, fps_color);
 	label_fps->render();
 }
 
