@@ -61,63 +61,73 @@ CombatText::CombatText() {
 CombatText* CombatText::m_pInstance = NULL;
 
 CombatText* CombatText::Instance() {
-   if (!m_pInstance)
-      m_pInstance = new CombatText;
+	if (!m_pInstance)
+		m_pInstance = new CombatText;
 
-   return m_pInstance;
+	return m_pInstance;
 }
 
 void CombatText::setCam(Point location) {
-    cam = location;
+	cam = location;
 }
 
-void CombatText::addMessage(std::string message, Point location, int displaytype) {
-    if (COMBAT_TEXT) {
-	    Point p = map_to_screen(location.x - UNITS_PER_TILE, location.y - UNITS_PER_TILE, cam.x, cam.y);
-        Combat_Text_Item *c = new Combat_Text_Item();
-        WidgetLabel *label = new WidgetLabel();
-        c->pos = p;
-        c->label = label;
-        c->text = message;
-        c->lifespan = duration;
-        c->displaytype = displaytype;
-        combat_text.push_back(*c);
-        delete c;
-    }
+void CombatText::addMessage(std::string message, Point location, int displaytype, bool from_hero) {
+	if (COMBAT_TEXT) {
+		Combat_Text_Item *c = new Combat_Text_Item();
+		WidgetLabel *label = new WidgetLabel();
+		c->pos = map_to_screen(location.x - UNITS_PER_TILE, location.y - UNITS_PER_TILE, cam.x, cam.y);
+		c->src_pos = location;
+		c->label = label;
+		c->text = message;
+		c->lifespan = duration;
+		c->displaytype = displaytype;
+		c->from_hero = from_hero;
+		combat_text.push_back(*c);
+		delete c;
+	}
 }
 
-void CombatText::addMessage(int num, Point location, int displaytype) {
-    if (COMBAT_TEXT) {
-	    Point p = map_to_screen(location.x - UNITS_PER_TILE, location.y - UNITS_PER_TILE, cam.x, cam.y);
-        Combat_Text_Item *c = new Combat_Text_Item();
-        WidgetLabel *label = new WidgetLabel();
-        c->pos = p;
-        c->label = label;
+void CombatText::addMessage(int num, Point location, int displaytype, bool from_hero) {
+	if (COMBAT_TEXT) {
+		Combat_Text_Item *c = new Combat_Text_Item();
+		WidgetLabel *label = new WidgetLabel();
+		c->pos = map_to_screen(location.x - UNITS_PER_TILE, location.y - UNITS_PER_TILE, cam.x, cam.y);
+		c->src_pos = location;
+		c->label = label;
+		c->from_hero = from_hero;
 
-        std::stringstream ss;
-        ss << num;
-        c->text = ss.str();
+		std::stringstream ss;
+		ss << num;
+		c->text = ss.str();
 
-        c->lifespan = duration;
-        c->displaytype = displaytype;
-        combat_text.push_back(*c);
-        delete c;
-    }
+		c->lifespan = duration;
+		c->displaytype = displaytype;
+		combat_text.push_back(*c);
+		delete c;
+	}
 }
 
 void CombatText::render() {
 	for(std::vector<Combat_Text_Item>::iterator it = combat_text.begin(); it != combat_text.end(); it++) {
-        it->lifespan--;
-        it->pos.y -= speed;
+		it->lifespan--;
+
+		// check if we need to position the text relative to the map
+		if (!it->from_hero) {
+			it->ydelta += speed;
+			it->pos = map_to_screen(it->src_pos.x - UNITS_PER_TILE, it->src_pos.y - UNITS_PER_TILE, cam.x, cam.y);
+			it->pos.y -= it->ydelta;
+		} else {
+			it->pos.y -= speed;
+		}
 
 		it->label->set(it->pos.x, it->pos.y, JUSTIFY_CENTER, VALIGN_BOTTOM, it->text, msg_color[it->displaytype]);
 
 		if (it->lifespan > 0)
 			it->label->render();
 
-    }
-    // delete expired messages
-    while (combat_text.size() > 0 && combat_text.begin()->lifespan <= 0) {
-        combat_text.erase(combat_text.begin());
-    }
+	}
+	// delete expired messages
+	while (combat_text.size() > 0 && combat_text.begin()->lifespan <= 0) {
+		combat_text.erase(combat_text.begin());
+	}
 }
