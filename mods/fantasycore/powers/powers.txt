@@ -413,9 +413,28 @@ new_state=shoot
 face=true
 requires_offense_weapon=true
 base_damage=ranged
+starting_pos=melee
 aim_assist=32
 allow_power_mod=true
 
+[power]
+id=23
+name=Rapid Fire
+type=missile
+icon=0
+description=Fire five low power missiles in quick succession
+new_state=shoot
+face=true
+requires_offense_weapon=true
+requires_mp=5
+base_damage=ranged
+starting_pos=melee
+aim_assist=32
+allow_power_mod=true
+missile_num=5
+delay=2
+damage_multiplier=66
+cooldown=5000
 
 [power]
 id=30
