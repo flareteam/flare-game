@@ -43,27 +43,30 @@ class WidgetLabel;
 
 struct Combat_Text_Item {
 	WidgetLabel *label;
-    int lifespan;
-    Point pos;
-    std::string text;
-    int displaytype;
+	int lifespan;
+	Point pos;
+	Point src_pos;
+	std::string text;
+	int displaytype;
+	int ydelta;
+	bool from_hero;
 };
 
 class CombatText {
 public:
-    static CombatText* Instance();
-    void render();
-    void addMessage(std::string message, Point location, int displaytype);
-    void addMessage(int num, Point location, int displaytype);
-    void setCam(Point location);
+	static CombatText* Instance();
+	void render();
+	void addMessage(std::string message, Point location, int displaytype, bool from_hero);
+	void addMessage(int num, Point location, int displaytype, bool from_hero);
+	void setCam(Point location);
 
 private:
-    Point cam;
-    std::vector<Combat_Text_Item> combat_text;
-    CombatText();
-    CombatText(CombatText const&){};
+	Point cam;
+	std::vector<Combat_Text_Item> combat_text;
+	CombatText();
+	CombatText(CombatText const&){};
 
-    static CombatText* m_pInstance;
+	static CombatText* m_pInstance;
 
 	SDL_Color msg_color[5];
 	int duration;

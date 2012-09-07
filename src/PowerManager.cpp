@@ -769,7 +769,10 @@ void PowerManager::buff(int power_index, StatBlock *src_stats, Point target) {
 			heal_amt = rand() % (heal_max - heal_min) + heal_min;
 		else // avoid div by 0
 			heal_amt = heal_min;
-		CombatText::Instance()->addMessage(msg->get("+%d HP",heal_amt), src_stats->pos, COMBAT_MESSAGE_BUFF);
+		if (src_stats->hero)
+			CombatText::Instance()->addMessage(msg->get("+%d HP",heal_amt), src_stats->pos, COMBAT_MESSAGE_BUFF, true);
+		else
+			CombatText::Instance()->addMessage(msg->get("+%d HP",heal_amt), src_stats->pos, COMBAT_MESSAGE_BUFF, false);
 		src_stats->hp += heal_amt;
 		if (src_stats->hp > src_stats->maxhp) src_stats->hp = src_stats->maxhp;
 	}
@@ -777,7 +780,10 @@ void PowerManager::buff(int power_index, StatBlock *src_stats, Point target) {
 	// hp restore
 	if (powers[power_index].buff_restore_hp > 0) {
 		int hp_amt = powers[power_index].buff_restore_hp;
-		CombatText::Instance()->addMessage(msg->get("+%d HP",hp_amt), src_stats->pos, COMBAT_MESSAGE_BUFF);
+		if (src_stats->hero)
+			CombatText::Instance()->addMessage(msg->get("+%d HP",hp_amt), src_stats->pos, COMBAT_MESSAGE_BUFF, true);
+		else
+			CombatText::Instance()->addMessage(msg->get("+%d HP",hp_amt), src_stats->pos, COMBAT_MESSAGE_BUFF, false);
 		src_stats->hp += hp_amt;
 		if (src_stats->hp > src_stats->maxhp) src_stats->hp = src_stats->maxhp;
 	}
@@ -785,7 +791,10 @@ void PowerManager::buff(int power_index, StatBlock *src_stats, Point target) {
 	// mp restore
 	if (powers[power_index].buff_restore_mp > 0) {
 		int mp_amt = powers[power_index].buff_restore_mp;
-		CombatText::Instance()->addMessage(msg->get("+%d MP",mp_amt), src_stats->pos, COMBAT_MESSAGE_BUFF);
+		if (src_stats->hero)
+			CombatText::Instance()->addMessage(msg->get("+%d MP",mp_amt), src_stats->pos, COMBAT_MESSAGE_BUFF, true);
+		else
+			CombatText::Instance()->addMessage(msg->get("+%d MP",mp_amt), src_stats->pos, COMBAT_MESSAGE_BUFF, false);
 		src_stats->mp += mp_amt;
 		if (src_stats->mp > src_stats->maxmp) src_stats->mp = src_stats->maxmp;
 	}
@@ -793,7 +802,10 @@ void PowerManager::buff(int power_index, StatBlock *src_stats, Point target) {
 	// charge shield to max ment weapon damage * damage multiplier
 	if (powers[power_index].buff_shield) {
 	    int shield_amt = (int)ceil(src_stats->dmg_ment_max * powers[power_index].damage_multiplier / 100.0) + (src_stats->get_mental()*src_stats->bonus_per_mental);
-		CombatText::Instance()->addMessage(msg->get("+%d Shield",shield_amt), src_stats->pos, COMBAT_MESSAGE_BUFF);
+		if (src_stats->hero)
+			CombatText::Instance()->addMessage(msg->get("+%d Shield",shield_amt), src_stats->pos, COMBAT_MESSAGE_BUFF, true);
+		else
+			CombatText::Instance()->addMessage(msg->get("+%d Shield",shield_amt), src_stats->pos, COMBAT_MESSAGE_BUFF, false);
 		src_stats->shield_hp = src_stats->shield_hp_total = shield_amt;
 	}
 

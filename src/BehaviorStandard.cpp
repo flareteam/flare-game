@@ -81,7 +81,7 @@ void BehaviorStandard::doUpkeep() {
 
 	// TEMP: check for bleeding spurt
 	if (e->stats.bleed_duration % 30 == 1) {
-	    CombatText::Instance()->addMessage(1, e->stats.pos, COMBAT_MESSAGE_GIVEDMG);
+	    CombatText::Instance()->addMessage(1, e->stats.pos, COMBAT_MESSAGE_GIVEDMG, false);
 		e->powers->activate(POWER_SPARK_BLOOD, &e->stats, e->stats.pos);
 	}
 
