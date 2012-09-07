@@ -611,36 +611,42 @@ void PowerManager::initHazard(int power_index, StatBlock *src_stats, Point targe
 	// Hazard attributes based on power source
 	haz->crit_chance = src_stats->crit;
 	haz->accuracy = src_stats->accuracy;
-
-	// Hazard damage depends on equipped weapons and the power's optional damage_multiplier
-	if (powers[power_index].base_damage == BASE_DAMAGE_MELEE) {
-		haz->dmg_min = src_stats->dmg_melee_min;
-		haz->dmg_max = src_stats->dmg_melee_max;
-	}
-	else if (powers[power_index].base_damage == BASE_DAMAGE_RANGED) {
-		haz->dmg_min = src_stats->dmg_ranged_min;
-		haz->dmg_max = src_stats->dmg_ranged_max;
-	}
-	else if (powers[power_index].base_damage == BASE_DAMAGE_MENT) {
-		haz->dmg_min = src_stats->dmg_ment_min;
-		haz->dmg_max = src_stats->dmg_ment_max;
-	}
-	//apply the multiplier
-	haz->dmg_min = (int)ceil(haz->dmg_min * powers[power_index].damage_multiplier / 100.0);
-	haz->dmg_max = (int)ceil(haz->dmg_max * powers[power_index].damage_multiplier / 100.0);
-
-	//apply stat bonuses
-	if (powers[power_index].base_damage == BASE_DAMAGE_MELEE) {
-		haz->dmg_min += src_stats->get_physical() * src_stats->bonus_per_physical;
-		haz->dmg_max += src_stats->get_physical() * src_stats->bonus_per_physical;
-	}
-	else if (powers[power_index].base_damage == BASE_DAMAGE_RANGED) {
-		haz->dmg_min += src_stats->get_offense() * src_stats->bonus_per_offense;
-		haz->dmg_max += src_stats->get_offense() * src_stats->bonus_per_offense;
-	}
-	else if (powers[power_index].base_damage == BASE_DAMAGE_MENT) {
-		haz->dmg_min += src_stats->get_mental() * src_stats->bonus_per_mental;
-		haz->dmg_max += src_stats->get_mental() * src_stats->bonus_per_mental;
+	
+	// If the hazard's damage isn't default (0), we are applying an item-based power mod.
+	// We don't allow equipment power mods to alter damage (mainly to preserve the base power's multiplier).
+	if (haz->dmg_max == 0) {
+	
+		// base damage is by equipped item
+		if (powers[power_index].base_damage == BASE_DAMAGE_MELEE) {
+			haz->dmg_min = src_stats->dmg_melee_min;
+			haz->dmg_max = src_stats->dmg_melee_max;
+		}
+		else if (powers[power_index].base_damage == BASE_DAMAGE_RANGED) {
+			haz->dmg_min = src_stats->dmg_ranged_min;
+			haz->dmg_max = src_stats->dmg_ranged_max;
+		}
+		else if (powers[power_index].base_damage == BASE_DAMAGE_MENT) {
+			haz->dmg_min = src_stats->dmg_ment_min;
+			haz->dmg_max = src_stats->dmg_ment_max;
+		}
+	
+		//apply stat bonuses
+		if (powers[power_index].base_damage == BASE_DAMAGE_MELEE) {
+			haz->dmg_min += src_stats->get_physical() * src_stats->bonus_per_physical;
+			haz->dmg_max += src_stats->get_physical() * src_stats->bonus_per_physical;
+		}
+		else if (powers[power_index].base_damage == BASE_DAMAGE_RANGED) {
+			haz->dmg_min += src_stats->get_offense() * src_stats->bonus_per_offense;
+			haz->dmg_max += src_stats->get_offense() * src_stats->bonus_per_offense;
+		}
+		else if (powers[power_index].base_damage == BASE_DAMAGE_MENT) {
+			haz->dmg_min += src_stats->get_mental() * src_stats->bonus_per_mental;
+			haz->dmg_max += src_stats->get_mental() * src_stats->bonus_per_mental;
+		}
+		
+		// some powers have a damage multiplier, default 100 (percent)
+		haz->dmg_min = (int)ceil((haz->dmg_min * powers[power_index].damage_multiplier) / 100.0);
+		haz->dmg_max = (int)ceil((haz->dmg_max * powers[power_index].damage_multiplier) / 100.0);
 	}
 
 	// Only apply stats from powers that are not defaults
@@ -955,6 +961,8 @@ bool PowerManager::missile(int power_index, StatBlock *src_stats, Point target) 
 
 	// calculate polar coordinates angle
 	float theta = calcTheta(src.x, src.y, target.x, target.y);
+	
+	int delay_iterator = 0;
 
 	//generate hazards
 	for (int i=0; i < powers[power_index].missile_num; i++) {
@@ -984,7 +992,12 @@ bool PowerManager::missile(int power_index, StatBlock *src_stats, Point target) 
 					src.x, src.y,
 					static_cast<int>(src.x + UNITS_PER_TILE * haz->speed.x),
 					static_cast<int>(src.y + UNITS_PER_TILE * haz->speed.y));
+					
+		// add optional delay
+		haz->delay_frames = delay_iterator;
+		delay_iterator += powers[power_index].delay;
 
+		
 		hazards.push(haz);
 	}
 
