@@ -71,6 +71,9 @@ void GameSwitcher::logic() {
 		delete currentState;
 		currentState = newState;
 
+		// reload the fps meter position
+		loadFPS();
+
 		// if this game state does not provide music, use the title theme
 		if (!currentState->hasMusic)
 			if (!Mix_PlayingMusic())
