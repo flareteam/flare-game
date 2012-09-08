@@ -58,7 +58,7 @@ void ItemStorage::setItems(string s) {
 			storage[i].quantity = 0;
 		}
 		else if ((unsigned)storage[i].item > items->items.size()-1) {
-			fprintf(stderr, "Item id (%d) out of bounds 1-%d, skipping\n", storage[i].item, items->items.size());
+			fprintf(stderr, "Item id (%d) out of bounds 1-%d, skipping\n", storage[i].item, (int)items->items.size());
 			storage[i].item = 0;
 			storage[i].quantity = 0;
 		}
