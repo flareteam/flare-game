@@ -57,7 +57,9 @@ private:
 	WidgetButton *button_action;
 	WidgetButton *button_alternate;
 	WidgetLabel *label_loading;
-	WidgetLabel *label_slots;
+	WidgetLabel *label_name[GAME_SLOT_MAX];
+	WidgetLabel *label_level[GAME_SLOT_MAX];
+	WidgetLabel *label_map[GAME_SLOT_MAX];
 
 	MenuConfirm *confirm;
 

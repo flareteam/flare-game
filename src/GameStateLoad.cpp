@@ -45,7 +45,12 @@ GameStateLoad::GameStateLoad() : GameState() {
 	loaded = false;
 
 	label_loading = new WidgetLabel();
-	label_slots = new WidgetLabel();
+	
+	for (int i = 0; i < GAME_SLOT_MAX; i++) {
+		label_name[i] = new WidgetLabel();
+		label_level[i] = new WidgetLabel();
+		label_map[i] = new WidgetLabel();
+	}
 
 	// Confirmation box to confirm deleting
 	confirm = new MenuConfirm(msg->get("Delete Save"), msg->get("Delete this save?"));
@@ -560,22 +565,22 @@ void GameStateLoad::render() {
 			// name
 			label.x = slot_pos[slot].x + name_pos.x;
 			label.y = slot_pos[slot].y + name_pos.y;
-			label_slots->set(label.x, label.y, JUSTIFY_LEFT, VALIGN_TOP, stats[slot].name, color_normal);
-			label_slots->render();
+			label_name[slot]->set(label.x, label.y, JUSTIFY_LEFT, VALIGN_TOP, stats[slot].name, color_normal);
+			label_name[slot]->render();
 
 			// level
 			ss.str("");
 			label.x = slot_pos[slot].x + level_pos.x;
 			label.y = slot_pos[slot].y + level_pos.y;
 			ss << msg->get("Level %d %s", stats[slot].level, msg->get(stats[slot].character_class));
-			label_slots->set(label.x, label.y, JUSTIFY_LEFT, VALIGN_TOP, ss.str(), color_normal);
-			label_slots->render();
+			label_level[slot]->set(label.x, label.y, JUSTIFY_LEFT, VALIGN_TOP, ss.str(), color_normal);
+			label_level[slot]->render();
 
 			// map
 			label.x = slot_pos[slot].x + map_pos.x;
 			label.y = slot_pos[slot].y + map_pos.y;
-			label_slots->set(label.x, label.y, JUSTIFY_LEFT, VALIGN_TOP, current_map[slot], color_normal);
-			label_slots->render();
+			label_map[slot]->set(label.x, label.y, JUSTIFY_LEFT, VALIGN_TOP, current_map[slot], color_normal);
+			label_map[slot]->render();
 
 			// render character preview
 			dest.x = slot_pos[slot].x + sprites_pos.x;
@@ -589,8 +594,8 @@ void GameStateLoad::render() {
 		else {
 			label.x = slot_pos[slot].x + name_pos.x;
 			label.y = slot_pos[slot].y + name_pos.y;
-			label_slots->set(label.x, label.y, JUSTIFY_LEFT, VALIGN_TOP, msg->get("Empty Slot"), color_normal);
-			label_slots->render();
+			label_name[slot]->set(label.x, label.y, JUSTIFY_LEFT, VALIGN_TOP, msg->get("Empty Slot"), color_normal);
+			label_name[slot]->render();
 		}
 	}
 	// display warnings
@@ -609,7 +614,11 @@ GameStateLoad::~GameStateLoad() {
 	for (int i=0; i<GAME_SLOT_MAX; i++) {
 		SDL_FreeSurface(sprites[i]);
 	}
-	delete label_slots;
+	for (int i=0; i<GAME_SLOT_MAX; i++) {
+		delete label_name[i];
+		delete label_level[i];
+		delete label_map[i];
+	}
 	delete label_loading;
 	delete confirm;
 }
