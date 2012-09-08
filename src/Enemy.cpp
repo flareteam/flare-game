@@ -229,14 +229,14 @@ bool Enemy::takeHit(Hazard h) {
 		if (h.hp_steal != 0) {
 			int heal_amt = (dmg * h.hp_steal) / 100;
 			if (heal_amt == 0 && dmg > 0) heal_amt = 1;
-			combat_text->addMessage(heal_amt, h.src_stats->pos, COMBAT_MESSAGE_BUFF, true);
+			combat_text->addMessage(msg->get("+%d HP",heal_amt), h.src_stats->pos, COMBAT_MESSAGE_BUFF, true);
 			h.src_stats->hp += heal_amt;
 			if (h.src_stats->hp > h.src_stats->maxhp) h.src_stats->hp = h.src_stats->maxhp;
 		}
 		if (h.mp_steal != 0) {
 			int heal_amt = (dmg * h.mp_steal) / 100;
 			if (heal_amt == 0 && dmg > 0) heal_amt = 1;
-			combat_text->addMessage(heal_amt, h.src_stats->pos, COMBAT_MESSAGE_BUFF, true);
+			combat_text->addMessage(msg->get("+%d MP",heal_amt), h.src_stats->pos, COMBAT_MESSAGE_BUFF, true);
 			h.src_stats->mp += heal_amt;
 			if (h.src_stats->mp > h.src_stats->maxmp) h.src_stats->mp = h.src_stats->maxmp;
 		}

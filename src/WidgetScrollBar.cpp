@@ -96,7 +96,7 @@ int WidgetScrollBar::checkClick(int x, int y) {
 		if (!inpt->lock[MAIN1]) {
 			pressed_knob = false;
 		}
-		int tmp = mouse.y - pos_up.y;
+		int tmp = mouse.y - pos_up.y - pos_up.h;
 
 		pos_knob.y = pos_up.y + tmp;
 		value = (tmp * maximum)/bar_height;
