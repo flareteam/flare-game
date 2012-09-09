@@ -571,11 +571,11 @@ int MapRenderer::load(string filename) {
  * Clear all tile layers (e.g. when loading a map)
  */
 void MapRenderer::clearLayers() {
-	delete background;
-	delete fringe;
-	delete object;
-	delete foreground;
-	delete collision;
+	delete[] background;
+	delete[] fringe;
+	delete[] object;
+	delete[] foreground;
+	delete[] collision;
 }
 
 void MapRenderer::loadMusic() {
