@@ -310,9 +310,6 @@ void ItemManager::loadSets(const string& filename) {
 			if (infile.key == "name") {
 				item_sets[id].name = msg->get(infile.val);
 			}
-			else if (infile.key == "description") {
-				item_sets[id].description = msg->get(infile.val);
-			}
 			else if (infile.key == "items") {
 				string item_id = infile.nextValue();
 				while (item_id != "") {
@@ -498,12 +495,6 @@ TooltipData ItemManager::getTooltip(int item, StatBlock *stats, bool vendor_view
 	// color quality
 	if (items[item].set > 0) {
 		tip.colors[0] = item_sets[items[item].set].color;
-		// item set name
-		tip.colors[tip.num_lines] = item_sets[items[item].set].color;
-		tip.lines[tip.num_lines++] = msg->get(item_sets[items[item].set].name);
-		// item set description
-		tip.colors[tip.num_lines] = item_sets[items[item].set].color;
-		tip.lines[tip.num_lines++] = msg->get(item_sets[items[item].set].description);
 	}
 	else if (items[item].quality == ITEM_QUALITY_LOW) {
 		tip.colors[0] = color_low;
@@ -626,36 +617,23 @@ TooltipData ItemManager::getTooltip(int item, StatBlock *stats, bool vendor_view
 	}
 
 	if (items[item].set > 0) {
-			tip.colors[tip.num_lines] = item_sets[items[item].set].color;
-			tip.lines[tip.num_lines++] = msg->get("Set Item Bonuses");
 			// item set bonuses
 			ItemSet set = item_sets[items[item].set];
 			bonus_counter = 0;
-			int items_counter = 1;
 			modifier = "";
+
+			tip.lines[tip.num_lines++];
+			tip.colors[tip.num_lines] = set.color;
+			tip.lines[tip.num_lines++] = msg->get("Set: ") + msg->get(item_sets[items[item].set].name);
+
 			while (bonus_counter < set.bonus.size() && set.bonus[bonus_counter].bonus_stat != "") {
 				if (set.bonus[bonus_counter].bonus_val > 0) {
-					if (items_counter < set.bonus[bonus_counter].requirement) {
-						tip.lines[tip.num_lines++] = msg->get("%d items", set.bonus[bonus_counter].requirement);
-						items_counter = set.bonus[bonus_counter].requirement;
-					}
-					modifier = msg->get("Increases %s by %d",
-							set.bonus[bonus_counter].bonus_val,
-							msg->get(set.bonus[bonus_counter].bonus_stat));
-
-					tip.colors[tip.num_lines] = color_bonus;
+					modifier = msg->get("%d items: ", set.bonus[bonus_counter].requirement) + msg->get("Increases %s by %d", set.bonus[bonus_counter].bonus_val, msg->get(set.bonus[bonus_counter].bonus_stat));
 				}
 				else {
-					if (items_counter < set.bonus[bonus_counter].requirement) {
-						tip.lines[tip.num_lines++] = msg->get("%d items", set.bonus[bonus_counter].requirement);
-						items_counter = set.bonus[bonus_counter].requirement;
-					}
-					modifier = msg->get("Decreases %s by %d",
-							set.bonus[bonus_counter].bonus_val,
-							msg->get(set.bonus[bonus_counter].bonus_stat));
-
-					tip.colors[tip.num_lines] = color_penalty;
+					modifier = msg->get("%d items: ", set.bonus[bonus_counter].requirement) + msg->get("Decreases %s by %d", set.bonus[bonus_counter].bonus_val, msg->get(set.bonus[bonus_counter].bonus_stat));
 				}
+				tip.colors[tip.num_lines] = set.color;
 				tip.lines[tip.num_lines++] = modifier;
 				bonus_counter++;
 			}

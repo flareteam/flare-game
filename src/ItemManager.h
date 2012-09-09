@@ -148,14 +148,12 @@ public:
 class ItemSet {
 public:
 	std::string name;            // item set name displayed on long and short tool tips
-	std::string description;     // item set description
 	std::vector<int> items;      // items, included into set
 	std::vector<Set_bonus> bonus;// vector with stats to increase/decrease
 	SDL_Color color;
 
 	ItemSet() {
 		name = "";
-		description = "";
 		color.r = 255;
 		color.g = 255;
 		color.b = 255;
