@@ -222,7 +222,7 @@ int MapRenderer::load(string filename) {
 		}
 		else if (infile.section == "layer") {
 			if (infile.key == "type") {
-				cur_layer = new unsigned short[w][256];
+				cur_layer = new maprow[w];
 				if (infile.val == "background") background = cur_layer;
 				else if (infile.val == "fringe") fringe = cur_layer;
 				else if (infile.val == "object") object = cur_layer;
@@ -1279,6 +1279,8 @@ MapRenderer::~MapRenderer() {
 
 	SDL_FreeSurface(backgroundsurface);
 	tip_buf.clear();
+	clearLayers();
+	clearEvents();
 	delete tip;
 }
 
