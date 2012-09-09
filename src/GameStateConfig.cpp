@@ -649,26 +649,6 @@ void GameStateConfig::update () {
 		list_mode.str("");
 	}
 
-	// Check if resolution was selected correctly
-	if (check_resolution) {
-		int w,h;
-		if (MIN_VIEW_W != -1) w = MIN_VIEW_W;
-		else w = 640;
-		if (MIN_VIEW_H != -1) h = MIN_VIEW_H;
-		else h = 480;
-		list_mode << VIEW_W << "x" << VIEW_H;
-		if (settings_lstb[0]->getValue() != list_mode.str()) {
-			fprintf(stderr, "Resolution is not supported!\n");
-			fprintf(stderr, "Using %dx%d instead!\n",w,h);
-			for (unsigned int i=0; i<resolutions; ++i) {
-				if (video_modes[i].w == w && video_modes[i].h == h) settings_lstb[0]->selected[i] = true;
-				else settings_lstb[0]->selected[i] = false;
-			}
-			VIEW_W = w;
-			VIEW_H = h;
-		}
-	}
-
 	settings_lstb[0]->refresh();
 
 	if (!getLanguagesList()) fprintf(stderr, "Unable to get languages list!\n");
@@ -711,6 +691,13 @@ void GameStateConfig::logic ()
 	value = settings_lstb[0]->getValue() + 'x';
 	int width = eatFirstInt(value, 'x');
 	int height = eatFirstInt(value, 'x');
+
+	// In case of a custom resolution, the listbox might have nothing selected
+	// So we just use whatever the current view area is
+	if (width == 0 || height == 0) {
+		width = VIEW_W;
+		height = VIEW_H;
+	}
 
 	if (defaults_confirm->visible) {
 		defaults_confirm->logic();
