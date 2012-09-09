@@ -80,18 +80,23 @@ void PowerManager::loadPowers(const std::string& filename) {
 	FileParser infile;
 	int input_id = 0;
 
+	bool skippingEntry = false;
+
 	if (infile.open(filename)) {
 		while (infile.next()) {
 			// id needs to be the first component of each power.  That is how we write
 			// data to the correct power.
 			if (infile.key == "id") {
 				input_id = toInt(infile.val);
-				if (input_id < 1)
+				skippingEntry = input_id < 1;
+				if (skippingEntry)
 					fprintf(stderr, "Power index out of bounds 1-%d, skipping\n", INT_MAX);
 				if (static_cast<int>(powers.size()) < input_id + 1)
 					powers.resize(input_id + 1);
 				continue;
 			}
+			if (skippingEntry)
+				continue;
 
 			if (infile.key == "type") {
 				if (infile.val == "effect") powers[input_id].type = POWTYPE_EFFECT;
