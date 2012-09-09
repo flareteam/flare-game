@@ -20,6 +20,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <fstream>
 #include <sstream>
 #include <iostream>
+#include <algorithm>
+#include <string>
 
 using namespace std;
 
@@ -269,5 +271,29 @@ int toInt(const string& s, std::ios_base& (*f)(std::ios_base&), int default_valu
 	return result;
 }
 
+string &trim_right_inplace(string &s, const string& delimiters = " \f\n\r\t\v") {
+	return s.erase(s.find_last_not_of(delimiters) + 1);
+}
+
+string& trim_left_inplace(string &s, const string& delimiters = " \f\n\r\t\v" ) {
+	return s.erase(0, s.find_first_not_of(delimiters));
+}
+
+string &trim(string &s, const string& delimiters = " \f\n\r\t\v") {
+	return trim_left_inplace(trim_right_inplace(s, delimiters), delimiters);
+}
+
+bool toBool(std::string value) {
+	trim(value);
+
+	std::transform(value.begin(), value.end(), value.begin(), ::tolower);
+	if (value == "true") return true;
+	if (value == "yes") return true;
+	if (value == "false") return false;
+	if (value == "no") return false;
+
+	fprintf(stderr, "%s %s doesn't know how to handle %s\n", __FILE__, __FUNCTION__, value.c_str());
+	return false;
+}
 
 

@@ -290,6 +290,8 @@ private:
 	bool spawn(int powernum, StatBlock *src_stats, Point target);
 	bool transform(int powernum, StatBlock *src_stats, Point target);
 
+	void payPowerCost(int power_index, StatBlock *src_stats);
+
 public:
 	PowerManager();
 	~PowerManager();
