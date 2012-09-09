@@ -38,5 +38,6 @@ bool tryParseValue(const std::type_info & type, const char * value, void * outpu
 bool tryParseValue(const std::type_info & type, const std::string & value, void * output);
 std::string toString(const std::type_info & type, void * value);
 int toInt(const std::string& s, std::ios_base& (*f)(std::ios_base&) = std::dec, int default_value = 0);
+bool toBool(std::string value);
 
 #endif
