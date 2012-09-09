@@ -104,6 +104,7 @@ void PowerManager::loadPowers(const std::string& filename) {
 				else if (infile.val == "repeater") powers[input_id].type = POWTYPE_REPEATER;
 				else if (infile.val == "spawn") powers[input_id].type = POWTYPE_SPAWN;
 				else if (infile.val == "transform") powers[input_id].type = POWTYPE_TRANSFORM;
+				else fprintf(stderr, "unknown type %s\n", infile.val.c_str());
 			}
 			else if (infile.key == "name")
 				powers[input_id].name = msg->get(infile.val);
