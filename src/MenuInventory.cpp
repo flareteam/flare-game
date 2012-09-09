@@ -203,31 +203,6 @@ TooltipData MenuInventory::checkTooltip(Point mouse) {
 
 	if (area > -1 && inventory[area][slot].item > 0) {
 		tip = inventory[area].checkTooltip( mouse, stats, false);
-		// item from set has additional info
-		int set_id = items->items[inventory[area][slot].item].set;
-		if (set_id > 0) {
-			vector<int> equipped;
-			// search equipped items
-			for (unsigned int i=0; i<items->item_sets[set_id].items.size(); i++) {
-				int item = items->item_sets[set_id].items[i];
-				// push equipped items into vector
-				for (short j=0; j<MAX_EQUIPPED; j++) {
-					if (item == inventory[EQUIPMENT].storage[j].item) {
-						equipped.push_back(item);
-						break;
-					}
-				}
-			}
-			// add equipped items list to tooltip
-			if (equipped.size() > 0) {
-				tip.colors[tip.num_lines] = color_high;
-				tip.lines[tip.num_lines++] = "You wear:";
-				for (unsigned int i=0; i<equipped.size(); i++) {
-					tip.colors[tip.num_lines] = items->item_sets[set_id].color;
-					tip.lines[tip.num_lines++] = items->items[equipped[i]].name;
-				}
-			}
-		}
 	}
 	else if (area == EQUIPMENT && inventory[area][slot].item == 0) {
 		tip.lines[tip.num_lines++] = msg->get(slot_desc[slot]);
