@@ -134,8 +134,8 @@ void PowerManager::loadPowers(const std::string& filename) {
 			}
 			else if (infile.key == "count") {
 				powers[input_id].count = toInt(infile.val);
-			}			
-			
+			}
+
 			// power requirements
 			else if (infile.key == "requires_physical_weapon") {
 				if (infile.val == "true") powers[input_id].requires_physical_weapon = true;
@@ -406,29 +406,29 @@ int PowerManager::loadGFX(const string& filename) {
  */
 int PowerManager::loadSFX(const string& filename) {
 
-        // first check to make sure the sound isn't already loaded
-        for (unsigned i=0; i<sfx_filenames.size(); i++) {
-            if (sfx_filenames[i] == filename) {
-                return i; // already have this one
-            }
-        }
+		// first check to make sure the sound isn't already loaded
+		for (unsigned i=0; i<sfx_filenames.size(); i++) {
+			if (sfx_filenames[i] == filename) {
+				return i; // already have this one
+			}
+		}
 
-        // we don't already have this sound loaded, so load it
-        Mix_Chunk* sound;
-        if (audio && SOUND_VOLUME) {
-            sound = Mix_LoadWAV(mods->locate("soundfx/powers/" + filename).c_str());
-            if(!sound) {
-                cerr << "Couldn't load power soundfx: " << filename << endl;
-                return -1;
-            }
-        } else {
-            sound = NULL;
-        }
+		// we don't already have this sound loaded, so load it
+		Mix_Chunk* sound;
+		if (audio && SOUND_VOLUME) {
+			sound = Mix_LoadWAV(mods->locate("soundfx/powers/" + filename).c_str());
+			if(!sound) {
+				cerr << "Couldn't load power soundfx: " << filename << endl;
+				return -1;
+			}
+		} else {
+			sound = NULL;
+		}
 
-        // success; perform record-keeping
-        sfx_filenames.push_back(filename);
-        sfx.push_back(sound);
-        return sfx.size() - 1;
+		// success; perform record-keeping
+		sfx_filenames.push_back(filename);
+		sfx.push_back(sound);
+		return sfx.size() - 1;
 }
 
 
@@ -602,11 +602,11 @@ void PowerManager::initHazard(int power_index, StatBlock *src_stats, Point targe
 	// Hazard attributes based on power source
 	haz->crit_chance = src_stats->crit;
 	haz->accuracy = src_stats->accuracy;
-	
+
 	// If the hazard's damage isn't default (0), we are applying an item-based power mod.
 	// We don't allow equipment power mods to alter damage (mainly to preserve the base power's multiplier).
 	if (haz->dmg_max == 0) {
-	
+
 		// base damage is by equipped item
 		if (powers[power_index].base_damage == BASE_DAMAGE_MELEE) {
 			haz->dmg_min = src_stats->dmg_melee_min;
@@ -620,7 +620,7 @@ void PowerManager::initHazard(int power_index, StatBlock *src_stats, Point targe
 			haz->dmg_min = src_stats->dmg_ment_min;
 			haz->dmg_max = src_stats->dmg_ment_max;
 		}
-	
+
 		//apply stat bonuses
 		if (powers[power_index].base_damage == BASE_DAMAGE_MELEE) {
 			haz->dmg_min += src_stats->get_physical() * src_stats->bonus_per_physical;
@@ -634,7 +634,7 @@ void PowerManager::initHazard(int power_index, StatBlock *src_stats, Point targe
 			haz->dmg_min += src_stats->get_mental() * src_stats->bonus_per_mental;
 			haz->dmg_max += src_stats->get_mental() * src_stats->bonus_per_mental;
 		}
-		
+
 		// some powers have a damage multiplier, default 100 (percent)
 		haz->dmg_min = (int)ceil((haz->dmg_min * powers[power_index].damage_multiplier) / 100.0);
 		haz->dmg_max = (int)ceil((haz->dmg_max * powers[power_index].damage_multiplier) / 100.0);
@@ -798,7 +798,7 @@ void PowerManager::buff(int power_index, StatBlock *src_stats, Point target) {
 
 	// charge shield to max ment weapon damage * damage multiplier
 	if (powers[power_index].buff_shield) {
-	    int shield_amt = (int)ceil(src_stats->dmg_ment_max * powers[power_index].damage_multiplier / 100.0) + (src_stats->get_mental()*src_stats->bonus_per_mental);
+		int shield_amt = (int)ceil(src_stats->dmg_ment_max * powers[power_index].damage_multiplier / 100.0) + (src_stats->get_mental()*src_stats->bonus_per_mental);
 		if (src_stats->hero)
 			CombatText::Instance()->addMessage(msg->get("+%d Shield",shield_amt), src_stats->pos, COMBAT_MESSAGE_BUFF, true);
 		else
@@ -866,28 +866,27 @@ void PowerManager::playSound(int power_index, StatBlock *src_stats) {
 	if (powers[power_index].allow_power_mod) {
 		if (powers[power_index].base_damage == BASE_DAMAGE_MELEE && src_stats->melee_weapon_power != 0
 				&& powers[src_stats->melee_weapon_power].sfx_index != -1) {
-            if (sfx[powers[src_stats->melee_weapon_power].sfx_index])
-    			Mix_PlayChannel(-1,sfx[powers[src_stats->melee_weapon_power].sfx_index],0);
+			if (sfx[powers[src_stats->melee_weapon_power].sfx_index])
+				Mix_PlayChannel(-1,sfx[powers[src_stats->melee_weapon_power].sfx_index],0);
 		}
 		else if (powers[power_index].base_damage == BASE_DAMAGE_MENT && src_stats->mental_weapon_power != 0
 				&& powers[src_stats->mental_weapon_power].sfx_index != -1) {
-            if (sfx[powers[src_stats->mental_weapon_power].sfx_index])
-                Mix_PlayChannel(-1,sfx[powers[src_stats->mental_weapon_power].sfx_index],0);
+			if (sfx[powers[src_stats->mental_weapon_power].sfx_index])
+				Mix_PlayChannel(-1,sfx[powers[src_stats->mental_weapon_power].sfx_index],0);
 		}
 		else if (powers[power_index].base_damage == BASE_DAMAGE_RANGED && src_stats->ranged_weapon_power != 0
 				&& powers[src_stats->ranged_weapon_power].sfx_index != -1) {
-            if (sfx[powers[src_stats->ranged_weapon_power].sfx_index])
-                Mix_PlayChannel(-1,sfx[powers[src_stats->ranged_weapon_power].sfx_index],0);
+			if (sfx[powers[src_stats->ranged_weapon_power].sfx_index])
+				Mix_PlayChannel(-1,sfx[powers[src_stats->ranged_weapon_power].sfx_index],0);
 		}
 		else play_base_sound = true;
 	}
 	else play_base_sound = true;
 
 	if (play_base_sound && powers[power_index].sfx_index != -1) {
-        if (sfx[powers[power_index].sfx_index])
-            Mix_PlayChannel(-1,sfx[powers[power_index].sfx_index],0);
+		if (sfx[powers[power_index].sfx_index])
+			Mix_PlayChannel(-1,sfx[powers[power_index].sfx_index],0);
 	}
-
 }
 
 
@@ -901,8 +900,8 @@ void PowerManager::playSound(int power_index, StatBlock *src_stats) {
  */
 bool PowerManager::effect(int power_index, StatBlock *src_stats, Point target) {
 
-	int delay_iterator = 0;	
-	
+	int delay_iterator = 0;
+
 	if (powers[power_index].use_hazard) {
 		for (int i=0; i < powers[power_index].count; i++) {
 			Hazard *haz = new Hazard();
@@ -911,7 +910,7 @@ bool PowerManager::effect(int power_index, StatBlock *src_stats, Point target) {
 			// add optional delay
 			haz->delay_frames = delay_iterator;
 			delay_iterator += powers[power_index].delay;
-			
+
 			// Hazard memory is now the responsibility of HazardManager
 			hazards.push(haz);
 		}
@@ -922,10 +921,7 @@ bool PowerManager::effect(int power_index, StatBlock *src_stats, Point target) {
 	// If there's a sound effect, play it here
 	playSound(power_index, src_stats);
 
-	// if all else succeeded, pay costs
-	if (src_stats->hero && powers[power_index].requires_mp > 0) src_stats->mp -= powers[power_index].requires_mp;
-	if (src_stats->hero && powers[power_index].requires_item != -1) used_item = powers[power_index].requires_item;
-
+	payPowerCost(power_index, src_stats);
 	return true;
 }
 
@@ -956,7 +952,7 @@ bool PowerManager::missile(int power_index, StatBlock *src_stats, Point target) 
 
 	// calculate polar coordinates angle
 	float theta = calcTheta(src.x, src.y, target.x, target.y);
-	
+
 	int delay_iterator = 0;
 
 	//generate hazards
@@ -987,18 +983,15 @@ bool PowerManager::missile(int power_index, StatBlock *src_stats, Point target) 
 					src.x, src.y,
 					static_cast<int>(src.x + UNITS_PER_TILE * haz->speed.x),
 					static_cast<int>(src.y + UNITS_PER_TILE * haz->speed.y));
-					
+
 		// add optional delay
 		haz->delay_frames = delay_iterator;
 		delay_iterator += powers[power_index].delay;
 
-		
 		hazards.push(haz);
 	}
 
-	// if all else succeeded, pay costs
-	if (src_stats->hero && powers[power_index].requires_mp > 0) src_stats->mp -= powers[power_index].requires_mp;
-	if (src_stats->hero && powers[power_index].requires_item != -1) used_item = powers[power_index].requires_item;
+	payPowerCost(power_index, src_stats);
 
 	playSound(power_index, src_stats);
 	return true;
@@ -1009,9 +1002,7 @@ bool PowerManager::missile(int power_index, StatBlock *src_stats, Point target) 
  */
 bool PowerManager::repeater(int power_index, StatBlock *src_stats, Point target) {
 
-	// pay costs up front
-	if (src_stats->hero && powers[power_index].requires_mp > 0) src_stats->mp -= powers[power_index].requires_mp;
-	if (src_stats->hero && powers[power_index].requires_item != -1) used_item = powers[power_index].requires_item;
+	payPowerCost(power_index, src_stats);
 
 	//initialize variables
 	Hazard *haz;
@@ -1095,9 +1086,7 @@ bool PowerManager::spawn(int power_index, StatBlock *src_stats, Point target) {
 	for (int i=0; i < powers[power_index].count; i++) {
 		enemies.push(espawn);
 	}
-	// pay costs
-	if (src_stats->hero && powers[power_index].requires_mp > 0) src_stats->mp -= powers[power_index].requires_mp;
-	if (src_stats->hero && powers[power_index].requires_item != -1) used_item = powers[power_index].requires_item;
+	payPowerCost(power_index, src_stats);
 
 	return true;
 }
@@ -1149,9 +1138,7 @@ bool PowerManager::transform(int power_index, StatBlock *src_stats, Point target
 		src_stats->transform_type = powers[power_index].spawn_type;
 	}
 
-	// pay costs
-	if (src_stats->hero && powers[power_index].requires_mp > 0) src_stats->mp -= powers[power_index].requires_mp;
-	if (src_stats->hero && powers[power_index].requires_item != -1) used_item = powers[power_index].requires_item;
+	payPowerCost(power_index, src_stats);
 
 	return true;
 }
@@ -1169,20 +1156,25 @@ bool PowerManager::activate(int power_index, StatBlock *src_stats, Point target)
 
 	// logic for different types of powers are very different.  We allow these
 	// separate functions to handle the details.
-	if (powers[power_index].type == POWTYPE_EFFECT)
-		return effect(power_index, src_stats, target);
-	else if (powers[power_index].type == POWTYPE_MISSILE)
-		return missile(power_index, src_stats, target);
-	else if (powers[power_index].type == POWTYPE_REPEATER)
-		return repeater(power_index, src_stats, target);
-	else if (powers[power_index].type == POWTYPE_EFFECT)
-		return effect(power_index, src_stats, target);
-	else if (powers[power_index].type == POWTYPE_SPAWN)
-		return spawn(power_index, src_stats, target);
-	else if (powers[power_index].type == POWTYPE_TRANSFORM)
-		return transform(power_index, src_stats, target);
+	switch(powers[power_index].type) {
+		case POWTYPE_EFFECT:    return effect(power_index, src_stats, target);
+		case POWTYPE_MISSILE:   return missile(power_index, src_stats, target);
+		case POWTYPE_REPEATER:  return repeater(power_index, src_stats, target);
+		case POWTYPE_SPAWN:     return spawn(power_index, src_stats, target);
+		case POWTYPE_TRANSFORM: return transform(power_index, src_stats, target);
+	}
 
 	return false;
+}
+
+/**
+ * pay costs, i.e. remove mana or items.
+ */
+void PowerManager::payPowerCost(int power_index, StatBlock *src_stats) {
+	if (src_stats && src_stats->hero) {
+		if (powers[power_index].requires_mp > 0) src_stats->mp -= powers[power_index].requires_mp;
+		if (powers[power_index].requires_item != -1) used_item = powers[power_index].requires_item;
+	}
 }
 
 PowerManager::~PowerManager() {
@@ -1193,7 +1185,7 @@ PowerManager::~PowerManager() {
 	gfx.clear();
 	gfx_filenames.clear();
 
-    for (unsigned i=0; i<sfx.size(); i++) {
+	for (unsigned i=0; i<sfx.size(); i++) {
 		Mix_FreeChunk(sfx[i]);
 	}
 	sfx.clear();
