@@ -502,8 +502,10 @@ TooltipData ItemManager::getTooltip(int item, StatBlock *stats, bool vendor_view
 		tip.colors[tip.num_lines] = item_sets[items[item].set].color;
 		tip.lines[tip.num_lines++] = msg->get(item_sets[items[item].set].name);
 		// item set description
-		tip.colors[tip.num_lines] = item_sets[items[item].set].color;
-		tip.lines[tip.num_lines++] = msg->get(item_sets[items[item].set].description);
+		if (item_sets[items[item].set].description != "") {
+			tip.colors[tip.num_lines] = item_sets[items[item].set].color;
+			tip.lines[tip.num_lines++] = msg->get(item_sets[items[item].set].description);
+		}
 	}
 	else if (items[item].quality == ITEM_QUALITY_LOW) {
 		tip.colors[0] = color_low;
@@ -626,6 +628,7 @@ TooltipData ItemManager::getTooltip(int item, StatBlock *stats, bool vendor_view
 	}
 
 	if (items[item].set > 0) {
+			tip.lines[tip.num_lines++];
 			tip.colors[tip.num_lines] = item_sets[items[item].set].color;
 			tip.lines[tip.num_lines++] = msg->get("Set Item Bonuses");
 			// item set bonuses
