@@ -149,6 +149,7 @@ int MapRenderer::load(string filename) {
 
 	clearEvents();
 	clearLayers();
+	clearQueues();
 
 	show_tooltip = false;
 
@@ -564,6 +565,12 @@ int MapRenderer::load(string filename) {
 	executeOnLoadEvents();
 
 	return 0;
+}
+
+void MapRenderer::clearQueues() {
+	enemies.clear();
+	npcs.clear();
+	loot.clear();
 }
 
 /**
@@ -1287,6 +1294,7 @@ MapRenderer::~MapRenderer() {
 	tip_buf.clear();
 	clearLayers();
 	clearEvents();
+	clearQueues();
 	delete tip;
 }
 

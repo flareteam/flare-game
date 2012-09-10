@@ -222,6 +222,7 @@ private:
 	void renderOrtho(std::vector<Renderable> &r, std::vector<Renderable> &r_dead);
 
 	void clearLayers();
+	void clearQueues();
 
 	Point shakycam;
 	bool new_music;
