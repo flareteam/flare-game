@@ -576,6 +576,12 @@ void MapRenderer::clearLayers() {
 	delete[] object;
 	delete[] foreground;
 	delete[] collision;
+
+	background = 0;
+	fringe = 0;
+	object = 0;
+	foreground = 0;
+	collision = 0;
 }
 
 void MapRenderer::loadMusic() {
