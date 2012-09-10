@@ -44,6 +44,9 @@ MenuPowers *MenuPowers::getInstance() {
 
 
 MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_icons) {
+	bool id_line;
+	int id;
+
 	stats = _stats;
 	powers = _powers;
 	icons = _icons;
@@ -55,8 +58,7 @@ MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_i
 	points_left = 0;
 	tabs_count = 1;
 	pressed = false;
-	bool id_line;
-	int id;
+	id = 0;
 
 	closeButton = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
 
