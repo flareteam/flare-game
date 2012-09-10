@@ -568,9 +568,12 @@ int MapRenderer::load(string filename) {
 }
 
 void MapRenderer::clearQueues() {
-	enemies.clear();
-	npcs.clear();
-	loot.clear();
+	while(!enemies.empty())
+	  enemies.pop();
+	while(!npcs.empty())
+	  npcs.pop();
+	while(!loot.empty())
+	  loot.pop();
 }
 
 /**
