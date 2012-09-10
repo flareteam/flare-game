@@ -151,6 +151,7 @@ int MapRenderer::load(string filename) {
 	clearLayers();
 	clearQueues();
 
+	cur_layer = NULL;
 	show_tooltip = false;
 
 	if (!infile.open(mods->locate("maps/" + filename))) {
