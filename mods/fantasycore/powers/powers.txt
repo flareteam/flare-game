@@ -147,7 +147,7 @@ requires_mp=1
 multitarget=true
 base_damage=ranged
 aim_assist=32
-trait_armor_penetrating=true
+trait_armor_penetration=true
 allow_power_mod=true
 
 [power]
@@ -339,7 +339,6 @@ active_frame=4
 trait_elemental=fire
 starting_pos=target
 multitarget=true
-post_effect=40
 post_power=125
 range=512
 
@@ -663,7 +662,7 @@ lifespan=1
 radius=64
 starting_pos=melee
 allow_power_mod=true
-trait_armor_penetrating=true
+trait_armor_penetration=true
 
 [power]
 id=40
@@ -691,7 +690,6 @@ active_frame=4
 trait_elemental=fire
 starting_pos=source
 multitarget=true
-post_effect=40
 post_power=125
 
 # paralyzing spit
