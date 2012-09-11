@@ -316,28 +316,28 @@ void Avatar::handlePower(int actionbar_power) {
 		if (!MOUSE_AIM) {
 			switch (stats.direction) {
 				case 0:
-					target = screen_to_map(VIEW_W_HALF-TILE_W, VIEW_H_HALF+power.aim_assist, stats.pos.x, stats.pos.y);
+					target = screen_to_map(VIEW_W_HALF-TILE_W, VIEW_H_HALF, stats.pos.x, stats.pos.y);
 					break;
 				case 1:
-					target = screen_to_map(VIEW_W_HALF-TILE_W, VIEW_H_HALF-TILE_H+power.aim_assist, stats.pos.x, stats.pos.y);
+					target = screen_to_map(VIEW_W_HALF-TILE_W, VIEW_H_HALF-TILE_H, stats.pos.x, stats.pos.y);
 					break;
 				case 2:
-					target = screen_to_map(VIEW_W_HALF, VIEW_H_HALF-TILE_H+power.aim_assist, stats.pos.x, stats.pos.y);
+					target = screen_to_map(VIEW_W_HALF, VIEW_H_HALF-TILE_H, stats.pos.x, stats.pos.y);
 					break;
 				case 3:
-					target = screen_to_map(VIEW_W_HALF+TILE_W, VIEW_H_HALF-TILE_H+power.aim_assist, stats.pos.x, stats.pos.y);
+					target = screen_to_map(VIEW_W_HALF+TILE_W, VIEW_H_HALF-TILE_H, stats.pos.x, stats.pos.y);
 					break;
 				case 4:
-					target = screen_to_map(VIEW_W_HALF+TILE_W, VIEW_H_HALF+power.aim_assist, stats.pos.x, stats.pos.y);
+					target = screen_to_map(VIEW_W_HALF+TILE_W, VIEW_H_HALF, stats.pos.x, stats.pos.y);
 					break;
 				case 5:
-					target = screen_to_map(VIEW_W_HALF+TILE_W, VIEW_H_HALF+TILE_H+power.aim_assist, stats.pos.x, stats.pos.y);
+					target = screen_to_map(VIEW_W_HALF+TILE_W, VIEW_H_HALF+TILE_H, stats.pos.x, stats.pos.y);
 					break;
 				case 6:
-					target = screen_to_map(VIEW_W_HALF, VIEW_H_HALF+TILE_H+power.aim_assist, stats.pos.x, stats.pos.y);
+					target = screen_to_map(VIEW_W_HALF, VIEW_H_HALF+TILE_H, stats.pos.x, stats.pos.y);
 					break;
 				case 7:
-					target = screen_to_map(VIEW_W_HALF-TILE_W, VIEW_H_HALF+TILE_H+power.aim_assist, stats.pos.x, stats.pos.y);
+					target = screen_to_map(VIEW_W_HALF-TILE_W, VIEW_H_HALF+TILE_H, stats.pos.x, stats.pos.y);
 					break;
 				default:
 					break;
