@@ -128,10 +128,10 @@ bool WidgetListBox::checkClick(int x, int y) {
 			case 2:
 				scrollDown();
 				break;
-            case 3:
-                cursor = scrollbar->getValue();
-                refresh();
-                break;
+			case 3:
+				cursor = scrollbar->getValue();
+				refresh();
+				break;
 			default:
 				break;
 		}
@@ -305,6 +305,14 @@ void WidgetListBox::shiftDown() {
 	}
 }
 
+int WidgetListBox::getSelected() {
+	// return the first selected value
+	for (int i=0; i<non_empty_slots; i++) {
+		if (selected[i]) return i;
+	}
+	return -1; // nothing is selected
+}
+
 std::string WidgetListBox::getValue() {
 	for (int i=0; i<non_empty_slots; i++) {
 		if (selected[i]) return values[i];
@@ -399,6 +407,7 @@ void WidgetListBox::render(SDL_Surface *target) {
 void WidgetListBox::refresh() {
 
 	std::string temp;
+	int right_margin = 0;
 
 	// Get the number of slots that have content
 	non_empty_slots = 0;
@@ -415,8 +424,10 @@ void WidgetListBox::refresh() {
 		pos_scroll.w = scrollbar->pos_up.w;
 		pos_scroll.h = ((pos.h-1)*list_height)-scrollbar->pos_down.h-7;
 		scrollbar->refresh(pos_scroll.x, pos_scroll.y, pos_scroll.h, cursor, non_empty_slots-list_height);
+		right_margin = scrollbar->pos_knob.w + 8;
 	} else {
 		has_scroll_bar = false;
+		right_margin = 8;
 	}
 
 	// Update each row's hitbox and label
@@ -435,8 +446,11 @@ void WidgetListBox::refresh() {
 		int font_y = rows[i].y + (rows[i].h/2);
 
 		if (i<list_amount) {
-			if (values[i+cursor].length() > (float)pos.w/5.3) {
-				temp = values[i+cursor].substr(0,23);
+			// gets the maxiumum value length that can fit in the listbox
+			// maybe there is a better way to do this?
+			unsigned int max_length = (float)(pos.w-right_margin)/font->calc_width("X");
+			if (font->calc_width(values[i+cursor]) > pos.w-right_margin) {
+				temp = values[i+cursor].substr(0,max_length);
 				temp.append("...");
 			} else {
 				temp = values[i+cursor];

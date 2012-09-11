@@ -73,6 +73,7 @@ public:
 	void clear();
 	void shiftUp();
 	void shiftDown();
+	int getSelected();
 	std::string getValue();
 	std::string getValue(int index);
 	std::string getTooltip(int index);

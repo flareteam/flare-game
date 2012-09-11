@@ -22,20 +22,22 @@ music_volume=224,8,256,0
 sound_volume=224,40,256,32
 
 [interface]
-combat_text=224,8,256,0
-language=224,40,256,32
-show_fps=224,72,256,64
+language=64,16,32,32
+combat_text=352,40,384,32
+show_fps=352,72,384,64
 
 [input]
-mouse_move=224,8,256,0
-mouse_aim=224,40,256,32
-enable_joystick=224,72,256,64
-joystick_device=224,104,256,96
+joystick_device=64,16,32,32
+enable_joystick=352,40,384,32
+mouse_move=352,72,384,64
+mouse_aim=352,104,384,96
 
 [key_bindings]
 
 # scrollpane values are positions x, y and sizes width, height
 scrollpane=0,4,600,320
+# scrollpane_contents is the height of the scrollpane's internal area
+scrollpane_contents=780
 
 keybinds_bg_color=26,26,26
 cancel=160,10,202,10
