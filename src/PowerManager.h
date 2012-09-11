@@ -67,8 +67,7 @@ const int STARTING_POS_SOURCE = 0;
 const int STARTING_POS_TARGET = 1;
 const int STARTING_POS_MELEE = 2;
 
-// TODO: remove this restriction
-const int POWER_SHIELD = 11;
+// TODO: maybe move this to an effect?
 const int POWER_SPARK_BLOOD = 127;
 
 class Power {
@@ -265,16 +264,27 @@ public:
 class PowerManager {
 private:
 
+	struct Effect {
+		std::string type;
+		SDL_Surface *gfx;
+		SDL_Rect frame_size;
+		Point frame_offset;
+		int frame_total;
+		int ticks_per_frame;
+	};
+
 	MapCollision *collider;
 
 	void loadAll();
 	void loadPowers(const std::string& filename);
+	void loadEffects(const std::string& filename);
 	void loadGraphics();
 
 	int loadGFX(const std::string& filename);
 	int loadSFX(const std::string& filename);
 	std::vector<std::string> gfx_filenames;
 	std::vector<std::string> sfx_filenames;
+	std::vector<Effect> effects;
 
 	int calcDirection(int origin_x, int origin_y, int target_x, int target_y);
 	Point limitRange(int range, Point src, Point target);
@@ -305,6 +315,7 @@ public:
 	bool canUsePower(unsigned id) const;
 	bool hasValidTarget(int power_index, StatBlock *src_stats, Point target);
 	bool spawn(const std::string& enemy_type, Point target);
+	Renderable renderEffects(StatBlock *src_stats);
 
 	std::vector<Power> powers;
 	std::queue<Hazard *> hazards; // output; read by HazardManager

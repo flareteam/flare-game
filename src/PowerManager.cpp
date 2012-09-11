@@ -57,13 +57,19 @@ void PowerManager::loadAll() {
 
 	string test_path;
 
-	// load each items.txt file. Individual item IDs can be overwritten with mods.
+	// load each config file
 	for (unsigned int i = 0; i < mods->mod_list.size(); i++) {
 
 		test_path = PATH_DATA + "mods/" + mods->mod_list[i] + "/powers/powers.txt";
 
 		if (fileExists(test_path)) {
 			this->loadPowers(test_path);
+		}
+
+		test_path = PATH_DATA + "mods/" + mods->mod_list[i] + "/engine/effects.txt";
+
+		if (fileExists(test_path)) {
+			this->loadEffects(test_path);
 		}
 	}
 
@@ -292,6 +298,60 @@ void PowerManager::loadPowers(const std::string& filename) {
 				powers[input_id].target_neighbor = toInt(infile.val);
 			else
 				fprintf(stderr, "ignoring unknown key %s set to %s\n", infile.key.c_str(), infile.val.c_str());
+		}
+		infile.close();
+	} else fprintf(stderr, "Unable to open %s!\n", filename.c_str());
+}
+
+/**
+ * Effects are defined in [mod]/engine/effects.txt
+ *
+ * @param filename The full path and filename to this engine.txt file
+ */
+void PowerManager::loadEffects(const std::string& filename) {
+	FileParser infile;
+	int input_id = 0;
+	bool skippingEntry = false;
+
+	if (infile.open(filename)) {
+		while (infile.next()) {
+			// id needs to be the first component of each effect.  That is how we write
+			// data to the correct effect.
+			if (infile.key == "id") {
+				input_id = toInt(infile.val);
+				skippingEntry = input_id < 1;
+				if (skippingEntry)
+					fprintf(stderr, "Effect index out of bounds 1-%d, skipping\n", INT_MAX);
+				if (static_cast<int>(effects.size()) < input_id + 1)
+					effects.resize(input_id + 1);
+				continue;
+			}
+			if (skippingEntry)
+				continue;
+
+			infile.val = infile.val + ',';
+
+			if (infile.key == "type") {
+				effects[input_id].type = eatFirstString(infile.val,',');
+			} else if (infile.key == "gfx") {
+				SDL_Surface *surface = IMG_Load(mods->locate("images/powers/" + eatFirstString(infile.val,',')).c_str());
+				if(!surface)
+					fprintf(stderr, "Couldn't load effect sprites: %s\n", IMG_GetError());
+				effects[input_id].gfx = SDL_DisplayFormatAlpha(surface);
+				SDL_FreeSurface(surface);
+			} else if (infile.key == "size") {
+				effects[input_id].frame_size.x = eatFirstInt(infile.val, ',');
+				effects[input_id].frame_size.y = eatFirstInt(infile.val, ',');
+				effects[input_id].frame_size.w = eatFirstInt(infile.val, ',');
+				effects[input_id].frame_size.h = eatFirstInt(infile.val, ',');
+			} else if (infile.key == "offset") {
+				effects[input_id].frame_offset.x = eatFirstInt(infile.val, ',');
+				effects[input_id].frame_offset.y = eatFirstInt(infile.val, ',');
+			} else if (infile.key == "frame_total") {
+				effects[input_id].frame_total = eatFirstInt(infile.val, ',');
+			} else if (infile.key == "ticks_per_frame") {
+				effects[input_id].ticks_per_frame = eatFirstInt(infile.val, ',');
+			}
 		}
 		infile.close();
 	} else fprintf(stderr, "Unable to open %s!\n", filename.c_str());
@@ -732,6 +792,7 @@ void PowerManager::buff(int power_index, StatBlock *src_stats, Point target) {
 		else
 			CombatText::Instance()->addMessage(msg->get("+%d Shield",shield_amt), src_stats->pos, COMBAT_MESSAGE_BUFF, false);
 		src_stats->shield_hp = src_stats->shield_hp_total = shield_amt;
+		src_stats->addEffect("shield");
 	}
 
 	// teleport to the target location
@@ -1105,6 +1166,36 @@ void PowerManager::payPowerCost(int power_index, StatBlock *src_stats) {
 	}
 }
 
+/**
+ * Render various status effects (buffs/debuffs)
+ *
+ * @param src_stats The StatBlock of the power activator
+ */
+Renderable PowerManager::renderEffects(StatBlock *src_stats) {
+	Renderable r;
+	r.map_pos.x = src_stats->pos.x;
+	r.map_pos.y = src_stats->pos.y;
+	r.sprite = NULL;
+
+	for (unsigned int j=0; j<src_stats->effects.size(); j++) {
+		for (unsigned int i=0; i<effects.size(); i++) {
+			if (src_stats->effects[j].type == effects[i].type) {
+				if (src_stats->effects[j].frame * effects[i].ticks_per_frame == effects[i].frame_total)
+					src_stats->effects[j].frame = 0;
+				r.src.x = (src_stats->effects[j].frame / effects[i].ticks_per_frame) * effects[i].frame_size.w;
+				r.src.y = effects[i].frame_size.y;
+				r.src.w = effects[i].frame_size.w;
+				r.src.h = effects[i].frame_size.h;
+				r.offset.x = effects[i].frame_offset.x;
+				r.offset.y = effects[i].frame_offset.y;
+				r.sprite = effects[i].gfx;
+				return r;
+			}
+		}
+	}
+	return r;
+}
+
 PowerManager::~PowerManager() {
 
 	for (unsigned i=0; i<gfx.size(); i++) {
@@ -1120,5 +1211,9 @@ PowerManager::~PowerManager() {
 	sfx_filenames.clear();
 
 	SDL_FreeSurface(runes);
+
+	for (unsigned i=0; i<effects.size(); i++) {
+		SDL_FreeSurface(effects[i].gfx);
+	}
 }
 
