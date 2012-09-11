@@ -305,6 +305,14 @@ void WidgetListBox::shiftDown() {
 	}
 }
 
+int WidgetListBox::getSelected() {
+	// return the first selected value
+	for (int i=0; i<non_empty_slots; i++) {
+		if (selected[i]) return i;
+	}
+	return -1; // nothing is selected
+}
+
 std::string WidgetListBox::getValue() {
 	for (int i=0; i<non_empty_slots; i++) {
 		if (selected[i]) return values[i];
@@ -435,8 +443,11 @@ void WidgetListBox::refresh() {
 		int font_y = rows[i].y + (rows[i].h/2);
 
 		if (i<list_amount) {
-			if (values[i+cursor].length() > (float)pos.w/5.3) {
-				temp = values[i+cursor].substr(0,23);
+			// gets the maxiumum value length that can fit in the listbox
+			// this feels a bit hacky, so there might be a better way to do this
+			unsigned int max_length = (float)pos.w/font->calc_width("X");
+			if (values[i+cursor].length() > max_length) {
+				temp = values[i+cursor].substr(0,max_length);
 				temp.append("...");
 			} else {
 				temp = values[i+cursor];

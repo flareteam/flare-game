@@ -34,7 +34,6 @@ class MenuConfirm;
 class Widget;
 class WidgetButton;
 class WidgetCheckBox;
-class WidgetComboBox;
 class WidgetInput;
 class WidgetLabel;
 class WidgetListBox;
@@ -84,8 +83,7 @@ private:
 	WidgetSlider        * settings_sl[3];
 	WidgetCheckBox      * settings_cb[11];
 	WidgetButton        * settings_key[50];
-	WidgetComboBox      * settings_cmb[2];
-	WidgetListBox       * settings_lstb[3];
+	WidgetListBox       * settings_lstb[5];
 	WidgetButton        * settings_btn[4];
 	WidgetScrollBox     * input_scrollbox;
 	MenuConfirm         * input_confirm;
@@ -96,6 +94,7 @@ private:
 	bool check_resolution;
 	SDL_Rect scrollpane;
 	SDL_Rect scrollpane_color;
+	int scrollpane_contents;
 };
 
 #endif

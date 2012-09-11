@@ -33,7 +33,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "UtilsFileSystem.h"
 #include "WidgetButton.h"
 #include "WidgetCheckBox.h"
-#include "WidgetComboBox.h"
 #include "WidgetListBox.h"
 #include "WidgetScrollBox.h"
 #include "WidgetSlider.h"
@@ -103,17 +102,6 @@ GameStateConfig::GameStateConfig ()
 	settings_btn[2] = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
 	settings_btn[3] = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
 
-	// Allocate Joycticks ComboBox
-	settings_cmb[0] = new WidgetComboBox(SDL_NumJoysticks(), mods->locate("images/menus/buttons/combobox_default.png"));
-
-	// Allocate Languages ComboBox
-	int langCount = getLanguagesNumber();
-	language_ISO = std::vector<std::string>();
-	language_full = std::vector<std::string>();
-	language_ISO.resize(langCount);
-	language_full.resize(langCount);
-	settings_cmb[1] = new WidgetComboBox(langCount, mods->locate("images/menus/buttons/combobox_default.png"));
-
 	// Allocate resolution list box
 	int resolutions = getVideoModes();
 	if (resolutions < 1) fprintf(stderr, "Unable to get resolutions list!\n");
@@ -132,6 +120,18 @@ GameStateConfig::GameStateConfig ()
 	}
 	settings_lstb[1] = new WidgetListBox(mods_total, 10, mods->locate("images/menus/buttons/listbox_default.png"));
 	settings_lstb[2] = new WidgetListBox(mods_total, 10, mods->locate("images/menus/buttons/listbox_default.png"));
+
+	// Allocate Joycticks ListBox
+	settings_lstb[3] = new WidgetListBox(SDL_NumJoysticks(), 10, mods->locate("images/menus/buttons/listbox_default.png"));
+
+	// Allocate Languages ListBox
+	int langCount = getLanguagesNumber();
+	language_ISO = std::vector<std::string>();
+	language_full = std::vector<std::string>();
+	language_ISO.resize(langCount);
+	language_full.resize(langCount);
+	settings_lstb[4] = new WidgetListBox(langCount, 10, mods->locate("images/menus/buttons/listbox_default.png"));
+	settings_lstb[4]->can_deselect = false;
 
 	//Load the menu configuration from file
 	int x1 = 0;
@@ -170,43 +170,42 @@ GameStateConfig::GameStateConfig ()
 			else if (infile.key == "sound_volume") setting_num = 13;//slider
 			else if (infile.key == "gamma") setting_num = 14;//slider
 
-			else if (infile.key == "joystick_device") setting_num = 15;//combobox
-			else if (infile.key == "language")setting_num = 16;//combobox
+			else if (infile.key == "resolution") setting_num = 15;//listbox
+			else if (infile.key == "activemods") setting_num = 16;//listbox
+			else if (infile.key == "inactivemods") setting_num = 17;//listbox
+			else if (infile.key == "joystick_device") setting_num = 18;//listbox
+			else if (infile.key == "language")setting_num = 19;//listbox
 			// buttons begin
-			else if (infile.key == "cancel") setting_num = 17 + CANCEL;
-			else if (infile.key == "accept") setting_num = 17 + ACCEPT;
-			else if (infile.key == "up") setting_num = 17 + UP;
-			else if (infile.key == "down") setting_num = 17 + DOWN;
-			else if (infile.key == "left") setting_num = 17 + LEFT;
-			else if (infile.key == "right") setting_num = 17 + RIGHT;
-			else if (infile.key == "bar1") setting_num = 17 + BAR_1;
-			else if (infile.key == "bar2") setting_num = 17 + BAR_2;
-			else if (infile.key == "bar3") setting_num = 17 + BAR_3;
-			else if (infile.key == "bar4") setting_num = 17 + BAR_4;
-			else if (infile.key == "bar5") setting_num = 17 + BAR_5;
-			else if (infile.key == "bar6") setting_num = 17 + BAR_6;
-			else if (infile.key == "bar7") setting_num = 17 + BAR_7;
-			else if (infile.key == "bar8") setting_num = 17 + BAR_8;
-			else if (infile.key == "bar9") setting_num = 17 + BAR_9;
-			else if (infile.key == "bar0") setting_num = 17 + BAR_0;
-			else if (infile.key == "main1") setting_num = 17 + MAIN1;
-			else if (infile.key == "main2") setting_num = 17 + MAIN2;
-			else if (infile.key == "character") setting_num = 17 + CHARACTER;
-			else if (infile.key == "inventory") setting_num = 17 + INVENTORY;
-			else if (infile.key == "powers") setting_num = 17 + POWERS;
-			else if (infile.key == "log") setting_num = 17 + LOG;
-			else if (infile.key == "ctrl") setting_num = 17 + CTRL;
-			else if (infile.key == "shift") setting_num = 17 + SHIFT;
-			else if (infile.key == "delete") setting_num = 17 + DEL;
+			else if (infile.key == "cancel") setting_num = 20 + CANCEL;
+			else if (infile.key == "accept") setting_num = 20 + ACCEPT;
+			else if (infile.key == "up") setting_num = 20 + UP;
+			else if (infile.key == "down") setting_num = 20 + DOWN;
+			else if (infile.key == "left") setting_num = 20 + LEFT;
+			else if (infile.key == "right") setting_num = 20 + RIGHT;
+			else if (infile.key == "bar1") setting_num = 20 + BAR_1;
+			else if (infile.key == "bar2") setting_num = 20 + BAR_2;
+			else if (infile.key == "bar3") setting_num = 20 + BAR_3;
+			else if (infile.key == "bar4") setting_num = 20 + BAR_4;
+			else if (infile.key == "bar5") setting_num = 20 + BAR_5;
+			else if (infile.key == "bar6") setting_num = 20 + BAR_6;
+			else if (infile.key == "bar7") setting_num = 20 + BAR_7;
+			else if (infile.key == "bar8") setting_num = 20 + BAR_8;
+			else if (infile.key == "bar9") setting_num = 20 + BAR_9;
+			else if (infile.key == "bar0") setting_num = 20 + BAR_0;
+			else if (infile.key == "main1") setting_num = 20 + MAIN1;
+			else if (infile.key == "main2") setting_num = 20 + MAIN2;
+			else if (infile.key == "character") setting_num = 20 + CHARACTER;
+			else if (infile.key == "inventory") setting_num = 20 + INVENTORY;
+			else if (infile.key == "powers") setting_num = 20 + POWERS;
+			else if (infile.key == "log") setting_num = 20 + LOG;
+			else if (infile.key == "ctrl") setting_num = 20 + CTRL;
+			else if (infile.key == "shift") setting_num = 20 + SHIFT;
+			else if (infile.key == "delete") setting_num = 20 + DEL;
 			// buttons end
-			else if (infile.key == "hws_note") setting_num = 42;
-			else if (infile.key == "dbuf_note") setting_num = 43;
-			else if (infile.key == "anim_tiles_note") setting_num = 44;
-			else if (infile.key == "test_note") setting_num = 45;
-
-			else if (infile.key == "resolution") setting_num = 46;//listbox
-			else if (infile.key == "activemods") setting_num = 47;//listbox
-			else if (infile.key == "inactivemods") setting_num = 48;//listbox
+			else if (infile.key == "hws_note") setting_num = 45;
+			else if (infile.key == "dbuf_note") setting_num = 46;
+			else if (infile.key == "anim_tiles_note") setting_num = 47;
+			else if (infile.key == "test_note") setting_num = 48;
 
 			else if (infile.key == "activemods_shiftup") setting_num = 49;//button
 			else if (infile.key == "activemods_shiftdown") setting_num = 50;//button
@@ -228,9 +227,12 @@ GameStateConfig::GameStateConfig ()
 				scrollpane.w = x2;
 				scrollpane.h = y2;
 			}
+			else if (infile.key == "scrollpane_contents") {
+				scrollpane_contents = x1;
+			}
 
 			if (setting_num != -1) {
-				if (setting_num > 16 && setting_num < 42) {
+				if (setting_num > 19 && setting_num < 45) {
 					// keybinding labels inside scrollbox
 					settings_lb[setting_num-1]->setX(x1);
 					settings_lb[setting_num-1]->setY(y1);
@@ -248,18 +250,14 @@ GameStateConfig::GameStateConfig ()
 					//sliders positions
 					settings_sl[setting_num-12]->pos.x = frame.x + x2;
 					settings_sl[setting_num-12]->pos.y = frame.y + y2;
-				} else if ((setting_num > 14) && (setting_num < 17)) {
-					//comboboxes positions
-					settings_cmb[setting_num-15]->pos.x = frame.x + x2;
-					settings_cmb[setting_num-15]->pos.y = frame.y + y2;
-				} else if (setting_num > 16 && setting_num < 42) {
-					//keybinding buttons positions
-					settings_key[setting_num-17]->pos.x = x2;
-					settings_key[setting_num-17]->pos.y = y2;
-				} else if (setting_num > 45 && setting_num < 49) {
+				} else if ((setting_num > 14) && (setting_num < 20)) {
 					//listboxes positions
-					settings_lstb[setting_num-46]->pos.x = frame.x + x2;
-					settings_lstb[setting_num-46]->pos.y = frame.y + y2;
+					settings_lstb[setting_num-15]->pos.x = frame.x + x2;
+					settings_lstb[setting_num-15]->pos.y = frame.y + y2;
+				} else if (setting_num > 19 && setting_num < 45) {
+					//keybinding buttons positions
+					settings_key[setting_num-20]->pos.x = x2;
+					settings_key[setting_num-20]->pos.y = y2;
 				} else if (setting_num > 48 && setting_num < 53) {
 					//mods config buttons positions
 					settings_btn[setting_num-49]->pos.x = frame.x + x1;
@@ -297,7 +295,7 @@ GameStateConfig::GameStateConfig ()
 	input_scrollbox = new WidgetScrollBox(scrollpane.w, scrollpane.h);
 	input_scrollbox->pos.x = scrollpane.x + frame.x;
 	input_scrollbox->pos.y = scrollpane.y + frame.y;
-	input_scrollbox->resize(780);
+	input_scrollbox->resize(scrollpane_contents);
 	input_scrollbox->bg.r = scrollpane_color.x;
 	input_scrollbox->bg.g = scrollpane_color.y;
 	input_scrollbox->bg.b = scrollpane_color.w;
@@ -450,67 +448,16 @@ GameStateConfig::GameStateConfig ()
 	child_widget.push_back(settings_sl[2]);
 	optiontab[child_widget.size()-1] = 0;
 
-	// Add just some Labels
-	settings_lb[41]->set(msg->get("Disable for performance"));
-	child_widget.push_back(settings_lb[41]);
-	optiontab[child_widget.size()-1] = 0;
-
-	settings_lb[42]->set(msg->get("Disable for performance"));
-	child_widget.push_back(settings_lb[42]);
-	optiontab[child_widget.size()-1] = 0;
-
-	settings_lb[43]->set(msg->get("Disable for performance"));
-	child_widget.push_back(settings_lb[43]);
-	optiontab[child_widget.size()-1] = 0;
-
-	settings_lb[44]->set(msg->get("Experimental"));
-	child_widget.push_back(settings_lb[44]);
-	optiontab[child_widget.size()-1] = 0;
-
-	//Define ComboBoxes and their Labels
-	settings_lb[14]->set(msg->get("Joystick"));
-	settings_lb[14]->setJustify(JUSTIFY_RIGHT);
+	// Add ListBoxes and their Labels
+	settings_lb[14]->set(msg->get("Resolution"));
 	child_widget.push_back(settings_lb[14]);
-	optiontab[child_widget.size()-1] = 3;
-
-	for(int i = 0; i < SDL_NumJoysticks(); i++)
-	{
-		settings_cmb[0]->set(i, SDL_JoystickName(i));
-	}
-	child_widget.push_back(settings_cmb[0]);
-	optiontab[child_widget.size()-1] = 3;
-
-	settings_lb[45]->set(msg->get("Resolution"));
-	child_widget.push_back(settings_lb[45]);
 	optiontab[child_widget.size()-1] = 0;
 
 	child_widget.push_back(settings_lstb[0]);
 	optiontab[child_widget.size()-1] = 0;
 
-	settings_lb[15]->set(msg->get("Language"));
-	settings_lb[15]->setJustify(JUSTIFY_RIGHT);
+	settings_lb[15]->set(msg->get("Active Mods"));
 	child_widget.push_back(settings_lb[15]);
-	optiontab[child_widget.size()-1] = 2;
-
-	child_widget.push_back(settings_cmb[1]);
-	optiontab[child_widget.size()-1] = 2;
-
-
-	// Add Key Binding objects
-	for (unsigned int i = 16; i < 41; i++) {
-		 settings_lb[i]->set(msg->get(binding_name[i-16]));
-		 settings_lb[i]->setJustify(JUSTIFY_RIGHT);
-		 child_widget.push_back(settings_lb[i]);
-		 optiontab[child_widget.size()-1] = 4;
-	}
-	for (unsigned int i = 0; i < 50; i++) {
-		 child_widget.push_back(settings_key[i]);
-		 optiontab[child_widget.size()-1] = 4;
-	}
-
-	// Add ListBoxes and their Labels
-	settings_lb[46]->set(msg->get("Active Mods"));
-	child_widget.push_back(settings_lb[46]);
 	optiontab[child_widget.size()-1] = 5;
 
 	settings_lstb[1]->multi_select = true;
@@ -521,8 +468,8 @@ GameStateConfig::GameStateConfig ()
 	child_widget.push_back(settings_lstb[1]);
 	optiontab[child_widget.size()-1] = 5;
 
-	settings_lb[47]->set(msg->get("Available Mods"));
-	child_widget.push_back(settings_lb[47]);
+	settings_lb[16]->set(msg->get("Available Mods"));
+	child_widget.push_back(settings_lb[16]);
 	optiontab[child_widget.size()-1] = 5;
 
 	settings_lstb[2]->multi_select = true;
@@ -531,6 +478,54 @@ GameStateConfig::GameStateConfig ()
 	}
 	child_widget.push_back(settings_lstb[2]);
 	optiontab[child_widget.size()-1] = 5;
+
+	settings_lb[17]->set(msg->get("Joystick"));
+	child_widget.push_back(settings_lb[17]);
+	optiontab[child_widget.size()-1] = 3;
+
+	for(int i = 0; i < SDL_NumJoysticks(); i++) {
+		if (SDL_JoystickName(i) != NULL)
+			settings_lstb[3]->append(SDL_JoystickName(i),SDL_JoystickName(i));
+	}
+	child_widget.push_back(settings_lstb[3]);
+	optiontab[child_widget.size()-1] = 3;
+
+	settings_lb[18]->set(msg->get("Language"));
+	child_widget.push_back(settings_lb[18]);
+	optiontab[child_widget.size()-1] = 2;
+
+	child_widget.push_back(settings_lstb[4]);
+	optiontab[child_widget.size()-1] = 2;
+
+
+	// Add Key Binding objects
+	for (unsigned int i = 19; i < 44; i++) {
+		 settings_lb[i]->set(msg->get(binding_name[i-19]));
+		 settings_lb[i]->setJustify(JUSTIFY_RIGHT);
+		 child_widget.push_back(settings_lb[i]);
+		 optiontab[child_widget.size()-1] = 4;
+	}
+	for (unsigned int i = 0; i < 50; i++) {
+		 child_widget.push_back(settings_key[i]);
+		 optiontab[child_widget.size()-1] = 4;
+	}
+
+	// Add just some Labels
+	settings_lb[44]->set(msg->get("Disable for performance"));
+	child_widget.push_back(settings_lb[44]);
+	optiontab[child_widget.size()-1] = 0;
+
+	settings_lb[45]->set(msg->get("Disable for performance"));
+	child_widget.push_back(settings_lb[45]);
+	optiontab[child_widget.size()-1] = 0;
+
+	settings_lb[46]->set(msg->get("Disable for performance"));
+	child_widget.push_back(settings_lb[46]);
+	optiontab[child_widget.size()-1] = 0;
+
+	settings_lb[47]->set(msg->get("Experimental"));
+	child_widget.push_back(settings_lb[47]);
+	optiontab[child_widget.size()-1] = 0;
 
 	// Add Button labels for Mods ListBoxes
 	settings_btn[2]->label = msg->get("<< Disable");
@@ -577,11 +572,7 @@ GameStateConfig::~GameStateConfig()
 		 delete settings_key[i];
 	}
 
-	for (unsigned int i = 0; i < 2; i++) {
-		 delete settings_cmb[i];
-	}
-
-	for (unsigned int i = 0; i < 3; i++) {
+	for (unsigned int i = 0; i < 5; i++) {
 		 delete settings_lstb[i];
 	}
 
@@ -629,13 +620,6 @@ void GameStateConfig::update () {
 	if (SHOW_FPS) settings_cb[10]->Check();
 	else settings_cb[10]->unCheck();
 
-	if ((ENABLE_JOYSTICK) && (SDL_NumJoysticks() > 0)) {
-		SDL_JoystickClose(joy);
-		joy = SDL_JoystickOpen(JOYSTICK_DEVICE);
-		settings_cmb[0]->selected = JOYSTICK_DEVICE;
-		settings_cmb[0]->refresh();
-	}
-
 	settings_sl[2]->set(5,20,(int)(GAMMA*10.0));
 	SDL_SetGamma(GAMMA,GAMMA,GAMMA);
 
@@ -649,18 +633,23 @@ void GameStateConfig::update () {
 		list_mode.str("");
 	}
 
-	settings_lstb[0]->refresh();
+	SDL_Init(SDL_INIT_JOYSTICK);
+	if (ENABLE_JOYSTICK && SDL_NumJoysticks() > 0) {
+		SDL_JoystickClose(joy);
+		joy = SDL_JoystickOpen(JOYSTICK_DEVICE);
+		settings_lstb[3]->selected[JOYSTICK_DEVICE] = true;
+	}
 
 	if (!getLanguagesList()) fprintf(stderr, "Unable to get languages list!\n");
 	for (int i=0; i < getLanguagesNumber(); i++) {
-		 settings_cmb[1]->set(i, language_full[i]);
-		 if (language_ISO[i] == LANGUAGE) settings_cmb[1]->selected = i;
-		}
+		settings_lstb[4]->append(language_full[i],"");
+		if (language_ISO[i] == LANGUAGE) settings_lstb[4]->selected[i] = true;
+	}
 
-	settings_cmb[1]->refresh();
+	for (unsigned int i = 0; i < 5; i++) {
+		settings_lstb[i]->refresh();
+	}
 
-	settings_lstb[1]->refresh();
-	settings_lstb[2]->refresh();
 
 	for (unsigned int i = 0; i < 25; i++) {
 		if (inpt->binding[i] < 8) {
@@ -683,7 +672,6 @@ void GameStateConfig::update () {
 
 void GameStateConfig::logic ()
 {
-	int active;
 	check_resolution = true;
 
 	// Initialize resolution value
@@ -802,9 +790,8 @@ void GameStateConfig::logic ()
 		if (settings_cb[2]->checkClick()) {
 			if (settings_cb[2]->isChecked()) COMBAT_TEXT=true;
 			else COMBAT_TEXT=false;
-		} else if (settings_cmb[1]->checkClick()) {
-			active = settings_cmb[1]->selected;
-			LANGUAGE = language_ISO[active];
+		} else if (settings_lstb[4]->checkClick()) {
+			LANGUAGE = language_ISO[settings_lstb[4]->getSelected()];
 			delete msg;
 			msg = new MessageEngine();
 		} else if (settings_cb[10]->checkClick()) {
@@ -821,11 +808,29 @@ void GameStateConfig::logic ()
 			if (settings_cb[9]->isChecked()) MOUSE_AIM=true;
 			else MOUSE_AIM=false;
 		} else if (settings_cb[5]->checkClick()) {
-			if (settings_cb[5]->isChecked()) ENABLE_JOYSTICK=true;
-			else ENABLE_JOYSTICK=false;
-			if (SDL_NumJoysticks() > 0) settings_cmb[0]->refresh();
-		} else if (settings_cmb[0]->checkClick()) {
-			JOYSTICK_DEVICE = settings_cmb[0]->selected;
+			if (settings_cb[5]->isChecked()) {
+				ENABLE_JOYSTICK=true;
+				if (SDL_NumJoysticks() > 0) {
+					SDL_JoystickClose(joy);
+					joy = SDL_JoystickOpen(JOYSTICK_DEVICE);
+					settings_lstb[3]->selected[JOYSTICK_DEVICE] = true;
+				}
+			} else {
+				ENABLE_JOYSTICK=false;
+				for (int i=0; i<settings_lstb[3]->getSize(); i++)
+					settings_lstb[3]->selected[i] = false;
+			}
+			if (SDL_NumJoysticks() > 0) settings_lstb[3]->refresh();
+		} else if (settings_lstb[3]->checkClick()) {
+			JOYSTICK_DEVICE = settings_lstb[3]->getSelected();
+			if (!settings_cb[5]->isChecked()) {
+				settings_cb[5]->Check();
+				ENABLE_JOYSTICK=true;
+				if (SDL_NumJoysticks() > 0) {
+					SDL_JoystickClose(joy);
+					joy = SDL_JoystickOpen(JOYSTICK_DEVICE);
+				}
+			}
 		}
 	}
 	// tab 4 (keybindings)
@@ -899,7 +904,7 @@ void GameStateConfig::render ()
 	// render keybindings tab
 	if (active_tab == 4) {
 		if (input_scrollbox->update) input_scrollbox->refresh();
-		for (unsigned int i = 16; i < 41; i++) {
+		for (unsigned int i = 19; i < 44; i++) {
 			if (input_scrollbox->update) settings_lb[i]->render(input_scrollbox->contents);
 		}
 		for (unsigned int i = 0; i < 50; i++) {
