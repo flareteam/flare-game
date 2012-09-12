@@ -1,17 +1,5 @@
 # Power Definitions
-
-[power]
-id=0
-name=Shoot
-type=missile
-icon=0
-description=Basic ranged attack
-new_state=shoot
-face=true
-requires_offense_weapon=true
-base_damage=ranged
-aim_assist=32
-allow_power_mod=true
+# Do not change power with id=136 called Disenchant
 
 [power]
 id=1
@@ -35,7 +23,7 @@ id=2
 name=Channel
 type=missile
 icon=2
-description=Channel a bolt of magic through your mental weapon for zero MP
+description=Basic magic attack
 new_state=swing
 requires_mental_weapon=true
 face=true
@@ -159,7 +147,7 @@ requires_mp=1
 multitarget=true
 base_damage=ranged
 aim_assist=32
-trait_armor_penetrating=true
+trait_armor_penetration=true
 allow_power_mod=true
 
 [power]
@@ -210,7 +198,6 @@ icon=11
 description=Create a force field that absorbs damage
 new_state=cast
 requires_mp=1
-gfx=shield.png
 sfx=shield.ogg
 buff_shield=true
 
@@ -270,7 +257,7 @@ delay=3
 visual_random=3
 rendered=true
 complete_animation=true
-repeater_num=10
+count=10
 
 [power]
 id=15
@@ -306,23 +293,13 @@ icon=16
 description=Shoot three projectiles simultaneously
 new_state=shoot
 face=true
-missile_num=3
+count=3
 missile_angle=15
 requires_offense_weapon=true
 requires_mp=1
 base_damage=ranged
 aim_assist=32
 allow_power_mod=true
-
-[power]
-id=17
-name=Vengeance
-icon=17
-description=After blocking, unleash a deadly and accurate counter-attack
-new_state=swing
-face=true
-requires_mp=1
-
 
 [power]
 id=18
@@ -351,7 +328,6 @@ active_frame=4
 trait_elemental=fire
 starting_pos=target
 multitarget=true
-post_effect=40
 post_power=125
 range=512
 
@@ -371,6 +347,82 @@ radius=512
 multitarget=true
 stun_duration=150
 base_damage=none
+
+[power]
+id=20
+name=Heroic Swing
+type=effect
+icon=1
+description=Melee attack with 10% HP steal
+new_state=swing
+face=true
+use_hazard=true
+rendered=false
+aim_assist=32
+base_damage=melee
+lifespan=1
+radius=64
+starting_pos=melee
+allow_power_mod=true
+hp_steal=10
+
+[power]
+id=21
+name=Greater Channel
+type=missile
+icon=2
+description=Magic attack with 10% MP steal
+new_state=swing
+requires_mental_weapon=true
+face=true
+directional=true
+gfx=channel.png
+use_hazard=true
+rendered=true
+aim_assist=32
+base_damage=ment
+lifespan=8
+radius=64
+speed=24
+frame_loop=0
+frame_duration=2
+frame_size=32,32
+frame_offset=16,32
+starting_pos=melee
+mp_steal=10
+
+[power]
+id=22
+name=Shoot
+type=missile
+icon=0
+description=Basic ranged attack
+new_state=shoot
+face=true
+requires_offense_weapon=true
+base_damage=ranged
+starting_pos=melee
+aim_assist=32
+allow_power_mod=true
+
+[power]
+id=23
+name=Rapid Fire
+type=missile
+icon=0
+description=Fire five low power missiles in quick succession
+new_state=shoot
+face=true
+requires_offense_weapon=true
+requires_mp=5
+base_damage=ranged
+starting_pos=melee
+aim_assist=32
+allow_power_mod=true
+count=5
+delay=2
+damage_multiplier=66
+cooldown=5000
 
 [power]
 id=30
@@ -526,7 +578,7 @@ slow_duration=60
 post_power=126
 wall_power=126
 #missile num needs to be odd, or the player can avoid just by standing there
-missile_num=9
+count=9
 missile_angle=40
 
 [power]
@@ -599,7 +651,7 @@ lifespan=1
 radius=64
 starting_pos=melee
 allow_power_mod=true
-trait_armor_penetrating=true
+trait_armor_penetration=true
 
 [power]
 id=40
@@ -627,7 +679,6 @@ active_frame=4
 trait_elemental=fire
 starting_pos=source
 multitarget=true
-post_effect=40
 post_power=125
 
 # paralyzing spit
@@ -679,7 +730,7 @@ speed=48
 frame_size=32,32
 frame_offset=16,32
 wall_power=124
-missile_num=3
+count=3
 missile_angle=15
 
 [power]
@@ -688,19 +739,21 @@ type=effect
 icon=32
 name=Health Potion
 sfx=potion.ogg
-new_state=cast
+new_state=instant
 requires_item=1
 buff_restore_hp=25
+cooldown=600
 
 [power]
 id=101
 type=effect
 icon=33
 name=Mana Potion
-new_state=cast
+new_state=instant
 sfx=potion.ogg
 requires_item=2
 buff_restore_mp=25
+cooldown=600
 
 [power]
 id=102
@@ -708,19 +761,21 @@ type=effect
 icon=34
 name=Health Flask
 sfx=potion.ogg
-new_state=cast
+new_state=instant
 requires_item=3
 buff_restore_hp=75
+cooldown=600
 
 [power]
 id=103
 type=effect
 icon=35
 name=Mana Flask
-new_state=cast
+new_state=instant
 sfx=potion.ogg
 requires_item=4
 buff_restore_mp=75
+cooldown=600
 
 
 [power]
@@ -772,7 +827,7 @@ trait_elemental=wind
 post_power=126
 wall_power=126
 requires_item=1021
-missile_num=5
+count=5
 angle_variance=15
 speed_variance=7
 
@@ -1150,7 +1205,7 @@ delay=6
 visual_random=4
 rendered=true
 complete_animation=true
-repeater_num=10
+count=10
 
 [power]
 id=160

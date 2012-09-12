@@ -2,10 +2,11 @@
 frame_size=64,64
 frame_offset=32,32
 
-# shield effect
-frame_size_sh=0,0,128,128
-frame_offset_sh=64,96
-
-# vengeance effect
-frame_size_veg=0,128,64,64
-frame_offset_veg=32,32
+# status effects
+id=1
+type=shield
+gfx=shield.png
+size=0,0,128,128
+offset=64,96
+frame_total=12
+ticks_per_frame=3
