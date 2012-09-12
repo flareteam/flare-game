@@ -31,9 +31,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 class Power;
 
-const int STAT_EFFECT_SHIELD = 0;
-const int STAT_EFFECT_VENGEANCE = 1;
-
 const int POWERSLOT_COUNT = 10;
 const int MELEE_PHYS = 0;
 const int MELEE_MENT = 1;
@@ -79,12 +76,18 @@ public:
 	StatBlock();
 	~StatBlock();
 
+	struct Effect {
+		std::string type;
+		int frame;
+	};
+
 	void load(const std::string& filename);
 	void takeDamage(int dmg);
 	void recalc();
 	void logic();
 	void clearEffects();
-	Renderable getEffectRender(int effect_type);
+	void addEffect(std::string effect);
+	void removeEffect(std::string effect);
 
 	bool alive;
 	bool corpse; // creature is dead and done animating
@@ -218,14 +221,8 @@ public:
 
 	int shield_hp; // shield
 	int shield_hp_total;
-	int shield_frame;
-	SDL_Rect frame_size_sh;
-	Point frame_offset_sh;
 	bool blocking;
-	int vengeance_stacks;
-	int vengeance_frame;
-	SDL_Rect frame_size_veg;
-	Point frame_offset_veg;
+	std::vector<Effect> effects;
 
 	int speed;
 	int dspeed;

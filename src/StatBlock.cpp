@@ -109,11 +109,9 @@ StatBlock::StatBlock() {
 	forced_move_duration_total = 0;
 	shield_hp = 0;
 	shield_hp_total = 0;
-	shield_frame = 0;
-	vengeance_stacks = 0;
-	vengeance_frame = 0;
 	cooldown_ticks = 0;
 	blocking = false;
+	effects = vector<Effect>();
 
 	// patrol waypoints
 	waypoint_pause = 0;
@@ -199,33 +197,6 @@ StatBlock::StatBlock() {
 	avoidance_per_defense = 5;
 	crit_base = 5;
 	crit_per_level = 1;
-
-	// load static effects animation settings from engine config file
-	FileParser infile;
-	if (infile.open(mods->locate("engine/effects.txt"))) {
-		while (infile.next()) {
-			infile.val = infile.val + ',';
-
-			if (infile.key == "frame_size_sh") {
-				frame_size_sh.x = eatFirstInt(infile.val, ',');
-				frame_size_sh.y = eatFirstInt(infile.val, ',');
-				frame_size_sh.w = eatFirstInt(infile.val, ',');
-				frame_size_sh.h = eatFirstInt(infile.val, ',');
-			} else if (infile.key == "frame_offset_sh") {
-				frame_offset_sh.x = eatFirstInt(infile.val, ',');
-				frame_offset_sh.y = eatFirstInt(infile.val, ',');
-			} else if (infile.key == "frame_size_veg") {
-				frame_size_veg.x = eatFirstInt(infile.val, ',');
-				frame_size_veg.y = eatFirstInt(infile.val, ',');
-				frame_size_veg.w = eatFirstInt(infile.val, ',');
-				frame_size_veg.h = eatFirstInt(infile.val, ',');
-			} else if (infile.key == "frame_offset_veg") {
-				frame_offset_veg.x = eatFirstInt(infile.val, ',');
-				frame_offset_veg.y = eatFirstInt(infile.val, ',');
-			}
-		}
-		infile.close();
-	} else fprintf(stderr, "Unable to open engine/effects.txt!\n");
 }
 
 /**
@@ -516,11 +487,11 @@ void StatBlock::logic() {
 	}
 
 	// handle buff/debuff animations
-	shield_frame++;
-	if (shield_frame == 12) shield_frame = 0;
-
-	vengeance_frame+= vengeance_stacks;
-	if (vengeance_frame >= 24) vengeance_frame -= 24;
+	for (unsigned int i=0; i<effects.size(); i++) {
+		effects[i].frame++;
+	}
+	// shield_frame++;
+	// if (shield_frame == 12) shield_frame = 0;
 
 	// set movement type
 	// some creatures may shift between movement types
@@ -542,37 +513,27 @@ void StatBlock::clearEffects() {
 	slow_duration = 0;
 	haste_duration = 0;
 	forced_move_duration = 0;
-	vengeance_stacks = 0;
 }
 
-
-/**
- * Get the renderable for various effects on the player (buffs/debuffs)
- *
- * @param effect_type STAT_EFFECT_* consts defined in StatBlock.h
- */
-Renderable StatBlock::getEffectRender(int effect_type) {
-	Renderable r;
-	r.map_pos.x = pos.x;
-	r.map_pos.y = pos.y;
-
-	if (effect_type == STAT_EFFECT_SHIELD) {
-		r.src.x = (shield_frame/3) * frame_size_sh.w;
-		r.src.y = frame_size_sh.y;
-		r.src.w = frame_size_sh.w;
-		r.src.h = frame_size_sh.h;
-		r.offset.x = frame_offset_sh.x;
-		r.offset.y = frame_offset_sh.y;
+void StatBlock::addEffect(std::string effect) {
+	for (unsigned int i=0; i<effects.size(); i++) {
+		if (effects[i].type == effect) {
+			return; // already have this one
+		}
 	}
-	else if (effect_type == STAT_EFFECT_VENGEANCE) {
-		r.src.x = (vengeance_frame/6) * frame_size_veg.w;
-		r.src.y = frame_size_veg.y;
-		r.src.w = frame_size_veg.w;
-		r.src.h = frame_size_veg.h;
-		r.offset.x = frame_offset_veg.x;
-		r.offset.y = frame_offset_veg.y;
+	Effect e;
+	e.type = effect;
+	e.frame = 0;
+	effects.push_back(e);
+}
+
+void StatBlock::removeEffect(std::string effect) {
+	for (unsigned int i=0; i<effects.size(); i++) {
+		if (effects[i].type == effect) {
+			effects.erase(effects.begin()+i);
+			return;
+		}
 	}
-	return r;
 }
 
 StatBlock::~StatBlock() {

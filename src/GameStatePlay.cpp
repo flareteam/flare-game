@@ -633,16 +633,11 @@ void GameStatePlay::render() {
 	rens.push_back(pc_hero); // Avatar
 
 	// get additional hero overlays
-	if (pc->stats.shield_hp > 0) {
-		Renderable re = pc->stats.getEffectRender(STAT_EFFECT_SHIELD);
-		re.sprite = powers->gfx[powers->powers[POWER_SHIELD].gfx_index]; // TODO: parameter
-		rens.push_back(re);
+	if (pc->stats.shield_hp == 0) {
+		pc->stats.removeEffect("shield");
 	}
-	if (pc->stats.vengeance_stacks > 0) {
-		Renderable re = pc->stats.getEffectRender(STAT_EFFECT_VENGEANCE);
-		re.sprite = powers->runes;
-		rens.push_back(re);
-	}
+	Renderable re = powers->renderEffects(&pc->stats);
+	rens.push_back(re);
 
 	enemies->addRenders(rens, rens_dead);
 
