@@ -31,9 +31,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 class Power;
 
-const int STAT_EFFECT_SHIELD = 0;
-const int STAT_EFFECT_VENGEANCE = 1;
-
 const int POWERSLOT_COUNT = 10;
 const int MELEE_PHYS = 0;
 const int MELEE_MENT = 1;
@@ -225,7 +222,6 @@ public:
 	int shield_hp; // shield
 	int shield_hp_total;
 	bool blocking;
-	int vengeance_stacks;
 	std::vector<Effect> effects;
 
 	int speed;

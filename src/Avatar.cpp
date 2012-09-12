@@ -783,13 +783,6 @@ bool Avatar::takeHit(Hazard h) {
 			powers->activate(h.post_power, h.src_stats, stats.pos);
 		}
 
-		// Power-specific: Vengeance gains stacks when blocking
-		if (stats.blocking && stats.physdef >= 9) {
-			if (stats.vengeance_stacks < 3)
-				stats.vengeance_stacks++;
-		}
-
-
 		if (stats.hp <= 0) {
 			stats.cur_state = AVATAR_DEAD;
 
