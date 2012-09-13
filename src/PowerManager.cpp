@@ -336,6 +336,7 @@ void PowerManager::loadEffects(const std::string& filename) {
 			} else if (infile.key == "icon") {
 				effects[input_id].icon = eatFirstInt(infile.val,',');
 			} else if (infile.key == "gfx") {
+				effects[input_id].gfx = NULL;
 				SDL_Surface *surface = IMG_Load(mods->locate("images/powers/" + eatFirstString(infile.val,',')).c_str());
 				if(!surface)
 					fprintf(stderr, "Couldn't load effect sprites: %s\n", IMG_GetError());
@@ -1185,7 +1186,7 @@ Renderable PowerManager::renderEffects(StatBlock *src_stats) {
 
 	for (unsigned int j=0; j<src_stats->effects.size(); j++) {
 		for (unsigned int i=0; i<effects.size(); i++) {
-			if (src_stats->effects[j].type == effects[i].type) {
+			if (src_stats->effects[j].type == effects[i].type && effects[i].gfx != NULL) {
 				if (src_stats->effects[j].frame * effects[i].ticks_per_frame == effects[i].frame_total)
 					src_stats->effects[j].frame = 0;
 				r.src.x = (src_stats->effects[j].frame / effects[i].ticks_per_frame) * effects[i].frame_size.w;
