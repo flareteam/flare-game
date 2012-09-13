@@ -79,6 +79,7 @@ public:
 	struct Effect {
 		std::string type;
 		int frame;
+		int icon;
 	};
 
 	void load(const std::string& filename);
@@ -86,7 +87,7 @@ public:
 	void recalc();
 	void logic();
 	void clearEffects();
-	void addEffect(std::string effect);
+	void addEffect(std::string effect, int icon);
 	void removeEffect(std::string effect);
 	void updateEffects();
 

@@ -333,6 +333,8 @@ void PowerManager::loadEffects(const std::string& filename) {
 
 			if (infile.key == "type") {
 				effects[input_id].type = eatFirstString(infile.val,',');
+			} else if (infile.key == "icon") {
+				effects[input_id].icon = eatFirstInt(infile.val,',');
 			} else if (infile.key == "gfx") {
 				SDL_Surface *surface = IMG_Load(mods->locate("images/powers/" + eatFirstString(infile.val,',')).c_str());
 				if(!surface)
@@ -792,7 +794,7 @@ void PowerManager::buff(int power_index, StatBlock *src_stats, Point target) {
 		else
 			CombatText::Instance()->addMessage(msg->get("+%d Shield",shield_amt), src_stats->pos, COMBAT_MESSAGE_BUFF, false);
 		src_stats->shield_hp = src_stats->shield_hp_total = shield_amt;
-		src_stats->addEffect("shield");
+		src_stats->addEffect("shield",getEffectIcon("shield"));
 	}
 
 	// teleport to the target location
@@ -824,26 +826,26 @@ void PowerManager::buff(int power_index, StatBlock *src_stats, Point target) {
 
 	// immunity_duration makes one immune to new debuffs
 	if (src_stats->immunity_duration < powers[power_index].immunity_duration) {
-		src_stats->addEffect("immunity");
+		src_stats->addEffect("immunity",getEffectIcon("immunity"));
 		src_stats->immunity_duration = src_stats->immunity_duration_total = powers[power_index].immunity_duration;
 	}
 
 	// transform_duration causes hero to be transformed
 	if (src_stats->transform_duration < powers[power_index].transform_duration &&
 		src_stats->transform_duration !=-1) {
-		src_stats->addEffect("transform");
+		src_stats->addEffect("transform",getEffectIcon("transform"));
 		src_stats->transform_duration = src_stats->transform_duration_total = powers[power_index].transform_duration;
 	}
 
 	// haste doubles run speed and removes power cooldowns
 	if (src_stats->haste_duration < powers[power_index].haste_duration) {
-		src_stats->addEffect("haste");
+		src_stats->addEffect("haste",getEffectIcon("haste"));
 		src_stats->haste_duration = src_stats->haste_duration_total = powers[power_index].haste_duration;
 	}
 
 	// hot is healing over time
 	if (src_stats->hot_duration < powers[power_index].hot_duration) {
-		src_stats->addEffect("hot");
+		src_stats->addEffect("hot",getEffectIcon("hot"));
 		src_stats->hot_duration = src_stats->hot_duration_total = powers[power_index].hot_duration;
 		src_stats->hot_value = powers[power_index].hot_value;
 	}
@@ -1198,6 +1200,14 @@ Renderable PowerManager::renderEffects(StatBlock *src_stats) {
 		}
 	}
 	return r;
+}
+
+int PowerManager::getEffectIcon(std::string type) {
+	for (unsigned int i=0; i<effects.size(); i++) {
+		if (effects[i].type == type)
+			return effects[i].icon;
+	}
+	return -1;
 }
 
 PowerManager::~PowerManager() {

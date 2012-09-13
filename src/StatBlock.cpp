@@ -515,7 +515,7 @@ void StatBlock::clearEffects() {
 	forced_move_duration = 0;
 }
 
-void StatBlock::addEffect(std::string effect) {
+void StatBlock::addEffect(std::string effect, int icon) {
 	for (unsigned int i=0; i<effects.size(); i++) {
 		if (effects[i].type == effect) {
 			return; // already have this one
@@ -524,6 +524,7 @@ void StatBlock::addEffect(std::string effect) {
 	Effect e;
 	e.type = effect;
 	e.frame = 0;
+	e.icon = icon;
 	effects.push_back(e);
 }
 
