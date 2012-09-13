@@ -94,6 +94,7 @@ private:
 
 	bool transform_triggered;
 	std::string last_transform;
+	int getUntransformPower();
 
 public:
 	Avatar(PowerManager *_powers, MapRenderer *_map);
@@ -118,6 +119,7 @@ public:
 	void untransform();
 	bool setPowers;
 	bool revertPowers;
+	int untransform_power;
 	StatBlock *hero_stats;
 	StatBlock *charmed_stats;
 

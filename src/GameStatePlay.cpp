@@ -601,10 +601,11 @@ void GameStatePlay::logic() {
 			}
 			if (count == 12) count = 0;
 		}
-		if (pc->stats.manual_untransform) {
-			menu->act->hotkeys[count] = 136; //untransform power
-			menu->act->locked[count] = true;
-		}
+		if (pc->stats.manual_untransform && pc->untransform_power > 0) {
+			menu->act->hotkeys[count] = pc->untransform_power;
+			menu->act->locked[count] = true; 
+		} else if (pc->stats.manual_untransform && pc->untransform_power == 0)
+			fprintf(stderr, "Untransform power not found, you can't untransform manually\n");
 	}
 	// revert hero powers
 	if (pc->revertPowers) {
