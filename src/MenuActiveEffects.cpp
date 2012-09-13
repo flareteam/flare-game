@@ -43,16 +43,6 @@ MenuActiveEffects::MenuActiveEffects(SDL_Surface *_icons) {
 	icons = _icons;
 	orientation = 0; // horizontal
 
-	limits.slow = 0;
-	limits.bleed = 0;
-	limits.stun = 0;
-	limits.immobilize = 0;
-	limits.immunity = 0;
-	limits.transform = 0;
-	limits.haste = 0;
-	limits.hot = 0;
-	limits.shield = 0;
-
 	// Load config settings
 	FileParser infile;
 	if(infile.open(mods->locate("menus/activeeffects.txt"))) {
@@ -115,42 +105,27 @@ void MenuActiveEffects::update(StatBlock *_stats) {
 }
 
 void MenuActiveEffects::render() {
-	// Make sure the list of effects is empty
-	if (effects.size() > 0) effects.clear();
-
-	// Append active effects to the effects list
-	if (stats->slow_duration > 0) effects.push_back("slow");
-	if (stats->bleed_duration > 0) effects.push_back("bleed");
-	if (stats->stun_duration > 0) effects.push_back("stun");
-	if (stats->immobilize_duration > 0) effects.push_back("immobilize");
-	if (stats->immunity_duration > 0) effects.push_back("immunity");
-	if (stats->transform_duration > 0) effects.push_back("transform");
-	if (stats->haste_duration > 0) effects.push_back("haste");
-	if (stats->hot_duration > 0) effects.push_back("hot");
-	if (stats->shield_hp > 0) effects.push_back("shield");
-	if (stats->blocking) effects.push_back("block");
-
 	// Step through the list of effects and render those that are active
-	for (unsigned int i=0; i<effects.size(); i++) {
-		if (effects[i] == "slow")
+	for (unsigned int i=0; i<stats->effects.size(); i++) {
+		if (stats->effects[i].type == "slow")
 			renderIcon(14,i,stats->slow_duration,stats->slow_duration_total);
-		if (effects[i] == "bleed")
+		if (stats->effects[i].type == "bleed")
 			renderIcon(5,i,stats->bleed_duration,stats->bleed_duration_total);
-		if (effects[i] == "stun")
+		if (stats->effects[i].type == "stun")
 			renderIcon(10,i,stats->stun_duration,stats->stun_duration_total);
-		if (effects[i] == "immobilize")
+		if (stats->effects[i].type == "immobilize")
 			renderIcon(4,i,stats->immobilize_duration,stats->immobilize_duration_total);
-		if (effects[i] == "immunity")
+		if (stats->effects[i].type == "immunity")
 			renderIcon(9,i,stats->immunity_duration,stats->immunity_duration_total);
-		if (effects[i] == "transform")
+		if (stats->effects[i].type == "transform")
 			renderIcon(21,i,stats->transform_duration,stats->transform_duration_total);
-		if (effects[i] == "haste")
+		if (stats->effects[i].type == "haste")
 			renderIcon(12,i,stats->haste_duration,stats->haste_duration_total);
-		if (effects[i] == "hot")
+		if (stats->effects[i].type == "hot")
 			renderIcon(7,i,stats->hot_duration,stats->hot_duration_total);
-		if (effects[i] == "shield")
+		if (stats->effects[i].type == "shield")
 			renderIcon(11,i,stats->shield_hp,stats->shield_hp_total);
-		if (effects[i] == "block")
+		if (stats->effects[i].type == "block")
 			renderIcon(3,i,0,0);
 	}
 }

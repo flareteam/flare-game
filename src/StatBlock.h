@@ -88,6 +88,7 @@ public:
 	void clearEffects();
 	void addEffect(std::string effect);
 	void removeEffect(std::string effect);
+	void updateEffects();
 
 	bool alive;
 	bool corpse; // creature is dead and done animating

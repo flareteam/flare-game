@@ -37,21 +37,8 @@ class MenuActiveEffects : public Menu {
 private:
 	SDL_Surface *icons;
 	SDL_Surface *timer;
-	std::vector<std::string> effects;
 	StatBlock *stats;
 	bool orientation;
-
-	struct limits {
-		int slow;
-		int bleed;
-		int stun;
-		int immobilize;
-		int immunity;
-		int transform;
-		int haste;
-		int hot;
-		int shield;
-	}limits;
 
 	void renderIcon(int icon_id, int index, int current, int max);
 	

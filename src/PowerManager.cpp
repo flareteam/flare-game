@@ -824,22 +824,26 @@ void PowerManager::buff(int power_index, StatBlock *src_stats, Point target) {
 
 	// immunity_duration makes one immune to new debuffs
 	if (src_stats->immunity_duration < powers[power_index].immunity_duration) {
+		src_stats->addEffect("immunity");
 		src_stats->immunity_duration = src_stats->immunity_duration_total = powers[power_index].immunity_duration;
 	}
 
 	// transform_duration causes hero to be transformed
 	if (src_stats->transform_duration < powers[power_index].transform_duration &&
 		src_stats->transform_duration !=-1) {
+		src_stats->addEffect("transform");
 		src_stats->transform_duration = src_stats->transform_duration_total = powers[power_index].transform_duration;
 	}
 
 	// haste doubles run speed and removes power cooldowns
 	if (src_stats->haste_duration < powers[power_index].haste_duration) {
+		src_stats->addEffect("haste");
 		src_stats->haste_duration = src_stats->haste_duration_total = powers[power_index].haste_duration;
 	}
 
 	// hot is healing over time
 	if (src_stats->hot_duration < powers[power_index].hot_duration) {
+		src_stats->addEffect("hot");
 		src_stats->hot_duration = src_stats->hot_duration_total = powers[power_index].hot_duration;
 		src_stats->hot_value = powers[power_index].hot_value;
 	}

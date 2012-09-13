@@ -595,6 +595,8 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 
 			setAnimation("block");
 
+			stats.addEffect("block");
+
 			if (powers->powers[actionbar_power].new_state != POWSTATE_BLOCK) {
 				stats.cur_state = AVATAR_STANCE;
 				stats.blocking = false;
@@ -760,10 +762,22 @@ bool Avatar::takeHit(Hazard h) {
 
 		// after effects
 		if (stats.hp > 0 && stats.immunity_duration == 0 && dmg > 0) {
-			if (h.stun_duration > stats.stun_duration) stats.stun_duration_total = stats.stun_duration = h.stun_duration;
-			if (h.slow_duration > stats.slow_duration) stats.slow_duration_total = stats.slow_duration = h.slow_duration;
-			if (h.bleed_duration > stats.bleed_duration) stats.bleed_duration_total = stats.bleed_duration = h.bleed_duration;
-			if (h.immobilize_duration > stats.immobilize_duration) stats.immobilize_duration_total = stats.immobilize_duration = h.immobilize_duration;
+			if (h.stun_duration > stats.stun_duration) {
+				stats.stun_duration_total = stats.stun_duration = h.stun_duration;
+				stats.addEffect("stun");
+			}
+			if (h.slow_duration > stats.slow_duration) {
+				stats.slow_duration_total = stats.slow_duration = h.slow_duration;
+				stats.addEffect("slow");
+			}
+			if (h.bleed_duration > stats.bleed_duration) {
+				stats.bleed_duration_total = stats.bleed_duration = h.bleed_duration;
+				stats.addEffect("bleed");
+			}
+			if (h.immobilize_duration > stats.immobilize_duration) {
+				stats.immobilize_duration_total = stats.immobilize_duration = h.immobilize_duration;
+				stats.addEffect("immobilize");
+			}
 			if (h.forced_move_duration > stats.forced_move_duration) stats.forced_move_duration_total = stats.forced_move_duration = h.forced_move_duration;
 			if (h.forced_move_speed != 0) {
 				float theta = powers->calcTheta(h.src_stats->pos.x, h.src_stats->pos.y, stats.pos.x, stats.pos.y);

@@ -536,6 +536,19 @@ void StatBlock::removeEffect(std::string effect) {
 	}
 }
 
+void StatBlock::updateEffects() {
+	if (slow_duration == 0) removeEffect("slow");
+	if (bleed_duration == 0) removeEffect("bleed");
+	if (stun_duration == 0) removeEffect("stun");
+	if (immobilize_duration == 0) removeEffect("immobilize");
+	if (immunity_duration == 0) removeEffect("immunity");
+	if (transform_duration == 0) removeEffect("transform");
+	if (haste_duration == 0) removeEffect("haste");
+	if (hot_duration == 0) removeEffect("hot");
+	if (shield_hp == 0) removeEffect("shield");
+	if (!blocking) removeEffect("block");
+}
+
 StatBlock::~StatBlock() {
 }
 
