@@ -101,6 +101,7 @@ void Avatar::init() {
 	setPowers = false;
 	revertPowers = false;
 	last_transform = "";
+	untransform_power = getUntransformPower();
 
 	stats.hero_cooldown = vector<int>(POWER_COUNT, 0);
 
@@ -930,6 +931,17 @@ void Avatar::untransform() {
 
 	delete charmed_stats;
 	delete hero_stats;
+}
+
+/**
+ * Find untransform power index to use for manual untransfrom ability
+ */
+int Avatar::getUntransformPower() {
+	for (unsigned id=0; id<powers->powers.size(); id++) {
+		if (powers->powers[id].spawn_type == "untransform" && powers->powers[id].requires_item == -1)
+			return id;
+	}
+	return 0;
 }
 
 /**
