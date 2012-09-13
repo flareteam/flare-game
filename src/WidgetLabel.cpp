@@ -28,6 +28,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 using namespace std;
 
+LabelInfo::LabelInfo() : x(0), y(0), justify(JUSTIFY_LEFT), valign(VALIGN_TOP), hidden(false) {
+}
+
 /**
  * This is used in menus (e.g. MenuInventory) when parsing their config files
  */

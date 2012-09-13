@@ -33,11 +33,13 @@ const int VALIGN_CENTER = 0;
 const int VALIGN_TOP = 1;
 const int VALIGN_BOTTOM = 2;
 
-typedef struct LabelInfo {
+struct LabelInfo {
 	int x,y;
 	int justify,valign;
 	bool hidden;
-}LabelInfo;
+
+	LabelInfo();
+};
 
 LabelInfo eatLabelInfo(std::string val);
 
