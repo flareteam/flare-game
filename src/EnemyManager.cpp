@@ -298,9 +298,8 @@ void EnemyManager::addRenders(vector<Renderable> &r, vector<Renderable> &r_dead)
 		// draw corpses below objects so that floor loot is more visible
 		bool dead = (*it)->stats.corpse;
 		(dead ? r_dead : r).push_back(re);
-		if ((*it)->stats.shield_hp == 0) {
-			(*it)->stats.removeEffect("shield");
-		}
+
+		(*it)->stats.updateEffects();
 		re = powers->renderEffects(&(*it)->stats);
 		(dead ? r_dead : r).push_back(re);
 	}

@@ -43,16 +43,6 @@ MenuActiveEffects::MenuActiveEffects(SDL_Surface *_icons) {
 	icons = _icons;
 	orientation = 0; // horizontal
 
-	limits.slow = 0;
-	limits.bleed = 0;
-	limits.stun = 0;
-	limits.immobilize = 0;
-	limits.immunity = 0;
-	limits.transform = 0;
-	limits.haste = 0;
-	limits.hot = 0;
-	limits.shield = 0;
-
 	// Load config settings
 	FileParser infile;
 	if(infile.open(mods->locate("menus/activeeffects.txt"))) {
@@ -85,28 +75,30 @@ void MenuActiveEffects::loadGraphics() {
 }
 
 void MenuActiveEffects::renderIcon(int icon_id, int index, int current, int max){
-	SDL_Rect pos,src,overlay;
-	if (orientation == 0) {
-		pos.x = window_area.x + (index * ICON_SIZE_SMALL);
-		pos.y = window_area.y;
-	} else if (orientation == 1) {
-		pos.x = window_area.x;
-		pos.y = window_area.y + (index * ICON_SIZE_SMALL);;
-	}
+	if (icon_id > -1) {
+		SDL_Rect pos,src,overlay;
+		if (orientation == 0) {
+			pos.x = window_area.x + (index * ICON_SIZE_SMALL);
+			pos.y = window_area.y;
+		} else if (orientation == 1) {
+			pos.x = window_area.x;
+			pos.y = window_area.y + (index * ICON_SIZE_SMALL);;
+		}
 
-	src.x = (icon_id % 16) * ICON_SIZE_SMALL;
-	src.y = (icon_id / 16) * ICON_SIZE_SMALL;
-	src.w = src.h = ICON_SIZE_SMALL;
+		src.x = (icon_id % 16) * ICON_SIZE_SMALL;
+		src.y = (icon_id / 16) * ICON_SIZE_SMALL;
+		src.w = src.h = ICON_SIZE_SMALL;
 
-	SDL_BlitSurface(icons,&src,screen,&pos);
+		SDL_BlitSurface(icons,&src,screen,&pos);
 
-	if (max > 0) {
-		overlay.x = 0;
-		overlay.y = (ICON_SIZE_SMALL * current) / max;
-		overlay.w = ICON_SIZE_SMALL;
-		overlay.h = ICON_SIZE_SMALL - overlay.y;
+		if (max > 0) {
+			overlay.x = 0;
+			overlay.y = (ICON_SIZE_SMALL * current) / max;
+			overlay.w = ICON_SIZE_SMALL;
+			overlay.h = ICON_SIZE_SMALL - overlay.y;
 
-		SDL_BlitSurface(timer,&overlay,screen,&pos);
+			SDL_BlitSurface(timer,&overlay,screen,&pos);
+		}
 	}
 }
 
@@ -115,43 +107,28 @@ void MenuActiveEffects::update(StatBlock *_stats) {
 }
 
 void MenuActiveEffects::render() {
-	// Make sure the list of effects is empty
-	if (effects.size() > 0) effects.clear();
-
-	// Append active effects to the effects list
-	if (stats->slow_duration > 0) effects.push_back("slow");
-	if (stats->bleed_duration > 0) effects.push_back("bleed");
-	if (stats->stun_duration > 0) effects.push_back("stun");
-	if (stats->immobilize_duration > 0) effects.push_back("immobilize");
-	if (stats->immunity_duration > 0) effects.push_back("immunity");
-	if (stats->transform_duration > 0) effects.push_back("transform");
-	if (stats->haste_duration > 0) effects.push_back("haste");
-	if (stats->hot_duration > 0) effects.push_back("hot");
-	if (stats->shield_hp > 0) effects.push_back("shield");
-	if (stats->blocking) effects.push_back("block");
-
 	// Step through the list of effects and render those that are active
-	for (unsigned int i=0; i<effects.size(); i++) {
-		if (effects[i] == "slow")
-			renderIcon(14,i,stats->slow_duration,stats->slow_duration_total);
-		if (effects[i] == "bleed")
-			renderIcon(5,i,stats->bleed_duration,stats->bleed_duration_total);
-		if (effects[i] == "stun")
-			renderIcon(10,i,stats->stun_duration,stats->stun_duration_total);
-		if (effects[i] == "immobilize")
-			renderIcon(4,i,stats->immobilize_duration,stats->immobilize_duration_total);
-		if (effects[i] == "immunity")
-			renderIcon(9,i,stats->immunity_duration,stats->immunity_duration_total);
-		if (effects[i] == "transform")
-			renderIcon(21,i,stats->transform_duration,stats->transform_duration_total);
-		if (effects[i] == "haste")
-			renderIcon(12,i,stats->haste_duration,stats->haste_duration_total);
-		if (effects[i] == "hot")
-			renderIcon(7,i,stats->hot_duration,stats->hot_duration_total);
-		if (effects[i] == "shield")
-			renderIcon(11,i,stats->shield_hp,stats->shield_hp_total);
-		if (effects[i] == "block")
-			renderIcon(3,i,0,0);
+	for (unsigned int i=0; i<stats->effects.size(); i++) {
+		if (stats->effects[i].type == "slow")
+			renderIcon(stats->effects[i].icon,i,stats->slow_duration,stats->slow_duration_total);
+		if (stats->effects[i].type == "bleed")
+			renderIcon(stats->effects[i].icon,i,stats->bleed_duration,stats->bleed_duration_total);
+		if (stats->effects[i].type == "stun")
+			renderIcon(stats->effects[i].icon,i,stats->stun_duration,stats->stun_duration_total);
+		if (stats->effects[i].type == "immobilize")
+			renderIcon(stats->effects[i].icon,i,stats->immobilize_duration,stats->immobilize_duration_total);
+		if (stats->effects[i].type == "immunity")
+			renderIcon(stats->effects[i].icon,i,stats->immunity_duration,stats->immunity_duration_total);
+		if (stats->effects[i].type == "transform")
+			renderIcon(stats->effects[i].icon,i,stats->transform_duration,stats->transform_duration_total);
+		if (stats->effects[i].type == "haste")
+			renderIcon(stats->effects[i].icon,i,stats->haste_duration,stats->haste_duration_total);
+		if (stats->effects[i].type == "hot")
+			renderIcon(stats->effects[i].icon,i,stats->hot_duration,stats->hot_duration_total);
+		if (stats->effects[i].type == "shield")
+			renderIcon(stats->effects[i].icon,i,stats->shield_hp,stats->shield_hp_total);
+		if (stats->effects[i].type == "block")
+			renderIcon(stats->effects[i].icon,i,0,0);
 	}
 }
 

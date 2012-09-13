@@ -266,6 +266,7 @@ private:
 
 	struct Effect {
 		std::string type;
+		int icon;
 		SDL_Surface *gfx;
 		SDL_Rect frame_size;
 		Point frame_offset;
@@ -316,6 +317,7 @@ public:
 	bool hasValidTarget(int power_index, StatBlock *src_stats, Point target);
 	bool spawn(const std::string& enemy_type, Point target);
 	Renderable renderEffects(StatBlock *src_stats);
+	int getEffectIcon(std::string type);
 
 	std::vector<Power> powers;
 	std::queue<Hazard *> hazards; // output; read by HazardManager

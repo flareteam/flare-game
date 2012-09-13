@@ -634,9 +634,7 @@ void GameStatePlay::render() {
 	rens.push_back(pc_hero); // Avatar
 
 	// get additional hero overlays
-	if (pc->stats.shield_hp == 0) {
-		pc->stats.removeEffect("shield");
-	}
+	pc->stats.updateEffects();
 	Renderable re = powers->renderEffects(&pc->stats);
 	rens.push_back(re);
 
