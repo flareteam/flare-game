@@ -38,7 +38,7 @@ def extract(filename):
                     aString += str(i+1)
                     comments.append(aString)
                     del aString
-                    keys.append(line[line.find('=') + 1:].strip('\n').replace("\"", "\\\""))
+                    keys.append(line[line.find('=') + 1:].strip('\n').replace("\"", "\\\"").rstrip())
             # handle the special case: bonus={stat},{value}
             if line.startswith('bonus='):
                 aString = filename
@@ -46,7 +46,7 @@ def extract(filename):
                 aString += str(i+1)
                 comments.append(aString)
                 del aString
-                keys.append(line[line.find('=') + 1: line.find(',')])
+                keys.append(line[line.find('=') + 1: line.find(',')].rstrip())
 
 # this removes duplicates from keys in a clean way (without screwing up the order)
 def remove_duplicates():
