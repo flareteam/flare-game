@@ -170,7 +170,6 @@ void MenuManager::loadIcons() {
 	if(!icons) {
 		fprintf(stderr, "Couldn't load icons: %s\n", IMG_GetError());
 		SDL_Quit();
-		exit(1);
 	}
 
 	// optimize
