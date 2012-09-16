@@ -62,6 +62,7 @@ void TileSet::loadGraphics(const std::string& filename) {
 		if (!sprites) {
 			fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 			SDL_Quit();
+			exit(1);
 		}
 	} else {
 		alpha_background = false;

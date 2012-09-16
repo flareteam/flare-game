@@ -126,6 +126,7 @@ void WidgetTabControl::loadGraphics()
 	if(!activeTabSurface || !inactiveTabSurface) {
 		fprintf(stderr, "Could not load image: %s\n", IMG_GetError());
 		SDL_Quit();
+		exit(1);
 	}
 
 	SDL_Surface *cleanup;

@@ -430,6 +430,7 @@ void PowerManager::loadGraphics() {
 	if(!runes) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 		SDL_Quit();
+		exit(1);
 	}
 }
 
