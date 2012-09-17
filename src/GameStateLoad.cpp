@@ -45,7 +45,7 @@ GameStateLoad::GameStateLoad() : GameState() {
 	loaded = false;
 
 	label_loading = new WidgetLabel();
-	
+
 	for (int i = 0; i < GAME_SLOT_MAX; i++) {
 		label_name[i] = new WidgetLabel();
 		label_level[i] = new WidgetLabel();
@@ -68,7 +68,7 @@ GameStateLoad::GameStateLoad() : GameState() {
 	button_alternate->label = msg->get("Delete Save");
 	button_alternate->enabled = false;
 
-	// Read positions from config file 
+	// Read positions from config file
 	FileParser infile;
 
 	if (infile.open(mods->locate("menus/gameload.txt"))) {
@@ -307,7 +307,7 @@ void GameStateLoad::loadPreview(int slot) {
 
 	for (unsigned int i=0; i<equipped[slot].size(); i++) {
 		if ((unsigned)equipped[slot][i] > items->items.size()-1){
-			fprintf(stderr, "Item with id=%d out of bounds 1-%d. Your savegame is broken or you might use incompatible savegame/mod\nQuitting to avoid savegame rewriting\n", equipped[slot][i], items->items.size()-1);
+			fprintf(stderr, "Item with id=%d out of bounds 1-%zu. Your savegame is broken or you might use incompatible savegame/mod\nQuitting to avoid savegame rewriting\n", equipped[slot][i], items->items.size()-1);
 			SDL_Quit();
 			exit(1);
 		}
