@@ -51,6 +51,7 @@ public:
 
 private:
 	int optiontab[124];
+	SDL_Rect frame;
 	SDL_Rect* video_modes;
 
 	SDL_Rect menuConfirm_area;
@@ -62,6 +63,8 @@ private:
 	int getVideoModes(void);
 	bool getLanguagesList(void);
 	int getLanguagesNumber(void);
+	void init();
+	void readConfig();
 	void update();
 	void setDefaultResolution();
 	void refreshFont();
@@ -79,12 +82,56 @@ private:
 	SDL_Surface         * background;
 	std::string         imgFileName;
 
-	WidgetLabel         * settings_lb[48];
-	WidgetSlider        * settings_sl[3];
-	WidgetCheckBox      * settings_cb[11];
+	WidgetCheckBox      * fullscreen_cb;
+	WidgetLabel         * fullscreen_lb;
+	WidgetCheckBox      * mouse_move_cb;
+	WidgetLabel         * mouse_move_lb;
+	WidgetCheckBox      * combat_text_cb;
+	WidgetLabel         * combat_text_lb;
+	WidgetCheckBox      * hwsurface_cb;
+	WidgetLabel         * hwsurface_lb;
+	WidgetCheckBox      * doublebuf_cb;
+	WidgetLabel         * doublebuf_lb;
+	WidgetCheckBox      * enable_joystick_cb;
+	WidgetLabel         * enable_joystick_lb;
+	WidgetCheckBox      * texture_quality_cb;
+	WidgetLabel         * texture_quality_lb;
+	WidgetCheckBox      * change_gamma_cb;
+	WidgetLabel         * change_gamma_lb;
+	WidgetCheckBox      * animated_tiles_cb;
+	WidgetLabel         * animated_tiles_lb;
+	WidgetCheckBox      * mouse_aim_cb;
+	WidgetLabel         * mouse_aim_lb;
+	WidgetCheckBox      * show_fps_cb;
+	WidgetLabel         * show_fps_lb;
+	WidgetSlider        * music_volume_sl;
+	WidgetLabel         * music_volume_lb;
+	WidgetSlider        * sound_volume_sl;
+	WidgetLabel         * sound_volume_lb;
+	WidgetSlider        * gamma_sl;
+	WidgetLabel         * gamma_lb;
+	WidgetListBox       * resolution_lstb;
+	WidgetLabel         * resolution_lb;
+	WidgetListBox       * activemods_lstb;
+	WidgetLabel         * activemods_lb;
+	WidgetListBox       * inactivemods_lstb;
+	WidgetLabel         * inactivemods_lb;
+	WidgetListBox       * joystick_device_lstb;
+	WidgetLabel         * joystick_device_lb;
+	WidgetListBox       * language_lstb;
+	WidgetLabel         * language_lb;
+	WidgetLabel         * hws_note_lb;
+	WidgetLabel         * dbuf_note_lb;
+	WidgetLabel         * anim_tiles_note_lb;
+	WidgetLabel         * test_note_lb;
+	WidgetButton        * activemods_shiftup_btn;
+	WidgetButton        * activemods_shiftdown_btn;
+	WidgetButton        * activemods_deactivate_btn;
+	WidgetButton        * inactivemods_activate_btn;
+
+	WidgetLabel         * settings_lb[25];
 	WidgetButton        * settings_key[50];
-	WidgetListBox       * settings_lstb[5];
-	WidgetButton        * settings_btn[4];
+
 	WidgetScrollBox     * input_scrollbox;
 	MenuConfirm         * input_confirm;
 	MenuConfirm         * defaults_confirm;
