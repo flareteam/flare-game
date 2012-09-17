@@ -115,7 +115,7 @@ void ItemManager::load(const string& filename) {
 				continue;
 			}
 			if (id_line) continue;
-			
+
 			if (infile.key == "name")
 				items[id].name = msg->get(infile.val);
 			else if (infile.key == "level")
@@ -623,7 +623,7 @@ TooltipData ItemManager::getTooltip(int item, StatBlock *stats, bool vendor_view
 			bonus_counter = 0;
 			modifier = "";
 
-			tip.lines[tip.num_lines++];
+			tip.lines[tip.num_lines++] = "";
 			tip.colors[tip.num_lines] = set.color;
 			tip.lines[tip.num_lines++] = msg->get("Set: ") + msg->get(item_sets[items[item].set].name);
 
