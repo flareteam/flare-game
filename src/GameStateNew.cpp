@@ -148,6 +148,7 @@ void GameStateNew::loadGraphics() {
 	if(!portrait_border) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 		SDL_Quit();
+		exit(1);
 	}
 
 	SDL_SetColorKey( portrait_border, SDL_SRCCOLORKEY, SDL_MapRGB(portrait_border->format, 255, 0, 255) );

@@ -145,9 +145,11 @@ MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_i
 	if((tabs_count == 1) && (tree_image_files.size() > 0 || tab_titles.size() > 0)) {
 		fprintf(stderr, "menu/powers.txt error: you don't have tabs, but tab_tree_image and tab_title counts are not 0\n");
 		SDL_Quit();
+		exit(1);
 	} else if((tabs_count > 1) && (tree_image_files.size() != (unsigned)tabs_count || tab_titles.size() != (unsigned)tabs_count)) {
 		fprintf(stderr, "menu/powers.txt error: tabs count, tab_tree_image and tab_name counts do not match\n");
 		SDL_Quit();
+		exit(1);
 	}
 
 	menuPowers = this;
@@ -201,6 +203,7 @@ void MenuPowers::loadGraphics() {
 		if(!background || !tree_surf[i] || !powers_unlock || !overlay_disabled) {
 			fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 			SDL_Quit();
+			exit(1);
 		}
 	}
 

@@ -186,6 +186,7 @@ void Avatar::loadGraphics(std::vector<Layer_gfx> _img_gfx) {
 	if (sprites == NULL) {
 		fprintf(stderr, "Couldn't load body image: %s\n", IMG_GetError());
 		SDL_Quit();
+		exit(1);
 	}
 
 	for (unsigned int i=0; i<layer_def.size(); i++) {
@@ -834,6 +835,7 @@ void Avatar::transform() {
 		if(!transformed_sprites) {
 			fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 			SDL_Quit();
+			exit(1);
 		}
 		last_transform = charmed_stats->gfx_prefix;
 	}

@@ -105,6 +105,7 @@ void MenuInventory::loadGraphics() {
 	if(!background) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 		SDL_Quit();
+		exit(1);
 	}
 
 	// optimize

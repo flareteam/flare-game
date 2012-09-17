@@ -367,6 +367,7 @@ void ItemManager::loadIcons() {
 	if(!icons_small || !icons_large) {
 		fprintf(stderr, "Couldn't load icons: %s\n", IMG_GetError());
 		SDL_Quit();
+		exit(1);
 	}
 
 	// optimize

@@ -227,6 +227,7 @@ void MenuActionBar::loadGraphics() {
 	if(!emptyslot || !background || !disabled || !attention) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 		SDL_Quit();
+		exit(1);
 	}
 
 	// optimize

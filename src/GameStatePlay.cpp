@@ -94,6 +94,7 @@ GameStatePlay::GameStatePlay() : GameState() {
 	if(!loading_bg) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 		SDL_Quit();
+		exit(1);
 	}
 	SDL_Surface *cleanup = loading_bg;
 	loading_bg = SDL_DisplayFormatAlpha(loading_bg);

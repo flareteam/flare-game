@@ -191,6 +191,7 @@ void GameStateLoad::loadGraphics() {
 	if(!background || !selection || !portrait_border) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 		SDL_Quit();
+		exit(1);
 	}
 
 	SDL_SetColorKey( selection, SDL_SRCCOLORKEY, SDL_MapRGB(selection->format, 255, 0, 255) );
@@ -305,6 +306,11 @@ void GameStateLoad::loadPreview(int slot) {
 	short body = -1;
 
 	for (unsigned int i=0; i<equipped[slot].size(); i++) {
+		if ((unsigned)equipped[slot][i] > items->items.size()-1){
+			fprintf(stderr, "Item with id=%d out of bounds 1-%d. Your savegame is broken or you might use incompatible savegame/mod\nQuitting to avoid savegame rewriting\n", equipped[slot][i], items->items.size()-1);
+			SDL_Quit();
+			exit(1);
+		}
 		if ((equipped[slot][i] != 0) && (items->items[equipped[slot][i]].type == "body")) {
 			img_gfx.push_back(items->items[equipped[slot][i]].gfx);
 			body = img_gfx.size()-1;
