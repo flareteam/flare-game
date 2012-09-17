@@ -36,12 +36,12 @@ For easy building I recommend using cmake and make.
 
 ---
 
-Installing dependencies on Ubuntu:
-sudo apt-get install libsdl1.2-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf2.0-dev
+Installing dependencies on debian based systems (debian, Ubuntu, Kubuntu, etc):
+sudo apt-get install libsdl1.2-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf2.0-dev cmake make g++ git
 
   There is also a flare build in the Ubuntu (universe)
   http://packages.ubuntu.com/source/precise/flare
- 
+
 Installing dependencies on Arch Linux:
 pacman -S --asdeps sdl sdl_image sdl_mixer libogg libvorbis hicolor-icon-theme python sdl_ttf
 
