@@ -93,6 +93,12 @@ void Animation::addFrame(	unsigned short index,
 							unsigned short direction,
 							SDL_Rect sdl_rect,
 							Point _render_offset) {
+
+	if (index > gfx.size()/8)
+		fprintf(stderr, "Animation::addFrame: index out of bounds. must be in [0, %zu]\n", gfx.size()/8);
+	if (direction > 7)
+		fprintf(stderr, "Animation::addFrame: direction out of bounds. must be in [0, 7]\n");
+
 	gfx[8*index+direction] = sdl_rect;
 	render_offset[8*index+direction] = _render_offset;
 }
@@ -108,11 +114,11 @@ void Animation::doneLoading() {
 void Animation::advanceFrame() {
 
 	cur_frame_duration++;
-	
+
 	// Some entity state changes are triggered when the current frame is the last frame.
 	// Even if those state changes are not handled properly, do not permit current frame to exceed last frame.
 	if (cur_frame < number_frames-1) cur_frame++;
-		
+
 	if (cur_frame_duration >= duration[cur_frame_index]) {
 		cur_frame_duration = 0;
 		unsigned short last_base_index = (gfx.size()/8)-1;
@@ -124,7 +130,7 @@ void Animation::advanceFrame() {
 			else
 				times_played = 1;
 			break;
-			
+
 		case LOOPED:
 			if (cur_frame_index < last_base_index) {
 				cur_frame_index++;
@@ -137,7 +143,7 @@ void Animation::advanceFrame() {
 			break;
 
 		case BACK_FORTH:
-		
+
 			if (additional_data == 1) {
 				if (cur_frame_index < last_base_index)
 					cur_frame_index++;
