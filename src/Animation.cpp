@@ -94,11 +94,16 @@ void Animation::addFrame(	unsigned short index,
 							SDL_Rect sdl_rect,
 							Point _render_offset) {
 
-	if (index > gfx.size()/8)
-		fprintf(stderr, "Animation::addFrame: index out of bounds. must be in [0, %zu]\n", gfx.size()/8);
-	if (direction > 7)
-		fprintf(stderr, "Animation::addFrame: direction out of bounds. must be in [0, 7]\n");
-
+	if (index > gfx.size()/8) {
+		fprintf(stderr, "WARNING: Animation(%s) adding rect(%d, %d, %d, %d) to frame index(%u) out of bounds. must be in [0, %zu]\n",
+		name.c_str(), sdl_rect.x, sdl_rect.y, sdl_rect.w, sdl_rect.h, index, gfx.size()/8);
+		return;
+	}
+	if (direction > 7) {
+		fprintf(stderr, "WARNING: Animation(%s) adding rect(%d, %d, %d, %d) to frame(%u) direction(%u) out of bounds. must be in [0, 7]\n",
+		name.c_str(), sdl_rect.x, sdl_rect.y, sdl_rect.w, sdl_rect.h, index, direction);
+		return;
+	}
 	gfx[8*index+direction] = sdl_rect;
 	render_offset[8*index+direction] = _render_offset;
 }
