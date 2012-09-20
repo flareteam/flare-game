@@ -138,6 +138,10 @@ bool Entity::setAnimation(const string& animationName) {
 
 	delete activeAnimation;
 	activeAnimation = animationSet->getAnimation(animationName);
+
+	if (activeAnimation == NULL)
+		fprintf(stderr, "Entity::setAnimation(%s): not found\n", animationName.c_str());
+
 	return activeAnimation == NULL;
 }
 
