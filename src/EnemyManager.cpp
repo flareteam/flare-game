@@ -102,6 +102,39 @@ bool EnemyManager::loadAnimationsAndAssignTo(const string &type_id, Enemy *e) {
 	return true;
 }
 
+Enemy *EnemyManager::getEnemyPrototype(const string& type_id) {
+	for (size_t i = 0; i < prototypes.size(); i++)
+		if (prototypes[i].type == type_id)
+			return new Enemy(prototypes[i]);
+
+	Enemy e = Enemy(powers, map);
+
+	e.eb = new BehaviorStandard(&e);
+	e.stats.load("enemies/" + type_id + ".txt");
+	e.type = type_id;
+
+	if (e.stats.animations == "")
+		cerr << "Warning: no animation file specified for entity: " << type_id << endl;
+	if (e.stats.gfx_prefix == "")
+		cerr << "Warning: no gfx_prefix specified for entity: " << type_id << endl;
+	if (e.stats.sfx_prefix == "")
+		cerr << "Warning: no sfx_prefix specified for entity: " << type_id << endl;
+
+	if (!loadAnimationsAndAssignTo(e.stats.animations+".txt", &e)) {
+		cerr << "Warning: could not load animations for enemy type" << e.stats.animations << endl;
+	}
+	if (!loadGraphics(e.stats.gfx_prefix)) {
+		cerr << "Warning: could not load graphics prefix: " << e.stats.gfx_prefix << endl;
+	}
+	if (!loadSounds(e.stats.sfx_prefix)) {
+		cerr << "Warning: could not load sounds prefix: " << e.stats.sfx_prefix << endl;
+	}
+
+	prototypes.push_back(e);
+
+	return new Enemy(prototypes.back());
+}
+
 /**
  * When loading a new map, we eliminate existing enemies and load the new ones.
  * The map will have loaded Entity blocks into an array; retrieve the Enemies and init them
@@ -137,15 +170,14 @@ void EnemyManager::handleNewMap () {
 	sound_die.clear();
 	sound_critdie.clear();
 
+	prototypes.clear();
+
 	// load new enemies
 	while (!map->enemies.empty()) {
 		me = map->enemies.front();
 		map->enemies.pop();
 
-		Enemy *e = new Enemy(powers, map);
-
-		// factory
-		e->eb = new BehaviorStandard(e);
+		Enemy *e = getEnemyPrototype(me.type);
 
 		e->stats.waypoints = me.waypoints;
 		e->stats.pos.x = me.pos.x;
@@ -153,27 +185,7 @@ void EnemyManager::handleNewMap () {
 		e->stats.direction = me.direction;
 		e->stats.wander = me.wander;
 		e->stats.wander_area = me.wander_area;
-		e->stats.load("enemies/" + me.type + ".txt");
 
-		if (e->stats.animations == "")
-			cerr << "Warning: no animation file specified for entity: " << me.type << endl;
-		if (e->stats.gfx_prefix == "")
-			cerr << "Warning: no gfx_prefix specified for entity: " << me.type << endl;
-		if (e->stats.sfx_prefix == "")
-			cerr << "Warning: no sfx_prefix specified for entity: " << me.type << endl;
-
-		if (!loadAnimationsAndAssignTo(e->stats.animations+".txt", e)) {
-			cerr << "Warning: could not load animations for enemy type" << e->stats.animations << endl;
-			continue;
-		}
-		if (!loadGraphics(e->stats.gfx_prefix)) {
-			cerr << "Warning: could not load graphics prefix: " << e->stats.gfx_prefix << endl;
-			continue;
-		}
-		if (!loadSounds(e->stats.sfx_prefix)) {
-			cerr << "Warning: could not load sounds prefix: " << e->stats.sfx_prefix << endl;
-			continue;
-		}
 		enemies.push_back(e);
 	}
 }

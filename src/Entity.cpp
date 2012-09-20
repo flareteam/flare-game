@@ -33,7 +33,23 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 using namespace std;
 
-Entity::Entity(MapRenderer* _map) : sprites(NULL), activeAnimation(NULL), animationSet(NULL), map(_map) {
+Entity::Entity(MapRenderer* _map)
+ : sprites(NULL)
+ , transformed_sprites(NULL)
+ , activeAnimation(NULL)
+ , animationSet(NULL)
+ , map(_map)
+{
+}
+
+Entity::Entity(const Entity &e)
+ : sprites(e.sprites)
+ , transformed_sprites(e.transformed_sprites)
+ , activeAnimation(new Animation(*e.activeAnimation))
+ , animationSet(e.animationSet)
+ , map(e.map)
+ , stats(StatBlock(e.stats))
+{
 }
 
 /**

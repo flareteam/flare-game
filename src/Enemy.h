@@ -43,6 +43,7 @@ class Enemy : public Entity {
 
 public:
 	Enemy(PowerManager *_powers, MapRenderer *_map);
+	Enemy(const Enemy& e);
 	~Enemy();
 	bool lineOfSight();
 	void logic();
@@ -51,6 +52,8 @@ public:
 	int getDistance(Point dest);
 	bool takeHit(Hazard h);
 	void doRewards();
+
+	std::string type;
 
 	virtual Renderable getRender();
 

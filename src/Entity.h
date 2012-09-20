@@ -40,6 +40,7 @@ protected:
 
 public:
 	Entity(MapRenderer*);
+	Entity(const Entity&);
 	virtual ~Entity();
 
 	bool move();
