@@ -15,11 +15,10 @@ You should have received a copy of the GNU General Public License along with
 FLARE.  If not, see http://www.gnu.org/licenses/
 */
 
-/*
- * class EnemyManager
- */
-
 #include "EnemyManager.h"
+
+#include "AnimationManager.h"
+#include "AnimationSet.h"
 #include "SharedResources.h"
 #include "EnemyBehavior.h"
 #include "BehaviorStandard.h"
@@ -91,6 +90,18 @@ bool EnemyManager::loadSounds(const string& type_id) {
 	return true;
 }
 
+#include "StatBlock.h"
+#include "Animation.h"
+
+
+bool EnemyManager::loadAnimationsAndAssignTo(const string &type_id, Enemy *e) {
+
+	e->animationSet = AnimationManager::instance()->getAnimationSet(type_id);
+	e->activeAnimation = e->animationSet->getAnimation(e->animationSet->starting_animation);
+
+	return true;
+}
+
 /**
  * When loading a new map, we eliminate existing enemies and load the new ones.
  * The map will have loaded Entity blocks into an array; retrieve the Enemies and init them
@@ -143,12 +154,17 @@ void EnemyManager::handleNewMap () {
 		e->stats.wander = me.wander;
 		e->stats.wander_area = me.wander_area;
 		e->stats.load("enemies/" + me.type + ".txt");
-		if (e->stats.animations != "") {
-			// load the animation file if specified
-			e->loadAnimations("animations/" + e->stats.animations + ".txt");
-		}
-		else {
+
+		if (e->stats.animations == "")
 			cerr << "Warning: no animation file specified for entity: " << me.type << endl;
+		if (e->stats.gfx_prefix == "")
+			cerr << "Warning: no gfx_prefix specified for entity: " << me.type << endl;
+		if (e->stats.sfx_prefix == "")
+			cerr << "Warning: no sfx_prefix specified for entity: " << me.type << endl;
+
+		if (!loadAnimationsAndAssignTo(e->stats.animations+".txt", e)) {
+			cerr << "Warning: could not load animations for enemy type" << e->stats.animations << endl;
+			continue;
 		}
 		if (!loadGraphics(e->stats.gfx_prefix)) {
 			cerr << "Warning: could not load graphics prefix: " << e->stats.gfx_prefix << endl;
@@ -184,7 +200,11 @@ void EnemyManager::handleSpawn() {
 		e->stats.load("enemies/" + espawn.type + ".txt");
 		if (e->stats.animations != "") {
 			// load the animation file if specified
-			e->loadAnimations("animations/" + e->stats.animations + ".txt");
+			e->animationSet = AnimationManager::instance()->getAnimationSet(e->stats.animations + ".txt");
+			if (e->animationSet)
+				e->activeAnimation = e->animationSet->getAnimation(e->animationSet->starting_animation);
+			else
+				cout << "Warning: animations file could not be loaded for " << espawn.type << endl;
 		}
 		else {
 			cout << "Warning: no animation file specified for entity: " << espawn.type << endl;

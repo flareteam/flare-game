@@ -38,15 +38,34 @@ Animation::Animation(std::string _name, std::string _type)
 			_type == "looped" ? LOOPED :
 			NONE)
 	, sprites(NULL)
+	, number_frames(0)
 	, cur_frame(0)
+	, cur_frame_index(0)
 	, cur_frame_duration(0)
 	, additional_data(0)
+	, times_played(0)
 	, gfx(std::vector<SDL_Rect>())
 	, render_offset(std::vector<Point>())
 	, duration(std::vector<short>())
 {
 	if (type == NONE)
 		cout << "Warning: animation type " << _type << " is unknown" << endl;
+}
+
+Animation::Animation(const Animation& a)
+	: name(a.name)
+	, type(a.type)
+	, sprites(a.sprites)
+	, number_frames(a.number_frames)
+	, cur_frame(0)
+	, cur_frame_index(a.cur_frame_index)
+	, cur_frame_duration(a.cur_frame_duration)
+	, additional_data(a.additional_data)
+	, times_played(0)
+	, gfx(std::vector<SDL_Rect>(a.gfx))
+	, render_offset(std::vector<Point>(a.render_offset))
+	, duration(std::vector<short>(a.duration))
+{
 }
 
 void Animation::setupUncompressed(Point _render_size, Point _render_offset, int _position, int _frames, int _duration) {

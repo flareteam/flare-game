@@ -79,6 +79,8 @@ EndIf (NOT SDLTTF_FOUND)
 Set (FLARE_SOURCES
 	./src/Entity.cpp
 	./src/Animation.cpp
+	./src/AnimationManager.cpp
+	./src/AnimationSet.cpp
 	./src/AStarNode.cpp
 	./src/Avatar.cpp
 	./src/BehaviorStandard.cpp

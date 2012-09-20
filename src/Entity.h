@@ -29,13 +29,14 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <vector>
 
 class Animation;
+class AnimationSet;
 class MapRenderer;
 
 class Entity {
 protected:
 	SDL_Surface *sprites;
 	SDL_Surface *transformed_sprites;
-	std::vector<Animation*> animations;
+
 
 public:
 	Entity(MapRenderer*);
@@ -47,9 +48,9 @@ public:
 	// Each child of Entity defines its own rendering method
 	virtual Renderable getRender() = 0;
 
-	void loadAnimations(const std::string& filename);
 	bool setAnimation(const std::string& animation);
 	Animation *activeAnimation;
+	AnimationSet *animationSet;
 
 	MapRenderer* map;
 	StatBlock stats;
