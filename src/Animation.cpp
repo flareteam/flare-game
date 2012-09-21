@@ -38,15 +38,34 @@ Animation::Animation(std::string _name, std::string _type)
 			_type == "looped" ? LOOPED :
 			NONE)
 	, sprites(NULL)
+	, number_frames(0)
 	, cur_frame(0)
+	, cur_frame_index(0)
 	, cur_frame_duration(0)
 	, additional_data(0)
+	, times_played(0)
 	, gfx(std::vector<SDL_Rect>())
 	, render_offset(std::vector<Point>())
 	, duration(std::vector<short>())
 {
 	if (type == NONE)
 		cout << "Warning: animation type " << _type << " is unknown" << endl;
+}
+
+Animation::Animation(const Animation& a)
+	: name(a.name)
+	, type(a.type)
+	, sprites(a.sprites)
+	, number_frames(a.number_frames)
+	, cur_frame(0)
+	, cur_frame_index(a.cur_frame_index)
+	, cur_frame_duration(a.cur_frame_duration)
+	, additional_data(a.additional_data)
+	, times_played(0)
+	, gfx(std::vector<SDL_Rect>(a.gfx))
+	, render_offset(std::vector<Point>(a.render_offset))
+	, duration(std::vector<short>(a.duration))
+{
 }
 
 void Animation::setupUncompressed(Point _render_size, Point _render_offset, int _position, int _frames, int _duration) {
@@ -94,11 +113,16 @@ void Animation::addFrame(	unsigned short index,
 							SDL_Rect sdl_rect,
 							Point _render_offset) {
 
-	if (index > gfx.size()/8)
-		fprintf(stderr, "Animation::addFrame: index out of bounds. must be in [0, %zu]\n", gfx.size()/8);
-	if (direction > 7)
-		fprintf(stderr, "Animation::addFrame: direction out of bounds. must be in [0, 7]\n");
-
+	if (index > gfx.size()/8) {
+		fprintf(stderr, "WARNING: Animation(%s) adding rect(%d, %d, %d, %d) to frame index(%u) out of bounds. must be in [0, %zu]\n",
+		name.c_str(), sdl_rect.x, sdl_rect.y, sdl_rect.w, sdl_rect.h, index, gfx.size()/8);
+		return;
+	}
+	if (direction > 7) {
+		fprintf(stderr, "WARNING: Animation(%s) adding rect(%d, %d, %d, %d) to frame(%u) direction(%u) out of bounds. must be in [0, 7]\n",
+		name.c_str(), sdl_rect.x, sdl_rect.y, sdl_rect.w, sdl_rect.h, index, direction);
+		return;
+	}
 	gfx[8*index+direction] = sdl_rect;
 	render_offset[8*index+direction] = _render_offset;
 }

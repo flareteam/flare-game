@@ -35,6 +35,7 @@ private:
 	PowerManager *powers;
 	bool loadGraphics(const std::string& type_id);
 	bool loadSounds(const std::string& type_id);
+	bool loadAnimationsAndAssignTo(const std::string &type_id, Enemy *e);
 
 	std::vector<std::string> gfx_prefixes;
 	std::vector<SDL_Surface*> sprites;
@@ -45,6 +46,16 @@ private:
 	std::vector<Mix_Chunk*> sound_hit;
 	std::vector<Mix_Chunk*> sound_die;
 	std::vector<Mix_Chunk*> sound_critdie;
+
+	std::vector<std::string> anim_prefixes;
+	std::vector<std::vector<Animation*> > anim_entities;
+
+	/**
+	 * callee is responsible for deleting returned enemy object
+	 */
+	Enemy *getEnemyPrototype(const std::string& type_id);
+
+	std::vector<Enemy> prototypes;
 
 public:
 	EnemyManager(PowerManager *_powers, MapRenderer *_map);

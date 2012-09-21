@@ -25,6 +25,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "SDL_gfxBlitFunc.h"
 #include "Animation.h"
+#include "AnimationManager.h"
+#include "AnimationSet.h"
 #include "Avatar.h"
 #include "CombatText.h"
 #include "FileParser.h"
@@ -47,7 +49,9 @@ Avatar::Avatar(PowerManager *_powers, MapRenderer *_map) : Entity(_map), powers(
 	stats.cooldown = 4;
 
 	// load the hero's animations from hero definition file
-	loadAnimations("animations/hero.txt");
+	animationSet = AnimationManager::instance()->getAnimationSet("hero.txt");
+	delete activeAnimation;
+	activeAnimation = animationSet->getAnimation(animationSet->starting_animation);
 
 	loadLayerDefinitions();
 }
@@ -858,7 +862,9 @@ void Avatar::transform() {
 	stats.humanoid = charmed_stats->humanoid;
 	stats.animations = charmed_stats->animations;
 	stats.animationSpeed = charmed_stats->animationSpeed;
-	loadAnimations("animations/" + charmed_stats->animations + ".txt");
+	animationSet =  AnimationManager::instance()->getAnimationSet(charmed_stats->animations + ".txt");
+	delete activeAnimation;
+	activeAnimation = animationSet->getAnimation(animationSet->starting_animation);
 	stats.cur_state = AVATAR_STANCE;
 
 	// damage
@@ -921,7 +927,10 @@ void Avatar::untransform() {
 	stats.humanoid = hero_stats->humanoid;
 	stats.animations = hero_stats->animations;
 	stats.animationSpeed = hero_stats->animationSpeed;
-	loadAnimations("animations/hero.txt");
+
+	animationSet = AnimationManager::instance()->getAnimationSet("hero.txt");
+	delete activeAnimation;
+	activeAnimation = animationSet->getAnimation(animationSet->starting_animation);
 	stats.cur_state = AVATAR_STANCE;
 
 	// This is a bit of a hack.

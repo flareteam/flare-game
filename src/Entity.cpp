@@ -23,17 +23,33 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "Animation.h"
+#include "AnimationManager.h"
+#include "AnimationSet.h"
 #include "Entity.h"
-#include "FileParser.h"
 #include "MapRenderer.h"
 #include "SharedResources.h"
-#include "UtilsParsing.h"
 
 #include <iostream>
 
 using namespace std;
 
-Entity::Entity(MapRenderer* _map) : sprites(NULL), activeAnimation(NULL), map(_map) {
+Entity::Entity(MapRenderer* _map)
+ : sprites(NULL)
+ , transformed_sprites(NULL)
+ , activeAnimation(NULL)
+ , animationSet(NULL)
+ , map(_map)
+{
+}
+
+Entity::Entity(const Entity &e)
+ : sprites(e.sprites)
+ , transformed_sprites(e.transformed_sprites)
+ , activeAnimation(new Animation(*e.activeAnimation))
+ , animationSet(e.animationSet)
+ , map(e.map)
+ , stats(StatBlock(e.stats))
+{
 }
 
 /**
@@ -128,146 +144,25 @@ int Entity::face(int mapx, int mapy) {
 }
 
 /**
- * Load the entity's animation from animation definition file
- */
-void Entity::loadAnimations(const string& filename) {
-
-	if (animations.size() > 0) animations.clear();
-
-	FileParser parser;
-
-	if (!parser.open(mods->locate(filename).c_str())) {
-		cout << "Error loading animation definition file: " << filename << endl;
-		SDL_Quit();
-		exit(1);
-	}
-
-	string name = "";
-	int position = 0;
-	int frames = 0;
-	int duration = 0;
-	Point render_size;
-	Point render_offset;
-	string type = "";
-	string firstAnimation = "";
-	bool first_section=true;
-	bool compressed_loading=false; // is reset every section to false, set by frame keyword
-	Animation *newanim;
-
-	// Parse the file and on each new section create an animation object from the data parsed previously
-	parser.next();
-
-	do {
-		// create the animation if finished parsing a section
-		if (parser.new_section) {
-			if (!first_section && !compressed_loading) {
-				Animation *a = new Animation(name, type);
-				a->setupUncompressed(render_size, render_offset,  position, frames, duration);
-				animations.push_back(a);
-			}
-			first_section = false;
-			compressed_loading = false;
-		}
-
-		if (parser.key == "position") {
-			position = toInt(parser.val);
-		}
-		else if (parser.key == "frames") {
-			frames = toInt(parser.val);
-		}
-		else if (parser.key == "duration") {
-			int ms_per_frame = toInt(parser.val);
-
-			duration = (int)round((float)ms_per_frame / (1000.0 / (float)MAX_FRAMES_PER_SEC));
-			// adjust duration according to the entity's animation speed
-			duration = (duration * 100) / stats.animationSpeed;
-
-			// TEMP: if an animation is too fast, display one frame per fps anyway
-			if (duration < 1) duration=1;
-		}
-		else if (parser.key == "type")
-			type = parser.val;
-		else if (parser.key == "render_size_x")
-			render_size.x = toInt(parser.val);
-		else if (parser.key == "render_size_y")
-			render_size.y = toInt(parser.val);
-		else if (parser.key == "render_offset_x")
-			render_offset.x = toInt(parser.val);
-		else if (parser.key == "render_offset_y")
-			render_offset.y = toInt(parser.val);
-		else if (parser.key == "active_frame")
-			cout << "active frames in entities not supported" << endl;
-		else if (parser.key == "frame") {
-			if (compressed_loading == false) { // first frame statement in section
-				newanim = new Animation(name, type);
-				newanim->setup(frames, duration);
-				animations.push_back(newanim);
-				compressed_loading = true;
-			}
-			// frame = index, direction, x, y, w, h, offsetx, offsety
-			SDL_Rect r;
-			Point offset;
-			const int index = toInt(parser.nextValue());
-			const int direction = toInt(parser.nextValue());
-			r.x = toInt(parser.nextValue());
-			r.y = toInt(parser.nextValue());
-			r.w = toInt(parser.nextValue());
-			r.h = toInt(parser.nextValue());
-			offset.x = toInt(parser.nextValue());
-			offset.y = toInt(parser.nextValue());
-			newanim->addFrame(index, direction, r, offset);
-		}
-
-		if (name == "") {
-			// This is the first animation
-			firstAnimation = parser.section;
-		}
-		name = parser.section;
-	}
-	while (parser.next());
-
-	if (!compressed_loading) {
-		// add final animation
-		Animation *a = new Animation(name, type);
-		a->setupUncompressed(render_size, render_offset, position, frames, duration);
-		animations.push_back(a);
-	}
-
-	// set the default animation
-	if (firstAnimation != "") {
-		setAnimation(firstAnimation);
-	}
-}
-
-/**
  * Set the entity's current animation by name
-*/
+ */
 bool Entity::setAnimation(const string& animationName) {
 
 	// if the animation is already the requested one do nothing
-	if (activeAnimation != NULL && activeAnimation->getName() == animationName) {
+	if (activeAnimation != NULL && activeAnimation->getName() == animationName)
 		return true;
-	}
 
-	// search animations for the requested animation and set the active animation to it if found
-	for (vector<Animation*>::iterator it = animations.begin(); it!=animations.end(); it++) {
-		if ((*it) != NULL && (*it)->getName() == animationName) {
-			activeAnimation = *it;
-			activeAnimation->reset();
-			return true;
-		}
-	}
+	delete activeAnimation;
+	activeAnimation = animationSet->getAnimation(animationName);
 
-	return false;
+	if (activeAnimation == NULL)
+		fprintf(stderr, "Entity::setAnimation(%s): not found\n", animationName.c_str());
+
+	return activeAnimation == NULL;
 }
 
 Entity::~Entity () {
 
-	// delete all loaded animations
-	for (vector<Animation*>::const_iterator it = animations.begin(); it != animations.end(); it++)
-	{
-		delete *it;
-	}
-	animations.clear();
+	delete activeAnimation;
 }
 
