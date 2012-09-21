@@ -121,12 +121,5 @@ bool loadSettings();
 bool saveSettings();
 bool loadDefaults();
 
-const std::string binding_name[] = {"Cancel", "Accept", "Up", "Down", "Left", "Right",
-									"Bar1", "Bar2", "Bar3", "Bar4", "Bar5", "Bar6",
-									"Bar7", "Bar8", "Bar9", "Bar0", "Character", "Inventory",
-									"Powers", "Log", "Main1", "Main2", "Ctrl",
-									"Shift", "Delete"};
-
-const std::string mouse_button[] = {"lmb", "mmb", "rmb", "wheel up", "wheel down", "mbx1", "mbx2"};
 
 #endif
