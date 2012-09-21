@@ -46,6 +46,7 @@ void ModManager::loadModList() {
 	ifstream infile;
 	string line;
 	string starts_with;
+	string test_path;
 
 	infile.open((PATH_CONF + "mods.txt").c_str(), ios::in);
 
@@ -72,7 +73,14 @@ void ModManager::loadModList() {
 		starts_with = line.at(0);
 		if (starts_with == "#") continue;
 
-		mod_list.push_back(line);
+		// add the mod if it exists in the mods folder
+		test_path = PATH_DATA + "mods/" + line + "/";
+
+		if (fileExists(test_path)) {
+			mod_list.push_back(line);
+		} else {
+			fprintf(stderr, "Mod \"%s\" not found, skipping\n", line.c_str());
+		}
 	}
 	infile.close();
 }
