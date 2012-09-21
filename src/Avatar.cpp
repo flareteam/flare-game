@@ -705,7 +705,7 @@ bool Avatar::takeHit(Hazard h) {
 		if (stats.blocking) avoidance *= 2;
 		if (MAX_AVOIDANCE < avoidance) avoidance = MAX_AVOIDANCE;
 		if (rand() % 100 > (h.accuracy - avoidance + 25)) {
-			combat_text->addMessage("miss", stats.pos, COMBAT_MESSAGE_MISS, true);
+			combat_text->addMessage(msg->get("miss"), stats.pos, COMBAT_MESSAGE_MISS, true);
 			return false;
 		}
 

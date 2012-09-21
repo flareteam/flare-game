@@ -34,6 +34,10 @@ msgstr ""
 msgid "You are defeated.  You lose half your %s.  Press Enter to continue."
 msgstr ""
 
+#: ../../../src/Avatar.cpp:708 ../../../src/Enemy.cpp:168
+msgid "miss"
+msgstr ""
+
 #: ../../../src/Avatar.cpp:795 ../../../src/Enemy.cpp:261
 #: ../../../src/PowerManager.cpp:762 ../../../src/PowerManager.cpp:764
 #: ../../../src/PowerManager.cpp:773 ../../../src/PowerManager.cpp:775
@@ -284,6 +288,10 @@ msgstr ""
 
 #: ../../../src/GameStateNew.cpp:137
 msgid "Permadeath?"
+msgstr ""
+
+#: ../../../src/GameStatePlay.cpp:90
+msgid "Loading..."
 msgstr ""
 
 #: ../../../src/GameStatePlay.cpp:202 ../../../src/GameStatePlay.cpp:203
@@ -615,9 +623,7 @@ msgstr ""
 
 #: ../../../src/MenuCharacter.cpp:302
 #, c-format
-msgid ""
-"Ticks of HP regen per minute. Each point of Physical grants +%d HP regen. "
-"Each level grants +%d HP regen"
+msgid "Ticks of HP regen per minute. Each point of Physical grants +%d HP regen. Each level grants +%d HP regen"
 msgstr ""
 
 #: ../../../src/MenuCharacter.cpp:307
@@ -635,9 +641,7 @@ msgstr ""
 
 #: ../../../src/MenuCharacter.cpp:314
 #, c-format
-msgid ""
-"Ticks of MP regen per minute. Each point of Mental grants +%d MP regen. Each "
-"level grants +%d MP regen"
+msgid "Ticks of MP regen per minute. Each point of Mental grants +%d MP regen. Each level grants +%d MP regen"
 msgstr ""
 
 #: ../../../src/MenuCharacter.cpp:319
@@ -646,8 +650,7 @@ msgstr ""
 
 #: ../../../src/MenuCharacter.cpp:320 ../../../src/MenuCharacter.cpp:326
 #, c-format
-msgid ""
-"Each point of Offense grants +%d accuracy. Each level grants +%d accuracy"
+msgid "Each point of Offense grants +%d accuracy. Each level grants +%d accuracy"
 msgstr ""
 
 #: ../../../src/MenuCharacter.cpp:325
@@ -660,8 +663,7 @@ msgstr ""
 
 #: ../../../src/MenuCharacter.cpp:332 ../../../src/MenuCharacter.cpp:338
 #, c-format
-msgid ""
-"Each point of Defense grants +%d avoidance. Each level grants +%d avoidance"
+msgid "Each point of Defense grants +%d avoidance. Each level grants +%d avoidance"
 msgstr ""
 
 #: ../../../src/MenuCharacter.cpp:337

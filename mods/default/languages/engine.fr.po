@@ -39,6 +39,10 @@ msgstr ""
 "Vous êtes vaincu. Vous perdez la moitié de votre or. Appuyez sur Entrée pour "
 "continuer."
 
+#: ../../../src/Avatar.cpp:708 ../../../src/Enemy.cpp:168
+msgid "miss"
+msgstr ""
+
 #: ../../../src/Avatar.cpp:795 ../../../src/Enemy.cpp:261
 #: ../../../src/PowerManager.cpp:762 ../../../src/PowerManager.cpp:764
 #: ../../../src/PowerManager.cpp:773 ../../../src/PowerManager.cpp:775
@@ -295,6 +299,11 @@ msgstr "Choisissez un nom"
 #: ../../../src/GameStateNew.cpp:137
 msgid "Permadeath?"
 msgstr "Mort permanente (permadeath) ? "
+
+#: ../../../src/GameStatePlay.cpp:90
+#, fuzzy
+msgid "Loading..."
+msgstr "Chargement d'une partie..."
 
 #: ../../../src/GameStatePlay.cpp:202 ../../../src/GameStatePlay.cpp:203
 #: ../../../src/MenuManager.cpp:378 ../../../src/MenuManager.cpp:379

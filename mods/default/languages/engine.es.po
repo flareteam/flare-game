@@ -36,6 +36,10 @@ msgid "You are defeated.  You lose half your %s.  Press Enter to continue."
 msgstr ""
 "Fuiste derrotado. Pierdes la mitad del dinero. Presiona Enter para continuar."
 
+#: ../../../src/Avatar.cpp:708 ../../../src/Enemy.cpp:168
+msgid "miss"
+msgstr ""
+
 #: ../../../src/Avatar.cpp:795 ../../../src/Enemy.cpp:261
 #: ../../../src/PowerManager.cpp:762 ../../../src/PowerManager.cpp:764
 #: ../../../src/PowerManager.cpp:773 ../../../src/PowerManager.cpp:775
@@ -288,6 +292,11 @@ msgstr "Elija un Nombre"
 #: ../../../src/GameStateNew.cpp:137
 msgid "Permadeath?"
 msgstr ""
+
+#: ../../../src/GameStatePlay.cpp:90
+#, fuzzy
+msgid "Loading..."
+msgstr "Cargando juego grabado..."
 
 #: ../../../src/GameStatePlay.cpp:202 ../../../src/GameStatePlay.cpp:203
 #: ../../../src/MenuManager.cpp:378 ../../../src/MenuManager.cpp:379
