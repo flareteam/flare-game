@@ -63,8 +63,8 @@ data=
 0,0,0,18,16,16,16,51,51,51,51,16,18,17,0,0,0,0,0,0,
 0,0,0,17,16,16,16,51,51,51,51,17,17,18,0,0,0,0,0,0,
 0,0,0,17,18,16,18,17,17,16,16,19,17,19,0,0,0,0,0,0,
-0,0,0,16,18,17,19,17,18,18,17,17,17,16,0,0,0,0,0,0,
-0,19,16,16,18,16,19,17,18,19,16,16,17,19,16,16,18,0,0,0,
+0,0,0,16,18,17,19,17,0,0,17,17,17,16,0,0,0,0,0,0,
+0,19,16,16,18,16,19,17,264,0,16,16,17,19,16,16,18,0,0,0,
 0,16,17,16,17,16,16,18,19,16,16,18,17,16,17,16,17,0,0,0,
 0,16,16,17,16,18,19,19,18,16,19,19,16,16,16,17,16,0,0,0,
 0,0,0,18,19,17,16,16,17,16,16,17,17,16,0,0,17,0,0,0,
@@ -254,12 +254,26 @@ location=11,32
 type=skeleton
 location=4,37
 
-[enemy]
-type=minotaur
-location=10,43
+[event]
+type=on_load
+location=2,48,1,1
+requires_status=waypoint_averguard_atrium
+mapmod=background,8,50,265
 
+[event]
+type=teleport
+location=8,49,2,2
+hotspot=location
+intermap=warp_zone.txt,30,32
+tooltip=Warp Zone
 
-
+[event]
+type=run_once
+location=6,47,6,6
+requires_not=waypoint_averguard_atrium
+set_status=waypoint_averguard_atrium
+msg=Averguard Atrium waypoint discovered
+mapmod=background,8,50,265
 
 
 
