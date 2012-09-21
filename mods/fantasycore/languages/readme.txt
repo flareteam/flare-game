@@ -1,6 +1,9 @@
 To generate the appropriate .pot files, you need to run the following commands from the languages directory:
 
-xgettext --keyword=get -o engine.pot ../../../src/*.cpp
+For engine:
+xgettext --no-wrap --keyword=get -o engine.pot ../../../src/*.cpp
+
+For mods:
 ./xgettext.py
 
 To update existing .po files, you need to run the following command from the languages directory:
