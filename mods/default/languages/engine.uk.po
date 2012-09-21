@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-21 10:14+0300\n"
+"POT-Creation-Date: 2012-09-21 15:57+0300\n"
 "PO-Revision-Date: 2012-09-21 11:05+0300\n"
 "Last-Translator: Igor Paliychuk <mansonigor@gmail.com>\n"
 "Language-Team: Ukrainian <LL@li.org>\n"
@@ -97,6 +97,7 @@ msgid "Defaults"
 msgstr "Типово"
 
 #: ../../../src/GameStateConfig.cpp:87 ../../../src/GameStateNew.cpp:49
+#: ../../../src/InputState.cpp:55
 msgid "Cancel"
 msgstr "Скасувати"
 
@@ -310,6 +311,131 @@ msgstr "Вийти з гри"
 msgid "Flare Alpha v0.17"
 msgstr "Flare Альфа v0.17"
 
+#: ../../../src/InputState.cpp:56
+msgid "Accept"
+msgstr "Прийняти"
+
+#: ../../../src/InputState.cpp:57
+msgid "Up"
+msgstr "Вверх"
+
+#: ../../../src/InputState.cpp:58
+msgid "Down"
+msgstr "Вниз"
+
+#: ../../../src/InputState.cpp:59
+msgid "Left"
+msgstr "Вліво"
+
+#: ../../../src/InputState.cpp:60
+msgid "Right"
+msgstr "Вправо"
+
+#: ../../../src/InputState.cpp:61
+msgid "Bar1"
+msgstr "Слот1"
+
+#: ../../../src/InputState.cpp:62
+msgid "Bar2"
+msgstr "Слот2"
+
+#: ../../../src/InputState.cpp:63
+msgid "Bar3"
+msgstr "Слот3"
+
+#: ../../../src/InputState.cpp:64
+msgid "Bar4"
+msgstr "Слот4"
+
+#: ../../../src/InputState.cpp:65
+msgid "Bar5"
+msgstr "Слот5"
+
+#: ../../../src/InputState.cpp:66
+msgid "Bar6"
+msgstr "Слот6"
+
+#: ../../../src/InputState.cpp:67
+msgid "Bar7"
+msgstr "Слот7"
+
+#: ../../../src/InputState.cpp:68
+msgid "Bar8"
+msgstr "Слот8"
+
+#: ../../../src/InputState.cpp:69
+msgid "Bar9"
+msgstr "Слот9"
+
+#: ../../../src/InputState.cpp:70
+msgid "Bar0"
+msgstr "Слот0"
+
+#: ../../../src/InputState.cpp:71 ../../../src/MenuCharacter.cpp:206
+msgid "Character"
+msgstr "Персонаж"
+
+#: ../../../src/InputState.cpp:72 ../../../src/MenuInventory.cpp:167
+#: ../../../src/MenuVendor.cpp:48
+msgid "Inventory"
+msgstr "Інвентар"
+
+#: ../../../src/InputState.cpp:73 ../../../src/MenuPowers.cpp:168
+msgid "Powers"
+msgstr "Уміння"
+
+#: ../../../src/InputState.cpp:74 ../../../src/MenuLog.cpp:171
+msgid "Log"
+msgstr "Журнал"
+
+#: ../../../src/InputState.cpp:75
+msgid "Main1"
+msgstr "Дія1"
+
+#: ../../../src/InputState.cpp:76
+msgid "Main2"
+msgstr "Дія2"
+
+#: ../../../src/InputState.cpp:77
+msgid "Ctrl"
+msgstr "Ctrl"
+
+#: ../../../src/InputState.cpp:78
+msgid "Shift"
+msgstr "Shift"
+
+#: ../../../src/InputState.cpp:79
+msgid "Delete"
+msgstr "Видалити"
+
+#: ../../../src/InputState.cpp:81
+msgid "lmb"
+msgstr "лкм"
+
+#: ../../../src/InputState.cpp:82
+msgid "mmb"
+msgstr "скм"
+
+#: ../../../src/InputState.cpp:83
+msgid "rmb"
+msgstr "пкм"
+
+#: ../../../src/InputState.cpp:84
+msgid "wheel up"
+msgstr "кол вверх"
+
+#: ../../../src/InputState.cpp:85
+msgid "wheel down"
+msgstr "кол вниз"
+
+#: ../../../src/InputState.cpp:86
+msgid "mbx1"
+msgstr "кмx1"
+
+#: ../../../src/InputState.cpp:87
+msgid "mbx2"
+msgstr "кмx2"
+
 #: ../../../src/ItemManager.cpp:512
 #, c-format
 msgid "Level %d"
@@ -446,10 +572,6 @@ msgstr "Уміння (P)"
 #: ../../../src/MenuActionBar.cpp:411
 msgid "Log Menu (L)"
 msgstr "Журнал (L)"
-
-#: ../../../src/MenuCharacter.cpp:206
-msgid "Character"
-msgstr "Персонаж"
 
 #: ../../../src/MenuCharacter.cpp:219
 msgid "Name"
@@ -624,10 +746,6 @@ msgstr "Вийти"
 msgid "Save and exit to title?"
 msgstr "Зберегти та вийти?"
 
-#: ../../../src/MenuInventory.cpp:167 ../../../src/MenuVendor.cpp:48
-msgid "Inventory"
-msgstr "Інвентар"
-
 #: ../../../src/MenuInventory.cpp:212
 msgid "Use SHIFT to move only one item."
 msgstr "SHIFT для переміщення одного предмету."
@@ -652,10 +770,6 @@ msgstr "Квести"
 msgid "Stats"
 msgstr "Стат"
 
-#: ../../../src/MenuLog.cpp:171
-msgid "Log"
-msgstr "Журнал"
-
 #: ../../../src/MenuManager.cpp:216
 #, c-format
 msgid "XP: %d/%d"
@@ -665,10 +779,6 @@ msgstr "Досвід: %d/%d"
 #: ../../../src/MenuManager.cpp:582 ../../../src/MenuManager.cpp:583
 msgid "Not enough money."
 msgstr "Недостатньо коштів."
-
-#: ../../../src/MenuPowers.cpp:168
-msgid "Powers"
-msgstr "Уміння"
 
 #: ../../../src/MenuPowers.cpp:470
 msgid "Requires a physical weapon"

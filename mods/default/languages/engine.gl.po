@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-21 10:14+0300\n"
+"POT-Creation-Date: 2012-09-21 15:57+0300\n"
 "PO-Revision-Date: 2012-07-14 16:59+0200\n"
 "Last-Translator: Adrián Chaves Fernández <adriyetichaves@gmail.com>\n"
 "Language-Team: Galician <kde-i18n-doc@kde.org>\n"
@@ -107,6 +107,7 @@ msgid "Defaults"
 msgstr "Restablecer"
 
 #: ../../../src/GameStateConfig.cpp:87 ../../../src/GameStateNew.cpp:49
+#: ../../../src/InputState.cpp:55
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -327,6 +328,133 @@ msgstr "Saír"
 msgid "Flare Alpha v0.17"
 msgstr "Flare 0.16 (alfa)"
 
+#: ../../../src/InputState.cpp:56
+msgid "Accept"
+msgstr ""
+
+#: ../../../src/InputState.cpp:57
+msgid "Up"
+msgstr ""
+
+#: ../../../src/InputState.cpp:58
+msgid "Down"
+msgstr ""
+
+#: ../../../src/InputState.cpp:59
+msgid "Left"
+msgstr ""
+
+#: ../../../src/InputState.cpp:60
+#, fuzzy
+msgid "Right"
+msgstr "Cabaleiro"
+
+#: ../../../src/InputState.cpp:61
+msgid "Bar1"
+msgstr ""
+
+#: ../../../src/InputState.cpp:62
+msgid "Bar2"
+msgstr ""
+
+#: ../../../src/InputState.cpp:63
+msgid "Bar3"
+msgstr ""
+
+#: ../../../src/InputState.cpp:64
+msgid "Bar4"
+msgstr ""
+
+#: ../../../src/InputState.cpp:65
+msgid "Bar5"
+msgstr ""
+
+#: ../../../src/InputState.cpp:66
+msgid "Bar6"
+msgstr ""
+
+#: ../../../src/InputState.cpp:67
+msgid "Bar7"
+msgstr ""
+
+#: ../../../src/InputState.cpp:68
+msgid "Bar8"
+msgstr ""
+
+#: ../../../src/InputState.cpp:69
+msgid "Bar9"
+msgstr ""
+
+#: ../../../src/InputState.cpp:70
+msgid "Bar0"
+msgstr ""
+
+#: ../../../src/InputState.cpp:71 ../../../src/MenuCharacter.cpp:206
+msgid "Character"
+msgstr "Personaxe"
+
+#: ../../../src/InputState.cpp:72 ../../../src/MenuInventory.cpp:167
+#: ../../../src/MenuVendor.cpp:48
+msgid "Inventory"
+msgstr "Inventario"
+
+#: ../../../src/InputState.cpp:73 ../../../src/MenuPowers.cpp:168
+msgid "Powers"
+msgstr "Habilidades"
+
+#: ../../../src/InputState.cpp:74 ../../../src/MenuLog.cpp:171
+msgid "Log"
+msgstr "Rexistro"
+
+#: ../../../src/InputState.cpp:75
+msgid "Main1"
+msgstr ""
+
+#: ../../../src/InputState.cpp:76
+msgid "Main2"
+msgstr ""
+
+#: ../../../src/InputState.cpp:77
+msgid "Ctrl"
+msgstr ""
+
+#: ../../../src/InputState.cpp:78
+msgid "Shift"
+msgstr ""
+
+#: ../../../src/InputState.cpp:79
+#, fuzzy
+msgid "Delete"
+msgstr "Borrar a partida"
+
+#: ../../../src/InputState.cpp:81
+msgid "lmb"
+msgstr ""
+
+#: ../../../src/InputState.cpp:82
+msgid "mmb"
+msgstr ""
+
+#: ../../../src/InputState.cpp:83
+msgid "rmb"
+msgstr ""
+
+#: ../../../src/InputState.cpp:84
+msgid "wheel up"
+msgstr ""
+
+#: ../../../src/InputState.cpp:85
+msgid "wheel down"
+msgstr ""
+
+#: ../../../src/InputState.cpp:86
+msgid "mbx1"
+msgstr ""
+
+#: ../../../src/InputState.cpp:87
+msgid "mbx2"
+msgstr ""
+
 #: ../../../src/ItemManager.cpp:512
 #, c-format
 msgid "Level %d"
@@ -465,10 +593,6 @@ msgstr "Habilidades (P)"
 #: ../../../src/MenuActionBar.cpp:411
 msgid "Log Menu (L)"
 msgstr "Rexistro (L)"
-
-#: ../../../src/MenuCharacter.cpp:206
-msgid "Character"
-msgstr "Personaxe"
 
 #: ../../../src/MenuCharacter.cpp:219
 msgid "Name"
@@ -650,10 +774,6 @@ msgstr "Volver ao menú"
 msgid "Save and exit to title?"
 msgstr "Gardar e saír ao menú?"
 
-#: ../../../src/MenuInventory.cpp:167 ../../../src/MenuVendor.cpp:48
-msgid "Inventory"
-msgstr "Inventario"
-
 #: ../../../src/MenuInventory.cpp:212
 msgid "Use SHIFT to move only one item."
 msgstr "Prema Maiús para mover só un ítem."
@@ -679,10 +799,6 @@ msgstr "Misións"
 msgid "Stats"
 msgstr "Estatísticas"
 
-#: ../../../src/MenuLog.cpp:171
-msgid "Log"
-msgstr "Rexistro"
-
 #: ../../../src/MenuManager.cpp:216
 #, c-format
 msgid "XP: %d/%d"
@@ -692,10 +808,6 @@ msgstr "Experiencia: %d/%d"
 #: ../../../src/MenuManager.cpp:582 ../../../src/MenuManager.cpp:583
 msgid "Not enough money."
 msgstr ""
-
-#: ../../../src/MenuPowers.cpp:168
-msgid "Powers"
-msgstr "Habilidades"
 
 #: ../../../src/MenuPowers.cpp:470
 msgid "Requires a physical weapon"
