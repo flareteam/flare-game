@@ -8,223 +8,304 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-30 13:48-0600\n"
+"POT-Creation-Date: 2012-09-21 15:57+0300\n"
 "PO-Revision-Date: 2012-07-01 HO:MI+ZONE\n"
 "Last-Translator: Nubux<strauss.morgan@gmail.com>\n"
 "Language-Team:\n"
-"Language:French \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language:French \n"
 
-#: ../../../src/Avatar.cpp:389
+#: ../../../src/Avatar.cpp:444
 #, c-format
 msgid "Congratulations, you have reached level %d!"
 msgstr "Félicitations, vous avez atteint le niveau %d !"
 
-#: ../../../src/Avatar.cpp:391
+#: ../../../src/Avatar.cpp:446
 msgid "You may increase one attribute through the Character Menu."
 msgstr "Vous pouvez améliorer un attribut via le menu Personnage."
 
-#: ../../../src/Avatar.cpp:572
+#: ../../../src/Avatar.cpp:633
 msgid "You are defeated. Game over! Press Enter to exit to Title."
 msgstr "Vous êtes vaincu. Votre personnage est mort ! Pressez Entrée pour revenir au menu."
 
-#: ../../../src/Avatar.cpp:575
-msgid "You are defeated.  You lose half your gold.  Press Enter to continue."
+#: ../../../src/Avatar.cpp:636
+#, fuzzy, c-format
+msgid "You are defeated.  You lose half your %s.  Press Enter to continue."
 msgstr "Vous êtes vaincu. Vous perdez la moitié de votre or. Appuyez sur Entrée pour continuer."
 
-#: ../../../src/CampaignManager.cpp:149
+#: ../../../src/Avatar.cpp:708 ../../../src/Enemy.cpp:168
+msgid "miss"
+msgstr ""
+
+#: ../../../src/Avatar.cpp:795 ../../../src/Enemy.cpp:261
+#: ../../../src/PowerManager.cpp:762 ../../../src/PowerManager.cpp:764
+#: ../../../src/PowerManager.cpp:773 ../../../src/PowerManager.cpp:775
+#, c-format
+msgid "+%d HP"
+msgstr ""
+
+#: ../../../src/CampaignManager.cpp:141
 #, c-format
 msgid "You receive %s."
 msgstr "Vous recevez %s."
 
-#: ../../../src/CampaignManager.cpp:151
+#: ../../../src/CampaignManager.cpp:143
 #, c-format
 msgid "You receive %s x%d."
 msgstr "Vous recevez %s x%d."
 
-#: ../../../src/CampaignManager.cpp:159
-#, c-format
-msgid "You receive %d gold."
-msgstr "Vous recevez %d or."
+#: ../../../src/CampaignManager.cpp:151
+#, fuzzy, c-format
+msgid "You receive %d %s."
+msgstr "Vous recevez %s."
 
-#: ../../../src/CampaignManager.cpp:165
+#: ../../../src/CampaignManager.cpp:157
 #, c-format
 msgid "You receive %d XP."
 msgstr "Vous recevez %d points d'expérience."
 
-#: ../../../src/GameStateConfig.cpp:72 ../../../src/GameStateConfig.cpp:689
-#: ../../../src/GameStateConfig.cpp:691
-msgid "Press a key to assign: "
-msgstr "Pressez une touche pour l'assigner : "
+#: ../../../src/CampaignManager.cpp:163
+msgid "HP restored."
+msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:73 ../../../src/GameStateConfig.cpp:258
-msgid "Defaults"
-msgstr "Par défaut"
+#: ../../../src/CampaignManager.cpp:167
+msgid "MP restored."
+msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:73
-msgid "Set ALL settings to default?"
-msgstr "Réinitaliser les réglages?"
+#: ../../../src/CampaignManager.cpp:172
+msgid "HP and MP restored."
+msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:243
-msgid "Video"
-msgstr "Vidéo"
+#: ../../../src/CampaignManager.cpp:176
+msgid "Negative effects removed."
+msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:244
-msgid "Audio"
-msgstr "Audio"
+#: ../../../src/CampaignManager.cpp:182
+msgid "HP and MP restored, negative effects removed"
+msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:245
-msgid "Interface"
-msgstr "Interface"
+#: ../../../src/Enemy.cpp:268 ../../../src/PowerManager.cpp:784
+#: ../../../src/PowerManager.cpp:786
+#, c-format
+msgid "+%d MP"
+msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:246
-msgid "Input"
-msgstr "Entrée"
-
-#: ../../../src/GameStateConfig.cpp:247
-msgid "Keybindings"
-msgstr "Commandes"
-
-#: ../../../src/GameStateConfig.cpp:248
-msgid "Mods"
-msgstr "Mods"
-
-#: ../../../src/GameStateConfig.cpp:252
+#: ../../../src/GameStateConfig.cpp:77
 msgid "Ok"
 msgstr "Ok"
 
-#: ../../../src/GameStateConfig.cpp:264 ../../../src/GameStateNew.cpp:48
+#: ../../../src/GameStateConfig.cpp:82 ../../../src/GameStateConfig.cpp:161
+msgid "Defaults"
+msgstr "Par défaut"
+
+#: ../../../src/GameStateConfig.cpp:87 ../../../src/GameStateNew.cpp:49
+#: ../../../src/InputState.cpp:55
 msgid "Cancel"
 msgstr "Annuler"
 
-#: ../../../src/GameStateConfig.cpp:270
+#: ../../../src/GameStateConfig.cpp:152
+msgid "Video"
+msgstr "Vidéo"
+
+#: ../../../src/GameStateConfig.cpp:153
+msgid "Audio"
+msgstr "Audio"
+
+#: ../../../src/GameStateConfig.cpp:154
+msgid "Interface"
+msgstr "Interface"
+
+#: ../../../src/GameStateConfig.cpp:155
+msgid "Input"
+msgstr "Entrée"
+
+#: ../../../src/GameStateConfig.cpp:156
+msgid "Keybindings"
+msgstr "Commandes"
+
+#: ../../../src/GameStateConfig.cpp:157
+msgid "Mods"
+msgstr "Mods"
+
+#: ../../../src/GameStateConfig.cpp:160 ../../../src/GameStateConfig.cpp:895
+#: ../../../src/GameStateConfig.cpp:897
+msgid "Assign: "
+msgstr ""
+
+#: ../../../src/GameStateConfig.cpp:161
+#, fuzzy
+msgid "Reset ALL settings?"
+msgstr "Réinitaliser les réglages?"
+
+#: ../../../src/GameStateConfig.cpp:238
 msgid "Full Screen Mode"
 msgstr "Mode plein écran"
 
-#: ../../../src/GameStateConfig.cpp:278
-msgid "Music Volume"
-msgstr "Volume de la musique"
-
-#: ../../../src/GameStateConfig.cpp:286
-msgid "Sound Volume"
-msgstr "Volume des sons"
-
-#: ../../../src/GameStateConfig.cpp:294
-msgid "Gamma"
-msgstr "Gamma"
-
-#: ../../../src/GameStateConfig.cpp:302
+#: ../../../src/GameStateConfig.cpp:251
 msgid "Move hero using mouse"
 msgstr "Déplacement du héro à la souris"
 
-#: ../../../src/GameStateConfig.cpp:310
+#: ../../../src/GameStateConfig.cpp:264
 msgid "Show combat text"
 msgstr "Afficher le texte des combats"
 
-#: ../../../src/GameStateConfig.cpp:318
+#: ../../../src/GameStateConfig.cpp:278
 msgid "Hardware surfaces"
 msgstr "Hardware surfaces"
 
-#: ../../../src/GameStateConfig.cpp:326
+#: ../../../src/GameStateConfig.cpp:291
 msgid "Double buffering"
 msgstr "Double buffering"
 
-#: ../../../src/GameStateConfig.cpp:334
+#: ../../../src/GameStateConfig.cpp:305
 msgid "Use joystick"
 msgstr "Utiliser une manette"
 
-#: ../../../src/GameStateConfig.cpp:342 ../../../src/GameStateConfig.cpp:346
-msgid "Try disabling for performance"
-msgstr "Désactiver pour de meilleures performances"
+#: ../../../src/GameStateConfig.cpp:318
+msgid "High Quality Textures"
+msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:352
+#: ../../../src/GameStateConfig.cpp:331
+msgid "Allow changing gamma"
+msgstr ""
+
+#: ../../../src/GameStateConfig.cpp:344
+msgid "Animated tiles"
+msgstr ""
+
+#: ../../../src/GameStateConfig.cpp:357
+msgid "Mouse aim"
+msgstr ""
+
+#: ../../../src/GameStateConfig.cpp:370
+msgid "Show FPS"
+msgstr ""
+
+#: ../../../src/GameStateConfig.cpp:384
+msgid "Music Volume"
+msgstr "Volume de la musique"
+
+#: ../../../src/GameStateConfig.cpp:397
+msgid "Sound Volume"
+msgstr "Volume des sons"
+
+#: ../../../src/GameStateConfig.cpp:410
+msgid "Gamma"
+msgstr "Gamma"
+
+#: ../../../src/GameStateConfig.cpp:424
 msgid "Resolution"
 msgstr "Résolution"
 
-#: ../../../src/GameStateConfig.cpp:360
-msgid "Language"
-msgstr "Langues"
-
-#: ../../../src/GameStateConfig.cpp:368
-msgid "Joystick"
-msgstr "Manette"
-
-#: ../../../src/GameStateConfig.cpp:393
+#: ../../../src/GameStateConfig.cpp:435
 msgid "Active Mods"
 msgstr "Mods actifs"
 
-#: ../../../src/GameStateConfig.cpp:404
-msgid "Avaliable Mods"
+#: ../../../src/GameStateConfig.cpp:445
+#, fuzzy
+msgid "Available Mods"
 msgstr "Mods disponibles"
 
-#: ../../../src/GameStateConfig.cpp:416
-msgid "<< Deactivate"
+#: ../../../src/GameStateConfig.cpp:461
+msgid "Joystick"
+msgstr "Manette"
+
+#: ../../../src/GameStateConfig.cpp:473
+msgid "Language"
+msgstr "Langues"
+
+#: ../../../src/GameStateConfig.cpp:508 ../../../src/GameStateConfig.cpp:515
+#: ../../../src/GameStateConfig.cpp:522
+#, fuzzy
+msgid "Disable for performance"
+msgstr "Désactiver pour de meilleures performances"
+
+#: ../../../src/GameStateConfig.cpp:529
+msgid "Experimental"
+msgstr ""
+
+#: ../../../src/GameStateConfig.cpp:549
+#, fuzzy
+msgid "<< Disable"
 msgstr "<< Désactiver"
 
-#: ../../../src/GameStateConfig.cpp:417
-msgid "Activate >>"
-msgstr "Activer >>"
+#: ../../../src/GameStateConfig.cpp:557
+msgid "Enable >>"
+msgstr ""
 
-#: ../../../src/GameStateLoad.cpp:48 ../../../src/GameStateLoad.cpp:63
+#: ../../../src/GameStateLoad.cpp:56 ../../../src/GameStateLoad.cpp:68
 msgid "Delete Save"
 msgstr "Suppr. sauvegarde"
 
-#: ../../../src/GameStateLoad.cpp:48
+#: ../../../src/GameStateLoad.cpp:56
 msgid "Delete this save?"
 msgstr "Supprimer cette sauvegarde ?"
 
-#: ../../../src/GameStateLoad.cpp:50
+#: ../../../src/GameStateLoad.cpp:58
 msgid "Exit to Title"
 msgstr "Retour au menu"
 
-#: ../../../src/GameStateLoad.cpp:56
+#: ../../../src/GameStateLoad.cpp:64
 msgid "Choose a Slot"
 msgstr "Choisir une partie"
 
-#: ../../../src/GameStateLoad.cpp:326 ../../../src/GameStateLoad.cpp:343
+#: ../../../src/GameStateLoad.cpp:378 ../../../src/GameStateLoad.cpp:424
+#: ../../../src/GameStateLoad.cpp:447 ../../../src/GameStateLoad.cpp:466
+#: ../../../src/GameStateLoad.cpp:491
 msgid "New Game"
 msgstr "Nouvelle partie"
 
-#: ../../../src/GameStateLoad.cpp:347
+#: ../../../src/GameStateLoad.cpp:428 ../../../src/GameStateLoad.cpp:451
+#: ../../../src/GameStateLoad.cpp:470
 msgid "Load Game"
 msgstr "Charger"
 
-#: ../../../src/GameStateLoad.cpp:415
+#: ../../../src/GameStateLoad.cpp:558
 msgid "Entering game world..."
 msgstr "Entrée dans le monde du jeu..."
 
-#: ../../../src/GameStateLoad.cpp:417
+#: ../../../src/GameStateLoad.cpp:560
 msgid "Loading saved game..."
 msgstr "Chargement d'une partie..."
 
-#: ../../../src/GameStateLoad.cpp:438
+#: ../../../src/GameStateLoad.cpp:581
 #, c-format
 msgid "Level %d %s"
 msgstr "Niveau %d %s"
 
-#: ../../../src/GameStateLoad.cpp:460
+#: ../../../src/GameStateLoad.cpp:603
 msgid "Empty Slot"
 msgstr "Pas de partie"
 
-#: ../../../src/GameStateNew.cpp:54
-msgid "Create Character"
-msgstr "Jouer le personnage"
+#: ../../../src/GameStateNew.cpp:55
+#, fuzzy
+msgid "Create"
+msgstr "Personnage"
 
-#: ../../../src/GameStateNew.cpp:78
+#: ../../../src/GameStateNew.cpp:133
 msgid "Choose a Portrait"
 msgstr "Choisissez un portrait"
 
-#: ../../../src/GameStateNew.cpp:80
+#: ../../../src/GameStateNew.cpp:135
 msgid "Choose a Name"
 msgstr "Choisissez un nom"
 
-#: ../../../src/GameStateNew.cpp:83
+#: ../../../src/GameStateNew.cpp:137
 msgid "Permadeath?"
 msgstr "Mort permanente (permadeath) ? "
 
-#: ../../../src/GameStatePlay.cpp:173
+#: ../../../src/GameStatePlay.cpp:90
+#, fuzzy
+msgid "Loading..."
+msgstr "Chargement d'une partie..."
+
+#: ../../../src/GameStatePlay.cpp:202 ../../../src/GameStatePlay.cpp:203
+#: ../../../src/MenuManager.cpp:378 ../../../src/MenuManager.cpp:379
+#: ../../../src/MenuManager.cpp:403 ../../../src/MenuManager.cpp:404
+#: ../../../src/MenuManager.cpp:587 ../../../src/MenuManager.cpp:588
+#: ../../../src/MenuManager.cpp:607 ../../../src/MenuManager.cpp:608
 msgid "Inventory is full."
 msgstr "L'inventaire est complet."
 
@@ -241,585 +322,773 @@ msgid "Exit Game"
 msgstr "Quitter"
 
 #: ../../../src/GameStateTitle.cpp:57
-msgid "Flare Alpha v0.16"
+#, fuzzy
+msgid "Flare Alpha v0.17"
 msgstr "Flare alpha v0.16"
 
-#: ../../../src/ItemManager.cpp:355
+#: ../../../src/InputState.cpp:56
+msgid "Accept"
+msgstr ""
+
+#: ../../../src/InputState.cpp:57
+msgid "Up"
+msgstr ""
+
+#: ../../../src/InputState.cpp:58
+msgid "Down"
+msgstr ""
+
+#: ../../../src/InputState.cpp:59
+msgid "Left"
+msgstr ""
+
+#: ../../../src/InputState.cpp:60
+#, fuzzy
+msgid "Right"
+msgstr "Chevalier"
+
+#: ../../../src/InputState.cpp:61
+msgid "Bar1"
+msgstr ""
+
+#: ../../../src/InputState.cpp:62
+msgid "Bar2"
+msgstr ""
+
+#: ../../../src/InputState.cpp:63
+msgid "Bar3"
+msgstr ""
+
+#: ../../../src/InputState.cpp:64
+msgid "Bar4"
+msgstr ""
+
+#: ../../../src/InputState.cpp:65
+msgid "Bar5"
+msgstr ""
+
+#: ../../../src/InputState.cpp:66
+msgid "Bar6"
+msgstr ""
+
+#: ../../../src/InputState.cpp:67
+msgid "Bar7"
+msgstr ""
+
+#: ../../../src/InputState.cpp:68
+msgid "Bar8"
+msgstr ""
+
+#: ../../../src/InputState.cpp:69
+msgid "Bar9"
+msgstr ""
+
+#: ../../../src/InputState.cpp:70
+msgid "Bar0"
+msgstr ""
+
+#: ../../../src/InputState.cpp:71 ../../../src/MenuCharacter.cpp:206
+msgid "Character"
+msgstr "Personnage"
+
+#: ../../../src/InputState.cpp:72 ../../../src/MenuInventory.cpp:167
+#: ../../../src/MenuVendor.cpp:48
+msgid "Inventory"
+msgstr "Inventaire"
+
+#: ../../../src/InputState.cpp:73 ../../../src/MenuPowers.cpp:168
+msgid "Powers"
+msgstr "Pouvoirs"
+
+#: ../../../src/InputState.cpp:74 ../../../src/MenuLog.cpp:171
+msgid "Log"
+msgstr "Journal"
+
+#: ../../../src/InputState.cpp:75
+msgid "Main1"
+msgstr ""
+
+#: ../../../src/InputState.cpp:76
+msgid "Main2"
+msgstr ""
+
+#: ../../../src/InputState.cpp:77
+msgid "Ctrl"
+msgstr ""
+
+#: ../../../src/InputState.cpp:78
+msgid "Shift"
+msgstr ""
+
+#: ../../../src/InputState.cpp:79
+#, fuzzy
+msgid "Delete"
+msgstr "Suppr. sauvegarde"
+
+#: ../../../src/InputState.cpp:81
+msgid "lmb"
+msgstr ""
+
+#: ../../../src/InputState.cpp:82
+msgid "mmb"
+msgstr ""
+
+#: ../../../src/InputState.cpp:83
+msgid "rmb"
+msgstr ""
+
+#: ../../../src/InputState.cpp:84
+msgid "wheel up"
+msgstr ""
+
+#: ../../../src/InputState.cpp:85
+msgid "wheel down"
+msgstr ""
+
+#: ../../../src/InputState.cpp:86
+msgid "mbx1"
+msgstr ""
+
+#: ../../../src/InputState.cpp:87
+msgid "mbx2"
+msgstr ""
+
+#: ../../../src/ItemManager.cpp:512
 #, c-format
 msgid "Level %d"
 msgstr "Niveau %d"
 
-#: ../../../src/ItemManager.cpp:361 ../../../src/MenuInventory.cpp:124
-msgid "Main Hand"
-msgstr "Main principale"
-
-#: ../../../src/ItemManager.cpp:363 ../../../src/MenuInventory.cpp:126
-msgid "Body"
-msgstr "Corps"
-
-#: ../../../src/ItemManager.cpp:365 ../../../src/MenuInventory.cpp:128
-msgid "Off Hand"
-msgstr "Seconde main"
-
-#: ../../../src/ItemManager.cpp:367 ../../../src/MenuInventory.cpp:130
-msgid "Artifact"
-msgstr "Artefact"
-
-#: ../../../src/ItemManager.cpp:369
-msgid "Consumable"
-msgstr "Consommable"
-
-#: ../../../src/ItemManager.cpp:371
-msgid "Gem"
-msgstr "Gemme"
-
-#: ../../../src/ItemManager.cpp:373
-msgid "Quest Item"
-msgstr "Objet de quête"
-
-#: ../../../src/ItemManager.cpp:380
+#: ../../../src/ItemManager.cpp:523
 #, c-format
 msgid "Melee damage: %d-%d"
 msgstr "Dégâts en corps à corps : %d-%d"
 
-#: ../../../src/ItemManager.cpp:382
+#: ../../../src/ItemManager.cpp:525
 #, c-format
 msgid "Melee damage: %d"
 msgstr "Dégâts en corps à corps : %d"
 
-#: ../../../src/ItemManager.cpp:386
-#, c-format
-msgid "Mental damage: %d-%d"
-msgstr "Dégâts mentaux : %d-%d"
-
-#: ../../../src/ItemManager.cpp:388
-#, c-format
-msgid "Mental damage: %d"
-msgstr "Dégâts mentaux : %d"
-
-#: ../../../src/ItemManager.cpp:392
+#: ../../../src/ItemManager.cpp:529
 #, c-format
 msgid "Ranged damage: %d-%d"
 msgstr "Dégâts à distance : %d-%d"
 
-#: ../../../src/ItemManager.cpp:394
+#: ../../../src/ItemManager.cpp:531
 #, c-format
 msgid "Ranged damage: %d"
 msgstr "Dégâts à distance : %d"
 
-#: ../../../src/ItemManager.cpp:401
+#: ../../../src/ItemManager.cpp:535
+#, c-format
+msgid "Mental damage: %d-%d"
+msgstr "Dégâts mentaux : %d-%d"
+
+#: ../../../src/ItemManager.cpp:537
+#, c-format
+msgid "Mental damage: %d"
+msgstr "Dégâts mentaux : %d"
+
+#: ../../../src/ItemManager.cpp:543
 #, c-format
 msgid "Absorb: %d-%d"
 msgstr "Absorbe : %d-%d"
 
-#: ../../../src/ItemManager.cpp:403
+#: ../../../src/ItemManager.cpp:545
 #, c-format
 msgid "Absorb: %d"
 msgstr "Absorbe : %d"
 
-#: ../../../src/ItemManager.cpp:411
+#: ../../../src/ItemManager.cpp:553 ../../../src/ItemManager.cpp:632
 #, c-format
 msgid "Increases %s by %d"
 msgstr "Augmente %s de %d"
 
-#: ../../../src/ItemManager.cpp:415
+#: ../../../src/ItemManager.cpp:560 ../../../src/ItemManager.cpp:635
 #, c-format
 msgid "Decreases %s by %d"
 msgstr "Diminue %s de %d"
 
-#: ../../../src/ItemManager.cpp:433 ../../../src/MenuCharacter.cpp:324
-#: ../../../src/MenuCharacter.cpp:330 ../../../src/MenuCharacter.cpp:336
-#: ../../../src/MenuCharacter.cpp:342
+#: ../../../src/ItemManager.cpp:580 ../../../src/MenuPowers.cpp:516
+#: ../../../src/MenuPowers.cpp:518
 #, c-format
 msgid "Requires Physical %d"
 msgstr "Nécéssite %d de Physique"
 
-#: ../../../src/ItemManager.cpp:437 ../../../src/MenuCharacter.cpp:348
-#: ../../../src/MenuCharacter.cpp:354 ../../../src/MenuCharacter.cpp:360
-#: ../../../src/MenuCharacter.cpp:366
+#: ../../../src/ItemManager.cpp:584 ../../../src/MenuPowers.cpp:522
+#: ../../../src/MenuPowers.cpp:524
 #, c-format
 msgid "Requires Mental %d"
 msgstr "Nécessite %d de Mental"
 
-#: ../../../src/ItemManager.cpp:441 ../../../src/MenuCharacter.cpp:372
-#: ../../../src/MenuCharacter.cpp:378 ../../../src/MenuCharacter.cpp:384
-#: ../../../src/MenuCharacter.cpp:390
+#: ../../../src/ItemManager.cpp:588 ../../../src/MenuPowers.cpp:504
+#: ../../../src/MenuPowers.cpp:506
 #, c-format
 msgid "Requires Offense %d"
 msgstr "Nécessite %d d'Attaque"
 
-#: ../../../src/ItemManager.cpp:445 ../../../src/MenuCharacter.cpp:396
-#: ../../../src/MenuCharacter.cpp:402 ../../../src/MenuCharacter.cpp:408
-#: ../../../src/MenuCharacter.cpp:414
+#: ../../../src/ItemManager.cpp:592 ../../../src/MenuPowers.cpp:510
+#: ../../../src/MenuPowers.cpp:512
 #, c-format
 msgid "Requires Defense %d"
 msgstr "Nécessite %d de Défense"
 
-#: ../../../src/ItemManager.cpp:455
-#, c-format
-msgid "Buy Price: %d gold"
+#: ../../../src/ItemManager.cpp:602
+#, fuzzy, c-format
+msgid "Buy Price: %d %s"
 msgstr "Prix d'achat : %d or"
 
-#: ../../../src/ItemManager.cpp:457
-#, c-format
-msgid "Buy Price: %d gold each"
+#: ../../../src/ItemManager.cpp:604
+#, fuzzy, c-format
+msgid "Buy Price: %d %s each"
 msgstr "Prix d'achat : %d or par pièce"
 
-#: ../../../src/ItemManager.cpp:467
-#, c-format
-msgid "Sell Price: %d gold"
+#: ../../../src/ItemManager.cpp:614
+#, fuzzy, c-format
+msgid "Sell Price: %d %s"
 msgstr "Prix de vente : %d or"
 
-#: ../../../src/ItemManager.cpp:469
-#, c-format
-msgid "Sell Price: %d gold each"
+#: ../../../src/ItemManager.cpp:616
+#, fuzzy, c-format
+msgid "Sell Price: %d %s each"
 msgstr "Prix de vente : %d or par pièce"
 
-#: ../../../src/LootManager.cpp:240 ../../../src/MenuInventory.cpp:132
-#, c-format
-msgid "%d Gold"
-msgstr "%d or"
+#: ../../../src/ItemManager.cpp:628
+#, fuzzy
+msgid "Set: "
+msgstr "Prochain : %d"
 
-#: ../../../src/main.cpp:119
+#: ../../../src/ItemManager.cpp:632 ../../../src/ItemManager.cpp:635
+#, c-format
+msgid "%d items: "
+msgstr ""
+
+#: ../../../src/LootManager.cpp:282 ../../../src/MenuInventory.cpp:171
+#, fuzzy, c-format
+msgid "%d %s"
+msgstr "Niveau %d %s"
+
+#: ../../../src/main.cpp:124
 msgid "Flare"
 msgstr "Flare"
 
-#: ../../../src/MapIso.cpp:917
+#: ../../../src/MapRenderer.cpp:1181
 msgid "Unknown destination"
 msgstr "Destination inconnue"
 
-#: ../../../src/MenuActionBar.cpp:304
+#: ../../../src/MenuActionBar.cpp:399
 msgid "Character Menu (C)"
 msgstr "Menu Personnage (C)"
 
-#: ../../../src/MenuActionBar.cpp:308
+#: ../../../src/MenuActionBar.cpp:403
 msgid "Inventory Menu (I)"
 msgstr "Menu Inventaire (I)"
 
-#: ../../../src/MenuActionBar.cpp:312
+#: ../../../src/MenuActionBar.cpp:407
 msgid "Power Menu (P)"
 msgstr "Menu Pouvoirs (P)"
 
-#: ../../../src/MenuActionBar.cpp:316
+#: ../../../src/MenuActionBar.cpp:411
 msgid "Log Menu (L)"
 msgstr "Menu Journal (L)"
 
-#: ../../../src/MenuCharacter.cpp:51
-msgid "Character"
-msgstr "Personnage"
-
-#: ../../../src/MenuCharacter.cpp:66
+#: ../../../src/MenuCharacter.cpp:219
 msgid "Name"
 msgstr "Nom"
 
-#: ../../../src/MenuCharacter.cpp:67
+#: ../../../src/MenuCharacter.cpp:220
 msgid "Level"
 msgstr "Niveau"
 
-#: ../../../src/MenuCharacter.cpp:68 ../../../src/MenuPowers.cpp:58
-#: ../../../src/MenuPowers.cpp:59
+#: ../../../src/MenuCharacter.cpp:221
 msgid "Physical"
 msgstr "Physique"
 
-#: ../../../src/MenuCharacter.cpp:69 ../../../src/MenuPowers.cpp:60
-#: ../../../src/MenuPowers.cpp:61
+#: ../../../src/MenuCharacter.cpp:222
 msgid "Mental"
 msgstr "Mental"
 
-#: ../../../src/MenuCharacter.cpp:70 ../../../src/MenuPowers.cpp:62
-#: ../../../src/MenuPowers.cpp:63
+#: ../../../src/MenuCharacter.cpp:223
 msgid "Offense"
 msgstr "Attaque"
 
-#: ../../../src/MenuCharacter.cpp:71 ../../../src/MenuPowers.cpp:64
-#: ../../../src/MenuPowers.cpp:65
+#: ../../../src/MenuCharacter.cpp:224
 msgid "Defense"
 msgstr "Défense"
 
-#: ../../../src/MenuCharacter.cpp:72
-msgid "Total HP"
-msgstr "PV totaux"
-
-#: ../../../src/MenuCharacter.cpp:73 ../../../src/MenuCharacter.cpp:75
-msgid "Regen"
-msgstr "Régén."
-
-#: ../../../src/MenuCharacter.cpp:74
-msgid "Total MP"
-msgstr "PM totaux"
-
-#: ../../../src/MenuCharacter.cpp:76
-msgid "Accuracy vs. Def 1"
-msgstr "Précision vs. Déf. 1"
-
-#: ../../../src/MenuCharacter.cpp:77
-msgid "vs. Def 5"
-msgstr "vs. Déf. 5"
-
-#: ../../../src/MenuCharacter.cpp:78
-msgid "Avoidance vs. Off 1"
-msgstr "Esquive vs. Attaque 1"
-
-#: ../../../src/MenuCharacter.cpp:79
-msgid "vs. Off 5"
-msgstr "vs. Attaque 5"
-
-#: ../../../src/MenuCharacter.cpp:80
-msgid "Main Weapon"
-msgstr "Arme principale"
-
-#: ../../../src/MenuCharacter.cpp:81
-msgid "Ranged Weapon"
-msgstr "Arme de jet"
-
-#: ../../../src/MenuCharacter.cpp:82
-msgid "Crit Chance"
-msgstr "Chance de coup critique"
-
-#: ../../../src/MenuCharacter.cpp:83
-msgid "Absorb"
-msgstr "Absorbe"
-
-#: ../../../src/MenuCharacter.cpp:84
-msgid "Fire Resist"
-msgstr "Résist. feu"
-
-#: ../../../src/MenuCharacter.cpp:85
-msgid "Ice Resist"
-msgstr "Résist. glace"
-
-#: ../../../src/MenuCharacter.cpp:251
+#: ../../../src/MenuCharacter.cpp:284
 msgid "points remaining"
 msgstr "Points restants"
 
-#: ../../../src/MenuCharacter.cpp:261 ../../../src/MenuExperience.cpp:127
+#: ../../../src/MenuCharacter.cpp:295
+msgid "Max HP:"
+msgstr ""
+
+#: ../../../src/MenuCharacter.cpp:296
+#, fuzzy, c-format
+msgid "Each point of Physical grants +%d HP. Each level grants +%d HP"
+msgstr "Chaque point de Physique donne +4 en régénération de PV"
+
+#: ../../../src/MenuCharacter.cpp:301
+#, fuzzy
+msgid "HP Regen:"
+msgstr "Régén."
+
+#: ../../../src/MenuCharacter.cpp:302
+#, c-format
+msgid "Ticks of HP regen per minute. Each point of Physical grants +%d HP regen. Each level grants +%d HP regen"
+msgstr ""
+
+#: ../../../src/MenuCharacter.cpp:307
+msgid "Max MP:"
+msgstr ""
+
+#: ../../../src/MenuCharacter.cpp:308
+#, fuzzy, c-format
+msgid "Each point of Mental grants +%d MP. Each level grants +%d MP"
+msgstr "Chaque point de Mental donne +4 en régénération de PM"
+
+#: ../../../src/MenuCharacter.cpp:313
+#, fuzzy
+msgid "MP Regen:"
+msgstr "Régén."
+
+#: ../../../src/MenuCharacter.cpp:314
+#, c-format
+msgid "Ticks of MP regen per minute. Each point of Mental grants +%d MP regen. Each level grants +%d MP regen"
+msgstr ""
+
+#: ../../../src/MenuCharacter.cpp:319
+#, fuzzy
+msgid "Accuracy (vs lvl 1):"
+msgstr "Précision vs. Déf. 1"
+
+#: ../../../src/MenuCharacter.cpp:320 ../../../src/MenuCharacter.cpp:326
+#, fuzzy, c-format
+msgid "Each point of Offense grants +%d accuracy. Each level grants +%d accuracy"
+msgstr "Chaque point d'Attaque donne +5 en précision"
+
+#: ../../../src/MenuCharacter.cpp:325
+#, fuzzy
+msgid "Accuracy (vs lvl 5):"
+msgstr "Précision vs. Déf. 1"
+
+#: ../../../src/MenuCharacter.cpp:331
+#, fuzzy
+msgid "Avoidance (vs lvl 1):"
+msgstr "Esquive vs. Attaque 1"
+
+#: ../../../src/MenuCharacter.cpp:332 ../../../src/MenuCharacter.cpp:338
+#, fuzzy, c-format
+msgid "Each point of Defense grants +%d avoidance. Each level grants +%d avoidance"
+msgstr "Chaque point de Défense donne +5 en esquive"
+
+#: ../../../src/MenuCharacter.cpp:337
+#, fuzzy
+msgid "Avoidance (vs lvl 5):"
+msgstr "Esquive vs. Attaque 1"
+
+#: ../../../src/MenuCharacter.cpp:346
+#, fuzzy
+msgid "Melee Damage:"
+msgstr "Dégâts en corps à corps : %d"
+
+#: ../../../src/MenuCharacter.cpp:357
+#, fuzzy
+msgid "Ranged Damage:"
+msgstr "Dégâts à distance : %d"
+
+#: ../../../src/MenuCharacter.cpp:368
+#, fuzzy
+msgid "Mental Damage:"
+msgstr "Dégâts mentaux : %d"
+
+#: ../../../src/MenuCharacter.cpp:378
+msgid "Crit:"
+msgstr ""
+
+#: ../../../src/MenuCharacter.cpp:384
+#, fuzzy
+msgid "Absorb:"
+msgstr "Absorbe"
+
+#: ../../../src/MenuCharacter.cpp:405
 #, c-format
 msgid "XP: %d"
 msgstr "XP : %d"
 
-#: ../../../src/MenuCharacter.cpp:263
+#: ../../../src/MenuCharacter.cpp:407
 #, c-format
 msgid "Next: %d"
 msgstr "Prochain : %d"
 
-#: ../../../src/MenuCharacter.cpp:267
+#: ../../../src/MenuCharacter.cpp:411
 msgid "Physical (P) increases melee weapon proficiency and total HP."
 msgstr "Le Physique (P) augmente la compétence avec des armes de corps à corps ainsi que les points de vie totaux."
 
-#: ../../../src/MenuCharacter.cpp:268 ../../../src/MenuCharacter.cpp:272
-#: ../../../src/MenuCharacter.cpp:276 ../../../src/MenuCharacter.cpp:280
+#: ../../../src/MenuCharacter.cpp:412 ../../../src/MenuCharacter.cpp:416
+#: ../../../src/MenuCharacter.cpp:420 ../../../src/MenuCharacter.cpp:424
 #, c-format
 msgid "base (%d), bonus (%d)"
 msgstr "base (%d), bonus (%d)"
 
-#: ../../../src/MenuCharacter.cpp:271
+#: ../../../src/MenuCharacter.cpp:415
 msgid "Mental (M) increases mental weapon proficiency and total MP."
 msgstr "Le Mental (M) augmente la compétence avec des armes mentales ainsi que les points de magie totaux."
 
-#: ../../../src/MenuCharacter.cpp:275
+#: ../../../src/MenuCharacter.cpp:419
 msgid "Offense (O) increases ranged weapon proficiency and accuracy."
 msgstr "L'Attaque (O) augmente la compétence avec des armes de jet ainsi que la précision."
 
-#: ../../../src/MenuCharacter.cpp:279
+#: ../../../src/MenuCharacter.cpp:423
 msgid "Defense (D) increases armor proficiency and avoidance."
 msgstr "La Défense (D) augmente la compétence avec des armures et l'esquive."
 
-#: ../../../src/MenuCharacter.cpp:283
-msgid "Each point of Physical grants +8 HP"
-msgstr "Chaque point de Physique donne +8 PV"
-
-#: ../../../src/MenuCharacter.cpp:284
-msgid "Each level grants +2 HP"
-msgstr "Chaque niveau donne +2 PV"
-
-#: ../../../src/MenuCharacter.cpp:287
-msgid "Ticks of HP regen per minute"
-msgstr "Points de vie régénérés par minute"
-
-#: ../../../src/MenuCharacter.cpp:288
-msgid "Each point of Physical grants +4 HP regen"
-msgstr "Chaque point de Physique donne +4 en régénération de PV"
-
-#: ../../../src/MenuCharacter.cpp:289
-msgid "Each level grants +1 HP regen"
-msgstr "Chaque niveau donne +1 en régénération de PV"
-
-#: ../../../src/MenuCharacter.cpp:292
-msgid "Each point of Mental grants +8 MP"
-msgstr "Chaque point de Mental donne +8 PM"
-
-#: ../../../src/MenuCharacter.cpp:293
-msgid "Each level grants +2 MP"
-msgstr "Chaque niveau donne +2 PM"
-
-#: ../../../src/MenuCharacter.cpp:296
-msgid "Ticks of MP regen per minute"
-msgstr "Points de magie régénérés par minute"
-
-#: ../../../src/MenuCharacter.cpp:297
-msgid "Each point of Mental grants +4 MP regen"
-msgstr "Chaque point de Mental donne +4 en régénération de PM"
-
-#: ../../../src/MenuCharacter.cpp:298
-msgid "Each level grants +1 MP regen"
-msgstr "Chaque niveau donne +1 en régénération de PM"
-
-#: ../../../src/MenuCharacter.cpp:301 ../../../src/MenuCharacter.cpp:305
-msgid "Each point of Offense grants +5 accuracy"
-msgstr "Chaque point d'Attaque donne +5 en précision"
-
-#: ../../../src/MenuCharacter.cpp:302 ../../../src/MenuCharacter.cpp:306
-msgid "Each level grants +1 accuracy"
-msgstr "Chaque niveau donne +1 en précision"
-
-#: ../../../src/MenuCharacter.cpp:309 ../../../src/MenuCharacter.cpp:313
-msgid "Each point of Defense grants +5 avoidance"
-msgstr "Chaque point de Défense donne +5 en esquive"
-
-#: ../../../src/MenuCharacter.cpp:310 ../../../src/MenuCharacter.cpp:314
-msgid "Each level grants +1 avoidance"
-msgstr "Chaque niveau donne +1 en esquive"
-
-#: ../../../src/MenuCharacter.cpp:317
+#: ../../../src/MenuCharacter.cpp:427
 msgid "Unspent attribute points"
 msgstr "Points de de compétence non dépensés"
 
-#: ../../../src/MenuCharacter.cpp:321
-msgid "Dagger Proficiency"
-msgstr "Compétence avec une dague"
-
-#: ../../../src/MenuCharacter.cpp:327
-msgid "Shortsword Proficiency"
-msgstr "Compétence avec une épée courte"
-
-#: ../../../src/MenuCharacter.cpp:333
-msgid "Longsword Proficiency"
-msgstr "Compétence avec une épée longue"
-
-#: ../../../src/MenuCharacter.cpp:339
-msgid "Greatsword Proficiency"
-msgstr "Compétence avec une grande épée"
-
-#: ../../../src/MenuCharacter.cpp:345
-msgid "Wand Proficiency"
-msgstr "Compétence avec une baguette magique"
-
-#: ../../../src/MenuCharacter.cpp:351
-msgid "Rod Proficiency"
-msgstr "Compétence avec une canne de sorcier"
-
-#: ../../../src/MenuCharacter.cpp:357
-msgid "Staff Proficiency"
-msgstr "Compétence avec un bâton de magicien"
-
-#: ../../../src/MenuCharacter.cpp:363
-msgid "Greatstaff Proficiency"
-msgstr "Compétence avec un bâton de sorcier"
-
-#: ../../../src/MenuCharacter.cpp:369
-msgid "Slingshot Proficiency"
-msgstr "Compétence avec une fronde"
-
-#: ../../../src/MenuCharacter.cpp:375
-msgid "Shortbow Proficiency"
-msgstr "Compétence avec un arc court"
-
-#: ../../../src/MenuCharacter.cpp:381
-msgid "Longbow Proficiency"
-msgstr "Compétence avec un arc long"
-
-#: ../../../src/MenuCharacter.cpp:387
-msgid "Greatbow Proficiency"
-msgstr "Compétence avec un grand arc"
-
-#: ../../../src/MenuCharacter.cpp:393
-msgid "Light Armor Proficiency"
-msgstr "Compétence avec une armure légère"
-
-#: ../../../src/MenuCharacter.cpp:399
-msgid "Light Shield Proficiency"
-msgstr "Compétence avec un bouclier léger"
-
-#: ../../../src/MenuCharacter.cpp:405
-msgid "Heavy Armor Proficiency"
-msgstr "Compétence avec une armure lourde"
-
-#: ../../../src/MenuCharacter.cpp:411
-msgid "Heavy Shield Proficiency"
-msgstr "Compétence avec un bouclier lourd"
-
-#: ../../../src/MenuEnemy.cpp:108
+#: ../../../src/MenuEnemy.cpp:133
 msgid "Dead"
 msgstr "Mort"
 
-#: ../../../src/MenuEnemy.cpp:112
+#: ../../../src/MenuEnemy.cpp:139 ../../../src/MenuEnemy.cpp:141
 #, c-format
 msgid "%s level %d"
 msgstr "%s niveau %d"
 
-#: ../../../src/MenuExit.cpp:36
+#: ../../../src/MenuExit.cpp:31
 msgid "Exit"
 msgstr "Quitter"
 
-#: ../../../src/MenuExit.cpp:45
+#: ../../../src/MenuExit.cpp:60
 msgid "Save and exit to title?"
 msgstr "Sauver et quitter ?"
 
-#: ../../../src/MenuExperience.cpp:124
+#: ../../../src/MenuInventory.cpp:212
+msgid "Use SHIFT to move only one item."
+msgstr "Utilisez SHIFT pour déplacer un seul objet."
+
+#: ../../../src/MenuInventory.cpp:213
+msgid "CTRL-click a carried item to sell it."
+msgstr "Cliquez sur un objet de l'inventaire avec CTRL enfoncé pour le vendre."
+
+#: ../../../src/MenuInventory.cpp:387
+msgid "This item can only be used from the action bar."
+msgstr "Cet objet ne peut être utilisé que depuis la barre d'action."
+
+#: ../../../src/MenuLog.cpp:79
+msgid "Notes"
+msgstr ""
+
+#: ../../../src/MenuLog.cpp:80
+msgid "Quests"
+msgstr "Quêtes"
+
+#: ../../../src/MenuLog.cpp:81
+#, fuzzy
+msgid "Stats"
+msgstr "Statistiques"
+
+#: ../../../src/MenuManager.cpp:216
 #, c-format
 msgid "XP: %d/%d"
 msgstr "XP: %d/%d"
 
-#: ../../../src/MenuInventory.cpp:122
-msgid "Inventory"
-msgstr "Inventaire"
+#: ../../../src/MenuManager.cpp:373 ../../../src/MenuManager.cpp:374
+#: ../../../src/MenuManager.cpp:582 ../../../src/MenuManager.cpp:583
+msgid "Not enough money."
+msgstr ""
 
-#: ../../../src/MenuInventory.cpp:163
-msgid "Use SHIFT to move only one item."
-msgstr "Utilisez SHIFT pour déplacer un seul objet."
-
-#: ../../../src/MenuInventory.cpp:164
-msgid "CTRL-click a carried item to sell it."
-msgstr "Cliquez sur un objet de l'inventaire avec CTRL enfoncé pour le vendre."
-
-#: ../../../src/MenuInventory.cpp:327
-msgid "This item can only be used from the action bar."
-msgstr "Cet objet ne peut être utilisé que depuis la barre d'action."
-
-#: ../../../src/MenuLog.cpp:54
-msgid "Messages"
-msgstr "Messages"
-
-#: ../../../src/MenuLog.cpp:55
-msgid "Quests"
-msgstr "Quêtes"
-
-#: ../../../src/MenuLog.cpp:56
-msgid "Statistics"
-msgstr "Statistiques"
-
-#: ../../../src/MenuLog.cpp:125
-msgid "Log"
-msgstr "Journal"
-
-#: ../../../src/MenuPowers.cpp:57
-msgid "Powers"
-msgstr "Pouvoirs"
-
-#: ../../../src/MenuPowers.cpp:253
-msgid "Physical + Offense grants melee and ranged attacks"
-msgstr "La Physique et l'Attaque donnent des attaques au corps à corps et à distance"
-
-#: ../../../src/MenuPowers.cpp:257
-msgid "Physical + Defense grants melee protection"
-msgstr "Le Physique et la Défense donnent des protections en corps à corps"
-
-#: ../../../src/MenuPowers.cpp:261
-msgid "Mental + Offense grants elemental spell attacks"
-msgstr "Le Mental et l'Attaque donnent des sorts d'attaque élémentaires"
-
-#: ../../../src/MenuPowers.cpp:265
-msgid "Mental + Defense grants healing and magical protection"
-msgstr "Le Mental et la Défense donnent des sorts de protection et de guérison"
-
-#: ../../../src/MenuPowers.cpp:276
+#: ../../../src/MenuPowers.cpp:470
 msgid "Requires a physical weapon"
 msgstr "Nécessite une arme de corps à corps"
 
-#: ../../../src/MenuPowers.cpp:278
+#: ../../../src/MenuPowers.cpp:472
 msgid "Requires a mental weapon"
 msgstr "Nécessite une arme mentale"
 
-#: ../../../src/MenuPowers.cpp:280
+#: ../../../src/MenuPowers.cpp:474
 msgid "Requires an offense weapon"
 msgstr "Nécessite une arme de jet"
 
-#: ../../../src/MenuPowers.cpp:291
+#: ../../../src/MenuPowers.cpp:480 ../../../src/MenuPowers.cpp:482
 #, c-format
 msgid "Requires Physical Offense %d"
 msgstr "Nécessite Attaque Physique %d"
 
-#: ../../../src/MenuPowers.cpp:292
+#: ../../../src/MenuPowers.cpp:486 ../../../src/MenuPowers.cpp:488
 #, c-format
 msgid "Requires Physical Defense %d"
 msgstr "Nécessite Défense Physique %d"
 
-#: ../../../src/MenuPowers.cpp:293
+#: ../../../src/MenuPowers.cpp:492 ../../../src/MenuPowers.cpp:494
 #, c-format
 msgid "Requires Mental Offense %d"
 msgstr "Nécessite Attaque Mentale %d"
 
-#: ../../../src/MenuPowers.cpp:294
+#: ../../../src/MenuPowers.cpp:498 ../../../src/MenuPowers.cpp:500
 #, c-format
 msgid "Requires Mental Defense %d"
 msgstr "Nécessite Défense Mentale %d"
 
-#: ../../../src/MenuPowers.cpp:300
+#: ../../../src/MenuPowers.cpp:530 ../../../src/MenuPowers.cpp:533
+#, fuzzy, c-format
+msgid "Requires Level %d"
+msgstr "Nécessite %d de Mental"
+
+#: ../../../src/MenuPowers.cpp:541 ../../../src/MenuPowers.cpp:546
+#, fuzzy, c-format
+msgid "Requires %d Skill Point"
+msgstr "Nécessite une arme de corps à corps"
+
+#: ../../../src/MenuPowers.cpp:554
+msgid "Click to Unlock"
+msgstr ""
+
+#: ../../../src/MenuPowers.cpp:561 ../../../src/MenuPowers.cpp:564
+#, fuzzy, c-format
+msgid "Requires Power: %s"
+msgstr "Nécessite %d de Mental"
+
+#: ../../../src/MenuPowers.cpp:569
 #, c-format
 msgid "Costs %d MP"
 msgstr "Consomme %d PM"
 
-#: ../../../src/MenuPowers.cpp:304
+#: ../../../src/MenuPowers.cpp:573
 #, c-format
 msgid "Cooldown: %d seconds"
 msgstr "Récupération : %d secondes"
 
-#: ../../../src/MenuTalker.cpp:50
+#: ../../../src/MenuStash.cpp:125
+msgid "Shared Stash"
+msgstr ""
+
+#: ../../../src/MenuTalker.cpp:47
 msgid "Trade"
 msgstr "Commercer"
 
-#: ../../../src/MenuVendor.cpp:99
+#: ../../../src/MenuVendor.cpp:49
+msgid "Buyback"
+msgstr ""
+
+#: ../../../src/MenuVendor.cpp:156
 msgid "Vendor"
 msgstr "Vendeur"
 
-#: ../../../src/StatBlock.cpp:351
+#: ../../../src/PowerManager.cpp:795 ../../../src/PowerManager.cpp:797
+#, c-format
+msgid "+%d Shield"
+msgstr ""
+
+#: ../../../src/PowerManager.cpp:1114
+msgid "You are already transformed, untransform first."
+msgstr ""
+
+#: ../../../src/StatBlock.cpp:397
 msgid "Grand Master"
 msgstr "Grand maître"
 
-#: ../../../src/StatBlock.cpp:354
+#: ../../../src/StatBlock.cpp:400
 msgid "Master"
 msgstr "Maître"
 
-#: ../../../src/StatBlock.cpp:357
+#: ../../../src/StatBlock.cpp:403
 msgid "Warrior"
 msgstr "Guerrier"
 
-#: ../../../src/StatBlock.cpp:359
+#: ../../../src/StatBlock.cpp:405
 msgid "Wizard"
 msgstr "Mage"
 
-#: ../../../src/StatBlock.cpp:361
+#: ../../../src/StatBlock.cpp:407
 msgid "Ranger"
 msgstr "Rôdeur"
 
-#: ../../../src/StatBlock.cpp:363
+#: ../../../src/StatBlock.cpp:409
 msgid "Paladin"
 msgstr "Paladin"
 
-#: ../../../src/StatBlock.cpp:366
+#: ../../../src/StatBlock.cpp:412
 msgid "Rogue"
 msgstr "Voleur"
 
-#: ../../../src/StatBlock.cpp:368
+#: ../../../src/StatBlock.cpp:414
 msgid "Knight"
 msgstr "Chevalier"
 
-#: ../../../src/StatBlock.cpp:370
+#: ../../../src/StatBlock.cpp:416
 msgid "Shaman"
 msgstr "Chamane"
 
-#: ../../../src/StatBlock.cpp:372
+#: ../../../src/StatBlock.cpp:418
 msgid "Cleric"
 msgstr "Clerc"
 
-#: ../../../src/StatBlock.cpp:374
+#: ../../../src/StatBlock.cpp:420
 msgid "Battle Mage"
 msgstr "Mage de guerre"
 
-#: ../../../src/StatBlock.cpp:376
+#: ../../../src/StatBlock.cpp:422
 msgid "Heavy Archer"
 msgstr "Archer lourd"
 
-#: ../../../src/StatBlock.cpp:378
+#: ../../../src/StatBlock.cpp:424
 msgid "Adventurer"
 msgstr "Aventurier"
+
+#~ msgid "You receive %d gold."
+#~ msgstr "Vous recevez %d or."
+
+#~ msgid "Press a key to assign: "
+#~ msgstr "Pressez une touche pour l'assigner : "
+
+#~ msgid "Activate >>"
+#~ msgstr "Activer >>"
+
+#~ msgid "Create Character"
+#~ msgstr "Jouer le personnage"
+
+#~ msgid "Main Hand"
+#~ msgstr "Main principale"
+
+#~ msgid "Body"
+#~ msgstr "Corps"
+
+#~ msgid "Off Hand"
+#~ msgstr "Seconde main"
+
+#~ msgid "Artifact"
+#~ msgstr "Artefact"
+
+#~ msgid "Consumable"
+#~ msgstr "Consommable"
+
+#~ msgid "Gem"
+#~ msgstr "Gemme"
+
+#~ msgid "Quest Item"
+#~ msgstr "Objet de quête"
+
+#~ msgid "%d Gold"
+#~ msgstr "%d or"
+
+#~ msgid "Total HP"
+#~ msgstr "PV totaux"
+
+#~ msgid "Total MP"
+#~ msgstr "PM totaux"
+
+#~ msgid "vs. Def 5"
+#~ msgstr "vs. Déf. 5"
+
+#~ msgid "vs. Off 5"
+#~ msgstr "vs. Attaque 5"
+
+#~ msgid "Main Weapon"
+#~ msgstr "Arme principale"
+
+#~ msgid "Ranged Weapon"
+#~ msgstr "Arme de jet"
+
+#~ msgid "Crit Chance"
+#~ msgstr "Chance de coup critique"
+
+#~ msgid "Fire Resist"
+#~ msgstr "Résist. feu"
+
+#~ msgid "Ice Resist"
+#~ msgstr "Résist. glace"
+
+#~ msgid "Each point of Physical grants +8 HP"
+#~ msgstr "Chaque point de Physique donne +8 PV"
+
+#~ msgid "Each level grants +2 HP"
+#~ msgstr "Chaque niveau donne +2 PV"
+
+#~ msgid "Ticks of HP regen per minute"
+#~ msgstr "Points de vie régénérés par minute"
+
+#~ msgid "Each level grants +1 HP regen"
+#~ msgstr "Chaque niveau donne +1 en régénération de PV"
+
+#~ msgid "Each point of Mental grants +8 MP"
+#~ msgstr "Chaque point de Mental donne +8 PM"
+
+#~ msgid "Each level grants +2 MP"
+#~ msgstr "Chaque niveau donne +2 PM"
+
+#~ msgid "Ticks of MP regen per minute"
+#~ msgstr "Points de magie régénérés par minute"
+
+#~ msgid "Each level grants +1 MP regen"
+#~ msgstr "Chaque niveau donne +1 en régénération de PM"
+
+#~ msgid "Each level grants +1 accuracy"
+#~ msgstr "Chaque niveau donne +1 en précision"
+
+#~ msgid "Each level grants +1 avoidance"
+#~ msgstr "Chaque niveau donne +1 en esquive"
+
+#~ msgid "Dagger Proficiency"
+#~ msgstr "Compétence avec une dague"
+
+#~ msgid "Shortsword Proficiency"
+#~ msgstr "Compétence avec une épée courte"
+
+#~ msgid "Longsword Proficiency"
+#~ msgstr "Compétence avec une épée longue"
+
+#~ msgid "Greatsword Proficiency"
+#~ msgstr "Compétence avec une grande épée"
+
+#~ msgid "Wand Proficiency"
+#~ msgstr "Compétence avec une baguette magique"
+
+#~ msgid "Rod Proficiency"
+#~ msgstr "Compétence avec une canne de sorcier"
+
+#~ msgid "Staff Proficiency"
+#~ msgstr "Compétence avec un bâton de magicien"
+
+#~ msgid "Greatstaff Proficiency"
+#~ msgstr "Compétence avec un bâton de sorcier"
+
+#~ msgid "Slingshot Proficiency"
+#~ msgstr "Compétence avec une fronde"
+
+#~ msgid "Shortbow Proficiency"
+#~ msgstr "Compétence avec un arc court"
+
+#~ msgid "Longbow Proficiency"
+#~ msgstr "Compétence avec un arc long"
+
+#~ msgid "Greatbow Proficiency"
+#~ msgstr "Compétence avec un grand arc"
+
+#~ msgid "Light Armor Proficiency"
+#~ msgstr "Compétence avec une armure légère"
+
+#~ msgid "Light Shield Proficiency"
+#~ msgstr "Compétence avec un bouclier léger"
+
+#~ msgid "Heavy Armor Proficiency"
+#~ msgstr "Compétence avec une armure lourde"
+
+#~ msgid "Heavy Shield Proficiency"
+#~ msgstr "Compétence avec un bouclier lourd"
+
+#~ msgid "Messages"
+#~ msgstr "Messages"
+
+#~ msgid "Physical + Offense grants melee and ranged attacks"
+#~ msgstr "La Physique et l'Attaque donnent des attaques au corps à corps et à distance"
+
+#~ msgid "Physical + Defense grants melee protection"
+#~ msgstr "Le Physique et la Défense donnent des protections en corps à corps"
+
+#~ msgid "Mental + Offense grants elemental spell attacks"
+#~ msgstr "Le Mental et l'Attaque donnent des sorts d'attaque élémentaires"
+
+#~ msgid "Mental + Defense grants healing and magical protection"
+#~ msgstr "Le Mental et la Défense donnent des sorts de protection et de guérison"

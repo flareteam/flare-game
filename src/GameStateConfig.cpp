@@ -163,7 +163,7 @@ void GameStateConfig::init() {
 	// Allocate KeyBindings
 	for (unsigned int i = 0; i < 25; i++) {
 		 settings_lb[i] = new WidgetLabel();
-		 settings_lb[i]->set(msg->get(binding_name[i]));
+		 settings_lb[i]->set(inpt->binding_name[i]);
 		 settings_lb[i]->setJustify(JUSTIFY_RIGHT);
 	}
 	for (unsigned int i = 0; i < 50; i++) {
@@ -698,7 +698,7 @@ void GameStateConfig::update () {
 
 	for (unsigned int i = 0; i < 25; i++) {
 		if (inpt->binding[i] < 8) {
-			settings_key[i]->label = mouse_button[inpt->binding[i]-1];
+			settings_key[i]->label = inpt->mouse_button[inpt->binding[i]-1];
 		} else {
 			settings_key[i]->label = SDL_GetKeyName((SDLKey)inpt->binding[i]);
 		}
@@ -706,7 +706,7 @@ void GameStateConfig::update () {
 	}
 	for (unsigned int i = 25; i < 50; i++) {
 		if (inpt->binding_alt[i-25] < 8) {
-			settings_key[i]->label = mouse_button[inpt->binding_alt[i-25]-1];
+			settings_key[i]->label = inpt->mouse_button[inpt->binding_alt[i-25]-1];
 		} else {
 			settings_key[i]->label = SDL_GetKeyName((SDLKey)inpt->binding_alt[i-25]);
 		}
@@ -892,9 +892,9 @@ void GameStateConfig::logic ()
 					if (settings_key[i]->checkClick(mouse.x,mouse.y)) {
 						std::string confirm_msg;
 						if (i < 25)
-							confirm_msg = msg->get("Assign: ") + binding_name[i];
+							confirm_msg = msg->get("Assign: ") + inpt->binding_name[i];
 						else
-							confirm_msg = msg->get("Assign: ") + binding_name[i-25];
+							confirm_msg = msg->get("Assign: ") + inpt->binding_name[i-25];
 						delete input_confirm;
 						input_confirm = new MenuConfirm("",confirm_msg);
 						input_confirm->window_area = menuConfirm_area;
@@ -1221,7 +1221,7 @@ void GameStateConfig::scanKey(int button) {
 		if (button < 25) inpt->binding[button] = inpt->last_button;
 		else inpt->binding_alt[button-25] = inpt->last_button;
 
-		settings_key[button]->label = mouse_button[inpt->last_button-1];
+		settings_key[button]->label = inpt->mouse_button[inpt->last_button-1];
 		input_confirm->visible = false;
 		settings_key[button]->refresh();
 		return;
