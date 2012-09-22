@@ -30,7 +30,7 @@ AStarNode::AStarNode(const int a, const int b)
 	this->y = b;
 }
 
-AStarNode::AStarNode(const Point p)
+AStarNode::AStarNode(const Point &p)
 {
 	this->x = p.x;
 	this->y = p.y;

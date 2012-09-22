@@ -223,7 +223,7 @@ void LootManager::logic() {
 	int max_frame = anim_loot_frames * anim_loot_duration - 1;
 
 	vector<LootDef>::iterator it;
-	for (it = loot.begin(); it != loot.end(); it++) {
+	for (it = loot.begin(); it != loot.end(); ++it) {
 
 		// animate flying loot
 		if (it->frame < max_frame)
@@ -261,7 +261,7 @@ void LootManager::renderTooltips(Point cam) {
 	int max_frame = anim_loot_frames * anim_loot_duration - 1;
 
 	vector<LootDef>::iterator it;
-	for (it = loot.begin(); it != loot.end(); it++) {
+	for (it = loot.begin(); it != loot.end(); ++it) {
 		if (it->frame == max_frame) {
 			Point p = map_to_screen(it->pos.x, it->pos.y, cam.x, cam.y);
 			dest.x = p.x;
@@ -501,7 +501,7 @@ ItemStack LootManager::checkPickup(Point mouse, Point cam, Point hero_pos, int &
 	// location, picking it back up will work like a stack.
 	vector<LootDef>::iterator it;
 	for (it = loot.end(); it != loot.begin(); ) {
-		it--;
+		--it;
 
 		// loot close enough to pickup?
 		if (abs(hero_pos.x - it->pos.x) < LOOT_RANGE && abs(hero_pos.y - it->pos.y) < LOOT_RANGE && !isFlying(*it)) {
@@ -549,7 +549,7 @@ ItemStack LootManager::checkAutoPickup(Point hero_pos, int &currency) {
 
 	vector<LootDef>::iterator it;
 	for (it = loot.end(); it != loot.begin(); ) {
-		it--;
+		--it;
 		if (abs(hero_pos.x - it->pos.x) < AUTOPICKUP_RANGE && abs(hero_pos.y - it->pos.y) < AUTOPICKUP_RANGE && !isFlying(*it)) {
 			if (it->currency > 0 && AUTOPICKUP_CURRENCY) {
 				currency = it->currency;
@@ -563,7 +563,7 @@ ItemStack LootManager::checkAutoPickup(Point hero_pos, int &currency) {
 
 void LootManager::addRenders(vector<Renderable> &ren, vector<Renderable> &ren_dead) {
 	vector<LootDef>::iterator it;
-	for (it = loot.begin(); it != loot.end(); it++) {
+	for (it = loot.begin(); it != loot.end(); ++it) {
 		Renderable r;
 		r.map_pos.x = it->pos.x;
 		r.map_pos.y = it->pos.y;

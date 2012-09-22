@@ -80,10 +80,10 @@ void ItemManager::loadAll() {
 			this->loadSets(test_path);
 		}
 	}
-	if (items.size() > 0) shrinkItems();
+	if (!items.empty()) shrinkItems();
 	else fprintf(stderr, "No items were found.\n");
 
-	if (item_sets.size() > 0) shrinkItemSets();
+	if (!item_sets.empty()) shrinkItemSets();
 	else printf("No item sets were found.\n");
 }
 
@@ -279,7 +279,7 @@ void ItemManager::loadTypes(const string& filename) {
 
 string ItemManager::getItemType(std::string _type) {
 	map<string,string>::iterator it,end;
-	for (it=item_types.begin(), end=item_types.end(); it!=end; it++) {
+	for (it=item_types.begin(), end=item_types.end(); it!=end; ++it) {
 		if (_type.compare(it->first) == 0) return it->second;
 	}
 	// If all else fails, return the original string

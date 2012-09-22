@@ -126,7 +126,7 @@ void MapRenderer::push_enemy_group(Map_Group g) {
 	for(int i = 0; i < number; i++) {
 		Enemy_Level enemy_lev = EnemyGroupManager::instance().getRandomEnemy(g.category, g.levelmin, g.levelmax);
 		Map_Enemy group_member;
-		if ((enemy_lev.type != "") && (valid_locations.size() != 0)){
+		if ((enemy_lev.type != "") && (!valid_locations.empty())){
 			group_member.clear();
 			group_member.type = enemy_lev.type;
 			int index = rand() % valid_locations.size();
@@ -624,7 +624,7 @@ void MapRenderer::logic() {
 
 	// handle event cooldowns
 	vector<Map_Event>::iterator it;
-	for (it = events.begin(); it < events.end(); it++) {
+	for (it = events.begin(); it < events.end(); ++it) {
 		if ((*it).cooldown_ticks > 0) (*it).cooldown_ticks--;
 	}
 
@@ -680,12 +680,12 @@ bool zcompare_ortho(const Renderable &r1, const Renderable &r2) {
 void MapRenderer::render(vector<Renderable> &r, vector<Renderable> &r_dead) {
 
 	vector<Renderable>::iterator it;
-	for (it = r.begin(); it != r.end(); it++) {
+	for (it = r.begin(); it != r.end(); ++it) {
 		// calculate tile
 		it->tile.x = it->map_pos.x >> TILE_SHIFT;
 		it->tile.y = it->map_pos.y >> TILE_SHIFT;
 	}
-	for (it = r_dead.begin(); it != r_dead.end(); it++) {
+	for (it = r_dead.begin(); it != r_dead.end(); ++it) {
 		// calculate tile
 		it->tile.x = it->map_pos.x >> TILE_SHIFT;
 		it->tile.y = it->map_pos.y >> TILE_SHIFT;
@@ -780,7 +780,7 @@ void MapRenderer::renderIsoLayer(SDL_Surface *wheretorender, Point offset, const
 
 void MapRenderer::renderIsoBackObjects(vector<Renderable> &r) {
 	vector<Renderable>::iterator it;
-	for (it = r.begin(); it != r.end(); it++)
+	for (it = r.begin(); it != r.end(); ++it)
 		drawRenderable(it);
 }
 
@@ -800,7 +800,7 @@ void MapRenderer::renderIsoFrontObjects(vector<Renderable> &r) {
 	i = upperright.x / UNITS_PER_TILE - tiles_outside_of_screen;
 
 	while (r_cursor != r_end && (r_cursor->tile.x + r_cursor->tile.y < i + j || r_cursor->tile.x < i))
-		r_cursor++;
+		++r_cursor;
 
 	for (unsigned short y = max_tiles_height ; y; --y) {
 		short tiles_width = 0;
@@ -835,7 +835,7 @@ void MapRenderer::renderIsoFrontObjects(vector<Renderable> &r) {
 			// some renderable entities go in this layer
 			while (r_cursor != r_end && r_cursor->tile.x == i && r_cursor->tile.y == j) {
 				drawRenderable(r_cursor);
-				r_cursor++;
+				++r_cursor;
 			}
 		}
 		j += tiles_width;
@@ -845,7 +845,7 @@ void MapRenderer::renderIsoFrontObjects(vector<Renderable> &r) {
 		else
 			j++;
 		while (r_cursor != r_end && (r_cursor->tile.x + r_cursor->tile.y < i + j || r_cursor->tile.x <= i))
-			r_cursor++;
+			++r_cursor;
 	}
 }
 
@@ -911,7 +911,7 @@ void MapRenderer::renderOrthoLayer(const unsigned short layerdata[256][256]) {
 void MapRenderer::renderOrthoBackObjects(std::vector<Renderable> &r) {
 	// some renderables are drawn above the background and below the objects
 	vector<Renderable>::iterator it;
-	for (it = r.begin(); it != r.end(); it++)
+	for (it = r.begin(); it != r.end(); ++it)
 		drawRenderable(it);
 }
 
@@ -941,7 +941,7 @@ void MapRenderer::renderOrthoFrontObjects(std::vector<Renderable> &r) {
 			// some renderable entities go in this layer
 			while (r_cursor != r_end && r_cursor->tile.x == i && r_cursor->tile.y == j) {
 				drawRenderable(r_cursor);
-				r_cursor++;
+				++r_cursor;
 			}
 		}
 	}
@@ -962,7 +962,7 @@ void MapRenderer::executeOnLoadEvents() {
 
 	// loop in reverse because we may erase elements
 	for (it = events.end(); it != events.begin(); ) {
-		it--;
+		--it;
 
 		// skip inactive events
 		if (!isActive(*it)) continue;
@@ -983,7 +983,7 @@ void MapRenderer::checkEvents(Point loc) {
 
 	// loop in reverse because we may erase elements
 	for (it = events.end(); it != events.begin(); ) {
-		it--;
+		--it;
 
 		// skip inactive events
 		if (!isActive(*it)) continue;
@@ -1015,7 +1015,7 @@ void MapRenderer::checkHotspots() {
 	// work backwards through events because events can be erased in the loop.
 	// this prevents the iterator from becoming invalid.
 	for (it = events.end(); it != events.begin(); ) {
-		it--;
+		--it;
 
 		for (int x=it->hotspot.x; x < it->hotspot.x + it->hotspot.w; ++x) {
 			for (int y=it->hotspot.y; y < it->hotspot.y + it->hotspot.h; ++y) {
