@@ -74,6 +74,9 @@ protected:
 public:
 	Animation(std::string _name, std::string _type);
 
+	// returns a copy of this:
+	Animation(const Animation&);
+
 	// Traditional way to create an animation.
 	// The frames are stored in a grid like fashion, so the individual frame
 	// position can be calculated based on a few things.

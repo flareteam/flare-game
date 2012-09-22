@@ -180,19 +180,19 @@ void MenuActionBar::update() {
 	// set keybinding labels
 	for (unsigned int i=0; i<10; i++) {
 		if (inpt->binding[i+6] < 8)
-			labels[i]->set(slots[i].x+slots[i].w, slots[i].y+slots[i].h-12, JUSTIFY_RIGHT, VALIGN_TOP, mouse_button[inpt->binding[i+6]-1], font->getColor("menu_normal"));
+			labels[i]->set(slots[i].x+slots[i].w, slots[i].y+slots[i].h-12, JUSTIFY_RIGHT, VALIGN_TOP, inpt->mouse_button[inpt->binding[i+6]-1], font->getColor("menu_normal"));
 		else
 			labels[i]->set(slots[i].x+slots[i].w, slots[i].y+slots[i].h-12, JUSTIFY_RIGHT, VALIGN_TOP, SDL_GetKeyName((SDLKey)inpt->binding[i+6]), font->getColor("menu_normal"));
 	}
 	for (unsigned int i=0; i<2; i++) {
 		if (inpt->binding[i+20] < 8)
-			labels[i+10]->set(slots[i+10].x+slots[i+10].w, slots[i+10].y+slots[i+10].h-12, JUSTIFY_RIGHT, VALIGN_TOP, mouse_button[inpt->binding[i+20]-1], font->getColor("menu_normal"));
+			labels[i+10]->set(slots[i+10].x+slots[i+10].w, slots[i+10].y+slots[i+10].h-12, JUSTIFY_RIGHT, VALIGN_TOP, inpt->mouse_button[inpt->binding[i+20]-1], font->getColor("menu_normal"));
 		else
 			labels[i+10]->set(slots[i+10].x+slots[i+10].w, slots[i+10].y+slots[i+10].h-12, JUSTIFY_RIGHT, VALIGN_TOP, SDL_GetKeyName((SDLKey)inpt->binding[i+20]), font->getColor("menu_normal"));
 	}
 	for (unsigned int i=0; i<4; i++) {
 		if (inpt->binding[i+16] < 8)
-			labels[i+12]->set(menus[i].x+menus[i].w, menus[i].y+menus[i].h-12, JUSTIFY_RIGHT, VALIGN_TOP, mouse_button[inpt->binding[i+16]-1], font->getColor("menu_normal"));
+			labels[i+12]->set(menus[i].x+menus[i].w, menus[i].y+menus[i].h-12, JUSTIFY_RIGHT, VALIGN_TOP, inpt->mouse_button[inpt->binding[i+16]-1], font->getColor("menu_normal"));
 		else
 			labels[i+12]->set(menus[i].x+menus[i].w, menus[i].y+menus[i].h-12, JUSTIFY_RIGHT, VALIGN_TOP, SDL_GetKeyName((SDLKey)inpt->binding[i+16]), font->getColor("menu_normal"));
 	}

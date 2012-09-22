@@ -20,6 +20,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "Animation.h"
+#include "BehaviorStandard.h"
 #include "CampaignManager.h"
 #include "CombatText.h"
 #include "Enemy.h"
@@ -56,6 +57,22 @@ Enemy::Enemy(PowerManager *_powers, MapRenderer *_map) : Entity(_map) {
 	instant_power = false;
 
 	eb = NULL;
+}
+
+Enemy::Enemy(const Enemy& e)
+ : Entity(e)
+ , type(e.type)
+ , haz(e.haz)
+ , eb(new BehaviorStandard(this))
+ , powers(e.powers)
+ , sfx_phys(e.sfx_phys)
+ , sfx_ment(e.sfx_ment)
+ , sfx_hit(e.sfx_hit)
+ , sfx_die(e.sfx_die)
+ , sfx_critdie(e.sfx_critdie)
+ , reward_xp(e.reward_xp)
+ , instant_power(e.instant_power)
+{
 }
 
 /**
@@ -148,7 +165,7 @@ bool Enemy::takeHit(Hazard h) {
 		int avoidance = stats.avoidance;
 		if (MAX_AVOIDANCE < avoidance) avoidance = MAX_AVOIDANCE;
 		if (rand() % 100 > (h.accuracy - avoidance + 25)) {
-		    combat_text->addMessage("miss", stats.pos, COMBAT_MESSAGE_MISS, false);
+		    combat_text->addMessage(msg->get("miss"), stats.pos, COMBAT_MESSAGE_MISS, false);
 		    return false;
 		}
 

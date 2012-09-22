@@ -73,6 +73,10 @@ public:
 	int binding[key_count];
 	int binding_alt[key_count];
 	int joy_binding[joy_key_count];
+	
+	std::string binding_name[25];
+	std::string mouse_button[7];
+
 	InputState(void);
 	~InputState();
 
