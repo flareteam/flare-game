@@ -87,7 +87,7 @@ GameStatePlay::GameStatePlay() : GameState() {
 	color_normal = font->getColor("menu_normal");
 
 	loading = new WidgetLabel();
-	loading->set(VIEW_W_HALF, VIEW_H_HALF, JUSTIFY_CENTER, VALIGN_CENTER, "Loading...", color_normal);
+	loading->set(VIEW_W_HALF, VIEW_H_HALF, JUSTIFY_CENTER, VALIGN_CENTER, msg->get("Loading..."), color_normal);
 
 	// Load the loading screen image (we currently use the confirm dialog background)
 	loading_bg = IMG_Load(mods->locate("images/menus/confirm_bg.png").c_str());
