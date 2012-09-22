@@ -319,7 +319,7 @@ void EnemyManager::checkEnemiesforXP(StatBlock *stats) {
  */
 void EnemyManager::addRenders(vector<Renderable> &r, vector<Renderable> &r_dead) {
 	vector<Enemy*>::iterator it;
-	for (it = enemies.begin(); it != enemies.end(); it++) {
+	for (it = enemies.begin(); it != enemies.end(); ++it) {
 		Renderable re = (*it)->getRender();
 		vector<string>::iterator found = find(gfx_prefixes.begin(), gfx_prefixes.end(), (*it)->stats.gfx_prefix);
 		if (found != gfx_prefixes.end()) {

@@ -142,7 +142,7 @@ MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_i
 	loadGraphics();
 
 	// check for errors in config file
-	if((tabs_count == 1) && (tree_image_files.size() > 0 || tab_titles.size() > 0)) {
+	if((tabs_count == 1) && (!tree_image_files.empty() || !tab_titles.empty())) {
 		fprintf(stderr, "menu/powers.txt error: you don't have tabs, but tab_tree_image and tab_title counts are not 0\n");
 		SDL_Quit();
 		exit(1);

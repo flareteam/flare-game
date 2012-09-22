@@ -558,7 +558,7 @@ Point PowerManager::targetNeighbor(Point target, int range, bool ignore_blocked)
 		}
 	}
 
-	if (valid_tiles.size() > 0)
+	if (!valid_tiles.empty())
 		return valid_tiles[rand() % valid_tiles.size()];
 	else
 		return target;

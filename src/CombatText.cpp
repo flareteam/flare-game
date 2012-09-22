@@ -108,7 +108,7 @@ void CombatText::addMessage(int num, Point location, int displaytype, bool from_
 }
 
 void CombatText::render() {
-	for(std::vector<Combat_Text_Item>::iterator it = combat_text.begin(); it != combat_text.end(); it++) {
+	for(std::vector<Combat_Text_Item>::iterator it = combat_text.begin(); it != combat_text.end(); --it) {
 		it->lifespan--;
 
 		// check if we need to position the text relative to the map
@@ -127,7 +127,7 @@ void CombatText::render() {
 
 	}
 	// delete expired messages
-	while (combat_text.size() > 0 && combat_text.begin()->lifespan <= 0) {
+	while (!combat_text.empty() && combat_text.begin()->lifespan <= 0) {
 		combat_text.erase(combat_text.begin());
 	}
 }

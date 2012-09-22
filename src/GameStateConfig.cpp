@@ -225,7 +225,7 @@ void GameStateConfig::readConfig () {
 			y2 = eatFirstInt(infile.val, ',');
 
 			setting_num = -1;
-			
+
 			//checkboxes
 			if (infile.key == "fullscreen") {
 				fullscreen_cb->pos.x = frame.x + x2;
@@ -247,7 +247,7 @@ void GameStateConfig::readConfig () {
 				optiontab[child_widget.size()-1] = 3;
 
 				mouse_move_lb->setX(frame.x + x1);
-				mouse_move_lb->setY(frame.y + y1);			
+				mouse_move_lb->setY(frame.y + y1);
 				mouse_move_lb->set(msg->get("Move hero using mouse"));
 				mouse_move_lb->setJustify(JUSTIFY_RIGHT);
 				child_widget.push_back(mouse_move_lb);
@@ -309,7 +309,7 @@ void GameStateConfig::readConfig () {
 			}
 			else if (infile.key == "texture_quality") {
 				texture_quality_cb->pos.x = frame.x + x2;
-				texture_quality_cb->pos.y = frame.y + y2;	
+				texture_quality_cb->pos.y = frame.y + y2;
 				child_widget.push_back(texture_quality_cb);
 				optiontab[child_widget.size()-1] = 0;
 
@@ -327,7 +327,7 @@ void GameStateConfig::readConfig () {
 				optiontab[child_widget.size()-1] = 0;
 
 				change_gamma_lb->setX(frame.x + x1);
-				change_gamma_lb->setY(frame.y + y1);				
+				change_gamma_lb->setY(frame.y + y1);
 				change_gamma_lb->set(msg->get("Allow changing gamma"));
 				change_gamma_lb->setJustify(JUSTIFY_RIGHT);
 				child_widget.push_back(change_gamma_lb);
@@ -340,7 +340,7 @@ void GameStateConfig::readConfig () {
 				optiontab[child_widget.size()-1] = 0;
 
 				animated_tiles_lb->setX(frame.x + x1);
-				animated_tiles_lb->setY(frame.y + y1);				
+				animated_tiles_lb->setY(frame.y + y1);
 				animated_tiles_lb->set(msg->get("Animated tiles"));
 				animated_tiles_lb->setJustify(JUSTIFY_RIGHT);
 				child_widget.push_back(animated_tiles_lb);
@@ -353,7 +353,7 @@ void GameStateConfig::readConfig () {
 				optiontab[child_widget.size()-1] = 3;
 
 				mouse_aim_lb->setX(frame.x + x1);
-				mouse_aim_lb->setY(frame.y + y1);				
+				mouse_aim_lb->setY(frame.y + y1);
 				mouse_aim_lb->set(msg->get("Mouse aim"));
 				mouse_aim_lb->setJustify(JUSTIFY_RIGHT);
 				child_widget.push_back(mouse_aim_lb);
@@ -366,7 +366,7 @@ void GameStateConfig::readConfig () {
 				optiontab[child_widget.size()-1] = 2;
 
 				show_fps_lb->setX(frame.x + x1);
-				show_fps_lb->setY(frame.y + y1);					
+				show_fps_lb->setY(frame.y + y1);
 				show_fps_lb->set(msg->get("Show FPS"));
 				show_fps_lb->setJustify(JUSTIFY_RIGHT);
 				child_widget.push_back(show_fps_lb);
@@ -380,7 +380,7 @@ void GameStateConfig::readConfig () {
 				optiontab[child_widget.size()-1] = 1;
 
 				music_volume_lb->setX(frame.x + x1);
-				music_volume_lb->setY(frame.y + y1);				
+				music_volume_lb->setY(frame.y + y1);
 				music_volume_lb->set(msg->get("Music Volume"));
 				music_volume_lb->setJustify(JUSTIFY_RIGHT);
 				child_widget.push_back(music_volume_lb);
@@ -388,7 +388,7 @@ void GameStateConfig::readConfig () {
 			}
 			else if (infile.key == "sound_volume") {
 				sound_volume_sl->pos.x = frame.x + x2;
-				sound_volume_sl->pos.y = frame.y + y2;	
+				sound_volume_sl->pos.y = frame.y + y2;
 				child_widget.push_back(sound_volume_sl);
 				optiontab[child_widget.size()-1] = 1;
 
@@ -415,7 +415,7 @@ void GameStateConfig::readConfig () {
 			//listboxes
 			else if (infile.key == "resolution") {
 				resolution_lstb->pos.x = frame.x + x2;
-				resolution_lstb->pos.y = frame.y + y2;				
+				resolution_lstb->pos.y = frame.y + y2;
 				child_widget.push_back(resolution_lstb);
 				optiontab[child_widget.size()-1] = 0;
 
@@ -1250,7 +1250,7 @@ GameStateConfig::~GameStateConfig()
 
 	SDL_FreeSurface(background);
 
-	for (std::vector<Widget*>::iterator iter = child_widget.begin(); iter != child_widget.end(); iter++)
+	for (std::vector<Widget*>::iterator iter = child_widget.begin(); iter != child_widget.end(); ++iter)
 	{
 		delete (*iter);
 	}

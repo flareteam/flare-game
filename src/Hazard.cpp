@@ -96,29 +96,29 @@ void Hazard::setCollision(MapCollision *_collider) {
 }
 
 void Hazard::logic() {
-	
+
 	// if the hazard is on delay, take no action
 	if (delay_frames > 0) {
 		delay_frames--;
 		return;
 	}
-	
+
 	// handle tickers
 	if (lifespan > 0) lifespan--;
 	frame++;
 	if (frame == frame_loop) frame=0;
-	
+
 	// handle movement
 	if (!(round(speed.x) == 0 && round(speed.y) == 0)) {
 		pos.x += speed.x;
 		pos.y += speed.y;
-		
+
 		// very simplified collider, could skim around corners
 		// or even pass through thin walls if speed > tilesize
 		if (collider->is_wall(round(pos.x), round(pos.y))) {
 			lifespan = 0;
 			hit_wall = true;
-			
+
 			if (collider->outsideMap(round(pos.x) >> TILE_SHIFT, round(pos.y) >> TILE_SHIFT))
 				remove_now = true;
 		}
@@ -128,7 +128,7 @@ void Hazard::logic() {
 
 bool Hazard::hasEntity(Entity *ent)
 {
-	for(vector<Entity*>::iterator it = entitiesCollided.begin(); it != entitiesCollided.end(); it++)
+	for(vector<Entity*>::iterator it = entitiesCollided.begin(); it != entitiesCollided.end(); ++it)
 		if(*it == ent) return true;
 	return false;
 }
