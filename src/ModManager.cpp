@@ -21,6 +21,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "UtilsParsing.h"
 #include <SDL.h>
 #include <fstream>
+#include <algorithm>
 
 using namespace std;
 
@@ -46,7 +47,7 @@ void ModManager::loadModList() {
 	ifstream infile;
 	string line;
 	string starts_with;
-	string test_path;
+	vector<string> mod_dirs;
 
 	infile.open((PATH_CONF + "mods.txt").c_str(), ios::in);
 
@@ -74,9 +75,9 @@ void ModManager::loadModList() {
 		if (starts_with == "#") continue;
 
 		// add the mod if it exists in the mods folder
-		test_path = PATH_DATA + "mods/" + line + "/";
+		getDirList(PATH_DATA + "mods", mod_dirs);
 
-		if (fileExists(test_path)) {
+		if (find(mod_dirs.begin(), mod_dirs.end(), line) != mod_dirs.end()) {
 			mod_list.push_back(line);
 		} else {
 			fprintf(stderr, "Mod \"%s\" not found, skipping\n", line.c_str());
