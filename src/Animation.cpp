@@ -114,8 +114,8 @@ void Animation::addFrame(	unsigned short index,
 							Point _render_offset) {
 
 	if (index > gfx.size()/8) {
-		fprintf(stderr, "WARNING: Animation(%s) adding rect(%d, %d, %d, %d) to frame index(%u) out of bounds. must be in [0, %zu]\n",
-		name.c_str(), sdl_rect.x, sdl_rect.y, sdl_rect.w, sdl_rect.h, index, gfx.size()/8);
+		fprintf(stderr, "WARNING: Animation(%s) adding rect(%d, %d, %d, %d) to frame index(%u) out of bounds. must be in [0, %d]\n",
+		name.c_str(), sdl_rect.x, sdl_rect.y, sdl_rect.w, sdl_rect.h, index, (int)gfx.size()/8);
 		return;
 	}
 	if (direction > 7) {

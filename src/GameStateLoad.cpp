@@ -307,7 +307,7 @@ void GameStateLoad::loadPreview(int slot) {
 
 	for (unsigned int i=0; i<equipped[slot].size(); i++) {
 		if ((unsigned)equipped[slot][i] > items->items.size()-1){
-			fprintf(stderr, "Item with id=%d out of bounds 1-%zu. Your savegame is broken or you might use incompatible savegame/mod\nQuitting to avoid savegame rewriting\n", equipped[slot][i], items->items.size()-1);
+			fprintf(stderr, "Item with id=%d out of bounds 1-%d. Your savegame is broken or you might use incompatible savegame/mod\nQuitting to avoid savegame rewriting\n", equipped[slot][i], (int)items->items.size()-1);
 			SDL_Quit();
 			exit(1);
 		}
