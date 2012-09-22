@@ -98,7 +98,7 @@ FontEngine::FontEngine() {
 
 SDL_Color FontEngine::getColor(string _color) {
 	map<string,SDL_Color>::iterator it,end;
-	for (it=color_map.begin(), end=color_map.end(); it!=end; it++) {
+	for (it=color_map.begin(), end=color_map.end(); it!=end; ++it) {
 		if (_color.compare(it->first) == 0) return it->second;
 	}
 	// If all else fails, return white;
@@ -225,7 +225,7 @@ void FontEngine::render(const std::string& text, int x, int y, int justify, SDL_
 
 	if (render_blended && target != screen) {
 		ttf = TTF_RenderUTF8_Blended(ttfont, text.c_str(), color);
-		
+
 		// preserve alpha transparency of text buffers
 		if (ttf != NULL) SDL_gfxBlitRGBA(ttf, NULL, target, &dest_rect);
 	}
@@ -233,7 +233,7 @@ void FontEngine::render(const std::string& text, int x, int y, int justify, SDL_
 		ttf = TTF_RenderUTF8_Solid(ttfont, text.c_str(), color);
 		if (ttf != NULL) SDL_BlitSurface(ttf, NULL, target, &dest_rect);
 	}
-	
+
 	SDL_FreeSurface(ttf);
 	ttf = NULL;
 }
