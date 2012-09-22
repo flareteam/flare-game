@@ -64,6 +64,8 @@ void ModManager::loadModList() {
 	// Add the fallback mod by default
 	mod_list.push_back(FALLBACK_MOD);
 
+	getDirList(PATH_DATA + "mods", mod_dirs);
+
 	while (!infile.eof()) {
 		line = getLine(infile);
 
@@ -75,8 +77,6 @@ void ModManager::loadModList() {
 		if (starts_with == "#") continue;
 
 		// add the mod if it exists in the mods folder
-		getDirList(PATH_DATA + "mods", mod_dirs);
-
 		if (find(mod_dirs.begin(), mod_dirs.end(), line) != mod_dirs.end()) {
 			mod_list.push_back(line);
 		} else {
