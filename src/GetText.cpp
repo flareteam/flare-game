@@ -69,6 +69,19 @@ bool GetText::next() {
 
 			if (key != "")
 				continue;
+			else {  // Might be a multi-line key.
+				line = getLine(infile);
+				while(line.find("\"") == 0)
+				{
+					// We remove the double quotes.
+					key += line.substr(1, line.length()-2);
+					line = getLine(infile);
+				}
+				if(key != "") // It was a multi-line value indeed.
+				{
+					continue;
+				}
+			}
 		}
 
 		// this is a value
