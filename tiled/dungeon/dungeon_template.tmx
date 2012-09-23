@@ -16,9 +16,21 @@
  </tileset>
  <tileset firstgid="264" name="tiled_dungeon_2x2" tilewidth="128" tileheight="64">
   <tileoffset x="0" y="16"/>
-  <image source="tiled_dungeon_2x2.png" width="512" height="512"/>
+  <image source="tiled_dungeon_2x2.png" width="512" height="256"/>
  </tileset>
- <layer name="background" width="20" height="20">
+ <tileset firstgid="280" name="door_left" tilewidth="64" tileheight="128">
+  <tileoffset x="-16" y="-8"/>
+  <image source="door_left.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="282" name="door_right" tilewidth="64" tileheight="128">
+  <tileoffset x="16" y="-8"/>
+  <image source="door_right.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="284" name="stairs" tilewidth="256" tileheight="256">
+  <tileoffset x="0" y="48"/>
+  <image source="stairs.png" width="1024" height="256"/>
+ </tileset>
+<layer name="background" width="20" height="20">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
