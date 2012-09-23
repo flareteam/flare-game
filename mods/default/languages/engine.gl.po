@@ -7,13 +7,15 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-21 15:57+0300\n"
-"PO-Revision-Date: 2012-07-14 16:59+0200\n"
+"PO-Revision-Date: 2012-09-22 14:10+0200\n"
 "Last-Translator: Adrián Chaves Fernández <adriyetichaves@gmail.com>\n"
 "Language-Team: Galician <kde-i18n-doc@kde.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: gl\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 1.5\n"
 
 #: ../../../src/Avatar.cpp:444
 #, c-format
@@ -29,20 +31,20 @@ msgid "You are defeated. Game over! Press Enter to exit to Title."
 msgstr "Derrotáronte. Perdiches! Preme Intro para ir ao menú."
 
 #: ../../../src/Avatar.cpp:636
-#, fuzzy, c-format
+#, c-format
 msgid "You are defeated.  You lose half your %s.  Press Enter to continue."
-msgstr "Derrotáronte, e perdiches a metade do ouro. Preme Intro para continuar."
+msgstr "Derrotáronte, e perdiches a metade do %s. Preme Intro para continuar."
 
 #: ../../../src/Avatar.cpp:708 ../../../src/Enemy.cpp:168
 msgid "miss"
-msgstr ""
+msgstr "fallo"
 
 #: ../../../src/Avatar.cpp:795 ../../../src/Enemy.cpp:261
 #: ../../../src/PowerManager.cpp:762 ../../../src/PowerManager.cpp:764
 #: ../../../src/PowerManager.cpp:773 ../../../src/PowerManager.cpp:775
 #, c-format
 msgid "+%d HP"
-msgstr ""
+msgstr "+%d de vida"
 
 #: ../../../src/CampaignManager.cpp:141
 #, c-format
@@ -55,9 +57,9 @@ msgid "You receive %s x%d."
 msgstr "Obtiveches %d unidades de %s."
 
 #: ../../../src/CampaignManager.cpp:151
-#, fuzzy, c-format
+#, c-format
 msgid "You receive %d %s."
-msgstr "Obtiveches unha unidade de %s."
+msgstr "Obtiveches %d %s."
 
 #: ../../../src/CampaignManager.cpp:157
 #, c-format
@@ -66,29 +68,29 @@ msgstr "A túa experiencia aumentou %d puntos."
 
 #: ../../../src/CampaignManager.cpp:163
 msgid "HP restored."
-msgstr ""
+msgstr "Recuperaches a vida."
 
 #: ../../../src/CampaignManager.cpp:167
 msgid "MP restored."
-msgstr ""
+msgstr "Recuperaches a enerxía."
 
 #: ../../../src/CampaignManager.cpp:172
 msgid "HP and MP restored."
-msgstr ""
+msgstr "Recuperaches a vida e a enerxía."
 
 #: ../../../src/CampaignManager.cpp:176
 msgid "Negative effects removed."
-msgstr ""
+msgstr "Elimináronse os efectos negativos."
 
 #: ../../../src/CampaignManager.cpp:182
 msgid "HP and MP restored, negative effects removed"
-msgstr ""
+msgstr "Recuperaches a vida e a enerxía, e elimináronse os efectos negativos."
 
 #: ../../../src/Enemy.cpp:268 ../../../src/PowerManager.cpp:784
 #: ../../../src/PowerManager.cpp:786
 #, c-format
 msgid "+%d MP"
-msgstr ""
+msgstr "+%d de enerxía"
 
 #: ../../../src/GameStateConfig.cpp:77
 msgid "Ok"
@@ -130,10 +132,9 @@ msgstr "Mods"
 #: ../../../src/GameStateConfig.cpp:160 ../../../src/GameStateConfig.cpp:895
 #: ../../../src/GameStateConfig.cpp:897
 msgid "Assign: "
-msgstr ""
+msgstr "Asignar: "
 
 #: ../../../src/GameStateConfig.cpp:161
-#, fuzzy
 msgid "Reset ALL settings?"
 msgstr "Volver á configuración inicial?"
 
@@ -163,23 +164,23 @@ msgstr "Empregar un mando:"
 
 #: ../../../src/GameStateConfig.cpp:318
 msgid "High Quality Textures"
-msgstr ""
+msgstr "Texturas de alta calidade:"
 
 #: ../../../src/GameStateConfig.cpp:331
 msgid "Allow changing gamma"
-msgstr ""
+msgstr "Permitir cambiar o gamma:"
 
 #: ../../../src/GameStateConfig.cpp:344
 msgid "Animated tiles"
-msgstr ""
+msgstr "Animacións no revestimento:"
 
 #: ../../../src/GameStateConfig.cpp:357
 msgid "Mouse aim"
-msgstr ""
+msgstr "Apuntar co rato."
 
 #: ../../../src/GameStateConfig.cpp:370
 msgid "Show FPS"
-msgstr ""
+msgstr "Amosar os FPS:"
 
 #: ../../../src/GameStateConfig.cpp:384
 msgid "Music Volume"
@@ -202,7 +203,6 @@ msgid "Active Mods"
 msgstr "Mods activos"
 
 #: ../../../src/GameStateConfig.cpp:445
-#, fuzzy
 msgid "Available Mods"
 msgstr "Mods dispoñíbeis"
 
@@ -216,22 +216,20 @@ msgstr "Idioma"
 
 #: ../../../src/GameStateConfig.cpp:508 ../../../src/GameStateConfig.cpp:515
 #: ../../../src/GameStateConfig.cpp:522
-#, fuzzy
 msgid "Disable for performance"
-msgstr "Probe a desactivalo para mellorar o rendemento."
+msgstr "Desactívao para mellorar o rendemento."
 
 #: ../../../src/GameStateConfig.cpp:529
 msgid "Experimental"
-msgstr ""
+msgstr "Experimental."
 
 #: ../../../src/GameStateConfig.cpp:549
-#, fuzzy
 msgid "<< Disable"
 msgstr "← Desactivar"
 
 #: ../../../src/GameStateConfig.cpp:557
 msgid "Enable >>"
-msgstr ""
+msgstr "Activar →"
 
 #: ../../../src/GameStateLoad.cpp:56 ../../../src/GameStateLoad.cpp:68
 msgid "Delete Save"
@@ -279,9 +277,8 @@ msgid "Empty Slot"
 msgstr "Espazo sen usar."
 
 #: ../../../src/GameStateNew.cpp:55
-#, fuzzy
 msgid "Create"
-msgstr "Personaxe"
+msgstr "Crear"
 
 #: ../../../src/GameStateNew.cpp:133
 msgid "Choose a Portrait"
@@ -296,9 +293,8 @@ msgid "Permadeath?"
 msgstr "Perder a partida ao morrer."
 
 #: ../../../src/GameStatePlay.cpp:90
-#, fuzzy
 msgid "Loading..."
-msgstr "Cargando a partida..."
+msgstr "Cargando…"
 
 #: ../../../src/GameStatePlay.cpp:202 ../../../src/GameStatePlay.cpp:203
 #: ../../../src/MenuManager.cpp:378 ../../../src/MenuManager.cpp:379
@@ -321,70 +317,68 @@ msgid "Exit Game"
 msgstr "Saír"
 
 #: ../../../src/GameStateTitle.cpp:57
-#, fuzzy
 msgid "Flare Alpha v0.17"
-msgstr "Flare 0.16 (alfa)"
+msgstr "Flare 0.17 (alfa)"
 
 #: ../../../src/InputState.cpp:56
 msgid "Accept"
-msgstr ""
+msgstr "Aceptar"
 
 #: ../../../src/InputState.cpp:57
 msgid "Up"
-msgstr ""
+msgstr "Arriba"
 
 #: ../../../src/InputState.cpp:58
 msgid "Down"
-msgstr ""
+msgstr "Abaixo"
 
 #: ../../../src/InputState.cpp:59
 msgid "Left"
-msgstr ""
+msgstr "Esquerda"
 
 #: ../../../src/InputState.cpp:60
-#, fuzzy
 msgid "Right"
-msgstr "Cabaleiro"
+msgstr "Dereita"
 
 #: ../../../src/InputState.cpp:61
 msgid "Bar1"
-msgstr ""
+msgstr "Acción 1"
 
 #: ../../../src/InputState.cpp:62
 msgid "Bar2"
-msgstr ""
+msgstr "Acción 2"
 
 #: ../../../src/InputState.cpp:63
 msgid "Bar3"
-msgstr ""
+msgstr "Acción 3"
 
 #: ../../../src/InputState.cpp:64
 msgid "Bar4"
-msgstr ""
+msgstr "Acción 4"
 
 #: ../../../src/InputState.cpp:65
 msgid "Bar5"
-msgstr ""
+msgstr "Acción 5"
 
 #: ../../../src/InputState.cpp:66
 msgid "Bar6"
-msgstr ""
+msgstr "Acción 6"
 
 #: ../../../src/InputState.cpp:67
 msgid "Bar7"
-msgstr ""
+msgstr "Acción 7"
 
 #: ../../../src/InputState.cpp:68
 msgid "Bar8"
-msgstr ""
+msgstr "Acción 8"
 
 #: ../../../src/InputState.cpp:69
 msgid "Bar9"
-msgstr ""
+msgstr "Acción 9"
 
 #: ../../../src/InputState.cpp:70
 msgid "Bar0"
-msgstr ""
+msgstr "Acción 0"
 
 #: ../../../src/InputState.cpp:71 ../../../src/MenuCharacter.cpp:206
 msgid "Character"
@@ -405,52 +399,51 @@ msgstr "Rexistro"
 
 #: ../../../src/InputState.cpp:75
 msgid "Main1"
-msgstr ""
+msgstr "Acción principal"
 
 #: ../../../src/InputState.cpp:76
 msgid "Main2"
-msgstr ""
+msgstr "Acción secundaria"
 
 #: ../../../src/InputState.cpp:77
 msgid "Ctrl"
-msgstr ""
+msgstr "Control"
 
 #: ../../../src/InputState.cpp:78
 msgid "Shift"
-msgstr ""
+msgstr "Maiúsculas"
 
 #: ../../../src/InputState.cpp:79
-#, fuzzy
 msgid "Delete"
-msgstr "Borrar a partida"
+msgstr "Suprimir"
 
 #: ../../../src/InputState.cpp:81
 msgid "lmb"
-msgstr ""
+msgstr "Botón esquerdo"
 
 #: ../../../src/InputState.cpp:82
 msgid "mmb"
-msgstr ""
+msgstr "Botón central"
 
 #: ../../../src/InputState.cpp:83
 msgid "rmb"
-msgstr ""
+msgstr "Botón dereito"
 
 #: ../../../src/InputState.cpp:84
 msgid "wheel up"
-msgstr ""
+msgstr "Roda arriba"
 
 #: ../../../src/InputState.cpp:85
 msgid "wheel down"
-msgstr ""
+msgstr "Roda abaixo"
 
 #: ../../../src/InputState.cpp:86
 msgid "mbx1"
-msgstr ""
+msgstr "Botón 1"
 
 #: ../../../src/InputState.cpp:87
 msgid "mbx2"
-msgstr ""
+msgstr "Botón 2"
 
 #: ../../../src/ItemManager.cpp:512
 #, c-format
@@ -532,40 +525,39 @@ msgid "Requires Defense %d"
 msgstr "Require %d de defensa."
 
 #: ../../../src/ItemManager.cpp:602
-#, fuzzy, c-format
+#, c-format
 msgid "Buy Price: %d %s"
-msgstr "Prezo de compra: %d moedas"
+msgstr "Prezo de compra: %d %s"
 
 #: ../../../src/ItemManager.cpp:604
-#, fuzzy, c-format
+#, c-format
 msgid "Buy Price: %d %s each"
-msgstr "Prezo de compra: %d moedas por unidade"
+msgstr "Prezo de compra: %d %s por unidade"
 
 #: ../../../src/ItemManager.cpp:614
-#, fuzzy, c-format
+#, c-format
 msgid "Sell Price: %d %s"
-msgstr "Prezo de venda: %d moedas"
+msgstr "Prezo de venda: %d %s"
 
 #: ../../../src/ItemManager.cpp:616
-#, fuzzy, c-format
+#, c-format
 msgid "Sell Price: %d %s each"
-msgstr "Prezo de venda: %d moedas por unidade"
+msgstr "Prezo de venda: %d %s por unidade"
 
 #: ../../../src/ItemManager.cpp:628
-#, fuzzy
 msgid "Set: "
-msgstr "Seguinte nivel: %d"
+msgstr "Grupo: "
 
 #: ../../../src/ItemManager.cpp:632 ../../../src/ItemManager.cpp:635
 #, c-format
 msgid "%d items: "
-msgstr ""
+msgstr "%d elementos: "
 
 # Aparece no menú de escolla de partida, para dicir o tipo de personaxe protagonista da partida, así como o seu nivel.
 #: ../../../src/LootManager.cpp:282 ../../../src/MenuInventory.cpp:171
-#, fuzzy, c-format
+#, c-format
 msgid "%d %s"
-msgstr "%s de nivel %d"
+msgstr "%d %s"
 
 #: ../../../src/main.cpp:124
 msgid "Flare"
@@ -621,95 +613,99 @@ msgstr "puntos restantes"
 
 #: ../../../src/MenuCharacter.cpp:295
 msgid "Max HP:"
-msgstr ""
+msgstr "Vida máxima:"
 
 #: ../../../src/MenuCharacter.cpp:296
-#, fuzzy, c-format
+#, c-format
 msgid "Each point of Physical grants +%d HP. Each level grants +%d HP"
-msgstr "Cada punto de físico aumenta en 4 a recuperación."
+msgstr "Cada punto de físico aumenta en %d a vida. Cada nivel auméntaa en %d."
 
 #: ../../../src/MenuCharacter.cpp:301
-#, fuzzy
 msgid "HP Regen:"
-msgstr "Rexenera."
+msgstr "Recuperación:"
 
 #: ../../../src/MenuCharacter.cpp:302
 #, c-format
-msgid "Ticks of HP regen per minute. Each point of Physical grants +%d HP regen. Each level grants +%d HP regen"
+msgid ""
+"Ticks of HP regen per minute. Each point of Physical grants +%d HP regen. "
+"Each level grants +%d HP regen"
 msgstr ""
+"Cantidade de vida recuperada por minuto. Cada punto de físico aumenta en %d a "
+"recuperación. Cada nivel auméntaa en %d."
 
 #: ../../../src/MenuCharacter.cpp:307
 msgid "Max MP:"
-msgstr ""
+msgstr "Enerxía máxima:"
 
 #: ../../../src/MenuCharacter.cpp:308
-#, fuzzy, c-format
+#, c-format
 msgid "Each point of Mental grants +%d MP. Each level grants +%d MP"
-msgstr "Cada punto de mente aumenta en 4 a rexeneración."
+msgstr ""
+"Cada punto de mente aumenta en %d a rexeneración. Cada nivel auméntaa en %d."
 
 #: ../../../src/MenuCharacter.cpp:313
-#, fuzzy
 msgid "MP Regen:"
-msgstr "Rexenera."
+msgstr "Rexeneración:"
 
 #: ../../../src/MenuCharacter.cpp:314
 #, c-format
-msgid "Ticks of MP regen per minute. Each point of Mental grants +%d MP regen. Each level grants +%d MP regen"
+msgid ""
+"Ticks of MP regen per minute. Each point of Mental grants +%d MP regen. Each "
+"level grants +%d MP regen"
 msgstr ""
+"Cantidade de enerxía recuperada por minuto. Cada punto de mente aumenta en %d "
+"a rexeneración. Cada nivel auméntaa en %d."
 
 #: ../../../src/MenuCharacter.cpp:319
-#, fuzzy
 msgid "Accuracy (vs lvl 1):"
-msgstr "Puntería vs 1 Def."
+msgstr "Puntería (vs n1):"
 
 #: ../../../src/MenuCharacter.cpp:320 ../../../src/MenuCharacter.cpp:326
-#, fuzzy, c-format
-msgid "Each point of Offense grants +%d accuracy. Each level grants +%d accuracy"
-msgstr "Cada punto de ataque aumenta en 5 a puntería."
+#, c-format
+msgid ""
+"Each point of Offense grants +%d accuracy. Each level grants +%d accuracy"
+msgstr ""
+"Cada punto de ataque aumenta en %d a puntería. Cada nivel auméntaa en %d."
 
 #: ../../../src/MenuCharacter.cpp:325
-#, fuzzy
 msgid "Accuracy (vs lvl 5):"
-msgstr "Puntería vs 1 Def."
+msgstr "Puntería (vs n5):"
 
 #: ../../../src/MenuCharacter.cpp:331
-#, fuzzy
 msgid "Avoidance (vs lvl 1):"
-msgstr "Esquivar vs 1 Ata."
+msgstr "Esquivar (vs n1):"
 
 #: ../../../src/MenuCharacter.cpp:332 ../../../src/MenuCharacter.cpp:338
-#, fuzzy, c-format
-msgid "Each point of Defense grants +%d avoidance. Each level grants +%d avoidance"
-msgstr "Cada punto de defensa aumenta en 5 a capacidade para esquivar."
+#, c-format
+msgid ""
+"Each point of Defense grants +%d avoidance. Each level grants +%d avoidance"
+msgstr ""
+"Cada punto de defensa aumenta en %d a capacidade para esquivar. Cada nivel "
+"auméntaa en %d."
 
 #: ../../../src/MenuCharacter.cpp:337
-#, fuzzy
 msgid "Avoidance (vs lvl 5):"
-msgstr "Esquivar vs 1 Ata."
+msgstr "Esquivar (vs n5):"
 
 #: ../../../src/MenuCharacter.cpp:346
-#, fuzzy
 msgid "Melee Damage:"
-msgstr "Dano corpo a corpo: %d"
+msgstr "Dano corpo a corpo:"
 
 #: ../../../src/MenuCharacter.cpp:357
-#, fuzzy
 msgid "Ranged Damage:"
-msgstr "Dano a distancia: %d"
+msgstr "Dano a distancia:"
 
 #: ../../../src/MenuCharacter.cpp:368
-#, fuzzy
 msgid "Mental Damage:"
-msgstr "Dano mental: %d"
+msgstr "Dano mental:"
 
 #: ../../../src/MenuCharacter.cpp:378
 msgid "Crit:"
-msgstr ""
+msgstr "Crítico:"
 
 #: ../../../src/MenuCharacter.cpp:384
-#, fuzzy
 msgid "Absorb:"
-msgstr "Absorber"
+msgstr "Absorción:"
 
 #: ../../../src/MenuCharacter.cpp:405
 #, c-format
@@ -779,14 +775,13 @@ msgstr "Este ítem só pode empregarse dende a barra de acción."
 
 #: ../../../src/MenuLog.cpp:79
 msgid "Notes"
-msgstr ""
+msgstr "Notas"
 
 #: ../../../src/MenuLog.cpp:80
 msgid "Quests"
 msgstr "Misións"
 
 #: ../../../src/MenuLog.cpp:81
-#, fuzzy
 msgid "Stats"
 msgstr "Estatísticas"
 
@@ -798,7 +793,7 @@ msgstr "Experiencia: %d/%d"
 #: ../../../src/MenuManager.cpp:373 ../../../src/MenuManager.cpp:374
 #: ../../../src/MenuManager.cpp:582 ../../../src/MenuManager.cpp:583
 msgid "Not enough money."
-msgstr ""
+msgstr "Non tes dabondo."
 
 #: ../../../src/MenuPowers.cpp:470
 msgid "Requires a physical weapon"
@@ -833,23 +828,23 @@ msgid "Requires Mental Defense %d"
 msgstr "Require %d de defensa mental."
 
 #: ../../../src/MenuPowers.cpp:530 ../../../src/MenuPowers.cpp:533
-#, fuzzy, c-format
+#, c-format
 msgid "Requires Level %d"
-msgstr "Require %d de mente."
+msgstr "Require o nivel %d."
 
 #: ../../../src/MenuPowers.cpp:541 ../../../src/MenuPowers.cpp:546
-#, fuzzy, c-format
+#, c-format
 msgid "Requires %d Skill Point"
-msgstr "Require unha arma física."
+msgstr "Require %d puntos de habilidade."
 
 #: ../../../src/MenuPowers.cpp:554
 msgid "Click to Unlock"
-msgstr ""
+msgstr "Preme para desbloquear."
 
 #: ../../../src/MenuPowers.cpp:561 ../../../src/MenuPowers.cpp:564
-#, fuzzy, c-format
+#, c-format
 msgid "Requires Power: %s"
-msgstr "Require %d de mente."
+msgstr "Require a habilidade «%s»."
 
 #: ../../../src/MenuPowers.cpp:569
 #, c-format
@@ -863,7 +858,7 @@ msgstr "Recarga: %d segundos"
 
 #: ../../../src/MenuStash.cpp:125
 msgid "Shared Stash"
-msgstr ""
+msgstr "Reserva compartida"
 
 #: ../../../src/MenuTalker.cpp:47
 msgid "Trade"
@@ -871,7 +866,7 @@ msgstr "Comercio"
 
 #: ../../../src/MenuVendor.cpp:49
 msgid "Buyback"
-msgstr ""
+msgstr "Recuperar"
 
 #: ../../../src/MenuVendor.cpp:156
 msgid "Vendor"
@@ -880,11 +875,11 @@ msgstr "Vendedor"
 #: ../../../src/PowerManager.cpp:795 ../../../src/PowerManager.cpp:797
 #, c-format
 msgid "+%d Shield"
-msgstr ""
+msgstr "+%d de escudo"
 
 #: ../../../src/PowerManager.cpp:1114
 msgid "You are already transformed, untransform first."
-msgstr ""
+msgstr "Xa estás transformado, primeiro recupera a forma orixinal."
 
 #: ../../../src/StatBlock.cpp:397
 msgid "Grand Master"
