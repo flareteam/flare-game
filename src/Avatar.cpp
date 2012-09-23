@@ -173,7 +173,7 @@ void Avatar::loadGraphics(std::vector<Layer_gfx> _img_gfx) {
 		} else {
 			animsets[i] = AnimationManager::instance()->getAnimationSet("avatar/"+stats.base+"/"+_img_gfx[i].gfx+".txt") ;
 			animsets[i]->sprites = IMG_Load(mods->locate("images/avatar/"+stats.base+"/"+_img_gfx[i].gfx+".png").c_str());
-			anims[i] = 0;
+			anims[i] = animsets[i]->getAnimation(animsets[i]->starting_animation);
 		}
 	}
 
