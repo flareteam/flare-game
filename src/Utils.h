@@ -41,9 +41,16 @@ struct Renderable {
 	SDL_Surface *sprite; // image to be used
 	SDL_Rect src; // location on the sprite in pixel coordinates.
 
-	Point map_pos; // The map location on the floor between someone's feet
-	Point offset;  // offset from map_pos to topleft corner of sprite
-	Point tile;    // The tile which this renderable belongs to (i.e. for blocking that tile)
+	Point map_pos;     // The map location on the floor between someone's feet
+	Point offset;      // offset from map_pos to topleft corner of sprite
+	unsigned int prio; // must be in range 0-128, as the upper bytes will be used for the position.
+	Renderable()
+		: sprite(0)
+		, src(SDL_Rect())
+		, map_pos(Point())
+		, offset(Point())
+		, prio(0)
+	{}
 };
 
 class Event_Component {
