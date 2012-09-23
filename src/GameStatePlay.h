@@ -51,7 +51,6 @@ private:
 
 	MapRenderer *map;
 	Enemy *enemy;
-	int renderableCount;
 	HazardManager *hazards;
 	EnemyManager *enemies;
 	MenuManager *menu;
