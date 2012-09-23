@@ -38,9 +38,9 @@ Animation *AnimationSet::getAnimation(const std::string &_name)
 }
 
 AnimationSet::AnimationSet(const string &filename)
- : animations(vector<Animation*>())
+ : name(filename)
  , starting_animation("")
- , name(filename)
+ , animations(vector<Animation*>())
 {
 	FileParser parser;
 

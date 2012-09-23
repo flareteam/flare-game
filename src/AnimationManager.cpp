@@ -28,7 +28,7 @@ AnimationManager* _instance = 0;
 
 AnimationSet *AnimationManager::getAnimationSet(const string& filename) {
     for (size_t i = 0; i < sets.size(); i++)
-        if (sets[i]->name == filename)
+        if (sets[i]->getName() == filename)
             return sets[i];
 
     sets.push_back(new AnimationSet("animations/"+filename));

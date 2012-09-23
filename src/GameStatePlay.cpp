@@ -332,21 +332,27 @@ void GameStatePlay::checkEquipmentChange() {
 	if (menu->inv->changed_equipment) {
 
 		vector<Layer_gfx> img_gfx;
-		Layer_gfx gfx;
 		// load only displayable layers
-		for (int i=0; i<menu->inv->inventory[EQUIPMENT].getSlotNumber(); i++) {
-			for (unsigned int j=0; j<pc->layer_def.size(); j++) {
-				if (menu->inv->inventory[EQUIPMENT].slot_type[i] == pc->layer_def[j].type) {
+		const vector<string> &player_layers = pc->layer_def[pc->stats.direction];
+		for (unsigned int j=0; j<player_layers.size(); j++) {
+			for (int i=0; i<menu->inv->inventory[EQUIPMENT].getSlotNumber(); i++) {
+				if (player_layers[j] == menu->inv->inventory[EQUIPMENT].slot_type[i]) {
+					Layer_gfx gfx;
 					gfx.gfx = menu->items->items[menu->inv->inventory[EQUIPMENT][i].item].gfx;
 					gfx.type = menu->inv->inventory[EQUIPMENT].slot_type[i];
 					img_gfx.push_back(gfx);
 					break;
 				}
 			}
-			if (menu->inv->inventory[EQUIPMENT].slot_type[i] == "body") {
-				gfx.gfx = menu->items->items[menu->inv->inventory[EQUIPMENT][i].item].gfx;
-				gfx.type = menu->inv->inventory[EQUIPMENT].slot_type[i];
+			if (player_layers[j] == "head") {
+				Layer_gfx gfx;
+				gfx.gfx = pc->stats.head;
+				gfx.type = "head";
 				img_gfx.push_back(gfx);
+				break;
+			}
+			if (player_layers[j] == "body" && img_gfx.back().gfx == "") {
+				img_gfx.back().gfx = "clothes";
 			}
 		}
 		pc->loadGraphics(img_gfx);
@@ -604,7 +610,7 @@ void GameStatePlay::logic() {
 		}
 		if (pc->stats.manual_untransform && pc->untransform_power > 0) {
 			menu->act->hotkeys[count] = pc->untransform_power;
-			menu->act->locked[count] = true; 
+			menu->act->locked[count] = true;
 		} else if (pc->stats.manual_untransform && pc->untransform_power == 0)
 			fprintf(stderr, "Untransform power not found, you can't untransform manually\n");
 	}
@@ -631,8 +637,7 @@ void GameStatePlay::render() {
 	vector<Renderable> rens;
 	vector<Renderable> rens_dead;
 
-	Renderable pc_hero = pc->getRender();
-	rens.push_back(pc_hero); // Avatar
+	pc->addRenders(rens);
 
 	// get additional hero overlays
 	pc->stats.updateEffects();

@@ -41,7 +41,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 using namespace std;
 
 
-Avatar::Avatar(PowerManager *_powers, MapRenderer *_map) : Entity(_map), powers(_powers) {
+Avatar::Avatar(PowerManager *_powers, MapRenderer *_map)
+ : Entity(_map), powers(_powers)
+{
 
 	init();
 
@@ -50,7 +52,6 @@ Avatar::Avatar(PowerManager *_powers, MapRenderer *_map) : Entity(_map), powers(
 
 	// load the hero's animations from hero definition file
 	animationSet = AnimationManager::instance()->getAnimationSet("hero.txt");
-	delete activeAnimation;
 	activeAnimation = animationSet->getAnimation(animationSet->starting_animation);
 
 	loadLayerDefinitions();
@@ -98,7 +99,6 @@ void Avatar::init() {
 
 	haz = NULL;
 
-	img_gfx.resize(4,"");
 	body = -1;
 
 	transform_triggered = false;
@@ -124,102 +124,59 @@ void Avatar::init() {
  * Load avatar sprite layer definitions into vector.
  */
 void Avatar::loadLayerDefinitions() {
-	Layer_def temp;
+	layer_def = vector<vector<string> >(8, vector<string>());
 	FileParser infile;
 	if(infile.open(mods->locate("engine/hero_options.txt"))) {
 		while(infile.next()) {
 			infile.val = infile.val + ',';
 
 			if(infile.key == "layer") {
-				temp.type = eatFirstString(infile.val,',');
-				temp.pos.x = eatFirstInt(infile.val,',');
-				temp.pos.y = eatFirstInt(infile.val,',');
-				temp.pos.w = eatFirstInt(infile.val,',');
-				temp.pos.h = eatFirstInt(infile.val,',');
-				layer_def.push_back(temp);
+				unsigned dir = eatFirstInt(infile.val,',');
+				if (dir>7) {
+					fprintf(stderr, "direction must be in range [0,7]\n");
+					SDL_Quit();
+					exit(1);
+				}
+				string layer = eatFirstString(infile.val,',');
+				while (layer != "") {
+					layer_def[dir].push_back(layer);
+					layer = eatFirstString(infile.val,',');
+				}
 			}
 		}
 		infile.close();
 	} else fprintf(stderr, "Unable to open engine/hero_options.txt!\n");
 }
 
-/**
- * Return index of item with "type" inside image gfx vector.
- */
-int Avatar::findGfx(std::vector<Layer_gfx> _img_gfx, std::string type) {
-	for (unsigned int i=0; i<_img_gfx.size(); i++) {
-		if (type == _img_gfx[i].type) return i;
-	}
-	return -1;
-}
-
 void Avatar::loadGraphics(std::vector<Layer_gfx> _img_gfx) {
-	bool change_graphics = false;
-	vector<SDL_Surface*> gfx_surf;
-	SDL_Rect src;
-	SDL_Rect dest;
-
-	if (img_gfx.size() < _img_gfx.size()) img_gfx.resize(_img_gfx.size(), "");
-
-	// Default appearance
-	// Find body gfx index
-	if (body == -1) {
-		for (unsigned int i=0; i<_img_gfx.size(); i++) {
-			if (_img_gfx[i].type == "body") body = i;
-		}
-	}
-	if (_img_gfx[body].gfx == "") _img_gfx[body].gfx = "clothes";
 
 	// Check if we really need to change the graphics
-	for (unsigned int i=0; i<_img_gfx.size(); i++) {
-		if (img_gfx[i] != _img_gfx[i].gfx) {
+	bool change_graphics = false;
+
+	animsets.resize(_img_gfx.size());
+	anims.resize(_img_gfx.size());
+
+	unsigned end = _img_gfx.size();
+	for (unsigned i=0; i<end; i++) {
+		if (!animsets[i] || (animsets[i]->getName() != _img_gfx[i].gfx)) {
 			change_graphics = true;
 			break;
 		}
 	}
-	if (change_graphics) {
-		for (unsigned int i=0; i<_img_gfx.size(); i++) {
-			img_gfx[i] =_img_gfx[i].gfx;
+	if (!change_graphics)
+		return;
+
+	for (unsigned int i=0; i<_img_gfx.size(); i++) {
+		if (_img_gfx[i].gfx == "") {
+			animsets[i] = 0;
+			anims[i] = 0;
+		} else {
+			animsets[i] = AnimationManager::instance()->getAnimationSet("avatar/"+stats.base+"/"+_img_gfx[i].gfx+".txt") ;
+			animsets[i]->sprites = IMG_Load(mods->locate("images/avatar/"+stats.base+"/"+_img_gfx[i].gfx+".png").c_str());
+			anims[i] = 0;
 		}
-	} else return;
-
-	// composite the hero graphic
-	if (sprites) SDL_FreeSurface(sprites);
-	sprites = IMG_Load(mods->locate("images/avatar/" + stats.base + "/" + img_gfx[body] + ".png").c_str());
-
-	if (sprites == NULL) {
-		fprintf(stderr, "Couldn't load body image: %s\n", IMG_GetError());
-		SDL_Quit();
-		exit(1);
 	}
 
-	for (unsigned int i=0; i<layer_def.size(); i++) {
-		// find item, that should be rendered on current layer
-		int k = findGfx(_img_gfx, layer_def[i].type);
-
-		if (layer_def[i].type == "head") {
-				gfx_surf.push_back(IMG_Load(mods->locate("images/avatar/" + stats.base + "/" + stats.head + ".png").c_str()));
-		}
-		else if (img_gfx[k] != "") {
-			gfx_surf.push_back(IMG_Load(mods->locate("images/avatar/" + stats.base + "/" + img_gfx[k] + ".png").c_str()));
-		}
-		else gfx_surf.push_back(NULL);
-
-		src.w = dest.w = layer_def[i].pos.w;
-		src.h = dest.h = layer_def[i].pos.h;
-		src.x = dest.x = layer_def[i].pos.x;
-		src.y = dest.y = layer_def[i].pos.y;
-		if (gfx_surf[i]) {
-			SDL_gfxBlitRGBA(gfx_surf[i], &src, sprites, &dest);
-			SDL_FreeSurface(gfx_surf[i]);
-		}
-
-	}
-
-	// optimize
-	SDL_Surface *cleanup = sprites;
-	sprites = SDL_DisplayFormatAlpha(sprites);
-	SDL_FreeSurface(cleanup);
 }
 
 void Avatar::loadSounds() {
@@ -467,6 +424,9 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 
 	// handle animation
 	activeAnimation->advanceFrame();
+	for (unsigned i=0; i < anims.size(); i++)
+		if (anims[i] != NULL)
+			anims[i]->advanceFrame();
 
 	// handle transformation
 	if (stats.transform_type != "" && stats.transform_type != "untransform" && transform_triggered == false) transform();
@@ -757,6 +717,8 @@ bool Avatar::takeHit(Hazard h) {
 				if (sound_block)
 					Mix_PlayChannel(-1, sound_block, 0);
 				activeAnimation->reset(); // shield stutter
+				for (unsigned i=0; i < animsets.size(); i++)
+					anims[i]->reset();
 			}
 		}
 
@@ -958,6 +920,16 @@ void Avatar::untransform() {
 	delete hero_stats;
 }
 
+void Avatar::setAnimation(std::string name) {
+	if (name == activeAnimation->getName())
+		return;
+
+	Entity::setAnimation(name);
+	for (unsigned i=0; i < animsets.size(); i++)
+		if (animsets[i] != NULL)
+			anims[i] = animsets[i]->getAnimation(name);
+}
+
 /**
  * Find untransform power index to use for manual untransfrom ability
  */
@@ -969,19 +941,16 @@ int Avatar::getUntransformPower() {
 	return 0;
 }
 
-/**
- * getRender()
- * Map objects need to be drawn in Z order, so we allow a parent object (GameEngine)
- * to collect all mobile sprites each frame.
- */
-Renderable Avatar::getRender() {
-	Renderable r = activeAnimation->getCurrentFrame(stats.direction);
-	if (stats.transformed)
-		r.sprite = transformed_sprites;
-	else
-		r.sprite = sprites;
-	r.map_pos = stats.pos;
-	return r;
+void Avatar::addRenders(vector<Renderable> &r) {
+	for (unsigned i = 0; i < anims.size(); ++i) {
+		if (anims[i] != NULL) {
+			Renderable ren = anims[i]->getCurrentFrame(stats.direction);
+			ren.sprite = animsets[i]->sprites;
+			ren.map_pos = stats.pos;
+			ren.prio = i;
+			r.push_back(ren);
+		}
+	}
 }
 
 Avatar::~Avatar() {
