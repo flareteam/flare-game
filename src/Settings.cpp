@@ -152,6 +152,7 @@ std::string DEFAULT_NAME = "";
 bool SAVE_HPMP = false;
 bool ENABLE_PLAYGAME = false;
 bool SHOW_FPS = false;
+int CORPSE_TIMEOUT = 1800;
 
 
 /**
@@ -340,6 +341,8 @@ void loadMiscSettings() {
 				SAVE_HPMP = toInt(infile.val);
 			} else if (infile.key == "default_name") {
 				DEFAULT_NAME = infile.val.c_str();
+			} else if (infile.key == "corpse_timeout") {
+				CORPSE_TIMEOUT = toInt(infile.val);
 			}
 		}
 		infile.close();

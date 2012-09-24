@@ -720,11 +720,13 @@ void MapRenderer::createBackgroundSurface() {
 }
 
 void MapRenderer::drawRenderable(vector<Renderable>::iterator r_cursor) {
-	SDL_Rect dest;
-	Point p = map_to_screen(r_cursor->map_pos.x, r_cursor->map_pos.y, shakycam.x, shakycam.y);
-	dest.x = p.x - r_cursor->offset.x;
-	dest.y = p.y - r_cursor->offset.y;
-	SDL_BlitSurface(r_cursor->sprite, &r_cursor->src, screen, &dest);
+	if (r_cursor->sprite) {
+		SDL_Rect dest;
+		Point p = map_to_screen(r_cursor->map_pos.x, r_cursor->map_pos.y, shakycam.x, shakycam.y);
+		dest.x = p.x - r_cursor->offset.x;
+		dest.y = p.y - r_cursor->offset.y;
+		SDL_BlitSurface(r_cursor->sprite, &r_cursor->src, screen, &dest);
+	}
 }
 
 void MapRenderer::renderIsoLayer(SDL_Surface *wheretorender, Point offset, const unsigned short layerdata[256][256]) {

@@ -273,6 +273,7 @@ void EnemyManager::logic() {
 		enemies[i]->stats.hero_pos = hero_pos;
 		enemies[i]->stats.hero_alive = hero_alive;
 		enemies[i]->logic();
+
 	}
 }
 
@@ -320,20 +321,22 @@ void EnemyManager::checkEnemiesforXP(StatBlock *stats) {
 void EnemyManager::addRenders(vector<Renderable> &r, vector<Renderable> &r_dead) {
 	vector<Enemy*>::iterator it;
 	for (it = enemies.begin(); it != enemies.end(); ++it) {
-		Renderable re = (*it)->getRender();
-		vector<string>::iterator found = find(gfx_prefixes.begin(), gfx_prefixes.end(), (*it)->stats.gfx_prefix);
-		if (found != gfx_prefixes.end()) {
-			int sprite_index = distance(gfx_prefixes.begin(), found);
-			re.sprite = sprites[sprite_index];
-		}
-
-		// draw corpses below objects so that floor loot is more visible
 		bool dead = (*it)->stats.corpse;
-		(dead ? r_dead : r).push_back(re);
+		if (!dead || (dead && (*it)->stats.corpse_ticks > 0)) {
+			Renderable re = (*it)->getRender();
+			vector<string>::iterator found = find(gfx_prefixes.begin(), gfx_prefixes.end(), (*it)->stats.gfx_prefix);
+			if (found != gfx_prefixes.end()) {
+				int sprite_index = distance(gfx_prefixes.begin(), found);
+				re.sprite = sprites[sprite_index];
+			}
 
-		(*it)->stats.updateEffects();
-		re = powers->renderEffects(&(*it)->stats);
-		(dead ? r_dead : r).push_back(re);
+			// draw corpses below objects so that floor loot is more visible
+			(dead ? r_dead : r).push_back(re);
+
+			(*it)->stats.updateEffects();
+			re = powers->renderEffects(&(*it)->stats);
+			(dead ? r_dead : r).push_back(re);
+		}
 	}
 }
 
