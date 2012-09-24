@@ -98,6 +98,7 @@ void MenuEnemy::logic() {
 
 void MenuEnemy::render() {
 	if (enemy == NULL) return;
+	if (enemy->stats.corpse && enemy->stats.corpse_ticks == 0) return;
 
 	SDL_Rect src;
 	SDL_Rect dest;
