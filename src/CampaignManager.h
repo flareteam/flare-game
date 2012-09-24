@@ -45,7 +45,7 @@ public:
 	void removeItem(int item_id);
 	void rewardItem(ItemStack istack);
 	void rewardCurrency(int amount);
-	void rewardXP(int amount);
+	void rewardXP(int amount, bool show_message);
 	void restoreHPMP(std::string s);
 	void addMsg(const std::string& msg);
 
