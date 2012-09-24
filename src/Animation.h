@@ -48,9 +48,6 @@ protected:
 	std::string name;
 	animation_type type;
 
-	SDL_Surface* sprites;
-
-
 	unsigned short number_frames; // how many ticks this animation lasts.
 	unsigned short cur_frame;     // counts up until reaching number_frames.
 

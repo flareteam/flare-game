@@ -37,7 +37,6 @@ Animation::Animation(std::string _name, std::string _type)
 			_type == "back_forth" ? BACK_FORTH :
 			_type == "looped" ? LOOPED :
 			NONE)
-	, sprites(NULL)
 	, number_frames(0)
 	, cur_frame(0)
 	, cur_frame_index(0)
@@ -55,7 +54,6 @@ Animation::Animation(std::string _name, std::string _type)
 Animation::Animation(const Animation& a)
 	: name(a.name)
 	, type(a.type)
-	, sprites(a.sprites)
 	, number_frames(a.number_frames)
 	, cur_frame(0)
 	, cur_frame_index(a.cur_frame_index)
@@ -193,9 +191,6 @@ void Animation::advanceFrame() {
 
 Renderable Animation::getCurrentFrame(int direction) {
 	Renderable r;
-
-	if (sprites != NULL)
-		r.sprite = sprites;
 
 	const int index = (8*cur_frame_index) + direction;
 	r.src.x = gfx[index].x;
