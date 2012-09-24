@@ -94,168 +94,168 @@ void ItemManager::loadAll() {
  */
 void ItemManager::load(const string& filename) {
 	FileParser infile;
+	if (!infile.open(filename)) {
+		fprintf(stderr, "Unable to open %s!\n", filename.c_str());
+		return;
+	}
+
 	int id = 0;
-	bool id_line;
-	string s;
+	bool id_line = false;
+	while (infile.next()) {
+		if (infile.key == "id") {
+			id_line = true;
+			id = toInt(infile.val);
+			if (id > 0 && id >= (int)items.size()) {
+				// *2 to amortize the resizing to O(log(n)).
+				items.resize((2*id) + 1);
+			}
+		} else id_line = false;
 
-	if (infile.open(filename)) {
-
-		while (infile.next()) {
-			if (infile.key == "id") {
-				id_line = true;
-				id = toInt(infile.val);
-				if (id > 0 && id >= (int)items.size()) {
-					// *2 to amortize the resizing to O(log(n)).
-					items.resize((2*id) + 1);
-				}
-			} else id_line = false;
-
-			if (id < 1) {
-				if (id_line) fprintf(stderr, "Item index out of bounds 1-%d, skipping\n", INT_MAX);
-				continue;
-			}
-			if (id_line) continue;
-
-			if (infile.key == "name")
-				items[id].name = msg->get(infile.val);
-			else if (infile.key == "level")
-				items[id].level = toInt(infile.val);
-			else if (infile.key == "icon") {
-				items[id].icon_small = toInt(infile.nextValue());
-				items[id].icon_large = toInt(infile.nextValue());
-			}
-			else if (infile.key == "quality") {
-				if (infile.val == "low")
-					items[id].quality = ITEM_QUALITY_LOW;
-				else if (infile.val == "high")
-					items[id].quality = ITEM_QUALITY_HIGH;
-				else if (infile.val == "epic")
-					items[id].quality = ITEM_QUALITY_EPIC;
-			}
-			else if (infile.key == "item_type") {
-					items[id].type = infile.val;
-			}
-			else if (infile.key == "dmg_melee") {
-				items[id].dmg_melee_min = toInt(infile.nextValue());
-				if (infile.val.length() > 0)
-					items[id].dmg_melee_max = toInt(infile.nextValue());
-				else
-					items[id].dmg_melee_max = items[id].dmg_melee_min;
-			}
-			else if (infile.key == "dmg_ranged") {
-				items[id].dmg_ranged_min = toInt(infile.nextValue());
-				if (infile.val.length() > 0)
-					items[id].dmg_ranged_max = toInt(infile.nextValue());
-				else
-					items[id].dmg_ranged_max = items[id].dmg_ranged_min;
-			}
-			else if (infile.key == "dmg_ment") {
-				items[id].dmg_ment_min = toInt(infile.nextValue());
-				if (infile.val.length() > 0)
-					items[id].dmg_ment_max = toInt(infile.nextValue());
-				else
-					items[id].dmg_ment_max = items[id].dmg_ment_min;
-			}
-			else if (infile.key == "abs") {
-				items[id].abs_min = toInt(infile.nextValue());
-				if (infile.val.length() > 0)
-					items[id].abs_max = toInt(infile.nextValue());
-				else
-					items[id].abs_max = items[id].abs_min;
-			}
-			else if (infile.key == "req") {
-				s = infile.nextValue();
-				if (s == "p")
-					items[id].req_stat = REQUIRES_PHYS;
-				else if (s == "m")
-					items[id].req_stat = REQUIRES_MENT;
-				else if (s == "o")
-					items[id].req_stat = REQUIRES_OFF;
-				else if (s == "d")
-					items[id].req_stat = REQUIRES_DEF;
-				items[id].req_val = toInt(infile.nextValue());
-			}
-			else if (infile.key == "bonus") {
-				items[id].bonus_stat.push_back(infile.nextValue());
-				items[id].bonus_val.push_back(toInt(infile.nextValue()));
-			}
-			else if (infile.key == "sfx") {
-				if (infile.val == "book")
-					items[id].sfx = SFX_BOOK;
-				else if (infile.val == "cloth")
-					items[id].sfx = SFX_CLOTH;
-				else if (infile.val == "coins")
-					items[id].sfx = SFX_COINS;
-				else if (infile.val == "gem")
-					items[id].sfx = SFX_GEM;
-				else if (infile.val == "leather")
-					items[id].sfx = SFX_LEATHER;
-				else if (infile.val == "metal")
-					items[id].sfx = SFX_METAL;
-				else if (infile.val == "page")
-					items[id].sfx = SFX_PAGE;
-				else if (infile.val == "maille")
-					items[id].sfx = SFX_MAILLE;
-				else if (infile.val == "object")
-					items[id].sfx = SFX_OBJECT;
-				else if (infile.val == "heavy")
-					items[id].sfx = SFX_HEAVY;
-				else if (infile.val == "wood")
-					items[id].sfx = SFX_WOOD;
-				else if (infile.val == "potion")
-					items[id].sfx = SFX_POTION;
-			}
-			else if (infile.key == "gfx")
-				items[id].gfx = infile.val;
-			else if (infile.key == "loot_animation")
-				items[id].loot_animation = infile.val;
-			else if (infile.key == "power") {
-				if (toInt(infile.val) > 0) {
-					items[id].power = toInt(infile.val);
-				}
-				else fprintf(stderr, "Power index inside item %d definition out of bounds 1-%d, skipping item\n", id, INT_MAX);
-			}
-			else if (infile.key == "power_mod")
-				items[id].power_mod = toInt(infile.val);
-			else if (infile.key == "power_desc")
-				items[id].power_desc = msg->get(infile.val);
-			else if (infile.key == "price")
-				items[id].price = toInt(infile.val);
-			else if (infile.key == "price_sell")
-				items[id].price_sell = toInt(infile.val);
-			else if (infile.key == "max_quantity")
-				items[id].max_quantity = toInt(infile.val);
-			else if (infile.key == "rand_loot")
-				items[id].rand_loot = toInt(infile.val);
-			else if (infile.key == "rand_vendor")
-				items[id].rand_vendor = toInt(infile.val);
-			else if (infile.key == "pickup_status")
-				items[id].pickup_status = infile.val;
-			else if (infile.key == "stepfx")
-				items[id].stepfx = infile.val;
-			else if (infile.key == "class") {
-				string classname = infile.nextValue();
-				while (classname != "") {
-					unsigned pos; // find the position where this classname is stored:
-					for (pos = 0; pos < item_class_names.size(); pos++) {
-						if (item_class_names[pos] == classname)
-							break;
-					}
-					// if it was not found, add it to the end.
-					// pos is already the correct index.
-					if (pos == item_class_names.size()) {
-						item_class_names.push_back(classname);
-						item_class_items.push_back(vector<unsigned int>());
-					}
-					// add item id to the item list of that class:
-					item_class_items[pos].push_back(id);
-					classname = infile.nextValue();
-				}
-			}
-
+		if (id < 1) {
+			if (id_line) fprintf(stderr, "Item index out of bounds 1-%d, skipping\n", INT_MAX);
+			continue;
 		}
-		infile.close();
-	} else fprintf(stderr, "Unable to open %s!\n", filename.c_str());
+		if (id_line) continue;
+
+		if (infile.key == "name")
+			items[id].name = msg->get(infile.val);
+		else if (infile.key == "level")
+			items[id].level = toInt(infile.val);
+		else if (infile.key == "icon") {
+			items[id].icon_small = toInt(infile.nextValue());
+			items[id].icon_large = toInt(infile.nextValue());
+		}
+		else if (infile.key == "quality") {
+			if (infile.val == "low")
+				items[id].quality = ITEM_QUALITY_LOW;
+			else if (infile.val == "high")
+				items[id].quality = ITEM_QUALITY_HIGH;
+			else if (infile.val == "epic")
+				items[id].quality = ITEM_QUALITY_EPIC;
+		}
+		else if (infile.key == "item_type") {
+				items[id].type = infile.val;
+		}
+		else if (infile.key == "dmg_melee") {
+			items[id].dmg_melee_min = toInt(infile.nextValue());
+			if (infile.val.length() > 0)
+				items[id].dmg_melee_max = toInt(infile.nextValue());
+			else
+				items[id].dmg_melee_max = items[id].dmg_melee_min;
+		}
+		else if (infile.key == "dmg_ranged") {
+			items[id].dmg_ranged_min = toInt(infile.nextValue());
+			if (infile.val.length() > 0)
+				items[id].dmg_ranged_max = toInt(infile.nextValue());
+			else
+				items[id].dmg_ranged_max = items[id].dmg_ranged_min;
+		}
+		else if (infile.key == "dmg_ment") {
+			items[id].dmg_ment_min = toInt(infile.nextValue());
+			if (infile.val.length() > 0)
+				items[id].dmg_ment_max = toInt(infile.nextValue());
+			else
+				items[id].dmg_ment_max = items[id].dmg_ment_min;
+		}
+		else if (infile.key == "abs") {
+			items[id].abs_min = toInt(infile.nextValue());
+			if (infile.val.length() > 0)
+				items[id].abs_max = toInt(infile.nextValue());
+			else
+				items[id].abs_max = items[id].abs_min;
+		}
+		else if (infile.key == "req") {
+			string s = infile.nextValue();
+			if (s == "p")
+				items[id].req_stat = REQUIRES_PHYS;
+			else if (s == "m")
+				items[id].req_stat = REQUIRES_MENT;
+			else if (s == "o")
+				items[id].req_stat = REQUIRES_OFF;
+			else if (s == "d")
+				items[id].req_stat = REQUIRES_DEF;
+			items[id].req_val = toInt(infile.nextValue());
+		}
+		else if (infile.key == "bonus") {
+			items[id].bonus_stat.push_back(infile.nextValue());
+			items[id].bonus_val.push_back(toInt(infile.nextValue()));
+		}
+		else if (infile.key == "sfx") {
+			if (infile.val == "book")
+				items[id].sfx = SFX_BOOK;
+			else if (infile.val == "cloth")
+				items[id].sfx = SFX_CLOTH;
+			else if (infile.val == "coins")
+				items[id].sfx = SFX_COINS;
+			else if (infile.val == "gem")
+				items[id].sfx = SFX_GEM;
+			else if (infile.val == "leather")
+				items[id].sfx = SFX_LEATHER;
+			else if (infile.val == "metal")
+				items[id].sfx = SFX_METAL;
+			else if (infile.val == "page")
+				items[id].sfx = SFX_PAGE;
+			else if (infile.val == "maille")
+				items[id].sfx = SFX_MAILLE;
+			else if (infile.val == "object")
+				items[id].sfx = SFX_OBJECT;
+			else if (infile.val == "heavy")
+				items[id].sfx = SFX_HEAVY;
+			else if (infile.val == "wood")
+				items[id].sfx = SFX_WOOD;
+			else if (infile.val == "potion")
+				items[id].sfx = SFX_POTION;
+		}
+		else if (infile.key == "gfx")
+			items[id].gfx = infile.val;
+		else if (infile.key == "loot_animation")
+			items[id].loot_animation = infile.val;
+		else if (infile.key == "power") {
+			if (toInt(infile.val) > 0) {
+				items[id].power = toInt(infile.val);
+			}
+			else fprintf(stderr, "Power index inside item %d definition out of bounds 1-%d, skipping item\n", id, INT_MAX);
+		}
+		else if (infile.key == "power_mod")
+			items[id].power_mod = toInt(infile.val);
+		else if (infile.key == "power_desc")
+			items[id].power_desc = msg->get(infile.val);
+		else if (infile.key == "price")
+			items[id].price = toInt(infile.val);
+		else if (infile.key == "price_sell")
+			items[id].price_sell = toInt(infile.val);
+		else if (infile.key == "max_quantity")
+			items[id].max_quantity = toInt(infile.val);
+		else if (infile.key == "rand_loot")
+			items[id].rand_loot = toInt(infile.val);
+		else if (infile.key == "rand_vendor")
+			items[id].rand_vendor = toInt(infile.val);
+		else if (infile.key == "pickup_status")
+			items[id].pickup_status = infile.val;
+		else if (infile.key == "stepfx")
+			items[id].stepfx = infile.val;
+		else if (infile.key == "class") {
+			string classname = infile.nextValue();
+			while (classname != "") {
+				unsigned pos; // find the position where this classname is stored:
+				for (pos = 0; pos < item_class_names.size(); pos++) {
+					if (item_class_names[pos] == classname)
+						break;
+				}
+				// if it was not found, add it to the end.
+				// pos is already the correct index.
+				if (pos == item_class_names.size()) {
+					item_class_names.push_back(classname);
+					item_class_items.push_back(vector<unsigned int>());
+				}
+				// add item id to the item list of that class:
+				item_class_items[pos].push_back(id);
+				classname = infile.nextValue();
+			}
+		}
+
+	}
+	infile.close();
 }
 
 void ItemManager::loadTypes(const string& filename) {
@@ -287,54 +287,57 @@ string ItemManager::getItemType(std::string _type) {
 }
 
 void ItemManager::loadSets(const string& filename) {
+	FileParser infile;
+	if (!infile.open(filename)) {
+		fprintf(stderr, "Unable to open %s!\n", filename.c_str());
+		return;
+	}
+
 	int id = 0;
 	bool id_line;
-	FileParser infile;
-	if (infile.open(filename)) {
-		while (infile.next()) {
-			if (infile.key == "id") {
-				id_line = true;
-				id = toInt(infile.val);
-				if (id > 0 && id >= (int)item_sets.size()) {
-					// *2 to amortize the resizing to O(log(n)).
-					item_sets.resize((2*id) + 1);
-				}
-			} else id_line = false;
+	while (infile.next()) {
+		if (infile.key == "id") {
+			id_line = true;
+			id = toInt(infile.val);
+			if (id > 0 && id >= (int)item_sets.size()) {
+				// *2 to amortize the resizing to O(log(n)).
+				item_sets.resize((2*id) + 1);
+			}
+		} else id_line = false;
 
-			if (id < 1) {
-				if (id_line) fprintf(stderr, "Item set index out of bounds 1-%d, skipping\n", INT_MAX);
-				continue;
-			}
-			if (id_line) continue;
+		if (id < 1) {
+			if (id_line) fprintf(stderr, "Item set index out of bounds 1-%d, skipping\n", INT_MAX);
+			continue;
+		}
+		if (id_line) continue;
 
-			if (infile.key == "name") {
-				item_sets[id].name = msg->get(infile.val);
-			}
-			else if (infile.key == "items") {
-				string item_id = infile.nextValue();
-				while (item_id != "") {
-					if (toInt(item_id) > 0) {
-						items[toInt(item_id)].set = id;
-						item_sets[id].items.push_back(toInt(item_id));
-						item_id = infile.nextValue();
-					} else fprintf(stderr, "Item index inside item set %s definition out of bounds 1-%d, skipping item\n", item_sets[id].name.c_str(), INT_MAX);
-				}
-			}
-			else if (infile.key == "color") {
-				item_sets[id].color.r = toInt(infile.nextValue());
-				item_sets[id].color.g = toInt(infile.nextValue());
-				item_sets[id].color.b = toInt(infile.nextValue());
-			}
-			else if (infile.key == "bonus") {
-				Set_bonus bonus;
-				bonus.requirement = toInt(infile.nextValue());
-				bonus.bonus_stat = infile.nextValue();
-				bonus.bonus_val = toInt(infile.nextValue());
-				item_sets[id].bonus.push_back(bonus);
+		if (infile.key == "name") {
+			item_sets[id].name = msg->get(infile.val);
+		}
+		else if (infile.key == "items") {
+			string item_id = infile.nextValue();
+			while (item_id != "") {
+				if (toInt(item_id) > 0) {
+					items[toInt(item_id)].set = id;
+					item_sets[id].items.push_back(toInt(item_id));
+					item_id = infile.nextValue();
+				} else fprintf(stderr, "Item index inside item set %s definition out of bounds 1-%d, skipping item\n", item_sets[id].name.c_str(), INT_MAX);
 			}
 		}
-		infile.close();
-	} else fprintf(stderr, "Unable to open %s!\n", filename.c_str());
+		else if (infile.key == "color") {
+			item_sets[id].color.r = toInt(infile.nextValue());
+			item_sets[id].color.g = toInt(infile.nextValue());
+			item_sets[id].color.b = toInt(infile.nextValue());
+		}
+		else if (infile.key == "bonus") {
+			Set_bonus bonus;
+			bonus.requirement = toInt(infile.nextValue());
+			bonus.bonus_stat = infile.nextValue();
+			bonus.bonus_val = toInt(infile.nextValue());
+			item_sets[id].bonus.push_back(bonus);
+		}
+	}
+	infile.close();
 }
 
 void ItemManager::loadSounds() {

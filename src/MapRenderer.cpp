@@ -30,7 +30,21 @@ using namespace std;
 
 const int CLICK_RANGE = 3 * UNITS_PER_TILE; //for activating events
 
-MapRenderer::MapRenderer(CampaignManager *_camp) {
+MapRenderer::MapRenderer(CampaignManager *_camp)
+ : tip_pos(Point())
+ , show_tooltip(false)
+ , shakycam(Point())
+ , powers(NULL)
+ , w(0)
+ , h(0)
+ , hero_tile(Point())
+ , spawn(Point())
+ , spawn_dir(0)
+ , teleportation(false)
+ , teleport_destination(Point())
+ , respawn_point(Point())
+ , stash_pos(Point())
+{
 
 	camp = _camp;
 

@@ -87,20 +87,18 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 	tip = new WidgetTooltip();
 
 	// Load the menu positions and alignments from menus/menus.txt
-	int x,y,w,h;
 	std::string align;
-	int menu_index;
 	FileParser infile;
 	if (infile.open(mods->locate("menus/menus.txt"))) {
 		while (infile.next()) {
 			infile.val = infile.val + ',';
-			x = eatFirstInt(infile.val, ',');
-			y = eatFirstInt(infile.val, ',');
-			w = eatFirstInt(infile.val, ',');
-			h = eatFirstInt(infile.val, ',');
+			int x = eatFirstInt(infile.val, ',');
+			int y = eatFirstInt(infile.val, ',');
+			int w = eatFirstInt(infile.val, ',');
+			int h = eatFirstInt(infile.val, ',');
 			align = eatFirstString(infile.val, ',');
 
-			menu_index = -1;
+			int menu_index = -1;
 
 			if (infile.key == "hp") menu_index = 0;
 			else if (infile.key == "mp") menu_index = 1;

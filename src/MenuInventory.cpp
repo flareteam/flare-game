@@ -352,7 +352,6 @@ void MenuInventory::drop(Point mouse, ItemStack stack) {
  */
 void MenuInventory::activate(InputState * input) {
 	int slot;
-	int equip_slot = -1;
 	ItemStack stack;
 	Point nullpt;
 	nullpt.x = nullpt.y = 0;
@@ -390,6 +389,7 @@ void MenuInventory::activate(InputState * input) {
 	}
 	// equip an item
 	else {
+		int equip_slot = -1;
 		// find first empty(or just first) slot for item to equip
 		for (int i = 0; i < MAX_EQUIPPED; i++) {
 			// first check for first empty
@@ -445,24 +445,20 @@ void MenuInventory::activate(InputState * input) {
  * @param slot Slot number where it will try to store the item
  */
 void MenuInventory::add(ItemStack stack, int area, int slot) {
-	int max_quantity;
-	int quantity_added;
-	int i;
-
 	items->playSound(stack.item);
 
 	if( stack.item != 0) {
 		if( area < 0) {
 			area = CARRIED;
 		}
-		max_quantity = items->items[stack.item].max_quantity;
+		int max_quantity = items->items[stack.item].max_quantity;
 		if( slot > -1 && inventory[area][slot].item != 0 && inventory[area][slot].item != stack.item) {
 			// the proposed slot isn't available, search for another one
 			slot = -1;
 		}
 		if( area == CARRIED) {
 			// first search of stack to complete if the item is stackable
-			i = 0;
+			int i = 0;
 			while( max_quantity > 1 && slot == -1 && i < MAX_CARRIED) {
 				if (inventory[area][i].item == stack.item && inventory[area][i].quantity < max_quantity) {
 					slot = i;
@@ -480,7 +476,7 @@ void MenuInventory::add(ItemStack stack, int area, int slot) {
 		}
 		if( slot != -1) {
 			// Add
-			quantity_added = min( stack.quantity, max_quantity - inventory[area][slot].quantity);
+			int quantity_added = min( stack.quantity, max_quantity - inventory[area][slot].quantity);
 			inventory[area][slot].item = stack.item;
 			inventory[area][slot].quantity += quantity_added;
 			stack.quantity -= quantity_added;

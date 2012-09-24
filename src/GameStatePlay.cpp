@@ -56,26 +56,31 @@ using namespace std;
 
 const int MENU_ENEMY_TIMEOUT = MAX_FRAMES_PER_SEC * 10;
 
-GameStatePlay::GameStatePlay() : GameState() {
 
+
+
+GameStatePlay::GameStatePlay()
+	: GameState()
+	, enemy(NULL)
+	, powers(new PowerManager())
+	, items(new ItemManager())
+	, camp(new CampaignManager())
+	, map(new MapRenderer(camp))
+	, pc(new Avatar(powers, map))
+	, enemies(new EnemyManager(powers, map))
+	, hazards(new HazardManager(powers, pc, enemies))
+	, menu(new MenuManager(powers, &pc->stats, camp, items))
+	, loot(new LootManager(items, map, &pc->stats))
+	, npcs(new NPCManager(map, loot, items, &pc->stats))
+	, quests(new QuestLog(camp, menu->log))
+	, loading(new WidgetLabel())
+	, loading_bg(IMG_Load(mods->locate("images/menus/confirm_bg.png").c_str()))
+	, npc_id(-1)
+	, color_normal(font->getColor("menu_normal"))
+	, game_slot(0)
+{
 	hasMusic = true;
-
 	// GameEngine scope variables
-	npc_id = -1;
-	game_slot = 0;
-
-	// construct gameplay objects
-	powers = new PowerManager();
-	items = new ItemManager();
-	camp = new CampaignManager();
-	map = new MapRenderer(camp);
-	pc = new Avatar(powers, map);
-	enemies = new EnemyManager(powers, map);
-	hazards = new HazardManager(powers, pc, enemies);
-	menu = new MenuManager(powers, &pc->stats, camp, items);
-	loot = new LootManager(items, map, &pc->stats);
-	npcs = new NPCManager(map, loot, items, &pc->stats);
-	quests = new QuestLog(camp, menu->log);
 
 	// assign some object pointers after object creation, based on dependency order
 	camp->items = items;
@@ -84,13 +89,10 @@ GameStatePlay::GameStatePlay() : GameState() {
 	camp->hero = &pc->stats;
 	map->powers = powers;
 
-	color_normal = font->getColor("menu_normal");
-
-	loading = new WidgetLabel();
 	loading->set(VIEW_W_HALF, VIEW_H_HALF, JUSTIFY_CENTER, VALIGN_CENTER, msg->get("Loading..."), color_normal);
 
 	// Load the loading screen image (we currently use the confirm dialog background)
-	loading_bg = IMG_Load(mods->locate("images/menus/confirm_bg.png").c_str());
+
 	if(!loading_bg) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 		SDL_Quit();

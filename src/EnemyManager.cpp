@@ -239,17 +239,14 @@ void EnemyManager::logic() {
 
 	for (unsigned int i=0; i < enemies.size(); i++) {
 
-		int pref_id = -1;
-
-
 		// hazards are processed after Avatar and Enemy[]
 		// so process and clear sound effects from previous frames
 		// check sound effects
 		if (audio == true) {
 			vector<string>::iterator found = find (sfx_prefixes.begin(), sfx_prefixes.end(), enemies[i]->stats.sfx_prefix);
-			pref_id = distance(sfx_prefixes.begin(), found);
+			unsigned pref_id = distance(sfx_prefixes.begin(), found);
 
-			if (pref_id < 0 || pref_id >= static_cast<int>(sfx_prefixes.size())) {
+			if (pref_id >= sfx_prefixes.size()) {
 				cerr << "ERROR: enemy sfx_prefix doesn't match registered prefixes (enemy: '"
 					 << enemies[i]->stats.name << "', sfx_prefix: '"
 					 << enemies[i]->stats.sfx_prefix << "')" << endl;

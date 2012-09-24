@@ -40,9 +40,17 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 using namespace std;
 
-
 Avatar::Avatar(PowerManager *_powers, MapRenderer *_map)
- : Entity(_map), powers(_powers)
+ : Entity(_map)
+ , powers(_powers)
+ , lockSwing(false)
+ , lockCast(false)
+ , lockShoot(false)
+ , animFwd(false)
+ , hero_stats(NULL)
+ , charmed_stats(NULL)
+ , act_target(Point())
+ , drag_walking(false)
 {
 
 	init();
@@ -683,9 +691,9 @@ bool Avatar::takeHit(Hazard h) {
 			}
 		}
 
-		// apply absorption
-		int absorption;
 		if (!h.trait_armor_penetration) { // armor penetration ignores all absorption
+			int absorption; // apply absorption
+
 			if (stats.absorb_min == stats.absorb_max) absorption = stats.absorb_min;
 			else absorption = stats.absorb_min + (rand() % (stats.absorb_max - stats.absorb_min + 1));
 
