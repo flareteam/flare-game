@@ -1,13 +1,13 @@
 # Copyright (C) 2011 Clint Bellanger
 # This file is distributed under the same license as the FLARE package.
 #
-# Timo Sievänen <thematic@helsinkilainen.com>, 2011.
+# Timo Sievänen <thematic@helsinkilainen.com>, 2012.
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.15\n"
+"Project-Id-Version: 0.17\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-21 20:09+\n"
-"PO-Revision-Date: 2011-12-20 20:22+0200\n"
+"PO-Revision-Date: 2012-09-23 18:17+0300\n"
 "Last-Translator: Timo Sievänen <thematic@helsinkilainen.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -25,7 +25,7 @@ msgstr "Palauttaa 25 OP"
 
 #: ../items/items.txt:8
 msgid "consumable"
-msgstr ""
+msgstr "kuluva"
 
 #: ../items/items.txt:17
 msgid "Mana Potion"
@@ -57,7 +57,7 @@ msgstr "Timantti"
 
 #: ../items/items.txt:63
 msgid "gem"
-msgstr ""
+msgstr "jalokivi"
 
 #: ../items/items.txt:71
 msgid "Emerald"
@@ -101,7 +101,7 @@ msgstr "Vaatteet"
 
 #: ../items/items.txt:166
 msgid "body"
-msgstr ""
+msgstr "keho"
 
 #: ../items/items.txt:177
 msgid "Tattered Clothes"
@@ -265,7 +265,7 @@ msgstr "Tikari"
 
 #: ../items/items.txt:618
 msgid "main"
-msgstr ""
+msgstr "oletus"
 
 #: ../items/items.txt:630
 msgid "Rusted Dagger"
@@ -1325,7 +1325,7 @@ msgstr "Ritsa"
 
 #: ../items/items.txt:4549
 msgid "off"
-msgstr ""
+msgstr "pois"
 
 #: ../items/items.txt:4561
 msgid "Cracked Slingshot"
@@ -2377,7 +2377,7 @@ msgstr "Vyö"
 
 #: ../items/items.txt:8638
 msgid "artifact"
-msgstr ""
+msgstr "esine"
 
 #: ../items/items.txt:8646
 msgid "Tattered Belt"
@@ -2477,36 +2477,35 @@ msgstr "Valaistumisen nauha"
 
 #: ../items/types.txt:3
 msgid "Artifact"
-msgstr ""
+msgstr "Esine"
 
 #: ../items/types.txt:7
 msgid "Body"
-msgstr ""
+msgstr "Keho"
 
 #: ../items/types.txt:11
 msgid "Consumable"
-msgstr ""
+msgstr "Kuluva"
 
 #: ../items/types.txt:15
 msgid "Gem"
-msgstr ""
+msgstr "Jalokivi"
 
 #: ../items/types.txt:19
-#, fuzzy
 msgid "Main Hand"
-msgstr "Vilkkusauva"
+msgstr "Vahvempi käsi"
 
 #: ../items/types.txt:23
 msgid "Off Hand"
-msgstr ""
+msgstr "Heikompi käsi"
 
 #: ../items/types.txt:26
 msgid "quest"
-msgstr ""
+msgstr "etsintä"
 
 #: ../items/types.txt:27
 msgid "Quest Item"
-msgstr ""
+msgstr "Tarvike"
 
 #: ../items/types.txt:30
 #, fuzzy
@@ -2516,16 +2515,16 @@ msgstr "Sormus"
 #: ../menus/powers.txt:16
 #, fuzzy
 msgid "Warrior"
-msgstr "Sotahuuto"
+msgstr "Soturi"
 
 #: ../menus/powers.txt:19
 #, fuzzy
 msgid "Ranger"
-msgstr "Metsänvartijan jousi"
+msgstr "Metsänvartija"
 
 #: ../menus/powers.txt:22
 msgid "Magician"
-msgstr ""
+msgstr "Loitsija"
 
 #: ../powers/powers.txt:5
 msgid "Swing"
@@ -2542,7 +2541,7 @@ msgstr "Kanavoi"
 #: ../powers/powers.txt:25
 #, fuzzy
 msgid "Basic magic attack"
-msgstr "Perusetähyökkäys"
+msgstr "Perusloitsuhyökkäys"
 
 #: ../powers/powers.txt:46
 msgid "Block"
@@ -2667,20 +2666,20 @@ msgstr "Lamauttaa lähistön viholliset viideksi sekunniksi"
 #: ../powers/powers.txt:352
 #, fuzzy
 msgid "Heroic Swing"
-msgstr "Kivilinko"
+msgstr "Urhon heilautus"
 
 #: ../powers/powers.txt:355
 msgid "Melee attack with 10% HP steal"
-msgstr ""
+msgstr "Lähitaisteluliike joka vie 10% OP:stä"
 
 #: ../powers/powers.txt:370
 #, fuzzy
 msgid "Greater Channel"
-msgstr "Kanavoi"
+msgstr "Suurkanavointi"
 
 #: ../powers/powers.txt:373
 msgid "Magic attack with 10% MP steal"
-msgstr ""
+msgstr "Loitsuhyökkäys joka vie 10% MP:stä"
 
 #: ../powers/powers.txt:395
 msgid "Shoot"
@@ -2693,11 +2692,11 @@ msgstr "Perusetähyökkäys"
 #: ../powers/powers.txt:409
 #, fuzzy
 msgid "Rapid Fire"
-msgstr "Pistomiekka"
+msgstr "Pikatuli"
 
 #: ../powers/powers.txt:412
 msgid "Fire five low power missiles in quick succession"
-msgstr ""
+msgstr "Ampuu viisi heikkoa ammusta nopeassa sarjassa"
 
 #: ../powers/powers.txt:428
 msgid "Ice Shard [enemy]"
@@ -2777,11 +2776,11 @@ msgstr "Vaurioittaa kaikkea lähistöllä"
 
 #: ../powers/powers.txt:686
 msgid "Paralyzing Spit"
-msgstr ""
+msgstr "Lamauttava sylkäisy"
 
 #: ../powers/powers.txt:689
 msgid "Poison spit that stuns the target for 1 second"
-msgstr ""
+msgstr "Myrkkysylkäisy joka pökerryttää kohteen yhdeksi sekunniksi"
 
 #: ../powers/powers.txt:782
 msgid "Boots of Testing Really Large Maps"
@@ -2818,7 +2817,7 @@ msgstr "Nuolilaukaus"
 #: ../powers/powers.txt:949
 #, fuzzy
 msgid "Arrow Wall Strike"
-msgstr "Nuoliseinämlaukaus"
+msgstr "Nuoliseinämälaukaus"
 
 #: ../powers/powers.txt:966
 msgid "Orange Spark"
@@ -2847,63 +2846,63 @@ msgstr "Tuo muita vihollisia taisteluun valehyökkäyksellä"
 #: ../powers/powers.txt:1107
 #, fuzzy
 msgid "Summon Antlion"
-msgstr "Muurahaiskorento"
+msgstr "Kutsu muurahaiskorento"
 
 #: ../powers/powers.txt:1117
 #, fuzzy
 msgid "Summon Antlion Hatchling"
-msgstr "Muurahaisleijona"
+msgstr "Kutsu muurahaiskorentoinen"
 
 #: ../powers/powers.txt:1127
 #, fuzzy
 msgid "Transform into Antlion Freezer"
-msgstr "Muurahaiskorentojäädyttäjä"
+msgstr "Muunnu muurahaiskorentojäädyttäjäksi"
 
 #: ../powers/powers.txt:1133
 msgid "Transform into Antlion Freezer for 5 seconds"
-msgstr ""
+msgstr "Muunnu muurahaiskorentojäädyttäjäksi viideksi sekunniksi"
 
 #: ../powers/powers.txt:1140
 msgid "Disenchant"
-msgstr ""
+msgstr "Kadota lumous"
 
 #: ../powers/powers.txt:1145
 msgid "Transform back to human"
-msgstr ""
+msgstr "Muuttaa jälleen ihmiseksi"
 
 #: ../powers/powers.txt:1150
 #, fuzzy
 msgid "Summon Rotting Zombie"
-msgstr "Mätänevä zombi"
+msgstr "Kutsu mätänevä zombi"
 
 #: ../powers/powers.txt:1160
 msgid "Transform into Antlion Freezer permanently"
-msgstr ""
+msgstr "Muunnu muurahaiskorentojäädyttäjäksi pysyvästi"
 
 #: ../powers/powers.txt:1173
 msgid "Disenchant [item]"
-msgstr ""
+msgstr "Kadota lumous [esine]"
 
 #: ../powers/powers.txt:1184
 msgid "Spike Ray"
-msgstr ""
+msgstr "Piikkisäde"
 
 #: ../powers/powers.txt:1187
 msgid "Create a ray of deadly spikes"
-msgstr ""
+msgstr "Tekee kuolettavan piikkisäteen"
 
 #: ../powers/powers.txt:1211
 msgid "Spikes"
-msgstr ""
+msgstr "Piikit"
 
 #: ../powers/powers.txt:1213
 msgid "Spikes Trap"
-msgstr ""
+msgstr "Piikkiansa"
 
 #: ../engine/elements.txt:4
 #, fuzzy
 msgid "fire"
-msgstr "Tyhjyys"
+msgstr "tuli"
 
 #: ../engine/elements.txt:5
 #, fuzzy
@@ -2912,7 +2911,7 @@ msgstr "tulensieto"
 
 #: ../engine/elements.txt:8
 msgid "ice"
-msgstr ""
+msgstr "jää"
 
 #: ../engine/elements.txt:9
 #, fuzzy
@@ -2921,43 +2920,42 @@ msgstr "jäänsieto"
 
 #: ../engine/elements.txt:12
 msgid "earth"
-msgstr ""
+msgstr "maa"
 
 #: ../engine/elements.txt:13
 #, fuzzy
 msgid "Earth Resistance"
-msgstr "Maanrepijä"
+msgstr "Maansieto"
 
 #: ../engine/elements.txt:16
 #, fuzzy
 msgid "wind"
-msgstr "Lyönti"
+msgstr "tuuli"
 
 #: ../engine/elements.txt:17
 msgid "Wind Resistance"
-msgstr ""
+msgstr "tuulensieto"
 
 #: ../engine/elements.txt:20
 msgid "shadow"
-msgstr ""
+msgstr "varjo"
 
 #: ../engine/elements.txt:21
 msgid "Shadow Resistance"
-msgstr ""
+msgstr "varjonsieto"
 
 #: ../engine/elements.txt:24
-#, fuzzy
 msgid "light"
-msgstr "Ritsa"
+msgstr "valo"
 
 #: ../engine/elements.txt:25
 msgid "Light Resistance"
-msgstr ""
+msgstr "valonsieto"
 
 #: ../engine/loot.txt:15
 #, fuzzy
 msgid "Gold"
-msgstr "Hiisi"
+msgstr "kulta"
 
 #: ../enemies/antlion.txt:1
 msgid "Antlion"
@@ -2977,7 +2975,7 @@ msgstr "Muurahaiskorentojäädyttäjä"
 
 #: ../enemies/antlion_hatchling.txt:1
 msgid "Antlion Hatchling"
-msgstr "Muurahaisleijona"
+msgstr "Muurahaiskorentoinen"
 
 #: ../enemies/antlion_slasher.txt:1
 msgid "Antlion Slasher"
@@ -2990,7 +2988,7 @@ msgstr "Muurahaiskorentosyöksijä"
 #: ../enemies/cursed_grave.txt:1
 #, fuzzy
 msgid "Cursed Grave"
-msgstr "Kirottu suurjousi"
+msgstr "Kirottu hauta"
 
 #: ../enemies/goblin.txt:1
 msgid "Goblin"
@@ -3051,11 +3049,11 @@ msgstr "Luuranko"
 #: ../enemies/wyvern.txt:1
 #, fuzzy
 msgid "Wyvern"
-msgstr "Traakinruoto"
+msgstr "Traakki"
 
 #: ../enemies/wyvern_adult.txt:1
 msgid "Adult Wyvern"
-msgstr ""
+msgstr "Täysikasvuinen traakki"
 
 #: ../enemies/zombie.txt:1
 msgid "Zombie"
