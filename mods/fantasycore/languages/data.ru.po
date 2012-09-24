@@ -6,10 +6,10 @@
 # Sergey Basalaev <sbasalaev@gmail.com>, 2011.
 msgid ""
 msgstr ""
-"Project-Id-Version: flare 0.16\n"
+"Project-Id-Version: flare-game 0.17\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-21 20:09+\n"
-"PO-Revision-Date: 2012-06-30 19:29+0600\n"
+"PO-Revision-Date: 2012-09-25 01:31+0600\n"
 "Last-Translator: Sergey Basalaev <sbasalaev@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -27,7 +27,7 @@ msgstr "Восстановить 25 очков здоровья"
 
 #: ../items/items.txt:8
 msgid "consumable"
-msgstr ""
+msgstr "потребляемый"
 
 #: ../items/items.txt:17
 msgid "Mana Potion"
@@ -59,7 +59,7 @@ msgstr "Алмаз"
 
 #: ../items/items.txt:63
 msgid "gem"
-msgstr ""
+msgstr "драгоценность"
 
 #: ../items/items.txt:71
 msgid "Emerald"
@@ -103,7 +103,7 @@ msgstr "Одеяние"
 
 #: ../items/items.txt:166
 msgid "body"
-msgstr ""
+msgstr "тело"
 
 #: ../items/items.txt:177
 msgid "Tattered Clothes"
@@ -267,7 +267,7 @@ msgstr "Кинжал"
 
 #: ../items/items.txt:618
 msgid "main"
-msgstr ""
+msgstr "главная"
 
 #: ../items/items.txt:630
 msgid "Rusted Dagger"
@@ -1327,7 +1327,7 @@ msgstr "Праща"
 
 #: ../items/items.txt:4549
 msgid "off"
-msgstr ""
+msgstr "вторая"
 
 #: ../items/items.txt:4561
 msgid "Cracked Slingshot"
@@ -1999,7 +1999,7 @@ msgstr "Треснутый малый щит"
 
 #: ../items/items.txt:7203
 msgid "Cursed Buckler"
-msgstr "проклятый малый щит"
+msgstr "Проклятый малый щит"
 
 #: ../items/items.txt:7218
 msgid "Dwarven Buckler"
@@ -2379,7 +2379,7 @@ msgstr "Пояс"
 
 #: ../items/items.txt:8638
 msgid "artifact"
-msgstr ""
+msgstr "артефакт"
 
 #: ../items/items.txt:8646
 msgid "Tattered Belt"
@@ -2479,55 +2479,51 @@ msgstr "Повязка просвещения"
 
 #: ../items/types.txt:3
 msgid "Artifact"
-msgstr ""
+msgstr "Артефакт"
 
 #: ../items/types.txt:7
 msgid "Body"
-msgstr ""
+msgstr "Тело"
 
 #: ../items/types.txt:11
 msgid "Consumable"
-msgstr ""
+msgstr "Потребляемый"
 
 #: ../items/types.txt:15
 msgid "Gem"
-msgstr ""
+msgstr "Драгоценность"
 
 #: ../items/types.txt:19
-#, fuzzy
 msgid "Main Hand"
-msgstr "Мерцающий жезл"
+msgstr "Главная рука"
 
 #: ../items/types.txt:23
 msgid "Off Hand"
-msgstr ""
+msgstr "Вторая рука"
 
 #: ../items/types.txt:26
 msgid "quest"
-msgstr ""
+msgstr "задание"
 
 #: ../items/types.txt:27
 msgid "Quest Item"
-msgstr ""
+msgstr "Квестовый предмет"
 
 #: ../items/types.txt:30
-#, fuzzy
 msgid "ring"
-msgstr "Кольцо"
+msgstr "кольцо"
 
 #: ../menus/powers.txt:16
-#, fuzzy
 msgid "Warrior"
-msgstr "Боевой крик"
+msgstr "Воин"
 
 #: ../menus/powers.txt:19
-#, fuzzy
 msgid "Ranger"
-msgstr "Охотничий лук"
+msgstr "Охотник"
 
 #: ../menus/powers.txt:22
 msgid "Magician"
-msgstr ""
+msgstr "Маг"
 
 #: ../powers/powers.txt:5
 msgid "Swing"
@@ -2542,9 +2538,8 @@ msgid "Channel"
 msgstr "Вызов"
 
 #: ../powers/powers.txt:25
-#, fuzzy
 msgid "Basic magic attack"
-msgstr "Базовая дальняя атака"
+msgstr "Базовая магическая атака"
 
 #: ../powers/powers.txt:46
 msgid "Block"
@@ -2608,7 +2603,7 @@ msgstr "Землетрясение"
 
 #: ../powers/powers.txt:170
 msgid "Stun nearby enemies"
-msgstr "Парализовать близких врагов"
+msgstr "Парализовать ближайших врагов"
 
 #: ../powers/powers.txt:197
 msgid "Create a force field that absorbs damage"
@@ -2656,7 +2651,7 @@ msgstr "Сожжение"
 
 #: ../powers/powers.txt:308
 msgid "Blast enemies in a distant area with fire"
-msgstr "Поразить удалённых врагов огнём"
+msgstr "Поразить врагов в дальней области огнём"
 
 #: ../powers/powers.txt:335
 msgid "Time Stop"
@@ -2664,25 +2659,23 @@ msgstr "Остановка времени"
 
 #: ../powers/powers.txt:338
 msgid "Stun nearby enemies for 5 seconds"
-msgstr "Парализовать близких врагов на 5 секунд"
+msgstr "Парализовать ближайших врагов на 5 секунд"
 
 #: ../powers/powers.txt:352
-#, fuzzy
 msgid "Heroic Swing"
-msgstr "Каменная рогатка"
+msgstr "Героический удар"
 
 #: ../powers/powers.txt:355
 msgid "Melee attack with 10% HP steal"
-msgstr ""
+msgstr "Ближняя атака крадёт 10% жизни"
 
 #: ../powers/powers.txt:370
-#, fuzzy
 msgid "Greater Channel"
-msgstr "Вызов"
+msgstr "Сильный вызов"
 
 #: ../powers/powers.txt:373
 msgid "Magic attack with 10% MP steal"
-msgstr ""
+msgstr "Магическая атака крадёт 10% маны"
 
 #: ../powers/powers.txt:395
 msgid "Shoot"
@@ -2693,13 +2686,12 @@ msgid "Basic ranged attack"
 msgstr "Базовая дальняя атака"
 
 #: ../powers/powers.txt:409
-#, fuzzy
 msgid "Rapid Fire"
-msgstr "Рапира"
+msgstr "Быстрый огонь"
 
 #: ../powers/powers.txt:412
 msgid "Fire five low power missiles in quick succession"
-msgstr ""
+msgstr "Быстро сделать пять маломощных выстрелов"
 
 #: ../powers/powers.txt:428
 msgid "Ice Shard [enemy]"
@@ -2723,7 +2715,7 @@ msgstr "Огненный взрыв [враг]"
 
 #: ../powers/powers.txt:508
 msgid "Burn nearby enemies"
-msgstr "Сжечь близких врагов"
+msgstr "Сжечь ближайших врагов"
 
 #: ../powers/powers.txt:532
 msgid "Arrow Shoot [enemy]"
@@ -2782,9 +2774,8 @@ msgid "Paralyzing Spit"
 msgstr "Парализующий плевок"
 
 #: ../powers/powers.txt:689
-#, fuzzy
 msgid "Poison spit that stuns the target for 1 second"
-msgstr "Ядовитый плевок, обездвиживающий цель на 2 секунды"
+msgstr "Ядовитый плевок, обездвиживающий цель на 1 секунду"
 
 #: ../powers/powers.txt:782
 msgid "Boots of Testing Really Large Maps"
@@ -2872,92 +2863,83 @@ msgstr "Превратиться обратно в человека"
 
 #: ../powers/powers.txt:1150
 msgid "Summon Rotting Zombie"
-msgstr "Призыв гниющего зомби"
+msgstr "Призвать гниющего зомби"
 
 #: ../powers/powers.txt:1160
-#, fuzzy
 msgid "Transform into Antlion Freezer permanently"
-msgstr "Превратиться в морозного муравьиного льва"
+msgstr "Превратиться в морозного муравьиного льва насовсем"
 
 #: ../powers/powers.txt:1173
-#, fuzzy
 msgid "Disenchant [item]"
-msgstr "Расколдовать"
+msgstr "Расколдовать [предмет]"
 
 #: ../powers/powers.txt:1184
 msgid "Spike Ray"
-msgstr ""
+msgstr "Полоса шипов"
 
 #: ../powers/powers.txt:1187
 msgid "Create a ray of deadly spikes"
-msgstr ""
+msgstr "Создать полосу смертельных шипов"
 
 #: ../powers/powers.txt:1211
 msgid "Spikes"
-msgstr ""
+msgstr "Шипы"
 
 #: ../powers/powers.txt:1213
 msgid "Spikes Trap"
-msgstr ""
+msgstr "Ловушка с шипами"
 
 #: ../engine/elements.txt:4
-#, fuzzy
 msgid "fire"
-msgstr "Огонь пустоты"
+msgstr "огонь"
 
 #: ../engine/elements.txt:5
-#, fuzzy
 msgid "Fire Resistance"
-msgstr "сопротивление огню"
+msgstr "Сопротивление огню"
 
 #: ../engine/elements.txt:8
 msgid "ice"
-msgstr ""
+msgstr "лёд"
 
 #: ../engine/elements.txt:9
-#, fuzzy
 msgid "Ice Resistance"
-msgstr "сопротивление льду"
+msgstr "Сопротивление льду"
 
 #: ../engine/elements.txt:12
 msgid "earth"
-msgstr ""
+msgstr "земля"
 
 #: ../engine/elements.txt:13
-#, fuzzy
 msgid "Earth Resistance"
-msgstr "Рубитель камней"
+msgstr "Сопротивление земле"
 
 #: ../engine/elements.txt:16
-#, fuzzy
 msgid "wind"
-msgstr "Удар"
+msgstr "ветер"
 
 #: ../engine/elements.txt:17
 msgid "Wind Resistance"
-msgstr ""
+msgstr "Сопротивление ветру"
 
 #: ../engine/elements.txt:20
 msgid "shadow"
-msgstr ""
+msgstr "тень"
 
 #: ../engine/elements.txt:21
 msgid "Shadow Resistance"
-msgstr ""
+msgstr "Сопротивление тени"
 
 #: ../engine/elements.txt:24
-#, fuzzy
 msgid "light"
-msgstr "Праща"
+msgstr "свет"
 
 #: ../engine/elements.txt:25
 msgid "Light Resistance"
-msgstr ""
+msgstr "Сопротивление свету"
 
 #: ../engine/loot.txt:15
-#, fuzzy
 msgid "Gold"
-msgstr "Гоблин"
+msgstr "золота"
 
 #: ../enemies/antlion.txt:1
 msgid "Antlion"
@@ -2965,7 +2947,7 @@ msgstr "Муравьиный лев"
 
 #: ../enemies/antlion_blinker.txt:1
 msgid "Antlion Blinker"
-msgstr "Муравьиный лев сигнальщик"
+msgstr "Ослепляющий муравьиный лев"
 
 #: ../enemies/antlion_burster.txt:1
 msgid "Antlion Burster"
@@ -3069,7 +3051,7 @@ msgstr "Брутальный зомби"
 
 #: ../enemies/zombie_iceclaw.txt:1
 msgid "Iceclaw Zombie"
-msgstr "Хладный труп"
+msgstr "Леденящий зомби"
 
 #: ../enemies/zombie_rotting.txt:1
 msgid "Rotting Zombie"
