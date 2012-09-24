@@ -6,10 +6,10 @@
 # Sergey Basalaev <sbasalaev@gmail.com>, 2011.
 msgid ""
 msgstr ""
-"Project-Id-Version: flare 0.16\n"
+"Project-Id-Version: flare-engine 0.17\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-21 15:57+0300\n"
-"PO-Revision-Date: 2012-09-23 20:31+0600\n"
+"PO-Revision-Date: 2012-09-25 01:34+0600\n"
 "Last-Translator: Sergey Basalaev <sbasalaev@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -528,28 +528,28 @@ msgstr "Уменьшает %s на %d"
 #: ../../../src/MenuPowers.cpp:518
 #, c-format
 msgid "Requires Physical %d"
-msgstr "Требуется Физическая %d"
+msgstr "Требуется физическое %d"
 
 #: ../../../src/ItemManager.cpp:584
 #: ../../../src/MenuPowers.cpp:522
 #: ../../../src/MenuPowers.cpp:524
 #, c-format
 msgid "Requires Mental %d"
-msgstr "Требуется Ментальная %d"
+msgstr "Требуется ментальное %d"
 
 #: ../../../src/ItemManager.cpp:588
 #: ../../../src/MenuPowers.cpp:504
 #: ../../../src/MenuPowers.cpp:506
 #, c-format
 msgid "Requires Offense %d"
-msgstr "Требуется Атака %d"
+msgstr "Требуется нападение %d"
 
 #: ../../../src/ItemManager.cpp:592
 #: ../../../src/MenuPowers.cpp:510
 #: ../../../src/MenuPowers.cpp:512
 #, c-format
 msgid "Requires Defense %d"
-msgstr "Требуется Защита %d"
+msgstr "Требуется защита %d"
 
 #: ../../../src/ItemManager.cpp:602
 #, c-format
@@ -621,11 +621,11 @@ msgstr "Уровень"
 
 #: ../../../src/MenuCharacter.cpp:221
 msgid "Physical"
-msgstr "Физическая"
+msgstr "Физическое"
 
 #: ../../../src/MenuCharacter.cpp:222
 msgid "Mental"
-msgstr "Ментальная"
+msgstr "Ментальное"
 
 #: ../../../src/MenuCharacter.cpp:223
 msgid "Offense"
@@ -641,30 +641,30 @@ msgstr "очков осталось"
 
 #: ../../../src/MenuCharacter.cpp:295
 msgid "Max HP:"
-msgstr "Макс. жизни:"
+msgstr "Максимум здоровья:"
 
 #: ../../../src/MenuCharacter.cpp:296
 #, c-format
 msgid "Each point of Physical grants +%d HP. Each level grants +%d HP"
-msgstr "Каждое очко Физического даёт +%d здоровья. Каждый уровень даёт +%d здоровья"
+msgstr "Каждое физическое очко даёт +%d здоровья. Каждый уровень даёт +%d здоровья"
 
 #: ../../../src/MenuCharacter.cpp:301
 msgid "HP Regen:"
-msgstr "Восстановление жизни:"
+msgstr "Восстановление здоровья:"
 
 #: ../../../src/MenuCharacter.cpp:302
 #, c-format
 msgid "Ticks of HP regen per minute. Each point of Physical grants +%d HP regen. Each level grants +%d HP regen"
-msgstr "Восстановление жизни в минуту. Каждое очко Физического даёт +%d регенерации. Каждый уровень даёт +%d регенерации"
+msgstr "Восстановление здоровья в минуту. Каждое физическое очко даёт +%d регенерации. Каждый уровень даёт +%d регенерации"
 
 #: ../../../src/MenuCharacter.cpp:307
 msgid "Max MP:"
-msgstr "Макс. маны:"
+msgstr "Максимум маны:"
 
 #: ../../../src/MenuCharacter.cpp:308
 #, c-format
 msgid "Each point of Mental grants +%d MP. Each level grants +%d MP"
-msgstr "Каждое очко Ментального даёт +%d маны. Каждый уровень даёт +%d маны"
+msgstr "Каждое ментальное очко даёт +%d маны. Каждый уровень даёт +%d маны"
 
 #: ../../../src/MenuCharacter.cpp:313
 msgid "MP Regen:"
@@ -673,21 +673,21 @@ msgstr "Восстановление маны:"
 #: ../../../src/MenuCharacter.cpp:314
 #, c-format
 msgid "Ticks of MP regen per minute. Each point of Mental grants +%d MP regen. Each level grants +%d MP regen"
-msgstr "Восстановление маны в минуту. Каждое очко Ментального даёт +%d регенерации. Каждый уровень даёт +%d регенерации"
+msgstr "Восстановление маны в минуту. Каждое ментальное очко даёт +%d регенерации. Каждый уровень даёт +%d регенерации"
 
 #: ../../../src/MenuCharacter.cpp:319
 msgid "Accuracy (vs lvl 1):"
-msgstr "Точность (против уровня 1):"
+msgstr "Меткость (против уровня 1):"
 
 #: ../../../src/MenuCharacter.cpp:320
 #: ../../../src/MenuCharacter.cpp:326
 #, c-format
 msgid "Each point of Offense grants +%d accuracy. Each level grants +%d accuracy"
-msgstr "Каждое очко Атаки даёт +%d к точности. Каждый уровень даёт +%d к уклонению"
+msgstr "Каждое очко нападения даёт +%d к меткости. Каждый уровень даёт +%d к меткости"
 
 #: ../../../src/MenuCharacter.cpp:325
 msgid "Accuracy (vs lvl 5):"
-msgstr "Точность (против уровня 5):"
+msgstr "Меткость (против уровня 5):"
 
 #: ../../../src/MenuCharacter.cpp:331
 msgid "Avoidance (vs lvl 1):"
@@ -697,7 +697,7 @@ msgstr "Уклонение (от уровня 1):"
 #: ../../../src/MenuCharacter.cpp:338
 #, c-format
 msgid "Each point of Defense grants +%d avoidance. Each level grants +%d avoidance"
-msgstr "Каждое очко Защиты даёт +%d к уклонению. Каждый уровень даёт +%d к уклонению"
+msgstr "Каждое очко защиты даёт +%d к уклонению. Каждый уровень даёт +%d к уклонению"
 
 #: ../../../src/MenuCharacter.cpp:337
 msgid "Avoidance (vs lvl 5):"
@@ -717,7 +717,7 @@ msgstr "Ментальный вред:"
 
 #: ../../../src/MenuCharacter.cpp:378
 msgid "Crit:"
-msgstr "Крит:"
+msgstr "Критический удар:"
 
 #: ../../../src/MenuCharacter.cpp:384
 msgid "Absorb:"
@@ -825,31 +825,31 @@ msgstr "Требуется ментальное оружие"
 
 #: ../../../src/MenuPowers.cpp:474
 msgid "Requires an offense weapon"
-msgstr "Требуется оружие атаки"
+msgstr "Требуется оружие нападения"
 
 #: ../../../src/MenuPowers.cpp:480
 #: ../../../src/MenuPowers.cpp:482
 #, c-format
 msgid "Requires Physical Offense %d"
-msgstr "Требуется Физическая Атака %d"
+msgstr "Требуется физическое нападение %d"
 
 #: ../../../src/MenuPowers.cpp:486
 #: ../../../src/MenuPowers.cpp:488
 #, c-format
 msgid "Requires Physical Defense %d"
-msgstr "Требуется Физическая Защита %d"
+msgstr "Требуется физическая защита %d"
 
 #: ../../../src/MenuPowers.cpp:492
 #: ../../../src/MenuPowers.cpp:494
 #, c-format
 msgid "Requires Mental Offense %d"
-msgstr "Требуется Ментальная Атака %d"
+msgstr "Требуется ментальное нападение %d"
 
 #: ../../../src/MenuPowers.cpp:498
 #: ../../../src/MenuPowers.cpp:500
 #, c-format
 msgid "Requires Mental Defense %d"
-msgstr "Требуется Ментальная Защита %d"
+msgstr "Требуется ментальная защита %d"
 
 #: ../../../src/MenuPowers.cpp:530
 #: ../../../src/MenuPowers.cpp:533
@@ -885,7 +885,7 @@ msgstr "Восстановление: %d секунд"
 
 #: ../../../src/MenuStash.cpp:125
 msgid "Shared Stash"
-msgstr ""
+msgstr "Общие запасы"
 
 #: ../../../src/MenuTalker.cpp:47
 msgid "Trade"
@@ -893,7 +893,7 @@ msgstr "Торговать"
 
 #: ../../../src/MenuVendor.cpp:49
 msgid "Buyback"
-msgstr ""
+msgstr "Выкуп"
 
 #: ../../../src/MenuVendor.cpp:156
 msgid "Vendor"
@@ -960,6 +960,10 @@ msgstr "Тяжёлый лучник"
 #: ../../../src/StatBlock.cpp:424
 msgid "Adventurer"
 msgstr "Приключенец"
+
+#: ../../../src/MenuPowers.cpp:429
+msgid "Unspent skill points:"
+msgstr "Неистраченные очки навыков:"
 
 #~ msgid "You receive %d gold."
 #~ msgstr "Вы получаете %d золота."
