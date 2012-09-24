@@ -27,6 +27,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "Enemy.h"
 #include "Utils.h"
 #include "PowerManager.h"
+#include "CampaignManager.h"
 
 class EnemyManager {
 private:
@@ -64,7 +65,7 @@ public:
 	void handleSpawn();
 	void logic();
 	void addRenders(std::vector<Renderable> &r, std::vector<Renderable> &r_dead);
-	void checkEnemiesforXP(StatBlock *stats);
+	void checkEnemiesforXP(CampaignManager *camp);
 	Enemy *enemyFocus(Point mouse, Point cam, bool alive_only);
 
 	// vars

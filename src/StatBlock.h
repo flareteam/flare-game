@@ -98,6 +98,7 @@ public:
 	bool humanoid; // true for human, sceleton...; false for wyvern, snake...
 	bool permadeath;
 	bool transformed;
+	bool refresh_stats;
 
 	int movement_type;
 	bool flying;

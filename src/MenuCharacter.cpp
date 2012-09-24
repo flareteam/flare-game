@@ -256,6 +256,8 @@ void MenuCharacter::loadGraphics() {
  */
 void MenuCharacter::refreshStats() {
 
+	stats->refresh_stats = false;
+
 	stringstream ss;
 
 	// update stat text
@@ -470,8 +472,7 @@ void MenuCharacter::logic() {
 
 	statList->checkClick();
 
-	// TODO: this doesn't need to be done every frame. Only call this when something has updated
-	refreshStats();
+	if (stats->refresh_stats) refreshStats();
 }
 
 

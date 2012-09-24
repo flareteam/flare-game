@@ -48,6 +48,7 @@ StatBlock::StatBlock() {
 	permadeath = false;
 	transform_type = "";
 	transformed = false;
+	refresh_stats = false;
 
 	movement_type = MOVEMENT_NORMAL;
 	flying = false;
@@ -359,6 +360,8 @@ void StatBlock::takeDamage(int dmg) {
 void StatBlock::recalc() {
 
 	if (!statsLoaded) loadHeroStats();
+
+	refresh_stats = true;
 
 	level = 0;
 	for (int i=0; i<MAX_CHARACTER_LEVEL; i++) {

@@ -565,7 +565,7 @@ void GameStatePlay::logic() {
 		enemies->logic();
 		hazards->logic();
 		loot->logic();
-		enemies->checkEnemiesforXP(&pc->stats);
+		enemies->checkEnemiesforXP(camp);
 		npcs->logic();
 
 	}
