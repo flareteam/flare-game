@@ -302,10 +302,10 @@ Enemy* EnemyManager::enemyFocus(Point mouse, Point cam, bool alive_only) {
 /**
  * If an enemy has died, reward the hero with experience points
  */
-void EnemyManager::checkEnemiesforXP(StatBlock *stats) {
+void EnemyManager::checkEnemiesforXP(CampaignManager *camp) {
 	for (unsigned int i=0; i < enemies.size(); i++) {
 		if (enemies[i]->reward_xp) {
-			stats->xp += enemies[i]->stats.xp;
+			camp->rewardXP(enemies[i]->stats.xp, false);
 			enemies[i]->reward_xp = false; // clear flag
 		}
 	}

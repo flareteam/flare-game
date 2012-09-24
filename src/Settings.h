@@ -61,6 +61,7 @@ extern short MIN_VIEW_W;
 extern short MIN_VIEW_H;
 extern bool DOUBLEBUF;
 extern bool HWSURFACE;
+extern bool CHANGE_GAMMA;
 extern float GAMMA;
 extern bool TEXTURE_QUALITY;
 extern bool ANIMATED_TILES;
