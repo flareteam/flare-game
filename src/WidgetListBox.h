@@ -69,6 +69,7 @@ public:
 	bool checkClick(int x, int y);
 	TooltipData checkTooltip(Point mouse);
 	void append(std::string value, std::string tooltip);
+	void set(int index, std::string value, std::string tooltip);
 	void remove(int index);
 	void clear();
 	void shiftUp();
@@ -89,6 +90,7 @@ public:
 	bool *selected;
 	bool multi_select;
 	bool can_deselect;
+	bool can_select;
 };
 
 #endif
