@@ -20,14 +20,18 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 
 using namespace std;
+	bool new_section;
+	std::string section;
+	std::string key;
+	std::string val;
 
-
-FileParser::FileParser() {
-	line = "";
-	section = "";
-	key = "";
-	val = "";
-}
+FileParser::FileParser()
+	: line("")
+	, new_section(false)
+	, section("")
+	, key("")
+	, val("")
+{}
 
 bool FileParser::open(const string& filename) {
 	infile.open(filename.c_str(), ios::in);

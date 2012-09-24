@@ -35,6 +35,12 @@ BehaviorStandard::BehaviorStandard(Enemy *_e) : EnemyBehavior(_e) {
  */
 void BehaviorStandard::logic() {
 
+	// skip all logic if the enemy is dead and no longer animating
+	if (e->stats.corpse) {
+		if (e->stats.corpse_ticks > 0)
+			e->stats.corpse_ticks--;
+		return;
+	}
 	doUpkeep();
 	findTarget();
 	checkPower();
@@ -97,7 +103,6 @@ void BehaviorStandard::doUpkeep() {
 
 		e->stats.teleportation = false;
 	}
-
 
 }
 
@@ -430,7 +435,10 @@ void BehaviorStandard::updateState() {
 		case ENEMY_DEAD:
 
 			e->setAnimation("die");
-			if (e->activeAnimation->isFirstFrame()) e->sfx_die = true;
+			if (e->activeAnimation->isFirstFrame()) {
+				e->sfx_die = true;
+				e->stats.corpse_ticks = CORPSE_TIMEOUT;
+			}
 			if (e->activeAnimation->isLastFrame()) e->stats.corpse = true; // puts renderable under object layer
 
 			break;
@@ -438,7 +446,10 @@ void BehaviorStandard::updateState() {
 		case ENEMY_CRITDEAD:
 
 			e->setAnimation("critdie");
-			if (e->activeAnimation->isFirstFrame()) e->sfx_critdie = true;
+			if (e->activeAnimation->isFirstFrame()) {
+				e->sfx_critdie = true;
+				e->stats.corpse_ticks = CORPSE_TIMEOUT;
+			}
 			if (e->activeAnimation->isLastFrame()) e->stats.corpse = true; // puts renderable under object layer
 
 			break;

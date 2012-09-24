@@ -39,7 +39,6 @@ MenuLog::MenuLog() {
 
 	// Load config settings
 	FileParser infile;
-	std::string val;
 	if(infile.open(mods->locate("menus/log.txt"))) {
 		while(infile.next()) {
 			infile.val = infile.val + ',';

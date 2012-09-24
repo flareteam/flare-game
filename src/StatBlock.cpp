@@ -40,6 +40,7 @@ StatBlock::StatBlock() {
 	name = "";
 	alive = true;
 	corpse = false;
+	corpse_ticks = 0;
 	hero = false;
 	humanoid = false;
 	hero_pos.x = hero_pos.y = -1;
