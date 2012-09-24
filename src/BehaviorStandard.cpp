@@ -35,6 +35,7 @@ BehaviorStandard::BehaviorStandard(Enemy *_e) : EnemyBehavior(_e) {
  */
 void BehaviorStandard::logic() {
 
+	// skip all logic if the enemy is dead and no longer animating
 	if (e->stats.corpse) {
 		if (e->stats.corpse_ticks > 0)
 			e->stats.corpse_ticks--;
