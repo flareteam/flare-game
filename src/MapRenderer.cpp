@@ -1210,7 +1210,7 @@ bool MapRenderer::executeEvent(Map_Event &ev) {
 			camp->removeItem(ec->x);
 		}
 		else if (ec->type == "reward_xp") {
-			camp->rewardXP(ec->x);
+			camp->rewardXP(ec->x, true);
 		}
 		else if (ec->type == "spawn") {
 			Point spawn_pos;

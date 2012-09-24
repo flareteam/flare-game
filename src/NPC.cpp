@@ -344,7 +344,7 @@ bool NPC::processDialog(unsigned int dialog_node, unsigned int &event_cursor) {
 			return true;
 		}
 		else if (dialog[dialog_node][event_cursor].type == "reward_xp") {
-			map->camp->rewardXP(dialog[dialog_node][event_cursor].x);
+			map->camp->rewardXP(dialog[dialog_node][event_cursor].x, true);
 		}
 		else if (dialog[dialog_node][event_cursor].type == "restore") {
 			map->camp->restoreHPMP(dialog[dialog_node][event_cursor].s);

@@ -90,7 +90,8 @@ static void init() {
 	}
 
 	// Set Gamma
-	SDL_SetGamma(GAMMA,GAMMA,GAMMA);
+	if (CHANGE_GAMMA)
+		SDL_SetGamma(GAMMA,GAMMA,GAMMA);
 
 	audio = true;
 

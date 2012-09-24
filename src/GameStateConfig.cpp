@@ -655,17 +655,20 @@ void GameStateConfig::update () {
 	else enable_joystick_cb->unCheck();
 	if (TEXTURE_QUALITY) texture_quality_cb->Check();
 	else texture_quality_cb->unCheck();
-	//if (CHANGE_GAMMA) change_gamma_cb->Check();
-	//else change_gamma_cb->unCheck();
+	if (CHANGE_GAMMA) change_gamma_cb->Check();
+	else {
+		change_gamma_cb->unCheck();
+		GAMMA = 1.0;
+	}
+	gamma_sl->set(5,20,(int)(GAMMA*10.0));
+	SDL_SetGamma(GAMMA,GAMMA,GAMMA);
+
 	if (ANIMATED_TILES) animated_tiles_cb->Check();
 	else animated_tiles_cb->unCheck();
 	if (MOUSE_AIM) mouse_aim_cb->Check();
 	else mouse_aim_cb->unCheck();
 	if (SHOW_FPS) show_fps_cb->Check();
 	else show_fps_cb->unCheck();
-
-	gamma_sl->set(5,20,(int)(GAMMA*10.0));
-	SDL_SetGamma(GAMMA,GAMMA,GAMMA);
 
 	std::stringstream list_mode;
 	unsigned int resolutions = getVideoModes();
@@ -803,17 +806,24 @@ void GameStateConfig::logic ()
 		} else if (texture_quality_cb->checkClick()) {
 			if (texture_quality_cb->isChecked()) TEXTURE_QUALITY=true;
 			else TEXTURE_QUALITY=false;
-		//} else if (change_gamma_cb->checkClick()) {
-		//	if (change_gamma_cb->isChecked()) CHANGE_GAMMA=true;
-		//	else CHANGE_GAMMA=false;
+		} else if (change_gamma_cb->checkClick()) {
+			if (change_gamma_cb->isChecked()) CHANGE_GAMMA=true;
+			else {
+				CHANGE_GAMMA=false;
+				GAMMA = 1.0;
+				gamma_sl->set(5,20,(int)(GAMMA*10.0));
+				SDL_SetGamma(GAMMA,GAMMA,GAMMA);
+			}
 		} else if (animated_tiles_cb->checkClick()) {
 			if (animated_tiles_cb->isChecked()) ANIMATED_TILES=true;
 			else ANIMATED_TILES=false;
 		} else if (resolution_lstb->checkClick()) {
 			value = resolution_lstb->getValue() + 'x';
-		} else if (gamma_sl->checkClick()) {
-			GAMMA=(float)(gamma_sl->getValue())*0.1;
-			SDL_SetGamma(GAMMA,GAMMA,GAMMA);
+		} else if (CHANGE_GAMMA) {
+			if (gamma_sl->checkClick()) {
+					GAMMA=(float)(gamma_sl->getValue())*0.1;
+					SDL_SetGamma(GAMMA,GAMMA,GAMMA);
+			}
 		}
 	}
 	// tab 1 (audio)

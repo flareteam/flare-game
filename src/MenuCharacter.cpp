@@ -70,6 +70,7 @@ MenuCharacter::MenuCharacter(StatBlock *_stats) {
 
 	// stat list
 	statList = new WidgetListBox(13+stats->vulnerable.size(), 10, mods->locate("images/menus/buttons/listbox_char.png"));
+	statList->can_select = false;
 
 	// Load config settings
 	FileParser infile;
@@ -255,6 +256,8 @@ void MenuCharacter::loadGraphics() {
  */
 void MenuCharacter::refreshStats() {
 
+	stats->refresh_stats = false;
+
 	stringstream ss;
 
 	// update stat text
@@ -287,55 +290,55 @@ void MenuCharacter::refreshStats() {
 	ss.str("");
 
 	// scrolling stat list
-	statList->clear();
-	statList->refresh();
+
+	int visible_stats = 0;
 
 	if (show_stat[0]) {
 		ss.str("");
 		ss << msg->get("Max HP:") << " " << stats->maxhp;
-		statList->append(ss.str(),msg->get("Each point of Physical grants +%d HP. Each level grants +%d HP", stats->hp_per_physical, stats->hp_per_level));
+		statList->set(visible_stats++, ss.str(),msg->get("Each point of Physical grants +%d HP. Each level grants +%d HP", stats->hp_per_physical, stats->hp_per_level));
 	}
 
 	if (show_stat[1]) {
 		ss.str("");
 		ss << msg->get("HP Regen:") << " " << stats->hp_per_minute;
-		statList->append(ss.str(),msg->get("Ticks of HP regen per minute. Each point of Physical grants +%d HP regen. Each level grants +%d HP regen",stats->hp_regen_per_physical, stats->hp_regen_per_level));
+		statList->set(visible_stats++, ss.str(),msg->get("Ticks of HP regen per minute. Each point of Physical grants +%d HP regen. Each level grants +%d HP regen",stats->hp_regen_per_physical, stats->hp_regen_per_level));
 	}
 
 	if (show_stat[2]) {
 		ss.str("");
 		ss << msg->get("Max MP:") << " " << stats->maxmp;
-		statList->append(ss.str(),msg->get("Each point of Mental grants +%d MP. Each level grants +%d MP", stats->mp_per_mental, stats->mp_per_level));
+		statList->set(visible_stats++, ss.str(),msg->get("Each point of Mental grants +%d MP. Each level grants +%d MP", stats->mp_per_mental, stats->mp_per_level));
 	}
 
 	if (show_stat[3]) {
 		ss.str("");
 		ss << msg->get("MP Regen:") << " " << stats->mp_per_minute;
-		statList->append(ss.str(),msg->get("Ticks of MP regen per minute. Each point of Mental grants +%d MP regen. Each level grants +%d MP regen", stats->mp_regen_per_mental, stats->mp_regen_per_level));
+		statList->set(visible_stats++, ss.str(),msg->get("Ticks of MP regen per minute. Each point of Mental grants +%d MP regen. Each level grants +%d MP regen", stats->mp_regen_per_mental, stats->mp_regen_per_level));
 	}
 
 	if (show_stat[4]) {
 		ss.str("");
 		ss << msg->get("Accuracy (vs lvl 1):") << " " << stats->accuracy << "%";
-		statList->append(ss.str(),msg->get("Each point of Offense grants +%d accuracy. Each level grants +%d accuracy", stats->accuracy_per_offense, stats->accuracy_per_level));
+		statList->set(visible_stats++, ss.str(),msg->get("Each point of Offense grants +%d accuracy. Each level grants +%d accuracy", stats->accuracy_per_offense, stats->accuracy_per_level));
 	}
 
 	if (show_stat[5]) {
 		ss.str("");
 		ss << msg->get("Accuracy (vs lvl 5):") << " " << (stats->accuracy-20) << "%";
-		statList->append(ss.str(),msg->get("Each point of Offense grants +%d accuracy. Each level grants +%d accuracy", stats->accuracy_per_offense, stats->accuracy_per_level));
+		statList->set(visible_stats++, ss.str(),msg->get("Each point of Offense grants +%d accuracy. Each level grants +%d accuracy", stats->accuracy_per_offense, stats->accuracy_per_level));
 	}
 
 	if (show_stat[6]) {
 		ss.str("");
 		ss << msg->get("Avoidance (vs lvl 1):") << " " << stats->avoidance << "%";
-		statList->append(ss.str(),msg->get("Each point of Defense grants +%d avoidance. Each level grants +%d avoidance", stats->avoidance_per_defense, stats->avoidance_per_level));
+		statList->set(visible_stats++, ss.str(),msg->get("Each point of Defense grants +%d avoidance. Each level grants +%d avoidance", stats->avoidance_per_defense, stats->avoidance_per_level));
 	}
 
 	if (show_stat[7]) {
 		ss.str("");
 		ss << msg->get("Avoidance (vs lvl 5):") << " " << (stats->avoidance-20) << "%";
-		statList->append(ss.str(),msg->get("Each point of Defense grants +%d avoidance. Each level grants +%d avoidance", stats->avoidance_per_defense, stats->avoidance_per_level));
+		statList->set(visible_stats++, ss.str(),msg->get("Each point of Defense grants +%d avoidance. Each level grants +%d avoidance", stats->avoidance_per_defense, stats->avoidance_per_level));
 	}
 
 	int bonus;
@@ -348,7 +351,7 @@ void MenuCharacter::refreshStats() {
 			ss << stats->dmg_melee_min + bonus << "-" << stats->dmg_melee_max + bonus;
 		else
 			ss << "-";
-		statList->append(ss.str(),"");
+		statList->set(visible_stats++, ss.str(),"");
 	}
 
 	if (show_stat[9]) {
@@ -359,7 +362,7 @@ void MenuCharacter::refreshStats() {
 			ss << stats->dmg_ranged_min + bonus << "-" << stats->dmg_ranged_max + bonus;
 		else
 			ss << "-";
-		statList->append(ss.str(),"");
+		statList->set(visible_stats++, ss.str(),"");
 	}
 
 	if (show_stat[10]) {
@@ -370,13 +373,13 @@ void MenuCharacter::refreshStats() {
 			ss << stats->dmg_ment_min + bonus << "-" << stats->dmg_ment_max + bonus;
 		else
 			ss << "-";
-		statList->append(ss.str(),"");
+		statList->set(visible_stats++, ss.str(),"");
 	}
 
 	if (show_stat[11]) {
 		ss.str("");
 		ss << msg->get("Crit:") << " " << stats->crit << "%";
-		statList->append(ss.str(),"");
+		statList->set(visible_stats++, ss.str(),"");
 	}
 
 	if (show_stat[12]) {
@@ -386,16 +389,18 @@ void MenuCharacter::refreshStats() {
 			ss << stats->absorb_min;
 		else
 			ss << stats->absorb_min << "-" << stats->absorb_max;
-		statList->append(ss.str(),"");
+		statList->set(visible_stats++, ss.str(),"");
 	}
 
 	if (show_stat[13]) {
 		for (unsigned int j=0; j<stats->vulnerable.size(); j++) {
 			ss.str("");
 			ss << ELEMENTS[j].resist << ": " << (100 - stats->vulnerable[j]) << "%";
-			statList->append(ss.str(),"");
+			statList->set(visible_stats++, ss.str(),"");
 		}
 	}
+
+	statList->refresh();
 
 	// update tool tips
 	cstat[CSTAT_NAME].tip.num_lines = 0;
@@ -467,8 +472,7 @@ void MenuCharacter::logic() {
 
 	statList->checkClick();
 
-	// TODO: this doesn't need to be done every frame. Only call this when something has updated
-	refreshStats();
+	if (stats->refresh_stats) refreshStats();
 }
 
 

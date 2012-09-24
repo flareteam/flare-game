@@ -361,6 +361,10 @@ void MenuManager::logic() {
 				inpt->lock[MAIN1] = true;
 			}
 
+			if (chr->visible && isWithin(chr->window_area, inpt->mouse)) {
+				inpt->lock[MAIN1] = true;
+			}
+
 			if (vendor->visible && isWithin(vendor->window_area,inpt->mouse)) {
 				inpt->lock[MAIN1] = true;
 				vendor->tabsLogic();

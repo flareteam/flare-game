@@ -152,9 +152,10 @@ void CampaignManager::rewardCurrency(int amount) {
 	items->playCoinsSound();
 }
 
-void CampaignManager::rewardXP(int amount) {
+void CampaignManager::rewardXP(int amount, bool show_message) {
 	hero->xp += amount;
-	addMsg(msg->get("You receive %d XP.", amount));
+	hero->refresh_stats = true;
+	if (show_message) addMsg(msg->get("You receive %d XP.", amount));
 }
 
 void CampaignManager::restoreHPMP(std::string s) {
