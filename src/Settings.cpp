@@ -402,7 +402,7 @@ void loadMiscSettings() {
 		Element e;
 		ELEMENTS.clear();
 		while (infile.next()) {
-			if (infile.key == "name") e.name = msg->get(infile.val);
+			if (infile.key == "name") e.name = infile.val;
 			else if (infile.key == "resist") e.resist = msg->get(infile.val);
 
 			if (e.name != "" && e.resist != "") {
