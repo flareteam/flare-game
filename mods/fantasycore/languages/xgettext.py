@@ -24,29 +24,42 @@ msgstr ""
 
 '''
 
+POT_STRING = '''\
+#: {comment}
+msgid "{msgid}"
+msgstr ""
+
+'''
+
 # this extracts translatable strings from the flare data file
 def extract(filename):
-    if os.path.exists(filename):
-        infile = open(filename, 'r')
-        triggers = ['msg', 'him', 'her', 'you', 'name', 'title', 'tooltip',
-                'power_desc', 'quest_text', 'description', 'item_type', 'slot_name', 'tab_title', 'resist', 'currency_name']
-        for i,line in enumerate(infile):
-            for trigger in triggers:
-                if line.startswith(trigger + '='):
-                    aString = filename
-                    aString += ':'
-                    aString += str(i+1)
-                    comments.append(aString)
-                    del aString
-                    keys.append(line[line.find('=') + 1:].strip('\n').replace("\"", "\\\"").rstrip())
-            # handle the special case: bonus={stat},{value}
-            if line.startswith('bonus='):
-                aString = filename
-                aString += ':'
-                aString += str(i+1)
-                comments.append(aString)
-                del aString
-                keys.append(line[line.find('=') + 1: line.find(',')].rstrip())
+    if not os.path.exists(filename):
+        return
+    infile = open(filename, 'r')
+    triggers = [
+        'msg', 'him', 'her', 'you', 'name', 'title', 'tooltip',
+        'power_desc', 'quest_text', 'description', 'item_type',
+        'slot_name', 'tab_title', 'resist', 'currency_name',
+        'bonus',
+    ]
+    for i, line in enumerate(infile, start=1):
+        for trigger in triggers:
+            if line.startswith(trigger + '='):
+                line = line.split('=')[1]
+                line = line.strip('\n')
+                values = line.split(',')
+                if len(values) == 1:
+                   # {key}={value}
+                   stat, = values
+                elif len(values) == 2:
+                   # bonus={stat},{value}
+                   stat, value = values
+                elif len(values) == 3:
+                   # bonus={set_level},{stat},{value}
+                   set_level, stat, value = values
+                comment = filename + ':' + str(i)
+                comments.append(comment)
+                keys.append(stat.rstrip())
 
 # this removes duplicates from keys in a clean way (without screwing up the order)
 def remove_duplicates():
@@ -67,9 +80,7 @@ def save(filename):
     outfile.write(header.format(now=now.strftime('%Y-%m-%d %H:%M+%z')))
     remove_duplicates()
     for line_c,line in zip(comments,keys):
-        outfile.write("#: {line}\n".format(line=line_c))
-        outfile.write("msgid \"{line}\"\n".format(line=line))
-        outfile.write("msgstr \"\"\n\n")
+        outfile.write(POT_STRING.format(comment=line_c, msgid=line))
 
 # this extracts the quest files from the quests directory
 def get_quests():
@@ -81,30 +92,20 @@ def get_quests():
     return quests
 
 
-
 # HERE'S THE MAIN EXECUTION
 extract('../items/items.txt')
 extract('../items/types.txt')
+extract('../items/sets.txt')
 extract('../menus/inventory.txt')
 extract('../menus/powers.txt')
 extract('../powers/powers.txt')
 extract('../engine/elements.txt')
 extract('../engine/loot.txt')
 
-if os.path.exists('../enemies'):
-	for filename in os.listdir('../enemies'):
-	    extract('../enemies/{enemy}'.format(enemy=filename))
-
-if os.path.exists('../maps'):
-	for filename in os.listdir('../maps'):
-	    extract('../maps/{map}'.format(map=filename))
-
-if os.path.exists('../quests'):
-	for filename in get_quests():
-	    extract('../quests/{quest}'.format(quest=filename))
-
-if os.path.exists('../npcs'):
-	for filename in os.listdir('../npcs'):
-	    extract('../npcs/{npc}'.format(npc=filename))
+for folder in ['enemies', 'maps', 'quests', 'npcs']:
+    target = os.path.join('..', folder)
+    if os.path.exists(target):
+        for filename in sorted(os.listdir(target)):
+            extract(os.path.join(target, filename))
 
 save('data.pot')
