@@ -1,25 +1,38 @@
-[header]
-width=60
-height=82
-tilewidth=64
-tileheight=32
-location=28,76,3
-music=dungeon_theme.ogg
-tileset=tileset_dungeon.txt
-title=Goblin Warrens
-
-[tilesets]
-tileset=../../../../flare-game/tiled/dungeon/tiled_collision.png,64,32,0,0
-tileset=../../../../flare-game/tiled/dungeon/tiled_dungeon.png,64,128,0,0
-tileset=../../../../flare-game/tiled/dungeon/set_rules.png,64,32,0,0
-tileset=../../../../flare-game/tiled/dungeon/tiled_dungeon_2x2.png,128,64,0,16
-tileset=../../../../flare-game/tiled/dungeon/door_left.png,64,128,-16,-8
-tileset=../../../../flare-game/tiled/dungeon/door_right.png,64,128,16,-8
-tileset=../../../../flare-game/tiled/dungeon/stairs.png,256,256,0,48
-
-[layer]
-type=background
-data=
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="isometric" width="60" height="82" tilewidth="64" tileheight="32" backgroundcolor="#000000">
+ <properties>
+  <property name="location" value="28,76,3"/>
+  <property name="music" value="dungeon_theme.ogg"/>
+  <property name="tileset" value="tileset_dungeon.txt"/>
+  <property name="title" value="Goblin Warrens"/>
+ </properties>
+ <tileset firstgid="1" name="collision" tilewidth="64" tileheight="32">
+  <image source="../dungeon/tiled_collision.png" width="960" height="32"/>
+ </tileset>
+ <tileset firstgid="16" name="dungeon" tilewidth="64" tileheight="128">
+  <image source="../dungeon/tiled_dungeon.png" width="1024" height="1920"/>
+ </tileset>
+ <tileset firstgid="256" name="set_rules" tilewidth="64" tileheight="32">
+  <image source="../dungeon/set_rules.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="264" name="tiled_dungeon_2x2" tilewidth="128" tileheight="64">
+  <tileoffset x="0" y="16"/>
+  <image source="../dungeon/tiled_dungeon_2x2.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="280" name="door_left" tilewidth="64" tileheight="128">
+  <tileoffset x="-16" y="-8"/>
+  <image source="../dungeon/door_left.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="282" name="door_right" tilewidth="64" tileheight="128">
+  <tileoffset x="16" y="-8"/>
+  <image source="../dungeon/door_right.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="284" name="stairs" tilewidth="256" tileheight="256">
+  <tileoffset x="0" y="48"/>
+  <image source="../dungeon/stairs.png" width="1024" height="256"/>
+ </tileset>
+ <layer name="background" width="60" height="82">
+  <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,32,33,35,0,0,0,0,0,0,0,32,33,35,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,33,46,19,0,0,0,0,0,0,0,33,36,17,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,32,17,43,0,0,0,0,0,0,0,32,16,47,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -102,10 +115,10 @@ data=
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,35,45,19,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,35,35,35,35,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-
-[layer]
-type=object
-data=
+</data>
+ </layer>
+ <layer name="object" width="60" height="82">
+  <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,77,105,65,78,0,0,0,0,0,0,77,65,65,78,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,108,0,0,70,0,0,0,0,0,0,64,0,0,70,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,64,180,0,82,0,0,0,0,0,0,64,180,0,82,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -188,10 +201,10 @@ data=
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,64,0,0,82,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,64,0,0,82,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,282,283,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-
-[layer]
-type=collision
-data=
+</data>
+ </layer>
+ <layer name="collision" width="60" height="82" visible="0">
+  <data encoding="csv">
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,3,3,3,3,3,3,1,1,1,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,0,0,1,3,3,3,3,3,3,1,0,0,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,0,0,1,3,3,3,3,3,3,1,0,0,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
@@ -274,183 +287,183 @@ data=
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,0,0,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,0,0,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
-
-[event]
-type=teleport
-location=1,8,1,2
-hotspot=1,8,1,2
-intermap=averguard_atrium.txt,17,10
-soundfx=soundfx/door_open.ogg
-
-[event]
-type=teleport
-location=52,13,1,2
-hotspot=53,13,1,2
-intermap=cave1.txt,3,13
-soundfx=soundfx/door_open.ogg
-
-[event]
-type=teleport
-location=28,80,2,1
-hotspot=28,81,2,1
-intermap=ydrakka_pass.txt,92,54
-soundfx=soundfx/door_open.ogg
-
-[event]
-# dorm room chest
-type=run_once
-location=3,36,1,1
-hotspot=location
-loot=random,4,36,3
-mapmod=object,3,36,160
-soundfx=soundfx/wood_open.ogg
-tooltip=Treasure Chest
-
-[event]
-# dorm room barrel
-type=run_once
-location=1,32,1,1
-hotspot=location
-loot=random,2,32,2
-mapmod=object,1,32,162
-soundfx=soundfx/wood_open.ogg
-tooltip=Barrel
-
-[event]
-# dorm room book
-type=run_once
-location=2,28,1,1
-hotspot=location
-loot=id,2,29,9000
-mapmod=object,2,28,165
-msg=This book bears the seal of the Averguard
-requires_not=ak_tome_found
-requires_status=ak_ukkonen_search
-soundfx=soundfx/inventory/inventory_page.ogg
-tooltip=Book Stand
-
-[event]
-# overlook book 1
-type=run_once
-location=38,51,1,1
-hotspot=location
-mapmod=object,38,51,164
-msg="In the Age of Settlement, the Averguard Knights defended peasants against the chaos of the wilderness."
-soundfx=soundfx/inventory/inventory_page.ogg
-tooltip=Book Stand
-
-[event]
-# overlook book 2
-type=run_once
-location=38,46,1,1
-hotspot=location
-mapmod=object,38,46,164
-msg="Sir Evan Maddox led the Averguard when the plague struck.  Powerful clerics from the corners of the world were brought here.  By the time a cure was found it was too late."
-soundfx=soundfx/inventory/inventory_page.ogg
-tooltip=Book Stand
-
-[event]
-# brazier sound effect
-type=run_always
-location=41,44,5,9
-cooldown=120
-soundfx=soundfx/environment/open_fire.ogg
-
-[event]
-# brazier sound effect
-type=run_always
-location=4,29,6,9
-cooldown=120
-soundfx=soundfx/environment/open_fire.ogg
-
-[enemy]
-type=skeleton
-location=15,18,1,1
-direction=5
-
-[enemy]
-type=skeleton
-location=22,18,1,1
-direction=1
-
-[enemy]
-type=ukkonen
-location=4,33,1,1
-direction=2
-
-[enemygroup]
-type=goblin
-location=8,38,21,21
-level=2,4
-number=4,8
-
-[enemygroup]
-type=antlion
-location=28,1,2,3
-level=2,4
-number=0,2
-
-[enemygroup]
-type=dungeon
-location=18,1,2,3
-level=2,3
-number=0,2
-
-[enemygroup]
-type=antlion
-location=8,60,16,9
-level=2,3
-number=2,3
-
-[enemygroup]
-type=dungeon
-location=1,58,3,2
-level=2,3
-number=0,2
-
-[enemygroup]
-type=antlion
-location=28,8,17,27
-level=2,3
-number=3,5
-
-[enemygroup]
-type=goblin
-location=1,48,6,2
-level=2,3
-number=0,2
-
-[enemygroup]
-type=goblin
-location=33,58,6,11
-level=2,2
-number=2,3
-
-[enemygroup]
-type=goblin
-location=42,45,3,7
-level=2,3
-number=1,3
-
-[enemygroup]
-type=undead
-location=42,45,3,7
-level=2,3
-number=1,2
-
-[enemygroup]
-type=goblin
-location=20,28,19,9
-level=2,4
-number=0,2
-
-[enemygroup]
-type=goblin
-location=1,18,4,2
-level=2,3
-number=0,3
-
-[npc]
-type=guill
-location=28,74,1,1
-
+</data>
+ </layer>
+ <objectgroup name="event" width="60" height="82" visible="0">
+  <object type="teleport" x="32" y="256" width="32" height="64">
+   <properties>
+    <property name="hotspot" value="1,8,1,2"/>
+    <property name="intermap" value="averguard_atrium.txt,17,10"/>
+    <property name="soundfx" value="soundfx/door_open.ogg"/>
+   </properties>
+  </object>
+  <object type="teleport" x="1664" y="416" width="32" height="64">
+   <properties>
+    <property name="hotspot" value="53,13,1,2"/>
+    <property name="intermap" value="cave1.txt,3,13"/>
+    <property name="soundfx" value="soundfx/door_open.ogg"/>
+   </properties>
+  </object>
+  <object type="teleport" x="896" y="2560" width="64" height="32">
+   <properties>
+    <property name="hotspot" value="28,81,2,1"/>
+    <property name="intermap" value="ydrakka_pass.txt,92,54"/>
+    <property name="soundfx" value="soundfx/door_open.ogg"/>
+   </properties>
+  </object>
+  <object name="dorm room chest" type="run_once" x="96" y="1152" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="random,4,36,3"/>
+    <property name="mapmod" value="object,3,36,160"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Treasure Chest"/>
+   </properties>
+  </object>
+  <object name="dorm room barrel" type="run_once" x="32" y="1024" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="random,2,32,2"/>
+    <property name="mapmod" value="object,1,32,162"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Barrel"/>
+   </properties>
+  </object>
+  <object name="dorm room book" type="run_once" x="64" y="896" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="id,2,29,9000"/>
+    <property name="mapmod" value="object,2,28,165"/>
+    <property name="msg" value="This book bears the seal of the Averguard"/>
+    <property name="requires_not" value="ak_tome_found"/>
+    <property name="requires_status" value="ak_ukkonen_search"/>
+    <property name="soundfx" value="soundfx/inventory/inventory_page.ogg"/>
+    <property name="tooltip" value="Book Stand"/>
+   </properties>
+  </object>
+  <object name="overlook book 1" type="run_once" x="1216" y="1632" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="mapmod" value="object,38,51,164"/>
+    <property name="msg" value="&quot;In the Age of Settlement, the Averguard Knights defended peasants against the chaos of the wilderness.&quot;"/>
+    <property name="soundfx" value="soundfx/inventory/inventory_page.ogg"/>
+    <property name="tooltip" value="Book Stand"/>
+   </properties>
+  </object>
+  <object name="overlook book 2" type="run_once" x="1216" y="1472" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="mapmod" value="object,38,46,164"/>
+    <property name="msg" value="&quot;Sir Evan Maddox led the Averguard when the plague struck.  Powerful clerics from the corners of the world were brought here.  By the time a cure was found it was too late.&quot;"/>
+    <property name="soundfx" value="soundfx/inventory/inventory_page.ogg"/>
+    <property name="tooltip" value="Book Stand"/>
+   </properties>
+  </object>
+  <object name="brazier sound effect" type="run_always" x="1312" y="1408" width="160" height="288">
+   <properties>
+    <property name="cooldown" value="120"/>
+    <property name="soundfx" value="soundfx/environment/open_fire.ogg"/>
+   </properties>
+  </object>
+  <object name="brazier sound effect" type="run_always" x="128" y="928" width="192" height="288">
+   <properties>
+    <property name="cooldown" value="120"/>
+    <property name="soundfx" value="soundfx/environment/open_fire.ogg"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="enemy" width="60" height="82" visible="0">
+  <object type="skeleton" x="480" y="576" width="32" height="32">
+   <properties>
+    <property name="direction" value="5"/>
+   </properties>
+  </object>
+  <object type="skeleton" x="704" y="576" width="32" height="32">
+   <properties>
+    <property name="direction" value="1"/>
+   </properties>
+  </object>
+  <object type="ukkonen" x="128" y="1056" width="32" height="32">
+   <properties>
+    <property name="direction" value="2"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="enemygroup" width="60" height="82" visible="0">
+  <object type="goblin" x="256" y="1216" width="672" height="672">
+   <properties>
+    <property name="level" value="2,4"/>
+    <property name="number" value="4,8"/>
+   </properties>
+  </object>
+  <object type="antlion" x="896" y="32" width="64" height="96">
+   <properties>
+    <property name="level" value="2,4"/>
+    <property name="number" value="0,2"/>
+   </properties>
+  </object>
+  <object type="dungeon" x="576" y="32" width="64" height="96">
+   <properties>
+    <property name="level" value="2,3"/>
+    <property name="number" value="0,2"/>
+   </properties>
+  </object>
+  <object type="antlion" x="256" y="1920" width="512" height="288">
+   <properties>
+    <property name="level" value="2,3"/>
+    <property name="number" value="2,3"/>
+   </properties>
+  </object>
+  <object type="dungeon" x="32" y="1856" width="96" height="64">
+   <properties>
+    <property name="level" value="2,3"/>
+    <property name="number" value="0,2"/>
+   </properties>
+  </object>
+  <object type="antlion" x="896" y="256" width="544" height="864">
+   <properties>
+    <property name="level" value="2,3"/>
+    <property name="number" value="3,5"/>
+   </properties>
+  </object>
+  <object type="goblin" x="32" y="1536" width="192" height="64">
+   <properties>
+    <property name="level" value="2,3"/>
+    <property name="number" value="0,2"/>
+   </properties>
+  </object>
+  <object type="goblin" x="1056" y="1856" width="192" height="352">
+   <properties>
+    <property name="level" value="2,2"/>
+    <property name="number" value="2,3"/>
+   </properties>
+  </object>
+  <object type="goblin" x="1344" y="1440" width="96" height="224">
+   <properties>
+    <property name="level" value="2,3"/>
+    <property name="number" value="1,3"/>
+   </properties>
+  </object>
+  <object type="undead" x="1344" y="1440" width="96" height="224">
+   <properties>
+    <property name="level" value="2,3"/>
+    <property name="number" value="1,2"/>
+   </properties>
+  </object>
+  <object type="goblin" x="640" y="896" width="608" height="288">
+   <properties>
+    <property name="level" value="2,4"/>
+    <property name="number" value="0,2"/>
+   </properties>
+  </object>
+  <object type="goblin" x="32" y="576" width="128" height="64">
+   <properties>
+    <property name="level" value="2,3"/>
+    <property name="number" value="0,3"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="npc" width="60" height="82" visible="0">
+  <object type="guill" x="896" y="2368" width="32" height="32"/>
+ </objectgroup>
+</map>

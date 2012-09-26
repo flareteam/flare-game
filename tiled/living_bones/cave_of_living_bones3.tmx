@@ -1,19 +1,18 @@
-[header]
-width=50
-height=30
-tilewidth=64
-tileheight=32
-music=cave_theme.ogg
-tileset=tileset_cave.txt
-title=Cave of Living Bones 3
-
-[tilesets]
-tileset=../../../tiled/cave/tiled_collision.png,64,32,0,0
-tileset=../../../tiled/cave/tiled_cave.png,64,128,0,0
-
-[layer]
-type=background
-data=
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="isometric" width="50" height="30" tilewidth="64" tileheight="32">
+ <properties>
+  <property name="music" value="cave_theme.ogg"/>
+  <property name="tileset" value="tileset_cave.txt"/>
+  <property name="title" value="Cave of Living Bones 3"/>
+ </properties>
+ <tileset firstgid="1" name="tiled_collision.png" tilewidth="64" tileheight="32">
+  <image source="../cave/tiled_collision.png" width="960" height="32"/>
+ </tileset>
+ <tileset firstgid="16" name="tiled_cave.png" tilewidth="64" tileheight="128">
+  <image source="../cave/tiled_cave.png" width="1024" height="1920"/>
+ </tileset>
+ <layer name="background" width="50" height="30">
+  <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -44,10 +43,10 @@ data=
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-
-[layer]
-type=object
-data=
+</data>
+ </layer>
+ <layer name="object" width="50" height="30">
+  <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -78,10 +77,10 @@ data=
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-
-[layer]
-type=collision
-data=
+</data>
+ </layer>
+ <layer name="collision" width="50" height="30">
+  <data encoding="csv">
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
@@ -112,53 +111,53 @@ data=
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
-
-[event]
-# Warp to Cave 2
-type=teleport
-location=48,17,1,4
-intermap=cave_of_living_bones2.txt,3,38
-
-[event]
-# Crate of Blasting Powder
-type=run_once
-location=6,6,1,1
-hotspot=location
-mapmod=collision,6,6,0;object,6,6,0
-set_status=lb_has_explosive
-tooltip=Crate of Blasting Powder
-
-[event]
-# Barrel
-type=run_once
-location=5,6,1,1
-hotspot=location
-loot=random,6,7,7
-mapmod=object,5,6,178
-soundfx=soundfx/wood_open.ogg
-tooltip=Barrel
-
-[event]
-# Barrel
-type=run_once
-location=3,18,1,1
-hotspot=location
-loot=random,4,19,7
-mapmod=object,3,18,178
-soundfx=soundfx/wood_open.ogg
-tooltip=Barrel
-
-[enemygroup]
-# Guard the Explosives
-type=undead
-location=5,7,6,17
-level=6,8
-number=5,7
-
-[enemygroup]
-# Various Enemies
-type=undead
-location=11,8,26,17
-level=6,8
-number=7,10
-
+</data>
+ </layer>
+ <objectgroup name="event" width="50" height="30">
+  <object name="Warp to Cave 2" type="teleport" x="1536" y="544" width="32" height="128">
+   <properties>
+    <property name="intermap" value="cave_of_living_bones2.txt,3,38"/>
+   </properties>
+  </object>
+  <object name="Crate of Blasting Powder" type="run_once" x="192" y="192" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="mapmod" value="collision,6,6,0;object,6,6,0"/>
+    <property name="set_status" value="lb_has_explosive"/>
+    <property name="tooltip" value="Crate of Blasting Powder"/>
+   </properties>
+  </object>
+  <object name="Barrel" type="run_once" x="160" y="192" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="random,6,7,7"/>
+    <property name="mapmod" value="object,5,6,178"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Barrel"/>
+   </properties>
+  </object>
+  <object name="Barrel" type="run_once" x="96" y="576" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="random,4,19,7"/>
+    <property name="mapmod" value="object,3,18,178"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Barrel"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="enemygroup" width="50" height="30">
+  <object name="Guard the Explosives" type="undead" x="160" y="224" width="192" height="544">
+   <properties>
+    <property name="level" value="6,8"/>
+    <property name="number" value="5,7"/>
+   </properties>
+  </object>
+  <object name="Various Enemies" type="undead" x="352" y="256" width="832" height="544">
+   <properties>
+    <property name="level" value="6,8"/>
+    <property name="number" value="7,10"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

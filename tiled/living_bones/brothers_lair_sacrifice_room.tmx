@@ -1,25 +1,38 @@
-[header]
-width=20
-height=40
-tilewidth=64
-tileheight=32
-location=28,76,3
-music=magical_theme.ogg
-tileset=tileset_dungeon.txt
-title=Brothers' Sacrifice Room
-
-[tilesets]
-tileset=../../../tiled/dungeon/tiled_collision.png,64,32,0,0
-tileset=../../../tiled/dungeon/tiled_dungeon.png,64,128,0,0
-tileset=../../../tiled/dungeon/set_rules.png,64,32,0,0
-tileset=../../../tiled/dungeon/tiled_dungeon_2x2.png,128,64,0,16
-tileset=../../../tiled/dungeon/door_left.png,64,128,-16,-8
-tileset=../../../tiled/dungeon/door_right.png,64,128,16,-8
-tileset=../../../tiled/dungeon/stairs.png,256,256,0,48
-
-[layer]
-type=background
-data=
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="isometric" width="20" height="40" tilewidth="64" tileheight="32">
+ <properties>
+  <property name="location" value="28,76,3"/>
+  <property name="music" value="magical_theme.ogg"/>
+  <property name="tileset" value="tileset_dungeon.txt"/>
+  <property name="title" value="Brothers' Sacrifice Room"/>
+ </properties>
+ <tileset firstgid="1" name="tiled_collision.png" tilewidth="64" tileheight="32">
+  <image source="../dungeon/tiled_collision.png" width="960" height="32"/>
+ </tileset>
+ <tileset firstgid="16" name="tiled_dungeon.png" tilewidth="64" tileheight="128">
+  <image source="../dungeon/tiled_dungeon.png" width="1024" height="1920"/>
+ </tileset>
+ <tileset firstgid="256" name="set_rules.png" tilewidth="64" tileheight="32">
+  <image source="../dungeon/set_rules.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="264" name="tiled_dungeon_2x2.png" tilewidth="128" tileheight="64">
+  <tileoffset x="0" y="16"/>
+  <image source="../dungeon/tiled_dungeon_2x2.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="280" name="door_left.png" tilewidth="64" tileheight="128">
+  <tileoffset x="-16" y="-8"/>
+  <image source="../dungeon/door_left.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="282" name="door_right.png" tilewidth="64" tileheight="128">
+  <tileoffset x="16" y="-8"/>
+  <image source="../dungeon/door_right.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="284" name="stairs.png" tilewidth="256" tileheight="256">
+  <tileoffset x="0" y="48"/>
+  <image source="../dungeon/stairs.png" width="1024" height="256"/>
+ </tileset>
+ <layer name="background" width="20" height="40" visible="0">
+  <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,19,18,16,18,0,0,19,18,16,18,0,0,19,18,16,18,0,0,0,
@@ -60,10 +73,10 @@ data=
 0,0,19,34,33,33,33,34,32,16,33,34,33,33,33,35,0,0,0,0,
 0,0,0,0,0,0,0,19,35,16,32,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,16,32,16,35,0,0,0,0,0,0,0,0,0
-
-[layer]
-type=object
-data=
+</data>
+ </layer>
+ <layer name="object" width="20" height="40">
+  <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,77,69,65,97,78,0,77,109,109,69,78,0,77,97,65,109,78,0,0,
@@ -104,10 +117,10 @@ data=
 0,0,68,0,0,0,0,0,0,0,0,0,0,0,0,0,82,0,0,0,
 0,0,76,67,67,67,67,72,0,0,0,75,71,83,83,83,95,0,0,0,
 0,0,0,0,0,0,0,64,244,243,245,66,0,0,0,0,0,0,0,0
-
-[layer]
-type=collision
-data=
+</data>
+ </layer>
+ <layer name="collision" width="20" height="40" visible="0">
+  <data encoding="csv">
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,1,1,1,1,1,3,1,1,1,1,1,3,1,1,1,1,1,3,3,
@@ -148,91 +161,80 @@ data=
 3,3,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,3,3,3,
 3,3,1,1,1,1,1,1,0,0,0,1,1,1,1,1,1,3,3,3,
 3,3,3,3,3,3,3,1,0,0,0,1,3,3,3,3,3,3,3,3
-
-[event]
-type=teleport
-location=8,39,3,1
-intermap=brothers_lair_atrium.txt,15,17
-
-[event]
-type=run_once
-location=0,0,20,40
-requires_status=lb_ice_defeated,lb_fire_defeated,lb_wind_defeated
-set_status=lb_necromancers_defeated
-
-[event]
-type=run_once
-location=0,0,20,40
-mapmod=collision,9,23,0
-requires_status=lb_wind_unlocked
-
-[event]
-type=run_once
-location=0,0,20,40
-mapmod=collision,9,26,0
-requires_status=lb_fire_unlocked
-
-[event]
-type=run_once
-location=0,0,20,40
-mapmod=collision,9,29,0
-requires_status=lb_ice_unlocked
-
-[event]
-type=run_always
-location=0,0,20,40
-cooldown=60
-power=6
-power_damage=5,10
-power_path=11,34,hero
-requires_status=lb_wind_attack
-
-[event]
-type=run_always
-location=0,0,20,40
-cooldown=60
-power=122
-power_damage=5,10
-power_path=9,34,hero
-requires_status=lb_fire_attack
-
-[event]
-type=run_always
-location=0,0,20,40
-cooldown=60
-power=123
-power_damage=5,10
-power_path=7,34,hero
-requires_status=lb_ice_attack
-
-[event]
-# brazier sound effect
-type=run_always
-location=4,6,8,5
-cooldown=120
-soundfx=soundfx/environment/open_fire.ogg
-
-[npc]
-type=statue_guardian_ice
-location=7,34,1,1
-
-[npc]
-type=statue_guardian_fire
-location=9,34,1,1
-
-[npc]
-type=statue_guardian_wind
-location=11,34,1,1
-
-[enemy]
-type=grisbon
-location=9,13,1,1
-
-[enemy]
-type=scathelocke
-location=7,10,1,1
-
-[enemy]
-type=vesuvvio
-location=11,10,1,1
-
+</data>
+ </layer>
+ <objectgroup name="event" width="20" height="40" visible="0">
+  <object type="teleport" x="256" y="1248" width="96" height="32">
+   <properties>
+    <property name="intermap" value="brothers_lair_atrium.txt,15,17"/>
+   </properties>
+  </object>
+  <object type="run_once" x="0" y="0" width="640" height="1280">
+   <properties>
+    <property name="requires_status" value="lb_ice_defeated,lb_fire_defeated,lb_wind_defeated"/>
+    <property name="set_status" value="lb_necromancers_defeated"/>
+   </properties>
+  </object>
+  <object type="run_once" x="0" y="0" width="640" height="1280">
+   <properties>
+    <property name="mapmod" value="collision,9,23,0"/>
+    <property name="requires_status" value="lb_wind_unlocked"/>
+   </properties>
+  </object>
+  <object type="run_once" x="0" y="0" width="640" height="1280">
+   <properties>
+    <property name="mapmod" value="collision,9,26,0"/>
+    <property name="requires_status" value="lb_fire_unlocked"/>
+   </properties>
+  </object>
+  <object type="run_once" x="0" y="0" width="640" height="1280">
+   <properties>
+    <property name="mapmod" value="collision,9,29,0"/>
+    <property name="requires_status" value="lb_ice_unlocked"/>
+   </properties>
+  </object>
+  <object type="run_always" x="0" y="0" width="640" height="1280">
+   <properties>
+    <property name="cooldown" value="60"/>
+    <property name="power" value="6"/>
+    <property name="power_damage" value="5,10"/>
+    <property name="power_path" value="11,34,hero"/>
+    <property name="requires_status" value="lb_wind_attack"/>
+   </properties>
+  </object>
+  <object type="run_always" x="0" y="0" width="640" height="1280">
+   <properties>
+    <property name="cooldown" value="60"/>
+    <property name="power" value="122"/>
+    <property name="power_damage" value="5,10"/>
+    <property name="power_path" value="9,34,hero"/>
+    <property name="requires_status" value="lb_fire_attack"/>
+   </properties>
+  </object>
+  <object type="run_always" x="0" y="0" width="640" height="1280">
+   <properties>
+    <property name="cooldown" value="60"/>
+    <property name="power" value="123"/>
+    <property name="power_damage" value="5,10"/>
+    <property name="power_path" value="7,34,hero"/>
+    <property name="requires_status" value="lb_ice_attack"/>
+   </properties>
+  </object>
+  <object name="brazier sound effect" type="run_always" x="128" y="192" width="256" height="160">
+   <properties>
+    <property name="cooldown" value="120"/>
+    <property name="soundfx" value="soundfx/environment/open_fire.ogg"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="npc" width="20" height="40">
+  <object type="statue_guardian_ice" x="224" y="1088" width="32" height="32"/>
+  <object type="statue_guardian_fire" x="288" y="1088" width="32" height="32"/>
+  <object type="statue_guardian_wind" x="352" y="1088" width="32" height="32"/>
+ </objectgroup>
+ <objectgroup name="enemy" width="20" height="40">
+  <object type="grisbon" x="288" y="416" width="32" height="32"/>
+  <object type="scathelocke" x="224" y="320" width="32" height="32"/>
+  <object type="vesuvvio" x="352" y="320" width="32" height="32"/>
+ </objectgroup>
+</map>

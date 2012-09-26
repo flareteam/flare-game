@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="isometric" width="100" height="100" tilewidth="64" tileheight="32">
- <tileset firstgid="1" name="Collision" tilewidth="64" tileheight="32">
-  <image source="tiled_collision.png" width="960" height="32"/>
+ <properties>
+  <property name="location" value="56,69,4"/>
+  <property name="music" value="cave_theme.ogg"/>
+  <property name="tileset" value="tileset_cave.txt"/>
+  <property name="title" value="Lost Mines Level 1"/>
+ </properties>
+ <tileset firstgid="1" name="tiled_collision.png" tilewidth="64" tileheight="32">
+  <image source="../cave/tiled_collision.png" width="960" height="32"/>
  </tileset>
- <tileset firstgid="16" name="Caves" tilewidth="64" tileheight="128">
-  <image source="tiled_cave.png" width="1024" height="1920"/>
+ <tileset firstgid="16" name="tiled_cave.png" tilewidth="64" tileheight="128">
+  <image source="../cave/tiled_cave.png" width="1024" height="1920"/>
+ </tileset>
+ <tileset firstgid="256" name="set_rules.png" tilewidth="64" tileheight="32">
+  <image source="../cave/set_rules.png" width="128" height="128"/>
  </tileset>
  <layer name="background" width="100" height="100">
   <data encoding="csv">
@@ -214,7 +223,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,96,153,150,146,66,0,0,0,0,0,0,0,0,0,64,134,0,0,0,132,66,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="collision" width="100" height="100">
+ <layer name="collision" width="100" height="100" visible="0">
   <data encoding="csv">
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
@@ -318,4 +327,258 @@
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,1,2,2,1,3,3,3,3,3,3,3,3,3,1,2,2,2,2,2,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
 </data>
  </layer>
+ <objectgroup name="event" width="100" height="100">
+  <object name="exit to cave level 1" type="teleport" x="1696" y="128" width="64" height="32">
+   <properties>
+    <property name="intermap" value="cave1.txt,15,67"/>
+   </properties>
+  </object>
+  <object type="run_once" x="416" y="704" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="random,13,23,6"/>
+    <property name="mapmod" value="object,13,22,178"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Barrel"/>
+   </properties>
+  </object>
+  <object type="run_once" x="352" y="672" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="random,11,22,8"/>
+    <property name="mapmod" value="object,11,21,177"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Treasure Chest"/>
+   </properties>
+  </object>
+  <object name="necromancer message" type="run_once" x="576" y="896" width="160" height="160">
+   <properties>
+    <property name="msg" value="It looks like the necromancer has been raising the corpses of dead miners as his minions."/>
+   </properties>
+  </object>
+  <object type="run_once" x="800" y="768" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="random,25,26,7"/>
+    <property name="mapmod" value="object,26,25,179"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Crate"/>
+   </properties>
+  </object>
+  <object type="run_once" x="832" y="1024" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="random,26,33,7"/>
+    <property name="mapmod" value="object,26,32,179"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Crate"/>
+   </properties>
+  </object>
+  <object type="run_once" x="896" y="1056" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="random,27,33,6"/>
+    <property name="mapmod" value="object,28,33,178"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Barrel"/>
+   </properties>
+  </object>
+  <object type="run_once" x="800" y="768" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="random,25,25,6"/>
+    <property name="mapmod" value="object,26,24,179"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Crate"/>
+   </properties>
+  </object>
+  <object type="run_once" x="800" y="768" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="random,25,25,5"/>
+    <property name="mapmod" value="object,25,24,178"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Barrel"/>
+   </properties>
+  </object>
+  <object type="run_once" x="1792" y="3040" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="random,57,95,8"/>
+    <property name="mapmod" value="object,56,95,176"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Treasure Chest"/>
+   </properties>
+  </object>
+  <object name="river message" type="run_once" x="2144" y="1984" width="128" height="128">
+   <properties>
+    <property name="msg" value="A natural underground river flows through this room."/>
+   </properties>
+  </object>
+  <object type="run_once" x="2016" y="2240" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="random,64,70,6"/>
+    <property name="mapmod" value="object,63,70,178"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Barrel"/>
+   </properties>
+  </object>
+  <object type="run_once" x="2272" y="2336" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="random,71,72,6"/>
+    <property name="mapmod" value="object,71,73,178"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Barrel"/>
+   </properties>
+  </object>
+  <object type="run_once" x="1600" y="1664" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="random,50,53,5"/>
+    <property name="mapmod" value="object,50,52,178"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Barrel"/>
+   </properties>
+  </object>
+  <object name="falling pillar/bridge event" type="run_once" x="2560" y="1920" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="mapmod" value="object,80,63,152"/>
+    <property name="shakycam" value="20"/>
+    <property name="soundfx" value="soundfx/powers/quake.ogg"/>
+    <property name="tooltip" value="Stalagmite Pillar"/>
+   </properties>
+  </object>
+  <object name="river message 2" type="run_once" x="2816" y="2112" width="96" height="96">
+   <properties>
+    <property name="msg" value="The river appears to have swollen recently, covering the location where the tracks once were."/>
+   </properties>
+  </object>
+  <object type="run_once" x="1472" y="928" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="random,47,29,6"/>
+    <property name="mapmod" value="object,46,29,179"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Crate"/>
+   </properties>
+  </object>
+  <object type="run_once" x="1504" y="1024" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="random,48,32,6"/>
+    <property name="mapmod" value="object,47,32,178"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Barrel"/>
+   </properties>
+  </object>
+  <object name="miners message" type="run_once" x="512" y="1504" width="96" height="96">
+   <properties>
+    <property name="msg" value="The undead in this room are dressed in the remnants of shredded mining clothes."/>
+   </properties>
+  </object>
+  <object type="run_once" x="2592" y="2144" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="random,81,66,6"/>
+    <property name="mapmod" value="object,81,67,179"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Crate"/>
+   </properties>
+  </object>
+  <object type="run_once" x="2528" y="2176" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="random,79,67,6"/>
+    <property name="mapmod" value="object,79,68,178"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Barrel"/>
+   </properties>
+  </object>
+  <object type="run_once" x="3136" y="1920" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="random,98,61,9"/>
+    <property name="mapmod" value="object,98,60,177"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Treasure Chest"/>
+   </properties>
+  </object>
+  <object type="run_once" x="160" y="1088" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="random,6,34,6"/>
+    <property name="mapmod" value="object,5,34,178"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Barrel"/>
+   </properties>
+  </object>
+  <object type="run_once" x="192" y="1056" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="random,7,33,6"/>
+    <property name="mapmod" value="object,6,33,179"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Crate"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="enemy" width="100" height="100">
+  <object type="skeletal_warrior" x="1568" y="672" width="32" height="32"/>
+  <object type="skeletal_warrior" x="1824" y="640" width="32" height="32"/>
+  <object type="goblin_spearman" x="1536" y="800" width="32" height="32"/>
+  <object type="minotaur" x="1760" y="992" width="32" height="32"/>
+  <object type="skeletal_archer" x="1792" y="1024" width="32" height="32"/>
+  <object type="skeletal_archer" x="1696" y="1024" width="32" height="32"/>
+  <object type="antlion_freezer" x="2496" y="2112" width="32" height="32"/>
+  <object type="antlion_freezer" x="2592" y="2112" width="32" height="32"/>
+  <object type="run_once" x="2560" y="2144" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="random,80,66,6"/>
+    <property name="mapmod" value="object,80,67,178"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Barrel"/>
+   </properties>
+  </object>
+  <object type="necromancer_apprentice" x="576" y="896" width="32" height="32"/>
+  <object type="skeletal_warrior" x="1760" y="2560" width="32" height="32"/>
+  <object type="skeletal_warrior" x="1792" y="2560" width="32" height="32"/>
+  <object type="antlion_spitter" x="2272" y="2272" width="32" height="32"/>
+  <object type="minotaur" x="1792" y="1984" width="32" height="32"/>
+ </objectgroup>
+ <objectgroup name="enemygroup" width="100" height="100">
+  <object type="undead" x="192" y="352" width="672" height="1120">
+   <properties>
+    <property name="level" value="3,3"/>
+    <property name="number" value="10"/>
+   </properties>
+  </object>
+  <object type="undead" x="192" y="352" width="672" height="1120">
+   <properties>
+    <property name="level" value="4,5"/>
+    <property name="number" value="5"/>
+   </properties>
+  </object>
+  <object type="undead" x="480" y="1568" width="1056" height="384">
+   <properties>
+    <property name="level" value="3,5"/>
+    <property name="number" value="6"/>
+   </properties>
+  </object>
+  <object type="antlion" x="2112" y="1760" width="768" height="576">
+   <properties>
+    <property name="level" value="4,6"/>
+    <property name="number" value="6"/>
+   </properties>
+  </object>
+  <object type="antlion_hatchling" x="2912" y="1824" width="64" height="128">
+   <properties>
+    <property name="level" value="2,6"/>
+    <property name="number" value="5"/>
+   </properties>
+  </object>
+ </objectgroup>
 </map>

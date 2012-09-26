@@ -1,19 +1,21 @@
 # Copyright (C) 2011 Thomas Glamsch
-# This file is distributed under the same license as the FLARE package.
-#
+# This file is distributed under the same license as the Flare package.
 # Thomas 'CruzR' Glamsch <thomas-glamsch@gmx.de>, 2011.
+# Chris Oelmueller <chris.oelmueller@gmail.com>, 2012.
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.15\n"
+"Project-Id-Version: 0.17\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-21 20:09+\n"
-"PO-Revision-Date: 2011-12-14 00:44+0100\n"
-"Last-Translator: Thomas 'CruzR' Glamsch <thomas-glamsch@gmx.de>\n"
+"POT-Creation-Date: 2012-09-21 15:57+0300\n"
+"PO-Revision-Date: 2012-09-26 17:03+0200\n"
+"Last-Translator: Chris Oelmueller <chris.oelmueller@gmail.com>\n"
 "Language-Team: \n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: German\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.2.0-alpha1a\n"
 
 #: ../items/items.txt:3
 msgid "Health Potion"
@@ -25,7 +27,7 @@ msgstr "Stellt 25 TP wieder her"
 
 #: ../items/items.txt:8
 msgid "consumable"
-msgstr ""
+msgstr "Verbrauchsgegenstand"
 
 #: ../items/items.txt:17
 msgid "Mana Potion"
@@ -57,7 +59,7 @@ msgstr "Diamant"
 
 #: ../items/items.txt:63
 msgid "gem"
-msgstr ""
+msgstr "Edelstein"
 
 #: ../items/items.txt:71
 msgid "Emerald"
@@ -101,7 +103,7 @@ msgstr "Kleider"
 
 #: ../items/items.txt:166
 msgid "body"
-msgstr ""
+msgstr "Körper"
 
 #: ../items/items.txt:177
 msgid "Tattered Clothes"
@@ -2377,7 +2379,7 @@ msgstr "Gürtel"
 
 #: ../items/items.txt:8638
 msgid "artifact"
-msgstr ""
+msgstr "Artefakt"
 
 #: ../items/items.txt:8646
 msgid "Tattered Belt"
@@ -2477,55 +2479,51 @@ msgstr "Band der Aufklärung"
 
 #: ../items/types.txt:3
 msgid "Artifact"
-msgstr ""
+msgstr "Artefakt"
 
 #: ../items/types.txt:7
 msgid "Body"
-msgstr ""
+msgstr "Körper"
 
 #: ../items/types.txt:11
 msgid "Consumable"
-msgstr ""
+msgstr "Verbrauchsgegenstand"
 
 #: ../items/types.txt:15
 msgid "Gem"
-msgstr ""
+msgstr "Edelstein"
 
 #: ../items/types.txt:19
-#, fuzzy
 msgid "Main Hand"
-msgstr "Blinzelstab"
+msgstr "Waffenhand"
 
 #: ../items/types.txt:23
 msgid "Off Hand"
-msgstr ""
+msgstr "Nebenhand"
 
 #: ../items/types.txt:26
 msgid "quest"
-msgstr ""
+msgstr "Quest"
 
 #: ../items/types.txt:27
 msgid "Quest Item"
-msgstr ""
+msgstr "Questgegenstand"
 
 #: ../items/types.txt:30
-#, fuzzy
 msgid "ring"
 msgstr "Ring"
 
 #: ../menus/powers.txt:16
-#, fuzzy
 msgid "Warrior"
-msgstr "Kriegsruf"
+msgstr "Krieger"
 
 #: ../menus/powers.txt:19
-#, fuzzy
 msgid "Ranger"
-msgstr "Waldläufers Bogen"
+msgstr "Waldläufer"
 
 #: ../menus/powers.txt:22
 msgid "Magician"
-msgstr ""
+msgstr "Magier"
 
 #: ../powers/powers.txt:5
 msgid "Swing"
@@ -2540,9 +2538,8 @@ msgid "Channel"
 msgstr "Kanalisieren"
 
 #: ../powers/powers.txt:25
-#, fuzzy
 msgid "Basic magic attack"
-msgstr "Grundlegender Fernangriff"
+msgstr "Grundlegender magischer Angriff"
 
 #: ../powers/powers.txt:46
 msgid "Block"
@@ -2665,22 +2662,20 @@ msgid "Stun nearby enemies for 5 seconds"
 msgstr "Betäube nahe Feinde für 5 Sekunden"
 
 #: ../powers/powers.txt:352
-#, fuzzy
 msgid "Heroic Swing"
-msgstr "Felsschleuder"
+msgstr "Heldenschlag"
 
 #: ../powers/powers.txt:355
 msgid "Melee attack with 10% HP steal"
-msgstr ""
+msgstr "Nahkampfangriff, der 10% TP überträgt"
 
 #: ../powers/powers.txt:370
-#, fuzzy
 msgid "Greater Channel"
-msgstr "Kanalisieren"
+msgstr "Fortgeschrittenes Kanalisieren"
 
 #: ../powers/powers.txt:373
 msgid "Magic attack with 10% MP steal"
-msgstr ""
+msgstr "Magischer Angriff, der 10% MP überträgt"
 
 #: ../powers/powers.txt:395
 msgid "Shoot"
@@ -2691,13 +2686,12 @@ msgid "Basic ranged attack"
 msgstr "Grundlegender Fernangriff"
 
 #: ../powers/powers.txt:409
-#, fuzzy
 msgid "Rapid Fire"
-msgstr "Rapier"
+msgstr "Schnellfeuer"
 
 #: ../powers/powers.txt:412
 msgid "Fire five low power missiles in quick succession"
-msgstr ""
+msgstr "Feuert kurz nacheinander fünf Geschosse niedriger Durchschlagskraft ab"
 
 #: ../powers/powers.txt:428
 msgid "Ice Shard [enemy]"
@@ -2780,9 +2774,8 @@ msgid "Paralyzing Spit"
 msgstr "Paralyse-Spuckangriff"
 
 #: ../powers/powers.txt:689
-#, fuzzy
 msgid "Poison spit that stuns the target for 1 second"
-msgstr "Giftiger Spuckangriff, der das Ziel für 2 Sekunden betäubt"
+msgstr "Giftiger Spuckangriff, der das Ziel für 1 Sekunde betäubt"
 
 #: ../powers/powers.txt:782
 msgid "Boots of Testing Really Large Maps"
@@ -2873,89 +2866,80 @@ msgid "Summon Rotting Zombie"
 msgstr "Verrottenden Zombie beschwören"
 
 #: ../powers/powers.txt:1160
-#, fuzzy
 msgid "Transform into Antlion Freezer permanently"
-msgstr "Antlion-Gefrierer-Gestalt"
+msgstr "Dauerhaft zur Antlion-Gefrierer-Gestalt wechseln"
 
 #: ../powers/powers.txt:1173
-#, fuzzy
 msgid "Disenchant [item]"
-msgstr "Entzaubern"
+msgstr "Entzaubern [Item]"
 
 #: ../powers/powers.txt:1184
 msgid "Spike Ray"
-msgstr ""
+msgstr "Stachelstrahl"
 
 #: ../powers/powers.txt:1187
 msgid "Create a ray of deadly spikes"
-msgstr ""
+msgstr "Erzeuge einen Strahl tödlicher Stacheln"
 
 #: ../powers/powers.txt:1211
 msgid "Spikes"
-msgstr ""
+msgstr "Stacheln"
 
 #: ../powers/powers.txt:1213
 msgid "Spikes Trap"
-msgstr ""
+msgstr "Stachelgrube"
 
 #: ../engine/elements.txt:4
-#, fuzzy
 msgid "fire"
-msgstr "Leerenfeuer"
+msgstr "Feuer"
 
 #: ../engine/elements.txt:5
-#, fuzzy
 msgid "Fire Resistance"
 msgstr "Feuerwiderstand"
 
 #: ../engine/elements.txt:8
 msgid "ice"
-msgstr ""
+msgstr "Eis"
 
 #: ../engine/elements.txt:9
-#, fuzzy
 msgid "Ice Resistance"
 msgstr "Eiswiderstand"
 
 #: ../engine/elements.txt:12
 msgid "earth"
-msgstr ""
+msgstr "Erde"
 
 #: ../engine/elements.txt:13
-#, fuzzy
 msgid "Earth Resistance"
-msgstr "Erdreißer"
+msgstr "Erdwiderstand"
 
 #: ../engine/elements.txt:16
-#, fuzzy
 msgid "wind"
-msgstr "Schwingen"
+msgstr "Wind"
 
 #: ../engine/elements.txt:17
 msgid "Wind Resistance"
-msgstr ""
+msgstr "Windwiderstand"
 
 #: ../engine/elements.txt:20
 msgid "shadow"
-msgstr ""
+msgstr "Schatten"
 
 #: ../engine/elements.txt:21
 msgid "Shadow Resistance"
-msgstr ""
+msgstr "Schattenwiderstand"
 
 #: ../engine/elements.txt:24
-#, fuzzy
 msgid "light"
-msgstr "Schleuder"
+msgstr "Licht"
 
 #: ../engine/elements.txt:25
 msgid "Light Resistance"
-msgstr ""
+msgstr "Lichtwiderstand"
 
 #: ../engine/loot.txt:15
-#, fuzzy
 msgid "Gold"
-msgstr "Goblin"
+msgstr "Gold"
 
 #: ../enemies/antlion.txt:1
 msgid "Antlion"

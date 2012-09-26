@@ -1,25 +1,38 @@
-[header]
-width=20
-height=60
-tilewidth=64
-tileheight=32
-location=16,11,1
-music=dungeon_theme.ogg
-tileset=tileset_dungeon.txt
-title=Averguard Atrium
-
-[tilesets]
-tileset=../../../../flare-game/tiled/dungeon/tiled_collision.png,64,32,0,0
-tileset=../../../../flare-game/tiled/dungeon/tiled_dungeon.png,64,128,0,0
-tileset=../../../../flare-game/tiled/dungeon/set_rules.png,64,32,0,0
-tileset=../../../../flare-game/tiled/dungeon/tiled_dungeon_2x2.png,128,64,0,16
-tileset=../../../../flare-game/tiled/dungeon/door_left.png,64,128,-16,-8
-tileset=../../../../flare-game/tiled/dungeon/door_right.png,64,128,16,-8
-tileset=../../../../flare-game/tiled/dungeon/stairs.png,256,256,0,48
-
-[layer]
-type=background
-data=
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="isometric" width="20" height="60" tilewidth="64" tileheight="32" backgroundcolor="#000000">
+ <properties>
+  <property name="location" value="16,11,1"/>
+  <property name="music" value="dungeon_theme.ogg"/>
+  <property name="tileset" value="tileset_dungeon.txt"/>
+  <property name="title" value="Averguard Atrium"/>
+ </properties>
+ <tileset firstgid="1" name="collision" tilewidth="64" tileheight="32">
+  <image source="../dungeon/tiled_collision.png" width="960" height="32"/>
+ </tileset>
+ <tileset firstgid="16" name="dungeon" tilewidth="64" tileheight="128">
+  <image source="../dungeon/tiled_dungeon.png" width="1024" height="1920"/>
+ </tileset>
+ <tileset firstgid="256" name="set_rules" tilewidth="64" tileheight="32">
+  <image source="../dungeon/set_rules.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="264" name="tiled_dungeon_2x2" tilewidth="128" tileheight="64">
+  <tileoffset x="0" y="16"/>
+  <image source="../dungeon/tiled_dungeon_2x2.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="280" name="door_left" tilewidth="64" tileheight="128">
+  <tileoffset x="-16" y="-8"/>
+  <image source="../dungeon/door_left.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="282" name="door_right" tilewidth="64" tileheight="128">
+  <tileoffset x="16" y="-8"/>
+  <image source="../dungeon/door_right.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="284" name="stairs" tilewidth="256" tileheight="256">
+  <tileoffset x="0" y="48"/>
+  <image source="../dungeon/stairs.png" width="1024" height="256"/>
+ </tileset>
+ <layer name="background" width="20" height="60">
+  <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,17,16,16,16,16,16,17,16,17,17,18,0,0,0,0,0,0,
 0,0,0,17,18,16,36,17,38,16,16,43,44,19,0,0,0,0,0,0,
@@ -80,10 +93,10 @@ data=
 0,0,0,0,0,0,0,17,18,19,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,18,19,16,17,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-
-[layer]
-type=object
-data=
+</data>
+ </layer>
+ <layer name="object" width="20" height="60">
+  <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,77,69,69,107,73,282,283,74,107,69,65,78,0,0,0,0,0,
 0,0,0,68,0,0,0,0,176,0,0,0,0,0,70,0,0,0,0,0,
@@ -144,10 +157,10 @@ data=
 0,0,0,0,0,0,0,80,0,0,82,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,68,0,0,82,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,282,283,0,0,0,0,0,0,0,0,0,0
-
-[layer]
-type=collision
-data=
+</data>
+ </layer>
+ <layer name="collision" width="20" height="60" visible="0">
+  <data encoding="csv">
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,1,1,1,1,1,0,0,1,1,1,1,1,3,3,3,3,3,
 3,3,3,1,0,0,0,0,0,0,0,0,0,0,1,3,3,3,3,3,
@@ -208,84 +221,72 @@ data=
 3,3,3,3,3,3,3,1,0,0,1,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,1,0,0,1,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
-
-[event]
-type=teleport
-location=18,10,1,2
-hotspot=19,10,1,2
-intermap=goblin_warrens.txt,2,9
-soundfx=soundfx/door_open.ogg
-
-[event]
-type=teleport
-location=8,1,2,1
-hotspot=8,1,2,1
-intermap=averguard_temple.txt,15,126
-soundfx=soundfx/door_open.ogg
-
-[event]
-type=teleport
-location=16,51,1,2
-hotspot=17,51,1,2
-intermap=averguard_prison.txt,2,55
-soundfx=soundfx/door_open.ogg
-
-[event]
-type=teleport
-location=8,58,2,1
-hotspot=8,59,2,1
-intermap=averguard_academy.txt,62,3
-soundfx=soundfx/door_open.ogg
-
-[event]
-type=teleport
-location=1,51,1,2
-hotspot=1,51,1,2
-intermap=averguard_complex.txt,98,70
-soundfx=soundfx/door_open.ogg
-
-[event]
-type=on_load
-location=2,48,1,1
-mapmod=background,8,50,265
-requires_status=waypoint_averguard_atrium
-
-[event]
-type=teleport
-location=8,49,2,2
-hotspot=location
-intermap=warp_zone.txt,30,32
-tooltip=Warp Zone
-
-[event]
-type=run_once
-location=6,47,6,6
-mapmod=background,8,50,265
-msg=Averguard Atrium waypoint discovered
-requires_not=waypoint_averguard_atrium
-set_status=waypoint_averguard_atrium
-
-[enemy]
-type=goblin_charger
-location=8,22,1,1
-
-[enemy]
-type=goblin_spearman
-location=4,5,1,1
-
-[enemy]
-type=goblin_spearman
-location=8,16,1,1
-
-[enemy]
-type=skeleton
-location=5,32,1,1
-
-[enemy]
-type=skeleton
-location=11,32,1,1
-
-[enemy]
-type=skeleton
-location=4,37,1,1
-
+</data>
+ </layer>
+ <objectgroup name="event" width="20" height="60" visible="0">
+  <object type="teleport" x="576" y="320" width="32" height="64">
+   <properties>
+    <property name="hotspot" value="19,10,1,2"/>
+    <property name="intermap" value="goblin_warrens.txt,2,9"/>
+    <property name="soundfx" value="soundfx/door_open.ogg"/>
+   </properties>
+  </object>
+  <object type="teleport" x="256" y="32" width="64" height="32">
+   <properties>
+    <property name="hotspot" value="8,1,2,1"/>
+    <property name="intermap" value="averguard_temple.txt,15,126"/>
+    <property name="soundfx" value="soundfx/door_open.ogg"/>
+   </properties>
+  </object>
+  <object type="teleport" x="512" y="1632" width="32" height="64">
+   <properties>
+    <property name="hotspot" value="17,51,1,2"/>
+    <property name="intermap" value="averguard_prison.txt,2,55"/>
+    <property name="soundfx" value="soundfx/door_open.ogg"/>
+   </properties>
+  </object>
+  <object type="teleport" x="256" y="1856" width="64" height="32">
+   <properties>
+    <property name="hotspot" value="8,59,2,1"/>
+    <property name="intermap" value="averguard_academy.txt,62,3"/>
+    <property name="soundfx" value="soundfx/door_open.ogg"/>
+   </properties>
+  </object>
+  <object type="teleport" x="32" y="1632" width="32" height="64">
+   <properties>
+    <property name="hotspot" value="1,51,1,2"/>
+    <property name="intermap" value="averguard_complex.txt,98,70"/>
+    <property name="soundfx" value="soundfx/door_open.ogg"/>
+   </properties>
+  </object>
+  <object type="on_load" x="64" y="1536" width="32" height="32">
+   <properties>
+    <property name="mapmod" value="background,8,50,265"/>
+    <property name="requires_status" value="waypoint_averguard_atrium"/>
+   </properties>
+  </object>
+  <object type="teleport" x="256" y="1568" width="64" height="64">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="intermap" value="warp_zone.txt,30,32"/>
+    <property name="tooltip" value="Warp Zone"/>
+   </properties>
+  </object>
+  <object type="run_once" x="192" y="1504" width="192" height="192">
+   <properties>
+    <property name="mapmod" value="background,8,50,265"/>
+    <property name="msg" value="Averguard Atrium waypoint discovered"/>
+    <property name="requires_not" value="waypoint_averguard_atrium"/>
+    <property name="set_status" value="waypoint_averguard_atrium"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="enemy" width="20" height="60" visible="0">
+  <object type="goblin_charger" x="256" y="704" width="32" height="32"/>
+  <object type="goblin_spearman" x="128" y="160" width="32" height="32"/>
+  <object type="goblin_spearman" x="256" y="512" width="32" height="32"/>
+  <object type="skeleton" x="160" y="1024" width="32" height="32"/>
+  <object type="skeleton" x="352" y="1024" width="32" height="32"/>
+  <object type="skeleton" x="128" y="1184" width="32" height="32"/>
+ </objectgroup>
+</map>
