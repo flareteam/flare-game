@@ -279,8 +279,7 @@ intermap=brothers_lair_atrium.txt,3,13
 type=run_once
 location=17,45,1,1
 hotspot=location
-mapmod=collision,17,45,0
-mapmod=object,17,45,0
+mapmod=object,17,45,0;collision,17,45,0
 shakycam=20
 sound=soundfx/powers/quake.ogg
 tooltip=Suspicious Bookcase
@@ -474,22 +473,14 @@ hotspot=location
 power=14
 power_damage=20,25
 power_path=14,10,hero
-requires_not=lb_ice_key
-requires_not=lb_ice_looted
+requires_not=lb_ice_looted;lb_ice_key
 tooltip=Runed Chest
 
 [event]
 # Trapped Tile
 type=run_once
 location=17,34,1,2
-mapmod=object,13,31,0
-mapmod=collision,13,31,0
-mapmod=object,21,31,0
-mapmod=collision,21,31,0
-mapmod=object,13,38,0
-mapmod=collision,13,38,0
-mapmod=object,21,38,0
-mapmod=collision,21,38,0
+mapmod=object,13,31,0;collision,13,31,0;object,21,31,0;collision,21,31,0;object,13,38,0;collision,13,38,0;object,21,38,0;collision,21,38,0
 soundfx=soundfx/door_open.ogg
 
 [event]
@@ -582,5 +573,5 @@ direction=5
 
 [enemy]
 type=skeletal_prophet
-location=20,14,8
+location=20,14,1,1
 

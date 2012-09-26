@@ -215,16 +215,11 @@ location=0,0,30,50
 unset_status=lb_ice_attack,lb_fire_attack,lb_wind_attack,lb_ice_looted,lb_fire_looted,lb_wind_looted
 
 [event]
-#brazier sound effect
+# brazier sound effect
+type=run_always
 location=8,2,10,5
 cooldown=120
 soundfx=soundfx/environment/open_fire.ogg
-
-[enemy]
-# Patrolling undead
-type=skeletal_warrior
-location=9,8,0
-waypoints=9,8;20,8;20,19;9,19
 
 [event]
 type=on_load
@@ -246,4 +241,10 @@ mapmod=background,14,20,265
 msg=Brothers Lair Atrium waypoint discovered
 requires_not=waypoint_brothers_lair_atrium
 set_status=waypoint_brothers_lair_atrium
+
+[enemy]
+# Patrolling undead
+type=skeletal_warrior
+location=9,8,1,1
+waypoints=9,8;20,8;20,19;9,19
 
