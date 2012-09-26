@@ -369,12 +369,12 @@
   <object name="control room switch to open the cell with the hidden passage" type="run_once" x="96" y="1376" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="mapmod" value="object,3,43,150;object,23,53,113;collision,23,53,0"/>
+    <property name="mapmod" value="object,3,43,150;object,23,53,113;object,23,49,0;collision,23,53,0"/>
     <property name="soundfx" value="soundfx/door_open.ogg"/>
     <property name="tooltip" value="Switch"/>
    </properties>
   </object>
-  <object name="hidden room book" x="736" y="928" width="32" height="32">
+  <object name="hidden room book" type="run_once" x="736" y="928" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="mapmod" value="object,23,29,165"/>
@@ -402,7 +402,7 @@
   </object>
   <object name="trap tile that opens three cells" type="run_once" x="2112" y="1568" width="32" height="64">
    <properties>
-    <property name="mapmod" value="collision,69,48,0"/>
+    <property name="mapmod" value="object,63,48,113;object,66,48,113;object,69,48,113;collision,63,48,0;collision,66,48,0;collision,69,48,0"/>
     <property name="soundfx" value="soundfx/door_open.ogg"/>
    </properties>
   </object>
