@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="isometric" width="80" height="80" tilewidth="64" tileheight="32">
  <properties>
   <property name="music" value="cave_theme.ogg"/>
@@ -326,11 +325,9 @@
     <property name="tooltip" value="Place Explosive"/>
    </properties>
   </object>
-  <object name="mapmod=collision,45,43,1" type="run_once" x="1312" y="1600" width="416" height="32">
+  <object name="Trigger Explosive Bottom" type="run_once" x="1312" y="1600" width="416" height="32">
    <properties>
-    <property name="# mapmod" value="collision,45,43,1"/>
-    <property name="#mapmod" value="collision,45,43,1"/>
-    <property name="mapmod" value="object,51,42,152"/>
+    <property name="mapmod" value="object,47,44,0;object,47,43,0;collision,47,43,2;object,47,42,0;collision,47,42,2;object,46,43,0;collision,46,43,2;object,46,44,0;collision,46,44,2;object,45,44,0;collision,45,44,2;object,46,42,0;collision,46,42,2;object,45,43,80;collision,45,43,1;object,47,41,80;object,45,42,68;collison,45,42,1;object,46,41,69;collison,46,41,1;object,45,41,76;collison,45,41,1;object,48,43,0;collision,48,43,0;object,48,44,0;collision,48,44,0;object,46,45,0;collision,46,45,0;object,49,40,0;collision,49,40,2;object,46,39,0;collision,46,39,2;object,48,40,150;collision,48,40,0;object,48,39,151;collision,48,39,0;collision,49,39,0;object,48,38,151;collision,48,38,0;object,49,37,152;collision,49,37,0;object,48,36,151;collision,48,36,0;object,49,35,152;collision,49,35,0;object,47,38,150;collision,47,38,0;object,45,46,150;collision,45,46,2;object,48,45,152;collision,48,45,2;object,49,44,150;collision,49,44,2;object,49,43,151;collision,49,43,2;object,51,42,152"/>
     <property name="power" value="18"/>
     <property name="power_path" value="47,44,47,44"/>
     <property name="requires_not" value="lb_explosive_detonated"/>
@@ -339,11 +336,9 @@
     <property name="shakycam" value="60"/>
    </properties>
   </object>
-  <object name="mapmod=collision,45,43,1" type="run_once" x="1312" y="1408" width="32" height="192">
+  <object name="Trigger Explosive Left Side" type="run_once" x="1312" y="1408" width="32" height="192">
    <properties>
-    <property name="# mapmod" value="collision,45,43,1"/>
-    <property name="#mapmod" value="collision,45,43,1"/>
-    <property name="mapmod" value="object,51,42,152"/>
+    <property name="mapmod" value="object,47,44,0;object,47,43,0;collision,47,43,2;object,47,42,0;collision,47,42,2;object,46,43,0;collision,46,43,2;object,46,44,0;collision,46,44,2;object,45,44,0;collision,45,44,2;object,46,42,0;collision,46,42,2;object,45,43,80;collision,45,43,1;object,47,41,80;object,45,42,68;collison,45,42,1;object,46,41,69;collison,46,41,1;object,45,41,76;collison,45,41,1;object,48,43,0;collision,48,43,0;object,48,44,0;collision,48,44,0;object,46,45,0;collision,46,45,0;object,49,40,0;collision,49,40,2;object,46,39,0;collision,46,39,2;object,48,40,150;collision,48,40,0;object,48,39,151;collision,48,39,0;collision,49,39,0;object,48,38,151;collision,48,38,0;object,49,37,152;collision,49,37,0;object,48,36,151;collision,48,36,0;object,49,35,152;collision,49,35,0;object,47,38,150;collision,47,38,0;object,45,46,150;collision,45,46,2;object,48,45,152;collision,48,45,2;object,49,44,150;collision,49,44,2;object,49,43,151;collision,49,43,2;object,51,42,152"/>
     <property name="power" value="18"/>
     <property name="power_path" value="47,44,47,44"/>
     <property name="requires_not" value="lb_explosive_detonated"/>
@@ -352,11 +347,9 @@
     <property name="shakycam" value="60"/>
    </properties>
   </object>
-  <object name="mapmod=collision,45,43,1" type="run_once" x="1696" y="1280" width="32" height="320">
+  <object name="Trigger Explosive Right Side" type="run_once" x="1696" y="1280" width="32" height="320">
    <properties>
-    <property name="# mapmod" value="collision,45,43,1"/>
-    <property name="#mapmod" value="collision,45,43,1"/>
-    <property name="mapmod" value="object,51,42,152"/>
+    <property name="mapmod" value="object,47,44,0;object,47,43,0;collision,47,43,2;object,47,42,0;collision,47,42,2;object,46,43,0;collision,46,43,2;object,46,44,0;collision,46,44,2;object,45,44,0;collision,45,44,2;object,46,42,0;collision,46,42,2;object,45,43,80;collision,45,43,1;object,47,41,80;object,45,42,68;collison,45,42,1;object,46,41,69;collison,46,41,1;object,45,41,76;collison,45,41,1;object,48,43,0;collision,48,43,0;object,48,44,0;collision,48,44,0;object,46,45,0;collision,46,45,0;object,49,40,0;collision,49,40,2;object,46,39,0;collision,46,39,2;object,48,40,150;collision,48,40,0;object,48,39,151;collision,48,39,0;collision,49,39,0;object,48,38,151;collision,48,38,0;object,49,37,152;collision,49,37,0;object,48,36,151;collision,48,36,0;object,49,35,152;collision,49,35,0;object,47,38,150;collision,47,38,0;object,45,46,150;collision,45,46,2;object,48,45,152;collision,48,45,2;object,49,44,150;collision,49,44,2;object,49,43,151;collision,49,43,2;object,51,42,152"/>
     <property name="power" value="18"/>
     <property name="power_path" value="47,44,47,44"/>
     <property name="requires_not" value="lb_explosive_detonated"/>
@@ -365,11 +358,9 @@
     <property name="shakycam" value="60"/>
    </properties>
   </object>
-  <object name="mapmod=collision,45,43,1" type="on_load" x="1120" y="2240" width="128" height="160">
+  <object name="Persist Explosion" type="on_load" x="1120" y="2240" width="128" height="160">
    <properties>
-    <property name="# mapmod" value="collision,45,43,1"/>
-    <property name="#mapmod" value="collision,45,43,1"/>
-    <property name="mapmod" value="object,51,42,152"/>
+    <property name="mapmod" value="object,47,44,0;object,47,43,0;collision,47,43,2;object,47,42,0;collision,47,42,2;object,46,43,0;collision,46,43,2;object,46,44,0;collision,46,44,2;object,45,44,0;collision,45,44,2;object,46,42,0;collision,46,42,2;object,45,43,80;collision,45,43,1;object,47,41,80;object,45,42,68;collison,45,42,1;object,46,41,69;collison,46,41,1;object,45,41,76;collison,45,41,1;object,48,43,0;collision,48,43,0;object,48,44,0;collision,48,44,0;object,46,45,0;collision,46,45,0;object,49,40,0;collision,49,40,2;object,46,39,0;collision,46,39,2;object,48,40,150;collision,48,40,0;object,48,39,151;collision,48,39,0;collision,49,39,0;object,48,38,151;collision,48,38,0;object,49,37,152;collision,49,37,0;object,48,36,151;collision,48,36,0;object,49,35,152;collision,49,35,0;object,47,38,150;collision,47,38,0;object,45,46,150;collision,45,46,2;object,48,45,152;collision,48,45,2;object,49,44,150;collision,49,44,2;object,49,43,151;collision,49,43,2;object,51,42,152"/>
     <property name="requires_status" value="lb_explosive_detonated"/>
    </properties>
   </object>

@@ -365,11 +365,12 @@ tooltip=Switch
 
 [event]
 # hidden room book
+type=run_once
 location=23,29,1,1
 hotspot=location
 mapmod=object,23,29,165
-soundfx=soundfx/inventory/inventory_page.ogg
 msg=The last entry of this well-preserved journal reads: "I feared it would come to this.  I knew the Warden's secrets but they would not be contained forever."
+soundfx=soundfx/inventory/inventory_page.ogg
 tooltip=Book Stand
 
 [event]
@@ -400,19 +401,15 @@ soundfx=soundfx/door_open.ogg
 
 [event]
 # brazier sound effect
-location=9,82,6,5
+type=run_always
+location=8,82,9,6
 cooldown=120
 soundfx=soundfx/environment/open_fire.ogg
 
 [event]
 # brazier sound effect
-location=86,41,3,3
-cooldown=120
-soundfx=soundfx/environment/open_fire.ogg
-
-[event]
-# brazier sound effect
-location=91,41,3,3
+type=run_always
+location=86,38,8,7
 cooldown=120
 soundfx=soundfx/environment/open_fire.ogg
 

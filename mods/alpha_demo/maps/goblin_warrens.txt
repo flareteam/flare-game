@@ -325,6 +325,7 @@ tooltip=Book Stand
 
 [event]
 # overlook book 1
+type=run_once
 location=38,51,1,1
 hotspot=location
 mapmod=object,38,51,164
@@ -334,6 +335,7 @@ tooltip=Book Stand
 
 [event]
 # overlook book 2
+type=run_once
 location=38,46,1,1
 hotspot=location
 mapmod=object,38,46,164
@@ -343,29 +345,31 @@ tooltip=Book Stand
 
 [event]
 # brazier sound effect
-location=40,41,4,16
+type=run_always
+location=41,44,5,9
 cooldown=120
 soundfx=soundfx/environment/open_fire.ogg
 
 [event]
 # brazier sound effect
-location=4,29,5,9
+type=run_always
+location=4,29,6,9
 cooldown=120
 soundfx=soundfx/environment/open_fire.ogg
 
 [enemy]
 type=skeleton
-location=15,18
+location=15,18,1,1
 direction=5
 
 [enemy]
 type=skeleton
-location=22,18
+location=22,18,1,1
 direction=1
 
 [enemy]
 type=ukkonen
-location=4,33
+location=4,33,1,1
 direction=2
 
 [enemygroup]
@@ -442,5 +446,5 @@ number=0,3
 
 [npc]
 type=guill
-location=28,74
+location=28,74,1,1
 

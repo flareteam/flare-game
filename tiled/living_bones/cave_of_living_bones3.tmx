@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="isometric" width="50" height="30" tilewidth="64" tileheight="32">
  <properties>
   <property name="music" value="cave_theme.ogg"/>
@@ -123,7 +122,7 @@
   <object name="Crate of Blasting Powder" type="run_once" x="192" y="192" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="mapmod" value="collision,6,6,0"/>
+    <property name="mapmod" value="collision,6,6,0;object,6,6,0"/>
     <property name="set_status" value="lb_has_explosive"/>
     <property name="tooltip" value="Crate of Blasting Powder"/>
    </properties>

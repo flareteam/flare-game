@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="isometric" width="40" height="50" tilewidth="64" tileheight="32">
  <properties>
   <property name="music" value="magical_theme.ogg"/>
@@ -422,7 +421,7 @@
     <property name="tooltip" value="Runed Chest"/>
    </properties>
   </object>
-  <object name="brazier sound effect" x="288" y="960" width="160" height="160">
+  <object name="brazier sound effect" type="run_always" x="288" y="960" width="160" height="160">
    <properties>
     <property name="cooldown" value="120"/>
     <property name="soundfx" value="soundfx/environment/open_fire.ogg"/>

@@ -280,7 +280,6 @@ data=
 0,0,0,0,0,0,0,0,0,0,68,0,0,0,0,0,0,0,0,0,82,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,76,71,83,88,244,245,91,83,83,83,95,0,0,0,0,0,0,0
 
-
 [layer]
 type=collision
 data=
@@ -429,10 +428,11 @@ tooltip=Switch
 
 [event]
 # fire statue trap
+type=run_always
 location=6,51,19,14
+cooldown=30
 power=31
 power_damage=2,3
-cooldown=30
 power_path=15,58,hero
 
 [event]
@@ -450,7 +450,7 @@ tooltip=Sealed Temple Door
 [event]
 # the first time you use the talisman
 type=run_once
-location=15,88,1,1
+location=13,89,1,1
 hotspot=location
 msg=You read aloud the runes on Langlier's Talisman. The Avergard Key begins to glow!
 requires_not=ak_talisman_used
@@ -462,7 +462,7 @@ tooltip=Activate Talisman
 
 [event]
 type=run_once
-location=15,88,1,1
+location=17,91,1,1
 hotspot=location
 mapmod=object,15,88,113;collision,15,88,0
 requires_status=ak_talisman_used
@@ -470,6 +470,7 @@ soundfx=soundfx/door_open.ogg
 tooltip=Temple Door
 
 [event]
+type=run_once
 location=2,117,1,1
 hotspot=location
 mapmod=object,2,117,164
@@ -478,6 +479,7 @@ soundfx=soundfx/inventory/inventory_page.ogg
 tooltip=Book Stand
 
 [event]
+type=run_once
 location=2,121,1,1
 hotspot=location
 mapmod=object,2,121,164
@@ -525,120 +527,121 @@ tooltip=Maddox's Tomb
 
 [event]
 # brazier sound effect
-location=11,95,8,7
+type=run_always
+location=11,95,9,7
 cooldown=120
 soundfx=soundfx/environment/open_fire.ogg
 
 [enemy]
 type=zombie_rotting
-location=12,115
+location=12,115,1,1
 
 [enemy]
 type=zombie
-location=16,118
+location=16,118,1,1
 
 [enemy]
 type=zombie_rotting
-location=13,109
+location=13,109,1,1
 
 [enemy]
 type=zombie_rotting
-location=10,106
+location=10,106,1,1
 direction=3
 
 [enemy]
 type=zombie_rotting
-location=9,104
+location=9,104,1,1
 direction=3
 
 [enemy]
 type=zombie_rotting
-location=10,104
+location=10,104,1,1
 direction=3
 
 [enemy]
 type=zombie
-location=9,102
+location=9,102,1,1
 direction=3
 
 [enemy]
 type=zombie_rotting
-location=10,100
+location=10,100,1,1
 direction=3
 
 [enemy]
 type=zombie_rotting
-location=12,106
+location=12,106,1,1
 direction=3
 
 [enemy]
 type=zombie_rotting
-location=13,102
+location=13,102,1,1
 direction=3
 
 [enemy]
 type=zombie_brute
-location=12,100
+location=12,100,1,1
 direction=3
 
 [enemy]
 type=zombie_rotting
-location=13,100
+location=13,100,1,1
 direction=3
 
 [enemy]
 type=zombie_rotting
-location=17,106
+location=17,106,1,1
 direction=3
 
 [enemy]
 type=zombie
-location=17,104
+location=17,104,1,1
 direction=3
 
 [enemy]
 type=zombie_rotting
-location=18,100
+location=18,100,1,1
 direction=3
 
 [enemy]
 type=zombie_rotting
-location=20,102
+location=20,102,1,1
 direction=3
 
 [enemy]
 type=zombie_rotting
-location=21,102
+location=21,102,1,1
 direction=3
 
 [enemy]
 type=zombie_iceclaw
-location=21,104
+location=21,104,1,1
 direction=3
 
 [enemy]
 type=skeletal_mage
-location=15,99
+location=15,99,1,1
 direction=3
 
 [enemy]
 type=skeletal_warrior
-location=15,95
+location=15,95,1,1
 direction=7
 
 [enemy]
 type=skeletal_sniper
-location=14,27
+location=14,27,1,1
 direction=7
 
 [enemy]
 type=skeletal_sniper
-location=16,27
+location=16,27,1,1
 direction=7
 
 [enemy]
 type=sir_evan_maddox
-location=16,8
+location=16,8,1,1
 direction=7
 
 [enemygroup]
