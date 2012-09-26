@@ -1,24 +1,38 @@
-[header]
-width=50
-height=80
-tilewidth=64
-tileheight=32
-music=magical_theme.ogg
-tileset=tileset_dungeon.txt
-title=Brothers' Lair Fire Hall
-
-[tilesets]
-tileset=../../../tiled/dungeon/tiled_collision.png,64,32,0,0
-tileset=../../../tiled/dungeon/tiled_dungeon.png,64,128,0,0
-tileset=../../../tiled/dungeon/set_rules.png,64,32,0,0
-tileset=../../../tiled/dungeon/tiled_dungeon_2x2.png,128,64,0,16
-tileset=../../../tiled/dungeon/door_left.png,64,128,-16,-8
-tileset=../../../tiled/dungeon/door_right.png,64,128,16,-8
-tileset=../../../tiled/dungeon/stairs.png,256,256,0,48
-
-[layer]
-type=background
-data=
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
+<map version="1.0" orientation="isometric" width="50" height="80" tilewidth="64" tileheight="32">
+ <properties>
+  <property name="music" value="magical_theme.ogg"/>
+  <property name="tileset" value="tileset_dungeon.txt"/>
+  <property name="title" value="Brothers' Lair Fire Hall"/>
+ </properties>
+ <tileset firstgid="1" name="tiled_collision.png" tilewidth="64" tileheight="32">
+  <image source="../dungeon/tiled_collision.png" width="960" height="32"/>
+ </tileset>
+ <tileset firstgid="16" name="tiled_dungeon.png" tilewidth="64" tileheight="128">
+  <image source="../dungeon/tiled_dungeon.png" width="1024" height="1920"/>
+ </tileset>
+ <tileset firstgid="256" name="set_rules.png" tilewidth="64" tileheight="32">
+  <image source="../dungeon/set_rules.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="264" name="tiled_dungeon_2x2.png" tilewidth="128" tileheight="64">
+  <tileoffset x="0" y="16"/>
+  <image source="../dungeon/tiled_dungeon_2x2.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="280" name="door_left.png" tilewidth="64" tileheight="128">
+  <tileoffset x="-16" y="-8"/>
+  <image source="../dungeon/door_left.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="282" name="door_right.png" tilewidth="64" tileheight="128">
+  <tileoffset x="16" y="-8"/>
+  <image source="../dungeon/door_right.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="284" name="stairs.png" tilewidth="256" tileheight="256">
+  <tileoffset x="0" y="48"/>
+  <image source="../dungeon/stairs.png" width="1024" height="256"/>
+ </tileset>
+ <layer name="background" width="50" height="80">
+  <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -99,10 +113,10 @@ data=
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,19,32,35,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,16,32,35,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-
-[layer]
-type=object
-data=
+</data>
+ </layer>
+ <layer name="object" width="50" height="80">
+  <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -183,10 +197,10 @@ data=
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,64,0,0,82,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,64,244,245,82,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-
-[layer]
-type=collision
-data=
+</data>
+ </layer>
+ <layer name="collision" width="50" height="80">
+  <data encoding="csv">
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
@@ -267,182 +281,173 @@ data=
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,0,0,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,0,0,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
-
-[event]
-# Warp to Atrium
-type=teleport
-location=24,78,2,1
-intermap=brothers_lair_atrium.txt,14,2
-
-[event]
-# Barrel
-type=run_once
-location=23,64,1,1
-hotspot=location
-loot=random,24,63,6
-mapmod=object,23,64,162
-soundfx=soundfx/wood_open.ogg
-tooltip=Barrel
-
-[event]
-# Barrel
-type=run_once
-location=22,64,1,1
-hotspot=location
-loot=random,22,63,7
-mapmod=object,22,64,162
-soundfx=soundfx/wood_open.ogg
-tooltip=Barrel
-
-[event]
-# Crate
-type=run_once
-location=21,64,1,1
-hotspot=location
-loot=random,21,63,7
-mapmod=object,21,64,163
-soundfx=soundfx/wood_open.ogg
-tooltip=Crate
-
-[event]
-# Crate
-type=run_once
-location=23,63,1,1
-hotspot=location
-loot=random,23,62,7
-mapmod=object,23,63,163
-soundfx=soundfx/wood_open.ogg
-tooltip=Crate
-
-[event]
-# Burn Trap
-type=run_once
-location=21,20,1,1
-power=18
-power_damage=8,10
-power_path=0,0,21,20
-
-[event]
-# Burn Trap
-type=run_once
-location=24,20,1,1
-power=18
-power_damage=8,10
-power_path=0,0,24,20
-
-[event]
-# Vesuvvio's Chest
-type=run_once
-location=21,60,1,1
-hotspot=location
-loot=random,22,60,10
-mapmod=object,21,60,160
-remove_item=9102
-requires_item=9102
-set_status=lb_fire_looted
-soundfx=soundfx/wood_open.ogg
-tooltip=Runed Chest
-unset_status=lb_fire_key
-
-[event]
-# Vesuvvio's Chest Locked
-type=run_always
-location=21,60,1,1
-hotspot=location
-power=18
-power_damage=20,25
-power_path=21,60,21,60
-requires_not=lb_fire_key,lb_fire_looted
-tooltip=Runed Chest
-
-[event]
-# Vesuvvio's Diary
-type=run_always
-location=19,16,1,1
-hotspot=location
-mapmod=object,19,16,165
-msg="Today Pompeii got a little over-excited to meet me and blew himself up. So I had to go into the caves and catch myself a NEW antlion burster. Again. I think I'm going to name this one 'Krakatoa'. ~Vesuvvio (the Destroyer)"
-set_status=lb_fire_password
-soundfx=soundfx/inventory/inventory_page.ogg
-tooltip=Book Stand
-
-[event]
-#brazier sound effect
-location=14,13,5,7
-cooldown=120
-soundfx=soundfx/environment/open_fire.ogg
-
-[event]
-#brazier sound effect
-location=9,26,13,7
-cooldown=120
-soundfx=soundfx/environment/open_fire.ogg
-
-[event]
-#brazier sound effect
-location=4,6,8,5
-cooldown=120
-soundfx=soundfx/environment/open_fire.ogg
-
-[event]
-#brazier sound effect
-location=27,26,10,7
-cooldown=120
-soundfx=soundfx/environment/open_fire.ogg
-
-[event]
-#brazier sound effect
-location=8,43,5,7
-cooldown=120
-soundfx=soundfx/environment/open_fire.ogg
-
-[event]
-#brazier sound effect
-location=11,52,8,5
-cooldown=120
-soundfx=soundfx/environment/open_fire.ogg
-
-[event]
-#brazier sound effect
-location=34,45,5,5
-cooldown=120
-soundfx=soundfx/environment/open_fire.ogg
-
-[event]
-#brazier sound effect
-location=31,49,10,7
-cooldown=120
-soundfx=soundfx/environment/open_fire.ogg
-
-[enemygroup]
-# 4-6 Undead
-type=undead
-location=21,57,8,8
-level=5,8
-number=4,6
-
-[enemygroup]
-# 3-7 Undead
-type=undead
-location=42,40,4,36
-level=5,8
-number=3,7
-
-[enemygroup]
-# 3-7 Undead
-type=undead
-location=4,40,4,36
-level=5,8
-number=3,7
-
-[enemygroup]
-# 1-3 Undead
-type=undead
-location=14,31,22,22
-level=8,8
-number=1,3
-
-[enemy]
-type=krakatoa
-location=22,18,8
-
+</data>
+ </layer>
+ <objectgroup name="event" width="50" height="80">
+  <object name="Warp to Atrium" type="teleport" x="768" y="2496" width="64" height="32">
+   <properties>
+    <property name="intermap" value="brothers_lair_atrium.txt,14,2"/>
+   </properties>
+  </object>
+  <object name="Barrel" type="run_once" x="736" y="2048" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="random,24,63,6"/>
+    <property name="mapmod" value="object,23,64,162"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Barrel"/>
+   </properties>
+  </object>
+  <object name="Barrel" type="run_once" x="704" y="2048" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="random,22,63,7"/>
+    <property name="mapmod" value="object,22,64,162"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Barrel"/>
+   </properties>
+  </object>
+  <object name="Crate" type="run_once" x="672" y="2048" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="random,21,63,7"/>
+    <property name="mapmod" value="object,21,64,163"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Crate"/>
+   </properties>
+  </object>
+  <object name="Crate" type="run_once" x="736" y="2016" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="random,23,62,7"/>
+    <property name="mapmod" value="object,23,63,163"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Crate"/>
+   </properties>
+  </object>
+  <object name="Burn Trap" type="run_once" x="672" y="640" width="32" height="32">
+   <properties>
+    <property name="power" value="18"/>
+    <property name="power_damage" value="8,10"/>
+    <property name="power_path" value="0,0,21,20"/>
+   </properties>
+  </object>
+  <object name="Burn Trap" type="run_once" x="768" y="640" width="32" height="32">
+   <properties>
+    <property name="power" value="18"/>
+    <property name="power_damage" value="8,10"/>
+    <property name="power_path" value="0,0,24,20"/>
+   </properties>
+  </object>
+  <object name="Vesuvvio's Chest" type="run_once" x="672" y="1920" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="random,22,60,10"/>
+    <property name="mapmod" value="object,21,60,160"/>
+    <property name="remove_item" value="9102"/>
+    <property name="requires_item" value="9102"/>
+    <property name="set_status" value="lb_fire_looted"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Runed Chest"/>
+    <property name="unset_status" value="lb_fire_key"/>
+   </properties>
+  </object>
+  <object name="Vesuvvio's Chest Locked" type="run_always" x="672" y="1920" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="power" value="18"/>
+    <property name="power_damage" value="20,25"/>
+    <property name="power_path" value="21,60,21,60"/>
+    <property name="requires_not" value="lb_fire_key,lb_fire_looted"/>
+    <property name="tooltip" value="Runed Chest"/>
+   </properties>
+  </object>
+  <object name="Vesuvvio's Diary" type="run_always" x="608" y="512" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="mapmod" value="object,19,16,165"/>
+    <property name="msg" value="&quot;Today Pompeii got a little over-excited to meet me and blew himself up. So I had to go into the caves and catch myself a NEW antlion burster. Again. I think I'm going to name this one 'Krakatoa'. ~Vesuvvio (the Destroyer)&quot;"/>
+    <property name="set_status" value="lb_fire_password"/>
+    <property name="soundfx" value="soundfx/inventory/inventory_page.ogg"/>
+    <property name="tooltip" value="Book Stand"/>
+   </properties>
+  </object>
+  <object name="brazier sound effect" x="448" y="416" width="160" height="224">
+   <properties>
+    <property name="cooldown" value="120"/>
+    <property name="soundfx" value="soundfx/environment/open_fire.ogg"/>
+   </properties>
+  </object>
+  <object name="brazier sound effect" x="288" y="832" width="416" height="224">
+   <properties>
+    <property name="cooldown" value="120"/>
+    <property name="soundfx" value="soundfx/environment/open_fire.ogg"/>
+   </properties>
+  </object>
+  <object name="brazier sound effect" x="128" y="192" width="256" height="160">
+   <properties>
+    <property name="cooldown" value="120"/>
+    <property name="soundfx" value="soundfx/environment/open_fire.ogg"/>
+   </properties>
+  </object>
+  <object name="brazier sound effect" x="864" y="832" width="320" height="224">
+   <properties>
+    <property name="cooldown" value="120"/>
+    <property name="soundfx" value="soundfx/environment/open_fire.ogg"/>
+   </properties>
+  </object>
+  <object name="brazier sound effect" x="256" y="1376" width="160" height="224">
+   <properties>
+    <property name="cooldown" value="120"/>
+    <property name="soundfx" value="soundfx/environment/open_fire.ogg"/>
+   </properties>
+  </object>
+  <object name="brazier sound effect" x="352" y="1664" width="256" height="160">
+   <properties>
+    <property name="cooldown" value="120"/>
+    <property name="soundfx" value="soundfx/environment/open_fire.ogg"/>
+   </properties>
+  </object>
+  <object name="brazier sound effect" x="1088" y="1440" width="160" height="160">
+   <properties>
+    <property name="cooldown" value="120"/>
+    <property name="soundfx" value="soundfx/environment/open_fire.ogg"/>
+   </properties>
+  </object>
+  <object name="brazier sound effect" x="992" y="1568" width="320" height="224">
+   <properties>
+    <property name="cooldown" value="120"/>
+    <property name="soundfx" value="soundfx/environment/open_fire.ogg"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="enemygroup" width="50" height="80">
+  <object name="4-6 Undead" type="undead" x="672" y="1824" width="256" height="256">
+   <properties>
+    <property name="level" value="5,8"/>
+    <property name="number" value="4,6"/>
+   </properties>
+  </object>
+  <object name="3-7 Undead" type="undead" x="1344" y="1280" width="128" height="1152">
+   <properties>
+    <property name="level" value="5,8"/>
+    <property name="number" value="3,7"/>
+   </properties>
+  </object>
+  <object name="3-7 Undead" type="undead" x="128" y="1280" width="128" height="1152">
+   <properties>
+    <property name="level" value="5,8"/>
+    <property name="number" value="3,7"/>
+   </properties>
+  </object>
+  <object name="1-3 Undead" type="undead" x="448" y="992" width="704" height="704">
+   <properties>
+    <property name="level" value="8,8"/>
+    <property name="number" value="1,3"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="enemy" width="50" height="80">
+  <object type="krakatoa" x="704" y="576" width="32" height="32"/>
+ </objectgroup>
+</map>

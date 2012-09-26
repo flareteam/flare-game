@@ -1,9 +1,20 @@
 [header]
 width=40
 height=50
+tilewidth=64
+tileheight=32
 music=magical_theme.ogg
 tileset=tileset_dungeon.txt
 title=Brothers' Lair Wind Hall
+
+[tilesets]
+tileset=../../../tiled/dungeon/tiled_collision.png,64,32,0,0
+tileset=../../../tiled/dungeon/tiled_dungeon.png,64,128,0,0
+tileset=../../../tiled/dungeon/set_rules.png,64,32,0,0
+tileset=../../../tiled/dungeon/tiled_dungeon_2x2.png,128,64,0,16
+tileset=../../../tiled/dungeon/door_left.png,64,128,-16,-8
+tileset=../../../tiled/dungeon/door_right.png,64,128,16,-8
+tileset=../../../tiled/dungeon/stairs.png,256,256,0,48
 
 [layer]
 type=background
@@ -175,11 +186,11 @@ type=run_once
 location=23,29,1,1
 hotspot=location
 mapmod=object,23,29,166
-soundfx=soundfx/door_open.ogg
-tooltip=Rising Wind Switch
 power=6
 power_damage=1000,1000
 power_path=23,29,hero
+soundfx=soundfx/door_open.ogg
+tooltip=Rising Wind Switch
 
 [event]
 # Rising Fire Switch (Death)
@@ -187,18 +198,18 @@ type=run_once
 location=25,29,1,1
 hotspot=location
 mapmod=object,25,29,166
-soundfx=soundfx/door_open.ogg
-tooltip=Rising Fire Switch
 power=6
 power_damage=1000,1000
 power_path=25,29,hero
+soundfx=soundfx/door_open.ogg
+tooltip=Rising Fire Switch
 
 [event]
 # Rising Ice Switch (Left Door)
 type=run_once
 location=27,29,1,1
-mapmod=object,10,31,112;collision,10,31,0;object,27,29,166
 hotspot=location
+mapmod=object,10,31,112;collision,10,31,0;object,27,29,166
 soundfx=soundfx/door_open.ogg
 tooltip=Rising Ice Switch
 
@@ -208,11 +219,11 @@ type=run_once
 location=27,31,1,1
 hotspot=location
 mapmod=object,27,31,166
-soundfx=soundfx/door_open.ogg
-tooltip=Falling Ice Switch
 power=6
 power_damage=1000,1000
 power_path=27,31,hero
+soundfx=soundfx/door_open.ogg
+tooltip=Falling Ice Switch
 
 [event]
 # Falling Wind Switch (Right Door)
@@ -229,11 +240,11 @@ type=run_once
 location=25,31,1,1
 hotspot=location
 mapmod=object,25,31,166
-soundfx=soundfx/door_open.ogg
-tooltip=Falling Fire Switch
 power=6
 power_damage=1000,1000
 power_path=25,31,hero
+soundfx=soundfx/door_open.ogg
+tooltip=Falling Fire Switch
 
 [event]
 # Waiting Wind Switch (Death)
@@ -241,19 +252,19 @@ type=run_once
 location=23,33,1,1
 hotspot=location
 mapmod=object,23,33,166
-soundfx=soundfx/door_open.ogg
-tooltip=Waiting Wind Switch
 power=6
 power_damage=1000,1000
 power_path=23,33,hero
+soundfx=soundfx/door_open.ogg
+tooltip=Waiting Wind Switch
 
 [event]
 # Waiting Fire Switch (Treasure)
 type=run_once
 location=25,33,1,1
 hotspot=location
-mapmod=object,25,33,166
 loot=random,25,34,9
+mapmod=object,25,33,166
 soundfx=soundfx/door_open.ogg
 tooltip=Waiting Fire Switch
 
@@ -263,11 +274,11 @@ type=run_once
 location=27,33,1,1
 hotspot=location
 mapmod=object,27,33,166
-soundfx=soundfx/door_open.ogg
-tooltip=Waiting Ice Switch
 power=6
 power_damage=1000,1000
 power_path=27,33,hero
+soundfx=soundfx/door_open.ogg
+tooltip=Waiting Ice Switch
 
 # CLUE BOOKS
 
@@ -290,8 +301,6 @@ mapmod=object,25,19,165
 msg="Wind is not Rising. Wind is Falling on the firmament."
 soundfx=soundfx/inventory/inventory_page.ogg
 tooltip=Book Stand
-
-# ETC
 
 [event]
 # Warp to Atrium
@@ -407,8 +416,8 @@ location=31,7,1,1
 hotspot=location
 loot=random,32,7,10
 mapmod=object,31,7,160
-requires_item=9103
 remove_item=9103
+requires_item=9103
 set_status=lb_wind_looted
 soundfx=soundfx/wood_open.ogg
 tooltip=Runed Chest
@@ -426,7 +435,7 @@ requires_not=lb_wind_key,lb_wind_looted
 tooltip=Runed Chest
 
 [event]
-#brazier sound effect
+# brazier sound effect
 location=9,30,5,5
 cooldown=120
 soundfx=soundfx/environment/open_fire.ogg
@@ -455,3 +464,4 @@ number=1,3
 [enemy]
 type=skeletal_thundersword
 location=34,11,1
+
