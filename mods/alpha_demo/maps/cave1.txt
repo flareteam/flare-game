@@ -337,18 +337,63 @@ type=teleport
 location=15,68,2,1
 intermap=lost_mines1.txt,53,5
 
-[npc]
-# Trader in the goblin room
-type=captured_trader
-location=72,31
+[event]
+type=run_once
+location=17,48,1,1
+hotspot=location
+loot=random,18,48,6
+mapmod=object,17,48,128
+tooltip=Mine Cart
+
+[event]
+# nest treasure
+type=run_once
+location=29,75,1,1
+hotspot=location
+loot=random,30,75,5
+mapmod=object,29,75,178
+soundfx=soundfx/wood_open.ogg
+tooltip=Barrel
 
 [event]
 type=run_once
-location=42,4,1,1
+location=43,92,1,1
 hotspot=location
-loot=random,43,5,6
-mapmod=object,42,4,129
-tooltip=Mine Cart
+loot=random,45,93,8
+mapmod=object,43,92,176
+soundfx=soundfx/wood_open.ogg
+tooltip=Treasure Chest
+
+[event]
+type=run_once
+location=29,76,1,1
+hotspot=location
+loot=random,30,76,5
+mapmod=object,29,76,178
+soundfx=soundfx/wood_open.ogg
+tooltip=Barrel
+
+[event]
+# warning message
+type=run_once
+location=19,14,3,3
+msg=The crumbling walls of the south tunnel are held up by planks of rotting wood.
+
+[event]
+type=run_once
+location=8,8,5,5
+power=134
+power_path=12,12,hero
+
+[event]
+# crate in nest hallway
+type=run_once
+location=59,61,1,1
+hotspot=location
+loot=random,60,61,5
+mapmod=object,59,61,179
+soundfx=soundfx/wood_open.ogg
+tooltip=Crate
 
 [event]
 type=run_once
@@ -369,12 +414,11 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
+# two hatchlings spawn
 type=run_once
-location=17,48,1,1
-hotspot=location
-loot=random,18,48,6
-mapmod=object,17,48,128
-tooltip=Mine Cart
+location=8,8,5,5
+power=134
+power_path=12,9,hero
 
 [event]
 type=run_once
@@ -404,159 +448,12 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
-# crate in nest hallway
 type=run_once
-location=59,61,1,1
+location=42,4,1,1
 hotspot=location
-loot=random,60,61,5
-mapmod=object,59,61,179
-soundfx=soundfx/wood_open.ogg
-tooltip=Crate
-
-[event]
-# nest treasure
-type=run_once
-location=29,75,1,1
-hotspot=location
-loot=random,30,75,5
-mapmod=object,29,75,178
-soundfx=soundfx/wood_open.ogg
-tooltip=Barrel
-
-[event]
-type=run_once
-location=29,76,1,1
-hotspot=location
-loot=random,30,76,5
-mapmod=object,29,76,178
-soundfx=soundfx/wood_open.ogg
-tooltip=Barrel
-
-[event]
-type=run_once
-location=43,92,1,1
-hotspot=location
-loot=random,44,92,9
-loot=random,45,91,8
-loot=random,45,93,8
-mapmod=object,43,92,176
-soundfx=soundfx/wood_open.ogg
-tooltip=Treasure Chest
-
-[event]
-# two hatchlings spawn
-type=run_once
-location=8,8,5,5
-power=134
-power_path=12,9,hero
-
-[event]
-type=run_once
-location=8,8,5,5
-power=134
-power_path=12,12,hero
-
-[event]
-# warning message
-type=run_once
-location=19,14,3,3
-msg=The crumbling walls of the south tunnel are held up by planks of rotting wood.
-
-[enemy]
-type=antlion_hatchling
-location=36,5
-
-[enemy]
-type=antlion_hatchling
-location=57,11
-
-[enemy]
-type=antlion_hatchling
-location=33,10
-
-[enemy]
-type=antlion_slasher
-location=37,10
-
-[enemy]
-type=antlion_hatchling
-location=42,7
-
-[enemy]
-type=antlion_slasher
-location=45,9
-
-[enemy]
-type=antlion_spitter
-location=46,17
-
-[enemy]
-type=antlion_hatchling
-location=47,19
-
-[enemy]
-type=antlion_slasher
-location=49,18
-
-[enemy]
-type=antlion_hatchling
-location=52,16
-
-[enemy]
-type=antlion_spitter
-location=53,18
-
-[enemy]
-type=antlion_slasher
-location=54,17
-
-[enemy]
-type=antlion_spitter
-location=48,26
-
-[enemy]
-type=antlion_hatchling
-location=47,30
-
-[enemy]
-type=antlion_slasher
-location=49,33
-
-[enemy]
-type=antlion_hatchling
-location=47,34
-
-[enemy]
-type=antlion_hatchling
-location=46,30
-
-[enemy]
-type=antlion_hatchling
-location=49,27
-
-[enemy]
-type=antlion_hatchling
-location=55,33
-
-[enemy]
-type=goblin_charger
-location=67,27
-
-[enemy]
-type=goblin_spearman
-location=74,29
-
-[enemy]
-type=goblin_charger
-location=75,32
-
-[enemy]
-type=goblin_shaman
-location=73,33
-
-[enemy]
-type=goblin_spearman
-location=73,32
+loot=random,43,5,6
+mapmod=object,42,4,129
+tooltip=Mine Cart
 
 [event]
 # ritual message
@@ -571,26 +468,6 @@ location=71,30,3,2
 loot=random,73,32,6
 msg=Talrych says, "You arrived just in time.  Please, take this."
 
-[enemy]
-type=skeletal_archer
-location=16,29
-
-[enemy]
-type=skeletal_mage
-location=18,30
-
-[enemy]
-type=skeletal_warrior
-location=23,29
-
-[enemy]
-type=minotaur
-location=23,33
-
-[enemy]
-type=skeletal_warrior
-location=10,30
-
 [event]
 # cave-in event
 type=run_once
@@ -600,22 +477,6 @@ msg=The walls collapse inward and rubble blocks off the passage!
 shakycam=60
 soundfx=soundfx/powers/quake.ogg
 
-[enemy]
-type=skeletal_archer
-location=17,50
-
-[enemy]
-type=skeletal_archer
-location=16,49
-
-[enemy]
-type=minotaur
-location=24,52
-
-[enemy]
-type=skeletal_mage
-location=13,45
-
 [event]
 # release the skeletal mage
 type=run_once
@@ -623,150 +484,287 @@ location=15,44,6,2
 mapmod=object,14,44,80;object,14,45,0;object,14,46,83;object,13,44,105;object,13,46,107;collision,14,45,0;collision,13,45,0
 soundfx=soundfx/door_open.ogg
 
-[enemy]
-# misc tunnels
-type=antlion_blinker
-location=39,39
+[npc]
+# Trader in the goblin room
+type=captured_trader
+location=72,31,1,1
 
 [enemy]
-type=antlion_burster
-location=43,43
+type=antlion_hatchling
+location=36,5,1,1
 
 [enemy]
-type=antlion_blinker
-location=45,48
+type=antlion_hatchling
+location=57,11,1,1
 
 [enemy]
-type=antlion_spitter
-location=74,53
+type=antlion_hatchling
+location=33,10,1,1
 
 [enemy]
 type=antlion_slasher
-location=70,56
+location=37,10,1,1
+
+[enemy]
+type=antlion_hatchling
+location=42,7,1,1
+
+[enemy]
+type=antlion_slasher
+location=45,9,1,1
+
+[enemy]
+type=antlion_spitter
+location=46,17,1,1
+
+[enemy]
+type=antlion_hatchling
+location=47,19,1,1
+
+[enemy]
+type=antlion_slasher
+location=49,18,1,1
+
+[enemy]
+type=antlion_hatchling
+location=52,16,1,1
+
+[enemy]
+type=antlion_spitter
+location=53,18,1,1
+
+[enemy]
+type=antlion_slasher
+location=54,17,1,1
+
+[enemy]
+type=antlion_spitter
+location=48,26,1,1
+
+[enemy]
+type=antlion_hatchling
+location=47,30,1,1
+
+[enemy]
+type=antlion_slasher
+location=49,33,1,1
+
+[enemy]
+type=antlion_hatchling
+location=47,34,1,1
+
+[enemy]
+type=antlion_hatchling
+location=46,30,1,1
+
+[enemy]
+type=antlion_hatchling
+location=49,27,1,1
+
+[enemy]
+type=antlion_hatchling
+location=55,33,1,1
+
+[enemy]
+type=goblin_charger
+location=67,27,1,1
+
+[enemy]
+type=goblin_spearman
+location=74,29,1,1
+
+[enemy]
+type=goblin_charger
+location=75,32,1,1
+
+[enemy]
+type=goblin_shaman
+location=73,33,1,1
+
+[enemy]
+type=goblin_spearman
+location=73,32,1,1
+
+[enemy]
+type=skeletal_archer
+location=16,29,1,1
+
+[enemy]
+type=skeletal_mage
+location=18,30,1,1
+
+[enemy]
+type=skeletal_warrior
+location=23,29,1,1
+
+[enemy]
+type=minotaur
+location=23,33,1,1
+
+[enemy]
+type=skeletal_warrior
+location=10,30,1,1
+
+[enemy]
+type=skeletal_archer
+location=17,50,1,1
+
+[enemy]
+type=skeletal_archer
+location=16,49,1,1
+
+[enemy]
+type=minotaur
+location=24,52,1,1
+
+[enemy]
+type=skeletal_mage
+location=13,45,1,1
+
+[enemy]
+# misc tunnels
+type=antlion_blinker
+location=39,39,1,1
+
+[enemy]
+type=antlion_burster
+location=43,43,1,1
 
 [enemy]
 type=antlion_blinker
-location=85,68
+location=45,48,1,1
+
+[enemy]
+type=antlion_spitter
+location=74,53,1,1
+
+[enemy]
+type=antlion_slasher
+location=70,56,1,1
+
+[enemy]
+type=antlion_blinker
+location=85,68,1,1
 
 [enemy]
 # pathway to antlion nest
 type=antlion_spitter
-location=63,64
+location=63,64,1,1
 
 [enemy]
 type=antlion_spitter
-location=63,66
+location=63,66,1,1
 
 [enemy]
 type=antlion_slasher
-location=68,68
+location=68,68,1,1
 
 [enemy]
 type=antlion_blinker
-location=67,71
+location=67,71,1,1
 
 [enemy]
 type=antlion_burster
-location=60,72
+location=60,72,1,1
 
 [enemy]
 type=antlion_blinker
-location=52,69
+location=52,69,1,1
 
 [enemy]
 type=antlion_hatchling
-location=58,76
+location=58,76,1,1
 
 [enemy]
 type=antlion_hatchling
-location=59,76
+location=59,76,1,1
 
 [enemy]
 type=antlion_hatchling
-location=60,76
+location=60,76,1,1
 
 [enemy]
 type=antlion_hatchling
-location=61,76
+location=61,76,1,1
 
 [enemy]
 type=antlion_hatchling
-location=62,75
+location=62,75,1,1
 
 [enemy]
 # antlion nest
 type=antlion_burster
-location=38,63
+location=38,63,1,1
 
 [enemy]
 type=antlion_burster
-location=36,65
+location=36,65,1,1
 
 [enemy]
 type=antlion_burster
-location=42,66
+location=42,66,1,1
 
 [enemy]
 type=antlion_blinker
-location=38,70
+location=38,70,1,1
 
 [enemy]
 type=antlion_burster
-location=42,73
+location=42,73,1,1
 
 [enemy]
 type=antlion_spitter
-location=37,77
+location=37,77,1,1
 
 [enemy]
 type=antlion_blinker
-location=39,79
+location=39,79,1,1
 
 [enemy]
 type=antlion_spitter
-location=42,79
+location=42,79,1,1
 
 [enemy]
 type=antlion_slasher
-location=46,80
+location=46,80,1,1
 
 [enemy]
 type=antlion_slasher
-location=32,76
+location=32,76,1,1
 
 [enemy]
 type=antlion_slasher
-location=35,79
+location=35,79,1,1
 
 [enemy]
 type=antlion_slasher
-location=37,83
+location=37,83,1,1
 
 [enemy]
 type=antlion_burster
-location=44,86
+location=44,86,1,1
 
 [enemy]
 type=antlion_hatchling
-location=36,72
+location=36,72,1,1
 
 [enemy]
 type=antlion_hatchling
-location=37,71
+location=37,71,1,1
 
 [enemy]
 type=antlion_hatchling
-location=39,71
+location=39,71,1,1
 
 [enemy]
 type=antlion_hatchling
-location=44,74
+location=44,74,1,1
 
 [enemy]
 type=antlion_hatchling
-location=43,75
+location=43,75,1,1
 
 [enemy]
 type=antlion_hatchling
-location=46,77
+location=46,77,1,1
 

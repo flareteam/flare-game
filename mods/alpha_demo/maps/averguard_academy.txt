@@ -1,9 +1,9 @@
 [header]
 width=70
 height=100
-location=62,3,7
 tilewidth=64
 tileheight=32
+location=62,3,7
 music=dungeon_theme.ogg
 tileset=tileset_dungeon.txt
 title=Averguard Academy
@@ -336,6 +336,7 @@ intermap=averguard_atrium.txt,9,57
 
 [event]
 # bookstand
+type=run_once
 location=31,22,1,1
 hotspot=location
 mapmod=object,31,22,165
@@ -345,6 +346,7 @@ tooltip=Book Stand
 
 [event]
 # bookstand
+type=run_once
 location=28,22,1,1
 hotspot=location
 mapmod=object,28,22,165
@@ -354,6 +356,7 @@ tooltip=Book Stand
 
 [event]
 # bookstand
+type=run_once
 location=25,22,1,1
 hotspot=location
 mapmod=object,25,22,165
@@ -363,6 +366,7 @@ tooltip=Book Stand
 
 [event]
 # bookstand
+type=run_once
 location=22,31,1,1
 hotspot=location
 mapmod=object,22,31,164
@@ -373,7 +377,7 @@ tooltip=Book Stand
 [event]
 # bookstand
 type=run_once
-location=20,75,2,1
+location=20,75,1,1
 hotspot=location
 loot=id,21,75,2
 mapmod=object,20,75,164
@@ -458,8 +462,7 @@ msg=This tomb glows with magical runes.
 type=run_once
 location=4,90,1,2
 hotspot=location
-loot=random,5,90,5
-loot=random,5,91,6
+loot=random,5,90,5;random,5,91,6
 tooltip=Langlier's Tomb
 
 [event]
@@ -474,30 +477,30 @@ tooltip=Treasure Chest
 [enemy]
 # entrance guards
 type=skeletal_mage
-location=60,14
+location=60,14,1,1
 direction=3
 
 [enemy]
 type=skeletal_mage
-location=65,14
+location=65,14,1,1
 direction=3
 
 [enemy]
 type=zombie_rotting
-location=50,25
+location=50,25,1,1
 
 [enemy]
 type=zombie
-location=50,30
+location=50,30,1,1
 
 [enemy]
 # guards teleport chest
 type=zombie
-location=45,85
+location=45,85,1,1
 
 [enemy]
 type=professor_langlier
-location=5,91
+location=5,91,1,1
 direction=1
 
 [enemygroup]
