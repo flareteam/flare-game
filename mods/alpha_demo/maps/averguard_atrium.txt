@@ -7,8 +7,8 @@ location=16,11,1
 music=dungeon_theme.ogg
 
 [tilesets]
-tileset=../../../tiled/tiled_collision.png,64,32
-tileset=../../../tiled/tiled_dungeon.png,64,128
+tileset=../../../tiled/dungeon/tiled_collision.png,64,32
+tileset=../../../tiled/dungeon/tiled_dungeon.png,64,128
 
 [layer]
 type=background
@@ -230,6 +230,27 @@ type=teleport
 location=1,51,1,2
 intermap=averguard_complex.txt,98,70
 
+[event]
+type=on_load
+location=2,48,1,1
+requires_status=waypoint_averguard_atrium
+mapmod=background,8,50,265
+
+[event]
+type=teleport
+location=8,49,2,2
+hotspot=location
+intermap=warp_zone.txt,30,32
+tooltip=Warp Zone
+
+[event]
+type=run_once
+location=6,47,6,6
+requires_not=waypoint_averguard_atrium
+set_status=waypoint_averguard_atrium
+msg=Averguard Atrium waypoint discovered
+mapmod=background,8,50,265
+
 [enemy]
 type=goblin_charger
 location=8,22
@@ -254,26 +275,7 @@ location=11,32
 type=skeleton
 location=4,37
 
-[event]
-type=on_load
-location=2,48,1,1
-requires_status=waypoint_averguard_atrium
-mapmod=background,8,50,265
 
-[event]
-type=teleport
-location=8,49,2,2
-hotspot=location
-intermap=warp_zone.txt,30,32
-tooltip=Warp Zone
-
-[event]
-type=run_once
-location=6,47,6,6
-requires_not=waypoint_averguard_atrium
-set_status=waypoint_averguard_atrium
-msg=Averguard Atrium waypoint discovered
-mapmod=background,8,50,265
 
 
 

@@ -1,18 +1,19 @@
 [header]
-title=Averguard Prison
 width=100
 height=100
-tileset=tileset_dungeon.txt
+tilewidth=64
+tileheight=32
 location=1,54,4
 music=dungeon_theme.ogg
+tileset=tileset_dungeon.txt
+title=Averguard Prison
 
 [tilesets]
-tileset=../../../tiled/tiled_collision.png,64,32
-tileset=../../../tiled/tiled_dungeon.png,64,128
+tileset=../../../tiled/dungeon/tiled_collision.png,64,32,0,0
+tileset=../../../tiled/dungeon/tiled_dungeon.png,64,128,0,0
 
 [layer]
 type=background
-format=dec
 data=
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -117,7 +118,6 @@ data=
 
 [layer]
 type=object
-format=dec
 data=
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -222,7 +222,6 @@ data=
 
 [layer]
 type=collision
-format=dec
 data=
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
@@ -325,7 +324,6 @@ data=
 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
 
-
 [event]
 type=teleport
 location=1,54,1,2
@@ -336,90 +334,100 @@ intermap=averguard_atrium.txt,15,51
 type=run_once
 location=2,47,1,1
 hotspot=location
-tooltip=Crate
+loot=random,2,46,1
 mapmod=object,2,47,163
 soundfx=soundfx/wood_open.ogg
-loot=random,2,46,1
+tooltip=Crate
 
 [event]
 # torture room chest
 type=run_once
 location=12,84,1,1
 hotspot=location
-tooltip=Treasure Chest
+loot=random,12,85,5
 mapmod=object,12,84,161
 soundfx=soundfx/wood_open.ogg
-loot=random,12,85,5
+tooltip=Treasure Chest
 
 [event]
 # control room switch to open the cell with the hidden passage
 type=run_once
 location=3,43,1,1
 hotspot=location
-tooltip=Switch
-mapmod=object,3,43,150
-mapmod=object,23,53,113
 mapmod=collision,23,53,0
 soundfx=soundfx/door_open.ogg
-
-[event]
-# hidden room book
-location=23,29,1,1
-hotspot=location
-tooltip=Book Stand
-mapmod=object,23,29,165
-soundfx=soundfx/inventory/inventory_page.ogg
-msg=The last entry of this well-preserved journal reads: "I feared it would come to this.  I knew the Warden's secrets but they would not be contained forever."
+tooltip=Switch
 
 [event]
 # hidden room chest
 type=run_once
 location=21,30,1,1
 hotspot=location
-tooltip=Treasure Chest
+loot=id,21,31,1
 mapmod=object,21,30,161
 soundfx=soundfx/wood_open.ogg
-loot=id,21,31,1
+tooltip=Treasure Chest
 
 [event]
 # hidden room crate
 type=run_once
 location=22,28,1,1
 hotspot=location
-tooltip=Crate
 mapmod=object,22,28,163
 soundfx=soundfx/wood_open.ogg
-
+tooltip=Crate
 
 [event]
 # trap tile that opens three cells
 type=run_once
 location=66,49,1,2
-mapmod=object,63,48,113
-mapmod=object,66,48,113
-mapmod=object,69,48,113
-mapmod=collision,63,48,0
-mapmod=collision,66,48,0
 mapmod=collision,69,48,0
 soundfx=soundfx/door_open.ogg
 
-[event]
-# brazier sound effect
-location=9,82,6,5
-cooldown=120
-soundfx=soundfx/environment/open_fire.ogg
+[enemy]
+type=zombie_brute
+location=20,52,1,1
 
-[event]
-# brazier sound effect
-location=86,41,3,3
-cooldown=120
-soundfx=soundfx/environment/open_fire.ogg
+[enemy]
+type=goblin_charger_elite
+location=23,52,1,1
 
-[event]
-# brazier sound effect
-location=91,41,3,3
-cooldown=120
-soundfx=soundfx/environment/open_fire.ogg
+[enemy]
+type=zombie_brute
+location=12,65,1,1
+
+[enemy]
+type=skeletal_warrior
+location=16,84,1,1
+
+[enemy]
+type=zombie_brute
+location=36,55,1,1
+
+[enemy]
+type=zombie_brute
+location=38,55,1,1
+
+[enemy]
+type=zombie_brute
+location=37,54,1,1
+
+[enemy]
+type=zombie_brute
+location=37,56,1,1
+
+[enemy]
+type=skeletal_archer
+location=56,57,1,1
+
+[enemy]
+type=skeletal_archer
+location=63,52,1,1
+
+[enemy]
+type=the_warden
+location=89,6,1,1
+direction=7
 
 [enemygroup]
 type=zombie
@@ -427,42 +435,29 @@ location=2,43,5,5
 level=2,4
 number=1,3
 
-[enemy]
-type=zombie_brute
-location=20,52
-
-[enemy]
-type=goblin_charger_elite
-location=23,52
-
-[enemy]
-type=zombie_brute
-location=12,65
-
 [enemygroup]
 type=zombie
-number=0,2
-level=2,4
 location=14,56,2,22
+level=2,4
+number=0,2
 
 [enemygroup]
 type=zombie
 location=2,74,7,1
+level=2,4
 number=3,3
-level=2,4
 
 [enemygroup]
 type=zombie
 location=23,62,2,5
+level=2,4
 number=1,2
-level=2,4
 
 [enemygroup]
 type=zombie
 location=23,62,2,5
-number=0,2
 level=2,4
-
+number=0,2
 
 [enemygroup]
 # outside torture room
@@ -474,72 +469,38 @@ number=3,5
 [enemygroup]
 # torture room
 type=antlion
+location=17,91,2,2
 level=1,2
 number=2,4
-location=17,91,2,2
 
 [enemygroup]
 type=undead
 location=7,82,12,11
-number=3,5
 level=3,5
-
-[enemy]
-type=skeletal_warrior
-location=16,84
-
-[enemy]
-type=zombie_brute
-location=36,55,5
-
-[enemy]
-type=zombie_brute
-location=38,55,1
-
-[enemy]
-type=zombie_brute
-location=37,54,7
-
-[enemy]
-type=zombie_brute
-location=37,56,3
-
-[enemy]
-type=skeletal_archer
-location=56,57,4
-
-[enemy]
-type=skeletal_archer
-location=63,52
+number=3,5
 
 [enemygroup]
 type=zombie
 location=51,47,19,1
-number=6,6
 level=2,4
+number=6,6
 
 [enemygroup]
 type=undead
+location=86,63,8,18
 level=2,5
 number=3,4
-location=86,63,8,18
 
 [enemygroup]
 # warden's guards
 type=zombie
 location=86,41,8,4
-number=2,3
 level=3,5
+number=2,3
 
 [enemygroup]
 type=antlion
 location=86,52,4,9
 level=2,4
 number=4,6
-
-[enemy]
-type=the_warden
-location=89,6
-direction=7
-
 

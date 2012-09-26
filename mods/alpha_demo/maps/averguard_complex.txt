@@ -7,8 +7,8 @@ location=98,70,1
 music=dungeon_theme.ogg
 
 [tilesets]
-tileset=../../../tiled/tiled_collision.png,64,32
-tileset=../../../tiled/tiled_dungeon.png,64,128
+tileset=../../../tiled/dungeon/tiled_collision.png,64,32
+tileset=../../../tiled/dungeon/tiled_dungeon.png,64,128
 
 [layer]
 type=background
@@ -391,8 +391,8 @@ type=teleport
 location=99,70,1,2
 intermap=averguard_atrium.txt,2,52
 
-# intro crate
 [event]
+# intro crate
 type=run_once
 location=85,74,1,1
 hotspot=location
@@ -401,8 +401,8 @@ mapmod=object,85,74,163
 soundfx=soundfx/wood_open.ogg
 loot=random,86,74,2
 
-# zombie barrels
 [event]
+# zombie barrels
 type=run_once
 location=74,63,1,1
 hotspot=location
@@ -429,8 +429,8 @@ mapmod=object,74,62,162
 soundfx=soundfx/wood_open.ogg
 loot=random,74,61,2
 
-# goblin firepit barrel/crate
 [event]
+# goblin firepit barrel/crate
 type=run_once
 location=72,96,1,1
 hotspot=location
@@ -448,8 +448,8 @@ mapmod=object,72,97,163
 soundfx=soundfx/wood_open.ogg
 loot=random,73,97,2
 
-# secret room crate
 [event]
+# secret room crate
 type=run_once
 location=73,110,1,1
 hotspot=location
@@ -458,8 +458,8 @@ mapmod=object,73,110,163
 soundfx=soundfx/wood_open.ogg
 loot=random,72,109,5
 
-# conference room book
 [event]
+# conference room book
 location=50,90,1,1
 hotspot=location
 tooltip=Book Stand
@@ -467,8 +467,8 @@ mapmod=object,50,90,164
 soundfx=soundfx/inventory/inventory_page.ogg
 msg=This book is entitled "Training Your Antlion". Chapter 1 is "How Not To Get Eaten". The rest of the book is unfinished.
 
-# barracks chests
 [event]
+# barracks chests
 type=run_once
 location=41,59,1,1
 hotspot=location
@@ -513,8 +513,8 @@ mapmod=object,41,51,160
 soundfx=soundfx/wood_open.ogg
 loot=random,42,51,3
 
-# large room storage
 [event]
+# large room storage
 type=run_once
 location=50,28,1,1
 hotspot=location
@@ -550,28 +550,53 @@ mapmod=object,55,29,162
 soundfx=soundfx/wood_open.ogg
 loot=random,54,29,3
 
-# kill room chests
 [event]
+# kill room chest
 type=run_once
 location=9,20,1,1
 hotspot=location
 tooltip=Treasure Chest
 mapmod=object,9,20,160
 soundfx=soundfx/wood_open.ogg
-loot=random,10,20,7
-loot=random,9,21,7
+loot=random,10,20,7;random,9,21,7
 
 [event]
+# kill room chest
 type=run_once
 location=9,29,1,1
 hotspot=location
 tooltip=Treasure Chest
 mapmod=object,9,29,160
 soundfx=soundfx/wood_open.ogg
-loot=random,10,29,6
-loot=random,9,28,8
+loot=random,10,29,6;random,9,28,8
 
-# intro skeletons
+# kill room switches
+[event]
+type=run_once
+location=12,24,1,2
+hotspot=location
+tooltip=Switch System
+soundfx=soundfx/door_open.ogg
+mapmod=object,12,24,166;object,12,25,150;object,11,22,0;object,12,22,0;object,13,22,0;object,14,22,0;object,15,22,0;object,16,22,0;object,17,22,0;object,18,22,0;object,19,22,0;object,20,22,0;object,21,22,0;object,22,22,0;object,23,22,0;object,24,22,0;object,11,23,0;object,11,24,0;object,11,25,0;object,11,26,0;object,11,27,0;object,12,27,0;object,13,27,0;object,14,27,0;object,15,27,0;object,16,27,0;object,17,27,0;object,18,27,0;object,19,27,0;object,20,27,0;object,21,27,0;object,22,27,0;object,23,27,0;object,24,27,0;collision,11,22,0;collision,12,22,0;collision,13,22,0;collision,14,22,0;collision,15,22,0;collision,16,22,0;collision,17,22,0;collision,18,22,0;collision,19,22,0;collision,20,22,0;collision,21,22,0;collision,22,22,0;collision,23,22,0;collision,24,22,0;collision,11,23,0;collision,11,24,0;collision,11,25,0;collision,11,26,0;collision,11,27,0;collision,12,27,0;collision,13,27,0;collision,14,27,0;collision,15,27,0;collision,16,27,0;collision,17,27,0;collision,18,27,0;collision,19,27,0;collision,20,27,0;collision,21,27,0;collision,22,27,0;collision,23,27,0;collision,24,27,0
+
+[event]
+#brazier sound effect
+location=56,17,7,6
+cooldown=120
+soundfx=soundfx/environment/open_fire.ogg
+
+[event]
+#brazier sound effect
+location=44,17,7,6
+cooldown=120
+soundfx=soundfx/environment/open_fire.ogg
+
+[event]
+#brazier sound effect
+location=72,91,6,6
+cooldown=120
+soundfx=soundfx/environment/open_fire.ogg
+
 [enemy]
 type=skeletal_sniper
 location=85,69
@@ -581,7 +606,6 @@ type=skeletal_sniper
 location=85,72
 direction=5
 
-# corner zombies
 [enemy]
 type=zombie_bloodthirsty
 location=71,62
@@ -595,7 +619,6 @@ location=73,72
 type=zombie_bloodthirsty
 location=68,69
 
-# skeletons across the bridge
 [enemy]
 type=skeletal_archer
 location=69,81
@@ -606,7 +629,6 @@ location=70,84
 type=skeletal_mage
 location=73,83
 
-# goblins around the fire pit
 [enemy]
 type=goblin_charger_elite
 location=74,94
@@ -624,7 +646,6 @@ type=goblin_spearman_elite
 location=75,95
 direction=3
 
-# small sarcophagus room creatures
 [enemy]
 type=skeletal_warrior
 location=66,92
@@ -638,7 +659,6 @@ location=61,89
 type=zombie_iceclaw
 location=62,91
 
-# conference room
 [enemy]
 type=skeletal_warrior
 location=51,90
@@ -665,7 +685,6 @@ location=48,91
 type=antlion
 location=49,91
 
-# sarcophagus cross location
 [enemy]
 type=zombie_brute
 location=42,110
@@ -685,7 +704,6 @@ location=48,118
 type=antlion
 location=39,109
 
-# left bridge
 [enemy]
 type=skeletal_warrior
 location=56,80
@@ -695,7 +713,6 @@ type=skeletal_warrior
 location=55,73
 direction=3
 
-# training location
 [enemy]
 type=skeletal_warrior
 location=39,76
@@ -733,7 +750,6 @@ type=skeleton
 location=37,78
 direction=5
 
-# barracks guards
 [enemy]
 type=skeletal_warrior
 location=42,69
@@ -743,7 +759,6 @@ type=skeletal_warrior
 location=45,69
 direction=7
 
-# barracks
 [enemy]
 type=skeletal_warrior
 location=40,60
@@ -760,7 +775,6 @@ location=44,56
 type=skeletal_warrior
 location=42,49
 
-# zombie infestation
 [enemy]
 type=zombie_brute
 location=72,42
@@ -792,7 +806,6 @@ location=74,44
 type=zombie_bloodthirsty
 location=67,41
 
-# antlion trainers left of chasm
 [enemy]
 type=skeletal_sniper
 location=55,63
@@ -812,7 +825,6 @@ location=59,53
 type=antlion
 location=59,55
 
-# hallway behind barracks
 [enemy]
 type=antlion_blinker
 location=43,35
@@ -820,7 +832,6 @@ location=43,35
 type=antlion_blinker
 location=44,36
 
-# large room south nook
 [enemy]
 type=antlion
 location=69,23
@@ -831,7 +842,6 @@ location=70,26
 type=antlion
 location=72,24
 
-# large room storage
 [enemy]
 type=skeletal_warrior
 location=51,28
@@ -839,7 +849,6 @@ location=51,28
 type=skeletal_warrior
 location=54,29
 
-# large room right side
 [enemy]
 type=skeletal_mage
 location=58,18
@@ -857,7 +866,6 @@ type=skeletal_sniper
 location=58,21
 direction=4
 
-# large room left side
 [enemy]
 type=skeletal_mage
 location=46,18
@@ -874,99 +882,6 @@ direction=2
 type=skeletal_sniper
 location=49,21
 direction=4
-
-
-# kill room switches
-[event]
-type=run_once
-location=12,24,1,2
-hotspot=location
-tooltip=Switch System
-soundfx=soundfx/door_open.ogg
-mapmod=object,12,24,166
-mapmod=object,12,25,150
-mapmod=object,11,22,0
-mapmod=object,12,22,0
-mapmod=object,13,22,0
-mapmod=object,14,22,0
-mapmod=object,15,22,0
-mapmod=object,16,22,0
-mapmod=object,17,22,0
-mapmod=object,18,22,0
-mapmod=object,19,22,0
-mapmod=object,20,22,0
-mapmod=object,21,22,0
-mapmod=object,22,22,0
-mapmod=object,23,22,0
-mapmod=object,24,22,0
-mapmod=object,11,23,0
-mapmod=object,11,24,0
-mapmod=object,11,25,0
-mapmod=object,11,26,0
-mapmod=object,11,27,0
-mapmod=object,12,27,0
-mapmod=object,13,27,0
-mapmod=object,14,27,0
-mapmod=object,15,27,0
-mapmod=object,16,27,0
-mapmod=object,17,27,0
-mapmod=object,18,27,0
-mapmod=object,19,27,0
-mapmod=object,20,27,0
-mapmod=object,21,27,0
-mapmod=object,22,27,0
-mapmod=object,23,27,0
-mapmod=object,24,27,0
-mapmod=collision,11,22,0
-mapmod=collision,12,22,0
-mapmod=collision,13,22,0
-mapmod=collision,14,22,0
-mapmod=collision,15,22,0
-mapmod=collision,16,22,0
-mapmod=collision,17,22,0
-mapmod=collision,18,22,0
-mapmod=collision,19,22,0
-mapmod=collision,20,22,0
-mapmod=collision,21,22,0
-mapmod=collision,22,22,0
-mapmod=collision,23,22,0
-mapmod=collision,24,22,0
-mapmod=collision,11,23,0
-mapmod=collision,11,24,0
-mapmod=collision,11,25,0
-mapmod=collision,11,26,0
-mapmod=collision,11,27,0
-mapmod=collision,12,27,0
-mapmod=collision,13,27,0
-mapmod=collision,14,27,0
-mapmod=collision,15,27,0
-mapmod=collision,16,27,0
-mapmod=collision,17,27,0
-mapmod=collision,18,27,0
-mapmod=collision,19,27,0
-mapmod=collision,20,27,0
-mapmod=collision,21,27,0
-mapmod=collision,22,27,0
-mapmod=collision,23,27,0
-mapmod=collision,24,27,0
-
-[event]
-#brazier sound effect
-location=56,17,7,6
-cooldown=120
-soundfx=soundfx/environment/open_fire.ogg
-
-[event]
-#brazier sound effect
-location=44,17,7,6
-cooldown=120
-soundfx=soundfx/environment/open_fire.ogg
-
-[event]
-#brazier sound effect
-location=72,91,6,6
-cooldown=120
-soundfx=soundfx/environment/open_fire.ogg
 
 # kill room creatures
 [enemy]

@@ -1,12 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="isometric" width="28" height="128" tilewidth="64" tileheight="32">
- <tileset firstgid="1" name="tiled_collision" tilewidth="64" tileheight="32">
-  <image source="tiled_collision.png" width="960" height="32"/>
+<map version="1.0" orientation="isometric" width="28" height="129" tilewidth="64" tileheight="32" backgroundcolor="#000000">
+ <properties>
+  <property name="music" value="boss_theme.ogg"/>
+  <property name="tileset" value="tileset_dungeon.txt"/>
+  <property name="title" value="Averguard Temple"/>
+ </properties>
+ <tileset firstgid="1" name="collision" tilewidth="64" tileheight="32">
+  <image source="../dungeon/tiled_collision.png" width="960" height="32"/>
  </tileset>
- <tileset firstgid="16" name="tiled_dungeon" tilewidth="64" tileheight="128">
-  <image source="tiled_dungeon.png" width="1024" height="1920"/>
+ <tileset firstgid="16" name="dungeon" tilewidth="64" tileheight="128">
+  <image source="../dungeon/tiled_dungeon.png" width="1024" height="1920"/>
  </tileset>
- <layer name="background" width="28" height="128">
+ <tileset firstgid="256" name="set_rules" tilewidth="64" tileheight="32">
+  <image source="../dungeon/set_rules.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="264" name="tiled_dungeon_2x2" tilewidth="128" tileheight="64">
+  <tileoffset x="0" y="16"/>
+  <image source="../dungeon/tiled_dungeon_2x2.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="280" name="door_left" tilewidth="64" tileheight="128">
+  <tileoffset x="-16" y="-8"/>
+  <image source="../dungeon/door_left.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="282" name="door_right" tilewidth="64" tileheight="128">
+  <tileoffset x="16" y="-8"/>
+  <image source="../dungeon/door_right.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="284" name="stairs" tilewidth="256" tileheight="256">
+  <tileoffset x="0" y="48"/>
+  <image source="../dungeon/stairs.png" width="1024" height="256"/>
+ </tileset>
+ <layer name="background" width="28" height="129">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,18,16,18,18,19,17,19,16,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,16,18,18,18,16,19,16,17,17,18,0,0,0,0,0,0,0,0,
@@ -126,8 +150,8 @@
 19,16,19,16,17,19,0,0,0,0,17,19,16,17,16,18,16,18,19,16,0,0,0,0,0,0,0,0,
 19,16,18,19,17,17,0,0,0,0,17,16,17,16,16,19,16,17,19,16,0,0,0,0,0,0,0,0,
 16,16,16,16,18,16,19,16,0,18,17,19,19,16,19,16,17,19,17,19,0,0,0,0,0,0,0,0,
-16,18,18,19,17,19,17,19,0,18,16,17,19,16,18,19,17,17,16,18,0,0,0,0,0,0,0,0,
-18,16,16,18,16,18,0,0,0,0,17,19,17,19,19,16,19,16,17,16,0,0,0,0,0,0,0,0,
+16,18,18,19,17,19,17,19,0,18,16,17,19,16,18,19,17,17,16,17,0,0,0,0,0,0,0,0,
+18,16,16,18,19,18,0,0,0,0,17,19,17,19,19,16,19,16,17,16,0,0,0,0,0,0,0,0,
 18,18,18,16,19,16,0,0,0,0,16,17,16,17,19,16,18,19,17,17,0,0,0,0,0,0,0,0,
 16,17,16,18,16,18,0,0,0,0,17,16,17,16,16,16,16,16,18,16,0,0,0,0,0,0,0,0,
 17,16,16,19,16,17,0,0,0,0,16,19,16,19,16,18,18,19,17,19,0,0,0,0,0,0,0,0,
@@ -135,17 +159,18 @@
 0,0,0,0,0,0,0,0,0,0,17,18,17,18,18,18,18,16,19,16,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,17,19,17,19,16,17,16,18,16,18,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,17,16,17,16,17,16,16,19,16,17,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,17,16,16,19,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0,17,16,16,19,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="object" width="28" height="128">
+ <layer name="object" width="28" height="129">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,77,65,65,65,65,65,65,65,65,65,78,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,68,0,0,0,0,145,0,0,0,0,66,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,68,0,111,0,0,0,0,0,111,0,66,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,68,0,0,0,0,0,0,0,0,0,66,0,0,0,0,0,0,0,
 0,0,0,0,0,0,77,65,65,65,73,0,0,0,0,0,0,0,0,0,74,65,65,65,78,0,0,0,
-0,0,0,0,0,0,68,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,82,0,0,0,
+0,0,0,0,0,0,68,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,70,0,0,0,
 0,0,0,0,0,0,68,0,111,0,0,0,0,0,0,0,0,0,0,0,0,0,111,0,82,0,0,0,
 0,0,0,0,0,0,68,0,0,0,0,0,0,110,0,0,0,110,0,0,0,0,0,0,82,0,0,0,
 0,0,0,0,0,0,68,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,82,0,0,0,
@@ -267,10 +292,11 @@
 76,71,83,83,83,83,95,0,0,0,68,0,0,111,0,0,0,111,0,0,82,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,104,0,0,0,0,0,0,0,0,0,82,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,68,0,0,0,0,0,0,0,0,0,82,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,76,71,83,88,0,0,91,83,83,83,95,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,76,71,83,88,0,0,91,83,83,83,95,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,282,283,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="collision" width="28" height="128">
+ <layer name="collision" width="28" height="129" visible="0">
   <data encoding="csv">
 3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,1,0,0,0,0,2,0,0,0,0,1,3,3,3,3,3,3,3,
@@ -330,7 +356,7 @@
 3,3,3,3,4,2,0,0,0,2,2,2,2,2,2,2,2,2,2,2,2,2,0,0,0,2,4,3,
 3,3,3,3,4,2,0,0,0,2,2,2,2,2,2,2,2,2,2,2,2,2,0,0,0,2,4,3,
 3,3,3,3,4,2,0,0,0,2,2,2,2,2,2,2,2,2,2,2,2,2,0,0,0,2,4,3,
-3,3,3,3,4,2,0,0,0,2,2,2,2,2,2,1,2,2,2,2,2,2,0,0,0,2,4,3,
+3,3,3,3,4,2,0,0,0,2,2,2,2,2,2,2,2,2,2,2,2,2,0,0,0,2,4,3,
 3,3,3,3,4,2,0,0,0,2,2,2,2,2,2,2,2,2,2,2,2,2,0,0,0,2,4,3,
 3,3,3,3,4,2,0,0,0,2,2,2,2,2,2,2,2,2,2,2,2,2,0,0,0,2,4,3,
 3,3,3,3,4,2,0,0,0,2,2,2,2,2,2,2,2,2,2,2,2,2,0,0,0,2,4,3,
@@ -399,7 +425,248 @@
 1,1,1,1,1,1,1,3,3,3,1,0,0,1,0,0,0,1,0,0,1,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,1,0,0,0,0,0,0,0,0,0,1,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,1,0,0,0,0,0,0,0,0,0,1,3,3,3,3,3,3,3,
-3,3,3,3,3,3,3,3,3,3,1,1,1,1,0,0,1,1,1,1,1,3,3,3,3,3,3,3
+3,3,3,3,3,3,3,3,3,3,1,1,1,1,0,0,1,1,1,1,1,3,3,3,3,3,3,3,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
+ <objectgroup name="event" width="28" height="129">
+  <object type="teleport" x="448" y="4064" width="64" height="32">
+   <properties>
+    <property name="intermap" value="averguard_atrium.txt,8,2"/>
+   </properties>
+  </object>
+  <object name="switch to open the temple library room" type="run_once" x="608" y="3776" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="mapmod" value="object,19,118,150;object,10,118,112;collision,10,118,0"/>
+    <property name="soundfx" value="soundfx/door_open.ogg"/>
+    <property name="tooltip" value="Switch"/>
+   </properties>
+  </object>
+  <object name="fire statue trap" x="192" y="1632" width="608" height="448">
+   <properties>
+    <property name="cooldown" value="30"/>
+    <property name="power" value="31"/>
+    <property name="power_damage" value="2,3"/>
+    <property name="power_path" value="15,58,hero"/>
+   </properties>
+  </object>
+  <object name="if the player doesn't have the talisman and key, the door is sealed" type="run_once" x="480" y="2816" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="msg" value="You insert the Averguard Key. Runes glow around the door, then fade. The door is still sealed."/>
+    <property name="requires_item" value="9001"/>
+    <property name="requires_not" value="ak_maddox_search"/>
+    <property name="requires_status" value="ak_temple_search"/>
+    <property name="set_status" value="ak_temple_sealed"/>
+    <property name="tooltip" value="Sealed Temple Door"/>
+   </properties>
+  </object>
+  <object name="the first time you use the talisman" type="run_once" x="416" y="2848" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="msg" value="You read aloud the runes on Langlier's Talisman. The Avergard Key begins to glow!"/>
+    <property name="requires_not" value="ak_talisman_used"/>
+    <property name="requires_status" value="ak_maddox_search"/>
+    <property name="set_status" value="ak_talisman_used"/>
+    <property name="shakycam" value="60"/>
+    <property name="soundfx" value="soundfx/powers/quake.ogg"/>
+    <property name="tooltip" value="Activate Talisman"/>
+   </properties>
+  </object>
+  <object type="run_once" x="544" y="2912" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="mapmod" value="object,15,88,113;collision,15,88,0"/>
+    <property name="requires_status" value="ak_talisman_used"/>
+    <property name="soundfx" value="soundfx/door_open.ogg"/>
+    <property name="tooltip" value="Temple Door"/>
+   </properties>
+  </object>
+  <object type="run_once" x="64" y="3744" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="mapmod" value="object,2,117,164"/>
+    <property name="msg" value="&quot;Some said Sir Maddox cared too much for the peasants.  He would not quarantine, saying the villagers did not deserve to die locked away.&quot;"/>
+    <property name="soundfx" value="soundfx/inventory/inventory_page.ogg"/>
+    <property name="tooltip" value="Book Stand"/>
+   </properties>
+  </object>
+  <object type="run_once" x="64" y="3872" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="mapmod" value="object,2,121,164"/>
+    <property name="msg" value="&quot;Maddox died of the plague in 638.  After attempts to magically revive him failed he was sealed deep behind the temple.&quot;"/>
+    <property name="soundfx" value="soundfx/inventory/inventory_page.ogg"/>
+    <property name="tooltip" value="Book Stand"/>
+   </properties>
+  </object>
+  <object name="chest in the boss room" type="run_once" x="480" y="32" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="msg" value="This chest is locked."/>
+    <property name="requires_not" value="ak_maddox_defeated"/>
+    <property name="tooltip" value="Treasure Chest"/>
+   </properties>
+  </object>
+  <object type="run_once" x="480" y="32" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="random,14,2,6;random,15,2,7;random,16,2,5"/>
+    <property name="mapmod" value="object,15,1,161"/>
+    <property name="requires_status" value="ak_maddox_defeated"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Treasure Chest"/>
+   </properties>
+  </object>
+  <object type="run_once" x="448" y="1984" width="96" height="32">
+   <properties>
+    <property name="msg" value="A plaque under the statue reads &quot;Sir Evan Maddox, may he return to rescue us all&quot;"/>
+   </properties>
+  </object>
+  <object name="when entering Maddox's Burial Chamber" type="run_once" x="480" y="608" width="64" height="64">
+   <properties>
+    <property name="msg" value="A ghastly voice reverberates from the next chamber.  &quot;What fool disturbs my tomb?!&quot;"/>
+   </properties>
+  </object>
+  <object type="run_once" x="480" y="288" width="32" height="64">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="random,16,9,5"/>
+    <property name="msg" value="You wipe dust away from the tomb lid, revealing an inscription: &quot;Here lies Sir Evan Maddox&quot;"/>
+    <property name="tooltip" value="Maddox's Tomb"/>
+   </properties>
+  </object>
+  <object name="brazier sound effect" type="run_always" x="352" y="3040" width="288" height="224">
+   <properties>
+    <property name="cooldown" value="120"/>
+    <property name="soundfx" value="soundfx/environment/open_fire.ogg"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="enemy" width="28" height="129" visible="0">
+  <object type="zombie_rotting" x="384" y="3680" width="32" height="32"/>
+  <object type="zombie" x="512" y="3776" width="32" height="32"/>
+  <object type="zombie_rotting" x="416" y="3488" width="32" height="32"/>
+  <object type="zombie_rotting" x="320" y="3392" width="32" height="32">
+   <properties>
+    <property name="direction" value="3"/>
+   </properties>
+  </object>
+  <object type="zombie_rotting" x="288" y="3328" width="32" height="32">
+   <properties>
+    <property name="direction" value="3"/>
+   </properties>
+  </object>
+  <object type="zombie_rotting" x="320" y="3328" width="32" height="32">
+   <properties>
+    <property name="direction" value="3"/>
+   </properties>
+  </object>
+  <object type="zombie" x="288" y="3264" width="32" height="32">
+   <properties>
+    <property name="direction" value="3"/>
+   </properties>
+  </object>
+  <object type="zombie_rotting" x="320" y="3200" width="32" height="32">
+   <properties>
+    <property name="direction" value="3"/>
+   </properties>
+  </object>
+  <object type="zombie_rotting" x="384" y="3392" width="32" height="32">
+   <properties>
+    <property name="direction" value="3"/>
+   </properties>
+  </object>
+  <object type="zombie_rotting" x="416" y="3264" width="32" height="32">
+   <properties>
+    <property name="direction" value="3"/>
+   </properties>
+  </object>
+  <object type="zombie_brute" x="384" y="3200" width="32" height="32">
+   <properties>
+    <property name="direction" value="3"/>
+   </properties>
+  </object>
+  <object type="zombie_rotting" x="416" y="3200" width="32" height="32">
+   <properties>
+    <property name="direction" value="3"/>
+   </properties>
+  </object>
+  <object type="zombie_rotting" x="544" y="3392" width="32" height="32">
+   <properties>
+    <property name="direction" value="3"/>
+   </properties>
+  </object>
+  <object type="zombie" x="544" y="3328" width="32" height="32">
+   <properties>
+    <property name="direction" value="3"/>
+   </properties>
+  </object>
+  <object type="zombie_rotting" x="576" y="3200" width="32" height="32">
+   <properties>
+    <property name="direction" value="3"/>
+   </properties>
+  </object>
+  <object type="zombie_rotting" x="640" y="3264" width="32" height="32">
+   <properties>
+    <property name="direction" value="3"/>
+   </properties>
+  </object>
+  <object type="zombie_rotting" x="672" y="3264" width="32" height="32">
+   <properties>
+    <property name="direction" value="3"/>
+   </properties>
+  </object>
+  <object type="zombie_iceclaw" x="672" y="3328" width="32" height="32">
+   <properties>
+    <property name="direction" value="3"/>
+   </properties>
+  </object>
+  <object type="skeletal_mage" x="480" y="3168" width="32" height="32">
+   <properties>
+    <property name="direction" value="3"/>
+   </properties>
+  </object>
+  <object type="skeletal_warrior" x="480" y="3040" width="32" height="32">
+   <properties>
+    <property name="direction" value="7"/>
+   </properties>
+  </object>
+  <object type="skeletal_sniper" x="448" y="864" width="32" height="32">
+   <properties>
+    <property name="direction" value="7"/>
+   </properties>
+  </object>
+  <object type="skeletal_sniper" x="512" y="864" width="32" height="32">
+   <properties>
+    <property name="direction" value="7"/>
+   </properties>
+  </object>
+  <object type="sir_evan_maddox" x="512" y="256" width="32" height="32">
+   <properties>
+    <property name="direction" value="7"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="enemygroup" width="28" height="129" visible="0">
+  <object type="undead" x="192" y="1568" width="608" height="576">
+   <properties>
+    <property name="level" value="3,6"/>
+    <property name="number" value="3,5"/>
+   </properties>
+  </object>
+  <object type="undead" x="192" y="1568" width="608" height="576">
+   <properties>
+    <property name="level" value="3,6"/>
+    <property name="number" value="3,5"/>
+   </properties>
+  </object>
+  <object type="undead" x="32" y="3680" width="160" height="288">
+   <properties>
+    <property name="level" value="4,6"/>
+    <property name="number" value="1,3"/>
+   </properties>
+  </object>
+ </objectgroup>
 </map>
