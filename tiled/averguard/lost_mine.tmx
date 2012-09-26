@@ -445,7 +445,7 @@
   <object name="falling pillar/bridge event" type="run_once" x="2560" y="1920" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="mapmod" value="object,80,63,152"/>
+    <property name="mapmod" value="collision,80,60,0;collision,80,61,0;collision,80,62,0;collision,80,63,0;object,80,60,151;object,80,61,152;object,80,62,151;object,80,63,152"/>
     <property name="shakycam" value="20"/>
     <property name="soundfx" value="soundfx/powers/quake.ogg"/>
     <property name="tooltip" value="Stalagmite Pillar"/>
@@ -477,6 +477,15 @@
   <object name="miners message" type="run_once" x="512" y="1504" width="96" height="96">
    <properties>
     <property name="msg" value="The undead in this room are dressed in the remnants of shredded mining clothes."/>
+   </properties>
+  </object>
+  <object type="run_once" x="2560" y="2144" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="random,80,66,6"/>
+    <property name="mapmod" value="object,80,67,178"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Barrel"/>
    </properties>
   </object>
   <object type="run_once" x="2592" y="2144" width="32" height="32">
@@ -534,15 +543,6 @@
   <object type="skeletal_archer" x="1696" y="1024" width="32" height="32"/>
   <object type="antlion_freezer" x="2496" y="2112" width="32" height="32"/>
   <object type="antlion_freezer" x="2592" y="2112" width="32" height="32"/>
-  <object type="run_once" x="2560" y="2144" width="32" height="32">
-   <properties>
-    <property name="hotspot" value="location"/>
-    <property name="loot" value="random,80,66,6"/>
-    <property name="mapmod" value="object,80,67,178"/>
-    <property name="soundfx" value="soundfx/wood_open.ogg"/>
-    <property name="tooltip" value="Barrel"/>
-   </properties>
-  </object>
   <object type="necromancer_apprentice" x="576" y="896" width="32" height="32"/>
   <object type="skeletal_warrior" x="1760" y="2560" width="32" height="32"/>
   <object type="skeletal_warrior" x="1792" y="2560" width="32" height="32"/>
