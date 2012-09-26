@@ -163,19 +163,19 @@ set_status=lb_necromancers_defeated
 [event]
 type=run_once
 location=0,0,20,40
-mapmod=collision,9,23,0
+mapmod=collision,9,23,0;object,9,23,113
 requires_status=lb_wind_unlocked
 
 [event]
 type=run_once
 location=0,0,20,40
-mapmod=collision,9,26,0
+mapmod=collision,9,26,0;object,9,26,113
 requires_status=lb_fire_unlocked
 
 [event]
 type=run_once
 location=0,0,20,40
-mapmod=collision,9,29,0
+mapmod=collision,9,29,0;object,9,29,113
 requires_status=lb_ice_unlocked
 
 [event]
