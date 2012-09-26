@@ -1,19 +1,19 @@
-[header]
-width=100
-height=100
-tilewidth=64
-tileheight=32
-music=cave_theme.ogg
-tileset=tileset_cave.txt
-title=Cave of Living Bones 1
-
-[tilesets]
-tileset=../../../tiled/cave/tiled_collision.png,64,32,0,0
-tileset=../../../tiled/cave/tiled_cave.png,64,128,0,0
-
-[layer]
-type=background
-data=
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
+<map version="1.0" orientation="isometric" width="100" height="100" tilewidth="64" tileheight="32">
+ <properties>
+  <property name="music" value="cave_theme.ogg"/>
+  <property name="tileset" value="tileset_cave.txt"/>
+  <property name="title" value="Cave of Living Bones 1"/>
+ </properties>
+ <tileset firstgid="1" name="tiled_collision.png" tilewidth="64" tileheight="32">
+  <image source="../cave/tiled_collision.png" width="960" height="32"/>
+ </tileset>
+ <tileset firstgid="16" name="tiled_cave.png" tilewidth="64" tileheight="128">
+  <image source="../cave/tiled_cave.png" width="1024" height="1920"/>
+ </tileset>
+ <layer name="background" width="100" height="100">
+  <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,16,21,24,26,16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -114,10 +114,10 @@ data=
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-
-[layer]
-type=object
-data=
+</data>
+ </layer>
+ <layer name="object" width="100" height="100">
+  <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,112,241,241,241,66,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -218,10 +218,10 @@ data=
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-
-[layer]
-type=collision
-data=
+</data>
+ </layer>
+ <layer name="collision" width="100" height="100">
+  <data encoding="csv">
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,0,0,0,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
@@ -322,202 +322,185 @@ data=
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
-
-[event]
-# to Ydrakka Pass
-type=teleport
-location=54,96,2,1
-intermap=ydrakka_pass.txt,213,31
-
-[event]
-# to Cave 2
-type=teleport
-location=32,2,3,1
-intermap=cave_of_living_bones2.txt,37,74
-
-[event]
-# Crate
-type=run_once
-location=69,66,1,1
-hotspot=location
-loot=random,69,67,5
-mapmod=object,69,66,179
-soundfx=soundfx/wood_open.ogg
-tooltip=Crate
-
-[event]
-# Crate
-type=run_once
-location=83,83,1,1
-hotspot=location
-loot=random,84,82,5
-mapmod=object,83,83,179
-soundfx=soundfx/wood_open.ogg
-tooltip=Crate
-
-[event]
-# Crate
-type=run_once
-location=88,76,1,1
-hotspot=location
-loot=random,87,76,5
-mapmod=object,88,76,179
-soundfx=soundfx/wood_open.ogg
-tooltip=Crate
-
-[event]
-# Crate
-type=run_once
-location=30,71,1,1
-hotspot=location
-loot=random,29,71,6
-mapmod=object,30,71,179
-soundfx=soundfx/wood_open.ogg
-tooltip=Crate
-
-[event]
-# Crate
-type=run_once
-location=33,37,1,1
-hotspot=location
-loot=random,34,37,6
-mapmod=object,33,37,179
-soundfx=soundfx/wood_open.ogg
-tooltip=Crate
-
-[event]
-# Crate
-type=run_once
-location=23,39,1,1
-hotspot=location
-loot=random,23,40,5
-mapmod=object,23,39,179
-soundfx=soundfx/wood_open.ogg
-tooltip=Crate
-
-[event]
-# Barrel
-type=run_once
-location=29,70,1,1
-hotspot=location
-loot=random,28,70,5
-mapmod=object,29,70,178
-soundfx=soundfx/wood_open.ogg
-tooltip=Barrel
-
-[event]
-# Barrel
-type=run_once
-location=68,65,1,1
-hotspot=location
-loot=random,67,65,5
-mapmod=object,68,65,178
-soundfx=soundfx/wood_open.ogg
-tooltip=Barrel
-
-[event]
-# Barrel
-type=run_once
-location=85,74,1,1
-hotspot=location
-loot=random,85,75,5
-mapmod=object,85,74,178
-soundfx=soundfx/wood_open.ogg
-tooltip=Barrel
-
-[event]
-# Barrel
-type=run_once
-location=83,84,1,1
-hotspot=location
-loot=random,84,83,5
-mapmod=object,83,84,178
-soundfx=soundfx/wood_open.ogg
-tooltip=Barrel
-
-[event]
-# Barrel
-type=run_once
-location=73,35,1,1
-hotspot=location
-loot=random,73,36,6
-mapmod=object,73,35,178
-soundfx=soundfx/wood_open.ogg
-tooltip=Barrel
-
-[event]
-# Treasure Chest
-type=run_once
-location=21,38,1,1
-hotspot=location
-loot=random,21,39,7
-mapmod=object,21,38,177
-soundfx=soundfx/wood_open.ogg
-tooltip=Treasure Chest
-
-[event]
-# Treasure Chest
-type=run_once
-location=29,53,1,1
-hotspot=location
-loot=random,29,54,7
-mapmod=object,29,53,177
-soundfx=soundfx/wood_open.ogg
-tooltip=Treasure Chest
-
-[enemygroup]
-# Antlions
-type=antlion
-location=18,36,8,9
-level=5,6
-number=3,4
-
-[enemygroup]
-# Antlions
-type=antlion
-location=22,67,8,9
-level=5,6
-number=3,4
-
-[enemygroup]
-# Antlion Hatchlings
-type=antlion_hatchling
-location=45,49,20,18
-level=3,6
-number=15,20
-
-[enemygroup]
-# Antlions
-type=antlion
-location=74,68,14,15
-level=5,6
-number=4,6
-
-[enemygroup]
-# Antlions
-type=antlion
-location=56,28,8,9
-level=5,6
-number=3,4
-
-[enemygroup]
-# Undead
-type=undead
-location=26,12,8,12
-level=7,8
-number=1,3
-
-[enemygroup]
-# Undead
-type=undead
-location=41,11,14,9
-level=7,8
-number=1,3
-
-[enemygroup]
-# Wandering monsters
-type=cave
-location=6,10,81,74
-level=5,8
-number=10,20
-
+</data>
+ </layer>
+ <objectgroup name="event" width="100" height="100">
+  <object name="to Ydrakka Pass" type="teleport" x="1728" y="3072" width="64" height="32">
+   <properties>
+    <property name="intermap" value="ydrakka_pass.txt,213,31"/>
+   </properties>
+  </object>
+  <object name="to Cave 2" type="teleport" x="1024" y="64" width="96" height="32">
+   <properties>
+    <property name="intermap" value="cave_of_living_bones2.txt,37,74"/>
+   </properties>
+  </object>
+  <object name="Crate" type="run_once" x="2208" y="2112" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="random,69,67,5"/>
+    <property name="mapmod" value="object,69,66,179"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Crate"/>
+   </properties>
+  </object>
+  <object name="Crate" type="run_once" x="2656" y="2656" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="random,84,82,5"/>
+    <property name="mapmod" value="object,83,83,179"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Crate"/>
+   </properties>
+  </object>
+  <object name="Crate" type="run_once" x="2816" y="2432" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="random,87,76,5"/>
+    <property name="mapmod" value="object,88,76,179"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Crate"/>
+   </properties>
+  </object>
+  <object name="Crate" type="run_once" x="960" y="2272" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="random,29,71,6"/>
+    <property name="mapmod" value="object,30,71,179"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Crate"/>
+   </properties>
+  </object>
+  <object name="Crate" type="run_once" x="1056" y="1184" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="random,34,37,6"/>
+    <property name="mapmod" value="object,33,37,179"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Crate"/>
+   </properties>
+  </object>
+  <object name="Crate" type="run_once" x="736" y="1248" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="random,23,40,5"/>
+    <property name="mapmod" value="object,23,39,179"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Crate"/>
+   </properties>
+  </object>
+  <object name="Barrel" type="run_once" x="928" y="2240" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="random,28,70,5"/>
+    <property name="mapmod" value="object,29,70,178"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Barrel"/>
+   </properties>
+  </object>
+  <object name="Barrel" type="run_once" x="2176" y="2080" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="random,67,65,5"/>
+    <property name="mapmod" value="object,68,65,178"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Barrel"/>
+   </properties>
+  </object>
+  <object name="Barrel" type="run_once" x="2720" y="2368" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="random,85,75,5"/>
+    <property name="mapmod" value="object,85,74,178"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Barrel"/>
+   </properties>
+  </object>
+  <object name="Barrel" type="run_once" x="2656" y="2688" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="random,84,83,5"/>
+    <property name="mapmod" value="object,83,84,178"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Barrel"/>
+   </properties>
+  </object>
+  <object name="Barrel" type="run_once" x="2336" y="1120" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="random,73,36,6"/>
+    <property name="mapmod" value="object,73,35,178"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Barrel"/>
+   </properties>
+  </object>
+  <object name="Treasure Chest" type="run_once" x="672" y="1216" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="random,21,39,7"/>
+    <property name="mapmod" value="object,21,38,177"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Treasure Chest"/>
+   </properties>
+  </object>
+  <object name="Treasure Chest" type="run_once" x="928" y="1696" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="random,29,54,7"/>
+    <property name="mapmod" value="object,29,53,177"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Treasure Chest"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="enemygroup" width="100" height="100">
+  <object name="Antlions" type="antlion" x="576" y="1152" width="256" height="288">
+   <properties>
+    <property name="level" value="5,6"/>
+    <property name="number" value="3,4"/>
+   </properties>
+  </object>
+  <object name="Antlions" type="antlion" x="704" y="2144" width="256" height="288">
+   <properties>
+    <property name="level" value="5,6"/>
+    <property name="number" value="3,4"/>
+   </properties>
+  </object>
+  <object name="Antlion Hatchlings" type="antlion_hatchling" x="1440" y="1568" width="640" height="576">
+   <properties>
+    <property name="level" value="3,6"/>
+    <property name="number" value="15,20"/>
+   </properties>
+  </object>
+  <object name="Antlions" type="antlion" x="2368" y="2176" width="448" height="480">
+   <properties>
+    <property name="level" value="5,6"/>
+    <property name="number" value="4,6"/>
+   </properties>
+  </object>
+  <object name="Antlions" type="antlion" x="1792" y="896" width="256" height="288">
+   <properties>
+    <property name="level" value="5,6"/>
+    <property name="number" value="3,4"/>
+   </properties>
+  </object>
+  <object name="Undead" type="undead" x="832" y="384" width="256" height="384">
+   <properties>
+    <property name="level" value="7,8"/>
+    <property name="number" value="1,3"/>
+   </properties>
+  </object>
+  <object name="Undead" type="undead" x="1312" y="352" width="448" height="288">
+   <properties>
+    <property name="level" value="7,8"/>
+    <property name="number" value="1,3"/>
+   </properties>
+  </object>
+  <object name="Wandering monsters" type="cave" x="192" y="320" width="2592" height="2368">
+   <properties>
+    <property name="level" value="5,8"/>
+    <property name="number" value="10,20"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>
