@@ -354,9 +354,18 @@ tooltip=Treasure Chest
 type=run_once
 location=3,43,1,1
 hotspot=location
-mapmod=collision,23,53,0
+mapmod=object,3,43,150;object,23,53,113;collision,23,53,0
 soundfx=soundfx/door_open.ogg
 tooltip=Switch
+
+[event]
+# hidden room book
+location=23,29,1,1
+hotspot=location
+mapmod=object,23,29,165
+soundfx=soundfx/inventory/inventory_page.ogg
+msg=The last entry of this well-preserved journal reads: "I feared it would come to this.  I knew the Warden's secrets but they would not be contained forever."
+tooltip=Book Stand
 
 [event]
 # hidden room chest
@@ -381,8 +390,26 @@ tooltip=Crate
 # trap tile that opens three cells
 type=run_once
 location=66,49,1,2
-mapmod=collision,69,48,0
+mapmod=object,63,48,113;object,66,48,113;object,69,48,113;collision,63,48,0;collision,66,48,0;collision,69,48,0
 soundfx=soundfx/door_open.ogg
+
+[event]
+# brazier sound effect
+location=9,82,6,5
+cooldown=120
+soundfx=soundfx/environment/open_fire.ogg
+
+[event]
+# brazier sound effect
+location=86,41,3,3
+cooldown=120
+soundfx=soundfx/environment/open_fire.ogg
+
+[event]
+# brazier sound effect
+location=91,41,3,3
+cooldown=120
+soundfx=soundfx/environment/open_fire.ogg
 
 [enemy]
 type=zombie_brute
