@@ -37,7 +37,7 @@ class WidgetButton;
 class WidgetScrollBox;
 class WidgetTabControl;
 
-const int MAX_LOG_MESSAGES = 32;
+const unsigned int MAX_LOG_MESSAGES = 32;
 
 const int LOG_TYPE_COUNT = 3;
 const int LOG_TYPE_QUESTS = 0;
