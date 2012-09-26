@@ -1,18 +1,23 @@
 [header]
-title=Averguard Academy
 width=70
 height=100
-tileset=tileset_dungeon.txt
-location=62,3,7
+tilewidth=64
+tileheight=32
 music=dungeon_theme.ogg
+tileset=tileset_dungeon.txt
+title=Averguard Academy
 
 [tilesets]
-tileset=../../../tiled/dungeon/tiled_collision.png,64,32
-tileset=../../../tiled/dungeon/tiled_dungeon.png,64,128
+tileset=../../../tiled/dungeon/tiled_collision.png,64,32,0,0
+tileset=../../../tiled/dungeon/tiled_dungeon.png,64,128,0,0
+tileset=../../../tiled/dungeon/set_rules.png,64,32,0,0
+tileset=../../../tiled/dungeon/tiled_dungeon_2x2.png,128,64,0,16
+tileset=../../../tiled/dungeon/door_left.png,64,128,-16,-8
+tileset=../../../tiled/dungeon/door_right.png,64,128,16,-8
+tileset=../../../tiled/dungeon/stairs.png,256,256,0,48
 
 [layer]
 type=background
-format=dec
 data=
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -117,11 +122,10 @@ data=
 
 [layer]
 type=object
-format=dec
 data=
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,77,73,244,245,74,78,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,77,73,282,283,74,78,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,64,0,0,0,0,70,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,68,0,0,0,0,82,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,68,0,0,0,0,82,0,0,0,0,
@@ -144,7 +148,7 @@ data=
 0,0,0,0,0,0,0,0,0,0,0,0,0,68,0,0,0,0,0,0,0,0,0,0,0,149,0,0,149,0,0,149,0,0,0,0,0,0,0,82,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,68,0,0,0,0,82,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,68,0,0,0,0,75,72,0,0,75,72,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,82,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,64,0,0,0,0,82,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,64,0,0,0,0,66,100,0,0,66,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,82,0,0,0,0,0,0,0,0,77,103,105,65,103,78,0,0,0,0,0,0,68,0,0,0,0,82,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,98,136,0,0,0,66,100,0,0,66,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,90,81,65,65,65,65,65,69,65,73,0,0,0,0,90,65,65,69,65,65,65,73,0,0,0,0,90,81,78,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,98,136,0,0,0,66,100,0,0,66,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,90,81,65,65,65,65,65,69,65,73,0,0,0,0,74,65,65,69,65,65,65,73,0,0,0,0,90,81,78,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,64,0,0,0,0,66,100,0,0,66,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,137,0,0,0,0,0,0,0,0,0,0,0,0,137,0,0,0,0,0,0,0,0,0,70,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,100,0,0,0,0,66,100,0,0,66,100,0,0,75,67,67,67,67,67,67,72,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,82,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,100,0,0,0,0,66,100,0,0,74,73,0,0,74,101,101,101,101,101,101,73,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,82,0,0,
@@ -220,10 +224,8 @@ data=
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 
-
 [layer]
 type=collision
-format=dec
 data=
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
@@ -333,116 +335,120 @@ intermap=averguard_atrium.txt,9,57
 
 [event]
 # bookstand
+type=run_once
 location=31,22,1,1
 hotspot=location
-tooltip=Book Stand
 mapmod=object,31,22,165
-soundfx=soundfx/inventory/inventory_page.ogg
 msg="Some say the Averguard Academy is the greatest collection of knowledge within the empire."
-
-[event]
-# bookstand
-location=28,22,1,1
-hotspot=location
-tooltip=Book Stand
-mapmod=object,28,22,165
 soundfx=soundfx/inventory/inventory_page.ogg
-msg="Professor Langlier is High Sage of the Averguard.  Several volumes kept here are his own writings."
-
-[event]
-# bookstand
-location=25,22,1,1
-hotspot=location
 tooltip=Book Stand
-mapmod=object,25,22,165
-soundfx=soundfx/inventory/inventory_page.ogg
-msg="The Academy is only open to oathkeeping members of the Averguard.  Few others know of its existence."
-
-[event]
-# bookstand
-location=22,31,1,1
-hotspot=location
-tooltip=Book Stand
-mapmod=object,22,31,164
-soundfx=soundfx/inventory/inventory_page.ogg
-msg="The peasants could not be trusted with literacy.  Most gave up their books without incident."
 
 [event]
 # bookstand
 type=run_once
-location=20,75,2,1
+location=28,22,1,1
 hotspot=location
-tooltip=Book Stand
-mapmod=object,20,75,164
+mapmod=object,28,22,165
+msg="Professor Langlier is High Sage of the Averguard.  Several volumes kept here are his own writings."
 soundfx=soundfx/inventory/inventory_page.ogg
-msg=This false book has a secret compartment.
+tooltip=Book Stand
+
+[event]
+# bookstand
+type=run_once
+location=25,22,1,1
+hotspot=location
+mapmod=object,25,22,165
+msg="The Academy is only open to oathkeeping members of the Averguard.  Few others know of its existence."
+soundfx=soundfx/inventory/inventory_page.ogg
+tooltip=Book Stand
+
+[event]
+# bookstand
+type=run_once
+location=22,31,1,1
+hotspot=location
+mapmod=object,22,31,164
+msg="The peasants could not be trusted with literacy.  Most gave up their books without incident."
+soundfx=soundfx/inventory/inventory_page.ogg
+tooltip=Book Stand
+
+[event]
+# bookstand
+type=run_once
+location=20,75,1,1
+hotspot=location
 loot=id,21,75,2
+mapmod=object,20,75,164
+msg=This false book has a secret compartment.
+soundfx=soundfx/inventory/inventory_page.ogg
+tooltip=Book Stand
 
 [event]
 # barrel
 type=run_once
-tooltip=Barrel
 location=10,49,1,1
 hotspot=location
 mapmod=object,10,49,162
 soundfx=soundfx/wood_open.ogg
+tooltip=Barrel
 
 [event]
 # barrel
 type=run_once
-tooltip=Barrel
 location=10,48,1,1
 hotspot=location
+loot=random,11,48,1
 mapmod=object,10,48,162
 soundfx=soundfx/wood_open.ogg
-loot=random,11,48,1
+tooltip=Barrel
 
 [event]
 # barrel
 type=run_once
-tooltip=Barrel
 location=10,47,1,1
 hotspot=location
 mapmod=object,10,47,162
 soundfx=soundfx/wood_open.ogg
+tooltip=Barrel
 
 [event]
 # barrel
 type=run_once
-tooltip=Barrel
 location=12,49,1,1
 hotspot=location
 mapmod=object,12,49,162
 soundfx=soundfx/wood_open.ogg
+tooltip=Barrel
 
 [event]
 # crate
 type=run_once
-tooltip=Crate
 location=11,46,1,1
 hotspot=location
+loot=random,12,46,1
 mapmod=object,11,46,163
 soundfx=soundfx/wood_open.ogg
-loot=random,12,46,1
+tooltip=Crate
 
 [event]
 # crate
 type=run_once
-tooltip=Crate
 location=13,49,1,1
 hotspot=location
 mapmod=object,13,49,163
 soundfx=soundfx/wood_open.ogg
+tooltip=Crate
 
 [event]
 # crate
 type=run_once
-tooltip=Crate
 location=15,49,1,1
 hotspot=location
+loot=random,14,48,1
 mapmod=object,15,49,163
 soundfx=soundfx/wood_open.ogg
-loot=random,14,48,1
+tooltip=Crate
 
 [event]
 # boss tomb
@@ -455,45 +461,45 @@ msg=This tomb glows with magical runes.
 type=run_once
 location=4,90,1,2
 hotspot=location
-tooltip=Langlier's Tomb
-loot=random,5,90,5
 loot=random,5,91,6
+tooltip=Langlier's Tomb
 
 [event]
 # teleport chest
 type=run_once
-tooltip=Treasure Chest
 location=45,97,1,1
 hotspot=location
-mapmod=object,45,97,161
 loot=random,45,98,7
+mapmod=object,45,97,161
+tooltip=Treasure Chest
 
 [enemy]
 # entrance guards
 type=skeletal_mage
-location=60,14
+location=60,14,1,1
 direction=3
 
 [enemy]
 type=skeletal_mage
-location=65,14
+location=65,14,1,1
 direction=3
 
 [enemy]
 type=zombie_rotting
-location=50,25
+location=50,25,1,1
+
 [enemy]
 type=zombie
-location=50,30
+location=50,30,1,1
 
 [enemy]
 # guards teleport chest
 type=zombie
-location=45,85
+location=45,85,1,1
 
 [enemy]
 type=professor_langlier
-location=5,91
+location=5,91,1,1
 direction=1
 
 [enemygroup]
@@ -505,26 +511,26 @@ number=1,3
 [enemygroup]
 # foyer
 type=undead
+location=34,26,9,14
 level=4,6
 number=2,3
-location=34,26,9,14
 
 [enemygroup]
 # north book location
-location=15,22,18,18
 type=zombie
+location=15,22,18,18
 level=3,5
 number=3,4
 
 [enemygroup]
-location=15,22,18,18
 type=zombie
+location=15,22,18,18
 level=3,5
 number=2,2
 
 [enemygroup]
-location=15,22,18,18
 type=undead
+location=15,22,18,18
 level=3,5
 number=1,2
 
@@ -564,8 +570,6 @@ number=2,4
 # langlier's location
 type=antlion
 location=10,67,17,26
-number=3,5
 level=3,5
-
-
+number=3,5
 

@@ -443,7 +443,7 @@
     <property name="tooltip" value="Switch"/>
    </properties>
   </object>
-  <object name="fire statue trap" x="192" y="1632" width="608" height="448">
+  <object name="fire statue trap" type="run_always" x="192" y="1632" width="608" height="448">
    <properties>
     <property name="cooldown" value="30"/>
     <property name="power" value="31"/>
@@ -476,7 +476,7 @@
   </object>
   <object type="run_once" x="544" y="2912" width="32" height="32">
    <properties>
-    <property name="hotspot" value="location"/>
+    <property name="hotspot" value="15,88,1,1"/>
     <property name="mapmod" value="object,15,88,113;collision,15,88,0"/>
     <property name="requires_status" value="ak_talisman_used"/>
     <property name="soundfx" value="soundfx/door_open.ogg"/>
