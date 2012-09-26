@@ -1,18 +1,24 @@
 [header]
-title=Averguard Complex
 width=101
 height=120
+tilewidth=64
+tileheight=32
+music=dungeon_theme.ogg
 tileset=tileset_dungeon.txt
 location=98,70,1
-music=dungeon_theme.ogg
+title=Averguard Complex
 
 [tilesets]
-tileset=../../../tiled/dungeon/tiled_collision.png,64,32
-tileset=../../../tiled/dungeon/tiled_dungeon.png,64,128
+tileset=../../../tiled/dungeon/tiled_collision.png,64,32,0,0
+tileset=../../../tiled/dungeon/tiled_dungeon.png,64,128,0,0
+tileset=../../../tiled/dungeon/set_rules.png,64,32,0,0
+tileset=../../../tiled/dungeon/tiled_dungeon_2x2.png,128,64,0,16
+tileset=../../../tiled/dungeon/door_left.png,64,128,-16,-8
+tileset=../../../tiled/dungeon/door_right.png,64,128,16,-8
+tileset=../../../tiled/dungeon/stairs.png,256,256,0,48
 
 [layer]
 type=background
-format=dec
 data=
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -135,10 +141,8 @@ data=
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,33,34,32,33,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 
-
 [layer]
 type=object
-format=dec
 data=
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -263,7 +267,6 @@ data=
 
 [layer]
 type=collision
-format=dec
 data=
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
@@ -396,197 +399,197 @@ intermap=averguard_atrium.txt,2,52
 type=run_once
 location=85,74,1,1
 hotspot=location
-tooltip=Crate
+loot=random,86,74,2
 mapmod=object,85,74,163
 soundfx=soundfx/wood_open.ogg
-loot=random,86,74,2
+tooltip=Crate
 
 [event]
 # zombie barrels
 type=run_once
 location=74,63,1,1
 hotspot=location
-tooltip=Barrel
+loot=random,74,64,2
 mapmod=object,74,63,162
 soundfx=soundfx/wood_open.ogg
-loot=random,74,64,2
+tooltip=Barrel
 
 [event]
 type=run_once
 location=73,62,1,1
 hotspot=location
-tooltip=Barrel
+loot=random,72,62,2
 mapmod=object,73,62,162
 soundfx=soundfx/wood_open.ogg
-loot=random,72,62,2
+tooltip=Barrel
 
 [event]
 type=run_once
 location=74,62,1,1
 hotspot=location
-tooltip=Barrel
+loot=random,74,61,2
 mapmod=object,74,62,162
 soundfx=soundfx/wood_open.ogg
-loot=random,74,61,2
+tooltip=Barrel
 
 [event]
 # goblin firepit barrel/crate
 type=run_once
 location=72,96,1,1
 hotspot=location
-tooltip=Barrel
+loot=random,73,96,2
 mapmod=object,72,96,162
 soundfx=soundfx/wood_open.ogg
-loot=random,73,96,2
+tooltip=Barrel
 
 [event]
 type=run_once
 location=72,97,1,1
 hotspot=location
-tooltip=Crate
+loot=random,73,97,2
 mapmod=object,72,97,163
 soundfx=soundfx/wood_open.ogg
-loot=random,73,97,2
+tooltip=Crate
 
 [event]
 # secret room crate
 type=run_once
 location=73,110,1,1
 hotspot=location
-tooltip=Crate
+loot=random,72,109,5
 mapmod=object,73,110,163
 soundfx=soundfx/wood_open.ogg
-loot=random,72,109,5
+tooltip=Crate
 
 [event]
 # conference room book
 location=50,90,1,1
 hotspot=location
-tooltip=Book Stand
 mapmod=object,50,90,164
-soundfx=soundfx/inventory/inventory_page.ogg
 msg=This book is entitled "Training Your Antlion". Chapter 1 is "How Not To Get Eaten". The rest of the book is unfinished.
+soundfx=soundfx/inventory/inventory_page.ogg
+tooltip=Book Stand
 
 [event]
 # barracks chests
 type=run_once
 location=41,59,1,1
 hotspot=location
-tooltip=Treasure Chest
+loot=random,42,59,3
 mapmod=object,41,59,160
 soundfx=soundfx/wood_open.ogg
-loot=random,42,59,3
+tooltip=Treasure Chest
 
 [event]
 type=run_once
 location=41,57,1,1
 hotspot=location
-tooltip=Treasure Chest
+loot=random,42,57,4
 mapmod=object,41,57,160
 soundfx=soundfx/wood_open.ogg
-loot=random,42,57,4
+tooltip=Treasure Chest
 
 [event]
 type=run_once
 location=41,55,1,1
 hotspot=location
-tooltip=Treasure Chest
+loot=random,42,55,5
 mapmod=object,41,55,160
 soundfx=soundfx/wood_open.ogg
-loot=random,42,55,5
+tooltip=Treasure Chest
 
 [event]
 type=run_once
 location=41,53,1,1
 hotspot=location
-tooltip=Treasure Chest
+loot=random,42,53,4
 mapmod=object,41,53,160
 soundfx=soundfx/wood_open.ogg
-loot=random,42,53,4
+tooltip=Treasure Chest
 
 [event]
 type=run_once
 location=41,51,1,1
 hotspot=location
-tooltip=Treasure Chest
+loot=random,42,51,3
 mapmod=object,41,51,160
 soundfx=soundfx/wood_open.ogg
-loot=random,42,51,3
+tooltip=Treasure Chest
 
 [event]
 # large room storage
 type=run_once
 location=50,28,1,1
 hotspot=location
-tooltip=Barrel
+loot=random,51,28,3
 mapmod=object,50,28,162
 soundfx=soundfx/wood_open.ogg
-loot=random,51,28,3
+tooltip=Barrel
 
 [event]
 type=run_once
 location=50,29,1,1
 hotspot=location
-tooltip=Crate
+loot=random,51,29,3
 mapmod=object,50,29,163
 soundfx=soundfx/wood_open.ogg
-loot=random,51,29,3
+tooltip=Crate
 
 [event]
 type=run_once
 location=55,28,1,1
 hotspot=location
-tooltip=Crate
+loot=random,54,28,3
 mapmod=object,55,28,163
 soundfx=soundfx/wood_open.ogg
-loot=random,54,28,3
+tooltip=Crate
 
 [event]
 type=run_once
 location=55,29,1,1
 hotspot=location
-tooltip=Barrel
+loot=random,54,29,3
 mapmod=object,55,29,162
 soundfx=soundfx/wood_open.ogg
-loot=random,54,29,3
+tooltip=Barrel
 
 [event]
 # kill room chest
 type=run_once
 location=9,20,1,1
 hotspot=location
-tooltip=Treasure Chest
+loot=random,10,20,7;random,9,21,7
 mapmod=object,9,20,160
 soundfx=soundfx/wood_open.ogg
-loot=random,10,20,7;random,9,21,7
+tooltip=Treasure Chest
 
 [event]
 # kill room chest
 type=run_once
 location=9,29,1,1
 hotspot=location
-tooltip=Treasure Chest
+loot=random,10,29,6;random,9,28,8
 mapmod=object,9,29,160
 soundfx=soundfx/wood_open.ogg
-loot=random,10,29,6;random,9,28,8
+tooltip=Treasure Chest
 
-# kill room switches
 [event]
+# kill room switches
 type=run_once
 location=12,24,1,2
 hotspot=location
-tooltip=Switch System
-soundfx=soundfx/door_open.ogg
 mapmod=object,12,24,166;object,12,25,150;object,11,22,0;object,12,22,0;object,13,22,0;object,14,22,0;object,15,22,0;object,16,22,0;object,17,22,0;object,18,22,0;object,19,22,0;object,20,22,0;object,21,22,0;object,22,22,0;object,23,22,0;object,24,22,0;object,11,23,0;object,11,24,0;object,11,25,0;object,11,26,0;object,11,27,0;object,12,27,0;object,13,27,0;object,14,27,0;object,15,27,0;object,16,27,0;object,17,27,0;object,18,27,0;object,19,27,0;object,20,27,0;object,21,27,0;object,22,27,0;object,23,27,0;object,24,27,0;collision,11,22,0;collision,12,22,0;collision,13,22,0;collision,14,22,0;collision,15,22,0;collision,16,22,0;collision,17,22,0;collision,18,22,0;collision,19,22,0;collision,20,22,0;collision,21,22,0;collision,22,22,0;collision,23,22,0;collision,24,22,0;collision,11,23,0;collision,11,24,0;collision,11,25,0;collision,11,26,0;collision,11,27,0;collision,12,27,0;collision,13,27,0;collision,14,27,0;collision,15,27,0;collision,16,27,0;collision,17,27,0;collision,18,27,0;collision,19,27,0;collision,20,27,0;collision,21,27,0;collision,22,27,0;collision,23,27,0;collision,24,27,0
+soundfx=soundfx/door_open.ogg
+tooltip=Switch System
 
 [event]
-#brazier sound effect
+# brazier sound effect
 location=56,17,7,6
 cooldown=120
 soundfx=soundfx/environment/open_fire.ogg
 
 [event]
-#brazier sound effect
+# brazier sound effect
 location=44,17,7,6
 cooldown=120
 soundfx=soundfx/environment/open_fire.ogg
@@ -601,6 +604,7 @@ soundfx=soundfx/environment/open_fire.ogg
 type=skeletal_sniper
 location=85,69
 direction=5
+
 [enemy]
 type=skeletal_sniper
 location=85,72
@@ -609,12 +613,15 @@ direction=5
 [enemy]
 type=zombie_bloodthirsty
 location=71,62
+
 [enemy]
 type=zombie_bloodthirsty
 location=73,63
+
 [enemy]
 type=zombie_bloodthirsty
 location=73,72
+
 [enemy]
 type=zombie_bloodthirsty
 location=68,69
@@ -622,9 +629,11 @@ location=68,69
 [enemy]
 type=skeletal_archer
 location=69,81
+
 [enemy]
 type=skeletal_archer
 location=70,84
+
 [enemy]
 type=skeletal_mage
 location=73,83
@@ -633,14 +642,17 @@ location=73,83
 type=goblin_charger_elite
 location=74,94
 direction=5
+
 [enemy]
 type=goblin_charger_elite
 location=76,94
 direction=1
+
 [enemy]
 type=goblin_spearman_elite
 location=75,93
 direction=7
+
 [enemy]
 type=goblin_spearman_elite
 location=75,95
@@ -649,12 +661,15 @@ direction=3
 [enemy]
 type=skeletal_warrior
 location=66,92
+
 [enemy]
 type=skeletal_sniper
 location=61,87
+
 [enemy]
 type=zombie_iceclaw
 location=61,89
+
 [enemy]
 type=zombie_iceclaw
 location=62,91
@@ -663,24 +678,31 @@ location=62,91
 type=skeletal_warrior
 location=51,90
 direction=1
+
 [enemy]
 type=zombie_brute
 location=46,87
+
 [enemy]
 type=zombie_brute
 location=46,94
+
 [enemy]
 type=antlion
 location=49,89
+
 [enemy]
 type=antlion
 location=48,89
+
 [enemy]
 type=antlion
 location=48,90
+
 [enemy]
 type=antlion
 location=48,91
+
 [enemy]
 type=antlion
 location=49,91
@@ -688,18 +710,23 @@ location=49,91
 [enemy]
 type=zombie_brute
 location=42,110
+
 [enemy]
 type=zombie_iceclaw
 location=47,115
+
 [enemy]
 type=zombie_bloodthirsty
 location=52,110
+
 [enemy]
 type=skeletal_warrior
 location=47,112
+
 [enemy]
 type=antlion
 location=48,118
+
 [enemy]
 type=antlion
 location=39,109
@@ -708,6 +735,7 @@ location=39,109
 type=skeletal_warrior
 location=56,80
 direction=7
+
 [enemy]
 type=skeletal_warrior
 location=55,73
@@ -717,34 +745,42 @@ direction=3
 type=skeletal_warrior
 location=39,76
 direction=1
+
 [enemy]
 type=skeleton
 location=36,75
 direction=5
+
 [enemy]
 type=skeleton
 location=36,76
 direction=5
+
 [enemy]
 type=skeleton
 location=36,77
 direction=5
+
 [enemy]
 type=skeleton
 location=36,78
 direction=5
+
 [enemy]
 type=skeleton
 location=37,75
 direction=5
+
 [enemy]
 type=skeleton
 location=37,76
 direction=5
+
 [enemy]
 type=skeleton
 location=37,77
 direction=5
+
 [enemy]
 type=skeleton
 location=37,78
@@ -754,6 +790,7 @@ direction=5
 type=skeletal_warrior
 location=42,69
 direction=7
+
 [enemy]
 type=skeletal_warrior
 location=45,69
@@ -762,15 +799,19 @@ direction=7
 [enemy]
 type=skeletal_warrior
 location=40,60
+
 [enemy]
 type=skeletal_sniper
 location=42,53
+
 [enemy]
 type=skeletal_warrior
 location=44,54
+
 [enemy]
 type=skeletal_mage
 location=44,56
+
 [enemy]
 type=skeletal_warrior
 location=42,49
@@ -778,30 +819,39 @@ location=42,49
 [enemy]
 type=zombie_brute
 location=72,42
+
 [enemy]
 type=zombie_brute
 location=68,47
+
 [enemy]
 type=zombie_brute
 location=64,43
+
 [enemy]
 type=zombie_iceclaw
 location=58,41
+
 [enemy]
 type=zombie_iceclaw
 location=56,47
+
 [enemy]
 type=zombie_iceclaw
 location=64,48
+
 [enemy]
 type=zombie_bloodthirsty
 location=57,44
+
 [enemy]
 type=zombie_bloodthirsty
 location=54,42
+
 [enemy]
 type=zombie_bloodthirsty
 location=74,44
+
 [enemy]
 type=zombie_bloodthirsty
 location=67,41
@@ -809,18 +859,23 @@ location=67,41
 [enemy]
 type=skeletal_sniper
 location=55,63
+
 [enemy]
 type=antlion
 location=55,62
+
 [enemy]
 type=antlion
 location=56,63
+
 [enemy]
 type=skeletal_sniper
 location=59,54
+
 [enemy]
 type=antlion
 location=59,53
+
 [enemy]
 type=antlion
 location=59,55
@@ -828,6 +883,7 @@ location=59,55
 [enemy]
 type=antlion_blinker
 location=43,35
+
 [enemy]
 type=antlion_blinker
 location=44,36
@@ -835,9 +891,11 @@ location=44,36
 [enemy]
 type=antlion
 location=69,23
+
 [enemy]
 type=antlion
 location=70,26
+
 [enemy]
 type=antlion
 location=72,24
@@ -845,6 +903,7 @@ location=72,24
 [enemy]
 type=skeletal_warrior
 location=51,28
+
 [enemy]
 type=skeletal_warrior
 location=54,29
@@ -853,14 +912,17 @@ location=54,29
 type=skeletal_mage
 location=58,18
 direction=6
+
 [enemy]
 type=skeletal_warrior
 location=61,18
 direction=0
+
 [enemy]
 type=antlion
 location=61,21
 direction=2
+
 [enemy]
 type=skeletal_sniper
 location=58,21
@@ -870,14 +932,17 @@ direction=4
 type=skeletal_mage
 location=46,18
 direction=6
+
 [enemy]
 type=skeletal_warrior
 location=49,18
 direction=0
+
 [enemy]
 type=antlion
 location=46,21
 direction=2
+
 [enemy]
 type=skeletal_sniper
 location=49,21
@@ -888,14 +953,17 @@ direction=4
 type=antlion
 location=11,20
 direction=7
+
 [enemy]
 type=zombie_bloodthirsty
 location=13,20
 direction=7
+
 [enemy]
 type=antlion
 location=15,20
 direction=7
+
 [enemy]
 type=zombie_bloodthirsty
 location=17,20
@@ -905,14 +973,17 @@ direction=7
 type=antlion
 location=11,29
 direction=3
+
 [enemy]
 type=zombie_iceclaw
 location=13,29
 direction=3
+
 [enemy]
 type=antlion
 location=15,29
 direction=3
+
 [enemy]
 type=zombie_iceclaw
 location=17,29
@@ -922,6 +993,7 @@ direction=3
 type=skeletal_occultist
 location=9,23
 direction=5
+
 [enemy]
 type=skeletal_sniper
 location=9,26
