@@ -426,7 +426,7 @@ void MenuPowers::render() {
 
 		ss.str("");
 		if (points_left !=0) {
-			ss << "Unspent skill points:" << " " << points_left;
+			ss << msg->get("Unspent skill points:") << " " << points_left;
 		}
 		stat_up.set(ss.str());
 		stat_up.render();
