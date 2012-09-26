@@ -456,7 +456,7 @@ tooltip=Sealed Temple Door
 # the first time you use the talisman
 type=run_once
 location=13,89,1,1
-hotspot=location
+hotspot=15,88,1,1
 msg=You read aloud the runes on Langlier's Talisman. The Avergard Key begins to glow!
 requires_not=ak_talisman_used
 requires_status=ak_maddox_search
@@ -468,7 +468,7 @@ tooltip=Activate Talisman
 [event]
 type=run_once
 location=17,91,1,1
-hotspot=location
+hotspot=15,88,1,1
 mapmod=object,15,88,113;collision,15,88,0
 requires_status=ak_talisman_used
 soundfx=soundfx/door_open.ogg

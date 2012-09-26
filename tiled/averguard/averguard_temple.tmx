@@ -466,7 +466,7 @@
   </object>
   <object name="the first time you use the talisman" type="run_once" x="416" y="2848" width="32" height="32">
    <properties>
-    <property name="hotspot" value="location"/>
+    <property name="hotspot" value="15,88,1,1"/>
     <property name="msg" value="You read aloud the runes on Langlier's Talisman. The Avergard Key begins to glow!"/>
     <property name="requires_not" value="ak_talisman_used"/>
     <property name="requires_status" value="ak_maddox_search"/>
@@ -478,7 +478,7 @@
   </object>
   <object type="run_once" x="544" y="2912" width="32" height="32">
    <properties>
-    <property name="hotspot" value="location"/>
+    <property name="hotspot" value="15,88,1,1"/>
     <property name="mapmod" value="object,15,88,113;collision,15,88,0"/>
     <property name="requires_status" value="ak_talisman_used"/>
     <property name="soundfx" value="soundfx/door_open.ogg"/>
