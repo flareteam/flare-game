@@ -761,7 +761,7 @@ void GameStateConfig::logic ()
 		}
 	}
 
-	if (resolution_confirm->visible) {
+	if (resolution_confirm->visible || resolution_confirm->cancelClicked) {
 		resolution_confirm->logic();
 		resolution_confirm_ticks--;
 		if (resolution_confirm->confirmClicked) {
