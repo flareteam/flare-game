@@ -200,10 +200,12 @@ TooltipData MenuInventory::checkTooltip(Point mouse) {
 	int slot;
 	TooltipData tip;
 
-	area = areaOver( mouse);
+	area = areaOver(mouse);
+	if (area == -1)
+		return tip;
 	slot = inventory[area].slotOver(mouse);
 
-	if (area > -1 && inventory[area][slot].item > 0) {
+	if (inventory[area][slot].item > 0) {
 		tip = inventory[area].checkTooltip( mouse, stats, false);
 	}
 	else if (area == EQUIPMENT && inventory[area][slot].item == 0) {
@@ -254,15 +256,17 @@ void MenuInventory::itemReturn( ItemStack stack) {
  * and equip items
  */
 void MenuInventory::drop(Point mouse, ItemStack stack) {
-	int area;
-	int slot;
-	int drag_prev_slot;
-
 	items->playSound(stack.item);
 
-	area = areaOver( mouse);
-	slot = inventory[area].slotOver(mouse);
-	drag_prev_slot = inventory[drag_prev_src].drag_prev_slot;
+	int area = areaOver(mouse);
+	if (area == -1) {
+		// not dropped into a slot. Just return it to the previous slot.
+		itemReturn(stack);
+		return;
+	}
+
+	int slot = inventory[area].slotOver(mouse);
+	int drag_prev_slot = inventory[drag_prev_src].drag_prev_slot;
 
 	if (area == EQUIPMENT) { // dropped onto equipped item
 
@@ -338,9 +342,6 @@ void MenuInventory::drop(Point mouse, ItemStack stack) {
 				itemReturn( stack); // cancel
 			}
 		}
-	}
-	else {
-		itemReturn( stack); // not dropped into a slot. Just return it to the previous slot.
 	}
 
 	drag_prev_src = -1;
