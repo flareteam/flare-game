@@ -221,7 +221,6 @@ void StatBlock::load(const string& filename) {
 			if (infile.val == "true") humanoid = true;
 		}
 		else if (infile.key == "sfx_prefix") sfx_prefix = infile.val;
-		else if (infile.key == "gfx_prefix") gfx_prefix = infile.val;
 
 		else if (infile.key == "level") level = num;
 

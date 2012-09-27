@@ -31,12 +31,13 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <iostream>
 using namespace std;
 
-Animation::Animation(std::string _name, std::string _type)
+Animation::Animation(const std::string &_name, const std::string &_type, SDL_Surface *_sprite)
 	: name(_name)
 	, type(	_type == "play_once" ? PLAY_ONCE :
 			_type == "back_forth" ? BACK_FORTH :
 			_type == "looped" ? LOOPED :
 			NONE)
+	, sprite(_sprite)
 	, number_frames(0)
 	, cur_frame(0)
 	, cur_frame_index(0)
@@ -54,6 +55,7 @@ Animation::Animation(std::string _name, std::string _type)
 Animation::Animation(const Animation& a)
 	: name(a.name)
 	, type(a.type)
+	, sprite(a.sprite)
 	, number_frames(a.number_frames)
 	, cur_frame(0)
 	, cur_frame_index(a.cur_frame_index)
@@ -199,7 +201,7 @@ Renderable Animation::getCurrentFrame(int direction) {
 	r.src.h = gfx[index].h;
 	r.offset.x = render_offset[index].x;
 	r.offset.y = render_offset[index].y;
-
+	r.sprite = sprite;
 	return r;
 }
 

@@ -162,8 +162,14 @@ void Avatar::loadGraphics(std::vector<Layer_gfx> _img_gfx) {
 	// Check if we really need to change the graphics
 	bool change_graphics = false;
 
-	animsets.resize(_img_gfx.size());
-	anims.resize(_img_gfx.size());
+	if (_img_gfx.size() != animsets.size()) {
+		for (unsigned int i=0; i<animsets.size(); i++) {
+			delete anims[i];
+		}
+		animsets.resize(_img_gfx.size());
+		anims.resize(_img_gfx.size());
+		change_graphics = true;
+	}
 
 	unsigned end = _img_gfx.size();
 	for (unsigned i=0; i<end; i++) {
@@ -176,16 +182,15 @@ void Avatar::loadGraphics(std::vector<Layer_gfx> _img_gfx) {
 		return;
 
 	for (unsigned int i=0; i<_img_gfx.size(); i++) {
+		delete anims[i];
 		if (_img_gfx[i].gfx == "") {
 			animsets[i] = 0;
 			anims[i] = 0;
 		} else {
 			animsets[i] = AnimationManager::instance()->getAnimationSet("avatar/"+stats.base+"/"+_img_gfx[i].gfx+".txt") ;
-			animsets[i]->sprites = IMG_Load(mods->locate("images/avatar/"+stats.base+"/"+_img_gfx[i].gfx+".png").c_str());
 			anims[i] = animsets[i]->getAnimation(animsets[i]->starting_animation);
 		}
 	}
-
 }
 
 void Avatar::loadSounds() {
@@ -802,17 +807,17 @@ void Avatar::transform() {
 	charmed_stats->load("enemies/" + stats.transform_type + ".txt");
 
 	// transform the hero graphic
-	if (last_transform != charmed_stats->gfx_prefix) {
+	if (last_transform != charmed_stats->name) {
 		if (transformed_sprites) SDL_FreeSurface(transformed_sprites);
 
-		transformed_sprites = IMG_Load(mods->locate("images/enemies/" + charmed_stats->gfx_prefix + ".png").c_str());
+		//transformed_sprites = IMG_Load(mods->locate("images/enemies/" + charmed_stats->gfx_prefix + ".png").c_str());
 
 		if(!transformed_sprites) {
 			fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 			SDL_Quit();
 			exit(1);
 		}
-		last_transform = charmed_stats->gfx_prefix;
+		last_transform = charmed_stats->name;
 	}
 
 	SDL_SetColorKey( transformed_sprites, SDL_SRCCOLORKEY, SDL_MapRGB(transformed_sprites->format, 255, 0, 255) );
@@ -935,8 +940,10 @@ void Avatar::setAnimation(std::string name) {
 
 	Entity::setAnimation(name);
 	for (unsigned i=0; i < animsets.size(); i++)
-		if (animsets[i] != NULL)
+		if (animsets[i] != NULL) {
+			delete anims[i];
 			anims[i] = animsets[i]->getAnimation(name);
+		}
 }
 
 /**
@@ -966,6 +973,11 @@ Avatar::~Avatar() {
 
 	SDL_FreeSurface(sprites);
 	if (transformed_sprites) SDL_FreeSurface(transformed_sprites);
+
+	for (unsigned int i=0; i<animsets.size(); i++) {
+		delete animsets[i];
+		delete anims[i];
+	}
 
 	Mix_FreeChunk(sound_melee);
 	Mix_FreeChunk(sound_hit);

@@ -46,8 +46,9 @@ enum animation_type {
 
 class Animation {
 protected:
-	std::string name;
-	animation_type type;
+	const std::string name;
+	const animation_type type;
+	SDL_Surface *sprite;
 
 	unsigned short number_frames; // how many ticks this animation lasts.
 	unsigned short cur_frame;     // counts up until reaching number_frames.
@@ -70,7 +71,7 @@ protected:
 	std::vector<short> duration; //duration of each individual image
 
 public:
-	Animation(std::string _name, std::string _type);
+	Animation(const std::string &_name, const std::string &_type, SDL_Surface *_sprite);
 
 	// returns a copy of this:
 	Animation(const Animation&);

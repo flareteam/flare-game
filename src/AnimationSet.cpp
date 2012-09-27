@@ -37,15 +37,16 @@ Animation *AnimationSet::getAnimation(const std::string &_name)
     return 0;
 }
 
-AnimationSet::AnimationSet(const string &filename)
- : name(filename)
+AnimationSet::AnimationSet(const std::string &animationname)
+ : name(animationname)
  , starting_animation("")
  , animations(vector<Animation*>())
+ , sprites(0)
 {
 	FileParser parser;
 
-	if (!parser.open(mods->locate(filename).c_str())) {
-		cout << "Error loading animation definition file: " << filename << endl;
+	if (!parser.open(mods->locate(animationname).c_str())) {
+		cout << "Error loading animation definition file: " << animationname << endl;
 		SDL_Quit();
 		exit(1);
 	}
@@ -68,15 +69,28 @@ AnimationSet::AnimationSet(const string &filename)
 		// create the animation if finished parsing a section
 		if (parser.new_section) {
 			if (!first_section && !compressed_loading) {
-				Animation *a = new Animation(_name, type);
-				a->setupUncompressed(render_size, render_offset,  position, frames, duration);
+				Animation *a = new Animation(_name, type, sprites);
+				a->setupUncompressed(render_size, render_offset, position, frames, duration);
 				animations.push_back(a);
 			}
 			first_section = false;
 			compressed_loading = false;
 		}
+		if (parser.key == "image") {
+			if (sprites)
+				printf("multiple images specified in %s, dragons be here!\n", animationname.c_str());
 
-		if (parser.key == "position") {
+			SDL_Surface *cleanup = IMG_Load(mods->locate(parser.val).c_str());
+			if(!cleanup) {
+				fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
+				SDL_Quit();
+				exit(1);
+			}
+			SDL_SetColorKey(cleanup, SDL_SRCCOLORKEY, SDL_MapRGB(cleanup->format, 255, 0, 255) );
+			sprites = SDL_DisplayFormatAlpha(cleanup);
+			SDL_FreeSurface(cleanup);
+		}
+		else if (parser.key == "position") {
 			position = toInt(parser.val);
 		}
 		else if (parser.key == "frames") {
@@ -106,7 +120,7 @@ AnimationSet::AnimationSet(const string &filename)
 			cout << "active frames in entities not supported" << endl;
 		else if (parser.key == "frame") {
 			if (compressed_loading == false) { // first frame statement in section
-				newanim = new Animation(_name, type);
+				newanim = new Animation(_name, type, sprites);
 				newanim->setup(frames, duration);
 				animations.push_back(newanim);
 				compressed_loading = true;
@@ -135,8 +149,15 @@ AnimationSet::AnimationSet(const string &filename)
 
 	if (!compressed_loading) {
 		// add final animation
-		Animation *a = new Animation(_name, type);
+		Animation *a = new Animation(_name, type, sprites);
 		a->setupUncompressed(render_size, render_offset, position, frames, duration);
 		animations.push_back(a);
 	}
 }
+
+AnimationSet::~AnimationSet() {
+	SDL_FreeSurface(sprites);
+	for (unsigned i = 0; i < animations.size(); ++i)
+		delete animations[i];
+}
+

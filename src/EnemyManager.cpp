@@ -38,34 +38,6 @@ EnemyManager::EnemyManager(PowerManager *_powers, MapRenderer *_map) {
 	handleNewMap();
 }
 
-
-
-/**
- * Enemies share graphic/sound resources (usually there are groups of similar enemies)
- */
-bool EnemyManager::loadGraphics(const string& type_id) {
-
-	// first check to make sure the sprite isn't already loaded
-	if (find(gfx_prefixes.begin(), gfx_prefixes.end(), type_id) != gfx_prefixes.end())
-		return true;
-
-	SDL_Surface *cleanup = IMG_Load(mods->locate("images/enemies/" + type_id + ".png").c_str());
-	if(!cleanup) {
-		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
-		return false;
-	}
-
-	SDL_SetColorKey(cleanup, SDL_SRCCOLORKEY, SDL_MapRGB(cleanup->format, 255, 0, 255) );
-
-	SDL_Surface *sprite = SDL_DisplayFormatAlpha(cleanup);
-	SDL_FreeSurface(cleanup);
-
-	sprites.push_back(sprite);
-	gfx_prefixes.push_back(type_id);
-
-	return true;
-}
-
 bool EnemyManager::loadSounds(const string& type_id) {
 
 	// first check to make sure the sprite isn't already loaded
@@ -95,9 +67,10 @@ bool EnemyManager::loadSounds(const string& type_id) {
 #include "Animation.h"
 
 
-bool EnemyManager::loadAnimationsAndAssignTo(const string &type_id, Enemy *e) {
+bool EnemyManager::loadAnimations(Enemy *e) {
 
-	e->animationSet = AnimationManager::instance()->getAnimationSet(type_id);
+	string animationsname = mods->locate(e->stats.animations + ".txt");
+	e->animationSet = AnimationManager::instance()->getAnimationSet(animationsname);
 	e->activeAnimation = e->animationSet->getAnimation(e->animationSet->starting_animation);
 
 	return true;
@@ -116,16 +89,11 @@ Enemy *EnemyManager::getEnemyPrototype(const string& type_id) {
 
 	if (e.stats.animations == "")
 		cerr << "Warning: no animation file specified for entity: " << type_id << endl;
-	if (e.stats.gfx_prefix == "")
-		cerr << "Warning: no gfx_prefix specified for entity: " << type_id << endl;
 	if (e.stats.sfx_prefix == "")
 		cerr << "Warning: no sfx_prefix specified for entity: " << type_id << endl;
 
-	if (!loadAnimationsAndAssignTo(e.stats.animations+".txt", &e)) {
+	if (!loadAnimations(&e)) {
 		cerr << "Warning: could not load animations for enemy type" << e.stats.animations << endl;
-	}
-	if (!loadGraphics(e.stats.gfx_prefix)) {
-		cerr << "Warning: could not load graphics prefix: " << e.stats.gfx_prefix << endl;
 	}
 	if (!loadSounds(e.stats.sfx_prefix)) {
 		cerr << "Warning: could not load sounds prefix: " << e.stats.sfx_prefix << endl;
@@ -147,15 +115,7 @@ void EnemyManager::handleNewMap () {
 	// delete existing enemies
 	for (unsigned int i=0; i < enemies.size(); i++)
 		delete enemies[i];
-
 	enemies.clear();
-
-	// free shared resources
-	for (unsigned j=0; j<sprites.size(); j++) {
-		SDL_FreeSurface(sprites[j]);
-	}
-	sprites.clear();
-	gfx_prefixes.clear();
 
 	for (unsigned j=0; j<sound_phys.size(); j++) {
 		Mix_FreeChunk(sound_phys[j]);
@@ -222,7 +182,6 @@ void EnemyManager::handleSpawn() {
 		else {
 			cout << "Warning: no animation file specified for entity: " << espawn.type << endl;
 		}
-		loadGraphics(e->stats.gfx_prefix);
 		loadSounds(e->stats.sfx_prefix);
 
 		// special animation state for spawning enemies
@@ -313,8 +272,6 @@ void EnemyManager::checkEnemiesforXP(CampaignManager *camp) {
  * addRenders()
  * Map objects need to be drawn in Z order, so we allow a parent object (GameEngine)
  * to collect all mobile sprites each frame.
- *
- * This wrapper function is necessary because EnemyManager holds shared sprites for identical-looking enemies
  */
 void EnemyManager::addRenders(vector<Renderable> &r, vector<Renderable> &r_dead) {
 	vector<Enemy*>::iterator it;
@@ -322,11 +279,6 @@ void EnemyManager::addRenders(vector<Renderable> &r, vector<Renderable> &r_dead)
 		bool dead = (*it)->stats.corpse;
 		if (!dead || (dead && (*it)->stats.corpse_ticks > 0)) {
 			Renderable re = (*it)->getRender();
-			vector<string>::iterator found = find(gfx_prefixes.begin(), gfx_prefixes.end(), (*it)->stats.gfx_prefix);
-			if (found != gfx_prefixes.end()) {
-				int sprite_index = distance(gfx_prefixes.begin(), found);
-				re.sprite = sprites[sprite_index];
-			}
 
 			// draw corpses below objects so that floor loot is more visible
 			(dead ? r_dead : r).push_back(re);
@@ -341,9 +293,6 @@ void EnemyManager::addRenders(vector<Renderable> &r, vector<Renderable> &r_dead)
 EnemyManager::~EnemyManager() {
 	for (unsigned int i=0; i < enemies.size(); i++)
 		delete enemies[i];
-
-	for (unsigned i=0; i<sprites.size(); i++)
-		SDL_FreeSurface(sprites[i]);
 
 	for (unsigned i=0; i<sound_phys.size(); i++) {
 		Mix_FreeChunk(sound_phys[i]);

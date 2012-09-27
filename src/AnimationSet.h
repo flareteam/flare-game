@@ -24,10 +24,12 @@ class Animation;
 /**
  * The animation set contains all animations of one entity, hence it
  * they are all using the same spritesheet.
+ *
+ * The animation set is responsible for the spritesheet to be freed.
  */
 class AnimationSet {
 private:
-    const std::string name; //i.e. animations/goblin_runner.txt, matches the filename.
+    const std::string name; //i.e. animations/goblin_runner.txt, matches the animations filename.
 
 public:
     std::string starting_animation; // i.e. stance, matches the section in the animation file.
@@ -35,7 +37,8 @@ public:
 
     SDL_Surface *sprites;
 
-    AnimationSet(const std::string &name);
+    AnimationSet(const std::string &animationname);
+    ~AnimationSet();
 
     /**
      * callee is responsible to free the returned animation
