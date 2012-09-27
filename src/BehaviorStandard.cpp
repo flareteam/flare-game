@@ -257,6 +257,9 @@ void BehaviorStandard::checkPower() {
  */
 void BehaviorStandard::checkMove() {
 
+	// dying enemies can't move
+	if (e->stats.cur_state == ENEMY_DEAD || e->stats.cur_state == ENEMY_CRITDEAD) return;
+
 	// stunned enemies can't act
 	if (e->stats.stun_duration) return;
 
