@@ -24,6 +24,7 @@ endif (CMAKE_CXX_COMPILER MATCHES "clang")
 
 if(CMAKE_BUILD_TYPE STREQUAL "Release")
   set(CMAKE_CXX_FLAGS_RELEASE "-O2 -g0 -flto")
+  set(CMAKE_LD_FLAGS "-flto -fwhole-program")
 elseif(CMAKE_BUILD_TYPE STREQUAL "RelWithDebInfo")
   set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-O2 -g -flto")
 elseif(CMAKE_BUILD_TYPE STREQUAL "MinSizeRel")
