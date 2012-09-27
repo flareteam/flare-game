@@ -20,6 +20,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "AnimationSet.h"
 #include "AnimationManager.h"
 
+#include "ImageManager.h"
 #include "FileParser.h"
 #include "SharedResources.h"
 #include "Settings.h"
@@ -41,7 +42,7 @@ AnimationSet::AnimationSet(const std::string &animationname)
  : name(animationname)
  , starting_animation("")
  , animations(vector<Animation*>())
- , sprites(0)
+ , sprite(0)
 {
 	FileParser parser;
 
@@ -69,7 +70,7 @@ AnimationSet::AnimationSet(const std::string &animationname)
 		// create the animation if finished parsing a section
 		if (parser.new_section) {
 			if (!first_section && !compressed_loading) {
-				Animation *a = new Animation(_name, type, sprites);
+				Animation *a = new Animation(_name, type, sprite);
 				a->setupUncompressed(render_size, render_offset, position, frames, duration);
 				animations.push_back(a);
 			}
@@ -77,18 +78,14 @@ AnimationSet::AnimationSet(const std::string &animationname)
 			compressed_loading = false;
 		}
 		if (parser.key == "image") {
-			if (sprites)
+			if (sprite) {
 				printf("multiple images specified in %s, dragons be here!\n", animationname.c_str());
-
-			SDL_Surface *cleanup = IMG_Load(mods->locate(parser.val).c_str());
-			if(!cleanup) {
-				fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 				SDL_Quit();
-				exit(1);
+				exit(128);
 			}
-			SDL_SetColorKey(cleanup, SDL_SRCCOLORKEY, SDL_MapRGB(cleanup->format, 255, 0, 255) );
-			sprites = SDL_DisplayFormatAlpha(cleanup);
-			SDL_FreeSurface(cleanup);
+			imagefile = parser.val;
+			ImageManager::instance()->increaseCount(imagefile);
+			sprite = ImageManager::instance()->getSurface(imagefile);
 		}
 		else if (parser.key == "position") {
 			position = toInt(parser.val);
@@ -120,7 +117,7 @@ AnimationSet::AnimationSet(const std::string &animationname)
 			cout << "active frames in entities not supported" << endl;
 		else if (parser.key == "frame") {
 			if (compressed_loading == false) { // first frame statement in section
-				newanim = new Animation(_name, type, sprites);
+				newanim = new Animation(_name, type, sprite);
 				newanim->setup(frames, duration);
 				animations.push_back(newanim);
 				compressed_loading = true;
@@ -149,14 +146,14 @@ AnimationSet::AnimationSet(const std::string &animationname)
 
 	if (!compressed_loading) {
 		// add final animation
-		Animation *a = new Animation(_name, type, sprites);
+		Animation *a = new Animation(_name, type, sprite);
 		a->setupUncompressed(render_size, render_offset, position, frames, duration);
 		animations.push_back(a);
 	}
 }
 
 AnimationSet::~AnimationSet() {
-	SDL_FreeSurface(sprites);
+	ImageManager::instance()->decreaseCount(imagefile);
 	for (unsigned i = 0; i < animations.size(); ++i)
 		delete animations[i];
 }

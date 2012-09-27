@@ -104,6 +104,7 @@ Set (FLARE_SOURCES
 	./src/GetText.cpp
 	./src/Hazard.cpp
 	./src/HazardManager.cpp
+	./src/ImageManager.cpp
 	./src/InputState.cpp
 	./src/ItemManager.cpp
 	./src/ItemStorage.cpp

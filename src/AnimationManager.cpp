@@ -24,7 +24,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 using namespace std;
 
-AnimationManager* _instance = 0;
+AnimationManager* AnimationManager_instance = 0;
 
 AnimationSet *AnimationManager::getAnimationSet(const string& filename) {
     for (size_t i = 0; i < sets.size(); i++)
@@ -43,6 +43,6 @@ AnimationManager::~AnimationManager()
 
 AnimationManager *AnimationManager::instance()
 {
-    if (_instance == 0) _instance = new AnimationManager();
-    return _instance;
+    if (AnimationManager_instance == 0) AnimationManager_instance = new AnimationManager();
+    return AnimationManager_instance;
 }

@@ -30,12 +30,13 @@ class Animation;
 class AnimationSet {
 private:
     const std::string name; //i.e. animations/goblin_runner.txt, matches the animations filename.
+    std::string imagefile;
 
 public:
     std::string starting_animation; // i.e. stance, matches the section in the animation file.
     std::vector<Animation*> animations;
 
-    SDL_Surface *sprites;
+    SDL_Surface *sprite;
 
     AnimationSet(const std::string &animationname);
     ~AnimationSet();

@@ -961,7 +961,6 @@ void Avatar::addRenders(vector<Renderable> &r) {
 	for (unsigned i = 0; i < anims.size(); ++i) {
 		if (anims[i] != NULL) {
 			Renderable ren = anims[i]->getCurrentFrame(stats.direction);
-			ren.sprite = animsets[i]->sprites;
 			ren.map_pos = stats.pos;
 			ren.prio = i;
 			r.push_back(ren);
