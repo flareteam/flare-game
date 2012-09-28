@@ -178,7 +178,7 @@ bool Enemy::takeHit(Hazard h) {
 		int vulnerable;
 		for (unsigned int i=0; i<stats.vulnerable.size(); i++) {
 			if (h.trait_elemental == (signed)i) {
-				if (MAX_RESIST < stats.vulnerable[i]) vulnerable = MAX_RESIST;
+				if (MAX_RESIST < stats.vulnerable[i] && stats.vulnerable[i] < 100) vulnerable = MAX_RESIST;
 				else vulnerable = stats.vulnerable[i];
 				dmg = (dmg * vulnerable) / 100;
 			}
@@ -195,7 +195,7 @@ bool Enemy::takeHit(Hazard h) {
 				if (absorption == 0) absorption = 1;
 			}
 			dmg = dmg - absorption;
-			if (dmg < 0) {
+			if (dmg <= 0) {
 				dmg = 0;
 				if (h.trait_elemental < 0) {
 					if (MAX_ABSORB < 100) dmg = 1;

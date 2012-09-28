@@ -19,39 +19,31 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "AStarNode.h"
 
 AStarNode::AStarNode()
- : x(0)
- , y(0)
- , g(0)
- , h(0)
- , parent(Point())
-{}
+{
+	this->x = 0;
+	this->y = 0;
+}
 
 AStarNode::AStarNode(const int a, const int b)
- : x(a)
- , y(b)
- , g(0)
- , h(0)
- , parent(Point())
-{}
-
-AStarNode::AStarNode(const Point &p)
- : x(0)
- , y(0)
- , g(0)
- , h(0)
- , parent(Point())
 {
-	parent.x = p.x;
-	parent.y = p.y;
+	this->x = a;
+	this->y = b;
+}
+
+AStarNode::AStarNode(const Point p)
+{
+	this->x = p.x;
+	this->y = p.y;
 }
 
 AStarNode::AStarNode(const AStarNode& copy)
- : x(copy.x)
- , y(copy.y)
- , g(copy.g)
- , h(copy.h)
- , parent(Point(copy.parent))
-{}
+{
+	x = copy.x;
+	y = copy.y;
+	g = copy.g;
+	h = copy.h;
+	parent = copy.parent;
+}
 
 int AStarNode::getX() const
 {
@@ -61,6 +53,12 @@ int AStarNode::getX() const
 int AStarNode::getY() const
 {
 	return y;
+}
+
+Point AStarNode::getCoordinate() const
+{
+	Point coord = {x,y};
+	return coord;
 }
 
 Point AStarNode::getParent() const
@@ -138,6 +136,11 @@ float AStarNode::getActualCost() const
 void AStarNode::setActualCost(const float G)
 {
 	g = G;
+}
+
+float AStarNode::getEstimatedCost() const
+{
+	return h;
 }
 
 void AStarNode::setEstimatedCost(const float H)

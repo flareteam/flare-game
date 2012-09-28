@@ -25,6 +25,7 @@ using namespace std;
 
 MenuConfirm::MenuConfirm(const string& _buttonMsg, const string& _boxMsg) : Menu() {
 	confirmClicked = false;
+	cancelClicked = false;
 	hasConfirmButton = true;
 	if (_buttonMsg == "") hasConfirmButton = false;
 	// Text to display in confirmation box
@@ -56,8 +57,8 @@ void MenuConfirm::loadGraphics() {
 
 void MenuConfirm::update() {
 	if (hasConfirmButton) {
-		buttonConfirm->pos.x = VIEW_W_HALF - buttonConfirm->pos.w/2;
-		buttonConfirm->pos.y = VIEW_H/2;
+		buttonConfirm->pos.x = window_area.x + window_area.w/2 - buttonConfirm->pos.w/2;
+		buttonConfirm->pos.y = window_area.y + window_area.h/2;
 		buttonConfirm->refresh();
 		label.set(window_area.x + window_area.w/2, window_area.y + window_area.h - (buttonConfirm->pos.h * 2), JUSTIFY_CENTER, VALIGN_TOP, boxMsg, font->getColor("menu_normal"));
 	} else {
@@ -69,6 +70,7 @@ void MenuConfirm::update() {
 }
 
 void MenuConfirm::logic() {
+	if (visible) confirmClicked = false;
 	if (visible && hasConfirmButton) {
 		if(buttonConfirm->checkClick() || (inpt->pressing[ACCEPT] && !inpt->lock[ACCEPT])) {
 			inpt->lock[ACCEPT] = true;
@@ -77,11 +79,13 @@ void MenuConfirm::logic() {
 		if(buttonClose->checkClick() || (inpt->pressing[CANCEL] && !inpt->lock[CANCEL])) {
 			inpt->lock[CANCEL] = true;
 			visible = false;
+			cancelClicked = true;
 		}
 	} else if (visible && !hasConfirmButton) {
 		if(buttonClose->checkClick() || (inpt->pressing[CANCEL] && !inpt->lock[CANCEL])) {
 			inpt->lock[CANCEL] = true;
 			visible = false;
+			cancelClicked = true;
 		}
 	}
 }
