@@ -179,20 +179,20 @@ location=9,43,2,2
 intermap=brothers_lair_atrium.txt,15,16
 
 [event]
-type=on_load
-location=0,0,1,1
+type=run_once
+location=0,0,18,45
 mapmod=collision,9,23,0;object,9,23,113
 requires_status=lb_wind_unlocked
 
 [event]
-type=on_load
-location=0,0,1,1
+type=run_once
+location=0,0,18,45
 mapmod=collision,9,26,0;object,9,26,113
 requires_status=lb_fire_unlocked
 
 [event]
-type=on_load
-location=0,0,1,1
+type=run_once
+location=0,0,18,45
 mapmod=collision,9,29,0;object,9,29,113
 requires_status=lb_ice_unlocked
 
