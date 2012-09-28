@@ -69,7 +69,8 @@ bool EnemyManager::loadSounds(const string& type_id) {
 
 bool EnemyManager::loadAnimations(Enemy *e) {
 
-	string animationsname = mods->locate(e->stats.animations + ".txt");
+	string animationsname = "animations/"+e->stats.animations + ".txt";
+	AnimationManager::instance()->increaseCount(animationsname);
 	e->animationSet = AnimationManager::instance()->getAnimationSet(animationsname);
 	e->activeAnimation = e->animationSet->getAnimation(e->animationSet->starting_animation);
 
@@ -113,8 +114,10 @@ void EnemyManager::handleNewMap () {
 	Map_Enemy me;
 
 	// delete existing enemies
-	for (unsigned int i=0; i < enemies.size(); i++)
+	for (unsigned int i=0; i < enemies.size(); i++) {
+		AnimationManager::instance()->decreaseCount(enemies[i]->animationSet->getName());
 		delete enemies[i];
+	}
 	enemies.clear();
 
 	for (unsigned j=0; j<sound_phys.size(); j++) {
@@ -149,6 +152,7 @@ void EnemyManager::handleNewMap () {
 
 		enemies.push_back(e);
 	}
+	AnimationManager::instance()->cleanUp();
 }
 
 /**
@@ -173,7 +177,7 @@ void EnemyManager::handleSpawn() {
 		e->stats.load("enemies/" + espawn.type + ".txt");
 		if (e->stats.animations != "") {
 			// load the animation file if specified
-			e->animationSet = AnimationManager::instance()->getAnimationSet(e->stats.animations + ".txt");
+			e->animationSet = AnimationManager::instance()->getAnimationSet("animations/"+e->stats.animations + ".txt");
 			if (e->animationSet)
 				e->activeAnimation = e->animationSet->getAnimation(e->animationSet->starting_animation);
 			else
@@ -291,8 +295,10 @@ void EnemyManager::addRenders(vector<Renderable> &r, vector<Renderable> &r_dead)
 }
 
 EnemyManager::~EnemyManager() {
-	for (unsigned int i=0; i < enemies.size(); i++)
+	for (unsigned int i=0; i < enemies.size(); i++) {
+		AnimationManager::instance()->decreaseCount(enemies[i]->animationSet->getName());
 		delete enemies[i];
+	}
 
 	for (unsigned i=0; i<sound_phys.size(); i++) {
 		Mix_FreeChunk(sound_phys[i]);

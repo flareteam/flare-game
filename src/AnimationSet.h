@@ -41,6 +41,9 @@ public:
     AnimationSet(const std::string &animationname);
     ~AnimationSet();
 
+    // must be called before getAnimation is called.
+    void load();
+
     /**
      * callee is responsible to free the returned animation
      */

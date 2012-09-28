@@ -90,6 +90,7 @@ void ImageManager::cleanUp() {
     int i = sprites.size() - 1;
     while (i >= 0) {
         if (counts[i] <= 0) {
+            SDL_FreeSurface(sprites[i]);
             counts.erase(counts.begin()+i);
             sprites.erase(sprites.begin()+i);
             names.erase(names.begin()+i);

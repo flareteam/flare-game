@@ -32,10 +32,12 @@ using namespace std;
 
 Animation *AnimationSet::getAnimation(const std::string &_name)
 {
-    for (size_t i = 0; i < animations.size(); i++)
-        if (animations[i]->getName() == _name)
-            return new Animation(*animations[i]);
-    return 0;
+	if (!sprite)
+		load();
+	for (size_t i = 0; i < animations.size(); i++)
+		if (animations[i]->getName() == _name)
+			return new Animation(*animations[i]);
+	return 0;
 }
 
 AnimationSet::AnimationSet(const std::string &animationname)
@@ -43,11 +45,16 @@ AnimationSet::AnimationSet(const std::string &animationname)
  , starting_animation("")
  , animations(vector<Animation*>())
  , sprite(0)
-{
+{}
+
+void AnimationSet::load() {
+	if (sprite)
+		return; // assume it is already loaded.
+
 	FileParser parser;
 
-	if (!parser.open(mods->locate(animationname).c_str())) {
-		cout << "Error loading animation definition file: " << animationname << endl;
+	if (!parser.open(mods->locate(name).c_str())) {
+		cout << "Error loading animation definition file: " << name << endl;
 		SDL_Quit();
 		exit(1);
 	}
@@ -79,7 +86,7 @@ AnimationSet::AnimationSet(const std::string &animationname)
 		}
 		if (parser.key == "image") {
 			if (sprite) {
-				printf("multiple images specified in %s, dragons be here!\n", animationname.c_str());
+				printf("multiple images specified in %s, dragons be here!\n", name.c_str());
 				SDL_Quit();
 				exit(128);
 			}

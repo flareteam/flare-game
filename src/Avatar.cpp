@@ -60,7 +60,8 @@ Avatar::Avatar(PowerManager *_powers, MapRenderer *_map)
 	stats.cooldown = 4;
 
 	// load the hero's animations from hero definition file
-	animationSet = AnimationManager::instance()->getAnimationSet("hero.txt");
+	AnimationManager::instance()->increaseCount("animations/hero.txt");
+	animationSet = AnimationManager::instance()->getAnimationSet("animations/hero.txt");
 	activeAnimation = animationSet->getAnimation(animationSet->starting_animation);
 
 	loadLayerDefinitions();
@@ -187,7 +188,9 @@ void Avatar::loadGraphics(std::vector<Layer_gfx> _img_gfx) {
 			animsets[i] = 0;
 			anims[i] = 0;
 		} else {
-			animsets[i] = AnimationManager::instance()->getAnimationSet("avatar/"+stats.base+"/"+_img_gfx[i].gfx+".txt") ;
+			string name = "animations/avatar/"+stats.base+"/"+_img_gfx[i].gfx+".txt";
+			AnimationManager::instance()->increaseCount(name);
+			animsets[i] = AnimationManager::instance()->getAnimationSet(name);
 			anims[i] = animsets[i]->getAnimation(animsets[i]->starting_animation);
 		}
 	}
@@ -838,7 +841,7 @@ void Avatar::transform() {
 	stats.humanoid = charmed_stats->humanoid;
 	stats.animations = charmed_stats->animations;
 	stats.animationSpeed = charmed_stats->animationSpeed;
-	animationSet =  AnimationManager::instance()->getAnimationSet(charmed_stats->animations + ".txt");
+	animationSet =  AnimationManager::instance()->getAnimationSet("animations/"+charmed_stats->animations + ".txt");
 	delete activeAnimation;
 	activeAnimation = animationSet->getAnimation(animationSet->starting_animation);
 	stats.cur_state = AVATAR_STANCE;
@@ -904,7 +907,7 @@ void Avatar::untransform() {
 	stats.animations = hero_stats->animations;
 	stats.animationSpeed = hero_stats->animationSpeed;
 
-	animationSet = AnimationManager::instance()->getAnimationSet("hero.txt");
+	animationSet = AnimationManager::instance()->getAnimationSet("animations/hero.txt");
 	delete activeAnimation;
 	activeAnimation = animationSet->getAnimation(animationSet->starting_animation);
 	stats.cur_state = AVATAR_STANCE;
@@ -970,11 +973,14 @@ void Avatar::addRenders(vector<Renderable> &r) {
 
 Avatar::~Avatar() {
 
+	AnimationManager::instance()->decreaseCount("animations/hero.txt");
+
 	SDL_FreeSurface(sprites);
 	if (transformed_sprites) SDL_FreeSurface(transformed_sprites);
 
 	for (unsigned int i=0; i<animsets.size(); i++) {
-		delete animsets[i];
+		AnimationManager::instance()->decreaseCount(animsets[i]->getName());
+		//animsets[i] = 0;
 		delete anims[i];
 	}
 
