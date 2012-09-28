@@ -61,7 +61,6 @@ void AnimationManager::increaseCount(const std::string &name) {
     if (found != names.end()) {
         int index = distance(names.begin(), found);
         counts[index]++;
-        cout << "AnimationManager::increaseCount "<<name<< " Now" <<counts[index]<<endl;
     } else {
         sets.push_back(0);
         names.push_back(name);
@@ -75,7 +74,6 @@ void AnimationManager::decreaseCount(const std::string &name) {
     if (found != names.end()) {
         int index = distance(names.begin(), found);
         counts[index]--;
-        cout << "AnimationManager::decreaseCount "<<name<< " Now" <<counts[index]<<endl;
     } else {
         fprintf(stderr, "AnimationManager::decreaseCount: %s not found\n", name.c_str());
         SDL_Quit();

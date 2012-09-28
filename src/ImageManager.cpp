@@ -82,7 +82,8 @@ void ImageManager::decreaseCount(const std::string &name) {
         int index = distance(names.begin(), found);
         counts[index]--;
     } else {
-        assert(1 == 0); // This should never happen!
+        fprintf(stderr, "ImageManager::decreaseCount: Couldn't decrease image count: %s\n", name.c_str());
+        //assert(1 == 0); // This should never happen!
     }
 }
 
@@ -90,11 +91,13 @@ void ImageManager::cleanUp() {
     int i = sprites.size() - 1;
     while (i >= 0) {
         if (counts[i] <= 0) {
+            fprintf(stderr, "ImageManager::cleanUp: removing: %s\n", names[i].c_str());
             SDL_FreeSurface(sprites[i]);
             counts.erase(counts.begin()+i);
             sprites.erase(sprites.begin()+i);
             names.erase(names.begin()+i);
-        }
+        } else
+            fprintf(stderr, "ImageManager::cleanUp: keeping: %s\n", names[i].c_str());
         --i;
     }
 }

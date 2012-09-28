@@ -979,7 +979,8 @@ Avatar::~Avatar() {
 	if (transformed_sprites) SDL_FreeSurface(transformed_sprites);
 
 	for (unsigned int i=0; i<animsets.size(); i++) {
-		AnimationManager::instance()->decreaseCount(animsets[i]->getName());
+		if (animsets[i])
+			AnimationManager::instance()->decreaseCount(animsets[i]->getName());
 		//animsets[i] = 0;
 		delete anims[i];
 	}
