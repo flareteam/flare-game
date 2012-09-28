@@ -841,7 +841,7 @@ void Avatar::transform() {
 	stats.humanoid = charmed_stats->humanoid;
 	stats.animations = charmed_stats->animations;
 	stats.animationSpeed = charmed_stats->animationSpeed;
-	animationSet =  AnimationManager::instance()->getAnimationSet("animations/"+charmed_stats->animations + ".txt");
+	animationSet = AnimationManager::instance()->getAnimationSet("animations/"+charmed_stats->animations + ".txt");
 	delete activeAnimation;
 	activeAnimation = animationSet->getAnimation(animationSet->starting_animation);
 	stats.cur_state = AVATAR_STANCE;
@@ -983,6 +983,7 @@ Avatar::~Avatar() {
 		//animsets[i] = 0;
 		delete anims[i];
 	}
+	AnimationManager::instance()->cleanUp();
 
 	Mix_FreeChunk(sound_melee);
 	Mix_FreeChunk(sound_hit);
