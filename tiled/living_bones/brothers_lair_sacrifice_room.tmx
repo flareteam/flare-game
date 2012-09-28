@@ -193,25 +193,25 @@
     <property name="intermap" value="brothers_lair_atrium.txt,15,16"/>
    </properties>
   </object>
-  <object x="0" y="0" width="640" height="1504">
+  <object type="run_once" x="0" y="0" width="640" height="1504">
    <properties>
     <property name="requires_status" value="lb_ice_defeated,lb_fire_defeated,lb_wind_defeated"/>
     <property name="set_status" value="lb_necromancers_defeated"/>
    </properties>
   </object>
-  <object type="on_load" x="0" y="0" width="32" height="32">
+  <object type="run_once" x="0" y="0" width="640" height="1504">
    <properties>
     <property name="mapmod" value="collision,9,23,0;object,9,23,113"/>
     <property name="requires_status" value="lb_wind_unlocked"/>
    </properties>
   </object>
-  <object type="on_load" x="0" y="0" width="32" height="32">
+  <object type="run_once" x="0" y="0" width="640" height="1504">
    <properties>
     <property name="mapmod" value="collision,9,26,0;object,9,26,113"/>
     <property name="requires_status" value="lb_fire_unlocked"/>
    </properties>
   </object>
-  <object type="on_load" x="0" y="0" width="32" height="32">
+  <object type="run_once" x="0" y="0" width="640" height="1504">
    <properties>
     <property name="mapmod" value="collision,9,29,0;object,9,29,113"/>
     <property name="requires_status" value="lb_ice_unlocked"/>
