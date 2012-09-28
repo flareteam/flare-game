@@ -160,6 +160,7 @@ void GameStateConfig::init() {
 
 	input_confirm = new MenuConfirm("",msg->get("Assign: "));
 	defaults_confirm = new MenuConfirm(msg->get("Defaults"),msg->get("Reset ALL settings?"));
+	resolution_confirm = new MenuConfirm(msg->get("OK"),msg->get("Use this resolution?"));
 
 	// Allocate KeyBindings
 	for (unsigned int i = 0; i < 25; i++) {
@@ -203,6 +204,10 @@ void GameStateConfig::init() {
 	}
 	child_widget.push_back(inactivemods_lstb);
 	optiontab[child_widget.size()-1] = 5;
+
+	// Save the current resolution in case we want to revert back to it
+	old_view_w = VIEW_W;
+	old_view_h = VIEW_H;
 }
 
 void GameStateConfig::readConfig () {
@@ -616,6 +621,11 @@ void GameStateConfig::readConfig () {
 	defaults_confirm->align();
 	defaults_confirm->update();
 
+	resolution_confirm->window_area = menuConfirm_area;
+	resolution_confirm->alignment = menuConfirm_align;
+	resolution_confirm->align();
+	resolution_confirm->update();
+
 	// Allocate KeyBindings ScrollBox
 	input_scrollbox = new WidgetScrollBox(scrollpane.w, scrollpane.h);
 	input_scrollbox->pos.x = scrollpane.x + frame.x;
@@ -752,7 +762,22 @@ void GameStateConfig::logic ()
 		}
 	}
 
-	if (!input_confirm->visible && !defaults_confirm->visible) {
+	if (resolution_confirm->visible || resolution_confirm->cancelClicked) {
+		resolution_confirm->logic();
+		resolution_confirm_ticks--;
+		if (resolution_confirm->confirmClicked) {
+			saveSettings();
+			delete requestedGameState;
+			requestedGameState = new GameStateTitle();
+		} else if (resolution_confirm->cancelClicked || resolution_confirm_ticks == 0) {
+			applyVideoSettings(screen, old_view_w, old_view_h);
+			saveSettings();
+			delete requestedGameState;
+			requestedGameState = new GameStateConfig();
+		}
+	}
+
+	if (!input_confirm->visible && !defaults_confirm->visible && !resolution_confirm->visible) {
 		tabControl->logic();
 
 		// Ok/Cancel Buttons
@@ -767,14 +792,21 @@ void GameStateConfig::logic ()
 			}
 			loadMiscSettings();
 			refreshFont();
-			applyVideoSettings(screen, width, height);
-			saveSettings();
 			if ((ENABLE_JOYSTICK) && (SDL_NumJoysticks() > 0)) {
 				SDL_JoystickClose(joy);
 				joy = SDL_JoystickOpen(JOYSTICK_DEVICE);
 			}
-			delete requestedGameState;
-			requestedGameState = new GameStateTitle();
+			applyVideoSettings(screen, width, height);
+			if (width != old_view_w || height != old_view_h) {
+				resolution_confirm->window_area = menuConfirm_area;
+				resolution_confirm->align();
+				resolution_confirm->update();
+				resolution_confirm_ticks = MAX_FRAMES_PER_SEC * 10; // 10 seconds
+			} else {
+				saveSettings();
+				delete requestedGameState;
+				requestedGameState = new GameStateTitle();
+			}
 		} else if (defaults_button->checkClick()) {
 			defaults_confirm->visible = true;
 		} else if (cancel_button->checkClick() || (inpt->pressing[CANCEL] && !inpt->lock[CANCEL])) {
@@ -941,6 +973,11 @@ void GameStateConfig::logic ()
 
 void GameStateConfig::render ()
 {
+	if (resolution_confirm->visible) {
+		resolution_confirm->render();
+		return;
+	}
+
 	int tabheight = tabControl->getTabHeight();
 	SDL_Rect	pos;
 	pos.x = (VIEW_W-FRAME_W)/2;
@@ -1166,6 +1203,8 @@ bool GameStateConfig::applyVideoSettings(SDL_Surface *src, int width, int height
 	VIEW_H = height;
 	VIEW_H_HALF = height/2;
 
+	resolution_confirm->visible = true;
+
 	return true;
 }
 
@@ -1258,6 +1297,7 @@ GameStateConfig::~GameStateConfig()
 	delete input_scrollbox;
 	delete input_confirm;
 	delete defaults_confirm;
+	delete resolution_confirm;
 
 	SDL_FreeSurface(background);
 

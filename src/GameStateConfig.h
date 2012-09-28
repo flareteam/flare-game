@@ -135,6 +135,7 @@ private:
 	WidgetScrollBox     * input_scrollbox;
 	MenuConfirm         * input_confirm;
 	MenuConfirm         * defaults_confirm;
+	MenuConfirm         * resolution_confirm;
 
 	int input_key;
 	int mods_total;
@@ -142,6 +143,9 @@ private:
 	SDL_Rect scrollpane;
 	SDL_Rect scrollpane_color;
 	int scrollpane_contents;
+	int old_view_w;
+	int old_view_h;
+	int resolution_confirm_ticks;
 };
 
 #endif

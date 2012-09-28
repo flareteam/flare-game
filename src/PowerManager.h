@@ -274,6 +274,20 @@ private:
 		Point frame_offset;
 		int frame_total;
 		int ticks_per_frame;
+		
+		Effect() {
+			type = "";
+			icon = -1;
+			gfx = NULL;
+			frame_size.x = 0;
+			frame_size.y = 0;
+			frame_size.w = 1;
+			frame_size.h = 1;
+			frame_offset.x = 0;
+			frame_offset.y = 0;
+			frame_total = 1;
+			ticks_per_frame = 1;
+		}
 	};
 
 	MapCollision *collider;

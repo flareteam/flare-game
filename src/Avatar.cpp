@@ -424,6 +424,11 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 		stats.recalc();
 		if (level_up)
 			Mix_PlayChannel(-1, level_up, 0);
+			
+		// if the player managed to level up while dead (e.g. via a bleeding creature), restore to life
+		if (stats.cur_state == AVATAR_DEAD) {
+			stats.cur_state = AVATAR_STANCE;
+		}
 	}
 
 	// check for bleeding spurt
@@ -694,7 +699,7 @@ bool Avatar::takeHit(Hazard h) {
 		int vulnerable;
 		for (unsigned int i=0; i<stats.vulnerable.size(); i++) {
 			if (h.trait_elemental == (signed)i) {
-				if (MAX_RESIST < stats.vulnerable[i]) vulnerable = MAX_RESIST;
+				if (MAX_RESIST < stats.vulnerable[i] && stats.vulnerable[i] < 100) vulnerable = MAX_RESIST;
 				else vulnerable = stats.vulnerable[i];
 				dmg = (dmg * vulnerable) / 100;
 			}

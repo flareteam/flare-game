@@ -151,6 +151,8 @@ void EnemyManager::handleNewMap () {
 		e->stats.wander_area = me.wander_area;
 
 		enemies.push_back(e);
+		
+		map->collider.block(me.pos.x, me.pos.y);
 	}
 	AnimationManager::instance()->cleanUp();
 }
@@ -191,6 +193,8 @@ void EnemyManager::handleSpawn() {
 		// special animation state for spawning enemies
 		e->stats.cur_state = ENEMY_SPAWN;
 		enemies.push_back(e);
+		
+		map->collider.block(espawn.pos.x, espawn.pos.y);
 	}
 }
 

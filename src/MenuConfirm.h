@@ -42,6 +42,7 @@ public:
 	virtual void render();
 
 	bool confirmClicked;
+	bool cancelClicked;
 };
 
 #endif
