@@ -796,10 +796,16 @@ void GameStateConfig::logic ()
 				joy = SDL_JoystickOpen(JOYSTICK_DEVICE);
 			}
 			applyVideoSettings(screen, width, height);
-			resolution_confirm->window_area = menuConfirm_area;
-			resolution_confirm->align();
-			resolution_confirm->update();
-			resolution_confirm_ticks = MAX_FRAMES_PER_SEC * 10; // 10 seconds
+			if (width != old_view_w || height != old_view_h) {
+				resolution_confirm->window_area = menuConfirm_area;
+				resolution_confirm->align();
+				resolution_confirm->update();
+				resolution_confirm_ticks = MAX_FRAMES_PER_SEC * 10; // 10 seconds
+			} else {
+				saveSettings();
+				delete requestedGameState;
+				requestedGameState = new GameStateTitle();
+			}
 		} else if (defaults_button->checkClick()) {
 			defaults_confirm->visible = true;
 		} else if (cancel_button->checkClick() || (inpt->pressing[CANCEL] && !inpt->lock[CANCEL])) {
