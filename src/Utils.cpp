@@ -34,14 +34,17 @@ Point round(FPoint fp) {
 	return result;
 }
 
-// TODO: rewrite using UNITS_PER_PIXEL_X,Y?
 Point screen_to_map(int x, int y, int camx, int camy) {
 	Point r;
 	if (TILESET_ORIENTATION == TILESET_ISOMETRIC) {
 		int scrx = x - VIEW_W_HALF;
 		int scry = y - VIEW_H_HALF;
-		r.x = scrx + scry*2 + camx;
-		r.y = scry*2 - scrx + camy;
+		
+		int cx = UNITS_PER_PIXEL_X /2;
+		int cy = UNITS_PER_PIXEL_Y /2;
+		
+		r.x = (cx * scrx) + (cy * scry) + camx;
+		r.y = (cy * scry) - (cx * scrx) + camy;
 	}
 	else {
 		r.x = x - VIEW_W_HALF + camx;
