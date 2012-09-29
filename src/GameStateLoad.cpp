@@ -29,6 +29,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "MenuConfirm.h"
 #include "SharedResources.h"
 #include "Settings.h"
+#include "UtilsFileSystem.h"
 #include "UtilsParsing.h"
 #include "WidgetLabel.h"
 
@@ -415,22 +416,9 @@ void GameStateLoad::logic() {
 		if (inpt->pressing[MAIN1] && !inpt->lock[MAIN1]) {
 			for (int i=0; i<GAME_SLOT_MAX; i++) {
 				if (isWithin(slot_pos[i], inpt->mouse)) {
-					selected_slot = i;
 					inpt->lock[MAIN1] = true;
-					loadPortrait(selected_slot);
-
-					button_action->enabled = true;
-					if (stats[selected_slot].name == "") {
-						button_action->label = msg->get("New Game");
-						button_alternate->enabled = false;
-					}
-					else {
-						button_action->label = msg->get("Load Game");
-						button_alternate->enabled = true;
-					}
-					button_action->refresh();
-					button_alternate->refresh();
-
+					selected_slot = i;
+					updateButtons();
 				}
 			}
 		}
@@ -439,39 +427,13 @@ void GameStateLoad::logic() {
 			inpt->lock[DOWN] = true;
 			selected_slot += 1;
 			if (selected_slot > GAME_SLOT_MAX-1) selected_slot = GAME_SLOT_MAX-1;
-
-			loadPortrait(selected_slot);
-
-			button_action->enabled = true;
-			if (stats[selected_slot].name == "") {
-				button_action->label = msg->get("New Game");
-				button_alternate->enabled = false;
-			}
-			else {
-				button_action->label = msg->get("Load Game");
-				button_alternate->enabled = true;
-			}
-			button_action->refresh();
-			button_alternate->refresh();
+			updateButtons();
 		}
 		if (inpt->pressing[UP] && !inpt->lock[UP] && !inpt->lock[MAIN1]) {
 			inpt->lock[UP] = true;
 			selected_slot -= 1;
 			if (selected_slot < 0) selected_slot = 0;
-
-			loadPortrait(selected_slot);
-
-			button_action->enabled = true;
-			if (stats[selected_slot].name == "") {
-				button_action->label = msg->get("New Game");
-				button_alternate->enabled = false;
-			}
-			else {
-				button_action->label = msg->get("Load Game");
-				button_alternate->enabled = true;
-			}
-			button_action->refresh();
-			button_alternate->refresh();
+			updateButtons();
 		}
 	} else if (confirm->visible) {
 		confirm->logic();
@@ -485,11 +447,7 @@ void GameStateLoad::logic() {
 			loadPreview(selected_slot);
 			loadPortrait(selected_slot);
 
-			button_alternate->enabled = false;
-			button_alternate->refresh();
-
-			button_action->label = msg->get("New Game");
-			button_action->refresh();
+			updateButtons();
 
 			confirm->visible = false;
 			confirm->confirmClicked = false;
@@ -506,6 +464,24 @@ void GameStateLoad::logicLoading() {
 	requestedGameState = play;
 	loaded = true;
 	loading = false;
+}
+
+void GameStateLoad::updateButtons() {
+	loadPortrait(selected_slot);
+
+	button_action->enabled = true;
+	if (stats[selected_slot].name == "") {
+		button_action->label = msg->get("New Game");
+		if (!fileExists(mods->locate("maps/spawn.txt"))) button_action->enabled = false;
+		button_alternate->enabled = false;
+	}
+	else {
+		button_action->label = msg->get("Load Game");
+		if (current_map[selected_slot] == "") button_action->enabled = false;
+		button_alternate->enabled = true;
+	}
+	button_action->refresh();
+	button_alternate->refresh();
 }
 
 void GameStateLoad::render() {
