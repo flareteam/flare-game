@@ -91,13 +91,11 @@ void ImageManager::cleanUp() {
     int i = sprites.size() - 1;
     while (i >= 0) {
         if (counts[i] <= 0) {
-            fprintf(stderr, "ImageManager::cleanUp: removing: %s\n", names[i].c_str());
             SDL_FreeSurface(sprites[i]);
             counts.erase(counts.begin()+i);
             sprites.erase(sprites.begin()+i);
             names.erase(names.begin()+i);
-        } else
-            fprintf(stderr, "ImageManager::cleanUp: keeping: %s %d\n", names[i].c_str(), counts[i]);
+        }
         --i;
     }
 }
