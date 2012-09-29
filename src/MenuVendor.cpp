@@ -217,7 +217,7 @@ void MenuVendor::setInventory() {
  */
 void MenuVendor::saveInventory() {
 	for (int i=0; i<VENDOR_SLOTS; i++) {
-		npc->stock[i] = stock[VENDOR_BUY][i];
+		if (npc) npc->stock[i] = stock[VENDOR_BUY][i];
 		buyback_stock[i] = stock[VENDOR_SELL][i];
 	}
 
