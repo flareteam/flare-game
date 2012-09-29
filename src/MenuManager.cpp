@@ -236,7 +236,7 @@ void MenuManager::logic() {
 
 	// only allow the vendor window to be open if the inventory is open
 	if (vendor->visible && !(inv->visible)) {
-	  closeLeft(true);
+	  closeLeft(false);
 	  if (vendor->talker_visible && !(inv->visible))
 		  closeRight(true);
 	}
@@ -431,20 +431,10 @@ void MenuManager::logic() {
 			// pick up an inventory item
 			if (inv->visible && isWithin(inv->window_area,inpt->mouse)) {
 				if (inpt->pressing[CTRL]) {
-					vendor->setTab(VENDOR_SELL);
 					inpt->lock[MAIN1] = true;
 					stack = inv->click(inpt);
 					if( stack.item > 0) {
-						if (vendor->visible) {
-							// The vendor could have a limited amount of money in the future. It will be tested here.
-							if (inv->sell(stack)) {
-								vendor->add(stack);
-							}
-							else {
-								inv->itemReturn(stack);
-							}
-						}
-						else if (stash->visible) {
+						if (stash->visible) {
 							if (inv->stashAdd(stack) && !stash->full(stack.item)) {
 								stash->add(stack);
 								stash->updated = true;
@@ -454,7 +444,12 @@ void MenuManager::logic() {
 							}
 						}
 						else {
-							if (!inv->sell(stack)) {
+							// The vendor could have a limited amount of money in the future. It will be tested here.
+							if ((SELL_WITHOUT_VENDOR || vendor->visible) && inv->sell(stack)) {
+								vendor->setTab(VENDOR_SELL);
+								vendor->add(stack);
+							}
+							else {
 								inv->itemReturn(stack);
 							}
 						}
