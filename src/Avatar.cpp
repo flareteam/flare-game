@@ -160,30 +160,20 @@ void Avatar::loadLayerDefinitions() {
 
 void Avatar::loadGraphics(std::vector<Layer_gfx> _img_gfx) {
 
-	// Check if we really need to change the graphics
-	bool change_graphics = false;
-
-	if (_img_gfx.size() != animsets.size()) {
-		for (unsigned int i=0; i<animsets.size(); i++) {
+	for (unsigned int i=0; i<animsets.size(); i++) {
+		if (animsets[i]) {
+			AnimationManager::instance()->decreaseCount(animsets[i]->getName());
+			// animsets[i] = 0;
+		}
+		if (anims[i])
 			delete anims[i];
-		}
-		animsets.resize(_img_gfx.size());
-		anims.resize(_img_gfx.size());
-		change_graphics = true;
+			// anim[i]=0;
 	}
 
-	unsigned end = _img_gfx.size();
-	for (unsigned i=0; i<end; i++) {
-		if (!animsets[i] || (animsets[i]->getName() != _img_gfx[i].gfx)) {
-			change_graphics = true;
-			break;
-		}
-	}
-	if (!change_graphics)
-		return;
+	animsets.resize(_img_gfx.size());
+	anims.resize(_img_gfx.size());
 
 	for (unsigned int i=0; i<_img_gfx.size(); i++) {
-		delete anims[i];
 		if (_img_gfx[i].gfx == "") {
 			animsets[i] = 0;
 			anims[i] = 0;
@@ -194,6 +184,7 @@ void Avatar::loadGraphics(std::vector<Layer_gfx> _img_gfx) {
 			anims[i] = animsets[i]->getAnimation(animsets[i]->starting_animation);
 		}
 	}
+	AnimationManager::instance()->cleanUp();
 }
 
 void Avatar::loadSounds() {
@@ -424,7 +415,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 		stats.recalc();
 		if (level_up)
 			Mix_PlayChannel(-1, level_up, 0);
-			
+
 		// if the player managed to level up while dead (e.g. via a bleeding creature), restore to life
 		if (stats.cur_state == AVATAR_DEAD) {
 			stats.cur_state = AVATAR_STANCE;
