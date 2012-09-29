@@ -36,11 +36,12 @@ AnimationSet *AnimationManager::getAnimationSet(const string& filename) {
             sets[index] = new AnimationSet(filename);
         }
         return sets[index];
+    } else {
+        fprintf(stderr, "AnimationManager::getAnimationSet: %s not found\n", filename.c_str());
+        SDL_Quit();
+        exit(1);
+        return 0;
     }
-    fprintf(stderr, "AnimationManager::getAnimationSet: %s not found\n", filename.c_str());
-    SDL_Quit();
-    exit(1);
-    return 0;
 }
 
 AnimationManager::AnimationManager()
