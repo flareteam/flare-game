@@ -79,8 +79,11 @@ bool EnemyManager::loadAnimations(Enemy *e) {
 
 Enemy *EnemyManager::getEnemyPrototype(const string& type_id) {
 	for (size_t i = 0; i < prototypes.size(); i++)
-		if (prototypes[i].type == type_id)
+		if (prototypes[i].type == type_id) {
+			string animationsname = "animations/"+prototypes[i].stats.animations + ".txt";
+			AnimationManager::instance()->increaseCount(animationsname);
 			return new Enemy(prototypes[i]);
+		}
 
 	Enemy e = Enemy(powers, map);
 
@@ -151,7 +154,7 @@ void EnemyManager::handleNewMap () {
 		e->stats.wander_area = me.wander_area;
 
 		enemies.push_back(e);
-		
+
 		map->collider.block(me.pos.x, me.pos.y);
 	}
 	AnimationManager::instance()->cleanUp();
@@ -179,7 +182,9 @@ void EnemyManager::handleSpawn() {
 		e->stats.load("enemies/" + espawn.type + ".txt");
 		if (e->stats.animations != "") {
 			// load the animation file if specified
-			e->animationSet = AnimationManager::instance()->getAnimationSet("animations/"+e->stats.animations + ".txt");
+			string animationname = "animations/"+e->stats.animations + ".txt";
+			AnimationManager::instance()->increaseCount(animationname);
+			e->animationSet = AnimationManager::instance()->getAnimationSet(animationname);
 			if (e->animationSet)
 				e->activeAnimation = e->animationSet->getAnimation(e->animationSet->starting_animation);
 			else
@@ -193,7 +198,7 @@ void EnemyManager::handleSpawn() {
 		// special animation state for spawning enemies
 		e->stats.cur_state = ENEMY_SPAWN;
 		enemies.push_back(e);
-		
+
 		map->collider.block(espawn.pos.x, espawn.pos.y);
 	}
 }
