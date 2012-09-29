@@ -54,13 +54,13 @@ AnimationManager *AnimationManager::instance()
     if (AnimationManager_instance == 0) AnimationManager_instance = new AnimationManager();
     return AnimationManager_instance;
 }
-#include <iostream>
-using namespace std;
+
 void AnimationManager::increaseCount(const std::string &name) {
     vector<string>::iterator found = find(names.begin(), names.end(), name);
     if (found != names.end()) {
         int index = distance(names.begin(), found);
         counts[index]++;
+        fprintf(stderr, "AnimationManager::increaseCount (%s) to %d\n",name.c_str(), counts[index]);
     } else {
         sets.push_back(0);
         names.push_back(name);
@@ -74,6 +74,7 @@ void AnimationManager::decreaseCount(const std::string &name) {
     if (found != names.end()) {
         int index = distance(names.begin(), found);
         counts[index]--;
+        fprintf(stderr, "AnimationManager::decreaseCount (%s) to %d\n",name.c_str(), counts[index]);
     } else {
         fprintf(stderr, "AnimationManager::decreaseCount: %s not found\n", name.c_str());
         SDL_Quit();
@@ -85,12 +86,13 @@ void AnimationManager::cleanUp() {
     int i = sets.size() - 1;
     while (i >= 0) {
         if (counts[i] <= 0) {
-            cout << "AnimationManager::cleanUp:"<<names[i]<<endl;
+            cout << "AnimationManager::cleanUp: remove "<<names[i]<<endl;
             delete sets[i];
             counts.erase(counts.begin()+i);
             sets.erase(sets.begin()+i);
             names.erase(names.begin()+i);
-        }
+        } else
+            cout << "AnimationManager::cleanUp: keep "<<names[i]<<" " <<counts[i] <<endl;
         --i;
     }
     ImageManager::instance()->cleanUp();

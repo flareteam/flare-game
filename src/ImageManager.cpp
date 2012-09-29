@@ -97,7 +97,7 @@ void ImageManager::cleanUp() {
             sprites.erase(sprites.begin()+i);
             names.erase(names.begin()+i);
         } else
-            fprintf(stderr, "ImageManager::cleanUp: keeping: %s\n", names[i].c_str());
+            fprintf(stderr, "ImageManager::cleanUp: keeping: %s %d\n", names[i].c_str(), counts[i]);
         --i;
     }
 }
