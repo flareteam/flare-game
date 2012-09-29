@@ -28,6 +28,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <SDL.h>
 #include <SDL_image.h>
 #include <string>
+#include <stdint.h>
 
 struct Point {
 	int x,y;
@@ -44,7 +45,7 @@ struct Renderable {
 
 	Point map_pos;     // The map location on the floor between someone's feet
 	Point offset;      // offset from map_pos to topleft corner of sprite
-	unsigned int prio; // must be in range 0-128, as the upper bytes will be used for the position.
+	uint64_t prio;     // 64-32 bit for map position, 31-16 for intertile position, 15-0 user dependent, such as Avatar.
 	Renderable()
 		: sprite(0)
 		, src(SDL_Rect())
