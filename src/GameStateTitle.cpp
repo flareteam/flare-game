@@ -24,7 +24,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "Settings.h"
 #include "WidgetButton.h"
 #include "WidgetLabel.h"
-#include "WidgetTooltip.h"
 
 GameStateTitle::GameStateTitle() : GameState() {
 
@@ -41,7 +40,6 @@ GameStateTitle::GameStateTitle() : GameState() {
 	button_play->label = msg->get("Play Game");
 	button_play->pos.x = VIEW_W_HALF - button_play->pos.w/2;
 	button_play->pos.y = VIEW_H - (button_exit->pos.h*3);
-	if (!ENABLE_PLAYGAME) button_play->enabled = false;
 	button_play->refresh();
 
 	button_cfg->label = msg->get("Configuration");
@@ -57,11 +55,6 @@ GameStateTitle::GameStateTitle() : GameState() {
 	// set up labels
 	label_version = new WidgetLabel();
 	label_version->set(VIEW_W, 0, JUSTIFY_RIGHT, VALIGN_TOP, msg->get("Flare Alpha v0.17"), font->getColor("menu_normal"));
-
-	// set up tooltip
-	tip = new WidgetTooltip();
-	tipdata = new TooltipData();
-	tipdata->num_lines = 1;
 }
 
 void GameStateTitle::loadGraphics() {
@@ -80,7 +73,6 @@ void GameStateTitle::loadGraphics() {
 }
 
 void GameStateTitle::logic() {
-
 	if (ENABLE_PLAYGAME) {
 		button_play->enabled = true;
 		if (inpt->pressing[ACCEPT] && !inpt->lock[ACCEPT]) {
@@ -91,9 +83,10 @@ void GameStateTitle::logic() {
 			inpt->lock[CANCEL] = true;
 			exitRequested = true;
 		}
+	} else {
+		button_play->enabled = false;
 	}
 
-	
 	if (button_play->checkClick()) {
 		delete requestedGameState;
 		requestedGameState = new GameStateLoad();
@@ -102,14 +95,6 @@ void GameStateTitle::logic() {
 		requestedGameState = new GameStateConfig();
 	} else if (button_exit->checkClick()) {
 		exitRequested = true;
-	}
-	
-	// handle tooltip
-	if (!ENABLE_PLAYGAME && button_play->hover) {
-		tipdata->lines[0] = msg->get("Enable a core mod to continue");
-	}
-	else {
-		tipdata->lines[0] = "";
 	}
 }
 
@@ -133,12 +118,6 @@ void GameStateTitle::render() {
 
 	// version number
 	label_version->render();
-	
-	// display tooltip
-	if (tipdata->lines[0] != "") {
-		tip->render(*tipdata, inpt->mouse, STYLE_FLOAT, screen);
-	}
-	
 }
 
 GameStateTitle::~GameStateTitle() {
@@ -147,6 +126,4 @@ GameStateTitle::~GameStateTitle() {
 	delete button_exit;
 	delete label_version;
 	SDL_FreeSurface(logo);
-	delete tip;
-	delete tipdata;
 }
