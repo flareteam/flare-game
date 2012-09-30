@@ -160,7 +160,7 @@ void AnimationSet::load() {
 }
 
 AnimationSet::~AnimationSet() {
-	ImageManager::instance()->decreaseCount(imagefile);
+	if (imagefile != "") ImageManager::instance()->decreaseCount(imagefile);
 	for (unsigned i = 0; i < animations.size(); ++i)
 		delete animations[i];
 }

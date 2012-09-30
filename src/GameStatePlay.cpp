@@ -352,7 +352,7 @@ void GameStatePlay::checkEquipmentChange() {
 				gfx.gfx = pc->stats.head;
 				gfx.type = "head";
 				img_gfx.push_back(gfx);
-				break;
+				continue;
 			}
 			if (player_layers[j] == "body" && img_gfx.back().gfx == "") {
 				img_gfx.back().gfx = "clothes";
