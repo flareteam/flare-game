@@ -20,6 +20,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "AnimationSet.h"
 #include "AnimationManager.h"
 
+#include "ImageManager.h"
 #include "FileParser.h"
 #include "SharedResources.h"
 #include "Settings.h"
@@ -31,21 +32,29 @@ using namespace std;
 
 Animation *AnimationSet::getAnimation(const std::string &_name)
 {
-    for (size_t i = 0; i < animations.size(); i++)
-        if (animations[i]->getName() == _name)
-            return new Animation(*animations[i]);
-    return 0;
+	if (!sprite)
+		load();
+	for (size_t i = 0; i < animations.size(); i++)
+		if (animations[i]->getName() == _name)
+			return new Animation(*animations[i]);
+	return 0;
 }
 
-AnimationSet::AnimationSet(const string &filename)
- : animations(vector<Animation*>())
+AnimationSet::AnimationSet(const std::string &animationname)
+ : name(animationname)
  , starting_animation("")
- , name(filename)
-{
+ , animations(vector<Animation*>())
+ , sprite(0)
+{}
+
+void AnimationSet::load() {
+	if (sprite)
+		return; // assume it is already loaded.
+
 	FileParser parser;
 
-	if (!parser.open(mods->locate(filename).c_str())) {
-		cout << "Error loading animation definition file: " << filename << endl;
+	if (!parser.open(mods->locate(name).c_str())) {
+		cout << "Error loading animation definition file: " << name << endl;
 		SDL_Quit();
 		exit(1);
 	}
@@ -68,15 +77,24 @@ AnimationSet::AnimationSet(const string &filename)
 		// create the animation if finished parsing a section
 		if (parser.new_section) {
 			if (!first_section && !compressed_loading) {
-				Animation *a = new Animation(_name, type);
-				a->setupUncompressed(render_size, render_offset,  position, frames, duration);
+				Animation *a = new Animation(_name, type, sprite);
+				a->setupUncompressed(render_size, render_offset, position, frames, duration);
 				animations.push_back(a);
 			}
 			first_section = false;
 			compressed_loading = false;
 		}
-
-		if (parser.key == "position") {
+		if (parser.key == "image") {
+			if (sprite) {
+				printf("multiple images specified in %s, dragons be here!\n", name.c_str());
+				SDL_Quit();
+				exit(128);
+			}
+			imagefile = parser.val;
+			ImageManager::instance()->increaseCount(imagefile);
+			sprite = ImageManager::instance()->getSurface(imagefile);
+		}
+		else if (parser.key == "position") {
 			position = toInt(parser.val);
 		}
 		else if (parser.key == "frames") {
@@ -106,7 +124,7 @@ AnimationSet::AnimationSet(const string &filename)
 			cout << "active frames in entities not supported" << endl;
 		else if (parser.key == "frame") {
 			if (compressed_loading == false) { // first frame statement in section
-				newanim = new Animation(_name, type);
+				newanim = new Animation(_name, type, sprite);
 				newanim->setup(frames, duration);
 				animations.push_back(newanim);
 				compressed_loading = true;
@@ -135,8 +153,15 @@ AnimationSet::AnimationSet(const string &filename)
 
 	if (!compressed_loading) {
 		// add final animation
-		Animation *a = new Animation(_name, type);
+		Animation *a = new Animation(_name, type, sprite);
 		a->setupUncompressed(render_size, render_offset, position, frames, duration);
 		animations.push_back(a);
 	}
 }
+
+AnimationSet::~AnimationSet() {
+	ImageManager::instance()->decreaseCount(imagefile);
+	for (unsigned i = 0; i < animations.size(); ++i)
+		delete animations[i];
+}
+

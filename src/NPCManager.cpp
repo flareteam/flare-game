@@ -1,5 +1,6 @@
 /*
 Copyright © 2011-2012 Clint Bellanger
+Copyright © 2012 Stefan Beller
 
 This file is part of FLARE.
 
@@ -52,7 +53,7 @@ NPCManager::NPCManager(MapRenderer *_map, LootManager *_loot, ItemManager *_item
 		}
 		infile.close();
 	} else fprintf(stderr, "Unable to open engine/tooltips.txt!\n");
-	
+
 }
 
 void NPCManager::addRenders(std::vector<Renderable> &r) {

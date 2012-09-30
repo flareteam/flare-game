@@ -48,17 +48,18 @@ class WidgetLabel;
 
 class GameStatePlay : public GameState {
 private:
-
-	MapRenderer *map;
 	Enemy *enemy;
-	HazardManager *hazards;
-	EnemyManager *enemies;
-	MenuManager *menu;
-	LootManager *loot;
+
 	PowerManager *powers;
 	ItemManager *items;
-	NPCManager *npcs;
 	CampaignManager *camp;
+	MapRenderer *map;
+	Avatar *pc;
+	EnemyManager *enemies;
+	HazardManager *hazards;
+	MenuManager *menu;
+	LootManager *loot;
+	NPCManager *npcs;
 	QuestLog *quests;
 
 	WidgetLabel *loading;
@@ -93,9 +94,9 @@ public:
 	void loadGame();
 	void loadStash();
 	void resetGame();
-
-	Avatar *pc;
 	int game_slot;
+
+	Avatar *getAvatar() const { return pc; }
 };
 
 #endif

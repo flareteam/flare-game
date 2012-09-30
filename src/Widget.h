@@ -24,7 +24,10 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <SDL.h>
 class Widget {
 public:
-	Widget() {};
+	Widget()
+	: render_to_alpha(false)
+	{};
+
 	virtual ~Widget() {};
 	virtual void render(SDL_Surface *target = NULL) = 0;
 	bool render_to_alpha;

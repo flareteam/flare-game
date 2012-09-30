@@ -1,6 +1,7 @@
 /*
 Copyright © 2011-2012 Clint Bellanger
 Copyright © 2012 Igor Paliychuk
+Copyright © 2012 Stefan Beller
 
 This file is part of FLARE.
 
@@ -169,95 +170,96 @@ public:
 	std::string spawn_type;
 	int target_neighbor;
 
-	Power() {
-		type = -1;
-		name = "";
-		description = "";
-		icon = -1;
-		new_state = -1;
-		face=false;
-		source_type=-1;
-		beacon=false;
-		count=1;
+	Power()
+		: type(-1)
+		, name("")
+		, description("")
+		, icon(-1)
+		, new_state(-1)
+		, face(false)
+		, source_type(-1)
+		, beacon(false)
+		, count(1)
 
-		requires_physical_weapon = false;
-		requires_offense_weapon = false;
-		requires_mental_weapon = false;
+		, requires_physical_weapon(false)
+		, requires_offense_weapon(false)
+		, requires_mental_weapon(false)
 
-		requires_mp = 0;
-		requires_los = false;
-		requires_empty_target = false;
-		requires_item = -1;
-		requires_targeting=false;
-		cooldown = 0;
+		, requires_mp(0)
+		, requires_los(false)
+		, requires_empty_target(false)
+		, requires_item(-1)
+		, consumable(false)
+		, requires_targeting(false)
+		, cooldown(0)
 
-		gfx_index = -1;
-		sfx_index = -1;
-		rendered = false;
-		directional = false;
-		visual_random = 0;
-		visual_option = 0;
-		aim_assist = 0;
-		speed = 0;
-		lifespan = 0;
-		frame_loop = 1;
-		frame_duration = 1;
-		frame_size.x = frame_size.y = 0;
-		frame_offset.x = frame_offset.y = 0;
-		floor = false;
-		active_frame = -1;
-		complete_animation = false;
+		, gfx_index(-1)
+		, sfx_index(-1)
+		, rendered(false)
+		, directional(false)
+		, visual_random(0)
+		, visual_option(0)
+		, aim_assist(0)
+		, speed(0)
+		, lifespan(0)
+		, frame_loop(1)
+		, frame_duration(1)
+		, frame_size(Point())
+		, frame_offset(Point())
+		, floor(false)
+		, active_frame(-1)
+		, complete_animation(false)
 
-		use_hazard = false;
-		no_attack = false;
-		radius = 0;
-		starting_pos = STARTING_POS_SOURCE;
-		base_damage = BASE_DAMAGE_NONE;
-		damage_multiplier = 100;
-		multitarget = false;
-		forced_move_speed = 0;
-		forced_move_duration = 0;
-		range = 0;
+		, use_hazard(false)
+		, no_attack(false)
+		, radius(0)
+		, base_damage(BASE_DAMAGE_NONE)
+		, damage_multiplier(100)
+		, starting_pos(STARTING_POS_SOURCE)
+		, multitarget(false)
+		, forced_move_speed(0)
+		, forced_move_duration(0)
+		, range(0)
 
-		hp_steal = 0;
-		mp_steal = 0;
+		, hp_steal(0)
+		, mp_steal(0)
 
-		missile_angle = 0;
-		angle_variance = 0;
-		speed_variance = 0;
+		, missile_angle(0)
+		, angle_variance(0)
+		, speed_variance(0)
 
-		delay = 0;
-		start_frame = 0;
+		, delay(0)
+		, start_frame(0)
 
-		trait_elemental = -1;
-		trait_armor_penetration = false;
-		trait_crits_impaired = 0;
+		, trait_elemental(-1)
+		, trait_armor_penetration(false)
+		, trait_crits_impaired(0)
 
-		bleed_duration = 0;
-		stun_duration = 0;
-		slow_duration = 0;
-		immobilize_duration = 0;
-		immunity_duration = 0;
-		transform_duration = 0;
-		manual_untransform = false;
-		haste_duration = 0;
-		hot_duration = 0;
-		hot_value = 0;
+		, bleed_duration(0)
+		, stun_duration(0)
+		, slow_duration(0)
+		, immobilize_duration(0)
+		, immunity_duration(0)
+		, transform_duration(0)
+		, manual_untransform(false)
+		, haste_duration(0)
+		, hot_duration(0)
+		, hot_value(0)
 
-		buff_heal = false;
-		buff_shield = false;
-		buff_teleport = false;
-		buff_immunity = false;
-		buff_restore_hp = 0;
-		buff_restore_mp = 0;
+		, buff_heal(false)
+		, buff_shield(false)
+		, buff_teleport(false)
+		, buff_immunity(false)
+		, buff_restore_hp(0)
+		, buff_restore_mp(0)
 
-		post_power = 0;
-		wall_power = 0;
+		, post_power(0)
+		, wall_power(0)
 
-		allow_power_mod = false;
-		spawn_type = "";
-		target_neighbor = 0;
-	}
+		, allow_power_mod(false)
+		, spawn_type("")
+		, target_neighbor(0)
+	{}
 
 };
 

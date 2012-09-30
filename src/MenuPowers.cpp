@@ -1,6 +1,7 @@
 /*
 Copyright © 2011-2012 Clint Bellanger
 Copyright © 2012 Igor Paliychuk
+Copyright © 2012 Stefan Beller
 
 This file is part of FLARE.
 
@@ -44,7 +45,7 @@ MenuPowers *MenuPowers::getInstance() {
 
 
 MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_icons) {
-	bool id_line;
+
 	int id;
 
 	stats = _stats;
@@ -65,6 +66,7 @@ MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_i
 	// Read powers data from config file
 	FileParser infile;
 	if (infile.open(mods->locate("menus/powers.txt"))) {
+	  bool id_line = false;
 	  while (infile.next()) {
 		infile.val = infile.val + ',';
 

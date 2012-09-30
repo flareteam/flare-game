@@ -1,5 +1,6 @@
 /*
 Copyright © 2011-2012 Clint Bellanger
+Copyright © 2012 Stefan Beller
 
 This file is part of FLARE.
 
@@ -51,7 +52,7 @@ InputState::InputState(void) {
 	resetScroll();
 
 	loadKeyBindings();
-	
+
 	binding_name[0] = msg->get("Cancel");
 	binding_name[1] = msg->get("Accept");
 	binding_name[2] = msg->get("Up");

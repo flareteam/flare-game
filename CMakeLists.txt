@@ -10,7 +10,7 @@ if (MSVC)
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /wd4099 /wd4244")
 else (MSVC)
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wunused -Wshadow -Woverloaded-virtual -Wunreachable-code")
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-math-errno -fno-exceptions")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-math-errno -fno-exceptions -ffast-math")
   set(CMAKE_LD_FLAGS "-fwhole-program")
 endif (MSVC)
 
@@ -24,6 +24,7 @@ endif (CMAKE_CXX_COMPILER MATCHES "clang")
 
 if(CMAKE_BUILD_TYPE STREQUAL "Release")
   set(CMAKE_CXX_FLAGS_RELEASE "-O2 -g0 -flto")
+  set(CMAKE_LD_FLAGS "-flto -fwhole-program")
 elseif(CMAKE_BUILD_TYPE STREQUAL "RelWithDebInfo")
   set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-O2 -g -flto")
 elseif(CMAKE_BUILD_TYPE STREQUAL "MinSizeRel")
@@ -103,6 +104,7 @@ Set (FLARE_SOURCES
 	./src/GetText.cpp
 	./src/Hazard.cpp
 	./src/HazardManager.cpp
+	./src/ImageManager.cpp
 	./src/InputState.cpp
 	./src/ItemManager.cpp
 	./src/ItemStorage.cpp

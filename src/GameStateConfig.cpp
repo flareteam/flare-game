@@ -2,6 +2,7 @@
 Copyright © 2012 Clint Bellanger
 Copyright © 2012 davidriod
 Copyright © 2012 Igor Paliychuk
+Copyright © 2012 Stefan Beller
 
 This file is part of FLARE.
 
@@ -43,15 +44,15 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 using namespace std;
 
 GameStateConfig::GameStateConfig ()
-		: GameState(),
-		  video_modes(NULL),
-		  child_widget(),
-		  ok_button(NULL),
-		  defaults_button(NULL),
-		  cancel_button(NULL),
-		  imgFileName(mods->locate("images/menus/config.png"))
-
-
+	: GameState()
+	, video_modes(NULL)
+	, child_widget()
+	, ok_button(NULL)
+	, defaults_button(NULL)
+	, cancel_button(NULL)
+	, imgFileName(mods->locate("images/menus/config.png"))
+	, input_key(0)
+	, check_resolution(true)
 {
 	// Load background image
 	SDL_Surface * tmp = IMG_Load(imgFileName.c_str());

@@ -1,5 +1,6 @@
 /*
 Copyright © 2011-2012 Clint Bellanger
+Copyright © 2012 Stefan Beller
 
 This file is part of FLARE.
 
@@ -34,12 +35,9 @@ private:
 
 	MapRenderer *map;
 	PowerManager *powers;
-	bool loadGraphics(const std::string& type_id);
-	bool loadSounds(const std::string& type_id);
-	bool loadAnimationsAndAssignTo(const std::string &type_id, Enemy *e);
 
-	std::vector<std::string> gfx_prefixes;
-	std::vector<SDL_Surface*> sprites;
+	bool loadSounds(const std::string& type_id);
+	bool loadAnimations(Enemy *e);
 
 	std::vector<std::string> sfx_prefixes;
 	std::vector<Mix_Chunk*> sound_phys;

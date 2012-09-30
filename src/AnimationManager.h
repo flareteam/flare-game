@@ -23,6 +23,8 @@ class AnimationSet;
 class AnimationManager {
 private:
     std::vector<AnimationSet*> sets;
+    std::vector<std::string> names;
+    std::vector<int> counts;
 
     AnimationManager();
     ~AnimationManager();
@@ -35,5 +37,9 @@ public:
      * @param name: the filename of what to load starting below the animations folder.
      */
     AnimationSet *getAnimationSet(const std::string &name);
+
+    void decreaseCount(const std::string &name);
+    void increaseCount(const std::string &name);
+    void cleanUp();
 };
 
