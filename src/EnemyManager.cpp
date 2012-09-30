@@ -40,7 +40,7 @@ EnemyManager::EnemyManager(PowerManager *_powers, MapRenderer *_map) {
 
 bool EnemyManager::loadSounds(const string& type_id) {
 
-	// first check to make sure the sprite isn't already loaded
+	// first check to make sure the sfx isn't already loaded
 	if (find(sfx_prefixes.begin(), sfx_prefixes.end(), type_id) != sfx_prefixes.end())
 		return true;
 
