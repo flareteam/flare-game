@@ -161,27 +161,18 @@ void Avatar::loadLayerDefinitions() {
 void Avatar::loadGraphics(std::vector<Layer_gfx> _img_gfx) {
 
 	for (unsigned int i=0; i<animsets.size(); i++) {
-		if (animsets[i]) {
-			AnimationManager::instance()->decreaseCount(animsets[i]->getName());
-			// animsets[i] = 0;
-		}
-		if (anims[i])
-			delete anims[i];
-			// anim[i]=0;
+		AnimationManager::instance()->decreaseCount(animsets[i]->getName());
+		delete anims[i];
 	}
-
-	animsets.resize(_img_gfx.size());
-	anims.resize(_img_gfx.size());
+	animsets.clear();
+	anims.clear();
 
 	for (unsigned int i=0; i<_img_gfx.size(); i++) {
-		if (_img_gfx[i].gfx == "") {
-			animsets[i] = 0;
-			anims[i] = 0;
-		} else {
+		if (_img_gfx[i].gfx != "") {
 			string name = "animations/avatar/"+stats.base+"/"+_img_gfx[i].gfx+".txt";
 			AnimationManager::instance()->increaseCount(name);
-			animsets[i] = AnimationManager::instance()->getAnimationSet(name);
-			anims[i] = animsets[i]->getAnimation(animsets[i]->starting_animation);
+			animsets.push_back(AnimationManager::instance()->getAnimationSet(name));
+			anims.push_back(animsets.back()->getAnimation(animsets.back()->starting_animation));
 		}
 	}
 	AnimationManager::instance()->cleanUp();
@@ -938,11 +929,10 @@ void Avatar::setAnimation(std::string name) {
 		return;
 
 	Entity::setAnimation(name);
-	for (unsigned i=0; i < animsets.size(); i++)
-		if (animsets[i] != NULL) {
-			delete anims[i];
-			anims[i] = animsets[i]->getAnimation(name);
-		}
+	for (unsigned i=0; i < animsets.size(); i++) {
+		delete anims[i];
+		anims[i] = animsets[i]->getAnimation(name);
+	}
 }
 
 /**
@@ -975,9 +965,7 @@ Avatar::~Avatar() {
 	if (transformed_sprites) SDL_FreeSurface(transformed_sprites);
 
 	for (unsigned int i=0; i<animsets.size(); i++) {
-		if (animsets[i])
-			AnimationManager::instance()->decreaseCount(animsets[i]->getName());
-		//animsets[i] = 0;
+		AnimationManager::instance()->decreaseCount(animsets[i]->getName());
 		delete anims[i];
 	}
 	AnimationManager::instance()->cleanUp();
