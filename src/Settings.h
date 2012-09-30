@@ -82,6 +82,7 @@ extern bool SAVE_HPMP;
 extern bool ENABLE_PLAYGAME;
 extern bool SHOW_FPS;
 extern int CORPSE_TIMEOUT;
+extern bool SELL_WITHOUT_VENDOR;
 
 // Tile Settings
 extern unsigned short UNITS_PER_TILE;

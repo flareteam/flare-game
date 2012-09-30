@@ -41,7 +41,8 @@ class ItemManager;
 class MenuConfirm;
 class WidgetButton;
 class WidgetLabel;
-
+class WidgetTooltip;
+class TooltipData;
 
 const int GAME_SLOT_MAX = 4;
 
@@ -51,6 +52,7 @@ private:
 	void loadGraphics();
 	void loadPortrait(int slot);
 	std::string getMapName(const std::string& map_filename);
+	void updateButtons();
 
 	ItemManager *items;
 	WidgetButton *button_exit;
@@ -60,6 +62,8 @@ private:
 	WidgetLabel *label_name[GAME_SLOT_MAX];
 	WidgetLabel *label_level[GAME_SLOT_MAX];
 	WidgetLabel *label_map[GAME_SLOT_MAX];
+	WidgetTooltip *tip;
+	TooltipData *tipdata;
 
 	MenuConfirm *confirm;
 
@@ -93,6 +97,7 @@ private:
 	SDL_Rect preview_pos;
 
 	SDL_Color color_normal;
+	bool use_story_warning;
 	
 public:
 	GameStateLoad();
