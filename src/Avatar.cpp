@@ -793,10 +793,12 @@ void Avatar::transform() {
 	stats.transformed = true;
 	setPowers = true;
 
+	delete charmed_stats;
 	charmed_stats = new StatBlock();
 	charmed_stats->load("enemies/" + stats.transform_type + ".txt");
 
 	// temporary save hero stats
+	delete hero_stats;
 	hero_stats = new StatBlock();
 	*hero_stats = stats;
 
@@ -907,6 +909,8 @@ void Avatar::untransform() {
 
 	delete charmed_stats;
 	delete hero_stats;
+	charmed_stats = NULL;
+	hero_stats = NULL;
 }
 
 void Avatar::setAnimation(std::string name) {
@@ -951,15 +955,14 @@ void Avatar::addRenders(vector<Renderable> &r) {
 Avatar::~Avatar() {
 
 	AnimationManager::instance()->decreaseCount("animations/hero.txt");
-
-	SDL_FreeSurface(sprites);
-	if (transformed_sprites) SDL_FreeSurface(transformed_sprites);
-
 	for (unsigned int i=0; i<animsets.size(); i++) {
 		AnimationManager::instance()->decreaseCount(animsets[i]->getName());
 		delete anims[i];
 	}
 	AnimationManager::instance()->cleanUp();
+
+	delete charmed_stats;
+	delete hero_stats;
 
 	Mix_FreeChunk(sound_melee);
 	Mix_FreeChunk(sound_hit);
