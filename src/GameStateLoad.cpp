@@ -470,16 +470,23 @@ void GameStateLoad::updateButtons() {
 	loadPortrait(selected_slot);
 
 	button_action->enabled = true;
+	button_action->tooltip = "";
 	if (stats[selected_slot].name == "") {
 		button_action->label = msg->get("New Game");
-		if (!fileExists(mods->locate("maps/spawn.txt"))) button_action->enabled = false;
+		if (!fileExists(mods->locate("maps/spawn.txt"))) {
+			button_action->enabled = false;
+			button_action->tooltip = msg->get("Enable a story mod to continue");
+		}
 		button_alternate->enabled = false;
 	}
 	else {
 		button_alternate->enabled = true;
 		button_action->label = msg->get("Load Game");
 		if (current_map[selected_slot] == "") {
-			if (!fileExists(mods->locate("maps/spawn.txt"))) button_action->enabled = false;
+			if (!fileExists(mods->locate("maps/spawn.txt"))) {
+				button_action->enabled = false;
+				button_action->tooltip = msg->get("Enable a story mod to continue");
+			}
 		}		
 	}
 	button_action->refresh();
@@ -490,11 +497,6 @@ void GameStateLoad::render() {
 
 	SDL_Rect src;
 	SDL_Rect dest;
-
-	// display buttons
-	button_exit->render();
-	button_action->render();
-	button_alternate->render();
 
 	// display background
 	src.w = gameslot_pos.w;
@@ -584,6 +586,11 @@ void GameStateLoad::render() {
 	}
 	// display warnings
 	if(confirm->visible) confirm->render();
+
+	// display buttons
+	button_exit->render();
+	button_action->render();
+	button_alternate->render();
 }
 
 GameStateLoad::~GameStateLoad() {
