@@ -476,9 +476,11 @@ void GameStateLoad::updateButtons() {
 		button_alternate->enabled = false;
 	}
 	else {
-		button_action->label = msg->get("Load Game");
-		if (current_map[selected_slot] == "") button_action->enabled = false;
 		button_alternate->enabled = true;
+		button_action->label = msg->get("Load Game");
+		if (current_map[selected_slot] == "") {
+			if (!fileExists(mods->locate("maps/spawn.txt"))) button_action->enabled = false;
+		}		
 	}
 	button_action->refresh();
 	button_alternate->refresh();
