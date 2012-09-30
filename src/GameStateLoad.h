@@ -41,7 +41,8 @@ class ItemManager;
 class MenuConfirm;
 class WidgetButton;
 class WidgetLabel;
-
+class WidgetTooltip;
+class TooltipData;
 
 const int GAME_SLOT_MAX = 4;
 
@@ -61,6 +62,8 @@ private:
 	WidgetLabel *label_name[GAME_SLOT_MAX];
 	WidgetLabel *label_level[GAME_SLOT_MAX];
 	WidgetLabel *label_map[GAME_SLOT_MAX];
+	WidgetTooltip *tip;
+	TooltipData *tipdata;
 
 	MenuConfirm *confirm;
 
@@ -94,6 +97,7 @@ private:
 	SDL_Rect preview_pos;
 
 	SDL_Color color_normal;
+	bool use_story_warning;
 	
 public:
 	GameStateLoad();
