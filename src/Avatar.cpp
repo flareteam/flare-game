@@ -75,7 +75,6 @@ void Avatar::init() {
 
 	// other init
 	sprites = 0;
-	transformed_sprites = 0;
 	stats.cur_state = AVATAR_STANCE;
 	stats.pos.x = map->spawn.x;
 	stats.pos.y = map->spawn.y;
