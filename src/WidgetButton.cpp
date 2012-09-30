@@ -31,11 +31,13 @@ WidgetButton::WidgetButton(const std::string& _fileName)
 	buttons = NULL;
 	click = NULL;
 	label = "";
+	tooltip = "";
 	pos.x = pos.y = pos.w = pos.h = 0;
 	enabled = true;
 	pressed = false;
 	hover = false;
 	render_to_alpha = false;
+	tip = new WidgetTooltip();
 
 	loadArt();
 
@@ -82,6 +84,9 @@ bool WidgetButton::checkClick(int x, int y) {
 	} else {
 		hover = false;
 	}
+
+	// Check the tooltip
+	tip_new = checkTooltip(mouse);
 
 	// disabled buttons can't be clicked;
 	if (!enabled) return false;
@@ -144,6 +149,15 @@ void WidgetButton::render(SDL_Surface *target) {
 		SDL_BlitSurface(buttons, &src, target, &offset);
 
 	wlabel.render(target);
+
+	// render the tooltip
+	if (tip_new.num_lines > 0) {
+		if (tip_new.lines[0] != tip_buf.lines[0]) {
+			tip_buf.clear();
+			tip_buf = tip_new;
+		}
+		tip->render(tip_buf, inpt->mouse, STYLE_FLOAT, target);
+	}
 }
 
 /**
@@ -162,7 +176,24 @@ void WidgetButton::refresh() {
 	}
 }
 
+/**
+ * If mousing-over an item with a tooltip, return that tooltip data.
+ *
+ * @param mouse The x,y screen coordinates of the mouse cursor
+ */
+TooltipData WidgetButton::checkTooltip(Point mouse) {
+	TooltipData _tip;
+
+	if (isWithin(pos, mouse) && tooltip != "") {
+		_tip.lines[_tip.num_lines++] = tooltip;
+	}
+
+	return _tip;
+}
+
 WidgetButton::~WidgetButton() {
 	SDL_FreeSurface(buttons);
+	tip_buf.clear();
+	delete tip;
 }
 
