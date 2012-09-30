@@ -796,27 +796,6 @@ void Avatar::transform() {
 	charmed_stats = new StatBlock();
 	charmed_stats->load("enemies/" + stats.transform_type + ".txt");
 
-	// transform the hero graphic
-	if (last_transform != charmed_stats->name) {
-		if (transformed_sprites) SDL_FreeSurface(transformed_sprites);
-
-		//transformed_sprites = IMG_Load(mods->locate("images/enemies/" + charmed_stats->gfx_prefix + ".png").c_str());
-
-		if(!transformed_sprites) {
-			fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
-			SDL_Quit();
-			exit(1);
-		}
-		last_transform = charmed_stats->name;
-	}
-
-	SDL_SetColorKey( transformed_sprites, SDL_SRCCOLORKEY, SDL_MapRGB(transformed_sprites->format, 255, 0, 255) );
-
-	// optimize
-	SDL_Surface *cleanup = transformed_sprites;
-	transformed_sprites = SDL_DisplayFormatAlpha(transformed_sprites);
-	SDL_FreeSurface(cleanup);
-
 	// temporary save hero stats
 	hero_stats = new StatBlock();
 	*hero_stats = stats;
@@ -828,7 +807,11 @@ void Avatar::transform() {
 	stats.humanoid = charmed_stats->humanoid;
 	stats.animations = charmed_stats->animations;
 	stats.animationSpeed = charmed_stats->animationSpeed;
-	animationSet = AnimationManager::instance()->getAnimationSet("animations/"+charmed_stats->animations + ".txt");
+
+	string animationname = "animations/"+charmed_stats->animations + ".txt";
+	AnimationManager::instance()->decreaseCount("animations/hero.txt");
+	AnimationManager::instance()->increaseCount(animationname);
+	animationSet = AnimationManager::instance()->getAnimationSet(animationname);
 	delete activeAnimation;
 	activeAnimation = animationSet->getAnimation(animationSet->starting_animation);
 	stats.cur_state = AVATAR_STANCE;
@@ -894,6 +877,8 @@ void Avatar::untransform() {
 	stats.animations = hero_stats->animations;
 	stats.animationSpeed = hero_stats->animationSpeed;
 
+	AnimationManager::instance()->increaseCount("animations/hero.txt");
+	AnimationManager::instance()->decreaseCount("animations/"+charmed_stats->animations + ".txt");
 	animationSet = AnimationManager::instance()->getAnimationSet("animations/hero.txt");
 	delete activeAnimation;
 	activeAnimation = animationSet->getAnimation(animationSet->starting_animation);
@@ -947,13 +932,19 @@ int Avatar::getUntransformPower() {
 }
 
 void Avatar::addRenders(vector<Renderable> &r) {
-	for (unsigned i = 0; i < anims.size(); ++i) {
-		if (anims[i] != NULL) {
-			Renderable ren = anims[i]->getCurrentFrame(stats.direction);
-			ren.map_pos = stats.pos;
-			ren.prio = i;
-			r.push_back(ren);
+	if (!stats.transformed) {
+		for (unsigned i = 0; i < anims.size(); ++i) {
+			if (anims[i] != NULL) {
+				Renderable ren = anims[i]->getCurrentFrame(stats.direction);
+				ren.map_pos = stats.pos;
+				ren.prio = i;
+				r.push_back(ren);
+			}
 		}
+	} else {
+		Renderable ren = activeAnimation->getCurrentFrame(stats.direction);
+		ren.map_pos = stats.pos;
+		r.push_back(ren);
 	}
 }
 
