@@ -188,6 +188,7 @@ void Avatar::loadGraphics(std::vector<Layer_gfx> _img_gfx) {
 			AnimationManager::instance()->increaseCount(name);
 			animsets.push_back(AnimationManager::instance()->getAnimationSet(name));
 			anims.push_back(animsets.back()->getAnimation(activeAnimation->getName()));
+			anims.back()->syncTo(activeAnimation);
 		} else {
 			animsets.push_back(NULL);
 			anims.push_back(NULL);

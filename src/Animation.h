@@ -93,6 +93,9 @@ public:
 	// advance the animation one frame
 	void advanceFrame();
 
+	// sets the frame counters to the same values as the given Animation.
+	void syncTo(Animation *other);
+
 	// return the Renderable of the current frame
 	Renderable getCurrentFrame(int direction);
 
