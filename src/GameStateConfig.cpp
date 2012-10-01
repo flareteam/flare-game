@@ -1267,7 +1267,7 @@ bool GameStateConfig::setMods() {
  */
 void GameStateConfig::scanKey(int button) {
   if (input_confirm->visible) {
-	if (inpt->last_button != -1) {
+	if (inpt->last_button != -1 && inpt->last_button < 8) {
 		if (button < 25) inpt->binding[button] = inpt->last_button;
 		else inpt->binding_alt[button-25] = inpt->last_button;
 

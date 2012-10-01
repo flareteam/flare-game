@@ -51,6 +51,7 @@ private:
 	void loadGraphics();
 	void loadPortrait(int slot);
 	std::string getMapName(const std::string& map_filename);
+	void updateButtons();
 
 	ItemManager *items;
 	WidgetButton *button_exit;

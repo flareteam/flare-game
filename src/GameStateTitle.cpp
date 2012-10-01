@@ -40,6 +40,10 @@ GameStateTitle::GameStateTitle() : GameState() {
 	button_play->label = msg->get("Play Game");
 	button_play->pos.x = VIEW_W_HALF - button_play->pos.w/2;
 	button_play->pos.y = VIEW_H - (button_exit->pos.h*3);
+	if (!ENABLE_PLAYGAME) {
+		button_play->enabled = false;
+		button_play->tooltip = msg->get("Enable a core mod to continue");
+	}
 	button_play->refresh();
 
 	button_cfg->label = msg->get("Configuration");

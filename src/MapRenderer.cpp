@@ -870,8 +870,8 @@ void MapRenderer::renderIso(vector<Renderable> &r, vector<Renderable> &r_dead) {
 		src.h = 2 * VIEW_H;
 		SDL_BlitSurface(backgroundsurface, &src, screen , 0);
 	}
-	renderIsoBackObjects(r_dead);
-	renderIsoFrontObjects(r);
+	if (object) renderIsoBackObjects(r_dead);
+	if (object) renderIsoFrontObjects(r);
 	if (foreground) renderIsoLayer(screen, nulloffset, foreground);
 	checkTooltip();
 }
@@ -940,8 +940,8 @@ void MapRenderer::renderOrthoFrontObjects(std::vector<Renderable> &r) {
 void MapRenderer::renderOrtho(vector<Renderable> &r, vector<Renderable> &r_dead) {
 	if (background) renderOrthoLayer(background);
 	if (fringe) renderOrthoLayer(fringe);
-	renderOrthoBackObjects(r_dead);
-	renderOrthoFrontObjects(r);
+	if (object) renderOrthoBackObjects(r_dead);
+	if (object) renderOrthoFrontObjects(r);
 	if (foreground) renderOrthoLayer(foreground);
 	//render event tooltips
 	checkTooltip();
