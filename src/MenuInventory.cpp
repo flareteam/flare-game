@@ -1,6 +1,7 @@
 /*
 Copyright © 2011-2012 Clint Bellanger
 Copyright © 2012 Igor Paliychuk
+Copyright © 2012 Stefan Beller
 
 This file is part of FLARE.
 
@@ -199,10 +200,12 @@ TooltipData MenuInventory::checkTooltip(Point mouse) {
 	int slot;
 	TooltipData tip;
 
-	area = areaOver( mouse);
+	area = areaOver(mouse);
+	if (area == -1)
+		return tip;
 	slot = inventory[area].slotOver(mouse);
 
-	if (area > -1 && inventory[area][slot].item > 0) {
+	if (inventory[area][slot].item > 0) {
 		tip = inventory[area].checkTooltip( mouse, stats, false);
 	}
 	else if (area == EQUIPMENT && inventory[area][slot].item == 0) {
@@ -253,15 +256,17 @@ void MenuInventory::itemReturn( ItemStack stack) {
  * and equip items
  */
 void MenuInventory::drop(Point mouse, ItemStack stack) {
-	int area;
-	int slot;
-	int drag_prev_slot;
-
 	items->playSound(stack.item);
 
-	area = areaOver( mouse);
-	slot = inventory[area].slotOver(mouse);
-	drag_prev_slot = inventory[drag_prev_src].drag_prev_slot;
+	int area = areaOver(mouse);
+	if (area == -1) {
+		// not dropped into a slot. Just return it to the previous slot.
+		itemReturn(stack);
+		return;
+	}
+
+	int slot = inventory[area].slotOver(mouse);
+	int drag_prev_slot = inventory[drag_prev_src].drag_prev_slot;
 
 	if (area == EQUIPMENT) { // dropped onto equipped item
 
@@ -338,9 +343,6 @@ void MenuInventory::drop(Point mouse, ItemStack stack) {
 			}
 		}
 	}
-	else {
-		itemReturn( stack); // not dropped into a slot. Just return it to the previous slot.
-	}
 
 	drag_prev_src = -1;
 }
@@ -352,7 +354,6 @@ void MenuInventory::drop(Point mouse, ItemStack stack) {
  */
 void MenuInventory::activate(InputState * input) {
 	int slot;
-	int equip_slot = -1;
 	ItemStack stack;
 	Point nullpt;
 	nullpt.x = nullpt.y = 0;
@@ -390,6 +391,7 @@ void MenuInventory::activate(InputState * input) {
 	}
 	// equip an item
 	else {
+		int equip_slot = -1;
 		// find first empty(or just first) slot for item to equip
 		for (int i = 0; i < MAX_EQUIPPED; i++) {
 			// first check for first empty
@@ -445,24 +447,20 @@ void MenuInventory::activate(InputState * input) {
  * @param slot Slot number where it will try to store the item
  */
 void MenuInventory::add(ItemStack stack, int area, int slot) {
-	int max_quantity;
-	int quantity_added;
-	int i;
-
 	items->playSound(stack.item);
 
 	if( stack.item != 0) {
 		if( area < 0) {
 			area = CARRIED;
 		}
-		max_quantity = items->items[stack.item].max_quantity;
+		int max_quantity = items->items[stack.item].max_quantity;
 		if( slot > -1 && inventory[area][slot].item != 0 && inventory[area][slot].item != stack.item) {
 			// the proposed slot isn't available, search for another one
 			slot = -1;
 		}
 		if( area == CARRIED) {
 			// first search of stack to complete if the item is stackable
-			i = 0;
+			int i = 0;
 			while( max_quantity > 1 && slot == -1 && i < MAX_CARRIED) {
 				if (inventory[area][i].item == stack.item && inventory[area][i].quantity < max_quantity) {
 					slot = i;
@@ -480,7 +478,7 @@ void MenuInventory::add(ItemStack stack, int area, int slot) {
 		}
 		if( slot != -1) {
 			// Add
-			quantity_added = min( stack.quantity, max_quantity - inventory[area][slot].quantity);
+			int quantity_added = min( stack.quantity, max_quantity - inventory[area][slot].quantity);
 			inventory[area][slot].item = stack.item;
 			inventory[area][slot].quantity += quantity_added;
 			stack.quantity -= quantity_added;

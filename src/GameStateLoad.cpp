@@ -138,14 +138,28 @@ GameStateLoad::GameStateLoad() : GameState() {
 	} else fprintf(stderr, "Unable to open menus/menus.txt!\n");
 
 	// get displayable types list
+	bool found_layer = false;
 	if(infile.open(mods->locate("engine/hero_options.txt"))) {
 		while(infile.next()) {
 			if(infile.key == "layer") {
-				preview_layer.push_back(infile.nextValue());
+				infile.val = infile.val + ',';
+
+				if(infile.key == "layer") {
+					unsigned dir = eatFirstInt(infile.val,',');
+					if (dir != 6) continue;
+					else found_layer = true;
+
+					string layer = eatFirstString(infile.val,',');
+					while (layer != "") {
+						preview_layer.push_back(layer);
+						layer = eatFirstString(infile.val,',');
+					}
+				}
 			}
 		}
 		infile.close();
 	} else fprintf(stderr, "Unable to open engine/hero_options.txt!\n");
+	if (!found_layer) fprintf(stderr, "Warning: Could not find layers for direction 6\n");
 
 	button_action->pos.x += (VIEW_W - FRAME_W)/2;
 	button_action->pos.y += (VIEW_H - FRAME_H)/2;

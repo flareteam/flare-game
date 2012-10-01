@@ -55,14 +55,6 @@ enum AvatarState {
 	AVATAR_SHOOT = 7
 };
 
-struct Layer_def {
-	std::string type;
-	SDL_Rect pos;
-	Layer_def() {
-		type = "";
-	}
-};
-
 struct Layer_gfx {
 	std::string gfx;
 	std::string type;
@@ -89,7 +81,10 @@ private:
 	Mix_Chunk *sound_steps[4];
 	Mix_Chunk *level_up;
 
-	std::vector<std::string> img_gfx;
+	void setAnimation(std::string name);
+	std::vector<AnimationSet*> animsets; // hold the animations for all equipped items in the right order of drawing.
+	std::vector<Animation*> anims; // hold the animations for all equipped items in the right order of drawing.
+
 	short body;
 
 	bool transform_triggered;
@@ -102,8 +97,7 @@ public:
 
 	void init();
 	void loadLayerDefinitions();
-	std::vector<Layer_def> layer_def;
-	int findGfx(std::vector<Layer_gfx> _img_gfx, std::string type);
+	std::vector<std::vector<std::string> > layer_def;
 	void loadGraphics(std::vector<Layer_gfx> _img_gfx);
 	void loadSounds();
 	void loadStepFX(const std::string& stepname);
@@ -123,7 +117,9 @@ public:
 	StatBlock *hero_stats;
 	StatBlock *charmed_stats;
 
-	virtual Renderable getRender();
+	virtual Renderable getRender() { return Renderable(); }
+	void addRenders(std::vector<Renderable> &r);
+	SDL_Surface *herosprite;
 
 	// vars
 	Hazard *haz;

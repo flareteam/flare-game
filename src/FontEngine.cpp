@@ -30,11 +30,15 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 using namespace std;
 
-
-FontEngine::FontEngine() {
-	font_pt = 10;
-	render_blended = false;
-
+FontEngine::FontEngine()
+ : font_pt(10)
+ , font_height(0)
+ , line_height(0)
+ , ttf(NULL)
+ , ttfont(NULL)
+ , render_blended(false)
+ , cursor_y(0)
+{
 	// Initiate SDL_ttf
 	if(!TTF_WasInit() && TTF_Init()==-1) {
 		printf("TTF_Init: %s\n", TTF_GetError());

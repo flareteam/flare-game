@@ -1,5 +1,6 @@
 /*
 Copyright © 2011-2012 Clint Bellanger
+Copyright © 2012 Stefan Beller
 
 This file is part of FLARE.
 
@@ -92,7 +93,7 @@ void MenuMiniMap::prerender(MapCollision *collider, int map_w, int map_h) {
 	map_size.x = map_w;
 	map_size.y = map_h;
 	SDL_FillRect(map_surface, 0, SDL_MapRGB(map_surface->format,255,0,255));
-	
+
 	if (TILESET_ORIENTATION == TILESET_ISOMETRIC)
 		prerenderIso(collider);
 	else // TILESET_ORTHOGONAL

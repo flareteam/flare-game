@@ -1,5 +1,6 @@
 /*
 Copyright © 2011-2012 Clint Bellanger
+Copyright © 2012 Stefan Beller
 
 This file is part of FLARE.
 
@@ -27,6 +28,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <SDL.h>
 #include <SDL_image.h>
 #include <string>
+#include <stdint.h>
 
 struct Point {
 	int x,y;
@@ -41,9 +43,16 @@ struct Renderable {
 	SDL_Surface *sprite; // image to be used
 	SDL_Rect src; // location on the sprite in pixel coordinates.
 
-	Point map_pos; // The map location on the floor between someone's feet
-	Point offset;  // offset from map_pos to topleft corner of sprite
-	Point tile;    // The tile which this renderable belongs to (i.e. for blocking that tile)
+	Point map_pos;     // The map location on the floor between someone's feet
+	Point offset;      // offset from map_pos to topleft corner of sprite
+	uint64_t prio;     // 64-32 bit for map position, 31-16 for intertile position, 15-0 user dependent, such as Avatar.
+	Renderable()
+		: sprite(0)
+		, src(SDL_Rect())
+		, map_pos(Point())
+		, offset(Point())
+		, prio(0)
+	{}
 };
 
 class Event_Component {

@@ -1,5 +1,6 @@
 /*
 Copyright © 2011-2012 Clint Bellanger
+Copyright © 2012 Stefan Beller
 
 This file is part of FLARE.
 
@@ -226,11 +227,12 @@ void GameStateNew::logic() {
 		inpt->lock[ACCEPT] = true;
 		// start the new game
 		GameStatePlay* play = new GameStatePlay();
-		play->pc->stats.base = base[current_option];
-		play->pc->stats.head = head[current_option];
-		play->pc->stats.portrait = portrait[current_option];
-		play->pc->stats.name = input_name->getText();
-		play->pc->stats.permadeath = button_permadeath->isChecked();
+		Avatar *pc = play->getAvatar();
+		pc->stats.base = base[current_option];
+		pc->stats.head = head[current_option];
+		pc->stats.portrait = portrait[current_option];
+		pc->stats.name = input_name->getText();
+		pc->stats.permadeath = button_permadeath->isChecked();
 		play->game_slot = game_slot;
 		play->resetGame();
 		requestedGameState = play;
