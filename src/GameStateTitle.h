@@ -22,8 +22,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 class WidgetButton;
 class WidgetLabel;
-class WidgetTooltip;
-class TooltipData;
 
 class GameStateTitle : public GameState {
 private:
@@ -32,8 +30,6 @@ private:
 	WidgetButton *button_exit;
     WidgetButton *button_cfg;
 	WidgetLabel *label_version;
-	WidgetTooltip *tip;
-	TooltipData *tipdata;
 	
 public:
 	GameStateTitle();
