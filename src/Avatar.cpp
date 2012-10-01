@@ -187,7 +187,8 @@ void Avatar::loadGraphics(std::vector<Layer_gfx> _img_gfx) {
 			string name = "animations/avatar/"+stats.base+"/"+_img_gfx[i].gfx+".txt";
 			AnimationManager::instance()->increaseCount(name);
 			animsets.push_back(AnimationManager::instance()->getAnimationSet(name));
-			anims.push_back(animsets.back()->getAnimation(animsets.back()->starting_animation));
+			anims.push_back(animsets.back()->getAnimation(activeAnimation->getName()));
+			anims.back()->syncTo(activeAnimation);
 		} else {
 			animsets.push_back(NULL);
 			anims.push_back(NULL);
