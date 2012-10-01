@@ -107,7 +107,6 @@ public:
 
 	std::string name;
 	std::string sfx_prefix;
-	std::string gfx_prefix;
 
 	int level;
 	int xp;

@@ -1,6 +1,7 @@
 /*
 Copyright © 2011-2012 Clint Bellanger
 Copyright © 2012 Igor Paliychuk
+Copyright © 2012 Stefan Beller
 
 This file is part of FLARE.
 
@@ -206,131 +207,132 @@ StatBlock::StatBlock() {
  */
 void StatBlock::load(const string& filename) {
 	FileParser infile;
+	if (!infile.open(mods->locate(filename))) {
+		fprintf(stderr, "Unable to open %s!\n", filename.c_str());
+		return;
+	}
+
 	int num = 0;
+	while (infile.next()) {
+		if (isInt(infile.val)) num = toInt(infile.val);
 
-	if (infile.open(mods->locate(filename))) {
-		while (infile.next()) {
-			if (isInt(infile.val)) num = toInt(infile.val);
+		if (infile.key == "name") name = msg->get(infile.val);
+		else if (infile.key == "humanoid") {
+			if (infile.val == "true") humanoid = true;
+		}
+		else if (infile.key == "sfx_prefix") sfx_prefix = infile.val;
 
-			if (infile.key == "name") name = msg->get(infile.val);
-			else if (infile.key == "humanoid") {
-				if (infile.val == "true") humanoid = true;
-			}
-			else if (infile.key == "sfx_prefix") sfx_prefix = infile.val;
-			else if (infile.key == "gfx_prefix") gfx_prefix = infile.val;
+		else if (infile.key == "level") level = num;
 
-			else if (infile.key == "level") level = num;
-
-			// enemy death rewards and events
-			else if (infile.key == "xp") xp = num;
-			else if (infile.key == "loot_chance") loot_chance = num;
-			else if (infile.key == "item_class") {
-				string str;
-				while ((str = infile.nextValue()) != "") {
-					if (!isInt(str)) {
-						item_classes.push_back(str);
-						item_class_prob.push_back(1);
-						item_class_prob_sum++;
-					}
-					else {
-						num = toInt(str);
-						item_class_prob[item_classes.size()-1] = num;
-						item_class_prob_sum += num - 1; // one was already added, so add one less
-					}
+		// enemy death rewards and events
+		else if (infile.key == "xp") xp = num;
+		else if (infile.key == "loot_chance") loot_chance = num;
+		else if (infile.key == "item_class") {
+			string str;
+			while ((str = infile.nextValue()) != "") {
+				if (!isInt(str)) {
+					item_classes.push_back(str);
+					item_class_prob.push_back(1);
+					item_class_prob_sum++;
+				}
+				else {
+					num = toInt(str);
+					item_class_prob[item_classes.size()-1] = num;
+					item_class_prob_sum += num - 1; // one was already added, so add one less
 				}
 			}
-			else if (infile.key == "defeat_status") defeat_status = infile.val;
-			else if (infile.key == "first_defeat_loot") first_defeat_loot = num;
-			else if (infile.key == "quest_loot") {
-				quest_loot_requires = infile.nextValue();
-				quest_loot_not = infile.nextValue();
-				quest_loot_id = toInt(infile.nextValue());
-			}
-			// combat stats
-			else if (infile.key == "hp") {
-				hp = num;
-				maxhp = num;
-			}
-			else if (infile.key == "mp") {
-				mp = num;
-				maxmp = num;
-			}
-			else if (infile.key == "cooldown") cooldown = num;
-			else if (infile.key == "accuracy") accuracy = num;
-			else if (infile.key == "avoidance") avoidance = num;
-			else if (infile.key == "dmg_melee_min") dmg_melee_min = num;
-			else if (infile.key == "dmg_melee_max") dmg_melee_max = num;
-			else if (infile.key == "dmg_ment_min") dmg_ment_min = num;
-			else if (infile.key == "dmg_ment_max") dmg_ment_max = num;
-			else if (infile.key == "dmg_ranged_min") dmg_ranged_min = num;
-			else if (infile.key == "dmg_ranged_max") dmg_ranged_max = num;
-			else if (infile.key == "absorb_min") absorb_min = num;
-			else if (infile.key == "absorb_max") absorb_max = num;
-
-			// behavior stats
-			else if (infile.key == "flying") {
-				if (num == 1) flying = true;
-			}
-			else if (infile.key == "intangible") {
-				if (num == 1) intangible = true;
-			}
-			else if (infile.key == "facing") {
-				if (num == 0) facing = false;
-			}
-
-			else if (infile.key == "waypoint_pause") waypoint_pause = num;
-
-			else if (infile.key == "speed") speed = num;
-			else if (infile.key == "dspeed") dspeed = num;
-			else if (infile.key == "turn_delay") turn_delay = num;
-			else if (infile.key == "chance_pursue") chance_pursue = num;
-			else if (infile.key == "chance_flee") chance_flee = num;
-
-			else if (infile.key == "chance_melee_phys") power_chance[MELEE_PHYS] = num;
-			else if (infile.key == "chance_melee_ment") power_chance[MELEE_MENT] = num;
-			else if (infile.key == "chance_ranged_phys") power_chance[RANGED_PHYS] = num;
-			else if (infile.key == "chance_ranged_ment") power_chance[RANGED_MENT] = num;
-			else if (infile.key == "power_melee_phys") power_index[MELEE_PHYS] = num;
-			else if (infile.key == "power_melee_ment") power_index[MELEE_MENT] = num;
-			else if (infile.key == "power_ranged_phys") power_index[RANGED_PHYS] = num;
-			else if (infile.key == "power_ranged_ment") power_index[RANGED_MENT] = num;
-			else if (infile.key == "power_beacon") power_index[BEACON] = num;
-			else if (infile.key == "cooldown_melee_phys") power_cooldown[MELEE_PHYS] = num;
-			else if (infile.key == "cooldown_melee_ment") power_cooldown[MELEE_MENT] = num;
-			else if (infile.key == "cooldown_ranged_phys") power_cooldown[RANGED_PHYS] = num;
-			else if (infile.key == "cooldown_ranged_ment") power_cooldown[RANGED_MENT] = num;
-			else if (infile.key == "power_on_hit") power_index[ON_HIT] = num;
-			else if (infile.key == "power_on_death") power_index[ON_DEATH] = num;
-			else if (infile.key == "power_on_half_dead") power_index[ON_HALF_DEAD] = num;
-			else if (infile.key == "power_on_debuff") power_index[ON_DEBUFF] = num;
-			else if (infile.key == "power_on_join_combat") power_index[ON_JOIN_COMBAT] = num;
-			else if (infile.key == "chance_on_hit") power_chance[ON_HIT] = num;
-			else if (infile.key == "chance_on_death") power_chance[ON_DEATH] = num;
-			else if (infile.key == "chance_on_half_dead") power_chance[ON_HALF_DEAD] = num;
-			else if (infile.key == "chance_on_debuff") power_chance[ON_DEBUFF] = num;
-			else if (infile.key == "chance_on_join_combat") power_chance[ON_JOIN_COMBAT] = num;
-
-
-			else if (infile.key == "melee_range") melee_range = num;
-			else if (infile.key == "threat_range") threat_range = num;
-
-			// animation stats
-			else if (infile.key == "melee_weapon_power") melee_weapon_power = num;
-			else if (infile.key == "mental_weapon_power") mental_weapon_power = num;
-			else if (infile.key == "ranged_weapon_power") ranged_weapon_power = num;
-
-			else if (infile.key == "animations") animations = infile.val;
-			else if (infile.key == "animation_speed") animationSpeed = num;
-
-			// hide enemy HP bar
-			else if (infile.key == "suppress_hp") suppress_hp = num;
-
-			for (unsigned int i=0; i<ELEMENTS.size(); i++) {
-				if (infile.key == "vulnerable_" + ELEMENTS[i].name) vulnerable[i] = num;
-			}
 		}
-		infile.close();
-	} else fprintf(stderr, "Unable to open %s!\n", filename.c_str());
+		else if (infile.key == "defeat_status") defeat_status = infile.val;
+		else if (infile.key == "first_defeat_loot") first_defeat_loot = num;
+		else if (infile.key == "quest_loot") {
+			quest_loot_requires = infile.nextValue();
+			quest_loot_not = infile.nextValue();
+			quest_loot_id = toInt(infile.nextValue());
+		}
+		// combat stats
+		else if (infile.key == "hp") {
+			hp = num;
+			maxhp = num;
+		}
+		else if (infile.key == "mp") {
+			mp = num;
+			maxmp = num;
+		}
+		else if (infile.key == "cooldown") cooldown = num;
+		else if (infile.key == "accuracy") accuracy = num;
+		else if (infile.key == "avoidance") avoidance = num;
+		else if (infile.key == "dmg_melee_min") dmg_melee_min = num;
+		else if (infile.key == "dmg_melee_max") dmg_melee_max = num;
+		else if (infile.key == "dmg_ment_min") dmg_ment_min = num;
+		else if (infile.key == "dmg_ment_max") dmg_ment_max = num;
+		else if (infile.key == "dmg_ranged_min") dmg_ranged_min = num;
+		else if (infile.key == "dmg_ranged_max") dmg_ranged_max = num;
+		else if (infile.key == "absorb_min") absorb_min = num;
+		else if (infile.key == "absorb_max") absorb_max = num;
+
+		// behavior stats
+		else if (infile.key == "flying") {
+			if (num == 1) flying = true;
+		}
+		else if (infile.key == "intangible") {
+			if (num == 1) intangible = true;
+		}
+		else if (infile.key == "facing") {
+			if (num == 0) facing = false;
+		}
+
+		else if (infile.key == "waypoint_pause") waypoint_pause = num;
+
+		else if (infile.key == "speed") speed = num;
+		else if (infile.key == "dspeed") dspeed = num;
+		else if (infile.key == "turn_delay") turn_delay = num;
+		else if (infile.key == "chance_pursue") chance_pursue = num;
+		else if (infile.key == "chance_flee") chance_flee = num;
+
+		else if (infile.key == "chance_melee_phys") power_chance[MELEE_PHYS] = num;
+		else if (infile.key == "chance_melee_ment") power_chance[MELEE_MENT] = num;
+		else if (infile.key == "chance_ranged_phys") power_chance[RANGED_PHYS] = num;
+		else if (infile.key == "chance_ranged_ment") power_chance[RANGED_MENT] = num;
+		else if (infile.key == "power_melee_phys") power_index[MELEE_PHYS] = num;
+		else if (infile.key == "power_melee_ment") power_index[MELEE_MENT] = num;
+		else if (infile.key == "power_ranged_phys") power_index[RANGED_PHYS] = num;
+		else if (infile.key == "power_ranged_ment") power_index[RANGED_MENT] = num;
+		else if (infile.key == "power_beacon") power_index[BEACON] = num;
+		else if (infile.key == "cooldown_melee_phys") power_cooldown[MELEE_PHYS] = num;
+		else if (infile.key == "cooldown_melee_ment") power_cooldown[MELEE_MENT] = num;
+		else if (infile.key == "cooldown_ranged_phys") power_cooldown[RANGED_PHYS] = num;
+		else if (infile.key == "cooldown_ranged_ment") power_cooldown[RANGED_MENT] = num;
+		else if (infile.key == "power_on_hit") power_index[ON_HIT] = num;
+		else if (infile.key == "power_on_death") power_index[ON_DEATH] = num;
+		else if (infile.key == "power_on_half_dead") power_index[ON_HALF_DEAD] = num;
+		else if (infile.key == "power_on_debuff") power_index[ON_DEBUFF] = num;
+		else if (infile.key == "power_on_join_combat") power_index[ON_JOIN_COMBAT] = num;
+		else if (infile.key == "chance_on_hit") power_chance[ON_HIT] = num;
+		else if (infile.key == "chance_on_death") power_chance[ON_DEATH] = num;
+		else if (infile.key == "chance_on_half_dead") power_chance[ON_HALF_DEAD] = num;
+		else if (infile.key == "chance_on_debuff") power_chance[ON_DEBUFF] = num;
+		else if (infile.key == "chance_on_join_combat") power_chance[ON_JOIN_COMBAT] = num;
+
+
+		else if (infile.key == "melee_range") melee_range = num;
+		else if (infile.key == "threat_range") threat_range = num;
+
+		// animation stats
+		else if (infile.key == "melee_weapon_power") melee_weapon_power = num;
+		else if (infile.key == "mental_weapon_power") mental_weapon_power = num;
+		else if (infile.key == "ranged_weapon_power") ranged_weapon_power = num;
+
+		else if (infile.key == "animations") animations = infile.val;
+		else if (infile.key == "animation_speed") animationSpeed = num;
+
+		// hide enemy HP bar
+		else if (infile.key == "suppress_hp") suppress_hp = num;
+
+		for (unsigned int i=0; i<ELEMENTS.size(); i++) {
+			if (infile.key == "vulnerable_" + ELEMENTS[i].name) vulnerable[i] = num;
+		}
+	}
+	infile.close();
 }
 
 /**
@@ -575,14 +577,15 @@ bool StatBlock::canUsePower(const Power &power, unsigned powerid) const {
 }
 
 void StatBlock::loadHeroStats() {
-
 	// Redefine numbers from config file if present
-	int value;
 	FileParser infile;
-	if (infile.open(mods->locate("engine/stats.txt"))) {
-	  while (infile.next()) {
+	if (!infile.open(mods->locate("engine/stats.txt"))) {
+		fprintf(stderr, "Unable to open engine/stats.txt!\n");
+		return;
+	}
 
-		value = toInt(infile.val);
+	while (infile.next()) {
+		int value = toInt(infile.val);
 
 		if (infile.key == "max_points_per_stat") {
 			max_points_per_stat = value;
@@ -657,20 +660,21 @@ void StatBlock::loadHeroStats() {
 		} else if (infile.key == "sfx_step") {
 			sfx_step = infile.val;
 		}
-	  }
-	  infile.close();
-	  if (max_points_per_stat == 0) max_points_per_stat = max_spendable_stat_points / 4 + 1;
-	  statsLoaded = true;
-	} else fprintf(stderr, "Unable to open engine/stats.txt!\n");
+	}
+	infile.close();
+	if (max_points_per_stat == 0) max_points_per_stat = max_spendable_stat_points / 4 + 1;
+	statsLoaded = true;
 
 	// Load the XP table as well
-	if (infile.open(mods->locate("engine/xp_table.txt"))) {
-		while(infile.next()) {
-			xp_table[toInt(infile.key) - 1] = toInt(infile.val);
-		}
-		max_spendable_stat_points = toInt(infile.key);
-		infile.close();
-	} else fprintf(stderr, "Unable to open engine/xp_table.txt!\n");
+	if (!infile.open(mods->locate("engine/xp_table.txt"))) {
+		fprintf(stderr, "Unable to open engine/xp_table.txt!\n");
+		return;
+	}
+	while(infile.next()) {
+		xp_table[toInt(infile.key) - 1] = toInt(infile.val);
+	}
+	max_spendable_stat_points = toInt(infile.key);
+	infile.close();
 }
 
 void StatBlock::clearNegativeEffects() {

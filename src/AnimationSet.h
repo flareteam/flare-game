@@ -22,18 +22,32 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 class Animation;
 
 /**
- * The animation set contains all animations of one entity.
+ * The animation set contains all animations of one entity, hence it
+ * they are all using the same spritesheet.
+ *
+ * The animation set is responsible for the spritesheet to be freed.
  */
 class AnimationSet {
-public:
-    std::vector<Animation*> animations;
-    std::string starting_animation; // i.e. stance, matches the section in the animation file.
-    std::string name; //i.e. animations/goblin_runner.txt, matches the filename.
+private:
+    const std::string name; //i.e. animations/goblin_runner.txt, matches the animations filename.
+    std::string imagefile;
 
-    AnimationSet(const std::string &name);
+public:
+    std::string starting_animation; // i.e. stance, matches the section in the animation file.
+    std::vector<Animation*> animations;
+
+    SDL_Surface *sprite;
+
+    AnimationSet(const std::string &animationname);
+    ~AnimationSet();
+
+    // must be called before getAnimation is called.
+    void load();
 
     /**
      * callee is responsible to free the returned animation
      */
     Animation *getAnimation(const std::string &name);
+
+    const std::string &getName() { return name; }
 };

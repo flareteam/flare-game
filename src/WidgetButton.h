@@ -24,6 +24,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "Widget.h"
 #include "WidgetLabel.h"
+#include "WidgetTooltip.h"
 
 #include <SDL.h>
 #include <SDL_image.h>
@@ -49,6 +50,11 @@ private:
 
 	SDL_Color color_normal;
 	SDL_Color color_disabled;
+
+	TooltipData tip_buf;
+	TooltipData tip_new;
+	WidgetTooltip *tip;
+	TooltipData checkTooltip(Point mouse);
 	
 public:
 	WidgetButton(const std::string& _fileName);
@@ -61,6 +67,7 @@ public:
 	void refresh();
 
 	std::string label;
+	std::string tooltip;
 	SDL_Rect pos;
 	bool enabled;
 	bool pressed;

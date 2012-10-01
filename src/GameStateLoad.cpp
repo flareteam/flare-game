@@ -32,7 +32,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "UtilsFileSystem.h"
 #include "UtilsParsing.h"
 #include "WidgetLabel.h"
-#include "WidgetTooltip.h"
 
 #include <algorithm>
 
@@ -139,14 +138,28 @@ GameStateLoad::GameStateLoad() : GameState() {
 	} else fprintf(stderr, "Unable to open menus/menus.txt!\n");
 
 	// get displayable types list
+	bool found_layer = false;
 	if(infile.open(mods->locate("engine/hero_options.txt"))) {
 		while(infile.next()) {
 			if(infile.key == "layer") {
-				preview_layer.push_back(infile.nextValue());
+				infile.val = infile.val + ',';
+
+				if(infile.key == "layer") {
+					unsigned dir = eatFirstInt(infile.val,',');
+					if (dir != 6) continue;
+					else found_layer = true;
+
+					string layer = eatFirstString(infile.val,',');
+					while (layer != "") {
+						preview_layer.push_back(layer);
+						layer = eatFirstString(infile.val,',');
+					}
+				}
 			}
 		}
 		infile.close();
 	} else fprintf(stderr, "Unable to open engine/hero_options.txt!\n");
+	if (!found_layer) fprintf(stderr, "Warning: Could not find layers for direction 6\n");
 
 	button_action->pos.x += (VIEW_W - FRAME_W)/2;
 	button_action->pos.y += (VIEW_H - FRAME_H)/2;
@@ -180,11 +193,6 @@ GameStateLoad::GameStateLoad() : GameState() {
 	frame_ticker = 0;
 
 	color_normal = font->getColor("menu_normal");
-	
-	tip = new WidgetTooltip();
-	tipdata = new TooltipData();
-	tipdata->num_lines = 1;
-	use_story_warning = false;
 }
 
 void GameStateLoad::loadGraphics() {
@@ -459,15 +467,6 @@ void GameStateLoad::logic() {
 			confirm->confirmClicked = false;
 		}
 	}
-	
-	// tooltip handling
-	tipdata->lines[0] = "";
-	if (button_action->hover && !button_action->enabled && use_story_warning) {
-		tipdata->lines[0] = msg->get("Enable a story mod to continue");
-	}
-	if (button_alternate->hover && !button_alternate->enabled && use_story_warning) {
-		tipdata->lines[0] = msg->get("Enable a story mod to continue");
-	}
 }
 
 void GameStateLoad::logicLoading() {
@@ -484,13 +483,13 @@ void GameStateLoad::logicLoading() {
 void GameStateLoad::updateButtons() {
 	loadPortrait(selected_slot);
 
-	use_story_warning = false;
 	button_action->enabled = true;
+	button_action->tooltip = "";
 	if (stats[selected_slot].name == "") {
 		button_action->label = msg->get("New Game");
 		if (!fileExists(mods->locate("maps/spawn.txt"))) {
 			button_action->enabled = false;
-			use_story_warning = true;
+			button_action->tooltip = msg->get("Enable a story mod to continue");
 		}
 		button_alternate->enabled = false;
 	}
@@ -500,7 +499,7 @@ void GameStateLoad::updateButtons() {
 		if (current_map[selected_slot] == "") {
 			if (!fileExists(mods->locate("maps/spawn.txt"))) {
 				button_action->enabled = false;
-				use_story_warning = true;
+				button_action->tooltip = msg->get("Enable a story mod to continue");
 			}
 		}		
 	}
@@ -512,11 +511,6 @@ void GameStateLoad::render() {
 
 	SDL_Rect src;
 	SDL_Rect dest;
-
-	// display buttons
-	button_exit->render();
-	button_action->render();
-	button_alternate->render();
 
 	// display background
 	src.w = gameslot_pos.w;
@@ -604,16 +598,13 @@ void GameStateLoad::render() {
 			label_name[slot]->render();
 		}
 	}
-	
-	// display tooltip
-	if (tipdata->lines[0] != "") {
-		tip->render(*tipdata, inpt->mouse, STYLE_FLOAT, screen);
-	}
-	
 	// display warnings
 	if(confirm->visible) confirm->render();
-	
-	
+
+	// display buttons
+	button_exit->render();
+	button_action->render();
+	button_alternate->render();
 }
 
 GameStateLoad::~GameStateLoad() {
@@ -635,6 +626,4 @@ GameStateLoad::~GameStateLoad() {
 	}
 	delete label_loading;
 	delete confirm;
-	delete tip;
-	delete tipdata;
 }

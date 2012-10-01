@@ -1,6 +1,7 @@
 /*
 Copyright © 2011-2012 Clint Bellanger
 Copyright © 2012 Igor Paliychuk
+Copyright © 2012 Stefan Beller
 
 This file is part of FLARE.
 
@@ -40,8 +41,18 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 using namespace std;
 
-
-Avatar::Avatar(PowerManager *_powers, MapRenderer *_map) : Entity(_map), powers(_powers) {
+Avatar::Avatar(PowerManager *_powers, MapRenderer *_map)
+ : Entity(_map)
+ , powers(_powers)
+ , lockSwing(false)
+ , lockCast(false)
+ , lockShoot(false)
+ , animFwd(false)
+ , hero_stats(NULL)
+ , charmed_stats(NULL)
+ , act_target(Point())
+ , drag_walking(false)
+{
 
 	init();
 
@@ -49,8 +60,8 @@ Avatar::Avatar(PowerManager *_powers, MapRenderer *_map) : Entity(_map), powers(
 	stats.cooldown = 4;
 
 	// load the hero's animations from hero definition file
-	animationSet = AnimationManager::instance()->getAnimationSet("hero.txt");
-	delete activeAnimation;
+	AnimationManager::instance()->increaseCount("animations/hero.txt");
+	animationSet = AnimationManager::instance()->getAnimationSet("animations/hero.txt");
 	activeAnimation = animationSet->getAnimation(animationSet->starting_animation);
 
 	loadLayerDefinitions();
@@ -64,7 +75,6 @@ void Avatar::init() {
 
 	// other init
 	sprites = 0;
-	transformed_sprites = 0;
 	stats.cur_state = AVATAR_STANCE;
 	stats.pos.x = map->spawn.x;
 	stats.pos.y = map->spawn.y;
@@ -98,7 +108,6 @@ void Avatar::init() {
 
 	haz = NULL;
 
-	img_gfx.resize(4,"");
 	body = -1;
 
 	transform_triggered = false;
@@ -124,102 +133,48 @@ void Avatar::init() {
  * Load avatar sprite layer definitions into vector.
  */
 void Avatar::loadLayerDefinitions() {
-	Layer_def temp;
+	layer_def = vector<vector<string> >(8, vector<string>());
 	FileParser infile;
 	if(infile.open(mods->locate("engine/hero_options.txt"))) {
 		while(infile.next()) {
 			infile.val = infile.val + ',';
 
 			if(infile.key == "layer") {
-				temp.type = eatFirstString(infile.val,',');
-				temp.pos.x = eatFirstInt(infile.val,',');
-				temp.pos.y = eatFirstInt(infile.val,',');
-				temp.pos.w = eatFirstInt(infile.val,',');
-				temp.pos.h = eatFirstInt(infile.val,',');
-				layer_def.push_back(temp);
+				unsigned dir = eatFirstInt(infile.val,',');
+				if (dir>7) {
+					fprintf(stderr, "direction must be in range [0,7]\n");
+					SDL_Quit();
+					exit(1);
+				}
+				string layer = eatFirstString(infile.val,',');
+				while (layer != "") {
+					layer_def[dir].push_back(layer);
+					layer = eatFirstString(infile.val,',');
+				}
 			}
 		}
 		infile.close();
 	} else fprintf(stderr, "Unable to open engine/hero_options.txt!\n");
 }
 
-/**
- * Return index of item with "type" inside image gfx vector.
- */
-int Avatar::findGfx(std::vector<Layer_gfx> _img_gfx, std::string type) {
-	for (unsigned int i=0; i<_img_gfx.size(); i++) {
-		if (type == _img_gfx[i].type) return i;
-	}
-	return -1;
-}
-
 void Avatar::loadGraphics(std::vector<Layer_gfx> _img_gfx) {
-	bool change_graphics = false;
-	vector<SDL_Surface*> gfx_surf;
-	SDL_Rect src;
-	SDL_Rect dest;
 
-	if (img_gfx.size() < _img_gfx.size()) img_gfx.resize(_img_gfx.size(), "");
-
-	// Default appearance
-	// Find body gfx index
-	if (body == -1) {
-		for (unsigned int i=0; i<_img_gfx.size(); i++) {
-			if (_img_gfx[i].type == "body") body = i;
-		}
+	for (unsigned int i=0; i<animsets.size(); i++) {
+		AnimationManager::instance()->decreaseCount(animsets[i]->getName());
+		delete anims[i];
 	}
-	if (_img_gfx[body].gfx == "") _img_gfx[body].gfx = "clothes";
+	animsets.clear();
+	anims.clear();
 
-	// Check if we really need to change the graphics
 	for (unsigned int i=0; i<_img_gfx.size(); i++) {
-		if (img_gfx[i] != _img_gfx[i].gfx) {
-			change_graphics = true;
-			break;
+		if (_img_gfx[i].gfx != "") {
+			string name = "animations/avatar/"+stats.base+"/"+_img_gfx[i].gfx+".txt";
+			AnimationManager::instance()->increaseCount(name);
+			animsets.push_back(AnimationManager::instance()->getAnimationSet(name));
+			anims.push_back(animsets.back()->getAnimation(animsets.back()->starting_animation));
 		}
 	}
-	if (change_graphics) {
-		for (unsigned int i=0; i<_img_gfx.size(); i++) {
-			img_gfx[i] =_img_gfx[i].gfx;
-		}
-	} else return;
-
-	// composite the hero graphic
-	if (sprites) SDL_FreeSurface(sprites);
-	sprites = IMG_Load(mods->locate("images/avatar/" + stats.base + "/" + img_gfx[body] + ".png").c_str());
-
-	if (sprites == NULL) {
-		fprintf(stderr, "Couldn't load body image: %s\n", IMG_GetError());
-		SDL_Quit();
-		exit(1);
-	}
-
-	for (unsigned int i=0; i<layer_def.size(); i++) {
-		// find item, that should be rendered on current layer
-		int k = findGfx(_img_gfx, layer_def[i].type);
-
-		if (layer_def[i].type == "head") {
-				gfx_surf.push_back(IMG_Load(mods->locate("images/avatar/" + stats.base + "/" + stats.head + ".png").c_str()));
-		}
-		else if (img_gfx[k] != "") {
-			gfx_surf.push_back(IMG_Load(mods->locate("images/avatar/" + stats.base + "/" + img_gfx[k] + ".png").c_str()));
-		}
-		else gfx_surf.push_back(NULL);
-
-		src.w = dest.w = layer_def[i].pos.w;
-		src.h = dest.h = layer_def[i].pos.h;
-		src.x = dest.x = layer_def[i].pos.x;
-		src.y = dest.y = layer_def[i].pos.y;
-		if (gfx_surf[i]) {
-			SDL_gfxBlitRGBA(gfx_surf[i], &src, sprites, &dest);
-			SDL_FreeSurface(gfx_surf[i]);
-		}
-
-	}
-
-	// optimize
-	SDL_Surface *cleanup = sprites;
-	sprites = SDL_DisplayFormatAlpha(sprites);
-	SDL_FreeSurface(cleanup);
+	AnimationManager::instance()->cleanUp();
 }
 
 void Avatar::loadSounds() {
@@ -450,7 +405,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 		stats.recalc();
 		if (level_up)
 			Mix_PlayChannel(-1, level_up, 0);
-			
+
 		// if the player managed to level up while dead (e.g. via a bleeding creature), restore to life
 		if (stats.cur_state == AVATAR_DEAD) {
 			stats.cur_state = AVATAR_STANCE;
@@ -472,6 +427,9 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 
 	// handle animation
 	activeAnimation->advanceFrame();
+	for (unsigned i=0; i < anims.size(); i++)
+		if (anims[i] != NULL)
+			anims[i]->advanceFrame();
 
 	// handle transformation
 	if (stats.transform_type != "" && stats.transform_type != "untransform" && transform_triggered == false) transform();
@@ -728,9 +686,9 @@ bool Avatar::takeHit(Hazard h) {
 			}
 		}
 
-		// apply absorption
-		int absorption;
 		if (!h.trait_armor_penetration) { // armor penetration ignores all absorption
+			int absorption; // apply absorption
+
 			if (stats.absorb_min == stats.absorb_max) absorption = stats.absorb_min;
 			else absorption = stats.absorb_min + (rand() % (stats.absorb_max - stats.absorb_min + 1));
 
@@ -762,6 +720,8 @@ bool Avatar::takeHit(Hazard h) {
 				if (sound_block)
 					Mix_PlayChannel(-1, sound_block, 0);
 				activeAnimation->reset(); // shield stutter
+				for (unsigned i=0; i < animsets.size(); i++)
+					anims[i]->reset();
 			}
 		}
 
@@ -832,31 +792,12 @@ void Avatar::transform() {
 	stats.transformed = true;
 	setPowers = true;
 
+	delete charmed_stats;
 	charmed_stats = new StatBlock();
 	charmed_stats->load("enemies/" + stats.transform_type + ".txt");
 
-	// transform the hero graphic
-	if (last_transform != charmed_stats->gfx_prefix) {
-		if (transformed_sprites) SDL_FreeSurface(transformed_sprites);
-
-		transformed_sprites = IMG_Load(mods->locate("images/enemies/" + charmed_stats->gfx_prefix + ".png").c_str());
-
-		if(!transformed_sprites) {
-			fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
-			SDL_Quit();
-			exit(1);
-		}
-		last_transform = charmed_stats->gfx_prefix;
-	}
-
-	SDL_SetColorKey( transformed_sprites, SDL_SRCCOLORKEY, SDL_MapRGB(transformed_sprites->format, 255, 0, 255) );
-
-	// optimize
-	SDL_Surface *cleanup = transformed_sprites;
-	transformed_sprites = SDL_DisplayFormatAlpha(transformed_sprites);
-	SDL_FreeSurface(cleanup);
-
 	// temporary save hero stats
+	delete hero_stats;
 	hero_stats = new StatBlock();
 	*hero_stats = stats;
 
@@ -867,7 +808,11 @@ void Avatar::transform() {
 	stats.humanoid = charmed_stats->humanoid;
 	stats.animations = charmed_stats->animations;
 	stats.animationSpeed = charmed_stats->animationSpeed;
-	animationSet =  AnimationManager::instance()->getAnimationSet(charmed_stats->animations + ".txt");
+
+	string animationname = "animations/"+charmed_stats->animations + ".txt";
+	AnimationManager::instance()->decreaseCount("animations/hero.txt");
+	AnimationManager::instance()->increaseCount(animationname);
+	animationSet = AnimationManager::instance()->getAnimationSet(animationname);
 	delete activeAnimation;
 	activeAnimation = animationSet->getAnimation(animationSet->starting_animation);
 	stats.cur_state = AVATAR_STANCE;
@@ -933,7 +878,9 @@ void Avatar::untransform() {
 	stats.animations = hero_stats->animations;
 	stats.animationSpeed = hero_stats->animationSpeed;
 
-	animationSet = AnimationManager::instance()->getAnimationSet("hero.txt");
+	AnimationManager::instance()->increaseCount("animations/hero.txt");
+	AnimationManager::instance()->decreaseCount("animations/"+charmed_stats->animations + ".txt");
+	animationSet = AnimationManager::instance()->getAnimationSet("animations/hero.txt");
 	delete activeAnimation;
 	activeAnimation = animationSet->getAnimation(animationSet->starting_animation);
 	stats.cur_state = AVATAR_STANCE;
@@ -961,6 +908,19 @@ void Avatar::untransform() {
 
 	delete charmed_stats;
 	delete hero_stats;
+	charmed_stats = NULL;
+	hero_stats = NULL;
+}
+
+void Avatar::setAnimation(std::string name) {
+	if (name == activeAnimation->getName())
+		return;
+
+	Entity::setAnimation(name);
+	for (unsigned i=0; i < animsets.size(); i++) {
+		delete anims[i];
+		anims[i] = animsets[i]->getAnimation(name);
+	}
 }
 
 /**
@@ -974,25 +934,34 @@ int Avatar::getUntransformPower() {
 	return 0;
 }
 
-/**
- * getRender()
- * Map objects need to be drawn in Z order, so we allow a parent object (GameEngine)
- * to collect all mobile sprites each frame.
- */
-Renderable Avatar::getRender() {
-	Renderable r = activeAnimation->getCurrentFrame(stats.direction);
-	if (stats.transformed)
-		r.sprite = transformed_sprites;
-	else
-		r.sprite = sprites;
-	r.map_pos = stats.pos;
-	return r;
+void Avatar::addRenders(vector<Renderable> &r) {
+	if (!stats.transformed) {
+		for (unsigned i = 0; i < anims.size(); ++i) {
+			if (anims[i] != NULL) {
+				Renderable ren = anims[i]->getCurrentFrame(stats.direction);
+				ren.map_pos = stats.pos;
+				ren.prio = i;
+				r.push_back(ren);
+			}
+		}
+	} else {
+		Renderable ren = activeAnimation->getCurrentFrame(stats.direction);
+		ren.map_pos = stats.pos;
+		r.push_back(ren);
+	}
 }
 
 Avatar::~Avatar() {
 
-	SDL_FreeSurface(sprites);
-	if (transformed_sprites) SDL_FreeSurface(transformed_sprites);
+	AnimationManager::instance()->decreaseCount("animations/hero.txt");
+	for (unsigned int i=0; i<animsets.size(); i++) {
+		AnimationManager::instance()->decreaseCount(animsets[i]->getName());
+		delete anims[i];
+	}
+	AnimationManager::instance()->cleanUp();
+
+	delete charmed_stats;
+	delete hero_stats;
 
 	Mix_FreeChunk(sound_melee);
 	Mix_FreeChunk(sound_hit);
