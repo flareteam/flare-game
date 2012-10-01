@@ -97,7 +97,8 @@ public:
 
 	void init();
 	void loadLayerDefinitions();
-	std::vector<std::vector<std::string> > layer_def;
+	std::vector<std::string> layer_reference_order;
+	std::vector<std::vector<unsigned> > layer_def;
 	void loadGraphics(std::vector<Layer_gfx> _img_gfx);
 	void loadSounds();
 	void loadStepFX(const std::string& stepname);

@@ -133,7 +133,9 @@ void Avatar::init() {
  * Load avatar sprite layer definitions into vector.
  */
 void Avatar::loadLayerDefinitions() {
-	layer_def = vector<vector<string> >(8, vector<string>());
+	layer_def = vector<vector<unsigned> >(8, vector<unsigned>());
+	layer_reference_order = vector<string>();
+
 	FileParser infile;
 	if(infile.open(mods->locate("engine/hero_options.txt"))) {
 		while(infile.next()) {
@@ -148,19 +150,33 @@ void Avatar::loadLayerDefinitions() {
 				}
 				string layer = eatFirstString(infile.val,',');
 				while (layer != "") {
-					layer_def[dir].push_back(layer);
+					// check if already in layer_reference:
+					unsigned ref_pos;
+					for (ref_pos = 0; ref_pos < layer_reference_order.size(); ++ref_pos)
+						if (layer == layer_reference_order[ref_pos])
+							break;
+					if (ref_pos == layer_reference_order.size())
+						layer_reference_order.push_back(layer);
+					layer_def[dir].push_back(ref_pos);
+
 					layer = eatFirstString(infile.val,',');
 				}
 			}
 		}
 		infile.close();
 	} else fprintf(stderr, "Unable to open engine/hero_options.txt!\n");
+
+	// There are the positions of the items relative to layer_reference_order
+	// so if layer_reference_order=main,body,head,off
+	// and we got a layer=3,off,body,head,main
+	// then the layer_def[3] looks like (3,1,2,0)
 }
 
 void Avatar::loadGraphics(std::vector<Layer_gfx> _img_gfx) {
 
 	for (unsigned int i=0; i<animsets.size(); i++) {
-		AnimationManager::instance()->decreaseCount(animsets[i]->getName());
+		if (animsets[i])
+			AnimationManager::instance()->decreaseCount(animsets[i]->getName());
 		delete anims[i];
 	}
 	animsets.clear();
@@ -172,6 +188,9 @@ void Avatar::loadGraphics(std::vector<Layer_gfx> _img_gfx) {
 			AnimationManager::instance()->increaseCount(name);
 			animsets.push_back(AnimationManager::instance()->getAnimationSet(name));
 			anims.push_back(animsets.back()->getAnimation(animsets.back()->starting_animation));
+		} else {
+			animsets.push_back(NULL);
+			anims.push_back(NULL);
 		}
 	}
 	AnimationManager::instance()->cleanUp();
@@ -721,7 +740,8 @@ bool Avatar::takeHit(Hazard h) {
 					Mix_PlayChannel(-1, sound_block, 0);
 				activeAnimation->reset(); // shield stutter
 				for (unsigned i=0; i < animsets.size(); i++)
-					anims[i]->reset();
+					if (anims[i])
+						anims[i]->reset();
 			}
 		}
 
@@ -919,7 +939,10 @@ void Avatar::setAnimation(std::string name) {
 	Entity::setAnimation(name);
 	for (unsigned i=0; i < animsets.size(); i++) {
 		delete anims[i];
-		anims[i] = animsets[i]->getAnimation(name);
+		if (animsets[i])
+			anims[i] = animsets[i]->getAnimation(name);
+		else
+			anims[i] = 0;
 	}
 }
 
@@ -936,9 +959,10 @@ int Avatar::getUntransformPower() {
 
 void Avatar::addRenders(vector<Renderable> &r) {
 	if (!stats.transformed) {
-		for (unsigned i = 0; i < anims.size(); ++i) {
-			if (anims[i] != NULL) {
-				Renderable ren = anims[i]->getCurrentFrame(stats.direction);
+		for (unsigned i = 0; i < layer_def[stats.direction].size(); ++i) {
+			unsigned index = layer_def[stats.direction][i];
+			if (anims[index]) {
+				Renderable ren = anims[index]->getCurrentFrame(stats.direction);
 				ren.map_pos = stats.pos;
 				ren.prio = i;
 				r.push_back(ren);
@@ -955,7 +979,8 @@ Avatar::~Avatar() {
 
 	AnimationManager::instance()->decreaseCount("animations/hero.txt");
 	for (unsigned int i=0; i<animsets.size(); i++) {
-		AnimationManager::instance()->decreaseCount(animsets[i]->getName());
+		if (animsets[i])
+			AnimationManager::instance()->decreaseCount(animsets[i]->getName());
 		delete anims[i];
 	}
 	AnimationManager::instance()->cleanUp();
