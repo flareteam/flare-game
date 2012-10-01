@@ -336,28 +336,26 @@ void GameStatePlay::checkEquipmentChange() {
 
 		vector<Layer_gfx> img_gfx;
 		// load only displayable layers
-		const vector<string> &player_layers = pc->layer_def[pc->stats.direction];
-		for (unsigned int j=0; j<player_layers.size(); j++) {
+		for (unsigned int j=0; j<pc->layer_reference_order.size(); j++) {
+			Layer_gfx gfx;
+			gfx.gfx = "";
+			gfx.type = "";
 			for (int i=0; i<menu->inv->inventory[EQUIPMENT].getSlotNumber(); i++) {
-				if (player_layers[j] == menu->inv->inventory[EQUIPMENT].slot_type[i]) {
-					Layer_gfx gfx;
+				if (pc->layer_reference_order[j] == menu->inv->inventory[EQUIPMENT].slot_type[i]) {
 					gfx.gfx = menu->items->items[menu->inv->inventory[EQUIPMENT][i].item].gfx;
 					gfx.type = menu->inv->inventory[EQUIPMENT].slot_type[i];
-					img_gfx.push_back(gfx);
-					break;
 				}
 			}
-			if (player_layers[j] == "head") {
-				Layer_gfx gfx;
+			if (pc->layer_reference_order[j] == "head") {
 				gfx.gfx = pc->stats.head;
 				gfx.type = "head";
-				img_gfx.push_back(gfx);
-				continue;
 			}
-			if (player_layers[j] == "body" && img_gfx.back().gfx == "") {
-				img_gfx.back().gfx = "clothes";
+			if (pc->layer_reference_order[j] == "body" && gfx.gfx == "") {
+				gfx.gfx = "clothes";
 			}
+			img_gfx.push_back(gfx);
 		}
+		assert(pc->layer_reference_order.size()==img_gfx.size());
 		pc->loadGraphics(img_gfx);
 
 		pc->loadStepFX(menu->items->items[menu->inv->inventory[EQUIPMENT][1].item].stepfx);
