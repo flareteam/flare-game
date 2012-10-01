@@ -112,14 +112,12 @@ void AnimationSet::load() {
 		}
 		else if (parser.key == "type")
 			type = parser.val;
-		else if (parser.key == "render_size_x")
-			render_size.x = toInt(parser.val);
-		else if (parser.key == "render_size_y")
-			render_size.y = toInt(parser.val);
-		else if (parser.key == "render_offset_x")
-			render_offset.x = toInt(parser.val);
-		else if (parser.key == "render_offset_y")
-			render_offset.y = toInt(parser.val);
+		else if (parser.key == "render_size")
+			render_size.x = toInt(parser.nextValue());
+			render_size.y = toInt(parser.nextValue());
+		else if (parser.key == "render_offset")
+			render_offset.x = toInt(parser.nextValue());
+			render_offset.y = toInt(parser.nextValue());
 		else if (parser.key == "active_frame")
 			cout << "active frames in entities not supported" << endl;
 		else if (parser.key == "frame") {
