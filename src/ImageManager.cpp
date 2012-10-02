@@ -53,7 +53,7 @@ SDL_Surface *ImageManager::getSurface(const std::string &name) {
 
             if (TEXTURE_QUALITY == false) {
                 string path = mods->locate(name);
-                char * pch = strrchr(path.c_str(), '/' );
+                const char * pch = strrchr(path.c_str(), '/' );
                 path.insert(pch-path.c_str(), "/noalpha");
                 cleanup = IMG_Load(path.c_str());
             }
