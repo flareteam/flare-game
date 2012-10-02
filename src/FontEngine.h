@@ -27,6 +27,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <fstream>
 #include <string>
 #include <map>
+#include <vector>
 
 
 const int JUSTIFY_LEFT = 0;
@@ -36,6 +37,18 @@ const int JUSTIFY_CENTER = 2;
 const SDL_Color FONT_WHITE = {255,255,255,0};
 const SDL_Color FONT_BLACK = {0,0,0,0};
 
+struct FontStyle {
+	std::string name;
+	std::string path;
+	int ptsize;
+	bool blend;
+	TTF_Font *ttfont;
+	int line_height;
+	int font_height;
+
+	FontStyle();
+};
+
 /**
  * class FontEngine
  * 
@@ -44,24 +57,23 @@ const SDL_Color FONT_BLACK = {0,0,0,0};
 
 class FontEngine {
 private:
-	int font_pt;
-	int font_height;
-	int line_height;
 	SDL_Rect src;
 	SDL_Rect dest;
 	SDL_Surface *ttf;
-	TTF_Font *ttfont;
-	bool render_blended;
 	std::map<std::string,SDL_Color> color_map;
+	std::vector<FontStyle> font_styles;
+	FontStyle *active_font;
 
 public:
 	FontEngine();
 	~FontEngine();
 
-	int getLineHeight() { return line_height; }
-	int getFontHeight() { return font_height; }
+	int getLineHeight() { return active_font->line_height; }
+	int getFontHeight() { return active_font->font_height; }
 	
 	SDL_Color getColor(std::string _color);
+	void setFont(std::string _font);
+
 	int calc_width(const std::string& text);
 	Point calc_size(const std::string& text_with_newlines, int width);
 
