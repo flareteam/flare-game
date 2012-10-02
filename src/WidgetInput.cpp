@@ -140,6 +140,8 @@ void WidgetInput::render(SDL_Surface *target) {
 	else
 		SDL_BlitSurface(background, &src, target, &pos);
 
+	font->setFont("font_regular");
+
 	if (!inFocus) {
 		font->render(text, font_pos.x, font_pos.y, JUSTIFY_LEFT, target, color_normal);
 	}
@@ -157,6 +159,7 @@ void WidgetInput::setPosition(int x, int y) {
 	pos.x = x;
 	pos.y = y;
 
+	font->setFont("font_regular");
 	font_pos.x = pos.x  + (font->getFontHeight()/2);
 	font_pos.y = pos.y + (pos.h/2) - (font->getFontHeight()/2);
 }

@@ -79,6 +79,7 @@ MenuLog::MenuLog() {
 	tabControl->setTabTitle(LOG_TYPE_QUESTS, msg->get("Quests"));
 	tabControl->setTabTitle(LOG_TYPE_STATISTICS, msg->get("Stats"));
 
+	font->setFont("font_regular");
 	paragraph_spacing = font->getLineHeight()/2;
 
 	loadGraphics();
@@ -180,6 +181,7 @@ void MenuLog::render() {
 	int active_log = tabControl->getActiveTab();
 
 	if (msg_buffer[active_log]->update) {
+		font->setFont("font_regular");
 		for (unsigned int i=log_msg[active_log].size(); i>0; i--) {
 			int widthLimit = tabControl->getContentArea().w;
 			Point size = font->calc_size(log_msg[active_log][i-1], widthLimit);
@@ -194,6 +196,7 @@ void MenuLog::render() {
 void MenuLog::refresh(int log_type) {
 	int y = tab_content_indent;
 
+	font->setFont("font_regular");
 	for (unsigned int i=0; i<log_msg[log_type].size(); i++) {
 		int widthLimit = tabControl->getContentArea().w;
 		Point size = font->calc_size(log_msg[log_type][i], widthLimit);
