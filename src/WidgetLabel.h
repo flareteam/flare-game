@@ -37,6 +37,7 @@ struct LabelInfo {
 	int x,y;
 	int justify,valign;
 	bool hidden;
+	std::string font_style;
 
 	LabelInfo();
 };
@@ -55,6 +56,7 @@ private:
 	int y_origin;
 	int justify;
 	int valign;
+	std::string font_style;
 	SDL_Surface *text_buffer;
 
 public:
@@ -62,6 +64,7 @@ public:
 	~WidgetLabel();
 	void render(SDL_Surface *target = NULL);
 	void set(int _x, int _y, int _justify, int _valign, const std::string& _text, SDL_Color _color);
+	void set(int _x, int _y, int _justify, int _valign, const std::string& _text, SDL_Color _color, std::string _font);
 	void setX(int _x);
 	void setY(int _y);
 	int getX();
