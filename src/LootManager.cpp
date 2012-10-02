@@ -141,7 +141,16 @@ void LootManager::loadGraphics() {
 			}
 
 			if (new_anim) {
-				flying_loot[animation_count] = IMG_Load(mods->locate("images/loot/" + anim_id + ".png").c_str());
+				if (TEXTURE_QUALITY == false)
+					flying_loot[animation_count] = IMG_Load(mods->locate("images/loot/noalpha/" + anim_id + ".png").c_str());
+					if (!flying_loot[animation_count]) {
+						flying_loot[animation_count] = IMG_Load(mods->locate("images/loot/" + anim_id + ".png").c_str());
+						if (!flying_loot[animation_count]) {
+							fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
+							SDL_Quit();
+							exit(1);
+						}
+					}
 
 				if (flying_loot[animation_count]) {
 					animation_id[animation_count] = anim_id;
@@ -153,7 +162,17 @@ void LootManager::loadGraphics() {
 
 	// currency
 	for (unsigned int i=0; i<currency_range.size(); i++) {
-		flying_currency.push_back(IMG_Load(mods->locate("images/loot/"+currency_range[i].filename+".png").c_str()));
+		flying_currency.push_back(NULL);
+		if (TEXTURE_QUALITY == false)
+			flying_currency.back() = IMG_Load(mods->locate("images/loot/noalpha/"+currency_range[i].filename+".png").c_str());
+		if (!flying_currency.back()) {
+			flying_currency.back() = IMG_Load(mods->locate("images/loot/"+currency_range[i].filename+".png").c_str());
+			if (!flying_currency.back()) {
+				fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
+				SDL_Quit();
+				exit(1);
+			}
+		}
 	}
 
 	// set magic pink transparency

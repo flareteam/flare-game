@@ -340,14 +340,45 @@ void GameStateLoad::loadPreview(int slot) {
 	}
 	// load the body as the base image
 	// we'll blit the other layers onto it
-	sprites[slot] = IMG_Load(mods->locate("images/avatar/" + stats[slot].base + "/preview/" + img_gfx[body] + ".png").c_str());
+	if (TEXTURE_QUALITY == false)
+		sprites[slot] = IMG_Load(mods->locate("images/avatar/" + stats[slot].base + "/preview/noalpha/" + img_gfx[body] + ".png").c_str());
+	if (!sprites[slot]) {
+		sprites[slot] = IMG_Load(mods->locate("images/avatar/" + stats[slot].base + "/preview/" + img_gfx[body] + ".png").c_str());
+		if (!sprites[slot]) {
+			fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
+			SDL_Quit();
+			exit(1);
+		}
+	}
 
 	// composite the hero graphic
 	for (unsigned int i=0; i<img_gfx.size(); i++) {
-		if (img_gfx[i] != "") gfx_surf.push_back(IMG_Load(mods->locate("images/avatar/" + stats[slot].base + "/preview/" + img_gfx[i] + ".png").c_str()));
+		if (img_gfx[i] == "") continue;
+		gfx_surf.push_back(NULL);
+		if (TEXTURE_QUALITY == false)
+			gfx_surf.back() = IMG_Load(mods->locate("images/avatar/" + stats[slot].base + "/preview/noalpha/" + img_gfx[i] + ".png").c_str());
+		if (!gfx_surf.back()) {
+			gfx_surf.back() = IMG_Load(mods->locate("images/avatar/" + stats[slot].base + "/preview/" + img_gfx[i] + ".png").c_str());
+			if (!gfx_surf.back()) {
+				fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
+				SDL_Quit();
+				exit(1);
+			}
+		}
 	}
-	gfx_surf.push_back(IMG_Load(mods->locate("images/avatar/" + stats[slot].base + "/preview/" + stats[slot].head + ".png").c_str()));
+	gfx_surf.push_back(NULL);
+	if (TEXTURE_QUALITY == false)
+		gfx_surf.back() = IMG_Load(mods->locate("images/avatar/" + stats[slot].base + "/preview/noalpha/" + stats[slot].head + ".png").c_str());
+	if (!gfx_surf.back()) {
+		gfx_surf.back() = IMG_Load(mods->locate("images/avatar/" + stats[slot].base + "/preview/" + stats[slot].head + ".png").c_str());
+		if (!gfx_surf.back()) {
+			fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
+			SDL_Quit();
+			exit(1);
+		}
+	}
 
+	SDL_SetColorKey(sprites[slot], SDL_SRCCOLORKEY, SDL_MapRGB(sprites[slot]->format, 255, 0, 255));
 	for (unsigned int i=0; i<gfx_surf.size(); i++) {
 		if (gfx_surf[i]) SDL_SetColorKey(gfx_surf[i], SDL_SRCCOLORKEY, SDL_MapRGB(gfx_surf[i]->format, 255, 0, 255));
 	}
@@ -357,8 +388,9 @@ void GameStateLoad::loadPreview(int slot) {
 	dest.w = preview_pos.w;
 	dest.h = preview_pos.h;
 
+	// TODO Don't use SDL_BlitSurface() for surfaces with alpha channel, use SDL_gfxBlitRGBA() instead
 	for (unsigned int i=0; i<gfx_surf.size(); i++) {
-		if (gfx_surf[i]) SDL_gfxBlitRGBA(gfx_surf[i], NULL, sprites[slot], &dest);
+		if (gfx_surf[i]) SDL_BlitSurface(gfx_surf[i], NULL, sprites[slot], &dest);
 	}
 
 	for (unsigned int i=0; i<gfx_surf.size(); i++) {
@@ -367,7 +399,6 @@ void GameStateLoad::loadPreview(int slot) {
 
 	// optimize
 	if (sprites[slot]) {
-		SDL_SetColorKey(sprites[slot], SDL_SRCCOLORKEY, SDL_MapRGB(sprites[slot]->format, 255, 0, 255));
 		SDL_Surface *cleanup = sprites[slot];
 		sprites[slot] = SDL_DisplayFormatAlpha(sprites[slot]);
 		SDL_FreeSurface(cleanup);
