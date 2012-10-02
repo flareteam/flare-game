@@ -319,7 +319,6 @@ void GameStateLoad::loadPreview(int slot) {
 	vector<SDL_Surface*> gfx_surf;
 	SDL_Rect dest;
 	short body = -1;
-	bool alpha_background = true;
 	vector<bool> alpha;
 
 	for (unsigned int i=0; i<equipped[slot].size(); i++) {
@@ -346,13 +345,13 @@ void GameStateLoad::loadPreview(int slot) {
 		sprites[slot] = IMG_Load(mods->locate("images/avatar/" + stats[slot].base + "/preview/noalpha/" + img_gfx[body] + ".png").c_str());
 	if (!sprites[slot]) {
 		sprites[slot] = IMG_Load(mods->locate("images/avatar/" + stats[slot].base + "/preview/" + img_gfx[body] + ".png").c_str());
-		if (!sprites[slot]) {
-			fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
-			SDL_Quit();
-			exit(1);
-		}
 	} else {
-		alpha_background = false;
+		SDL_SetColorKey(sprites[slot], SDL_SRCCOLORKEY, SDL_MapRGB(sprites[slot]->format, 255, 0, 255));
+	}
+	if (!sprites[slot]) {
+		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
+		SDL_Quit();
+		exit(1);
 	}
 
 	// composite the hero graphic
@@ -366,11 +365,11 @@ void GameStateLoad::loadPreview(int slot) {
 		}
 		if (!gfx_surf.back()) {
 			gfx_surf.back() = IMG_Load(mods->locate("images/avatar/" + stats[slot].base + "/preview/" + img_gfx[i] + ".png").c_str());
-			if (!gfx_surf.back()) {
-				fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
-				SDL_Quit();
-				exit(1);
-			}
+		}
+		if (!gfx_surf.back()) {
+			fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
+			SDL_Quit();
+			exit(1);
 		}
 	}
 	gfx_surf.push_back(NULL);
@@ -381,14 +380,11 @@ void GameStateLoad::loadPreview(int slot) {
 	}
 	if (!gfx_surf.back()) {
 		gfx_surf.back() = IMG_Load(mods->locate("images/avatar/" + stats[slot].base + "/preview/" + stats[slot].head + ".png").c_str());
-		if (!gfx_surf.back()) {
-			fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
-			SDL_Quit();
-			exit(1);
-		}
 	}
-	if (!alpha_background) {
-		SDL_SetColorKey(sprites[slot], SDL_SRCCOLORKEY, SDL_MapRGB(sprites[slot]->format, 255, 0, 255));
+	if (!gfx_surf.back()) {
+		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
+		SDL_Quit();
+		exit(1);
 	}
 	for (unsigned int i=0; i<gfx_surf.size(); i++) {
 		if (gfx_surf[i] && !alpha[i]) SDL_SetColorKey(gfx_surf[i], SDL_SRCCOLORKEY, SDL_MapRGB(gfx_surf[i]->format, 255, 0, 255));

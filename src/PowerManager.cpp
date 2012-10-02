@@ -379,22 +379,17 @@ int PowerManager::loadGFX(const string& filename) {
 	}
 
 	// we don't already have this sprite loaded, so load it
-	bool alpha_background = true;
 	SDL_Surface* surface = NULL;
 	if (TEXTURE_QUALITY == false)
 		surface = IMG_Load(mods->locate("images/powers/noalpha/" + filename).c_str());
 	if (!surface) {
 		surface = IMG_Load(mods->locate("images/powers/" + filename).c_str());
-		if(!surface) {
-			fprintf(stderr, "Couldn't load power sprites: %s\n", IMG_GetError());
-			return -1;
-		}
 	} else {
-		alpha_background = false;
-	}
-
-	if (!alpha_background) {
 		SDL_SetColorKey( surface, SDL_SRCCOLORKEY, SDL_MapRGB(surface->format, 255, 0, 255) );
+	}
+	if(!surface) {
+		fprintf(stderr, "Couldn't load power sprites: %s\n", IMG_GetError());
+		return -1;
 	}
 	gfx_filenames.push_back(filename);
 	gfx.push_back(SDL_DisplayFormatAlpha(surface));
@@ -441,23 +436,18 @@ int PowerManager::loadSFX(const string& filename) {
 
 void PowerManager::loadGraphics() {
 
-	bool alpha_background = true;
 	runes = NULL;
 	if (TEXTURE_QUALITY == false)
 		runes = IMG_Load(mods->locate("images/powers/noalpha/runes.png").c_str());
 	if (!runes) {
 		runes = IMG_Load(mods->locate("images/powers/runes.png").c_str());
-		if(!runes) {
-			fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
-			SDL_Quit();
-			exit(1);
-		}
 	} else {
-		alpha_background = false;
-	}
-
-	if (!alpha_background) {
 		SDL_SetColorKey( runes, SDL_SRCCOLORKEY, SDL_MapRGB(runes->format, 255, 0, 255) );
+	}
+	if(!runes) {
+		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
+		SDL_Quit();
+		exit(1);
 	}
 }
 

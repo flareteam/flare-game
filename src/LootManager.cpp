@@ -145,11 +145,11 @@ void LootManager::loadGraphics() {
 					flying_loot[animation_count] = IMG_Load(mods->locate("images/loot/noalpha/" + anim_id + ".png").c_str());
 					if (!flying_loot[animation_count]) {
 						flying_loot[animation_count] = IMG_Load(mods->locate("images/loot/" + anim_id + ".png").c_str());
-						if (!flying_loot[animation_count]) {
-							fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
-							SDL_Quit();
-							exit(1);
-						}
+					}
+					if (!flying_loot[animation_count]) {
+						fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
+						SDL_Quit();
+						exit(1);
 					}
 
 				if (flying_loot[animation_count]) {
@@ -167,11 +167,11 @@ void LootManager::loadGraphics() {
 			flying_currency.back() = IMG_Load(mods->locate("images/loot/noalpha/"+currency_range[i].filename+".png").c_str());
 		if (!flying_currency.back()) {
 			flying_currency.back() = IMG_Load(mods->locate("images/loot/"+currency_range[i].filename+".png").c_str());
-			if (!flying_currency.back()) {
-				fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
-				SDL_Quit();
-				exit(1);
-			}
+		}
+		if (!flying_currency.back()) {
+			fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
+			SDL_Quit();
+			exit(1);
 		}
 	}
 
