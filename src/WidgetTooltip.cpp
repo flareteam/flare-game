@@ -129,6 +129,8 @@ void WidgetTooltip::createBuffer(TooltipData &tip) {
 		fulltext = fulltext + "\n" + tip.lines[i];
 	}
 
+	font->setFont("font_regular");
+
 	// calculate the full size to display a multi-line tooltip
 	Point size = font->calc_size(fulltext, width);
 

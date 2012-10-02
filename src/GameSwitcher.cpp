@@ -121,6 +121,7 @@ void GameSwitcher::loadFPS() {
 	} else fprintf(stderr, "Unable to open menus/fps.txt!\n");
 
 	// this is a dummy string used to approximate the fps position when aligned to the right
+	font->setFont("font_regular");
 	int w = font->calc_width("00 fps");
 	int h = font->getLineHeight();
 

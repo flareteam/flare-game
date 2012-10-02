@@ -28,7 +28,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 using namespace std;
 
-LabelInfo::LabelInfo() : x(0), y(0), justify(JUSTIFY_LEFT), valign(VALIGN_TOP), hidden(false) {
+LabelInfo::LabelInfo() : x(0), y(0), justify(JUSTIFY_LEFT), valign(VALIGN_TOP), hidden(false), font_style("font_regular") {
 }
 
 /**
@@ -36,7 +36,7 @@ LabelInfo::LabelInfo() : x(0), y(0), justify(JUSTIFY_LEFT), valign(VALIGN_TOP), 
  */
 LabelInfo eatLabelInfo(string val) {
 	LabelInfo info;
-	string justify,valign;
+	string justify,valign,style;
 
 	std::string tmp = eatFirstString(val,',');
 	if (tmp == "hidden") {
@@ -47,6 +47,7 @@ LabelInfo eatLabelInfo(string val) {
 		info.y = eatFirstInt(val,',');
 		justify = eatFirstString(val,',');
 		valign = eatFirstString(val,',');
+		style = eatFirstString(val,',');
 
 		if (justify == "left") info.justify = JUSTIFY_LEFT;
 		else if (justify == "center") info.justify = JUSTIFY_CENTER;
@@ -55,6 +56,8 @@ LabelInfo eatLabelInfo(string val) {
 		if (valign == "top") info.valign = VALIGN_TOP;
 		else if (valign == "center") info.valign = VALIGN_CENTER;
 		else if (valign == "bottom") info.valign = VALIGN_BOTTOM;
+
+		if (style != "") info.font_style = style;
 	}
 
 	return info;
@@ -69,6 +72,7 @@ WidgetLabel::WidgetLabel() {
 	x_origin = y_origin = 0;
 	justify = JUSTIFY_LEFT;
 	valign = VALIGN_TOP;
+	font_style = "font_regular";
 
 	bounds.x = bounds.y = 0;
 	bounds.w = bounds.h = 0;
@@ -99,10 +103,14 @@ void WidgetLabel::render(SDL_Surface *target) {
 }
 
 
+void WidgetLabel::set(int _x, int _y, int _justify, int _valign, const string& _text, SDL_Color _color) {
+	set(_x, _y, _justify, _valign, _text, _color, "font_regular");
+}
+
 /**
  * A shortcut function to set all attributes simultaneously.
  */
-void WidgetLabel::set(int _x, int _y, int _justify, int _valign, const string& _text, SDL_Color _color) {
+void WidgetLabel::set(int _x, int _y, int _justify, int _valign, const string& _text, SDL_Color _color, std::string _font) {
 
 	bool changed = false;
 
@@ -128,6 +136,10 @@ void WidgetLabel::set(int _x, int _y, int _justify, int _valign, const string& _
 	}
 	if (y_origin != _y) {
 		y_origin = _y;
+		changed = true;
+	}
+	if (font_style != _font) {
+		font_style = _font;
 		changed = true;
 	}
 	
@@ -211,6 +223,8 @@ void WidgetLabel::setColor(SDL_Color _color) {
  */
 void WidgetLabel::applyOffsets() {
 
+	font->setFont(font_style);
+
 	bounds.w = font->calc_width(text);
 	bounds.h = font->getFontHeight();
 
@@ -254,6 +268,7 @@ void WidgetLabel::refresh() {
 
 	SDL_FreeSurface(text_buffer);
 	text_buffer = createAlphaSurface(bounds.w, bounds.h);
+	font->setFont(font_style);
 	font->renderShadowed(text, 0, 0, JUSTIFY_LEFT, text_buffer, color);
 	
 }
