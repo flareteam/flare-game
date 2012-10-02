@@ -319,6 +319,8 @@ void GameStateLoad::loadPreview(int slot) {
 	vector<SDL_Surface*> gfx_surf;
 	SDL_Rect dest;
 	short body = -1;
+	bool alpha_background = true;
+	vector<bool> alpha;
 
 	for (unsigned int i=0; i<equipped[slot].size(); i++) {
 		if ((unsigned)equipped[slot][i] > items->items.size()-1){
@@ -349,14 +351,19 @@ void GameStateLoad::loadPreview(int slot) {
 			SDL_Quit();
 			exit(1);
 		}
+	} else {
+		alpha_background = false;
 	}
 
 	// composite the hero graphic
 	for (unsigned int i=0; i<img_gfx.size(); i++) {
 		if (img_gfx[i] == "") continue;
 		gfx_surf.push_back(NULL);
-		if (TEXTURE_QUALITY == false)
+		alpha.push_back(true);
+		if (TEXTURE_QUALITY == false) {
 			gfx_surf.back() = IMG_Load(mods->locate("images/avatar/" + stats[slot].base + "/preview/noalpha/" + img_gfx[i] + ".png").c_str());
+			alpha.back() = false;
+		}
 		if (!gfx_surf.back()) {
 			gfx_surf.back() = IMG_Load(mods->locate("images/avatar/" + stats[slot].base + "/preview/" + img_gfx[i] + ".png").c_str());
 			if (!gfx_surf.back()) {
@@ -367,8 +374,11 @@ void GameStateLoad::loadPreview(int slot) {
 		}
 	}
 	gfx_surf.push_back(NULL);
-	if (TEXTURE_QUALITY == false)
+	alpha.push_back(true);
+	if (TEXTURE_QUALITY == false) {
 		gfx_surf.back() = IMG_Load(mods->locate("images/avatar/" + stats[slot].base + "/preview/noalpha/" + stats[slot].head + ".png").c_str());
+		alpha.back() = false;
+	}
 	if (!gfx_surf.back()) {
 		gfx_surf.back() = IMG_Load(mods->locate("images/avatar/" + stats[slot].base + "/preview/" + stats[slot].head + ".png").c_str());
 		if (!gfx_surf.back()) {
@@ -377,10 +387,11 @@ void GameStateLoad::loadPreview(int slot) {
 			exit(1);
 		}
 	}
-
-	SDL_SetColorKey(sprites[slot], SDL_SRCCOLORKEY, SDL_MapRGB(sprites[slot]->format, 255, 0, 255));
+	if (!alpha_background) {
+		SDL_SetColorKey(sprites[slot], SDL_SRCCOLORKEY, SDL_MapRGB(sprites[slot]->format, 255, 0, 255));
+	}
 	for (unsigned int i=0; i<gfx_surf.size(); i++) {
-		if (gfx_surf[i]) SDL_SetColorKey(gfx_surf[i], SDL_SRCCOLORKEY, SDL_MapRGB(gfx_surf[i]->format, 255, 0, 255));
+		if (gfx_surf[i] && !alpha[i]) SDL_SetColorKey(gfx_surf[i], SDL_SRCCOLORKEY, SDL_MapRGB(gfx_surf[i]->format, 255, 0, 255));
 	}
 
 	dest.x = preview_pos.x;
@@ -388,9 +399,9 @@ void GameStateLoad::loadPreview(int slot) {
 	dest.w = preview_pos.w;
 	dest.h = preview_pos.h;
 
-	// TODO Don't use SDL_BlitSurface() for surfaces with alpha channel, use SDL_gfxBlitRGBA() instead
 	for (unsigned int i=0; i<gfx_surf.size(); i++) {
-		if (gfx_surf[i]) SDL_BlitSurface(gfx_surf[i], NULL, sprites[slot], &dest);
+		if (gfx_surf[i] && !alpha[i]) SDL_BlitSurface(gfx_surf[i], NULL, sprites[slot], &dest);
+		else if (gfx_surf[i]) SDL_gfxBlitRGBA(gfx_surf[i], NULL, sprites[slot], &dest);
 	}
 
 	for (unsigned int i=0; i<gfx_surf.size(); i++) {
