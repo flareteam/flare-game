@@ -143,14 +143,14 @@ void LootManager::loadGraphics() {
 			if (new_anim) {
 				if (TEXTURE_QUALITY == false)
 					flying_loot[animation_count] = IMG_Load(mods->locate("images/loot/noalpha/" + anim_id + ".png").c_str());
-					if (!flying_loot[animation_count]) {
-						flying_loot[animation_count] = IMG_Load(mods->locate("images/loot/" + anim_id + ".png").c_str());
-					}
-					if (!flying_loot[animation_count]) {
-						fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
-						SDL_Quit();
-						exit(1);
-					}
+				if (!flying_loot[animation_count]) {
+					flying_loot[animation_count] = IMG_Load(mods->locate("images/loot/" + anim_id + ".png").c_str());
+				}
+				if (!flying_loot[animation_count]) {
+					fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
+					SDL_Quit();
+					exit(1);
+				}
 
 				if (flying_loot[animation_count]) {
 					animation_id[animation_count] = anim_id;
