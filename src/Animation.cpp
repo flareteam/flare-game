@@ -212,3 +212,11 @@ void Animation::reset() {
 	times_played = 0;
 	additional_data = 1;
 }
+
+void Animation::syncTo(Animation *other) {
+	cur_frame = other->cur_frame;
+	cur_frame_duration = other->cur_frame_duration;
+	cur_frame_index = other->cur_frame_index;
+	times_played = other->times_played;
+	additional_data = other->additional_data;
+}
