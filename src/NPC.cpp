@@ -179,18 +179,25 @@ void NPC::load(const string& npc_id, int hero_level) {
 void NPC::loadGraphics(const string& filename_sprites, const string& filename_portrait) {
 
 	if (filename_sprites != "") {
-		sprites = IMG_Load(mods->locate("images/npcs/" + filename_sprites + ".png").c_str());
+
+		if (TEXTURE_QUALITY == false)
+			sprites = IMG_Load(mods->locate("images/npcs/noalpha/" + filename_sprites + ".png").c_str());
+
+		if (!sprites) {
+			sprites = IMG_Load(mods->locate("images/npcs/" + filename_sprites + ".png").c_str());
+		} else {
+			SDL_SetColorKey( sprites, SDL_SRCCOLORKEY, SDL_MapRGB(sprites->format, 255, 0, 255) );
+		}
 		if(!sprites) {
 			fprintf(stderr, "Couldn't load NPC sprites: %s\n", IMG_GetError());
+			SDL_Quit();
+			exit(1);
 		}
-		else {
-			SDL_SetColorKey( sprites, SDL_SRCCOLORKEY, SDL_MapRGB(sprites->format, 255, 0, 255) );
 
-			// optimize
-			SDL_Surface *cleanup = sprites;
-			sprites = SDL_DisplayFormatAlpha(sprites);
-			SDL_FreeSurface(cleanup);
-		}
+		// optimize
+		SDL_Surface *cleanup = sprites;
+		sprites = SDL_DisplayFormatAlpha(sprites);
+		SDL_FreeSurface(cleanup);
 	}
 	if (filename_portrait != "") {
 		portrait = IMG_Load(mods->locate("images/portraits/" + filename_portrait + ".png").c_str());
