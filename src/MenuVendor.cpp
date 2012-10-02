@@ -153,7 +153,7 @@ void MenuVendor::render() {
 	// text overlay
 	if (!title.hidden) {
 		WidgetLabel label;
-		label.set(window_area.x+title.x, window_area.y+title.y, title.justify, title.valign, msg->get("Vendor") + " - " + npc->name, color_normal);
+		label.set(window_area.x+title.x, window_area.y+title.y, title.justify, title.valign, msg->get("Vendor") + " - " + npc->name, color_normal, title.font_style);
 		label.render();
 	}
 

@@ -63,7 +63,7 @@ MenuMiniMap::MenuMiniMap() {
 }
 
 void MenuMiniMap::getMapTitle(std::string map_title) {
-	label->set(window_area.x+text_pos.x, window_area.y+text_pos.y, text_pos.justify, text_pos.valign, map_title, font->getColor("menu_normal"));
+	label->set(window_area.x+text_pos.x, window_area.y+text_pos.y, text_pos.justify, text_pos.valign, map_title, font->getColor("menu_normal"), text_pos.font_style);
 }
 
 void MenuMiniMap::createMapSurface() {
