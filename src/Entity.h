@@ -36,7 +36,6 @@ class Entity {
 protected:
 	SDL_Surface *sprites;
 
-
 public:
 	Entity(MapRenderer*);
 	Entity(const Entity&);
