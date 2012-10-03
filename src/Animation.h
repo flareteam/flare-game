@@ -94,7 +94,9 @@ public:
 	void advanceFrame();
 
 	// sets the frame counters to the same values as the given Animation.
-	void syncTo(Animation *other);
+	void syncTo(const Animation *other);
+
+	bool isHoveredBy(const Point &);
 
 	// return the Renderable of the current frame
 	Renderable getCurrentFrame(int direction);

@@ -47,9 +47,9 @@ void MenuItemStorage::init(int _slot_number, ItemManager *_items, vector<SDL_Rec
 
 void MenuItemStorage::render() {
 	for (int i=0; i<slot_number; i++) {
-		if (storage[i].item > 0 && nb_cols > 0) {
+		if ((storage[i].item > 0 || storage[i].highlight) && nb_cols > 0) {
 			items->renderIcon(storage[i], area[0].x + (i % nb_cols * icon_size), area[0].y + (i / nb_cols * icon_size), icon_size);
-		} else if (storage[i].item > 0 && nb_cols == 0) {
+		} else if ((storage[i].item > 0 || storage[i].highlight) && nb_cols == 0) {
 			items->renderIcon(storage[i], area[i].x, area[i].y, area[i].w);
 		}
 	}
@@ -91,6 +91,7 @@ ItemStack MenuItemStorage::click(InputState * input) {
 	else {
 		item.item = 0;
 		item.quantity = 0;
+		item.highlight = false;
 		return item;
 	}
 }
@@ -132,5 +133,17 @@ void MenuItemStorage::fillEquipmentSlots() {
 	}
 	delete [] equip_item;
 	delete [] equip_quantity;
+}
+
+void MenuItemStorage::highlightMatching(string type) {
+	for (int i=0; i<slot_number; i++) {
+		if (slot_type[i] == type) storage[i].highlight = true;
+	}
+}
+
+void MenuItemStorage::highlightClear() {
+	for (int i=0; i<slot_number; i++) {
+		storage[i].highlight = false;
+	}
 }
 

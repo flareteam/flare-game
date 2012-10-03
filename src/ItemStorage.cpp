@@ -37,6 +37,7 @@ void ItemStorage::init(int _slot_number, ItemManager *_items) {
 	for( int i=0; i<slot_number; i++) {
 		storage[i].item = 0;
 		storage[i].quantity = 0;
+		storage[i].highlight = false;
 	}
 }
 
@@ -118,6 +119,7 @@ void ItemStorage::clear() {
 	for( int i=0; i<slot_number; i++) {
 		storage[i].item = 0;
 		storage[i].quantity = 0;
+		storage[i].highlight = false;
 	}
 }
 

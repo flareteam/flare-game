@@ -149,6 +149,10 @@ void MenuInventory::logic() {
 		if (closeButton->checkClick()) {
 			visible = false;
 		}
+		if (drag_prev_src == -1) {
+			inventory[EQUIPMENT].highlightClear();
+			inventory[CARRIED].highlightClear();
+		}
 	}
 }
 
@@ -233,6 +237,8 @@ ItemStack MenuInventory::click(InputState * input) {
 		// if dragging equipment, prepare to change stats/sprites
 		if (drag_prev_src == EQUIPMENT) {
 			updateEquipment( inventory[EQUIPMENT].drag_prev_slot);
+		} else if (drag_prev_src == CARRIED) {
+			inventory[EQUIPMENT].highlightMatching(items->items[item.item].type);
 		}
 	}
 
@@ -539,6 +545,7 @@ bool MenuInventory::stashAdd(ItemStack stack) {
 	// items that have no price cannot be stored
 	if (items->items[stack.item].price == 0) return false;
 
+	drag_prev_src = -1;
 	return true;
 }
 /**
@@ -557,6 +564,7 @@ bool MenuInventory::sell(ItemStack stack) {
 	int value = value_each * stack.quantity;
 	currency += value;
 	items->playCoinsSound();
+	drag_prev_src = -1;
 	return true;
 }
 
