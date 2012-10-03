@@ -79,7 +79,7 @@ void QuestLog::loadIndex(const std::string& filename) {
 	infile.open(filename.c_str(), ios::in);
 
 	if (infile.is_open()) {
-		while (!infile.eof()) {
+		while (infile.good()) {
 			line = getLine(infile);
 			if (line.length() > 0) {
 
