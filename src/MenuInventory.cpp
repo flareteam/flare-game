@@ -315,7 +315,7 @@ void MenuInventory::drop(Point mouse, ItemStack stack) {
 		else {
 			// note: equipment slots 0-3 correspond with item types 0-3
 			// also check to see if the hero meets the requirements
-			if (inventory[area][slot].item == stack.item) {
+			if (inventory[area][slot].item == stack.item || drag_prev_src == -1) {
 				// Merge the stacks
 				add( stack, area, slot);
 			}
