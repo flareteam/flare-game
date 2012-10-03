@@ -427,16 +427,20 @@ void ItemManager::renderIcon(ItemStack stack, int x, int y, int size) {
 	dest.y = y;
 	src.w = src.h = dest.w = dest.h = size;
 	if (size == ICON_SIZE_SMALL) {
-		columns = icons_small->w / ICON_SIZE_SMALL;
-		src.x = (items[stack.item].icon_small % columns) * size;
-		src.y = (items[stack.item].icon_small / columns) * size;
-		SDL_BlitSurface(icons_small, &src, screen, &dest);
+		if (stack.item > 0) {
+			columns = icons_small->w / ICON_SIZE_SMALL;
+			src.x = (items[stack.item].icon_small % columns) * size;
+			src.y = (items[stack.item].icon_small / columns) * size;
+			SDL_BlitSurface(icons_small, &src, screen, &dest);
+		}
 		if (stack.highlight) SDL_BlitSurface(icons_highlight_small, NULL, screen, &dest);
 	}
 	else if (size == ICON_SIZE_LARGE) {
-		columns = icons_large->w / ICON_SIZE_LARGE;
-		src.x = (items[stack.item].icon_large % columns) * size;
-		src.y = (items[stack.item].icon_large / columns) * size;
+		if (stack.item > 0) {
+			columns = icons_large->w / ICON_SIZE_LARGE;
+			src.x = (items[stack.item].icon_large % columns) * size;
+			src.y = (items[stack.item].icon_large / columns) * size;
+		}
 		SDL_BlitSurface(icons_large, &src, screen, &dest);
 	}
 
