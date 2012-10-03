@@ -56,12 +56,14 @@ SDL_Surface *ImageManager::getSurface(const std::string &name) {
                 const char * pch = strrchr(path.c_str(), '/' );
                 path.insert(pch-path.c_str(), "/noalpha");
                 cleanup = IMG_Load(path.c_str());
+                if (!cleanup)
+                    printf("failed to load %s\n", path.c_str());
+                else
+                    SDL_SetColorKey(cleanup, SDL_SRCCOLORKEY, SDL_MapRGB(cleanup->format, 255, 0, 255));
             }
 
             if (!cleanup) {
                 cleanup = IMG_Load(mods->locate(name).c_str());
-            } else {
-                SDL_SetColorKey(cleanup, SDL_SRCCOLORKEY, SDL_MapRGB(cleanup->format, 255, 0, 255));
             }
 
             if (!cleanup) {
