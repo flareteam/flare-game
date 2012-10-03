@@ -91,6 +91,7 @@ ItemStack MenuItemStorage::click(InputState * input) {
 	else {
 		item.item = 0;
 		item.quantity = 0;
+		item.highlight = false;
 		return item;
 	}
 }
@@ -132,5 +133,17 @@ void MenuItemStorage::fillEquipmentSlots() {
 	}
 	delete [] equip_item;
 	delete [] equip_quantity;
+}
+
+void MenuItemStorage::highlightMatching(string type) {
+	for (int i=0; i<slot_number; i++) {
+		if (slot_type[i] == type) storage[i].highlight = true;
+	}
+}
+
+void MenuItemStorage::highlightClear() {
+	for (int i=0; i<slot_number; i++) {
+		storage[i].highlight = false;
+	}
 }
 
