@@ -54,7 +54,7 @@ bool FileParser::next() {
 	string starts_with;
 	new_section = false;
 
-	while (!infile.eof()) {
+	while (infile.good()) {
 
 		line = getLine(infile);
 
@@ -91,7 +91,7 @@ bool FileParser::next() {
 string FileParser::getRawLine() {
 	line = "";
 
-	if (!infile.eof()) {
+	if (infile.good()) {
 		line = getLine(infile);
 	}
 	return line;
