@@ -44,10 +44,6 @@ class NPC : public Entity {
 protected:
 	ItemManager *items;
 
-	int anim_frames;
-	int anim_duration;
-	int current_frame;
-
 public:
 	NPC(MapRenderer *_map, ItemManager *_items);
 	~NPC();
@@ -65,9 +61,7 @@ public:
 	Point pos; // map position
 	int level; // used in determining item quality
 
-	// public animation info
-	Point render_size;
-	Point render_offset;
+	int direction;
 
 	// talker info
 	SDL_Surface *portrait;

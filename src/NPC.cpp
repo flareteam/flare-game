@@ -22,6 +22,10 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "NPC.h"
+
+#include "Animation.h"
+#include "AnimationSet.h"
+#include "AnimationManager.h"
 #include "CampaignManager.h"
 #include "FileParser.h"
 #include "ItemManager.h"
@@ -34,18 +38,11 @@ using namespace std;
 
 NPC::NPC(MapRenderer *_map, ItemManager *_items) : Entity(_map) {
 	items = _items;
+	direction = 0;
 
 	// init general vars
 	name = "";
 	pos.x = pos.y = 0;
-
-	// init animation info
-	sprites = NULL;
-	render_size.x = render_size.y = 0;
-	render_offset.x = render_offset.y = 0;
-	anim_frames = 0;
-	anim_duration = 0;
-	current_frame = 0;
 
 	// init vendor info
 	vendor = false;
@@ -127,20 +124,6 @@ void NPC::load(const string& npc_id, int hero_level) {
 				else if (infile.key == "gfx") {
 					filename_sprites = infile.val;
 				}
-				else if (infile.key == "render_size") {
-					render_size.x = toInt(infile.nextValue());
-					render_size.y = toInt(infile.val);
-				}
-				else if (infile.key == "render_offset") {
-					render_offset.x = toInt(infile.nextValue());
-					render_offset.y = toInt(infile.val);
-				}
-				else if (infile.key == "anim_frames") {
-					anim_frames = toInt(infile.val);
-				}
-				else if (infile.key == "anim_duration") {
-					anim_duration = toInt(infile.val);
-				}
 
 				// handle talkers
 				else if (infile.key == "talker") {
@@ -176,28 +159,13 @@ void NPC::load(const string& npc_id, int hero_level) {
 	loadGraphics(filename_sprites, filename_portrait);
 }
 
-void NPC::loadGraphics(const string& filename_sprites, const string& filename_portrait) {
+void NPC::loadGraphics(const string& filename_animations, const string& filename_portrait) {
 
-	if (filename_sprites != "") {
-
-		if (TEXTURE_QUALITY == false)
-			sprites = IMG_Load(mods->locate("images/npcs/noalpha/" + filename_sprites + ".png").c_str());
-
-		if (!sprites) {
-			sprites = IMG_Load(mods->locate("images/npcs/" + filename_sprites + ".png").c_str());
-		} else {
-			SDL_SetColorKey( sprites, SDL_SRCCOLORKEY, SDL_MapRGB(sprites->format, 255, 0, 255) );
-		}
-		if(!sprites) {
-			fprintf(stderr, "Couldn't load NPC sprites: %s\n", IMG_GetError());
-			SDL_Quit();
-			exit(1);
-		}
-
-		// optimize
-		SDL_Surface *cleanup = sprites;
-		sprites = SDL_DisplayFormatAlpha(sprites);
-		SDL_FreeSurface(cleanup);
+	if (filename_animations != "") {
+		std::string anim = "animations/npcs/" + filename_animations + ".txt";
+		AnimationManager::instance()->increaseCount(anim);
+		animationSet = AnimationManager::instance()->getAnimationSet(anim);
+		activeAnimation = animationSet->getAnimation(animationSet->starting_animation);
 	}
 	if (filename_portrait != "") {
 		portrait = IMG_Load(mods->locate("images/portraits/" + filename_portrait + ".png").c_str());
@@ -243,13 +211,7 @@ int NPC::loadSound(const string& filename, int type) {
 }
 
 void NPC::logic() {
-
-	// animate
-	current_frame++;
-	if (current_frame == anim_frames * anim_duration) {
-		current_frame = 0;
-	}
-
+	activeAnimation->advanceFrame();
 }
 
 // of the audio which is played. If no Mix_Chunk is played, -1
@@ -382,29 +344,16 @@ bool NPC::processDialog(unsigned int dialog_node, unsigned int &event_cursor) {
 	return false;
 }
 
-/**
- * getRender()
- * Map objects need to be drawn in Z order, so we allow a parent object (GameEngine)
- * to collect all mobile sprites each frame.
- */
 Renderable NPC::getRender() {
-	Renderable r;
-	r.sprite = sprites;
+	Renderable r = activeAnimation->getCurrentFrame(direction);
 	r.map_pos.x = pos.x;
 	r.map_pos.y = pos.y;
-	r.src.x = render_size.x * (current_frame / anim_duration);
-	r.src.y = 0;
-	r.src.w = render_size.x;
-	r.src.h = render_size.y;
-	r.offset.x = render_offset.x;
-	r.offset.y = render_offset.y;
 
 	return r;
 }
 
 
 NPC::~NPC() {
-	if (sprites != NULL) SDL_FreeSurface(sprites);
 	if (portrait != NULL) SDL_FreeSurface(portrait);
 	while (!vox_intro.empty()) {
 		Mix_FreeChunk(vox_intro.back());
