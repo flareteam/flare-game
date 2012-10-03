@@ -205,8 +205,13 @@ TooltipData MenuInventory::checkTooltip(Point mouse) {
 	TooltipData tip;
 
 	area = areaOver(mouse);
-	if (area == -1)
+	if (area == -1) {
+		if (mouse.x >= window_area.x + help_pos.x && mouse.y >= window_area.y+help_pos.y && mouse.x < window_area.x+help_pos.x+help_pos.w && mouse.y < window_area.y+help_pos.y+help_pos.h) {
+			tip.lines[tip.num_lines++] = msg->get("Use SHIFT to move only one item.");
+			tip.lines[tip.num_lines++] = msg->get("CTRL-click a carried item to sell it.");
+		}
 		return tip;
+	}
 	slot = inventory[area].slotOver(mouse);
 
 	if (inventory[area][slot].item > 0) {
@@ -214,10 +219,6 @@ TooltipData MenuInventory::checkTooltip(Point mouse) {
 	}
 	else if (area == EQUIPMENT && inventory[area][slot].item == 0) {
 		tip.lines[tip.num_lines++] = msg->get(slot_desc[slot]);
-	}
-	else if (mouse.x >= window_area.x + help_pos.x && mouse.y >= window_area.y+help_pos.y && mouse.x < window_area.x+help_pos.x+help_pos.w && mouse.y < window_area.y+help_pos.y+help_pos.h) {
-		tip.lines[tip.num_lines++] = msg->get("Use SHIFT to move only one item.");
-		tip.lines[tip.num_lines++] = msg->get("CTRL-click a carried item to sell it.");
 	}
 
 	return tip;
