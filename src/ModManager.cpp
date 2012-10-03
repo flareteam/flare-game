@@ -66,7 +66,7 @@ void ModManager::loadModList() {
 
 	getDirList(PATH_DATA + "mods", mod_dirs);
 
-	while (!infile.eof()) {
+	while (infile.good()) {
 		line = getLine(infile);
 
 		// skip ahead if this line is empty
