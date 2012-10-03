@@ -52,6 +52,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "QuestLog.h"
 #include "WidgetLabel.h"
 #include "SharedResources.h"
+#include "UtilsFileSystem.h"
 
 using namespace std;
 
@@ -346,12 +347,15 @@ void GameStatePlay::checkEquipmentChange() {
 					gfx.type = menu->inv->inventory[EQUIPMENT].slot_type[i];
 				}
 			}
+			// special case: if we don't have a head, use the portrait's head
 			if (pc->layer_reference_order[j] == "head") {
 				gfx.gfx = pc->stats.head;
 				gfx.type = "head";
 			}
-			if (pc->layer_reference_order[j] == "body" && gfx.gfx == "") {
-				gfx.gfx = "clothes";
+			// fall back to default if it exists
+			bool exists = fileExists(mods->locate("animations/avatar/" + pc->stats.base + "/default_" + gfx.type + ".txt"));
+			if (gfx.gfx == "" && exists) {
+				gfx.gfx = "default_" + gfx.type;
 			}
 			img_gfx.push_back(gfx);
 		}
