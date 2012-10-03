@@ -353,9 +353,9 @@ void GameStatePlay::checkEquipmentChange() {
 				gfx.type = "head";
 			}
 			// fall back to default if it exists
-			bool exists = fileExists(mods->locate("animations/avatar/" + pc->stats.base + "/default_" + gfx.type + ".txt"));
-			if (gfx.gfx == "" && exists) {
-				gfx.gfx = "default_" + gfx.type;
+			if (gfx.gfx == "") {
+				bool exists = fileExists(mods->locate("animations/avatar/" + pc->stats.base + "/default_" + gfx.type + ".txt"));
+				if (exists) gfx.gfx = "default_" + gfx.type;
 			}
 			img_gfx.push_back(gfx);
 		}
