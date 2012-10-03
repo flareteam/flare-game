@@ -213,7 +213,7 @@ void Animation::reset() {
 	additional_data = 1;
 }
 
-void Animation::syncTo(Animation *other) {
+void Animation::syncTo(const Animation *other) {
 	cur_frame = other->cur_frame;
 	cur_frame_duration = other->cur_frame_duration;
 	cur_frame_index = other->cur_frame_index;
