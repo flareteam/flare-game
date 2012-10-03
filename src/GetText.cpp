@@ -57,7 +57,7 @@ bool GetText::next() {
 	key = "";
 	val = "";
 
-	while (!infile.eof()) {
+	while (infile.good()) {
 		line = getLine(infile);
 
 		// this is a key
