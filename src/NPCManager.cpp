@@ -23,6 +23,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * Most commonly this involves vendor and conversation townspeople.
  */
 
+#include "Animation.h"
 #include "FileParser.h"
 #include "NPCManager.h"
 #include "NPC.h"
@@ -109,10 +110,11 @@ int NPCManager::checkNPCClick(Point mouse, Point cam) {
 
 		p = map_to_screen(npcs[i]->pos.x, npcs[i]->pos.y, cam.x, cam.y);
 
-		r.w = npcs[i]->render_size.x;
-		r.h = npcs[i]->render_size.y;
-		r.x = p.x - npcs[i]->render_offset.x;
-		r.y = p.y - npcs[i]->render_offset.y;
+		Renderable ren = npcs[i]->activeAnimation->getCurrentFrame(npcs[i]->direction);
+		r.w = ren.src.w;
+		r.h = ren.src.h;
+		r.x = p.x - ren.offset.x;
+		r.y = p.y - ren.offset.y;
 
 		if (isWithin(r, mouse)) {
 			return i;
@@ -132,10 +134,11 @@ void NPCManager::renderTooltips(Point cam, Point mouse) {
 
 		p = map_to_screen(npcs[i]->pos.x, npcs[i]->pos.y, cam.x, cam.y);
 
-		r.w = npcs[i]->render_size.x;
-		r.h = npcs[i]->render_size.y;
-		r.x = p.x - npcs[i]->render_offset.x;
-		r.y = p.y - npcs[i]->render_offset.y;
+		Renderable ren = npcs[i]->activeAnimation->getCurrentFrame(npcs[i]->direction);
+		r.w = ren.src.w;
+		r.h = ren.src.h;
+		r.x = p.x - ren.offset.x;
+		r.y = p.y - ren.offset.y;
 
 		if (isWithin(r, mouse)) {
 
