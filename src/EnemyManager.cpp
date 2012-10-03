@@ -20,6 +20,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "AnimationManager.h"
 #include "AnimationSet.h"
+#include "Animation.h"
+#include "StatBlock.h"
 #include "SharedResources.h"
 #include "EnemyBehavior.h"
 #include "BehaviorStandard.h"
@@ -63,13 +65,9 @@ bool EnemyManager::loadSounds(const string& type_id) {
 	return true;
 }
 
-#include "StatBlock.h"
-#include "Animation.h"
-
-
 bool EnemyManager::loadAnimations(Enemy *e) {
 
-	string animationsname = "animations/"+e->stats.animations + ".txt";
+	string animationsname = "animations/enemies/"+e->stats.animations + ".txt";
 	AnimationManager::instance()->increaseCount(animationsname);
 	e->animationSet = AnimationManager::instance()->getAnimationSet(animationsname);
 	e->activeAnimation = e->animationSet->getAnimation(e->animationSet->starting_animation);
@@ -80,7 +78,7 @@ bool EnemyManager::loadAnimations(Enemy *e) {
 Enemy *EnemyManager::getEnemyPrototype(const string& type_id) {
 	for (size_t i = 0; i < prototypes.size(); i++)
 		if (prototypes[i].type == type_id) {
-			string animationsname = "animations/"+prototypes[i].stats.animations + ".txt";
+			string animationsname = "animations/enemies/"+prototypes[i].stats.animations + ".txt";
 			AnimationManager::instance()->increaseCount(animationsname);
 			return new Enemy(prototypes[i]);
 		}
@@ -182,7 +180,7 @@ void EnemyManager::handleSpawn() {
 		e->stats.load("enemies/" + espawn.type + ".txt");
 		if (e->stats.animations != "") {
 			// load the animation file if specified
-			string animationname = "animations/"+e->stats.animations + ".txt";
+			string animationname = "animations/enemies"+e->stats.animations + ".txt";
 			AnimationManager::instance()->increaseCount(animationname);
 			e->animationSet = AnimationManager::instance()->getAnimationSet(animationname);
 			if (e->animationSet)
