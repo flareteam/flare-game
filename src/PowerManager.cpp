@@ -342,10 +342,12 @@ void PowerManager::loadEffects(const std::string& filename) {
 		} else if (infile.key == "gfx") {
 			effects[input_id].gfx = NULL;
 			SDL_Surface *surface = IMG_Load(mods->locate("images/powers/" + eatFirstString(infile.val,',')).c_str());
-			if(!surface)
+			if(!surface) {
 				fprintf(stderr, "Couldn't load effect sprites: %s\n", IMG_GetError());
-			effects[input_id].gfx = SDL_DisplayFormatAlpha(surface);
-			SDL_FreeSurface(surface);
+			} else {
+				effects[input_id].gfx = SDL_DisplayFormatAlpha(surface);
+				SDL_FreeSurface(surface);
+			}
 		} else if (infile.key == "size") {
 			effects[input_id].frame_size.x = eatFirstInt(infile.val, ',');
 			effects[input_id].frame_size.y = eatFirstInt(infile.val, ',');
