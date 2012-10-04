@@ -3,7 +3,7 @@ image=images/enemies/antlion.png
 
 [stance]
 frames=4
-duration=120
+duration=4
 type=back_forth
 frame=0,0,3818,46,51,46,22,32
 frame=0,1,2544,49,65,49,32,33
@@ -40,7 +40,7 @@ frame=3,7,3139,47,66,47,33,31
 
 [spawn]
 frames=6
-duration=120
+duration=4
 type=play_once
 frame=0,0,1592,105,9,23,4,18
 frame=0,1,1484,106,21,22,9,17
@@ -93,7 +93,7 @@ frame=5,7,5371,86,54,42,31,28
 
 [run]
 frames=8
-duration=60
+duration=2
 type=looped
 frame=0,0,6508,76,50,38,23,29
 frame=0,1,5305,0,50,43,29,28
@@ -162,7 +162,7 @@ frame=7,7,5216,43,54,43,23,28
 
 [ranged]
 frames=4
-duration=90
+duration=3
 type=play_once
 frame=0,0,1709,52,57,52,26,39
 frame=0,1,1389,55,70,54,38,39
@@ -199,7 +199,7 @@ frame=3,7,5632,42,69,41,45,22
 
 [ment]
 frames=4
-duration=90
+duration=3
 type=play_once
 frame=0,0,1653,0,57,52,26,39
 frame=0,1,239,74,70,54,38,39
@@ -236,7 +236,7 @@ frame=3,7,5617,84,69,41,45,22
 
 [die]
 frames=6
-duration=120
+duration=4
 type=play_once
 frame=0,0,2631,0,53,49,19,38
 frame=0,1,1882,51,58,51,23,39
@@ -289,7 +289,7 @@ frame=5,7,5799,82,54,41,25,36
 
 [melee]
 frames=4
-duration=60
+duration=2
 type=play_once
 frame=0,0,1652,52,57,52,26,39
 frame=0,1,169,74,70,54,38,39
@@ -326,7 +326,7 @@ frame=3,7,5066,87,69,41,45,22
 
 [critdie]
 frames=8
-duration=120
+duration=4
 type=play_once
 frame=0,0,5661,0,62,41,26,25
 frame=0,1,5000,88,66,40,38,24
@@ -395,7 +395,7 @@ frame=7,7,6789,37,58,37,27,23
 
 [hit]
 frames=2
-duration=60
+duration=2
 type=back_forth
 frame=0,0,2609,49,53,49,19,38
 frame=0,1,1848,0,58,51,23,39
@@ -416,7 +416,7 @@ frame=1,7,6496,38,52,38,19,33
 
 [block]
 frames=2
-duration=90
+duration=3
 type=play_once
 frame=0,0,5102,43,57,43,28,31
 frame=0,1,4609,44,56,44,24,29

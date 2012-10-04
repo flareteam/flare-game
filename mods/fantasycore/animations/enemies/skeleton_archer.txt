@@ -3,7 +3,7 @@ image=images/enemies/skeleton_archer.png
 
 [stance]
 frames=4
-duration=120
+duration=4
 type=back_forth
 frame=0,0,3685,0,52,64,23,57
 frame=0,1,1593,0,72,66,27,59
@@ -40,7 +40,7 @@ frame=3,7,6932,0,41,53,22,50
 
 [run]
 frames=8
-duration=60
+duration=2
 type=looped
 frame=0,0,3271,0,41,65,21,61
 frame=0,1,2322,66,45,62,19,59
@@ -109,7 +109,7 @@ frame=7,7,1348,0,55,67,35,59
 
 [ranged]
 frames=4
-duration=120
+duration=4
 type=play_once
 frame=0,0,2540,0,59,65,39,58
 frame=0,1,596,0,48,69,30,59
@@ -146,7 +146,7 @@ frame=3,7,3630,0,55,64,34,59
 
 [ment]
 frames=4
-duration=90
+duration=3
 type=play_once
 frame=0,0,3350,0,35,65,17,59
 frame=0,1,1804,0,66,66,25,60
@@ -183,7 +183,7 @@ frame=3,7,3528,64,65,64,41,60
 
 [die]
 frames=6
-duration=120
+duration=4
 type=play_once
 frame=0,0,4021,0,43,64,17,58
 frame=0,1,2655,0,56,65,19,57
@@ -236,7 +236,7 @@ frame=5,7,7679,99,49,29,31,18
 
 [melee]
 frames=4
-duration=90
+duration=3
 type=play_once
 frame=0,0,3321,65,46,63,26,57
 frame=0,1,1554,0,39,67,23,59
@@ -273,7 +273,7 @@ frame=3,7,6849,54,78,53,51,49
 
 [critdie]
 frames=6
-duration=120
+duration=4
 type=play_once
 frame=0,0,4040,64,43,64,17,58
 frame=0,1,2711,0,56,65,19,57
@@ -326,7 +326,7 @@ frame=5,7,7770,0,49,29,31,18
 
 [hit]
 frames=2
-duration=60
+duration=2
 type=back_forth
 frame=0,0,3997,64,43,64,17,58
 frame=0,1,2599,0,56,65,19,57
@@ -347,7 +347,7 @@ frame=1,7,5548,0,42,59,22,56
 
 [block]
 frames=2
-duration=90
+duration=3
 type=play_once
 frame=0,0,2767,0,53,65,24,58
 frame=0,1,1935,0,60,66,19,59

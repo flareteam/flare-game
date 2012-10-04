@@ -3,7 +3,7 @@ image=images/enemies/antlion_hatchling.png
 
 [stance]
 frames=4
-duration=120
+duration=4
 type=back_forth
 frame=0,0,2048,0,25,23,11,16
 frame=0,1,1076,0,33,25,16,17
@@ -40,7 +40,7 @@ frame=3,7,1591,24,33,24,17,16
 
 [spawn]
 frames=6
-duration=120
+duration=4
 type=play_once
 frame=0,0,942,52,5,12,2,9
 frame=0,1,931,52,11,12,5,9
@@ -93,7 +93,7 @@ frame=5,7,2916,21,28,21,16,14
 
 [run]
 frames=8
-duration=60
+duration=2
 type=looped
 frame=0,0,3129,40,26,20,12,15
 frame=0,1,2946,0,26,21,15,14
@@ -162,7 +162,7 @@ frame=7,7,2385,22,27,22,12,14
 
 [ranged]
 frames=4
-duration=90
+duration=3
 type=play_once
 frame=0,0,786,27,28,27,13,20
 frame=0,1,714,0,35,27,19,20
@@ -199,7 +199,7 @@ frame=3,7,2797,0,35,21,23,11
 
 [ment]
 frames=4
-duration=90
+duration=3
 type=play_once
 frame=0,0,778,0,28,27,13,20
 frame=0,1,292,36,35,27,19,20
@@ -236,7 +236,7 @@ frame=3,7,2804,43,35,21,23,11
 
 [die]
 frames=6
-duration=120
+duration=4
 type=play_once
 frame=0,0,1238,25,27,25,10,19
 frame=0,1,924,0,29,26,12,20
@@ -289,7 +289,7 @@ frame=5,7,2896,42,28,21,13,18
 
 [melee]
 frames=4
-duration=60
+duration=2
 type=play_once
 frame=0,0,758,27,28,27,13,20
 frame=0,1,257,36,35,27,19,20
@@ -326,7 +326,7 @@ frame=3,7,2793,22,35,21,23,11
 
 [critdie]
 frames=8
-duration=120
+duration=4
 type=play_once
 frame=0,0,2828,21,31,21,13,13
 frame=0,1,2465,44,33,20,19,12
@@ -395,7 +395,7 @@ frame=7,7,3401,0,30,19,14,12
 
 [hit]
 frames=2
-duration=60
+duration=2
 type=back_forth
 frame=0,0,1232,0,27,25,10,19
 frame=0,1,911,26,29,26,12,20
@@ -416,7 +416,7 @@ frame=1,7,3441,38,27,19,10,16
 
 [block]
 frames=2
-duration=90
+duration=3
 type=play_once
 frame=0,0,2278,0,29,22,14,16
 frame=0,1,2329,22,28,22,12,15

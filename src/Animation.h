@@ -56,6 +56,7 @@ protected:
 	unsigned short cur_frame_index; // which frame in this animation is currently being displayed? range: 0..gfx.size()-1
 	unsigned short cur_frame_duration;  // how many ticks is the current image being displayed yet? range: 0..duration[cur_frame]-1
 
+	unsigned short max_kinds;
 
 	short additional_data;  // additional state depending on type:
 							// if type == BACK_FORTH then it is 1 for advancing, and -1 for going back, 0 at the end
@@ -84,11 +85,12 @@ public:
 	// which all belong to this animation.
 	// The render_offset is constant for all frames. The render_size is also
 	// the grid size.
-	void setupUncompressed(Point render_size, Point render_offset, int _position, int _frames, int _duration);
+	void setupUncompressed(Point render_size, Point render_offset, int _position, int _frames, int _duration, unsigned short _maxkinds = 8);
 
-	void setup(unsigned short _frames, unsigned short _duration);
-	void addFrame(unsigned short index, unsigned short direction, SDL_Rect sdl_rect, Point _render_offset);
-	void doneLoading();
+	void setup(unsigned short _frames, unsigned short _duration, unsigned short _maxkinds = 8);
+
+	// kind can be used for direction(enemies, hero) or randomness(powers)
+	void addFrame(unsigned short index, unsigned short kind, SDL_Rect sdl_rect, Point _render_offset);
 
 	// advance the animation one frame
 	void advanceFrame();
