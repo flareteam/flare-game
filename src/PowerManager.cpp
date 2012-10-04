@@ -47,7 +47,6 @@ PowerManager::PowerManager() {
 
 	log_msg = "";
 
-	loadGraphics();
 	loadAll();
 }
 
@@ -433,23 +432,6 @@ int PowerManager::loadSFX(const string& filename) {
 		return sfx.size() - 1;
 }
 
-
-void PowerManager::loadGraphics() {
-
-	runes = NULL;
-	if (TEXTURE_QUALITY == false)
-		runes = IMG_Load(mods->locate("images/powers/noalpha/runes.png").c_str());
-	if (!runes) {
-		runes = IMG_Load(mods->locate("images/powers/runes.png").c_str());
-	} else {
-		SDL_SetColorKey( runes, SDL_SRCCOLORKEY, SDL_MapRGB(runes->format, 255, 0, 255) );
-	}
-	if(!runes) {
-		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
-		SDL_Quit();
-		exit(1);
-	}
-}
 
 /**
  * Set new collision object
@@ -1245,8 +1227,6 @@ PowerManager::~PowerManager() {
 	}
 	sfx.clear();
 	sfx_filenames.clear();
-
-	SDL_FreeSurface(runes);
 
 	for (unsigned i=0; i<effects.size(); i++) {
 		SDL_FreeSurface(effects[i].gfx);
