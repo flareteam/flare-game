@@ -500,7 +500,7 @@ TooltipData ItemManager::getShortTooltip(ItemStack stack) {
 /**
  * Create detailed tooltip showing all relevant item info
  */
-TooltipData ItemManager::getTooltip(int item, StatBlock *stats, bool vendor_view) {
+TooltipData ItemManager::getTooltip(int item, StatBlock *stats, int context) {
 	TooltipData tip;
 
 	if (item == 0) return tip;
@@ -611,15 +611,25 @@ TooltipData ItemManager::getTooltip(int item, StatBlock *stats, bool vendor_view
 	// buy or sell price
 	if (items[item].price > 0) {
 
-		if (vendor_view) {
+		int price_per_unit;
+		if (context == VENDOR_BUY) {
 			if (stats->currency < items[item].price) tip.colors[tip.num_lines] = color_requirements_not_met;
 			if (items[item].max_quantity <= 1)
 				tip.lines[tip.num_lines++] = msg->get("Buy Price: %d %s", items[item].price, CURRENCY);
 			else
 				tip.lines[tip.num_lines++] = msg->get("Buy Price: %d %s each", items[item].price, CURRENCY);
-		}
-		else {
-			int price_per_unit;
+		} else if (context == VENDOR_SELL) {
+			if(items[item].price_sell != 0)
+				price_per_unit = items[item].price_sell;
+			else
+				price_per_unit = static_cast<int>(items[item].price * VENDOR_RATIO);
+			if (price_per_unit == 0) price_per_unit = 1;
+			if (stats->currency < price_per_unit) tip.colors[tip.num_lines] = color_requirements_not_met;
+			if (items[item].max_quantity <= 1)
+				tip.lines[tip.num_lines++] = msg->get("Buy Price: %d %s", price_per_unit, CURRENCY);
+			else
+				tip.lines[tip.num_lines++] = msg->get("Buy Price: %d %s each", price_per_unit, CURRENCY);
+		} else if (context == PLAYER_INV) {
 			if(items[item].price_sell != 0)
 				price_per_unit = items[item].price_sell;
 			else

@@ -215,7 +215,7 @@ TooltipData MenuInventory::checkTooltip(Point mouse) {
 	slot = inventory[area].slotOver(mouse);
 
 	if (inventory[area][slot].item > 0) {
-		tip = inventory[area].checkTooltip( mouse, stats, false);
+		tip = inventory[area].checkTooltip( mouse, stats, PLAYER_INV);
 	}
 	else if (area == EQUIPMENT && inventory[area][slot].item == 0) {
 		tip.lines[tip.num_lines++] = msg->get(slot_desc[slot]);
@@ -525,9 +525,19 @@ void MenuInventory::addCurrency(int count) {
  * Check if there is enough currency to buy the given stack, and if so remove it from the current total and add the stack.
  * (Handle the drop into the equipment area, but add() don't handle it well in all circonstances. MenuManager::logic() allow only into the carried area.)
  */
-bool MenuInventory::buy(ItemStack stack) {
-	int count = items->items[stack.item].price * stack.quantity;
+bool MenuInventory::buy(ItemStack stack, int tab) {
+	int value_each;
+	if (tab == VENDOR_BUY) {
+		value_each = items->items[stack.item].price;
+	} else if (tab == VENDOR_SELL) {
+		if (items->items[stack.item].price_sell != 0)
+			value_each = items->items[stack.item].price_sell;
+		else
+			value_each = static_cast<int>(items->items[stack.item].price * VENDOR_RATIO);
+	}
+	if (value_each == 0) value_each = 1;
 
+	int count = value_each * stack.quantity;
 	if( currency >= count) {
 		currency -= count;
 

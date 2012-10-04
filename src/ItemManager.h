@@ -34,6 +34,10 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <stdint.h>
 #include <vector>
 
+#define VENDOR_BUY 0
+#define VENDOR_SELL 1
+#define PLAYER_INV 2
+
 class StatBlock;
 
 const int REQUIRES_PHYS = 0;
@@ -202,7 +206,7 @@ public:
 	void renderIcon(ItemStack stack, int x, int y, int size);
 	void playSound(int item);
 	void playCoinsSound();
-	TooltipData getTooltip(int item, StatBlock *stats, bool vendor_view);
+	TooltipData getTooltip(int item, StatBlock *stats, int context);
 	TooltipData getShortTooltip(ItemStack item);
 	std::string getItemType(std::string _type);
 
