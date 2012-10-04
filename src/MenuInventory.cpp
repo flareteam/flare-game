@@ -238,7 +238,7 @@ ItemStack MenuInventory::click(InputState * input) {
 		// if dragging equipment, prepare to change stats/sprites
 		if (drag_prev_src == EQUIPMENT) {
 			updateEquipment( inventory[EQUIPMENT].drag_prev_slot);
-		} else if (drag_prev_src == CARRIED) {
+		} else if (drag_prev_src == CARRIED && !inpt->pressing[CTRL]) {
 			inventory[EQUIPMENT].highlightMatching(items->items[item.item].type);
 		}
 	}
@@ -527,15 +527,8 @@ void MenuInventory::addCurrency(int count) {
  */
 bool MenuInventory::buy(ItemStack stack, int tab) {
 	int value_each;
-	if (tab == VENDOR_BUY) {
-		value_each = items->items[stack.item].price;
-	} else if (tab == VENDOR_SELL) {
-		if (items->items[stack.item].price_sell != 0)
-			value_each = items->items[stack.item].price_sell;
-		else
-			value_each = static_cast<int>(items->items[stack.item].price * VENDOR_RATIO);
-	}
-	if (value_each == 0) value_each = 1;
+	if (tab == VENDOR_BUY) value_each = items->items[stack.item].price;
+	else value_each = items->items[stack.item].getSellPrice();
 
 	int count = value_each * stack.quantity;
 	if( currency >= count) {
@@ -566,12 +559,7 @@ bool MenuInventory::sell(ItemStack stack) {
 	// items that have no price cannot be sold
 	if (items->items[stack.item].price == 0) return false;
 
-	int value_each;
-	if(items->items[stack.item].price_sell != 0)
-		value_each = items->items[stack.item].price_sell;
-	else
-		value_each = static_cast<int>(items->items[stack.item].price * VENDOR_RATIO);
-	if (value_each == 0) value_each = 1;
+	int value_each = items->items[stack.item].getSellPrice();
 	int value = value_each * stack.quantity;
 	currency += value;
 	items->playCoinsSound();

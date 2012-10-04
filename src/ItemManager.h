@@ -112,6 +112,8 @@ public:
 	std::string pickup_status; // when this item is picked up, set a campaign state (usually for quest items)
 	std::string stepfx;        // sound effect played when walking (armors only)
 
+	int getSellPrice();
+
 	Item() {
 		name = "";
 		level = 0;
