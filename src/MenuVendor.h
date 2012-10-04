@@ -30,9 +30,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include <string>
 
-#define VENDOR_BUY 0
-#define VENDOR_SELL 1
-
 class InputState;
 class ItemStorage;
 class NPC;
@@ -73,6 +70,7 @@ public:
 	void logic();
 	void tabsLogic();
 	void setTab(int tab);
+	int getTab() {return activetab;}
 	void render();
 	ItemStack click(InputState * input);
 	void itemReturn(ItemStack stack);
