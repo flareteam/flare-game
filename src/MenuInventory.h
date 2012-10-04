@@ -82,7 +82,7 @@ public:
 	void add( ItemStack stack, int area = CARRIED, int slot = -1);
 	void remove(int item);
 	void addCurrency(int count);
-	bool buy(ItemStack stack);
+	bool buy(ItemStack stack, int tab);
 	bool sell(ItemStack stack);
 	bool stashAdd(ItemStack stack);
 
