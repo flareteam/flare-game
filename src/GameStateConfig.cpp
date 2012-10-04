@@ -208,6 +208,8 @@ void GameStateConfig::init() {
 	// Save the current resolution in case we want to revert back to it
 	old_view_w = VIEW_W;
 	old_view_h = VIEW_H;
+
+	resolution_confirm_ticks = 0;
 }
 
 void GameStateConfig::readConfig () {

@@ -101,11 +101,7 @@ void AnimationSet::load() {
 			frames = toInt(parser.val);
 		}
 		else if (parser.key == "duration") {
-			int ms_per_frame = toInt(parser.val);
-
-			duration = (int)round((float)ms_per_frame / (1000.0 / (float)MAX_FRAMES_PER_SEC));
-			// adjust duration according to the entity's animation speed
-			//duration = (duration * 100) / stats.animationSpeed;
+			duration = toInt(parser.val);
 
 			// TEMP: if an animation is too fast, display one frame per fps anyway
 			if (duration < 1) duration=1;
