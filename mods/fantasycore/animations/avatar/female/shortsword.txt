@@ -3,7 +3,7 @@ image=images/avatar/female/shortsword.png
 
 [stance]
 frames=4
-duration=180
+duration=6
 type=back_forth
 frame=0,0,2031,22,11,22,-2,33
 frame=0,1,1666,24,20,24,-8,32
@@ -40,7 +40,7 @@ frame=3,7,2032,0,29,21,23,33
 
 [run]
 frames=8
-duration=60
+duration=2
 type=looped
 frame=0,0,2158,34,29,17,14,28
 frame=0,1,2142,18,13,18,-4,26
@@ -109,7 +109,7 @@ frame=7,7,1934,22,27,22,23,27
 
 [ranged]
 frames=4
-duration=90
+duration=3
 type=play_once
 frame=0,0,1142,30,12,30,6,28
 frame=0,1,1194,29,13,29,10,30
@@ -146,7 +146,7 @@ frame=3,7,1171,0,11,30,1,28
 
 [ment]
 frames=4
-duration=90
+duration=3
 type=play_once
 frame=0,0,1057,0,12,34,-1,49
 frame=0,1,1075,33,24,31,-11,43
@@ -183,7 +183,7 @@ frame=3,7,816,0,32,39,7,63
 
 [die]
 frames=6
-duration=120
+duration=4
 type=play_once
 frame=0,0,1499,0,19,25,8,37
 frame=0,1,1392,26,16,26,-7,35
@@ -236,7 +236,7 @@ frame=5,7,1178,59,24,5,45,-4
 
 [melee]
 frames=4
-duration=90
+duration=3
 type=play_once
 frame=0,0,746,0,36,39,-3,61
 frame=0,1,915,0,24,38,-9,54
@@ -273,7 +273,7 @@ frame=3,7,1253,28,19,27,25,20
 
 [hit]
 frames=2
-duration=60
+duration=2
 type=play_once
 frame=0,0,1482,25,19,25,8,37
 frame=0,1,1376,26,16,26,-7,35
@@ -294,7 +294,7 @@ frame=1,7,1774,46,30,18,29,26
 
 [block]
 frames=2
-duration=30
+duration=1
 type=play_once
 frame=0,0,2103,40,10,19,-5,30
 frame=0,1,1682,0,20,24,-10,31

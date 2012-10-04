@@ -120,7 +120,6 @@ public:
 
 	virtual Renderable getRender() { return Renderable(); }
 	void addRenders(std::vector<Renderable> &r);
-	SDL_Surface *herosprite;
 
 	// vars
 	Hazard *haz;

@@ -3,7 +3,7 @@ image=images/enemies/cursed_grave.png
 
 [stance]
 frames=8
-duration=120
+duration=4
 type=looped
 frame=0,0,157,5056,39,70,17,61
 frame=0,1,146,4705,48,71,21,61
@@ -72,7 +72,7 @@ frame=7,7,0,4201,52,72,20,62
 
 [ment]
 frames=8
-duration=60
+duration=2
 type=play_once
 frame=0,0,157,5126,39,70,17,61
 frame=0,1,97,4757,48,71,21,61
@@ -141,7 +141,7 @@ frame=7,7,106,3786,53,71,20,61
 
 [die]
 frames=8
-duration=120
+duration=4
 type=play_once
 frame=0,0,210,2062,44,76,17,67
 frame=0,1,104,4166,51,76,21,66
@@ -210,7 +210,7 @@ frame=7,7,0,480,101,51,45,31
 
 [hit]
 frames=4
-duration=30
+duration=1
 type=play_once
 frame=0,0,0,4858,41,75,17,66
 frame=0,1,155,4235,51,75,21,65
@@ -247,7 +247,7 @@ frame=3,7,159,3795,53,71,20,61
 
 [critdie]
 frames=8
-duration=120
+duration=4
 type=play_once
 frame=0,0,210,2138,44,76,17,67
 frame=0,1,52,4236,51,76,21,66
