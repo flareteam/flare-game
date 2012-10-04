@@ -295,7 +295,6 @@ private:
 	void loadAll();
 	void loadPowers(const std::string& filename);
 	void loadEffects(const std::string& filename);
-	void loadGraphics();
 
 	int loadGFX(const std::string& filename);
 	int loadSFX(const std::string& filename);
@@ -342,8 +341,6 @@ public:
 	// shared images/sounds for power special effects
 	std::vector<SDL_Surface*> gfx;
 	std::vector<Mix_Chunk*> sfx;
-
-	SDL_Surface *runes;
 
 	int used_item;
 };
