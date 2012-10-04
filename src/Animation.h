@@ -88,7 +88,6 @@ public:
 
 	void setup(unsigned short _frames, unsigned short _duration);
 	void addFrame(unsigned short index, unsigned short direction, SDL_Rect sdl_rect, Point _render_offset);
-	void doneLoading();
 
 	// advance the animation one frame
 	void advanceFrame();

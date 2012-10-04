@@ -127,14 +127,6 @@ void Animation::addFrame(	unsigned short index,
 	render_offset[8*index+direction] = _render_offset;
 }
 
-void Animation::doneLoading() {
-	// here we make sure
-	gfx.reserve(gfx.size()); // position on the spritesheet to be used.
-	render_offset.reserve(render_offset.size()); // "virtual point on the floor"
-	duration.reserve(duration.size()); //duration of each individual image
-}
-
-
 void Animation::advanceFrame() {
 
 	cur_frame_duration++;
