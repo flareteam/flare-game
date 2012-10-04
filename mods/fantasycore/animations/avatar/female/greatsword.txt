@@ -3,7 +3,7 @@ image=images/avatar/female/greatsword.png
 
 [stance]
 frames=4
-duration=180
+duration=6
 type=back_forth
 frame=0,0,1394,43,20,43,6,53
 frame=0,1,1475,41,31,41,-7,48
@@ -40,7 +40,7 @@ frame=3,7,1866,35,47,34,39,46
 
 [run]
 frames=8
-duration=60
+duration=2
 type=looped
 frame=0,0,496,108,49,19,32,30
 frame=0,1,2154,32,28,31,9,38
@@ -109,7 +109,7 @@ frame=7,7,2288,86,43,28,39,29
 
 [ranged]
 frames=4
-duration=90
+duration=3
 type=play_once
 frame=0,0,483,0,18,54,2,54
 frame=0,1,535,0,29,53,8,53
@@ -146,7 +146,7 @@ frame=3,7,590,53,20,53,5,54
 
 [ment]
 frames=4
-duration=90
+duration=3
 type=play_once
 frame=0,0,519,0,16,54,2,68
 frame=0,1,652,52,37,51,-10,61
@@ -183,7 +183,7 @@ frame=3,7,1143,0,51,44,9,67
 
 [die]
 frames=6
-duration=120
+duration=4
 type=play_once
 frame=0,0,1514,0,30,41,18,52
 frame=0,1,1278,44,20,44,-7,52
@@ -236,7 +236,7 @@ frame=5,7,324,122,46,4,63,-3
 
 [melee]
 frames=4
-duration=90
+duration=3
 type=play_once
 frame=0,0,1140,45,54,44,-1,61
 frame=0,1,830,0,29,48,-7,54
@@ -273,7 +273,7 @@ frame=3,7,1617,0,28,39,34,22
 
 [hit]
 frames=2
-duration=60
+duration=2
 type=play_once
 frame=0,0,1506,41,30,41,18,52
 frame=0,1,1278,0,20,44,-7,52
@@ -294,7 +294,7 @@ frame=1,7,2642,0,51,21,47,27
 
 [block]
 frames=2
-duration=30
+duration=1
 type=play_once
 frame=0,0,1445,84,22,42,5,52
 frame=0,1,1481,82,31,41,-8,47

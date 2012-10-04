@@ -3,7 +3,7 @@ image=images/enemies/wyvern.png
 
 [stance]
 frames=8
-duration=100
+duration=3
 type=looped
 frame=0,0,3185,377,45,75,12,60
 frame=0,1,3754,73,65,73,22,61
@@ -72,7 +72,7 @@ frame=7,7,3698,367,71,73,28,60
 
 [run]
 frames=8
-duration=75
+duration=2
 type=looped
 frame=0,0,1348,167,78,83,25,61
 frame=0,1,3485,296,88,73,35,56
@@ -141,7 +141,7 @@ frame=7,7,3590,221,82,73,29,61
 
 [ranged]
 frames=8
-duration=100
+duration=3
 type=play_once
 frame=0,0,4654,418,73,69,19,54
 frame=0,1,3819,73,65,73,22,58
@@ -210,7 +210,7 @@ frame=7,7,2521,310,82,77,18,71
 
 [ment]
 frames=8
-duration=100
+duration=3
 type=play_once
 frame=0,0,4678,138,73,69,19,54
 frame=0,1,3807,219,65,73,22,58
@@ -279,7 +279,7 @@ frame=7,7,2608,0,82,77,18,71
 
 [die]
 frames=8
-duration=125
+duration=4
 type=play_once
 frame=0,0,1905,242,74,80,25,58
 frame=0,1,4677,69,86,69,34,51
@@ -348,7 +348,7 @@ frame=7,7,4727,483,75,25,34,16
 
 [melee]
 frames=8
-duration=120
+duration=4
 type=play_once
 frame=0,0,2778,384,89,76,43,62
 frame=0,1,1999,401,83,79,47,69
@@ -417,7 +417,7 @@ frame=7,7,2400,78,75,78,46,57
 
 [critdie]
 frames=8
-duration=125
+duration=4
 type=play_once
 frame=0,0,1914,161,74,80,25,58
 frame=0,1,4741,0,86,69,34,51
@@ -486,7 +486,7 @@ frame=7,7,5548,484,75,25,34,16
 
 [hit]
 frames=8
-duration=67
+duration=2
 type=play_once
 frame=0,0,1010,87,74,87,22,67
 frame=0,1,2781,307,85,76,37,61
@@ -555,7 +555,7 @@ frame=7,7,2859,0,81,76,35,60
 
 [block]
 frames=2
-duration=90
+duration=3
 type=play_once
 frame=0,0,3153,225,45,75,12,60
 frame=0,1,3837,365,65,73,22,61

@@ -3,7 +3,7 @@ image=images/enemies/goblin_elite.png
 
 [stance]
 frames=4
-duration=180
+duration=6
 type=back_forth
 frame=0,0,0,1254,47,41,29,36
 frame=0,1,106,2853,35,43,15,39
@@ -40,7 +40,7 @@ frame=3,7,123,2132,41,37,27,32
 
 [hit]
 frames=2
-duration=60
+duration=2
 type=back_forth
 frame=0,0,0,366,55,42,29,37
 frame=0,1,104,675,51,41,22,37
@@ -61,7 +61,7 @@ frame=1,7,147,2630,36,47,14,37
 
 [ranged]
 frames=4
-duration=90
+duration=3
 type=play_once
 frame=0,0,49,883,49,51,14,49
 frame=0,1,47,1295,46,53,14,48
@@ -98,7 +98,7 @@ frame=3,7,106,521,53,38,39,33
 
 [ment]
 frames=4
-duration=120
+duration=4
 type=play_once
 frame=0,0,226,2498,27,38,18,33
 frame=0,1,181,1507,45,40,29,36
@@ -135,7 +135,7 @@ frame=3,7,0,1523,44,60,21,55
 
 [die]
 frames=6
-duration=60
+duration=2
 type=play_once
 frame=0,0,0,408,55,42,29,37
 frame=0,1,52,712,51,41,22,37
@@ -188,7 +188,7 @@ frame=5,7,0,1295,47,32,24,22
 
 [melee]
 frames=3
-duration=90
+duration=3
 type=play_once
 frame=0,0,133,1569,44,48,18,44
 frame=0,1,129,1841,42,51,18,48
@@ -216,7 +216,7 @@ frame=2,6,181,2691,36,39,16,27
 frame=2,7,159,550,53,32,41,28
 [critdie]
 frames=8
-duration=90
+duration=3
 type=play_once
 frame=0,0,151,3161,29,60,19,52
 frame=0,1,122,3161,29,63,14,56
@@ -285,7 +285,7 @@ frame=7,7,210,1986,41,54,22,41
 
 [run]
 frames=8
-duration=60
+duration=2
 type=looped
 frame=0,0,187,101,60,37,47,34
 frame=0,1,149,852,49,45,34,40
@@ -354,7 +354,7 @@ frame=7,7,129,1801,43,40,32,29
 
 [block]
 frames=2
-duration=90
+duration=3
 type=play_once
 frame=0,0,77,2453,38,40,20,35
 frame=0,1,177,2830,35,45,16,40

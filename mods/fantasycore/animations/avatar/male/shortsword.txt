@@ -3,7 +3,7 @@ image=images/avatar/male/shortsword.png
 
 [stance]
 frames=4
-duration=180
+duration=6
 type=back_forth
 frame=0,0,1781,44,29,20,12,35
 frame=0,1,2050,18,11,18,-13,28
@@ -40,7 +40,7 @@ frame=3,7,1947,39,24,19,27,31
 
 [run]
 frames=8
-duration=60
+duration=2
 type=looped
 frame=0,0,212,45,32,19,23,32
 frame=0,1,1336,26,23,25,9,37
@@ -109,7 +109,7 @@ frame=7,7,1603,0,23,23,24,27
 
 [ranged]
 frames=4
-duration=90
+duration=3
 type=play_once
 frame=0,0,640,40,27,24,6,25
 frame=0,1,1124,30,17,30,7,27
@@ -146,7 +146,7 @@ frame=3,7,1634,46,24,18,1,24
 
 [ment]
 frames=4
-duration=90
+duration=3
 type=play_once
 frame=0,0,845,0,27,36,17,57
 frame=0,1,553,0,20,41,-3,59
@@ -183,7 +183,7 @@ frame=3,7,304,0,26,43,6,67
 
 [die]
 frames=6
-duration=120
+duration=4
 type=play_once
 frame=0,0,1498,48,23,15,7,27
 frame=0,1,2086,15,10,15,-11,22
@@ -234,7 +234,7 @@ frame=5,7,1297,52,16,11,-2,19
 
 [melee]
 frames=4
-duration=90
+duration=3
 type=play_once
 frame=0,0,774,0,36,36,8,57
 frame=0,1,992,0,30,34,-2,52
@@ -271,7 +271,7 @@ frame=3,7,1429,25,14,25,19,13
 
 [hit]
 frames=2
-duration=60
+duration=2
 type=play_once
 frame=0,0,1475,48,23,15,7,27
 frame=0,1,2086,0,10,15,-11,22
@@ -292,7 +292,7 @@ frame=1,7,1232,52,7,12,12,20
 
 [block]
 frames=2
-duration=30
+duration=1
 type=play_once
 frame=0,0,1541,48,13,15,-5,29
 frame=0,1,1836,42,17,21,-7,29

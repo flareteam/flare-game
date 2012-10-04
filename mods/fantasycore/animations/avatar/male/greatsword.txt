@@ -3,7 +3,7 @@ image=images/avatar/male/greatsword.png
 
 [stance]
 frames=4
-duration=180
+duration=6
 type=back_forth
 frame=0,0,0,718,48,26,29,40
 frame=0,1,39,2515,25,37,0,46
@@ -40,7 +40,7 @@ frame=3,7,0,453,50,22,44,32
 
 [run]
 frames=8
-duration=60
+duration=2
 type=looped
 frame=0,0,0,142,53,21,41,34
 frame=0,1,0,3384,35,34,21,46
@@ -109,7 +109,7 @@ frame=7,7,0,2967,37,32,36,29
 
 [ranged]
 frames=4
-duration=90
+duration=3
 type=play_once
 frame=0,0,36,3281,28,33,5,42
 frame=0,1,0,2401,39,42,12,45
@@ -146,7 +146,7 @@ frame=3,7,47,1061,17,31,-3,42
 
 [ment]
 frames=4
-duration=90
+duration=3
 type=play_once
 frame=0,0,0,2126,40,50,29,70
 frame=0,1,36,3037,28,59,4,76
@@ -183,7 +183,7 @@ frame=3,7,0,3015,36,58,6,82
 
 [die]
 frames=6
-duration=120
+duration=4
 type=play_once
 frame=0,0,0,2597,39,16,20,28
 frame=0,1,50,475,14,17,-8,24
@@ -235,7 +235,7 @@ frame=5,7,34,3594,30,19,-1,27
 
 [melee]
 frames=4
-duration=90
+duration=3
 type=play_once
 frame=0,0,0,0,58,45,11,66
 frame=0,1,0,1237,45,40,0,54
@@ -272,7 +272,7 @@ frame=3,7,46,1145,18,33,23,16
 
 [hit]
 frames=2
-duration=60
+duration=2
 type=play_once
 frame=0,0,0,2581,39,16,20,28
 frame=0,1,50,458,14,17,-8,24
@@ -293,7 +293,7 @@ frame=1,7,34,3814,27,22,18,29
 
 [block]
 frames=2
-duration=30
+duration=1
 type=play_once
 frame=0,0,0,581,49,18,28,31
 frame=0,1,44,1511,19,23,-6,30
