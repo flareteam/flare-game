@@ -180,7 +180,7 @@ void EnemyManager::handleSpawn() {
 		e->stats.load("enemies/" + espawn.type + ".txt");
 		if (e->stats.animations != "") {
 			// load the animation file if specified
-			string animationname = "animations/enemies"+e->stats.animations + ".txt";
+			string animationname = "animations/enemies/"+e->stats.animations + ".txt";
 			AnimationManager::instance()->increaseCount(animationname);
 			e->animationSet = AnimationManager::instance()->getAnimationSet(animationname);
 			if (e->animationSet)

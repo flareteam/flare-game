@@ -194,7 +194,8 @@ void MenuVendor::add(ItemStack stack) {
 }
 
 TooltipData MenuVendor::checkTooltip(Point mouse) {
-	return stock[activetab].checkTooltip( mouse, stats, true);
+	int vendor_view = (activetab == VENDOR_BUY) ? VENDOR_BUY : VENDOR_SELL;
+	return stock[activetab].checkTooltip( mouse, stats, vendor_view);
 }
 
 /**

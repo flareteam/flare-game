@@ -19,6 +19,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * GameStateLoad
  */
 
+#include "Avatar.h"
 #include "SDL_gfxBlitFunc.h"
 #include "FileParser.h"
 #include "GameStateLoad.h"
@@ -141,19 +142,17 @@ GameStateLoad::GameStateLoad() : GameState() {
 	bool found_layer = false;
 	if(infile.open(mods->locate("engine/hero_options.txt"))) {
 		while(infile.next()) {
+			infile.val = infile.val + ',';
+
 			if(infile.key == "layer") {
-				infile.val = infile.val + ',';
+				unsigned dir = eatFirstInt(infile.val,',');
+				if (dir != 6) continue;
+				else found_layer = true;
 
-				if(infile.key == "layer") {
-					unsigned dir = eatFirstInt(infile.val,',');
-					if (dir != 6) continue;
-					else found_layer = true;
-
-					string layer = eatFirstString(infile.val,',');
-					while (layer != "") {
-						preview_layer.push_back(layer);
-						layer = eatFirstString(infile.val,',');
-					}
+				string layer = eatFirstString(infile.val,',');
+				while (layer != "") {
+					preview_layer.push_back(layer);
+					layer = eatFirstString(infile.val,',');
 				}
 			}
 		}
@@ -172,7 +171,6 @@ GameStateLoad::GameStateLoad() : GameState() {
 	load_game = false;
 
 	for (int i=0; i<GAME_SLOT_MAX; i++) {
-		sprites[i] = NULL;
 		current_map[i] = "";
 	}
 
@@ -316,10 +314,23 @@ void GameStateLoad::readGameSlot(int slot) {
 void GameStateLoad::loadPreview(int slot) {
 
 	vector<string> img_gfx;
-	vector<SDL_Surface*> gfx_surf;
-	SDL_Rect dest;
-	short body = -1;
-	vector<bool> alpha;
+
+	for (unsigned int i=0; i<sprites[slot].size(); i++) {
+		if (sprites[slot][i]) SDL_FreeSurface(sprites[slot][i]);
+	}
+	sprites[slot].clear();
+
+	// fall back to default if it exists
+	for (unsigned int i=0; i<preview_layer.size(); i++) {
+		bool exists = fileExists(mods->locate("animations/avatar/" + stats[slot].base + "/default_" + preview_layer[i] + ".txt"));
+		if (exists) {
+			img_gfx.push_back("default_" + preview_layer[i]);
+		} else if (preview_layer[i] == "head") {
+			img_gfx.push_back(stats[slot].head);
+		} else {
+			img_gfx.push_back("");
+		}
+	}
 
 	for (unsigned int i=0; i<equipped[slot].size(); i++) {
 		if ((unsigned)equipped[slot][i] > items->items.size()-1){
@@ -327,88 +338,37 @@ void GameStateLoad::loadPreview(int slot) {
 			SDL_Quit();
 			exit(1);
 		}
-		if ((equipped[slot][i] != 0) && (items->items[equipped[slot][i]].type == "body")) {
-			img_gfx.push_back(items->items[equipped[slot][i]].gfx);
-			body = img_gfx.size()-1;
+		vector<string>::iterator found = find(preview_layer.begin(), preview_layer.end(), items->items[equipped[slot][i]].type);
+		if (equipped[slot][i] > 0 && found != preview_layer.end()) {
+			img_gfx[distance(preview_layer.begin(), found)] = items->items[equipped[slot][i]].gfx;
 		}
-		else if ((equipped[slot][i] != 0) &&
-				find(preview_layer.begin(), preview_layer.end(), items->items[equipped[slot][i]].type) != preview_layer.end())
-			img_gfx.push_back(items->items[equipped[slot][i]].gfx);
-	}
-	if (body == -1) {
-		img_gfx.push_back("clothes");
-		body = img_gfx.size()-1;
-	}
-	// load the body as the base image
-	// we'll blit the other layers onto it
-	if (TEXTURE_QUALITY == false)
-		sprites[slot] = IMG_Load(mods->locate("images/avatar/" + stats[slot].base + "/preview/noalpha/" + img_gfx[body] + ".png").c_str());
-	if (!sprites[slot]) {
-		sprites[slot] = IMG_Load(mods->locate("images/avatar/" + stats[slot].base + "/preview/" + img_gfx[body] + ".png").c_str());
-	} else {
-		SDL_SetColorKey(sprites[slot], SDL_SRCCOLORKEY, SDL_MapRGB(sprites[slot]->format, 255, 0, 255));
-	}
-	if (!sprites[slot]) {
-		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
-		SDL_Quit();
-		exit(1);
 	}
 
 	// composite the hero graphic
 	for (unsigned int i=0; i<img_gfx.size(); i++) {
 		if (img_gfx[i] == "") continue;
-		gfx_surf.push_back(NULL);
-		alpha.push_back(true);
+		sprites[slot].push_back(NULL);
+
 		if (TEXTURE_QUALITY == false) {
-			gfx_surf.back() = IMG_Load(mods->locate("images/avatar/" + stats[slot].base + "/preview/noalpha/" + img_gfx[i] + ".png").c_str());
-			alpha.back() = false;
+			sprites[slot].back() = IMG_Load(mods->locate("images/avatar/" + stats[slot].base + "/preview/noalpha/" + img_gfx[i] + ".png").c_str());
 		}
-		if (!gfx_surf.back()) {
-			gfx_surf.back() = IMG_Load(mods->locate("images/avatar/" + stats[slot].base + "/preview/" + img_gfx[i] + ".png").c_str());
+		if (!sprites[slot].back()) {
+			sprites[slot].back() = IMG_Load(mods->locate("images/avatar/" + stats[slot].base + "/preview/" + img_gfx[i] + ".png").c_str());
+		} else {
+			SDL_SetColorKey(sprites[slot].back(), SDL_SRCCOLORKEY, SDL_MapRGB(sprites[slot].back()->format, 255, 0, 255));
 		}
-		if (!gfx_surf.back()) {
+		if (!sprites[slot].back()) {
 			fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 			SDL_Quit();
 			exit(1);
 		}
-	}
-	gfx_surf.push_back(NULL);
-	alpha.push_back(true);
-	if (TEXTURE_QUALITY == false) {
-		gfx_surf.back() = IMG_Load(mods->locate("images/avatar/" + stats[slot].base + "/preview/noalpha/" + stats[slot].head + ".png").c_str());
-		alpha.back() = false;
-	}
-	if (!gfx_surf.back()) {
-		gfx_surf.back() = IMG_Load(mods->locate("images/avatar/" + stats[slot].base + "/preview/" + stats[slot].head + ".png").c_str());
-	}
-	if (!gfx_surf.back()) {
-		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
-		SDL_Quit();
-		exit(1);
-	}
-	for (unsigned int i=0; i<gfx_surf.size(); i++) {
-		if (gfx_surf[i] && !alpha[i]) SDL_SetColorKey(gfx_surf[i], SDL_SRCCOLORKEY, SDL_MapRGB(gfx_surf[i]->format, 255, 0, 255));
-	}
 
-	dest.x = preview_pos.x;
-	dest.y = preview_pos.y;
-	dest.w = preview_pos.w;
-	dest.h = preview_pos.h;
-
-	for (unsigned int i=0; i<gfx_surf.size(); i++) {
-		if (gfx_surf[i] && !alpha[i]) SDL_BlitSurface(gfx_surf[i], NULL, sprites[slot], &dest);
-		else if (gfx_surf[i]) SDL_gfxBlitRGBA(gfx_surf[i], NULL, sprites[slot], &dest);
-	}
-
-	for (unsigned int i=0; i<gfx_surf.size(); i++) {
-		if (gfx_surf[i]) SDL_FreeSurface(gfx_surf[i]);
-	}
-
-	// optimize
-	if (sprites[slot]) {
-		SDL_Surface *cleanup = sprites[slot];
-		sprites[slot] = SDL_DisplayFormatAlpha(sprites[slot]);
-		SDL_FreeSurface(cleanup);
+		// optimize
+		if (sprites[slot].back()) {
+			SDL_Surface *cleanup = sprites[slot].back();
+			sprites[slot].back() = SDL_DisplayFormatAlpha(sprites[slot].back());
+			SDL_FreeSurface(cleanup);
+		}
 	}
 
 }
@@ -627,7 +587,9 @@ void GameStateLoad::render() {
 			src.y = 0;
 			src.w = src.h = preview_pos.h;
 
-			SDL_BlitSurface(sprites[slot], &src, screen, &dest);
+			for (unsigned int i=0; i<sprites[slot].size(); i++) {
+				SDL_BlitSurface(sprites[slot][i], &src, screen, &dest);
+			}
 		}
 		else {
 			label.x = slot_pos[slot].x + name_pos.x;
@@ -654,8 +616,11 @@ GameStateLoad::~GameStateLoad() {
 	delete button_action;
 	delete button_alternate;
 	delete items;
-	for (int i=0; i<GAME_SLOT_MAX; i++) {
-		SDL_FreeSurface(sprites[i]);
+	for (int slot=0; slot<GAME_SLOT_MAX; slot++) {
+		for (unsigned int i=0; i<sprites[slot].size(); i++) {
+			SDL_FreeSurface(sprites[slot][i]);
+		}
+		sprites[slot].clear();
 	}
 	for (int i=0; i<GAME_SLOT_MAX; i++) {
 		delete label_name[i];
