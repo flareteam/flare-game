@@ -68,7 +68,7 @@ private:
 	SDL_Surface *selection;
 	SDL_Surface *portrait_border;
 	SDL_Surface *portrait;
-	SDL_Surface *sprites[GAME_SLOT_MAX];
+	std::vector<SDL_Surface *> sprites[GAME_SLOT_MAX];
 	StatBlock stats[GAME_SLOT_MAX];
 	std::vector<int> equipped[GAME_SLOT_MAX];
 	std::vector<std::string> preview_layer;
