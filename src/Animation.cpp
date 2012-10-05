@@ -47,7 +47,8 @@ Animation::Animation(const std::string &_name, const std::string &_type, SDL_Sur
 	, times_played(0)
 	, gfx(std::vector<SDL_Rect>())
 	, render_offset(std::vector<Point>())
-	, duration(std::vector<short>())
+	, duration(std::vector<unsigned short>())
+	, active_frames(std::vector<short>())
 {
 	if (type == NONE)
 		cout << "Warning: animation type " << _type << " is unknown" << endl;
@@ -66,9 +67,9 @@ Animation::Animation(const Animation& a)
 	, times_played(0)
 	, gfx(std::vector<SDL_Rect>(a.gfx))
 	, render_offset(std::vector<Point>(a.render_offset))
-	, duration(std::vector<short>(a.duration))
-{
-}
+	, duration(std::vector<unsigned short>(a.duration))
+	, active_frames(std::vector<short>(a.active_frames))
+{}
 
 void Animation::setupUncompressed(Point _render_size, Point _render_offset, int _position, int _frames, int _duration, unsigned short _maxkinds) {
 	setup(_frames, _duration, _maxkinds);
@@ -102,6 +103,8 @@ void Animation::setup(unsigned short _frames, unsigned short _duration, unsigned
 	cur_frame_duration = 0;
 	max_kinds = _maxkinds;
 	times_played = 0;
+
+	active_frames.push_back(number_frames/2);
 
 	gfx.resize(max_kinds*_frames);
 	render_offset.resize(max_kinds*_frames);
@@ -213,4 +216,12 @@ void Animation::syncTo(const Animation *other) {
 	cur_frame_index = other->cur_frame_index;
 	times_played = other->times_played;
 	additional_data = other->additional_data;
+}
+
+void Animation::setActiveFrames(const std::vector<short> _active_frames) {
+	if (_active_frames.size() == 1 && _active_frames[0] == -1)
+		for (short i=0; i < number_frames; ++i)
+			active_frames.push_back(i);
+	else
+		active_frames = _active_frames;
 }
