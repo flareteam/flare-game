@@ -26,6 +26,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "Settings.h"
 #include "UtilsParsing.h"
 
+#include <algorithm>
 #include <string>
 
 using namespace std;
@@ -52,8 +53,9 @@ void AnimationSet::load() {
 		return; // assume it is already loaded.
 
 	FileParser parser;
+	const string filename = mods->locate(name);
 
-	if (!parser.open(mods->locate(name).c_str())) {
+	if (!parser.open(filename.c_str())) {
 		cout << "Error loading animation definition file: " << name << endl;
 		SDL_Quit();
 		exit(1);
@@ -68,7 +70,8 @@ void AnimationSet::load() {
 	string type = "";
 	bool first_section=true;
 	bool compressed_loading=false; // is reset every section to false, set by frame keyword
-	Animation *newanim;
+	Animation *newanim = NULL;
+	vector<short> active_frames;
 
 	// Parse the file and on each new section create an animation object from the data parsed previously
 	parser.next();
@@ -79,6 +82,9 @@ void AnimationSet::load() {
 			if (!first_section && !compressed_loading) {
 				Animation *a = new Animation(_name, type, sprite);
 				a->setupUncompressed(render_size, render_offset, position, frames, duration);
+				if (!active_frames.empty())
+					a->setActiveFrames(active_frames);
+				active_frames.clear();
 				animations.push_back(a);
 			}
 			first_section = false;
@@ -116,12 +122,28 @@ void AnimationSet::load() {
 			render_offset.x = toInt(parser.nextValue());
 			render_offset.y = toInt(parser.nextValue());
 		}
-		else if (parser.key == "active_frame")
-			cout << "active frames in entities not supported" << endl;
+		else if (parser.key == "active_frame") {
+			active_frames.clear();
+			string nv = parser.nextValue();
+			if (nv == "all") {
+				active_frames.push_back(-1);
+			}
+			else {
+				while (nv != "") {
+					active_frames.push_back(toInt(nv));
+					nv = parser.nextValue();
+				}
+				sort(active_frames.begin(), active_frames.end());
+				active_frames.erase(unique(active_frames.begin(), active_frames.end()), active_frames.end());
+			}
+		}
 		else if (parser.key == "frame") {
 			if (compressed_loading == false) { // first frame statement in section
 				newanim = new Animation(_name, type, sprite);
 				newanim->setup(frames, duration);
+				if (!active_frames.empty())
+					newanim->setActiveFrames(active_frames);
+				active_frames.clear();
 				animations.push_back(newanim);
 				compressed_loading = true;
 			}
@@ -138,6 +160,9 @@ void AnimationSet::load() {
 			offset.y = toInt(parser.nextValue());
 			newanim->addFrame(index, direction, r, offset);
 		}
+		else {
+			fprintf(stderr, "animations definitions (%s): Key %s not supported!\n", filename.c_str(), parser.key.c_str());
+		}
 
 		if (_name == "") {
 			// This is the first animation
@@ -151,6 +176,9 @@ void AnimationSet::load() {
 		// add final animation
 		Animation *a = new Animation(_name, type, sprite);
 		a->setupUncompressed(render_size, render_offset, position, frames, duration);
+		if (!active_frames.empty())
+			a->setActiveFrames(active_frames);
+		active_frames.clear();
 		animations.push_back(a);
 	}
 }
