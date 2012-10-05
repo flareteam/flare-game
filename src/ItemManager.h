@@ -173,7 +173,6 @@ class ItemStack {
 public:
 	int item;
 	int quantity;
-	int highlight;
 	bool operator > (const ItemStack &param) const;
 };
 
@@ -181,7 +180,6 @@ class ItemManager {
 private:
 	SDL_Surface *icons_small;
 	SDL_Surface *icons_large; // item db is the only module that currently uses the 64px icons
-	SDL_Surface *icons_highlight_small;
 	SDL_Rect src;
 	SDL_Rect dest;
 	Mix_Chunk *sfx[12];

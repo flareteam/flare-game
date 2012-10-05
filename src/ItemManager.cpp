@@ -367,10 +367,8 @@ void ItemManager::loadIcons() {
 
 	icons_small = IMG_Load(mods->locate("images/icons/icons_small.png").c_str());
 	icons_large = IMG_Load(mods->locate("images/icons/icons_large.png").c_str());
-	icons_highlight_small = IMG_Load(mods->locate("images/menus/attention_glow.png").c_str());
-	// TODO Add graphics for large icon highlights
 
-	if(!icons_small || !icons_large || !icons_highlight_small) {
+	if(!icons_small || !icons_large) {
 		fprintf(stderr, "Couldn't load icons: %s\n", IMG_GetError());
 		SDL_Quit();
 		exit(1);
@@ -383,10 +381,6 @@ void ItemManager::loadIcons() {
 
 	cleanup = icons_large;
 	icons_large = SDL_DisplayFormatAlpha(icons_large);
-	SDL_FreeSurface(cleanup);
-
-	cleanup = icons_highlight_small;
-	icons_highlight_small = SDL_DisplayFormatAlpha(icons_highlight_small);
 	SDL_FreeSurface(cleanup);
 }
 
@@ -433,7 +427,6 @@ void ItemManager::renderIcon(ItemStack stack, int x, int y, int size) {
 			src.y = (items[stack.item].icon_small / columns) * size;
 			SDL_BlitSurface(icons_small, &src, screen, &dest);
 		}
-		if (stack.highlight) SDL_BlitSurface(icons_highlight_small, NULL, screen, &dest);
 	}
 	else if (size == ICON_SIZE_LARGE) {
 		if (stack.item > 0) {
@@ -665,7 +658,6 @@ TooltipData ItemManager::getTooltip(int item, StatBlock *stats, int context) {
 ItemManager::~ItemManager() {
 	SDL_FreeSurface(icons_small);
 	SDL_FreeSurface(icons_large);
-	SDL_FreeSurface(icons_highlight_small);
 
 	if (audio) {
 		for (int i=0; i<12; i++) {
