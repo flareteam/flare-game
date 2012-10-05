@@ -348,7 +348,7 @@ void GameStatePlay::checkEquipmentChange() {
 				}
 			}
 			// special case: if we don't have a head, use the portrait's head
-			if (pc->layer_reference_order[j] == "head") {
+			if (gfx.gfx == "" && pc->layer_reference_order[j] == "head") {
 				gfx.gfx = pc->stats.head;
 				gfx.type = "head";
 			}
