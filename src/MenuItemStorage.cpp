@@ -22,6 +22,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "InputState.h"
 #include "MenuItemStorage.h"
+#include "Settings.h"
 
 using namespace std;
 
@@ -84,10 +85,12 @@ void MenuItemStorage::render() {
 }
 
 void MenuItemStorage::renderHighlight(int x, int y) {
-	SDL_Rect dest;
-	dest.x = x;
-	dest.y = y;
-	SDL_BlitSurface(highlight_image,NULL,screen,&dest);
+	if (icon_size == ICON_SIZE_SMALL) {
+		SDL_Rect dest;
+		dest.x = x;
+		dest.y = y;
+		SDL_BlitSurface(highlight_image,NULL,screen,&dest);
+	}
 }
 
 int MenuItemStorage::slotOver(Point mouse) {
