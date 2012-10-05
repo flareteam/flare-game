@@ -189,5 +189,6 @@ void MenuItemStorage::highlightClear() {
 
 MenuItemStorage::~MenuItemStorage() {
 	delete[] highlight;
+	delete[] icon_size;
 	SDL_FreeSurface(highlight_image);
 }
