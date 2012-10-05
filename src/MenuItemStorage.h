@@ -33,9 +33,9 @@ class TooltipData;
 class MenuItemStorage : public ItemStorage {
 protected:
 	void loadGraphics();
-	void renderHighlight(int x, int y);
+	void renderHighlight(int x, int y, int _icon_size);
 	std::vector<SDL_Rect> area;
-	int icon_size;
+	int * icon_size;
 	int nb_cols;
 
 public:
