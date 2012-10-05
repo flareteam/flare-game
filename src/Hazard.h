@@ -50,6 +50,7 @@ private:
 
 public:
 	Hazard();
+	~Hazard();
 
 	StatBlock *src_stats;
 

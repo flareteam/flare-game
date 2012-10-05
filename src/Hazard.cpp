@@ -73,6 +73,10 @@ Hazard::Hazard() {
 	base_speed = 0;
 }
 
+Hazard::~Hazard() {
+	delete activeAnimation;
+}
+
 void Hazard::setCollision(MapCollision *_collider) {
 	collider = _collider;
 }
