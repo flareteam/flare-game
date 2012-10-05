@@ -830,7 +830,7 @@ void Avatar::transform() {
 	stats.animations = charmed_stats->animations;
 	stats.animationSpeed = charmed_stats->animationSpeed;
 
-	string animationname = "animations/"+charmed_stats->animations + ".txt";
+	string animationname = "animations/enemies/"+charmed_stats->animations + ".txt";
 	AnimationManager::instance()->decreaseCount("animations/hero.txt");
 	AnimationManager::instance()->increaseCount(animationname);
 	animationSet = AnimationManager::instance()->getAnimationSet(animationname);
@@ -900,7 +900,7 @@ void Avatar::untransform() {
 	stats.animationSpeed = hero_stats->animationSpeed;
 
 	AnimationManager::instance()->increaseCount("animations/hero.txt");
-	AnimationManager::instance()->decreaseCount("animations/"+charmed_stats->animations + ".txt");
+	AnimationManager::instance()->decreaseCount("animations/enemies/"+charmed_stats->animations + ".txt");
 	animationSet = AnimationManager::instance()->getAnimationSet("animations/hero.txt");
 	delete activeAnimation;
 	activeAnimation = animationSet->getAnimation(animationSet->starting_animation);
