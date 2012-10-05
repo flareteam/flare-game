@@ -22,6 +22,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "InputState.h"
 #include "MenuItemStorage.h"
+#include "Settings.h"
 
 using namespace std;
 
@@ -31,6 +32,11 @@ void MenuItemStorage::init(int _slot_number, ItemManager *_items, SDL_Rect _area
 	icon_size = _icon_size;
 	nb_cols = _nb_cols;
 	drag_prev_slot = -1;
+	highlight = new bool[_slot_number];
+	for (int i=0; i<_slot_number; i++) {
+		highlight[i] = false;
+	}
+	loadGraphics();
 }
 
 /**
@@ -43,15 +49,47 @@ void MenuItemStorage::init(int _slot_number, ItemManager *_items, vector<SDL_Rec
 	nb_cols = 0;
 	slot_type = _slot_type;
 	drag_prev_slot = -1;
+	highlight = new bool[_slot_number];
+	for (int i=0; i<_slot_number; i++) {
+		highlight[i] = false;
+	}
+	loadGraphics();
+}
+
+void MenuItemStorage::loadGraphics() {
+
+	highlight_image = IMG_Load(mods->locate("images/menus/attention_glow.png").c_str());
+
+	if(!highlight_image) {
+		fprintf(stderr, "Couldn't load icon highlight image: %s\n", IMG_GetError());
+		SDL_Quit();
+		exit(1);
+	}
+
+	// optimize
+	SDL_Surface *cleanup = highlight_image;
+	highlight_image = SDL_DisplayFormatAlpha(highlight_image);
+	SDL_FreeSurface(cleanup);
 }
 
 void MenuItemStorage::render() {
 	for (int i=0; i<slot_number; i++) {
-		if ((storage[i].item > 0 || storage[i].highlight) && nb_cols > 0) {
+		if (storage[i].item > 0 && nb_cols > 0) {
 			items->renderIcon(storage[i], area[0].x + (i % nb_cols * icon_size), area[0].y + (i / nb_cols * icon_size), icon_size);
-		} else if ((storage[i].item > 0 || storage[i].highlight) && nb_cols == 0) {
+			if (highlight[i]) renderHighlight(area[0].x + (i % nb_cols * icon_size), area[0].y + (i / nb_cols * icon_size));
+		} else if ((storage[i].item > 0) && nb_cols == 0) {
 			items->renderIcon(storage[i], area[i].x, area[i].y, area[i].w);
+			if (highlight[i]) renderHighlight(area[i].x, area[i].y);
 		}
+	}
+}
+
+void MenuItemStorage::renderHighlight(int x, int y) {
+	if (icon_size == ICON_SIZE_SMALL) {
+		SDL_Rect dest;
+		dest.x = x;
+		dest.y = y;
+		SDL_BlitSurface(highlight_image,NULL,screen,&dest);
 	}
 }
 
@@ -91,7 +129,6 @@ ItemStack MenuItemStorage::click(InputState * input) {
 	else {
 		item.item = 0;
 		item.quantity = 0;
-		item.highlight = false;
 		return item;
 	}
 }
@@ -137,13 +174,17 @@ void MenuItemStorage::fillEquipmentSlots() {
 
 void MenuItemStorage::highlightMatching(string type) {
 	for (int i=0; i<slot_number; i++) {
-		if (slot_type[i] == type) storage[i].highlight = true;
+		if (slot_type[i] == type) highlight[i] = true;
 	}
 }
 
 void MenuItemStorage::highlightClear() {
 	for (int i=0; i<slot_number; i++) {
-		storage[i].highlight = false;
+		highlight[i] = false;
 	}
 }
 
+MenuItemStorage::~MenuItemStorage() {
+	delete[] highlight;
+	SDL_FreeSurface(highlight_image);
+}
