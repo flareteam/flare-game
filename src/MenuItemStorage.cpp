@@ -29,12 +29,13 @@ using namespace std;
 void MenuItemStorage::init(int _slot_number, ItemManager *_items, SDL_Rect _area, int _icon_size, int _nb_cols) {
 	ItemStorage::init( _slot_number, _items);
 	area.push_back(_area);
-	icon_size = _icon_size;
 	nb_cols = _nb_cols;
 	drag_prev_slot = -1;
 	highlight = new bool[_slot_number];
+	icon_size = new int[_slot_number];
 	for (int i=0; i<_slot_number; i++) {
 		highlight[i] = false;
+		icon_size[i] = _icon_size;
 	}
 	loadGraphics();
 }
@@ -50,8 +51,10 @@ void MenuItemStorage::init(int _slot_number, ItemManager *_items, vector<SDL_Rec
 	slot_type = _slot_type;
 	drag_prev_slot = -1;
 	highlight = new bool[_slot_number];
+	icon_size = new int[_slot_number];
 	for (int i=0; i<_slot_number; i++) {
 		highlight[i] = false;
+		icon_size[i] = area[i].w;
 	}
 	loadGraphics();
 }
@@ -75,17 +78,17 @@ void MenuItemStorage::loadGraphics() {
 void MenuItemStorage::render() {
 	for (int i=0; i<slot_number; i++) {
 		if (storage[i].item > 0 && nb_cols > 0) {
-			items->renderIcon(storage[i], area[0].x + (i % nb_cols * icon_size), area[0].y + (i / nb_cols * icon_size), icon_size);
-			if (highlight[i]) renderHighlight(area[0].x + (i % nb_cols * icon_size), area[0].y + (i / nb_cols * icon_size));
+			items->renderIcon(storage[i], area[0].x + (i % nb_cols * icon_size[i]), area[0].y + (i / nb_cols * icon_size[i]), icon_size[i]);
+			if (highlight[i]) renderHighlight(area[0].x + (i % nb_cols * icon_size[i]), area[0].y + (i / nb_cols * icon_size[i]), icon_size[i]);
 		} else if ((storage[i].item > 0) && nb_cols == 0) {
 			items->renderIcon(storage[i], area[i].x, area[i].y, area[i].w);
-			if (highlight[i]) renderHighlight(area[i].x, area[i].y);
+			if (highlight[i]) renderHighlight(area[i].x, area[i].y, icon_size[i]);
 		}
 	}
 }
 
-void MenuItemStorage::renderHighlight(int x, int y) {
-	if (icon_size == ICON_SIZE_SMALL) {
+void MenuItemStorage::renderHighlight(int x, int y, int _icon_size) {
+	if (_icon_size == ICON_SIZE_SMALL) {
 		SDL_Rect dest;
 		dest.x = x;
 		dest.y = y;
@@ -95,7 +98,7 @@ void MenuItemStorage::renderHighlight(int x, int y) {
 
 int MenuItemStorage::slotOver(Point mouse) {
 	if (isWithin(area[0], mouse) && nb_cols > 0) {
-		return (mouse.x - area[0].x) / icon_size + (mouse.y - area[0].y) / icon_size * nb_cols;
+		return (mouse.x - area[0].x) / icon_size[0] + (mouse.y - area[0].y) / icon_size[0] * nb_cols;
 	}
 	else if (nb_cols == 0) {
 		for (unsigned int i=0; i<area.size(); i++) {
