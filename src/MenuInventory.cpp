@@ -238,7 +238,7 @@ ItemStack MenuInventory::click(InputState * input) {
 		// if dragging equipment, prepare to change stats/sprites
 		if (drag_prev_src == EQUIPMENT) {
 			updateEquipment( inventory[EQUIPMENT].drag_prev_slot);
-		} else if (drag_prev_src == CARRIED && !inpt->pressing[CTRL]) {
+		} else if (drag_prev_src == CARRIED && !inpt->pressing[CTRL] && !inpt->pressing[MAIN2]) {
 			inventory[EQUIPMENT].highlightMatching(items->items[item.item].type);
 		}
 	}
@@ -444,6 +444,8 @@ void MenuInventory::activate(InputState * input) {
 			}
 		} else fprintf(stderr, "Can't find equip slot, corresponding to type %s\n", items->items[inventory[CARRIED][slot].item].type.c_str());
 	}
+
+	drag_prev_src = -1;
 }
 
 /**
