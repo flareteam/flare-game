@@ -22,6 +22,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * These are generated whenever something makes any attack
  */
 
+#include "Animation.h"
+#include "AnimationSet.h"
+#include "AnimationManager.h"
 #include "FileParser.h"
 #include "Hazard.h"
 #include "MapCollision.h"
@@ -34,11 +37,11 @@ using namespace std;
 
 Hazard::Hazard() {
 	src_stats = NULL;
-	sprites = NULL;
+	activeAnimation = NULL;
+	animationKind = 0;
+
 	speed.x = 0.0;
 	speed.y = 0.0;
-	direction = 0;
-	visual_option = 0;
 	multitarget = false;
 	dmg_min = 0;
 	dmg_max = 0;
@@ -46,10 +49,6 @@ Hazard::Hazard() {
 	power_index = 0;
 	rendered = false;
 	lifespan=1;
-	frame=0;
-	frame_duration=1;
-	frame_loop=1;
-	active_frame=-1;
 
 	delay_frames = 0;
 	complete_animation = false;
@@ -72,23 +71,6 @@ Hazard::Hazard() {
 	hit_wall = false;
 	equipment_modified = false;
 	base_speed = 0;
-
-	FileParser infile;
-	// load hazard animation settings from engine config file
-	if (infile.open(mods->locate("engine/effects.txt").c_str())) {
-		while (infile.next()) {
-			infile.val = infile.val + ',';
-
-			if (infile.key == "frame_size") {
-				frame_size.x = eatFirstInt(infile.val, ',');
-				frame_size.y = eatFirstInt(infile.val, ',');
-			} else if (infile.key == "frame_offset") {
-				frame_offset.x = eatFirstInt(infile.val, ',');
-				frame_offset.y = eatFirstInt(infile.val, ',');
-			}
-		}
-		infile.close();
-	} else fprintf(stderr, "Unable to open engine/effects.txt!\n");
 }
 
 void Hazard::setCollision(MapCollision *_collider) {
@@ -105,8 +87,9 @@ void Hazard::logic() {
 
 	// handle tickers
 	if (lifespan > 0) lifespan--;
-	frame++;
-	if (frame == frame_loop) frame=0;
+
+	if (activeAnimation)
+		activeAnimation->advanceFrame();
 
 	// handle movement
 	if (!(round(speed.x) == 0 && round(speed.y) == 0)) {
@@ -136,4 +119,12 @@ bool Hazard::hasEntity(Entity *ent)
 void Hazard::addEntity(Entity *ent)
 {
 	entitiesCollided.push_back(ent);
+}
+
+Renderable Hazard::getRenderable()
+{
+	Renderable re = activeAnimation->getCurrentFrame(animationKind);
+	re.map_pos.x = round(pos.x);
+	re.map_pos.y = round(pos.y);
+	return re;
 }

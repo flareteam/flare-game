@@ -38,6 +38,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <cassert>
 #include <vector>
 
+class Animation;
+class AnimationSet;
 class Hazard;
 class MapCollision;
 class StatBlock;
@@ -97,7 +99,7 @@ public:
 	int cooldown; // milliseconds before you can use the power again
 
 	// animation info
-	int gfx_index;
+	AnimationSet *animationSet;
 	int sfx_index;
 	bool rendered;
 	bool directional; // sprite sheet contains options for 8 directions, one per row
@@ -193,7 +195,7 @@ public:
 		, requires_targeting(false)
 		, cooldown(0)
 
-		, gfx_index(-1)
+		, animationSet(NULL)
 		, sfx_index(-1)
 		, rendered(false)
 		, directional(false)
@@ -274,7 +276,7 @@ private:
 		Point frame_offset;
 		int frame_total;
 		int ticks_per_frame;
-		
+
 		Effect() {
 			type = "";
 			icon = -1;
@@ -296,7 +298,6 @@ private:
 	void loadPowers(const std::string& filename);
 	void loadEffects(const std::string& filename);
 
-	int loadGFX(const std::string& filename);
 	int loadSFX(const std::string& filename);
 	std::vector<std::string> gfx_filenames;
 	std::vector<std::string> sfx_filenames;
@@ -338,8 +339,7 @@ public:
 	std::queue<Hazard *> hazards; // output; read by HazardManager
 	std::queue<Map_Enemy> enemies; // output; read by PowerManager
 
-	// shared images/sounds for power special effects
-	std::vector<SDL_Surface*> gfx;
+	// shared sounds for power special effects
 	std::vector<Mix_Chunk*> sfx;
 
 	int used_item;
