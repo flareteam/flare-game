@@ -33,6 +33,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include <SDL_image.h>
 
+#include <algorithm>
 #include <string>
 #include <vector>
 #include <iostream>
@@ -69,7 +70,11 @@ protected:
 	// These are indexed as 8*cur_frame_index + direction.
 	std::vector<SDL_Rect> gfx; // position on the spritesheet to be used.
 	std::vector<Point> render_offset; // "virtual point on the floor"
-	std::vector<short> duration; //duration of each individual image
+	std::vector<unsigned short> duration; // duration of each individual image
+
+	std::vector<short> active_frames;	// which of the visible diffferent frames are active?
+												// This should contain indexes of the gfx vector.
+												// Assume it is sorted, one index occurs at max once.
 
 public:
 	Animation(const std::string &_name, const std::string &_type, SDL_Surface *_sprite);
@@ -105,7 +110,7 @@ public:
 
 	bool isFirstFrame() { return cur_frame == 0; }
 	bool isLastFrame() { return cur_frame == number_frames - 1; }
-	bool isActiveFrame() { return cur_frame == number_frames /2; }
+	bool isActiveFrame() { return (std::find(active_frames.begin(), active_frames.end(), cur_frame)!=active_frames.end()); }
 
 	// in a looped animation returns how many times it's been played
 	// in a play once animation returns 1 when the animation is finished
@@ -115,6 +120,10 @@ public:
 	void reset();
 
 	std::string getName() { return name; }
+
+	// a vector of indexes of gfx passed into.
+	// if { -1 } is passed, all frames are set to active.
+	void setActiveFrames(const std::vector<short> _active_frames);
 };
 
 #endif
