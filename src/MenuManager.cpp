@@ -628,6 +628,12 @@ void MenuManager::logic() {
 			dragging = false;
 		}
 
+	} else {
+		if (drag_src == DRAG_SRC_VENDOR) vendor->itemReturn(drag_stack);
+		else if (drag_src == DRAG_SRC_STASH) stash->itemReturn(drag_stack);
+		else if (drag_src == DRAG_SRC_INVENTORY) inv->itemReturn(drag_stack);
+		else if (drag_src == DRAG_SRC_ACTIONBAR) act->actionReturn(drag_power);
+		drag_src = -1;
 	}
 
 	// handle equipment changes affecting hero stats
