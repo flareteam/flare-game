@@ -51,6 +51,8 @@ MenuActionBar::MenuActionBar(PowerManager *_powers, StatBlock *_hero, SDL_Surfac
 	src.h = ICON_SIZE_SMALL;
 	drag_prev_slot = -1;
 	default_M1 = 0;
+	last_mouse.x = 0;
+	last_mouse.y = 0;
 
 	clear();
 
@@ -442,6 +444,13 @@ void MenuActionBar::drop(Point mouse, int power_index, bool rearranging) {
 }
 
 /**
+ * Return the power to the last clicked on slot
+ */
+void MenuActionBar::actionReturn(int power_index) {
+	drop(last_mouse, power_index, 0);
+}
+
+/**
  * CTRL-click a hotkey to clear it
  */
 void MenuActionBar::remove(Point mouse) {
@@ -500,6 +509,7 @@ int MenuActionBar::checkDrag(Point mouse) {
 			drag_prev_slot = i;
 			power_index = hotkeys[i];
 			hotkeys[i] = 0;
+			last_mouse = mouse;
 			return power_index;
 		}
 	}

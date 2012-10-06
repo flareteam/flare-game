@@ -58,6 +58,7 @@ private:
 
 	WidgetLabel *labels[16];
 	int default_M1;
+	Point last_mouse;
 
 public:
 
@@ -72,6 +73,7 @@ public:
 	int checkDrag(Point mouse);
 	void checkMenu(Point mouse, bool &menu_c, bool &menu_i, bool &menu_p, bool &menu_l);
 	void drop(Point mouse, int power_index, bool rearranging);
+	void actionReturn(int power_index);
 	void remove(Point mouse);
 	void set(int power_id[12]);
 	void clear();
