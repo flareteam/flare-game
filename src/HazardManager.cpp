@@ -174,7 +174,7 @@ void HazardManager::handleNewMap(MapCollision *_collider) {
  */
 void HazardManager::addRenders(vector<Renderable> &r, vector<Renderable> &r_dead) {
 	for (unsigned int i=0; i<h.size(); i++) {
-		if (h[i]->activeAnimation) {
+		if (h[i]->delay_frames == 0 && h[i]->activeAnimation) {
 			Renderable re = h[i]->getRenderable();
 			(h[i]->floor ? r_dead : r).push_back(re);
 		}
