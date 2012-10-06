@@ -679,7 +679,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
  * Called by HazardManager
  * Return false on a miss
  */
-bool Avatar::takeHit(Hazard h) {
+bool Avatar::takeHit(const Hazard &h) {
 
 	if (stats.cur_state != AVATAR_DEAD) {
 		CombatText *combat_text = CombatText::Instance();

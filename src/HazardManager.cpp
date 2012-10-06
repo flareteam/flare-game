@@ -161,7 +161,8 @@ void HazardManager::expire(int index) {
  * Reset all hazards and get new collision object
  */
 void HazardManager::handleNewMap(MapCollision *_collider) {
-	for (unsigned int i = 0; i < h.size(); i++) delete h[i];
+	for (unsigned int i = 0; i < h.size(); i++)
+		delete h[i];
 	h.clear();
 	collider = _collider;
 }
@@ -173,7 +174,7 @@ void HazardManager::handleNewMap(MapCollision *_collider) {
  */
 void HazardManager::addRenders(vector<Renderable> &r, vector<Renderable> &r_dead) {
 	for (unsigned int i=0; i<h.size(); i++) {
-		if (h[i]->rendered && h[i]->delay_frames == 0) {
+		if (h[i]->activeAnimation) {
 			Renderable re = h[i]->getRenderable();
 			(h[i]->floor ? r_dead : r).push_back(re);
 		}
@@ -181,6 +182,7 @@ void HazardManager::addRenders(vector<Renderable> &r, vector<Renderable> &r_dead
 }
 
 HazardManager::~HazardManager() {
-	for (unsigned int i = 0; i < h.size(); i++) delete h[i];
-	h.clear();
+	for (unsigned int i = 0; i < h.size(); i++)
+		delete h[i];
+	// h.clear(); not needed in destructor
 }

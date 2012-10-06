@@ -170,8 +170,6 @@ void PowerManager::loadPowers(const std::string& filename) {
 		}
 		else if (infile.key == "sfx")
 			powers[input_id].sfx_index = loadSFX(infile.val);
-		else if (infile.key == "rendered")
-			powers[input_id].rendered = toBool(infile.val);
 		else if (infile.key == "directional")
 			powers[input_id].directional = toBool(infile.val);
 		else if (infile.key == "visual_random")
@@ -607,10 +605,10 @@ void PowerManager::initHazard(int power_index, StatBlock *src_stats, Point targe
 	// If we do this, we can init with multiple power layers
 	// (e.g. base spell plus weapon type)
 
-	if (powers[power_index].animationSet != NULL)
+	if (powers[power_index].animationSet != NULL) {
+		delete haz->activeAnimation;
 		haz->activeAnimation = powers[power_index].animationSet->getAnimation(powers[power_index].animationSet->starting_animation);
-	if (powers[power_index].rendered)
-		haz->rendered = powers[power_index].rendered;
+	}
 	if (powers[power_index].lifespan != 0)
 		haz->lifespan = powers[power_index].lifespan;
 	if (powers[power_index].directional)

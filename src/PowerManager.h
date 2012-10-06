@@ -101,7 +101,6 @@ public:
 	// animation info
 	AnimationSet *animationSet;
 	int sfx_index;
-	bool rendered;
 	bool directional; // sprite sheet contains options for 8 directions, one per row
 	int visual_random; // sprite sheet contains rows of random options
 	int visual_option; // sprite sheet contains rows of similar effects.  use a specific option
@@ -197,7 +196,6 @@ public:
 
 		, animationSet(NULL)
 		, sfx_index(-1)
-		, rendered(false)
 		, directional(false)
 		, visual_random(0)
 		, visual_option(0)

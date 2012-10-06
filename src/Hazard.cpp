@@ -34,43 +34,43 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 using namespace std;
 
-
-Hazard::Hazard() {
-	src_stats = NULL;
-	activeAnimation = NULL;
-	animationKind = 0;
-
-	speed.x = 0.0;
-	speed.y = 0.0;
-	multitarget = false;
-	dmg_min = 0;
-	dmg_max = 0;
-	crit_chance = 0;
-	power_index = 0;
-	rendered = false;
-	lifespan=1;
-
-	delay_frames = 0;
-	complete_animation = false;
-	floor=false;
-	active=true;
-	stun_duration=0;
-	immobilize_duration=0;
-	slow_duration=0;
-	bleed_duration=0;
-	forced_move_speed=0;
-	forced_move_duration=0;
-	hp_steal=0;
-	mp_steal=0;
-	trait_armor_penetration = false;
-	trait_crits_impaired = 0;
-	trait_elemental = -1;
-	remove_now = false;
-	post_power = 0;
-	wall_power = 0;
-	hit_wall = false;
-	equipment_modified = false;
-	base_speed = 0;
+Hazard::Hazard()
+	: src_stats(NULL)
+	, dmg_min(0)
+	, dmg_max(0)
+	, crit_chance(0)
+	, accuracy(0)
+	, source_type(0)
+	, pos(FPoint())
+	, speed(FPoint())
+	, base_speed(0)
+	, lifespan(1)
+	, radius(0)
+	, power_index(0)
+	, activeAnimation(NULL)
+	, animationKind(0)
+	, floor(false)
+	, delay_frames(0)
+	, complete_animation(false)
+	, multitarget(false)
+	, active(true)
+	, remove_now(false)
+	, hit_wall(false)
+	, stun_duration(0)
+	, immobilize_duration(0)
+	, slow_duration(0)
+	, bleed_duration(0)
+	, forced_move_speed(0)
+	, forced_move_duration(0)
+	, hp_steal(0)
+	, mp_steal(0)
+	, trait_armor_penetration(false)
+	, trait_crits_impaired(0)
+	, trait_elemental(-1)
+	, post_power(0)
+	, wall_power(0)
+	, equipment_modified(false)
+{
 }
 
 Hazard::~Hazard() {

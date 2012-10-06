@@ -50,6 +50,9 @@ private:
 
 public:
 	Hazard();
+
+	Hazard(const Hazard&); // not implemented! If you implement this, take care to create a real copy of the pointers, such as Animation.
+
 	~Hazard();
 
 	StatBlock *src_stats;
@@ -74,8 +77,6 @@ public:
 	int radius;
 	int power_index;
 
-	// visualization info
-	bool rendered;
 	Animation *activeAnimation;
 	int animationKind;	// direction or other, it is a specific value according to
 						// some hazard animations are 8-directional
@@ -83,7 +84,6 @@ public:
 
 	Renderable getRenderable();
 
-	int active_frame; // some hazards are only dangerous on a single frame of their existence
 	bool floor; // rendererable goes on the floor layer
 	int delay_frames;
 	bool complete_animation; // if not multitarget but hitting a creature, still complete the animation?
