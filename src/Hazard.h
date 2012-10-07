@@ -33,6 +33,7 @@ class Entity;
 #include <SDL_mixer.h>
 #include "Utils.h"
 
+class Animation;
 class StatBlock;
 class MapCollision;
 
@@ -46,18 +47,22 @@ private:
 	MapCollision *collider;
 	// Keeps track of entities already hit
 	std::vector<Entity*> entitiesCollided;
-	  
+
 public:
 	Hazard();
 
+	Hazard(const Hazard&); // not implemented! If you implement this, take care to create a real copy of the pointers, such as Animation.
+	Hazard & operator= (const Hazard & other); // same as copy constructor!
+
+	~Hazard();
+
 	StatBlock *src_stats;
 
-	SDL_Surface *sprites;
 	void setCollision(MapCollision *_collider);
 	void logic();
-	
+
 	bool hasEntity(Entity*);
-	
+
 	void addEntity(Entity*);
 
 	int dmg_min;
@@ -65,7 +70,7 @@ public:
 	int crit_chance;
 	int accuracy;
 	int source_type;
-	
+
 	FPoint pos;
 	FPoint speed;
 	int base_speed;
@@ -73,29 +78,26 @@ public:
 	int radius;
 	int power_index;
 
-	// visualization info
-	bool rendered;
-	Point frame_size;
-	Point frame_offset;
-	int frame;
-	int frame_loop;
-	int frame_duration;
-	int active_frame; // some hazards are only dangerous on a single frame of their existence
-	int direction; // some hazard animations are 8-directional
-	int visual_option; // some hazard animations have random/varietal options
+	Animation *activeAnimation;
+	int animationKind;	// direction or other, it is a specific value according to
+						// some hazard animations are 8-directional
+						// some hazard animations have random/varietal options
+
+	Renderable getRenderable();
+
 	bool floor; // rendererable goes on the floor layer
 	int delay_frames;
 	bool complete_animation; // if not multitarget but hitting a creature, still complete the animation?
-	
+
 	// these work in conjunction
 	// if the attack is not multitarget, set active=false
 	// only process active hazards for collision
 	bool multitarget;
 	bool active;
-	
+
 	bool remove_now;
 	bool hit_wall;
-	
+
 	// after effects of various powers
 	int stun_duration;
 	int immobilize_duration;
@@ -105,17 +107,17 @@ public:
 	int forced_move_duration;
 	int hp_steal;
 	int mp_steal;
-	
+
 	bool trait_armor_penetration;
 	int trait_crits_impaired;
 	int trait_elemental;
-	
+
 	// pre/post power effects
 	int post_power;
 	int wall_power;
-	
+
 	bool equipment_modified;
-	
+
 };
 
 #endif
