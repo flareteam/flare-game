@@ -265,12 +265,9 @@ void Avatar::set_direction() {
 			vector<Point> path;
 
 			// if a path is returned, target first waypoint
-
 			if ( map->collider.compute_path(stats.pos, target, path, 1000, stats.movement_type) ) {
 				target = path.back();
 			}
-
-
 		}
 		stats.direction = face(target.x, target.y);
 	} else {
@@ -679,7 +676,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
  * Called by HazardManager
  * Return false on a miss
  */
-bool Avatar::takeHit(Hazard h) {
+bool Avatar::takeHit(const Hazard &h) {
 
 	if (stats.cur_state != AVATAR_DEAD) {
 		CombatText *combat_text = CombatText::Instance();
