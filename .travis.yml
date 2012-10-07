@@ -8,4 +8,12 @@ before_install:
 script: cmake . && make
 after_script: cppcheck --enable=all -q `git ls-files src/\*.cpp`
 notifications:
-  irc: "irc.freenode.org#flare-rpg"
+  irc:
+    channels:
+      - "irc.freenode.org#flare-rpg"
+    on_success: always
+    on_failure: always
+    use_notice: true
+    skip_join: true
+    template:
+      - "%{repository} (%{commit}) : %{message} %{build_url}"

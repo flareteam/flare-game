@@ -23,6 +23,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "Avatar.h"
+#include "Animation.h"
 #include "EnemyManager.h"
 #include "Hazard.h"
 #include "HazardManager.h"
@@ -62,7 +63,7 @@ void HazardManager::logic() {
 			target.y = (int)(h[i]->pos.y);
 
 			powers->activate(h[i]->wall_power, h[i]->src_stats, target);
-			if (powers->powers[h[i]->wall_power].directional) powers->hazards.back()->direction = h[i]->direction;
+			if (powers->powers[h[i]->wall_power].directional) powers->hazards.back()->animationKind = h[i]->animationKind;
 
 		}
 
@@ -72,7 +73,9 @@ void HazardManager::logic() {
 
 	// handle collisions
 	for (unsigned int i=0; i<h.size(); i++) {
-		if (h[i]->active && h[i]->delay_frames==0 && (h[i]->active_frame == -1 || h[i]->active_frame == h[i]->frame)) {
+		if (h[i]->active && h[i]->delay_frames==0 &&
+			( (h[i]->activeAnimation != NULL && h[i]->activeAnimation->isActiveFrame())
+			|| h[i]->activeAnimation == NULL)) {
 
 			// process hazards that can hurt enemies
 			if (h[i]->source_type != SOURCE_TYPE_ENEMY) { //hero or neutral sources
@@ -158,7 +161,8 @@ void HazardManager::expire(int index) {
  * Reset all hazards and get new collision object
  */
 void HazardManager::handleNewMap(MapCollision *_collider) {
-	for (unsigned int i = 0; i < h.size(); i++) delete h[i];
+	for (unsigned int i = 0; i < h.size(); i++)
+		delete h[i];
 	h.clear();
 	collider = _collider;
 }
@@ -170,29 +174,15 @@ void HazardManager::handleNewMap(MapCollision *_collider) {
  */
 void HazardManager::addRenders(vector<Renderable> &r, vector<Renderable> &r_dead) {
 	for (unsigned int i=0; i<h.size(); i++) {
-		if (h[i]->rendered && h[i]->delay_frames == 0) {
-			Renderable re;
-			re.map_pos.x = round(h[i]->pos.x);
-			re.map_pos.y = round(h[i]->pos.y);
-			re.sprite = h[i]->sprites;
-			re.src.x = h[i]->frame_size.x * (h[i]->frame / h[i]->frame_duration);
-			re.src.w = h[i]->frame_size.x;
-			re.src.h = h[i]->frame_size.y;
-			re.offset.x = h[i]->frame_offset.x;
-			re.offset.y = h[i]->frame_offset.y;
-
-			if (h[i]->direction > 0)
-				re.src.y = h[i]->frame_size.y * h[i]->direction;
-			else if (h[i]->visual_option > 0)
-				re.src.y = h[i]->frame_size.y * h[i]->visual_option;
-			else
-				re.src.y = 0;
+		if (h[i]->delay_frames == 0 && h[i]->activeAnimation) {
+			Renderable re = h[i]->getRenderable();
 			(h[i]->floor ? r_dead : r).push_back(re);
 		}
 	}
 }
 
 HazardManager::~HazardManager() {
-	for (unsigned int i = 0; i < h.size(); i++) delete h[i];
-	h.clear();
+	for (unsigned int i = 0; i < h.size(); i++)
+		delete h[i];
+	// h.clear(); not needed in destructor
 }
