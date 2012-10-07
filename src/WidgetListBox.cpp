@@ -196,7 +196,7 @@ TooltipData WidgetListBox::checkTooltip(Point mouse) {
 	for(int i=0; i<list_height; i++) {
 		if (i<list_amount) {
 			if (isWithin(rows[i], mouse) && tooltips[i+cursor] != "") {
-				_tip.lines[_tip.num_lines++] = tooltips[i+cursor];
+				_tip.addText(tooltips[i+cursor]);
 				break;
 			}
 		}

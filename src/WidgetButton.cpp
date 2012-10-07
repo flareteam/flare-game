@@ -186,7 +186,7 @@ TooltipData WidgetButton::checkTooltip(Point mouse) {
 	TooltipData _tip;
 
 	if (isWithin(pos, mouse) && tooltip != "") {
-		_tip.lines[_tip.num_lines++] = tooltip;
+		_tip.addText(tooltip);
 	}
 
 	return _tip;
