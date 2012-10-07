@@ -123,7 +123,7 @@ public:
 
 	// a vector of indexes of gfx passed into.
 	// if { -1 } is passed, all frames are set to active.
-	void setActiveFrames(const std::vector<short> _active_frames);
+	void setActiveFrames(const std::vector<short> &_active_frames);
 };
 
 #endif

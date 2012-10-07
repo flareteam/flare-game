@@ -22,6 +22,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "PowerManager.h"
+#include "Animation.h"
+#include "AnimationSet.h"
+#include "AnimationManager.h"
 #include "CombatText.h"
 #include "FileParser.h"
 #include "Hazard.h"
@@ -160,12 +163,13 @@ void PowerManager::loadPowers(const std::string& filename) {
 		else if (infile.key == "cooldown")
 			powers[input_id].cooldown = toInt(infile.val);
 		// animation info
-		else if (infile.key == "gfx")
-			powers[input_id].gfx_index = loadGFX(infile.val);
+		else if (infile.key == "animation") {
+			string animation_name = "animations/powers/" + infile.val;
+			AnimationManager::instance()->increaseCount(animation_name);
+			powers[input_id].animationSet = AnimationManager::instance()->getAnimationSet(animation_name);
+		}
 		else if (infile.key == "sfx")
 			powers[input_id].sfx_index = loadSFX(infile.val);
-		else if (infile.key == "rendered")
-			powers[input_id].rendered = toBool(infile.val);
 		else if (infile.key == "directional")
 			powers[input_id].directional = toBool(infile.val);
 		else if (infile.key == "visual_random")
@@ -363,42 +367,6 @@ void PowerManager::loadEffects(const std::string& filename) {
 		}
 	}
 	infile.close();
-}
-
-/**
- * Load the specified graphic for this power
- *
- * @param filename The .png file containing sprites for this power, assumed to be in images/powers/
- * @return The gfx[] array index for this graphic, or -1 upon load failure
- */
-int PowerManager::loadGFX(const string& filename) {
-	// first check to make sure the sprite isn't already loaded
-	for (unsigned i=0; i<gfx_filenames.size(); i++) {
-		if (gfx_filenames[i] == filename) {
-			return i; // already have this one
-		}
-	}
-
-	// we don't already have this sprite loaded, so load it
-	SDL_Surface* surface = NULL;
-	if (TEXTURE_QUALITY == false)
-		surface = IMG_Load(mods->locate("images/powers/noalpha/" + filename).c_str());
-	if (!surface) {
-		surface = IMG_Load(mods->locate("images/powers/" + filename).c_str());
-	} else {
-		SDL_SetColorKey( surface, SDL_SRCCOLORKEY, SDL_MapRGB(surface->format, 255, 0, 255) );
-	}
-	if(!surface) {
-		fprintf(stderr, "Couldn't load power sprites: %s\n", IMG_GetError());
-		return -1;
-	}
-	gfx_filenames.push_back(filename);
-	gfx.push_back(SDL_DisplayFormatAlpha(surface));
-
-	// optimize
-	SDL_FreeSurface(surface);
-
-	return gfx.size() - 1;
 }
 
 /**
@@ -637,30 +605,18 @@ void PowerManager::initHazard(int power_index, StatBlock *src_stats, Point targe
 	// If we do this, we can init with multiple power layers
 	// (e.g. base spell plus weapon type)
 
-	if (powers[power_index].gfx_index != -1)
-		haz->sprites = gfx[powers[power_index].gfx_index];
-	if (powers[power_index].rendered)
-		haz->rendered = powers[power_index].rendered;
+	if (powers[power_index].animationSet != NULL) {
+		delete haz->activeAnimation;
+		haz->activeAnimation = powers[power_index].animationSet->getAnimation(powers[power_index].animationSet->starting_animation);
+	}
 	if (powers[power_index].lifespan != 0)
 		haz->lifespan = powers[power_index].lifespan;
-	if (powers[power_index].frame_loop != 1)
-		haz->frame_loop = powers[power_index].frame_loop;
-	if (powers[power_index].frame_duration != 1)
-		haz->frame_duration = powers[power_index].frame_duration;
-	if (powers[power_index].frame_size.x != 0)
-		haz->frame_size.x = powers[power_index].frame_size.x;
-	if (powers[power_index].frame_size.y != 0)
-		haz->frame_size.y = powers[power_index].frame_size.y;
-	if (powers[power_index].frame_offset.x != 0)
-		haz->frame_offset.x = powers[power_index].frame_offset.x;
-	if (powers[power_index].frame_offset.y != 0)
-		haz->frame_offset.y = powers[power_index].frame_offset.y;
 	if (powers[power_index].directional)
-		haz->direction = calcDirection(src_stats->pos.x, src_stats->pos.y, target.x, target.y);
+		haz->animationKind = calcDirection(src_stats->pos.x, src_stats->pos.y, target.x, target.y);
 	else if (powers[power_index].visual_random)
-		haz->visual_option = rand() % powers[power_index].visual_random;
+		haz->animationKind = rand() % powers[power_index].visual_random;
 	else if (powers[power_index].visual_option)
-		haz->visual_option = powers[power_index].visual_option;
+		haz->animationKind = powers[power_index].visual_option;
 
 	haz->floor = powers[power_index].floor;
 	haz->base_speed = powers[power_index].speed;
@@ -672,9 +628,6 @@ void PowerManager::initHazard(int power_index, StatBlock *src_stats, Point targe
 	}
 	if (powers[power_index].multitarget) {
 		haz->multitarget = true;
-	}
-	if (powers[power_index].active_frame != -1) {
-		haz->active_frame = powers[power_index].active_frame;
 	}
 	if (powers[power_index].radius != 0) {
 		haz->radius = powers[power_index].radius;
@@ -976,7 +929,7 @@ bool PowerManager::missile(int power_index, StatBlock *src_stats, Point target) 
 
 		//calculate direction based on trajectory, not actual target (UNITS_PER_TILE reduces round off error)
 		if (powers[power_index].directional)
-			haz->direction = calcDirection(
+			haz->animationKind = calcDirection(
 					src.x, src.y,
 					static_cast<int>(src.x + UNITS_PER_TILE * haz->speed.x),
 					static_cast<int>(src.y + UNITS_PER_TILE * haz->speed.y));
@@ -1036,8 +989,6 @@ bool PowerManager::repeater(int power_index, StatBlock *src_stats, Point target)
 		haz->pos.y = location_iterator.y;
 		haz->delay_frames = delay_iterator;
 		delay_iterator += powers[power_index].delay;
-
-		haz->frame = powers[power_index].start_frame; // start at bottom frame
 
 		hazards.push(haz);
 	}
@@ -1188,13 +1139,13 @@ Renderable PowerManager::renderEffects(StatBlock *src_stats) {
 	for (unsigned int j=0; j<src_stats->effects.size(); j++) {
 		for (unsigned int i=0; i<effects.size(); i++) {
 			if (src_stats->effects[j].type == effects[i].type && effects[i].gfx != NULL) {
-				
+
 				// TODO: frame reset belogs in the logic phase, e.g. StatBlock::logic
 				if (src_stats->effects[j].frame >= effects[i].frame_total)
 					src_stats->effects[j].frame = 0;
-					
+
 				r.src.x = (src_stats->effects[j].frame / effects[i].ticks_per_frame) * effects[i].frame_size.w;
-				
+
 				r.src.y = effects[i].frame_size.y;
 				r.src.w = effects[i].frame_size.w;
 				r.src.h = effects[i].frame_size.h;
@@ -1218,10 +1169,6 @@ int PowerManager::getEffectIcon(std::string type) {
 
 PowerManager::~PowerManager() {
 
-	for (unsigned i=0; i<gfx.size(); i++) {
-		SDL_FreeSurface(gfx[i]);
-	}
-	gfx.clear();
 	gfx_filenames.clear();
 
 	for (unsigned i=0; i<sfx.size(); i++) {
