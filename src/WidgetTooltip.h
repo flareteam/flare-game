@@ -124,8 +124,10 @@ public:
 					if (text[j] == '\n') {
 						// insert a space so intentionally blank lines are counted
 						lines[cur] += ' ';
-						num_lines++;
-						colors[++cur] = color;
+						if (num_lines<TOOLTIP_MAX_LINES-1) {
+							num_lines++;
+							colors[++cur] = color;
+						}
 					} else if (cur<TOOLTIP_MAX_LINES) {
 						lines[cur] += text[j];
 					}
