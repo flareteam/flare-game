@@ -110,6 +110,8 @@ public:
 
 	bool isFirstFrame() { return cur_frame == 0; }
 	bool isLastFrame() { return cur_frame == number_frames - 1; }
+	bool isSecondLastFrame() { return cur_frame == number_frames - 2; }
+
 	bool isActiveFrame() { return (std::find(active_frames.begin(), active_frames.end(), cur_frame)!=active_frames.end()); }
 
 	// in a looped animation returns how many times it's been played

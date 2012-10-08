@@ -25,6 +25,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef LOOT_MANAGER_H
 #define LOOT_MANAGER_H
 
+#include "Animation.h"
+
 #include "ItemManager.h"
 #include "Settings.h"
 
@@ -41,19 +43,41 @@ class WidgetTooltip;
 
 struct LootDef {
 	ItemStack stack;
-	int frame;
 	Point pos;
+	Animation *animation;
 	int currency;
 	TooltipData tip;
 
-	void clear() {
+	LootDef() {
 		stack.item = 0;
 		stack.quantity = 0;
-		frame = 0;
 		pos.x = 0;
 		pos.y = 0;
+		animation = NULL;
 		currency = 0;
 		tip.clear();
+	}
+
+	LootDef(const LootDef &other) {
+		stack.item = other.stack.item;
+		stack.quantity = other.stack.quantity;
+		pos.x = other.pos.x;
+		pos.y = other.pos.y;
+		animation = new Animation(*other.animation);
+		currency = other.currency;
+		tip = other.tip;
+	}
+
+	//~ LootDef * operator= (const LootDef &other) {
+	//~ return new LootDef(other);
+	//~ }
+	// The copy assignment operator is only used in internal vector managing,
+	// when moving LootDefs around.
+	// If you're using it on your own, make sure to have a valid copy of the
+	// animation!
+
+	~LootDef() {
+		delete animation;
 	}
 };
 
@@ -87,19 +111,8 @@ private:
 	void loadGraphics();
 	void calcTables();
 	int lootLevel(int base_level);
-	void clearLoot(LootDef &ld);
-
-
-	SDL_Surface *flying_loot[64];
-	std::vector<SDL_Surface*> flying_currency;
-
-	std::string animation_id[64];
-	int animation_count;
 
 	Mix_Chunk *loot_flip;
-
-	Point frame_size;
-	int frame_count; // the last frame is the "at-rest" floor loot graphic
 
 	// loot refers to ItemManager indices
 	std::vector<LootDef> loot;
@@ -109,9 +122,6 @@ private:
 	int loot_table[21][1024]; // level, number.  the int is an item id
 	int loot_table_count[21]; // total number per level
 
-	// animation vars
-	int anim_loot_frames;
-	int anim_loot_duration;
 	SDL_Rect animation_pos;
 	Point animation_offset;
 	std::vector<CurrencyRange> currency_range;
