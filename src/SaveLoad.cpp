@@ -226,7 +226,6 @@ void GameStatePlay::loadGame() {
 			}
 			else if (infile.key == "equipped_quantity") {
 				menu->inv->inventory[EQUIPMENT].setQuantities(infile.val);
-				menu->inv->inventory[EQUIPMENT].fillEquipmentSlots();
 			}
 			else if (infile.key == "carried") {
 				menu->inv->inventory[CARRIED].setItems(infile.val);
@@ -287,6 +286,8 @@ void GameStatePlay::loadGame() {
 
 		infile.close();
 	} else fprintf(stderr, "Unable to open %s!\n", ss.str().c_str());
+
+	menu->inv->inventory[EQUIPMENT].fillEquipmentSlots();
 
 	// Load stash
 	ss.str("");
