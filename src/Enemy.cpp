@@ -63,7 +63,7 @@ Enemy::Enemy(PowerManager *_powers, MapRenderer *_map) : Entity(_map) {
 Enemy::Enemy(const Enemy& e)
  : Entity(e)
  , type(e.type)
- , haz(e.haz)
+ , haz(NULL) // do not copy hazard. This constructor is used during mapload, so no hazard should be active.
  , eb(new BehaviorStandard(this))
  , powers(e.powers)
  , sfx_phys(e.sfx_phys)
@@ -74,6 +74,7 @@ Enemy::Enemy(const Enemy& e)
  , reward_xp(e.reward_xp)
  , instant_power(e.instant_power)
 {
+	assert(e.haz == NULL);
 }
 
 /**
@@ -145,7 +146,7 @@ void Enemy::logic() {
  *
  * Returns false on miss
  */
-bool Enemy::takeHit(Hazard h) {
+bool Enemy::takeHit(const Hazard &h) {
 	if (stats.cur_state != ENEMY_DEAD && stats.cur_state != ENEMY_CRITDEAD)
 	{
 		if (!stats.in_combat) {

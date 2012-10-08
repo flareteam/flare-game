@@ -106,7 +106,7 @@ public:
 	void logic(int actionbar_power, bool restrictPowerUse);
 	bool pressing_move();
 	void set_direction();
-	bool takeHit(Hazard h);
+	bool takeHit(const Hazard &h);
 	std::string log_msg;
 
 	// transformation handling
