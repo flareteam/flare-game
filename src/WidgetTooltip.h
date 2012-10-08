@@ -114,6 +114,34 @@ public:
 
 	}
 
+	// add text with support for new lines
+	void addText(std::string text, SDL_Color color) {
+		for (int i=0; i<TOOLTIP_MAX_LINES; i++) {
+			if (lines[i] == "") {
+				int cur = i;
+				colors[cur] = color;
+				for (unsigned j=0; j<text.length(); j++) {
+					if (text[j] == '\n') {
+						// insert a space so intentionally blank lines are counted
+						lines[cur] += ' ';
+						if (num_lines<TOOLTIP_MAX_LINES-1) {
+							num_lines++;
+							colors[++cur] = color;
+						}
+					} else if (cur<TOOLTIP_MAX_LINES) {
+						lines[cur] += text[j];
+					}
+				}
+				num_lines++;
+				break;
+			}
+		}
+	}
+
+	void addText(std::string text) {
+		addText(text,font->getColor("widget_normal"));
+	}
+
 };
 
 class WidgetTooltip {

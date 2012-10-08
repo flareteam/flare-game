@@ -398,25 +398,25 @@ TooltipData MenuActionBar::checkTooltip(Point mouse) {
 	TooltipData tip;
 
 	if (isWithin(menus[0], mouse)) {
-		tip.lines[tip.num_lines++] = msg->get("Character Menu (C)");
+		tip.addText(msg->get("Character Menu (C)"));
 		return tip;
 	}
 	if (isWithin(menus[1], mouse)) {
-		tip.lines[tip.num_lines++] = msg->get("Inventory Menu (I)");
+		tip.addText(msg->get("Inventory Menu (I)"));
 		return tip;
 	}
 	if (isWithin(menus[2], mouse)) {
-		tip.lines[tip.num_lines++] = msg->get("Power Menu (P)");
+		tip.addText(msg->get("Power Menu (P)"));
 		return tip;
 	}
 	if (isWithin(menus[3], mouse)) {
-		tip.lines[tip.num_lines++] = msg->get("Log Menu (L)");
+		tip.addText(msg->get("Log Menu (L)"));
 		return tip;
 	}
 	for (int i=0; i<12; i++) {
 		if (hotkeys[i] != 0) {
 			if (isWithin(slots[i], mouse)) {
-				tip.lines[tip.num_lines++] = powers->powers[hotkeys[i]].name;
+				tip.addText(powers->powers[hotkeys[i]].name);
 			}
 		}
 	}
