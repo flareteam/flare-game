@@ -22,6 +22,10 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * Handles floor loot
  */
 
+#include "Animation.h"
+#include "AnimationSet.h"
+#include "AnimationManager.h"
+
 #include "EnemyManager.h"
 #include "FileParser.h"
 #include "LootManager.h"
@@ -82,13 +86,6 @@ LootManager::LootManager(ItemManager *_items, MapRenderer *_map, StatBlock *_her
 		infile.close();
 	} else fprintf(stderr, "Unable to open engine/loot.txt!\n");
 
-	animation_count = 0;
-
-	for (int i=0; i<64; i++) {
-		flying_loot[i] = NULL;
-		animation_id[i] = "";
-	}
-
 	loot_flip = NULL;
 
 	// reset current map loot
@@ -108,9 +105,6 @@ LootManager::LootManager(ItemManager *_items, MapRenderer *_map, StatBlock *_her
 		loot_flip = Mix_LoadWAV(mods->locate("soundfx/flying_loot.ogg").c_str());
 	full_msg = false;
 
-	anim_loot_frames = 6;
-	anim_loot_duration = 3;
-
 	if (!lootManager)
 		lootManager = this;
 	else
@@ -124,73 +118,24 @@ LootManager::LootManager(ItemManager *_items, MapRenderer *_map, StatBlock *_her
  */
 void LootManager::loadGraphics() {
 
-	string anim_id;
-	bool new_anim;
-
 	// check all items in the item database
 	for (unsigned int i=0; i < items->items.size(); i++) {
-		anim_id = items->items[i].loot_animation;
+		string anim_id = items->items[i].loot_animation;
+		if (anim_id == "") continue;
 
-		new_anim = true;
-
-		if (anim_id != "") {
-
-			// do we have this animation loaded already?
-			for (int j=0; j<animation_count; j++) {
-				if (anim_id == animation_id[j]) new_anim = false;
-			}
-
-			if (new_anim) {
-				if (TEXTURE_QUALITY == false)
-					flying_loot[animation_count] = IMG_Load(mods->locate("images/loot/noalpha/" + anim_id + ".png").c_str());
-				if (!flying_loot[animation_count]) {
-					flying_loot[animation_count] = IMG_Load(mods->locate("images/loot/" + anim_id + ".png").c_str());
-				}
-				if (!flying_loot[animation_count]) {
-					fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
-					SDL_Quit();
-					exit(1);
-				}
-
-				if (flying_loot[animation_count]) {
-					animation_id[animation_count] = anim_id;
-					animation_count++;
-				}
-			}
-		}
+		string animationname = "animations/loot/" + anim_id + ".txt";
+		AnimationManager::instance()->increaseCount(animationname);
+		// get the Animation set once to make sure it is loaded, so no loading times during gameplay.
+		AnimationManager::instance()->getAnimationSet(animationname)->load();
 	}
 
 	// currency
 	for (unsigned int i=0; i<currency_range.size(); i++) {
-		flying_currency.push_back(NULL);
-		if (TEXTURE_QUALITY == false)
-			flying_currency.back() = IMG_Load(mods->locate("images/loot/noalpha/"+currency_range[i].filename+".png").c_str());
-		if (!flying_currency.back()) {
-			flying_currency.back() = IMG_Load(mods->locate("images/loot/"+currency_range[i].filename+".png").c_str());
-		}
-		if (!flying_currency.back()) {
-			fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
-			SDL_Quit();
-			exit(1);
-		}
-	}
+		string animationname = "animations/loot/" + currency_range[i].filename + ".txt";
 
-	// set magic pink transparency
-	for (int i=0; i<animation_count; i++) {
-		SDL_SetColorKey( flying_loot[i], SDL_SRCCOLORKEY, SDL_MapRGB(flying_loot[i]->format, 255, 0, 255) );
-
-		// optimize
-		SDL_Surface *cleanup = flying_loot[i];
-		flying_loot[i] = SDL_DisplayFormatAlpha(flying_loot[i]);
-		SDL_FreeSurface(cleanup);
-	}
-	for (unsigned int i=0; i<flying_currency.size(); i++) {
-		SDL_SetColorKey( flying_currency[i], SDL_SRCCOLORKEY, SDL_MapRGB(flying_currency[i]->format, 255, 0, 255) );
-
-		// optimize
-		SDL_Surface *cleanup = flying_currency[i];
-		flying_currency[i] = SDL_DisplayFormatAlpha(flying_currency[i]);
-		SDL_FreeSurface(cleanup);
+		AnimationManager::instance()->increaseCount(animationname);
+		// get the Animation set once to make sure it is loaded, so no loading times during gameplay.
+		AnimationManager::instance()->getAnimationSet(animationname)->load();
 	}
 }
 
@@ -240,16 +185,13 @@ void LootManager::handleNewMap() {
 }
 
 void LootManager::logic() {
-	int max_frame = anim_loot_frames * anim_loot_duration - 1;
-
 	vector<LootDef>::iterator it;
 	for (it = loot.begin(); it != loot.end(); ++it) {
 
 		// animate flying loot
-		if (it->frame < max_frame)
-			it->frame++;
+		it->animation->advanceFrame();
 
-		if (it->frame == max_frame-1) {
+		if (it->animation->isSecondLastFrame()) {
 			if (it->stack.item > 0)
 				items->playSound(it->stack.item);
 			else
@@ -266,9 +208,7 @@ void LootManager::logic() {
  * Only allow loot to be picked up if it is grounded.
  */
 bool LootManager::isFlying(const LootDef &ld) {
-	int max_frame = anim_loot_frames * anim_loot_duration - 1;
-	if (ld.frame == max_frame) return false;
-	return true;
+	return !ld.animation->isLastFrame();
 }
 
 /**
@@ -278,11 +218,9 @@ void LootManager::renderTooltips(Point cam) {
 	Point dest;
 	stringstream ss;
 
-	int max_frame = anim_loot_frames * anim_loot_duration - 1;
-
 	vector<LootDef>::iterator it;
 	for (it = loot.begin(); it != loot.end(); ++it) {
-		if (it->frame == max_frame) {
+		if (it->animation->isLastFrame()) {
 			Point p = map_to_screen(it->pos.x, it->pos.y, cam.x, cam.y);
 			dest.x = p.x;
 			dest.y = p.y + TILE_H_HALF;
@@ -485,7 +423,11 @@ void LootManager::addLoot(ItemStack stack, Point pos) {
 	ld.stack = stack;
 	ld.pos.x = pos.x;
 	ld.pos.y = pos.y;
-	ld.frame = 0;
+
+	const string anim_id = items->items[stack.item].loot_animation;
+	const string animationname = "animations/loot/" + anim_id + ".txt";
+	AnimationSet *as = AnimationManager::instance()->getAnimationSet(animationname);
+	ld.animation = as->getAnimation(as->starting_animation);
 	ld.currency = 0;
 	loot.push_back(ld);
 	if (loot_flip) Mix_PlayChannel(-1, loot_flip, 0);
@@ -497,7 +439,19 @@ void LootManager::addCurrency(int count, Point pos) {
 	ld.stack.quantity = 0;
 	ld.pos.x = pos.x;
 	ld.pos.y = pos.y;
-	ld.frame = 0;
+
+	int index = currency_range.size()-1;
+	for (unsigned int i=0; i<currency_range.size(); i++) {
+		if (count >= currency_range[i].low && (count <= currency_range[i].high || currency_range[i].high == -1)) {
+			index = i;
+			break;
+		}
+	}
+	const string anim_id = currency_range[index].filename;
+	const string animationname = "animations/loot/" + anim_id + ".txt";
+	AnimationSet *as = AnimationManager::instance()->getAnimationSet(animationname);
+
+	ld.animation = as->getAnimation(as->starting_animation);
 	ld.currency = count;
 	loot.push_back(ld);
 	if (loot_flip) Mix_PlayChannel(-1, loot_flip, 0);
@@ -584,51 +538,35 @@ ItemStack LootManager::checkAutoPickup(Point hero_pos, int &currency) {
 void LootManager::addRenders(vector<Renderable> &ren, vector<Renderable> &ren_dead) {
 	vector<LootDef>::iterator it;
 	for (it = loot.begin(); it != loot.end(); ++it) {
-		Renderable r;
+		Renderable r = it->animation->getCurrentFrame(0);
 		r.map_pos.x = it->pos.x;
 		r.map_pos.y = it->pos.y;
 
-		r.src.x = (it->frame / anim_loot_duration) * animation_pos.w;
-		r.src.y = 0;
-		r.src.w = animation_pos.w;
-		r.src.h = animation_pos.h;
-		r.offset.x = animation_offset.x;
-		r.offset.y = animation_offset.y;
-
-		if (it->stack.item > 0) {
-			// item
-			for (int i=0; i<animation_count; i++) {
-				if (items->items[it->stack.item].loot_animation == animation_id[i])
-					r.sprite = flying_loot[i];
-			}
-		}
-		else if (it->currency > 0) {
-			// currency
-			for (unsigned int i=0; i<currency_range.size(); i++) {
-				if (it->currency >= currency_range[i].low && (it->currency <= currency_range[i].high || currency_range[i].high == -1)) {
-					r.sprite = flying_currency[i];
-					break;
-				} else {
-					r.sprite = flying_currency[currency_range.size()-1];
-				}
-			}
-		}
-		(it->frame == frame_count ? ren_dead : ren).push_back(r);
+		(it->animation->isLastFrame() ? ren_dead : ren).push_back(r);
 	}
 }
 
 LootManager::~LootManager() {
+	// remove all items in the item database
+	for (unsigned int i=0; i < items->items.size(); i++) {
+		string anim_id = items->items[i].loot_animation;
+		if (anim_id == "") continue;
+		string animationname = "animations/loot/" + anim_id + ".txt";
+		AnimationManager::instance()->decreaseCount(animationname);
+	}
 
-	for (int i=0; i<64; i++)
-		SDL_FreeSurface(flying_loot[i]);
+	// currency
+	for (unsigned int i=0; i<currency_range.size(); i++) {
+		string animationname = "animations/loot/" + currency_range[i].filename + ".txt";
+		AnimationManager::instance()->decreaseCount(animationname);
+	}
 
-	for (unsigned int i=0; i<flying_currency.size(); i++)
-		SDL_FreeSurface(flying_currency[i]);
+	// remove items, so LootDefs get destroyed!
+	loot.clear();
+
+	AnimationManager::instance()->cleanUp();
 
 	Mix_FreeChunk(loot_flip);
-
-	// clear loot tooltips to free buffer memory
-	loot.clear();
 
 	lootManager = 0;
 	delete tip;
