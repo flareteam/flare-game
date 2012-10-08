@@ -430,7 +430,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 	}
 
 	// check for bleeding spurt
-	if (stats.bleed_duration % 30 == 1) {
+	if (stats.bleed_duration % 30 == 1 && stats.hp > 0) {
 		CombatText::Instance()->addMessage(1, stats.pos, COMBAT_MESSAGE_TAKEDMG, true);
 		powers->activate(POWER_SPARK_BLOOD, &stats, stats.pos);
 	}

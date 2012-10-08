@@ -635,7 +635,7 @@ void MenuManager::logic() {
 		else if (drag_src == DRAG_SRC_ACTIONBAR) act->actionReturn(drag_power);
 		drag_src = -1;
 		dragging = false;
-		closeAll(true);
+		closeAll(false);
 	}
 
 	// handle equipment changes affecting hero stats
