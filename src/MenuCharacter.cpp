@@ -403,33 +403,32 @@ void MenuCharacter::refreshStats() {
 	statList->refresh();
 
 	// update tool tips
-	cstat[CSTAT_NAME].tip.num_lines = 0;
-	cstat[CSTAT_NAME].tip.lines[cstat[CSTAT_NAME].tip.num_lines++] = msg->get(stats->character_class);
+	cstat[CSTAT_NAME].tip.clear();
+	cstat[CSTAT_NAME].tip.addText(msg->get(stats->character_class));
 
-	cstat[CSTAT_LEVEL].tip.num_lines = 0;
-	cstat[CSTAT_LEVEL].tip.lines[cstat[CSTAT_LEVEL].tip.num_lines++] = msg->get("XP: %d", stats->xp);
+	cstat[CSTAT_LEVEL].tip.clear();
+	cstat[CSTAT_LEVEL].tip.addText(msg->get("XP: %d", stats->xp));
 	if (stats->level < MAX_CHARACTER_LEVEL) {
-		cstat[CSTAT_LEVEL].tip.lines[cstat[CSTAT_LEVEL].tip.num_lines++] = msg->get("Next: %d", stats->xp_table[stats->level]);
+		cstat[CSTAT_LEVEL].tip.addText(msg->get("Next: %d", stats->xp_table[stats->level]));
 	}
 
-	cstat[CSTAT_PHYSICAL].tip.num_lines = 0;
-	cstat[CSTAT_PHYSICAL].tip.lines[cstat[CSTAT_PHYSICAL].tip.num_lines++] = msg->get("Physical (P) increases melee weapon proficiency and total HP.");
-	cstat[CSTAT_PHYSICAL].tip.lines[cstat[CSTAT_PHYSICAL].tip.num_lines++] = msg->get("base (%d), bonus (%d)", stats->physical_character, stats->physical_additional);
+	cstat[CSTAT_PHYSICAL].tip.clear();
+	cstat[CSTAT_PHYSICAL].tip.addText(msg->get("Physical (P) increases melee weapon proficiency and total HP."));
+	cstat[CSTAT_PHYSICAL].tip.addText(msg->get("base (%d), bonus (%d)", stats->physical_character, stats->physical_additional));
 
-	cstat[CSTAT_MENTAL].tip.num_lines = 0;
-	cstat[CSTAT_MENTAL].tip.lines[cstat[CSTAT_MENTAL].tip.num_lines++] = msg->get("Mental (M) increases mental weapon proficiency and total MP.");
-	cstat[CSTAT_MENTAL].tip.lines[cstat[CSTAT_MENTAL].tip.num_lines++] = msg->get("base (%d), bonus (%d)", stats->mental_character, stats->mental_additional);
+	cstat[CSTAT_MENTAL].tip.clear();
+	cstat[CSTAT_MENTAL].tip.addText(msg->get("Mental (M) increases mental weapon proficiency and total MP."));
+	cstat[CSTAT_MENTAL].tip.addText(msg->get("base (%d), bonus (%d)", stats->mental_character, stats->mental_additional));
 
-	cstat[CSTAT_OFFENSE].tip.num_lines = 0;
-	cstat[CSTAT_OFFENSE].tip.lines[cstat[CSTAT_OFFENSE].tip.num_lines++] = msg->get("Offense (O) increases ranged weapon proficiency and accuracy.");
-	cstat[CSTAT_OFFENSE].tip.lines[cstat[CSTAT_OFFENSE].tip.num_lines++] = msg->get("base (%d), bonus (%d)", stats->offense_character, stats->offense_additional);
+	cstat[CSTAT_OFFENSE].tip.clear();
+	cstat[CSTAT_OFFENSE].tip.addText(msg->get("Offense (O) increases ranged weapon proficiency and accuracy."));
+	cstat[CSTAT_OFFENSE].tip.addText(msg->get("base (%d), bonus (%d)", stats->offense_character, stats->offense_additional));
 
-	cstat[CSTAT_DEFENSE].tip.num_lines = 0;
-	cstat[CSTAT_DEFENSE].tip.lines[cstat[CSTAT_DEFENSE].tip.num_lines++] = msg->get("Defense (D) increases armor proficiency and avoidance.");
-	cstat[CSTAT_DEFENSE].tip.lines[cstat[CSTAT_DEFENSE].tip.num_lines++] = msg->get("base (%d), bonus (%d)", stats->defense_character, stats->defense_additional);
+	cstat[CSTAT_DEFENSE].tip.clear();
+	cstat[CSTAT_DEFENSE].tip.addText(msg->get("Defense (D) increases armor proficiency and avoidance."));
+	cstat[CSTAT_DEFENSE].tip.addText(msg->get("base (%d), bonus (%d)", stats->defense_character, stats->defense_additional));
 
-	cstat[CSTAT_UNSPENT].tip.num_lines = 0;
-	if (skill_points) cstat[CSTAT_UNSPENT].tip.lines[cstat[CSTAT_UNSPENT].tip.num_lines++] = msg->get("Unspent attribute points");
+	if (skill_points) cstat[CSTAT_UNSPENT].tip.addText(msg->get("Unspent attribute points"));
 
 }
 

@@ -462,8 +462,23 @@ void ItemManager::playCoinsSound() {
 TooltipData ItemManager::getShortTooltip(ItemStack stack) {
 	stringstream ss;
 	TooltipData tip;
+	SDL_Color color = color_normal;
 
 	if (stack.item == 0) return tip;
+
+	// color quality
+	if (items[stack.item].set > 0) {
+		color = item_sets[items[stack.item].set].color;
+	}
+	else if (items[stack.item].quality == ITEM_QUALITY_LOW) {
+		color = color_low;
+	}
+	else if (items[stack.item].quality == ITEM_QUALITY_HIGH) {
+		color = color_high;
+	}
+	else if (items[stack.item].quality == ITEM_QUALITY_EPIC) {
+		color = color_epic;
+	}
 
 	// name
 	if( stack.quantity > 1) {
@@ -471,21 +486,7 @@ TooltipData ItemManager::getShortTooltip(ItemStack stack) {
 	} else {
 		ss << items[stack.item].name;
 	}
-	tip.lines[tip.num_lines++] = ss.str();
-
-	// color quality
-	if (items[stack.item].set > 0) {
-		tip.colors[0] = item_sets[items[stack.item].set].color;
-	}
-	else if (items[stack.item].quality == ITEM_QUALITY_LOW) {
-		tip.colors[0] = color_low;
-	}
-	else if (items[stack.item].quality == ITEM_QUALITY_HIGH) {
-		tip.colors[0] = color_high;
-	}
-	else if (items[stack.item].quality == ITEM_QUALITY_EPIC) {
-		tip.colors[0] = color_epic;
-	}
+	tip.addText(ss.str(), color);
 
 	return tip;
 }
@@ -495,62 +496,63 @@ TooltipData ItemManager::getShortTooltip(ItemStack stack) {
  */
 TooltipData ItemManager::getTooltip(int item, StatBlock *stats, int context) {
 	TooltipData tip;
+	SDL_Color color = color_normal;
 
 	if (item == 0) return tip;
 
-	// name
-	tip.lines[tip.num_lines++] = items[item].name;
-
 	// color quality
 	if (items[item].set > 0) {
-		tip.colors[0] = item_sets[items[item].set].color;
+		color = item_sets[items[item].set].color;
 	}
 	else if (items[item].quality == ITEM_QUALITY_LOW) {
-		tip.colors[0] = color_low;
+		color = color_low;
 	}
 	else if (items[item].quality == ITEM_QUALITY_HIGH) {
-		tip.colors[0] = color_high;
+		color = color_high;
 	}
 	else if (items[item].quality == ITEM_QUALITY_EPIC) {
-		tip.colors[0] = color_epic;
+		color = color_epic;
 	}
+
+	// name
+	tip.addText(items[item].name, color);
 
 	// level
 	if (items[item].level != 0) {
-		tip.lines[tip.num_lines++] = msg->get("Level %d", items[item].level);
+		tip.addText(msg->get("Level %d", items[item].level));
 	}
 
 	// type
 	if (items[item].type != "other") {
-		tip.lines[tip.num_lines++] = msg->get(getItemType(items[item].type));
+		tip.addText(msg->get(getItemType(items[item].type)));
 	}
 
 	// damage
 	if (items[item].dmg_melee_max > 0) {
 		if (items[item].dmg_melee_min < items[item].dmg_melee_max)
-			tip.lines[tip.num_lines++] = msg->get("Melee damage: %d-%d", items[item].dmg_melee_min, items[item].dmg_melee_max);
+			tip.addText(msg->get("Melee damage: %d-%d", items[item].dmg_melee_min, items[item].dmg_melee_max));
 		else
-			tip.lines[tip.num_lines++] = msg->get("Melee damage: %d", items[item].dmg_melee_max);
+			tip.addText(msg->get("Melee damage: %d", items[item].dmg_melee_max));
 	}
 	if (items[item].dmg_ranged_max > 0) {
 		if (items[item].dmg_ranged_min < items[item].dmg_ranged_max)
-			tip.lines[tip.num_lines++] = msg->get("Ranged damage: %d-%d", items[item].dmg_ranged_min, items[item].dmg_ranged_max);
+			tip.addText(msg->get("Ranged damage: %d-%d", items[item].dmg_ranged_min, items[item].dmg_ranged_max));
 		else
-			tip.lines[tip.num_lines++] = msg->get("Ranged damage: %d", items[item].dmg_ranged_max);
+			tip.addText(msg->get("Ranged damage: %d", items[item].dmg_ranged_max));
 	}
 	if (items[item].dmg_ment_max > 0) {
 		if (items[item].dmg_ment_min < items[item].dmg_ment_max)
-			tip.lines[tip.num_lines++] = msg->get("Mental damage: %d-%d", items[item].dmg_ment_min, items[item].dmg_ment_max);
+			tip.addText(msg->get("Mental damage: %d-%d", items[item].dmg_ment_min, items[item].dmg_ment_max));
 		else
-			tip.lines[tip.num_lines++] = msg->get("Mental damage: %d", items[item].dmg_ment_max);
+			tip.addText(msg->get("Mental damage: %d", items[item].dmg_ment_max));
 	}
 
 	// absorb
 	if (items[item].abs_max > 0) {
 		if (items[item].abs_min < items[item].abs_max)
-			tip.lines[tip.num_lines++] = msg->get("Absorb: %d-%d", items[item].abs_min, items[item].abs_max);
+			tip.addText(msg->get("Absorb: %d-%d", items[item].abs_min, items[item].abs_max));
 		else
-			tip.lines[tip.num_lines++] = msg->get("Absorb: %d", items[item].abs_max);
+			tip.addText(msg->get("Absorb: %d", items[item].abs_max));
 	}
 
 	// bonuses
@@ -562,42 +564,45 @@ TooltipData ItemManager::getTooltip(int item, StatBlock *stats, int context) {
 					items[item].bonus_val[bonus_counter],
 					msg->get(items[item].bonus_stat[bonus_counter]));
 
-			tip.colors[tip.num_lines] = color_bonus;
+			color = color_bonus;
 		}
 		else {
 			modifier = msg->get("Decreases %s by %d",
 					items[item].bonus_val[bonus_counter],
 					msg->get(items[item].bonus_stat[bonus_counter]));
 
-			tip.colors[tip.num_lines] = color_penalty;
+			color = color_penalty;
 		}
-		tip.lines[tip.num_lines++] = modifier;
+		tip.addText(modifier, color);
 		bonus_counter++;
 	}
 
 	// power
 	if (items[item].power_desc != "") {
-		tip.colors[tip.num_lines] = color_bonus;
-		tip.lines[tip.num_lines++] = items[item].power_desc;
+		tip.addText(items[item].power_desc, color_bonus);
 	}
 
 	// requirement
 	if (items[item].req_val > 0) {
 		if (items[item].req_stat == REQUIRES_PHYS) {
-			if (stats->get_physical() < items[item].req_val) tip.colors[tip.num_lines] = color_requirements_not_met;
-			tip.lines[tip.num_lines++] = msg->get("Requires Physical %d", items[item].req_val);
+			if (stats->get_physical() < items[item].req_val) color = color_requirements_not_met;
+			else color = color_normal;
+			tip.addText(msg->get("Requires Physical %d", items[item].req_val), color);
 		}
 		else if (items[item].req_stat == REQUIRES_MENT) {
-			if (stats->get_mental() < items[item].req_val) tip.colors[tip.num_lines] = color_requirements_not_met;
-			tip.lines[tip.num_lines++] = msg->get("Requires Mental %d", items[item].req_val);
+			if (stats->get_mental() < items[item].req_val) color = color_requirements_not_met;
+			else color = color_normal;
+			tip.addText(msg->get("Requires Mental %d", items[item].req_val), color);
 		}
 		else if (items[item].req_stat == REQUIRES_OFF) {
-			if (stats->get_offense() < items[item].req_val) tip.colors[tip.num_lines] = color_requirements_not_met;
-			tip.lines[tip.num_lines++] = msg->get("Requires Offense %d", items[item].req_val);
+			if (stats->get_offense() < items[item].req_val) color = color_requirements_not_met;
+			else color = color_normal;
+			tip.addText(msg->get("Requires Offense %d", items[item].req_val), color);
 		}
 		else if (items[item].req_stat == REQUIRES_DEF) {
-			if (stats->get_defense() < items[item].req_val) tip.colors[tip.num_lines] = color_requirements_not_met;
-			tip.lines[tip.num_lines++] = msg->get("Requires Defense %d", items[item].req_val);
+			if (stats->get_defense() < items[item].req_val) color = color_requirements_not_met;
+			else color = color_normal;
+			tip.addText(msg->get("Requires Defense %d", items[item].req_val), color);
 		}
 	}
 
@@ -607,25 +612,27 @@ TooltipData ItemManager::getTooltip(int item, StatBlock *stats, int context) {
 		int price_per_unit;
 		if (context == VENDOR_BUY) {
 			price_per_unit = items[item].price;
-			if (stats->currency < items[item].price) tip.colors[tip.num_lines] = color_requirements_not_met;
+			if (stats->currency < items[item].price) color = color_requirements_not_met;
+			else color = color_normal;
 			if (items[item].max_quantity <= 1)
-				tip.lines[tip.num_lines++] = msg->get("Buy Price: %d %s", price_per_unit, CURRENCY);
+				tip.addText(msg->get("Buy Price: %d %s", price_per_unit, CURRENCY), color);
 			else
-				tip.lines[tip.num_lines++] = msg->get("Buy Price: %d %s each", price_per_unit, CURRENCY);
+				tip.addText(msg->get("Buy Price: %d %s each", price_per_unit, CURRENCY), color);
 		} else if (context == VENDOR_SELL) {
 			price_per_unit = items[item].getSellPrice();
-			if (stats->currency < price_per_unit) tip.colors[tip.num_lines] = color_requirements_not_met;
+			if (stats->currency < price_per_unit) color = color_requirements_not_met;
+			else color = color_normal;
 			if (items[item].max_quantity <= 1)
-				tip.lines[tip.num_lines++] = msg->get("Buy Price: %d %s", price_per_unit, CURRENCY);
+				tip.addText(msg->get("Buy Price: %d %s", price_per_unit, CURRENCY), color);
 			else
-				tip.lines[tip.num_lines++] = msg->get("Buy Price: %d %s each", price_per_unit, CURRENCY);
+				tip.addText(msg->get("Buy Price: %d %s each", price_per_unit, CURRENCY), color);
 		} else if (context == PLAYER_INV) {
 			price_per_unit = items[item].getSellPrice();
 			if (price_per_unit == 0) price_per_unit = 1;
 			if (items[item].max_quantity <= 1)
-				tip.lines[tip.num_lines++] = msg->get("Sell Price: %d %s", price_per_unit, CURRENCY);
+				tip.addText(msg->get("Sell Price: %d %s", price_per_unit, CURRENCY));
 			else
-				tip.lines[tip.num_lines++] = msg->get("Sell Price: %d %s each", price_per_unit, CURRENCY);
+				tip.addText(msg->get("Sell Price: %d %s each", price_per_unit, CURRENCY));
 		}
 	}
 
@@ -635,9 +642,7 @@ TooltipData ItemManager::getTooltip(int item, StatBlock *stats, int context) {
 			bonus_counter = 0;
 			modifier = "";
 
-			tip.lines[tip.num_lines++] = "";
-			tip.colors[tip.num_lines] = set.color;
-			tip.lines[tip.num_lines++] = msg->get("Set: ") + msg->get(item_sets[items[item].set].name);
+			tip.addText("\n" + msg->get("Set: ") + msg->get(item_sets[items[item].set].name), set.color);
 
 			while (bonus_counter < set.bonus.size() && set.bonus[bonus_counter].bonus_stat != "") {
 				if (set.bonus[bonus_counter].bonus_val > 0) {
@@ -646,8 +651,7 @@ TooltipData ItemManager::getTooltip(int item, StatBlock *stats, int context) {
 				else {
 					modifier = msg->get("%d items: ", set.bonus[bonus_counter].requirement) + msg->get("Decreases %s by %d", set.bonus[bonus_counter].bonus_val, msg->get(set.bonus[bonus_counter].bonus_stat));
 				}
-				tip.colors[tip.num_lines] = set.color;
-				tip.lines[tip.num_lines++] = modifier;
+				tip.addText(modifier, set.color);
 				bonus_counter++;
 			}
 	}

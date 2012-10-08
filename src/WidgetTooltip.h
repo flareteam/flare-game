@@ -122,10 +122,12 @@ public:
 				colors[cur] = color;
 				for (unsigned j=0; j<text.length(); j++) {
 					if (text[j] == '\n') {
+						// insert a space so intentionally blank lines are counted
+						lines[cur] += ' ';
 						num_lines++;
-						colors[cur+num_lines] = color;
-					} else if (cur+num_lines<TOOLTIP_MAX_LINES) {
-						lines[cur+num_lines] += text[j];
+						colors[++cur] = color;
+					} else if (cur<TOOLTIP_MAX_LINES) {
+						lines[cur] += text[j];
 					}
 				}
 				num_lines++;
