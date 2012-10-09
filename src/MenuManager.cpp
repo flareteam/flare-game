@@ -565,6 +565,7 @@ void MenuManager::logic() {
 						drop_stack = drag_stack;
 						drag_stack.item = 0;
 						drag_stack.quantity = 0;
+						inv->clearHighlight();
 					}
 					else {
 						inv->itemReturn(drag_stack);
