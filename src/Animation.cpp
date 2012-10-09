@@ -134,6 +134,9 @@ void Animation::addFrame(	unsigned short index,
 
 void Animation::advanceFrame() {
 
+	if (!this)
+		return;
+
 	cur_frame_duration++;
 
 	// Some entity state changes are triggered when the current frame is the last frame.
@@ -190,15 +193,19 @@ void Animation::advanceFrame() {
 
 Renderable Animation::getCurrentFrame(int kind) {
 	Renderable r;
-
-	const int index = (max_kinds*cur_frame_index) + kind;
-	r.src.x = gfx[index].x;
-	r.src.y = gfx[index].y;
-	r.src.w = gfx[index].w;
-	r.src.h = gfx[index].h;
-	r.offset.x = render_offset[index].x;
-	r.offset.y = render_offset[index].y;
-	r.sprite = sprite;
+	if (this) {
+		const int index = (max_kinds*cur_frame_index) + kind;
+		r.src.x = gfx[index].x;
+		r.src.y = gfx[index].y;
+		r.src.w = gfx[index].w;
+		r.src.h = gfx[index].h;
+		r.offset.x = render_offset[index].x;
+		r.offset.y = render_offset[index].y;
+		r.sprite = sprite;
+	}
+	else {
+		memset(&r, 0, sizeof(Renderable));
+	}
 	return r;
 }
 
