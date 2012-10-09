@@ -64,6 +64,7 @@ struct LootDef {
 		pos.x = other.pos.x;
 		pos.y = other.pos.y;
 		animation = new Animation(*other.animation);
+		animation->syncTo(other.animation);
 		currency = other.currency;
 		tip = other.tip;
 	}
