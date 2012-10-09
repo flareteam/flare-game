@@ -95,6 +95,8 @@ public:
 	void applyItemStats(ItemStack *equipped);
 	void applyItemSetBonuses(ItemStack *equipped);
 
+	void clearHighlight();
+
 	SDL_Rect carried_area;
 	std::vector<SDL_Rect> equipped_area;
 	std::vector<std::string> slot_type;
