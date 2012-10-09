@@ -162,7 +162,7 @@ MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_i
 
 void MenuPowers::update() {
 	for (unsigned i=0; i<power_cell.size(); i++) {
-		slots[i].w = slots[i].h = ICON_SIZE_SMALL;
+		slots[i].w = slots[i].h = ICON_SIZE;
 		slots[i].x = window_area.x + power_cell[i].pos.x;
 		slots[i].y = window_area.y + power_cell[i].pos.y;
 	}
@@ -240,9 +240,9 @@ void MenuPowers::renderIcon(int icon_id, int x, int y) {
 
 	icon_dest.x = x;
 	icon_dest.y = y;
-	icon_src.w = icon_src.h = icon_dest.w = icon_dest.h = ICON_SIZE_SMALL;
-	icon_src.x = (icon_id % 16) * ICON_SIZE_SMALL;
-	icon_src.y = (icon_id / 16) * ICON_SIZE_SMALL;
+	icon_src.w = icon_src.h = icon_dest.w = icon_dest.h = ICON_SIZE;
+	icon_src.x = (icon_id % 16) * ICON_SIZE;
+	icon_src.y = (icon_id / 16) * ICON_SIZE;
 	SDL_BlitSurface(icons, &icon_src, screen, &icon_dest);
 }
 
@@ -443,8 +443,8 @@ void MenuPowers::displayBuild(int power_id) {
 
 	src_unlock.x = 0;
 	src_unlock.y = 0;
-	src_unlock.w = ICON_SIZE_SMALL;
-	src_unlock.h = ICON_SIZE_SMALL;
+	src_unlock.w = ICON_SIZE;
+	src_unlock.h = ICON_SIZE;
 
 	for (unsigned i=0; i<power_cell.size(); i++) {
 		if (power_cell[i].id == power_id) {
@@ -606,7 +606,7 @@ void MenuPowers::renderPowers(int tab_num) {
 
 	SDL_Rect disabled_src;
 	disabled_src.x = disabled_src.y = 0;
-	disabled_src.w = disabled_src.h = ICON_SIZE_SMALL;
+	disabled_src.w = disabled_src.h = ICON_SIZE;
 
 	for (unsigned i=0; i<power_cell.size(); i++) {
 		bool power_in_vector = false;

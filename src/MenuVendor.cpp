@@ -96,8 +96,8 @@ void MenuVendor::loadGraphics() {
 void MenuVendor::update() {
 	slots_area.x += window_area.x;
 	slots_area.y += window_area.y;
-	slots_area.w = slots_cols*ICON_SIZE_SMALL;
-	slots_area.h = slots_rows*ICON_SIZE_SMALL;
+	slots_area.w = slots_cols*ICON_SIZE;
+	slots_area.h = slots_rows*ICON_SIZE;
 
 	SDL_Rect tabs_area = slots_area;
 
@@ -105,8 +105,8 @@ void MenuVendor::update() {
 	tabControl->setMainArea(tabs_area.x, tabs_area.y-tabheight, tabs_area.w, tabs_area.h+tabheight);
 	tabControl->updateHeader();
 
-	stock[VENDOR_BUY].init( VENDOR_SLOTS, items, slots_area, ICON_SIZE_SMALL, slots_cols);
-	stock[VENDOR_SELL].init( VENDOR_SLOTS, items, slots_area, ICON_SIZE_SMALL, slots_cols);
+	stock[VENDOR_BUY].init( VENDOR_SLOTS, items, slots_area, ICON_SIZE, slots_cols);
+	stock[VENDOR_SELL].init( VENDOR_SLOTS, items, slots_area, ICON_SIZE, slots_cols);
 
 	closeButton->pos.x = window_area.x+close_pos.x;
 	closeButton->pos.y = window_area.y+close_pos.y;

@@ -96,8 +96,7 @@ unsigned short TILESET_ORIENTATION = TILESET_ISOMETRIC;
 unsigned short FRAME_W;
 unsigned short FRAME_H;
 
-unsigned short ICON_SIZE_SMALL;
-unsigned short ICON_SIZE_LARGE;
+unsigned short ICON_SIZE;
 
 // Video Settings
 bool FULLSCREEN;
@@ -360,10 +359,8 @@ void loadMiscSettings() {
 				FRAME_W = toInt(infile.val);
 			else if (infile.key == "menu_frame_height")
 				FRAME_H = toInt(infile.val);
-			else if (infile.key == "small_icon_size")
-				ICON_SIZE_SMALL = toInt(infile.val);
-			else if (infile.key == "large_icon_size")
-				ICON_SIZE_LARGE = toInt(infile.val);
+			else if (infile.key == "icon_size")
+				ICON_SIZE = toInt(infile.val);
 			else if (infile.key == "required_width") {
 				MIN_VIEW_W = toInt(infile.val);
 				if (VIEW_W < MIN_VIEW_W) VIEW_W = MIN_VIEW_W;

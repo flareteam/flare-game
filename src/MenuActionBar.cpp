@@ -47,8 +47,8 @@ MenuActionBar::MenuActionBar(PowerManager *_powers, StatBlock *_hero, SDL_Surfac
 
 	src.x = 0;
 	src.y = 0;
-	src.w = ICON_SIZE_SMALL;
-	src.h = ICON_SIZE_SMALL;
+	src.w = ICON_SIZE;
+	src.h = ICON_SIZE;
 	drag_prev_slot = -1;
 	default_M1 = 0;
 	last_mouse.x = 0;
@@ -259,9 +259,9 @@ void MenuActionBar::renderIcon(int icon_id, int x, int y) {
 
 	icon_dest.x = x;
 	icon_dest.y = y;
-	icon_src.w = icon_src.h = icon_dest.w = icon_dest.h = ICON_SIZE_SMALL;
-	icon_src.x = (icon_id % 16) * ICON_SIZE_SMALL;
-	icon_src.y = (icon_id / 16) * ICON_SIZE_SMALL;
+	icon_src.w = icon_src.h = icon_dest.w = icon_dest.h = ICON_SIZE;
+	icon_src.x = (icon_id % 16) * ICON_SIZE;
+	icon_src.y = (icon_id / 16) * ICON_SIZE;
 	SDL_BlitSurface(icons, &icon_src, screen, &icon_dest);
 }
 
@@ -270,9 +270,9 @@ void MenuActionBar::renderAttention(int menu_id) {
 	SDL_Rect dest;
 
     // x-value is 12 hotkeys and 4 empty slots over
-	dest.x = window_area.x + (menu_id * ICON_SIZE_SMALL) + ICON_SIZE_SMALL*15;
+	dest.x = window_area.x + (menu_id * ICON_SIZE) + ICON_SIZE*15;
 	dest.y = window_area.y+3;
-    dest.w = dest.h = ICON_SIZE_SMALL;
+    dest.w = dest.h = ICON_SIZE;
 	SDL_BlitSurface(attention, NULL, screen, &dest);
 }
 
@@ -299,14 +299,14 @@ void MenuActionBar::render() {
 
 	// draw hotkeyed icons
 	src.x = src.y = 0;
-	src.w = src.h = dest.w = dest.h = ICON_SIZE_SMALL;
+	src.w = src.h = dest.w = dest.h = ICON_SIZE;
 	dest.y = window_area.y+3;
 	for (int i=0; i<12; i++) {
 
 		if (i<=9)
-			dest.x = window_area.x + (i * ICON_SIZE_SMALL) + ICON_SIZE_SMALL;
+			dest.x = window_area.x + (i * ICON_SIZE) + ICON_SIZE;
 		else
-			dest.x = window_area.x + (i * ICON_SIZE_SMALL) + ICON_SIZE_SMALL * 2;
+			dest.x = window_area.x + (i * ICON_SIZE) + ICON_SIZE* 2;
 
 		if (hotkeys[i] != 0) {
 			const Power &power = powers->getPower(hotkeys[i]);
@@ -353,12 +353,12 @@ void MenuActionBar::renderCooldowns() {
 
 			item_src.x = 0;
 			item_src.y = 0;
-			item_src.h = ICON_SIZE_SMALL;
-			item_src.w = ICON_SIZE_SMALL;
+			item_src.h = ICON_SIZE;
+			item_src.w = ICON_SIZE;
 
 			// Wipe from bottom to top
 			if (hero->hero_cooldown[hotkeys[i]]) {
-				item_src.h = (ICON_SIZE_SMALL * hero->hero_cooldown[hotkeys[i]]) / powers->powers[hotkeys[i]].cooldown;
+				item_src.h = (ICON_SIZE * hero->hero_cooldown[hotkeys[i]]) / powers->powers[hotkeys[i]].cooldown;
 			}
 
 			// SDL_BlitSurface will write to these Rects, so make a copy
