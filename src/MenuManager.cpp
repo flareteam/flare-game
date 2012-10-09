@@ -697,20 +697,14 @@ void MenuManager::render() {
 		tip_new = act->checkTooltip(inpt->mouse);
 	}
 
-	if (tip_new.num_lines > 0) {
+	if (!tip_new.isEmpty()) {
 
 		// when we render a tooltip it buffers the rasterized text for performance.
 		// If this new tooltip is the same as the existing one, reuse.
 
-		for (int i=0; i<TOOLTIP_MAX_LINES; i++) {
-			// if both lines are empty, we can assume the tooltip has no more content
-			if (tip_new.lines[i] == "" && tip_buf.lines[i] == "") break;
-
-			if (tip_new.lines[i] != tip_buf.lines[i]) {
-				tip_buf.clear();
-				tip_buf = tip_new;
-				break;
-			}
+		if (!tip_new.compare(&tip_buf)) {
+			tip_buf.clear();
+			tip_buf = tip_new;
 		}
 		tip->render(tip_buf, inpt->mouse, STYLE_FLOAT);
 	}

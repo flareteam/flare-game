@@ -152,8 +152,8 @@ void WidgetButton::render(SDL_Surface *target) {
 	wlabel.render(target);
 
 	// render the tooltip
-	if (tip_new.num_lines > 0) {
-		if (tip_new.lines[0] != tip_buf.lines[0]) {
+	if (!tip_new.isEmpty()) {
+		if (!tip_new.compare(&tip_buf)) {
 			tip_buf.clear();
 			tip_buf = tip_new;
 		}

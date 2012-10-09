@@ -235,10 +235,8 @@ void LootManager::renderTooltips(Point cam) {
 					it->tip = items->getShortTooltip(it->stack);
 				}
 				else {
-					it->tip.num_lines = 1;
-					it->tip.colors[0] = font->getColor("menu_normal");
 					ss << msg->get("%d %s", it->currency, CURRENCY);
-					it->tip.lines[0] = ss.str();
+					it->tip.addText(ss.str());
 					ss.str("");
 				}
 			}

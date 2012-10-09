@@ -122,10 +122,15 @@ void WidgetTooltip::render(TooltipData &tip, Point pos, int style, SDL_Surface *
  */
 void WidgetTooltip::createBuffer(TooltipData &tip) {
 
+	if (tip.lines.size() < 1) {
+		tip.lines.resize(1);
+		tip.colors.resize(1);
+	}
+
 	// concat multi-line tooltip, used in determining total display size
 	string fulltext;
 	fulltext = tip.lines[0];
-	for (int i=1; i<tip.num_lines; i++) {
+	for (unsigned int i=1; i<tip.lines.size(); i++) {
 		fulltext = fulltext + "\n" + tip.lines[i];
 	}
 
@@ -146,7 +151,7 @@ void WidgetTooltip::createBuffer(TooltipData &tip) {
 
 	int cursor_y = margin;
 
-	for (int i=0; i<tip.num_lines; i++) {
+	for (unsigned int i=0; i<tip.lines.size(); i++) {
 		font->render(tip.lines[i], margin, cursor_y, JUSTIFY_LEFT, tip.tip_buffer, size.x, tip.colors[i]);
 		cursor_y = font->cursor_y;
 	}
