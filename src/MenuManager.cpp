@@ -164,7 +164,7 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
  */
 void MenuManager::loadIcons() {
 
-	icons = IMG_Load(mods->locate("images/icons/icons_small.png").c_str());
+	icons = IMG_Load(mods->locate("images/icons/icons.png").c_str());
 	if(!icons) {
 		fprintf(stderr, "Couldn't load icons: %s\n", IMG_GetError());
 		SDL_Quit();
@@ -196,9 +196,9 @@ void MenuManager::renderIcon(int icon_id, int x, int y) {
 	SDL_Rect dest;
 	dest.x = x;
 	dest.y = y;
-	src.w = src.h = dest.w = dest.h = ICON_SIZE_SMALL;
-	src.x = (icon_id % 16) * ICON_SIZE_SMALL;
-	src.y = (icon_id / 16) * ICON_SIZE_SMALL;
+	src.w = src.h = dest.w = dest.h = ICON_SIZE;
+	src.x = (icon_id % 16) * ICON_SIZE;
+	src.y = (icon_id / 16) * ICON_SIZE;
 	SDL_BlitSurface(icons, &src, screen, &dest);
 }
 
@@ -713,9 +713,9 @@ void MenuManager::render() {
 	// draw icon under cursor if dragging
 	if (dragging) {
 		if (drag_src == DRAG_SRC_INVENTORY || drag_src == DRAG_SRC_VENDOR || drag_src == DRAG_SRC_STASH)
-			items->renderIcon(drag_stack, inpt->mouse.x - ICON_SIZE_SMALL/2, inpt->mouse.y - ICON_SIZE_SMALL/2, ICON_SIZE_SMALL);
+			items->renderIcon(drag_stack, inpt->mouse.x - ICON_SIZE/2, inpt->mouse.y - ICON_SIZE/2, ICON_SIZE);
 		else if (drag_src == DRAG_SRC_POWERS || drag_src == DRAG_SRC_ACTIONBAR)
-			renderIcon(powers->powers[drag_power].icon, inpt->mouse.x-ICON_SIZE_SMALL/2, inpt->mouse.y-ICON_SIZE_SMALL/2);
+			renderIcon(powers->powers[drag_power].icon, inpt->mouse.x-ICON_SIZE/2, inpt->mouse.y-ICON_SIZE/2);
 	}
 
 }

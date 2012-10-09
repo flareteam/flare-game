@@ -45,8 +45,7 @@ extern std::string FILE_KEYBINDINGS;  // Name of the key bindings file (e.g. "ke
 extern unsigned short FRAME_W;
 extern unsigned short FRAME_H;
 
-extern unsigned short ICON_SIZE_SMALL;
-extern unsigned short ICON_SIZE_LARGE;
+extern unsigned short ICON_SIZE;
 
 // Audio and Video Settings
 extern unsigned short MUSIC_VOLUME;

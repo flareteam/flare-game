@@ -88,7 +88,7 @@ void MenuItemStorage::render() {
 }
 
 void MenuItemStorage::renderHighlight(int x, int y, int _icon_size) {
-	if (_icon_size == ICON_SIZE_SMALL) {
+	if (_icon_size == ICON_SIZE) {
 		SDL_Rect dest;
 		dest.x = x;
 		dest.y = y;
