@@ -229,15 +229,15 @@ void LootManager::renderTooltips(Point cam) {
 			dest.y -= tooltip_margin;
 
 			// create tooltip data if needed
-			if (it->tip.tip_buffer == NULL) {
+			if (it->tip.isEmpty()) {
 
 				if (it->stack.item > 0) {
 					it->tip = items->getShortTooltip(it->stack);
 				}
 				else {
+					ss.str("");
 					ss << msg->get("%d %s", it->currency, CURRENCY);
 					it->tip.addText(ss.str());
-					ss.str("");
 				}
 			}
 
