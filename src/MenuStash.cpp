@@ -229,7 +229,7 @@ void MenuStash::add(ItemStack stack) {
 }
 
 TooltipData MenuStash::checkTooltip(Point mouse) {
-	return stock.checkTooltip( mouse, stats, false);
+	return stock.checkTooltip( mouse, stats, PLAYER_INV);
 }
 
 bool MenuStash::full(int item) {

@@ -146,10 +146,9 @@ void NPCManager::renderTooltips(Point cam, Point mouse) {
 			p.y -= tooltip_margin;
 
 			// use current tip or make a new one?
-			if (tip_buf.lines[0] != npcs[i]->name) {
+			if (!tip_buf.compareFirstLine(npcs[i]->name)) {
 				tip_buf.clear();
-				tip_buf.num_lines = 1;
-				tip_buf.lines[0] = npcs[i]->name;
+				tip_buf.addText(npcs[i]->name);
 			}
 
 			tip->render(tip_buf, p, STYLE_TOPLABEL);

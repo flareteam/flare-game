@@ -520,12 +520,11 @@ void MenuCharacter::render() {
 TooltipData MenuCharacter::checkTooltip() {
 
 	for (int i=0; i<CSTAT_COUNT; i++) {
-		if (isWithin(cstat[i].hover, inpt->mouse) && cstat[i].tip.num_lines > 0 && cstat[i].visible)
+		if (isWithin(cstat[i].hover, inpt->mouse) && !cstat[i].tip.isEmpty() && cstat[i].visible)
 			return cstat[i].tip;
 	}
 
 	TooltipData tip;
-	tip.num_lines = 0;
 	return tip;
 }
 

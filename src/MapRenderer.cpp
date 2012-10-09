@@ -1069,10 +1069,9 @@ void MapRenderer::checkHotspots() {
 					// new tooltip?
 					if (!(*it).tooltip.empty())
 						show_tooltip = true;
-					if (tip_buf.lines[0] != (*it).tooltip) {
+					if (!tip_buf.compareFirstLine((*it).tooltip)) {
 						tip_buf.clear();
-						tip_buf.num_lines = 1;
-						tip_buf.lines[0] = (*it).tooltip;
+						tip_buf.addText((*it).tooltip);
 					}
 
 					if ((abs(cam.x - (*it).location.x * UNITS_PER_TILE) < CLICK_RANGE)
