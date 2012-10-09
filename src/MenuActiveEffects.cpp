@@ -79,24 +79,24 @@ void MenuActiveEffects::renderIcon(int icon_id, int index, int current, int max)
 	if (icon_id > -1) {
 		SDL_Rect pos,src,overlay;
 		if (orientation == 0) {
-			pos.x = window_area.x + (index * ICON_SIZE_SMALL);
+			pos.x = window_area.x + (index * ICON_SIZE);
 			pos.y = window_area.y;
 		} else if (orientation == 1) {
 			pos.x = window_area.x;
-			pos.y = window_area.y + (index * ICON_SIZE_SMALL);;
+			pos.y = window_area.y + (index * ICON_SIZE);;
 		}
 
-		src.x = (icon_id % 16) * ICON_SIZE_SMALL;
-		src.y = (icon_id / 16) * ICON_SIZE_SMALL;
-		src.w = src.h = ICON_SIZE_SMALL;
+		src.x = (icon_id % 16) * ICON_SIZE;
+		src.y = (icon_id / 16) * ICON_SIZE;
+		src.w = src.h = ICON_SIZE;
 
 		SDL_BlitSurface(icons,&src,screen,&pos);
 
 		if (max > 0) {
 			overlay.x = 0;
-			overlay.y = (ICON_SIZE_SMALL * current) / max;
-			overlay.w = ICON_SIZE_SMALL;
-			overlay.h = ICON_SIZE_SMALL - overlay.y;
+			overlay.y = (ICON_SIZE * current) / max;
+			overlay.w = ICON_SIZE;
+			overlay.h = ICON_SIZE - overlay.y;
 
 			SDL_BlitSurface(timer,&overlay,screen,&pos);
 		}
