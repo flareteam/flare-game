@@ -57,8 +57,7 @@ void AnimationSet::load() {
 
 	if (!parser.open(filename.c_str())) {
 		cout << "Error loading animation definition file: " << name << endl;
-		SDL_Quit();
-		exit(1);
+		return;
 	}
 
 	string _name = "";
