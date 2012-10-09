@@ -400,8 +400,8 @@ void WidgetListBox::render(SDL_Surface *target) {
 	if (has_scroll_bar)
 		scrollbar->render(target);
 
-	if (tip_new.num_lines > 0) {
-		if (tip_new.lines[0] != tip_buf.lines[0]) {
+	if (!tip_new.isEmpty()) {
+		if (!tip_new.compare(&tip_buf)) {
 			tip_buf.clear();
 			tip_buf = tip_new;
 		}
