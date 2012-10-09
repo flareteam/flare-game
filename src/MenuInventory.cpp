@@ -150,8 +150,7 @@ void MenuInventory::logic() {
 			visible = false;
 		}
 		if (drag_prev_src == -1) {
-			inventory[EQUIPMENT].highlightClear();
-			inventory[CARRIED].highlightClear();
+			clearHighlight();
 		}
 	}
 }
@@ -936,6 +935,11 @@ void MenuInventory::applyItemSetBonuses(ItemStack *equipped) {
 			}
 		}
 	}
+}
+
+void MenuInventory::clearHighlight() {
+	inventory[EQUIPMENT].highlightClear();
+	inventory[CARRIED].highlightClear();
 }
 
 MenuInventory::~MenuInventory() {

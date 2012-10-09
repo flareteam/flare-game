@@ -64,17 +64,28 @@ struct LootDef {
 		pos.x = other.pos.x;
 		pos.y = other.pos.y;
 		animation = new Animation(*other.animation);
+		animation->syncTo(other.animation);
 		currency = other.currency;
 		tip = other.tip;
 	}
 
-	//~ LootDef * operator= (const LootDef &other) {
-	//~ return new LootDef(other);
-	//~ }
-	// The copy assignment operator is only used in internal vector managing,
-	// when moving LootDefs around.
-	// If you're using it on your own, make sure to have a valid copy of the
-	// animation!
+	// The assignment operator mainly used in internal vector managing,
+	// e.g. in vector::erase()
+	LootDef& operator= (const LootDef &other) {
+	
+		delete animation;	
+		animation = new Animation(*other.animation);
+		animation->syncTo(other.animation);
+		
+		stack.item = other.stack.item;
+		stack.quantity = other.stack.quantity;
+		pos.x = other.pos.x;
+		pos.y = other.pos.y;
+		currency = other.currency;
+		tip = other.tip;
+		
+		return *this;		
+	}
 
 	~LootDef() {
 		delete animation;
