@@ -128,13 +128,13 @@ public:
 
 	// check if there's exisiting tooltip data
 	bool isEmpty() {
-		if (lines.size() > 0) return false;
+		if (!lines.empty()) return false;
 		return true;
 	}
 
 	// compare the first line
 	bool compareFirstLine(std::string text) {
-		if (lines.size() == 0) return false;
+		if (lines.empty()) return false;
 		if (lines[0] != text) return false;
 		return true;
 	}
