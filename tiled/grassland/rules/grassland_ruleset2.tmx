@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="isometric" width="13" height="13" tilewidth="64" tileheight="32">
+ <properties>
+  <property name="AutomappingRadius" value="1"/>
+ </properties>
+ <tileset firstgid="1" name="collision" tilewidth="64" tileheight="32">
+  <image source="../tiled_collision.png" width="960" height="32"/>
+ </tileset>
+ <tileset firstgid="16" name="grassland" tilewidth="64" tileheight="128">
+  <image source="../grassland.png" width="1024" height="1024"/>
+ </tileset>
+ <tileset firstgid="144" name="water" tilewidth="64" tileheight="64">
+  <tileoffset x="0" y="32"/>
+  <image source="../grassland_water.png" width="1024" height="256"/>
+ </tileset>
+ <tileset firstgid="208" name="tall structures" tilewidth="64" tileheight="256">
+  <image source="../grassland_structures.png" width="1024" height="512"/>
+ </tileset>
+ <tileset firstgid="240" name="trees" tilewidth="128" tileheight="256">
+  <tileoffset x="-32" y="0"/>
+  <image source="../grassland_trees.png" width="1024" height="512"/>
+ </tileset>
+ <tileset firstgid="256" name="set_rules" tilewidth="64" tileheight="32">
+  <image source="../set_rules.png" width="128" height="128"/>
+ </tileset>
+ <layer name="regions" width="13" height="13" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJxjYCATMEIxsWxy9Yy6bcS7DQBXZABB
+  </data>
+ </layer>
+ <layer name="input_automap" width="13" height="13">
+  <data encoding="base64" compression="zlib">
+   eJydT0EKADAIWrr/v3mHXZpksIQgtFDXmmHHHd0hPOL9gbmr9imcD4TP2ZzW9ZnA+VB4SjaaO9dnmq3yofA5m9O6Pr84TWMA8Q==
+  </data>
+ </layer>
+ <layer name="input_automap" width="13" height="13">
+  <data encoding="base64" compression="zlib">
+   eJxjYCAPsDBCMDqbGU2cmRFVDzMOddjY5AJc9jCjiSO7DZccPv+Q67bRcCMNAACF0wEh
+  </data>
+ </layer>
+ <layer name="output_background" width="13" height="13" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFgwHMQuPPRuPPgNIz6eAWdLAIjb8Yjb8ASi+kkf0AgwkE7Q==
+  </data>
+ </layer>
+ <layer name="output1_background" width="13" height="13" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFgwHMQ+PPR+PPgdJz6eAWdLAMjb8cjb8ESi+lkf0AmgkFDQ==
+  </data>
+ </layer>
+ <layer name="output_object" width="13" height="13" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJxjYCAPWKDxLck0BwasoLQ1heaAgAMa35FC85ygtDOF5owC8gAAsQkB7Q==
+  </data>
+ </layer>
+ <layer name="output1_object" width="13" height="13" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJxjYCAP2KDxbck0BwbsoLQ9heaAgAsa35VC89ygtDuF5owC8gAA7wkCDQ==
+  </data>
+ </layer>
+</map>

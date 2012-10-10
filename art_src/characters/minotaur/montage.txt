@@ -1,0 +1,20 @@
+del 0*.png
+
+montage idle*.png -background "transparent" -geometry 128x128 -tile 8x8 01_idle.png
+
+montage run*.png -background "transparent" -geometry 128x128 -tile 8x8 02_run.png
+
+montage attack*.png -background "transparent" -geometry 128x128 -tile 8x8 03_attack.png
+
+montage block*.png -background "transparent" -geometry 128x128 -tile 8x8 04_block.png
+
+montage cast*.png -background "transparent" -geometry 128x128 -tile 8x8 05_cast.png
+
+montage stomp*.png -background "transparent" -geometry 128x128 -tile 8x8 06_stomp.png
+
+montage death*.png -background "transparent" -geometry 128x128 -tile 8x8 07_death.png
+
+montage throw*.png -background "transparent" -geometry 128x128 -tile 8x8 08_throw.png
+
+montage 0*.png -background "transparent" -geometry 1024x1024 -tile 8x1 00_minotaur.png
+

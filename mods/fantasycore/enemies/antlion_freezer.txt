@@ -1,0 +1,39 @@
+name=Antlion Freezer
+level=7
+categories=antlion,dungeon,cave,ice
+xp=7
+
+sfx_prefix=antlion
+animations=ice_ant
+
+loot_chance=25
+
+# combat stats
+# antlions have low HP and high armor for their level
+hp=28
+speed=10
+dspeed=7
+melee_range=76
+threat_range=512
+turn_delay=6
+chance_pursue=10
+chance_melee_phys=5
+chance_ranged_ment=10
+power_melee_phys=1
+power_ranged_ment=30
+power_beacon=132
+
+accuracy=87
+avoidance=37
+
+dmg_melee_min=2
+dmg_melee_max=6
+dmg_ment_min=4
+dmg_ment_max=10
+absorb_min=1
+absorb_max=2
+vulnerable_fire=200
+vulnerable_ice=50
+
+cooldown=25
+

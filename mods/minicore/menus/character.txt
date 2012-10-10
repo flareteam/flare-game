@@ -1,0 +1,58 @@
+# Settings for the Character menu
+# the first two values are x,y positions
+# some items have two more values, width and height
+
+close=147,1
+caption=80,4,center,top
+
+upgrade_physical=55,32
+upgrade_mental=55,44
+upgrade_offense=125,32
+upgrade_defense=125,44
+
+statlist=12,64
+
+name=40,16,52,8
+label_name=36,20,right,center
+
+level=136,16,16,8
+label_level=132,20,right,center
+
+physical=8,32,8,8
+label_physical=20,36,left,center
+
+mental=8,44,8,8
+label_mental=20,48,left,center
+
+offense=78,32,8,8
+label_offense=90,36,left,center
+
+defense=78,44,8,8
+label_defense=90,48,left,center
+
+unspent=48,53,80,8
+
+
+# item visibility
+# these are boolean. 0 to hide, 1 to show
+
+show_unspent=1
+show_upgrade_physical=1
+show_upgrade_mental=1
+show_upgrade_offense=1
+show_upgrade_defense=1
+
+show_maxhp=1
+show_hpregen=1
+show_maxmp=1
+show_mpregen=1
+show_accuracy_v1=1
+show_accuracy_v5=1
+show_avoidance_v1=1
+show_avoidance_v5=1
+show_melee=1
+show_ranged=1
+show_crit=1
+show_absorb=1
+show_resists=1
+

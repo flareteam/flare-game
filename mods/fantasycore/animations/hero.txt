@@ -1,0 +1,44 @@
+
+# This file only makes sure, that all animations of equipment are the
+# same, consider this one as a master animation file, all the equipments
+# must meet the same frames, durations, types
+
+[stance]
+frames=4
+duration=6
+type=back_forth
+
+[run]
+frames=8
+duration=2
+type=looped
+
+[melee]
+frames=4
+duration=3
+type=play_once
+
+[ment]
+frames=4
+duration=3
+type=play_once
+
+[ranged]
+frames=4
+duration=3
+type=play_once
+
+[block]
+frames=2
+duration=1
+type=play_once
+
+[hit]
+frames=2
+duration=2
+type=play_once
+
+[die]
+frames=6
+duration=4
+type=play_once

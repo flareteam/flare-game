@@ -1,0 +1,19 @@
+rm 0*.png
+
+/ImageMagick-6.5.3/bin/montage hover*.png -background "transparent" -geometry 256x256 -tile 8x8 01_hover.png
+
+/ImageMagick-6.5.3/bin/montage fly*.png -background "transparent" -geometry 256x256 -tile 8x8 02_fly.png
+
+/ImageMagick-6.5.3/bin/montage sting*.png -background "transparent" -geometry 256x256 -tile 8x8 03_sting.png
+
+/ImageMagick-6.5.3/bin/montage breathe*.png -background "transparent" -geometry 256x256 -tile 8x8 04_breathe.png
+
+/ImageMagick-6.5.3/bin/montage ram*.png -background "transparent" -geometry 256x256 -tile 8x8 05_ram.png
+
+/ImageMagick-6.5.3/bin/montage hit*.png -background "transparent" -geometry 256x256 -tile 8x8 06_hit.png
+
+/ImageMagick-6.5.3/bin/montage die*.png -background "transparent" -geometry 256x256 -tile 8x8 07_die.png
+
+/ImageMagick-6.5.3/bin/montage 0*.png -background "transparent" -geometry 2048x2048 -tile 7x1 00_wyvern.png
+
+
