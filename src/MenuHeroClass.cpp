@@ -197,7 +197,7 @@ void MenuHeroClass::logic() {
 
 	if (!visible) return;
 
-	// if (HERO_CLASSES.size() == 1) setClass();
+	if (HERO_CLASSES.size() == 1) setClass();
 
 	if (confirmButton->checkClick()) setClass();
 
