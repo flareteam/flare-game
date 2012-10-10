@@ -625,6 +625,12 @@ void MenuInventory::updateEquipment(int slot) {
 	}
 }
 
+void MenuInventory::updateEquipment() {
+	for (int i=0; i<MAX_EQUIPPED; i++) {
+		updateEquipment(i);
+	}
+}
+
 /**
  * Given the equipped items, calculate the hero's stats
  */
