@@ -75,6 +75,9 @@ void GameStatePlay::saveGame() {
 		// hero visual option
 		outfile << "option=" << pc->stats.base << "," << pc->stats.head << "," << pc->stats.portrait << "\n";
 
+		// hero class
+		outfile << "class=" << pc->stats.character_class << "\n";
+
 		// current experience
 		outfile << "xp=" << pc->stats.xp << "\n";
 
@@ -179,6 +182,10 @@ void GameStatePlay::loadGame() {
 				pc->stats.base = infile.nextValue();
 				pc->stats.head = infile.nextValue();
 				pc->stats.portrait = infile.nextValue();
+			}
+			else if (infile.key == "class") {
+				pc->stats.character_class = infile.nextValue();
+				if (pc->stats.character_class != "") pc->stats.picked_class = true;
 			}
 			else if (infile.key == "xp") {
 				pc->stats.xp = toInt(infile.val);

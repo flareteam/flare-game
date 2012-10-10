@@ -280,6 +280,8 @@ void GameStateLoad::readGameSlot(int slot) {
 		// load (key=value) pairs
 		if (infile.key == "name")
 			stats[slot].name = infile.val;
+		else if (infile.key == "class")
+			stats[slot].character_class = infile.val;
 		else if (infile.key == "xp")
 			stats[slot].xp = atoi(infile.val.c_str());
 		else if (infile.key == "build") {

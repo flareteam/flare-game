@@ -166,7 +166,7 @@ void MenuItemStorage::fillEquipmentSlots() {
 			// search for empty slot with needed type. If item is not NULL, put it there
 			if (items->items[equip_item[i]].type == slot_type[j] && equip_item[i] > 0 && storage[j].item == 0) {
 				storage[j].item = equip_item[i];
-				storage[j].quantity = equip_quantity[i];
+				storage[j].quantity = (equip_quantity[i] > 0) ? equip_quantity[i] : 1;
 				break;
 			}
 		}

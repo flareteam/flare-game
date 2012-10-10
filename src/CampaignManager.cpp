@@ -59,6 +59,7 @@ void CampaignManager::clearAll() {
  * Take the savefile campaign= and convert to status array
  */
 void CampaignManager::setAll(std::string s) {
+	clearAll();
 	string str = s + ',';
 	string token;
 	while (str != "") {
