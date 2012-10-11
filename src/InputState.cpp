@@ -244,6 +244,8 @@ void InputState::handle(bool dump_event) {
 	static bool joyHasMovedY;
 	static int joyLastPosX;
 	static int joyLastPosY;
+	int joyAxisXval;
+	int joyAxisYval;
 
 	inkeys = "";
 
@@ -310,182 +312,11 @@ void InputState::handle(bool dump_event) {
 				}
 				last_key = event.key.keysym.sym;
 				break;
+			/*
 			case SDL_JOYAXISMOTION:
-				if(JOYSTICK_DEVICE == event.jaxis.which && ENABLE_JOYSTICK)
-				{
-					switch(event.jaxis.axis) {
-						/* first analog */
-						case 0:
-							if(event.jaxis.value < -JOY_DEADZONE)
-							{
-								if(!joyReverseAxisX)
-								{
-									if(joyLastPosX == JOY_POS_RIGHT)
-									{
-										joyHasMovedX = 0;
-									}
-								}
-								else
-								{
-									if(joyLastPosX == JOY_POS_LEFT)
-									{
-										joyHasMovedX = 0;
-									}
-								}
-								if(joyHasMovedX == 0)
-								{
-									if(!joyReverseAxisX)
-									{
-										pressing[LEFT] = true;
-										pressing[RIGHT] = false;
-										lock[RIGHT] = false;
-										joyLastPosX = JOY_POS_LEFT;
-									}
-									else
-									{
-										pressing[RIGHT] = true;
-										pressing[LEFT] = false;
-										lock[LEFT] = false;
-										joyLastPosX = JOY_POS_RIGHT;
-									}
-									joyHasMovedX = 1;
-								}
-							}
-							if(event.jaxis.value > JOY_DEADZONE)
-			                                {
-								if(!joyReverseAxisX)
-								{
-									if(joyLastPosX == JOY_POS_LEFT)
-									{
-										joyHasMovedX = 0;
-									}
-								}
-								else
-								{
-									if(joyLastPosX == JOY_POS_RIGHT)
-									{
-										joyHasMovedX = 0;
-									}
-								}
-								if(joyHasMovedX == 0)
-								{
-									if(!joyReverseAxisX)
-									{
-										pressing[RIGHT] = true;
-										pressing[LEFT] = false;
-										lock[LEFT] = false;
-										joyLastPosX = JOY_POS_RIGHT;
-									}
-									else
-									{
-										pressing[LEFT] = true;
-										pressing[RIGHT] = false;
-										lock[RIGHT] = false;
-										joyLastPosX = JOY_POS_LEFT;
-									}
-									joyHasMovedX = 1;
-								}
-			                                }
-							if((event.jaxis.value >= -JOY_DEADZONE) && (event.jaxis.value < JOY_DEADZONE))
-							{
-								pressing[LEFT] = false;
-								lock[LEFT] = false;
-								pressing[RIGHT] = false;
-								lock[RIGHT] = false;
-								joyHasMovedX = 0;
-								joyLastPosX = JOY_POS_CENTER;
-							}
-							break;
-						case 1:
-							if(event.jaxis.value < -JOY_DEADZONE)
-			                                {
-								if(!joyReverseAxisY)
-								{
-									if(joyLastPosY == JOY_POS_DOWN)
-									{
-										joyHasMovedY = 0;
-									}
-								}
-								else
-								{
-									if(joyLastPosY == JOY_POS_UP)
-									{
-										joyHasMovedY = 0;
-									}
-								}
-								if(joyHasMovedY == 0)
-								{
-									if(!joyReverseAxisY)
-									{
-										pressing[UP] = true;
-										pressing[DOWN] = false;
-										lock[DOWN] = false;
-										joyLastPosY = JOY_POS_UP;
-									}
-									else
-									{
-										pressing[DOWN] = true;
-										pressing[UP] = false;
-										lock[UP] = false;
-										joyLastPosY = JOY_POS_DOWN;
-									}
-									joyHasMovedY = 1;
-								}
-			                                }
-							if(event.jaxis.value > JOY_DEADZONE)
-			                                {
-								if(!joyReverseAxisY)
-								{
-									if(joyLastPosY == JOY_POS_UP)
-									{
-										joyHasMovedY = 0;
-									}
-								}
-								else
-								{
-									if(joyLastPosY == JOY_POS_DOWN)
-									{
-										joyHasMovedY = 0;
-									}
-								}
-								if(joyHasMovedY == 0)
-								{
-									if(!joyReverseAxisY)
-									{
-										pressing[DOWN] = true;
-										pressing[UP] = false;
-										lock[UP] = false;
-										joyLastPosY = JOY_POS_DOWN;
-									}
-									else
-									{
-										pressing[UP] = true;
-										pressing[DOWN] = false;
-										lock[DOWN] = false;
-										joyLastPosY = JOY_POS_UP;
-									}
-									joyHasMovedY = 1;
-								}
-							}
-							if((event.jaxis.value >= -JOY_DEADZONE) && (event.jaxis.value < JOY_DEADZONE))
-							{
-								pressing[UP] = false;
-								lock[UP] = false;
-								pressing[DOWN] = false;
-								lock[DOWN] = false;
-								joyHasMovedY = 0;
-								joyLastPosY = JOY_POS_CENTER;
-							}
-							break;
-						/* second analog */
-						case 2:
-							break;
-						case 4:
-							break;
-					}
-				}
+				// Reading joystick from SDL_JOYAXISMOTION is slow. Joystick analog input is handled by SDL_JoystickGetAxis() now.
 				break;
-
+			*/
 			case SDL_JOYHATMOTION:
 				if(JOYSTICK_DEVICE == event.jhat.which && ENABLE_JOYSTICK)
 				{
@@ -599,7 +430,174 @@ void InputState::handle(bool dump_event) {
 		}
 	}
 
+	// joystick analog input
+	if(ENABLE_JOYSTICK)
+	{	
+		joyAxisXval = SDL_JoystickGetAxis(joy, 0);
+		joyAxisYval = SDL_JoystickGetAxis(joy, 1);
 
+		// axis 0
+		if(joyAxisXval < -JOY_DEADZONE)
+		{
+			if(!joyReverseAxisX)
+			{
+				if(joyLastPosX == JOY_POS_RIGHT)
+				{
+					joyHasMovedX = 0;
+				}
+			}
+			else
+			{
+				if(joyLastPosX == JOY_POS_LEFT)
+				{
+					joyHasMovedX = 0;
+				}
+			}
+			if(joyHasMovedX == 0)
+			{
+				if(!joyReverseAxisX)
+				{
+					pressing[LEFT] = true;
+					pressing[RIGHT] = false;
+					lock[RIGHT] = false;
+					joyLastPosX = JOY_POS_LEFT;
+				}
+				else
+				{
+					pressing[RIGHT] = true;
+					pressing[LEFT] = false;
+					lock[LEFT] = false;
+					joyLastPosX = JOY_POS_RIGHT;
+				}
+				joyHasMovedX = 1;
+			}
+		}
+		if(joyAxisXval > JOY_DEADZONE)
+		{
+			if(!joyReverseAxisX)
+			{
+				if(joyLastPosX == JOY_POS_LEFT)
+				{
+					joyHasMovedX = 0;
+				}
+			}
+			else
+			{
+				if(joyLastPosX == JOY_POS_RIGHT)
+				{
+					joyHasMovedX = 0;
+				}
+			}
+			if(joyHasMovedX == 0)
+			{
+				if(!joyReverseAxisX)
+				{
+					pressing[RIGHT] = true;
+					pressing[LEFT] = false;
+					lock[LEFT] = false;
+					joyLastPosX = JOY_POS_RIGHT;
+				}
+				else
+				{
+					pressing[LEFT] = true;
+					pressing[RIGHT] = false;
+					lock[RIGHT] = false;
+					joyLastPosX = JOY_POS_LEFT;
+				}
+				joyHasMovedX = 1;
+			}
+		}
+		if((joyAxisXval >= -JOY_DEADZONE) && (joyAxisXval < JOY_DEADZONE))
+		{
+			pressing[LEFT] = false;
+			lock[LEFT] = false;
+			pressing[RIGHT] = false;
+			lock[RIGHT] = false;
+			joyHasMovedX = 0;
+			joyLastPosX = JOY_POS_CENTER;
+		}
+
+		// axis 1
+		if(joyAxisYval < -JOY_DEADZONE)
+		{
+			if(!joyReverseAxisY)
+			{
+				if(joyLastPosY == JOY_POS_DOWN)
+				{
+					joyHasMovedY = 0;
+				}
+			}
+			else
+			{
+				if(joyLastPosY == JOY_POS_UP)
+				{
+					joyHasMovedY = 0;
+				}
+			}
+			if(joyHasMovedY == 0)
+			{
+				if(!joyReverseAxisY)
+				{
+					pressing[UP] = true;
+					pressing[DOWN] = false;
+					lock[DOWN] = false;
+					joyLastPosY = JOY_POS_UP;
+				}
+				else
+				{
+					pressing[DOWN] = true;
+					pressing[UP] = false;
+					lock[UP] = false;
+					joyLastPosY = JOY_POS_DOWN;
+				}
+				joyHasMovedY = 1;
+			}
+		}
+		if(joyAxisYval > JOY_DEADZONE)
+		{
+			if(!joyReverseAxisY)
+			{
+				if(joyLastPosY == JOY_POS_UP)
+				{
+					joyHasMovedY = 0;
+				}
+			}
+			else
+			{
+				if(joyLastPosY == JOY_POS_DOWN)
+				{
+					joyHasMovedY = 0;
+				}
+			}
+			if(joyHasMovedY == 0)
+			{
+				if(!joyReverseAxisY)
+				{
+					pressing[DOWN] = true;
+					pressing[UP] = false;
+					lock[UP] = false;
+					joyLastPosY = JOY_POS_DOWN;
+				}
+				else
+				{
+					pressing[UP] = true;
+					pressing[DOWN] = false;
+					lock[DOWN] = false;
+					joyLastPosY = JOY_POS_UP;
+				}
+				joyHasMovedY = 1;
+			}
+		}
+		if((joyAxisYval >= -JOY_DEADZONE) && (joyAxisYval < JOY_DEADZONE))
+		{
+			pressing[UP] = false;
+			lock[UP] = false;
+			pressing[DOWN] = false;
+			lock[DOWN] = false;
+			joyHasMovedY = 0;
+			joyLastPosY = JOY_POS_CENTER;
+		}
+	}
 }
 
 void InputState::resetScroll() {
