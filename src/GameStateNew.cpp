@@ -69,6 +69,8 @@ GameStateNew::GameStateNew() : GameState() {
 	class_list->can_deselect = false;
 	class_list->selected[0] = true;
 
+	show_classlist = true;
+
 	// Read positions from config file
 	FileParser infile;
 
@@ -108,6 +110,8 @@ GameStateNew::GameStateNew() : GameState() {
 		} else if (infile.key == "class_list") {
 			class_list->pos.x = eatFirstInt(infile.val, ',');
 			class_list->pos.y = eatFirstInt(infile.val, ',');
+		} else if (infile.key == "show_classlist") {
+			show_classlist = eatFirstInt(infile.val, ',');
 		}
 	  }
 	  infile.close();
@@ -217,7 +221,7 @@ void GameStateNew::loadOptions(const string& filename) {
 
 void GameStateNew::logic() {
 	button_permadeath->checkClick();
-	class_list->checkClick();
+	if (show_classlist) class_list->checkClick();
 
 	// require character name
 	if (input_name->getText() == "" && DEFAULT_NAME == "") {
@@ -307,10 +311,12 @@ void GameStateNew::render() {
 	label_portrait->render();
 	if (DEFAULT_NAME == "") label_name->render();
 	label_permadeath->render();
-	label_classlist->render();
 
 	// display class list
-	class_list->render();
+	if (show_classlist) {
+		label_classlist->render();
+		class_list->render();
+	}
 }
 
 std::string GameStateNew::getClassTooltip(int index) {

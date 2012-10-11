@@ -75,6 +75,7 @@ private:
 	Point permadeath_label;
 	Point classlist_label;
 	SDL_Rect portrait_pos;
+	bool show_classlist;
 
 	SDL_Color color_normal;
 
