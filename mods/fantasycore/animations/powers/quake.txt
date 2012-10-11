@@ -1,12 +1,20 @@
 
 image=images/powers/quake.png
 
-render_size=256,128
-render_offset=128,64
-
 [power]
-position=0
 frames=4
 duration=3
 type=play_once
 active_frame=4
+frame=0,0,740,0,80,52,39,28
+frame=0,1,740,52,80,52,39,28
+frame=0,2,650,78,80,52,39,28
+frame=1,0,504,113,146,78,73,41
+frame=1,1,594,0,146,78,73,41
+frame=1,2,650,130,146,78,73,41
+frame=2,0,0,113,168,97,82,50
+frame=2,1,168,113,168,97,82,50
+frame=2,2,336,113,168,97,82,50
+frame=3,0,0,0,198,113,97,58
+frame=3,1,198,0,198,113,97,58
+frame=3,2,396,0,198,113,97,58
