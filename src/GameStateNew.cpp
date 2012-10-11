@@ -314,29 +314,8 @@ void GameStateNew::render() {
 }
 
 std::string GameStateNew::getClassTooltip(int index) {
-	int physical = HERO_CLASSES[index].physical;
-	int mental = HERO_CLASSES[index].mental;
-	int offense = HERO_CLASSES[index].offense;
-	int defense = HERO_CLASSES[index].defense;
 	string tooltip;
-
-	tooltip = msg->get(HERO_CLASSES[index].name);
-	if (HERO_CLASSES[index].description != "") tooltip += "\n" + msg->get(HERO_CLASSES[index].description);
-
-	if (physical > 0 || mental > 0 || offense > 0 || defense > 0) {
-		tooltip += "\n\n";
-
-		if (physical > 0) tooltip += msg->get("+%d Physical", physical) + "\n";
-		if (mental > 0) tooltip += msg->get("+%d Mental", mental) + "\n";
-		if (offense > 0) tooltip += msg->get("+%d Offense", offense) + "\n";
-		if (defense > 0) tooltip += msg->get("+%d Defense", defense) + "\n";
-
-		// Remove the last newline
-		tooltip = tooltip.substr(0,tooltip.length()-1);
-	}
-
-	tooltip += "\n\n" + msg->get("%d %s", HERO_CLASSES[index].currency, CURRENCY);
-
+	if (HERO_CLASSES[index].description != "") tooltip += msg->get(HERO_CLASSES[index].description);
 	return tooltip;
 }
 
