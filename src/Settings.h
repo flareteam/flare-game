@@ -32,6 +32,34 @@ typedef struct Element{
 	std::string resist;
 }Element;
 
+typedef struct HeroClass{
+	std::string name;
+	std::string description;
+	int currency;
+	std::string equipment;
+	int physical;
+	int mental;
+	int offense;
+	int defense;
+	int hotkeys[12];
+	std::vector<int> powers;
+
+	HeroClass() {
+		name = "";
+		description = "";
+		currency = 0;
+		equipment = "";
+		physical = 0;
+		mental = 0;
+		offense = 0;
+		defense = 0;
+		for (int i=0; i<12; i++) {
+			hotkeys[i] = 0;
+		}
+		powers.clear();
+	}
+}HeroClass;
+
 // Path info
 extern std::string PATH_CONF; // user-configurable settings files
 extern std::string PATH_USER; // important per-user data (saves)
@@ -112,6 +140,9 @@ extern short MAX_AVOIDANCE;
 
 // Elemental types
 extern std::vector<Element> ELEMENTS;
+
+// Hero classes
+extern std::vector<HeroClass> HERO_CLASSES;
 
 // Currency settings
 extern std::string CURRENCY;

@@ -75,6 +75,9 @@ void GameStatePlay::saveGame() {
 		// hero visual option
 		outfile << "option=" << pc->stats.base << "," << pc->stats.head << "," << pc->stats.portrait << "\n";
 
+		// hero class
+		outfile << "class=" << pc->stats.character_class << "\n";
+
 		// current experience
 		outfile << "xp=" << pc->stats.xp << "\n";
 
@@ -179,6 +182,9 @@ void GameStatePlay::loadGame() {
 				pc->stats.base = infile.nextValue();
 				pc->stats.head = infile.nextValue();
 				pc->stats.portrait = infile.nextValue();
+			}
+			else if (infile.key == "class") {
+				pc->stats.character_class = infile.nextValue();
 			}
 			else if (infile.key == "xp") {
 				pc->stats.xp = toInt(infile.val);
@@ -329,6 +335,36 @@ void GameStatePlay::loadGame() {
 
 	// load sounds (gender specific)
 	pc->loadSounds();
+
+}
+
+/**
+ * Load a class definition, index
+ */
+void GameStatePlay::loadClass(int index) {
+	// game slots are currently 1-4
+	if (game_slot == 0) return;
+
+	pc->stats.character_class = HERO_CLASSES[index].name;
+	pc->stats.physical_character += HERO_CLASSES[index].physical;
+	pc->stats.mental_character += HERO_CLASSES[index].mental;
+	pc->stats.offense_character += HERO_CLASSES[index].offense;
+	pc->stats.defense_character += HERO_CLASSES[index].defense;
+	menu->inv->currency += HERO_CLASSES[index].currency;
+	menu->inv->inventory[EQUIPMENT].setItems(HERO_CLASSES[index].equipment);
+	for (unsigned i=0; i<HERO_CLASSES[index].powers.size(); i++) {
+		menu->pow->powers_list.push_back(HERO_CLASSES[index].powers[i]);
+	}
+	menu->act->set(HERO_CLASSES[index].hotkeys);
+	
+	menu->inv->inventory[EQUIPMENT].fillEquipmentSlots();
+	
+	// initialize vars
+	pc->stats.recalc();
+	menu->inv->applyEquipment(menu->inv->inventory[EQUIPMENT].storage);
+
+	// reset character menu
+	menu->chr->refreshStats();
 
 }
 

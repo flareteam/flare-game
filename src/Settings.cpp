@@ -144,6 +144,9 @@ short MAX_AVOIDANCE = 99;
 // Elemental types
 std::vector<Element> ELEMENTS;
 
+// Hero classes
+std::vector<HeroClass> HERO_CLASSES;
+
 // Currency settings
 std::string CURRENCY = "Gold";
 float VENDOR_RATIO = 0.25;
@@ -412,6 +415,48 @@ void loadMiscSettings() {
 		}
 		infile.close();
 	} else fprintf(stderr, "Unable to open engine/elements.txt!\n");
+	// classes.txt
+	if (infile.open(mods->locate("engine/classes.txt").c_str())) {
+		HeroClass c;
+		HERO_CLASSES.clear();
+		while (infile.next()) {
+			if (infile.key == "name") c.name = infile.val;
+
+			if (c.name != "") {
+				HERO_CLASSES.push_back(c);
+				c.name = "";
+			}
+
+			if (!HERO_CLASSES.empty()) {
+				if (infile.key == "description") HERO_CLASSES.back().description = infile.val;
+				else if (infile.key == "currency") HERO_CLASSES.back().currency = toInt(infile.val);
+				else if (infile.key == "equipment") HERO_CLASSES.back().equipment = infile.val;
+				else if (infile.key == "physical") HERO_CLASSES.back().physical = toInt(infile.val);
+				else if (infile.key == "mental") HERO_CLASSES.back().mental = toInt(infile.val);
+				else if (infile.key == "offense") HERO_CLASSES.back().offense = toInt(infile.val);
+				else if (infile.key == "defense") HERO_CLASSES.back().defense = toInt(infile.val);
+				else if (infile.key == "actionbar") {
+					for (int i=0; i<12; i++) {
+						HERO_CLASSES.back().hotkeys[i] = toInt(infile.nextValue());
+					}
+				}
+				else if (infile.key == "powers") {
+					string power;
+					while ( (power = infile.nextValue()) != "") {
+						HERO_CLASSES.back().powers.push_back(toInt(power));
+					}
+				}
+			}
+		}
+		infile.close();
+	} else fprintf(stderr, "Unable to open engine/classes.txt!\n");
+
+	// Make a default hero class if none were found
+	if (HERO_CLASSES.empty()) {
+		HeroClass c;
+		c.name = msg->get("Adventurer");
+		HERO_CLASSES.push_back(c);
+	}
 }
 
 bool loadSettings() {

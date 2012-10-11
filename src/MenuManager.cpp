@@ -224,6 +224,7 @@ void MenuManager::logic() {
 	log->logic();
 	talker->logic();
 	stash->logic();
+
 	if (chr->checkUpgrade() || stats->level_up) {
 		// apply equipment and max hp/mp
 		inv->applyEquipment(inv->inventory[EQUIPMENT].storage);
