@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: 0.17\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-26 20:53+0300\n"
-"PO-Revision-Date: 2012-10-10 21:26+0100\n"
+"PO-Revision-Date: 2012-10-11 20:23+0100\n"
 "Last-Translator: Andrzej Adamczyk <akasei@inoto.net>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -37,7 +37,7 @@ msgstr "Zostałeś pokonany. Tracisz połowę swojego %s. Naciśnij Enter by kon
 
 #: ../../../src/Avatar.cpp:708 ../../../src/Enemy.cpp:168
 msgid "miss"
-msgstr "miss"
+msgstr "chybienie"
 
 #: ../../../src/Avatar.cpp:795 ../../../src/Enemy.cpp:261
 #: ../../../src/PowerManager.cpp:762 ../../../src/PowerManager.cpp:764
@@ -72,7 +72,7 @@ msgstr "Życie przywrócone."
 
 #: ../../../src/CampaignManager.cpp:168
 msgid "MP restored."
-msgstr "Mana przywrócona"
+msgstr "Mana przywrócona."
 
 #: ../../../src/CampaignManager.cpp:173
 msgid "HP and MP restored."
@@ -98,7 +98,7 @@ msgstr "Ok"
 
 #: ../../../src/GameStateConfig.cpp:82 ../../../src/GameStateConfig.cpp:161
 msgid "Defaults"
-msgstr "Domyślnie"
+msgstr "Domyślne"
 
 #: ../../../src/GameStateConfig.cpp:87 ../../../src/GameStateNew.cpp:49
 #: ../../../src/InputState.cpp:55
@@ -151,7 +151,7 @@ msgid "Show combat text"
 msgstr "Pokaż informacje o walce"
 
 #: ../../../src/GameStateConfig.cpp:278
-# Comment: Poprosze o osobę bardziej obeznaną o prawidłowe tłumaczenie.
+# Comment: Poprosze osobę bardziej obeznaną o prawidłowe tłumaczenie.
 msgid "Hardware surfaces"
 msgstr "Hardware surfaces"
 
@@ -174,7 +174,7 @@ msgstr "Pozwól na zmianę gammy"
 #: ../../../src/GameStateConfig.cpp:344
 # Comment: Poprosze o osobę bardziej obeznaną o prawidłowe tłumaczenie.
 msgid "Animated tiles"
-msgstr "Animated tiles"
+msgstr "Animowana grafika"
 
 #: ../../../src/GameStateConfig.cpp:357
 msgid "Mouse aim"
@@ -242,8 +242,9 @@ msgid "Delete this save?"
 msgstr "Usunąć ten zapis?"
 
 #: ../../../src/GameStateLoad.cpp:58
+# Comment: Tak, "Wyjście do ekranu powitalnego" mniej pasowało...
 msgid "Exit to Title"
-msgstr "Wyjście do ektanu powitalnego"
+msgstr "Wyjście"
 
 #: ../../../src/GameStateLoad.cpp:64
 msgid "Choose a Slot"
@@ -291,7 +292,7 @@ msgstr "Wybierz Imię"
 
 #: ../../../src/GameStateNew.cpp:137
 msgid "Permadeath?"
-msgstr "Raz kozie śmierć?"
+msgstr "Raz się żyje."
 
 #: ../../../src/GameStatePlay.cpp:90
 msgid "Loading..."
@@ -401,11 +402,11 @@ msgstr "Dziennik"
 #: ../../../src/InputState.cpp:75
 # Comment: Jak znajdę w grze to przetłumaczę odpowiednio.
 msgid "Main1"
-msgstr "Main1"
+msgstr "Main 1"
 
 #: ../../../src/InputState.cpp:76
 msgid "Main2"
-msgstr "Main2"
+msgstr "Main 2"
 
 #: ../../../src/InputState.cpp:77
 msgid "Ctrl"
@@ -442,11 +443,11 @@ msgstr "kółko do tyłu"
 #: ../../../src/InputState.cpp:86
 # Comment: Jak znajdę w grze to przetłumaczę odpowiednio.
 msgid "mbx1"
-msgstr "mbx1"
+msgstr "mbx 1"
 
 #: ../../../src/InputState.cpp:87
 msgid "mbx2"
-msgstr "mbx2"
+msgstr "mbx 2"
 
 #: ../../../src/ItemManager.cpp:512
 #, c-format
@@ -490,6 +491,7 @@ msgstr "Absorbcja: %d-%d"
 
 #: ../../../src/ItemManager.cpp:545
 #, c-format
+# Commit: Chyba nie ma zastrzeżeń.
 msgid "Absorb: %d"
 msgstr "Absorbcja: %d"
 
@@ -506,27 +508,28 @@ msgstr "Zmniejsza %s o %d"
 #: ../../../src/ItemManager.cpp:580 ../../../src/MenuPowers.cpp:516
 #: ../../../src/MenuPowers.cpp:518
 #, c-format
+# Comment: Trochę zmienie nazwy.
 msgid "Requires Physical %d"
-msgstr "Wymaga %d pkt. siły fizycznej"
+msgstr "Wymaga %d pkt Siły"
 
 #: ../../../src/ItemManager.cpp:584 ../../../src/MenuPowers.cpp:522
 #: ../../../src/MenuPowers.cpp:524
 #, c-format
 msgid "Requires Mental %d"
-msgstr "Wymaga %d pkt. w magii"
+msgstr "Wymaga %d pkt Magii"
 
 #: ../../../src/ItemManager.cpp:588 ../../../src/MenuPowers.cpp:504
 #: ../../../src/MenuPowers.cpp:506
 #, c-format
 # Comment: Nie mam pewności, więc pozostawie by nie sprawić jakiegoś artefaktu.
 msgid "Requires Offense %d"
-msgstr "Wymaga %d pkt. Offence"
+msgstr "Wymaga %d pkt Ataku"
 
 #: ../../../src/ItemManager.cpp:592 ../../../src/MenuPowers.cpp:510
 #: ../../../src/MenuPowers.cpp:512
 #, c-format
 msgid "Requires Defense %d"
-msgstr "Wymaga %d pkt. w obronie"
+msgstr "Wymaga %d pkt Obrony"
 
 #: ../../../src/ItemManager.cpp:602
 #, c-format
@@ -546,7 +549,7 @@ msgstr "Cena sprzedaży: %d %s"
 #: ../../../src/ItemManager.cpp:616
 #, c-format
 msgid "Sell Price: %d %s each"
-msgstr "Cena sprzedarzy: %d %s (za każdy)"
+msgstr "Cena sprzedaży: %d %s (za każdy)"
 
 #: ../../../src/ItemManager.cpp:628
 msgid "Set: "
@@ -604,7 +607,7 @@ msgstr "Magia"
 
 #: ../../../src/MenuCharacter.cpp:224
 msgid "Offense"
-msgstr "Offense"
+msgstr "Atak"
 
 #: ../../../src/MenuCharacter.cpp:225
 msgid "Defense"
@@ -616,12 +619,12 @@ msgstr "pozostało punktów"
 
 #: ../../../src/MenuCharacter.cpp:298
 msgid "Max HP:"
-msgstr "Maksymalne Życie:"
+msgstr "Pełne Życie:"
 
 #: ../../../src/MenuCharacter.cpp:299
 #, c-format
 msgid "Each point of Physical grants +%d HP. Each level grants +%d HP"
-msgstr "Każdy punkt Siły zwieksza o +%d Życie. Każdy poziom zwiększa o +%d pkt. Życie"
+msgstr "Każdy punkt Siły zwiększa o +%d pkt Życie. Każdy poziom zwiększa o +%d pkt Życie"
 
 #: ../../../src/MenuCharacter.cpp:304
 msgid "HP Regen:"
@@ -635,12 +638,12 @@ msgstr "Ticks of HP regen per minute. Each point of Physical grants +%d HP regen
 
 #: ../../../src/MenuCharacter.cpp:310
 msgid "Max MP:"
-msgstr "Maksymalna Mana:"
+msgstr "Pełna Mana:"
 
 #: ../../../src/MenuCharacter.cpp:311
 #, c-format
 msgid "Each point of Mental grants +%d MP. Each level grants +%d MP"
-msgstr "Każdy punkt w magii zwiększa o +%d Many. Każdy poziom zwiększa o +%d Many"
+msgstr "Każdy punkt Magii zwiększa o +%d pkt Many. Każdy poziom zwiększa o +%d pkt Many"
 
 #: ../../../src/MenuCharacter.cpp:316
 msgid "MP Regen:"
@@ -654,7 +657,7 @@ msgstr "Ticks of MP regen per minute. Each point of Mental grants +%d MP regen. 
 
 #: ../../../src/MenuCharacter.cpp:322
 msgid "Accuracy (vs lvl 1):"
-msgstr "Celność (przeciwko poziomu 1):"
+msgstr "Celność (przeciwko poz. 1):"
 
 #: ../../../src/MenuCharacter.cpp:323 ../../../src/MenuCharacter.cpp:329
 #, c-format
@@ -664,20 +667,20 @@ msgstr "Each point of Offense grants +%d accuracy. Each level grants +%d accurac
 
 #: ../../../src/MenuCharacter.cpp:328
 msgid "Accuracy (vs lvl 5):"
-msgstr "Celność (przeciwko poziomu 5):"
+msgstr "Celność (przeciwko poz. 5):"
 
 #: ../../../src/MenuCharacter.cpp:334
 msgid "Avoidance (vs lvl 1):"
-msgstr "Uniki (przeciwko poziomu 1):"
+msgstr "Uniki (przeciwko poz. 1):"
 
 #: ../../../src/MenuCharacter.cpp:335 ../../../src/MenuCharacter.cpp:341
 #, c-format
 msgid "Each point of Defense grants +%d avoidance. Each level grants +%d avoidance"
-msgstr "Każdy punkt w Obronie zwiększa o +%d uniki. Każdy poziom zwiększa o +%d uniki"
+msgstr "Każdy punkt w Obronie zwiększa o +%d pkt uniki. Każdy poziom zwiększa o +%d pkt uniki"
 
 #: ../../../src/MenuCharacter.cpp:340
 msgid "Avoidance (vs lvl 5):"
-msgstr "Uniki (przeciwko poziomu 1):"
+msgstr "Uniki (przeciwko poz. 1):"
 
 #: ../../../src/MenuCharacter.cpp:349
 msgid "Melee Damage:"
@@ -721,20 +724,20 @@ msgstr "podstawa (%d), bonus (%d)"
 
 #: ../../../src/MenuCharacter.cpp:420
 msgid "Mental (M) increases mental weapon proficiency and total MP."
-msgstr "Magia (M) zwiększa biegłość w broni magicznej i całkowitą ilość Many"
+msgstr "Magia (M) zwiększa biegłość w broni magicznej i całkowitą ilość Many."
 
 #: ../../../src/MenuCharacter.cpp:424
 # Comment: czym prędzej musze rozkminić 'Offence', jak to ugryźć
 msgid "Offense (O) increases ranged weapon proficiency and accuracy."
-msgstr "Offense (O) increases ranged weapon proficiency and accuracy."
+msgstr "Atak (O) zwiększa biegłość w broni o dużym zasięgu i celność."
 
 #: ../../../src/MenuCharacter.cpp:428
 msgid "Defense (D) increases armor proficiency and avoidance."
-msgstr "Obrona (D) zwiększa biegłość w zbroi i uniki."
+msgstr "Obrona (D) zwiększa biegłość w zbroi i unikach."
 
 #: ../../../src/MenuCharacter.cpp:432
 msgid "Unspent attribute points"
-msgstr "Niewykorzystane punkty atrybutów"
+msgstr "Punkty atrybutów"
 
 #: ../../../src/MenuEnemy.cpp:134
 msgid "Dead"
@@ -751,7 +754,7 @@ msgstr "Wyjście"
 
 #: ../../../src/MenuExit.cpp:60
 msgid "Save and exit to title?"
-msgstr "Zapisać i wyjść do ekranu powitalnego?"
+msgstr "Zapisać i wyjść?"
 
 #: ../../../src/MenuInventory.cpp:212
 msgid "Use SHIFT to move only one item."
@@ -789,7 +792,7 @@ msgstr "Za mało pieniędzy."
 
 #: ../../../src/MenuPowers.cpp:429
 msgid "Unspent skill points:"
-msgstr "Nierozdane punkty umiejętności:"
+msgstr "Punkty umiejętności:"
 
 #: ../../../src/MenuPowers.cpp:470
 msgid "Requires a physical weapon"
@@ -832,7 +835,7 @@ msgstr "Wymagany Poziom %d"
 #: ../../../src/MenuPowers.cpp:541 ../../../src/MenuPowers.cpp:546
 #, c-format
 msgid "Requires %d Skill Point"
-msgstr "Wymaga %d pkt. umiejętności"
+msgstr "Wymaga %d pkt umiejętności"
 
 #: ../../../src/MenuPowers.cpp:554
 msgid "Click to Unlock"
@@ -841,21 +844,21 @@ msgstr "Naciśnij by odblokować"
 #: ../../../src/MenuPowers.cpp:561 ../../../src/MenuPowers.cpp:564
 #, c-format
 msgid "Requires Power: %s"
-msgstr "Requires Power: %s"
+msgstr "Wymaga Umiejętności: %s"
 
 #: ../../../src/MenuPowers.cpp:569
 #, c-format
 msgid "Costs %d MP"
-msgstr "Costs %d MP"
+msgstr "Zużywa %d pkt Many"
 
 #: ../../../src/MenuPowers.cpp:573
 #, c-format
 msgid "Cooldown: %d seconds"
-msgstr "Cooldown: %d seconds"
+msgstr "Oczekiwanie: %d sekund"
 
 #: ../../../src/MenuStash.cpp:125
 msgid "Shared Stash"
-msgstr "Shared Stash"
+msgstr "Kufer"
 
 #: ../../../src/MenuTalker.cpp:47
 msgid "Trade"
