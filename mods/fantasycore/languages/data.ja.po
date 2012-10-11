@@ -1,0 +1,3095 @@
+# FLARE (Free/Libre Action RPG Engine)
+# Copyright (C) 2011 Clint Bellanger
+# This file is distributed under the same license as the FLARE package.
+# Paul Wortmann (RoboPaul) <paul.wortmann@gmail.com>, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: 0.15\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-21 20:09+\n"
+"PO-Revision-Date: 2011-10-30 18:28+0900\n"
+"Last-Translator: Paul Wortmann (RoboPaul) <paul.wortmann@gmail.com>\n"
+"Language-Team: Paul Wortmann <www.physhexgames.co.nr>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: Japanese \n"
+
+#: ../items/items.txt:3
+msgid "Health Potion"
+msgstr "ヘルスポーション"
+
+#: ../items/items.txt:7
+msgid "Restore 25 HP"
+msgstr "25 HPを復元する"
+
+#: ../items/items.txt:8
+msgid "consumable"
+msgstr ""
+
+#: ../items/items.txt:17
+msgid "Mana Potion"
+msgstr "マナポーション"
+
+#: ../items/items.txt:21
+msgid "Restore 25 MP"
+msgstr "25 MPを復元する"
+
+#: ../items/items.txt:31
+msgid "Health Flask"
+msgstr "健康フラスコ"
+
+#: ../items/items.txt:35
+msgid "Restore 75 HP"
+msgstr "75 HPを復元する"
+
+#: ../items/items.txt:45
+msgid "Mana Flask"
+msgstr "マナのフラスコ"
+
+#: ../items/items.txt:49
+msgid "Restore 75 MP"
+msgstr "75 MPを復元する"
+
+#: ../items/items.txt:59
+msgid "Diamond"
+msgstr "ダイヤモンド"
+
+#: ../items/items.txt:63
+msgid "gem"
+msgstr ""
+
+#: ../items/items.txt:71
+msgid "Emerald"
+msgstr "エメラルド"
+
+#: ../items/items.txt:83
+msgid "Ruby"
+msgstr "ルビー"
+
+#: ../items/items.txt:95
+msgid "Sapphire"
+msgstr "サファイア"
+
+#: ../items/items.txt:121
+msgid "Scroll of Teleport"
+msgstr "テレポートのスクロール"
+
+#: ../items/items.txt:125
+msgid "Blink to a nearby location"
+msgstr "近くの場所に点滅"
+
+#: ../items/items.txt:135
+msgid "Scroll of Time Stop"
+msgstr "タイムストップのスクロール"
+
+#: ../items/items.txt:139
+msgid "Stun nearby enemies for 10 seconds"
+msgstr "10秒間スタン近くの敵"
+
+#: ../items/items.txt:149
+msgid "Scroll of Haste"
+msgstr "ヘイストのスクロール"
+
+#: ../items/items.txt:153
+msgid "Double run and attack speed for 20 seconds"
+msgstr "20秒のための二重実行と攻撃速度"
+
+#: ../items/items.txt:163
+msgid "Clothes"
+msgstr "服"
+
+#: ../items/items.txt:166
+msgid "body"
+msgstr ""
+
+#: ../items/items.txt:177
+msgid "Tattered Clothes"
+msgstr "襤褸"
+
+#: ../items/items.txt:191
+msgid "Dwarven Clothes"
+msgstr "ドワーフの服"
+
+#: ../items/items.txt:196
+msgid "HP"
+msgstr "HP"
+
+#: ../items/items.txt:205
+msgid "Clothes of Restoration"
+msgstr "修復の服"
+
+#: ../items/items.txt:210
+msgid "HP regen"
+msgstr "HPリジェネ"
+
+#: ../items/items.txt:219
+msgid "Elven Clothes"
+msgstr "エルフの服"
+
+#: ../items/items.txt:224
+msgid "MP"
+msgstr "MP"
+
+#: ../items/items.txt:233
+msgid "Clothes of Meditation"
+msgstr "瞑想の服"
+
+#: ../items/items.txt:238
+msgid "MP regen"
+msgstr "MPリジェネ"
+
+#: ../items/items.txt:247
+msgid "Battle Clothes"
+msgstr "バトル服"
+
+#: ../items/items.txt:261
+msgid "Clothes of Accuracy"
+msgstr "精度の服"
+
+#: ../items/items.txt:266
+msgid "accuracy"
+msgstr "精度"
+
+#: ../items/items.txt:275
+msgid "Clothes of Avoidance"
+msgstr "回避の服"
+
+#: ../items/items.txt:280
+msgid "avoidance"
+msgstr "回避"
+
+#: ../items/items.txt:289
+msgid "Summer Clothes"
+msgstr "夏服"
+
+#: ../items/items.txt:294
+msgid "fire resist"
+msgstr "火のレジスト"
+
+#: ../items/items.txt:303
+msgid "Winter Clothes"
+msgstr "冬服"
+
+#: ../items/items.txt:308
+msgid "ice resist"
+msgstr "氷レジスト"
+
+#: ../items/items.txt:317
+msgid "Clothes of Slaying"
+msgstr "殺害の服"
+
+#: ../items/items.txt:322
+msgid "crit"
+msgstr "クリティカル"
+
+#: ../items/items.txt:331
+msgid "Warlord Clothes"
+msgstr "将軍の服"
+
+#: ../items/items.txt:346
+msgid "Clothes of Victory"
+msgstr "勝利の服"
+
+#: ../items/items.txt:361
+msgid "Archmage Clothes"
+msgstr "アークメイジの服"
+
+#: ../items/items.txt:376
+msgid "Clothes of Wizardry"
+msgstr "ウィザードリィの服"
+
+#: ../items/items.txt:391
+msgid "Ancient Clothes"
+msgstr "古代の服"
+
+#: ../items/items.txt:405
+msgid "Clothes of Precision"
+msgstr "精密の服"
+
+#: ../items/items.txt:420
+msgid "Clothes of Protection"
+msgstr "保護の服"
+
+#: ../items/items.txt:435
+msgid "Fiery Clothes"
+msgstr "炎の服"
+
+#: ../items/items.txt:450
+msgid "Frozen Clothes"
+msgstr "フローズン服"
+
+#: ../items/items.txt:465
+msgid "Clothes of Destruction"
+msgstr "破壊の服"
+
+#: ../items/items.txt:480
+msgid "Butcher's Apron"
+msgstr "肉屋のエプロン"
+
+#: ../items/items.txt:495
+msgid "Medic Wrap"
+msgstr "メディックラップ"
+
+#: ../items/items.txt:510
+msgid "Wizard Tunic"
+msgstr "ウィザードのチュニック"
+
+#: ../items/items.txt:525
+msgid "Spellwoven Clothes"
+msgstr "織綴る服"
+
+#: ../items/items.txt:540
+msgid "Hunter's Garb"
+msgstr "ハンターの服装"
+
+#: ../items/items.txt:555
+msgid "Night Watch"
+msgstr "ナイトウォッチ"
+
+#: ../items/items.txt:570
+msgid "Nomad Rags"
+msgstr "ノマドのぼろ"
+
+#: ../items/items.txt:585
+msgid "Fur-Lined Tunic"
+msgstr "毛皮ライニングチュニック"
+
+#: ../items/items.txt:600
+msgid "Vigilante"
+msgstr "自警団"
+
+#: ../items/items.txt:615
+msgid "Dagger"
+msgstr "ダガー"
+
+#: ../items/items.txt:618
+msgid "main"
+msgstr ""
+
+#: ../items/items.txt:630
+msgid "Rusted Dagger"
+msgstr "さびた短剣"
+
+#: ../items/items.txt:645
+msgid "Cursed Dagger"
+msgstr "ダガーは呪われた"
+
+#: ../items/items.txt:661
+msgid "Dull Dagger"
+msgstr "ダルダガー"
+
+#: ../items/items.txt:676
+msgid "Dwarven Dagger"
+msgstr "ドワーフのダガー"
+
+#: ../items/items.txt:691
+msgid "Dagger of Restoration"
+msgstr "修復のダガー"
+
+#: ../items/items.txt:706
+msgid "Elven Dagger"
+msgstr "エルフのダガー"
+
+#: ../items/items.txt:721
+msgid "Dagger of Meditation"
+msgstr "瞑想のダガー"
+
+#: ../items/items.txt:736
+msgid "Battle Dagger"
+msgstr "バトルダガー"
+
+#: ../items/items.txt:750
+msgid "Dagger of Accuracy"
+msgstr "精度のダガー"
+
+#: ../items/items.txt:765
+msgid "Dagger of Avoidance"
+msgstr "回避のダガー"
+
+#: ../items/items.txt:780
+msgid "Summer Dagger"
+msgstr "夏のダガー"
+
+#: ../items/items.txt:795
+msgid "Winter Dagger"
+msgstr "冬のダガー"
+
+#: ../items/items.txt:810
+msgid "Dagger of Slaying"
+msgstr "殺害のダガー"
+
+#: ../items/items.txt:825
+msgid "Warlord Dagger"
+msgstr "ウォー​​ロードダガー"
+
+#: ../items/items.txt:840
+msgid "Dagger of Victory"
+msgstr "勝利のダガー"
+
+#: ../items/items.txt:855
+msgid "Archmage Dagger"
+msgstr "アークメイジダガー"
+
+#: ../items/items.txt:870
+msgid "Dagger of Wizardry"
+msgstr "ウィザードリィのダガー"
+
+#: ../items/items.txt:885
+msgid "Ancient Dagger"
+msgstr "古代の短剣"
+
+#: ../items/items.txt:899
+msgid "Dagger of Precision"
+msgstr "精密のダガー"
+
+#: ../items/items.txt:914
+msgid "Dagger of Protection"
+msgstr "保護のダガー"
+
+#: ../items/items.txt:929
+msgid "Fiery Dagger"
+msgstr "炎の短剣"
+
+#: ../items/items.txt:944
+msgid "Frozen Dagger"
+msgstr "フローズンダガー"
+
+#: ../items/items.txt:959
+msgid "Dagger of Destruction"
+msgstr "破壊のダガー"
+
+#: ../items/items.txt:974
+msgid "Sacrificial Knife"
+msgstr "犠牲ナイフ"
+
+#: ../items/items.txt:989
+msgid "Thorn"
+msgstr "とげ"
+
+#: ../items/items.txt:1004
+msgid "Mind Shard"
+msgstr "マインドシャード"
+
+#: ../items/items.txt:1019
+msgid "Ether Slice"
+msgstr "エーテルスライス"
+
+#: ../items/items.txt:1034
+msgid "Pinpoint"
+msgstr "ピンポイント"
+
+#: ../items/items.txt:1049
+msgid "Dancing Knife"
+msgstr "ダンシングナイフ"
+
+#: ../items/items.txt:1064
+msgid "Fire Shard"
+msgstr "ファイアシャード"
+
+#: ../items/items.txt:1079
+msgid "Ice Shard"
+msgstr "アイスシャード"
+
+#: ../items/items.txt:1094
+msgid "Goblin Carver"
+msgstr "ゴブリンカーバー"
+
+#: ../items/items.txt:1109
+msgid "Shortsword"
+msgstr "ショートソード"
+
+#: ../items/items.txt:1123
+msgid "Rusted Shortsword"
+msgstr "さびたショートソード"
+
+#: ../items/items.txt:1137
+msgid "Cursed Shortsword"
+msgstr "ショートソードは呪い"
+
+#: ../items/items.txt:1152
+msgid "Dull Shortsword"
+msgstr "ダルショートソード"
+
+#: ../items/items.txt:1167
+msgid "Dwarven Shortsword"
+msgstr "ドワーフのショートソード"
+
+#: ../items/items.txt:1182
+msgid "Shortsword of Restoration"
+msgstr "修復のショートソード"
+
+#: ../items/items.txt:1197
+msgid "Elven Shortsword"
+msgstr "エルフのショートソード"
+
+#: ../items/items.txt:1212
+msgid "Shortsword of Meditation"
+msgstr "瞑想のショートソード"
+
+#: ../items/items.txt:1227
+msgid "Battle Shortsword"
+msgstr "バトルショートソード"
+
+#: ../items/items.txt:1241
+msgid "Shortsword of Accuracy"
+msgstr "精度のショートソード"
+
+#: ../items/items.txt:1256
+msgid "Shortsword of Avoidance"
+msgstr "回避のショートソード"
+
+#: ../items/items.txt:1271
+msgid "Summer Shortsword"
+msgstr "夏のショートソード"
+
+#: ../items/items.txt:1286
+msgid "Winter Shortsword"
+msgstr "冬のショートソード"
+
+#: ../items/items.txt:1301
+msgid "Shortsword of Slaying"
+msgstr "殺害のショートソード"
+
+#: ../items/items.txt:1316
+msgid "Warlord Shortsword"
+msgstr "将軍のショートソード"
+
+#: ../items/items.txt:1331
+msgid "Shortsword of Victory"
+msgstr "勝利のショートソード"
+
+#: ../items/items.txt:1346
+msgid "Archmage Shortsword"
+msgstr "アークメイジショートソード"
+
+#: ../items/items.txt:1361
+msgid "Shortsword of Wizardry"
+msgstr "ウィザードリィのショートソード"
+
+#: ../items/items.txt:1376
+msgid "Ancient Shortsword"
+msgstr "古代のショートソード"
+
+#: ../items/items.txt:1390
+msgid "Shortsword of Precision"
+msgstr "精密のショートソード"
+
+#: ../items/items.txt:1405
+msgid "Shortsword of Protection"
+msgstr "保護のショートソード"
+
+#: ../items/items.txt:1420
+msgid "Fiery Shortsword"
+msgstr "炎のショートソード"
+
+#: ../items/items.txt:1435
+msgid "Frozen Shortsword"
+msgstr "冷凍ショートソード"
+
+#: ../items/items.txt:1450
+msgid "Shortsword of Destruction"
+msgstr "破壊のショートソード"
+
+#: ../items/items.txt:1465
+msgid "Gladius"
+msgstr "グラディウス"
+
+#: ../items/items.txt:1480
+msgid "Mending Blade"
+msgstr "メンディングブレード"
+
+#: ../items/items.txt:1495
+msgid "Mana Edge"
+msgstr "マナのエッジ"
+
+#: ../items/items.txt:1510
+msgid "Demon Pact"
+msgstr "悪魔の協定"
+
+#: ../items/items.txt:1525
+msgid "Watchman's Blade"
+msgstr "夜警ブレイド"
+
+#: ../items/items.txt:1540
+msgid "Parry Blade"
+msgstr "パリーブレード"
+
+#: ../items/items.txt:1555
+msgid "Summersword"
+msgstr "夏のソード"
+
+#: ../items/items.txt:1570
+msgid "Wintersword"
+msgstr "冬のソード"
+
+#: ../items/items.txt:1585
+msgid "Sting"
+msgstr "スティング"
+
+#: ../items/items.txt:1600
+msgid "Longsword"
+msgstr "ロングソード"
+
+#: ../items/items.txt:1614
+msgid "Rusted Longsword"
+msgstr "さびたロングソード"
+
+#: ../items/items.txt:1628
+msgid "Cursed Longsword"
+msgstr "ロングソードは呪い"
+
+#: ../items/items.txt:1643
+msgid "Dull Longsword"
+msgstr "ダルロングソード"
+
+#: ../items/items.txt:1658
+msgid "Dwarven Longsword"
+msgstr "ドワーフのロングソード"
+
+#: ../items/items.txt:1673
+msgid "Longsword of Restoration"
+msgstr "修復のロングソード"
+
+#: ../items/items.txt:1688
+msgid "Elven Longsword"
+msgstr "エルフのロングソード"
+
+#: ../items/items.txt:1703
+msgid "Longsword of Meditation"
+msgstr "瞑想のロングソード"
+
+#: ../items/items.txt:1718
+msgid "Battle Longsword"
+msgstr "バトルソード"
+
+#: ../items/items.txt:1732
+msgid "Longsword of Accuracy"
+msgstr "精度のロングソード"
+
+#: ../items/items.txt:1747
+msgid "Longsword of Avoidance"
+msgstr "回避のロングソード"
+
+#: ../items/items.txt:1762
+msgid "Summer Longsword"
+msgstr "夏のロングソード"
+
+#: ../items/items.txt:1777
+msgid "Winter Longsword"
+msgstr "冬のロングソード"
+
+#: ../items/items.txt:1792
+msgid "Longsword of Slaying"
+msgstr "殺害のロングソード"
+
+#: ../items/items.txt:1807
+msgid "Warlord Longsword"
+msgstr "将軍のロングソード"
+
+#: ../items/items.txt:1822
+msgid "Longsword of Victory"
+msgstr "勝利のロングソード"
+
+#: ../items/items.txt:1837
+msgid "Archmage Longsword"
+msgstr "アークメイジロングソード"
+
+#: ../items/items.txt:1852
+msgid "Longsword of Wizardry"
+msgstr "ウィザードリィのロングソード"
+
+#: ../items/items.txt:1867
+msgid "Ancient Longsword"
+msgstr "古代のロングソード"
+
+#: ../items/items.txt:1881
+msgid "Longsword of Precision"
+msgstr "精密のロングソード"
+
+#: ../items/items.txt:1896
+msgid "Longsword of Protection"
+msgstr "保護のロングソード"
+
+#: ../items/items.txt:1911
+msgid "Fiery Longsword"
+msgstr "炎のロングソード"
+
+#: ../items/items.txt:1926
+msgid "Frozen Longsword"
+msgstr "フローズンロングソード"
+
+#: ../items/items.txt:1941
+msgid "Longsword of Destruction"
+msgstr "破壊のロングソード"
+
+#: ../items/items.txt:1956
+msgid "Excalibur"
+msgstr "エクスカリバー"
+
+#: ../items/items.txt:1971
+msgid "Vampiric Sword"
+msgstr "吸血の剣"
+
+#: ../items/items.txt:1986
+msgid "Glamdring"
+msgstr "グラムドリング"
+
+#: ../items/items.txt:2001
+msgid "Durendal"
+msgstr "デュランダル"
+
+#: ../items/items.txt:2016
+msgid "Rapier"
+msgstr "レイピア"
+
+#: ../items/items.txt:2031
+msgid "Dueling Sword"
+msgstr "決闘の剣"
+
+#: ../items/items.txt:2046
+msgid "Flame Edge"
+msgstr "フレイムエッジ"
+
+#: ../items/items.txt:2061
+msgid "Frost Edge"
+msgstr "フロストエッジ"
+
+#: ../items/items.txt:2076
+msgid "Vorpal Sword"
+msgstr "ヴォーパルソード"
+
+#: ../items/items.txt:2091
+msgid "Greatsword"
+msgstr "グレートソード"
+
+#: ../items/items.txt:2105
+msgid "Rusted Greatsword"
+msgstr "さびたグレートソード"
+
+#: ../items/items.txt:2119
+msgid "Cursed Greatsword"
+msgstr "グレートソードは呪い"
+
+#: ../items/items.txt:2134
+msgid "Dull Greatsword"
+msgstr "ダルグレートソード"
+
+#: ../items/items.txt:2149
+msgid "Dwarven Greatsword"
+msgstr "ドワーフのグレートソード"
+
+#: ../items/items.txt:2164
+msgid "Greatsword of Restoration"
+msgstr "修復のグレートソード"
+
+#: ../items/items.txt:2179
+msgid "Elven Greatsword"
+msgstr "エルフのグレートソード"
+
+#: ../items/items.txt:2194
+msgid "Greatsword of Meditation"
+msgstr "瞑想のグレートソード"
+
+#: ../items/items.txt:2209
+msgid "Battle Greatsword"
+msgstr "バトルソード"
+
+#: ../items/items.txt:2223
+msgid "Greatsword of Accuracy"
+msgstr "精度のグレートソード"
+
+#: ../items/items.txt:2238
+msgid "Greatsword of Avoidance"
+msgstr "回避のグレートソード"
+
+#: ../items/items.txt:2253
+msgid "Summer Greatsword"
+msgstr "夏のグレートソード"
+
+#: ../items/items.txt:2268
+msgid "Winter Greatsword"
+msgstr "冬のグレートソード"
+
+#: ../items/items.txt:2283
+msgid "Greatsword of Slaying"
+msgstr "殺害のグレートソード"
+
+#: ../items/items.txt:2298
+msgid "Warlord Greatsword"
+msgstr "将軍のグレートソード"
+
+#: ../items/items.txt:2313
+msgid "Greatsword of Victory"
+msgstr "勝利のグレートソード"
+
+#: ../items/items.txt:2328
+msgid "Archmage Greatsword"
+msgstr "アークメイジグレートソード"
+
+#: ../items/items.txt:2343
+msgid "Greatsword of Wizardry"
+msgstr "ウィザードリィのグレートソード"
+
+#: ../items/items.txt:2358
+msgid "Ancient Greatsword"
+msgstr "古代のグレートソード"
+
+#: ../items/items.txt:2372
+msgid "Greatsword of Precision"
+msgstr "プレシジョンのグレートソード"
+
+#: ../items/items.txt:2387
+msgid "Greatsword of Protection"
+msgstr "保護のグレートソード"
+
+#: ../items/items.txt:2402
+msgid "Fiery Greatsword"
+msgstr "炎のグレートソード"
+
+#: ../items/items.txt:2417
+msgid "Frozen Greatsword"
+msgstr "冷凍グレートソード"
+
+#: ../items/items.txt:2432
+msgid "Greatsword of Destruction"
+msgstr "破壊のグレートソード"
+
+#: ../items/items.txt:2447
+msgid "Ragnarok"
+msgstr "ラグナロク"
+
+#: ../items/items.txt:2462
+msgid "Earth Rend"
+msgstr "地球のドレイク"
+
+#: ../items/items.txt:2477
+msgid "Joyeuse"
+msgstr "ジョイェウセ"
+
+#: ../items/items.txt:2492
+msgid "Soul Rend"
+msgstr "魂のドレイク"
+
+#: ../items/items.txt:2507
+msgid "Hrunting"
+msgstr "へルンチング"
+
+#: ../items/items.txt:2522
+msgid "Naegling"
+msgstr "ナェグリング"
+
+#: ../items/items.txt:2537
+msgid "Sunblade"
+msgstr "日ブレード"
+
+#: ../items/items.txt:2552
+msgid "Moonblade"
+msgstr "月ブレード"
+
+#: ../items/items.txt:2567
+msgid "Armageddon"
+msgstr "アルマゲドン"
+
+#: ../items/items.txt:2582
+msgid "Wand"
+msgstr "ワンド"
+
+#: ../items/items.txt:2596
+msgid "Cracked Wand"
+msgstr "ワンドのひび割れ"
+
+#: ../items/items.txt:2610
+msgid "Cursed Wand"
+msgstr "ワンドは、呪われた"
+
+#: ../items/items.txt:2625
+msgid "Depleted Wand"
+msgstr "劣化ウランのワンド"
+
+#: ../items/items.txt:2640
+msgid "Dwarven Wand"
+msgstr "ドワーフのワンド"
+
+#: ../items/items.txt:2655
+msgid "Wand of Restoration"
+msgstr "修復のワンド"
+
+#: ../items/items.txt:2670
+msgid "Elven Wand"
+msgstr "エルフのワンド"
+
+#: ../items/items.txt:2685
+msgid "Wand of Meditation"
+msgstr "瞑想のワンド"
+
+#: ../items/items.txt:2700
+msgid "Battle Wand"
+msgstr "バトルのワンド"
+
+#: ../items/items.txt:2714
+msgid "Wand of Accuracy"
+msgstr "精度のワンド"
+
+#: ../items/items.txt:2729
+msgid "Wand of Avoidance"
+msgstr "回避のワンド"
+
+#: ../items/items.txt:2744
+msgid "Summer Wand"
+msgstr "夏のワンド"
+
+#: ../items/items.txt:2759
+msgid "Winter Wand"
+msgstr "冬のワンド"
+
+#: ../items/items.txt:2774
+msgid "Wand of Slaying"
+msgstr "殺害のワンド"
+
+#: ../items/items.txt:2789
+msgid "Warlord Wand"
+msgstr "将軍のワンド"
+
+#: ../items/items.txt:2804
+msgid "Wand of Victory"
+msgstr "勝利のワンド"
+
+#: ../items/items.txt:2819
+msgid "Archmage Wand"
+msgstr "アークメイジのワンド"
+
+#: ../items/items.txt:2834
+msgid "Wand of Wizardry"
+msgstr "ウィザードリィのワンド"
+
+#: ../items/items.txt:2849
+msgid "Ancient Wand"
+msgstr "古代のワンド"
+
+#: ../items/items.txt:2863
+msgid "Wand of Precision"
+msgstr "精密のワンド"
+
+#: ../items/items.txt:2878
+msgid "Wand of Protection"
+msgstr "保護のワンド"
+
+#: ../items/items.txt:2893
+msgid "Fiery Wand"
+msgstr "炎のワンド"
+
+#: ../items/items.txt:2908
+msgid "Frozen Wand"
+msgstr "フローズンワンド"
+
+#: ../items/items.txt:2923
+msgid "Wand of Destruction"
+msgstr "破壊のワンド"
+
+#: ../items/items.txt:2938
+msgid "Tongue Depressor"
+msgstr "舌圧子"
+
+#: ../items/items.txt:2953
+msgid "Living Branch"
+msgstr "リビング支店"
+
+#: ../items/items.txt:2968
+msgid "Glow Stick"
+msgstr "グロースティック"
+
+#: ../items/items.txt:2983
+msgid "Mana Catcher"
+msgstr "マナキャッチャー"
+
+#: ../items/items.txt:2998
+msgid "Conductor's Baton"
+msgstr "指揮棒"
+
+#: ../items/items.txt:3013
+msgid "Blink Wand"
+msgstr "ブリンクの杖"
+
+#: ../items/items.txt:3028
+msgid "Enchanted Torch"
+msgstr "魔法にかけトーチ"
+
+#: ../items/items.txt:3043
+msgid "Snowy Branch"
+msgstr "雪のブランチ"
+
+#: ../items/items.txt:3058
+msgid "Lich Finger"
+msgstr "リッチフィンガー"
+
+#: ../items/items.txt:3073
+msgid "Rod"
+msgstr "ロッド"
+
+#: ../items/items.txt:3087
+msgid "Cracked Rod"
+msgstr "ロッドは、ひびが入った"
+
+#: ../items/items.txt:3101
+msgid "Cursed Rod"
+msgstr "ロッドの呪い"
+
+#: ../items/items.txt:3116
+msgid "Depleted Rod"
+msgstr "劣化ロッド"
+
+#: ../items/items.txt:3131
+msgid "Dwarven Rod"
+msgstr "ドワーフのロッド"
+
+#: ../items/items.txt:3146
+msgid "Rod of Restoration"
+msgstr "修復のロッド"
+
+#: ../items/items.txt:3161
+msgid "Elven Rod"
+msgstr "エルフのロッド"
+
+#: ../items/items.txt:3176
+msgid "Rod of Meditation"
+msgstr "瞑想のロッド"
+
+#: ../items/items.txt:3191
+msgid "Battle Rod"
+msgstr "バトルロッド"
+
+#: ../items/items.txt:3205
+msgid "Rod of Accuracy"
+msgstr "精度のロッド"
+
+#: ../items/items.txt:3220
+msgid "Rod of Avoidance"
+msgstr "回避のロッド"
+
+#: ../items/items.txt:3235
+msgid "Summer Rod"
+msgstr "夏のロッド"
+
+#: ../items/items.txt:3250
+msgid "Winter Rod"
+msgstr "冬のロッド"
+
+#: ../items/items.txt:3265
+msgid "Rod of Slaying"
+msgstr "殺害のロッド"
+
+#: ../items/items.txt:3280
+msgid "Warlord Rod"
+msgstr "将軍のロッド"
+
+#: ../items/items.txt:3295
+msgid "Rod of Victory"
+msgstr "勝利のロッド"
+
+#: ../items/items.txt:3310
+msgid "Archmage Rod"
+msgstr "アークメイジロッド"
+
+#: ../items/items.txt:3325
+msgid "Rod of Wizardry"
+msgstr "ウィザードリィのロッド"
+
+#: ../items/items.txt:3340
+msgid "Ancient Rod"
+msgstr "古代のロッド"
+
+#: ../items/items.txt:3354
+msgid "Rod of Precision"
+msgstr "精密のロッド"
+
+#: ../items/items.txt:3369
+msgid "Rod of Protection"
+msgstr "保護のロッド"
+
+#: ../items/items.txt:3384
+msgid "Fiery Rod"
+msgstr "炎のロッド"
+
+#: ../items/items.txt:3399
+msgid "Frozen Rod"
+msgstr "冷凍ロッド"
+
+#: ../items/items.txt:3414
+msgid "Rod of Destruction"
+msgstr "破壊のロッド"
+
+#: ../items/items.txt:3429
+msgid "Scepter of Kings"
+msgstr "王の王笏"
+
+#: ../items/items.txt:3444
+msgid "Medic Rod"
+msgstr "メディックロッド"
+
+#: ../items/items.txt:3459
+msgid "Sage Scepter"
+msgstr "セージセプター"
+
+#: ../items/items.txt:3474
+msgid "Oracle Rod"
+msgstr "オラクルのロッド"
+
+#: ../items/items.txt:3489
+msgid "Rod of Alignment"
+msgstr "アライメントのロッド"
+
+#: ../items/items.txt:3504
+msgid "Warding Rod"
+msgstr "ウォー​​ドロッド"
+
+#: ../items/items.txt:3519
+msgid "Ruby-Tipped Cane"
+msgstr "ルビー先端杖"
+
+#: ../items/items.txt:3534
+msgid "Diamond-Tipped Cane"
+msgstr "ダイヤモンド先端杖"
+
+#: ../items/items.txt:3549
+msgid "Unwraveller"
+msgstr "解明する"
+
+#: ../items/items.txt:3564
+msgid "Staff"
+msgstr "スタッフ"
+
+#: ../items/items.txt:3578
+msgid "Cracked Staff"
+msgstr "スタッフのひび割れ"
+
+#: ../items/items.txt:3592
+msgid "Cursed Staff"
+msgstr "スタッフ呪われた"
+
+#: ../items/items.txt:3607
+msgid "Depleted Staff"
+msgstr "枯渇したスタッフ"
+
+#: ../items/items.txt:3622
+msgid "Dwarven Staff"
+msgstr "ドワーフのスタッフ"
+
+#: ../items/items.txt:3637
+msgid "Staff of Restoration"
+msgstr "修復のスタッフ"
+
+#: ../items/items.txt:3652
+msgid "Elven Staff"
+msgstr "エルフのスタッフ"
+
+#: ../items/items.txt:3667
+msgid "Staff of Meditation"
+msgstr "瞑想のスタッフ"
+
+#: ../items/items.txt:3682
+msgid "Battle Staff"
+msgstr "バトルスタッフ"
+
+#: ../items/items.txt:3696
+msgid "Staff of Accuracy"
+msgstr "精度のスタッフ"
+
+#: ../items/items.txt:3711
+msgid "Staff of Avoidance"
+msgstr "回避のスタッフ"
+
+#: ../items/items.txt:3726
+msgid "Summer Staff"
+msgstr "夏のスタッフ"
+
+#: ../items/items.txt:3741
+msgid "Winter Staff"
+msgstr "冬のスタッフ"
+
+#: ../items/items.txt:3756
+msgid "Staff of Slaying"
+msgstr "殺害のスタッフ"
+
+#: ../items/items.txt:3771
+msgid "Warlord Staff"
+msgstr "将軍のスタッフ"
+
+#: ../items/items.txt:3786
+msgid "Staff of Victory"
+msgstr "勝利のスタッフ"
+
+#: ../items/items.txt:3801
+msgid "Archmage Staff"
+msgstr "アークメイジスタッフ"
+
+#: ../items/items.txt:3816
+msgid "Staff of Wizardry"
+msgstr "ウィザードリィのスタッフ"
+
+#: ../items/items.txt:3831
+msgid "Ancient Staff"
+msgstr "古代のスタッフ"
+
+#: ../items/items.txt:3845
+msgid "Staff of Precision"
+msgstr "精密のスタッフ"
+
+#: ../items/items.txt:3860
+msgid "Staff of Protection"
+msgstr "保護のスタッフ"
+
+#: ../items/items.txt:3875
+msgid "Fiery Staff"
+msgstr "炎のスタッフ"
+
+#: ../items/items.txt:3890
+msgid "Frozen Staff"
+msgstr "フローズンスタッフ"
+
+#: ../items/items.txt:3905
+msgid "Staff of Destruction"
+msgstr "破壊のスタッフ"
+
+#: ../items/items.txt:3920
+msgid "Walking Stick"
+msgstr "杖"
+
+#: ../items/items.txt:3935
+msgid "Totem of Life"
+msgstr "生命のトーテム"
+
+#: ../items/items.txt:3950
+msgid "Cosmic Staff"
+msgstr "コズミックスタッフ"
+
+#: ../items/items.txt:3965
+msgid "Totem of Dreams"
+msgstr "夢のトーテム"
+
+#: ../items/items.txt:3980
+msgid "Staff of True Sight"
+msgstr "真のビッグサイトのスタッフ"
+
+#: ../items/items.txt:3995
+msgid "Staff of Trials"
+msgstr "裁判のスタッフ"
+
+#: ../items/items.txt:4010
+msgid "Magma Flow"
+msgstr "マグマ社のフロー"
+
+#: ../items/items.txt:4025
+msgid "Glacial Wind"
+msgstr "氷河風"
+
+#: ../items/items.txt:4040
+msgid "Wyvern Spine"
+msgstr "ワイバーンスパイン"
+
+#: ../items/items.txt:4055
+msgid "Greatstaff"
+msgstr "素晴らしいスタッフ"
+
+#: ../items/items.txt:4069
+msgid "Cracked Greatstaff"
+msgstr "素晴らしいスタッフはひびが入った"
+
+#: ../items/items.txt:4083
+msgid "Cursed Greatstaff"
+msgstr "素晴らしいスタッフは呪い"
+
+#: ../items/items.txt:4098
+msgid "Depleted Greatstaff"
+msgstr "劣化素晴らしいスタッフ"
+
+#: ../items/items.txt:4113
+msgid "Dwarven Greatstaff"
+msgstr "ドワーフ素晴らしいスタッフ"
+
+#: ../items/items.txt:4128
+msgid "Greatstaff of Restoration"
+msgstr "修復の素晴らしいスタッフ"
+
+#: ../items/items.txt:4143
+msgid "Elven Greatstaff"
+msgstr "エルフ素晴らしいスタッフ"
+
+#: ../items/items.txt:4158
+msgid "Greatstaff of Meditation"
+msgstr "瞑想の素晴らしいスタッフ"
+
+#: ../items/items.txt:4173
+msgid "Battle Greatstaff"
+msgstr "バトル素晴らしいスタッフ"
+
+#: ../items/items.txt:4187
+msgid "Greatstaff of Accuracy"
+msgstr "精度の素晴らしいスタッフ"
+
+#: ../items/items.txt:4202
+msgid "Greatstaff of Avoidance"
+msgstr "回避の素晴らしいスタッフ"
+
+#: ../items/items.txt:4217
+msgid "Summer Greatstaff"
+msgstr "夏素晴らしいスタッフ"
+
+#: ../items/items.txt:4232
+msgid "Winter Greatstaff"
+msgstr "冬素晴らしいスタッフ"
+
+#: ../items/items.txt:4247
+msgid "Greatstaff of Slaying"
+msgstr "殺害の素晴らしいスタッフ"
+
+#: ../items/items.txt:4262
+msgid "Warlord Greatstaff"
+msgstr "軍閥素晴らしいスタッフ"
+
+#: ../items/items.txt:4277
+msgid "Greatstaff of Victory"
+msgstr "勝利の素晴らしいスタッフ"
+
+#: ../items/items.txt:4292
+msgid "Archmage Greatstaff"
+msgstr "アークメイジ素晴らしいスタッフ"
+
+#: ../items/items.txt:4307
+msgid "Greatstaff of Wizardry"
+msgstr "ウィザードリィの素晴らしいスタッフ"
+
+#: ../items/items.txt:4322
+msgid "Ancient Greatstaff"
+msgstr "古代素晴らしいスタッフ"
+
+#: ../items/items.txt:4336
+msgid "Greatstaff of Precision"
+msgstr "精密の素晴らしいスタッフ"
+
+#: ../items/items.txt:4351
+msgid "Greatstaff of Protection"
+msgstr "保護の素晴らしいスタッフ"
+
+#: ../items/items.txt:4366
+msgid "Fiery Greatstaff"
+msgstr "炎の素晴らしいスタッフ"
+
+#: ../items/items.txt:4381
+msgid "Frozen Greatstaff"
+msgstr "冷凍素晴らしいスタッフ"
+
+#: ../items/items.txt:4396
+msgid "Greatstaff of Destruction"
+msgstr "破壊の素晴らしいスタッフ"
+
+#: ../items/items.txt:4411
+msgid "Lifegiver"
+msgstr "人生の贈り"
+
+#: ../items/items.txt:4426
+msgid "Preserver"
+msgstr "くろ"
+
+#: ../items/items.txt:4441
+msgid "Enlightenment"
+msgstr "啓発"
+
+#: ../items/items.txt:4456
+msgid "Defiler"
+msgstr "デファイラー"
+
+#: ../items/items.txt:4471
+msgid "Precognition"
+msgstr "予知"
+
+#: ../items/items.txt:4486
+msgid "Singularity"
+msgstr "特異点"
+
+#: ../items/items.txt:4501
+msgid "Fission"
+msgstr "核分裂"
+
+#: ../items/items.txt:4516
+msgid "Fusion"
+msgstr "融合"
+
+#: ../items/items.txt:4531
+msgid "Cataclysm"
+msgstr "大洪水"
+
+#: ../items/items.txt:4546
+msgid "Slingshot"
+msgstr "スリングショット"
+
+#: ../items/items.txt:4549
+msgid "off"
+msgstr ""
+
+#: ../items/items.txt:4561
+msgid "Cracked Slingshot"
+msgstr "割れたスリングショット"
+
+#: ../items/items.txt:4576
+msgid "Cursed Slingshot"
+msgstr "スリングショット呪われた"
+
+#: ../items/items.txt:4592
+msgid "Warped Slingshot"
+msgstr "歪んだスリングショット"
+
+#: ../items/items.txt:4608
+msgid "Dwarven Slingshot"
+msgstr "ドワーフのスリングショット"
+
+#: ../items/items.txt:4624
+msgid "Slingshot of Restoration"
+msgstr "修復のスリングショット"
+
+#: ../items/items.txt:4640
+msgid "Elven Slingshot"
+msgstr "エルフのスリングショット"
+
+#: ../items/items.txt:4656
+msgid "Slingshot of Meditation"
+msgstr "瞑想のスリングショット"
+
+#: ../items/items.txt:4672
+msgid "Battle Slingshot"
+msgstr "バトルスリングショット"
+
+#: ../items/items.txt:4687
+msgid "Slingshot of Accuracy"
+msgstr "精度のスリングショット"
+
+#: ../items/items.txt:4703
+msgid "Slingshot of Avoidance"
+msgstr "回避のスリングショット"
+
+#: ../items/items.txt:4719
+msgid "Summer Slingshot"
+msgstr "夏のスリングショット"
+
+#: ../items/items.txt:4727
+msgid "Fire Ammo"
+msgstr "火の弾薬"
+
+#: ../items/items.txt:4736
+msgid "Winter Slingshot"
+msgstr "冬のスリングショット"
+
+#: ../items/items.txt:4744
+msgid "Ice Ammo"
+msgstr "氷の弾薬"
+
+#: ../items/items.txt:4753
+msgid "Slingshot of Slaying"
+msgstr "殺害のスリングショット"
+
+#: ../items/items.txt:4769
+msgid "Warlord Slingshot"
+msgstr "将軍のスリングショット"
+
+#: ../items/items.txt:4785
+msgid "Slingshot of Victory"
+msgstr "勝利のスリングショット"
+
+#: ../items/items.txt:4801
+msgid "Archmage Slingshot"
+msgstr "アークメイジのスリングショット"
+
+#: ../items/items.txt:4817
+msgid "Slingshot of Wizardry"
+msgstr "ウィザードリィのスリングショット"
+
+#: ../items/items.txt:4833
+msgid "Ancient Slingshot"
+msgstr "古代のスリングショット"
+
+#: ../items/items.txt:4848
+msgid "Slingshot of Precision"
+msgstr "精密のスリングショット"
+
+#: ../items/items.txt:4864
+msgid "Slingshot of Protection"
+msgstr "保護のスリングショット"
+
+#: ../items/items.txt:4880
+msgid "Fiery Slingshot"
+msgstr "炎のスリングショット"
+
+#: ../items/items.txt:4897
+msgid "Frozen Slingshot"
+msgstr "冷凍スリングショット"
+
+#: ../items/items.txt:4914
+msgid "Slingshot of Destruction"
+msgstr "破壊のスリングショット"
+
+#: ../items/items.txt:4930
+msgid "Ash Branch"
+msgstr "アッシュのブランチ"
+
+#: ../items/items.txt:4946
+msgid "Rock Sling"
+msgstr "ロックスリング"
+
+#: ../items/items.txt:4962
+msgid "Willow Branch"
+msgstr "ウィローの枝"
+
+#: ../items/items.txt:4978
+msgid "Wind Sling"
+msgstr "風のスリング"
+
+#: ../items/items.txt:4994
+msgid "Urchin Sling"
+msgstr "ウニスリング"
+
+#: ../items/items.txt:5010
+msgid "Swift Sling"
+msgstr "スウィフトスリング"
+
+#: ../items/items.txt:5026
+msgid "Ember Slinger"
+msgstr "エンバーリンガー"
+
+#: ../items/items.txt:5043
+msgid "Snowball Slinger"
+msgstr "雪だるまリンガー"
+
+#: ../items/items.txt:5060
+msgid "Giant Slayer"
+msgstr "ジャイアントスレイヤー"
+
+#: ../items/items.txt:5076
+msgid "Shortbow"
+msgstr "ショートボウ"
+
+#: ../items/items.txt:5091
+msgid "Cracked Shortbow"
+msgstr "ショートボウは、ひびが入った"
+
+#: ../items/items.txt:5106
+msgid "Cursed Shortbow"
+msgstr "ショートボウは、呪われた"
+
+#: ../items/items.txt:5122
+msgid "Warped Shortbow"
+msgstr "歪んだショートボウ"
+
+#: ../items/items.txt:5138
+msgid "Dwarven Shortbow"
+msgstr "ドワーフのショートボウ"
+
+#: ../items/items.txt:5154
+msgid "Shortbow of Restoration"
+msgstr "修復のショートボウ"
+
+#: ../items/items.txt:5170
+msgid "Elven Shortbow"
+msgstr "エルフのショートボウ"
+
+#: ../items/items.txt:5186
+msgid "Shortbow of Meditation"
+msgstr "瞑想のショートボウ"
+
+#: ../items/items.txt:5202
+msgid "Battle Shortbow"
+msgstr "バトルショートボウ"
+
+#: ../items/items.txt:5217
+msgid "Shortbow of Accuracy"
+msgstr "精度のショートボウ"
+
+#: ../items/items.txt:5233
+msgid "Shortbow of Avoidance"
+msgstr "回避のショートボウ"
+
+#: ../items/items.txt:5249
+msgid "Summer Shortbow"
+msgstr "夏のショートボウ"
+
+#: ../items/items.txt:5266
+msgid "Winter Shortbow"
+msgstr "冬のショートボウ"
+
+#: ../items/items.txt:5283
+msgid "Shortbow of Slaying"
+msgstr "殺害のショートボウ"
+
+#: ../items/items.txt:5299
+msgid "Warlord Shortbow"
+msgstr "将軍のショートボウ"
+
+#: ../items/items.txt:5315
+msgid "Shortbow of Victory"
+msgstr "勝利のショートボウ"
+
+#: ../items/items.txt:5331
+msgid "Archmage Shortbow"
+msgstr "アークメイジショートボウ"
+
+#: ../items/items.txt:5347
+msgid "Shortbow of Wizardry"
+msgstr "ウィザードリィのショートボウ"
+
+#: ../items/items.txt:5363
+msgid "Ancient Shortbow"
+msgstr "古代のショートボウ"
+
+#: ../items/items.txt:5378
+msgid "Shortbow of Precision"
+msgstr "精密のショートボウ"
+
+#: ../items/items.txt:5394
+msgid "Shortbow of Protection"
+msgstr "保護のショートボウ"
+
+#: ../items/items.txt:5410
+msgid "Fiery Shortbow"
+msgstr "炎のショートボウ"
+
+#: ../items/items.txt:5427
+msgid "Frozen Shortbow"
+msgstr "冷凍ショートボウ"
+
+#: ../items/items.txt:5444
+msgid "Shortbow of Destruction"
+msgstr "破壊のショートボウ"
+
+#: ../items/items.txt:5460
+msgid "Orc Chieftan"
+msgstr "オーク族長"
+
+#: ../items/items.txt:5476
+msgid "Crag Bow"
+msgstr "岩山の弓"
+
+#: ../items/items.txt:5492
+msgid "Witch Doctor"
+msgstr "ウィッチドクター"
+
+#: ../items/items.txt:5508
+msgid "Feywild Bow"
+msgstr "死ぬ運命の野生の弓"
+
+#: ../items/items.txt:5524
+msgid "Bandit"
+msgstr "バンディット"
+
+#: ../items/items.txt:5540
+msgid "Mithril Bow"
+msgstr "ミスリルの弓"
+
+#: ../items/items.txt:5556
+msgid "Fire Striker"
+msgstr "火のストライカー"
+
+#: ../items/items.txt:5573
+msgid "Ice Striker"
+msgstr "氷のストライカー"
+
+#: ../items/items.txt:5590
+msgid "Assassin"
+msgstr "アサシン"
+
+#: ../items/items.txt:5606
+msgid "Longbow"
+msgstr "ロングボウ"
+
+#: ../items/items.txt:5621
+msgid "Cracked Longbow"
+msgstr "ロングボウは、ひびが入った"
+
+#: ../items/items.txt:5636
+msgid "Cursed Longbow"
+msgstr "ロングボウは、呪われた"
+
+#: ../items/items.txt:5652
+msgid "Warped Longbow"
+msgstr "ワープドロングボウ"
+
+#: ../items/items.txt:5668
+msgid "Dwarven Longbow"
+msgstr "ドワーフのロングボウ"
+
+#: ../items/items.txt:5684
+msgid "Longbow of Restoration"
+msgstr "修復のロングボウ"
+
+#: ../items/items.txt:5700
+msgid "Elven Longbow"
+msgstr "エルフのロングボウ"
+
+#: ../items/items.txt:5716
+msgid "Longbow of Meditation"
+msgstr "瞑想のロングボウ"
+
+#: ../items/items.txt:5732
+msgid "Battle Longbow"
+msgstr "バトルロングボウ"
+
+#: ../items/items.txt:5747
+msgid "Longbow of Accuracy"
+msgstr "精度のロングボウ"
+
+#: ../items/items.txt:5763
+msgid "Longbow of Avoidance"
+msgstr "回避のロングボウ"
+
+#: ../items/items.txt:5779
+msgid "Summer Longbow"
+msgstr "夏のロングボウ"
+
+#: ../items/items.txt:5796
+msgid "Winter Longbow"
+msgstr "冬のロングボウ"
+
+#: ../items/items.txt:5813
+msgid "Longbow of Slaying"
+msgstr "殺害のロングボウ"
+
+#: ../items/items.txt:5829
+msgid "Warlord Longbow"
+msgstr "将軍のロングボウ"
+
+#: ../items/items.txt:5845
+msgid "Longbow of Victory"
+msgstr "勝利のロングボウ"
+
+#: ../items/items.txt:5861
+msgid "Archmage Longbow"
+msgstr "アークメイジロングボウ"
+
+#: ../items/items.txt:5877
+msgid "Longbow of Wizardry"
+msgstr "ウィザードリィのロングボウ"
+
+#: ../items/items.txt:5893
+msgid "Ancient Longbow"
+msgstr "古代のロングボウ"
+
+#: ../items/items.txt:5908
+msgid "Longbow of Precision"
+msgstr "精密のロングボウ"
+
+#: ../items/items.txt:5924
+msgid "Longbow of Protection"
+msgstr "保護のロングボウ"
+
+#: ../items/items.txt:5940
+msgid "Fiery Longbow"
+msgstr "炎のロングボウ"
+
+#: ../items/items.txt:5957
+msgid "Frozen Longbow"
+msgstr "フローズンロングボウ"
+
+#: ../items/items.txt:5974
+msgid "Longbow of Destruction"
+msgstr "破壊のロングボウ"
+
+#: ../items/items.txt:5990
+msgid "Thunder"
+msgstr "サンダー"
+
+#: ../items/items.txt:6006
+msgid "Bow of the World Tree"
+msgstr "世界樹の弓"
+
+#: ../items/items.txt:6022
+msgid "Lightning"
+msgstr "ライトニング"
+
+#: ../items/items.txt:6038
+msgid "Pharaoh"
+msgstr "ファラオ"
+
+#: ../items/items.txt:6054
+msgid "Ranger's Bow"
+msgstr "レンジャーの弓"
+
+#: ../items/items.txt:6070
+msgid "Siege Bow"
+msgstr "包囲の弓"
+
+#: ../items/items.txt:6086
+msgid "Ruby Strand"
+msgstr "ルビーのストランド"
+
+#: ../items/items.txt:6103
+msgid "Diamond Strand"
+msgstr "ダイヤモンドのストランド"
+
+#: ../items/items.txt:6120
+msgid "Death Mark"
+msgstr "死マーク"
+
+#: ../items/items.txt:6136
+msgid "Greatbow"
+msgstr "偉大な弓"
+
+#: ../items/items.txt:6151
+msgid "Cracked Greatbow"
+msgstr "偉大な弓はひびが入った"
+
+#: ../items/items.txt:6166
+msgid "Cursed Greatbow"
+msgstr "偉大な弓は呪い"
+
+#: ../items/items.txt:6182
+msgid "Warped Greatbow"
+msgstr "歪んだ偉大な弓"
+
+#: ../items/items.txt:6198
+msgid "Dwarven Greatbow"
+msgstr "ドワーフ偉大な弓"
+
+#: ../items/items.txt:6214
+msgid "Greatbow of Restoration"
+msgstr "修復の偉大な弓"
+
+#: ../items/items.txt:6230
+msgid "Elven Greatbow"
+msgstr "エルフ偉大な弓"
+
+#: ../items/items.txt:6246
+msgid "Greatbow of Meditation"
+msgstr "瞑想のGreatbow"
+
+#: ../items/items.txt:6262
+msgid "Battle Greatbow"
+msgstr "バトル偉大な弓"
+
+#: ../items/items.txt:6277
+msgid "Greatbow of Accuracy"
+msgstr "精度の偉大な弓"
+
+#: ../items/items.txt:6293
+msgid "Greatbow of Avoidance"
+msgstr "回避の偉大な弓"
+
+#: ../items/items.txt:6309
+msgid "Summer Greatbow"
+msgstr "夏偉大な弓"
+
+#: ../items/items.txt:6326
+msgid "Winter Greatbow"
+msgstr "冬偉大な弓"
+
+#: ../items/items.txt:6343
+msgid "Greatbow of Slaying"
+msgstr "殺害の偉大な弓"
+
+#: ../items/items.txt:6359
+msgid "Warlord Greatbow"
+msgstr "将軍の偉大な弓"
+
+#: ../items/items.txt:6375
+msgid "Greatbow of Victory"
+msgstr "勝利の偉大な弓"
+
+#: ../items/items.txt:6391
+msgid "Archmage Greatbow"
+msgstr "アークメイジ偉大な弓"
+
+#: ../items/items.txt:6407
+msgid "Greatbow of Wizardry"
+msgstr "ウィザードリィの偉大な弓"
+
+#: ../items/items.txt:6423
+msgid "Ancient Greatbow"
+msgstr "古代偉大な弓"
+
+#: ../items/items.txt:6438
+msgid "Greatbow of Precision"
+msgstr "精密の偉大な弓"
+
+#: ../items/items.txt:6454
+msgid "Greatbow of Protection"
+msgstr "保護の偉大な弓"
+
+#: ../items/items.txt:6470
+msgid "Fiery Greatbow"
+msgstr "炎の偉大な弓"
+
+#: ../items/items.txt:6487
+msgid "Frozen Greatbow"
+msgstr "冷凍偉大な弓"
+
+#: ../items/items.txt:6504
+msgid "Greatbow of Destruction"
+msgstr "破壊の偉大な弓"
+
+#: ../items/items.txt:6520
+msgid "Dragonslayer"
+msgstr "ドラゴンスレイヤー"
+
+#: ../items/items.txt:6536
+msgid "Vampire Hunter"
+msgstr "ヴァンパイアハンター"
+
+#: ../items/items.txt:6552
+msgid "Dimensional Rift"
+msgstr "次元裂け目"
+
+#: ../items/items.txt:6568
+msgid "Vortex"
+msgstr "渦"
+
+#: ../items/items.txt:6584
+msgid "Gladys"
+msgstr "グラディス"
+
+#: ../items/items.txt:6600
+msgid "Ballista"
+msgstr "バリスタ"
+
+#: ../items/items.txt:6616
+msgid "Starfire"
+msgstr "スターファイヤー"
+
+#: ../items/items.txt:6633
+msgid "Voidfire"
+msgstr "ボイド火災"
+
+#: ../items/items.txt:6650
+msgid "Chaos"
+msgstr "カオス"
+
+#: ../items/items.txt:6667
+msgid "Leather Armor"
+msgstr "レザーアーマー"
+
+#: ../items/items.txt:6682
+msgid "Cracked Leather Armor"
+msgstr "レザーアーマーのひび割れ"
+
+#: ../items/items.txt:6697
+msgid "Cursed Leather Armor"
+msgstr "レザーアーマー呪われた"
+
+#: ../items/items.txt:6713
+msgid "Dwarven Leather Armor"
+msgstr "ドワーフのレザーアーマー"
+
+#: ../items/items.txt:6729
+msgid "Leather Armor of Restoration"
+msgstr "修復のレザーアーマー"
+
+#: ../items/items.txt:6745
+msgid "Elven Leather Armor"
+msgstr "エルフレザーアーマー"
+
+#: ../items/items.txt:6761
+msgid "Leather Armor of Meditation"
+msgstr "瞑想のレザーアーマー"
+
+#: ../items/items.txt:6777
+msgid "Battle Leather Armor"
+msgstr "バトルのレザーアーマー"
+
+#: ../items/items.txt:6792
+msgid "Leather Armor of Accuracy"
+msgstr "精度のレザーアーマー"
+
+#: ../items/items.txt:6808
+msgid "Leather Armor of Avoidance"
+msgstr "回避のレザーアーマー"
+
+#: ../items/items.txt:6824
+msgid "Summer Leather Armor"
+msgstr "夏のレザーアーマー"
+
+#: ../items/items.txt:6840
+msgid "Winter Leather Armor"
+msgstr "冬のレザーアーマー"
+
+#: ../items/items.txt:6856
+msgid "Leather Armor of Slaying"
+msgstr "殺害のレザーアーマー"
+
+#: ../items/items.txt:6872
+msgid "Warlord Leather Armor"
+msgstr "将軍のレザーアーマー"
+
+#: ../items/items.txt:6888
+msgid "Leather Armor of Victory"
+msgstr "勝利のレザーアーマー"
+
+#: ../items/items.txt:6904
+msgid "Archmage Leather Armor"
+msgstr "アークメイジのレザーアーマー"
+
+#: ../items/items.txt:6920
+msgid "Leather Armor of Wizardry"
+msgstr "ウィザードリィのレザーアーマー"
+
+#: ../items/items.txt:6936
+msgid "Ancient Leather Armor"
+msgstr "古代のレザーアーマー"
+
+#: ../items/items.txt:6951
+msgid "Leather Armor of Precision"
+msgstr "精密のレザーアーマー"
+
+#: ../items/items.txt:6967
+msgid "Leather Armor of Protection"
+msgstr "保護のレザーアーマー"
+
+#: ../items/items.txt:6983
+msgid "Fiery Leather Armor"
+msgstr "炎のレザーアーマー"
+
+#: ../items/items.txt:6999
+msgid "Frozen Leather Armor"
+msgstr "冷凍レザーアーマー"
+
+#: ../items/items.txt:7015
+msgid "Leather Armor of Destruction"
+msgstr "破壊のレザーアーマー"
+
+#: ../items/items.txt:7031
+msgid "Barbarian Wrap"
+msgstr "バーバリアンラップ"
+
+#: ../items/items.txt:7047
+msgid "Bugbear Tunic"
+msgstr "バグベアチュニック"
+
+#: ../items/items.txt:7063
+msgid "Runic Leather"
+msgstr "ルーン文字レザー"
+
+#: ../items/items.txt:7079
+msgid "Battlemage Tunic"
+msgstr "戦闘のチュニック"
+
+#: ../items/items.txt:7095
+msgid "Predator Hide"
+msgstr "プレデター隠す"
+
+#: ../items/items.txt:7111
+msgid "Chimera Hide"
+msgstr "キマイラを隠す"
+
+#: ../items/items.txt:7127
+msgid "Red Dragonhide"
+msgstr "レッドドラゴンを非表示"
+
+#: ../items/items.txt:7143
+msgid "White Dragonhide"
+msgstr "ホワイトドラゴンを非表示"
+
+#: ../items/items.txt:7159
+msgid "Ninja Gi"
+msgstr "忍者王"
+
+#: ../items/items.txt:7175
+msgid "Buckler"
+msgstr "バックラー"
+
+#: ../items/items.txt:7189
+msgid "Cracked Buckler"
+msgstr "バックラーはひびが入った"
+
+#: ../items/items.txt:7203
+msgid "Cursed Buckler"
+msgstr "バックラーは呪い"
+
+#: ../items/items.txt:7218
+msgid "Dwarven Buckler"
+msgstr "ドワーフのバックラー"
+
+#: ../items/items.txt:7233
+msgid "Buckler of Restoration"
+msgstr "修復のバックラー"
+
+#: ../items/items.txt:7248
+msgid "Elven Buckler"
+msgstr "エルフバックラー"
+
+#: ../items/items.txt:7263
+msgid "Buckler of Meditation"
+msgstr "瞑想のバックラー"
+
+#: ../items/items.txt:7278
+msgid "Battle Buckler"
+msgstr "バトルバックラー"
+
+#: ../items/items.txt:7292
+msgid "Buckler of Accuracy"
+msgstr "精度のバックラー"
+
+#: ../items/items.txt:7307
+msgid "Buckler of Avoidance"
+msgstr "回避のバックラ"
+
+#: ../items/items.txt:7322
+msgid "Summer Buckler"
+msgstr "夏のバックラー"
+
+#: ../items/items.txt:7337
+msgid "Winter Buckler"
+msgstr "冬のバックラー"
+
+#: ../items/items.txt:7352
+msgid "Buckler of Slaying"
+msgstr "殺害のバックラー"
+
+#: ../items/items.txt:7367
+msgid "Warlord Buckler"
+msgstr "将軍のバックラー"
+
+#: ../items/items.txt:7382
+msgid "Buckler of Victory"
+msgstr "勝利のバックラー"
+
+#: ../items/items.txt:7397
+msgid "Archmage Buckler"
+msgstr "アークメイジバックラー"
+
+#: ../items/items.txt:7412
+msgid "Buckler of Wizardry"
+msgstr "ウィザードリィのバックラー"
+
+#: ../items/items.txt:7427
+msgid "Ancient Buckler"
+msgstr "古代バックラー"
+
+#: ../items/items.txt:7441
+msgid "Buckler of Precision"
+msgstr "精密のバックラー"
+
+#: ../items/items.txt:7456
+msgid "Buckler of Protection"
+msgstr "保護のバックラー"
+
+#: ../items/items.txt:7471
+msgid "Fiery Buckler"
+msgstr "炎のバックラー"
+
+#: ../items/items.txt:7486
+msgid "Frozen Buckler"
+msgstr "冷凍バックラー"
+
+#: ../items/items.txt:7501
+msgid "Buckler of Destruction"
+msgstr "破壊のバックラー"
+
+#: ../items/items.txt:7516
+msgid "Gladiator Buckler"
+msgstr "グラディエーターバックラー"
+
+#: ../items/items.txt:7531
+msgid "Holy Targe"
+msgstr "聖タージェ"
+
+#: ../items/items.txt:7546
+msgid "Averguard Disc"
+msgstr "アべルガードディスク"
+
+#: ../items/items.txt:7561
+msgid "Mage Targe"
+msgstr "メイジのタージェ"
+
+#: ../items/items.txt:7576
+msgid "Focus Buckler"
+msgstr "フォーカスバックラー"
+
+#: ../items/items.txt:7591
+msgid "Guardian Targe"
+msgstr "ガーディアンタージェ"
+
+#: ../items/items.txt:7606
+msgid "Heat Barrier"
+msgstr "ヒートバリア"
+
+#: ../items/items.txt:7621
+msgid "Cold Barrier"
+msgstr "コールドバリア"
+
+#: ../items/items.txt:7636
+msgid "Spiked Buckler"
+msgstr "スパイクバックラー"
+
+#: ../items/items.txt:7651
+msgid "Steel Armor"
+msgstr "鋼の鎧"
+
+#: ../items/items.txt:7666
+msgid "Cracked Steel Armor"
+msgstr "鉄鋼装甲のひび割れ"
+
+#: ../items/items.txt:7681
+msgid "Cursed Steel Armor"
+msgstr "鋼の鎧呪われた"
+
+#: ../items/items.txt:7697
+msgid "Dwarven Steel Armor"
+msgstr "ドワーフ鋼の鎧"
+
+#: ../items/items.txt:7713
+msgid "Steel Armor of Restoration"
+msgstr "修復の鋼の鎧"
+
+#: ../items/items.txt:7729
+msgid "Elven Steel Armor"
+msgstr "エルフ鋼の鎧"
+
+#: ../items/items.txt:7745
+msgid "Steel Armor of Meditation"
+msgstr "瞑想の鋼の鎧"
+
+#: ../items/items.txt:7761
+msgid "Battle Steel Armor"
+msgstr "バトル鋼の鎧"
+
+#: ../items/items.txt:7776
+msgid "Steel Armor of Accuracy"
+msgstr "精度の鋼の鎧"
+
+#: ../items/items.txt:7792
+msgid "Steel Armor of Avoidance"
+msgstr "回避の鋼の鎧"
+
+#: ../items/items.txt:7808
+msgid "Summer Steel Armor"
+msgstr "夏の鋼の鎧"
+
+#: ../items/items.txt:7824
+msgid "Winter Steel Armor"
+msgstr "冬の鋼の鎧"
+
+#: ../items/items.txt:7840
+msgid "Steel Armor of Slaying"
+msgstr "殺害の鋼の鎧"
+
+#: ../items/items.txt:7856
+msgid "Warlord Steel Armor"
+msgstr "将軍の鋼の鎧"
+
+#: ../items/items.txt:7872
+msgid "Steel Armor of Victory"
+msgstr "勝利の鋼鉄の鎧"
+
+#: ../items/items.txt:7888
+msgid "Archmage Steel Armor"
+msgstr "アークメイジ鋼の鎧"
+
+#: ../items/items.txt:7904
+msgid "Steel Armor of Wizardry"
+msgstr "ウィザードリィの鋼の鎧"
+
+#: ../items/items.txt:7920
+msgid "Ancient Steel Armor"
+msgstr "古代鋼の鎧"
+
+#: ../items/items.txt:7935
+msgid "Steel Armor of Precision"
+msgstr "精密の鋼の鎧"
+
+#: ../items/items.txt:7951
+msgid "Steel Armor of Protection"
+msgstr "保護の鋼の鎧"
+
+#: ../items/items.txt:7967
+msgid "Fiery Steel Armor"
+msgstr "焦熱の鋼の鎧"
+
+#: ../items/items.txt:7983
+msgid "Frozen Steel Armor"
+msgstr "冷凍鋼の鎧"
+
+#: ../items/items.txt:7999
+msgid "Steel Armor of Destruction"
+msgstr "破壊の鋼鉄の鎧"
+
+#: ../items/items.txt:8015
+msgid "Knight's Cuirass"
+msgstr "騎士の胸当て"
+
+#: ../items/items.txt:8031
+msgid "Wyrmrider Maille"
+msgstr "ウィルムライダーマイユ"
+
+#: ../items/items.txt:8047
+msgid "Paladin's Oath"
+msgstr "のパラディンの誓い"
+
+#: ../items/items.txt:8063
+msgid "Cleric Maille"
+msgstr "クレリックマイユ"
+
+#: ../items/items.txt:8079
+msgid "Jousting Armor"
+msgstr "複数のアーマー"
+
+#: ../items/items.txt:8095
+msgid "Titan Plate"
+msgstr "タイタンプレート"
+
+#: ../items/items.txt:8111
+msgid "Ruby Scale Armor"
+msgstr "ルビースケールアーマー"
+
+#: ../items/items.txt:8127
+msgid "Diamond Scale Armor"
+msgstr "ダイヤモンドのスケールアーマー"
+
+#: ../items/items.txt:8143
+msgid "Marauder Maille"
+msgstr "マローダーマイユ"
+
+#: ../items/items.txt:8159
+msgid "Shield"
+msgstr "シールド"
+
+#: ../items/items.txt:8173
+msgid "Cracked Shield"
+msgstr "シールドは、ひびが入った"
+
+#: ../items/items.txt:8187
+msgid "Cursed Shield"
+msgstr "シールドは、呪われた"
+
+#: ../items/items.txt:8202
+msgid "Dwarven Shield"
+msgstr "ドワーフの盾"
+
+#: ../items/items.txt:8217
+msgid "Shield of Restoration"
+msgstr "修復の盾"
+
+#: ../items/items.txt:8232
+msgid "Elven Shield"
+msgstr "エルフの盾"
+
+#: ../items/items.txt:8247
+msgid "Shield of Meditation"
+msgstr "瞑想の盾"
+
+#: ../items/items.txt:8262
+msgid "Battle Shield"
+msgstr "バトルシールド"
+
+#: ../items/items.txt:8276
+msgid "Shield of Accuracy"
+msgstr "精度のシールド"
+
+#: ../items/items.txt:8291
+msgid "Shield of Avoidance"
+msgstr "回避の盾"
+
+#: ../items/items.txt:8306
+msgid "Summer Shield"
+msgstr "夏の盾"
+
+#: ../items/items.txt:8321
+msgid "Winter Shield"
+msgstr "冬の盾"
+
+#: ../items/items.txt:8336
+msgid "Shield of Slaying"
+msgstr "殺害の盾"
+
+#: ../items/items.txt:8351
+msgid "Warlord Shield"
+msgstr "将軍の盾"
+
+#: ../items/items.txt:8366
+msgid "Shield of Victory"
+msgstr "勝利の盾"
+
+#: ../items/items.txt:8381
+msgid "Archmage Shield"
+msgstr "アークメイジシールド"
+
+#: ../items/items.txt:8396
+msgid "Shield of Wizardry"
+msgstr "ウィザードリィの盾"
+
+#: ../items/items.txt:8411
+msgid "Ancient Shield"
+msgstr "古代の盾"
+
+#: ../items/items.txt:8425
+msgid "Shield of Precision"
+msgstr "精密の盾"
+
+#: ../items/items.txt:8440
+msgid "Shield of Protection"
+msgstr "保護の盾"
+
+#: ../items/items.txt:8455
+msgid "Fiery Shield"
+msgstr "炎の盾"
+
+#: ../items/items.txt:8470
+msgid "Frozen Shield"
+msgstr "フローズンシールド"
+
+#: ../items/items.txt:8485
+msgid "Shield of Destruction"
+msgstr "破壊の盾"
+
+#: ../items/items.txt:8500
+msgid "Knight's Defense"
+msgstr "騎士の防衛"
+
+#: ../items/items.txt:8515
+msgid "Aegis of Life"
+msgstr "生命のイージス"
+
+#: ../items/items.txt:8530
+msgid "Paladin's Honor"
+msgstr "のパラディンの名誉"
+
+#: ../items/items.txt:8545
+msgid "Aegis of Ether"
+msgstr "エーテルのイージス"
+
+#: ../items/items.txt:8560
+msgid "Steel Ward"
+msgstr "スチールワード"
+
+#: ../items/items.txt:8575
+msgid "The Rook"
+msgstr "ルーク"
+
+#: ../items/items.txt:8590
+msgid "Flame Tower"
+msgstr "炎の塔"
+
+#: ../items/items.txt:8605
+msgid "Frost Tower"
+msgstr "フロストの塔"
+
+#: ../items/items.txt:8620
+msgid "Blood Ward"
+msgstr "ブラッドウォード"
+
+#: ../items/items.txt:8635
+msgid "Belt"
+msgstr "ベルト"
+
+#: ../items/items.txt:8638
+msgid "artifact"
+msgstr ""
+
+#: ../items/items.txt:8646
+msgid "Tattered Belt"
+msgstr "ボロボロのベルト"
+
+#: ../items/items.txt:8657
+msgid "Dwarven Belt"
+msgstr "ドワーフのベルト"
+
+#: ../items/items.txt:8669
+msgid "Elven Belt"
+msgstr "エルフベルト"
+
+#: ../items/items.txt:8681
+msgid "Warlord Belt"
+msgstr "将軍のベルト"
+
+#: ../items/items.txt:8693
+msgid "Archmage Belt"
+msgstr "アークメイジベル"
+
+#: ../items/items.txt:8705
+msgid "Trollhair Belt"
+msgstr "ロール髪ベルト"
+
+#: ../items/items.txt:8717
+msgid "Spellpouch Belt"
+msgstr "スペルポーチベルト"
+
+#: ../items/items.txt:8729
+msgid "Boots"
+msgstr "ブーツ"
+
+#: ../items/items.txt:8740
+msgid "Tattered Boots"
+msgstr "ボロボロのブーツ"
+
+#: ../items/items.txt:8751
+msgid "Boots of Speed"
+msgstr "スピードのブーツ"
+
+#: ../items/items.txt:8756
+msgid "speed"
+msgstr "スピード"
+
+#: ../items/items.txt:8763
+msgid "Boots of Avoidance"
+msgstr "回避のブーツ"
+
+#: ../items/items.txt:8775
+msgid "Boots of Travel"
+msgstr "旅行のブーツ"
+
+#: ../items/items.txt:8787
+msgid "Boots of Protection"
+msgstr "保護のブーツ"
+
+#: ../items/items.txt:8799
+msgid "Windwalker Boots"
+msgstr "風ウォーカーブーツ"
+
+#: ../items/items.txt:8811
+msgid "Phase Step Boots"
+msgstr "位相ステップのブーツ"
+
+#: ../items/items.txt:8823
+msgid "Ring"
+msgstr "リング"
+
+#: ../items/items.txt:8834
+msgid "Tarnished Ring"
+msgstr "汚れたリング"
+
+#: ../items/items.txt:8845
+msgid "Ring of Restoration"
+msgstr "修復のリング"
+
+#: ../items/items.txt:8857
+msgid "Ring of Meditation"
+msgstr "瞑想のリング"
+
+#: ../items/items.txt:8869
+msgid "Ring of Victory"
+msgstr "勝利のリング"
+
+#: ../items/items.txt:8881
+msgid "Ring of Wizardry"
+msgstr "ウィザードリィのリング"
+
+#: ../items/items.txt:8893
+msgid "Signet of Forgotten Kings"
+msgstr "忘れられた王のシグネット"
+
+#: ../items/items.txt:8905
+msgid "Band of Enlightenment"
+msgstr "啓蒙のバンド"
+
+#: ../items/types.txt:3
+msgid "Artifact"
+msgstr ""
+
+#: ../items/types.txt:7
+msgid "Body"
+msgstr ""
+
+#: ../items/types.txt:11
+msgid "Consumable"
+msgstr ""
+
+#: ../items/types.txt:15
+msgid "Gem"
+msgstr ""
+
+#: ../items/types.txt:19
+#, fuzzy
+msgid "Main Hand"
+msgstr "ブリンクの杖"
+
+#: ../items/types.txt:23
+msgid "Off Hand"
+msgstr ""
+
+#: ../items/types.txt:26
+msgid "quest"
+msgstr ""
+
+#: ../items/types.txt:27
+msgid "Quest Item"
+msgstr ""
+
+#: ../items/types.txt:30
+#, fuzzy
+msgid "ring"
+msgstr "リング"
+
+#: ../menus/powers.txt:16
+#, fuzzy
+msgid "Warrior"
+msgstr "ウォー​​クライ"
+
+#: ../menus/powers.txt:19
+#, fuzzy
+msgid "Ranger"
+msgstr "レンジャーの弓"
+
+#: ../menus/powers.txt:22
+msgid "Magician"
+msgstr ""
+
+#: ../powers/powers.txt:5
+msgid "Swing"
+msgstr "スイング"
+
+#: ../powers/powers.txt:8
+msgid "Basic melee attack"
+msgstr "基本的な近接攻撃"
+
+#: ../powers/powers.txt:22
+msgid "Channel"
+msgstr "チャンネル"
+
+#: ../powers/powers.txt:25
+#, fuzzy
+msgid "Basic magic attack"
+msgstr "基本的には、攻撃のであった"
+
+#: ../powers/powers.txt:46
+msgid "Block"
+msgstr "ブロック"
+
+#: ../powers/powers.txt:48
+msgid "Raise your shield to double your avoidance and absorb"
+msgstr "あなたの回避を倍増し、吸収する盾を上げる"
+
+#: ../powers/powers.txt:54
+msgid "Immobilize"
+msgstr "固定化"
+
+#: ../powers/powers.txt:57
+msgid "Pin an enemy down for 3 seconds"
+msgstr "3秒間敵を突き止める"
+
+#: ../powers/powers.txt:69
+msgid "Blood Strike"
+msgstr "ブラッドストライク"
+
+#: ../powers/powers.txt:72
+msgid "Inflict a bleeding wound that causes additional damage over 5 seconds"
+msgstr "5秒以上の追加ダメージを引き起こす出血の傷を負わせる"
+
+#: ../powers/powers.txt:88
+msgid "Shock"
+msgstr "ショック"
+
+#: ../powers/powers.txt:91
+msgid "Electrocute an enemy from a distance; +25% crit chance against movement-impaired enemies."
+msgstr "遠くから敵を仕留める、運動障害を持つ敵に対して+25％クリティカル率を。"
+
+#: ../powers/powers.txt:116
+msgid "Heal"
+msgstr "ヒール"
+
+#: ../powers/powers.txt:119
+msgid "Restore HP"
+msgstr "復元HP"
+
+#: ../powers/powers.txt:138
+msgid "Piercing Shot"
+msgstr "ピアスショット"
+
+#: ../powers/powers.txt:141
+msgid "Fire a shot that ignores armor and goes through multiple enemies"
+msgstr "鎧を無視し、複数の敵を通過する弾丸を放つ"
+
+#: ../powers/powers.txt:154
+msgid "Warcry"
+msgstr "ウォー​​クライ"
+
+#: ../powers/powers.txt:157
+msgid "Remove debuffs and become immune to debuffs for 10 seconds"
+msgstr "デバフを取り外し、10秒間デバフに対して免疫になる"
+
+#: ../powers/powers.txt:167
+msgid "Quake"
+msgstr "クエイク"
+
+#: ../powers/powers.txt:170
+msgid "Stun nearby enemies"
+msgstr "スタン近くの敵"
+
+#: ../powers/powers.txt:197
+msgid "Create a force field that absorbs damage"
+msgstr "ダメージを吸収する力場の作成"
+
+#: ../powers/powers.txt:205
+msgid "Haste"
+msgstr "ヘイスト"
+
+#: ../powers/powers.txt:207
+msgid "Double run and attack speed for 8 seconds"
+msgstr "8秒のための二重実行と攻撃速度"
+
+#: ../powers/powers.txt:216
+msgid "Cleave"
+msgstr "薙ぎ払い"
+
+#: ../powers/powers.txt:219
+msgid "Attack all enemies in a wide arc"
+msgstr "広いアークですべての敵を攻撃"
+
+#: ../powers/powers.txt:234
+msgid "Freeze"
+msgstr "フリーズ"
+
+#: ../powers/powers.txt:237
+msgid "Create a ray of piercing cold that slows enemies"
+msgstr "敵を遅くするピアスの風邪の線を作成します。"
+
+#: ../powers/powers.txt:263
+msgid "Teleport"
+msgstr "テレポート"
+
+#: ../powers/powers.txt:289
+msgid "Multishot"
+msgstr "によるマルチ"
+
+#: ../powers/powers.txt:292
+msgid "Shoot three projectiles simultaneously"
+msgstr "同時に3つ発射を撃つ"
+
+#: ../powers/powers.txt:305
+msgid "Burn"
+msgstr "バーン"
+
+#: ../powers/powers.txt:308
+msgid "Blast enemies in a distant area with fire"
+msgstr "火と遠いエリアでブラスト敵"
+
+#: ../powers/powers.txt:335
+msgid "Time Stop"
+msgstr "タイムストップ"
+
+#: ../powers/powers.txt:338
+msgid "Stun nearby enemies for 5 seconds"
+msgstr "5秒間スタン近くの敵"
+
+#: ../powers/powers.txt:352
+#, fuzzy
+msgid "Heroic Swing"
+msgstr "ロックスリング"
+
+#: ../powers/powers.txt:355
+msgid "Melee attack with 10% HP steal"
+msgstr ""
+
+#: ../powers/powers.txt:370
+#, fuzzy
+msgid "Greater Channel"
+msgstr "チャンネル"
+
+#: ../powers/powers.txt:373
+msgid "Magic attack with 10% MP steal"
+msgstr ""
+
+#: ../powers/powers.txt:395
+msgid "Shoot"
+msgstr "シュート"
+
+#: ../powers/powers.txt:398
+msgid "Basic ranged attack"
+msgstr "基本的には、攻撃のであった"
+
+#: ../powers/powers.txt:409
+#, fuzzy
+msgid "Rapid Fire"
+msgstr "レイピア"
+
+#: ../powers/powers.txt:412
+msgid "Fire five low power missiles in quick succession"
+msgstr ""
+
+#: ../powers/powers.txt:428
+msgid "Ice Shard [enemy]"
+msgstr "アイスシャード[敵]"
+
+#: ../powers/powers.txt:456
+msgid "Fireshot [enemy]"
+msgstr "火災ショット [敵]"
+
+#: ../powers/powers.txt:482
+msgid "Goblin Spear [enemy]"
+msgstr "ゴブリンの槍[敵]"
+
+#: ../powers/powers.txt:485
+msgid "Crude goblin spear toss"
+msgstr "原油ゴブリンの槍投げ"
+
+#: ../powers/powers.txt:505
+msgid "Fireburst [enemy]"
+msgstr "火災のバースト [敵]"
+
+#: ../powers/powers.txt:508
+msgid "Burn nearby enemies"
+msgstr "近くにいる敵を燃やす"
+
+#: ../powers/powers.txt:532
+msgid "Arrow Shoot [enemy]"
+msgstr "アローシュート[敵]"
+
+#: ../powers/powers.txt:535
+msgid "Bow shoot"
+msgstr "弓を撃つ"
+
+#: ../powers/powers.txt:556
+msgid "Maddox's Ice Storm [enemy]"
+msgstr "マドックスのアイスストーム[敵]"
+
+#: ../powers/powers.txt:585
+msgid "Vampiric Strike"
+msgstr "ヴァンパイアストライク"
+
+#: ../powers/powers.txt:588
+msgid "Turn 50% of damage you deal into HP"
+msgstr "あなたはHPに対処するダメージの50％を回して"
+
+#: ../powers/powers.txt:603
+msgid "Leech Strike"
+msgstr "リーチのストライク"
+
+#: ../powers/powers.txt:606
+msgid "Turn 25% of damage you deal into HP"
+msgstr "あなたはHPに対処するダメージの25％を回して"
+
+#: ../powers/powers.txt:621
+msgid "Chill Touch"
+msgstr "チルタッチ"
+
+#: ../powers/powers.txt:624
+msgid "Melee strike immobilizes target for 5 seconds"
+msgstr "近接攻撃は5秒間ターゲットを固定化"
+
+#: ../powers/powers.txt:639
+msgid "Piercing Strike"
+msgstr "ピアッシングストライク"
+
+#: ../powers/powers.txt:642
+msgid "Melee strike ignores armor"
+msgstr "近接攻撃は鎧を無視します"
+
+#: ../powers/powers.txt:657
+msgid "Explode"
+msgstr "爆発"
+
+#: ../powers/powers.txt:660
+msgid "Damage everything nearby"
+msgstr "近くのダメージを全て"
+
+#: ../powers/powers.txt:686
+msgid "Paralyzing Spit"
+msgstr ""
+
+#: ../powers/powers.txt:689
+msgid "Poison spit that stuns the target for 1 second"
+msgstr ""
+
+#: ../powers/powers.txt:782
+msgid "Boots of Testing Really Large Maps"
+msgstr "非常に大きなマップのテストのブーツ"
+
+#: ../powers/powers.txt:805
+msgid "Lightning Rod"
+msgstr "避雷針"
+
+#: ../powers/powers.txt:808
+msgid "Create a destructive blast of lightning bolts"
+msgstr "稲妻の破壊的な爆発の作成"
+
+#: ../powers/powers.txt:835
+msgid "Melee Fire"
+msgstr "近接ファイア"
+
+#: ../powers/powers.txt:844
+msgid "Melee Ice"
+msgstr "近接氷"
+
+#: ../powers/powers.txt:853
+msgid "Slingshot Shoot"
+msgstr "スリングショットのシュート"
+
+#: ../powers/powers.txt:856
+msgid "Basic ranged attack (requires a ranged weapon)"
+msgstr "基本遠隔攻撃（遠隔武器が必要）"
+
+#: ../powers/powers.txt:875
+msgid "Arrow Shoot"
+msgstr "アローシュート"
+
+#: ../powers/powers.txt:949
+msgid "Arrow Wall Strike"
+msgstr "アローウォールストライク"
+
+#: ../powers/powers.txt:966
+msgid "Orange Spark"
+msgstr "オレンジスパーク"
+
+#: ../powers/powers.txt:983
+msgid "Blue Spark"
+msgstr "ブルースパーク"
+
+#: ../powers/powers.txt:1000
+msgid "Red Spark"
+msgstr "レッドスパーク"
+
+#: ../powers/powers.txt:1017
+msgid "Necrotic Bolt"
+msgstr "壊死ボルト"
+
+#: ../powers/powers.txt:1094
+msgid "Enemy Beacon"
+msgstr "敵のビーコン"
+
+#: ../powers/powers.txt:1095
+msgid "Bring other enemies into the fight with a dummy attack"
+msgstr "ダミーの攻撃との戦いに他の敵を持参"
+
+#: ../powers/powers.txt:1107
+#, fuzzy
+msgid "Summon Antlion"
+msgstr "ウスバカゲロウ"
+
+#: ../powers/powers.txt:1117
+#, fuzzy
+msgid "Summon Antlion Hatchling"
+msgstr "ウスバカゲロウの雛"
+
+#: ../powers/powers.txt:1127
+#, fuzzy
+msgid "Transform into Antlion Freezer"
+msgstr "ウスバカゲロウフリーザー"
+
+#: ../powers/powers.txt:1133
+msgid "Transform into Antlion Freezer for 5 seconds"
+msgstr ""
+
+#: ../powers/powers.txt:1140
+msgid "Disenchant"
+msgstr ""
+
+#: ../powers/powers.txt:1145
+msgid "Transform back to human"
+msgstr ""
+
+#: ../powers/powers.txt:1150
+#, fuzzy
+msgid "Summon Rotting Zombie"
+msgstr "腐ったゾンビ"
+
+#: ../powers/powers.txt:1160
+msgid "Transform into Antlion Freezer permanently"
+msgstr ""
+
+#: ../powers/powers.txt:1173
+msgid "Disenchant [item]"
+msgstr ""
+
+#: ../powers/powers.txt:1184
+msgid "Spike Ray"
+msgstr ""
+
+#: ../powers/powers.txt:1187
+msgid "Create a ray of deadly spikes"
+msgstr ""
+
+#: ../powers/powers.txt:1211
+msgid "Spikes"
+msgstr ""
+
+#: ../powers/powers.txt:1213
+msgid "Spikes Trap"
+msgstr ""
+
+#: ../engine/elements.txt:4
+#, fuzzy
+msgid "fire"
+msgstr "ボイド火災"
+
+#: ../engine/elements.txt:5
+#, fuzzy
+msgid "Fire Resistance"
+msgstr "火のレジスト"
+
+#: ../engine/elements.txt:8
+msgid "ice"
+msgstr ""
+
+#: ../engine/elements.txt:9
+#, fuzzy
+msgid "Ice Resistance"
+msgstr "氷レジスト"
+
+#: ../engine/elements.txt:12
+msgid "earth"
+msgstr ""
+
+#: ../engine/elements.txt:13
+#, fuzzy
+msgid "Earth Resistance"
+msgstr "地球のドレイク"
+
+#: ../engine/elements.txt:16
+#, fuzzy
+msgid "wind"
+msgstr "スイング"
+
+#: ../engine/elements.txt:17
+msgid "Wind Resistance"
+msgstr ""
+
+#: ../engine/elements.txt:20
+msgid "shadow"
+msgstr ""
+
+#: ../engine/elements.txt:21
+msgid "Shadow Resistance"
+msgstr ""
+
+#: ../engine/elements.txt:24
+#, fuzzy
+msgid "light"
+msgstr "スリングショット"
+
+#: ../engine/elements.txt:25
+msgid "Light Resistance"
+msgstr ""
+
+#: ../engine/loot.txt:15
+#, fuzzy
+msgid "Gold"
+msgstr "ゴブリン"
+
+#: ../enemies/antlion.txt:1
+msgid "Antlion"
+msgstr "ウスバカゲロウ"
+
+#: ../enemies/antlion_blinker.txt:1
+msgid "Antlion Blinker"
+msgstr "ウスバカゲロウのブリンカー"
+
+#: ../enemies/antlion_burster.txt:1
+msgid "Antlion Burster"
+msgstr "ウスバカゲロウバースター"
+
+#: ../enemies/antlion_freezer.txt:1
+msgid "Antlion Freezer"
+msgstr "ウスバカゲロウフリーザー"
+
+#: ../enemies/antlion_hatchling.txt:1
+msgid "Antlion Hatchling"
+msgstr "ウスバカゲロウの雛"
+
+#: ../enemies/antlion_slasher.txt:1
+msgid "Antlion Slasher"
+msgstr "ウスバカゲロウのスラッシャー"
+
+#: ../enemies/antlion_spitter.txt:1
+msgid "Antlion Spitter"
+msgstr "ウスバカゲロウ唾を吐く人"
+
+#: ../enemies/cursed_grave.txt:1
+#, fuzzy
+msgid "Cursed Grave"
+msgstr "偉大な弓は呪い"
+
+#: ../enemies/goblin.txt:1
+msgid "Goblin"
+msgstr "ゴブリン"
+
+#: ../enemies/goblin_charger.txt:1
+msgid "Goblin Charger"
+msgstr "ゴブリン充電器"
+
+#: ../enemies/goblin_charger_elite.txt:1
+msgid "Goblin Charger Elite"
+msgstr "ゴブリン充電器エリート"
+
+#: ../enemies/goblin_shaman.txt:1
+msgid "Goblin Shaman"
+msgstr "ゴブリンシャーマン"
+
+#: ../enemies/goblin_spearman.txt:1
+msgid "Goblin Spearman"
+msgstr "ゴブリンスピアマン"
+
+#: ../enemies/goblin_spearman_elite.txt:1
+msgid "Goblin Spearman Elite"
+msgstr "ゴブリンスピアマンエリート"
+
+#: ../enemies/minotaur.txt:1
+msgid "Minotaur"
+msgstr "ミノタウロス"
+
+#: ../enemies/skeletal_archer.txt:1
+msgid "Skeletal Archer"
+msgstr "骨格アーチャー"
+
+#: ../enemies/skeletal_knight.txt:1
+msgid "Skeletal Knight"
+msgstr "骨格の騎士"
+
+#: ../enemies/skeletal_mage.txt:1
+msgid "Skeletal Mage"
+msgstr "骨格メイジ"
+
+#: ../enemies/skeletal_occultist.txt:1
+msgid "Skeletal Occultist"
+msgstr "骨格オカルト"
+
+#: ../enemies/skeletal_sniper.txt:1
+msgid "Skeletal Sniper"
+msgstr "骨格スナイパー"
+
+#: ../enemies/skeletal_warrior.txt:1
+msgid "Skeletal Warrior"
+msgstr "骨格の戦士"
+
+#: ../enemies/skeleton.txt:1
+msgid "Skeleton"
+msgstr "スケルトン"
+
+#: ../enemies/wyvern.txt:1
+#, fuzzy
+msgid "Wyvern"
+msgstr "ワイバーンスパイン"
+
+#: ../enemies/wyvern_adult.txt:1
+msgid "Adult Wyvern"
+msgstr ""
+
+#: ../enemies/zombie.txt:1
+msgid "Zombie"
+msgstr "ゾンビ"
+
+#: ../enemies/zombie_bloodthirsty.txt:1
+msgid "Bloodthirsty Zombie"
+msgstr "血に飢えたゾンビ"
+
+#: ../enemies/zombie_brute.txt:1
+msgid "Zombie Brute"
+msgstr "ゾンビブルート"
+
+#: ../enemies/zombie_iceclaw.txt:1
+msgid "Iceclaw Zombie"
+msgstr "氷の爪ゾンビ"
+
+#: ../enemies/zombie_rotting.txt:1
+msgid "Rotting Zombie"
+msgstr "腐ったゾンビ"
+
+#~ msgid "Stun nearby enemies for 10 seconds "
+#~ msgstr "10秒間スタン近くの敵"
+
+#~ msgid "Double run and attack speed for 20 seconds "
+#~ msgstr "20秒のための二重実行と攻撃速度"
+
+#~ msgid "Channel a bolt of magic through your mental weapon for zero MP"
+#~ msgstr "チャンネルゼロMPのためのあなたの精神的な武器を通じて魔法のボルト"
+
+#~ msgid "Vengeance"
+#~ msgstr "復讐"
+
+#~ msgid "After blocking, unleash a deadly and accurate counter-attack"
+#~ msgstr "致命的なと正確なカウンター攻撃を放つブロッキングした後、"
+
+#~ msgid "Apprentice Necromancer"
+#~ msgstr "見習いネクロマンサー"

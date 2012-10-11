@@ -1,0 +1,44 @@
+name=Scathelocke
+level=11
+xp=11
+
+sfx_prefix=human_male
+animations=scathelocke
+animation_speed=100
+
+loot_chance=0
+quest_loot=lb_ice_unlocked,lb_ice_key,9101
+defeat_status=lb_ice_defeated
+
+# combat stats
+hp=60
+speed=12
+dspeed=8
+melee_range=76
+threat_range=512
+turn_delay=5
+chance_pursue=30
+chance_melee_phys=5
+chance_melee_ment=0
+chance_ranged_phys=0
+chance_ranged_ment=15
+#chill touch
+power_melee_phys=38
+power_ranged_ment=30
+power_beacon=132
+
+accuracy=96
+avoidance=49
+
+dmg_melee_min=1
+dmg_melee_max=5
+dmg_ment_min=5
+dmg_ment_max=13
+absorb_min=2
+absorb_max=2
+#immune ice
+vulnerable_fire=200
+vulnerable_ice=0
+cooldown=30
+
+

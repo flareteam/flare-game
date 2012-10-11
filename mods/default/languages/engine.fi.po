@@ -1,0 +1,915 @@
+# FLARE (Free/Libre Action RPG Engine)
+# Copyright (C) 2012 Clint Bellanger
+# This file is distributed under the same license as the FLARE package.
+# Timo Sievänen <thematic@helsinkilainen.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: 0.17\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-21 15:57+0300\n"
+"PO-Revision-Date: 2012-09-23 21:57+0300\n"
+"Last-Translator: Timo Sievänen <thematic@helsinkilainen.com>\n"
+"Language-Team: \n"
+"Language: Finnish\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../src/Avatar.cpp:444
+#, c-format
+msgid "Congratulations, you have reached level %d!"
+msgstr "Onnittelut, olet päässyt tasolle %d!"
+
+#: ../../../src/Avatar.cpp:446
+msgid "You may increase one attribute through the Character Menu."
+msgstr "Voit nostaa yhtä kyvyistäsi hahmovalikossa."
+
+#: ../../../src/Avatar.cpp:633
+msgid "You are defeated. Game over! Press Enter to exit to Title."
+msgstr "Sinut on nujerrettu, peli päättyi. Paina Enter poistuaksesi päävalikkoon."
+
+#: ../../../src/Avatar.cpp:636
+#, c-format
+msgid "You are defeated.  You lose half your %s.  Press Enter to continue."
+msgstr "Kärsit tappion. Menetät puolet kullasta. Paina Enter jatkaaksesi."
+
+#: ../../../src/Avatar.cpp:708 ../../../src/Enemy.cpp:168
+msgid "miss"
+msgstr "ohi"
+
+#: ../../../src/Avatar.cpp:795 ../../../src/Enemy.cpp:261
+#: ../../../src/PowerManager.cpp:762 ../../../src/PowerManager.cpp:764
+#: ../../../src/PowerManager.cpp:773 ../../../src/PowerManager.cpp:775
+#, c-format
+msgid "+%d HP"
+msgstr "+%d OP"
+
+#: ../../../src/CampaignManager.cpp:141
+#, c-format
+msgid "You receive %s."
+msgstr "Hallussasi on nyt %s."
+
+#: ../../../src/CampaignManager.cpp:143
+#, c-format
+msgid "You receive %s x%d."
+msgstr "Saat %s x%d"
+
+#: ../../../src/CampaignManager.cpp:151
+#, c-format
+msgid "You receive %d %s."
+msgstr "Saat %d %s"
+
+#: ../../../src/CampaignManager.cpp:157
+#, c-format
+msgid "You receive %d XP."
+msgstr "Saat %d kokemusta."
+
+#: ../../../src/CampaignManager.cpp:163
+msgid "HP restored."
+msgstr "Osumapisteet palautuneet."
+
+#: ../../../src/CampaignManager.cpp:167
+msgid "MP restored."
+msgstr "Mentaalipisteet palautuneet."
+
+#: ../../../src/CampaignManager.cpp:172
+msgid "HP and MP restored."
+msgstr "OP ja MP palautuneet."
+
+#: ../../../src/CampaignManager.cpp:176
+msgid "Negative effects removed."
+msgstr "Haitalliset vaikutukset poistuneet."
+
+#: ../../../src/CampaignManager.cpp:182
+msgid "HP and MP restored, negative effects removed"
+msgstr "OP ja MP palautuneet ja haitalliset vaikutukset poistuneet."
+
+#: ../../../src/Enemy.cpp:268 ../../../src/PowerManager.cpp:784
+#: ../../../src/PowerManager.cpp:786
+#, c-format
+msgid "+%d MP"
+msgstr "+%d MP"
+
+#: ../../../src/GameStateConfig.cpp:77
+msgid "Ok"
+msgstr "Ok"
+
+#: ../../../src/GameStateConfig.cpp:82 ../../../src/GameStateConfig.cpp:161
+msgid "Defaults"
+msgstr "Oletukset"
+
+#: ../../../src/GameStateConfig.cpp:87 ../../../src/GameStateNew.cpp:49
+#: ../../../src/InputState.cpp:55
+msgid "Cancel"
+msgstr "Peru"
+
+#: ../../../src/GameStateConfig.cpp:152
+msgid "Video"
+msgstr "Video"
+
+#: ../../../src/GameStateConfig.cpp:153
+msgid "Audio"
+msgstr "Audio"
+
+#: ../../../src/GameStateConfig.cpp:154
+msgid "Interface"
+msgstr "Käyttöliittymä"
+
+#: ../../../src/GameStateConfig.cpp:155
+msgid "Input"
+msgstr "Ohjaus"
+
+#: ../../../src/GameStateConfig.cpp:156
+msgid "Keybindings"
+msgstr "Näppäimet"
+
+#: ../../../src/GameStateConfig.cpp:157
+msgid "Mods"
+msgstr "Modit"
+
+#: ../../../src/GameStateConfig.cpp:160 ../../../src/GameStateConfig.cpp:895
+#: ../../../src/GameStateConfig.cpp:897
+msgid "Assign: "
+msgstr "Valinta: "
+
+#: ../../../src/GameStateConfig.cpp:161
+msgid "Reset ALL settings?"
+msgstr "Palauta KAIKKI asetukset?"
+
+#: ../../../src/GameStateConfig.cpp:238
+msgid "Full Screen Mode"
+msgstr "Täysi ruutu"
+
+#: ../../../src/GameStateConfig.cpp:251
+msgid "Move hero using mouse"
+msgstr "Liikuta sankaria hiirellä"
+
+#: ../../../src/GameStateConfig.cpp:264
+msgid "Show combat text"
+msgstr "Näytä taisteluteksti"
+
+#: ../../../src/GameStateConfig.cpp:278
+msgid "Hardware surfaces"
+msgstr "Hardware surfaces"
+
+#: ../../../src/GameStateConfig.cpp:291
+msgid "Double buffering"
+msgstr "Kaksoispuskurointi"
+
+#: ../../../src/GameStateConfig.cpp:305
+msgid "Use joystick"
+msgstr "Käytä peliohjainta"
+
+#: ../../../src/GameStateConfig.cpp:318
+msgid "High Quality Textures"
+msgstr "Korkeatasoiset tekstuurit"
+
+#: ../../../src/GameStateConfig.cpp:331
+msgid "Allow changing gamma"
+msgstr "Salli gamma-muutokset"
+
+#: ../../../src/GameStateConfig.cpp:344
+msgid "Animated tiles"
+msgstr "Animoidut tiilet"
+
+#: ../../../src/GameStateConfig.cpp:357
+msgid "Mouse aim"
+msgstr "Hiiritähtäys"
+
+#: ../../../src/GameStateConfig.cpp:370
+msgid "Show FPS"
+msgstr "Näytä päivitystaso (FPS)"
+
+#: ../../../src/GameStateConfig.cpp:384
+msgid "Music Volume"
+msgstr "Musiikin voimakkuus"
+
+#: ../../../src/GameStateConfig.cpp:397
+msgid "Sound Volume"
+msgstr "äänenvoimakkuus"
+
+#: ../../../src/GameStateConfig.cpp:410
+msgid "Gamma"
+msgstr "Gamma"
+
+#: ../../../src/GameStateConfig.cpp:424
+msgid "Resolution"
+msgstr "Kuvakoko"
+
+#: ../../../src/GameStateConfig.cpp:435
+msgid "Active Mods"
+msgstr "Käytössäolevat modit"
+
+#: ../../../src/GameStateConfig.cpp:445
+msgid "Available Mods"
+msgstr "Saatavilla olevat modit"
+
+#: ../../../src/GameStateConfig.cpp:461
+msgid "Joystick"
+msgstr "Peliohjain"
+
+#: ../../../src/GameStateConfig.cpp:473
+msgid "Language"
+msgstr "Kieli"
+
+#: ../../../src/GameStateConfig.cpp:508 ../../../src/GameStateConfig.cpp:515
+#: ../../../src/GameStateConfig.cpp:522
+msgid "Disable for performance"
+msgstr "Poiskytkeminen nopeuttaa peliä"
+
+#: ../../../src/GameStateConfig.cpp:529
+msgid "Experimental"
+msgstr "Kokeellinen"
+
+#: ../../../src/GameStateConfig.cpp:549
+msgid "<< Disable"
+msgstr "<< Poista käytöstä"
+
+#: ../../../src/GameStateConfig.cpp:557
+msgid "Enable >>"
+msgstr "Ota käyttöön"
+
+#: ../../../src/GameStateLoad.cpp:56 ../../../src/GameStateLoad.cpp:68
+msgid "Delete Save"
+msgstr "Poista tallennus"
+
+#: ../../../src/GameStateLoad.cpp:56
+msgid "Delete this save?"
+msgstr "Poistetaanko tallennus?"
+
+#: ../../../src/GameStateLoad.cpp:58
+msgid "Exit to Title"
+msgstr "Palaa päävalikkoon"
+
+#: ../../../src/GameStateLoad.cpp:64
+msgid "Choose a Slot"
+msgstr "Valitse ura"
+
+#: ../../../src/GameStateLoad.cpp:378 ../../../src/GameStateLoad.cpp:424
+#: ../../../src/GameStateLoad.cpp:447 ../../../src/GameStateLoad.cpp:466
+#: ../../../src/GameStateLoad.cpp:491
+msgid "New Game"
+msgstr "Uusi peli"
+
+#: ../../../src/GameStateLoad.cpp:428 ../../../src/GameStateLoad.cpp:451
+#: ../../../src/GameStateLoad.cpp:470
+msgid "Load Game"
+msgstr "Lataa peli"
+
+#: ../../../src/GameStateLoad.cpp:558
+msgid "Entering game world..."
+msgstr "Saavutaan pelimaailmaan..."
+
+#: ../../../src/GameStateLoad.cpp:560
+msgid "Loading saved game..."
+msgstr "Ladataan tallennettu peli..."
+
+#: ../../../src/GameStateLoad.cpp:581
+#, c-format
+msgid "Level %d %s"
+msgstr "Taso %d %s"
+
+#: ../../../src/GameStateLoad.cpp:603
+msgid "Empty Slot"
+msgstr "Tyhjä ura"
+
+#: ../../../src/GameStateNew.cpp:55
+msgid "Create"
+msgstr "Aloita"
+
+#: ../../../src/GameStateNew.cpp:133
+msgid "Choose a Portrait"
+msgstr "Valitse muotokuva"
+
+#: ../../../src/GameStateNew.cpp:135
+msgid "Choose a Name"
+msgstr "Valitse nimi"
+
+#: ../../../src/GameStateNew.cpp:137
+msgid "Permadeath?"
+msgstr "Lopullinen kuolema?"
+
+#: ../../../src/GameStatePlay.cpp:90
+msgid "Loading..."
+msgstr "Ladataan..."
+
+#: ../../../src/GameStatePlay.cpp:202 ../../../src/GameStatePlay.cpp:203
+#: ../../../src/MenuManager.cpp:378 ../../../src/MenuManager.cpp:379
+#: ../../../src/MenuManager.cpp:403 ../../../src/MenuManager.cpp:404
+#: ../../../src/MenuManager.cpp:587 ../../../src/MenuManager.cpp:588
+#: ../../../src/MenuManager.cpp:607 ../../../src/MenuManager.cpp:608
+msgid "Inventory is full."
+msgstr "Tavaraluettelo on täynnä."
+
+#: ../../../src/GameStateTitle.cpp:40
+msgid "Play Game"
+msgstr "Pelaa"
+
+#: ../../../src/GameStateTitle.cpp:45
+msgid "Configuration"
+msgstr "Asetukset"
+
+#: ../../../src/GameStateTitle.cpp:50
+msgid "Exit Game"
+msgstr "Lopeta peli"
+
+#: ../../../src/GameStateTitle.cpp:57
+msgid "Flare Alpha v0.17"
+msgstr "Flare Alpha v0.17"
+
+#: ../../../src/InputState.cpp:56
+msgid "Accept"
+msgstr "Hyväksy"
+
+#: ../../../src/InputState.cpp:57
+msgid "Up"
+msgstr "Ylös"
+
+#: ../../../src/InputState.cpp:58
+msgid "Down"
+msgstr "Alas"
+
+#: ../../../src/InputState.cpp:59
+msgid "Left"
+msgstr "Vasen"
+
+#: ../../../src/InputState.cpp:60
+msgid "Right"
+msgstr "Oikea"
+
+#: ../../../src/InputState.cpp:61
+msgid "Bar1"
+msgstr ""
+
+#: ../../../src/InputState.cpp:62
+msgid "Bar2"
+msgstr ""
+
+#: ../../../src/InputState.cpp:63
+msgid "Bar3"
+msgstr ""
+
+#: ../../../src/InputState.cpp:64
+msgid "Bar4"
+msgstr ""
+
+#: ../../../src/InputState.cpp:65
+msgid "Bar5"
+msgstr ""
+
+#: ../../../src/InputState.cpp:66
+msgid "Bar6"
+msgstr ""
+
+#: ../../../src/InputState.cpp:67
+msgid "Bar7"
+msgstr ""
+
+#: ../../../src/InputState.cpp:68
+msgid "Bar8"
+msgstr ""
+
+#: ../../../src/InputState.cpp:69
+msgid "Bar9"
+msgstr ""
+
+#: ../../../src/InputState.cpp:70
+msgid "Bar0"
+msgstr ""
+
+#: ../../../src/InputState.cpp:71 ../../../src/MenuCharacter.cpp:206
+msgid "Character"
+msgstr "Hahmo"
+
+#: ../../../src/InputState.cpp:72 ../../../src/MenuInventory.cpp:167
+#: ../../../src/MenuVendor.cpp:48
+msgid "Inventory"
+msgstr "Tavaraluettelo"
+
+#: ../../../src/InputState.cpp:73 ../../../src/MenuPowers.cpp:168
+msgid "Powers"
+msgstr "Voimat"
+
+#: ../../../src/InputState.cpp:74 ../../../src/MenuLog.cpp:171
+msgid "Log"
+msgstr "Loki"
+
+#: ../../../src/InputState.cpp:75
+msgid "Main1"
+msgstr ""
+
+#: ../../../src/InputState.cpp:76
+msgid "Main2"
+msgstr ""
+
+#: ../../../src/InputState.cpp:77
+msgid "Ctrl"
+msgstr ""
+
+#: ../../../src/InputState.cpp:78
+msgid "Shift"
+msgstr "Vaihto"
+
+#: ../../../src/InputState.cpp:79
+msgid "Delete"
+msgstr ""
+
+#: ../../../src/InputState.cpp:81
+msgid "lmb"
+msgstr "H-vasen"
+
+#: ../../../src/InputState.cpp:82
+msgid "mmb"
+msgstr "H-keski"
+
+#: ../../../src/InputState.cpp:83
+msgid "rmb"
+msgstr "H-oikea"
+
+#: ../../../src/InputState.cpp:84
+msgid "wheel up"
+msgstr "Pyörä ylös"
+
+#: ../../../src/InputState.cpp:85
+msgid "wheel down"
+msgstr "Pyörä alas"
+
+#: ../../../src/InputState.cpp:86
+msgid "mbx1"
+msgstr ""
+
+#: ../../../src/InputState.cpp:87
+msgid "mbx2"
+msgstr ""
+
+#: ../../../src/ItemManager.cpp:512
+#, c-format
+msgid "Level %d"
+msgstr "Taso %d"
+
+#: ../../../src/ItemManager.cpp:523
+#, c-format
+msgid "Melee damage: %d-%d"
+msgstr "Lähitaisteluvahinko: %d-%d"
+
+#: ../../../src/ItemManager.cpp:525
+#, c-format
+msgid "Melee damage: %d"
+msgstr "Lähitaisteluvahinko: %d"
+
+#: ../../../src/ItemManager.cpp:529
+#, c-format
+msgid "Ranged damage: %d-%d"
+msgstr "Etävahinko: %d-%d"
+
+#: ../../../src/ItemManager.cpp:531
+#, c-format
+msgid "Ranged damage: %d"
+msgstr "Etävahinko: %d"
+
+#: ../../../src/ItemManager.cpp:535
+#, c-format
+msgid "Mental damage: %d-%d"
+msgstr "Mentaalinen vahinko: %d-%d"
+
+#: ../../../src/ItemManager.cpp:537
+#, c-format
+msgid "Mental damage: %d"
+msgstr "Mentaalinen vahinko: %d"
+
+#: ../../../src/ItemManager.cpp:543
+#, c-format
+msgid "Absorb: %d-%d"
+msgstr "Vaimennus: %d-%d"
+
+#: ../../../src/ItemManager.cpp:545
+#, c-format
+msgid "Absorb: %d"
+msgstr "Vaimennus: %d"
+
+#: ../../../src/ItemManager.cpp:553 ../../../src/ItemManager.cpp:632
+#, c-format
+msgid "Increases %s by %d"
+msgstr "%s nousee %d"
+
+#: ../../../src/ItemManager.cpp:560 ../../../src/ItemManager.cpp:635
+#, c-format
+msgid "Decreases %s by %d"
+msgstr "%s laskee %d
+
+#: ../../../src/ItemManager.cpp:580 ../../../src/MenuPowers.cpp:516
+#: ../../../src/MenuPowers.cpp:518
+#, c-format
+msgid "Requires Physical %d"
+msgstr "Vaatii fyysisen kyvyn %d"
+
+#: ../../../src/ItemManager.cpp:584 ../../../src/MenuPowers.cpp:522
+#: ../../../src/MenuPowers.cpp:524
+#, c-format
+msgid "Requires Mental %d"
+msgstr "Vaatii mentaalisen kyvyn %d"
+
+#: ../../../src/ItemManager.cpp:588 ../../../src/MenuPowers.cpp:504
+#: ../../../src/MenuPowers.cpp:506
+#, c-format
+msgid "Requires Offense %d"
+msgstr "Vaatii hyökkäyskyvyn %d"
+
+#: ../../../src/ItemManager.cpp:592 ../../../src/MenuPowers.cpp:510
+#: ../../../src/MenuPowers.cpp:512
+#, c-format
+msgid "Requires Defense %d"
+msgstr "Vaatii puolustuskyvyn %d"
+
+#: ../../../src/ItemManager.cpp:602
+#, c-format
+msgid "Buy Price: %d %s"
+msgstr "Ostohinta: %d kultaa"
+
+#: ../../../src/ItemManager.cpp:604
+#, c-format
+msgid "Buy Price: %d %s each"
+msgstr "Ostohinta: á %d kultaa"
+
+#: ../../../src/ItemManager.cpp:614
+#, c-format
+msgid "Sell Price: %d %s"
+msgstr "Myyntihinta: %d kultaa"
+
+#: ../../../src/ItemManager.cpp:616
+#, c-format
+msgid "Sell Price: %d %s each"
+msgstr "Myyntihinta: á %d kultaa"
+
+#: ../../../src/ItemManager.cpp:628
+msgid "Set: "
+msgstr ""
+
+#: ../../../src/ItemManager.cpp:632 ../../../src/ItemManager.cpp:635
+#, c-format
+msgid "%d items: "
+msgstr "%d esinettä: "
+
+#: ../../../src/LootManager.cpp:282 ../../../src/MenuInventory.cpp:171
+#, c-format
+msgid "%d %s"
+msgstr ""
+
+#: ../../../src/main.cpp:124
+msgid "Flare"
+msgstr "Flare"
+
+#: ../../../src/MapRenderer.cpp:1181
+msgid "Unknown destination"
+msgstr "Tuntematon määränpää"
+
+#: ../../../src/MenuActionBar.cpp:399
+msgid "Character Menu (C)"
+msgstr "Hahmovalikko (C)"
+
+#: ../../../src/MenuActionBar.cpp:403
+msgid "Inventory Menu (I)"
+msgstr "Tavaraluettelo (I)"
+
+#: ../../../src/MenuActionBar.cpp:407
+msgid "Power Menu (P)"
+msgstr "Voimavalikko (P)"
+
+#: ../../../src/MenuActionBar.cpp:411
+msgid "Log Menu (L)"
+msgstr "Lokivalikko (L)"
+
+#: ../../../src/MenuCharacter.cpp:219
+msgid "Name"
+msgstr "Nimi"
+
+#: ../../../src/MenuCharacter.cpp:220
+msgid "Level"
+msgstr "Taso"
+
+#: ../../../src/MenuCharacter.cpp:221
+msgid "Physical"
+msgstr "Fyysinen"
+
+#: ../../../src/MenuCharacter.cpp:222
+msgid "Mental"
+msgstr "Mentaalinen"
+
+#: ../../../src/MenuCharacter.cpp:223
+msgid "Offense"
+msgstr "Hyökkäys"
+
+#: ../../../src/MenuCharacter.cpp:224
+msgid "Defense"
+msgstr "Puolustus"
+
+#: ../../../src/MenuCharacter.cpp:284
+msgid "points remaining"
+msgstr "pistettä jäljellä"
+
+#: ../../../src/MenuCharacter.cpp:295
+msgid "Max HP:"
+msgstr "Maksimi OP:"
+
+#: ../../../src/MenuCharacter.cpp:296
+#, c-format
+msgid "Each point of Physical grants +%d HP. Each level grants +%d HP"
+msgstr "Jokainen fyysinen piste lisää +%d HP. Jokainen taso lisää +%d HP"
+
+#: ../../../src/MenuCharacter.cpp:301
+msgid "HP Regen:"
+msgstr "Osumapisteiden uusiutuminen:"
+
+#: ../../../src/MenuCharacter.cpp:302
+#, c-format
+msgid "Ticks of HP regen per minute. Each point of Physical grants +%d HP regen. Each level grants +%d HP regen"
+msgstr "Osumapisteiden lisäys minuuttia kohden. Jokainen fyysinen piste lisää uusiutumiseen +%d OP. Jokainen taso lisää uusiutumiseen +%d OP"
+
+#: ../../../src/MenuCharacter.cpp:307
+msgid "Max MP:"
+msgstr "Maksimi MP:"
+
+#: ../../../src/MenuCharacter.cpp:308
+#, c-format
+msgid "Each point of Mental grants +%d MP. Each level grants +%d MP"
+msgstr "Jokainen mentaalipiste lisää +%d MP. Jokainen taso lisää +%d MP"
+
+#: ../../../src/MenuCharacter.cpp:313
+msgid "MP Regen:"
+msgstr "Mentaalipisteiden uusiutuminen:"
+
+#: ../../../src/MenuCharacter.cpp:314
+#, c-format
+msgid "Ticks of MP regen per minute. Each point of Mental grants +%d MP regen. Each level grants +%d MP regen"
+msgstr "MP:n lisäys minuuttia kohden. Jokainen mentaalipiste lisää uusiutumiseen +%d MP. Jokainen taso lisää uusiutumiseen +%d MP"
+
+#: ../../../src/MenuCharacter.cpp:319
+msgid "Accuracy (vs lvl 1):"
+msgstr "Tarkkuus (vastassa taso 1):"
+
+#: ../../../src/MenuCharacter.cpp:320 ../../../src/MenuCharacter.cpp:326
+#, c-format
+msgid "Each point of Offense grants +%d accuracy. Each level grants +%d accuracy"
+msgstr "Jokainen hyökkäyspiste lisää +%d tarkkuuteen. Jokainen taso lisää +%d tarkkuuteen"
+
+#: ../../../src/MenuCharacter.cpp:325
+msgid "Accuracy (vs lvl 5):"
+msgstr "Tarkkuus (vastassa taso 5):"
+
+#: ../../../src/MenuCharacter.cpp:331
+msgid "Avoidance (vs lvl 1):"
+msgstr "Välttely (vastassa taso 1):"
+
+#: ../../../src/MenuCharacter.cpp:332 ../../../src/MenuCharacter.cpp:338
+#, c-format
+msgid "Each point of Defense grants +%d avoidance. Each level grants +%d avoidance"
+msgstr "Jokainen puolustuspiste lisää +%d välttelyyn. Jokainen taso lisää +%d välttelyyn"
+
+#: ../../../src/MenuCharacter.cpp:337
+msgid "Avoidance (vs lvl 5):"
+msgstr "Välttely (vastassa taso 5):"
+
+#: ../../../src/MenuCharacter.cpp:346
+msgid "Melee Damage:"
+msgstr "Lähitaisteluvahinko:"
+
+#: ../../../src/MenuCharacter.cpp:357
+msgid "Ranged Damage:"
+msgstr "Etävahinko:"
+
+#: ../../../src/MenuCharacter.cpp:368
+msgid "Mental Damage:"
+msgstr "Mentaalinen vahinko:"
+
+#: ../../../src/MenuCharacter.cpp:378
+msgid "Crit:"
+msgstr "Kuritus:"
+
+#: ../../../src/MenuCharacter.cpp:384
+msgid "Absorb:"
+msgstr "Vaimennus:"
+
+#: ../../../src/MenuCharacter.cpp:405
+#, c-format
+msgid "XP: %d"
+msgstr "Kokemus: %d"
+
+#: ../../../src/MenuCharacter.cpp:407
+#, c-format
+msgid "Next: %d"
+msgstr "Seuraava: %d"
+
+#: ../../../src/MenuCharacter.cpp:411
+msgid "Physical (P) increases melee weapon proficiency and total HP."
+msgstr "Fyysinen"
+
+#: ../../../src/MenuCharacter.cpp:412 ../../../src/MenuCharacter.cpp:416
+#: ../../../src/MenuCharacter.cpp:420 ../../../src/MenuCharacter.cpp:424
+#, c-format
+msgid "base (%d), bonus (%d)"
+msgstr "perus (%d), lisä (%d)"
+
+#: ../../../src/MenuCharacter.cpp:415
+msgid "Mental (M) increases mental weapon proficiency and total MP."
+msgstr "Mentaalinen (M) lisää mentaaliasetaitoa ja MP:n kokonaismäärää."
+
+#: ../../../src/MenuCharacter.cpp:419
+msgid "Offense (O) increases ranged weapon proficiency and accuracy."
+msgstr "Hyökkäys (O) lisää etäasetaitoa ja tarkkuutta."
+
+#: ../../../src/MenuCharacter.cpp:423
+msgid "Defense (D) increases armor proficiency and avoidance."
+msgstr "Puolustus (D) lisää haarniskataitoa ja välttelymahdollisuuksia."
+
+#: ../../../src/MenuCharacter.cpp:427
+msgid "Unspent attribute points"
+msgstr "Käyttämättömät kykypisteet"
+
+#: ../../../src/MenuEnemy.cpp:133
+msgid "Dead"
+msgstr "Kuollut"
+
+#: ../../../src/MenuEnemy.cpp:139 ../../../src/MenuEnemy.cpp:141
+#, c-format
+msgid "%s level %d"
+msgstr "%s taso %d"
+
+#: ../../../src/MenuExit.cpp:31
+msgid "Exit"
+msgstr "Poistu"
+
+#: ../../../src/MenuExit.cpp:60
+msgid "Save and exit to title?"
+msgstr "Tallenna ja poistu päävalikkoon?"
+
+#: ../../../src/MenuInventory.cpp:212
+msgid "Use SHIFT to move only one item."
+msgstr "Vaihtonäppäimellä siirrät vain yhden tavaran."
+
+#: ../../../src/MenuInventory.cpp:213
+msgid "CTRL-click a carried item to sell it."
+msgstr "CTRL-napsauttamalla myyt kannetun tavaran."
+
+#: ../../../src/MenuInventory.cpp:387
+msgid "This item can only be used from the action bar."
+msgstr "Tätä tavaraa voit käyttää vain toimintapalkista."
+
+#: ../../../src/MenuLog.cpp:79
+msgid "Notes"
+msgstr "Muistiinpanot"
+
+#: ../../../src/MenuLog.cpp:80
+msgid "Quests"
+msgstr "Etsinnät"
+
+#: ../../../src/MenuLog.cpp:81
+msgid "Stats"
+msgstr "Tilastot"
+
+#: ../../../src/MenuManager.cpp:216
+#, c-format
+msgid "XP: %d/%d"
+msgstr "Kokemus: %d/%d"
+
+#: ../../../src/MenuManager.cpp:373 ../../../src/MenuManager.cpp:374
+#: ../../../src/MenuManager.cpp:582 ../../../src/MenuManager.cpp:583
+msgid "Not enough money."
+msgstr "Rahat eivät riitä."
+
+#: ../../../src/MenuPowers.cpp:470
+msgid "Requires a physical weapon"
+msgstr "Vaatii fyysisen aseen"
+
+#: ../../../src/MenuPowers.cpp:472
+msgid "Requires a mental weapon"
+msgstr "Vaatii mentaalisen aseen"
+
+#: ../../../src/MenuPowers.cpp:474
+msgid "Requires an offense weapon"
+msgstr "Vaatii hyökkäysaseen"
+
+#: ../../../src/MenuPowers.cpp:480 ../../../src/MenuPowers.cpp:482
+#, c-format
+msgid "Requires Physical Offense %d"
+msgstr "Vaatii fyysisen hyökkäyskyvyn %d"
+
+#: ../../../src/MenuPowers.cpp:486 ../../../src/MenuPowers.cpp:488
+#, c-format
+msgid "Requires Physical Defense %d"
+msgstr "Vaatii fyysisen puolustuskyvyn %d"
+
+#: ../../../src/MenuPowers.cpp:492 ../../../src/MenuPowers.cpp:494
+#, c-format
+msgid "Requires Mental Offense %d"
+msgstr "Vaatii mentaalisen hyökkäyskyvyn %d"
+
+#: ../../../src/MenuPowers.cpp:498 ../../../src/MenuPowers.cpp:500
+#, c-format
+msgid "Requires Mental Defense %d"
+msgstr "Vaatii mentaalisen puolustuskyvyn %d"
+
+#: ../../../src/MenuPowers.cpp:530 ../../../src/MenuPowers.cpp:533
+#, c-format
+msgid "Requires Level %d"
+msgstr "Vaatii tason %d"
+
+#: ../../../src/MenuPowers.cpp:541 ../../../src/MenuPowers.cpp:546
+#, c-format
+msgid "Requires %d Skill Point"
+msgstr "Vaatii %d taitopisteitä"
+
+#: ../../../src/MenuPowers.cpp:554
+msgid "Click to Unlock"
+msgstr "Napsauta avataksesi"
+
+#: ../../../src/MenuPowers.cpp:561 ../../../src/MenuPowers.cpp:564
+#, c-format
+msgid "Requires Power: %s"
+msgstr "Vaatii voiman: %s"
+
+#: ../../../src/MenuPowers.cpp:569
+#, c-format
+msgid "Costs %d MP"
+msgstr "Kustannus %d MP"
+
+#: ../../../src/MenuPowers.cpp:573
+#, c-format
+msgid "Cooldown: %d seconds"
+msgstr "Jäähtyminen: %d sekuntia"
+
+#: ../../../src/MenuStash.cpp:125
+msgid "Shared Stash"
+msgstr "Jaettu kätkö"
+
+#: ../../../src/MenuTalker.cpp:47
+msgid "Trade"
+msgstr "Kaupankäynti"
+
+#: ../../../src/MenuVendor.cpp:49
+msgid "Buyback"
+msgstr "Myy?"
+
+#: ../../../src/MenuVendor.cpp:156
+msgid "Vendor"
+msgstr "Kauppias"
+
+#: ../../../src/PowerManager.cpp:795 ../../../src/PowerManager.cpp:797
+#, c-format
+msgid "+%d Shield"
+msgstr "+%d kilpi"
+
+#: ../../../src/PowerManager.cpp:1114
+msgid "You are already transformed, untransform first."
+msgstr "Olet jo muuntunut, palaa ensin entisellesi."
+
+#: ../../../src/StatBlock.cpp:397
+msgid "Grand Master"
+msgstr "Suurmestari"
+
+#: ../../../src/StatBlock.cpp:400
+msgid "Master"
+msgstr "Mestari"
+
+#: ../../../src/StatBlock.cpp:403
+msgid "Warrior"
+msgstr "Soturi"
+
+#: ../../../src/StatBlock.cpp:405
+msgid "Wizard"
+msgstr "Velho"
+
+#: ../../../src/StatBlock.cpp:407
+msgid "Ranger"
+msgstr "Metsänvartija"
+
+#: ../../../src/StatBlock.cpp:409
+msgid "Paladin"
+msgstr "Paladiini"
+
+#: ../../../src/StatBlock.cpp:412
+msgid "Rogue"
+msgstr "Konna"
+
+#: ../../../src/StatBlock.cpp:414
+msgid "Knight"
+msgstr "Ritari"
+
+#: ../../../src/StatBlock.cpp:416
+msgid "Shaman"
+msgstr "Shamaani"
+
+#: ../../../src/StatBlock.cpp:418
+msgid "Cleric"
+msgstr "Pappi"
+
+#: ../../../src/StatBlock.cpp:420
+msgid "Battle Mage"
+msgstr "Taistelumaagi"
+
+#: ../../../src/StatBlock.cpp:422
+msgid "Heavy Archer"
+msgstr "Ampuja"
+
+#: ../../../src/StatBlock.cpp:424
+msgid "Adventurer"
+msgstr "Seikkailija"

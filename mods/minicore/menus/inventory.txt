@@ -1,0 +1,26 @@
+# Settings for the Inventory menu
+# the first two values are x,y positions
+# some items have two more values, width and height
+
+close=147,1
+help=1,1,12,12
+
+# define x,y position, slot size, slot type
+equipment_slot=16,24,32,main
+slot_name=Main Hand
+
+equipment_slot=48,24,32,body
+slot_name=Body
+
+equipment_slot=80,24,32,off
+slot_name=Off Hand
+
+equipment_slot=112,24,32,artifact
+slot_name=Artifact
+
+carried_area=16,64
+carried_cols=8
+carried_rows=8
+
+caption=80,4,center,top
+currency=144,53,right,top
