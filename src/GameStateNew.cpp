@@ -36,6 +36,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "WidgetCheckBox.h"
 #include "WidgetInput.h"
 #include "WidgetLabel.h"
+#include "WidgetListBox.h"
 
 using namespace std;
 
@@ -48,13 +49,13 @@ GameStateNew::GameStateNew() : GameState() {
 	// set up buttons
 	button_exit = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
 	button_exit->label = msg->get("Cancel");
-	button_exit->pos.x = VIEW_W_HALF - button_exit->pos.w/2;
+	button_exit->pos.x = VIEW_W_HALF - button_exit->pos.w;
 	button_exit->pos.y = VIEW_H - button_exit->pos.h;
 	button_exit->refresh();
 
 	button_create = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
 	button_create->label = msg->get("Create");
-	button_create->pos.x = VIEW_W_HALF + button_create->pos.w/2;
+	button_create->pos.x = VIEW_W_HALF;
 	button_create->pos.y = VIEW_H - button_create->pos.h;
 	button_create->enabled = false;
 	button_create->refresh();
@@ -62,8 +63,11 @@ GameStateNew::GameStateNew() : GameState() {
 	button_prev = new WidgetButton(mods->locate("images/menus/buttons/left.png"));
 	button_next = new WidgetButton(mods->locate("images/menus/buttons/right.png"));
 	input_name = new WidgetInput();
-	button_permadeath = new WidgetCheckBox(mods->locate(
-												"images/menus/buttons/checkbox_default.png"));
+	button_permadeath = new WidgetCheckBox(mods->locate("images/menus/buttons/checkbox_default.png"));
+
+	class_list = new WidgetListBox (HERO_CLASSES.size(), 12, mods->locate("images/menus/buttons/listbox_default.png"));
+	class_list->can_deselect = false;
+	class_list->selected[0] = true;
 
 	// Read positions from config file
 	FileParser infile;
@@ -93,11 +97,17 @@ GameStateNew::GameStateNew() : GameState() {
 		} else if (infile.key == "permadeath_label") {
 			permadeath_label.x = eatFirstInt(infile.val, ',');
 			permadeath_label.y = eatFirstInt(infile.val, ',');
+		} else if (infile.key == "classlist_label") {
+			classlist_label.x = eatFirstInt(infile.val, ',');
+			classlist_label.y = eatFirstInt(infile.val, ',');
 		} else if (infile.key == "portrait") {
 			portrait_pos.x = eatFirstInt(infile.val, ',');
 			portrait_pos.y = eatFirstInt(infile.val, ',');
 			portrait_pos.w = eatFirstInt(infile.val, ',');
 			portrait_pos.h = eatFirstInt(infile.val, ',');
+		} else if (infile.key == "class_list") {
+			class_list->pos.x = eatFirstInt(infile.val, ',');
+			class_list->pos.y = eatFirstInt(infile.val, ',');
 		}
 	  }
 	  infile.close();
@@ -128,6 +138,9 @@ GameStateNew::GameStateNew() : GameState() {
 	permadeath_label.x += (VIEW_W - FRAME_W)/2;
 	permadeath_label.y += (VIEW_H - FRAME_H)/2;
 
+	classlist_label.x += (VIEW_W - FRAME_W)/2;
+	classlist_label.y += (VIEW_H - FRAME_H)/2;
+
 	// set up labels
 	color_normal = font->getColor("menu_normal");
 	label_portrait = new WidgetLabel();
@@ -136,6 +149,13 @@ GameStateNew::GameStateNew() : GameState() {
 	label_name->set(name_label.x, name_label.y, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Choose a Name"), color_normal);
 	label_permadeath = new WidgetLabel();
 	label_permadeath->set(permadeath_label.x, permadeath_label.y, JUSTIFY_LEFT, VALIGN_CENTER, msg->get("Permadeath?"), color_normal);
+	label_classlist = new WidgetLabel();
+	label_classlist->set(classlist_label.x, classlist_label.y, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Choose a Class"), color_normal);
+
+	// set up class list
+	for (unsigned i=0; i<HERO_CLASSES.size(); i++) {
+		class_list->append(msg->get(HERO_CLASSES[i].name),getClassTooltip(i));
+	}
 
 	loadGraphics();
 	loadOptions("hero_options.txt");
@@ -194,6 +214,7 @@ void GameStateNew::loadOptions(const string& filename) {
 
 void GameStateNew::logic() {
 	button_permadeath->checkClick();
+	class_list->checkClick();
 
 	// require character name
 	if (input_name->getText() == "" && DEFAULT_NAME == "") {
@@ -235,6 +256,7 @@ void GameStateNew::logic() {
 		pc->stats.permadeath = button_permadeath->isChecked();
 		play->game_slot = game_slot;
 		play->resetGame();
+		play->loadClass(class_list->getSelected());
 		requestedGameState = play;
 	}
 
@@ -282,6 +304,37 @@ void GameStateNew::render() {
 	label_portrait->render();
 	if (DEFAULT_NAME == "") label_name->render();
 	label_permadeath->render();
+	label_classlist->render();
+
+	// display class list
+	class_list->render();
+}
+
+std::string GameStateNew::getClassTooltip(int index) {
+	int physical = HERO_CLASSES[index].physical;
+	int mental = HERO_CLASSES[index].mental;
+	int offense = HERO_CLASSES[index].offense;
+	int defense = HERO_CLASSES[index].defense;
+	string tooltip;
+
+	tooltip = msg->get(HERO_CLASSES[index].name);
+	if (HERO_CLASSES[index].description != "") tooltip += "\n" + msg->get(HERO_CLASSES[index].description);
+
+	if (physical > 0 || mental > 0 || offense > 0 || defense > 0) {
+		tooltip += "\n\n";
+
+		if (physical > 0) tooltip += msg->get("+%d Physical", physical) + "\n";
+		if (mental > 0) tooltip += msg->get("+%d Mental", mental) + "\n";
+		if (offense > 0) tooltip += msg->get("+%d Offense", offense) + "\n";
+		if (defense > 0) tooltip += msg->get("+%d Defense", defense) + "\n";
+
+		// Remove the last newline
+		tooltip = tooltip.substr(0,tooltip.length()-1);
+	}
+
+	tooltip += "\n\n" + msg->get("%d %s", HERO_CLASSES[index].currency, CURRENCY);
+
+	return tooltip;
 }
 
 GameStateNew::~GameStateNew() {
@@ -296,4 +349,6 @@ GameStateNew::~GameStateNew() {
 	delete input_name;
 	delete button_permadeath;
 	delete label_permadeath;
+	delete label_classlist;
+	delete class_list;
 }

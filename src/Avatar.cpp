@@ -459,12 +459,12 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 
 			// allowed to move or use powers?
 			if (MOUSE_MOVE) {
-				allowed_to_move = restrictPowerUse && (!inpt->lock[MAIN1] || drag_walking) && stats.picked_class;
-				allowed_to_use_power = !allowed_to_move && stats.picked_class;
+				allowed_to_move = restrictPowerUse && (!inpt->lock[MAIN1] || drag_walking);
+				allowed_to_use_power = !allowed_to_move;
 			}
 			else {
-				allowed_to_move = stats.picked_class;
-				allowed_to_use_power = stats.picked_class;
+				allowed_to_move = true;
+				allowed_to_use_power = true;
 			}
 
 			// handle transitions to RUN

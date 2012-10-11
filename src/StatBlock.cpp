@@ -50,7 +50,6 @@ StatBlock::StatBlock() {
 	transform_type = "";
 	transformed = false;
 	refresh_stats = false;
-	picked_class = false;
 
 	movement_type = MOVEMENT_NORMAL;
 	flying = false;

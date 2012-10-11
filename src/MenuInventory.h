@@ -94,10 +94,8 @@ public:
 	void applyEquipment(ItemStack *equipped);
 	void applyItemStats(ItemStack *equipped);
 	void applyItemSetBonuses(ItemStack *equipped);
-	void updateEquipment();
 
 	void clearHighlight();
-	std::string getItemName(int id) { return items->items[id].name; }
 
 	SDL_Rect carried_area;
 	std::vector<SDL_Rect> equipped_area;

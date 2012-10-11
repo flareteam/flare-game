@@ -27,7 +27,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "MenuActionBar.h"
 #include "MenuCharacter.h"
 #include "MenuStatBar.h"
-#include "MenuHeroClass.h"
 #include "MenuHUDLog.h"
 #include "MenuInventory.h"
 #include "MenuMiniMap.h"
@@ -85,8 +84,6 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 	menus.push_back(log); // menus[14]
 	stash = new MenuStash(items, stats);
 	menus.push_back(stash); // menus[15]
-	heroclass = new MenuHeroClass(stats, inv, act);
-	menus.push_back(heroclass); // menus[16]
 	tip = new WidgetTooltip();
 
 	// Load the menu positions and alignments from menus/menus.txt
@@ -119,7 +116,6 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 			else if (infile.key == "powers") menu_index = 13;
 			else if (infile.key == "log") menu_index = 14;
 			else if (infile.key == "stash") menu_index = 15;
-			else if (infile.key == "heroclass") menu_index = 16;
 
 			if (menu_index != -1) {
 				menus[menu_index]->window_area.x = x;
@@ -145,7 +141,6 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 	pow->update();
 	log->update();
 	stash->update();
-	heroclass->update();
 
 	pause = false;
 	dragging = false;
@@ -229,10 +224,6 @@ void MenuManager::logic() {
 	log->logic();
 	talker->logic();
 	stash->logic();
-	heroclass->logic();
-
-	// don't do anything else if the class picker is open
-	if (heroclass->visible) return;
 
 	if (chr->checkUpgrade() || stats->level_up) {
 		// apply equipment and max hp/mp
@@ -786,7 +777,6 @@ MenuManager::~MenuManager() {
 	delete enemy;
 	delete effects;
 	delete stash;
-	delete heroclass;
 
 	Mix_FreeChunk(sfx_open);
 	Mix_FreeChunk(sfx_close);

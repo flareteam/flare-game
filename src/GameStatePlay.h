@@ -92,6 +92,7 @@ public:
 	void showFPS(int fps);
 	void saveGame();
 	void loadGame();
+	void loadClass(int index);
 	void loadStash();
 	void resetGame();
 	int game_slot;

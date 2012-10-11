@@ -440,6 +440,12 @@ void loadMiscSettings() {
 						HERO_CLASSES.back().hotkeys[i] = toInt(infile.nextValue());
 					}
 				}
+				else if (infile.key == "powers") {
+					string power;
+					while ( (power = infile.nextValue()) != "") {
+						HERO_CLASSES.back().powers.push_back(toInt(power));
+					}
+				}
 			}
 		}
 		infile.close();

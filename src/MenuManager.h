@@ -34,7 +34,6 @@ class MenuInventory;
 class MenuPowers;
 class MenuCharacter;
 class MenuLog;
-class MenuHeroClass;
 class MenuHUDLog;
 class MenuActionBar;
 class MenuStatBar;
@@ -94,7 +93,6 @@ public:
 	MenuPowers *pow;
 	MenuCharacter *chr;
 	MenuLog *log;
-	MenuHeroClass *heroclass;
 	MenuHUDLog *hudlog;
 	MenuActionBar *act;
 	MenuStatBar *hp;

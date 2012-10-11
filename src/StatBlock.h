@@ -99,7 +99,6 @@ public:
 	bool permadeath;
 	bool transformed;
 	bool refresh_stats;
-	bool picked_class;
 
 	int movement_type;
 	bool flying;

@@ -42,12 +42,13 @@ typedef struct HeroClass{
 	int offense;
 	int defense;
 	int hotkeys[12];
+	std::vector<int> powers;
 
 	HeroClass() {
 		name = "";
 		description = "";
 		currency = 0;
-		equipment.clear();
+		equipment = "";
 		physical = 0;
 		mental = 0;
 		offense = 0;
@@ -55,6 +56,7 @@ typedef struct HeroClass{
 		for (int i=0; i<12; i++) {
 			hotkeys[i] = 0;
 		}
+		powers.clear();
 	}
 }HeroClass;
 
