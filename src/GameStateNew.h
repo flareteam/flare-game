@@ -26,6 +26,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #define GAMESTATENEW_H
 
 #include "GameState.h"
+#include "WidgetLabel.h"
 
 #include <SDL.h>
 #include <SDL_image.h>
@@ -70,11 +71,12 @@ private:
 	WidgetListBox *class_list;
 
 	Point name;
-	Point portrait_label;
-	Point name_label;
-	Point permadeath_label;
-	Point classlist_label;
+	LabelInfo portrait_label;
+	LabelInfo name_label;
+	LabelInfo permadeath_label;
+	LabelInfo classlist_label;
 	SDL_Rect portrait_pos;
+	bool show_classlist;
 
 	SDL_Color color_normal;
 

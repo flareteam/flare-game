@@ -29,6 +29,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "StatBlock.h"
 #include "GameState.h"
+#include "WidgetLabel.h"
 
 #include <SDL.h>
 #include <SDL_image.h>
@@ -79,11 +80,11 @@ private:
 	bool loading;
 	bool loaded;
 	
-	Point name_pos;
-	Point level_pos;
-	Point map_pos;
+	LabelInfo name_pos;
+	LabelInfo level_pos;
+	LabelInfo map_pos;
+	LabelInfo loading_pos;
 	Point sprites_pos;
-	Point loading_pos;
 	
 	// animation info
 	int current_frame;
