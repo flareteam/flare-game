@@ -119,6 +119,9 @@ GameStateNew::GameStateNew() : GameState() {
 	button_next->pos.x += (VIEW_W - FRAME_W)/2;
 	button_next->pos.y += (VIEW_H - FRAME_H)/2;
 
+	class_list->pos.x += (VIEW_W - FRAME_W)/2;
+	class_list->pos.y += (VIEW_H - FRAME_H)/2;
+
 	name.x += (VIEW_W - FRAME_W)/2;
 	name.y += (VIEW_H - FRAME_H)/2;
 
