@@ -50,7 +50,6 @@ MenuActionBar::MenuActionBar(PowerManager *_powers, StatBlock *_hero, SDL_Surfac
 	src.w = ICON_SIZE;
 	src.h = ICON_SIZE;
 	drag_prev_slot = -1;
-	default_M1 = 0;
 	last_mouse.x = 0;
 	last_mouse.y = 0;
 
@@ -73,12 +72,7 @@ void MenuActionBar::update() {
 	  while (infile.next()) {
 		infile.val = infile.val + ',';
 
-		if (infile.key == "default_M1_power") {
-			int power_id = eatFirstInt(infile.val, ',');
-			if (power_id > 0) {
-				default_M1 = power_id;
-			} else fprintf(stderr, "Power index for ActionBar default power out of bounds 1-%d, skipping\n", INT_MAX);
-		}else if (infile.key == "slot1") {
+		if (infile.key == "slot1") {
 			slots[0].x = window_area.x+eatFirstInt(infile.val, ',');
 			slots[0].y = window_area.y+eatFirstInt(infile.val, ',');
 			slots[0].w = eatFirstInt(infile.val, ',');
@@ -214,10 +208,6 @@ void MenuActionBar::clear() {
     for (int i=0; i<4; i++)
         requires_attention[i] = false;
 
-	// default: LMB set to basic melee attack
-	hotkeys[10] = 1;
-	// redefine from config file
-	if (default_M1 != 0) hotkeys[10] = default_M1;
 }
 
 void MenuActionBar::loadGraphics() {
