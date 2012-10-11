@@ -392,7 +392,7 @@ void StatBlock::recalc() {
 	physment = get_physical() + get_mental();
 	offdef = get_offense() + get_defense();
 	FileParser infile;
-	std::string titlename = "";
+	std::string titlename = character_class;
 	int testxp = 0;
 	bool foundTitle = false;
 	if(infile.open(mods->locate("engine/titles.txt"))) {
