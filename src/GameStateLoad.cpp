@@ -32,7 +32,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "Settings.h"
 #include "UtilsFileSystem.h"
 #include "UtilsParsing.h"
-#include "WidgetLabel.h"
 
 #include <algorithm>
 
@@ -100,20 +99,17 @@ GameStateLoad::GameStateLoad() : GameState() {
 			preview_pos.h = eatFirstInt(infile.val, ',');
 		// label positions within each slot
 		} else if (infile.key == "name") {
-			name_pos.x = eatFirstInt(infile.val, ',');
-			name_pos.y = eatFirstInt(infile.val, ',');
+			name_pos = eatLabelInfo(infile.val);
 		} else if (infile.key == "level") {
-			level_pos.x = eatFirstInt(infile.val, ',');
-			level_pos.y = eatFirstInt(infile.val, ',');
+			level_pos = eatLabelInfo(infile.val);
 		} else if (infile.key == "map") {
-			map_pos.x = eatFirstInt(infile.val, ',');
-			map_pos.y = eatFirstInt(infile.val, ',');
+			map_pos = eatLabelInfo(infile.val);
+		} else if (infile.key == "loading_label") {
+			loading_pos = eatLabelInfo(infile.val);
+		// Position for the avatar preview image in each slot
 		} else if (infile.key == "sprite") {
 			sprites_pos.x = eatFirstInt(infile.val, ',');
 			sprites_pos.y = eatFirstInt(infile.val, ',');
-		} else if (infile.key == "loading_label") {
-			loading_pos.x = eatFirstInt(infile.val, ',');
-			loading_pos.y = eatFirstInt(infile.val, ',');
 		}
 	  }
 	  infile.close();
@@ -554,7 +550,7 @@ void GameStateLoad::render() {
 			label_loading->set(msg->get("Loading saved game..."));
 		}
 
-		label_loading->set(label.x, label.y, JUSTIFY_CENTER, VALIGN_TOP, label_loading->get(), color_normal);
+		label_loading->set(label.x, label.y, loading_pos.justify, loading_pos.valign, label_loading->get(), color_normal, loading_pos.font_style);
 		label_loading->render();
 	}
 
@@ -565,7 +561,7 @@ void GameStateLoad::render() {
 			// name
 			label.x = slot_pos[slot].x + name_pos.x;
 			label.y = slot_pos[slot].y + name_pos.y;
-			label_name[slot]->set(label.x, label.y, JUSTIFY_LEFT, VALIGN_TOP, stats[slot].name, color_normal);
+			label_name[slot]->set(label.x, label.y, name_pos.justify, name_pos.valign, stats[slot].name, color_normal, name_pos.font_style);
 			label_name[slot]->render();
 
 			// level
@@ -573,13 +569,13 @@ void GameStateLoad::render() {
 			label.x = slot_pos[slot].x + level_pos.x;
 			label.y = slot_pos[slot].y + level_pos.y;
 			ss << msg->get("Level %d %s", stats[slot].level, msg->get(stats[slot].character_class));
-			label_level[slot]->set(label.x, label.y, JUSTIFY_LEFT, VALIGN_TOP, ss.str(), color_normal);
+			label_level[slot]->set(label.x, label.y, level_pos.justify, level_pos.valign, ss.str(), color_normal, level_pos.font_style);
 			label_level[slot]->render();
 
 			// map
 			label.x = slot_pos[slot].x + map_pos.x;
 			label.y = slot_pos[slot].y + map_pos.y;
-			label_map[slot]->set(label.x, label.y, JUSTIFY_LEFT, VALIGN_TOP, current_map[slot], color_normal);
+			label_map[slot]->set(label.x, label.y, map_pos.justify, map_pos.valign, current_map[slot], color_normal, map_pos.font_style);
 			label_map[slot]->render();
 
 			// render character preview
@@ -596,7 +592,7 @@ void GameStateLoad::render() {
 		else {
 			label.x = slot_pos[slot].x + name_pos.x;
 			label.y = slot_pos[slot].y + name_pos.y;
-			label_name[slot]->set(label.x, label.y, JUSTIFY_LEFT, VALIGN_TOP, msg->get("Empty Slot"), color_normal);
+			label_name[slot]->set(label.x, label.y, name_pos.justify, name_pos.valign, msg->get("Empty Slot"), color_normal, name_pos.font_style);
 			label_name[slot]->render();
 		}
 	}

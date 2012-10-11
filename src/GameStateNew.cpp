@@ -69,6 +69,8 @@ GameStateNew::GameStateNew() : GameState() {
 	class_list->can_deselect = false;
 	class_list->selected[0] = true;
 
+	show_classlist = true;
+
 	// Read positions from config file
 	FileParser infile;
 
@@ -89,17 +91,13 @@ GameStateNew::GameStateNew() : GameState() {
 			name.x = eatFirstInt(infile.val, ',');
 			name.y = eatFirstInt(infile.val, ',');
 		} else if (infile.key == "portrait_label") {
-			portrait_label.x = eatFirstInt(infile.val, ',');
-			portrait_label.y = eatFirstInt(infile.val, ',');
+			portrait_label = eatLabelInfo(infile.val);
 		} else if (infile.key == "name_label") {
-			name_label.x = eatFirstInt(infile.val, ',');
-			name_label.y = eatFirstInt(infile.val, ',');
+			name_label = eatLabelInfo(infile.val);
 		} else if (infile.key == "permadeath_label") {
-			permadeath_label.x = eatFirstInt(infile.val, ',');
-			permadeath_label.y = eatFirstInt(infile.val, ',');
+			permadeath_label = eatLabelInfo(infile.val);
 		} else if (infile.key == "classlist_label") {
-			classlist_label.x = eatFirstInt(infile.val, ',');
-			classlist_label.y = eatFirstInt(infile.val, ',');
+			classlist_label = eatLabelInfo(infile.val);
 		} else if (infile.key == "portrait") {
 			portrait_pos.x = eatFirstInt(infile.val, ',');
 			portrait_pos.y = eatFirstInt(infile.val, ',');
@@ -108,6 +106,8 @@ GameStateNew::GameStateNew() : GameState() {
 		} else if (infile.key == "class_list") {
 			class_list->pos.x = eatFirstInt(infile.val, ',');
 			class_list->pos.y = eatFirstInt(infile.val, ',');
+		} else if (infile.key == "show_classlist") {
+			show_classlist = eatFirstInt(infile.val, ',');
 		}
 	  }
 	  infile.close();
@@ -147,13 +147,13 @@ GameStateNew::GameStateNew() : GameState() {
 	// set up labels
 	color_normal = font->getColor("menu_normal");
 	label_portrait = new WidgetLabel();
-	label_portrait->set(portrait_label.x, portrait_label.y, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Choose a Portrait"), color_normal);
+	label_portrait->set(portrait_label.x, portrait_label.y, portrait_label.justify, portrait_label.valign, msg->get("Choose a Portrait"), color_normal, portrait_label.font_style);
 	label_name = new WidgetLabel();
-	label_name->set(name_label.x, name_label.y, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Choose a Name"), color_normal);
+	label_name->set(name_label.x, name_label.y, name_label.justify, name_label.valign, msg->get("Choose a Name"), color_normal, name_label.font_style);
 	label_permadeath = new WidgetLabel();
-	label_permadeath->set(permadeath_label.x, permadeath_label.y, JUSTIFY_LEFT, VALIGN_CENTER, msg->get("Permadeath?"), color_normal);
+	label_permadeath->set(permadeath_label.x, permadeath_label.y, permadeath_label.justify, permadeath_label.valign, msg->get("Permadeath?"), color_normal, permadeath_label.font_style);
 	label_classlist = new WidgetLabel();
-	label_classlist->set(classlist_label.x, classlist_label.y, JUSTIFY_CENTER, VALIGN_TOP, msg->get("Choose a Class"), color_normal);
+	label_classlist->set(classlist_label.x, classlist_label.y, classlist_label.justify, classlist_label.valign, msg->get("Choose a Class"), color_normal, classlist_label.font_style);
 
 	// set up class list
 	for (unsigned i=0; i<HERO_CLASSES.size(); i++) {
@@ -217,7 +217,7 @@ void GameStateNew::loadOptions(const string& filename) {
 
 void GameStateNew::logic() {
 	button_permadeath->checkClick();
-	class_list->checkClick();
+	if (show_classlist) class_list->checkClick();
 
 	// require character name
 	if (input_name->getText() == "" && DEFAULT_NAME == "") {
@@ -304,13 +304,13 @@ void GameStateNew::render() {
 	SDL_BlitSurface(portrait_border, &src, screen, &dest);
 
 	// display labels
-	label_portrait->render();
-	if (DEFAULT_NAME == "") label_name->render();
-	label_permadeath->render();
-	label_classlist->render();
+	if (!portrait_label.hidden) label_portrait->render();
+	if (!name_label.hidden && DEFAULT_NAME == "") label_name->render();
+	if (!permadeath_label.hidden) label_permadeath->render();
+	if (!classlist_label.hidden) label_classlist->render();
 
 	// display class list
-	class_list->render();
+	if (show_classlist) class_list->render();
 }
 
 std::string GameStateNew::getClassTooltip(int index) {
