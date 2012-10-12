@@ -360,6 +360,24 @@ void GameStatePlay::checkTitle() {
 						if (camp->checkStatus(infile.val) == true)
 							foundTitle = false;
 					}
+					else if (infile.key == "primary_stat") {
+						if ((infile.val) == "physical") {
+							if (pc->stats.get_physical() <= pc->stats.get_mental()+1 || pc->stats.get_physical() <= pc->stats.get_offense()+1 || pc->stats.get_physical() <= pc->stats.get_defense()+1)
+								foundTitle = false;
+						}
+						if ((infile.val) == "offense") {
+							if (pc->stats.get_offense() <= pc->stats.get_mental()+1 || pc->stats.get_offense() <= pc->stats.get_physical()+1 || pc->stats.get_offense() <= pc->stats.get_defense()+1)
+								foundTitle = false;
+						}
+						if ((infile.val) == "mental") {
+							if (pc->stats.get_mental() <= pc->stats.get_physical()+1 || pc->stats.get_mental() <= pc->stats.get_offense()+1 || pc->stats.get_mental() <= pc->stats.get_defense()+1)
+								foundTitle = false;
+						}
+						if ((infile.val) == "defense") {
+							if (pc->stats.get_defense() <= pc->stats.get_mental()+1 || pc->stats.get_defense() <= pc->stats.get_offense()+1 || pc->stats.get_defense() <= pc->stats.get_physical()+1)
+								foundTitle = false;
+						}
+					}
 					else if (infile.key == "title") {
 						titlename = infile.val;
 					}
