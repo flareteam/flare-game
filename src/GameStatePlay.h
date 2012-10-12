@@ -73,6 +73,7 @@ private:
 	void checkCancel();
 	void checkLog();
 	void checkEquipmentChange();
+	void checkTitle();
 	void checkConsumable();
 	void checkNotifications();
 	void checkNPCInteraction();
@@ -80,6 +81,7 @@ private:
 	void showLoading();
 
 	int npc_id;
+	bool check_title = false;
 
 	SDL_Color color_normal;
 
