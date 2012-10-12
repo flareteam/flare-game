@@ -15,6 +15,9 @@ You should have received a copy of the GNU General Public License along with
 FLARE.  If not, see http://www.gnu.org/licenses/
 */
 
+#pragma once
+#ifndef __ANIMATION_SET__
+#define __ANIMATION_SET__
 
 #include <string>
 #include <vector>
@@ -51,3 +54,5 @@ public:
 
     const std::string &getName() { return name; }
 };
+
+#endif // __ANIMATION_SET__

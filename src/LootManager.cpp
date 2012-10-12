@@ -424,8 +424,7 @@ void LootManager::addLoot(ItemStack stack, Point pos) {
 
 	const string anim_id = items->items[stack.item].loot_animation;
 	const string animationname = "animations/loot/" + anim_id + ".txt";
-	AnimationSet *as = AnimationManager::instance()->getAnimationSet(animationname);
-	ld.animation = as->getAnimation(as->starting_animation);
+	ld.loadAnimation(animationname);
 	ld.currency = 0;
 	loot.push_back(ld);
 	if (loot_flip) Mix_PlayChannel(-1, loot_flip, 0);
@@ -447,9 +446,8 @@ void LootManager::addCurrency(int count, Point pos) {
 	}
 	const string anim_id = currency_range[index].filename;
 	const string animationname = "animations/loot/" + anim_id + ".txt";
-	AnimationSet *as = AnimationManager::instance()->getAnimationSet(animationname);
+	ld.loadAnimation(animationname);
 
-	ld.animation = as->getAnimation(as->starting_animation);
 	ld.currency = count;
 	loot.push_back(ld);
 	if (loot_flip) Mix_PlayChannel(-1, loot_flip, 0);

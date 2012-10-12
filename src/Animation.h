@@ -26,6 +26,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * can be used not only for character animations but any animated in-game objects.
  */
 
+#pragma once
 #ifndef ANIMATION_H
 #define ANIMATION_H
 
