@@ -352,6 +352,14 @@ void GameStatePlay::checkTitle() {
 						if (pc->stats.level < toInt(infile.val))
 							foundTitle = false;
 					}
+					else if (infile.key == "requires_status") {
+						if (camp->checkStatus(infile.val) == false)
+							foundTitle = false;
+					}
+					else if (infile.key == "requires_not") {
+						if (camp->checkStatus(infile.val) == true)
+							foundTitle = false;
+					}
 					else if (infile.key == "title") {
 						titlename = infile.val;
 					}
