@@ -365,17 +365,41 @@ void GameStatePlay::checkTitle() {
 							if (pc->stats.get_physical() <= pc->stats.get_mental()+1 || pc->stats.get_physical() <= pc->stats.get_offense()+1 || pc->stats.get_physical() <= pc->stats.get_defense()+1)
 								foundTitle = false;
 						}
-						if ((infile.val) == "offense") {
+						else if ((infile.val) == "offense") {
 							if (pc->stats.get_offense() <= pc->stats.get_mental()+1 || pc->stats.get_offense() <= pc->stats.get_physical()+1 || pc->stats.get_offense() <= pc->stats.get_defense()+1)
 								foundTitle = false;
 						}
-						if ((infile.val) == "mental") {
+						else if ((infile.val) == "mental") {
 							if (pc->stats.get_mental() <= pc->stats.get_physical()+1 || pc->stats.get_mental() <= pc->stats.get_offense()+1 || pc->stats.get_mental() <= pc->stats.get_defense()+1)
 								foundTitle = false;
 						}
-						if ((infile.val) == "defense") {
+						else if ((infile.val) == "defense") {
 							if (pc->stats.get_defense() <= pc->stats.get_mental()+1 || pc->stats.get_defense() <= pc->stats.get_offense()+1 || pc->stats.get_defense() <= pc->stats.get_physical()+1)
 								foundTitle = false;
+						}
+						else if ((infile.val) == "physoff") {
+							if (pc->stats.physoff <= pc->stats.physdef || pc->stats.physoff <= pc->stats.mentoff || pc->stats.physoff <= pc->stats.mentdef || pc->stats.physoff <= pc->stats.physment || pc->stats.physoff <= pc->stats.offdef)
+								foundTitle=false;
+						}
+						else if ((infile.val) == "physment") {
+							if (pc->stats.physment <= pc->stats.physdef || pc->stats.physment <= pc->stats.mentoff || pc->stats.physment <= pc->stats.mentdef || pc->stats.physment <= pc->stats.physoff || pc->stats.physment <= pc->stats.offdef)
+								foundTitle=false;
+						}
+						else if ((infile.val) == "physdef") {
+							if (pc->stats.physdef <= pc->stats.physoff || pc->stats.physdef <= pc->stats.mentoff || pc->stats.physdef <= pc->stats.mentdef || pc->stats.physdef <= pc->stats.physment || pc->stats.physdef <= pc->stats.offdef)
+								foundTitle=false;
+						}
+						else if ((infile.val) == "mentoff") {
+							if (pc->stats.mentoff <= pc->stats.physdef || pc->stats.mentoff <= pc->stats.physoff || pc->stats.mentoff <= pc->stats.mentdef || pc->stats.mentoff <= pc->stats.physment || pc->stats.mentoff <= pc->stats.offdef)
+								foundTitle=false;
+						}
+						else if ((infile.val) == "offdef") {
+							if (pc->stats.offdef <= pc->stats.physdef || pc->stats.offdef <= pc->stats.mentoff || pc->stats.offdef <= pc->stats.mentdef || pc->stats.offdef <= pc->stats.physment || pc->stats.offdef <= pc->stats.physoff)
+								foundTitle=false;
+						}
+						else if ((infile.val) == "mentdef") {
+							if (pc->stats.mentdef <= pc->stats.physdef || pc->stats.mentdef <= pc->stats.mentoff || pc->stats.mentdef <= pc->stats.physoff || pc->stats.mentdef <= pc->stats.physment || pc->stats.mentdef <= pc->stats.offdef)
+								foundTitle=false;
 						}
 					}
 					else if (infile.key == "title") {
