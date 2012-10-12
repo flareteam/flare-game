@@ -86,7 +86,7 @@ bool MapCollision::move(int &x, int &y, int step_x, int step_y, int dist, int mo
 /**
  * Determines whether the grid position is outside the map boundary
  */
-bool MapCollision::outsideMap(int tile_x, int tile_y) {
+bool MapCollision::outsideMap(int tile_x, int tile_y) const {
 	return (tile_x < 0 || tile_y < 0 || tile_x >= map_size.x || tile_y >= map_size.y);
 }
 
@@ -94,7 +94,7 @@ bool MapCollision::outsideMap(int tile_x, int tile_y) {
  * A map space is empty if it contains no blocking type
  * A position outside the map boundary is not empty
  */
-bool MapCollision::is_empty(int x, int y) {
+bool MapCollision::is_empty(int x, int y) const {
 	int tile_x = x >> TILE_SHIFT; // fast div
 	int tile_y = y >> TILE_SHIFT; // fast div
 
@@ -109,7 +109,7 @@ bool MapCollision::is_empty(int x, int y) {
  * A map space is a wall if it contains a wall blocking type (normal or hidden)
  * A position outside the map boundary is a wall
  */
-bool MapCollision::is_wall(int x, int y) {
+bool MapCollision::is_wall(int x, int y) const {
 	int tile_x = x >> TILE_SHIFT; // fast div
 	int tile_y = y >> TILE_SHIFT; // fast div
 
@@ -123,7 +123,7 @@ bool MapCollision::is_wall(int x, int y) {
 /**
  * Is this a valid tile for an entity with this movement type?
  */
-bool MapCollision::valid_tile(int tile_x, int tile_y, int movement_type) {
+bool MapCollision::valid_tile(int tile_x, int tile_y, int movement_type) const {
 
 	// outside the map isn't valid
 	if (outsideMap(tile_x,tile_y)) return false;
@@ -146,10 +146,10 @@ bool MapCollision::valid_tile(int tile_x, int tile_y, int movement_type) {
 /**
  * Is this a valid position for an entity with this movement type?
  */
-bool MapCollision::valid_position(int x, int y, int movement_type) {
+bool MapCollision::valid_position(int x, int y, int movement_type) const {
 
-	int tile_x = x >> TILE_SHIFT; // fast div
-	int tile_y = y >> TILE_SHIFT; // fast div
+	const int tile_x = x >> TILE_SHIFT; // fast div
+	const int tile_y = y >> TILE_SHIFT; // fast div
 
 	return valid_tile(tile_x, tile_y, movement_type);
 }
@@ -387,10 +387,10 @@ bool MapCollision::compute_path(Point start_pos, Point end_pos, vector<Point> &p
 	return !path.empty();
 }
 
-void MapCollision::block(int x, int y) {
+void MapCollision::block(const int x, const int y) {
 
-	int tile_x = x >> TILE_SHIFT; // fast div
-	int tile_y = y >> TILE_SHIFT; // fast div
+	const int tile_x = x >> TILE_SHIFT; // fast div
+	const int tile_y = y >> TILE_SHIFT; // fast div
 
 	if (colmap[tile_x][tile_y] == BLOCKS_NONE) {
 		colmap[tile_x][tile_y] = BLOCKS_ENTITIES;
@@ -400,8 +400,8 @@ void MapCollision::block(int x, int y) {
 
 void MapCollision::unblock(int x, int y) {
 
-	int tile_x = x >> TILE_SHIFT; // fast div
-	int tile_y = y >> TILE_SHIFT; // fast div
+	const int tile_x = x >> TILE_SHIFT; // fast div
+	const int tile_y = y >> TILE_SHIFT; // fast div
 
 	if (colmap[tile_x][tile_y] == BLOCKS_ENTITIES) {
 		colmap[tile_x][tile_y] = BLOCKS_NONE;
