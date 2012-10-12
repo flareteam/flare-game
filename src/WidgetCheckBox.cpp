@@ -77,9 +77,9 @@ bool WidgetCheckBox::checkClick()
 		return false;
 }
 
-bool WidgetCheckBox::checkClick (int x, int y)
-{
-	Point mouse = {x,y};
+bool WidgetCheckBox::checkClick (int x, int y) {
+
+	Point mouse(x,y);
 
 	// main button already in use, new click not allowed
 	if (inpt->lock[MAIN1]) return false;

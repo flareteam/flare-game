@@ -32,6 +32,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 struct Point {
 	int x,y;
+	Point() : x(0), y(0) {}
+	Point(int _x, int _y) : x(_x), y(_y) {}
 };
 
 struct FPoint {

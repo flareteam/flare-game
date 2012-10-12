@@ -53,7 +53,7 @@ WidgetListBox::WidgetListBox(int amount, int height, const std::string& _fileNam
 	multi_select = false;
 	can_deselect = true;
 	can_select = true;
-	
+
 	loadArt();
 
 	pos.w = listboxs->w;
@@ -77,7 +77,7 @@ void WidgetListBox::loadArt() {
 		SDL_Quit();
 		exit(1); // or abort ??
 	}
-	
+
 	// optimize
 	SDL_Surface *cleanup = listboxs;
 	listboxs = SDL_DisplayFormatAlpha(listboxs);
@@ -96,7 +96,8 @@ bool WidgetListBox::checkClick() {
  * If press and release, activate (return true)
  */
 bool WidgetListBox::checkClick(int x, int y) {
-	Point mouse = {x,y};
+
+	Point mouse(x, y);
 
 	refresh();
 	tip_new = checkTooltip(mouse);
@@ -144,7 +145,7 @@ bool WidgetListBox::checkClick(int x, int y) {
 	// main click released, so the ListBox state goes back to unpressed
 	if (pressed && !inpt->lock[MAIN1] && can_select) {
 		pressed = false;
-		
+
 		for(int i=0; i<list_height; i++) {
 			if (i<list_amount) {
 				if (isWithin(rows[i], mouse) && values[i+cursor] != "") {
@@ -174,7 +175,7 @@ bool WidgetListBox::checkClick(int x, int y) {
 	if (inpt->pressing[MAIN1]) {
 		for (int i=0; i<list_height;i++) {
 			if (isWithin(rows[i], mouse)) {
-			
+
 				inpt->lock[MAIN1] = true;
 				pressed = true;
 
