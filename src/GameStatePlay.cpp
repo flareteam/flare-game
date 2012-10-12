@@ -349,7 +349,7 @@ void GameStatePlay::checkTitle() {
 				}
 				if (infile.section == "title") {
 					if (infile.key == "level") {
-						if (pc->stats.level <= toInt(infile.val))
+						if (pc->stats.level < toInt(infile.val))
 							foundTitle = false;
 					}
 					else if (infile.key == "title") {
