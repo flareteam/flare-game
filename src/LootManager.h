@@ -26,6 +26,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #define LOOT_MANAGER_H
 
 #include "Animation.h"
+#include "AnimationSet.h"
+#include "AnimationManager.h"
 
 #include "ItemManager.h"
 #include "Settings.h"
@@ -42,11 +44,16 @@ class MenuInventory;
 class WidgetTooltip;
 
 struct LootDef {
+private:
+	std::string gfx;
+
+public:
 	ItemStack stack;
 	Point pos;
 	Animation *animation;
 	int currency;
 	TooltipData tip;
+
 
 	LootDef() {
 		stack.item = 0;
@@ -56,6 +63,7 @@ struct LootDef {
 		animation = NULL;
 		currency = 0;
 		tip.clear();
+		gfx = "";
 	}
 
 	LootDef(const LootDef &other) {
@@ -63,7 +71,7 @@ struct LootDef {
 		stack.quantity = other.stack.quantity;
 		pos.x = other.pos.x;
 		pos.y = other.pos.y;
-		animation = new Animation(*other.animation);
+		loadAnimation(other.gfx);
 		animation->syncTo(other.animation);
 		currency = other.currency;
 		tip = other.tip;
@@ -72,22 +80,33 @@ struct LootDef {
 	// The assignment operator mainly used in internal vector managing,
 	// e.g. in vector::erase()
 	LootDef& operator= (const LootDef &other) {
-	
-		delete animation;	
-		animation = new Animation(*other.animation);
+
+		delete animation;
+		loadAnimation(other.gfx);
 		animation->syncTo(other.animation);
-		
+
 		stack.item = other.stack.item;
 		stack.quantity = other.stack.quantity;
 		pos.x = other.pos.x;
 		pos.y = other.pos.y;
 		currency = other.currency;
 		tip = other.tip;
-		
-		return *this;		
+
+		return *this;
+	}
+
+	void loadAnimation(std::string _gfx) {
+		gfx = _gfx;
+		if (gfx != "") {
+			AnimationManager::instance()->increaseCount(gfx);
+			AnimationSet *as = AnimationManager::instance()->getAnimationSet(gfx);
+			animation = as->getAnimation(as->starting_animation);
+		}
 	}
 
 	~LootDef() {
+		if (gfx != "")
+			AnimationManager::instance()->decreaseCount(gfx);
 		delete animation;
 	}
 };

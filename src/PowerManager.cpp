@@ -159,15 +159,12 @@ void PowerManager::loadPowers(const std::string& filename) {
 		else if (infile.key == "requires_item")
 			powers[input_id].requires_item = toInt(infile.val);
 		else if (infile.key == "requires_targeting")
-			powers[input_id].requires_targeting =toBool(infile.val);
+			powers[input_id].requires_targeting = toBool(infile.val);
 		else if (infile.key == "cooldown")
 			powers[input_id].cooldown = toInt(infile.val);
 		// animation info
-		else if (infile.key == "animation") {
-			string animation_name = "animations/powers/" + infile.val;
-			AnimationManager::instance()->increaseCount(animation_name);
-			powers[input_id].animationSet = AnimationManager::instance()->getAnimationSet(animation_name);
-		}
+		else if (infile.key == "animation")
+			powers[input_id].animation_name = "animations/powers/" + infile.val;
 		else if (infile.key == "sfx")
 			powers[input_id].sfx_index = loadSFX(infile.val);
 		else if (infile.key == "directional")
@@ -605,10 +602,8 @@ void PowerManager::initHazard(int power_index, StatBlock *src_stats, Point targe
 	// If we do this, we can init with multiple power layers
 	// (e.g. base spell plus weapon type)
 
-	if (powers[power_index].animationSet != NULL) {
-		delete haz->activeAnimation;
-		haz->activeAnimation = powers[power_index].animationSet->getAnimation(powers[power_index].animationSet->starting_animation);
-	}
+	if (powers[power_index].animation_name != "")
+		haz->loadAnimation(powers[power_index].animation_name);
 	if (powers[power_index].lifespan != 0)
 		haz->lifespan = powers[power_index].lifespan;
 	if (powers[power_index].directional)

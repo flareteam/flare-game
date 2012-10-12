@@ -47,6 +47,8 @@ private:
 	MapCollision *collider;
 	// Keeps track of entities already hit
 	std::vector<Entity*> entitiesCollided;
+	Animation *activeAnimation;
+	std::string animation_name;
 
 public:
 	Hazard();
@@ -62,8 +64,9 @@ public:
 	void logic();
 
 	bool hasEntity(Entity*);
-
 	void addEntity(Entity*);
+
+	void loadAnimation(std::string &s);
 
 	int dmg_min;
 	int dmg_max;
@@ -78,12 +81,12 @@ public:
 	int radius;
 	int power_index;
 
-	Animation *activeAnimation;
 	int animationKind;	// direction or other, it is a specific value according to
 						// some hazard animations are 8-directional
 						// some hazard animations have random/varietal options
 
-	Renderable getRenderable();
+	bool isDangerousNow();
+	void addRenderable(std::vector<Renderable> &r, std::vector<Renderable> &r_dead);
 
 	bool floor; // rendererable goes on the floor layer
 	int delay_frames;

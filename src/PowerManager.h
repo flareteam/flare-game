@@ -99,7 +99,7 @@ public:
 	int cooldown; // milliseconds before you can use the power again
 
 	// animation info
-	AnimationSet *animationSet;
+	std::string animation_name;
 	int sfx_index;
 	bool directional; // sprite sheet contains options for 8 directions, one per row
 	int visual_random; // sprite sheet contains rows of random options
@@ -194,7 +194,7 @@ public:
 		, requires_targeting(false)
 		, cooldown(0)
 
-		, animationSet(NULL)
+		, animation_name("")
 		, sfx_index(-1)
 		, directional(false)
 		, visual_random(0)
