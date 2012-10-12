@@ -55,7 +55,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "UtilsFileSystem.h"
 #include "FileParser.h"
 #include "UtilsParsing.h"
-#include "StatBlock.h"
 
 using namespace std;
 
@@ -339,7 +338,7 @@ void GameStatePlay::checkTitle() {
 	FileParser infile;
 	std::string titlename = pc->stats.character_class;
 	bool foundTitle = false;
-	if (check_title == true) {
+	if (pc->stats.check_title == true) {
 		if(infile.open(mods->locate("engine/titles.txt"))) {
 			while (infile.next()) {
 				if (infile.new_section) {
@@ -362,6 +361,7 @@ void GameStatePlay::checkTitle() {
 		infile.close(); 
 		} 
 		else fprintf(stderr, "Unable to open engine/titles.txt!\n");
+		pc->stats.check_title = false;
 	}
 }
 

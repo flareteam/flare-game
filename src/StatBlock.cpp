@@ -72,6 +72,7 @@ StatBlock::StatBlock() {
 	avoidance = 25;
 	crit = 0;
 	level_up = false;
+	check_title = false;
 
 
 	// equipment stats
@@ -369,6 +370,7 @@ void StatBlock::recalc() {
 	for (int i=0; i<MAX_CHARACTER_LEVEL; i++) {
 		if (xp >= xp_table[i])
 			level=i+1;
+			check_title = true;
 	}
 
 	int lev0 = level -1;

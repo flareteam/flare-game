@@ -81,7 +81,6 @@ private:
 	void showLoading();
 
 	int npc_id;
-	bool check_title = false;
 
 	SDL_Color color_normal;
 
