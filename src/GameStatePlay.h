@@ -73,6 +73,7 @@ private:
 	void checkCancel();
 	void checkLog();
 	void checkEquipmentChange();
+	void checkTitle();
 	void checkConsumable();
 	void checkNotifications();
 	void checkNPCInteraction();

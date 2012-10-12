@@ -53,6 +53,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "WidgetLabel.h"
 #include "SharedResources.h"
 #include "UtilsFileSystem.h"
+#include "FileParser.h"
+#include "UtilsParsing.h"
 
 using namespace std;
 
@@ -332,6 +334,37 @@ void GameStatePlay::checkLog() {
 	}
 }
 
+void GameStatePlay::checkTitle() {
+	FileParser infile;
+	std::string titlename = pc->stats.character_class;
+	bool foundTitle = false;
+	if (pc->stats.check_title == true) {
+		if(infile.open(mods->locate("engine/titles.txt"))) {
+			while (infile.next()) {
+				if (infile.new_section) {
+					if (foundTitle) {
+						break;
+					}
+					foundTitle = true;
+				}
+				if (infile.section == "title") {
+					if (infile.key == "level") {
+						if (pc->stats.level < toInt(infile.val))
+							foundTitle = false;
+					}
+					else if (infile.key == "title") {
+						titlename = infile.val;
+					}
+				}
+			}
+		pc->stats.character_class = msg->get(titlename);
+		infile.close(); 
+		} 
+		else fprintf(stderr, "Unable to open engine/titles.txt!\n");
+		pc->stats.check_title = false;
+	}
+}
+
 void GameStatePlay::checkEquipmentChange() {
 	if (menu->inv->changed_equipment) {
 
@@ -566,6 +599,7 @@ void GameStatePlay::logic() {
 		checkEnemyFocus();
 		checkNPCInteraction();
 		map->checkHotspots();
+		checkTitle();
 
 		pc->logic(menu->act->checkAction(inpt->mouse), restrictPowerUse());
 

@@ -72,6 +72,7 @@ StatBlock::StatBlock() {
 	avoidance = 25;
 	crit = 0;
 	level_up = false;
+	check_title = false;
 
 
 	// equipment stats
@@ -369,6 +370,7 @@ void StatBlock::recalc() {
 	for (int i=0; i<MAX_CHARACTER_LEVEL; i++) {
 		if (xp >= xp_table[i])
 			level=i+1;
+			check_title = true;
 	}
 
 	int lev0 = level -1;
@@ -391,31 +393,6 @@ void StatBlock::recalc() {
 	mentdef = get_mental() + get_defense();
 	physment = get_physical() + get_mental();
 	offdef = get_offense() + get_defense();
-	FileParser infile;
-	std::string titlename = character_class;
-	bool foundTitle = false;
-	if(infile.open(mods->locate("engine/titles.txt"))) {
-		while (infile.next()) {
-			if (infile.new_section) {
-				if (foundTitle) {
-					break;
-				}
-				foundTitle = true;
-			}
-			if (infile.section == "title") {
-				if (infile.key == "xp") {
-					if (xp <= toInt(infile.val))
-						foundTitle = false;
-				}
-				else if (infile.key == "title") {
-					titlename = infile.val;
-				}
-			}
-		}
-	character_class = msg->get(titlename);
-	infile.close(); 
-	} 
-	else fprintf(stderr, "Unable to open engine/titles.txt!\n");
 }
 
 /**
