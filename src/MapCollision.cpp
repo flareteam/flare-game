@@ -53,14 +53,14 @@ bool MapCollision::move(int &x, int &y, int step_x, int step_y, int dist, int mo
 	bool diag = step_x && step_y;
 
 	for (int i = dist; i--;) {
-		if (valid_position(x + step_x, y + step_y, movement_type)) {
+		if (is_valid_position(x + step_x, y + step_y, movement_type)) {
 			x+= step_x;
 			y+= step_y;
 		}
-		else if (diag && valid_position(x + step_x, y, movement_type)) { // slide along wall
+		else if (diag && is_valid_position(x + step_x, y, movement_type)) { // slide along wall
 			x+= step_x;
 		}
-		else if (diag && valid_position(x, y + step_y, movement_type)) { // slide along wall
+		else if (diag && is_valid_position(x, y + step_y, movement_type)) { // slide along wall
 			y+= step_y;
 		}
 		else { // is there a singular obstacle or corner we can step around?
@@ -86,7 +86,7 @@ bool MapCollision::move(int &x, int &y, int step_x, int step_y, int dist, int mo
 /**
  * Determines whether the grid position is outside the map boundary
  */
-bool MapCollision::outsideMap(int tile_x, int tile_y) const {
+bool MapCollision::is_outside_map(int tile_x, int tile_y) const {
 	return (tile_x < 0 || tile_y < 0 || tile_x >= map_size.x || tile_y >= map_size.y);
 }
 
@@ -99,7 +99,7 @@ bool MapCollision::is_empty(int x, int y) const {
 	int tile_y = y >> TILE_SHIFT; // fast div
 
 	// bounds check
-	if (outsideMap(tile_x, tile_y)) return false;
+	if (is_outside_map(tile_x, tile_y)) return false;
 
 	// collision type check
 	return (colmap[tile_x][tile_y] == BLOCKS_NONE);
@@ -114,7 +114,7 @@ bool MapCollision::is_wall(int x, int y) const {
 	int tile_y = y >> TILE_SHIFT; // fast div
 
 	// bounds check
-	if (outsideMap(tile_x, tile_y)) return true;
+	if (is_outside_map(tile_x, tile_y)) return true;
 
 	// collision type check
 	return (colmap[tile_x][tile_y] == BLOCKS_ALL || colmap[tile_x][tile_y] == BLOCKS_ALL_HIDDEN);
@@ -123,10 +123,10 @@ bool MapCollision::is_wall(int x, int y) const {
 /**
  * Is this a valid tile for an entity with this movement type?
  */
-bool MapCollision::valid_tile(int tile_x, int tile_y, int movement_type) const {
+bool MapCollision::is_valid_tile(int tile_x, int tile_y, int movement_type) const {
 
 	// outside the map isn't valid
-	if (outsideMap(tile_x,tile_y)) return false;
+	if (is_outside_map(tile_x,tile_y)) return false;
 
 	// occupied by an entity isn't valid
 	if (colmap[tile_x][tile_y] == BLOCKS_ENTITIES) return false;
@@ -146,18 +146,18 @@ bool MapCollision::valid_tile(int tile_x, int tile_y, int movement_type) const {
 /**
  * Is this a valid position for an entity with this movement type?
  */
-bool MapCollision::valid_position(int x, int y, int movement_type) const {
+bool MapCollision::is_valid_position(int x, int y, int movement_type) const {
 
 	const int tile_x = x >> TILE_SHIFT; // fast div
 	const int tile_y = y >> TILE_SHIFT; // fast div
 
-	return valid_tile(tile_x, tile_y, movement_type);
+	return is_valid_tile(tile_x, tile_y, movement_type);
 }
 
 
 
 bool inline MapCollision::is_sidestepable(int tile_x, int tile_y, int offx, int offy) {
-	return !outsideMap(tile_x + offx, tile_y + offy) && !colmap[tile_x + offx][tile_y + offy];
+	return !is_outside_map(tile_x + offx, tile_y + offy) && !colmap[tile_x + offx][tile_y + offy];
 }
 
 /**
@@ -247,7 +247,7 @@ bool MapCollision::line_check(int x1, int y1, int x2, int y2, int check_type, in
 		for (int i=0; i<steps; i++) {
 			x += step_x;
 			y += step_y;
-			if (!valid_position(round(x), round(y), movement_type)) {
+			if (!is_valid_position(round(x), round(y), movement_type)) {
 				result_x = round(x -= step_x);
 				result_y = round(y -= step_y);
 				return false;
@@ -344,7 +344,7 @@ bool MapCollision::compute_path(Point start_pos, Point end_pos, vector<Point> &p
 			Point neighbour = *it;
 
 			// if neighbour is not free of any collision, or already in close, skip it
-			if(!valid_tile(neighbour.x,neighbour.y,movement_type) || find(close.begin(), close.end(), neighbour)!=close.end())
+			if(!is_valid_tile(neighbour.x,neighbour.y,movement_type) || find(close.begin(), close.end(), neighbour)!=close.end())
 				continue;
 
 			list<AStarNode>::iterator i = find(open.begin(), open.end(), neighbour);

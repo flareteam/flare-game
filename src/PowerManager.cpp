@@ -519,7 +519,7 @@ Point PowerManager::targetNeighbor(Point target, int range, bool ignore_blocked)
 			if (i == 0 && j == 0) continue; // skip the middle tile
 			new_target.x = target.x+UNITS_PER_TILE*i;
 			new_target.y = target.y+UNITS_PER_TILE*j;
-			if (collider->valid_position(new_target.x,new_target.y,MOVEMENT_NORMAL) || ignore_blocked)
+			if (collider->is_valid_position(new_target.x,new_target.y,MOVEMENT_NORMAL) || ignore_blocked)
 				valid_tiles.push_back(new_target);
 		}
 	}
