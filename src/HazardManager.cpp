@@ -73,9 +73,7 @@ void HazardManager::logic() {
 
 	// handle collisions
 	for (unsigned int i=0; i<h.size(); i++) {
-		if (h[i]->active && h[i]->delay_frames==0 &&
-			( (h[i]->activeAnimation != NULL && h[i]->activeAnimation->isActiveFrame())
-			|| h[i]->activeAnimation == NULL)) {
+		if (h[i]->isDangerousNow()) {
 
 			// process hazards that can hurt enemies
 			if (h[i]->source_type != SOURCE_TYPE_ENEMY) { //hero or neutral sources
@@ -173,12 +171,8 @@ void HazardManager::handleNewMap(MapCollision *_collider) {
  * to collect all mobile sprites each frame.
  */
 void HazardManager::addRenders(vector<Renderable> &r, vector<Renderable> &r_dead) {
-	for (unsigned int i=0; i<h.size(); i++) {
-		if (h[i]->delay_frames == 0 && h[i]->activeAnimation) {
-			Renderable re = h[i]->getRenderable();
-			(h[i]->floor ? r_dead : r).push_back(re);
-		}
-	}
+	for (unsigned int i=0; i<h.size(); i++)
+		h[i]->addRenderable(r, r_dead);
 }
 
 HazardManager::~HazardManager() {
