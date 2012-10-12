@@ -55,10 +55,12 @@ class MapCollision {
 private:
 
 	bool line_check(int x1, int y1, int x2, int y2, int check_type, int movement_type);
+	bool is_sidestepable(int tile_x, int tile_y, int offx2, int offy2);
 
 public:
 	MapCollision();
 	~MapCollision();
+
 	void setmap(const unsigned short _colmap[][256], unsigned short w, unsigned short h);
 	bool move(int &x, int &y, int step_x, int step_y, int dist, int movement_type);
 
@@ -80,12 +82,6 @@ public:
 
 	unsigned short colmap[256][256];
 	Point map_size;
-
-	int result_x;
-	int result_y;
-
-private:
-	bool inline is_sidestepable(int tile_x, int tile_y, int offx2, int offy2);
 };
 
 #endif

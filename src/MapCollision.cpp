@@ -30,15 +30,17 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 using namespace std;
 
-MapCollision::MapCollision() {
+MapCollision::MapCollision()
+{
+	map_size=Point();
+	memset(colmap, 0, sizeof(colmap));
 }
 
 void MapCollision::setmap(const unsigned short _colmap[][256], unsigned short w, unsigned short h) {
-	for (int i=0; i<w; i++) {
-		for (int j=0; j<h; j++) {
+	for (int i=0; i<w; i++)
+		for (int j=0; j<h; j++)
 			colmap[i][j] = _colmap[i][j];
-		}
-	}
+
 	map_size.x = w;
 	map_size.y = h;
 }
@@ -236,33 +238,26 @@ bool MapCollision::line_check(int x1, int y1, int x2, int y2, int check_type, in
 		for (int i=0; i<steps; i++) {
 			x += step_x;
 			y += step_y;
-			if (is_wall(round(x), round(y))) {
-				result_x = round(x -= step_x);
-				result_y = round(y -= step_y);
+			if (is_wall(round(x), round(y)))
 				return false;
-			}
 		}
 	}
 	else if (check_type == CHECK_MOVEMENT) {
 		for (int i=0; i<steps; i++) {
 			x += step_x;
 			y += step_y;
-			if (!is_valid_position(round(x), round(y), movement_type)) {
-				result_x = round(x -= step_x);
-				result_y = round(y -= step_y);
+			if (!is_valid_position(round(x), round(y), movement_type))
 				return false;
-			}
 		}
 	}
 
-	result_x = x2;
-	result_y = y2;
 	return true;
 }
 
 bool MapCollision::line_of_sight(int x1, int y1, int x2, int y2) {
 	return line_check(x1, y1, x2, y2, CHECK_SIGHT, 0);
 }
+
 bool MapCollision::line_of_movement(int x1, int y1, int x2, int y2, int movement_type) {
 
 	// intangible entities can always move
