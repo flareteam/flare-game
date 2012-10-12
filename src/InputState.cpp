@@ -33,8 +33,14 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 using namespace std;
 
-InputState::InputState(void) {
-
+InputState::InputState(void)
+	: done(false)
+	, mouse(Point())
+	, last_key(0)
+	, last_button(0)
+	, scroll_up(false)
+	, scroll_down(false)
+{
 	SDL_EnableUNICODE(true);
 
 	defaultQwertyKeyBindings();
@@ -47,9 +53,6 @@ InputState::InputState(void) {
 		joy_binding[key] = key;
 		joy_pressing[key] = false;
 	}
-	done = false;
-
-	resetScroll();
 
 	loadKeyBindings();
 
@@ -86,7 +89,6 @@ InputState::InputState(void) {
 	mouse_button[4] = msg->get("wheel down");
 	mouse_button[5] = msg->get("mbx1");
 	mouse_button[6] = msg->get("mbx2");
-
 }
 
 
@@ -432,7 +434,7 @@ void InputState::handle(bool dump_event) {
 
 	// joystick analog input
 	if(ENABLE_JOYSTICK)
-	{	
+	{
 		joyAxisXval = SDL_JoystickGetAxis(joy, 0);
 		joyAxisYval = SDL_JoystickGetAxis(joy, 1);
 

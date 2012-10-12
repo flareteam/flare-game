@@ -133,7 +133,6 @@ private:
 
 	ItemManager *items;
 	WidgetTooltip *tip;
-	EnemyManager *enemies;
 	MapRenderer *map;
 	StatBlock *hero;
 
