@@ -48,7 +48,7 @@ public:
 	NPC(MapRenderer *_map, ItemManager *_items);
 	~NPC();
 	void load(const std::string& npc_id, int hero_level);
-	void loadGraphics(const std::string& filename_sprites, const std::string& filename_portrait);
+	void loadGraphics(const std::string& filename_portrait);
 	int loadSound(const std::string& filename, int type);
 	void logic();
 	bool playSound(int type, int id=-1);
@@ -58,6 +58,7 @@ public:
 
 	// general info
 	std::string name;
+	std::string gfx; // filename of sprite.
 	Point pos; // map position
 	int level; // used in determining item quality
 

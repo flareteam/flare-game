@@ -42,6 +42,7 @@ NPC::NPC(MapRenderer *_map, ItemManager *_items) : Entity(_map) {
 
 	// init general vars
 	name = "";
+	gfx = "";
 	pos.x = pos.y = 0;
 
 	// init vendor info
@@ -122,7 +123,7 @@ void NPC::load(const string& npc_id, int hero_level) {
 						level = toInt(infile.val);
 				}
 				else if (infile.key == "gfx") {
-					filename_sprites = infile.val;
+					gfx = infile.val;
 				}
 
 				// handle talkers
@@ -156,13 +157,13 @@ void NPC::load(const string& npc_id, int hero_level) {
 		}
 		infile.close();
 	} else fprintf(stderr, "Unable to open npcs/%s.txt!\n", npc_id.c_str());
-	loadGraphics(filename_sprites, filename_portrait);
+	loadGraphics(filename_portrait);
 }
 
-void NPC::loadGraphics(const string& filename_animations, const string& filename_portrait) {
+void NPC::loadGraphics(const string& filename_portrait) {
 
-	if (filename_animations != "") {
-		std::string anim = "animations/npcs/" + filename_animations + ".txt";
+	if (gfx != "") {
+		std::string anim = "animations/npcs/" + gfx + ".txt";
 		AnimationManager::instance()->increaseCount(anim);
 		animationSet = AnimationManager::instance()->getAnimationSet(anim);
 		activeAnimation = animationSet->getAnimation(animationSet->starting_animation);
@@ -354,6 +355,9 @@ Renderable NPC::getRender() {
 
 
 NPC::~NPC() {
+	const string anim = "animations/npcs/" + gfx + ".txt";
+	AnimationManager::instance()->decreaseCount(anim);
+
 	if (portrait != NULL) SDL_FreeSurface(portrait);
 	while (!vox_intro.empty()) {
 		Mix_FreeChunk(vox_intro.back());
