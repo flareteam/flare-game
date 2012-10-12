@@ -65,14 +65,12 @@ void MenuItemStorage::loadGraphics() {
 
 	if(!highlight_image) {
 		fprintf(stderr, "Couldn't load icon highlight image: %s\n", IMG_GetError());
-		SDL_Quit();
-		exit(1);
+	} else {
+		// optimize
+		SDL_Surface *cleanup = highlight_image;
+		highlight_image = SDL_DisplayFormatAlpha(highlight_image);
+		SDL_FreeSurface(cleanup);
 	}
-
-	// optimize
-	SDL_Surface *cleanup = highlight_image;
-	highlight_image = SDL_DisplayFormatAlpha(highlight_image);
-	SDL_FreeSurface(cleanup);
 }
 
 void MenuItemStorage::render() {

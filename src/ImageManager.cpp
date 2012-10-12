@@ -68,13 +68,11 @@ SDL_Surface *ImageManager::getSurface(const std::string &name) {
 
             if (!cleanup) {
                 fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
-                SDL_Quit();
-                exit(17);
+            } else {
+                SDL_Surface *sprite = SDL_DisplayFormatAlpha(cleanup);
+                SDL_FreeSurface(cleanup);
+                sprites[index] = sprite;
             }
-
-            SDL_Surface *sprite = SDL_DisplayFormatAlpha(cleanup);
-            SDL_FreeSurface(cleanup);
-            sprites[index] = sprite;
         }
         return sprites[index];
     }

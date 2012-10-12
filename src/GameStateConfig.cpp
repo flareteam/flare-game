@@ -56,14 +56,12 @@ GameStateConfig::GameStateConfig ()
 {
 	// Load background image
 	SDL_Surface * tmp = IMG_Load(imgFileName.c_str());
-	if (NULL == tmp) {
-		fprintf(stderr, "Could not load image \"%s\" error \"%s\"\n",
-				imgFileName.c_str(), IMG_GetError());
-		SDL_Quit();
-		exit(1);
+	if (!tmp) {
+		fprintf(stderr, "Could not load image \"%s\"\n", imgFileName.c_str());
+	} else {
+		background = SDL_DisplayFormatAlpha(tmp);
+		SDL_FreeSurface(tmp);
 	}
-	background = SDL_DisplayFormatAlpha(tmp);
-	SDL_FreeSurface(tmp);
 
 	init();
 	update();
