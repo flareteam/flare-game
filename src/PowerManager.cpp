@@ -849,7 +849,7 @@ bool PowerManager::effect(int power_index, StatBlock *src_stats, Point target) {
 	if (powers[power_index].use_hazard) {
 		int delay_iterator = 0;
 		for (int i=0; i < powers[power_index].count; i++) {
-			Hazard *haz = new Hazard();
+			Hazard *haz = new Hazard(collider);
 			initHazard(power_index, src_stats, target, haz);
 
 			// add optional delay
@@ -893,8 +893,6 @@ bool PowerManager::missile(int power_index, StatBlock *src_stats, Point target) 
 		src.y = src_stats->pos.y;
 	}
 
-	Hazard *haz;
-
 	// calculate polar coordinates angle
 	float theta = calcTheta(src.x, src.y, target.x, target.y);
 
@@ -902,7 +900,7 @@ bool PowerManager::missile(int power_index, StatBlock *src_stats, Point target) 
 
 	//generate hazards
 	for (int i=0; i < powers[power_index].count; i++) {
-		haz = new Hazard();
+		Hazard *haz = new Hazard(collider);
 
 		//calculate individual missile angle
 		float offset_angle = ((1.0 - powers[power_index].count)/2 + i) * (powers[power_index].missile_angle * pi / 180.0);
@@ -950,7 +948,6 @@ bool PowerManager::repeater(int power_index, StatBlock *src_stats, Point target)
 	payPowerCost(power_index, src_stats);
 
 	//initialize variables
-	Hazard *haz;
 	FPoint location_iterator;
 	FPoint speed;
 	int delay_iterator = 0;
@@ -977,7 +974,7 @@ bool PowerManager::repeater(int power_index, StatBlock *src_stats, Point target)
 			break; // no more hazards
 		}
 
-		haz = new Hazard();
+		Hazard *haz = new Hazard(collider);
 		initHazard(power_index, src_stats, target, haz);
 
 		haz->pos.x = location_iterator.x;

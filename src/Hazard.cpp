@@ -34,8 +34,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 using namespace std;
 
-Hazard::Hazard()
-	: activeAnimation(NULL)
+Hazard::Hazard(MapCollision *_collider)
+	: collider(_collider)
+	, activeAnimation(NULL)
 	, animation_name("")
 	, src_stats(NULL)
 	, dmg_min(0)
@@ -79,10 +80,6 @@ Hazard::~Hazard() {
 		AnimationManager::instance()->decreaseCount(animation_name);
 		delete activeAnimation;
 	}
-}
-
-void Hazard::setCollision(MapCollision *_collider) {
-	collider = _collider;
 }
 
 void Hazard::logic() {

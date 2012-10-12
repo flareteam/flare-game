@@ -38,7 +38,6 @@ class HazardManager {
 private:
 	Avatar *hero;
 	EnemyManager *enemies;
-	MapCollision *collider;
 	PowerManager *powers;
 public:
 	HazardManager(PowerManager *_powers, Avatar *_hero, EnemyManager *_enemies);
@@ -46,7 +45,7 @@ public:
 	void logic();
 	void expire(int index);
 	void checkNewHazards();
-	void handleNewMap(MapCollision *_collider);
+	void handleNewMap();
 	void addRenders(std::vector<Renderable> &r, std::vector<Renderable> &r_dead);
 
 	std::vector<Hazard*> h;
