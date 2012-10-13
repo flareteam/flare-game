@@ -358,6 +358,7 @@ bool MenuPowers::unlockClick(Point mouse) {
 					&& (powerUnlockable(power_cell[i].id)) && points_left > 0
 					&& power_cell[i].requires_point && power_cell[i].tab == active_tab) {
 				powers_list.push_back(power_cell[i].id);
+				stats->check_title = true;
 				return true;
 			}
 		}
@@ -368,6 +369,7 @@ bool MenuPowers::unlockClick(Point mouse) {
 					&& (powerUnlockable(power_cell[i].id))
 					&& points_left > 0 && power_cell[i].requires_point) {
 				powers_list.push_back(power_cell[i].id);
+				stats->check_title = true;
 				return true;
 			}
 		}
