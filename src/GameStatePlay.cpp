@@ -105,6 +105,9 @@ GameStatePlay::GameStatePlay()
 		loading_bg = SDL_DisplayFormatAlpha(loading_bg);
 		SDL_FreeSurface(cleanup);
 	}
+
+	// load the config file for character titles
+	loadTitles();
 }
 
 /**
@@ -334,89 +337,81 @@ void GameStatePlay::checkLog() {
 	}
 }
 
-void GameStatePlay::checkTitle() {
+void GameStatePlay::loadTitles() {
 	FileParser infile;
-	std::string titlename = pc->stats.character_class;
-	bool foundTitle = false;
-	if (pc->stats.check_title == true) {
-		if(infile.open(mods->locate("engine/titles.txt"))) {
-			while (infile.next()) {
-				if (infile.new_section) {
-					if (foundTitle) {
-						break;
-					}
-					foundTitle = true;
-				}
-				if (infile.section == "title") {
-					if (infile.key == "level") {
-						if (pc->stats.level < toInt(infile.val))
-							foundTitle = false;
-					}
-					else if (infile.key == "requires_status") {
-						if (camp->checkStatus(infile.val) == false)
-							foundTitle = false;
-					}
-					else if (infile.key == "requires_not") {
-						if (camp->checkStatus(infile.val) == true)
-							foundTitle = false;
-					}
-					else if (infile.key == "power") {
-						if (find(menu->pow->powers_list.begin(), menu->pow->powers_list.end(), toInt(infile.val)) == menu->pow->powers_list.end()) 
-							foundTitle = false;
-					}
-					else if (infile.key == "primary_stat") {
-						if ((infile.val) == "physical") {
-							if (pc->stats.get_physical() <= pc->stats.get_mental()+1 || pc->stats.get_physical() <= pc->stats.get_offense()+1 || pc->stats.get_physical() <= pc->stats.get_defense()+1)
-								foundTitle = false;
-						}
-						else if ((infile.val) == "offense") {
-							if (pc->stats.get_offense() <= pc->stats.get_mental()+1 || pc->stats.get_offense() <= pc->stats.get_physical()+1 || pc->stats.get_offense() <= pc->stats.get_defense()+1)
-								foundTitle = false;
-						}
-						else if ((infile.val) == "mental") {
-							if (pc->stats.get_mental() <= pc->stats.get_physical()+1 || pc->stats.get_mental() <= pc->stats.get_offense()+1 || pc->stats.get_mental() <= pc->stats.get_defense()+1)
-								foundTitle = false;
-						}
-						else if ((infile.val) == "defense") {
-							if (pc->stats.get_defense() <= pc->stats.get_mental()+1 || pc->stats.get_defense() <= pc->stats.get_offense()+1 || pc->stats.get_defense() <= pc->stats.get_physical()+1)
-								foundTitle = false;
-						}
-						else if ((infile.val) == "physoff") {
-							if (pc->stats.physoff <= pc->stats.physdef || pc->stats.physoff <= pc->stats.mentoff || pc->stats.physoff <= pc->stats.mentdef || pc->stats.physoff <= pc->stats.physment || pc->stats.physoff <= pc->stats.offdef)
-								foundTitle=false;
-						}
-						else if ((infile.val) == "physment") {
-							if (pc->stats.physment <= pc->stats.physdef || pc->stats.physment <= pc->stats.mentoff || pc->stats.physment <= pc->stats.mentdef || pc->stats.physment <= pc->stats.physoff || pc->stats.physment <= pc->stats.offdef)
-								foundTitle=false;
-						}
-						else if ((infile.val) == "physdef") {
-							if (pc->stats.physdef <= pc->stats.physoff || pc->stats.physdef <= pc->stats.mentoff || pc->stats.physdef <= pc->stats.mentdef || pc->stats.physdef <= pc->stats.physment || pc->stats.physdef <= pc->stats.offdef)
-								foundTitle=false;
-						}
-						else if ((infile.val) == "mentoff") {
-							if (pc->stats.mentoff <= pc->stats.physdef || pc->stats.mentoff <= pc->stats.physoff || pc->stats.mentoff <= pc->stats.mentdef || pc->stats.mentoff <= pc->stats.physment || pc->stats.mentoff <= pc->stats.offdef)
-								foundTitle=false;
-						}
-						else if ((infile.val) == "offdef") {
-							if (pc->stats.offdef <= pc->stats.physdef || pc->stats.offdef <= pc->stats.mentoff || pc->stats.offdef <= pc->stats.mentdef || pc->stats.offdef <= pc->stats.physment || pc->stats.offdef <= pc->stats.physoff)
-								foundTitle=false;
-						}
-						else if ((infile.val) == "mentdef") {
-							if (pc->stats.mentdef <= pc->stats.physdef || pc->stats.mentdef <= pc->stats.mentoff || pc->stats.mentdef <= pc->stats.physoff || pc->stats.mentdef <= pc->stats.physment || pc->stats.mentdef <= pc->stats.offdef)
-								foundTitle=false;
-						}
-					}
-					else if (infile.key == "title") {
-						titlename = infile.val;
-					}
-				}
+	if(infile.open(mods->locate("engine/titles.txt"))) {
+		while (infile.next()) {
+			if (infile.new_section && infile.section == "title") {
+				Title t;
+				titles.push_back(t);
 			}
-		pc->stats.character_class = msg->get(titlename);
-		infile.close();
+
+			if (titles.empty()) continue;
+
+			if (infile.key == "title") titles.back().title = infile.val;
+			else if (infile.key == "level") titles.back().level = toInt(infile.val);
+			else if (infile.key == "power") titles.back().power = toInt(infile.val);
+			else if (infile.key == "requires_status") titles.back().requires_status = infile.val;
+			else if (infile.key == "requires_not") titles.back().requires_not = infile.val;
+			else if (infile.key == "primary_stat") titles.back().primary_stat = infile.val;
 		}
-		else fprintf(stderr, "Unable to open engine/titles.txt!\n");
-		pc->stats.check_title = false;
+		infile.close();
 	}
+	else fprintf(stderr, "Unable to open engine/titles.txt!\n");
+}
+
+void GameStatePlay::checkTitle() {
+	if (!pc->stats.check_title || titles.empty()) return;
+
+	int title_id = -1;
+
+	for (unsigned i=0; i<titles.size(); i++) {
+		if (titles[i].title == "") continue;
+
+		if (titles[i].level > 0 && pc->stats.level < titles[i].level) continue;
+		if (titles[i].power > 0 && find(menu->pow->powers_list.begin(), menu->pow->powers_list.end(), titles[i].power) == menu->pow->powers_list.end()) continue;
+		if (titles[i].requires_status != "" && !camp->checkStatus(titles[i].requires_status)) continue;
+		if (titles[i].requires_not != "" && camp->checkStatus(titles[i].requires_not)) continue;
+		if (titles[i].primary_stat != "") {
+			if (titles[i].primary_stat == "physical") {
+				if (pc->stats.get_physical() <= pc->stats.get_mental()+1 || pc->stats.get_physical() <= pc->stats.get_offense()+1 || pc->stats.get_physical() <= pc->stats.get_defense()+1)
+					continue;
+			} else if (titles[i].primary_stat == "offense") {
+				if (pc->stats.get_offense() <= pc->stats.get_mental()+1 || pc->stats.get_offense() <= pc->stats.get_physical()+1 || pc->stats.get_offense() <= pc->stats.get_defense()+1)
+					continue;
+			} else if (titles[i].primary_stat == "mental") {
+				if (pc->stats.get_mental() <= pc->stats.get_physical()+1 || pc->stats.get_mental() <= pc->stats.get_offense()+1 || pc->stats.get_mental() <= pc->stats.get_defense()+1)
+					continue;
+			} else if (titles[i].primary_stat == "defense") {
+				if (pc->stats.get_defense() <= pc->stats.get_mental()+1 || pc->stats.get_defense() <= pc->stats.get_offense()+1 || pc->stats.get_defense() <= pc->stats.get_physical()+1)
+					continue;
+			} else if (titles[i].primary_stat == "physoff") {
+				if (pc->stats.physoff <= pc->stats.physdef || pc->stats.physoff <= pc->stats.mentoff || pc->stats.physoff <= pc->stats.mentdef || pc->stats.physoff <= pc->stats.physment || pc->stats.physoff <= pc->stats.offdef)
+					continue;
+			} else if (titles[i].primary_stat == "physment") {
+				if (pc->stats.physment <= pc->stats.physdef || pc->stats.physment <= pc->stats.mentoff || pc->stats.physment <= pc->stats.mentdef || pc->stats.physment <= pc->stats.physoff || pc->stats.physment <= pc->stats.offdef)
+					continue;
+			} else if (titles[i].primary_stat == "physdef") {
+				if (pc->stats.physdef <= pc->stats.physoff || pc->stats.physdef <= pc->stats.mentoff || pc->stats.physdef <= pc->stats.mentdef || pc->stats.physdef <= pc->stats.physment || pc->stats.physdef <= pc->stats.offdef)
+					continue;
+			} else if (titles[i].primary_stat == "mentoff") {
+				if (pc->stats.mentoff <= pc->stats.physdef || pc->stats.mentoff <= pc->stats.physoff || pc->stats.mentoff <= pc->stats.mentdef || pc->stats.mentoff <= pc->stats.physment || pc->stats.mentoff <= pc->stats.offdef)
+					continue;
+			} else if (titles[i].primary_stat == "offdef") {
+				if (pc->stats.offdef <= pc->stats.physdef || pc->stats.offdef <= pc->stats.mentoff || pc->stats.offdef <= pc->stats.mentdef || pc->stats.offdef <= pc->stats.physment || pc->stats.offdef <= pc->stats.physoff)
+					continue;
+			} else if (titles[i].primary_stat == "mentdef") {
+				if (pc->stats.mentdef <= pc->stats.physdef || pc->stats.mentdef <= pc->stats.mentoff || pc->stats.mentdef <= pc->stats.physoff || pc->stats.mentdef <= pc->stats.physment || pc->stats.mentdef <= pc->stats.offdef)
+					continue;
+			}
+		}
+		// Title meets the requirements
+		title_id = i;
+		break;
+	}
+
+	if (title_id != -1) pc->stats.character_class = titles[title_id].title;
+	pc->stats.check_title = false;
 }
 
 void GameStatePlay::checkEquipmentChange() {

@@ -31,6 +31,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <SDL.h>
 #include <SDL_image.h>
 
+#include <string>
+#include <vector>
 
 class Avatar;
 class CampaignManager;
@@ -45,6 +47,24 @@ class NPCManager;
 class PowerManager;
 class QuestLog;
 class WidgetLabel;
+
+struct Title{
+	std::string title;
+	int level;
+	int power;
+	std::string requires_status;
+	std::string requires_not;
+	std::string primary_stat;
+
+	Title() {
+		title = "";
+		level = 0;
+		power = 0;
+		requires_status = "";
+		requires_not = "";
+		primary_stat = "";
+	}
+};
 
 class GameStatePlay : public GameState {
 private:
@@ -79,10 +99,13 @@ private:
 	void checkNPCInteraction();
 	void checkStash();
 	void showLoading();
+	void loadTitles();
 
 	int npc_id;
 
 	SDL_Color color_normal;
+
+	std::vector<Title> titles;
 
 public:
 	GameStatePlay();
