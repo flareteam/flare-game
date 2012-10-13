@@ -1,7 +1,9 @@
 
+image=images/enemies/grisbon.png
+
 [stance]
 frames=4
-duration=180
+duration=6
 type=back_forth
 frame=0,0,3912,0,50,50,29,45
 frame=0,1,3996,50,43,50,17,46
@@ -38,7 +40,7 @@ frame=3,7,3478,52,60,52,44,43
 
 [run]
 frames=8
-duration=60
+duration=2
 type=looped
 frame=0,0,3410,52,68,52,41,49
 frame=0,1,2002,57,45,57,21,51
@@ -107,7 +109,7 @@ frame=7,7,2572,110,59,51,36,47
 
 [ranged]
 frames=4
-duration=90
+duration=3
 type=play_once
 frame=0,0,3676,104,39,52,16,47
 frame=0,1,3638,52,46,52,19,48
@@ -144,7 +146,7 @@ frame=3,7,3176,54,30,54,10,46
 
 [ment]
 frames=4
-duration=90
+duration=3
 type=play_once
 frame=0,0,581,83,47,76,29,70
 frame=0,1,952,0,45,80,20,76
@@ -181,7 +183,7 @@ frame=3,7,0,0,38,91,8,82
 
 [die]
 frames=6
-duration=120
+duration=4
 type=play_once
 frame=0,0,4273,49,43,49,20,45
 frame=0,1,4031,100,38,50,15,46
@@ -234,7 +236,7 @@ frame=5,7,1855,116,58,45,27,37
 
 [melee]
 frames=4
-duration=90
+duration=3
 type=play_once
 frame=0,0,53,90,63,71,16,66
 frame=0,1,1621,59,64,58,19,54
@@ -271,7 +273,7 @@ frame=3,7,3086,0,42,54,23,37
 
 [critdie]
 frames=6
-duration=120
+duration=4
 type=play_once
 frame=0,0,4273,49,43,49,20,45
 frame=0,1,4031,100,38,50,15,46
@@ -324,7 +326,7 @@ frame=5,7,1855,116,58,45,27,37
 
 [hit]
 frames=2
-duration=60
+duration=2
 type=play_once
 frame=0,0,4273,49,43,49,20,45
 frame=0,1,4031,100,38,50,15,46
@@ -345,7 +347,7 @@ frame=1,7,3816,0,31,51,18,42
 
 [block]
 frames=2
-duration=30
+duration=1
 type=play_once
 frame=0,0,4223,49,50,49,28,44
 frame=0,1,4273,98,41,49,16,45
