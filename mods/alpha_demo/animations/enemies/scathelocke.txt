@@ -1,7 +1,9 @@
 
+image=images/enemies/scathelock.png
+
 [stance]
 frames=4
-duration=180
+duration=6
 type=back_forth
 frame=0,0,2525,50,58,50,17,45
 frame=0,1,2526,100,55,50,16,46
@@ -38,7 +40,7 @@ frame=3,7,2298,51,51,51,28,43
 
 [run]
 frames=8
-duration=60
+duration=2
 type=looped
 frame=0,0,1950,107,58,53,26,49
 frame=0,1,1295,0,49,57,14,51
@@ -107,7 +109,7 @@ frame=7,7,2633,100,45,50,22,47
 
 [ranged]
 frames=4
-duration=90
+duration=3
 type=play_once
 frame=0,0,886,126,39,63,16,58
 frame=0,1,1125,58,46,58,18,54
@@ -144,7 +146,7 @@ frame=3,7,626,0,27,66,10,59
 
 [ment]
 frames=4
-duration=90
+duration=3
 type=play_once
 frame=0,0,884,63,42,63,20,57
 frame=0,1,741,0,54,65,19,61
@@ -181,7 +183,7 @@ frame=3,7,0,0,32,74,11,66
 
 [die]
 frames=6
-duration=120
+duration=4
 type=play_once
 frame=0,0,3003,0,55,49,15,45
 frame=0,1,2633,0,47,50,14,46
@@ -234,7 +236,7 @@ frame=5,7,1493,168,56,26,27,18
 
 [melee]
 frames=4
-duration=90
+duration=3
 type=play_once
 frame=0,0,1207,58,63,57,31,53
 frame=0,1,988,0,49,59,18,55
@@ -271,7 +273,7 @@ frame=3,7,3236,48,38,48,19,33
 
 [critdie]
 frames=6
-duration=120
+duration=4
 type=play_once
 frame=0,0,3003,0,55,49,15,45
 frame=0,1,2633,0,47,50,14,46
@@ -324,7 +326,7 @@ frame=5,7,1493,168,56,26,27,18
 
 [hit]
 frames=2
-duration=60
+duration=2
 type=play_once
 frame=0,0,3003,0,55,49,15,45
 frame=0,1,2633,0,47,50,14,46
@@ -345,7 +347,7 @@ frame=1,7,1794,0,45,54,18,46
 
 [block]
 frames=2
-duration=30
+duration=1
 type=play_once
 frame=0,0,2774,0,59,49,16,44
 frame=0,1,2949,98,57,49,16,45

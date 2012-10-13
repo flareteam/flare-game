@@ -1,7 +1,9 @@
 
+image=images/enemies/necromancer.png
+
 [stance]
 frames=4
-duration=300
+duration=10
 type=back_forth
 frame=0,0,2102,56,26,56,11,50
 frame=0,1,2741,54,32,54,14,51
@@ -38,7 +40,7 @@ frame=3,7,2364,0,26,55,9,48
 
 [run]
 frames=8
-duration=90
+duration=3
 type=looped
 frame=0,0,2505,54,43,54,25,48
 frame=0,1,2265,0,38,55,21,51
@@ -107,7 +109,7 @@ frame=7,7,2670,0,37,54,21,45
 
 [ranged]
 frames=4
-duration=90
+duration=3
 type=play_once
 frame=0,0,2957,106,46,48,28,42
 frame=0,1,124,101,39,53,23,48
@@ -144,7 +146,7 @@ frame=3,7,2896,0,32,53,18,45
 
 [ment]
 frames=4
-duration=90
+duration=3
 type=play_once
 frame=0,0,2957,106,46,48,28,42
 frame=0,1,124,101,39,53,23,48
@@ -181,7 +183,7 @@ frame=3,7,2896,0,32,53,18,45
 
 [die]
 frames=6
-duration=60
+duration=2
 type=play_once
 frame=0,0,3429,52,27,52,15,47
 frame=0,1,3544,102,34,51,18,50
@@ -234,7 +236,7 @@ frame=5,7,4021,32,54,28,25,18
 
 [melee]
 frames=4
-duration=120
+duration=4
 type=play_once
 frame=0,0,697,88,38,66,16,61
 frame=0,1,595,92,48,62,18,58
@@ -271,7 +273,7 @@ frame=3,7,2831,108,33,43,21,34
 
 [critdie]
 frames=8
-duration=90
+duration=3
 type=play_once
 frame=0,0,1891,57,30,57,11,50
 frame=0,1,3307,52,34,52,15,49
@@ -340,7 +342,7 @@ frame=7,7,4038,124,63,29,31,12
 
 [hit]
 frames=2
-duration=60
+duration=2
 type=play_once
 frame=0,0,3429,52,27,52,15,47
 frame=0,1,3544,102,34,51,18,50
@@ -361,7 +363,7 @@ frame=1,7,1988,112,27,42,15,35
 
 [block]
 frames=2
-duration=90
+duration=3
 type=play_once
 frame=0,0,3017,53,29,53,16,48
 frame=0,1,2740,0,33,54,17,50
