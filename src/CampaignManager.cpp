@@ -102,6 +102,7 @@ void CampaignManager::setStatus(std::string s) {
 
 	status.push_back(s);
 	quest_update = true;
+	hero->check_title = true;
 }
 
 void CampaignManager::unsetStatus(std::string s) {
@@ -117,7 +118,8 @@ void CampaignManager::unsetStatus(std::string s) {
 			status.erase(it);
 			quest_update = true;
 			return;
-		}
+		}	
+		hero->check_title = true;
 	}
 }
 
