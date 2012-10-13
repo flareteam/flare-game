@@ -409,14 +409,12 @@ void ItemManager::shrinkItemSets() {
 void ItemManager::renderIcon(ItemStack stack, int x, int y, int size) {
 	if (!icons) return;
 
-	int columns;
-
 	dest.x = x;
 	dest.y = y;
 	src.w = src.h = dest.w = dest.h = size;
 
 	if (stack.item > 0) {
-		columns = icons->w / ICON_SIZE;
+		int columns = icons->w / ICON_SIZE;
 		src.x = (items[stack.item].icon % columns) * size;
 		src.y = (items[stack.item].icon / columns) * size;
 		SDL_BlitSurface(icons, &src, screen, &dest);

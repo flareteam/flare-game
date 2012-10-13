@@ -40,6 +40,7 @@ using namespace std;
 
 
 MenuActiveEffects::MenuActiveEffects(SDL_Surface *_icons) {
+	stats = NULL;
 	icons = _icons;
 	orientation = 0; // horizontal
 

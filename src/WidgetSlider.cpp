@@ -73,7 +73,7 @@ bool WidgetSlider::checkClick() {
 
 bool WidgetSlider::checkClick (int x, int y)
 {
-	Point mouse = {x,y};
+	Point mouse(x, y);
 		//
 		//	We are just grabbing the knob
 		//

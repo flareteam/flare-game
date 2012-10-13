@@ -55,6 +55,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "UtilsFileSystem.h"
 #include "FileParser.h"
 #include "UtilsParsing.h"
+#include "MenuPowers.h"
 
 using namespace std;
 
@@ -232,7 +233,7 @@ void GameStatePlay::checkTeleport() {
 			showLoading();
 			map->load(map->teleport_mapname);
 			enemies->handleNewMap();
-			hazards->handleNewMap(&map->collider);
+			hazards->handleNewMap();
 			loot->handleNewMap();
 			powers->handleNewMap(&map->collider);
 			menu->enemy->handleNewMap();
@@ -351,14 +352,68 @@ void GameStatePlay::checkTitle() {
 						if (pc->stats.level < toInt(infile.val))
 							foundTitle = false;
 					}
+					else if (infile.key == "requires_status") {
+						if (camp->checkStatus(infile.val) == false)
+							foundTitle = false;
+					}
+					else if (infile.key == "requires_not") {
+						if (camp->checkStatus(infile.val) == true)
+							foundTitle = false;
+					}
+					else if (infile.key == "power") {
+						if (find(menu->pow->powers_list.begin(), menu->pow->powers_list.end(), toInt(infile.val)) == menu->pow->powers_list.end()) 
+							foundTitle = false;
+					}
+					else if (infile.key == "primary_stat") {
+						if ((infile.val) == "physical") {
+							if (pc->stats.get_physical() <= pc->stats.get_mental()+1 || pc->stats.get_physical() <= pc->stats.get_offense()+1 || pc->stats.get_physical() <= pc->stats.get_defense()+1)
+								foundTitle = false;
+						}
+						else if ((infile.val) == "offense") {
+							if (pc->stats.get_offense() <= pc->stats.get_mental()+1 || pc->stats.get_offense() <= pc->stats.get_physical()+1 || pc->stats.get_offense() <= pc->stats.get_defense()+1)
+								foundTitle = false;
+						}
+						else if ((infile.val) == "mental") {
+							if (pc->stats.get_mental() <= pc->stats.get_physical()+1 || pc->stats.get_mental() <= pc->stats.get_offense()+1 || pc->stats.get_mental() <= pc->stats.get_defense()+1)
+								foundTitle = false;
+						}
+						else if ((infile.val) == "defense") {
+							if (pc->stats.get_defense() <= pc->stats.get_mental()+1 || pc->stats.get_defense() <= pc->stats.get_offense()+1 || pc->stats.get_defense() <= pc->stats.get_physical()+1)
+								foundTitle = false;
+						}
+						else if ((infile.val) == "physoff") {
+							if (pc->stats.physoff <= pc->stats.physdef || pc->stats.physoff <= pc->stats.mentoff || pc->stats.physoff <= pc->stats.mentdef || pc->stats.physoff <= pc->stats.physment || pc->stats.physoff <= pc->stats.offdef)
+								foundTitle=false;
+						}
+						else if ((infile.val) == "physment") {
+							if (pc->stats.physment <= pc->stats.physdef || pc->stats.physment <= pc->stats.mentoff || pc->stats.physment <= pc->stats.mentdef || pc->stats.physment <= pc->stats.physoff || pc->stats.physment <= pc->stats.offdef)
+								foundTitle=false;
+						}
+						else if ((infile.val) == "physdef") {
+							if (pc->stats.physdef <= pc->stats.physoff || pc->stats.physdef <= pc->stats.mentoff || pc->stats.physdef <= pc->stats.mentdef || pc->stats.physdef <= pc->stats.physment || pc->stats.physdef <= pc->stats.offdef)
+								foundTitle=false;
+						}
+						else if ((infile.val) == "mentoff") {
+							if (pc->stats.mentoff <= pc->stats.physdef || pc->stats.mentoff <= pc->stats.physoff || pc->stats.mentoff <= pc->stats.mentdef || pc->stats.mentoff <= pc->stats.physment || pc->stats.mentoff <= pc->stats.offdef)
+								foundTitle=false;
+						}
+						else if ((infile.val) == "offdef") {
+							if (pc->stats.offdef <= pc->stats.physdef || pc->stats.offdef <= pc->stats.mentoff || pc->stats.offdef <= pc->stats.mentdef || pc->stats.offdef <= pc->stats.physment || pc->stats.offdef <= pc->stats.physoff)
+								foundTitle=false;
+						}
+						else if ((infile.val) == "mentdef") {
+							if (pc->stats.mentdef <= pc->stats.physdef || pc->stats.mentdef <= pc->stats.mentoff || pc->stats.mentdef <= pc->stats.physoff || pc->stats.mentdef <= pc->stats.physment || pc->stats.mentdef <= pc->stats.offdef)
+								foundTitle=false;
+						}
+					}
 					else if (infile.key == "title") {
 						titlename = infile.val;
 					}
 				}
 			}
 		pc->stats.character_class = msg->get(titlename);
-		infile.close(); 
-		} 
+		infile.close();
+		}
 		else fprintf(stderr, "Unable to open engine/titles.txt!\n");
 		pc->stats.check_title = false;
 	}

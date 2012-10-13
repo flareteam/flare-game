@@ -44,14 +44,14 @@ const int SOURCE_TYPE_ENEMY = 2;
 
 class Hazard {
 private:
-	MapCollision *collider;
+	const MapCollision *collider;
 	// Keeps track of entities already hit
 	std::vector<Entity*> entitiesCollided;
 	Animation *activeAnimation;
 	std::string animation_name;
 
 public:
-	Hazard();
+	Hazard(MapCollision *_collider);
 
 	Hazard(const Hazard&); // not implemented! If you implement this, take care to create a real copy of the pointers, such as Animation.
 	Hazard & operator= (const Hazard & other); // same as copy constructor!
@@ -60,7 +60,6 @@ public:
 
 	StatBlock *src_stats;
 
-	void setCollision(MapCollision *_collider);
 	void logic();
 
 	bool hasEntity(Entity*);

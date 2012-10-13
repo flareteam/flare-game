@@ -264,7 +264,7 @@ void LootManager::checkEnemiesForLoot() {
 		else { // random loot
 			//determine position
 			Point pos = hero->pos;
-			if (map->collider.valid_position(e->stats.pos.x, e->stats.pos.y, MOVEMENT_NORMAL))
+			if (map->collider.is_valid_position(e->stats.pos.x, e->stats.pos.y, MOVEMENT_NORMAL))
 				pos = e->stats.pos;
 
 			// if no probability density function  is given, do a random loot

@@ -544,6 +544,7 @@ bool MenuCharacter::checkUpgrade() {
 			newPowerNotification = true; //TODO: Only show if a NEW power is unlocked...
 			physical_up = false;
 			return true;
+			stats->check_title = true;
 		}
 		// mental
 		else if (mental_up) {
@@ -552,6 +553,7 @@ bool MenuCharacter::checkUpgrade() {
 			newPowerNotification = true;
 			mental_up = false;
 			return true;
+			stats->check_title = true;
 		}
 		// offense
 		else if (offense_up) {
@@ -560,6 +562,7 @@ bool MenuCharacter::checkUpgrade() {
 			newPowerNotification = true;
 			offense_up = false;
 			return true;
+			stats->check_title = true;
 		}
 		// defense
 		else if (defense_up) {
@@ -568,6 +571,7 @@ bool MenuCharacter::checkUpgrade() {
 			newPowerNotification = true;
 			defense_up = false;
 			return true;
+			stats->check_title = true;
 		}
 	}
 
