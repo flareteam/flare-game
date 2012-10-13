@@ -67,13 +67,11 @@ void GameStateTitle::loadGraphics() {
 
 	if(!cleanup) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
-		SDL_Quit();
-		exit(1);
+	} else {
+		// optimize
+		logo = SDL_DisplayFormatAlpha(cleanup);
+		SDL_FreeSurface(cleanup);
 	}
-
-	// optimize
-	logo = SDL_DisplayFormatAlpha(cleanup);
-	SDL_FreeSurface(cleanup);
 }
 
 void GameStateTitle::logic() {
@@ -108,12 +106,14 @@ void GameStateTitle::render() {
 	SDL_Rect dest;
 
 	// display logo centered
-	src.x = src.y = 0;
-	src.w = dest.w = logo->w;
-	src.h = dest.h = logo->h;
-	dest.x = VIEW_W_HALF - (logo->w/2);
-	dest.y = VIEW_H_HALF - (logo->h/2);
-	SDL_BlitSurface(logo, &src, screen, &dest);
+	if (logo) {
+		src.x = src.y = 0;
+		src.w = dest.w = logo->w;
+		src.h = dest.h = logo->h;
+		dest.x = VIEW_W_HALF - (logo->w/2);
+		dest.y = VIEW_H_HALF - (logo->h/2);
+		SDL_BlitSurface(logo, &src, screen, &dest);
+	}
 
 	// display buttons
 	button_play->render();

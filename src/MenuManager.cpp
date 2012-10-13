@@ -167,14 +167,12 @@ void MenuManager::loadIcons() {
 	icons = IMG_Load(mods->locate("images/icons/icons.png").c_str());
 	if(!icons) {
 		fprintf(stderr, "Couldn't load icons: %s\n", IMG_GetError());
-		SDL_Quit();
-		std::exit(1);
+	} else {
+		// optimize
+		SDL_Surface *cleanup = icons;
+		icons = SDL_DisplayFormatAlpha(icons);
+		SDL_FreeSurface(cleanup);
 	}
-
-	// optimize
-	SDL_Surface *cleanup = icons;
-	icons = SDL_DisplayFormatAlpha(icons);
-	SDL_FreeSurface(cleanup);
 }
 
 void MenuManager::loadSounds() {

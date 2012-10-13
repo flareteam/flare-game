@@ -79,18 +79,22 @@ void MenuStatBar::loadGraphics(std::string type) {
 
 	if(!background || !bar) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
-		SDL_Quit();
-		exit(1);
 	}
 
 	// optimize
-	SDL_Surface *cleanup = background;
-	background = SDL_DisplayFormatAlpha(background);
-	SDL_FreeSurface(cleanup);
+	SDL_Surface *cleanup;
 
-	cleanup = bar;
-	bar = SDL_DisplayFormatAlpha(bar);
-	SDL_FreeSurface(cleanup);
+	if (background) {
+		cleanup = background;
+		background = SDL_DisplayFormatAlpha(background);
+		SDL_FreeSurface(cleanup);
+	}
+
+	if (bar) {
+		cleanup = bar;
+		bar = SDL_DisplayFormatAlpha(bar);
+		SDL_FreeSurface(cleanup);
+	}
 }
 
 void MenuStatBar::update(int _stat_cur, int _stat_max, Point _mouse, std::string _custom_string) {

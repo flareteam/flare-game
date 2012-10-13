@@ -100,12 +100,11 @@ GameStatePlay::GameStatePlay()
 
 	if(!loading_bg) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
-		SDL_Quit();
-		exit(1);
+	} else {
+		SDL_Surface *cleanup = loading_bg;
+		loading_bg = SDL_DisplayFormatAlpha(loading_bg);
+		SDL_FreeSurface(cleanup);
 	}
-	SDL_Surface *cleanup = loading_bg;
-	loading_bg = SDL_DisplayFormatAlpha(loading_bg);
-	SDL_FreeSurface(cleanup);
 
 	// load the config file for character titles
 	loadTitles();
@@ -765,7 +764,7 @@ void GameStatePlay::render() {
 }
 
 void GameStatePlay::showLoading() {
-	// SDL_FillRect(screen,NULL,0);
+	if (!loading_bg) return;
 
 	SDL_Rect dest;
 	dest.x = VIEW_W_HALF - loading_bg->w/2;

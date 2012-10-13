@@ -65,15 +65,12 @@ void MenuActiveEffects::loadGraphics() {
 	timer = IMG_Load(mods->locate("images/menus/disabled.png").c_str());
 	if(!timer) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
-		SDL_Quit();
-		exit(1);
+	} else {
+		// optimize
+		SDL_Surface *cleanup = timer;
+		timer = SDL_DisplayFormatAlpha(timer);
+		SDL_FreeSurface(cleanup);
 	}
-
-	// optimize
-	SDL_Surface *cleanup = timer;
-	timer = SDL_DisplayFormatAlpha(timer);
-	SDL_FreeSurface(cleanup);
-
 }
 
 void MenuActiveEffects::renderIcon(int icon_id, int index, int current, int max){

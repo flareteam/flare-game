@@ -171,16 +171,13 @@ void GameStateNew::loadGraphics() {
 	portrait_border = IMG_Load(mods->locate("images/menus/portrait_border.png").c_str());
 	if(!portrait_border) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
-		SDL_Quit();
-		exit(1);
+	} else {
+		// optimize
+		SDL_SetColorKey( portrait_border, SDL_SRCCOLORKEY, SDL_MapRGB(portrait_border->format, 255, 0, 255) );
+		SDL_Surface *cleanup = portrait_border;
+		portrait_border = SDL_DisplayFormatAlpha(portrait_border);
+		SDL_FreeSurface(cleanup);
 	}
-
-	SDL_SetColorKey( portrait_border, SDL_SRCCOLORKEY, SDL_MapRGB(portrait_border->format, 255, 0, 255) );
-
-	// optimize
-	SDL_Surface *cleanup = portrait_border;
-	portrait_border = SDL_DisplayFormatAlpha(portrait_border);
-	SDL_FreeSurface(cleanup);
 }
 
 void GameStateNew::loadPortrait(const string& portrait_filename) {
