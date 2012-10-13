@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: 0.17\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-26 20:53+0300\n"
-"PO-Revision-Date: 2012-10-11 20:23+0100\n"
+"PO-Revision-Date: 2012-10-12 22:24+0100\n"
 "Last-Translator: Andrzej Adamczyk <akasei@inoto.net>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -44,7 +44,7 @@ msgstr "chybienie"
 #: ../../../src/PowerManager.cpp:773 ../../../src/PowerManager.cpp:775
 #, c-format
 msgid "+%d HP"
-msgstr "+%d do Życia"
+msgstr "+%d pkt do Życia"
 
 #: ../../../src/CampaignManager.cpp:141
 #, c-format
@@ -64,7 +64,7 @@ msgstr "Otrzymujesz %d %d."
 #: ../../../src/CampaignManager.cpp:158
 #, c-format
 msgid "You receive %d XP."
-msgstr "Otrzymujesz %d pkt. doświadczenia."
+msgstr "Otrzymujesz %d pkt doświadczenia."
 
 #: ../../../src/CampaignManager.cpp:164
 msgid "HP restored."
@@ -90,7 +90,7 @@ msgstr "Życie i Mana przywrócona, negatywne efekty usunięte."
 #: ../../../src/PowerManager.cpp:786
 #, c-format
 msgid "+%d MP"
-msgstr "+%d do Many"
+msgstr "+%d pkt do Many"
 
 #: ../../../src/GameStateConfig.cpp:77
 msgid "Ok"
@@ -136,7 +136,7 @@ msgstr "Przypisz: "
 
 #: ../../../src/GameStateConfig.cpp:161
 msgid "Reset ALL settings?"
-msgstr "Zresetować WSZYTKIE ustawienia?"
+msgstr "Zresetować ustawienia?"
 
 #: ../../../src/GameStateConfig.cpp:238
 msgid "Full Screen Mode"
@@ -144,7 +144,7 @@ msgstr "Tryb Pełnego Ekranu"
 
 #: ../../../src/GameStateConfig.cpp:251
 msgid "Move hero using mouse"
-msgstr "Przemieszczaj bochatera za pomocą myszki"
+msgstr "Poruszanie myszką"
 
 #: ../../../src/GameStateConfig.cpp:264
 msgid "Show combat text"
@@ -202,11 +202,11 @@ msgstr "Rozdzielczość"
 
 #: ../../../src/GameStateConfig.cpp:435
 msgid "Active Mods"
-msgstr "Włączone Modyfikacje"
+msgstr "Włączone"
 
 #: ../../../src/GameStateConfig.cpp:445
 msgid "Available Mods"
-msgstr "Dostępne Modyfikacje"
+msgstr "Dostępne"
 
 #: ../../../src/GameStateConfig.cpp:461
 msgid "Joystick"
@@ -219,7 +219,7 @@ msgstr "Język"
 #: ../../../src/GameStateConfig.cpp:508 ../../../src/GameStateConfig.cpp:515
 #: ../../../src/GameStateConfig.cpp:522
 msgid "Disable for performance"
-msgstr "Wyłącz by zwiększyć szybkość"
+msgstr "(wyłącz by zwiększyć szybkość)"
 
 #: ../../../src/GameStateConfig.cpp:529
 msgid "Experimental"
@@ -239,7 +239,7 @@ msgstr "Usuń"
 
 #: ../../../src/GameStateLoad.cpp:56
 msgid "Delete this save?"
-msgstr "Usunąć ten zapis?"
+msgstr "Usunąć zapis?"
 
 #: ../../../src/GameStateLoad.cpp:58
 # Comment: Tak, "Wyjście do ekranu powitalnego" mniej pasowało...
@@ -248,7 +248,7 @@ msgstr "Wyjście"
 
 #: ../../../src/GameStateLoad.cpp:64
 msgid "Choose a Slot"
-msgstr "Wybierz wolne miejsce"
+msgstr "Wybierz Zapis"
 
 #: ../../../src/GameStateLoad.cpp:378 ../../../src/GameStateLoad.cpp:424
 #: ../../../src/GameStateLoad.cpp:447 ../../../src/GameStateLoad.cpp:466
@@ -267,7 +267,7 @@ msgstr "Wkraczanie w nowy świat..."
 
 #: ../../../src/GameStateLoad.cpp:560
 msgid "Loading saved game..."
-msgstr "Ładuję zapis gry..."
+msgstr "Wczytuję zapis gry..."
 
 #: ../../../src/GameStateLoad.cpp:581
 #, c-format
@@ -292,11 +292,11 @@ msgstr "Wybierz Imię"
 
 #: ../../../src/GameStateNew.cpp:137
 msgid "Permadeath?"
-msgstr "Raz się żyje."
+msgstr "Żyje się tylko raz."
 
 #: ../../../src/GameStatePlay.cpp:90
 msgid "Loading..."
-msgstr "Ładuję..."
+msgstr "Wczytuję..."
 
 #: ../../../src/GameStatePlay.cpp:202 ../../../src/GameStatePlay.cpp:203
 #: ../../../src/MenuManager.cpp:383 ../../../src/MenuManager.cpp:384
@@ -308,7 +308,7 @@ msgstr "Ekwipunek jest pełny."
 
 #: ../../../src/GameStateTitle.cpp:40
 msgid "Play Game"
-msgstr "Rozpocznij Grę"
+msgstr "Rozpocznij"
 
 #: ../../../src/GameStateTitle.cpp:45
 msgid "Configuration"
@@ -575,19 +575,19 @@ msgstr "Nieznany cel przeznaczenia"
 
 #: ../../../src/MenuActionBar.cpp:399
 msgid "Character Menu (C)"
-msgstr "Menu Postaci (C)"
+msgstr "Postać (C)"
 
 #: ../../../src/MenuActionBar.cpp:403
 msgid "Inventory Menu (I)"
-msgstr "Menu Ekwipunku (I)"
+msgstr "Ekwipunek (I)"
 
 #: ../../../src/MenuActionBar.cpp:407
 msgid "Power Menu (P)"
-msgstr "Menu Umiejętności (P)"
+msgstr "Umiejętności (P)"
 
 #: ../../../src/MenuActionBar.cpp:411
 msgid "Log Menu (L)"
-msgstr "Menu Dziennika (L)"
+msgstr "Dziennik (L)"
 
 #: ../../../src/MenuCharacter.cpp:220
 msgid "Name"
@@ -615,7 +615,7 @@ msgstr "Obrona"
 
 #: ../../../src/MenuCharacter.cpp:287
 msgid "points remaining"
-msgstr "pozostało punktów"
+msgstr "- pozostałe punkty"
 
 #: ../../../src/MenuCharacter.cpp:298
 msgid "Max HP:"
@@ -663,7 +663,7 @@ msgstr "Celność (przeciwko poz. 1):"
 #, c-format
 # Comment: ;) komentarze stawiam tekże by szybciej znaleźć wszystkie niedokończenia.
 msgid "Each point of Offense grants +%d accuracy. Each level grants +%d accuracy"
-msgstr "Each point of Offense grants +%d accuracy. Each level grants +%d accuracy"
+msgstr "Każdy punkt Ataku zwiększa o +%d pkt celność. Każdy poziom zwiększa o +%d pkt celność."
 
 #: ../../../src/MenuCharacter.cpp:328
 msgid "Accuracy (vs lvl 5):"
@@ -710,7 +710,7 @@ msgstr "Doświadczenie: %d"
 #: ../../../src/MenuCharacter.cpp:412
 #, c-format
 msgid "Next: %d"
-msgstr "Następny: %d"
+msgstr "Następny za: %d"
 
 #: ../../../src/MenuCharacter.cpp:416
 msgid "Physical (P) increases melee weapon proficiency and total HP."
