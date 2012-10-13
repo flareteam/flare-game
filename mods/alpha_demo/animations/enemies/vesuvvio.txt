@@ -1,7 +1,9 @@
 
+image=images/enemies/vesuvvio.png
+
 [stance]
 frames=4
-duration=180
+duration=6
 type=back_forth
 frame=0,0,4370,53,36,51,15,45
 frame=0,1,3566,54,41,50,16,46
@@ -38,7 +40,7 @@ frame=3,7,4215,53,40,51,26,43
 
 [run]
 frames=8
-duration=60
+duration=2
 type=looped
 frame=0,0,3858,0,47,53,22,49
 frame=0,1,2328,0,31,57,8,51
@@ -107,7 +109,7 @@ frame=7,7,4043,53,45,51,23,47
 
 [ranged]
 frames=4
-duration=90
+duration=3
 type=play_once
 frame=0,0,4665,52,37,52,16,47
 frame=0,1,4333,53,37,51,18,47
@@ -144,7 +146,7 @@ frame=3,7,4364,0,25,53,10,46
 
 [ment]
 frames=4
-duration=90
+duration=3
 type=play_once
 frame=0,0,1133,0,39,62,21,56
 frame=0,1,1049,0,43,62,19,58
@@ -181,7 +183,7 @@ frame=3,7,0,0,27,75,7,66
 
 [die]
 frames=6
-duration=120
+duration=4
 type=play_once
 frame=0,0,4985,0,37,49,15,45
 frame=0,1,4768,0,37,50,14,46
@@ -234,7 +236,7 @@ frame=5,7,822,65,55,27,27,19
 
 [melee]
 frames=4
-duration=90
+duration=3
 type=play_once
 frame=0,0,1504,0,42,60,15,56
 frame=0,1,2433,0,49,56,18,52
@@ -271,7 +273,7 @@ frame=3,7,1700,59,39,44,20,32
 
 [critdie]
 frames=6
-duration=120
+duration=4
 type=play_once
 frame=0,0,4985,0,37,49,15,45
 frame=0,1,4768,0,37,50,14,46
@@ -324,7 +326,7 @@ frame=5,7,822,65,55,27,27,19
 
 [hit]
 frames=2
-duration=60
+duration=2
 type=play_once
 frame=0,0,4985,0,37,49,15,45
 frame=0,1,4768,0,37,50,14,46
@@ -345,7 +347,7 @@ frame=1,7,5120,0,28,49,16,41
 
 [block]
 frames=2
-duration=30
+duration=1
 type=play_once
 frame=0,0,5006,49,37,49,15,44
 frame=0,1,5148,0,42,48,16,44
