@@ -55,6 +55,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "UtilsFileSystem.h"
 #include "FileParser.h"
 #include "UtilsParsing.h"
+#include "MenuPowers.h"
 
 using namespace std;
 
@@ -358,6 +359,10 @@ void GameStatePlay::checkTitle() {
 					}
 					else if (infile.key == "requires_not") {
 						if (camp->checkStatus(infile.val) == true)
+							foundTitle = false;
+					}
+					else if (infile.key == "power") {
+						if (find(menu->pow->powers_list.begin(), menu->pow->powers_list.end(), toInt(infile.val)) == menu->pow->powers_list.end()) 
 							foundTitle = false;
 					}
 					else if (infile.key == "primary_stat") {
