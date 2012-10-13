@@ -24,10 +24,10 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "Menu.h"
 #include "Settings.h"
 
-Menu::Menu() {
-
-	visible = false;
-}
+Menu::Menu()
+	: background(NULL)
+	, visible(false)
+{}
 
 Menu::~Menu() {
 }
@@ -63,5 +63,4 @@ void Menu::align() {
 		window_area.x = (VIEW_W-temp.w)+temp.x;
 		window_area.y = (VIEW_H-temp.h)+temp.y;
 	}
-
 }

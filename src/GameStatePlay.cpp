@@ -233,7 +233,7 @@ void GameStatePlay::checkTeleport() {
 			showLoading();
 			map->load(map->teleport_mapname);
 			enemies->handleNewMap();
-			hazards->handleNewMap(&map->collider);
+			hazards->handleNewMap();
 			loot->handleNewMap();
 			powers->handleNewMap(&map->collider);
 			menu->enemy->handleNewMap();
@@ -358,8 +358,8 @@ void GameStatePlay::checkTitle() {
 				}
 			}
 		pc->stats.character_class = msg->get(titlename);
-		infile.close(); 
-		} 
+		infile.close();
+		}
 		else fprintf(stderr, "Unable to open engine/titles.txt!\n");
 		pc->stats.check_title = false;
 	}

@@ -62,9 +62,8 @@ private:
 
 	LabelInfo title;
 	Point close_pos;
-	SDL_Rect tab_area;
-	int tab_content_y;
 	int tab_content_indent;
+	SDL_Rect tab_area;
 	SDL_Color tab_bg;
 	SDL_Color color_normal;
 

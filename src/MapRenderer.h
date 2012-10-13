@@ -264,6 +264,9 @@ public:
 	std::string title;
 	short w;
 	short h;
+
+	// cam(x,y) is where on the map the camera is pointing
+	// units found in Settings.h (UNITS_PER_TILE)
 	Point cam;
 	Point hero_tile;
 	Point spawn;

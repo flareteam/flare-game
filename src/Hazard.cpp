@@ -34,8 +34,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 using namespace std;
 
-Hazard::Hazard()
-	: activeAnimation(NULL)
+Hazard::Hazard(MapCollision *_collider)
+	: collider(_collider)
+	, activeAnimation(NULL)
 	, animation_name("")
 	, src_stats(NULL)
 	, dmg_min(0)
@@ -81,10 +82,6 @@ Hazard::~Hazard() {
 	}
 }
 
-void Hazard::setCollision(MapCollision *_collider) {
-	collider = _collider;
-}
-
 void Hazard::logic() {
 
 	// if the hazard is on delay, take no action
@@ -110,7 +107,7 @@ void Hazard::logic() {
 			lifespan = 0;
 			hit_wall = true;
 
-			if (collider->outsideMap(round(pos.x) >> TILE_SHIFT, round(pos.y) >> TILE_SHIFT))
+			if (collider->is_outside_map(round(pos.x) >> TILE_SHIFT, round(pos.y) >> TILE_SHIFT))
 				remove_now = true;
 		}
 	}

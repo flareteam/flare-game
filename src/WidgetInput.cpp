@@ -69,7 +69,7 @@ void WidgetInput::logic() {
 }
 
 bool WidgetInput::logic(int x, int y) {
-	Point mouse = {x,y};
+	Point mouse(x, y);
 
 	// Change the hover state
 	if (isWithin(pos, mouse)) {

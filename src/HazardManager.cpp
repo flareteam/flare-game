@@ -124,13 +124,11 @@ void HazardManager::logic() {
  */
 void HazardManager::checkNewHazards() {
 
-	Hazard *new_haz;
-
 	// check PowerManager for hazards
 	while (!powers->hazards.empty()) {
-		new_haz = powers->hazards.front();
+		Hazard *new_haz = powers->hazards.front();
 		powers->hazards.pop();
-		new_haz->setCollision(collider);
+		//new_haz->setCollision(collider);
 
 		h.push_back(new_haz);
 	}
@@ -158,11 +156,10 @@ void HazardManager::expire(int index) {
 /**
  * Reset all hazards and get new collision object
  */
-void HazardManager::handleNewMap(MapCollision *_collider) {
+void HazardManager::handleNewMap() {
 	for (unsigned int i = 0; i < h.size(); i++)
 		delete h[i];
 	h.clear();
-	collider = _collider;
 }
 
 /**
