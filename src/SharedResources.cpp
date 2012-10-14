@@ -33,6 +33,7 @@ ModManager *mods;
 MessageEngine *msg;
 InputState *inpt;
 FontEngine *font;
+CombatText *comb;
 
 bool audio;
 SDL_Joystick *joy;

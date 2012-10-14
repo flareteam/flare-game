@@ -23,13 +23,14 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "Animation.h"
 #include "BehaviorStandard.h"
 #include "CampaignManager.h"
-#include "CombatText.h"
-#include "Enemy.h"
 #include "EnemyBehavior.h"
+#include "Enemy.h"
 #include "Hazard.h"
 #include "LootManager.h"
 #include "MapRenderer.h"
 #include "PowerManager.h"
+#include "SharedResources.h"
+
 #include <sstream>
 
 using namespace std;
@@ -45,7 +46,7 @@ Enemy::Enemy(PowerManager *_powers, MapRenderer *_map) : Entity(_map) {
 	stats.last_seen.x = -1;
 	stats.last_seen.y = -1;
 	stats.in_combat = false;
-    stats.join_combat = false;
+	stats.join_combat = false;
 
 	haz = NULL;
 
@@ -151,7 +152,7 @@ bool Enemy::takeHit(const Hazard &h) {
 	{
 		if (!stats.in_combat) {
 			stats.join_combat = true;
-            stats.in_combat = true;
+			stats.in_combat = true;
 			stats.last_seen.x = stats.hero_pos.x;
 			stats.last_seen.y = stats.hero_pos.y;
 			powers->activate(stats.power_index[BEACON], &stats, stats.pos); //emit beacon
@@ -160,15 +161,15 @@ bool Enemy::takeHit(const Hazard &h) {
 		// exit if it was a beacon (to prevent stats.targeted from being set)
 		if (powers->powers[h.power_index].beacon) return false;
 
-        // prepare the combat text
-	    CombatText *combat_text = CombatText::Instance();
+		// prepare the combat text
+		CombatText *combat_text = comb;
 
 		// if it's a miss, do nothing
 		int avoidance = stats.avoidance;
 		if (MAX_AVOIDANCE < avoidance) avoidance = MAX_AVOIDANCE;
 		if (rand() % 100 > (h.accuracy - avoidance + 25)) {
-		    combat_text->addMessage(msg->get("miss"), stats.pos, COMBAT_MESSAGE_MISS, false);
-		    return false;
+			combat_text->addMessage(msg->get("miss"), stats.pos, COMBAT_MESSAGE_MISS, false);
+			return false;
 		}
 
 		// calculate base damage
@@ -217,11 +218,11 @@ bool Enemy::takeHit(const Hazard &h) {
 			map->shaky_cam_ticks = MAX_FRAMES_PER_SEC/2;
 
 			// show crit damage
-		    combat_text->addMessage(dmg, stats.pos, COMBAT_MESSAGE_CRIT, false);
+			combat_text->addMessage(dmg, stats.pos, COMBAT_MESSAGE_CRIT, false);
 		}
 		else {
-		    // show normal damage
-		    combat_text->addMessage(dmg, stats.pos, COMBAT_MESSAGE_GIVEDMG, false);
+			// show normal damage
+			combat_text->addMessage(dmg, stats.pos, COMBAT_MESSAGE_GIVEDMG, false);
 		}
 
 		// apply damage

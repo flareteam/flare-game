@@ -1,8 +1,8 @@
 /*
-Copyright © 2011-2012 Clint Bellanger
-Copyright © 2012 Igor Paliychuk
-Copyright © 2012 Henrik Andersson
-Copyright © 2012 Stefan Beller
+Copyright 2011-2012 Clint Bellanger
+Copyright 2012 Igor Paliychuk
+Copyright 2012 Henrik Andersson
+Copyright 2012 Stefan Beller
 
 This file is part of FLARE.
 
@@ -27,7 +27,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "Avatar.h"
 #include "CampaignManager.h"
-#include "CombatText.h"
 #include "EnemyManager.h"
 #include "GameStatePlay.h"
 #include "GameState.h"
@@ -185,12 +184,12 @@ void GameStatePlay::checkLoot() {
 	int currency;
 
 	// Autopickup
-    if (pc->stats.alive && AUTOPICKUP_CURRENCY) {
-        pickup = loot->checkAutoPickup(pc->stats.pos, currency);
-        if (currency > 0) {
-            menu->inv->addCurrency(currency);
-        }
-    }
+	if (pc->stats.alive && AUTOPICKUP_CURRENCY) {
+		pickup = loot->checkAutoPickup(pc->stats.pos, currency);
+		if (currency > 0) {
+			menu->inv->addCurrency(currency);
+		}
+	}
 
 	// Pickup with mouse click
 	if (inpt->pressing[MAIN1] && !inpt->lock[MAIN1] && pc->stats.alive) {
@@ -255,16 +254,16 @@ void GameStatePlay::checkTeleport() {
 
 			// return to title (permadeath) OR auto-save
 			if (pc->stats.permadeath && pc->stats.corpse) {
-			    stringstream filename;
-			    filename << PATH_USER << "save" << game_slot << ".txt";
-			    if(remove(filename.str().c_str()) != 0)
-				    perror("Error deleting save from path");
+				stringstream filename;
+				filename << PATH_USER << "save" << game_slot << ".txt";
+				if(remove(filename.str().c_str()) != 0)
+					perror("Error deleting save from path");
 
 				delete requestedGameState;
 				requestedGameState = new GameStateTitle();
 			}
 			else {
-			    saveGame();
+				saveGame();
 			}
 		}
 
@@ -484,22 +483,22 @@ void GameStatePlay::checkConsumable() {
  * Marks the menu if it needs attention.
  */
 void GameStatePlay::checkNotifications() {
-    if (pc->newLevelNotification) {
-        pc->newLevelNotification = false;
-        menu->act->requires_attention[MENU_CHARACTER] = true;
-    }
-    if (menu->chr->newPowerNotification) {
-        menu->chr->newPowerNotification = false;
-        menu->act->requires_attention[MENU_POWERS] = true;
-    }
-    if (quests->resetQuestNotification) { //remove if no quests
-        quests->resetQuestNotification = false;
-        menu->act->requires_attention[MENU_LOG] = false;
-    }
-    if (quests->newQuestNotification) {
-        quests->newQuestNotification = false;
-        menu->act->requires_attention[MENU_LOG] = true;
-    }
+	if (pc->newLevelNotification) {
+		pc->newLevelNotification = false;
+		menu->act->requires_attention[MENU_CHARACTER] = true;
+	}
+	if (menu->chr->newPowerNotification) {
+		menu->chr->newPowerNotification = false;
+		menu->act->requires_attention[MENU_POWERS] = true;
+	}
+	if (quests->resetQuestNotification) { //remove if no quests
+		quests->resetQuestNotification = false;
+		menu->act->requires_attention[MENU_LOG] = false;
+	}
+	if (quests->newQuestNotification) {
+		quests->newQuestNotification = false;
+		menu->act->requires_attention[MENU_LOG] = true;
+	}
 }
 
 /**
@@ -596,9 +595,9 @@ void GameStatePlay::checkNPCInteraction() {
 			menu->vendor->npc = NULL;
 			menu->talker->npc = NULL;
 			if (menu->vendor->visible || menu->talker->visible) {
- 				menu->vendor->visible = false;
+				menu->vendor->visible = false;
 				menu->talker->visible = false;
- 			}
+			}
 			npc_id = -1;
 		}
 	}
@@ -665,7 +664,7 @@ void GameStatePlay::logic() {
 	}
 
 	// these actions occur whether the game is paused or not.
-    checkNotifications();
+	checkNotifications();
 	checkLootDrop();
 	checkTeleport();
 	checkLog();
@@ -756,11 +755,11 @@ void GameStatePlay::render() {
 	menu->mini->render(pc->stats.pos);
 	menu->render();
 
-    // render combat text last - this should make it obvious you're being
-    // attacked, even if you have menus open
-    CombatText *combat_text = CombatText::Instance();
-    combat_text->setCam(map->cam);
-    combat_text->render();
+	// render combat text last - this should make it obvious you're being
+	// attacked, even if you have menus open
+	CombatText *combat_text = comb;
+	combat_text->setCam(map->cam);
+	combat_text->render();
 }
 
 void GameStatePlay::showLoading() {

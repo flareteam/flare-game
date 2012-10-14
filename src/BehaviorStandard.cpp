@@ -23,7 +23,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "MapRenderer.h"
 #include "PowerManager.h"
 #include "StatBlock.h"
-#include "CombatText.h"
 
 BehaviorStandard::BehaviorStandard(Enemy *_e) : EnemyBehavior(_e) {
 	los = false;
@@ -88,7 +87,7 @@ void BehaviorStandard::doUpkeep() {
 
 	// TEMP: check for bleeding spurt
 	if (e->stats.bleed_duration % 30 == 1) {
-		CombatText::Instance()->addMessage(1, e->stats.pos, COMBAT_MESSAGE_GIVEDMG, false);
+		comb->addMessage(1, e->stats.pos, COMBAT_MESSAGE_GIVEDMG, false);
 		e->powers->activate(POWER_SPARK_BLOOD, &e->stats, e->stats.pos);
 	}
 

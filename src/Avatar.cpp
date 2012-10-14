@@ -29,7 +29,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "AnimationManager.h"
 #include "AnimationSet.h"
 #include "Avatar.h"
-#include "CombatText.h"
 #include "FileParser.h"
 #include "Hazard.h"
 #include "MapRenderer.h"
@@ -431,7 +430,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 
 	// check for bleeding spurt
 	if (stats.bleed_duration % 30 == 1 && stats.hp > 0) {
-		CombatText::Instance()->addMessage(1, stats.pos, COMBAT_MESSAGE_TAKEDMG, true);
+		comb->addMessage(1, stats.pos, COMBAT_MESSAGE_TAKEDMG, true);
 		powers->activate(POWER_SPARK_BLOOD, &stats, stats.pos);
 	}
 	// check for bleeding to death
@@ -679,7 +678,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 bool Avatar::takeHit(const Hazard &h) {
 
 	if (stats.cur_state != AVATAR_DEAD) {
-		CombatText *combat_text = CombatText::Instance();
+		CombatText *combat_text = comb;
 		// check miss
 		int avoidance = stats.avoidance;
 		if (stats.blocking) avoidance *= 2;

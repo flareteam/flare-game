@@ -54,7 +54,8 @@ struct Combat_Text_Item {
 
 class CombatText {
 public:
-	static CombatText* Instance();
+	CombatText();
+
 	void render();
 	void addMessage(std::string message, Point location, int displaytype, bool from_hero);
 	void addMessage(int num, Point location, int displaytype, bool from_hero);
@@ -63,10 +64,6 @@ public:
 private:
 	Point cam;
 	std::vector<Combat_Text_Item> combat_text;
-	CombatText();
-	CombatText(CombatText const&){};
-
-	static CombatText* m_pInstance;
 
 	SDL_Color msg_color[5];
 	int duration;

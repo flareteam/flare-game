@@ -66,11 +66,13 @@ static void init() {
 	// Shared Resources set-up
 
 	anim = new AnimationManager();
+	comb = new CombatText;
+	font = new FontEngine();
 	imag = new ImageManager();
+	inpt = new InputState();
 	mods = new ModManager();
 	msg = new MessageEngine();
-	inpt = new InputState();
-	font = new FontEngine();
+
 
 	// Load tileset options (must be after ModManager is initialized)
 	loadTilesetSettings();
@@ -168,11 +170,13 @@ static void cleanup() {
 	delete gswitch;
 
 	delete anim;
-	delete imag;
+	delete comb;
 	delete font;
+	delete imag;
 	delete inpt;
-	delete msg;
 	delete mods;
+	delete msg;
+
 
 	SDL_FreeSurface(screen);
 	SDL_FreeSurface(titlebar_icon);
