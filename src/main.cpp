@@ -65,16 +65,18 @@ static void init() {
 
 	// Shared Resources set-up
 
+	anim = new AnimationManager();
+	imag = new ImageManager();
 	mods = new ModManager();
 	msg = new MessageEngine();
 	inpt = new InputState();
 	font = new FontEngine();
 
-    // Load tileset options (must be after ModManager is initialized)
+	// Load tileset options (must be after ModManager is initialized)
 	loadTilesetSettings();
 
-    // Load miscellaneous settings
-    loadMiscSettings();
+	// Load miscellaneous settings
+	loadMiscSettings();
 
 	// Add Window Titlebar Icon
 	titlebar_icon = IMG_Load(mods->locate("images/logo/icon.png").c_str());
@@ -97,10 +99,10 @@ static void init() {
 
 	if (Mix_OpenAudio(22050, AUDIO_S16SYS, 2, 1024)) {
 		fprintf (stderr, "Error during Mix_OpenAudio: %s\n", SDL_GetError());
-        audio = false;
+		audio = false;
 	}
 
-  // initialize Joysticks
+	// initialize Joysticks
 	if(SDL_NumJoysticks() == 1) {
 		printf("1 joystick was found:\n");
 	}
@@ -143,10 +145,10 @@ static void mainLoop (const vector<string>	& args) {
 		SDL_PumpEvents();
 		inpt->handle(debug_event);
 		gswitch->logic();
-		
+
 		// black out
-		SDL_FillRect(screen, NULL, 0);		
-		
+		SDL_FillRect(screen, NULL, 0);
+
 		gswitch->render();
 
 		// Engine done means the user escapes the main game menu.
@@ -165,10 +167,13 @@ static void mainLoop (const vector<string>	& args) {
 static void cleanup() {
 	delete gswitch;
 
+	delete anim;
+	delete imag;
 	delete font;
 	delete inpt;
 	delete msg;
 	delete mods;
+
 	SDL_FreeSurface(screen);
 	SDL_FreeSurface(titlebar_icon);
 

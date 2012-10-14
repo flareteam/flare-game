@@ -77,7 +77,7 @@ Hazard::Hazard(MapCollision *_collider)
 
 Hazard::~Hazard() {
 	if (activeAnimation) {
-		AnimationManager::instance()->decreaseCount(animation_name);
+		anim->decreaseCount(animation_name);
 		delete activeAnimation;
 	}
 }
@@ -115,14 +115,14 @@ void Hazard::logic() {
 
 void Hazard::loadAnimation(std::string &s) {
 	if (activeAnimation) {
-		AnimationManager::instance()->decreaseCount(animation_name);
+		anim->decreaseCount(animation_name);
 		delete activeAnimation;
 		activeAnimation = 0;
 	}
 	animation_name = s;
 	if (animation_name != "") {
-		AnimationManager::instance()->increaseCount(animation_name);
-		AnimationSet *animationSet = AnimationManager::instance()->getAnimationSet(animation_name);
+		anim->increaseCount(animation_name);
+		AnimationSet *animationSet = anim->getAnimationSet(animation_name);
 		activeAnimation = animationSet->getAnimation(animationSet->starting_animation);
 	}
 }

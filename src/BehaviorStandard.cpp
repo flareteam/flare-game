@@ -88,7 +88,7 @@ void BehaviorStandard::doUpkeep() {
 
 	// TEMP: check for bleeding spurt
 	if (e->stats.bleed_duration % 30 == 1) {
-	    CombatText::Instance()->addMessage(1, e->stats.pos, COMBAT_MESSAGE_GIVEDMG, false);
+		CombatText::Instance()->addMessage(1, e->stats.pos, COMBAT_MESSAGE_GIVEDMG, false);
 		e->powers->activate(POWER_SPARK_BLOOD, &e->stats, e->stats.pos);
 	}
 
@@ -142,7 +142,7 @@ void BehaviorStandard::findTarget() {
 	if (!e->stats.in_combat && los && dist < e->stats.threat_range) {
 
 		if (e->stats.in_combat) e->stats.join_combat = true;
-        e->stats.in_combat = true;
+		e->stats.in_combat = true;
 		e->powers->activate(e->stats.power_index[BEACON], &e->stats, e->stats.pos); //emit beacon
 	}
 
@@ -343,20 +343,20 @@ void BehaviorStandard::checkMove() {
 
 	// if patrolling waypoints and has reached a waypoint, cycle to the next one
 	if (!e->stats.waypoints.empty()) {
-	    Point waypoint = e->stats.waypoints.front();
-	    Point pos = e->stats.pos;
-	    // if the patroller is close to the waypoint
-	    if (abs(waypoint.x - pos.x) < UNITS_PER_TILE/2 && abs(waypoint.y - pos.y) < UNITS_PER_TILE/2) {
-	        e->stats.waypoints.pop();
-	        e->stats.waypoints.push(waypoint);
-	        e->stats.waypoint_pause_ticks = e->stats.waypoint_pause;
-	    }
+		Point waypoint = e->stats.waypoints.front();
+		Point pos = e->stats.pos;
+		// if the patroller is close to the waypoint
+		if (abs(waypoint.x - pos.x) < UNITS_PER_TILE/2 && abs(waypoint.y - pos.y) < UNITS_PER_TILE/2) {
+			e->stats.waypoints.pop();
+			e->stats.waypoints.push(waypoint);
+			e->stats.waypoint_pause_ticks = e->stats.waypoint_pause;
+		}
 	}
 
 	// if a wandering enemy reaches its destination early, reset wander_ticks
 	if (e->stats.wander) {
-	    Point pos = e->stats.pos;
-	    if (abs(pursue_pos.x - pos.x) < UNITS_PER_TILE/2 && abs(pursue_pos.y - pos.y) < UNITS_PER_TILE/2) {
+		Point pos = e->stats.pos;
+		if (abs(pursue_pos.x - pos.x) < UNITS_PER_TILE/2 && abs(pursue_pos.y - pos.y) < UNITS_PER_TILE/2) {
 			e->stats.wander_ticks = 0;
 		}
 		if (e->stats.wander_ticks == 0 && e->stats.wander_pause_ticks == 0) {

@@ -26,6 +26,8 @@ Created and destroyed by main.cpp
 
 #include "SharedResources.h"
 
+AnimationManager *anim;
+ImageManager *imag;
 SDL_Surface *screen;
 ModManager *mods;
 MessageEngine *msg;

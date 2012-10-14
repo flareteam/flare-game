@@ -28,11 +28,15 @@ Created and destroyed by main.cpp
 #define SHARED_RESOURCES_H
 
 #include <SDL.h>
+#include "AnimationManager.h"
+#include "ImageManager.h"
 #include "ModManager.h"
 #include "MessageEngine.h"
 #include "InputState.h"
 #include "FontEngine.h"
 
+extern AnimationManager *anim;
+extern ImageManager *imag;
 extern SDL_Surface *screen;
 extern ModManager *mods;
 extern MessageEngine *msg;

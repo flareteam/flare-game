@@ -98,15 +98,15 @@ public:
 	void loadAnimation(std::string _gfx) {
 		gfx = _gfx;
 		if (gfx != "") {
-			AnimationManager::instance()->increaseCount(gfx);
-			AnimationSet *as = AnimationManager::instance()->getAnimationSet(gfx);
+			anim->increaseCount(gfx);
+			AnimationSet *as = anim->getAnimationSet(gfx);
 			animation = as->getAnimation(as->starting_animation);
 		}
 	}
 
 	~LootDef() {
 		if (gfx != "")
-			AnimationManager::instance()->decreaseCount(gfx);
+			anim->decreaseCount(gfx);
 		delete animation;
 	}
 };

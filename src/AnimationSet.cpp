@@ -96,8 +96,8 @@ void AnimationSet::load() {
 				exit(128);
 			}
 			imagefile = parser.val;
-			ImageManager::instance()->increaseCount(imagefile);
-			sprite = ImageManager::instance()->getSurface(imagefile);
+			imag->increaseCount(imagefile);
+			sprite = imag->getSurface(imagefile);
 		}
 		else if (parser.key == "position") {
 			position = toInt(parser.val);
@@ -183,7 +183,7 @@ void AnimationSet::load() {
 }
 
 AnimationSet::~AnimationSet() {
-	if (imagefile != "") ImageManager::instance()->decreaseCount(imagefile);
+	if (imagefile != "") imag->decreaseCount(imagefile);
 	for (unsigned i = 0; i < animations.size(); ++i)
 		delete animations[i];
 }

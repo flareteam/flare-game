@@ -60,8 +60,8 @@ Avatar::Avatar(PowerManager *_powers, MapRenderer *_map)
 	stats.cooldown = 4;
 
 	// load the hero's animations from hero definition file
-	AnimationManager::instance()->increaseCount("animations/hero.txt");
-	animationSet = AnimationManager::instance()->getAnimationSet("animations/hero.txt");
+	anim->increaseCount("animations/hero.txt");
+	animationSet = anim->getAnimationSet("animations/hero.txt");
 	activeAnimation = animationSet->getAnimation(animationSet->starting_animation);
 
 	loadLayerDefinitions();
@@ -176,7 +176,7 @@ void Avatar::loadGraphics(std::vector<Layer_gfx> _img_gfx) {
 
 	for (unsigned int i=0; i<animsets.size(); i++) {
 		if (animsets[i])
-			AnimationManager::instance()->decreaseCount(animsets[i]->getName());
+			anim->decreaseCount(animsets[i]->getName());
 		delete anims[i];
 	}
 	animsets.clear();
@@ -185,8 +185,8 @@ void Avatar::loadGraphics(std::vector<Layer_gfx> _img_gfx) {
 	for (unsigned int i=0; i<_img_gfx.size(); i++) {
 		if (_img_gfx[i].gfx != "") {
 			string name = "animations/avatar/"+stats.base+"/"+_img_gfx[i].gfx+".txt";
-			AnimationManager::instance()->increaseCount(name);
-			animsets.push_back(AnimationManager::instance()->getAnimationSet(name));
+			anim->increaseCount(name);
+			animsets.push_back(anim->getAnimationSet(name));
 			anims.push_back(animsets.back()->getAnimation(activeAnimation->getName()));
 			anims.back()->syncTo(activeAnimation);
 		} else {
@@ -194,7 +194,7 @@ void Avatar::loadGraphics(std::vector<Layer_gfx> _img_gfx) {
 			anims.push_back(NULL);
 		}
 	}
-	AnimationManager::instance()->cleanUp();
+	anim->cleanUp();
 }
 
 void Avatar::loadSounds() {
@@ -828,9 +828,9 @@ void Avatar::transform() {
 	stats.animationSpeed = charmed_stats->animationSpeed;
 
 	string animationname = "animations/enemies/"+charmed_stats->animations + ".txt";
-	AnimationManager::instance()->decreaseCount("animations/hero.txt");
-	AnimationManager::instance()->increaseCount(animationname);
-	animationSet = AnimationManager::instance()->getAnimationSet(animationname);
+	anim->decreaseCount("animations/hero.txt");
+	anim->increaseCount(animationname);
+	animationSet = anim->getAnimationSet(animationname);
 	delete activeAnimation;
 	activeAnimation = animationSet->getAnimation(animationSet->starting_animation);
 	stats.cur_state = AVATAR_STANCE;
@@ -896,9 +896,9 @@ void Avatar::untransform() {
 	stats.animations = hero_stats->animations;
 	stats.animationSpeed = hero_stats->animationSpeed;
 
-	AnimationManager::instance()->increaseCount("animations/hero.txt");
-	AnimationManager::instance()->decreaseCount("animations/enemies/"+charmed_stats->animations + ".txt");
-	animationSet = AnimationManager::instance()->getAnimationSet("animations/hero.txt");
+	anim->increaseCount("animations/hero.txt");
+	anim->decreaseCount("animations/enemies/"+charmed_stats->animations + ".txt");
+	animationSet = anim->getAnimationSet("animations/hero.txt");
 	delete activeAnimation;
 	activeAnimation = animationSet->getAnimation(animationSet->starting_animation);
 	stats.cur_state = AVATAR_STANCE;
@@ -975,13 +975,13 @@ void Avatar::addRenders(vector<Renderable> &r) {
 
 Avatar::~Avatar() {
 
-	AnimationManager::instance()->decreaseCount("animations/hero.txt");
+	anim->decreaseCount("animations/hero.txt");
 	for (unsigned int i=0; i<animsets.size(); i++) {
 		if (animsets[i])
-			AnimationManager::instance()->decreaseCount(animsets[i]->getName());
+			anim->decreaseCount(animsets[i]->getName());
 		delete anims[i];
 	}
-	AnimationManager::instance()->cleanUp();
+	anim->cleanUp();
 
 	delete charmed_stats;
 	delete hero_stats;
