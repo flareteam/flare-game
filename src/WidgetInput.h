@@ -62,7 +62,6 @@ public:
 	void setText(std::string _text) { text = _text; }
 	void setPosition(int x, int y);
 
-	SDL_Rect pos;
 	bool inFocus;
 };
 

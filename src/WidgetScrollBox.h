@@ -41,7 +41,6 @@ public:
 	void refresh();
 	void render(SDL_Surface *target = NULL);
 
-	SDL_Rect pos;
 	SDL_Surface * contents;
 	bool update;
 	SDL_Color bg;
