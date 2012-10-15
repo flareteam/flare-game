@@ -21,30 +21,28 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include <string>
 #include <vector>
-class Animation;
-class AnimationSet;
+
+#include "Animation.h"
+#include "AnimationSet.h"
 
 class AnimationManager {
 private:
-    std::vector<AnimationSet*> sets;
-    std::vector<std::string> names;
-    std::vector<int> counts;
-
-    AnimationManager();
-    ~AnimationManager();
+	std::vector<AnimationSet*> sets;
+	std::vector<std::string> names;
+	std::vector<int> counts;
 
 public:
-    /** Get instance of the Singleton */
-    static AnimationManager *instance();
+	AnimationManager();
+	~AnimationManager();
 
-    /**
-     * @param name: the filename of what to load starting below the animations folder.
-     */
-    AnimationSet *getAnimationSet(const std::string &name);
+	/**
+	 * @param name: the filename of what to load starting below the animations folder.
+	 */
+	AnimationSet *getAnimationSet(const std::string &name);
 
-    void decreaseCount(const std::string &name);
-    void increaseCount(const std::string &name);
-    void cleanUp();
+	void decreaseCount(const std::string &name);
+	void increaseCount(const std::string &name);
+	void cleanUp();
 };
 
 #endif // __ANIMATION_MANAGER__

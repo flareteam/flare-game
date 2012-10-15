@@ -68,8 +68,8 @@ bool EnemyManager::loadSounds(const string& type_id) {
 bool EnemyManager::loadAnimations(Enemy *e) {
 
 	string animationsname = "animations/enemies/"+e->stats.animations + ".txt";
-	AnimationManager::instance()->increaseCount(animationsname);
-	e->animationSet = AnimationManager::instance()->getAnimationSet(animationsname);
+	anim->increaseCount(animationsname);
+	e->animationSet = anim->getAnimationSet(animationsname);
 	e->activeAnimation = e->animationSet->getAnimation(e->animationSet->starting_animation);
 
 	return true;
@@ -79,7 +79,7 @@ Enemy *EnemyManager::getEnemyPrototype(const string& type_id) {
 	for (size_t i = 0; i < prototypes.size(); i++)
 		if (prototypes[i].type == type_id) {
 			string animationsname = "animations/enemies/"+prototypes[i].stats.animations + ".txt";
-			AnimationManager::instance()->increaseCount(animationsname);
+			anim->increaseCount(animationsname);
 			return new Enemy(prototypes[i]);
 		}
 
@@ -116,7 +116,7 @@ void EnemyManager::handleNewMap () {
 
 	// delete existing enemies
 	for (unsigned int i=0; i < enemies.size(); i++) {
-		AnimationManager::instance()->decreaseCount(enemies[i]->animationSet->getName());
+		anim->decreaseCount(enemies[i]->animationSet->getName());
 		delete enemies[i];
 	}
 	enemies.clear();
@@ -155,7 +155,7 @@ void EnemyManager::handleNewMap () {
 
 		map->collider.block(me.pos.x, me.pos.y);
 	}
-	AnimationManager::instance()->cleanUp();
+	anim->cleanUp();
 }
 
 /**
@@ -181,8 +181,8 @@ void EnemyManager::handleSpawn() {
 		if (e->stats.animations != "") {
 			// load the animation file if specified
 			string animationname = "animations/enemies/"+e->stats.animations + ".txt";
-			AnimationManager::instance()->increaseCount(animationname);
-			e->animationSet = AnimationManager::instance()->getAnimationSet(animationname);
+			anim->increaseCount(animationname);
+			e->animationSet = anim->getAnimationSet(animationname);
 			if (e->animationSet)
 				e->activeAnimation = e->animationSet->getAnimation(e->animationSet->starting_animation);
 			else
@@ -303,7 +303,7 @@ void EnemyManager::addRenders(vector<Renderable> &r, vector<Renderable> &r_dead)
 
 EnemyManager::~EnemyManager() {
 	for (unsigned int i=0; i < enemies.size(); i++) {
-		AnimationManager::instance()->decreaseCount(enemies[i]->animationSet->getName());
+		anim->decreaseCount(enemies[i]->animationSet->getName());
 		delete enemies[i];
 	}
 

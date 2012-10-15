@@ -68,20 +68,20 @@ LootManager::LootManager(ItemManager *_items, MapRenderer *_map, StatBlock *_her
 			} else if (infile.key == "tooltip_margin") {
 				tooltip_margin = eatFirstInt(infile.val, ',');
 			} else if (infile.key == "autopickup_range") {
-                AUTOPICKUP_RANGE = eatFirstInt(infile.val, ',');
+				AUTOPICKUP_RANGE = eatFirstInt(infile.val, ',');
 			} else if (infile.key == "autopickup_currency") {
-                AUTOPICKUP_CURRENCY = eatFirstInt(infile.val, ',');
+				AUTOPICKUP_CURRENCY = eatFirstInt(infile.val, ',');
 			} else if (infile.key == "currency_name") {
-                CURRENCY = msg->get(eatFirstString(infile.val, ','));
+				CURRENCY = msg->get(eatFirstString(infile.val, ','));
 			} else if (infile.key == "vendor_ratio") {
-                VENDOR_RATIO = (float)eatFirstInt(infile.val, ',') / 100.0;
+				VENDOR_RATIO = (float)eatFirstInt(infile.val, ',') / 100.0;
 			} else if (infile.key == "currency_range") {
 				CurrencyRange cr;
 				cr.filename = eatFirstString(infile.val, ',');
 				cr.low = eatFirstInt(infile.val, ',');
 				cr.high = eatFirstInt(infile.val, ',');
 				currency_range.push_back(cr);
-            }
+			}
 		}
 		infile.close();
 	} else fprintf(stderr, "Unable to open engine/loot.txt!\n");
@@ -109,7 +109,7 @@ LootManager::LootManager(ItemManager *_items, MapRenderer *_map, StatBlock *_her
 		lootManager = this;
 	else
 		exit(25);
-		// TODO: make sure only one instance of the lootmanager is created.
+	// TODO: make sure only one instance of the lootmanager is created.
 }
 
 /**
@@ -124,18 +124,18 @@ void LootManager::loadGraphics() {
 		if (anim_id == "") continue;
 
 		string animationname = "animations/loot/" + anim_id + ".txt";
-		AnimationManager::instance()->increaseCount(animationname);
+		anim->increaseCount(animationname);
 		// get the Animation set once to make sure it is loaded, so no loading times during gameplay.
-		AnimationManager::instance()->getAnimationSet(animationname)->load();
+		anim->getAnimationSet(animationname)->load();
 	}
 
 	// currency
 	for (unsigned int i=0; i<currency_range.size(); i++) {
 		string animationname = "animations/loot/" + currency_range[i].filename + ".txt";
 
-		AnimationManager::instance()->increaseCount(animationname);
+		anim->increaseCount(animationname);
 		// get the Animation set once to make sure it is loaded, so no loading times during gameplay.
-		AnimationManager::instance()->getAnimationSet(animationname)->load();
+		anim->getAnimationSet(animationname)->load();
 	}
 }
 
@@ -485,7 +485,7 @@ ItemStack LootManager::checkPickup(Point mouse, Point cam, Point hero_pos, int &
 
 			// clicked in pickup hotspot?
 			if (mouse.x > r.x && mouse.x < r.x+r.w &&
-				mouse.y > r.y && mouse.y < r.y+r.h) {
+					mouse.y > r.y && mouse.y < r.y+r.h) {
 
 				if (it->stack.item > 0 && !(inv->full(it->stack.item))) {
 					loot_stack = it->stack;
@@ -548,19 +548,19 @@ LootManager::~LootManager() {
 		string anim_id = items->items[i].loot_animation;
 		if (anim_id == "") continue;
 		string animationname = "animations/loot/" + anim_id + ".txt";
-		AnimationManager::instance()->decreaseCount(animationname);
+		anim->decreaseCount(animationname);
 	}
 
 	// currency
 	for (unsigned int i=0; i<currency_range.size(); i++) {
 		string animationname = "animations/loot/" + currency_range[i].filename + ".txt";
-		AnimationManager::instance()->decreaseCount(animationname);
+		anim->decreaseCount(animationname);
 	}
 
 	// remove items, so LootDefs get destroyed!
 	loot.clear();
 
-	AnimationManager::instance()->cleanUp();
+	anim->cleanUp();
 
 	Mix_FreeChunk(loot_flip);
 

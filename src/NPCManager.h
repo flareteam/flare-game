@@ -45,6 +45,7 @@ private:
 	ItemManager *items;
 	StatBlock *stats;
 	TooltipData tip_buf;
+	int tooltip_margin;
 
 public:
 	NPCManager(MapRenderer *_map, LootManager *_loot, ItemManager *_items, StatBlock *stats);
@@ -55,8 +56,6 @@ public:
 	void addRenders(std::vector<Renderable> &r);
 	int checkNPCClick(Point mouse, Point cam);
 	void renderTooltips(Point cam, Point mouse);
-	int npc_count;
-	int tooltip_margin;
 };
 
 #endif

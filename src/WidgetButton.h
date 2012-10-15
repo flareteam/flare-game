@@ -45,7 +45,7 @@ private:
 
 	SDL_Surface *buttons;
 	Mix_Chunk *click;
-	
+
 	WidgetLabel wlabel;
 
 	SDL_Color color_normal;
@@ -55,7 +55,7 @@ private:
 	TooltipData tip_new;
 	WidgetTooltip *tip;
 	TooltipData checkTooltip(Point mouse);
-	
+
 public:
 	WidgetButton(const std::string& _fileName);
 	~WidgetButton();
@@ -68,7 +68,6 @@ public:
 
 	std::string label;
 	std::string tooltip;
-	SDL_Rect pos;
 	bool enabled;
 	bool pressed;
 	bool hover;

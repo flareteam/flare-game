@@ -163,9 +163,9 @@ void NPC::load(const string& npc_id, int hero_level) {
 void NPC::loadGraphics(const string& filename_portrait) {
 
 	if (gfx != "") {
-		std::string anim = "animations/npcs/" + gfx + ".txt";
-		AnimationManager::instance()->increaseCount(anim);
-		animationSet = AnimationManager::instance()->getAnimationSet(anim);
+		std::string anim_name = "animations/npcs/" + gfx + ".txt";
+		anim->increaseCount(anim_name);
+		animationSet = anim->getAnimationSet(anim_name);
 		activeAnimation = animationSet->getAnimation(animationSet->starting_animation);
 	}
 	if (filename_portrait != "") {
@@ -249,8 +249,8 @@ bool NPC::playSound(int type, int id) {
  * Determine the correct dialog node by the place in the story line
  */
 int NPC::chooseDialogNode() {
-        if (!talker)
-                return NPC_NO_DIALOG_AVAIL;
+	if (!talker)
+		return NPC_NO_DIALOG_AVAIL;
 
 	// NPC dialog nodes are listed in timeline order
 	// So check from the bottom of the list up
@@ -355,8 +355,8 @@ Renderable NPC::getRender() {
 
 
 NPC::~NPC() {
-	const string anim = "animations/npcs/" + gfx + ".txt";
-	AnimationManager::instance()->decreaseCount(anim);
+	const string anim_name = "animations/npcs/" + gfx + ".txt";
+	anim->decreaseCount(anim_name);
 
 	if (portrait != NULL) SDL_FreeSurface(portrait);
 	while (!vox_intro.empty()) {

@@ -37,8 +37,6 @@ public:
 	bool isChecked () const;
 	void render (SDL_Surface *target = NULL);
 
-	SDL_Rect pos; // This is the position of the button within the screen
-
 private:
 	std::string imgFileName;
 	SDL_Surface * cb;

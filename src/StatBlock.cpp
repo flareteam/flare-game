@@ -201,6 +201,19 @@ StatBlock::StatBlock() {
 	avoidance_per_defense = 5;
 	crit_base = 5;
 	crit_per_level = 1;
+
+	ammo_arrows = 0;
+	direction = 0;
+	cur_state = 0;
+	chance_pursue = 0;
+	chance_flee = 0;
+	threat_range = 0;
+	turn_delay = 0;
+	turn_ticks = 0;
+	in_combat = 0;
+	join_combat = 0;
+	cooldown = 0;
+	activated_powerslot = 0;
 }
 
 /**
