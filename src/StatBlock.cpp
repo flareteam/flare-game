@@ -549,6 +549,8 @@ bool StatBlock::canUsePower(const Power &power, unsigned powerid) const {
 		&& (!power.requires_offense_weapon || wielding_offense)
 		&& (!power.requires_physical_weapon || wielding_physical)
 		&& mp >= power.requires_mp
+		&& (!power.sacrifice == false || hp > power.requires_hp)
+		&& (!power.sacrifice == true || hp >= power.requires_hp)
 		&& menu_powers->meetsUsageStats(powerid);
 
 }

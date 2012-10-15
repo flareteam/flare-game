@@ -570,6 +570,10 @@ TooltipData MenuPowers::checkTooltip(Point mouse) {
 				if (powers->powers[power_cell[i].id].requires_mp > 0) {
 					tip.addText(msg->get("Costs %d MP", powers->powers[power_cell[i].id].requires_mp));
 				}
+				// add health cost
+				if (powers->powers[power_cell[i].id].requires_hp > 0) {
+					tip.addText(msg->get("Costs %d HP", powers->powers[power_cell[i].id].requires_hp));
+				}
 				// add cooldown time
 				if (powers->powers[power_cell[i].id].cooldown > 0) {
 					tip.addText(msg->get("Cooldown: %d seconds", powers->powers[power_cell[i].id].cooldown / 1000));
