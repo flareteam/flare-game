@@ -412,6 +412,7 @@ void GameStatePlay::checkTitle() {
 
 	if (title_id != -1) pc->stats.character_class = titles[title_id].title;
 	pc->stats.check_title = false;
+	pc->stats.refresh_stats = true;
 }
 
 void GameStatePlay::checkEquipmentChange() {
