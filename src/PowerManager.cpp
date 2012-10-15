@@ -154,6 +154,8 @@ void PowerManager::loadPowers(const std::string& filename) {
 			powers[input_id].requires_mp = toInt(infile.val);
 		else if (infile.key == "requires_hp")
 			powers[input_id].requires_hp = toInt(infile.val);
+		else if (infile.key == "sacrifice")
+			powers[input_id].sacrifice = toBool(infile.val);
 		else if (infile.key == "requires_los")
 			powers[input_id].requires_los = toBool(infile.val);
 		else if (infile.key == "requires_empty_target")
@@ -1094,8 +1096,10 @@ bool PowerManager::activate(int power_index, StatBlock *src_stats, Point target)
 	if (src_stats->hero) {
 		if (powers[power_index].requires_mp > src_stats->mp)
 			return false;
-		if (powers[power_index].requires_hp >= src_stats->hp)
-			return false;
+		if (powers[power_index].sacrifice == true && powers[power_index].requires_hp > src_stats->hp)
+				return false;
+		if (powers[power_index].sacrifice == false && powers[power_index].requires_hp >= src_stats->hp)
+				return false;
 	}
 
 	// logic for different types of powers are very different.  We allow these
