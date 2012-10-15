@@ -65,13 +65,13 @@ static void init() {
 
 	// Shared Resources set-up
 
-	anim = new AnimationManager();
-	comb = new CombatText;
-	font = new FontEngine();
-	imag = new ImageManager();
-	inpt = new InputState();
 	mods = new ModManager();
 	msg = new MessageEngine();
+	font = new FontEngine();
+	anim = new AnimationManager();
+	comb = new CombatText();
+	imag = new ImageManager();
+	inpt = new InputState();
 
 
 	// Load tileset options (must be after ModManager is initialized)
