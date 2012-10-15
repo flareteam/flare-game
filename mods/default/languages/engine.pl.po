@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: 0.17\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-26 20:53+0300\n"
-"PO-Revision-Date: 2012-10-12 22:24+0100\n"
+"PO-Revision-Date: 2012-10-15 10:13+0100\n"
 "Last-Translator: Andrzej Adamczyk <akasei@inoto.net>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -33,7 +33,7 @@ msgstr "Zostałeś pokonany. Koniec gry! Naciśnij Enter by powrócić do ekranu
 #: ../../../src/Avatar.cpp:636
 #, c-format
 msgid "You are defeated.  You lose half your %s.  Press Enter to continue."
-msgstr "Zostałeś pokonany. Tracisz połowę swojego %s. Naciśnij Enter by kontynuować."
+msgstr "Zostałeś pokonany. Tracisz połowę %s. Naciśnij Enter by kontynuować."
 
 #: ../../../src/Avatar.cpp:708 ../../../src/Enemy.cpp:168
 msgid "miss"
@@ -151,7 +151,7 @@ msgid "Show combat text"
 msgstr "Pokaż informacje o walce"
 
 #: ../../../src/GameStateConfig.cpp:278
-# Comment: Poprosze osobę bardziej obeznaną o prawidłowe tłumaczenie.
+# Comment: need help.
 msgid "Hardware surfaces"
 msgstr "Hardware surfaces"
 
@@ -172,7 +172,7 @@ msgid "Allow changing gamma"
 msgstr "Pozwól na zmianę gammy"
 
 #: ../../../src/GameStateConfig.cpp:344
-# Comment: Poprosze o osobę bardziej obeznaną o prawidłowe tłumaczenie.
+# Comment: need help.
 msgid "Animated tiles"
 msgstr "Animowana grafika"
 
@@ -202,7 +202,7 @@ msgstr "Rozdzielczość"
 
 #: ../../../src/GameStateConfig.cpp:435
 msgid "Active Mods"
-msgstr "one"
+msgstr "Włączone"
 
 #: ../../../src/GameStateConfig.cpp:445
 msgid "Available Mods"
@@ -263,7 +263,7 @@ msgstr "Załaduj"
 
 #: ../../../src/GameStateLoad.cpp:558
 msgid "Entering game world..."
-msgstr "Wkraczanie w nowy świat..."
+msgstr "Wkraczanie do świata..."
 
 #: ../../../src/GameStateLoad.cpp:560
 msgid "Loading saved game..."
@@ -276,7 +276,7 @@ msgstr "Poziom %d %s"
 
 #: ../../../src/GameStateLoad.cpp:603
 msgid "Empty Slot"
-msgstr "Puste Miejsce"
+msgstr "Wolne Miejsce"
 
 #: ../../../src/GameStateNew.cpp:55
 msgid "Create"
@@ -422,15 +422,15 @@ msgstr "Delete"
 
 #: ../../../src/InputState.cpp:81
 msgid "lmb"
-msgstr "lpm"
+msgstr "LPM"
 
 #: ../../../src/InputState.cpp:82
 msgid "mmb"
-msgstr "śpm"
+msgstr "ŚPM"
 
 #: ../../../src/InputState.cpp:83
 msgid "rmb"
-msgstr "ppm"
+msgstr "PPM"
 
 #: ../../../src/InputState.cpp:84
 msgid "wheel up"
@@ -516,14 +516,14 @@ msgstr "Wymaga %d pkt Siły"
 #: ../../../src/MenuPowers.cpp:524
 #, c-format
 msgid "Requires Mental %d"
-msgstr "Wymaga %d pkt Magii"
+msgstr "Wymaga %d pkt w Magii"
 
 #: ../../../src/ItemManager.cpp:588 ../../../src/MenuPowers.cpp:504
 #: ../../../src/MenuPowers.cpp:506
 #, c-format
 # Comment: Nie mam pewności, więc pozostawie by nie sprawić jakiegoś artefaktu.
 msgid "Requires Offense %d"
-msgstr "Wymaga %d pkt Ataku"
+msgstr "Wymaga %d pkt w Ataku"
 
 #: ../../../src/ItemManager.cpp:592 ../../../src/MenuPowers.cpp:510
 #: ../../../src/MenuPowers.cpp:512
@@ -571,7 +571,7 @@ msgstr "Flare"
 
 #: ../../../src/MapRenderer.cpp:1183
 msgid "Unknown destination"
-msgstr "Nieznany cel przeznaczenia"
+msgstr "Nieznany Cel Przeznaczenia"
 
 #: ../../../src/MenuActionBar.cpp:399
 msgid "Character Menu (C)"
@@ -615,7 +615,7 @@ msgstr "Obrona"
 
 #: ../../../src/MenuCharacter.cpp:287
 msgid "points remaining"
-msgstr "- pozostałe punkty"
+msgstr "- pozostałych punktów"
 
 #: ../../../src/MenuCharacter.cpp:298
 msgid "Max HP:"
@@ -839,7 +839,7 @@ msgstr "Wymaga %d pkt umiejętności"
 
 #: ../../../src/MenuPowers.cpp:554
 msgid "Click to Unlock"
-msgstr "Naciśnij by odblokować"
+msgstr "Odblokuj"
 
 #: ../../../src/MenuPowers.cpp:561 ../../../src/MenuPowers.cpp:564
 #, c-format
@@ -898,6 +898,7 @@ msgid "Wizard"
 msgstr "Mag"
 
 #: ../../../src/StatBlock.cpp:411
+# Comment: need help.
 msgid "Ranger"
 msgstr "Ranger"
 
@@ -926,6 +927,7 @@ msgid "Battle Mage"
 msgstr "Mag Bitewny"
 
 #: ../../../src/StatBlock.cpp:426
+# Comment: need help.
 msgid "Heavy Archer"
 msgstr "Heavy Archer"
 
