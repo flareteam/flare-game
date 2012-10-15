@@ -91,6 +91,8 @@ public:
 	bool requires_offense_weapon;
 	bool requires_mental_weapon;
 	int requires_mp;
+	int requires_hp;
+	bool sacrifice;
 	bool requires_los; // line of sight
 	bool requires_empty_target; // target square must be empty
 	int requires_item;
@@ -99,7 +101,7 @@ public:
 	int cooldown; // milliseconds before you can use the power again
 
 	// animation info
-	AnimationSet *animationSet;
+	std::string animation_name;
 	int sfx_index;
 	bool directional; // sprite sheet contains options for 8 directions, one per row
 	int visual_random; // sprite sheet contains rows of random options
@@ -187,6 +189,8 @@ public:
 		, requires_mental_weapon(false)
 
 		, requires_mp(0)
+		, requires_hp(0)
+		, sacrifice(false)
 		, requires_los(false)
 		, requires_empty_target(false)
 		, requires_item(-1)
@@ -194,7 +198,7 @@ public:
 		, requires_targeting(false)
 		, cooldown(0)
 
-		, animationSet(NULL)
+		, animation_name("")
 		, sfx_index(-1)
 		, directional(false)
 		, visual_random(0)

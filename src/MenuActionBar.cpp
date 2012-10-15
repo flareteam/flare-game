@@ -218,26 +218,34 @@ void MenuActionBar::loadGraphics() {
 	attention = IMG_Load(mods->locate("images/menus/attention_glow.png").c_str());
 	if(!emptyslot || !background || !disabled || !attention) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
-		SDL_Quit();
-		exit(1);
 	}
 
 	// optimize
-	SDL_Surface *cleanup = background;
-	background = SDL_DisplayFormatAlpha(background);
-	SDL_FreeSurface(cleanup);
+	SDL_Surface *cleanup;
 
-	cleanup = emptyslot;
-	emptyslot = SDL_DisplayFormatAlpha(emptyslot);
-	SDL_FreeSurface(cleanup);
+	if (background) {
+		cleanup = background;
+		background = SDL_DisplayFormatAlpha(background);
+		SDL_FreeSurface(cleanup);
+	}
 
-	cleanup = disabled;
-	disabled = SDL_DisplayFormatAlpha(disabled);
-	SDL_FreeSurface(cleanup);
+	if (emptyslot) {
+		cleanup = emptyslot;
+		emptyslot = SDL_DisplayFormatAlpha(emptyslot);
+		SDL_FreeSurface(cleanup);
+	}
 
-	cleanup = attention;
-	attention = SDL_DisplayFormatAlpha(attention);
-	SDL_FreeSurface(cleanup);
+	if (disabled) {
+		cleanup = disabled;
+		disabled = SDL_DisplayFormatAlpha(disabled);
+		SDL_FreeSurface(cleanup);
+	}
+
+	if (attention) {
+		cleanup = attention;
+		attention = SDL_DisplayFormatAlpha(attention);
+		SDL_FreeSurface(cleanup);
+	}
 }
 
 /**

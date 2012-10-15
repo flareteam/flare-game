@@ -5,7 +5,7 @@ compiler:
 before_install:
   - sudo apt-get update -qq
   - sudo apt-get install -qq libsdl1.2-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf2.0-dev cppcheck
-script: cmake . && make
+script: cmake -DCMAKE_CXX_FLAGS="-Wall -Werror" . && make
 after_script: cppcheck --enable=all -q `git ls-files src/\*.cpp`
 notifications:
   irc:

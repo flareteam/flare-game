@@ -34,16 +34,14 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 using namespace std;
 
-
-NPCManager::NPCManager(MapRenderer *_map, LootManager *_loot, ItemManager *_items, StatBlock *_stats) {
-
-	stats = _stats;
-	map = _map;
-	loot = _loot;
-	items = _items;
-
-	tip = new WidgetTooltip();
-
+NPCManager::NPCManager(MapRenderer *_map, LootManager *_loot, ItemManager *_items, StatBlock *_stats)
+	: map(_map)
+	, tip(new WidgetTooltip())
+	, loot(_loot)
+	, items(_items)
+	, stats(_stats)
+	, tip_buf(TooltipData())
+ {
 	FileParser infile;
 	// load tooltip_margin from engine config file
 	if (infile.open(mods->locate("engine/tooltips.txt").c_str())) {
@@ -54,7 +52,6 @@ NPCManager::NPCManager(MapRenderer *_map, LootManager *_loot, ItemManager *_item
 		}
 		infile.close();
 	} else fprintf(stderr, "Unable to open engine/tooltips.txt!\n");
-
 }
 
 void NPCManager::addRenders(std::vector<Renderable> &r) {

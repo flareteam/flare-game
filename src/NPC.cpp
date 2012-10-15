@@ -42,6 +42,7 @@ NPC::NPC(MapRenderer *_map, ItemManager *_items) : Entity(_map) {
 
 	// init general vars
 	name = "";
+	gfx = "";
 	pos.x = pos.y = 0;
 
 	// init vendor info
@@ -122,7 +123,7 @@ void NPC::load(const string& npc_id, int hero_level) {
 						level = toInt(infile.val);
 				}
 				else if (infile.key == "gfx") {
-					filename_sprites = infile.val;
+					gfx = infile.val;
 				}
 
 				// handle talkers
@@ -156,15 +157,15 @@ void NPC::load(const string& npc_id, int hero_level) {
 		}
 		infile.close();
 	} else fprintf(stderr, "Unable to open npcs/%s.txt!\n", npc_id.c_str());
-	loadGraphics(filename_sprites, filename_portrait);
+	loadGraphics(filename_portrait);
 }
 
-void NPC::loadGraphics(const string& filename_animations, const string& filename_portrait) {
+void NPC::loadGraphics(const string& filename_portrait) {
 
-	if (filename_animations != "") {
-		std::string anim = "animations/npcs/" + filename_animations + ".txt";
-		AnimationManager::instance()->increaseCount(anim);
-		animationSet = AnimationManager::instance()->getAnimationSet(anim);
+	if (gfx != "") {
+		std::string anim_name = "animations/npcs/" + gfx + ".txt";
+		anim->increaseCount(anim_name);
+		animationSet = anim->getAnimationSet(anim_name);
 		activeAnimation = animationSet->getAnimation(animationSet->starting_animation);
 	}
 	if (filename_portrait != "") {
@@ -248,8 +249,8 @@ bool NPC::playSound(int type, int id) {
  * Determine the correct dialog node by the place in the story line
  */
 int NPC::chooseDialogNode() {
-        if (!talker)
-                return NPC_NO_DIALOG_AVAIL;
+	if (!talker)
+		return NPC_NO_DIALOG_AVAIL;
 
 	// NPC dialog nodes are listed in timeline order
 	// So check from the bottom of the list up
@@ -354,6 +355,9 @@ Renderable NPC::getRender() {
 
 
 NPC::~NPC() {
+	const string anim_name = "animations/npcs/" + gfx + ".txt";
+	anim->decreaseCount(anim_name);
+
 	if (portrait != NULL) SDL_FreeSurface(portrait);
 	while (!vox_intro.empty()) {
 		Mix_FreeChunk(vox_intro.back());

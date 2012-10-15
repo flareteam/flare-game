@@ -42,7 +42,7 @@ private:
 
 	SDL_Surface *listboxs;
 	Mix_Chunk *click;
-	
+
 	int list_amount;
 	int list_height;
 	int cursor;
@@ -59,7 +59,7 @@ private:
 	WidgetScrollBar *scrollbar;
 	SDL_Color color_normal;
 	SDL_Color color_disabled;
-	
+
 public:
 	WidgetListBox(int amount, int height, const std::string& _fileName);
 	~WidgetListBox();
@@ -84,7 +84,6 @@ public:
 	void render(SDL_Surface *target = NULL);
 	void refresh();
 
-	SDL_Rect pos;
 	SDL_Rect pos_scroll;
 	bool pressed;
 	bool *selected;

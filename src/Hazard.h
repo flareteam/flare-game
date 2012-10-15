@@ -44,12 +44,14 @@ const int SOURCE_TYPE_ENEMY = 2;
 
 class Hazard {
 private:
-	MapCollision *collider;
+	const MapCollision *collider;
 	// Keeps track of entities already hit
 	std::vector<Entity*> entitiesCollided;
+	Animation *activeAnimation;
+	std::string animation_name;
 
 public:
-	Hazard();
+	Hazard(MapCollision *_collider);
 
 	Hazard(const Hazard&); // not implemented! If you implement this, take care to create a real copy of the pointers, such as Animation.
 	Hazard & operator= (const Hazard & other); // same as copy constructor!
@@ -58,12 +60,12 @@ public:
 
 	StatBlock *src_stats;
 
-	void setCollision(MapCollision *_collider);
 	void logic();
 
 	bool hasEntity(Entity*);
-
 	void addEntity(Entity*);
+
+	void loadAnimation(std::string &s);
 
 	int dmg_min;
 	int dmg_max;
@@ -78,12 +80,12 @@ public:
 	int radius;
 	int power_index;
 
-	Animation *activeAnimation;
 	int animationKind;	// direction or other, it is a specific value according to
 						// some hazard animations are 8-directional
 						// some hazard animations have random/varietal options
 
-	Renderable getRenderable();
+	bool isDangerousNow();
+	void addRenderable(std::vector<Renderable> &r, std::vector<Renderable> &r_dead);
 
 	bool floor; // rendererable goes on the floor layer
 	int delay_frames;

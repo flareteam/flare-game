@@ -1,8 +1,8 @@
 /*
-Copyright © 2011-2012 Clint Bellanger
-Copyright © 2012 Igor Paliychuk
-Copyright © 2012 Henrik Andersson
-Copyright © 2012 Stefan Beller
+Copyright 2011-2012 Clint Bellanger
+Copyright 2012 Igor Paliychuk
+Copyright 2012 Henrik Andersson
+Copyright 2012 Stefan Beller
 
 This file is part of FLARE.
 
@@ -27,7 +27,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "Avatar.h"
 #include "CampaignManager.h"
-#include "CombatText.h"
 #include "EnemyManager.h"
 #include "GameStatePlay.h"
 #include "GameState.h"
@@ -53,6 +52,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "WidgetLabel.h"
 #include "SharedResources.h"
 #include "UtilsFileSystem.h"
+#include "FileParser.h"
+#include "UtilsParsing.h"
+#include "MenuPowers.h"
 
 using namespace std;
 
@@ -97,12 +99,14 @@ GameStatePlay::GameStatePlay()
 
 	if(!loading_bg) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
-		SDL_Quit();
-		exit(1);
+	} else {
+		SDL_Surface *cleanup = loading_bg;
+		loading_bg = SDL_DisplayFormatAlpha(loading_bg);
+		SDL_FreeSurface(cleanup);
 	}
-	SDL_Surface *cleanup = loading_bg;
-	loading_bg = SDL_DisplayFormatAlpha(loading_bg);
-	SDL_FreeSurface(cleanup);
+
+	// load the config file for character titles
+	loadTitles();
 }
 
 /**
@@ -180,12 +184,12 @@ void GameStatePlay::checkLoot() {
 	int currency;
 
 	// Autopickup
-    if (pc->stats.alive && AUTOPICKUP_CURRENCY) {
-        pickup = loot->checkAutoPickup(pc->stats.pos, currency);
-        if (currency > 0) {
-            menu->inv->addCurrency(currency);
-        }
-    }
+	if (pc->stats.alive && AUTOPICKUP_CURRENCY) {
+		pickup = loot->checkAutoPickup(pc->stats.pos, currency);
+		if (currency > 0) {
+			menu->inv->addCurrency(currency);
+		}
+	}
 
 	// Pickup with mouse click
 	if (inpt->pressing[MAIN1] && !inpt->lock[MAIN1] && pc->stats.alive) {
@@ -231,7 +235,7 @@ void GameStatePlay::checkTeleport() {
 			showLoading();
 			map->load(map->teleport_mapname);
 			enemies->handleNewMap();
-			hazards->handleNewMap(&map->collider);
+			hazards->handleNewMap();
 			loot->handleNewMap();
 			powers->handleNewMap(&map->collider);
 			menu->enemy->handleNewMap();
@@ -250,16 +254,16 @@ void GameStatePlay::checkTeleport() {
 
 			// return to title (permadeath) OR auto-save
 			if (pc->stats.permadeath && pc->stats.corpse) {
-			    stringstream filename;
-			    filename << PATH_USER << "save" << game_slot << ".txt";
-			    if(remove(filename.str().c_str()) != 0)
-				    perror("Error deleting save from path");
+				stringstream filename;
+				filename << PATH_USER << "save" << game_slot << ".txt";
+				if(remove(filename.str().c_str()) != 0)
+					perror("Error deleting save from path");
 
 				delete requestedGameState;
 				requestedGameState = new GameStateTitle();
 			}
 			else {
-			    saveGame();
+				saveGame();
 			}
 		}
 
@@ -332,6 +336,84 @@ void GameStatePlay::checkLog() {
 	}
 }
 
+void GameStatePlay::loadTitles() {
+	FileParser infile;
+	if(infile.open(mods->locate("engine/titles.txt"))) {
+		while (infile.next()) {
+			if (infile.new_section && infile.section == "title") {
+				Title t;
+				titles.push_back(t);
+			}
+
+			if (titles.empty()) continue;
+
+			if (infile.key == "title") titles.back().title = infile.val;
+			else if (infile.key == "level") titles.back().level = toInt(infile.val);
+			else if (infile.key == "power") titles.back().power = toInt(infile.val);
+			else if (infile.key == "requires_status") titles.back().requires_status = infile.val;
+			else if (infile.key == "requires_not") titles.back().requires_not = infile.val;
+			else if (infile.key == "primary_stat") titles.back().primary_stat = infile.val;
+		}
+		infile.close();
+	}
+	else fprintf(stderr, "Unable to open engine/titles.txt!\n");
+}
+
+void GameStatePlay::checkTitle() {
+	if (!pc->stats.check_title || titles.empty()) return;
+
+	int title_id = -1;
+
+	for (unsigned i=0; i<titles.size(); i++) {
+		if (titles[i].title == "") continue;
+
+		if (titles[i].level > 0 && pc->stats.level < titles[i].level) continue;
+		if (titles[i].power > 0 && find(menu->pow->powers_list.begin(), menu->pow->powers_list.end(), titles[i].power) == menu->pow->powers_list.end()) continue;
+		if (titles[i].requires_status != "" && !camp->checkStatus(titles[i].requires_status)) continue;
+		if (titles[i].requires_not != "" && camp->checkStatus(titles[i].requires_not)) continue;
+		if (titles[i].primary_stat != "") {
+			if (titles[i].primary_stat == "physical") {
+				if (pc->stats.get_physical() <= pc->stats.get_mental()+1 || pc->stats.get_physical() <= pc->stats.get_offense()+1 || pc->stats.get_physical() <= pc->stats.get_defense()+1)
+					continue;
+			} else if (titles[i].primary_stat == "offense") {
+				if (pc->stats.get_offense() <= pc->stats.get_mental()+1 || pc->stats.get_offense() <= pc->stats.get_physical()+1 || pc->stats.get_offense() <= pc->stats.get_defense()+1)
+					continue;
+			} else if (titles[i].primary_stat == "mental") {
+				if (pc->stats.get_mental() <= pc->stats.get_physical()+1 || pc->stats.get_mental() <= pc->stats.get_offense()+1 || pc->stats.get_mental() <= pc->stats.get_defense()+1)
+					continue;
+			} else if (titles[i].primary_stat == "defense") {
+				if (pc->stats.get_defense() <= pc->stats.get_mental()+1 || pc->stats.get_defense() <= pc->stats.get_offense()+1 || pc->stats.get_defense() <= pc->stats.get_physical()+1)
+					continue;
+			} else if (titles[i].primary_stat == "physoff") {
+				if (pc->stats.physoff <= pc->stats.physdef || pc->stats.physoff <= pc->stats.mentoff || pc->stats.physoff <= pc->stats.mentdef || pc->stats.physoff <= pc->stats.physment || pc->stats.physoff <= pc->stats.offdef)
+					continue;
+			} else if (titles[i].primary_stat == "physment") {
+				if (pc->stats.physment <= pc->stats.physdef || pc->stats.physment <= pc->stats.mentoff || pc->stats.physment <= pc->stats.mentdef || pc->stats.physment <= pc->stats.physoff || pc->stats.physment <= pc->stats.offdef)
+					continue;
+			} else if (titles[i].primary_stat == "physdef") {
+				if (pc->stats.physdef <= pc->stats.physoff || pc->stats.physdef <= pc->stats.mentoff || pc->stats.physdef <= pc->stats.mentdef || pc->stats.physdef <= pc->stats.physment || pc->stats.physdef <= pc->stats.offdef)
+					continue;
+			} else if (titles[i].primary_stat == "mentoff") {
+				if (pc->stats.mentoff <= pc->stats.physdef || pc->stats.mentoff <= pc->stats.physoff || pc->stats.mentoff <= pc->stats.mentdef || pc->stats.mentoff <= pc->stats.physment || pc->stats.mentoff <= pc->stats.offdef)
+					continue;
+			} else if (titles[i].primary_stat == "offdef") {
+				if (pc->stats.offdef <= pc->stats.physdef || pc->stats.offdef <= pc->stats.mentoff || pc->stats.offdef <= pc->stats.mentdef || pc->stats.offdef <= pc->stats.physment || pc->stats.offdef <= pc->stats.physoff)
+					continue;
+			} else if (titles[i].primary_stat == "mentdef") {
+				if (pc->stats.mentdef <= pc->stats.physdef || pc->stats.mentdef <= pc->stats.mentoff || pc->stats.mentdef <= pc->stats.physoff || pc->stats.mentdef <= pc->stats.physment || pc->stats.mentdef <= pc->stats.offdef)
+					continue;
+			}
+		}
+		// Title meets the requirements
+		title_id = i;
+		break;
+	}
+
+	if (title_id != -1) pc->stats.character_class = titles[title_id].title;
+	pc->stats.check_title = false;
+	pc->stats.refresh_stats = true;
+}
+
 void GameStatePlay::checkEquipmentChange() {
 	if (menu->inv->changed_equipment) {
 
@@ -402,22 +484,22 @@ void GameStatePlay::checkConsumable() {
  * Marks the menu if it needs attention.
  */
 void GameStatePlay::checkNotifications() {
-    if (pc->newLevelNotification) {
-        pc->newLevelNotification = false;
-        menu->act->requires_attention[MENU_CHARACTER] = true;
-    }
-    if (menu->chr->newPowerNotification) {
-        menu->chr->newPowerNotification = false;
-        menu->act->requires_attention[MENU_POWERS] = true;
-    }
-    if (quests->resetQuestNotification) { //remove if no quests
-        quests->resetQuestNotification = false;
-        menu->act->requires_attention[MENU_LOG] = false;
-    }
-    if (quests->newQuestNotification) {
-        quests->newQuestNotification = false;
-        menu->act->requires_attention[MENU_LOG] = true;
-    }
+	if (pc->newLevelNotification) {
+		pc->newLevelNotification = false;
+		menu->act->requires_attention[MENU_CHARACTER] = true;
+	}
+	if (menu->chr->newPowerNotification) {
+		menu->chr->newPowerNotification = false;
+		menu->act->requires_attention[MENU_POWERS] = true;
+	}
+	if (quests->resetQuestNotification) { //remove if no quests
+		quests->resetQuestNotification = false;
+		menu->act->requires_attention[MENU_LOG] = false;
+	}
+	if (quests->newQuestNotification) {
+		quests->newQuestNotification = false;
+		menu->act->requires_attention[MENU_LOG] = true;
+	}
 }
 
 /**
@@ -514,9 +596,9 @@ void GameStatePlay::checkNPCInteraction() {
 			menu->vendor->npc = NULL;
 			menu->talker->npc = NULL;
 			if (menu->vendor->visible || menu->talker->visible) {
- 				menu->vendor->visible = false;
+				menu->vendor->visible = false;
 				menu->talker->visible = false;
- 			}
+			}
 			npc_id = -1;
 		}
 	}
@@ -566,6 +648,7 @@ void GameStatePlay::logic() {
 		checkEnemyFocus();
 		checkNPCInteraction();
 		map->checkHotspots();
+		checkTitle();
 
 		pc->logic(menu->act->checkAction(inpt->mouse), restrictPowerUse());
 
@@ -582,7 +665,7 @@ void GameStatePlay::logic() {
 	}
 
 	// these actions occur whether the game is paused or not.
-    checkNotifications();
+	checkNotifications();
 	checkLootDrop();
 	checkTeleport();
 	checkLog();
@@ -673,15 +756,15 @@ void GameStatePlay::render() {
 	menu->mini->render(pc->stats.pos);
 	menu->render();
 
-    // render combat text last - this should make it obvious you're being
-    // attacked, even if you have menus open
-    CombatText *combat_text = CombatText::Instance();
-    combat_text->setCam(map->cam);
-    combat_text->render();
+	// render combat text last - this should make it obvious you're being
+	// attacked, even if you have menus open
+	CombatText *combat_text = comb;
+	combat_text->setCam(map->cam);
+	combat_text->render();
 }
 
 void GameStatePlay::showLoading() {
-	// SDL_FillRect(screen,NULL,0);
+	if (!loading_bg) return;
 
 	SDL_Rect dest;
 	dest.x = VIEW_W_HALF - loading_bg->w/2;

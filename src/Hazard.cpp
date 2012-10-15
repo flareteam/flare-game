@@ -34,8 +34,11 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 using namespace std;
 
-Hazard::Hazard()
-	: src_stats(NULL)
+Hazard::Hazard(MapCollision *_collider)
+	: collider(_collider)
+	, activeAnimation(NULL)
+	, animation_name("")
+	, src_stats(NULL)
 	, dmg_min(0)
 	, dmg_max(0)
 	, crit_chance(0)
@@ -47,7 +50,6 @@ Hazard::Hazard()
 	, lifespan(1)
 	, radius(0)
 	, power_index(0)
-	, activeAnimation(NULL)
 	, animationKind(0)
 	, floor(false)
 	, delay_frames(0)
@@ -74,11 +76,10 @@ Hazard::Hazard()
 }
 
 Hazard::~Hazard() {
-	delete activeAnimation;
-}
-
-void Hazard::setCollision(MapCollision *_collider) {
-	collider = _collider;
+	if (activeAnimation) {
+		anim->decreaseCount(animation_name);
+		delete activeAnimation;
+	}
 }
 
 void Hazard::logic() {
@@ -106,11 +107,30 @@ void Hazard::logic() {
 			lifespan = 0;
 			hit_wall = true;
 
-			if (collider->outsideMap(round(pos.x) >> TILE_SHIFT, round(pos.y) >> TILE_SHIFT))
+			if (collider->is_outside_map(round(pos.x) >> TILE_SHIFT, round(pos.y) >> TILE_SHIFT))
 				remove_now = true;
 		}
 	}
+}
 
+void Hazard::loadAnimation(std::string &s) {
+	if (activeAnimation) {
+		anim->decreaseCount(animation_name);
+		delete activeAnimation;
+		activeAnimation = 0;
+	}
+	animation_name = s;
+	if (animation_name != "") {
+		anim->increaseCount(animation_name);
+		AnimationSet *animationSet = anim->getAnimationSet(animation_name);
+		activeAnimation = animationSet->getAnimation(animationSet->starting_animation);
+	}
+}
+
+bool Hazard::isDangerousNow() {
+	return active && (delay_frames == 0) &&
+			( (activeAnimation != NULL && activeAnimation->isActiveFrame())
+			|| activeAnimation == NULL);
 }
 
 bool Hazard::hasEntity(Entity *ent)
@@ -125,10 +145,12 @@ void Hazard::addEntity(Entity *ent)
 	entitiesCollided.push_back(ent);
 }
 
-Renderable Hazard::getRenderable()
+void Hazard::addRenderable(vector<Renderable> &r, vector<Renderable> &r_dead)
 {
-	Renderable re = activeAnimation->getCurrentFrame(animationKind);
-	re.map_pos.x = round(pos.x);
-	re.map_pos.y = round(pos.y);
-	return re;
+	if (delay_frames == 0 && activeAnimation) {
+		Renderable re = activeAnimation->getCurrentFrame(animationKind);
+		re.map_pos.x = round(pos.x);
+		re.map_pos.y = round(pos.y);
+		(floor ? r_dead : r).push_back(re);
+	}
 }

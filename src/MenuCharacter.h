@@ -65,9 +65,6 @@ class MenuCharacter : public Menu {
 private:
 	StatBlock *stats;
 
-	SDL_Surface *background;
-	SDL_Surface *proficiency;
-	SDL_Surface *upgrade;
 	WidgetButton *closeButton;
 	WidgetButton *upgradeButton[4];
 	WidgetLabel *labelCharacter;

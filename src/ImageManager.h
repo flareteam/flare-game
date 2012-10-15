@@ -15,6 +15,10 @@ You should have received a copy of the GNU General Public License along with
 FLARE.  If not, see http://www.gnu.org/licenses/
 */
 
+#pragma once
+#ifndef __IMAGE_MANAGER__
+#define __IMAGE_MANAGER__
+
 #include <string>
 #include <vector>
 
@@ -32,36 +36,35 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 class ImageManager {
 private:
-    std::vector<SDL_Surface*> sprites;
-    std::vector<std::string> names;
-    std::vector<int> counts;
-
-    ImageManager();
-    ~ImageManager();
+	std::vector<SDL_Surface*> sprites;
+	std::vector<std::string> names;
+	std::vector<int> counts;
 
 public:
-    /** Get instance of the Singleton */
-    static ImageManager *instance();
+	ImageManager();
+	~ImageManager();
 
-    /**
-     * Returns the image specified by the filename as parameter.
-     * The image must be in the pool already, i.e. the increaseCount
-     * function with the same parameter must be called before.
-     */
-    SDL_Surface *getSurface(const std::string &name);
+	/**
+	 * Returns the image specified by the filename as parameter.
+	 * The image must be in the pool already, i.e. the increaseCount
+	 * function with the same parameter must be called before.
+	 */
+	SDL_Surface *getSurface(const std::string &name);
 
-    /**
-     * Decreases the count for this image.
-     */
-    void decreaseCount(const std::string &name);
+	/**
+	 * Decreases the count for this image.
+	 */
+	void decreaseCount(const std::string &name);
 
-    /**
-     * Increases the count for this image.
-     */
-    void increaseCount(const std::string &name);
+	/**
+	 * Increases the count for this image.
+	 */
+	void increaseCount(const std::string &name);
 
-    /**
-     * Removes all images with count equal zero.
-     */
-    void cleanUp();
+	/**
+	 * Removes all images with count equal zero.
+	 */
+	void cleanUp();
 };
+
+#endif // __IMAGE_MANAGER__

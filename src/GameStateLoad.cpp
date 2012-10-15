@@ -199,25 +199,31 @@ void GameStateLoad::loadGraphics() {
 	portrait_border = IMG_Load(mods->locate("images/menus/portrait_border.png").c_str());
 	if(!background || !selection || !portrait_border) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
-		SDL_Quit();
-		exit(1);
 	}
 
-	SDL_SetColorKey( selection, SDL_SRCCOLORKEY, SDL_MapRGB(selection->format, 255, 0, 255) );
-	SDL_SetColorKey( portrait_border, SDL_SRCCOLORKEY, SDL_MapRGB(portrait_border->format, 255, 0, 255) );
 
 	// optimize
-	SDL_Surface *cleanup = background;
-	background = SDL_DisplayFormatAlpha(background);
-	SDL_FreeSurface(cleanup);
+	SDL_Surface *cleanup;
 
-	cleanup = selection;
-	selection = SDL_DisplayFormatAlpha(selection);
-	SDL_FreeSurface(cleanup);
+	if (background) {
+		cleanup = background;
+		background = SDL_DisplayFormatAlpha(background);
+		SDL_FreeSurface(cleanup);
+	}
 
-	cleanup = portrait_border;
-	portrait_border = SDL_DisplayFormatAlpha(portrait_border);
-	SDL_FreeSurface(cleanup);
+	if (selection) {
+		SDL_SetColorKey( selection, SDL_SRCCOLORKEY, SDL_MapRGB(selection->format, 255, 0, 255) );
+		cleanup = selection;
+		selection = SDL_DisplayFormatAlpha(selection);
+		SDL_FreeSurface(cleanup);
+	}
+
+	if (portrait_border) {
+		SDL_SetColorKey( portrait_border, SDL_SRCCOLORKEY, SDL_MapRGB(portrait_border->format, 255, 0, 255) );
+		cleanup = portrait_border;
+		portrait_border = SDL_DisplayFormatAlpha(portrait_border);
+		SDL_FreeSurface(cleanup);
+	}
 
 }
 
@@ -357,8 +363,6 @@ void GameStateLoad::loadPreview(int slot) {
 		}
 		if (!sprites[slot].back()) {
 			fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
-			SDL_Quit();
-			exit(1);
 		}
 
 		// optimize

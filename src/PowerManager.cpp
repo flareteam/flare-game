@@ -25,11 +25,11 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "Animation.h"
 #include "AnimationSet.h"
 #include "AnimationManager.h"
-#include "CombatText.h"
 #include "FileParser.h"
 #include "Hazard.h"
 #include "SharedResources.h"
 #include "Settings.h"
+#include "SharedResources.h"
 #include "StatBlock.h"
 #include "MapCollision.h"
 #include "UtilsFileSystem.h"
@@ -152,6 +152,10 @@ void PowerManager::loadPowers(const std::string& filename) {
 			powers[input_id].requires_offense_weapon = toBool(infile.val);
 		else if (infile.key == "requires_mp")
 			powers[input_id].requires_mp = toInt(infile.val);
+		else if (infile.key == "requires_hp")
+			powers[input_id].requires_hp = toInt(infile.val);
+		else if (infile.key == "sacrifice")
+			powers[input_id].sacrifice = toBool(infile.val);
 		else if (infile.key == "requires_los")
 			powers[input_id].requires_los = toBool(infile.val);
 		else if (infile.key == "requires_empty_target")
@@ -159,15 +163,12 @@ void PowerManager::loadPowers(const std::string& filename) {
 		else if (infile.key == "requires_item")
 			powers[input_id].requires_item = toInt(infile.val);
 		else if (infile.key == "requires_targeting")
-			powers[input_id].requires_targeting =toBool(infile.val);
+			powers[input_id].requires_targeting = toBool(infile.val);
 		else if (infile.key == "cooldown")
 			powers[input_id].cooldown = toInt(infile.val);
 		// animation info
-		else if (infile.key == "animation") {
-			string animation_name = "animations/powers/" + infile.val;
-			AnimationManager::instance()->increaseCount(animation_name);
-			powers[input_id].animationSet = AnimationManager::instance()->getAnimationSet(animation_name);
-		}
+		else if (infile.key == "animation")
+			powers[input_id].animation_name = "animations/powers/" + infile.val;
 		else if (infile.key == "sfx")
 			powers[input_id].sfx_index = loadSFX(infile.val);
 		else if (infile.key == "directional")
@@ -522,7 +523,7 @@ Point PowerManager::targetNeighbor(Point target, int range, bool ignore_blocked)
 			if (i == 0 && j == 0) continue; // skip the middle tile
 			new_target.x = target.x+UNITS_PER_TILE*i;
 			new_target.y = target.y+UNITS_PER_TILE*j;
-			if (collider->valid_position(new_target.x,new_target.y,MOVEMENT_NORMAL) || ignore_blocked)
+			if (collider->is_valid_position(new_target.x,new_target.y,MOVEMENT_NORMAL) || ignore_blocked)
 				valid_tiles.push_back(new_target);
 		}
 	}
@@ -605,10 +606,8 @@ void PowerManager::initHazard(int power_index, StatBlock *src_stats, Point targe
 	// If we do this, we can init with multiple power layers
 	// (e.g. base spell plus weapon type)
 
-	if (powers[power_index].animationSet != NULL) {
-		delete haz->activeAnimation;
-		haz->activeAnimation = powers[power_index].animationSet->getAnimation(powers[power_index].animationSet->starting_animation);
-	}
+	if (powers[power_index].animation_name != "")
+		haz->loadAnimation(powers[power_index].animation_name);
 	if (powers[power_index].lifespan != 0)
 		haz->lifespan = powers[power_index].lifespan;
 	if (powers[power_index].directional)
@@ -713,9 +712,9 @@ void PowerManager::buff(int power_index, StatBlock *src_stats, Point target) {
 		else // avoid div by 0
 			heal_amt = heal_min;
 		if (src_stats->hero)
-			CombatText::Instance()->addMessage(msg->get("+%d HP",heal_amt), src_stats->pos, COMBAT_MESSAGE_BUFF, true);
+			comb->addMessage(msg->get("+%d HP",heal_amt), src_stats->pos, COMBAT_MESSAGE_BUFF, true);
 		else
-			CombatText::Instance()->addMessage(msg->get("+%d HP",heal_amt), src_stats->pos, COMBAT_MESSAGE_BUFF, false);
+			comb->addMessage(msg->get("+%d HP",heal_amt), src_stats->pos, COMBAT_MESSAGE_BUFF, false);
 		src_stats->hp += heal_amt;
 		if (src_stats->hp > src_stats->maxhp) src_stats->hp = src_stats->maxhp;
 	}
@@ -724,9 +723,9 @@ void PowerManager::buff(int power_index, StatBlock *src_stats, Point target) {
 	if (powers[power_index].buff_restore_hp > 0) {
 		int hp_amt = powers[power_index].buff_restore_hp;
 		if (src_stats->hero)
-			CombatText::Instance()->addMessage(msg->get("+%d HP",hp_amt), src_stats->pos, COMBAT_MESSAGE_BUFF, true);
+			comb->addMessage(msg->get("+%d HP",hp_amt), src_stats->pos, COMBAT_MESSAGE_BUFF, true);
 		else
-			CombatText::Instance()->addMessage(msg->get("+%d HP",hp_amt), src_stats->pos, COMBAT_MESSAGE_BUFF, false);
+			comb->addMessage(msg->get("+%d HP",hp_amt), src_stats->pos, COMBAT_MESSAGE_BUFF, false);
 		src_stats->hp += hp_amt;
 		if (src_stats->hp > src_stats->maxhp) src_stats->hp = src_stats->maxhp;
 	}
@@ -735,9 +734,9 @@ void PowerManager::buff(int power_index, StatBlock *src_stats, Point target) {
 	if (powers[power_index].buff_restore_mp > 0) {
 		int mp_amt = powers[power_index].buff_restore_mp;
 		if (src_stats->hero)
-			CombatText::Instance()->addMessage(msg->get("+%d MP",mp_amt), src_stats->pos, COMBAT_MESSAGE_BUFF, true);
+			comb->addMessage(msg->get("+%d MP",mp_amt), src_stats->pos, COMBAT_MESSAGE_BUFF, true);
 		else
-			CombatText::Instance()->addMessage(msg->get("+%d MP",mp_amt), src_stats->pos, COMBAT_MESSAGE_BUFF, false);
+			comb->addMessage(msg->get("+%d MP",mp_amt), src_stats->pos, COMBAT_MESSAGE_BUFF, false);
 		src_stats->mp += mp_amt;
 		if (src_stats->mp > src_stats->maxmp) src_stats->mp = src_stats->maxmp;
 	}
@@ -746,9 +745,9 @@ void PowerManager::buff(int power_index, StatBlock *src_stats, Point target) {
 	if (powers[power_index].buff_shield) {
 		int shield_amt = (int)ceil(src_stats->dmg_ment_max * powers[power_index].damage_multiplier / 100.0) + (src_stats->get_mental()*src_stats->bonus_per_mental);
 		if (src_stats->hero)
-			CombatText::Instance()->addMessage(msg->get("+%d Shield",shield_amt), src_stats->pos, COMBAT_MESSAGE_BUFF, true);
+			comb->addMessage(msg->get("+%d Shield",shield_amt), src_stats->pos, COMBAT_MESSAGE_BUFF, true);
 		else
-			CombatText::Instance()->addMessage(msg->get("+%d Shield",shield_amt), src_stats->pos, COMBAT_MESSAGE_BUFF, false);
+			comb->addMessage(msg->get("+%d Shield",shield_amt), src_stats->pos, COMBAT_MESSAGE_BUFF, false);
 		src_stats->shield_hp = src_stats->shield_hp_total = shield_amt;
 		src_stats->addEffect("shield",getEffectIcon("shield"));
 	}
@@ -854,7 +853,7 @@ bool PowerManager::effect(int power_index, StatBlock *src_stats, Point target) {
 	if (powers[power_index].use_hazard) {
 		int delay_iterator = 0;
 		for (int i=0; i < powers[power_index].count; i++) {
-			Hazard *haz = new Hazard();
+			Hazard *haz = new Hazard(collider);
 			initHazard(power_index, src_stats, target, haz);
 
 			// add optional delay
@@ -898,8 +897,6 @@ bool PowerManager::missile(int power_index, StatBlock *src_stats, Point target) 
 		src.y = src_stats->pos.y;
 	}
 
-	Hazard *haz;
-
 	// calculate polar coordinates angle
 	float theta = calcTheta(src.x, src.y, target.x, target.y);
 
@@ -907,7 +904,7 @@ bool PowerManager::missile(int power_index, StatBlock *src_stats, Point target) 
 
 	//generate hazards
 	for (int i=0; i < powers[power_index].count; i++) {
-		haz = new Hazard();
+		Hazard *haz = new Hazard(collider);
 
 		//calculate individual missile angle
 		float offset_angle = ((1.0 - powers[power_index].count)/2 + i) * (powers[power_index].missile_angle * pi / 180.0);
@@ -955,7 +952,6 @@ bool PowerManager::repeater(int power_index, StatBlock *src_stats, Point target)
 	payPowerCost(power_index, src_stats);
 
 	//initialize variables
-	Hazard *haz;
 	FPoint location_iterator;
 	FPoint speed;
 	int delay_iterator = 0;
@@ -982,7 +978,7 @@ bool PowerManager::repeater(int power_index, StatBlock *src_stats, Point target)
 			break; // no more hazards
 		}
 
-		haz = new Hazard();
+		Hazard *haz = new Hazard(collider);
 		initHazard(power_index, src_stats, target, haz);
 
 		haz->pos.x = location_iterator.x;
@@ -1100,6 +1096,10 @@ bool PowerManager::activate(int power_index, StatBlock *src_stats, Point target)
 	if (src_stats->hero) {
 		if (powers[power_index].requires_mp > src_stats->mp)
 			return false;
+		if (powers[power_index].sacrifice == true && powers[power_index].requires_hp > src_stats->hp)
+				return false;
+		if (powers[power_index].sacrifice == false && powers[power_index].requires_hp >= src_stats->hp)
+				return false;
 	}
 
 	// logic for different types of powers are very different.  We allow these
@@ -1121,6 +1121,7 @@ bool PowerManager::activate(int power_index, StatBlock *src_stats, Point target)
 void PowerManager::payPowerCost(int power_index, StatBlock *src_stats) {
 	if (src_stats && src_stats->hero) {
 		if (powers[power_index].requires_mp > 0) src_stats->mp -= powers[power_index].requires_mp;
+		if (powers[power_index].requires_hp > 0) src_stats->hp -= powers[power_index].requires_hp;
 		if (powers[power_index].requires_item != -1) used_item = powers[power_index].requires_item;
 	}
 }

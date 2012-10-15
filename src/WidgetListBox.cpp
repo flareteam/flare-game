@@ -27,44 +27,42 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 using namespace std;
 
 WidgetListBox::WidgetListBox(int amount, int height, const std::string& _fileName)
-	: fileName(_fileName) {
-
-	list_amount = amount;
-	list_height = height;
-	cursor = 0;
-	has_scroll_bar = false;
-	non_empty_slots = 0;
-	values = new std::string[list_amount];
-	tooltips = new std::string[list_amount];
-	vlabels = new WidgetLabel[list_height];
-	rows = new SDL_Rect[list_height];
-	tip = new WidgetTooltip();
-
+	: Widget()
+	, fileName(_fileName)
+	, list_amount(amount)
+	, list_height(height)
+	, cursor(0)
+	, has_scroll_bar(false)
+	, non_empty_slots(0)
+	, any_selected(false)
+	, values(new std::string[list_amount])
+	, tooltips(new std::string[list_amount])
+	, vlabels(new WidgetLabel[list_height])
+	, rows(new SDL_Rect[list_height])
+	, tip( new WidgetTooltip())
+	, scrollbar(new WidgetScrollBar(mods->locate("images/menus/buttons/scrollbar_default.png")))
+	, color_normal(font->getColor("widget_normal"))
+	, color_disabled(font->getColor("widget_disabled"))
+	, pos_scroll(SDL_Rect())
+	, pressed(false)
+	, selected(new bool[list_amount])
+	, multi_select(false)
+	, can_deselect(true)
+	, can_select(true)
+{
 	listboxs = NULL;
 	click = NULL;
-	pos.x = pos.y = pos.w = pos.h = 0;
 
-	selected = new bool[list_amount];
+
 	for (int i=0; i<list_amount; i++) {
 		selected[i] = false;
 		values[i] = "";
 	}
 
-	multi_select = false;
-	can_deselect = true;
-	can_select = true;
-	
 	loadArt();
 
 	pos.w = listboxs->w;
-	pos.h = (listboxs->h / 3); //height of one item
-
-	scrollbar = new WidgetScrollBar(mods->locate("images/menus/buttons/scrollbar_default.png"));
-
-	render_to_alpha = false;
-
-	color_normal = font->getColor("widget_normal");
-	color_disabled = font->getColor("widget_disabled");
+	pos.h = (listboxs->h / 3); // height of one item
 }
 
 void WidgetListBox::loadArt() {
@@ -77,7 +75,7 @@ void WidgetListBox::loadArt() {
 		SDL_Quit();
 		exit(1); // or abort ??
 	}
-	
+
 	// optimize
 	SDL_Surface *cleanup = listboxs;
 	listboxs = SDL_DisplayFormatAlpha(listboxs);
@@ -96,7 +94,8 @@ bool WidgetListBox::checkClick() {
  * If press and release, activate (return true)
  */
 bool WidgetListBox::checkClick(int x, int y) {
-	Point mouse = {x,y};
+
+	Point mouse(x, y);
 
 	refresh();
 	tip_new = checkTooltip(mouse);
@@ -144,7 +143,7 @@ bool WidgetListBox::checkClick(int x, int y) {
 	// main click released, so the ListBox state goes back to unpressed
 	if (pressed && !inpt->lock[MAIN1] && can_select) {
 		pressed = false;
-		
+
 		for(int i=0; i<list_height; i++) {
 			if (i<list_amount) {
 				if (isWithin(rows[i], mouse) && values[i+cursor] != "") {
@@ -174,7 +173,7 @@ bool WidgetListBox::checkClick(int x, int y) {
 	if (inpt->pressing[MAIN1]) {
 		for (int i=0; i<list_height;i++) {
 			if (isWithin(rows[i], mouse)) {
-			
+
 				inpt->lock[MAIN1] = true;
 				pressed = true;
 

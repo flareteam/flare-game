@@ -57,7 +57,6 @@ private:
 	SDL_Rect src;
 
 	WidgetLabel *labels[16];
-	int default_M1;
 	Point last_mouse;
 
 public:

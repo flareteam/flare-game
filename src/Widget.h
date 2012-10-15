@@ -26,11 +26,13 @@ class Widget {
 public:
 	Widget()
 	: render_to_alpha(false)
-	{};
+	, pos(SDL_Rect())
+	{ pos.x = pos.y = pos.w = pos.h = 0; };
 
 	virtual ~Widget() {};
 	virtual void render(SDL_Surface *target = NULL) = 0;
 	bool render_to_alpha;
+	SDL_Rect pos; // This is the position of the button within the screen
 private:
 };
 

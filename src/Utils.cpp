@@ -40,10 +40,10 @@ Point screen_to_map(int x, int y, int camx, int camy) {
 	if (TILESET_ORIENTATION == TILESET_ISOMETRIC) {
 		int scrx = x - VIEW_W_HALF;
 		int scry = y - VIEW_H_HALF;
-		
+
 		int cx = UNITS_PER_PIXEL_X /2;
 		int cy = UNITS_PER_PIXEL_Y /2;
-		
+
 		r.x = (cx * scrx) + (cy * scry) + camx;
 		r.y = (cy * scry) - (cx * scrx) + camy;
 	}
@@ -173,35 +173,35 @@ bool isWithin(SDL_Rect r, Point target) {
  */
 void drawPixel(SDL_Surface *surface, int x, int y, Uint32 pixel)
 {
-    int bpp = surface->format->BytesPerPixel;
-    /* Here p is the address to the pixel we want to set */
-    Uint8 *p = (Uint8 *)surface->pixels + y * surface->pitch + x * bpp;
+	int bpp = surface->format->BytesPerPixel;
+	/* Here p is the address to the pixel we want to set */
+	Uint8 *p = (Uint8 *)surface->pixels + y * surface->pitch + x * bpp;
 
-    switch(bpp) {
-    case 1:
-        *p = pixel;
-        break;
+	switch(bpp) {
+	case 1:
+		*p = pixel;
+		break;
 
-    case 2:
-        *(Uint16 *)p = pixel;
-        break;
+	case 2:
+		*(Uint16 *)p = pixel;
+		break;
 
-    case 3:
-        if(SDL_BYTEORDER == SDL_BIG_ENDIAN) {
-            p[0] = (pixel >> 16) & 0xff;
-            p[1] = (pixel >> 8) & 0xff;
-            p[2] = pixel & 0xff;
-        } else {
-            p[0] = pixel & 0xff;
-            p[1] = (pixel >> 8) & 0xff;
-            p[2] = (pixel >> 16) & 0xff;
-        }
-        break;
+	case 3:
+#if (SDL_BYTEORDER == SDL_BIG_ENDIAN)
+			p[0] = (pixel >> 16) & 0xff;
+			p[1] = (pixel >> 8) & 0xff;
+			p[2] = pixel & 0xff;
+#else
+			p[0] = pixel & 0xff;
+			p[1] = (pixel >> 8) & 0xff;
+			p[2] = (pixel >> 16) & 0xff;
+#endif
+		break;
 
-    case 4:
-        *(Uint32 *)p = pixel;
-        break;
-    }
+	case 4:
+		*(Uint32 *)p = pixel;
+		break;
+	}
 }
 
 
@@ -329,10 +329,11 @@ bool checkPixel(Point px, SDL_Surface *surface) {
 			break;
 
 		case 3:
-			if (SDL_BYTEORDER == SDL_BIG_ENDIAN)
+#if (SDL_BYTEORDER == SDL_BIG_ENDIAN)
 				pixel = p[0] << 16 | p[1] << 8 | p[2];
-			else
+#else
 				pixel = p[0] | p[1] << 8 | p[2] << 16;
+#endif
 			break;
 
 		case 4:

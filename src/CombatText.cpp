@@ -54,17 +54,6 @@ CombatText::CombatText() {
 		}
 		infile.close();
 	} else fprintf(stderr, "Unable to open engine/combat_text.txt!\n");
-
-}
-
-// Global static pointer used to ensure a single instance of the class.
-CombatText* CombatText::m_pInstance = NULL;
-
-CombatText* CombatText::Instance() {
-	if (!m_pInstance)
-		m_pInstance = new CombatText;
-
-	return m_pInstance;
 }
 
 void CombatText::setCam(Point location) {

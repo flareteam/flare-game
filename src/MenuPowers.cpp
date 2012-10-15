@@ -201,30 +201,39 @@ void MenuPowers::loadGraphics() {
 	powers_unlock = IMG_Load(mods->locate("images/menus/powers_unlock.png").c_str());
 	overlay_disabled = IMG_Load(mods->locate("images/menus/disabled.png").c_str());
 
+	if(!background || !powers_unlock || !overlay_disabled) {
+		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
+	}
 	for (unsigned int i=0; i<tree_surf.size(); i++) {
-		if(!background || !tree_surf[i] || !powers_unlock || !overlay_disabled) {
+		if(!tree_surf[i]) {
 			fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
-			SDL_Quit();
-			exit(1);
 		}
 	}
 
 	// optimize
-	SDL_Surface *cleanup = background;
-	background = SDL_DisplayFormatAlpha(background);
-	SDL_FreeSurface(cleanup);
+	SDL_Surface *cleanup;
 
-	for (unsigned int i=0; i<tree_surf.size(); i++) {
-		cleanup = tree_surf[i];
-		tree_surf[i] = SDL_DisplayFormatAlpha(tree_surf[i]);
+	if (background) {
+		cleanup = background;
+		background = SDL_DisplayFormatAlpha(background);
 		SDL_FreeSurface(cleanup);
 	}
 
-	cleanup = powers_unlock;
-	powers_unlock = SDL_DisplayFormatAlpha(powers_unlock);
-	SDL_FreeSurface(cleanup);
+	for (unsigned int i=0; i<tree_surf.size(); i++) {
+		if (tree_surf[i]) {
+			cleanup = tree_surf[i];
+			tree_surf[i] = SDL_DisplayFormatAlpha(tree_surf[i]);
+			SDL_FreeSurface(cleanup);
+		}
+	}
 
-	if (overlay_disabled != NULL) {
+	if (powers_unlock) {
+		cleanup = powers_unlock;
+		powers_unlock = SDL_DisplayFormatAlpha(powers_unlock);
+		SDL_FreeSurface(cleanup);
+	}
+
+	if (overlay_disabled) {
 		cleanup = overlay_disabled;
 		overlay_disabled = SDL_DisplayFormatAlpha(overlay_disabled);
 		SDL_FreeSurface(cleanup);
@@ -358,6 +367,7 @@ bool MenuPowers::unlockClick(Point mouse) {
 					&& (powerUnlockable(power_cell[i].id)) && points_left > 0
 					&& power_cell[i].requires_point && power_cell[i].tab == active_tab) {
 				powers_list.push_back(power_cell[i].id);
+				stats->check_title = true;
 				return true;
 			}
 		}
@@ -368,6 +378,7 @@ bool MenuPowers::unlockClick(Point mouse) {
 					&& (powerUnlockable(power_cell[i].id))
 					&& points_left > 0 && power_cell[i].requires_point) {
 				powers_list.push_back(power_cell[i].id);
+				stats->check_title = true;
 				return true;
 			}
 		}
@@ -558,6 +569,10 @@ TooltipData MenuPowers::checkTooltip(Point mouse) {
 				// add mana cost
 				if (powers->powers[power_cell[i].id].requires_mp > 0) {
 					tip.addText(msg->get("Costs %d MP", powers->powers[power_cell[i].id].requires_mp));
+				}
+				// add health cost
+				if (powers->powers[power_cell[i].id].requires_hp > 0) {
+					tip.addText(msg->get("Costs %d HP", powers->powers[power_cell[i].id].requires_hp));
 				}
 				// add cooldown time
 				if (powers->powers[power_cell[i].id].cooldown > 0) {

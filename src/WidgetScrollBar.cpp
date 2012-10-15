@@ -27,22 +27,22 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 using namespace std;
 
 WidgetScrollBar::WidgetScrollBar(const std::string& _fileName)
-	: fileName(_fileName) {
-
+	: Widget()
+	, fileName(_fileName)
+	, value(0)
+	, bar_height(0)
+	, maximum(0)
+	, pressed_up(false)
+	, pressed_down(false)
+	, pressed_knob(false)
+{
 	scrollbars = NULL;
 	click = NULL;
-	
+
 	loadArt();
 
 	pos_up.w = pos_down.w  = pos_knob.w = scrollbars->w;
 	pos_up.h = pos_down.h = pos_knob.h = (scrollbars->h / 5); //height of one button
-
-	render_to_alpha = false;
-	pressed_up = false;
-	pressed_down = false;
-	pressed_knob = false;
-
-
 }
 
 void WidgetScrollBar::loadArt() {
@@ -55,7 +55,7 @@ void WidgetScrollBar::loadArt() {
 		SDL_Quit();
 		exit(1); // or abort ??
 	}
-	
+
 	// optimize
 	SDL_Surface *cleanup = scrollbars;
 	scrollbars = SDL_DisplayFormatAlpha(scrollbars);
@@ -72,7 +72,7 @@ int WidgetScrollBar::checkClick() {
  * If press and release, activate (return 1 for up, 2 for down)
  */
 int WidgetScrollBar::checkClick(int x, int y) {
-	Point mouse = {x,y};
+	Point mouse = Point(x,y);
 
 	// main ScrollBar already in use, new click not allowed
 	//if (inpt->lock[MAIN1]) return 0;

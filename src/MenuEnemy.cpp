@@ -71,18 +71,22 @@ void MenuEnemy::loadGraphics() {
 
 	if(!background || !bar_hp) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
-		SDL_Quit();
-		exit(1);
 	}
 
 	// optimize
-	SDL_Surface *cleanup = background;
-	background = SDL_DisplayFormatAlpha(background);
-	SDL_FreeSurface(cleanup);
+	SDL_Surface *cleanup;
 
-	cleanup = bar_hp;
-	bar_hp = SDL_DisplayFormatAlpha(bar_hp);
-	SDL_FreeSurface(cleanup);
+	if (background) {
+		cleanup = background;
+		background = SDL_DisplayFormatAlpha(background);
+		SDL_FreeSurface(cleanup);
+	}
+
+	if (bar_hp) {
+		cleanup = bar_hp;
+		bar_hp = SDL_DisplayFormatAlpha(bar_hp);
+		SDL_FreeSurface(cleanup);
+	}
 }
 
 void MenuEnemy::handleNewMap() {

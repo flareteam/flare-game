@@ -65,7 +65,7 @@ void WidgetScrollBox::logic() {
 }
 
 void WidgetScrollBox::logic(int x, int y) {
-	Point mouse = {x,y};
+	Point mouse(x, y);
 
 	if (isWithin(pos,mouse)) {
 		if (inpt->scroll_up) {

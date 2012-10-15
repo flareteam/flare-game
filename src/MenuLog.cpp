@@ -95,14 +95,12 @@ void MenuLog::loadGraphics() {
 
 	if(!background) {
 		fprintf(stderr, "Could not load image: %s\n", IMG_GetError());
-		SDL_Quit();
-		exit(1);
+	} else {
+		// optimize
+		SDL_Surface *cleanup = background;
+		background = SDL_DisplayFormatAlpha(background);
+		SDL_FreeSurface(cleanup);
 	}
-
-	// optimize
-	SDL_Surface *cleanup = background;
-	background = SDL_DisplayFormatAlpha(background);
-	SDL_FreeSurface(cleanup);
 
 }
 

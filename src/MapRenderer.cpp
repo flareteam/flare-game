@@ -34,58 +34,55 @@ using namespace std;
 const int CLICK_RANGE = 3 * UNITS_PER_TILE; //for activating events
 
 MapRenderer::MapRenderer(CampaignManager *_camp)
- : tip_pos(Point())
+ : music(NULL)
+ , tip(new WidgetTooltip())
+ , tip_pos(Point())
  , show_tooltip(false)
+ , sfx(NULL)
+ , sfx_filename("")
+ , background(NULL)
+ , fringe(NULL)
+ , object(NULL)
+ , foreground(NULL)
+ , collision(NULL)
  , shakycam(Point())
+ , new_music(false)
+ , backgroundsurfaceoffset(Point(0,0))
+ , repaint_background(false)
+
+ , camp(_camp)
  , powers(NULL)
  , w(0)
  , h(0)
  , hero_tile(Point())
  , spawn(Point())
  , spawn_dir(0)
+ , map_change(false)
+ , new_enemy(Map_Enemy())
+ , new_group(Map_Group())
+ , enemy_awaiting_queue(false)
+ , group_awaiting_queue(false)
+ , new_npc(Map_NPC())
+ , npc_awaiting_queue(false)
  , teleportation(false)
  , teleport_destination(Point())
  , respawn_point(Point())
+ , stash(false)
  , stash_pos(Point())
 {
-
-	camp = _camp;
-
-	tip = new WidgetTooltip();
-
-	// cam(x,y) is where on the map the camera is pointing
-	// units found in Settings.h (UNITS_PER_TILE)
 	cam.x = 0;
 	cam.y = 0;
-
-	new_music = false;
-	map_change = false;
+	//~ new_music = false;
 
 	clearEvents();
-	enemy_awaiting_queue = false;
-	npc_awaiting_queue = false;
-	group_awaiting_queue = false;
-	new_enemy.clear();
-	new_npc.clear();
-	new_group.clear();
 
-	background = 0;
-	fringe = 0;
-	object = 0;
-	foreground = 0;
-	collision = 0;
-
-	sfx = NULL;
-	sfx_filename = "";
-	music = NULL;
 	log_msg = "";
 	shaky_cam_ticks = 0;
 
-	backgroundsurface = 0;
-	backgroundsurfaceoffset.x = 0;
-	backgroundsurfaceoffset.y = 0;
-	repaint_background = false;
-	stash = false;
+	backgroundsurface = NULL;
+	//~ backgroundsurfaceoffset.x = 0;
+	//~ backgroundsurfaceoffset.y = 0;
+	//~ repaint_background = false;
 }
 
 void MapRenderer::clearEvents() {
@@ -840,7 +837,7 @@ void MapRenderer::renderIsoFrontObjects(vector<Renderable> &r) {
 }
 
 void MapRenderer::renderIso(vector<Renderable> &r, vector<Renderable> &r_dead) {
-	const Point nulloffset = {0, 0};
+	const Point nulloffset(0, 0);
 	if (ANIMATED_TILES) {
 		if (background) renderIsoLayer(screen, nulloffset, background);
 		if (fringe) renderIsoLayer(screen, nulloffset, fringe);
@@ -858,7 +855,7 @@ void MapRenderer::renderIso(vector<Renderable> &r, vector<Renderable> &r_dead) {
 			backgroundsurfaceoffset = shakycam;
 
 			SDL_FillRect(backgroundsurface, 0, 0);
-			Point off = {VIEW_W_HALF, VIEW_H_HALF};
+			Point off(VIEW_W_HALF, VIEW_H_HALF);
 			if (background) renderIsoLayer(backgroundsurface, off, background);
 			if (fringe) renderIsoLayer(backgroundsurface, off, fringe);
 		}

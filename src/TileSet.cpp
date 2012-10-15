@@ -62,24 +62,24 @@ void TileSet::loadGraphics(const std::string& filename) {
 		sprites = IMG_Load((mods->locate("images/tilesets/" + filename)).c_str());
 		if (!sprites) {
 			fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
-			SDL_Quit();
-			exit(1);
 		}
 	} else {
 		alpha_background = false;
 	}
 
-	// only set a color key if the tile set doesn't have an alpha channel
-	// the color ke is specified in the tilesetdef file like this:
-	// transparency=r,g,b
-	if (!alpha_background) {
-		SDL_SetColorKey( sprites, SDL_SRCCOLORKEY, SDL_MapRGB(sprites->format, trans_r, trans_g, trans_b) );
-	}
+	if (sprites) {
+		// only set a color key if the tile set doesn't have an alpha channel
+		// the color ke is specified in the tilesetdef file like this:
+		// transparency=r,g,b
+		if (!alpha_background) {
+			SDL_SetColorKey( sprites, SDL_SRCCOLORKEY, SDL_MapRGB(sprites->format, trans_r, trans_g, trans_b) );
+		}
 
-	// optimize
-	SDL_Surface *cleanup = sprites;
-	sprites = SDL_DisplayFormatAlpha(sprites);
-	SDL_FreeSurface(cleanup);
+		// optimize
+		SDL_Surface *cleanup = sprites;
+		sprites = SDL_DisplayFormatAlpha(sprites);
+		SDL_FreeSurface(cleanup);
+	}
 }
 
 void TileSet::load(const std::string& filename) {
