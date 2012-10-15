@@ -91,6 +91,7 @@ public:
 	bool requires_offense_weapon;
 	bool requires_mental_weapon;
 	int requires_mp;
+	int requires_hp;
 	bool requires_los; // line of sight
 	bool requires_empty_target; // target square must be empty
 	int requires_item;
@@ -187,6 +188,7 @@ public:
 		, requires_mental_weapon(false)
 
 		, requires_mp(0)
+		, requires_hp(0)
 		, requires_los(false)
 		, requires_empty_target(false)
 		, requires_item(-1)
