@@ -1096,6 +1096,9 @@ bool PowerManager::activate(int power_index, StatBlock *src_stats, Point target)
 	if (src_stats->hero) {
 		if (powers[power_index].requires_mp > src_stats->mp)
 			return false;
+	}
+
+	if (src_stats) {
 		if (powers[power_index].sacrifice == true && powers[power_index].requires_hp > src_stats->hp)
 				return false;
 		if (powers[power_index].sacrifice == false && powers[power_index].requires_hp >= src_stats->hp)
@@ -1119,10 +1122,15 @@ bool PowerManager::activate(int power_index, StatBlock *src_stats, Point target)
  * pay costs, i.e. remove mana or items.
  */
 void PowerManager::payPowerCost(int power_index, StatBlock *src_stats) {
-	if (src_stats && src_stats->hero) {
-		if (powers[power_index].requires_mp > 0) src_stats->mp -= powers[power_index].requires_mp;
-		if (powers[power_index].requires_hp > 0) src_stats->hp -= powers[power_index].requires_hp;
-		if (powers[power_index].requires_item != -1) used_item = powers[power_index].requires_item;
+	if (src_stats) {
+		if (src_stats->hero) {
+			if (powers[power_index].requires_mp > 0) src_stats->mp -= 
+				powers[power_index].requires_mp;
+			if (powers[power_index].requires_item != -1) used_item = 
+				powers[power_index].requires_item;
+		}
+		if (powers[power_index].requires_hp > 0) src_stats->hp -= 
+			powers[power_index].requires_hp;
 	}
 }
 
