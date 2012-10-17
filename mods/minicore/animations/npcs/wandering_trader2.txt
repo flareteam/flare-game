@@ -1,11 +1,13 @@
 
 image=images/npcs/wandering_trader2.png
 
-render_size=16,32
-render_offset=7,28
-
 [stance]
-position=0
 frames=6
-duration=400
+duration=10
 type=looped
+frame=0,0,13,0,12,28,4,26
+frame=1,0,25,0,12,28,4,26
+frame=2,0,0,0,13,28,4,26
+frame=3,0,38,0,12,27,3,25
+frame=4,0,0,0,13,28,4,26
+frame=5,0,25,0,12,28,4,26
