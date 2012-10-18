@@ -1099,7 +1099,7 @@ bool PowerManager::activate(int power_index, StatBlock *src_stats, Point target)
 	}
 
 	if (src_stats) {
-		if (powers[power_index].sacrifice == false && powers[power_index].requires_hp >= src_stats->hp)
+		if (powers[power_index].sacrifice == true && powers[power_index].requires_hp >= src_stats->hp)
 				return false;
 	}
 
