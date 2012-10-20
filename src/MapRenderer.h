@@ -183,17 +183,6 @@ private:
 	maprow *foreground;
 	maprow *collision; // must exist in each map!
 
-	// This determines the size of the backgroundsurface outside the actual
-	// screen. So this setting depends on the movedistance_to_rerender and
-	// also on the size of the individual tiles. if the tiles are large, you
-	// need to choose a larger value here. (i.e. consider trees having a huge
-	// height, so you need to paint them even if the tree stump are out of the screen.
-	// For isometric mode this is actually only half of the number of tiles
-	// outside the screen. For orthogonal projection this is the number of tiles
-	// at each side of the screen, so if your tree has a height of 4 tiles,
-	// you should make this setting at least 4 + movedistance_to_rerender.
-	static const short tiles_outside_of_screen = 12;
-
 	// When the animated tiles are switched off, the background is
 	// not rendered all the time but everytime you have moved away too much.
 	// then the background is completely rendered, else it is just blit
