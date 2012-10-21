@@ -50,6 +50,9 @@ void TileSet::reset() {
 	sprites = NULL;
 	tiles.clear();
 	anim.clear();
+
+	max_size_x = 0;
+	max_size_y = 0;
 }
 
 void TileSet::loadGraphics(const std::string& filename) {
@@ -106,6 +109,8 @@ void TileSet::load(const std::string& filename) {
 				tiles[index].src.h = eatFirstInt(infile.val, ',');
 				tiles[index].offset.x = eatFirstInt(infile.val, ',');
 				tiles[index].offset.y = eatFirstInt(infile.val, ',');
+				max_size_x = std::max(max_size_x, (tiles[index].src.w / TILE_W) + 1);
+				max_size_y = std::max(max_size_y, (tiles[index].src.h / TILE_H) + 1);
 			}
 			else if (infile.key == "img") {
 				img = infile.val;

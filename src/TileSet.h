@@ -83,6 +83,10 @@ public:
 	std::vector<Tile_Def> tiles;
 	std::vector<Tile_Anim> anim;
 	SDL_Surface *sprites;
+
+	// oversize of the largest tile available, in number of tiles.
+	int max_size_x;
+	int max_size_y;
 };
 
 #endif

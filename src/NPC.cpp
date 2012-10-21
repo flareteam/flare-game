@@ -355,8 +355,10 @@ Renderable NPC::getRender() {
 
 
 NPC::~NPC() {
-	const string anim_name = "animations/npcs/" + gfx + ".txt";
-	anim->decreaseCount(anim_name);
+	if (gfx != "") {
+		const string anim_name = "animations/npcs/" + gfx + ".txt";
+		anim->decreaseCount(anim_name);
+	}
 
 	if (portrait != NULL) SDL_FreeSurface(portrait);
 	while (!vox_intro.empty()) {
