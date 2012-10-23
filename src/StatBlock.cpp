@@ -214,6 +214,7 @@ StatBlock::StatBlock() {
 	join_combat = 0;
 	cooldown = 0;
 	activated_powerslot = 0;
+	on_half_dead_casted = false;
 }
 
 /**

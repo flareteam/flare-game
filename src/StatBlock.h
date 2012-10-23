@@ -272,6 +272,7 @@ public:
 	int cooldown_ticks;
 	int cooldown; // min. # of frames between abilities
 	int activated_powerslot;
+	bool on_half_dead_casted;
 	bool suppress_hp; // hide an enemy HP bar
 
 	int loot_chance;
