@@ -607,6 +607,9 @@ void MapRenderer::clearLayers() {
 	object = 0;
 	foreground = 0;
 	collision = 0;
+
+	SDL_FreeSurface(backgroundsurface);
+	backgroundsurface = 0;
 }
 
 void MapRenderer::loadMusic() {
@@ -698,8 +701,8 @@ void MapRenderer::render(vector<Renderable> &r, vector<Renderable> &r_dead) {
 
 void MapRenderer::createBackgroundSurface() {
 	SDL_FreeSurface(backgroundsurface);
-	backgroundsurface = createSurface(VIEW_W + 2 * TILE_W * tiles_outside_of_screen,
-			VIEW_H + 2 * TILE_H * tiles_outside_of_screen);
+	backgroundsurface = createSurface(VIEW_W + 2 * TILE_W * tset.max_size_x,
+			VIEW_H + 2 * TILE_H * tset.max_size_y);
 	// background has no alpha:
 	SDL_SetColorKey(backgroundsurface, 0, 0);
 }
@@ -719,10 +722,11 @@ void MapRenderer::renderIsoLayer(SDL_Surface *wheretorender, Point offset, const
 	short int j;
 	SDL_Rect dest;
 	const Point upperright = screen_to_map(0, 0, shakycam.x, shakycam.y);
-	const short max_tiles_width = (VIEW_W / TILE_W) + 2 * tiles_outside_of_screen;
-	const short max_tiles_height = (2 * VIEW_H / TILE_H) + 2 * tiles_outside_of_screen;
-	j = upperright.y / UNITS_PER_TILE;
-	i = upperright.x / UNITS_PER_TILE - tiles_outside_of_screen;
+	const short max_tiles_width =   (VIEW_W / TILE_W) + 2 * tset.max_size_x;
+	const short max_tiles_height = ((2 * VIEW_H / TILE_H) + 2 * tset.max_size_y) * 2;
+
+	j = upperright.y / UNITS_PER_TILE - tset.max_size_y + tset.max_size_x;
+	i = upperright.x / UNITS_PER_TILE - tset.max_size_y - tset.max_size_x;
 
 	for (unsigned short y = max_tiles_height ; y; --y) {
 		short tiles_width = 0;
@@ -776,15 +780,15 @@ void MapRenderer::renderIsoFrontObjects(vector<Renderable> &r) {
 	short int j;
 	SDL_Rect dest;
 	const Point upperright = screen_to_map(0, 0, shakycam.x, shakycam.y);
-	const short max_tiles_width = (VIEW_W / TILE_W) + 2 * tiles_outside_of_screen;
-	const short max_tiles_height = (2 * VIEW_H / TILE_H) + 2 * tiles_outside_of_screen;
+	const short max_tiles_width =   (VIEW_W / TILE_W) + 2 * tset.max_size_x;
+	const short max_tiles_height = ((VIEW_H / TILE_H) + 2 * tset.max_size_y)*2;
 
 	vector<Renderable>::iterator r_cursor = r.begin();
 	vector<Renderable>::iterator r_end = r.end();
 
 	// object layer
-	j = upperright.y / UNITS_PER_TILE;
-	i = upperright.x / UNITS_PER_TILE - tiles_outside_of_screen;
+	j = upperright.y / UNITS_PER_TILE - tset.max_size_y + tset.max_size_x;
+	i = upperright.x / UNITS_PER_TILE - tset.max_size_y - tset.max_size_x;
 
 	while (r_cursor != r_end && ((r_cursor->map_pos.x>>TILE_SHIFT) + (r_cursor->map_pos.y>>TILE_SHIFT) < i + j || (r_cursor->map_pos.x>>TILE_SHIFT) < i))
 		++r_cursor;

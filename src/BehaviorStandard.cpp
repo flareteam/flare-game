@@ -200,6 +200,15 @@ void BehaviorStandard::checkPower() {
 	// standard enemies can begin a power-use animation if they're standing around or moving voluntarily.
 	if (los && (e->stats.cur_state == ENEMY_STANCE || e->stats.cur_state == ENEMY_MOVE)) {
 
+		// check half dead power use
+		if (!e->stats.on_half_dead_casted && e->stats.hp <= e->stats.maxhp/2) {
+			if ((rand() % 100) < e->stats.power_chance[ON_HALF_DEAD]) {
+				e->newState(ENEMY_POWER);
+				e->stats.activated_powerslot = ON_HALF_DEAD;
+				return;
+			}
+		}
+
 		// check ranged power use
 		if (dist > e->stats.melee_range) {
 
@@ -246,6 +255,10 @@ void BehaviorStandard::checkPower() {
 			e->powers->activate(power_id, &e->stats, pursue_pos);
 			e->stats.power_ticks[power_slot] = e->stats.power_cooldown[power_slot];
 			e->stats.cooldown_ticks = e->stats.cooldown;
+
+			if (e->stats.activated_powerslot == ON_HALF_DEAD) {
+				e->stats.on_half_dead_casted = true;
+			}
 		}
 	}
 
@@ -442,6 +455,10 @@ void BehaviorStandard::updateState() {
 				e->sfx_die = true;
 				e->stats.corpse_ticks = CORPSE_TIMEOUT;
 			}
+			if (e->activeAnimation->isSecondLastFrame()) {
+				if ((rand() % 100) < e->stats.power_chance[ON_DEATH])
+					e->powers->activate(e->stats.power_index[ON_DEATH], &e->stats, e->stats.pos);
+			}
 			if (e->activeAnimation->isLastFrame()) e->stats.corpse = true; // puts renderable under object layer
 
 			break;
@@ -452,6 +469,10 @@ void BehaviorStandard::updateState() {
 			if (e->activeAnimation->isFirstFrame()) {
 				e->sfx_critdie = true;
 				e->stats.corpse_ticks = CORPSE_TIMEOUT;
+			}
+			if (e->activeAnimation->isSecondLastFrame()) {
+				if ((rand() % 100) < e->stats.power_chance[ON_DEATH])
+					e->powers->activate(e->stats.power_index[ON_DEATH], &e->stats, e->stats.pos);
 			}
 			if (e->activeAnimation->isLastFrame()) e->stats.corpse = true; // puts renderable under object layer
 
