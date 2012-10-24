@@ -106,15 +106,10 @@ public:
 	bool directional; // sprite sheet contains options for 8 directions, one per row
 	int visual_random; // sprite sheet contains rows of random options
 	int visual_option; // sprite sheet contains rows of similar effects.  use a specific option
-	int aim_assist;
+	bool aim_assist;
 	int speed; // for missile hazards, map units per frame
 	int lifespan; // how long the hazard/animation lasts
-	int frame_loop;
-	int frame_duration;
-	Point frame_size;
-	Point frame_offset;
 	bool floor; // the hazard is drawn between the background and object layers
-	int active_frame;
 	bool complete_animation;
 
 	// hazard traits
@@ -140,7 +135,6 @@ public:
 
 	//repeater traits
 	int delay;
-	int start_frame;
 
 	int trait_elemental; // enum. of elements
 	bool trait_armor_penetration;
@@ -203,15 +197,10 @@ public:
 		, directional(false)
 		, visual_random(0)
 		, visual_option(0)
-		, aim_assist(0)
+		, aim_assist(false)
 		, speed(0)
 		, lifespan(0)
-		, frame_loop(1)
-		, frame_duration(1)
-		, frame_size(Point())
-		, frame_offset(Point())
 		, floor(false)
-		, active_frame(-1)
 		, complete_animation(false)
 
 		, use_hazard(false)
@@ -233,7 +222,6 @@ public:
 		, speed_variance(0)
 
 		, delay(0)
-		, start_frame(0)
 
 		, trait_elemental(-1)
 		, trait_armor_penetration(false)

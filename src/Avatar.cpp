@@ -289,36 +289,16 @@ void Avatar::set_direction() {
 void Avatar::handlePower(int actionbar_power) {
 	if (actionbar_power != 0 && stats.cooldown_ticks == 0) {
 		const Power &power = powers->getPower(actionbar_power);
-		Point target = screen_to_map(inpt->mouse.x,  inpt->mouse.y + power.aim_assist, stats.pos.x, stats.pos.y);
-		if (!MOUSE_AIM) {
-			switch (stats.direction) {
-				case 0:
-					target = screen_to_map(VIEW_W_HALF-TILE_W, VIEW_H_HALF, stats.pos.x, stats.pos.y);
-					break;
-				case 1:
-					target = screen_to_map(VIEW_W_HALF-TILE_W, VIEW_H_HALF-TILE_H, stats.pos.x, stats.pos.y);
-					break;
-				case 2:
-					target = screen_to_map(VIEW_W_HALF, VIEW_H_HALF-TILE_H, stats.pos.x, stats.pos.y);
-					break;
-				case 3:
-					target = screen_to_map(VIEW_W_HALF+TILE_W, VIEW_H_HALF-TILE_H, stats.pos.x, stats.pos.y);
-					break;
-				case 4:
-					target = screen_to_map(VIEW_W_HALF+TILE_W, VIEW_H_HALF, stats.pos.x, stats.pos.y);
-					break;
-				case 5:
-					target = screen_to_map(VIEW_W_HALF+TILE_W, VIEW_H_HALF+TILE_H, stats.pos.x, stats.pos.y);
-					break;
-				case 6:
-					target = screen_to_map(VIEW_W_HALF, VIEW_H_HALF+TILE_H, stats.pos.x, stats.pos.y);
-					break;
-				case 7:
-					target = screen_to_map(VIEW_W_HALF-TILE_W, VIEW_H_HALF+TILE_H, stats.pos.x, stats.pos.y);
-					break;
-				default:
-					break;
-			}
+		Point target;
+		if (MOUSE_AIM) {
+			if (power.aim_assist)
+				target = screen_to_map(inpt->mouse.x,  inpt->mouse.y + AIM_ASSIST, stats.pos.x, stats.pos.y);
+			else
+				target = screen_to_map(inpt->mouse.x,  inpt->mouse.y, stats.pos.x, stats.pos.y);
+		} else {
+			FPoint ftarget = calcVector(stats.pos, stats.direction, stats.melee_range);
+			target.x = static_cast<int>(ftarget.x);
+			target.y = static_cast<int>(ftarget.y);
 		}
 
 		// check requirements
