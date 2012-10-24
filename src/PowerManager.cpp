@@ -178,7 +178,7 @@ void PowerManager::loadPowers(const std::string& filename) {
 		else if (infile.key == "visual_option")
 			powers[input_id].visual_option = toInt(infile.val);
 		else if (infile.key == "aim_assist")
-			powers[input_id].aim_assist = toInt(infile.val);
+			powers[input_id].aim_assist = toBool(infile.val);
 		else if (infile.key == "speed")
 			powers[input_id].speed = toInt(infile.val);
 		else if (infile.key == "lifespan")

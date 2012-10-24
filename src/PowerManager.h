@@ -106,7 +106,7 @@ public:
 	bool directional; // sprite sheet contains options for 8 directions, one per row
 	int visual_random; // sprite sheet contains rows of random options
 	int visual_option; // sprite sheet contains rows of similar effects.  use a specific option
-	int aim_assist;
+	bool aim_assist;
 	int speed; // for missile hazards, map units per frame
 	int lifespan; // how long the hazard/animation lasts
 	bool floor; // the hazard is drawn between the background and object layers
@@ -197,7 +197,7 @@ public:
 		, directional(false)
 		, visual_random(0)
 		, visual_option(0)
-		, aim_assist(0)
+		, aim_assist(false)
 		, speed(0)
 		, lifespan(0)
 		, floor(false)

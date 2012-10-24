@@ -291,7 +291,10 @@ void Avatar::handlePower(int actionbar_power) {
 		const Power &power = powers->getPower(actionbar_power);
 		Point target;
 		if (MOUSE_AIM) {
-			target = screen_to_map(inpt->mouse.x,  inpt->mouse.y + power.aim_assist, stats.pos.x, stats.pos.y);
+			if (power.aim_assist)
+				target = screen_to_map(inpt->mouse.x,  inpt->mouse.y + AIM_ASSIST, stats.pos.x, stats.pos.y);
+			else
+				target = screen_to_map(inpt->mouse.x,  inpt->mouse.y, stats.pos.x, stats.pos.y);
 		} else {
 			FPoint ftarget = calcVector(stats.pos, stats.direction, stats.melee_range);
 			target.x = static_cast<int>(ftarget.x);
