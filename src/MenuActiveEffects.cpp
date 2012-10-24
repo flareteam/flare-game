@@ -51,7 +51,11 @@ MenuActiveEffects::MenuActiveEffects(SDL_Surface *_icons) {
 			infile.val = infile.val + ',';
 
 			if(infile.key == "orientation") {
-				orientation = eatFirstInt(infile.val,',');
+				int orient = eatFirstInt(infile.val,',');
+				if (orient == 1)
+					orientation = true;
+				else
+					orientation = false;
 			}
 		}
 		infile.close();

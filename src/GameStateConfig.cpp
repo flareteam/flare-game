@@ -573,9 +573,9 @@ void GameStateConfig::readConfig () {
 			}
 			else if (infile.key == "keybinds_bg_color") {
 				// background color for keybinds scrollbox
-				scrollpane_color.x = x1;
-				scrollpane_color.y = y1;
-				scrollpane_color.w = x2;
+				scrollpane_color.r = x1;
+				scrollpane_color.g = y1;
+				scrollpane_color.b = x2;
 			}
 			else if (infile.key == "scrollpane") {
 				scrollpane.x = x1;
@@ -631,9 +631,9 @@ void GameStateConfig::readConfig () {
 	input_scrollbox->pos.x = scrollpane.x + frame.x;
 	input_scrollbox->pos.y = scrollpane.y + frame.y;
 	input_scrollbox->resize(scrollpane_contents);
-	input_scrollbox->bg.r = scrollpane_color.x;
-	input_scrollbox->bg.g = scrollpane_color.y;
-	input_scrollbox->bg.b = scrollpane_color.w;
+	input_scrollbox->bg.r = scrollpane_color.r;
+	input_scrollbox->bg.g = scrollpane_color.g;
+	input_scrollbox->bg.b = scrollpane_color.b;
 
 	// Set positions of secondary key bindings
 	for (unsigned int i = 25; i < 50; i++) {
@@ -854,7 +854,7 @@ void GameStateConfig::logic ()
 			value = resolution_lstb->getValue() + 'x';
 		} else if (CHANGE_GAMMA) {
 			if (gamma_sl->checkClick()) {
-					GAMMA=(float)(gamma_sl->getValue())*0.1;
+					GAMMA=(gamma_sl->getValue())*0.1f;
 					SDL_SetGamma(GAMMA,GAMMA,GAMMA);
 			}
 		}

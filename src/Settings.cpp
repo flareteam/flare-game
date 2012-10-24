@@ -344,13 +344,19 @@ void loadMiscSettings() {
 	if (infile.open(mods->locate("engine/misc.txt").c_str())) {
 		while (infile.next()) {
 			if (infile.key == "save_hpmp") {
-				SAVE_HPMP = toInt(infile.val);
+				if (toInt(infile.val) == 1)
+					SAVE_HPMP = true;
+				else
+					SAVE_HPMP = false;
 			} else if (infile.key == "default_name") {
 				DEFAULT_NAME = infile.val.c_str();
 			} else if (infile.key == "corpse_timeout") {
 				CORPSE_TIMEOUT = toInt(infile.val);
 			} else if (infile.key == "sell_without_vendor") {
-				SELL_WITHOUT_VENDOR = toInt(infile.val);
+				if (toInt(infile.val) == 1)
+					SELL_WITHOUT_VENDOR = true;
+				else
+					SELL_WITHOUT_VENDOR = false;
 			}
 		}
 		infile.close();
@@ -380,7 +386,10 @@ void loadMiscSettings() {
 	if (infile.open(mods->locate("engine/gameplay.txt").c_str())) {
 		while (infile.next()) {
 			if (infile.key == "enable_playgame") {
-				ENABLE_PLAYGAME = toInt(infile.val);
+				if (toInt(infile.val) == 1)
+					ENABLE_PLAYGAME = true;
+				else
+					ENABLE_PLAYGAME = false;
 			}
 		}
 		infile.close();

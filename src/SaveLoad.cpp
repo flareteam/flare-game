@@ -176,7 +176,10 @@ void GameStatePlay::loadGame() {
 		while (infile.next()) {
 			if (infile.key == "name") pc->stats.name = infile.val;
 			else if (infile.key == "permadeath") {
-				pc->stats.permadeath = toInt(infile.val);
+				if (toInt(infile.val) == 1)
+					pc->stats.permadeath = true;
+				else
+					pc->stats.permadeath = false;
 			}
 			else if (infile.key == "option") {
 				pc->stats.base = infile.nextValue();

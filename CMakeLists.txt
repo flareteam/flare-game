@@ -7,7 +7,7 @@ Set (VERSION "0.17")
 
 # Default definitions
 if (MSVC)
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /wd4099 /wd4244")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
 else (MSVC)
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wunused -Wshadow -Woverloaded-virtual -Wunreachable-code")
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-math-errno -fno-exceptions -ffast-math")
@@ -17,10 +17,10 @@ endif (MSVC)
 if (CMAKE_CXX_COMPILER MATCHES "clang")
   # clang needs lstdc++ linked explicitly:
   set(CMAKE_LD_FLAGS "${CMAKE_LD_FLAGS} -lstdc++")
-else (CMAKE_CXX_COMPILER MATCHES "clang")
+elseif (CMAKE_CXX_COMPILER MATCHES "gcc")
   # assume gcc:
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-enforce-eh-specs")
-endif (CMAKE_CXX_COMPILER MATCHES "clang")
+endif ()
 
 if(CMAKE_BUILD_TYPE STREQUAL "Release")
   set(CMAKE_CXX_FLAGS_RELEASE "-O2 -g0")
