@@ -233,22 +233,9 @@ bool Enemy::takeHit(const Hazard &h) {
 
 		// after effects
 		if (stats.hp > 0) {
-			if (h.stun_duration > stats.stun_duration) {
-				stats.stun_duration_total = stats.stun_duration = h.stun_duration;
-				// stats.addEffect("stun",powers->getEffectIcon("stun"));
-			}
-			if (h.slow_duration > stats.slow_duration) {
-				stats.slow_duration_total = stats.slow_duration = h.slow_duration;
-				// stats.addEffect("slow",powers->getEffectIcon("slow"));
-			}
-			if (h.bleed_duration > stats.bleed_duration) {
-				stats.bleed_duration_total = stats.bleed_duration = h.bleed_duration;
-				// stats.addEffect("bleed",powers->getEffectIcon("bleed"));
-			}
-			if (h.immobilize_duration > stats.immobilize_duration) {
-				stats.immobilize_duration_total = stats.immobilize_duration = h.immobilize_duration;
-				// stats.addEffect("immobilize",powers->getEffectIcon("immobilize"));
-			}
+
+			powers->effect(&stats, h.power_index);
+
 			if (h.forced_move_duration > stats.forced_move_duration) stats.forced_move_duration_total = stats.forced_move_duration = h.forced_move_duration;
 			if (h.forced_move_speed != 0) {
 				float theta = powers->calcTheta(stats.hero_pos.x, stats.hero_pos.y, stats.pos.x, stats.pos.y);

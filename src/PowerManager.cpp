@@ -110,6 +110,7 @@ void PowerManager::loadPowers(const std::string& filename) {
 			else if (infile.val == "repeater") powers[input_id].type = POWTYPE_REPEATER;
 			else if (infile.val == "spawn") powers[input_id].type = POWTYPE_SPAWN;
 			else if (infile.val == "transform") powers[input_id].type = POWTYPE_TRANSFORM;
+			else if (infile.val == "effect") powers[input_id].type = POWTYPE_EFFECT;
 			else fprintf(stderr, "unknown type %s\n", infile.val.c_str());
 		}
 		else if (infile.key == "name")
@@ -258,6 +259,8 @@ void PowerManager::loadPowers(const std::string& filename) {
 		else if (infile.key == "hot_value")
 			powers[input_id].hot_value = toInt(infile.val);
 		// buffs
+		else if (infile.key == "buff")
+			powers[input_id].buff= toBool(infile.val);
 		else if (infile.key == "buff_heal")
 			powers[input_id].buff_heal = toBool(infile.val);
 		else if (infile.key == "buff_shield")
@@ -665,17 +668,6 @@ void PowerManager::buff(int power_index, StatBlock *src_stats, Point target) {
 		if (src_stats->mp > src_stats->maxmp) src_stats->mp = src_stats->maxmp;
 	}
 
-	// charge shield to max ment weapon damage * damage multiplier
-	if (powers[power_index].buff_shield) {
-		int shield_amt = (int)ceil(src_stats->dmg_ment_max * powers[power_index].damage_multiplier / 100.0) + (src_stats->get_mental()*src_stats->bonus_per_mental);
-		if (src_stats->hero)
-			comb->addMessage(msg->get("+%d Shield",shield_amt), src_stats->pos, COMBAT_MESSAGE_BUFF, true);
-		else
-			comb->addMessage(msg->get("+%d Shield",shield_amt), src_stats->pos, COMBAT_MESSAGE_BUFF, false);
-		src_stats->shield_hp = src_stats->shield_hp_total = shield_amt;
-		// src_stats->addEffect("shield",getEffectIcon("shield"));
-	}
-
 	// teleport to the target location
 	if (powers[power_index].buff_teleport) {
 		target = limitRange(powers[power_index].range,src_stats->pos,target);
@@ -695,41 +687,10 @@ void PowerManager::buff(int power_index, StatBlock *src_stats, Point target) {
 		}
 	}
 
-	// buff_immunity removes all existing debuffs
-	if (powers[power_index].buff_immunity) {
-		src_stats->slow_duration = 0;
-		src_stats->immobilize_duration = 0;
-		src_stats->stun_duration = 0;
-		src_stats->bleed_duration = 0;
+	// handle all other effects
+	if (powers[power_index].buff) {
+		effect(src_stats, power_index);
 	}
-
-	// immunity_duration makes one immune to new debuffs
-	if (src_stats->immunity_duration < powers[power_index].immunity_duration) {
-		// src_stats->addEffect("immunity",getEffectIcon("immunity"));
-		src_stats->immunity_duration = src_stats->immunity_duration_total = powers[power_index].immunity_duration;
-	}
-
-	// transform_duration causes hero to be transformed
-	if (src_stats->transform_duration < powers[power_index].transform_duration &&
-		src_stats->transform_duration !=-1) {
-		// src_stats->addEffect("transform",getEffectIcon("transform"));
-		src_stats->transform_duration = src_stats->transform_duration_total = powers[power_index].transform_duration;
-	}
-
-	// haste doubles run speed and removes power cooldowns
-	if (src_stats->haste_duration < powers[power_index].haste_duration) {
-		// src_stats->addEffect("haste",getEffectIcon("haste"));
-		src_stats->haste_duration = src_stats->haste_duration_total = powers[power_index].haste_duration;
-	}
-
-	// hot is healing over time
-	if (src_stats->hot_duration < powers[power_index].hot_duration) {
-		// src_stats->addEffect("hot",getEffectIcon("hot"));
-		src_stats->hot_duration = src_stats->hot_duration_total = powers[power_index].hot_duration;
-		src_stats->hot_value = powers[power_index].hot_value;
-	}
-
-    effect(src_stats, power_index);
 }
 
 /**
@@ -766,9 +727,19 @@ void PowerManager::playSound(int power_index, StatBlock *src_stats) {
 }
 
 void PowerManager::effect(StatBlock *src_stats, int power_index) {
-    int effect_index = powers[power_index].effect_id;
-    if (effect_index > 0)
-        src_stats->effects.addEffect(effect_index, powers[effect_index].icon, powers[power_index].effect_duration, powers[effect_index].effect_type, powers[effect_index].animation_name);
+	int shield_amt = 0;
+	int effect_index = powers[power_index].effect_id;
+	if (effect_index > 0) {
+		if (powers[effect_index].effect_type == "shield") {
+			// charge shield to max ment weapon damage * damage multiplier
+			shield_amt = (int)ceil(src_stats->dmg_ment_max * powers[power_index].damage_multiplier / 100.0) + (src_stats->get_mental()*src_stats->bonus_per_mental);
+			if (src_stats->hero)
+				comb->addMessage(msg->get("+%d Shield",shield_amt), src_stats->pos, COMBAT_MESSAGE_BUFF, true);
+			else
+				comb->addMessage(msg->get("+%d Shield",shield_amt), src_stats->pos, COMBAT_MESSAGE_BUFF, false);
+		}
+		src_stats->effects.addEffect(effect_index, powers[effect_index].icon, powers[power_index].effect_duration, shield_amt, powers[effect_index].effect_type, powers[effect_index].animation_name);
+	}
 }
 
 /**
@@ -1037,7 +1008,7 @@ bool PowerManager::activate(int power_index, StatBlock *src_stats, Point target)
 	// logic for different types of powers are very different.  We allow these
 	// separate functions to handle the details.
 	switch(powers[power_index].type) {
-		case POWTYPE_FIXED:    return fixed(power_index, src_stats, target);
+		case POWTYPE_FIXED:     return fixed(power_index, src_stats, target);
 		case POWTYPE_MISSILE:   return missile(power_index, src_stats, target);
 		case POWTYPE_REPEATER:  return repeater(power_index, src_stats, target);
 		case POWTYPE_SPAWN:     return spawn(power_index, src_stats, target);

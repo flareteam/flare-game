@@ -26,29 +26,50 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 using namespace std;
 
 EffectManager::EffectManager() {
+	bleed_dmg = 0;
 }
 
 EffectManager::~EffectManager() {
 }
 
 void EffectManager::logic() {
+	bleed_dmg = 0;
 	for (unsigned i=0; i<effect_list.size(); i++) {
 		if (effect_list[i].duration > 0) {
+			if (effect_list[i].type == "bleed" && effect_list[i].ticks % 30 == 1) bleed_dmg += 1;
 			if (effect_list[i].ticks > 0) effect_list[i].ticks--;
-			if (effect_list[i].ticks == 0) {
-				if (effect_list[i].animation && effect_list[i].animation_name != "") {
-					anim->decreaseCount(effect_list[i].animation_name);
-					delete effect_list[i].animation;
-				}
-				effect_list.erase(effect_list.begin()+i);
-			}
+			if (effect_list[i].ticks == 0) removeEffect(i);
+		}
+		if (effect_list[i].shield_maxhp > 0) {
+			if (effect_list[i].shield_hp == 0) removeEffect(i);
 		}
 	}
 }
 
-void EffectManager::addEffect(int _id, int _icon, int _duration, std::string _type, std::string _animation) {
+void EffectManager::addEffect(int _id, int _icon, int _duration, int _shield_hp, std::string _type, std::string _animation) {
 	for (unsigned i=0; i<effect_list.size(); i++) {
-		if (effect_list[i].id == _id) return; // we already have this effect
+		if (effect_list[i].id == _id) {
+			if (effect_list[i].duration <= _duration)
+				effect_list[i].ticks = effect_list[i].duration = _duration;
+			if (effect_list[i].shield_maxhp <= _shield_hp)
+				effect_list[i].shield_hp = effect_list[i].shield_maxhp = _shield_hp;
+			return; // we already have this effect
+		}
+		// if we're adding an immunity effect, remove all negative effects
+		if (_type == "immunity") {
+			if (effect_list[i].type == "bleed") removeEffect(i);
+			else if (effect_list[i].type == "slow") removeEffect(i);
+			else if (effect_list[i].type == "stun") removeEffect(i);
+			else if (effect_list[i].type == "immobilize") removeEffect(i);
+		}
+	}
+
+	// if we're already immune, don't add negative effects
+	if (hasImmunity()) {
+		if (_type == "bleed") return;
+		else if (_type == "slow") return;
+		else if (_type == "stun") return;
+		else if (_type == "immobilize") return;
 	}
 
 	Effect e;
@@ -56,6 +77,7 @@ void EffectManager::addEffect(int _id, int _icon, int _duration, std::string _ty
 	e.id = _id;
 	e.icon = _icon;
 	e.ticks = e.duration = _duration;
+	e.shield_hp = e.shield_maxhp = _shield_hp;
 	e.type = _type;
 
 	if (_animation != "") {
@@ -67,6 +89,35 @@ void EffectManager::addEffect(int _id, int _icon, int _duration, std::string _ty
 	}
 
 	effect_list.push_back(e);
+}
+
+void EffectManager::removeEffect(int _id) {
+	effect_list.erase(effect_list.begin()+_id);
+}
+
+int EffectManager::damageShields(int _dmg) {
+	int over_dmg = _dmg;
+
+	for (unsigned i=0; i<effect_list.size(); i++) {
+		if (effect_list[i].shield_maxhp > 0) {
+			effect_list[i].shield_hp -= _dmg;
+			if (effect_list[i].shield_hp < 0) {
+				if (abs(effect_list[i].shield_hp) < over_dmg) over_dmg = abs(effect_list[i].shield_hp);
+				effect_list[i].shield_hp = 0;
+			} else {
+				over_dmg = 0;
+			}
+		}
+	}
+
+	return over_dmg;
+}
+
+bool EffectManager::hasImmunity() {
+	for (unsigned i=0; i<effect_list.size(); i++) {
+		if (effect_list[i].type == "immunity") return true;
+	}
+	return false;
 }
 
 Animation* EffectManager::loadAnimation(std::string &s) {

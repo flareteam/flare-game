@@ -354,16 +354,7 @@ void StatBlock::load(const string& filename) {
  * Reduce temphp first, then hp
  */
 void StatBlock::takeDamage(int dmg) {
-	if (shield_hp > 0) {
-		shield_hp -= dmg;
-		if (shield_hp < 0) {
-			hp += shield_hp;
-			shield_hp = 0;
-		}
-	}
-	else {
-		hp -= dmg;
-	}
+	hp -= effects.damageShields(dmg);
 	if (hp <= 0) {
 		hp = 0;
 		alive = false;
@@ -460,8 +451,8 @@ void StatBlock::logic() {
 		transform_duration--;
 
 	// apply bleed
-	if (bleed_duration % MAX_FRAMES_PER_SEC == 1) {
-		takeDamage(1);
+	if (effects.bleed_dmg > 0) {
+		takeDamage(effects.bleed_dmg);
 	}
 
 	// apply healing over time

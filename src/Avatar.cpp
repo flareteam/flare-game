@@ -409,10 +409,11 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 	}
 
 	// check for bleeding spurt
-	if (stats.bleed_duration % 30 == 1 && stats.hp > 0) {
-		comb->addMessage(1, stats.pos, COMBAT_MESSAGE_TAKEDMG, true);
+	if (stats.effects.bleed_dmg > 0 && stats.hp > 0) {
+		comb->addMessage(stats.effects.bleed_dmg, stats.pos, COMBAT_MESSAGE_TAKEDMG, true);
 		powers->activate(POWER_SPARK_BLOOD, &stats, stats.pos);
 	}
+
 	// check for bleeding to death
 	if (stats.hp == 0 && !(stats.cur_state == AVATAR_DEAD)) {
 		stats.cur_state = AVATAR_DEAD;
@@ -728,23 +729,10 @@ bool Avatar::takeHit(const Hazard &h) {
 		stats.takeDamage(dmg);
 
 		// after effects
-		if (stats.hp > 0 && stats.immunity_duration == 0 && dmg > 0) {
-			if (h.stun_duration > stats.stun_duration) {
-				stats.stun_duration_total = stats.stun_duration = h.stun_duration;
-				// stats.addEffect("stun",powers->getEffectIcon("stun"));
-			}
-			if (h.slow_duration > stats.slow_duration) {
-				stats.slow_duration_total = stats.slow_duration = h.slow_duration;
-				// stats.addEffect("slow",powers->getEffectIcon("slow"));
-			}
-			if (h.bleed_duration > stats.bleed_duration) {
-				stats.bleed_duration_total = stats.bleed_duration = h.bleed_duration;
-				// stats.addEffect("bleed",powers->getEffectIcon("bleed"));
-			}
-			if (h.immobilize_duration > stats.immobilize_duration) {
-				stats.immobilize_duration_total = stats.immobilize_duration = h.immobilize_duration;
-				// stats.addEffect("immobilize",powers->getEffectIcon("immobilize"));
-			}
+		if (stats.hp > 0 && !stats.effects.hasImmunity() && dmg > 0) {
+
+			powers->effect(&stats, h.power_index);
+
 			if (h.forced_move_duration > stats.forced_move_duration) stats.forced_move_duration_total = stats.forced_move_duration = h.forced_move_duration;
 			if (h.forced_move_speed != 0) {
 				float theta = powers->calcTheta(h.src_stats->pos.x, h.src_stats->pos.y, stats.pos.x, stats.pos.y);

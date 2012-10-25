@@ -51,6 +51,7 @@ const int POWTYPE_MISSILE = 1;
 const int POWTYPE_REPEATER = 2;
 const int POWTYPE_SPAWN = 3;
 const int POWTYPE_TRANSFORM = 4;
+const int POWTYPE_EFFECT = 5;
 
 const int POWSTATE_SWING = 0;
 const int POWSTATE_CAST = 1;
@@ -152,6 +153,7 @@ public:
 	int hot_value;
 
 	// special effects
+	bool buff;
 	bool buff_heal;
 	bool buff_shield;
 	bool buff_teleport;
@@ -242,6 +244,7 @@ public:
 		, hot_duration(0)
 		, hot_value(0)
 
+		, buff(false)
 		, buff_heal(false)
 		, buff_shield(false)
 		, buff_teleport(false)
@@ -282,7 +285,6 @@ private:
 	void buff(int power_index, StatBlock *src_stats, Point target);
 	void playSound(int power_index, StatBlock *src_stats);
 
-	void effect(StatBlock *src_stats, int power_index);
 	bool fixed(int powernum, StatBlock *src_stats, Point target);
 	bool missile(int powernum, StatBlock *src_stats, Point target);
 	bool repeater(int powernum, StatBlock *src_stats, Point target);
@@ -304,6 +306,7 @@ public:
 	bool canUsePower(unsigned id) const;
 	bool hasValidTarget(int power_index, StatBlock *src_stats, Point target);
 	bool spawn(const std::string& enemy_type, Point target);
+	void effect(StatBlock *src_stats, int power_index);
 
 	std::vector<Power> powers;
 	std::queue<Hazard *> hazards; // output; read by HazardManager

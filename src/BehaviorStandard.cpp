@@ -86,8 +86,8 @@ void BehaviorStandard::doUpkeep() {
 	}
 
 	// TEMP: check for bleeding spurt
-	if (e->stats.bleed_duration % 30 == 1) {
-		comb->addMessage(1, e->stats.pos, COMBAT_MESSAGE_GIVEDMG, false);
+	if (e->stats.effects.bleed_dmg > 0 && e->stats.hp > 0) {
+		comb->addMessage(e->stats.effects.bleed_dmg, e->stats.pos, COMBAT_MESSAGE_TAKEDMG, false);
 		e->powers->activate(POWER_SPARK_BLOOD, &e->stats, e->stats.pos);
 	}
 

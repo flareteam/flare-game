@@ -45,6 +45,8 @@ struct Effect{
 	std::string type;
 	std::string animation_name;
 	Animation* animation;
+	int shield_hp;
+	int shield_maxhp;
 
 	Effect() {
 		id = 0;
@@ -54,6 +56,8 @@ struct Effect{
 		type = "";
 		animation_name = "";
 		animation = NULL;
+		shield_hp = 0;
+		shield_maxhp = 0;
 	}
 
 	~Effect() {
@@ -65,14 +69,18 @@ struct Effect{
 class EffectManager {
 private:
 	Animation* loadAnimation(std::string &s);
+	void removeEffect(int _id);
 
 public:
 	EffectManager();
 	~EffectManager();
 	void logic();
-	void addEffect(int _id, int _icon, int _duration, std::string _type, std::string _animation);
+	void addEffect(int _id, int _icon, int _duration, int _shield_hp, std::string _type, std::string _animation);
+	int damageShields(int _dmg);
+	bool hasImmunity();
 
 	std::vector<Effect> effect_list;
+	int bleed_dmg;
 };
 
 #endif
