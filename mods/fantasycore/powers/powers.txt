@@ -76,6 +76,7 @@ starting_pos=melee
 bleed_duration=150
 post_power=127
 allow_power_mod=true
+effect=202,150
 
 [power]
 id=6
@@ -143,8 +144,7 @@ new_state=cast
 requires_mp=2
 sfx=warcry.ogg
 trait_elemental=light
-buff_immunity=true
-immunity_duration=300
+buff=true
 effect=205,300
 
 [power]
@@ -177,7 +177,7 @@ description=Create a force field that absorbs damage
 new_state=cast
 requires_mp=2
 sfx=shield.ogg
-buff_shield=true
+buff=true
 effect=200,0
 
 [power]
