@@ -3,7 +3,7 @@
 [power]
 id=1
 name=Swing
-type=effect
+type=fixed
 icon=1
 description=Basic melee attack
 new_state=swing
@@ -61,7 +61,7 @@ immobilize_duration=90
 [power]
 id=5
 name=Blood Strike
-type=effect
+type=fixed
 icon=5
 description=Inflict a bleeding wound that causes additional damage over 5 seconds
 new_state=swing
@@ -103,7 +103,7 @@ wall_power=126
 [power]
 id=7
 name=Heal
-type=effect
+type=fixed
 icon=7
 description=Restore HP
 new_state=cast
@@ -136,7 +136,7 @@ allow_power_mod=true
 [power]
 id=9
 name=Warcry
-type=effect
+type=fixed
 icon=9
 description=Remove debuffs and become immune to debuffs for 10 seconds
 new_state=cast
@@ -145,11 +145,12 @@ sfx=warcry.ogg
 trait_elemental=light
 buff_immunity=true
 immunity_duration=300
+effect=205,300
 
 [power]
 id=10
 name=Quake
-type=effect
+type=fixed
 icon=10
 description=Stun nearby enemies
 new_state=cast
@@ -170,20 +171,21 @@ cooldown=3000
 [power]
 id=11
 name=Shield
-type=effect
+type=fixed
 icon=11
 description=Create a force field that absorbs damage
 new_state=cast
 requires_mp=2
 sfx=shield.ogg
 buff_shield=true
+effect=200,0
 
 [power]
 id=12
 name=Haste
 icon=12
 description=Double run and attack speed for 8 seconds
-type=effect
+type=fixed
 new_state=cast
 face=false
 requires_mp=1
@@ -192,7 +194,7 @@ haste_duration=240
 [power]
 id=13
 name=Cleave
-type=effect
+type=fixed
 icon=13
 description=Attack all enemies in a wide arc
 new_state=swing
@@ -232,7 +234,7 @@ count=10
 [power]
 id=15
 name=Teleport
-type=effect
+type=fixed
 icon=15
 description=Blink to a nearby location
 new_state=cast
@@ -269,7 +271,7 @@ allow_power_mod=true
 [power]
 id=18
 name=Burn
-type=effect
+type=fixed
 icon=18
 description=Blast enemies in a distant area with fire
 new_state=cast
@@ -293,7 +295,7 @@ range=512
 [power]
 id=19
 name=Time Stop
-type=effect
+type=fixed
 icon=19
 description=Stun nearby enemies for 5 seconds
 new_state=cast
@@ -309,7 +311,7 @@ base_damage=none
 [power]
 id=20
 name=Heroic Swing
-type=effect
+type=fixed
 icon=1
 description=Melee attack with 10% HP steal
 new_state=swing
@@ -442,7 +444,7 @@ angle_variance=15
 [power]
 id=33
 name=Fireburst [enemy]
-type=effect
+type=fixed
 icon=10
 description=Burn nearby enemies
 new_state=cast
@@ -508,7 +510,7 @@ missile_angle=40
 [power]
 id=36
 name=Vampiric Strike
-type=effect
+type=fixed
 icon=1
 description=Turn 50% of damage you deal into HP
 new_state=swing
@@ -525,7 +527,7 @@ hp_steal=50
 [power]
 id=37
 name=Leech Strike
-type=effect
+type=fixed
 icon=1
 description=Turn 25% of damage you deal into HP
 new_state=swing
@@ -542,7 +544,7 @@ hp_steal=50
 [power]
 id=38
 name=Chill Touch
-type=effect
+type=fixed
 icon=1
 description=Melee strike immobilizes target for 5 seconds
 new_state=swing
@@ -559,7 +561,7 @@ immobilize_duration=150
 [power]
 id=39
 name=Piercing Strike
-type=effect
+type=fixed
 icon=1
 description=Melee strike ignores armor
 new_state=swing
@@ -576,7 +578,7 @@ trait_armor_penetration=true
 [power]
 id=40
 name=Explode
-type=effect
+type=fixed
 icon=18
 description=Damage everything nearby
 new_state=cast
@@ -642,7 +644,7 @@ missile_angle=15
 
 [power]
 id=100
-type=effect
+type=fixed
 icon=32
 name=Health Potion
 sfx=potion.ogg
@@ -653,7 +655,7 @@ cooldown=600
 
 [power]
 id=101
-type=effect
+type=fixed
 icon=33
 name=Mana Potion
 new_state=instant
@@ -664,7 +666,7 @@ cooldown=600
 
 [power]
 id=102
-type=effect
+type=fixed
 icon=34
 name=Health Flask
 sfx=potion.ogg
@@ -675,7 +677,7 @@ cooldown=600
 
 [power]
 id=103
-type=effect
+type=fixed
 icon=35
 name=Mana Flask
 new_state=instant
@@ -688,7 +690,7 @@ cooldown=600
 [power]
 id=114
 name=Boots of Testing Really Large Maps
-type=effect
+type=fixed
 icon=113
 description=Blink to a nearby location
 new_state=cast
@@ -829,7 +831,7 @@ wall_power=126
 [power]
 id=124
 name=Arrow Wall Strike
-type=effect
+type=fixed
 icon=20
 animation=arrow_stuck.txt
 use_hazard=true
@@ -841,7 +843,7 @@ starting_pos=target
 [power]
 id=125
 name=Orange Spark
-type=effect
+type=fixed
 icon=20
 animation=spark_orange.txt
 use_hazard=true
@@ -853,7 +855,7 @@ visual_random=2
 [power]
 id=126
 name=Blue Spark
-type=effect
+type=fixed
 icon=20
 animation=spark_blue.txt
 use_hazard=true
@@ -865,7 +867,7 @@ visual_random=2
 [power]
 id=127
 name=Red Spark
-type=effect
+type=fixed
 icon=20
 animation=spark_red.txt
 use_hazard=true
@@ -896,7 +898,7 @@ wall_power=126
 [power]
 id=129
 name=Scroll of Teleport
-type=effect
+type=fixed
 icon=53
 description=Blink to a nearby location
 new_state=cast
@@ -916,7 +918,7 @@ range=512
 [power]
 id=130
 name=Scroll of Time Stop
-type=effect
+type=fixed
 icon=52
 description=Stun nearby enemies for 10 seconds
 new_state=cast
@@ -934,7 +936,7 @@ id=131
 name=Scroll of Haste
 icon=48
 description=Double run and attack speed for 20 seconds
-type=effect
+type=fixed
 new_state=cast
 face=false
 haste_duration=600
@@ -944,7 +946,7 @@ requires_item=14
 id=132
 name=Enemy Beacon
 description=Bring other enemies into the fight with a dummy attack
-type=effect
+type=fixed
 icon=20
 use_hazard=true
 lifespan=1
@@ -1054,7 +1056,7 @@ count=10
 [power]
 id=160
 name=Spikes
-type=effect
+type=fixed
 description=Spikes Trap
 animation=spikes.txt
 use_hazard=true
@@ -1066,3 +1068,72 @@ base_damage=melee
 visual_random=4
 sfx=spikes.ogg
 
+[power]
+id=200
+name=Shield (effect)
+type=effect
+icon=11
+effect_type=shield
+
+[power]
+id=201
+name=Slow (effect)
+type=effect
+icon=14
+effect_type=slow
+
+[power]
+id=202
+name=Bleed (effect)
+type=effect
+icon=5
+effect_type=bleed
+
+[power]
+id=203
+name=Stun (effect)
+type=effect
+icon=10
+effect_type=stun
+
+[power]
+id=204
+name=Immobilize (effect)
+type=effect
+icon=4
+effect_type=immobilize
+
+[power]
+id=205
+name=Immunity (effect)
+type=effect
+icon=9
+effect_type=immunity
+
+[power]
+id=206
+name=Transform (effect)
+type=effect
+icon=21
+effect_type=transform
+
+[power]
+id=207
+name=Haste (effect)
+type=effect
+icon=12
+effect_type=haste
+
+[power]
+id=208
+name=HOT (effect)
+type=effect
+icon=7
+effect_type=hot
+
+[power]
+id=209
+name=Block (effect)
+type=effect
+icon=3
+effect_type=block
