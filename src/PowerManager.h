@@ -46,7 +46,7 @@ class StatBlock;
 
 const int POWER_COUNT = 1024;
 
-const int POWTYPE_EFFECT = 0;
+const int POWTYPE_FIXED = 0;
 const int POWTYPE_MISSILE = 1;
 const int POWTYPE_REPEATER = 2;
 const int POWTYPE_SPAWN = 3;
@@ -159,6 +159,10 @@ public:
 	int buff_restore_hp;
 	int buff_restore_mp;
 
+	int effect_id;
+	int effect_duration;
+	std::string effect_type;
+
 	int post_power;
 	int wall_power;
 	bool allow_power_mod;
@@ -245,6 +249,10 @@ public:
 		, buff_restore_hp(0)
 		, buff_restore_mp(0)
 
+		, effect_id(0)
+		, effect_duration(0)
+		, effect_type("")
+
 		, post_power(0)
 		, wall_power(0)
 
@@ -258,40 +266,13 @@ public:
 class PowerManager {
 private:
 
-	struct Effect {
-		std::string type;
-		int icon;
-		SDL_Surface *gfx;
-		SDL_Rect frame_size;
-		Point frame_offset;
-		int frame_total;
-		int ticks_per_frame;
-
-		Effect() {
-			type = "";
-			icon = -1;
-			gfx = NULL;
-			frame_size.x = 0;
-			frame_size.y = 0;
-			frame_size.w = 1;
-			frame_size.h = 1;
-			frame_offset.x = 0;
-			frame_offset.y = 0;
-			frame_total = 1;
-			ticks_per_frame = 1;
-		}
-	};
-
 	MapCollision *collider;
 
 	void loadAll();
 	void loadPowers(const std::string& filename);
-	void loadEffects(const std::string& filename);
 
 	int loadSFX(const std::string& filename);
-	std::vector<std::string> gfx_filenames;
 	std::vector<std::string> sfx_filenames;
-	std::vector<Effect> effects;
 
 	int calcDirection(int origin_x, int origin_y, int target_x, int target_y);
 	Point limitRange(int range, Point src, Point target);
@@ -301,7 +282,8 @@ private:
 	void buff(int power_index, StatBlock *src_stats, Point target);
 	void playSound(int power_index, StatBlock *src_stats);
 
-	bool effect(int powernum, StatBlock *src_stats, Point target);
+	void effect(StatBlock *src_stats, int power_index);
+	bool fixed(int powernum, StatBlock *src_stats, Point target);
 	bool missile(int powernum, StatBlock *src_stats, Point target);
 	bool repeater(int powernum, StatBlock *src_stats, Point target);
 	bool spawn(int powernum, StatBlock *src_stats, Point target);
@@ -322,8 +304,6 @@ public:
 	bool canUsePower(unsigned id) const;
 	bool hasValidTarget(int power_index, StatBlock *src_stats, Point target);
 	bool spawn(const std::string& enemy_type, Point target);
-	Renderable renderEffects(StatBlock *src_stats);
-	int getEffectIcon(std::string type);
 
 	std::vector<Power> powers;
 	std::queue<Hazard *> hazards; // output; read by HazardManager

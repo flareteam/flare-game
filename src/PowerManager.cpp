@@ -69,11 +69,6 @@ void PowerManager::loadAll() {
 			this->loadPowers(test_path);
 		}
 
-		test_path = PATH_DATA + "mods/" + mods->mod_list[i] + "/engine/effects.txt";
-
-		if (fileExists(test_path)) {
-			this->loadEffects(test_path);
-		}
 	}
 
 }
@@ -110,7 +105,7 @@ void PowerManager::loadPowers(const std::string& filename) {
 			continue;
 
 		if (infile.key == "type") {
-			if (infile.val == "effect") powers[input_id].type = POWTYPE_EFFECT;
+			if (infile.val == "fixed") powers[input_id].type = POWTYPE_FIXED;
 			else if (infile.val == "missile") powers[input_id].type = POWTYPE_MISSILE;
 			else if (infile.val == "repeater") powers[input_id].type = POWTYPE_REPEATER;
 			else if (infile.val == "spawn") powers[input_id].type = POWTYPE_SPAWN;
@@ -275,6 +270,12 @@ void PowerManager::loadPowers(const std::string& filename) {
 			powers[input_id].buff_restore_hp = toInt(infile.val);
 		else if (infile.key == "buff_restore_mp")
 			powers[input_id].buff_restore_mp = toInt(infile.val);
+		else if (infile.key == "effect") {
+			powers[input_id].effect_id = toInt(infile.nextValue());
+			powers[input_id].effect_duration = toInt(infile.nextValue());
+		}
+		else if (infile.key == "effect_type")
+			powers[input_id].effect_type = infile.val;
 		// pre and post power effects
 		else if (infile.key == "post_power")
 			powers[input_id].post_power = toInt(infile.val);
@@ -289,67 +290,6 @@ void PowerManager::loadPowers(const std::string& filename) {
 			powers[input_id].target_neighbor = toInt(infile.val);
 		else
 			fprintf(stderr, "ignoring unknown key %s set to %s\n", infile.key.c_str(), infile.val.c_str());
-	}
-	infile.close();
-}
-
-/**
- * Effects are defined in [mod]/engine/effects.txt
- *
- * @param filename The full path and filename to this engine.txt file
- */
-void PowerManager::loadEffects(const std::string& filename) {
-	FileParser infile;
-	if (!infile.open(filename)) {
-		fprintf(stderr, "Unable to open %s!\n", filename.c_str());
-		return;
-	}
-
-	int input_id = 0;
-	bool skippingEntry = false;
-	while (infile.next()) {
-		// id needs to be the first component of each effect.  That is how we write
-		// data to the correct effect.
-		if (infile.key == "id") {
-			input_id = toInt(infile.val);
-			skippingEntry = input_id < 1;
-			if (skippingEntry)
-				fprintf(stderr, "Effect index out of bounds 1-%d, skipping\n", INT_MAX);
-			if (static_cast<int>(effects.size()) < input_id + 1)
-				effects.resize(input_id + 1);
-			continue;
-		}
-		if (skippingEntry)
-			continue;
-
-		infile.val = infile.val + ',';
-
-		if (infile.key == "type") {
-			effects[input_id].type = eatFirstString(infile.val,',');
-		} else if (infile.key == "icon") {
-			effects[input_id].icon = eatFirstInt(infile.val,',');
-		} else if (infile.key == "gfx") {
-			effects[input_id].gfx = NULL;
-			SDL_Surface *surface = IMG_Load(mods->locate("images/powers/" + eatFirstString(infile.val,',')).c_str());
-			if(!surface) {
-				fprintf(stderr, "Couldn't load effect sprites: %s\n", IMG_GetError());
-			} else {
-				effects[input_id].gfx = SDL_DisplayFormatAlpha(surface);
-				SDL_FreeSurface(surface);
-			}
-		} else if (infile.key == "size") {
-			effects[input_id].frame_size.x = eatFirstInt(infile.val, ',');
-			effects[input_id].frame_size.y = eatFirstInt(infile.val, ',');
-			effects[input_id].frame_size.w = eatFirstInt(infile.val, ',');
-			effects[input_id].frame_size.h = eatFirstInt(infile.val, ',');
-		} else if (infile.key == "offset") {
-			effects[input_id].frame_offset.x = eatFirstInt(infile.val, ',');
-			effects[input_id].frame_offset.y = eatFirstInt(infile.val, ',');
-		} else if (infile.key == "frame_total") {
-			effects[input_id].frame_total = eatFirstInt(infile.val, ',');
-		} else if (infile.key == "ticks_per_frame") {
-			effects[input_id].ticks_per_frame = eatFirstInt(infile.val, ',');
-		}
 	}
 	infile.close();
 }
@@ -733,7 +673,7 @@ void PowerManager::buff(int power_index, StatBlock *src_stats, Point target) {
 		else
 			comb->addMessage(msg->get("+%d Shield",shield_amt), src_stats->pos, COMBAT_MESSAGE_BUFF, false);
 		src_stats->shield_hp = src_stats->shield_hp_total = shield_amt;
-		src_stats->addEffect("shield",getEffectIcon("shield"));
+		// src_stats->addEffect("shield",getEffectIcon("shield"));
 	}
 
 	// teleport to the target location
@@ -765,29 +705,31 @@ void PowerManager::buff(int power_index, StatBlock *src_stats, Point target) {
 
 	// immunity_duration makes one immune to new debuffs
 	if (src_stats->immunity_duration < powers[power_index].immunity_duration) {
-		src_stats->addEffect("immunity",getEffectIcon("immunity"));
+		// src_stats->addEffect("immunity",getEffectIcon("immunity"));
 		src_stats->immunity_duration = src_stats->immunity_duration_total = powers[power_index].immunity_duration;
 	}
 
 	// transform_duration causes hero to be transformed
 	if (src_stats->transform_duration < powers[power_index].transform_duration &&
 		src_stats->transform_duration !=-1) {
-		src_stats->addEffect("transform",getEffectIcon("transform"));
+		// src_stats->addEffect("transform",getEffectIcon("transform"));
 		src_stats->transform_duration = src_stats->transform_duration_total = powers[power_index].transform_duration;
 	}
 
 	// haste doubles run speed and removes power cooldowns
 	if (src_stats->haste_duration < powers[power_index].haste_duration) {
-		src_stats->addEffect("haste",getEffectIcon("haste"));
+		// src_stats->addEffect("haste",getEffectIcon("haste"));
 		src_stats->haste_duration = src_stats->haste_duration_total = powers[power_index].haste_duration;
 	}
 
 	// hot is healing over time
 	if (src_stats->hot_duration < powers[power_index].hot_duration) {
-		src_stats->addEffect("hot",getEffectIcon("hot"));
+		// src_stats->addEffect("hot",getEffectIcon("hot"));
 		src_stats->hot_duration = src_stats->hot_duration_total = powers[power_index].hot_duration;
 		src_stats->hot_value = powers[power_index].hot_value;
 	}
+
+    effect(src_stats, power_index);
 }
 
 /**
@@ -823,6 +765,11 @@ void PowerManager::playSound(int power_index, StatBlock *src_stats) {
 	}
 }
 
+void PowerManager::effect(StatBlock *src_stats, int power_index) {
+    int effect_index = powers[power_index].effect_id;
+    if (effect_index > 0)
+        src_stats->effects.addEffect(effect_index, powers[effect_index].icon, powers[power_index].effect_duration, powers[effect_index].effect_type, powers[effect_index].animation_name);
+}
 
 /**
  * The activated power creates a static effect (not a moving hazard)
@@ -832,7 +779,7 @@ void PowerManager::playSound(int power_index, StatBlock *src_stats) {
  * @param target The mouse cursor position in map coordinates
  * return boolean true if successful
  */
-bool PowerManager::effect(int power_index, StatBlock *src_stats, Point target) {
+bool PowerManager::fixed(int power_index, StatBlock *src_stats, Point target) {
 
 	if (powers[power_index].use_hazard) {
 		int delay_iterator = 0;
@@ -1090,7 +1037,7 @@ bool PowerManager::activate(int power_index, StatBlock *src_stats, Point target)
 	// logic for different types of powers are very different.  We allow these
 	// separate functions to handle the details.
 	switch(powers[power_index].type) {
-		case POWTYPE_EFFECT:    return effect(power_index, src_stats, target);
+		case POWTYPE_FIXED:    return fixed(power_index, src_stats, target);
 		case POWTYPE_MISSILE:   return missile(power_index, src_stats, target);
 		case POWTYPE_REPEATER:  return repeater(power_index, src_stats, target);
 		case POWTYPE_SPAWN:     return spawn(power_index, src_stats, target);
@@ -1117,60 +1064,12 @@ void PowerManager::payPowerCost(int power_index, StatBlock *src_stats) {
 	}
 }
 
-/**
- * Render various status effects (buffs/debuffs)
- *
- * @param src_stats The StatBlock of the power activator
- */
-Renderable PowerManager::renderEffects(StatBlock *src_stats) {
-	Renderable r;
-	r.map_pos.x = src_stats->pos.x;
-	r.map_pos.y = src_stats->pos.y;
-	r.sprite = NULL;
-
-	for (unsigned int j=0; j<src_stats->effects.size(); j++) {
-		for (unsigned int i=0; i<effects.size(); i++) {
-			if (src_stats->effects[j].type == effects[i].type && effects[i].gfx != NULL) {
-
-				// TODO: frame reset belogs in the logic phase, e.g. StatBlock::logic
-				if (src_stats->effects[j].frame >= effects[i].frame_total)
-					src_stats->effects[j].frame = 0;
-
-				r.src.x = (src_stats->effects[j].frame / effects[i].ticks_per_frame) * effects[i].frame_size.w;
-
-				r.src.y = effects[i].frame_size.y;
-				r.src.w = effects[i].frame_size.w;
-				r.src.h = effects[i].frame_size.h;
-				r.offset.x = effects[i].frame_offset.x;
-				r.offset.y = effects[i].frame_offset.y;
-				r.sprite = effects[i].gfx;
-				return r;
-			}
-		}
-	}
-	return r;
-}
-
-int PowerManager::getEffectIcon(std::string type) {
-	for (unsigned int i=0; i<effects.size(); i++) {
-		if (effects[i].type == type)
-			return effects[i].icon;
-	}
-	return -1;
-}
-
 PowerManager::~PowerManager() {
-
-	gfx_filenames.clear();
 
 	for (unsigned i=0; i<sfx.size(); i++) {
 		Mix_FreeChunk(sfx[i]);
 	}
 	sfx.clear();
 	sfx_filenames.clear();
-
-	for (unsigned i=0; i<effects.size(); i++) {
-		SDL_FreeSurface(effects[i].gfx);
-	}
 }
 
