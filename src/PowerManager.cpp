@@ -178,27 +178,13 @@ void PowerManager::loadPowers(const std::string& filename) {
 		else if (infile.key == "visual_option")
 			powers[input_id].visual_option = toInt(infile.val);
 		else if (infile.key == "aim_assist")
-			powers[input_id].aim_assist = toInt(infile.val);
+			powers[input_id].aim_assist = toBool(infile.val);
 		else if (infile.key == "speed")
 			powers[input_id].speed = toInt(infile.val);
 		else if (infile.key == "lifespan")
 			powers[input_id].lifespan = toInt(infile.val);
-		else if (infile.key == "frame_loop")
-			powers[input_id].frame_loop = toInt(infile.val);
-		else if (infile.key == "frame_duration")
-			powers[input_id].frame_duration = toInt(infile.val);
-		else if (infile.key == "frame_size") {
-			powers[input_id].frame_size.x = toInt(infile.nextValue());
-			powers[input_id].frame_size.y = toInt(infile.nextValue());
-		}
-		else if (infile.key == "frame_offset") {
-			powers[input_id].frame_offset.x = toInt(infile.nextValue());
-			powers[input_id].frame_offset.y = toInt(infile.nextValue());
-		}
 		else if (infile.key == "floor")
 			powers[input_id].floor = toBool(infile.val);
-		else if (infile.key == "active_frame")
-			powers[input_id].active_frame = toInt(infile.val);
 		else if (infile.key == "complete_animation")
 			powers[input_id].complete_animation = toBool(infile.val);
 		// hazard traits
@@ -255,8 +241,6 @@ void PowerManager::loadPowers(const std::string& filename) {
 		//repeater modifiers
 		else if (infile.key == "delay")
 			powers[input_id].delay = toInt(infile.val);
-		else if (infile.key == "start_frame")
-			powers[input_id].start_frame = toInt(infile.val);
 		// buff/debuff durations
 		else if (infile.key == "bleed_duration")
 			powers[input_id].bleed_duration = toInt(infile.val);

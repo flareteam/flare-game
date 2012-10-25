@@ -159,6 +159,7 @@ bool ENABLE_PLAYGAME = false;
 bool SHOW_FPS = false;
 int CORPSE_TIMEOUT = 1800;
 bool SELL_WITHOUT_VENDOR = true;
+int AIM_ASSIST = 0;
 
 
 /**
@@ -357,6 +358,8 @@ void loadMiscSettings() {
 					SELL_WITHOUT_VENDOR = true;
 				else
 					SELL_WITHOUT_VENDOR = false;
+			} else if (infile.key == "aim_assist") {
+				AIM_ASSIST = toInt(infile.val);
 			}
 		}
 		infile.close();

@@ -111,6 +111,7 @@ extern bool ENABLE_PLAYGAME;
 extern bool SHOW_FPS;
 extern int CORPSE_TIMEOUT;
 extern bool SELL_WITHOUT_VENDOR;
+extern int AIM_ASSIST;
 
 // Tile Settings
 extern unsigned short UNITS_PER_TILE;
