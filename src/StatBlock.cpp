@@ -91,28 +91,9 @@ StatBlock::StatBlock() {
 	wielding_offense = false;
 
 	// buff and debuff stats
-	slow_duration = 0;
-	slow_duration_total = 0;
-	bleed_duration = 0;
-	bleed_duration_total = 0;
-	stun_duration = 0;
-	stun_duration_total = 0;
-	immobilize_duration = 0;
-	immobilize_duration_total = 0;
-	immunity_duration = 0;
-	immunity_duration_total = 0;
 	transform_duration = 0;
 	transform_duration_total = 0;
 	manual_untransform = false;
-	haste_duration = 0;
-	haste_duration_total = 0;
-	hot_duration = 0;
-	hot_duration_total = 0;
-	hot_value = 0;
-	forced_move_duration = 0;
-	forced_move_duration_total = 0;
-	shield_hp = 0;
-	shield_hp_total = 0;
 	cooldown_ticks = 0;
 	blocking = false;
 	effects = EffectManager();
@@ -431,22 +412,6 @@ void StatBlock::logic() {
 	}
 
 	// handle buff/debuff durations
-	if (slow_duration > 0)
-		slow_duration--;
-	if (bleed_duration > 0)
-		bleed_duration--;
-	if (stun_duration > 0)
-		stun_duration--;
-	if (immobilize_duration > 0)
-		immobilize_duration--;
-	if (immunity_duration > 0)
-		immunity_duration--;
-	if (haste_duration > 0)
-		haste_duration--;
-	if (hot_duration > 0)
-		hot_duration--;
-	if (forced_move_duration > 0)
-		forced_move_duration--;
 	if (transform_duration > 0)
 		transform_duration--;
 
@@ -456,8 +421,8 @@ void StatBlock::logic() {
 	}
 
 	// apply healing over time
-	if (hot_duration % MAX_FRAMES_PER_SEC == 1) {
-		hp += hot_value;
+	if (effects.hpot > 0) {
+		hp += effects.hpot;
 		if (hp > maxhp) hp = maxhp;
 	}
 
@@ -470,20 +435,6 @@ void StatBlock::logic() {
 	else if (flying) movement_type = MOVEMENT_FLYING;
 	else movement_type = MOVEMENT_NORMAL;
 
-}
-
-/**
- * Remove temporary buffs/debuffs
- */
-void StatBlock::clearEffects() {
-	immunity_duration = 0;
-	immobilize_duration = 0;
-	bleed_duration = 0;
-	stun_duration = 0;
-	shield_hp = 0;
-	slow_duration = 0;
-	haste_duration = 0;
-	forced_move_duration = 0;
 }
 
 StatBlock::~StatBlock() {
@@ -608,9 +559,3 @@ void StatBlock::loadHeroStats() {
 	infile.close();
 }
 
-void StatBlock::clearNegativeEffects() {
-	slow_duration = 0;
-	bleed_duration = 0;
-	stun_duration = 0;
-	immobilize_duration = 0;
-}

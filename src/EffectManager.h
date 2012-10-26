@@ -76,12 +76,21 @@ public:
 	~EffectManager();
 	void logic();
 	void addEffect(int _id, int _icon, int _duration, int _shield_hp, std::string _type, std::string _animation);
+	void removeEffectType(std::string _type);
 	void clearEffects();
+	void clearNegativeEffects();
 	int damageShields(int _dmg);
-	bool hasImmunity();
 
 	std::vector<Effect> effect_list;
+
 	int bleed_dmg;
+	int hpot;
+	bool immunity;
+	bool slow;
+	bool stun;
+	bool immobilize;
+	bool haste;
+	bool forced_move;
 };
 
 #endif

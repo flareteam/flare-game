@@ -81,10 +81,6 @@ public:
 	void takeDamage(int dmg);
 	void recalc();
 	void logic();
-	void clearEffects();
-	void addEffect(std::string effect, int icon);
-	void removeEffect(std::string effect);
-	void updateEffects();
 
 	bool alive;
 	bool corpse; // creature is dead and done animating
@@ -194,32 +190,9 @@ public:
 	std::vector<int> vulnerable;
 
 	// buff and debuff stats
-	int slow_duration;
-	int slow_duration_total;
-	int bleed_duration;
-	int bleed_duration_total;
-	int stun_duration;
-	int stun_duration_total;
-	int immobilize_duration;
-	int immobilize_duration_total;
-
-	void clearNegativeEffects();
-
-	int immunity_duration;
-	int immunity_duration_total;
 	int transform_duration;
 	int transform_duration_total;
 	bool manual_untransform;
-	int haste_duration;
-	int haste_duration_total;
-	int hot_duration;
-	int hot_duration_total;
-	int hot_value;
-	int forced_move_duration;
-	int forced_move_duration_total;
-
-	int shield_hp; // shield
-	int shield_hp_total;
 	bool blocking;
 	EffectManager effects;
 

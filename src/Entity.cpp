@@ -59,19 +59,19 @@ Entity::Entity(const Entity &e)
  */
 bool Entity::move() {
 
-	if (stats.forced_move_duration > 0) {
+	if (stats.effects.forced_move) {
 		return map->collider.move(stats.pos.x, stats.pos.y, stats.forced_speed.x, stats.forced_speed.y, 1, stats.movement_type);
 	}
-	if (stats.immobilize_duration > 0) return false;
+	if (stats.effects.immobilize) return false;
 
 	int speed_diagonal = stats.dspeed;
 	int speed_straight = stats.speed;
 
-	if (stats.slow_duration > 0) {
+	if (stats.effects.slow) {
 		speed_diagonal /= 2;
 		speed_straight /= 2;
 	}
-	else if (stats.haste_duration > 0) {
+	else if (stats.effects.haste) {
 		speed_diagonal *= 2;
 		speed_straight *= 2;
 	}

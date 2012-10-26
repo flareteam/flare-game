@@ -65,7 +65,7 @@ void BehaviorStandard::doUpkeep() {
 		}
 	}
 
-	if (e->stats.forced_move_duration > 0) {
+	if (e->stats.effects.forced_move) {
 		e->move();
 	}
 
@@ -111,7 +111,7 @@ void BehaviorStandard::doUpkeep() {
 void BehaviorStandard::findTarget() {
 
 	// stunned enemies can't act
-	if (e->stats.stun_duration) return;
+	if (e->stats.effects.stun) return;
 
 	// check distance and line of sight between enemy and hero
 	if (e->stats.hero_alive)
@@ -182,7 +182,7 @@ void BehaviorStandard::findTarget() {
 void BehaviorStandard::checkPower() {
 
 	// stunned enemies can't act
-	if (e->stats.stun_duration) return;
+	if (e->stats.effects.stun) return;
 
 	// currently all enemy power use happens during combat
 	if (!e->stats.in_combat) return;
@@ -272,7 +272,7 @@ void BehaviorStandard::checkMove() {
 	if (e->stats.cur_state == ENEMY_DEAD || e->stats.cur_state == ENEMY_CRITDEAD) return;
 
 	// stunned enemies can't act
-	if (e->stats.stun_duration) return;
+	if (e->stats.effects.stun) return;
 
 	// handle not being in combat and (not patrolling waypoints or waiting at waypoint)
 	if (!e->stats.in_combat && (e->stats.waypoints.empty() || e->stats.waypoint_pause_ticks > 0) && (!e->stats.wander || e->stats.wander_pause_ticks > 0)) {
@@ -388,7 +388,7 @@ void BehaviorStandard::checkMove() {
 void BehaviorStandard::updateState() {
 
 	// stunned enemies can't act
-	if (e->stats.stun_duration) return;
+	if (e->stats.effects.stun) return;
 
 	int power_id;
 	int power_state;

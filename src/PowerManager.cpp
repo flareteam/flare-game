@@ -216,10 +216,6 @@ void PowerManager::loadPowers(const std::string& filename) {
 				if (infile.val == ELEMENTS[i].name) powers[input_id].trait_elemental = i;
 			}
 		}
-		else if (infile.key == "forced_move") {
-			powers[input_id].forced_move_speed = toInt(infile.nextValue());
-			powers[input_id].forced_move_duration = toInt(infile.nextValue());
-		}
 		else if (infile.key == "range")
 			powers[input_id].range = toInt(infile.nextValue());
 		//steal effects
@@ -238,37 +234,17 @@ void PowerManager::loadPowers(const std::string& filename) {
 		else if (infile.key == "delay")
 			powers[input_id].delay = toInt(infile.val);
 		// buff/debuff durations
-		else if (infile.key == "bleed_duration")
-			powers[input_id].bleed_duration = toInt(infile.val);
-		else if (infile.key == "stun_duration")
-			powers[input_id].stun_duration = toInt(infile.val);
-		else if (infile.key == "slow_duration")
-			powers[input_id].slow_duration = toInt(infile.val);
-		else if (infile.key == "immobilize_duration")
-			powers[input_id].immobilize_duration = toInt(infile.val);
-		else if (infile.key == "immunity_duration")
-			powers[input_id].immunity_duration = toInt(infile.val);
 		else if (infile.key == "transform_duration")
 			powers[input_id].transform_duration = toInt(infile.val);
 		else if (infile.key == "manual_untransform")
 			powers[input_id].manual_untransform = toBool(infile.val);
-		else if (infile.key == "haste_duration")
-			powers[input_id].haste_duration = toInt(infile.val);
-		else if (infile.key == "hot_duration")
-			powers[input_id].hot_duration = toInt(infile.val);
-		else if (infile.key == "hot_value")
-			powers[input_id].hot_value = toInt(infile.val);
 		// buffs
 		else if (infile.key == "buff")
 			powers[input_id].buff= toBool(infile.val);
 		else if (infile.key == "buff_heal")
 			powers[input_id].buff_heal = toBool(infile.val);
-		else if (infile.key == "buff_shield")
-			powers[input_id].buff_shield = toBool(infile.val);
 		else if (infile.key == "buff_teleport")
 			powers[input_id].buff_teleport = toBool(infile.val);
-		else if (infile.key == "buff_immunity")
-			powers[input_id].buff_immunity = toBool(infile.val);
 		else if (infile.key == "buff_restore_hp")
 			powers[input_id].buff_restore_hp = toInt(infile.val);
 		else if (infile.key == "buff_restore_mp")
@@ -567,14 +543,6 @@ void PowerManager::initHazard(int power_index, StatBlock *src_stats, Point targe
 	}
 
 	// status effect durations
-	// durations stack when combining powers (e.g. base power and weapon/ammo type)
-	haz->bleed_duration += powers[power_index].bleed_duration;
-	haz->stun_duration += powers[power_index].stun_duration;
-	haz->slow_duration += powers[power_index].slow_duration;
-	haz->immobilize_duration += powers[power_index].immobilize_duration;
-	// forced move
-	haz->forced_move_speed += powers[power_index].forced_move_speed;
-	haz->forced_move_duration += powers[power_index].forced_move_duration;
 	// steal effects
 	haz->hp_steal += powers[power_index].hp_steal;
 	haz->mp_steal += powers[power_index].mp_steal;

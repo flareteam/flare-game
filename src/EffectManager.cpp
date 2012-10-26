@@ -25,8 +25,16 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 using namespace std;
 
-EffectManager::EffectManager() {
-	bleed_dmg = 0;
+EffectManager::EffectManager()
+	: bleed_dmg(0)
+	, hpot(0)
+	, immunity(false)
+	, slow(false)
+	, stun(false)
+	, immobilize(false)
+	, haste(false)
+	, forced_move(false)
+{
 }
 
 EffectManager::~EffectManager() {
@@ -37,9 +45,25 @@ EffectManager::~EffectManager() {
 
 void EffectManager::logic() {
 	bleed_dmg = 0;
+	hpot = 0;
+	immunity = false;
+	slow = false;
+	stun = false;
+	immobilize = false;
+	haste = false;
+	forced_move = false;
+
 	for (unsigned i=0; i<effect_list.size(); i++) {
 		if (effect_list[i].duration > 0) {
 			if (effect_list[i].type == "bleed" && effect_list[i].ticks % 30 == 1) bleed_dmg += 1;
+			else if (effect_list[i].type == "hpot" && effect_list[i].ticks % 30 == 1) hpot += 1;
+			else if (effect_list[i].type == "immunity") immunity = true;
+			else if (effect_list[i].type == "slow") slow = true;
+			else if (effect_list[i].type == "stun") stun = true;
+			else if (effect_list[i].type == "immobilize") immobilize = true;
+			else if (effect_list[i].type == "haste") haste = true;
+			else if (effect_list[i].type == "forced_move") forced_move = true;
+
 			if (effect_list[i].ticks > 0) effect_list[i].ticks--;
 			if (effect_list[i].ticks == 0) removeEffect(i);
 		}
@@ -54,6 +78,14 @@ void EffectManager::logic() {
 }
 
 void EffectManager::addEffect(int _id, int _icon, int _duration, int _shield_hp, std::string _type, std::string _animation) {
+	// if we're already immune, don't add negative effects
+	if (immunity) {
+		if (_type == "bleed") return;
+		else if (_type == "slow") return;
+		else if (_type == "stun") return;
+		else if (_type == "immobilize") return;
+	}
+
 	for (unsigned i=0; i<effect_list.size(); i++) {
 		if (effect_list[i].id == _id) {
 			if (effect_list[i].duration <= _duration) {
@@ -68,19 +100,8 @@ void EffectManager::addEffect(int _id, int _icon, int _duration, int _shield_hp,
 		}
 		// if we're adding an immunity effect, remove all negative effects
 		if (_type == "immunity") {
-			if (effect_list[i].type == "bleed") removeEffect(i);
-			else if (effect_list[i].type == "slow") removeEffect(i);
-			else if (effect_list[i].type == "stun") removeEffect(i);
-			else if (effect_list[i].type == "immobilize") removeEffect(i);
+			clearNegativeEffects();
 		}
-	}
-
-	// if we're already immune, don't add negative effects
-	if (hasImmunity()) {
-		if (_type == "bleed") return;
-		else if (_type == "slow") return;
-		else if (_type == "stun") return;
-		else if (_type == "immobilize") return;
 	}
 
 	Effect e;
@@ -114,9 +135,24 @@ void EffectManager::removeAnimation(int _id) {
 	}
 }
 
+void EffectManager::removeEffectType(std::string _type) {
+	for (unsigned i=0; i<effect_list.size(); i++) {
+		if (effect_list[i].type == _type) removeEffect(i);
+	}
+}
+
 void EffectManager::clearEffects() {
 	for (unsigned i=0; i<effect_list.size(); i++) {
 		removeEffect(i);
+	}
+}
+
+void EffectManager::clearNegativeEffects() {
+	for (unsigned i=0; i<effect_list.size(); i++) {
+		if (effect_list[i].type == "bleed") removeEffect(i);
+		else if (effect_list[i].type == "slow") removeEffect(i);
+		else if (effect_list[i].type == "stun") removeEffect(i);
+		else if (effect_list[i].type == "immobilize") removeEffect(i);
 	}
 }
 
@@ -136,13 +172,6 @@ int EffectManager::damageShields(int _dmg) {
 	}
 
 	return over_dmg;
-}
-
-bool EffectManager::hasImmunity() {
-	for (unsigned i=0; i<effect_list.size(); i++) {
-		if (effect_list[i].type == "immunity") return true;
-	}
-	return false;
 }
 
 Animation* EffectManager::loadAnimation(std::string &s) {

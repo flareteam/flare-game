@@ -121,8 +121,6 @@ public:
 	int damage_multiplier; // % of base damage done by power (eg. 200 doubles damage and 50 halves it)
 	int starting_pos; // enum. (source, target, or melee)
 	bool multitarget;
-	int forced_move_speed;
-	int forced_move_duration;
 	int range;
 
 	//steal effects (in %, eg. hp_steal=50 turns 50% damage done into HP regain.)
@@ -141,23 +139,13 @@ public:
 	bool trait_armor_penetration;
 	int trait_crits_impaired; // crit bonus vs. movement impaired enemies (slowed, immobilized, stunned)
 
-	int bleed_duration;
-	int stun_duration;
-	int slow_duration;
-	int immobilize_duration;
-	int immunity_duration;
 	int transform_duration;
 	bool manual_untransform; // true binds to the power another recurrence power
-	int haste_duration;
-	int hot_duration;
-	int hot_value;
 
 	// special effects
 	bool buff;
 	bool buff_heal;
-	bool buff_shield;
 	bool buff_teleport;
-	bool buff_immunity;
 	int buff_restore_hp;
 	int buff_restore_mp;
 
@@ -216,8 +204,6 @@ public:
 		, damage_multiplier(100)
 		, starting_pos(STARTING_POS_SOURCE)
 		, multitarget(false)
-		, forced_move_speed(0)
-		, forced_move_duration(0)
 		, range(0)
 
 		, hp_steal(0)
@@ -233,22 +219,12 @@ public:
 		, trait_armor_penetration(false)
 		, trait_crits_impaired(0)
 
-		, bleed_duration(0)
-		, stun_duration(0)
-		, slow_duration(0)
-		, immobilize_duration(0)
-		, immunity_duration(0)
 		, transform_duration(0)
 		, manual_untransform(false)
-		, haste_duration(0)
-		, hot_duration(0)
-		, hot_value(0)
 
 		, buff(false)
 		, buff_heal(false)
-		, buff_shield(false)
 		, buff_teleport(false)
-		, buff_immunity(false)
 		, buff_restore_hp(0)
 		, buff_restore_mp(0)
 

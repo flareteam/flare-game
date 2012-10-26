@@ -209,7 +209,7 @@ bool Enemy::takeHit(const Hazard &h) {
 
 		// check for crits
 		int true_crit_chance = h.crit_chance;
-		if (stats.stun_duration > 0 || stats.immobilize_duration > 0 || stats.slow_duration > 0)
+		if (stats.effects.stun || stats.effects.immobilize || stats.effects.slow)
 			true_crit_chance += h.trait_crits_impaired;
 
 		bool crit = (rand() % 100) < true_crit_chance;
@@ -229,19 +229,19 @@ bool Enemy::takeHit(const Hazard &h) {
 		stats.takeDamage(dmg);
 
 		// damage always breaks stun
-		if (dmg > 0) stats.stun_duration=0;
+		if (dmg > 0) stats.effects.removeEffectType("stun");
 
 		// after effects
 		if (stats.hp > 0) {
 
 			powers->effect(&stats, h.power_index);
 
-			if (h.forced_move_duration > stats.forced_move_duration) stats.forced_move_duration_total = stats.forced_move_duration = h.forced_move_duration;
-			if (h.forced_move_speed != 0) {
-				float theta = powers->calcTheta(stats.hero_pos.x, stats.hero_pos.y, stats.pos.x, stats.pos.y);
-				stats.forced_speed.x = static_cast<int>(ceil(h.forced_move_speed * cos(theta)));
-				stats.forced_speed.y = static_cast<int>(ceil(h.forced_move_speed * sin(theta)));
-			}
+			// if (h.forced_move_duration > stats.forced_move_duration) stats.forced_move_duration_total = stats.forced_move_duration = h.forced_move_duration;
+			// if (h.forced_move_speed != 0) {
+			// 	float theta = powers->calcTheta(stats.hero_pos.x, stats.hero_pos.y, stats.pos.x, stats.pos.y);
+			// 	stats.forced_speed.x = static_cast<int>(ceil(h.forced_move_speed * cos(theta)));
+			// 	stats.forced_speed.y = static_cast<int>(ceil(h.forced_move_speed * sin(theta)));
+			// }
 		}
 
 		if (h.hp_steal != 0) {
@@ -280,7 +280,7 @@ bool Enemy::takeHit(const Hazard &h) {
 
 			}
 			// don't go through a hit animation if stunned
-			else if (h.stun_duration == 0) {
+			else if (!stats.effects.stun) {
 				stats.cur_state = ENEMY_HIT;
 				// roll to see if the enemy's ON_HIT power is casted
 				if ((rand() % 100) < stats.power_chance[ON_HIT]) {

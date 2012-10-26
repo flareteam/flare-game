@@ -364,7 +364,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 
 	int stepfx;
 	stats.logic();
-	if (stats.forced_move_duration > 0) {
+	if (stats.effects.forced_move) {
 		move();
 
 		// calc new cam position from player position
@@ -377,7 +377,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 		map->collider.block(stats.pos.x, stats.pos.y);
 		return;
 	}
-	if (stats.stun_duration > 0) {
+	if (stats.effects.stun) {
 
 		map->collider.block(stats.pos.x, stats.pos.y);
 		return;
@@ -520,7 +520,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 
 			if (activeAnimation->getTimesPlayed() >= 1) {
 				stats.cur_state = AVATAR_STANCE;
-				if (stats.haste_duration == 0) stats.cooldown_ticks += stats.cooldown;
+				if (!stats.effects.haste) stats.cooldown_ticks += stats.cooldown;
 			}
 			break;
 
@@ -535,7 +535,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 
 			if (activeAnimation->getTimesPlayed() >= 1) {
 				stats.cur_state = AVATAR_STANCE;
-				if (stats.haste_duration == 0) stats.cooldown_ticks += stats.cooldown;
+				if (!stats.effects.haste) stats.cooldown_ticks += stats.cooldown;
 			}
 			break;
 
@@ -551,7 +551,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 
 			if (activeAnimation->getTimesPlayed() >= 1) {
 				stats.cur_state = AVATAR_STANCE;
-				if (stats.haste_duration == 0) stats.cooldown_ticks += stats.cooldown;
+				if (!stats.effects.haste) stats.cooldown_ticks += stats.cooldown;
 			}
 			break;
 
@@ -726,16 +726,16 @@ bool Avatar::takeHit(const Hazard &h) {
 		stats.takeDamage(dmg);
 
 		// after effects
-		if (stats.hp > 0 && !stats.effects.hasImmunity() && dmg > 0) {
+		if (stats.hp > 0 && !stats.effects.immunity && dmg > 0) {
 
 			powers->effect(&stats, h.power_index);
 
-			if (h.forced_move_duration > stats.forced_move_duration) stats.forced_move_duration_total = stats.forced_move_duration = h.forced_move_duration;
-			if (h.forced_move_speed != 0) {
-				float theta = powers->calcTheta(h.src_stats->pos.x, h.src_stats->pos.y, stats.pos.x, stats.pos.y);
-				stats.forced_speed.x = static_cast<int>(ceil(h.forced_move_speed * cos(theta)));
-				stats.forced_speed.y = static_cast<int>(ceil(h.forced_move_speed * sin(theta)));
-			}
+			// if (h.forced_move_duration > stats.forced_move_duration) stats.forced_move_duration_total = stats.forced_move_duration = h.forced_move_duration;
+			// if (h.forced_move_speed != 0) {
+			// 	float theta = powers->calcTheta(h.src_stats->pos.x, h.src_stats->pos.y, stats.pos.x, stats.pos.y);
+			// 	stats.forced_speed.x = static_cast<int>(ceil(h.forced_move_speed * cos(theta)));
+			// 	stats.forced_speed.y = static_cast<int>(ceil(h.forced_move_speed * sin(theta)));
+			// }
 			if (h.hp_steal != 0) {
 				int steal_amt = (dmg * h.hp_steal) / 100;
 				if (steal_amt == 0 && dmg > 0) steal_amt = 1;

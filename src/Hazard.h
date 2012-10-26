@@ -101,12 +101,6 @@ public:
 	bool hit_wall;
 
 	// after effects of various powers
-	int stun_duration;
-	int immobilize_duration;
-	int slow_duration;
-	int bleed_duration;
-	int forced_move_speed;
-	int forced_move_duration;
 	int hp_steal;
 	int mp_steal;
 
