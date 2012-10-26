@@ -70,11 +70,15 @@ LootManager::LootManager(ItemManager *_items, MapRenderer *_map, StatBlock *_her
 			} else if (infile.key == "autopickup_range") {
 				AUTOPICKUP_RANGE = eatFirstInt(infile.val, ',');
 			} else if (infile.key == "autopickup_currency") {
-				AUTOPICKUP_CURRENCY = eatFirstInt(infile.val, ',');
+				int currency = eatFirstInt(infile.val, ',');
+				if (currency == 1)
+					AUTOPICKUP_CURRENCY = true;
+				else
+					AUTOPICKUP_CURRENCY = false;
 			} else if (infile.key == "currency_name") {
 				CURRENCY = msg->get(eatFirstString(infile.val, ','));
 			} else if (infile.key == "vendor_ratio") {
-				VENDOR_RATIO = (float)eatFirstInt(infile.val, ',') / 100.0;
+				VENDOR_RATIO = eatFirstInt(infile.val, ',') / 100.0f;
 			} else if (infile.key == "currency_range") {
 				CurrencyRange cr;
 				cr.filename = eatFirstString(infile.val, ',');

@@ -61,7 +61,11 @@ MenuStatBar::MenuStatBar(std::string type) {
 				custom_text_pos = true;
 				text_pos = eatLabelInfo(infile.val);
 			} else if(infile.key == "orientation") {
-				orientation = eatFirstInt(infile.val,',');
+				int orient = eatFirstInt(infile.val,',');
+				if (orient == 1)
+					orientation = true;
+				else
+					orientation = false;
 			}
 		}
 		infile.close();

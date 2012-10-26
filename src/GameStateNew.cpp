@@ -107,7 +107,11 @@ GameStateNew::GameStateNew() : GameState() {
 			class_list->pos.x = eatFirstInt(infile.val, ',');
 			class_list->pos.y = eatFirstInt(infile.val, ',');
 		} else if (infile.key == "show_classlist") {
-			show_classlist = eatFirstInt(infile.val, ',');
+			int show_cl = eatFirstInt(infile.val, ',');
+			if (show_cl == 1)
+				show_classlist = true;
+			else
+				show_classlist = false;
 		}
 	  }
 	  infile.close();

@@ -141,7 +141,7 @@ private:
 	int mods_total;
 	bool check_resolution;
 	SDL_Rect scrollpane;
-	SDL_Rect scrollpane_color;
+	SDL_Color scrollpane_color;
 	int scrollpane_contents;
 	int old_view_w;
 	int old_view_h;
