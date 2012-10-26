@@ -88,7 +88,6 @@ void BehaviorStandard::doUpkeep() {
 	// TEMP: check for bleeding spurt
 	if (e->stats.effects.bleed_dmg > 0 && e->stats.hp > 0) {
 		comb->addMessage(e->stats.effects.bleed_dmg, e->stats.pos, COMBAT_MESSAGE_TAKEDMG, false);
-		e->powers->activate(POWER_SPARK_BLOOD, &e->stats, e->stats.pos);
 	}
 
 	// check for teleport powers
@@ -458,6 +457,7 @@ void BehaviorStandard::updateState() {
 			if (e->activeAnimation->isSecondLastFrame()) {
 				if ((rand() % 100) < e->stats.power_chance[ON_DEATH])
 					e->powers->activate(e->stats.power_index[ON_DEATH], &e->stats, e->stats.pos);
+				e->stats.effects.clearEffects();
 			}
 			if (e->activeAnimation->isLastFrame()) e->stats.corpse = true; // puts renderable under object layer
 
@@ -473,6 +473,7 @@ void BehaviorStandard::updateState() {
 			if (e->activeAnimation->isSecondLastFrame()) {
 				if ((rand() % 100) < e->stats.power_chance[ON_DEATH])
 					e->powers->activate(e->stats.power_index[ON_DEATH], &e->stats, e->stats.pos);
+				e->stats.effects.clearEffects();
 			}
 			if (e->activeAnimation->isLastFrame()) e->stats.corpse = true; // puts renderable under object layer
 

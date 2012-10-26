@@ -411,7 +411,6 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 	// check for bleeding spurt
 	if (stats.effects.bleed_dmg > 0 && stats.hp > 0) {
 		comb->addMessage(stats.effects.bleed_dmg, stats.pos, COMBAT_MESSAGE_TAKEDMG, true);
-		powers->activate(POWER_SPARK_BLOOD, &stats, stats.pos);
 	}
 
 	// check for bleeding to death
@@ -599,6 +598,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 
 			if (activeAnimation->getTimesPlayed() >= 1) {
 				stats.corpse = true;
+				stats.effects.clearEffects();
 			}
 
 			// allow respawn with Accept if not permadeath
@@ -616,9 +616,6 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 					stats.alive = true;
 					stats.corpse = false;
 					stats.cur_state = AVATAR_STANCE;
-
-					// remove temporary effects
-					stats.clearEffects();
 
 					// set teleportation variables.  GameEngine acts on these.
 					map->teleport_destination.x = map->respawn_point.x;
@@ -937,6 +934,14 @@ void Avatar::addRenders(vector<Renderable> &r) {
 		Renderable ren = activeAnimation->getCurrentFrame(stats.direction);
 		ren.map_pos = stats.pos;
 		r.push_back(ren);
+	}
+	// add effects
+	for (unsigned i = 0; i < stats.effects.effect_list.size(); ++i) {
+		if (stats.effects.effect_list[i].animation) {
+			Renderable ren = stats.effects.effect_list[i].animation->getCurrentFrame(0);
+			ren.map_pos = stats.pos;
+			r.push_back(ren);
+		}
 	}
 }
 

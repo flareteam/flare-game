@@ -30,6 +30,9 @@ EffectManager::EffectManager() {
 }
 
 EffectManager::~EffectManager() {
+	for (unsigned i=0; i<effect_list.size(); i++) {
+		removeAnimation(i);
+	}
 }
 
 void EffectManager::logic() {
@@ -42,6 +45,10 @@ void EffectManager::logic() {
 		}
 		if (effect_list[i].shield_maxhp > 0) {
 			if (effect_list[i].shield_hp == 0) removeEffect(i);
+		}
+		if (effect_list[i].animation) {
+			if (effect_list[i].animation->isCompleted()) removeAnimation(i);
+			else effect_list[i].animation->advanceFrame();
 		}
 	}
 }
@@ -81,18 +88,32 @@ void EffectManager::addEffect(int _id, int _icon, int _duration, int _shield_hp,
 	e.type = _type;
 
 	if (_animation != "") {
+		anim->increaseCount(_animation);
 		e.animation = loadAnimation(_animation);
-		if (e.animation) {
-			anim->increaseCount(_animation);
-			e.animation_name = _animation;
-		}
+		e.animation_name = _animation;
 	}
 
 	effect_list.push_back(e);
 }
 
 void EffectManager::removeEffect(int _id) {
+	removeAnimation(_id);
 	effect_list.erase(effect_list.begin()+_id);
+}
+
+void EffectManager::removeAnimation(int _id) {
+	if (effect_list[_id].animation && effect_list[_id].animation_name != "") {
+		anim->decreaseCount(effect_list[_id].animation_name);
+		delete effect_list[_id].animation;
+		effect_list[_id].animation = NULL;
+		effect_list[_id].animation_name = "";
+	}
+}
+
+void EffectManager::clearEffects() {
+	for (unsigned i=0; i<effect_list.size(); i++) {
+		removeEffect(i);
+	}
 }
 
 int EffectManager::damageShields(int _dmg) {

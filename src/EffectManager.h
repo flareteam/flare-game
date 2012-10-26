@@ -54,28 +54,29 @@ struct Effect{
 		ticks = 0;
 		duration = -1;
 		type = "";
-		animation_name = "";
-		animation = NULL;
 		shield_hp = 0;
 		shield_maxhp = 0;
+		animation_name = "";
+		animation = NULL;
 	}
 
 	~Effect() {
-		if (animation_name != "") anim->decreaseCount(animation_name);
-		delete animation;
 	}
+
 };
 
 class EffectManager {
 private:
 	Animation* loadAnimation(std::string &s);
 	void removeEffect(int _id);
+	void removeAnimation(int _id);
 
 public:
 	EffectManager();
 	~EffectManager();
 	void logic();
 	void addEffect(int _id, int _icon, int _duration, int _shield_hp, std::string _type, std::string _animation);
+	void clearEffects();
 	int damageShields(int _dmg);
 	bool hasImmunity();
 
