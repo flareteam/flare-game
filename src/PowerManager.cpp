@@ -398,7 +398,7 @@ void PowerManager::handleNewMap(MapCollision *_collider) {
 // convert cartesian to polar theta where (x1,x2) is the origin
 float PowerManager::calcTheta(int x1, int y1, int x2, int y2) {
 
-	float pi = 3.1415926535898;
+	float pi = 3.1415926535898f;
 
 	// calculate base angle
 	float dx = (float)x2 - (float)x1;
@@ -408,8 +408,8 @@ float PowerManager::calcTheta(int x1, int y1, int x2, int y2) {
 
 	// convert cartesian to polar coordinates
 	if (exact_dx == 0) {
-		if (dy > 0.0) theta = pi/2.0;
-		else theta = -pi/2.0;
+		if (dy > 0.0) theta = pi/2.0f;
+		else theta = -pi/2.0f;
 	}
 	else {
 		theta = atan(dy/dx);
@@ -869,7 +869,7 @@ bool PowerManager::effect(int power_index, StatBlock *src_stats, Point target) {
  * return boolean true if successful
  */
 bool PowerManager::missile(int power_index, StatBlock *src_stats, Point target) {
-	float pi = 3.1415926535898;
+	float pi = 3.1415926535898f;
 
 	Point src;
 	if (powers[power_index].starting_pos == STARTING_POS_TARGET) {
@@ -891,10 +891,10 @@ bool PowerManager::missile(int power_index, StatBlock *src_stats, Point target) 
 		Hazard *haz = new Hazard(collider);
 
 		//calculate individual missile angle
-		float offset_angle = ((1.0 - powers[power_index].count)/2 + i) * (powers[power_index].missile_angle * pi / 180.0);
+		float offset_angle = ((1.0f - powers[power_index].count)/2 + i) * (powers[power_index].missile_angle * pi / 180.0f);
 		float variance = 0;
 		if (powers[power_index].angle_variance != 0)
-			variance = pow(-1.0f, (rand() % 2) - 1) * (rand() % powers[power_index].angle_variance) * pi / 180.0; //random between 0 and angle_variance away
+			variance = pow(-1.0f, (rand() % 2) - 1) * (rand() % powers[power_index].angle_variance) * pi / 180.0f; //random between 0 and angle_variance away
 		float alpha = theta + offset_angle + variance;
 		while (alpha >= pi+pi) alpha -= pi+pi;
 		while (alpha < 0.0) alpha += pi+pi;
