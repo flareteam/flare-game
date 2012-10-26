@@ -161,7 +161,7 @@ public:
 	int buff_restore_hp;
 	int buff_restore_mp;
 
-	int effect_id;
+	int post_effect;
 	int effect_duration;
 	std::string effect_type;
 
@@ -252,7 +252,7 @@ public:
 		, buff_restore_hp(0)
 		, buff_restore_mp(0)
 
-		, effect_id(0)
+		, post_effect(0)
 		, effect_duration(0)
 		, effect_type("")
 
@@ -306,7 +306,7 @@ public:
 	bool canUsePower(unsigned id) const;
 	bool hasValidTarget(int power_index, StatBlock *src_stats, Point target);
 	bool spawn(const std::string& enemy_type, Point target);
-	void effect(StatBlock *src_stats, int power_index);
+	bool effect(StatBlock *src_stats, int power_index);
 
 	std::vector<Power> powers;
 	std::queue<Hazard *> hazards; // output; read by HazardManager

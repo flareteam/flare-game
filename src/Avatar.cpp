@@ -937,7 +937,7 @@ void Avatar::addRenders(vector<Renderable> &r) {
 	}
 	// add effects
 	for (unsigned i = 0; i < stats.effects.effect_list.size(); ++i) {
-		if (stats.effects.effect_list[i].animation) {
+		if (stats.effects.effect_list[i].animation && !stats.effects.effect_list[i].animation->isCompleted()) {
 			Renderable ren = stats.effects.effect_list[i].animation->getCurrentFrame(0);
 			ren.map_pos = stats.pos;
 			r.push_back(ren);

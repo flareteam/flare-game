@@ -273,10 +273,10 @@ void PowerManager::loadPowers(const std::string& filename) {
 			powers[input_id].buff_restore_hp = toInt(infile.val);
 		else if (infile.key == "buff_restore_mp")
 			powers[input_id].buff_restore_mp = toInt(infile.val);
-		else if (infile.key == "effect") {
-			powers[input_id].effect_id = toInt(infile.nextValue());
-			powers[input_id].effect_duration = toInt(infile.nextValue());
-		}
+		else if (infile.key == "post_effect")
+			powers[input_id].post_effect = toInt(infile.val);
+		else if (infile.key == "effect_duration")
+			powers[input_id].effect_duration = toInt(infile.val);
 		else if (infile.key == "effect_type")
 			powers[input_id].effect_type = infile.val;
 		// pre and post power effects
@@ -726,9 +726,13 @@ void PowerManager::playSound(int power_index, StatBlock *src_stats) {
 	}
 }
 
-void PowerManager::effect(StatBlock *src_stats, int power_index) {
+bool PowerManager::effect(StatBlock *src_stats, int power_index) {
 	int shield_amt = 0;
-	int effect_index = powers[power_index].effect_id;
+	int effect_index = 0;
+
+	if (powers[power_index].type == POWTYPE_EFFECT) effect_index = power_index;
+	else effect_index = powers[power_index].post_effect;
+
 	if (effect_index > 0) {
 		if (powers[effect_index].effect_type == "shield") {
 			// charge shield to max ment weapon damage * damage multiplier
@@ -740,6 +744,12 @@ void PowerManager::effect(StatBlock *src_stats, int power_index) {
 		}
 		src_stats->effects.addEffect(effect_index, powers[effect_index].icon, powers[power_index].effect_duration, shield_amt, powers[effect_index].effect_type, powers[effect_index].animation_name);
 	}
+
+	// If there's a sound effect, play it here
+	playSound(power_index, src_stats);
+
+	payPowerCost(power_index, src_stats);
+	return true;
 }
 
 /**
@@ -1013,6 +1023,7 @@ bool PowerManager::activate(int power_index, StatBlock *src_stats, Point target)
 		case POWTYPE_REPEATER:  return repeater(power_index, src_stats, target);
 		case POWTYPE_SPAWN:     return spawn(power_index, src_stats, target);
 		case POWTYPE_TRANSFORM: return transform(power_index, src_stats, target);
+		case POWTYPE_EFFECT:    return effect(src_stats, power_index);
 	}
 
 	return false;
