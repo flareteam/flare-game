@@ -91,6 +91,12 @@ void EffectManager::addEffect(int _id, int _icon, int _duration, int _shield_hp,
 		else if (_type == "immobilize") return;
 	}
 
+	// only allow one forced_move effect
+	// TODO remove this limitation
+	if (forced_move) {
+		if (_type == "forced_move") return;
+	}
+
 	for (unsigned i=0; i<effect_list.size(); i++) {
 		if (effect_list[i].id == _id) {
 			if (effect_list[i].duration <= _duration) {
@@ -99,6 +105,10 @@ void EffectManager::addEffect(int _id, int _icon, int _duration, int _shield_hp,
 			}
 			if (effect_list[i].shield_maxhp <= _shield_hp) {
 				effect_list[i].shield_hp = effect_list[i].shield_hp = _shield_hp;
+				if (effect_list[i].animation) effect_list[i].animation->reset();
+			}
+			if (effect_list[i].magnitude <= _magnitude) {
+				effect_list[i].magnitude = _magnitude;
 				if (effect_list[i].animation) effect_list[i].animation->reset();
 			}
 			return; // we already have this effect
