@@ -56,7 +56,8 @@ requires_mp=1
 base_damage=ranged
 aim_assist=true
 allow_power_mod=true
-immobilize_duration=90
+post_effect=201
+effect_duration=90
 
 [power]
 id=5
@@ -73,10 +74,11 @@ base_damage=melee
 lifespan=1
 radius=64
 starting_pos=melee
-bleed_duration=150
 post_power=127
 allow_power_mod=true
-effect=202,150
+post_effect=200
+effect_duration=150
+effect_magnitude=1
 
 [power]
 id=6
@@ -137,15 +139,15 @@ allow_power_mod=true
 [power]
 id=9
 name=Warcry
-type=fixed
+type=effect
 icon=9
 description=Remove debuffs and become immune to debuffs for 10 seconds
 new_state=cast
 requires_mp=2
 sfx=warcry.ogg
 trait_elemental=light
-buff=true
-effect=205,300
+effect_type=immunity
+effect_duration=300
 
 [power]
 id=10
@@ -165,31 +167,32 @@ floor=true
 trait_elemental=earth
 starting_pos=source
 multitarget=true
-stun_duration=30
 cooldown=3000
+post_effect=203
+effect_duration=30
 
 [power]
 id=11
 name=Shield
-type=fixed
+type=effect
 icon=11
 description=Create a force field that absorbs damage
 new_state=cast
 requires_mp=2
 sfx=shield.ogg
-buff=true
-effect=200,0
+effect_type=shield
 
 [power]
 id=12
 name=Haste
 icon=12
 description=Double run and attack speed for 8 seconds
-type=fixed
+type=effect
 new_state=cast
 face=false
 requires_mp=1
-haste_duration=240
+effect_type=haste
+effect_duration=240
 
 [power]
 id=13
@@ -222,7 +225,6 @@ animation=freeze.txt
 sfx=freeze.ogg
 speed=32
 trait_elemental=ice
-slow_duration=90
 radius=64
 lifespan=20
 base_damage=ment
@@ -230,6 +232,8 @@ delay=3
 visual_random=3
 complete_animation=true
 count=10
+post_effect=202
+effect_duration=90
 
 [power]
 id=15
@@ -305,8 +309,9 @@ use_hazard=true
 lifespan=1
 radius=512
 multitarget=true
-stun_duration=150
 base_damage=none
+post_effect=203
+effect_duration=150
 
 [power]
 id=20
@@ -396,9 +401,10 @@ lifespan=26
 radius=64
 speed=30
 trait_elemental=ice
-slow_duration=60
 post_power=126
 wall_power=126
+post_effect=202
+effect_duration=60
 
 
 [power]
@@ -459,8 +465,9 @@ trait_elemental=fire
 starting_pos=source
 multitarget=true
 visual_option=1
-slow_duration=15
 post_power=125
+post_effect=202
+effect_duration=15
 
 [power]
 id=34
@@ -500,12 +507,13 @@ lifespan=32
 radius=64
 speed=30
 trait_elemental=ice
-slow_duration=60
 post_power=126
 wall_power=126
 #missile num needs to be odd, or the player can avoid just by standing there
 count=9
 missile_angle=40
+post_effect=202
+effect_duration=60
 
 [power]
 id=36
@@ -556,7 +564,8 @@ lifespan=1
 radius=64
 starting_pos=melee
 allow_power_mod=true
-immobilize_duration=150
+post_effect=201
+effect_duration=150
 
 [power]
 id=39
@@ -614,9 +623,9 @@ base_damage=ment
 lifespan=8
 radius=64
 speed=24
-
 starting_pos=melee
-stun_duration=30
+post_effect=203
+effect_duration=30
 
 # enemy version of multishot
 [power]
@@ -927,20 +936,22 @@ use_hazard=true
 lifespan=1
 radius=512
 multitarget=true
-stun_duration=300
 base_damage=none
 requires_item=13
+post_effect=203
+effect_duration=300
 
 [power]
 id=131
 name=Scroll of Haste
 icon=48
 description=Double run and attack speed for 20 seconds
-type=fixed
+type=effect
 new_state=cast
 face=false
-haste_duration=600
 requires_item=14
+effect_type=haste
+effect_duration=600
 
 [power]
 id=132
@@ -1044,7 +1055,6 @@ requires_mp=1
 animation=spikes.txt
 sfx=spikes.ogg
 speed=48
-slow_duration=90
 radius=48
 lifespan=16
 base_damage=ment
@@ -1052,6 +1062,8 @@ delay=6
 visual_random=4
 complete_animation=true
 count=10
+post_effect=202
+effect_duration=90
 
 [power]
 id=160
@@ -1070,24 +1082,24 @@ sfx=spikes.ogg
 
 [power]
 id=200
-name=Shield (effect)
-type=effect
-icon=11
-effect_type=shield
-
-[power]
-id=201
-name=Slow (effect)
-type=effect
-icon=14
-effect_type=slow
-
-[power]
-id=202
 name=Bleed (effect)
 type=effect
 icon=5
 effect_type=bleed
+
+[power]
+id=201
+name=Immobilize (effect)
+type=effect
+icon=4
+effect_type=immobilize
+
+[power]
+id=202
+name=Slow (effect)
+type=effect
+icon=14
+effect_type=slow
 
 [power]
 id=203
@@ -1096,44 +1108,3 @@ type=effect
 icon=10
 effect_type=stun
 
-[power]
-id=204
-name=Immobilize (effect)
-type=effect
-icon=4
-effect_type=immobilize
-
-[power]
-id=205
-name=Immunity (effect)
-type=effect
-icon=9
-effect_type=immunity
-
-[power]
-id=206
-name=Transform (effect)
-type=effect
-icon=21
-effect_type=transform
-
-[power]
-id=207
-name=Haste (effect)
-type=effect
-icon=12
-effect_type=haste
-
-[power]
-id=208
-name=HOT (effect)
-type=effect
-icon=7
-effect_type=hot
-
-[power]
-id=209
-name=Block (effect)
-type=effect
-icon=3
-effect_type=block
