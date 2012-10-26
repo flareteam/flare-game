@@ -18,6 +18,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <algorithm>
 #include <string>
 #include <vector>
+#include <iostream>
 
 #include <assert.h>
 
@@ -35,7 +36,15 @@ ImageManager::ImageManager()
 
 ImageManager::~ImageManager()
 {
+// NDEBUG is used by posix to disable assertions, so use the same MACRO.
+#ifndef NDEBUG
+	if (!sprites.empty()) {
+		cout << "ImageManager still holding these images:" << endl;
+		for (vector<string>::iterator it=names.begin(); it != names.end(); ++it)
+			cout << *it << endl;
+	}
 	assert(sprites.size() == 0);
+#endif
 }
 
 SDL_Surface *ImageManager::getSurface(const std::string &name) {
