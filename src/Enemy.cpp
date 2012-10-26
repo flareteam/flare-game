@@ -236,12 +236,11 @@ bool Enemy::takeHit(const Hazard &h) {
 
 			powers->effect(&stats, h.power_index);
 
-			// if (h.forced_move_duration > stats.forced_move_duration) stats.forced_move_duration_total = stats.forced_move_duration = h.forced_move_duration;
-			// if (h.forced_move_speed != 0) {
-			// 	float theta = powers->calcTheta(stats.hero_pos.x, stats.hero_pos.y, stats.pos.x, stats.pos.y);
-			// 	stats.forced_speed.x = static_cast<int>(ceil(h.forced_move_speed * cos(theta)));
-			// 	stats.forced_speed.y = static_cast<int>(ceil(h.forced_move_speed * sin(theta)));
-			// }
+			if (stats.effects.forced_move) {
+				float theta = powers->calcTheta(stats.hero_pos.x, stats.hero_pos.y, stats.pos.x, stats.pos.y);
+				stats.forced_speed.x = static_cast<int>(ceil(stats.effects.forced_speed * cos(theta)));
+				stats.forced_speed.y = static_cast<int>(ceil(stats.effects.forced_speed * sin(theta)));
+			}
 		}
 
 		if (h.hp_steal != 0) {

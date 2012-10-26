@@ -151,6 +151,7 @@ public:
 
 	int post_effect;
 	int effect_duration;
+	int effect_magnitude;
 	std::string effect_type;
 
 	int post_power;
@@ -230,6 +231,7 @@ public:
 
 		, post_effect(0)
 		, effect_duration(0)
+		, effect_magnitude(0)
 		, effect_type("")
 
 		, post_power(0)

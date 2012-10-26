@@ -253,6 +253,8 @@ void PowerManager::loadPowers(const std::string& filename) {
 			powers[input_id].post_effect = toInt(infile.val);
 		else if (infile.key == "effect_duration")
 			powers[input_id].effect_duration = toInt(infile.val);
+		else if (infile.key == "effect_magnitude")
+			powers[input_id].effect_magnitude = toInt(infile.val);
 		else if (infile.key == "effect_type")
 			powers[input_id].effect_type = infile.val;
 		// pre and post power effects
@@ -710,7 +712,7 @@ bool PowerManager::effect(StatBlock *src_stats, int power_index) {
 			else
 				comb->addMessage(msg->get("+%d Shield",shield_amt), src_stats->pos, COMBAT_MESSAGE_BUFF, false);
 		}
-		src_stats->effects.addEffect(effect_index, powers[effect_index].icon, powers[power_index].effect_duration, shield_amt, powers[effect_index].effect_type, powers[effect_index].animation_name);
+		src_stats->effects.addEffect(effect_index, powers[effect_index].icon, powers[power_index].effect_duration, shield_amt, powers[power_index].effect_magnitude, powers[effect_index].effect_type, powers[effect_index].animation_name);
 	}
 
 	// If there's a sound effect, play it here

@@ -730,12 +730,11 @@ bool Avatar::takeHit(const Hazard &h) {
 
 			powers->effect(&stats, h.power_index);
 
-			// if (h.forced_move_duration > stats.forced_move_duration) stats.forced_move_duration_total = stats.forced_move_duration = h.forced_move_duration;
-			// if (h.forced_move_speed != 0) {
-			// 	float theta = powers->calcTheta(h.src_stats->pos.x, h.src_stats->pos.y, stats.pos.x, stats.pos.y);
-			// 	stats.forced_speed.x = static_cast<int>(ceil(h.forced_move_speed * cos(theta)));
-			// 	stats.forced_speed.y = static_cast<int>(ceil(h.forced_move_speed * sin(theta)));
-			// }
+			if (stats.effects.forced_move) {
+				float theta = powers->calcTheta(h.src_stats->pos.x, h.src_stats->pos.y, stats.pos.x, stats.pos.y);
+				stats.forced_speed.x = static_cast<int>(ceil(stats.effects.forced_speed * cos(theta)));
+				stats.forced_speed.y = static_cast<int>(ceil(stats.effects.forced_speed * sin(theta)));
+			}
 			if (h.hp_steal != 0) {
 				int steal_amt = (dmg * h.hp_steal) / 100;
 				if (steal_amt == 0 && dmg > 0) steal_amt = 1;

@@ -28,6 +28,7 @@ using namespace std;
 EffectManager::EffectManager()
 	: bleed_dmg(0)
 	, hpot(0)
+	, forced_speed(0)
 	, immunity(false)
 	, slow(false)
 	, stun(false)
@@ -46,6 +47,7 @@ EffectManager::~EffectManager() {
 void EffectManager::logic() {
 	bleed_dmg = 0;
 	hpot = 0;
+	forced_speed = 0;
 	immunity = false;
 	slow = false;
 	stun = false;
@@ -55,14 +57,17 @@ void EffectManager::logic() {
 
 	for (unsigned i=0; i<effect_list.size(); i++) {
 		if (effect_list[i].duration > 0) {
-			if (effect_list[i].type == "bleed" && effect_list[i].ticks % 30 == 1) bleed_dmg += 1;
-			else if (effect_list[i].type == "hpot" && effect_list[i].ticks % 30 == 1) hpot += 1;
+			if (effect_list[i].type == "bleed" && effect_list[i].ticks % 30 == 1) bleed_dmg += effect_list[i].magnitude;
+			else if (effect_list[i].type == "hpot" && effect_list[i].ticks % 30 == 1) hpot += effect_list[i].magnitude;
 			else if (effect_list[i].type == "immunity") immunity = true;
 			else if (effect_list[i].type == "slow") slow = true;
 			else if (effect_list[i].type == "stun") stun = true;
 			else if (effect_list[i].type == "immobilize") immobilize = true;
 			else if (effect_list[i].type == "haste") haste = true;
-			else if (effect_list[i].type == "forced_move") forced_move = true;
+			else if (effect_list[i].type == "forced_move") {
+				forced_move = true;
+				forced_speed = effect_list[i].magnitude;
+			}
 
 			if (effect_list[i].ticks > 0) effect_list[i].ticks--;
 			if (effect_list[i].ticks == 0) removeEffect(i);
@@ -77,7 +82,7 @@ void EffectManager::logic() {
 	}
 }
 
-void EffectManager::addEffect(int _id, int _icon, int _duration, int _shield_hp, std::string _type, std::string _animation) {
+void EffectManager::addEffect(int _id, int _icon, int _duration, int _shield_hp, int _magnitude, std::string _type, std::string _animation) {
 	// if we're already immune, don't add negative effects
 	if (immunity) {
 		if (_type == "bleed") return;
@@ -110,6 +115,7 @@ void EffectManager::addEffect(int _id, int _icon, int _duration, int _shield_hp,
 	e.icon = _icon;
 	e.ticks = e.duration = _duration;
 	e.shield_hp = e.shield_maxhp = _shield_hp;
+	e.magnitude = _magnitude;
 	e.type = _type;
 
 	if (_animation != "") {
