@@ -111,27 +111,20 @@ void MenuActiveEffects::update(StatBlock *_stats) {
 
 void MenuActiveEffects::render() {
 	// Step through the list of effects and render those that are active
-	for (unsigned int i=0; i<stats->effects.size(); i++) {
-		if (stats->effects[i].type == "slow")
-			renderIcon(stats->effects[i].icon,i,stats->slow_duration,stats->slow_duration_total);
-		if (stats->effects[i].type == "bleed")
-			renderIcon(stats->effects[i].icon,i,stats->bleed_duration,stats->bleed_duration_total);
-		if (stats->effects[i].type == "stun")
-			renderIcon(stats->effects[i].icon,i,stats->stun_duration,stats->stun_duration_total);
-		if (stats->effects[i].type == "immobilize")
-			renderIcon(stats->effects[i].icon,i,stats->immobilize_duration,stats->immobilize_duration_total);
-		if (stats->effects[i].type == "immunity")
-			renderIcon(stats->effects[i].icon,i,stats->immunity_duration,stats->immunity_duration_total);
-		if (stats->effects[i].type == "transform")
-			renderIcon(stats->effects[i].icon,i,stats->transform_duration,stats->transform_duration_total);
-		if (stats->effects[i].type == "haste")
-			renderIcon(stats->effects[i].icon,i,stats->haste_duration,stats->haste_duration_total);
-		if (stats->effects[i].type == "hot")
-			renderIcon(stats->effects[i].icon,i,stats->hot_duration,stats->hot_duration_total);
-		if (stats->effects[i].type == "shield")
-			renderIcon(stats->effects[i].icon,i,stats->shield_hp,stats->shield_hp_total);
-		if (stats->effects[i].type == "block")
-			renderIcon(stats->effects[i].icon,i,0,0);
+	for (unsigned int i=0; i<stats->effects.effect_list.size(); i++) {
+		std::string type = stats->effects.effect_list[i].type;
+		int icon = stats->effects.effect_list[i].icon;
+		int ticks = stats->effects.effect_list[i].ticks;
+		int duration = stats->effects.effect_list[i].duration;
+		int shield_hp = stats->effects.effect_list[i].shield_hp;
+		int shield_maxhp = stats->effects.effect_list[i].shield_maxhp;
+
+		if (type == "shield")
+			renderIcon(icon,i,shield_hp,shield_maxhp);
+		else if (type == "block")
+			renderIcon(icon,i,0,0);
+		else if (ticks > 0 && duration > 0)
+			renderIcon(icon,i,ticks,duration);
 	}
 }
 

@@ -46,11 +46,12 @@ class StatBlock;
 
 const int POWER_COUNT = 1024;
 
-const int POWTYPE_EFFECT = 0;
+const int POWTYPE_FIXED = 0;
 const int POWTYPE_MISSILE = 1;
 const int POWTYPE_REPEATER = 2;
 const int POWTYPE_SPAWN = 3;
 const int POWTYPE_TRANSFORM = 4;
+const int POWTYPE_EFFECT = 5;
 
 const int POWSTATE_SWING = 0;
 const int POWSTATE_CAST = 1;
@@ -120,8 +121,6 @@ public:
 	int damage_multiplier; // % of base damage done by power (eg. 200 doubles damage and 50 halves it)
 	int starting_pos; // enum. (source, target, or melee)
 	bool multitarget;
-	int forced_move_speed;
-	int forced_move_duration;
 	int range;
 
 	//steal effects (in %, eg. hp_steal=50 turns 50% damage done into HP regain.)
@@ -140,24 +139,20 @@ public:
 	bool trait_armor_penetration;
 	int trait_crits_impaired; // crit bonus vs. movement impaired enemies (slowed, immobilized, stunned)
 
-	int bleed_duration;
-	int stun_duration;
-	int slow_duration;
-	int immobilize_duration;
-	int immunity_duration;
 	int transform_duration;
 	bool manual_untransform; // true binds to the power another recurrence power
-	int haste_duration;
-	int hot_duration;
-	int hot_value;
 
 	// special effects
+	bool buff;
 	bool buff_heal;
-	bool buff_shield;
 	bool buff_teleport;
-	bool buff_immunity;
 	int buff_restore_hp;
 	int buff_restore_mp;
+
+	int post_effect;
+	int effect_duration;
+	int effect_magnitude;
+	std::string effect_type;
 
 	int post_power;
 	int wall_power;
@@ -210,8 +205,6 @@ public:
 		, damage_multiplier(100)
 		, starting_pos(STARTING_POS_SOURCE)
 		, multitarget(false)
-		, forced_move_speed(0)
-		, forced_move_duration(0)
 		, range(0)
 
 		, hp_steal(0)
@@ -227,23 +220,19 @@ public:
 		, trait_armor_penetration(false)
 		, trait_crits_impaired(0)
 
-		, bleed_duration(0)
-		, stun_duration(0)
-		, slow_duration(0)
-		, immobilize_duration(0)
-		, immunity_duration(0)
 		, transform_duration(0)
 		, manual_untransform(false)
-		, haste_duration(0)
-		, hot_duration(0)
-		, hot_value(0)
 
+		, buff(false)
 		, buff_heal(false)
-		, buff_shield(false)
 		, buff_teleport(false)
-		, buff_immunity(false)
 		, buff_restore_hp(0)
 		, buff_restore_mp(0)
+
+		, post_effect(0)
+		, effect_duration(0)
+		, effect_magnitude(0)
+		, effect_type("")
 
 		, post_power(0)
 		, wall_power(0)
@@ -258,40 +247,13 @@ public:
 class PowerManager {
 private:
 
-	struct Effect {
-		std::string type;
-		int icon;
-		SDL_Surface *gfx;
-		SDL_Rect frame_size;
-		Point frame_offset;
-		int frame_total;
-		int ticks_per_frame;
-
-		Effect() {
-			type = "";
-			icon = -1;
-			gfx = NULL;
-			frame_size.x = 0;
-			frame_size.y = 0;
-			frame_size.w = 1;
-			frame_size.h = 1;
-			frame_offset.x = 0;
-			frame_offset.y = 0;
-			frame_total = 1;
-			ticks_per_frame = 1;
-		}
-	};
-
 	MapCollision *collider;
 
 	void loadAll();
 	void loadPowers(const std::string& filename);
-	void loadEffects(const std::string& filename);
 
 	int loadSFX(const std::string& filename);
-	std::vector<std::string> gfx_filenames;
 	std::vector<std::string> sfx_filenames;
-	std::vector<Effect> effects;
 
 	int calcDirection(int origin_x, int origin_y, int target_x, int target_y);
 	Point limitRange(int range, Point src, Point target);
@@ -301,7 +263,7 @@ private:
 	void buff(int power_index, StatBlock *src_stats, Point target);
 	void playSound(int power_index, StatBlock *src_stats);
 
-	bool effect(int powernum, StatBlock *src_stats, Point target);
+	bool fixed(int powernum, StatBlock *src_stats, Point target);
 	bool missile(int powernum, StatBlock *src_stats, Point target);
 	bool repeater(int powernum, StatBlock *src_stats, Point target);
 	bool spawn(int powernum, StatBlock *src_stats, Point target);
@@ -322,8 +284,7 @@ public:
 	bool canUsePower(unsigned id) const;
 	bool hasValidTarget(int power_index, StatBlock *src_stats, Point target);
 	bool spawn(const std::string& enemy_type, Point target);
-	Renderable renderEffects(StatBlock *src_stats);
-	int getEffectIcon(std::string type);
+	bool effect(StatBlock *src_stats, int power_index);
 
 	std::vector<Power> powers;
 	std::queue<Hazard *> hazards; // output; read by HazardManager

@@ -310,7 +310,7 @@ void MenuActionBar::render() {
 			const Power &power = powers->getPower(hotkeys[i]);
 			slot_enabled[i] = (hero->hero_cooldown[hotkeys[i]] == 0)
 						   && (slot_item_count[i] != 0)
-						   && !hero->stun_duration
+						   && !hero->effects.stun
 						   && hero->alive
 						   && hero->canUsePower(power, hotkeys[i]); //see if the slot should be greyed out
 			unsigned icon_offset = 0;/* !slot_enabled[i] ? ICON_DISABLED_OFFSET :
