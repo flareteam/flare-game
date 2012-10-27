@@ -727,11 +727,6 @@ void GameStatePlay::render() {
 
 	pc->addRenders(rens);
 
-	// get additional hero overlays
-	pc->stats.updateEffects();
-	Renderable re = powers->renderEffects(&pc->stats);
-	rens.push_back(re);
-
 	enemies->addRenders(rens, rens_dead);
 
 	npcs->addRenders(rens); // npcs cannot be dead

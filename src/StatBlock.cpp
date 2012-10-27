@@ -91,31 +91,12 @@ StatBlock::StatBlock() {
 	wielding_offense = false;
 
 	// buff and debuff stats
-	slow_duration = 0;
-	slow_duration_total = 0;
-	bleed_duration = 0;
-	bleed_duration_total = 0;
-	stun_duration = 0;
-	stun_duration_total = 0;
-	immobilize_duration = 0;
-	immobilize_duration_total = 0;
-	immunity_duration = 0;
-	immunity_duration_total = 0;
 	transform_duration = 0;
 	transform_duration_total = 0;
 	manual_untransform = false;
-	haste_duration = 0;
-	haste_duration_total = 0;
-	hot_duration = 0;
-	hot_duration_total = 0;
-	hot_value = 0;
-	forced_move_duration = 0;
-	forced_move_duration_total = 0;
-	shield_hp = 0;
-	shield_hp_total = 0;
 	cooldown_ticks = 0;
 	blocking = false;
-	effects = vector<Effect>();
+	effects = EffectManager();
 
 	// patrol waypoints
 	waypoint_pause = 0;
@@ -341,7 +322,12 @@ void StatBlock::load(const string& filename) {
 		else if (infile.key == "animation_speed") animationSpeed = num;
 
 		// hide enemy HP bar
-		else if (infile.key == "suppress_hp") suppress_hp = num;
+		else if (infile.key == "suppress_hp") {
+			if (num == 1)
+				suppress_hp = true;
+			else 
+				suppress_hp = false;
+		}
 
 		for (unsigned int i=0; i<ELEMENTS.size(); i++) {
 			if (infile.key == "vulnerable_" + ELEMENTS[i].name) vulnerable[i] = num;
@@ -354,16 +340,7 @@ void StatBlock::load(const string& filename) {
  * Reduce temphp first, then hp
  */
 void StatBlock::takeDamage(int dmg) {
-	if (shield_hp > 0) {
-		shield_hp -= dmg;
-		if (shield_hp < 0) {
-			hp += shield_hp;
-			shield_hp = 0;
-		}
-	}
-	else {
-		hp -= dmg;
-	}
+	hp -= effects.damageShields(dmg);
 	if (hp <= 0) {
 		hp = 0;
 		alive = false;
@@ -440,42 +417,22 @@ void StatBlock::logic() {
 	}
 
 	// handle buff/debuff durations
-	if (slow_duration > 0)
-		slow_duration--;
-	if (bleed_duration > 0)
-		bleed_duration--;
-	if (stun_duration > 0)
-		stun_duration--;
-	if (immobilize_duration > 0)
-		immobilize_duration--;
-	if (immunity_duration > 0)
-		immunity_duration--;
-	if (haste_duration > 0)
-		haste_duration--;
-	if (hot_duration > 0)
-		hot_duration--;
-	if (forced_move_duration > 0)
-		forced_move_duration--;
 	if (transform_duration > 0)
 		transform_duration--;
 
 	// apply bleed
-	if (bleed_duration % MAX_FRAMES_PER_SEC == 1) {
-		takeDamage(1);
+	if (effects.bleed_dmg > 0) {
+		takeDamage(effects.bleed_dmg);
 	}
 
 	// apply healing over time
-	if (hot_duration % MAX_FRAMES_PER_SEC == 1) {
-		hp += hot_value;
+	if (effects.hpot > 0) {
+		hp += effects.hpot;
 		if (hp > maxhp) hp = maxhp;
 	}
 
-	// handle buff/debuff animations
-	for (unsigned int i=0; i<effects.size(); i++) {
-		effects[i].frame++;
-	}
-	// shield_frame++;
-	// if (shield_frame == 12) shield_frame = 0;
+	// handle effect timers
+	effects.logic();
 
 	// set movement type
 	// some creatures may shift between movement types
@@ -483,55 +440,6 @@ void StatBlock::logic() {
 	else if (flying) movement_type = MOVEMENT_FLYING;
 	else movement_type = MOVEMENT_NORMAL;
 
-}
-
-/**
- * Remove temporary buffs/debuffs
- */
-void StatBlock::clearEffects() {
-	immunity_duration = 0;
-	immobilize_duration = 0;
-	bleed_duration = 0;
-	stun_duration = 0;
-	shield_hp = 0;
-	slow_duration = 0;
-	haste_duration = 0;
-	forced_move_duration = 0;
-}
-
-void StatBlock::addEffect(std::string effect, int icon) {
-	for (unsigned int i=0; i<effects.size(); i++) {
-		if (effects[i].type == effect) {
-			return; // already have this one
-		}
-	}
-	Effect e;
-	e.type = effect;
-	e.frame = 0;
-	e.icon = icon;
-	effects.push_back(e);
-}
-
-void StatBlock::removeEffect(std::string effect) {
-	for (unsigned int i=0; i<effects.size(); i++) {
-		if (effects[i].type == effect) {
-			effects.erase(effects.begin()+i);
-			return;
-		}
-	}
-}
-
-void StatBlock::updateEffects() {
-	if (slow_duration == 0) removeEffect("slow");
-	if (bleed_duration == 0) removeEffect("bleed");
-	if (stun_duration == 0) removeEffect("stun");
-	if (immobilize_duration == 0) removeEffect("immobilize");
-	if (immunity_duration == 0) removeEffect("immunity");
-	if (transform_duration == 0) removeEffect("transform");
-	if (haste_duration == 0) removeEffect("haste");
-	if (hot_duration == 0) removeEffect("hot");
-	if (shield_hp == 0) removeEffect("shield");
-	if (!blocking) removeEffect("block");
 }
 
 StatBlock::~StatBlock() {
@@ -656,9 +564,3 @@ void StatBlock::loadHeroStats() {
 	infile.close();
 }
 
-void StatBlock::clearNegativeEffects() {
-	slow_duration = 0;
-	bleed_duration = 0;
-	stun_duration = 0;
-	immobilize_duration = 0;
-}

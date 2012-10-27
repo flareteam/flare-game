@@ -305,7 +305,7 @@ bool MapCollision::compute_path(Point start_pos, Point end_pos, vector<Point> &p
 	Point current = start;
 	AStarNode node(start);
 	node.setActualCost(0);
-	node.setEstimatedCost(calcDist(start,end));
+	node.setEstimatedCost((float)calcDist(start,end));
 	node.setParent(current);
 
 	list<AStarNode> open;
@@ -346,9 +346,9 @@ bool MapCollision::compute_path(Point start_pos, Point end_pos, vector<Point> &p
 			// if neighbour isn't inside open, add it as a new Node
 			if(i==open.end()) {
 				AStarNode newNode(neighbour.x,neighbour.y);
-				newNode.setActualCost(node.getActualCost()+calcDist(current,neighbour));
+				newNode.setActualCost(node.getActualCost()+(float)calcDist(current,neighbour));
 				newNode.setParent(current);
-				newNode.setEstimatedCost(calcDist(neighbour,end));
+				newNode.setEstimatedCost((float)calcDist(neighbour,end));
 				open.push_back(newNode);
 			}
 			// else, update it's cost if better

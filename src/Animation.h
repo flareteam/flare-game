@@ -127,6 +127,11 @@ public:
 	// a vector of indexes of gfx passed into.
 	// if { -1 } is passed, all frames are set to active.
 	void setActiveFrames(const std::vector<short> &_active_frames);
+
+	bool isCompleted() {
+		if (type == PLAY_ONCE && times_played > 0) return true;
+		else return false;
+	}
 };
 
 #endif

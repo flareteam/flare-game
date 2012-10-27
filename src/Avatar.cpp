@@ -364,7 +364,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 
 	int stepfx;
 	stats.logic();
-	if (stats.forced_move_duration > 0) {
+	if (stats.effects.forced_move) {
 		move();
 
 		// calc new cam position from player position
@@ -377,7 +377,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 		map->collider.block(stats.pos.x, stats.pos.y);
 		return;
 	}
-	if (stats.stun_duration > 0) {
+	if (stats.effects.stun) {
 
 		map->collider.block(stats.pos.x, stats.pos.y);
 		return;
@@ -409,10 +409,10 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 	}
 
 	// check for bleeding spurt
-	if (stats.bleed_duration % 30 == 1 && stats.hp > 0) {
-		comb->addMessage(1, stats.pos, COMBAT_MESSAGE_TAKEDMG, true);
-		powers->activate(POWER_SPARK_BLOOD, &stats, stats.pos);
+	if (stats.effects.bleed_dmg > 0 && stats.hp > 0) {
+		comb->addMessage(stats.effects.bleed_dmg, stats.pos, COMBAT_MESSAGE_TAKEDMG, true);
 	}
+
 	// check for bleeding to death
 	if (stats.hp == 0 && !(stats.cur_state == AVATAR_DEAD)) {
 		stats.cur_state = AVATAR_DEAD;
@@ -520,7 +520,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 
 			if (activeAnimation->getTimesPlayed() >= 1) {
 				stats.cur_state = AVATAR_STANCE;
-				if (stats.haste_duration == 0) stats.cooldown_ticks += stats.cooldown;
+				if (!stats.effects.haste) stats.cooldown_ticks += stats.cooldown;
 			}
 			break;
 
@@ -535,7 +535,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 
 			if (activeAnimation->getTimesPlayed() >= 1) {
 				stats.cur_state = AVATAR_STANCE;
-				if (stats.haste_duration == 0) stats.cooldown_ticks += stats.cooldown;
+				if (!stats.effects.haste) stats.cooldown_ticks += stats.cooldown;
 			}
 			break;
 
@@ -551,7 +551,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 
 			if (activeAnimation->getTimesPlayed() >= 1) {
 				stats.cur_state = AVATAR_STANCE;
-				if (stats.haste_duration == 0) stats.cooldown_ticks += stats.cooldown;
+				if (!stats.effects.haste) stats.cooldown_ticks += stats.cooldown;
 			}
 			break;
 
@@ -559,7 +559,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 
 			setAnimation("block");
 
-			stats.addEffect("block",powers->getEffectIcon("block"));
+			// stats.addEffect("block",powers->getEffectIcon("block"));
 
 			if (powers->powers[actionbar_power].new_state != POWSTATE_BLOCK) {
 				stats.cur_state = AVATAR_STANCE;
@@ -598,6 +598,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 
 			if (activeAnimation->getTimesPlayed() >= 1) {
 				stats.corpse = true;
+				stats.effects.clearEffects();
 			}
 
 			// allow respawn with Accept if not permadeath
@@ -615,9 +616,6 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 					stats.alive = true;
 					stats.corpse = false;
 					stats.cur_state = AVATAR_STANCE;
-
-					// remove temporary effects
-					stats.clearEffects();
 
 					// set teleportation variables.  GameEngine acts on these.
 					map->teleport_destination.x = map->respawn_point.x;
@@ -728,28 +726,14 @@ bool Avatar::takeHit(const Hazard &h) {
 		stats.takeDamage(dmg);
 
 		// after effects
-		if (stats.hp > 0 && stats.immunity_duration == 0 && dmg > 0) {
-			if (h.stun_duration > stats.stun_duration) {
-				stats.stun_duration_total = stats.stun_duration = h.stun_duration;
-				stats.addEffect("stun",powers->getEffectIcon("stun"));
-			}
-			if (h.slow_duration > stats.slow_duration) {
-				stats.slow_duration_total = stats.slow_duration = h.slow_duration;
-				stats.addEffect("slow",powers->getEffectIcon("slow"));
-			}
-			if (h.bleed_duration > stats.bleed_duration) {
-				stats.bleed_duration_total = stats.bleed_duration = h.bleed_duration;
-				stats.addEffect("bleed",powers->getEffectIcon("bleed"));
-			}
-			if (h.immobilize_duration > stats.immobilize_duration) {
-				stats.immobilize_duration_total = stats.immobilize_duration = h.immobilize_duration;
-				stats.addEffect("immobilize",powers->getEffectIcon("immobilize"));
-			}
-			if (h.forced_move_duration > stats.forced_move_duration) stats.forced_move_duration_total = stats.forced_move_duration = h.forced_move_duration;
-			if (h.forced_move_speed != 0) {
+		if (stats.hp > 0 && !stats.effects.immunity && dmg > 0) {
+
+			powers->effect(&stats, h.power_index);
+
+			if (stats.effects.forced_move) {
 				float theta = powers->calcTheta(h.src_stats->pos.x, h.src_stats->pos.y, stats.pos.x, stats.pos.y);
-				stats.forced_speed.x = static_cast<int>(ceil(h.forced_move_speed * cos(theta)));
-				stats.forced_speed.y = static_cast<int>(ceil(h.forced_move_speed * sin(theta)));
+				stats.forced_speed.x = static_cast<int>(ceil(stats.effects.forced_speed * cos(theta)));
+				stats.forced_speed.y = static_cast<int>(ceil(stats.effects.forced_speed * sin(theta)));
 			}
 			if (h.hp_steal != 0) {
 				int steal_amt = (dmg * h.hp_steal) / 100;
@@ -949,6 +933,14 @@ void Avatar::addRenders(vector<Renderable> &r) {
 		Renderable ren = activeAnimation->getCurrentFrame(stats.direction);
 		ren.map_pos = stats.pos;
 		r.push_back(ren);
+	}
+	// add effects
+	for (unsigned i = 0; i < stats.effects.effect_list.size(); ++i) {
+		if (stats.effects.effect_list[i].animation && !stats.effects.effect_list[i].animation->isCompleted()) {
+			Renderable ren = stats.effects.effect_list[i].animation->getCurrentFrame(0);
+			ren.map_pos = stats.pos;
+			r.push_back(ren);
+		}
 	}
 }
 

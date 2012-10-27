@@ -176,13 +176,13 @@ void CampaignManager::restoreHPMP(std::string s) {
 		addMsg(msg->get("HP and MP restored."));
 	}
 	else if (s == "status") {
-		hero->clearNegativeEffects();
+		hero->effects.clearNegativeEffects();
 		addMsg(msg->get("Negative effects removed."));
 	}
 	else if (s == "all") {
 		hero->hp = hero->maxhp;
 		hero->mp = hero->maxmp;
-		hero->clearNegativeEffects();
+		hero->effects.clearNegativeEffects();
 		addMsg(msg->get("HP and MP restored, negative effects removed"));
 	}
 }
