@@ -3,7 +3,7 @@
 [power]
 id=1
 name=Swing
-type=effect
+type=fixed
 icon=1
 description=Basic melee attack
 new_state=swing
@@ -56,12 +56,13 @@ requires_mp=1
 base_damage=ranged
 aim_assist=true
 allow_power_mod=true
-immobilize_duration=90
+post_effect=201
+effect_duration=90
 
 [power]
 id=5
 name=Blood Strike
-type=effect
+type=fixed
 icon=5
 description=Inflict a bleeding wound that causes additional damage over 5 seconds
 new_state=swing
@@ -73,9 +74,11 @@ base_damage=melee
 lifespan=1
 radius=64
 starting_pos=melee
-bleed_duration=150
 post_power=127
 allow_power_mod=true
+post_effect=200
+effect_duration=150
+effect_magnitude=1
 
 [power]
 id=6
@@ -103,7 +106,7 @@ wall_power=126
 [power]
 id=7
 name=Heal
-type=effect
+type=fixed
 icon=7
 description=Restore HP
 new_state=cast
@@ -143,13 +146,13 @@ new_state=cast
 requires_mp=2
 sfx=warcry.ogg
 trait_elemental=light
-buff_immunity=true
-immunity_duration=300
+effect_type=immunity
+effect_duration=300
 
 [power]
 id=10
 name=Quake
-type=effect
+type=fixed
 icon=10
 description=Stun nearby enemies
 new_state=cast
@@ -164,8 +167,9 @@ floor=true
 trait_elemental=earth
 starting_pos=source
 multitarget=true
-stun_duration=30
 cooldown=3000
+post_effect=203
+effect_duration=30
 
 [power]
 id=11
@@ -176,7 +180,8 @@ description=Create a force field that absorbs damage
 new_state=cast
 requires_mp=2
 sfx=shield.ogg
-buff_shield=true
+effect_type=shield
+animation=shield.txt
 
 [power]
 id=12
@@ -187,12 +192,13 @@ type=effect
 new_state=cast
 face=false
 requires_mp=1
-haste_duration=240
+effect_type=haste
+effect_duration=240
 
 [power]
 id=13
 name=Cleave
-type=effect
+type=fixed
 icon=13
 description=Attack all enemies in a wide arc
 new_state=swing
@@ -220,7 +226,6 @@ animation=freeze.txt
 sfx=freeze.ogg
 speed=32
 trait_elemental=ice
-slow_duration=90
 radius=64
 lifespan=20
 base_damage=ment
@@ -228,11 +233,13 @@ delay=3
 visual_random=3
 complete_animation=true
 count=10
+post_effect=202
+effect_duration=90
 
 [power]
 id=15
 name=Teleport
-type=effect
+type=fixed
 icon=15
 description=Blink to a nearby location
 new_state=cast
@@ -269,7 +276,7 @@ allow_power_mod=true
 [power]
 id=18
 name=Burn
-type=effect
+type=fixed
 icon=18
 description=Blast enemies in a distant area with fire
 new_state=cast
@@ -293,7 +300,7 @@ range=512
 [power]
 id=19
 name=Time Stop
-type=effect
+type=fixed
 icon=19
 description=Stun nearby enemies for 5 seconds
 new_state=cast
@@ -303,13 +310,14 @@ use_hazard=true
 lifespan=1
 radius=512
 multitarget=true
-stun_duration=150
 base_damage=none
+post_effect=203
+effect_duration=150
 
 [power]
 id=20
 name=Heroic Swing
-type=effect
+type=fixed
 icon=1
 description=Melee attack with 10% HP steal
 new_state=swing
@@ -394,9 +402,10 @@ lifespan=26
 radius=64
 speed=30
 trait_elemental=ice
-slow_duration=60
 post_power=126
 wall_power=126
+post_effect=202
+effect_duration=60
 
 
 [power]
@@ -442,7 +451,7 @@ angle_variance=15
 [power]
 id=33
 name=Fireburst [enemy]
-type=effect
+type=fixed
 icon=10
 description=Burn nearby enemies
 new_state=cast
@@ -457,8 +466,9 @@ trait_elemental=fire
 starting_pos=source
 multitarget=true
 visual_option=1
-slow_duration=15
 post_power=125
+post_effect=202
+effect_duration=15
 
 [power]
 id=34
@@ -498,17 +508,18 @@ lifespan=32
 radius=64
 speed=30
 trait_elemental=ice
-slow_duration=60
 post_power=126
 wall_power=126
 #missile num needs to be odd, or the player can avoid just by standing there
 count=9
 missile_angle=40
+post_effect=202
+effect_duration=60
 
 [power]
 id=36
 name=Vampiric Strike
-type=effect
+type=fixed
 icon=1
 description=Turn 50% of damage you deal into HP
 new_state=swing
@@ -525,7 +536,7 @@ hp_steal=50
 [power]
 id=37
 name=Leech Strike
-type=effect
+type=fixed
 icon=1
 description=Turn 25% of damage you deal into HP
 new_state=swing
@@ -542,7 +553,7 @@ hp_steal=50
 [power]
 id=38
 name=Chill Touch
-type=effect
+type=fixed
 icon=1
 description=Melee strike immobilizes target for 5 seconds
 new_state=swing
@@ -554,12 +565,13 @@ lifespan=1
 radius=64
 starting_pos=melee
 allow_power_mod=true
-immobilize_duration=150
+post_effect=201
+effect_duration=150
 
 [power]
 id=39
 name=Piercing Strike
-type=effect
+type=fixed
 icon=1
 description=Melee strike ignores armor
 new_state=swing
@@ -576,7 +588,7 @@ trait_armor_penetration=true
 [power]
 id=40
 name=Explode
-type=effect
+type=fixed
 icon=18
 description=Damage everything nearby
 new_state=cast
@@ -612,9 +624,9 @@ base_damage=ment
 lifespan=8
 radius=64
 speed=24
-
 starting_pos=melee
-stun_duration=30
+post_effect=203
+effect_duration=30
 
 # enemy version of multishot
 [power]
@@ -642,7 +654,7 @@ missile_angle=15
 
 [power]
 id=100
-type=effect
+type=fixed
 icon=32
 name=Health Potion
 sfx=potion.ogg
@@ -653,7 +665,7 @@ cooldown=600
 
 [power]
 id=101
-type=effect
+type=fixed
 icon=33
 name=Mana Potion
 new_state=instant
@@ -664,7 +676,7 @@ cooldown=600
 
 [power]
 id=102
-type=effect
+type=fixed
 icon=34
 name=Health Flask
 sfx=potion.ogg
@@ -675,7 +687,7 @@ cooldown=600
 
 [power]
 id=103
-type=effect
+type=fixed
 icon=35
 name=Mana Flask
 new_state=instant
@@ -688,7 +700,7 @@ cooldown=600
 [power]
 id=114
 name=Boots of Testing Really Large Maps
-type=effect
+type=fixed
 icon=113
 description=Blink to a nearby location
 new_state=cast
@@ -829,7 +841,7 @@ wall_power=126
 [power]
 id=124
 name=Arrow Wall Strike
-type=effect
+type=fixed
 icon=20
 animation=arrow_stuck.txt
 use_hazard=true
@@ -841,7 +853,7 @@ starting_pos=target
 [power]
 id=125
 name=Orange Spark
-type=effect
+type=fixed
 icon=20
 animation=spark_orange.txt
 use_hazard=true
@@ -853,7 +865,7 @@ visual_random=2
 [power]
 id=126
 name=Blue Spark
-type=effect
+type=fixed
 icon=20
 animation=spark_blue.txt
 use_hazard=true
@@ -865,7 +877,7 @@ visual_random=2
 [power]
 id=127
 name=Red Spark
-type=effect
+type=fixed
 icon=20
 animation=spark_red.txt
 use_hazard=true
@@ -896,7 +908,7 @@ wall_power=126
 [power]
 id=129
 name=Scroll of Teleport
-type=effect
+type=fixed
 icon=53
 description=Blink to a nearby location
 new_state=cast
@@ -916,7 +928,7 @@ range=512
 [power]
 id=130
 name=Scroll of Time Stop
-type=effect
+type=fixed
 icon=52
 description=Stun nearby enemies for 10 seconds
 new_state=cast
@@ -925,9 +937,10 @@ use_hazard=true
 lifespan=1
 radius=512
 multitarget=true
-stun_duration=300
 base_damage=none
 requires_item=13
+post_effect=203
+effect_duration=300
 
 [power]
 id=131
@@ -937,14 +950,15 @@ description=Double run and attack speed for 20 seconds
 type=effect
 new_state=cast
 face=false
-haste_duration=600
 requires_item=14
+effect_type=haste
+effect_duration=600
 
 [power]
 id=132
 name=Enemy Beacon
 description=Bring other enemies into the fight with a dummy attack
-type=effect
+type=fixed
 icon=20
 use_hazard=true
 lifespan=1
@@ -1042,7 +1056,6 @@ requires_mp=1
 animation=spikes.txt
 sfx=spikes.ogg
 speed=48
-slow_duration=90
 radius=48
 lifespan=16
 base_damage=ment
@@ -1050,11 +1063,13 @@ delay=6
 visual_random=4
 complete_animation=true
 count=10
+post_effect=202
+effect_duration=90
 
 [power]
 id=160
 name=Spikes
-type=effect
+type=fixed
 description=Spikes Trap
 animation=spikes.txt
 use_hazard=true
@@ -1065,4 +1080,33 @@ complete_animation=true
 base_damage=melee
 visual_random=4
 sfx=spikes.ogg
+
+[power]
+id=200
+name=Bleed (effect)
+type=effect
+icon=5
+effect_type=bleed
+animation=spark_red_loop.txt
+
+[power]
+id=201
+name=Immobilize (effect)
+type=effect
+icon=4
+effect_type=immobilize
+
+[power]
+id=202
+name=Slow (effect)
+type=effect
+icon=14
+effect_type=slow
+
+[power]
+id=203
+name=Stun (effect)
+type=effect
+icon=10
+effect_type=stun
 
