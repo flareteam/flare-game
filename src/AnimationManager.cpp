@@ -18,6 +18,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "SharedResources.h"
 
 #include <algorithm>
+#include <cassert>
 #include <string>
 
 using namespace std;
@@ -42,7 +43,18 @@ AnimationManager::AnimationManager()
 {}
 
 AnimationManager::~AnimationManager()
-{}
+{
+	cleanUp();
+// NDEBUG is used by posix to disable assertions, so use the same MACRO.
+#ifndef NDEBUG
+	if (!names.empty()) {
+		cout << "ImageManager still holding these images:" << endl;
+		for (vector<string>::iterator it=names.begin(); it != names.end(); ++it)
+			cout << *it << endl;
+	}
+	assert(names.size() == 0);
+#endif
+}
 
 void AnimationManager::increaseCount(const std::string &name) {
 	vector<string>::iterator found = find(names.begin(), names.end(), name);
