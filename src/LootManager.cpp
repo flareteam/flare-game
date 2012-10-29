@@ -208,14 +208,6 @@ void LootManager::logic() {
 }
 
 /**
- * If an item is flying, it hasn't completed its "flying loot" animation.
- * Only allow loot to be picked up if it is grounded.
- */
-bool LootManager::isFlying(const LootDef &ld) {
-	return !ld.animation->isLastFrame();
-}
-
-/**
  * Show all tooltips for loot on the floor
  */
 void LootManager::renderTooltips(Point cam) {
@@ -478,7 +470,7 @@ ItemStack LootManager::checkPickup(Point mouse, Point cam, Point hero_pos, int &
 		--it;
 
 		// loot close enough to pickup?
-		if (abs(hero_pos.x - it->pos.x) < LOOT_RANGE && abs(hero_pos.y - it->pos.y) < LOOT_RANGE && !isFlying(*it)) {
+		if (abs(hero_pos.x - it->pos.x) < LOOT_RANGE && abs(hero_pos.y - it->pos.y) < LOOT_RANGE && !it->isFlying()) {
 
 			p = map_to_screen(it->pos.x, it->pos.y, cam.x, cam.y);
 
@@ -524,7 +516,7 @@ ItemStack LootManager::checkAutoPickup(Point hero_pos, int &currency) {
 	vector<LootDef>::iterator it;
 	for (it = loot.end(); it != loot.begin(); ) {
 		--it;
-		if (abs(hero_pos.x - it->pos.x) < AUTOPICKUP_RANGE && abs(hero_pos.y - it->pos.y) < AUTOPICKUP_RANGE && !isFlying(*it)) {
+		if (abs(hero_pos.x - it->pos.x) < AUTOPICKUP_RANGE && abs(hero_pos.y - it->pos.y) < AUTOPICKUP_RANGE && !it->isFlying()) {
 			if (it->currency > 0 && AUTOPICKUP_CURRENCY) {
 				currency = it->currency;
 				loot.erase(it);
