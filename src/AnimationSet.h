@@ -34,6 +34,7 @@ class AnimationSet {
 private:
     const std::string name; //i.e. animations/goblin_runner.txt, matches the animations filename.
     std::string imagefile;
+    Animation *defaultAnimation;
 
 public:
     std::string starting_animation; // i.e. stance, matches the section in the animation file.
