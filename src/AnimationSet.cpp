@@ -33,20 +33,23 @@ using namespace std;
 
 Animation *AnimationSet::getAnimation(const std::string &_name)
 {
-	if (!sprite)
+	if (sprite == NULL)
 		load();
 	for (size_t i = 0; i < animations.size(); i++)
 		if (animations[i]->getName() == _name)
 			return new Animation(*animations[i]);
-	return 0;
+	return new Animation(*defaultAnimation);
 }
 
 AnimationSet::AnimationSet(const std::string &animationname)
  : name(animationname)
  , starting_animation("")
  , animations(vector<Animation*>())
- , sprite(0)
-{}
+ , sprite(NULL)
+{
+	defaultAnimation = new Animation("default", "play_once", NULL);
+	defaultAnimation->setupUncompressed(Point(), Point(), 0, 1, 0);
+}
 
 void AnimationSet::load() {
 	if (sprite)

@@ -278,7 +278,6 @@ public:
 	std::string transform_type;
 
 	std::string animations;
-	int animationSpeed;
 
 	// default sounds
 	std::string sfx_step;

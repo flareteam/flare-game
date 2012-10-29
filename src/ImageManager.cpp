@@ -36,6 +36,7 @@ ImageManager::ImageManager()
 
 ImageManager::~ImageManager()
 {
+	cleanUp();
 // NDEBUG is used by posix to disable assertions, so use the same MACRO.
 #ifndef NDEBUG
 	if (!sprites.empty()) {

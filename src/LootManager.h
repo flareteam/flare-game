@@ -104,6 +104,14 @@ public:
 		}
 	}
 
+	/**
+	 * If an item is flying, it hasn't completed its "flying loot" animation.
+	 * Only allow loot to be picked up if it is grounded.
+	 */
+	bool isFlying() {
+		return !animation->isLastFrame();
+	}
+
 	~LootDef() {
 		if (gfx != "")
 			anim->decreaseCount(gfx);
@@ -171,13 +179,11 @@ public:
 	// called by enemy, who definitly wants to drop loot.
 	void addEnemyLoot(const Enemy *e);
 	void checkMapForLoot();
-	bool isFlying(const LootDef &ld);
 	void determineLoot(int base_level, Point pos); // uniformly distributed within the base_level set, randomly chosen
 	void determineLootByClass(const Enemy *e, Point pos); // distributed according to enemies loot type probabilities, only from specific item class
 	int randomItem(int base_level);
 	void addLoot(ItemStack stack, Point pos);
 	void addCurrency(int count, Point pos);
-	void removeLoot(int index);
 	ItemStack checkPickup(Point mouse, Point cam, Point hero_pos, int &currency, MenuInventory *inv);
 	ItemStack checkAutoPickup(Point hero_pos, int &currency);
 

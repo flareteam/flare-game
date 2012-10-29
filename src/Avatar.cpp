@@ -788,7 +788,6 @@ void Avatar::transform() {
 	stats.flying = charmed_stats->flying;
 	stats.humanoid = charmed_stats->humanoid;
 	stats.animations = charmed_stats->animations;
-	stats.animationSpeed = charmed_stats->animationSpeed;
 
 	string animationname = "animations/enemies/"+charmed_stats->animations + ".txt";
 	anim->decreaseCount("animations/hero.txt");
@@ -857,7 +856,6 @@ void Avatar::untransform() {
 	stats.flying = hero_stats->flying;
 	stats.humanoid = hero_stats->humanoid;
 	stats.animations = hero_stats->animations;
-	stats.animationSpeed = hero_stats->animationSpeed;
 
 	anim->increaseCount("animations/hero.txt");
 	anim->decreaseCount("animations/enemies/"+charmed_stats->animations + ".txt");
