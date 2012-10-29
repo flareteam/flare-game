@@ -154,9 +154,6 @@ StatBlock::StatBlock() {
 	// default animations
 	animations = "";
 
-	// default animation speed
-	animationSpeed = 100;
-
 	// default step sound
 	sfx_step = "cloth";
 
@@ -319,14 +316,15 @@ void StatBlock::load(const string& filename) {
 		else if (infile.key == "ranged_weapon_power") ranged_weapon_power = num;
 
 		else if (infile.key == "animations") animations = infile.val;
-		else if (infile.key == "animation_speed") animationSpeed = num;
 
 		// hide enemy HP bar
 		else if (infile.key == "suppress_hp") {
 			if (num == 1)
 				suppress_hp = true;
-			else 
+			else
 				suppress_hp = false;
+		} else {
+			fprintf(stderr, "%s=%s not a valid StatBlock parameter\n", infile.key.c_str(), infile.val.c_str());
 		}
 
 		for (unsigned int i=0; i<ELEMENTS.size(); i++) {
