@@ -93,7 +93,7 @@ void MenuHUDLog::add(const string& s) {
 
 	// force HUD messages to vanish in order
 	if (msg_age.size() > 1) {
-		const int last = msg_age.size();
+		const int last = msg_age.size()-1;
 		if (msg_age[last] < msg_age[last-1])
 			msg_age[last] = msg_age[last-1];
 	}
