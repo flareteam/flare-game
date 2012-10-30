@@ -118,7 +118,7 @@ void CampaignManager::unsetStatus(std::string s) {
 			status.erase(it);
 			quest_update = true;
 			return;
-		}	
+		}
 		hero->check_title = true;
 	}
 }

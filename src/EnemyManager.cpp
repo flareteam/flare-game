@@ -21,7 +21,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "AnimationManager.h"
 #include "AnimationSet.h"
 #include "Animation.h"
-#include "StatBlock.h"
 #include "SharedResources.h"
 #include "EnemyBehavior.h"
 #include "BehaviorStandard.h"
