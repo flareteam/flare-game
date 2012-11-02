@@ -37,7 +37,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 class EnemyBehavior;
 class Hazard;
 class PowerManager;
-class StatBlock;
 class MapRenderer;
 
 class Enemy : public Entity {

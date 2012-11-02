@@ -106,6 +106,7 @@ Set (FLARE_SOURCES
 	./src/InputState.cpp
 	./src/ItemManager.cpp
 	./src/ItemStorage.cpp
+	./src/Loot.cpp
 	./src/LootManager.cpp
 	./src/MapCollision.cpp
 	./src/MapRenderer.cpp

@@ -43,9 +43,8 @@ struct Effect{
 	int ticks;
 	int duration;
 	std::string type;
-	int shield_hp;
-	int shield_maxhp;
 	int magnitude;
+	int magnitude_max;
 	std::string animation_name;
 	Animation* animation;
 
@@ -55,9 +54,8 @@ struct Effect{
 		ticks = 0;
 		duration = -1;
 		type = "";
-		shield_hp = 0;
-		shield_maxhp = 0;
 		magnitude = 0;
+		magnitude_max = 0;
 		animation_name = "";
 		animation = NULL;
 	}
@@ -77,7 +75,7 @@ public:
 	EffectManager();
 	~EffectManager();
 	void logic();
-	void addEffect(int _id, int _icon, int _duration, int _shield_hp, int _magnitude, std::string _type, std::string _animation);
+	void addEffect(int _id, int _icon, int _duration, int _magnitude, std::string _type, std::string _animation);
 	void removeEffectType(std::string _type);
 	void clearEffects();
 	void clearNegativeEffects();
@@ -87,6 +85,7 @@ public:
 
 	int bleed_dmg;
 	int hpot;
+	int mpot;
 	int forced_speed;
 	bool immunity;
 	bool slow;

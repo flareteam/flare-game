@@ -116,11 +116,11 @@ void MenuActiveEffects::render() {
 		int icon = stats->effects.effect_list[i].icon;
 		int ticks = stats->effects.effect_list[i].ticks;
 		int duration = stats->effects.effect_list[i].duration;
-		int shield_hp = stats->effects.effect_list[i].shield_hp;
-		int shield_maxhp = stats->effects.effect_list[i].shield_maxhp;
+		int magnitude = stats->effects.effect_list[i].magnitude;
+		int magnitude_max = stats->effects.effect_list[i].magnitude_max;
 
 		if (type == "shield")
-			renderIcon(icon,i,shield_hp,shield_maxhp);
+			renderIcon(icon,i,magnitude,magnitude_max);
 		else if (type == "block")
 			renderIcon(icon,i,0,0);
 		else if (ticks > 0 && duration > 0)
