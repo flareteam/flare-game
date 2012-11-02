@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="isometric" width="9" height="3" tilewidth="64" tileheight="32">
+<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
+<map version="1.0" orientation="isometric" width="9" height="9" tilewidth="64" tileheight="32">
  <properties>
   <property name="AutomappingRadius" value="1"/>
   <property name="DeleteTiles" value="1"/>
@@ -22,31 +23,46 @@
   <image source="../grassland_trees.png" width="1024" height="512"/>
  </tileset>
  <tileset firstgid="256" name="set_rules" tilewidth="64" tileheight="32">
-  <image source="../set_rules.png" width="128" height="128"/>
+  <image source="../set_rules.png" width="256" height="128"/>
  </tileset>
- <layer name="regions" width="9" height="3">
+ <layer name="regions" width="9" height="9">
   <data encoding="base64" compression="zlib">
-   eJxjYCASMBKgiQAAAUgABQ==
+   eJxjYBiigJEATUdzAAQcAAk=
   </data>
  </layer>
- <layer name="input_automap" width="9" height="3">
+ <layer name="input_automap" width="9" height="9">
   <data encoding="base64" compression="zlib">
-   eJxjYCAOMDFCaGYozQilWRiJNAAIAANoAA8=
+   eJxjYBiagIkRQjNDaTYozc5ImjksUPWsUJoRSnOQYA4AEKQALQ==
   </data>
  </layer>
- <layer name="output_background" width="9" height="3">
+ <layer name="output_background" width="9" height="9">
   <data encoding="base64" compression="zlib">
-   eJxjYCAOCEDpDUSqxwYALewAwQ==
+   eJxjYBiaQIAATao5GyhwCwBOxAEB
   </data>
  </layer>
- <layer name="output_object" width="9" height="3">
+ <layer name="output_object" width="9" height="9">
   <data encoding="base64" compression="zlib">
-   eJxjYKAfAAAAbAAB
+   eJxjYBia4AuU/gGl/0DpDwPgFgDtcwPZ
   </data>
  </layer>
- <layer name="output_collision" width="9" height="3">
+ <layer name="output_object" width="9" height="9">
   <data encoding="base64" compression="zlib">
-   eJxjYCANMEFpZijNSIJeAAGsAAc=
+   eJxjYBia4CuU/gml/0LpjwPgFgDvcwPd
+  </data>
+ </layer>
+ <layer name="output_object" width="9" height="9">
+  <data encoding="base64" compression="zlib">
+   eJxjYBia4BuU/gWl/0HpTwPgFgDxcwPh
+  </data>
+ </layer>
+ <layer name="output_object" width="9" height="9">
+  <data encoding="base64" compression="zlib">
+   eJxjYBia4DuU/g2l/0PpzwPgFgDzcwPl
+  </data>
+ </layer>
+ <layer name="output_collision" width="9" height="9">
+  <data encoding="base64" compression="zlib">
+   eJxjYBiagJkATSpgQtPPSIJeAAiEABM=
   </data>
  </layer>
 </map>

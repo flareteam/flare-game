@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="isometric" width="13" height="13" tilewidth="64" tileheight="32">
  <properties>
   <property name="AutomappingRadius" value="1"/>
@@ -21,31 +22,26 @@
   <image source="../grassland_trees.png" width="1024" height="512"/>
  </tileset>
  <tileset firstgid="256" name="set_rules" tilewidth="64" tileheight="32">
-  <image source="../set_rules.png" width="128" height="128"/>
+  <image source="../set_rules.png" width="256" height="128"/>
  </tileset>
- <layer name="regions" width="13" height="13" visible="0">
+ <layer name="regions" width="13" height="13">
   <data encoding="base64" compression="zlib">
    eJxjYCATMEIxsWxy9Yy6bcS7DQBXZABB
   </data>
  </layer>
  <layer name="input_automap" width="13" height="13">
   <data encoding="base64" compression="zlib">
-   eJydT0EKADAIWrr/v3mHXZpksIQgtFDXmmHHHd0hPOL9gbmr9imcD4TP2ZzW9ZnA+VB4SjaaO9dnmq3yofA5m9O6Pr84TWMA8Q==
-  </data>
- </layer>
- <layer name="input_automap" width="13" height="13">
-  <data encoding="base64" compression="zlib">
-   eJxjYCAPsDBCMDqbGU2cmRFVDzMOddjY5AJc9jCjiSO7DZccPv+Q67bRcCMNAACF0wEh
+   eJxjYCAPcDBCMDobxkem0cWxqcNlFrluw8cn1zxKzcEHWBmJ46OL08odyPaA2MjixMgR8g8pAABl4wDx
   </data>
  </layer>
  <layer name="output_background" width="13" height="13" visible="0">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFgwHMQuPPRuPPgNIz6eAWdLAIjb8Yjb8ASi+kkf0AgwkE7Q==
+   eJxjYCAPCBLgkwuoYQ613SaIRtMCzELjz0bjz4DSM2noBlxgERp/MRp/AZReSCP7AWa8BWQ=
   </data>
  </layer>
  <layer name="output1_background" width="13" height="13" visible="0">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFgwHMQ+PPR+PPgdJz6eAWdLAMjb8cjb8ESi+lkf0AmgkFDQ==
+   eJxjYCAPCBDgkwuoYQ613SaARtMCzEPjz0fjz4HSc2noBlxgGRp/ORp/CZReSiP7AXBYBX0=
   </data>
  </layer>
  <layer name="output_object" width="13" height="13" visible="0">
