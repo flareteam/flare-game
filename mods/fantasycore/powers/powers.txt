@@ -106,19 +106,15 @@ wall_power=126
 [power]
 id=7
 name=Heal
-type=fixed
+type=effect
 icon=7
 description=Restore HP
 new_state=cast
 requires_mp=1
 animation=heal.txt
 sfx=heal.ogg
-use_hazard=true
-no_attack=true
-lifespan=18
 trait_elemental=light
-starting_pos=source
-buff_heal=true
+effect_type=heal
 
 [power]
 id=8
