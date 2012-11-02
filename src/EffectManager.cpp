@@ -22,12 +22,14 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "Animation.h"
 #include "AnimationSet.h"
 #include "EffectManager.h"
+#include "Settings.h"
 
 using namespace std;
 
 EffectManager::EffectManager()
 	: bleed_dmg(0)
 	, hpot(0)
+	, mpot(0)
 	, forced_speed(0)
 	, immunity(false)
 	, slow(false)
@@ -47,6 +49,7 @@ EffectManager::~EffectManager() {
 void EffectManager::logic() {
 	bleed_dmg = 0;
 	hpot = 0;
+	mpot = 0;
 	forced_speed = 0;
 	immunity = false;
 	slow = false;
@@ -57,8 +60,9 @@ void EffectManager::logic() {
 
 	for (unsigned i=0; i<effect_list.size(); i++) {
 		if (effect_list[i].duration > 0) {
-			if (effect_list[i].type == "bleed" && effect_list[i].ticks % 30 == 1) bleed_dmg += effect_list[i].magnitude;
-			else if (effect_list[i].type == "hpot" && effect_list[i].ticks % 30 == 1) hpot += effect_list[i].magnitude;
+			if (effect_list[i].type == "bleed" && effect_list[i].ticks % MAX_FRAMES_PER_SEC == 1) bleed_dmg += effect_list[i].magnitude;
+			else if (effect_list[i].type == "hpot" && effect_list[i].ticks % MAX_FRAMES_PER_SEC == 1) hpot += effect_list[i].magnitude;
+			else if (effect_list[i].type == "mpot" && effect_list[i].ticks % MAX_FRAMES_PER_SEC == 1) mpot += effect_list[i].magnitude;
 			else if (effect_list[i].type == "immunity") immunity = true;
 			else if (effect_list[i].type == "slow") slow = true;
 			else if (effect_list[i].type == "stun") stun = true;
@@ -72,8 +76,8 @@ void EffectManager::logic() {
 			if (effect_list[i].ticks > 0) effect_list[i].ticks--;
 			if (effect_list[i].ticks == 0) removeEffect(i);
 		}
-		if (effect_list[i].shield_maxhp > 0) {
-			if (effect_list[i].shield_hp == 0) removeEffect(i);
+		if (effect_list[i].magnitude_max > 0) {
+			if (effect_list[i].magnitude == 0 && effect_list[i].type == "shield") removeEffect(i);
 		}
 		if (effect_list[i].animation) {
 			if (!effect_list[i].animation->isCompleted())
@@ -82,7 +86,7 @@ void EffectManager::logic() {
 	}
 }
 
-void EffectManager::addEffect(int _id, int _icon, int _duration, int _shield_hp, int _magnitude, std::string _type, std::string _animation) {
+void EffectManager::addEffect(int _id, int _icon, int _duration, int _magnitude, std::string _type, std::string _animation) {
 	// if we're already immune, don't add negative effects
 	if (immunity) {
 		if (_type == "bleed") return;
@@ -103,12 +107,8 @@ void EffectManager::addEffect(int _id, int _icon, int _duration, int _shield_hp,
 				effect_list[i].ticks = effect_list[i].duration = _duration;
 				if (effect_list[i].animation) effect_list[i].animation->reset();
 			}
-			if (effect_list[i].shield_maxhp <= _shield_hp) {
-				effect_list[i].shield_hp = effect_list[i].shield_hp = _shield_hp;
-				if (effect_list[i].animation) effect_list[i].animation->reset();
-			}
-			if (effect_list[i].magnitude <= _magnitude) {
-				effect_list[i].magnitude = _magnitude;
+			if (effect_list[i].magnitude_max <= _magnitude) {
+				effect_list[i].magnitude = effect_list[i].magnitude_max = _magnitude;
 				if (effect_list[i].animation) effect_list[i].animation->reset();
 			}
 			return; // we already have this effect
@@ -124,8 +124,7 @@ void EffectManager::addEffect(int _id, int _icon, int _duration, int _shield_hp,
 	e.id = _id;
 	e.icon = _icon;
 	e.ticks = e.duration = _duration;
-	e.shield_hp = e.shield_maxhp = _shield_hp;
-	e.magnitude = _magnitude;
+	e.magnitude = e.magnitude_max = _magnitude;
 	e.type = _type;
 
 	if (_animation != "") {
@@ -176,11 +175,11 @@ int EffectManager::damageShields(int _dmg) {
 	int over_dmg = _dmg;
 
 	for (unsigned i=0; i<effect_list.size(); i++) {
-		if (effect_list[i].shield_maxhp > 0) {
-			effect_list[i].shield_hp -= _dmg;
-			if (effect_list[i].shield_hp < 0) {
-				if (abs(effect_list[i].shield_hp) < over_dmg) over_dmg = abs(effect_list[i].shield_hp);
-				effect_list[i].shield_hp = 0;
+		if (effect_list[i].magnitude_max > 0 && effect_list[i].type == "shield") {
+			effect_list[i].magnitude -= _dmg;
+			if (effect_list[i].magnitude < 0) {
+				if (abs(effect_list[i].magnitude) < over_dmg) over_dmg = abs(effect_list[i].magnitude);
+				effect_list[i].magnitude = 0;
 			} else {
 				over_dmg = 0;
 			}

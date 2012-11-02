@@ -146,8 +146,6 @@ public:
 	bool buff;
 	bool buff_heal;
 	bool buff_teleport;
-	int buff_restore_hp;
-	int buff_restore_mp;
 
 	int post_effect;
 	int effect_duration;
@@ -226,8 +224,6 @@ public:
 		, buff(false)
 		, buff_heal(false)
 		, buff_teleport(false)
-		, buff_restore_hp(0)
-		, buff_restore_mp(0)
 
 		, post_effect(0)
 		, effect_duration(0)

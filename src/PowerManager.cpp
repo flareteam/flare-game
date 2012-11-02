@@ -245,10 +245,6 @@ void PowerManager::loadPowers(const std::string& filename) {
 			powers[input_id].buff_heal = toBool(infile.val);
 		else if (infile.key == "buff_teleport")
 			powers[input_id].buff_teleport = toBool(infile.val);
-		else if (infile.key == "buff_restore_hp")
-			powers[input_id].buff_restore_hp = toInt(infile.val);
-		else if (infile.key == "buff_restore_mp")
-			powers[input_id].buff_restore_mp = toInt(infile.val);
 		else if (infile.key == "post_effect")
 			powers[input_id].post_effect = toInt(infile.val);
 		else if (infile.key == "effect_duration")
@@ -608,34 +604,9 @@ void PowerManager::buff(int power_index, StatBlock *src_stats, Point target) {
 			heal_amt = rand() % (heal_max - heal_min) + heal_min;
 		else // avoid div by 0
 			heal_amt = heal_min;
-		if (src_stats->hero)
-			comb->addMessage(msg->get("+%d HP",heal_amt), src_stats->pos, COMBAT_MESSAGE_BUFF, true);
-		else
-			comb->addMessage(msg->get("+%d HP",heal_amt), src_stats->pos, COMBAT_MESSAGE_BUFF, false);
+		comb->addMessage(msg->get("+%d HP",heal_amt), src_stats->pos, COMBAT_MESSAGE_BUFF, src_stats->hero);
 		src_stats->hp += heal_amt;
 		if (src_stats->hp > src_stats->maxhp) src_stats->hp = src_stats->maxhp;
-	}
-
-	// hp restore
-	if (powers[power_index].buff_restore_hp > 0) {
-		int hp_amt = powers[power_index].buff_restore_hp;
-		if (src_stats->hero)
-			comb->addMessage(msg->get("+%d HP",hp_amt), src_stats->pos, COMBAT_MESSAGE_BUFF, true);
-		else
-			comb->addMessage(msg->get("+%d HP",hp_amt), src_stats->pos, COMBAT_MESSAGE_BUFF, false);
-		src_stats->hp += hp_amt;
-		if (src_stats->hp > src_stats->maxhp) src_stats->hp = src_stats->maxhp;
-	}
-
-	// mp restore
-	if (powers[power_index].buff_restore_mp > 0) {
-		int mp_amt = powers[power_index].buff_restore_mp;
-		if (src_stats->hero)
-			comb->addMessage(msg->get("+%d MP",mp_amt), src_stats->pos, COMBAT_MESSAGE_BUFF, true);
-		else
-			comb->addMessage(msg->get("+%d MP",mp_amt), src_stats->pos, COMBAT_MESSAGE_BUFF, false);
-		src_stats->mp += mp_amt;
-		if (src_stats->mp > src_stats->maxmp) src_stats->mp = src_stats->maxmp;
 	}
 
 	// teleport to the target location
@@ -697,22 +668,21 @@ void PowerManager::playSound(int power_index, StatBlock *src_stats) {
 }
 
 bool PowerManager::effect(StatBlock *src_stats, int power_index) {
-	int shield_amt = 0;
 	int effect_index = 0;
 
 	if (powers[power_index].type == POWTYPE_EFFECT) effect_index = power_index;
 	else effect_index = powers[power_index].post_effect;
 
 	if (effect_index > 0) {
+		int magnitude = powers[power_index].effect_magnitude;
+
 		if (powers[effect_index].effect_type == "shield") {
 			// charge shield to max ment weapon damage * damage multiplier
-			shield_amt = (int)ceil(src_stats->dmg_ment_max * powers[power_index].damage_multiplier / 100.0) + (src_stats->get_mental()*src_stats->bonus_per_mental);
-			if (src_stats->hero)
-				comb->addMessage(msg->get("+%d Shield",shield_amt), src_stats->pos, COMBAT_MESSAGE_BUFF, true);
-			else
-				comb->addMessage(msg->get("+%d Shield",shield_amt), src_stats->pos, COMBAT_MESSAGE_BUFF, false);
+			magnitude = (int)ceil(src_stats->dmg_ment_max * powers[power_index].damage_multiplier / 100.0) + (src_stats->get_mental()*src_stats->bonus_per_mental);
+			comb->addMessage(msg->get("+%d Shield",magnitude), src_stats->pos, COMBAT_MESSAGE_BUFF, src_stats->hero);
 		}
-		src_stats->effects.addEffect(effect_index, powers[effect_index].icon, powers[power_index].effect_duration, shield_amt, powers[power_index].effect_magnitude, powers[effect_index].effect_type, powers[effect_index].animation_name);
+
+		src_stats->effects.addEffect(effect_index, powers[effect_index].icon, powers[power_index].effect_duration, magnitude, powers[effect_index].effect_type, powers[effect_index].animation_name);
 	}
 
 	// If there's a sound effect, play it here
