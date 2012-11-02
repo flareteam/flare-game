@@ -189,7 +189,7 @@ void LootManager::handleNewMap() {
 }
 
 void LootManager::logic() {
-	vector<LootDef>::iterator it;
+	vector<Loot>::iterator it;
 	for (it = loot.begin(); it != loot.end(); ++it) {
 
 		// animate flying loot
@@ -214,7 +214,7 @@ void LootManager::renderTooltips(Point cam) {
 	Point dest;
 	stringstream ss;
 
-	vector<LootDef>::iterator it;
+	vector<Loot>::iterator it;
 	for (it = loot.begin(); it != loot.end(); ++it) {
 		if (it->animation->isLastFrame()) {
 			Point p = map_to_screen(it->pos.x, it->pos.y, cam.x, cam.y);
@@ -413,7 +413,7 @@ int LootManager::randomItem(int base_level) {
 
 void LootManager::addLoot(ItemStack stack, Point pos) {
 	// TODO: z-sort insert?
-	LootDef ld;
+	Loot ld;
 	ld.stack = stack;
 	ld.pos.x = pos.x;
 	ld.pos.y = pos.y;
@@ -427,7 +427,7 @@ void LootManager::addLoot(ItemStack stack, Point pos) {
 }
 
 void LootManager::addCurrency(int count, Point pos) {
-	LootDef ld;
+	Loot ld;
 	ld.stack.item = 0;
 	ld.stack.quantity = 0;
 	ld.pos.x = pos.x;
@@ -465,7 +465,7 @@ ItemStack LootManager::checkPickup(Point mouse, Point cam, Point hero_pos, int &
 	// I'm starting at the end of the loot list so that more recently-dropped
 	// loot is picked up first.  If a player drops several loot in the same
 	// location, picking it back up will work like a stack.
-	vector<LootDef>::iterator it;
+	vector<Loot>::iterator it;
 	for (it = loot.end(); it != loot.begin(); ) {
 		--it;
 
@@ -513,7 +513,7 @@ ItemStack LootManager::checkAutoPickup(Point hero_pos, int &currency) {
 	loot_stack.item = 0;
 	loot_stack.quantity = 0;
 
-	vector<LootDef>::iterator it;
+	vector<Loot>::iterator it;
 	for (it = loot.end(); it != loot.begin(); ) {
 		--it;
 		if (abs(hero_pos.x - it->pos.x) < AUTOPICKUP_RANGE && abs(hero_pos.y - it->pos.y) < AUTOPICKUP_RANGE && !it->isFlying()) {
@@ -528,7 +528,7 @@ ItemStack LootManager::checkAutoPickup(Point hero_pos, int &currency) {
 }
 
 void LootManager::addRenders(vector<Renderable> &ren, vector<Renderable> &ren_dead) {
-	vector<LootDef>::iterator it;
+	vector<Loot>::iterator it;
 	for (it = loot.begin(); it != loot.end(); ++it) {
 		Renderable r = it->animation->getCurrentFrame(0);
 		r.map_pos.x = it->pos.x;
@@ -553,7 +553,7 @@ LootManager::~LootManager() {
 		anim->decreaseCount(animationname);
 	}
 
-	// remove items, so LootDefs get destroyed!
+	// remove items, so Loots get destroyed!
 	loot.clear();
 
 	anim->cleanUp();
