@@ -59,6 +59,7 @@ void EffectManager::logic() {
 	forced_move = false;
 
 	for (unsigned i=0; i<effect_list.size(); i++) {
+		// expire timed effects
 		if (effect_list[i].duration > 0) {
 			if (effect_list[i].type == "bleed" && effect_list[i].ticks % MAX_FRAMES_PER_SEC == 1) bleed_dmg += effect_list[i].magnitude;
 			else if (effect_list[i].type == "hpot" && effect_list[i].ticks % MAX_FRAMES_PER_SEC == 1) hpot += effect_list[i].magnitude;
@@ -76,9 +77,16 @@ void EffectManager::logic() {
 			if (effect_list[i].ticks > 0) effect_list[i].ticks--;
 			if (effect_list[i].ticks == 0) removeEffect(i);
 		}
-		if (effect_list[i].magnitude_max > 0) {
-			if (effect_list[i].magnitude == 0 && effect_list[i].type == "shield") removeEffect(i);
+		// expire shield effects
+		if (effect_list[i].magnitude_max > 0 && effect_list[i].magnitude == 0) {
+			if (effect_list[i].type == "shield") removeEffect(i);
 		}
+		// expire effects based on animations
+		if ((effect_list[i].animation && effect_list[i].animation->isLastFrame()) || !effect_list[i].animation) {
+			if (effect_list[i].type == "heal") removeEffect(i);
+		}
+
+		// animate
 		if (effect_list[i].animation) {
 			if (!effect_list[i].animation->isCompleted())
 				effect_list[i].animation->advanceFrame();

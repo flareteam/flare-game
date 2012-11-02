@@ -144,7 +144,6 @@ public:
 
 	// special effects
 	bool buff;
-	bool buff_heal;
 	bool buff_teleport;
 
 	int post_effect;
@@ -222,7 +221,6 @@ public:
 		, manual_untransform(false)
 
 		, buff(false)
-		, buff_heal(false)
 		, buff_teleport(false)
 
 		, post_effect(0)
