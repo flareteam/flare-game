@@ -43,7 +43,10 @@ Loot::Loot(const Loot &other) {
 // The assignment operator mainly used in internal vector managing,
 // e.g. in vector::erase()
 Loot& Loot::operator= (const Loot &other) {
+	if (gfx != "")
+		anim->decreaseCount(gfx);
 	delete animation;
+
 	loadAnimation(other.gfx);
 	animation->syncTo(other.animation);
 
