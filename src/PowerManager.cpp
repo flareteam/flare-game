@@ -241,8 +241,6 @@ void PowerManager::loadPowers(const std::string& filename) {
 		// buffs
 		else if (infile.key == "buff")
 			powers[input_id].buff= toBool(infile.val);
-		else if (infile.key == "buff_heal")
-			powers[input_id].buff_heal = toBool(infile.val);
 		else if (infile.key == "buff_teleport")
 			powers[input_id].buff_teleport = toBool(infile.val);
 		else if (infile.key == "post_effect")
@@ -595,20 +593,6 @@ void PowerManager::initHazard(int power_index, StatBlock *src_stats, Point targe
  */
 void PowerManager::buff(int power_index, StatBlock *src_stats, Point target) {
 
-	// heal for ment weapon damage * damage multiplier
-	if (powers[power_index].buff_heal) {
-		int heal_amt = 0;
-		int heal_max = (int)ceil(src_stats->dmg_ment_max * powers[power_index].damage_multiplier / 100.0) + (src_stats->get_mental()*src_stats->bonus_per_mental);
-		int heal_min = (int)ceil(src_stats->dmg_ment_min * powers[power_index].damage_multiplier / 100.0) + (src_stats->get_mental()*src_stats->bonus_per_mental);
-		if (heal_max > heal_min)
-			heal_amt = rand() % (heal_max - heal_min) + heal_min;
-		else // avoid div by 0
-			heal_amt = heal_min;
-		comb->addMessage(msg->get("+%d HP",heal_amt), src_stats->pos, COMBAT_MESSAGE_BUFF, src_stats->hero);
-		src_stats->hp += heal_amt;
-		if (src_stats->hp > src_stats->maxhp) src_stats->hp = src_stats->maxhp;
-	}
-
 	// teleport to the target location
 	if (powers[power_index].buff_teleport) {
 		target = limitRange(powers[power_index].range,src_stats->pos,target);
@@ -680,6 +664,17 @@ bool PowerManager::effect(StatBlock *src_stats, int power_index) {
 			// charge shield to max ment weapon damage * damage multiplier
 			magnitude = (int)ceil(src_stats->dmg_ment_max * powers[power_index].damage_multiplier / 100.0) + (src_stats->get_mental()*src_stats->bonus_per_mental);
 			comb->addMessage(msg->get("+%d Shield",magnitude), src_stats->pos, COMBAT_MESSAGE_BUFF, src_stats->hero);
+		} else if (powers[effect_index].effect_type == "heal") {
+			// heal for ment weapon damage * damage multiplier
+			int heal_max = (int)ceil(src_stats->dmg_ment_max * powers[power_index].damage_multiplier / 100.0) + (src_stats->get_mental()*src_stats->bonus_per_mental);
+			int heal_min = (int)ceil(src_stats->dmg_ment_min * powers[power_index].damage_multiplier / 100.0) + (src_stats->get_mental()*src_stats->bonus_per_mental);
+			if (heal_max > heal_min)
+				magnitude = rand() % (heal_max - heal_min) + heal_min;
+			else // avoid div by 0
+				magnitude = heal_min;
+			comb->addMessage(msg->get("+%d HP",magnitude), src_stats->pos, COMBAT_MESSAGE_BUFF, src_stats->hero);
+			src_stats->hp += magnitude;
+			if (src_stats->hp > src_stats->maxhp) src_stats->hp = src_stats->maxhp;
 		}
 
 		src_stats->effects.addEffect(effect_index, powers[effect_index].icon, powers[power_index].effect_duration, magnitude, powers[effect_index].effect_type, powers[effect_index].animation_name);
