@@ -121,7 +121,7 @@ void MenuActiveEffects::render() {
 
 		if (type == "shield")
 			renderIcon(icon,i,magnitude,magnitude_max);
-		else if (type == "block")
+		else if (type == "heal" || type == "block")
 			renderIcon(icon,i,0,0);
 		else if (ticks > 0 && duration > 0)
 			renderIcon(icon,i,ticks,duration);
