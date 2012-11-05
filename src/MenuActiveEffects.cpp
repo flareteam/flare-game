@@ -110,6 +110,8 @@ void MenuActiveEffects::update(StatBlock *_stats) {
 }
 
 void MenuActiveEffects::render() {
+	int count=-1;
+
 	// Step through the list of effects and render those that are active
 	for (unsigned int i=0; i<stats->effects.effect_list.size(); i++) {
 		std::string type = stats->effects.effect_list[i].type;
@@ -119,12 +121,14 @@ void MenuActiveEffects::render() {
 		int magnitude = stats->effects.effect_list[i].magnitude;
 		int magnitude_max = stats->effects.effect_list[i].magnitude_max;
 
+		if (icon >= 0) count++;
+
 		if (type == "shield")
-			renderIcon(icon,i,magnitude,magnitude_max);
+			renderIcon(icon,count,magnitude,magnitude_max);
 		else if (type == "heal" || type == "block")
-			renderIcon(icon,i,0,0);
-		else if (ticks > 0 && duration > 0)
-			renderIcon(icon,i,ticks,duration);
+			renderIcon(icon,count,0,0);
+		else if (ticks >= 0 && duration >= 0)
+			renderIcon(icon,count,ticks,duration);
 	}
 }
 

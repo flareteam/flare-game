@@ -279,7 +279,7 @@ bool MenuPowers::requirementsMet(int power_index) {
 	if (id == -1) return true;
 
 	// If power_id is saved into vector, it's unlocked anyway
-	if (find(powers_list.begin(), powers_list.end(), power_index) != powers_list.end()) return true;
+	if (find(stats->powers_list.begin(), stats->powers_list.end(), power_index) != stats->powers_list.end()) return true;
 
 	// Check the rest requirements
 	if ((stats->physoff >= power_cell[id].requires_physoff) &&
@@ -338,7 +338,7 @@ int MenuPowers::click(Point mouse) {
 		int active_tab = tabControl->getActiveTab();
 		for (unsigned i=0; i<power_cell.size(); i++) {
 			if (isWithin(slots[i], mouse) && (power_cell[i].tab == active_tab)) {
-				if (requirementsMet(power_cell[i].id)) return power_cell[i].id;
+				if (requirementsMet(power_cell[i].id) && !powers->powers[power_cell[i].id].passive) return power_cell[i].id;
 				else return 0;
 			}
 		}
@@ -346,7 +346,7 @@ int MenuPowers::click(Point mouse) {
 	} else {
 		for (unsigned i=0; i<power_cell.size(); i++) {
 			if (isWithin(slots[i], mouse)) {
-				if (requirementsMet(power_cell[i].id)) return power_cell[i].id;
+				if (requirementsMet(power_cell[i].id) && !powers->powers[power_cell[i].id].passive) return power_cell[i].id;
 				else return 0;
 			}
 		}
@@ -366,8 +366,9 @@ bool MenuPowers::unlockClick(Point mouse) {
 			if (isWithin(slots[i], mouse)
 					&& (powerUnlockable(power_cell[i].id)) && points_left > 0
 					&& power_cell[i].requires_point && power_cell[i].tab == active_tab) {
-				powers_list.push_back(power_cell[i].id);
+				stats->powers_list.push_back(power_cell[i].id);
 				stats->check_title = true;
+				powers->activatePassives(stats);
 				return true;
 			}
 		}
@@ -377,8 +378,9 @@ bool MenuPowers::unlockClick(Point mouse) {
 			if (isWithin(slots[i], mouse)
 					&& (powerUnlockable(power_cell[i].id))
 					&& points_left > 0 && power_cell[i].requires_point) {
-				powers_list.push_back(power_cell[i].id);
+				stats->powers_list.push_back(power_cell[i].id);
 				stats->check_title = true;
+				powers->activatePassives(stats);
 				return true;
 			}
 		}
@@ -387,7 +389,7 @@ bool MenuPowers::unlockClick(Point mouse) {
 }
 
 void MenuPowers::logic() {
-	points_left = stats->level - powers_list.size();
+	points_left = stats->level - stats->powers_list.size();
 	if (!visible) return;
 
 	if (closeButton->checkClick()) {
@@ -477,6 +479,7 @@ TooltipData MenuPowers::checkTooltip(Point mouse) {
 
 			if (isWithin(slots[i], mouse)) {
 				tip.addText(powers->powers[power_cell[i].id].name);
+				if (powers->powers[power_cell[i].id].passive) tip.addText("Passive");
 				tip.addText(powers->powers[power_cell[i].id].description);
 
 				if (powers->powers[power_cell[i].id].requires_physical_weapon)
@@ -539,19 +542,19 @@ TooltipData MenuPowers::checkTooltip(Point mouse) {
 
 				// Draw required Skill Point Tooltip
 				if ((power_cell[i].requires_point) &&
-					!(find(powers_list.begin(), powers_list.end(), power_cell[i].id) != powers_list.end()) &&
+					!(find(stats->powers_list.begin(), stats->powers_list.end(), power_cell[i].id) != stats->powers_list.end()) &&
 					(points_left < 1)) {
 						tip.addText(msg->get("Requires %d Skill Point", power_cell[i].requires_point), color_penalty);
 				}
 				else if ((power_cell[i].requires_point) &&
-					!(find(powers_list.begin(), powers_list.end(), power_cell[i].id) != powers_list.end()) &&
+					!(find(stats->powers_list.begin(), stats->powers_list.end(), power_cell[i].id) != stats->powers_list.end()) &&
 					(points_left > 0)) {
 						tip.addText(msg->get("Requires %d Skill Point", power_cell[i].requires_point));
 				}
 
 				// Draw unlock power Tooltip
 				if (power_cell[i].requires_point &&
-					!(find(powers_list.begin(), powers_list.end(), power_cell[i].id) != powers_list.end()) &&
+					!(find(stats->powers_list.begin(), stats->powers_list.end(), power_cell[i].id) != stats->powers_list.end()) &&
 					(points_left > 0) &&
 					powerUnlockable(power_cell[i].id) && (points_left > 0)) {
 						tip.addText(msg->get("Click to Unlock"), color_bonus);
@@ -629,7 +632,7 @@ void MenuPowers::renderPowers(int tab_num) {
 		// Continue if slot is not filled with data
 		if (power_cell[i].tab != tab_num) continue;
 
-		if (find(powers_list.begin(), powers_list.end(), power_cell[i].id) != powers_list.end()) power_in_vector = true;
+		if (find(stats->powers_list.begin(), stats->powers_list.end(), power_cell[i].id) != stats->powers_list.end()) power_in_vector = true;
 
 		renderIcon(powers->powers[power_cell[i].id].icon, window_area.x + power_cell[i].pos.x, window_area.y + power_cell[i].pos.y);
 

@@ -616,6 +616,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 					stats.alive = true;
 					stats.corpse = false;
 					stats.cur_state = AVATAR_STANCE;
+					powers->activatePassives(&stats);
 
 					// set teleportation variables.  GameEngine acts on these.
 					map->teleport_destination.x = map->respawn_point.x;
