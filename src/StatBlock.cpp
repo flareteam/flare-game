@@ -122,6 +122,7 @@ StatBlock::StatBlock() {
 	item_class_prob_sum = 0;
 	teleportation = false;
 
+	powers_list = vector<int>();
 	for (int i=0; i<POWERSLOT_COUNT; i++) {
 		power_chance[i] = 0;
 		power_index[i] = 0;
@@ -463,7 +464,8 @@ bool StatBlock::canUsePower(const Power &power, unsigned powerid) const {
 		&& (!power.requires_physical_weapon || wielding_physical)
 		&& mp >= power.requires_mp
 		&& (!power.sacrifice == false || hp > power.requires_hp)
-		&& menu_powers->meetsUsageStats(powerid);
+		&& menu_powers->meetsUsageStats(powerid)
+		&& !power.passive;
 
 }
 

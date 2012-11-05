@@ -139,6 +139,8 @@ void PowerManager::loadPowers(const std::string& filename) {
 			powers[input_id].beacon = toBool(infile.val);
 		else if (infile.key == "count")
 			powers[input_id].count = toInt(infile.val);
+		else if (infile.key == "passive")
+			powers[input_id].passive = toBool(infile.val);
 		// power requirements
 		else if (infile.key == "requires_physical_weapon")
 			powers[input_id].requires_physical_weapon = toBool(infile.val);
@@ -978,6 +980,17 @@ void PowerManager::payPowerCost(int power_index, StatBlock *src_stats) {
 		if (powers[power_index].requires_hp <= src_stats->hp) src_stats->hp -= 
 			powers[power_index].requires_hp;
 		else if (powers[power_index].requires_hp > src_stats->hp) src_stats->hp -= src_stats->hp;
+	}
+}
+
+/**
+ * Activate an entity's passive powers
+ */
+void PowerManager::activatePassives(StatBlock *src_stats) {
+	for (unsigned i=0; i<src_stats->powers_list.size(); i++) {
+		if (powers[src_stats->powers_list[i]].passive) {
+			activate(src_stats->powers_list[i], src_stats, src_stats->pos);
+		}
 	}
 }
 

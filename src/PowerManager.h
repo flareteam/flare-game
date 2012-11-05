@@ -86,6 +86,7 @@ public:
 	int source_type; //hero, neutral, or enemy
 	bool beacon; //true if it's just an ememy calling its allies
 	int count; // number of hazards/effects or spawns created
+	bool passive; // if unlocked when the user spawns, automatically cast it
 
 	// power requirements
 	bool requires_physical_weapon;
@@ -169,6 +170,7 @@ public:
 		, source_type(-1)
 		, beacon(false)
 		, count(1)
+		, passive(false)
 
 		, requires_physical_weapon(false)
 		, requires_offense_weapon(false)
@@ -279,6 +281,7 @@ public:
 	bool hasValidTarget(int power_index, StatBlock *src_stats, Point target);
 	bool spawn(const std::string& enemy_type, Point target);
 	bool effect(StatBlock *src_stats, int power_index);
+	void activatePassives(StatBlock *src_stats);
 
 	std::vector<Power> powers;
 	std::queue<Hazard *> hazards; // output; read by HazardManager
