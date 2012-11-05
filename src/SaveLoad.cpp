@@ -35,7 +35,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "MenuCharacter.h"
 #include "MenuInventory.h"
 #include "MenuManager.h"
-#include "MenuPowers.h"
 #include "MenuStash.h"
 #include "MenuTalker.h"
 #include "PowerManager.h"
@@ -116,9 +115,9 @@ void GameStatePlay::saveGame() {
 
 		// enabled powers
 		outfile << "powers=";
-		for (unsigned int i=0; i<menu->pow->powers_list.size(); i++) {
-			if (i == 0) outfile << menu->pow->powers_list[i];
-			else outfile << "," << menu->pow->powers_list[i];
+		for (unsigned int i=0; i<pc->stats.powers_list.size(); i++) {
+			if (i == 0) outfile << pc->stats.powers_list[i];
+			else outfile << "," << pc->stats.powers_list[i];
 		}
 		outfile << "\n";
 
@@ -288,7 +287,7 @@ void GameStatePlay::loadGame() {
 			else if (infile.key == "powers") {
 				string power;
 				while ( (power = infile.nextValue()) != "") {
-					menu->pow->powers_list.push_back(toInt(power));
+					pc->stats.powers_list.push_back(toInt(power));
 				}
 			}
 			else if (infile.key == "campaign") camp->setAll(infile.val);
@@ -339,6 +338,8 @@ void GameStatePlay::loadGame() {
 	// load sounds (gender specific)
 	pc->loadSounds();
 
+	// activate passive powers
+	powers->activatePassives(&pc->stats);
 }
 
 /**
@@ -356,7 +357,7 @@ void GameStatePlay::loadClass(int index) {
 	menu->inv->currency += HERO_CLASSES[index].currency;
 	menu->inv->inventory[EQUIPMENT].setItems(HERO_CLASSES[index].equipment);
 	for (unsigned i=0; i<HERO_CLASSES[index].powers.size(); i++) {
-		menu->pow->powers_list.push_back(HERO_CLASSES[index].powers[i]);
+		pc->stats.powers_list.push_back(HERO_CLASSES[index].powers[i]);
 	}
 	menu->act->set(HERO_CLASSES[index].hotkeys);
 	
