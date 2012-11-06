@@ -160,6 +160,7 @@ bool SHOW_FPS = false;
 int CORPSE_TIMEOUT = 1800;
 bool SELL_WITHOUT_VENDOR = true;
 int AIM_ASSIST = 0;
+bool SHOW_ENEMIES_BY_LOS = false;
 
 
 /**
@@ -347,8 +348,6 @@ void loadMiscSettings() {
 			if (infile.key == "save_hpmp") {
 				if (toInt(infile.val) == 1)
 					SAVE_HPMP = true;
-				else
-					SAVE_HPMP = false;
 			} else if (infile.key == "default_name") {
 				DEFAULT_NAME = infile.val.c_str();
 			} else if (infile.key == "corpse_timeout") {
@@ -360,7 +359,11 @@ void loadMiscSettings() {
 					SELL_WITHOUT_VENDOR = false;
 			} else if (infile.key == "aim_assist") {
 				AIM_ASSIST = toInt(infile.val);
+			} else if (infile.key == "show_enemies_by_los") {
+				if (toInt(infile.val) == 1)
+					SHOW_ENEMIES_BY_LOS = true;
 			}
+			
 		}
 		infile.close();
 	} else fprintf(stderr, "Unable to open engine/misc.txt!\n");
