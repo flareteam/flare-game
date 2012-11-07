@@ -42,12 +42,6 @@ static void init() {
 
 	setPaths();
 
-	if (!loadSettings()) {
-		fprintf(stderr, "%s",
-				("Could not load settings file: ‘" + PATH_CONF + FILE_SETTINGS + "’.\n").c_str());
-		exit(1);
-	}
-
 	// SDL Inits
 	if ( SDL_Init (SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_JOYSTICK) < 0 ) {
 		fprintf(stderr, "Could not initialize SDL: %s\n", SDL_GetError());
@@ -73,6 +67,11 @@ static void init() {
 	imag = new ImageManager();
 	inpt = new InputState();
 
+	if (!loadSettings()) {
+		fprintf(stderr, "%s",
+				("Could not load settings file: ‘" + PATH_CONF + FILE_SETTINGS + "’.\n").c_str());
+		exit(1);
+	}
 
 	// Load tileset options (must be after ModManager is initialized)
 	loadTilesetSettings();
