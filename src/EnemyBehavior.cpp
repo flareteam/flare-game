@@ -27,6 +27,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 EnemyBehavior::EnemyBehavior(Enemy *_e) {
 	e = _e;
+	los = false;
 }
 
 void EnemyBehavior::logic() {
