@@ -35,7 +35,6 @@ private:
 	void updateState();
 	
 	// targeting vars
-	bool los;
 	int dist;
 	Point pursue_pos;
 	
