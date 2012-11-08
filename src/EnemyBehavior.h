@@ -36,7 +36,6 @@ public:
 	EnemyBehavior(Enemy *_e);
 	virtual ~EnemyBehavior();
 	virtual void logic();
-	bool los;
 };
 
 #endif
