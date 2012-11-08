@@ -209,7 +209,7 @@ bool Enemy::takeHit(const Hazard &h) {
 
 		// check for crits
 		int true_crit_chance = h.crit_chance;
-		if (stats.effects.stun || stats.effects.immobilize || stats.effects.slow)
+		if (stats.effects.stun || stats.effects.speed < 100)
 			true_crit_chance += h.trait_crits_impaired;
 
 		bool crit = (rand() % 100) < true_crit_chance;

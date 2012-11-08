@@ -30,12 +30,10 @@ EffectManager::EffectManager()
 	: bleed_dmg(0)
 	, hpot(0)
 	, mpot(0)
-	, forced_speed(0)
+	, speed(100)
 	, immunity(false)
-	, slow(false)
 	, stun(false)
-	, immobilize(false)
-	, haste(false)
+	, forced_speed(0)
 	, forced_move(false)
 {
 }
@@ -50,12 +48,10 @@ void EffectManager::logic() {
 	bleed_dmg = 0;
 	hpot = 0;
 	mpot = 0;
-	forced_speed = 0;
+	speed = 100;
 	immunity = false;
-	slow = false;
 	stun = false;
-	immobilize = false;
-	haste = false;
+	forced_speed = 0;
 	forced_move = false;
 
 	for (unsigned i=0; i<effect_list.size(); i++) {
@@ -64,11 +60,9 @@ void EffectManager::logic() {
 			if (effect_list[i].type == "bleed" && effect_list[i].ticks % MAX_FRAMES_PER_SEC == 1) bleed_dmg += effect_list[i].magnitude;
 			else if (effect_list[i].type == "hpot" && effect_list[i].ticks % MAX_FRAMES_PER_SEC == 1) hpot += effect_list[i].magnitude;
 			else if (effect_list[i].type == "mpot" && effect_list[i].ticks % MAX_FRAMES_PER_SEC == 1) mpot += effect_list[i].magnitude;
+			else if (effect_list[i].type == "speed") speed = (effect_list[i].magnitude * speed) / 100;
 			else if (effect_list[i].type == "immunity") immunity = true;
-			else if (effect_list[i].type == "slow") slow = true;
 			else if (effect_list[i].type == "stun") stun = true;
-			else if (effect_list[i].type == "immobilize") immobilize = true;
-			else if (effect_list[i].type == "haste") haste = true;
 			else if (effect_list[i].type == "forced_move") {
 				forced_move = true;
 				forced_speed = effect_list[i].magnitude;
@@ -100,9 +94,8 @@ void EffectManager::addEffect(int _id, int _icon, int _duration, int _magnitude,
 	// if we're already immune, don't add negative effects
 	if (immunity) {
 		if (_type == "bleed") return;
-		else if (_type == "slow") return;
+		else if (_type == "speed" && _magnitude < 100) return;
 		else if (_type == "stun") return;
-		else if (_type == "immobilize") return;
 	}
 
 	// only allow one forced_move effect
@@ -175,9 +168,8 @@ void EffectManager::clearEffects() {
 void EffectManager::clearNegativeEffects() {
 	for (unsigned i=0; i<effect_list.size(); i++) {
 		if (effect_list[i].type == "bleed") removeEffect(i);
-		else if (effect_list[i].type == "slow") removeEffect(i);
+		else if (effect_list[i].type == "speed" && effect_list[i].magnitude_max < 100) removeEffect(i);
 		else if (effect_list[i].type == "stun") removeEffect(i);
-		else if (effect_list[i].type == "immobilize") removeEffect(i);
 	}
 }
 
