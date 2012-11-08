@@ -86,12 +86,10 @@ public:
 	int bleed_dmg;
 	int hpot;
 	int mpot;
-	int forced_speed;
+	int speed;
 	bool immunity;
-	bool slow;
 	bool stun;
-	bool immobilize;
-	bool haste;
+	int forced_speed;
 	bool forced_move;
 };
 
