@@ -25,6 +25,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "StatBlock.h"
 
 BehaviorStandard::BehaviorStandard(Enemy *_e) : EnemyBehavior(_e) {
+	los = false;
 	dist = 0;
 	pursue_pos.x = pursue_pos.y = -1;
 }
@@ -33,9 +34,6 @@ BehaviorStandard::BehaviorStandard(Enemy *_e) : EnemyBehavior(_e) {
  * One frame of logic for this behavior
  */
 void BehaviorStandard::logic() {
-
-	// always check line of sight. Used when checking whether to display the enemy
-	los = e->map->collider.line_of_sight(e->stats.pos.x, e->stats.pos.y, e->stats.hero_pos.x, e->stats.hero_pos.y);
 
 	// skip all logic if the enemy is dead and no longer animating
 	if (e->stats.corpse) {
@@ -115,11 +113,17 @@ void BehaviorStandard::findTarget() {
 	// stunned enemies can't act
 	if (e->stats.effects.stun) return;
 
-	// check distance between enemy and hero
+	// check distance and line of sight between enemy and hero
 	if (e->stats.hero_alive)
 		dist = e->getDistance(e->stats.hero_pos);
 	else
 		dist = 0;
+
+	// check line-of-sight
+	if (dist < e->stats.threat_range && e->stats.hero_alive)
+		los = e->map->collider.line_of_sight(e->stats.pos.x, e->stats.pos.y, e->stats.hero_pos.x, e->stats.hero_pos.y);
+	else
+		los = false;
 
 	// check entering combat (because the player hit the enemy)
 	if (e->stats.join_combat) {
