@@ -24,7 +24,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "SharedResources.h"
 #include "EnemyBehavior.h"
 #include "BehaviorStandard.h"
-#include "Settings.h"
 
 #include <iostream>
 #include <algorithm>
@@ -245,25 +244,15 @@ void EnemyManager::logic() {
 	}
 }
 
-/**
- * Detect if the mouse pointer is over an enemy
- */
 Enemy* EnemyManager::enemyFocus(Point mouse, Point cam, bool alive_only) {
 	Point p;
 	SDL_Rect r;
 	for(unsigned int i = 0; i < enemies.size(); i++) {
-		
-		// skip enemies outside line-of-sight
-		if (SHOW_ENEMIES_BY_LOS && !enemies[i]->eb->los)
+		if(alive_only && (enemies[i]->stats.cur_state == ENEMY_DEAD || enemies[i]->stats.cur_state == ENEMY_CRITDEAD)) {
 			continue;
-	
-		// skip dead enemies (optional)
-		if (alive_only && (enemies[i]->stats.cur_state == ENEMY_DEAD || enemies[i]->stats.cur_state == ENEMY_CRITDEAD))
-			continue;
-		
+		}
 		p = map_to_screen(enemies[i]->stats.pos.x, enemies[i]->stats.pos.y, cam.x, cam.y);
 
-		// get the bounding rectangle of the enemy for this frame
 		r.w = enemies[i]->getRender().src.w;
 		r.h = enemies[i]->getRender().src.h;
 		r.x = p.x - enemies[i]->getRender().offset.x;
@@ -297,12 +286,7 @@ void EnemyManager::checkEnemiesforXP(CampaignManager *camp) {
 void EnemyManager::addRenders(vector<Renderable> &r, vector<Renderable> &r_dead) {
 	vector<Enemy*>::iterator it;
 	for (it = enemies.begin(); it != enemies.end(); ++it) {
-	
-		// skip enemies that the hero can't see
-		if (SHOW_ENEMIES_BY_LOS && !((*it)->eb->los)) continue;
-	
 		bool dead = (*it)->stats.corpse;
-		
 		if (!dead || (dead && (*it)->stats.corpse_ticks > 0)) {
 			Renderable re = (*it)->getRender();
 

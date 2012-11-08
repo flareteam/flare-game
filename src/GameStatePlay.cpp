@@ -302,6 +302,12 @@ void GameStatePlay::checkCancel() {
  */
 void GameStatePlay::checkLog() {
 
+	// If the player has just respawned, we want to clear the HUD log
+	if (pc->respawn) {
+		menu->hudlog->clear();
+		pc->respawn = false;
+	}
+
 	// Map events can create messages
 	if (map->log_msg != "") {
 		menu->log->add(map->log_msg, LOG_TYPE_MESSAGES);
