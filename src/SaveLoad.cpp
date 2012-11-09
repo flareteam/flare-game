@@ -318,6 +318,7 @@ void GameStatePlay::loadGame() {
 	// initialize vars
 	pc->stats.recalc();
 	menu->inv->applyEquipment(menu->inv->inventory[EQUIPMENT].storage);
+	pc->stats.logic(); // run stat logic once to apply items bonuses
 	if (SAVE_HPMP) {
 		pc->stats.hp = saved_hp;
 		pc->stats.mp = saved_mp;
