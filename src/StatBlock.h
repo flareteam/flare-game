@@ -72,6 +72,7 @@ class StatBlock {
 private:
 	void loadHeroStats();
 	bool statsLoaded;
+	void recalc_alt();
 
 public:
 	StatBlock();

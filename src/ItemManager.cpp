@@ -542,19 +542,25 @@ TooltipData ItemManager::getTooltip(int item, StatBlock *stats, int context) {
 	unsigned bonus_counter = 0;
 	string modifier;
 	while (bonus_counter < items[item].bonus_val.size() && items[item].bonus_stat[bonus_counter] != "") {
-		if (items[item].bonus_val[bonus_counter] > 0) {
-			modifier = msg->get("Increases %s by %d",
-					items[item].bonus_val[bonus_counter],
-					msg->get(items[item].bonus_stat[bonus_counter]));
+		if (items[item].bonus_stat[bonus_counter] == "speed") {
+			modifier = msg->get("%d\% Speed", items[item].bonus_val[bonus_counter]);
+			if (items[item].bonus_val[bonus_counter] >= 100) color = color_bonus;
+			else color = color_penalty;
+		} else {
+			if (items[item].bonus_val[bonus_counter] > 0) {
+				modifier = msg->get("Increases %s by %d",
+						items[item].bonus_val[bonus_counter],
+						msg->get(items[item].bonus_stat[bonus_counter]));
 
-			color = color_bonus;
-		}
-		else {
-			modifier = msg->get("Decreases %s by %d",
-					items[item].bonus_val[bonus_counter],
-					msg->get(items[item].bonus_stat[bonus_counter]));
+				color = color_bonus;
+			}
+			else {
+				modifier = msg->get("Decreases %s by %d",
+						items[item].bonus_val[bonus_counter],
+						msg->get(items[item].bonus_stat[bonus_counter]));
 
-			color = color_penalty;
+				color = color_penalty;
+			}
 		}
 		tip.addText(modifier, color);
 		bonus_counter++;
