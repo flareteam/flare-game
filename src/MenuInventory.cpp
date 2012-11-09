@@ -630,9 +630,6 @@ void MenuInventory::applyEquipment(ItemStack *equipped) {
 
 	unsigned bonus_counter;
 
-	int prev_hp = stats->hp;
-	int prev_mp = stats->mp;
-
 	const vector<Item> &pc_items = items->items;
 	int item_id;
 
@@ -737,6 +734,8 @@ void MenuInventory::applyEquipment(ItemStack *equipped) {
 	stats->wielding_mental = false;
 	stats->wielding_offense = false;
 
+	// remove all effects and bonuses added by items
+	stats->effects.clearItemEffects();
 
 	applyItemStats(equipped);
 	applyItemSetBonuses(equipped);
@@ -758,18 +757,6 @@ void MenuInventory::applyEquipment(ItemStack *equipped) {
 		stats->absorb_min = stats->absorb_min_default;
 	if (stats->absorb_max < stats->absorb_max_default)
 		stats->absorb_max = stats->absorb_max_default;
-
-	// apply previous hp/mp
-	if (prev_hp < stats->maxhp)
-		stats->hp = prev_hp;
-	else
-		stats->hp = stats->maxhp;
-
-	if (prev_mp < stats->maxmp)
-		stats->mp = prev_mp;
-	else
-		stats->mp = stats->maxmp;
-
 }
 
 void MenuInventory::applyItemStats(ItemStack *equipped) {
@@ -819,46 +806,10 @@ void MenuInventory::applyItemStats(ItemStack *equipped) {
 		// apply various bonuses
 		bonus_counter = 0;
 		while (bonus_counter < item.bonus_stat.size() && item.bonus_stat[bonus_counter] != "") {
+			int id = powers->getIdFromTag(item.bonus_stat[bonus_counter]);
 
-			if (item.bonus_stat[bonus_counter] == "HP")
-				stats->maxhp += item.bonus_val[bonus_counter];
-			else if (item.bonus_stat[bonus_counter] == "HP regen")
-				stats->hp_per_minute += item.bonus_val[bonus_counter];
-			else if (item.bonus_stat[bonus_counter] == "MP")
-				stats->maxmp += item.bonus_val[bonus_counter];
-			else if (item.bonus_stat[bonus_counter] == "MP regen")
-				stats->mp_per_minute += item.bonus_val[bonus_counter];
-			else if (item.bonus_stat[bonus_counter] == "accuracy")
-				stats->accuracy += item.bonus_val[bonus_counter];
-			else if (item.bonus_stat[bonus_counter] == "avoidance")
-				stats->avoidance += item.bonus_val[bonus_counter];
-			else if (item.bonus_stat[bonus_counter] == "crit")
-				stats->crit += item.bonus_val[bonus_counter];
-			else if (item.bonus_stat[bonus_counter] == "speed") {
-				stats->speed += item.bonus_val[bonus_counter];
-				// speed bonuses are in multiples of 3
-				// 3 ordinal, 2 diagonal is rounding pythagorus
-				stats->dspeed += ((item.bonus_val[bonus_counter]) * 2) /3;
-			}
-			else if (item.bonus_stat[bonus_counter] == "offense")
-				stats->offense_additional += item.bonus_val[bonus_counter];
-			else if (item.bonus_stat[bonus_counter] == "defense")
-				stats->defense_additional += item.bonus_val[bonus_counter];
-			else if (item.bonus_stat[bonus_counter] == "physical")
-				stats->physical_additional += item.bonus_val[bonus_counter];
-			else if (item.bonus_stat[bonus_counter] == "mental")
-				stats->mental_additional += item.bonus_val[bonus_counter];
-			else if (item.bonus_stat[bonus_counter] == "all basic stats") {
-				stats->offense_additional += item.bonus_val[bonus_counter];
-				stats->defense_additional += item.bonus_val[bonus_counter];
-				stats->physical_additional += item.bonus_val[bonus_counter];
-				stats->mental_additional += item.bonus_val[bonus_counter];
-			}
-
-			for (unsigned int j=0; j<ELEMENTS.size(); j++) {
-				if (item.bonus_stat[bonus_counter] == ELEMENTS[j].name + " resist")
-					stats->vulnerable[j] -= item.bonus_val[bonus_counter];
-			}
+			if (id > 0)
+				stats->effects.addEffect(id, powers->powers[id].icon, 0, item.bonus_val[bonus_counter], powers->powers[id].effect_type, powers->powers[id].animation_name, powers->powers[id].effect_additive, true);
 
 			bonus_counter++;
 		}
@@ -892,45 +843,10 @@ void MenuInventory::applyItemSetBonuses(ItemStack *equipped) {
 		for (bonus_counter=0; bonus_counter<temp_set.bonus.size(); bonus_counter++) {
 			if (temp_set.bonus[bonus_counter].requirement != quantity[k]) continue;
 
-			if (temp_set.bonus[bonus_counter].bonus_stat == "HP")
-				stats->maxhp += temp_set.bonus[bonus_counter].bonus_val;
-			else if (temp_set.bonus[bonus_counter].bonus_stat == "HP regen")
-				stats->hp_per_minute += temp_set.bonus[bonus_counter].bonus_val;
-			else if (temp_set.bonus[bonus_counter].bonus_stat == "MP")
-				stats->maxmp += temp_set.bonus[bonus_counter].bonus_val;
-			else if (temp_set.bonus[bonus_counter].bonus_stat == "MP regen")
-				stats->mp_per_minute += temp_set.bonus[bonus_counter].bonus_val;
-			else if (temp_set.bonus[bonus_counter].bonus_stat == "accuracy")
-				stats->accuracy += temp_set.bonus[bonus_counter].bonus_val;
-			else if (temp_set.bonus[bonus_counter].bonus_stat == "avoidance")
-				stats->avoidance += temp_set.bonus[bonus_counter].bonus_val;
-			else if (temp_set.bonus[bonus_counter].bonus_stat == "crit")
-				stats->crit += temp_set.bonus[bonus_counter].bonus_val;
-			else if (temp_set.bonus[bonus_counter].bonus_stat == "speed") {
-				stats->speed += temp_set.bonus[bonus_counter].bonus_val;
-				// speed bonuses are in multiples of 3
-				// 3 ordinal, 2 diagonal is rounding pythagorus
-				stats->dspeed += ((temp_set.bonus[bonus_counter].bonus_val) * 2) /3;
-			}
-			else if (temp_set.bonus[bonus_counter].bonus_stat == "offense")
-				stats->offense_additional += temp_set.bonus[bonus_counter].bonus_val;
-			else if (temp_set.bonus[bonus_counter].bonus_stat == "defense")
-				stats->defense_additional += temp_set.bonus[bonus_counter].bonus_val;
-			else if (temp_set.bonus[bonus_counter].bonus_stat == "physical")
-				stats->physical_additional += temp_set.bonus[bonus_counter].bonus_val;
-			else if (temp_set.bonus[bonus_counter].bonus_stat == "mental")
-				stats->mental_additional += temp_set.bonus[bonus_counter].bonus_val;
-			else if (temp_set.bonus[bonus_counter].bonus_stat == "all basic stats") {
-				stats->offense_additional += temp_set.bonus[bonus_counter].bonus_val;
-				stats->defense_additional += temp_set.bonus[bonus_counter].bonus_val;
-				stats->physical_additional += temp_set.bonus[bonus_counter].bonus_val;
-				stats->mental_additional += temp_set.bonus[bonus_counter].bonus_val;
-			}
+			int id = powers->getIdFromTag(temp_set.bonus[bonus_counter].bonus_stat);
 
-			for (unsigned int j=0; j<ELEMENTS.size(); j++) {
-				if (temp_set.bonus[bonus_counter].bonus_stat == ELEMENTS[j].name + " resist")
-					stats->vulnerable[j] -= temp_set.bonus[bonus_counter].bonus_val;
-			}
+			if (id > 0)
+				stats->effects.addEffect(id, powers->powers[id].icon, 0, temp_set.bonus[bonus_counter].bonus_val, powers->powers[id].effect_type, powers->powers[id].animation_name, powers->powers[id].effect_additive, true);
 		}
 	}
 }

@@ -62,19 +62,14 @@ bool Entity::move() {
 	if (stats.effects.forced_move) {
 		return map->collider.move(stats.pos.x, stats.pos.y, stats.forced_speed.x, stats.forced_speed.y, 1, stats.movement_type);
 	}
-	if (stats.effects.immobilize) return false;
+
+	if (stats.effects.speed == 0) return false;
 
 	int speed_diagonal = stats.dspeed;
 	int speed_straight = stats.speed;
 
-	if (stats.effects.slow) {
-		speed_diagonal /= 2;
-		speed_straight /= 2;
-	}
-	else if (stats.effects.haste) {
-		speed_diagonal *= 2;
-		speed_straight *= 2;
-	}
+	speed_diagonal = (speed_diagonal * stats.effects.speed) / 100;
+	speed_straight = (speed_straight * stats.effects.speed) / 100;
 
 	bool full_move = false;
 
