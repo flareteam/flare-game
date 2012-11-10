@@ -166,7 +166,7 @@ void NPC::loadGraphics(const string& filename_portrait) {
 		std::string anim_name = "animations/npcs/" + gfx + ".txt";
 		anim->increaseCount(anim_name);
 		animationSet = anim->getAnimationSet(anim_name);
-		activeAnimation = animationSet->getAnimation(animationSet->starting_animation);
+		activeAnimation = animationSet->getAnimation();
 	}
 	if (filename_portrait != "") {
 		portrait = IMG_Load(mods->locate("images/portraits/" + filename_portrait + ".png").c_str());

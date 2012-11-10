@@ -34,13 +34,13 @@ class AnimationSet {
 private:
 	const std::string name; //i.e. animations/goblin_runner.txt, matches the animations filename.
 	std::string imagefile;
-	Animation *defaultAnimation;
-
-	void load();
+	Animation *defaultAnimation; // has always a non-null animation, in case of successfull load it contains the first animation in the animation file.
 	bool loaded;
 
+	void load();
+
 public:
-	std::string starting_animation; // i.e. stance, matches the section in the animation file.
+
 	std::vector<Animation*> animations;
 
 	SDL_Surface *sprite;
@@ -49,9 +49,18 @@ public:
 	~AnimationSet();
 
 	/**
-	 * callee is responsible to free the returned animation
+	 * callee is responsible to free the returned animation.
+	 * Returns the animation specified by \a name. If that animation is not found
+	 * a default animation is returned.
 	 */
 	Animation *getAnimation(const std::string &name);
+
+	/**
+	 * callee is responsible to free the returned animation.
+	 * returns the default animation. This is the animation, which is first defined
+	 * in the animation definition file.
+	 */
+	Animation *getAnimation();
 
 	const std::string &getName() { return name; }
 };

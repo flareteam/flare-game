@@ -69,7 +69,7 @@ bool EnemyManager::loadAnimations(Enemy *e) {
 	string animationsname = "animations/enemies/"+e->stats.animations + ".txt";
 	anim->increaseCount(animationsname);
 	e->animationSet = anim->getAnimationSet(animationsname);
-	e->activeAnimation = e->animationSet->getAnimation(e->animationSet->starting_animation);
+	e->activeAnimation = e->animationSet->getAnimation();
 
 	return true;
 }
@@ -183,7 +183,7 @@ void EnemyManager::handleSpawn() {
 			anim->increaseCount(animationname);
 			e->animationSet = anim->getAnimationSet(animationname);
 			if (e->animationSet)
-				e->activeAnimation = e->animationSet->getAnimation(e->animationSet->starting_animation);
+				e->activeAnimation = e->animationSet->getAnimation();
 			else
 				cout << "Warning: animations file could not be loaded for " << espawn.type << endl;
 		}

@@ -42,11 +42,17 @@ Animation *AnimationSet::getAnimation(const std::string &_name)
 	return new Animation(*defaultAnimation);
 }
 
+Animation *AnimationSet::getAnimation()
+{
+	if (!loaded)
+		load();
+	return new Animation(*defaultAnimation);
+}
+
 AnimationSet::AnimationSet(const std::string &animationname)
  : name(animationname)
- , starting_animation("")
- , animations(vector<Animation*>())
  , loaded(false)
+ , animations(vector<Animation*>())
  , sprite(NULL)
 {
 	defaultAnimation = new Animation("default", "play_once", NULL);
@@ -72,6 +78,7 @@ void AnimationSet::load() {
 	Point render_size;
 	Point render_offset;
 	string type = "";
+	string starting_animation = "";
 	bool first_section=true;
 	bool compressed_loading=false; // is reset every section to false, set by frame keyword
 	Animation *newanim = NULL;
@@ -184,6 +191,12 @@ void AnimationSet::load() {
 			a->setActiveFrames(active_frames);
 		active_frames.clear();
 		animations.push_back(a);
+	}
+
+	if (starting_animation != "") {
+		Animation *a = getAnimation(starting_animation);
+		delete defaultAnimation;
+		defaultAnimation = a;
 	}
 }
 
