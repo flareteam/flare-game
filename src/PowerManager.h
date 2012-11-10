@@ -80,12 +80,14 @@ public:
 	int type; // what kind of activate() this is
 	std::string name;
 	std::string description;
+	std::string tag; // optional unique name used to get power id
 	int icon; // just the number.  The caller menu will have access to the surface.
 	int new_state; // when using this power the user (avatar/enemy) starts a new state
 	bool face; // does the user turn to face the mouse cursor when using this power?
 	int source_type; //hero, neutral, or enemy
 	bool beacon; //true if it's just an ememy calling its allies
 	int count; // number of hazards/effects or spawns created
+	bool passive; // if unlocked when the user spawns, automatically cast it
 
 	// power requirements
 	bool requires_physical_weapon;
@@ -150,6 +152,7 @@ public:
 	int effect_duration;
 	int effect_magnitude;
 	std::string effect_type;
+	bool effect_additive;
 
 	int post_power;
 	int wall_power;
@@ -163,12 +166,14 @@ public:
 		: type(-1)
 		, name("")
 		, description("")
+		, tag("")
 		, icon(-1)
 		, new_state(-1)
 		, face(false)
 		, source_type(-1)
 		, beacon(false)
 		, count(1)
+		, passive(false)
 
 		, requires_physical_weapon(false)
 		, requires_offense_weapon(false)
@@ -227,6 +232,7 @@ public:
 		, effect_duration(0)
 		, effect_magnitude(0)
 		, effect_type("")
+		, effect_additive(false)
 
 		, post_power(0)
 		, wall_power(0)
@@ -279,6 +285,8 @@ public:
 	bool hasValidTarget(int power_index, StatBlock *src_stats, Point target);
 	bool spawn(const std::string& enemy_type, Point target);
 	bool effect(StatBlock *src_stats, int power_index);
+	void activatePassives(StatBlock *src_stats);
+	int getIdFromTag(std::string tag);
 
 	std::vector<Power> powers;
 	std::queue<Hazard *> hazards; // output; read by HazardManager

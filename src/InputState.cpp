@@ -147,8 +147,10 @@ void InputState::loadKeyBindings() {
 	int cursor;
 
 	if (!infile.open(PATH_CONF + FILE_KEYBINDINGS)) {
-		saveKeyBindings();
-		return;
+		if (!infile.open(mods->locate("engine/default_keybindings.txt").c_str())) {
+			saveKeyBindings();
+			return;
+		} else saveKeyBindings();
 	}
 
 	while (infile.next()) {

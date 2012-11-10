@@ -347,8 +347,6 @@ void loadMiscSettings() {
 			if (infile.key == "save_hpmp") {
 				if (toInt(infile.val) == 1)
 					SAVE_HPMP = true;
-				else
-					SAVE_HPMP = false;
 			} else if (infile.key == "default_name") {
 				DEFAULT_NAME = infile.val.c_str();
 			} else if (infile.key == "corpse_timeout") {
@@ -361,6 +359,7 @@ void loadMiscSettings() {
 			} else if (infile.key == "aim_assist") {
 				AIM_ASSIST = toInt(infile.val);
 			}
+			
 		}
 		infile.close();
 	} else fprintf(stderr, "Unable to open engine/misc.txt!\n");
@@ -482,21 +481,22 @@ bool loadSettings() {
 
 	// try read from file
 	FileParser infile;
-	if (infile.open(PATH_CONF + FILE_SETTINGS)) {
+	if (!infile.open(PATH_CONF + FILE_SETTINGS)) {
+		if (!infile.open(mods->locate("engine/default_settings.txt").c_str())) {
+			saveSettings();
+			return true;
+		} else saveSettings();
+	}
 
-		while (infile.next()) {
+	while (infile.next()) {
 
-			ConfigEntry * entry = getConfigEntry(infile.key);
-			if (entry) {
-				// TODO: handle errors
-				tryParseValue(*entry->type, infile.val, entry->storage);
-			}
+		ConfigEntry * entry = getConfigEntry(infile.key);
+		if (entry) {
+			// TODO: handle errors
+			tryParseValue(*entry->type, infile.val, entry->storage);
 		}
-		infile.close();
 	}
-	else {
-		saveSettings(); // write the default settings
-	}
+	infile.close();
 
 	return true;
 }

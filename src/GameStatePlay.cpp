@@ -302,6 +302,12 @@ void GameStatePlay::checkCancel() {
  */
 void GameStatePlay::checkLog() {
 
+	// If the player has just respawned, we want to clear the HUD log
+	if (pc->respawn) {
+		menu->hudlog->clear();
+		pc->respawn = false;
+	}
+
 	// Map events can create messages
 	if (map->log_msg != "") {
 		menu->log->add(map->log_msg, LOG_TYPE_MESSAGES);
@@ -368,7 +374,7 @@ void GameStatePlay::checkTitle() {
 		if (titles[i].title == "") continue;
 
 		if (titles[i].level > 0 && pc->stats.level < titles[i].level) continue;
-		if (titles[i].power > 0 && find(menu->pow->powers_list.begin(), menu->pow->powers_list.end(), titles[i].power) == menu->pow->powers_list.end()) continue;
+		if (titles[i].power > 0 && find(pc->stats.powers_list.begin(), pc->stats.powers_list.end(), titles[i].power) == pc->stats.powers_list.end()) continue;
 		if (titles[i].requires_status != "" && !camp->checkStatus(titles[i].requires_status)) continue;
 		if (titles[i].requires_not != "" && camp->checkStatus(titles[i].requires_not)) continue;
 		if (titles[i].primary_stat != "") {

@@ -72,6 +72,7 @@ class StatBlock {
 private:
 	void loadHeroStats();
 	bool statsLoaded;
+	void recalc_alt();
 
 public:
 	StatBlock();
@@ -221,6 +222,7 @@ public:
 	int chance_pursue;
 	int chance_flee;
 
+	std::vector<int> powers_list;
 	int power_chance[POWERSLOT_COUNT];
 	int power_index[POWERSLOT_COUNT];
 	int power_cooldown[POWERSLOT_COUNT];

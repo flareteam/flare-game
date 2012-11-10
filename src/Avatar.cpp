@@ -51,6 +51,7 @@ Avatar::Avatar(PowerManager *_powers, MapRenderer *_map)
  , charmed_stats(NULL)
  , act_target(Point())
  , drag_walking(false)
+ , respawn(false)
 {
 
 	init();
@@ -102,6 +103,7 @@ void Avatar::init() {
 	stats.recalc();
 
 	log_msg = "";
+	respawn = false;
 
 	stats.cooldown_ticks = 0;
 
@@ -520,7 +522,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 
 			if (activeAnimation->getTimesPlayed() >= 1) {
 				stats.cur_state = AVATAR_STANCE;
-				if (!stats.effects.haste) stats.cooldown_ticks += stats.cooldown;
+				if (stats.effects.speed <= 100) stats.cooldown_ticks += stats.cooldown;
 			}
 			break;
 
@@ -535,7 +537,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 
 			if (activeAnimation->getTimesPlayed() >= 1) {
 				stats.cur_state = AVATAR_STANCE;
-				if (!stats.effects.haste) stats.cooldown_ticks += stats.cooldown;
+				if (stats.effects.speed <= 100) stats.cooldown_ticks += stats.cooldown;
 			}
 			break;
 
@@ -551,7 +553,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 
 			if (activeAnimation->getTimesPlayed() >= 1) {
 				stats.cur_state = AVATAR_STANCE;
-				if (!stats.effects.haste) stats.cooldown_ticks += stats.cooldown;
+				if (stats.effects.speed <= 100) stats.cooldown_ticks += stats.cooldown;
 			}
 			break;
 
@@ -616,6 +618,8 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 					stats.alive = true;
 					stats.corpse = false;
 					stats.cur_state = AVATAR_STANCE;
+					powers->activatePassives(&stats);
+					respawn = true;
 
 					// set teleportation variables.  GameEngine acts on these.
 					map->teleport_destination.x = map->respawn_point.x;

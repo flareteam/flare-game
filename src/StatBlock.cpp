@@ -122,6 +122,7 @@ StatBlock::StatBlock() {
 	item_class_prob_sum = 0;
 	teleportation = false;
 
+	powers_list = vector<int>();
 	for (int i=0; i<POWERSLOT_COUNT; i++) {
 		power_chance[i] = 0;
 		power_index[i] = 0;
@@ -346,7 +347,8 @@ void StatBlock::takeDamage(int dmg) {
 }
 
 /**
- * Recalc derived stats from base stats
+ * Recalc level and stats
+ * Refill HP/MP
  * Creatures might skip these formulas.
  */
 void StatBlock::recalc() {
@@ -362,19 +364,36 @@ void StatBlock::recalc() {
 			check_title = true;
 	}
 
+	recalc_alt();
+
+	hp = maxhp;
+	mp = maxmp;
+}
+
+/**
+ * Recalc derived stats from base stats + effect bonuses
+ */
+void StatBlock::recalc_alt() {
 	int lev0 = level -1;
 	int phys0 = get_physical() -1;
 	int ment0 = get_mental() -1;
 	int off0 = get_offense() -1;
 	int def0 = get_defense() -1;
 
-	hp = maxhp = hp_base + (hp_per_level * lev0) + (hp_per_physical * phys0);
-	mp = maxmp = mp_base + (mp_per_level * lev0) + (mp_per_mental * ment0);
-	hp_per_minute = hp_regen_base + (hp_regen_per_level * lev0) + (hp_regen_per_physical * phys0);
-	mp_per_minute = mp_regen_base + (mp_regen_per_level * lev0) + (mp_regen_per_mental * ment0);
-	accuracy = accuracy_base + (accuracy_per_level * lev0) + (accuracy_per_offense * off0);
-	avoidance = avoidance_base + (avoidance_per_level * lev0) + (avoidance_per_defense * def0);
-	crit = crit_base + (crit_per_level * lev0);
+	maxhp = hp_base + (hp_per_level * lev0) + (hp_per_physical * phys0) + effects.bonus_hp;
+	maxmp = mp_base + (mp_per_level * lev0) + (mp_per_mental * ment0) + effects.bonus_mp;
+	hp_per_minute = hp_regen_base + (hp_regen_per_level * lev0) + (hp_regen_per_physical * phys0) + effects.bonus_hp_regen;
+	mp_per_minute = mp_regen_base + (mp_regen_per_level * lev0) + (mp_regen_per_mental * ment0) + effects.bonus_mp_regen;
+	accuracy = accuracy_base + (accuracy_per_level * lev0) + (accuracy_per_offense * off0) + effects.bonus_accuracy;
+	avoidance = avoidance_base + (avoidance_per_level * lev0) + (avoidance_per_defense * def0) + effects.bonus_avoidance;
+	crit = crit_base + (crit_per_level * lev0) + effects.bonus_crit;
+	offense_additional = effects.bonus_offense;
+	defense_additional = effects.bonus_defense;
+	physical_additional = effects.bonus_physical;
+	mental_additional = effects.bonus_mental;
+	for (unsigned i=0; i<effects.bonus_resist.size(); i++) {
+		vulnerable[i] = 100 - effects.bonus_resist[i];
+	}
 
 	physoff = get_physical() + get_offense();
 	physdef = get_physical() + get_defense();
@@ -382,12 +401,21 @@ void StatBlock::recalc() {
 	mentdef = get_mental() + get_defense();
 	physment = get_physical() + get_mental();
 	offdef = get_offense() + get_defense();
+
+	if (hp > maxhp) hp = maxhp;
+	if (mp > maxmp) mp = maxmp;
 }
 
 /**
  * Process per-frame actions
  */
 void StatBlock::logic() {
+
+	// handle effect timers
+	effects.logic();
+
+	// apply bonuses from items/effects to base stats
+	recalc_alt();
 
 	// handle cooldowns
 	if (cooldown_ticks > 0) cooldown_ticks--; // global cooldown
@@ -435,9 +463,6 @@ void StatBlock::logic() {
 		if (mp > maxmp) mp = maxmp;
 	}
 
-	// handle effect timers
-	effects.logic();
-
 	// set movement type
 	// some creatures may shift between movement types
 	if (intangible) movement_type = MOVEMENT_INTANGIBLE;
@@ -463,7 +488,8 @@ bool StatBlock::canUsePower(const Power &power, unsigned powerid) const {
 		&& (!power.requires_physical_weapon || wielding_physical)
 		&& mp >= power.requires_mp
 		&& (!power.sacrifice == false || hp > power.requires_hp)
-		&& menu_powers->meetsUsageStats(powerid);
+		&& menu_powers->meetsUsageStats(powerid)
+		&& !power.passive;
 
 }
 

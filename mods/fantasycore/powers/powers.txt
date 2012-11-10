@@ -57,6 +57,7 @@ base_damage=ranged
 aim_assist=true
 allow_power_mod=true
 post_effect=201
+effect_magnitude=0
 effect_duration=90
 
 [power]
@@ -188,7 +189,8 @@ type=effect
 new_state=cast
 face=false
 requires_mp=1
-effect_type=haste
+effect_type=speed
+effect_magnitude=200
 effect_duration=240
 
 [power]
@@ -230,6 +232,7 @@ visual_random=3
 complete_animation=true
 count=10
 post_effect=202
+effect_magnitude=50
 effect_duration=90
 
 [power]
@@ -401,6 +404,7 @@ trait_elemental=ice
 post_power=126
 wall_power=126
 post_effect=202
+effect_magnitude=50
 effect_duration=60
 
 
@@ -464,6 +468,7 @@ multitarget=true
 visual_option=1
 post_power=125
 post_effect=202
+effect_magnitude=50
 effect_duration=15
 
 [power]
@@ -510,6 +515,7 @@ wall_power=126
 count=9
 missile_angle=40
 post_effect=202
+effect_magnitude=50
 effect_duration=60
 
 [power]
@@ -562,6 +568,7 @@ radius=64
 starting_pos=melee
 allow_power_mod=true
 post_effect=201
+effect_magnitude=0
 effect_duration=150
 
 [power]
@@ -955,7 +962,8 @@ type=effect
 new_state=cast
 face=false
 requires_item=14
-effect_type=haste
+effect_type=speed
+effect_magnitude=200
 effect_duration=600
 
 [power]
@@ -1068,6 +1076,7 @@ visual_random=4
 complete_animation=true
 count=10
 post_effect=202
+effect_magnitude=50
 effect_duration=90
 
 [power]
@@ -1098,14 +1107,14 @@ id=201
 name=Immobilize (effect)
 type=effect
 icon=4
-effect_type=immobilize
+effect_type=speed
 
 [power]
 id=202
 name=Slow (effect)
 type=effect
 icon=14
-effect_type=slow
+effect_type=speed
 
 [power]
 id=203
@@ -1113,4 +1122,116 @@ name=Stun (effect)
 type=effect
 icon=10
 effect_type=stun
+
+[power]
+id=210
+name=HP (bonus)
+tag=HP
+type=effect
+effect_type=hp
+effect_additive=true
+
+[power]
+id=211
+name=HP Regen (bonus)
+tag=HP regen
+type=effect
+effect_type=hp_regen
+effect_additive=true
+
+[power]
+id=212
+name=MP (bonus)
+tag=MP
+type=effect
+effect_type=mp
+effect_additive=true
+
+[power]
+id=213
+name=MP Regen (bonus)
+tag=MP regen
+type=effect
+effect_type=mp_regen
+effect_additive=true
+
+[power]
+id=214
+name=Accuracy (bonus)
+tag=accuracy
+type=effect
+effect_type=accuracy
+effect_additive=true
+
+[power]
+id=215
+name=Avoidance (bonus)
+tag=avoidance
+type=effect
+effect_type=avoidance
+effect_additive=true
+
+[power]
+id=216
+name=Crit (bonus)
+tag=crit
+type=effect
+effect_type=crit
+effect_additive=true
+
+[power]
+id=217
+name=Speed (bonus)
+tag=speed
+type=effect
+effect_type=speed
+effect_additive=true
+
+[power]
+id=218
+name=Offense (bonus)
+tag=offense
+type=effect
+effect_type=offense
+effect_additive=true
+
+[power]
+id=219
+name=Defense (bonus)
+tag=defense
+type=effect
+effect_type=defense
+effect_additive=true
+
+[power]
+id=220
+name=Physical (bonus)
+tag=physical
+type=effect
+effect_type=physical
+effect_additive=true
+
+[power]
+id=221
+name=Mental (bonus)
+tag=mental
+type=effect
+effect_type=mental
+effect_additive=true
+
+[power]
+id=222
+name=Fire Resistance (bonus)
+tag=fire resist
+type=effect
+effect_type=fire_resist
+effect_additive=true
+
+[power]
+id=223
+name=Ice Resistance (bonus)
+tag=ice resist
+type=effect
+effect_type=ice_resist
+effect_additive=true
 

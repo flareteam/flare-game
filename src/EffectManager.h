@@ -47,6 +47,7 @@ struct Effect{
 	int magnitude_max;
 	std::string animation_name;
 	Animation* animation;
+	bool item;
 
 	Effect() {
 		id = 0;
@@ -58,6 +59,7 @@ struct Effect{
 		magnitude_max = 0;
 		animation_name = "";
 		animation = NULL;
+		item = false;
 	}
 
 	~Effect() {
@@ -74,11 +76,13 @@ private:
 public:
 	EffectManager();
 	~EffectManager();
+	void clearStatus();
 	void logic();
-	void addEffect(int _id, int _icon, int _duration, int _magnitude, std::string _type, std::string _animation);
+	void addEffect(int _id, int _icon, int _duration, int _magnitude, std::string _type, std::string _animation, bool _additive, bool _item);
 	void removeEffectType(std::string _type);
 	void clearEffects();
 	void clearNegativeEffects();
+	void clearItemEffects();
 	int damageShields(int _dmg);
 
 	std::vector<Effect> effect_list;
@@ -86,13 +90,24 @@ public:
 	int bleed_dmg;
 	int hpot;
 	int mpot;
-	int forced_speed;
+	int speed;
 	bool immunity;
-	bool slow;
 	bool stun;
-	bool immobilize;
-	bool haste;
+	int forced_speed;
 	bool forced_move;
+
+	int bonus_hp;
+	int bonus_hp_regen;
+	int bonus_mp;
+	int bonus_mp_regen;
+	int bonus_accuracy;
+	int bonus_avoidance;
+	int bonus_crit;
+	int bonus_offense;
+	int bonus_defense;
+	int bonus_physical;
+	int bonus_mental;
+	std::vector<int> bonus_resist;
 };
 
 #endif
