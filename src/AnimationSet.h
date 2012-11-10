@@ -32,28 +32,28 @@ class Animation;
  */
 class AnimationSet {
 private:
-    const std::string name; //i.e. animations/goblin_runner.txt, matches the animations filename.
-    std::string imagefile;
-    Animation *defaultAnimation;
+	const std::string name; //i.e. animations/goblin_runner.txt, matches the animations filename.
+	std::string imagefile;
+	Animation *defaultAnimation;
+
+	void load();
+	bool loaded;
 
 public:
-    std::string starting_animation; // i.e. stance, matches the section in the animation file.
-    std::vector<Animation*> animations;
+	std::string starting_animation; // i.e. stance, matches the section in the animation file.
+	std::vector<Animation*> animations;
 
-    SDL_Surface *sprite;
+	SDL_Surface *sprite;
 
-    AnimationSet(const std::string &animationname);
-    ~AnimationSet();
+	AnimationSet(const std::string &animationname);
+	~AnimationSet();
 
-    // must be called before getAnimation is called.
-    void load();
+	/**
+	 * callee is responsible to free the returned animation
+	 */
+	Animation *getAnimation(const std::string &name);
 
-    /**
-     * callee is responsible to free the returned animation
-     */
-    Animation *getAnimation(const std::string &name);
-
-    const std::string &getName() { return name; }
+	const std::string &getName() { return name; }
 };
 
 #endif // __ANIMATION_SET__

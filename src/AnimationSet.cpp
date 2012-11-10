@@ -27,13 +27,14 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "UtilsParsing.h"
 
 #include <algorithm>
+#include <cassert>
 #include <string>
 
 using namespace std;
 
 Animation *AnimationSet::getAnimation(const std::string &_name)
 {
-	if (sprite == NULL)
+	if (!loaded)
 		load();
 	for (size_t i = 0; i < animations.size(); i++)
 		if (animations[i]->getName() == _name)
@@ -45,6 +46,7 @@ AnimationSet::AnimationSet(const std::string &animationname)
  : name(animationname)
  , starting_animation("")
  , animations(vector<Animation*>())
+ , loaded(false)
  , sprite(NULL)
 {
 	defaultAnimation = new Animation("default", "play_once", NULL);
@@ -52,8 +54,8 @@ AnimationSet::AnimationSet(const std::string &animationname)
 }
 
 void AnimationSet::load() {
-	if (sprite)
-		return; // assume it is already loaded.
+	assert(!loaded);
+	loaded = true;
 
 	FileParser parser;
 	const string filename = mods->locate(name);
