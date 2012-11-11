@@ -54,7 +54,7 @@ FontEngine::FontEngine()
 				font_styles.push_back(f);
 			}
 
-			if (font_styles.size() < 1) continue;
+			if (font_styles.empty()) continue;
 
 			FontStyle *style = &(font_styles.back());
 			if ((infile.key == "default" && style->path == "") || infile.key == LANGUAGE) {
