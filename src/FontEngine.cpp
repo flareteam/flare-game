@@ -263,7 +263,6 @@ void FontEngine::render(const std::string& text, int x, int y, int justify, SDL_
 	stringstream builder_prev;
 	char space = 32;
 	size_t cursor = 0;
-	string swap;
 
 	builder.str("");
 	builder_prev.str("");
