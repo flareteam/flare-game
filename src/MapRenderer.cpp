@@ -377,7 +377,8 @@ int MapRenderer::load(string filename) {
 			}
 			else {
 				// new event component
-				Event_Component *e = &(events.back()).components[events.back().comp_num];
+				events.back().components.push_back(Event_Component());
+				Event_Component *e = &events.back().components.back();
 				e->type = infile.key;
 
 				if (infile.key == "intermap") {
@@ -398,8 +399,8 @@ int MapRenderer::load(string filename) {
 					// add repeating mapmods
 					string repeat_val = infile.nextValue();
 					while (repeat_val != "") {
-						events.back().comp_num++;
-						e = &events.back().components[events.back().comp_num];
+						events.back().components.push_back(Event_Component());
+						e = &events.back().components.back();
 						e->type = infile.key;
 						e->s = repeat_val;
 						e->x = toInt(infile.nextValue());
@@ -421,8 +422,8 @@ int MapRenderer::load(string filename) {
 					// add repeating loot
 					string repeat_val = infile.nextValue();
 					while (repeat_val != "") {
-						events.back().comp_num++;
-						e = &events.back().components[events.back().comp_num];
+						events.back().components.push_back(Event_Component());
+						e = &events.back().components.back();
 						e->type = infile.key;
 						e->s = repeat_val;
 						e->x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
@@ -444,8 +445,8 @@ int MapRenderer::load(string filename) {
 					// add repeating requires_status
 					string repeat_val = infile.nextValue();
 					while (repeat_val != "") {
-						events.back().comp_num++;
-						e = &events.back().components[events.back().comp_num];
+						events.back().components.push_back(Event_Component());
+						e = &events.back().components.back();
 						e->type = infile.key;
 						e->s = repeat_val;
 
@@ -458,8 +459,8 @@ int MapRenderer::load(string filename) {
 					// add repeating requires_not
 					string repeat_val = infile.nextValue();
 					while (repeat_val != "") {
-						events.back().comp_num++;
-						e = &events.back().components[events.back().comp_num];
+						events.back().components.push_back(Event_Component());
+						e = &events.back().components.back();
 						e->type = infile.key;
 						e->s = repeat_val;
 
@@ -472,8 +473,8 @@ int MapRenderer::load(string filename) {
 					// add repeating requires_item
 					string repeat_val = infile.nextValue();
 					while (repeat_val != "") {
-						events.back().comp_num++;
-						e = &events.back().components[events.back().comp_num];
+						events.back().components.push_back(Event_Component());
+						e = &events.back().components.back();
 						e->type = infile.key;
 						e->x = toInt(repeat_val);
 
@@ -486,8 +487,8 @@ int MapRenderer::load(string filename) {
 					// add repeating set_status
 					string repeat_val = infile.nextValue();
 					while (repeat_val != "") {
-						events.back().comp_num++;
-						e = &events.back().components[events.back().comp_num];
+						events.back().components.push_back(Event_Component());
+						e = &events.back().components.back();
 						e->type = infile.key;
 						e->s = repeat_val;
 
@@ -500,8 +501,8 @@ int MapRenderer::load(string filename) {
 					// add repeating unset_status
 					string repeat_val = infile.nextValue();
 					while (repeat_val != "") {
-						events.back().comp_num++;
-						e = &events.back().components[events.back().comp_num];
+						events.back().components.push_back(Event_Component());
+						e = &events.back().components.back();
 						e->type = infile.key;
 						e->s = repeat_val;
 
@@ -514,8 +515,8 @@ int MapRenderer::load(string filename) {
 					// add repeating remove_item
 					string repeat_val = infile.nextValue();
 					while (repeat_val != "") {
-						events.back().comp_num++;
-						e = &events.back().components[events.back().comp_num];
+						events.back().components.push_back(Event_Component());
+						e = &events.back().components.back();
 						e->type = infile.key;
 						e->x = toInt(repeat_val);
 
@@ -537,8 +538,8 @@ int MapRenderer::load(string filename) {
 					// add repeating spawn
 					string repeat_val = infile.nextValue();
 					while (repeat_val != "") {
-						events.back().comp_num++;
-						e = &events.back().components[events.back().comp_num];
+						events.back().components.push_back(Event_Component());
+						e = &events.back().components.back();
 						e->type = infile.key;
 
 						e->s = repeat_val;
@@ -548,7 +549,6 @@ int MapRenderer::load(string filename) {
 						repeat_val = infile.nextValue();
 					}
 				}
-				events.back().comp_num++;
 			}
 		}
 	}
@@ -1095,7 +1095,7 @@ void MapRenderer::checkHotspots() {
 }
 
 bool MapRenderer::isActive(const Map_Event &e){
-	for (int i=0; i < e.comp_num; i++) {
+	for (unsigned i=0; i < e.components.size(); i++) {
 		if (e.components[i].type == "requires_not") {
 			if (camp->checkStatus(e.components[i].s)) {
 				return false;
@@ -1138,19 +1138,8 @@ bool MapRenderer::executeEvent(Map_Event &ev) {
 	const Event_Component *ec;
 	bool destroy_event = false;
 
-	for (int i=0; i<ev.comp_num; i++) {
+	for (unsigned i=0; i<ev.components.size(); i++) {
 		ec = &ev.components[i];
-
-		// requirements should be checked by isActive() before calling executeEvent()
-		//if (ec->type == "requires_status") {
-		//	if (!camp->checkStatus(ec->s)) return false;
-		//}
-		//else if (ec->type == "requires_not") {
-		//	if (camp->checkStatus(ec->s)) return false;
-		//}
-		//else if (ec->type == "requires_item") {
-		//	if (!camp->checkItem(ec->x)) return false;
-		//}
 
 		if (ec->type == "set_status") {
 			camp->setStatus(ec->s);
