@@ -39,18 +39,34 @@ EnemyManager::EnemyManager(PowerManager *_powers, MapRenderer *_map) {
 	handleNewMap();
 }
 
-bool EnemyManager::loadSounds(const string& type_id) {
+void EnemyManager::loadSounds(const string& type_id) {
 
 	// first check to make sure the sfx isn't already loaded
 	if (find(sfx_prefixes.begin(), sfx_prefixes.end(), type_id) != sfx_prefixes.end())
-		return true;
+		return;
 
 	if (audio && SOUND_VOLUME) {
-		sound_phys.push_back(Mix_LoadWAV(mods->locate("soundfx/enemies/" + type_id + "_phys.ogg").c_str()));
-		sound_ment.push_back(Mix_LoadWAV(mods->locate("soundfx/enemies/" + type_id + "_ment.ogg").c_str()));
-		sound_hit.push_back(Mix_LoadWAV(mods->locate("soundfx/enemies/" + type_id + "_hit.ogg").c_str()));
-		sound_die.push_back(Mix_LoadWAV(mods->locate("soundfx/enemies/" + type_id + "_die.ogg").c_str()));
-		sound_critdie.push_back(Mix_LoadWAV(mods->locate("soundfx/enemies/" + type_id + "_critdie.ogg").c_str()));
+		string path;
+		path = mods->locate("soundfx/enemies/" + type_id + "_phys.ogg");
+		sound_phys.push_back(Mix_LoadWAV(path.c_str()));
+		if (!sound_phys.back()) fprintf(stderr, "Could not load %s\n", path.c_str());
+
+		path = mods->locate("soundfx/enemies/" + type_id + "_ment.ogg");
+		sound_ment.push_back(Mix_LoadWAV(path.c_str()));
+		if (!sound_ment.back()) fprintf(stderr, "Could not load %s\n", path.c_str());
+
+		path = mods->locate("soundfx/enemies/" + type_id + "_hit.ogg");
+		sound_hit.push_back(Mix_LoadWAV(path.c_str()));
+		if (!sound_hit.back()) fprintf(stderr, "Could not load %s\n", path.c_str());
+
+		path = mods->locate("soundfx/enemies/" + type_id + "_die.ogg");
+		sound_die.push_back(Mix_LoadWAV(path.c_str()));
+		if (!sound_die.back()) fprintf(stderr, "Could not load %s\n", path.c_str());
+
+		path = mods->locate("soundfx/enemies/" + type_id + "_critdie.ogg");
+		sound_critdie.push_back(Mix_LoadWAV(path.c_str()));
+		if (!sound_critdie.back()) fprintf(stderr, "Could not load %s\n", path.c_str());
+
 	} else {
 		sound_phys.push_back(NULL);
 		sound_ment.push_back(NULL);
@@ -60,18 +76,13 @@ bool EnemyManager::loadSounds(const string& type_id) {
 	}
 
 	sfx_prefixes.push_back(type_id);
-
-	return true;
 }
 
-bool EnemyManager::loadAnimations(Enemy *e) {
-
+void EnemyManager::loadAnimations(Enemy *e) {
 	string animationsname = "animations/enemies/"+e->stats.animations + ".txt";
 	anim->increaseCount(animationsname);
 	e->animationSet = anim->getAnimationSet(animationsname);
 	e->activeAnimation = e->animationSet->getAnimation();
-
-	return true;
 }
 
 Enemy *EnemyManager::getEnemyPrototype(const string& type_id) {
@@ -93,12 +104,8 @@ Enemy *EnemyManager::getEnemyPrototype(const string& type_id) {
 	if (e.stats.sfx_prefix == "")
 		cerr << "Warning: no sfx_prefix specified for entity: " << type_id << endl;
 
-	if (!loadAnimations(&e)) {
-		cerr << "Warning: could not load animations for enemy type" << e.stats.animations << endl;
-	}
-	if (!loadSounds(e.stats.sfx_prefix)) {
-		cerr << "Warning: could not load sounds prefix: " << e.stats.sfx_prefix << endl;
-	}
+	loadAnimations(&e);
+	loadSounds(e.stats.sfx_prefix);
 
 	prototypes.push_back(e);
 
