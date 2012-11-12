@@ -68,7 +68,6 @@ void NPC::load(const string& npc_id, int hero_level) {
 	FileParser infile;
 	ItemStack stack;
 
-	string filename_sprites = "";
 	string filename_portrait = "";
 
 	if (infile.open(mods->locate("npcs/" + npc_id + ".txt"))) {
