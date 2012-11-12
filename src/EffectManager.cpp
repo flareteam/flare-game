@@ -59,6 +59,9 @@ void EffectManager::clearStatus() {
 	bonus_physical = 0;
 	bonus_mental = 0;
 
+	bonus_xp = 0;
+	bonus_currency = 0;
+
 	for (unsigned i=0; i<bonus_resist.size(); i++) {
 		bonus_resist[i] = 0;
 	}
@@ -91,6 +94,8 @@ void EffectManager::logic() {
 			else if (effect_list[i].type == "defense") bonus_defense += effect_list[i].magnitude;
 			else if (effect_list[i].type == "physical") bonus_physical += effect_list[i].magnitude;
 			else if (effect_list[i].type == "mental") bonus_mental += effect_list[i].magnitude;
+			else if (effect_list[i].type == "xp") bonus_xp += effect_list[i].magnitude;
+			else if (effect_list[i].type == "currency") bonus_currency += effect_list[i].magnitude;
 			else {
 				for (unsigned j=0; j<bonus_resist.size(); j++) {
 					if (effect_list[i].type == ELEMENTS[j].name + "_resist")
