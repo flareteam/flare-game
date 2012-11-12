@@ -45,7 +45,7 @@ void EnemyManager::loadSounds(const string& type_id) {
 	if (find(sfx_prefixes.begin(), sfx_prefixes.end(), type_id) != sfx_prefixes.end())
 		return;
 
-	if (audio && SOUND_VOLUME) {
+	if (audio && SOUND_VOLUME && type_id != "none") {
 		string path;
 		path = mods->locate("soundfx/enemies/" + type_id + "_phys.ogg");
 		sound_phys.push_back(Mix_LoadWAV(path.c_str()));
