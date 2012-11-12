@@ -205,37 +205,28 @@ Point FontEngine::calc_size(const std::string& text_with_newlines, int width) {
  * Justify is left, right, or center
  */
 void FontEngine::render(const std::string& text, int x, int y, int justify, SDL_Surface *target, SDL_Color color) {
-	int dest_x = -1;
-	int dest_y = -1;
-
-	// DEBUG
-	dest_x = x;
-	dest_y = y;
+	SDL_Rect dest_rect;
 
 	// calculate actual starting x,y based on justify
 	if (justify == JUSTIFY_LEFT) {
-		dest_x = x;
-		dest_y = y;
+		dest_rect.x = x;
+		dest_rect.y = y;
 	}
 	else if (justify == JUSTIFY_RIGHT) {
-		dest_x = x - calc_width(text);
-		dest_y = y;
+		dest_rect.x = x - calc_width(text);
+		dest_rect.y = y;
 	}
 	else if (justify == JUSTIFY_CENTER) {
-		dest_x = x - calc_width(text)/2;
-		dest_y = y;
+		dest_rect.x = x - calc_width(text)/2;
+		dest_rect.y = y;
 	}
 	else {
 		printf("ERROR: FontEngine::render() given unhandled 'justify=%d', assuming left\n",justify);
-		dest_x = x;
-		dest_y = y;
+		dest_rect.x = x;
+		dest_rect.y = y;
 	}
 
 	// render and blit the text
-	SDL_Rect dest_rect;
-	dest_rect.x = dest_x;
-	dest_rect.y = dest_y;
-
 	if (active_font->blend && target != screen) {
 		ttf = TTF_RenderUTF8_Blended(active_font->ttfont, text.c_str(), color);
 
