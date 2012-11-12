@@ -374,6 +374,9 @@ void StatBlock::recalc() {
  * Recalc derived stats from base stats + effect bonuses
  */
 void StatBlock::recalc_alt() {
+
+	if (!hero) return;
+
 	int lev0 = level -1;
 	int phys0 = get_physical() -1;
 	int ment0 = get_mental() -1;
@@ -414,7 +417,7 @@ void StatBlock::logic() {
 	// handle effect timers
 	effects.logic();
 
-	// apply bonuses from items/effects to base stats
+	// apply bonuses from items/effects to base stats (hero only)
 	recalc_alt();
 
 	// handle cooldowns
