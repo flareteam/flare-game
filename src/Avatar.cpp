@@ -62,7 +62,7 @@ Avatar::Avatar(PowerManager *_powers, MapRenderer *_map)
 	// load the hero's animations from hero definition file
 	anim->increaseCount("animations/hero.txt");
 	animationSet = anim->getAnimationSet("animations/hero.txt");
-	activeAnimation = animationSet->getAnimation(animationSet->starting_animation);
+	activeAnimation = animationSet->getAnimation();
 
 	loadLayerDefinitions();
 }
@@ -798,7 +798,7 @@ void Avatar::transform() {
 	anim->increaseCount(animationname);
 	animationSet = anim->getAnimationSet(animationname);
 	delete activeAnimation;
-	activeAnimation = animationSet->getAnimation(animationSet->starting_animation);
+	activeAnimation = animationSet->getAnimation();
 	stats.cur_state = AVATAR_STANCE;
 
 	// damage
@@ -865,7 +865,7 @@ void Avatar::untransform() {
 	anim->decreaseCount("animations/enemies/"+charmed_stats->animations + ".txt");
 	animationSet = anim->getAnimationSet("animations/hero.txt");
 	delete activeAnimation;
-	activeAnimation = animationSet->getAnimation(animationSet->starting_animation);
+	activeAnimation = animationSet->getAnimation();
 	stats.cur_state = AVATAR_STANCE;
 
 	// This is a bit of a hack.

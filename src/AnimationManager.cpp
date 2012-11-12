@@ -50,7 +50,7 @@ AnimationManager::~AnimationManager()
 	if (!names.empty()) {
 		cout << "AnimationManager still holding these animations:" << endl;
 		for (unsigned i = 0; i < names.size(); i++)
-			cout << names[i] << counts[i] << endl;
+			fprintf(stderr, "%s %d\n", names[i].c_str(), counts[i]);
 	}
 	assert(names.size() == 0);
 #endif

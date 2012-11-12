@@ -59,6 +59,9 @@ void EffectManager::clearStatus() {
 	bonus_physical = 0;
 	bonus_mental = 0;
 
+	bonus_xp = 0;
+	bonus_currency = 0;
+
 	for (unsigned i=0; i<bonus_resist.size(); i++) {
 		bonus_resist[i] = 0;
 	}
@@ -91,6 +94,8 @@ void EffectManager::logic() {
 			else if (effect_list[i].type == "defense") bonus_defense += effect_list[i].magnitude;
 			else if (effect_list[i].type == "physical") bonus_physical += effect_list[i].magnitude;
 			else if (effect_list[i].type == "mental") bonus_mental += effect_list[i].magnitude;
+			else if (effect_list[i].type == "xp") bonus_xp += effect_list[i].magnitude;
+			else if (effect_list[i].type == "currency") bonus_currency += effect_list[i].magnitude;
 			else {
 				for (unsigned j=0; j<bonus_resist.size(); j++) {
 					if (effect_list[i].type == ELEMENTS[j].name + "_resist")
@@ -188,28 +193,28 @@ void EffectManager::removeAnimation(int _id) {
 }
 
 void EffectManager::removeEffectType(std::string _type) {
-	for (unsigned i=0; i<effect_list.size(); i++) {
-		if (effect_list[i].type == _type) removeEffect(i);
+	for (unsigned i=effect_list.size(); i>0; i--) {
+		if (effect_list[i-1].type == _type) removeEffect(i-1);
 	}
 }
 
 void EffectManager::clearEffects() {
-	for (unsigned i=0; i<effect_list.size(); i++) {
-		removeEffect(i);
+	for (unsigned i=effect_list.size(); i>0; i--) {
+		removeEffect(i-1);
 	}
 }
 
 void EffectManager::clearNegativeEffects() {
-	for (unsigned i=0; i<effect_list.size(); i++) {
-		if (effect_list[i].type == "bleed") removeEffect(i);
-		else if (effect_list[i].type == "speed" && effect_list[i].magnitude_max < 100) removeEffect(i);
-		else if (effect_list[i].type == "stun") removeEffect(i);
+	for (unsigned i=effect_list.size(); i>0; i--) {
+		if (effect_list[i-1].type == "bleed") removeEffect(i-1);
+		else if (effect_list[i-1].type == "speed" && effect_list[i-1].magnitude_max < 100) removeEffect(i-1);
+		else if (effect_list[i-1].type == "stun") removeEffect(i-1);
 	}
 }
 
 void EffectManager::clearItemEffects() {
-	for (unsigned i=0; i<effect_list.size(); i++) {
-		if (effect_list[i].item) removeEffect(i);
+	for (unsigned i=effect_list.size(); i>0; i--) {
+		if (effect_list[i-1].item) removeEffect(i-1);
 	}
 }
 
@@ -234,7 +239,7 @@ int EffectManager::damageShields(int _dmg) {
 Animation* EffectManager::loadAnimation(std::string &s) {
 	if (s != "") {
 		AnimationSet *animationSet = anim->getAnimationSet(s);
-		return animationSet->getAnimation(animationSet->starting_animation);
+		return animationSet->getAnimation();
 	}
 	return NULL;
 }

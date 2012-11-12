@@ -69,12 +69,7 @@ void MenuMiniMap::getMapTitle(std::string map_title) {
 void MenuMiniMap::createMapSurface() {
 
 	SDL_FreeSurface(map_surface);
-
-	if (TILESET_ORIENTATION == TILESET_ISOMETRIC)
-		map_surface = createSurface(512, 512);
-	else // TILESET_ORTHOGONAL
-		map_surface = createSurface(512, 512);
-
+	map_surface = createSurface(512, 512);
 }
 
 void MenuMiniMap::render() {

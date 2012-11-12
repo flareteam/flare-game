@@ -36,8 +36,8 @@ private:
 	MapRenderer *map;
 	PowerManager *powers;
 
-	bool loadSounds(const std::string& type_id);
-	bool loadAnimations(Enemy *e);
+	void loadSounds(const std::string& type_id);
+	void loadAnimations(Enemy *e);
 
 	std::vector<std::string> sfx_prefixes;
 	std::vector<Mix_Chunk*> sound_phys;

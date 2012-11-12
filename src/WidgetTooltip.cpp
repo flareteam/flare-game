@@ -122,7 +122,7 @@ void WidgetTooltip::render(TooltipData &tip, Point pos, int style, SDL_Surface *
  */
 void WidgetTooltip::createBuffer(TooltipData &tip) {
 
-	if (tip.lines.size() < 1) {
+	if (tip.lines.empty()) {
 		tip.lines.resize(1);
 		tip.colors.resize(1);
 	}

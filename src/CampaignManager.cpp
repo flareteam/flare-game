@@ -156,7 +156,7 @@ void CampaignManager::rewardCurrency(int amount) {
 }
 
 void CampaignManager::rewardXP(int amount, bool show_message) {
-	hero->xp += amount;
+	hero->xp += (amount * (100 + hero->effects.bonus_xp)) / 100;
 	hero->refresh_stats = true;
 	if (show_message) addMsg(msg->get("You receive %d XP.", amount));
 }

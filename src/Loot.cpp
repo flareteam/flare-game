@@ -63,9 +63,9 @@ Loot& Loot::operator= (const Loot &other) {
 void Loot::loadAnimation(std::string _gfx) {
 	gfx = _gfx;
 	if (gfx != "") {
-			anim->increaseCount(gfx);
-			AnimationSet *as = anim->getAnimationSet(gfx);
-			animation = as->getAnimation(as->starting_animation);
+		anim->increaseCount(gfx);
+		AnimationSet *as = anim->getAnimationSet(gfx);
+		animation = as->getAnimation();
 	}
 }
 
