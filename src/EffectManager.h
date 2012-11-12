@@ -49,18 +49,18 @@ struct Effect{
 	Animation* animation;
 	bool item;
 
-	Effect() {
-		id = 0;
-		icon = -1;
-		ticks = 0;
-		duration = -1;
-		type = "";
-		magnitude = 0;
-		magnitude_max = 0;
-		animation_name = "";
-		animation = NULL;
-		item = false;
-	}
+	Effect()
+	 : id(0)
+	 , icon(-1)
+	 , ticks(0)
+	 , duration(-1)
+	 , type("")
+	 , magnitude(0)
+	 , magnitude_max(0)
+	 , animation_name("")
+	 , animation(NULL)
+	 , item(false)
+	{}
 
 	~Effect() {
 	}

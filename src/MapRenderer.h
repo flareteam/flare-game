@@ -86,8 +86,7 @@ class Map_Event {
 public:
 	std::string type;
 	SDL_Rect location;
-	Event_Component components[256];
-	int comp_num;
+	std::vector<Event_Component> components;
 	SDL_Rect hotspot;
 	std::string tooltip;
 	int cooldown; // events that run multiple times pause this long in frames
@@ -100,29 +99,20 @@ public:
 	int damagemax;
 	int cooldown_ticks;
 
-	Map_Event() {
-		type = "";
-		location.x = 0;
-		location.y = 0;
-		location.w = 0;
-		location.h = 0;
-		comp_num = 0;
-		tooltip = "";
-		hotspot.x = hotspot.y = 0;
-		hotspot.h = hotspot.w = 0;
-		cooldown = 0;
-		for (int j=0; j<256; j++) {
-			components[j].type = "";
-			components[j].s = "";
-			components[j].x = 0;
-			components[j].y = 0;
-			components[j].z = 0;
-		}
+	Map_Event()
+	 : type("")
+	 , components(std::vector<Event_Component>())
+	 , tooltip("")
+	 , cooldown(0)
+	 , targetHero(false)
+	 , damagemin(0)
+	 , damagemax(0)
+	 , cooldown_ticks(0)
+	{
+		location.x = location.y = location.w = location.h = 0;
+		hotspot.x = hotspot.y = hotspot.w = hotspot.h = 0;
 		power_src.x = power_src.y = 0;
 		power_dest.x = power_dest.y = 0;
-		targetHero = false;
-		damagemin = damagemax = 0;
-		cooldown_ticks = 0;
 	}
 };
 

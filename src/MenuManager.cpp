@@ -46,7 +46,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManager *_camp, ItemManager *_items) {
 	powers = _powers;
 	stats = _stats;
-	powers = _powers;
 	camp = _camp;
 	items = _items;
 

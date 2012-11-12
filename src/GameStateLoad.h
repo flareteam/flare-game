@@ -17,7 +17,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 /**
  * GameStateLoad
- * 
+ *
  * Display the current save-game slots
  * Allow the player to continue a previous game
  * Allow the player to start a new game
@@ -79,13 +79,13 @@ private:
 	bool loading_requested;
 	bool loading;
 	bool loaded;
-	
+
 	LabelInfo name_pos;
 	LabelInfo level_pos;
 	LabelInfo map_pos;
 	LabelInfo loading_pos;
 	Point sprites_pos;
-	
+
 	// animation info
 	int current_frame;
 	int frame_ticker;
@@ -95,18 +95,18 @@ private:
 	SDL_Rect preview_pos;
 
 	SDL_Color color_normal;
-	
+
 public:
 	GameStateLoad();
 	~GameStateLoad();
 
 	void logic();
 	void logicLoading();
-	void render();	
+	void render();
 	void readGameSlot(int slot);
 	void readGameSlots();
 	void loadPreview(int slot);
-	
+
 	bool load_game;
 	int selected_slot;
 };

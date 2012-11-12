@@ -58,10 +58,10 @@ enum AvatarState {
 struct Layer_gfx {
 	std::string gfx;
 	std::string type;
-	Layer_gfx() {
-		gfx = "";
-		type = "";
-	}
+	Layer_gfx()
+	 : gfx("")
+	 , type("")
+	{}
 };
 
 class Avatar : public Entity {
