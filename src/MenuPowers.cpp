@@ -192,7 +192,7 @@ void MenuPowers::loadGraphics() {
 
 	background = IMG_Load(mods->locate("images/menus/powers.png").c_str());
 
-	if (tree_image_files.size() < 1) {
+	if (tree_image_files.empty()) {
 		tree_surf.push_back(IMG_Load(mods->locate("images/menus/powers_tree.png").c_str()));
 	} else {
 		for (unsigned int i=0; i<tree_image_files.size(); i++) tree_surf.push_back(IMG_Load(mods->locate("images/menus/" + tree_image_files[i]).c_str()));

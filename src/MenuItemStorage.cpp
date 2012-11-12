@@ -46,7 +46,6 @@ void MenuItemStorage::init(int _slot_number, ItemManager *_items, SDL_Rect _area
 void MenuItemStorage::init(int _slot_number, ItemManager *_items, vector<SDL_Rect> _area, vector<string> _slot_type) {
 	ItemStorage::init( _slot_number, _items);
 	area = _area;
-	icon_size = 0;
 	nb_cols = 0;
 	slot_type = _slot_type;
 	drag_prev_slot = -1;
@@ -119,7 +118,7 @@ TooltipData MenuItemStorage::checkTooltip(Point mouse, StatBlock *stats, int con
 ItemStack MenuItemStorage::click(InputState * input) {
 	ItemStack item;
 	drag_prev_slot = slotOver(input->mouse);
-	if( drag_prev_slot > -1) { 
+	if( drag_prev_slot > -1) {
 		item = storage[drag_prev_slot];
 		if( input->pressing[SHIFT]) {
 			item.quantity = 1;

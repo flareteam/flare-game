@@ -129,17 +129,12 @@ void LootManager::loadGraphics() {
 
 		string animationname = "animations/loot/" + anim_id + ".txt";
 		anim->increaseCount(animationname);
-		// get the Animation set once to make sure it is loaded, so no loading times during gameplay.
-		anim->getAnimationSet(animationname)->load();
 	}
 
 	// currency
 	for (unsigned int i=0; i<currency_range.size(); i++) {
 		string animationname = "animations/loot/" + currency_range[i].filename + ".txt";
-
 		anim->increaseCount(animationname);
-		// get the Animation set once to make sure it is loaded, so no loading times during gameplay.
-		anim->getAnimationSet(animationname)->load();
 	}
 }
 

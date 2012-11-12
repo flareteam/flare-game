@@ -41,8 +41,8 @@ ImageManager::~ImageManager()
 #ifndef NDEBUG
 	if (!sprites.empty()) {
 		cout << "ImageManager still holding these images:" << endl;
-		for (vector<string>::iterator it=names.begin(); it != names.end(); ++it)
-			cout << *it << endl;
+		for (unsigned i = 0; i < sprites.size(); ++i)
+			 fprintf(stderr, "%s %d\n", names[i].c_str(), counts[i]);
 	}
 	assert(sprites.size() == 0);
 #endif
@@ -102,7 +102,6 @@ void ImageManager::decreaseCount(const std::string &name) {
 		counts[index]--;
 	} else {
 		fprintf(stderr, "ImageManager::decreaseCount: Couldn't decrease image count: %s\n", name.c_str());
-		//assert(1 == 0); // This should never happen!
 	}
 }
 

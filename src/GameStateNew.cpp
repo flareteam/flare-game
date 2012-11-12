@@ -170,8 +170,6 @@ GameStateNew::GameStateNew() : GameState() {
 }
 
 void GameStateNew::loadGraphics() {
-	portrait_border = NULL;
-
 	portrait_border = IMG_Load(mods->locate("images/menus/portrait_border.png").c_str());
 	if(!portrait_border) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
@@ -186,8 +184,6 @@ void GameStateNew::loadGraphics() {
 
 void GameStateNew::loadPortrait(const string& portrait_filename) {
 	SDL_FreeSurface(portrait_image);
-	portrait_image = NULL;
-
 	portrait_image = IMG_Load(mods->locate("images/portraits/" + portrait_filename + ".png").c_str());
 	if (!portrait_image) return;
 

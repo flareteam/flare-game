@@ -190,17 +190,12 @@ GameStateLoad::GameStateLoad() : GameState() {
 }
 
 void GameStateLoad::loadGraphics() {
-	background = NULL;
-	selection = NULL;
-	portrait_border = NULL;
-
 	background = IMG_Load(mods->locate("images/menus/game_slots.png").c_str());
 	selection = IMG_Load(mods->locate("images/menus/game_slot_select.png").c_str());
 	portrait_border = IMG_Load(mods->locate("images/menus/portrait_border.png").c_str());
 	if(!background || !selection || !portrait_border) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 	}
-
 
 	// optimize
 	SDL_Surface *cleanup;
@@ -224,7 +219,6 @@ void GameStateLoad::loadGraphics() {
 		portrait_border = SDL_DisplayFormatAlpha(portrait_border);
 		SDL_FreeSurface(cleanup);
 	}
-
 }
 
 void GameStateLoad::loadPortrait(int slot) {
@@ -501,7 +495,7 @@ void GameStateLoad::updateButtons() {
 				button_action->enabled = false;
 				button_action->tooltip = msg->get("Enable a story mod to continue");
 			}
-		}		
+		}
 	}
 	button_action->refresh();
 	button_alternate->refresh();

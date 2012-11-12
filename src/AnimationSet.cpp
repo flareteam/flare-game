@@ -27,13 +27,14 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "UtilsParsing.h"
 
 #include <algorithm>
+#include <cassert>
 #include <string>
 
 using namespace std;
 
 Animation *AnimationSet::getAnimation(const std::string &_name)
 {
-	if (sprite == NULL)
+	if (!loaded)
 		load();
 	for (size_t i = 0; i < animations.size(); i++)
 		if (animations[i]->getName() == _name)
@@ -41,9 +42,16 @@ Animation *AnimationSet::getAnimation(const std::string &_name)
 	return new Animation(*defaultAnimation);
 }
 
+Animation *AnimationSet::getAnimation()
+{
+	if (!loaded)
+		load();
+	return new Animation(*defaultAnimation);
+}
+
 AnimationSet::AnimationSet(const std::string &animationname)
  : name(animationname)
- , starting_animation("")
+ , loaded(false)
  , animations(vector<Animation*>())
  , sprite(NULL)
 {
@@ -52,8 +60,8 @@ AnimationSet::AnimationSet(const std::string &animationname)
 }
 
 void AnimationSet::load() {
-	if (sprite)
-		return; // assume it is already loaded.
+	assert(!loaded);
+	loaded = true;
 
 	FileParser parser;
 	const string filename = mods->locate(name);
@@ -70,6 +78,7 @@ void AnimationSet::load() {
 	Point render_size;
 	Point render_offset;
 	string type = "";
+	string starting_animation = "";
 	bool first_section=true;
 	bool compressed_loading=false; // is reset every section to false, set by frame keyword
 	Animation *newanim = NULL;
@@ -182,6 +191,12 @@ void AnimationSet::load() {
 			a->setActiveFrames(active_frames);
 		active_frames.clear();
 		animations.push_back(a);
+	}
+
+	if (starting_animation != "") {
+		Animation *a = getAnimation(starting_animation);
+		delete defaultAnimation;
+		defaultAnimation = a;
 	}
 }
 
