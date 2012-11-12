@@ -673,8 +673,6 @@ void calculatePriosOrtho(vector<Renderable> &r) {
 
 void MapRenderer::render(vector<Renderable> &r, vector<Renderable> &r_dead) {
 
-	vector<Renderable>::iterator it;
-
 	if (shaky_cam_ticks == 0) {
 		shakycam.x = cam.x;
 		shakycam.y = cam.y;
