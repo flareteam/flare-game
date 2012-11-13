@@ -194,8 +194,11 @@ void MenuManager::renderIcon(int icon_id, int x, int y) {
 	dest.x = x;
 	dest.y = y;
 	src.w = src.h = dest.w = dest.h = ICON_SIZE;
-	src.x = (icon_id % 16) * ICON_SIZE;
-	src.y = (icon_id / 16) * ICON_SIZE;
+
+	int columns = icons->w / ICON_SIZE;
+	src.x = (icon_id % columns) * ICON_SIZE;
+	src.y = (icon_id / columns) * ICON_SIZE;
+
 	SDL_BlitSurface(icons, &src, screen, &dest);
 }
 
