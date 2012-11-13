@@ -85,11 +85,12 @@ void MenuActiveEffects::renderIcon(int icon_id, int index, int current, int max)
 			pos.y = window_area.y;
 		} else if (orientation == 1) {
 			pos.x = window_area.x;
-			pos.y = window_area.y + (index * ICON_SIZE);;
+			pos.y = window_area.y + (index * ICON_SIZE);
 		}
-
-		src.x = (icon_id % 16) * ICON_SIZE;
-		src.y = (icon_id / 16) * ICON_SIZE;
+		
+		int columns = icons->w / ICON_SIZE;
+		src.x = (icon_id % columns) * ICON_SIZE;
+		src.y = (icon_id / columns) * ICON_SIZE;
 		src.w = src.h = ICON_SIZE;
 
 		SDL_BlitSurface(icons,&src,screen,&pos);
