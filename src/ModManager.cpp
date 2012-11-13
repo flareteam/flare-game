@@ -56,8 +56,6 @@ void ModManager::loadModList() {
 
 		if (!infile.is_open()) {
 			fprintf(stderr, "Error during ModManager::loadModList() -- couldn't open mods/mods.txt\n");
-			SDL_Quit();
-			exit(1);
 		}
 	}
 
