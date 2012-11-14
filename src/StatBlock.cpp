@@ -95,7 +95,6 @@ StatBlock::StatBlock() {
 	transform_duration_total = 0;
 	manual_untransform = false;
 	cooldown_ticks = 0;
-	blocking = false;
 	effects = EffectManager();
 
 	// patrol waypoints
@@ -362,6 +361,13 @@ void StatBlock::recalc() {
 		if (xp >= xp_table[i])
 			level=i+1;
 			check_title = true;
+	}
+
+	offense_additional = defense_additional = physical_additional = mental_additional = 0;
+	speed = speed_default;
+	dspeed = dspeed_default;
+	for (unsigned int i=0; i<vulnerable.size(); i++) {
+		vulnerable[i] = 100;
 	}
 
 	recalc_alt();

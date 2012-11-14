@@ -194,7 +194,6 @@ public:
 	int transform_duration;
 	int transform_duration_total;
 	bool manual_untransform;
-	bool blocking;
 	EffectManager effects;
 
 	int speed;

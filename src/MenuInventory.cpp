@@ -715,12 +715,6 @@ void MenuInventory::applyEquipment(ItemStack *equipped) {
 
 	// defaults
 	stats->recalc();
-	stats->offense_additional = stats->defense_additional = stats->physical_additional = stats->mental_additional = 0;
-	stats->speed = stats->speed_default;
-	stats->dspeed = stats->dspeed_default;
-	for (unsigned int i=0; i<stats->vulnerable.size(); i++) {
-		stats->vulnerable[i] = 100;
-	}
 
 	// the default for weapons/absorb are not added to equipped items
 	// later this function they are applied if the defaults aren't met
@@ -809,7 +803,7 @@ void MenuInventory::applyItemStats(ItemStack *equipped) {
 			int id = powers->getIdFromTag(item.bonus_stat[bonus_counter]);
 
 			if (id > 0)
-				stats->effects.addEffect(id, powers->powers[id].icon, 0, item.bonus_val[bonus_counter], powers->powers[id].effect_type, powers->powers[id].animation_name, powers->powers[id].effect_additive, true);
+				stats->effects.addEffect(id, powers->powers[id].icon, 0, item.bonus_val[bonus_counter], powers->powers[id].effect_type, powers->powers[id].animation_name, powers->powers[id].effect_additive, true, false);
 
 			bonus_counter++;
 		}
@@ -846,7 +840,7 @@ void MenuInventory::applyItemSetBonuses(ItemStack *equipped) {
 			int id = powers->getIdFromTag(temp_set.bonus[bonus_counter].bonus_stat);
 
 			if (id > 0)
-				stats->effects.addEffect(id, powers->powers[id].icon, 0, temp_set.bonus[bonus_counter].bonus_val, powers->powers[id].effect_type, powers->powers[id].animation_name, powers->powers[id].effect_additive, true);
+				stats->effects.addEffect(id, powers->powers[id].icon, 0, temp_set.bonus[bonus_counter].bonus_val, powers->powers[id].effect_type, powers->powers[id].animation_name, powers->powers[id].effect_additive, true, false);
 		}
 	}
 }

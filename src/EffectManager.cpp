@@ -29,6 +29,7 @@ using namespace std;
 EffectManager::EffectManager() {
 	bonus_resist = std::vector<int>(ELEMENTS.size(), 0);
 	clearStatus();
+	triggered_block = triggered_hit = triggered_death = false;
 }
 
 EffectManager::~EffectManager() {
@@ -125,7 +126,7 @@ void EffectManager::logic() {
 	}
 }
 
-void EffectManager::addEffect(int _id, int _icon, int _duration, int _magnitude, std::string _type, std::string _animation, bool _additive, bool _item) {
+void EffectManager::addEffect(int _id, int _icon, int _duration, int _magnitude, std::string _type, std::string _animation, bool _additive, bool _item, bool _trigger) {
 	// if we're already immune, don't add negative effects
 	if (immunity) {
 		if (_type == "bleed") return;
@@ -168,6 +169,7 @@ void EffectManager::addEffect(int _id, int _icon, int _duration, int _magnitude,
 	e.magnitude = e.magnitude_max = _magnitude;
 	e.type = _type;
 	e.item = _item;
+	e.trigger = _trigger;
 
 	if (_animation != "") {
 		anim->increaseCount(_animation);
@@ -215,6 +217,12 @@ void EffectManager::clearNegativeEffects() {
 void EffectManager::clearItemEffects() {
 	for (unsigned i=effect_list.size(); i>0; i--) {
 		if (effect_list[i-1].item) removeEffect(i-1);
+	}
+}
+
+void EffectManager::clearTriggeredEffects() {
+	for (unsigned i=effect_list.size(); i>0; i--) {
+		if (effect_list[i-1].trigger) removeEffect(i-1);
 	}
 }
 
