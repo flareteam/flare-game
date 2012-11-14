@@ -999,9 +999,9 @@ void PowerManager::activatePassives(StatBlock *src_stats) {
 	for (unsigned i=0; i<src_stats->powers_list.size(); i++) {
 		if (powers[src_stats->powers_list[i]].passive && powers[src_stats->powers_list[i]].passive_trigger == -1) {
 			activate(src_stats->powers_list[i], src_stats, src_stats->pos);
+			src_stats->refresh_stats = true;
 		}
 	}
-	src_stats->refresh_stats = true;
 }
 
 /**
@@ -1017,10 +1017,10 @@ void PowerManager::triggerPassives(StatBlock *src_stats) {
 				 (powers[src_stats->powers_list[i]].passive_trigger == TRIGGER_DEATH && src_stats->effects.triggered_death)
 			) {
 				activate(src_stats->powers_list[i], src_stats, src_stats->pos);
+				src_stats->refresh_stats = true;
 			}
 		}
 	}
-	src_stats->refresh_stats = true;
 
 	// hit and death triggers are considered instant, so we turn them off here
 	// the block trigger is handled in the Avatar class
