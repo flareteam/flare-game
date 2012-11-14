@@ -67,6 +67,7 @@ void ItemManager::loadAll() {
 
 		if (fileExists(test_path)) {
 			this->load(test_path);
+			if (!items.empty()) shrinkItems();
 		}
 
 		test_path = PATH_DATA + "mods/" + mods->mod_list[i] + "/items/types.txt";
@@ -79,13 +80,11 @@ void ItemManager::loadAll() {
 
 		if (fileExists(test_path)) {
 			this->loadSets(test_path);
+			if (!item_sets.empty()) shrinkItemSets();
 		}
 	}
-	if (!items.empty()) shrinkItems();
-	else fprintf(stderr, "No items were found.\n");
-
-	if (!item_sets.empty()) shrinkItemSets();
-	else printf("No item sets were found.\n");
+	if (items.empty()) fprintf(stderr, "No items were found.\n");
+	if (item_sets.empty()) printf("No item sets were found.\n");
 }
 
 /**
@@ -317,11 +316,12 @@ void ItemManager::loadSets(const string& filename) {
 		else if (infile.key == "items") {
 			string item_id = infile.nextValue();
 			while (item_id != "") {
-				if (toInt(item_id) > 0) {
-					items[toInt(item_id)].set = id;
-					item_sets[id].items.push_back(toInt(item_id));
-					item_id = infile.nextValue();
-				} else fprintf(stderr, "Item index inside item set %s definition out of bounds 1-%d, skipping item\n", item_sets[id].name.c_str(), INT_MAX);
+				int temp_id = toInt(item_id);
+				if (temp_id > 0 && temp_id < static_cast<int>(items.size())) {
+					items[temp_id].set = id;
+					item_sets[id].items.push_back(temp_id);
+				} else fprintf(stderr, "Item index inside item set %s definition out of bounds 1-%d, skipping item\n", item_sets[id].name.c_str(), items.size()-1);
+				item_id = infile.nextValue();
 			}
 		}
 		else if (infile.key == "color") {
