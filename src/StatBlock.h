@@ -72,7 +72,6 @@ class StatBlock {
 private:
 	void loadHeroStats();
 	bool statsLoaded;
-	void recalc_alt();
 
 public:
 	StatBlock();
@@ -81,6 +80,7 @@ public:
 	void load(const std::string& filename);
 	void takeDamage(int dmg);
 	void recalc();
+	void recalc_alt();
 	void logic();
 
 	bool alive;

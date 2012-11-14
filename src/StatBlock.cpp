@@ -363,13 +363,6 @@ void StatBlock::recalc() {
 			check_title = true;
 	}
 
-	offense_additional = defense_additional = physical_additional = mental_additional = 0;
-	speed = speed_default;
-	dspeed = dspeed_default;
-	for (unsigned int i=0; i<vulnerable.size(); i++) {
-		vulnerable[i] = 100;
-	}
-
 	recalc_alt();
 
 	hp = maxhp;
@@ -388,6 +381,9 @@ void StatBlock::recalc_alt() {
 	int ment0 = get_mental() -1;
 	int off0 = get_offense() -1;
 	int def0 = get_defense() -1;
+
+	speed = speed_default;
+	dspeed = dspeed_default;
 
 	maxhp = hp_base + (hp_per_level * lev0) + (hp_per_physical * phys0) + effects.bonus_hp;
 	maxmp = mp_base + (mp_per_level * lev0) + (mp_per_mental * ment0) + effects.bonus_mp;

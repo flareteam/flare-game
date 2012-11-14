@@ -714,7 +714,7 @@ void MenuInventory::applyEquipment(ItemStack *equipped) {
 	}
 
 	// defaults
-	stats->recalc();
+	stats->recalc_alt();
 
 	// the default for weapons/absorb are not added to equipped items
 	// later this function they are applied if the defaults aren't met
@@ -751,6 +751,9 @@ void MenuInventory::applyEquipment(ItemStack *equipped) {
 		stats->absorb_min = stats->absorb_min_default;
 	if (stats->absorb_max < stats->absorb_max_default)
 		stats->absorb_max = stats->absorb_max_default;
+
+	// update stat display
+	stats->refresh_stats = true;
 }
 
 void MenuInventory::applyItemStats(ItemStack *equipped) {
