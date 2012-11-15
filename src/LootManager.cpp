@@ -346,7 +346,9 @@ void LootManager::determineLoot(int base_level, Point pos) {
 		}
 		else {
 			// currency range is level to 3x level
-			addCurrency(rand() % (level * 2) + level, pos);
+			int currency = rand() % (level * 2) + level;
+			currency = (currency * (100 + hero->effects.bonus_currency)) / 100;
+			addCurrency(currency, pos);
 		}
 	}
 }
@@ -368,9 +370,11 @@ void LootManager::determineLootByClass(const Enemy *e, Point pos) {
 	}
 	string item_class = e->stats.item_classes[typeSelectorIndex];
 
-	if (item_class == "currency")
-		addCurrency(rand() % (level * 2) + level, pos);
-	else {
+	if (item_class == "currency") {
+		int currency = rand() % (level * 2) + level;
+		currency = (currency * (100 + hero->effects.bonus_currency)) / 100;
+		addCurrency(currency, pos);
+	} else {
 		// search for the itemclass
 		unsigned int index;
 		for (index = 0; index < items->item_class_names.size(); index++) {

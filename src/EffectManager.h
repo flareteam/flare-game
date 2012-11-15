@@ -107,6 +107,8 @@ public:
 	int bonus_defense;
 	int bonus_physical;
 	int bonus_mental;
+	int bonus_xp;
+	int bonus_currency;
 	std::vector<int> bonus_resist;
 };
 
