@@ -339,7 +339,7 @@ void Avatar::handlePower(int actionbar_power) {
 
 			case POWSTATE_BLOCK:	// handle blocking
 				stats.cur_state = AVATAR_BLOCK;
-				stats.blocking = true;
+				stats.effects.triggered_block = true;
 				break;
 
 			case POWSTATE_INSTANT:	// handle instant powers
@@ -561,17 +561,19 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 
 			setAnimation("block");
 
-			// stats.addEffect("block",powers->getEffectIcon("block"));
-
 			if (powers->powers[actionbar_power].new_state != POWSTATE_BLOCK) {
 				stats.cur_state = AVATAR_STANCE;
-				stats.blocking = false;
+				stats.effects.triggered_block = false;
 			}
 			break;
 
 		case AVATAR_HIT:
 
 			setAnimation("hit");
+
+			if (activeAnimation->isFirstFrame()) {
+				stats.effects.triggered_hit = true;
+			}
 
 			if (activeAnimation->getTimesPlayed() >= 1) {
 				stats.cur_state = AVATAR_STANCE;
@@ -588,6 +590,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 			setAnimation("die");
 
 			if (activeAnimation->isFirstFrame() && activeAnimation->getTimesPlayed() < 1) {
+				stats.effects.triggered_death = true;
 				if (sound_die)
 					Mix_PlayChannel(-1, sound_die, 0);
 				if (stats.permadeath) {
@@ -633,6 +636,9 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 			break;
 	}
 
+	// activated all triggered passive powers
+	powers->triggerPassives(&stats);
+
 	// calc new cam position from player position
 	// cam is focused at player position
 	map->cam.x = stats.pos.x;
@@ -663,7 +669,7 @@ bool Avatar::takeHit(const Hazard &h) {
 		CombatText *combat_text = comb;
 		// check miss
 		int avoidance = stats.avoidance;
-		if (stats.blocking) avoidance *= 2;
+		if (stats.effects.triggered_block) avoidance *= 2;
 		if (MAX_AVOIDANCE < avoidance) avoidance = MAX_AVOIDANCE;
 		if (rand() % 100 > (h.accuracy - avoidance + 25)) {
 			combat_text->addMessage(msg->get("miss"), stats.pos, COMBAT_MESSAGE_MISS, true);
@@ -690,14 +696,14 @@ bool Avatar::takeHit(const Hazard &h) {
 			if (stats.absorb_min == stats.absorb_max) absorption = stats.absorb_min;
 			else absorption = stats.absorb_min + (rand() % (stats.absorb_max - stats.absorb_min + 1));
 
-			if (stats.blocking) {
+			if (stats.effects.triggered_block) {
 				absorption += absorption + stats.absorb_max; // blocking doubles your absorb amount
 			}
 
 			if (absorption > 0) {
 				if ((dmg*100)/absorption > MAX_BLOCK)
 					absorption = (absorption * MAX_BLOCK) /100;
-				if ((dmg*100)/absorption > MAX_ABSORB && !stats.blocking)
+				if ((dmg*100)/absorption > MAX_ABSORB && !stats.effects.triggered_block)
 					absorption = (absorption * MAX_ABSORB) /100;
 
 				// Sometimes, the absorb limits cause absorbtion to drop to 1
@@ -710,8 +716,8 @@ bool Avatar::takeHit(const Hazard &h) {
 			if (dmg <= 0) {
 				dmg = 0;
 				if (h.trait_elemental < 0) {
-					if (stats.blocking && MAX_BLOCK < 100) dmg = 1;
-					else if (!stats.blocking && MAX_ABSORB < 100) dmg = 1;
+					if (stats.effects.triggered_block && MAX_BLOCK < 100) dmg = 1;
+					else if (!stats.effects.triggered_block && MAX_ABSORB < 100) dmg = 1;
 				} else {
 					if (MAX_RESIST < 100) dmg = 1;
 				}

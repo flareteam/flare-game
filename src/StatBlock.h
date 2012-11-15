@@ -72,7 +72,6 @@ class StatBlock {
 private:
 	void loadHeroStats();
 	bool statsLoaded;
-	void recalc_alt();
 
 public:
 	StatBlock();
@@ -81,6 +80,7 @@ public:
 	void load(const std::string& filename);
 	void takeDamage(int dmg);
 	void recalc();
+	void recalc_alt();
 	void logic();
 
 	bool alive;
@@ -194,7 +194,6 @@ public:
 	int transform_duration;
 	int transform_duration_total;
 	bool manual_untransform;
-	bool blocking;
 	EffectManager effects;
 
 	int speed;

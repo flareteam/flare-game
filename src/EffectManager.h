@@ -48,6 +48,7 @@ struct Effect{
 	std::string animation_name;
 	Animation* animation;
 	bool item;
+	bool trigger;
 
 	Effect()
 	 : id(0)
@@ -60,6 +61,7 @@ struct Effect{
 	 , animation_name("")
 	 , animation(NULL)
 	 , item(false)
+	 , trigger(false)
 	{}
 
 	~Effect() {
@@ -78,11 +80,12 @@ public:
 	~EffectManager();
 	void clearStatus();
 	void logic();
-	void addEffect(int _id, int _icon, int _duration, int _magnitude, std::string _type, std::string _animation, bool _additive, bool _item);
+	void addEffect(int _id, int _icon, int _duration, int _magnitude, std::string _type, std::string _animation, bool _additive, bool _item, bool _trigger);
 	void removeEffectType(std::string _type);
 	void clearEffects();
 	void clearNegativeEffects();
 	void clearItemEffects();
+	void clearTriggeredEffects();
 	int damageShields(int _dmg);
 
 	std::vector<Effect> effect_list;
@@ -110,6 +113,10 @@ public:
 	int bonus_xp;
 	int bonus_currency;
 	std::vector<int> bonus_resist;
+
+	bool triggered_block;
+	bool triggered_hit;
+	bool triggered_death;
 };
 
 #endif
