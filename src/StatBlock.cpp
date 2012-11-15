@@ -95,7 +95,6 @@ StatBlock::StatBlock() {
 	transform_duration_total = 0;
 	manual_untransform = false;
 	cooldown_ticks = 0;
-	blocking = false;
 	effects = EffectManager();
 
 	// patrol waypoints
@@ -382,6 +381,9 @@ void StatBlock::recalc_alt() {
 	int ment0 = get_mental() -1;
 	int off0 = get_offense() -1;
 	int def0 = get_defense() -1;
+
+	speed = speed_default;
+	dspeed = dspeed_default;
 
 	maxhp = hp_base + (hp_per_level * lev0) + (hp_per_physical * phys0) + effects.bonus_hp;
 	maxmp = mp_base + (mp_per_level * lev0) + (mp_per_mental * ment0) + effects.bonus_mp;

@@ -71,8 +71,9 @@ const int STARTING_POS_SOURCE = 0;
 const int STARTING_POS_TARGET = 1;
 const int STARTING_POS_MELEE = 2;
 
-// TODO: maybe move this to an effect?
-const int POWER_SPARK_BLOOD = 127;
+const int TRIGGER_BLOCK = 0;
+const int TRIGGER_HIT = 1;
+const int TRIGGER_DEATH = 2;
 
 class Power {
 public:
@@ -88,6 +89,7 @@ public:
 	bool beacon; //true if it's just an ememy calling its allies
 	int count; // number of hazards/effects or spawns created
 	bool passive; // if unlocked when the user spawns, automatically cast it
+	int passive_trigger; // only activate passive powers under certain conditions (block, hit, death, etc)
 
 	// power requirements
 	bool requires_physical_weapon;
@@ -174,6 +176,7 @@ public:
 		, beacon(false)
 		, count(1)
 		, passive(false)
+		, passive_trigger(-1)
 
 		, requires_physical_weapon(false)
 		, requires_offense_weapon(false)
@@ -286,6 +289,7 @@ public:
 	bool spawn(const std::string& enemy_type, Point target);
 	bool effect(StatBlock *src_stats, int power_index);
 	void activatePassives(StatBlock *src_stats);
+	void triggerPassives(StatBlock *src_stats);
 	int getIdFromTag(std::string tag);
 
 	std::vector<Power> powers;

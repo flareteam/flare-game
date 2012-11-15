@@ -143,6 +143,12 @@ void PowerManager::loadPowers(const std::string& filename) {
 			powers[input_id].count = toInt(infile.val);
 		else if (infile.key == "passive")
 			powers[input_id].passive = toBool(infile.val);
+		else if (infile.key == "passive_trigger") {
+			if (infile.val == "on_block") powers[input_id].passive_trigger = TRIGGER_BLOCK;
+			else if (infile.val == "on_hit") powers[input_id].passive_trigger = TRIGGER_HIT;
+			else if (infile.val == "on_death") powers[input_id].passive_trigger = TRIGGER_DEATH;
+			else fprintf(stderr, "unknown passive trigger %s\n", infile.val.c_str());
+		}
 		// power requirements
 		else if (infile.key == "requires_physical_weapon")
 			powers[input_id].requires_physical_weapon = toBool(infile.val);
@@ -659,9 +665,12 @@ void PowerManager::playSound(int power_index, StatBlock *src_stats) {
 
 bool PowerManager::effect(StatBlock *src_stats, int power_index) {
 	int effect_index = 0;
+	bool is_triggered = false;
 
 	if (powers[power_index].type == POWTYPE_EFFECT) effect_index = power_index;
 	else effect_index = powers[power_index].post_effect;
+
+	if (powers[power_index].passive_trigger != -1) is_triggered = true;
 
 	if (effect_index > 0) {
 		int magnitude = powers[power_index].effect_magnitude;
@@ -683,7 +692,7 @@ bool PowerManager::effect(StatBlock *src_stats, int power_index) {
 			if (src_stats->hp > src_stats->maxhp) src_stats->hp = src_stats->maxhp;
 		}
 
-		src_stats->effects.addEffect(effect_index, powers[effect_index].icon, powers[power_index].effect_duration, magnitude, powers[effect_index].effect_type, powers[effect_index].animation_name, powers[effect_index].effect_additive, false);
+		src_stats->effects.addEffect(effect_index, powers[effect_index].icon, powers[power_index].effect_duration, magnitude, powers[effect_index].effect_type, powers[effect_index].animation_name, powers[effect_index].effect_additive, false, is_triggered);
 	}
 
 	// If there's a sound effect, play it here
@@ -984,14 +993,39 @@ void PowerManager::payPowerCost(int power_index, StatBlock *src_stats) {
 }
 
 /**
- * Activate an entity's passive powers
+ * Activate an entity's passive powers, except those triggered by special events such as blocking
  */
 void PowerManager::activatePassives(StatBlock *src_stats) {
 	for (unsigned i=0; i<src_stats->powers_list.size(); i++) {
-		if (powers[src_stats->powers_list[i]].passive) {
+		if (powers[src_stats->powers_list[i]].passive && powers[src_stats->powers_list[i]].passive_trigger == -1) {
 			activate(src_stats->powers_list[i], src_stats, src_stats->pos);
+			src_stats->refresh_stats = true;
 		}
 	}
+}
+
+/**
+ * Only activate passive powers that are triggered by special events such as blocking
+ */
+void PowerManager::triggerPassives(StatBlock *src_stats) {
+	src_stats->effects.clearTriggeredEffects();
+
+	for (unsigned i=0; i<src_stats->powers_list.size(); i++) {
+		if (powers[src_stats->powers_list[i]].passive) {
+			if ( (powers[src_stats->powers_list[i]].passive_trigger == TRIGGER_BLOCK && src_stats->effects.triggered_block) ||
+				 (powers[src_stats->powers_list[i]].passive_trigger == TRIGGER_HIT && src_stats->effects.triggered_hit) ||
+				 (powers[src_stats->powers_list[i]].passive_trigger == TRIGGER_DEATH && src_stats->effects.triggered_death)
+			) {
+				activate(src_stats->powers_list[i], src_stats, src_stats->pos);
+				src_stats->refresh_stats = true;
+			}
+		}
+	}
+
+	// hit and death triggers are considered instant, so we turn them off here
+	// the block trigger is handled in the Avatar class
+	src_stats->effects.triggered_hit = false;
+	src_stats->effects.triggered_death = false;
 }
 
 /**
