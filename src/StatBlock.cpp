@@ -251,17 +251,11 @@ void StatBlock::load(const string& filename) {
 			quest_loot_id = toInt(infile.nextValue());
 		}
 		// combat stats
-		else if (infile.key == "hp") {
-			hp = num;
-			maxhp = num;
-		}
-		else if (infile.key == "mp") {
-			mp = num;
-			maxmp = num;
-		}
+		else if (infile.key == "hp") hp = hp_base = maxhp = num;
+		else if (infile.key == "mp") mp = mp_base = maxmp = num;
 		else if (infile.key == "cooldown") cooldown = num;
-		else if (infile.key == "accuracy") accuracy = num;
-		else if (infile.key == "avoidance") avoidance = num;
+		else if (infile.key == "accuracy") accuracy = accuracy_base = num;
+		else if (infile.key == "avoidance") avoidance = avoidance_base = num;
 		else if (infile.key == "dmg_melee_min") dmg_melee_min = num;
 		else if (infile.key == "dmg_melee_max") dmg_melee_max = num;
 		else if (infile.key == "dmg_ment_min") dmg_ment_min = num;
@@ -284,8 +278,8 @@ void StatBlock::load(const string& filename) {
 
 		else if (infile.key == "waypoint_pause") waypoint_pause = num;
 
-		else if (infile.key == "speed") speed = num;
-		else if (infile.key == "dspeed") dspeed = num;
+		else if (infile.key == "speed") speed = speed_default = num;
+		else if (infile.key == "dspeed") dspeed = dspeed_default = num;
 		else if (infile.key == "turn_delay") turn_delay = num;
 		else if (infile.key == "chance_pursue") chance_pursue = num;
 		else if (infile.key == "chance_flee") chance_flee = num;
@@ -392,38 +386,43 @@ void StatBlock::recalc() {
  */
 void StatBlock::recalc_alt() {
 
-	if (!hero) return;
-
 	int lev0 = level -1;
 	int phys0 = get_physical() -1;
 	int ment0 = get_mental() -1;
 	int off0 = get_offense() -1;
 	int def0 = get_defense() -1;
 
+	if (hero) {
+		maxhp = hp_base + (hp_per_level * lev0) + (hp_per_physical * phys0) + effects.bonus_hp;
+		maxmp = mp_base + (mp_per_level * lev0) + (mp_per_mental * ment0) + effects.bonus_mp;
+		hp_per_minute = hp_regen_base + (hp_regen_per_level * lev0) + (hp_regen_per_physical * phys0) + effects.bonus_hp_regen;
+		mp_per_minute = mp_regen_base + (mp_regen_per_level * lev0) + (mp_regen_per_mental * ment0) + effects.bonus_mp_regen;
+		accuracy = accuracy_base + (accuracy_per_level * lev0) + (accuracy_per_offense * off0) + effects.bonus_accuracy;
+		avoidance = avoidance_base + (avoidance_per_level * lev0) + (avoidance_per_defense * def0) + effects.bonus_avoidance;
+		crit = crit_base + (crit_per_level * lev0) + effects.bonus_crit;
+		offense_additional = effects.bonus_offense;
+		defense_additional = effects.bonus_defense;
+		physical_additional = effects.bonus_physical;
+		mental_additional = effects.bonus_mental;
+		physoff = get_physical() + get_offense();
+		physdef = get_physical() + get_defense();
+		mentoff = get_mental() + get_offense();
+		mentdef = get_mental() + get_defense();
+		physment = get_physical() + get_mental();
+		offdef = get_offense() + get_defense();
+	} else {
+		maxhp = hp_base + effects.bonus_hp;
+		maxmp = mp_base + effects.bonus_mp;
+		accuracy = accuracy_base + effects.bonus_accuracy;
+		avoidance = avoidance_base + effects.bonus_avoidance;
+	}
+
 	speed = speed_default;
 	dspeed = dspeed_default;
 
-	maxhp = hp_base + (hp_per_level * lev0) + (hp_per_physical * phys0) + effects.bonus_hp;
-	maxmp = mp_base + (mp_per_level * lev0) + (mp_per_mental * ment0) + effects.bonus_mp;
-	hp_per_minute = hp_regen_base + (hp_regen_per_level * lev0) + (hp_regen_per_physical * phys0) + effects.bonus_hp_regen;
-	mp_per_minute = mp_regen_base + (mp_regen_per_level * lev0) + (mp_regen_per_mental * ment0) + effects.bonus_mp_regen;
-	accuracy = accuracy_base + (accuracy_per_level * lev0) + (accuracy_per_offense * off0) + effects.bonus_accuracy;
-	avoidance = avoidance_base + (avoidance_per_level * lev0) + (avoidance_per_defense * def0) + effects.bonus_avoidance;
-	crit = crit_base + (crit_per_level * lev0) + effects.bonus_crit;
-	offense_additional = effects.bonus_offense;
-	defense_additional = effects.bonus_defense;
-	physical_additional = effects.bonus_physical;
-	mental_additional = effects.bonus_mental;
 	for (unsigned i=0; i<effects.bonus_resist.size(); i++) {
 		vulnerable[i] = 100 - effects.bonus_resist[i];
 	}
-
-	physoff = get_physical() + get_offense();
-	physdef = get_physical() + get_defense();
-	mentoff = get_mental() + get_offense();
-	mentdef = get_mental() + get_defense();
-	physment = get_physical() + get_mental();
-	offdef = get_offense() + get_defense();
 
 	if (hp > maxhp) hp = maxhp;
 	if (mp > maxmp) mp = maxmp;
@@ -437,7 +436,7 @@ void StatBlock::logic() {
 	// handle effect timers
 	effects.logic();
 
-	// apply bonuses from items/effects to base stats (hero only)
+	// apply bonuses from items/effects to base stats
 	recalc_alt();
 
 	// handle cooldowns
