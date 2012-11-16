@@ -208,6 +208,14 @@ void StatBlock::load(const string& filename) {
 	int num = 0;
 	while (infile.next()) {
 		if (isInt(infile.val)) num = toInt(infile.val);
+		bool valid = false;
+
+		for (unsigned int i=0; i<ELEMENTS.size(); i++) {
+			if (infile.key == "vulnerable_" + ELEMENTS[i].name) {
+				vulnerable[i] = num;
+				valid = true;
+			}
+		}
 
 		if (infile.key == "name") name = msg->get(infile.val);
 		else if (infile.key == "humanoid") {
@@ -330,12 +338,15 @@ void StatBlock::load(const string& filename) {
 				suppress_hp = true;
 			else
 				suppress_hp = false;
-		} else {
-			fprintf(stderr, "%s=%s not a valid StatBlock parameter\n", infile.key.c_str(), infile.val.c_str());
 		}
 
-		for (unsigned int i=0; i<ELEMENTS.size(); i++) {
-			if (infile.key == "vulnerable_" + ELEMENTS[i].name) vulnerable[i] = num;
+		// these are only used for EnemyGroupManager
+		// we check for them here so that we don't get an error saying they are invalid
+		else if (infile.key == "categories") valid = true;
+		else if (infile.key == "rarity") valid = true;
+
+		else if (!valid) {
+			fprintf(stderr, "%s=%s not a valid StatBlock parameter\n", infile.key.c_str(), infile.val.c_str());
 		}
 	}
 	infile.close();
