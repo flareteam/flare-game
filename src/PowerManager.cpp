@@ -253,12 +253,14 @@ void PowerManager::loadPowers(const std::string& filename) {
 			powers[input_id].buff= toBool(infile.val);
 		else if (infile.key == "buff_teleport")
 			powers[input_id].buff_teleport = toBool(infile.val);
-		else if (infile.key == "post_effect")
-			powers[input_id].post_effect = toInt(infile.val);
-		else if (infile.key == "effect_duration")
-			powers[input_id].effect_duration = toInt(infile.val);
-		else if (infile.key == "effect_magnitude")
-			powers[input_id].effect_magnitude = toInt(infile.val);
+		else if (infile.key == "post_effect") {
+			infile.val = infile.val + ',';
+			PostEffect pe;
+			pe.id = eatFirstInt(infile.val, ',');
+			pe.magnitude = eatFirstInt(infile.val, ',');
+			pe.duration = eatFirstInt(infile.val, ',');
+			powers[input_id].post_effects.push_back(pe);
+		}
 		else if (infile.key == "effect_type")
 			powers[input_id].effect_type = infile.val;
 		else if (infile.key == "effect_additive")
@@ -664,41 +666,40 @@ void PowerManager::playSound(int power_index, StatBlock *src_stats) {
 }
 
 bool PowerManager::effect(StatBlock *src_stats, int power_index) {
-	int effect_index = 0;
-	bool is_triggered = false;
+	for (unsigned i=0; i<powers[power_index].post_effects.size(); i++) {
 
-	if (powers[power_index].type == POWTYPE_EFFECT) effect_index = power_index;
-	else effect_index = powers[power_index].post_effect;
+		int effect_index = powers[power_index].post_effects[i].id;
+		int magnitude = powers[power_index].post_effects[i].magnitude;
+		int duration = powers[power_index].post_effects[i].duration;
 
-	if (powers[power_index].passive_trigger != -1) is_triggered = true;
+		bool is_triggered = false;
+		if (powers[power_index].passive_trigger != -1) is_triggered = true;
 
-	if (effect_index > 0) {
-		int magnitude = powers[power_index].effect_magnitude;
+		if (effect_index > 0) {
+			if (powers[effect_index].effect_type == "shield") {
+				// charge shield to max ment weapon damage * damage multiplier
+				magnitude = (int)ceil(src_stats->dmg_ment_max * powers[power_index].damage_multiplier / 100.0) + (src_stats->get_mental()*src_stats->bonus_per_mental);
+				comb->addMessage(msg->get("+%d Shield",magnitude), src_stats->pos, COMBAT_MESSAGE_BUFF, src_stats->hero);
+			} else if (powers[effect_index].effect_type == "heal") {
+				// heal for ment weapon damage * damage multiplier
+				int heal_max = (int)ceil(src_stats->dmg_ment_max * powers[power_index].damage_multiplier / 100.0) + (src_stats->get_mental()*src_stats->bonus_per_mental);
+				int heal_min = (int)ceil(src_stats->dmg_ment_min * powers[power_index].damage_multiplier / 100.0) + (src_stats->get_mental()*src_stats->bonus_per_mental);
+				if (heal_max > heal_min)
+					magnitude = rand() % (heal_max - heal_min) + heal_min;
+				else // avoid div by 0
+					magnitude = heal_min;
+				comb->addMessage(msg->get("+%d HP",magnitude), src_stats->pos, COMBAT_MESSAGE_BUFF, src_stats->hero);
+				src_stats->hp += magnitude;
+				if (src_stats->hp > src_stats->maxhp) src_stats->hp = src_stats->maxhp;
+			}
 
-		if (powers[effect_index].effect_type == "shield") {
-			// charge shield to max ment weapon damage * damage multiplier
-			magnitude = (int)ceil(src_stats->dmg_ment_max * powers[power_index].damage_multiplier / 100.0) + (src_stats->get_mental()*src_stats->bonus_per_mental);
-			comb->addMessage(msg->get("+%d Shield",magnitude), src_stats->pos, COMBAT_MESSAGE_BUFF, src_stats->hero);
-		} else if (powers[effect_index].effect_type == "heal") {
-			// heal for ment weapon damage * damage multiplier
-			int heal_max = (int)ceil(src_stats->dmg_ment_max * powers[power_index].damage_multiplier / 100.0) + (src_stats->get_mental()*src_stats->bonus_per_mental);
-			int heal_min = (int)ceil(src_stats->dmg_ment_min * powers[power_index].damage_multiplier / 100.0) + (src_stats->get_mental()*src_stats->bonus_per_mental);
-			if (heal_max > heal_min)
-				magnitude = rand() % (heal_max - heal_min) + heal_min;
-			else // avoid div by 0
-				magnitude = heal_min;
-			comb->addMessage(msg->get("+%d HP",magnitude), src_stats->pos, COMBAT_MESSAGE_BUFF, src_stats->hero);
-			src_stats->hp += magnitude;
-			if (src_stats->hp > src_stats->maxhp) src_stats->hp = src_stats->maxhp;
+			src_stats->effects.addEffect(effect_index, powers[effect_index].icon, duration, magnitude, powers[effect_index].effect_type, powers[effect_index].animation_name, powers[effect_index].effect_additive, false, is_triggered);
 		}
 
-		src_stats->effects.addEffect(effect_index, powers[effect_index].icon, powers[power_index].effect_duration, magnitude, powers[effect_index].effect_type, powers[effect_index].animation_name, powers[effect_index].effect_additive, false, is_triggered);
+		// If there's a sound effect, play it here
+		playSound(power_index, src_stats);
 	}
 
-	// If there's a sound effect, play it here
-	playSound(power_index, src_stats);
-
-	payPowerCost(power_index, src_stats);
 	return true;
 }
 
@@ -965,13 +966,13 @@ bool PowerManager::activate(int power_index, StatBlock *src_stats, Point target)
 
 	// logic for different types of powers are very different.  We allow these
 	// separate functions to handle the details.
+	// POWTYPE_EFFECT is never cast as itself, so it is ignored
 	switch(powers[power_index].type) {
 		case POWTYPE_FIXED:     return fixed(power_index, src_stats, target);
 		case POWTYPE_MISSILE:   return missile(power_index, src_stats, target);
 		case POWTYPE_REPEATER:  return repeater(power_index, src_stats, target);
 		case POWTYPE_SPAWN:     return spawn(power_index, src_stats, target);
 		case POWTYPE_TRANSFORM: return transform(power_index, src_stats, target);
-		case POWTYPE_EFFECT:    return effect(src_stats, power_index);
 	}
 
 	return false;

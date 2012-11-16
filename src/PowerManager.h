@@ -75,6 +75,18 @@ const int TRIGGER_BLOCK = 0;
 const int TRIGGER_HIT = 1;
 const int TRIGGER_DEATH = 2;
 
+struct PostEffect {
+	int id;
+	int magnitude;
+	int duration;
+
+	PostEffect() {
+		id = 0;
+		magnitude = 0;
+		duration = 0;
+	}
+};
+
 class Power {
 public:
 	// base info
@@ -150,9 +162,7 @@ public:
 	bool buff;
 	bool buff_teleport;
 
-	int post_effect;
-	int effect_duration;
-	int effect_magnitude;
+	std::vector<PostEffect> post_effects;
 	std::string effect_type;
 	bool effect_additive;
 
@@ -231,9 +241,6 @@ public:
 		, buff(false)
 		, buff_teleport(false)
 
-		, post_effect(0)
-		, effect_duration(0)
-		, effect_magnitude(0)
 		, effect_type("")
 		, effect_additive(false)
 
