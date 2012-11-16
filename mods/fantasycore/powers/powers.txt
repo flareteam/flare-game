@@ -56,9 +56,7 @@ requires_mp=1
 base_damage=ranged
 aim_assist=true
 allow_power_mod=true
-post_effect=201
-effect_magnitude=0
-effect_duration=90
+post_effect=201,0,90
 
 [power]
 id=5
@@ -77,9 +75,7 @@ radius=64
 starting_pos=melee
 post_power=127
 allow_power_mod=true
-post_effect=200
-effect_duration=150
-effect_magnitude=1
+post_effect=200,1,150
 
 [power]
 id=6
@@ -107,15 +103,15 @@ wall_power=126
 [power]
 id=7
 name=Heal
-type=effect
+type=fixed
 icon=11
 description=Restore HP
 new_state=cast
 requires_mp=1
-animation=heal.txt
 sfx=heal.ogg
 trait_elemental=light
-effect_type=heal
+buff=true
+post_effect=228,0,0
 
 [power]
 id=8
@@ -136,15 +132,15 @@ allow_power_mod=true
 [power]
 id=9
 name=Warcry
-type=effect
+type=fixed
 icon=12
 description=Remove debuffs and become immune to debuffs for 10 seconds
 new_state=cast
 requires_mp=2
 sfx=warcry.ogg
 trait_elemental=light
-effect_type=immunity
-effect_duration=300
+buff=true
+post_effect=226,0,300
 
 [power]
 id=10
@@ -165,33 +161,31 @@ trait_elemental=earth
 starting_pos=source
 multitarget=true
 cooldown=3000
-post_effect=203
-effect_duration=30
+post_effect=203,0,30
 
 [power]
 id=11
 name=Shield
-type=effect
+type=fixed
 icon=15
 description=Create a force field that absorbs damage
 new_state=cast
 requires_mp=2
 sfx=shield.ogg
-effect_type=shield
-animation=shield.txt
+buff=true
+post_effect=227,0,0
 
 [power]
 id=12
 name=Haste
 icon=9
 description=Double run and attack speed for 8 seconds
-type=effect
+type=fixed
 new_state=cast
 face=false
 requires_mp=1
-effect_type=speed
-effect_magnitude=200
-effect_duration=240
+buff=true
+post_effect=229,200,240
 
 [power]
 id=13
@@ -231,9 +225,7 @@ delay=3
 visual_random=3
 complete_animation=true
 count=10
-post_effect=202
-effect_magnitude=50
-effect_duration=90
+post_effect=202,50,90
 
 [power]
 id=15
@@ -310,8 +302,7 @@ lifespan=1
 radius=512
 multitarget=true
 base_damage=none
-post_effect=203
-effect_duration=150
+post_effect=203,0,150
 
 [power]
 id=20
@@ -403,10 +394,7 @@ speed=30
 trait_elemental=ice
 post_power=126
 wall_power=126
-post_effect=202
-effect_magnitude=50
-effect_duration=60
-
+post_effect=202,50,60
 
 [power]
 id=31
@@ -467,9 +455,7 @@ starting_pos=source
 multitarget=true
 visual_option=1
 post_power=125
-post_effect=202
-effect_magnitude=50
-effect_duration=15
+post_effect=202,50,15
 
 [power]
 id=34
@@ -514,9 +500,7 @@ wall_power=126
 #missile num needs to be odd, or the player can avoid just by standing there
 count=9
 missile_angle=40
-post_effect=202
-effect_magnitude=50
-effect_duration=60
+post_effect=202,50,60
 
 [power]
 id=36
@@ -567,9 +551,7 @@ lifespan=1
 radius=64
 starting_pos=melee
 allow_power_mod=true
-post_effect=201
-effect_magnitude=0
-effect_duration=150
+post_effect=201,0,150
 
 [power]
 id=39
@@ -628,8 +610,7 @@ lifespan=8
 radius=64
 speed=24
 starting_pos=melee
-post_effect=203
-effect_duration=30
+post_effect=203,0,30
 
 # enemy version of multishot
 [power]
@@ -657,30 +638,27 @@ missile_angle=15
 
 [power]
 id=100
-type=effect
+type=fixed
 icon=64
 name=Health Potion
 sfx=potion.ogg
 new_state=instant
 requires_item=1
 cooldown=600
-effect_type=hpot
-effect_duration=1
-effect_magnitude=25
+buff=true
+post_effect=230,25,1
 
 [power]
 id=101
-type=effect
+type=fixed
 icon=65
 name=Mana Potion
 new_state=instant
 sfx=potion.ogg
 requires_item=2
 cooldown=600
-effect_type=mpot
-effect_duration=1
-effect_magnitude=25
-
+buff=true
+post_effect=231,25,1
 
 [power]
 id=118
@@ -880,21 +858,19 @@ radius=512
 multitarget=true
 base_damage=none
 requires_item=13
-post_effect=203
-effect_duration=300
+post_effect=203,0,300
 
 [power]
 id=131
 name=Scroll of Haste
 icon=74
 description=Double run and attack speed for 20 seconds
-type=effect
+type=fixed
 new_state=cast
 face=false
 requires_item=14
-effect_type=speed
-effect_magnitude=200
-effect_duration=600
+buff=true
+post_effect=229,200,600
 
 [power]
 id=132
@@ -1005,9 +981,7 @@ delay=6
 visual_random=4
 complete_animation=true
 count=10
-post_effect=202
-effect_magnitude=50
-effect_duration=90
+post_effect=202,50,90
 
 [power]
 id=160
@@ -1180,4 +1154,46 @@ tag=ice resist
 type=effect
 effect_type=ice_resist
 effect_additive=true
+
+[power]
+id=226
+name=Immunity
+type=effect
+icon=12
+effect_type=immunity
+
+[power]
+id=227
+name=Shield
+type=effect
+icon=15
+effect_type=shield
+animation=shield.txt
+
+[power]
+id=228
+name=Heal
+type=effect
+icon=11
+effect_type=heal
+animation=heal.txt
+
+[power]
+id=229
+name=Haste
+type=effect
+icon=9
+effect_type=speed
+
+[power]
+id=230
+name=HP over time
+type=effect
+effect_type=hpot
+
+[power]
+id=231
+name=MP over time
+type=effect
+effect_type=mpot
 
