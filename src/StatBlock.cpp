@@ -306,6 +306,13 @@ void StatBlock::load(const string& filename) {
 		else if (infile.key == "chance_on_debuff") power_chance[ON_DEBUFF] = num;
 		else if (infile.key == "chance_on_join_combat") power_chance[ON_JOIN_COMBAT] = num;
 
+		else if (infile.key == "passive_powers") {
+			std::string p = infile.nextValue();
+			while (p != "") {
+				powers_list.push_back(toInt(p));
+				p = infile.nextValue();
+			}
+		}
 
 		else if (infile.key == "melee_range") melee_range = num;
 		else if (infile.key == "threat_range") threat_range = num;

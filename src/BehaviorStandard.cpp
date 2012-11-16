@@ -443,7 +443,10 @@ void BehaviorStandard::updateState() {
 		case ENEMY_HIT:
 
 			e->setAnimation("hit");
-			if (e->activeAnimation->isFirstFrame()) e->sfx_hit = true;
+			if (e->activeAnimation->isFirstFrame()) {
+				e->sfx_hit = true;
+				e->stats.effects.triggered_hit = true;
+			}
 			if (e->activeAnimation->isLastFrame()) e->newState(ENEMY_STANCE);
 			break;
 
@@ -453,6 +456,7 @@ void BehaviorStandard::updateState() {
 			if (e->activeAnimation->isFirstFrame()) {
 				e->sfx_die = true;
 				e->stats.corpse_ticks = CORPSE_TIMEOUT;
+				e->stats.effects.triggered_death = true;
 			}
 			if (e->activeAnimation->isSecondLastFrame()) {
 				if ((rand() % 100) < e->stats.power_chance[ON_DEATH])
@@ -469,6 +473,7 @@ void BehaviorStandard::updateState() {
 			if (e->activeAnimation->isFirstFrame()) {
 				e->sfx_critdie = true;
 				e->stats.corpse_ticks = CORPSE_TIMEOUT;
+				e->stats.effects.triggered_death = true;
 			}
 			if (e->activeAnimation->isSecondLastFrame()) {
 				if ((rand() % 100) < e->stats.power_chance[ON_DEATH])
@@ -482,6 +487,9 @@ void BehaviorStandard::updateState() {
 		default:
 			break;
 	}
+
+	// activated all triggered passive powers
+	e->powers->triggerPassives(&e->stats);
 }
 
 
