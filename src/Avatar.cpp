@@ -736,20 +736,23 @@ bool Avatar::takeHit(const Hazard &h) {
 		stats.takeDamage(dmg);
 
 		// after effects
-		if (stats.hp > 0 && !stats.effects.immunity && dmg > 0) {
+		if (stats.hp > 0 && dmg > 0) {
 
+			if (h.mod_power > 0) powers->effect(&stats, h.mod_power);
 			powers->effect(&stats, h.power_index);
 
-			if (stats.effects.forced_move) {
-				float theta = powers->calcTheta(h.src_stats->pos.x, h.src_stats->pos.y, stats.pos.x, stats.pos.y);
-				stats.forced_speed.x = static_cast<int>(ceil(stats.effects.forced_speed * cos(theta)));
-				stats.forced_speed.y = static_cast<int>(ceil(stats.effects.forced_speed * sin(theta)));
-			}
-			if (h.hp_steal != 0) {
-				int steal_amt = (dmg * h.hp_steal) / 100;
-				if (steal_amt == 0 && dmg > 0) steal_amt = 1;
-				combat_text->addMessage(msg->get("+%d HP",steal_amt), h.src_stats->pos, COMBAT_MESSAGE_BUFF, false);
-				h.src_stats->hp = min(h.src_stats->hp + steal_amt, h.src_stats->maxhp);
+			if (!stats.effects.immunity) {
+				if (stats.effects.forced_move) {
+					float theta = powers->calcTheta(h.src_stats->pos.x, h.src_stats->pos.y, stats.pos.x, stats.pos.y);
+					stats.forced_speed.x = static_cast<int>(ceil(stats.effects.forced_speed * cos(theta)));
+					stats.forced_speed.y = static_cast<int>(ceil(stats.effects.forced_speed * sin(theta)));
+				}
+				if (h.hp_steal != 0) {
+					int steal_amt = (dmg * h.hp_steal) / 100;
+					if (steal_amt == 0 && dmg > 0) steal_amt = 1;
+					combat_text->addMessage(msg->get("+%d HP",steal_amt), h.src_stats->pos, COMBAT_MESSAGE_BUFF, false);
+					h.src_stats->hp = min(h.src_stats->hp + steal_amt, h.src_stats->maxhp);
+				}
 			}
 			// if (h.mp_steal != 0) { //enemies don't have MP
 		}
