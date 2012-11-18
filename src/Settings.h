@@ -44,15 +44,16 @@ typedef struct HeroClass{
 	int hotkeys[12];
 	std::vector<int> powers;
 
-	HeroClass() {
-		name = "";
-		description = "";
-		currency = 0;
-		equipment = "";
-		physical = 0;
-		mental = 0;
-		offense = 0;
-		defense = 0;
+	HeroClass()
+	: name("")
+	, description("")
+	, currency(0)
+	, equipment("")
+	, physical(0)
+	, mental(0)
+	, offense(0)
+	, defense(0)
+	{
 		for (int i=0; i<12; i++) {
 			hotkeys[i] = 0;
 		}
