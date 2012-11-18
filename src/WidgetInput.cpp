@@ -130,8 +130,6 @@ void WidgetInput::render(SDL_Surface *target) {
 
 	if (!inFocus)
 		src.y = 0;
-	else if (hover)
-		src.y = pos.h;
 	else
 		src.y = pos.h;
 
