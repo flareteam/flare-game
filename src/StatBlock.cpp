@@ -73,6 +73,8 @@ StatBlock::StatBlock() {
 	crit = 0;
 	level_up = false;
 	check_title = false;
+	stat_points_per_level = 1;
+	power_points_per_level = 1;
 
 
 	// equipment stats
@@ -598,6 +600,10 @@ void StatBlock::loadHeroStats() {
 			bonus_per_defense = value;
 		} else if (infile.key == "sfx_step") {
 			sfx_step = infile.val;
+		} else if (infile.key == "stat_points_per_level") {
+			stat_points_per_level = value;
+		} else if (infile.key == "power_points_per_level") {
+			power_points_per_level = value;
 		}
 	}
 	infile.close();
@@ -612,7 +618,7 @@ void StatBlock::loadHeroStats() {
 	while(infile.next()) {
 		xp_table[toInt(infile.key) - 1] = toInt(infile.val);
 	}
-	max_spendable_stat_points = toInt(infile.key);
+	max_spendable_stat_points = toInt(infile.key) * stat_points_per_level;
 	infile.close();
 }
 
