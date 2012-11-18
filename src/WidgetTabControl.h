@@ -50,6 +50,7 @@ private:
 public:
 
 	WidgetTabControl(int amount);
+	WidgetTabControl(const WidgetTabControl &copy); // copy constructor not implemented
 	~WidgetTabControl();
 
 	void setTabTitle(int number, const std::string& title);
