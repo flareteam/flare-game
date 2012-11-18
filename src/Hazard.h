@@ -111,8 +111,7 @@ public:
 	// pre/post power effects
 	int post_power;
 	int wall_power;
-
-	bool equipment_modified;
+	int mod_power;
 
 };
 

@@ -392,7 +392,7 @@ bool MenuPowers::unlockClick(Point mouse) {
 }
 
 void MenuPowers::logic() {
-	points_left = stats->level - stats->powers_list.size();
+	points_left = (stats->level * stats->power_points_per_level) - stats->powers_list.size();
 	if (!visible) return;
 
 	if (closeButton->checkClick()) {

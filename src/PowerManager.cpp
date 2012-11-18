@@ -585,17 +585,17 @@ void PowerManager::initHazard(int power_index, StatBlock *src_stats, Point targe
 	}
 
 	// if equipment has special powers, apply it here (if it hasn't already been applied)
-	if (!haz->equipment_modified && powers[power_index].allow_power_mod) {
+	if (haz->mod_power == 0 && powers[power_index].allow_power_mod) {
 		if (powers[power_index].base_damage == BASE_DAMAGE_MELEE && src_stats->melee_weapon_power != 0) {
-			haz->equipment_modified = true;
+			haz->mod_power = power_index;
 			initHazard(src_stats->melee_weapon_power, src_stats, target, haz);
 		}
 		else if (powers[power_index].base_damage == BASE_DAMAGE_MENT && src_stats->mental_weapon_power != 0) {
-			haz->equipment_modified = true;
+			haz->mod_power = power_index;
 			initHazard(src_stats->mental_weapon_power, src_stats, target, haz);
 		}
 		else if (powers[power_index].base_damage == BASE_DAMAGE_RANGED && src_stats->ranged_weapon_power != 0) {
-			haz->equipment_modified = true;
+			haz->mod_power = power_index;
 			initHazard(src_stats->ranged_weapon_power, src_stats, target, haz);
 		}
 	}
