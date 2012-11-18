@@ -70,11 +70,11 @@ struct Set_bonus {
 	int requirement;
 	std::string bonus_stat;
 	int bonus_val;
-	Set_bonus() {
-		requirement = 0;
-		bonus_stat = "";
-		bonus_val = 0;
-	}
+	Set_bonus()
+		: requirement(0)
+		, bonus_stat("")
+		, bonus_val(0)
+	{}
 };
 
 class Item {
@@ -113,39 +113,39 @@ public:
 
 	int getSellPrice();
 
-	Item() {
-		name = "";
-		level = 0;
-		set = 0;
-		quality = ITEM_QUALITY_NORMAL;
-		icon= 0;
-		type = "other";
-		dmg_melee_min = 0;
-		dmg_melee_max = 0;
-		dmg_ranged_min = 0;
-		dmg_ranged_max = 0;
-		dmg_ment_min = 0;
-		dmg_ment_max = 0;
-		abs_min = 0;
-		abs_max = 0;
-		req_stat = 0;
-		req_val = 0;
-		sfx = SFX_NONE;
-		gfx = "";
-		loot_animation = "";
-		power = 0;
-		power_mod = 0;
-		power_desc = "";
-		price = 0;
-		price_sell = 0;
-		max_quantity = 1;
-		rand_loot = 1;
-		rand_vendor = 1;
-		pickup_status = "";
-		stepfx = "";
-	}
-	~Item() {
+	Item()
+	: name("")
+	, level(0)
+	, set(0)
+	, quality(ITEM_QUALITY_NORMAL)
+	, type("other")
+	, icon(0)
+	, dmg_melee_min(0)
+	, dmg_melee_max(0)
+	, dmg_ranged_min(0)
+	, dmg_ranged_max(0)
+	, dmg_ment_min(0)
+	, dmg_ment_max(0)
+	, abs_min(0)
+	, abs_max(0)
+	, req_stat(0)
+	, req_val(0)
+	, sfx(SFX_NONE)
+	, gfx("")
+	, loot_animation("")
+	, power(0)
+	, power_mod(0)
+	, power_desc("")
+	, price(0)
+	, price_sell(0)
+	, max_quantity(1)
+	, rand_loot(1)
+	, rand_vendor(1)
+	, pickup_status("")
+	, stepfx("")
+	{}
 
+	~Item() {
 	}
 };
 
@@ -156,14 +156,15 @@ public:
 	std::vector<Set_bonus> bonus;// vector with stats to increase/decrease
 	SDL_Color color;
 
-	ItemSet() {
-		name = "";
+	ItemSet()
+	: name("")
+	{
 		color.r = 255;
 		color.g = 255;
 		color.b = 255;
 	}
-	~ItemSet() {
 
+	~ItemSet() {
 	}
 };
 
