@@ -34,7 +34,9 @@ FontStyle::FontStyle() : name(""), path(""), ptsize(0), blend(true), ttfont(NULL
 }
 
 FontEngine::FontEngine()
- : cursor_y(0)
+ : ttf(NULL)
+ , active_font(NULL)
+ , cursor_y(0)
 {
 	// Initiate SDL_ttf
 	if(!TTF_WasInit() && TTF_Init()==-1) {
