@@ -197,8 +197,6 @@ private:
 	void loadAll();
 	void loadSounds();
 	void loadIcons();
-	void shrinkItems();
-	void shrinkItemSets();
 
 	SDL_Color color_normal;
 	SDL_Color color_low;
