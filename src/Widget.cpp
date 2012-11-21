@@ -1,5 +1,5 @@
 /*
-Copyright © 2011-2012 Clint Bellanger
+Copyright © 2012 Stefan Beller
 
 This file is part of FLARE.
 
@@ -15,23 +15,15 @@ You should have received a copy of the GNU General Public License along with
 FLARE.  If not, see http://www.gnu.org/licenses/
 */
 
-#ifndef WIDGET_H
-#define WIDGET_H
+#include "Widget.h"
 
-/**
- * Base interface all widget needs to implement
- */
-#include <SDL.h>
-class Widget {
-public:
-	Widget();
+Widget::Widget()
+	: render_to_alpha(false)
+	, pos(SDL_Rect())
+{
+	pos.x = pos.y = pos.w = pos.h = 0;
+}
 
-	virtual ~Widget();
-	virtual void render(SDL_Surface *target = NULL) = 0;
-	bool render_to_alpha;
-	SDL_Rect pos; // This is the position of the button within the screen
-private:
-};
-
-#endif
+Widget::~Widget()
+{}
 

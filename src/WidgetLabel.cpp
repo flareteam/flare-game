@@ -63,17 +63,17 @@ LabelInfo eatLabelInfo(string val) {
 	return info;
 }
 
+WidgetLabel::WidgetLabel()
+	 : text("")
+	 , color(font->getColor("widget_normal"))
+	 , x_origin(0)
+	 , y_origin(0)
+	 , justify(JUSTIFY_LEFT)
+	 , valign(VALIGN_TOP)
+	 , font_style("font_regular")
+	 , text_buffer(NULL)
 
-WidgetLabel::WidgetLabel() {
-
-	text_buffer = NULL;
-	text = "";
-	color = font->getColor("widget_normal");
-	x_origin = y_origin = 0;
-	justify = JUSTIFY_LEFT;
-	valign = VALIGN_TOP;
-	font_style = "font_regular";
-
+{
 	bounds.x = bounds.y = 0;
 	bounds.w = bounds.h = 0;
 
@@ -142,7 +142,7 @@ void WidgetLabel::set(int _x, int _y, int _justify, int _valign, const string& _
 		font_style = _font;
 		changed = true;
 	}
-	
+
 	if (changed) {
 		applyOffsets();
 		refresh();
@@ -246,7 +246,7 @@ void WidgetLabel::applyOffsets() {
 	else if (valign == VALIGN_CENTER) {
 		bounds.y = y_origin - bounds.h/2;
 	}
-	
+
 }
 
 /**
@@ -270,7 +270,7 @@ void WidgetLabel::refresh() {
 	text_buffer = createAlphaSurface(bounds.w, bounds.h);
 	font->setFont(font_style);
 	font->renderShadowed(text, 0, 0, JUSTIFY_LEFT, text_buffer, color);
-	
+
 }
 
 

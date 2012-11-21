@@ -15,7 +15,7 @@ PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 You should have received a copy of the GNU General Public License along with
 FLARE.  If not, see http://www.gnu.org/licenses/
 */
- 
+
 #ifndef GAME_SWITCHER_H
 #define GAME_SWITCHER_H
 
@@ -49,23 +49,24 @@ class GameState;
 class GameSwitcher {
 private:
 	Mix_Music *music;
-	
+
 	GameState *currentState;
 
 	WidgetLabel *label_fps;
 	Point fps_position;
 	SDL_Color fps_color;
 	std::string fps_corner;
-	
+
 public:
 	GameSwitcher();
+	GameSwitcher(const GameSwitcher &copy); // not implemented.
+	~GameSwitcher();
+
 	void loadMusic();
 	void loadFPS();
 	void logic();
 	void render();
 	void showFPS(int fps);
-	~GameSwitcher();
-	
 	bool done;
 };
 

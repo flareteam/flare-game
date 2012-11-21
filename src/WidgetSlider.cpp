@@ -34,9 +34,12 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 using namespace std;
 
 WidgetSlider::WidgetSlider (const string  & fname)
-		: imgFileName(fname),
-		  sl(NULL),
-		  pressed(false)
+	 : imgFileName(fname)
+	 , sl(NULL)
+	 , pressed(false)
+	 , minimum(0)
+	 , maximum(0)
+	 , value(0)
 {
 	SDL_Surface * tmp = IMG_Load(imgFileName.c_str());
 	if (NULL == tmp) {
