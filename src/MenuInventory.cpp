@@ -806,7 +806,7 @@ void MenuInventory::applyItemStats(ItemStack *equipped) {
 			int id = powers->getIdFromTag(item.bonus_stat[bonus_counter]);
 
 			if (id > 0)
-				stats->effects.addEffect(id, powers->powers[id].icon, 0, item.bonus_val[bonus_counter], powers->powers[id].effect_type, powers->powers[id].animation_name, powers->powers[id].effect_additive, true, false);
+				stats->effects.addEffect(id, powers->powers[id].icon, 0, item.bonus_val[bonus_counter], powers->powers[id].effect_type, powers->powers[id].animation_name, powers->powers[id].effect_additive, true, false, powers->powers[id].effect_render_above);
 
 			bonus_counter++;
 		}
@@ -843,7 +843,7 @@ void MenuInventory::applyItemSetBonuses(ItemStack *equipped) {
 			int id = powers->getIdFromTag(temp_set.bonus[bonus_counter].bonus_stat);
 
 			if (id > 0)
-				stats->effects.addEffect(id, powers->powers[id].icon, 0, temp_set.bonus[bonus_counter].bonus_val, powers->powers[id].effect_type, powers->powers[id].animation_name, powers->powers[id].effect_additive, true, false);
+				stats->effects.addEffect(id, powers->powers[id].icon, 0, temp_set.bonus[bonus_counter].bonus_val, powers->powers[id].effect_type, powers->powers[id].animation_name, powers->powers[id].effect_additive, true, false, powers->powers[id].effect_render_above);
 		}
 	}
 }
