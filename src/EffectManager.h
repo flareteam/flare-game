@@ -49,6 +49,7 @@ struct Effect{
 	Animation* animation;
 	bool item;
 	bool trigger;
+	bool render_above;
 
 	Effect()
 	 : id(0)
@@ -62,6 +63,7 @@ struct Effect{
 	 , animation(NULL)
 	 , item(false)
 	 , trigger(false)
+	 , render_above(false)
 	{}
 
 	~Effect() {
@@ -72,21 +74,21 @@ struct Effect{
 class EffectManager {
 private:
 	Animation* loadAnimation(std::string &s);
-	void removeEffect(int _id);
-	void removeAnimation(int _id);
+	void removeEffect(int id);
+	void removeAnimation(int id);
 
 public:
 	EffectManager();
 	~EffectManager();
 	void clearStatus();
 	void logic();
-	void addEffect(int _id, int _icon, int _duration, int _magnitude, std::string _type, std::string _animation, bool _additive, bool _item, bool _trigger);
-	void removeEffectType(std::string _type);
+	void addEffect(int id, int icon, int duration, int magnitude, std::string type, std::string animation, bool additive, bool item, bool trigger, bool render_above);
+	void removeEffectType(std::string type);
 	void clearEffects();
 	void clearNegativeEffects();
 	void clearItemEffects();
 	void clearTriggeredEffects();
-	int damageShields(int _dmg);
+	int damageShields(int dmg);
 
 	std::vector<Effect> effect_list;
 

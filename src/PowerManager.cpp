@@ -265,6 +265,8 @@ void PowerManager::loadPowers(const std::string& filename) {
 			powers[input_id].effect_type = infile.val;
 		else if (infile.key == "effect_additive")
 			powers[input_id].effect_additive = toBool(infile.val);
+		else if (infile.key == "effect_render_above")
+			powers[input_id].effect_render_above = toBool(infile.val);
 		// pre and post power effects
 		else if (infile.key == "post_power")
 			powers[input_id].post_power = toInt(infile.val);
@@ -693,7 +695,7 @@ bool PowerManager::effect(StatBlock *src_stats, int power_index) {
 				if (src_stats->hp > src_stats->maxhp) src_stats->hp = src_stats->maxhp;
 			}
 
-			src_stats->effects.addEffect(effect_index, powers[effect_index].icon, duration, magnitude, powers[effect_index].effect_type, powers[effect_index].animation_name, powers[effect_index].effect_additive, false, is_triggered);
+			src_stats->effects.addEffect(effect_index, powers[effect_index].icon, duration, magnitude, powers[effect_index].effect_type, powers[effect_index].animation_name, powers[effect_index].effect_additive, false, is_triggered, powers[effect_index].effect_render_above);
 		}
 
 		// If there's a sound effect, play it here

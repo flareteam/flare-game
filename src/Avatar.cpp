@@ -936,7 +936,7 @@ void Avatar::addRenders(vector<Renderable> &r) {
 			if (anims[index]) {
 				Renderable ren = anims[index]->getCurrentFrame(stats.direction);
 				ren.map_pos = stats.pos;
-				ren.prio = i;
+				ren.prio = i+1;
 				r.push_back(ren);
 			}
 		}
@@ -950,6 +950,8 @@ void Avatar::addRenders(vector<Renderable> &r) {
 		if (stats.effects.effect_list[i].animation && !stats.effects.effect_list[i].animation->isCompleted()) {
 			Renderable ren = stats.effects.effect_list[i].animation->getCurrentFrame(0);
 			ren.map_pos = stats.pos;
+			if (stats.effects.effect_list[i].render_above) ren.prio = layer_def[stats.direction].size()+1;
+			else ren.prio = 0;
 			r.push_back(ren);
 		}
 	}
