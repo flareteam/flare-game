@@ -736,20 +736,23 @@ bool Avatar::takeHit(const Hazard &h) {
 		stats.takeDamage(dmg);
 
 		// after effects
-		if (stats.hp > 0 && !stats.effects.immunity && dmg > 0) {
+		if (stats.hp > 0 && dmg > 0) {
 
+			if (h.mod_power > 0) powers->effect(&stats, h.mod_power);
 			powers->effect(&stats, h.power_index);
 
-			if (stats.effects.forced_move) {
-				float theta = powers->calcTheta(h.src_stats->pos.x, h.src_stats->pos.y, stats.pos.x, stats.pos.y);
-				stats.forced_speed.x = static_cast<int>(ceil(stats.effects.forced_speed * cos(theta)));
-				stats.forced_speed.y = static_cast<int>(ceil(stats.effects.forced_speed * sin(theta)));
-			}
-			if (h.hp_steal != 0) {
-				int steal_amt = (dmg * h.hp_steal) / 100;
-				if (steal_amt == 0 && dmg > 0) steal_amt = 1;
-				combat_text->addMessage(msg->get("+%d HP",steal_amt), h.src_stats->pos, COMBAT_MESSAGE_BUFF, false);
-				h.src_stats->hp = min(h.src_stats->hp + steal_amt, h.src_stats->maxhp);
+			if (!stats.effects.immunity) {
+				if (stats.effects.forced_move) {
+					float theta = powers->calcTheta(h.src_stats->pos.x, h.src_stats->pos.y, stats.pos.x, stats.pos.y);
+					stats.forced_speed.x = static_cast<int>(ceil(stats.effects.forced_speed * cos(theta)));
+					stats.forced_speed.y = static_cast<int>(ceil(stats.effects.forced_speed * sin(theta)));
+				}
+				if (h.hp_steal != 0) {
+					int steal_amt = (dmg * h.hp_steal) / 100;
+					if (steal_amt == 0 && dmg > 0) steal_amt = 1;
+					combat_text->addMessage(msg->get("+%d HP",steal_amt), h.src_stats->pos, COMBAT_MESSAGE_BUFF, false);
+					h.src_stats->hp = min(h.src_stats->hp + steal_amt, h.src_stats->maxhp);
+				}
 			}
 			// if (h.mp_steal != 0) { //enemies don't have MP
 		}
@@ -933,7 +936,7 @@ void Avatar::addRenders(vector<Renderable> &r) {
 			if (anims[index]) {
 				Renderable ren = anims[index]->getCurrentFrame(stats.direction);
 				ren.map_pos = stats.pos;
-				ren.prio = i;
+				ren.prio = i+1;
 				r.push_back(ren);
 			}
 		}
@@ -947,6 +950,8 @@ void Avatar::addRenders(vector<Renderable> &r) {
 		if (stats.effects.effect_list[i].animation && !stats.effects.effect_list[i].animation->isCompleted()) {
 			Renderable ren = stats.effects.effect_list[i].animation->getCurrentFrame(0);
 			ren.map_pos = stats.pos;
+			if (stats.effects.effect_list[i].render_above) ren.prio = layer_def[stats.direction].size()+1;
+			else ren.prio = 0;
 			r.push_back(ren);
 		}
 	}

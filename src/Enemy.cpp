@@ -234,6 +234,7 @@ bool Enemy::takeHit(const Hazard &h) {
 		// after effects
 		if (stats.hp > 0) {
 
+			if (h.mod_power > 0) powers->effect(&stats, h.mod_power);
 			powers->effect(&stats, h.power_index);
 
 			if (stats.effects.forced_move) {

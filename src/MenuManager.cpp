@@ -43,12 +43,43 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "PowerManager.h"
 #include "SharedResources.h"
 
-MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManager *_camp, ItemManager *_items) {
-	powers = _powers;
-	stats = _stats;
-	camp = _camp;
-	items = _items;
-
+MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManager *_camp, ItemManager *_items)
+	: icons(NULL)
+	, powers(_powers)
+	, stats(_stats)
+	, camp(_camp)
+	, tip_buf(TooltipData())
+	, key_lock(false)
+	, dragging(0)
+	, drag_stack(ItemStack())
+	, drag_power(0)
+	, drag_src(0)
+	, done(false)
+	/*std::vector<Menu*> menus;*/
+	, items(_items)
+	, inv(NULL)
+	, pow(NULL)
+	, chr(NULL)
+	, log(NULL)
+	, hudlog(NULL)
+	, act(NULL)
+	, hp(NULL)
+	, mp(NULL)
+	, xp(NULL)
+	, tip(NULL)
+	, mini(NULL)
+	, enemy(NULL)
+	, vendor(NULL)
+	, talker(NULL)
+	, exit(NULL)
+	, effects(NULL)
+	, stash(NULL)
+	, pause(false)
+	, menus_open(false)
+	, drop_stack(ItemStack())
+	, sfx_open(NULL)
+	, sfx_close(NULL)
+{
 	loadIcons();
 
 	hp = new MenuStatBar("hp");

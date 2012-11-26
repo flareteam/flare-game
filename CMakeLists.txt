@@ -144,6 +144,7 @@ Set (FLARE_SOURCES
 	./src/UtilsDebug.cpp
 	./src/UtilsFileSystem.cpp
 	./src/UtilsParsing.cpp
+	./src/Widget.cpp
 	./src/WidgetCheckBox.cpp
 	./src/WidgetButton.cpp
 	./src/WidgetInput.cpp

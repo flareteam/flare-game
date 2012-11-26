@@ -126,10 +126,6 @@ void MenuLog::logic() {
 		visible = false;
 	}
 
-	for (int i=0; i<LOG_TYPE_COUNT; i++) {
-		msg_buffer[i]->refresh();
-	}
-
 	int active_log = tabControl->getActiveTab();
 	msg_buffer[active_log]->logic();
 }
@@ -179,6 +175,7 @@ void MenuLog::render() {
 	int active_log = tabControl->getActiveTab();
 
 	if (msg_buffer[active_log]->update) {
+		msg_buffer[active_log]->refresh();
 		font->setFont("font_regular");
 		for (unsigned int i=log_msg[active_log].size(); i>0; i--) {
 			int widthLimit = tabControl->getContentArea().w;
@@ -187,6 +184,7 @@ void MenuLog::render() {
 			total_size+=size.y+paragraph_spacing;
 		}
 	}
+	msg_buffer[active_log]->update = false;
 
 	msg_buffer[active_log]->render();
 }

@@ -165,6 +165,7 @@ public:
 	std::vector<PostEffect> post_effects;
 	std::string effect_type;
 	bool effect_additive;
+	bool effect_render_above;
 
 	int post_power;
 	int wall_power;
@@ -243,6 +244,7 @@ public:
 
 		, effect_type("")
 		, effect_additive(false)
+		, effect_render_above(false)
 
 		, post_power(0)
 		, wall_power(0)

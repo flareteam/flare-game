@@ -265,6 +265,8 @@ void PowerManager::loadPowers(const std::string& filename) {
 			powers[input_id].effect_type = infile.val;
 		else if (infile.key == "effect_additive")
 			powers[input_id].effect_additive = toBool(infile.val);
+		else if (infile.key == "effect_render_above")
+			powers[input_id].effect_render_above = toBool(infile.val);
 		// pre and post power effects
 		else if (infile.key == "post_power")
 			powers[input_id].post_power = toInt(infile.val);
@@ -585,17 +587,17 @@ void PowerManager::initHazard(int power_index, StatBlock *src_stats, Point targe
 	}
 
 	// if equipment has special powers, apply it here (if it hasn't already been applied)
-	if (!haz->equipment_modified && powers[power_index].allow_power_mod) {
+	if (haz->mod_power == 0 && powers[power_index].allow_power_mod) {
 		if (powers[power_index].base_damage == BASE_DAMAGE_MELEE && src_stats->melee_weapon_power != 0) {
-			haz->equipment_modified = true;
+			haz->mod_power = power_index;
 			initHazard(src_stats->melee_weapon_power, src_stats, target, haz);
 		}
 		else if (powers[power_index].base_damage == BASE_DAMAGE_MENT && src_stats->mental_weapon_power != 0) {
-			haz->equipment_modified = true;
+			haz->mod_power = power_index;
 			initHazard(src_stats->mental_weapon_power, src_stats, target, haz);
 		}
 		else if (powers[power_index].base_damage == BASE_DAMAGE_RANGED && src_stats->ranged_weapon_power != 0) {
-			haz->equipment_modified = true;
+			haz->mod_power = power_index;
 			initHazard(src_stats->ranged_weapon_power, src_stats, target, haz);
 		}
 	}
@@ -693,7 +695,7 @@ bool PowerManager::effect(StatBlock *src_stats, int power_index) {
 				if (src_stats->hp > src_stats->maxhp) src_stats->hp = src_stats->maxhp;
 			}
 
-			src_stats->effects.addEffect(effect_index, powers[effect_index].icon, duration, magnitude, powers[effect_index].effect_type, powers[effect_index].animation_name, powers[effect_index].effect_additive, false, is_triggered);
+			src_stats->effects.addEffect(effect_index, powers[effect_index].icon, duration, magnitude, powers[effect_index].effect_type, powers[effect_index].animation_name, powers[effect_index].effect_additive, false, is_triggered, powers[effect_index].effect_render_above);
 		}
 
 		// If there's a sound effect, play it here

@@ -299,6 +299,7 @@ void EnemyManager::addRenders(vector<Renderable> &r, vector<Renderable> &r_dead)
 		bool dead = (*it)->stats.corpse;
 		if (!dead || (dead && (*it)->stats.corpse_ticks > 0)) {
 			Renderable re = (*it)->getRender();
+			re.prio = 1;
 
 			// draw corpses below objects so that floor loot is more visible
 			(dead ? r_dead : r).push_back(re);
@@ -308,6 +309,8 @@ void EnemyManager::addRenders(vector<Renderable> &r, vector<Renderable> &r_dead)
 				if ((*it)->stats.effects.effect_list[i].animation) {
 					Renderable ren = (*it)->stats.effects.effect_list[i].animation->getCurrentFrame(0);
 					ren.map_pos = (*it)->stats.pos;
+					if ((*it)->stats.effects.effect_list[i].render_above) ren.prio = 2;
+					else ren.prio = 0;
 					r.push_back(ren);
 				}
 			}

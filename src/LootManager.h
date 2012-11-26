@@ -94,6 +94,7 @@ private:
 public:
 	static LootManager *getInstance();
 	LootManager(ItemManager *_items, MapRenderer *_map, StatBlock *_hero);
+	LootManager(const LootManager &copy); // not implemented
 	~LootManager();
 
 	void handleNewMap();
