@@ -101,7 +101,7 @@ public:
 	}
 
 	// add text with support for new lines
-	void addText(std::string text, SDL_Color color) {
+	void addText(const std::string &text, SDL_Color color) {
 		lines.push_back("");
 		colors.push_back(color);
 		for (unsigned int i=0; i<lines.size(); i++) {
@@ -122,7 +122,7 @@ public:
 		}
 	}
 
-	void addText(std::string text) {
+	void addText(const std::string &text) {
 		addText(text,default_color);
 	}
 
@@ -133,14 +133,14 @@ public:
 	}
 
 	// compare the first line
-	bool compareFirstLine(std::string text) {
+	bool compareFirstLine(const std::string &text) {
 		if (lines.empty()) return false;
 		if (lines[0] != text) return false;
 		return true;
 	}
 
 	// compare all lines
-	bool compare(TooltipData *tip) {
+	bool compare(const TooltipData *tip) {
 		if (lines.size() != tip->lines.size()) return false;
 		for (unsigned int i=0; i<lines.size(); i++) {
 			if (lines[i] != tip->lines[i]) return false;
