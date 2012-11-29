@@ -33,6 +33,7 @@ using namespace std;
 MenuStash::MenuStash(ItemManager *_items, StatBlock *_stats) {
 	items = _items;
 	stats = _stats;
+	stock = MenuItemStorage();
 
 	visible = false;
 	updated = false;

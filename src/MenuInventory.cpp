@@ -52,6 +52,9 @@ MenuInventory::MenuInventory(ItemManager *_items, StatBlock *_stats, PowerManage
 	changed_artifact = true;
 	log_msg = "";
 
+	inventory[0] = MenuItemStorage();
+	inventory[1] = MenuItemStorage();
+
 	closeButton = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
 
 	// Load config settings
@@ -254,7 +257,7 @@ void MenuInventory::itemReturn( ItemStack stack) {
 	inventory[drag_prev_src].itemReturn( stack);
 	// if returning equipment, prepare to change stats/sprites
 	if (drag_prev_src == EQUIPMENT) {
-		updateEquipment( inventory[EQUIPMENT].drag_prev_slot);
+		updateEquipment(inventory[EQUIPMENT].drag_prev_slot);
 	}
 	drag_prev_src = -1;
 }

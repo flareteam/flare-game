@@ -37,6 +37,11 @@ MenuVendor::MenuVendor(ItemManager *_items, StatBlock *_stats) {
 	items = _items;
 	stats = _stats;
 
+	stock[0] = MenuItemStorage();
+	stock[1] = MenuItemStorage();
+	buyback_stock = ItemStorage();
+	npc = NULL;
+
 	visible = false;
 	talker_visible = false;
 	activetab = VENDOR_BUY;

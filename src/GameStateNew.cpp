@@ -44,6 +44,7 @@ using namespace std;
 GameStateNew::GameStateNew() : GameState() {
 	game_slot = 0;
 	current_option = 0;
+	option_count = 0;
 	portrait_image = NULL;
 
 	// set up buttons

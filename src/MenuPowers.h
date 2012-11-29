@@ -99,7 +99,7 @@ private:
 
 	WidgetLabel label_powers;
 	WidgetLabel stat_up;
-	WidgetTabControl * tabControl;
+	WidgetTabControl *tabControl;
 
 	void loadGraphics();
 	void displayBuild(int power_id);
