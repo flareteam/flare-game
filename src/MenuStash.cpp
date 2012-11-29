@@ -42,14 +42,14 @@ MenuStash::MenuStash(ItemManager *_items, StatBlock *_stats) {
 
 	// Load config settings
 	FileParser infile;
-	if(infile.open(mods->locate("menus/stash.txt"))) {
+	if (infile.open(mods->locate("menus/stash.txt"))) {
 		while(infile.next()) {
 			infile.val = infile.val + ',';
 
-			if(infile.key == "close") {
+			if (infile.key == "close") {
 				close_pos.x = eatFirstInt(infile.val,',');
 				close_pos.y = eatFirstInt(infile.val,',');
-			} else if(infile.key == "slots_area") {
+			} else if (infile.key == "slots_area") {
 				slots_area.x = eatFirstInt(infile.val,',');
 				slots_area.y = eatFirstInt(infile.val,',');
 			} else if (infile.key == "stash_cols"){
@@ -70,7 +70,7 @@ MenuStash::MenuStash(ItemManager *_items, StatBlock *_stats) {
 
 void MenuStash::loadGraphics() {
 	background = IMG_Load(mods->locate("images/menus/stash.png").c_str());
-	if(!background) {
+	if (!background) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 	} else {
 		// optimize
@@ -165,15 +165,15 @@ void MenuStash::drop(Point mouse, ItemStack stack) {
 
 void MenuStash::add(ItemStack stack, int slot) {
 
-	if( stack.item != 0) {
+	if (stack.item != 0) {
 		int max_quantity = items->items[stack.item].max_quantity;
-		if( slot > -1 && stock[slot].item != 0 && stock[slot].item != stack.item) {
+		if (slot > -1 && stock[slot].item != 0 && stock[slot].item != stack.item) {
 			// the proposed slot isn't available, search for another one
 			slot = -1;
 		}
 		// first search of stack to complete if the item is stackable
 		int i = 0;
-		while( max_quantity > 1 && slot == -1 && i < STASH_SLOTS) {
+		while (max_quantity > 1 && slot == -1 && i < STASH_SLOTS) {
 			if (stock[i].item == stack.item && stock[i].quantity < max_quantity) {
 				slot = i;
 			}
@@ -181,20 +181,20 @@ void MenuStash::add(ItemStack stack, int slot) {
 		}
 		// then an empty slot
 		i = 0;
-		while( slot == -1 && i < STASH_SLOTS) {
+		while (slot == -1 && i < STASH_SLOTS) {
 			if (stock[i].item == 0) {
 				slot = i;
 			}
 			i++;
 		}
-		if( slot != -1) {
+		if (slot != -1) {
 			// Add
 			int quantity_added = min( stack.quantity, max_quantity - stock[slot].quantity);
 			stock[slot].item = stack.item;
 			stock[slot].quantity += quantity_added;
 			stack.quantity -= quantity_added;
 			// Add back the remaining
-			if( stack.quantity > 0) {
+			if (stack.quantity > 0) {
 				add( stack);
 			}
 		}
