@@ -75,49 +75,49 @@ std::list<Point> AStarNode::getNeighbours(int limitX, int limitY) const
 {
 	Point toAdd;
 	std::list<Point> res;
-	if(x>node_stride && y>node_stride)
+	if (x>node_stride && y>node_stride)
 	{
 		toAdd.x = x-node_stride;
 		toAdd.y = y-node_stride;
 		res.push_back(toAdd);
 	}
-	if(x>node_stride && (limitY==0 || y<limitY-node_stride) )
+	if (x>node_stride && (limitY==0 || y<limitY-node_stride))
 	{
 		toAdd.x = x-node_stride;
 		toAdd.y = y+node_stride;
 		res.push_back(toAdd);
 	}
-	if(y>node_stride && (limitX==0 || x<limitX-node_stride) )
+	if (y>node_stride && (limitX==0 || x<limitX-node_stride))
 	{
 		toAdd.x = x+node_stride;
 		toAdd.y = y-node_stride;
 		res.push_back(toAdd);
 	}
-	if( (limitX==0 || x<limitX-node_stride) && (limitY==0 || y<limitY-node_stride) )
+	if ((limitX==0 || x<limitX-node_stride) && (limitY==0 || y<limitY-node_stride))
 	{
 		toAdd.x = x+node_stride;
 		toAdd.y = y+node_stride;
 		res.push_back(toAdd);
 	}
-	if(x>node_stride)
+	if (x>node_stride)
 	{
 		toAdd.x = x-node_stride;
 		toAdd.y = y;
 		res.push_back(toAdd);
 	}
-	if(y>node_stride)
+	if (y>node_stride)
 	{
 		toAdd.x = x;
 		toAdd.y = y-node_stride;
 		res.push_back(toAdd);
 	}
-	if(limitX==0 || x<limitX-node_stride )
+	if (limitX==0 || x<limitX-node_stride)
 	{
 		toAdd.x = x+node_stride;
 		toAdd.y = y;
 		res.push_back(toAdd);
 	}
-	if(limitY==0 || y<limitY-node_stride )
+	if (limitY==0 || y<limitY-node_stride)
 	{
 		toAdd.x = x;
 		toAdd.y = y+node_stride;

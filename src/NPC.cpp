@@ -39,6 +39,7 @@ using namespace std;
 NPC::NPC(MapRenderer *_map, ItemManager *_items) : Entity(_map) {
 	items = _items;
 	direction = 0;
+	level = 1;
 
 	// init general vars
 	name = "";

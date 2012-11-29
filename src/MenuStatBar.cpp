@@ -46,6 +46,9 @@ MenuStatBar::MenuStatBar(std::string type) {
 	custom_text_pos = false; // label will be placed in the middle of the bar
 	custom_string = "";
 
+	stat_cur = 0;
+	stat_max = 0;
+
 	// Load config settings
 	FileParser infile;
 	if(infile.open(mods->locate("menus/"+type+".txt"))) {

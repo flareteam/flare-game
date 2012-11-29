@@ -366,7 +366,7 @@ void ItemManager::loadIcons() {
 
 	icons = IMG_Load(mods->locate("images/icons/icons.png").c_str());
 
-	if(!icons) {
+	if (!icons) {
 		fprintf(stderr, "Couldn't load icons: %s\n", IMG_GetError());
 	} else {
 		// optimize
@@ -420,7 +420,7 @@ void ItemManager::renderIcon(ItemStack stack, int x, int y, int size) {
 		SDL_BlitSurface(icons, &src, screen, &dest);
 	}
 
-	if( stack.quantity > 1 || items[stack.item].max_quantity > 1) {
+	if (stack.quantity > 1 || items[stack.item].max_quantity > 1) {
 		// stackable item : show the quantity
 		stringstream ss;
 		ss << stack.quantity;
@@ -464,7 +464,7 @@ TooltipData ItemManager::getShortTooltip(ItemStack stack) {
 	}
 
 	// name
-	if( stack.quantity > 1) {
+	if (stack.quantity > 1) {
 		ss << stack.quantity << " " << items[stack.item].name;
 	} else {
 		ss << items[stack.item].name;
@@ -675,7 +675,7 @@ bool ItemStack::operator > (const ItemStack &param) const {
 
 int Item::getSellPrice() {
 	int new_price = 0;
-	if(price_sell != 0)
+	if (price_sell != 0)
 		new_price = price_sell;
 	else
 		new_price = static_cast<int>(price * VENDOR_RATIO);

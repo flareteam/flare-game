@@ -313,12 +313,12 @@ bool MapCollision::compute_path(Point start_pos, Point end_pos, vector<Point> &p
 
 	close.push_back(node);
 
-	while( !open.empty() && close.size() < limit ) {
+	while (!open.empty() && close.size() < limit) {
 		float lowest_score = FLT_MAX;
 		// find lowest score available inside open, make it current node and move it to close
 		list<AStarNode>::iterator lowest_it;
 		for (list<AStarNode>::iterator it=open.begin(); it != open.end(); ++it) {
-			if(it->getFinalCost() < lowest_score) {
+			if (it->getFinalCost() < lowest_score) {
 				lowest_score = it->getFinalCost();
 				lowest_it = it;
 			}
@@ -329,7 +329,7 @@ bool MapCollision::compute_path(Point start_pos, Point end_pos, vector<Point> &p
 		close.push_back(node);
 		open.erase(lowest_it);
 
-		if ( current.x == end.x && current.y == end.y )
+		if ( current.x == end.x && current.y == end.y)
 			break; //path found !
 
 		list<Point> neighbours = node.getNeighbours(256,256); //256 is map max size
@@ -339,12 +339,12 @@ bool MapCollision::compute_path(Point start_pos, Point end_pos, vector<Point> &p
 			Point neighbour = *it;
 
 			// if neighbour is not free of any collision, or already in close, skip it
-			if(!is_valid_tile(neighbour.x,neighbour.y,movement_type) || find(close.begin(), close.end(), neighbour)!=close.end())
+			if (!is_valid_tile(neighbour.x,neighbour.y,movement_type) || find(close.begin(), close.end(), neighbour)!=close.end())
 				continue;
 
 			list<AStarNode>::iterator i = find(open.begin(), open.end(), neighbour);
 			// if neighbour isn't inside open, add it as a new Node
-			if(i==open.end()) {
+			if (i==open.end()) {
 				AStarNode newNode(neighbour.x,neighbour.y);
 				newNode.setActualCost(node.getActualCost()+(float)calcDist(current,neighbour));
 				newNode.setParent(current);
@@ -352,14 +352,14 @@ bool MapCollision::compute_path(Point start_pos, Point end_pos, vector<Point> &p
 				open.push_back(newNode);
 			}
 			// else, update it's cost if better
-			else if(node.getActualCost()+node_stride < i->getActualCost()) {
+			else if (node.getActualCost()+node_stride < i->getActualCost()) {
 				i->setActualCost(node.getActualCost()+node_stride);
 				i->setParent(current);
 			}
 		}
 	}
 
-	if( current.x != end.x || current.y != end.y ) {
+	if (current.x != end.x || current.y != end.y) {
 
 		// reblock target if needed
 		if (target_blocks) block(end_pos.x, end_pos.y);
@@ -370,7 +370,7 @@ bool MapCollision::compute_path(Point start_pos, Point end_pos, vector<Point> &p
 	{
 		// store path from end to start
 		path.push_back(collision_to_map(end));
-		while( current.x != start.x || current.y != start.y ) {
+		while (current.x != start.x || current.y != start.y) {
 			path.push_back(collision_to_map(current));
 			current = find(close.begin(), close.end(), current)->getParent();
 		}

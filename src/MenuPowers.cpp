@@ -61,6 +61,8 @@ MenuPowers::MenuPowers(StatBlock *_stats, PowerManager *_powers, SDL_Surface *_i
 	pressed = false;
 	id = 0;
 
+	tabControl = NULL;
+
 	closeButton = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
 
 	// Read powers data from config file
@@ -250,11 +252,11 @@ void MenuPowers::renderIcon(int icon_id, int x, int y) {
 	icon_dest.x = x;
 	icon_dest.y = y;
 	icon_src.w = icon_src.h = icon_dest.w = icon_dest.h = ICON_SIZE;
-	
+
 	int columns = icons->w / ICON_SIZE;
 	icon_src.x = (icon_id % columns) * ICON_SIZE;
 	icon_src.y = (icon_id / columns) * ICON_SIZE;
-	
+
 	SDL_BlitSurface(icons, &icon_src, screen, &icon_dest);
 }
 

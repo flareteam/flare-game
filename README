@@ -105,7 +105,21 @@ Linux (depending on where your SDL includes are)
 
     g++ -I /usr/include/SDL src/*.cpp src/*.c -o flare -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf
 
+#### Optimizing your build
+Flare is intended to be able to run on a wide range of hardware.
+Even on very low end hardware, such as handhelds or old computers.
+To run on low end hardware smooth, we need get the best compile output possible for this device.
+The following tips may help improving the the compile output with respect to speed.
+However these compiler switches are not supported on some platforms, hence we do not
+include it into the default compile settings.
 
+ * Make sure the compiler optimizes for exactly your hardware. (g++, see -march, -mcpu)
+ * Enable link time optimisation (g++: -flto)
+   This option inlines small get and set functions accross object files reducing
+   overhead in function calls.
+ * More aggressive optimisation by telling the linker, it's just this program.
+   (g++: -fwhole-program)
+ * to be continued.
 
 ## Running Flare
 

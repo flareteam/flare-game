@@ -46,9 +46,9 @@ using namespace std;
  */
 PowerManager::PowerManager() {
 
-	used_item=-1;
-
+	used_item = -1;
 	log_msg = "";
+	collider = NULL;
 
 	loadAll();
 }

@@ -136,11 +136,11 @@ GameStateLoad::GameStateLoad() : GameState() {
 
 	// get displayable types list
 	bool found_layer = false;
-	if(infile.open(mods->locate("engine/hero_options.txt"))) {
+	if (infile.open(mods->locate("engine/hero_options.txt"))) {
 		while(infile.next()) {
 			infile.val = infile.val + ',';
 
-			if(infile.key == "layer") {
+			if (infile.key == "layer") {
 				unsigned dir = eatFirstInt(infile.val,',');
 				if (dir != 6) continue;
 				else found_layer = true;
@@ -193,7 +193,7 @@ void GameStateLoad::loadGraphics() {
 	background = IMG_Load(mods->locate("images/menus/game_slots.png").c_str());
 	selection = IMG_Load(mods->locate("images/menus/game_slot_select.png").c_str());
 	portrait_border = IMG_Load(mods->locate("images/menus/portrait_border.png").c_str());
-	if(!background || !selection || !portrait_border) {
+	if (!background || !selection || !portrait_border) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 	}
 
@@ -207,14 +207,14 @@ void GameStateLoad::loadGraphics() {
 	}
 
 	if (selection) {
-		SDL_SetColorKey( selection, SDL_SRCCOLORKEY, SDL_MapRGB(selection->format, 255, 0, 255) );
+		SDL_SetColorKey( selection, SDL_SRCCOLORKEY, SDL_MapRGB(selection->format, 255, 0, 255));
 		cleanup = selection;
 		selection = SDL_DisplayFormatAlpha(selection);
 		SDL_FreeSurface(cleanup);
 	}
 
 	if (portrait_border) {
-		SDL_SetColorKey( portrait_border, SDL_SRCCOLORKEY, SDL_MapRGB(portrait_border->format, 255, 0, 255) );
+		SDL_SetColorKey( portrait_border, SDL_SRCCOLORKEY, SDL_MapRGB(portrait_border->format, 255, 0, 255));
 		cleanup = portrait_border;
 		portrait_border = SDL_DisplayFormatAlpha(portrait_border);
 		SDL_FreeSurface(cleanup);
@@ -396,7 +396,7 @@ void GameStateLoad::logic() {
 			requestedGameState = new GameStateTitle();
 		}
 
-		if(loading_requested) {
+		if (loading_requested) {
 			loading = true;
 			loading_requested = false;
 			logicLoading();
@@ -445,10 +445,10 @@ void GameStateLoad::logic() {
 		}
 	} else if (confirm->visible) {
 		confirm->logic();
-		if(confirm->confirmClicked) {
+		if (confirm->confirmClicked) {
 			stringstream filename;
 			filename << PATH_USER << "save" << (selected_slot+1) << ".txt";
-			if(remove(filename.str().c_str()) != 0)
+			if (remove(filename.str().c_str()) != 0)
 				perror("Error deleting save from path");
 			stats[selected_slot] = StatBlock();
 			readGameSlot(selected_slot);
@@ -538,11 +538,11 @@ void GameStateLoad::render() {
 	Point label;
 	stringstream ss;
 
-	if( loading_requested || loading || loaded ) {
+	if (loading_requested || loading || loaded) {
 		label.x = loading_pos.x + (VIEW_W - FRAME_W)/2;
 		label.y = loading_pos.y + (VIEW_H - FRAME_H)/2;
 
-		if ( loaded ) {
+		if ( loaded) {
 			label_loading->set(msg->get("Entering game world..."));
 		} else {
 			label_loading->set(msg->get("Loading saved game..."));
@@ -595,7 +595,7 @@ void GameStateLoad::render() {
 		}
 	}
 	// display warnings
-	if(confirm->visible) confirm->render();
+	if (confirm->visible) confirm->render();
 
 	// display buttons
 	button_exit->render();
