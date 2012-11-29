@@ -250,6 +250,7 @@ ItemStack MenuInventory::click(InputState * input) {
  * Return dragged item to previous slot
  */
 void MenuInventory::itemReturn( ItemStack stack) {
+	if (drag_prev_src == -1) return;
 	inventory[drag_prev_src].itemReturn( stack);
 	// if returning equipment, prepare to change stats/sprites
 	if (drag_prev_src == EQUIPMENT) {
