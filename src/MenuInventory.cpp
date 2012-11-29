@@ -211,6 +211,9 @@ TooltipData MenuInventory::checkTooltip(Point mouse) {
 	}
 	slot = inventory[area].slotOver(mouse);
 
+	if (slot == -1)
+		return tip;
+
 	if (inventory[area][slot].item > 0) {
 		tip = inventory[area].checkTooltip( mouse, stats, PLAYER_INV);
 	}
