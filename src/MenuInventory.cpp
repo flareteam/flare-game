@@ -273,6 +273,12 @@ void MenuInventory::drop(Point mouse, ItemStack stack) {
 	}
 
 	int slot = inventory[area].slotOver(mouse);
+	if (slot == -1) {
+		// not dropped into a slot. Just return it to the previous slot.
+		itemReturn(stack);
+		return;	
+	}
+	
 	int drag_prev_slot = inventory[drag_prev_src].drag_prev_slot;
 
 	if (area == EQUIPMENT) { // dropped onto equipped item
