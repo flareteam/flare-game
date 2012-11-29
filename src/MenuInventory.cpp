@@ -474,25 +474,27 @@ void MenuInventory::add(ItemStack stack, int area, int slot) {
 			// the proposed slot isn't available, search for another one
 			slot = -1;
 		}
-		if( area == CARRIED) {
+		if (area == CARRIED) {
 			// first search of stack to complete if the item is stackable
-			int i = 0;
-			while( max_quantity > 1 && slot == -1 && i < MAX_CARRIED) {
-				if (inventory[area][i].item == stack.item && inventory[area][i].quantity < max_quantity) {
+			if (slot == -1 && max_quantity > 1) {
+				int i = 0;
+				while (inventory[area][i].item != stack.item
+						&& inventory[area][i].quantity >= max_quantity
+						&& i < MAX_CARRIED)
+					++i;
+				if (i < MAX_CARRIED)
 					slot = i;
-				}
-				i++;
 			}
 			// then an empty slot
-			i = 0;
-			while( slot == -1 && i < MAX_CARRIED) {
-				if (inventory[area][i].item == 0) {
+			if (slot == -1) {
+				int i = 0;
+				while (inventory[area][i].item == 0 && i < MAX_CARRIED)
+					i++;
+				if (i < MAX_CARRIED)
 					slot = i;
-				}
-				i++;
 			}
 		}
-		if( slot != -1) {
+		if (slot != -1) {
 			// Add
 			int quantity_added = min( stack.quantity, max_quantity - inventory[area][slot].quantity);
 			inventory[area][slot].item = stack.item;
@@ -517,7 +519,7 @@ void MenuInventory::add(ItemStack stack, int area, int slot) {
  * Remove one given item from the player's inventory.
  */
 void MenuInventory::remove(int item) {
-	if( ! inventory[CARRIED].remove(item)) {
+	if( !inventory[CARRIED].remove(item)) {
 		inventory[EQUIPMENT].remove(item);
 	}
 }
