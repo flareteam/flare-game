@@ -1073,7 +1073,7 @@ int GameStateConfig::getVideoModes()
 	}
 
 	if (video_modes)
-		delete video_modes;
+		free(video_modes);
 	/* Combine the detected modes and the common modes */
 	video_modes = (SDL_Rect*)calloc(modes,sizeof(SDL_Rect));
 	int k = 0;
@@ -1318,6 +1318,6 @@ GameStateConfig::~GameStateConfig()
 	language_full.clear();
 
 	if (video_modes)
-		delete video_modes;
+		free(video_modes);
 }
 
