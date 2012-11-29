@@ -87,7 +87,6 @@ public:
 	void clearEffects();
 	void clearNegativeEffects();
 	void clearItemEffects();
-	void clearTriggeredEffects();
 	int damageShields(int dmg);
 
 	std::vector<Effect> effect_list;
@@ -118,7 +117,8 @@ public:
 
 	bool triggered_block;
 	bool triggered_hit;
-	bool triggered_death;
+	bool triggered_halfdeath;
+	bool triggered_joincombat;
 };
 
 #endif

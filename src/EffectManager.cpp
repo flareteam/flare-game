@@ -29,7 +29,7 @@ using namespace std;
 EffectManager::EffectManager() {
 	bonus_resist = std::vector<int>(ELEMENTS.size(), 0);
 	clearStatus();
-	triggered_block = triggered_hit = triggered_death = false;
+	triggered_block = triggered_hit = triggered_halfdeath = triggered_joincombat = false;
 }
 
 EffectManager::~EffectManager() {
@@ -142,6 +142,7 @@ void EffectManager::addEffect(int id, int icon, int duration, int magnitude, std
 
 	for (unsigned i=0; i<effect_list.size(); i++) {
 		if (effect_list[i].id == id) {
+			if (trigger > -1 && effect_list[i].trigger == trigger) return; // trigger effects can only be cast once per trigger
 			if (effect_list[i].duration <= duration) {
 				effect_list[i].ticks = effect_list[i].duration = duration;
 				if (effect_list[i].animation) effect_list[i].animation->reset();
@@ -208,7 +209,7 @@ void EffectManager::clearEffects() {
 }
 
 void EffectManager::clearNegativeEffects() {
-	for (unsigned i=effect_list.size(); i>0; i--) {
+	for (unsigned i=effect_list.size(); i > 0; i--) {
 		if (effect_list[i-1].type == "damage") removeEffect(i-1);
 		else if (effect_list[i-1].type == "speed" && effect_list[i-1].magnitude_max < 100) removeEffect(i-1);
 		else if (effect_list[i-1].type == "stun") removeEffect(i-1);
@@ -218,12 +219,6 @@ void EffectManager::clearNegativeEffects() {
 void EffectManager::clearItemEffects() {
 	for (unsigned i=effect_list.size(); i > 0; i--) {
 		if (effect_list[i-1].item) removeEffect(i-1);
-	}
-}
-
-void EffectManager::clearTriggeredEffects() {
-	for (unsigned i=effect_list.size(); i > 0; i--) {
-		if (effect_list[i-1].trigger) removeEffect(i-1);
 	}
 }
 

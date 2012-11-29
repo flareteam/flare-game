@@ -433,6 +433,9 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 	if (stats.transform_type != "" && stats.transform_type != "untransform" && transform_triggered == false) transform();
 	if (stats.transform_type != "" && stats.transform_duration == 0) untransform();
 
+	// check for half-death state
+	if (stats.hp <= stats.maxhp/2) stats.effects.triggered_halfdeath = true;
+
 	switch(stats.cur_state) {
 		case AVATAR_STANCE:
 
@@ -590,7 +593,6 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 			setAnimation("die");
 
 			if (activeAnimation->isFirstFrame() && activeAnimation->getTimesPlayed() < 1) {
-				stats.effects.triggered_death = true;
 				if (sound_die)
 					Mix_PlayChannel(-1, sound_die, 0);
 				if (stats.permadeath) {
