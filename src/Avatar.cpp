@@ -411,8 +411,8 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 	}
 
 	// check for bleeding spurt
-	if (stats.effects.bleed_dmg > 0 && stats.hp > 0) {
-		comb->addMessage(stats.effects.bleed_dmg, stats.pos, COMBAT_MESSAGE_TAKEDMG, true);
+	if (stats.effects.damage > 0 && stats.hp > 0) {
+		comb->addMessage(stats.effects.damage, stats.pos, COMBAT_MESSAGE_TAKEDMG, true);
 	}
 
 	// check for bleeding to death

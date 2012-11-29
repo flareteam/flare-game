@@ -92,7 +92,7 @@ public:
 
 	std::vector<Effect> effect_list;
 
-	int bleed_dmg;
+	int damage;
 	int hpot;
 	int mpot;
 	int speed;

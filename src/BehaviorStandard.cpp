@@ -86,8 +86,8 @@ void BehaviorStandard::doUpkeep() {
 	}
 
 	// TEMP: check for bleeding spurt
-	if (e->stats.effects.bleed_dmg > 0 && e->stats.hp > 0) {
-		comb->addMessage(e->stats.effects.bleed_dmg, e->stats.pos, COMBAT_MESSAGE_TAKEDMG, false);
+	if (e->stats.effects.damage > 0 && e->stats.hp > 0) {
+		comb->addMessage(e->stats.effects.damage, e->stats.pos, COMBAT_MESSAGE_TAKEDMG, false);
 	}
 
 	// check for teleport powers
