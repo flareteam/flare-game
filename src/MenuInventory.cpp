@@ -276,9 +276,9 @@ void MenuInventory::drop(Point mouse, ItemStack stack) {
 	if (slot == -1) {
 		// not dropped into a slot. Just return it to the previous slot.
 		itemReturn(stack);
-		return;	
+		return;
 	}
-	
+
 	int drag_prev_slot = inventory[drag_prev_src].drag_prev_slot;
 
 	if (area == EQUIPMENT) { // dropped onto equipped item
@@ -366,13 +366,14 @@ void MenuInventory::drop(Point mouse, ItemStack stack) {
  * e.g. equip an item
  */
 void MenuInventory::activate(InputState * input) {
-	int slot;
 	ItemStack stack;
 	Point nullpt;
 	nullpt.x = nullpt.y = 0;
 
 	// clicked a carried item
-	slot = inventory[CARRIED].slotOver(input->mouse);
+	int slot = inventory[CARRIED].slotOver(input->mouse);
+	if (slot == -1)
+		return;
 
 	// can't interact with quest items
 	if (items->items[inventory[CARRIED][slot].item].type == "quest") {
@@ -464,12 +465,12 @@ void MenuInventory::activate(InputState * input) {
 void MenuInventory::add(ItemStack stack, int area, int slot) {
 	items->playSound(stack.item);
 
-	if( stack.item != 0) {
-		if( area < 0) {
+	if (stack.item != 0) {
+		if (area < 0) {
 			area = CARRIED;
 		}
 		int max_quantity = items->items[stack.item].max_quantity;
-		if( slot > -1 && inventory[area][slot].item != 0 && inventory[area][slot].item != stack.item) {
+		if (slot > -1 && inventory[area][slot].item != 0 && inventory[area][slot].item != stack.item) {
 			// the proposed slot isn't available, search for another one
 			slot = -1;
 		}
