@@ -195,7 +195,7 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 void MenuManager::loadIcons() {
 
 	icons = IMG_Load(mods->locate("images/icons/icons.png").c_str());
-	if(!icons) {
+	if (!icons) {
 		fprintf(stderr, "Couldn't load icons: %s\n", IMG_GetError());
 	} else {
 		// optimize
@@ -404,12 +404,12 @@ void MenuManager::logic() {
 					// buy item from a vendor
 					stack = vendor->click(inpt);
 					if (stack.item > 0) {
-						if( ! inv->buy(stack,vendor->getTab())) {
+						if (!inv->buy(stack,vendor->getTab())) {
 							log->add(msg->get("Not enough money."), LOG_TYPE_MESSAGES);
 							hudlog->add(msg->get("Not enough money."));
 							vendor->itemReturn( stack);
 						} else {
-							if( inv->full(stack.item)) {
+							if (inv->full(stack.item)) {
 								log->add(msg->get("Inventory is full."), LOG_TYPE_MESSAGES);
 								hudlog->add(msg->get("Inventory is full."));
 								drop_stack = stack;
@@ -434,7 +434,7 @@ void MenuManager::logic() {
 					// take an item from the stash
 					stack = stash->click(inpt);
 					if (stack.item > 0) {
-						if( inv->full(stack.item)) {
+						if (inv->full(stack.item)) {
 							log->add(msg->get("Inventory is full."), LOG_TYPE_MESSAGES);
 							hudlog->add(msg->get("Inventory is full."));
 							drop_stack = stack;
@@ -453,7 +453,7 @@ void MenuManager::logic() {
 				}
 			}
 
-			if(log->visible && isWithin(log->window_area,inpt->mouse)) {
+			if (log->visible && isWithin(log->window_area,inpt->mouse)) {
 				inpt->lock[MAIN1] = true;
 				log->tabsLogic();
 			}
@@ -463,7 +463,7 @@ void MenuManager::logic() {
 				if (inpt->pressing[CTRL]) {
 					inpt->lock[MAIN1] = true;
 					stack = inv->click(inpt);
-					if( stack.item > 0) {
+					if (stack.item > 0) {
 						if (stash->visible) {
 							if (inv->stashAdd(stack) && !stash->full(stack.item)) {
 								stash->add(stack);
@@ -609,12 +609,12 @@ void MenuManager::logic() {
 
 				// dropping an item from vendor (we only allow to drop into the carried area)
 				if (inv->visible && isWithin( inv->carried_area, inpt->mouse)) {
-					if( ! inv->buy(drag_stack,vendor->getTab())) {
+					if (!inv->buy(drag_stack,vendor->getTab())) {
 						log->add(msg->get("Not enough money."), LOG_TYPE_MESSAGES);
 						hudlog->add(msg->get("Not enough money."));
 						vendor->itemReturn( drag_stack);
 					} else {
-						if( inv->full(drag_stack.item)) {
+						if (inv->full(drag_stack.item)) {
 							log->add(msg->get("Inventory is full."), LOG_TYPE_MESSAGES);
 							hudlog->add(msg->get("Inventory is full."));
 							drop_stack = drag_stack;
@@ -634,7 +634,7 @@ void MenuManager::logic() {
 
 				// dropping an item from stash (we only allow to drop into the carried area)
 				if (inv->visible && isWithin( inv->carried_area, inpt->mouse)) {
-					if( inv->full(drag_stack.item)) {
+					if (inv->full(drag_stack.item)) {
 						log->add(msg->get("Inventory is full."), LOG_TYPE_MESSAGES);
 						hudlog->add(msg->get("Inventory is full."));
 						// quest items cannot be dropped

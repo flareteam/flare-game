@@ -71,7 +71,7 @@ void MenuHUDLog::render() {
 
 
 	// go through new messages
-	for (int i=msg_age.size()-1; i>=0; i--) {
+	for (int i = msg_age.size() - 1; i >= 0; i--) {
 		if (msg_age[i] > 0 && dest.y > 64) {
 
 			dest.y -= msg_buffer[i]->h + paragraph_spacing;
