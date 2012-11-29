@@ -129,18 +129,18 @@ void ItemStorage::clear() {
  */
 void ItemStorage::add( ItemStack stack, int slot) {
 
-	if( stack.item != 0) {
+	if (stack.item != 0) {
 		int max_quantity = items->items[stack.item].max_quantity;
-		if( slot > -1) {
+		if (slot > -1) {
 			// a slot is specified
-			if( storage[slot].item != 0 && storage[slot].item != stack.item) {
+			if (storage[slot].item != 0 && storage[slot].item != stack.item) {
 				// the proposed slot isn't available
 				slot = -1;
 			}
 		} else {
 			// first search of stack to complete if the item is stackable
 			int i = 0;
-			while( max_quantity > 1 && slot == -1 && i < slot_number) {
+			while (max_quantity > 1 && slot == -1 && i < slot_number) {
 				if (storage[i].item == stack.item && storage[i].quantity < max_quantity) {
 					slot = i;
 				}
@@ -148,21 +148,21 @@ void ItemStorage::add( ItemStack stack, int slot) {
 			}
 			// then an empty slot
 			i = 0;
-			while( slot == -1 && i < slot_number) {
+			while (slot == -1 && i < slot_number) {
 				if (storage[i].item == 0) {
 					slot = i;
 				}
 				i++;
 			}
 		}
-		if( slot != -1) {
+		if (slot != -1) {
 			// Add
 			int quantity_added = min( stack.quantity, max_quantity - storage[slot].quantity);
 			storage[slot].item = stack.item;
 			storage[slot].quantity += quantity_added;
 			stack.quantity -= quantity_added;
 			// Add back the remaining
-			if( stack.quantity > 0) {
+			if (stack.quantity > 0) {
 				add( stack);
 			}
 		}

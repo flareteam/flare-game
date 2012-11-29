@@ -62,7 +62,7 @@ void MenuItemStorage::loadGraphics() {
 
 	highlight_image = IMG_Load(mods->locate("images/menus/attention_glow.png").c_str());
 
-	if(!highlight_image) {
+	if (!highlight_image) {
 		fprintf(stderr, "Couldn't load icon highlight image: %s\n", IMG_GetError());
 	} else {
 		// optimize
@@ -118,9 +118,9 @@ TooltipData MenuItemStorage::checkTooltip(Point mouse, StatBlock *stats, int con
 ItemStack MenuItemStorage::click(InputState * input) {
 	ItemStack item;
 	drag_prev_slot = slotOver(input->mouse);
-	if( drag_prev_slot > -1) {
+	if (drag_prev_slot > -1) {
 		item = storage[drag_prev_slot];
-		if( input->pressing[SHIFT]) {
+		if (input->pressing[SHIFT]) {
 			item.quantity = 1;
 		}
 		substract( drag_prev_slot, item.quantity);

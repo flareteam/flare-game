@@ -138,11 +138,11 @@ void Avatar::loadLayerDefinitions() {
 	layer_reference_order = vector<string>();
 
 	FileParser infile;
-	if(infile.open(mods->locate("engine/hero_options.txt"))) {
+	if (infile.open(mods->locate("engine/hero_options.txt"))) {
 		while(infile.next()) {
 			infile.val = infile.val + ',';
 
-			if(infile.key == "layer") {
+			if (infile.key == "layer") {
 				unsigned dir = eatFirstInt(infile.val,',');
 				if (dir>7) {
 					fprintf(stderr, "direction must be in range [0,7]\n");
@@ -250,7 +250,7 @@ void Avatar::loadStepFX(const string& stepname) {
 
 
 bool Avatar::pressing_move() {
-	if(MOUSE_MOVE) {
+	if (MOUSE_MOVE) {
 		return inpt->pressing[MAIN1];
 	} else {
 		return inpt->pressing[UP] || inpt->pressing[DOWN] || inpt->pressing[LEFT] || inpt->pressing[RIGHT];
@@ -259,27 +259,27 @@ bool Avatar::pressing_move() {
 
 void Avatar::set_direction() {
 	// handle direction changes
-	if(MOUSE_MOVE) {
+	if (MOUSE_MOVE) {
 		Point target = screen_to_map(inpt->mouse.x,  inpt->mouse.y, stats.pos.x, stats.pos.y);
 		// if no line of movement to target, use pathfinder
-		if( !map->collider.line_of_movement(stats.pos.x, stats.pos.y, target.x, target.y, stats.movement_type) ) {
+		if (!map->collider.line_of_movement(stats.pos.x, stats.pos.y, target.x, target.y, stats.movement_type)) {
 			vector<Point> path;
 
 			// if a path is returned, target first waypoint
-			if ( map->collider.compute_path(stats.pos, target, path, 1000, stats.movement_type) ) {
+			if ( map->collider.compute_path(stats.pos, target, path, 1000, stats.movement_type)) {
 				target = path.back();
 			}
 		}
 		stats.direction = face(target.x, target.y);
 	} else {
-		if(inpt->pressing[UP] && inpt->pressing[LEFT]) stats.direction = 1;
-		else if(inpt->pressing[UP] && inpt->pressing[RIGHT]) stats.direction = 3;
-		else if(inpt->pressing[DOWN] && inpt->pressing[RIGHT]) stats.direction = 5;
-		else if(inpt->pressing[DOWN] && inpt->pressing[LEFT]) stats.direction = 7;
-		else if(inpt->pressing[LEFT]) stats.direction = 0;
-		else if(inpt->pressing[UP]) stats.direction = 2;
-		else if(inpt->pressing[RIGHT]) stats.direction = 4;
-		else if(inpt->pressing[DOWN]) stats.direction = 6;
+		if (inpt->pressing[UP] && inpt->pressing[LEFT]) stats.direction = 1;
+		else if (inpt->pressing[UP] && inpt->pressing[RIGHT]) stats.direction = 3;
+		else if (inpt->pressing[DOWN] && inpt->pressing[RIGHT]) stats.direction = 5;
+		else if (inpt->pressing[DOWN] && inpt->pressing[LEFT]) stats.direction = 7;
+		else if (inpt->pressing[LEFT]) stats.direction = 0;
+		else if (inpt->pressing[UP]) stats.direction = 2;
+		else if (inpt->pressing[RIGHT]) stats.direction = 4;
+		else if (inpt->pressing[DOWN]) stats.direction = 6;
 		// Adjust for ORTHO tilesets
 		if (TILESET_ORIENTATION == TILESET_ORTHOGONAL &&
 				(inpt->pressing[UP] || inpt->pressing[DOWN] ||
@@ -465,7 +465,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 			}
 
 			// handle power usage
-			if(allowed_to_use_power)
+			if (allowed_to_use_power)
 				handlePower(actionbar_power);
 			break;
 
@@ -502,7 +502,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 			}
 
 			// handle power usage
-			if(allowed_to_use_power)
+			if (allowed_to_use_power)
 				handlePower(actionbar_power);
 			break;
 

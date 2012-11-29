@@ -196,13 +196,13 @@ void EffectManager::removeAnimation(int id) {
 }
 
 void EffectManager::removeEffectType(std::string type) {
-	for (unsigned i=effect_list.size(); i>0; i--) {
+	for (unsigned i=effect_list.size(); i > 0; i--) {
 		if (effect_list[i-1].type == type) removeEffect(i-1);
 	}
 }
 
 void EffectManager::clearEffects() {
-	for (unsigned i=effect_list.size(); i>0; i--) {
+	for (unsigned i=effect_list.size(); i > 0; i--) {
 		removeEffect(i-1);
 	}
 }
@@ -216,13 +216,13 @@ void EffectManager::clearNegativeEffects() {
 }
 
 void EffectManager::clearItemEffects() {
-	for (unsigned i=effect_list.size(); i>0; i--) {
+	for (unsigned i=effect_list.size(); i > 0; i--) {
 		if (effect_list[i-1].item) removeEffect(i-1);
 	}
 }
 
 void EffectManager::clearTriggeredEffects() {
-	for (unsigned i=effect_list.size(); i>0; i--) {
+	for (unsigned i=effect_list.size(); i > 0; i--) {
 		if (effect_list[i-1].trigger) removeEffect(i-1);
 	}
 }

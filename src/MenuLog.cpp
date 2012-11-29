@@ -177,7 +177,7 @@ void MenuLog::render() {
 	if (msg_buffer[active_log]->update) {
 		msg_buffer[active_log]->refresh();
 		font->setFont("font_regular");
-		for (unsigned int i=log_msg[active_log].size(); i>0; i--) {
+		for (unsigned int i = log_msg[active_log].size(); i > 0; i--) {
 			int widthLimit = tabControl->getContentArea().w;
 			Point size = font->calc_size(log_msg[active_log][i-1], widthLimit);
 			font->renderShadowed(log_msg[active_log][i-1], tab_content_indent, total_size, JUSTIFY_LEFT, msg_buffer[active_log]->contents, widthLimit, color_normal);
