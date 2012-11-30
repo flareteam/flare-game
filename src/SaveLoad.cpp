@@ -296,9 +296,9 @@ void GameStatePlay::loadGame() {
 		infile.close();
 	} else fprintf(stderr, "Unable to open %s!\n", ss.str().c_str());
 
-	
+
 	menu->inv->inventory[EQUIPMENT].fillEquipmentSlots();
-	
+
 	// Load stash
 	ss.str("");
 	ss << PATH_USER << "stash.txt";
@@ -338,9 +338,6 @@ void GameStatePlay::loadGame() {
 
 	// load sounds (gender specific)
 	pc->loadSounds();
-
-	// activate passive powers
-	powers->activatePassives(&pc->stats);
 }
 
 /**
@@ -361,9 +358,9 @@ void GameStatePlay::loadClass(int index) {
 		pc->stats.powers_list.push_back(HERO_CLASSES[index].powers[i]);
 	}
 	menu->act->set(HERO_CLASSES[index].hotkeys);
-	
+
 	menu->inv->inventory[EQUIPMENT].fillEquipmentSlots();
-	
+
 	// initialize vars
 	pc->stats.recalc();
 	menu->inv->applyEquipment(menu->inv->inventory[EQUIPMENT].storage);
