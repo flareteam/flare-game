@@ -29,7 +29,7 @@ using namespace std;
 EffectManager::EffectManager() {
 	bonus_resist = std::vector<int>(ELEMENTS.size(), 0);
 	clearStatus();
-	triggered_block = triggered_hit = triggered_halfdeath = triggered_joincombat = false;
+	triggered_others = triggered_block = triggered_hit = triggered_halfdeath = triggered_joincombat = false;
 }
 
 EffectManager::~EffectManager() {
@@ -219,6 +219,12 @@ void EffectManager::clearNegativeEffects() {
 void EffectManager::clearItemEffects() {
 	for (unsigned i=effect_list.size(); i > 0; i--) {
 		if (effect_list[i-1].item) removeEffect(i-1);
+	}
+}
+
+void EffectManager::clearTriggerEffects(int trigger) {
+	for (unsigned i=effect_list.size(); i > 0; i--) {
+		if (effect_list[i-1].trigger == trigger) removeEffect(i-1);
 	}
 }
 

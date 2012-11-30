@@ -102,9 +102,6 @@ void BehaviorStandard::doUpkeep() {
 
 		e->stats.teleportation = false;
 	}
-
-	// check for half-death state
-	if (e->stats.hp <= e->stats.maxhp/2) e->stats.effects.triggered_halfdeath = true;
 }
 
 /**
@@ -144,7 +141,6 @@ void BehaviorStandard::findTarget() {
 		if (e->stats.in_combat) e->stats.join_combat = true;
 		e->stats.in_combat = true;
 		e->powers->activate(e->stats.power_index[BEACON], &e->stats, e->stats.pos); //emit beacon
-		e->stats.effects.triggered_joincombat = true;
 	}
 
 	// check exiting combat (player died or got too far away)
@@ -459,11 +455,11 @@ void BehaviorStandard::updateState() {
 			if (e->activeAnimation->isFirstFrame()) {
 				e->sfx_die = true;
 				e->stats.corpse_ticks = CORPSE_TIMEOUT;
+				e->stats.effects.clearEffects();
 			}
 			if (e->activeAnimation->isSecondLastFrame()) {
 				if ((rand() % 100) < e->stats.power_chance[ON_DEATH])
 					e->powers->activate(e->stats.power_index[ON_DEATH], &e->stats, e->stats.pos);
-				e->stats.effects.clearEffects();
 			}
 			if (e->activeAnimation->isLastFrame()) e->stats.corpse = true; // puts renderable under object layer
 
@@ -475,11 +471,11 @@ void BehaviorStandard::updateState() {
 			if (e->activeAnimation->isFirstFrame()) {
 				e->sfx_critdie = true;
 				e->stats.corpse_ticks = CORPSE_TIMEOUT;
+				e->stats.effects.clearEffects();
 			}
 			if (e->activeAnimation->isSecondLastFrame()) {
 				if ((rand() % 100) < e->stats.power_chance[ON_DEATH])
 					e->powers->activate(e->stats.power_index[ON_DEATH], &e->stats, e->stats.pos);
-				e->stats.effects.clearEffects();
 			}
 			if (e->activeAnimation->isLastFrame()) e->stats.corpse = true; // puts renderable under object layer
 
@@ -489,8 +485,8 @@ void BehaviorStandard::updateState() {
 			break;
 	}
 
-	// activated all triggered passive powers
-	e->powers->triggerPassives(&e->stats);
+	// activated all passive powers
+	if (e->stats.hp > 0) e->powers->activatePassives(&e->stats);
 }
 
 

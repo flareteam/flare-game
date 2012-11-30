@@ -157,8 +157,6 @@ void EnemyManager::handleNewMap () {
 		e->stats.wander = me.wander;
 		e->stats.wander_area = me.wander_area;
 
-		powers->activatePassives(&e->stats);
-
 		enemies.push_back(e);
 
 		map->collider.block(me.pos.x, me.pos.y);
@@ -186,7 +184,6 @@ void EnemyManager::handleSpawn() {
 		e->stats.pos.y = espawn.pos.y;
 		e->stats.direction = espawn.direction;
 		e->stats.load("enemies/" + espawn.type + ".txt");
-		powers->activatePassives(&e->stats);
 		if (e->stats.animations != "") {
 			// load the animation file if specified
 			string animationname = "animations/enemies/"+e->stats.animations + ".txt";

@@ -299,7 +299,6 @@ public:
 	bool spawn(const std::string& enemy_type, Point target);
 	bool effect(StatBlock *src_stats, int power_index);
 	void activatePassives(StatBlock *src_stats);
-	void triggerPassives(StatBlock *src_stats);
 	int getIdFromTag(std::string tag);
 
 	std::vector<Power> powers;
