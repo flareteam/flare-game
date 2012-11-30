@@ -411,8 +411,8 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 	}
 
 	// check for bleeding spurt
-	if (stats.effects.bleed_dmg > 0 && stats.hp > 0) {
-		comb->addMessage(stats.effects.bleed_dmg, stats.pos, COMBAT_MESSAGE_TAKEDMG, true);
+	if (stats.effects.damage > 0 && stats.hp > 0) {
+		comb->addMessage(stats.effects.damage, stats.pos, COMBAT_MESSAGE_TAKEDMG, true);
 	}
 
 	// check for bleeding to death
@@ -564,6 +564,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 			if (powers->powers[actionbar_power].new_state != POWSTATE_BLOCK) {
 				stats.cur_state = AVATAR_STANCE;
 				stats.effects.triggered_block = false;
+				stats.effects.clearTriggerEffects(TRIGGER_BLOCK);
 			}
 			break;
 
@@ -590,7 +591,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 			setAnimation("die");
 
 			if (activeAnimation->isFirstFrame() && activeAnimation->getTimesPlayed() < 1) {
-				stats.effects.triggered_death = true;
+				stats.effects.clearEffects();
 				if (sound_die)
 					Mix_PlayChannel(-1, sound_die, 0);
 				if (stats.permadeath) {
@@ -603,7 +604,6 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 
 			if (activeAnimation->getTimesPlayed() >= 1) {
 				stats.corpse = true;
-				stats.effects.clearEffects();
 			}
 
 			// allow respawn with Accept if not permadeath
@@ -621,7 +621,6 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 					stats.alive = true;
 					stats.corpse = false;
 					stats.cur_state = AVATAR_STANCE;
-					powers->activatePassives(&stats);
 					respawn = true;
 
 					// set teleportation variables.  GameEngine acts on these.
@@ -636,8 +635,8 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 			break;
 	}
 
-	// activated all triggered passive powers
-	powers->triggerPassives(&stats);
+	// turn on all passive powers
+	if (stats.hp > 0) powers->activatePassives(&stats);
 
 	// calc new cam position from player position
 	// cam is focused at player position

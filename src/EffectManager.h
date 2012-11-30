@@ -87,12 +87,12 @@ public:
 	void clearEffects();
 	void clearNegativeEffects();
 	void clearItemEffects();
-	void clearTriggeredEffects();
+	void clearTriggerEffects(int trigger);
 	int damageShields(int dmg);
 
 	std::vector<Effect> effect_list;
 
-	int bleed_dmg;
+	int damage;
 	int hpot;
 	int mpot;
 	int speed;
@@ -116,9 +116,11 @@ public:
 	int bonus_currency;
 	std::vector<int> bonus_resist;
 
+	bool triggered_others;
 	bool triggered_block;
 	bool triggered_hit;
-	bool triggered_death;
+	bool triggered_halfdeath;
+	bool triggered_joincombat;
 };
 
 #endif

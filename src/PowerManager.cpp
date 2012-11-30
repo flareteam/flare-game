@@ -146,7 +146,8 @@ void PowerManager::loadPowers(const std::string& filename) {
 		else if (infile.key == "passive_trigger") {
 			if (infile.val == "on_block") powers[input_id].passive_trigger = TRIGGER_BLOCK;
 			else if (infile.val == "on_hit") powers[input_id].passive_trigger = TRIGGER_HIT;
-			else if (infile.val == "on_death") powers[input_id].passive_trigger = TRIGGER_DEATH;
+			else if (infile.val == "on_halfdeath") powers[input_id].passive_trigger = TRIGGER_HALFDEATH;
+			else if (infile.val == "on_joincombat") powers[input_id].passive_trigger = TRIGGER_JOINCOMBAT;
 			else fprintf(stderr, "unknown passive trigger %s\n", infile.val.c_str());
 		}
 		// power requirements
@@ -996,39 +997,36 @@ void PowerManager::payPowerCost(int power_index, StatBlock *src_stats) {
 }
 
 /**
- * Activate an entity's passive powers, except those triggered by special events such as blocking
+ * Activate an entity's passive powers
  */
 void PowerManager::activatePassives(StatBlock *src_stats) {
 	for (unsigned i=0; i<src_stats->powers_list.size(); i++) {
-		if (powers[src_stats->powers_list[i]].passive && powers[src_stats->powers_list[i]].passive_trigger == -1) {
+		if (powers[src_stats->powers_list[i]].passive) {
+			int trigger = powers[src_stats->powers_list[i]].passive_trigger;
+
+			if (trigger == -1 && src_stats->effects.triggered_others) continue;
+			else if (trigger == TRIGGER_BLOCK && !src_stats->effects.triggered_block) continue;
+			else if (trigger == TRIGGER_HIT && !src_stats->effects.triggered_hit) continue;
+			else if (trigger == TRIGGER_HALFDEATH && !src_stats->effects.triggered_halfdeath) {
+				if (src_stats->hp > src_stats->maxhp/2) continue;
+				else src_stats->effects.triggered_halfdeath = true;
+			}
+			else if (trigger == TRIGGER_JOINCOMBAT && !src_stats->effects.triggered_joincombat) {
+				if (!src_stats->in_combat) continue;
+				else src_stats->effects.triggered_joincombat = true;
+			}
+
 			activate(src_stats->powers_list[i], src_stats, src_stats->pos);
 			src_stats->refresh_stats = true;
 		}
 	}
-}
+	// passives without a trigger can change (such as when unlocking new powers)
+	// so here say that we're done triggering such powers
+	src_stats->effects.triggered_others = false;
 
-/**
- * Only activate passive powers that are triggered by special events such as blocking
- */
-void PowerManager::triggerPassives(StatBlock *src_stats) {
-	src_stats->effects.clearTriggeredEffects();
-
-	for (unsigned i=0; i<src_stats->powers_list.size(); i++) {
-		if (powers[src_stats->powers_list[i]].passive) {
-			if ( (powers[src_stats->powers_list[i]].passive_trigger == TRIGGER_BLOCK && src_stats->effects.triggered_block) ||
-				 (powers[src_stats->powers_list[i]].passive_trigger == TRIGGER_HIT && src_stats->effects.triggered_hit) ||
-				 (powers[src_stats->powers_list[i]].passive_trigger == TRIGGER_DEATH && src_stats->effects.triggered_death)
-			) {
-				activate(src_stats->powers_list[i], src_stats, src_stats->pos);
-				src_stats->refresh_stats = true;
-			}
-		}
-	}
-
-	// hit and death triggers are considered instant, so we turn them off here
+	// the hit trigger can be triggered more than once, so reset it here
 	// the block trigger is handled in the Avatar class
 	src_stats->effects.triggered_hit = false;
-	src_stats->effects.triggered_death = false;
 }
 
 /**

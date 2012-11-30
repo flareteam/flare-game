@@ -29,7 +29,7 @@ using namespace std;
 EffectManager::EffectManager() {
 	bonus_resist = std::vector<int>(ELEMENTS.size(), 0);
 	clearStatus();
-	triggered_block = triggered_hit = triggered_death = false;
+	triggered_others = triggered_block = triggered_hit = triggered_halfdeath = triggered_joincombat = false;
 }
 
 EffectManager::~EffectManager() {
@@ -39,7 +39,7 @@ EffectManager::~EffectManager() {
 }
 
 void EffectManager::clearStatus() {
-	bleed_dmg = 0;
+	damage = 0;
 	hpot = 0;
 	mpot = 0;
 	speed = 100;
@@ -74,7 +74,7 @@ void EffectManager::logic() {
 	for (unsigned i=0; i<effect_list.size(); i++) {
 		// expire timed effects and total up magnitudes of active effects
 		if (effect_list[i].duration >= 0) {
-			if (effect_list[i].type == "bleed" && effect_list[i].ticks % MAX_FRAMES_PER_SEC == 1) bleed_dmg += effect_list[i].magnitude;
+			if (effect_list[i].type == "damage" && effect_list[i].ticks % MAX_FRAMES_PER_SEC == 1) damage += effect_list[i].magnitude;
 			else if (effect_list[i].type == "hpot" && effect_list[i].ticks % MAX_FRAMES_PER_SEC == 1) hpot += effect_list[i].magnitude;
 			else if (effect_list[i].type == "mpot" && effect_list[i].ticks % MAX_FRAMES_PER_SEC == 1) mpot += effect_list[i].magnitude;
 			else if (effect_list[i].type == "speed") speed = (effect_list[i].magnitude * speed) / 100;
@@ -129,7 +129,7 @@ void EffectManager::logic() {
 void EffectManager::addEffect(int id, int icon, int duration, int magnitude, std::string type, std::string animation, bool additive, bool item, bool trigger, bool render_above) {
 	// if we're already immune, don't add negative effects
 	if (immunity) {
-		if (type == "bleed") return;
+		if (type == "damage") return;
 		else if (type == "speed" && magnitude < 100) return;
 		else if (type == "stun") return;
 	}
@@ -142,6 +142,7 @@ void EffectManager::addEffect(int id, int icon, int duration, int magnitude, std
 
 	for (unsigned i=0; i<effect_list.size(); i++) {
 		if (effect_list[i].id == id) {
+			if (trigger > -1 && effect_list[i].trigger == trigger) return; // trigger effects can only be cast once per trigger
 			if (effect_list[i].duration <= duration) {
 				effect_list[i].ticks = effect_list[i].duration = duration;
 				if (effect_list[i].animation) effect_list[i].animation->reset();
@@ -209,7 +210,7 @@ void EffectManager::clearEffects() {
 
 void EffectManager::clearNegativeEffects() {
 	for (unsigned i=effect_list.size(); i > 0; i--) {
-		if (effect_list[i-1].type == "bleed") removeEffect(i-1);
+		if (effect_list[i-1].type == "damage") removeEffect(i-1);
 		else if (effect_list[i-1].type == "speed" && effect_list[i-1].magnitude_max < 100) removeEffect(i-1);
 		else if (effect_list[i-1].type == "stun") removeEffect(i-1);
 	}
@@ -221,9 +222,9 @@ void EffectManager::clearItemEffects() {
 	}
 }
 
-void EffectManager::clearTriggeredEffects() {
+void EffectManager::clearTriggerEffects(int trigger) {
 	for (unsigned i=effect_list.size(); i > 0; i--) {
-		if (effect_list[i-1].trigger) removeEffect(i-1);
+		if (effect_list[i-1].trigger == trigger) removeEffect(i-1);
 	}
 }
 

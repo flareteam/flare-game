@@ -86,8 +86,8 @@ void BehaviorStandard::doUpkeep() {
 	}
 
 	// TEMP: check for bleeding spurt
-	if (e->stats.effects.bleed_dmg > 0 && e->stats.hp > 0) {
-		comb->addMessage(e->stats.effects.bleed_dmg, e->stats.pos, COMBAT_MESSAGE_TAKEDMG, false);
+	if (e->stats.effects.damage > 0 && e->stats.hp > 0) {
+		comb->addMessage(e->stats.effects.damage, e->stats.pos, COMBAT_MESSAGE_TAKEDMG, false);
 	}
 
 	// check for teleport powers
@@ -102,7 +102,6 @@ void BehaviorStandard::doUpkeep() {
 
 		e->stats.teleportation = false;
 	}
-
 }
 
 /**
@@ -456,12 +455,11 @@ void BehaviorStandard::updateState() {
 			if (e->activeAnimation->isFirstFrame()) {
 				e->sfx_die = true;
 				e->stats.corpse_ticks = CORPSE_TIMEOUT;
-				e->stats.effects.triggered_death = true;
+				e->stats.effects.clearEffects();
 			}
 			if (e->activeAnimation->isSecondLastFrame()) {
 				if ((rand() % 100) < e->stats.power_chance[ON_DEATH])
 					e->powers->activate(e->stats.power_index[ON_DEATH], &e->stats, e->stats.pos);
-				e->stats.effects.clearEffects();
 			}
 			if (e->activeAnimation->isLastFrame()) e->stats.corpse = true; // puts renderable under object layer
 
@@ -473,12 +471,11 @@ void BehaviorStandard::updateState() {
 			if (e->activeAnimation->isFirstFrame()) {
 				e->sfx_critdie = true;
 				e->stats.corpse_ticks = CORPSE_TIMEOUT;
-				e->stats.effects.triggered_death = true;
+				e->stats.effects.clearEffects();
 			}
 			if (e->activeAnimation->isSecondLastFrame()) {
 				if ((rand() % 100) < e->stats.power_chance[ON_DEATH])
 					e->powers->activate(e->stats.power_index[ON_DEATH], &e->stats, e->stats.pos);
-				e->stats.effects.clearEffects();
 			}
 			if (e->activeAnimation->isLastFrame()) e->stats.corpse = true; // puts renderable under object layer
 
@@ -488,8 +485,8 @@ void BehaviorStandard::updateState() {
 			break;
 	}
 
-	// activated all triggered passive powers
-	e->powers->triggerPassives(&e->stats);
+	// activated all passive powers
+	if (e->stats.hp > 0) e->powers->activatePassives(&e->stats);
 }
 
 

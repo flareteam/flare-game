@@ -73,7 +73,8 @@ const int STARTING_POS_MELEE = 2;
 
 const int TRIGGER_BLOCK = 0;
 const int TRIGGER_HIT = 1;
-const int TRIGGER_DEATH = 2;
+const int TRIGGER_HALFDEATH = 2;
+const int TRIGGER_JOINCOMBAT = 3;
 
 struct PostEffect {
 	int id;
@@ -298,7 +299,6 @@ public:
 	bool spawn(const std::string& enemy_type, Point target);
 	bool effect(StatBlock *src_stats, int power_index);
 	void activatePassives(StatBlock *src_stats);
-	void triggerPassives(StatBlock *src_stats);
 	int getIdFromTag(std::string tag);
 
 	std::vector<Power> powers;
