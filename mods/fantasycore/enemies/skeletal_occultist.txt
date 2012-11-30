@@ -2,7 +2,7 @@ name=Skeletal Occultist
 humanoid=true
 level=7
 categories=skeleton,undead,dungeon,ice
-xp=7
+xp=100
 
 sfx_prefix=skeleton
 animations=skeleton_mage
@@ -10,7 +10,7 @@ animations=skeleton_mage
 loot_chance=40
 
 # combat stats
-hp=32
+hp=95
 speed=7
 dspeed=5
 melee_range=76
@@ -31,10 +31,10 @@ power_beacon=132
 accuracy=87
 avoidance=37
 
-dmg_melee_min=3
-dmg_melee_max=9
-dmg_ment_min=4
-dmg_ment_max=10
+dmg_melee_min=30
+dmg_melee_max=40
+dmg_ment_min=45
+dmg_ment_max=65
 
 vulnerable_fire=200
 vulnerable_ice=50

@@ -2,7 +2,7 @@ name=Skeletal Warrior
 humanoid=true
 level=5
 categories=skeleton,undead,dungeon
-xp=5
+xp=20
 
 sfx_prefix=skeleton
 animations=skeleton
@@ -12,7 +12,7 @@ loot_chance=40
 waypoint_pause=30
 
 # combat stats
-hp=26
+hp=80
 speed=10
 dspeed=7
 melee_range=76
@@ -34,15 +34,15 @@ cooldown_ranged_ment=150
 accuracy=81
 avoidance=37
 
-dmg_melee_min=3
-dmg_melee_max=8
-dmg_ment_min=5
-dmg_ment_max=12
-absorb_min=2
-absorb_max=2
+dmg_melee_min=35
+dmg_melee_max=45
+dmg_ment_min=25
+dmg_ment_max=35
+
+absorb_min=10
+absorb_max=10
 
 vulnerable_fire=150
 vulnerable_ice=75
 cooldown=20
-
 

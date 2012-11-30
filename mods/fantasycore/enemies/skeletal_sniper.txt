@@ -2,7 +2,7 @@ name=Skeletal Sniper
 humanoid=true
 level=6
 categories=skeleton,undead,dungeon
-xp=6
+xp=50
 
 sfx_prefix=skeleton
 animations=skeleton_archer
@@ -10,7 +10,7 @@ animations=skeleton_archer
 loot_chance=30
 
 # combat stats
-hp=30
+hp=90
 speed=7
 dspeed=5
 melee_range=76
@@ -32,10 +32,10 @@ power_beacon=132
 accuracy=89
 avoidance=34
 
-dmg_melee_min=1
-dmg_melee_max=5
-dmg_ranged_min=3
-dmg_ranged_max=9
+dmg_melee_min=30
+dmg_melee_max=40
+dmg_ranged_min=40
+dmg_ranged_max=52
 
 cooldown=15
 cooldown_ranged_ment=45

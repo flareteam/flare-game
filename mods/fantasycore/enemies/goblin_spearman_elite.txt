@@ -3,7 +3,7 @@ humanoid=true
 level=3
 categories=goblin_elite
 rarity=rare
-xp=15
+xp=20
 
 sfx_prefix=goblin
 animations=goblin_elite
@@ -11,7 +11,7 @@ animations=goblin_elite
 loot_chance=100
 
 # combat stats
-hp=20
+hp=100
 speed=7
 dspeed=5
 melee_range=76
@@ -27,13 +27,10 @@ power_beacon=132
 accuracy=84
 avoidance=28
 
-dmg_melee_min=1
-dmg_melee_max=5
-dmg_ranged_min=3
-dmg_ranged_max=8
-absorb_min=1
-absorb_max=1
+dmg_melee_min=15
+dmg_melee_max=20
+dmg_ranged_min=25
+dmg_ranged_max=35
+absorb_min=5
+absorb_max=5
 cooldown=25
-
-
-

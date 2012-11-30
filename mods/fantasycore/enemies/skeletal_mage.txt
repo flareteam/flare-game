@@ -2,7 +2,7 @@ name=Skeletal Mage
 humanoid=true
 level=4
 categories=skeleton,undead,dungeon,ice
-xp=4
+xp=10
 
 sfx_prefix=skeleton
 animations=skeleton_mage
@@ -10,7 +10,7 @@ animations=skeleton_mage
 loot_chance=40
 
 # combat stats
-hp=18
+hp=60
 speed=7
 dspeed=5
 melee_range=76
@@ -29,10 +29,10 @@ power_beacon=132
 accuracy=78
 avoidance=28
 
-dmg_melee_min=1
-dmg_melee_max=5
-dmg_ment_min=2
-dmg_ment_max=7
+dmg_melee_min=18
+dmg_melee_max=28
+dmg_ment_min=28
+dmg_ment_max=37
 
 vulnerable_fire=200
 vulnerable_ice=50
