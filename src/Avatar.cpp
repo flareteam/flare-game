@@ -411,8 +411,8 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 	}
 
 	// check for bleeding spurt
-	if (stats.effects.bleed_dmg > 0 && stats.hp > 0) {
-		comb->addMessage(stats.effects.bleed_dmg, stats.pos, COMBAT_MESSAGE_TAKEDMG, true);
+	if (stats.effects.damage > 0 && stats.hp > 0) {
+		comb->addMessage(stats.effects.damage, stats.pos, COMBAT_MESSAGE_TAKEDMG, true);
 	}
 
 	// check for bleeding to death
@@ -432,6 +432,9 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 	// handle transformation
 	if (stats.transform_type != "" && stats.transform_type != "untransform" && transform_triggered == false) transform();
 	if (stats.transform_type != "" && stats.transform_duration == 0) untransform();
+
+	// check for half-death state
+	if (stats.hp <= stats.maxhp/2) stats.effects.triggered_halfdeath = true;
 
 	switch(stats.cur_state) {
 		case AVATAR_STANCE:
@@ -590,7 +593,6 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 			setAnimation("die");
 
 			if (activeAnimation->isFirstFrame() && activeAnimation->getTimesPlayed() < 1) {
-				stats.effects.triggered_death = true;
 				if (sound_die)
 					Mix_PlayChannel(-1, sound_die, 0);
 				if (stats.permadeath) {

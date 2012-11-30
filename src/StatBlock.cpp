@@ -471,8 +471,8 @@ void StatBlock::logic() {
 		transform_duration--;
 
 	// apply bleed
-	if (effects.bleed_dmg > 0) {
-		takeDamage(effects.bleed_dmg);
+	if (effects.damage > 0) {
+		takeDamage(effects.damage);
 	}
 
 	// apply healing over time

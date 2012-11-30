@@ -73,7 +73,8 @@ const int STARTING_POS_MELEE = 2;
 
 const int TRIGGER_BLOCK = 0;
 const int TRIGGER_HIT = 1;
-const int TRIGGER_DEATH = 2;
+const int TRIGGER_HALFDEATH = 2;
+const int TRIGGER_JOINCOMBAT = 3;
 
 struct PostEffect {
 	int id;

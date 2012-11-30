@@ -59,11 +59,10 @@ const int ENEMY_HIT = 10;
 const int ENEMY_DEAD = 11;
 const int ENEMY_CRITDEAD = 12;
 const int ENEMY_HALF_DEAD = 13;
-const int ENEMY_DEBUFF = 14;
-const int ENEMY_JOIN_COMBAT = 15;
+const int ENEMY_JOIN_COMBAT = 14;
 
 // final shared states
-const int ENEMY_POWER = 16; // enemy performing a power. anim/sfx based on power
+const int ENEMY_POWER = 15; // enemy performing a power. anim/sfx based on power
 
 
 const int MAX_CHARACTER_LEVEL = 32;

@@ -86,8 +86,8 @@ void BehaviorStandard::doUpkeep() {
 	}
 
 	// TEMP: check for bleeding spurt
-	if (e->stats.effects.bleed_dmg > 0 && e->stats.hp > 0) {
-		comb->addMessage(e->stats.effects.bleed_dmg, e->stats.pos, COMBAT_MESSAGE_TAKEDMG, false);
+	if (e->stats.effects.damage > 0 && e->stats.hp > 0) {
+		comb->addMessage(e->stats.effects.damage, e->stats.pos, COMBAT_MESSAGE_TAKEDMG, false);
 	}
 
 	// check for teleport powers
@@ -103,6 +103,8 @@ void BehaviorStandard::doUpkeep() {
 		e->stats.teleportation = false;
 	}
 
+	// check for half-death state
+	if (e->stats.hp <= e->stats.maxhp/2) e->stats.effects.triggered_halfdeath = true;
 }
 
 /**
@@ -142,6 +144,7 @@ void BehaviorStandard::findTarget() {
 		if (e->stats.in_combat) e->stats.join_combat = true;
 		e->stats.in_combat = true;
 		e->powers->activate(e->stats.power_index[BEACON], &e->stats, e->stats.pos); //emit beacon
+		e->stats.effects.triggered_joincombat = true;
 	}
 
 	// check exiting combat (player died or got too far away)
@@ -456,7 +459,6 @@ void BehaviorStandard::updateState() {
 			if (e->activeAnimation->isFirstFrame()) {
 				e->sfx_die = true;
 				e->stats.corpse_ticks = CORPSE_TIMEOUT;
-				e->stats.effects.triggered_death = true;
 			}
 			if (e->activeAnimation->isSecondLastFrame()) {
 				if ((rand() % 100) < e->stats.power_chance[ON_DEATH])
@@ -473,7 +475,6 @@ void BehaviorStandard::updateState() {
 			if (e->activeAnimation->isFirstFrame()) {
 				e->sfx_critdie = true;
 				e->stats.corpse_ticks = CORPSE_TIMEOUT;
-				e->stats.effects.triggered_death = true;
 			}
 			if (e->activeAnimation->isSecondLastFrame()) {
 				if ((rand() % 100) < e->stats.power_chance[ON_DEATH])
