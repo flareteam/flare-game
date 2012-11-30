@@ -45,22 +45,13 @@ protected:
 	Point parent;
 
 public:
-
-/*
- WARNING
- If you change this file in response to static code analysis,
- Make sure you don't break pathfinding. It's already happened twice.
-*/
-
 	AStarNode();
 	AStarNode(const int a, const int b);
-	AStarNode(const Point p);
+	AStarNode(const Point &p);
 	AStarNode(const AStarNode& copy);
 
 	int getX() const;
 	int getY() const;
-
-	Point getCoordinate() const;
 
 	Point getParent() const;
 	void setParent(const Point& p);
@@ -71,7 +62,6 @@ public:
 	float getActualCost() const;
 	void setActualCost(const float G);
 
-	float getEstimatedCost() const;
 	void setEstimatedCost(const float H);
 
 	float getFinalCost() const;

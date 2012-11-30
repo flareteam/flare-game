@@ -1,6 +1,7 @@
 /*
 Copyright © 2011-2012 Clint Bellanger
 Copyright © 2011-2012 Nojan
+Copyright © 2012 Stefan Beller
 
 This file is part of FLARE.
 
@@ -18,38 +19,37 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "AStarNode.h"
 
-/*
- WARNING
- If you change this file in response to static code analysis,
- Make sure you don't break pathfinding. It's already happened twice.
-*/
-
 AStarNode::AStarNode()
-{
-	this->x = 0;
-	this->y = 0;
-}
+	: x(0)
+	, y(0)
+	, g(0)
+	, h(0)
+	, parent(Point())
+{}
 
 AStarNode::AStarNode(const int a, const int b)
-{
-	this->x = a;
-	this->y = b;
-}
+	: x(a)
+	, y(b)
+	, g(0)
+	, h(0)
+	, parent(Point())
+{}
 
-AStarNode::AStarNode(const Point p)
-{
-	this->x = p.x;
-	this->y = p.y;
-}
+AStarNode::AStarNode(const Point &p)
+	: x(p.x)
+	, y(p.y)
+	, g(0)
+	, h(0)
+	, parent(Point())
+{}
 
 AStarNode::AStarNode(const AStarNode& copy)
-{
-	x = copy.x;
-	y = copy.y;
-	g = copy.g;
-	h = copy.h;
-	parent = copy.parent;
-}
+	: x(copy.x)
+	, y(copy.y)
+	, g(copy.g)
+	, h(copy.h)
+	, parent(copy.parent)
+{}
 
 int AStarNode::getX() const
 {
@@ -59,14 +59,6 @@ int AStarNode::getX() const
 int AStarNode::getY() const
 {
 	return y;
-}
-
-Point AStarNode::getCoordinate() const
-{
-	Point coord;
-	coord.x = x;
-	coord.y = y;
-	return coord;
 }
 
 Point AStarNode::getParent() const
@@ -83,49 +75,49 @@ std::list<Point> AStarNode::getNeighbours(int limitX, int limitY) const
 {
 	Point toAdd;
 	std::list<Point> res;
-	if(x>node_stride && y>node_stride)
+	if (x>node_stride && y>node_stride)
 	{
 		toAdd.x = x-node_stride;
 		toAdd.y = y-node_stride;
 		res.push_back(toAdd);
 	}
-	if(x>node_stride && (limitY==0 || y<limitY-node_stride) )
+	if (x>node_stride && (limitY==0 || y<limitY-node_stride))
 	{
 		toAdd.x = x-node_stride;
 		toAdd.y = y+node_stride;
 		res.push_back(toAdd);
 	}
-	if(y>node_stride && (limitX==0 || x<limitX-node_stride) )
+	if (y>node_stride && (limitX==0 || x<limitX-node_stride))
 	{
 		toAdd.x = x+node_stride;
 		toAdd.y = y-node_stride;
 		res.push_back(toAdd);
 	}
-	if( (limitX==0 || x<limitX-node_stride) && (limitY==0 || y<limitY-node_stride) )
+	if ((limitX==0 || x<limitX-node_stride) && (limitY==0 || y<limitY-node_stride))
 	{
 		toAdd.x = x+node_stride;
 		toAdd.y = y+node_stride;
 		res.push_back(toAdd);
 	}
-	if(x>node_stride)
+	if (x>node_stride)
 	{
 		toAdd.x = x-node_stride;
 		toAdd.y = y;
 		res.push_back(toAdd);
 	}
-	if(y>node_stride)
+	if (y>node_stride)
 	{
 		toAdd.x = x;
 		toAdd.y = y-node_stride;
 		res.push_back(toAdd);
 	}
-	if(limitX==0 || x<limitX-node_stride )
+	if (limitX==0 || x<limitX-node_stride)
 	{
 		toAdd.x = x+node_stride;
 		toAdd.y = y;
 		res.push_back(toAdd);
 	}
-	if(limitY==0 || y<limitY-node_stride )
+	if (limitY==0 || y<limitY-node_stride)
 	{
 		toAdd.x = x;
 		toAdd.y = y+node_stride;
@@ -144,11 +136,6 @@ float AStarNode::getActualCost() const
 void AStarNode::setActualCost(const float G)
 {
 	g = G;
-}
-
-float AStarNode::getEstimatedCost() const
-{
-	return h;
 }
 
 void AStarNode::setEstimatedCost(const float H)
