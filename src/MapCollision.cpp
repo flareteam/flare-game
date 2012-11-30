@@ -311,7 +311,7 @@ bool MapCollision::compute_path(Point start_pos, Point end_pos, vector<Point> &p
 	list<AStarNode> open;
 	list<AStarNode> close;
 
-	close.push_back(node);
+	open.push_back(node);
 
 	while (!open.empty() && close.size() < limit) {
 		float lowest_score = FLT_MAX;
