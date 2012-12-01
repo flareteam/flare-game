@@ -142,7 +142,7 @@ void EffectManager::addEffect(int id, int icon, int duration, int magnitude, std
 
 	for (unsigned i=0; i<effect_list.size(); i++) {
 		if (effect_list[i].id == id) {
-			if (trigger > -1 && effect_list[i].trigger == trigger) return; // trigger effects can only be cast once per trigger
+			if (trigger && effect_list[i].trigger == trigger) return; // trigger effects can only be cast once per trigger
 			if (effect_list[i].duration <= duration) {
 				effect_list[i].ticks = effect_list[i].duration = duration;
 				if (effect_list[i].animation) effect_list[i].animation->reset();
