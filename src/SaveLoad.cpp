@@ -357,6 +357,9 @@ void GameStatePlay::loadClass(int index) {
 	for (unsigned i=0; i<HERO_CLASSES[index].powers.size(); i++) {
 		pc->stats.powers_list.push_back(HERO_CLASSES[index].powers[i]);
 	}
+	for (unsigned i=0; i<HERO_CLASSES[index].statuses.size(); i++) {
+		camp->setStatus(HERO_CLASSES[index].statuses[i]);
+	}
 	menu->act->set(HERO_CLASSES[index].hotkeys);
 
 	menu->inv->inventory[EQUIPMENT].fillEquipmentSlots();

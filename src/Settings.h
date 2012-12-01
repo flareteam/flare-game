@@ -43,6 +43,7 @@ typedef struct HeroClass{
 	int defense;
 	int hotkeys[12];
 	std::vector<int> powers;
+	std::vector<std::string> statuses;
 
 	HeroClass()
 	: name("")

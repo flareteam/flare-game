@@ -195,7 +195,7 @@ void setPaths() {
 #else
 void setPaths() {
 
-	string engine_folder = "flare";
+	string engine_folder = "concordia";
 
 	// attempting to follow this spec:
 	// http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
@@ -359,7 +359,7 @@ void loadMiscSettings() {
 			} else if (infile.key == "aim_assist") {
 				AIM_ASSIST = toInt(infile.val);
 			}
-			
+
 		}
 		infile.close();
 	} else fprintf(stderr, "Unable to open engine/misc.txt!\n");
@@ -457,6 +457,12 @@ void loadMiscSettings() {
 						HERO_CLASSES.back().powers.push_back(toInt(power));
 					}
 				}
+				else if (infile.key == "campaign") {
+					string status;
+					while ( (status = infile.nextValue()) != "") {
+						HERO_CLASSES.back().statuses.push_back(status);
+					}
+				}
 			}
 		}
 		infile.close();
@@ -548,4 +554,3 @@ bool loadDefaults() {
 
 	return true;
 }
-
