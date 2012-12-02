@@ -22,6 +22,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * Handle collisions between objects and the map
  */
 
+
+#pragma once
 #ifndef MAP_COLLISION_H
 #define MAP_COLLISION_H
 

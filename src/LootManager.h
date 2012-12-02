@@ -22,6 +22,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * Handles floor loot
  */
 
+
+#pragma once
 #ifndef LOOT_MANAGER_H
 #define LOOT_MANAGER_H
 

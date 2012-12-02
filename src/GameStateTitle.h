@@ -15,6 +15,8 @@ You should have received a copy of the GNU General Public License along with
 FLARE.  If not, see http://www.gnu.org/licenses/
 */
 
+
+#pragma once
 #ifndef GAMESTATETITLE_H
 #define GAMESTATETITLE_H
 
@@ -30,18 +32,18 @@ private:
 	WidgetButton *button_exit;
     WidgetButton *button_cfg;
 	WidgetLabel *label_version;
-	
+
 public:
 	GameStateTitle();
 	~GameStateTitle();
 	void loadGraphics();
 	void logic();
 	void render();
-	
+
 	// switch
 	bool exit_game;
 	bool load_game;
-	
+
 };
 
 #endif

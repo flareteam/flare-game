@@ -22,6 +22,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * We don't need full gettext functionality (yet) so this is a simple solution.
  */
 
+
+#pragma once
 #ifndef GET_TEXT_H
 #define GET_TEXT_H
 

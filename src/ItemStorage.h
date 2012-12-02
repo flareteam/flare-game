@@ -19,6 +19,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * class ItemStorage
  */
 
+
+#pragma once
 #ifndef ITEM_STORAGE_H
 #define ITEM_STORAGE_H
 

@@ -19,6 +19,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * class MenuMiniMap
  */
 
+#pragma once
 #ifndef MENU_MINI_MAP_H
 #define MENU_MINI_MAP_H
 

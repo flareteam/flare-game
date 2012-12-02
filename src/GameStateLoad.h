@@ -24,6 +24,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * Allow the player to abandon a previous game
  */
 
+
+#pragma once
 #ifndef GAMESTATELOAD_H
 #define GAMESTATELOAD_H
 

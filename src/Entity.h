@@ -22,6 +22,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * This base class handles logic common to all of these child classes
  */
 
+
+#pragma once
 #ifndef ENTITY_H
 #define ENTITY_H
 

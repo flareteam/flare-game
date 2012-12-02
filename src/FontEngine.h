@@ -15,6 +15,8 @@ You should have received a copy of the GNU General Public License along with
 FLARE.  If not, see http://www.gnu.org/licenses/
 */
 
+
+#pragma once
 #ifndef FONT_ENGINE_H
 #define FONT_ENGINE_H
 
@@ -51,7 +53,7 @@ struct FontStyle {
 
 /**
  * class FontEngine
- * 
+ *
  * Handles rendering a bitmap font.
  */
 
@@ -70,7 +72,7 @@ public:
 
 	int getLineHeight() { return active_font->line_height; }
 	int getFontHeight() { return active_font->font_height; }
-	
+
 	SDL_Color getColor(std::string _color);
 	void setFont(std::string _font);
 

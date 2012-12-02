@@ -21,6 +21,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * class MenuPowers
  */
 
+
+#pragma once
 #ifndef MENU_POWERS_H
 #define MENU_POWERS_H
 

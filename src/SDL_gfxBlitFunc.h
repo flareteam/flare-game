@@ -1,4 +1,4 @@
-/* 
+/*
 
 SDL_gfxBlitFunc.h: custom blitters
 
@@ -27,6 +27,8 @@ Andreas Schiffler -- aschiffler at ferzkopp dot net
 
 */
 
+
+#pragma once
 #ifndef _SDL_gfxBlitFunc_h
 #define _SDL_gfxBlitFunc_h
 

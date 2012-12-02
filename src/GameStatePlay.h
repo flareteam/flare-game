@@ -23,6 +23,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * Also handles message passing between child objects, often to avoid circular dependencies.
  */
 
+
+#pragma once
 #ifndef GAMESTATEPLAY_H
 #define GAMESTATEPLAY_H
 
