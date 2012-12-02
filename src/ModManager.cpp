@@ -48,6 +48,7 @@ void ModManager::loadModList() {
 	string line;
 	string starts_with;
 	vector<string> mod_dirs;
+	bool found_any_mod = false;
 
 	infile.open((PATH_CONF + "mods.txt").c_str(), ios::in);
 
@@ -77,11 +78,22 @@ void ModManager::loadModList() {
 		// add the mod if it exists in the mods folder
 		if (find(mod_dirs.begin(), mod_dirs.end(), line) != mod_dirs.end()) {
 			mod_list.push_back(line);
+			found_any_mod = true;
 		} else {
 			fprintf(stderr, "Mod \"%s\" not found, skipping\n", line.c_str());
 		}
 	}
 	infile.close();
+	if (!found_any_mod) {
+		fprintf(stderr, "Couldn't locate any of the Flare mods. ");
+		fprintf(stderr, "Either the mods could not be loaded or none are enabled.\n");
+		fprintf(stderr, "1) Check if you have enabled mods in Configuration->Mods tab\n");
+		fprintf(stderr, "2) Check if the game data are installed correctly. ");
+		fprintf(stderr, "Expected to find the data in the $XDG_DATA_DIRS path, ");
+		fprintf(stderr, "in /usr/local/share/flare/mods, ");
+		fprintf(stderr, "or in the same folder as the executable. ");
+		fprintf(stderr, "Try placing the mods folder in one of these locations.\n");
+	}
 }
 
 /**
