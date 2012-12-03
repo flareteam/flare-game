@@ -15,6 +15,8 @@ You should have received a copy of the GNU General Public License along with
 FLARE.  If not, see http://www.gnu.org/licenses/
 */
 
+
+#pragma once
 #ifndef INPUT_STATE_H
 #define INPUT_STATE_H
 
@@ -73,7 +75,7 @@ public:
 	int binding[key_count];
 	int binding_alt[key_count];
 	int joy_binding[joy_key_count];
-	
+
 	std::string binding_name[25];
 	std::string mouse_button[7];
 
@@ -89,7 +91,7 @@ public:
 	bool pressing[key_count];
 	bool lock[key_count];
 	bool joy_pressing[joy_key_count];
-	
+
 	bool done;
 	Point mouse;
 	std::string inkeys;

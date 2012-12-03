@@ -48,21 +48,31 @@ void ModManager::loadModList() {
 	string line;
 	string starts_with;
 	vector<string> mod_dirs;
-
-	infile.open((PATH_CONF + "mods.txt").c_str(), ios::in);
-
-	if (!infile.is_open()) {
-		infile.open((PATH_DATA + "mods/mods.txt").c_str(), ios::in);
-
-		if (!infile.is_open()) {
-			fprintf(stderr, "Error during ModManager::loadModList() -- couldn't open mods/mods.txt\n");
-		}
-	}
-
-	// Add the fallback mod by default
-	mod_list.push_back(FALLBACK_MOD);
+	bool found_any_mod = false;
 
 	getDirList(PATH_DATA + "mods", mod_dirs);
+
+	// Add the fallback mod by default
+	if (find(mod_dirs.begin(), mod_dirs.end(), FALLBACK_MOD) != mod_dirs.end()) {
+		mod_list.push_back(FALLBACK_MOD);
+		found_any_mod = true;
+	} else {
+		fprintf(stderr, "Mod \"%s\" not found, skipping\n", FALLBACK_MOD);
+	}
+
+	// Add all other mods.
+	string place1 = PATH_CONF + "mods.txt";
+	string place2 = PATH_DATA + "mods/mods.txt";
+
+	infile.open(place1.c_str(), ios::in);
+
+	if (!infile.is_open()) {
+		infile.open(place2.c_str(), ios::in);
+	}
+	if (!infile.is_open()) {
+		fprintf(stderr, "Error during ModManager::loadModList() -- couldn't open mods.txt, to be located at \n");
+		fprintf(stderr, "%s\n%s\n\n", place1.c_str(), place2.c_str());
+	}
 
 	while (infile.good()) {
 		line = getLine(infile);
@@ -77,11 +87,20 @@ void ModManager::loadModList() {
 		// add the mod if it exists in the mods folder
 		if (find(mod_dirs.begin(), mod_dirs.end(), line) != mod_dirs.end()) {
 			mod_list.push_back(line);
+			found_any_mod = true;
 		} else {
 			fprintf(stderr, "Mod \"%s\" not found, skipping\n", line.c_str());
 		}
 	}
 	infile.close();
+	if (!found_any_mod && mod_list.size() == 1) {
+		fprintf(stderr, "Couldn't locate any Flare mod. ");
+		fprintf(stderr, "Check if the game data are installed correctly. ");
+		fprintf(stderr, "Expected to find the data in the $XDG_DATA_DIRS path, ");
+		fprintf(stderr, "in /usr/local/share/flare/mods, ");
+		fprintf(stderr, "or in the same folder as the executable. ");
+		fprintf(stderr, "Try placing the mods folder in one of these locations.\n");
+	}
 }
 
 /**

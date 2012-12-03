@@ -23,6 +23,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * Make AI decisions (movement, actions) for enemies.
  */
 
+
+#pragma once
 #ifndef ENEMY_BEHAVIOR_H
 #define ENEMY_BEHAVIOR_H
 

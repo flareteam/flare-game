@@ -45,6 +45,7 @@ bool dirExists(std::string path) {
 /**
  * Create this folder if it doesn't already exist
  */
+
 void createDir(std::string path) {
 
 #ifndef _WIN32
@@ -69,7 +70,7 @@ bool fileExists(std::string filename) {
 	std::ifstream infile(filename.c_str());
 	exists = infile.is_open();
 	if (infile.is_open()) infile.close();
-	
+
 	return exists;
 }
 
@@ -80,12 +81,12 @@ int getFileList(std::string dir, std::string ext, std::vector<std::string> &file
 
     DIR *dp;
     struct dirent *dirp;
-    
+
 	if((dp  = opendir(dir.c_str())) == NULL) {
         //cout << "Error(" << errno << ") opening " << dir << endl;
         return errno;
     }
-	
+
 	size_t extlen = ext.length();
     while ((dirp = readdir(dp)) != NULL) {
 	//	if(dirp->d_type == 0x8) { //0x4 for directories, 0x8 for files
@@ -113,7 +114,7 @@ int getDirList(std::string dir, std::vector<std::string> &dirs) {
 		//cout << "Error(" << errno << ") opening " << dir << endl;
 		return errno;
 	}
-	
+
 	while ((dirp = readdir(dp)) != NULL) {
 	//	do not use dirp->d_type, it's not portable
 		std::string directory = std::string(dirp->d_name);

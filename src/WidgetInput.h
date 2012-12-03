@@ -22,6 +22,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * It has two images - one for focused and one for unfocused.
  */
 
+
+#pragma once
 #ifndef WIDGETINPUT_H
 #define WIDGETINPUT_H
 

@@ -21,6 +21,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * Settings
  */
 
+
+#pragma once
 #ifndef SETTINGS_H
 #define SETTINGS_H
 

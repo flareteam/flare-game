@@ -19,6 +19,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * class MenuLog
  */
 
+
+#pragma once
 #ifndef MENU_LOG_H
 #define MENU_LOG_H
 

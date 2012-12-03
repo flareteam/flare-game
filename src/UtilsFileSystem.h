@@ -21,6 +21,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * Various file system function wrappers. Abstracted here to hide OS-specific implementations
  */
 
+
+#pragma once
 #ifndef UTILS_FILE_SYSTEM_H
 #define UTILS_FILE_SYSTEM_H
 

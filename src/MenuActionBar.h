@@ -22,6 +22,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * Handles the config, display, and usage of the 0-9 hotkeys, mouse buttons, and menu calls
  */
 
+
+#pragma once
 #ifndef MENU_ACTION_BAR_H
 #define MENU_ACTION_BAR_H
 

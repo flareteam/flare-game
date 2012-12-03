@@ -22,6 +22,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * Character stats and calculations
  */
 
+
+#pragma once
 #ifndef STAT_BLOCK_H
 #define STAT_BLOCK_H
 
