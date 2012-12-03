@@ -48,8 +48,8 @@ Point screen_to_map(int x, int y, int camx, int camy) {
 		r.y = (cy * scry) - (cx * scrx) + camy;
 	}
 	else {
-		r.x = x - VIEW_W_HALF + camx;
-		r.y = y - VIEW_H_HALF + camy;
+		r.x = (x - VIEW_W_HALF) * (UNITS_PER_PIXEL_X ) + camx;
+		r.y = (y - VIEW_H_HALF) * (UNITS_PER_PIXEL_Y ) + camy;
 	}
 	return r;
 }

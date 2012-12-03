@@ -876,17 +876,24 @@ void MapRenderer::renderIso(vector<Renderable> &r, vector<Renderable> &r_dead) {
 }
 
 void MapRenderer::renderOrthoLayer(const unsigned short layerdata[256][256]) {
+
+	const Point upperright = screen_to_map(0, 0, shakycam.x, shakycam.y);
+
+	short int startj = upperright.y / UNITS_PER_TILE;
+	short int starti = upperright.x / UNITS_PER_TILE;
+	const short max_tiles_width =  min(w, static_cast<short int>(starti + (VIEW_W / TILE_W) + 2 * tset.max_size_x));
+	const short max_tiles_height = min(h, static_cast<short int>(startj + (VIEW_H / TILE_H) + 2 * tset.max_size_y));
+
 	short int i;
 	short int j;
-	SDL_Rect dest;
-	unsigned short current_tile;
 
-	for (j=0; j<h; j++) {
-		for (i=0; i<w; i++) {
+	for (j = startj; j < max_tiles_height; j++) {
+		for (i = starti; i < max_tiles_width; i++) {
 
-			current_tile = layerdata[i][j];
+			unsigned short current_tile = layerdata[i][j];
 
 			if (current_tile) {
+				SDL_Rect dest;
 				Point p = map_to_screen(i * UNITS_PER_TILE, j * UNITS_PER_TILE, shakycam.x, shakycam.y);
 				p = center_tile(p);
 				dest.x = p.x - tset.tiles[current_tile].offset.x;
@@ -905,19 +912,29 @@ void MapRenderer::renderOrthoBackObjects(std::vector<Renderable> &r) {
 }
 
 void MapRenderer::renderOrthoFrontObjects(std::vector<Renderable> &r) {
+
 	short int i;
 	short int j;
 	SDL_Rect dest;
-	unsigned short current_tile;
 	vector<Renderable>::iterator r_cursor = r.begin();
 	vector<Renderable>::iterator r_end = r.end();
 
-	// TODO: trim by screen rect
-	// object layer
-	for (j=0; j<h; j++) {
-		for (i=0; i<w; i++) {
+	const Point upperright = screen_to_map(0, 0, shakycam.x, shakycam.y);
 
-			current_tile = object[i][j];
+	short int startj = upperright.y / UNITS_PER_TILE;
+	short int starti = upperright.x / UNITS_PER_TILE;
+	const short max_tiles_width =  min(w, static_cast<short int>(starti + (VIEW_W / TILE_W) + 2 * tset.max_size_x));
+	const short max_tiles_height = min(h, static_cast<short int>(startj + (VIEW_H / TILE_H) + 2 * tset.max_size_y));
+
+	while (r_cursor != r_end && (r_cursor->map_pos.y>>TILE_SHIFT) < startj)
+		++r_cursor;
+
+
+
+	for (j = startj; j<max_tiles_height; j++) {
+		for (i = starti; i<max_tiles_width; i++) {
+
+			unsigned short current_tile = object[i][j];
 
 			if (current_tile) {
 				Point p = map_to_screen(i * UNITS_PER_TILE, j * UNITS_PER_TILE, shakycam.x, shakycam.y);
@@ -927,12 +944,15 @@ void MapRenderer::renderOrthoFrontObjects(std::vector<Renderable> &r) {
 				SDL_BlitSurface(tset.sprites, &(tset.tiles[current_tile].src), screen, &dest);
 			}
 
-			// some renderable entities go in this layer
-			while (r_cursor != r_end && (r_cursor->map_pos.x>>TILE_SHIFT) == i && (r_cursor->map_pos.y>>TILE_SHIFT) == j) {
-				drawRenderable(r_cursor);
+			while (r_cursor != r_end && (r_cursor->map_pos.y>>TILE_SHIFT) == j && (r_cursor->map_pos.x>>TILE_SHIFT) < i)
 				++r_cursor;
-			}
+
+			// some renderable entities go in this layer
+			while (r_cursor != r_end && (r_cursor->map_pos.y>>TILE_SHIFT) == j && (r_cursor->map_pos.x>>TILE_SHIFT) == i)
+				drawRenderable(r_cursor++);
 		}
+		while (r_cursor != r_end && (r_cursor->map_pos.y>>TILE_SHIFT) <= j)
+			++r_cursor;
 	}
 }
 
