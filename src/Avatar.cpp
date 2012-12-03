@@ -50,6 +50,7 @@ Avatar::Avatar(PowerManager *_powers, MapRenderer *_map)
  , hero_stats(NULL)
  , charmed_stats(NULL)
  , act_target(Point())
+ , attacking (false)
  , drag_walking(false)
  , respawn(false)
 {
@@ -421,7 +422,12 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 	}
 
 	// assist mouse movement
-	if (!inpt->pressing[MAIN1]) drag_walking = false;
+	if (!inpt->pressing[MAIN1]) {
+		drag_walking = false;
+		attacking = false;
+	} else {
+		attacking = true;
+	}
 
 	// handle animation
 	activeAnimation->advanceFrame();
