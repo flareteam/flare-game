@@ -446,7 +446,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 
 			// allowed to move or use powers?
 			if (MOUSE_MOVE) {
-				allowed_to_move = restrictPowerUse && (!inpt->lock[MAIN1] || drag_walking);
+				allowed_to_move = restrictPowerUse && (!inpt->lock[MAIN1] || drag_walking) && !lockSwing && !lockShoot && !lockCast;
 				allowed_to_use_power = !allowed_to_move;
 			}
 			else {
@@ -468,6 +468,13 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 					stats.cur_state = AVATAR_RUN;
 				}
 
+			}
+
+			if (MOUSE_MOVE && !inpt->pressing[MAIN1]) {
+				inpt->lock[MAIN1] = false;
+				lockSwing = false;
+				lockShoot = false;
+				lockCast = false;
 			}
 
 			// handle power usage
@@ -516,6 +523,8 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 
 			setAnimation("melee");
 
+			if (MOUSE_MOVE) lockSwing = true;
+
 			if (activeAnimation->isFirstFrame()) {
 				if (sound_melee)
 					Mix_PlayChannel(-1, sound_melee, 0);
@@ -536,6 +545,8 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 
 			setAnimation("ment");
 
+			if (MOUSE_MOVE) lockCast = true;
+
 			// do power
 			if (activeAnimation->isActiveFrame()) {
 				powers->activate(current_power, &stats, act_target);
@@ -551,6 +562,8 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 		case AVATAR_SHOOT:
 
 			setAnimation("ranged");
+
+			if (MOUSE_MOVE) lockShoot = true;
 
 			// do power
 			if (activeAnimation->isActiveFrame()) {
