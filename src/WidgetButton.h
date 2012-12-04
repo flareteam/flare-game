@@ -19,6 +19,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * class WidgetButton
  */
 
+
+#pragma once
 #ifndef WIDGET_BUTTON_H
 #define WIDGET_BUTTON_H
 

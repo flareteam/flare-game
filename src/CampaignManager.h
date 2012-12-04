@@ -21,6 +21,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * Contains data for story mode
  */
 
+
+#pragma once
 #ifndef CAMPAIGN_MANAGER_H
 #define CAMPAIGN_MANAGER_H
 

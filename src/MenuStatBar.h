@@ -22,6 +22,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * Handles the display of a status bar
  */
 
+
+#pragma once
 #ifndef MENU_STATBAR_H
 #define MENU_STATBAR_H
 
@@ -47,7 +49,7 @@ private:
 	bool custom_text_pos;
 	std::string custom_string;
 	SDL_Color color_normal;
-	
+
 public:
 	MenuStatBar(std::string type);
 	~MenuStatBar();

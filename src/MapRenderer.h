@@ -23,6 +23,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * This class is capable of rendering isometric and orthogonal maps.
  */
 
+
+#pragma once
 #ifndef MAP_RENDERER_H
 #define MAP_RENDERER_H
 

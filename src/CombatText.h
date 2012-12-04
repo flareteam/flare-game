@@ -24,6 +24,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  *
  */
 
+
+#pragma once
 #ifndef COMBAT_TEXT_H
 #define COMBAT_TEXT_H
 

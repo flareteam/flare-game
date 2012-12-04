@@ -22,6 +22,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * Most commonly this involves vendor and conversation townspeople.
  */
 
+
+#pragma once
 #ifndef NPC_MANAGER_H
 #define NPC_MANAGER_H
 

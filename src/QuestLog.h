@@ -21,6 +21,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * Helper text to remind the player of active quests
  */
 
+
+#pragma once
 #ifndef QUEST_LOG_H
 #define QUEST_LOG_H
 

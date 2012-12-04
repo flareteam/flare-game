@@ -20,6 +20,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * class WidgetTooltip
  */
 
+
+#pragma once
 #ifndef WIDGET_TOOLTIP_H
 #define WIDGET_TOOLTIP_H
 

@@ -20,6 +20,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * class ItemManager
  */
 
+
+#pragma once
 #ifndef ITEM_MANAGER_H
 #define ITEM_MANAGER_H
 

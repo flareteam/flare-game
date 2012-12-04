@@ -23,6 +23,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * Special code for handling spells, special powers, item effects, etc.
  */
 
+
+#pragma once
 #ifndef POWER_MANAGER_H
 #define POWER_MANAGER_H
 

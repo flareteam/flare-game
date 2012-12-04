@@ -15,6 +15,8 @@ You should have received a copy of the GNU General Public License along with
 FLARE.  If not, see http://www.gnu.org/licenses/
 */
 
+
+#pragma once
 #ifndef BEHAVIOR_STANDARD_H
 #define BEHAVIOR_STANDARD_H
 
@@ -33,12 +35,12 @@ private:
 	void checkPower();
 	void checkMove();
 	void updateState();
-	
+
 	// targeting vars
 	bool los;
 	int dist;
 	Point pursue_pos;
-	
+
 public:
 	BehaviorStandard(Enemy *_e);
 	void logic();

@@ -19,6 +19,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * class MenuManager
  */
 
+
+#pragma once
 #ifndef MENU_MANAGER_H
 #define MENU_MANAGER_H
 

@@ -21,10 +21,12 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  *
  * The MessageEngine class allows translation of messages in FLARE by comparing them to
  * .po files in a format similar to gettext.
- * 
+ *
  * This class is primarily used for making sure FLARE is flexible and translatable.
  */
 
+
+#pragma once
 #ifndef MESSAGE_ENGINE_H
 #define MESSAGE_ENGINE_H
 

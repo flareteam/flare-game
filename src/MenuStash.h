@@ -19,6 +19,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * class MenuStash
  */
 
+
+#pragma once
 #ifndef MENU_STASH_H
 #define MENU_STASH_H
 

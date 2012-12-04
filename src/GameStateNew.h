@@ -22,6 +22,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * (e.g. character appearance)
  */
 
+
+#pragma once
 #ifndef GAMESTATENEW_H
 #define GAMESTATENEW_H
 
