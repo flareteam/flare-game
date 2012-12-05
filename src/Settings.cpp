@@ -160,6 +160,7 @@ bool SHOW_FPS = false;
 int CORPSE_TIMEOUT = 1800;
 bool SELL_WITHOUT_VENDOR = true;
 int AIM_ASSIST = 0;
+std::string WINDOW_TITLE = "Flare";
 
 
 /**
@@ -348,7 +349,7 @@ void loadMiscSettings() {
 				if (toInt(infile.val) == 1)
 					SAVE_HPMP = true;
 			} else if (infile.key == "default_name") {
-				DEFAULT_NAME = infile.val.c_str();
+				DEFAULT_NAME = infile.val;
 			} else if (infile.key == "corpse_timeout") {
 				CORPSE_TIMEOUT = toInt(infile.val);
 			} else if (infile.key == "sell_without_vendor") {
@@ -358,6 +359,8 @@ void loadMiscSettings() {
 					SELL_WITHOUT_VENDOR = false;
 			} else if (infile.key == "aim_assist") {
 				AIM_ASSIST = toInt(infile.val);
+			} else if (infile.key == "window_title") {
+				WINDOW_TITLE = infile.val;
 			}
 
 		}
