@@ -879,8 +879,8 @@ void MapRenderer::renderOrthoLayer(const unsigned short layerdata[256][256]) {
 
 	const Point upperright = screen_to_map(0, 0, shakycam.x, shakycam.y);
 
-	short int startj = upperright.y / UNITS_PER_TILE;
-	short int starti = upperright.x / UNITS_PER_TILE;
+	short int startj = max(0, upperright.y / UNITS_PER_TILE);
+	short int starti = max(0, upperright.x / UNITS_PER_TILE);
 	const short max_tiles_width =  min(w, static_cast<short int>(starti + (VIEW_W / TILE_W) + 2 * tset.max_size_x));
 	const short max_tiles_height = min(h, static_cast<short int>(startj + (VIEW_H / TILE_H) + 2 * tset.max_size_y));
 
@@ -921,8 +921,8 @@ void MapRenderer::renderOrthoFrontObjects(std::vector<Renderable> &r) {
 
 	const Point upperright = screen_to_map(0, 0, shakycam.x, shakycam.y);
 
-	short int startj = upperright.y / UNITS_PER_TILE;
-	short int starti = upperright.x / UNITS_PER_TILE;
+	short int startj = max(0, upperright.y / UNITS_PER_TILE);
+	short int starti = max(0, upperright.x / UNITS_PER_TILE);
 	const short max_tiles_width =  min(w, static_cast<short int>(starti + (VIEW_W / TILE_W) + 2 * tset.max_size_x));
 	const short max_tiles_height = min(h, static_cast<short int>(startj + (VIEW_H / TILE_H) + 2 * tset.max_size_y));
 
