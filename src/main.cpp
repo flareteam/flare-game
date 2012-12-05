@@ -125,7 +125,7 @@ static void init() {
 		Mix_Volume(-1, SOUND_VOLUME);
 
 	// Window title
-	const char* title = msg->get("Flare").c_str();
+	const char* title = msg->get(WINDOW_TITLE).c_str();
 	SDL_WM_SetCaption(title, title);
 
 

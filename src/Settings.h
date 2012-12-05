@@ -116,6 +116,7 @@ extern bool SHOW_FPS;
 extern int CORPSE_TIMEOUT;
 extern bool SELL_WITHOUT_VENDOR;
 extern int AIM_ASSIST;
+extern std::string WINDOW_TITLE;
 
 // Tile Settings
 extern unsigned short UNITS_PER_TILE;
