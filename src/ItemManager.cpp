@@ -119,6 +119,8 @@ void ItemManager::load(const string& filename) {
 
 		if (infile.key == "name")
 			items[id].name = msg->get(infile.val);
+		else if (infile.key == "flavor")
+			items[id].flavor = msg->get(infile.val);
 		else if (infile.key == "level")
 			items[id].level = toInt(infile.val);
 		else if (infile.key == "icon") {
@@ -599,6 +601,11 @@ TooltipData ItemManager::getTooltip(int item, StatBlock *stats, int context) {
 		}
 	}
 
+	// flavor text
+	if (items[item].flavor != "") {
+		tip.addText(items[item].flavor, color_bonus);
+	}
+	
 	// buy or sell price
 	if (items[item].price > 0) {
 

@@ -82,6 +82,7 @@ struct Set_bonus {
 class Item {
 public:
 	std::string name;     // item name displayed on long and short tool tips
+	std::string flavor;   // optional flavor text describing the item
 	int level;            // rough estimate of quality, used in the loot algorithm
 	int set;              // item can be attached to item set
 	int quality;          // low, normal, high, epic; corresponds to item name color
@@ -117,6 +118,7 @@ public:
 
 	Item()
 	: name("")
+	, flavor("")
 	, level(0)
 	, set(0)
 	, quality(ITEM_QUALITY_NORMAL)
