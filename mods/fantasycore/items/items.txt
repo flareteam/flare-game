@@ -644,9 +644,26 @@ icon=176
 abs=2
 req=d,2
 sfx=leather
-gfx=leather_boots
-loot_animation=leather_armor
-price=3
+gfx=mage_boots
+loot_animation=boots
+price=5
 stepfx=leather
 bonus=speed,125
+
+[item]
+id=105
+name=Thief Gloves
+flavor=In Lower Sceleris there is honor among thieves. Everyone else is a mark.
+level=5
+quality=epic
+item_type=hands
+icon=130
+abs=1
+sfx=cloth
+gfx=cloth_gloves
+loot_animation=clothes
+price=5
+bonus=gold,25
+
+
 
