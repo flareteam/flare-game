@@ -682,6 +682,7 @@ void GameStatePlay::logic() {
 	checkCancel();
 
 	map->logic();
+	map->enemies_cleared = enemies->isCleared();
 	quests->logic();
 
 

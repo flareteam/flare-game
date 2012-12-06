@@ -66,6 +66,7 @@ public:
 	void logic();
 	void addRenders(std::vector<Renderable> &r, std::vector<Renderable> &r_dead);
 	void checkEnemiesforXP(CampaignManager *camp);
+	bool isCleared();
 	Enemy *enemyFocus(Point mouse, Point cam, bool alive_only);
 
 	// vars

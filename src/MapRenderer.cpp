@@ -69,6 +69,7 @@ MapRenderer::MapRenderer(CampaignManager *_camp)
  , respawn_point(Point())
  , stash(false)
  , stash_pos(Point())
+ , enemies_cleared(false)
 {
 	cam.x = 0;
 	cam.y = 0;
@@ -997,7 +998,11 @@ void MapRenderer::checkEvents(Point loc) {
 		// skip inactive events
 		if (!isActive(*it)) continue;
 
-		if (maploc.x >= (*it).location.x &&
+		if ((*it).type == "on_clear") {
+			if (enemies_cleared && executeEvent(*it))
+				events.erase(it);
+		}
+		else if (maploc.x >= (*it).location.x &&
 			maploc.y >= (*it).location.y &&
 			maploc.x <= (*it).location.x + (*it).location.w-1 &&
 			maploc.y <= (*it).location.y + (*it).location.h-1) {
@@ -1278,7 +1283,7 @@ bool MapRenderer::executeEvent(Map_Event &ev) {
 			stash_pos.y = ev.location.y * UNITS_PER_TILE + UNITS_PER_TILE/2;
 		}
 	}
-	if (ev.type == "run_once" || ev.type == "on_load" || destroy_event)
+	if (ev.type == "run_once" || ev.type == "on_load" || ev.type == "on_clear" || destroy_event)
 		return true;
 	else
 		return false;
