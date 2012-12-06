@@ -202,6 +202,8 @@ private:
 	SDL_Color color_bonus;
 	SDL_Color color_penalty;
 	SDL_Color color_requirements_not_met;
+	SDL_Color color_flavor;
+	
 public:
 	ItemManager();
 	~ItemManager();
