@@ -631,15 +631,22 @@ loot_animation=steel_armor
 price=4
 stepfx=metal
 
+# Magic Items
 
-
-
-
-
-
-
-
-
-
-
+[item]
+id=104
+name=Boots of Speed
+flavor=These enchanted boots are prized possessions of Courier guildsmen.
+level=5
+quality=epic
+item_type=feet
+icon=176
+abs=2
+req=d,2
+sfx=leather
+gfx=leather_boots
+loot_animation=leather_armor
+price=3
+stepfx=leather
+bonus=speed,125
 
