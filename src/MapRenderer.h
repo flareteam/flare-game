@@ -290,6 +290,9 @@ public:
 	// stash handling
 	bool stash;
 	Point stash_pos;
+
+	// enemy clear
+	bool enemies_cleared;
 };
 
 
