@@ -40,7 +40,7 @@ def extract(filename):
         'msg', 'him', 'her', 'you', 'name', 'title', 'tooltip',
         'power_desc', 'quest_text', 'description', 'item_type',
         'slot_name', 'tab_title', 'resist', 'currency_name',
-        'bonus',
+        'bonus', 'flavor',
     ]
     for i, line in enumerate(infile, start=1):
         for trigger in triggers:
