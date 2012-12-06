@@ -19,6 +19,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * class MenuTalker
  */
 
+
+#pragma once
 #ifndef MENU_TALKER_H
 #define MENU_TALKER_H
 

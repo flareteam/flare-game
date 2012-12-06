@@ -514,6 +514,7 @@ void GameStatePlay::checkNotifications() {
  * If an NPC is giving a reward, process it
  */
 void GameStatePlay::checkNPCInteraction() {
+	if (pc->attacking) return;
 
 	int npc_click = -1;
 	int max_interact_distance = UNITS_PER_TILE * 4;
@@ -681,6 +682,7 @@ void GameStatePlay::logic() {
 	checkCancel();
 
 	map->logic();
+	map->enemies_cleared = enemies->isCleared();
 	quests->logic();
 
 

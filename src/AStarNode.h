@@ -22,6 +22,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * A node used within A* algorithm
  */
 
+
+#pragma once
 #ifndef ASTARNODE_H
 #define ASTARNODE_H
 

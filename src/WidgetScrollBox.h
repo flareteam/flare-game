@@ -20,6 +20,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * class WidgetScrollBox
  */
 
+
+#pragma once
 #ifndef WIDGET_SCROLLBOX_H
 #define WIDGET_SCROLLBOX_H
 

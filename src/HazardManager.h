@@ -21,6 +21,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * Holds the collection of hazards (active attacks, spells, etc) and handles group operations
  */
 
+
+#pragma once
 #ifndef HAZARD_MANAGER_H
 #define HAZARD_MANAGER_H
 

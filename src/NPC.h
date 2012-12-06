@@ -19,6 +19,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * class NPC
  */
 
+
+#pragma once
 #ifndef NPC_H
 #define NPC_H
 

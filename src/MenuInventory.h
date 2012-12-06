@@ -20,6 +20,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * class MenuInventory
  */
 
+
+#pragma once
 #ifndef MENU_INVENTORY_H
 #define MENU_INVENTORY_H
 

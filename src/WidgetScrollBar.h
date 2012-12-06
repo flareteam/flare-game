@@ -20,6 +20,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * class WidgetScrollBar
  */
 
+
+#pragma once
 #ifndef WIDGET_ScrollBar_H
 #define WIDGET_ScrollBar_H
 
@@ -39,11 +41,11 @@ private:
 
 	SDL_Surface *scrollbars;
 	Mix_Chunk *click;
-	
+
 	int value;
 	int bar_height;
 	int maximum;
-	
+
 public:
 	WidgetScrollBar(const std::string& _fileName);
 	~WidgetScrollBar();

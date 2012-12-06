@@ -22,6 +22,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * Handles the display of active effects (buffs/debuffs)
  */
 
+
+#pragma once
 #ifndef MENU_ACTIVE_EFFECTS_H
 #define MENU_ACTIVE_EFFECTS_H
 
@@ -41,7 +43,7 @@ private:
 	bool orientation;
 
 	void renderIcon(int icon_id, int index, int current, int max);
-	
+
 public:
 	MenuActiveEffects(SDL_Surface *_icons);
 	~MenuActiveEffects();

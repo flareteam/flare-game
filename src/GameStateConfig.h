@@ -23,6 +23,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * Handle game Settings Menu
  */
 
+
+#pragma once
 #ifndef GAMESTATECONFIG_H
 #define GAMESTATECONFIG_H
 

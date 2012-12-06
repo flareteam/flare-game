@@ -16,6 +16,8 @@ You should have received a copy of the GNU General Public License along with
 FLARE.  If not, see http://www.gnu.org/licenses/
 */
 
+
+#pragma once
 #ifndef GAME_SWITCHER_H
 #define GAME_SWITCHER_H
 

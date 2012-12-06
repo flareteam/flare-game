@@ -20,6 +20,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * class WidgetListBox
  */
 
+
+#pragma once
 #ifndef WIDGET_ListBox_H
 #define WIDGET_ListBox_H
 

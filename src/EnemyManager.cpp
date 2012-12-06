@@ -285,6 +285,16 @@ void EnemyManager::checkEnemiesforXP(CampaignManager *camp) {
 	}
 }
 
+bool EnemyManager::isCleared() {
+	if (enemies.empty()) return true;
+
+	for (unsigned int i=0; i < enemies.size(); i++) {
+		if (enemies[i]->stats.alive) return false;
+	}
+
+	return true;
+}
+
 /**
  * addRenders()
  * Map objects need to be drawn in Z order, so we allow a parent object (GameEngine)

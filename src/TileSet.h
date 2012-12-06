@@ -21,6 +21,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * TileSet storage and file loading
  */
 
+
+#pragma once
 #ifndef TILE_SET_H
 #define TILE_SET_H
 

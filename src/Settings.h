@@ -21,6 +21,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * Settings
  */
 
+
+#pragma once
 #ifndef SETTINGS_H
 #define SETTINGS_H
 
@@ -43,6 +45,7 @@ typedef struct HeroClass{
 	int defense;
 	int hotkeys[12];
 	std::vector<int> powers;
+	std::vector<std::string> statuses;
 
 	HeroClass()
 	: name("")
@@ -113,6 +116,7 @@ extern bool SHOW_FPS;
 extern int CORPSE_TIMEOUT;
 extern bool SELL_WITHOUT_VENDOR;
 extern int AIM_ASSIST;
+extern std::string WINDOW_TITLE;
 
 // Tile Settings
 extern unsigned short UNITS_PER_TILE;
