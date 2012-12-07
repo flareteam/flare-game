@@ -672,6 +672,7 @@ void GameStatePlay::logic() {
 	}
 
 	// these actions occur whether the game is paused or not.
+	if (pc->respawn) menu->inv->applyEquipment(menu->inv->inventory[EQUIPMENT].storage);
 	checkNotifications();
 	checkLootDrop();
 	checkTeleport();
