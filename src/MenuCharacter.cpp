@@ -48,9 +48,10 @@ MenuCharacter::MenuCharacter(StatBlock *_stats) {
 		cstat[i].hover.w = cstat[i].hover.h = 0;
 		cstat[i].visible = true;
 	}
-	for (int i=0; i<16; i++) {
+	for (int i=0; i<14; i++) {
 		show_stat[i] = true;
 	}
+	statlist_rows = 10;
 
 	closeButton = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
 
@@ -67,10 +68,6 @@ MenuCharacter::MenuCharacter(StatBlock *_stats) {
 
 	// menu title
 	labelCharacter = new WidgetLabel();
-
-	// stat list
-	statList = new WidgetListBox(15+stats->vulnerable.size(), 10, mods->locate("images/menus/buttons/listbox_char.png"));
-	statList->can_select = false;
 
 	// Load config settings
 	FileParser infile;
@@ -98,6 +95,8 @@ MenuCharacter::MenuCharacter(StatBlock *_stats) {
 			} else if(infile.key == "statlist") {
 				statlist_pos.x = eatFirstInt(infile.val,',');
 				statlist_pos.y = eatFirstInt(infile.val,',');
+			} else if (infile.key == "statlist_rows") {
+				statlist_rows = eatFirstInt(infile.val,',');
 			} else if(infile.key == "label_name") {
 				label_pos[0] = eatLabelInfo(infile.val);
 				cstat[CSTAT_NAME].visible = !label_pos[0].hidden;
@@ -169,34 +168,34 @@ MenuCharacter::MenuCharacter(StatBlock *_stats) {
 				if (eatFirstInt(infile.val,',') == 0) show_stat[2] = false;
 			} else if (infile.key == "show_mpregen"){
 				if (eatFirstInt(infile.val,',') == 0) show_stat[3] = false;
-			} else if (infile.key == "show_accuracy_v1"){
+			} else if (infile.key == "show_accuracy"){
 				if (eatFirstInt(infile.val,',') == 0) show_stat[4] = false;
-			} else if (infile.key == "show_accuracy_v5"){
+			} else if (infile.key == "show_avoidance"){
 				if (eatFirstInt(infile.val,',') == 0) show_stat[5] = false;
-			} else if (infile.key == "show_avoidance_v1"){
-				if (eatFirstInt(infile.val,',') == 0) show_stat[6] = false;
-			} else if (infile.key == "show_avoidance_v5"){
-				if (eatFirstInt(infile.val,',') == 0) show_stat[7] = false;
 			} else if (infile.key == "show_melee"){
-				if (eatFirstInt(infile.val,',') == 0) show_stat[8] = false;
+				if (eatFirstInt(infile.val,',') == 0) show_stat[6] = false;
 			} else if (infile.key == "show_ranged"){
-				if (eatFirstInt(infile.val,',') == 0) show_stat[9] = false;
+				if (eatFirstInt(infile.val,',') == 0) show_stat[7] = false;
 			} else if (infile.key == "show_mental"){
-				if (eatFirstInt(infile.val,',') == 0) show_stat[10] = false;
+				if (eatFirstInt(infile.val,',') == 0) show_stat[8] = false;
 			} else if (infile.key == "show_crit"){
-				if (eatFirstInt(infile.val,',') == 0) show_stat[11] = false;
+				if (eatFirstInt(infile.val,',') == 0) show_stat[9] = false;
 			} else if (infile.key == "show_absorb"){
-				if (eatFirstInt(infile.val,',') == 0) show_stat[12] = false;
+				if (eatFirstInt(infile.val,',') == 0) show_stat[10] = false;
 			} else if (infile.key == "show_bonus_xp"){
-				if (eatFirstInt(infile.val,',') == 0) show_stat[13] = false;
+				if (eatFirstInt(infile.val,',') == 0) show_stat[11] = false;
 			} else if (infile.key == "show_bonus_currency"){
-				if (eatFirstInt(infile.val,',') == 0) show_stat[14] = false;
+				if (eatFirstInt(infile.val,',') == 0) show_stat[12] = false;
 			} else if (infile.key == "show_resists"){
-				if (eatFirstInt(infile.val,',') == 0) show_stat[15] = false;
+				if (eatFirstInt(infile.val,',') == 0) show_stat[13] = false;
 			}
 		}
 		infile.close();
 	} else fprintf(stderr, "Unable to open menus/character.txt!\n");
+
+	// stat list
+	statList = new WidgetListBox(13+stats->vulnerable.size(), statlist_rows, mods->locate("images/menus/buttons/listbox_char.png"));
+	statList->can_select = false;
 
 	loadGraphics();
 }
@@ -321,31 +320,19 @@ void MenuCharacter::refreshStats() {
 
 	if (show_stat[4]) {
 		ss.str("");
-		ss << msg->get("Accuracy (vs lvl 1):") << " " << stats->accuracy << "%";
+		ss << msg->get("Accuracy:") << " " << stats->accuracy << "%";
 		statList->set(visible_stats++, ss.str(),msg->get("Each point of Offense grants +%d accuracy. Each level grants +%d accuracy", stats->accuracy_per_offense, stats->accuracy_per_level));
 	}
 
 	if (show_stat[5]) {
 		ss.str("");
-		ss << msg->get("Accuracy (vs lvl 5):") << " " << (stats->accuracy-20) << "%";
-		statList->set(visible_stats++, ss.str(),msg->get("Each point of Offense grants +%d accuracy. Each level grants +%d accuracy", stats->accuracy_per_offense, stats->accuracy_per_level));
-	}
-
-	if (show_stat[6]) {
-		ss.str("");
-		ss << msg->get("Avoidance (vs lvl 1):") << " " << stats->avoidance << "%";
-		statList->set(visible_stats++, ss.str(),msg->get("Each point of Defense grants +%d avoidance. Each level grants +%d avoidance", stats->avoidance_per_defense, stats->avoidance_per_level));
-	}
-
-	if (show_stat[7]) {
-		ss.str("");
-		ss << msg->get("Avoidance (vs lvl 5):") << " " << (stats->avoidance-20) << "%";
+		ss << msg->get("Avoidance:") << " " << stats->avoidance << "%";
 		statList->set(visible_stats++, ss.str(),msg->get("Each point of Defense grants +%d avoidance. Each level grants +%d avoidance", stats->avoidance_per_defense, stats->avoidance_per_level));
 	}
 
 	int bonus;
 
-	if (show_stat[8]) {
+	if (show_stat[6]) {
 		bonus = stats->get_physical() * stats->bonus_per_physical;
 		ss.str("");
 		ss << msg->get("Melee Damage:") << " ";
@@ -356,7 +343,7 @@ void MenuCharacter::refreshStats() {
 		statList->set(visible_stats++, ss.str(),"");
 	}
 
-	if (show_stat[9]) {
+	if (show_stat[7]) {
 		bonus = stats->get_offense() * stats->bonus_per_offense;
 		ss.str("");
 		ss << msg->get("Ranged Damage:") << " ";
@@ -367,7 +354,7 @@ void MenuCharacter::refreshStats() {
 		statList->set(visible_stats++, ss.str(),"");
 	}
 
-	if (show_stat[10]) {
+	if (show_stat[8]) {
 		bonus = stats->get_mental() * stats->bonus_per_mental;
 		ss.str("");
 		ss << msg->get("Mental Damage:") << " ";
@@ -378,13 +365,13 @@ void MenuCharacter::refreshStats() {
 		statList->set(visible_stats++, ss.str(),"");
 	}
 
-	if (show_stat[11]) {
+	if (show_stat[9]) {
 		ss.str("");
 		ss << msg->get("Crit:") << " " << stats->crit << "%";
 		statList->set(visible_stats++, ss.str(),"");
 	}
 
-	if (show_stat[12]) {
+	if (show_stat[10]) {
 		ss.str("");
 		ss << msg->get("Absorb:") << " ";
 		if (stats->absorb_min == stats->absorb_max)
@@ -394,19 +381,19 @@ void MenuCharacter::refreshStats() {
 		statList->set(visible_stats++, ss.str(),"");
 	}
 
-	if (show_stat[13]) {
+	if (show_stat[11]) {
 		ss.str("");
 		ss << msg->get("Bonus") << " XP: " << stats->effects.bonus_xp << "%";
 		statList->set(visible_stats++, ss.str(),msg->get("Increases the XP gained per kill"));
 	}
 
-	if (show_stat[14]) {
+	if (show_stat[12]) {
 		ss.str("");
 		ss << msg->get("Bonus") << " " << CURRENCY << ": " << stats->effects.bonus_currency << "%";
 		statList->set(visible_stats++, ss.str(),msg->get("Increases the %s found per drop",CURRENCY));
 	}
 
-	if (show_stat[15]) {
+	if (show_stat[13]) {
 		for (unsigned int j=0; j<stats->vulnerable.size(); j++) {
 			ss.str("");
 			ss << msg->get(ELEMENTS[j].resist) << ": " << (100 - stats->vulnerable[j]) << "%";
