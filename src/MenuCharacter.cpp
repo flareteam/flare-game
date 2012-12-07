@@ -51,6 +51,7 @@ MenuCharacter::MenuCharacter(StatBlock *_stats) {
 	for (int i=0; i<14; i++) {
 		show_stat[i] = true;
 	}
+	statlist_rows = 10;
 
 	closeButton = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
 
@@ -67,10 +68,6 @@ MenuCharacter::MenuCharacter(StatBlock *_stats) {
 
 	// menu title
 	labelCharacter = new WidgetLabel();
-
-	// stat list
-	statList = new WidgetListBox(15+stats->vulnerable.size(), 10, mods->locate("images/menus/buttons/listbox_char.png"));
-	statList->can_select = false;
 
 	// Load config settings
 	FileParser infile;
@@ -98,6 +95,8 @@ MenuCharacter::MenuCharacter(StatBlock *_stats) {
 			} else if(infile.key == "statlist") {
 				statlist_pos.x = eatFirstInt(infile.val,',');
 				statlist_pos.y = eatFirstInt(infile.val,',');
+			} else if (infile.key == "statlist_rows") {
+				statlist_rows = eatFirstInt(infile.val,',');
 			} else if(infile.key == "label_name") {
 				label_pos[0] = eatLabelInfo(infile.val);
 				cstat[CSTAT_NAME].visible = !label_pos[0].hidden;
@@ -193,6 +192,10 @@ MenuCharacter::MenuCharacter(StatBlock *_stats) {
 		}
 		infile.close();
 	} else fprintf(stderr, "Unable to open menus/character.txt!\n");
+
+	// stat list
+	statList = new WidgetListBox(13+stats->vulnerable.size(), statlist_rows, mods->locate("images/menus/buttons/listbox_char.png"));
+	statList->can_select = false;
 
 	loadGraphics();
 }
