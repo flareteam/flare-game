@@ -675,9 +675,6 @@ bool PowerManager::effect(StatBlock *src_stats, int power_index) {
 		int magnitude = powers[power_index].post_effects[i].magnitude;
 		int duration = powers[power_index].post_effects[i].duration;
 
-		bool is_triggered = false;
-		if (powers[power_index].passive_trigger != -1) is_triggered = true;
-
 		if (effect_index > 0) {
 			if (powers[effect_index].effect_type == "shield") {
 				// charge shield to max ment weapon damage * damage multiplier
@@ -696,7 +693,7 @@ bool PowerManager::effect(StatBlock *src_stats, int power_index) {
 				if (src_stats->hp > src_stats->maxhp) src_stats->hp = src_stats->maxhp;
 			}
 
-			src_stats->effects.addEffect(effect_index, powers[effect_index].icon, duration, magnitude, powers[effect_index].effect_type, powers[effect_index].animation_name, powers[effect_index].effect_additive, false, is_triggered, powers[effect_index].effect_render_above);
+			src_stats->effects.addEffect(effect_index, powers[effect_index].icon, duration, magnitude, powers[effect_index].effect_type, powers[effect_index].animation_name, powers[effect_index].effect_additive, false, powers[power_index].passive_trigger, powers[effect_index].effect_render_above);
 		}
 
 		// If there's a sound effect, play it here

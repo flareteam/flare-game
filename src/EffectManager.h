@@ -50,7 +50,7 @@ struct Effect{
 	std::string animation_name;
 	Animation* animation;
 	bool item;
-	bool trigger;
+	int trigger;
 	bool render_above;
 
 	Effect()
@@ -64,7 +64,7 @@ struct Effect{
 	 , animation_name("")
 	 , animation(NULL)
 	 , item(false)
-	 , trigger(false)
+	 , trigger(-1)
 	 , render_above(false)
 	{}
 
@@ -84,7 +84,7 @@ public:
 	~EffectManager();
 	void clearStatus();
 	void logic();
-	void addEffect(int id, int icon, int duration, int magnitude, std::string type, std::string animation, bool additive, bool item, bool trigger, bool render_above);
+	void addEffect(int id, int icon, int duration, int magnitude, std::string type, std::string animation, bool additive, bool item, int trigger, bool render_above);
 	void removeEffectType(std::string type);
 	void clearEffects();
 	void clearNegativeEffects();

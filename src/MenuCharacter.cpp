@@ -48,7 +48,7 @@ MenuCharacter::MenuCharacter(StatBlock *_stats) {
 		cstat[i].hover.w = cstat[i].hover.h = 0;
 		cstat[i].visible = true;
 	}
-	for (int i=0; i<14; i++) {
+	for (int i=0; i<16; i++) {
 		show_stat[i] = true;
 	}
 
@@ -69,7 +69,7 @@ MenuCharacter::MenuCharacter(StatBlock *_stats) {
 	labelCharacter = new WidgetLabel();
 
 	// stat list
-	statList = new WidgetListBox(13+stats->vulnerable.size(), 10, mods->locate("images/menus/buttons/listbox_char.png"));
+	statList = new WidgetListBox(15+stats->vulnerable.size(), 10, mods->locate("images/menus/buttons/listbox_char.png"));
 	statList->can_select = false;
 
 	// Load config settings
@@ -187,8 +187,12 @@ MenuCharacter::MenuCharacter(StatBlock *_stats) {
 				if (eatFirstInt(infile.val,',') == 0) show_stat[11] = false;
 			} else if (infile.key == "show_absorb"){
 				if (eatFirstInt(infile.val,',') == 0) show_stat[12] = false;
-			} else if (infile.key == "show_resists"){
+			} else if (infile.key == "show_bonus_xp"){
 				if (eatFirstInt(infile.val,',') == 0) show_stat[13] = false;
+			} else if (infile.key == "show_bonus_currency"){
+				if (eatFirstInt(infile.val,',') == 0) show_stat[14] = false;
+			} else if (infile.key == "show_resists"){
+				if (eatFirstInt(infile.val,',') == 0) show_stat[15] = false;
 			}
 		}
 		infile.close();
@@ -391,6 +395,18 @@ void MenuCharacter::refreshStats() {
 	}
 
 	if (show_stat[13]) {
+		ss.str("");
+		ss << msg->get("Bonus") << " XP: " << stats->effects.bonus_xp << "%";
+		statList->set(visible_stats++, ss.str(),msg->get("Increases the XP gained per kill"));
+	}
+
+	if (show_stat[14]) {
+		ss.str("");
+		ss << msg->get("Bonus") << " " << CURRENCY << ": " << stats->effects.bonus_currency << "%";
+		statList->set(visible_stats++, ss.str(),msg->get("Increases the %s found per drop",CURRENCY));
+	}
+
+	if (show_stat[15]) {
 		for (unsigned int j=0; j<stats->vulnerable.size(); j++) {
 			ss.str("");
 			ss << msg->get(ELEMENTS[j].resist) << ": " << (100 - stats->vulnerable[j]) << "%";
