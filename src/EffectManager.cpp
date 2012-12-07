@@ -126,7 +126,7 @@ void EffectManager::logic() {
 	}
 }
 
-void EffectManager::addEffect(int id, int icon, int duration, int magnitude, std::string type, std::string animation, bool additive, bool item, bool trigger, bool render_above) {
+void EffectManager::addEffect(int id, int icon, int duration, int magnitude, std::string type, std::string animation, bool additive, bool item, int trigger, bool render_above) {
 	// if we're already immune, don't add negative effects
 	if (immunity) {
 		if (type == "damage") return;
@@ -142,7 +142,7 @@ void EffectManager::addEffect(int id, int icon, int duration, int magnitude, std
 
 	for (unsigned i=0; i<effect_list.size(); i++) {
 		if (effect_list[i].id == id) {
-			if (trigger && effect_list[i].trigger == trigger) return; // trigger effects can only be cast once per trigger
+			if (trigger > -1 && effect_list[i].trigger == trigger) return; // trigger effects can only be cast once per trigger
 			if (effect_list[i].duration <= duration) {
 				effect_list[i].ticks = effect_list[i].duration = duration;
 				if (effect_list[i].animation) effect_list[i].animation->reset();
@@ -224,7 +224,7 @@ void EffectManager::clearItemEffects() {
 
 void EffectManager::clearTriggerEffects(int trigger) {
 	for (unsigned i=effect_list.size(); i > 0; i--) {
-		if (effect_list[i-1].trigger == trigger) removeEffect(i-1);
+		if (effect_list[i-1].trigger > -1 && effect_list[i-1].trigger == trigger) removeEffect(i-1);
 	}
 }
 
