@@ -232,8 +232,15 @@ void GameStateConfig::readConfig () {
 
 			setting_num = -1;
 
+			if (infile.key == "listbox_scrollbar_offset") {
+				activemods_lstb->scrollbar_offset = x1;
+				inactivemods_lstb->scrollbar_offset = x1;
+				joystick_device_lstb->scrollbar_offset = x1;
+				resolution_lstb->scrollbar_offset = x1;
+				language_lstb->scrollbar_offset = x1;
+			}
 			//checkboxes
-			if (infile.key == "fullscreen") {
+			else if (infile.key == "fullscreen") {
 				fullscreen_cb->pos.x = frame.x + x2;
 				fullscreen_cb->pos.y = frame.y + y2;
 				child_widget.push_back(fullscreen_cb);

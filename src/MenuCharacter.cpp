@@ -52,6 +52,7 @@ MenuCharacter::MenuCharacter(StatBlock *_stats) {
 		show_stat[i] = true;
 	}
 	statlist_rows = 10;
+	statlist_scrollbar_offset = 0;
 
 	closeButton = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
 
@@ -97,6 +98,8 @@ MenuCharacter::MenuCharacter(StatBlock *_stats) {
 				statlist_pos.y = eatFirstInt(infile.val,',');
 			} else if (infile.key == "statlist_rows") {
 				statlist_rows = eatFirstInt(infile.val,',');
+			} else if (infile.key == "statlist_scrollbar_offset") {
+				statlist_scrollbar_offset = eatFirstInt(infile.val,',');
 			} else if(infile.key == "label_name") {
 				label_pos[0] = eatLabelInfo(infile.val);
 				cstat[CSTAT_NAME].visible = !label_pos[0].hidden;
@@ -196,6 +199,7 @@ MenuCharacter::MenuCharacter(StatBlock *_stats) {
 	// stat list
 	statList = new WidgetListBox(13+stats->vulnerable.size(), statlist_rows, mods->locate("images/menus/buttons/listbox_char.png"));
 	statList->can_select = false;
+	statList->scrollbar_offset = statlist_scrollbar_offset;
 
 	loadGraphics();
 }
