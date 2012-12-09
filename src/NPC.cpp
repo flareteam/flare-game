@@ -36,27 +36,31 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 using namespace std;
 
 
-NPC::NPC(MapRenderer *_map, ItemManager *_items) : Entity(_map) {
-	items = _items;
-	direction = 0;
-	level = 1;
+ItemStorage stock;
 
-	// init general vars
-	name = "";
-	gfx = "";
-	pos.x = pos.y = 0;
+std::vector<Mix_Chunk*> vox_intro;
+std::vector<Mix_Chunk*> vox_quests;
+std::vector<std::vector<Event_Component> > dialog;
 
-	// init vendor info
-	vendor = false;
+NPC::NPC(MapRenderer *_map, ItemManager *_items)
+	: Entity(_map)
+	, items(_items)
+	, name("")
+	, gfx("")
+	, pos(Point())
+	, level(1)
+	, direction(0)
+	, portrait(NULL)
+	, talker(false)
+	, vendor(false)
+	// stock
+	, stock_count(0)
+	, random_stock(0)
+	, vox_intro(vector<Mix_Chunk*>())
+	, vox_quests(vector<Mix_Chunk*>())
+	, dialog(vector<vector<Event_Component> >())
+{
 	stock.init(NPC_VENDOR_MAX_STOCK, _items);
-	stock_count = 0;
-	random_stock = 0;
-
-	vox_intro = vector<Mix_Chunk*>();
-
-	// init talker info
-	portrait = NULL;
-	talker = false;
 }
 
 /**
