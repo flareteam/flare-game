@@ -26,6 +26,16 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 using namespace std;
 
+MenuItemStorage::MenuItemStorage()
+	: area(vector<SDL_Rect>())
+	, icon_size(NULL)
+	, nb_cols(0)
+	, slot_type(vector<string>())
+	, drag_prev_slot(0)
+	, highlight(NULL)
+	, highlight_image(NULL)
+{}
+
 void MenuItemStorage::init(int _slot_number, ItemManager *_items, SDL_Rect _area, int _icon_size, int _nb_cols) {
 	ItemStorage::init( _slot_number, _items);
 	area.push_back(_area);
