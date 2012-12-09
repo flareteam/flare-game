@@ -68,9 +68,6 @@ struct Layer_gfx {
 
 class Avatar : public Entity {
 private:
-
-	PowerManager *powers;
-
 	bool lockSwing;
 	bool lockCast;
 	bool lockShoot;
@@ -96,6 +93,8 @@ private:
 public:
 	Avatar(PowerManager *_powers, MapRenderer *_map);
 	~Avatar();
+
+	PowerManager *powers;
 
 	void init();
 	void loadLayerDefinitions();
