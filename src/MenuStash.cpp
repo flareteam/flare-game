@@ -30,16 +30,17 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 using namespace std;
 
 
-MenuStash::MenuStash(ItemManager *_items, StatBlock *_stats) {
-	items = _items;
-	stats = _stats;
-	stock = MenuItemStorage();
+MenuStash::MenuStash(ItemManager *_items, StatBlock *_stats)
+	: Menu()
+	, items(_items)
+	, stats(_stats)
+	, closeButton(new WidgetButton(mods->locate("images/menus/buttons/button_x.png")))
+	, color_normal(font->getColor("menu_normal"))
+	, stock(MenuItemStorage())
+	, updated(false)
 
-	visible = false;
-	updated = false;
+{
 	loadGraphics();
-
-	closeButton = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
 
 	// Load config settings
 	FileParser infile;
@@ -65,8 +66,6 @@ MenuStash::MenuStash(ItemManager *_items, StatBlock *_stats) {
 	} else fprintf(stderr, "Unable to open menus/stash.txt!\n");
 
 	STASH_SLOTS = slots_cols * slots_rows;
-
-	color_normal = font->getColor("menu_normal");
 }
 
 void MenuStash::loadGraphics() {
