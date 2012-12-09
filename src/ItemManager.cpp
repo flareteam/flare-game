@@ -38,22 +38,20 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 using namespace std;
 
 
-ItemManager::ItemManager() {
-	items = vector<Item>();
-
+ItemManager::ItemManager()
+	: color_normal(font->getColor("item_normal"))
+	, color_low(font->getColor("item_low"))
+	, color_high(font->getColor("item_high"))
+	, color_epic(font->getColor("item_epic"))
+	, color_bonus(font->getColor("item_bonus"))
+	, color_penalty(font->getColor("item_penalty"))
+	, color_requirements_not_met(font->getColor("requirements_not_met"))
+	, color_flavor(font->getColor("item_flavor"))
+	, items(vector<Item>())
+{
 	loadAll();
 	loadSounds();
 	loadIcons();
-
-	// font colors
-	color_normal = font->getColor("item_normal");
-	color_low = font->getColor("item_low");
-	color_high = font->getColor("item_high");
-	color_epic = font->getColor("item_epic");
-	color_bonus = font->getColor("item_bonus");
-	color_penalty = font->getColor("item_penalty");
-	color_requirements_not_met = font->getColor("requirements_not_met");
-	color_flavor = font->getColor("item_flavor");
 }
 
 /**
