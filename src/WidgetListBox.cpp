@@ -49,6 +49,7 @@ WidgetListBox::WidgetListBox(int amount, int height, const std::string& _fileNam
 	, multi_select(false)
 	, can_deselect(true)
 	, can_select(true)
+	, scrollbar_offset(0)
 {
 	listboxs = NULL;
 	click = NULL;
@@ -429,10 +430,10 @@ void WidgetListBox::refresh() {
 	// Update the scrollbar
 	if (non_empty_slots > list_height) {
 		has_scroll_bar = true;
-		pos_scroll.x = pos.x+pos.w-3-scrollbar->pos_up.w;
-		pos_scroll.y = pos.y+3;
+		pos_scroll.x = pos.x+pos.w-scrollbar->pos_up.w-scrollbar_offset;
+		pos_scroll.y = pos.y+scrollbar_offset;
 		pos_scroll.w = scrollbar->pos_up.w;
-		pos_scroll.h = ((pos.h-1)*list_height)-scrollbar->pos_down.h-7;
+		pos_scroll.h = (pos.h*list_height)-scrollbar->pos_down.h-(scrollbar_offset*2);
 		scrollbar->refresh(pos_scroll.x, pos_scroll.y, pos_scroll.h, cursor, non_empty_slots-list_height);
 		right_margin = scrollbar->pos_knob.w + 8;
 	} else {
@@ -444,7 +445,7 @@ void WidgetListBox::refresh() {
 	for(int i=0;i<list_height;i++)
 	{
 		rows[i].x = pos.x;
-		rows[i].y = ((pos.h-1)*i)+pos.y;
+		rows[i].y = (pos.h*i)+pos.y;
 		if (has_scroll_bar) {
 			rows[i].w = pos.w - pos_scroll.w;
 		} else {

@@ -92,6 +92,7 @@ public:
 	bool multi_select;
 	bool can_deselect;
 	bool can_select;
+	int scrollbar_offset;
 };
 
 #endif
