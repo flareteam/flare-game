@@ -99,7 +99,6 @@ bool WidgetListBox::checkClick(int x, int y) {
 	Point mouse(x, y);
 
 	refresh();
-	tip_new = checkTooltip(mouse);
 
 	// check scroll wheel
 	SDL_Rect scroll_area;
@@ -399,16 +398,6 @@ void WidgetListBox::render(SDL_Surface *target) {
 
 	if (has_scroll_bar)
 		scrollbar->render(target);
-
-	if (!tip_new.isEmpty()) {
-		if (!tip_new.compare(&tip_buf)) {
-			tip_buf.clear();
-			tip_buf = tip_new;
-		}
-		tip->render(tip_buf, inpt->mouse, STYLE_FLOAT, target);
-	}
-
-
 }
 
 /**
@@ -478,7 +467,6 @@ void WidgetListBox::refresh() {
 }
 
 WidgetListBox::~WidgetListBox() {
-	tip_buf.clear();
 	SDL_FreeSurface(listboxs);
 	delete[] values;
 	delete[] tooltips;

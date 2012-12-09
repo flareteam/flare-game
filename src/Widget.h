@@ -24,6 +24,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * Base interface all widget needs to implement
  */
 #include <SDL.h>
+
 class Widget {
 public:
 	Widget();

@@ -51,6 +51,7 @@ GameStateConfig::GameStateConfig ()
 	, defaults_button(NULL)
 	, cancel_button(NULL)
 	, imgFileName(mods->locate("images/menus/config.png"))
+	, tip_buf(TooltipData())
 	, input_key(0)
 	, check_resolution(true)
 {
@@ -68,6 +69,8 @@ GameStateConfig::GameStateConfig ()
 }
 
 void GameStateConfig::init() {
+
+	tip = new WidgetTooltip();
 
 	ok_button = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
 	defaults_button = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
@@ -1019,6 +1022,25 @@ void GameStateConfig::render ()
 
 	if (input_confirm->visible) input_confirm->render();
 	if (defaults_confirm->visible) defaults_confirm->render();
+
+	// Get tooltips for listboxes
+	// This isn't very elegant right now
+	// In the future, we'll want to get tooltips for all widget types
+	TooltipData tip_new;
+	if (active_tab == 0 && tip_new.isEmpty()) tip_new = resolution_lstb->checkTooltip(inpt->mouse);
+	if (active_tab == 2 && tip_new.isEmpty()) tip_new = language_lstb->checkTooltip(inpt->mouse);
+	if (active_tab == 3 && tip_new.isEmpty()) tip_new = joystick_device_lstb->checkTooltip(inpt->mouse);
+	if (active_tab == 5 && tip_new.isEmpty()) tip_new = activemods_lstb->checkTooltip(inpt->mouse);
+	if (active_tab == 5 && tip_new.isEmpty()) tip_new = inactivemods_lstb->checkTooltip(inpt->mouse);
+
+	if (!tip_new.isEmpty()) {
+		if (!tip_new.compare(&tip_buf)) {
+			tip_buf.clear();
+			tip_buf = tip_new;
+		}
+		tip->render(tip_buf, inpt->mouse, STYLE_FLOAT);
+	}
+
 }
 
 int GameStateConfig::getVideoModes()
@@ -1297,6 +1319,8 @@ void GameStateConfig::scanKey(int button) {
 
 GameStateConfig::~GameStateConfig()
 {
+	tip_buf.clear();
+	delete tip;
 	delete tabControl;
 	delete ok_button;
 	delete defaults_button;
