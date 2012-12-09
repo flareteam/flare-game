@@ -31,8 +31,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 using namespace std;
 
 MapCollision::MapCollision()
+	: map_size(Point())
 {
-	map_size=Point();
 	memset(colmap, 0, sizeof(colmap));
 }
 
