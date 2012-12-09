@@ -44,12 +44,11 @@ using namespace std;
 /**
  * PowerManager constructor
  */
-PowerManager::PowerManager() {
-
-	used_item = -1;
-	log_msg = "";
-	collider = NULL;
-
+PowerManager::PowerManager()
+	: collider(NULL)
+	, log_msg("")
+	, used_item(-1)
+{
 	loadAll();
 }
 
@@ -68,9 +67,7 @@ void PowerManager::loadAll() {
 		if (fileExists(test_path)) {
 			this->loadPowers(test_path);
 		}
-
 	}
-
 }
 
 
