@@ -204,6 +204,9 @@ void EffectManager::clearEffects() {
 	for (unsigned i=effect_list.size(); i > 0; i--) {
 		removeEffect(i-1);
 	}
+
+	// clear triggers
+	triggered_others = triggered_block = triggered_hit = triggered_halfdeath = triggered_joincombat = false;
 }
 
 void EffectManager::clearNegativeEffects() {
