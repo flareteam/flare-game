@@ -152,6 +152,7 @@ void WidgetButton::render(SDL_Surface *target) {
 	wlabel.render(target);
 
 	// render the tooltip
+	// TODO move this to menu rendering
 	if (!tip_new.isEmpty()) {
 		if (!tip_new.compare(&tip_buf)) {
 			tip_buf.clear();

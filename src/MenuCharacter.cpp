@@ -529,8 +529,7 @@ TooltipData MenuCharacter::checkTooltip() {
 			return cstat[i].tip;
 	}
 
-	TooltipData tip;
-	return tip;
+	return statList->checkTooltip(inpt->mouse);
 }
 
 /**
