@@ -373,6 +373,8 @@ bool MenuPowers::unlockClick(Point mouse) {
 					&& power_cell[i].requires_point && power_cell[i].tab == active_tab) {
 				stats->powers_list.push_back(power_cell[i].id);
 				stats->check_title = true;
+				// if the power is passive, activate it
+				powers->activateSinglePassive(stats, power_cell[i].id);
 				return true;
 			}
 		}
@@ -384,6 +386,8 @@ bool MenuPowers::unlockClick(Point mouse) {
 					&& points_left > 0 && power_cell[i].requires_point) {
 				stats->powers_list.push_back(power_cell[i].id);
 				stats->check_title = true;
+				// if the power is passive, activate it
+				powers->activateSinglePassive(stats, power_cell[i].id);
 				return true;
 			}
 		}
