@@ -30,12 +30,13 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 using namespace std;
 
-EnemyManager::EnemyManager(PowerManager *_powers, MapRenderer *_map) {
-	powers = _powers;
-	map = _map;
-	enemies = vector<Enemy*>();
+EnemyManager::EnemyManager(PowerManager *_powers, MapRenderer *_map)
+	: map(_map)
+	, powers(_powers)
+	, enemies(vector<Enemy*>())
+	, hero_alive(true)
+{
 	hero_pos.x = hero_pos.y = -1;
-	hero_alive = true;
 	handleNewMap();
 }
 

@@ -26,10 +26,15 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 using namespace std;
 
-EffectManager::EffectManager() {
-	bonus_resist = std::vector<int>(ELEMENTS.size(), 0);
+EffectManager::EffectManager()
+	: bonus_resist(vector<int>(ELEMENTS.size(), 0))
+	, triggered_others(false)
+	, triggered_block(false)
+	, triggered_hit(false)
+	, triggered_halfdeath(false)
+	, triggered_joincombat(false)
+{
 	clearStatus();
-	triggered_others = triggered_block = triggered_hit = triggered_halfdeath = triggered_joincombat = false;
 }
 
 EffectManager::~EffectManager() {

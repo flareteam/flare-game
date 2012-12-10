@@ -743,11 +743,10 @@ void GameStateConfig::logic ()
 {
 	check_resolution = true;
 
-	// Initialize resolution value
-	std::string value;
-	value = resolution_lstb->getValue() + 'x';
-	int width = eatFirstInt(value, 'x');
-	int height = eatFirstInt(value, 'x');
+	std::string resolution_value;
+	resolution_value = resolution_lstb->getValue() + 'x'; // add x to have last element readable
+	int width = eatFirstInt(resolution_value, 'x');
+	int height = eatFirstInt(resolution_value, 'x');
 
 	// In case of a custom resolution, the listbox might have nothing selected
 	// So we just use whatever the current view area is
@@ -861,7 +860,7 @@ void GameStateConfig::logic ()
 			if (animated_tiles_cb->isChecked()) ANIMATED_TILES=true;
 			else ANIMATED_TILES=false;
 		} else if (resolution_lstb->checkClick()) {
-			value = resolution_lstb->getValue() + 'x';
+			; // nothing to do here: resolution value changes next frame.
 		} else if (CHANGE_GAMMA) {
 			if (gamma_sl->checkClick()) {
 					GAMMA=(gamma_sl->getValue())*0.1f;

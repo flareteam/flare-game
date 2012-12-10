@@ -33,28 +33,24 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 using namespace std;
 
 
-MenuVendor::MenuVendor(ItemManager *_items, StatBlock *_stats) {
-	items = _items;
-	stats = _stats;
-
-	stock[0] = MenuItemStorage();
-	stock[1] = MenuItemStorage();
-	buyback_stock = ItemStorage();
-	npc = NULL;
-
-	visible = false;
-	talker_visible = false;
-	activetab = VENDOR_BUY;
+MenuVendor::MenuVendor(ItemManager *_items, StatBlock *_stats)
+	: Menu()
+	, items(_items)
+	, stats(_stats)
+	, closeButton(new WidgetButton(mods->locate("images/menus/buttons/button_x.png")))
+	, tabControl(new WidgetTabControl(2))
+	, activetab(VENDOR_BUY)
+	, color_normal(font->getColor("menu_normal"))
+	, npc(NULL)
+	, buyback_stock(ItemStorage())
+	, talker_visible(false)
+{
 	loadGraphics();
 
-	closeButton = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
-
-	tabControl = new WidgetTabControl(2);
 	tabControl->setTabTitle(VENDOR_BUY,msg->get("Inventory"));
 	tabControl->setTabTitle(VENDOR_SELL,msg->get("Buyback"));
 
 	loadMerchant("");
-
 
 	// Load config settings
 	FileParser infile;
@@ -80,8 +76,6 @@ MenuVendor::MenuVendor(ItemManager *_items, StatBlock *_stats) {
 	} else fprintf(stderr, "Unable to open menus/vendor.txt!\n");
 
 	VENDOR_SLOTS = slots_cols * slots_rows;
-
-	color_normal = font->getColor("menu_normal");
 }
 
 void MenuVendor::loadGraphics() {

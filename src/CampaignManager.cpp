@@ -33,22 +33,16 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 using namespace std;
 
-
-CampaignManager::CampaignManager() {
-
-	drop_stack.item = 0;
-	drop_stack.quantity = 0;
-
-	items = NULL;
-	carried_items = NULL;
-	currency = NULL;
-	hero = NULL;
-
-	log_msg = "";
-	quest_update = true;
-
-	clearAll();
-}
+CampaignManager::CampaignManager()
+	: status(vector<string>())
+	, log_msg("")
+	, drop_stack(ItemStack())
+	, items(NULL)
+	, carried_items(NULL)
+	, currency(NULL)
+	, hero(NULL)
+	, quest_update(true)
+{}
 
 void CampaignManager::clearAll() {
 	// clear campaign data

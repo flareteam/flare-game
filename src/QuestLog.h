@@ -41,10 +41,10 @@ private:
 	// inner vector is a chain of events per quest, outer vector is a
 	// list of quests.
 	std::vector<std::vector<Event_Component> >quests;
-	int quest_count;
 
 public:
 	QuestLog(CampaignManager *_camp, MenuLog *_log);
+	~QuestLog();
 	void loadAll();
 	void loadIndex(const std::string& filename);
 	void load(const std::string& filename);
