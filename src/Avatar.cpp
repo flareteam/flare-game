@@ -42,11 +42,11 @@ using namespace std;
 
 Avatar::Avatar(PowerManager *_powers, MapRenderer *_map)
  : Entity(_map)
- , powers(_powers)
  , lockSwing(false)
  , lockCast(false)
  , lockShoot(false)
  , animFwd(false)
+ , powers(_powers)
  , hero_stats(NULL)
  , charmed_stats(NULL)
  , act_target(Point())
@@ -104,7 +104,7 @@ void Avatar::init() {
 	stats.recalc();
 
 	log_msg = "";
-	respawn = false;
+	respawn = true;
 
 	stats.cooldown_ticks = 0;
 
@@ -635,11 +635,6 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 					map->teleport_destination.y = stats.pos.y;
 				}
 				else {
-					stats.hp = stats.maxhp;
-					stats.mp = stats.maxmp;
-					stats.alive = true;
-					stats.corpse = false;
-					stats.cur_state = AVATAR_STANCE;
 					respawn = true;
 
 					// set teleportation variables.  GameEngine acts on these.
@@ -655,7 +650,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 	}
 
 	// turn on all passive powers
-	if (stats.hp > 0) powers->activatePassives(&stats);
+	if (stats.hp > 0 && !respawn) powers->activatePassives(&stats);
 
 	// calc new cam position from player position
 	// cam is focused at player position

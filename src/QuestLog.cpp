@@ -43,8 +43,11 @@ QuestLog::QuestLog(CampaignManager *_camp, MenuLog *_log) {
 
 	newQuestNotification = false;
 	resetQuestNotification = false;
-	quest_count = 0;
 	loadAll();
+}
+
+QuestLog::~QuestLog()
+{
 }
 
 /**
@@ -104,20 +107,15 @@ void QuestLog::load(const std::string& filename) {
 		return;
 	}
 
-	int event_count = 0;
 	while (infile.next()) {
 		if (infile.new_section) {
-			if (infile.section == "quest") {
-				quest_count++;
+			if (infile.section == "quest")
 				quests.push_back(vector<Event_Component>());
-				event_count = 0;
-			}
 		}
 		Event_Component ev;
 		ev.type = infile.key;
 		ev.s = msg->get(infile.val);
 		quests.back().push_back(ev);
-		event_count++;
 	}
 	infile.close();
 }
@@ -159,5 +157,4 @@ void QuestLog::createQuestList() {
 			}
 		}
 	}
-
 }

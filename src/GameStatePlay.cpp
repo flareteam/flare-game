@@ -305,7 +305,6 @@ void GameStatePlay::checkLog() {
 	// If the player has just respawned, we want to clear the HUD log
 	if (pc->respawn) {
 		menu->hudlog->clear();
-		pc->respawn = false;
 	}
 
 	// Map events can create messages
@@ -672,7 +671,6 @@ void GameStatePlay::logic() {
 	}
 
 	// these actions occur whether the game is paused or not.
-	if (pc->respawn) menu->inv->applyEquipment(menu->inv->inventory[EQUIPMENT].storage);
 	checkNotifications();
 	checkLootDrop();
 	checkTeleport();
@@ -720,6 +718,18 @@ void GameStatePlay::logic() {
 			menu->act->hotkeys[i] = menu->act->actionbar[i];
 			menu->act->locked[i] = false;
 		}
+	}
+
+	// when the hero (re)spawns, reapply equipment & passive effects
+	if (pc->respawn) {
+		pc->stats.alive = true;
+		pc->stats.corpse = false;
+		pc->stats.cur_state = AVATAR_STANCE;
+		menu->inv->applyEquipment(menu->inv->inventory[EQUIPMENT].storage);
+		pc->powers->activatePassives(&pc->stats);
+		pc->stats.logic();
+		pc->stats.recalc();
+		pc->respawn = false;
 	}
 }
 

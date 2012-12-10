@@ -52,9 +52,6 @@ MenuInventory::MenuInventory(ItemManager *_items, StatBlock *_stats, PowerManage
 	changed_artifact = true;
 	log_msg = "";
 
-	inventory[0] = MenuItemStorage();
-	inventory[1] = MenuItemStorage();
-
 	closeButton = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
 
 	// Load config settings

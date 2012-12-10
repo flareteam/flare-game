@@ -1,0 +1,172 @@
+# Flare
+
+Flare (Free Libre Action Roleplaying Engine) is a simple game engine built to handle a very specific kind of game: single-player 2D action RPGs. Flare is not a reimplementation of an existing game or engine. It is a tribute to and exploration of the action RPG genre.
+
+Rather than building a very abstract, robust game engine, the goal of this project is to build several real games and harvest an engine from the common, reusable code.
+
+Flare uses simple file formats (INI style config files) for most of the game data, allowing anyone to easily modify game contents. Open formats are preferred (png, ogg). The game code is C++.
+
+Originally the first game to be developed using this engine was part of this
+repository. As the engine became mature, the game content was moved to an
+extra repository and is now called flare-game. (happened around sept. 2012)
+
+
+## Copyright and License
+
+Most of Flare is Copyright © 2010-2012 Clint Bellanger. Contributors retain copyrights to their original contributions.
+
+Flare's source code is released under the GNU GPL v3. Later versions are permitted.
+
+Flare's default mod (includes engine translations) is released under GNU GPL v3 and CC-BY-SA 3.0. Later versions are permitted.
+The default mod contains the Liberation Sans font which is released under the SIL Open Font License, Version 1.1.
+
+
+
+## Links
+
+The following links are specific to the engine
+
+* Homepage  no engine dedicated homepage exists yet, the first game flare-game is found at www.flarerpg.org. Some issues regarding the engine can be found there as well.
+* Source    https://github.com/clintbellanger/flare-engine
+* Forums    http://opengameart.org/forums/flare
+* Email     clintbellanger@gmail.com
+
+## Games made with flare
+
+* flare-game    A medival fantasy game. In the first days of the engine this game influenced most design decisions a lot. The art is 3d rendered 64x32 px isometric perspective.
+* polymorphable A game made for "The Liberated Pixel cup", which was a competition about game art and making a game thereof. The pixel art is 32x32 orthogonal perspective featuring a medival setting. The development has finished.
+* concordia     Another game using the art created during "The liberated pixel cup". While this started without stress regarding the timeline for the pixel cup, this story is more thought through and the content is more organized.
+
+## Dependencies
+
+To build flare you need the 1.2 Development Libraries for SDL, SDL_image, SDL_mixer, and SDL_ttf.
+To run flare you need the equivalent 1.2 Runtime Libraries.
+
+http://www.libsdl.org/download-1.2.php
+
+For easy building I recommend using cmake and make.
+
+### Microsoft Visual C++
+
+If you want to build flare under Microsoft Visual C++, you should get dirent.h header file
+from http://softagalleria.net/dirent.php and copy it to "Microsoft Visual C++ folder"\VC\include
+
+### Debian based systems
+
+Installing dependencies on debian based systems (debian, Ubuntu, Kubuntu, etc):
+
+    sudo apt-get install libsdl1.2-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf2.0-dev
+    # for development you'll also need:
+    sudo apt-get install cmake make g++ git
+
+There is also a flare build in the Ubuntu (universe), which actually is flare-game.
+http://packages.ubuntu.com/source/precise/flare
+
+### Arch Linux
+
+Installing dependencies on Arch Linux:
+
+    pacman -S --asdeps sdl sdl_image sdl_mixer libogg libvorbis hicolor-icon-theme python sdl_ttf
+
+There is also a flare-rpg-git pkgbuild at the arch user repository:
+https://aur.archlinux.org/packages.php?ID=57522
+
+### OpenSuse
+
+Installing dependencies on openSUSE:
+
+    sudo zypper in make cmake gcc gcc-c++ libSDL-devel libSDL_image-devel libSDL_mixer-devel libSDL_ttf-devel python
+
+There is also a flare build at the openSUSE games repo:
+http://software.opensuse.org/download.html?project=games&package=flare
+
+
+
+## Building from Source
+
+There are several ways to build the game executable. For engine developers the cmake method is recommended as it has low overhead when it comes to changes in the code. However you can also build the engine with just one call to your compiler including all source files at once. This might be useful if you are
+trying to run a flare based game on an obscure platform as you only need a c++ compiler and the ported SDL package.
+
+### Building with CMake
+
+To build the game executable, go to the main directory/folder and run the following commands:
+
+    cmake .
+    make
+
+The executable is called ```flare``` in this repository or in the flare-game repository, but it is subject to change if you're running another game based on the engine (such as polymorphable).
+If you want the game installed system-wide, as root, install with:
+
+    make install
+
+The game will be installed into '/usr/local' by default.  You can set different paths in the cmake step, like:
+
+    cmake -DCMAKE_INSTALL_PREFIX:STRING="/usr" ..
+
+
+
+### Building with g++
+
+If you prefer building directly with C++, the command will be something like this.
+
+Windows plus MinGW (depending on where your SDL dev headers are)
+
+    g++ -I C:\MinGW\include\SDL src\*.cpp src\*.c -o flare.exe -lmingw32 -lSDLmain -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf
+
+Linux (depending on where your SDL includes are)
+
+    g++ -I /usr/include/SDL src/*.cpp src/*.c -o flare -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf
+
+### Optimizing your build
+
+Flare is intended to be able to run on a wide range of hardware.
+Even on very low end hardware, such as handhelds or old computers.
+To run on low end hardware smooth, we need get the best compile output possible for this device.
+The following tips may help improving the the compile output with respect to speed.
+However these compiler switches are not supported on some platforms, hence we do not
+include it into the default compile settings.
+
+ * Make sure the compiler optimizes for exactly your hardware. (g++, see -march, -mcpu)
+ * Enable link time optimisation (g++: -flto)
+   This option inlines small get and set functions accross object files reducing
+   overhead in function calls.
+ * More aggressive optimisation by telling the linker, it's just this program.
+   (g++: -fwhole-program)
+ * to be continued.
+
+## Running Flare
+
+If the program is installing system-wide (i.e., you typed 'make install' and it worked), you can run it just by executing the 'flare' command. The command name may be changed in mods and will likely be called as the game.
+
+If you did not perform the installation step, you should find the binary in in the top directory, and run it from there, like this:
+
+    ./flare
+
+Also, in newer versions, the game can be launched from an icon in your main menu in your GUI environment (KDE, GNOME, etc.).
+
+If you're running flare from your operating system's gui file browser (e.g. Windows Explorer or OSX Finder), you'll want to use one of the provided launchers.  This helps the flare executable use its own working directory, so it can see all those data folders.
+
+
+
+## Settings
+
+Settings are stored in one of these places:
+
+    $XDG_CONFIG_HOME/$GAMENAME
+    $HOME/.config/$GAMENAME
+    ./config
+
+whereas $GAMENAME is defaulting to ```flare``` in this repository or in flare-game.
+Here you can enable fullscreen, change the game resolution, enable mouse-move, and change keybindings. The settings files are created the first time you run Flare.
+
+
+
+## Save Files
+
+Save files are stored in one of these places:
+
+    $XDG_DATA_HOME/$GAMENAME
+    $HOME/.local/share/$GAMENAME
+    ./saves
+
+If permissions are correct, the game is automatically saved when you exit.

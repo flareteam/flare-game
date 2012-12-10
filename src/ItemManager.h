@@ -174,6 +174,11 @@ public:
 
 class ItemStack {
 public:
+	ItemStack()
+		: item(0)
+		, quantity(0)
+	{}
+	~ItemStack() {}
 	int item;
 	int quantity;
 	bool operator > (const ItemStack &param) const;
