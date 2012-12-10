@@ -147,10 +147,8 @@ void EffectManager::addEffect(int id, int icon, int duration, int magnitude, std
 				effect_list[i].ticks = effect_list[i].duration = duration;
 				if (effect_list[i].animation) effect_list[i].animation->reset();
 			}
-			if (additive) {
-				effect_list[i].magnitude += magnitude;
-				effect_list[i].magnitude_max += magnitude;
-			} else if (effect_list[i].magnitude_max <= magnitude) {
+			if (additive) break; // this effect will stack
+			if (effect_list[i].magnitude_max <= magnitude) {
 				effect_list[i].magnitude = effect_list[i].magnitude_max = magnitude;
 				if (effect_list[i].animation) effect_list[i].animation->reset();
 			}
@@ -206,6 +204,9 @@ void EffectManager::clearEffects() {
 	for (unsigned i=effect_list.size(); i > 0; i--) {
 		removeEffect(i-1);
 	}
+
+	// clear triggers
+	triggered_others = triggered_block = triggered_hit = triggered_halfdeath = triggered_joincombat = false;
 }
 
 void EffectManager::clearNegativeEffects() {

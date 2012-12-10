@@ -1001,7 +1001,10 @@ void PowerManager::activatePassives(StatBlock *src_stats) {
 		if (powers[src_stats->powers_list[i]].passive) {
 			int trigger = powers[src_stats->powers_list[i]].passive_trigger;
 
-			if (trigger == -1 && src_stats->effects.triggered_others) continue;
+			if (trigger == -1) {
+				if (src_stats->effects.triggered_others) continue;
+				else src_stats->effects.triggered_others = true;
+			}
 			else if (trigger == TRIGGER_BLOCK && !src_stats->effects.triggered_block) continue;
 			else if (trigger == TRIGGER_HIT && !src_stats->effects.triggered_hit) continue;
 			else if (trigger == TRIGGER_HALFDEATH && !src_stats->effects.triggered_halfdeath) {
@@ -1017,10 +1020,6 @@ void PowerManager::activatePassives(StatBlock *src_stats) {
 			src_stats->refresh_stats = true;
 		}
 	}
-	// passives without a trigger can change (such as when unlocking new powers)
-	// so here say that we're done triggering such powers
-	src_stats->effects.triggered_others = false;
-
 	// the hit trigger can be triggered more than once, so reset it here
 	// the block trigger is handled in the Avatar class
 	src_stats->effects.triggered_hit = false;
