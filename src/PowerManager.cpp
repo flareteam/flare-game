@@ -1027,6 +1027,20 @@ void PowerManager::activatePassives(StatBlock *src_stats) {
 }
 
 /**
+ * Activate a single passive
+ * this is used when unlocking powers in MenuPowers
+ */
+void PowerManager::activateSinglePassive(StatBlock *src_stats, int id) {
+	if (!powers[id].passive) return;
+
+	if (powers[id].passive_trigger == -1) {
+		activate(id, src_stats, src_stats->pos);
+		src_stats->refresh_stats = true;
+		src_stats->effects.triggered_others = true;
+	}
+}
+
+/**
  * Find the first power id for a given tag
  * returns 0 if no tag is found
  */
