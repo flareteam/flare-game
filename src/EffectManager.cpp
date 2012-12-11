@@ -55,8 +55,10 @@ void EffectManager::clearStatus() {
 
 	bonus_hp = 0;
 	bonus_hp_regen = 0;
+	bonus_hp_percent = 0;
 	bonus_mp = 0;
 	bonus_mp_regen = 0;
+	bonus_mp_percent = 0;
 	bonus_accuracy = 0;
 	bonus_avoidance = 0;
 	bonus_crit = 0;
@@ -91,8 +93,10 @@ void EffectManager::logic() {
 			}
 			else if (effect_list[i].type == "hp") bonus_hp += effect_list[i].magnitude;
 			else if (effect_list[i].type == "hp_regen") bonus_hp_regen += effect_list[i].magnitude;
+			else if (effect_list[i].type == "hp_percent") bonus_hp_percent += effect_list[i].magnitude;
 			else if (effect_list[i].type == "mp") bonus_mp += effect_list[i].magnitude;
 			else if (effect_list[i].type == "mp_regen") bonus_mp_regen += effect_list[i].magnitude;
+			else if (effect_list[i].type == "mp_percent") bonus_mp_percent += effect_list[i].magnitude;
 			else if (effect_list[i].type == "accuracy") bonus_accuracy += effect_list[i].magnitude;
 			else if (effect_list[i].type == "avoidance") bonus_avoidance += effect_list[i].magnitude;
 			else if (effect_list[i].type == "crit") bonus_crit += effect_list[i].magnitude;

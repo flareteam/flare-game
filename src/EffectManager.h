@@ -105,8 +105,10 @@ public:
 
 	int bonus_hp;
 	int bonus_hp_regen;
+	int bonus_hp_percent;
 	int bonus_mp;
 	int bonus_mp_regen;
+	int bonus_mp_percent;
 	int bonus_accuracy;
 	int bonus_avoidance;
 	int bonus_crit;
