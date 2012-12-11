@@ -175,6 +175,7 @@ public:
 	int dmg_ranged_max_default;
 	int absorb_min_default;
 	int absorb_max_default;
+
 	int speed_default;
 	int dspeed_default;
 
@@ -187,10 +188,13 @@ public:
 	int dmg_ranged_max;
 	int absorb_min;
 	int absorb_max;
+
+	int speed;
+	int dspeed;
+
 	bool wielding_physical;
 	bool wielding_mental;
 	bool wielding_offense;
-	bool ammo_arrows;
 	std::vector<int> vulnerable;
 
 	// buff and debuff stats
@@ -199,8 +203,6 @@ public:
 	bool manual_untransform;
 	EffectManager effects;
 
-	int speed;
-	int dspeed;
 	Point pos;
 	Point forced_speed;
 	char direction;
@@ -209,10 +211,10 @@ public:
 	// state
 	int cur_state;
 
-    // waypoint patrolling
-    std::queue<Point> waypoints;
-    int waypoint_pause;
-    int waypoint_pause_ticks;
+	// waypoint patrolling
+	std::queue<Point> waypoints;
+	int waypoint_pause;
+	int waypoint_pause_ticks;
 
 	// wandering area
 	bool wander;
@@ -225,10 +227,10 @@ public:
 	int chance_flee;
 
 	std::vector<int> powers_list;
-	int power_chance[POWERSLOT_COUNT];
-	int power_index[POWERSLOT_COUNT];
-	int power_cooldown[POWERSLOT_COUNT];
-	int power_ticks[POWERSLOT_COUNT];
+	std::vector<int> power_chance;
+	std::vector<int> power_index;
+	std::vector<int> power_cooldown;
+	std::vector<int> power_ticks;
 
 	bool canUsePower(const Power &power, unsigned powerid) const;
 
@@ -240,7 +242,7 @@ public:
 	int turn_delay;
 	int turn_ticks;
 	bool in_combat;
-    bool join_combat;
+	bool join_combat;
 	int cooldown_ticks;
 	int cooldown; // min. # of frames between abilities
 	int activated_powerslot;
