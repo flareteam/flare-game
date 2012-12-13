@@ -994,13 +994,14 @@ void PowerManager::payPowerCost(int power_index, StatBlock *src_stats) {
  * Activate an entity's passive powers
  */
 void PowerManager::activatePassives(StatBlock *src_stats) {
+	bool triggered_others = false;
 	for (unsigned i=0; i<src_stats->powers_list.size(); i++) {
 		if (powers[src_stats->powers_list[i]].passive) {
 			int trigger = powers[src_stats->powers_list[i]].passive_trigger;
 
 			if (trigger == -1) {
 				if (src_stats->effects.triggered_others) continue;
-				else src_stats->effects.triggered_others = true;
+				else triggered_others = true;
 			}
 			else if (trigger == TRIGGER_BLOCK && !src_stats->effects.triggered_block) continue;
 			else if (trigger == TRIGGER_HIT && !src_stats->effects.triggered_hit) continue;
@@ -1017,9 +1018,26 @@ void PowerManager::activatePassives(StatBlock *src_stats) {
 			src_stats->refresh_stats = true;
 		}
 	}
+	// Only trigger normal passives once
+	if (triggered_others) src_stats->effects.triggered_others = true;
+
 	// the hit trigger can be triggered more than once, so reset it here
 	// the block trigger is handled in the Avatar class
 	src_stats->effects.triggered_hit = false;
+}
+
+/**
+ * Activate a single passive
+ * this is used when unlocking powers in MenuPowers
+ */
+void PowerManager::activateSinglePassive(StatBlock *src_stats, int id) {
+	if (!powers[id].passive) return;
+
+	if (powers[id].passive_trigger == -1) {
+		activate(id, src_stats, src_stats->pos);
+		src_stats->refresh_stats = true;
+		src_stats->effects.triggered_others = true;
+	}
 }
 
 /**
