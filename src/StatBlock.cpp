@@ -117,6 +117,7 @@ StatBlock::StatBlock() {
 		xp_table[i] = std::numeric_limits<int>::max();
 	}
 
+	loot = vector<EnemyLoot>();
 	loot_chance = 50;
 	item_classes = vector<string>();
 	item_class_prob = vector<int>();
@@ -197,6 +198,10 @@ StatBlock::StatBlock() {
 	on_half_dead_casted = false;
 }
 
+bool sortLoot(const EnemyLoot &a, const EnemyLoot &b) {
+	return a.chance < b.chance;
+}
+
 /**
  * load a statblock, typically for an enemy definition
  */
@@ -229,6 +234,12 @@ void StatBlock::load(const string& filename) {
 
 		// enemy death rewards and events
 		else if (infile.key == "xp") xp = num;
+		else if (infile.key == "loot") {
+			EnemyLoot el;
+			el.id = toInt(infile.nextValue());
+			el.chance = toInt(infile.nextValue());
+			loot.push_back(el);
+		}
 		else if (infile.key == "loot_chance") loot_chance = num;
 		else if (infile.key == "item_class") {
 			string str;
@@ -346,6 +357,9 @@ void StatBlock::load(const string& filename) {
 		}
 	}
 	infile.close();
+
+	// sort loot table
+	std::sort(loot.begin(), loot.end(), sortLoot);
 }
 
 /**

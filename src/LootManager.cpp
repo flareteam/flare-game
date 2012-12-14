@@ -258,11 +258,12 @@ void LootManager::checkEnemiesForLoot() {
 			if (map->collider.is_valid_position(e->stats.pos.x, e->stats.pos.y, MOVEMENT_NORMAL))
 				pos = e->stats.pos;
 
+			determineLootByEnemy(e, pos);
 			// if no probability density function  is given, do a random loot
-			if (e->stats.item_classes.empty())
-				determineLoot(e->stats.level, pos);
-			else
-				determineLootByClass(e, pos);
+			// if (e->stats.item_classes.empty())
+			// 	determineLoot(e->stats.level, pos);
+			// else
+			// 	determineLootByClass(e, pos);
 		}
 	}
 	enemiesDroppingLoot.clear();
@@ -324,6 +325,47 @@ int LootManager::lootLevel(int base_level) {
 	if (actual > 20) actual = base_level;
 
 	return actual;
+}
+
+void LootManager::determineLootByEnemy(const Enemy *e, Point pos) {
+	ItemStack new_loot;
+	std::vector<int> possible_ids;
+	int common_chance = -1;
+
+	int chance = rand() % 100;
+
+	for (unsigned i=0; i<e->stats.loot.size(); i++) {
+		if (possible_ids.empty()) {
+			// find the rarest loot less than the chance roll
+			if (chance < e->stats.loot[i].chance) {
+				possible_ids.push_back(e->stats.loot[i].id);
+				common_chance = e->stats.loot[i].chance;
+				i=-1; // start searching from the beginning
+				continue;
+			}
+		} else {
+			// include loot with identical chances
+			if (e->stats.loot[i].chance == common_chance)
+				possible_ids.push_back(e->stats.loot[i].id);
+		}
+	}
+
+	if (!possible_ids.empty()) {
+		// if there was more than one item with the same chance, randomly pick one of them
+		if (possible_ids.size() == 1) new_loot.item = possible_ids[0];
+		else new_loot.item = possible_ids[rand() % (possible_ids.size()-1) + 1];
+		new_loot.quantity = 1;
+
+		// an item id of 0 means we should drop currency instead
+		if (new_loot.item == 0) {
+			int level = lootLevel(e->stats.level);
+			int currency = rand() % (level * 2) + level;
+			currency = (currency * (100 + hero->effects.bonus_currency)) / 100;
+			addCurrency(currency, pos);
+		} else {
+			addLoot(new_loot, pos);
+		}
+	}
 }
 
 /**

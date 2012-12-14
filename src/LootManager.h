@@ -109,6 +109,7 @@ public:
 	void checkMapForLoot();
 	void determineLoot(int base_level, Point pos); // uniformly distributed within the base_level set, randomly chosen
 	void determineLootByClass(const Enemy *e, Point pos); // distributed according to enemies loot type probabilities, only from specific item class
+	void determineLootByEnemy(const Enemy *e, Point pos); // pick from enemy-specific loot table
 	int randomItem(int base_level);
 	void addLoot(ItemStack stack, Point pos);
 	void addCurrency(int count, Point pos);

@@ -334,7 +334,7 @@ void Enemy::doRewards() {
 		map->camp->setStatus(stats.defeat_status);
 	}
 
-	if (loot_drop)
+	// if (loot_drop)
 		LootManager::getInstance()->addEnemyLoot(this);
 }
 
