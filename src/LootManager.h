@@ -73,18 +73,12 @@ private:
 
 	// functions
 	void loadGraphics();
-	void calcTables();
 	int lootLevel(int base_level);
 
 	Mix_Chunk *loot_flip;
 
 	// loot refers to ItemManager indices
 	std::vector<Loot> loot;
-
-	// loot tables multiplied out
-	// currently loot can range from levels 0-20
-	int loot_table[21][1024]; // level, number.  the int is an item id
-	int loot_table_count[21]; // total number per level
 
 	SDL_Rect animation_pos;
 	Point animation_offset;
@@ -107,9 +101,7 @@ public:
 	// called by enemy, who definitly wants to drop loot.
 	void addEnemyLoot(const Enemy *e);
 	void checkMapForLoot();
-	void determineLoot(int base_level, Point pos); // uniformly distributed within the base_level set, randomly chosen
-	void determineLootByClass(const Enemy *e, Point pos); // distributed according to enemies loot type probabilities, only from specific item class
-	int randomItem(int base_level);
+	void determineLootByEnemy(const Enemy *e, Point pos); // pick from enemy-specific loot table
 	void addLoot(ItemStack stack, Point pos);
 	void addCurrency(int count, Point pos);
 	ItemStack checkPickup(Point mouse, Point cam, Point hero_pos, int &currency, MenuInventory *inv);
