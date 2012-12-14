@@ -389,8 +389,8 @@ void StatBlock::recalc_alt() {
 	int def0 = get_defense() -1;
 
 	if (hero) {
-		maxhp = hp_base + (hp_per_level * lev0) + (hp_per_physical * phys0) + effects.bonus_hp;
-		maxmp = mp_base + (mp_per_level * lev0) + (mp_per_mental * ment0) + effects.bonus_mp;
+		maxhp = hp_base + (hp_per_level * lev0) + (hp_per_physical * phys0) + effects.bonus_hp + (effects.bonus_hp_percent * (hp_base + (hp_per_level * lev0) + (hp_per_physical * phys0)) / 100);
+		maxmp = mp_base + (mp_per_level * lev0) + (mp_per_mental * ment0) + effects.bonus_mp + (effects.bonus_mp_percent * (mp_base + (mp_per_level * lev0) + (mp_per_mental * phys0)) / 100);
 		hp_per_minute = hp_regen_base + (hp_regen_per_level * lev0) + (hp_regen_per_physical * phys0) + effects.bonus_hp_regen;
 		mp_per_minute = mp_regen_base + (mp_regen_per_level * lev0) + (mp_regen_per_mental * ment0) + effects.bonus_mp_regen;
 		accuracy = accuracy_base + (accuracy_per_level * lev0) + (accuracy_per_offense * off0) + effects.bonus_accuracy;
