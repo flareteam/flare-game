@@ -95,16 +95,7 @@ LootManager::LootManager(ItemManager *_items, MapRenderer *_map, StatBlock *_her
 	// reset current map loot
 	loot.clear();
 
-	// reset loot table
-	for (int lvl=0; lvl<15; lvl++) {
-		loot_table_count[lvl] = 0;
-		for (int num=0; num<256; num++) {
-			loot_table[lvl][num] = 0;
-		}
-	}
-
 	loadGraphics();
-	calcTables();
 	if (audio && SOUND_VOLUME)
 		loot_flip = Mix_LoadWAV(mods->locate("soundfx/flying_loot.ogg").c_str());
 	full_msg = false;
@@ -135,47 +126,6 @@ void LootManager::loadGraphics() {
 	for (unsigned int i=0; i<currency_range.size(); i++) {
 		string animationname = "animations/loot/" + currency_range[i].filename + ".txt";
 		anim->increaseCount(animationname);
-	}
-}
-
-/**
- * Each item has a level, roughly associated with what level monsters drop that item.
- * Each item also has a quality which affects how often it drops.
- * Here we calculate loot probability by level so that when loot drops we
- * can quickly choose what loot should drop.
- */
-void LootManager::calcTables() {
-
-	int level;
-
-	for (unsigned int i=0; i<items->items.size(); i++) {
-		level = items->items[i].level;
-		if (level > 0) {
-			if (items->items[i].quality == ITEM_QUALITY_LOW) {
-				for (int j=0; j<RARITY_LOW; j++) {
-					loot_table[level][loot_table_count[level]] = i;
-					loot_table_count[level]++;
-				}
-			}
-			if (items->items[i].quality == ITEM_QUALITY_NORMAL) {
-				for (int j=0; j<RARITY_NORMAL; j++) {
-					loot_table[level][loot_table_count[level]] = i;
-					loot_table_count[level]++;
-				}
-			}
-			if (items->items[i].quality == ITEM_QUALITY_HIGH) {
-				for (int j=0; j<RARITY_HIGH; j++) {
-					loot_table[level][loot_table_count[level]] = i;
-					loot_table_count[level]++;
-				}
-			}
-			if (items->items[i].quality == ITEM_QUALITY_EPIC) {
-				for (int j=0; j<RARITY_EPIC; j++) {
-					loot_table[level][loot_table_count[level]] = i;
-					loot_table_count[level]++;
-				}
-			}
-		}
 	}
 }
 
@@ -259,11 +209,6 @@ void LootManager::checkEnemiesForLoot() {
 				pos = e->stats.pos;
 
 			determineLootByEnemy(e, pos);
-			// if no probability density function  is given, do a random loot
-			// if (e->stats.item_classes.empty())
-			// 	determineLoot(e->stats.level, pos);
-			// else
-			// 	determineLootByClass(e, pos);
 		}
 	}
 	enemiesDroppingLoot.clear();
@@ -287,10 +232,7 @@ void LootManager::checkMapForLoot() {
 		p.x = ec->x;
 		p.y = ec->y;
 
-		if (ec->s == "random") {
-			determineLoot(ec->z, p);
-		}
-		else if (ec->s == "id") {
+		if (ec->s == "id") {
 			new_loot.item = ec->z;
 			new_loot.quantity = 1;
 			addLoot(new_loot, p);
@@ -327,6 +269,10 @@ int LootManager::lootLevel(int base_level) {
 	return actual;
 }
 
+/**
+ * This function is called when there definitely is a piece of loot dropping
+ * calls addLoot()
+ */
 void LootManager::determineLootByEnemy(const Enemy *e, Point pos) {
 	ItemStack new_loot;
 	std::vector<int> possible_ids;
@@ -366,90 +312,6 @@ void LootManager::determineLootByEnemy(const Enemy *e, Point pos) {
 			addLoot(new_loot, pos);
 		}
 	}
-}
-
-/**
- * This function is called when there definitely is a piece of loot dropping
- * base_level represents the average quality of this loot
- * calls addLoot()
- */
-void LootManager::determineLoot(int base_level, Point pos) {
-	int level = lootLevel(base_level);
-	ItemStack new_loot;
-
-	if (level > 0 && loot_table_count[level] > 0) {
-
-		// coin flip whether the treasure is cash or items
-		if (rand() % 2 == 0) {
-			int roll = rand() % loot_table_count[level];
-			new_loot.item = loot_table[level][roll];
-			new_loot.quantity = rand() % items->items[new_loot.item].rand_loot + 1;
-			addLoot(new_loot, pos);
-		}
-		else {
-			// currency range is level to 3x level
-			int currency = rand() % (level * 2) + level;
-			currency = (currency * (100 + hero->effects.bonus_currency)) / 100;
-			addCurrency(currency, pos);
-		}
-	}
-}
-
-void LootManager::determineLootByClass(const Enemy *e, Point pos) {
-	// quality level of loot
-	int level = lootLevel(e->stats.level);
-	if (level <= 0)
-		return;
-
-	// roll a dice to select the type
-	int typeSelector = rand() % e->stats.item_class_prob_sum;
-	int typeSelectorIndex = 0;
-
-	// look up type hit by dice with correct probabilities
-	while (typeSelector >= e->stats.item_class_prob[typeSelectorIndex]) {
-		typeSelector -= e->stats.item_class_prob[typeSelectorIndex];
-		typeSelectorIndex++;
-	}
-	string item_class = e->stats.item_classes[typeSelectorIndex];
-
-	if (item_class == "currency") {
-		int currency = rand() % (level * 2) + level;
-		currency = (currency * (100 + hero->effects.bonus_currency)) / 100;
-		addCurrency(currency, pos);
-	} else {
-		// search for the itemclass
-		unsigned int index;
-		for (index = 0; index < items->item_class_names.size(); index++) {
-			if (items->item_class_names[index] == item_class)
-				break;
-		}
-		if (index == items->item_class_names.size()) {
-			// item class name not found:
-			cout << "item class " << item_class << " has no items." << endl;
-			return;
-		}
-
-		if (level > 0 && items->item_class_items[index].size() > 0) {
-			int roll = rand() % items->item_class_items[index].size();
-			ItemStack new_loot;
-			new_loot.item = items->item_class_items[index][roll];
-			new_loot.quantity = rand() % items->items[new_loot.item].rand_loot + 1;
-			addLoot(new_loot, pos);
-		}
-	}
-}
-
-/**
- * Choose a random item.
- * Useful for filling in a Vendor's wares.
- */
-int LootManager::randomItem(int base_level) {
-	int level = lootLevel(base_level);
-	if (level > 0 && loot_table_count[level] > 0 && loot_table_count[level] < 1024) {
-		int roll = rand() % loot_table_count[level];
-		return loot_table[level][roll];
-	}
-	return 0;
 }
 
 void LootManager::addLoot(ItemStack stack, Point pos) {

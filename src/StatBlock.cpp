@@ -118,10 +118,6 @@ StatBlock::StatBlock() {
 	}
 
 	loot = vector<EnemyLoot>();
-	loot_chance = 50;
-	item_classes = vector<string>();
-	item_class_prob = vector<int>();
-	item_class_prob_sum = 0;
 	teleportation = false;
 
 	powers_list = vector<int>();
@@ -239,22 +235,6 @@ void StatBlock::load(const string& filename) {
 			el.id = toInt(infile.nextValue());
 			el.chance = toInt(infile.nextValue());
 			loot.push_back(el);
-		}
-		else if (infile.key == "loot_chance") loot_chance = num;
-		else if (infile.key == "item_class") {
-			string str;
-			while ((str = infile.nextValue()) != "") {
-				if (!isInt(str)) {
-					item_classes.push_back(str);
-					item_class_prob.push_back(1);
-					item_class_prob_sum++;
-				}
-				else {
-					num = toInt(str);
-					item_class_prob[item_classes.size()-1] = num;
-					item_class_prob_sum += num - 1; // one was already added, so add one less
-				}
-			}
 		}
 		else if (infile.key == "defeat_status") defeat_status = infile.val;
 		else if (infile.key == "first_defeat_loot") first_defeat_loot = num;
