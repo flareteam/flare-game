@@ -283,7 +283,7 @@ void LootManager::determineLootByEnemy(const Enemy *e, Point pos) {
 	for (unsigned i=0; i<e->stats.loot.size(); i++) {
 		if (possible_ids.empty()) {
 			// find the rarest loot less than the chance roll
-			if (chance < e->stats.loot[i].chance) {
+			if (chance < (e->stats.loot[i].chance * (hero->effects.bonus_item_find + 100)) / 100) {
 				possible_ids.push_back(e->stats.loot[i].id);
 				common_chance = e->stats.loot[i].chance;
 				i=-1; // start searching from the beginning
