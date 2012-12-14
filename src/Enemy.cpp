@@ -299,12 +299,6 @@ bool Enemy::takeHit(const Hazard &h) {
  * Upon enemy death, handle rewards (currency, xp, loot)
  */
 void Enemy::doRewards() {
-	bool loot_drop = false;
-
-	int roll = rand() % 100;
-	if (roll < stats.loot_chance) {
-		loot_drop = true;
-	}
 	reward_xp = true;
 
 	// some creatures create special loot if we're on a quest
@@ -312,10 +306,7 @@ void Enemy::doRewards() {
 
 		// the loot manager will check quest_loot_id
 		// if set (not zero), the loot manager will 100% generate that loot.
-		if (map->camp->checkStatus(stats.quest_loot_requires) && !map->camp->checkStatus(stats.quest_loot_not)) {
-			loot_drop = true;
-		}
-		else {
+		if (!(map->camp->checkStatus(stats.quest_loot_requires) && !map->camp->checkStatus(stats.quest_loot_not))) {
 			stats.quest_loot_id = 0;
 		}
 	}
@@ -324,7 +315,6 @@ void Enemy::doRewards() {
 	// this must be done in conjunction with defeat status
 	if (stats.first_defeat_loot > 0) {
 		if (!map->camp->checkStatus(stats.defeat_status)) {
-			loot_drop = true;
 			stats.quest_loot_id = stats.first_defeat_loot;
 		}
 	}
@@ -334,8 +324,7 @@ void Enemy::doRewards() {
 		map->camp->setStatus(stats.defeat_status);
 	}
 
-	if (loot_drop)
-		LootManager::getInstance()->addEnemyLoot(this);
+	LootManager::getInstance()->addEnemyLoot(this);
 }
 
 /**

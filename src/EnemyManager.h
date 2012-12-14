@@ -73,6 +73,7 @@ public:
 	std::vector<Enemy*> enemies;
 	Point hero_pos;
 	bool hero_alive;
+	int hero_stealth;
 };
 
 

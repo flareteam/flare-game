@@ -74,7 +74,6 @@ public:
 	bool vendor;
 	ItemStorage stock;
 	int stock_count;
-	int random_stock;
 
 	// vocals
 	std::vector<Mix_Chunk*> vox_intro;

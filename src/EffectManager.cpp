@@ -55,8 +55,10 @@ void EffectManager::clearStatus() {
 
 	bonus_hp = 0;
 	bonus_hp_regen = 0;
+	bonus_hp_percent = 0;
 	bonus_mp = 0;
 	bonus_mp_regen = 0;
+	bonus_mp_percent = 0;
 	bonus_accuracy = 0;
 	bonus_avoidance = 0;
 	bonus_crit = 0;
@@ -67,6 +69,8 @@ void EffectManager::clearStatus() {
 
 	bonus_xp = 0;
 	bonus_currency = 0;
+	bonus_item_find = 0;
+	bonus_stealth = 0;
 
 	for (unsigned i=0; i<bonus_resist.size(); i++) {
 		bonus_resist[i] = 0;
@@ -91,8 +95,10 @@ void EffectManager::logic() {
 			}
 			else if (effect_list[i].type == "hp") bonus_hp += effect_list[i].magnitude;
 			else if (effect_list[i].type == "hp_regen") bonus_hp_regen += effect_list[i].magnitude;
+			else if (effect_list[i].type == "hp_percent") bonus_hp_percent += effect_list[i].magnitude;
 			else if (effect_list[i].type == "mp") bonus_mp += effect_list[i].magnitude;
 			else if (effect_list[i].type == "mp_regen") bonus_mp_regen += effect_list[i].magnitude;
+			else if (effect_list[i].type == "mp_percent") bonus_mp_percent += effect_list[i].magnitude;
 			else if (effect_list[i].type == "accuracy") bonus_accuracy += effect_list[i].magnitude;
 			else if (effect_list[i].type == "avoidance") bonus_avoidance += effect_list[i].magnitude;
 			else if (effect_list[i].type == "crit") bonus_crit += effect_list[i].magnitude;
@@ -102,6 +108,8 @@ void EffectManager::logic() {
 			else if (effect_list[i].type == "mental") bonus_mental += effect_list[i].magnitude;
 			else if (effect_list[i].type == "xp") bonus_xp += effect_list[i].magnitude;
 			else if (effect_list[i].type == "currency") bonus_currency += effect_list[i].magnitude;
+			else if (effect_list[i].type == "item_find") bonus_item_find += effect_list[i].magnitude;
+			else if (effect_list[i].type == "stealth") bonus_stealth += effect_list[i].magnitude;
 			else {
 				for (unsigned j=0; j<bonus_resist.size(); j++) {
 					if (effect_list[i].type == ELEMENTS[j].name + "_resist")

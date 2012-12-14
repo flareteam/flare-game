@@ -35,7 +35,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 using namespace std;
 
-
 StatBlock::StatBlock()
 	: statsLoaded(false)
 	, alive(true)
@@ -139,6 +138,7 @@ StatBlock::StatBlock()
 	, threat_range(0)  // enemy
 	, hero_pos(Point(-1, -1))
 	, hero_alive(true)
+	, hero_stealth(0)
 	, last_seen(Point(-1, -1))  // no effects to gameplay?
 	, turn_delay(0)
 	, turn_ticks(0)
@@ -149,10 +149,6 @@ StatBlock::StatBlock()
 	, activated_powerslot(0)// enemy only
 	, on_half_dead_casted(false) // enemy only
 	, suppress_hp(false)
-	, loot_chance(50)
-	, item_classes(vector<string>())
-	, item_class_prob(vector<int>())
-	, item_class_prob_sum(0)
 	, teleportation(false)
 	, teleport_destination(Point())
 	, melee_weapon_power(0)
@@ -209,6 +205,10 @@ StatBlock::StatBlock()
 	on_half_dead_casted = false;
 }
 
+bool sortLoot(const EnemyLoot &a, const EnemyLoot &b) {
+	return a.chance < b.chance;
+}
+
 /**
  * load a statblock, typically for an enemy definition
  */
@@ -241,21 +241,11 @@ void StatBlock::load(const string& filename) {
 
 		// enemy death rewards and events
 		else if (infile.key == "xp") xp = num;
-		else if (infile.key == "loot_chance") loot_chance = num;
-		else if (infile.key == "item_class") {
-			string str;
-			while ((str = infile.nextValue()) != "") {
-				if (!isInt(str)) {
-					item_classes.push_back(str);
-					item_class_prob.push_back(1);
-					item_class_prob_sum++;
-				}
-				else {
-					num = toInt(str);
-					item_class_prob[item_classes.size()-1] = num;
-					item_class_prob_sum += num - 1; // one was already added, so add one less
-				}
-			}
+		else if (infile.key == "loot") {
+			EnemyLoot el;
+			el.id = toInt(infile.nextValue());
+			el.chance = toInt(infile.nextValue());
+			loot.push_back(el);
 		}
 		else if (infile.key == "defeat_status") defeat_status = infile.val;
 		else if (infile.key == "first_defeat_loot") first_defeat_loot = num;
@@ -358,6 +348,9 @@ void StatBlock::load(const string& filename) {
 		}
 	}
 	infile.close();
+
+	// sort loot table
+	std::sort(loot.begin(), loot.end(), sortLoot);
 }
 
 /**
@@ -407,8 +400,8 @@ void StatBlock::recalc_alt() {
 	int def0 = get_defense() -1;
 
 	if (hero) {
-		maxhp = hp_base + (hp_per_level * lev0) + (hp_per_physical * phys0) + effects.bonus_hp;
-		maxmp = mp_base + (mp_per_level * lev0) + (mp_per_mental * ment0) + effects.bonus_mp;
+		maxhp = hp_base + (hp_per_level * lev0) + (hp_per_physical * phys0) + effects.bonus_hp + (effects.bonus_hp_percent * (hp_base + (hp_per_level * lev0) + (hp_per_physical * phys0)) / 100);
+		maxmp = mp_base + (mp_per_level * lev0) + (mp_per_mental * ment0) + effects.bonus_mp + (effects.bonus_mp_percent * (mp_base + (mp_per_level * lev0) + (mp_per_mental * phys0)) / 100);
 		hp_per_minute = hp_regen_base + (hp_regen_per_level * lev0) + (hp_regen_per_physical * phys0) + effects.bonus_hp_regen;
 		mp_per_minute = mp_regen_base + (mp_regen_per_level * lev0) + (mp_regen_per_mental * ment0) + effects.bonus_mp_regen;
 		accuracy = accuracy_base + (accuracy_per_level * lev0) + (accuracy_per_offense * off0) + effects.bonus_accuracy;
