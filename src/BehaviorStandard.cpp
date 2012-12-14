@@ -108,6 +108,7 @@ void BehaviorStandard::doUpkeep() {
  * Locate the player and set various targeting info
  */
 void BehaviorStandard::findTarget() {
+	int stealth_threat_range = (e->stats.threat_range * (100 - e->stats.hero_stealth)) / 100;
 
 	// stunned enemies can't act
 	if (e->stats.effects.stun) return;
@@ -126,7 +127,7 @@ void BehaviorStandard::findTarget() {
 
 	// check entering combat (because the player hit the enemy)
 	if (e->stats.join_combat) {
-		if (dist <= (e->stats.threat_range *2)) {
+		if (dist <= (stealth_threat_range *2)) {
 			e->stats.join_combat = false;
 		}
 		else {
@@ -136,7 +137,7 @@ void BehaviorStandard::findTarget() {
 	}
 
 	// check entering combat (because the player got too close)
-	if (!e->stats.in_combat && los && dist < e->stats.threat_range) {
+	if (!e->stats.in_combat && los && dist < stealth_threat_range) {
 
 		if (e->stats.in_combat) e->stats.join_combat = true;
 		e->stats.in_combat = true;

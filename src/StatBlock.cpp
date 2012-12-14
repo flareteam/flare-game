@@ -46,6 +46,7 @@ StatBlock::StatBlock() {
 	humanoid = false;
 	hero_pos.x = hero_pos.y = -1;
 	hero_alive = true;
+	hero_stealth = 0;
 	permadeath = false;
 	transform_type = "";
 	transformed = false;
