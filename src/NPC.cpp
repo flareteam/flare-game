@@ -55,7 +55,6 @@ NPC::NPC(MapRenderer *_map, ItemManager *_items)
 	, vendor(false)
 	// stock
 	, stock_count(0)
-	, random_stock(0)
 	, vox_intro(vector<Mix_Chunk*>())
 	, vox_quests(vector<Mix_Chunk*>())
 	, dialog(vector<vector<Event_Component> >())
@@ -148,9 +147,6 @@ void NPC::load(const string& npc_id, int hero_level) {
 						stack.item = toInt(infile.nextValue());
 						stock.add(stack);
 					}
-				}
-				else if (infile.key == "random_stock") {
-					random_stock = toInt(infile.val);
 				}
 
 				// handle vocals

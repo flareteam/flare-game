@@ -117,10 +117,7 @@ StatBlock::StatBlock() {
 		xp_table[i] = std::numeric_limits<int>::max();
 	}
 
-	loot_chance = 50;
-	item_classes = vector<string>();
-	item_class_prob = vector<int>();
-	item_class_prob_sum = 0;
+	loot = vector<EnemyLoot>();
 	teleportation = false;
 
 	powers_list = vector<int>();
@@ -197,6 +194,10 @@ StatBlock::StatBlock() {
 	on_half_dead_casted = false;
 }
 
+bool sortLoot(const EnemyLoot &a, const EnemyLoot &b) {
+	return a.chance < b.chance;
+}
+
 /**
  * load a statblock, typically for an enemy definition
  */
@@ -229,21 +230,11 @@ void StatBlock::load(const string& filename) {
 
 		// enemy death rewards and events
 		else if (infile.key == "xp") xp = num;
-		else if (infile.key == "loot_chance") loot_chance = num;
-		else if (infile.key == "item_class") {
-			string str;
-			while ((str = infile.nextValue()) != "") {
-				if (!isInt(str)) {
-					item_classes.push_back(str);
-					item_class_prob.push_back(1);
-					item_class_prob_sum++;
-				}
-				else {
-					num = toInt(str);
-					item_class_prob[item_classes.size()-1] = num;
-					item_class_prob_sum += num - 1; // one was already added, so add one less
-				}
-			}
+		else if (infile.key == "loot") {
+			EnemyLoot el;
+			el.id = toInt(infile.nextValue());
+			el.chance = toInt(infile.nextValue());
+			loot.push_back(el);
 		}
 		else if (infile.key == "defeat_status") defeat_status = infile.val;
 		else if (infile.key == "first_defeat_loot") first_defeat_loot = num;
@@ -346,6 +337,9 @@ void StatBlock::load(const string& filename) {
 		}
 	}
 	infile.close();
+
+	// sort loot table
+	std::sort(loot.begin(), loot.end(), sortLoot);
 }
 
 /**

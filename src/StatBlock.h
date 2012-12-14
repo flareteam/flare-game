@@ -69,6 +69,16 @@ const int ENEMY_POWER = 15; // enemy performing a power. anim/sfx based on power
 
 const int MAX_CHARACTER_LEVEL = 32;
 
+struct EnemyLoot {
+	int id;
+	int chance;
+
+	EnemyLoot()
+		: id(0)
+		, chance(0)
+	{}
+};
+
 class StatBlock {
 private:
 	void loadHeroStats();
@@ -247,11 +257,7 @@ public:
 	bool on_half_dead_casted;
 	bool suppress_hp; // hide an enemy HP bar
 
-	int loot_chance;
-	std::vector<std::string> item_classes; // which kind of loot is able to be dropped
-	// the strings given in item_class correspond to the item class
-	std::vector<int> item_class_prob;      // weights for each kind of drop.
-	int item_class_prob_sum;               // sum of all loot_prob entries.
+	std::vector<EnemyLoot> loot;
 
 	// for the teleport spell
 	bool teleportation;

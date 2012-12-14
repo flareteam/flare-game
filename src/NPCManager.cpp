@@ -81,13 +81,6 @@ void NPCManager::handleNewMap() {
 		npc->pos.x = mn.pos.x;
 		npc->pos.y = mn.pos.y;
 
-		// if this NPC needs randomized items
-		while (npc->random_stock > 0 && npc->stock_count < NPC_VENDOR_MAX_STOCK) {
-			item_roll.item = loot->randomItem(npc->level);
-			item_roll.quantity = rand() % items->items[item_roll.item].rand_vendor + 1;
-			npc->stock.add(item_roll);
-			npc->random_stock--;
-		}
 		npc->stock.sort();
 		npcs.push_back(npc);
 	}
