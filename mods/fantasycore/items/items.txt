@@ -637,7 +637,6 @@ stepfx=metal
 id=104
 name=Boots of Speed
 flavor=These enchanted boots are prized possessions of Courier guildsmen.
-level=5
 quality=epic
 item_type=feet
 icon=176
@@ -654,7 +653,6 @@ bonus=speed,125
 id=105
 name=Thief Gloves
 flavor=In Lower Sceleris there is honor among thieves. Everyone else is a mark.
-level=5
 quality=epic
 item_type=hands
 icon=130
@@ -665,5 +663,100 @@ loot_animation=clothes
 price=5
 bonus=gold find,25
 
+[item]
+id=106
+name=Ring of Invisibility
+flavor=This nondescript ring was forged in the land where shadows lie.
+quality=epic
+item_type=ring
+icon=199
+sfx=gem
+loot_animation=gem
+price=5
+bonus=stealth,100
+
+[item]
+id=107
+name=Ring of Regeneration
+flavor=[TODO]
+quality=epic
+item_type=ring
+icon=205
+sfx=gem
+loot_animation=gem
+price=5
+bonus=HP regen,50
+
+[item]
+id=108
+name=Ring of Concentration
+flavor=[TODO]
+quality=epic
+item_type=ring
+icon=204
+sfx=gem
+loot_animation=gem
+price=5
+bonus=MP regen,50
+
+[item]
+id=109
+name=Ring of Fire
+flavor=[TODO]
+quality=epic
+item_type=ring
+icon=207
+sfx=gem
+loot_animation=gem
+price=5
+bonus=fire resist,25
+
+[item]
+id=110
+name=Ring of Ice
+flavor=[TODO]
+quality=epic
+item_type=ring
+icon=206
+sfx=gem
+loot_animation=gem
+price=5
+bonus=ice resist,25
+
+[item]
+id=111
+name=Lineage Signet Ring
+flavor=[TODO]
+quality=epic
+item_type=ring
+icon=200
+sfx=gem
+loot_animation=gem
+price=5
+bonus=XP gain,25
+
+[item]
+id=112
+name=Ouroboros Ring
+flavor=[TODO]
+quality=epic
+item_type=ring
+icon=203
+sfx=gem
+loot_animation=gem
+price=5
+#bonus=protection from death?
+
+[item]
+id=113
+name=Relic Hunter's Ring
+flavor=[TODO]
+quality=epic
+item_type=ring
+icon=201
+sfx=gem
+loot_animation=gem
+price=5
+bonus=item find,25
 
 
