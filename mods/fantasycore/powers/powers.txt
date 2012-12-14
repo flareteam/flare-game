@@ -963,6 +963,28 @@ requires_item=948
 sfx=quake.ogg
 
 [power]
+id=140
+name=AEther Walkers
+type=fixed
+icon=176
+description=Blink to a nearby location
+new_state=cast
+requires_mp=3
+requires_empty_target=true
+requires_targeting=true
+animation=runes.txt
+sfx=teleport.ogg
+use_hazard=true
+no_attack=true
+lifespan=16
+floor=true
+starting_pos=source
+buff_teleport=true
+range=512
+target_neighbor=1
+cooldown=15000
+
+[power]
 id=159
 name=Spike Ray
 type=repeater

@@ -299,7 +299,6 @@ sfx=cloth
 gfx=cloth_shirt
 loot_animation=clothes
 price=7
-stepfx=cloth
 
 [item]
 id=65
@@ -572,7 +571,6 @@ sfx=maille
 gfx=plate_helm
 loot_animation=steel_armor
 price=4
-stepfx=metal
 
 [item]
 id=97
@@ -758,5 +756,194 @@ sfx=gem
 loot_animation=gem
 price=5
 bonus=item find,25
+
+[item]
+id=114
+name=Silent Tabi
+flavor=[TODO]
+quality=epic
+item_type=feet
+icon=148
+abs=2
+req=d,2
+sfx=cloth
+gfx=leather_boots
+loot_animation=clothes
+price=5
+bonus=stealth,50
+
+[item]
+id=115
+name=Duelist Gauntlets
+flavor=[TODO]
+quality=epic
+item_type=hands
+icon=154
+abs=3
+req=d,3
+sfx=maille
+gfx=chain_gloves
+loot_animation=steel_armor
+price=5
+bonus=crit,5
+
+[item]
+id=116
+name=Blood Cuirass
+flavor=[TODO]
+quality=epic
+item_type=chest
+icon=153
+abs=5
+req=d,3
+sfx=maille
+gfx=chain_cuirass
+loot_animation=steel_armor
+price=5
+bonus=HP,50
+
+[item]
+id=117
+name=Blood Greaves
+flavor=[TODO]
+quality=epic
+item_type=legs
+icon=155
+abs=4
+req=d,3
+sfx=maille
+gfx=chain_greaves
+loot_animation=steel_armor
+price=5
+bonus=HP regen,25
+
+[item]
+id=118
+name=Fencing Gloves
+flavor=[TODO]
+quality=epic
+item_type=hands
+icon=146
+abs=2
+req=d,2
+sfx=leather
+gfx=leather_gloves
+loot_animation=leather_armor
+price=5
+bonus=accuracy,15
+
+[item]
+id=119
+name=Gauntlets of Titan Strength
+flavor=[TODO]
+quality=epic
+item_type=hands
+icon=162
+sfx=maille
+gfx=plate_gauntlets
+loot_animation=steel_armor
+price=5
+bonus=physical,1
+
+[item]
+id=120
+name=Hedge Wizard Gloves
+flavor=[TODO]
+quality=epic
+item_type=hands
+icon=130
+sfx=cloth
+gfx=cloth_gloves
+loot_animation=clothes
+price=5
+bonus=mental,1
+
+[item]
+id=121
+name=Archery Bracers
+flavor=[TODO]
+quality=epic
+item_type=hands
+icon=146
+sfx=leather
+gfx=leather_gloves
+loot_animation=leather_armor
+price=5
+bonus=offense,1
+
+[item]
+id=122
+name=Bracers of Defense
+flavor=[TODO]
+quality=epic
+item_type=hands
+icon=146
+sfx=leather
+gfx=leather_gloves
+loot_animation=leather_armor
+price=5
+bonus=defense,1
+
+[item]
+id=123
+name=Sage Mantle
+flavor=[TODO]
+quality=epic
+item_type=chest
+icon=137
+abs=3
+req=d,2
+sfx=cloth
+gfx=mage_vest
+loot_animation=clothes
+price=5
+bonus=MP,50
+
+[item]
+id=124
+name=Sage Frock
+flavor=[TODO]
+quality=epic
+item_type=legs
+icon=139
+abs=3
+req=d,2
+sfx=cloth
+gfx=mage_skirt
+loot_animation=clothes
+price=5
+bonus=MP regen,25
+
+[item]
+id=125
+name=Monastery Sandals
+flavor=[TODO]
+quality=epic
+item_type=feet
+icon=132
+abs=1
+sfx=cloth
+gfx=cloth_sandals
+loot_animation=clothes
+price=5
+stepfx=cloth
+bonus=avoidance,15
+
+[item]
+id=126
+name=AEther Walkers
+flavor=[TODO]
+quality=epic
+item_type=feet
+icon=176
+abs=2
+req=d,2
+sfx=leather
+gfx=mage_boots
+loot_animation=boots
+price=5
+stepfx=leather
+power=140
+power_desc=Use: Blink to a nearby location
 
 
