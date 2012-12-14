@@ -119,6 +119,7 @@ public:
 	int bonus_xp;
 	int bonus_currency;
 	int bonus_item_find;
+	int bonus_stealth;
 	std::vector<int> bonus_resist;
 
 	bool triggered_others;
