@@ -35,6 +35,7 @@ EnemyManager::EnemyManager(PowerManager *_powers, MapRenderer *_map)
 	, powers(_powers)
 	, enemies(vector<Enemy*>())
 	, hero_alive(true)
+	, hero_stealth(0)
 {
 	hero_pos.x = hero_pos.y = -1;
 	handleNewMap();
@@ -247,6 +248,7 @@ void EnemyManager::logic() {
 		// new actions this round
 		enemies[i]->stats.hero_pos = hero_pos;
 		enemies[i]->stats.hero_alive = hero_alive;
+		enemies[i]->stats.hero_stealth = hero_stealth;
 		enemies[i]->logic();
 
 	}

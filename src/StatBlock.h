@@ -246,6 +246,7 @@ public:
 	int threat_range;
 	Point hero_pos;
 	bool hero_alive;
+	int hero_stealth;
 	Point last_seen;
 	int turn_delay;
 	int turn_ticks;
