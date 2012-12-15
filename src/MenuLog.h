@@ -41,10 +41,9 @@ class WidgetTabControl;
 
 const unsigned int MAX_LOG_MESSAGES = 32;
 
-const int LOG_TYPE_COUNT = 3;
+const int LOG_TYPE_COUNT = 2;
 const int LOG_TYPE_QUESTS = 0;
 const int LOG_TYPE_MESSAGES = 1;
-const int LOG_TYPE_STATISTICS = 2;
 
 class MenuLog : public Menu {
 private:
