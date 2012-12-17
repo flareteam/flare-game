@@ -38,6 +38,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <sstream>
 #include <vector>
 
+#include "WidgetTooltip.h"
+
 class WidgetButton;
 class WidgetCheckBox;
 class WidgetInput;
@@ -71,6 +73,7 @@ private:
 	WidgetLabel *label_permadeath;
 	WidgetLabel *label_classlist;
 	WidgetListBox *class_list;
+	WidgetTooltip *tip;
 
 	Point name;
 	LabelInfo portrait_label;
@@ -79,6 +82,7 @@ private:
 	LabelInfo classlist_label;
 	SDL_Rect portrait_pos;
 	bool show_classlist;
+	TooltipData tip_buf;
 
 	SDL_Color color_normal;
 
