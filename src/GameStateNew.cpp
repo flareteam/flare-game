@@ -37,6 +37,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "WidgetInput.h"
 #include "WidgetLabel.h"
 #include "WidgetListBox.h"
+#include "WidgetTooltip.h"
 
 using namespace std;
 
@@ -46,6 +47,7 @@ GameStateNew::GameStateNew() : GameState() {
 	current_option = 0;
 	option_count = 0;
 	portrait_image = NULL;
+	tip_buf.clear();
 
 	// set up buttons
 	button_exit = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
@@ -72,6 +74,8 @@ GameStateNew::GameStateNew() : GameState() {
 
 	show_classlist = true;
 
+	tip = new WidgetTooltip();
+	
 	// Read positions from config file
 	FileParser infile;
 
@@ -308,7 +312,24 @@ void GameStateNew::render() {
 	if (!classlist_label.hidden) label_classlist->render();
 
 	// display class list
-	if (show_classlist) class_list->render();
+	if (show_classlist) {
+		class_list->render();
+		
+		TooltipData tip_new = class_list->checkTooltip(inpt->mouse);
+		if (!tip_new.isEmpty()) {
+		
+			// when we render a tooltip it buffers the rasterized text for performance.
+			// If this new tooltip is the same as the existing one, reuse.
+
+			if (!tip_new.compare(&tip_buf)) {
+				tip_buf.clear();
+				tip_buf = tip_new;
+			}
+			tip->render(tip_buf, inpt->mouse, STYLE_FLOAT);
+		}
+		
+	}
+	
 }
 
 std::string GameStateNew::getClassTooltip(int index) {
@@ -331,4 +352,5 @@ GameStateNew::~GameStateNew() {
 	delete label_permadeath;
 	delete label_classlist;
 	delete class_list;
+	delete tip;
 }
