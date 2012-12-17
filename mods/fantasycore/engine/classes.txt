@@ -3,14 +3,8 @@
 # physical/mental/offense/defense points should total to no greater than the max available points
 
 [class]
-name=Adventurer
-description=A blank slate.
-currency=20
-equipment=64,66,67
-
-[class]
-name=Warrior
-description=Specializes in melee weapons.
+name=Brute
+description=Brutes rely on physical strength and melee weapons to strike down foes. Primary attribute: Physical
 currency=10
 equipment=64,66,67,32
 physical=1
@@ -18,18 +12,37 @@ powers=5
 actionbar=0,0,0,0,0,0,0,0,0,0,1,5
 
 [class]
-name=Ranger
-description=Specializes in ranged weapons.
-currency=12
-equipment=64,66,67,48
-offense=1
-actionbar=0,0,0,0,0,0,0,0,0,0,22,0
-
-[class]
-name=Magician
-description=Specializes in magic.
+name=Adept
+description=Adepts have natural abilities in casting magical spells. Primary attribute: Mental
 currency=6
 equipment=64,66,67,40
 mental=1
-actionbar=0,0,0,0,0,0,0,0,0,0,2,0
+powers=6
+actionbar=0,0,0,0,0,0,0,0,0,0,2,6
 
+
+[class]
+name=Scout
+description=Scouts specialize in range weaponry and combat accuracy. Primary attribute: Offense
+currency=12
+equipment=64,66,67,48
+offense=1
+powers=8
+actionbar=0,0,0,0,0,0,0,0,0,0,22,8
+
+
+[class]
+name=Keeper
+description=Keepers focus on defensive powers for survival. Primary attribute: Defense
+currency=2
+equipment=81,83,84,56
+defense=1
+powers=7
+actionbar=7,0,0,0,0,0,0,0,0,0,1,3
+
+[class]
+name=Wanderer
+description=Wanderers choose their own paths. Primary attribute: custom
+currency=20
+equipment=64,66,67
+actionbar=0,0,0,0,0,0,0,0,0,0,1,0
