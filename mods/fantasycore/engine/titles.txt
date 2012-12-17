@@ -1,50 +1,131 @@
+# A level 16 character has all four attributes maxed
 [title]
 level=16
 title=Grand Master
 
+# A level 12 character has three attributes maxed, thus is no longer a specialist
 [title]
 level=12
 title=Master
 
+# High level pure titles
 [title]
 primary_stat=physical
+level=8
+title=Warlord
+
+[title]
+primary_stat=mental
+level=8
+title=Archmage
+
+[title]
+primary_stat=offense
+level=8
+title=Sniper
+
+[title]
+primary_stat=defense
+level=8
+title=Templar
+
+
+# Mid level pure titles
+[title]
+primary_stat=physical
+level=4
 title=Warrior
 
 [title]
 primary_stat=offense
+level=4
 title=Ranger
 
 [title]
 primary_stat=mental
+level=4
 title=Wizard
 
 [title]
 primary_stat=defense
+level=4
 title=Paladin
 
+# Mid level hybrid titles
 [title]
 primary_stat=physoff
+level=4
 title=Rogue
 
 [title]
 primary_stat=physdef
+level=4
 title=Knight
 
 [title]
-primary_stat=physment
-title=Shaman
+primary_stat=mentoff
+level=4
+title=Tempest
 
 [title]
 primary_stat=mentdef
+level=4
 title=Cleric
 
 [title]
-primary_stat=mentoff
+primary_stat=physment
+level=4
 title=Battle Mage
 
 [title]
 primary_stat=offdef
-title=Heavy Archer
+level=4
+title=Warden
+
+# Low level pure titles
+[title]
+primary_stat=physical
+title=Brute
 
 [title]
-title=Adventurer
+primary_stat=offense
+title=Scout
+
+[title]
+primary_stat=mental
+title=Adept
+
+[title]
+primary_stat=defense
+title=Keeper
+
+# Low level hybrid titles
+[title]
+primary_stat=physoff
+title=Knave
+
+[title]
+primary_stat=physdef
+title=Squire
+
+[title]
+primary_stat=mentoff
+title=Slinger
+
+[title]
+primary_stat=mentdef
+title=Shepherd
+
+[title]
+primary_stat=physment
+title=Sparkblade
+
+[title]
+primary_stat=offdef
+title=Watch
+
+
+# Starting / Ironman Title
+
+[title]
+title=Wanderer
