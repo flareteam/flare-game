@@ -77,7 +77,6 @@ MenuLog::MenuLog() {
 	// Define the header.
 	tabControl->setTabTitle(LOG_TYPE_MESSAGES, msg->get("Notes"));
 	tabControl->setTabTitle(LOG_TYPE_QUESTS, msg->get("Quests"));
-	tabControl->setTabTitle(LOG_TYPE_STATISTICS, msg->get("Stats"));
 
 	font->setFont("font_regular");
 	paragraph_spacing = font->getLineHeight()/2;
