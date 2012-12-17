@@ -378,16 +378,16 @@ void GameStatePlay::checkTitle() {
 		if (titles[i].requires_not != "" && camp->checkStatus(titles[i].requires_not)) continue;
 		if (titles[i].primary_stat != "") {
 			if (titles[i].primary_stat == "physical") {
-				if (pc->stats.get_physical() <= pc->stats.get_mental()+1 || pc->stats.get_physical() <= pc->stats.get_offense()+1 || pc->stats.get_physical() <= pc->stats.get_defense()+1)
+				if (pc->stats.get_physical() <= pc->stats.get_mental() || pc->stats.get_physical() <= pc->stats.get_offense() || pc->stats.get_physical() <= pc->stats.get_defense())
 					continue;
 			} else if (titles[i].primary_stat == "offense") {
-				if (pc->stats.get_offense() <= pc->stats.get_mental()+1 || pc->stats.get_offense() <= pc->stats.get_physical()+1 || pc->stats.get_offense() <= pc->stats.get_defense()+1)
+				if (pc->stats.get_offense() <= pc->stats.get_mental() || pc->stats.get_offense() <= pc->stats.get_physical() || pc->stats.get_offense() <= pc->stats.get_defense())
 					continue;
 			} else if (titles[i].primary_stat == "mental") {
-				if (pc->stats.get_mental() <= pc->stats.get_physical()+1 || pc->stats.get_mental() <= pc->stats.get_offense()+1 || pc->stats.get_mental() <= pc->stats.get_defense()+1)
+				if (pc->stats.get_mental() <= pc->stats.get_physical() || pc->stats.get_mental() <= pc->stats.get_offense() || pc->stats.get_mental() <= pc->stats.get_defense())
 					continue;
 			} else if (titles[i].primary_stat == "defense") {
-				if (pc->stats.get_defense() <= pc->stats.get_mental()+1 || pc->stats.get_defense() <= pc->stats.get_offense()+1 || pc->stats.get_defense() <= pc->stats.get_physical()+1)
+				if (pc->stats.get_defense() <= pc->stats.get_mental() || pc->stats.get_defense() <= pc->stats.get_offense() || pc->stats.get_defense() <= pc->stats.get_physical())
 					continue;
 			} else if (titles[i].primary_stat == "physoff") {
 				if (pc->stats.physoff <= pc->stats.physdef || pc->stats.physoff <= pc->stats.mentoff || pc->stats.physoff <= pc->stats.mentdef || pc->stats.physoff <= pc->stats.physment || pc->stats.physoff <= pc->stats.offdef)
