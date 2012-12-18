@@ -622,6 +622,10 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 
 			if (activeAnimation->isFirstFrame() && activeAnimation->getTimesPlayed() < 1) {
 				stats.effects.clearEffects();
+
+				// raise the death penalty flag.  Another module will read this and reset.
+				stats.death_penalty = true;
+
 				if (sound_die)
 					Mix_PlayChannel(-1, sound_die, 0);
 				if (stats.permadeath) {
@@ -789,9 +793,6 @@ bool Avatar::takeHit(const Hazard &h) {
 		if (stats.hp <= 0) {
 			stats.effects.triggered_death = true;
 			stats.cur_state = AVATAR_DEAD;
-
-			// raise the death penalty flag.  Another module will read this and reset.
-			stats.death_penalty = true;
 		}
 		else if (prev_hp > stats.hp) { // only interrupt if damage was taken
 			if (sound_hit)
