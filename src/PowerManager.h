@@ -77,6 +77,7 @@ const int TRIGGER_BLOCK = 0;
 const int TRIGGER_HIT = 1;
 const int TRIGGER_HALFDEATH = 2;
 const int TRIGGER_JOINCOMBAT = 3;
+const int TRIGGER_DEATH = 4;
 
 struct PostEffect {
 	int id;
@@ -116,6 +117,7 @@ public:
 	bool requires_los; // line of sight
 	bool requires_empty_target; // target square must be empty
 	int requires_item;
+	int requires_equipped_item;
 	bool consumable;
 	bool requires_targeting; // power only makes sense when using click-to-target
 	int cooldown; // milliseconds before you can use the power again
@@ -311,7 +313,8 @@ public:
 	// shared sounds for power special effects
 	std::vector<Mix_Chunk*> sfx;
 
-	int used_item;
+	std::vector<int> used_items;
+	std::vector<int> used_equipped_items;
 };
 
 #endif

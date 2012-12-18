@@ -102,6 +102,7 @@ public:
 	bool stun;
 	int forced_speed;
 	bool forced_move;
+	bool revive;
 
 	int bonus_hp;
 	int bonus_hp_regen;
@@ -127,6 +128,7 @@ public:
 	bool triggered_hit;
 	bool triggered_halfdeath;
 	bool triggered_joincombat;
+	bool triggered_death;
 };
 
 #endif

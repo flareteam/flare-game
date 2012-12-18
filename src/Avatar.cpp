@@ -390,6 +390,14 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 	bool allowed_to_move;
 	bool allowed_to_use_power;
 
+	// check for revive
+	if (stats.hp <= 0 && stats.effects.revive) {
+		stats.hp = stats.maxhp;
+		stats.alive = true;
+		stats.corpse = false;
+		stats.cur_state = AVATAR_STANCE;
+	}
+
 	// check level up
 	if (stats.xp >= stats.xp_table[stats.level] && stats.level < MAX_CHARACTER_LEVEL) {
 		stats.level_up = true;
@@ -418,6 +426,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 
 	// check for bleeding to death
 	if (stats.hp == 0 && !(stats.cur_state == AVATAR_DEAD)) {
+		stats.effects.triggered_death = true;
 		stats.cur_state = AVATAR_DEAD;
 	}
 
@@ -602,6 +611,8 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 			break;
 
 		case AVATAR_DEAD:
+			if (stats.effects.triggered_death) break;
+
 			if (stats.transformed) {
 				stats.transform_duration = 0;
 				untransform();
@@ -650,7 +661,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 	}
 
 	// turn on all passive powers
-	if (stats.hp > 0 && !respawn) powers->activatePassives(&stats);
+	if ((stats.hp > 0 || stats.effects.triggered_death) && !respawn) powers->activatePassives(&stats);
 
 	// calc new cam position from player position
 	// cam is focused at player position
@@ -776,6 +787,7 @@ bool Avatar::takeHit(const Hazard &h) {
 		}
 
 		if (stats.hp <= 0) {
+			stats.effects.triggered_death = true;
 			stats.cur_state = AVATAR_DEAD;
 
 			// raise the death penalty flag.  Another module will read this and reset.
