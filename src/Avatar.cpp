@@ -621,6 +621,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 			setAnimation("die");
 
 			if (activeAnimation->isFirstFrame() && activeAnimation->getTimesPlayed() < 1) {
+				stats.effects.clearEffects();
 				if (sound_die)
 					Mix_PlayChannel(-1, sound_die, 0);
 				if (stats.permadeath) {
@@ -633,7 +634,6 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 
 			if (activeAnimation->getTimesPlayed() >= 1) {
 				stats.corpse = true;
-				if (!stats.effects.triggered_death) stats.effects.clearEffects();
 			}
 
 			// allow respawn with Accept if not permadeath
