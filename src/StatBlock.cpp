@@ -35,80 +35,140 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 using namespace std;
 
-
-StatBlock::StatBlock() {
-
-	name = "";
-	alive = true;
-	corpse = false;
-	corpse_ticks = 0;
-	hero = false;
-	humanoid = false;
-	hero_pos.x = hero_pos.y = -1;
-	hero_alive = true;
-	hero_stealth = 0;
-	permadeath = false;
-	transform_type = "";
-	transformed = false;
-	refresh_stats = false;
-
-	movement_type = MOVEMENT_NORMAL;
-	flying = false;
-	intangible = false;
-	facing = true;
-	suppress_hp = false;
-
-	// core stats
-	offense_character = defense_character = physical_character = mental_character = 0;
-	offense_additional = defense_additional = physical_additional = mental_additional = 0;
-	bonus_per_offense = bonus_per_defense = bonus_per_physical = bonus_per_mental = 0;
-	physoff = physdef = mentoff = mentdef = 0;
-	physment = offdef = 0;
-	character_class="";
-	level = 0;
-	hp = maxhp = hp_per_minute = hp_ticker = 0;
-	mp = maxmp = mp_per_minute = mp_ticker = 0;
-	xp = 0;
-	accuracy = 75;
-	avoidance = 25;
-	crit = 0;
-	level_up = false;
-	check_title = false;
-	stat_points_per_level = 1;
-	power_points_per_level = 1;
-
-
-	// equipment stats
-	dmg_melee_min = dmg_melee_min_default = 1;
-	dmg_melee_max = dmg_melee_max_default = 4;
-	dmg_ment_min = dmg_ment_min_default = 1;
-	dmg_ment_max = dmg_ment_max_default = 4;
-	dmg_ranged_min = dmg_ranged_min_default = 1;
-	dmg_ranged_max = dmg_ranged_max_default = 4;
-	absorb_min = absorb_min_default = 0;
-	absorb_max = absorb_max_default = 0;
-	speed = speed_default = 14;
-	dspeed = dspeed_default = 10;
-	wielding_physical = false;
-	wielding_mental = false;
-	wielding_offense = false;
-
-	// buff and debuff stats
-	transform_duration = 0;
-	transform_duration_total = 0;
-	manual_untransform = false;
-	cooldown_ticks = 0;
-	effects = EffectManager();
-
-	// patrol waypoints
-	waypoint_pause = 0;
-	waypoint_pause_ticks = 0;
-
-	// wandering
-	wander= false;
-	wander_ticks = 0;
-	wander_pause_ticks = 0;
-
+StatBlock::StatBlock()
+	: statsLoaded(false)
+	, alive(true)
+	, corpse(false)
+	, corpse_ticks(0)
+	, hero(false)
+	, humanoid(false)
+	, permadeath(false)
+	, transformed(false)
+	, refresh_stats(false)
+	, movement_type(MOVEMENT_NORMAL)
+	, flying(false)
+	, intangible(false)
+	, facing(true)
+	, name("")
+	, sfx_prefix("")
+	, level(0)
+	, xp(0)
+	//int xp_table[MAX_CHARACTER_LEVEL+1];
+	, level_up(false)
+	, check_title(false)
+	, stat_points_per_level(1)
+	, power_points_per_level(1)
+	, offense_character(0)
+	, defense_character(0)
+	, physical_character(0)
+	, mental_character(0)
+	, offense_additional(0)
+	, defense_additional(0)
+	, physical_additional(0)
+	, mental_additional(0)
+	, bonus_per_physical(0)
+	, bonus_per_mental(0)
+	, bonus_per_offense(0)
+	, bonus_per_defense(0)
+	, physoff(0)
+	, physdef(0)
+	, mentoff(0)
+	, mentdef(0)
+	, physment(0)
+	, offdef(0)
+	, character_class("")
+	, hp(0)
+	, maxhp(0)
+	, hp_per_minute(0)
+	, hp_ticker(0)
+	, mp(0)
+	, maxmp(0)
+	, mp_per_minute(0)
+	, mp_ticker(0)
+	, accuracy(75)
+	, avoidance(0)
+	, crit(0)
+	, dmg_melee_min_default(1)
+	, dmg_melee_max_default(4)
+	, dmg_ment_min_default(1)
+	, dmg_ment_max_default(4)
+	, dmg_ranged_min_default(1)
+	, dmg_ranged_max_default(4)
+	, absorb_min_default(0)
+	, absorb_max_default(0)
+	, speed_default(14)
+	, dspeed_default(10)
+	, dmg_melee_min(1)
+	, dmg_melee_max(4)
+	, dmg_ment_min(1)
+	, dmg_ment_max(4)
+	, dmg_ranged_min(1)
+	, dmg_ranged_max(4)
+	, absorb_min(0)
+	, absorb_max(0)
+	, speed(14)
+	, dspeed(10)
+	, wielding_physical(false)
+	, wielding_mental(false)
+	, wielding_offense(false)
+	, transform_duration(0)
+	, transform_duration_total(0)
+	, manual_untransform(false)
+	, effects(EffectManager())
+	, pos(Point())
+	, forced_speed(Point())
+	, direction(0)
+	, hero_cooldown(vector<int>(POWER_COUNT, 0)) // hero only
+	, cur_state(0)
+	, waypoints(queue<Point>())		// enemy only
+	, waypoint_pause(0)				// enemy only
+	, waypoint_pause_ticks(0)		// enemy only
+	, wander(false)					// enemy only
+	, wander_area(SDL_Rect())		// enemy only
+	, wander_ticks(0)				// enemy only
+	, wander_pause_ticks(0)			// enemy only
+	, chance_pursue(0)
+	, chance_flee(0)				// read in, but unused in formulas.
+	, powers_list(vector<int>(POWERSLOT_COUNT, 0))	// hero only
+	, powers_list_items(vector<int>(0))	// hero only
+	, power_chance(vector<int>(POWERSLOT_COUNT, 0))		// enemy only
+	, power_index(vector<int>(POWERSLOT_COUNT, 0))		// both
+	, power_cooldown(vector<int>(POWERSLOT_COUNT, 0))	// enemy only
+	, power_ticks(vector<int>(POWERSLOT_COUNT, 0))		// enemy only
+	, melee_range(64) //both
+	, threat_range(0)  // enemy
+	, hero_pos(Point(-1, -1))
+	, hero_alive(true)
+	, hero_stealth(0)
+	, last_seen(Point(-1, -1))  // no effects to gameplay?
+	, turn_delay(0)
+	, turn_ticks(0)
+	, in_combat(false)  //enemy only
+	, join_combat(false)
+	, cooldown_ticks(0)
+	, cooldown(0)
+	, activated_powerslot(0)// enemy only
+	, on_half_dead_casted(false) // enemy only
+	, suppress_hp(false)
+	, teleportation(false)
+	, teleport_destination(Point())
+	, melee_weapon_power(0)
+	, mental_weapon_power(0)
+	, ranged_weapon_power(0)
+	, currency(0)
+	, death_penalty(false)
+	, defeat_status("")			// enemy only
+	, quest_loot_requires("")	// enemy only
+	, quest_loot_not("")		// enemy only
+	, quest_loot_id(0)			// enemy only
+	, first_defeat_loot(0)		// enemy only
+	, base("male")
+	, head("head_short")
+	, portrait("male01")
+	, transform_type("")
+	, animations("")
+	, sfx_step("cloth")
+{
 	max_spendable_stat_points = 0;
 	max_points_per_stat = 0;
 
@@ -118,46 +178,8 @@ StatBlock::StatBlock() {
 		xp_table[i] = std::numeric_limits<int>::max();
 	}
 
-	loot = vector<EnemyLoot>();
-	teleportation = false;
-
-	powers_list = vector<int>();
-	for (int i=0; i<POWERSLOT_COUNT; i++) {
-		power_chance[i] = 0;
-		power_index[i] = 0;
-		power_cooldown[i] = 0;
-		power_ticks[i] = 0;
-	}
-	melee_range = 64;
-
-	melee_weapon_power = 0;
-	ranged_weapon_power = 0;
-	mental_weapon_power = 0;
-
 	vulnerable = std::vector<int>(ELEMENTS.size(), 100);
 
-	currency = 0;
-	death_penalty = false;
-
-	// campaign status interaction
-	defeat_status = "";
-	quest_loot_requires = "";
-	quest_loot_not = "";
-	quest_loot_id = 0;
-	first_defeat_loot = 0;
-
-	// default hero base/option
-	base="male";
-	head="head_short";
-	portrait="male01";
-
-	// default animations
-	animations = "";
-
-	// default step sound
-	sfx_step = "cloth";
-
-	statsLoaded = false;
 	// formula numbers. Used only for hero
 	hp_base = 10;
 	hp_per_level = 2;
@@ -180,17 +202,6 @@ StatBlock::StatBlock() {
 	crit_base = 5;
 	crit_per_level = 1;
 
-	ammo_arrows = 0;
-	direction = 0;
-	cur_state = 0;
-	chance_pursue = 0;
-	chance_flee = 0;
-	threat_range = 0;
-	turn_delay = 0;
-	turn_ticks = 0;
-	in_combat = 0;
-	join_combat = 0;
-	cooldown = 0;
 	activated_powerslot = 0;
 	on_half_dead_casted = false;
 }
@@ -350,7 +361,6 @@ void StatBlock::takeDamage(int dmg) {
 	hp -= effects.damageShields(dmg);
 	if (hp <= 0) {
 		hp = 0;
-		alive = false;
 	}
 }
 
@@ -429,6 +439,8 @@ void StatBlock::recalc_alt() {
  * Process per-frame actions
  */
 void StatBlock::logic() {
+	if (hp <= 0 && !effects.triggered_death && !effects.revive) alive = false;
+	else alive = true;
 
 	// handle effect timers
 	effects.logic();
@@ -487,7 +499,6 @@ void StatBlock::logic() {
 	if (intangible) movement_type = MOVEMENT_INTANGIBLE;
 	else if (flying) movement_type = MOVEMENT_FLYING;
 	else movement_type = MOVEMENT_NORMAL;
-
 }
 
 StatBlock::~StatBlock() {

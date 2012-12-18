@@ -477,12 +477,16 @@ void GameStatePlay::checkLootDrop() {
  * When a consumable-based power is used, we need to remove it from the inventory.
  */
 void GameStatePlay::checkConsumable() {
-	if (powers->used_item != -1) {
-		if (menu->items->items[powers->used_item].type == "consumable") {
-			menu->inv->remove(powers->used_item);
-			powers->used_item = -1;
+	for (unsigned i=0; i<powers->used_items.size(); i++) {
+		if (menu->items->items[powers->used_items[i]].type == "consumable") {
+			menu->inv->remove(powers->used_items[i]);
 		}
 	}
+	for (unsigned i=0; i<powers->used_equipped_items.size(); i++) {
+		menu->inv->removeEquipped(powers->used_equipped_items[i]);
+	}
+	powers->used_items.clear();
+	powers->used_equipped_items.clear();
 }
 
 /**
