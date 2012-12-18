@@ -1021,6 +1021,17 @@ visual_random=4
 sfx=spikes.ogg
 
 [power]
+id=170
+name=Ouroboros Ring
+type=fixed
+description=Revive upon death
+buff=true
+requires_equipped_item=112
+passive=true
+passive_trigger=on_death
+post_effect=234,0,1
+
+[power]
 id=200
 name=Bleeding
 type=effect
@@ -1233,4 +1244,10 @@ tag=stealth
 type=effect
 effect_type=stealth
 effect_additive=true
+
+[power]
+id=234
+name=Revive
+type=effect
+effect_type=revive
 
