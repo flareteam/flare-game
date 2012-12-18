@@ -930,8 +930,6 @@ void MapRenderer::renderOrthoFrontObjects(std::vector<Renderable> &r) {
 	while (r_cursor != r_end && (r_cursor->map_pos.y>>TILE_SHIFT) < startj)
 		++r_cursor;
 
-
-
 	for (j = startj; j<max_tiles_height; j++) {
 		for (i = starti; i<max_tiles_width; i++) {
 
