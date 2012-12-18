@@ -78,9 +78,18 @@ void BehaviorStandard::doUpkeep() {
 	if (e->stats.wander_pause_ticks > 0)
 		e->stats.wander_pause_ticks--;
 
+	// check for revive
+	if (e->stats.hp <= 0 && e->stats.effects.revive) {
+		e->stats.hp = e->stats.maxhp;
+		e->stats.alive = true;
+		e->stats.corpse = false;
+		e->stats.cur_state = ENEMY_STANCE;
+	}
+
 	// check for bleeding to death
 	if (e->stats.hp <= 0 && !(e->stats.cur_state == ENEMY_DEAD || e->stats.cur_state == ENEMY_CRITDEAD)) {
 		e->doRewards();
+		e->stats.effects.triggered_death = true;
 		e->stats.cur_state = ENEMY_DEAD;
 		e->map->collider.unblock(e->stats.pos.x,e->stats.pos.y);
 	}
@@ -451,6 +460,7 @@ void BehaviorStandard::updateState() {
 			break;
 
 		case ENEMY_DEAD:
+			if (e->stats.effects.triggered_death) break;
 
 			e->setAnimation("die");
 			if (e->activeAnimation->isFirstFrame()) {
@@ -486,8 +496,8 @@ void BehaviorStandard::updateState() {
 			break;
 	}
 
-	// activated all passive powers
-	if (e->stats.hp > 0) e->powers->activatePassives(&e->stats);
+	// activate all passive powers
+	if (e->stats.hp > 0 || e->stats.effects.triggered_death) e->powers->activatePassives(&e->stats);
 }
 
 

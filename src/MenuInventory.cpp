@@ -393,9 +393,12 @@ void MenuInventory::activate(InputState * input) {
 		// if this item requires targeting it can't be used this way
 		if (!powers->powers[items->items[inventory[CARRIED][slot].item].power].requires_targeting) {
 
+			unsigned used_item_count = powers->used_items.size();
+			unsigned used_equipped_item_count = powers->used_equipped_items.size();
 			powers->activate(items->items[inventory[CARRIED][slot].item].power, stats, nullpt);
-			// intercept used_item flag.  We will destroy the item here.
-			powers->used_item = -1;
+			// Remove any used items from the queue of items to be removed. We will destroy the items here.
+			if (used_item_count < powers->used_items.size()) powers->used_items.pop_back();
+			if (used_equipped_item_count < powers->used_equipped_items.size()) powers->used_equipped_items.pop_back();
 			inventory[CARRIED].substract(slot);
 		}
 		else {
@@ -522,7 +525,16 @@ void MenuInventory::add(ItemStack stack, int area, int slot) {
 void MenuInventory::remove(int item) {
 	if( !inventory[CARRIED].remove(item)) {
 		inventory[EQUIPMENT].remove(item);
+		applyEquipment(inventory[EQUIPMENT].storage);
 	}
+}
+
+/**
+ * Remove an equipped item from the player's inventory.
+ */
+void MenuInventory::removeEquipped(int item) {
+	inventory[EQUIPMENT].remove(item);
+	applyEquipment(inventory[EQUIPMENT].storage);
 }
 
 /**
@@ -728,6 +740,7 @@ void MenuInventory::applyEquipment(ItemStack *equipped) {
 
 	// defaults
 	stats->recalc_alt();
+	stats->powers_list_items.clear();
 
 	// the default for weapons/absorb are not added to equipped items
 	// later this function they are applied if the defaults aren't met
@@ -823,6 +836,9 @@ void MenuInventory::applyItemStats(ItemStack *equipped) {
 
 			bonus_counter++;
 		}
+
+		// add item powers
+		if (item.power > 0) stats->powers_list_items.push_back(item.power);
 
 	}
 }

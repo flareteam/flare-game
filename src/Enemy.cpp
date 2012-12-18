@@ -269,12 +269,14 @@ bool Enemy::takeHit(const Hazard &h) {
 
 			if (stats.hp <= 0 && crit) {
 				doRewards();
+				stats.effects.triggered_death = true;
 				stats.cur_state = ENEMY_CRITDEAD;
 				map->collider.unblock(stats.pos.x,stats.pos.y);
 
 			}
 			else if (stats.hp <= 0) {
 				doRewards();
+				stats.effects.triggered_death = true;
 				stats.cur_state = ENEMY_DEAD;
 				map->collider.unblock(stats.pos.x,stats.pos.y);
 

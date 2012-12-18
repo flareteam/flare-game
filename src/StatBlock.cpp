@@ -130,6 +130,7 @@ StatBlock::StatBlock()
 	, chance_pursue(0)
 	, chance_flee(0)				// read in, but unused in formulas.
 	, powers_list(vector<int>(POWERSLOT_COUNT, 0))	// hero only
+	, powers_list_items(vector<int>(0))	// hero only
 	, power_chance(vector<int>(POWERSLOT_COUNT, 0))		// enemy only
 	, power_index(vector<int>(POWERSLOT_COUNT, 0))		// both
 	, power_cooldown(vector<int>(POWERSLOT_COUNT, 0))	// enemy only
@@ -360,7 +361,6 @@ void StatBlock::takeDamage(int dmg) {
 	hp -= effects.damageShields(dmg);
 	if (hp <= 0) {
 		hp = 0;
-		alive = false;
 	}
 }
 
@@ -439,6 +439,8 @@ void StatBlock::recalc_alt() {
  * Process per-frame actions
  */
 void StatBlock::logic() {
+	if (hp <= 0 && !effects.triggered_death && !effects.revive) alive = false;
+	else alive = true;
 
 	// handle effect timers
 	effects.logic();
@@ -497,7 +499,6 @@ void StatBlock::logic() {
 	if (intangible) movement_type = MOVEMENT_INTANGIBLE;
 	else if (flying) movement_type = MOVEMENT_FLYING;
 	else movement_type = MOVEMENT_NORMAL;
-
 }
 
 StatBlock::~StatBlock() {

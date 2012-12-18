@@ -47,7 +47,8 @@ using namespace std;
 PowerManager::PowerManager()
 	: collider(NULL)
 	, log_msg("")
-	, used_item(-1)
+	, used_items(std::vector<int>())
+	, used_equipped_items(std::vector<int>())
 {
 	loadAll();
 }
@@ -145,6 +146,7 @@ void PowerManager::loadPowers(const std::string& filename) {
 			else if (infile.val == "on_hit") powers[input_id].passive_trigger = TRIGGER_HIT;
 			else if (infile.val == "on_halfdeath") powers[input_id].passive_trigger = TRIGGER_HALFDEATH;
 			else if (infile.val == "on_joincombat") powers[input_id].passive_trigger = TRIGGER_JOINCOMBAT;
+			else if (infile.val == "on_death") powers[input_id].passive_trigger = TRIGGER_DEATH;
 			else fprintf(stderr, "unknown passive trigger %s\n", infile.val.c_str());
 		}
 		// power requirements
@@ -166,6 +168,8 @@ void PowerManager::loadPowers(const std::string& filename) {
 			powers[input_id].requires_empty_target = toBool(infile.val);
 		else if (infile.key == "requires_item")
 			powers[input_id].requires_item = toInt(infile.val);
+		else if (infile.key == "requires_equipped_item")
+			powers[input_id].requires_equipped_item = toInt(infile.val);
 		else if (infile.key == "requires_targeting")
 			powers[input_id].requires_targeting = toBool(infile.val);
 		else if (infile.key == "cooldown")
@@ -983,7 +987,9 @@ void PowerManager::payPowerCost(int power_index, StatBlock *src_stats) {
 		if (src_stats->hero) {
 			src_stats->mp -= powers[power_index].requires_mp;
 			if (powers[power_index].requires_item != -1)
-				used_item = powers[power_index].requires_item;
+				used_items.push_back(powers[power_index].requires_item);
+			if (powers[power_index].requires_equipped_item != -1)
+				used_equipped_items.push_back(powers[power_index].requires_equipped_item);
 		}
 		src_stats->hp -= powers[power_index].requires_hp;
 		src_stats->hp = (src_stats->hp < 0 ? 0 : src_stats->hp);
@@ -995,9 +1001,11 @@ void PowerManager::payPowerCost(int power_index, StatBlock *src_stats) {
  */
 void PowerManager::activatePassives(StatBlock *src_stats) {
 	bool triggered_others = false;
+	int trigger = -1;
+	// unlocked powers
 	for (unsigned i=0; i<src_stats->powers_list.size(); i++) {
 		if (powers[src_stats->powers_list[i]].passive) {
-			int trigger = powers[src_stats->powers_list[i]].passive_trigger;
+			trigger = powers[src_stats->powers_list[i]].passive_trigger;
 
 			if (trigger == -1) {
 				if (src_stats->effects.triggered_others) continue;
@@ -1013,17 +1021,44 @@ void PowerManager::activatePassives(StatBlock *src_stats) {
 				if (!src_stats->in_combat) continue;
 				else src_stats->effects.triggered_joincombat = true;
 			}
+			else if (trigger == TRIGGER_DEATH && !src_stats->effects.triggered_death) continue;
 
 			activate(src_stats->powers_list[i], src_stats, src_stats->pos);
+			src_stats->refresh_stats = true;
+		}
+	}
+	// item powers
+	for (unsigned i=0; i<src_stats->powers_list_items.size(); i++) {
+		if (powers[src_stats->powers_list_items[i]].passive) {
+			trigger = powers[src_stats->powers_list_items[i]].passive_trigger;
+
+			if (trigger == -1) {
+				if (src_stats->effects.triggered_others) continue;
+				else triggered_others = true;
+			}
+			else if (trigger == TRIGGER_BLOCK && !src_stats->effects.triggered_block) continue;
+			else if (trigger == TRIGGER_HIT && !src_stats->effects.triggered_hit) continue;
+			else if (trigger == TRIGGER_HALFDEATH && !src_stats->effects.triggered_halfdeath) {
+				if (src_stats->hp > src_stats->maxhp/2) continue;
+				else src_stats->effects.triggered_halfdeath = true;
+			}
+			else if (trigger == TRIGGER_JOINCOMBAT && !src_stats->effects.triggered_joincombat) {
+				if (!src_stats->in_combat) continue;
+				else src_stats->effects.triggered_joincombat = true;
+			}
+			else if (trigger == TRIGGER_DEATH && !src_stats->effects.triggered_death) continue;
+
+			activate(src_stats->powers_list_items[i], src_stats, src_stats->pos);
 			src_stats->refresh_stats = true;
 		}
 	}
 	// Only trigger normal passives once
 	if (triggered_others) src_stats->effects.triggered_others = true;
 
-	// the hit trigger can be triggered more than once, so reset it here
+	// the hit/death triggers can be triggered more than once, so reset them here
 	// the block trigger is handled in the Avatar class
 	src_stats->effects.triggered_hit = false;
+	src_stats->effects.triggered_death = false;
 }
 
 /**
