@@ -7,7 +7,7 @@ before_install:
   - sudo apt-get update -qq
   - sudo apt-get install -qq libsdl1.2-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf2.0-dev cppcheck gcc-snapshot
 script: cmake . && make
-after_script: cppcheck --enable=all -q `git ls-files src/\*.cpp`
+after_script: cppcheck --verbose --enable=all --std=posix --std=c++11 --quiet `git ls-files src/\*.cpp`
 notifications:
   irc:
     channels:
