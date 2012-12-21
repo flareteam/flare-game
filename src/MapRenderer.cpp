@@ -110,45 +110,28 @@ void MapRenderer::push_enemy_group(Map_Group g) {
 		return;
 	}
 
-	// populate valid_locations
-	vector<Point> valid_locations;
-	Point pt;
-	for (int width = 0; width < g.area.x; width++) {
-		for (int height = 0; height < g.area.y; height++) {
-			pt.x = (g.pos.x + width) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
-			pt.y = (g.pos.y + height) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
-			if (collider.is_empty(pt.x, pt.y)) {
-				valid_locations.push_back(pt);
-			}
-		}
-	}
-	//remove locations that already have an enemy on them
-	Map_Enemy test_enemy;
-	for (size_t i = 0; i < enemies.size(); i++) {
-		test_enemy = enemies.front();
-		enemies.pop();
-		enemies.push(test_enemy);
-		for (size_t j = 0; j < valid_locations.size(); j++) {
-			if ( (test_enemy.pos.x == valid_locations.at(j).x) && (test_enemy.pos.y == valid_locations.at(j).y) ) {
-				valid_locations.erase(valid_locations.begin() + j);
-			}
-		}
-	}
-
 	// spawn the appropriate number of enemies
+	// count number of enemies and the allowed misses towards zero.
 	int number = rand() % (g.numbermax + 1 - g.numbermin) + g.numbermin;
+	int allowed_misses = 2 * g.numbermax;
 
-	for(int i = 0; i < number; i++) {
-		Enemy_Level enemy_lev = EnemyGroupManager::instance().getRandomEnemy(g.category, g.levelmin, g.levelmax);
-		Map_Enemy group_member;
-		if ((enemy_lev.type != "") && (!valid_locations.empty())){
-			group_member.clear();
-			group_member.type = enemy_lev.type;
-			int index = rand() % valid_locations.size();
-			group_member.pos = valid_locations.at(index);
-			valid_locations.erase(valid_locations.begin() + index);
-			group_member.direction = rand() % 8;
-			enemies.push(group_member);
+	while (number && allowed_misses) {
+
+		int x = (g.pos.x + (rand() % g.area.x)) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
+		int y = (g.pos.y + (rand() % g.area.y)) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
+		if (!collider.is_empty(x, y)) {
+			allowed_misses--;
+		} else {
+			Enemy_Level enemy_lev = EnemyGroupManager::instance().getRandomEnemy(g.category, g.levelmin, g.levelmax);
+			Map_Enemy group_member;
+			if (enemy_lev.type != ""){
+				group_member.clear();
+				group_member.type = enemy_lev.type;
+				group_member.pos = Point(x, y);
+				group_member.direction = rand() % 8;
+				enemies.push(group_member);
+				number--;
+			}
 		}
 	}
 }
