@@ -25,9 +25,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <iostream>
 
 bool isInt(const std::string& s);
-unsigned short xtoi(char c);
-unsigned short xtoi(const std::string& hex);
-char btox(bool b1, bool b2, bool b3, bool b4);
 std::string trim(const std::string& s, char c);
 std::string parse_section_title(const std::string& s);
 void parse_key_pair(const std::string& s, std::string& key, std::string& val);
