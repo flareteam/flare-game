@@ -144,18 +144,18 @@ void parse_key_pair(const string& s, string &key, string &val) {
 }
 
 /**
- * Given a string that starts with a number then a comma
+ * Given a string that starts with a decimal number then a comma
  * Return that int, and modify the string to remove the num and comma
  *
  * This is basically a really lazy "split" replacement
  */
-int eatFirstInt(string &s, char separator, std::ios_base& (*f)(std::ios_base&)) {
+int eatFirstInt(string &s, char separator) {
 	size_t seppos = s.find_first_of(separator);
 	if (seppos == string::npos) {
 		s = "";
 		return 0; // not found
 	}
-	int num = toInt(s.substr(0, seppos), f);
+	int num = toInt(s.substr(0, seppos));
 	s = s.substr(seppos+1, s.length());
 	return num;
 }
@@ -265,9 +265,9 @@ std::string toString(const type_info & type, void * value) {
 	return stream.str();
 }
 
-int toInt(const string& s, std::ios_base& (*f)(std::ios_base&), int default_value) {
+int toInt(const string& s, int default_value) {
 	int result;
-	if (!(stringstream(s) >> f >> result))
+	if (!(stringstream(s) >> result))
 		result = default_value;
 	return result;
 }

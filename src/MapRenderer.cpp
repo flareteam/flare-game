@@ -159,7 +159,6 @@ void MapRenderer::push_enemy_group(Map_Group g) {
 int MapRenderer::load(string filename) {
 	FileParser infile;
 	string val;
-	string data_format;
 	maprow *cur_layer;
 
 	clearEvents();
@@ -176,7 +175,6 @@ int MapRenderer::load(string filename) {
 
 	while (infile.next()) {
 		if (infile.new_section) {
-			data_format = "dec"; // default
 
 			if (enemy_awaiting_queue) {
 				enemies.push(new_enemy);
@@ -247,7 +245,11 @@ int MapRenderer::load(string filename) {
 				else if (infile.val == "collision") collision = cur_layer;
 			}
 			else if (infile.key == "format") {
-				data_format = infile.val;
+				if (infile.val != "dec") {
+					fprintf(stderr, "ERROR: maploading: The format of a layer must be \"dec\"!\n");
+					SDL_Quit();
+					exit(1);
+				}
 			}
 			else if (infile.key == "data") {
 				// layer map data handled as a special case
@@ -255,7 +257,7 @@ int MapRenderer::load(string filename) {
 				for (int j=0; j<h; j++) {
 					val = infile.getRawLine() + ',';
 					for (int i=0; i<w; i++)
-						cur_layer[i][j] = eatFirstInt(val, ',', (data_format == "hex" ? std::hex : std::dec));
+						cur_layer[i][j] = eatFirstInt(val, ',');
 				}
 				if (cur_layer == collision)
 					collider.setmap(collision, w, h);
