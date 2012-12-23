@@ -259,8 +259,7 @@ public:
 
 	// enemy load handling
 	std::queue<Map_Enemy> enemies;
-	Map_Enemy new_enemy;
-	Map_Group new_group;
+
 	bool enemy_awaiting_queue;
 	bool group_awaiting_queue;
 

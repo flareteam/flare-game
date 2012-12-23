@@ -58,8 +58,6 @@ MapRenderer::MapRenderer(CampaignManager *_camp)
  , spawn(Point())
  , spawn_dir(0)
  , map_change(false)
- , new_enemy(Map_Enemy())
- , new_group(Map_Group())
  , enemy_awaiting_queue(false)
  , group_awaiting_queue(false)
  , new_npc(Map_NPC())
@@ -151,6 +149,8 @@ int MapRenderer::load(string filename) {
 	FileParser infile;
 	string val;
 	maprow *cur_layer;
+	Map_Enemy new_enemy;
+	Map_Group new_group;
 
 	clearEvents();
 	clearLayers();
