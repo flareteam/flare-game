@@ -25,13 +25,10 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <iostream>
 
 bool isInt(const std::string& s);
-unsigned short xtoi(char c);
-unsigned short xtoi(const std::string& hex);
-char btox(bool b1, bool b2, bool b3, bool b4);
 std::string trim(const std::string& s, char c);
 std::string parse_section_title(const std::string& s);
 void parse_key_pair(const std::string& s, std::string& key, std::string& val);
-int eatFirstInt(std::string& s, char separator, std::ios_base& (*f)(std::ios_base&) = std::dec);
+int eatFirstInt(std::string& s, char separator);
 std::string eatFirstString(std::string& s, char separator);
 std::string getNextToken(const std::string& s, size_t& cursor, char separator);
 std::string stripCarriageReturn(const std::string& line);
@@ -39,7 +36,7 @@ std::string getLine(std::ifstream& infile);
 bool tryParseValue(const std::type_info & type, const char * value, void * output);
 bool tryParseValue(const std::type_info & type, const std::string & value, void * output);
 std::string toString(const std::type_info & type, void * value);
-int toInt(const std::string& s, std::ios_base& (*f)(std::ios_base&) = std::dec, int default_value = 0);
+int toInt(const std::string& s, int default_value = 0);
 bool toBool(std::string value);
 
 #endif
