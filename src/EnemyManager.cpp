@@ -50,24 +50,19 @@ void EnemyManager::loadSounds(const string& type_id) {
 	if (audio && SOUND_VOLUME && type_id != "none") {
 		string path;
 		path = mods->locate("soundfx/enemies/" + type_id + "_phys.ogg");
-		sound_phys.push_back(Mix_LoadWAV(path.c_str()));
-		if (!sound_phys.back()) fprintf(stderr, "Could not load %s\n", path.c_str());
+		sound_phys.push_back(loadSfx(path, "EnemyManager physical attack sound"));
 
 		path = mods->locate("soundfx/enemies/" + type_id + "_ment.ogg");
-		sound_ment.push_back(Mix_LoadWAV(path.c_str()));
-		if (!sound_ment.back()) fprintf(stderr, "Could not load %s\n", path.c_str());
+		sound_ment.push_back(loadSfx(path, "EnemyManager mental attack sound"));
 
 		path = mods->locate("soundfx/enemies/" + type_id + "_hit.ogg");
-		sound_hit.push_back(Mix_LoadWAV(path.c_str()));
-		if (!sound_hit.back()) fprintf(stderr, "Could not load %s\n", path.c_str());
+		sound_hit.push_back(loadSfx(path, "EnemyManager physical hit sound"));
 
 		path = mods->locate("soundfx/enemies/" + type_id + "_die.ogg");
-		sound_die.push_back(Mix_LoadWAV(path.c_str()));
-		if (!sound_die.back()) fprintf(stderr, "Could not load %s\n", path.c_str());
+		sound_die.push_back(loadSfx(path, "EnemyManager die sound"));
 
 		path = mods->locate("soundfx/enemies/" + type_id + "_critdie.ogg");
-		sound_critdie.push_back(Mix_LoadWAV(path.c_str()));
-		if (!sound_critdie.back()) fprintf(stderr, "Could not load %s\n", path.c_str());
+		sound_critdie.push_back(loadSfx(path, "EnemyManager critdeath sound"));
 
 	} else {
 		sound_phys.push_back(NULL);

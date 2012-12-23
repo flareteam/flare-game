@@ -361,3 +361,11 @@ bool checkPixel(Point px, SDL_Surface *surface) {
 
 	return true;
 }
+
+Mix_Chunk *loadSfx(const string &filename, const string &errormessage)
+{
+	Mix_Chunk * sound = Mix_LoadWAV(filename.c_str());
+	if (!sound)
+		fprintf(stderr, "%s: Loading sound %s failed: %s \n", errormessage.c_str(), filename.c_str(), Mix_GetError());
+	return sound;
+}
