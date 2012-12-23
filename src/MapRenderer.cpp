@@ -40,6 +40,7 @@ MapRenderer::MapRenderer(CampaignManager *_camp)
  , show_tooltip(false)
  , sfx(NULL)
  , sfx_filename("")
+ , events(vector<Map_Event>())
  , background(NULL)
  , fringe(NULL)
  , object(NULL)
@@ -47,13 +48,14 @@ MapRenderer::MapRenderer(CampaignManager *_camp)
  , collision(NULL)
  , shakycam(Point())
  , new_music(false)
+ , backgroundsurface(NULL)
  , backgroundsurfaceoffset(Point(0,0))
  , repaint_background(false)
-
  , camp(_camp)
  , powers(NULL)
  , w(0)
  , h(0)
+ , cam(Point(0,0))
  , hero_tile(Point())
  , spawn(Point())
  , spawn_dir(0)
@@ -61,23 +63,12 @@ MapRenderer::MapRenderer(CampaignManager *_camp)
  , teleportation(false)
  , teleport_destination(Point())
  , respawn_point(Point())
+ , log_msg("")
+ , shaky_cam_ticks(0)
  , stash(false)
  , stash_pos(Point())
  , enemies_cleared(false)
 {
-	cam.x = 0;
-	cam.y = 0;
-	//~ new_music = false;
-
-	clearEvents();
-
-	log_msg = "";
-	shaky_cam_ticks = 0;
-
-	backgroundsurface = NULL;
-	//~ backgroundsurfaceoffset.x = 0;
-	//~ backgroundsurfaceoffset.y = 0;
-	//~ repaint_background = false;
 }
 
 void MapRenderer::clearEvents() {
@@ -138,9 +129,6 @@ void MapRenderer::push_enemy_group(Map_Group g) {
 	}
 }
 
-/**
- * load
- */
 int MapRenderer::load(string filename) {
 	FileParser infile;
 	string val;
