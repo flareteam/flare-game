@@ -46,66 +46,6 @@ bool isInt(const string& s) {
 }
 
 /**
- * Convert a single hex character (0123456789abcdef) into the equivalent integer
- */
-unsigned short xtoi(char c) {
-	if (c >= 97) return c - 87;
-	else if (c >= 65) return c - 55;
-	else return c - 48;
-}
-
-/**
- * Convert two-char hex string to int 0-255
- */
-unsigned short xtoi(const string& hex) {
-
-	char c0 = hex.at(0);
-	char c1 = hex.at(1);
-	unsigned short val;
-
-	val = xtoi(c0) * 16;
-	val = val + xtoi(c1);
-
-	return val;
-}
-
-/**
- * Convert four booleans into a single hex character 0-f
- */
-char btox(bool b1, bool b2, bool b3, bool b4) {
-	if (b4)
-		if (b3)
-			if (b2)
-				if (b1) return 'f';
-				else return 'e';
-			else
-				if (b1) return 'd';
-				else return 'c';
-		else
-			if (b2)
-				if (b1) return 'b';
-				else return 'a';
-			else
-				if (b1) return '9';
-				else return '8';
-	else
-		if (b3)
-			if (b2)
-				if (b1) return '7';
-				else return '6';
-			else
-				if (b1) return '5';
-				else return '4';
-		else
-			if (b2)
-				if (b1) return '3';
-				else return '2';
-			else
-				if (b1) return '1';
-				else return '0';
-}
-
-/**
  * trim: remove leading and trailing c from s
  */
 string trim(const string& s, char c) {
@@ -144,18 +84,18 @@ void parse_key_pair(const string& s, string &key, string &val) {
 }
 
 /**
- * Given a string that starts with a number then a comma
+ * Given a string that starts with a decimal number then a comma
  * Return that int, and modify the string to remove the num and comma
  *
  * This is basically a really lazy "split" replacement
  */
-int eatFirstInt(string &s, char separator, std::ios_base& (*f)(std::ios_base&)) {
+int eatFirstInt(string &s, char separator) {
 	size_t seppos = s.find_first_of(separator);
 	if (seppos == string::npos) {
 		s = "";
 		return 0; // not found
 	}
-	int num = toInt(s.substr(0, seppos), f);
+	int num = toInt(s.substr(0, seppos));
 	s = s.substr(seppos+1, s.length());
 	return num;
 }
@@ -265,9 +205,9 @@ std::string toString(const type_info & type, void * value) {
 	return stream.str();
 }
 
-int toInt(const string& s, std::ios_base& (*f)(std::ios_base&), int default_value) {
+int toInt(const string& s, int default_value) {
 	int result;
-	if (!(stringstream(s) >> f >> result))
+	if (!(stringstream(s) >> result))
 		result = default_value;
 	return result;
 }
