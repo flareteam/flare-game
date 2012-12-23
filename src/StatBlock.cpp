@@ -394,12 +394,28 @@ void StatBlock::recalc() {
 void StatBlock::recalc_alt() {
 
 	int lev0 = level -1;
-	int phys0 = get_physical() -1;
-	int ment0 = get_mental() -1;
-	int off0 = get_offense() -1;
-	int def0 = get_defense() -1;
 
 	if (hero) {
+		// calculate primary stats
+		offense_additional = defense_additional = physical_additional = mental_additional = 0;
+		offense_additional = effects.bonus_offense;
+		defense_additional = effects.bonus_defense;
+		physical_additional = effects.bonus_physical;
+		mental_additional = effects.bonus_mental;
+		int phys0 = get_physical() -1;
+		int ment0 = get_mental() -1;
+		int off0 = get_offense() -1;
+		int def0 = get_defense() -1;
+
+		// calculate compound primary stats
+		physoff = get_physical() + get_offense();
+		physdef = get_physical() + get_defense();
+		mentoff = get_mental() + get_offense();
+		mentdef = get_mental() + get_defense();
+		physment = get_physical() + get_mental();
+		offdef = get_offense() + get_defense();
+
+		// calculate other stats
 		maxhp = hp_base + (hp_per_level * lev0) + (hp_per_physical * phys0) + effects.bonus_hp + (effects.bonus_hp_percent * (hp_base + (hp_per_level * lev0) + (hp_per_physical * phys0)) / 100);
 		maxmp = mp_base + (mp_per_level * lev0) + (mp_per_mental * ment0) + effects.bonus_mp + (effects.bonus_mp_percent * (mp_base + (mp_per_level * lev0) + (mp_per_mental * phys0)) / 100);
 		hp_per_minute = hp_regen_base + (hp_regen_per_level * lev0) + (hp_regen_per_physical * phys0) + effects.bonus_hp_regen;
@@ -407,16 +423,6 @@ void StatBlock::recalc_alt() {
 		accuracy = accuracy_base + (accuracy_per_level * lev0) + (accuracy_per_offense * off0) + effects.bonus_accuracy;
 		avoidance = avoidance_base + (avoidance_per_level * lev0) + (avoidance_per_defense * def0) + effects.bonus_avoidance;
 		crit = crit_base + (crit_per_level * lev0) + effects.bonus_crit;
-		offense_additional = effects.bonus_offense;
-		defense_additional = effects.bonus_defense;
-		physical_additional = effects.bonus_physical;
-		mental_additional = effects.bonus_mental;
-		physoff = get_physical() + get_offense();
-		physdef = get_physical() + get_defense();
-		mentoff = get_mental() + get_offense();
-		mentdef = get_mental() + get_defense();
-		physment = get_physical() + get_mental();
-		offdef = get_offense() + get_defense();
 	} else {
 		maxhp = hp_base + effects.bonus_hp;
 		maxmp = mp_base + effects.bonus_mp;
