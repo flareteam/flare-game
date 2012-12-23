@@ -260,13 +260,8 @@ public:
 	// enemy load handling
 	std::queue<Map_Enemy> enemies;
 
-	bool enemy_awaiting_queue;
-	bool group_awaiting_queue;
-
 	// npc load handling
 	std::queue<Map_NPC> npcs;
-	Map_NPC new_npc;
-	bool npc_awaiting_queue;
 
 	// event-created loot or items
 	std::queue<Event_Component> loot;

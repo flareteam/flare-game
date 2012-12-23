@@ -58,10 +58,6 @@ MapRenderer::MapRenderer(CampaignManager *_camp)
  , spawn(Point())
  , spawn_dir(0)
  , map_change(false)
- , enemy_awaiting_queue(false)
- , group_awaiting_queue(false)
- , new_npc(Map_NPC())
- , npc_awaiting_queue(false)
  , teleportation(false)
  , teleport_destination(Point())
  , respawn_point(Point())
@@ -151,6 +147,10 @@ int MapRenderer::load(string filename) {
 	maprow *cur_layer;
 	Map_Enemy new_enemy;
 	Map_Group new_group;
+	bool enemy_awaiting_queue = false;
+	bool group_awaiting_queue = false;
+	bool npc_awaiting_queue = false;
+	Map_NPC new_npc;
 
 	clearEvents();
 	clearLayers();
@@ -577,12 +577,9 @@ int MapRenderer::load(string filename) {
 }
 
 void MapRenderer::clearQueues() {
-	while(!enemies.empty())
-	  enemies.pop();
-	while(!npcs.empty())
-	  npcs.pop();
-	while(!loot.empty())
-	  loot.pop();
+	enemies = queue<Map_Enemy>();
+	npcs = queue<Map_NPC>();
+	loot = queue<Event_Component>();
 }
 
 /**
