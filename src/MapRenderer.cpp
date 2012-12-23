@@ -110,29 +110,37 @@ void MapRenderer::push_enemy_group(Map_Group g) {
 		return;
 	}
 
-	// spawn the appropriate number of enemies
-	// count number of enemies and the allowed misses towards zero.
-	int number = rand() % (g.numbermax + 1 - g.numbermin) + g.numbermin;
-	int allowed_misses = 2 * g.numbermax;
+	// The algorithm tries to place the enemies at random locations.
+	// However if a location is not possible (unwalkable or there is already an entity),
+	// then try again.
+	// This could result in an infinite loop if there were more enemies than
+	// actual places, so have an upper bound of tries.
 
-	while (number && allowed_misses) {
+	// random number of enemies
+	int enemies_to_spawn = g.numbermin + rand() % (g.numbermax + 1 - g.numbermin);
+
+	// pick an upper bound, which is definitely larger than threetimes the enemy number to spawn.
+	int allowed_misses = 3 * g.numbermax;
+
+	while (enemies_to_spawn && allowed_misses) {
 
 		int x = (g.pos.x + (rand() % g.area.x)) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
 		int y = (g.pos.y + (rand() % g.area.y)) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
-		if (!collider.is_empty(x, y)) {
-			allowed_misses--;
-		} else {
+		bool success = false;
+
+		if (collider.is_empty(x, y)) {
 			Enemy_Level enemy_lev = EnemyGroupManager::instance().getRandomEnemy(g.category, g.levelmin, g.levelmax);
-			Map_Enemy group_member;
 			if (enemy_lev.type != ""){
-				group_member.clear();
-				group_member.type = enemy_lev.type;
-				group_member.pos = Point(x, y);
-				group_member.direction = rand() % 8;
+				Map_Enemy group_member = Map_Enemy(enemy_lev.type, Point(x, y));
 				enemies.push(group_member);
-				number--;
+
+				success = true;
 			}
 		}
+		if (success)
+			enemies_to_spawn--;
+		else
+			allowed_misses--;
 	}
 }
 
@@ -174,7 +182,7 @@ int MapRenderer::load(string filename) {
 
 			// for sections that are stored in collections, add a new object here
 			if (infile.section == "enemy") {
-				new_enemy.clear();
+				new_enemy = Map_Enemy();
 				enemy_awaiting_queue = true;
 			}
 			else if (infile.section == "enemygroup") {

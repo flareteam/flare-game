@@ -127,15 +127,13 @@ public:
 	bool wander;
 	SDL_Rect wander_area;
 
-	void clear() {
-		pos.x = 0;
-		pos.y = 0;
-		// enemies face a random direction unless otherwise specified
-		direction = rand() % 8;
-		type = "";
-		std::queue<Point> empty;
-		waypoints = empty;
-		wander = false;
+	Map_Enemy(std::string _type="", Point _pos=Point())
+	 : type(_type)
+	 , pos(_pos)
+	 , direction(rand() % 8)
+	 , waypoints(std::queue<Point>())
+	 , wander(false)
+	{
 		wander_area.x = 0;
 		wander_area.y = 0;
 		wander_area.w = 0;
