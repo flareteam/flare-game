@@ -349,18 +349,18 @@ void ItemManager::loadSounds() {
 	memset(sfx, 0, sizeof(sfx));
 
 	if (audio && SOUND_VOLUME) {
-		sfx[SFX_BOOK] = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_book.ogg").c_str());
-		sfx[SFX_CLOTH] = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_cloth.ogg").c_str());
-		sfx[SFX_COINS] = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_coins.ogg").c_str());
-		sfx[SFX_GEM] = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_gem.ogg").c_str());
-		sfx[SFX_LEATHER] = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_leather.ogg").c_str());
-		sfx[SFX_METAL] = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_metal.ogg").c_str());
-		sfx[SFX_PAGE] = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_page.ogg").c_str());
-		sfx[SFX_MAILLE] = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_maille.ogg").c_str());
-		sfx[SFX_OBJECT] = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_object.ogg").c_str());
-		sfx[SFX_HEAVY] = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_heavy.ogg").c_str());
-		sfx[SFX_WOOD] = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_wood.ogg").c_str());
-		sfx[SFX_POTION] = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_potion.ogg").c_str());
+		sfx[SFX_BOOK] = loadSfx(mods->locate("soundfx/inventory/inventory_book.ogg"),"ItemManager books");
+		sfx[SFX_CLOTH] = loadSfx(mods->locate("soundfx/inventory/inventory_cloth.ogg"), "ItemManager cloths");
+		sfx[SFX_COINS] = loadSfx(mods->locate("soundfx/inventory/inventory_coins.ogg"), "ItemManager coins");
+		sfx[SFX_GEM] = loadSfx(mods->locate("soundfx/inventory/inventory_gem.ogg"), "ItemManager gems");
+		sfx[SFX_LEATHER] = loadSfx(mods->locate("soundfx/inventory/inventory_leather.ogg"), "ItemManager leather");
+		sfx[SFX_METAL] = loadSfx(mods->locate("soundfx/inventory/inventory_metal.ogg"), "ItemManager metal");
+		sfx[SFX_PAGE] = loadSfx(mods->locate("soundfx/inventory/inventory_page.ogg"), "ItemManager page");
+		sfx[SFX_MAILLE] = loadSfx(mods->locate("soundfx/inventory/inventory_maille.ogg"), "ItemManager maille");
+		sfx[SFX_OBJECT] = loadSfx(mods->locate("soundfx/inventory/inventory_object.ogg"), "ItemManager objects");
+		sfx[SFX_HEAVY] = loadSfx(mods->locate("soundfx/inventory/inventory_heavy.ogg"), "ItemManager heavy");
+		sfx[SFX_WOOD] = loadSfx(mods->locate("soundfx/inventory/inventory_wood.ogg"), "ItemManager wood");
+		sfx[SFX_POTION] = loadSfx(mods->locate("soundfx/inventory/inventory_potion.ogg"), "ItemManager potions");
 	}
 }
 
@@ -604,7 +604,7 @@ TooltipData ItemManager::getTooltip(int item, StatBlock *stats, int context) {
 	if (items[item].flavor != "") {
 		tip.addText(items[item].flavor, color_flavor);
 	}
-	
+
 	// buy or sell price
 	if (items[item].price > 0) {
 

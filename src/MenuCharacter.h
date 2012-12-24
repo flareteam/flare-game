@@ -45,8 +45,7 @@ const int CSTAT_PHYSICAL = 2;
 const int CSTAT_MENTAL = 3;
 const int CSTAT_OFFENSE = 4;
 const int CSTAT_DEFENSE = 5;
-const int CSTAT_UNSPENT = 6;
-const int CSTAT_COUNT = 7;
+const int CSTAT_COUNT = 6;
 
 struct CharStat {
 	WidgetLabel *label;
@@ -70,6 +69,7 @@ private:
 	WidgetButton *closeButton;
 	WidgetButton *upgradeButton[4];
 	WidgetLabel *labelCharacter;
+	WidgetLabel *labelUnspent;
 	WidgetListBox *statList;
 	CharStat cstat[CSTAT_COUNT];
 
@@ -88,7 +88,8 @@ private:
 	Point statlist_pos;
 	int statlist_rows;
 	int statlist_scrollbar_offset;
-	LabelInfo label_pos[CSTAT_COUNT-1]; //unspent points doesn't have a separate label
+	LabelInfo unspent_pos;
+	LabelInfo label_pos[CSTAT_COUNT];
 	SDL_Rect value_pos[CSTAT_COUNT];
 	bool show_upgrade[4];
 	bool show_stat[16];

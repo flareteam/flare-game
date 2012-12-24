@@ -70,6 +70,9 @@ MenuCharacter::MenuCharacter(StatBlock *_stats) {
 	// menu title
 	labelCharacter = new WidgetLabel();
 
+	// unspent points
+	labelUnspent = new WidgetLabel();
+
 	// Load config settings
 	FileParser infile;
 	if(infile.open(mods->locate("menus/character.txt"))) {
@@ -149,12 +152,7 @@ MenuCharacter::MenuCharacter(StatBlock *_stats) {
 				value_pos[5].w = eatFirstInt(infile.val,',');
 				value_pos[5].h = eatFirstInt(infile.val,',');
 			} else if(infile.key == "unspent") {
-				value_pos[6].x = eatFirstInt(infile.val,',');
-				value_pos[6].y = eatFirstInt(infile.val,',');
-				value_pos[6].w = eatFirstInt(infile.val,',');
-				value_pos[6].h = eatFirstInt(infile.val,',');
-			} else if (infile.key == "show_unspent"){
-				if (eatFirstInt(infile.val,',') == 0) cstat[CSTAT_UNSPENT].visible = false;
+				unspent_pos = eatLabelInfo(infile.val);
 			} else if (infile.key == "show_upgrade_physical"){
 				if (eatFirstInt(infile.val,',') == 0) show_upgrade[0] = false;
 			} else if (infile.key == "show_upgrade_mental"){
@@ -242,8 +240,6 @@ void MenuCharacter::update() {
 	cstat[CSTAT_MENTAL].setHover(window_area.x+value_pos[3].x, window_area.y+value_pos[3].y, value_pos[3].w, value_pos[3].h);
 	cstat[CSTAT_OFFENSE].setHover(window_area.x+value_pos[4].x, window_area.y+value_pos[4].y, value_pos[4].w, value_pos[4].h);
 	cstat[CSTAT_DEFENSE].setHover(window_area.x+value_pos[5].x, window_area.y+value_pos[5].y, value_pos[5].w, value_pos[5].h);
-	cstat[CSTAT_UNSPENT].setHover(window_area.x+value_pos[6].x, window_area.y+value_pos[6].y, value_pos[6].w, value_pos[6].h);
-
 }
 
 void MenuCharacter::loadGraphics() {
@@ -295,8 +291,7 @@ void MenuCharacter::refreshStats() {
 	ss.str("");
 	if (skill_points > 0) ss << skill_points << " " << msg->get("points remaining");
 	else ss.str("");
-	cstat[CSTAT_UNSPENT].value->set(window_area.x+value_pos[6].x+value_pos[6].w/2, window_area.y+value_pos[6].y+value_pos[6].h/2, JUSTIFY_CENTER, VALIGN_CENTER, ss.str(), font->getColor("menu_bonus"));
-	ss.str("");
+	labelUnspent->set(window_area.x+unspent_pos.x, window_area.y+unspent_pos.y, unspent_pos.justify, unspent_pos.valign, ss.str(), font->getColor("menu_bonus"), unspent_pos.font_style);
 
 	// scrolling stat list
 
@@ -448,9 +443,6 @@ void MenuCharacter::refreshStats() {
 	cstat[CSTAT_DEFENSE].tip.clear();
 	cstat[CSTAT_DEFENSE].tip.addText(msg->get("Defense (D) increases armor proficiency and avoidance."));
 	cstat[CSTAT_DEFENSE].tip.addText(msg->get("base (%d), bonus (%d)", stats->defense_character, stats->defense_additional));
-
-	if (skill_points) cstat[CSTAT_UNSPENT].tip.addText(msg->get("Unspent attribute points"));
-
 }
 
 
@@ -517,6 +509,9 @@ void MenuCharacter::render() {
 
 	// title
 	labelCharacter->render();
+
+	// unspent points
+	labelUnspent->render();
 
 	// labels and values
 	for (int i=0; i<CSTAT_COUNT; i++) {
@@ -601,6 +596,7 @@ MenuCharacter::~MenuCharacter() {
 	delete closeButton;
 
 	delete labelCharacter;
+	delete labelUnspent;
 	for (int i=0; i<CSTAT_COUNT; i++) {
 		delete cstat[i].label;
 		delete cstat[i].value;

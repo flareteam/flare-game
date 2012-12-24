@@ -127,15 +127,13 @@ public:
 	bool wander;
 	SDL_Rect wander_area;
 
-	void clear() {
-		pos.x = 0;
-		pos.y = 0;
-		// enemies face a random direction unless otherwise specified
-		direction = rand() % 8;
-		type = "";
-		std::queue<Point> empty;
-		waypoints = empty;
-		wander = false;
+	Map_Enemy(std::string _type="", Point _pos=Point())
+	 : type(_type)
+	 , pos(_pos)
+	 , direction(rand() % 8)
+	 , waypoints(std::queue<Point>())
+	 , wander(false)
+	{
 		wander_area.x = 0;
 		wander_area.y = 0;
 		wander_area.w = 0;
@@ -261,15 +259,9 @@ public:
 
 	// enemy load handling
 	std::queue<Map_Enemy> enemies;
-	Map_Enemy new_enemy;
-	Map_Group new_group;
-	bool enemy_awaiting_queue;
-	bool group_awaiting_queue;
 
 	// npc load handling
 	std::queue<Map_NPC> npcs;
-	Map_NPC new_npc;
-	bool npc_awaiting_queue;
 
 	// event-created loot or items
 	std::queue<Event_Component> loot;

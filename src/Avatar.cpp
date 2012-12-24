@@ -207,15 +207,11 @@ void Avatar::loadSounds() {
 		Mix_FreeChunk(sound_block);
 		Mix_FreeChunk(level_up);
 
-		sound_melee = Mix_LoadWAV(mods->locate("soundfx/melee_attack.ogg").c_str());
-		sound_hit = Mix_LoadWAV(mods->locate("soundfx/" + stats.base + "_hit.ogg").c_str());
-		sound_die = Mix_LoadWAV(mods->locate("soundfx/" + stats.base + "_die.ogg").c_str());
-		sound_block = Mix_LoadWAV(mods->locate("soundfx/powers/block.ogg").c_str());
-		level_up = Mix_LoadWAV(mods->locate("soundfx/level_up.ogg").c_str());
-
-		if (!sound_melee || !sound_hit || !sound_die || !level_up) {
-			printf("Mix_LoadWAV: %s\n", Mix_GetError());
-		}
+		sound_melee = loadSfx(mods->locate("soundfx/melee_attack.ogg"), "Avatar melee attack");
+		sound_hit = loadSfx(mods->locate("soundfx/" + stats.base + "_hit.ogg"), "Avatar was hit");
+		sound_die = loadSfx(mods->locate("soundfx/" + stats.base + "_die.ogg"), "Avatar death");
+		sound_block = loadSfx(mods->locate("soundfx/powers/block.ogg"), "Avatar blocking");
+		level_up = loadSfx(mods->locate("soundfx/level_up.ogg"), "Avatar leveling up");
 	}
 }
 

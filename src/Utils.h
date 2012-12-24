@@ -28,6 +28,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include <SDL.h>
 #include <SDL_image.h>
+#include <SDL_mixer.h>
+
 #include <string>
 #include <stdint.h>
 
@@ -109,4 +111,6 @@ SDL_Surface* createAlphaSurface(int width, int height);
  * The bright pink (rgb 0xff00ff) is set as transparent color.
  */
 SDL_Surface* createSurface(int width, int height);
+
+Mix_Chunk *loadSfx(const std::string &filename, const std::string &errormessage);
 #endif

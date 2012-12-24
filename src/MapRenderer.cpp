@@ -40,6 +40,7 @@ MapRenderer::MapRenderer(CampaignManager *_camp)
  , show_tooltip(false)
  , sfx(NULL)
  , sfx_filename("")
+ , events(vector<Map_Event>())
  , background(NULL)
  , fringe(NULL)
  , object(NULL)
@@ -47,43 +48,27 @@ MapRenderer::MapRenderer(CampaignManager *_camp)
  , collision(NULL)
  , shakycam(Point())
  , new_music(false)
+ , backgroundsurface(NULL)
  , backgroundsurfaceoffset(Point(0,0))
  , repaint_background(false)
-
  , camp(_camp)
  , powers(NULL)
  , w(0)
  , h(0)
+ , cam(Point(0,0))
  , hero_tile(Point())
  , spawn(Point())
  , spawn_dir(0)
  , map_change(false)
- , new_enemy(Map_Enemy())
- , new_group(Map_Group())
- , enemy_awaiting_queue(false)
- , group_awaiting_queue(false)
- , new_npc(Map_NPC())
- , npc_awaiting_queue(false)
  , teleportation(false)
  , teleport_destination(Point())
  , respawn_point(Point())
+ , log_msg("")
+ , shaky_cam_ticks(0)
  , stash(false)
  , stash_pos(Point())
  , enemies_cleared(false)
 {
-	cam.x = 0;
-	cam.y = 0;
-	//~ new_music = false;
-
-	clearEvents();
-
-	log_msg = "";
-	shaky_cam_ticks = 0;
-
-	backgroundsurface = NULL;
-	//~ backgroundsurfaceoffset.x = 0;
-	//~ backgroundsurfaceoffset.y = 0;
-	//~ repaint_background = false;
 }
 
 void MapRenderer::clearEvents() {
@@ -96,7 +81,7 @@ void MapRenderer::playSFX(string filename) {
 		Mix_FreeChunk(sfx);
 		sfx = NULL;
 		if (audio) {
-			sfx = Mix_LoadWAV(mods->locate(filename).c_str());
+			sfx = loadSfx(mods->locate(filename), "MapRenderer background music");
 			sfx_filename = filename;
 		}
 	}
@@ -110,57 +95,50 @@ void MapRenderer::push_enemy_group(Map_Group g) {
 		return;
 	}
 
-	// populate valid_locations
-	vector<Point> valid_locations;
-	Point pt;
-	for (int width = 0; width < g.area.x; width++) {
-		for (int height = 0; height < g.area.y; height++) {
-			pt.x = (g.pos.x + width) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
-			pt.y = (g.pos.y + height) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
-			if (collider.is_empty(pt.x, pt.y)) {
-				valid_locations.push_back(pt);
+	// The algorithm tries to place the enemies at random locations.
+	// However if a location is not possible (unwalkable or there is already an entity),
+	// then try again.
+	// This could result in an infinite loop if there were more enemies than
+	// actual places, so have an upper bound of tries.
+
+	// random number of enemies
+	int enemies_to_spawn = g.numbermin + rand() % (g.numbermax + 1 - g.numbermin);
+
+	// pick an upper bound, which is definitely larger than threetimes the enemy number to spawn.
+	int allowed_misses = 3 * g.numbermax;
+
+	while (enemies_to_spawn && allowed_misses) {
+
+		int x = (g.pos.x + (rand() % g.area.x)) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
+		int y = (g.pos.y + (rand() % g.area.y)) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
+		bool success = false;
+
+		if (collider.is_empty(x, y)) {
+			Enemy_Level enemy_lev = EnemyGroupManager::instance().getRandomEnemy(g.category, g.levelmin, g.levelmax);
+			if (enemy_lev.type != ""){
+				Map_Enemy group_member = Map_Enemy(enemy_lev.type, Point(x, y));
+				enemies.push(group_member);
+
+				success = true;
 			}
 		}
-	}
-	//remove locations that already have an enemy on them
-	Map_Enemy test_enemy;
-	for (size_t i = 0; i < enemies.size(); i++) {
-		test_enemy = enemies.front();
-		enemies.pop();
-		enemies.push(test_enemy);
-		for (size_t j = 0; j < valid_locations.size(); j++) {
-			if ( (test_enemy.pos.x == valid_locations.at(j).x) && (test_enemy.pos.y == valid_locations.at(j).y) ) {
-				valid_locations.erase(valid_locations.begin() + j);
-			}
-		}
-	}
-
-	// spawn the appropriate number of enemies
-	int number = rand() % (g.numbermax + 1 - g.numbermin) + g.numbermin;
-
-	for(int i = 0; i < number; i++) {
-		Enemy_Level enemy_lev = EnemyGroupManager::instance().getRandomEnemy(g.category, g.levelmin, g.levelmax);
-		Map_Enemy group_member;
-		if ((enemy_lev.type != "") && (!valid_locations.empty())){
-			group_member.clear();
-			group_member.type = enemy_lev.type;
-			int index = rand() % valid_locations.size();
-			group_member.pos = valid_locations.at(index);
-			valid_locations.erase(valid_locations.begin() + index);
-			group_member.direction = rand() % 8;
-			enemies.push(group_member);
-		}
+		if (success)
+			enemies_to_spawn--;
+		else
+			allowed_misses--;
 	}
 }
 
-/**
- * load
- */
 int MapRenderer::load(string filename) {
 	FileParser infile;
 	string val;
-	string data_format;
 	maprow *cur_layer;
+	Map_Enemy new_enemy;
+	Map_Group new_group;
+	bool enemy_awaiting_queue = false;
+	bool group_awaiting_queue = false;
+	bool npc_awaiting_queue = false;
+	Map_NPC new_npc;
 
 	clearEvents();
 	clearLayers();
@@ -176,7 +154,6 @@ int MapRenderer::load(string filename) {
 
 	while (infile.next()) {
 		if (infile.new_section) {
-			data_format = "dec"; // default
 
 			if (enemy_awaiting_queue) {
 				enemies.push(new_enemy);
@@ -193,7 +170,7 @@ int MapRenderer::load(string filename) {
 
 			// for sections that are stored in collections, add a new object here
 			if (infile.section == "enemy") {
-				new_enemy.clear();
+				new_enemy = Map_Enemy();
 				enemy_awaiting_queue = true;
 			}
 			else if (infile.section == "enemygroup") {
@@ -247,7 +224,11 @@ int MapRenderer::load(string filename) {
 				else if (infile.val == "collision") collision = cur_layer;
 			}
 			else if (infile.key == "format") {
-				data_format = infile.val;
+				if (infile.val != "dec") {
+					fprintf(stderr, "ERROR: maploading: The format of a layer must be \"dec\"!\n");
+					SDL_Quit();
+					exit(1);
+				}
 			}
 			else if (infile.key == "data") {
 				// layer map data handled as a special case
@@ -255,7 +236,7 @@ int MapRenderer::load(string filename) {
 				for (int j=0; j<h; j++) {
 					val = infile.getRawLine() + ',';
 					for (int i=0; i<w; i++)
-						cur_layer[i][j] = eatFirstInt(val, ',', (data_format == "hex" ? std::hex : std::dec));
+						cur_layer[i][j] = eatFirstInt(val, ',');
 				}
 				if (cur_layer == collision)
 					collider.setmap(collision, w, h);
@@ -584,12 +565,9 @@ int MapRenderer::load(string filename) {
 }
 
 void MapRenderer::clearQueues() {
-	while(!enemies.empty())
-	  enemies.pop();
-	while(!npcs.empty())
-	  npcs.pop();
-	while(!loot.empty())
-	  loot.pop();
+	enemies = queue<Map_Enemy>();
+	npcs = queue<Map_NPC>();
+	loot = queue<Event_Component>();
 }
 
 /**
