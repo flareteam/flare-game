@@ -195,18 +195,18 @@ int NPC::loadSound(const string& filename, int type) {
 	if (!SOUND_VOLUME || !audio)
 		return -1;
 
-	Mix_Chunk *a = Mix_LoadWAV(mods->locate("soundfx/npcs/" + filename).c_str());
+	Mix_Chunk *a = loadSfx(mods->locate("soundfx/npcs/" + filename), "NPC voice");
 	if (!a)
 		return -1;
 
 	if (type == NPC_VOX_INTRO) {
 		vox_intro.push_back(a);
-		return vox_intro.size()-1;
+		return vox_intro.size() - 1;
 	}
 
 	if (type == NPC_VOX_QUEST) {
 		vox_quests.push_back(a);
-		return vox_quests.size()-1;
+		return vox_quests.size() - 1;
 	}
 	return -1;
 }

@@ -81,7 +81,7 @@ void MapRenderer::playSFX(string filename) {
 		Mix_FreeChunk(sfx);
 		sfx = NULL;
 		if (audio) {
-			sfx = Mix_LoadWAV(mods->locate(filename).c_str());
+			sfx = loadSfx(mods->locate(filename), "MapRenderer background music");
 			sfx_filename = filename;
 		}
 	}

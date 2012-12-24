@@ -207,11 +207,8 @@ void MenuManager::loadIcons() {
 
 void MenuManager::loadSounds() {
 	if (audio && SOUND_VOLUME) {
-		sfx_open = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_page.ogg").c_str());
-		sfx_close = Mix_LoadWAV(mods->locate("soundfx/inventory/inventory_book.ogg").c_str());
-
-		if (!sfx_open || !sfx_close)
-			fprintf(stderr, "Mix_LoadWAV: %s\n", Mix_GetError());
+		sfx_open = loadSfx(mods->locate("soundfx/inventory/inventory_page.ogg"), "MenuManager open tab");
+		sfx_close = loadSfx(mods->locate("soundfx/inventory/inventory_book.ogg"), "MenuManager close tab");
 	} else {
 		sfx_open = NULL;
 		sfx_close = NULL;

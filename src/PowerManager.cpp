@@ -305,11 +305,9 @@ int PowerManager::loadSFX(const string& filename) {
 		// we don't already have this sound loaded, so load it
 		Mix_Chunk* sound;
 		if (audio && SOUND_VOLUME) {
-			sound = Mix_LoadWAV(mods->locate("soundfx/powers/" + filename).c_str());
-			if(!sound) {
-				cerr << "Couldn't load power soundfx: " << filename << endl;
+			sound = loadSfx(mods->locate("soundfx/powers/" + filename), "PowerManager sfx");
+			if (!sound)
 				return -1;
-			}
 		} else {
 			sound = NULL;
 		}

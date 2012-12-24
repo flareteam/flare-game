@@ -97,7 +97,8 @@ LootManager::LootManager(ItemManager *_items, MapRenderer *_map, StatBlock *_her
 
 	loadGraphics();
 	if (audio && SOUND_VOLUME)
-		loot_flip = Mix_LoadWAV(mods->locate("soundfx/flying_loot.ogg").c_str());
+		loot_flip = loadSfx(mods->locate("soundfx/flying_loot.ogg").c_str(), "LootManager dropping loot");
+
 	full_msg = false;
 
 	if (!lootManager)
