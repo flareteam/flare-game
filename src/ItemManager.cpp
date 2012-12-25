@@ -30,10 +30,11 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "UtilsParsing.h"
 #include "WidgetLabel.h"
 
-#include <sstream>
-#include <fstream>
-#include <cstring>
+#include <cassert>
 #include <climits>
+#include <cstring>
+#include <fstream>
+#include <sstream>
 
 using namespace std;
 
@@ -155,6 +156,7 @@ void ItemManager::load(const string& filename) {
 		}
 		if (id_line) continue;
 
+		assert(items.size() > id);
 
 		if (infile.key == "name")
 			items[id].name = msg->get(infile.val);
@@ -347,6 +349,8 @@ void ItemManager::loadSets(const string& filename) {
 			continue;
 		}
 		if (id_line) continue;
+
+		assert(item_sets.size() > id);
 
 		if (infile.key == "name") {
 			item_sets[id].name = msg->get(infile.val);
