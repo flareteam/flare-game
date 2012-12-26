@@ -156,7 +156,7 @@ void ItemManager::load(const string& filename) {
 		}
 		if (id_line) continue;
 
-		assert(items.size() > id);
+		assert(items.size() > std::size_t(id));
 
 		if (infile.key == "name")
 			items[id].name = msg->get(infile.val);
@@ -350,7 +350,7 @@ void ItemManager::loadSets(const string& filename) {
 		}
 		if (id_line) continue;
 
-		assert(item_sets.size() > id);
+		assert(item_sets.size() > std::size_t(id));
 
 		if (infile.key == "name") {
 			item_sets[id].name = msg->get(infile.val);
