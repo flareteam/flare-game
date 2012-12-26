@@ -179,12 +179,12 @@ bool Enemy::takeHit(const Hazard &h) {
 
 		// apply elemental resistance
 		int vulnerable;
-		for (unsigned int i=0; i<stats.vulnerable.size(); i++) {
-			if (h.trait_elemental == (signed)i) {
-				if (MAX_RESIST < stats.vulnerable[i] && stats.vulnerable[i] < 100) vulnerable = MAX_RESIST;
-				else vulnerable = stats.vulnerable[i];
-				dmg = (dmg * vulnerable) / 100;
-			}
+		if (h.trait_elemental >= 0 && unsigned(h.trait_elemental) < stats.vulnerable.size())
+		{
+			unsigned i = h.trait_elemental;
+			if (MAX_RESIST < stats.vulnerable[i] && stats.vulnerable[i] < 100) vulnerable = MAX_RESIST;
+			else vulnerable = stats.vulnerable[i];
+			dmg = (dmg * vulnerable) / 100;
 		}
 
 		if (!h.trait_armor_penetration) { // armor penetration ignores all absorption
