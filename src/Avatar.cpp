@@ -35,6 +35,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "PowerManager.h"
 #include "SharedResources.h"
 #include "UtilsParsing.h"
+#include "UtilsMath.h"
 
 #include <sstream>
 
@@ -694,20 +695,17 @@ bool Avatar::takeHit(const Hazard &h) {
 		// check miss
 		int avoidance = stats.avoidance;
 		if (stats.effects.triggered_block) avoidance *= 2;
-		if (MAX_AVOIDANCE < avoidance) avoidance = MAX_AVOIDANCE;
-		if (rand() % 100 > (h.accuracy - avoidance + 25)) {
+		clampCeil(avoidance, MAX_AVOIDANCE);
+		if (percentChance(avoidance - h.accuracy - 25)) {
 			combat_text->addMessage(msg->get("miss"), stats.pos, COMBAT_MESSAGE_MISS, true);
 			return false;
 		}
 
-		int dmg;
-		if (h.dmg_min == h.dmg_max) dmg = h.dmg_min;
-		else dmg = h.dmg_min + (rand() % (h.dmg_max - h.dmg_min + 1));
+		int dmg = randBetween(h.dmg_min, h.dmg_max);
 
 		// apply elemental resistance
 		int vulnerable;
-		if (h.trait_elemental >= 0 && unsigned(h.trait_elemental) < stats.vulnerable.size())
-		{
+		if (h.trait_elemental >= 0 && unsigned(h.trait_elemental) < stats.vulnerable.size()) {
 			unsigned i = h.trait_elemental;
 			if (MAX_RESIST < stats.vulnerable[i] && stats.vulnerable[i] < 100) vulnerable = MAX_RESIST;
 			else vulnerable = stats.vulnerable[i];
@@ -715,10 +713,8 @@ bool Avatar::takeHit(const Hazard &h) {
 		}
 
 		if (!h.trait_armor_penetration) { // armor penetration ignores all absorption
-			int absorption; // apply absorption
-
-			if (stats.absorb_min == stats.absorb_max) absorption = stats.absorb_min;
-			else absorption = stats.absorb_min + (rand() % (stats.absorb_max - stats.absorb_min + 1));
+			// apply absorption
+			int absorption = randBetween(stats.absorb_min, stats.absorb_max);
 
 			if (stats.effects.triggered_block) {
 				absorption += absorption + stats.absorb_max; // blocking doubles your absorb amount
@@ -833,45 +829,28 @@ void Avatar::transform() {
 	stats.cur_state = AVATAR_STANCE;
 
 	// damage
-	if (charmed_stats->dmg_melee_min > stats.dmg_melee_min)
-	stats.dmg_melee_min = charmed_stats->dmg_melee_min;
+	clampFloor(stats.dmg_melee_min, charmed_stats->dmg_melee_min);
+	clampCeil(stats.dmg_melee_max, charmed_stats->dmg_melee_max);
 
-	if (charmed_stats->dmg_melee_max > stats.dmg_melee_max)
-	stats.dmg_melee_max = charmed_stats->dmg_melee_max;
+	clampFloor(stats.dmg_ment_min, charmed_stats->dmg_ment_min);
+	clampCeil(stats.dmg_ment_max, charmed_stats->dmg_ment_max);
 
-	if (charmed_stats->dmg_ment_min > stats.dmg_ment_min)
-	stats.dmg_ment_min = charmed_stats->dmg_ment_min;
-
-	if (charmed_stats->dmg_ment_max > stats.dmg_ment_max)
-	stats.dmg_ment_max = charmed_stats->dmg_ment_max;
-
-	if (charmed_stats->dmg_ranged_min > stats.dmg_ranged_min)
-	stats.dmg_ranged_min = charmed_stats->dmg_ranged_min;
-
-	if (charmed_stats->dmg_ranged_max > stats.dmg_ranged_max)
-	stats.dmg_ranged_max = charmed_stats->dmg_ranged_max;
+	clampFloor(stats.dmg_ranged_min, charmed_stats->dmg_ranged_min);
+	clampCeil(stats.dmg_ranged_max, charmed_stats->dmg_ranged_max);
 
 	// dexterity
-	if (charmed_stats->absorb_min > stats.absorb_min)
-	stats.absorb_min = charmed_stats->absorb_min;
+	clampFloor(stats.absorb_min, charmed_stats->absorb_min);
+	clampCeil(stats.absorb_max, charmed_stats->absorb_max);
 
-	if (charmed_stats->absorb_max > stats.absorb_max)
-	stats.absorb_max = charmed_stats->absorb_max;
+	clampFloor(stats.avoidance, charmed_stats->avoidance);
 
-	if (charmed_stats->avoidance > stats.avoidance)
-	stats.avoidance = charmed_stats->avoidance;
+	clampFloor(stats.accuracy, charmed_stats->accuracy);
 
-	if (charmed_stats->accuracy > stats.accuracy)
-	stats.accuracy = charmed_stats->accuracy;
-
-	if (charmed_stats->crit > stats.crit)
-	stats.crit = charmed_stats->crit;
+	clampFloor(stats.crit, charmed_stats->crit);
 
 	// resistances
-	for (unsigned int i=0; i<stats.vulnerable.size(); i++) {
-		if (charmed_stats->vulnerable[i] < stats.vulnerable[i])
-		stats.vulnerable[i] = charmed_stats->vulnerable[i];
-	}
+	for (unsigned int i=0; i<stats.vulnerable.size(); i++)
+		clampCeil(stats.vulnerable[i], charmed_stats->vulnerable[i]);
 
 	loadStepFX("NULL");
 }

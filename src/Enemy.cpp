@@ -30,6 +30,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "MapRenderer.h"
 #include "PowerManager.h"
 #include "SharedResources.h"
+#include "UtilsMath.h"
 
 #include <sstream>
 
@@ -166,21 +167,18 @@ bool Enemy::takeHit(const Hazard &h) {
 
 		// if it's a miss, do nothing
 		int avoidance = stats.avoidance;
-		if (MAX_AVOIDANCE < avoidance) avoidance = MAX_AVOIDANCE;
-		if (rand() % 100 > (h.accuracy - avoidance + 25)) {
+		clampCeil(avoidance, MAX_AVOIDANCE);
+		if (percentChance(avoidance - h.accuracy - 25)) {
 			combat_text->addMessage(msg->get("miss"), stats.pos, COMBAT_MESSAGE_MISS, false);
 			return false;
 		}
 
 		// calculate base damage
-		int dmg;
-		if (h.dmg_max > h.dmg_min) dmg = rand() % (h.dmg_max - h.dmg_min + 1) + h.dmg_min;
-		else dmg = h.dmg_min;
+		int dmg = randBetween(h.dmg_min, h.dmg_max);
 
 		// apply elemental resistance
 		int vulnerable;
-		if (h.trait_elemental >= 0 && unsigned(h.trait_elemental) < stats.vulnerable.size())
-		{
+		if (h.trait_elemental >= 0 && unsigned(h.trait_elemental) < stats.vulnerable.size()) {
 			unsigned i = h.trait_elemental;
 			if (MAX_RESIST < stats.vulnerable[i] && stats.vulnerable[i] < 100) vulnerable = MAX_RESIST;
 			else vulnerable = stats.vulnerable[i];
@@ -188,9 +186,8 @@ bool Enemy::takeHit(const Hazard &h) {
 		}
 
 		if (!h.trait_armor_penetration) { // armor penetration ignores all absorption
-			int absorption; // substract absorption from armor
-			if (stats.absorb_min == stats.absorb_max) absorption = stats.absorb_min;
-			else absorption = stats.absorb_min + (rand() % (stats.absorb_max - stats.absorb_min + 1));
+			// substract absorption from armor
+			int absorption = randBetween(stats.absorb_min, stats.absorb_max);
 			if (absorption > 0) {
 				if ((dmg*100)/absorption > MAX_ABSORB)
 					absorption = (absorption * MAX_ABSORB) / 100;
@@ -212,7 +209,7 @@ bool Enemy::takeHit(const Hazard &h) {
 		if (stats.effects.stun || stats.effects.speed < 100)
 			true_crit_chance += h.trait_crits_impaired;
 
-		bool crit = (rand() % 100) < true_crit_chance;
+		bool crit = percentChance(true_crit_chance);
 		if (crit) {
 			dmg = dmg + h.dmg_max;
 			map->shaky_cam_ticks = MAX_FRAMES_PER_SEC/2;
@@ -249,14 +246,14 @@ bool Enemy::takeHit(const Hazard &h) {
 			if (heal_amt == 0 && dmg > 0) heal_amt = 1;
 			combat_text->addMessage(msg->get("+%d HP",heal_amt), h.src_stats->pos, COMBAT_MESSAGE_BUFF, true);
 			h.src_stats->hp += heal_amt;
-			if (h.src_stats->hp > h.src_stats->maxhp) h.src_stats->hp = h.src_stats->maxhp;
+			clampCeil(h.src_stats->hp, h.src_stats->maxhp);
 		}
 		if (h.mp_steal != 0) {
 			int heal_amt = (dmg * h.mp_steal) / 100;
 			if (heal_amt == 0 && dmg > 0) heal_amt = 1;
 			combat_text->addMessage(msg->get("+%d MP",heal_amt), h.src_stats->pos, COMBAT_MESSAGE_BUFF, true);
 			h.src_stats->mp += heal_amt;
-			if (h.src_stats->mp > h.src_stats->maxmp) h.src_stats->mp = h.src_stats->maxmp;
+			clampCeil(h.src_stats->mp, h.src_stats->maxmp);
 		}
 
 		// post effect power
@@ -285,7 +282,7 @@ bool Enemy::takeHit(const Hazard &h) {
 			else if (!stats.effects.stun) {
 				stats.cur_state = ENEMY_HIT;
 				// roll to see if the enemy's ON_HIT power is casted
-				if ((rand() % 100) < stats.power_chance[ON_HIT]) {
+				if (percentChance(stats.power_chance[ON_HIT])) {
 					powers->activate(stats.power_index[ON_HIT], &stats, stats.pos);
 				}
 			}
