@@ -30,13 +30,41 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "UtilsParsing.h"
 #include "WidgetLabel.h"
 
-#include <sstream>
-#include <fstream>
-#include <cstring>
+#include <cassert>
 #include <climits>
+#include <cstring>
+#include <fstream>
+#include <sstream>
 
 using namespace std;
 
+/**
+ * Resizes vector vec, so it can fit index id.
+ */
+template <typename Ty_>
+static inline void ensureFitsId(vector<Ty_>& vec, int id)
+{
+	// id's are always greater or equal 1;
+	if (id < 1) return;
+
+	typedef typename vector<Ty_>::size_type VecSz;
+
+	if (vec.size() <= VecSz(id+1))
+		vec.resize(id+1);
+}
+
+/**
+ * Trims vector allocated memory to its size.
+ *
+ * Emulates C++2011 vector::shrink_to_fit().
+ * It is sometimes also called "swap trick".
+ */
+template <typename Ty_>
+static inline void shrinkVecToFit(std::vector<Ty_>& vec)
+{
+	if (vec.capacity() != vec.size())
+		std::vector<Ty_>(vec).swap(vec);
+}
 
 ItemManager::ItemManager()
 	: color_normal(font->getColor("item_normal"))
@@ -47,8 +75,11 @@ ItemManager::ItemManager()
 	, color_penalty(font->getColor("item_penalty"))
 	, color_requirements_not_met(font->getColor("requirements_not_met"))
 	, color_flavor(font->getColor("item_flavor"))
-	, items(vector<Item>())
 {
+	// NB: 20 is arbitrary picked number, but it looks like good start.
+	items.reserve(20);
+	item_sets.reserve(5);
+
 	loadAll();
 	loadSounds();
 	loadIcons();
@@ -66,7 +97,6 @@ void ItemManager::loadAll() {
 
 		if (fileExists(test_path)) {
 			this->load(test_path);
-			if (!items.empty()) shrinkItems();
 		}
 
 		test_path = PATH_DATA + "mods/" + mods->mod_list[i] + "/items/types.txt";
@@ -79,9 +109,22 @@ void ItemManager::loadAll() {
 
 		if (fileExists(test_path)) {
 			this->loadSets(test_path);
-			if (!item_sets.empty()) shrinkItemSets();
 		}
 	}
+
+	/*
+	 * Shrinks the items vector to the absolute needed size.
+	 *
+	 * While loading the items, the item vector grows dynamically. To have
+	 * no much time overhead for reallocating the vector, a new reallocation
+	 * is twice as large as the needed item id, which means in the worst case
+	 * the item vector was reallocated for loading the last element, so the
+	 * vector is twice as large as needed. This memory is definitly not used,
+	 * so we can free it.
+	 */
+	shrinkVecToFit(items);
+	shrinkVecToFit(item_sets);
+
 	if (items.empty()) fprintf(stderr, "No items were found.\n");
 	if (item_sets.empty()) printf("No item sets were found.\n");
 }
@@ -104,10 +147,7 @@ void ItemManager::load(const string& filename) {
 		if (infile.key == "id") {
 			id_line = true;
 			id = toInt(infile.val);
-			if (id > 0 && id >= (int)items.size()) {
-				// *2 to amortize the resizing to O(log(n)).
-				items.resize((2*id) + 1);
-			}
+			ensureFitsId(items, id+1);
 		} else id_line = false;
 
 		if (id < 1) {
@@ -115,6 +155,8 @@ void ItemManager::load(const string& filename) {
 			continue;
 		}
 		if (id_line) continue;
+
+		assert(items.size() > std::size_t(id));
 
 		if (infile.key == "name")
 			items[id].name = msg->get(infile.val);
@@ -299,10 +341,7 @@ void ItemManager::loadSets(const string& filename) {
 		if (infile.key == "id") {
 			id_line = true;
 			id = toInt(infile.val);
-			if (id > 0 && id >= (int)item_sets.size()) {
-				// *2 to amortize the resizing to O(log(n)).
-				item_sets.resize((2*id) + 1);
-			}
+			ensureFitsId(item_sets, id+1);
 		} else id_line = false;
 
 		if (id < 1) {
@@ -310,6 +349,8 @@ void ItemManager::loadSets(const string& filename) {
 			continue;
 		}
 		if (id_line) continue;
+
+		assert(item_sets.size() > std::size_t(id));
 
 		if (infile.key == "name") {
 			item_sets[id].name = msg->get(infile.val);
@@ -379,32 +420,6 @@ void ItemManager::loadIcons() {
 		icons = SDL_DisplayFormatAlpha(icons);
 		SDL_FreeSurface(cleanup);
 	}
-}
-
-/**
- * Shrinks the items vector to the absolute needed size.
- *
- * While loading the items, the item vector grows dynamically. To have
- * no much time overhead for reallocating the vector, a new reallocation
- * is twice as large as the needed item id, which means in the worst case
- * the item vector was reallocated for loading the last element, so the
- * vector is twice as large as needed. This memory is definitly not used,
- * so we can free it.
- */
-void ItemManager::shrinkItems() {
-	unsigned i = items.size() - 1;
-	while (items[i].name == "")
-		i--;
-
-	items.resize(i + 1);
-}
-
-void ItemManager::shrinkItemSets() {
-	unsigned i = item_sets.size() - 1;
-	while (item_sets[i].name == "")
-		i--;
-
-	item_sets.resize(i + 1);
 }
 
 /**
