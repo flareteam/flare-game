@@ -74,7 +74,6 @@ public:
 
 	void update();
 	void logic();
-	void tabsLogic();
 	void render();
 	void refresh(int log_type);
 	void add(const std::string& s, int log_type);
