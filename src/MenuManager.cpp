@@ -452,7 +452,6 @@ void MenuManager::logic() {
 
 			if (log->visible && isWithin(log->window_area,inpt->mouse)) {
 				inpt->lock[MAIN1] = true;
-				log->tabsLogic();
 			}
 
 			// pick up an inventory item
@@ -667,7 +666,6 @@ void MenuManager::logic() {
 			drag_src = -1;
 			dragging = false;
 		}
-		closeAll(false);
 	}
 
 	// handle equipment changes affecting hero stats

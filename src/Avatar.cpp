@@ -54,6 +54,7 @@ Avatar::Avatar(PowerManager *_powers, MapRenderer *_map)
  , attacking (false)
  , drag_walking(false)
  , respawn(false)
+ , close_menus(false)
 {
 
 	init();
@@ -622,6 +623,9 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 
 				// raise the death penalty flag.  Another module will read this and reset.
 				stats.death_penalty = true;
+
+				// close menus in GameStatePlay
+				close_menus = true;
 
 				if (sound_die)
 					Mix_PlayChannel(-1, sound_die, 0);
