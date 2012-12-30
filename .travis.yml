@@ -1,19 +1,10 @@
 language: cpp
-
-# Trying a wide range of compilers:
-# gcc as the standard compiler.
-# cland to test if it works with another compiler as well.
-# gcc-snapshot checks for errors in newer versions.
-# gcc-4.4 is the compiler of choice in debian stable (Squeeze as of now); this is to ensure it works on older/stable systems as well.
-
 compiler:
   - gcc
   - clang
-  - /usr/lib/gcc-snapshot/bin/gcc
-  - g++-4.4
 before_install:
   - sudo apt-get update -qq
-  - sudo apt-get install -qq libsdl1.2-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf2.0-dev cppcheck gcc-snapshot g++-4.4
+  - sudo apt-get install -qq libsdl1.2-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf2.0-dev cppcheck
 script: cmake . && make
 after_script: cppcheck --verbose --enable=all --std=posix --std=c++11 --quiet `git ls-files src/\*.cpp`
 notifications:
