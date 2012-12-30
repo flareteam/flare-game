@@ -47,7 +47,8 @@ const int CSTAT_OFFENSE = 4;
 const int CSTAT_DEFENSE = 5;
 const int CSTAT_COUNT = 6;
 
-struct CharStat {
+class CharStat {
+public:
 	WidgetLabel *label;
 	WidgetLabel *value;
 	SDL_Rect hover;

@@ -40,7 +40,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * The offset is measured from upper left corner to the logical midpoint
  * of the tile at groundlevel.
  */
-struct Tile_Def {
+class Tile_Def {
+public:
 	SDL_Rect src;
 	Point offset;
 	Tile_Def() {
@@ -49,7 +50,8 @@ struct Tile_Def {
 	}
 };
 
-struct Tile_Anim {
+class Tile_Anim {
+public:
 	// Number of frames in this animation. if 0 no animation.
 	// 1 makes no sense as it would produce astatic animation.
 	unsigned short frames;

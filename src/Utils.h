@@ -33,18 +33,21 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <string>
 #include <stdint.h>
 
-struct Point {
+class Point {
+public:
 	int x,y;
 	Point() : x(0), y(0) {}
 	Point(int _x, int _y) : x(_x), y(_y) {}
 };
 
-struct FPoint {
+class FPoint {
+public:
 	float x,y;
 };
 
 // message passing struct for various sprites rendered map inline
-struct Renderable {
+class Renderable {
+public:
 	SDL_Surface *sprite; // image to be used
 	SDL_Rect src; // location on the sprite in pixel coordinates.
 

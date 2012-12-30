@@ -46,7 +46,8 @@ class MapRenderer;
 class MenuInventory;
 class WidgetTooltip;
 
-struct CurrencyRange {
+class CurrencyRange {
+public:
 	std::string filename;
 	int low;
 	int high;

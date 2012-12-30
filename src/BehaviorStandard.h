@@ -24,7 +24,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 // forward declarations
 class Enemy;
-struct Point;
+class Point;
 
 class BehaviorStandard : public EnemyBehavior {
 private:

@@ -39,8 +39,9 @@ using namespace std;
 #define log2(x)	logf(x)/logf(2)
 #endif
 
-struct ConfigEntry
+class ConfigEntry
 {
+public:
 	const char * name;
 	const type_info * type;
 	const char * default_val;
