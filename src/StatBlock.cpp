@@ -397,7 +397,6 @@ void StatBlock::recalc_alt() {
 
 	if (hero) {
 		// calculate primary stats
-		offense_additional = defense_additional = physical_additional = mental_additional = 0;
 		offense_additional = effects.bonus_offense;
 		defense_additional = effects.bonus_defense;
 		physical_additional = effects.bonus_physical;

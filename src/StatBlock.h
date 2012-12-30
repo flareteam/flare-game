@@ -69,7 +69,8 @@ const int ENEMY_POWER = 15; // enemy performing a power. anim/sfx based on power
 
 const int MAX_CHARACTER_LEVEL = 32;
 
-struct EnemyLoot {
+class EnemyLoot {
+public:
 	int id;
 	int chance;
 

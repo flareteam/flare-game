@@ -24,6 +24,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "PowerManager.h"
 #include "StatBlock.h"
 #include "UtilsFileSystem.h"
+#include "UtilsMath.h"
 #include "UtilsParsing.h"
 
 #include <stdint.h>
@@ -102,7 +103,7 @@ void MapRenderer::push_enemy_group(Map_Group g) {
 	// actual places, so have an upper bound of tries.
 
 	// random number of enemies
-	int enemies_to_spawn = g.numbermin + rand() % (g.numbermax + 1 - g.numbermin);
+	int enemies_to_spawn = randBetween(g.numbermin, g.numbermax);
 
 	// pick an upper bound, which is definitely larger than threetimes the enemy number to spawn.
 	int allowed_misses = 3 * g.numbermax;

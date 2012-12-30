@@ -57,7 +57,8 @@ enum AvatarState {
 	AVATAR_SHOOT = 7
 };
 
-struct Layer_gfx {
+class Layer_gfx {
+public:
 	std::string gfx;
 	std::string type;
 	Layer_gfx()
@@ -130,6 +131,7 @@ public:
 	bool drag_walking;
 	bool newLevelNotification;
 	bool respawn;
+	bool close_menus;
 
 private:
 	void handlePower(int actionbar_power);

@@ -79,7 +79,8 @@ const int TRIGGER_HALFDEATH = 2;
 const int TRIGGER_JOINCOMBAT = 3;
 const int TRIGGER_DEATH = 4;
 
-struct PostEffect {
+class PostEffect {
+public:
 	int id;
 	int magnitude;
 	int duration;

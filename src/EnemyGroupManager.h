@@ -27,7 +27,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <iostream>
 
 
-struct Enemy_Level {
+class Enemy_Level {
+public:
 	std::string type;
 	int level;
 	std::string rarity;

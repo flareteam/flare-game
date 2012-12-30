@@ -68,7 +68,8 @@ const int ITEM_QUALITY_EPIC = 3;
 
 const int ITEM_MAX_BONUSES = 8;
 
-struct Set_bonus {
+class Set_bonus {
+public:
 	int requirement;
 	std::string bonus_stat;
 	int bonus_val;
@@ -197,8 +198,6 @@ private:
 	void loadAll();
 	void loadSounds();
 	void loadIcons();
-	void shrinkItems();
-	void shrinkItemSets();
 
 	SDL_Color color_normal;
 	SDL_Color color_low;
@@ -208,7 +207,7 @@ private:
 	SDL_Color color_penalty;
 	SDL_Color color_requirements_not_met;
 	SDL_Color color_flavor;
-	
+
 public:
 	ItemManager();
 	~ItemManager();

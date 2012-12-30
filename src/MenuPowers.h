@@ -41,7 +41,8 @@ class PowerManager;
 class StatBlock;
 class TooltipData;
 
-struct Power_Menu_Cell {
+class Power_Menu_Cell {
+public:
 	short id;
 	short tab;
 	Point pos;

@@ -125,18 +125,10 @@ void MenuLog::logic() {
 		visible = false;
 	}
 
+	tabControl->logic();
 	int active_log = tabControl->getActiveTab();
 	msg_buffer[active_log]->logic();
 }
-
-/**
- * Run the logic for the tabs control.
- */
-void MenuLog::tabsLogic()
-{
-	tabControl->logic();
-}
-
 
 /**
  * Render graphics for this frame when the menu is open

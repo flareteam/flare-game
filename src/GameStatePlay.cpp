@@ -676,6 +676,12 @@ void GameStatePlay::logic() {
 
 	}
 
+	// close menus when the player dies, but still allow them to be reopened
+	if (pc->close_menus) {
+		pc->close_menus = false;
+		menu->closeAll(false);
+	}
+
 	// these actions occur whether the game is paused or not.
 	checkNotifications();
 	checkLootDrop();
