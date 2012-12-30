@@ -33,6 +33,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "StatBlock.h"
 #include "MapCollision.h"
 #include "UtilsFileSystem.h"
+#include "UtilsMath.h"
 #include "UtilsParsing.h"
 
 #include <cmath>
@@ -683,10 +684,8 @@ bool PowerManager::effect(StatBlock *src_stats, int power_index) {
 				// heal for ment weapon damage * damage multiplier
 				int heal_max = (int)ceil(src_stats->dmg_ment_max * powers[power_index].damage_multiplier / 100.0) + (src_stats->get_mental()*src_stats->bonus_per_mental);
 				int heal_min = (int)ceil(src_stats->dmg_ment_min * powers[power_index].damage_multiplier / 100.0) + (src_stats->get_mental()*src_stats->bonus_per_mental);
-				if (heal_max > heal_min)
-					magnitude = rand() % (heal_max - heal_min) + heal_min;
-				else // avoid div by 0
-					magnitude = heal_min;
+				magnitude = randBetween(heal_min, heal_max-1);
+
 				comb->addMessage(msg->get("+%d HP",magnitude), src_stats->pos, COMBAT_MESSAGE_BUFF, src_stats->hero);
 				src_stats->hp += magnitude;
 				if (src_stats->hp > src_stats->maxhp) src_stats->hp = src_stats->maxhp;
