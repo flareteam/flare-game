@@ -39,7 +39,8 @@ class Hazard;
 class MapCollision;
 class PowerManager;
 
-struct Effect{
+class Effect{
+public:
 	int id;
 	int icon;
 	int ticks;

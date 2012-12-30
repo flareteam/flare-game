@@ -43,7 +43,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 class WidgetLabel;
 
-struct Combat_Text_Item {
+class Combat_Text_Item {
+public:
 	WidgetLabel *label;
 	int lifespan;
 	Point pos;

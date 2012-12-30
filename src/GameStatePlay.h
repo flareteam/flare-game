@@ -50,7 +50,8 @@ class PowerManager;
 class QuestLog;
 class WidgetLabel;
 
-struct Title{
+class Title{
+public:
 	std::string title;
 	int level;
 	int power;

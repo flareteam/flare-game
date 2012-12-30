@@ -39,7 +39,8 @@ const int JUSTIFY_CENTER = 2;
 const SDL_Color FONT_WHITE = {255,255,255,0};
 const SDL_Color FONT_BLACK = {0,0,0,0};
 
-struct FontStyle {
+class FontStyle {
+public:
 	std::string name;
 	std::string path;
 	int ptsize;

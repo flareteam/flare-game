@@ -57,7 +57,8 @@ enum AvatarState {
 	AVATAR_SHOOT = 7
 };
 
-struct Layer_gfx {
+class Layer_gfx {
+public:
 	std::string gfx;
 	std::string type;
 	Layer_gfx()
