@@ -196,7 +196,7 @@ void NPC::loadGraphics(const string& filename_portrait) {
  */
 int NPC::loadSound(const string& filename, int type) {
 
-	if (!SOUND_VOLUME || !audio)
+	if (!AUDIO || !SOUND_VOLUME)
 		return -1;
 
 	Mix_Chunk *a = loadSfx(mods->locate("soundfx/npcs/" + filename), "NPC voice");

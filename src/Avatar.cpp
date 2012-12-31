@@ -202,7 +202,7 @@ void Avatar::loadGraphics(std::vector<Layer_gfx> _img_gfx) {
 }
 
 void Avatar::loadSounds() {
-	if (audio && SOUND_VOLUME) {
+	if (AUDIO && SOUND_VOLUME) {
 		Mix_FreeChunk(sound_melee);
 		Mix_FreeChunk(sound_hit);
 		Mix_FreeChunk(sound_die);
@@ -234,7 +234,7 @@ void Avatar::loadStepFX(const string& stepname) {
 	}
 
 	// load new sounds
-	if (audio && SOUND_VOLUME) {
+	if (AUDIO && SOUND_VOLUME) {
 		sound_steps[0] = Mix_LoadWAV(mods->locate("soundfx/steps/step_" + filename + "1.ogg").c_str());
 		sound_steps[1] = Mix_LoadWAV(mods->locate("soundfx/steps/step_" + filename + "2.ogg").c_str());
 		sound_steps[2] = Mix_LoadWAV(mods->locate("soundfx/steps/step_" + filename + "3.ogg").c_str());

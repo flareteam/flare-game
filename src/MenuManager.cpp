@@ -206,7 +206,7 @@ void MenuManager::loadIcons() {
 }
 
 void MenuManager::loadSounds() {
-	if (audio && SOUND_VOLUME) {
+	if (AUDIO && SOUND_VOLUME) {
 		sfx_open = loadSfx(mods->locate("soundfx/inventory/inventory_page.ogg"), "MenuManager open tab");
 		sfx_close = loadSfx(mods->locate("soundfx/inventory/inventory_book.ogg"), "MenuManager close tab");
 	} else {

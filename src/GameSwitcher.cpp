@@ -52,7 +52,7 @@ GameSwitcher::GameSwitcher() {
 }
 
 void GameSwitcher::loadMusic() {
-	if (audio && MUSIC_VOLUME) {
+	if (AUDIO && MUSIC_VOLUME) {
 		Mix_FreeMusic(music);
 		music = Mix_LoadMUS((mods->locate("music/title_theme.ogg")).c_str());
 		if (!music)

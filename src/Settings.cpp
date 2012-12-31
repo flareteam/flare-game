@@ -53,6 +53,7 @@ ConfigEntry config[] = {
 	{ "fullscreen",       &typeid(FULLSCREEN),      "0",   &FULLSCREEN,      "fullscreen mode. 1 enable, 0 disable."},
 	{ "resolution_w",     &typeid(VIEW_W),          "640", &VIEW_W,          "display resolution. 640x480 minimum."},
 	{ "resolution_h",     &typeid(VIEW_H),          "480", &VIEW_H,          NULL},
+	{ "audio",            &typeid(AUDIO),           "1",   &AUDIO,           "Enable music and sound subsystem."},
 	{ "music_volume",     &typeid(MUSIC_VOLUME),    "96",  &MUSIC_VOLUME,    "music and sound volume (0 = silent, 128 = max)"},
 	{ "sound_volume",     &typeid(SOUND_VOLUME),    "128", &SOUND_VOLUME,    NULL},
 	{ "combat_text",      &typeid(COMBAT_TEXT),     "0",   &COMBAT_TEXT,     "display floating damage text. 1 enable, 0 disable."},
@@ -117,6 +118,7 @@ bool TEXTURE_QUALITY;
 bool ANIMATED_TILES;
 
 // Audio Settings
+bool AUDIO;
 unsigned short MUSIC_VOLUME;
 unsigned short SOUND_VOLUME;
 

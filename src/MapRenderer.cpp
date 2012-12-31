@@ -81,7 +81,7 @@ void MapRenderer::playSFX(string filename) {
 	if (filename != sfx_filename) {
 		Mix_FreeChunk(sfx);
 		sfx = NULL;
-		if (audio) {
+		if (AUDIO) {
 			sfx = loadSfx(mods->locate(filename), "MapRenderer background music");
 			sfx_filename = filename;
 		}
@@ -600,12 +600,12 @@ void MapRenderer::clearLayers() {
 
 void MapRenderer::loadMusic() {
 
-	if (music != NULL) {
+	if (music) {
 		Mix_HaltMusic();
 		Mix_FreeMusic(music);
 		music = NULL;
 	}
-	if (audio && MUSIC_VOLUME) {
+	if (AUDIO && MUSIC_VOLUME) {
 		music = Mix_LoadMUS(mods->locate("music/" + this->music_filename).c_str());
 		if(!music)
 			cout << "Mix_LoadMUS: "<< Mix_GetError()<<endl;

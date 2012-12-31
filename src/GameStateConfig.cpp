@@ -1,8 +1,8 @@
 /*
-Copyright © 2012 Clint Bellanger
-Copyright © 2012 davidriod
-Copyright © 2012 Igor Paliychuk
-Copyright © 2012 Stefan Beller
+Copyright Â© 2012 Clint Bellanger
+Copyright Â© 2012 davidriod
+Copyright Â© 2012 Igor Paliychuk
+Copyright Â© 2012 Stefan Beller
 
 This file is part of FLARE.
 
@@ -655,7 +655,7 @@ void GameStateConfig::readConfig () {
 void GameStateConfig::update () {
 	if (FULLSCREEN) fullscreen_cb->Check();
 	else fullscreen_cb->unCheck();
-	if (audio) {
+	if (AUDIO) {
 		music_volume_sl->set(0,128,MUSIC_VOLUME);
 		Mix_VolumeMusic(MUSIC_VOLUME);
 		sound_volume_sl->set(0,128,SOUND_VOLUME);
@@ -870,7 +870,7 @@ void GameStateConfig::logic ()
 	}
 	// tab 1 (audio)
 	else if (active_tab == 1 && !defaults_confirm->visible) {
-		if (audio) {
+		if (AUDIO) {
 			if (music_volume_sl->checkClick()) {
 				if (MUSIC_VOLUME == 0)
 					reload_music = true;

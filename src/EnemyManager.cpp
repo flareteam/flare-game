@@ -47,7 +47,7 @@ void EnemyManager::loadSounds(const string& type_id) {
 	if (find(sfx_prefixes.begin(), sfx_prefixes.end(), type_id) != sfx_prefixes.end())
 		return;
 
-	if (audio && SOUND_VOLUME && type_id != "none") {
+	if (AUDIO && SOUND_VOLUME && type_id != "none") {
 		string path;
 		path = mods->locate("soundfx/enemies/" + type_id + "_phys.ogg");
 		sound_phys.push_back(loadSfx(path, "EnemyManager physical attack sound"));
@@ -216,7 +216,7 @@ void EnemyManager::logic() {
 		// hazards are processed after Avatar and Enemy[]
 		// so process and clear sound effects from previous frames
 		// check sound effects
-		if (audio == true) {
+		if (AUDIO) {
 			vector<string>::iterator found = find (sfx_prefixes.begin(), sfx_prefixes.end(), enemies[i]->stats.sfx_prefix);
 			unsigned pref_id = distance(sfx_prefixes.begin(), found);
 

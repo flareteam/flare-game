@@ -389,7 +389,7 @@ void ItemManager::loadSets(const string& filename) {
 void ItemManager::loadSounds() {
 	memset(sfx, 0, sizeof(sfx));
 
-	if (audio && SOUND_VOLUME) {
+	if (AUDIO && SOUND_VOLUME) {
 		sfx[SFX_BOOK] = loadSfx(mods->locate("soundfx/inventory/inventory_book.ogg"),"ItemManager books");
 		sfx[SFX_CLOTH] = loadSfx(mods->locate("soundfx/inventory/inventory_cloth.ogg"), "ItemManager cloths");
 		sfx[SFX_COINS] = loadSfx(mods->locate("soundfx/inventory/inventory_coins.ogg"), "ItemManager coins");
@@ -676,7 +676,7 @@ TooltipData ItemManager::getTooltip(int item, StatBlock *stats, int context) {
 ItemManager::~ItemManager() {
 	SDL_FreeSurface(icons);
 
-	if (audio) {
+	if (AUDIO) {
 		for (int i=0; i<12; i++) {
 			Mix_FreeChunk(sfx[i]);
 		}
