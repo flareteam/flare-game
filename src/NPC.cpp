@@ -86,6 +86,10 @@ void NPC::load(const string& npc_id, int hero_level) {
 					e.s = infile.val;
 				else if (infile.key == "requires_not")
 					e.s = infile.val;
+				else if (infile.key == "requires_level")
+					e.x = toInt(infile.val);
+				else if (infile.key == "requires_not_level")
+					e.x = toInt(infile.val);
 				else if (infile.key == "requires_item")
 					e.x = toInt(infile.val);
 				else if (infile.key == "him" || infile.key == "her")
@@ -270,6 +274,12 @@ int NPC::chooseDialogNode() {
 			}
 			else if (dialog[i][j].type == "requires_item") {
 				if (!map->camp->checkItem(dialog[i][j].x)) break;
+			}
+			else if (dialog[i][j].type == "requires_level") {
+				if (map->camp->hero->level < dialog[i][j].x) break;
+			}
+			else if (dialog[i][j].type == "requires_not_level") {
+				if (map->camp->hero->level >= dialog[i][j].x) break;
 			}
 			else {
 				return i;

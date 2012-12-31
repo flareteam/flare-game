@@ -450,6 +450,12 @@ int MapRenderer::load(string filename) {
 						repeat_val = infile.nextValue();
 					}
 				}
+				else if (infile.key == "requires_level") {
+					e->x = toInt(infile.nextValue());
+				}
+				else if (infile.key == "requires_not_level") {
+					e->x = toInt(infile.nextValue());
+				}
 				else if (infile.key == "requires_item") {
 					e->x = toInt(infile.nextValue());
 
@@ -1108,6 +1114,16 @@ bool MapRenderer::isActive(const Map_Event &e){
 		}
 		else if (e.components[i].type == "requires_item") {
 			if (!camp->checkItem(e.components[i].x)) {
+				return false;
+			}
+		}
+		else if (e.components[i].type == "requires_level") {
+			if (camp->hero->level < e.components[i].x) {
+				return false;
+			}
+		}
+		else if (e.components[i].type == "requires_not_level") {
+			if (camp->hero->level >= e.components[i].x) {
 				return false;
 			}
 		}
