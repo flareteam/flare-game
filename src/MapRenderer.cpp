@@ -80,13 +80,10 @@ void MapRenderer::playSFX(string filename) {
 	// only load from file if the requested soundfx isn't already loaded
 	if (filename != sfx_filename) {
 		Mix_FreeChunk(sfx);
-		sfx = NULL;
-		if (AUDIO) {
-			sfx = loadSfx(mods->locate(filename), "MapRenderer background music");
-			sfx_filename = filename;
-		}
+		sfx = loadSfx(filename, "MapRenderer background music");
+		sfx_filename = filename;
 	}
-	if (sfx) Mix_PlayChannel(-1, sfx, 0);
+	playSfx(sfx);
 }
 
 void MapRenderer::push_enemy_group(Map_Group g) {
