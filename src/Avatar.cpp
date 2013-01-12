@@ -694,11 +694,12 @@ bool Avatar::takeHit(const Hazard &h) {
 		int dmg = randBetween(h.dmg_min, h.dmg_max);
 
 		// apply elemental resistance
-		int vulnerable;
+
 		if (h.trait_elemental >= 0 && unsigned(h.trait_elemental) < stats.vulnerable.size()) {
 			unsigned i = h.trait_elemental;
-			if (MAX_RESIST < stats.vulnerable[i] && stats.vulnerable[i] < 100) vulnerable = MAX_RESIST;
-			else vulnerable = stats.vulnerable[i];
+			int vulnerable = stats.vulnerable[i];
+			if (stats.vulnerable[i] > MAX_RESIST && stats.vulnerable[i] < 100)
+				vulnerable = MAX_RESIST;
 			dmg = (dmg * vulnerable) / 100;
 		}
 
