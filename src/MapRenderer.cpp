@@ -542,18 +542,14 @@ int MapRenderer::load(string filename) {
 	infile.close();
 
 	// reached end of file.  Handle any final sections.
-	if (enemy_awaiting_queue) {
+	if (enemy_awaiting_queue)
 		enemies.push(new_enemy);
-		enemy_awaiting_queue = false;
-	}
-	if (npc_awaiting_queue) {
+
+	if (npc_awaiting_queue)
 		npcs.push(new_npc);
-		npc_awaiting_queue = false;
-	}
-	if (group_awaiting_queue){
+
+	if (group_awaiting_queue)
 		push_enemy_group(new_group);
-		group_awaiting_queue = false;
-	}
 
 	if (this->new_music) {
 		loadMusic();
