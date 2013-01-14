@@ -1,5 +1,6 @@
 /*
 Copyright © 2011-2012 Thane Brimhall
+Copyright © 2013 Henrik Andersson
 
 This file is part of FLARE.
 
@@ -78,21 +79,9 @@ void CombatText::addMessage(std::string message, Point location, int displaytype
 
 void CombatText::addMessage(int num, Point location, int displaytype, bool from_hero) {
 	if (COMBAT_TEXT) {
-		Combat_Text_Item *c = new Combat_Text_Item();
-		WidgetLabel *label = new WidgetLabel();
-		c->pos = map_to_screen(location.x - UNITS_PER_TILE, location.y - UNITS_PER_TILE, cam.x, cam.y);
-		c->src_pos = location;
-		c->label = label;
-		c->from_hero = from_hero;
-
 		std::stringstream ss;
 		ss << num;
-		c->text = ss.str();
-
-		c->lifespan = duration;
-		c->displaytype = displaytype;
-		combat_text.push_back(*c);
-		delete c;
+		addMessage(ss.str(), location, displaytype, from_hero);
 	}
 }
 
@@ -117,6 +106,7 @@ void CombatText::render() {
 	}
 	// delete expired messages
 	while (combat_text.size() && combat_text.begin()->lifespan <= 0) {
+		delete combat_text.begin()->label;
 		combat_text.erase(combat_text.begin());
 	}
 }
