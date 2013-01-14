@@ -409,7 +409,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 
 	// check for bleeding spurt
 	if (stats.effects.damage > 0 && stats.hp > 0) {
-		comb->addMessage(stats.effects.damage, stats.pos, COMBAT_MESSAGE_TAKEDMG, true);
+		comb->addMessage(stats.effects.damage, stats.pos, COMBAT_MESSAGE_TAKEDMG);
 	}
 
 	// check for bleeding to death
@@ -687,7 +687,7 @@ bool Avatar::takeHit(const Hazard &h) {
 		if (stats.effects.triggered_block) avoidance *= 2;
 		clampCeil(avoidance, MAX_AVOIDANCE);
 		if (percentChance(avoidance - h.accuracy - 25)) {
-			combat_text->addMessage(msg->get("miss"), stats.pos, COMBAT_MESSAGE_MISS, true);
+			combat_text->addMessage(msg->get("miss"), stats.pos, COMBAT_MESSAGE_MISS);
 			return false;
 		}
 
@@ -742,7 +742,7 @@ bool Avatar::takeHit(const Hazard &h) {
 
 
 		int prev_hp = stats.hp;
-		combat_text->addMessage(dmg, stats.pos, COMBAT_MESSAGE_TAKEDMG, true);
+		combat_text->addMessage(dmg, stats.pos, COMBAT_MESSAGE_TAKEDMG);
 		stats.takeDamage(dmg);
 
 		// after effects
@@ -760,7 +760,7 @@ bool Avatar::takeHit(const Hazard &h) {
 				if (h.hp_steal != 0) {
 					int steal_amt = (dmg * h.hp_steal) / 100;
 					if (steal_amt == 0 && dmg > 0) steal_amt = 1;
-					combat_text->addMessage(msg->get("+%d HP",steal_amt), h.src_stats->pos, COMBAT_MESSAGE_BUFF, false);
+					combat_text->addMessage(msg->get("+%d HP",steal_amt), h.src_stats->pos, COMBAT_MESSAGE_BUFF);
 					h.src_stats->hp = min(h.src_stats->hp + steal_amt, h.src_stats->maxhp);
 				}
 			}

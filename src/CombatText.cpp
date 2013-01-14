@@ -60,30 +60,30 @@ void CombatText::setCam(Point location) {
 	cam = location;
 }
 
-void CombatText::addMessage(std::string message, Point location, int displaytype, bool from_hero) {
+void CombatText::addMessage(std::string message, Point location, int displaytype) {
 	if (COMBAT_TEXT) {
 		Combat_Text_Item *c = new Combat_Text_Item();
 		WidgetLabel *label = new WidgetLabel();
-		c->pos = map_to_screen(location.x - UNITS_PER_TILE, location.y - UNITS_PER_TILE, cam.x, cam.y);
-		c->src_pos = location;
+		c->pos.x = location.x;
+		c->pos.y = location.y;
+		c->floating_offset = COMBAT_TEXT_STARTING_OFFSET;
 		c->label = label;
 		c->text = message;
 		c->lifespan = duration;
 		c->displaytype = displaytype;
-		c->from_hero = from_hero;
 		combat_text.push_back(*c);
 		delete c;
 	}
 }
 
-void CombatText::addMessage(int num, Point location, int displaytype, bool from_hero) {
+void CombatText::addMessage(int num, Point location, int displaytype) {
 	if (COMBAT_TEXT) {
 		Combat_Text_Item *c = new Combat_Text_Item();
 		WidgetLabel *label = new WidgetLabel();
-		c->pos = map_to_screen(location.x - UNITS_PER_TILE, location.y - UNITS_PER_TILE, cam.x, cam.y);
-		c->src_pos = location;
+		c->pos.x = location.x;
+		c->pos.y = location.y;
+		c->floating_offset = COMBAT_TEXT_STARTING_OFFSET;
 		c->label = label;
-		c->from_hero = from_hero;
 
 		std::stringstream ss;
 		ss << num;
@@ -98,18 +98,15 @@ void CombatText::addMessage(int num, Point location, int displaytype, bool from_
 
 void CombatText::render() {
 	for(std::vector<Combat_Text_Item>::iterator it = combat_text.begin(); it != combat_text.end(); ++it) {
+
 		it->lifespan--;
+		it->floating_offset += speed;
 
-		// check if we need to position the text relative to the map
-		if (!it->from_hero) {
-			it->ydelta += speed;
-			it->pos = map_to_screen(it->src_pos.x - UNITS_PER_TILE, it->src_pos.y - UNITS_PER_TILE, cam.x, cam.y);
-			it->pos.y -= it->ydelta;
-		} else {
-			it->pos.y -= speed;
-		}
+		Point scr_pos;
+		scr_pos = map_to_screen(it->pos.x, it->pos.y, cam.x, cam.y);
+		scr_pos.y -= it->floating_offset;
 
-		it->label->set(it->pos.x, it->pos.y, JUSTIFY_CENTER, VALIGN_BOTTOM, it->text, msg_color[it->displaytype]);
+		it->label->set(scr_pos.x, scr_pos.y, JUSTIFY_CENTER, VALIGN_BOTTOM, it->text, msg_color[it->displaytype]);
 
 		if (it->lifespan > 0)
 			it->label->render();
@@ -117,6 +114,7 @@ void CombatText::render() {
 	}
 	// delete expired messages
 	while (combat_text.size() && combat_text.begin()->lifespan <= 0) {
+		
 		combat_text.erase(combat_text.begin());
 	}
 }
