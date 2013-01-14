@@ -243,8 +243,18 @@ void StatBlock::load(const string& filename) {
 		// enemy death rewards and events
 		else if (infile.key == "xp") xp = num;
 		else if (infile.key == "loot") {
+		
+			// loot entries format:
+			// loot=[id],[percent_chance]
+			
 			EnemyLoot el;
-			el.id = toInt(infile.nextValue());
+			std::string loot_id = infile.nextValue();
+			
+			// id 0 means currency. The keyword "currency" can also be used.
+			if (loot_id == "currency")
+				el.id = 0;
+			else
+				el.id = toInt(loot_id);
 			el.chance = toInt(infile.nextValue());
 			loot.push_back(el);
 		}
