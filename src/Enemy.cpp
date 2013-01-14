@@ -169,7 +169,7 @@ bool Enemy::takeHit(const Hazard &h) {
 		int avoidance = stats.avoidance;
 		clampCeil(avoidance, MAX_AVOIDANCE);
 		if (percentChance(avoidance - h.accuracy - 25)) {
-			combat_text->addMessage(msg->get("miss"), stats.pos, COMBAT_MESSAGE_MISS, false);
+			combat_text->addMessage(msg->get("miss"), stats.pos, COMBAT_MESSAGE_MISS);
 			return false;
 		}
 
@@ -216,11 +216,11 @@ bool Enemy::takeHit(const Hazard &h) {
 			map->shaky_cam_ticks = MAX_FRAMES_PER_SEC/2;
 
 			// show crit damage
-			combat_text->addMessage(dmg, stats.pos, COMBAT_MESSAGE_CRIT, false);
+			combat_text->addMessage(dmg, stats.pos, COMBAT_MESSAGE_CRIT);
 		}
 		else {
 			// show normal damage
-			combat_text->addMessage(dmg, stats.pos, COMBAT_MESSAGE_GIVEDMG, false);
+			combat_text->addMessage(dmg, stats.pos, COMBAT_MESSAGE_GIVEDMG);
 		}
 
 		// apply damage
@@ -245,14 +245,14 @@ bool Enemy::takeHit(const Hazard &h) {
 		if (h.hp_steal != 0) {
 			int heal_amt = (dmg * h.hp_steal) / 100;
 			if (heal_amt == 0 && dmg > 0) heal_amt = 1;
-			combat_text->addMessage(msg->get("+%d HP",heal_amt), h.src_stats->pos, COMBAT_MESSAGE_BUFF, true);
+			combat_text->addMessage(msg->get("+%d HP",heal_amt), h.src_stats->pos, COMBAT_MESSAGE_BUFF);
 			h.src_stats->hp += heal_amt;
 			clampCeil(h.src_stats->hp, h.src_stats->maxhp);
 		}
 		if (h.mp_steal != 0) {
 			int heal_amt = (dmg * h.mp_steal) / 100;
 			if (heal_amt == 0 && dmg > 0) heal_amt = 1;
-			combat_text->addMessage(msg->get("+%d MP",heal_amt), h.src_stats->pos, COMBAT_MESSAGE_BUFF, true);
+			combat_text->addMessage(msg->get("+%d MP",heal_amt), h.src_stats->pos, COMBAT_MESSAGE_BUFF);
 			h.src_stats->mp += heal_amt;
 			clampCeil(h.src_stats->mp, h.src_stats->maxmp);
 		}

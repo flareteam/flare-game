@@ -489,12 +489,12 @@ void StatBlock::logic() {
 
 	// apply healing over time
 	if (effects.hpot > 0) {
-		comb->addMessage(msg->get("+%d HP",effects.hpot), pos, COMBAT_MESSAGE_BUFF, hero);
+		comb->addMessage(msg->get("+%d HP",effects.hpot), pos, COMBAT_MESSAGE_BUFF);
 		hp += effects.hpot;
 		if (hp > maxhp) hp = maxhp;
 	}
 	if (effects.mpot > 0) {
-		comb->addMessage(msg->get("+%d MP",effects.mpot), pos, COMBAT_MESSAGE_BUFF, hero);
+		comb->addMessage(msg->get("+%d MP",effects.mpot), pos, COMBAT_MESSAGE_BUFF);
 		mp += effects.mpot;
 		if (mp > maxmp) mp = maxmp;
 	}
