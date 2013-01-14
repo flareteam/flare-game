@@ -17,6 +17,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 */
 
 #include "Settings.h"
+#include "SharedResources.h"
 #include "Utils.h"
 
 #include <cmath>
@@ -364,8 +365,22 @@ bool checkPixel(Point px, SDL_Surface *surface) {
 
 Mix_Chunk *loadSfx(const string &filename, const string &errormessage)
 {
-	Mix_Chunk * sound = Mix_LoadWAV(filename.c_str());
-	if (!sound)
-		fprintf(stderr, "%s: Loading sound %s failed: %s \n", errormessage.c_str(), filename.c_str(), Mix_GetError());
-	return sound;
+	if (AUDIO && SOUND_VOLUME) {
+		const string realfilename = mods->locate(filename);
+		Mix_Chunk * sound = Mix_LoadWAV(realfilename.c_str());
+		if (!sound)
+			fprintf(stderr, "%s: Loading sound %s (%s) failed: %s \n", errormessage.c_str(), realfilename.c_str(), filename.c_str(), Mix_GetError());
+		return sound;
+	} else {
+		return NULL;
+	}
+}
+
+int playSfx(Mix_Chunk *sfx)
+{
+	if (AUDIO && SOUND_VOLUME && sfx) {
+		return Mix_PlayChannel(-1, sfx, 0);
+	} else {
+		return -1;
+	}
 }

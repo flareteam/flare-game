@@ -96,11 +96,9 @@ static void init() {
 	if (CHANGE_GAMMA)
 		SDL_SetGamma(GAMMA,GAMMA,GAMMA);
 
-	audio = true;
-
-	if (Mix_OpenAudio(22050, AUDIO_S16SYS, 2, 1024)) {
+	if (AUDIO && Mix_OpenAudio(22050, AUDIO_S16SYS, 2, 1024)) {
 		fprintf (stderr, "Error during Mix_OpenAudio: %s\n", SDL_GetError());
-		audio = false;
+		AUDIO = false;
 	}
 
 	// initialize Joysticks
@@ -121,7 +119,7 @@ static void init() {
 	printf("Using joystick #%d.\n", JOYSTICK_DEVICE);
 
 	// Set sound effects volume from settings file
-	if (audio == true)
+	if (AUDIO)
 		Mix_Volume(-1, SOUND_VOLUME);
 
 	// Window title

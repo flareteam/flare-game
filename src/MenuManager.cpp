@@ -206,13 +206,8 @@ void MenuManager::loadIcons() {
 }
 
 void MenuManager::loadSounds() {
-	if (audio && SOUND_VOLUME) {
-		sfx_open = loadSfx(mods->locate("soundfx/inventory/inventory_page.ogg"), "MenuManager open tab");
-		sfx_close = loadSfx(mods->locate("soundfx/inventory/inventory_book.ogg"), "MenuManager close tab");
-	} else {
-		sfx_open = NULL;
-		sfx_close = NULL;
-	}
+	sfx_open = loadSfx("soundfx/inventory/inventory_page.ogg", "MenuManager open tab");
+	sfx_close = loadSfx("soundfx/inventory/inventory_book.ogg", "MenuManager close tab");
 }
 
 
@@ -303,8 +298,7 @@ void MenuManager::logic() {
 			closeRight(false);
 			act->requires_attention[MENU_INVENTORY] = false;
 			inv->visible = true;
-			if (sfx_open)
-				Mix_PlayChannel(-1, sfx_open, 0);
+			playSfx(sfx_open);
 		}
 
 	}
@@ -319,8 +313,7 @@ void MenuManager::logic() {
 			closeRight(false);
 			act->requires_attention[MENU_POWERS] = false;
 			pow->visible = true;
-			if (sfx_open)
-				Mix_PlayChannel(-1, sfx_open, 0);
+			playSfx(sfx_open);
 		}
 	}
 	act->requires_attention[MENU_POWERS] = pow->getUnspent() > 0;
@@ -335,8 +328,7 @@ void MenuManager::logic() {
 			closeLeft(false);
 			act->requires_attention[MENU_CHARACTER] = false;
 			chr->visible = true;
-			if (sfx_open)
-				Mix_PlayChannel(-1, sfx_open, 0);
+			playSfx(sfx_open);
 			// Make sure the stat list isn't scrolled when we open the character menu
 			inpt->resetScroll();
 		}
@@ -353,8 +345,7 @@ void MenuManager::logic() {
 			closeLeft(false);
 			act->requires_attention[MENU_LOG] = false;
 			log->visible = true;
-			if (sfx_open)
-				Mix_PlayChannel(-1, sfx_open, 0);
+			playSfx(sfx_open);
 			// Make sure the log isn't scrolled when we open the log menu
 			inpt->resetScroll();
 		}
@@ -766,9 +757,7 @@ void MenuManager::closeLeft(bool play_sound) {
 		exit->visible = false;
 		stash->visible = false;
 
-		if (sfx_close)
-			if (play_sound) Mix_PlayChannel(-1, sfx_close, 0);
-
+		if (play_sound) playSfx(sfx_close);
 	}
 }
 
@@ -779,8 +768,7 @@ void MenuManager::closeRight(bool play_sound) {
 		talker->visible = false;
 		exit->visible = false;
 
-		if (sfx_close)
-			if (play_sound) Mix_PlayChannel(-1, sfx_close, 0);
+		if (play_sound) playSfx(sfx_close);
 	}
 }
 

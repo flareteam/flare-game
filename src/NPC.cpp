@@ -196,10 +196,7 @@ void NPC::loadGraphics(const string& filename_portrait) {
  */
 int NPC::loadSound(const string& filename, int type) {
 
-	if (!SOUND_VOLUME || !audio)
-		return -1;
-
-	Mix_Chunk *a = loadSfx(mods->locate("soundfx/npcs/" + filename), "NPC voice");
+	Mix_Chunk *a = loadSfx("soundfx/npcs/" + filename, "NPC voice");
 	if (!a)
 		return -1;
 
@@ -234,14 +231,14 @@ bool NPC::playSound(int type, int id) {
 		int roll;
 		if (vox_intro.empty()) return false;
 		roll = rand() % vox_intro.size();
-		Mix_PlayChannel(-1, vox_intro[roll], 0);
+		playSfx(vox_intro[roll]);
 		return true;
 	}
 	if (type == NPC_VOX_QUEST) {
 		if (id < 0 || id >= (int)vox_quests.size()) return false;
 		if (current_channel != -1) Mix_HaltChannel(current_channel);
 		Mix_ChannelFinished(&sound_ended);
-		current_channel=Mix_PlayChannel(-1, vox_quests[id], 0);
+		current_channel = playSfx(vox_quests[id]);
 		return true;
 	}
 	return false;

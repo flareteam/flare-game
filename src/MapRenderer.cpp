@@ -80,13 +80,10 @@ void MapRenderer::playSFX(string filename) {
 	// only load from file if the requested soundfx isn't already loaded
 	if (filename != sfx_filename) {
 		Mix_FreeChunk(sfx);
-		sfx = NULL;
-		if (audio) {
-			sfx = loadSfx(mods->locate(filename), "MapRenderer background music");
-			sfx_filename = filename;
-		}
+		sfx = loadSfx(filename, "MapRenderer background music");
+		sfx_filename = filename;
 	}
-	if (sfx) Mix_PlayChannel(-1, sfx, 0);
+	playSfx(sfx);
 }
 
 void MapRenderer::push_enemy_group(Map_Group g) {
@@ -545,18 +542,14 @@ int MapRenderer::load(string filename) {
 	infile.close();
 
 	// reached end of file.  Handle any final sections.
-	if (enemy_awaiting_queue) {
+	if (enemy_awaiting_queue)
 		enemies.push(new_enemy);
-		enemy_awaiting_queue = false;
-	}
-	if (npc_awaiting_queue) {
+
+	if (npc_awaiting_queue)
 		npcs.push(new_npc);
-		npc_awaiting_queue = false;
-	}
-	if (group_awaiting_queue){
+
+	if (group_awaiting_queue)
 		push_enemy_group(new_group);
-		group_awaiting_queue = false;
-	}
 
 	if (this->new_music) {
 		loadMusic();
@@ -600,12 +593,12 @@ void MapRenderer::clearLayers() {
 
 void MapRenderer::loadMusic() {
 
-	if (music != NULL) {
+	if (music) {
 		Mix_HaltMusic();
 		Mix_FreeMusic(music);
 		music = NULL;
 	}
-	if (audio && MUSIC_VOLUME) {
+	if (AUDIO && MUSIC_VOLUME) {
 		music = Mix_LoadMUS(mods->locate("music/" + this->music_filename).c_str());
 		if(!music)
 			cout << "Mix_LoadMUS: "<< Mix_GetError()<<endl;

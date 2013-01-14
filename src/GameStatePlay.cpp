@@ -567,12 +567,12 @@ void GameStatePlay::checkNPCInteraction() {
 			// if this vendor has voice-over, play it
 			if (!npcs->npcs[npc_id]->talker) {
 				if (!npcs->npcs[npc_id]->playSound(NPC_VOX_INTRO)) {
-					Mix_PlayChannel(-1, menu->sfx_open, 0);
+					playSfx(menu->sfx_open);
 				}
 			}
 			else {
 				// unless the vendor has dialog; then they've already given their vox intro
-				Mix_PlayChannel(-1, menu->sfx_open, 0);
+				playSfx(menu->sfx_open);
 			}
 
 			menu->talker->vendor_visible = false;

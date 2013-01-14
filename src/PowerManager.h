@@ -205,6 +205,7 @@ public:
 		, requires_los(false)
 		, requires_empty_target(false)
 		, requires_item(-1)
+		, requires_equipped_item(-1)
 		, consumable(false)
 		, requires_targeting(false)
 		, cooldown(0)
