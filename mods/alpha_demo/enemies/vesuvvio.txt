@@ -1,6 +1,6 @@
 name=Vesuvvio (the Destroyer)
 level=11
-xp=11
+xp=2000
 
 sfx_prefix=human_male
 animations=vesuvvio
@@ -9,7 +9,7 @@ quest_loot=lb_fire_unlocked,lb_fire_key,9102
 defeat_status=lb_fire_defeated
 
 # combat stats
-hp=60
+hp=300
 speed=12
 dspeed=8
 melee_range=76
@@ -28,10 +28,10 @@ power_beacon=132
 accuracy=96
 avoidance=49
 
-dmg_melee_min=5
-dmg_melee_max=8
-dmg_ment_min=5
-dmg_ment_max=13
+dmg_melee_min=25
+dmg_melee_max=40
+dmg_ment_min=25
+dmg_ment_max=65
 absorb_min=2
 absorb_max=2
 #immune fire

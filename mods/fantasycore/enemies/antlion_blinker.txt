@@ -1,7 +1,7 @@
 name=Antlion Blinker
 level=5
 categories=antlion,dungeon,cave
-xp=5
+xp=20
 
 sfx_prefix=antlion
 animations=antlion
@@ -9,7 +9,7 @@ animations=antlion
 
 # combat stats
 # antlions have low HP and high armor for their level
-hp=18
+hp=90
 speed=10
 dspeed=7
 melee_range=76
@@ -31,12 +31,12 @@ power_beacon=132
 accuracy=81
 avoidance=31
 
-dmg_melee_min=3
-dmg_melee_max=8
-dmg_ment_min=2
-dmg_ment_max=6
-absorb_min=2
-absorb_max=3
+dmg_melee_min=5
+dmg_melee_max=40
+dmg_ment_min=10
+dmg_ment_max=30
+absorb_min=10
+absorb_max=15
 
 cooldown=10
 cooldown_melee_ment=45

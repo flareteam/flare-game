@@ -1,7 +1,7 @@
 name=Antlion Burster
 level=8
 categories=antlion,dungeon,cave,fire
-xp=8
+xp=200
 
 sfx_prefix=antlion
 animations=fire_ant
@@ -9,7 +9,7 @@ animations=fire_ant
 
 # combat stats
 # antlions have low HP and high armor for their level
-hp=26
+hp=130
 speed=16
 dspeed=9
 melee_range=76
@@ -25,10 +25,10 @@ power_beacon=132
 accuracy=100
 avoidance=25
 
-dmg_ment_min=30
-dmg_ment_max=40
-absorb_min=5
-absorb_max=5
+dmg_ment_min=150
+dmg_ment_max=200
+absorb_min=25
+absorb_max=25
 vulnerable_fire=100
 vulnerable_ice=200
 
