@@ -51,18 +51,19 @@ static void init() {
 	// Shared Resources set-up
 
 	mods = new ModManager();
-	msg = new MessageEngine();
-	font = new FontEngine();
-	anim = new AnimationManager();
-	comb = new CombatText();
-	imag = new ImageManager();
-	inpt = new InputState();
 
 	if (!loadSettings()) {
 		fprintf(stderr, "%s",
 				("Could not load settings file: ‘" + PATH_CONF + FILE_SETTINGS + "’.\n").c_str());
 		exit(1);
 	}
+
+	msg = new MessageEngine();
+	font = new FontEngine();
+	anim = new AnimationManager();
+	comb = new CombatText();
+	imag = new ImageManager();
+	inpt = new InputState();
 
 	// Load tileset options (must be after ModManager is initialized)
 	loadTilesetSettings();
