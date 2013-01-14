@@ -8,19 +8,6 @@ xp=1
 sfx_prefix=goblin
 animations=goblin
 
-
-# The item_class is a list of strings, which describe which kind of loot
-# is being dropped. The strings should match the "class" entry in the item
-# database. Optionally a number can be passed after each string entry to
-# adapt the probablity of the entry. If the optional probability number
-# is omited, 1 is assumed.
-
-# The following configuration has a sum of all weights of 1+9=10, so
-# the distribution is steps of 10 percents.
-# Currency will be dropped in 10 percent of the cases. In 90 percent there
-# will be items, which belong to the goblindrop class.
-#item_class=currency,1,goblindrop,9
-
 # combat stats
 hp=30
 speed=4
@@ -40,4 +27,6 @@ dmg_melee_min=5
 dmg_melee_max=15
 cooldown=30
 
+# loot
+loot=currency,33
 
