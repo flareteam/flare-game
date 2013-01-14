@@ -96,8 +96,7 @@ LootManager::LootManager(ItemManager *_items, MapRenderer *_map, StatBlock *_her
 	loot.clear();
 
 	loadGraphics();
-	if (audio && SOUND_VOLUME)
-		loot_flip = loadSfx(mods->locate("soundfx/flying_loot.ogg").c_str(), "LootManager dropping loot");
+	loot_flip = loadSfx("soundfx/flying_loot.ogg", "LootManager dropping loot");
 
 	full_msg = false;
 
@@ -327,7 +326,7 @@ void LootManager::addLoot(ItemStack stack, Point pos) {
 	ld.loadAnimation(animationname);
 	ld.currency = 0;
 	loot.push_back(ld);
-	if (loot_flip) Mix_PlayChannel(-1, loot_flip, 0);
+	playSfx(loot_flip);
 }
 
 void LootManager::addCurrency(int count, Point pos) {
@@ -350,7 +349,7 @@ void LootManager::addCurrency(int count, Point pos) {
 
 	ld.currency = count;
 	loot.push_back(ld);
-	if (loot_flip) Mix_PlayChannel(-1, loot_flip, 0);
+	playSfx(loot_flip);
 }
 
 /**

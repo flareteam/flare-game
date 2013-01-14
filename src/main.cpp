@@ -51,18 +51,19 @@ static void init() {
 	// Shared Resources set-up
 
 	mods = new ModManager();
-	msg = new MessageEngine();
-	font = new FontEngine();
-	anim = new AnimationManager();
-	comb = new CombatText();
-	imag = new ImageManager();
-	inpt = new InputState();
 
 	if (!loadSettings()) {
 		fprintf(stderr, "%s",
 				("Could not load settings file: ‘" + PATH_CONF + FILE_SETTINGS + "’.\n").c_str());
 		exit(1);
 	}
+
+	msg = new MessageEngine();
+	font = new FontEngine();
+	anim = new AnimationManager();
+	comb = new CombatText();
+	imag = new ImageManager();
+	inpt = new InputState();
 
 	// Load tileset options (must be after ModManager is initialized)
 	loadTilesetSettings();
@@ -96,11 +97,9 @@ static void init() {
 	if (CHANGE_GAMMA)
 		SDL_SetGamma(GAMMA,GAMMA,GAMMA);
 
-	audio = true;
-
-	if (Mix_OpenAudio(22050, AUDIO_S16SYS, 2, 1024)) {
+	if (AUDIO && Mix_OpenAudio(22050, AUDIO_S16SYS, 2, 1024)) {
 		fprintf (stderr, "Error during Mix_OpenAudio: %s\n", SDL_GetError());
-		audio = false;
+		AUDIO = false;
 	}
 
 	// initialize Joysticks
@@ -121,7 +120,7 @@ static void init() {
 	printf("Using joystick #%d.\n", JOYSTICK_DEVICE);
 
 	// Set sound effects volume from settings file
-	if (audio == true)
+	if (AUDIO)
 		Mix_Volume(-1, SOUND_VOLUME);
 
 	// Window title

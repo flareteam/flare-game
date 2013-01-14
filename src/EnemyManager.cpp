@@ -47,23 +47,12 @@ void EnemyManager::loadSounds(const string& type_id) {
 	if (find(sfx_prefixes.begin(), sfx_prefixes.end(), type_id) != sfx_prefixes.end())
 		return;
 
-	if (audio && SOUND_VOLUME && type_id != "none") {
-		string path;
-		path = mods->locate("soundfx/enemies/" + type_id + "_phys.ogg");
-		sound_phys.push_back(loadSfx(path, "EnemyManager physical attack sound"));
-
-		path = mods->locate("soundfx/enemies/" + type_id + "_ment.ogg");
-		sound_ment.push_back(loadSfx(path, "EnemyManager mental attack sound"));
-
-		path = mods->locate("soundfx/enemies/" + type_id + "_hit.ogg");
-		sound_hit.push_back(loadSfx(path, "EnemyManager physical hit sound"));
-
-		path = mods->locate("soundfx/enemies/" + type_id + "_die.ogg");
-		sound_die.push_back(loadSfx(path, "EnemyManager die sound"));
-
-		path = mods->locate("soundfx/enemies/" + type_id + "_critdie.ogg");
-		sound_critdie.push_back(loadSfx(path, "EnemyManager critdeath sound"));
-
+	if (type_id != "none") {
+		sound_phys.push_back(loadSfx("soundfx/enemies/" + type_id + "_phys.ogg", "EnemyManager physical attack sound"));
+		sound_ment.push_back(loadSfx("soundfx/enemies/" + type_id + "_ment.ogg", "EnemyManager mental attack sound"));
+		sound_hit.push_back(loadSfx("soundfx/enemies/" + type_id + "_hit.ogg", "EnemyManager physical hit sound"));
+		sound_die.push_back(loadSfx("soundfx/enemies/" + type_id + "_die.ogg", "EnemyManager die sound"));
+		sound_critdie.push_back(loadSfx("soundfx/enemies/" + type_id + "_critdie.ogg", "EnemyManager critdeath sound"));
 	} else {
 		sound_phys.push_back(NULL);
 		sound_ment.push_back(NULL);
@@ -216,7 +205,7 @@ void EnemyManager::logic() {
 		// hazards are processed after Avatar and Enemy[]
 		// so process and clear sound effects from previous frames
 		// check sound effects
-		if (audio == true) {
+		if (AUDIO) {
 			vector<string>::iterator found = find (sfx_prefixes.begin(), sfx_prefixes.end(), enemies[i]->stats.sfx_prefix);
 			unsigned pref_id = distance(sfx_prefixes.begin(), found);
 
@@ -225,11 +214,11 @@ void EnemyManager::logic() {
 					 << enemies[i]->stats.name << "', sfx_prefix: '"
 					 << enemies[i]->stats.sfx_prefix << "')" << endl;
 			} else {
-				if (enemies[i]->sfx_phys) Mix_PlayChannel(-1, sound_phys[pref_id], 0);
-				if (enemies[i]->sfx_ment) Mix_PlayChannel(-1, sound_ment[pref_id], 0);
-				if (enemies[i]->sfx_hit) Mix_PlayChannel(-1, sound_hit[pref_id], 0);
-				if (enemies[i]->sfx_die) Mix_PlayChannel(-1, sound_die[pref_id], 0);
-				if (enemies[i]->sfx_critdie) Mix_PlayChannel(-1, sound_critdie[pref_id], 0);
+				if (enemies[i]->sfx_phys) playSfx(sound_phys[pref_id]);
+				if (enemies[i]->sfx_ment) playSfx(sound_ment[pref_id]);
+				if (enemies[i]->sfx_hit) playSfx(sound_hit[pref_id]);
+				if (enemies[i]->sfx_die) playSfx(sound_die[pref_id]);
+				if (enemies[i]->sfx_critdie) playSfx(sound_critdie[pref_id]);
 			}
 
 			// clear sound flags

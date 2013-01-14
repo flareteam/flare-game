@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: Flare 0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-21 15:57+0300\n"
-"PO-Revision-Date: 2011-12-17 11:30+0100\n"
-"Last-Translator: Andreas Berheim Brudin <andreas@brudin.se>\n"
+"PO-Revision-Date: 2013-01-13 22:25+0100\n"
+"Last-Translator: Henrik Andersson <hean01@users.sourceforge.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,25 +25,28 @@ msgid "You may increase one attribute through the Character Menu."
 msgstr "Du får nu öka på en egenskap (i karaktärsmenyn)"
 
 #: ../../../src/Avatar.cpp:633
-#, fuzzy
 msgid "You are defeated. Game over! Press Enter to exit to Title."
-msgstr "Du är besegrad. Du förlorar hälften av ditt guld. Tryck Retur för att fortsätta."
+msgstr "Du är besegrad. Spelet är över! Tryck Retur för att fortsätta."
 
 #: ../../../src/Avatar.cpp:636
-#, fuzzy, c-format
+#, c-format
 msgid "You are defeated.  You lose half your %s.  Press Enter to continue."
-msgstr "Du är besegrad. Du förlorar hälften av ditt guld. Tryck Retur för att fortsätta."
+msgstr "Du är besegrad. Du förlorar hälften av ditt %s. Tryck Retur för att fortsätta."
 
-#: ../../../src/Avatar.cpp:708 ../../../src/Enemy.cpp:168
+#: ../../../src/Avatar.cpp:708
+#: ../../../src/Enemy.cpp:168
 msgid "miss"
-msgstr ""
+msgstr "miss"
 
-#: ../../../src/Avatar.cpp:795 ../../../src/Enemy.cpp:261
-#: ../../../src/PowerManager.cpp:762 ../../../src/PowerManager.cpp:764
-#: ../../../src/PowerManager.cpp:773 ../../../src/PowerManager.cpp:775
+#: ../../../src/Avatar.cpp:795
+#: ../../../src/Enemy.cpp:261
+#: ../../../src/PowerManager.cpp:762
+#: ../../../src/PowerManager.cpp:764
+#: ../../../src/PowerManager.cpp:773
+#: ../../../src/PowerManager.cpp:775
 #, c-format
 msgid "+%d HP"
-msgstr ""
+msgstr "+%d HP"
 
 #: ../../../src/CampaignManager.cpp:141
 #, c-format
@@ -56,9 +59,9 @@ msgid "You receive %s x%d."
 msgstr "Du får %s x%d."
 
 #: ../../../src/CampaignManager.cpp:151
-#, fuzzy, c-format
+#, c-format
 msgid "You receive %d %s."
-msgstr "Du får %s."
+msgstr "Du får %d %s."
 
 #: ../../../src/CampaignManager.cpp:157
 #, c-format
@@ -67,87 +70,91 @@ msgstr "Du får %d XP."
 
 #: ../../../src/CampaignManager.cpp:163
 msgid "HP restored."
-msgstr ""
+msgstr "HP äterställd."
 
 #: ../../../src/CampaignManager.cpp:167
 msgid "MP restored."
-msgstr ""
+msgstr "MP återställd."
 
 #: ../../../src/CampaignManager.cpp:172
 msgid "HP and MP restored."
-msgstr ""
+msgstr "HP och MP återställt."
 
 #: ../../../src/CampaignManager.cpp:176
 msgid "Negative effects removed."
-msgstr ""
+msgstr "Negativa effekter borttagna."
 
 #: ../../../src/CampaignManager.cpp:182
 msgid "HP and MP restored, negative effects removed"
-msgstr ""
+msgstr "HP och MP återställt, negativa effekter borttagna"
 
-#: ../../../src/Enemy.cpp:268 ../../../src/PowerManager.cpp:784
+#: ../../../src/Enemy.cpp:268
+#: ../../../src/PowerManager.cpp:784
 #: ../../../src/PowerManager.cpp:786
 #, c-format
 msgid "+%d MP"
-msgstr ""
+msgstr "+%d MP"
 
 #: ../../../src/GameStateConfig.cpp:77
 msgid "Ok"
-msgstr ""
+msgstr "Ok"
 
-#: ../../../src/GameStateConfig.cpp:82 ../../../src/GameStateConfig.cpp:161
+#: ../../../src/GameStateConfig.cpp:82
+#: ../../../src/GameStateConfig.cpp:161
 msgid "Defaults"
-msgstr ""
+msgstr "Standard"
 
-#: ../../../src/GameStateConfig.cpp:87 ../../../src/GameStateNew.cpp:49
+#: ../../../src/GameStateConfig.cpp:87
+#: ../../../src/GameStateNew.cpp:49
 #: ../../../src/InputState.cpp:55
 msgid "Cancel"
 msgstr "Avbryt"
 
 #: ../../../src/GameStateConfig.cpp:152
 msgid "Video"
-msgstr ""
+msgstr "Video"
 
 #: ../../../src/GameStateConfig.cpp:153
 msgid "Audio"
-msgstr ""
+msgstr "Ljud"
 
 #: ../../../src/GameStateConfig.cpp:154
 msgid "Interface"
-msgstr ""
+msgstr "Gränssnitt"
 
 #: ../../../src/GameStateConfig.cpp:155
 msgid "Input"
-msgstr ""
+msgstr "Inmatning"
 
 #: ../../../src/GameStateConfig.cpp:156
 msgid "Keybindings"
-msgstr ""
+msgstr "Tangentbindningar"
 
 #: ../../../src/GameStateConfig.cpp:157
 msgid "Mods"
-msgstr ""
+msgstr "Mods"
 
-#: ../../../src/GameStateConfig.cpp:160 ../../../src/GameStateConfig.cpp:895
+#: ../../../src/GameStateConfig.cpp:160
+#: ../../../src/GameStateConfig.cpp:895
 #: ../../../src/GameStateConfig.cpp:897
 msgid "Assign: "
-msgstr ""
+msgstr "Tilldela:"
 
 #: ../../../src/GameStateConfig.cpp:161
 msgid "Reset ALL settings?"
-msgstr ""
+msgstr "Återställ samtliga inställningar?"
 
 #: ../../../src/GameStateConfig.cpp:238
 msgid "Full Screen Mode"
-msgstr ""
+msgstr "Fullskärmsläge"
 
 #: ../../../src/GameStateConfig.cpp:251
 msgid "Move hero using mouse"
-msgstr ""
+msgstr "Flytta hjälten med muspekaren"
 
 #: ../../../src/GameStateConfig.cpp:264
 msgid "Show combat text"
-msgstr ""
+msgstr "Visa text vid strid"
 
 #: ../../../src/GameStateConfig.cpp:278
 msgid "Hardware surfaces"
@@ -155,82 +162,84 @@ msgstr ""
 
 #: ../../../src/GameStateConfig.cpp:291
 msgid "Double buffering"
-msgstr ""
+msgstr "Dubbelbuffring"
 
 #: ../../../src/GameStateConfig.cpp:305
 msgid "Use joystick"
-msgstr ""
+msgstr "Använd joystick"
 
 #: ../../../src/GameStateConfig.cpp:318
 msgid "High Quality Textures"
-msgstr ""
+msgstr "Högkvalitativa texturer"
 
 #: ../../../src/GameStateConfig.cpp:331
 msgid "Allow changing gamma"
-msgstr ""
+msgstr "Tillåt ändring av gamma"
 
 #: ../../../src/GameStateConfig.cpp:344
 msgid "Animated tiles"
-msgstr ""
+msgstr "Animerade tiles"
 
 #: ../../../src/GameStateConfig.cpp:357
 msgid "Mouse aim"
-msgstr ""
+msgstr "Sikta med muspekaren"
 
 #: ../../../src/GameStateConfig.cpp:370
 msgid "Show FPS"
-msgstr ""
+msgstr "Visa FPS"
 
 #: ../../../src/GameStateConfig.cpp:384
 msgid "Music Volume"
-msgstr ""
+msgstr "Musikvolym"
 
 #: ../../../src/GameStateConfig.cpp:397
 msgid "Sound Volume"
-msgstr ""
+msgstr "Ljudvolym"
 
 #: ../../../src/GameStateConfig.cpp:410
 msgid "Gamma"
-msgstr ""
+msgstr "Gamma"
 
 #: ../../../src/GameStateConfig.cpp:424
 msgid "Resolution"
-msgstr ""
+msgstr "Upplösning"
 
 #: ../../../src/GameStateConfig.cpp:435
 msgid "Active Mods"
-msgstr ""
+msgstr "Aktiva Mods"
 
 #: ../../../src/GameStateConfig.cpp:445
 msgid "Available Mods"
-msgstr ""
+msgstr "Tillgängliga Mods"
 
 #: ../../../src/GameStateConfig.cpp:461
 msgid "Joystick"
-msgstr ""
+msgstr "Joystick"
 
 #: ../../../src/GameStateConfig.cpp:473
 msgid "Language"
-msgstr ""
+msgstr "Språk"
 
-#: ../../../src/GameStateConfig.cpp:508 ../../../src/GameStateConfig.cpp:515
+#: ../../../src/GameStateConfig.cpp:508
+#: ../../../src/GameStateConfig.cpp:515
 #: ../../../src/GameStateConfig.cpp:522
 msgid "Disable for performance"
-msgstr ""
+msgstr "Inaktivera för prestanda"
 
 #: ../../../src/GameStateConfig.cpp:529
 msgid "Experimental"
-msgstr ""
+msgstr "Experimentell"
 
 #: ../../../src/GameStateConfig.cpp:549
 msgid "<< Disable"
-msgstr ""
+msgstr "<< Inaktivera"
 
 #: ../../../src/GameStateConfig.cpp:557
 msgid "Enable >>"
-msgstr ""
+msgstr "Aktivera >>"
 
-#: ../../../src/GameStateLoad.cpp:56 ../../../src/GameStateLoad.cpp:68
+#: ../../../src/GameStateLoad.cpp:56
+#: ../../../src/GameStateLoad.cpp:68
 msgid "Delete Save"
 msgstr "Radera sparat spel"
 
@@ -246,13 +255,16 @@ msgstr "Avsluta och gå till huvudmenyn"
 msgid "Choose a Slot"
 msgstr "Välj en plats"
 
-#: ../../../src/GameStateLoad.cpp:378 ../../../src/GameStateLoad.cpp:424
-#: ../../../src/GameStateLoad.cpp:447 ../../../src/GameStateLoad.cpp:466
+#: ../../../src/GameStateLoad.cpp:378
+#: ../../../src/GameStateLoad.cpp:424
+#: ../../../src/GameStateLoad.cpp:447
+#: ../../../src/GameStateLoad.cpp:466
 #: ../../../src/GameStateLoad.cpp:491
 msgid "New Game"
 msgstr "Nytt spel"
 
-#: ../../../src/GameStateLoad.cpp:428 ../../../src/GameStateLoad.cpp:451
+#: ../../../src/GameStateLoad.cpp:428
+#: ../../../src/GameStateLoad.cpp:451
 #: ../../../src/GameStateLoad.cpp:470
 msgid "Load Game"
 msgstr "Ladda spel"
@@ -275,9 +287,8 @@ msgid "Empty Slot"
 msgstr "Ledig plats"
 
 #: ../../../src/GameStateNew.cpp:55
-#, fuzzy
 msgid "Create"
-msgstr "Karaktär"
+msgstr "Skapa"
 
 #: ../../../src/GameStateNew.cpp:133
 msgid "Choose a Portrait"
@@ -289,18 +300,22 @@ msgstr "Ange namn"
 
 #: ../../../src/GameStateNew.cpp:137
 msgid "Permadeath?"
-msgstr ""
+msgstr "Permanent död?"
 
 #: ../../../src/GameStatePlay.cpp:90
-#, fuzzy
 msgid "Loading..."
-msgstr "Laddar sparat spel..."
+msgstr "Laddar..."
 
-#: ../../../src/GameStatePlay.cpp:202 ../../../src/GameStatePlay.cpp:203
-#: ../../../src/MenuManager.cpp:378 ../../../src/MenuManager.cpp:379
-#: ../../../src/MenuManager.cpp:403 ../../../src/MenuManager.cpp:404
-#: ../../../src/MenuManager.cpp:587 ../../../src/MenuManager.cpp:588
-#: ../../../src/MenuManager.cpp:607 ../../../src/MenuManager.cpp:608
+#: ../../../src/GameStatePlay.cpp:202
+#: ../../../src/GameStatePlay.cpp:203
+#: ../../../src/MenuManager.cpp:378
+#: ../../../src/MenuManager.cpp:379
+#: ../../../src/MenuManager.cpp:403
+#: ../../../src/MenuManager.cpp:404
+#: ../../../src/MenuManager.cpp:587
+#: ../../../src/MenuManager.cpp:588
+#: ../../../src/MenuManager.cpp:607
+#: ../../../src/MenuManager.cpp:608
 msgid "Inventory is full."
 msgstr "Du har inte plats för fler föremål."
 
@@ -310,20 +325,19 @@ msgstr "Starta spelet"
 
 #: ../../../src/GameStateTitle.cpp:45
 msgid "Configuration"
-msgstr ""
+msgstr "Konfiguration"
 
 #: ../../../src/GameStateTitle.cpp:50
 msgid "Exit Game"
 msgstr "Avsluta spelet"
 
 #: ../../../src/GameStateTitle.cpp:57
-#, fuzzy
 msgid "Flare Alpha v0.17"
-msgstr "Flare Alfa 0.15"
+msgstr "Flare Alpha v0.17"
 
 #: ../../../src/InputState.cpp:56
 msgid "Accept"
-msgstr ""
+msgstr "Acceptera"
 
 #: ../../../src/InputState.cpp:57
 msgid "Up"
@@ -338,9 +352,8 @@ msgid "Left"
 msgstr ""
 
 #: ../../../src/InputState.cpp:60
-#, fuzzy
 msgid "Right"
-msgstr "Riddare"
+msgstr "Höger"
 
 #: ../../../src/InputState.cpp:61
 msgid "Bar1"
@@ -382,20 +395,24 @@ msgstr ""
 msgid "Bar0"
 msgstr ""
 
-#: ../../../src/InputState.cpp:71 ../../../src/MenuCharacter.cpp:206
+#: ../../../src/InputState.cpp:71
+#: ../../../src/MenuCharacter.cpp:206
 msgid "Character"
 msgstr "Karaktär"
 
-#: ../../../src/InputState.cpp:72 ../../../src/MenuInventory.cpp:167
+#: ../../../src/InputState.cpp:72
+#: ../../../src/MenuInventory.cpp:167
 #: ../../../src/MenuVendor.cpp:48
 msgid "Inventory"
 msgstr "Inventarie"
 
-#: ../../../src/InputState.cpp:73 ../../../src/MenuPowers.cpp:168
+#: ../../../src/InputState.cpp:73
+#: ../../../src/MenuPowers.cpp:168
 msgid "Powers"
 msgstr "Krafter"
 
-#: ../../../src/InputState.cpp:74 ../../../src/MenuLog.cpp:171
+#: ../../../src/InputState.cpp:74
+#: ../../../src/MenuLog.cpp:171
 msgid "Log"
 msgstr "Logg"
 
@@ -493,74 +510,81 @@ msgstr "Absorberar: %d-%d"
 msgid "Absorb: %d"
 msgstr "Absorberar: %d"
 
-#: ../../../src/ItemManager.cpp:553 ../../../src/ItemManager.cpp:632
+#: ../../../src/ItemManager.cpp:553
+#: ../../../src/ItemManager.cpp:632
 #, c-format
 msgid "Increases %s by %d"
 msgstr "Ökar %s med %d"
 
-#: ../../../src/ItemManager.cpp:560 ../../../src/ItemManager.cpp:635
+#: ../../../src/ItemManager.cpp:560
+#: ../../../src/ItemManager.cpp:635
 #, c-format
 msgid "Decreases %s by %d"
 msgstr "Minskar %s med %d"
 
-#: ../../../src/ItemManager.cpp:580 ../../../src/MenuPowers.cpp:516
+#: ../../../src/ItemManager.cpp:580
+#: ../../../src/MenuPowers.cpp:516
 #: ../../../src/MenuPowers.cpp:518
 #, c-format
 msgid "Requires Physical %d"
 msgstr "Kräver fysik %d"
 
-#: ../../../src/ItemManager.cpp:584 ../../../src/MenuPowers.cpp:522
+#: ../../../src/ItemManager.cpp:584
+#: ../../../src/MenuPowers.cpp:522
 #: ../../../src/MenuPowers.cpp:524
 #, c-format
 msgid "Requires Mental %d"
 msgstr "Kräver mental styrka %d"
 
-#: ../../../src/ItemManager.cpp:588 ../../../src/MenuPowers.cpp:504
+#: ../../../src/ItemManager.cpp:588
+#: ../../../src/MenuPowers.cpp:504
 #: ../../../src/MenuPowers.cpp:506
 #, c-format
 msgid "Requires Offense %d"
 msgstr "Kräver anfall %d"
 
-#: ../../../src/ItemManager.cpp:592 ../../../src/MenuPowers.cpp:510
+#: ../../../src/ItemManager.cpp:592
+#: ../../../src/MenuPowers.cpp:510
 #: ../../../src/MenuPowers.cpp:512
 #, c-format
 msgid "Requires Defense %d"
 msgstr "Kräver försvar %d"
 
 #: ../../../src/ItemManager.cpp:602
-#, fuzzy, c-format
+#, c-format
 msgid "Buy Price: %d %s"
-msgstr "Köpesumma: %d guld"
+msgstr "Köpesumma: %d %s"
 
 #: ../../../src/ItemManager.cpp:604
-#, fuzzy, c-format
+#, c-format
 msgid "Buy Price: %d %s each"
-msgstr "Köpesumma: %d guld per styck"
+msgstr "Köpesumma: %d %s per styck"
 
 #: ../../../src/ItemManager.cpp:614
-#, fuzzy, c-format
+#, c-format
 msgid "Sell Price: %d %s"
-msgstr "Säljes för %d guld"
+msgstr "Säljes för: %d %s"
 
 #: ../../../src/ItemManager.cpp:616
-#, fuzzy, c-format
+#, c-format
 msgid "Sell Price: %d %s each"
-msgstr "Säljes för %d guld per styck"
+msgstr "Säljes för: %d %s per styck"
 
 #: ../../../src/ItemManager.cpp:628
-#, fuzzy
 msgid "Set: "
-msgstr "Nästa: %d"
-
-#: ../../../src/ItemManager.cpp:632 ../../../src/ItemManager.cpp:635
-#, c-format
-msgid "%d items: "
 msgstr ""
 
-#: ../../../src/LootManager.cpp:282 ../../../src/MenuInventory.cpp:171
-#, fuzzy, c-format
+#: ../../../src/ItemManager.cpp:632
+#: ../../../src/ItemManager.cpp:635
+#, c-format
+msgid "%d items: "
+msgstr "%d objekt:"
+
+#: ../../../src/LootManager.cpp:282
+#: ../../../src/MenuInventory.cpp:171
+#, c-format
 msgid "%d %s"
-msgstr "Nivå %d %s"
+msgstr "%d %s"
 
 #: ../../../src/main.cpp:124
 msgid "Flare"
@@ -612,99 +636,91 @@ msgstr "Försvar"
 
 #: ../../../src/MenuCharacter.cpp:284
 msgid "points remaining"
-msgstr ""
+msgstr "återstående poäng"
 
 #: ../../../src/MenuCharacter.cpp:295
 msgid "Max HP:"
-msgstr ""
+msgstr "Max HP:"
 
 #: ../../../src/MenuCharacter.cpp:296
-#, fuzzy, c-format
+#, c-format
 msgid "Each point of Physical grants +%d HP. Each level grants +%d HP"
-msgstr "Varje fysikpoäng ger +4 HP regenerering"
+msgstr "Varje poäng i fysik ger +%d HP. Varje nivå ger +%d HP"
 
 #: ../../../src/MenuCharacter.cpp:301
-#, fuzzy
 msgid "HP Regen:"
-msgstr "Regenerering"
+msgstr "HP Regenerering:"
 
 #: ../../../src/MenuCharacter.cpp:302
 #, c-format
 msgid "Ticks of HP regen per minute. Each point of Physical grants +%d HP regen. Each level grants +%d HP regen"
-msgstr ""
+msgstr "Mängd av HP regenerering per minut. Varje poäng av fysisk styrka ger +%d HP regenerering. Varje nivå ger +%d HP regenerering"
 
 #: ../../../src/MenuCharacter.cpp:307
 msgid "Max MP:"
-msgstr ""
+msgstr "Max MP:"
 
 #: ../../../src/MenuCharacter.cpp:308
-#, fuzzy, c-format
+#, c-format
 msgid "Each point of Mental grants +%d MP. Each level grants +%d MP"
-msgstr "Varje poäng i mental styrka ger +4 MP regenerering"
+msgstr "Varje poäng i mental styrka ger +%d MP regenerering. Varje nivå ger +%d MP"
 
 #: ../../../src/MenuCharacter.cpp:313
-#, fuzzy
 msgid "MP Regen:"
-msgstr "Regenerering"
+msgstr "MP Regenerering:"
 
 #: ../../../src/MenuCharacter.cpp:314
 #, c-format
 msgid "Ticks of MP regen per minute. Each point of Mental grants +%d MP regen. Each level grants +%d MP regen"
-msgstr ""
+msgstr "Mängd av MP regenerering per minut, Varje poäng av mental styrka ger +%d MP regenerering. Varje nivå ger +%d MP regenerering"
 
 #: ../../../src/MenuCharacter.cpp:319
-#, fuzzy
 msgid "Accuracy (vs lvl 1):"
-msgstr "Noggrannhet vs försvar 1"
+msgstr "Noggrannhet (vs lvl 1):"
 
-#: ../../../src/MenuCharacter.cpp:320 ../../../src/MenuCharacter.cpp:326
-#, fuzzy, c-format
+#: ../../../src/MenuCharacter.cpp:320
+#: ../../../src/MenuCharacter.cpp:326
+#, c-format
 msgid "Each point of Offense grants +%d accuracy. Each level grants +%d accuracy"
-msgstr "Varje anfallspoäng ger +5 i noggrannhet"
+msgstr "Varje poäng i anfall ger +%d i noggrannhet. Varje nivå ger +%d i noggrannhet"
 
 #: ../../../src/MenuCharacter.cpp:325
-#, fuzzy
 msgid "Accuracy (vs lvl 5):"
-msgstr "Noggrannhet vs försvar 1"
+msgstr "Noggrannhet (vs lvl 5):"
 
 #: ../../../src/MenuCharacter.cpp:331
-#, fuzzy
 msgid "Avoidance (vs lvl 1):"
-msgstr "Undvikande vs. anfall 1"
+msgstr "Undvikande (vs lvl 1):"
 
-#: ../../../src/MenuCharacter.cpp:332 ../../../src/MenuCharacter.cpp:338
-#, fuzzy, c-format
+#: ../../../src/MenuCharacter.cpp:332
+#: ../../../src/MenuCharacter.cpp:338
+#, c-format
 msgid "Each point of Defense grants +%d avoidance. Each level grants +%d avoidance"
-msgstr "Varje försvarspoäng ger +5 i undvikande"
+msgstr "Varje poäng i försvar ger +%d i undvikande. Varje nivå ger +%d i undvikande."
 
 #: ../../../src/MenuCharacter.cpp:337
-#, fuzzy
 msgid "Avoidance (vs lvl 5):"
-msgstr "Undvikande vs. anfall 1"
+msgstr "Undvikande (vs. lvl 4)"
 
 #: ../../../src/MenuCharacter.cpp:346
-#, fuzzy
 msgid "Melee Damage:"
-msgstr "Närstridsskada: %d"
+msgstr "Närstridsskada:"
 
 #: ../../../src/MenuCharacter.cpp:357
-#, fuzzy
 msgid "Ranged Damage:"
-msgstr "Avståndsskada: %d"
+msgstr "Avståndsskada:"
 
 #: ../../../src/MenuCharacter.cpp:368
-#, fuzzy
 msgid "Mental Damage:"
-msgstr "Mental skada: %d"
+msgstr "Mental skada:"
 
 #: ../../../src/MenuCharacter.cpp:378
 msgid "Crit:"
-msgstr ""
+msgstr "Kritisk:"
 
 #: ../../../src/MenuCharacter.cpp:384
-#, fuzzy
 msgid "Absorb:"
-msgstr "Absorbera"
+msgstr "Absorberar:"
 
 #: ../../../src/MenuCharacter.cpp:405
 #, c-format
@@ -720,8 +736,10 @@ msgstr "Nästa: %d"
 msgid "Physical (P) increases melee weapon proficiency and total HP."
 msgstr "Fysik (P) ökar skickligheten i närstrid och total HP."
 
-#: ../../../src/MenuCharacter.cpp:412 ../../../src/MenuCharacter.cpp:416
-#: ../../../src/MenuCharacter.cpp:420 ../../../src/MenuCharacter.cpp:424
+#: ../../../src/MenuCharacter.cpp:412
+#: ../../../src/MenuCharacter.cpp:416
+#: ../../../src/MenuCharacter.cpp:420
+#: ../../../src/MenuCharacter.cpp:424
 #, c-format
 msgid "base (%d), bonus (%d)"
 msgstr "bas (%d), bonus (%d)"
@@ -740,13 +758,14 @@ msgstr "Försvar (D) ökar färdighet med rustning och undvikande."
 
 #: ../../../src/MenuCharacter.cpp:427
 msgid "Unspent attribute points"
-msgstr ""
+msgstr "Outnyttjade attributpoäng"
 
 #: ../../../src/MenuEnemy.cpp:133
 msgid "Dead"
 msgstr "Död"
 
-#: ../../../src/MenuEnemy.cpp:139 ../../../src/MenuEnemy.cpp:141
+#: ../../../src/MenuEnemy.cpp:139
+#: ../../../src/MenuEnemy.cpp:141
 #, c-format
 msgid "%s level %d"
 msgstr "%s nivå %d"
@@ -773,14 +792,13 @@ msgstr "Det här föremålet kan bara användas från handlingslisten."
 
 #: ../../../src/MenuLog.cpp:79
 msgid "Notes"
-msgstr ""
+msgstr "Noteringar"
 
 #: ../../../src/MenuLog.cpp:80
 msgid "Quests"
 msgstr "Uppdrag"
 
 #: ../../../src/MenuLog.cpp:81
-#, fuzzy
 msgid "Stats"
 msgstr "Statistik"
 
@@ -789,10 +807,12 @@ msgstr "Statistik"
 msgid "XP: %d/%d"
 msgstr "XP: %d/%d"
 
-#: ../../../src/MenuManager.cpp:373 ../../../src/MenuManager.cpp:374
-#: ../../../src/MenuManager.cpp:582 ../../../src/MenuManager.cpp:583
+#: ../../../src/MenuManager.cpp:373
+#: ../../../src/MenuManager.cpp:374
+#: ../../../src/MenuManager.cpp:582
+#: ../../../src/MenuManager.cpp:583
 msgid "Not enough money."
-msgstr ""
+msgstr "Inte tillräckligr med pengar."
 
 #: ../../../src/MenuPowers.cpp:470
 msgid "Requires a physical weapon"
@@ -806,44 +826,51 @@ msgstr "Kräver ett mentalt vapen"
 msgid "Requires an offense weapon"
 msgstr "Kräver ett anfallsvapen"
 
-#: ../../../src/MenuPowers.cpp:480 ../../../src/MenuPowers.cpp:482
+#: ../../../src/MenuPowers.cpp:480
+#: ../../../src/MenuPowers.cpp:482
 #, c-format
 msgid "Requires Physical Offense %d"
 msgstr "Kräver fysiskt anfall %d"
 
-#: ../../../src/MenuPowers.cpp:486 ../../../src/MenuPowers.cpp:488
+#: ../../../src/MenuPowers.cpp:486
+#: ../../../src/MenuPowers.cpp:488
 #, c-format
 msgid "Requires Physical Defense %d"
 msgstr "Kräver fysiskt försvar %d"
 
-#: ../../../src/MenuPowers.cpp:492 ../../../src/MenuPowers.cpp:494
+#: ../../../src/MenuPowers.cpp:492
+#: ../../../src/MenuPowers.cpp:494
 #, c-format
 msgid "Requires Mental Offense %d"
 msgstr "Kräver mentalt anfall %d"
 
-#: ../../../src/MenuPowers.cpp:498 ../../../src/MenuPowers.cpp:500
+#: ../../../src/MenuPowers.cpp:498
+#: ../../../src/MenuPowers.cpp:500
 #, c-format
 msgid "Requires Mental Defense %d"
 msgstr "Kräver mentalt försvar %d"
 
-#: ../../../src/MenuPowers.cpp:530 ../../../src/MenuPowers.cpp:533
-#, fuzzy, c-format
+#: ../../../src/MenuPowers.cpp:530
+#: ../../../src/MenuPowers.cpp:533
+#, c-format
 msgid "Requires Level %d"
-msgstr "Kräver mental styrka %d"
+msgstr "Kräver nivå %d"
 
-#: ../../../src/MenuPowers.cpp:541 ../../../src/MenuPowers.cpp:546
-#, fuzzy, c-format
+#: ../../../src/MenuPowers.cpp:541
+#: ../../../src/MenuPowers.cpp:546
+#, c-format
 msgid "Requires %d Skill Point"
-msgstr "Kräver ett fysiskt vapen"
+msgstr "Kräver %d skicklighetspoäng"
 
 #: ../../../src/MenuPowers.cpp:554
 msgid "Click to Unlock"
-msgstr ""
+msgstr "Klicka för att låsa upp"
 
-#: ../../../src/MenuPowers.cpp:561 ../../../src/MenuPowers.cpp:564
-#, fuzzy, c-format
+#: ../../../src/MenuPowers.cpp:561
+#: ../../../src/MenuPowers.cpp:564
+#, c-format
 msgid "Requires Power: %s"
-msgstr "Kräver mental styrka %d"
+msgstr "Kräver styrka: %s"
 
 #: ../../../src/MenuPowers.cpp:569
 #, c-format
@@ -857,28 +884,29 @@ msgstr "Svalnar av: %d sekunder"
 
 #: ../../../src/MenuStash.cpp:125
 msgid "Shared Stash"
-msgstr ""
+msgstr "Delad gömma"
 
 #: ../../../src/MenuTalker.cpp:47
 msgid "Trade"
-msgstr ""
+msgstr "Handel"
 
 #: ../../../src/MenuVendor.cpp:49
 msgid "Buyback"
-msgstr ""
+msgstr "Återköp"
 
 #: ../../../src/MenuVendor.cpp:156
 msgid "Vendor"
 msgstr "Affärsman"
 
-#: ../../../src/PowerManager.cpp:795 ../../../src/PowerManager.cpp:797
+#: ../../../src/PowerManager.cpp:795
+#: ../../../src/PowerManager.cpp:797
 #, c-format
 msgid "+%d Shield"
-msgstr ""
+msgstr "+%d Sköld"
 
 #: ../../../src/PowerManager.cpp:1114
 msgid "You are already transformed, untransform first."
-msgstr ""
+msgstr "Du är redan förvandlad, omförvandla dig först."
 
 #: ../../../src/StatBlock.cpp:397
 msgid "Grand Master"

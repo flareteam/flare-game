@@ -50,7 +50,4 @@ extern InputState *inpt;
 extern MessageEngine *msg;
 extern ModManager *mods;
 
-
-extern bool audio;
-
 #endif
