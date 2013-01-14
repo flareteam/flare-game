@@ -304,7 +304,10 @@ void LootManager::determineLootByEnemy(const Enemy *e, Point pos) {
 
 		// an item id of 0 means we should drop currency instead
 		if (new_loot.item == 0) {
-			int level = lootLevel(e->stats.level);
+			int level = e->stats.level;
+			if (level == 0) level = 1; // avoid div/0 if enemy level is not specified
+			
+			// TODO: move gold drop amounts to engine/loot.txt
 			int currency = rand() % (level * 2) + level;
 			currency = (currency * (100 + hero->effects.bonus_currency)) / 100;
 			addCurrency(currency, pos);
