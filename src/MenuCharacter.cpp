@@ -48,7 +48,7 @@ MenuCharacter::MenuCharacter(StatBlock *_stats) {
 		cstat[i].hover.w = cstat[i].hover.h = 0;
 		cstat[i].visible = true;
 	}
-	for (int i=0; i<16; i++) {
+	for (int i=0; i<STATLIST_COUNT; i++) {
 		show_stat[i] = true;
 	}
 	statlist_rows = 10;
@@ -183,23 +183,25 @@ MenuCharacter::MenuCharacter(StatBlock *_stats) {
 				if (eatFirstInt(infile.val,',') == 0) show_stat[9] = false;
 			} else if (infile.key == "show_absorb"){
 				if (eatFirstInt(infile.val,',') == 0) show_stat[10] = false;
-			} else if (infile.key == "show_bonus_xp"){
+			} else if (infile.key == "show_poise"){
 				if (eatFirstInt(infile.val,',') == 0) show_stat[11] = false;
-			} else if (infile.key == "show_bonus_currency"){
+			} else if (infile.key == "show_bonus_xp"){
 				if (eatFirstInt(infile.val,',') == 0) show_stat[12] = false;
-			} else if (infile.key == "show_bonus_itemfind"){
+			} else if (infile.key == "show_bonus_currency"){
 				if (eatFirstInt(infile.val,',') == 0) show_stat[13] = false;
-			} else if (infile.key == "show_bonus_stealth"){
+			} else if (infile.key == "show_bonus_itemfind"){
 				if (eatFirstInt(infile.val,',') == 0) show_stat[14] = false;
-			} else if (infile.key == "show_resists"){
+			} else if (infile.key == "show_bonus_stealth"){
 				if (eatFirstInt(infile.val,',') == 0) show_stat[15] = false;
+			} else if (infile.key == "show_resists"){
+				if (eatFirstInt(infile.val,',') == 0) show_stat[16] = false;
 			}
 		}
 		infile.close();
 	} else fprintf(stderr, "Unable to open menus/character.txt!\n");
 
 	// stat list
-	statList = new WidgetListBox(15+stats->vulnerable.size(), statlist_rows, mods->locate("images/menus/buttons/listbox_char.png"));
+	statList = new WidgetListBox(STATLIST_COUNT-1+stats->vulnerable.size(), statlist_rows, mods->locate("images/menus/buttons/listbox_char.png"));
 	statList->can_select = false;
 	statList->scrollbar_offset = statlist_scrollbar_offset;
 
@@ -386,29 +388,35 @@ void MenuCharacter::refreshStats() {
 
 	if (show_stat[11]) {
 		ss.str("");
+		ss << msg->get("Poise: ") << stats->poise << "%";
+		statList->set(visible_stats++, ss.str(),msg->get("Reduces your chance of stumbling when hit"));
+	}
+
+	if (show_stat[12]) {
+		ss.str("");
 		ss << msg->get("Bonus") << " XP: " << stats->effects.bonus_xp << "%";
 		statList->set(visible_stats++, ss.str(),msg->get("Increases the XP gained per kill"));
 	}
 
-	if (show_stat[12]) {
+	if (show_stat[13]) {
 		ss.str("");
 		ss << msg->get("Bonus") << " " << CURRENCY << ": " << stats->effects.bonus_currency << "%";
 		statList->set(visible_stats++, ss.str(),msg->get("Increases the %s found per drop",CURRENCY));
 	}
 
-	if (show_stat[13]) {
+	if (show_stat[14]) {
 		ss.str("");
 		ss << msg->get("Bonus Item Find: ") << stats->effects.bonus_item_find << "%";
 		statList->set(visible_stats++, ss.str(),msg->get("Increases the chance that an enemy will drop an item when killed"));
 	}
 
-	if (show_stat[14]) {
+	if (show_stat[15]) {
 		ss.str("");
 		ss << msg->get("Stealth: ") << stats->effects.bonus_stealth << "%";
 		statList->set(visible_stats++, ss.str(),msg->get("Increases your ability to move undetected"));
 	}
 
-	if (show_stat[15]) {
+	if (show_stat[16]) {
 		for (unsigned int j=0; j<stats->vulnerable.size(); j++) {
 			ss.str("");
 			ss << msg->get(ELEMENTS[j].resist) << ": " << (100 - stats->vulnerable[j]) << "%";

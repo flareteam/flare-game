@@ -71,6 +71,7 @@ void EffectManager::clearStatus() {
 	bonus_currency = 0;
 	bonus_item_find = 0;
 	bonus_stealth = 0;
+	bonus_poise = 0;
 
 	for (unsigned i=0; i<bonus_resist.size(); i++) {
 		bonus_resist[i] = 0;
@@ -111,6 +112,7 @@ void EffectManager::logic() {
 			else if (effect_list[i].type == "currency") bonus_currency += effect_list[i].magnitude;
 			else if (effect_list[i].type == "item_find") bonus_item_find += effect_list[i].magnitude;
 			else if (effect_list[i].type == "stealth") bonus_stealth += effect_list[i].magnitude;
+			else if (effect_list[i].type == "poise") bonus_poise += effect_list[i].magnitude;
 			else {
 				for (unsigned j=0; j<bonus_resist.size(); j++) {
 					if (effect_list[i].type == ELEMENTS[j].name + "_resist")
