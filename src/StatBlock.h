@@ -219,6 +219,9 @@ public:
 	char direction;
 	std::vector<int> hero_cooldown;
 
+	int poise;
+	int poise_base;
+
 	// state
 	int cur_state;
 

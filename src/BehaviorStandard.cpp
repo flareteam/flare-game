@@ -454,7 +454,6 @@ void BehaviorStandard::updateState() {
 
 			e->setAnimation("hit");
 			if (e->activeAnimation->isFirstFrame()) {
-				e->sfx_hit = true;
 				e->stats.effects.triggered_hit = true;
 			}
 			if (e->activeAnimation->isLastFrame()) e->newState(ENEMY_STANCE);

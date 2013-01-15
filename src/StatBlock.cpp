@@ -119,6 +119,8 @@ StatBlock::StatBlock()
 	, forced_speed(Point())
 	, direction(0)
 	, hero_cooldown(vector<int>(POWER_COUNT, 0)) // hero only
+	, poise(0)
+	, poise_base(0)
 	, cur_state(0)
 	, waypoints(queue<Point>())		// enemy only
 	, waypoint_pause(0)				// enemy only
@@ -243,13 +245,13 @@ void StatBlock::load(const string& filename) {
 		// enemy death rewards and events
 		else if (infile.key == "xp") xp = num;
 		else if (infile.key == "loot") {
-		
+
 			// loot entries format:
 			// loot=[id],[percent_chance]
-			
+
 			EnemyLoot el;
 			std::string loot_id = infile.nextValue();
-			
+
 			// id 0 means currency. The keyword "currency" can also be used.
 			if (loot_id == "currency")
 				el.id = 0;
@@ -279,6 +281,7 @@ void StatBlock::load(const string& filename) {
 		else if (infile.key == "dmg_ranged_max") dmg_ranged_max = num;
 		else if (infile.key == "absorb_min") absorb_min = num;
 		else if (infile.key == "absorb_max") absorb_max = num;
+		else if (infile.key == "poise") poise = poise_base = num;
 
 		// behavior stats
 		else if (infile.key == "flying") {
@@ -441,6 +444,8 @@ void StatBlock::recalc_alt() {
 
 	speed = speed_default;
 	dspeed = dspeed_default;
+
+	poise = poise_base + effects.bonus_poise;
 
 	for (unsigned i=0; i<effects.bonus_resist.size(); i++) {
 		vulnerable[i] = 100 - effects.bonus_resist[i];

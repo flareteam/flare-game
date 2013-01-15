@@ -778,7 +778,9 @@ bool Avatar::takeHit(const Hazard &h) {
 		}
 		else if (prev_hp > stats.hp) { // only interrupt if damage was taken
 			playSfx(sound_hit);
-			stats.cur_state = AVATAR_HIT;
+			if (!percentChance(stats.poise)) {
+				stats.cur_state = AVATAR_HIT;
+			}
 		}
 
 		return true;
