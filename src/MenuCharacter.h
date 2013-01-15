@@ -46,6 +46,7 @@ const int CSTAT_MENTAL = 3;
 const int CSTAT_OFFENSE = 4;
 const int CSTAT_DEFENSE = 5;
 const int CSTAT_COUNT = 6;
+const int STATLIST_COUNT = 17;
 
 class CharStat {
 public:
@@ -93,7 +94,7 @@ private:
 	LabelInfo label_pos[CSTAT_COUNT];
 	SDL_Rect value_pos[CSTAT_COUNT];
 	bool show_upgrade[4];
-	bool show_stat[16];
+	bool show_stat[STATLIST_COUNT];
 
 
 public:
