@@ -261,7 +261,7 @@ price=110
 [item]
 id=56
 name=Wood Buckler
-level=4
+level=2
 quality=normal
 item_type=off
 icon=120
@@ -273,9 +273,23 @@ loot_animation=buckler
 price=30
 
 [item]
+id=57
+name=Iron Buckler
+level=4
+quality=normal
+item_type=off
+icon=120
+abs=5,15
+req=d,3
+sfx=wood
+gfx=buckler
+loot_animation=buckler
+price=50
+
+[item]
 id=58
 name=Crest Shield
-level=8
+level=6
 quality=normal
 item_type=off
 icon=122
@@ -285,6 +299,20 @@ sfx=heavy
 gfx=shield
 loot_animation=shield
 price=90
+
+[item]
+id=59
+name=Tower Shield
+level=6
+quality=normal
+item_type=off
+icon=122
+abs=15,25
+req=d,5
+sfx=heavy
+gfx=shield
+loot_animation=shield
+price=150
 
 # Clothes #############################
 
@@ -835,53 +863,49 @@ bonus=accuracy,15
 
 [item]
 id=119
-name=Gauntlets of Titan Strength
+name=Bear Figurine
 flavor=[TODO]
 quality=epic
-item_type=hands
-icon=162
-sfx=maille
-gfx=plate_gauntlets
-loot_animation=steel_armor
+item_type=artifact
+icon=1
+sfx=gem
+loot_animation=gem
 price=5
 bonus=physical,1
 
 [item]
 id=120
-name=Hedge Wizard Gloves
+name=Owl Figurine
 flavor=[TODO]
 quality=epic
-item_type=hands
-icon=130
-sfx=cloth
-gfx=cloth_gloves
-loot_animation=clothes
+item_type=artifact
+icon=1
+sfx=gem
+loot_animation=gem
 price=5
 bonus=mental,1
 
 [item]
 id=121
-name=Archery Bracers
+name=Snake Figurine
 flavor=[TODO]
 quality=epic
-item_type=hands
-icon=146
-sfx=leather
-gfx=leather_gloves
-loot_animation=leather_armor
+item_type=artifact
+icon=1
+sfx=gem
+loot_animation=gem
 price=5
 bonus=offense,1
 
 [item]
 id=122
-name=Bracers of Defense
+name=Turtle Figurine
 flavor=[TODO]
 quality=epic
-item_type=hands
-icon=146
-sfx=leather
-gfx=leather_gloves
-loot_animation=leather_armor
+item_type=artifact
+icon=1
+sfx=gem
+loot_animation=gem
 price=5
 bonus=defense,1
 
