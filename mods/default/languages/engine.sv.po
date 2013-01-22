@@ -4,16 +4,18 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: Flare 0.15\n"
+"Project-Id-Version: Flare 0.17\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-21 15:57+0300\n"
-"PO-Revision-Date: 2013-01-13 22:25+0100\n"
+"PO-Revision-Date: 2013-01-19 13:10+0100\n"
 "Last-Translator: Henrik Andersson <hean01@users.sourceforge.net>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: SWEDISH <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: \n"
+"X-Poedit-Language: Swedish\n"
+"X-Poedit-Country: SWEDEN\n"
 
 #: ../../../src/Avatar.cpp:444
 #, c-format
@@ -22,7 +24,7 @@ msgstr "Grattis, du har nått nivå %d!"
 
 #: ../../../src/Avatar.cpp:446
 msgid "You may increase one attribute through the Character Menu."
-msgstr "Du får nu öka på en egenskap (i karaktärsmenyn)"
+msgstr "Du får nu öka på en egenskap i karaktärsmenyn."
 
 #: ../../../src/Avatar.cpp:633
 msgid "You are defeated. Game over! Press Enter to exit to Title."
@@ -275,7 +277,7 @@ msgstr "Öppnar spelvärlden..."
 
 #: ../../../src/GameStateLoad.cpp:560
 msgid "Loading saved game..."
-msgstr "Laddar sparat spel..."
+msgstr "Läser in sparat spel..."
 
 #: ../../../src/GameStateLoad.cpp:581
 #, c-format
@@ -433,9 +435,8 @@ msgid "Shift"
 msgstr ""
 
 #: ../../../src/InputState.cpp:79
-#, fuzzy
 msgid "Delete"
-msgstr "Radera sparat spel"
+msgstr "Ta bort"
 
 #: ../../../src/InputState.cpp:81
 msgid "lmb"
@@ -483,12 +484,12 @@ msgstr "Närstridsskada: %d"
 #: ../../../src/ItemManager.cpp:529
 #, c-format
 msgid "Ranged damage: %d-%d"
-msgstr "Avståndsskada: %d-%d"
+msgstr "Distansskada: %d-%d"
 
 #: ../../../src/ItemManager.cpp:531
 #, c-format
 msgid "Ranged damage: %d"
-msgstr "Avståndsskada: %d"
+msgstr "Distansskada: %d"
 
 #: ../../../src/ItemManager.cpp:535
 #, c-format
@@ -578,7 +579,7 @@ msgstr ""
 #: ../../../src/ItemManager.cpp:635
 #, c-format
 msgid "%d items: "
-msgstr "%d objekt:"
+msgstr "%d föremål:"
 
 #: ../../../src/LootManager.cpp:282
 #: ../../../src/MenuInventory.cpp:171
@@ -592,7 +593,7 @@ msgstr "Flare"
 
 #: ../../../src/MapRenderer.cpp:1181
 msgid "Unknown destination"
-msgstr "Destination okänd"
+msgstr "Okänd destination"
 
 #: ../../../src/MenuActionBar.cpp:399
 msgid "Character Menu (C)"
@@ -708,7 +709,7 @@ msgstr "Närstridsskada:"
 
 #: ../../../src/MenuCharacter.cpp:357
 msgid "Ranged Damage:"
-msgstr "Avståndsskada:"
+msgstr "Distansskada:"
 
 #: ../../../src/MenuCharacter.cpp:368
 msgid "Mental Damage:"
@@ -750,7 +751,7 @@ msgstr "Mental styrka (M) ökar färdighet med mentala vapen och total MP."
 
 #: ../../../src/MenuCharacter.cpp:419
 msgid "Offense (O) increases ranged weapon proficiency and accuracy."
-msgstr "Anfall ökar färdigheten och noggrannheten med avståndsvapen."
+msgstr "Anfall ökar färdigheten och noggrannheten med distanssvapen."
 
 #: ../../../src/MenuCharacter.cpp:423
 msgid "Defense (D) increases armor proficiency and avoidance."
@@ -784,7 +785,7 @@ msgstr "Använd SHIFT för att flytta enstaka föremål."
 
 #: ../../../src/MenuInventory.cpp:213
 msgid "CTRL-click a carried item to sell it."
-msgstr "CTRL-clicka på ett föremål du har för att sälja det."
+msgstr "CTRL-klicka på ett föremål du har för att sälja det."
 
 #: ../../../src/MenuInventory.cpp:387
 msgid "This item can only be used from the action bar."
@@ -906,7 +907,7 @@ msgstr "+%d Sköld"
 
 #: ../../../src/PowerManager.cpp:1114
 msgid "You are already transformed, untransform first."
-msgstr "Du är redan förvandlad, omförvandla dig först."
+msgstr "Du är redan i omvandlad form, omvandla dig tillbaka först."
 
 #: ../../../src/StatBlock.cpp:397
 msgid "Grand Master"
