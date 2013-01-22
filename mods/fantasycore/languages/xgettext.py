@@ -42,13 +42,19 @@ def extract(filename):
         'slot_name', 'tab_title', 'resist', 'currency_name',
         'bonus', 'flavor',
     ]
+    plain_text = [
+        'msg', 'him', 'her', 'you', 'name', 'title', 'tooltip',
+        'quest_text', 'description',
+        ]
     for i, line in enumerate(infile, start=1):
         for trigger in triggers:
             if line.startswith(trigger + '='):
                 line = line.split('=')[1]
                 line = line.strip('\n')
                 values = line.split(',')
-                if len(values) == 1:
+                if (trigger in plain_text):
+                   stat = line.replace("\"", "\\\"");
+                elif len(values) == 1:
                    # {key}={value}
                    stat, = values
                 elif len(values) == 2:
