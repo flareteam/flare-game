@@ -1282,7 +1282,6 @@ MapRenderer::~MapRenderer() {
 	}
 	Mix_FreeChunk(sfx);
 
-	SDL_FreeSurface(backgroundsurface);
 	tip_buf.clear();
 	clearLayers();
 	clearEvents();
