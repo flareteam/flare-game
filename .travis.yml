@@ -10,7 +10,7 @@ after_script: cppcheck --verbose --enable=all --std=posix --std=c++11 --quiet `g
 notifications:
   irc:
     channels:
-      - "irc.freenode.org#flare-rpg"
+      - "irc.freenode.org#flarerpg"
     on_success: always
     on_failure: always
     use_notice: true
