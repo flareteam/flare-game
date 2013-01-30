@@ -54,7 +54,6 @@ MenuTalker::MenuTalker(CampaignManager *_camp) {
 	// step through NPC dialog nodes
 	dialog_node = 0;
 	event_cursor = 0;
-	accept_lock = false;
 
 	loadGraphics();
 
@@ -170,18 +169,14 @@ void MenuTalker::logic() {
 		event_cursor++;
 		more = npc->processDialog(dialog_node, event_cursor);
 	}
-	else if	(inpt->pressing[ACCEPT] && accept_lock) {
-		return;
-	}
-	else if (!inpt->pressing[ACCEPT]) {
-		accept_lock = false;
-		return;
-	}
-	else {
-		accept_lock = true;
+	else if	(inpt->pressing[ACCEPT] && !inpt->lock[ACCEPT]) {
+		inpt->lock[ACCEPT] = true;
 		// pressed next/more
 		event_cursor++;
 		more = npc->processDialog(dialog_node, event_cursor);
+	}
+	else {
+		return;
 	}
 
 	if (more) {

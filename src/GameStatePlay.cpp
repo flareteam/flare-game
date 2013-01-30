@@ -528,6 +528,12 @@ void GameStatePlay::checkNPCInteraction() {
 		npc_click = npcs->checkNPCClick(inpt->mouse, map->cam);
 		if (npc_click != -1) npc_id = npc_click;
 	}
+	// if we press the ACCEPT key, find the nearest NPC to interact with
+	else if (inpt->pressing[ACCEPT] && !inpt->lock[ACCEPT]) {
+		inpt->lock[ACCEPT] = true;
+		npc_click = npcs->getNearestNPC(pc->stats.pos);
+		if (npc_click != -1) npc_id = npc_click;
+	}
 
 	// check distance to this npc
 	if (npc_id != -1) {
