@@ -97,6 +97,7 @@ public:
 	bool pressing[key_count];
 	bool lock[key_count];
 	bool joy_pressing[joy_key_count];
+	bool joy_lock[joy_key_count];
 
 	bool done;
 	Point mouse;

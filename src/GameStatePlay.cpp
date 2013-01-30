@@ -534,6 +534,11 @@ void GameStatePlay::checkNPCInteraction() {
 		npc_click = npcs->getNearestNPC(pc->stats.pos);
 		if (npc_click != -1) npc_id = npc_click;
 	}
+	else if (inpt->joy_pressing[JOY_ACCEPT] && !inpt->joy_lock[JOY_ACCEPT]) {
+		inpt->joy_lock[JOY_ACCEPT] = true;
+		npc_click = npcs->getNearestNPC(pc->stats.pos);
+		if (npc_click != -1) npc_id = npc_click;
+	}
 
 	// check distance to this npc
 	if (npc_id != -1) {
