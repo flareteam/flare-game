@@ -678,8 +678,9 @@ void MapRenderer::render(vector<Renderable> &r, vector<Renderable> &r_dead) {
 
 void MapRenderer::createBackgroundSurface() {
 	SDL_FreeSurface(backgroundsurface);
-	backgroundsurface = createSurface(VIEW_W + 2 * TILE_W * tset.max_size_x,
-			VIEW_H + 2 * TILE_H * tset.max_size_y);
+	backgroundsurface = createSurface(
+			VIEW_W + 2 * movedistance_to_rerender * TILE_W * tset.max_size_x,
+			VIEW_H + 2 * movedistance_to_rerender * TILE_H * tset.max_size_y);
 	// background has no alpha:
 	SDL_SetColorKey(backgroundsurface, 0, 0);
 }
