@@ -530,12 +530,10 @@ void GameStatePlay::checkNPCInteraction() {
 	}
 	// if we press the ACCEPT key, find the nearest NPC to interact with
 	else if (inpt->pressing[ACCEPT] && !inpt->lock[ACCEPT]) {
-		inpt->lock[ACCEPT] = true;
 		npc_click = npcs->getNearestNPC(pc->stats.pos);
 		if (npc_click != -1) npc_id = npc_click;
 	}
 	else if (inpt->joy_pressing[JOY_ACCEPT] && !inpt->joy_lock[JOY_ACCEPT]) {
-		inpt->joy_lock[JOY_ACCEPT] = true;
 		npc_click = npcs->getNearestNPC(pc->stats.pos);
 		if (npc_click != -1) npc_id = npc_click;
 	}
@@ -547,7 +545,10 @@ void GameStatePlay::checkNPCInteraction() {
 
 	// if close enough to the NPC, open the appropriate interaction screen
 	if (npc_click != -1 && interact_distance < max_interact_distance && pc->stats.alive && pc->stats.humanoid) {
-		inpt->lock[MAIN1] = true;
+		if (inpt->pressing[MAIN1]) inpt->lock[MAIN1] = true;
+		if (inpt->pressing[ACCEPT]) inpt->lock[ACCEPT] = true;
+		if (inpt->joy_pressing[JOY_ACCEPT]) inpt->joy_lock[JOY_ACCEPT] = true;
+
 		bool npc_have_dialog = !(npcs->npcs[npc_id]->chooseDialogNode() == NPC_NO_DIALOG_AVAIL);
 
 		if (npcs->npcs[npc_id]->vendor && !npc_have_dialog) {
@@ -669,6 +670,7 @@ void GameStatePlay::logic() {
 		checkEnemyFocus();
 		checkNPCInteraction();
 		map->checkHotspots();
+		map->checkNearestEvent(pc->stats.pos);
 		checkTitle();
 
 		pc->logic(menu->act->checkAction(inpt->mouse), restrictPowerUse());
