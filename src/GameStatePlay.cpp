@@ -212,6 +212,31 @@ void GameStatePlay::checkLoot() {
 			loot->full_msg = false;
 		}
 	}
+
+	// Pickup with ACCEPT key/button
+	if (((inpt->pressing[ACCEPT] && !inpt->lock[ACCEPT]) || (inpt->joy_pressing[JOY_ACCEPT] && !inpt->joy_lock[JOY_ACCEPT])) && pc->stats.alive) {
+
+		pickup = loot->checkNearestPickup(pc->stats.pos, currency, menu->inv);
+		if (pickup.item > 0) {
+			if (inpt->pressing[ACCEPT]) inpt->lock[ACCEPT] = true;
+			if (inpt->joy_pressing[JOY_ACCEPT]) inpt->joy_lock[JOY_ACCEPT] = true;
+			menu->inv->add(pickup);
+
+			camp->setStatus(menu->items->items[pickup.item].pickup_status);
+		}
+		else if (currency > 0) {
+			if (inpt->pressing[ACCEPT]) inpt->lock[ACCEPT] = true;
+			if (inpt->joy_pressing[JOY_ACCEPT]) inpt->joy_lock[JOY_ACCEPT] = true;
+			menu->inv->addCurrency(currency);
+		}
+		if (loot->full_msg) {
+			if (inpt->pressing[ACCEPT]) inpt->lock[ACCEPT] = true;
+			if (inpt->joy_pressing[JOY_ACCEPT]) inpt->joy_lock[JOY_ACCEPT] = true;
+			menu->log->add(msg->get("Inventory is full."), LOG_TYPE_MESSAGES);
+			menu->hudlog->add(msg->get("Inventory is full."));
+			loot->full_msg = false;
+		}
+	}
 }
 
 void GameStatePlay::checkTeleport() {
