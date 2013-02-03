@@ -198,13 +198,6 @@ void GameStatePlay::loadGame() {
 			else if (infile.key == "hpmp") {
 				saved_hp = toInt(infile.nextValue());
 				saved_mp = toInt(infile.nextValue());
-				if (saved_hp < 0 || saved_hp > pc->stats.maxhp ||
-					saved_mp < 0 || saved_mp > pc->stats.maxmp) {
-
-					fprintf(stderr, "MP/HP value is out of bounds, setting to maximum\n");
-					saved_hp = pc->stats.maxhp;
-					saved_mp = pc->stats.maxmp;
-				}
 			}
 			else if (infile.key == "build") {
 				pc->stats.physical_character = toInt(infile.nextValue());
@@ -318,11 +311,23 @@ void GameStatePlay::loadGame() {
 	// initialize vars
 	pc->stats.recalc();
 	menu->inv->applyEquipment(menu->inv->inventory[EQUIPMENT].storage);
+	// trigger passive effects here? Saved HP/MP values might depend on passively boosted HP/MP
+	// powers->activatePassives(pc->stats);
 	pc->stats.logic(); // run stat logic once to apply items bonuses
 	if (SAVE_HPMP) {
-		pc->stats.hp = saved_hp;
-		pc->stats.mp = saved_mp;
-	} else {
+		if (saved_hp < 0 || saved_hp > pc->stats.maxhp) {
+			fprintf(stderr, "HP value is out of bounds, setting to maximum\n");
+			pc->stats.hp = pc->stats.maxhp;
+		}
+		else pc->stats.hp = saved_hp;
+
+		if (saved_mp < 0 || saved_mp > pc->stats.maxmp) {
+			fprintf(stderr, "MP value is out of bounds, setting to maximum\n");
+			pc->stats.mp = pc->stats.maxmp;
+		}
+		else pc->stats.mp = saved_mp;
+	}
+	else {
 		pc->stats.hp = pc->stats.maxhp;
 		pc->stats.mp = pc->stats.maxmp;
 	}
