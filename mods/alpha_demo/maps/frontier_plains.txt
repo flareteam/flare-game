@@ -8,12 +8,12 @@ tileset=tileset_grassland.txt
 title=Frontier Plains
 
 [tilesets]
-tileset=../../../tiled/grassland/tiled_collision.png,64,32,0,0
-tileset=../../../tiled/grassland/grassland.png,64,128,0,0
-tileset=../../../tiled/grassland/grassland_water.png,64,64,0,32
-tileset=../../../tiled/grassland/grassland_structures.png,64,256,0,0
-tileset=../../../tiled/grassland/grassland_trees.png,128,256,-32,0
-tileset=../../../tiled/grassland/tiled_grassland_2x2.png,128,64,0,16
+tileset=../../../../flare-game/tiled/grassland/tiled_collision.png,64,32,0,0
+tileset=../../../../flare-game/tiled/grassland/grassland.png,64,128,0,0
+tileset=../../../../flare-game/tiled/grassland/grassland_water.png,64,64,0,32
+tileset=../../../../flare-game/tiled/grassland/grassland_structures.png,64,256,0,0
+tileset=../../../../flare-game/tiled/grassland/grassland_trees.png,128,256,-32,0
+tileset=../../../../flare-game/tiled/grassland/tiled_grassland_2x2.png,128,64,0,16
 
 [layer]
 type=background
@@ -830,8 +830,10 @@ intermap=ancient_temple.txt,49,99
 type=run_once
 location=117,35,1,1
 hotspot=location
-loot=random,117,36,2
+loot=id,117,36,65
 mapmod=object,117,35,99
+requires_not=fp_crate3
+set_status=fp_crate3
 soundfx=soundfx/wood_open.ogg
 tooltip=Supplies
 
@@ -840,8 +842,10 @@ tooltip=Supplies
 type=run_once
 location=50,30,1,1
 hotspot=location
-loot=random,50,31,2
+loot=id,50,31,1
 mapmod=object,50,30,97
+requires_not=fp_crate1
+set_status=fp_crate1
 soundfx=soundfx/wood_open.ogg
 tooltip=Supplies
 
@@ -850,8 +854,10 @@ tooltip=Supplies
 type=run_once
 location=125,43,1,1
 hotspot=location
-loot=random,124,43,2
+loot=currency,124,43,15
 mapmod=object,125,43,97
+requires_not=fp_crate4
+set_status=fp_crate4
 soundfx=soundfx/wood_open.ogg
 tooltip=Supplies
 
@@ -860,8 +866,10 @@ tooltip=Supplies
 type=run_once
 location=114,97,1,1
 hotspot=location
-loot=random,114,98,1
+loot=currency,114,98,10
 mapmod=object,114,97,99
+requires_not=fp_crate2
+set_status=fp_crate2
 soundfx=soundfx/wood_open.ogg
 tooltip=Supplies
 
@@ -875,6 +883,30 @@ intermap=hidden_grove.txt,120,60
 type=run_once
 location=48,155,5,5
 spawn=zombie_rotting,45,155;zombie_rotting,46,160;zombie_rotting,50,153;zombie_rotting,52,161;zombie_rotting,54,157
+
+[event]
+type=on_load
+location=51,29,1,1
+mapmod=object,50,30,97
+requires_status=fp_crate1
+
+[event]
+type=on_load
+location=115,96,1,1
+mapmod=object,114,97,99
+requires_status=fp_crate2
+
+[event]
+type=on_load
+location=118,34,1,1
+mapmod=object,117,35,99
+requires_status=fp_crate3
+
+[event]
+type=on_load
+location=126,42,1,1
+mapmod=object,125,43,97
+requires_status=fp_crate4
 
 [enemygroup]
 # goblin camp
