@@ -8,13 +8,13 @@ tileset=tileset_grassland.txt
 title=River Encampment
 
 [tilesets]
-tileset=../../../tiled/grassland/tiled_collision.png,64,32,0,0
-tileset=../../../tiled/grassland/grassland.png,64,128,0,0
-tileset=../../../tiled/grassland/grassland_water.png,64,64,0,32
-tileset=../../../tiled/grassland/grassland_structures.png,64,256,0,0
-tileset=../../../tiled/grassland/grassland_trees.png,128,256,-32,0
-tileset=../../../tiled/grassland/set_rules.png,64,32,0,0
-tileset=../../../tiled/grassland/tiled_grassland_2x2.png,128,64,0,16
+tileset=../../../../flare-game/tiled/grassland/tiled_collision.png,64,32,0,0
+tileset=../../../../flare-game/tiled/grassland/grassland.png,64,128,0,0
+tileset=../../../../flare-game/tiled/grassland/grassland_water.png,64,64,0,32
+tileset=../../../../flare-game/tiled/grassland/grassland_structures.png,64,256,0,0
+tileset=../../../../flare-game/tiled/grassland/grassland_trees.png,128,256,-32,0
+tileset=../../../../flare-game/tiled/grassland/set_rules.png,64,32,0,0
+tileset=../../../../flare-game/tiled/grassland/tiled_grassland_2x2.png,128,64,0,16
 
 [layer]
 type=background
@@ -354,8 +354,10 @@ location=41,18,1,1
 type=run_once
 location=20,43,1,1
 hotspot=location
-loot=random,21,44,3
+loot=currency,21,44,12
 mapmod=object,20,43,99
+requires_not=re_crate2
+set_status=re_crate2
 soundfx=soundfx/wood_open.ogg
 tooltip=Supplies
 
@@ -364,8 +366,10 @@ tooltip=Supplies
 type=run_once
 location=10,13,1,1
 hotspot=location
-loot=random,11,13,4
+loot=id,11,13,127
 mapmod=object,10,13,99
+requires_not=re_crate4
+set_status=re_crate4
 soundfx=soundfx/wood_open.ogg
 tooltip=Supplies
 
@@ -374,8 +378,10 @@ tooltip=Supplies
 type=run_once
 location=9,15,1,1
 hotspot=location
-loot=random,10,15,4
+loot=id,10,15,2
 mapmod=object,9,15,97
+requires_not=re_crate3
+set_status=re_crate3
 soundfx=soundfx/wood_open.ogg
 tooltip=Supplies
 
@@ -384,8 +390,10 @@ tooltip=Supplies
 type=run_once
 location=38,27,1,1
 hotspot=location
-loot=random,38,26,3
+loot=id,38,26,1
 mapmod=object,38,27,97
+requires_not=re_crate1
+set_status=re_crate1
 soundfx=soundfx/wood_open.ogg
 tooltip=Supplies
 
@@ -400,4 +408,28 @@ intermap=frontier_plains.txt,63,18
 type=teleport
 location=35,3,1,2
 intermap=river_barrow.txt,60,30
+
+[event]
+type=on_load
+location=38,29,1,1
+mapmod=object,38,27,97
+requires_status=re_crate1
+
+[event]
+type=on_load
+location=18,42,1,1
+mapmod=object,20,43,99
+requires_status=re_crate2
+
+[event]
+type=on_load
+location=7,16,1,1
+mapmod=object,9,15,97
+requires_status=re_crate3
+
+[event]
+type=on_load
+location=8,11,1,1
+mapmod=object,10,13,99
+requires_status=re_crate4
 
