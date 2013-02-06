@@ -8,13 +8,13 @@ tileset=tileset_dungeon.txt
 title=Ancient Temple
 
 [tilesets]
-tileset=../../../tiled/dungeon/tiled_collision.png,64,32,0,0
-tileset=../../../tiled/dungeon/tiled_dungeon.png,64,128,0,0
-tileset=../../../tiled/dungeon/set_rules.png,64,32,0,0
-tileset=../../../tiled/dungeon/tiled_dungeon_2x2.png,128,64,0,16
-tileset=../../../tiled/dungeon/door_left.png,64,128,-16,-8
-tileset=../../../tiled/dungeon/door_right.png,64,128,16,-8
-tileset=../../../tiled/dungeon/stairs.png,256,256,0,48
+tileset=../../../../flare-game/tiled/dungeon/tiled_collision.png,64,32,0,0
+tileset=../../../../flare-game/tiled/dungeon/tiled_dungeon.png,64,128,0,0
+tileset=../../../../flare-game/tiled/dungeon/set_rules.png,64,32,0,0
+tileset=../../../../flare-game/tiled/dungeon/tiled_dungeon_2x2.png,128,64,0,16
+tileset=../../../../flare-game/tiled/dungeon/door_left.png,64,128,-16,-8
+tileset=../../../../flare-game/tiled/dungeon/door_right.png,64,128,16,-8
+tileset=../../../../flare-game/tiled/dungeon/stairs.png,256,256,0,48
 
 [layer]
 type=background
@@ -437,8 +437,10 @@ soundfx=soundfx/powers/teleport.ogg
 type=run_once
 location=23,12,1,1
 hotspot=location
-loot=random,22,13,3;random,23,13,4;random,24,13,3
+loot=id,23,13,128
 mapmod=object,23,12,161
+requires_not=at_chest1
+set_status=at_chest1
 soundfx=soundfx/wood_open.ogg
 tooltip=Treasure Chest
 
@@ -447,8 +449,10 @@ tooltip=Treasure Chest
 type=run_once
 location=24,11,1,1
 hotspot=location
-loot=random,25,10,3;random,25,11,4;random,25,12,3
+loot=id,25,11,57
 mapmod=object,24,11,160
+requires_not=at_chest2
+set_status=at_chest2
 soundfx=soundfx/wood_open.ogg
 tooltip=Treasure Chest
 
@@ -643,8 +647,20 @@ soundfx=soundfx/door_open.ogg
 type=run_once
 location=15,71,1,1
 hotspot=location
-loot=random,15,72,3
+loot=currency,15,72,20
 mapmod=object,15,71,183
+
+[event]
+type=on_load
+location=23,15,1,1
+mapmod=object,23,12,161
+requires_status=at_chest1
+
+[event]
+type=on_load
+location=24,8,1,1
+mapmod=object,24,11,160
+requires_status=at_chest2
 
 [enemygroup]
 type=undead

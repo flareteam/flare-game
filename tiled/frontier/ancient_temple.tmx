@@ -354,7 +354,7 @@
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
 </data>
  </layer>
- <objectgroup name="event" width="104" height="104" visible="0">
+ <objectgroup name="event" width="104" height="104">
   <object name="to Frontier Plains" type="teleport" x="1536" y="3232" width="64" height="32">
    <properties>
     <property name="hotspot" value="48,102,2,1"/>
@@ -449,8 +449,10 @@
   <object name="island chest" type="run_once" x="736" y="384" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="random,22,13,3;random,23,13,4;random,24,13,3"/>
+    <property name="loot" value="id,23,13,128"/>
     <property name="mapmod" value="object,23,12,161"/>
+    <property name="requires_not" value="at_chest1"/>
+    <property name="set_status" value="at_chest1"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Treasure Chest"/>
    </properties>
@@ -458,8 +460,10 @@
   <object name="island chest" type="run_once" x="768" y="352" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="random,25,10,3;random,25,11,4;random,25,12,3"/>
+    <property name="loot" value="id,25,11,57"/>
     <property name="mapmod" value="object,24,11,160"/>
+    <property name="requires_not" value="at_chest2"/>
+    <property name="set_status" value="at_chest2"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Treasure Chest"/>
    </properties>
@@ -636,10 +640,23 @@
   <object type="run_once" x="480" y="2272" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="random,15,72,3"/>
+    <property name="loot" value="currency,15,72,20"/>
     <property name="mapmod" value="object,15,71,183"/>
    </properties>
   </object>
+  <object type="on_load" x="736" y="480" width="32" height="32">
+   <properties>
+    <property name="mapmod" value="object,23,12,161"/>
+    <property name="requires_status" value="at_chest1"/>
+   </properties>
+  </object>
+  <object type="on_load" x="768" y="256" width="32" height="32">
+   <properties>
+    <property name="mapmod" value="object,24,11,160"/>
+    <property name="requires_status" value="at_chest2"/>
+   </properties>
+  </object>
+  <object x="800" y="288"/>
  </objectgroup>
  <objectgroup name="enemygroup" width="104" height="104" visible="0">
   <object type="undead" x="2176" y="2560" width="320" height="288">
