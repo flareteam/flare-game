@@ -258,8 +258,8 @@ void MenuActionBar::renderIcon(int icon_id, int x, int y) {
 	icon_dest.x = x;
 	icon_dest.y = y;
 	icon_src.w = icon_src.h = icon_dest.w = icon_dest.h = ICON_SIZE;
-	
-	int columns = icons->w / ICON_SIZE;		
+
+	int columns = icons->w / ICON_SIZE;
 	icon_src.x = (icon_id % columns) * ICON_SIZE;
 	icon_src.y = (icon_id / columns) * ICON_SIZE;
 	SDL_BlitSurface(icons, &icon_src, screen, &icon_dest);
@@ -493,8 +493,8 @@ int MenuActionBar::checkAction(Point mouse) {
 	if (inpt->pressing[MAIN1] && slot_enabled[10] && !inpt->lock[MAIN1]) return hotkeys[10];
 	if (inpt->pressing[MAIN2] && slot_enabled[11] && !inpt->lock[MAIN2]) return hotkeys[11];
 	// joystick actions
-	if (inpt->joy_pressing[0] && slot_enabled[10]) return hotkeys[10];
-	if (inpt->joy_pressing[1] && slot_enabled[11]) return hotkeys[11];
+	if (inpt->joy_pressing[JOY_MAIN1] && slot_enabled[10]) return hotkeys[10];
+	if (inpt->joy_pressing[JOY_MAIN2] && slot_enabled[11]) return hotkeys[11];
 	return 0;
 }
 

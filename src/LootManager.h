@@ -107,6 +107,7 @@ public:
 	void addCurrency(int count, Point pos);
 	ItemStack checkPickup(Point mouse, Point cam, Point hero_pos, int &currency, MenuInventory *inv);
 	ItemStack checkAutoPickup(Point hero_pos, int &currency);
+	ItemStack checkNearestPickup(Point hero_pos, int &currency, MenuInventory *inv);
 
 	void addRenders(std::vector<Renderable> &ren, std::vector<Renderable> &ren_dead);
 

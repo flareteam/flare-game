@@ -277,14 +277,22 @@ void MenuManager::logic() {
 	}
 
 	// exit menu toggle
-	if ((inpt->pressing[CANCEL] && !inpt->lock[CANCEL] && !key_lock && !dragging) && !(stats->corpse && stats->permadeath) && stats->transform_duration < 1) {
-		inpt->lock[CANCEL] = true;
-		key_lock = true;
-		if (menus_open) {
-			closeAll(true);
+	if ((!key_lock && !dragging) && !(stats->corpse && stats->permadeath) && stats->transform_duration < 1) {
+		if (inpt->pressing[CANCEL] && !inpt->lock[CANCEL]) {
+			inpt->lock[CANCEL] = true;
+			key_lock = true;
+			if (menus_open) {
+				closeAll(true);
+			}
+			else {
+				exit->visible = !exit->visible;
+			}
 		}
-		else {
-			exit->visible = !exit->visible;
+		else if (inpt->joy_pressing[JOY_CANCEL] && !inpt->joy_lock[JOY_CANCEL]) {
+			inpt->joy_lock[JOY_CANCEL] = true;
+			if (menus_open) {
+				closeAll(true);
+			}
 		}
 	}
 
