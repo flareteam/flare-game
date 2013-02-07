@@ -106,7 +106,7 @@ void Avatar::init() {
 	stats.recalc();
 
 	log_msg = "";
-	respawn = true;
+	respawn = false;
 
 	stats.cooldown_ticks = 0;
 
