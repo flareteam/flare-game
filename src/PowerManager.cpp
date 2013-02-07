@@ -925,8 +925,13 @@ bool PowerManager::transform(int power_index, StatBlock *src_stats, Point target
 		src_stats->transform_type = "untransform"; // untransform() is called only if type !=""
 	}
 	else {
-		// permanent transformation
-		if (powers[power_index].transform_duration == 0) src_stats->transform_duration = -1;
+		if (powers[power_index].transform_duration == 0) {
+			// permanent transformation
+			src_stats->transform_duration = -1;
+		} else if (powers[power_index].transform_duration > 0) {
+			// timed transformation
+			src_stats->transform_duration = powers[power_index].transform_duration;
+		}
 
 		src_stats->transform_type = powers[power_index].spawn_type;
 	}
