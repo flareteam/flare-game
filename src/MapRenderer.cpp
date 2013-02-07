@@ -30,6 +30,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <stdint.h>
 
 #include <iostream>
+#include <limits>
 using namespace std;
 
 const int CLICK_RANGE = 3 * UNITS_PER_TILE; //for activating events
@@ -1094,6 +1095,42 @@ void MapRenderer::checkHotspots() {
 	}
 }
 
+void MapRenderer::checkNearestEvent(Point loc) {
+	if ((inpt->pressing[ACCEPT] && !inpt->lock[ACCEPT]) || (inpt->joy_pressing[JOY_ACCEPT] && !inpt->joy_lock[JOY_ACCEPT])) {
+		if (inpt->pressing[ACCEPT]) inpt->lock[ACCEPT] = true;
+		if (inpt->joy_pressing[JOY_ACCEPT]) inpt->joy_lock[JOY_ACCEPT] = true;
+
+		vector<Map_Event>::iterator it;
+		vector<Map_Event>::iterator nearest;
+		int best_distance = std::numeric_limits<int>::max();
+
+		// loop in reverse because we may erase elements
+		for (it = events.end(); it != events.begin(); ) {
+			--it;
+
+			// skip inactive events
+			if (!isActive(*it)) continue;
+
+			// skip events without hotspots
+			if ((*it).hotspot.h == 0) continue;
+
+			// skip events on cooldown
+			if ((*it).cooldown_ticks != 0) continue;
+
+			Point ev_loc;
+			ev_loc.x = (*it).location.x * UNITS_PER_TILE;
+			ev_loc.y = (*it).location.y * UNITS_PER_TILE;
+			int distance = (int)calcDist(loc,ev_loc);
+			if (distance < CLICK_RANGE && distance < best_distance) {
+				best_distance = distance;
+				nearest = it;
+			}
+		}
+		if (executeEvent(*nearest))
+			events.erase(nearest);
+	}
+}
+
 bool MapRenderer::isActive(const Map_Event &e){
 	for (unsigned i=0; i < e.components.size(); i++) {
 		if (e.components[i].type == "requires_not") {
@@ -1138,6 +1175,7 @@ void MapRenderer::checkTooltip() {
  * @return Returns true if the event shall not be run again.
  */
 bool MapRenderer::executeEvent(Map_Event &ev) {
+	if(&ev == NULL) return false;
 
 	// skip executing events that are on cooldown
 	if (ev.cooldown_ticks > 0) return false;

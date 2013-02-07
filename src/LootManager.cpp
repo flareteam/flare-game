@@ -36,6 +36,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include <sstream>
 #include <iostream>
+#include <limits>
 
 using namespace std;
 
@@ -306,7 +307,7 @@ void LootManager::determineLootByEnemy(const Enemy *e, Point pos) {
 		if (new_loot.item == 0) {
 			int level = e->stats.level;
 			if (level == 0) level = 1; // avoid div/0 if enemy level is not specified
-			
+
 			// TODO: move gold drop amounts to engine/loot.txt
 			int currency = rand() % (level * 2) + level;
 			currency = (currency * (100 + hero->effects.bonus_currency)) / 100;
@@ -430,6 +431,47 @@ ItemStack LootManager::checkAutoPickup(Point hero_pos, int &currency) {
 			}
 		}
 	}
+	return loot_stack;
+}
+
+ItemStack LootManager::checkNearestPickup(Point hero_pos, int &currency, MenuInventory *inv) {
+	ItemStack loot_stack;
+	currency = 0;
+	loot_stack.item = 0;
+	loot_stack.quantity = 0;
+
+	int best_distance = std::numeric_limits<int>::max();
+
+	vector<Loot>::iterator it;
+	vector<Loot>::iterator nearest;
+
+	for (it = loot.end(); it != loot.begin(); ) {
+		--it;
+
+		int distance = (int)calcDist(hero_pos,it->pos);
+		if (distance < LOOT_RANGE && distance < best_distance) {
+			best_distance = distance;
+			nearest = it;
+		}
+	}
+
+	if (&(*nearest) != NULL) {
+		if (nearest->stack.item > 0 && !(inv->full(nearest->stack.item))) {
+			loot_stack = nearest->stack;
+			loot.erase(nearest);
+			return loot_stack;
+		}
+		else if (nearest->stack.item > 0) {
+			full_msg = true;
+		}
+		else if (nearest->currency > 0) {
+			currency = nearest->currency;
+			loot.erase(nearest);
+
+			return loot_stack;
+		}
+	}
+
 	return loot_stack;
 }
 

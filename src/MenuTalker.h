@@ -77,8 +77,6 @@ public:
 	bool vendor_visible;
 	bool has_vendor_button;
 
-	bool accept_lock;
-
 	WidgetButton *advanceButton;
 	WidgetButton *closeButton;
 	WidgetButton *vendorButton;

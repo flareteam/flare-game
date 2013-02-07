@@ -212,6 +212,31 @@ void GameStatePlay::checkLoot() {
 			loot->full_msg = false;
 		}
 	}
+
+	// Pickup with ACCEPT key/button
+	if (((inpt->pressing[ACCEPT] && !inpt->lock[ACCEPT]) || (inpt->joy_pressing[JOY_ACCEPT] && !inpt->joy_lock[JOY_ACCEPT])) && pc->stats.alive) {
+
+		pickup = loot->checkNearestPickup(pc->stats.pos, currency, menu->inv);
+		if (pickup.item > 0) {
+			if (inpt->pressing[ACCEPT]) inpt->lock[ACCEPT] = true;
+			if (inpt->joy_pressing[JOY_ACCEPT]) inpt->joy_lock[JOY_ACCEPT] = true;
+			menu->inv->add(pickup);
+
+			camp->setStatus(menu->items->items[pickup.item].pickup_status);
+		}
+		else if (currency > 0) {
+			if (inpt->pressing[ACCEPT]) inpt->lock[ACCEPT] = true;
+			if (inpt->joy_pressing[JOY_ACCEPT]) inpt->joy_lock[JOY_ACCEPT] = true;
+			menu->inv->addCurrency(currency);
+		}
+		if (loot->full_msg) {
+			if (inpt->pressing[ACCEPT]) inpt->lock[ACCEPT] = true;
+			if (inpt->joy_pressing[JOY_ACCEPT]) inpt->joy_lock[JOY_ACCEPT] = true;
+			menu->log->add(msg->get("Inventory is full."), LOG_TYPE_MESSAGES);
+			menu->hudlog->add(msg->get("Inventory is full."));
+			loot->full_msg = false;
+		}
+	}
 }
 
 void GameStatePlay::checkTeleport() {
@@ -528,6 +553,15 @@ void GameStatePlay::checkNPCInteraction() {
 		npc_click = npcs->checkNPCClick(inpt->mouse, map->cam);
 		if (npc_click != -1) npc_id = npc_click;
 	}
+	// if we press the ACCEPT key, find the nearest NPC to interact with
+	else if (inpt->pressing[ACCEPT] && !inpt->lock[ACCEPT]) {
+		npc_click = npcs->getNearestNPC(pc->stats.pos);
+		if (npc_click != -1) npc_id = npc_click;
+	}
+	else if (inpt->joy_pressing[JOY_ACCEPT] && !inpt->joy_lock[JOY_ACCEPT]) {
+		npc_click = npcs->getNearestNPC(pc->stats.pos);
+		if (npc_click != -1) npc_id = npc_click;
+	}
 
 	// check distance to this npc
 	if (npc_id != -1) {
@@ -536,7 +570,10 @@ void GameStatePlay::checkNPCInteraction() {
 
 	// if close enough to the NPC, open the appropriate interaction screen
 	if (npc_click != -1 && interact_distance < max_interact_distance && pc->stats.alive && pc->stats.humanoid) {
-		inpt->lock[MAIN1] = true;
+		if (inpt->pressing[MAIN1]) inpt->lock[MAIN1] = true;
+		if (inpt->pressing[ACCEPT]) inpt->lock[ACCEPT] = true;
+		if (inpt->joy_pressing[JOY_ACCEPT]) inpt->joy_lock[JOY_ACCEPT] = true;
+
 		bool npc_have_dialog = !(npcs->npcs[npc_id]->chooseDialogNode() == NPC_NO_DIALOG_AVAIL);
 
 		if (npcs->npcs[npc_id]->vendor && !npc_have_dialog) {
@@ -658,6 +695,7 @@ void GameStatePlay::logic() {
 		checkEnemyFocus();
 		checkNPCInteraction();
 		map->checkHotspots();
+		map->checkNearestEvent(pc->stats.pos);
 		checkTitle();
 
 		pc->logic(menu->act->checkAction(inpt->mouse), restrictPowerUse());

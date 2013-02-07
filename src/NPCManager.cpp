@@ -31,6 +31,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "MapRenderer.h"
 #include "LootManager.h"
 #include "StatBlock.h"
+#include <limits>
 
 using namespace std;
 
@@ -111,6 +112,21 @@ int NPCManager::checkNPCClick(Point mouse, Point cam) {
 		}
 	}
 	return -1;
+}
+
+int NPCManager::getNearestNPC(Point pos) {
+	int nearest = -1;
+	int best_distance = std::numeric_limits<int>::max();
+
+	for (unsigned i=0; i<npcs.size(); i++) {
+		int distance = (int)calcDist(pos, npcs[i]->pos);
+		if (distance < best_distance) {
+			best_distance = distance;
+			nearest = i;
+		}
+	}
+
+	return nearest;
 }
 
 /**

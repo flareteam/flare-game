@@ -237,6 +237,7 @@ public:
 	void clearEvents();
 	void checkEvents(Point loc);
 	void checkHotspots();
+	void checkNearestEvent(Point loc);
 	void checkTooltip();
 
 	// vars
