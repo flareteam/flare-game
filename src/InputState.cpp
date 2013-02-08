@@ -34,25 +34,24 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 using namespace std;
 
 InputState::InputState(void)
-	: done(false)
+	: mx_vel(0)
+	, my_vel(0)
+	, done(false)
 	, mouse(Point())
 	, last_key(0)
 	, last_button(0)
 	, scroll_up(false)
 	, scroll_down(false)
+	, mouse_emulation(false)
 {
 	SDL_EnableUNICODE(true);
 
 	defaultQwertyKeyBindings();
+	defaultJoystickBindings();
 
 	for (int key=0; key<key_count; key++) {
 		pressing[key] = false;
 		lock[key] = false;
-	}
-	for (int key=0; key<joy_key_count; key++) {
-		joy_binding[key] = key;
-		joy_pressing[key] = false;
-		joy_lock[key] = false;
 	}
 
 	loadKeyBindings();
@@ -136,6 +135,22 @@ void InputState::defaultQwertyKeyBindings ()
 	binding_alt[DEL] = SDLK_BACKSPACE;
 }
 
+void InputState::defaultJoystickBindings ()
+{
+	// most joystick buttons are unbound by default
+	for (int key=0; key<key_count; key++) {
+		binding_joy[key] = -1;
+	}
+
+	binding_joy[MAIN1] = 0;
+	binding_joy[MAIN2] = 1;
+	binding_joy[ACCEPT] = 2;
+	binding_joy[CANCEL] = 3;
+	binding_joy[CHARACTER] = 4;
+	binding_joy[INVENTORY] = 5;
+	binding_joy[LOG] = 6;
+	binding_joy[POWERS] = 7;
+}
 
 /**
  * Key bindings are found in config/keybindings.txt
@@ -410,9 +425,9 @@ void InputState::handle(bool dump_event) {
 			case SDL_JOYBUTTONDOWN:
 				if(JOYSTICK_DEVICE == event.jbutton.which && ENABLE_JOYSTICK)
 				{
-					for (int key=0; key<joy_key_count; key++) {
-						if (event.jbutton.button == joy_binding[key]) {
-							joy_pressing[key] = true;
+					for (int key=0; key<key_count; key++) {
+						if (event.jbutton.button == binding_joy[key]) {
+							pressing[key] = true;
 						}
 					}
 				}
@@ -420,10 +435,10 @@ void InputState::handle(bool dump_event) {
 			case SDL_JOYBUTTONUP:
 				if(JOYSTICK_DEVICE == event.jbutton.which && ENABLE_JOYSTICK)
 				{
-					for (int key=0; key<joy_key_count; key++) {
-						if (event.jbutton.button == joy_binding[key]) {
-							joy_pressing[key] = false;
-							joy_lock[key] = false;
+					for (int key=0; key<key_count; key++) {
+						if (event.jbutton.button == binding_joy[key]) {
+							pressing[key] = false;
+							lock[key] = false;
 						}
 					}
 				}
@@ -603,12 +618,48 @@ void InputState::handle(bool dump_event) {
 			joyHasMovedY = 0;
 			joyLastPosY = JOY_POS_CENTER;
 		}
+
+		mouseEmulation();
 	}
 }
 
 void InputState::resetScroll() {
 	scroll_up = false;
 	scroll_down = false;
+}
+
+void InputState::enableMouseEmulation() {
+	if (ENABLE_JOYSTICK && !mouse_emulation) {
+		mouse_emulation = true;
+		SDL_ShowCursor(SDL_ENABLE);
+		SDL_WarpMouse(VIEW_W_HALF,VIEW_H_HALF);
+	}
+}
+
+void InputState::disableMouseEmulation() {
+	if (ENABLE_JOYSTICK && mouse_emulation) {
+		mouse_emulation = false;
+		SDL_WarpMouse(VIEW_W-1,VIEW_H-1);
+		SDL_ShowCursor(SDL_DISABLE);
+	}
+}
+
+void InputState::mouseEmulation() {
+	if (!mouse_emulation) return;
+
+	if (pressing[UP] && my_vel > -MOUSE_EMU_VEL) my_vel--;
+	else if (!pressing[UP] && my_vel < 0) my_vel = 0;
+
+	if (pressing[DOWN] && my_vel < MOUSE_EMU_VEL) my_vel++;
+	else if (!pressing[DOWN] && my_vel > 0) my_vel = 0;
+
+	if (pressing[LEFT] && mx_vel > -MOUSE_EMU_VEL) mx_vel--;
+	else if (!pressing[LEFT] && mx_vel < 0) mx_vel = 0;
+
+	if (pressing[RIGHT] && mx_vel < MOUSE_EMU_VEL) mx_vel++;
+	else if (!pressing[RIGHT] && mx_vel > 0) mx_vel = 0;
+
+	if (mx_vel != 0 || my_vel != 0) SDL_WarpMouse(mouse.x+mx_vel,mouse.y+my_vel);
 }
 
 InputState::~InputState() {

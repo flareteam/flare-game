@@ -60,8 +60,7 @@ void MenuExit::update() {
 
 void MenuExit::logic() {
 	if (visible) {
-		if (buttonExit->checkClick() || (!inpt->lock[ACCEPT] && inpt->pressing[ACCEPT])) {
-			inpt->lock[ACCEPT] = true;
+		if (buttonExit->checkClick()) {
 			exitClicked = true;
 		}
 		if (buttonClose->checkClick()) {

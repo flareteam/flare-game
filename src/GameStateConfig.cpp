@@ -790,8 +790,7 @@ void GameStateConfig::logic ()
 		tabControl->logic();
 
 		// Ok/Cancel Buttons
-		if (ok_button->checkClick() || (inpt->pressing[ACCEPT] && !inpt->lock[ACCEPT])) {
-			inpt->lock[ACCEPT] = true;
+		if (ok_button->checkClick()) {
 			inpt->saveKeyBindings();
 			if (setMods()) {
 				reload_music = true;
@@ -818,8 +817,7 @@ void GameStateConfig::logic ()
 			}
 		} else if (defaults_button->checkClick()) {
 			defaults_confirm->visible = true;
-		} else if (cancel_button->checkClick() || (inpt->pressing[CANCEL] && !inpt->lock[CANCEL])) {
-			inpt->lock[CANCEL] = true;
+		} else if (cancel_button->checkClick()) {
 			check_resolution = false;
 			loadSettings();
 			loadMiscSettings();
@@ -907,26 +905,34 @@ void GameStateConfig::logic ()
 		} else if (enable_joystick_cb->checkClick()) {
 			if (enable_joystick_cb->isChecked()) {
 				ENABLE_JOYSTICK=true;
+				inpt->mouse_emulation = true;
 				if (SDL_NumJoysticks() > 0) {
+					JOYSTICK_DEVICE = 0;
 					SDL_JoystickClose(joy);
 					joy = SDL_JoystickOpen(JOYSTICK_DEVICE);
 					joystick_device_lstb->selected[JOYSTICK_DEVICE] = true;
 				}
 			} else {
 				ENABLE_JOYSTICK=false;
+				inpt->mouse_emulation = false;
 				for (int i=0; i<joystick_device_lstb->getSize(); i++)
 					joystick_device_lstb->selected[i] = false;
 			}
 			if (SDL_NumJoysticks() > 0) joystick_device_lstb->refresh();
 		} else if (joystick_device_lstb->checkClick()) {
 			JOYSTICK_DEVICE = joystick_device_lstb->getSelected();
-			if (!enable_joystick_cb->isChecked()) {
+			if (JOYSTICK_DEVICE != -1) {
 				enable_joystick_cb->Check();
 				ENABLE_JOYSTICK=true;
+				inpt->mouse_emulation = true;
 				if (SDL_NumJoysticks() > 0) {
 					SDL_JoystickClose(joy);
 					joy = SDL_JoystickOpen(JOYSTICK_DEVICE);
 				}
+			} else {
+				enable_joystick_cb->unCheck();
+				ENABLE_JOYSTICK = false;
+				inpt->mouse_emulation = false;
 			}
 		}
 	}

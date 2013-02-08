@@ -288,12 +288,6 @@ void MenuManager::logic() {
 				exit->visible = !exit->visible;
 			}
 		}
-		else if (inpt->joy_pressing[JOY_CANCEL] && !inpt->joy_lock[JOY_CANCEL]) {
-			inpt->joy_lock[JOY_CANCEL] = true;
-			if (menus_open) {
-				closeAll(true);
-			}
-		}
 	}
 
 	// inventory menu toggle
@@ -363,6 +357,9 @@ void MenuManager::logic() {
 		pause = (inv->visible || pow->visible || chr->visible || log->visible || vendor->visible || talker->visible);
 	}
 	menus_open = (inv->visible || pow->visible || chr->visible || log->visible || vendor->visible || talker->visible);
+
+	if (ENABLE_JOYSTICK && (menus_open || exit->visible)) inpt->enableMouseEmulation();
+	else inpt->disableMouseEmulation();
 
 	if (stats->alive) {
 

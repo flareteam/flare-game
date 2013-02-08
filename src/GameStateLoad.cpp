@@ -380,18 +380,7 @@ void GameStateLoad::logic() {
 		current_frame = (63 - frame_ticker) / 8;
 
 	if (!confirm->visible) {
-		if (inpt->pressing[CANCEL] && !inpt->lock[CANCEL] && selected_slot >= 0) {
-			inpt->lock[CANCEL] = true;
-			selected_slot = -1;
-			loadPortrait(selected_slot);
-			button_action->label = msg->get("New Game");
-			button_action->enabled = false;
-			button_alternate->enabled = false;
-			button_action->refresh();
-			button_alternate->refresh();
-		}
-		if (button_exit->checkClick() || (inpt->pressing[CANCEL] && !inpt->lock[CANCEL])) {
-			inpt->lock[CANCEL] = true;
+		if (button_exit->checkClick()) {
 			delete requestedGameState;
 			requestedGameState = new GameStateTitle();
 		}
@@ -402,8 +391,7 @@ void GameStateLoad::logic() {
 			logicLoading();
 		}
 
-		if (button_action->checkClick() || (inpt->pressing[ACCEPT] && !inpt->lock[ACCEPT] && button_action->enabled)) {
-			inpt->lock[ACCEPT] = true;
+		if (button_action->checkClick()) {
 			if (stats[selected_slot].name == "") {
 				// create a new game
 				GameStateNew* newgame = new GameStateNew();
@@ -414,8 +402,7 @@ void GameStateLoad::logic() {
 				loading_requested = true;
 			}
 		}
-		if (button_alternate->checkClick() || (inpt->pressing[DEL] && !inpt->lock[DEL] && button_alternate->enabled)) {
-			inpt->lock[DEL] = true;
+		if (button_alternate->checkClick()) {
 			// Display pop-up to make sure save should be deleted
 			confirm->visible = true;
 			confirm->render();
@@ -429,19 +416,6 @@ void GameStateLoad::logic() {
 					updateButtons();
 				}
 			}
-		}
-		// check arrow keys
-		if (inpt->pressing[DOWN] && !inpt->lock[DOWN] && !inpt->lock[MAIN1]) {
-			inpt->lock[DOWN] = true;
-			selected_slot += 1;
-			if (selected_slot > GAME_SLOT_MAX-1) selected_slot = GAME_SLOT_MAX-1;
-			updateButtons();
-		}
-		if (inpt->pressing[UP] && !inpt->lock[UP] && !inpt->lock[MAIN1]) {
-			inpt->lock[UP] = true;
-			selected_slot -= 1;
-			if (selected_slot < 0) selected_slot = 0;
-			updateButtons();
 		}
 	} else if (confirm->visible) {
 		confirm->logic();
