@@ -631,7 +631,6 @@ void InputState::resetScroll() {
 void InputState::enableMouseEmulation() {
 	if (ENABLE_JOYSTICK && !mouse_emulation) {
 		mouse_emulation = true;
-		SDL_ShowCursor(SDL_ENABLE);
 		SDL_WarpMouse(VIEW_W_HALF,VIEW_H_HALF);
 	}
 }
@@ -640,7 +639,6 @@ void InputState::disableMouseEmulation() {
 	if (ENABLE_JOYSTICK && mouse_emulation) {
 		mouse_emulation = false;
 		SDL_WarpMouse(VIEW_W-1,VIEW_H-1);
-		SDL_ShowCursor(SDL_DISABLE);
 	}
 }
 
