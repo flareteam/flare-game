@@ -794,6 +794,7 @@ void Avatar::transform() {
 	transform_triggered = true;
 	stats.transformed = true;
 	setPowers = true;
+	stats.effects.clearEffects();
 
 	delete charmed_stats;
 	charmed_stats = new StatBlock();
@@ -810,7 +811,6 @@ void Avatar::transform() {
 	stats.flying = charmed_stats->flying;
 	stats.humanoid = charmed_stats->humanoid;
 	stats.animations = charmed_stats->animations;
-	stats.effects = charmed_stats->effects;
 	stats.powers_list = charmed_stats->powers_list;
 
 	string animationname = "animations/enemies/"+charmed_stats->animations + ".txt";
@@ -856,6 +856,7 @@ void Avatar::untransform() {
 	transform_triggered = false;
 	stats.transform_type = "";
 	revertPowers = true;
+	stats.effects.clearEffects();
 
 	// revert some hero stats to last saved
 	stats.speed = hero_stats->speed;
@@ -863,7 +864,6 @@ void Avatar::untransform() {
 	stats.flying = hero_stats->flying;
 	stats.humanoid = hero_stats->humanoid;
 	stats.animations = hero_stats->animations;
-	stats.effects = hero_stats->effects;
 	stats.powers_list = hero_stats->powers_list;
 
 	anim->increaseCount("animations/hero.txt");

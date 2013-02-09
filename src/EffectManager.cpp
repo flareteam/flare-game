@@ -42,6 +42,9 @@ EffectManager::~EffectManager() {
 	}
 }
 
+EffectManager& EffectManager::operator= (const EffectManager &emSource) {
+}
+
 void EffectManager::clearStatus() {
 	damage = 0;
 	hpot = 0;

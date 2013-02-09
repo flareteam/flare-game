@@ -768,6 +768,9 @@ void GameStatePlay::logic() {
 			menu->act->hotkeys[i] = menu->act->actionbar[i];
 			menu->act->locked[i] = false;
 		}
+
+		// also reapply equipment here, to account items that give bonuses to base stats
+		menu->inv->applyEquipment(menu->inv->inventory[EQUIPMENT].storage);
 	}
 
 	// when the hero (re)spawns, reapply equipment & passive effects
