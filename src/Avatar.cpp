@@ -955,7 +955,12 @@ void Avatar::addRenders(vector<Renderable> &r) {
 
 Avatar::~Avatar() {
 
-	anim->decreaseCount("animations/hero.txt");
+	if (stats.transformed && charmed_stats && charmed_stats->animations != "") {
+		anim->decreaseCount("animations/enemies/"+charmed_stats->animations + ".txt");
+	} else {
+		anim->decreaseCount("animations/hero.txt");
+	}
+
 	for (unsigned int i=0; i<animsets.size(); i++) {
 		if (animsets[i])
 			anim->decreaseCount(animsets[i]->getName());
