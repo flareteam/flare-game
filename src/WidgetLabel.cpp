@@ -197,17 +197,6 @@ void WidgetLabel::setJustify(int _justify) {
 }
 
 /**
- * Set valign value.
- */
-void WidgetLabel::setValign(int _valign) {
-	if (valign != _valign) {
-		valign = _valign;
-		applyOffsets();
-		refresh();
-	}
-}
-
-/**
  * Set text color.
  */
 void WidgetLabel::setColor(SDL_Color _color) {

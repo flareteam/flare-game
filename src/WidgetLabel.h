@@ -73,7 +73,6 @@ public:
 	int getX();
 	int getY();
 	void setJustify(int _justify);
-	void setValign(int _valign);
 	void setColor(SDL_Color _color);
 
 	void set(const std::string& _text);
