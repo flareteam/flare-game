@@ -246,31 +246,6 @@ void LootManager::checkMapForLoot() {
 }
 
 /**
- * Monsters don't just drop loot equal to their level
- * The loot level spread is a bell curve
- */
-int LootManager::lootLevel(int base_level) {
-
-	int x = rand() % 100;
-	int actual;
-
-	// this loot bell curve is +/- 3 levels
-	// percents: 5,10,20,30,20,10,5
-	if (x <= 4) actual = base_level-3;
-	else if (x <= 14) actual = base_level-2;
-	else if (x <= 34) actual = base_level-1;
-	else if (x <= 64) actual = base_level;
-	else if (x <= 84) actual = base_level+1;
-	else if (x <= 94) actual = base_level+2;
-	else actual = base_level+3;
-
-	if (actual < 1) actual = 0;
-	if (actual > 20) actual = base_level;
-
-	return actual;
-}
-
-/**
  * This function is called when there definitely is a piece of loot dropping
  * calls addLoot()
  */
