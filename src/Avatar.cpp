@@ -823,17 +823,17 @@ void Avatar::transform() {
 
 	// damage
 	clampFloor(stats.dmg_melee_min, charmed_stats->dmg_melee_min);
-	clampCeil(stats.dmg_melee_max, charmed_stats->dmg_melee_max);
+	clampFloor(stats.dmg_melee_max, charmed_stats->dmg_melee_max);
 
 	clampFloor(stats.dmg_ment_min, charmed_stats->dmg_ment_min);
-	clampCeil(stats.dmg_ment_max, charmed_stats->dmg_ment_max);
+	clampFloor(stats.dmg_ment_max, charmed_stats->dmg_ment_max);
 
 	clampFloor(stats.dmg_ranged_min, charmed_stats->dmg_ranged_min);
-	clampCeil(stats.dmg_ranged_max, charmed_stats->dmg_ranged_max);
+	clampFloor(stats.dmg_ranged_max, charmed_stats->dmg_ranged_max);
 
 	// dexterity
 	clampFloor(stats.absorb_min, charmed_stats->absorb_min);
-	clampCeil(stats.absorb_max, charmed_stats->absorb_max);
+	clampFloor(stats.absorb_max, charmed_stats->absorb_max);
 
 	clampFloor(stats.avoidance, charmed_stats->avoidance);
 
