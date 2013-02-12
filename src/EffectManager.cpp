@@ -43,6 +43,29 @@ EffectManager::~EffectManager() {
 }
 
 EffectManager& EffectManager::operator= (const EffectManager &emSource) {
+	effect_list.resize(emSource.effect_list.size());
+
+	for (unsigned i=0; i<effect_list.size(); i++) {
+		effect_list[i].id = emSource.effect_list[i].id;
+		effect_list[i].icon = emSource.effect_list[i].icon;
+		effect_list[i].ticks = emSource.effect_list[i].ticks;
+		effect_list[i].duration = emSource.effect_list[i].duration;
+		effect_list[i].type = emSource.effect_list[i].type;
+		effect_list[i].magnitude = emSource.effect_list[i].magnitude;
+		effect_list[i].magnitude_max = emSource.effect_list[i].magnitude_max;
+		effect_list[i].item = emSource.effect_list[i].item;
+		effect_list[i].trigger = emSource.effect_list[i].trigger;
+		effect_list[i].render_above = emSource.effect_list[i].render_above;
+
+		if (emSource.effect_list[i].animation_name != "") {
+			effect_list[i].animation_name = emSource.effect_list[i].animation_name;
+			anim->increaseCount(effect_list[i].animation_name);
+			effect_list[i].animation = loadAnimation(effect_list[i].animation_name);
+		}
+
+	}
+
+	return *this;
 }
 
 void EffectManager::clearStatus() {
