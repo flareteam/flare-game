@@ -812,8 +812,8 @@ void Avatar::transform() {
 	stats.flying = charmed_stats->flying;
 	stats.humanoid = charmed_stats->humanoid;
 	stats.animations = charmed_stats->animations;
-	stats.effects = charmed_stats->effects;
 	stats.powers_list = charmed_stats->powers_list;
+	stats.effects.clearEffects();
 
 	string animationname = "animations/enemies/"+charmed_stats->animations + ".txt";
 	anim->decreaseCount("animations/hero.txt");
@@ -858,6 +858,7 @@ void Avatar::untransform() {
 	transform_triggered = false;
 	stats.transform_type = "";
 	revertPowers = true;
+	stats.effects.clearEffects();
 
 	// revert some hero stats to last saved
 	stats.speed = hero_stats->speed;
@@ -957,7 +958,12 @@ void Avatar::addRenders(vector<Renderable> &r) {
 
 Avatar::~Avatar() {
 
-	anim->decreaseCount("animations/hero.txt");
+	if (stats.transformed && charmed_stats && charmed_stats->animations != "") {
+		anim->decreaseCount("animations/enemies/"+charmed_stats->animations + ".txt");
+	} else {
+		anim->decreaseCount("animations/hero.txt");
+	}
+
 	for (unsigned int i=0; i<animsets.size(); i++) {
 		if (animsets[i])
 			anim->decreaseCount(animsets[i]->getName());

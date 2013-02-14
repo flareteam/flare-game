@@ -83,6 +83,7 @@ private:
 public:
 	EffectManager();
 	~EffectManager();
+	EffectManager& operator= (const EffectManager &emSource);
 	void clearStatus();
 	void logic();
 	void addEffect(int id, int icon, int duration, int magnitude, std::string type, std::string animation, bool additive, bool item, int trigger, bool render_above);

@@ -110,8 +110,13 @@ void GameStatePlay::saveGame() {
 		outfile << "\n";
 
 		//shapeshifter value
-		if (pc->stats.transform_type == "untransform") outfile << "transformed=" << "\n";
-		else outfile << "transformed=" << pc->stats.transform_type << "\n";
+		if (pc->stats.transform_type == "untransform" || pc->stats.transform_duration != -1) outfile << "transformed=" << "\n";
+		else outfile << "transformed=" << pc->stats.transform_type << "," << pc->stats.manual_untransform << "\n";
+
+		// restore hero powers
+		if (pc->stats.transformed && pc->hero_stats) {
+			pc->stats.powers_list = pc->hero_stats->powers_list;
+		}
 
 		// enabled powers
 		outfile << "powers=";
@@ -120,6 +125,11 @@ void GameStatePlay::saveGame() {
 			else outfile << "," << pc->stats.powers_list[i];
 		}
 		outfile << "\n";
+
+		// restore transformed powers
+		if (pc->stats.transformed && pc->charmed_stats) {
+			pc->stats.powers_list = pc->charmed_stats->powers_list;
+		}
 
 		// campaign data
 		outfile << "campaign=";
@@ -275,7 +285,10 @@ void GameStatePlay::loadGame() {
 			}
 			else if (infile.key == "transformed") {
 				pc->stats.transform_type = infile.nextValue();
-				if (pc->stats.transform_type != "") pc->stats.transform_duration = -1;
+				if (pc->stats.transform_type != "") {
+					pc->stats.transform_duration = -1;
+					pc->stats.manual_untransform = toInt(infile.nextValue());
+				}
 			}
 			else if (infile.key == "powers") {
 				string power;
