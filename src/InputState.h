@@ -62,11 +62,8 @@ const int CTRL = 22;
 const int SHIFT = 23;
 const int DEL = 24;
 
-// Joystick buttons enum
-const int JOY_MAIN1 = 0;
-const int JOY_MAIN2 = 1;
-const int JOY_ACCEPT = 2;
-const int JOY_CANCEL = 3;
+// Maxiumum mouse emulation movement speed
+const int MOUSE_EMU_VEL = 32;
 
 /**
  * class InputState
@@ -75,12 +72,15 @@ const int JOY_CANCEL = 3;
  */
 
 class InputState {
+private:
+	int mx_vel;
+	int my_vel;
+	void mouseEmulation();
 public:
 	static const int key_count = 25;
-	static const int joy_key_count = 4;
 	int binding[key_count];
 	int binding_alt[key_count];
-	int joy_binding[joy_key_count];
+	int binding_joy[key_count];
 
 	std::string binding_name[25];
 	std::string mouse_button[7];
@@ -89,15 +89,16 @@ public:
 	~InputState();
 
 	void defaultQwertyKeyBindings();
+	void defaultJoystickBindings();
 	void loadKeyBindings();
 	void saveKeyBindings();
 	void handle(bool dump_event);
 	void resetScroll();
+	void enableMouseEmulation();
+	void disableMouseEmulation();
 
 	bool pressing[key_count];
 	bool lock[key_count];
-	bool joy_pressing[joy_key_count];
-	bool joy_lock[joy_key_count];
 
 	bool done;
 	Point mouse;
@@ -106,6 +107,7 @@ public:
 	int last_button;
 	bool scroll_up;
 	bool scroll_down;
+	bool mouse_emulation;
 };
 
 #endif

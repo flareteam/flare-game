@@ -240,6 +240,7 @@ void Avatar::loadStepFX(const string& stepname) {
 
 
 bool Avatar::pressing_move() {
+	if (inpt->mouse_emulation) return false;
 	if (MOUSE_MOVE) {
 		return inpt->pressing[MAIN1];
 	} else {
@@ -249,6 +250,7 @@ bool Avatar::pressing_move() {
 
 void Avatar::set_direction() {
 	// handle direction changes
+	if (inpt->mouse_emulation) return;
 	if (MOUSE_MOVE) {
 		Point target = screen_to_map(inpt->mouse.x,  inpt->mouse.y, stats.pos.x, stats.pos.y);
 		// if no line of movement to target, use pathfinder
