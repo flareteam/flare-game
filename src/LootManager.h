@@ -74,7 +74,6 @@ private:
 
 	// functions
 	void loadGraphics();
-	int lootLevel(int base_level);
 
 	Mix_Chunk *loot_flip;
 

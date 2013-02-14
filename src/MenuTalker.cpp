@@ -175,12 +175,6 @@ void MenuTalker::logic() {
 		event_cursor++;
 		more = npc->processDialog(dialog_node, event_cursor);
 	}
-	else if	(inpt->joy_pressing[JOY_ACCEPT] && !inpt->joy_lock[JOY_ACCEPT]) {
-		inpt->joy_lock[JOY_ACCEPT] = true;
-		// pressed next/more
-		event_cursor++;
-		more = npc->processDialog(dialog_node, event_cursor);
-	}
 	else {
 		return;
 	}

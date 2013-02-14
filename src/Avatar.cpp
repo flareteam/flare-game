@@ -240,6 +240,7 @@ void Avatar::loadStepFX(const string& stepname) {
 
 
 bool Avatar::pressing_move() {
+	if (inpt->mouse_emulation) return false;
 	if (MOUSE_MOVE) {
 		return inpt->pressing[MAIN1];
 	} else {
@@ -249,6 +250,7 @@ bool Avatar::pressing_move() {
 
 void Avatar::set_direction() {
 	// handle direction changes
+	if (inpt->mouse_emulation) return;
 	if (MOUSE_MOVE) {
 		Point target = screen_to_map(inpt->mouse.x,  inpt->mouse.y, stats.pos.x, stats.pos.y);
 		// if no line of movement to target, use pathfinder
@@ -810,8 +812,8 @@ void Avatar::transform() {
 	stats.flying = charmed_stats->flying;
 	stats.humanoid = charmed_stats->humanoid;
 	stats.animations = charmed_stats->animations;
-	stats.effects = charmed_stats->effects;
 	stats.powers_list = charmed_stats->powers_list;
+	stats.effects.clearEffects();
 
 	string animationname = "animations/enemies/"+charmed_stats->animations + ".txt";
 	anim->decreaseCount("animations/hero.txt");
@@ -823,17 +825,17 @@ void Avatar::transform() {
 
 	// damage
 	clampFloor(stats.dmg_melee_min, charmed_stats->dmg_melee_min);
-	clampCeil(stats.dmg_melee_max, charmed_stats->dmg_melee_max);
+	clampFloor(stats.dmg_melee_max, charmed_stats->dmg_melee_max);
 
 	clampFloor(stats.dmg_ment_min, charmed_stats->dmg_ment_min);
-	clampCeil(stats.dmg_ment_max, charmed_stats->dmg_ment_max);
+	clampFloor(stats.dmg_ment_max, charmed_stats->dmg_ment_max);
 
 	clampFloor(stats.dmg_ranged_min, charmed_stats->dmg_ranged_min);
-	clampCeil(stats.dmg_ranged_max, charmed_stats->dmg_ranged_max);
+	clampFloor(stats.dmg_ranged_max, charmed_stats->dmg_ranged_max);
 
 	// dexterity
 	clampFloor(stats.absorb_min, charmed_stats->absorb_min);
-	clampCeil(stats.absorb_max, charmed_stats->absorb_max);
+	clampFloor(stats.absorb_max, charmed_stats->absorb_max);
 
 	clampFloor(stats.avoidance, charmed_stats->avoidance);
 
@@ -856,6 +858,7 @@ void Avatar::untransform() {
 	transform_triggered = false;
 	stats.transform_type = "";
 	revertPowers = true;
+	stats.effects.clearEffects();
 
 	// revert some hero stats to last saved
 	stats.speed = hero_stats->speed;
@@ -955,7 +958,12 @@ void Avatar::addRenders(vector<Renderable> &r) {
 
 Avatar::~Avatar() {
 
-	anim->decreaseCount("animations/hero.txt");
+	if (stats.transformed && charmed_stats && charmed_stats->animations != "") {
+		anim->decreaseCount("animations/enemies/"+charmed_stats->animations + ".txt");
+	} else {
+		anim->decreaseCount("animations/hero.txt");
+	}
+
 	for (unsigned int i=0; i<animsets.size(); i++) {
 		if (animsets[i])
 			anim->decreaseCount(animsets[i]->getName());

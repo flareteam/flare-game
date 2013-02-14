@@ -1096,9 +1096,8 @@ void MapRenderer::checkHotspots() {
 }
 
 void MapRenderer::checkNearestEvent(Point loc) {
-	if ((inpt->pressing[ACCEPT] && !inpt->lock[ACCEPT]) || (inpt->joy_pressing[JOY_ACCEPT] && !inpt->joy_lock[JOY_ACCEPT])) {
+	if (inpt->pressing[ACCEPT] && !inpt->lock[ACCEPT]) {
 		if (inpt->pressing[ACCEPT]) inpt->lock[ACCEPT] = true;
-		if (inpt->joy_pressing[JOY_ACCEPT]) inpt->joy_lock[JOY_ACCEPT] = true;
 
 		vector<Map_Event>::iterator it;
 		vector<Map_Event>::iterator nearest;

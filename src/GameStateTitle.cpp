@@ -59,6 +59,8 @@ GameStateTitle::GameStateTitle() : GameState() {
 	// set up labels
 	label_version = new WidgetLabel();
 	label_version->set(VIEW_W, 0, JUSTIFY_RIGHT, VALIGN_TOP, msg->get("Flare Alpha v0.17"), font->getColor("menu_normal"));
+
+	inpt->enableMouseEmulation();
 }
 
 void GameStateTitle::loadGraphics() {
@@ -77,14 +79,6 @@ void GameStateTitle::loadGraphics() {
 void GameStateTitle::logic() {
 	if (ENABLE_PLAYGAME) {
 		button_play->enabled = true;
-		if (inpt->pressing[ACCEPT] && !inpt->lock[ACCEPT]) {
-			inpt->lock[ACCEPT] = true;
-			delete requestedGameState;
-			requestedGameState = new GameStateLoad();
-		} else if (inpt->pressing[CANCEL] && !inpt->lock[CANCEL]) {
-			inpt->lock[CANCEL] = true;
-			exitRequested = true;
-		}
 	} else {
 		button_play->enabled = false;
 	}
