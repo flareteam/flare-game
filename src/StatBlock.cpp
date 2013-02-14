@@ -181,6 +181,7 @@ StatBlock::StatBlock()
 	}
 
 	vulnerable = std::vector<int>(ELEMENTS.size(), 100);
+	vulnerable_base = std::vector<int>(ELEMENTS.size(), 100);
 
 	// formula numbers. Used only for hero
 	hp_base = 10;
@@ -229,7 +230,7 @@ void StatBlock::load(const string& filename) {
 
 		for (unsigned int i=0; i<ELEMENTS.size(); i++) {
 			if (infile.key == "vulnerable_" + ELEMENTS[i].name) {
-				vulnerable[i] = num;
+				vulnerable[i] = vulnerable_base[i] = num;
 				valid = true;
 			}
 		}
@@ -448,7 +449,7 @@ void StatBlock::recalc_alt() {
 	poise = poise_base + effects.bonus_poise;
 
 	for (unsigned i=0; i<effects.bonus_resist.size(); i++) {
-		vulnerable[i] = 100 - effects.bonus_resist[i];
+		vulnerable[i] = vulnerable_base[i] - effects.bonus_resist[i];
 	}
 
 	if (hp > maxhp) hp = maxhp;
