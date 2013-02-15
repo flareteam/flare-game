@@ -48,6 +48,7 @@ GameStateNew::GameStateNew() : GameState() {
 	option_count = 0;
 	portrait_image = NULL;
 	tip_buf.clear();
+	modified_name = false;
 
 	// set up buttons
 	button_exit = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
@@ -93,8 +94,8 @@ GameStateNew::GameStateNew() : GameState() {
 			button_permadeath->pos.x = eatFirstInt(infile.val, ',');
 			button_permadeath->pos.y = eatFirstInt(infile.val, ',');
 		} else if (infile.key == "name_input") {
-			name.x = eatFirstInt(infile.val, ',');
-			name.y = eatFirstInt(infile.val, ',');
+			name_pos.x = eatFirstInt(infile.val, ',');
+			name_pos.y = eatFirstInt(infile.val, ',');
 		} else if (infile.key == "portrait_label") {
 			portrait_label = eatLabelInfo(infile.val);
 		} else if (infile.key == "name_label") {
@@ -131,12 +132,10 @@ GameStateNew::GameStateNew() : GameState() {
 	class_list->pos.x += (VIEW_W - FRAME_W)/2;
 	class_list->pos.y += (VIEW_H - FRAME_H)/2;
 
-	name.x += (VIEW_W - FRAME_W)/2;
-	name.y += (VIEW_H - FRAME_H)/2;
+	name_pos.x += (VIEW_W - FRAME_W)/2;
+	name_pos.y += (VIEW_H - FRAME_H)/2;
 
-	input_name->setPosition(name.x, name.y);
-
-	if (DEFAULT_NAME != "") input_name->setText(DEFAULT_NAME);
+	input_name->setPosition(name_pos.x, name_pos.y);
 
 	button_permadeath->pos.x += (VIEW_W - FRAME_W)/2;
 	button_permadeath->pos.y += (VIEW_H - FRAME_H)/2;
@@ -172,6 +171,7 @@ GameStateNew::GameStateNew() : GameState() {
 	loadGraphics();
 	loadOptions("hero_options.txt");
 	loadPortrait(portrait[0]);
+	setName(name[0]);
 }
 
 void GameStateNew::loadGraphics() {
@@ -212,9 +212,22 @@ void GameStateNew::loadOptions(const string& filename) {
 			base.push_back(fin.nextValue());
 			head.push_back(fin.nextValue());
 			portrait.push_back(fin.nextValue());
+			name.push_back(fin.nextValue());
 		}
 	}
 	fin.close();
+}
+
+/**
+ * If the name text box is empty or hasn't been user-modified, set the name
+ *
+ * @param default_name The name we want to use for the hero
+ */
+void GameStateNew:: setName(const string& default_name) {
+	if (input_name->getText() == "" || !modified_name) {
+		input_name->setText(default_name);
+		modified_name = false;
+	}
 }
 
 void GameStateNew::logic() {
@@ -222,7 +235,7 @@ void GameStateNew::logic() {
 	if (show_classlist) class_list->checkClick();
 
 	// require character name
-	if (input_name->getText() == "" && DEFAULT_NAME == "") {
+	if (input_name->getText() == "") {
 		if (button_create->enabled) {
 			button_create->enabled = false;
 			button_create->refresh();
@@ -260,14 +273,18 @@ void GameStateNew::logic() {
 		current_option++;
 		if (current_option == (int)base.size()) current_option = 0;
 		loadPortrait(portrait[current_option]);
+		setName(name[current_option]);
 	}
 	else if (button_prev->checkClick()) {
 		current_option--;
 		if (current_option == -1) current_option = base.size()-1;
 		loadPortrait(portrait[current_option]);
+		setName(name[current_option]);
 	}
 
-	if (DEFAULT_NAME == "") input_name->logic();
+	input_name->logic();
+
+	if (input_name->getText() != name[current_option]) modified_name = true;
 }
 
 void GameStateNew::render() {
@@ -295,7 +312,7 @@ void GameStateNew::render() {
 
 	// display labels
 	if (!portrait_label.hidden) label_portrait->render();
-	if (!name_label.hidden && DEFAULT_NAME == "") label_name->render();
+	if (!name_label.hidden) label_name->render();
 	if (!permadeath_label.hidden) label_permadeath->render();
 	if (!classlist_label.hidden) label_classlist->render();
 

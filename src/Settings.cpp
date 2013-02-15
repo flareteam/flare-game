@@ -156,7 +156,6 @@ float VENDOR_RATIO = 0.25;
 
 // Other Settings
 bool MENUS_PAUSE = false;
-std::string DEFAULT_NAME = "";
 bool SAVE_HPMP = false;
 bool ENABLE_PLAYGAME = false;
 bool SHOW_FPS = false;
@@ -351,8 +350,6 @@ void loadMiscSettings() {
 			if (infile.key == "save_hpmp") {
 				if (toInt(infile.val) == 1)
 					SAVE_HPMP = true;
-			} else if (infile.key == "default_name") {
-				DEFAULT_NAME = infile.val;
 			} else if (infile.key == "corpse_timeout") {
 				CORPSE_TIMEOUT = toInt(infile.val);
 			} else if (infile.key == "sell_without_vendor") {

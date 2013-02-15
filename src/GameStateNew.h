@@ -53,10 +53,12 @@ private:
 	void loadPortrait(const std::string& portrait_filename);
 	void loadOptions(const std::string& option_filename);
 	std::string getClassTooltip(int index);
+	void setName(const std::string& default_name);
 
 	std::vector<std::string> base;
 	std::vector<std::string> head;
 	std::vector<std::string> portrait;
+	std::vector<std::string> name;
 	int option_count;
 	int current_option;
 
@@ -75,7 +77,7 @@ private:
 	WidgetListBox *class_list;
 	WidgetTooltip *tip;
 
-	Point name;
+	Point name_pos;
 	LabelInfo portrait_label;
 	LabelInfo name_label;
 	LabelInfo permadeath_label;
@@ -83,6 +85,7 @@ private:
 	SDL_Rect portrait_pos;
 	bool show_classlist;
 	TooltipData tip_buf;
+	bool modified_name;
 
 	SDL_Color color_normal;
 
