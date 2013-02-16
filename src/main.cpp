@@ -131,14 +131,13 @@ static void init() {
 	gswitch = new GameSwitcher();
 }
 
-static void mainLoop (const vector<string>	& args) {
+static void mainLoop (bool debug_event) {
 
 	bool done = false;
 	int max_fps = MAX_FRAMES_PER_SEC;
 	int delay = 1000/max_fps;
 	int prevTicks = SDL_GetTicks();
 	int nowTicks;
-	bool debug_event = binary_search(args.begin(), args.end(), string("--debug_event"));
 
 	while ( !done ) {
 
@@ -185,15 +184,21 @@ static void cleanup() {
 
 int main(int argc, char *argv[])
 {
-	vector<string>	args;
+	bool debug_event = false;
+
 	for (int i = 1 ; i < argc; i++) {
-		args.push_back(string(argv[i]));
+		string arg = string(argv[i]);
+		if (arg == "--debug_event") {
+			debug_event = true;
+		} else if (arg == "--game_data" && i+1 < argc) {
+			USER_PATH_DATA = string(argv[i+1]);
+		}
 	}
 
 	srand((unsigned int)time(NULL));
 
 	init();
-	mainLoop(args);
+	mainLoop(debug_event);
 	cleanup();
 
 	return 0;
