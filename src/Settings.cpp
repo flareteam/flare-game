@@ -183,7 +183,6 @@ void setPaths() {
 	PATH_DATA = "";
 	if (dirExists(USER_PATH_DATA)) PATH_DATA = USER_PATH_DATA;
 
-
 	// TODO: place config and save data in the user's home, windows style
 	createDir(PATH_CONF);
 	createDir(PATH_USER);

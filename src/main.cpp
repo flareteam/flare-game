@@ -182,16 +182,46 @@ static void cleanup() {
 	SDL_Quit();
 }
 
+string parseArg(const string &arg)
+{
+	string result = "";
+
+	// arguments must start with '--'
+	if (arg.length() > 2 && arg[0] == '-' && arg[1] == '-') {
+		for (unsigned i = 2; i < arg.length(); ++i) {
+			if (arg[i] == '=') break;
+			result += arg[i];
+		}
+	}
+
+	return result;
+}
+
+string parseArgValue(const string &arg)
+{
+	string result = "";
+	bool found_equals = false;
+
+	for (unsigned i = 0; i < arg.length(); ++i) {
+		if (found_equals) {
+			result += arg[i];
+		}
+		if (arg[i] == '=') found_equals = true;
+	}
+
+	return result;
+}
+
 int main(int argc, char *argv[])
 {
 	bool debug_event = false;
 
 	for (int i = 1 ; i < argc; i++) {
 		string arg = string(argv[i]);
-		if (arg == "--debug_event") {
+		if (parseArg(arg) == "debug_event") {
 			debug_event = true;
-		} else if (arg == "--game_data" && i+1 < argc) {
-			USER_PATH_DATA = string(argv[i+1]);
+		} else if (parseArg(arg) == "game_data") {
+			USER_PATH_DATA = parseArgValue(arg);
 		}
 	}
 
