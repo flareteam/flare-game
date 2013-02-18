@@ -62,8 +62,40 @@ EffectManager& EffectManager::operator= (const EffectManager &emSource) {
 			anim->increaseCount(effect_list[i].animation_name);
 			effect_list[i].animation = loadAnimation(effect_list[i].animation_name);
 		}
-
 	}
+	damage = emSource.damage;
+	hpot = emSource.hpot;
+	mpot = emSource.mpot;
+	speed = emSource.speed;
+	immunity = emSource.immunity;
+	stun = emSource.stun;
+	forced_speed = emSource.forced_speed;
+	forced_move = emSource.forced_move;
+	revive = emSource.revive;
+	bonus_hp = emSource.bonus_hp;
+	bonus_hp_regen = emSource.bonus_hp_regen;
+	bonus_hp_percent = emSource.bonus_hp_percent;
+	bonus_mp = emSource.bonus_mp;
+	bonus_mp_regen = emSource.bonus_mp_regen;
+	bonus_mp_percent = emSource.bonus_mp_percent;
+	bonus_accuracy = emSource.bonus_accuracy;
+	bonus_avoidance = emSource.bonus_avoidance;
+	bonus_crit = emSource.bonus_crit;
+	bonus_offense = emSource.bonus_offense;
+	bonus_defense = emSource.bonus_defense;
+	bonus_physical = emSource.bonus_physical;
+	bonus_mental = emSource.bonus_mental;
+	bonus_xp = emSource.bonus_xp;
+	bonus_currency = emSource.bonus_currency;
+	bonus_item_find = emSource.bonus_item_find;
+	bonus_stealth = emSource.bonus_stealth;
+	bonus_poise = emSource.bonus_poise;
+	triggered_others = emSource.triggered_others;
+	triggered_block = emSource.triggered_block;
+	triggered_hit = emSource.triggered_hit;
+	triggered_halfdeath = emSource.triggered_halfdeath;
+	triggered_joincombat = emSource.triggered_joincombat;
+	triggered_death = emSource.triggered_death;
 
 	return *this;
 }
