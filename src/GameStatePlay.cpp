@@ -1,7 +1,7 @@
 /*
 Copyright 2011-2012 Clint Bellanger
 Copyright 2012 Igor Paliychuk
-Copyright 2012 Henrik Andersson
+Copyright 2012-2013 Henrik Andersson
 Copyright 2012 Stefan Beller
 
 This file is part of FLARE.
@@ -596,12 +596,12 @@ void GameStatePlay::checkNPCInteraction() {
 			// if this vendor has voice-over, play it
 			if (!npcs->npcs[npc_id]->talker) {
 				if (!npcs->npcs[npc_id]->playSound(NPC_VOX_INTRO)) {
-					playSfx(menu->sfx_open);
+					snd->play(menu->sfx_open);
 				}
 			}
 			else {
 				// unless the vendor has dialog; then they've already given their vox intro
-				playSfx(menu->sfx_open);
+				snd->play(menu->sfx_open);
 			}
 
 			menu->talker->vendor_visible = false;

@@ -1,6 +1,7 @@
 /*
 Copyright © 2011-2012 Clint Bellanger
 Copyright © 2012 Stefan Beller
+Copyright © 2013 Henrik Andersson
 
 This file is part of FLARE.
 
@@ -151,8 +152,7 @@ private:
 	bool show_tooltip;
 
 	// map events can play random soundfx
-	Mix_Chunk *sfx;
-	std::string sfx_filename;
+	SoundManager::SoundID sfx;
 
 	bool executeEvent(Map_Event &e);
 	void playSFX(std::string filename);

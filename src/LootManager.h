@@ -1,6 +1,7 @@
 /*
 Copyright © 2011-2012 Clint Bellanger
 Copyright © 2012 Stefan Beller
+Copyright © 2013 Henrik Andersson
 
 This file is part of FLARE.
 
@@ -75,7 +76,7 @@ private:
 	// functions
 	void loadGraphics();
 
-	Mix_Chunk *loot_flip;
+	SoundManager::SoundID loot_flip;
 
 	// loot refers to ItemManager indices
 	std::vector<Loot> loot;

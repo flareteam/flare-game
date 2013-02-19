@@ -1,5 +1,6 @@
 /*
 Copyright © 2011-2012 Clint Bellanger
+Copyright © 2013 Henrik Andersson
 
 This file is part of FLARE.
 
@@ -34,5 +35,5 @@ MessageEngine *msg;
 InputState *inpt;
 FontEngine *font;
 CombatText *comb;
-
+SoundManager *snd;
 SDL_Joystick *joy;

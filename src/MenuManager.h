@@ -1,5 +1,6 @@
 /*
 Copyright © 2011-2012 Clint Bellanger
+Copyright © 2013 Henrik Andersson
 
 This file is part of FLARE.
 
@@ -114,8 +115,8 @@ public:
 	bool menus_open;
 	ItemStack drop_stack;
 
-	Mix_Chunk *sfx_open;
-	Mix_Chunk *sfx_close;
+	SoundManager::SoundID sfx_open;
+	SoundManager::SoundID sfx_close;
 
 	bool requestingExit() { return done; }
 };

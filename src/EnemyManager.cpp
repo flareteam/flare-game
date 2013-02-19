@@ -1,6 +1,7 @@
 /*
 Copyright © 2011-2012 Clint Bellanger
 Copyright © 2012 Stefan Beller
+Copyright © 2013 Henrik Andersson
 
 This file is part of FLARE.
 
@@ -48,17 +49,17 @@ void EnemyManager::loadSounds(const string& type_id) {
 		return;
 
 	if (type_id != "none") {
-		sound_phys.push_back(loadSfx("soundfx/enemies/" + type_id + "_phys.ogg", "EnemyManager physical attack sound"));
-		sound_ment.push_back(loadSfx("soundfx/enemies/" + type_id + "_ment.ogg", "EnemyManager mental attack sound"));
-		sound_hit.push_back(loadSfx("soundfx/enemies/" + type_id + "_hit.ogg", "EnemyManager physical hit sound"));
-		sound_die.push_back(loadSfx("soundfx/enemies/" + type_id + "_die.ogg", "EnemyManager die sound"));
-		sound_critdie.push_back(loadSfx("soundfx/enemies/" + type_id + "_critdie.ogg", "EnemyManager critdeath sound"));
+		sound_phys.push_back(snd->load("soundfx/enemies/" + type_id + "_phys.ogg", "EnemyManager physical attack sound"));
+		sound_ment.push_back(snd->load("soundfx/enemies/" + type_id + "_ment.ogg", "EnemyManager mental attack sound"));
+		sound_hit.push_back(snd->load("soundfx/enemies/" + type_id + "_hit.ogg", "EnemyManager physical hit sound"));
+		sound_die.push_back(snd->load("soundfx/enemies/" + type_id + "_die.ogg", "EnemyManager die sound"));
+		sound_critdie.push_back(snd->load("soundfx/enemies/" + type_id + "_critdie.ogg", "EnemyManager critdeath sound"));
 	} else {
-		sound_phys.push_back(NULL);
-		sound_ment.push_back(NULL);
-		sound_hit.push_back(NULL);
-		sound_die.push_back(NULL);
-		sound_critdie.push_back(NULL);
+		sound_phys.push_back(0);
+		sound_ment.push_back(0);
+		sound_hit.push_back(0);
+		sound_die.push_back(0);
+		sound_critdie.push_back(0);
 	}
 
 	sfx_prefixes.push_back(type_id);
@@ -114,11 +115,11 @@ void EnemyManager::handleNewMap () {
 	enemies.clear();
 
 	for (unsigned j=0; j<sound_phys.size(); j++) {
-		Mix_FreeChunk(sound_phys[j]);
-		Mix_FreeChunk(sound_ment[j]);
-		Mix_FreeChunk(sound_hit[j]);
-		Mix_FreeChunk(sound_die[j]);
-		Mix_FreeChunk(sound_critdie[j]);
+		snd->unload(sound_phys[j]);
+		snd->unload(sound_ment[j]);
+		snd->unload(sound_hit[j]);
+		snd->unload(sound_die[j]);
+		snd->unload(sound_critdie[j]);
 	}
 	sfx_prefixes.clear();
 	sound_phys.clear();
@@ -214,11 +215,11 @@ void EnemyManager::logic() {
 					 << enemies[i]->stats.name << "', sfx_prefix: '"
 					 << enemies[i]->stats.sfx_prefix << "')" << endl;
 			} else {
-				if (enemies[i]->sfx_phys) playSfx(sound_phys[pref_id]);
-				if (enemies[i]->sfx_ment) playSfx(sound_ment[pref_id]);
-				if (enemies[i]->sfx_hit) playSfx(sound_hit[pref_id]);
-				if (enemies[i]->sfx_die) playSfx(sound_die[pref_id]);
-				if (enemies[i]->sfx_critdie) playSfx(sound_critdie[pref_id]);
+				if (enemies[i]->sfx_phys) snd->play(sound_phys[pref_id]);
+				if (enemies[i]->sfx_ment) snd->play(sound_ment[pref_id]);
+				if (enemies[i]->sfx_hit) snd->play(sound_hit[pref_id]);
+				if (enemies[i]->sfx_die) snd->play(sound_die[pref_id]);
+				if (enemies[i]->sfx_critdie) snd->play(sound_critdie[pref_id]);
 			}
 
 			// clear sound flags
@@ -319,10 +320,10 @@ EnemyManager::~EnemyManager() {
 	}
 
 	for (unsigned i=0; i<sound_phys.size(); i++) {
-		Mix_FreeChunk(sound_phys[i]);
-		Mix_FreeChunk(sound_ment[i]);
-		Mix_FreeChunk(sound_hit[i]);
-		Mix_FreeChunk(sound_die[i]);
-		Mix_FreeChunk(sound_critdie[i]);
+		snd->unload(sound_phys[i]);
+		snd->unload(sound_ment[i]);
+		snd->unload(sound_hit[i]);
+		snd->unload(sound_die[i]);
+		snd->unload(sound_critdie[i]);
 	}
 }

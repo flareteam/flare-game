@@ -144,6 +144,7 @@ Set (FLARE_SOURCES
 	./src/Settings.cpp
 	./src/SharedResources.cpp
 	./src/StatBlock.cpp
+	./src/SoundManager.cpp
 	./src/TileSet.cpp
 	./src/Utils.cpp
 	./src/UtilsDebug.cpp

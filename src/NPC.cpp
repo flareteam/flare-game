@@ -1,6 +1,6 @@
 /*
 Copyright © 2011-2012 Clint Bellanger
-Copyright © 2012 Henrik Andersson
+Copyright © 2012-2013 Henrik Andersson
 Copyright © 2012 Stefan Beller
 
 This file is part of FLARE.
@@ -38,8 +38,8 @@ using namespace std;
 
 ItemStorage stock;
 
-std::vector<Mix_Chunk*> vox_intro;
-std::vector<Mix_Chunk*> vox_quests;
+std::vector<SoundManager::SoundID> vox_intro;
+std::vector<SoundManager::SoundID> vox_quests;
 std::vector<std::vector<Event_Component> > dialog;
 
 NPC::NPC(MapRenderer *_map, ItemManager *_items)
@@ -55,8 +55,8 @@ NPC::NPC(MapRenderer *_map, ItemManager *_items)
 	, vendor(false)
 	// stock
 	, stock_count(0)
-	, vox_intro(vector<Mix_Chunk*>())
-	, vox_quests(vector<Mix_Chunk*>())
+	, vox_intro(vector<SoundManager::SoundID>())
+	, vox_quests(vector<SoundManager::SoundID>())
 	, dialog(vector<vector<Event_Component> >())
 {
 	stock.init(NPC_VENDOR_MAX_STOCK, _items);
@@ -196,7 +196,7 @@ void NPC::loadGraphics(const string& filename_portrait) {
  */
 int NPC::loadSound(const string& filename, int type) {
 
-	Mix_Chunk *a = loadSfx("soundfx/npcs/" + filename, "NPC voice");
+        SoundManager::SoundID a = snd->load("soundfx/npcs/" + filename, "NPC voice");
 	if (!a)
 		return -1;
 
@@ -216,13 +216,6 @@ void NPC::logic() {
 	activeAnimation->advanceFrame();
 }
 
-// of the audio which is played. If no Mix_Chunk is played, -1
-static int current_channel = -1;
-void sound_ended(int channel) {
-	if (channel==current_channel)
-		current_channel = -1;
-}
-
 /**
  * type is a const int enum, see NPC.h
  */
@@ -231,14 +224,12 @@ bool NPC::playSound(int type, int id) {
 		int roll;
 		if (vox_intro.empty()) return false;
 		roll = rand() % vox_intro.size();
-		playSfx(vox_intro[roll]);
+		snd->play(vox_intro[roll]);
 		return true;
 	}
 	if (type == NPC_VOX_QUEST) {
-		if (id < 0 || id >= (int)vox_quests.size()) return false;
-		if (current_channel != -1) Mix_HaltChannel(current_channel);
-		Mix_ChannelFinished(&sound_ended);
-		current_channel = playSfx(vox_quests[id]);
+		if (id < 0 || id >= (int)vox_quests.size()) return false;		
+		snd->play(vox_quests[id], "NPC_VOX_QUESTS");
 		return true;
 	}
 	return false;
@@ -369,11 +360,11 @@ NPC::~NPC() {
 
 	if (portrait != NULL) SDL_FreeSurface(portrait);
 	while (!vox_intro.empty()) {
-		Mix_FreeChunk(vox_intro.back());
+		snd->unload(vox_intro.back());
 		vox_intro.pop_back();
 	}
 	while (!vox_quests.empty()) {
-		Mix_FreeChunk(vox_quests.back());
+		snd->unload(vox_quests.back());
 		vox_quests.pop_back();
 	}
 }
