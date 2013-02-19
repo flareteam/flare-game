@@ -38,92 +38,90 @@ using namespace std;
 
 class Sound {
 public:
-  Mix_Chunk *chunk;
-  Sound() :  refCnt(0) {};
+	Mix_Chunk *chunk;
+	Sound() :  refCnt(0) {};
 private:
-  friend class SoundManager;
-  int refCnt;
+	friend class SoundManager;
+	int refCnt;
 };
 
-SoundManager::SoundManager()
-{
+SoundManager::SoundManager() {
 }
 
-SoundManager::~SoundManager()
-{
-  SoundManager::SoundMapIterator it;
-  while((it = sounds.begin()) != sounds.end())
-    unload(it->first);
+SoundManager::~SoundManager() {
+	SoundManager::SoundMapIterator it;
+	while((it = sounds.begin()) != sounds.end())
+		unload(it->first);
 }
 
-SoundManager::SoundID SoundManager::load(const std::string& filename, const std::string& errormessage)
-{
-  Sound lsnd, *psnd;
-  SoundID sid = 0;
-  SoundMapIterator it;
-  std::locale loc;
+SoundManager::SoundID SoundManager::load(const std::string& filename, const std::string& errormessage) {
 
-  if (AUDIO && SOUND_VOLUME)
-  {
-    const collate<char>& coll = use_facet<collate<char> >(loc);
-    const string realfilename = mods->locate(filename);
+	Sound lsnd, *psnd;
+	SoundID sid = 0;
+	SoundMapIterator it;
+	std::locale loc;
 
-    /* create sid hash and check if already loaded */
-    sid = coll.hash(realfilename.data(), realfilename.data()+realfilename.length());
-    it = sounds.find(sid);
-    if (it != sounds.end())
-    {
-      it->second->refCnt++;
-      return sid;
-    }
+	if (AUDIO && SOUND_VOLUME)
+	{
+		const collate<char>& coll = use_facet<collate<char> >(loc);
+		const string realfilename = mods->locate(filename);
 
-    /* load non existing sound */
-    lsnd.chunk = Mix_LoadWAV(realfilename.c_str());
-    lsnd.refCnt = 1;
-    if (!lsnd.chunk)
-    {
-      fprintf(stderr, "%s: Loading sound %s (%s) failed: %s \n", errormessage.c_str(), 
-	      realfilename.c_str(), filename.c_str(), Mix_GetError());
-      return 0;
-    }
+		/* create sid hash and check if already loaded */
+		sid = coll.hash(realfilename.data(), realfilename.data()+realfilename.length());
+		it = sounds.find(sid);
+		if (it != sounds.end())
+		{
+			it->second->refCnt++;
+			return sid;
+		}
 
-    /* instansiate and add sound to manager */
-    psnd = new Sound;
-    *psnd = lsnd;
-    sounds.insert(pair<SoundID,Sound *>(sid, psnd));
-  }
+		/* load non existing sound */
+		lsnd.chunk = Mix_LoadWAV(realfilename.c_str());
+		lsnd.refCnt = 1;
+		if (!lsnd.chunk)
+		{
+			fprintf(stderr, "%s: Loading sound %s (%s) failed: %s \n", errormessage.c_str(), 
+				realfilename.c_str(), filename.c_str(), Mix_GetError());
+			return 0;
+		}
 
-  return sid;
+		/* instansiate and add sound to manager */
+		psnd = new Sound;
+		*psnd = lsnd;
+		sounds.insert(pair<SoundID,Sound *>(sid, psnd));
+	}
+
+	return sid;
 }
 
-void SoundManager::unload(SoundManager::SoundID sid)
-{
-  SoundMapIterator it;
-  it = sounds.find(sid);
-  if (it == sounds.end())
-    return;
+void SoundManager::unload(SoundManager::SoundID sid) {
 
-  if (--it->second->refCnt == 0)
-  {
-    //fprintf(stderr,"Unload %lx\n", sid);
-    Mix_FreeChunk(it->second->chunk);
-    delete it->second;
-    sounds.erase(it);
-  }
+	SoundMapIterator it;
+	it = sounds.find(sid);
+	if (it == sounds.end())
+		return;
+
+	if (--it->second->refCnt == 0)
+	{
+		//fprintf(stderr,"Unload %lx\n", sid);
+		Mix_FreeChunk(it->second->chunk);
+		delete it->second;
+		sounds.erase(it);
+	}
 }
 
-int SoundManager::play(SoundManager::SoundID sid)
-{
-  SoundMapIterator it;
+int SoundManager::play(SoundManager::SoundID sid) {
 
-  //fprintf(stderr,"Play %lx\n", sid);
+	SoundMapIterator it;
 
-  if (!sid || !AUDIO || !SOUND_VOLUME)
-    return -1;
+	//fprintf(stderr,"Play %lx\n", sid);
 
-  it = sounds.find(sid);
-  if (it == sounds.end())
-    return -1;
+	if (!sid || !AUDIO || !SOUND_VOLUME)
+		return -1;
 
-  return Mix_PlayChannel(-1, it->second->chunk, 0);
+	it = sounds.find(sid);
+	if (it == sounds.end())
+		return -1;
+
+	return Mix_PlayChannel(-1, it->second->chunk, 0);
 }

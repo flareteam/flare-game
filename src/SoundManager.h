@@ -36,21 +36,21 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 class SoundManager {
 public:
-  typedef unsigned long SoundID;
+	typedef unsigned long SoundID;
 
-  SoundManager();
-  ~SoundManager();
+	SoundManager();
+	~SoundManager();
 
-  SoundManager::SoundID load(const std::string& filename, const std::string& errormessage);
-  void unload(SoundManager::SoundID);
+	SoundManager::SoundID load(const std::string& filename, const std::string& errormessage);
+	void unload(SoundManager::SoundID);
 
-  int play(SoundManager::SoundID);
+	int play(SoundManager::SoundID);
 
 private:
-  typedef std::map<SoundID, class Sound *> SoundMap;
-  typedef SoundMap::iterator SoundMapIterator;
+	typedef std::map<SoundID, class Sound *> SoundMap;
+	typedef SoundMap::iterator SoundMapIterator;
 
-  SoundMap sounds;
+	SoundMap sounds;
 };
 
 #endif
