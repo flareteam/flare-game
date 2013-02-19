@@ -231,6 +231,10 @@ void Avatar::loadStepFX(const string& stepname) {
 		sound_steps[i] = NULL;
 	}
 
+	// A literal "NULL" means we don't want to load any new sounds
+	// This is used when transforming, since creatures don't have step sound effects
+	if (stepname == "NULL") return;
+
 	// load new sounds
 	sound_steps[0] = loadSfx("soundfx/steps/step_" + filename + "1.ogg", "Avatar loading foot steps");
 	sound_steps[1] = loadSfx("soundfx/steps/step_" + filename + "2.ogg", "Avatar loading foot steps");
@@ -896,6 +900,8 @@ void Avatar::untransform() {
 	for (unsigned int i=0; i<stats.vulnerable.size(); i++) {
 		stats.vulnerable[i] = hero_stats->vulnerable[i];
 	}
+
+	loadStepFX(stats.sfx_step);
 
 	delete charmed_stats;
 	delete hero_stats;
