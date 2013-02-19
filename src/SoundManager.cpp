@@ -110,18 +110,56 @@ void SoundManager::unload(SoundManager::SoundID sid) {
 	}
 }
 
-int SoundManager::play(SoundManager::SoundID sid) {
+void SoundManager::play(SoundManager::SoundID sid, std::string channel) {
 
 	SoundMapIterator it;
+	VirtualChannelMapIterator vcit;
 
 	//fprintf(stderr,"Play %lx\n", sid);
 
 	if (!sid || !AUDIO || !SOUND_VOLUME)
-		return -1;
+		return;
 
 	it = sounds.find(sid);
 	if (it == sounds.end())
-		return -1;
+		return;
 
-	return Mix_PlayChannel(-1, it->second->chunk, 0);
+	/* if play on global channel */
+	if (channel == GLOBAL_VIRTUAL_CHANNEL) {
+		Mix_PlayChannel(-1, it->second->chunk, 0);
+		return;
+	}
+
+	/* played on specific slot, check if a sound is currently playing
+	   then halt it */
+	vcit = channels.find(channel);
+	if (vcit != channels.end())
+		Mix_HaltChannel(vcit->second);
+
+	vcit = channels.insert(pair<std::string, int>(channel, -1)).first;
+
+	Mix_ChannelFinished(&channel_finished);
+	vcit->second = Mix_PlayChannel(-1, it->second->chunk, 0);
+
+}
+
+void SoundManager::on_channel_finished(int channel)
+{
+	VirtualChannelMapIterator vcit = channels.begin();
+	while(vcit != channels.end()) {
+		if (vcit->second == channel)
+			break;
+		vcit++;
+	}
+
+	if (vcit == channels.end())
+		return;
+
+	channels.erase(vcit);
+
+}
+
+void SoundManager::channel_finished(int channel)
+{
+	snd->on_channel_finished(channel);
 }

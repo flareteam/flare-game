@@ -216,13 +216,6 @@ void NPC::logic() {
 	activeAnimation->advanceFrame();
 }
 
-// of the audio which is played. If no Mix_Chunk is played, -1
-static int current_channel = -1;
-void sound_ended(int channel) {
-	if (channel==current_channel)
-		current_channel = -1;
-}
-
 /**
  * type is a const int enum, see NPC.h
  */
@@ -235,10 +228,8 @@ bool NPC::playSound(int type, int id) {
 		return true;
 	}
 	if (type == NPC_VOX_QUEST) {
-		if (id < 0 || id >= (int)vox_quests.size()) return false;
-		if (current_channel != -1) Mix_HaltChannel(current_channel);
-		Mix_ChannelFinished(&sound_ended);
-		current_channel = snd->play(vox_quests[id]);
+		if (id < 0 || id >= (int)vox_quests.size()) return false;		
+		snd->play(vox_quests[id], "NPC_VOX_QUESTS");
 		return true;
 	}
 	return false;

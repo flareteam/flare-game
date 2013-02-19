@@ -34,6 +34,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <stdint.h>
 #include <vector>
 
+const std::string GLOBAL_VIRTUAL_CHANNEL = "__global__";
+
 class SoundManager {
 public:
 	typedef unsigned long SoundID;
@@ -44,13 +46,20 @@ public:
 	SoundManager::SoundID load(const std::string& filename, const std::string& errormessage);
 	void unload(SoundManager::SoundID);
 
-	int play(SoundManager::SoundID);
+	void play(SoundManager::SoundID, std::string channel = GLOBAL_VIRTUAL_CHANNEL);
 
 private:
+	typedef std::map<std::string, int> VirtualChannelMap;
+	typedef VirtualChannelMap::iterator VirtualChannelMapIterator;
+
 	typedef std::map<SoundID, class Sound *> SoundMap;
 	typedef SoundMap::iterator SoundMapIterator;
 
+	static void channel_finished(int channel);
+	void on_channel_finished(int channel);
+
 	SoundMap sounds;
+	VirtualChannelMap channels;
 };
 
 #endif
