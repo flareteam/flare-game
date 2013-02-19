@@ -131,14 +131,13 @@ static void init() {
 	gswitch = new GameSwitcher();
 }
 
-static void mainLoop (const vector<string>	& args) {
+static void mainLoop (bool debug_event) {
 
 	bool done = false;
 	int max_fps = MAX_FRAMES_PER_SEC;
 	int delay = 1000/max_fps;
 	int prevTicks = SDL_GetTicks();
 	int nowTicks;
-	bool debug_event = binary_search(args.begin(), args.end(), string("--debug_event"));
 
 	while ( !done ) {
 
@@ -183,17 +182,53 @@ static void cleanup() {
 	SDL_Quit();
 }
 
+string parseArg(const string &arg)
+{
+	string result = "";
+
+	// arguments must start with '--'
+	if (arg.length() > 2 && arg[0] == '-' && arg[1] == '-') {
+		for (unsigned i = 2; i < arg.length(); ++i) {
+			if (arg[i] == '=') break;
+			result += arg[i];
+		}
+	}
+
+	return result;
+}
+
+string parseArgValue(const string &arg)
+{
+	string result = "";
+	bool found_equals = false;
+
+	for (unsigned i = 0; i < arg.length(); ++i) {
+		if (found_equals) {
+			result += arg[i];
+		}
+		if (arg[i] == '=') found_equals = true;
+	}
+
+	return result;
+}
+
 int main(int argc, char *argv[])
 {
-	vector<string>	args;
+	bool debug_event = false;
+
 	for (int i = 1 ; i < argc; i++) {
-		args.push_back(string(argv[i]));
+		string arg = string(argv[i]);
+		if (parseArg(arg) == "debug_event") {
+			debug_event = true;
+		} else if (parseArg(arg) == "game_data") {
+			USER_PATH_DATA = parseArgValue(arg);
+		}
 	}
 
 	srand((unsigned int)time(NULL));
 
 	init();
-	mainLoop(args);
+	mainLoop(debug_event);
 	cleanup();
 
 	return 0;

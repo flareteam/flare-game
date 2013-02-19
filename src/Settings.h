@@ -68,6 +68,7 @@ typedef struct HeroClass{
 extern std::string PATH_CONF; // user-configurable settings files
 extern std::string PATH_USER; // important per-user data (saves)
 extern std::string PATH_DATA; // common game data
+extern std::string USER_PATH_DATA; // user-defined replacement for PATH_DATA
 
 // Filenames
 extern std::string FILE_SETTINGS;     // Name of the settings file (e.g. "settings.txt").

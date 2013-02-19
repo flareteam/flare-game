@@ -76,6 +76,7 @@ const int config_size = sizeof(config) / sizeof(ConfigEntry);
 string PATH_CONF = "";
 string PATH_USER = "";
 string PATH_DATA = "";
+string USER_PATH_DATA = "";
 
 // Filenames
 string FILE_SETTINGS	= "settings.txt";
@@ -180,6 +181,7 @@ void setPaths() {
 	PATH_CONF = "config";
 	PATH_USER = "saves";
 	PATH_DATA = "";
+	if (dirExists(USER_PATH_DATA)) PATH_DATA = USER_PATH_DATA;
 
 	// TODO: place config and save data in the user's home, windows style
 	createDir(PATH_CONF);
@@ -194,6 +196,7 @@ void setPaths() {
 	PATH_CONF = "PROGDIR:";
 	PATH_USER = "PROGDIR:";
 	PATH_DATA = "PROGDIR:";
+	if (dirExists(USER_PATH_DATA)) PATH_DATA = USER_PATH_DATA;
 }
 #else
 void setPaths() {
@@ -254,7 +257,13 @@ void setPaths() {
 
 	// NOTE: from here on out, the function exits early when the data dir is found
 
-	// check $XDG_DATA_DIRS options first
+	// if the user specified a data path, try to use it
+	if (dirExists(USER_PATH_DATA)) {
+		PATH_DATA = USER_PATH_DATA;
+		return;
+	}
+
+	// check $XDG_DATA_DIRS options
 	// a list of directories in preferred order separated by :
 	if (getenv("XDG_DATA_DIRS") != NULL) {
 		string pathlist = (string)getenv("XDG_DATA_DIRS");
