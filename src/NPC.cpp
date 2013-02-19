@@ -224,12 +224,12 @@ bool NPC::playSound(int type, int id) {
 		int roll;
 		if (vox_intro.empty()) return false;
 		roll = rand() % vox_intro.size();
-		snd->play(vox_intro[roll]);
+		snd->play(vox_intro[roll], "NPC_VOX");
 		return true;
 	}
 	if (type == NPC_VOX_QUEST) {
 		if (id < 0 || id >= (int)vox_quests.size()) return false;		
-		snd->play(vox_quests[id], "NPC_VOX_QUESTS");
+		snd->play(vox_quests[id], "NPC_VOX");
 		return true;
 	}
 	return false;
