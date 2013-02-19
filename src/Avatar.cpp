@@ -2,6 +2,7 @@
 Copyright © 2011-2012 Clint Bellanger
 Copyright © 2012 Igor Paliychuk
 Copyright © 2012 Stefan Beller
+Copyright © 2013 Henrik Andersson
 
 This file is part of FLARE.
 
@@ -123,14 +124,14 @@ void Avatar::init() {
 	stats.hero_cooldown = vector<int>(POWER_COUNT, 0);
 
 	for (int i=0; i<4; i++) {
-		sound_steps[i] = NULL;
+		sound_steps[i] = 0;
 	}
 
-	sound_melee = NULL;
-	sound_hit = NULL;
-	sound_die = NULL;
-	sound_block = NULL;
-	level_up = NULL;
+	sound_melee = 0;
+	sound_hit = 0;
+	sound_die = 0;
+	sound_block = 0;
+	level_up = 0;
 }
 
 /**
@@ -202,17 +203,11 @@ void Avatar::loadGraphics(std::vector<Layer_gfx> _img_gfx) {
 }
 
 void Avatar::loadSounds() {
-	Mix_FreeChunk(sound_melee);
-	Mix_FreeChunk(sound_hit);
-	Mix_FreeChunk(sound_die);
-	Mix_FreeChunk(sound_block);
-	Mix_FreeChunk(level_up);
-
-	sound_melee = loadSfx("soundfx/melee_attack.ogg", "Avatar melee attack");
-	sound_hit = loadSfx("soundfx/" + stats.base + "_hit.ogg", "Avatar was hit");
-	sound_die = loadSfx("soundfx/" + stats.base + "_die.ogg", "Avatar death");
-	sound_block = loadSfx("soundfx/powers/block.ogg", "Avatar blocking");
-	level_up = loadSfx("soundfx/level_up.ogg", "Avatar leveling up");
+	sound_melee = snd->load("soundfx/melee_attack.ogg", "Avatar melee attack");
+	sound_hit = snd->load("soundfx/" + stats.base + "_hit.ogg", "Avatar was hit");
+	sound_die = snd->load("soundfx/" + stats.base + "_die.ogg", "Avatar death");
+	sound_block = snd->load("soundfx/powers/block.ogg", "Avatar blocking");
+	level_up = snd->load("soundfx/level_up.ogg", "Avatar leveling up");
 }
 
 /**
@@ -227,15 +222,14 @@ void Avatar::loadStepFX(const string& stepname) {
 
 	// clear previous sounds
 	for (int i=0; i<4; i++) {
-		Mix_FreeChunk(sound_steps[i]);
-		sound_steps[i] = NULL;
+		snd->unload(sound_steps[i]);
 	}
 
 	// load new sounds
-	sound_steps[0] = loadSfx("soundfx/steps/step_" + filename + "1.ogg", "Avatar loading foot steps");
-	sound_steps[1] = loadSfx("soundfx/steps/step_" + filename + "2.ogg", "Avatar loading foot steps");
-	sound_steps[2] = loadSfx("soundfx/steps/step_" + filename + "3.ogg", "Avatar loading foot steps");
-	sound_steps[3] = loadSfx("soundfx/steps/step_" + filename + "4.ogg", "Avatar loading foot steps");
+	sound_steps[0] = snd->load("soundfx/steps/step_" + filename + "1.ogg", "Avatar loading foot steps");
+	sound_steps[1] = snd->load("soundfx/steps/step_" + filename + "2.ogg", "Avatar loading foot steps");
+	sound_steps[2] = snd->load("soundfx/steps/step_" + filename + "3.ogg", "Avatar loading foot steps");
+	sound_steps[3] = snd->load("soundfx/steps/step_" + filename + "4.ogg", "Avatar loading foot steps");
 }
 
 
@@ -401,7 +395,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 		}
 		log_msg = ss.str();
 		stats.recalc();
-		playSfx(level_up);
+		snd->play(level_up);
 
 		// if the player managed to level up while dead (e.g. via a bleeding creature), restore to life
 		if (stats.cur_state == AVATAR_DEAD) {
@@ -488,7 +482,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 			stepfx = rand() % 4;
 
 			if (activeAnimation->isFirstFrame() || activeAnimation->isActiveFrame())
-				playSfx(sound_steps[stepfx]);
+				snd->play(sound_steps[stepfx]);
 
 			// allowed to move or use powers?
 			if (MOUSE_MOVE) {
@@ -523,7 +517,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 			if (MOUSE_MOVE) lockSwing = true;
 
 			if (activeAnimation->isFirstFrame())
-				playSfx(sound_melee);
+				snd->play(sound_melee);
 
 			// do power
 			if (activeAnimation->isActiveFrame()) {
@@ -615,7 +609,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 				// close menus in GameStatePlay
 				close_menus = true;
 
-				playSfx(sound_die);
+				snd->play(sound_die);
 
 				if (stats.permadeath) {
 					log_msg = msg->get("You are defeated. Game over! Press Enter to exit to Title.");
@@ -734,7 +728,7 @@ bool Avatar::takeHit(const Hazard &h) {
 				} else {
 					if (MAX_RESIST < 100) dmg = 1;
 				}
-				playSfx(sound_block);
+				snd->play(sound_block);
 				activeAnimation->reset(); // shield stutter
 				for (unsigned i=0; i < animsets.size(); i++)
 					if (anims[i])
@@ -779,7 +773,7 @@ bool Avatar::takeHit(const Hazard &h) {
 			stats.cur_state = AVATAR_DEAD;
 		}
 		else if (prev_hp > stats.hp) { // only interrupt if damage was taken
-			playSfx(sound_hit);
+			snd->play(sound_hit);
 			if (!percentChance(stats.poise)) {
 				stats.cur_state = AVATAR_HIT;
 			}
@@ -974,15 +968,15 @@ Avatar::~Avatar() {
 	delete charmed_stats;
 	delete hero_stats;
 
-	Mix_FreeChunk(sound_melee);
-	Mix_FreeChunk(sound_hit);
-	Mix_FreeChunk(sound_die);
-	Mix_FreeChunk(sound_block);
-	Mix_FreeChunk(sound_steps[0]);
-	Mix_FreeChunk(sound_steps[1]);
-	Mix_FreeChunk(sound_steps[2]);
-	Mix_FreeChunk(sound_steps[3]);
-	Mix_FreeChunk(level_up);
+	snd->unload(sound_melee);
+	snd->unload(sound_hit);
+	snd->unload(sound_die);
+	snd->unload(sound_block);
+
+	for (int i = 0;i < 4; i++)
+	        snd->unload(sound_steps[i]);
+
+	snd->unload(level_up);
 
 	delete haz;
 }

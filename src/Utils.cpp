@@ -1,7 +1,6 @@
 /*
 Copyright © 2011-2012 Clint Bellanger
 Copyright © 2012 Stefan Beller
-Copyright © 2013 Henrik Andersson
 
 This file is part of FLARE.
 
@@ -362,26 +361,4 @@ bool checkPixel(Point px, SDL_Surface *surface) {
 	SDL_UnlockSurface(surface);
 
 	return true;
-}
-
-Mix_Chunk *loadSfx(const string &filename, const string &errormessage)
-{
-	if (AUDIO && SOUND_VOLUME) {
-		const string realfilename = mods->locate(filename);
-		Mix_Chunk * sound = Mix_LoadWAV(realfilename.c_str());
-		if (!sound)
-			fprintf(stderr, "%s: Loading sound %s (%s) failed: %s \n", errormessage.c_str(), realfilename.c_str(), filename.c_str(), Mix_GetError());
-		return sound;
-	} else {
-		return NULL;
-	}
-}
-
-int playSfx(Mix_Chunk *sfx)
-{
-	if (AUDIO && SOUND_VOLUME && sfx) {
-		return Mix_PlayChannel(-1, sfx, 0);
-	} else {
-		return -1;
-	}
 }

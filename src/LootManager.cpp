@@ -1,6 +1,7 @@
 /*
 Copyright © 2011-2012 Clint Bellanger
 Copyright © 2012 Stefan Beller
+Copyright © 2013 Henrik Andersson
 
 This file is part of FLARE.
 
@@ -91,13 +92,13 @@ LootManager::LootManager(ItemManager *_items, MapRenderer *_map, StatBlock *_her
 		infile.close();
 	} else fprintf(stderr, "Unable to open engine/loot.txt!\n");
 
-	loot_flip = NULL;
+	loot_flip = 0;
 
 	// reset current map loot
 	loot.clear();
 
 	loadGraphics();
-	loot_flip = loadSfx("soundfx/flying_loot.ogg", "LootManager dropping loot");
+	loot_flip = snd->load("soundfx/flying_loot.ogg", "LootManager dropping loot");
 
 	full_msg = false;
 
@@ -305,7 +306,7 @@ void LootManager::addLoot(ItemStack stack, Point pos) {
 	ld.loadAnimation(animationname);
 	ld.currency = 0;
 	loot.push_back(ld);
-	playSfx(loot_flip);
+	snd->play(loot_flip);
 }
 
 void LootManager::addCurrency(int count, Point pos) {
@@ -328,7 +329,7 @@ void LootManager::addCurrency(int count, Point pos) {
 
 	ld.currency = count;
 	loot.push_back(ld);
-	playSfx(loot_flip);
+	snd->play(loot_flip);
 }
 
 /**
@@ -481,7 +482,7 @@ LootManager::~LootManager() {
 
 	anim->cleanUp();
 
-	Mix_FreeChunk(loot_flip);
+	snd->unload(loot_flip);
 
 	lootManager = 0;
 	delete tip;

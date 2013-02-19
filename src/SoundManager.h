@@ -1,5 +1,4 @@
 /*
-Copyright © 2011-2012 Clint Bellanger
 Copyright © 2013 Henrik Andersson
 
 This file is part of FLARE.
@@ -17,23 +16,41 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 */
 
 /**
-SharedResources
+ * class SoundManager
+ */
 
-"Global" sort of system resources that are used by most game classes.
-Only one instance of these classes are needed by the engine.
-Generic objects only. Game-specific objects don't belong here.
-Created and destroyed by main.cpp
-**/
 
-#include "SharedResources.h"
+#pragma once
+#ifndef SOUND_MANAGER_H
+#define SOUND_MANAGER_H
 
-AnimationManager *anim;
-ImageManager *imag;
-SDL_Surface *screen;
-ModManager *mods;
-MessageEngine *msg;
-InputState *inpt;
-FontEngine *font;
-CombatText *comb;
-SoundManager *snd;
-SDL_Joystick *joy;
+
+#include <SDL.h>
+#include <SDL_image.h>
+#include <SDL_mixer.h>
+
+#include <map>
+#include <string>
+#include <stdint.h>
+#include <vector>
+
+class SoundManager {
+public:
+  typedef unsigned long SoundID;
+
+  SoundManager();
+  ~SoundManager();
+
+  SoundManager::SoundID load(const std::string& filename, const std::string& errormessage);
+  void unload(SoundManager::SoundID);
+
+  int play(SoundManager::SoundID);
+
+private:
+  typedef std::map<SoundID, class Sound *> SoundMap;
+  typedef SoundMap::iterator SoundMapIterator;
+
+  SoundMap sounds;
+};
+
+#endif

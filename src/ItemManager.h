@@ -1,6 +1,7 @@
 /*
 Copyright © 2011-2012 Clint Bellanger
 Copyright © 2012 Igor Paliychuk
+Copyright © 2013 Henrik Andersson
 
 This file is part of FLARE.
 
@@ -190,7 +191,7 @@ private:
 	SDL_Surface *icons;
 	SDL_Rect src;
 	SDL_Rect dest;
-	Mix_Chunk *sfx[12];
+	SoundManager::SoundID sfx[12];
 
 	void load(const std::string& filename);
 	void loadTypes(const std::string& filename);

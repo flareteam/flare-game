@@ -115,13 +115,4 @@ SDL_Surface* createAlphaSurface(int width, int height);
  */
 SDL_Surface* createSurface(int width, int height);
 
-/**
- * @brief loadSfx loads an sfx from the given filename
- * @param filename the filename still to be passed to mods->locate
- * @param errormessage an additional errormessage about where the call to loadSfx failed.
- * @return a Mix_Chunk or NULL (on failure or if AUDIO or SOUND_VOLUME is 0)
- */
-Mix_Chunk *loadSfx(const std::string &filename, const std::string &errormessage);
-int playSfx(Mix_Chunk *snd);
-
 #endif

@@ -1,6 +1,7 @@
 /*
 Copyright © 2011-2012 Clint Bellanger
 Copyright © 2012 Igor Paliychuk
+Copyright © 2013 Henrik Andersson
 
 This file is part of FLARE.
 
@@ -29,6 +30,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "Entity.h"
 #include "SharedResources.h"
+#include "SoundManager.h"
 #include "Utils.h"
 
 #include <SDL.h>
@@ -74,12 +76,12 @@ private:
 	bool lockShoot;
 	bool animFwd;
 
-	Mix_Chunk *sound_melee;
-	Mix_Chunk *sound_hit;
-	Mix_Chunk *sound_die;
-	Mix_Chunk *sound_block;
-	Mix_Chunk *sound_steps[4];
-	Mix_Chunk *level_up;
+	SoundManager::SoundID sound_melee;
+	SoundManager::SoundID sound_hit;
+	SoundManager::SoundID sound_die;
+	SoundManager::SoundID sound_block;
+	SoundManager::SoundID sound_steps[4];
+	SoundManager::SoundID level_up;
 
 	void setAnimation(std::string name);
 	std::vector<AnimationSet*> animsets; // hold the animations for all equipped items in the right order of drawing.

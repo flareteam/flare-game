@@ -1,5 +1,6 @@
 /*
 Copyright © 2011-2012 Clint Bellanger
+Copyright © 2013 Henrik Andersson
 
 This file is part of FLARE.
 
@@ -77,8 +78,8 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 	, pause(false)
 	, menus_open(false)
 	, drop_stack(ItemStack())
-	, sfx_open(NULL)
-	, sfx_close(NULL)
+	, sfx_open(0)
+	, sfx_close(0)
 {
 	loadIcons();
 
@@ -206,8 +207,8 @@ void MenuManager::loadIcons() {
 }
 
 void MenuManager::loadSounds() {
-	sfx_open = loadSfx("soundfx/inventory/inventory_page.ogg", "MenuManager open tab");
-	sfx_close = loadSfx("soundfx/inventory/inventory_book.ogg", "MenuManager close tab");
+	sfx_open = snd->load("soundfx/inventory/inventory_page.ogg", "MenuManager open tab");
+	sfx_close = snd->load("soundfx/inventory/inventory_book.ogg", "MenuManager close tab");
 }
 
 
@@ -300,7 +301,7 @@ void MenuManager::logic() {
 			closeRight(false);
 			act->requires_attention[MENU_INVENTORY] = false;
 			inv->visible = true;
-			playSfx(sfx_open);
+			snd->play(sfx_open);
 		}
 
 	}
@@ -315,7 +316,7 @@ void MenuManager::logic() {
 			closeRight(false);
 			act->requires_attention[MENU_POWERS] = false;
 			pow->visible = true;
-			playSfx(sfx_open);
+			snd->play(sfx_open);
 		}
 	}
 	act->requires_attention[MENU_POWERS] = pow->getUnspent() > 0;
@@ -330,7 +331,7 @@ void MenuManager::logic() {
 			closeLeft(false);
 			act->requires_attention[MENU_CHARACTER] = false;
 			chr->visible = true;
-			playSfx(sfx_open);
+			snd->play(sfx_open);
 			// Make sure the stat list isn't scrolled when we open the character menu
 			inpt->resetScroll();
 		}
@@ -347,7 +348,7 @@ void MenuManager::logic() {
 			closeLeft(false);
 			act->requires_attention[MENU_LOG] = false;
 			log->visible = true;
-			playSfx(sfx_open);
+			snd->play(sfx_open);
 			// Make sure the log isn't scrolled when we open the log menu
 			inpt->resetScroll();
 		}
@@ -762,7 +763,7 @@ void MenuManager::closeLeft(bool play_sound) {
 		exit->visible = false;
 		stash->visible = false;
 
-		if (play_sound) playSfx(sfx_close);
+		if (play_sound) snd->play(sfx_close);
 	}
 }
 
@@ -773,7 +774,7 @@ void MenuManager::closeRight(bool play_sound) {
 		talker->visible = false;
 		exit->visible = false;
 
-		if (play_sound) playSfx(sfx_close);
+		if (play_sound) snd->play(sfx_close);
 	}
 }
 
@@ -799,7 +800,7 @@ MenuManager::~MenuManager() {
 	delete effects;
 	delete stash;
 
-	Mix_FreeChunk(sfx_open);
-	Mix_FreeChunk(sfx_close);
+       	snd->unload(sfx_open);
+	snd->unload(sfx_close);
 	SDL_FreeSurface(icons);
 }

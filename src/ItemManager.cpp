@@ -2,6 +2,7 @@
 Copyright © 2011-2012 Clint Bellanger
 Copyright © 2012 Igor Paliychuk
 Copyright © 2012 Stefan Beller
+Copyright © 2013 Henrik Andersson
 
 This file is part of FLARE.
 
@@ -389,18 +390,18 @@ void ItemManager::loadSets(const string& filename) {
 void ItemManager::loadSounds() {
 	memset(sfx, 0, sizeof(sfx));
 
-	sfx[SFX_BOOK] = loadSfx("soundfx/inventory/inventory_book.ogg","ItemManager books");
-	sfx[SFX_CLOTH] = loadSfx("soundfx/inventory/inventory_cloth.ogg", "ItemManager cloths");
-	sfx[SFX_COINS] = loadSfx("soundfx/inventory/inventory_coins.ogg", "ItemManager coins");
-	sfx[SFX_GEM] = loadSfx("soundfx/inventory/inventory_gem.ogg", "ItemManager gems");
-	sfx[SFX_LEATHER] = loadSfx("soundfx/inventory/inventory_leather.ogg", "ItemManager leather");
-	sfx[SFX_METAL] = loadSfx("soundfx/inventory/inventory_metal.ogg", "ItemManager metal");
-	sfx[SFX_PAGE] = loadSfx("soundfx/inventory/inventory_page.ogg", "ItemManager page");
-	sfx[SFX_MAILLE] = loadSfx("soundfx/inventory/inventory_maille.ogg", "ItemManager maille");
-	sfx[SFX_OBJECT] = loadSfx("soundfx/inventory/inventory_object.ogg", "ItemManager objects");
-	sfx[SFX_HEAVY] = loadSfx("soundfx/inventory/inventory_heavy.ogg", "ItemManager heavy");
-	sfx[SFX_WOOD] = loadSfx("soundfx/inventory/inventory_wood.ogg", "ItemManager wood");
-	sfx[SFX_POTION] = loadSfx("soundfx/inventory/inventory_potion.ogg", "ItemManager potions");
+	sfx[SFX_BOOK] = snd->load("soundfx/inventory/inventory_book.ogg","ItemManager books");
+	sfx[SFX_CLOTH] = snd->load("soundfx/inventory/inventory_cloth.ogg", "ItemManager cloths");
+	sfx[SFX_COINS] = snd->load("soundfx/inventory/inventory_coins.ogg", "ItemManager coins");
+	sfx[SFX_GEM] = snd->load("soundfx/inventory/inventory_gem.ogg", "ItemManager gems");
+	sfx[SFX_LEATHER] = snd->load("soundfx/inventory/inventory_leather.ogg", "ItemManager leather");
+	sfx[SFX_METAL] = snd->load("soundfx/inventory/inventory_metal.ogg", "ItemManager metal");
+	sfx[SFX_PAGE] = snd->load("soundfx/inventory/inventory_page.ogg", "ItemManager page");
+	sfx[SFX_MAILLE] = snd->load("soundfx/inventory/inventory_maille.ogg", "ItemManager maille");
+	sfx[SFX_OBJECT] = snd->load("soundfx/inventory/inventory_object.ogg", "ItemManager objects");
+	sfx[SFX_HEAVY] = snd->load("soundfx/inventory/inventory_heavy.ogg", "ItemManager heavy");
+	sfx[SFX_WOOD] = snd->load("soundfx/inventory/inventory_wood.ogg", "ItemManager wood");
+	sfx[SFX_POTION] = snd->load("soundfx/inventory/inventory_potion.ogg", "ItemManager potions");
 }
 
 /**
@@ -451,11 +452,11 @@ void ItemManager::renderIcon(ItemStack stack, int x, int y, int size) {
 
 void ItemManager::playSound(int item) {
 	if (items[item].sfx != SFX_NONE)
-		playSfx(sfx[items[item].sfx]);
+		snd->play(sfx[items[item].sfx]);
 }
 
 void ItemManager::playCoinsSound() {
-	playSfx(sfx[SFX_COINS]);
+	snd->play(sfx[SFX_COINS]);
 }
 
 TooltipData ItemManager::getShortTooltip(ItemStack stack) {
@@ -673,7 +674,7 @@ ItemManager::~ItemManager() {
 	SDL_FreeSurface(icons);
 
 	for (int i=0; i<12; i++) {
-		Mix_FreeChunk(sfx[i]);
+		snd->unload(sfx[i]);
 	}
 }
 
