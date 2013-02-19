@@ -1,6 +1,7 @@
 /*
 Copyright © 2011-2012 Clint Bellanger
 Copyright © 2012 Stefan Beller
+Copyright © 2013 Henrik Andersson
 
 This file is part of FLARE.
 
@@ -40,8 +41,7 @@ MapRenderer::MapRenderer(CampaignManager *_camp)
  , tip(new WidgetTooltip())
  , tip_pos(Point())
  , show_tooltip(false)
- , sfx(NULL)
- , sfx_filename("")
+ , sfx(0)
  , events(vector<Map_Event>())
  , background(NULL)
  , fringe(NULL)
@@ -78,13 +78,16 @@ void MapRenderer::clearEvents() {
 }
 
 void MapRenderer::playSFX(string filename) {
-	// only load from file if the requested soundfx isn't already loaded
-	if (filename != sfx_filename) {
-		Mix_FreeChunk(sfx);
-		sfx = loadSfx(filename, "MapRenderer background music");
-		sfx_filename = filename;
-	}
-	playSfx(sfx);
+        SoundManager::SoundID sid = sfx;
+
+	sid = snd->load(filename, "MapRenderer background music");
+
+	if (sid != sfx)
+	  snd->unload(sfx);
+
+	sfx = sid;
+
+	snd->play(sfx);
 }
 
 void MapRenderer::push_enemy_group(Map_Group g) {
@@ -1318,7 +1321,7 @@ MapRenderer::~MapRenderer() {
 		Mix_HaltMusic();
 		Mix_FreeMusic(music);
 	}
-	Mix_FreeChunk(sfx);
+	snd->unload(sfx);
 
 	tip_buf.clear();
 	clearLayers();

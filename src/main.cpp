@@ -1,5 +1,6 @@
 /*
 Copyright © 2011-2012 Clint Bellanger
+Copyright © 2013 Henrik Andersson
 
 This file is part of FLARE.
 
@@ -102,6 +103,8 @@ static void init() {
 		AUDIO = false;
 	}
 
+	snd = new SoundManager();
+
 	// initialize Joysticks
 	if(SDL_NumJoysticks() == 1) {
 		printf("1 joystick was found:\n");
@@ -173,7 +176,7 @@ static void cleanup() {
 	delete inpt;
 	delete mods;
 	delete msg;
-
+	delete snd;
 
 	SDL_FreeSurface(screen);
 	SDL_FreeSurface(titlebar_icon);

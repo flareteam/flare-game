@@ -2,6 +2,7 @@
 Copyright © 2011-2012 Clint Bellanger
 Copyright © 2012 Igor Paliychuk
 Copyright © 2012 Stefan Beller
+Copyright © 2013 Henrik Andersson
 
 This file is part of FLARE.
 
@@ -272,7 +273,6 @@ private:
 	void loadPowers(const std::string& filename);
 
 	int loadSFX(const std::string& filename);
-	std::vector<std::string> sfx_filenames;
 
 	int calcDirection(int origin_x, int origin_y, int target_x, int target_y);
 	Point limitRange(int range, Point src, Point target);
@@ -313,7 +313,7 @@ public:
 	std::queue<Map_Enemy> enemies; // output; read by PowerManager
 
 	// shared sounds for power special effects
-	std::vector<Mix_Chunk*> sfx;
+	std::vector<SoundManager::SoundID> sfx;
 
 	std::vector<int> used_items;
 	std::vector<int> used_equipped_items;

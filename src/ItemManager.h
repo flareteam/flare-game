@@ -1,6 +1,7 @@
 /*
 Copyright © 2011-2012 Clint Bellanger
 Copyright © 2012 Igor Paliychuk
+Copyright © 2013 Henrik Andersson
 
 This file is part of FLARE.
 
@@ -47,20 +48,6 @@ const int REQUIRES_MENT = 1;
 const int REQUIRES_OFF = 2;
 const int REQUIRES_DEF = 3;
 
-const int SFX_NONE = -1;
-const int SFX_BOOK = 0;
-const int SFX_CLOTH = 1;
-const int SFX_COINS = 2;
-const int SFX_GEM = 3;
-const int SFX_LEATHER = 4;
-const int SFX_METAL = 5;
-const int SFX_PAGE = 6;
-const int SFX_MAILLE = 7;
-const int SFX_OBJECT = 8;
-const int SFX_HEAVY = 9;
-const int SFX_WOOD = 10;
-const int SFX_POTION = 11;
-
 const int ITEM_QUALITY_LOW = 0;
 const int ITEM_QUALITY_NORMAL = 1;
 const int ITEM_QUALITY_HIGH = 2;
@@ -101,7 +88,7 @@ public:
 	int req_val;          // 1-5 (used with req_stat)
 	std::vector<std::string> bonus_stat;   // stat to increase/decrease e.g. hp, accuracy, speed
 	std::vector<int> bonus_val;       // amount to increase (used with bonus_stat)
-	int sfx;              // the item sound when it hits the floor or inventory, etc
+	SoundManager::SoundID sfx;        // the item sound when it hits the floor or inventory, etc
 	std::string gfx;           // the sprite layer shown when this item is equipped
 	std::string loot_animation;// the flying loot animation for this item
 	int power;            // this item can be dragged to the action bar and used as a power
@@ -135,7 +122,7 @@ public:
 	, abs_max(0)
 	, req_stat(0)
 	, req_val(0)
-	, sfx(SFX_NONE)
+	, sfx(0)
 	, gfx("")
 	, loot_animation("")
 	, power(0)
@@ -185,12 +172,18 @@ public:
 	bool operator > (const ItemStack &param) const;
 };
 
+enum ItemManagerSfx {
+  SFX_COINS = 0,
+
+  SFX_SIZE
+};
+
 class ItemManager {
 private:
 	SDL_Surface *icons;
 	SDL_Rect src;
 	SDL_Rect dest;
-	Mix_Chunk *sfx[12];
+	SoundManager::SoundID sfx[SFX_SIZE];
 
 	void load(const std::string& filename);
 	void loadTypes(const std::string& filename);

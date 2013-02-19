@@ -1,5 +1,6 @@
 /*
 Copyright © 2011-2012 Clint Bellanger
+Copyright © 2013 Henrik Andersson
 
 This file is part of FLARE.
 
@@ -76,8 +77,8 @@ public:
 	int stock_count;
 
 	// vocals
-	std::vector<Mix_Chunk*> vox_intro;
-	std::vector<Mix_Chunk*> vox_quests;
+	std::vector<SoundManager::SoundID> vox_intro;
+	std::vector<SoundManager::SoundID> vox_quests;
 
 	// story and dialog options
 	// outer vector is addressing the dialog and the inner vector is

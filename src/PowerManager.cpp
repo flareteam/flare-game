@@ -2,6 +2,7 @@
 Copyright © 2011-2012 Clint Bellanger
 Copyright © 2012 Igor Paliychuk
 Copyright © 2012 Stefan Beller
+Copyright © 2013 Henrik Andersson
 
 This file is part of FLARE.
 
@@ -296,20 +297,14 @@ void PowerManager::loadPowers(const std::string& filename) {
  */
 int PowerManager::loadSFX(const string& filename) {
 
-		// first check to make sure the sound isn't already loaded
-		for (unsigned i=0; i<sfx_filenames.size(); i++) {
-			if (sfx_filenames[i] == filename) {
-				return i; // already have this one
-			}
+		SoundManager::SoundID sid = snd->load("soundfx/powers/" + filename, "PowerManager sfx");
+		vector<SoundManager::SoundID>::iterator it = std::find(sfx.begin(), sfx.end(), sid);
+		if (it == sfx.end()) {
+		  sfx.push_back(sid);
+		  return sfx.size() - 1;
 		}
 
-		// we don't already have this sound loaded, so load it
-		Mix_Chunk* sound = loadSfx("soundfx/powers/" + filename, "PowerManager sfx");
-
-		// success; perform record-keeping
-		sfx_filenames.push_back(filename);
-		sfx.push_back(sound);
-		return sfx.size() - 1;
+		return it - sfx.begin();
 }
 
 
@@ -638,22 +633,22 @@ void PowerManager::playSound(int power_index, StatBlock *src_stats) {
 	if (powers[power_index].allow_power_mod) {
 		if (powers[power_index].base_damage == BASE_DAMAGE_MELEE && src_stats->melee_weapon_power != 0
 				&& powers[src_stats->melee_weapon_power].sfx_index != -1) {
-				playSfx(sfx[powers[src_stats->melee_weapon_power].sfx_index]);
+				snd->play(sfx[powers[src_stats->melee_weapon_power].sfx_index]);
 		}
 		else if (powers[power_index].base_damage == BASE_DAMAGE_MENT && src_stats->mental_weapon_power != 0
 				&& powers[src_stats->mental_weapon_power].sfx_index != -1) {
-				playSfx(sfx[powers[src_stats->mental_weapon_power].sfx_index]);
+				snd->play(sfx[powers[src_stats->mental_weapon_power].sfx_index]);
 		}
 		else if (powers[power_index].base_damage == BASE_DAMAGE_RANGED && src_stats->ranged_weapon_power != 0
 				&& powers[src_stats->ranged_weapon_power].sfx_index != -1) {
-				playSfx(sfx[powers[src_stats->ranged_weapon_power].sfx_index]);
+				snd->play(sfx[powers[src_stats->ranged_weapon_power].sfx_index]);
 		}
 		else play_base_sound = true;
 	}
 	else play_base_sound = true;
 
 	if (play_base_sound && powers[power_index].sfx_index != -1)
-		playSfx(sfx[powers[power_index].sfx_index]);
+		snd->play(sfx[powers[power_index].sfx_index]);
 }
 
 bool PowerManager::effect(StatBlock *src_stats, int power_index) {
@@ -1080,9 +1075,8 @@ int PowerManager::getIdFromTag(std::string tag) {
 PowerManager::~PowerManager() {
 
 	for (unsigned i=0; i<sfx.size(); i++) {
-		Mix_FreeChunk(sfx[i]);
+		snd->unload(sfx[i]);
 	}
 	sfx.clear();
-	sfx_filenames.clear();
 }
 

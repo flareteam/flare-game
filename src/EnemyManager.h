@@ -1,6 +1,7 @@
 /*
 Copyright © 2011-2012 Clint Bellanger
 Copyright © 2012 Stefan Beller
+Copyright © 2013 Henrik Andersson
 
 This file is part of FLARE.
 
@@ -42,11 +43,11 @@ private:
 	void loadAnimations(Enemy *e);
 
 	std::vector<std::string> sfx_prefixes;
-	std::vector<Mix_Chunk*> sound_phys;
-	std::vector<Mix_Chunk*> sound_ment;
-	std::vector<Mix_Chunk*> sound_hit;
-	std::vector<Mix_Chunk*> sound_die;
-	std::vector<Mix_Chunk*> sound_critdie;
+	std::vector<SoundManager::SoundID> sound_phys;
+	std::vector<SoundManager::SoundID> sound_ment;
+	std::vector<SoundManager::SoundID> sound_hit;
+	std::vector<SoundManager::SoundID> sound_die;
+	std::vector<SoundManager::SoundID> sound_critdie;
 
 	std::vector<std::string> anim_prefixes;
 	std::vector<std::vector<Animation*> > anim_entities;

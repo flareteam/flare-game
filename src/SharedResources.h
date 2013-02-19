@@ -1,5 +1,6 @@
 /*
 Copyright © 2011-2012 Clint Bellanger
+Copyright © 2013 Henrik Andersson
 
 This file is part of FLARE.
 
@@ -38,6 +39,7 @@ Created and destroyed by main.cpp
 #include "InputState.h"
 #include "MessageEngine.h"
 #include "ModManager.h"
+#include "SoundManager.h"
 
 extern SDL_Surface *screen;
 extern SDL_Joystick *joy;
@@ -49,5 +51,6 @@ extern ImageManager *imag;
 extern InputState *inpt;
 extern MessageEngine *msg;
 extern ModManager *mods;
+extern SoundManager *snd;
 
 #endif
