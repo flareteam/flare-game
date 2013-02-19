@@ -209,6 +209,10 @@ void MenuManager::loadIcons() {
 void MenuManager::loadSounds() {
 	sfx_open = snd->load("soundfx/inventory/inventory_page.ogg", "MenuManager open tab");
 	sfx_close = snd->load("soundfx/inventory/inventory_book.ogg", "MenuManager close tab");
+
+	inv->sfx_close = vendor->sfx_close = stash->sfx_close = sfx_close; 
+	pow->sfx_close = log->sfx_close = chr->sfx_close = sfx_close;
+	
 }
 
 
