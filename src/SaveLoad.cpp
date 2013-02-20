@@ -2,6 +2,7 @@
 Copyright © 2011-2012 Clint Bellanger
 Copyright © 2012 Igor Paliychuk
 Copyright © 2012 Stefan Beller
+Copyright © 2013 Henrik Andersson
 
 This file is part of FLARE.
 
@@ -59,7 +60,10 @@ void GameStatePlay::saveGame() {
 
 	stringstream ss;
 	ss.str("");
-	ss << PATH_USER << "save" << game_slot << ".txt";
+	ss << PATH_USER;
+	if (GAME_PREFIX.length() > 0)
+	  ss << GAME_PREFIX << "_";
+	ss << "save" << game_slot << ".txt";
 
 	outfile.open(ss.str().c_str(), ios::out);
 
@@ -144,7 +148,10 @@ void GameStatePlay::saveGame() {
 
 	// Save stash
 	ss.str("");
-	ss << PATH_USER << "stash.txt";
+	ss << PATH_USER;
+	if (GAME_PREFIX.length() > 0)
+	  ss << GAME_PREFIX << "_";
+	ss << "stash.txt";
 
 	outfile.open(ss.str().c_str(), ios::out);
 
@@ -179,7 +186,10 @@ void GameStatePlay::loadGame() {
 
 	stringstream ss;
 	ss.str("");
-	ss << PATH_USER << "save" << game_slot << ".txt";
+	ss << PATH_USER;
+	if (GAME_PREFIX.length() > 0)
+	  ss << GAME_PREFIX << "_";
+	ss << "save" << game_slot << ".txt";
 
 	if (infile.open(ss.str())) {
 		while (infile.next()) {
@@ -306,20 +316,7 @@ void GameStatePlay::loadGame() {
 	menu->inv->inventory[EQUIPMENT].fillEquipmentSlots();
 
 	// Load stash
-	ss.str("");
-	ss << PATH_USER << "stash.txt";
-
-	if (infile.open(ss.str())) {
-		while (infile.next()) {
-			if (infile.key == "item") {
-				menu->stash->stock.setItems(infile.val);
-			}
-			else if (infile.key == "quantity") {
-				menu->stash->stock.setQuantities(infile.val);
-			}
-		}
-		infile.close();
-	}  else fprintf(stderr, "Unable to open %s!\n", ss.str().c_str());
+	loadStash();
 
 	// initialize vars
 	pc->stats.recalc();
@@ -399,7 +396,10 @@ void GameStatePlay::loadStash() {
 	FileParser infile;
 	stringstream ss;
 	ss.str("");
-	ss << PATH_USER << "stash.txt";
+	ss << PATH_USER;
+	if (GAME_PREFIX.length() > 0)
+	  ss << GAME_PREFIX << "_";
+	ss << "stash.txt";
 
 	if (infile.open(ss.str())) {
 		while (infile.next()) {

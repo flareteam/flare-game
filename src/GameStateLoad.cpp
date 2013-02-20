@@ -267,9 +267,12 @@ void GameStateLoad::readGameSlot(int slot) {
 	if (slot < 0 || slot >= GAME_SLOT_MAX) return;
 
 	// save slots are named save#.txt
+	filename << PATH_USER;
+	if (GAME_PREFIX.length() > 0)
+	  filename << GAME_PREFIX << "_";
 	filename << "save" << (slot+1) << ".txt";
 
-	if (!infile.open(PATH_USER + filename.str())) return;
+	if (!infile.open(filename.str())) return;
 
 	while (infile.next()) {
 
