@@ -201,7 +201,7 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 
 	done = false;
 
-	closeAll(false); // make sure all togglable menus start closed
+	closeAll(); // make sure all togglable menus start closed
 }
 
 /**
@@ -267,9 +267,10 @@ void MenuManager::logic() {
 
 	// only allow the vendor window to be open if the inventory is open
 	if (vendor->visible && !(inv->visible)) {
-	  closeLeft(false);
-	  if (vendor->talker_visible && !(inv->visible))
-		  closeRight(true);
+		snd->play(vendor->sfx_close);
+		closeLeft();
+		if (vendor->talker_visible && !(inv->visible))
+			closeRight();
 	}
 
 	if (!inpt->pressing[INVENTORY] && !inpt->pressing[POWERS] && !inpt->pressing[CHARACTER] && !inpt->pressing[LOG])
@@ -291,7 +292,7 @@ void MenuManager::logic() {
 			inpt->lock[CANCEL] = true;
 			key_lock = true;
 			if (menus_open) {
-				closeAll(true);
+				closeAll();
 			}
 			else {
 				exit->visible = !exit->visible;
@@ -303,10 +304,11 @@ void MenuManager::logic() {
 	if ((inpt->pressing[INVENTORY] && !key_lock && !dragging) || clicking_inventory) {
 		key_lock = true;
 		if (inv->visible) {
-			closeRight(true);
+			snd->play(inv->sfx_close);
+			closeRight();
 		}
 		else {
-			closeRight(false);
+			closeRight();
 			act->requires_attention[MENU_INVENTORY] = false;
 			inv->visible = true;
 			snd->play(inv->sfx_open);
@@ -318,10 +320,10 @@ void MenuManager::logic() {
 	if (((inpt->pressing[POWERS] && !key_lock && !dragging) || clicking_powers) && stats->humanoid) {
 		key_lock = true;
 		if (pow->visible) {
-			closeRight(true);
+			closeRight();
 		}
 		else {
-			closeRight(false);
+			closeRight();
 			act->requires_attention[MENU_POWERS] = false;
 			pow->visible = true;
 			snd->play(pow->sfx_open);
@@ -333,10 +335,11 @@ void MenuManager::logic() {
 	if (((inpt->pressing[CHARACTER] && !key_lock && !dragging) || clicking_character) && stats->humanoid) {
 		key_lock = true;
 		if (chr->visible) {
-			closeLeft(true);
+			snd->play(chr->sfx_close);
+			closeLeft();
 		}
 		else {
-			closeLeft(false);
+			closeLeft();
 			act->requires_attention[MENU_CHARACTER] = false;
 			chr->visible = true;
 			snd->play(chr->sfx_open);
@@ -350,10 +353,11 @@ void MenuManager::logic() {
 	if ((inpt->pressing[LOG] && !key_lock && !dragging) || clicking_log) {
 		key_lock = true;
 		if (log->visible) {
-			closeLeft(true);
+			snd->play(log->sfx_close);
+			closeLeft();
 		}
 		else {
-			closeLeft(false);
+			closeLeft();
 			act->requires_attention[MENU_LOG] = false;
 			log->visible = true;
 			snd->play(log->sfx_open);
@@ -754,15 +758,15 @@ void MenuManager::render() {
 
 }
 
-void MenuManager::closeAll(bool play_sound) {
+void MenuManager::closeAll() {
 	if (!dragging) {
-		closeLeft(play_sound);
-		closeRight(false);
+		closeLeft();
+		closeRight();
 		vendor->talker_visible = false;
 	}
 }
 
-void MenuManager::closeLeft(bool play_sound) {
+void MenuManager::closeLeft() {
 	if (!dragging) {
 		chr->visible = false;
 		log->visible = false;
@@ -770,19 +774,15 @@ void MenuManager::closeLeft(bool play_sound) {
 		talker->visible = false;
 		exit->visible = false;
 		stash->visible = false;
-
-		//if (play_sound) snd->play(sfx_close);
 	}
 }
 
-void MenuManager::closeRight(bool play_sound) {
+void MenuManager::closeRight() {
 	if (!dragging) {
 		inv->visible = false;
 		pow->visible = false;
 		talker->visible = false;
 		exit->visible = false;
-
-		//if (play_sound) snd->play(sfx_close);
 	}
 }
 
