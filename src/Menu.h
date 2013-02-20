@@ -1,5 +1,6 @@
 /*
 Copyright © 2011-2012 kitano
+Copyright © 2013 Henrik Andersson
 
 This file is part of FLARE.
 
@@ -28,6 +29,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include <SDL_image.h>
 #include <string>
+#include "SoundManager.h"
 
 class Menu {
 protected:
@@ -44,6 +46,9 @@ public:
 
 	virtual void align();
 	virtual void render() = 0;
+
+	SoundManager::SoundID sfx_open;
+	SoundManager::SoundID sfx_close;
 };
 
 #endif

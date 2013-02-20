@@ -1,5 +1,6 @@
 /*
 Copyright © 2011-2012 Clint Bellanger
+Copyright © 2013 Henrik Andersson
 
 This file is part of FLARE.
 
@@ -97,6 +98,7 @@ void MenuStash::logic() {
 
 	if (closeButton->checkClick()) {
 		visible = false;
+		snd->play(sfx_close);
 	}
 }
 

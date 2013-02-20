@@ -1,5 +1,6 @@
 /*
 Copyright © 2011-2012 kitano
+Copyright © 2013 Henrik Andersson
 
 This file is part of FLARE.
 
@@ -27,6 +28,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 Menu::Menu()
 	: background(NULL)
 	, visible(false)
+	, sfx_open(0)
+	, sfx_close(0)
 {}
 
 Menu::~Menu() {

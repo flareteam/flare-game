@@ -2,6 +2,7 @@
 Copyright © 2011-2012 Clint Bellanger
 Copyright © 2012 Igor Paliychuk
 Copyright © 2012 Stefan Beller
+Copyright © 2013 Henrik Andersson
 
 This file is part of FLARE.
 
@@ -146,6 +147,7 @@ void MenuInventory::logic() {
 	if (visible) {
 		if (closeButton->checkClick()) {
 			visible = false;
+			snd->play(sfx_close);
 		}
 		if (drag_prev_src == -1) {
 			clearHighlight();
