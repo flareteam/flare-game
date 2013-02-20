@@ -177,6 +177,7 @@ ItemStack MenuVendor::click(InputState * input) {
  * Cancel the dragging initiated by the clic()
  */
 void MenuVendor::itemReturn(ItemStack stack) {
+	items->playSound(stack.item);
 	stock[activetab].itemReturn(stack);
 	saveInventory();
 }
@@ -188,6 +189,7 @@ void MenuVendor::add(ItemStack stack) {
 		stock[VENDOR_SELL][0].quantity = 0;
 		sort(VENDOR_SELL);
 	}
+	items->playSound(stack.item);
 	stock[VENDOR_SELL].add(stack);
 	saveInventory();
 }
