@@ -320,6 +320,7 @@ void MenuManager::logic() {
 	if (((inpt->pressing[POWERS] && !key_lock && !dragging) || clicking_powers) && stats->humanoid) {
 		key_lock = true;
 		if (pow->visible) {
+			snd->play(pow->sfx_close);
 			closeRight();
 		}
 		else {
