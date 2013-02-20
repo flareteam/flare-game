@@ -1,6 +1,7 @@
 /*
 Copyright © 2011-2012 Clint Bellanger
 Copyright © 2012 Stefan Beller
+Copyright © 2013 Henrik Andersson
 
 This file is part of FLARE.
 
@@ -28,6 +29,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "StatBlock.h"
 #include "SharedResources.h"
 #include "UtilsParsing.h"
+#include "LootManager.h"
 
 #include <sstream>
 
@@ -146,7 +148,7 @@ void CampaignManager::rewardItem(ItemStack istack) {
 void CampaignManager::rewardCurrency(int amount) {
 	*currency += amount;
 	addMsg(msg->get("You receive %d %s.", amount, CURRENCY));
-	items->playCoinsSound();
+	LootManager::getInstance()->playCurrencySound();
 }
 
 void CampaignManager::rewardXP(int amount, bool show_message) {

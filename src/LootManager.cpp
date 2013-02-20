@@ -87,18 +87,19 @@ LootManager::LootManager(ItemManager *_items, MapRenderer *_map, StatBlock *_her
 				cr.low = eatFirstInt(infile.val, ',');
 				cr.high = eatFirstInt(infile.val, ',');
 				currency_range.push_back(cr);
+			} else if (infile.key == "sfx_loot") {
+				sfx_loot =  snd->load(eatFirstString(infile.val, ','), "LootManager dropping loot");
+			} else if (infile.key == "sfx_currency") {
+				sfx_currency =  snd->load(eatFirstString(infile.val, ','), "LootManager currency");
 			}
 		}
 		infile.close();
 	} else fprintf(stderr, "Unable to open engine/loot.txt!\n");
 
-	loot_flip = 0;
-
 	// reset current map loot
 	loot.clear();
 
 	loadGraphics();
-	loot_flip = snd->load("soundfx/flying_loot.ogg", "LootManager dropping loot");
 
 	full_msg = false;
 
@@ -146,7 +147,7 @@ void LootManager::logic() {
 			if (it->stack.item > 0)
 				items->playSound(it->stack.item);
 			else
-				items->playCoinsSound();
+				playCurrencySound();
 		}
 	}
 
@@ -306,7 +307,7 @@ void LootManager::addLoot(ItemStack stack, Point pos) {
 	ld.loadAnimation(animationname);
 	ld.currency = 0;
 	loot.push_back(ld);
-	snd->play(loot_flip);
+	snd->play(sfx_loot);
 }
 
 void LootManager::addCurrency(int count, Point pos) {
@@ -329,7 +330,7 @@ void LootManager::addCurrency(int count, Point pos) {
 
 	ld.currency = count;
 	loot.push_back(ld);
-	snd->play(loot_flip);
+	snd->play(sfx_loot);
 }
 
 /**
@@ -462,6 +463,10 @@ void LootManager::addRenders(vector<Renderable> &ren, vector<Renderable> &ren_de
 	}
 }
 
+void LootManager::playCurrencySound() {
+	snd->play(sfx_currency);
+}
+
 LootManager::~LootManager() {
 	// remove all items in the item database
 	for (unsigned int i=0; i < items->items.size(); i++) {
@@ -482,7 +487,8 @@ LootManager::~LootManager() {
 
 	anim->cleanUp();
 
-	snd->unload(loot_flip);
+	snd->unload(sfx_loot);
+	snd->unload(sfx_currency);
 
 	lootManager = 0;
 	delete tip;

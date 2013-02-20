@@ -76,7 +76,8 @@ private:
 	// functions
 	void loadGraphics();
 
-	SoundManager::SoundID loot_flip;
+	SoundManager::SoundID sfx_currency;
+	SoundManager::SoundID sfx_loot;
 
 	// loot refers to ItemManager indices
 	std::vector<Loot> loot;
@@ -86,7 +87,7 @@ private:
 	std::vector<CurrencyRange> currency_range;
 
 	// enemies which should drop loot, but didnt yet.
-	std::vector<const Enemy*> enemiesDroppingLoot;
+	std::vector<const class Enemy*> enemiesDroppingLoot;
 
 public:
 	static LootManager *getInstance();
@@ -98,6 +99,8 @@ public:
 	void logic();
 	void renderTooltips(Point cam);
 	void checkEnemiesForLoot();
+
+	void playCurrencySound();
 
 	// called by enemy, who definitly wants to drop loot.
 	void addEnemyLoot(const Enemy *e);
