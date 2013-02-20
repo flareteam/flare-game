@@ -70,7 +70,6 @@ private:
 	TooltipData tip_buf;
 
 	bool key_lock;
-	void loadSounds();
 	void loadIcons();
 
 	bool dragging;
@@ -114,9 +113,6 @@ public:
 	bool pause;
 	bool menus_open;
 	ItemStack drop_stack;
-
-	SoundManager::SoundID sfx_open;
-	SoundManager::SoundID sfx_close;
 
 	bool requestingExit() { return done; }
 };

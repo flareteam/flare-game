@@ -597,7 +597,7 @@ void GameStatePlay::checkNPCInteraction() {
 			if (!npcs->npcs[npc_id]->talker)
 				npcs->npcs[npc_id]->playSound(NPC_VOX_INTRO);
 
-			snd->play(menu->sfx_open);
+			snd->play(menu->vendor->sfx_open);
 
 			menu->talker->vendor_visible = false;
 			menu->vendor->talker_visible = false;
