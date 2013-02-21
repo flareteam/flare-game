@@ -163,6 +163,7 @@ bool SHOW_FPS = false;
 int CORPSE_TIMEOUT = 1800;
 bool SELL_WITHOUT_VENDOR = true;
 int AIM_ASSIST = 0;
+std::string GAME_PREFIX = "";
 std::string WINDOW_TITLE = "Flare";
 
 
@@ -370,6 +371,8 @@ void loadMiscSettings() {
 				AIM_ASSIST = toInt(infile.val);
 			} else if (infile.key == "window_title") {
 				WINDOW_TITLE = infile.val;
+			} else if (infile.key == "game_prefix") {
+				GAME_PREFIX = infile.val;
 			}
 
 		}

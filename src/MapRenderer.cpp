@@ -78,12 +78,12 @@ void MapRenderer::clearEvents() {
 }
 
 void MapRenderer::playSFX(string filename) {
-        SoundManager::SoundID sid = sfx;
+	SoundManager::SoundID sid = sfx;
 
 	sid = snd->load(filename, "MapRenderer background music");
 
 	if (sid != sfx)
-	  snd->unload(sfx);
+		snd->unload(sfx);
 
 	sfx = sid;
 

@@ -2,6 +2,7 @@
 Copyright © 2011-2012 Clint Bellanger
 Copyright © 2012 Igor Paliychuk
 Copyright © 2012 Stefan Beller
+Copyright © 2013 Henrik Andersson
 
 This file is part of FLARE.
 
@@ -22,6 +23,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "FileParser.h"
+#include "LootManager.h"
 #include "Menu.h"
 #include "MenuInventory.h"
 #include "PowerManager.h"
@@ -146,6 +148,7 @@ void MenuInventory::logic() {
 	if (visible) {
 		if (closeButton->checkClick()) {
 			visible = false;
+			snd->play(sfx_close);
 		}
 		if (drag_prev_src == -1) {
 			clearHighlight();
@@ -542,7 +545,7 @@ void MenuInventory::removeEquipped(int item) {
  */
 void MenuInventory::addCurrency(int count) {
 	currency += count;
-	items->playCoinsSound();
+	LootManager::getInstance()->playCurrencySound();
 }
 
 /**
@@ -558,7 +561,7 @@ bool MenuInventory::buy(ItemStack stack, int tab) {
 	if( currency >= count) {
 		currency -= count;
 
-		items->playCoinsSound();
+		LootManager::getInstance()->playCurrencySound();
 		return true;
 	}
 	else {
@@ -586,7 +589,7 @@ bool MenuInventory::sell(ItemStack stack) {
 	int value_each = items->items[stack.item].getSellPrice();
 	int value = value_each * stack.quantity;
 	currency += value;
-	items->playCoinsSound();
+	LootManager::getInstance()->playCurrencySound();
 	drag_prev_src = -1;
 	return true;
 }

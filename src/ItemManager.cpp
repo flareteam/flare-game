@@ -82,7 +82,6 @@ ItemManager::ItemManager()
 	item_sets.reserve(5);
 
 	loadAll();
-	loadSounds();
 	loadIcons();
 }
 
@@ -364,11 +363,6 @@ void ItemManager::loadSets(const string& filename) {
 	infile.close();
 }
 
-void ItemManager::loadSounds() {
-	memset(sfx, 0, sizeof(sfx));
-	sfx[SFX_COINS] = snd->load("soundfx/inventory/inventory_coins.ogg", "ItemManager coins");
-}
-
 /**
  * Icon sets
  */
@@ -417,10 +411,6 @@ void ItemManager::renderIcon(ItemStack stack, int x, int y, int size) {
 
 void ItemManager::playSound(int item) {
 	snd->play(items[item].sfx);
-}
-
-void ItemManager::playCoinsSound() {
-	snd->play(sfx[SFX_COINS]);
 }
 
 TooltipData ItemManager::getShortTooltip(ItemStack stack) {
@@ -636,10 +626,6 @@ TooltipData ItemManager::getTooltip(int item, StatBlock *stats, int context) {
 
 ItemManager::~ItemManager() {
 	SDL_FreeSurface(icons);
-
-	for (int i=0; i < SFX_SIZE; i++) {
-		snd->unload(sfx[i]);
-	}
 }
 
 /**
