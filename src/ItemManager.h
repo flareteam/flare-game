@@ -172,24 +172,16 @@ public:
 	bool operator > (const ItemStack &param) const;
 };
 
-enum ItemManagerSfx {
-  SFX_COINS = 0,
-
-  SFX_SIZE
-};
-
 class ItemManager {
 private:
 	SDL_Surface *icons;
 	SDL_Rect src;
 	SDL_Rect dest;
-	SoundManager::SoundID sfx[SFX_SIZE];
 
 	void load(const std::string& filename);
 	void loadTypes(const std::string& filename);
 	void loadSets(const std::string& filename);
 	void loadAll();
-	void loadSounds();
 	void loadIcons();
 
 	SDL_Color color_normal;
@@ -206,7 +198,6 @@ public:
 	~ItemManager();
 	void renderIcon(ItemStack stack, int x, int y, int size);
 	void playSound(int item);
-	void playCoinsSound();
 	TooltipData getTooltip(int item, StatBlock *stats, int context);
 	TooltipData getShortTooltip(ItemStack item);
 	std::string getItemType(std::string _type);

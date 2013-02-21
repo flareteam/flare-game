@@ -588,7 +588,7 @@ void GameStatePlay::checkNPCInteraction() {
 			menu->vendor->setTab(0); // Show the NPC's inventory as opposed to the buyback tab
 			menu->vendor->npc = npcs->npcs[npc_id];
 			menu->vendor->setInventory();
-			menu->closeAll(false);
+			menu->closeAll();
 			menu->talker->visible = false;
 			menu->vendor->visible = true;
 			menu->inv->visible = true;
@@ -597,7 +597,7 @@ void GameStatePlay::checkNPCInteraction() {
 			if (!npcs->npcs[npc_id]->talker)
 				npcs->npcs[npc_id]->playSound(NPC_VOX_INTRO);
 
-			snd->play(menu->sfx_open);
+			snd->play(menu->vendor->sfx_open);
 
 			menu->talker->vendor_visible = false;
 			menu->vendor->talker_visible = false;
@@ -614,7 +614,7 @@ void GameStatePlay::checkNPCInteraction() {
 			}
 			menu->talker->npc = npcs->npcs[npc_id];
 			menu->talker->chooseDialogNode();
-			menu->closeAll(false);
+			menu->closeAll();
 			menu->talker->visible = true;
 			menu->vendor->visible = false;
 			menu->inv->visible = false;
@@ -704,7 +704,7 @@ void GameStatePlay::logic() {
 	// close menus when the player dies, but still allow them to be reopened
 	if (pc->close_menus) {
 		pc->close_menus = false;
-		menu->closeAll(false);
+		menu->closeAll();
 	}
 
 	// these actions occur whether the game is paused or not.
@@ -725,7 +725,7 @@ void GameStatePlay::logic() {
 	// change hero powers on transformation
 	if (pc->setPowers) {
 		pc->setPowers = false;
-		menu->closeAll(false);
+		menu->closeAll();
 		// save ActionBar state and lock slots from removing/replacing power
 		for (int i=0; i<12 ; i++) {
 			menu->act->actionbar[i] = menu->act->hotkeys[i];

@@ -78,8 +78,6 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 	, pause(false)
 	, menus_open(false)
 	, drop_stack(ItemStack())
-	, sfx_open(0)
-	, sfx_close(0)
 {
 	loadIcons();
 
@@ -117,47 +115,66 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 	menus.push_back(stash); // menus[15]
 	tip = new WidgetTooltip();
 
-	// Load the menu positions and alignments from menus/menus.txt
-	std::string align;
+	// Load the menu layout and sound effects from menus/menus.txt
 	FileParser infile;
 	if (infile.open(mods->locate("menus/menus.txt"))) {
+
+		int menu_index = -1;
+
 		while (infile.next()) {
-			infile.val = infile.val + ',';
-			int x = eatFirstInt(infile.val, ',');
-			int y = eatFirstInt(infile.val, ',');
-			int w = eatFirstInt(infile.val, ',');
-			int h = eatFirstInt(infile.val, ',');
-			align = eatFirstString(infile.val, ',');
 
-			int menu_index = -1;
+			if (infile.key == "id") {
 
-			if (infile.key == "hp") menu_index = 0;
-			else if (infile.key == "mp") menu_index = 1;
-			else if (infile.key == "xp") menu_index = 2;
-			else if (infile.key == "effects") menu_index = 3;
-			else if (infile.key == "hudlog") menu_index = 4;
-			else if (infile.key == "actionbar") menu_index = 5;
-			else if (infile.key == "enemy") menu_index = 6;
-			else if (infile.key == "vendor") menu_index = 7;
-			else if (infile.key == "talker") menu_index = 8;
-			else if (infile.key == "exit") menu_index = 9;
-			else if (infile.key == "minimap") menu_index = 10;
-			else if (infile.key == "character") menu_index = 11;
-			else if (infile.key == "inventory") menu_index = 12;
-			else if (infile.key == "powers") menu_index = 13;
-			else if (infile.key == "log") menu_index = 14;
-			else if (infile.key == "stash") menu_index = 15;
+				/* finalize previously parsed menu */
+				if (menu_index != -1)
+					menus[menu_index]->align();
 
-			if (menu_index != -1) {
+				if (infile.val == "hp") menu_index = 0;
+				else if (infile.val == "mp") menu_index = 1;
+				else if (infile.val == "xp") menu_index = 2;
+				else if (infile.val == "effects") menu_index = 3;
+				else if (infile.val == "hudlog") menu_index = 4;
+				else if (infile.val == "actionbar") menu_index = 5;
+				else if (infile.val == "enemy") menu_index = 6;
+				else if (infile.val == "vendor") menu_index = 7;
+				else if (infile.val == "talker") menu_index = 8;
+				else if (infile.val == "exit") menu_index = 9;
+				else if (infile.val == "minimap") menu_index = 10;
+				else if (infile.val == "character") menu_index = 11;
+				else if (infile.val == "inventory") menu_index = 12;
+				else if (infile.val == "powers") menu_index = 13;
+				else if (infile.val == "log") menu_index = 14;
+				else if (infile.val == "stash") menu_index = 15;
+				else menu_index = -1;
+
+			}
+
+			if (menu_index == -1)
+				continue;
+
+			if (infile.key == "layout") {
+
+				infile.val = infile.val + ',';
+				int x = eatFirstInt(infile.val, ',');
+				int y = eatFirstInt(infile.val, ',');
+				int w = eatFirstInt(infile.val, ',');
+				int h = eatFirstInt(infile.val, ',');
+				
 				menus[menu_index]->window_area.x = x;
 				menus[menu_index]->window_area.y = y;
 				menus[menu_index]->window_area.w = w;
 				menus[menu_index]->window_area.h = h;
-				menus[menu_index]->alignment = align;
-				menus[menu_index]->align();
-			}
 
+			} else if (infile.key == "align") {
+				menus[menu_index]->alignment = infile.val;
+			} else if (infile.key == "soundfx_open") {
+				menus[menu_index]->sfx_open = snd->load(infile.val, "MenuManager open tab");
+			} else if (infile.key == "soundfx_close") {
+				menus[menu_index]->sfx_close = snd->load(infile.val, "MenuManager close tab");
+			}
+			
 		}
+
 		infile.close();
 	} else fprintf(stderr, "Unable to open menus/menus.txt!\n");
 
@@ -182,12 +199,9 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 	drop_stack.item = 0;
 	drop_stack.quantity = 0;
 
-
-	loadSounds();
-
 	done = false;
 
-	closeAll(false); // make sure all togglable menus start closed
+	closeAll(); // make sure all togglable menus start closed
 }
 
 /**
@@ -205,16 +219,6 @@ void MenuManager::loadIcons() {
 		SDL_FreeSurface(cleanup);
 	}
 }
-
-void MenuManager::loadSounds() {
-	sfx_open = snd->load("soundfx/inventory/inventory_page.ogg", "MenuManager open tab");
-	sfx_close = snd->load("soundfx/inventory/inventory_book.ogg", "MenuManager close tab");
-
-	inv->sfx_close = vendor->sfx_close = stash->sfx_close = sfx_close; 
-	pow->sfx_close = log->sfx_close = chr->sfx_close = sfx_close;
-	
-}
-
 
 void MenuManager::renderIcon(int icon_id, int x, int y) {
 	SDL_Rect src;
@@ -263,9 +267,10 @@ void MenuManager::logic() {
 
 	// only allow the vendor window to be open if the inventory is open
 	if (vendor->visible && !(inv->visible)) {
-	  closeLeft(false);
-	  if (vendor->talker_visible && !(inv->visible))
-		  closeRight(true);
+		snd->play(vendor->sfx_close);
+		closeLeft();
+		if (vendor->talker_visible && !(inv->visible))
+			closeRight();
 	}
 
 	if (!inpt->pressing[INVENTORY] && !inpt->pressing[POWERS] && !inpt->pressing[CHARACTER] && !inpt->pressing[LOG])
@@ -287,7 +292,7 @@ void MenuManager::logic() {
 			inpt->lock[CANCEL] = true;
 			key_lock = true;
 			if (menus_open) {
-				closeAll(true);
+				closeAll();
 			}
 			else {
 				exit->visible = !exit->visible;
@@ -299,13 +304,14 @@ void MenuManager::logic() {
 	if ((inpt->pressing[INVENTORY] && !key_lock && !dragging) || clicking_inventory) {
 		key_lock = true;
 		if (inv->visible) {
-			closeRight(true);
+			snd->play(inv->sfx_close);
+			closeRight();
 		}
 		else {
-			closeRight(false);
+			closeRight();
 			act->requires_attention[MENU_INVENTORY] = false;
 			inv->visible = true;
-			snd->play(sfx_open);
+			snd->play(inv->sfx_open);
 		}
 
 	}
@@ -314,13 +320,14 @@ void MenuManager::logic() {
 	if (((inpt->pressing[POWERS] && !key_lock && !dragging) || clicking_powers) && stats->humanoid) {
 		key_lock = true;
 		if (pow->visible) {
-			closeRight(true);
+			snd->play(pow->sfx_close);
+			closeRight();
 		}
 		else {
-			closeRight(false);
+			closeRight();
 			act->requires_attention[MENU_POWERS] = false;
 			pow->visible = true;
-			snd->play(sfx_open);
+			snd->play(pow->sfx_open);
 		}
 	}
 	act->requires_attention[MENU_POWERS] = pow->getUnspent() > 0;
@@ -329,13 +336,14 @@ void MenuManager::logic() {
 	if (((inpt->pressing[CHARACTER] && !key_lock && !dragging) || clicking_character) && stats->humanoid) {
 		key_lock = true;
 		if (chr->visible) {
-			closeLeft(true);
+			snd->play(chr->sfx_close);
+			closeLeft();
 		}
 		else {
-			closeLeft(false);
+			closeLeft();
 			act->requires_attention[MENU_CHARACTER] = false;
 			chr->visible = true;
-			snd->play(sfx_open);
+			snd->play(chr->sfx_open);
 			// Make sure the stat list isn't scrolled when we open the character menu
 			inpt->resetScroll();
 		}
@@ -346,13 +354,14 @@ void MenuManager::logic() {
 	if ((inpt->pressing[LOG] && !key_lock && !dragging) || clicking_log) {
 		key_lock = true;
 		if (log->visible) {
-			closeLeft(true);
+			snd->play(log->sfx_close);
+			closeLeft();
 		}
 		else {
-			closeLeft(false);
+			closeLeft();
 			act->requires_attention[MENU_LOG] = false;
 			log->visible = true;
-			snd->play(sfx_open);
+			snd->play(log->sfx_open);
 			// Make sure the log isn't scrolled when we open the log menu
 			inpt->resetScroll();
 		}
@@ -750,15 +759,15 @@ void MenuManager::render() {
 
 }
 
-void MenuManager::closeAll(bool play_sound) {
+void MenuManager::closeAll() {
 	if (!dragging) {
-		closeLeft(play_sound);
-		closeRight(false);
+		closeLeft();
+		closeRight();
 		vendor->talker_visible = false;
 	}
 }
 
-void MenuManager::closeLeft(bool play_sound) {
+void MenuManager::closeLeft() {
 	if (!dragging) {
 		chr->visible = false;
 		log->visible = false;
@@ -766,19 +775,15 @@ void MenuManager::closeLeft(bool play_sound) {
 		talker->visible = false;
 		exit->visible = false;
 		stash->visible = false;
-
-		if (play_sound) snd->play(sfx_close);
 	}
 }
 
-void MenuManager::closeRight(bool play_sound) {
+void MenuManager::closeRight() {
 	if (!dragging) {
 		inv->visible = false;
 		pow->visible = false;
 		talker->visible = false;
 		exit->visible = false;
-
-		if (play_sound) snd->play(sfx_close);
 	}
 }
 
@@ -804,7 +809,5 @@ MenuManager::~MenuManager() {
 	delete effects;
 	delete stash;
 
-       	snd->unload(sfx_open);
-	snd->unload(sfx_close);
 	SDL_FreeSurface(icons);
 }
