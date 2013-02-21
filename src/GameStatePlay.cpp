@@ -82,6 +82,7 @@ GameStatePlay::GameStatePlay()
 	, npc_id(-1)
 	, color_normal(font->getColor("menu_normal"))
 	, game_slot(0)
+	, event_npc(false)
 {
 	hasMusic = true;
 	// GameEngine scope variables
@@ -561,8 +562,14 @@ void GameStatePlay::checkNPCInteraction() {
 		interact_distance = (int)calcDist(pc->stats.pos, npcs->npcs[npc_id]->pos);
 	}
 
+	if (map->npc) {
+		npc_id = npcs->getID(map->event_npc);
+		event_npc = true;
+		
+	}
+
 	// if close enough to the NPC, open the appropriate interaction screen
-	if (npc_click != -1 && interact_distance < max_interact_distance && pc->stats.alive && pc->stats.humanoid) {
+	if (npc_click != -1 && interact_distance < max_interact_distance && pc->stats.alive && pc->stats.humanoid || map->npc) {
 		if (inpt->pressing[MAIN1]) inpt->lock[MAIN1] = true;
 		if (inpt->pressing[ACCEPT]) inpt->lock[ACCEPT] = true;
 
@@ -577,10 +584,11 @@ void GameStatePlay::checkNPCInteraction() {
 			menu->talker->vendor_visible = false;
 
 			npcs->npcs[npc_id]->playSound(NPC_VOX_INTRO);
+
 		}
 	}
 
-	if (npc_id != -1 && interact_distance < max_interact_distance && pc->stats.alive && pc->stats.humanoid) {
+	if (npc_id != -1 && interact_distance < max_interact_distance && pc->stats.alive && pc->stats.humanoid || map->npc) {
 
 		if (menu->talker->vendor_visible && !menu->vendor->talker_visible) {
 
@@ -622,10 +630,13 @@ void GameStatePlay::checkNPCInteraction() {
 			menu->talker->vendor_visible = false;
 			menu->vendor->talker_visible = false;
 		}
+		
+		if (map->npc) map->npc = false;
+
 	}
 
 	// check for walking away from an NPC
-	if (npc_id != -1) {
+	if (npc_id != -1 && !event_npc) {
 		if (interact_distance > max_interact_distance || !pc->stats.alive) {
 			menu->vendor->npc = NULL;
 			menu->talker->npc = NULL;
@@ -635,6 +646,9 @@ void GameStatePlay::checkNPCInteraction() {
 			}
 			npc_id = -1;
 		}
+	}
+	else if (!menu->vendor->visible && !menu->talker->visible || npc_click != -1) { 
+		event_npc = false;
 	}
 
 }

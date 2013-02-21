@@ -94,6 +94,12 @@ void NPCManager::logic() {
 	}
 }
 
+int NPCManager::getID(std::string npcName) {
+	for (unsigned i=0; i<npcs.size(); i++) {
+		if (npcs[i]->filename == npcName) return i;
+	}
+}
+
 int NPCManager::checkNPCClick(Point mouse, Point cam) {
 	Point p;
 	SDL_Rect r;

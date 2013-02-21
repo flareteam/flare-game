@@ -286,6 +286,10 @@ public:
 
 	// enemy clear
 	bool enemies_cleared;
+
+	// event talker
+	bool npc;
+	std::string event_npc;
 };
 
 

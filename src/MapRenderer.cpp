@@ -70,6 +70,7 @@ MapRenderer::MapRenderer(CampaignManager *_camp)
  , stash(false)
  , stash_pos(Point())
  , enemies_cleared(false)
+ , npc(false)
 {
 }
 
@@ -538,6 +539,10 @@ int MapRenderer::load(string filename) {
 
 						repeat_val = infile.nextValue();
 					}
+				}
+				else if (infile.key == "npc") {
+					new_npc.id = infile.val;
+					e->s = infile.val;
 				}
 			}
 		}
@@ -1308,6 +1313,10 @@ bool MapRenderer::executeEvent(Map_Event &ev) {
 			stash = true;
 			stash_pos.x = ev.location.x * UNITS_PER_TILE + UNITS_PER_TILE/2;
 			stash_pos.y = ev.location.y * UNITS_PER_TILE + UNITS_PER_TILE/2;
+		}
+		else if (ec->type == "npc") {
+			npc = true;
+			event_npc = ec->s;
 		}
 	}
 	if (ev.type == "run_once" || ev.type == "on_load" || ev.type == "on_clear" || destroy_event)

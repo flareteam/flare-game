@@ -120,6 +120,7 @@ void NPC::load(const string& npc_id, int hero_level) {
 				dialog.back().push_back(e);
 			}
 			else {
+				filename = npc_id;
 				if (infile.key == "name") {
 					name = msg->get(infile.val);
 				}
