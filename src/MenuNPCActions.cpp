@@ -92,8 +92,8 @@ void MenuNPCActions::update() {
 	}
 
 	/* set action menu position */
-	window_area.x = VIEW_W_HALF - (w / 2);;
-	window_area.y = 40;
+	window_area.x = VIEW_W_HALF - (w / 2);
+	window_area.y = max(40, VIEW_H_HALF - h - (int)(UNITS_PER_TILE*1.5));
 	window_area.w = w;
 	window_area.h = h;
 
