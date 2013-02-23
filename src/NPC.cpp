@@ -116,6 +116,9 @@ void NPC::load(const string& npc_id, int hero_level) {
 				else if (infile.key == "voice") {
 					e.x = loadSound(infile.val, NPC_VOX_QUEST);
 				}
+				else if (infile.key == "topic") {
+					e.s = infile.val;
+				}
 
 				dialog.back().push_back(e);
 			}
@@ -236,47 +239,66 @@ bool NPC::playSound(int type, int id) {
 }
 
 /**
- * NPCs have a list of dialog nodes
- * The player wants to begin dialog with this NPC
- * Determine the correct dialog node by the place in the story line
+ * get list of available dialogs with NPC
  */
-int NPC::chooseDialogNode() {
+void NPC::getDialogNodes(std::vector<int> &result) {
+	result.clear();
 	if (!talker)
-		return NPC_NO_DIALOG_AVAIL;
+		return;
 
-	// NPC dialog nodes are listed in timeline order
-	// So check from the bottom of the list up
-	// First node we reach that meets requirements is the correct node
 	for (int i=dialog.size()-1; i>=0; i--) {
+		bool is_available = true;
 		for (unsigned int j=0; j<dialog[i].size(); j++) {
 
-			// check requirements
-			// break (skip to next dialog node) if any requirement fails
-			// if we reach an event that is not a requirement, succeed
-
 			if (dialog[i][j].type == "requires_status") {
-				if (!map->camp->checkStatus(dialog[i][j].s)) break;
+				if (map->camp->checkStatus(dialog[i][j].s))
+					continue;
+				is_available = false;
+				break;
 			}
 			else if (dialog[i][j].type == "requires_not") {
-				if (map->camp->checkStatus(dialog[i][j].s)) break;
+				if (!map->camp->checkStatus(dialog[i][j].s)) 
+					continue;
+				is_available = false;
+				break;
 			}
 			else if (dialog[i][j].type == "requires_item") {
-				if (!map->camp->checkItem(dialog[i][j].x)) break;
+				if (map->camp->checkItem(dialog[i][j].x))
+					continue;
+				is_available = false;
+				break;
 			}
 			else if (dialog[i][j].type == "requires_level") {
-				if (map->camp->hero->level < dialog[i][j].x) break;
+				if (!map->camp->hero->level < dialog[i][j].x)
+					continue;
+				is_available = false;
+				break;
 			}
 			else if (dialog[i][j].type == "requires_not_level") {
-				if (map->camp->hero->level >= dialog[i][j].x) break;
-			}
-			else {
-				return i;
+				if (!map->camp->hero->level >= dialog[i][j].x) 
+					continue;
+				is_available = false;
+				break;
 			}
 		}
+
+		if (is_available) {
+			result.push_back(i);
+		}
 	}
-	return NPC_NO_DIALOG_AVAIL;
 }
 
+std::string NPC::getDialogTopic(unsigned int dialog_node) {
+	if (!talker)
+		return "";
+
+	for (unsigned int j=0; j<dialog[dialog_node].size(); j++) {
+		if (dialog[dialog_node][j].type == "topic")
+			return dialog[dialog_node][j].s;
+	}
+
+	return "";
+}
 
 /**
  * Process the current dialog

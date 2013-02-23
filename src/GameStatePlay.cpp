@@ -43,6 +43,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "MenuLog.h"
 #include "MenuManager.h"
 #include "MenuMiniMap.h"
+#include "MenuNPCActions.h"
 #include "MenuStash.h"
 #include "MenuTalker.h"
 #include "MenuVendor.h"
@@ -266,6 +267,7 @@ void GameStatePlay::checkTeleport() {
 			menu->vendor->visible = false;
 			menu->talker->visible = false;
 			menu->stash->visible = false;
+			menu->npc->visible = false;
 			menu->mini->prerender(&map->collider, map->w, map->h);
 			npc_id = -1;
 
@@ -566,18 +568,25 @@ void GameStatePlay::checkNPCInteraction() {
 		if (inpt->pressing[MAIN1]) inpt->lock[MAIN1] = true;
 		if (inpt->pressing[ACCEPT]) inpt->lock[ACCEPT] = true;
 
-		bool npc_have_dialog = !(npcs->npcs[npc_id]->chooseDialogNode() == NPC_NO_DIALOG_AVAIL);
+		menu->npc->setNPC(npcs->npcs[npc_id]);
 
-		if (npcs->npcs[npc_id]->vendor && !npc_have_dialog) {
+		// only show npc action menu if multiple actions are available
+		if (!menu->npc->selection())
+			menu->npc->visible = true;
+	}
+
+	// check if a NPC action selection is made
+	if (menu->npc->selection()) {
+		if (menu->npc->vendor_selected) {
 			menu->vendor->talker_visible = false;
 			menu->talker->vendor_visible = true;
-		}
-		else if (npcs->npcs[npc_id]->talker && npc_have_dialog) {
+		} else if (menu->npc->dialog_selected) {
 			menu->vendor->talker_visible = true;
 			menu->talker->vendor_visible = false;
-
 			npcs->npcs[npc_id]->playSound(NPC_VOX_INTRO);
 		}
+		
+		menu->npc->setNPC(NULL);
 	}
 
 	if (npc_id != -1 && interact_distance < max_interact_distance && pc->stats.alive && pc->stats.humanoid) {
@@ -612,8 +621,10 @@ void GameStatePlay::checkNPCInteraction() {
 			} else {
 				menu->talker->has_vendor_button = false;
 			}
+
 			menu->talker->npc = npcs->npcs[npc_id];
-			menu->talker->chooseDialogNode();
+			menu->talker->chooseDialogNode(menu->npc->selected_dialog_node);
+
 			menu->closeAll();
 			menu->talker->visible = true;
 			menu->vendor->visible = false;
@@ -627,11 +638,13 @@ void GameStatePlay::checkNPCInteraction() {
 	// check for walking away from an NPC
 	if (npc_id != -1) {
 		if (interact_distance > max_interact_distance || !pc->stats.alive) {
+			menu->npc->setNPC(NULL);
 			menu->vendor->npc = NULL;
 			menu->talker->npc = NULL;
-			if (menu->vendor->visible || menu->talker->visible) {
+			if (menu->vendor->visible || menu->talker->visible || menu->npc->visible) {
 				menu->vendor->visible = false;
 				menu->talker->visible = false;
+				menu->npc->visible = false;
 			}
 			npc_id = -1;
 		}

@@ -67,7 +67,7 @@ public:
 
 	NPC *npc;
 
-	void chooseDialogNode();
+	void chooseDialogNode(int requested_node = -1);
 	void update();
 	void logic();
 	void render();

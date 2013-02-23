@@ -117,9 +117,13 @@ void MenuTalker::loadGraphics() {
 	}
 }
 
-void MenuTalker::chooseDialogNode() {
+void MenuTalker::chooseDialogNode(int request_dialog_node) {
 	event_cursor = 0;
-	dialog_node = npc->chooseDialogNode();
+
+	if(request_dialog_node == -1)
+	  return;
+
+	dialog_node = request_dialog_node;
 	npc->processDialog(dialog_node, event_cursor);
 	createBuffer();
 }
