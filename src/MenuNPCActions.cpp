@@ -64,6 +64,13 @@ MenuNPCActions::MenuNPCActions()
 	, current_action(-1)
 	, action_menu(NULL)
 {
+  normal_item_color.r = 0xd0;
+  normal_item_color.g = 0xd0;
+  normal_item_color.b = 0xd0;
+
+  hilight_item_color.r = 0xff;
+  hilight_item_color.g = 0xff;
+  hilight_item_color.b = 0xff;
 }
 
 void MenuNPCActions::update() {
@@ -90,7 +97,7 @@ void MenuNPCActions::update() {
 	window_area.w = w;
 	window_area.h = h;
 
-	/* update all action menu items rect */
+	/* update all action menu items */
 	int yoffs = MENU_BORDER;
 	for(size_t i=0; i<npc_actions.size(); i++) {
 		npc_actions[i].rect.x = window_area.x + MENU_BORDER;
@@ -99,8 +106,19 @@ void MenuNPCActions::update() {
 		
 		if (npc_actions[i].label) {
 			npc_actions[i].rect.h = npc_actions[i].label->bounds.h + (ITEM_SPACING*2);
-			npc_actions[i].label->setX(MENU_BORDER);
-			npc_actions[i].label->setY(yoffs);
+
+			if (i == current_action) {
+			  npc_actions[i].label->set(MENU_BORDER + (w/2),
+						    yoffs + (npc_actions[i].rect.h/2) , 
+						    JUSTIFY_CENTER, VALIGN_CENTER, 
+						    npc_actions[i].label->get(), hilight_item_color);
+			} else {
+			  npc_actions[i].label->set(MENU_BORDER + (w/2), 
+						    yoffs + (npc_actions[i].rect.h/2),
+						    JUSTIFY_CENTER, VALIGN_CENTER,
+						    npc_actions[i].label->get(), normal_item_color);
+			}
+
 		}
 		else
 			npc_actions[i].rect.h = SEPARATOR_HEIGHT + (ITEM_SPACING*2);
@@ -113,12 +131,13 @@ void MenuNPCActions::update() {
 
 	/* render action menu surface */
 	action_menu = createAlphaSurface(w,h);
-	Uint32 bg = SDL_MapRGBA(action_menu->format, 0, 0, 0, 200);
+	Uint32 bg = SDL_MapRGBA(action_menu->format, 0, 0, 0, 0xd0);
 	SDL_FillRect(action_menu, NULL, bg);
 
 	for(size_t i=0; i<npc_actions.size(); i++) {
-		if (npc_actions[i].label)
-			npc_actions[i].label->render(action_menu);
+	  if (npc_actions[i].label) {
+		  npc_actions[i].label->render(action_menu);
+	  }
 	}
 
 }
@@ -214,7 +233,7 @@ void MenuNPCActions::logic() {
 
 		if (current_action != i) {
 			current_action = i;
-			// todo: rerender menu with highligth ?
+			update();
 		}
 		
 		break;
