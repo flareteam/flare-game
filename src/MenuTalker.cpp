@@ -1,6 +1,7 @@
 /*
 Copyright © 2011-2012 Clint Bellanger and morris989
 Copyright © 2012 Stefan Beller
+Copyright © 2013 Henrik Andersson
 
 This file is part of FLARE.
 
@@ -44,12 +45,8 @@ MenuTalker::MenuTalker(CampaignManager *_camp) {
 
 	closeButton = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
 
-	vendorButton = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
-	vendorButton->label = msg->get("Trade");
-
 	visible = false;
 	vendor_visible = false;
-	has_vendor_button = false;
 
 	// step through NPC dialog nodes
 	dialog_node = 0;
@@ -69,9 +66,6 @@ MenuTalker::MenuTalker(CampaignManager *_camp) {
 			} else if(infile.key == "advance") {
 				advance_pos.x = eatFirstInt(infile.val,',');
 				advance_pos.y = eatFirstInt(infile.val,',');
-			} else if (infile.key == "vendor"){
-				vendor_pos.x = eatFirstInt(infile.val,',');
-				vendor_pos.y = eatFirstInt(infile.val,',');
 			} else if (infile.key == "dialogbox"){
 				dialog_pos.x = eatFirstInt(infile.val,',');
 				dialog_pos.y = eatFirstInt(infile.val,',');
@@ -135,9 +129,6 @@ void MenuTalker::update() {
 	closeButton->pos.x = window_area.x + close_pos.x;
 	closeButton->pos.y = window_area.y + close_pos.y;
 
-	vendorButton->pos.x = window_area.x + vendor_pos.x;
-	vendorButton->pos.y = window_area.y + vendor_pos.y;
-	vendorButton->refresh();
 }
 /**
  * Menu interaction (enter/space/click to continue)
@@ -163,11 +154,6 @@ void MenuTalker::logic() {
 	}
 
 	bool more;
-
-	if (has_vendor_button) {
-		if (vendorButton->checkClick())
-			vendor_visible = true;
-	}
 	if (advanceButton->checkClick() || closeButton->checkClick()) {
 		// button was clicked
 		event_cursor++;
@@ -271,10 +257,6 @@ void MenuTalker::render() {
 	else {
 		closeButton->render();
 	}
-
-	// show the vendor button if the npc is a vendor
-	if (has_vendor_button)
-		vendorButton->render();
 }
 
 void MenuTalker::setHero(const string& name, const string& portrait_filename) {
@@ -301,5 +283,4 @@ MenuTalker::~MenuTalker() {
 	SDL_FreeSurface(portrait);
 	delete advanceButton;
 	delete closeButton;
-	delete vendorButton;
 }

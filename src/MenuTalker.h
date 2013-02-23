@@ -1,5 +1,6 @@
 /*
 Copyright © 2011-2012 Clint Bellanger and morris989
+Copyright © 2013 Henrik Andersson
 
 This file is part of FLARE.
 
@@ -52,7 +53,6 @@ private:
 
 	Point close_pos;
 	Point advance_pos;
-	Point vendor_pos;
 	SDL_Rect dialog_pos;
 	SDL_Rect text_pos;
 	Point text_offset;
@@ -75,12 +75,9 @@ public:
 	void createBuffer();
 
 	bool vendor_visible;
-	bool has_vendor_button;
 
 	WidgetButton *advanceButton;
 	WidgetButton *closeButton;
-	WidgetButton *vendorButton;
-
 };
 
 #endif

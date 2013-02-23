@@ -615,11 +615,8 @@ void GameStatePlay::checkNPCInteraction() {
 
 			// begin talking
 			if (npcs->npcs[npc_id]->vendor) {
-				menu->talker->has_vendor_button = true;
 				menu->talker->vendor_visible = false;
 				menu->vendor->talker_visible = true;
-			} else {
-				menu->talker->has_vendor_button = false;
 			}
 
 			menu->talker->npc = npcs->npcs[npc_id];
