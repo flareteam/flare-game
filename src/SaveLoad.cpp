@@ -352,7 +352,7 @@ void GameStatePlay::loadGame() {
 	menu->talker->setHero(pc->stats.name, pc->stats.portrait);
 
 	// load sounds (gender specific)
-	pc->loadSounds();
+	pc->loadSounds("none");
 }
 
 /**
