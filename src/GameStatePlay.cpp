@@ -580,10 +580,10 @@ void GameStatePlay::checkNPCInteraction() {
 		if (menu->npc->vendor_selected) {
 			menu->vendor->talker_visible = false;
 			menu->talker->vendor_visible = true;
+			npcs->npcs[npc_id]->playSound(NPC_VOX_INTRO);
 		} else if (menu->npc->dialog_selected) {
 			menu->vendor->talker_visible = true;
 			menu->talker->vendor_visible = false;
-			npcs->npcs[npc_id]->playSound(NPC_VOX_INTRO);
 		}
 		
 		menu->npc->setNPC(NULL);
