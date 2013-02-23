@@ -288,7 +288,6 @@ public:
 	bool enemies_cleared;
 
 	// event talker
-	bool eventPendingDialog;
 	std::string event_npc;
 };
 

@@ -70,7 +70,6 @@ MapRenderer::MapRenderer(CampaignManager *_camp)
  , stash(false)
  , stash_pos(Point())
  , enemies_cleared(false)
- , eventPendingDialog(false)
 {
 }
 
@@ -1315,7 +1314,6 @@ bool MapRenderer::executeEvent(Map_Event &ev) {
 			stash_pos.y = ev.location.y * UNITS_PER_TILE + UNITS_PER_TILE/2;
 		}
 		else if (ec->type == "npc") {
-			eventPendingDialog = true;
 			event_npc = ec->s;
 		}
 	}
