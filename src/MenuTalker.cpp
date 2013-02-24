@@ -181,6 +181,8 @@ void MenuTalker::logic() {
 
 		if (!menu->npc->selection())
 			menu->npc->visible = true;
+		else
+			menu->npc->setNPC(NULL);
 
 		// end dialog
 		npc = NULL;
