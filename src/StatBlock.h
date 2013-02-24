@@ -326,5 +326,9 @@ public:
 	int crit_per_level;
 };
 
+class AvatarStatBlock : public StatBlock {
+
+};
+
 #endif
 

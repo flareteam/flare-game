@@ -93,6 +93,8 @@ private:
 	std::string last_transform;
 	int getUntransformPower();
 
+	AvatarStatBlock *statBlock() { return static_cast<AvatarStatBlock*>(&stats); }
+
 public:
 	Avatar(PowerManager *_powers, MapRenderer *_map);
 	~Avatar();
