@@ -81,9 +81,6 @@ public:
 };
 
 class StatBlock {
-private:
-	void loadHeroStats();
-	bool statsLoaded;
 
 public:
 	StatBlock();
@@ -91,7 +88,7 @@ public:
 
 	void load(const std::string& filename);
 	void takeDamage(int dmg);
-	void recalc();
+
 	void recalc_alt();
 	void logic();
 
@@ -327,6 +324,18 @@ public:
 };
 
 class AvatarStatBlock : public StatBlock {
+private:
+	void loadHeroStats();
+	bool statsLoaded;
+
+public:
+	AvatarStatBlock();
+	~AvatarStatBlock();
+
+	void recalc();
+};
+
+class EnemyStatBlock : public StatBlock {
 
 };
 

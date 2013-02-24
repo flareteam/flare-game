@@ -319,7 +319,7 @@ void GameStatePlay::loadGame() {
 	loadStash();
 
 	// initialize vars
-	pc->stats.recalc();
+	pc->statBlock()->recalc();
 	menu->inv->applyEquipment(menu->inv->inventory[EQUIPMENT].storage);
 	// trigger passive effects here? Saved HP/MP values might depend on passively boosted HP/MP
 	// powers->activatePassives(pc->stats);
@@ -380,7 +380,7 @@ void GameStatePlay::loadClass(int index) {
 	menu->inv->inventory[EQUIPMENT].fillEquipmentSlots();
 
 	// initialize vars
-	pc->stats.recalc();
+	pc->statBlock()->recalc();
 	menu->inv->applyEquipment(menu->inv->inventory[EQUIPMENT].storage);
 
 	// reset character menu

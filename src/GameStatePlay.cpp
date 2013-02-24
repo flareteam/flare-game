@@ -73,9 +73,9 @@ GameStatePlay::GameStatePlay()
 	, pc(new Avatar(powers, map))
 	, enemies(new EnemyManager(powers, map))
 	, hazards(new HazardManager(powers, pc, enemies))
-	, menu(new MenuManager(powers, &pc->stats, camp, items))
-	, loot(new LootManager(items, map, &pc->stats))
-	, npcs(new NPCManager(map, loot, items, &pc->stats))
+	, menu(new MenuManager(powers, pc->statBlock(), camp, items))
+	, loot(new LootManager(items, map, pc->statBlock()))
+	, npcs(new NPCManager(map, loot, items, pc->statBlock()))
 	, quests(new QuestLog(camp, menu->log))
 	, loading(new WidgetLabel())
 	, loading_bg(IMG_Load(mods->locate("images/menus/confirm_bg.png").c_str()))
@@ -116,7 +116,7 @@ void GameStatePlay::resetGame() {
 	map->load("spawn.txt");
 	camp->clearAll();
 	pc->init();
-	pc->stats.currency = 0;
+	pc->statBlock()->currency = 0;
 	menu->act->clear();
 	menu->inv->inventory[0].clear();
 	menu->inv->inventory[1].clear();
@@ -128,7 +128,7 @@ void GameStatePlay::resetGame() {
 	loadStash();
 
 	// Finalize new character settings
-	menu->talker->setHero(pc->stats.name, pc->stats.portrait);
+	menu->talker->setHero(pc->statBlock()->name, pc->statBlock()->portrait);
 	pc->loadSounds();
 }
 
@@ -184,17 +184,17 @@ void GameStatePlay::checkLoot() {
 	int currency;
 
 	// Autopickup
-	if (pc->stats.alive && AUTOPICKUP_CURRENCY) {
-		pickup = loot->checkAutoPickup(pc->stats.pos, currency);
+	if (pc->statBlock()->alive && AUTOPICKUP_CURRENCY) {
+		pickup = loot->checkAutoPickup(pc->statBlock()->pos, currency);
 		if (currency > 0) {
 			menu->inv->addCurrency(currency);
 		}
 	}
 
 	// Pickup with mouse click
-	if (inpt->pressing[MAIN1] && !inpt->lock[MAIN1] && pc->stats.alive) {
+	if (inpt->pressing[MAIN1] && !inpt->lock[MAIN1] && pc->statBlock()->alive) {
 
-		pickup = loot->checkPickup(inpt->mouse, map->cam, pc->stats.pos, currency, menu->inv);
+		pickup = loot->checkPickup(inpt->mouse, map->cam, pc->statBlock()->pos, currency, menu->inv);
 		if (pickup.item > 0) {
 			inpt->lock[MAIN1] = true;
 			menu->inv->add(pickup);
@@ -214,9 +214,9 @@ void GameStatePlay::checkLoot() {
 	}
 
 	// Pickup with ACCEPT key/button
-	if ((inpt->pressing[ACCEPT] && !inpt->lock[ACCEPT]) && pc->stats.alive) {
+	if ((inpt->pressing[ACCEPT] && !inpt->lock[ACCEPT]) && pc->statBlock()->alive) {
 
-		pickup = loot->checkNearestPickup(pc->stats.pos, currency, menu->inv);
+		pickup = loot->checkNearestPickup(pc->statBlock()->pos, currency, menu->inv);
 		if (pickup.item > 0) {
 			if (inpt->pressing[ACCEPT]) inpt->lock[ACCEPT] = true;
 			menu->inv->add(pickup);
@@ -239,17 +239,17 @@ void GameStatePlay::checkLoot() {
 void GameStatePlay::checkTeleport() {
 
 	// both map events and player powers can cause teleportation
-	if (map->teleportation || pc->stats.teleportation) {
+	if (map->teleportation || pc->statBlock()->teleportation) {
 
-		map->collider.unblock(pc->stats.pos.x, pc->stats.pos.y);
+		map->collider.unblock(pc->statBlock()->pos.x, pc->statBlock()->pos.y);
 
 		if (map->teleportation) {
-			map->cam.x = pc->stats.pos.x = map->teleport_destination.x;
-			map->cam.y = pc->stats.pos.y = map->teleport_destination.y;
+			map->cam.x = pc->statBlock()->pos.x = map->teleport_destination.x;
+			map->cam.y = pc->statBlock()->pos.y = map->teleport_destination.y;
 		}
 		else {
-			map->cam.x = pc->stats.pos.x = pc->stats.teleport_destination.x;
-			map->cam.y = pc->stats.pos.y = pc->stats.teleport_destination.y;
+			map->cam.x = pc->statBlock()->pos.x = pc->statBlock()->teleport_destination.x;
+			map->cam.y = pc->statBlock()->pos.y = pc->statBlock()->teleport_destination.y;
 		}
 
 		// process intermap teleport
@@ -271,11 +271,11 @@ void GameStatePlay::checkTeleport() {
 
 			// store this as the new respawn point
 			map->respawn_map = map->teleport_mapname;
-			map->respawn_point.x = pc->stats.pos.x;
-			map->respawn_point.y = pc->stats.pos.y;
+			map->respawn_point.x = pc->statBlock()->pos.x;
+			map->respawn_point.y = pc->statBlock()->pos.y;
 
 			// return to title (permadeath) OR auto-save
-			if (pc->stats.permadeath && pc->stats.corpse) {
+			if (pc->statBlock()->permadeath && pc->statBlock()->corpse) {
 				stringstream filename;
 				filename << PATH_USER << "save" << game_slot << ".txt";
 				if(remove(filename.str().c_str()) != 0)
@@ -289,10 +289,10 @@ void GameStatePlay::checkTeleport() {
 			}
 		}
 
-		map->collider.block(pc->stats.pos.x, pc->stats.pos.y);
+		map->collider.block(pc->statBlock()->pos.x, pc->statBlock()->pos.y);
 
 		map->teleportation = false;
-		pc->stats.teleportation = false; // teleport spell
+		pc->statBlock()->teleportation = false; // teleport spell
 
 	}
 }
@@ -387,47 +387,47 @@ void GameStatePlay::loadTitles() {
 }
 
 void GameStatePlay::checkTitle() {
-	if (!pc->stats.check_title || titles.empty()) return;
+	if (!pc->statBlock()->check_title || titles.empty()) return;
 
 	int title_id = -1;
 
 	for (unsigned i=0; i<titles.size(); i++) {
 		if (titles[i].title == "") continue;
 
-		if (titles[i].level > 0 && pc->stats.level < titles[i].level) continue;
-		if (titles[i].power > 0 && find(pc->stats.powers_list.begin(), pc->stats.powers_list.end(), titles[i].power) == pc->stats.powers_list.end()) continue;
+		if (titles[i].level > 0 && pc->statBlock()->level < titles[i].level) continue;
+		if (titles[i].power > 0 && find(pc->statBlock()->powers_list.begin(), pc->statBlock()->powers_list.end(), titles[i].power) == pc->statBlock()->powers_list.end()) continue;
 		if (titles[i].requires_status != "" && !camp->checkStatus(titles[i].requires_status)) continue;
 		if (titles[i].requires_not != "" && camp->checkStatus(titles[i].requires_not)) continue;
 		if (titles[i].primary_stat != "") {
 			if (titles[i].primary_stat == "physical") {
-				if (pc->stats.get_physical() <= pc->stats.get_mental() || pc->stats.get_physical() <= pc->stats.get_offense() || pc->stats.get_physical() <= pc->stats.get_defense())
+				if (pc->statBlock()->get_physical() <= pc->statBlock()->get_mental() || pc->statBlock()->get_physical() <= pc->statBlock()->get_offense() || pc->statBlock()->get_physical() <= pc->statBlock()->get_defense())
 					continue;
 			} else if (titles[i].primary_stat == "offense") {
-				if (pc->stats.get_offense() <= pc->stats.get_mental() || pc->stats.get_offense() <= pc->stats.get_physical() || pc->stats.get_offense() <= pc->stats.get_defense())
+				if (pc->statBlock()->get_offense() <= pc->statBlock()->get_mental() || pc->statBlock()->get_offense() <= pc->statBlock()->get_physical() || pc->statBlock()->get_offense() <= pc->statBlock()->get_defense())
 					continue;
 			} else if (titles[i].primary_stat == "mental") {
-				if (pc->stats.get_mental() <= pc->stats.get_physical() || pc->stats.get_mental() <= pc->stats.get_offense() || pc->stats.get_mental() <= pc->stats.get_defense())
+				if (pc->statBlock()->get_mental() <= pc->statBlock()->get_physical() || pc->statBlock()->get_mental() <= pc->statBlock()->get_offense() || pc->statBlock()->get_mental() <= pc->statBlock()->get_defense())
 					continue;
 			} else if (titles[i].primary_stat == "defense") {
-				if (pc->stats.get_defense() <= pc->stats.get_mental() || pc->stats.get_defense() <= pc->stats.get_offense() || pc->stats.get_defense() <= pc->stats.get_physical())
+				if (pc->statBlock()->get_defense() <= pc->statBlock()->get_mental() || pc->statBlock()->get_defense() <= pc->statBlock()->get_offense() || pc->statBlock()->get_defense() <= pc->statBlock()->get_physical())
 					continue;
 			} else if (titles[i].primary_stat == "physoff") {
-				if (pc->stats.physoff <= pc->stats.physdef || pc->stats.physoff <= pc->stats.mentoff || pc->stats.physoff <= pc->stats.mentdef || pc->stats.physoff <= pc->stats.physment || pc->stats.physoff <= pc->stats.offdef)
+				if (pc->statBlock()->physoff <= pc->statBlock()->physdef || pc->statBlock()->physoff <= pc->statBlock()->mentoff || pc->statBlock()->physoff <= pc->statBlock()->mentdef || pc->statBlock()->physoff <= pc->statBlock()->physment || pc->statBlock()->physoff <= pc->statBlock()->offdef)
 					continue;
 			} else if (titles[i].primary_stat == "physment") {
-				if (pc->stats.physment <= pc->stats.physdef || pc->stats.physment <= pc->stats.mentoff || pc->stats.physment <= pc->stats.mentdef || pc->stats.physment <= pc->stats.physoff || pc->stats.physment <= pc->stats.offdef)
+				if (pc->statBlock()->physment <= pc->statBlock()->physdef || pc->statBlock()->physment <= pc->statBlock()->mentoff || pc->statBlock()->physment <= pc->statBlock()->mentdef || pc->statBlock()->physment <= pc->statBlock()->physoff || pc->statBlock()->physment <= pc->statBlock()->offdef)
 					continue;
 			} else if (titles[i].primary_stat == "physdef") {
-				if (pc->stats.physdef <= pc->stats.physoff || pc->stats.physdef <= pc->stats.mentoff || pc->stats.physdef <= pc->stats.mentdef || pc->stats.physdef <= pc->stats.physment || pc->stats.physdef <= pc->stats.offdef)
+				if (pc->statBlock()->physdef <= pc->statBlock()->physoff || pc->statBlock()->physdef <= pc->statBlock()->mentoff || pc->statBlock()->physdef <= pc->statBlock()->mentdef || pc->statBlock()->physdef <= pc->statBlock()->physment || pc->statBlock()->physdef <= pc->statBlock()->offdef)
 					continue;
 			} else if (titles[i].primary_stat == "mentoff") {
-				if (pc->stats.mentoff <= pc->stats.physdef || pc->stats.mentoff <= pc->stats.physoff || pc->stats.mentoff <= pc->stats.mentdef || pc->stats.mentoff <= pc->stats.physment || pc->stats.mentoff <= pc->stats.offdef)
+				if (pc->statBlock()->mentoff <= pc->statBlock()->physdef || pc->statBlock()->mentoff <= pc->statBlock()->physoff || pc->statBlock()->mentoff <= pc->statBlock()->mentdef || pc->statBlock()->mentoff <= pc->statBlock()->physment || pc->statBlock()->mentoff <= pc->statBlock()->offdef)
 					continue;
 			} else if (titles[i].primary_stat == "offdef") {
-				if (pc->stats.offdef <= pc->stats.physdef || pc->stats.offdef <= pc->stats.mentoff || pc->stats.offdef <= pc->stats.mentdef || pc->stats.offdef <= pc->stats.physment || pc->stats.offdef <= pc->stats.physoff)
+				if (pc->statBlock()->offdef <= pc->statBlock()->physdef || pc->statBlock()->offdef <= pc->statBlock()->mentoff || pc->statBlock()->offdef <= pc->statBlock()->mentdef || pc->statBlock()->offdef <= pc->statBlock()->physment || pc->statBlock()->offdef <= pc->statBlock()->physoff)
 					continue;
 			} else if (titles[i].primary_stat == "mentdef") {
-				if (pc->stats.mentdef <= pc->stats.physdef || pc->stats.mentdef <= pc->stats.mentoff || pc->stats.mentdef <= pc->stats.physoff || pc->stats.mentdef <= pc->stats.physment || pc->stats.mentdef <= pc->stats.offdef)
+				if (pc->statBlock()->mentdef <= pc->statBlock()->physdef || pc->statBlock()->mentdef <= pc->statBlock()->mentoff || pc->statBlock()->mentdef <= pc->statBlock()->physoff || pc->statBlock()->mentdef <= pc->statBlock()->physment || pc->statBlock()->mentdef <= pc->statBlock()->offdef)
 					continue;
 			}
 		}
@@ -436,9 +436,9 @@ void GameStatePlay::checkTitle() {
 		break;
 	}
 
-	if (title_id != -1) pc->stats.character_class = titles[title_id].title;
-	pc->stats.check_title = false;
-	pc->stats.refresh_stats = true;
+	if (title_id != -1) pc->statBlock()->character_class = titles[title_id].title;
+	pc->statBlock()->check_title = false;
+	pc->statBlock()->refresh_stats = true;
 }
 
 void GameStatePlay::checkEquipmentChange() {
@@ -458,12 +458,12 @@ void GameStatePlay::checkEquipmentChange() {
 			}
 			// special case: if we don't have a head, use the portrait's head
 			if (gfx.gfx == "" && pc->layer_reference_order[j] == "head") {
-				gfx.gfx = pc->stats.head;
+				gfx.gfx = pc->statBlock()->head;
 				gfx.type = "head";
 			}
 			// fall back to default if it exists
 			if (gfx.gfx == "") {
-				bool exists = fileExists(mods->locate("animations/avatar/" + pc->stats.base + "/default_" + gfx.type + ".txt"));
+				bool exists = fileExists(mods->locate("animations/avatar/" + pc->statBlock()->base + "/default_" + gfx.type + ".txt"));
 				if (exists) gfx.gfx = "default_" + gfx.type;
 			}
 			img_gfx.push_back(gfx);
@@ -481,14 +481,14 @@ void GameStatePlay::checkLootDrop() {
 
 	// if the player has dropped an item from the inventory
 	if (menu->drop_stack.item > 0) {
-		loot->addLoot(menu->drop_stack, pc->stats.pos);
+		loot->addLoot(menu->drop_stack, pc->statBlock()->pos);
 		menu->drop_stack.item = 0;
 		menu->drop_stack.quantity = 0;
 	}
 
 	// if the player has dropped a quest rward because inventory full
 	if (camp->drop_stack.item > 0) {
-		loot->addLoot(camp->drop_stack, pc->stats.pos);
+		loot->addLoot(camp->drop_stack, pc->statBlock()->pos);
 		camp->drop_stack.item = 0;
 		camp->drop_stack.quantity = 0;
 	}
@@ -552,17 +552,17 @@ void GameStatePlay::checkNPCInteraction() {
 	}
 	// if we press the ACCEPT key, find the nearest NPC to interact with
 	else if (inpt->pressing[ACCEPT] && !inpt->lock[ACCEPT]) {
-		npc_click = npcs->getNearestNPC(pc->stats.pos);
+		npc_click = npcs->getNearestNPC(pc->statBlock()->pos);
 		if (npc_click != -1) npc_id = npc_click;
 	}
 
 	// check distance to this npc
 	if (npc_id != -1) {
-		interact_distance = (int)calcDist(pc->stats.pos, npcs->npcs[npc_id]->pos);
+		interact_distance = (int)calcDist(pc->statBlock()->pos, npcs->npcs[npc_id]->pos);
 	}
 
 	// if close enough to the NPC, open the appropriate interaction screen
-	if (npc_click != -1 && interact_distance < max_interact_distance && pc->stats.alive && pc->stats.humanoid) {
+	if (npc_click != -1 && interact_distance < max_interact_distance && pc->statBlock()->alive && pc->statBlock()->humanoid) {
 		if (inpt->pressing[MAIN1]) inpt->lock[MAIN1] = true;
 		if (inpt->pressing[ACCEPT]) inpt->lock[ACCEPT] = true;
 
@@ -580,7 +580,7 @@ void GameStatePlay::checkNPCInteraction() {
 		}
 	}
 
-	if (npc_id != -1 && interact_distance < max_interact_distance && pc->stats.alive && pc->stats.humanoid) {
+	if (npc_id != -1 && interact_distance < max_interact_distance && pc->statBlock()->alive && pc->statBlock()->humanoid) {
 
 		if (menu->talker->vendor_visible && !menu->vendor->talker_visible) {
 
@@ -626,7 +626,7 @@ void GameStatePlay::checkNPCInteraction() {
 
 	// check for walking away from an NPC
 	if (npc_id != -1) {
-		if (interact_distance > max_interact_distance || !pc->stats.alive) {
+		if (interact_distance > max_interact_distance || !pc->statBlock()->alive) {
 			menu->vendor->npc = NULL;
 			menu->talker->npc = NULL;
 			if (menu->vendor->visible || menu->talker->visible) {
@@ -653,8 +653,8 @@ void GameStatePlay::checkStash() {
 		if (!menu->inv->visible) menu->stash->visible = false;
 
 		// If the player walks away from the stash, close its menu
-		interact_distance = (int)calcDist(pc->stats.pos, map->stash_pos);
-		if (interact_distance > max_interact_distance || !pc->stats.alive) {
+		interact_distance = (int)calcDist(pc->statBlock()->pos, map->stash_pos);
+		if (interact_distance > max_interact_distance || !pc->statBlock()->alive) {
 			menu->stash->visible = false;
 		}
 
@@ -682,16 +682,16 @@ void GameStatePlay::logic() {
 		checkEnemyFocus();
 		checkNPCInteraction();
 		map->checkHotspots();
-		map->checkNearestEvent(pc->stats.pos);
+		map->checkNearestEvent(pc->statBlock()->pos);
 		checkTitle();
 
 		pc->logic(menu->act->checkAction(inpt->mouse), restrictPowerUse());
 
 		// transfer hero data to enemies, for AI use
-		enemies->hero_pos = pc->stats.pos;
-		enemies->hero_alive = pc->stats.alive;
-		if (pc->stats.effects.bonus_stealth > 100) enemies->hero_stealth = 100;
-		else enemies->hero_stealth = pc->stats.effects.bonus_stealth;
+		enemies->hero_pos = pc->statBlock()->pos;
+		enemies->hero_alive = pc->statBlock()->alive;
+		if (pc->statBlock()->effects.bonus_stealth > 100) enemies->hero_stealth = 100;
+		else enemies->hero_stealth = pc->statBlock()->effects.bonus_stealth;
 
 		enemies->logic();
 		hazards->logic();
@@ -740,10 +740,10 @@ void GameStatePlay::logic() {
 			}
 			if (count == 12) count = 0;
 		}
-		if (pc->stats.manual_untransform && pc->untransform_power > 0) {
+		if (pc->statBlock()->manual_untransform && pc->untransform_power > 0) {
 			menu->act->hotkeys[count] = pc->untransform_power;
 			menu->act->locked[count] = true;
-		} else if (pc->stats.manual_untransform && pc->untransform_power == 0)
+		} else if (pc->statBlock()->manual_untransform && pc->untransform_power == 0)
 			fprintf(stderr, "Untransform power not found, you can't untransform manually\n");
 	}
 	// revert hero powers
@@ -762,13 +762,13 @@ void GameStatePlay::logic() {
 
 	// when the hero (re)spawns, reapply equipment & passive effects
 	if (pc->respawn) {
-		pc->stats.alive = true;
-		pc->stats.corpse = false;
-		pc->stats.cur_state = AVATAR_STANCE;
+		pc->statBlock()->alive = true;
+		pc->statBlock()->corpse = false;
+		pc->statBlock()->cur_state = AVATAR_STANCE;
 		menu->inv->applyEquipment(menu->inv->inventory[EQUIPMENT].storage);
 		pc->powers->activatePassives(&pc->stats);
-		pc->stats.logic();
-		pc->stats.recalc();
+		pc->statBlock()->logic();
+		pc->statBlock()->recalc();
 		pc->respawn = false;
 	}
 }
@@ -807,7 +807,7 @@ void GameStatePlay::render() {
 		map->map_change = false;
 	}
 	menu->mini->getMapTitle(map->title);
-	menu->mini->render(pc->stats.pos);
+	menu->mini->render(pc->statBlock()->pos);
 	menu->render();
 
 	// render combat text last - this should make it obvious you're being

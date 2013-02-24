@@ -36,8 +36,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 using namespace std;
 
 StatBlock::StatBlock()
-	: statsLoaded(false)
-	, alive(true)
+	: alive(true)
 	, corpse(false)
 	, corpse_ticks(0)
 	, hero(false)
@@ -383,7 +382,7 @@ void StatBlock::takeDamage(int dmg) {
  * Refill HP/MP
  * Creatures might skip these formulas.
  */
-void StatBlock::recalc() {
+void AvatarStatBlock::recalc() {
 
 	if (!statsLoaded) loadHeroStats();
 
@@ -544,7 +543,7 @@ bool StatBlock::canUsePower(const Power &power, unsigned powerid) const {
 
 }
 
-void StatBlock::loadHeroStats() {
+void AvatarStatBlock::loadHeroStats() {
 	// Redefine numbers from config file if present
 	FileParser infile;
 	if (!infile.open(mods->locate("engine/stats.txt"))) {
@@ -649,3 +648,10 @@ void StatBlock::loadHeroStats() {
 	infile.close();
 }
 
+AvatarStatBlock::AvatarStatBlock()
+	: StatBlock()
+	, statsLoaded(false)
+{}
+
+AvatarStatBlock::~AvatarStatBlock()
+{}

@@ -34,7 +34,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 using namespace std;
 
 
-MenuCharacter::MenuCharacter(StatBlock *_stats) {
+MenuCharacter::MenuCharacter(AvatarStatBlock *_stats) {
 	stats = _stats;
 
 	skill_points = 0;

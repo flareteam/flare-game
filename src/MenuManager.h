@@ -50,7 +50,7 @@ class MenuStash;
 class CampaignManager;
 class ItemManager;
 class PowerManager;
-class StatBlock;
+class AvatarStatBlock;
 
 const int DRAG_SRC_POWERS = 1;
 const int DRAG_SRC_INVENTORY = 2;
@@ -64,7 +64,7 @@ private:
 	SDL_Surface *icons;
 
 	PowerManager *powers;
-	StatBlock *stats;
+	AvatarStatBlock *stats;
 	CampaignManager *camp;
 
 	TooltipData tip_buf;
@@ -80,7 +80,7 @@ private:
 	bool done;
 
 public:
-	MenuManager(PowerManager *powers, StatBlock *stats, CampaignManager *camp, ItemManager *items);
+	MenuManager(PowerManager *powers, AvatarStatBlock *stats, CampaignManager *camp, ItemManager *items);
 	MenuManager(const MenuManager &copy); // not implemented
 	~MenuManager();
 	void logic();

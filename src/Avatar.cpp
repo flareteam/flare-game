@@ -72,6 +72,7 @@ Avatar::Avatar(PowerManager *_powers, MapRenderer *_map)
 }
 
 void Avatar::init() {
+	stats = AvatarStatBlock();
 
 	statBlock()->hero_cooldown.resize(POWER_COUNT);
 
