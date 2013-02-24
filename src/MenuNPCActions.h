@@ -45,8 +45,15 @@ private:
 	size_t current_action;
 
 	SDL_Surface *action_menu;
-	SDL_Color normal_item_color;
-	SDL_Color hilight_item_color;
+	SDL_Color topic_normal_color;
+	SDL_Color topic_hilight_color;
+	SDL_Color vendor_normal_color;
+	SDL_Color vendor_hilight_color;
+	SDL_Color cancel_normal_color;
+	SDL_Color cancel_hilight_color;
+
+	SDL_Color background_color;
+	int background_alpha;
 
 public:
 	MenuNPCActions();

@@ -19,12 +19,14 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  * class MenuNPCActions
  */
 #include <sstream>
+#include "FileParser.h"
 #include "Menu.h"
 #include "MenuNPCActions.h"
 #include "NPC.h"
 #include "Settings.h"
 #include "SharedResources.h"
 #include "SDL_gfxBlitFunc.h"
+#include "UtilsParsing.h"
 
 #define SEPARATOR_HEIGHT 2
 #define ITEM_SPACING 2
@@ -64,13 +66,63 @@ MenuNPCActions::MenuNPCActions()
 	, current_action(-1)
 	, action_menu(NULL)
 {
-  normal_item_color.r = 0xd0;
-  normal_item_color.g = 0xd0;
-  normal_item_color.b = 0xd0;
+	// Setup defaults
+	vendor_normal_color.r = cancel_normal_color.r = topic_normal_color.r = 0xd0;
+	vendor_normal_color.g = cancel_normal_color.g = topic_normal_color.g = 0xd0;
+	vendor_normal_color.b =cancel_normal_color.b = topic_normal_color.b = 0xd0;
+	
+	vendor_hilight_color.r = cancel_hilight_color.r = topic_hilight_color.r = 0xff;
+	vendor_hilight_color.g = cancel_hilight_color.g = topic_hilight_color.g = 0xff;
+	vendor_hilight_color.b = cancel_hilight_color.b = topic_hilight_color.b = 0xff;
 
-  hilight_item_color.r = 0xff;
-  hilight_item_color.g = 0xff;
-  hilight_item_color.b = 0xff;
+	background_color.r = background_color.g = background_color.b = 0x00;
+	background_alpha = 0xd0;
+
+	// Load config settings
+	FileParser infile;
+	if(infile.open(mods->locate("menus/npc.txt"))) {
+		while(infile.next()) {
+			infile.val = infile.val + ',';
+
+			if(infile.key == "background_color") {
+				background_color.r = eatFirstInt(infile.val,',');
+				background_color.g = eatFirstInt(infile.val,',');
+				background_color.b = eatFirstInt(infile.val,',');
+				background_alpha = eatFirstInt(infile.val,',');
+			}
+			else if(infile.key == "topic_normal_color") {
+				topic_normal_color.r = eatFirstInt(infile.val,',');
+				topic_normal_color.g = eatFirstInt(infile.val,',');
+				topic_normal_color.b = eatFirstInt(infile.val,',');
+			}
+			else if(infile.key == "topic_hilight_color") {
+				topic_hilight_color.r = eatFirstInt(infile.val,',');
+				topic_hilight_color.g = eatFirstInt(infile.val,',');
+				topic_hilight_color.b = eatFirstInt(infile.val,',');
+			}
+			else if(infile.key == "vendor_normal_color") {
+				vendor_normal_color.r = eatFirstInt(infile.val,',');
+				vendor_normal_color.g = eatFirstInt(infile.val,',');
+				vendor_normal_color.b = eatFirstInt(infile.val,',');
+			}
+			else if(infile.key == "vendor_hilight_color") {
+				vendor_hilight_color.r = eatFirstInt(infile.val,',');
+				vendor_hilight_color.g = eatFirstInt(infile.val,',');
+				vendor_hilight_color.b = eatFirstInt(infile.val,',');
+			}
+			else if(infile.key == "cancel_normal_color") {
+				cancel_normal_color.r = eatFirstInt(infile.val,',');
+				cancel_normal_color.g = eatFirstInt(infile.val,',');
+				cancel_normal_color.b = eatFirstInt(infile.val,',');
+			}
+			else if(infile.key == "cancel_hilight_color") {
+				cancel_hilight_color.r = eatFirstInt(infile.val,',');
+				cancel_hilight_color.g = eatFirstInt(infile.val,',');
+				cancel_hilight_color.b = eatFirstInt(infile.val,',');
+			}
+		}
+		infile.close();
+	} else fprintf(stderr, "Unable to open menus/npc.txt!\n");
 }
 
 void MenuNPCActions::update() {
@@ -99,6 +151,7 @@ void MenuNPCActions::update() {
 
 	/* update all action menu items */
 	int yoffs = MENU_BORDER;
+	SDL_Color text_color;
 	for(size_t i=0; i<npc_actions.size(); i++) {
 		npc_actions[i].rect.x = window_area.x + MENU_BORDER;
 		npc_actions[i].rect.y = window_area.y + yoffs;
@@ -108,15 +161,29 @@ void MenuNPCActions::update() {
 			npc_actions[i].rect.h = npc_actions[i].label->bounds.h + (ITEM_SPACING*2);
 
 			if (i == current_action) {
-			  npc_actions[i].label->set(MENU_BORDER + (w/2),
-						    yoffs + (npc_actions[i].rect.h/2) , 
-						    JUSTIFY_CENTER, VALIGN_CENTER, 
-						    npc_actions[i].label->get(), hilight_item_color);
+				if (npc_actions[i].id == "id_cancel")
+					text_color = cancel_hilight_color;
+				else if (npc_actions[i].id == "id_vendor")
+					text_color = vendor_hilight_color;
+				else
+					text_color = topic_hilight_color;
+
+				npc_actions[i].label->set(MENU_BORDER + (w/2),
+							  yoffs + (npc_actions[i].rect.h/2) , 
+							  JUSTIFY_CENTER, VALIGN_CENTER, 
+							  npc_actions[i].label->get(), text_color);
 			} else {
-			  npc_actions[i].label->set(MENU_BORDER + (w/2), 
-						    yoffs + (npc_actions[i].rect.h/2),
-						    JUSTIFY_CENTER, VALIGN_CENTER,
-						    npc_actions[i].label->get(), normal_item_color);
+				if (npc_actions[i].id == "id_cancel")
+					text_color = cancel_normal_color;
+				else if (npc_actions[i].id == "id_vendor")
+					text_color = vendor_normal_color;
+				else
+					text_color = topic_normal_color;
+
+				npc_actions[i].label->set(MENU_BORDER + (w/2), 
+							  yoffs + (npc_actions[i].rect.h/2),
+							  JUSTIFY_CENTER, VALIGN_CENTER,
+							  npc_actions[i].label->get(), text_color);
 			}
 
 		}
@@ -131,7 +198,9 @@ void MenuNPCActions::update() {
 
 	/* render action menu surface */
 	action_menu = createAlphaSurface(w,h);
-	Uint32 bg = SDL_MapRGBA(action_menu->format, 0, 0, 0, 0xd0);
+	Uint32 bg = SDL_MapRGBA(action_menu->format, 
+				background_color.r, background_color.g,
+				background_color.b, background_alpha);
 	SDL_FillRect(action_menu, NULL, bg);
 
 	for(size_t i=0; i<npc_actions.size(); i++) {
