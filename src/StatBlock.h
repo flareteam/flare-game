@@ -215,7 +215,7 @@ public:
 	Point pos;
 	Point forced_speed;
 	char direction;
-	std::vector<int> hero_cooldown;
+
 
 	int poise;
 	int poise_base;
@@ -331,6 +331,8 @@ private:
 public:
 	AvatarStatBlock();
 	~AvatarStatBlock();
+
+	std::vector<int> hero_cooldown;
 
 	void recalc();
 };

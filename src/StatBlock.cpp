@@ -111,7 +111,6 @@ StatBlock::StatBlock()
 	, pos(Point())
 	, forced_speed(Point())
 	, direction(0)
-	, hero_cooldown(vector<int>(POWER_COUNT, 0)) // hero only
 	, poise(0)
 	, poise_base(0)
 	, cur_state(0)
@@ -637,6 +636,7 @@ void AvatarStatBlock::loadHeroStats() {
 AvatarStatBlock::AvatarStatBlock()
 	: StatBlock()
 	, statsLoaded(false)
+	, hero_cooldown(vector<int>(POWER_COUNT, 0)) // hero only
 {}
 
 AvatarStatBlock::~AvatarStatBlock()
