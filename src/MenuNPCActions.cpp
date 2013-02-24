@@ -217,6 +217,7 @@ void MenuNPCActions::setNPC(NPC *pnpc) {
 	npc_actions.clear();
 
 	// reset states
+	is_empty = true;
 	is_selected = false;
 	topics = 0;
 	first_dialog_node = -1;
@@ -247,6 +248,7 @@ void MenuNPCActions::setNPC(NPC *pnpc) {
 
 		npc_actions.push_back(Action(ss.str(), topic));
 		topics++;
+		is_empty = false;
 	}
 
 
@@ -255,6 +257,7 @@ void MenuNPCActions::setNPC(NPC *pnpc) {
 		if (topics)
 			npc_actions.push_back(Action());
 		npc_actions.push_back(Action("id_vendor", "Shop"));
+		is_empty = false;
 	}
 
 	npc_actions.push_back(Action());
@@ -279,6 +282,10 @@ void MenuNPCActions::setNPC(NPC *pnpc) {
 
 	update();
 
+}
+
+bool MenuNPCActions::empty() {
+	return is_empty;
 }
 
 bool MenuNPCActions::selection() {

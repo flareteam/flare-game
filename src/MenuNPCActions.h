@@ -40,6 +40,7 @@ private:
 	NPC *npc;
 
 	bool is_selected;
+	bool is_empty;
 	int first_dialog_node;
 	int topics;
 	size_t current_action;
@@ -61,6 +62,7 @@ public:
 
 	void setNPC(NPC *npc);
 
+	bool empty();
 	void logic();
 	void render();
 	void update();

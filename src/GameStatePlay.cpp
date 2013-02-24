@@ -571,7 +571,7 @@ void GameStatePlay::checkNPCInteraction() {
 		menu->npc->setNPC(npcs->npcs[npc_id]);
 
 		// only show npc action menu if multiple actions are available
-		if (!menu->npc->selection())
+		if (!menu->npc->empty() && !menu->npc->selection())
 			menu->npc->visible = true;
 	}
 
