@@ -412,22 +412,22 @@ void GameStatePlay::checkTitle() {
 				if (pc->statBlock()->get_defense() <= pc->statBlock()->get_mental() || pc->statBlock()->get_defense() <= pc->statBlock()->get_offense() || pc->statBlock()->get_defense() <= pc->statBlock()->get_physical())
 					continue;
 			} else if (titles[i].primary_stat == "physoff") {
-				if (pc->statBlock()->physoff <= pc->statBlock()->physdef || pc->statBlock()->physoff <= pc->statBlock()->mentoff || pc->statBlock()->physoff <= pc->statBlock()->mentdef || pc->statBlock()->physoff <= pc->statBlock()->physment || pc->statBlock()->physoff <= pc->statBlock()->offdef)
+				if (pc->statBlock()->physoff() <= pc->statBlock()->physdef() || pc->statBlock()->physoff() <= pc->statBlock()->mentoff() || pc->statBlock()->physoff() <= pc->statBlock()->mentdef() || pc->statBlock()->physoff() <= pc->statBlock()->physment() || pc->statBlock()->physoff() <= pc->statBlock()->offdef())
 					continue;
 			} else if (titles[i].primary_stat == "physment") {
-				if (pc->statBlock()->physment <= pc->statBlock()->physdef || pc->statBlock()->physment <= pc->statBlock()->mentoff || pc->statBlock()->physment <= pc->statBlock()->mentdef || pc->statBlock()->physment <= pc->statBlock()->physoff || pc->statBlock()->physment <= pc->statBlock()->offdef)
+				if (pc->statBlock()->physment() <= pc->statBlock()->physdef() || pc->statBlock()->physment() <= pc->statBlock()->mentoff() || pc->statBlock()->physment() <= pc->statBlock()->mentdef() || pc->statBlock()->physment() <= pc->statBlock()->physoff() || pc->statBlock()->physment() <= pc->statBlock()->offdef())
 					continue;
 			} else if (titles[i].primary_stat == "physdef") {
-				if (pc->statBlock()->physdef <= pc->statBlock()->physoff || pc->statBlock()->physdef <= pc->statBlock()->mentoff || pc->statBlock()->physdef <= pc->statBlock()->mentdef || pc->statBlock()->physdef <= pc->statBlock()->physment || pc->statBlock()->physdef <= pc->statBlock()->offdef)
+				if (pc->statBlock()->physdef() <= pc->statBlock()->physoff() || pc->statBlock()->physdef() <= pc->statBlock()->mentoff() || pc->statBlock()->physdef() <= pc->statBlock()->mentdef() || pc->statBlock()->physdef() <= pc->statBlock()->physment() || pc->statBlock()->physdef() <= pc->statBlock()->offdef())
 					continue;
 			} else if (titles[i].primary_stat == "mentoff") {
-				if (pc->statBlock()->mentoff <= pc->statBlock()->physdef || pc->statBlock()->mentoff <= pc->statBlock()->physoff || pc->statBlock()->mentoff <= pc->statBlock()->mentdef || pc->statBlock()->mentoff <= pc->statBlock()->physment || pc->statBlock()->mentoff <= pc->statBlock()->offdef)
+				if (pc->statBlock()->mentoff() <= pc->statBlock()->physdef() || pc->statBlock()->mentoff() <= pc->statBlock()->physoff() || pc->statBlock()->mentoff() <= pc->statBlock()->mentdef() || pc->statBlock()->mentoff() <= pc->statBlock()->physment() || pc->statBlock()->mentoff() <= pc->statBlock()->offdef())
 					continue;
 			} else if (titles[i].primary_stat == "offdef") {
-				if (pc->statBlock()->offdef <= pc->statBlock()->physdef || pc->statBlock()->offdef <= pc->statBlock()->mentoff || pc->statBlock()->offdef <= pc->statBlock()->mentdef || pc->statBlock()->offdef <= pc->statBlock()->physment || pc->statBlock()->offdef <= pc->statBlock()->physoff)
+				if (pc->statBlock()->offdef() <= pc->statBlock()->physdef() || pc->statBlock()->offdef() <= pc->statBlock()->mentoff() || pc->statBlock()->offdef() <= pc->statBlock()->mentdef() || pc->statBlock()->offdef() <= pc->statBlock()->physment() || pc->statBlock()->offdef() <= pc->statBlock()->physoff())
 					continue;
 			} else if (titles[i].primary_stat == "mentdef") {
-				if (pc->statBlock()->mentdef <= pc->statBlock()->physdef || pc->statBlock()->mentdef <= pc->statBlock()->mentoff || pc->statBlock()->mentdef <= pc->statBlock()->physoff || pc->statBlock()->mentdef <= pc->statBlock()->physment || pc->statBlock()->mentdef <= pc->statBlock()->offdef)
+				if (pc->statBlock()->mentdef() <= pc->statBlock()->physdef() || pc->statBlock()->mentdef() <= pc->statBlock()->mentoff() || pc->statBlock()->mentdef() <= pc->statBlock()->physoff() || pc->statBlock()->mentdef() <= pc->statBlock()->physment() || pc->statBlock()->mentdef() <= pc->statBlock()->offdef())
 					continue;
 			}
 		}

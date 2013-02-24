@@ -69,12 +69,6 @@ StatBlock::StatBlock()
 	, bonus_per_mental(0)
 	, bonus_per_offense(0)
 	, bonus_per_defense(0)
-	, physoff(0)
-	, physdef(0)
-	, mentoff(0)
-	, mentdef(0)
-	, physment(0)
-	, offdef(0)
 	, character_class("")
 	, hp(0)
 	, maxhp(0)
@@ -418,14 +412,6 @@ void StatBlock::recalc_alt() {
 		int ment0 = get_mental() -1;
 		int off0 = get_offense() -1;
 		int def0 = get_defense() -1;
-
-		// calculate compound primary stats
-		physoff = get_physical() + get_offense();
-		physdef = get_physical() + get_defense();
-		mentoff = get_mental() + get_offense();
-		mentdef = get_mental() + get_defense();
-		physment = get_physical() + get_mental();
-		offdef = get_offense() + get_defense();
 
 		// calculate other stats
 		maxhp = hp_base + (hp_per_level * lev0) + (hp_per_physical * phys0) + effects.bonus_hp + (effects.bonus_hp_percent * (hp_base + (hp_per_level * lev0) + (hp_per_physical * phys0)) / 100);
