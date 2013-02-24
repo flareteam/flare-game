@@ -35,12 +35,14 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <sstream>
 
 class CampaignManager;
+class MenuManager;
 class NPC;
 class WidgetButton;
 
 class MenuTalker : public Menu {
 private:
 	CampaignManager *camp;
+	MenuManager *menu;
 
 	void loadGraphics();
 	SDL_Surface *background;
@@ -62,7 +64,7 @@ private:
 	SDL_Color color_normal;
 
 public:
-	MenuTalker(CampaignManager *camp);
+	MenuTalker(MenuManager *menu,CampaignManager *camp);
 	~MenuTalker();
 
 	NPC *npc;

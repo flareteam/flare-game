@@ -30,12 +30,15 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "SharedResources.h"
 #include "Settings.h"
 #include "UtilsParsing.h"
+#include "MenuManager.h"
+#include "MenuNPCActions.h"
 
 using namespace std;
 
 
-MenuTalker::MenuTalker(CampaignManager *_camp) {
+MenuTalker::MenuTalker(MenuManager *_menu, CampaignManager *_camp) {
 	camp = _camp;
+	menu = _menu;
 	npc = NULL;
 	background = NULL;
 	portrait = NULL;
@@ -173,6 +176,12 @@ void MenuTalker::logic() {
 		createBuffer();
 	}
 	else {
+		// show the NPC Action Menu
+		menu->npc->setNPC(npc);
+
+		if (!menu->npc->selection())
+			menu->npc->visible = true;
+
 		// end dialog
 		npc = NULL;
 		visible = false;
