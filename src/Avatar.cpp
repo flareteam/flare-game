@@ -43,7 +43,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 using namespace std;
 
 Avatar::Avatar(PowerManager *_powers, MapRenderer *_map)
- : Entity(_map)
+ : Entity(_map, new AvatarStatBlock())
  , lockSwing(false)
  , lockCast(false)
  , lockShoot(false)
@@ -72,7 +72,6 @@ Avatar::Avatar(PowerManager *_powers, MapRenderer *_map)
 }
 
 void Avatar::init() {
-	stats = AvatarStatBlock();
 
 	statBlock()->hero_cooldown.resize(POWER_COUNT);
 
@@ -303,7 +302,7 @@ void Avatar::handlePower(int actionbar_power) {
 			return;
 		if (statBlock()->hero_cooldown[actionbar_power] > 0)
 			return;
-		if (!powers->hasValidTarget(actionbar_power,&stats,target))
+		if (!powers->hasValidTarget(actionbar_power, stats, target))
 			return;
 
 		statBlock()->hero_cooldown[actionbar_power] = power.cooldown; //set the cooldown timer
@@ -334,7 +333,7 @@ void Avatar::handlePower(int actionbar_power) {
 				break;
 
 			case POWSTATE_INSTANT:	// handle instant powers
-				powers->activate(current_power, &stats, target);
+				powers->activate(current_power, stats, target);
 				break;
 		}
 	}
@@ -526,7 +525,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 
 			// do power
 			if (activeAnimation->isActiveFrame()) {
-				powers->activate(current_power, &stats, act_target);
+				powers->activate(current_power, stats, act_target);
 			}
 
 			if (activeAnimation->getTimesPlayed() >= 1) {
@@ -543,7 +542,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 
 			// do power
 			if (activeAnimation->isActiveFrame()) {
-				powers->activate(current_power, &stats, act_target);
+				powers->activate(current_power, stats, act_target);
 			}
 
 			if (activeAnimation->getTimesPlayed() >= 1) {
@@ -561,7 +560,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 
 			// do power
 			if (activeAnimation->isActiveFrame()) {
-				powers->activate(current_power, &stats, act_target);
+				powers->activate(current_power, stats, act_target);
 			}
 
 			if (activeAnimation->getTimesPlayed() >= 1) {
@@ -653,7 +652,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 	}
 
 	// turn on all passive powers
-	if ((statBlock()->hp > 0 || statBlock()->effects.triggered_death) && !respawn) powers->activatePassives(&stats);
+	if ((statBlock()->hp > 0 || statBlock()->effects.triggered_death) && !respawn) powers->activatePassives(stats);
 
 	// calc new cam position from player position
 	// cam is focused at player position
@@ -749,8 +748,8 @@ bool Avatar::takeHit(const Hazard &h) {
 		// after effects
 		if (statBlock()->hp > 0 && dmg > 0) {
 
-			if (h.mod_power > 0) powers->effect(&stats, h.mod_power);
-			powers->effect(&stats, h.power_index);
+			if (h.mod_power > 0) powers->effect(stats, h.mod_power);
+			powers->effect(stats, h.power_index);
 
 			if (!statBlock()->effects.immunity) {
 				if (statBlock()->effects.forced_move) {
@@ -797,13 +796,13 @@ void Avatar::transform() {
 	setPowers = true;
 
 	delete charmed_stats;
-	charmed_stats = new StatBlock();
+	charmed_stats = new AvatarStatBlock();
 	charmed_stats->load("enemies/" + statBlock()->transform_type + ".txt");
 
 	// temporary save hero stats
 	delete hero_stats;
-	hero_stats = new StatBlock();
-	*hero_stats = stats;
+	hero_stats = new AvatarStatBlock();
+	hero_stats = stats;
 
 	// replace some hero stats
 	statBlock()->speed = charmed_stats->speed;

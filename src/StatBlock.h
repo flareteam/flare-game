@@ -86,6 +86,8 @@ public:
 	StatBlock();
 	~StatBlock();
 
+	virtual StatBlock *clone() = 0;
+
 	void load(const std::string& filename);
 	void takeDamage(int dmg);
 
@@ -335,10 +337,15 @@ public:
 	std::vector<int> hero_cooldown;
 
 	void recalc();
+	StatBlock *clone() { return new AvatarStatBlock(*this); }
 };
 
 class EnemyStatBlock : public StatBlock {
+	StatBlock *clone() { return new EnemyStatBlock(*this); }
+};
 
+class NPCStatBlock : public StatBlock {
+	StatBlock *clone() { return new NPCStatBlock(*this); }
 };
 
 #endif

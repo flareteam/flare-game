@@ -70,25 +70,25 @@ void GameStatePlay::saveGame() {
 	if (outfile.is_open()) {
 
 		// hero name
-		outfile << "name=" << pc->stats.name << "\n";
+		outfile << "name=" << pc->stats->name << "\n";
 
 		// permadeath
-		outfile << "permadeath=" << pc->stats.permadeath << "\n";
+		outfile << "permadeath=" << pc->stats->permadeath << "\n";
 
 		// hero visual option
-		outfile << "option=" << pc->stats.base << "," << pc->stats.head << "," << pc->stats.portrait << "\n";
+		outfile << "option=" << pc->stats->base << "," << pc->stats->head << "," << pc->stats->portrait << "\n";
 
 		// hero class
-		outfile << "class=" << pc->stats.character_class << "\n";
+		outfile << "class=" << pc->stats->character_class << "\n";
 
 		// current experience
-		outfile << "xp=" << pc->stats.xp << "\n";
+		outfile << "xp=" << pc->stats->xp << "\n";
 
 		// hp and mp
-		if (SAVE_HPMP) outfile << "hpmp=" << pc->stats.hp << "," << pc->stats.mp << "\n";
+		if (SAVE_HPMP) outfile << "hpmp=" << pc->stats->hp << "," << pc->stats->mp << "\n";
 
 		// stat spec
-		outfile << "build=" << pc->stats.physical_character << "," << pc->stats.mental_character << "," << pc->stats.offense_character << "," << pc->stats.defense_character << "\n";
+		outfile << "build=" << pc->stats->physical_character << "," << pc->stats->mental_character << "," << pc->stats->offense_character << "," << pc->stats->defense_character << "\n";
 
 		// current currency
 		outfile << "currency=" << menu->inv->currency << "\n";
@@ -107,32 +107,32 @@ void GameStatePlay::saveGame() {
 		// action bar
 		outfile << "actionbar=";
 		for (int i=0; i<12; i++) {
-			if (pc->stats.transformed) outfile << menu->act->actionbar[i];
+			if (pc->stats->transformed) outfile << menu->act->actionbar[i];
 			else outfile << menu->act->hotkeys[i];
 			if (i<11) outfile << ",";
 		}
 		outfile << "\n";
 
 		//shapeshifter value
-		if (pc->stats.transform_type == "untransform" || pc->stats.transform_duration != -1) outfile << "transformed=" << "\n";
-		else outfile << "transformed=" << pc->stats.transform_type << "," << pc->stats.manual_untransform << "\n";
+		if (pc->stats->transform_type == "untransform" || pc->stats->transform_duration != -1) outfile << "transformed=" << "\n";
+		else outfile << "transformed=" << pc->stats->transform_type << "," << pc->stats->manual_untransform << "\n";
 
 		// restore hero powers
-		if (pc->stats.transformed && pc->hero_stats) {
-			pc->stats.powers_list = pc->hero_stats->powers_list;
+		if (pc->stats->transformed && pc->hero_stats) {
+			pc->stats->powers_list = pc->hero_stats->powers_list;
 		}
 
 		// enabled powers
 		outfile << "powers=";
-		for (unsigned int i=0; i<pc->stats.powers_list.size(); i++) {
-			if (i == 0) outfile << pc->stats.powers_list[i];
-			else outfile << "," << pc->stats.powers_list[i];
+		for (unsigned int i=0; i<pc->stats->powers_list.size(); i++) {
+			if (i == 0) outfile << pc->stats->powers_list[i];
+			else outfile << "," << pc->stats->powers_list[i];
 		}
 		outfile << "\n";
 
 		// restore transformed powers
-		if (pc->stats.transformed && pc->charmed_stats) {
-			pc->stats.powers_list = pc->charmed_stats->powers_list;
+		if (pc->stats->transformed && pc->charmed_stats) {
+			pc->stats->powers_list = pc->charmed_stats->powers_list;
 		}
 
 		// campaign data
@@ -193,26 +193,26 @@ void GameStatePlay::loadGame() {
 
 	if (infile.open(ss.str())) {
 		while (infile.next()) {
-			if (infile.key == "name") pc->stats.name = infile.val;
+			if (infile.key == "name") pc->stats->name = infile.val;
 			else if (infile.key == "permadeath") {
 				if (toInt(infile.val) == 1)
-					pc->stats.permadeath = true;
+					pc->stats->permadeath = true;
 				else
-					pc->stats.permadeath = false;
+					pc->stats->permadeath = false;
 			}
 			else if (infile.key == "option") {
-				pc->stats.base = infile.nextValue();
-				pc->stats.head = infile.nextValue();
-				pc->stats.portrait = infile.nextValue();
+				pc->stats->base = infile.nextValue();
+				pc->stats->head = infile.nextValue();
+				pc->stats->portrait = infile.nextValue();
 			}
 			else if (infile.key == "class") {
-				pc->stats.character_class = infile.nextValue();
+				pc->stats->character_class = infile.nextValue();
 			}
 			else if (infile.key == "xp") {
-				pc->stats.xp = toInt(infile.val);
-				if (pc->stats.xp < 0) {
+				pc->stats->xp = toInt(infile.val);
+				if (pc->stats->xp < 0) {
 					fprintf(stderr, "XP value is out of bounds, setting to zero\n");
-					pc->stats.xp = 0;
+					pc->stats->xp = 0;
 				}
 			}
 			else if (infile.key == "hpmp") {
@@ -220,20 +220,20 @@ void GameStatePlay::loadGame() {
 				saved_mp = toInt(infile.nextValue());
 			}
 			else if (infile.key == "build") {
-				pc->stats.physical_character = toInt(infile.nextValue());
-				pc->stats.mental_character = toInt(infile.nextValue());
-				pc->stats.offense_character = toInt(infile.nextValue());
-				pc->stats.defense_character = toInt(infile.nextValue());
-				if (pc->stats.physical_character < 0 || pc->stats.physical_character > pc->stats.max_points_per_stat ||
-					pc->stats.mental_character < 0 || pc->stats.mental_character > pc->stats.max_points_per_stat ||
-					pc->stats.offense_character < 0 || pc->stats.offense_character > pc->stats.max_points_per_stat ||
-					pc->stats.defense_character < 0 || pc->stats.defense_character > pc->stats.max_points_per_stat) {
+				pc->stats->physical_character = toInt(infile.nextValue());
+				pc->stats->mental_character = toInt(infile.nextValue());
+				pc->stats->offense_character = toInt(infile.nextValue());
+				pc->stats->defense_character = toInt(infile.nextValue());
+				if (pc->stats->physical_character < 0 || pc->stats->physical_character > pc->stats->max_points_per_stat ||
+					pc->stats->mental_character < 0 || pc->stats->mental_character > pc->stats->max_points_per_stat ||
+					pc->stats->offense_character < 0 || pc->stats->offense_character > pc->stats->max_points_per_stat ||
+					pc->stats->defense_character < 0 || pc->stats->defense_character > pc->stats->max_points_per_stat) {
 
 					fprintf(stderr, "Some basic stats are out of bounds, setting to zero\n");
-					pc->stats.physical_character = 0;
-					pc->stats.mental_character = 0;
-					pc->stats.offense_character = 0;
-					pc->stats.defense_character = 0;
+					pc->stats->physical_character = 0;
+					pc->stats->mental_character = 0;
+					pc->stats->offense_character = 0;
+					pc->stats->defense_character = 0;
 				}
 			}
 			else if (infile.key == "currency") {
@@ -294,16 +294,16 @@ void GameStatePlay::loadGame() {
 				menu->act->set(hotkeys);
 			}
 			else if (infile.key == "transformed") {
-				pc->stats.transform_type = infile.nextValue();
-				if (pc->stats.transform_type != "") {
-					pc->stats.transform_duration = -1;
-					pc->stats.manual_untransform = toInt(infile.nextValue());
+				pc->stats->transform_type = infile.nextValue();
+				if (pc->stats->transform_type != "") {
+					pc->stats->transform_duration = -1;
+					pc->stats->manual_untransform = toInt(infile.nextValue());
 				}
 			}
 			else if (infile.key == "powers") {
 				string power;
 				while ( (power = infile.nextValue()) != "") {
-					pc->stats.powers_list.push_back(toInt(power));
+					pc->stats->powers_list.push_back(toInt(power));
 				}
 			}
 			else if (infile.key == "campaign") camp->setAll(infile.val);
@@ -323,33 +323,33 @@ void GameStatePlay::loadGame() {
 	menu->inv->applyEquipment(menu->inv->inventory[EQUIPMENT].storage);
 	// trigger passive effects here? Saved HP/MP values might depend on passively boosted HP/MP
 	// powers->activatePassives(pc->stats);
-	pc->stats.logic(); // run stat logic once to apply items bonuses
+	pc->stats->logic(); // run stat logic once to apply items bonuses
 	if (SAVE_HPMP) {
-		if (saved_hp < 0 || saved_hp > pc->stats.maxhp) {
+		if (saved_hp < 0 || saved_hp > pc->stats->maxhp) {
 			fprintf(stderr, "HP value is out of bounds, setting to maximum\n");
-			pc->stats.hp = pc->stats.maxhp;
+			pc->stats->hp = pc->stats->maxhp;
 		}
-		else pc->stats.hp = saved_hp;
+		else pc->stats->hp = saved_hp;
 
-		if (saved_mp < 0 || saved_mp > pc->stats.maxmp) {
+		if (saved_mp < 0 || saved_mp > pc->stats->maxmp) {
 			fprintf(stderr, "MP value is out of bounds, setting to maximum\n");
-			pc->stats.mp = pc->stats.maxmp;
+			pc->stats->mp = pc->stats->maxmp;
 		}
-		else pc->stats.mp = saved_mp;
+		else pc->stats->mp = saved_mp;
 	}
 	else {
-		pc->stats.hp = pc->stats.maxhp;
-		pc->stats.mp = pc->stats.maxmp;
+		pc->stats->hp = pc->stats->maxhp;
+		pc->stats->mp = pc->stats->maxmp;
 	}
 
 	// reset character menu
 	menu->chr->refreshStats();
 
 	// just for aesthetics, turn the hero to face the camera
-	pc->stats.direction = 6;
+	pc->stats->direction = 6;
 
 	// set up MenuTalker for this hero
-	menu->talker->setHero(pc->stats.name, pc->stats.portrait);
+	menu->talker->setHero(pc->stats->name, pc->stats->portrait);
 
 	// load sounds (gender specific)
 	pc->loadSounds();
@@ -362,15 +362,15 @@ void GameStatePlay::loadClass(int index) {
 	// game slots are currently 1-4
 	if (game_slot == 0) return;
 
-	pc->stats.character_class = HERO_CLASSES[index].name;
-	pc->stats.physical_character += HERO_CLASSES[index].physical;
-	pc->stats.mental_character += HERO_CLASSES[index].mental;
-	pc->stats.offense_character += HERO_CLASSES[index].offense;
-	pc->stats.defense_character += HERO_CLASSES[index].defense;
+	pc->stats->character_class = HERO_CLASSES[index].name;
+	pc->stats->physical_character += HERO_CLASSES[index].physical;
+	pc->stats->mental_character += HERO_CLASSES[index].mental;
+	pc->stats->offense_character += HERO_CLASSES[index].offense;
+	pc->stats->defense_character += HERO_CLASSES[index].defense;
 	menu->inv->currency += HERO_CLASSES[index].currency;
 	menu->inv->inventory[EQUIPMENT].setItems(HERO_CLASSES[index].equipment);
 	for (unsigned i=0; i<HERO_CLASSES[index].powers.size(); i++) {
-		pc->stats.powers_list.push_back(HERO_CLASSES[index].powers[i]);
+		pc->stats->powers_list.push_back(HERO_CLASSES[index].powers[i]);
 	}
 	for (unsigned i=0; i<HERO_CLASSES[index].statuses.size(); i++) {
 		camp->setStatus(HERO_CLASSES[index].statuses[i]);

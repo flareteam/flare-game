@@ -90,7 +90,7 @@ GameStatePlay::GameStatePlay()
 	camp->items = items;
 	camp->carried_items = &menu->inv->inventory[CARRIED];
 	camp->currency = &menu->inv->currency;
-	camp->hero = &pc->stats;
+	camp->hero = pc->stats;
 	map->powers = powers;
 
 	loading->set(VIEW_W_HALF, VIEW_H_HALF, JUSTIFY_CENTER, VALIGN_CENTER, msg->get("Loading..."), color_normal);
@@ -145,7 +145,7 @@ void GameStatePlay::checkEnemyFocus() {
 	if (enemy != NULL) {
 
 		// if there's a living creature in focus, display its stats
-		if (!enemy->stats.suppress_hp) {
+		if (!enemy->stats->suppress_hp) {
 			menu->enemy->enemy = enemy;
 			menu->enemy->timeout = MENU_ENEMY_TIMEOUT;
 		}
@@ -766,7 +766,7 @@ void GameStatePlay::logic() {
 		pc->statBlock()->corpse = false;
 		pc->statBlock()->cur_state = AVATAR_STANCE;
 		menu->inv->applyEquipment(menu->inv->inventory[EQUIPMENT].storage);
-		pc->powers->activatePassives(&pc->stats);
+		pc->powers->activatePassives(pc->stats);
 		pc->statBlock()->logic();
 		pc->statBlock()->recalc();
 		pc->respawn = false;
