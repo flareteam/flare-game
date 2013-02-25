@@ -821,7 +821,6 @@ void Avatar::transform() {
 	// temporary save hero stats
 	delete hero_stats;
 	hero_stats = new AvatarStatBlock();
-	hero_stats = stats;
 
 	// replace some hero stats
 	statBlock()->speed = charmed_stats->speed;
