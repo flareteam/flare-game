@@ -63,8 +63,14 @@ MenuNPCActions::MenuNPCActions()
 	: Menu()
 	, npc(NULL)
 	, is_selected(false)
+	, is_empty(true)
+	, first_dialog_node(-1)
 	, current_action(-1)
 	, action_menu(NULL)
+	, dialog_selected(false)
+	, vendor_selected(false)
+	, cancel_selected(false)
+	, selected_dialog_node(-1)
 {
 	// Setup defaults
 	vendor_normal_color.r = cancel_normal_color.r = topic_normal_color.r = 0xd0;
