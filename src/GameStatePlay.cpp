@@ -81,9 +81,9 @@ GameStatePlay::GameStatePlay()
 	, loading(new WidgetLabel())
 	, loading_bg(IMG_Load(mods->locate("images/menus/confirm_bg.png").c_str()))
 	, npc_id(-1)
+	, eventDialogOngoing(false)
 	, color_normal(font->getColor("menu_normal"))
 	, game_slot(0)
-	, eventDialogOngoing(false)
 {
 	hasMusic = true;
 	// GameEngine scope variables
@@ -574,7 +574,8 @@ void GameStatePlay::checkNPCInteraction() {
 	}
 
 	// if close enough to the NPC, open the appropriate interaction screen
-	if (npc_id != -1 && (npc_click != -1 && interact_distance < max_interact_distance && pc->statBlock()->alive && pc->statBlock()->humanoid || eventPendingDialog)) {
+	if (npc_id != -1 && ((npc_click != -1 && interact_distance < max_interact_distance && pc->statBlock()->alive && pc->statBlock()->humanoid) || eventPendingDialog)) {
+
 		if (inpt->pressing[MAIN1]) inpt->lock[MAIN1] = true;
 		if (inpt->pressing[ACCEPT]) inpt->lock[ACCEPT] = true;
 
@@ -599,7 +600,8 @@ void GameStatePlay::checkNPCInteraction() {
 		menu->npc->setNPC(NULL);
 	}
 
-	if (npc_id != -1 && interact_distance < max_interact_distance && pc->statBlock()->alive && pc->statBlock()->humanoid || eventPendingDialog) {
+	if (npc_id != -1 && ((interact_distance < max_interact_distance && pc->statBlock()->alive && pc->statBlock()->humanoid) || eventPendingDialog)) {
+
 
 		if (menu->talker->vendor_visible && !menu->vendor->talker_visible) {
 
