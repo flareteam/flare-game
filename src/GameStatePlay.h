@@ -105,6 +105,8 @@ private:
 	void loadTitles();
 
 	int npc_id;
+	bool eventDialogOngoing;
+	bool eventPendingDialog;
 
 	SDL_Color color_normal;
 
