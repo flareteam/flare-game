@@ -7,6 +7,7 @@ talker=true
 gfx=statue_guardian_wind
 
 [dialog]
+topic=Gossip
 requires_not=lb_wind_password
 him=Who goes there?
 you=A friend of the masters.
@@ -15,6 +16,7 @@ set_status=lb_wind_attack
 him=Intruder! You shall not interrupt the masters' work!
 
 [dialog]
+topic=Gossip
 requires_status=lb_wind_password
 him=Who goes there?
 you=Grisbon.
@@ -23,5 +25,6 @@ reward_xp=100
 him=Welcome, Master Grisbon.
 
 [dialog]
+topic=Gossip
 requires_status=lb_wind_unlocked
 him=Welcome, Master Grisbon.

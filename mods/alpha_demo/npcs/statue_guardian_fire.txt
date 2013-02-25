@@ -7,6 +7,7 @@ talker=true
 gfx=statue_guardian_fire
 
 [dialog]
+topic=Gossip
 requires_not=lb_fire_password
 him=Who goes there?
 you=I came here to kill lots of monsters.
@@ -15,6 +16,7 @@ set_status=lb_fire_attack
 him=Intruder! You shall not interrupt the masters' work!
 
 [dialog]
+topic=Gossip
 requires_status=lb_fire_password
 him=Who goes there?
 you=Vesuvvio.
@@ -27,5 +29,6 @@ him=Then welcome, Master Vesuvvio, may you enjoy your destruction tonight.
 you=(This Vesuvvio guy sure is strange...)
 
 [dialog]
+topic=Gossip
 requires_status=lb_fire_unlocked
 him=Welcome, Master Vesuvvio, may you enjoy your destruction tonight.
