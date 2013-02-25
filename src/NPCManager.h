@@ -56,6 +56,7 @@ public:
 	void handleNewMap();
 	void logic();
 	void addRenders(std::vector<Renderable> &r);
+	int getID(std::string npcName);
 	int checkNPCClick(Point mouse, Point cam);
 	int getNearestNPC(Point pos);
 	void renderTooltips(Point cam, Point mouse);

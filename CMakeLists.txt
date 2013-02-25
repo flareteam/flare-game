@@ -128,6 +128,7 @@ Set (FLARE_SOURCES
 	./src/MenuLog.cpp
 	./src/MenuManager.cpp
 	./src/MenuMiniMap.cpp
+	./src/MenuNPCActions.cpp
 	./src/MenuPowers.cpp
 	./src/MenuStash.cpp
 	./src/MenuStatBar.cpp
