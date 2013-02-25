@@ -45,7 +45,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "PowerManager.h"
 #include "SharedResources.h"
 
-MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManager *_camp, ItemManager *_items)
+MenuManager::MenuManager(PowerManager *_powers, AvatarStatBlock *_stats, CampaignManager *_camp, ItemManager *_items)
 	: icons(NULL)
 	, powers(_powers)
 	, stats(_stats)
@@ -70,6 +70,7 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 	, xp(NULL)
 	, tip(NULL)
 	, mini(NULL)
+	, npc(NULL)
 	, enemy(NULL)
 	, vendor(NULL)
 	, talker(NULL)
@@ -164,7 +165,7 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 				int y = eatFirstInt(infile.val, ',');
 				int w = eatFirstInt(infile.val, ',');
 				int h = eatFirstInt(infile.val, ',');
-				
+
 				menus[menu_index]->window_area.x = x;
 				menus[menu_index]->window_area.y = y;
 				menus[menu_index]->window_area.w = w;
@@ -177,7 +178,7 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 			} else if (infile.key == "soundfx_close") {
 				menus[menu_index]->sfx_close = snd->load(infile.val, "MenuManager close tab");
 			}
-			
+
 		}
 
 		infile.close();

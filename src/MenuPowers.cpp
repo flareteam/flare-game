@@ -288,10 +288,10 @@ bool MenuPowers::requirementsMet(int power_index) {
 	if (find(stats->powers_list.begin(), stats->powers_list.end(), power_index) != stats->powers_list.end()) return true;
 
 	// Check the rest requirements
-	if ((stats->physoff >= power_cell[id].requires_physoff) &&
-		(stats->physdef >= power_cell[id].requires_physdef) &&
-		(stats->mentoff >= power_cell[id].requires_mentoff) &&
-		(stats->mentdef >= power_cell[id].requires_mentdef) &&
+	if ((stats->physoff() >= power_cell[id].requires_physoff) &&
+		(stats->physdef() >= power_cell[id].requires_physdef) &&
+		(stats->mentoff() >= power_cell[id].requires_mentoff) &&
+		(stats->mentdef() >= power_cell[id].requires_mentdef) &&
 		(stats->get_defense() >= power_cell[id].requires_defense) &&
 		(stats->get_offense() >= power_cell[id].requires_offense) &&
 		(stats->get_physical() >= power_cell[id].requires_physical) &&
@@ -321,10 +321,10 @@ bool MenuPowers::powerUnlockable(int power_index) {
 	if (requirementsMet(power_index)) return false;
 
 	// Check requirements
-	if ((stats->physoff >= power_cell[id].requires_physoff) &&
-		(stats->physdef >= power_cell[id].requires_physdef) &&
-		(stats->mentoff >= power_cell[id].requires_mentoff) &&
-		(stats->mentdef >= power_cell[id].requires_mentdef) &&
+	if ((stats->physoff() >= power_cell[id].requires_physoff) &&
+		(stats->physdef() >= power_cell[id].requires_physdef) &&
+		(stats->mentoff() >= power_cell[id].requires_mentoff) &&
+		(stats->mentdef() >= power_cell[id].requires_mentdef) &&
 		(stats->get_defense() >= power_cell[id].requires_defense) &&
 		(stats->get_offense() >= power_cell[id].requires_offense) &&
 		(stats->get_physical() >= power_cell[id].requires_physical) &&
@@ -507,24 +507,24 @@ TooltipData MenuPowers::checkTooltip(Point mouse) {
 
 
 				// add requirement
-				if ((power_cell[i].requires_physoff > 0) && (stats->physoff < power_cell[i].requires_physoff)) {
+				if ((power_cell[i].requires_physoff > 0) && (stats->physoff() < power_cell[i].requires_physoff)) {
 					tip.addText(msg->get("Requires Physical Offense %d", power_cell[i].requires_physoff), color_penalty);
-				} else if((power_cell[i].requires_physoff > 0) && (stats->physoff >= power_cell[i].requires_physoff)) {
+				} else if((power_cell[i].requires_physoff > 0) && (stats->physoff() >= power_cell[i].requires_physoff)) {
 					tip.addText(msg->get("Requires Physical Offense %d", power_cell[i].requires_physoff));
 				}
-				if ((power_cell[i].requires_physdef > 0) && (stats->physdef < power_cell[i].requires_physdef)) {
+				if ((power_cell[i].requires_physdef > 0) && (stats->physdef() < power_cell[i].requires_physdef)) {
 					tip.addText(msg->get("Requires Physical Defense %d", power_cell[i].requires_physdef), color_penalty);
-				} else if ((power_cell[i].requires_physdef > 0) && (stats->physdef >= power_cell[i].requires_physdef)) {
+				} else if ((power_cell[i].requires_physdef > 0) && (stats->physdef() >= power_cell[i].requires_physdef)) {
 					tip.addText(msg->get("Requires Physical Defense %d", power_cell[i].requires_physdef));
 				}
-				if ((power_cell[i].requires_mentoff > 0) && (stats->mentoff < power_cell[i].requires_mentoff)) {
+				if ((power_cell[i].requires_mentoff > 0) && (stats->mentoff() < power_cell[i].requires_mentoff)) {
 					tip.addText(msg->get("Requires Mental Offense %d", power_cell[i].requires_mentoff), color_penalty);
-				} else if ((power_cell[i].requires_mentoff > 0) && (stats->mentoff >= power_cell[i].requires_mentoff)) {
+				} else if ((power_cell[i].requires_mentoff > 0) && (stats->mentoff() >= power_cell[i].requires_mentoff)) {
 					tip.addText(msg->get("Requires Mental Offense %d", power_cell[i].requires_mentoff));
 				}
-				if ((power_cell[i].requires_mentdef > 0) && (stats->mentdef < power_cell[i].requires_mentdef)) {
+				if ((power_cell[i].requires_mentdef > 0) && (stats->mentdef() < power_cell[i].requires_mentdef)) {
 					tip.addText(msg->get("Requires Mental Defense %d", power_cell[i].requires_mentdef), color_penalty);
-				} else if ((power_cell[i].requires_mentdef > 0) && (stats->mentdef >= power_cell[i].requires_mentdef)) {
+				} else if ((power_cell[i].requires_mentdef > 0) && (stats->mentdef() >= power_cell[i].requires_mentdef)) {
 					tip.addText(msg->get("Requires Mental Defense %d", power_cell[i].requires_mentdef));
 				}
 				if ((power_cell[i].requires_offense > 0) && (stats->get_offense() < power_cell[i].requires_offense)) {
@@ -626,10 +626,10 @@ bool MenuPowers::meetsUsageStats(unsigned powerid) {
 	// If we didn't find power in power_menu, than it has no stats requirements
 	if (id == -1) return true;
 
-	return stats->physoff >= power_cell[id].requires_physoff
-		&& stats->physdef >= power_cell[id].requires_physdef
-		&& stats->mentoff >= power_cell[id].requires_mentoff
-		&& stats->mentdef >= power_cell[id].requires_mentdef
+	return stats->physoff() >= power_cell[id].requires_physoff
+		&& stats->physdef() >= power_cell[id].requires_physdef
+		&& stats->mentoff() >= power_cell[id].requires_mentoff
+		&& stats->mentdef() >= power_cell[id].requires_mentdef
 		&& stats->get_defense() >= power_cell[id].requires_defense
 		&& stats->get_offense() >= power_cell[id].requires_offense
 		&& stats->get_mental() >= power_cell[id].requires_mental

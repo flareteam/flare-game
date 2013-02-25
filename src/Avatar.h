@@ -100,6 +100,8 @@ public:
 
 	PowerManager *powers;
 
+	AvatarStatBlock *statBlock() { return static_cast<AvatarStatBlock*>(stats); }
+
 	void init();
 	void loadLayerDefinitions();
 	std::vector<std::string> layer_reference_order;

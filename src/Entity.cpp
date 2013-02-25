@@ -34,11 +34,12 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 using namespace std;
 
-Entity::Entity(MapRenderer* _map)
+Entity::Entity(MapRenderer* _map, StatBlock *_stats)
  : sprites(NULL)
  , activeAnimation(NULL)
  , animationSet(NULL)
  , map(_map)
+ , stats(_stats)
 {
 }
 
@@ -47,7 +48,7 @@ Entity::Entity(const Entity &e)
  , activeAnimation(new Animation(*e.activeAnimation))
  , animationSet(e.animationSet)
  , map(e.map)
- , stats(StatBlock(e.stats))
+ , stats(e.stats->clone())
 {
 }
 
@@ -59,44 +60,44 @@ Entity::Entity(const Entity &e)
  */
 bool Entity::move() {
 
-	if (stats.effects.forced_move) {
-		return map->collider.move(stats.pos.x, stats.pos.y, stats.forced_speed.x, stats.forced_speed.y, 1, stats.movement_type);
+	if (stats->effects.forced_move) {
+		return map->collider.move(stats->pos.x, stats->pos.y, stats->forced_speed.x, stats->forced_speed.y, 1, stats->movement_type);
 	}
 
-	if (stats.effects.speed == 0) return false;
+	if (stats->effects.speed == 0) return false;
 
-	int speed_diagonal = stats.dspeed;
-	int speed_straight = stats.speed;
+	int speed_diagonal = stats->dspeed;
+	int speed_straight = stats->speed;
 
-	speed_diagonal = (speed_diagonal * stats.effects.speed) / 100;
-	speed_straight = (speed_straight * stats.effects.speed) / 100;
+	speed_diagonal = (speed_diagonal * stats->effects.speed) / 100;
+	speed_straight = (speed_straight * stats->effects.speed) / 100;
 
 	bool full_move = false;
 
-	switch (stats.direction) {
+	switch (stats->direction) {
 		case 0:
-			full_move = map->collider.move(stats.pos.x, stats.pos.y, -1, 1, speed_diagonal, stats.movement_type);
+			full_move = map->collider.move(stats->pos.x, stats->pos.y, -1, 1, speed_diagonal, stats->movement_type);
 			break;
 		case 1:
-			full_move =  map->collider.move(stats.pos.x, stats.pos.y, -1, 0, speed_straight, stats.movement_type);
+			full_move =  map->collider.move(stats->pos.x, stats->pos.y, -1, 0, speed_straight, stats->movement_type);
 			break;
 		case 2:
-			full_move =  map->collider.move(stats.pos.x, stats.pos.y, -1, -1, speed_diagonal, stats.movement_type);
+			full_move =  map->collider.move(stats->pos.x, stats->pos.y, -1, -1, speed_diagonal, stats->movement_type);
 			break;
 		case 3:
-			full_move =  map->collider.move(stats.pos.x, stats.pos.y, 0, -1, speed_straight, stats.movement_type);
+			full_move =  map->collider.move(stats->pos.x, stats->pos.y, 0, -1, speed_straight, stats->movement_type);
 			break;
 		case 4:
-			full_move =  map->collider.move(stats.pos.x, stats.pos.y, 1, -1, speed_diagonal, stats.movement_type);
+			full_move =  map->collider.move(stats->pos.x, stats->pos.y, 1, -1, speed_diagonal, stats->movement_type);
 			break;
 		case 5:
-			full_move =  map->collider.move(stats.pos.x, stats.pos.y, 1, 0, speed_straight, stats.movement_type);
+			full_move =  map->collider.move(stats->pos.x, stats->pos.y, 1, 0, speed_straight, stats->movement_type);
 			break;
 		case 6:
-			full_move =  map->collider.move(stats.pos.x, stats.pos.y, 1, 1, speed_diagonal, stats.movement_type);
+			full_move =  map->collider.move(stats->pos.x, stats->pos.y, 1, 1, speed_diagonal, stats->movement_type);
 			break;
 		case 7:
-			full_move =  map->collider.move(stats.pos.x, stats.pos.y, 0, 1, speed_straight, stats.movement_type);
+			full_move =  map->collider.move(stats->pos.x, stats->pos.y, 0, 1, speed_straight, stats->movement_type);
 			break;
 	}
 
@@ -108,8 +109,8 @@ bool Entity::move() {
  */
 int Entity::face(int mapx, int mapy) {
 	// inverting Y to convert map coordinates to standard cartesian coordinates
-	int dx = mapx - stats.pos.x;
-	int dy = stats.pos.y - mapy;
+	int dx = mapx - stats->pos.x;
+	int dy = stats->pos.y - mapy;
 
 	// avoid div by zero
 	if (dx == 0) {
@@ -134,7 +135,7 @@ int Entity::face(int mapx, int mapy) {
 		if (dy > 0) return 3;
 		else return 7;
 	}
-	return stats.direction;
+	return stats->direction;
 }
 
 /**
