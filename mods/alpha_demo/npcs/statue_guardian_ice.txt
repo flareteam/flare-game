@@ -7,7 +7,6 @@ talker=true
 gfx=statue_guardian_ice
 
 [dialog]
-topic=Gossip
 requires_not=lb_ice_password
 him=Who goes there?
 you=Uh... a lone adventurer?
@@ -16,7 +15,6 @@ set_status=lb_ice_attack
 him=Intruder! You shall not interrupt the masters' work!
 
 [dialog]
-topic=Gossip
 requires_status=lb_ice_password
 him=Who goes there?
 you=Scathelocke.
@@ -25,6 +23,5 @@ reward_xp=100
 him=Welcome, Master Scathelocke.
 
 [dialog]
-topic=Gossip
 requires_status=lb_ice_unlocked
 him=Welcome, Master Scathelocke.
