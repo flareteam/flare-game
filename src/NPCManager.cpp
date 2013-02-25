@@ -98,6 +98,7 @@ int NPCManager::getID(std::string npcName) {
 	for (unsigned i=0; i<npcs.size(); i++) {
 		if (npcs[i]->filename == npcName) return i;
 	}
+	return -1;
 }
 
 int NPCManager::checkNPCClick(Point mouse, Point cam) {

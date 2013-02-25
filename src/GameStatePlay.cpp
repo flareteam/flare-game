@@ -564,10 +564,11 @@ void GameStatePlay::checkNPCInteraction() {
 
 	if (map->event_npc != "") {
 		npc_id = npcs->getID(map->event_npc);
-		eventDialogOngoing = true;
-		eventPendingDialog = true;
+		if (npc_id != -1) {
+		  eventDialogOngoing = true;
+		  eventPendingDialog = true;
+		}		
 		map->event_npc = "";
-		
 	}
 
 	// if close enough to the NPC, open the appropriate interaction screen
