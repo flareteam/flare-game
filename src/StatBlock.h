@@ -84,7 +84,7 @@ class StatBlock {
 
 public:
 	StatBlock();
-	~StatBlock();
+	virtual ~StatBlock();
 
 	virtual StatBlock *clone() = 0;
 
