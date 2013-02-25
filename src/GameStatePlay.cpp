@@ -129,7 +129,7 @@ void GameStatePlay::resetGame() {
 
 	// Finalize new character settings
 	menu->talker->setHero(pc->stats.name, pc->stats.portrait);
-	pc->loadSounds("none");
+	pc->loadSounds();
 }
 
 /**

@@ -105,7 +105,7 @@ public:
 	std::vector<std::string> layer_reference_order;
 	std::vector<std::vector<unsigned> > layer_def;
 	void loadGraphics(std::vector<Layer_gfx> _img_gfx);
-	void loadSounds(const std::string& type_id);
+	void loadSounds(const std::string& type_id = "none");
 	void loadStepFX(const std::string& stepname);
 
 	void logic(int actionbar_power, bool restrictPowerUse);

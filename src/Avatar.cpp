@@ -915,7 +915,7 @@ void Avatar::untransform() {
 		stats.vulnerable[i] = hero_stats->vulnerable[i];
 	}
 
-	loadSounds("none");
+	loadSounds();
 	loadStepFX(stats.sfx_step);
 
 	delete charmed_stats;
