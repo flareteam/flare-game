@@ -36,7 +36,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 class InputState;
 class ItemManager;
 class PowerManager;
-class StatBlock;
+class AvatarStatBlock;
 class WidgetButton;
 
 const int EQUIPMENT = 0;
@@ -45,7 +45,7 @@ const int CARRIED = 1;
 class MenuInventory : public Menu {
 private:
 	ItemManager *items;
-	StatBlock *stats;
+	AvatarStatBlock *stats;
 	PowerManager *powers;
 
 	void loadGraphics();
@@ -69,7 +69,7 @@ private:
 	SDL_Color color_high;
 
 public:
-	MenuInventory(ItemManager *items, StatBlock *stats, PowerManager *powers);
+	MenuInventory(ItemManager *items, AvatarStatBlock *stats, PowerManager *powers);
 	~MenuInventory();
 	void update();
 	void logic();

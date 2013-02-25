@@ -66,7 +66,7 @@ void EnemyManager::loadSounds(const string& type_id) {
 }
 
 void EnemyManager::loadAnimations(Enemy *e) {
-	string animationsname = "animations/enemies/"+e->stats.animations + ".txt";
+	string animationsname = "animations/enemies/"+e->stats->animations + ".txt";
 	anim->increaseCount(animationsname);
 	e->animationSet = anim->getAnimationSet(animationsname);
 	e->activeAnimation = e->animationSet->getAnimation();
@@ -75,7 +75,7 @@ void EnemyManager::loadAnimations(Enemy *e) {
 Enemy *EnemyManager::getEnemyPrototype(const string& type_id) {
 	for (size_t i = 0; i < prototypes.size(); i++)
 		if (prototypes[i].type == type_id) {
-			string animationsname = "animations/enemies/"+prototypes[i].stats.animations + ".txt";
+			string animationsname = "animations/enemies/"+prototypes[i].stats->animations + ".txt";
 			anim->increaseCount(animationsname);
 			return new Enemy(prototypes[i]);
 		}
@@ -83,16 +83,16 @@ Enemy *EnemyManager::getEnemyPrototype(const string& type_id) {
 	Enemy e = Enemy(powers, map);
 
 	e.eb = new BehaviorStandard(&e);
-	e.stats.load("enemies/" + type_id + ".txt");
+	e.stats->load("enemies/" + type_id + ".txt");
 	e.type = type_id;
 
-	if (e.stats.animations == "")
+	if (e.stats->animations == "")
 		cerr << "Warning: no animation file specified for entity: " << type_id << endl;
-	if (e.stats.sfx_prefix == "")
+	if (e.stats->sfx_prefix == "")
 		cerr << "Warning: no sfx_prefix specified for entity: " << type_id << endl;
 
 	loadAnimations(&e);
-	loadSounds(e.stats.sfx_prefix);
+	loadSounds(e.stats->sfx_prefix);
 
 	prototypes.push_back(e);
 
@@ -137,12 +137,12 @@ void EnemyManager::handleNewMap () {
 
 		Enemy *e = getEnemyPrototype(me.type);
 
-		e->stats.waypoints = me.waypoints;
-		e->stats.pos.x = me.pos.x;
-		e->stats.pos.y = me.pos.y;
-		e->stats.direction = me.direction;
-		e->stats.wander = me.wander;
-		e->stats.wander_area = me.wander_area;
+		e->stats->waypoints = me.waypoints;
+		e->stats->pos.x = me.pos.x;
+		e->stats->pos.y = me.pos.y;
+		e->stats->direction = me.direction;
+		e->stats->wander = me.wander;
+		e->stats->wander_area = me.wander_area;
 
 		enemies.push_back(e);
 
@@ -167,13 +167,13 @@ void EnemyManager::handleSpawn() {
 		// factory
 		e->eb = new BehaviorStandard(e);
 
-		e->stats.pos.x = espawn.pos.x;
-		e->stats.pos.y = espawn.pos.y;
-		e->stats.direction = espawn.direction;
-		e->stats.load("enemies/" + espawn.type + ".txt");
-		if (e->stats.animations != "") {
+		e->stats->pos.x = espawn.pos.x;
+		e->stats->pos.y = espawn.pos.y;
+		e->stats->direction = espawn.direction;
+		e->stats->load("enemies/" + espawn.type + ".txt");
+		if (e->stats->animations != "") {
 			// load the animation file if specified
-			string animationname = "animations/enemies/"+e->stats.animations + ".txt";
+			string animationname = "animations/enemies/"+e->stats->animations + ".txt";
 			anim->increaseCount(animationname);
 			e->animationSet = anim->getAnimationSet(animationname);
 			if (e->animationSet)
@@ -184,10 +184,10 @@ void EnemyManager::handleSpawn() {
 		else {
 			cout << "Warning: no animation file specified for entity: " << espawn.type << endl;
 		}
-		loadSounds(e->stats.sfx_prefix);
+		loadSounds(e->stats->sfx_prefix);
 
 		// special animation state for spawning enemies
-		e->stats.cur_state = ENEMY_SPAWN;
+		e->stats->cur_state = ENEMY_SPAWN;
 		enemies.push_back(e);
 
 		map->collider.block(espawn.pos.x, espawn.pos.y);
@@ -207,13 +207,13 @@ void EnemyManager::logic() {
 		// so process and clear sound effects from previous frames
 		// check sound effects
 		if (AUDIO) {
-			vector<string>::iterator found = find (sfx_prefixes.begin(), sfx_prefixes.end(), enemies[i]->stats.sfx_prefix);
+			vector<string>::iterator found = find (sfx_prefixes.begin(), sfx_prefixes.end(), enemies[i]->stats->sfx_prefix);
 			unsigned pref_id = distance(sfx_prefixes.begin(), found);
 
 			if (pref_id >= sfx_prefixes.size()) {
 				cerr << "ERROR: enemy sfx_prefix doesn't match registered prefixes (enemy: '"
-					 << enemies[i]->stats.name << "', sfx_prefix: '"
-					 << enemies[i]->stats.sfx_prefix << "')" << endl;
+					 << enemies[i]->stats->name << "', sfx_prefix: '"
+					 << enemies[i]->stats->sfx_prefix << "')" << endl;
 			} else {
 				if (enemies[i]->sfx_phys) snd->play(sound_phys[pref_id]);
 				if (enemies[i]->sfx_ment) snd->play(sound_ment[pref_id]);
@@ -231,9 +231,9 @@ void EnemyManager::logic() {
 		}
 
 		// new actions this round
-		enemies[i]->stats.hero_pos = hero_pos;
-		enemies[i]->stats.hero_alive = hero_alive;
-		enemies[i]->stats.hero_stealth = hero_stealth;
+		enemies[i]->stats->hero_pos = hero_pos;
+		enemies[i]->stats->hero_alive = hero_alive;
+		enemies[i]->stats->hero_stealth = hero_stealth;
 		enemies[i]->logic();
 
 	}
@@ -243,10 +243,10 @@ Enemy* EnemyManager::enemyFocus(Point mouse, Point cam, bool alive_only) {
 	Point p;
 	SDL_Rect r;
 	for(unsigned int i = 0; i < enemies.size(); i++) {
-		if(alive_only && (enemies[i]->stats.cur_state == ENEMY_DEAD || enemies[i]->stats.cur_state == ENEMY_CRITDEAD)) {
+		if(alive_only && (enemies[i]->stats->cur_state == ENEMY_DEAD || enemies[i]->stats->cur_state == ENEMY_CRITDEAD)) {
 			continue;
 		}
-		p = map_to_screen(enemies[i]->stats.pos.x, enemies[i]->stats.pos.y, cam.x, cam.y);
+		p = map_to_screen(enemies[i]->stats->pos.x, enemies[i]->stats->pos.y, cam.x, cam.y);
 
 		r.w = enemies[i]->getRender().src.w;
 		r.h = enemies[i]->getRender().src.h;
@@ -267,7 +267,7 @@ Enemy* EnemyManager::enemyFocus(Point mouse, Point cam, bool alive_only) {
 void EnemyManager::checkEnemiesforXP(CampaignManager *camp) {
 	for (unsigned int i=0; i < enemies.size(); i++) {
 		if (enemies[i]->reward_xp) {
-			camp->rewardXP(enemies[i]->stats.xp, false);
+			camp->rewardXP(enemies[i]->stats->xp, false);
 			enemies[i]->reward_xp = false; // clear flag
 		}
 	}
@@ -277,7 +277,7 @@ bool EnemyManager::isCleared() {
 	if (enemies.empty()) return true;
 
 	for (unsigned int i=0; i < enemies.size(); i++) {
-		if (enemies[i]->stats.alive) return false;
+		if (enemies[i]->stats->alive) return false;
 	}
 
 	return true;
@@ -291,8 +291,8 @@ bool EnemyManager::isCleared() {
 void EnemyManager::addRenders(vector<Renderable> &r, vector<Renderable> &r_dead) {
 	vector<Enemy*>::iterator it;
 	for (it = enemies.begin(); it != enemies.end(); ++it) {
-		bool dead = (*it)->stats.corpse;
-		if (!dead || (dead && (*it)->stats.corpse_ticks > 0)) {
+		bool dead = (*it)->stats->corpse;
+		if (!dead || (dead && (*it)->stats->corpse_ticks > 0)) {
 			Renderable re = (*it)->getRender();
 			re.prio = 1;
 
@@ -300,11 +300,11 @@ void EnemyManager::addRenders(vector<Renderable> &r, vector<Renderable> &r_dead)
 			(dead ? r_dead : r).push_back(re);
 
 			// add effects
-			for (unsigned i = 0; i < (*it)->stats.effects.effect_list.size(); ++i) {
-				if ((*it)->stats.effects.effect_list[i].animation) {
-					Renderable ren = (*it)->stats.effects.effect_list[i].animation->getCurrentFrame(0);
-					ren.map_pos = (*it)->stats.pos;
-					if ((*it)->stats.effects.effect_list[i].render_above) ren.prio = 2;
+			for (unsigned i = 0; i < (*it)->stats->effects.effect_list.size(); ++i) {
+				if ((*it)->stats->effects.effect_list[i].animation) {
+					Renderable ren = (*it)->stats->effects.effect_list[i].animation->getCurrentFrame(0);
+					ren.map_pos = (*it)->stats->pos;
+					if ((*it)->stats->effects.effect_list[i].render_above) ren.prio = 2;
 					else ren.prio = 0;
 					r.push_back(ren);
 				}

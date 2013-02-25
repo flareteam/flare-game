@@ -80,8 +80,8 @@ void HazardManager::logic() {
 				for (unsigned int eindex = 0; eindex < enemies->enemies.size(); eindex++) {
 
 					// only check living enemies
-					if (enemies->enemies[eindex]->stats.hp > 0 && h[i]->active) {
-						if (isWithin(round(h[i]->pos), h[i]->radius, enemies->enemies[eindex]->stats.pos)) {
+					if (enemies->enemies[eindex]->stats->hp > 0 && h[i]->active) {
+						if (isWithin(round(h[i]->pos), h[i]->radius, enemies->enemies[eindex]->stats->pos)) {
 							if (!h[i]->hasEntity(enemies->enemies[eindex])) {
 								h[i]->addEntity(enemies->enemies[eindex]);
 								// hit!
@@ -99,8 +99,8 @@ void HazardManager::logic() {
 
 			// process hazards that can hurt the hero
 			if (h[i]->source_type != SOURCE_TYPE_HERO) { //enemy or neutral sources
-				if (hero->stats.hp > 0 && h[i]->active) {
-					if (isWithin(round(h[i]->pos), h[i]->radius, hero->stats.pos)) {
+				if (hero->stats->hp > 0 && h[i]->active) {
+					if (isWithin(round(h[i]->pos), h[i]->radius, hero->stats->pos)) {
 						if (!h[i]->hasEntity(hero)) {
 							h[i]->addEntity(hero);
 							// hit!

@@ -39,7 +39,7 @@ protected:
 	SDL_Surface *sprites;
 
 public:
-	Entity(MapRenderer*);
+	Entity(MapRenderer*, StatBlock *_stats);
 	Entity(const Entity&);
 	virtual ~Entity();
 
@@ -53,8 +53,8 @@ public:
 	Animation *activeAnimation;
 	AnimationSet *animationSet;
 
-	MapRenderer* map;
-	StatBlock stats;
+	MapRenderer *map;
+	StatBlock *stats;
 };
 
 #endif
