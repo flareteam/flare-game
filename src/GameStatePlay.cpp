@@ -569,12 +569,12 @@ void GameStatePlay::checkNPCInteraction() {
 		if (npc_id != -1) {
 		  eventDialogOngoing = true;
 		  eventPendingDialog = true;
-		}		
+		}
 		map->event_npc = "";
 	}
 
 	// if close enough to the NPC, open the appropriate interaction screen
-	if (npc_click != -1 && interact_distance < max_interact_distance && pc->stats.alive && pc->stats.humanoid || eventPendingDialog) {
+	if (npc_id != -1 && (npc_click != -1 && interact_distance < max_interact_distance && pc->stats.alive && pc->stats.humanoid || eventPendingDialog)) {
 		if (inpt->pressing[MAIN1]) inpt->lock[MAIN1] = true;
 		if (inpt->pressing[ACCEPT]) inpt->lock[ACCEPT] = true;
 
@@ -595,7 +595,7 @@ void GameStatePlay::checkNPCInteraction() {
 			menu->vendor->talker_visible = true;
 			menu->talker->vendor_visible = false;
 		}
-		
+
 		menu->npc->setNPC(NULL);
 	}
 
@@ -640,7 +640,7 @@ void GameStatePlay::checkNPCInteraction() {
 			menu->talker->vendor_visible = false;
 			menu->vendor->talker_visible = false;
 		}
-		
+
 		if (eventPendingDialog) eventPendingDialog = false;
 
 	}
@@ -659,7 +659,7 @@ void GameStatePlay::checkNPCInteraction() {
 			npc_id = -1;
 		}
 	}
-	else if (!menu->vendor->visible && !menu->talker->visible || npc_click != -1) { 
+	else if (!menu->vendor->visible && !menu->talker->visible || npc_click != -1) {
 		eventDialogOngoing = false;
 	}
 
