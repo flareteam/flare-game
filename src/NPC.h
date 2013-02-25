@@ -52,7 +52,7 @@ public:
 	~NPC();
 	void load(const std::string& npc_id, int hero_level);
 	void loadGraphics(const std::string& filename_portrait);
-	int loadSound(const std::string& filename, int type);
+	int loadSound(const std::string& fname, int type);
 	void logic();
 	bool playSound(int type, int id=-1);
 	void getDialogNodes(std::vector<int> &result);
