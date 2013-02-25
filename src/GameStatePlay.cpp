@@ -43,6 +43,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "MenuLog.h"
 #include "MenuManager.h"
 #include "MenuMiniMap.h"
+#include "MenuNPCActions.h"
 #include "MenuStash.h"
 #include "MenuTalker.h"
 #include "MenuVendor.h"
@@ -267,6 +268,7 @@ void GameStatePlay::checkTeleport() {
 			menu->vendor->visible = false;
 			menu->talker->visible = false;
 			menu->stash->visible = false;
+			menu->npc->visible = false;
 			menu->mini->prerender(&map->collider, map->w, map->h);
 			npc_id = -1;
 
@@ -564,33 +566,41 @@ void GameStatePlay::checkNPCInteraction() {
 
 	if (map->event_npc != "") {
 		npc_id = npcs->getID(map->event_npc);
-		eventDialogOngoing = true;
-		eventPendingDialog = true;
+		if (npc_id != -1) {
+		  eventDialogOngoing = true;
+		  eventPendingDialog = true;
+		}
 		map->event_npc = "";
-
 	}
 
 	// if close enough to the NPC, open the appropriate interaction screen
-	if (npc_click != -1 && interact_distance < max_interact_distance && pc->statBlock()->alive && pc->statBlock()->humanoid || eventPendingDialog) {
+	if (npc_id != -1 && (npc_click != -1 && interact_distance < max_interact_distance && pc->statBlock()->alive && pc->statBlock()->humanoid || eventPendingDialog)) {
 		if (inpt->pressing[MAIN1]) inpt->lock[MAIN1] = true;
 		if (inpt->pressing[ACCEPT]) inpt->lock[ACCEPT] = true;
 
-		bool npc_have_dialog = !(npcs->npcs[npc_id]->chooseDialogNode() == NPC_NO_DIALOG_AVAIL);
+		menu->npc->setNPC(npcs->npcs[npc_id]);
 
-		if (npcs->npcs[npc_id]->vendor && !npc_have_dialog) {
+		// only show npc action menu if multiple actions are available
+		if (!menu->npc->empty() && !menu->npc->selection())
+			menu->npc->visible = true;
+	}
+
+	// check if a NPC action selection is made
+	if (menu->npc->selection()) {
+		if (menu->npc->vendor_selected) {
 			menu->vendor->talker_visible = false;
 			menu->talker->vendor_visible = true;
-		}
-		else if (npcs->npcs[npc_id]->talker && npc_have_dialog) {
+			npcs->npcs[npc_id]->playSound(NPC_VOX_INTRO);
+		} else if (menu->npc->dialog_selected) {
 			menu->vendor->talker_visible = true;
 			menu->talker->vendor_visible = false;
-
-			npcs->npcs[npc_id]->playSound(NPC_VOX_INTRO);
-
 		}
+
+		menu->npc->setNPC(NULL);
 	}
 
 	if (npc_id != -1 && interact_distance < max_interact_distance && pc->statBlock()->alive && pc->statBlock()->humanoid || eventPendingDialog) {
+
 		if (menu->talker->vendor_visible && !menu->vendor->talker_visible) {
 
 			// begin trading
@@ -615,14 +625,13 @@ void GameStatePlay::checkNPCInteraction() {
 
 			// begin talking
 			if (npcs->npcs[npc_id]->vendor) {
-				menu->talker->has_vendor_button = true;
 				menu->talker->vendor_visible = false;
 				menu->vendor->talker_visible = true;
-			} else {
-				menu->talker->has_vendor_button = false;
 			}
+
 			menu->talker->npc = npcs->npcs[npc_id];
-			menu->talker->chooseDialogNode();
+			menu->talker->chooseDialogNode(menu->npc->selected_dialog_node);
+
 			menu->closeAll();
 			menu->talker->visible = true;
 			menu->vendor->visible = false;
@@ -639,11 +648,13 @@ void GameStatePlay::checkNPCInteraction() {
 	// check for walking away from an NPC
 	if (npc_id != -1 && !eventDialogOngoing) {
 		if (interact_distance > max_interact_distance || !pc->statBlock()->alive) {
+			menu->npc->setNPC(NULL);
 			menu->vendor->npc = NULL;
 			menu->talker->npc = NULL;
-			if (menu->vendor->visible || menu->talker->visible) {
+			if (menu->vendor->visible || menu->talker->visible || menu->npc->visible) {
 				menu->vendor->visible = false;
 				menu->talker->visible = false;
+				menu->npc->visible = false;
 			}
 			npc_id = -1;
 		}

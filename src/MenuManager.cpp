@@ -31,6 +31,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "MenuHUDLog.h"
 #include "MenuInventory.h"
 #include "MenuMiniMap.h"
+#include "MenuNPCActions.h"
 #include "MenuPowers.h"
 #include "MenuEnemy.h"
 #include "MenuVendor.h"
@@ -97,7 +98,7 @@ MenuManager::MenuManager(PowerManager *_powers, AvatarStatBlock *_stats, Campaig
 	menus.push_back(enemy); // menus[6]
 	vendor = new MenuVendor(items, stats);
 	menus.push_back(vendor); // menus[7]
-	talker = new MenuTalker(camp);
+	talker = new MenuTalker(this, camp);
 	menus.push_back(talker); // menus[8]
 	exit = new MenuExit();
 	menus.push_back(exit); // menus[9]
@@ -113,6 +114,9 @@ MenuManager::MenuManager(PowerManager *_powers, AvatarStatBlock *_stats, Campaig
 	menus.push_back(log); // menus[14]
 	stash = new MenuStash(items, stats);
 	menus.push_back(stash); // menus[15]
+	npc = new MenuNPCActions();
+	menus.push_back(npc); // menus[16]
+
 	tip = new WidgetTooltip();
 
 	// Load the menu layout and sound effects from menus/menus.txt
@@ -145,6 +149,7 @@ MenuManager::MenuManager(PowerManager *_powers, AvatarStatBlock *_stats, Campaig
 				else if (infile.val == "powers") menu_index = 13;
 				else if (infile.val == "log") menu_index = 14;
 				else if (infile.val == "stash") menu_index = 15;
+				else if (infile.val == "npc") menu_index = 16;
 				else menu_index = -1;
 
 			}
@@ -276,6 +281,11 @@ void MenuManager::logic() {
 	if (!inpt->pressing[INVENTORY] && !inpt->pressing[POWERS] && !inpt->pressing[CHARACTER] && !inpt->pressing[LOG])
 		key_lock = false;
 
+	// handle npc action menu
+	if (npc->visible) {
+	  npc->logic();
+	}
+
 	// check if mouse-clicking a menu button
 	act->checkMenu(inpt->mouse, clicking_character, clicking_inventory, clicking_powers, clicking_log);
 
@@ -368,9 +378,9 @@ void MenuManager::logic() {
 	}
 
 	if (MENUS_PAUSE) {
-		pause = (inv->visible || pow->visible || chr->visible || log->visible || vendor->visible || talker->visible);
+		pause = (inv->visible || pow->visible || chr->visible || log->visible || vendor->visible || talker->visible || npc->visible);
 	}
-	menus_open = (inv->visible || pow->visible || chr->visible || log->visible || vendor->visible || talker->visible);
+	menus_open = (inv->visible || pow->visible || chr->visible || log->visible || vendor->visible || talker->visible || npc->visible);
 
 	if (ENABLE_JOYSTICK && (menus_open || exit->visible)) inpt->enableMouseEmulation();
 	else inpt->disableMouseEmulation();
@@ -775,6 +785,7 @@ void MenuManager::closeLeft() {
 		talker->visible = false;
 		exit->visible = false;
 		stash->visible = false;
+		npc->visible = false;
 	}
 }
 
@@ -784,6 +795,7 @@ void MenuManager::closeRight() {
 		pow->visible = false;
 		talker->visible = false;
 		exit->visible = false;
+		npc->visible = false;
 	}
 }
 
@@ -808,6 +820,7 @@ MenuManager::~MenuManager() {
 	delete enemy;
 	delete effects;
 	delete stash;
+	delete npc;
 
 	SDL_FreeSurface(icons);
 }

@@ -55,7 +55,8 @@ public:
 	int loadSound(const std::string& filename, int type);
 	void logic();
 	bool playSound(int type, int id=-1);
-	int chooseDialogNode();
+	void getDialogNodes(std::vector<int> &result);
+	std::string getDialogTopic(unsigned int dialog_node);
 	bool processDialog(unsigned int dialog_node, unsigned int& event_cursor);
 	virtual Renderable getRender();
 
