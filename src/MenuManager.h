@@ -41,6 +41,7 @@ class MenuHUDLog;
 class MenuActionBar;
 class MenuStatBar;
 class MenuMiniMap;
+class MenuNPCActions;
 class MenuEnemy;
 class MenuVendor;
 class MenuTalker;
@@ -103,6 +104,7 @@ public:
 	MenuStatBar *xp;
 	WidgetTooltip *tip;
 	MenuMiniMap *mini;
+	MenuNPCActions *npc;
 	MenuEnemy *enemy;
 	MenuVendor *vendor;
 	MenuTalker *talker;
