@@ -12,18 +12,30 @@ gfx=wandering_trader2
 # item_search, item_found, item_reward
 
 [dialog]
+topic=Gossip
 set_status=ak_intro
+requires_not=ak_maddox_reward
 him=I am Guill, a scribe with the Order. I am grateful you've come -- we are short on trained warriors due to the call-to-arms in Ancelot.
 you=Why is the Order interested in these ruins?
 him=What the locals call the Goblin Warrens is actually the entrance to a grand underground fortress known as Averguard Keep. This site is sacred to our order. Our primary mission is to cleanse the evil from this place.
 
 [dialog]
+topic=Goblins Warrens
 requires_status=ak_intro
 set_status=ak_ukkonen_search
 him=The goblins in the Warrens answer to a warlord named Ukkonen. Most goblins are merely curious; this Ukkonen is bloodthirsty. Punish him for desecrating this place. His lair is here in the Warrens.
 
 [dialog]
-requires_status=ak_ukkonen_reward
+topic=Ukkonen defeated
+requires_status=ak_ukkonen_defeated
+requires_not=ak_ukkonen_reward
+set_status=ak_ukkonen_reward
+reward_currency=50
+reward_xp=100
+him=Ukkonen is defeated -- I sensed a calm in this place the moment you ended him. Take this reward for your bravery.
+
+[dialog]
+topic=Averguard Cronicles
 requires_not=ak_tome_found
 him=The Averguard left a set of Chronicles detailing their final era. One volume is missing. I've searched this entire area except for Ukkonen's lair. If you find the book please return to me.
 you=I'll keep an eye out for it.
@@ -31,6 +43,7 @@ you=I'll keep an eye out for it.
 # This tome bears the seal of the Averguard
 
 [dialog]
+topic=Averguard Tome
 requires_status=ak_tome_found
 requires_item=9000
 remove_item=9000
@@ -39,13 +52,17 @@ reward_xp=100
 him=You found this tome in Ukkonen's lair? Most excellent -- I feared this volume was lost. With it we can piece together the true history of this keep. I just need a moment to study...
 
 [dialog]
+topic=Averguard Keep
 requires_status=ak_tome_reward
+requires_not=ak_key_found
 set_status=ak_key_search
 him=This tome confirms what we know of Averguard Keep -- it crumbled against the plague many centuries ago. But not all of the infected were destroyed. It appears many undead where locked away in hopes that a cure would be found.
 you=Why were the undead spared?
 him=I don't know, but we should investigate. Head into the Atrium, then the Averguard Prison. Search for a key to access the sealed areas of the Keep.
 
 [dialog]
+topic=Averguard Key
+requires_not=ak_key_reward
 requires_status=ak_key_found
 requires_item=9001
 you=I have the prison key. The old prison warden carried it on his person -- he was infected, haunting the depths of the Prison.
@@ -57,7 +74,9 @@ set_status=ak_key_reward
 him=A true shame that he was infected.  Well, now that we have the Averguard Key, the depths of Averguard Keep are open to us. The Order thanks you.
 
 [dialog]
+topic=Burial Chamber
 requires_status=ak_key_reward
+requires_not=ak_temple_sealed
 set_status=ak_temple_search
 him=There is one place within the Keep that no living being has seen for centuries: the burial chamber behind Averguard Temple. From the Atrium you can access the Temple. Use your key to enter the Burial Chamber.
 you=Who is buried there?
@@ -66,6 +85,8 @@ him=The powerful leader of the Averguard -- Sir Evan Maddox.
 #You insert the Averguard Key. Runes glow around the door, then fade. The door is still sealed.
 
 [dialog]
+topic=Key to Burial Chamber
+requires_not=ak_talisman_found
 requires_status=ak_temple_sealed
 set_status=ak_talisman_search
 you=I tried the key on the Burial Chamber door but it would not open.
@@ -76,6 +97,7 @@ him=I must admit jealousy -- I have dreamed many years of seeing the old volumes
 #Etched runes surround this talisman
 
 [dialog]
+topic=Langlier's Talisman
 requires_status=ak_talisman_found
 requires_item=9002
 you=I am back from the Academy. Langlier was rags and bones, yet still a powerful mage. He wore this symbol.
@@ -86,10 +108,13 @@ reward_currency=125
 him=Fate has delivered this talisman to you. With it and the Averguard Key, you have the ability to open the Burial Chamber. Read these runes aloud at the sealed door and the path will be opened.
 
 [dialog]
+topic=Sir Evan Maddox
+requires_not=ak_maddox_defeated
 requires_status=ak_talisman_reward
 him=My worst fear is come alive. Just as with the Warden and with Professor Langlier, Sir Evan Maddox himself was inflicted with undeath. If we are to reclaim the Keep, you must defeat him. The Order will reward you magnificently for this service. But be prepared -- not even undeath will limit Maddox's zeal. Enter the Burial Chamber and allow him redemption.
 
 [dialog]
+topic=Maddox defated
 requires_status=ak_maddox_defeated
 set_status=ak_maddox_reward
 remove_item=9001
@@ -101,17 +126,9 @@ him=You have risked much for the Order. Take this final reward, as your mission 
 you=Thank you Guill. I am glad to be of service.
 
 [dialog]
+topic=Gossip
 requires_status=ak_maddox_reward
 him=It is still dangerous here, but with Maddox defeated his followers will soon find rest.
-
-[dialog]
-requires_status=ak_ukkonen_search
-requires_status=ak_ukkonen_defeated
-requires_not=ak_ukkonen_reward
-set_status=ak_ukkonen_reward
-reward_currency=50
-reward_xp=100
-him=Ukkonen is defeated -- I sensed a calm in this place the moment you ended him. Take this reward for your bravery.
 
 #New icons: book, key, talisman
 
