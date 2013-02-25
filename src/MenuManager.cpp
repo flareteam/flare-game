@@ -70,6 +70,7 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 	, xp(NULL)
 	, tip(NULL)
 	, mini(NULL)
+	, npc(NULL)
 	, enemy(NULL)
 	, vendor(NULL)
 	, talker(NULL)
