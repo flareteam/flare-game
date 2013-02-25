@@ -34,7 +34,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "WidgetLabel.h"
 
 class PowerManager;
-class StatBlock;
+class AvatarStatBlock;
 class TooltipData;
 class WidgetLabel;
 
@@ -52,9 +52,9 @@ private:
 	SDL_Surface *emptyslot;
 	SDL_Surface *icons;
 	SDL_Surface *disabled;
-    SDL_Surface *attention;
+	SDL_Surface *attention;
 
-	StatBlock *hero;
+	AvatarStatBlock *hero;
 	PowerManager *powers;
 	SDL_Rect src;
 
@@ -63,7 +63,7 @@ private:
 
 public:
 
-	MenuActionBar(PowerManager *_powers, StatBlock *hero, SDL_Surface *icons);
+	MenuActionBar(PowerManager *_powers, AvatarStatBlock *hero, SDL_Surface *icons);
 	~MenuActionBar();
 	void loadGraphics();
 	void renderIcon(int icon_id, int x, int y);
@@ -89,7 +89,7 @@ public:
 	SDL_Rect menus[4]; // the location of the menu buttons
 	int slot_item_count[12]; // -1 means this power isn't item based.  0 means out of items.  1+ means sufficient items.
 	bool slot_enabled[12];
-    bool requires_attention[4];
+	bool requires_attention[4];
 
 	// these store the area occupied by these hotslot sections.
 	// useful for detecting mouse interactions on those locations

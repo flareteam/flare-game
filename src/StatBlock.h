@@ -81,17 +81,16 @@ public:
 };
 
 class StatBlock {
-private:
-	void loadHeroStats();
-	bool statsLoaded;
 
 public:
 	StatBlock();
-	~StatBlock();
+	virtual ~StatBlock();
+
+	virtual StatBlock *clone() = 0;
 
 	void load(const std::string& filename);
 	void takeDamage(int dmg);
-	void recalc();
+
 	void recalc_alt();
 	void logic();
 
@@ -145,12 +144,12 @@ public:
 	int get_mental()   const { return mental_character + mental_additional; }
 
 	// derived stats ("disciplines")
-	int physoff;
-	int physdef;
-	int mentoff;
-	int mentdef;
-	int physment;
-	int offdef;
+	int physoff() { return get_physical() + get_offense(); }
+	int physdef() { return get_physical() + get_defense(); }
+	int mentoff() { return get_mental() + get_offense(); }
+	int mentdef() { return get_mental() + get_defense(); }
+	int physment() { return get_physical() + get_mental(); }
+	int offdef() { return get_offense() + get_defense(); }
 
 	// in Flare there are no distinct character classes.
 	// instead each class is given a descriptor based on their base stat builds
@@ -218,7 +217,7 @@ public:
 	Point pos;
 	Point forced_speed;
 	char direction;
-	std::vector<int> hero_cooldown;
+
 
 	int poise;
 	int poise_base;
@@ -324,6 +323,29 @@ public:
 	int avoidance_per_defense;
 	int crit_base;
 	int crit_per_level;
+};
+
+class AvatarStatBlock : public StatBlock {
+private:
+	void loadHeroStats();
+	bool statsLoaded;
+
+public:
+	AvatarStatBlock();
+	~AvatarStatBlock();
+
+	std::vector<int> hero_cooldown;
+
+	void recalc();
+	StatBlock *clone() { return new AvatarStatBlock(*this); }
+};
+
+class EnemyStatBlock : public StatBlock {
+	StatBlock *clone() { return new EnemyStatBlock(*this); }
+};
+
+class NPCStatBlock : public StatBlock {
+	StatBlock *clone() { return new NPCStatBlock(*this); }
 };
 
 #endif

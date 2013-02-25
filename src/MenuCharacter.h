@@ -34,7 +34,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <string>
 #include <sstream>
 
-class StatBlock;
+class AvatarStatBlock;
 class WidgetButton;
 class WidgetLabel;
 class WidgetListBox;
@@ -66,7 +66,7 @@ public:
 
 class MenuCharacter : public Menu {
 private:
-	StatBlock *stats;
+	AvatarStatBlock *stats;
 
 	WidgetButton *closeButton;
 	WidgetButton *upgradeButton[4];
@@ -98,7 +98,7 @@ private:
 
 
 public:
-	MenuCharacter(StatBlock *stats);
+	MenuCharacter(AvatarStatBlock *stats);
 	~MenuCharacter();
 	void update();
 	void logic();
