@@ -125,8 +125,14 @@ void GameStatePlay::saveGame() {
 		// enabled powers
 		outfile << "powers=";
 		for (unsigned int i=0; i<pc->stats.powers_list.size(); i++) {
-			if (i == 0) outfile << pc->stats.powers_list[i];
-			else outfile << "," << pc->stats.powers_list[i];
+			if (i < pc->stats.powers_list.size()-1) {
+				if (pc->stats.powers_list[i] > 0)
+					outfile << pc->stats.powers_list[i] << ",";
+			}
+			else {
+				if (pc->stats.powers_list[i] > 0)
+					outfile << pc->stats.powers_list[i];
+			}
 		}
 		outfile << "\n";
 
@@ -303,7 +309,8 @@ void GameStatePlay::loadGame() {
 			else if (infile.key == "powers") {
 				string power;
 				while ( (power = infile.nextValue()) != "") {
-					pc->stats.powers_list.push_back(toInt(power));
+					if (toInt(power) > 0)
+						pc->stats.powers_list.push_back(toInt(power));
 				}
 			}
 			else if (infile.key == "campaign") camp->setAll(infile.val);

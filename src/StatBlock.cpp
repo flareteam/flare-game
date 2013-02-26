@@ -131,7 +131,7 @@ StatBlock::StatBlock()
 	, wander_pause_ticks(0)			// enemy only
 	, chance_pursue(0)
 	, chance_flee(0)				// read in, but unused in formulas.
-	, powers_list(vector<int>(POWERSLOT_COUNT, 0))	// hero only
+	, powers_list(vector<int>(0))	// hero only
 	, powers_list_items(vector<int>(0))	// hero only
 	, power_chance(vector<int>(POWERSLOT_COUNT, 0))		// enemy only
 	, power_index(vector<int>(POWERSLOT_COUNT, 0))		// both
