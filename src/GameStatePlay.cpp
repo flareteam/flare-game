@@ -182,11 +182,14 @@ bool GameStatePlay::restrictPowerUse() {
  */
 void GameStatePlay::checkLoot() {
 
+	if (!pc->stats.alive)
+		return;
+
 	ItemStack pickup;
 	int currency;
 
 	// Autopickup
-	if (pc->stats.alive && AUTOPICKUP_CURRENCY) {
+	if (AUTOPICKUP_CURRENCY) {
 		pickup = loot->checkAutoPickup(pc->stats.pos, currency);
 		if (currency > 0) {
 			menu->inv->addCurrency(currency);
@@ -194,7 +197,7 @@ void GameStatePlay::checkLoot() {
 	}
 
 	// Pickup with mouse click
-	if (inpt->pressing[MAIN1] && !inpt->lock[MAIN1] && pc->stats.alive) {
+	if (inpt->pressing[MAIN1] && !inpt->lock[MAIN1]) {
 
 		pickup = loot->checkPickup(inpt->mouse, map->cam, pc->stats.pos, currency, menu->inv);
 		if (pickup.item > 0) {
@@ -216,7 +219,7 @@ void GameStatePlay::checkLoot() {
 	}
 
 	// Pickup with ACCEPT key/button
-	if ((inpt->pressing[ACCEPT] && !inpt->lock[ACCEPT]) && pc->stats.alive) {
+	if ((inpt->pressing[ACCEPT] && !inpt->lock[ACCEPT])) {
 
 		pickup = loot->checkNearestPickup(pc->stats.pos, currency, menu->inv);
 		if (pickup.item > 0) {
