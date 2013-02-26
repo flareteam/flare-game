@@ -418,22 +418,22 @@ void GameStatePlay::checkTitle() {
 				if (pc->stats.get_defense() <= pc->stats.get_mental() || pc->stats.get_defense() <= pc->stats.get_offense() || pc->stats.get_defense() <= pc->stats.get_physical())
 					continue;
 			} else if (titles[i].primary_stat == "physoff") {
-				if (pc->stats.physoff <= pc->stats.physdef || pc->stats.physoff <= pc->stats.mentoff || pc->stats.physoff <= pc->stats.mentdef || pc->stats.physoff <= pc->stats.physment || pc->stats.physoff <= pc->stats.offdef)
+				if (pc->stats.physoff() <= pc->stats.physdef() || pc->stats.physoff() <= pc->stats.mentoff() || pc->stats.physoff() <= pc->stats.mentdef() || pc->stats.physoff() <= pc->stats.physment() || pc->stats.physoff() <= pc->stats.offdef())
 					continue;
 			} else if (titles[i].primary_stat == "physment") {
-				if (pc->stats.physment <= pc->stats.physdef || pc->stats.physment <= pc->stats.mentoff || pc->stats.physment <= pc->stats.mentdef || pc->stats.physment <= pc->stats.physoff || pc->stats.physment <= pc->stats.offdef)
+				if (pc->stats.physment() <= pc->stats.physdef() || pc->stats.physment() <= pc->stats.mentoff() || pc->stats.physment() <= pc->stats.mentdef() || pc->stats.physment() <= pc->stats.physoff() || pc->stats.physment() <= pc->stats.offdef())
 					continue;
 			} else if (titles[i].primary_stat == "physdef") {
-				if (pc->stats.physdef <= pc->stats.physoff || pc->stats.physdef <= pc->stats.mentoff || pc->stats.physdef <= pc->stats.mentdef || pc->stats.physdef <= pc->stats.physment || pc->stats.physdef <= pc->stats.offdef)
+				if (pc->stats.physdef() <= pc->stats.physoff() || pc->stats.physdef() <= pc->stats.mentoff() || pc->stats.physdef() <= pc->stats.mentdef() || pc->stats.physdef() <= pc->stats.physment() || pc->stats.physdef() <= pc->stats.offdef())
 					continue;
 			} else if (titles[i].primary_stat == "mentoff") {
-				if (pc->stats.mentoff <= pc->stats.physdef || pc->stats.mentoff <= pc->stats.physoff || pc->stats.mentoff <= pc->stats.mentdef || pc->stats.mentoff <= pc->stats.physment || pc->stats.mentoff <= pc->stats.offdef)
+				if (pc->stats.mentoff() <= pc->stats.physdef() || pc->stats.mentoff() <= pc->stats.physoff() || pc->stats.mentoff() <= pc->stats.mentdef() || pc->stats.mentoff() <= pc->stats.physment() || pc->stats.mentoff() <= pc->stats.offdef())
 					continue;
 			} else if (titles[i].primary_stat == "offdef") {
-				if (pc->stats.offdef <= pc->stats.physdef || pc->stats.offdef <= pc->stats.mentoff || pc->stats.offdef <= pc->stats.mentdef || pc->stats.offdef <= pc->stats.physment || pc->stats.offdef <= pc->stats.physoff)
+				if (pc->stats.offdef() <= pc->stats.physdef() || pc->stats.offdef() <= pc->stats.mentoff() || pc->stats.offdef() <= pc->stats.mentdef() || pc->stats.offdef() <= pc->stats.physment() || pc->stats.offdef() <= pc->stats.physoff())
 					continue;
 			} else if (titles[i].primary_stat == "mentdef") {
-				if (pc->stats.mentdef <= pc->stats.physdef || pc->stats.mentdef <= pc->stats.mentoff || pc->stats.mentdef <= pc->stats.physoff || pc->stats.mentdef <= pc->stats.physment || pc->stats.mentdef <= pc->stats.offdef)
+				if (pc->stats.mentdef() <= pc->stats.physdef() || pc->stats.mentdef() <= pc->stats.mentoff() || pc->stats.mentdef() <= pc->stats.physoff() || pc->stats.mentdef() <= pc->stats.physment() || pc->stats.mentdef() <= pc->stats.offdef())
 					continue;
 			}
 		}
