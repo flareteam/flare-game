@@ -438,7 +438,7 @@ void GameStateLoad::logic() {
 			filename << PATH_USER << "save" << (selected_slot+1) << ".txt";
 			if (remove(filename.str().c_str()) != 0)
 				perror("Error deleting save from path");
-			stats[selected_slot] = AvatarStatBlock();
+			stats[selected_slot] = StatBlock();
 			readGameSlot(selected_slot);
 			loadPreview(selected_slot);
 			loadPortrait(selected_slot);

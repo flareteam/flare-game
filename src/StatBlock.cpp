@@ -36,7 +36,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 using namespace std;
 
 StatBlock::StatBlock()
-	: alive(true)
+	: statsLoaded(false)
+	, alive(true)
 	, corpse(false)
 	, corpse_ticks(0)
 	, hero(false)
@@ -69,6 +70,12 @@ StatBlock::StatBlock()
 	, bonus_per_mental(0)
 	, bonus_per_offense(0)
 	, bonus_per_defense(0)
+	, physoff(0)
+	, physdef(0)
+	, mentoff(0)
+	, mentdef(0)
+	, physment(0)
+	, offdef(0)
 	, character_class("")
 	, hp(0)
 	, maxhp(0)
@@ -111,6 +118,7 @@ StatBlock::StatBlock()
 	, pos(Point())
 	, forced_speed(Point())
 	, direction(0)
+	, hero_cooldown(vector<int>(POWER_COUNT, 0)) // hero only
 	, poise(0)
 	, poise_base(0)
 	, cur_state(0)
@@ -375,7 +383,7 @@ void StatBlock::takeDamage(int dmg) {
  * Refill HP/MP
  * Creatures might skip these formulas.
  */
-void AvatarStatBlock::recalc() {
+void StatBlock::recalc() {
 
 	if (!statsLoaded) loadHeroStats();
 
@@ -411,6 +419,14 @@ void StatBlock::recalc_alt() {
 		int ment0 = get_mental() -1;
 		int off0 = get_offense() -1;
 		int def0 = get_defense() -1;
+
+		// calculate compound primary stats
+		physoff = get_physical() + get_offense();
+		physdef = get_physical() + get_defense();
+		mentoff = get_mental() + get_offense();
+		mentdef = get_mental() + get_defense();
+		physment = get_physical() + get_mental();
+		offdef = get_offense() + get_defense();
 
 		// calculate other stats
 		maxhp = hp_base + (hp_per_level * lev0) + (hp_per_physical * phys0) + effects.bonus_hp + (effects.bonus_hp_percent * (hp_base + (hp_per_level * lev0) + (hp_per_physical * phys0)) / 100);
@@ -528,7 +544,7 @@ bool StatBlock::canUsePower(const Power &power, unsigned powerid) const {
 
 }
 
-void AvatarStatBlock::loadHeroStats() {
+void StatBlock::loadHeroStats() {
 	// Redefine numbers from config file if present
 	FileParser infile;
 	if (!infile.open(mods->locate("engine/stats.txt"))) {
@@ -633,11 +649,3 @@ void AvatarStatBlock::loadHeroStats() {
 	infile.close();
 }
 
-AvatarStatBlock::AvatarStatBlock()
-	: StatBlock()
-	, statsLoaded(false)
-	, hero_cooldown(vector<int>(POWER_COUNT, 0)) // hero only
-{}
-
-AvatarStatBlock::~AvatarStatBlock()
-{}

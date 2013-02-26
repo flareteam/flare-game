@@ -38,7 +38,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 using namespace std;
 
 
-MenuInventory::MenuInventory(ItemManager *_items, AvatarStatBlock *_stats, PowerManager *_powers) {
+MenuInventory::MenuInventory(ItemManager *_items, StatBlock *_stats, PowerManager *_powers) {
 	items = _items;
 	stats = _stats;
 	powers = _powers;

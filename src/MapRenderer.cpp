@@ -1269,7 +1269,7 @@ bool MapRenderer::executeEvent(Map_Event &ev) {
 			int power_index = ec->x;
 
 			// TODO: delete this without breaking hazards, takeHit, etc.
-			StatBlock *dummy = new EnemyStatBlock();
+			StatBlock *dummy = new StatBlock();
 			dummy->accuracy = 1000; //always hits its target
 
 			// if a power path was specified, place the source position there

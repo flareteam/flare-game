@@ -72,7 +72,7 @@ private:
 	SDL_Surface *portrait_border;
 	SDL_Surface *portrait;
 	std::vector<SDL_Surface *> sprites[GAME_SLOT_MAX];
-	AvatarStatBlock stats[GAME_SLOT_MAX];
+	StatBlock stats[GAME_SLOT_MAX];
 	std::vector<int> equipped[GAME_SLOT_MAX];
 	std::vector<std::string> preview_layer;
 	SDL_Rect slot_pos[GAME_SLOT_MAX];

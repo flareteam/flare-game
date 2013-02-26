@@ -43,7 +43,7 @@ std::vector<SoundManager::SoundID> vox_quests;
 std::vector<std::vector<Event_Component> > dialog;
 
 NPC::NPC(MapRenderer *_map, ItemManager *_items)
-	: Entity(_map, new NPCStatBlock())
+	: Entity(_map)
 	, items(_items)
 	, name("")
 	, gfx("")
@@ -204,6 +204,7 @@ void NPC::loadGraphics(const string& filename_portrait) {
 int NPC::loadSound(const string& fname, int type) {
 
 	SoundManager::SoundID a = snd->load("soundfx/npcs/" + fname, "NPC voice");
+
 	if (!a)
 		return -1;
 
