@@ -84,6 +84,9 @@ MenuNPCActions::MenuNPCActions()
 	background_color.r = background_color.g = background_color.b = 0x00;
 	background_alpha = 0xd0;
 
+	vendor_label = "Shop";
+	cancel_label = "Cancel";
+
 	// Load config settings
 	FileParser infile;
 	if(infile.open(mods->locate("menus/npc.txt"))) {
@@ -125,6 +128,12 @@ MenuNPCActions::MenuNPCActions()
 				cancel_hilight_color.r = eatFirstInt(infile.val,',');
 				cancel_hilight_color.g = eatFirstInt(infile.val,',');
 				cancel_hilight_color.b = eatFirstInt(infile.val,',');
+			}
+			else if(infile.key == "vendor_label") {
+				vendor_label = eatFirstString(infile.val, ',');
+			}
+			else if(infile.key == "cancel_label") {
+				cancel_label = eatFirstString(infile.val, ',');
 			}
 		}
 		infile.close();
@@ -262,12 +271,12 @@ void MenuNPCActions::setNPC(NPC *pnpc) {
 	if (npc->vendor) {
 		if (topics)
 			npc_actions.push_back(Action());
-		npc_actions.push_back(Action("id_vendor", "Shop"));
+		npc_actions.push_back(Action("id_vendor", vendor_label));
 		is_empty = false;
 	}
 
 	npc_actions.push_back(Action());
-	npc_actions.push_back(Action("id_cancel", "Cancel"));
+	npc_actions.push_back(Action("id_cancel", cancel_label));
        
 	/* if npc is not a vendor and only one topic is
 	 available select the topic automatically */
