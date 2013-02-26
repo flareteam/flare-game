@@ -37,17 +37,17 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 using namespace std;
 
 
-Enemy::Enemy(PowerManager *_powers, MapRenderer *_map) : Entity(_map, new EnemyStatBlock()) {
+Enemy::Enemy(PowerManager *_powers, MapRenderer *_map) : Entity(_map) {
 	powers = _powers;
 
-	stats->cur_state = ENEMY_STANCE;
-	stats->turn_ticks = MAX_FRAMES_PER_SEC;
-	//stats->patrol_ticks = 0; //no longer needed due to A*
-	stats->cooldown = 0;
-	stats->last_seen.x = -1;
-	stats->last_seen.y = -1;
-	stats->in_combat = false;
-	stats->join_combat = false;
+	stats.cur_state = ENEMY_STANCE;
+	stats.turn_ticks = MAX_FRAMES_PER_SEC;
+	//stats.patrol_ticks = 0; //no longer needed due to A*
+	stats.cooldown = 0;
+	stats.last_seen.x = -1;
+	stats.last_seen.y = -1;
+	stats.in_combat = false;
+	stats.join_combat = false;
 
 	haz = NULL;
 
@@ -83,32 +83,32 @@ Enemy::Enemy(const Enemy& e)
  * The current direction leads to a wall.  Try the next best direction, if one is available.
  */
 int Enemy::faceNextBest(int mapx, int mapy) {
-	int dx = abs(mapx - stats->pos.x);
-	int dy = abs(mapy - stats->pos.y);
-	switch (stats->direction) {
+	int dx = abs(mapx - stats.pos.x);
+	int dy = abs(mapy - stats.pos.y);
+	switch (stats.direction) {
 		case 0:
 			if (dy > dx) return 7;
 			else return 1;
 		case 1:
-			if (mapy > stats->pos.y) return 0;
+			if (mapy > stats.pos.y) return 0;
 			else return 2;
 		case 2:
 			if (dx > dy) return 1;
 			else return 3;
 		case 3:
-			if (mapx < stats->pos.x) return 2;
+			if (mapx < stats.pos.x) return 2;
 			else return 4;
 		case 4:
 			if (dy > dx) return 3;
 			else return 5;
 		case 5:
-			if (mapy < stats->pos.y) return 4;
+			if (mapy < stats.pos.y) return 4;
 			else return 6;
 		case 6:
 			if (dx > dy) return 5;
 			else return 7;
 		case 7:
-			if (mapx > stats->pos.x) return 6;
+			if (mapx > stats.pos.x) return 6;
 			else return 0;
 	}
 	return 0;
@@ -118,8 +118,8 @@ int Enemy::faceNextBest(int mapx, int mapy) {
  * Calculate distance between the enemy and the hero
  */
 int Enemy::getDistance(Point dest) {
-	int dx = dest.x - stats->pos.x;
-	int dy = dest.y - stats->pos.y;
+	int dx = dest.x - stats.pos.x;
+	int dy = dest.y - stats.pos.y;
 	double step1 = (double)dx * (double)dx + (double)dy * (double)dy;
 	double step2 = sqrt(step1);
 	return int(step2);
@@ -127,7 +127,7 @@ int Enemy::getDistance(Point dest) {
 
 void Enemy::newState(int state) {
 
-	stats->cur_state = state;
+	stats.cur_state = state;
 }
 
 /**
@@ -149,27 +149,27 @@ void Enemy::logic() {
  * Returns false on miss
  */
 bool Enemy::takeHit(const Hazard &h) {
-	if (stats->cur_state != ENEMY_DEAD && stats->cur_state != ENEMY_CRITDEAD)
+	if (stats.cur_state != ENEMY_DEAD && stats.cur_state != ENEMY_CRITDEAD)
 	{
-		if (!stats->in_combat) {
-			stats->join_combat = true;
-			stats->in_combat = true;
-			stats->last_seen.x = stats->hero_pos.x;
-			stats->last_seen.y = stats->hero_pos.y;
-			powers->activate(stats->power_index[BEACON], stats, stats->pos); //emit beacon
+		if (!stats.in_combat) {
+			stats.join_combat = true;
+			stats.in_combat = true;
+			stats.last_seen.x = stats.hero_pos.x;
+			stats.last_seen.y = stats.hero_pos.y;
+			powers->activate(stats.power_index[BEACON], &stats, stats.pos); //emit beacon
 		}
 
-		// exit if it was a beacon (to prevent stats->targeted from being set)
+		// exit if it was a beacon (to prevent stats.targeted from being set)
 		if (powers->powers[h.power_index].beacon) return false;
 
 		// prepare the combat text
 		CombatText *combat_text = comb;
 
 		// if it's a miss, do nothing
-		int avoidance = stats->avoidance;
+		int avoidance = stats.avoidance;
 		clampCeil(avoidance, MAX_AVOIDANCE);
 		if (percentChance(avoidance - h.accuracy - 25)) {
-			combat_text->addMessage(msg->get("miss"), stats->pos, COMBAT_MESSAGE_MISS);
+			combat_text->addMessage(msg->get("miss"), stats.pos, COMBAT_MESSAGE_MISS);
 			return false;
 		}
 
@@ -178,17 +178,17 @@ bool Enemy::takeHit(const Hazard &h) {
 
 		// apply elemental resistance
 
-		if (h.trait_elemental >= 0 && unsigned(h.trait_elemental) < stats->vulnerable.size()) {
+		if (h.trait_elemental >= 0 && unsigned(h.trait_elemental) < stats.vulnerable.size()) {
 			unsigned i = h.trait_elemental;
-			int vulnerable = stats->vulnerable[i];
-			if (stats->vulnerable[i] > MAX_RESIST && stats->vulnerable[i] < 100)
+			int vulnerable = stats.vulnerable[i];
+			if (stats.vulnerable[i] > MAX_RESIST && stats.vulnerable[i] < 100)
 				vulnerable = MAX_RESIST;
 			dmg = (dmg * vulnerable) / 100;
 		}
 
 		if (!h.trait_armor_penetration) { // armor penetration ignores all absorption
 			// substract absorption from armor
-			int absorption = randBetween(stats->absorb_min, stats->absorb_max);
+			int absorption = randBetween(stats.absorb_min, stats.absorb_max);
 			if (absorption > 0) {
 				if ((dmg*100)/absorption > MAX_ABSORB)
 					absorption = (absorption * MAX_ABSORB) / 100;
@@ -207,7 +207,7 @@ bool Enemy::takeHit(const Hazard &h) {
 
 		// check for crits
 		int true_crit_chance = h.crit_chance;
-		if (stats->effects.stun || stats->effects.speed < 100)
+		if (stats.effects.stun || stats.effects.speed < 100)
 			true_crit_chance += h.trait_crits_impaired;
 
 		bool crit = percentChance(true_crit_chance);
@@ -216,29 +216,29 @@ bool Enemy::takeHit(const Hazard &h) {
 			map->shaky_cam_ticks = MAX_FRAMES_PER_SEC/2;
 
 			// show crit damage
-			combat_text->addMessage(dmg, stats->pos, COMBAT_MESSAGE_CRIT);
+			combat_text->addMessage(dmg, stats.pos, COMBAT_MESSAGE_CRIT);
 		}
 		else {
 			// show normal damage
-			combat_text->addMessage(dmg, stats->pos, COMBAT_MESSAGE_GIVEDMG);
+			combat_text->addMessage(dmg, stats.pos, COMBAT_MESSAGE_GIVEDMG);
 		}
 
 		// apply damage
-		stats->takeDamage(dmg);
+		stats.takeDamage(dmg);
 
 		// damage always breaks stun
-		if (dmg > 0) stats->effects.removeEffectType("stun");
+		if (dmg > 0) stats.effects.removeEffectType("stun");
 
 		// after effects
-		if (stats->hp > 0) {
+		if (stats.hp > 0) {
 
-			if (h.mod_power > 0) powers->effect(stats, h.mod_power);
-			powers->effect(stats, h.power_index);
+			if (h.mod_power > 0) powers->effect(&stats, h.mod_power);
+			powers->effect(&stats, h.power_index);
 
-			if (stats->effects.forced_move) {
-				float theta = powers->calcTheta(stats->hero_pos.x, stats->hero_pos.y, stats->pos.x, stats->pos.y);
-				stats->forced_speed.x = static_cast<int>(ceil(stats->effects.forced_speed * cos(theta)));
-				stats->forced_speed.y = static_cast<int>(ceil(stats->effects.forced_speed * sin(theta)));
+			if (stats.effects.forced_move) {
+				float theta = powers->calcTheta(stats.hero_pos.x, stats.hero_pos.y, stats.pos.x, stats.pos.y);
+				stats.forced_speed.x = static_cast<int>(ceil(stats.effects.forced_speed * cos(theta)));
+				stats.forced_speed.y = static_cast<int>(ceil(stats.effects.forced_speed * sin(theta)));
 			}
 		}
 
@@ -259,33 +259,33 @@ bool Enemy::takeHit(const Hazard &h) {
 
 		// post effect power
 		if (h.post_power > 0 && dmg > 0) {
-			powers->activate(h.post_power, h.src_stats, stats->pos);
+			powers->activate(h.post_power, h.src_stats, stats.pos);
 		}
 
 		// interrupted to new state
 		if (dmg > 0) {
 
-			if (stats->hp <= 0 && crit) {
+			if (stats.hp <= 0 && crit) {
 				doRewards();
-				stats->effects.triggered_death = true;
-				stats->cur_state = ENEMY_CRITDEAD;
-				map->collider.unblock(stats->pos.x,stats->pos.y);
+				stats.effects.triggered_death = true;
+				stats.cur_state = ENEMY_CRITDEAD;
+				map->collider.unblock(stats.pos.x,stats.pos.y);
 
 			}
-			else if (stats->hp <= 0) {
+			else if (stats.hp <= 0) {
 				doRewards();
-				stats->effects.triggered_death = true;
-				stats->cur_state = ENEMY_DEAD;
-				map->collider.unblock(stats->pos.x,stats->pos.y);
+				stats.effects.triggered_death = true;
+				stats.cur_state = ENEMY_DEAD;
+				map->collider.unblock(stats.pos.x,stats.pos.y);
 
 			}
 			// don't go through a hit animation if stunned
-			else if (!stats->effects.stun && !percentChance(stats->poise)) {
-				stats->cur_state = ENEMY_HIT;
+			else if (!stats.effects.stun && !percentChance(stats.poise)) {
+				stats.cur_state = ENEMY_HIT;
 				sfx_hit = true;
 				// roll to see if the enemy's ON_HIT power is casted
-				if (percentChance(stats->power_chance[ON_HIT])) {
-					powers->activate(stats->power_index[ON_HIT], stats, stats->pos);
+				if (percentChance(stats.power_chance[ON_HIT])) {
+					powers->activate(stats.power_index[ON_HIT], &stats, stats.pos);
 				}
 			}
 			// just play the hit sound
@@ -307,26 +307,26 @@ void Enemy::doRewards() {
 	reward_xp = true;
 
 	// some creatures create special loot if we're on a quest
-	if (stats->quest_loot_requires != "") {
+	if (stats.quest_loot_requires != "") {
 
 		// the loot manager will check quest_loot_id
 		// if set (not zero), the loot manager will 100% generate that loot.
-		if (!(map->camp->checkStatus(stats->quest_loot_requires) && !map->camp->checkStatus(stats->quest_loot_not))) {
-			stats->quest_loot_id = 0;
+		if (!(map->camp->checkStatus(stats.quest_loot_requires) && !map->camp->checkStatus(stats.quest_loot_not))) {
+			stats.quest_loot_id = 0;
 		}
 	}
 
 	// some creatures drop special loot the first time they are defeated
 	// this must be done in conjunction with defeat status
-	if (stats->first_defeat_loot > 0) {
-		if (!map->camp->checkStatus(stats->defeat_status)) {
-			stats->quest_loot_id = stats->first_defeat_loot;
+	if (stats.first_defeat_loot > 0) {
+		if (!map->camp->checkStatus(stats.defeat_status)) {
+			stats.quest_loot_id = stats.first_defeat_loot;
 		}
 	}
 
 	// defeating some creatures (e.g. bosses) affects the story
-	if (stats->defeat_status != "") {
-		map->camp->setStatus(stats->defeat_status);
+	if (stats.defeat_status != "") {
+		map->camp->setStatus(stats.defeat_status);
 	}
 
 	LootManager::getInstance()->addEnemyLoot(this);
@@ -338,9 +338,9 @@ void Enemy::doRewards() {
  * to collect all mobile sprites each frame.
  */
 Renderable Enemy::getRender() {
-	Renderable r = activeAnimation->getCurrentFrame(stats->direction);
-	r.map_pos.x = stats->pos.x;
-	r.map_pos.y = stats->pos.y;
+	Renderable r = activeAnimation->getCurrentFrame(stats.direction);
+	r.map_pos.x = stats.pos.x;
+	r.map_pos.y = stats.pos.y;
 	return r;
 }
 

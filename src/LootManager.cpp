@@ -200,16 +200,16 @@ void LootManager::checkEnemiesForLoot() {
 
 	for (unsigned i=0; i < enemiesDroppingLoot.size(); ++i) {
 		const Enemy *e = enemiesDroppingLoot[i];
-		if (e->stats->quest_loot_id != 0) {
+		if (e->stats.quest_loot_id != 0) {
 			// quest loot
-			istack.item = e->stats->quest_loot_id;
-			addLoot(istack, e->stats->pos);
+			istack.item = e->stats.quest_loot_id;
+			addLoot(istack, e->stats.pos);
 		}
 		else { // random loot
 			//determine position
 			Point pos = hero->pos;
-			if (map->collider.is_valid_position(e->stats->pos.x, e->stats->pos.y, MOVEMENT_NORMAL))
-				pos = e->stats->pos;
+			if (map->collider.is_valid_position(e->stats.pos.x, e->stats.pos.y, MOVEMENT_NORMAL))
+				pos = e->stats.pos;
 
 			determineLootByEnemy(e, pos);
 		}
@@ -258,19 +258,19 @@ void LootManager::determineLootByEnemy(const Enemy *e, Point pos) {
 
 	int chance = rand() % 100;
 
-	for (unsigned i=0; i<e->stats->loot.size(); i++) {
+	for (unsigned i=0; i<e->stats.loot.size(); i++) {
 		if (possible_ids.empty()) {
 			// find the rarest loot less than the chance roll
-			if (chance < (e->stats->loot[i].chance * (hero->effects.bonus_item_find + 100)) / 100) {
-				possible_ids.push_back(e->stats->loot[i].id);
-				common_chance = e->stats->loot[i].chance;
+			if (chance < (e->stats.loot[i].chance * (hero->effects.bonus_item_find + 100)) / 100) {
+				possible_ids.push_back(e->stats.loot[i].id);
+				common_chance = e->stats.loot[i].chance;
 				i=-1; // start searching from the beginning
 				continue;
 			}
 		} else {
 			// include loot with identical chances
-			if (e->stats->loot[i].chance == common_chance)
-				possible_ids.push_back(e->stats->loot[i].id);
+			if (e->stats.loot[i].chance == common_chance)
+				possible_ids.push_back(e->stats.loot[i].id);
 		}
 	}
 
@@ -282,7 +282,7 @@ void LootManager::determineLootByEnemy(const Enemy *e, Point pos) {
 
 		// an item id of 0 means we should drop currency instead
 		if (new_loot.item == 0) {
-			int level = e->stats->level;
+			int level = e->stats.level;
 			if (level == 0) level = 1; // avoid div/0 if enemy level is not specified
 
 			// TODO: move gold drop amounts to engine/loot.txt

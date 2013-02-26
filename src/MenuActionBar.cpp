@@ -40,7 +40,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 using namespace std;
 
 
-MenuActionBar::MenuActionBar(PowerManager *_powers, AvatarStatBlock *_hero, SDL_Surface *_icons) {
+MenuActionBar::MenuActionBar(PowerManager *_powers, StatBlock *_hero, SDL_Surface *_icons) {
 	powers = _powers;
 	hero = _hero;
 	icons = _icons;
@@ -204,9 +204,9 @@ void MenuActionBar::clear() {
 		locked[i] = false;
 	}
 
-	// clear menu notifications
-	for (int i=0; i<4; i++)
-		requires_attention[i] = false;
+    // clear menu notifications
+    for (int i=0; i<4; i++)
+        requires_attention[i] = false;
 
 }
 
@@ -269,10 +269,10 @@ void MenuActionBar::renderIcon(int icon_id, int x, int y) {
 void MenuActionBar::renderAttention(int menu_id) {
 	SDL_Rect dest;
 
-	// x-value is 12 hotkeys and 4 empty slots over
+    // x-value is 12 hotkeys and 4 empty slots over
 	dest.x = window_area.x + (menu_id * ICON_SIZE) + ICON_SIZE*15;
 	dest.y = window_area.y+3;
-	dest.w = dest.h = ICON_SIZE;
+    dest.w = dest.h = ICON_SIZE;
 	SDL_BlitSurface(attention, NULL, screen, &dest);
 }
 
@@ -327,10 +327,10 @@ void MenuActionBar::render() {
 	renderCooldowns();
 	renderItemCounts();
 
-	// render log attention notifications
-	for (int i=0; i<4; i++)
-		if (requires_attention[i])
-			renderAttention(i);
+    // render log attention notifications
+    for (int i=0; i<4; i++)
+        if (requires_attention[i])
+            renderAttention(i);
 
 	// draw hotkey labels
 	for (int i=0; i<16;i++) {
