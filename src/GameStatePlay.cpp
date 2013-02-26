@@ -661,7 +661,7 @@ void GameStatePlay::checkNPCInteraction() {
 			npc_id = -1;
 		}
 	}
-	else if (!menu->vendor->visible && !menu->talker->visible || npc_click != -1) {
+	else if ((!menu->vendor->visible && !menu->talker->visible) || npc_click != -1) {
 		eventDialogOngoing = false;
 	}
 
