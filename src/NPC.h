@@ -52,15 +52,17 @@ public:
 	~NPC();
 	void load(const std::string& npc_id, int hero_level);
 	void loadGraphics(const std::string& filename_portrait);
-	int loadSound(const std::string& filename, int type);
+	int loadSound(const std::string& fname, int type);
 	void logic();
 	bool playSound(int type, int id=-1);
-	int chooseDialogNode();
+	void getDialogNodes(std::vector<int> &result);
+	std::string getDialogTopic(unsigned int dialog_node);
 	bool processDialog(unsigned int dialog_node, unsigned int& event_cursor);
 	virtual Renderable getRender();
 
 	// general info
 	std::string name;
+	std::string filename;
 	std::string gfx; // filename of sprite.
 	Point pos; // map position
 	int level; // used in determining item quality

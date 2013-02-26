@@ -1,5 +1,6 @@
 /*
 Copyright © 2011-2012 Clint Bellanger and morris989
+Copyright © 2013 Henrik Andersson
 
 This file is part of FLARE.
 
@@ -34,12 +35,14 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <sstream>
 
 class CampaignManager;
+class MenuManager;
 class NPC;
 class WidgetButton;
 
 class MenuTalker : public Menu {
 private:
 	CampaignManager *camp;
+	MenuManager *menu;
 
 	void loadGraphics();
 	SDL_Surface *background;
@@ -52,7 +55,6 @@ private:
 
 	Point close_pos;
 	Point advance_pos;
-	Point vendor_pos;
 	SDL_Rect dialog_pos;
 	SDL_Rect text_pos;
 	Point text_offset;
@@ -62,12 +64,12 @@ private:
 	SDL_Color color_normal;
 
 public:
-	MenuTalker(CampaignManager *camp);
+	MenuTalker(MenuManager *menu,CampaignManager *camp);
 	~MenuTalker();
 
 	NPC *npc;
 
-	void chooseDialogNode();
+	void chooseDialogNode(int requested_node = -1);
 	void update();
 	void logic();
 	void render();
@@ -75,12 +77,9 @@ public:
 	void createBuffer();
 
 	bool vendor_visible;
-	bool has_vendor_button;
 
 	WidgetButton *advanceButton;
 	WidgetButton *closeButton;
-	WidgetButton *vendorButton;
-
 };
 
 #endif

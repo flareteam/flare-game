@@ -117,22 +117,33 @@ GameStateLoad::GameStateLoad() : GameState() {
 
 	// Load the MenuConfirm positions and alignments from menus/menus.txt
 	if (infile.open(mods->locate("menus/menus.txt"))) {
+		int menu_index = -1;
 		while (infile.next()) {
-			infile.val = infile.val + ',';
+			if (infile.key == "id") {
+				if (infile.val == "confirm") menu_index = 0;
+				else menu_index = -1;
+			}
 
-			if (infile.key == "confirm") {
+			if (menu_index == -1)
+				continue;
+
+			if (infile.key == "layout") {
+				infile.val = infile.val + ',';
 				confirm->window_area.x = eatFirstInt(infile.val, ',');
 				confirm->window_area.y = eatFirstInt(infile.val, ',');
 				confirm->window_area.w = eatFirstInt(infile.val, ',');
 				confirm->window_area.h = eatFirstInt(infile.val, ',');
-				confirm->alignment = eatFirstString(infile.val, ',');
-				confirm->align();
-				confirm->update();
-				break;
+			}
+
+			if (infile.key == "align") {
+				confirm->alignment = infile.val;
 			}
 		}
 		infile.close();
 	} else fprintf(stderr, "Unable to open menus/menus.txt!\n");
+
+	confirm->align();
+	confirm->update();
 
 	// get displayable types list
 	bool found_layer = false;

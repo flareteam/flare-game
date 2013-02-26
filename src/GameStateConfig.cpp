@@ -611,16 +611,26 @@ void GameStateConfig::readConfig () {
 
 	// Load the MenuConfirm positions and alignments from menus/menus.txt
 	if (infile.open(mods->locate("menus/menus.txt"))) {
+		int menu_index = -1;
 		while (infile.next()) {
-			infile.val = infile.val + ',';
+			if (infile.key == "id") {
+				if (infile.val == "confirm") menu_index = 0;
+				else menu_index = -1;
+			}
 
-			if (infile.key == "confirm") {
+			if (menu_index == -1)
+				continue;
+
+			if (infile.key == "layout") {
+				infile.val = infile.val + ',';
 				menuConfirm_area.x = eatFirstInt(infile.val, ',');
 				menuConfirm_area.y = eatFirstInt(infile.val, ',');
 				menuConfirm_area.w = eatFirstInt(infile.val, ',');
 				menuConfirm_area.h = eatFirstInt(infile.val, ',');
-				menuConfirm_align = eatFirstString(infile.val, ',');
-				break;
+			}
+
+			if (infile.key == "align") {
+				menuConfirm_align = infile.val;
 			}
 		}
 		infile.close();

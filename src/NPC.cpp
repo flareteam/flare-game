@@ -116,10 +116,17 @@ void NPC::load(const string& npc_id, int hero_level) {
 				else if (infile.key == "voice") {
 					e.x = loadSound(infile.val, NPC_VOX_QUEST);
 				}
+				else if (infile.key == "topic") {
+					e.s = infile.val;
+				}
+				else if (infile.key == "group") {
+					e.s = infile.val;
+				}
 
 				dialog.back().push_back(e);
 			}
 			else {
+				filename = npc_id;
 				if (infile.key == "name") {
 					name = msg->get(infile.val);
 				}
@@ -194,9 +201,10 @@ void NPC::loadGraphics(const string& filename_portrait) {
  * returns -1 if not loaded or error.
  * returns index in specific vector where to be found.
  */
-int NPC::loadSound(const string& filename, int type) {
+int NPC::loadSound(const string& fname, int type) {
 
-        SoundManager::SoundID a = snd->load("soundfx/npcs/" + filename, "NPC voice");
+	SoundManager::SoundID a = snd->load("soundfx/npcs/" + fname, "NPC voice");
+
 	if (!a)
 		return -1;
 
@@ -228,7 +236,7 @@ bool NPC::playSound(int type, int id) {
 		return true;
 	}
 	if (type == NPC_VOX_QUEST) {
-		if (id < 0 || id >= (int)vox_quests.size()) return false;		
+		if (id < 0 || id >= (int)vox_quests.size()) return false;
 		snd->play(vox_quests[id], "NPC_VOX");
 		return true;
 	}
@@ -236,47 +244,102 @@ bool NPC::playSound(int type, int id) {
 }
 
 /**
- * NPCs have a list of dialog nodes
- * The player wants to begin dialog with this NPC
- * Determine the correct dialog node by the place in the story line
+ * get list of available dialogs with NPC
  */
-int NPC::chooseDialogNode() {
+void NPC::getDialogNodes(std::vector<int> &result) {
+	result.clear();
 	if (!talker)
-		return NPC_NO_DIALOG_AVAIL;
+		return;
 
-	// NPC dialog nodes are listed in timeline order
-	// So check from the bottom of the list up
-	// First node we reach that meets requirements is the correct node
+	std::string group;
+	typedef std::vector<int> Dialogs;
+	typedef std::map<std::string, Dialogs > DialogGroups;
+	DialogGroups groups;
+
 	for (int i=dialog.size()-1; i>=0; i--) {
+		bool is_available = true;
+		bool is_grouped = false;
 		for (unsigned int j=0; j<dialog[i].size(); j++) {
 
-			// check requirements
-			// break (skip to next dialog node) if any requirement fails
-			// if we reach an event that is not a requirement, succeed
-
 			if (dialog[i][j].type == "requires_status") {
-				if (!map->camp->checkStatus(dialog[i][j].s)) break;
+				if (map->camp->checkStatus(dialog[i][j].s))
+					continue;
+				is_available = false;
+				break;
 			}
 			else if (dialog[i][j].type == "requires_not") {
-				if (map->camp->checkStatus(dialog[i][j].s)) break;
+				if (!map->camp->checkStatus(dialog[i][j].s))
+					continue;
+				is_available = false;
+				break;
 			}
 			else if (dialog[i][j].type == "requires_item") {
-				if (!map->camp->checkItem(dialog[i][j].x)) break;
+				if (map->camp->checkItem(dialog[i][j].x))
+					continue;
+				is_available = false;
+				break;
 			}
 			else if (dialog[i][j].type == "requires_level") {
-				if (map->camp->hero->level < dialog[i][j].x) break;
+				if (!map->camp->hero->level < dialog[i][j].x)
+					continue;
+				is_available = false;
+				break;
 			}
 			else if (dialog[i][j].type == "requires_not_level") {
-				if (map->camp->hero->level >= dialog[i][j].x) break;
+				if (!map->camp->hero->level >= dialog[i][j].x)
+					continue;
+				is_available = false;
+				break;
 			}
-			else {
-				return i;
+			else if (dialog[i][j].type == "group") {
+				is_grouped = true;
+				group = dialog[i][j].s;
+			}
+		}
+
+		if (is_available) {
+			if (!is_grouped) {
+				result.push_back(i);
+			} else {
+				DialogGroups::iterator it;
+				it = groups.find(group);
+				if (it == groups.end()) {
+					groups.insert(DialogGroups::value_type(group, Dialogs()));
+				}
+				else
+					it->second.push_back(i);
+
 			}
 		}
 	}
-	return NPC_NO_DIALOG_AVAIL;
+
+	/* Iterate over dialoggroups and roll a dialog to add to result */
+	DialogGroups::iterator it;
+	it = groups.begin();
+	if (it == groups.end())
+		return;
+
+	while (it != groups.end()) {
+		/* roll a dialog for this group and add to result */
+		int di = it->second[rand() % it->second.size()];
+		result.push_back(di);
+		it++;
+	}
+
+
 }
 
+std::string NPC::getDialogTopic(unsigned int dialog_node) {
+	if (!talker)
+		return "";
+
+	for (unsigned int j=0; j<dialog[dialog_node].size(); j++) {
+		if (dialog[dialog_node][j].type == "topic")
+			return dialog[dialog_node][j].s;
+	}
+
+	return "";
+}
 
 /**
  * Process the current dialog

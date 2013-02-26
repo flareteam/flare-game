@@ -128,6 +128,7 @@ void Avatar::init() {
 	}
 
 	sound_melee = 0;
+	sound_mental = 0;
 	sound_hit = 0;
 	sound_die = 0;
 	sound_block = 0;
@@ -202,10 +203,25 @@ void Avatar::loadGraphics(std::vector<Layer_gfx> _img_gfx) {
 	anim->cleanUp();
 }
 
-void Avatar::loadSounds() {
-	sound_melee = snd->load("soundfx/melee_attack.ogg", "Avatar melee attack");
-	sound_hit = snd->load("soundfx/" + stats.base + "_hit.ogg", "Avatar was hit");
-	sound_die = snd->load("soundfx/" + stats.base + "_die.ogg", "Avatar death");
+void Avatar::loadSounds(const string& type_id) {
+	// unload any sounds that are common between creatures and the hero
+	snd->unload(sound_melee);
+	snd->unload(sound_mental);
+	snd->unload(sound_hit);
+	snd->unload(sound_die);
+
+	if (type_id != "none") {
+		sound_melee = snd->load("soundfx/enemies/" + type_id + "_phys.ogg", "Avatar melee attack");
+		sound_mental = snd->load("soundfx/enemies/" + type_id + "_ment.ogg", "Avatar mental attack");
+		sound_hit = snd->load("soundfx/enemies/" + type_id + "_hit.ogg", "Avatar was hit");
+		sound_die = snd->load("soundfx/enemies/" + type_id + "_die.ogg", "Avatar death");
+	} else {
+		sound_melee = snd->load("soundfx/melee_attack.ogg", "Avatar melee attack");
+		sound_mental = 0; // hero does not have this sound
+		sound_hit = snd->load("soundfx/" + stats.base + "_hit.ogg", "Avatar was hit");
+		sound_die = snd->load("soundfx/" + stats.base + "_die.ogg", "Avatar death");
+	}
+
 	sound_block = snd->load("soundfx/powers/block.ogg", "Avatar blocking");
 	level_up = snd->load("soundfx/level_up.ogg", "Avatar leveling up");
 }
@@ -540,6 +556,9 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 
 			if (MOUSE_MOVE) lockCast = true;
 
+			if (activeAnimation->isFirstFrame())
+				snd->play(sound_mental);
+
 			// do power
 			if (activeAnimation->isActiveFrame()) {
 				powers->activate(current_power, &stats, act_target);
@@ -801,6 +820,7 @@ void Avatar::transform() {
 
 	// temporary save hero stats
 	delete hero_stats;
+
 	hero_stats = new StatBlock();
 	*hero_stats = stats;
 
@@ -845,6 +865,7 @@ void Avatar::transform() {
 	for (unsigned int i=0; i<stats.vulnerable.size(); i++)
 		clampCeil(stats.vulnerable[i], charmed_stats->vulnerable[i]);
 
+	loadSounds(charmed_stats->sfx_prefix);
 	loadStepFX("NULL");
 }
 
@@ -895,6 +916,7 @@ void Avatar::untransform() {
 		stats.vulnerable[i] = hero_stats->vulnerable[i];
 	}
 
+	loadSounds();
 	loadStepFX(stats.sfx_step);
 
 	delete charmed_stats;
@@ -975,12 +997,13 @@ Avatar::~Avatar() {
 	delete hero_stats;
 
 	snd->unload(sound_melee);
+	snd->unload(sound_mental);
 	snd->unload(sound_hit);
 	snd->unload(sound_die);
 	snd->unload(sound_block);
 
 	for (int i = 0;i < 4; i++)
-	        snd->unload(sound_steps[i]);
+		snd->unload(sound_steps[i]);
 
 	snd->unload(level_up);
 
