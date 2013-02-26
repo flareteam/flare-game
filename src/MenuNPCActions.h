@@ -53,6 +53,9 @@ private:
 	SDL_Color cancel_normal_color;
 	SDL_Color cancel_hilight_color;
 
+	std::string vendor_label;
+	std::string cancel_label;
+
 	SDL_Color background_color;
 	int background_alpha;
 
