@@ -29,12 +29,14 @@ will be returned by SoundManager::load().
 #include <locale>
 #include <string>
 #include <SDL_mixer.h>
-
+#include <math.h>
 #include "Settings.h"
 #include "SoundManager.h"
 #include "SharedResources.h"
 
 using namespace std;
+
+#define SOUND_FALLOFF (UNITS_PER_TILE * 15.0f)
 
 class Sound {
 public:
@@ -45,13 +47,56 @@ private:
 	int refCnt;
 };
 
+class Playback {
+public:
+	Sound *sound;
+	std::string virtual_channel;
+	Point location;
+};
+
 SoundManager::SoundManager() {
+	Mix_AllocateChannels(30);
 }
 
 SoundManager::~SoundManager() {
 	SoundManager::SoundMapIterator it;
 	while((it = sounds.begin()) != sounds.end())
 		unload(it->first);
+}
+
+void SoundManager::logic(Point c) {
+
+
+  PlaybackMapIterator it = playback.begin();
+  if (it == playback.end())
+    return;
+
+  while(it != playback.end()) {
+
+	  /* dont process playback sounds without location */
+	  if (it->second.location.x == 0 && it->second.location.y == 0) {
+		  ++it; 
+		  continue;
+	  }
+
+	  /* calculate distance and angle */
+	  Uint8 d = 0, a = 0;
+	  float dx = c.x - it->second.location.x;
+	  float dy = c.y - it->second.location.y;
+	  float dist = sqrt(dx*dx + dy*dy);
+	  
+	  /* update sound mix with new distance/location to hero */
+	  dist = 255.0f * (dist / SOUND_FALLOFF);
+	  d = max(0.0f, min(dist, 255.0f));
+	  // a = atan2(dy,dx) * 180 / M_PI;
+	  Mix_SetPosition(it->first, a, d);
+	  it++;
+  }
+
+}
+
+void SoundManager::reset() {
+	Mix_HaltChannel(-1);
 }
 
 SoundManager::SoundID SoundManager::load(const std::string& filename, const std::string& errormessage) {
@@ -106,10 +151,12 @@ void SoundManager::unload(SoundManager::SoundID sid) {
 	}
 }
 
-void SoundManager::play(SoundManager::SoundID sid, std::string channel) {
+
+
+void SoundManager::play(SoundManager::SoundID sid, std::string channel, Point pos, bool loop) {
 
 	SoundMapIterator it;
-	VirtualChannelMapIterator vcit;
+	VirtualChannelMapIterator vcit = channels.end();
 
 	if (!sid || !AUDIO || !SOUND_VOLUME)
 		return;
@@ -118,37 +165,51 @@ void SoundManager::play(SoundManager::SoundID sid, std::string channel) {
 	if (it == sounds.end())
 		return;
 
-	/* if play on global channel */
-	if (channel == GLOBAL_VIRTUAL_CHANNEL) {
-		Mix_PlayChannel(-1, it->second->chunk, 0);
-		return;
+	/* create playback object and start playback of sound chunk */
+	Playback p;
+	p.sound = it->second;
+	p.location = pos;
+	p.virtual_channel = channel;
+
+	if (p.virtual_channel != GLOBAL_VIRTUAL_CHANNEL) {
+
+		/* if playback exists, stop it befor playin next sound */
+		vcit = channels.find(p.virtual_channel);
+		if (vcit != channels.end())
+			Mix_HaltChannel(vcit->second);
+
+		vcit = channels.insert(pair<std::string, int>(p.virtual_channel, -1)).first;
 	}
 
-	/* played on specific slot, check if a sound is currently playing
-	   then halt it */
-	vcit = channels.find(channel);
-	if (vcit != channels.end())
-		Mix_HaltChannel(vcit->second);
-
-	vcit = channels.insert(pair<std::string, int>(channel, -1)).first;
-
 	Mix_ChannelFinished(&channel_finished);
-	vcit->second = Mix_PlayChannel(-1, it->second->chunk, 0);
+	int c = Mix_PlayChannel(-1, p.sound->chunk, (loop ? -1 : 0));
+
+	if (c == -1)
+		fprintf(stderr,"Failed to play sound.\n");
+
+	if(p.location.x != 0 || p.location.y != 0)
+		Mix_SetPosition(c, 0, 255);
+
+	if (vcit != channels.end())
+		vcit->second = c;
+
+	playback.insert(pair<int, Playback>(c, p));
 }
 
 void SoundManager::on_channel_finished(int channel)
 {
-	VirtualChannelMapIterator vcit = channels.begin();
-	while(vcit != channels.end()) {
-		if (vcit->second == channel)
-			break;
-		++vcit;
-	}
-
-	if (vcit == channels.end())
+	PlaybackMapIterator pit = playback.find(channel);
+	if (pit == playback.end())
 		return;
 
-	channels.erase(vcit);
+	/* find and erase virtual channel for playback if exists */
+	VirtualChannelMapIterator vcit = channels.find(pit->second.virtual_channel);
+	if (vcit != channels.end())
+		channels.erase(vcit);
+
+	Mix_SetPosition(channel, 0, 0);
+
+	playback.erase(pit);
 }
 
 void SoundManager::channel_finished(int channel)
