@@ -434,10 +434,9 @@ tooltip=Runed Chest
 
 [event]
 # brazier sound effect
-type=run_always
+type=on_load
 location=9,30,7,7
-cooldown=120
-soundfx=soundfx/environment/open_fire.ogg
+soundfx=soundfx/environment/open_fire_loop.ogg
 
 [enemygroup]
 # 4-5 Undead

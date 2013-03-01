@@ -838,6 +838,17 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Supplies
 
 [event]
+# Green Berries
+type=run_once
+location=240,182,1,1
+hotspot=location
+loot=id,117,36,65
+#mapmod=object,240,182,xx
+requires_not=fp_greenberries1
+set_status=fp_greenberries1
+soundfx=soundfx/harvest.ogg
+
+[event]
 # camp supply
 type=run_once
 location=50,30,1,1
@@ -907,6 +918,66 @@ type=on_load
 location=126,42,1,1
 mapmod=object,125,43,97
 requires_status=fp_crate4
+
+[event]
+type=on_load
+location=0,0,0,0
+soundfx=soundfx/environment/wind_loop.ogg
+
+[event]
+type=on_load
+location=200,198,0,0
+soundfx=soundfx/environment/forest_owl_loop.ogg
+
+[event]
+type=on_load
+location=80,194,0,0
+soundfx=soundfx/environment/forest_owl_loop.ogg
+
+[event]
+type=on_load
+location=36,118,0,0
+soundfx=soundfx/environment/forest_owl_loop.ogg
+
+[event]
+type=on_load
+location=241,178,0,0
+soundfx=soundfx/environment/river_loop.ogg
+
+[event]
+type=on_load
+location=221,168,0,0
+soundfx=soundfx/environment/river_loop.ogg
+
+[event]
+type=on_load
+location=200,163,0,0
+soundfx=soundfx/environment/river_loop.ogg
+
+[event]
+type=on_load
+location=180,150,0,0
+soundfx=soundfx/environment/river_loop.ogg
+
+[event]
+type=on_load
+location=92,94,0,0
+soundfx=soundfx/environment/river_loop.ogg
+
+[event]
+type=on_load
+location=91,77,0,0
+soundfx=soundfx/environment/river_loop.ogg
+
+[event]
+type=on_load
+location=88,54,0,0
+soundfx=soundfx/environment/river_loop.ogg
+
+[event]
+type=on_load
+location=75,35,0,0
+soundfx=soundfx/environment/river_loop.ogg
 
 [enemygroup]
 # goblin camp
@@ -1100,4 +1171,6 @@ direction=3
 type=cursed_grave
 location=32,153,1,1
 direction=3
+
+
 

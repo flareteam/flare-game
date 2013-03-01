@@ -224,10 +224,9 @@ unset_status=lb_ice_attack,lb_fire_attack,lb_wind_attack,lb_ice_looted,lb_fire_l
 
 [event]
 # brazier sound effect
-type=run_always
+type=on_load
 location=9,2,10,7
-cooldown=120
-soundfx=soundfx/environment/open_fire.ogg
+soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 type=on_load

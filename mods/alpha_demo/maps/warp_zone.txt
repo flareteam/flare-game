@@ -285,8 +285,7 @@ requires_status=waypoint_brothers_lair_atrium
 
 [event]
 # flame sounds
-type=run_always
+type=on_load
 location=38,35,4,6
-cooldown=120
-soundfx=soundfx/environment/open_fire.ogg
+soundfx=soundfx/environment/open_fire_loop.ogg
 
