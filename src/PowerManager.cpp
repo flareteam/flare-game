@@ -179,7 +179,7 @@ void PowerManager::loadPowers(const std::string& filename) {
 		// animation info
 		else if (infile.key == "animation")
 			powers[input_id].animation_name = "animations/powers/" + infile.val;
-		else if (infile.key == "sfx")
+		else if (infile.key == "soundfx")
 			powers[input_id].sfx_index = loadSFX(infile.val);
 		else if (infile.key == "directional")
 			powers[input_id].directional = toBool(infile.val);
