@@ -182,11 +182,14 @@ bool GameStatePlay::restrictPowerUse() {
  */
 void GameStatePlay::checkLoot() {
 
+	if (!pc->stats.alive)
+		return;
+
 	ItemStack pickup;
 	int currency;
 
 	// Autopickup
-	if (pc->stats.alive && AUTOPICKUP_CURRENCY) {
+	if (AUTOPICKUP_CURRENCY) {
 		pickup = loot->checkAutoPickup(pc->stats.pos, currency);
 		if (currency > 0) {
 			menu->inv->addCurrency(currency);
@@ -194,7 +197,7 @@ void GameStatePlay::checkLoot() {
 	}
 
 	// Pickup with mouse click
-	if (inpt->pressing[MAIN1] && !inpt->lock[MAIN1] && pc->stats.alive) {
+	if (inpt->pressing[MAIN1] && !inpt->lock[MAIN1]) {
 
 		pickup = loot->checkPickup(inpt->mouse, map->cam, pc->stats.pos, currency, menu->inv);
 		if (pickup.item > 0) {
@@ -216,7 +219,7 @@ void GameStatePlay::checkLoot() {
 	}
 
 	// Pickup with ACCEPT key/button
-	if ((inpt->pressing[ACCEPT] && !inpt->lock[ACCEPT]) && pc->stats.alive) {
+	if ((inpt->pressing[ACCEPT] && !inpt->lock[ACCEPT])) {
 
 		pickup = loot->checkNearestPickup(pc->stats.pos, currency, menu->inv);
 		if (pickup.item > 0) {
@@ -415,22 +418,22 @@ void GameStatePlay::checkTitle() {
 				if (pc->stats.get_defense() <= pc->stats.get_mental() || pc->stats.get_defense() <= pc->stats.get_offense() || pc->stats.get_defense() <= pc->stats.get_physical())
 					continue;
 			} else if (titles[i].primary_stat == "physoff") {
-				if (pc->stats.physoff <= pc->stats.physdef || pc->stats.physoff <= pc->stats.mentoff || pc->stats.physoff <= pc->stats.mentdef || pc->stats.physoff <= pc->stats.physment || pc->stats.physoff <= pc->stats.offdef)
+				if (pc->stats.physoff() <= pc->stats.physdef() || pc->stats.physoff() <= pc->stats.mentoff() || pc->stats.physoff() <= pc->stats.mentdef() || pc->stats.physoff() <= pc->stats.physment() || pc->stats.physoff() <= pc->stats.offdef())
 					continue;
 			} else if (titles[i].primary_stat == "physment") {
-				if (pc->stats.physment <= pc->stats.physdef || pc->stats.physment <= pc->stats.mentoff || pc->stats.physment <= pc->stats.mentdef || pc->stats.physment <= pc->stats.physoff || pc->stats.physment <= pc->stats.offdef)
+				if (pc->stats.physment() <= pc->stats.physdef() || pc->stats.physment() <= pc->stats.mentoff() || pc->stats.physment() <= pc->stats.mentdef() || pc->stats.physment() <= pc->stats.physoff() || pc->stats.physment() <= pc->stats.offdef())
 					continue;
 			} else if (titles[i].primary_stat == "physdef") {
-				if (pc->stats.physdef <= pc->stats.physoff || pc->stats.physdef <= pc->stats.mentoff || pc->stats.physdef <= pc->stats.mentdef || pc->stats.physdef <= pc->stats.physment || pc->stats.physdef <= pc->stats.offdef)
+				if (pc->stats.physdef() <= pc->stats.physoff() || pc->stats.physdef() <= pc->stats.mentoff() || pc->stats.physdef() <= pc->stats.mentdef() || pc->stats.physdef() <= pc->stats.physment() || pc->stats.physdef() <= pc->stats.offdef())
 					continue;
 			} else if (titles[i].primary_stat == "mentoff") {
-				if (pc->stats.mentoff <= pc->stats.physdef || pc->stats.mentoff <= pc->stats.physoff || pc->stats.mentoff <= pc->stats.mentdef || pc->stats.mentoff <= pc->stats.physment || pc->stats.mentoff <= pc->stats.offdef)
+				if (pc->stats.mentoff() <= pc->stats.physdef() || pc->stats.mentoff() <= pc->stats.physoff() || pc->stats.mentoff() <= pc->stats.mentdef() || pc->stats.mentoff() <= pc->stats.physment() || pc->stats.mentoff() <= pc->stats.offdef())
 					continue;
 			} else if (titles[i].primary_stat == "offdef") {
-				if (pc->stats.offdef <= pc->stats.physdef || pc->stats.offdef <= pc->stats.mentoff || pc->stats.offdef <= pc->stats.mentdef || pc->stats.offdef <= pc->stats.physment || pc->stats.offdef <= pc->stats.physoff)
+				if (pc->stats.offdef() <= pc->stats.physdef() || pc->stats.offdef() <= pc->stats.mentoff() || pc->stats.offdef() <= pc->stats.mentdef() || pc->stats.offdef() <= pc->stats.physment() || pc->stats.offdef() <= pc->stats.physoff())
 					continue;
 			} else if (titles[i].primary_stat == "mentdef") {
-				if (pc->stats.mentdef <= pc->stats.physdef || pc->stats.mentdef <= pc->stats.mentoff || pc->stats.mentdef <= pc->stats.physoff || pc->stats.mentdef <= pc->stats.physment || pc->stats.mentdef <= pc->stats.offdef)
+				if (pc->stats.mentdef() <= pc->stats.physdef() || pc->stats.mentdef() <= pc->stats.mentoff() || pc->stats.mentdef() <= pc->stats.physoff() || pc->stats.mentdef() <= pc->stats.physment() || pc->stats.mentdef() <= pc->stats.offdef())
 					continue;
 			}
 		}
@@ -727,6 +730,7 @@ void GameStatePlay::logic() {
 		enemies->checkEnemiesforXP(camp);
 		npcs->logic();
 
+		snd->logic(pc->stats.pos);
 	}
 
 	// close menus when the player dies, but still allow them to be reopened
