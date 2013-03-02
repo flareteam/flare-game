@@ -151,11 +151,7 @@ private:
 	Point tip_pos;
 	bool show_tooltip;
 
-	// map events can play random soundfx
-	SoundManager::SoundID sfx;
-
 	bool executeEvent(Map_Event &e);
-	void playSFX(std::string filename);
 	void push_enemy_group(Map_Group g);
 	bool isActive(const Map_Event &e);
 
@@ -164,6 +160,8 @@ private:
 	// map events
 	std::vector<Map_Event> events;
 
+	// map soundids
+	std::vector<SoundManager::SoundID> sids;
 
 	typedef unsigned short maprow[256];
 

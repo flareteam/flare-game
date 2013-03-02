@@ -41,7 +41,6 @@ MapRenderer::MapRenderer(CampaignManager *_camp)
  , tip(new WidgetTooltip())
  , tip_pos(Point())
  , show_tooltip(false)
- , sfx(0)
  , events(vector<Map_Event>())
  , background(NULL)
  , fringe(NULL)
@@ -75,19 +74,6 @@ MapRenderer::MapRenderer(CampaignManager *_camp)
 
 void MapRenderer::clearEvents() {
 	events.clear();
-}
-
-void MapRenderer::playSFX(string filename) {
-	SoundManager::SoundID sid = sfx;
-
-	sid = snd->load(filename, "MapRenderer background music");
-
-	if (sid != sfx)
-		snd->unload(sfx);
-
-	sfx = sid;
-
-	snd->play(sfx);
 }
 
 void MapRenderer::push_enemy_group(Map_Group g) {
@@ -145,6 +131,13 @@ int MapRenderer::load(string filename) {
 	clearEvents();
 	clearLayers();
 	clearQueues();
+
+	/* unload sounds */
+	snd->reset();
+	while (!sids.empty()) {
+		snd->unload(sids.back());
+		sids.pop_back();
+	}
 
 	cur_layer = NULL;
 	show_tooltip = false;
@@ -1241,7 +1234,21 @@ bool MapRenderer::executeEvent(Map_Event &ev) {
 			map_change = true;
 		}
 		else if (ec->type == "soundfx") {
-			playSFX(ec->s);
+			Point pos(0,0);
+			bool loop = false;
+
+			if (ev.location.x != 0 && ev.location.y != 0) {
+				pos.x = ev.location.x * UNITS_PER_TILE + UNITS_PER_TILE/2;
+				pos.y = ev.location.y * UNITS_PER_TILE + UNITS_PER_TILE/2;
+			}
+
+			if (ev.type == "on_load")
+				loop = true;
+
+			SoundManager::SoundID sid = snd->load(ec->s, "MapRenderer background soundfx");
+
+			snd->play(sid, GLOBAL_VIRTUAL_CHANNEL, pos, loop);
+			sids.push_back(sid);
 		}
 		else if (ec->type == "loot") {
 			loot.push(*ec);
@@ -1328,7 +1335,6 @@ MapRenderer::~MapRenderer() {
 		Mix_HaltMusic();
 		Mix_FreeMusic(music);
 	}
-	snd->unload(sfx);
 
 	tip_buf.clear();
 	clearLayers();

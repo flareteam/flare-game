@@ -730,6 +730,7 @@ void GameStatePlay::logic() {
 		enemies->checkEnemiesforXP(camp);
 		npcs->logic();
 
+		snd->logic(pc->stats.pos);
 	}
 
 	// close menus when the player dies, but still allow them to be reopened
