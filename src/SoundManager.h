@@ -28,6 +28,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_mixer.h>
+#include "Utils.h"
 
 #include <map>
 #include <string>
@@ -45,8 +46,10 @@ public:
 
 	SoundManager::SoundID load(const std::string& filename, const std::string& errormessage);
 	void unload(SoundManager::SoundID);
+	void play(SoundManager::SoundID, std::string channel = GLOBAL_VIRTUAL_CHANNEL, Point pos = Point(0,0), bool loop = false);
 
-	void play(SoundManager::SoundID, std::string channel = GLOBAL_VIRTUAL_CHANNEL);
+	void logic(Point center);
+	void reset();
 
 private:
 	typedef std::map<std::string, int> VirtualChannelMap;
@@ -55,11 +58,15 @@ private:
 	typedef std::map<SoundID, class Sound *> SoundMap;
 	typedef SoundMap::iterator SoundMapIterator;
 
+	typedef std::map<int, class Playback> PlaybackMap;
+	typedef PlaybackMap::iterator PlaybackMapIterator;
+
 	static void channel_finished(int channel);
 	void on_channel_finished(int channel);
 
 	SoundMap sounds;
 	VirtualChannelMap channels;
+	PlaybackMap playback;
 };
 
 #endif

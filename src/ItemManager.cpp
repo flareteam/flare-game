@@ -222,7 +222,7 @@ void ItemManager::load(const string& filename) {
 			items[id].bonus_stat.push_back(infile.nextValue());
 			items[id].bonus_val.push_back(toInt(infile.nextValue()));
 		}
-		else if (infile.key == "sfx") {
+		else if (infile.key == "soundfx") {
 			items[id].sfx = snd->load(infile.val, "ItemManager");
 		}
 		else if (infile.key == "gfx")
