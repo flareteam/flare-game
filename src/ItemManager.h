@@ -197,7 +197,7 @@ public:
 	ItemManager();
 	~ItemManager();
 	void renderIcon(ItemStack stack, int x, int y, int size);
-	void playSound(int item);
+	void playSound(int item, Point pos = Point(0,0));
 	TooltipData getTooltip(int item, StatBlock *stats, int context);
 	TooltipData getShortTooltip(ItemStack item);
 	std::string getItemType(std::string _type);
