@@ -148,6 +148,12 @@ mapmod=object,3,18,178
 soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
+[event]
+# Cave wind sound effect
+type=on_load
+location=0,0,1,1
+soundfx=soundfx/environment/cave_wind_loop.ogg
+
 [enemygroup]
 # Guard the Explosives
 type=undead
