@@ -587,17 +587,21 @@ tooltip=Switch System
 
 [event]
 # brazier sound effect
-type=run_always
-location=44,16,20,8
-cooldown=120
-soundfx=soundfx/environment/open_fire.ogg
+type=on_load
+location=47,19,0,0
+soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=run_always
-location=72,91,7,7
-cooldown=120
-soundfx=soundfx/environment/open_fire.ogg
+type=on_load
+location=59,19,0,0
+soundfx=soundfx/environment/open_fire_loop.ogg
+
+[event]
+# brazier sound effect
+type=on_load
+location=75,94,0,0
+soundfx=soundfx/environment/open_fire_loop.ogg
 
 [enemy]
 type=skeletal_sniper
