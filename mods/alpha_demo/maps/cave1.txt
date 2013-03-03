@@ -484,6 +484,12 @@ location=15,44,6,2
 mapmod=object,14,44,80;object,14,45,0;object,14,46,83;object,13,44,105;object,13,46,107;collision,14,45,0;collision,13,45,0
 soundfx=soundfx/door_open.ogg
 
+[event]
+# Cave wind sound effect
+type=on_load
+location=0,0,1,1
+soundfx=soundfx/environment/cave_wind_loop.ogg
+
 [npc]
 # Trader in the goblin room
 type=captured_trader
