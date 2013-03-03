@@ -403,10 +403,9 @@ soundfx=soundfx/door_open.ogg
 
 [event]
 # brazier sound effect
-type=run_always
-location=86,38,8,7
-cooldown=120
-soundfx=soundfx/environment/open_fire.ogg
+type=on_load
+location=86,41,1,1
+soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 type=run_once
@@ -425,6 +424,12 @@ soundfx=soundfx/environment/open_fire_loop.ogg
 # brazier sound effect
 type=on_load
 location=11,84,1,1
+soundfx=soundfx/environment/open_fire_loop.ogg
+
+[event]
+# brazier sound effect
+type=on_load
+location=93,41,1,1
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [enemy]
