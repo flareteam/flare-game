@@ -55,7 +55,7 @@ public:
 };
 
 SoundManager::SoundManager() {
-	Mix_AllocateChannels(30);
+	Mix_AllocateChannels(50);
 }
 
 SoundManager::~SoundManager() {
