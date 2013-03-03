@@ -8,12 +8,12 @@ tileset=tileset_grassland.txt
 title=Frontier Plains
 
 [tilesets]
-tileset=../../../../flare-game/tiled/grassland/tiled_collision.png,64,32,0,0
-tileset=../../../../flare-game/tiled/grassland/grassland.png,64,128,0,0
-tileset=../../../../flare-game/tiled/grassland/grassland_water.png,64,64,0,32
-tileset=../../../../flare-game/tiled/grassland/grassland_structures.png,64,256,0,0
-tileset=../../../../flare-game/tiled/grassland/grassland_trees.png,128,256,-32,0
-tileset=../../../../flare-game/tiled/grassland/tiled_grassland_2x2.png,128,64,0,16
+tileset=../../../tiled/grassland/tiled_collision.png,64,32,0,0
+tileset=../../../tiled/grassland/grassland.png,64,128,0,0
+tileset=../../../tiled/grassland/grassland_water.png,64,64,0,32
+tileset=../../../tiled/grassland/grassland_structures.png,64,256,0,0
+tileset=../../../tiled/grassland/grassland_trees.png,128,256,-32,0
+tileset=../../../tiled/grassland/tiled_grassland_2x2.png,128,64,0,16
 
 [layer]
 type=background
@@ -907,6 +907,84 @@ type=on_load
 location=126,42,1,1
 mapmod=object,125,43,97
 requires_status=fp_crate4
+
+[event]
+# River sound
+type=on_load
+location=68,21,1,1
+soundfx=soundfx/environment/river_loop.ogg
+
+[event]
+# River sound
+type=on_load
+location=74,33,1,1
+soundfx=soundfx/environment/river_loop.ogg
+
+[event]
+# River sound
+type=on_load
+location=84,46,1,1
+soundfx=soundfx/environment/river_loop.ogg
+
+[event]
+# River sound
+type=on_load
+location=89,63,1,1
+soundfx=soundfx/environment/river_loop.ogg
+
+[event]
+# River sound
+type=on_load
+location=92,80,1,1
+soundfx=soundfx/environment/river_loop.ogg
+
+[event]
+# River sound
+type=on_load
+location=92,96,1,1
+soundfx=soundfx/environment/river_loop.ogg
+
+[event]
+# River sound
+type=on_load
+location=117,126,1,1
+soundfx=soundfx/environment/river_loop.ogg
+
+[event]
+# River sound
+type=on_load
+location=177,151,1,1
+soundfx=soundfx/environment/river_loop.ogg
+
+[event]
+# River sound
+type=on_load
+location=160,166,1,1
+soundfx=soundfx/environment/river_loop.ogg
+
+[event]
+# River sound
+type=on_load
+location=198,161,1,1
+soundfx=soundfx/environment/river_loop.ogg
+
+[event]
+# River sound
+type=on_load
+location=217,168,1,1
+soundfx=soundfx/environment/river_loop.ogg
+
+[event]
+# River sound
+type=on_load
+location=233,172,1,1
+soundfx=soundfx/environment/river_loop.ogg
+
+[event]
+# River sound
+type=on_load
+location=250,183,1,1
+soundfx=soundfx/environment/river_loop.ogg
 
 [enemygroup]
 # goblin camp
