@@ -364,6 +364,11 @@
     <property name="requires_status" value="lb_explosive_detonated"/>
    </properties>
   </object>
+  <object name="Cave wind sound effect" type="on_load" x="0" y="0" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/cave_wind_loop.ogg"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="enemygroup" width="80" height="80">
   <object name="3-5 Undead" type="undead" x="1120" y="1472" width="320" height="352">
