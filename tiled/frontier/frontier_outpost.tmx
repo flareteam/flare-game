@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="isometric" width="64" height="64" tilewidth="64" tileheight="32">
  <properties>
   <property name="music" value="unrest_theme.ogg"/>
@@ -285,6 +284,52 @@
     <property name="hotspot" value="location"/>
     <property name="intermap" value="warp_zone.txt,29,44"/>
     <property name="tooltip" value="Warp Zone"/>
+   </properties>
+  </object>
+  <object name="River sound" x="160" y="320" width="32" height="32"/>
+  <object name="River sound" type="on_load" x="160" y="320" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>
+   </properties>
+  </object>
+  <object name="River sound" type="on_load" x="832" y="1120" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>
+   </properties>
+  </object>
+  <object name="River sound" type="on_load" x="736" y="704" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>
+   </properties>
+  </object>
+  <object name="River sound" type="on_load" x="896" y="736" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>
+   </properties>
+  </object>
+  <object name="River sound" type="on_load" x="1024" y="576" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>
+   </properties>
+  </object>
+  <object name="River sound" type="on_load" x="1472" y="1056" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>
+   </properties>
+  </object>
+  <object name="River sound" type="on_load" x="1792" y="1440" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>
+   </properties>
+  </object>
+  <object name="River sound" type="on_load" x="1760" y="1760" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>
+   </properties>
+  </object>
+  <object name="River sound" type="on_load" x="1184" y="256" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>
    </properties>
   </object>
  </objectgroup>
