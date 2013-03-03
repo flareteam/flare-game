@@ -76,7 +76,7 @@ MenuNPCActions::MenuNPCActions()
 	vendor_normal_color.r = cancel_normal_color.r = topic_normal_color.r = 0xd0;
 	vendor_normal_color.g = cancel_normal_color.g = topic_normal_color.g = 0xd0;
 	vendor_normal_color.b =cancel_normal_color.b = topic_normal_color.b = 0xd0;
-	
+
 	vendor_hilight_color.r = cancel_hilight_color.r = topic_hilight_color.r = 0xff;
 	vendor_hilight_color.g = cancel_hilight_color.g = topic_hilight_color.g = 0xff;
 	vendor_hilight_color.b = cancel_hilight_color.b = topic_hilight_color.b = 0xff;
@@ -145,7 +145,7 @@ void MenuNPCActions::update() {
 		SDL_FreeSurface(action_menu);
 
 	/* get max width and height of action menu */
-	int w = 0, h = 0; 
+	int w = 0, h = 0;
 	for(size_t i=0; i<npc_actions.size(); i++) {
 		h += ITEM_SPACING;
 		if (npc_actions[i].label) {
@@ -171,7 +171,7 @@ void MenuNPCActions::update() {
 		npc_actions[i].rect.x = window_area.x + MENU_BORDER;
 		npc_actions[i].rect.y = window_area.y + yoffs;
 		npc_actions[i].rect.w = w;
-		
+
 		if (npc_actions[i].label) {
 			npc_actions[i].rect.h = npc_actions[i].label->bounds.h + (ITEM_SPACING*2);
 
@@ -184,8 +184,8 @@ void MenuNPCActions::update() {
 					text_color = topic_hilight_color;
 
 				npc_actions[i].label->set(MENU_BORDER + (w/2),
-							  yoffs + (npc_actions[i].rect.h/2) , 
-							  JUSTIFY_CENTER, VALIGN_CENTER, 
+							  yoffs + (npc_actions[i].rect.h/2) ,
+							  JUSTIFY_CENTER, VALIGN_CENTER,
 							  npc_actions[i].label->get(), text_color);
 			} else {
 				if (npc_actions[i].id == "id_cancel")
@@ -195,7 +195,7 @@ void MenuNPCActions::update() {
 				else
 					text_color = topic_normal_color;
 
-				npc_actions[i].label->set(MENU_BORDER + (w/2), 
+				npc_actions[i].label->set(MENU_BORDER + (w/2),
 							  yoffs + (npc_actions[i].rect.h/2),
 							  JUSTIFY_CENTER, VALIGN_CENTER,
 							  npc_actions[i].label->get(), text_color);
@@ -213,7 +213,7 @@ void MenuNPCActions::update() {
 
 	/* render action menu surface */
 	action_menu = createAlphaSurface(w,h);
-	Uint32 bg = SDL_MapRGBA(action_menu->format, 
+	Uint32 bg = SDL_MapRGBA(action_menu->format,
 				background_color.r, background_color.g,
 				background_color.b, background_alpha);
 	SDL_FillRect(action_menu, NULL, bg);
@@ -244,18 +244,18 @@ void MenuNPCActions::setNPC(NPC *pnpc) {
 
 	// reset selection
 	dialog_selected = vendor_selected = cancel_selected = false;
-	
+
 	/* enumerate available dialog topics */
 	std::vector<int> nodes;
 	npc->getDialogNodes(nodes);
 	for (int i = (int)nodes.size() - 1; i >= 0; i--) {
 
+		if (first_dialog_node == -1 && topics == 0)
+			first_dialog_node = nodes[i];
+
 		std::string topic = npc->getDialogTopic(nodes[i]);
 		if (topic.length() == 0)
 			continue;
-
-		if (first_dialog_node == -1)
-			first_dialog_node = nodes[i];
 
 		stringstream ss;
 		ss.str("");
@@ -266,6 +266,8 @@ void MenuNPCActions::setNPC(NPC *pnpc) {
 		is_empty = false;
 	}
 
+	if (first_dialog_node != -1 && topics == 0)
+		topics = 1;
 
 	/* if npc is a vendor add entry */
 	if (npc->vendor) {
@@ -277,7 +279,7 @@ void MenuNPCActions::setNPC(NPC *pnpc) {
 
 	npc_actions.push_back(Action());
 	npc_actions.push_back(Action("id_cancel", cancel_label));
-       
+
 	/* if npc is not a vendor and only one topic is
 	 available select the topic automatically */
 	if (!npc->vendor && topics == 1) {
@@ -316,7 +318,7 @@ void MenuNPCActions::logic() {
 	/* get action under mouse */
 	bool got_action = false;
 	for (size_t i=0; i<npc_actions.size(); i++) {
-		
+
 		if (!isWithin(npc_actions[i].rect, inpt->mouse))
 			continue;
 
@@ -326,7 +328,7 @@ void MenuNPCActions::logic() {
 			current_action = i;
 			update();
 		}
-		
+
 		break;
 	}
 
@@ -335,12 +337,12 @@ void MenuNPCActions::logic() {
 		current_action = -1;
 		return;
 	}
-	
+
 	/* is main1 pressed */
 	if (inpt->pressing[MAIN1]) {
 		inpt->lock[MAIN1] = true;
 
-	       
+
 		if (npc_actions[current_action].label == NULL)
 			return;
 		else if (npc_actions[current_action].id == "id_cancel")
@@ -366,7 +368,7 @@ void MenuNPCActions::logic() {
 
 void MenuNPCActions::render() {
 	if (!visible) return;
-	
+
 	if (!action_menu) return;
 
 	SDL_BlitSurface(action_menu, NULL, screen, &window_area);
