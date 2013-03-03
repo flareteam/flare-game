@@ -536,6 +536,12 @@ mapmod=object,6,33,179
 soundfx=soundfx/wood_open.ogg
 tooltip=Crate
 
+[event]
+# Cave wind sound effect
+type=on_load
+location=0,0,1,1
+soundfx=soundfx/environment/cave_wind_loop.ogg
+
 [enemy]
 type=skeletal_warrior
 location=49,21,1,1
