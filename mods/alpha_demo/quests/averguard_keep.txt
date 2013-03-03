@@ -13,7 +13,7 @@ requires_not=ak_ukkonen_reward
 quest_text=Report your victory over Ukkonen to Guill in the Goblin Warrens.
 
 [quest]
-requires_status=ak_ukkonen_reward
+requires_status=ak_tome_search
 requires_not=ak_tome_found
 quest_text=Search Ukkonen's lair in the Goblin Warrens for a missing Averguard Tome.
 
@@ -35,6 +35,7 @@ quest_text=Tell Guill that you have found the Averguard Key.
 [quest]
 requires_status=ak_temple_search
 requires_not=ak_temple_sealed
+requires_not=ak_talisman_used
 quest_text=Use the Averguard Key to enter the burial chamber deep within Averguard Temple.
 
 [quest]
@@ -53,7 +54,7 @@ requires_not=ak_talisman_reward
 quest_text=Show Langlier's Talisman to Guill.
 
 [quest]
-requires_status=ak_talisman_reward
+requires_status=ak_maddox_search
 requires_not=ak_maddox_defeated
 quest_text=Enter the Averguard Temple burial chamber and defeat Sir Evan Maddox.
 

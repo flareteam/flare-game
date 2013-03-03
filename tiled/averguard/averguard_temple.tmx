@@ -429,7 +429,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <objectgroup name="event" width="28" height="129" visible="0">
+ <objectgroup name="event" width="28" height="129">
   <object type="teleport" x="448" y="4064" width="64" height="32">
    <properties>
     <property name="hotspot" value="14,128,2,1"/>
@@ -458,8 +458,8 @@
     <property name="hotspot" value="location"/>
     <property name="msg" value="You insert the Averguard Key. Runes glow around the door, then fade. The door is still sealed."/>
     <property name="requires_item" value="9001"/>
-    <property name="requires_not" value="ak_maddox_search"/>
-    <property name="requires_status" value="ak_temple_search"/>
+    <property name="requires_not" value="ak_talisman_found"/>
+    <property name="requires_status" value="ak_key_found"/>
     <property name="set_status" value="ak_temple_sealed"/>
     <property name="tooltip" value="Sealed Temple Door"/>
    </properties>
@@ -469,7 +469,7 @@
     <property name="hotspot" value="15,88,1,1"/>
     <property name="msg" value="You read aloud the runes on Langlier's Talisman. The Avergard Key begins to glow!"/>
     <property name="requires_not" value="ak_talisman_used"/>
-    <property name="requires_status" value="ak_maddox_search"/>
+    <property name="requires_status" value="ak_key_found,ak_talisman_found"/>
     <property name="set_status" value="ak_talisman_used"/>
     <property name="shakycam" value="60"/>
     <property name="soundfx" value="soundfx/powers/quake.ogg"/>
