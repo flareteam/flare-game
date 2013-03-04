@@ -41,7 +41,7 @@ using namespace std;
 class Sound {
 public:
 	Mix_Chunk *chunk;
-	Sound() :  chunk(0), refCnt(0) {};
+	Sound() :  chunk(0), refCnt(0) {}
 private:
 	friend class SoundManager;
 	int refCnt;
@@ -66,33 +66,31 @@ SoundManager::~SoundManager() {
 
 void SoundManager::logic(Point c) {
 
+	PlaybackMapIterator it = playback.begin();
+	if (it == playback.end())
+		return;
 
-  PlaybackMapIterator it = playback.begin();
-  if (it == playback.end())
-    return;
+	while(it != playback.end()) {
 
-  while(it != playback.end()) {
+		/* dont process playback sounds without location */
+		if (it->second.location.x == 0 && it->second.location.y == 0) {
+			++it;
+			continue;
+		}
 
-	  /* dont process playback sounds without location */
-	  if (it->second.location.x == 0 && it->second.location.y == 0) {
-		  ++it; 
-		  continue;
-	  }
+		/* calculate distance and angle */
+		Uint8 d = 0, a = 0;
+		float dx = c.x - it->second.location.x;
+		float dy = c.y - it->second.location.y;
+		float dist = sqrt(dx*dx + dy*dy);
 
-	  /* calculate distance and angle */
-	  Uint8 d = 0, a = 0;
-	  float dx = c.x - it->second.location.x;
-	  float dy = c.y - it->second.location.y;
-	  float dist = sqrt(dx*dx + dy*dy);
-	  
-	  /* update sound mix with new distance/location to hero */
-	  dist = 255.0f * (dist / SOUND_FALLOFF);
-	  d = max(0.0f, min(dist, 255.0f));
-	  // a = atan2(dy,dx) * 180 / M_PI;
-	  Mix_SetPosition(it->first, a, d);
-	  it++;
-  }
-
+		/* update sound mix with new distance/location to hero */
+		dist = 255.0f * (dist / SOUND_FALLOFF);
+		d = max(0.0f, min(dist, 255.0f));
+		// a = atan2(dy,dx) * 180 / M_PI;
+		Mix_SetPosition(it->first, a, d);
+		it++;
+	}
 }
 
 void SoundManager::reset() {
