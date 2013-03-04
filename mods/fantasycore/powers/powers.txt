@@ -920,13 +920,12 @@ manual_untransform=true
 
 [power]
 id=136
-name=Disenchant
+name=Revert Form
 type=transform
 icon=0
 new_state=instant
 spawn_type=untransform
 description=Transform back to human
-soundfx=quake.ogg
 
 [power]
 id=137
@@ -989,7 +988,7 @@ id=141
 name=Stealth
 type=transform
 icon=0
-new_state=cast
+new_state=instant
 spawn_type=stealth
 requires_mp=1
 description=Move undetected with the oppourtunity to perform a sneak attack
@@ -998,10 +997,10 @@ manual_untransform=true
 
 [power]
 id=142
-name=Backstab
+name=Sneak Attack
 type=fixed
 icon=1
-description=Basic melee attack followed by Disenchant
+description=Melee attack while stealthed for a high chance to crit
 new_state=swing
 face=true
 use_hazard=true
