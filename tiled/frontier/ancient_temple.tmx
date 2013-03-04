@@ -449,7 +449,7 @@
   <object name="island chest" type="run_once" x="736" y="384" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="id,23,13,128"/>
+    <property name="loot" value="128,23,13,1,100"/>
     <property name="mapmod" value="object,23,12,161"/>
     <property name="requires_not" value="at_chest1"/>
     <property name="set_status" value="at_chest1"/>
@@ -460,7 +460,7 @@
   <object name="island chest" type="run_once" x="768" y="352" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="id,25,11,57"/>
+    <property name="loot" value="57,25,11,1,100"/>
     <property name="mapmod" value="object,24,11,160"/>
     <property name="requires_not" value="at_chest2"/>
     <property name="set_status" value="at_chest2"/>
