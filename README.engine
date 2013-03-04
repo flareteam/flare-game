@@ -13,7 +13,7 @@ extra repository and is now called flare-game. (happened around sept. 2012)
 
 ## Copyright and License
 
-Most of Flare is Copyright © 2010-2012 Clint Bellanger. Contributors retain copyrights to their original contributions.
+Most of Flare is Copyright © 2010-2013 Clint Bellanger. Contributors retain copyrights to their original contributions.
 
 Flare's source code is released under the GNU GPL v3. Later versions are permitted.
 
@@ -37,19 +37,6 @@ The following links are specific to the engine
 * polymorphable A game made for "The Liberated Pixel cup", which was a competition about game art and making a game thereof. The pixel art is 32x32 orthogonal perspective featuring a medival setting. The development has finished.
 * concordia     Another game using the art created during "The liberated pixel cup". While this started without stress regarding the timeline for the pixel cup, this story is more thought through and the content is more organized.
 
-## Running Flare
-
-If the program is installing system-wide (i.e., you typed 'make install' and it worked), you can run it just by executing the 'flare' command. The command name may be changed in mods and will likely be called as the game.
-
-If you did not perform the installation step, you should find the binary in in the top directory, and run it from there, like this:
-
-    ./flare
-
-Also, in newer versions, the game can be launched from an icon in your main menu in your GUI environment (KDE, GNOME, etc.).
-
-If you're running flare from your operating system's gui file browser (e.g. Windows Explorer or OSX Finder), you'll want to use one of the provided launchers.  This helps the flare executable use its own working directory, so it can see all those data folders.
-
-
 
 ## Settings
 
@@ -61,7 +48,6 @@ Settings are stored in one of these places:
 
 whereas $GAMENAME is defaulting to ```flare``` in this repository or in flare-game.
 Here you can enable fullscreen, change the game resolution, enable mouse-move, and change keybindings. The settings files are created the first time you run Flare.
-
 
 
 ## Save Files

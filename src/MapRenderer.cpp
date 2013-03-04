@@ -1341,5 +1341,12 @@ MapRenderer::~MapRenderer() {
 	clearEvents();
 	clearQueues();
 	delete tip;
+
+	/* unload sounds */
+	snd->reset();
+	while (!sids.empty()) {
+		snd->unload(sids.back());
+		sids.pop_back();
+	}
 }
 

@@ -100,7 +100,7 @@ public:
 	void renderTooltips(Point cam);
 	void checkEnemiesForLoot();
 
-	void playCurrencySound();
+	void playCurrencySound(Point loot_pos = Point(0,0));
 
 	// called by enemy, who definitly wants to drop loot.
 	void addEnemyLoot(const Enemy *e);
