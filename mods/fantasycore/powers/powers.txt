@@ -923,7 +923,7 @@ id=136
 name=Disenchant
 type=transform
 icon=0
-new_state=cast
+new_state=instant
 spawn_type=untransform
 description=Transform back to human
 soundfx=quake.ogg
@@ -956,7 +956,7 @@ id=139
 name=Disenchant [item]
 type=transform
 icon=0
-new_state=cast
+new_state=instant
 spawn_type=untransform
 description=Transform back to human
 requires_item=948
@@ -983,6 +983,45 @@ buff_teleport=true
 range=512
 target_neighbor=1
 cooldown=15000
+
+[power]
+id=141
+name=Stealth
+type=transform
+icon=0
+new_state=cast
+spawn_type=stealth
+requires_mp=1
+description=Move undetected with the oppourtunity to perform a sneak attack
+transform_duration=0
+manual_untransform=true
+
+[power]
+id=142
+name=Backstab
+type=fixed
+icon=1
+description=Basic melee attack followed by Disenchant
+new_state=swing
+face=true
+use_hazard=true
+aim_assist=true
+base_damage=melee
+lifespan=1
+radius=64
+starting_pos=melee
+allow_power_mod=true
+post_power=136
+
+[power]
+id=143
+name=Stealth bonus
+type=fixed
+buff=true
+passive=true
+post_effect=216,100,0
+post_effect=217,50,0
+post_effect=233,100,0
 
 [power]
 id=159
