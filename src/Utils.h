@@ -70,6 +70,7 @@ public:
 	int x;
 	int y;
 	int z;
+	int w;
 
 	Event_Component()
 		: type("")
@@ -77,6 +78,7 @@ public:
 		, x(0)
 		, y(0)
 		, z(0)
+		, w(0)
 	{}
 };
 
