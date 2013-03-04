@@ -145,9 +145,9 @@ void LootManager::logic() {
 
 		if (it->animation->isSecondLastFrame()) {
 			if (it->stack.item > 0)
-				items->playSound(it->stack.item);
+			  items->playSound(it->stack.item, it->pos);
 			else
-				playCurrencySound();
+				playCurrencySound(it->pos);
 		}
 	}
 
@@ -307,7 +307,7 @@ void LootManager::addLoot(ItemStack stack, Point pos) {
 	ld.loadAnimation(animationname);
 	ld.currency = 0;
 	loot.push_back(ld);
-	snd->play(sfx_loot);
+	snd->play(sfx_loot, GLOBAL_VIRTUAL_CHANNEL, pos, false);
 }
 
 void LootManager::addCurrency(int count, Point pos) {
@@ -330,7 +330,7 @@ void LootManager::addCurrency(int count, Point pos) {
 
 	ld.currency = count;
 	loot.push_back(ld);
-	snd->play(sfx_loot);
+	snd->play(sfx_loot, GLOBAL_VIRTUAL_CHANNEL, pos, false);
 }
 
 /**
@@ -463,8 +463,8 @@ void LootManager::addRenders(vector<Renderable> &ren, vector<Renderable> &ren_de
 	}
 }
 
-void LootManager::playCurrencySound() {
-	snd->play(sfx_currency);
+void LootManager::playCurrencySound(Point pos) {
+  snd->play(sfx_currency, GLOBAL_VIRTUAL_CHANNEL, pos, false);
 }
 
 LootManager::~LootManager() {
