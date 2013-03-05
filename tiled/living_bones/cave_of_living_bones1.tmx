@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="isometric" width="100" height="100" tilewidth="64" tileheight="32">
  <properties>
   <property name="music" value="cave_theme.ogg"/>
@@ -220,7 +219,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="collision" width="100" height="100">
+ <layer name="collision" width="100" height="100" visible="0">
   <data encoding="csv">
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
@@ -452,8 +451,68 @@
     <property name="tooltip" value="Treasure Chest"/>
    </properties>
   </object>
+  <object name="Cave wind sound effect" type="on_load" x="0" y="0" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/cave_wind_loop.ogg"/>
+   </properties>
+  </object>
+  <object name="Water dripping" type="on_load" x="1536" y="2528" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/cave_droplets_loop.ogg"/>
+   </properties>
+  </object>
+  <object name="Water dripping" type="on_load" x="1152" y="2624" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/cave_droplets_loop.ogg"/>
+   </properties>
+  </object>
+  <object name="Water dripping" type="on_load" x="736" y="1792" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/cave_droplets_loop.ogg"/>
+   </properties>
+  </object>
+  <object name="Water dripping" type="on_load" x="1408" y="1536" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/cave_droplets_loop.ogg"/>
+   </properties>
+  </object>
+  <object name="Water dripping" type="on_load" x="1216" y="1888" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/cave_droplets_loop.ogg"/>
+   </properties>
+  </object>
+  <object name="Water dripping" type="on_load" x="1952" y="1312" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/cave_droplets_loop.ogg"/>
+   </properties>
+  </object>
+  <object name="Water dripping" type="on_load" x="1440" y="1024" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/cave_droplets_loop.ogg"/>
+   </properties>
+  </object>
+  <object name="Water dripping" type="on_load" x="2336" y="2112" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/cave_droplets_loop.ogg"/>
+   </properties>
+  </object>
+  <object name="Water dripping" type="on_load" x="2304" y="1088" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/cave_droplets_loop.ogg"/>
+   </properties>
+  </object>
+  <object name="Water dripping" type="on_load" x="1216" y="416" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/cave_droplets_loop.ogg"/>
+   </properties>
+  </object>
+  <object name="Water dripping" type="on_load" x="928" y="224" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/cave_droplets_loop.ogg"/>
+   </properties>
+  </object>
  </objectgroup>
- <objectgroup name="enemygroup" width="100" height="100">
+ <objectgroup name="enemygroup" width="100" height="100" visible="0">
   <object name="Antlions" type="antlion" x="576" y="1152" width="256" height="288">
    <properties>
     <property name="level" value="5,6"/>

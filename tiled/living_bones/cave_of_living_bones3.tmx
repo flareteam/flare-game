@@ -145,6 +145,11 @@
     <property name="tooltip" value="Barrel"/>
    </properties>
   </object>
+  <object name="Cave wind sound effect" type="on_load" x="0" y="0" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/cave_wind_loop.ogg"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="enemygroup" width="50" height="30">
   <object name="Guard the Explosives" type="undead" x="160" y="224" width="192" height="544">

@@ -409,16 +409,9 @@
     <property name="soundfx" value="soundfx/door_open.ogg"/>
    </properties>
   </object>
-  <object name="brazier sound effect" type="run_always" x="256" y="2624" width="288" height="192">
+  <object name="brazier sound effect" type="on_load" x="2752" y="1312" width="32" height="32">
    <properties>
-    <property name="cooldown" value="120"/>
-    <property name="soundfx" value="soundfx/environment/open_fire.ogg"/>
-   </properties>
-  </object>
-  <object name="brazier sound effect" type="run_always" x="2752" y="1216" width="256" height="224">
-   <properties>
-    <property name="cooldown" value="120"/>
-    <property name="soundfx" value="soundfx/environment/open_fire.ogg"/>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
    </properties>
   </object>
   <object type="run_once" x="2848" y="384" width="32" height="32">
@@ -426,6 +419,21 @@
     <property name="hotspot" value="location"/>
     <property name="loot" value="random,89,13,3"/>
     <property name="mapmod" value="object,89,12,183"/>
+   </properties>
+  </object>
+  <object name="brazier sound effect" type="on_load" x="416" y="2688" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
+   </properties>
+  </object>
+  <object name="brazier sound effect" type="on_load" x="352" y="2688" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
+   </properties>
+  </object>
+  <object name="brazier sound effect" type="on_load" x="2976" y="1312" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
    </properties>
   </object>
  </objectgroup>

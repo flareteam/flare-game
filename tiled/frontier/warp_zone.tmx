@@ -299,10 +299,14 @@
     <property name="requires_status" value="waypoint_brothers_lair_atrium"/>
    </properties>
   </object>
-  <object name="flame sounds" type="run_always" x="1216" y="1120" width="128" height="192">
+  <object name="brazier sound effect" type="on_load" x="1312" y="1280" width="32" height="32">
    <properties>
-    <property name="cooldown" value="120"/>
-    <property name="soundfx" value="soundfx/environment/open_fire.ogg"/>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
+   </properties>
+  </object>
+  <object name="brazier sound effect" type="on_load" x="1312" y="1120" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
    </properties>
   </object>
  </objectgroup>

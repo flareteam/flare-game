@@ -8,13 +8,13 @@ tileset=tileset_dungeon.txt
 title=Brothers' Lair Atrium
 
 [tilesets]
-tileset=../../../../flare-game/tiled/dungeon/tiled_collision.png,64,32,0,0
-tileset=../../../../flare-game/tiled/dungeon/tiled_dungeon.png,64,128,0,0
-tileset=../../../../flare-game/tiled/dungeon/set_rules.png,64,32,0,0
-tileset=../../../../flare-game/tiled/dungeon/tiled_dungeon_2x2.png,128,64,0,16
-tileset=../../../../flare-game/tiled/dungeon/door_left.png,64,128,-16,-8
-tileset=../../../../flare-game/tiled/dungeon/door_right.png,64,128,16,-8
-tileset=../../../../flare-game/tiled/dungeon/stairs.png,256,256,0,48
+tileset=../../../tiled/dungeon/tiled_collision.png,64,32,0,0
+tileset=../../../tiled/dungeon/tiled_dungeon.png,64,128,0,0
+tileset=../../../tiled/dungeon/set_rules.png,64,32,0,0
+tileset=../../../tiled/dungeon/tiled_dungeon_2x2.png,128,64,0,16
+tileset=../../../tiled/dungeon/door_left.png,64,128,-16,-8
+tileset=../../../tiled/dungeon/door_right.png,64,128,16,-8
+tileset=../../../tiled/dungeon/stairs.png,256,256,0,48
 
 [layer]
 type=background
@@ -224,10 +224,9 @@ unset_status=lb_ice_attack,lb_fire_attack,lb_wind_attack,lb_ice_looted,lb_fire_l
 
 [event]
 # brazier sound effect
-type=run_always
-location=9,2,10,7
-cooldown=120
-soundfx=soundfx/environment/open_fire.ogg
+type=on_load
+location=12,5,1,1
+soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 type=on_load
@@ -249,6 +248,12 @@ mapmod=background,14,20,265
 msg=Brothers Lair Atrium waypoint discovered
 requires_not=waypoint_brothers_lair_atrium
 set_status=waypoint_brothers_lair_atrium
+
+[event]
+# brazier sound effect
+type=on_load
+location=15,5,1,1
+soundfx=soundfx/environment/open_fire_loop.ogg
 
 [enemy]
 # Patrolling undead

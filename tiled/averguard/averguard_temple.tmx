@@ -539,10 +539,14 @@
     <property name="tooltip" value="Maddox's Tomb"/>
    </properties>
   </object>
-  <object name="brazier sound effect" type="run_always" x="352" y="3040" width="288" height="224">
+  <object name="brazier sound effect" type="on_load" x="448" y="3136" width="32" height="32">
    <properties>
-    <property name="cooldown" value="120"/>
-    <property name="soundfx" value="soundfx/environment/open_fire.ogg"/>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
+   </properties>
+  </object>
+  <object name="brazier sound effect" type="on_load" x="512" y="3136" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
    </properties>
   </object>
  </objectgroup>

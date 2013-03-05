@@ -365,10 +365,14 @@
     <property name="soundfx" value="soundfx/environment/open_fire.ogg"/>
    </properties>
   </object>
-  <object name="brazier sound effect" type="run_always" x="128" y="928" width="192" height="288">
+  <object name="brazier sound effect" type="on_load" x="224" y="1120" width="32" height="32">
    <properties>
-    <property name="cooldown" value="120"/>
-    <property name="soundfx" value="soundfx/environment/open_fire.ogg"/>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
+   </properties>
+  </object>
+  <object name="brazier sound effect" type="on_load" x="224" y="1024" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
    </properties>
   </object>
  </objectgroup>
