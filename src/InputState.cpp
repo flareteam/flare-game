@@ -660,5 +660,47 @@ void InputState::mouseEmulation() {
 	if (mx_vel != 0 || my_vel != 0) SDL_WarpMouse(mouse.x+mx_vel,mouse.y+my_vel);
 }
 
+void InputState::lockActionBar() {
+	pressing[BAR_1] = false;
+	pressing[BAR_2] = false;
+	pressing[BAR_3] = false;
+	pressing[BAR_4] = false;
+	pressing[BAR_5] = false;
+	pressing[BAR_6] = false;
+	pressing[BAR_7] = false;
+	pressing[BAR_8] = false;
+	pressing[BAR_9] = false;
+	pressing[BAR_0] = false;
+	pressing[MAIN1] = false;
+	pressing[MAIN2] = false;
+	lock[BAR_1] = true;
+	lock[BAR_2] = true;
+	lock[BAR_3] = true;
+	lock[BAR_4] = true;
+	lock[BAR_5] = true;
+	lock[BAR_6] = true;
+	lock[BAR_7] = true;
+	lock[BAR_8] = true;
+	lock[BAR_9] = true;
+	lock[BAR_0] = true;
+	lock[MAIN1] = true;
+	lock[MAIN2] = true;
+}
+
+void InputState::unlockActionBar() {
+	lock[BAR_1] = false;
+	lock[BAR_2] = false;
+	lock[BAR_3] = false;
+	lock[BAR_4] = false;
+	lock[BAR_5] = false;
+	lock[BAR_6] = false;
+	lock[BAR_7] = false;
+	lock[BAR_8] = false;
+	lock[BAR_9] = false;
+	lock[BAR_0] = false;
+	lock[MAIN1] = false;
+	lock[MAIN2] = false;
+}
+
 InputState::~InputState() {
 }
