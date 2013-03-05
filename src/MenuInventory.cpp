@@ -240,7 +240,13 @@ ItemStack MenuInventory::click(InputState * input) {
 		item = inventory[drag_prev_src].click(input);
 		// if dragging equipment, prepare to change stats/sprites
 		if (drag_prev_src == EQUIPMENT) {
-			updateEquipment( inventory[EQUIPMENT].drag_prev_slot);
+			if (stats->humanoid) {
+				updateEquipment( inventory[EQUIPMENT].drag_prev_slot);
+			} else {
+				itemReturn(item);
+				item.item = 0;
+				item.quantity = 0;
+			}
 		} else if (drag_prev_src == CARRIED && !inpt->pressing[CTRL] && !inpt->pressing[MAIN2]) {
 			inventory[EQUIPMENT].highlightMatching(items->items[item.item].type);
 		}
@@ -290,7 +296,7 @@ void MenuInventory::drop(Point mouse, ItemStack stack) {
 		// make sure the item is going to the correct slot
 		// note: equipment slots 0-3 correspond with item types 0-3
 		// also check to see if the hero meets the requirements
-		if (drag_prev_src == CARRIED && slot_type[slot] == items->items[stack.item].type && requirementsMet(stack.item)) {
+		if (drag_prev_src == CARRIED && slot_type[slot] == items->items[stack.item].type && requirementsMet(stack.item) && stats->humanoid) {
 			if( inventory[area][slot].item == stack.item) {
 				// Merge the stacks
 				add( stack, area, slot);
@@ -411,7 +417,7 @@ void MenuInventory::activate(InputState * input) {
 
 	}
 	// equip an item
-	else {
+	else if (stats->humanoid) {
 		int equip_slot = -1;
 		// find first empty(or just first) slot for item to equip
 		for (int i = 0; i < MAX_EQUIPPED; i++) {
