@@ -621,6 +621,9 @@ void PowerManager::buff(int power_index, StatBlock *src_stats, Point target) {
 	if (powers[power_index].buff) {
 		effect(src_stats, power_index);
 	}
+
+	// activate any post powers
+	activate(powers[power_index].post_power, src_stats, src_stats->pos);
 }
 
 /**
