@@ -621,6 +621,9 @@ void PowerManager::buff(int power_index, StatBlock *src_stats, Point target) {
 	if (powers[power_index].buff) {
 		effect(src_stats, power_index);
 	}
+
+	// activate any post powers
+	activate(powers[power_index].post_power, src_stats, src_stats->pos);
 }
 
 /**
@@ -900,6 +903,8 @@ bool PowerManager::spawn(const std::string& enemy_type, Point target) {
  * Transform into a creature. Fully replaces entity characteristics
  */
 bool PowerManager::transform(int power_index, StatBlock *src_stats, Point target) {
+	// locking the actionbar prevents power usage until after the hero is transformed
+	inpt->lockActionBar();
 
 	if (src_stats->transformed && powers[power_index].spawn_type != "untransform") {
 		log_msg = msg->get("You are already transformed, untransform first.");

@@ -809,6 +809,8 @@ bool Avatar::takeHit(const Hazard &h) {
 
 
 void Avatar::transform() {
+	// calling a transform power locks the actionbar, so we unlock it here
+	inpt->unlockActionBar();
 
 	transform_triggered = true;
 	stats.transformed = true;
@@ -870,6 +872,9 @@ void Avatar::transform() {
 }
 
 void Avatar::untransform() {
+	// calling a transform power locks the actionbar, so we unlock it here
+	inpt->unlockActionBar();
+
 	// Only allow untransform when on a valid tile
 	if (!map->collider.is_valid_position(stats.pos.x,stats.pos.y,MOVEMENT_NORMAL)) return;
 

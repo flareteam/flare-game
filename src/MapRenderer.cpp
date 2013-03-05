@@ -395,6 +395,7 @@ int MapRenderer::load(string filename) {
 					e->x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
 					e->y = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
 					e->z = toInt(infile.nextValue());
+					e->w = toInt(infile.nextValue());
 
 					// add repeating loot
 					string repeat_val = infile.nextValue();
@@ -406,6 +407,7 @@ int MapRenderer::load(string filename) {
 						e->x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
 						e->y = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
 						e->z = toInt(infile.nextValue());
+						e->w = toInt(infile.nextValue());
 
 						repeat_val = infile.nextValue();
 					}
@@ -568,7 +570,7 @@ int MapRenderer::load(string filename) {
 void MapRenderer::clearQueues() {
 	enemies = queue<Map_Enemy>();
 	npcs = queue<Map_NPC>();
-	loot = queue<Event_Component>();
+	loot.clear();
 }
 
 /**
@@ -1251,7 +1253,7 @@ bool MapRenderer::executeEvent(Map_Event &ev) {
 			sids.push_back(sid);
 		}
 		else if (ec->type == "loot") {
-			loot.push(*ec);
+			loot.push_back(*ec);
 		}
 		else if (ec->type == "msg") {
 			log_msg = ec->s;

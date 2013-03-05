@@ -264,6 +264,12 @@ void setPaths() {
 		return;
 	}
 
+	// Check for the local data before trying installed ones.
+	if (dirExists("./mods")) {
+		PATH_DATA = "./";
+		return;
+	}
+
 	// check $XDG_DATA_DIRS options
 	// a list of directories in preferred order separated by :
 	if (getenv("XDG_DATA_DIRS") != NULL) {
