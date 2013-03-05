@@ -96,6 +96,8 @@ public:
 	void resetScroll();
 	void enableMouseEmulation();
 	void disableMouseEmulation();
+	void lockActionBar();
+	void unlockActionBar();
 
 	bool pressing[key_count];
 	bool lock[key_count];
