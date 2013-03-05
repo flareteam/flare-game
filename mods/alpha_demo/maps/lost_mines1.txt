@@ -536,6 +536,72 @@ mapmod=object,6,33,179
 soundfx=soundfx/wood_open.ogg
 tooltip=Crate
 
+[event]
+# Cave wind sound effect
+type=on_load
+location=0,0,1,1
+soundfx=soundfx/environment/cave_wind_loop.ogg
+
+[event]
+# Water dripping
+type=on_load
+location=24,49,1,1
+soundfx=soundfx/environment/cave_droplets_loop.ogg
+
+[event]
+# Water dripping
+type=on_load
+location=64,65,1,1
+soundfx=soundfx/environment/cave_droplets_loop.ogg
+
+[event]
+# Water dripping
+type=on_load
+location=93,62,1,1
+soundfx=soundfx/environment/cave_droplets_loop.ogg
+
+[event]
+# River sound
+type=on_load
+location=74.2188,97.7188,1,1
+soundfx=soundfx/environment/river_loop.ogg
+
+[event]
+# River sound
+type=on_load
+location=69.4219,82.5781,1,1
+soundfx=soundfx/environment/river_loop.ogg
+
+[event]
+# River sound
+type=on_load
+location=68.3281,72.6094,1,1
+soundfx=soundfx/environment/river_loop.ogg
+
+[event]
+# River sound
+type=on_load
+location=72.7812,66.4062,1,1
+soundfx=soundfx/environment/river_loop.ogg
+
+[event]
+# River sound
+type=on_load
+location=81.2969,62.3906,1,1
+soundfx=soundfx/environment/river_loop.ogg
+
+[event]
+# River sound
+type=on_load
+location=88.1875,70.6875,1,1
+soundfx=soundfx/environment/river_loop.ogg
+
+[event]
+# River sound
+type=on_load
+location=98.125,66,1,1
+soundfx=soundfx/environment/river_loop.ogg
+
 [enemy]
 type=skeletal_warrior
 location=49,21,1,1
