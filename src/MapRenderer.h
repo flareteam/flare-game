@@ -263,7 +263,7 @@ public:
 	std::queue<Map_NPC> npcs;
 
 	// event-created loot or items
-	std::queue<Event_Component> loot;
+	std::vector<Event_Component> loot;
 
 	// teleport handling
 	bool teleportation;
