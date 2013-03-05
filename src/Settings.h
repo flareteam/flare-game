@@ -119,6 +119,7 @@ extern bool SELL_WITHOUT_VENDOR;
 extern int AIM_ASSIST;
 extern std::string WINDOW_TITLE;
 extern std::string GAME_PREFIX;
+extern int SOUND_FALLOFF;
 
 // Tile Settings
 extern unsigned short UNITS_PER_TILE;
