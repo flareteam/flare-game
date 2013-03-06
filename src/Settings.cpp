@@ -165,7 +165,7 @@ bool SELL_WITHOUT_VENDOR = true;
 int AIM_ASSIST = 0;
 std::string GAME_PREFIX = "";
 std::string WINDOW_TITLE = "Flare";
-
+int SOUND_FALLOFF = 15;
 
 /**
  * Set system paths
@@ -379,6 +379,8 @@ void loadMiscSettings() {
 				WINDOW_TITLE = infile.val;
 			} else if (infile.key == "game_prefix") {
 				GAME_PREFIX = infile.val;
+			} else if (infile.key == "sound_falloff") {
+				SOUND_FALLOFF = toInt(infile.val);
 			}
 
 		}

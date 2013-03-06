@@ -36,8 +36,6 @@ will be returned by SoundManager::load().
 
 using namespace std;
 
-#define SOUND_FALLOFF (UNITS_PER_TILE * 15.0f)
-
 class Sound {
 public:
 	Mix_Chunk *chunk;
@@ -85,13 +83,13 @@ void SoundManager::logic(Point c) {
 		float dist = sqrt(dx*dx + dy*dy);
 
 		/* control mixing playback depending on distance */
-		if (dist < SOUND_FALLOFF)
+		if (dist < (SOUND_FALLOFF*UNITS_PER_TILE))
 			Mix_Resume(it->first);
 		else
 			Mix_Pause(it->first);
 
 		/* update sound mix with new distance/location to hero */
-		dist = 255.0f * (dist / SOUND_FALLOFF);
+		dist = 255.0f * (dist / (SOUND_FALLOFF*UNITS_PER_TILE));
 		d = max(0.0f, min(dist, 255.0f));
 		// a = atan2(dy,dx) * 180 / M_PI;
 		Mix_SetPosition(it->first, a, d);

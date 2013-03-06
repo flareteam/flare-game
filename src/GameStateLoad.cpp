@@ -435,7 +435,12 @@ void GameStateLoad::logic() {
 		confirm->logic();
 		if (confirm->confirmClicked) {
 			stringstream filename;
-			filename << PATH_USER << "save" << (selected_slot+1) << ".txt";
+			filename.str("");
+			filename << PATH_USER;
+			if (GAME_PREFIX.length() > 0)
+			  filename << GAME_PREFIX << "_";
+			filename << "save" << (selected_slot+1) << ".txt";
+
 			if (remove(filename.str().c_str()) != 0)
 				perror("Error deleting save from path");
 			stats[selected_slot] = StatBlock();
