@@ -102,7 +102,7 @@ void Scene::render() {
 		SDL_BlitSurface(art, NULL, screen, &r);
 
 	if (caption != "") {
-		font->renderShadowed(caption, screen->w / 2, screen->h / 2,
+		font->renderShadowed(caption, screen->w / 2, screen->h - (caption_size.y*2),
 				     JUSTIFY_CENTER,
 				     screen, FONT_WHITE);
 	}
