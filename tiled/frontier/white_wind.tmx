@@ -586,13 +586,15 @@
     <property name="tooltip" value="Supplies"/>
    </properties>
   </object>
-  <object name="Rotten Tower Found Trigger" type="run_once" x="1856" y="2912" width="576" height="608">
+  <object name="Rotten Tower Found Trigger" type="run_once" x="1728" y="2816" width="704" height="704">
    <properties>
+    <property name="msg" value="So, there it is. The abandoned tower! "/>
     <property name="set_status" value="rotten_tower_found"/>
    </properties>
   </object>
   <object name="Rotten Tower Inspected Trigger" type="run_once" x="2112" y="3296" width="32" height="32">
    <properties>
+    <property name="msg" value="Looking through the grate... The tower is just empty."/>
     <property name="set_status" value="rotten_tower_inspected"/>
    </properties>
   </object>
