@@ -395,7 +395,9 @@ int MapRenderer::load(string filename) {
 					e->x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
 					e->y = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
 					e->z = toInt(infile.nextValue());
-					e->w = toInt(infile.nextValue());
+					string chance = infile.nextValue();
+					if (chance == "fixed") e->w = 0;
+					else e->w = toInt(chance);
 
 					// add repeating loot
 					string repeat_val = infile.nextValue();
@@ -407,7 +409,9 @@ int MapRenderer::load(string filename) {
 						e->x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
 						e->y = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
 						e->z = toInt(infile.nextValue());
-						e->w = toInt(infile.nextValue());
+						chance = infile.nextValue();
+						if (chance == "fixed") e->w = 0;
+						else e->w = toInt(chance);
 
 						repeat_val = infile.nextValue();
 					}
