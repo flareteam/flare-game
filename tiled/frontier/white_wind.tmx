@@ -586,6 +586,16 @@
     <property name="tooltip" value="Supplies"/>
    </properties>
   </object>
+  <object name="Rotten Tower Found Trigger" type="run_once" x="1856" y="2912" width="576" height="608">
+   <properties>
+    <property name="set_status" value="rotten_tower_found"/>
+   </properties>
+  </object>
+  <object name="Rotten Tower Inspected Trigger" type="run_once" x="2112" y="3296" width="32" height="32">
+   <properties>
+    <property name="set_status" value="rotten_tower_inspected"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="enemygroup" width="128" height="128">
   <object name="goblin camp" type="goblin" x="1984" y="1376" width="32" height="64">

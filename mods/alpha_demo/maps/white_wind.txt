@@ -571,6 +571,18 @@ mapmod=object,4,28,99
 soundfx=soundfx/wood_open.ogg
 tooltip=Supplies
 
+[event]
+# Rotten Tower Found Trigger
+type=run_once
+location=58,91,18,19
+set_status=rotten_tower_found
+
+[event]
+# Rotten Tower Inspected Trigger
+type=run_once
+location=66,103,1,1
+set_status=rotten_tower_inspected
+
 [enemygroup]
 # goblin camp
 type=goblin
