@@ -8,3 +8,8 @@ quest_text=Search the rotten tower south west of the frontier plains. Beware of 
 requires_status=rotten_tower_found
 requires_not=rotten_tower_inspected
 quest_text=Inspect the tower more closely!
+
+[quest]
+requires_status=rotten_tower_inspected
+requires_not=rotten_tower_reward
+quest_text=Return to Martigan and tell him about the empty abandoned tower!
