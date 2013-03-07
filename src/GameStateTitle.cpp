@@ -77,11 +77,7 @@ void GameStateTitle::loadGraphics() {
 }
 
 void GameStateTitle::logic() {
-	if (ENABLE_PLAYGAME) {
-		button_play->enabled = true;
-	} else {
-		button_play->enabled = false;
-	}
+	button_play->enabled = ENABLE_PLAYGAME;
 
 	if (button_play->checkClick()) {
 		delete requestedGameState;
