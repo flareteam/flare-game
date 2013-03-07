@@ -51,17 +51,17 @@ him=A member of the Order passed through our camp a few days ago. He left for th
 topic=Guards?
 requires_status=martigan_init
 requires_not=rotten_tower_search
-him=Well these areas were guarded a lot. There is yet another outpost tower in the wild.
-him=These are rough lands and... ...you're looking for an adventure!
-him=Check if the goblins found the way inside the abandoned tower and tell me.
+him=These areas were guarded well. There is yet another outpost tower in the wild.
+him=These are rough lands and... you're looking for an adventure!
+him=Let me know out if the goblins found the way inside the abandoned tower.
 set_status=rotten_tower_search
 
 [dialog]
 topic=Where is the tower?
 requires_status=rotten_tower_search
 requires_not=rotten_tower_found
-him=Search for the abandoned tower in the south west of the Frontier plains.
-him=The lands around there is called white wind.
+him=Search for the abandoned tower southwest of the Frontier plains.
+him=The lands around there are called White Wind.
 
 [dialog]
 topic=I found the tower!
@@ -70,7 +70,7 @@ requires_not=rotten_tower_inspected
 you=So there are plenty of goblins in the white winds area, but not near the tower.
 him=Are you sure?
 you=What do you mean? Of course I am!
-him=Did you look inside the tower? Did you make sure there ain't goblins in there?
+him=Did you look inside the tower? Did you make sure there aren't goblins in there?
 you=Well...
 
 [dialog]
