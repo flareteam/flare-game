@@ -101,6 +101,7 @@ private:
 	void checkNotifications();
 	void checkNPCInteraction();
 	void checkStash();
+	void checkCutscene();
 	void showLoading();
 	void loadTitles();
 
@@ -115,6 +116,8 @@ private:
 public:
 	GameStatePlay();
 	~GameStatePlay();
+
+	void initialize();
 
 	void logic();
 	void render();
