@@ -117,7 +117,7 @@ void NPC::load(const string& npc_id, int hero_level) {
 					e.x = loadSound(infile.val, NPC_VOX_QUEST);
 				}
 				else if (infile.key == "topic") {
-					e.s = infile.val;
+					e.s = msg->get(infile.val);
 				}
 				else if (infile.key == "group") {
 					e.s = infile.val;

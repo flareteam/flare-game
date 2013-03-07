@@ -131,9 +131,11 @@ MenuNPCActions::MenuNPCActions()
 			}
 			else if(infile.key == "vendor_label") {
 				vendor_label = eatFirstString(infile.val, ',');
+				vendor_label = msg->get(vendor_label);
 			}
 			else if(infile.key == "cancel_label") {
 				cancel_label = eatFirstString(infile.val, ',');
+				cancel_label = msg->get(cancel_label);
 			}
 		}
 		infile.close();
