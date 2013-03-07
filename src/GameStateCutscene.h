@@ -64,7 +64,6 @@ public:
 class GameStateCutscene : public GameState {
 private:
 	GameState *previous_gamestate;
-	int game_slot;
 	std::string dest_map;
 	Point dest_pos;
 	bool scale_graphics;
@@ -80,8 +79,8 @@ public:
 	bool load(std::string filename);
 	void logic();
 	void render();
-	void setGameDestination(int game_slot, std::string map, Point dest);
 
+	int game_slot;
 };
 
 #endif

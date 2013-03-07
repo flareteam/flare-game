@@ -230,8 +230,3 @@ SDL_Surface *GameStateCutscene::loadImage(std::string filename) {
 	return image;
 }
 
-void GameStateCutscene::setGameDestination(int _game_slot, std::string map, Point dest) {
-	dest_map = map;
-	dest_pos = dest;
-	game_slot = _game_slot;
-}
