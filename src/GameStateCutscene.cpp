@@ -160,7 +160,7 @@ bool GameStateCutscene::load(std::string filename) {
 
 			if (infile.key == "caption") {
 				sc.type = infile.key;
-				sc.s = infile.val;
+				sc.s = msg->get(infile.val);
 			}
 			else if (infile.key == "image") {
 				sc.type = infile.key;
