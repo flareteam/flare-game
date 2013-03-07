@@ -994,7 +994,7 @@ requires_mp=9
 description=Move undetected with the opportunity to perform a sneak attack
 transform_duration=450
 manual_untransform=true
-cooldown=30000
+cooldown=900
 
 [power]
 id=142
@@ -1023,6 +1023,7 @@ passive=true
 post_effect=216,100,0
 post_effect=217,50,0
 post_effect=233,90,0
+post_effect=235,1,450
 
 [power]
 id=159
@@ -1291,3 +1292,8 @@ name=Revive
 type=effect
 effect_type=revive
 
+[power]
+# Stealth time remaining icon
+id=235
+name=Stealth
+icon=6
