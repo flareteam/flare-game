@@ -595,7 +595,7 @@ TooltipData MenuPowers::checkTooltip(Point mouse) {
 				}
 				// add cooldown time
 				if (powers->powers[power_cell[i].id].cooldown > 0) {
-					tip.addText(msg->get("Cooldown: %d seconds", powers->powers[power_cell[i].id].cooldown / 1000));
+					tip.addText(msg->get("Cooldown: %d seconds", powers->powers[power_cell[i].id].cooldown / MAX_FRAMES_PER_SEC));
 				}
 
 				return tip;
