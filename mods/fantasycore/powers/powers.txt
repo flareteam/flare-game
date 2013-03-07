@@ -987,13 +987,14 @@ cooldown=15000
 id=141
 name=Stealth
 type=transform
-icon=0
+icon=6
 new_state=instant
 spawn_type=stealth
-requires_mp=1
-description=Move undetected with the oppourtunity to perform a sneak attack
-transform_duration=0
+requires_mp=9
+description=Move undetected with the opportunity to perform a sneak attack
+transform_duration=450
 manual_untransform=true
+cooldown=30000
 
 [power]
 id=142
@@ -1014,7 +1015,8 @@ post_power=136
 
 [power]
 id=143
-name=Stealth bonus
+icon=6
+name=Stealth
 type=fixed
 buff=true
 passive=true
