@@ -58,6 +58,7 @@ bool Scene::logic() {
 
 		if (components.front().type == "caption") {
 
+			font->setFont("font_captions");
 			caption = components.front().s;
 			caption_size = font->calc_size(caption, VIEW_W * 0.8f);
 
@@ -102,6 +103,7 @@ void Scene::render() {
 		SDL_BlitSurface(art, NULL, screen, &r);
 
 	if (caption != "") {
+		font->setFont("font_captions");
 		font->renderShadowed(caption, screen->w / 2, screen->h - (caption_size.y*2),
 				     JUSTIFY_CENTER,
 				     screen, FONT_WHITE);
@@ -145,6 +147,7 @@ bool GameStateCutscene::load(std::string filename) {
 
 	// parse the cutscene file
 	while (infile.next()) {
+
 		if (infile.new_section) {
 			if (infile.section == "scene")
 				scenes.push(Scene());
