@@ -123,6 +123,15 @@ void GameStateCutscene::logic() {
 
 	if (scenes.empty())
 	{
+		if (game_slot != -1) {
+			GameStatePlay *gsp = new GameStatePlay();
+			gsp->resetGame();
+			gsp->game_slot = game_slot;
+			gsp->loadGame();
+
+			previous_gamestate = gsp;
+		}
+
 		/* return to previous gamestate */
 		delete requestedGameState;
 		requestedGameState = previous_gamestate;
