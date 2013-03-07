@@ -160,7 +160,7 @@ floor=true
 trait_elemental=earth
 starting_pos=source
 multitarget=true
-cooldown=3000
+cooldown=90
 post_effect=203,0,30
 
 [power]
@@ -372,7 +372,7 @@ allow_power_mod=true
 count=5
 delay=2
 damage_multiplier=66
-cooldown=5000
+cooldown=150
 
 [power]
 id=30
@@ -644,7 +644,7 @@ name=Health Potion
 soundfx=potion.ogg
 new_state=instant
 requires_item=1
-cooldown=600
+cooldown=15
 buff=true
 post_effect=230,100,1
 
@@ -656,7 +656,7 @@ name=Mana Potion
 new_state=instant
 soundfx=potion.ogg
 requires_item=2
-cooldown=600
+cooldown=15
 buff=true
 post_effect=231,100,1
 
@@ -981,7 +981,7 @@ starting_pos=source
 buff_teleport=true
 range=512
 target_neighbor=1
-cooldown=15000
+cooldown=450
 
 [power]
 id=141
