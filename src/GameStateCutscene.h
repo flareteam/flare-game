@@ -67,6 +67,7 @@ private:
 	int game_slot;
 	std::string dest_map;
 	Point dest_pos;
+	bool scale_graphics;
 
 	std::queue<Scene> scenes;
 

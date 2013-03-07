@@ -69,7 +69,7 @@ bool Scene::logic() {
 
 			art = components.front().i;
 
-			art_dest.x = 0;
+			art_dest.x = (VIEW_W/2) - (art->w/2);
 			art_dest.y = (VIEW_H/2) - (art->h/2);
 			art_dest.w = art->w;
 			art_dest.h = art->h;
@@ -113,6 +113,7 @@ void Scene::render() {
 GameStateCutscene::GameStateCutscene(GameState *game_state) : previous_gamestate(game_state)
 	, game_slot(-1)
 {
+	scale_graphics = false;
 }
 
 GameStateCutscene::~GameStateCutscene() {
@@ -179,6 +180,12 @@ bool GameStateCutscene::load(std::string filename) {
 			if (sc.type != "")
 				scenes.back().components.push(sc);
 
+		} else {
+
+			if (infile.key == "scale_gfx") {
+				scale_graphics = toBool(infile.val);
+			}
+
 		}
 	}
 
@@ -201,14 +208,17 @@ SDL_Surface *GameStateCutscene::loadImage(std::string filename) {
 	}
 
 	/* scale image to fit height */
-	float ratio = image->h/(float)image->w;
-	SDL_Surface *art = scaleSurface(image, VIEW_W, VIEW_W*ratio);
-	if (art)
-		SDL_FreeSurface(image);
-	else
-		art = image;
+	if (scale_graphics) {
+		float ratio = image->h/(float)image->w;
+		SDL_Surface *art = scaleSurface(image, VIEW_W, VIEW_W*ratio);
+		if (art == NULL)
+			return image;
 
-	return art;
+		SDL_FreeSurface(image);
+		image = art;
+	}
+
+	return image;
 }
 
 void GameStateCutscene::setGameDestination(int _game_slot, std::string map, Point dest) {
