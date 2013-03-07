@@ -538,6 +538,9 @@ int MapRenderer::load(string filename) {
 					new_npc.id = infile.val;
 					e->s = infile.val;
 				}
+				else if (infile.key == "cutscene") {
+					e->s = infile.val;
+				}
 			}
 		}
 	}
@@ -1324,6 +1327,10 @@ bool MapRenderer::executeEvent(Map_Event &ev) {
 		}
 		else if (ec->type == "npc") {
 			event_npc = ec->s;
+		}
+		else if (ec->type == "cutscene") {
+			cutscene = true;
+			cutscene_file = ec->s;
 		}
 	}
 	if (ev.type == "run_once" || ev.type == "on_load" || ev.type == "on_clear" || destroy_event)
