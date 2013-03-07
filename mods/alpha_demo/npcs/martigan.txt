@@ -9,10 +9,16 @@ talker=true
 gfx=guild_man1
 
 [dialog]
-requires_not=fr_rilrak_search
+requires_not=martigan_init
 him=Welcome to my mines, stranger. If you have the back for it, I've got the work.
 you=I heard you might have something more interesting.
 him=Ah, you're the adventurer? If you seek out danger you're in the right place. We had two guards stationed here; both were recalled to Ancelot. Now we're vulnerable.
+set_status=martigan_init
+
+[dialog]
+topic=Vulnerable you say?
+requires_status=martigan_init
+requires_not=fr_rilrak_search
 him=We're having problems. Goblins. All the noise from our mining is drawing their attention. We can't have them thinking we're easy prey.
 set_status=fr_rilrak_search
 unset_status=fr_rilrak_defeated
@@ -20,11 +26,13 @@ reward_currency=20
 him=Attack their encampment up river from here. 20 gold now, 80 more when you return.
 
 [dialog]
+topic=About the goblins...
 requires_status=fr_rilrak_search
 requires_not=fr_rilrak_defeated
 him=The goblins have an encampment up the river from here on the west side. Clear them out and I'll pay you 80 gold.
 
 [dialog]
+topic=About the goblins...
 requires_status=fr_rilrak_search
 requires_status=fr_rilrak_defeated
 requires_not=fr_rilrak_reward
@@ -34,5 +42,45 @@ reward_xp=50
 him=Unfortunate work, but my workers will sleep safe tonight. Here's your reward.
 
 [dialog]
+topic=Any idea about other adventures?
 requires_status=fr_rilrak_reward
 him=A member of the Order passed through our camp a few days ago. He left for the tower ruins in Ydrakka Pass.
+
+
+[dialog]
+topic=Guards?
+requires_status=martigan_init
+requires_not=rotten_tower_search
+him=These areas were guarded well. There is yet another outpost tower in the wild.
+him=These are rough lands and... you're looking for an adventure!
+him=Let me know out if the goblins found the way inside the abandoned tower.
+set_status=rotten_tower_search
+
+[dialog]
+topic=Where is the tower?
+requires_status=rotten_tower_search
+requires_not=rotten_tower_found
+him=Search for the abandoned tower southwest of the Frontier plains.
+him=The lands around there are called White Wind.
+
+[dialog]
+topic=I found the tower!
+requires_status=rotten_tower_found
+requires_not=rotten_tower_inspected
+you=So there are plenty of goblins in the white winds area, but not near the tower.
+him=Are you sure?
+you=What do you mean? Of course I am!
+him=Did you look inside the tower? Did you make sure there aren't goblins in there?
+you=Well...
+
+[dialog]
+topic=I found the tower!
+requires_status=rotten_tower_inspected
+requires_not=rotten_tower_reward
+you=So there are plenty of goblins in the white winds area, but not near the tower.
+him=Are you sure?
+you=I looked inside through the locked iron grate door. No goblins!
+set_status=rotten_tower_reward
+him=Good! Here goes a little reward!
+reward_currency=25
+
