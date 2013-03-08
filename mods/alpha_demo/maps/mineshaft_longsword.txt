@@ -275,6 +275,18 @@ location=13,10,1,1
 mapmod=object,15,12,178
 requires_status=ml_barrel_backside
 
+[event]
+# wind sound
+type=on_load
+location=0,0,1,1
+ soundfx=soundfx/environment/cave_wind_loop.ogg
+
+[event]
+# droplets sound
+type=on_load
+location=8,24,1,1
+soundfx=soundfx/environment/cave_droplets_loop.ogg
+
 [enemy]
 type=reanimated_skeleton
 location=5,27,1,1
