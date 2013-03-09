@@ -234,6 +234,27 @@ void LootManager::checkMapForLoot() {
 
 	int chance = rand() % 100;
 
+	// first drop any 'fixed' (0% chance) items
+	for (unsigned i = map->loot.size(); i > 0; i--) {
+		ec = &map->loot[i-1];
+		if (ec->w == 0) {
+			p.x = ec->x;
+			p.y = ec->y;
+
+			// an item id of 0 means we should drop currency instead
+			if (ec->s == "currency" || toInt(ec->s) == 0) {
+				addCurrency(ec->z, p);
+			} else {
+				new_loot.item = toInt(ec->s);
+				new_loot.quantity = ec->z;
+				addLoot(new_loot, p);
+			}
+
+			map->loot.erase(map->loot.begin()+i-1);
+		}
+	}
+
+	// now pick up to 1 random item to drop
 	for (unsigned i = map->loot.size(); i > 0; i--) {
 		ec = &map->loot[i-1];
 

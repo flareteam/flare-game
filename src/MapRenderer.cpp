@@ -397,7 +397,9 @@ int MapRenderer::load(string filename) {
 					e->x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
 					e->y = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
 					e->z = toInt(infile.nextValue());
-					e->w = toInt(infile.nextValue());
+					string chance = infile.nextValue();
+					if (chance == "fixed") e->w = 0;
+					else e->w = toInt(chance);
 
 					// add repeating loot
 					string repeat_val = infile.nextValue();
@@ -409,7 +411,9 @@ int MapRenderer::load(string filename) {
 						e->x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
 						e->y = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
 						e->z = toInt(infile.nextValue());
-						e->w = toInt(infile.nextValue());
+						chance = infile.nextValue();
+						if (chance == "fixed") e->w = 0;
+						else e->w = toInt(chance);
 
 						repeat_val = infile.nextValue();
 					}
@@ -723,22 +727,25 @@ void MapRenderer::renderIsoLayer(SDL_Surface *wheretorender, Point offset, const
 			tiles_width -= i + 1;
 			i = -1;
 		}
-		short d = j - h;
+		const short d = j - h;
 		if (d >= 0) {
 			j -= d; tiles_width += d; i += d;
 		}
-		short j_end = std::max((j+i-w+1), std::max(j - max_tiles_width, 0));
+		const short j_end = std::max((j+i-w+1), std::max(j - max_tiles_width, 0));
 
+
+		Point p = map_to_screen(i * UNITS_PER_TILE, j * UNITS_PER_TILE, shakycam.x, shakycam.y);
+		p = center_tile(p);
 		// draw one horizontal line
 		while (j > j_end) {
-			--j; ++i;
+			--j;
+			++i;
 			++tiles_width;
+			p.x += TILE_W;
 
-			unsigned short current_tile = layerdata[i][j];
+			const unsigned short current_tile = layerdata[i][j];
 
 			if (current_tile) {
-				Point p = map_to_screen(i * UNITS_PER_TILE, j * UNITS_PER_TILE, shakycam.x, shakycam.y);
-				p = center_tile(p);
 				dest.x = p.x - tset.tiles[current_tile].offset.x + offset.x;
 				dest.y = p.y - tset.tiles[current_tile].offset.y + offset.y;
 				// no need to set w and h in dest, as it is ignored
@@ -788,22 +795,25 @@ void MapRenderer::renderIsoFrontObjects(vector<Renderable> &r) {
 			tiles_width -= i + 1;
 			i = -1;
 		}
-		short d = j - h;
+		const short d = j - h;
 		if (d >= 0) {
 			j -= d; tiles_width += d; i += d;
 		}
-		short j_end = std::max((j+i-w+1), std::max(j - max_tiles_width, 0));
+		const short j_end = std::max((j+i-w+1), std::max(j - max_tiles_width, 0));
 
 		// draw one horizontal line
+		Point p = map_to_screen(i * UNITS_PER_TILE, j * UNITS_PER_TILE, shakycam.x, shakycam.y);
+		p = center_tile(p);
 		while (j > j_end) {
-			--j; ++i;
+			--j;
+			++i;
 			++tiles_width;
+			p.x += TILE_W;
 
-			unsigned short current_tile = object[i][j];
+			const unsigned short current_tile = object[i][j];
 
 			if (current_tile) {
-				Point p = map_to_screen(i * UNITS_PER_TILE, j * UNITS_PER_TILE, shakycam.x, shakycam.y);
-				p = center_tile(p);
+
 				dest.x = p.x - tset.tiles[current_tile].offset.x;
 				dest.y = p.y - tset.tiles[current_tile].offset.y;
 				SDL_BlitSurface(tset.sprites, &(tset.tiles[current_tile].src), screen, &dest);
