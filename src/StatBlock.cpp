@@ -385,9 +385,10 @@ void StatBlock::recalc() {
 
 	level = 0;
 	for (int i=0; i<MAX_CHARACTER_LEVEL; i++) {
-		if (xp >= xp_table[i])
+		if (xp >= xp_table[i]) {
 			level=i+1;
 			check_title = true;
+		}
 	}
 
 	recalc_alt();
