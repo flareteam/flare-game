@@ -1,6 +1,7 @@
 /*
 Copyright © 2011-2012 Clint Bellanger
 Copyright © 2012 Stefan Beller
+Copyright © 2013 Henrik Andersson
 
 This file is part of FLARE.
 
@@ -17,6 +18,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 */
 
 #include "UtilsParsing.h"
+#include "Settings.h"
 #include <cstdlib>
 #include <fstream>
 #include <sstream>
@@ -62,6 +64,26 @@ string trim(const string& s, char c) {
 	}
 	if (first <= last) return s.substr(first,last-first+1);
 	return "";
+}
+
+/**
+ * Parse a duration string and return duration in frames.
+ */
+int parse_duration(const std::string& s) {
+	int val = 0;
+	std::string suffix = "";
+	std::stringstream ss;
+	ss.str(s);
+	ss >> val;
+	ss >> suffix;
+
+	if (suffix == "s")
+		val *= MAX_FRAMES_PER_SEC;
+	else if (suffix == "ms")
+		val = (val/1000.0f)*MAX_FRAMES_PER_SEC;
+
+	fprintf(stderr,"%d frames\n", val);
+	return val;
 }
 
 string parse_section_title(const string& s) {
