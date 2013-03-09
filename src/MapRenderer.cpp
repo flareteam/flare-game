@@ -388,7 +388,15 @@ int MapRenderer::load(string filename) {
 					}
 				}
 				else if (infile.key == "soundfx") {
-					e->s = infile.val;
+					e->s = infile.nextValue();
+					e->x = e->y = -1;
+
+					std::string s = infile.nextValue();
+					if (s != "") e->x = toInt(s);
+
+					s = infile.nextValue();
+					if (s != "") e->y = toInt(s);
+
 				}
 				else if (infile.key == "loot") {
 					e->s = infile.nextValue();
@@ -1243,7 +1251,13 @@ bool MapRenderer::executeEvent(Map_Event &ev) {
 			Point pos(0,0);
 			bool loop = false;
 
-			if (ev.location.x != 0 && ev.location.y != 0) {
+			if (ec->x != -1 && ec->y != -1) {
+				if (ec->x != 0 && ec->y != 0) {
+					pos.x = ec->x * UNITS_PER_TILE + UNITS_PER_TILE/2;
+					pos.y = ec->y * UNITS_PER_TILE + UNITS_PER_TILE/2;
+				}
+			}
+			else if (ev.location.x != 0 && ev.location.y != 0) {
 				pos.x = ev.location.x * UNITS_PER_TILE + UNITS_PER_TILE/2;
 				pos.y = ev.location.y * UNITS_PER_TILE + UNITS_PER_TILE/2;
 			}
