@@ -350,7 +350,7 @@ int MapRenderer::load(string filename) {
 				events.back().damagemax = toInt(infile.nextValue());
 			}
 			else if (infile.key == "cooldown") {
-				events.back().cooldown = toInt(infile.val);
+				events.back().cooldown = parse_duration(infile.val);
 			}
 			else {
 				// new event component
