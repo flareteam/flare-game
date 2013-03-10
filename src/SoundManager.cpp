@@ -47,9 +47,10 @@ private:
 
 class Playback {
 public:
-	Sound *sound;
+	SoundManager::SoundID sid;
 	std::string virtual_channel;
 	Point location;
+	bool loop;
 };
 
 SoundManager::SoundManager() {
@@ -98,7 +99,18 @@ void SoundManager::logic(Point c) {
 }
 
 void SoundManager::reset() {
-	Mix_HaltChannel(-1);
+
+	PlaybackMapIterator it = playback.begin();
+	if (it == playback.end())
+		return;
+
+	while(it != playback.end()) {
+
+		if (it->second.loop)
+			Mix_HaltChannel(it->first);
+
+		++it;
+	}
 }
 
 SoundManager::SoundID SoundManager::load(const std::string& filename, const std::string& errormessage) {
@@ -169,9 +181,10 @@ void SoundManager::play(SoundManager::SoundID sid, std::string channel, Point po
 
 	/* create playback object and start playback of sound chunk */
 	Playback p;
-	p.sound = it->second;
+	p.sid = sid;
 	p.location = pos;
 	p.virtual_channel = channel;
+	p.loop = loop;
 
 	if (p.virtual_channel != GLOBAL_VIRTUAL_CHANNEL) {
 
@@ -183,8 +196,11 @@ void SoundManager::play(SoundManager::SoundID sid, std::string channel, Point po
 		vcit = channels.insert(pair<std::string, int>(p.virtual_channel, -1)).first;
 	}
 
+	// Let playback own a reference to prevent unloading playbacked sound.
+	it->second->refCnt++;
+
 	Mix_ChannelFinished(&channel_finished);
-	int c = Mix_PlayChannel(-1, p.sound->chunk, (loop ? -1 : 0));
+	int c = Mix_PlayChannel(-1, it->second->chunk, (loop ? -1 : 0));
 
 	if (c == -1)
 		fprintf(stderr,"Failed to play sound.\n");
@@ -210,6 +226,9 @@ void SoundManager::on_channel_finished(int channel)
 		channels.erase(vcit);
 
 	Mix_SetPosition(channel, 0, 0);
+
+	// Unreference playback ref.
+	unload(pit->second.sid);
 
 	playback.erase(pit);
 }
