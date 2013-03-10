@@ -963,7 +963,7 @@ void MapRenderer::executeOnLoadEvents() {
 
 		if ((*it).type == "on_load") {
 			if (executeEvent(*it))
-				events.erase(it);
+				it = events.erase(it);
 		}
 	}
 }
