@@ -84,3 +84,27 @@ set_status=rotten_tower_reward
 him=Good! Here goes a little reward!
 reward_currency=25
 
+[dialog]
+topic=Mineshaft
+requires_status=martigan_init
+requires_not=ml_skeleton_search
+you=So how's the mining business?
+him=Not good at all. While I was digging, my pickaxe scraped a skull that was wedged in the rock wall. Before I knew it, the nasty thing started moving and a whole body emerged. Now that thing is in there, preventing any more mining.
+him=Kill that skeleton for me, and I'll make it worth your while.
+set_status=ml_skeleton_search
+
+[dialog]
+topic=Reanimated Skeleton
+requires_status=ml_skeleton_search
+requires_not=ml_skeleton_defeated
+him=Please take care of that skeleton. Work in the mine can't continue otherwise.
+
+[dialog]
+topic=Skeleton Defeated
+requires_status=ml_skeleton_defeated
+requires_not=ml_skeleton_reward
+you=I've defeated the Reanimated Skeleton.
+him=Excellent work! As promised, here's a little something for your troubles.
+set_status=ml_skeleton_reward
+reward_currency=25
+
