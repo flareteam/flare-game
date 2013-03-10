@@ -350,7 +350,7 @@ int MapRenderer::load(string filename) {
 				events.back().damagemax = toInt(infile.nextValue());
 			}
 			else if (infile.key == "cooldown") {
-				events.back().cooldown = toInt(infile.val);
+				events.back().cooldown = parse_duration(infile.val);
 			}
 			else {
 				// new event component
@@ -388,7 +388,15 @@ int MapRenderer::load(string filename) {
 					}
 				}
 				else if (infile.key == "soundfx") {
-					e->s = infile.val;
+					e->s = infile.nextValue();
+					e->x = e->y = -1;
+
+					std::string s = infile.nextValue();
+					if (s != "") e->x = toInt(s);
+
+					s = infile.nextValue();
+					if (s != "") e->y = toInt(s);
+
 				}
 				else if (infile.key == "loot") {
 					e->s = infile.nextValue();
@@ -722,22 +730,25 @@ void MapRenderer::renderIsoLayer(SDL_Surface *wheretorender, Point offset, const
 			tiles_width -= i + 1;
 			i = -1;
 		}
-		short d = j - h;
+		const short d = j - h;
 		if (d >= 0) {
 			j -= d; tiles_width += d; i += d;
 		}
-		short j_end = std::max((j+i-w+1), std::max(j - max_tiles_width, 0));
+		const short j_end = std::max((j+i-w+1), std::max(j - max_tiles_width, 0));
 
+
+		Point p = map_to_screen(i * UNITS_PER_TILE, j * UNITS_PER_TILE, shakycam.x, shakycam.y);
+		p = center_tile(p);
 		// draw one horizontal line
 		while (j > j_end) {
-			--j; ++i;
+			--j;
+			++i;
 			++tiles_width;
+			p.x += TILE_W;
 
-			unsigned short current_tile = layerdata[i][j];
+			const unsigned short current_tile = layerdata[i][j];
 
 			if (current_tile) {
-				Point p = map_to_screen(i * UNITS_PER_TILE, j * UNITS_PER_TILE, shakycam.x, shakycam.y);
-				p = center_tile(p);
 				dest.x = p.x - tset.tiles[current_tile].offset.x + offset.x;
 				dest.y = p.y - tset.tiles[current_tile].offset.y + offset.y;
 				// no need to set w and h in dest, as it is ignored
@@ -787,22 +798,25 @@ void MapRenderer::renderIsoFrontObjects(vector<Renderable> &r) {
 			tiles_width -= i + 1;
 			i = -1;
 		}
-		short d = j - h;
+		const short d = j - h;
 		if (d >= 0) {
 			j -= d; tiles_width += d; i += d;
 		}
-		short j_end = std::max((j+i-w+1), std::max(j - max_tiles_width, 0));
+		const short j_end = std::max((j+i-w+1), std::max(j - max_tiles_width, 0));
 
 		// draw one horizontal line
+		Point p = map_to_screen(i * UNITS_PER_TILE, j * UNITS_PER_TILE, shakycam.x, shakycam.y);
+		p = center_tile(p);
 		while (j > j_end) {
-			--j; ++i;
+			--j;
+			++i;
 			++tiles_width;
+			p.x += TILE_W;
 
-			unsigned short current_tile = object[i][j];
+			const unsigned short current_tile = object[i][j];
 
 			if (current_tile) {
-				Point p = map_to_screen(i * UNITS_PER_TILE, j * UNITS_PER_TILE, shakycam.x, shakycam.y);
-				p = center_tile(p);
+
 				dest.x = p.x - tset.tiles[current_tile].offset.x;
 				dest.y = p.y - tset.tiles[current_tile].offset.y;
 				SDL_BlitSurface(tset.sprites, &(tset.tiles[current_tile].src), screen, &dest);
@@ -1243,7 +1257,13 @@ bool MapRenderer::executeEvent(Map_Event &ev) {
 			Point pos(0,0);
 			bool loop = false;
 
-			if (ev.location.x != 0 && ev.location.y != 0) {
+			if (ec->x != -1 && ec->y != -1) {
+				if (ec->x != 0 && ec->y != 0) {
+					pos.x = ec->x * UNITS_PER_TILE + UNITS_PER_TILE/2;
+					pos.y = ec->y * UNITS_PER_TILE + UNITS_PER_TILE/2;
+				}
+			}
+			else if (ev.location.x != 0 && ev.location.y != 0) {
 				pos.x = ev.location.x * UNITS_PER_TILE + UNITS_PER_TILE/2;
 				pos.y = ev.location.y * UNITS_PER_TILE + UNITS_PER_TILE/2;
 			}

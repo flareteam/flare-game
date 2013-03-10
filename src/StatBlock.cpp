@@ -2,6 +2,7 @@
 Copyright © 2011-2012 Clint Bellanger
 Copyright © 2012 Igor Paliychuk
 Copyright © 2012 Stefan Beller
+Copyright © 2013 Henrik Andersson
 
 This file is part of FLARE.
 
@@ -265,7 +266,7 @@ void StatBlock::load(const string& filename) {
 		// combat stats
 		else if (infile.key == "hp") hp = hp_base = maxhp = num;
 		else if (infile.key == "mp") mp = mp_base = maxmp = num;
-		else if (infile.key == "cooldown") cooldown = num;
+		else if (infile.key == "cooldown") cooldown = parse_duration(infile.val);
 		else if (infile.key == "accuracy") accuracy = accuracy_base = num;
 		else if (infile.key == "avoidance") avoidance = avoidance_base = num;
 		else if (infile.key == "dmg_melee_min") dmg_melee_min = num;
@@ -306,10 +307,10 @@ void StatBlock::load(const string& filename) {
 		else if (infile.key == "power_ranged_phys") power_index[RANGED_PHYS] = num;
 		else if (infile.key == "power_ranged_ment") power_index[RANGED_MENT] = num;
 		else if (infile.key == "power_beacon") power_index[BEACON] = num;
-		else if (infile.key == "cooldown_melee_phys") power_cooldown[MELEE_PHYS] = num;
-		else if (infile.key == "cooldown_melee_ment") power_cooldown[MELEE_MENT] = num;
-		else if (infile.key == "cooldown_ranged_phys") power_cooldown[RANGED_PHYS] = num;
-		else if (infile.key == "cooldown_ranged_ment") power_cooldown[RANGED_MENT] = num;
+		else if (infile.key == "cooldown_melee_phys") power_cooldown[MELEE_PHYS] = parse_duration(infile.val);
+		else if (infile.key == "cooldown_melee_ment") power_cooldown[MELEE_MENT] = parse_duration(infile.val);
+		else if (infile.key == "cooldown_ranged_phys") power_cooldown[RANGED_PHYS] = parse_duration(infile.val);
+		else if (infile.key == "cooldown_ranged_ment") power_cooldown[RANGED_MENT] = parse_duration(infile.val);
 		else if (infile.key == "power_on_hit") power_index[ON_HIT] = num;
 		else if (infile.key == "power_on_death") power_index[ON_DEATH] = num;
 		else if (infile.key == "power_on_half_dead") power_index[ON_HALF_DEAD] = num;
@@ -385,9 +386,10 @@ void StatBlock::recalc() {
 
 	level = 0;
 	for (int i=0; i<MAX_CHARACTER_LEVEL; i++) {
-		if (xp >= xp_table[i])
+		if (xp >= xp_table[i]) {
 			level=i+1;
 			check_title = true;
+		}
 	}
 
 	recalc_alt();

@@ -175,7 +175,7 @@ void PowerManager::loadPowers(const std::string& filename) {
 		else if (infile.key == "requires_targeting")
 			powers[input_id].requires_targeting = toBool(infile.val);
 		else if (infile.key == "cooldown")
-			powers[input_id].cooldown = toInt(infile.val);
+			powers[input_id].cooldown = parse_duration(infile.val);
 		// animation info
 		else if (infile.key == "animation")
 			powers[input_id].animation_name = "animations/powers/" + infile.val;
@@ -246,7 +246,7 @@ void PowerManager::loadPowers(const std::string& filename) {
 			powers[input_id].speed_variance = toInt(infile.val);
 		//repeater modifiers
 		else if (infile.key == "delay")
-			powers[input_id].delay = toInt(infile.val);
+			powers[input_id].delay = parse_duration(infile.val);
 		// buff/debuff durations
 		else if (infile.key == "transform_duration")
 			powers[input_id].transform_duration = toInt(infile.val);

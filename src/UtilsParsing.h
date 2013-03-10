@@ -1,5 +1,6 @@
 /*
 Copyright © 2011-2012 Clint Bellanger
+Copyright © 2013 Henrik Andersson
 
 This file is part of FLARE.
 
@@ -26,6 +27,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 bool isInt(const std::string& s);
 std::string trim(const std::string& s, char c);
+int parse_duration(const std::string& s);
 std::string parse_section_title(const std::string& s);
 void parse_key_pair(const std::string& s, std::string& key, std::string& val);
 int eatFirstInt(std::string& s, char separator);
