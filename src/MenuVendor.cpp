@@ -43,7 +43,7 @@ MenuVendor::MenuVendor(ItemManager *_items, StatBlock *_stats)
 	, activetab(VENDOR_BUY)
 	, color_normal(font->getColor("menu_normal"))
 	, npc(NULL)
-	, buyback_stock(ItemStorage())
+	, buyback_stock()
 	, talker_visible(false)
 {
 	loadGraphics();
