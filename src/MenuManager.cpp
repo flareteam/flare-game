@@ -615,6 +615,7 @@ void MenuManager::logic() {
 						drag_stack.item = 0;
 						drag_stack.quantity = 0;
 						inv->clearHighlight();
+						log->add("Cannot drop quest items.", LOG_TYPE_MESSAGES);
 					}
 					else {
 						inv->itemReturn(drag_stack);

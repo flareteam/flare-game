@@ -268,6 +268,12 @@ void GameStatePlay::checkTeleport() {
 			menu->enemy->handleNewMap();
 			npcs->handleNewMap();
 			menu->vendor->npc = NULL;
+
+			/* If we change maps we shouldn't let players "hold onto" items
+			   from a previous maps */
+			if( menu->drag_src == DRAG_SRC_VENDOR ) 
+				menu->dragging = false;
+
 			menu->vendor->visible = false;
 			menu->talker->visible = false;
 			menu->stash->visible = false;

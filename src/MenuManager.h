@@ -73,10 +73,7 @@ private:
 	bool key_lock;
 	void loadIcons();
 
-	bool dragging;
 	ItemStack drag_stack;
-	int drag_power;
-	int drag_src;
 
 	bool done;
 
@@ -114,6 +111,11 @@ public:
 
 	bool pause;
 	bool menus_open;
+	bool dragging;
+
+	int drag_power;
+	int drag_src;
+
 	ItemStack drop_stack;
 
 	bool requestingExit() { return done; }
