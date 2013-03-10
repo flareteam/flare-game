@@ -56,6 +56,23 @@ position=112,144
 requires_physical=2
 requires_point=true
 
+# throw knife
+[power]
+id=43
+tab=0
+position=176,144
+requires_physical=2
+requires_point=true
+
+# throw axe
+[power]
+id=44
+tab=0
+position=176,208
+requires_physical=3
+requires_power=43
+requires_point=true
+
 # cleave
 [power]
 id=13
@@ -72,6 +89,9 @@ position=240,208
 requires_defense=2
 requires_physical=2
 requires_point=true
+
+
+
 
 
 

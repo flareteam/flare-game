@@ -637,6 +637,44 @@ count=3
 missile_angle=15
 
 [power]
+id=43
+name=Throw Knife
+type=missile
+icon=1
+description=Throw a knife to deal 75% of melee weapon damage
+new_state=swing
+requires_mp=1
+face=true
+directional=true
+animation=throw_knife.txt
+use_hazard=true
+aim_assist=true
+base_damage=melee
+lifespan=16
+radius=64
+speed=24
+damage_multiplier=75
+
+[power]
+id=44
+name=Throw Axe
+type=missile
+icon=1
+description=Throw an axe to deal 125% of melee weapon damage
+new_state=swing
+requires_mp=2
+face=true
+directional=true
+animation=throw_axe.txt
+use_hazard=true
+aim_assist=true
+base_damage=melee
+lifespan=23
+radius=64
+speed=24
+damage_multiplier=125
+
+[power]
 id=100
 type=fixed
 icon=64
