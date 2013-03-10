@@ -1,0 +1,38 @@
+name=Reanimated Skeleton
+humanoid=true
+level=2
+categories=skeleton,undead,dungeon
+xp=10
+
+sfx_prefix=skeleton
+animations=skeleton_weak
+
+defeat_status=ml_skeleton_defeated
+
+
+# combat stats
+hp=120
+speed=9
+dspeed=6
+melee_range=72
+threat_range=512
+turn_delay=7
+chance_pursue=25
+chance_melee_phys=15
+power_melee_phys=1
+power_beacon=132
+
+accuracy=75
+avoidance=25
+
+dmg_melee_min=5
+dmg_melee_max=20
+cooldown=25
+
+absorb_min=5
+absorb_max=15
+
+# loot
+loot=currency,75
+loot=1,10
+
