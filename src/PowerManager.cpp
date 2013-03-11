@@ -175,7 +175,7 @@ void PowerManager::loadPowers(const std::string& filename) {
 		else if (infile.key == "requires_targeting")
 			powers[input_id].requires_targeting = toBool(infile.val);
 		else if (infile.key == "cooldown")
-			powers[input_id].cooldown = toInt(infile.val);
+			powers[input_id].cooldown = parse_duration(infile.val);
 		// animation info
 		else if (infile.key == "animation")
 			powers[input_id].animation_name = "animations/powers/" + infile.val;
@@ -192,7 +192,7 @@ void PowerManager::loadPowers(const std::string& filename) {
 		else if (infile.key == "speed")
 			powers[input_id].speed = toInt(infile.val);
 		else if (infile.key == "lifespan")
-			powers[input_id].lifespan = toInt(infile.val);
+			powers[input_id].lifespan = parse_duration(infile.val);
 		else if (infile.key == "floor")
 			powers[input_id].floor = toBool(infile.val);
 		else if (infile.key == "complete_animation")
@@ -246,7 +246,7 @@ void PowerManager::loadPowers(const std::string& filename) {
 			powers[input_id].speed_variance = toInt(infile.val);
 		//repeater modifiers
 		else if (infile.key == "delay")
-			powers[input_id].delay = toInt(infile.val);
+			powers[input_id].delay = parse_duration(infile.val);
 		// buff/debuff durations
 		else if (infile.key == "transform_duration")
 			powers[input_id].transform_duration = toInt(infile.val);
@@ -622,8 +622,11 @@ void PowerManager::buff(int power_index, StatBlock *src_stats, Point target) {
 		effect(src_stats, power_index);
 	}
 
-	// activate any post powers
-	activate(powers[power_index].post_power, src_stats, src_stats->pos);
+	// activate any post powers here if the power doesn't use a hazard
+	// otherwise the post power will chain off the hazard itself
+	if (!powers[power_index].use_hazard) {
+		activate(powers[power_index].post_power, src_stats, src_stats->pos);
+	}
 }
 
 /**
