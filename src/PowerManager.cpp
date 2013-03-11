@@ -192,7 +192,7 @@ void PowerManager::loadPowers(const std::string& filename) {
 		else if (infile.key == "speed")
 			powers[input_id].speed = toInt(infile.val);
 		else if (infile.key == "lifespan")
-			powers[input_id].lifespan = toInt(infile.val);
+			powers[input_id].lifespan = parse_duration(infile.val);
 		else if (infile.key == "floor")
 			powers[input_id].floor = toBool(infile.val);
 		else if (infile.key == "complete_animation")
