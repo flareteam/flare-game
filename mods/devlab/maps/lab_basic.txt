@@ -127,9 +127,10 @@ soundfx=soundfx/door_open.ogg,0,0
 
 [event]
 # Maps
-type=run_once
+type=teleport
 location=1,20,2,2
 hotspot=location
+intermap=lab_mapping.txt,82,53
 tooltip=Map Drawing
 
 [event]
