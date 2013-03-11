@@ -51,6 +51,7 @@ public:
 	std::string virtual_channel;
 	Point location;
 	bool loop;
+	bool finished;
 };
 
 SoundManager::SoundManager() {
@@ -69,7 +70,16 @@ void SoundManager::logic(Point c) {
 	if (it == playback.end())
 		return;
 
+	std::vector<int> cleanup;
+
 	while(it != playback.end()) {
+
+		/* if sound is finished add it to cleanup and continue with next */
+		if (it->second.finished) {
+			cleanup.push_back(it->first);
+			++it;
+			continue;
+		}
 
 		/* dont process playback sounds without location */
 		if (it->second.location.x == 0 && it->second.location.y == 0) {
@@ -95,6 +105,21 @@ void SoundManager::logic(Point c) {
 		// a = atan2(dy,dx) * 180 / M_PI;
 		Mix_SetPosition(it->first, a, d);
 		it++;
+	}
+
+	/* clenaup finished soundplayback */
+	while (!cleanup.empty()) {
+
+		it = playback.find(cleanup.back());
+
+		/* find and erase virtual channel for playback if exists */
+		VirtualChannelMapIterator vcit = channels.find(it->second.virtual_channel);
+		if (vcit != channels.end())
+			channels.erase(vcit);
+
+		playback.erase(it);
+
+		cleanup.pop_back();
 	}
 }
 
@@ -185,6 +210,7 @@ void SoundManager::play(SoundManager::SoundID sid, std::string channel, Point po
 	p.location = pos;
 	p.virtual_channel = channel;
 	p.loop = loop;
+	p.finished = false;
 
 	if (p.virtual_channel != GLOBAL_VIRTUAL_CHANNEL) {
 
@@ -220,17 +246,15 @@ void SoundManager::on_channel_finished(int channel)
 	if (pit == playback.end())
 		return;
 
-	/* find and erase virtual channel for playback if exists */
-	VirtualChannelMapIterator vcit = channels.find(pit->second.virtual_channel);
-	if (vcit != channels.end())
-		channels.erase(vcit);
+	pit->second.finished = true;
 
-	Mix_SetPosition(channel, 0, 0);
-
-	// Unreference playback ref.
+	/*
+	 * Unreference playback ref.
+	 * TODO: this should be threadsafe but it need investigation.
+	 */
 	unload(pit->second.sid);
 
-	playback.erase(pit);
+	Mix_SetPosition(channel, 0, 0);
 }
 
 void SoundManager::channel_finished(int channel)
