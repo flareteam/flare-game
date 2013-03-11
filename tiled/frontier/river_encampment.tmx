@@ -278,10 +278,8 @@
   <object name="cliff passage container" type="run_once" x="640" y="1376" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,21,44,12,fixed"/>
+    <property name="loot" value="currency,21,44,12,80"/>
     <property name="mapmod" value="object,20,43,99"/>
-    <property name="requires_not" value="re_crate2"/>
-    <property name="set_status" value="re_crate2"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Supplies"/>
    </properties>
@@ -333,12 +331,6 @@
    <properties>
     <property name="mapmod" value="object,38,27,97"/>
     <property name="requires_status" value="re_crate1"/>
-   </properties>
-  </object>
-  <object type="on_load" x="576" y="1344" width="32" height="32">
-   <properties>
-    <property name="mapmod" value="object,20,43,99"/>
-    <property name="requires_status" value="re_crate2"/>
    </properties>
   </object>
   <object type="on_load" x="224" y="512" width="32" height="32">

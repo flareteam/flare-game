@@ -414,7 +414,7 @@
   <object name="intro crate" type="run_once" x="2720" y="2368" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="random,86,74,2"/>
+    <property name="loot" value="currency,86,74,5,80"/>
     <property name="mapmod" value="object,85,74,163"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Crate"/>
@@ -423,7 +423,7 @@
   <object name="zombie barrels" type="run_once" x="2368" y="2016" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="random,74,64,2"/>
+    <property name="loot" value="currency,74,64,5,80"/>
     <property name="mapmod" value="object,74,63,162"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Barrel"/>
@@ -432,7 +432,7 @@
   <object type="run_once" x="2336" y="1984" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="random,72,62,2"/>
+    <property name="loot" value="currency,72,62,5,80"/>
     <property name="mapmod" value="object,73,62,162"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Barrel"/>
@@ -441,7 +441,7 @@
   <object type="run_once" x="2368" y="1984" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="random,74,61,2"/>
+    <property name="loot" value="currency,74,61,10,80"/>
     <property name="mapmod" value="object,74,62,162"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Barrel"/>
@@ -450,7 +450,7 @@
   <object name="goblin firepit barrel/crate" type="run_once" x="2304" y="3072" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="random,73,96,2"/>
+    <property name="loot" value="currency,73,96,5,80"/>
     <property name="mapmod" value="object,72,96,162"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Barrel"/>
@@ -459,7 +459,7 @@
   <object type="run_once" x="2304" y="3104" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="random,73,97,2"/>
+    <property name="loot" value="currency,73,97,5,80"/>
     <property name="mapmod" value="object,72,97,163"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Crate"/>
@@ -468,7 +468,7 @@
   <object name="secret room crate" type="run_once" x="2336" y="3520" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="random,72,109,5"/>
+    <property name="loot" value="currency,72,109,10,80"/>
     <property name="mapmod" value="object,73,110,163"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Crate"/>
@@ -486,7 +486,7 @@
   <object name="barracks chests" type="run_once" x="1312" y="1888" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="random,42,59,3"/>
+    <property name="loot" value="currency,42,59,5,80"/>
     <property name="mapmod" value="object,41,59,160"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Treasure Chest"/>
@@ -495,7 +495,7 @@
   <object type="run_once" x="1312" y="1824" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="random,42,57,4"/>
+    <property name="loot" value="currency,42,57,10,80"/>
     <property name="mapmod" value="object,41,57,160"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Treasure Chest"/>
@@ -504,7 +504,7 @@
   <object type="run_once" x="1312" y="1760" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="random,42,55,5"/>
+    <property name="loot" value="currency,42,55,15,80"/>
     <property name="mapmod" value="object,41,55,160"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Treasure Chest"/>
@@ -513,7 +513,7 @@
   <object type="run_once" x="1312" y="1696" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="random,42,53,4"/>
+    <property name="loot" value="currency,42,53,10,80"/>
     <property name="mapmod" value="object,41,53,160"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Treasure Chest"/>
@@ -522,7 +522,7 @@
   <object type="run_once" x="1312" y="1632" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="random,42,51,3"/>
+    <property name="loot" value="currency,42,51,5,80"/>
     <property name="mapmod" value="object,41,51,160"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Treasure Chest"/>
@@ -531,7 +531,7 @@
   <object name="large room storage" type="run_once" x="1600" y="896" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="random,51,28,3"/>
+    <property name="loot" value="currency,51,28,5,80"/>
     <property name="mapmod" value="object,50,28,162"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Barrel"/>
@@ -540,7 +540,7 @@
   <object type="run_once" x="1600" y="928" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="random,51,29,3"/>
+    <property name="loot" value="currency,51,29,5,80"/>
     <property name="mapmod" value="object,50,29,163"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Crate"/>
@@ -549,7 +549,7 @@
   <object type="run_once" x="1760" y="896" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="random,54,28,3"/>
+    <property name="loot" value="currency,54,28,5,80"/>
     <property name="mapmod" value="object,55,28,163"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Crate"/>
@@ -558,7 +558,7 @@
   <object type="run_once" x="1760" y="928" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="random,54,29,3"/>
+    <property name="loot" value="currency,54,29,5,80"/>
     <property name="mapmod" value="object,55,29,162"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Barrel"/>
@@ -567,7 +567,7 @@
   <object name="kill room chest" type="run_once" x="288" y="640" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="random,10,20,7;random,9,21,7"/>
+    <property name="loot" value="currency,10,20,35,fixed;currency,9,21,35,fixed"/>
     <property name="mapmod" value="object,9,20,160"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Treasure Chest"/>
@@ -576,7 +576,7 @@
   <object name="kill room chest" type="run_once" x="288" y="928" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="random,10,29,6;random,9,28,8"/>
+    <property name="loot" value="currency,10,29,30,fixed;currency,9,28,40,fixed"/>
     <property name="mapmod" value="object,9,29,160"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Treasure Chest"/>

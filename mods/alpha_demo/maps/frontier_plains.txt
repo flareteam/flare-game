@@ -854,10 +854,8 @@ tooltip=Supplies
 type=run_once
 location=125,43,1,1
 hotspot=location
-loot=currency,124,43,15,fixed
+loot=currency,124,43,10,80
 mapmod=object,125,43,97
-requires_not=fp_crate4
-set_status=fp_crate4
 soundfx=soundfx/wood_open.ogg
 tooltip=Supplies
 
@@ -866,10 +864,8 @@ tooltip=Supplies
 type=run_once
 location=114,97,1,1
 hotspot=location
-loot=currency,114,98,10,fixed
+loot=currency,114,98,5,80
 mapmod=object,114,97,99
-requires_not=fp_crate2
-set_status=fp_crate2
 soundfx=soundfx/wood_open.ogg
 tooltip=Supplies
 
@@ -892,21 +888,9 @@ requires_status=fp_crate1
 
 [event]
 type=on_load
-location=115,96,1,1
-mapmod=object,114,97,99
-requires_status=fp_crate2
-
-[event]
-type=on_load
 location=118,34,1,1
 mapmod=object,117,35,99
 requires_status=fp_crate3
-
-[event]
-type=on_load
-location=126,42,1,1
-mapmod=object,125,43,97
-requires_status=fp_crate4
 
 [event]
 # River sound

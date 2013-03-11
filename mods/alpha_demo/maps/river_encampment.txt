@@ -354,10 +354,8 @@ location=41,18,1,1
 type=run_once
 location=20,43,1,1
 hotspot=location
-loot=currency,21,44,12,fixed
+loot=currency,21,44,12,80
 mapmod=object,20,43,99
-requires_not=re_crate2
-set_status=re_crate2
 soundfx=soundfx/wood_open.ogg
 tooltip=Supplies
 
@@ -414,12 +412,6 @@ type=on_load
 location=38,29,1,1
 mapmod=object,38,27,97
 requires_status=re_crate1
-
-[event]
-type=on_load
-location=18,42,1,1
-mapmod=object,20,43,99
-requires_status=re_crate2
 
 [event]
 type=on_load

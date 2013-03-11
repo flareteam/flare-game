@@ -226,10 +226,8 @@ intermap=frontier_outpost.txt,20,13
 type=run_once
 location=47,37,1,1
 hotspot=location
-loot=currency,46,38,2,fixed
+loot=currency,46,38,5,80
 mapmod=object,47,37,179
-requires_not=ml_crate_fork
-set_status=ml_crate_fork
 soundfx=soundfx/wood_open.ogg
 tooltip=Crate
 
@@ -238,10 +236,8 @@ tooltip=Crate
 type=run_once
 location=28,15,1,1
 hotspot=location
-loot=currency,27,14,2,fixed
+loot=currency,27,14,5,80
 mapmod=object,28,15,179
-requires_not=ml_crate_backside
-set_status=ml_crate_backside
 soundfx=soundfx/wood_open.ogg
 tooltip=Crate
 
@@ -250,30 +246,10 @@ tooltip=Crate
 type=run_once
 location=15,12,1,1
 hotspot=location
-loot=currency,16,13,2,fixed
+loot=currency,16,13,5,80
 mapmod=object,15,12,178
-requires_not=ml_barrel_backside
-set_status=ml_barrel_backside
 soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
-
-[event]
-type=on_load
-location=45,35,1,1
-mapmod=object,47,37,179
-requires_status=ml_crate_fork
-
-[event]
-type=on_load
-location=26,13,1,1
-mapmod=object,28,15,179
-requires_status=ml_crate_backside
-
-[event]
-type=on_load
-location=13,10,1,1
-mapmod=object,15,12,178
-requires_status=ml_barrel_backside
 
 [event]
 # wind sound
