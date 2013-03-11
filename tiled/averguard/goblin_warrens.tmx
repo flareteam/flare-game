@@ -289,7 +289,7 @@
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
 </data>
  </layer>
- <objectgroup name="event" width="60" height="82" visible="0">
+ <objectgroup name="event" width="60" height="82">
   <object type="teleport" x="32" y="256" width="32" height="64">
    <properties>
     <property name="hotspot" value="1,8,1,2"/>
@@ -332,11 +332,11 @@
   <object name="dorm room book" type="run_once" x="64" y="896" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="id,2,29,9000"/>
+    <property name="loot" value="9000,2,29,1,fixed"/>
     <property name="mapmod" value="object,2,28,165"/>
     <property name="msg" value="This book bears the seal of the Averguard"/>
     <property name="requires_not" value="ak_tome_found"/>
-    <property name="requires_status" value="ak_ukkonen_search"/>
+    <property name="requires_status" value="ak_tome_search"/>
     <property name="soundfx" value="soundfx/inventory/inventory_page.ogg"/>
     <property name="tooltip" value="Book Stand"/>
    </properties>

@@ -321,11 +321,11 @@ tooltip=Barrel
 type=run_once
 location=2,28,1,1
 hotspot=location
-loot=id,2,29,9000
+loot=9000,2,29,1,fixed
 mapmod=object,2,28,165
 msg=This book bears the seal of the Averguard
 requires_not=ak_tome_found
-requires_status=ak_ukkonen_search
+requires_status=ak_tome_search
 soundfx=soundfx/inventory/inventory_page.ogg
 tooltip=Book Stand
 

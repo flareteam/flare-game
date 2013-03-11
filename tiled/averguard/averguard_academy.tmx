@@ -343,7 +343,7 @@
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
 </data>
  </layer>
- <objectgroup name="event" width="70" height="100" visible="0">
+ <objectgroup name="event" width="70" height="100">
   <object type="teleport" x="1984" y="64" width="64" height="32">
    <properties>
     <property name="hotspot" value="62,2,2,1"/>
@@ -390,7 +390,7 @@
   <object name="bookstand" type="run_once" x="640" y="2400" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="id,21,75,2"/>
+    <property name="loot" value="2,21,75,1,fixed"/>
     <property name="mapmod" value="object,20,75,164"/>
     <property name="msg" value="This false book has a secret compartment."/>
     <property name="soundfx" value="soundfx/inventory/inventory_page.ogg"/>
