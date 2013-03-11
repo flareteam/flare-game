@@ -192,7 +192,7 @@ void PowerManager::loadPowers(const std::string& filename) {
 		else if (infile.key == "speed")
 			powers[input_id].speed = toInt(infile.val);
 		else if (infile.key == "lifespan")
-			powers[input_id].lifespan = toInt(infile.val);
+			powers[input_id].lifespan = parse_duration(infile.val);
 		else if (infile.key == "floor")
 			powers[input_id].floor = toBool(infile.val);
 		else if (infile.key == "complete_animation")
@@ -622,8 +622,11 @@ void PowerManager::buff(int power_index, StatBlock *src_stats, Point target) {
 		effect(src_stats, power_index);
 	}
 
-	// activate any post powers
-	activate(powers[power_index].post_power, src_stats, src_stats->pos);
+	// activate any post powers here if the power doesn't use a hazard
+	// otherwise the post power will chain off the hazard itself
+	if (!powers[power_index].use_hazard) {
+		activate(powers[power_index].post_power, src_stats, src_stats->pos);
+	}
 }
 
 /**
