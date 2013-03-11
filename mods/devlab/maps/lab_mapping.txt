@@ -336,6 +336,16 @@ hotspot=location
 intermap=lab_basic.txt,3,21
 tooltip=Basic lab
 
+[event]
+# Book Stand
+type=run_once
+location=8,38,1,1
+hotspot=location
+mapmod=object,8,38,164
+msg=Mankind tends to lead by example. Be it good or bad.
+soundfx=soundfx/inventory/inventory_page.ogg
+tooltip=Book stand
+
 [npc]
 type=mapping_welcome
 location=59,50,1,1
@@ -361,16 +371,6 @@ location=19,41,1,1
 type=on_load
 location=20,40,1,1
 soundfx=soundfx/environment/open_fire_loop.ogg
-
-[npc]
-# Book Stand
-type=run_once
-location=8,38,1,1
-hotspot=location
-mapmod=object,8,38,164
-msg=Mankind tends to lead by example. Be it good or bad.
-soundfx=soundfx/inventory/inventory_page.ogg
-tooltip=Book stand
 
 [npc]
 type=mapping_collision
