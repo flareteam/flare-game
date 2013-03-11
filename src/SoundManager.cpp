@@ -112,6 +112,8 @@ void SoundManager::logic(Point c) {
 
 		it = playback.find(cleanup.back());
 
+		unload(it->second.sid);
+
 		/* find and erase virtual channel for playback if exists */
 		VirtualChannelMapIterator vcit = channels.find(it->second.virtual_channel);
 		if (vcit != channels.end())
@@ -136,6 +138,7 @@ void SoundManager::reset() {
 
 		++it;
 	}
+	logic(Point(0,0));
 }
 
 SoundManager::SoundID SoundManager::load(const std::string& filename, const std::string& errormessage) {
@@ -229,7 +232,7 @@ void SoundManager::play(SoundManager::SoundID sid, std::string channel, Point po
 	int c = Mix_PlayChannel(-1, it->second->chunk, (loop ? -1 : 0));
 
 	if (c == -1)
-		fprintf(stderr,"Failed to play sound.\n");
+		fprintf(stderr,"Failed to play sound, no more channels available.\n");
 
 	if(p.location.x != 0 || p.location.y != 0)
 		Mix_SetPosition(c, 0, 255);
@@ -247,12 +250,6 @@ void SoundManager::on_channel_finished(int channel)
 		return;
 
 	pit->second.finished = true;
-
-	/*
-	 * Unreference playback ref.
-	 * TODO: this should be threadsafe but it need investigation.
-	 */
-	unload(pit->second.sid);
 
 	Mix_SetPosition(channel, 0, 0);
 }
