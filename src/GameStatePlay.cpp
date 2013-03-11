@@ -713,9 +713,13 @@ void GameStatePlay::checkCutscene() {
        // handle respawn point and set game play game_slot
        cutscene->game_slot = game_slot;
 
-       if (map->teleport_mapname != "") {
-	       map->respawn_map = map->teleport_mapname;
+       if (map->teleportation) {
+
+	       if (map->teleport_mapname != "")
+		       map->respawn_map = map->teleport_mapname;
+
 	       map->respawn_point = map->teleport_destination;
+
        } else {
 	       map->respawn_point = pc->stats.pos;
        }
