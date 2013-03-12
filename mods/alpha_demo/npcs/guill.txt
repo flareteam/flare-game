@@ -12,7 +12,7 @@ gfx=wandering_trader2
 # item_search, item_found, item_reward
 
 [dialog]
-topic=Gossip
+topic=Chat
 set_status=ak_intro
 requires_not=ak_maddox_reward
 him=I am Guill, a scribe with the Order. I am grateful you've come -- we are short on trained warriors due to the call-to-arms in Ancelot.
@@ -22,11 +22,20 @@ him=What the locals call the Goblin Warrens is actually the entrance to a grand 
 [dialog]
 topic=Goblins Warrens
 requires_status=ak_intro
+requires_not=ak_ukkonen_search
 set_status=ak_ukkonen_search
+unset_status=ak_ukkonen_defeated
 him=The goblins in the Warrens answer to a warlord named Ukkonen. Most goblins are merely curious; this Ukkonen is bloodthirsty. Punish him for desecrating this place. His lair is here in the Warrens.
 
 [dialog]
-topic=Ukkonen defeated
+topic=Ukkonen Search
+requires_status=ak_ukkonen_search
+requires_not=ak_ukkonen_defeated
+him=Ukkonen's lair is somewhere here in the Goblin Warrens.
+
+[dialog]
+topic=Ukkonen Defeated
+requires_status=ak_ukkonen_search
 requires_status=ak_ukkonen_defeated
 requires_not=ak_ukkonen_reward
 set_status=ak_ukkonen_reward
@@ -119,7 +128,7 @@ set_status=ak_maddox_search
 him=My worst fear is come alive. Just as with the Warden and with Professor Langlier, Sir Evan Maddox himself was inflicted with undeath. If we are to reclaim the Keep, you must defeat him. The Order will reward you magnificently for this service. But be prepared -- not even undeath will limit Maddox's zeal. Enter the Burial Chamber and allow him redemption.
 
 [dialog]
-topic=Maddox defated
+topic=Maddox Defeated
 requires_status=ak_maddox_defeated
 requires_status=ak_key_reward
 requires_status=ak_talisman_reward
@@ -134,7 +143,7 @@ him=You have risked much for the Order. Take this final reward, as your mission 
 you=Thank you Guill. I am glad to be of service.
 
 [dialog]
-topic=Gossip
+topic=Chat
 requires_status=ak_maddox_reward
 him=It is still dangerous here, but with Maddox defeated his followers will soon find rest.
 
