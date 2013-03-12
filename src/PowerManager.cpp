@@ -399,6 +399,8 @@ Point PowerManager::limitRange(int range, Point src, Point target) {
  */
 bool PowerManager::hasValidTarget(int power_index, StatBlock *src_stats, Point target) {
 
+	if (!collider) return false;
+
 	target = limitRange(powers[power_index].range,src_stats->pos,target);
 
 	if (!collider->is_empty(target.x, target.y) || collider->is_wall(target.x,target.y)) {

@@ -439,7 +439,9 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 		drag_walking = false;
 		attacking = false;
 	} else {
-		attacking = true;
+        if(!inpt->lock[MAIN1]) {
+            attacking = true;
+		}
 	}
 
 	// handle animation
