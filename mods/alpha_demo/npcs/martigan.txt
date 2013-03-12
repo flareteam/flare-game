@@ -16,7 +16,7 @@ him=Ah, you're the adventurer? If you seek out danger you're in the right place.
 set_status=martigan_init
 
 [dialog]
-topic=Vulnerable you say?
+topic=Goblin Camp
 requires_status=martigan_init
 requires_not=fr_rilrak_search
 him=We're having problems. Goblins. All the noise from our mining is drawing their attention. We can't have them thinking we're easy prey.
@@ -26,13 +26,13 @@ reward_currency=20
 him=Attack their encampment up river from here. 20 gold now, 80 more when you return.
 
 [dialog]
-topic=About the goblins...
+topic=Goblin Camp Search
 requires_status=fr_rilrak_search
 requires_not=fr_rilrak_defeated
 him=The goblins have an encampment up the river from here on the west side. Clear them out and I'll pay you 80 gold.
 
 [dialog]
-topic=About the goblins...
+topic=Rilrak Defeated
 requires_status=fr_rilrak_search
 requires_status=fr_rilrak_defeated
 requires_not=fr_rilrak_reward
@@ -42,29 +42,29 @@ reward_xp=50
 him=Unfortunate work, but my workers will sleep safe tonight. Here's your reward.
 
 [dialog]
-topic=Any idea about other adventures?
+topic=Chat
 requires_status=fr_rilrak_reward
 him=A member of the Order passed through our camp a few days ago. He left for the tower ruins in Ydrakka Pass.
 
 
 [dialog]
-topic=Guards?
+topic=Rotten Tower
 requires_status=martigan_init
 requires_not=rotten_tower_search
 him=These areas were guarded well. There is yet another outpost tower in the wild.
 him=These are rough lands and... you're looking for an adventure!
-him=Let me know out if the goblins found the way inside the abandoned tower.
+him=Let me know if the goblins found their way inside the abandoned tower.
 set_status=rotten_tower_search
 
 [dialog]
-topic=Where is the tower?
+topic=Rotten Tower Search
 requires_status=rotten_tower_search
 requires_not=rotten_tower_found
 him=Search for the abandoned tower southwest of the Frontier plains.
 him=The lands around there are called White Wind.
 
 [dialog]
-topic=I found the tower!
+topic=Rotten Tower Found
 requires_status=rotten_tower_found
 requires_not=rotten_tower_inspected
 you=So there are plenty of goblins in the white winds area, but not near the tower.
@@ -74,7 +74,7 @@ him=Did you look inside the tower? Did you make sure there aren't goblins in the
 you=Well...
 
 [dialog]
-topic=I found the tower!
+topic=Rotten Tower Found
 requires_status=rotten_tower_inspected
 requires_not=rotten_tower_reward
 you=So there are plenty of goblins in the white winds area, but not near the tower.
@@ -92,6 +92,7 @@ you=So how's the mining business?
 him=Not good at all. While I was digging, my pickaxe scraped a skull that was wedged in the rock wall. Before I knew it, the nasty thing started moving and a whole body emerged. Now that thing is in there, preventing any more mining.
 him=Kill that skeleton for me, and I'll make it worth your while.
 set_status=ml_skeleton_search
+unset_status=ml_skeleton_defeated
 
 [dialog]
 topic=Reanimated Skeleton
@@ -101,6 +102,7 @@ him=Please take care of that skeleton. Work in the mine can't continue otherwise
 
 [dialog]
 topic=Skeleton Defeated
+requires_status=ml_skeleton_search
 requires_status=ml_skeleton_defeated
 requires_not=ml_skeleton_reward
 you=I've defeated the Reanimated Skeleton.
