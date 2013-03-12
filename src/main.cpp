@@ -225,7 +225,7 @@ int main(int argc, char *argv[])
 			debug_event = true;
 		} else if (parseArg(arg) == "game_data") {
 			USER_PATH_DATA = parseArgValue(arg);
-			if (USER_PATH_DATA.at(USER_PATH_DATA.length()-1) != '/')
+			if (!USER_PATH_DATA.empty() && USER_PATH_DATA.at(USER_PATH_DATA.length()-1) != '/')
 				USER_PATH_DATA += "/";
 		}
 	}
