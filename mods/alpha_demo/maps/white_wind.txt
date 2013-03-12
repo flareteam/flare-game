@@ -444,6 +444,7 @@ tooltip=Supplies
 type=run_once
 location=54,88,22,22
 msg=So, there it is. The abandoned tower! 
+requires_status=rotten_tower_search
 set_status=rotten_tower_found
 
 [event]
@@ -451,6 +452,7 @@ set_status=rotten_tower_found
 type=run_once
 location=66,103,1,1
 msg=Looking through the grate... The tower is just empty.
+requires_status=rotten_tower_found
 set_status=rotten_tower_inspected
 
 [event]
