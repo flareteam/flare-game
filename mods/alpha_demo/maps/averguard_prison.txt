@@ -341,7 +341,7 @@ soundfx=soundfx/door_open.ogg,0,0
 type=run_once
 location=2,47,1,1
 hotspot=location
-loot=random,2,46,1
+loot=currency,2,46,5,80
 mapmod=object,2,47,163
 soundfx=soundfx/wood_open.ogg
 tooltip=Crate
@@ -351,7 +351,7 @@ tooltip=Crate
 type=run_once
 location=12,84,1,1
 hotspot=location
-loot=random,12,85,5
+loot=currency,12,85,10,80
 mapmod=object,12,84,161
 soundfx=soundfx/wood_open.ogg
 tooltip=Treasure Chest
@@ -382,6 +382,8 @@ location=21,30,1,1
 hotspot=location
 loot=1,21,31,1,fixed
 mapmod=object,21,30,161
+requires_not=av_prison_chest1
+set_status=av_prison_chest1
 soundfx=soundfx/wood_open.ogg
 tooltip=Treasure Chest
 
@@ -411,7 +413,7 @@ soundfx=soundfx/environment/open_fire_loop.ogg
 type=run_once
 location=89,12,1,1
 hotspot=location
-loot=random,89,13,3
+loot=currency,89,13,10,80
 mapmod=object,89,12,183
 
 [event]
@@ -431,6 +433,12 @@ soundfx=soundfx/environment/open_fire_loop.ogg
 type=on_load
 location=93,41,1,1
 soundfx=soundfx/environment/open_fire_loop.ogg
+
+[event]
+type=on_load
+location=19,28,1,1
+mapmod=object,21,30,161
+requires_status=av_prison_chest1
 
 [enemy]
 type=zombie_brute

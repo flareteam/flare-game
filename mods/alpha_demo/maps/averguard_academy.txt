@@ -384,6 +384,8 @@ hotspot=location
 loot=2,21,75,1,fixed
 mapmod=object,20,75,164
 msg=This false book has a secret compartment.
+requires_not=av_academy_bookstand1
+set_status=av_academy_bookstand1
 soundfx=soundfx/inventory/inventory_page.ogg
 tooltip=Book Stand
 
@@ -401,7 +403,7 @@ tooltip=Barrel
 type=run_once
 location=10,48,1,1
 hotspot=location
-loot=random,11,48,1
+loot=currency,11,48,5,80
 mapmod=object,10,48,162
 soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
@@ -429,7 +431,7 @@ tooltip=Barrel
 type=run_once
 location=11,46,1,1
 hotspot=location
-loot=random,12,46,1
+loot=currency,12,46,5,80
 mapmod=object,11,46,163
 soundfx=soundfx/wood_open.ogg
 tooltip=Crate
@@ -448,7 +450,7 @@ tooltip=Crate
 type=run_once
 location=15,49,1,1
 hotspot=location
-loot=random,14,48,1
+loot=currency,14,48,5,80
 mapmod=object,15,49,163
 soundfx=soundfx/wood_open.ogg
 tooltip=Crate
@@ -464,7 +466,7 @@ msg=This tomb glows with magical runes.
 type=run_once
 location=4,90,1,2
 hotspot=location
-loot=random,5,90,5;random,5,91,6
+loot=currency,5,90,25,fixed;currency,5,91,30,fixed
 tooltip=Langlier's Tomb
 
 [event]
@@ -472,9 +474,15 @@ tooltip=Langlier's Tomb
 type=run_once
 location=45,97,1,1
 hotspot=location
-loot=random,45,98,7
+loot=currency,45,98,15,80
 mapmod=object,45,97,161
 tooltip=Treasure Chest
+
+[event]
+type=on_load
+location=18,74,1,1
+mapmod=object,20,75,164
+requires_status=av_academy_bookstand1
 
 [enemy]
 # entrance guards
