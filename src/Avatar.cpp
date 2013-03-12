@@ -548,7 +548,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 
 			if (activeAnimation->getTimesPlayed() >= 1) {
 				stats.cur_state = AVATAR_STANCE;
-				if (stats.effects.speed <= 100) stats.cooldown_ticks += stats.cooldown;
+				stats.cooldown_ticks += stats.cooldown;
 			}
 			break;
 
@@ -568,7 +568,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 
 			if (activeAnimation->getTimesPlayed() >= 1) {
 				stats.cur_state = AVATAR_STANCE;
-				if (stats.effects.speed <= 100) stats.cooldown_ticks += stats.cooldown;
+				stats.cooldown_ticks += stats.cooldown;
 			}
 			break;
 
@@ -586,7 +586,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 
 			if (activeAnimation->getTimesPlayed() >= 1) {
 				stats.cur_state = AVATAR_STANCE;
-				if (stats.effects.speed <= 100) stats.cooldown_ticks += stats.cooldown;
+				stats.cooldown_ticks += stats.cooldown;
 			}
 			break;
 
