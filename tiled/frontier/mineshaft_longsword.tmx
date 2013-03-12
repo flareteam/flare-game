@@ -224,10 +224,8 @@
   <object name="fork_crate" type="run_once" x="1504" y="1184" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,46,38,2,fixed"/>
+    <property name="loot" value="currency,46,38,5,80"/>
     <property name="mapmod" value="object,47,37,179"/>
-    <property name="requires_not" value="ml_crate_fork"/>
-    <property name="set_status" value="ml_crate_fork"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Crate"/>
    </properties>
@@ -235,10 +233,8 @@
   <object name="backside_crate" type="run_once" x="896" y="480" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,27,14,2,fixed"/>
+    <property name="loot" value="currency,27,14,5,80"/>
     <property name="mapmod" value="object,28,15,179"/>
-    <property name="requires_not" value="ml_crate_backside"/>
-    <property name="set_status" value="ml_crate_backside"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Crate"/>
    </properties>
@@ -246,30 +242,10 @@
   <object name="backside_barrel" type="run_once" x="480" y="384" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,16,13,2,fixed"/>
+    <property name="loot" value="currency,16,13,5,80"/>
     <property name="mapmod" value="object,15,12,178"/>
-    <property name="requires_not" value="ml_barrel_backside"/>
-    <property name="set_status" value="ml_barrel_backside"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Barrel"/>
-   </properties>
-  </object>
-  <object type="on_load" x="1440" y="1120" width="32" height="32">
-   <properties>
-    <property name="mapmod" value="object,47,37,179"/>
-    <property name="requires_status" value="ml_crate_fork"/>
-   </properties>
-  </object>
-  <object type="on_load" x="832" y="416" width="32" height="32">
-   <properties>
-    <property name="mapmod" value="object,28,15,179"/>
-    <property name="requires_status" value="ml_crate_backside"/>
-   </properties>
-  </object>
-  <object type="on_load" x="416" y="320" width="32" height="32">
-   <properties>
-    <property name="mapmod" value="object,15,12,178"/>
-    <property name="requires_status" value="ml_barrel_backside"/>
    </properties>
   </object>
   <object name="wind sound" type="on_load" x="0" y="0" width="32" height="32">

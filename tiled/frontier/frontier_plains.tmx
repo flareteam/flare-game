@@ -857,10 +857,8 @@
   <object name="camp supply" type="run_once" x="4000" y="1376" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,124,43,15,fixed"/>
+    <property name="loot" value="currency,124,43,10,80"/>
     <property name="mapmod" value="object,125,43,97"/>
-    <property name="requires_not" value="fp_crate4"/>
-    <property name="set_status" value="fp_crate4"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Supplies"/>
    </properties>
@@ -868,10 +866,8 @@
   <object name="camp supply" type="run_once" x="3648" y="3104" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,114,98,10,fixed"/>
+    <property name="loot" value="currency,114,98,5,80"/>
     <property name="mapmod" value="object,114,97,99"/>
-    <property name="requires_not" value="fp_crate2"/>
-    <property name="set_status" value="fp_crate2"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Supplies"/>
    </properties>
@@ -892,22 +888,10 @@
     <property name="requires_status" value="fp_crate1"/>
    </properties>
   </object>
-  <object type="on_load" x="3680" y="3072" width="32" height="32">
-   <properties>
-    <property name="mapmod" value="object,114,97,99"/>
-    <property name="requires_status" value="fp_crate2"/>
-   </properties>
-  </object>
   <object type="on_load" x="3776" y="1088" width="32" height="32">
    <properties>
     <property name="mapmod" value="object,117,35,99"/>
     <property name="requires_status" value="fp_crate3"/>
-   </properties>
-  </object>
-  <object type="on_load" x="4032" y="1344" width="32" height="32">
-   <properties>
-    <property name="mapmod" value="object,125,43,97"/>
-    <property name="requires_status" value="fp_crate4"/>
    </properties>
   </object>
   <object name="River sound" type="on_load" x="2176" y="672" width="32" height="32">

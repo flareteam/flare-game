@@ -393,6 +393,8 @@
     <property name="loot" value="2,21,75,1,fixed"/>
     <property name="mapmod" value="object,20,75,164"/>
     <property name="msg" value="This false book has a secret compartment."/>
+    <property name="requires_not" value="av_academy_bookstand1"/>
+    <property name="set_status" value="av_academy_bookstand1"/>
     <property name="soundfx" value="soundfx/inventory/inventory_page.ogg"/>
     <property name="tooltip" value="Book Stand"/>
    </properties>
@@ -408,7 +410,7 @@
   <object name="barrel" type="run_once" x="320" y="1536" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="random,11,48,1"/>
+    <property name="loot" value="currency,11,48,5,80"/>
     <property name="mapmod" value="object,10,48,162"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Barrel"/>
@@ -433,7 +435,7 @@
   <object name="crate" type="run_once" x="352" y="1472" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="random,12,46,1"/>
+    <property name="loot" value="currency,12,46,5,80"/>
     <property name="mapmod" value="object,11,46,163"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Crate"/>
@@ -450,7 +452,7 @@
   <object name="crate" type="run_once" x="480" y="1568" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="random,14,48,1"/>
+    <property name="loot" value="currency,14,48,5,80"/>
     <property name="mapmod" value="object,15,49,163"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Crate"/>
@@ -464,18 +466,25 @@
   <object name="boss tomb" type="run_once" x="128" y="2880" width="32" height="64">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="random,5,90,5;random,5,91,6"/>
+    <property name="loot" value="currency,5,90,25,fixed;currency,5,91,30,fixed"/>
     <property name="tooltip" value="Langlier's Tomb"/>
    </properties>
   </object>
   <object name="teleport chest" type="run_once" x="1440" y="3104" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="random,45,98,7"/>
+    <property name="loot" value="currency,45,98,15,80"/>
     <property name="mapmod" value="object,45,97,161"/>
     <property name="tooltip" value="Treasure Chest"/>
    </properties>
   </object>
+  <object type="on_load" x="576" y="2368" width="32" height="32">
+   <properties>
+    <property name="mapmod" value="object,20,75,164"/>
+    <property name="requires_status" value="av_academy_bookstand1"/>
+   </properties>
+  </object>
+  <object x="576" y="2400"/>
  </objectgroup>
  <objectgroup name="enemy" width="70" height="100" visible="0">
   <object name="entrance guards" type="skeletal_mage" x="1920" y="448" width="32" height="32">

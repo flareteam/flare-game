@@ -514,7 +514,7 @@
   <object type="run_once" x="480" y="32" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="random,14,2,6;random,15,2,7;random,16,2,5"/>
+    <property name="loot" value="currency,14,2,30,fixed;currency,15,2,35,fixed;currency,16,2,25,fixed"/>
     <property name="mapmod" value="object,15,1,161"/>
     <property name="requires_status" value="ak_maddox_defeated"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -534,7 +534,7 @@
   <object type="run_once" x="480" y="288" width="32" height="64">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="random,16,9,5"/>
+    <property name="loot" value="currency,16,9,25,80"/>
     <property name="msg" value="You wipe dust away from the tomb lid, revealing an inscription: &quot;Here lies Sir Evan Maddox&quot;"/>
     <property name="tooltip" value="Maddox's Tomb"/>
    </properties>
