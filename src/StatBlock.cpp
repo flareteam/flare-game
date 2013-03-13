@@ -323,7 +323,7 @@ void StatBlock::load(const string& filename) {
 		else if (infile.key == "chance_on_half_dead") power_chance[ON_HALF_DEAD] = num;
 		else if (infile.key == "chance_on_debuff") power_chance[ON_DEBUFF] = num;
 		else if (infile.key == "chance_on_join_combat") power_chance[ON_JOIN_COMBAT] = num;
-		else if (infile.key == "cooldown_hit") cooldown_hit = cooldown_hit_ticks = num;
+		else if (infile.key == "cooldown_hit") cooldown_hit = num;
 
 		else if (infile.key == "passive_powers") {
 			std::string p = infile.nextValue();
@@ -626,7 +626,7 @@ void StatBlock::loadHeroStats() {
 		} else if (infile.key == "power_points_per_level") {
 			power_points_per_level = value;
 		} else if (infile.key == "cooldown_hit") {
-			cooldown_hit = cooldown_hit_ticks = value;
+			cooldown_hit = value;
 		}
 	}
 	infile.close();
