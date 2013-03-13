@@ -281,8 +281,11 @@ bool Enemy::takeHit(const Hazard &h) {
 			}
 			// don't go through a hit animation if stunned
 			else if (!stats.effects.stun && !percentChance(stats.poise)) {
-				stats.cur_state = ENEMY_HIT;
-				sfx_hit = true;
+				if(stats.cooldown_hit_ticks == 0) {
+					stats.cur_state = ENEMY_HIT;
+					sfx_hit = true;
+					stats.cooldown_hit_ticks = stats.cooldown_hit;
+				}
 				// roll to see if the enemy's ON_HIT power is casted
 				if (percentChance(stats.power_chance[ON_HIT])) {
 					powers->activate(stats.power_index[ON_HIT], &stats, stats.pos);

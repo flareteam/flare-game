@@ -82,6 +82,8 @@ StatBlock::StatBlock()
 	, mp_ticker(0)
 	, accuracy(75)
 	, avoidance(0)
+	, cooldown_hit(0)
+	, cooldown_hit_ticks(0)
 	, crit(0)
 	, dmg_melee_min_default(1)
 	, dmg_melee_max_default(4)
@@ -321,6 +323,7 @@ void StatBlock::load(const string& filename) {
 		else if (infile.key == "chance_on_half_dead") power_chance[ON_HALF_DEAD] = num;
 		else if (infile.key == "chance_on_debuff") power_chance[ON_DEBUFF] = num;
 		else if (infile.key == "chance_on_join_combat") power_chance[ON_JOIN_COMBAT] = num;
+		else if (infile.key == "cooldown_hit") cooldown_hit = cooldown_hit_ticks = num;
 
 		else if (infile.key == "passive_powers") {
 			std::string p = infile.nextValue();
@@ -491,6 +494,9 @@ void StatBlock::logic() {
 		takeDamage(effects.damage);
 	}
 
+	if(cooldown_hit_ticks > 0)
+		cooldown_hit_ticks--;
+
 	// apply healing over time
 	if (effects.hpot > 0) {
 		comb->addMessage(msg->get("+%d HP",effects.hpot), pos, COMBAT_MESSAGE_BUFF);
@@ -619,6 +625,8 @@ void StatBlock::loadHeroStats() {
 			stat_points_per_level = value;
 		} else if (infile.key == "power_points_per_level") {
 			power_points_per_level = value;
+		} else if (infile.key == "cooldown_hit") {
+			cooldown_hit = cooldown_hit_ticks = value;
 		}
 	}
 	infile.close();
