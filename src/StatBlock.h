@@ -223,6 +223,9 @@ public:
 	int poise;
 	int poise_base;
 
+	int cooldown_hit;
+	int cooldown_hit_ticks;
+
 	// state
 	int cur_state;
 
