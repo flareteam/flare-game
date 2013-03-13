@@ -93,11 +93,14 @@ void SoundManager::logic(Point c) {
 		float dy = c.y - it->second.location.y;
 		float dist = sqrt(dx*dx + dy*dy);
 
+
 		/* control mixing playback depending on distance */
-		if (dist < (SOUND_FALLOFF*UNITS_PER_TILE))
-			Mix_Resume(it->first);
-		else
-			Mix_Pause(it->first);
+		if (it->second.loop) {
+			if (dist < (SOUND_FALLOFF*UNITS_PER_TILE))
+				Mix_Resume(it->first);
+			else
+				Mix_Pause(it->first);
+		}
 
 		/* update sound mix with new distance/location to hero */
 		dist = 255.0f * (dist / (SOUND_FALLOFF*UNITS_PER_TILE));
