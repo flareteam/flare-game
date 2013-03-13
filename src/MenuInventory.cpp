@@ -753,10 +753,7 @@ void MenuInventory::applyEquipment(ItemStack *equipped) {
 
 	// the default for weapons/absorb are not added to equipped items
 	// later this function they are applied if the defaults aren't met
-	stats->dmg_melee_min = stats->dmg_melee_max = 0;
-	stats->dmg_ranged_min = stats->dmg_ranged_max = 0;
-	stats->dmg_ment_min = stats->dmg_ment_max = 0;
-	stats->absorb_min = stats->absorb_max = 0;
+	stats->calcBaseDmgAndAbs();
 
 	// reset wielding vars
 	stats->wielding_physical = false;

@@ -93,6 +93,7 @@ public:
 	void takeDamage(int dmg);
 	void recalc();
 	void recalc_alt();
+	void calcBaseDmgAndAbs();
 	void logic();
 
 	bool alive;

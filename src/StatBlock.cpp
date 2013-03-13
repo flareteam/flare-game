@@ -402,6 +402,25 @@ void StatBlock::recalc() {
 }
 
 /**
+ * Base damage and absorb is 0
+ * Plus an optional bonus_per_[base stat]
+ */
+void StatBlock::calcBaseDmgAndAbs() {
+
+	// this bonus is skipped for the default level 1 of a stat
+	int phys0 = get_physical() -1;
+	int ment0 = get_mental() -1;
+	int off0 = get_offense() -1;
+	int def0 = get_defense() -1;
+
+	dmg_melee_min = dmg_melee_max = bonus_per_physical * phys0;
+	dmg_ment_min = dmg_ment_max = bonus_per_mental * ment0;
+	dmg_ranged_min = dmg_ranged_max = bonus_per_offense * off0;
+	absorb_min = absorb_max = bonus_per_defense * def0;
+	
+}
+
+/**
  * Recalc derived stats from base stats + effect bonuses
  */
 void StatBlock::recalc_alt() {
@@ -427,6 +446,7 @@ void StatBlock::recalc_alt() {
 		accuracy = accuracy_base + (accuracy_per_level * lev0) + (accuracy_per_offense * off0) + effects.bonus_accuracy;
 		avoidance = avoidance_base + (avoidance_per_level * lev0) + (avoidance_per_defense * def0) + effects.bonus_avoidance;
 		crit = crit_base + (crit_per_level * lev0) + effects.bonus_crit;
+		
 	} else {
 		maxhp = hp_base + effects.bonus_hp;
 		maxmp = mp_base + effects.bonus_mp;
