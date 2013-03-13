@@ -183,7 +183,7 @@ void setPaths() {
 	PATH_USER = "saves";
 	PATH_DATA = "";
 	if (dirExists(USER_PATH_DATA)) PATH_DATA = USER_PATH_DATA;
-	else fprintf(stderr, "Error: Could not find specified game data directory.\n");
+	else if (!USER_PATH_DATA.empty()) fprintf(stderr, "Error: Could not find specified game data directory.\n");
 
 	// TODO: place config and save data in the user's home, windows style
 	createDir(PATH_CONF);
@@ -199,7 +199,7 @@ void setPaths() {
 	PATH_USER = "PROGDIR:";
 	PATH_DATA = "PROGDIR:";
 	if (dirExists(USER_PATH_DATA)) PATH_DATA = USER_PATH_DATA;
-	else fprintf(stderr, "Error: Could not find specified game data directory.\n");
+	else if (!USER_PATH_DATA.empty()) fprintf(stderr, "Error: Could not find specified game data directory.\n");
 }
 #else
 void setPaths() {
@@ -265,7 +265,7 @@ void setPaths() {
 		PATH_DATA = USER_PATH_DATA;
 		return;
 	}
-	else fprintf(stderr, "Error: Could not find specified game data directory.\n");
+	else if (!USER_PATH_DATA.empty()) fprintf(stderr, "Error: Could not find specified game data directory.\n");
 
 	// Check for the local data before trying installed ones.
 	if (dirExists("./mods")) {

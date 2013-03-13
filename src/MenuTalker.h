@@ -61,6 +61,9 @@ private:
 	SDL_Rect portrait_he;
 	SDL_Rect portrait_you;
 
+	std::string font_who;
+	std::string font_dialog;
+
 	SDL_Color color_normal;
 
 public:
