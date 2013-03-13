@@ -55,6 +55,9 @@ MenuTalker::MenuTalker(MenuManager *_menu, CampaignManager *_camp) {
 	dialog_node = 0;
 	event_cursor = 0;
 
+	// fonts
+	font_who = font_dialog = "font_regular";
+
 	loadGraphics();
 
 	// Load config settings
@@ -92,6 +95,10 @@ MenuTalker::MenuTalker(MenuManager *_menu, CampaignManager *_camp) {
 				portrait_you.y = eatFirstInt(infile.val,',');
 				portrait_you.w = eatFirstInt(infile.val,',');
 				portrait_you.h = eatFirstInt(infile.val,',');
+			} else if (infile.key == "font_who") {
+				font_who = eatFirstString(infile.val,',');
+			} else if (infile.key == "font_dialog") {
+				font_dialog = eatFirstString(infile.val,',');
 			}
 		}
 		infile.close();
@@ -196,20 +203,24 @@ void MenuTalker::createBuffer() {
 
 	// speaker name
 	string etype = npc->dialog[dialog_node][event_cursor].type;
+	string who;
+
 	if (etype == "him" || etype == "her") {
-		line = npc->name + ": ";
+		who = npc->name;
 	}
 	else if (etype == "you") {
-		line = hero_name + ": ";
+		who = hero_name;
 	}
 
-	line = line + npc->dialog[dialog_node][event_cursor].s;
+	line = npc->dialog[dialog_node][event_cursor].s;
 
 	// render text to back buffer
 	SDL_FreeSurface(msg_buffer);
 	msg_buffer = createAlphaSurface(text_pos.w,text_pos.h);
-	font->setFont("font_regular");
-	font->render(line, text_offset.x, text_offset.y, JUSTIFY_LEFT, msg_buffer, text_pos.w - text_offset.x*2, color_normal);
+	font->setFont(font_who);
+	font->render(who, text_offset.x, text_offset.y, JUSTIFY_LEFT, msg_buffer, text_pos.w - text_offset.x*2, color_normal);
+	font->setFont(font_dialog);
+	font->render(line, text_offset.x, text_offset.y+font->getLineHeight(), JUSTIFY_LEFT, msg_buffer, text_pos.w - text_offset.x*2, color_normal);
 
 }
 
