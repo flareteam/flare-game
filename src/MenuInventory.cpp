@@ -748,7 +748,6 @@ void MenuInventory::applyEquipment(ItemStack *equipped) {
 	}
 
 	// defaults
-	stats->recalc_alt();
 	stats->powers_list_items.clear();
 
 	// the default for weapons/absorb are not added to equipped items
