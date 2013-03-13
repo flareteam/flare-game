@@ -336,38 +336,33 @@ void MenuCharacter::refreshStats() {
 		statList->set(visible_stats++, ss.str(),msg->get("Each point of Defense grants +%d avoidance. Each level grants +%d avoidance", stats->avoidance_per_defense, stats->avoidance_per_level));
 	}
 
-	int bonus;
-
 	if (show_stat[6]) {
-		bonus = stats->get_physical() * stats->bonus_per_physical;
 		ss.str("");
 		ss << msg->get("Melee Damage:") << " ";
-		if (stats->dmg_melee_max > 0)
-			ss << stats->dmg_melee_min + bonus << "-" << stats->dmg_melee_max + bonus;
+		if (stats->dmg_melee_min == stats->dmg_melee_max)
+			ss << stats->dmg_melee_min;
 		else
-			ss << "-";
+			ss << stats->dmg_melee_min << "-" << stats->dmg_melee_max;
 		statList->set(visible_stats++, ss.str(),"");
 	}
 
 	if (show_stat[7]) {
-		bonus = stats->get_offense() * stats->bonus_per_offense;
 		ss.str("");
 		ss << msg->get("Ranged Damage:") << " ";
-		if (stats->dmg_ranged_max > 0)
-			ss << stats->dmg_ranged_min + bonus << "-" << stats->dmg_ranged_max + bonus;
+		if (stats->dmg_ranged_min == stats->dmg_ranged_max)
+			ss << stats->dmg_ranged_min;
 		else
-			ss << "-";
+			ss << stats->dmg_ranged_min << "-" << stats->dmg_ranged_max;
 		statList->set(visible_stats++, ss.str(),"");
 	}
 
 	if (show_stat[8]) {
-		bonus = stats->get_mental() * stats->bonus_per_mental;
 		ss.str("");
 		ss << msg->get("Mental Damage:") << " ";
-		if (stats->dmg_ment_max > 0)
-			ss << stats->dmg_ment_min + bonus << "-" << stats->dmg_ment_max + bonus;
-		else
-			ss << "-";
+		if (stats->dmg_ment_min == stats->dmg_ment_max)
+			ss << stats->dmg_ment_min;
+		else		
+			ss << stats->dmg_ment_min << "-" << stats->dmg_ment_max;
 		statList->set(visible_stats++, ss.str(),"");
 	}
 
@@ -382,8 +377,8 @@ void MenuCharacter::refreshStats() {
 		ss << msg->get("Absorb:") << " ";
 		if (stats->absorb_min == stats->absorb_max)
 			ss << stats->absorb_min;
-		else
-			ss << stats->absorb_min << "-" << stats->absorb_max;
+		else			
+		ss << stats->absorb_min << "-" << stats->absorb_max;
 		statList->set(visible_stats++, ss.str(),"");
 	}
 
