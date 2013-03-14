@@ -150,8 +150,11 @@ void MenuMiniMap::renderIso(Point hero_pos) {
 
 	SDL_BlitSurface(map_surface, &clip ,screen, &map_area);
 	SDL_LockSurface(screen);
-	drawPixel(screen, window_area.x + pos.x + pos.w/2, window_area.y + pos.y + pos.h/2, color_hero);
+	drawPixel(screen, window_area.x + pos.x + pos.w/2 + 1, window_area.y + pos.y + pos.h/2, color_hero);
 	drawPixel(screen, window_area.x + pos.x + pos.w/2 - 1, window_area.y + pos.y + pos.h/2, color_hero);
+	drawPixel(screen, window_area.x + pos.x + pos.w/2, window_area.y + pos.y + pos.h/2 + 1, color_hero);
+	drawPixel(screen, window_area.x + pos.x + pos.w/2, window_area.y + pos.y + pos.h/2 - 1, color_hero);
+	drawPixel(screen, window_area.x + pos.x + pos.w/2, window_area.y + pos.y + pos.h/2, color_hero);
 	SDL_UnlockSurface(screen);
 }
 
