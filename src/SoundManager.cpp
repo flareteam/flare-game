@@ -64,11 +64,21 @@ SoundManager::~SoundManager() {
 		unload(it->first);
 }
 
+Uint8 SoundManager::calc_distance(const Point *s, const Point *d) {
+	float dx = s->x - d->x;
+	float dy = s->y - d->y;
+	float dist = sqrt(dx*dx + dy*dy);
+	dist = 255.0f * (dist / (SOUND_FALLOFF*UNITS_PER_TILE));
+	return max(0.0f, min(dist, 255.0f));
+}
+
 void SoundManager::logic(Point c) {
 
 	PlaybackMapIterator it = playback.begin();
 	if (it == playback.end())
 		return;
+
+	lastPos = c;
 
 	std::vector<int> cleanup;
 
@@ -87,23 +97,17 @@ void SoundManager::logic(Point c) {
 			continue;
 		}
 
-		/* calculate distance and angle */
-		Uint8 d = 0, a = 0;
-		float dx = c.x - it->second.location.x;
-		float dy = c.y - it->second.location.y;
-		float dist = sqrt(dx*dx + dy*dy);
-
 		/* control mixing playback depending on distance */
-		if (dist < (SOUND_FALLOFF*UNITS_PER_TILE))
-			Mix_Resume(it->first);
-		else
-			Mix_Pause(it->first);
+		Uint8 dist = calc_distance(&c, &it->second.location);
+		if (it->second.loop) {
+			if (dist < (SOUND_FALLOFF*UNITS_PER_TILE))
+				Mix_Resume(it->first);
+			else
+				Mix_Pause(it->first);
+		}
 
 		/* update sound mix with new distance/location to hero */
-		dist = 255.0f * (dist / (SOUND_FALLOFF*UNITS_PER_TILE));
-		d = max(0.0f, min(dist, 255.0f));
-		// a = atan2(dy,dx) * 180 / M_PI;
-		Mix_SetPosition(it->first, a, d);
+		Mix_SetPosition(it->first, 0, dist);
 		it++;
 	}
 
@@ -234,8 +238,11 @@ void SoundManager::play(SoundManager::SoundID sid, std::string channel, Point po
 	if (c == -1)
 		fprintf(stderr,"Failed to play sound, no more channels available.\n");
 
-	if(p.location.x != 0 || p.location.y != 0)
-		Mix_SetPosition(c, 0, 255);
+	// precalculate mixing volume if sound has a location
+	Uint8 d = 0;
+	if (p.location.x != 0 || p.location.y != 0)
+		d = calc_distance(&lastPos, &p.location);
+	Mix_SetPosition(c, 0, d);
 
 	if (vcit != channels.end())
 		vcit->second = c;
