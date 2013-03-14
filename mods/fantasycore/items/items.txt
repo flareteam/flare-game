@@ -3,7 +3,7 @@
 [item]
 id=1
 name=Health Potion
-level=3
+quality=high
 icon=64
 power=100
 power_desc=Restore 100 HP
@@ -17,7 +17,7 @@ rand_vendor=3
 [item]
 id=2
 name=Mana Potion
-level=4
+quality=high
 icon=65
 power=101
 power_desc=Restore 100 MP
@@ -33,7 +33,6 @@ rand_vendor=3
 [item]
 id=3
 name=Sapphire
-level=7
 quality=high
 icon=68
 item_type=gem
@@ -46,7 +45,6 @@ max_quantity=100
 [item]
 id=4
 name=Emerald
-level=8
 quality=high
 icon=69
 item_type=gem
@@ -59,7 +57,6 @@ max_quantity=100
 [item]
 id=5
 name=Ruby
-level=9
 quality=high
 icon=70
 item_type=gem
@@ -72,7 +69,6 @@ max_quantity=100
 [item]
 id=6
 name=Diamond
-level=10
 quality=high
 icon=71
 item_type=gem
@@ -87,7 +83,6 @@ max_quantity=100
 [item]
 id=32
 name=Dagger
-level=2
 quality=normal
 item_type=main
 icon=96
@@ -96,12 +91,11 @@ req=p,2
 soundfx=soundfx/inventory/inventory_metal.ogg
 gfx=dagger
 loot_animation=dagger
-price=10
+price=20
 
 [item]
 id=33
 name=Shortsword
-level=4
 quality=normal
 item_type=main
 icon=97
@@ -110,12 +104,11 @@ req=p,3
 soundfx=soundfx/inventory/inventory_metal.ogg
 gfx=shortsword
 loot_animation=shortsword
-price=20
+price=100
 
 [item]
 id=34
 name=Longsword
-level=6
 quality=normal
 item_type=main
 icon=98
@@ -124,12 +117,11 @@ req=p,4
 soundfx=soundfx/inventory/inventory_metal.ogg
 gfx=longsword
 loot_animation=longsword
-price=50
+price=500
 
 [item]
 id=35
 name=Greatsword
-level=8
 quality=normal
 item_type=main
 icon=99
@@ -138,14 +130,13 @@ req=p,5
 soundfx=soundfx/inventory/inventory_metal.ogg
 gfx=greatsword
 loot_animation=greatsword
-price=100
+price=2000
 
 # Basic Magic Weapons #################
 
 [item]
 id=40
 name=Wand
-level=2
 quality=normal
 item_type=main
 icon=104
@@ -154,12 +145,11 @@ req=m,2
 soundfx=soundfx/inventory/inventory_wood.ogg
 gfx=wand
 loot_animation=wand
-price=14
+price=24
 
 [item]
 id=41
 name=Rod
-level=4
 quality=normal
 item_type=main
 icon=105
@@ -168,12 +158,11 @@ req=m,3
 soundfx=soundfx/inventory/inventory_wood.ogg
 gfx=rod
 loot_animation=rod
-price=26
+price=115
 
 [item]
 id=42
 name=Staff
-level=6
 quality=normal
 item_type=main
 icon=106
@@ -182,12 +171,11 @@ req=m,4
 soundfx=soundfx/inventory/inventory_wood.ogg
 gfx=staff
 loot_animation=staff
-price=65
+price=620
 
 [item]
 id=43
 name=Greatstaff
-level=8
 quality=normal
 item_type=main
 icon=107
@@ -196,14 +184,13 @@ req=m,5
 soundfx=soundfx/inventory/inventory_wood.ogg
 gfx=greatstaff
 loot_animation=greatstaff
-price=115
+price=2240
 
 # Basic Ranged Weapons ################
 
 [item]
 id=48
 name=Slingshot
-level=2
 quality=normal
 item_type=off
 icon=112
@@ -213,12 +200,11 @@ req=o,2
 soundfx=soundfx/inventory/inventory_wood.ogg
 gfx=slingshot
 loot_animation=slingshot
-price=8
+price=16
 
 [item]
 id=49
 name=Shortbow
-level=4
 quality=normal
 item_type=off
 icon=113
@@ -228,12 +214,11 @@ req=o,3
 soundfx=soundfx/inventory/inventory_wood.ogg
 gfx=shortbow
 loot_animation=shortbow
-price=24
+price=88
 
 [item]
 id=50
 name=Longbow
-level=6
 quality=normal
 item_type=off
 icon=114
@@ -243,12 +228,11 @@ req=o,4
 soundfx=soundfx/inventory/inventory_wood.ogg
 gfx=longbow
 loot_animation=longbow
-price=60
+price=450
 
 [item]
 id=51
 name=Greatbow
-level=8
 quality=normal
 item_type=off
 icon=115
@@ -258,14 +242,13 @@ req=o,5
 soundfx=soundfx/inventory/inventory_wood.ogg
 gfx=greatbow
 loot_animation=greatbow
-price=110
+price=1950
 
 # Basic Shields #######################
 
 [item]
 id=56
 name=Wood Buckler
-level=2
 quality=normal
 item_type=off
 icon=120
@@ -279,7 +262,6 @@ price=30
 [item]
 id=57
 name=Iron Buckler
-level=4
 quality=normal
 item_type=off
 icon=120
@@ -288,12 +270,11 @@ req=d,3
 soundfx=soundfx/inventory/inventory_wood.ogg
 gfx=buckler
 loot_animation=buckler
-price=50
+price=140
 
 [item]
 id=58
 name=Crest Shield
-level=6
 quality=normal
 item_type=off
 icon=122
@@ -302,12 +283,11 @@ req=d,4
 soundfx=soundfx/inventory/inventory_heavy.ogg
 gfx=shield
 loot_animation=shield
-price=90
+price=560
 
 [item]
 id=59
 name=Tower Shield
-level=6
 quality=normal
 item_type=off
 icon=122
@@ -316,26 +296,24 @@ req=d,5
 soundfx=soundfx/inventory/inventory_heavy.ogg
 gfx=shield
 loot_animation=shield
-price=150
+price=3000
 
 # Clothes #############################
 
 [item]
 id=64
 name=Cloth Shirt
-level=1
 quality=normal
 item_type=chest
 icon=129
 soundfx=soundfx/inventory/inventory_cloth.ogg
 gfx=cloth_shirt
 loot_animation=clothes
-price=7
+price=6
 
 [item]
 id=65
 name=Cloth Gloves
-level=1
 quality=normal
 item_type=hands
 icon=130
@@ -347,26 +325,24 @@ price=2
 [item]
 id=66
 name=Cloth Pants
-level=1
 quality=normal
 item_type=legs
 icon=131
 soundfx=soundfx/inventory/inventory_cloth.ogg
 gfx=cloth_pants
 loot_animation=clothes
-price=2
+price=4
 
 [item]
 id=67
 name=Cloth Sandals
-level=1
 quality=normal
 item_type=feet
 icon=132
 soundfx=soundfx/inventory/inventory_cloth.ogg
 gfx=cloth_sandals
 loot_animation=clothes
-price=2
+price=3
 stepfx=cloth
 
 # Robes ###############################
@@ -374,72 +350,75 @@ stepfx=cloth
 [item]
 id=72
 name=Mage Hood
-level=3
-quality=normal
+flavor=The seams on this hood are designed to aid the flow of mana.
+quality=high
 item_type=head
 icon=136
-abs=1
-req=d,2
+req=m,2
+bonus=MP regen,10
 soundfx=soundfx/inventory/inventory_cloth.ogg
 gfx=mage_hood
 loot_animation=clothes
-price=1
+price=55
 
 [item]
 id=73
 name=Mage Vest
-level=3
-quality=normal
+flavor=Frost resistance runes line the inside of this vest.
+quality=high
 item_type=chest
 icon=137
-abs=2
-req=d,2
+abs=1
+req=m,2
+bonus=ice resist,10
 soundfx=soundfx/inventory/inventory_cloth.ogg
 gfx=mage_vest
 loot_animation=clothes
-price=1
+price=65
 
 [item]
 id=74
 name=Mage Sleeves
-level=3
-quality=normal
+flavor=The fire resistance runes that hem these sleeves help protect beginner students of Pyromancy.
+quality=high
 item_type=hands
 icon=138
-abs=1
-req=d,2
+bonus=fire resist,10
+req=m,2
 soundfx=soundfx/inventory/inventory_cloth.ogg
 gfx=mage_sleeves
 loot_animation=clothes
-price=1
+price=45
 
 [item]
 id=75
 name=Mage Skirt
-level=3
-quality=normal
+flavor=Spell components are tucked into hidden pockets covering this skirt.
+quality=high
 item_type=legs
 icon=139
-abs=2
-req=d,2
+abs=1
+bonus=MP,15
+req=m,2
 soundfx=soundfx/inventory/inventory_cloth.ogg
 gfx=mage_skirt
 loot_animation=clothes
-price=1
+price=90
 
 [item]
 id=76
 name=Mage Boots
-level=3
-quality=normal
+flavor=Attunement with the elements allow mages to ice and fire walk.
+quality=high
 item_type=feet
 icon=140
-abs=1
-req=d,2
+req=m,2
+bonus=fire resist,5
+bonus=ice resist,5
 soundfx=soundfx/inventory/inventory_cloth.ogg
 gfx=mage_boots
 loot_animation=clothes
-price=1
+price=70
 stepfx=cloth
 
 # Leather Armor #######################
@@ -447,7 +426,6 @@ stepfx=cloth
 [item]
 id=80
 name=Leather Hood
-level=2
 quality=normal
 item_type=head
 icon=144
@@ -456,12 +434,11 @@ req=d,2
 soundfx=soundfx/inventory/inventory_cloth.ogg
 gfx=leather_hood
 loot_animation=leather_armor
-price=1
+price=14
 
 [item]
 id=81
 name=Leather Chest
-level=2
 quality=normal
 item_type=chest
 icon=145
@@ -470,12 +447,11 @@ req=d,2
 soundfx=soundfx/inventory/inventory_leather.ogg
 gfx=leather_chest
 loot_animation=leather_armor
-price=17
+price=20
 
 [item]
 id=82
 name=Leather Gloves
-level=2
 quality=normal
 item_type=hands
 icon=146
@@ -484,12 +460,11 @@ req=d,2
 soundfx=soundfx/inventory/inventory_leather.ogg
 gfx=leather_gloves
 loot_animation=leather_armor
-price=3
+price=12
 
 [item]
 id=83
 name=Leather Pants
-level=2
 quality=normal
 item_type=legs
 icon=147
@@ -498,12 +473,11 @@ req=d,2
 soundfx=soundfx/inventory/inventory_leather.ogg
 gfx=leather_pants
 loot_animation=leather_armor
-price=3
+price=18
 
 [item]
 id=84
 name=Leather Boots
-level=2
 quality=normal
 item_type=feet
 icon=148
@@ -512,7 +486,7 @@ req=d,2
 soundfx=soundfx/inventory/inventory_leather.ogg
 gfx=leather_boots
 loot_animation=leather_armor
-price=3
+price=16
 stepfx=leather
 
 # Chain Armor #########################
@@ -520,7 +494,6 @@ stepfx=leather
 [item]
 id=88
 name=Chain Coif
-level=4
 quality=normal
 item_type=head
 icon=152
@@ -529,12 +502,11 @@ req=d,3
 soundfx=soundfx/inventory/inventory_maille.ogg
 gfx=chain_coif
 loot_animation=steel_armor
-price=4
+price=75
 
 [item]
 id=89
 name=Chain Cuirass
-level=4
 quality=normal
 item_type=chest
 icon=153
@@ -543,12 +515,11 @@ req=d,3
 soundfx=soundfx/inventory/inventory_maille.ogg
 gfx=chain_cuirass
 loot_animation=steel_armor
-price=4
+price=100
 
 [item]
 id=90
 name=Chain Gloves
-level=4
 quality=normal
 item_type=hands
 icon=154
@@ -557,12 +528,11 @@ req=d,3
 soundfx=soundfx/inventory/inventory_maille.ogg
 gfx=chain_gloves
 loot_animation=steel_armor
-price=4
+price=60
 
 [item]
 id=91
 name=Chain Greaves
-level=4
 quality=normal
 item_type=legs
 icon=155
@@ -571,12 +541,11 @@ req=d,3
 soundfx=soundfx/inventory/inventory_maille.ogg
 gfx=chain_greaves
 loot_animation=steel_armor
-price=4
+price=90
 
 [item]
 id=92
 name=Chain Boots
-level=4
 quality=normal
 item_type=feet
 icon=156
@@ -585,7 +554,7 @@ req=d,3
 soundfx=soundfx/inventory/inventory_maille.ogg
 gfx=chain_boots
 loot_animation=steel_armor
-price=4
+price=80
 stepfx=metal
 
 # Plate Armor #########################
@@ -593,7 +562,6 @@ stepfx=metal
 [item]
 id=96
 name=Plate Helmet
-level=6
 quality=normal
 item_type=head
 icon=160
@@ -602,12 +570,11 @@ req=d,4
 soundfx=soundfx/inventory/inventory_maille.ogg
 gfx=plate_helm
 loot_animation=steel_armor
-price=4
+price=350
 
 [item]
 id=97
 name=Plate Cuirass
-level=6
 quality=normal
 item_type=chest
 icon=161
@@ -616,12 +583,11 @@ req=d,4
 soundfx=soundfx/inventory/inventory_maille.ogg
 gfx=plate_cuirass
 loot_animation=steel_armor
-price=75
+price=500
 
 [item]
 id=98
 name=Plate Gauntlets
-level=6
 quality=normal
 item_type=hands
 icon=162
@@ -630,12 +596,11 @@ req=d,4
 soundfx=soundfx/inventory/inventory_maille.ogg
 gfx=plate_gauntlets
 loot_animation=steel_armor
-price=4
+price=325
 
 [item]
 id=99
 name=Plate Greaves
-level=6
 quality=normal
 item_type=legs
 icon=163
@@ -644,12 +609,11 @@ req=d,4
 soundfx=soundfx/inventory/inventory_maille.ogg
 gfx=plate_greaves
 loot_animation=steel_armor
-price=4
+price=425
 
 [item]
 id=100
 name=Plate Boots
-level=6
 quality=normal
 item_type=feet
 icon=164
@@ -658,7 +622,7 @@ req=d,4
 soundfx=soundfx/inventory/inventory_maille.ogg
 gfx=plate_boots
 loot_animation=steel_armor
-price=4
+price=375
 stepfx=metal
 
 # Magic Items
@@ -667,7 +631,7 @@ stepfx=metal
 id=104
 name=Boots of Speed
 flavor=These enchanted boots are prized possessions of Courier guildsmen.
-quality=epic
+quality=high
 item_type=feet
 icon=176
 abs=2
@@ -675,23 +639,23 @@ req=d,2
 soundfx=soundfx/inventory/inventory_leather.ogg
 gfx=mage_boots
 loot_animation=boots
-price=5
 stepfx=leather
 bonus=speed,125
+price=250
 
 [item]
 id=105
 name=Thief Gloves
 flavor=In Lower Sceleris there is honor among thieves. Everyone else is a mark.
-quality=epic
+quality=high
 item_type=hands
 icon=130
 abs=1
 soundfx=soundfx/inventory/inventory_cloth.ogg
 gfx=cloth_gloves
 loot_animation=clothes
-price=5
 bonus=gold find,25
+price=333
 
 [item]
 id=106
@@ -702,56 +666,56 @@ item_type=ring
 icon=199
 soundfx=soundfx/inventory/inventory_gem.ogg
 loot_animation=gem
-price=5
 bonus=stealth,100
+price=5000
 
 [item]
 id=107
 name=Ring of Regeneration
 flavor=[TODO]
-quality=epic
+quality=high
 item_type=ring
 icon=205
 soundfx=soundfx/inventory/inventory_gem.ogg
 loot_animation=gem
-price=5
-bonus=HP regen,50
+bonus=HP regen,25
+price=750
 
 [item]
 id=108
 name=Ring of Concentration
 flavor=[TODO]
-quality=epic
+quality=high
 item_type=ring
 icon=204
 soundfx=soundfx/inventory/inventory_gem.ogg
 loot_animation=gem
-price=5
-bonus=MP regen,50
+bonus=MP regen,35
+price=850
 
 [item]
 id=109
 name=Ring of Fire
 flavor=[TODO]
-quality=epic
+quality=high
 item_type=ring
 icon=207
 soundfx=soundfx/inventory/inventory_gem.ogg
 loot_animation=gem
-price=5
 bonus=fire resist,25
+price=2000
 
 [item]
 id=110
 name=Ring of Ice
 flavor=[TODO]
-quality=epic
+quality=high
 item_type=ring
 icon=206
 soundfx=soundfx/inventory/inventory_gem.ogg
 loot_animation=gem
-price=5
 bonus=ice resist,25
+price=2000
 
 [item]
 id=111
@@ -762,7 +726,7 @@ item_type=ring
 icon=200
 soundfx=soundfx/inventory/inventory_gem.ogg
 loot_animation=gem
-price=5
+price=1000
 bonus=XP gain,25
 
 [item]
@@ -774,7 +738,7 @@ item_type=ring
 icon=203
 soundfx=soundfx/inventory/inventory_gem.ogg
 loot_animation=gem
-price=5
+price=1000
 power=170
 power_desc=One-time protection from death
 
@@ -787,8 +751,8 @@ item_type=ring
 icon=201
 soundfx=soundfx/inventory/inventory_gem.ogg
 loot_animation=gem
-price=5
 bonus=item find,25
+price=4000
 
 [item]
 id=114
@@ -802,14 +766,14 @@ req=d,2
 soundfx=soundfx/inventory/inventory_cloth.ogg
 gfx=leather_boots
 loot_animation=clothes
-price=5
 bonus=stealth,50
+price=500
 
 [item]
 id=115
 name=Duelist Gauntlets
 flavor=[TODO]
-quality=epic
+quality=high
 item_type=hands
 icon=154
 abs=3
@@ -817,14 +781,14 @@ req=d,3
 soundfx=soundfx/inventory/inventory_maille.ogg
 gfx=chain_gloves
 loot_animation=steel_armor
-price=5
 bonus=crit,5
+price=200
 
 [item]
 id=116
 name=Blood Cuirass
 flavor=[TODO]
-quality=epic
+quality=high
 item_type=chest
 icon=153
 abs=5
@@ -832,14 +796,14 @@ req=d,3
 soundfx=soundfx/inventory/inventory_maille.ogg
 gfx=chain_cuirass
 loot_animation=steel_armor
-price=5
 bonus=HP,50
+price=400
 
 [item]
 id=117
 name=Blood Greaves
 flavor=[TODO]
-quality=epic
+quality=high
 item_type=legs
 icon=155
 abs=4
@@ -847,14 +811,14 @@ req=d,3
 soundfx=soundfx/inventory/inventory_maille.ogg
 gfx=chain_greaves
 loot_animation=steel_armor
-price=5
 bonus=HP regen,25
+price=350
 
 [item]
 id=118
 name=Fencing Gloves
 flavor=[TODO]
-quality=epic
+quality=high
 item_type=hands
 icon=146
 abs=2
@@ -862,8 +826,8 @@ req=d,2
 soundfx=soundfx/inventory/inventory_leather.ogg
 gfx=leather_gloves
 loot_animation=leather_armor
-price=5
 bonus=accuracy,15
+price=75
 
 [item]
 id=119
@@ -874,8 +838,8 @@ item_type=artifact
 icon=1
 soundfx=soundfx/inventory/inventory_gem.ogg
 loot_animation=gem
-price=5
 bonus=physical,1
+price=2500
 
 [item]
 id=120
@@ -886,8 +850,8 @@ item_type=artifact
 icon=1
 soundfx=soundfx/inventory/inventory_gem.ogg
 loot_animation=gem
-price=5
 bonus=mental,1
+price=2500
 
 [item]
 id=121
@@ -898,8 +862,8 @@ item_type=artifact
 icon=1
 soundfx=soundfx/inventory/inventory_gem.ogg
 loot_animation=gem
-price=5
 bonus=offense,1
+price=2500
 
 [item]
 id=122
@@ -910,8 +874,8 @@ item_type=artifact
 icon=1
 soundfx=soundfx/inventory/inventory_gem.ogg
 loot_animation=gem
-price=5
 bonus=defense,1
+price=2500
 
 [item]
 id=123
@@ -921,12 +885,13 @@ quality=epic
 item_type=chest
 icon=137
 abs=3
-req=d,2
+req=m,3
 soundfx=soundfx/inventory/inventory_cloth.ogg
 gfx=mage_vest
 loot_animation=clothes
-price=5
 bonus=MP,50
+bonus=ice resist,15
+price=500
 
 [item]
 id=124
@@ -936,27 +901,28 @@ quality=epic
 item_type=legs
 icon=139
 abs=3
-req=d,2
+req=m,3
 soundfx=soundfx/inventory/inventory_cloth.ogg
 gfx=mage_skirt
 loot_animation=clothes
-price=5
 bonus=MP regen,25
+bonus=fire resist,15
+price=500
 
 [item]
 id=125
 name=Monastery Sandals
 flavor=[TODO]
-quality=epic
+quality=high
 item_type=feet
 icon=132
 abs=1
 soundfx=soundfx/inventory/inventory_cloth.ogg
 gfx=cloth_sandals
 loot_animation=clothes
-price=5
 stepfx=cloth
 bonus=avoidance,15
+price=125
 
 [item]
 id=126
@@ -970,10 +936,10 @@ req=d,2
 soundfx=soundfx/inventory/inventory_leather.ogg
 gfx=mage_boots
 loot_animation=boots
-price=5
 stepfx=leather
 power=140
 power_desc=Use: Blink to a nearby location
+price=800
 
 [item]
 id=127
@@ -1019,3 +985,4 @@ soundfx=soundfx/inventory/inventory_cloth.ogg
 gfx=cloth_gloves
 loot_animation=clothes
 price=50
+
