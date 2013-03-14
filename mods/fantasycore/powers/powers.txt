@@ -521,11 +521,11 @@ hp_steal=50
 
 [power]
 id=37
-name=Leech Strike
+name=Zombie Bite
 type=fixed
 icon=1
-description=Turn 25% of damage you deal into HP
-new_state=swing
+description=Deal melee damage and cause bleeding for 3 seconds
+new_state=cast
 face=true
 use_hazard=true
 aim_assist=true
@@ -534,7 +534,7 @@ lifespan=1
 radius=64
 starting_pos=melee
 allow_power_mod=true
-hp_steal=50
+post_effect=200,5,90
 
 [power]
 id=38
