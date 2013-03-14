@@ -777,6 +777,10 @@ void GameStatePlay::logic() {
 			menu->act->locked[count] = true;
 		} else if (pc->stats.manual_untransform && pc->untransform_power == 0)
 			fprintf(stderr, "Untransform power not found, you can't untransform manually\n");
+
+		// reapply equipment if the transformation allows it
+		if (pc->stats.transform_with_equipment)
+			menu->inv->applyEquipment(menu->inv->inventory[EQUIPMENT].storage);
 	}
 	// revert hero powers
 	if (pc->revertPowers) {

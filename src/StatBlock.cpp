@@ -109,6 +109,7 @@ StatBlock::StatBlock()
 	, transform_duration(0)
 	, transform_duration_total(0)
 	, manual_untransform(false)
+	, transform_with_equipment(false)
 	, effects(EffectManager())
 	, pos(Point())
 	, forced_speed(Point())
@@ -117,7 +118,7 @@ StatBlock::StatBlock()
 	, poise(0)
 	, poise_base(0)
 	, cooldown_hit(0)
-	, cooldown_hit_ticks(0)	
+	, cooldown_hit_ticks(0)
 	, cur_state(0)
 	, waypoints(queue<Point>())		// enemy only
 	, waypoint_pause(0)				// enemy only
@@ -417,7 +418,7 @@ void StatBlock::calcBaseDmgAndAbs() {
 	dmg_ment_min = dmg_ment_max = bonus_per_mental * ment0;
 	dmg_ranged_min = dmg_ranged_max = bonus_per_offense * off0;
 	absorb_min = absorb_max = bonus_per_defense * def0;
-	
+
 }
 
 /**
@@ -446,7 +447,7 @@ void StatBlock::recalc_alt() {
 		accuracy = accuracy_base + (accuracy_per_level * lev0) + (accuracy_per_offense * off0) + effects.bonus_accuracy;
 		avoidance = avoidance_base + (avoidance_per_level * lev0) + (avoidance_per_defense * def0) + effects.bonus_avoidance;
 		crit = crit_base + (crit_per_level * lev0) + effects.bonus_crit;
-		
+
 	} else {
 		maxhp = hp_base + effects.bonus_hp;
 		maxmp = mp_base + effects.bonus_mp;
