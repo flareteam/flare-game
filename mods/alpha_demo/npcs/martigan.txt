@@ -46,42 +46,37 @@ topic=Chat
 requires_status=fr_rilrak_reward
 him=A member of the Order passed through our camp a few days ago. He left for the tower ruins in Ydrakka Pass.
 
-
 [dialog]
 topic=Rotten Tower
 requires_status=martigan_init
 requires_not=rotten_tower_search
-him=These areas were guarded well. There is yet another outpost tower in the wild.
-him=These are rough lands and... you're looking for an adventure!
-him=Let me know if the goblins found their way inside the abandoned tower.
+him=This region was once well guarded. There are watch towers positioned throughout these plains, but most are abandoned and crumbling now.
+him=I need someone to inspect the outpost tower in White Winds, south west of the Frontier Plains. Let me know if goblins have found their way inside.
 set_status=rotten_tower_search
 
 [dialog]
 topic=Rotten Tower Search
 requires_status=rotten_tower_search
 requires_not=rotten_tower_found
-him=Search for the abandoned tower southwest of the Frontier plains.
-him=The lands around there are called White Wind.
+him=Search for the abandoned tower southwest of the Frontier plains. The lands around there are called White Wind.
 
 [dialog]
 topic=Rotten Tower Found
 requires_status=rotten_tower_found
 requires_not=rotten_tower_inspected
-you=So there are plenty of goblins in the white winds area, but not near the tower.
-him=Are you sure?
-you=What do you mean? Of course I am!
-him=Did you look inside the tower? Did you make sure there aren't goblins in there?
+you=There are plenty of goblins in the White Winds area, but not near the tower.
+him=Are you sure? Did you look inside the tower?
 you=Well...
 
 [dialog]
 topic=Rotten Tower Found
 requires_status=rotten_tower_inspected
 requires_not=rotten_tower_reward
-you=So there are plenty of goblins in the white winds area, but not near the tower.
-him=Are you sure?
-you=I looked inside through the locked iron grate door. No goblins!
+you=There are plenty of goblins in the white winds area, but not near the tower.
+him=Are you sure? Did you look inside the tower?
+you=I saw no signs of goblins through the locked iron grate door.
 set_status=rotten_tower_reward
-him=Good! Here goes a little reward!
+him=Good! Have this small reward.
 reward_currency=25
 
 [dialog]
