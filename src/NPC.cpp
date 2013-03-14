@@ -159,6 +159,15 @@ void NPC::load(const string& npc_id, int hero_level) {
 						stock.add(stack);
 					}
 				}
+				else if (infile.key == "status_stock") {
+					if (map->camp->checkStatus(infile.nextValue())) {
+						stack.quantity = 1;
+						while (infile.val != "") {
+							stack.item = toInt(infile.nextValue());
+							stock.add(stack);
+						}
+					}
+				}
 
 				// handle vocals
 				else if (infile.key == "vox_intro") {

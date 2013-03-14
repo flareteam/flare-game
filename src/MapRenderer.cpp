@@ -998,14 +998,14 @@ void MapRenderer::checkEvents(Point loc) {
 
 		if ((*it).type == "on_clear") {
 			if (enemies_cleared && executeEvent(*it))
-				events.erase(it);
+				it = events.erase(it);
 		}
 		else if (maploc.x >= (*it).location.x &&
 			maploc.y >= (*it).location.y &&
 			maploc.x <= (*it).location.x + (*it).location.w-1 &&
 			maploc.y <= (*it).location.y + (*it).location.h-1) {
 			if (executeEvent(*it))
-				events.erase(it);
+				it = events.erase(it);
 		}
 	}
 }
