@@ -1088,6 +1088,7 @@ description=Move undetected with the opportunity to perform a sneak attack
 transform_duration=300
 manual_untransform=true
 cooldown=300
+keep_equipment=true
 
 [power]
 id=142
@@ -1116,7 +1117,7 @@ passive=true
 post_effect=216,100,0
 post_effect=217,50,0
 post_effect=233,90,0
-post_effect=235,1,450
+post_effect=235,1,300
 
 [power]
 id=159
