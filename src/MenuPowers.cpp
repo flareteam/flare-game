@@ -578,10 +578,10 @@ TooltipData MenuPowers::checkTooltip(Point mouse) {
 
 
 				// Required Power Tooltip
-				if ((power_cell[i].requires_power != 0) && !(requirementsMet(power_cell[i].id))) {
+				if ((power_cell[i].requires_power != 0) && !(requirementsMet(power_cell[i].requires_power))) {
 					tip.addText(msg->get("Requires Power: %s", powers->powers[power_cell[i].requires_power].name), color_penalty);
 				}
-				else if ((power_cell[i].requires_power != 0) && (requirementsMet(power_cell[i].id))) {
+				else if ((power_cell[i].requires_power != 0) && (requirementsMet(power_cell[i].requires_power))) {
 					tip.addText(msg->get("Requires Power: %s", powers->powers[power_cell[i].requires_power].name));
 				}
 
