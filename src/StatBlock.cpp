@@ -82,8 +82,6 @@ StatBlock::StatBlock()
 	, mp_ticker(0)
 	, accuracy(75)
 	, avoidance(0)
-	, cooldown_hit(0)
-	, cooldown_hit_ticks(0)
 	, crit(0)
 	, dmg_melee_min_default(1)
 	, dmg_melee_max_default(4)
@@ -118,6 +116,8 @@ StatBlock::StatBlock()
 	, hero_cooldown(vector<int>(POWER_COUNT, 0)) // hero only
 	, poise(0)
 	, poise_base(0)
+	, cooldown_hit(0)
+	, cooldown_hit_ticks(0)	
 	, cur_state(0)
 	, waypoints(queue<Point>())		// enemy only
 	, waypoint_pause(0)				// enemy only
