@@ -416,7 +416,7 @@ ItemStack LootManager::checkPickup(Point mouse, Point cam, Point hero_pos, int &
 
 				if (it->stack.item > 0 && !(inv->full(it->stack.item))) {
 					loot_stack = it->stack;
-					loot.erase(it);
+					it = loot.erase(it);
 					return loot_stack;
 				}
 				else if (it->stack.item > 0) {
@@ -424,7 +424,7 @@ ItemStack LootManager::checkPickup(Point mouse, Point cam, Point hero_pos, int &
 				}
 				else if (it->currency > 0) {
 					currency = it->currency;
-					loot.erase(it);
+					it = loot.erase(it);
 
 					return loot_stack;
 				}
@@ -450,7 +450,7 @@ ItemStack LootManager::checkAutoPickup(Point hero_pos, int &currency) {
 		if (abs(hero_pos.x - it->pos.x) < AUTOPICKUP_RANGE && abs(hero_pos.y - it->pos.y) < AUTOPICKUP_RANGE && !it->isFlying()) {
 			if (it->currency > 0 && AUTOPICKUP_CURRENCY) {
 				currency = it->currency;
-				loot.erase(it);
+				it = loot.erase(it);
 				return loot_stack;
 			}
 		}
