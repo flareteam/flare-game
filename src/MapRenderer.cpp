@@ -889,18 +889,17 @@ void MapRenderer::renderOrthoLayer(const unsigned short layerdata[256][256]) {
 	short int j;
 
 	for (j = startj; j < max_tiles_height; j++) {
+		Point p = map_to_screen(starti * UNITS_PER_TILE, j * UNITS_PER_TILE, shakycam.x, shakycam.y);
+		p = center_tile(p);
 		for (i = starti; i < max_tiles_width; i++) {
 
-			unsigned short current_tile = layerdata[i][j];
-
-			if (current_tile) {
+			if (const unsigned short current_tile = layerdata[i][j]) {
 				SDL_Rect dest;
-				Point p = map_to_screen(i * UNITS_PER_TILE, j * UNITS_PER_TILE, shakycam.x, shakycam.y);
-				p = center_tile(p);
 				dest.x = p.x - tset.tiles[current_tile].offset.x;
 				dest.y = p.y - tset.tiles[current_tile].offset.y;
 				SDL_BlitSurface(tset.sprites, &(tset.tiles[current_tile].src), screen, &dest);
 			}
+			p.x += TILE_W;
 		}
 	}
 }
@@ -931,17 +930,16 @@ void MapRenderer::renderOrthoFrontObjects(std::vector<Renderable> &r) {
 		++r_cursor;
 
 	for (j = startj; j<max_tiles_height; j++) {
+		Point p = map_to_screen(starti * UNITS_PER_TILE, j * UNITS_PER_TILE, shakycam.x, shakycam.y);
+		p = center_tile(p);
 		for (i = starti; i<max_tiles_width; i++) {
 
-			unsigned short current_tile = object[i][j];
-
-			if (current_tile) {
-				Point p = map_to_screen(i * UNITS_PER_TILE, j * UNITS_PER_TILE, shakycam.x, shakycam.y);
-				p = center_tile(p);
+			if (const unsigned short current_tile = object[i][j]) {
 				dest.x = p.x - tset.tiles[current_tile].offset.x;
 				dest.y = p.y - tset.tiles[current_tile].offset.y;
 				SDL_BlitSurface(tset.sprites, &(tset.tiles[current_tile].src), screen, &dest);
 			}
+			p.x += TILE_W;
 
 			while (r_cursor != r_end && (r_cursor->map_pos.y>>TILE_SHIFT) == j && (r_cursor->map_pos.x>>TILE_SHIFT) < i)
 				++r_cursor;
@@ -977,7 +975,7 @@ void MapRenderer::executeOnLoadEvents() {
 
 		if ((*it).type == "on_load") {
 			if (executeEvent(*it))
-				events.erase(it);
+				it = events.erase(it);
 		}
 	}
 }
@@ -1106,7 +1104,7 @@ void MapRenderer::checkHotspots() {
 
 						inpt->lock[MAIN1] = true;
 						if (executeEvent(*it))
-							events.erase(it);
+							it = events.erase(it);
 					}
 					return;
 				} else show_tooltip = false;
