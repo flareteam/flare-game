@@ -8,14 +8,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flare-game 0.17\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-21 20:50+\n"
+"POT-Creation-Date: 2013-03-15 20:52+\n"
 "PO-Revision-Date: 2012-09-25 02:18+0600\n"
 "Last-Translator: Sergey Basalaev <sbasalaev@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ru\n"
 
 #: ../items/items.txt:4
 msgid "main"
@@ -37,83 +37,91 @@ msgstr "Использование: шок"
 msgid "Boots of Testing Really Large Maps"
 msgstr "Ботинки для тестирования очень больших карт"
 
-#: ../items/items.txt:24
-msgid "artifact"
-msgstr "артефакт"
+#: ../items/items.txt:25
+msgid "feet"
+msgstr ""
 
-#: ../items/items.txt:27
+#: ../items/items.txt:29
 msgid "speed"
 msgstr "скорость"
 
-#: ../items/items.txt:29
+#: ../items/items.txt:31
 msgid "Use: Teleport"
 msgstr "Использование: телепорт"
 
-#: ../items/items.txt:33
+#: ../items/items.txt:35
 msgid "Adamantium Ring of Mutant Healing"
 msgstr "Адамантовое кольцо лечения мутанта"
 
-#: ../items/items.txt:39
+#: ../items/items.txt:38
+msgid "ring"
+msgstr ""
+
+#: ../items/items.txt:41
 msgid "HP regen"
 msgstr "восстановление здоровья"
 
-#: ../items/items.txt:45
+#: ../items/items.txt:47
 msgid "Averguard Tome"
 msgstr "Том Авергарда"
 
-#: ../items/items.txt:47
+#: ../items/items.txt:49
 msgid "This tome bears the seal of the Averguard"
 msgstr "На этом томе печать Авергарда"
 
-#: ../items/items.txt:48
+#: ../items/items.txt:50
 msgid "quest"
 msgstr "задание"
 
-#: ../items/items.txt:55
+#: ../items/items.txt:57
 msgid "Averguard Key"
 msgstr "Ключ Авергарда"
 
-#: ../items/items.txt:57
+#: ../items/items.txt:59
 msgid "Opens special doors in Averguard Keep"
 msgstr "Открывает специальные двери в цитадели Авергард"
 
-#: ../items/items.txt:65
+#: ../items/items.txt:67
 msgid "Langlier's Talisman"
 msgstr "Талисман Ланглиера"
 
-#: ../items/items.txt:68
+#: ../items/items.txt:70
 msgid "Etched runes surround this talisman"
 msgstr "Вытравленные руны окружают этот талисман"
 
-#: ../items/items.txt:78
+#: ../items/items.txt:80
 msgid "Scathelocke's Spellbook"
 msgstr "Книга заклинаний Сказлока"
 
-#: ../items/items.txt:84
+#: ../items/items.txt:83
+msgid "artifact"
+msgstr "артефакт"
+
+#: ../items/items.txt:86
 msgid "mental"
 msgstr "ментальную"
 
-#: ../items/items.txt:89
+#: ../items/items.txt:91
 msgid "Scathelocke's Key"
 msgstr "Ключ Сказлока"
 
-#: ../items/items.txt:91
+#: ../items/items.txt:93
 msgid "Opens Scathelocke's Runed Chest"
 msgstr "Открывает рунический сундук Сказлока"
 
-#: ../items/items.txt:99
+#: ../items/items.txt:101
 msgid "Vesuvvio's Key"
 msgstr "Ключ Везувия"
 
-#: ../items/items.txt:101
+#: ../items/items.txt:103
 msgid "Opens Vesuvvio's Runed Chest"
 msgstr "Открывает рунический сундук Везувия"
 
-#: ../items/items.txt:109
+#: ../items/items.txt:111
 msgid "Grisbon's Key"
 msgstr "Ключ Гризбона"
 
-#: ../items/items.txt:111
+#: ../items/items.txt:113
 msgid "Opens Grisbon's Runed Chest"
 msgstr "Открывает рунический сундук Гризбона"
 
@@ -132,6 +140,10 @@ msgstr "Ученик некроманта"
 #: ../enemies/professor_langlier.txt:1
 msgid "Professor Langlier"
 msgstr "Профессор Ланглиер"
+
+#: ../enemies/reanimated_skeleton.txt:1
+msgid "Reanimated Skeleton"
+msgstr ""
 
 #: ../enemies/rilrak.txt:1
 msgid "Rilrak, Goblin Shaman"
@@ -165,403 +177,419 @@ msgstr "Укконен, вожак гоблинов"
 msgid "Vesuvvio (the Destroyer)"
 msgstr "Везувий (Разрушитель)"
 
-#: ../maps/ancient_temple.txt:6
+#: ../maps/ancient_temple.txt:8
 msgid "Ancient Temple"
 msgstr "Древний храм"
 
-#: ../maps/ancient_temple.txt:434
+#: ../maps/ancient_temple.txt:445
 msgid "Treasure Chest"
 msgstr "Сундук"
 
-#: ../maps/ancient_temple.txt:452
+#: ../maps/ancient_temple.txt:465
 msgid "Tho' Nature, red in tooth and claw; With ravine, shriek'd against his creed"
 msgstr "Tho' Nature, red in tooth and claw; With ravine, shriek'd against his creed"
 
-#: ../maps/ancient_temple.txt:454
+#: ../maps/ancient_temple.txt:467
 msgid "In Memoriam"
 msgstr "In Memoriam"
 
-#: ../maps/ancient_temple.txt:599
+#: ../maps/ancient_temple.txt:612
 msgid "Ancient Temple waypoint discovered."
 msgstr "Обнаружена точка перехода в древний храм."
 
-#: ../maps/ancient_temple.txt:609
+#: ../maps/ancient_temple.txt:622
 msgid "Warp Zone"
 msgstr "Зона перехода"
 
-#: ../maps/averguard_academy.txt:2
+#: ../maps/averguard_academy.txt:9
 msgid "Averguard Academy"
 msgstr "Академия Авергарда"
 
-#: ../maps/averguard_academy.txt:339
-msgid "Book Stand"
-msgstr "Книжная стойка"
-
-#: ../maps/averguard_academy.txt:342
+#: ../maps/averguard_academy.txt:345
 msgid "\"Some say the Averguard Academy is the greatest collection of knowledge within the empire.\""
 msgstr "«Говорят, академия Авергарда — это величайшее собрание знаний в империи.»"
 
-#: ../maps/averguard_academy.txt:351
+#: ../maps/averguard_academy.txt:347
+msgid "Book Stand"
+msgstr "Книжная стойка"
+
+#: ../maps/averguard_academy.txt:355
 msgid "\"Professor Langlier is High Sage of the Averguard.  Several volumes kept here are his own writings.\""
 msgstr "«Профессор Ланглиер является высшим мудрецом Авергарда.  Некоторые из здешних книг — его собственные сочинения.»"
 
-#: ../maps/averguard_academy.txt:360
+#: ../maps/averguard_academy.txt:365
 msgid "\"The Academy is only open to oathkeeping members of the Averguard.  Few others know of its existence.\""
 msgstr "«Академия открыта лишь для членов Авергарда, давших присягу.  Немногие другие знают о её существовании.»"
 
-#: ../maps/averguard_academy.txt:369
+#: ../maps/averguard_academy.txt:375
 msgid "\"The peasants could not be trusted with literacy.  Most gave up their books without incident.\""
 msgstr "«Крестьянам нельзя было доверять литературу.  Большинство отдали свои книги без происшествий.»"
 
-#: ../maps/averguard_academy.txt:379
+#: ../maps/averguard_academy.txt:386
 msgid "This false book has a secret compartment."
 msgstr "В этой ложной книге есть секретное отделение."
 
-#: ../maps/averguard_academy.txt:385
+#: ../maps/averguard_academy.txt:399
 msgid "Barrel"
 msgstr "Бочка"
 
-#: ../maps/averguard_academy.txt:422
+#: ../maps/averguard_academy.txt:437
 msgid "Crate"
 msgstr "Ящик"
 
-#: ../maps/averguard_academy.txt:452
+#: ../maps/averguard_academy.txt:462
 msgid "This tomb glows with magical runes."
 msgstr "Эта гробница сияет магическими рунами."
 
-#: ../maps/averguard_academy.txt:459
+#: ../maps/averguard_academy.txt:470
 msgid "Langlier's Tomb"
 msgstr "Гробница Ланглиера"
 
-#: ../maps/averguard_atrium.txt:2
+#: ../maps/averguard_atrium.txt:9
 msgid "Averguard Atrium"
 msgstr "Атриум Авергарда"
 
-#: ../maps/averguard_atrium.txt:275
+#: ../maps/averguard_atrium.txt:264
 msgid "Averguard Atrium waypoint discovered"
 msgstr "Обнаружена точка перехода в атриум Авергарда"
 
-#: ../maps/averguard_complex.txt:2
+#: ../maps/averguard_complex.txt:9
 msgid "Averguard Complex"
 msgstr "Комплекс Авергарда"
 
-#: ../maps/averguard_complex.txt:468
+#: ../maps/averguard_complex.txt:472
 msgid "This book is entitled \"Training Your Antlion\". Chapter 1 is \"How Not To Get Eaten\". The rest of the book is unfinished."
 msgstr "Эта книга называется «Воспитайте своего муравьиного льва».  Первая глава — «Как не быть съеденым».  Остальная часть книги не закончена."
 
-#: ../maps/averguard_complex.txt:884
+#: ../maps/averguard_complex.txt:586
 msgid "Switch System"
 msgstr "Система переключателей"
 
-#: ../maps/averguard_prison.txt:2
+#: ../maps/averguard_prison.txt:9
 msgid "Averguard Prison"
 msgstr "Тюрьма Авергарда"
 
-#: ../maps/averguard_prison.txt:359
+#: ../maps/averguard_prison.txt:366
 msgid "Switch"
 msgstr "Переключатель"
 
-#: ../maps/averguard_prison.txt:372
+#: ../maps/averguard_prison.txt:374
 msgid "The last entry of this well-preserved journal reads: \"I feared it would come to this.  I knew the Warden's secrets but they would not be contained forever.\""
 msgstr "Последняя запись в хорошо сохранившемся журнале гласит: «Я боялся, что дойдёт до этого.  Я знал секреты привратника, но они не могли храниться вечно.»"
 
-#: ../maps/averguard_temple.txt:2
+#: ../maps/averguard_temple.txt:8
 msgid "Averguard Temple"
 msgstr "Храм Авергарда"
 
-#: ../maps/averguard_temple.txt:441
-msgid "Sealed Temple Door"
-msgstr "Запертая дверь храма"
-
-#: ../maps/averguard_temple.txt:445
+#: ../maps/averguard_temple.txt:448
 msgid "You insert the Averguard Key. Runes glow around the door, then fade. The door is still sealed."
 msgstr "Вы вставляете ключ Авергарда. Руны вокруг двери начинают сиять, но затем гаснут. Дверь по-прежнему заперта."
 
 #: ../maps/averguard_temple.txt:453
-msgid "Activate Talisman"
-msgstr "Активировать талисман"
+msgid "Sealed Temple Door"
+msgstr "Запертая дверь храма"
 
-#: ../maps/averguard_temple.txt:458
+#: ../maps/averguard_temple.txt:460
 msgid "You read aloud the runes on Langlier's Talisman. The Avergard Key begins to glow!"
 msgstr "Вы громко читаете руны на талисмане Ланглиера. Ключ Авергарда начинает сиять!"
 
-#: ../maps/averguard_temple.txt:465
+#: ../maps/averguard_temple.txt:466
+msgid "Activate Talisman"
+msgstr "Активировать талисман"
+
+#: ../maps/averguard_temple.txt:475
 msgid "Temple Door"
 msgstr "Дверь храма"
 
-#: ../maps/averguard_temple.txt:477
+#: ../maps/averguard_temple.txt:482
 msgid "\"Some said Sir Maddox cared too much for the peasants.  He would not quarantine, saying the villagers did not deserve to die locked away.\""
 msgstr "«Поговаривали, что Сэр Мэддокс слишком сильно заботился о крестьянах.  Он не подвергал их карантину, говоря, что селяне не заслуживают смерти взаперти.»"
 
-#: ../maps/averguard_temple.txt:485
+#: ../maps/averguard_temple.txt:491
 msgid "\"Maddox died of the plague in 638.  After attempts to magically revive him failed he was sealed deep behind the temple.\""
 msgstr "«Мэддокс умер от чумы в 638 году.  После того, как попытки магически оживить его завершились неудачей, он был крепко заперт глубоко внутри храма.»"
 
-#: ../maps/averguard_temple.txt:494
+#: ../maps/averguard_temple.txt:500
 msgid "This chest is locked."
 msgstr "Этот сундук заперт."
 
-#: ../maps/averguard_temple.txt:509
+#: ../maps/averguard_temple.txt:517
 msgid "A plaque under the statue reads \"Sir Evan Maddox, may he return to rescue us all\""
 msgstr "Табличка под статуей гласит «Сэр Эван Мэддокс, дабы вернулся он и оберегал нас всех»"
 
-#: ../maps/averguard_temple.txt:516
+#: ../maps/averguard_temple.txt:523
 msgid "A ghastly voice reverberates from the next chamber.  \"What fool disturbs my tomb?!\""
 msgstr "Слышен раскатистый жуткий голос из соседней залы: «Что за дурак вторгся в мою гробницу?!»"
 
-#: ../maps/averguard_temple.txt:522
-msgid "Maddox's Tomb"
-msgstr "Гробница Мэддокса"
-
-#: ../maps/averguard_temple.txt:523
+#: ../maps/averguard_temple.txt:530
 msgid "You wipe dust away from the tomb lid, revealing an inscription: \"Here lies Sir Evan Maddox\""
 msgstr "Вы стираете пыль с крышки гробницы и видите надпись: «Здесь лежит сэр Эван Мэддокс»"
 
-#: ../maps/brothers_lair_atrium.txt:6
+#: ../maps/averguard_temple.txt:531
+msgid "Maddox's Tomb"
+msgstr "Гробница Мэддокса"
+
+#: ../maps/brothers_lair_atrium.txt:8
 msgid "Brothers' Lair Atrium"
 msgstr "Атриум логова Братьев"
 
-#: ../maps/brothers_lair_atrium.txt:236
+#: ../maps/brothers_lair_atrium.txt:248
 msgid "Brothers Lair Atrium waypoint discovered"
 msgstr "Обнаружена точка перехода в атриум логова Братьев"
 
-#: ../maps/brothers_lair_fire_hall.txt:6
+#: ../maps/brothers_lair_fire_hall.txt:8
 msgid "Brothers' Lair Fire Hall"
 msgstr "Зал огня логова Братьев"
 
-#: ../maps/brothers_lair_fire_hall.txt:333
+#: ../maps/brothers_lair_fire_hall.txt:346
 msgid "Runed Chest"
 msgstr "Рунический сундук"
 
-#: ../maps/brothers_lair_fire_hall.txt:353
+#: ../maps/brothers_lair_fire_hall.txt:366
 msgid "\"Today Pompeii got a little over-excited to meet me and blew himself up. So I had to go into the caves and catch myself a NEW antlion burster. Again. I think I'm going to name this one 'Krakatoa'. ~Vesuvvio (the Destroyer)\""
 msgstr "«Сегодня Помпей немного перевозбудился, увидев меня, и взорвался. Так что мне пришлось спуститься в пещеры и поймать себе НОВОГО муравьиного льва взрывателя. Я думаю, что назову его 'Кракатау'. ~Везувий (Разрушитель)»"
 
-#: ../maps/brothers_lair_ice_hall.txt:6
+#: ../maps/brothers_lair_ice_hall.txt:8
 msgid "Brothers' Lair Ice Hall"
 msgstr "Зал льда логова Братьев"
 
-#: ../maps/brothers_lair_ice_hall.txt:275
+#: ../maps/brothers_lair_ice_hall.txt:287
 msgid "Suspicious Bookcase"
 msgstr "Подозрительная книжная полка"
 
-#: ../maps/brothers_lair_ice_hall.txt:283
+#: ../maps/brothers_lair_ice_hall.txt:295
 msgid "\"When we could no longer stand the idiotic practices of our master, I hatched a plan to kill him. My brothers agreed the deed had to be done.\""
 msgstr "«Когда мы уже не могли терпеть идиотские упражнения нашего мастера, я разработал план его убийства. Мои братья согласились, что сделать это необходимо.»"
 
-#: ../maps/brothers_lair_ice_hall.txt:293
+#: ../maps/brothers_lair_ice_hall.txt:305
 msgid "\"In accordance with our plan, G. asked the old fool to teach him about the preparation of corpses in the later stages of decay. Naturally, the corpse in question was a cleverly disguised bomb made by V.\""
 msgstr "«В соответствии с нашим планом, Г. попросил старого дурака научить его приготовлению тел в поздних стадиях разложения. Естественно, тело, о котором шла речь, было хорошо замаскированной бомбой, сделанной В.»"
 
-#: ../maps/brothers_lair_ice_hall.txt:302
+#: ../maps/brothers_lair_ice_hall.txt:314
 msgid "\"My brothers and I wandered around for a few days. In an incredible stroke of luck, we encountered a master necromancer who, seeing the marks of banishment on our foreheads, took us as his apprentices.\""
 msgstr "«Мои братья и я слонялись вокруг несколько дней. Благодаря невероятной удаче мы наткнулись на мастера некроманта, который, увидев отметки изгнания на наших лбах, взял нас в качестве своих учеников.»"
 
-#: ../maps/brothers_lair_ice_hall.txt:304
+#: ../maps/brothers_lair_ice_hall.txt:316
 msgid "Bookcase"
 msgstr "Книжная полка"
 
-#: ../maps/brothers_lair_ice_hall.txt:312
+#: ../maps/brothers_lair_ice_hall.txt:324
 msgid "\"We grew swiftly under the tutelage of the necromancer. The more we learned, the more we realized we could do better than the short-sighted git.\""
 msgstr "«Наше умение стремительно росло под опекой некроманта. Чем больше мы узнавали, тем больше мы понимали, что могли сделать лучше, чем близорукий мерзавец.»"
 
-#: ../maps/brothers_lair_ice_hall.txt:322
+#: ../maps/brothers_lair_ice_hall.txt:334
 msgid "\"My brothers V. and G. used to go to a wizard's academy with me. We were top students until one day V. killed another student in a spontaneous fit of rage.\""
 msgstr "«Мои братья В. и Г. посещали вместе со мной академию волшебства. Мы были лучшими студентами до того дня, как В. убил другого студента в приступе спонтанной ярости.»"
 
-#: ../maps/brothers_lair_ice_hall.txt:332
+#: ../maps/brothers_lair_ice_hall.txt:344
 msgid "\"Naturally, V. was expelled for his crime. It was foolish of us, but G. and I decided to defend our brother. We were expelled too. The wizards magically marked us with a sign of banishment on our foreheads so that no wizard would dare teach us.\""
 msgstr "«Естественно, В. был исключён за своё преступление. Это было дурацким поступком, но мы с Г. решили защитить нашего брата. Нас тоже исключили. Чародеи магически пометили нас знаком изгнания на лбах, чтобы ни один волшебник не посмел учить нас.»"
 
-#: ../maps/brothers_lair_ice_hall.txt:342
+#: ../maps/brothers_lair_ice_hall.txt:354
 msgid "\"G. suggested that each of us should take one of the halls in the old necromancer's lair.\""
 msgstr "«Г. предложил, чтобы каждый из нас занял один из залов в логове старого некроманта.»"
 
-#: ../maps/brothers_lair_ice_hall.txt:352
+#: ../maps/brothers_lair_ice_hall.txt:364
 msgid "\"It's days like today that make me wonder if I should go a step further and eliminate V. and G. too... they're getting on my nerves. ~Scathelocke\""
 msgstr "«Такие дни, как сегодня, заставляют меня задуматься, не стоит ли мне пойти дальше и уничтожить В. и Г. тоже... они действуют мне на нервы. ~Сказлок»"
 
-#: ../maps/brothers_lair_sacrifice_room.txt:2
+#: ../maps/brothers_lair_sacrifice_room.txt:9
 msgid "Brothers' Sacrifice Room"
 msgstr "Жертвенная комната Братьев"
 
-#: ../maps/brothers_lair_wind_hall.txt:6
+#: ../maps/brothers_lair_wind_hall.txt:8
 msgid "Brothers' Lair Wind Hall"
 msgstr "Зал воздуха логова Братьев"
 
-#: ../maps/brothers_lair_wind_hall.txt:179
+#: ../maps/brothers_lair_wind_hall.txt:191
 msgid "Rising Wind Switch"
 msgstr "Выключатель поднимающегося воздуха"
 
-#: ../maps/brothers_lair_wind_hall.txt:191
+#: ../maps/brothers_lair_wind_hall.txt:203
 msgid "Rising Fire Switch"
 msgstr "Выключатель поднимающегося огня"
 
-#: ../maps/brothers_lair_wind_hall.txt:203
+#: ../maps/brothers_lair_wind_hall.txt:212
 msgid "Rising Ice Switch"
 msgstr "Выключатель поднимающегося льда"
 
-#: ../maps/brothers_lair_wind_hall.txt:212
+#: ../maps/brothers_lair_wind_hall.txt:224
 msgid "Falling Ice Switch"
 msgstr "Выключатель опускающегося льда"
 
-#: ../maps/brothers_lair_wind_hall.txt:224
+#: ../maps/brothers_lair_wind_hall.txt:233
 msgid "Falling Wind Switch"
 msgstr "Выключатель опускающегося воздуха"
 
-#: ../maps/brothers_lair_wind_hall.txt:233
+#: ../maps/brothers_lair_wind_hall.txt:245
 msgid "Falling Fire Switch"
 msgstr "Выключатель опускающегося огня"
 
-#: ../maps/brothers_lair_wind_hall.txt:245
+#: ../maps/brothers_lair_wind_hall.txt:257
 msgid "Waiting Wind Switch"
 msgstr "Выключатель ожидающего воздуха"
 
-#: ../maps/brothers_lair_wind_hall.txt:258
+#: ../maps/brothers_lair_wind_hall.txt:267
 msgid "Waiting Fire Switch"
 msgstr "Выключатель ожидающего огня"
 
-#: ../maps/brothers_lair_wind_hall.txt:267
+#: ../maps/brothers_lair_wind_hall.txt:279
 msgid "Waiting Ice Switch"
 msgstr "Выключатель ожидающего льда"
 
-#: ../maps/brothers_lair_wind_hall.txt:280
+#: ../maps/brothers_lair_wind_hall.txt:287
 msgid "\"Fire is either Falling or Waiting. One element, one temperament.\""
 msgstr "«Огонь или опускается или ожидает. Один элемент, один темперамент.»"
 
-#: ../maps/brothers_lair_wind_hall.txt:290
+#: ../maps/brothers_lair_wind_hall.txt:297
 msgid "\"Wind is not Rising. Wind is Falling on the firmament.\""
 msgstr "«Воздух не поднимается. Воздух опускается с небесного свода.»"
 
-#: ../maps/brothers_lair_wind_hall.txt:308
+#: ../maps/brothers_lair_wind_hall.txt:315
 msgid "\"People used to ask me why I use a sword rather than a wand. It never occurs to them that the metal blade can conduct and channel lightning as well as (or better than!) any enchanted twig. ~Grisbon\""
 msgstr "«Люди часто спрашивают меня, почему я использую меч, а не посох. Им не приходит на ум, что металлическое лезвие проводит молнию также хорошо (и даже лучше!) как и любая зачарованная палка. ~Гризбон»"
 
-#: ../maps/cave1.txt:2
+#: ../maps/cave1.txt:9
 msgid "Caves Level 1"
 msgstr "Пещеры, уровень 1"
 
-#: ../maps/cave1.txt:351
+#: ../maps/cave1.txt:346
 msgid "Mine Cart"
 msgstr "Вагонетка"
 
-#: ../maps/cave1.txt:466
+#: ../maps/cave1.txt:380
 msgid "The crumbling walls of the south tunnel are held up by planks of rotting wood."
 msgstr "Осыпающиеся стены южного туннеля поддерживаются прогнившими деревянными досками."
 
-#: ../maps/cave1.txt:568
+#: ../maps/cave1.txt:462
 msgid "These goblins have captured a human trader.  Human bones are carefully arranged around the pillar in preparation for a goblin ritual."
 msgstr "Эти гоблины поймали торговца.  Человеческие кости аккуратно разложены вокруг колонны в преддверии гоблинского ритуала."
 
-#: ../maps/cave1.txt:574
+#: ../maps/cave1.txt:469
 msgid "Talrych says, \"You arrived just in time.  Please, take this.\""
 msgstr "Талрич говорит: «Ты прибыл как раз вовремя.  Возьми это.»"
 
-#: ../maps/cave1.txt:615
+#: ../maps/cave1.txt:476
 msgid "The walls collapse inward and rubble blocks off the passage!"
 msgstr "Стены рушатся и обломки блокируют проход!"
 
-#: ../maps/cave_of_living_bones1.txt:6
+#: ../maps/cave_of_living_bones1.txt:8
 msgid "Cave of Living Bones 1"
 msgstr "Пещера живых костей 1"
 
-#: ../maps/cave_of_living_bones2.txt:6
+#: ../maps/cave_of_living_bones2.txt:8
 msgid "Cave of Living Bones 2"
 msgstr "Пещера живых костей 2"
 
-#: ../maps/cave_of_living_bones2.txt:317
+#: ../maps/cave_of_living_bones2.txt:319
 msgid "This pillar is laced with cracks and crevices. Maybe with enough force it can be knocked down."
 msgstr "Эта колонна испещрена трещинами и разломами. Может быть, имея достаточно силы, её можно свалить."
 
-#: ../maps/cave_of_living_bones2.txt:320
+#: ../maps/cave_of_living_bones2.txt:322
 msgid "Giant Pillar"
 msgstr "Гигантская колонна"
 
-#: ../maps/cave_of_living_bones2.txt:331
+#: ../maps/cave_of_living_bones2.txt:333
 msgid "Place Explosive"
 msgstr "Положить взрывчатку"
 
-#: ../maps/cave_of_living_bones3.txt:6
+#: ../maps/cave_of_living_bones3.txt:8
 msgid "Cave of Living Bones 3"
 msgstr "Пещера живых костей 3"
 
-#: ../maps/cave_of_living_bones3.txt:128
+#: ../maps/cave_of_living_bones3.txt:129
 msgid "Crate of Blasting Powder"
 msgstr "Ящик взрывчатого порошка"
 
-#: ../maps/frontier_outpost.txt:6
+#: ../maps/frontier_outpost.txt:8
 msgid "Frontier Outpost"
 msgstr "Застава рубежа"
 
-#: ../maps/frontier_outpost.txt:262
+#: ../maps/frontier_outpost.txt:273
 msgid "Shared Stash"
 msgstr "Общие запасы"
 
-#: ../maps/frontier_outpost.txt:269
+#: ../maps/frontier_outpost.txt:280
 msgid "Frontier Outpost waypoint discovered."
 msgstr "Обнаружен переход в заставу рубежа."
 
-#: ../maps/frontier_plains.txt:6
+#: ../maps/frontier_plains.txt:8
 msgid "Frontier Plains"
 msgstr "Равнины рубежа"
 
-#: ../maps/frontier_plains.txt:826
+#: ../maps/frontier_plains.txt:838
 msgid "Supplies"
 msgstr "Припасы"
 
-#: ../maps/goblin_warrens.txt:2
+#: ../maps/goblin_warrens.txt:9
 msgid "Goblin Warrens"
 msgstr "Угодья гоблинов"
 
-#: ../maps/goblin_warrens.txt:319
+#: ../maps/goblin_warrens.txt:326
 msgid "This book bears the seal of the Averguard"
 msgstr "На этой книге печать Авергарда"
 
-#: ../maps/goblin_warrens.txt:329
+#: ../maps/goblin_warrens.txt:338
 msgid "\"In the Age of Settlement, the Averguard Knights defended peasants against the chaos of the wilderness.\""
 msgstr "«В эпоху колонизации рыцари Авергарда защищали крестьян от хаоса дикой местности.»"
 
-#: ../maps/goblin_warrens.txt:338
+#: ../maps/goblin_warrens.txt:348
 msgid "\"Sir Evan Maddox led the Averguard when the plague struck.  Powerful clerics from the corners of the world were brought here.  By the time a cure was found it was too late.\""
 msgstr "«Сэр Эван Мэддокс руководил Авергардом, когда началась чума.  Могущественные лекари со всех концов света были доставлены сюда.  Но к тому времени, как было найдено лекарство, было уже слишком поздно.»"
 
-#: ../maps/lost_mines1.txt:2
+#: ../maps/lost_mines1.txt:9
 msgid "Lost Mines Level 1"
 msgstr "Потерянные шахты, уровень 1"
 
-#: ../maps/lost_mines1.txt:384
-msgid "The undead in this room are dressed in the remnants of shredded mining clothes."
-msgstr "Нежить в этой комнате одета в обрывки шахтёрской одежды."
-
-#: ../maps/lost_mines1.txt:390
+#: ../maps/lost_mines1.txt:356
 msgid "It looks like the necromancer has been raising the corpses of dead miners as his minions."
 msgstr "Похоже, некромант воскрешал тела мёртвых шахтёров в качестве своих слуг."
 
-#: ../maps/lost_mines1.txt:525
+#: ../maps/lost_mines1.txt:416
 msgid "A natural underground river flows through this room."
 msgstr "Естественная подземная река течёт через эту комнату."
 
-#: ../maps/lost_mines1.txt:531
-msgid "The river appears to have swollen recently, covering the location where the tracks once were."
-msgstr "Похоже, что вода в реке недавно поднялась, залив пространство, где раньше была дорога."
-
-#: ../maps/lost_mines1.txt:538
+#: ../maps/lost_mines1.txt:453
 msgid "Stalagmite Pillar"
 msgstr "Сталагмитовая колонна"
 
-#: ../maps/river_encampment.txt:6
+#: ../maps/lost_mines1.txt:459
+msgid "The river appears to have swollen recently, covering the location where the tracks once were."
+msgstr "Похоже, что вода в реке недавно поднялась, залив пространство, где раньше была дорога."
+
+#: ../maps/lost_mines1.txt:483
+msgid "The undead in this room are dressed in the remnants of shredded mining clothes."
+msgstr "Нежить в этой комнате одета в обрывки шахтёрской одежды."
+
+#: ../maps/mineshaft_longsword.txt:8
+msgid "Mineshaft Longsword"
+msgstr ""
+
+#: ../maps/river_encampment.txt:8
 msgid "River Encampment"
 msgstr "Речной лагерь"
 
-#: ../maps/warp_zone.txt:233
+#: ../maps/warp_zone.txt:244
 msgid "Ydrakka Pass"
 msgstr "Путь Идракка"
 
-#: ../maps/warp_zone.txt:249
+#: ../maps/warp_zone.txt:260
 msgid "Brothers Lair Atrium"
 msgstr "Атриум логова Братьев"
 
-#: ../maps/ydrakka_pass.txt:373
+#: ../maps/white_wind.txt:8
+msgid "White Wind"
+msgstr ""
+
+#: ../maps/white_wind.txt:446
+msgid "So, there it is. The abandoned tower!"
+msgstr ""
+
+#: ../maps/white_wind.txt:454
+msgid "Looking through the grate... The tower is just empty."
+msgstr ""
+
+#: ../maps/ydrakka_pass.txt:384
 msgid "Ydrakka Pass waypoint discovered."
 msgstr "Обнаружена точка перехода в путь Идракка"
 
@@ -569,47 +597,47 @@ msgstr "Обнаружена точка перехода в путь Идрак�
 msgid "Defeat Ukkonen in the Goblin Warrens."
 msgstr "Убейте Укконена в Угодьях гоблинов."
 
-#: ../quests/averguard_keep.txt:13
+#: ../quests/averguard_keep.txt:14
 msgid "Report your victory over Ukkonen to Guill in the Goblin Warrens."
 msgstr "Доложите о победе над Укконеном Гвиллу в Угодьях гоблинов."
 
-#: ../quests/averguard_keep.txt:18
+#: ../quests/averguard_keep.txt:19
 msgid "Search Ukkonen's lair in the Goblin Warrens for a missing Averguard Tome."
 msgstr "Поищите пропавший том Авергарда в логове Укконена в Угодьях гоблинов."
 
-#: ../quests/averguard_keep.txt:23
+#: ../quests/averguard_keep.txt:24
 msgid "Deliver the Averguard Tome to Guill in the Goblin Warrens."
 msgstr "Доставьте том Авергарда Гвиллу в Угодьях гоблинов."
 
-#: ../quests/averguard_keep.txt:28
+#: ../quests/averguard_keep.txt:29
 msgid "Find the Averguard Key. It is held in Averguard Prison."
 msgstr "Найдите ключ Авергарда. Он находится в тюрьме Авергарда."
 
-#: ../quests/averguard_keep.txt:33
+#: ../quests/averguard_keep.txt:34
 msgid "Tell Guill that you have found the Averguard Key."
 msgstr "Скажите Гвиллу, что вы нашли ключ Авергарда."
 
-#: ../quests/averguard_keep.txt:38
+#: ../quests/averguard_keep.txt:40
 msgid "Use the Averguard Key to enter the burial chamber deep within Averguard Temple."
 msgstr "Используйте ключ Авергарда, чтобы войти в усыпальницу глубоко внутри храма Авергарда."
 
-#: ../quests/averguard_keep.txt:43
+#: ../quests/averguard_keep.txt:45
 msgid "The Averguard Key did not open the burial chamber door. Speak to Guill for help."
 msgstr "Ключ Авергарда не открыл дверь усыпальницы. Обратитесь за помощью к Гвиллу."
 
-#: ../quests/averguard_keep.txt:48
+#: ../quests/averguard_keep.txt:50
 msgid "Search the Averguard Academy for Professor Langlier's secret to breaking the Burial Chamber seal."
 msgstr "Поищите в академии Авергарда секрет профессора Ланглиера, как открыть замок усыпальницы."
 
-#: ../quests/averguard_keep.txt:53
+#: ../quests/averguard_keep.txt:55
 msgid "Show Langlier's Talisman to Guill."
 msgstr "Покажите талисман Ланглиера Гвиллу."
 
-#: ../quests/averguard_keep.txt:58
+#: ../quests/averguard_keep.txt:60
 msgid "Enter the Averguard Temple burial chamber and defeat Sir Evan Maddox."
 msgstr "Войдите в усыпальницу храма Авергарда и убейте Сэра Эвана Мэддокса."
 
-#: ../quests/averguard_keep.txt:63
+#: ../quests/averguard_keep.txt:65
 msgid "Report Maddox's defeat to Guill"
 msgstr "Доложите о победе над Мэддоксом Гвиллу."
 
@@ -617,7 +645,7 @@ msgstr "Доложите о победе над Мэддоксом Гвиллу.
 msgid "Defeat the goblins at the River Encampment"
 msgstr "Уничтожьте гоблинов в речном лагере"
 
-#: ../quests/frontier.txt:9
+#: ../quests/frontier.txt:10
 msgid "River Encampment cleared. Return to Martigan for your reward."
 msgstr "Речной лагерь очищен. Вернитесь к Мартигану за наградой."
 
@@ -673,6 +701,26 @@ msgstr "Используйте ключ Везувия, чтобы открыт�
 msgid "Use Grisbon's Key to open his runed chest."
 msgstr "Используйте ключ Гризбона, чтобы открыть его рунический сундук."
 
+#: ../quests/mineshaft_longsword.txt:4
+msgid "Find and defeat the Reanimated Skeleton in Mineshaft Longsword."
+msgstr ""
+
+#: ../quests/mineshaft_longsword.txt:10
+msgid "Report the defeat of the Reanimated Skeleton to Martigan."
+msgstr ""
+
+#: ../quests/rotten_tower.txt:5
+msgid "Search the rotten tower south west of the frontier plains. Beware of danger!"
+msgstr ""
+
+#: ../quests/rotten_tower.txt:10
+msgid "Inspect the tower more closely!"
+msgstr ""
+
+#: ../quests/rotten_tower.txt:15
+msgid "Return to Martigan and tell him about the empty abandoned tower!"
+msgstr ""
+
 #: ../npcs/captured_trader.txt:2
 msgid "Talrych, Captured Trader"
 msgstr "Талрич, пойманный торговец"
@@ -681,109 +729,153 @@ msgstr "Талрич, пойманный торговец"
 msgid "Guill, Scribe of the Order"
 msgstr "Гвилл, летописец Ордена"
 
-#: ../npcs/guill.txt:20
+#: ../npcs/guill.txt:15
+msgid "Chat"
+msgstr ""
+
+#: ../npcs/guill.txt:18
 msgid "I am Guill, a scribe with the Order. I am grateful you've come -- we are short on trained warriors due to the call-to-arms in Ancelot."
 msgstr "Я Гвилл, летописец Ордена. Я признателен, что ты пришёл — нам не хватает обученных воинов в связи с призывом к оружию в Анцелоте."
 
-#: ../npcs/guill.txt:21
+#: ../npcs/guill.txt:19
 msgid "Why is the Order interested in these ruins?"
 msgstr "Почему Ордену интересны эти руины?"
 
-#: ../npcs/guill.txt:22
+#: ../npcs/guill.txt:20
 msgid "What the locals call the Goblin Warrens is actually the entrance to a grand underground fortress known as Averguard Keep. This site is sacred to our order. Our primary mission is to cleanse the evil from this place."
 msgstr "То, что местные называют охотничими угодьями гоблинов, на самом деле вход в подземную крепость, известную как цитадель Авергард. Это место священно для нашего ордена. Наша основная цель — очистить это место от зла."
 
-#: ../npcs/guill.txt:27
+#: ../npcs/guill.txt:23
+#, fuzzy
+msgid "Goblins Warrens"
+msgstr "Угодья гоблинов"
+
+#: ../npcs/guill.txt:28
 msgid "The goblins in the Warrens answer to a warlord named Ukkonen. Most goblins are merely curious; this Ukkonen is bloodthirsty. Punish him for desecrating this place. His lair is here in the Warrens."
 msgstr "Гоблины в угодьях подчиняются военачальнику по имени Укконен. Большинство гоблинов просто любопытны; этот Укконен кровожаден. Накажи его за осквернение этого места. Его логово находится здесь, в угодьях."
 
-#: ../npcs/guill.txt:32
+#: ../npcs/guill.txt:31
+msgid "Ukkonen Search"
+msgstr ""
+
+#: ../npcs/guill.txt:34
+#, fuzzy
+msgid "Ukkonen's lair is somewhere here in the Goblin Warrens."
+msgstr "Убейте Укконена в Угодьях гоблинов."
+
+#: ../npcs/guill.txt:37
+msgid "Ukkonen Defeated"
+msgstr ""
+
+#: ../npcs/guill.txt:44
+msgid "Ukkonen is defeated -- I sensed a calm in this place the moment you ended him. Take this reward for your bravery."
+msgstr "Укконен побеждён — я почувствовал покой в этом месте в тот момент, как ты прикончил его. Возьми эту награду за свою храбрость."
+
+#: ../npcs/guill.txt:47
+#, fuzzy
+msgid "Averguard Chronicles"
+msgstr "Комплекс Авергарда"
+
+#: ../npcs/guill.txt:51
 msgid "The Averguard left a set of Chronicles detailing their final era. One volume is missing. I've searched this entire area except for Ukkonen's lair. If you find the book please return to me."
 msgstr "От Авергарда осталось несколько хроник, описывающих их последнюю эру. Один том пропал. Я всё здесь обыскал, кроме логова Укконена. Если ты найдёшь книгу, пожалуйста, верни её мне."
 
-#: ../npcs/guill.txt:33
+#: ../npcs/guill.txt:52
 msgid "I'll keep an eye out for it."
 msgstr "Хорошо, я буду поглядывать."
 
-#: ../npcs/guill.txt:43
+#: ../npcs/guill.txt:63
 msgid "You found this tome in Ukkonen's lair? Most excellent -- I feared this volume was lost. With it we can piece together the true history of this keep. I just need a moment to study..."
 msgstr "Ты нашёл этот том в логове Укконена? Хвала небесам — я боялся, что он утерян. С ним мы сможем собрать воедино истинную историю этой цитадели. Мне нужно только несколько мгновений на его изучение..."
 
-#: ../npcs/guill.txt:48
+#: ../npcs/guill.txt:66
+#, fuzzy
+msgid "Averguard Keep"
+msgstr "Ключ Авергарда"
+
+#: ../npcs/guill.txt:70
 msgid "This tome confirms what we know of Averguard Keep -- it crumbled against the plague many centuries ago. But not all of the infected were destroyed. It appears many undead where locked away in hopes that a cure would be found."
 msgstr "Этот том подтверждает то, что мы знаем о цитадели Авергарда — она пала от чумы много веков назад. Но не все заражённые были уничтожены. Похоже, много нежити было заперто в надежде, что может быть найдено лекарство."
 
-#: ../npcs/guill.txt:49
+#: ../npcs/guill.txt:71
 msgid "Why were the undead spared?"
 msgstr "Почему они пощадили нежить?"
 
-#: ../npcs/guill.txt:50
+#: ../npcs/guill.txt:72
 msgid "I don't know, but we should investigate. Head into the Atrium, then the Averguard Prison. Search for a key to access the sealed areas of the Keep."
 msgstr "Я не знаю, но мы должны выяснить это. Пройди в атриум, а затем в тюрьму. Поищи там ключ, чтобы получить доступ в запертые области цитадели."
 
-#: ../npcs/guill.txt:55
+#: ../npcs/guill.txt:79
 msgid "I have the prison key. The old prison warden carried it on his person -- he was infected, haunting the depths of the Prison."
 msgstr "У меня есть ключ от тюрьмы. Старый тюремный привратник носил его — он был заражён, мучаясь в глубинах тюрьмы."
 
-#: ../npcs/guill.txt:61
+#: ../npcs/guill.txt:85
 msgid "A true shame that he was infected.  Well, now that we have the Averguard Key, the depths of Averguard Keep are open to us. The Order thanks you."
 msgstr "Воистину прискорбно, что он был заражен. Что ж, теперь, когда у нас есть ключ Авергарда, глубины цитадели Авергард открыты для нас. Орден благодарит тебя."
 
-#: ../npcs/guill.txt:66
+#: ../npcs/guill.txt:88
+msgid "Burial Chamber"
+msgstr ""
+
+#: ../npcs/guill.txt:93
 msgid "There is one place within the Keep that no living being has seen for centuries: the burial chamber behind Averguard Temple. From the Atrium you can access the Temple. Use your key to enter the Burial Chamber."
 msgstr "Есть одно место в цитадели, которое ни одна живая душа не видела много веков: усыпальница за храмом Авергарда. Из атриума ты можешь попасть в храм. Используй ключ, чтобы войти в усыпальницу."
 
-#: ../npcs/guill.txt:67
+#: ../npcs/guill.txt:94
 msgid "Who is buried there?"
 msgstr "Кто там похоронен?"
 
-#: ../npcs/guill.txt:68
+#: ../npcs/guill.txt:95
 msgid "The powerful leader of the Averguard -- Sir Evan Maddox."
 msgstr "Могущественный командующий Авергарда — Сэр Эван Мэддокс."
 
-#: ../npcs/guill.txt:75
+#: ../npcs/guill.txt:100
+msgid "Key to Burial Chamber"
+msgstr ""
+
+#: ../npcs/guill.txt:104
 msgid "I tried the key on the Burial Chamber door but it would not open."
 msgstr "Я попробовал открыть усыпальницу ключом, но дверь не поддалась."
 
-#: ../npcs/guill.txt:76
+#: ../npcs/guill.txt:105
 msgid "It must be sealed by powerful magic. There was only one sorceror of Averguard with that kind of power - Professor Langlier. Search through his collection to find a way into the Burial Chamber. Enter the Academy through the Atrium."
 msgstr "Должно быть, она закрыта могущественной магией. В Авергарде был только один чародей такой силы — профессор Ланглиер. Поищи в его собрании способ войти в усыпальницу. В академию можно попасть через атриум."
 
-#: ../npcs/guill.txt:77
+#: ../npcs/guill.txt:106
 msgid "As you wish."
 msgstr "Как пожелаешь."
 
-#: ../npcs/guill.txt:78
+#: ../npcs/guill.txt:107
 msgid "I must admit jealousy -- I have dreamed many years of seeing the old volumes there, but it is simply too dangerous yet."
 msgstr "Должен сказать, что я завидую — я много лет мечтал увидеть старые книги оттуда, но там пока слишком опасно."
 
-#: ../npcs/guill.txt:85
+#: ../npcs/guill.txt:116
 msgid "I am back from the Academy. Langlier was rags and bones, yet still a powerful mage. He wore this symbol."
 msgstr "Я вернулся из академии. Ланглиер состоял из тряпья и костей, но всё ещё был сильным магом. Он носил вот этот символ."
 
-#: ../npcs/guill.txt:90
+#: ../npcs/guill.txt:120
 msgid "Fate has delivered this talisman to you. With it and the Averguard Key, you have the ability to open the Burial Chamber. Read these runes aloud at the sealed door and the path will be opened."
 msgstr "Судьба подарила этот талисман тебе. С ним и ключом Авергарда ты сможешь открыть усыпальницу. Громко прочти эти руны возле запертой двери и путь откроется."
 
-#: ../npcs/guill.txt:94
+#: ../npcs/guill.txt:128
 msgid "My worst fear is come alive. Just as with the Warden and with Professor Langlier, Sir Evan Maddox himself was inflicted with undeath. If we are to reclaim the Keep, you must defeat him. The Order will reward you magnificently for this service. But be prepared -- not even undeath will limit Maddox's zeal. Enter the Burial Chamber and allow him redemption."
 msgstr "Мой самый страшный кошмар стал явью. Так же, как и привратник с профессором Ланглиером, сам сэр Эван Мэддокс стал нежитью. Если мы хотим получить контроль над цитаделью, ты должен уничтожить его. Ордер внушительно наградит тебя за это. Но будь готов — даже смерть не удержит рвения Мэддокса. Войди в усыпальницу и позволь ему упокоиться."
 
-#: ../npcs/guill.txt:104
+#: ../npcs/guill.txt:131
+msgid "Maddox Defeated"
+msgstr ""
+
+#: ../npcs/guill.txt:142
 msgid "You have risked much for the Order. Take this final reward, as your mission here is complete. The grip of necromancy over Averguard Keep is broken -- in time the remaining undead will pass over into death."
 msgstr "Ты столько рисковал для Ордена. Возьми эту последнюю награду, твоя миссия здесь завершена. Проклятье некромантии над цитаделью Авергарда разрушено — со временем вся оставшаяся нежить обретёт покой."
 
-#: ../npcs/guill.txt:105
+#: ../npcs/guill.txt:143
 msgid "Thank you Guill. I am glad to be of service."
 msgstr "Спасибо, Гвилл. Я рад быть полезен."
 
-#: ../npcs/guill.txt:109
+#: ../npcs/guill.txt:148
 msgid "It is still dangerous here, but with Maddox defeated his followers will soon find rest."
 msgstr "Здесь по прежнему опасно, но после того, как Мэддокс повержен, и все его последователи скоро найдут покой."
-
-#: ../npcs/guill.txt:118
-msgid "Ukkonen is defeated -- I sensed a calm in this place the moment you ended him. Take this reward for your bravery."
-msgstr "Укконен побеждён — я почувствовал покой в этом месте в тот момент, как ты прикончил его. Возьми эту награду за свою храбрость."
 
 #: ../npcs/kayl.txt:1
 msgid "Kayl, Alchemist"
@@ -801,37 +893,143 @@ msgstr "Лорунд, кузнец"
 msgid "Martigan, Overseer"
 msgstr "Мартиган, смотритель"
 
-#: ../npcs/martigan.txt:17
+#: ../npcs/martigan.txt:13
 msgid "Welcome to my mines, stranger. If you have the back for it, I've got the work."
 msgstr "Добро пожаловать в мои шахты, странник. Если у тебя есть спина, у меня найдётся на неё работа."
 
-#: ../npcs/martigan.txt:18
+#: ../npcs/martigan.txt:14
 msgid "I heard you might have something more interesting."
 msgstr "Я слышал, у вас может быть кое-что поинтереснее."
 
-#: ../npcs/martigan.txt:19
+#: ../npcs/martigan.txt:15
 msgid "Ah, you're the adventurer? If you seek out danger you're in the right place. We had two guards stationed here; both were recalled to Ancelot. Now we're vulnerable."
 msgstr "А, так ты искатель приключений? Если ты ищешь опасности, то здесь самое место. У нас размещались двое стражей, но обоих призвали в Анцелот. Теперь мы уязвимы."
 
-#: ../npcs/martigan.txt:20
+#: ../npcs/martigan.txt:19
+#, fuzzy
+msgid "Goblin Camp"
+msgstr "Угодья гоблинов"
+
+#: ../npcs/martigan.txt:22
 msgid "We're having problems. Goblins. All the noise from our mining is drawing their attention. We can't have them thinking we're easy prey."
 msgstr "У нас проблема. Гоблины. Весь этот шум из наших шахт привлекает их внимание. Мы не можем позволить им думать, что мы лёгкая добыча."
 
-#: ../npcs/martigan.txt:24
+#: ../npcs/martigan.txt:26
 msgid "Attack their encampment up river from here. 20 gold now, 80 more when you return."
 msgstr "Атакуй их лагерь вверх по реке отсюда. 20 золотых монет авансом, 80 — когда вернёшься."
 
 #: ../npcs/martigan.txt:29
+msgid "Goblin Camp Search"
+msgstr ""
+
+#: ../npcs/martigan.txt:32
 msgid "The goblins have an encampment up the river from here on the west side. Clear them out and I'll pay you 80 gold."
 msgstr "Гоблины устроили лагерь вверх по реке на западной стороне. Зачистишь его и я заплачу тебе 80 золота."
 
-#: ../npcs/martigan.txt:38
+#: ../npcs/martigan.txt:35
+msgid "Rilrak Defeated"
+msgstr ""
+
+#: ../npcs/martigan.txt:42
 msgid "Unfortunate work, but my workers will sleep safe tonight. Here's your reward."
 msgstr "Неблагодарная работа, но хотя бы мои рабочие будут сегодня спать спокойно. Держи свою награду."
 
-#: ../npcs/martigan.txt:42
+#: ../npcs/martigan.txt:47
 msgid "A member of the Order passed through our camp a few days ago. He left for the tower ruins in Ydrakka Pass."
 msgstr "Член Ордена прошёл через наш лагерь несколько дней назад. Он направился в руины башни на пути Идракка."
+
+#: ../npcs/martigan.txt:51
+msgid "Rotten Tower"
+msgstr ""
+
+#: ../npcs/martigan.txt:54
+msgid "These areas were guarded well. There is yet another outpost tower in the wild."
+msgstr ""
+
+#: ../npcs/martigan.txt:55
+msgid "These are rough lands and... you're looking for an adventure!"
+msgstr ""
+
+#: ../npcs/martigan.txt:56
+msgid "Let me know if the goblins found their way inside the abandoned tower."
+msgstr ""
+
+#: ../npcs/martigan.txt:60
+msgid "Rotten Tower Search"
+msgstr ""
+
+#: ../npcs/martigan.txt:63
+msgid "Search for the abandoned tower southwest of the Frontier plains."
+msgstr ""
+
+#: ../npcs/martigan.txt:64
+msgid "The lands around there are called White Wind."
+msgstr ""
+
+#: ../npcs/martigan.txt:67
+msgid "Rotten Tower Found"
+msgstr ""
+
+#: ../npcs/martigan.txt:70
+msgid "So there are plenty of goblins in the white winds area, but not near the tower."
+msgstr ""
+
+#: ../npcs/martigan.txt:71
+msgid "Are you sure?"
+msgstr ""
+
+#: ../npcs/martigan.txt:72
+msgid "What do you mean? Of course I am!"
+msgstr ""
+
+#: ../npcs/martigan.txt:73
+msgid "Did you look inside the tower? Did you make sure there aren't goblins in there?"
+msgstr ""
+
+#: ../npcs/martigan.txt:74
+msgid "Well..."
+msgstr ""
+
+#: ../npcs/martigan.txt:82
+msgid "I looked inside through the locked iron grate door. No goblins!"
+msgstr ""
+
+#: ../npcs/martigan.txt:84
+msgid "Good! Here goes a little reward!"
+msgstr ""
+
+#: ../npcs/martigan.txt:88
+#, fuzzy
+msgid "Mineshaft"
+msgstr "Вагонетка"
+
+#: ../npcs/martigan.txt:91
+msgid "So how's the mining business?"
+msgstr ""
+
+#: ../npcs/martigan.txt:92
+msgid "Not good at all. While I was digging, my pickaxe scraped a skull that was wedged in the rock wall. Before I knew it, the nasty thing started moving and a whole body emerged. Now that thing is in there, preventing any more mining."
+msgstr ""
+
+#: ../npcs/martigan.txt:93
+msgid "Kill that skeleton for me, and I'll make it worth your while."
+msgstr ""
+
+#: ../npcs/martigan.txt:101
+msgid "Please take care of that skeleton. Work in the mine can't continue otherwise."
+msgstr ""
+
+#: ../npcs/martigan.txt:104
+msgid "Skeleton Defeated"
+msgstr ""
+
+#: ../npcs/martigan.txt:108
+msgid "I've defeated the Reanimated Skeleton."
+msgstr ""
+
+#: ../npcs/martigan.txt:109
+msgid "Excellent work! As promised, here's a little something for your troubles."
+msgstr ""
 
 #: ../npcs/nerin.txt:1
 msgid "Nerin, Bowyer"
@@ -841,43 +1039,43 @@ msgstr "Нерин, изготовитель луков"
 msgid "Statue Guardian (Fire)"
 msgstr "Статуя хранителя (Огонь)"
 
-#: ../npcs/statue_guardian_fire.txt:17
+#: ../npcs/statue_guardian_fire.txt:11
 msgid "Who goes there?"
 msgstr "Стой, кто идёт?"
 
-#: ../npcs/statue_guardian_fire.txt:18
+#: ../npcs/statue_guardian_fire.txt:12
 msgid "I came here to kill lots of monsters."
 msgstr "Я пришёл сюда, чтобы убить множество монстров."
 
-#: ../npcs/statue_guardian_fire.txt:21
+#: ../npcs/statue_guardian_fire.txt:15
 msgid "Intruder! You shall not interrupt the masters' work!"
 msgstr "Нарушитель! Ты не прервёшь работу повелителей!"
 
-#: ../npcs/statue_guardian_fire.txt:26
+#: ../npcs/statue_guardian_fire.txt:20
 msgid "Vesuvvio."
 msgstr "Везувий."
 
-#: ../npcs/statue_guardian_fire.txt:27
+#: ../npcs/statue_guardian_fire.txt:21
 msgid "...Are you feeling alright, Master Vesuvvio? You did not refer to yourself as \"the Destroyer.\""
 msgstr "...Как вы себя чувствуете, повелитель Везувий? Вы не назвали себя «Разрушителем»."
 
-#: ../npcs/statue_guardian_fire.txt:28
+#: ../npcs/statue_guardian_fire.txt:22
 msgid "Have your brothers been teasing you about your real name being Stootley again?"
 msgstr "Ваши братья опять дразнили вас, что ваше настоящее имя — Стутли?"
 
-#: ../npcs/statue_guardian_fire.txt:29
+#: ../npcs/statue_guardian_fire.txt:23
 msgid "Er, no. It's all right. I'm Vesuvvio the Destroyer."
 msgstr "Эээ, нет. Всё в порядке. Я Везувий Разрушитель."
 
-#: ../npcs/statue_guardian_fire.txt:32
+#: ../npcs/statue_guardian_fire.txt:26
 msgid "Then welcome, Master Vesuvvio, may you enjoy your destruction tonight."
 msgstr "Тогда добро пожаловать, повелитель Везувий."
 
-#: ../npcs/statue_guardian_fire.txt:33
+#: ../npcs/statue_guardian_fire.txt:27
 msgid "(This Vesuvvio guy sure is strange...)"
 msgstr "(Этот Везувий совсем ненормальный...)"
 
-#: ../npcs/statue_guardian_fire.txt:37
+#: ../npcs/statue_guardian_fire.txt:31
 msgid "Welcome, Master Vesuvvio, may you enjoy your destruction tonight."
 msgstr "Добро пожаловать, повелитель Везувий, приятно поразрушать сегодня."
 
@@ -885,15 +1083,15 @@ msgstr "Добро пожаловать, повелитель Везувий, п
 msgid "Statue Guardian (Ice)"
 msgstr "Статуя хранителя (Лёд)"
 
-#: ../npcs/statue_guardian_ice.txt:18
+#: ../npcs/statue_guardian_ice.txt:12
 msgid "Uh... a lone adventurer?"
 msgstr "Ах... одинокий искатель приключений?"
 
-#: ../npcs/statue_guardian_ice.txt:26
+#: ../npcs/statue_guardian_ice.txt:20
 msgid "Scathelocke."
 msgstr "Сказлок."
 
-#: ../npcs/statue_guardian_ice.txt:29
+#: ../npcs/statue_guardian_ice.txt:23
 msgid "Welcome, Master Scathelocke."
 msgstr "Добро пожаловать, повелитель Сказлок."
 
@@ -901,15 +1099,15 @@ msgstr "Добро пожаловать, повелитель Сказлок."
 msgid "Statue Guardian (Wind)"
 msgstr "Статуя хранителя (Воздух)"
 
-#: ../npcs/statue_guardian_wind.txt:18
+#: ../npcs/statue_guardian_wind.txt:12
 msgid "A friend of the masters."
 msgstr "Друг повелителей."
 
-#: ../npcs/statue_guardian_wind.txt:26
+#: ../npcs/statue_guardian_wind.txt:20
 msgid "Grisbon."
 msgstr "Гризбон."
 
-#: ../npcs/statue_guardian_wind.txt:29
+#: ../npcs/statue_guardian_wind.txt:23
 msgid "Welcome, Master Grisbon."
 msgstr "Добро пожаловать, повелитель Гризбон."
 
