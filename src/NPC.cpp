@@ -53,7 +53,7 @@ NPC::NPC(MapRenderer *_map, ItemManager *_items)
 	, portrait(NULL)
 	, talker(false)
 	, vendor(false)
-	// stock
+	, stock(ItemStorage())
 	, stock_count(0)
 	, vox_intro(vector<SoundManager::SoundID>())
 	, vox_quests(vector<SoundManager::SoundID>())
@@ -332,10 +332,8 @@ void NPC::getDialogNodes(std::vector<int> &result) {
 		/* roll a dialog for this group and add to result */
 		int di = it->second[rand() % it->second.size()];
 		result.push_back(di);
-		it++;
+		++it;
 	}
-
-
 }
 
 std::string NPC::getDialogTopic(unsigned int dialog_node) {

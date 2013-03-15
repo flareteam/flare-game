@@ -82,6 +82,7 @@ GameStatePlay::GameStatePlay()
 	, loading_bg(IMG_Load(mods->locate("images/menus/confirm_bg.png").c_str()))
 	, npc_id(-1)
 	, eventDialogOngoing(false)
+	, eventPendingDialog(false)
 	, color_normal(font->getColor("menu_normal"))
 	, game_slot(0)
 {

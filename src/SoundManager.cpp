@@ -108,7 +108,7 @@ void SoundManager::logic(Point c) {
 
 		/* update sound mix with new distance/location to hero */
 		Mix_SetPosition(it->first, 0, dist);
-		it++;
+		++it;
 	}
 
 	/* clenaup finished soundplayback */
