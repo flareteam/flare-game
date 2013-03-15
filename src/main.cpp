@@ -140,7 +140,6 @@ static void mainLoop (bool debug_event) {
 	int max_fps = MAX_FRAMES_PER_SEC;
 	int delay = 1000/max_fps;
 	int prevTicks = SDL_GetTicks();
-	int nowTicks;
 
 	while ( !done ) {
 
@@ -157,7 +156,7 @@ static void mainLoop (bool debug_event) {
 		// Input done means the user closes the window.
 		done = gswitch->done || inpt->done;
 
-		nowTicks = SDL_GetTicks();
+		int nowTicks = SDL_GetTicks();
 		if (nowTicks - prevTicks < delay) SDL_Delay(delay - (nowTicks - prevTicks));
 		gswitch->showFPS(1000 / (SDL_GetTicks() - prevTicks));
 		prevTicks = SDL_GetTicks();

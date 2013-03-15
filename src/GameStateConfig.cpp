@@ -1236,20 +1236,21 @@ bool GameStateConfig::applyVideoSettings(SDL_Surface *src, int width, int height
 		else
 			flags = flags | SDL_SWSURFACE;
 
-		src = SDL_SetVideoMode (tmp_w, tmp_h, 0, flags);
+		SDL_SetVideoMode (tmp_w, tmp_h, 0, flags);
 
 		return false;
+	} else {
+
+		// If the new settings succeed, adjust the view area
+		VIEW_W = width;
+		VIEW_W_HALF = width/2;
+		VIEW_H = height;
+		VIEW_H_HALF = height/2;
+
+		resolution_confirm->visible = true;
+
+		return true;
 	}
-
-	// If the new settings succeed, adjust the view area
-	VIEW_W = width;
-	VIEW_W_HALF = width/2;
-	VIEW_H = height;
-	VIEW_H_HALF = height/2;
-
-	resolution_confirm->visible = true;
-
-	return true;
 }
 
 /**

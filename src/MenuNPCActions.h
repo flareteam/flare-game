@@ -42,7 +42,6 @@ private:
 	bool is_selected;
 	bool is_empty;
 	int first_dialog_node;
-	int topics;
 	size_t current_action;
 
 	SDL_Surface *action_menu;
