@@ -6,56 +6,55 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-21 15:57+0300\n"
+"POT-Creation-Date: 2013-03-15 21:44+0100\n"
 "PO-Revision-Date: 2011-12-22 22:46+9\n"
 "Last-Translator: Paul Wortmann (RoboPaul) <paul.wortmann@gmail.com>\n"
 "Language-Team: Paul Wortmann <www.physhexgames.co.nr>\n"
+"Language: Japanese \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: Japanese \n"
 
-#: ../../../src/Avatar.cpp:444
+#: ../../../src/Avatar.cpp:411
 #, c-format
 msgid "Congratulations, you have reached level %d!"
 msgstr "おめでとう、あなたはレベル %d に達している!"
 
-#: ../../../src/Avatar.cpp:446
+#: ../../../src/Avatar.cpp:413
 msgid "You may increase one attribute through the Character Menu."
 msgstr "あなたは、文字のメニューを介して1つの属性を高める可能性があります。"
 
-#: ../../../src/Avatar.cpp:633
+#: ../../../src/Avatar.cpp:640
 #, fuzzy
 msgid "You are defeated. Game over! Press Enter to exit to Title."
 msgstr "あなたは敗北している。あなたは半分の金を失う。 Enterキーを押して続行します。"
 
-#: ../../../src/Avatar.cpp:636
+#: ../../../src/Avatar.cpp:643
 #, fuzzy, c-format
 msgid "You are defeated.  You lose half your %s.  Press Enter to continue."
 msgstr "あなたは敗北している。あなたは半分の金を失う。 Enterキーを押して続行します。"
 
-#: ../../../src/Avatar.cpp:708 ../../../src/Enemy.cpp:168
+#: ../../../src/Avatar.cpp:711 ../../../src/Enemy.cpp:172
 msgid "miss"
 msgstr ""
 
-#: ../../../src/Avatar.cpp:795 ../../../src/Enemy.cpp:261
-#: ../../../src/PowerManager.cpp:762 ../../../src/PowerManager.cpp:764
-#: ../../../src/PowerManager.cpp:773 ../../../src/PowerManager.cpp:775
+#: ../../../src/Avatar.cpp:784 ../../../src/Enemy.cpp:248
+#: ../../../src/PowerManager.cpp:666 ../../../src/StatBlock.cpp:522
 #, c-format
 msgid "+%d HP"
 msgstr ""
 
-#: ../../../src/CampaignManager.cpp:141
+#: ../../../src/CampaignManager.cpp:140
 #, c-format
 msgid "You receive %s."
 msgstr "あなたは %s を受け取る。"
 
-#: ../../../src/CampaignManager.cpp:143
+#: ../../../src/CampaignManager.cpp:142
 #, c-format
 msgid "You receive %s x%d."
 msgstr "あなたは %s %d の を受け取る。"
 
-#: ../../../src/CampaignManager.cpp:151
+#: ../../../src/CampaignManager.cpp:150
 #, fuzzy, c-format
 msgid "You receive %d %s."
 msgstr "あなたは %s を受け取る。"
@@ -85,222 +84,236 @@ msgstr ""
 msgid "HP and MP restored, negative effects removed"
 msgstr ""
 
-#: ../../../src/Enemy.cpp:268 ../../../src/PowerManager.cpp:784
-#: ../../../src/PowerManager.cpp:786
+#: ../../../src/Enemy.cpp:255 ../../../src/StatBlock.cpp:527
 #, c-format
 msgid "+%d MP"
 msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:77
+#: ../../../src/GameStateConfig.cpp:79
 msgid "Ok"
 msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:82 ../../../src/GameStateConfig.cpp:161
+#: ../../../src/GameStateConfig.cpp:84 ../../../src/GameStateConfig.cpp:163
 msgid "Defaults"
 msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:87 ../../../src/GameStateNew.cpp:49
-#: ../../../src/InputState.cpp:55
+#: ../../../src/GameStateConfig.cpp:89 ../../../src/GameStateNew.cpp:55
+#: ../../../src/InputState.cpp:59
 msgid "Cancel"
 msgstr "キャンセル"
 
-#: ../../../src/GameStateConfig.cpp:152
+#: ../../../src/GameStateConfig.cpp:154
 msgid "Video"
 msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:153
+#: ../../../src/GameStateConfig.cpp:155
 msgid "Audio"
 msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:154
+#: ../../../src/GameStateConfig.cpp:156
 msgid "Interface"
 msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:155
+#: ../../../src/GameStateConfig.cpp:157
 msgid "Input"
 msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:156
+#: ../../../src/GameStateConfig.cpp:158
 msgid "Keybindings"
 msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:157
+#: ../../../src/GameStateConfig.cpp:159
 msgid "Mods"
 msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:160 ../../../src/GameStateConfig.cpp:895
-#: ../../../src/GameStateConfig.cpp:897
+#: ../../../src/GameStateConfig.cpp:162 ../../../src/GameStateConfig.cpp:963
+#: ../../../src/GameStateConfig.cpp:965
 msgid "Assign: "
 msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:161
+#: ../../../src/GameStateConfig.cpp:163
 msgid "Reset ALL settings?"
 msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:238
+#: ../../../src/GameStateConfig.cpp:164
+msgid "OK"
+msgstr ""
+
+#: ../../../src/GameStateConfig.cpp:164
+msgid "Use this resolution?"
+msgstr ""
+
+#: ../../../src/GameStateConfig.cpp:254
 msgid "Full Screen Mode"
 msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:251
+#: ../../../src/GameStateConfig.cpp:267
 msgid "Move hero using mouse"
 msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:264
+#: ../../../src/GameStateConfig.cpp:280
 msgid "Show combat text"
 msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:278
+#: ../../../src/GameStateConfig.cpp:294
 msgid "Hardware surfaces"
 msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:291
+#: ../../../src/GameStateConfig.cpp:307
 msgid "Double buffering"
 msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:305
+#: ../../../src/GameStateConfig.cpp:321
 msgid "Use joystick"
 msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:318
+#: ../../../src/GameStateConfig.cpp:334
 msgid "High Quality Textures"
 msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:331
+#: ../../../src/GameStateConfig.cpp:347
 msgid "Allow changing gamma"
 msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:344
+#: ../../../src/GameStateConfig.cpp:360
 msgid "Animated tiles"
 msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:357
+#: ../../../src/GameStateConfig.cpp:373
 msgid "Mouse aim"
 msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:370
+#: ../../../src/GameStateConfig.cpp:386
 msgid "Show FPS"
 msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:384
+#: ../../../src/GameStateConfig.cpp:400
 msgid "Music Volume"
 msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:397
+#: ../../../src/GameStateConfig.cpp:413
 msgid "Sound Volume"
 msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:410
+#: ../../../src/GameStateConfig.cpp:426
 msgid "Gamma"
 msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:424
+#: ../../../src/GameStateConfig.cpp:440
 msgid "Resolution"
 msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:435
+#: ../../../src/GameStateConfig.cpp:451
 msgid "Active Mods"
 msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:445
+#: ../../../src/GameStateConfig.cpp:461
 msgid "Available Mods"
 msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:461
+#: ../../../src/GameStateConfig.cpp:477
 msgid "Joystick"
 msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:473
+#: ../../../src/GameStateConfig.cpp:489
 msgid "Language"
 msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:508 ../../../src/GameStateConfig.cpp:515
-#: ../../../src/GameStateConfig.cpp:522
+#: ../../../src/GameStateConfig.cpp:524 ../../../src/GameStateConfig.cpp:531
+#: ../../../src/GameStateConfig.cpp:538
 msgid "Disable for performance"
 msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:529
+#: ../../../src/GameStateConfig.cpp:545
 msgid "Experimental"
 msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:549
+#: ../../../src/GameStateConfig.cpp:565
 msgid "<< Disable"
 msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:557
+#: ../../../src/GameStateConfig.cpp:573
 msgid "Enable >>"
 msgstr ""
 
-#: ../../../src/GameStateLoad.cpp:56 ../../../src/GameStateLoad.cpp:68
+#: ../../../src/GameStateLoad.cpp:57 ../../../src/GameStateLoad.cpp:69
 msgid "Delete Save"
 msgstr "セーブゲームを削除する"
 
-#: ../../../src/GameStateLoad.cpp:56
+#: ../../../src/GameStateLoad.cpp:57
 msgid "Delete this save?"
 msgstr "このセーブゲームを削除しますか"
 
-#: ../../../src/GameStateLoad.cpp:58
+#: ../../../src/GameStateLoad.cpp:59
 msgid "Exit to Title"
 msgstr "タイトルに戻ります。"
 
-#: ../../../src/GameStateLoad.cpp:64
+#: ../../../src/GameStateLoad.cpp:65
 msgid "Choose a Slot"
 msgstr "スロットを選択します。"
 
-#: ../../../src/GameStateLoad.cpp:378 ../../../src/GameStateLoad.cpp:424
-#: ../../../src/GameStateLoad.cpp:447 ../../../src/GameStateLoad.cpp:466
-#: ../../../src/GameStateLoad.cpp:491
+#: ../../../src/GameStateLoad.cpp:476
 msgid "New Game"
 msgstr "新しいゲーム。"
 
-#: ../../../src/GameStateLoad.cpp:428 ../../../src/GameStateLoad.cpp:451
-#: ../../../src/GameStateLoad.cpp:470
+#: ../../../src/GameStateLoad.cpp:479 ../../../src/GameStateLoad.cpp:489
+msgid "Enable a story mod to continue"
+msgstr ""
+
+#: ../../../src/GameStateLoad.cpp:485
 msgid "Load Game"
 msgstr "ロードゲーム。"
 
-#: ../../../src/GameStateLoad.cpp:558
+#: ../../../src/GameStateLoad.cpp:539
 msgid "Entering game world..."
 msgstr "ゲームの世界に入る…"
 
-#: ../../../src/GameStateLoad.cpp:560
+#: ../../../src/GameStateLoad.cpp:541
 msgid "Loading saved game..."
 msgstr "保存したゲームをロードする..."
 
-#: ../../../src/GameStateLoad.cpp:581
+#: ../../../src/GameStateLoad.cpp:562
 #, c-format
 msgid "Level %d %s"
 msgstr "レベル %d %s"
 
-#: ../../../src/GameStateLoad.cpp:603
+#: ../../../src/GameStateLoad.cpp:586
 msgid "Empty Slot"
 msgstr "空のスロット。"
 
-#: ../../../src/GameStateNew.cpp:55
+#: ../../../src/GameStateNew.cpp:61
 #, fuzzy
 msgid "Create"
 msgstr "キャラクター"
 
-#: ../../../src/GameStateNew.cpp:133
+#: ../../../src/GameStateNew.cpp:158
 msgid "Choose a Portrait"
 msgstr "画像を選択します。"
 
-#: ../../../src/GameStateNew.cpp:135
+#: ../../../src/GameStateNew.cpp:160
 msgid "Choose a Name"
 msgstr "名前を選択します。"
 
-#: ../../../src/GameStateNew.cpp:137
+#: ../../../src/GameStateNew.cpp:162
 msgid "Permadeath?"
 msgstr ""
 
-#: ../../../src/GameStatePlay.cpp:90
+#: ../../../src/GameStateNew.cpp:164
+#, fuzzy
+msgid "Choose a Class"
+msgstr "スロットを選択します。"
+
+#: ../../../src/GameStatePlay.cpp:99
 #, fuzzy
 msgid "Loading..."
 msgstr "保存したゲームをロードする..."
 
-#: ../../../src/GameStatePlay.cpp:202 ../../../src/GameStatePlay.cpp:203
-#: ../../../src/MenuManager.cpp:378 ../../../src/MenuManager.cpp:379
-#: ../../../src/MenuManager.cpp:403 ../../../src/MenuManager.cpp:404
-#: ../../../src/MenuManager.cpp:587 ../../../src/MenuManager.cpp:588
-#: ../../../src/MenuManager.cpp:607 ../../../src/MenuManager.cpp:608
+#: ../../../src/GameStatePlay.cpp:216 ../../../src/GameStatePlay.cpp:217
+#: ../../../src/GameStatePlay.cpp:238 ../../../src/GameStatePlay.cpp:239
+#: ../../../src/MenuManager.cpp:431 ../../../src/MenuManager.cpp:432
+#: ../../../src/MenuManager.cpp:456 ../../../src/MenuManager.cpp:457
+#: ../../../src/MenuManager.cpp:635 ../../../src/MenuManager.cpp:636
+#: ../../../src/MenuManager.cpp:655 ../../../src/MenuManager.cpp:656
 msgid "Inventory is full."
 msgstr "インベントリがいっぱいです。"
 
@@ -309,444 +322,472 @@ msgid "Play Game"
 msgstr "ゲームをプレイ"
 
 #: ../../../src/GameStateTitle.cpp:45
+msgid "Enable a core mod to continue"
+msgstr ""
+
+#: ../../../src/GameStateTitle.cpp:49
 msgid "Configuration"
 msgstr ""
 
-#: ../../../src/GameStateTitle.cpp:50
+#: ../../../src/GameStateTitle.cpp:54
 msgid "Exit Game"
 msgstr "ゲームを終了します"
 
-#: ../../../src/GameStateTitle.cpp:57
+#: ../../../src/GameStateTitle.cpp:61
 #, fuzzy
 msgid "Flare Alpha v0.17"
 msgstr "フレア 0.15 (アルファ)"
 
-#: ../../../src/InputState.cpp:56
+#: ../../../src/InputState.cpp:60
 msgid "Accept"
 msgstr ""
 
-#: ../../../src/InputState.cpp:57
+#: ../../../src/InputState.cpp:61
 msgid "Up"
 msgstr ""
 
-#: ../../../src/InputState.cpp:58
+#: ../../../src/InputState.cpp:62
 msgid "Down"
 msgstr ""
 
-#: ../../../src/InputState.cpp:59
+#: ../../../src/InputState.cpp:63
 msgid "Left"
 msgstr ""
 
-#: ../../../src/InputState.cpp:60
+#: ../../../src/InputState.cpp:64
 #, fuzzy
 msgid "Right"
 msgstr "騎士"
 
-#: ../../../src/InputState.cpp:61
+#: ../../../src/InputState.cpp:65
 msgid "Bar1"
 msgstr ""
 
-#: ../../../src/InputState.cpp:62
+#: ../../../src/InputState.cpp:66
 msgid "Bar2"
 msgstr ""
 
-#: ../../../src/InputState.cpp:63
+#: ../../../src/InputState.cpp:67
 msgid "Bar3"
 msgstr ""
 
-#: ../../../src/InputState.cpp:64
+#: ../../../src/InputState.cpp:68
 msgid "Bar4"
 msgstr ""
 
-#: ../../../src/InputState.cpp:65
+#: ../../../src/InputState.cpp:69
 msgid "Bar5"
 msgstr ""
 
-#: ../../../src/InputState.cpp:66
+#: ../../../src/InputState.cpp:70
 msgid "Bar6"
 msgstr ""
 
-#: ../../../src/InputState.cpp:67
+#: ../../../src/InputState.cpp:71
 msgid "Bar7"
 msgstr ""
 
-#: ../../../src/InputState.cpp:68
+#: ../../../src/InputState.cpp:72
 msgid "Bar8"
 msgstr ""
 
-#: ../../../src/InputState.cpp:69
+#: ../../../src/InputState.cpp:73
 msgid "Bar9"
 msgstr ""
 
-#: ../../../src/InputState.cpp:70
+#: ../../../src/InputState.cpp:74
 msgid "Bar0"
 msgstr ""
 
-#: ../../../src/InputState.cpp:71 ../../../src/MenuCharacter.cpp:206
+#: ../../../src/InputState.cpp:75 ../../../src/MenuCharacter.cpp:219
 msgid "Character"
 msgstr "キャラクター"
 
-#: ../../../src/InputState.cpp:72 ../../../src/MenuInventory.cpp:167
-#: ../../../src/MenuVendor.cpp:48
+#: ../../../src/InputState.cpp:76 ../../../src/MenuInventory.cpp:172
+#: ../../../src/MenuVendor.cpp:51
 msgid "Inventory"
 msgstr "在庫品"
 
-#: ../../../src/InputState.cpp:73 ../../../src/MenuPowers.cpp:168
+#: ../../../src/InputState.cpp:77 ../../../src/MenuPowers.cpp:173
 msgid "Powers"
 msgstr "能力"
 
-#: ../../../src/InputState.cpp:74 ../../../src/MenuLog.cpp:171
+#: ../../../src/InputState.cpp:78 ../../../src/MenuLog.cpp:158
 msgid "Log"
 msgstr "ログ"
 
-#: ../../../src/InputState.cpp:75
+#: ../../../src/InputState.cpp:79
 msgid "Main1"
 msgstr ""
 
-#: ../../../src/InputState.cpp:76
+#: ../../../src/InputState.cpp:80
 msgid "Main2"
 msgstr ""
 
-#: ../../../src/InputState.cpp:77
+#: ../../../src/InputState.cpp:81
 msgid "Ctrl"
 msgstr ""
 
-#: ../../../src/InputState.cpp:78
+#: ../../../src/InputState.cpp:82
 msgid "Shift"
 msgstr ""
 
-#: ../../../src/InputState.cpp:79
+#: ../../../src/InputState.cpp:83
 #, fuzzy
 msgid "Delete"
 msgstr "セーブゲームを削除する"
 
-#: ../../../src/InputState.cpp:81
+#: ../../../src/InputState.cpp:85
 msgid "lmb"
 msgstr ""
 
-#: ../../../src/InputState.cpp:82
+#: ../../../src/InputState.cpp:86
 msgid "mmb"
 msgstr ""
 
-#: ../../../src/InputState.cpp:83
+#: ../../../src/InputState.cpp:87
 msgid "rmb"
 msgstr ""
 
-#: ../../../src/InputState.cpp:84
+#: ../../../src/InputState.cpp:88
 msgid "wheel up"
 msgstr ""
 
-#: ../../../src/InputState.cpp:85
+#: ../../../src/InputState.cpp:89
 msgid "wheel down"
 msgstr ""
 
-#: ../../../src/InputState.cpp:86
+#: ../../../src/InputState.cpp:90
 msgid "mbx1"
 msgstr ""
 
-#: ../../../src/InputState.cpp:87
+#: ../../../src/InputState.cpp:91
 msgid "mbx2"
 msgstr ""
 
-#: ../../../src/ItemManager.cpp:512
+#: ../../../src/ItemManager.cpp:476
 #, c-format
 msgid "Level %d"
 msgstr "レベル %d"
 
-#: ../../../src/ItemManager.cpp:523
+#: ../../../src/ItemManager.cpp:487
 #, c-format
 msgid "Melee damage: %d-%d"
 msgstr "近接攻撃ダメージ： %d-%d"
 
-#: ../../../src/ItemManager.cpp:525
+#: ../../../src/ItemManager.cpp:489
 #, c-format
 msgid "Melee damage: %d"
 msgstr "近接攻撃ダメージ： %d"
 
-#: ../../../src/ItemManager.cpp:529
+#: ../../../src/ItemManager.cpp:493
 #, c-format
 msgid "Ranged damage: %d-%d"
 msgstr "飛ダメージ： %d-%d"
 
-#: ../../../src/ItemManager.cpp:531
+#: ../../../src/ItemManager.cpp:495
 #, c-format
 msgid "Ranged damage: %d"
 msgstr "飛ダメージ： %d"
 
-#: ../../../src/ItemManager.cpp:535
+#: ../../../src/ItemManager.cpp:499
 #, c-format
 msgid "Mental damage: %d-%d"
 msgstr "精神ダメージ： %d-%d"
 
-#: ../../../src/ItemManager.cpp:537
+#: ../../../src/ItemManager.cpp:501
 #, c-format
 msgid "Mental damage: %d"
 msgstr "精神ダメージ： %d"
 
-#: ../../../src/ItemManager.cpp:543
+#: ../../../src/ItemManager.cpp:507
 #, c-format
 msgid "Absorb: %d-%d"
 msgstr "吸収： %d-%d"
 
-#: ../../../src/ItemManager.cpp:545
+#: ../../../src/ItemManager.cpp:509
 #, c-format
 msgid "Absorb: %d"
 msgstr "吸収： %d"
 
-#: ../../../src/ItemManager.cpp:553 ../../../src/ItemManager.cpp:632
+#: ../../../src/ItemManager.cpp:517
+#, c-format
+msgid "%d\\% Speed"
+msgstr ""
+
+#: ../../../src/ItemManager.cpp:522 ../../../src/ItemManager.cpp:614
 #, c-format
 msgid "Increases %s by %d"
 msgstr "増加 %s で %d"
 
-#: ../../../src/ItemManager.cpp:560 ../../../src/ItemManager.cpp:635
+#: ../../../src/ItemManager.cpp:529 ../../../src/ItemManager.cpp:617
 #, c-format
 msgid "Decreases %s by %d"
 msgstr "軽減 %s で %d"
 
-#: ../../../src/ItemManager.cpp:580 ../../../src/MenuPowers.cpp:516
-#: ../../../src/MenuPowers.cpp:518
+#: ../../../src/ItemManager.cpp:550 ../../../src/MenuPowers.cpp:541
+#: ../../../src/MenuPowers.cpp:543
 #, c-format
 msgid "Requires Physical %d"
 msgstr "%d の物理が必要です。"
 
-#: ../../../src/ItemManager.cpp:584 ../../../src/MenuPowers.cpp:522
-#: ../../../src/MenuPowers.cpp:524
+#: ../../../src/ItemManager.cpp:555 ../../../src/MenuPowers.cpp:546
+#: ../../../src/MenuPowers.cpp:548
 #, c-format
 msgid "Requires Mental %d"
 msgstr "%d 精神が必要です。"
 
-#: ../../../src/ItemManager.cpp:588 ../../../src/MenuPowers.cpp:504
-#: ../../../src/MenuPowers.cpp:506
+#: ../../../src/ItemManager.cpp:560 ../../../src/MenuPowers.cpp:531
+#: ../../../src/MenuPowers.cpp:533
 #, c-format
 msgid "Requires Offense %d"
 msgstr "%d 犯罪が必要です。"
 
-#: ../../../src/ItemManager.cpp:592 ../../../src/MenuPowers.cpp:510
-#: ../../../src/MenuPowers.cpp:512
+#: ../../../src/ItemManager.cpp:565 ../../../src/MenuPowers.cpp:536
+#: ../../../src/MenuPowers.cpp:538
 #, c-format
 msgid "Requires Defense %d"
 msgstr "%d 防衛が必要です。"
 
-#: ../../../src/ItemManager.cpp:602
+#: ../../../src/ItemManager.cpp:583 ../../../src/ItemManager.cpp:591
 #, fuzzy, c-format
 msgid "Buy Price: %d %s"
 msgstr "価格を購入する: %d 金"
 
-#: ../../../src/ItemManager.cpp:604
+#: ../../../src/ItemManager.cpp:585 ../../../src/ItemManager.cpp:593
 #, fuzzy, c-format
 msgid "Buy Price: %d %s each"
 msgstr "価格を購入する: %d 金の各"
 
-#: ../../../src/ItemManager.cpp:614
+#: ../../../src/ItemManager.cpp:598
 #, fuzzy, c-format
 msgid "Sell Price: %d %s"
 msgstr "価格を販売: %d 金"
 
-#: ../../../src/ItemManager.cpp:616
+#: ../../../src/ItemManager.cpp:600
 #, fuzzy, c-format
 msgid "Sell Price: %d %s each"
 msgstr "価格を販売: %d 金の各"
 
-#: ../../../src/ItemManager.cpp:628
+#: ../../../src/ItemManager.cpp:610
 #, fuzzy
 msgid "Set: "
 msgstr "次： %d"
 
-#: ../../../src/ItemManager.cpp:632 ../../../src/ItemManager.cpp:635
+#: ../../../src/ItemManager.cpp:614 ../../../src/ItemManager.cpp:617
 #, c-format
 msgid "%d items: "
 msgstr ""
 
-#: ../../../src/LootManager.cpp:282 ../../../src/MenuInventory.cpp:171
+#: ../../../src/LootManager.cpp:183 ../../../src/MenuInventory.cpp:176
 #, fuzzy, c-format
 msgid "%d %s"
 msgstr "レベル %d %s"
 
-#: ../../../src/main.cpp:124
-msgid "Flare"
-msgstr "フレア"
-
-#: ../../../src/MapRenderer.cpp:1181
+#: ../../../src/MapRenderer.cpp:1227
 msgid "Unknown destination"
 msgstr "未知の目的地"
 
-#: ../../../src/MenuActionBar.cpp:399
+#: ../../../src/MenuActionBar.cpp:401
 msgid "Character Menu (C)"
 msgstr "キャラクターのメニュー (C)"
 
-#: ../../../src/MenuActionBar.cpp:403
+#: ../../../src/MenuActionBar.cpp:405
 msgid "Inventory Menu (I)"
 msgstr "在庫メニュー (I)"
 
-#: ../../../src/MenuActionBar.cpp:407
+#: ../../../src/MenuActionBar.cpp:409
 msgid "Power Menu (P)"
 msgstr "能力のメニュー (P)"
 
-#: ../../../src/MenuActionBar.cpp:411
+#: ../../../src/MenuActionBar.cpp:413
 msgid "Log Menu (L)"
 msgstr "ログのメニュー (L)"
 
-#: ../../../src/MenuCharacter.cpp:219
+#: ../../../src/MenuCharacter.cpp:232
 msgid "Name"
 msgstr "名"
 
-#: ../../../src/MenuCharacter.cpp:220
+#: ../../../src/MenuCharacter.cpp:233
 msgid "Level"
 msgstr "レベル"
 
-#: ../../../src/MenuCharacter.cpp:221
+#: ../../../src/MenuCharacter.cpp:234
 msgid "Physical"
 msgstr "物理"
 
-#: ../../../src/MenuCharacter.cpp:222
+#: ../../../src/MenuCharacter.cpp:235
 msgid "Mental"
 msgstr "精神"
 
-#: ../../../src/MenuCharacter.cpp:223
+#: ../../../src/MenuCharacter.cpp:236
 msgid "Offense"
 msgstr "犯罪"
 
-#: ../../../src/MenuCharacter.cpp:224
+#: ../../../src/MenuCharacter.cpp:237
 msgid "Defense"
 msgstr "防衛"
 
-#: ../../../src/MenuCharacter.cpp:284
+#: ../../../src/MenuCharacter.cpp:295
 msgid "points remaining"
 msgstr ""
 
-#: ../../../src/MenuCharacter.cpp:295
+#: ../../../src/MenuCharacter.cpp:305
 msgid "Max HP:"
 msgstr ""
 
-#: ../../../src/MenuCharacter.cpp:296
+#: ../../../src/MenuCharacter.cpp:306
 #, fuzzy, c-format
 msgid "Each point of Physical grants +%d HP. Each level grants +%d HP"
 msgstr "物理的な交付金の各点+4 HPを再生。"
 
-#: ../../../src/MenuCharacter.cpp:301
+#: ../../../src/MenuCharacter.cpp:311
 #, fuzzy
 msgid "HP Regen:"
 msgstr "再生"
 
-#: ../../../src/MenuCharacter.cpp:302
+#: ../../../src/MenuCharacter.cpp:312
 #, c-format
 msgid "Ticks of HP regen per minute. Each point of Physical grants +%d HP regen. Each level grants +%d HP regen"
 msgstr ""
 
-#: ../../../src/MenuCharacter.cpp:307
+#: ../../../src/MenuCharacter.cpp:317
 msgid "Max MP:"
 msgstr ""
 
-#: ../../../src/MenuCharacter.cpp:308
+#: ../../../src/MenuCharacter.cpp:318
 #, fuzzy, c-format
 msgid "Each point of Mental grants +%d MP. Each level grants +%d MP"
 msgstr "精神助成金の各点+4 MPの再生。"
 
-#: ../../../src/MenuCharacter.cpp:313
+#: ../../../src/MenuCharacter.cpp:323
 #, fuzzy
 msgid "MP Regen:"
 msgstr "再生"
 
-#: ../../../src/MenuCharacter.cpp:314
+#: ../../../src/MenuCharacter.cpp:324
 #, c-format
 msgid "Ticks of MP regen per minute. Each point of Mental grants +%d MP regen. Each level grants +%d MP regen"
 msgstr ""
 
-#: ../../../src/MenuCharacter.cpp:319
+#: ../../../src/MenuCharacter.cpp:329
 #, fuzzy
-msgid "Accuracy (vs lvl 1):"
+msgid "Accuracy:"
 msgstr "精度対防衛１"
 
-#: ../../../src/MenuCharacter.cpp:320 ../../../src/MenuCharacter.cpp:326
+#: ../../../src/MenuCharacter.cpp:330
 #, fuzzy, c-format
 msgid "Each point of Offense grants +%d accuracy. Each level grants +%d accuracy"
 msgstr "犯罪の各点は+5の精度を与えます。"
 
-#: ../../../src/MenuCharacter.cpp:325
+#: ../../../src/MenuCharacter.cpp:335
 #, fuzzy
-msgid "Accuracy (vs lvl 5):"
-msgstr "精度対防衛１"
-
-#: ../../../src/MenuCharacter.cpp:331
-#, fuzzy
-msgid "Avoidance (vs lvl 1):"
+msgid "Avoidance:"
 msgstr "回避対犯罪1"
 
-#: ../../../src/MenuCharacter.cpp:332 ../../../src/MenuCharacter.cpp:338
+#: ../../../src/MenuCharacter.cpp:336
 #, fuzzy, c-format
 msgid "Each point of Defense grants +%d avoidance. Each level grants +%d avoidance"
 msgstr "防衛の各点は+5回避を与えます。"
 
-#: ../../../src/MenuCharacter.cpp:337
-#, fuzzy
-msgid "Avoidance (vs lvl 5):"
-msgstr "回避対犯罪1"
-
-#: ../../../src/MenuCharacter.cpp:346
+#: ../../../src/MenuCharacter.cpp:341
 #, fuzzy
 msgid "Melee Damage:"
 msgstr "近接攻撃ダメージ： %d"
 
-#: ../../../src/MenuCharacter.cpp:357
+#: ../../../src/MenuCharacter.cpp:351
 #, fuzzy
 msgid "Ranged Damage:"
 msgstr "飛ダメージ： %d"
 
-#: ../../../src/MenuCharacter.cpp:368
+#: ../../../src/MenuCharacter.cpp:361
 #, fuzzy
 msgid "Mental Damage:"
 msgstr "精神ダメージ： %d"
 
-#: ../../../src/MenuCharacter.cpp:378
+#: ../../../src/MenuCharacter.cpp:371
 msgid "Crit:"
 msgstr ""
 
-#: ../../../src/MenuCharacter.cpp:384
+#: ../../../src/MenuCharacter.cpp:377
 #, fuzzy
 msgid "Absorb:"
 msgstr "吸収"
 
+#: ../../../src/MenuCharacter.cpp:387
+msgid "Poise: "
+msgstr ""
+
+#: ../../../src/MenuCharacter.cpp:388
+msgid "Reduces your chance of stumbling when hit"
+msgstr ""
+
+#: ../../../src/MenuCharacter.cpp:393 ../../../src/MenuCharacter.cpp:399
+msgid "Bonus"
+msgstr ""
+
+#: ../../../src/MenuCharacter.cpp:394
+msgid "Increases the XP gained per kill"
+msgstr ""
+
+#: ../../../src/MenuCharacter.cpp:400
+#, fuzzy, c-format
+msgid "Increases the %s found per drop"
+msgstr "増加 %s で %d"
+
 #: ../../../src/MenuCharacter.cpp:405
+msgid "Bonus Item Find: "
+msgstr ""
+
+#: ../../../src/MenuCharacter.cpp:406
+msgid "Increases the chance that an enemy will drop an item when killed"
+msgstr ""
+
+#: ../../../src/MenuCharacter.cpp:411
+msgid "Stealth: "
+msgstr ""
+
+#: ../../../src/MenuCharacter.cpp:412
+msgid "Increases your ability to move undetected"
+msgstr ""
+
+#: ../../../src/MenuCharacter.cpp:430
 #, c-format
 msgid "XP: %d"
 msgstr "%d　の経験"
 
-#: ../../../src/MenuCharacter.cpp:407
+#: ../../../src/MenuCharacter.cpp:432
 #, c-format
 msgid "Next: %d"
 msgstr "次： %d"
 
-#: ../../../src/MenuCharacter.cpp:411
+#: ../../../src/MenuCharacter.cpp:436
 msgid "Physical (P) increases melee weapon proficiency and total HP."
 msgstr "物理（P）は、近接武器の熟練度と合計HPを増加させる。"
 
-#: ../../../src/MenuCharacter.cpp:412 ../../../src/MenuCharacter.cpp:416
-#: ../../../src/MenuCharacter.cpp:420 ../../../src/MenuCharacter.cpp:424
+#: ../../../src/MenuCharacter.cpp:437 ../../../src/MenuCharacter.cpp:441
+#: ../../../src/MenuCharacter.cpp:445 ../../../src/MenuCharacter.cpp:449
 #, c-format
 msgid "base (%d), bonus (%d)"
 msgstr "基本 (%d), ボーナス (%d)"
 
-#: ../../../src/MenuCharacter.cpp:415
+#: ../../../src/MenuCharacter.cpp:440
 msgid "Mental (M) increases mental weapon proficiency and total MP."
 msgstr "精神的な（M）は、精神的な武器の熟練度と全体のMPを増加させる。"
 
-#: ../../../src/MenuCharacter.cpp:419
+#: ../../../src/MenuCharacter.cpp:444
 msgid "Offense (O) increases ranged weapon proficiency and accuracy."
 msgstr "犯罪（O）は、遠隔武器の熟練度と精度を向上させます。"
 
-#: ../../../src/MenuCharacter.cpp:423
+#: ../../../src/MenuCharacter.cpp:448
 msgid "Defense (D) increases armor proficiency and avoidance."
 msgstr "防衛（D）は、鎧の習熟度と回避を増加させる。"
 
-#: ../../../src/MenuCharacter.cpp:427
-msgid "Unspent attribute points"
-msgstr ""
-
-#: ../../../src/MenuEnemy.cpp:133
+#: ../../../src/MenuEnemy.cpp:138
 msgid "Dead"
 msgstr "死んだ"
 
-#: ../../../src/MenuEnemy.cpp:139 ../../../src/MenuEnemy.cpp:141
+#: ../../../src/MenuEnemy.cpp:144 ../../../src/MenuEnemy.cpp:146
 #, c-format
 msgid "%s level %d"
 msgstr "%s レベル %d"
@@ -755,19 +796,19 @@ msgstr "%s レベル %d"
 msgid "Exit"
 msgstr "終了"
 
-#: ../../../src/MenuExit.cpp:60
+#: ../../../src/MenuExit.cpp:58
 msgid "Save and exit to title?"
 msgstr "保存し、タイトルメニューに終了しますか"
 
-#: ../../../src/MenuInventory.cpp:212
+#: ../../../src/MenuInventory.cpp:210
 msgid "Use SHIFT to move only one item."
 msgstr "一つの項目だけを移動するにはSHIFTキーを使用してください。"
 
-#: ../../../src/MenuInventory.cpp:213
+#: ../../../src/MenuInventory.cpp:211
 msgid "CTRL-click a carried item to sell it."
 msgstr "CTRL-クリックして販売する実施項目を。"
 
-#: ../../../src/MenuInventory.cpp:387
+#: ../../../src/MenuInventory.cpp:415
 msgid "This item can only be used from the action bar."
 msgstr "この項目は、アクションバーから使用することができます。"
 
@@ -779,78 +820,82 @@ msgstr ""
 msgid "Quests"
 msgstr "クエスト"
 
-#: ../../../src/MenuLog.cpp:81
-#, fuzzy
-msgid "Stats"
-msgstr "統計情報"
-
-#: ../../../src/MenuManager.cpp:216
+#: ../../../src/MenuManager.cpp:253
 #, c-format
 msgid "XP: %d/%d"
 msgstr "XP側：%d/%dの"
 
-#: ../../../src/MenuManager.cpp:373 ../../../src/MenuManager.cpp:374
-#: ../../../src/MenuManager.cpp:582 ../../../src/MenuManager.cpp:583
+#: ../../../src/MenuManager.cpp:426 ../../../src/MenuManager.cpp:427
+#: ../../../src/MenuManager.cpp:630 ../../../src/MenuManager.cpp:631
 msgid "Not enough money."
 msgstr ""
 
-#: ../../../src/MenuPowers.cpp:470
+#: ../../../src/MenuPowers.cpp:460
+msgid "Unspent skill points:"
+msgstr ""
+
+#: ../../../src/MenuPowers.cpp:502
 msgid "Requires a physical weapon"
 msgstr "物理的な武器が必要です。"
 
-#: ../../../src/MenuPowers.cpp:472
+#: ../../../src/MenuPowers.cpp:504
 msgid "Requires a mental weapon"
 msgstr "精神的な武器が必要です。"
 
-#: ../../../src/MenuPowers.cpp:474
+#: ../../../src/MenuPowers.cpp:506
 msgid "Requires an offense weapon"
 msgstr "攻撃武器が必要です。"
 
-#: ../../../src/MenuPowers.cpp:480 ../../../src/MenuPowers.cpp:482
+#: ../../../src/MenuPowers.cpp:511 ../../../src/MenuPowers.cpp:513
 #, c-format
 msgid "Requires Physical Offense %d"
 msgstr "物理攻撃 %d が必要です。"
 
-#: ../../../src/MenuPowers.cpp:486 ../../../src/MenuPowers.cpp:488
+#: ../../../src/MenuPowers.cpp:516 ../../../src/MenuPowers.cpp:518
 #, c-format
 msgid "Requires Physical Defense %d"
 msgstr "物理防御 %d が必要です。"
 
-#: ../../../src/MenuPowers.cpp:492 ../../../src/MenuPowers.cpp:494
+#: ../../../src/MenuPowers.cpp:521 ../../../src/MenuPowers.cpp:523
 #, c-format
 msgid "Requires Mental Offense %d"
 msgstr "精神攻撃 %d が必要です。"
 
-#: ../../../src/MenuPowers.cpp:498 ../../../src/MenuPowers.cpp:500
+#: ../../../src/MenuPowers.cpp:526 ../../../src/MenuPowers.cpp:528
 #, c-format
 msgid "Requires Mental Defense %d"
 msgstr "精神的な防衛 %d が必要です。"
 
-#: ../../../src/MenuPowers.cpp:530 ../../../src/MenuPowers.cpp:533
+#: ../../../src/MenuPowers.cpp:553 ../../../src/MenuPowers.cpp:556
 #, fuzzy, c-format
 msgid "Requires Level %d"
 msgstr "%d 精神が必要です。"
 
-#: ../../../src/MenuPowers.cpp:541 ../../../src/MenuPowers.cpp:546
+#: ../../../src/MenuPowers.cpp:563 ../../../src/MenuPowers.cpp:568
 #, fuzzy, c-format
 msgid "Requires %d Skill Point"
 msgstr "物理的な武器が必要です。"
 
-#: ../../../src/MenuPowers.cpp:554
+#: ../../../src/MenuPowers.cpp:576
 msgid "Click to Unlock"
 msgstr ""
 
-#: ../../../src/MenuPowers.cpp:561 ../../../src/MenuPowers.cpp:564
+#: ../../../src/MenuPowers.cpp:582 ../../../src/MenuPowers.cpp:585
 #, fuzzy, c-format
 msgid "Requires Power: %s"
 msgstr "%d 精神が必要です。"
 
-#: ../../../src/MenuPowers.cpp:569
+#: ../../../src/MenuPowers.cpp:590
 #, c-format
 msgid "Costs %d MP"
 msgstr "費用は、%d はMPです。"
 
-#: ../../../src/MenuPowers.cpp:573
+#: ../../../src/MenuPowers.cpp:594
+#, fuzzy, c-format
+msgid "Costs %d HP"
+msgstr "費用は、%d はMPです。"
+
+#: ../../../src/MenuPowers.cpp:598
 #, c-format
 msgid "Cooldown: %d seconds"
 msgstr "クールダウンは%d秒"
@@ -859,78 +904,77 @@ msgstr "クールダウンは%d秒"
 msgid "Shared Stash"
 msgstr ""
 
-#: ../../../src/MenuTalker.cpp:47
-msgid "Trade"
-msgstr ""
-
-#: ../../../src/MenuVendor.cpp:49
+#: ../../../src/MenuVendor.cpp:52
 msgid "Buyback"
 msgstr ""
 
-#: ../../../src/MenuVendor.cpp:156
+#: ../../../src/MenuVendor.cpp:155
 msgid "Vendor"
 msgstr "売手"
 
-#: ../../../src/PowerManager.cpp:795 ../../../src/PowerManager.cpp:797
+#: ../../../src/PowerManager.cpp:659
 #, c-format
 msgid "+%d Shield"
 msgstr ""
 
-#: ../../../src/PowerManager.cpp:1114
+#: ../../../src/PowerManager.cpp:901
 msgid "You are already transformed, untransform first."
 msgstr ""
 
-#: ../../../src/StatBlock.cpp:397
-msgid "Grand Master"
-msgstr "グランドマスター"
-
-#: ../../../src/StatBlock.cpp:400
-msgid "Master"
-msgstr "マスター"
-
-#: ../../../src/StatBlock.cpp:403
-msgid "Warrior"
-msgstr "戦士"
-
-#: ../../../src/StatBlock.cpp:405
-msgid "Wizard"
-msgstr "魔女"
-
-#: ../../../src/StatBlock.cpp:407
-msgid "Ranger"
-msgstr "射手"
-
-#: ../../../src/StatBlock.cpp:409
-msgid "Paladin"
-msgstr "英雄"
-
-#: ../../../src/StatBlock.cpp:412
-msgid "Rogue"
-msgstr "泥棒"
-
-#: ../../../src/StatBlock.cpp:414
-msgid "Knight"
-msgstr "騎士"
-
-#: ../../../src/StatBlock.cpp:416
-msgid "Shaman"
-msgstr "シャーマン"
-
-#: ../../../src/StatBlock.cpp:418
-msgid "Cleric"
-msgstr "聖職者"
-
-#: ../../../src/StatBlock.cpp:420
-msgid "Battle Mage"
-msgstr "バトルメイジ"
-
-#: ../../../src/StatBlock.cpp:422
-msgid "Heavy Archer"
-msgstr "強い射手"
-
-#: ../../../src/StatBlock.cpp:424
+#: ../../../src/Settings.cpp:500
 msgid "Adventurer"
 msgstr "冒険家"
+
+#~ msgid "Flare"
+#~ msgstr "フレア"
+
+#, fuzzy
+#~ msgid "Accuracy (vs lvl 5):"
+#~ msgstr "精度対防衛１"
+
+#, fuzzy
+#~ msgid "Avoidance (vs lvl 5):"
+#~ msgstr "回避対犯罪1"
+
+#, fuzzy
+#~ msgid "Stats"
+#~ msgstr "統計情報"
+
+#~ msgid "Grand Master"
+#~ msgstr "グランドマスター"
+
+#~ msgid "Master"
+#~ msgstr "マスター"
+
+#~ msgid "Warrior"
+#~ msgstr "戦士"
+
+#~ msgid "Wizard"
+#~ msgstr "魔女"
+
+#~ msgid "Ranger"
+#~ msgstr "射手"
+
+#~ msgid "Paladin"
+#~ msgstr "英雄"
+
+#~ msgid "Rogue"
+#~ msgstr "泥棒"
+
+#~ msgid "Knight"
+#~ msgstr "騎士"
+
+#~ msgid "Shaman"
+#~ msgstr "シャーマン"
+
+#~ msgid "Cleric"
+#~ msgstr "聖職者"
+
+#~ msgid "Battle Mage"
+#~ msgstr "バトルメイジ"
+
+#~ msgid "Heavy Archer"
+#~ msgstr "強い射手"
 
 #~ msgid "You receive %d gold."
 #~ msgstr "あなたは %d 金を受け取ります。"
