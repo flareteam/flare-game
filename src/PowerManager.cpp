@@ -252,6 +252,8 @@ void PowerManager::loadPowers(const std::string& filename) {
 			powers[input_id].transform_duration = toInt(infile.val);
 		else if (infile.key == "manual_untransform")
 			powers[input_id].manual_untransform = toBool(infile.val);
+		else if (infile.key == "keep_equipment")
+			powers[input_id].keep_equipment = toBool(infile.val);
 		// buffs
 		else if (infile.key == "buff")
 			powers[input_id].buff= toBool(infile.val);
@@ -906,6 +908,7 @@ bool PowerManager::transform(int power_index, StatBlock *src_stats, Point target
 	buff(power_index, src_stats, target);
 
 	src_stats->manual_untransform = powers[power_index].manual_untransform;
+	src_stats->transform_with_equipment = powers[power_index].keep_equipment;
 
 	// If there's a sound effect, play it here
 	playSound(power_index, src_stats);

@@ -214,6 +214,7 @@ public:
 	int transform_duration;
 	int transform_duration_total;
 	bool manual_untransform;
+	bool transform_with_equipment;
 	EffectManager effects;
 
 	Point pos;
