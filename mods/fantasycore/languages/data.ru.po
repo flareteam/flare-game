@@ -8,2510 +8,539 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flare-game 0.17\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-21 20:09+\n"
+"POT-Creation-Date: 2013-03-15 21:52+\n"
 "PO-Revision-Date: 2012-09-25 01:31+0600\n"
 "Last-Translator: Sergey Basalaev <sbasalaev@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ru\n"
 
-#: ../items/items.txt:3
+#: ../items/items.txt:5
 msgid "Health Potion"
 msgstr "Зелье здоровья"
 
-#: ../items/items.txt:7
-msgid "Restore 25 HP"
-msgstr "Восстановить 25 очков здоровья"
+#: ../items/items.txt:9
+#, fuzzy
+msgid "Restore 100 HP"
+msgstr "Восстановить здоровье"
 
-#: ../items/items.txt:8
+#: ../items/items.txt:10
 msgid "consumable"
 msgstr "потребляемый"
 
-#: ../items/items.txt:17
+#: ../items/items.txt:19
 msgid "Mana Potion"
 msgstr "Зелье маны"
 
-#: ../items/items.txt:21
-msgid "Restore 25 MP"
+#: ../items/items.txt:23
+#, fuzzy
+msgid "Restore 100 MP"
 msgstr "Восстановить 25 очков маны"
 
-#: ../items/items.txt:31
-msgid "Health Flask"
-msgstr "Фляга здоровья"
-
 #: ../items/items.txt:35
-msgid "Restore 75 HP"
-msgstr "Восстановить 75 очков здоровья"
-
-#: ../items/items.txt:45
-msgid "Mana Flask"
-msgstr "Фляга маны"
-
-#: ../items/items.txt:49
-msgid "Restore 75 MP"
-msgstr "Восстановить 75 очков маны"
-
-#: ../items/items.txt:59
-msgid "Diamond"
-msgstr "Алмаз"
-
-#: ../items/items.txt:63
-msgid "gem"
-msgstr "драгоценность"
-
-#: ../items/items.txt:71
-msgid "Emerald"
-msgstr "Изумруд"
-
-#: ../items/items.txt:83
-msgid "Ruby"
-msgstr "Рубин"
-
-#: ../items/items.txt:95
 msgid "Sapphire"
 msgstr "Сапфир"
 
-#: ../items/items.txt:121
-msgid "Scroll of Teleport"
-msgstr "Свиток телепорта"
+#: ../items/items.txt:39
+msgid "gem"
+msgstr "драгоценность"
 
-#: ../items/items.txt:125
-msgid "Blink to a nearby location"
-msgstr "Переместиться в ближайшее расположение"
+#: ../items/items.txt:48
+msgid "Emerald"
+msgstr "Изумруд"
 
-#: ../items/items.txt:135
-msgid "Scroll of Time Stop"
-msgstr "Свиток остановки времени"
+#: ../items/items.txt:61
+msgid "Ruby"
+msgstr "Рубин"
 
-#: ../items/items.txt:139
-msgid "Stun nearby enemies for 10 seconds"
-msgstr "Парализовать близких врагов на 10 секунд"
+#: ../items/items.txt:74
+msgid "Diamond"
+msgstr "Алмаз"
 
-#: ../items/items.txt:149
-msgid "Scroll of Haste"
-msgstr "Свиток ускорения"
-
-#: ../items/items.txt:153
-msgid "Double run and attack speed for 20 seconds"
-msgstr "Удвоить скорость бега и атаки на 20 секунд"
-
-#: ../items/items.txt:163
-msgid "Clothes"
-msgstr "Одеяние"
-
-#: ../items/items.txt:166
-msgid "body"
-msgstr "тело"
-
-#: ../items/items.txt:177
-msgid "Tattered Clothes"
-msgstr "Порванное одеяние"
-
-#: ../items/items.txt:191
-msgid "Dwarven Clothes"
-msgstr "Гномье одеяние"
-
-#: ../items/items.txt:196
-msgid "HP"
-msgstr "здоровье"
-
-#: ../items/items.txt:205
-msgid "Clothes of Restoration"
-msgstr "Одеяние восстановления"
-
-#: ../items/items.txt:210
-msgid "HP regen"
-msgstr "восстановление здоровья"
-
-#: ../items/items.txt:219
-msgid "Elven Clothes"
-msgstr "Эльфийское одеяние"
-
-#: ../items/items.txt:224
-msgid "MP"
-msgstr "ману"
-
-#: ../items/items.txt:233
-msgid "Clothes of Meditation"
-msgstr "Одеяние медитации"
-
-#: ../items/items.txt:238
-msgid "MP regen"
-msgstr "восстановление маны"
-
-#: ../items/items.txt:247
-msgid "Battle Clothes"
-msgstr "Боевое одеяние"
-
-#: ../items/items.txt:261
-msgid "Clothes of Accuracy"
-msgstr "Одеяние меткости"
-
-#: ../items/items.txt:266
-msgid "accuracy"
-msgstr "меткость"
-
-#: ../items/items.txt:275
-msgid "Clothes of Avoidance"
-msgstr "Одеяние уклонения"
-
-#: ../items/items.txt:280
-msgid "avoidance"
-msgstr "уклонение"
-
-#: ../items/items.txt:289
-msgid "Summer Clothes"
-msgstr "Летнее одеяние"
-
-#: ../items/items.txt:294
-msgid "fire resist"
-msgstr "сопротивление огню"
-
-#: ../items/items.txt:303
-msgid "Winter Clothes"
-msgstr "Зимнее одеяние"
-
-#: ../items/items.txt:308
-msgid "ice resist"
-msgstr "сопротивление льду"
-
-#: ../items/items.txt:317
-msgid "Clothes of Slaying"
-msgstr "Одеяние убийства"
-
-#: ../items/items.txt:322
-msgid "crit"
-msgstr "критический удар"
-
-#: ../items/items.txt:331
-msgid "Warlord Clothes"
-msgstr "Одеяние военачальника"
-
-#: ../items/items.txt:346
-msgid "Clothes of Victory"
-msgstr "Одеяние победы"
-
-#: ../items/items.txt:361
-msgid "Archmage Clothes"
-msgstr "Одеяние архимага"
-
-#: ../items/items.txt:376
-msgid "Clothes of Wizardry"
-msgstr "Одеяние волшебства"
-
-#: ../items/items.txt:391
-msgid "Ancient Clothes"
-msgstr "Древнее одеяние"
-
-#: ../items/items.txt:405
-msgid "Clothes of Precision"
-msgstr "Одеяние точности"
-
-#: ../items/items.txt:420
-msgid "Clothes of Protection"
-msgstr "Одеяние обороны"
-
-#: ../items/items.txt:435
-msgid "Fiery Clothes"
-msgstr "Пламенное одеяние"
-
-#: ../items/items.txt:450
-msgid "Frozen Clothes"
-msgstr "Морозное одеяние"
-
-#: ../items/items.txt:465
-msgid "Clothes of Destruction"
-msgstr "Одеяние разрушения"
-
-#: ../items/items.txt:480
-msgid "Butcher's Apron"
-msgstr "Фартук мясника"
-
-#: ../items/items.txt:495
-msgid "Medic Wrap"
-msgstr "Накидка медика"
-
-#: ../items/items.txt:510
-msgid "Wizard Tunic"
-msgstr "Туника волшебника"
-
-#: ../items/items.txt:525
-msgid "Spellwoven Clothes"
-msgstr "Зачарованное одеяние"
-
-#: ../items/items.txt:540
-msgid "Hunter's Garb"
-msgstr "Облачение охотника"
-
-#: ../items/items.txt:555
-msgid "Night Watch"
-msgstr "Ночное видение"
-
-#: ../items/items.txt:570
-msgid "Nomad Rags"
-msgstr "Тряпьё кочевника"
-
-#: ../items/items.txt:585
-msgid "Fur-Lined Tunic"
-msgstr "Меховая туника"
-
-#: ../items/items.txt:600
-msgid "Vigilante"
-msgstr "Виджиланте"
-
-#: ../items/items.txt:615
+#: ../items/items.txt:89
 msgid "Dagger"
 msgstr "Кинжал"
 
-#: ../items/items.txt:618
+#: ../items/items.txt:92
 msgid "main"
 msgstr "главная"
 
-#: ../items/items.txt:630
-msgid "Rusted Dagger"
-msgstr "Ржавый кинжал"
-
-#: ../items/items.txt:645
-msgid "Cursed Dagger"
-msgstr "Проклятый кинжал"
-
-#: ../items/items.txt:661
-msgid "Dull Dagger"
-msgstr "Тупой кинжал"
-
-#: ../items/items.txt:676
-msgid "Dwarven Dagger"
-msgstr "Гномий кинжал"
-
-#: ../items/items.txt:691
-msgid "Dagger of Restoration"
-msgstr "Кинжал восстановления"
-
-#: ../items/items.txt:706
-msgid "Elven Dagger"
-msgstr "Эльфийский кинжал"
-
-#: ../items/items.txt:721
-msgid "Dagger of Meditation"
-msgstr "Кинжал медитации"
-
-#: ../items/items.txt:736
-msgid "Battle Dagger"
-msgstr "Боевой кинжал"
-
-#: ../items/items.txt:750
-msgid "Dagger of Accuracy"
-msgstr "Кинжал меткости"
-
-#: ../items/items.txt:765
-msgid "Dagger of Avoidance"
-msgstr "Кинжал уклонения"
-
-#: ../items/items.txt:780
-msgid "Summer Dagger"
-msgstr "Летний кинжал"
-
-#: ../items/items.txt:795
-msgid "Winter Dagger"
-msgstr "Зимний кинжал"
-
-#: ../items/items.txt:810
-msgid "Dagger of Slaying"
-msgstr "Кинжал убийства"
-
-#: ../items/items.txt:825
-msgid "Warlord Dagger"
-msgstr "Кинжал военачальника"
-
-#: ../items/items.txt:840
-msgid "Dagger of Victory"
-msgstr "Кинжал победы"
-
-#: ../items/items.txt:855
-msgid "Archmage Dagger"
-msgstr "Кинжал архимага"
-
-#: ../items/items.txt:870
-msgid "Dagger of Wizardry"
-msgstr "Кинжал волшебства"
-
-#: ../items/items.txt:885
-msgid "Ancient Dagger"
-msgstr "Древний кинжал"
-
-#: ../items/items.txt:899
-msgid "Dagger of Precision"
-msgstr "Кинжал точности"
-
-#: ../items/items.txt:914
-msgid "Dagger of Protection"
-msgstr "Кинжал обороны"
-
-#: ../items/items.txt:929
-msgid "Fiery Dagger"
-msgstr "Пламенный кинжал"
-
-#: ../items/items.txt:944
-msgid "Frozen Dagger"
-msgstr "Морозный кинжал"
-
-#: ../items/items.txt:959
-msgid "Dagger of Destruction"
-msgstr "Кинжал разрушения"
-
-#: ../items/items.txt:974
-msgid "Sacrificial Knife"
-msgstr "Жертвенный нож"
-
-#: ../items/items.txt:989
-msgid "Thorn"
-msgstr "Шип"
-
-#: ../items/items.txt:1004
-msgid "Mind Shard"
-msgstr "Осколок разума"
-
-#: ../items/items.txt:1019
-msgid "Ether Slice"
-msgstr "Срез эфира"
-
-#: ../items/items.txt:1034
-msgid "Pinpoint"
-msgstr "Булавка"
-
-#: ../items/items.txt:1049
-msgid "Dancing Knife"
-msgstr "Танцующий нож"
-
-#: ../items/items.txt:1064
-msgid "Fire Shard"
-msgstr "Осколок огня"
-
-#: ../items/items.txt:1079
-msgid "Ice Shard"
-msgstr "Осколок льда"
-
-#: ../items/items.txt:1094
-msgid "Goblin Carver"
-msgstr "Тесак гоблина"
-
-#: ../items/items.txt:1109
+#: ../items/items.txt:103
 msgid "Shortsword"
 msgstr "Короткий меч"
 
-#: ../items/items.txt:1123
-msgid "Rusted Shortsword"
-msgstr "Ржавый короткий меч"
-
-#: ../items/items.txt:1137
-msgid "Cursed Shortsword"
-msgstr "Проклятый короткий меч"
-
-#: ../items/items.txt:1152
-msgid "Dull Shortsword"
-msgstr "Тупой короткий меч"
-
-#: ../items/items.txt:1167
-msgid "Dwarven Shortsword"
-msgstr "Гномий короткий меч"
-
-#: ../items/items.txt:1182
-msgid "Shortsword of Restoration"
-msgstr "Короткий меч восстановления"
-
-#: ../items/items.txt:1197
-msgid "Elven Shortsword"
-msgstr "Эльфийский короткий меч"
-
-#: ../items/items.txt:1212
-msgid "Shortsword of Meditation"
-msgstr "Короткий меч медитации"
-
-#: ../items/items.txt:1227
-msgid "Battle Shortsword"
-msgstr "Боевой короткий меч"
-
-#: ../items/items.txt:1241
-msgid "Shortsword of Accuracy"
-msgstr "Короткий меч меткости"
-
-#: ../items/items.txt:1256
-msgid "Shortsword of Avoidance"
-msgstr "Короткий меч уклонения"
-
-#: ../items/items.txt:1271
-msgid "Summer Shortsword"
-msgstr "Летний короткий меч"
-
-#: ../items/items.txt:1286
-msgid "Winter Shortsword"
-msgstr "Зимний короткий меч"
-
-#: ../items/items.txt:1301
-msgid "Shortsword of Slaying"
-msgstr "Короткий меч убийства"
-
-#: ../items/items.txt:1316
-msgid "Warlord Shortsword"
-msgstr "Короткий меч военачальника"
-
-#: ../items/items.txt:1331
-msgid "Shortsword of Victory"
-msgstr "Короткий меч победы"
-
-#: ../items/items.txt:1346
-msgid "Archmage Shortsword"
-msgstr "Короткий меч архимага"
-
-#: ../items/items.txt:1361
-msgid "Shortsword of Wizardry"
-msgstr "Короткий меч волшебства"
-
-#: ../items/items.txt:1376
-msgid "Ancient Shortsword"
-msgstr "Древний короткий меч"
-
-#: ../items/items.txt:1390
-msgid "Shortsword of Precision"
-msgstr "Короткий меч точности"
-
-#: ../items/items.txt:1405
-msgid "Shortsword of Protection"
-msgstr "Короткий меч обороны"
-
-#: ../items/items.txt:1420
-msgid "Fiery Shortsword"
-msgstr "Пламенный короткий меч"
-
-#: ../items/items.txt:1435
-msgid "Frozen Shortsword"
-msgstr "Морозный короткий меч"
-
-#: ../items/items.txt:1450
-msgid "Shortsword of Destruction"
-msgstr "Короткий меч разрушения"
-
-#: ../items/items.txt:1465
-msgid "Gladius"
-msgstr "Гладиус"
-
-#: ../items/items.txt:1480
-msgid "Mending Blade"
-msgstr "Клинок улучшения"
-
-#: ../items/items.txt:1495
-msgid "Mana Edge"
-msgstr "Лезвие маны"
-
-#: ../items/items.txt:1510
-msgid "Demon Pact"
-msgstr "Договор с дьяволом"
-
-#: ../items/items.txt:1525
-msgid "Watchman's Blade"
-msgstr "Клинок стража"
-
-#: ../items/items.txt:1540
-msgid "Parry Blade"
-msgstr "Клинок отражения"
-
-#: ../items/items.txt:1555
-msgid "Summersword"
-msgstr "Летний меч"
-
-#: ../items/items.txt:1570
-msgid "Wintersword"
-msgstr "Зимний меч"
-
-#: ../items/items.txt:1585
-msgid "Sting"
-msgstr "Жало"
-
-#: ../items/items.txt:1600
+#: ../items/items.txt:117
 msgid "Longsword"
 msgstr "Длинный меч"
 
-#: ../items/items.txt:1614
-msgid "Rusted Longsword"
-msgstr "Ржавый длинный меч"
-
-#: ../items/items.txt:1628
-msgid "Cursed Longsword"
-msgstr "Проклятый длинный меч"
-
-#: ../items/items.txt:1643
-msgid "Dull Longsword"
-msgstr "Тупой длинный меч"
-
-#: ../items/items.txt:1658
-msgid "Dwarven Longsword"
-msgstr "Гномий длинный меч"
-
-#: ../items/items.txt:1673
-msgid "Longsword of Restoration"
-msgstr "Длинный меч восстановления"
-
-#: ../items/items.txt:1688
-msgid "Elven Longsword"
-msgstr "Эльфийский длинный меч"
-
-#: ../items/items.txt:1703
-msgid "Longsword of Meditation"
-msgstr "Длинный меч медитации"
-
-#: ../items/items.txt:1718
-msgid "Battle Longsword"
-msgstr "Боевой длинный меч"
-
-#: ../items/items.txt:1732
-msgid "Longsword of Accuracy"
-msgstr "Длинный меч меткости"
-
-#: ../items/items.txt:1747
-msgid "Longsword of Avoidance"
-msgstr "Длинный меч уклонения"
-
-#: ../items/items.txt:1762
-msgid "Summer Longsword"
-msgstr "Летний длинный меч"
-
-#: ../items/items.txt:1777
-msgid "Winter Longsword"
-msgstr "Зимний длинный меч"
-
-#: ../items/items.txt:1792
-msgid "Longsword of Slaying"
-msgstr "Длинный меч убийства"
-
-#: ../items/items.txt:1807
-msgid "Warlord Longsword"
-msgstr "Длинный меч военачальника"
-
-#: ../items/items.txt:1822
-msgid "Longsword of Victory"
-msgstr "Длинный меч победы"
-
-#: ../items/items.txt:1837
-msgid "Archmage Longsword"
-msgstr "Длинный меч архимага"
-
-#: ../items/items.txt:1852
-msgid "Longsword of Wizardry"
-msgstr "Длинный меч волшебства"
-
-#: ../items/items.txt:1867
-msgid "Ancient Longsword"
-msgstr "Древний длинный меч"
-
-#: ../items/items.txt:1881
-msgid "Longsword of Precision"
-msgstr "Длинный меч точности"
-
-#: ../items/items.txt:1896
-msgid "Longsword of Protection"
-msgstr "Длинный меч обороны"
-
-#: ../items/items.txt:1911
-msgid "Fiery Longsword"
-msgstr "Пламенный длинный меч"
-
-#: ../items/items.txt:1926
-msgid "Frozen Longsword"
-msgstr "Морозный длинный меч"
-
-#: ../items/items.txt:1941
-msgid "Longsword of Destruction"
-msgstr "Длинный меч разрушения"
-
-#: ../items/items.txt:1956
-msgid "Excalibur"
-msgstr "Экскалибур"
-
-#: ../items/items.txt:1971
-msgid "Vampiric Sword"
-msgstr "Вампирический меч"
-
-#: ../items/items.txt:1986
-msgid "Glamdring"
-msgstr "Гламдринг"
-
-#: ../items/items.txt:2001
-msgid "Durendal"
-msgstr "Дюрандаль"
-
-#: ../items/items.txt:2016
-msgid "Rapier"
-msgstr "Рапира"
-
-#: ../items/items.txt:2031
-msgid "Dueling Sword"
-msgstr "Дуэльный меч"
-
-#: ../items/items.txt:2046
-msgid "Flame Edge"
-msgstr "Лезвие пламени"
-
-#: ../items/items.txt:2061
-msgid "Frost Edge"
-msgstr "Лезвие мороза"
-
-#: ../items/items.txt:2076
-msgid "Vorpal Sword"
-msgstr "Бравный меч"
-
-#: ../items/items.txt:2091
+#: ../items/items.txt:131
 msgid "Greatsword"
 msgstr "Великий меч"
 
-#: ../items/items.txt:2105
-msgid "Rusted Greatsword"
-msgstr "Ржавый великий меч"
-
-#: ../items/items.txt:2119
-msgid "Cursed Greatsword"
-msgstr "Проклятый великий меч"
-
-#: ../items/items.txt:2134
-msgid "Dull Greatsword"
-msgstr "Тупой великий меч"
-
-#: ../items/items.txt:2149
-msgid "Dwarven Greatsword"
-msgstr "Гномий великий меч"
-
-#: ../items/items.txt:2164
-msgid "Greatsword of Restoration"
-msgstr "Великий меч восстановления"
-
-#: ../items/items.txt:2179
-msgid "Elven Greatsword"
-msgstr "Эльфийский великий меч"
-
-#: ../items/items.txt:2194
-msgid "Greatsword of Meditation"
-msgstr "Великий меч медитации"
-
-#: ../items/items.txt:2209
-msgid "Battle Greatsword"
-msgstr "Боевой великий меч"
-
-#: ../items/items.txt:2223
-msgid "Greatsword of Accuracy"
-msgstr "Великий меч меткости"
-
-#: ../items/items.txt:2238
-msgid "Greatsword of Avoidance"
-msgstr "Великий меч уклонения"
-
-#: ../items/items.txt:2253
-msgid "Summer Greatsword"
-msgstr "Летний великий меч"
-
-#: ../items/items.txt:2268
-msgid "Winter Greatsword"
-msgstr "Зимний великий меч"
-
-#: ../items/items.txt:2283
-msgid "Greatsword of Slaying"
-msgstr "Великий меч убийства"
-
-#: ../items/items.txt:2298
-msgid "Warlord Greatsword"
-msgstr "Великий меч военачальника"
-
-#: ../items/items.txt:2313
-msgid "Greatsword of Victory"
-msgstr "Великий меч победы"
-
-#: ../items/items.txt:2328
-msgid "Archmage Greatsword"
-msgstr "Великий меч архимага"
-
-#: ../items/items.txt:2343
-msgid "Greatsword of Wizardry"
-msgstr "Великий меч волшебства"
-
-#: ../items/items.txt:2358
-msgid "Ancient Greatsword"
-msgstr "Древний великий меч"
-
-#: ../items/items.txt:2372
-msgid "Greatsword of Precision"
-msgstr "Великий меч точности"
-
-#: ../items/items.txt:2387
-msgid "Greatsword of Protection"
-msgstr "Великий меч обороны"
-
-#: ../items/items.txt:2402
-msgid "Fiery Greatsword"
-msgstr "Пламенный великий меч"
-
-#: ../items/items.txt:2417
-msgid "Frozen Greatsword"
-msgstr "Морозный великий меч"
-
-#: ../items/items.txt:2432
-msgid "Greatsword of Destruction"
-msgstr "Великий меч разрушения"
-
-#: ../items/items.txt:2447
-msgid "Ragnarok"
-msgstr "Рагнарок"
-
-#: ../items/items.txt:2462
-msgid "Earth Rend"
-msgstr "Рубитель камней"
-
-#: ../items/items.txt:2477
-msgid "Joyeuse"
-msgstr "Жуаез"
-
-#: ../items/items.txt:2492
-msgid "Soul Rend"
-msgstr "Рубитель душ"
-
-#: ../items/items.txt:2507
-msgid "Hrunting"
-msgstr "Хрунтинг"
-
-#: ../items/items.txt:2522
-msgid "Naegling"
-msgstr "Неглинг"
-
-#: ../items/items.txt:2537
-msgid "Sunblade"
-msgstr "Клинок солнца"
-
-#: ../items/items.txt:2552
-msgid "Moonblade"
-msgstr "Клинок луны"
-
-#: ../items/items.txt:2567
-msgid "Armageddon"
-msgstr "Армагеддон"
-
-#: ../items/items.txt:2582
+#: ../items/items.txt:147
 msgid "Wand"
 msgstr "Жезл"
 
-#: ../items/items.txt:2596
-msgid "Cracked Wand"
-msgstr "Треснутый жезл"
-
-#: ../items/items.txt:2610
-msgid "Cursed Wand"
-msgstr "Проклятый жезл"
-
-#: ../items/items.txt:2625
-msgid "Depleted Wand"
-msgstr "Истёртый жезл"
-
-#: ../items/items.txt:2640
-msgid "Dwarven Wand"
-msgstr "Гномий жезл"
-
-#: ../items/items.txt:2655
-msgid "Wand of Restoration"
-msgstr "Жезл восстановления"
-
-#: ../items/items.txt:2670
-msgid "Elven Wand"
-msgstr "Эльфийский жезл"
-
-#: ../items/items.txt:2685
-msgid "Wand of Meditation"
-msgstr "Жезл медитации"
-
-#: ../items/items.txt:2700
-msgid "Battle Wand"
-msgstr "Боевой жезл"
-
-#: ../items/items.txt:2714
-msgid "Wand of Accuracy"
-msgstr "Жезл точности"
-
-#: ../items/items.txt:2729
-msgid "Wand of Avoidance"
-msgstr "Жезл уклонения"
-
-#: ../items/items.txt:2744
-msgid "Summer Wand"
-msgstr "Летний жезл"
-
-#: ../items/items.txt:2759
-msgid "Winter Wand"
-msgstr "Зимний жезл"
-
-#: ../items/items.txt:2774
-msgid "Wand of Slaying"
-msgstr "Жезл убийства"
-
-#: ../items/items.txt:2789
-msgid "Warlord Wand"
-msgstr "Жезл военачальника"
-
-#: ../items/items.txt:2804
-msgid "Wand of Victory"
-msgstr "Жезл победы"
-
-#: ../items/items.txt:2819
-msgid "Archmage Wand"
-msgstr "Жезл архимага"
-
-#: ../items/items.txt:2834
-msgid "Wand of Wizardry"
-msgstr "Жезл волшебства"
-
-#: ../items/items.txt:2849
-msgid "Ancient Wand"
-msgstr "Древний жезл"
-
-#: ../items/items.txt:2863
-msgid "Wand of Precision"
-msgstr "Жезл точности"
-
-#: ../items/items.txt:2878
-msgid "Wand of Protection"
-msgstr "Жезл обороны"
-
-#: ../items/items.txt:2893
-msgid "Fiery Wand"
-msgstr "Пламенный жезл"
-
-#: ../items/items.txt:2908
-msgid "Frozen Wand"
-msgstr "Морозный жезл"
-
-#: ../items/items.txt:2923
-msgid "Wand of Destruction"
-msgstr "Жезл разрушения"
-
-#: ../items/items.txt:2938
-msgid "Tongue Depressor"
-msgstr "Подавитель языка"
-
-#: ../items/items.txt:2953
-msgid "Living Branch"
-msgstr "Живая ветвь"
-
-#: ../items/items.txt:2968
-msgid "Glow Stick"
-msgstr "Тлеющий прут"
-
-#: ../items/items.txt:2983
-msgid "Mana Catcher"
-msgstr "Ловец маны"
-
-#: ../items/items.txt:2998
-msgid "Conductor's Baton"
-msgstr "Дирижёрская палочка"
-
-#: ../items/items.txt:3013
-msgid "Blink Wand"
-msgstr "Мерцающий жезл"
-
-#: ../items/items.txt:3028
-msgid "Enchanted Torch"
-msgstr "Зачарованный факел"
-
-#: ../items/items.txt:3043
-msgid "Snowy Branch"
-msgstr "Снежная ветвь"
-
-#: ../items/items.txt:3058
-msgid "Lich Finger"
-msgstr "Палец лича"
-
-#: ../items/items.txt:3073
+#: ../items/items.txt:161
 msgid "Rod"
 msgstr "Скипетр"
 
-#: ../items/items.txt:3087
-msgid "Cracked Rod"
-msgstr "Треснутый скипетр"
-
-#: ../items/items.txt:3101
-msgid "Cursed Rod"
-msgstr "Проклятый скипетр"
-
-#: ../items/items.txt:3116
-msgid "Depleted Rod"
-msgstr "Истёртый скипетр"
-
-#: ../items/items.txt:3131
-msgid "Dwarven Rod"
-msgstr "Гномий скипетр"
-
-#: ../items/items.txt:3146
-msgid "Rod of Restoration"
-msgstr "Скипетр восстановления"
-
-#: ../items/items.txt:3161
-msgid "Elven Rod"
-msgstr "Эльфийский скипетр"
-
-#: ../items/items.txt:3176
-msgid "Rod of Meditation"
-msgstr "Скипетр медитации"
-
-#: ../items/items.txt:3191
-msgid "Battle Rod"
-msgstr "Боевой скипетр"
-
-#: ../items/items.txt:3205
-msgid "Rod of Accuracy"
-msgstr "Скипетр меткости"
-
-#: ../items/items.txt:3220
-msgid "Rod of Avoidance"
-msgstr "Скипетр уклонения"
-
-#: ../items/items.txt:3235
-msgid "Summer Rod"
-msgstr "Летний скипетр"
-
-#: ../items/items.txt:3250
-msgid "Winter Rod"
-msgstr "Зимний скипетр"
-
-#: ../items/items.txt:3265
-msgid "Rod of Slaying"
-msgstr "Скипетр убийства"
-
-#: ../items/items.txt:3280
-msgid "Warlord Rod"
-msgstr "Скипетр военачальника"
-
-#: ../items/items.txt:3295
-msgid "Rod of Victory"
-msgstr "Скипетр победы"
-
-#: ../items/items.txt:3310
-msgid "Archmage Rod"
-msgstr "Скипетр архимага"
-
-#: ../items/items.txt:3325
-msgid "Rod of Wizardry"
-msgstr "Скипетр волшебства"
-
-#: ../items/items.txt:3340
-msgid "Ancient Rod"
-msgstr "Древний скипетр"
-
-#: ../items/items.txt:3354
-msgid "Rod of Precision"
-msgstr "Скипетр точности"
-
-#: ../items/items.txt:3369
-msgid "Rod of Protection"
-msgstr "Скипетр обороны"
-
-#: ../items/items.txt:3384
-msgid "Fiery Rod"
-msgstr "Пламенный скипетр"
-
-#: ../items/items.txt:3399
-msgid "Frozen Rod"
-msgstr "Морозный скипетр"
-
-#: ../items/items.txt:3414
-msgid "Rod of Destruction"
-msgstr "Скипетр разрушения"
-
-#: ../items/items.txt:3429
-msgid "Scepter of Kings"
-msgstr "Скипетр королей"
-
-#: ../items/items.txt:3444
-msgid "Medic Rod"
-msgstr "Скипетр медика"
-
-#: ../items/items.txt:3459
-msgid "Sage Scepter"
-msgstr "Скипетр мудреца"
-
-#: ../items/items.txt:3474
-msgid "Oracle Rod"
-msgstr "Скипетр оракула"
-
-#: ../items/items.txt:3489
-msgid "Rod of Alignment"
-msgstr "Скипетр порядка"
-
-#: ../items/items.txt:3504
-msgid "Warding Rod"
-msgstr "Скипетр заключения"
-
-#: ../items/items.txt:3519
-msgid "Ruby-Tipped Cane"
-msgstr "Трость с рубиновым наконечником"
-
-#: ../items/items.txt:3534
-msgid "Diamond-Tipped Cane"
-msgstr "Трость с алмазным наконечником"
-
-#: ../items/items.txt:3549
-msgid "Unwraveller"
-msgstr "Разоблачитель"
-
-#: ../items/items.txt:3564
+#: ../items/items.txt:175
 msgid "Staff"
 msgstr "Посох"
 
-#: ../items/items.txt:3578
-msgid "Cracked Staff"
-msgstr "Треснутый посох"
-
-#: ../items/items.txt:3592
-msgid "Cursed Staff"
-msgstr "Проклятый посох"
-
-#: ../items/items.txt:3607
-msgid "Depleted Staff"
-msgstr "Истёртый посох"
-
-#: ../items/items.txt:3622
-msgid "Dwarven Staff"
-msgstr "Гномий посох"
-
-#: ../items/items.txt:3637
-msgid "Staff of Restoration"
-msgstr "Посох восстановления"
-
-#: ../items/items.txt:3652
-msgid "Elven Staff"
-msgstr "Эльфийский посох"
-
-#: ../items/items.txt:3667
-msgid "Staff of Meditation"
-msgstr "Посох медитации"
-
-#: ../items/items.txt:3682
-msgid "Battle Staff"
-msgstr "Боевой посох"
-
-#: ../items/items.txt:3696
-msgid "Staff of Accuracy"
-msgstr "Посох меткости"
-
-#: ../items/items.txt:3711
-msgid "Staff of Avoidance"
-msgstr "Посох уклонения"
-
-#: ../items/items.txt:3726
-msgid "Summer Staff"
-msgstr "Летний посох"
-
-#: ../items/items.txt:3741
-msgid "Winter Staff"
-msgstr "Зимний посох"
-
-#: ../items/items.txt:3756
-msgid "Staff of Slaying"
-msgstr "Посох убийства"
-
-#: ../items/items.txt:3771
-msgid "Warlord Staff"
-msgstr "Посох военачальника"
-
-#: ../items/items.txt:3786
-msgid "Staff of Victory"
-msgstr "Посох победы"
-
-#: ../items/items.txt:3801
-msgid "Archmage Staff"
-msgstr "Посох архимага"
-
-#: ../items/items.txt:3816
-msgid "Staff of Wizardry"
-msgstr "Посох волшебства"
-
-#: ../items/items.txt:3831
-msgid "Ancient Staff"
-msgstr "Древний посох"
-
-#: ../items/items.txt:3845
-msgid "Staff of Precision"
-msgstr "Посох точности"
-
-#: ../items/items.txt:3860
-msgid "Staff of Protection"
-msgstr "Посох обороны"
-
-#: ../items/items.txt:3875
-msgid "Fiery Staff"
-msgstr "Пламенный посох"
-
-#: ../items/items.txt:3890
-msgid "Frozen Staff"
-msgstr "Морозный посох"
-
-#: ../items/items.txt:3905
-msgid "Staff of Destruction"
-msgstr "Посох разрушения"
-
-#: ../items/items.txt:3920
-msgid "Walking Stick"
-msgstr "Походная трость"
-
-#: ../items/items.txt:3935
-msgid "Totem of Life"
-msgstr "Тотем жизни"
-
-#: ../items/items.txt:3950
-msgid "Cosmic Staff"
-msgstr "Космический посох"
-
-#: ../items/items.txt:3965
-msgid "Totem of Dreams"
-msgstr "Тотем снов"
-
-#: ../items/items.txt:3980
-msgid "Staff of True Sight"
-msgstr "Посох истинного зрения"
-
-#: ../items/items.txt:3995
-msgid "Staff of Trials"
-msgstr "Посох испытаний"
-
-#: ../items/items.txt:4010
-msgid "Magma Flow"
-msgstr "Поток магмы"
-
-#: ../items/items.txt:4025
-msgid "Glacial Wind"
-msgstr "Ледяной ветер"
-
-#: ../items/items.txt:4040
-msgid "Wyvern Spine"
-msgstr "Шип виверна"
-
-#: ../items/items.txt:4055
+#: ../items/items.txt:189
 msgid "Greatstaff"
 msgstr "Великий посох"
 
-#: ../items/items.txt:4069
-msgid "Cracked Greatstaff"
-msgstr "Треснутый великий посох"
-
-#: ../items/items.txt:4083
-msgid "Cursed Greatstaff"
-msgstr "Проклятый великий посох"
-
-#: ../items/items.txt:4098
-msgid "Depleted Greatstaff"
-msgstr "Истёртый великий посох"
-
-#: ../items/items.txt:4113
-msgid "Dwarven Greatstaff"
-msgstr "Гномий великий посох"
-
-#: ../items/items.txt:4128
-msgid "Greatstaff of Restoration"
-msgstr "Великий посох восстановления"
-
-#: ../items/items.txt:4143
-msgid "Elven Greatstaff"
-msgstr "Эльфийский великий посох"
-
-#: ../items/items.txt:4158
-msgid "Greatstaff of Meditation"
-msgstr "Великий посох медитации"
-
-#: ../items/items.txt:4173
-msgid "Battle Greatstaff"
-msgstr "Боевой великий посох"
-
-#: ../items/items.txt:4187
-msgid "Greatstaff of Accuracy"
-msgstr "Великий посох меткости"
-
-#: ../items/items.txt:4202
-msgid "Greatstaff of Avoidance"
-msgstr "Великий посох уклонения"
-
-#: ../items/items.txt:4217
-msgid "Summer Greatstaff"
-msgstr "Летний великий посох"
-
-#: ../items/items.txt:4232
-msgid "Winter Greatstaff"
-msgstr "Зимний великий посох"
-
-#: ../items/items.txt:4247
-msgid "Greatstaff of Slaying"
-msgstr "Великий посох убийства"
-
-#: ../items/items.txt:4262
-msgid "Warlord Greatstaff"
-msgstr "Великий посох военачальника"
-
-#: ../items/items.txt:4277
-msgid "Greatstaff of Victory"
-msgstr "Великий посох победы"
-
-#: ../items/items.txt:4292
-msgid "Archmage Greatstaff"
-msgstr "Великий посох архимага"
-
-#: ../items/items.txt:4307
-msgid "Greatstaff of Wizardry"
-msgstr "Великий посох волшебства"
-
-#: ../items/items.txt:4322
-msgid "Ancient Greatstaff"
-msgstr "Древний великий посох"
-
-#: ../items/items.txt:4336
-msgid "Greatstaff of Precision"
-msgstr "Великий посох точности"
-
-#: ../items/items.txt:4351
-msgid "Greatstaff of Protection"
-msgstr "Великий посох обороны"
-
-#: ../items/items.txt:4366
-msgid "Fiery Greatstaff"
-msgstr "Пламенный великий посох"
-
-#: ../items/items.txt:4381
-msgid "Frozen Greatstaff"
-msgstr "Морозный великий посох"
-
-#: ../items/items.txt:4396
-msgid "Greatstaff of Destruction"
-msgstr "Великий посох разрушения"
-
-#: ../items/items.txt:4411
-msgid "Lifegiver"
-msgstr "Дающий жизнь"
-
-#: ../items/items.txt:4426
-msgid "Preserver"
-msgstr "Хранитель"
-
-#: ../items/items.txt:4441
-msgid "Enlightenment"
-msgstr "Просветление"
-
-#: ../items/items.txt:4456
-msgid "Defiler"
-msgstr "Осквернитель"
-
-#: ../items/items.txt:4471
-msgid "Precognition"
-msgstr "Предвидение"
-
-#: ../items/items.txt:4486
-msgid "Singularity"
-msgstr "Сингулярность"
-
-#: ../items/items.txt:4501
-msgid "Fission"
-msgstr "Ращепление"
-
-#: ../items/items.txt:4516
-msgid "Fusion"
-msgstr "Слияние"
-
-#: ../items/items.txt:4531
-msgid "Cataclysm"
-msgstr "Катаклизм"
-
-#: ../items/items.txt:4546
+#: ../items/items.txt:205
 msgid "Slingshot"
 msgstr "Праща"
 
-#: ../items/items.txt:4549
+#: ../items/items.txt:208
 msgid "off"
 msgstr "вторая"
 
-#: ../items/items.txt:4561
-msgid "Cracked Slingshot"
-msgstr "Треснутая праща"
-
-#: ../items/items.txt:4576
-msgid "Cursed Slingshot"
-msgstr "Проклятая праща"
-
-#: ../items/items.txt:4592
-msgid "Warped Slingshot"
-msgstr "Погнутая праща"
-
-#: ../items/items.txt:4608
-msgid "Dwarven Slingshot"
-msgstr "Гномья праща"
-
-#: ../items/items.txt:4624
-msgid "Slingshot of Restoration"
-msgstr "Праща восстановления"
-
-#: ../items/items.txt:4640
-msgid "Elven Slingshot"
-msgstr "Эльфийская праща"
-
-#: ../items/items.txt:4656
-msgid "Slingshot of Meditation"
-msgstr "Праща медитации"
-
-#: ../items/items.txt:4672
-msgid "Battle Slingshot"
-msgstr "Боевая праща"
-
-#: ../items/items.txt:4687
-msgid "Slingshot of Accuracy"
-msgstr "Праща меткости"
-
-#: ../items/items.txt:4703
-msgid "Slingshot of Avoidance"
-msgstr "Праща уклонения"
-
-#: ../items/items.txt:4719
-msgid "Summer Slingshot"
-msgstr "Летняя праща"
-
-#: ../items/items.txt:4727
-msgid "Fire Ammo"
-msgstr "Огненный заряд"
-
-#: ../items/items.txt:4736
-msgid "Winter Slingshot"
-msgstr "Зимняя праща"
-
-#: ../items/items.txt:4744
-msgid "Ice Ammo"
-msgstr "Ледяной заряд"
-
-#: ../items/items.txt:4753
-msgid "Slingshot of Slaying"
-msgstr "Праща убийства"
-
-#: ../items/items.txt:4769
-msgid "Warlord Slingshot"
-msgstr "Праща военачальника"
-
-#: ../items/items.txt:4785
-msgid "Slingshot of Victory"
-msgstr "Праща победы"
-
-#: ../items/items.txt:4801
-msgid "Archmage Slingshot"
-msgstr "Праща архимага"
-
-#: ../items/items.txt:4817
-msgid "Slingshot of Wizardry"
-msgstr "Праща волшебства"
-
-#: ../items/items.txt:4833
-msgid "Ancient Slingshot"
-msgstr "Древняя праща"
-
-#: ../items/items.txt:4848
-msgid "Slingshot of Precision"
-msgstr "Праща точности"
-
-#: ../items/items.txt:4864
-msgid "Slingshot of Protection"
-msgstr "Праща обороны"
-
-#: ../items/items.txt:4880
-msgid "Fiery Slingshot"
-msgstr "Пламенная праща"
-
-#: ../items/items.txt:4897
-msgid "Frozen Slingshot"
-msgstr "Морозная праща"
-
-#: ../items/items.txt:4914
-msgid "Slingshot of Destruction"
-msgstr "Праща разрушения"
-
-#: ../items/items.txt:4930
-msgid "Ash Branch"
-msgstr "Ветка ясеня"
-
-#: ../items/items.txt:4946
-msgid "Rock Sling"
-msgstr "Каменная рогатка"
-
-#: ../items/items.txt:4962
-msgid "Willow Branch"
-msgstr "Ветка ивы"
-
-#: ../items/items.txt:4978
-msgid "Wind Sling"
-msgstr "Рогатка ветра"
-
-#: ../items/items.txt:4994
-msgid "Urchin Sling"
-msgstr "Колючая рогатка"
-
-#: ../items/items.txt:5010
-msgid "Swift Sling"
-msgstr "Стремительная рогатка"
-
-#: ../items/items.txt:5026
-msgid "Ember Slinger"
-msgstr "Янтарная рогатка"
-
-#: ../items/items.txt:5043
-msgid "Snowball Slinger"
-msgstr "Снежкомёт"
-
-#: ../items/items.txt:5060
-msgid "Giant Slayer"
-msgstr "Убийца гигантов"
-
-#: ../items/items.txt:5076
+#: ../items/items.txt:220
 msgid "Shortbow"
 msgstr "Короткий лук"
 
-#: ../items/items.txt:5091
-msgid "Cracked Shortbow"
-msgstr "Треснутый короткий лук"
-
-#: ../items/items.txt:5106
-msgid "Cursed Shortbow"
-msgstr "Проклятый короткий лук"
-
-#: ../items/items.txt:5122
-msgid "Warped Shortbow"
-msgstr "Погнутый короткий лук"
-
-#: ../items/items.txt:5138
-msgid "Dwarven Shortbow"
-msgstr "Гномий короткий лук"
-
-#: ../items/items.txt:5154
-msgid "Shortbow of Restoration"
-msgstr "Короткий лук восстановления"
-
-#: ../items/items.txt:5170
-msgid "Elven Shortbow"
-msgstr "Эльфийский короткий лук"
-
-#: ../items/items.txt:5186
-msgid "Shortbow of Meditation"
-msgstr "Короткий лук медитации"
-
-#: ../items/items.txt:5202
-msgid "Battle Shortbow"
-msgstr "Боевой короткий лук"
-
-#: ../items/items.txt:5217
-msgid "Shortbow of Accuracy"
-msgstr "Короткий лук меткости"
-
-#: ../items/items.txt:5233
-msgid "Shortbow of Avoidance"
-msgstr "Короткий лук уклонения"
-
-#: ../items/items.txt:5249
-msgid "Summer Shortbow"
-msgstr "Летний короткий лук"
-
-#: ../items/items.txt:5266
-msgid "Winter Shortbow"
-msgstr "Зимний короткий лук"
-
-#: ../items/items.txt:5283
-msgid "Shortbow of Slaying"
-msgstr "Короткий лук убийства"
-
-#: ../items/items.txt:5299
-msgid "Warlord Shortbow"
-msgstr "Короткий лук военачальника"
-
-#: ../items/items.txt:5315
-msgid "Shortbow of Victory"
-msgstr "Короткий лук победы"
-
-#: ../items/items.txt:5331
-msgid "Archmage Shortbow"
-msgstr "Короткий лук архимага"
-
-#: ../items/items.txt:5347
-msgid "Shortbow of Wizardry"
-msgstr "Короткий лук волшебства"
-
-#: ../items/items.txt:5363
-msgid "Ancient Shortbow"
-msgstr "Древний короткий лук"
-
-#: ../items/items.txt:5378
-msgid "Shortbow of Precision"
-msgstr "Короткий лук точности"
-
-#: ../items/items.txt:5394
-msgid "Shortbow of Protection"
-msgstr "Короткий лук обороны"
-
-#: ../items/items.txt:5410
-msgid "Fiery Shortbow"
-msgstr "Пламенный короткий лук"
-
-#: ../items/items.txt:5427
-msgid "Frozen Shortbow"
-msgstr "Морозный короткий лук"
-
-#: ../items/items.txt:5444
-msgid "Shortbow of Destruction"
-msgstr "Короткий лук разрушения"
-
-#: ../items/items.txt:5460
-msgid "Orc Chieftan"
-msgstr "Вождь орков"
-
-#: ../items/items.txt:5476
-msgid "Crag Bow"
-msgstr "Горный лук"
-
-#: ../items/items.txt:5492
-msgid "Witch Doctor"
-msgstr "Доктор ведьм"
-
-#: ../items/items.txt:5508
-msgid "Feywild Bow"
-msgstr "Причудливый лук"
-
-#: ../items/items.txt:5524
-msgid "Bandit"
-msgstr "Бандит"
-
-#: ../items/items.txt:5540
-msgid "Mithril Bow"
-msgstr "Мифрильный лук"
-
-#: ../items/items.txt:5556
-msgid "Fire Striker"
-msgstr "Огнестрел"
-
-#: ../items/items.txt:5573
-msgid "Ice Striker"
-msgstr "Ледострел"
-
-#: ../items/items.txt:5590
-msgid "Assassin"
-msgstr "Ассассин"
-
-#: ../items/items.txt:5606
+#: ../items/items.txt:235
 msgid "Longbow"
 msgstr "Длинный лук"
 
-#: ../items/items.txt:5621
-msgid "Cracked Longbow"
-msgstr "Треснутый длинный лук"
-
-#: ../items/items.txt:5636
-msgid "Cursed Longbow"
-msgstr "Проклятый длинный лук"
-
-#: ../items/items.txt:5652
-msgid "Warped Longbow"
-msgstr "Погнутый длинный лук"
-
-#: ../items/items.txt:5668
-msgid "Dwarven Longbow"
-msgstr "Гномий длинный лук"
-
-#: ../items/items.txt:5684
-msgid "Longbow of Restoration"
-msgstr "Длинный лук восстановления"
-
-#: ../items/items.txt:5700
-msgid "Elven Longbow"
-msgstr "Эльфийский длинный лук"
-
-#: ../items/items.txt:5716
-msgid "Longbow of Meditation"
-msgstr "Длинный лук медитации"
-
-#: ../items/items.txt:5732
-msgid "Battle Longbow"
-msgstr "Боевой длинный лук"
-
-#: ../items/items.txt:5747
-msgid "Longbow of Accuracy"
-msgstr "Длинный лук меткости"
-
-#: ../items/items.txt:5763
-msgid "Longbow of Avoidance"
-msgstr "Длинный лук уклонения"
-
-#: ../items/items.txt:5779
-msgid "Summer Longbow"
-msgstr "Летний длинный лук"
-
-#: ../items/items.txt:5796
-msgid "Winter Longbow"
-msgstr "Зимний длинный лук"
-
-#: ../items/items.txt:5813
-msgid "Longbow of Slaying"
-msgstr "Длинный лук убийства"
-
-#: ../items/items.txt:5829
-msgid "Warlord Longbow"
-msgstr "Длинный лук военачальника"
-
-#: ../items/items.txt:5845
-msgid "Longbow of Victory"
-msgstr "Длинный лук победы"
-
-#: ../items/items.txt:5861
-msgid "Archmage Longbow"
-msgstr "Длинный лук архимага"
-
-#: ../items/items.txt:5877
-msgid "Longbow of Wizardry"
-msgstr "Длинный лук волшебства"
-
-#: ../items/items.txt:5893
-msgid "Ancient Longbow"
-msgstr "Древний длинный лук"
-
-#: ../items/items.txt:5908
-msgid "Longbow of Precision"
-msgstr "Длинный лук точности"
-
-#: ../items/items.txt:5924
-msgid "Longbow of Protection"
-msgstr "Длинный лук обороны"
-
-#: ../items/items.txt:5940
-msgid "Fiery Longbow"
-msgstr "Пламенный длинный лук"
-
-#: ../items/items.txt:5957
-msgid "Frozen Longbow"
-msgstr "Морозный длинный лук"
-
-#: ../items/items.txt:5974
-msgid "Longbow of Destruction"
-msgstr "Длинный лук разрушения"
-
-#: ../items/items.txt:5990
-msgid "Thunder"
-msgstr "Гром"
-
-#: ../items/items.txt:6006
-msgid "Bow of the World Tree"
-msgstr "Лук из дерева мира"
-
-#: ../items/items.txt:6022
-msgid "Lightning"
-msgstr "Молния"
-
-#: ../items/items.txt:6038
-msgid "Pharaoh"
-msgstr "Фараон"
-
-#: ../items/items.txt:6054
-msgid "Ranger's Bow"
-msgstr "Охотничий лук"
-
-#: ../items/items.txt:6070
-msgid "Siege Bow"
-msgstr "Осадный лук"
-
-#: ../items/items.txt:6086
-msgid "Ruby Strand"
-msgstr "Рубиновая струна"
-
-#: ../items/items.txt:6103
-msgid "Diamond Strand"
-msgstr "Алмазная струна"
-
-#: ../items/items.txt:6120
-msgid "Death Mark"
-msgstr "Маска смерти"
-
-#: ../items/items.txt:6136
+#: ../items/items.txt:250
 msgid "Greatbow"
 msgstr "Великий лук"
 
-#: ../items/items.txt:6151
-msgid "Cracked Greatbow"
-msgstr "Треснутый великий лук"
-
-#: ../items/items.txt:6166
-msgid "Cursed Greatbow"
-msgstr "Проклятый великий лук"
-
-#: ../items/items.txt:6182
-msgid "Warped Greatbow"
-msgstr "Погнутый великий лук"
-
-#: ../items/items.txt:6198
-msgid "Dwarven Greatbow"
-msgstr "Гномий великий лук"
-
-#: ../items/items.txt:6214
-msgid "Greatbow of Restoration"
-msgstr "Великий лук восстановления"
-
-#: ../items/items.txt:6230
-msgid "Elven Greatbow"
-msgstr "Эльфийский великий лук"
-
-#: ../items/items.txt:6246
-msgid "Greatbow of Meditation"
-msgstr "Великий лук медитации"
-
-#: ../items/items.txt:6262
-msgid "Battle Greatbow"
-msgstr "Боевой великий лук"
-
-#: ../items/items.txt:6277
-msgid "Greatbow of Accuracy"
-msgstr "Великий лук меткости"
-
-#: ../items/items.txt:6293
-msgid "Greatbow of Avoidance"
-msgstr "Великий лук уклонения"
-
-#: ../items/items.txt:6309
-msgid "Summer Greatbow"
-msgstr "Летний великий лук"
-
-#: ../items/items.txt:6326
-msgid "Winter Greatbow"
-msgstr "Зимний великий лук"
-
-#: ../items/items.txt:6343
-msgid "Greatbow of Slaying"
-msgstr "Великий лук убийства"
-
-#: ../items/items.txt:6359
-msgid "Warlord Greatbow"
-msgstr "Великий лук военачальника"
-
-#: ../items/items.txt:6375
-msgid "Greatbow of Victory"
-msgstr "Великий лук победы"
-
-#: ../items/items.txt:6391
-msgid "Archmage Greatbow"
-msgstr "Великий лук архимага"
-
-#: ../items/items.txt:6407
-msgid "Greatbow of Wizardry"
-msgstr "Великий лук волшебства"
-
-#: ../items/items.txt:6423
-msgid "Ancient Greatbow"
-msgstr "Древний великий лук"
-
-#: ../items/items.txt:6438
-msgid "Greatbow of Precision"
-msgstr "Великий лук точности"
-
-#: ../items/items.txt:6454
-msgid "Greatbow of Protection"
-msgstr "Великий лук обороны"
-
-#: ../items/items.txt:6470
-msgid "Fiery Greatbow"
-msgstr "Пламенный великий лук"
-
-#: ../items/items.txt:6487
-msgid "Frozen Greatbow"
-msgstr "Морозный великий лук"
-
-#: ../items/items.txt:6504
-msgid "Greatbow of Destruction"
-msgstr "Великий лук разрушения"
-
-#: ../items/items.txt:6520
-msgid "Dragonslayer"
-msgstr "Убийца драконов"
-
-#: ../items/items.txt:6536
-msgid "Vampire Hunter"
-msgstr "Охотник на вампиров"
-
-#: ../items/items.txt:6552
-msgid "Dimensional Rift"
-msgstr "Щель между измерениями"
-
-#: ../items/items.txt:6568
-msgid "Vortex"
-msgstr "Вихрь"
-
-#: ../items/items.txt:6584
-msgid "Gladys"
-msgstr "Глэдис"
-
-#: ../items/items.txt:6600
-msgid "Ballista"
-msgstr "Баллиста"
-
-#: ../items/items.txt:6616
-msgid "Starfire"
-msgstr "Звёздный огонь"
-
-#: ../items/items.txt:6633
-msgid "Voidfire"
-msgstr "Огонь пустоты"
-
-#: ../items/items.txt:6650
-msgid "Chaos"
-msgstr "Хаос"
-
-#: ../items/items.txt:6667
-msgid "Leather Armor"
-msgstr "Кожаная броня"
-
-#: ../items/items.txt:6682
-msgid "Cracked Leather Armor"
-msgstr "Треснутая кожаная броня"
-
-#: ../items/items.txt:6697
-msgid "Cursed Leather Armor"
-msgstr "Проклятая кожаная броня"
-
-#: ../items/items.txt:6713
-msgid "Dwarven Leather Armor"
-msgstr "Гномья кожаная броня"
-
-#: ../items/items.txt:6729
-msgid "Leather Armor of Restoration"
-msgstr "Кожаная броня восстановления"
-
-#: ../items/items.txt:6745
-msgid "Elven Leather Armor"
-msgstr "Эльфийская кожаная броня"
-
-#: ../items/items.txt:6761
-msgid "Leather Armor of Meditation"
-msgstr "Кожаная броня медитации"
-
-#: ../items/items.txt:6777
-msgid "Battle Leather Armor"
-msgstr "Боевая кожаная броня"
-
-#: ../items/items.txt:6792
-msgid "Leather Armor of Accuracy"
-msgstr "Кожаная броня меткости"
-
-#: ../items/items.txt:6808
-msgid "Leather Armor of Avoidance"
-msgstr "Кожаная броня уклонения"
-
-#: ../items/items.txt:6824
-msgid "Summer Leather Armor"
-msgstr "Летняя кожаная броня"
-
-#: ../items/items.txt:6840
-msgid "Winter Leather Armor"
-msgstr "Зимняя кожаная броня"
-
-#: ../items/items.txt:6856
-msgid "Leather Armor of Slaying"
-msgstr "Кожаная броня убийства"
-
-#: ../items/items.txt:6872
-msgid "Warlord Leather Armor"
-msgstr "Кожаная броня военачальника"
-
-#: ../items/items.txt:6888
-msgid "Leather Armor of Victory"
-msgstr "Кожаная броня победы"
-
-#: ../items/items.txt:6904
-msgid "Archmage Leather Armor"
-msgstr "Кожаная броня архимага"
-
-#: ../items/items.txt:6920
-msgid "Leather Armor of Wizardry"
-msgstr "Кожаная броня волшебства"
-
-#: ../items/items.txt:6936
-msgid "Ancient Leather Armor"
-msgstr "Древняя кожаная броня"
-
-#: ../items/items.txt:6951
-msgid "Leather Armor of Precision"
-msgstr "Кожаная броня точности"
-
-#: ../items/items.txt:6967
-msgid "Leather Armor of Protection"
-msgstr "Кожаная броня обороны"
-
-#: ../items/items.txt:6983
-msgid "Fiery Leather Armor"
-msgstr "Пламенная кожаная броня"
-
-#: ../items/items.txt:6999
-msgid "Frozen Leather Armor"
-msgstr "Морозная кожаная броня"
-
-#: ../items/items.txt:7015
-msgid "Leather Armor of Destruction"
-msgstr "Кожаная броня разрушения"
-
-#: ../items/items.txt:7031
-msgid "Barbarian Wrap"
-msgstr "Накидка варвара"
-
-#: ../items/items.txt:7047
-msgid "Bugbear Tunic"
-msgstr "Туника пугала"
-
-#: ../items/items.txt:7063
-msgid "Runic Leather"
-msgstr "Руническая кожа"
-
-#: ../items/items.txt:7079
-msgid "Battlemage Tunic"
-msgstr "Туника боевого мага"
-
-#: ../items/items.txt:7095
-msgid "Predator Hide"
-msgstr "Шкура хищника"
-
-#: ../items/items.txt:7111
-msgid "Chimera Hide"
-msgstr "Шкура химеры"
-
-#: ../items/items.txt:7127
-msgid "Red Dragonhide"
-msgstr "Шкура красного дракона"
-
-#: ../items/items.txt:7143
-msgid "White Dragonhide"
-msgstr "Шкура белого дракона"
-
-#: ../items/items.txt:7159
-msgid "Ninja Gi"
-msgstr "Костюм ниндзя"
-
-#: ../items/items.txt:7175
-msgid "Buckler"
-msgstr "Малый щит"
-
-#: ../items/items.txt:7189
-msgid "Cracked Buckler"
-msgstr "Треснутый малый щит"
-
-#: ../items/items.txt:7203
-msgid "Cursed Buckler"
-msgstr "Проклятый малый щит"
-
-#: ../items/items.txt:7218
-msgid "Dwarven Buckler"
-msgstr "Гномий малый щит"
-
-#: ../items/items.txt:7233
-msgid "Buckler of Restoration"
-msgstr "Малый щит восстановления"
-
-#: ../items/items.txt:7248
-msgid "Elven Buckler"
-msgstr "Эльфийский малый щит"
-
-#: ../items/items.txt:7263
-msgid "Buckler of Meditation"
-msgstr "Малый щит медитации"
-
-#: ../items/items.txt:7278
-msgid "Battle Buckler"
-msgstr "Боевой малый щит"
-
-#: ../items/items.txt:7292
-msgid "Buckler of Accuracy"
-msgstr "Малый щит меткости"
-
-#: ../items/items.txt:7307
-msgid "Buckler of Avoidance"
-msgstr "Малый щит уклонения"
-
-#: ../items/items.txt:7322
-msgid "Summer Buckler"
-msgstr "Летний малый щит"
-
-#: ../items/items.txt:7337
-msgid "Winter Buckler"
-msgstr "Зимний малый щит"
-
-#: ../items/items.txt:7352
-msgid "Buckler of Slaying"
-msgstr "Малый щит убийства"
-
-#: ../items/items.txt:7367
-msgid "Warlord Buckler"
+#: ../items/items.txt:267
+#, fuzzy
+msgid "Wood Buckler"
 msgstr "Малый щит военачальника"
 
-#: ../items/items.txt:7382
-msgid "Buckler of Victory"
-msgstr "Малый щит победы"
-
-#: ../items/items.txt:7397
-msgid "Archmage Buckler"
-msgstr "Малый щит архимага"
-
-#: ../items/items.txt:7412
-msgid "Buckler of Wizardry"
-msgstr "Малый щит волшебства"
-
-#: ../items/items.txt:7427
-msgid "Ancient Buckler"
-msgstr "Древний малый щит"
-
-#: ../items/items.txt:7441
-msgid "Buckler of Precision"
-msgstr "Малый щит точности"
-
-#: ../items/items.txt:7456
-msgid "Buckler of Protection"
-msgstr "Малый щит обороны"
-
-#: ../items/items.txt:7471
-msgid "Fiery Buckler"
-msgstr "Пламенный малый щит"
-
-#: ../items/items.txt:7486
-msgid "Frozen Buckler"
+#: ../items/items.txt:281
+#, fuzzy
+msgid "Iron Buckler"
 msgstr "Морозный малый щит"
 
-#: ../items/items.txt:7501
-msgid "Buckler of Destruction"
-msgstr "Малый щит разрушения"
-
-#: ../items/items.txt:7516
-msgid "Gladiator Buckler"
-msgstr "Щит гладиатора"
-
-#: ../items/items.txt:7531
-msgid "Holy Targe"
-msgstr "Святой щит"
-
-#: ../items/items.txt:7546
-msgid "Averguard Disc"
-msgstr "Диск Авергарда"
-
-#: ../items/items.txt:7561
-msgid "Mage Targe"
-msgstr "Щит мага"
-
-#: ../items/items.txt:7576
-msgid "Focus Buckler"
-msgstr "Щит сосредоточения"
-
-#: ../items/items.txt:7591
-msgid "Guardian Targe"
-msgstr "Щит телохранителя"
-
-#: ../items/items.txt:7606
-msgid "Heat Barrier"
-msgstr "Барьер жара"
-
-#: ../items/items.txt:7621
-msgid "Cold Barrier"
-msgstr "Барьер холода"
-
-#: ../items/items.txt:7636
-msgid "Spiked Buckler"
-msgstr "Шипованый щит"
-
-#: ../items/items.txt:7651
-msgid "Steel Armor"
-msgstr "Стальная броня"
-
-#: ../items/items.txt:7666
-msgid "Cracked Steel Armor"
-msgstr "Треснутая стальная броня"
-
-#: ../items/items.txt:7681
-msgid "Cursed Steel Armor"
-msgstr "Проклятая стальная броня"
-
-#: ../items/items.txt:7697
-msgid "Dwarven Steel Armor"
-msgstr "Гномья стальная броня"
-
-#: ../items/items.txt:7713
-msgid "Steel Armor of Restoration"
-msgstr "Стальная броня восстановления"
-
-#: ../items/items.txt:7729
-msgid "Elven Steel Armor"
-msgstr "Эльфийская стальная броня"
-
-#: ../items/items.txt:7745
-msgid "Steel Armor of Meditation"
-msgstr "Стальная броня медитации"
-
-#: ../items/items.txt:7761
-msgid "Battle Steel Armor"
-msgstr "Боевая стальная броня"
-
-#: ../items/items.txt:7776
-msgid "Steel Armor of Accuracy"
-msgstr "Стальная броня меткости"
-
-#: ../items/items.txt:7792
-msgid "Steel Armor of Avoidance"
-msgstr "Стальная броня уклонения"
-
-#: ../items/items.txt:7808
-msgid "Summer Steel Armor"
-msgstr "Летняя стальная броня"
-
-#: ../items/items.txt:7824
-msgid "Winter Steel Armor"
-msgstr "Зимняя стальная броня"
-
-#: ../items/items.txt:7840
-msgid "Steel Armor of Slaying"
-msgstr "Стальная броня убийства"
-
-#: ../items/items.txt:7856
-msgid "Warlord Steel Armor"
-msgstr "Стальная броня военачальника"
-
-#: ../items/items.txt:7872
-msgid "Steel Armor of Victory"
-msgstr "Стальная броня победа"
-
-#: ../items/items.txt:7888
-msgid "Archmage Steel Armor"
-msgstr "Стальная броня архимага"
-
-#: ../items/items.txt:7904
-msgid "Steel Armor of Wizardry"
-msgstr "Стальная броня волшебства"
-
-#: ../items/items.txt:7920
-msgid "Ancient Steel Armor"
-msgstr "Древняя стальная броня"
-
-#: ../items/items.txt:7935
-msgid "Steel Armor of Precision"
-msgstr "Стальная броня точности"
-
-#: ../items/items.txt:7951
-msgid "Steel Armor of Protection"
-msgstr "Стальная броня обороны"
-
-#: ../items/items.txt:7967
-msgid "Fiery Steel Armor"
-msgstr "Пламенная стальная броня"
-
-#: ../items/items.txt:7983
-msgid "Frozen Steel Armor"
-msgstr "Морозная стальная броня"
-
-#: ../items/items.txt:7999
-msgid "Steel Armor of Destruction"
-msgstr "Стальная броня разрушения"
-
-#: ../items/items.txt:8015
-msgid "Knight's Cuirass"
-msgstr "Рыцарская кираса"
-
-#: ../items/items.txt:8031
-msgid "Wyrmrider Maille"
-msgstr "Кольчуга наездника дракона"
-
-#: ../items/items.txt:8047
-msgid "Paladin's Oath"
-msgstr "Клятва паладина"
-
-#: ../items/items.txt:8063
-msgid "Cleric Maille"
-msgstr "Кольчуга лекаря"
-
-#: ../items/items.txt:8079
-msgid "Jousting Armor"
-msgstr "Турнирный доспех"
-
-#: ../items/items.txt:8095
-msgid "Titan Plate"
-msgstr "Пластинчатый доспех титана"
-
-#: ../items/items.txt:8111
-msgid "Ruby Scale Armor"
-msgstr "Рубиновые латы"
-
-#: ../items/items.txt:8127
-msgid "Diamond Scale Armor"
-msgstr "Алмазные латы"
-
-#: ../items/items.txt:8143
-msgid "Marauder Maille"
-msgstr "Кольчуга мародёра"
-
-#: ../items/items.txt:8159
-msgid "Shield"
-msgstr "Щит"
-
-#: ../items/items.txt:8173
-msgid "Cracked Shield"
-msgstr "Треснутый щит"
-
-#: ../items/items.txt:8187
-msgid "Cursed Shield"
+#: ../items/items.txt:295
+#, fuzzy
+msgid "Crest Shield"
 msgstr "Проклятый щит"
 
-#: ../items/items.txt:8202
-msgid "Dwarven Shield"
-msgstr "Гномий щит"
-
-#: ../items/items.txt:8217
-msgid "Shield of Restoration"
-msgstr "Щит восстановления"
-
-#: ../items/items.txt:8232
-msgid "Elven Shield"
-msgstr "Эльфийский щит"
-
-#: ../items/items.txt:8247
-msgid "Shield of Meditation"
-msgstr "Щит медитации"
-
-#: ../items/items.txt:8262
-msgid "Battle Shield"
-msgstr "Боевой щит"
-
-#: ../items/items.txt:8276
-msgid "Shield of Accuracy"
-msgstr "Щит меткости"
-
-#: ../items/items.txt:8291
-msgid "Shield of Avoidance"
-msgstr "Щит уклонения"
-
-#: ../items/items.txt:8306
-msgid "Summer Shield"
-msgstr "Летний щит"
-
-#: ../items/items.txt:8321
-msgid "Winter Shield"
-msgstr "Зимний щит"
-
-#: ../items/items.txt:8336
-msgid "Shield of Slaying"
-msgstr "Щит убийства"
-
-#: ../items/items.txt:8351
-msgid "Warlord Shield"
-msgstr "Щит военачальника"
-
-#: ../items/items.txt:8366
-msgid "Shield of Victory"
-msgstr "Щит победы"
-
-#: ../items/items.txt:8381
-msgid "Archmage Shield"
-msgstr "Щит архимага"
-
-#: ../items/items.txt:8396
-msgid "Shield of Wizardry"
-msgstr "Щит волшебства"
-
-#: ../items/items.txt:8411
-msgid "Ancient Shield"
-msgstr "Древний щит"
-
-#: ../items/items.txt:8425
-msgid "Shield of Precision"
-msgstr "Щит точности"
-
-#: ../items/items.txt:8440
-msgid "Shield of Protection"
-msgstr "Щит обороны"
-
-#: ../items/items.txt:8455
-msgid "Fiery Shield"
+#: ../items/items.txt:309
+#, fuzzy
+msgid "Tower Shield"
 msgstr "Пламенный щит"
 
-#: ../items/items.txt:8470
-msgid "Frozen Shield"
-msgstr "Морозный щит"
+#: ../items/items.txt:325
+msgid "Cloth Shirt"
+msgstr ""
 
-#: ../items/items.txt:8485
-msgid "Shield of Destruction"
-msgstr "Щит разрушения"
+#: ../items/items.txt:328
+msgid "chest"
+msgstr ""
 
-#: ../items/items.txt:8500
-msgid "Knight's Defense"
-msgstr "Защита рыцаря"
+#: ../items/items.txt:337
+#, fuzzy
+msgid "Cloth Gloves"
+msgstr "Одеяние"
 
-#: ../items/items.txt:8515
-msgid "Aegis of Life"
-msgstr "Эгида жизни"
+#: ../items/items.txt:340
+msgid "hands"
+msgstr ""
 
-#: ../items/items.txt:8530
-msgid "Paladin's Honor"
-msgstr "Честь паладина"
+#: ../items/items.txt:349
+#, fuzzy
+msgid "Cloth Pants"
+msgstr "Одеяние"
 
-#: ../items/items.txt:8545
-msgid "Aegis of Ether"
-msgstr "Эгида эфира"
+#: ../items/items.txt:352
+msgid "legs"
+msgstr ""
 
-#: ../items/items.txt:8560
-msgid "Steel Ward"
-msgstr "Стальная опека"
+#: ../items/items.txt:361
+#, fuzzy
+msgid "Cloth Sandals"
+msgstr "Одеяние"
 
-#: ../items/items.txt:8575
-msgid "The Rook"
-msgstr "Тура"
+#: ../items/items.txt:364
+msgid "feet"
+msgstr ""
 
-#: ../items/items.txt:8590
-msgid "Flame Tower"
-msgstr "Башня пламени"
+#: ../items/items.txt:376
+msgid "Mage Hood"
+msgstr ""
 
-#: ../items/items.txt:8605
-msgid "Frost Tower"
-msgstr "Башня мороза"
+#: ../items/items.txt:379
+msgid "head"
+msgstr ""
 
-#: ../items/items.txt:8620
-msgid "Blood Ward"
-msgstr "Опека крови"
+#: ../items/items.txt:390
+#, fuzzy
+msgid "Mage Vest"
+msgstr "Щит мага"
 
-#: ../items/items.txt:8635
-msgid "Belt"
-msgstr "Пояс"
+#: ../items/items.txt:404
+msgid "Mage Sleeves"
+msgstr ""
 
-#: ../items/items.txt:8638
-msgid "artifact"
-msgstr "артефакт"
+#: ../items/items.txt:418
+#, fuzzy
+msgid "Mage Skirt"
+msgstr "Щит мага"
 
-#: ../items/items.txt:8646
-msgid "Tattered Belt"
-msgstr "Порванный пояс"
-
-#: ../items/items.txt:8657
-msgid "Dwarven Belt"
-msgstr "Гномий пояс"
-
-#: ../items/items.txt:8669
-msgid "Elven Belt"
-msgstr "Эльфийский пояс"
-
-#: ../items/items.txt:8681
-msgid "Warlord Belt"
-msgstr "Пояс военачальника"
-
-#: ../items/items.txt:8693
-msgid "Archmage Belt"
-msgstr "Пояс архимага"
-
-#: ../items/items.txt:8705
-msgid "Trollhair Belt"
-msgstr "Пояс из шерсти тролля"
-
-#: ../items/items.txt:8717
-msgid "Spellpouch Belt"
-msgstr "Пояс с сумкой заклинаний"
-
-#: ../items/items.txt:8729
-msgid "Boots"
-msgstr "Ботинки"
-
-#: ../items/items.txt:8740
-msgid "Tattered Boots"
+#: ../items/items.txt:432
+#, fuzzy
+msgid "Mage Boots"
 msgstr "Порванные ботинки"
 
-#: ../items/items.txt:8751
+#: ../items/items.txt:449
+#, fuzzy
+msgid "Leather Hood"
+msgstr "Кожаная броня"
+
+#: ../items/items.txt:463
+#, fuzzy
+msgid "Leather Chest"
+msgstr "Сильный вызов"
+
+#: ../items/items.txt:477
+#, fuzzy
+msgid "Leather Gloves"
+msgstr "Кожаная броня"
+
+#: ../items/items.txt:491
+#, fuzzy
+msgid "Leather Pants"
+msgstr "Кожаная броня"
+
+#: ../items/items.txt:505
+#, fuzzy
+msgid "Leather Boots"
+msgstr "Порванные ботинки"
+
+#: ../items/items.txt:522
+msgid "Chain Coif"
+msgstr ""
+
+#: ../items/items.txt:536
+#, fuzzy
+msgid "Chain Cuirass"
+msgstr "Рыцарская кираса"
+
+#: ../items/items.txt:550
+msgid "Chain Gloves"
+msgstr ""
+
+#: ../items/items.txt:564
+msgid "Chain Greaves"
+msgstr ""
+
+#: ../items/items.txt:578
+#, fuzzy
+msgid "Chain Boots"
+msgstr "Ботинки"
+
+#: ../items/items.txt:595
+msgid "Plate Helmet"
+msgstr ""
+
+#: ../items/items.txt:609
+#, fuzzy
+msgid "Plate Cuirass"
+msgstr "Рыцарская кираса"
+
+#: ../items/items.txt:623
+msgid "Plate Gauntlets"
+msgstr ""
+
+#: ../items/items.txt:637
+#, fuzzy
+msgid "Plate Greaves"
+msgstr "Боевой великий меч"
+
+#: ../items/items.txt:651
+#, fuzzy
+msgid "Plate Boots"
+msgstr "Ботинки лёгких шагов"
+
+#: ../items/items.txt:668
 msgid "Boots of Speed"
 msgstr "Ботинки скорости"
 
-#: ../items/items.txt:8756
+#: ../items/items.txt:669
+msgid "These enchanted boots are prized possessions of Courier guildsmen."
+msgstr ""
+
+#: ../items/items.txt:680
 msgid "speed"
 msgstr "скорость"
 
-#: ../items/items.txt:8763
-msgid "Boots of Avoidance"
-msgstr "Ботинки уклонения"
+#: ../items/items.txt:684
+msgid "Thief Gloves"
+msgstr ""
 
-#: ../items/items.txt:8775
-msgid "Boots of Travel"
-msgstr "Ботинки путешествия"
+#: ../items/items.txt:685
+msgid "In Lower Sceleris there is honor among thieves. Everyone else is a mark."
+msgstr ""
 
-#: ../items/items.txt:8787
-msgid "Boots of Protection"
-msgstr "Ботинки обороны"
+#: ../items/items.txt:694
+msgid "gold find"
+msgstr ""
 
-#: ../items/items.txt:8799
-msgid "Windwalker Boots"
-msgstr "Ботинки ходящего по ветру"
-
-#: ../items/items.txt:8811
-msgid "Phase Step Boots"
-msgstr "Ботинки лёгких шагов"
-
-#: ../items/items.txt:8823
-msgid "Ring"
-msgstr "Кольцо"
-
-#: ../items/items.txt:8834
-msgid "Tarnished Ring"
-msgstr "Потускневшее кольцо"
-
-#: ../items/items.txt:8845
-msgid "Ring of Restoration"
-msgstr "Кольцо восстановления"
-
-#: ../items/items.txt:8857
-msgid "Ring of Meditation"
-msgstr "Кольцо медитации"
-
-#: ../items/items.txt:8869
-msgid "Ring of Victory"
+#: ../items/items.txt:698
+#, fuzzy
+msgid "Ring of Invisibility"
 msgstr "Кольцо победы"
 
-#: ../items/items.txt:8881
-msgid "Ring of Wizardry"
-msgstr "Кольцо волшебства"
+#: ../items/items.txt:699
+msgid "This nondescript ring was forged in the land where shadows lie."
+msgstr ""
 
-#: ../items/items.txt:8893
-msgid "Signet of Forgotten Kings"
-msgstr "Печать забытых королей"
+#: ../items/items.txt:701
+msgid "ring"
+msgstr "кольцо"
 
-#: ../items/items.txt:8905
-msgid "Band of Enlightenment"
-msgstr "Повязка просвещения"
+#: ../items/items.txt:706
+msgid "stealth"
+msgstr ""
 
-#: ../items/types.txt:3
-msgid "Artifact"
-msgstr "Артефакт"
+#: ../items/items.txt:710
+#, fuzzy
+msgid "Ring of Regeneration"
+msgstr "Кольцо восстановления"
 
-#: ../items/types.txt:7
-msgid "Body"
-msgstr "Тело"
+#: ../items/items.txt:711
+msgid "[TODO]"
+msgstr ""
 
-#: ../items/types.txt:11
-msgid "Consumable"
-msgstr "Потребляемый"
+#: ../items/items.txt:718
+msgid "HP regen"
+msgstr "восстановление здоровья"
 
-#: ../items/types.txt:15
-msgid "Gem"
-msgstr "Драгоценность"
+#: ../items/items.txt:722
+#, fuzzy
+msgid "Ring of Concentration"
+msgstr "Кольцо восстановления"
 
-#: ../items/types.txt:19
+#: ../items/items.txt:730
+msgid "MP regen"
+msgstr "восстановление маны"
+
+#: ../items/items.txt:734
+#, fuzzy
+msgid "Ring of Fire"
+msgstr "Кольцо победы"
+
+#: ../items/items.txt:742
+msgid "fire resist"
+msgstr "сопротивление огню"
+
+#: ../items/items.txt:746
+#, fuzzy
+msgid "Ring of Ice"
+msgstr "Кольцо победы"
+
+#: ../items/items.txt:754
+msgid "ice resist"
+msgstr "сопротивление льду"
+
+#: ../items/items.txt:758
+msgid "Lineage Signet Ring"
+msgstr ""
+
+#: ../items/items.txt:766
+msgid "XP gain"
+msgstr ""
+
+#: ../items/items.txt:770
+msgid "Ouroboros Ring"
+msgstr ""
+
+#: ../items/items.txt:779
+msgid "One-time protection from death"
+msgstr ""
+
+#: ../items/items.txt:783
+msgid "Relic Hunter's Ring"
+msgstr ""
+
+#: ../items/items.txt:791
+msgid "item find"
+msgstr ""
+
+#: ../items/items.txt:795
+msgid "Silent Tabi"
+msgstr ""
+
+#: ../items/items.txt:810
+msgid "Duelist Gauntlets"
+msgstr ""
+
+#: ../items/items.txt:821
+msgid "crit"
+msgstr "критический удар"
+
+#: ../items/items.txt:825
+#, fuzzy
+msgid "Blood Cuirass"
+msgstr "Опека крови"
+
+#: ../items/items.txt:836
+msgid "HP"
+msgstr "здоровье"
+
+#: ../items/items.txt:840
+#, fuzzy
+msgid "Blood Greaves"
+msgstr "Удар крови"
+
+#: ../items/items.txt:855
+msgid "Fencing Gloves"
+msgstr ""
+
+#: ../items/items.txt:866
+msgid "accuracy"
+msgstr "меткость"
+
+#: ../items/items.txt:870
+msgid "Bear Figurine"
+msgstr ""
+
+#: ../items/items.txt:873
+msgid "artifact"
+msgstr "артефакт"
+
+#: ../items/items.txt:878
+msgid "physical"
+msgstr ""
+
+#: ../items/items.txt:882
+msgid "Owl Figurine"
+msgstr ""
+
+#: ../items/items.txt:890
+msgid "mental"
+msgstr ""
+
+#: ../items/items.txt:894
+msgid "Snake Figurine"
+msgstr ""
+
+#: ../items/items.txt:902
+msgid "offense"
+msgstr ""
+
+#: ../items/items.txt:906
+msgid "Turtle Figurine"
+msgstr ""
+
+#: ../items/items.txt:914
+msgid "defense"
+msgstr ""
+
+#: ../items/items.txt:918
+#, fuzzy
+msgid "Sage Mantle"
+msgstr "Скипетр мудреца"
+
+#: ../items/items.txt:929
+msgid "MP"
+msgstr "ману"
+
+#: ../items/items.txt:933
+msgid "Sage Frock"
+msgstr ""
+
+#: ../items/items.txt:948
+msgid "Monastery Sandals"
+msgstr ""
+
+#: ../items/items.txt:959
+msgid "avoidance"
+msgstr "уклонение"
+
+#: ../items/items.txt:963
+msgid "Aether Walkers"
+msgstr ""
+
+#: ../items/items.txt:976
+#, fuzzy
+msgid "Use: Blink to a nearby location"
+msgstr "Переместиться в ближайшее расположение"
+
+#: ../items/items.txt:980
+#, fuzzy
+msgid "Ashwood Wand"
+msgstr "Опека крови"
+
+#: ../items/items.txt:981
+msgid "The secrets to harvesting Yggdrasil twigs are known only to traitorous dryads."
+msgstr ""
+
+#: ../items/items.txt:996
+msgid "Lawman's Sidearm"
+msgstr ""
+
+#: ../items/items.txt:997
+msgid "The workmanship on this blade appears hurried"
+msgstr ""
+
+#: ../items/types.txt:5
 msgid "Main Hand"
 msgstr "Главная рука"
 
-#: ../items/types.txt:23
+#: ../items/types.txt:9
 msgid "Off Hand"
 msgstr "Вторая рука"
 
-#: ../items/types.txt:26
+#: ../items/types.txt:13
+msgid "Head"
+msgstr ""
+
+#: ../items/types.txt:17
+msgid "Chest"
+msgstr ""
+
+#: ../items/types.txt:21
+#, fuzzy
+msgid "Hands"
+msgstr "Вторая рука"
+
+#: ../items/types.txt:25
+msgid "Legs"
+msgstr ""
+
+#: ../items/types.txt:29
+msgid "Feet"
+msgstr ""
+
+#: ../items/types.txt:33
+msgid "Artifact"
+msgstr "Артефакт"
+
+#: ../items/types.txt:37
+msgid "Ring"
+msgstr "Кольцо"
+
+#: ../items/types.txt:43
+msgid "Consumable"
+msgstr "Потребляемый"
+
+#: ../items/types.txt:47
+msgid "Gem"
+msgstr "Драгоценность"
+
+#: ../items/types.txt:50
 msgid "quest"
 msgstr "задание"
 
-#: ../items/types.txt:27
+#: ../items/types.txt:51
 msgid "Quest Item"
 msgstr "Квестовый предмет"
-
-#: ../items/types.txt:30
-msgid "ring"
-msgstr "кольцо"
 
 #: ../menus/powers.txt:16
 msgid "Warrior"
@@ -2533,411 +562,568 @@ msgstr "Удар"
 msgid "Basic melee attack"
 msgstr "Базовая ближняя атака"
 
-#: ../powers/powers.txt:22
+#: ../powers/powers.txt:21
 msgid "Channel"
 msgstr "Вызов"
 
-#: ../powers/powers.txt:25
+#: ../powers/powers.txt:24
 msgid "Basic magic attack"
 msgstr "Базовая магическая атака"
 
-#: ../powers/powers.txt:46
+#: ../powers/powers.txt:40
 msgid "Block"
 msgstr "Блок"
 
-#: ../powers/powers.txt:48
+#: ../powers/powers.txt:42
 msgid "Raise your shield to double your avoidance and absorb"
 msgstr "Поднять щит, чтобы удвоить уклонение и поглощение"
 
-#: ../powers/powers.txt:54
+#: ../powers/powers.txt:48
 msgid "Immobilize"
 msgstr "Обездвижить"
 
-#: ../powers/powers.txt:57
+#: ../powers/powers.txt:51
 msgid "Pin an enemy down for 3 seconds"
 msgstr "Обездвижить врага на 3 секунды"
 
-#: ../powers/powers.txt:69
+#: ../powers/powers.txt:63
 msgid "Blood Strike"
 msgstr "Удар крови"
 
-#: ../powers/powers.txt:72
+#: ../powers/powers.txt:66
 msgid "Inflict a bleeding wound that causes additional damage over 5 seconds"
 msgstr "Нанести кровоточащее ранение, которое наносит дополнительный вред в течение 5 секунд"
 
-#: ../powers/powers.txt:88
+#: ../powers/powers.txt:82
 msgid "Shock"
 msgstr "Шок"
 
-#: ../powers/powers.txt:91
+#: ../powers/powers.txt:85
 msgid "Electrocute an enemy from a distance; +25% crit chance against movement-impaired enemies."
 msgstr "Поразить врага электрическим разрядом с расстояния; +25% к критическому удару против обездвиженных врагов."
 
-#: ../powers/powers.txt:116
+#: ../powers/powers.txt:105
 msgid "Heal"
 msgstr "Лечение"
 
-#: ../powers/powers.txt:119
+#: ../powers/powers.txt:108
 msgid "Restore HP"
 msgstr "Восстановить здоровье"
 
-#: ../powers/powers.txt:138
+#: ../powers/powers.txt:118
 msgid "Piercing Shot"
 msgstr "Пронзающий выстрел"
 
-#: ../powers/powers.txt:141
+#: ../powers/powers.txt:121
 msgid "Fire a shot that ignores armor and goes through multiple enemies"
 msgstr "Выстрел, игнорирующий броню и проходящий через несколько врагов"
 
-#: ../powers/powers.txt:154
+#: ../powers/powers.txt:134
 msgid "Warcry"
 msgstr "Боевой крик"
 
-#: ../powers/powers.txt:157
+#: ../powers/powers.txt:137
 msgid "Remove debuffs and become immune to debuffs for 10 seconds"
 msgstr "Устранить проклятья и стать иммунным к проклятиям на 10 секунд"
 
-#: ../powers/powers.txt:167
+#: ../powers/powers.txt:147
 msgid "Quake"
 msgstr "Землетрясение"
 
-#: ../powers/powers.txt:170
+#: ../powers/powers.txt:150
 msgid "Stun nearby enemies"
 msgstr "Парализовать ближайших врагов"
 
-#: ../powers/powers.txt:197
+#: ../powers/powers.txt:168
+msgid "Shield"
+msgstr "Щит"
+
+#: ../powers/powers.txt:171
 msgid "Create a force field that absorbs damage"
 msgstr "Создать силовое поле, поглощающее вред"
 
-#: ../powers/powers.txt:205
+#: ../powers/powers.txt:180
 msgid "Haste"
 msgstr "Ускорение"
 
-#: ../powers/powers.txt:207
+#: ../powers/powers.txt:182
 msgid "Double run and attack speed for 8 seconds"
 msgstr "Удвоить скорость бега и атаки на 8 секунд"
 
-#: ../powers/powers.txt:216
+#: ../powers/powers.txt:192
 msgid "Cleave"
 msgstr "Размах"
 
-#: ../powers/powers.txt:219
+#: ../powers/powers.txt:195
 msgid "Attack all enemies in a wide arc"
 msgstr "Атаковать всех врагов по широкой дуге"
 
-#: ../powers/powers.txt:234
+#: ../powers/powers.txt:210
 msgid "Freeze"
 msgstr "Заморозка"
 
-#: ../powers/powers.txt:237
+#: ../powers/powers.txt:213
 msgid "Create a ray of piercing cold that slows enemies"
 msgstr "Создать луч пронзающего холода, замедляющий врагов"
 
-#: ../powers/powers.txt:263
+#: ../powers/powers.txt:232
 msgid "Teleport"
 msgstr "Телепорт"
 
-#: ../powers/powers.txt:289
+#: ../powers/powers.txt:235
+msgid "Blink to a nearby location"
+msgstr "Переместиться в ближайшее расположение"
+
+#: ../powers/powers.txt:253
 msgid "Multishot"
 msgstr "Многострел"
 
-#: ../powers/powers.txt:292
+#: ../powers/powers.txt:256
 msgid "Shoot three projectiles simultaneously"
 msgstr "Выстрелить три снаряда одновременно"
 
-#: ../powers/powers.txt:305
+#: ../powers/powers.txt:269
 msgid "Burn"
 msgstr "Сожжение"
 
-#: ../powers/powers.txt:308
+#: ../powers/powers.txt:272
 msgid "Blast enemies in a distant area with fire"
 msgstr "Поразить врагов в дальней области огнём"
 
-#: ../powers/powers.txt:335
+#: ../powers/powers.txt:293
 msgid "Time Stop"
 msgstr "Остановка времени"
 
-#: ../powers/powers.txt:338
+#: ../powers/powers.txt:296
 msgid "Stun nearby enemies for 5 seconds"
 msgstr "Парализовать ближайших врагов на 5 секунд"
 
-#: ../powers/powers.txt:352
+#: ../powers/powers.txt:309
 msgid "Heroic Swing"
 msgstr "Героический удар"
 
-#: ../powers/powers.txt:355
+#: ../powers/powers.txt:312
 msgid "Melee attack with 10% HP steal"
 msgstr "Ближняя атака крадёт 10% жизни"
 
-#: ../powers/powers.txt:370
+#: ../powers/powers.txt:326
 msgid "Greater Channel"
 msgstr "Сильный вызов"
 
-#: ../powers/powers.txt:373
+#: ../powers/powers.txt:329
 msgid "Magic attack with 10% MP steal"
 msgstr "Магическая атака крадёт 10% маны"
 
-#: ../powers/powers.txt:395
+#: ../powers/powers.txt:346
 msgid "Shoot"
 msgstr "Выстрел"
 
-#: ../powers/powers.txt:398
+#: ../powers/powers.txt:349
 msgid "Basic ranged attack"
 msgstr "Базовая дальняя атака"
 
-#: ../powers/powers.txt:409
+#: ../powers/powers.txt:360
 msgid "Rapid Fire"
 msgstr "Быстрый огонь"
 
-#: ../powers/powers.txt:412
+#: ../powers/powers.txt:363
 msgid "Fire five low power missiles in quick succession"
 msgstr "Быстро сделать пять маломощных выстрелов"
 
-#: ../powers/powers.txt:428
+#: ../powers/powers.txt:379
 msgid "Ice Shard [enemy]"
 msgstr "Осколок льда [враг]"
 
-#: ../powers/powers.txt:456
+#: ../powers/powers.txt:401
 msgid "Fireshot [enemy]"
 msgstr "Огнестрел [враг]"
 
-#: ../powers/powers.txt:482
+#: ../powers/powers.txt:422
 msgid "Goblin Spear [enemy]"
 msgstr "Копьё гоблина [враг]"
 
-#: ../powers/powers.txt:485
+#: ../powers/powers.txt:425
 msgid "Crude goblin spear toss"
 msgstr "Швырнуть грубое копьё гоблина"
 
-#: ../powers/powers.txt:505
+#: ../powers/powers.txt:441
 msgid "Fireburst [enemy]"
 msgstr "Огненный взрыв [враг]"
 
-#: ../powers/powers.txt:508
+#: ../powers/powers.txt:444
 msgid "Burn nearby enemies"
 msgstr "Сжечь ближайших врагов"
 
-#: ../powers/powers.txt:532
+#: ../powers/powers.txt:462
 msgid "Arrow Shoot [enemy]"
 msgstr "Выстрел стрелой [враг]"
 
-#: ../powers/powers.txt:535
+#: ../powers/powers.txt:465
 msgid "Bow shoot"
 msgstr "Выстрел из лука"
 
-#: ../powers/powers.txt:556
+#: ../powers/powers.txt:483
 msgid "Maddox's Ice Storm [enemy]"
 msgstr "Ледяной шторм Мэддокса [враг]"
 
-#: ../powers/powers.txt:585
+#: ../powers/powers.txt:507
 msgid "Vampiric Strike"
 msgstr "Удар вампира"
 
-#: ../powers/powers.txt:588
+#: ../powers/powers.txt:510
 msgid "Turn 50% of damage you deal into HP"
 msgstr "Преобразовать 50% нанесённого вреда в здоровье"
 
-#: ../powers/powers.txt:603
+#: ../powers/powers.txt:524
 msgid "Leech Strike"
 msgstr "Высасывающий удар"
 
-#: ../powers/powers.txt:606
+#: ../powers/powers.txt:527
 msgid "Turn 25% of damage you deal into HP"
 msgstr "Преобразовать 25% нанесённого вреда в здоровье"
 
-#: ../powers/powers.txt:621
+#: ../powers/powers.txt:541
 msgid "Chill Touch"
 msgstr "Хладное касание"
 
-#: ../powers/powers.txt:624
+#: ../powers/powers.txt:544
 msgid "Melee strike immobilizes target for 5 seconds"
 msgstr "Ближний удар парализует цель на 5 секунд"
 
-#: ../powers/powers.txt:639
+#: ../powers/powers.txt:558
 msgid "Piercing Strike"
 msgstr "Пронзающий удар"
 
-#: ../powers/powers.txt:642
+#: ../powers/powers.txt:561
 msgid "Melee strike ignores armor"
 msgstr "Ближний удар игнорирует броню"
 
-#: ../powers/powers.txt:657
+#: ../powers/powers.txt:575
 msgid "Explode"
 msgstr "Взрыв"
 
-#: ../powers/powers.txt:660
+#: ../powers/powers.txt:578
 msgid "Damage everything nearby"
 msgstr "Нанести вред всему, что находится поблизости"
 
-#: ../powers/powers.txt:686
+#: ../powers/powers.txt:598
 msgid "Paralyzing Spit"
 msgstr "Парализующий плевок"
 
-#: ../powers/powers.txt:689
+#: ../powers/powers.txt:601
 msgid "Poison spit that stuns the target for 1 second"
 msgstr "Ядовитый плевок, обездвиживающий цель на 1 секунду"
 
-#: ../powers/powers.txt:782
-msgid "Boots of Testing Really Large Maps"
-msgstr "Ботинки для тестирования очень больших карт"
+#: ../powers/powers.txt:641
+msgid "Throw Knife"
+msgstr ""
 
-#: ../powers/powers.txt:805
-msgid "Lightning Rod"
-msgstr "Скипетр молнии"
+#: ../powers/powers.txt:644
+msgid "Throw a knife to deal 75% of melee weapon damage"
+msgstr ""
 
-#: ../powers/powers.txt:808
-msgid "Create a destructive blast of lightning bolts"
-msgstr "Создать разрушительную бурю из молний"
+#: ../powers/powers.txt:660
+msgid "Throw Axe"
+msgstr ""
 
-#: ../powers/powers.txt:835
+#: ../powers/powers.txt:663
+msgid "Throw an axe to deal 150% of melee weapon damage"
+msgstr ""
+
+#: ../powers/powers.txt:679
+msgid "Caltrops"
+msgstr ""
+
+#: ../powers/powers.txt:682
+msgid "This trap deals 75% ranged weapon damage and slows the target."
+msgstr ""
+
+#: ../powers/powers.txt:700
+#, fuzzy
+msgid "Bear Trap"
+msgstr "Ловушка с шипами"
+
+#: ../powers/powers.txt:703
+msgid "This trap deals 150% ranged weapon damage and immobilizes the target."
+msgstr ""
+
+#: ../powers/powers.txt:758
 msgid "Melee Fire"
 msgstr "Ближний огонь"
 
-#: ../powers/powers.txt:844
+#: ../powers/powers.txt:767
 msgid "Melee Ice"
 msgstr "Ближний лёд"
 
-#: ../powers/powers.txt:853
+#: ../powers/powers.txt:776
 msgid "Slingshot Shoot"
 msgstr "Выстрел из пращи"
 
-#: ../powers/powers.txt:856
+#: ../powers/powers.txt:779
 msgid "Basic ranged attack (requires a ranged weapon)"
 msgstr "Базовая дальняя атака (требуется дальнее оружие)"
 
-#: ../powers/powers.txt:875
+#: ../powers/powers.txt:795
 msgid "Arrow Shoot"
 msgstr "Выстрел стрелой"
 
-#: ../powers/powers.txt:949
+#: ../powers/powers.txt:815
+msgid "Fire Ammo"
+msgstr "Огненный заряд"
+
+#: ../powers/powers.txt:835
+msgid "Ice Ammo"
+msgstr "Ледяной заряд"
+
+#: ../powers/powers.txt:855
 msgid "Arrow Wall Strike"
 msgstr "Выстрел стрелой из стены"
 
-#: ../powers/powers.txt:966
+#: ../powers/powers.txt:867
 msgid "Orange Spark"
 msgstr "Оранжевая искра"
 
-#: ../powers/powers.txt:983
+#: ../powers/powers.txt:879
 msgid "Blue Spark"
 msgstr "Синяя искра"
 
-#: ../powers/powers.txt:1000
+#: ../powers/powers.txt:891
 msgid "Red Spark"
 msgstr "Красная искра"
 
-#: ../powers/powers.txt:1017
+#: ../powers/powers.txt:903
 msgid "Necrotic Bolt"
 msgstr "Омертвевший разряд"
 
-#: ../powers/powers.txt:1094
+#: ../powers/powers.txt:922
+msgid "Scroll of Teleport"
+msgstr "Свиток телепорта"
+
+#: ../powers/powers.txt:942
+msgid "Scroll of Time Stop"
+msgstr "Свиток остановки времени"
+
+#: ../powers/powers.txt:945
+msgid "Stun nearby enemies for 10 seconds"
+msgstr "Парализовать близких врагов на 10 секунд"
+
+#: ../powers/powers.txt:958
+msgid "Scroll of Haste"
+msgstr "Свиток ускорения"
+
+#: ../powers/powers.txt:960
+msgid "Double run and attack speed for 20 seconds"
+msgstr "Удвоить скорость бега и атаки на 20 секунд"
+
+#: ../powers/powers.txt:970
 msgid "Enemy Beacon"
 msgstr "Маяк врага"
 
-#: ../powers/powers.txt:1095
+#: ../powers/powers.txt:971
 msgid "Bring other enemies into the fight with a dummy attack"
 msgstr "Привести других врагов в битву с пустой атакой"
 
-#: ../powers/powers.txt:1107
+#: ../powers/powers.txt:983
 msgid "Summon Antlion"
 msgstr "Призвать муравьиного льва"
 
-#: ../powers/powers.txt:1117
+#: ../powers/powers.txt:993
 msgid "Summon Antlion Hatchling"
 msgstr "Призвать детёныша муравьиного льва"
 
-#: ../powers/powers.txt:1127
+#: ../powers/powers.txt:1003
 msgid "Transform into Antlion Freezer"
 msgstr "Превратиться в морозного муравьиного льва"
 
-#: ../powers/powers.txt:1133
+#: ../powers/powers.txt:1009
 msgid "Transform into Antlion Freezer for 5 seconds"
 msgstr "Превратиться в морозного муравьиного льва на 5 секунд"
 
-#: ../powers/powers.txt:1140
-msgid "Disenchant"
-msgstr "Расколдовать"
+#: ../powers/powers.txt:1016
+msgid "Revert Form"
+msgstr ""
 
-#: ../powers/powers.txt:1145
+#: ../powers/powers.txt:1021
 msgid "Transform back to human"
 msgstr "Превратиться обратно в человека"
 
-#: ../powers/powers.txt:1150
+#: ../powers/powers.txt:1025
 msgid "Summon Rotting Zombie"
 msgstr "Призвать гниющего зомби"
 
-#: ../powers/powers.txt:1160
+#: ../powers/powers.txt:1035
 msgid "Transform into Antlion Freezer permanently"
 msgstr "Превратиться в морозного муравьиного льва насовсем"
 
-#: ../powers/powers.txt:1173
+#: ../powers/powers.txt:1048
 msgid "Disenchant [item]"
 msgstr "Расколдовать [предмет]"
 
-#: ../powers/powers.txt:1184
+#: ../powers/powers.txt:1059
+msgid "Æther Walkers"
+msgstr ""
+
+#: ../powers/powers.txt:1081
+msgid "Stealth"
+msgstr ""
+
+#: ../powers/powers.txt:1087
+msgid "Move undetected with the opportunity to perform a sneak attack"
+msgstr ""
+
+#: ../powers/powers.txt:1094
+msgid "Sneak Attack"
+msgstr ""
+
+#: ../powers/powers.txt:1097
+msgid "Melee attack while stealthed for a high chance to crit"
+msgstr ""
+
+#: ../powers/powers.txt:1123
 msgid "Spike Ray"
 msgstr "Полоса шипов"
 
-#: ../powers/powers.txt:1187
+#: ../powers/powers.txt:1126
 msgid "Create a ray of deadly spikes"
 msgstr "Создать полосу смертельных шипов"
 
-#: ../powers/powers.txt:1211
+#: ../powers/powers.txt:1144
 msgid "Spikes"
 msgstr "Шипы"
 
-#: ../powers/powers.txt:1213
+#: ../powers/powers.txt:1146
 msgid "Spikes Trap"
 msgstr "Ловушка с шипами"
 
-#: ../engine/elements.txt:4
+#: ../powers/powers.txt:1161
+msgid "Revive upon death"
+msgstr ""
+
+#: ../powers/powers.txt:1170
+msgid "Bleeding"
+msgstr ""
+
+#: ../powers/powers.txt:1178
+#, fuzzy
+msgid "Immobilized"
+msgstr "Обездвижить"
+
+#: ../powers/powers.txt:1185
+msgid "Slowed"
+msgstr ""
+
+#: ../powers/powers.txt:1192
+msgid "Stunned"
+msgstr ""
+
+#: ../powers/powers.txt:1199
+msgid "HP (bonus)"
+msgstr ""
+
+#: ../powers/powers.txt:1207
+msgid "HP Regen (bonus)"
+msgstr ""
+
+#: ../powers/powers.txt:1215
+msgid "MP (bonus)"
+msgstr ""
+
+#: ../powers/powers.txt:1223
+msgid "MP Regen (bonus)"
+msgstr ""
+
+#: ../powers/powers.txt:1231
+msgid "Accuracy (bonus)"
+msgstr ""
+
+#: ../powers/powers.txt:1239
+#, fuzzy
+msgid "Avoidance (bonus)"
+msgstr "уклонение"
+
+#: ../powers/powers.txt:1247
+msgid "Crit (bonus)"
+msgstr ""
+
+#: ../powers/powers.txt:1255
+msgid "Speed (bonus)"
+msgstr ""
+
+#: ../powers/powers.txt:1262
+msgid "Offense (bonus)"
+msgstr ""
+
+#: ../powers/powers.txt:1270
+msgid "Defense (bonus)"
+msgstr ""
+
+#: ../powers/powers.txt:1278
+msgid "Physical (bonus)"
+msgstr ""
+
+#: ../powers/powers.txt:1286
+msgid "Mental (bonus)"
+msgstr ""
+
+#: ../powers/powers.txt:1294
+msgid "XP(bonus)"
+msgstr ""
+
+#: ../powers/powers.txt:1302
+msgid "Gold (bonus)"
+msgstr ""
+
+#: ../powers/powers.txt:1310
+#, fuzzy
+msgid "Fire Resistance (bonus)"
+msgstr "Сопротивление огню"
+
+#: ../powers/powers.txt:1318
+#, fuzzy
+msgid "Ice Resistance (bonus)"
+msgstr "Сопротивление льду"
+
+#: ../powers/powers.txt:1326
+msgid "Immunity"
+msgstr ""
+
+#: ../powers/powers.txt:1356
+msgid "HP over time"
+msgstr ""
+
+#: ../powers/powers.txt:1362
+msgid "MP over time"
+msgstr ""
+
+#: ../powers/powers.txt:1368
+msgid "Item find (bonus)"
+msgstr ""
+
+#: ../powers/powers.txt:1376
+msgid "Stealth (bonus)"
+msgstr ""
+
+#: ../powers/powers.txt:1384
+msgid "Revive"
+msgstr ""
+
+#: ../engine/elements.txt:3
 msgid "fire"
 msgstr "огонь"
 
-#: ../engine/elements.txt:5
+#: ../engine/elements.txt:4
 msgid "Fire Resistance"
 msgstr "Сопротивление огню"
 
-#: ../engine/elements.txt:8
+#: ../engine/elements.txt:7
 msgid "ice"
 msgstr "лёд"
 
-#: ../engine/elements.txt:9
+#: ../engine/elements.txt:8
 msgid "Ice Resistance"
 msgstr "Сопротивление льду"
 
-#: ../engine/elements.txt:12
-msgid "earth"
-msgstr "земля"
-
-#: ../engine/elements.txt:13
-msgid "Earth Resistance"
-msgstr "Сопротивление земле"
-
-#: ../engine/elements.txt:16
-msgid "wind"
-msgstr "ветер"
-
-#: ../engine/elements.txt:17
-msgid "Wind Resistance"
-msgstr "Сопротивление ветру"
-
-#: ../engine/elements.txt:20
-msgid "shadow"
-msgstr "тень"
-
-#: ../engine/elements.txt:21
-msgid "Shadow Resistance"
-msgstr "Сопротивление тени"
-
-#: ../engine/elements.txt:24
-msgid "light"
-msgstr "свет"
-
-#: ../engine/elements.txt:25
-msgid "Light Resistance"
-msgstr "Сопротивление свету"
-
-#: ../engine/loot.txt:15
+#: ../engine/loot.txt:19
 msgid "Gold"
 msgstr "золота"
 
@@ -3030,7 +1216,8 @@ msgid "Skeleton"
 msgstr "Скелет"
 
 #: ../enemies/wyvern.txt:1
-msgid "Wyvern"
+#, fuzzy
+msgid "Venom Wyvern"
 msgstr "Виверн"
 
 #: ../enemies/wyvern_adult.txt:1
@@ -3056,6 +1243,1707 @@ msgstr "Леденящий зомби"
 #: ../enemies/zombie_rotting.txt:1
 msgid "Rotting Zombie"
 msgstr "Гниющий зомби"
+
+#~ msgid "Restore 25 HP"
+#~ msgstr "Восстановить 25 очков здоровья"
+
+#~ msgid "Health Flask"
+#~ msgstr "Фляга здоровья"
+
+#~ msgid "Restore 75 HP"
+#~ msgstr "Восстановить 75 очков здоровья"
+
+#~ msgid "Mana Flask"
+#~ msgstr "Фляга маны"
+
+#~ msgid "Restore 75 MP"
+#~ msgstr "Восстановить 75 очков маны"
+
+#~ msgid "body"
+#~ msgstr "тело"
+
+#~ msgid "Tattered Clothes"
+#~ msgstr "Порванное одеяние"
+
+#~ msgid "Dwarven Clothes"
+#~ msgstr "Гномье одеяние"
+
+#~ msgid "Clothes of Restoration"
+#~ msgstr "Одеяние восстановления"
+
+#~ msgid "Elven Clothes"
+#~ msgstr "Эльфийское одеяние"
+
+#~ msgid "Clothes of Meditation"
+#~ msgstr "Одеяние медитации"
+
+#~ msgid "Battle Clothes"
+#~ msgstr "Боевое одеяние"
+
+#~ msgid "Clothes of Accuracy"
+#~ msgstr "Одеяние меткости"
+
+#~ msgid "Clothes of Avoidance"
+#~ msgstr "Одеяние уклонения"
+
+#~ msgid "Summer Clothes"
+#~ msgstr "Летнее одеяние"
+
+#~ msgid "Winter Clothes"
+#~ msgstr "Зимнее одеяние"
+
+#~ msgid "Clothes of Slaying"
+#~ msgstr "Одеяние убийства"
+
+#~ msgid "Warlord Clothes"
+#~ msgstr "Одеяние военачальника"
+
+#~ msgid "Clothes of Victory"
+#~ msgstr "Одеяние победы"
+
+#~ msgid "Archmage Clothes"
+#~ msgstr "Одеяние архимага"
+
+#~ msgid "Clothes of Wizardry"
+#~ msgstr "Одеяние волшебства"
+
+#~ msgid "Ancient Clothes"
+#~ msgstr "Древнее одеяние"
+
+#~ msgid "Clothes of Precision"
+#~ msgstr "Одеяние точности"
+
+#~ msgid "Clothes of Protection"
+#~ msgstr "Одеяние обороны"
+
+#~ msgid "Fiery Clothes"
+#~ msgstr "Пламенное одеяние"
+
+#~ msgid "Frozen Clothes"
+#~ msgstr "Морозное одеяние"
+
+#~ msgid "Clothes of Destruction"
+#~ msgstr "Одеяние разрушения"
+
+#~ msgid "Butcher's Apron"
+#~ msgstr "Фартук мясника"
+
+#~ msgid "Medic Wrap"
+#~ msgstr "Накидка медика"
+
+#~ msgid "Wizard Tunic"
+#~ msgstr "Туника волшебника"
+
+#~ msgid "Spellwoven Clothes"
+#~ msgstr "Зачарованное одеяние"
+
+#~ msgid "Hunter's Garb"
+#~ msgstr "Облачение охотника"
+
+#~ msgid "Night Watch"
+#~ msgstr "Ночное видение"
+
+#~ msgid "Nomad Rags"
+#~ msgstr "Тряпьё кочевника"
+
+#~ msgid "Fur-Lined Tunic"
+#~ msgstr "Меховая туника"
+
+#~ msgid "Vigilante"
+#~ msgstr "Виджиланте"
+
+#~ msgid "Rusted Dagger"
+#~ msgstr "Ржавый кинжал"
+
+#~ msgid "Cursed Dagger"
+#~ msgstr "Проклятый кинжал"
+
+#~ msgid "Dull Dagger"
+#~ msgstr "Тупой кинжал"
+
+#~ msgid "Dwarven Dagger"
+#~ msgstr "Гномий кинжал"
+
+#~ msgid "Dagger of Restoration"
+#~ msgstr "Кинжал восстановления"
+
+#~ msgid "Elven Dagger"
+#~ msgstr "Эльфийский кинжал"
+
+#~ msgid "Dagger of Meditation"
+#~ msgstr "Кинжал медитации"
+
+#~ msgid "Battle Dagger"
+#~ msgstr "Боевой кинжал"
+
+#~ msgid "Dagger of Accuracy"
+#~ msgstr "Кинжал меткости"
+
+#~ msgid "Dagger of Avoidance"
+#~ msgstr "Кинжал уклонения"
+
+#~ msgid "Summer Dagger"
+#~ msgstr "Летний кинжал"
+
+#~ msgid "Winter Dagger"
+#~ msgstr "Зимний кинжал"
+
+#~ msgid "Dagger of Slaying"
+#~ msgstr "Кинжал убийства"
+
+#~ msgid "Warlord Dagger"
+#~ msgstr "Кинжал военачальника"
+
+#~ msgid "Dagger of Victory"
+#~ msgstr "Кинжал победы"
+
+#~ msgid "Archmage Dagger"
+#~ msgstr "Кинжал архимага"
+
+#~ msgid "Dagger of Wizardry"
+#~ msgstr "Кинжал волшебства"
+
+#~ msgid "Ancient Dagger"
+#~ msgstr "Древний кинжал"
+
+#~ msgid "Dagger of Precision"
+#~ msgstr "Кинжал точности"
+
+#~ msgid "Dagger of Protection"
+#~ msgstr "Кинжал обороны"
+
+#~ msgid "Fiery Dagger"
+#~ msgstr "Пламенный кинжал"
+
+#~ msgid "Frozen Dagger"
+#~ msgstr "Морозный кинжал"
+
+#~ msgid "Dagger of Destruction"
+#~ msgstr "Кинжал разрушения"
+
+#~ msgid "Sacrificial Knife"
+#~ msgstr "Жертвенный нож"
+
+#~ msgid "Thorn"
+#~ msgstr "Шип"
+
+#~ msgid "Mind Shard"
+#~ msgstr "Осколок разума"
+
+#~ msgid "Ether Slice"
+#~ msgstr "Срез эфира"
+
+#~ msgid "Pinpoint"
+#~ msgstr "Булавка"
+
+#~ msgid "Dancing Knife"
+#~ msgstr "Танцующий нож"
+
+#~ msgid "Fire Shard"
+#~ msgstr "Осколок огня"
+
+#~ msgid "Ice Shard"
+#~ msgstr "Осколок льда"
+
+#~ msgid "Goblin Carver"
+#~ msgstr "Тесак гоблина"
+
+#~ msgid "Rusted Shortsword"
+#~ msgstr "Ржавый короткий меч"
+
+#~ msgid "Cursed Shortsword"
+#~ msgstr "Проклятый короткий меч"
+
+#~ msgid "Dull Shortsword"
+#~ msgstr "Тупой короткий меч"
+
+#~ msgid "Dwarven Shortsword"
+#~ msgstr "Гномий короткий меч"
+
+#~ msgid "Shortsword of Restoration"
+#~ msgstr "Короткий меч восстановления"
+
+#~ msgid "Elven Shortsword"
+#~ msgstr "Эльфийский короткий меч"
+
+#~ msgid "Shortsword of Meditation"
+#~ msgstr "Короткий меч медитации"
+
+#~ msgid "Battle Shortsword"
+#~ msgstr "Боевой короткий меч"
+
+#~ msgid "Shortsword of Accuracy"
+#~ msgstr "Короткий меч меткости"
+
+#~ msgid "Shortsword of Avoidance"
+#~ msgstr "Короткий меч уклонения"
+
+#~ msgid "Summer Shortsword"
+#~ msgstr "Летний короткий меч"
+
+#~ msgid "Winter Shortsword"
+#~ msgstr "Зимний короткий меч"
+
+#~ msgid "Shortsword of Slaying"
+#~ msgstr "Короткий меч убийства"
+
+#~ msgid "Warlord Shortsword"
+#~ msgstr "Короткий меч военачальника"
+
+#~ msgid "Shortsword of Victory"
+#~ msgstr "Короткий меч победы"
+
+#~ msgid "Archmage Shortsword"
+#~ msgstr "Короткий меч архимага"
+
+#~ msgid "Shortsword of Wizardry"
+#~ msgstr "Короткий меч волшебства"
+
+#~ msgid "Ancient Shortsword"
+#~ msgstr "Древний короткий меч"
+
+#~ msgid "Shortsword of Precision"
+#~ msgstr "Короткий меч точности"
+
+#~ msgid "Shortsword of Protection"
+#~ msgstr "Короткий меч обороны"
+
+#~ msgid "Fiery Shortsword"
+#~ msgstr "Пламенный короткий меч"
+
+#~ msgid "Frozen Shortsword"
+#~ msgstr "Морозный короткий меч"
+
+#~ msgid "Shortsword of Destruction"
+#~ msgstr "Короткий меч разрушения"
+
+#~ msgid "Gladius"
+#~ msgstr "Гладиус"
+
+#~ msgid "Mending Blade"
+#~ msgstr "Клинок улучшения"
+
+#~ msgid "Mana Edge"
+#~ msgstr "Лезвие маны"
+
+#~ msgid "Demon Pact"
+#~ msgstr "Договор с дьяволом"
+
+#~ msgid "Watchman's Blade"
+#~ msgstr "Клинок стража"
+
+#~ msgid "Parry Blade"
+#~ msgstr "Клинок отражения"
+
+#~ msgid "Summersword"
+#~ msgstr "Летний меч"
+
+#~ msgid "Wintersword"
+#~ msgstr "Зимний меч"
+
+#~ msgid "Sting"
+#~ msgstr "Жало"
+
+#~ msgid "Rusted Longsword"
+#~ msgstr "Ржавый длинный меч"
+
+#~ msgid "Cursed Longsword"
+#~ msgstr "Проклятый длинный меч"
+
+#~ msgid "Dull Longsword"
+#~ msgstr "Тупой длинный меч"
+
+#~ msgid "Dwarven Longsword"
+#~ msgstr "Гномий длинный меч"
+
+#~ msgid "Longsword of Restoration"
+#~ msgstr "Длинный меч восстановления"
+
+#~ msgid "Elven Longsword"
+#~ msgstr "Эльфийский длинный меч"
+
+#~ msgid "Longsword of Meditation"
+#~ msgstr "Длинный меч медитации"
+
+#~ msgid "Battle Longsword"
+#~ msgstr "Боевой длинный меч"
+
+#~ msgid "Longsword of Accuracy"
+#~ msgstr "Длинный меч меткости"
+
+#~ msgid "Longsword of Avoidance"
+#~ msgstr "Длинный меч уклонения"
+
+#~ msgid "Summer Longsword"
+#~ msgstr "Летний длинный меч"
+
+#~ msgid "Winter Longsword"
+#~ msgstr "Зимний длинный меч"
+
+#~ msgid "Longsword of Slaying"
+#~ msgstr "Длинный меч убийства"
+
+#~ msgid "Warlord Longsword"
+#~ msgstr "Длинный меч военачальника"
+
+#~ msgid "Longsword of Victory"
+#~ msgstr "Длинный меч победы"
+
+#~ msgid "Archmage Longsword"
+#~ msgstr "Длинный меч архимага"
+
+#~ msgid "Longsword of Wizardry"
+#~ msgstr "Длинный меч волшебства"
+
+#~ msgid "Ancient Longsword"
+#~ msgstr "Древний длинный меч"
+
+#~ msgid "Longsword of Precision"
+#~ msgstr "Длинный меч точности"
+
+#~ msgid "Longsword of Protection"
+#~ msgstr "Длинный меч обороны"
+
+#~ msgid "Fiery Longsword"
+#~ msgstr "Пламенный длинный меч"
+
+#~ msgid "Frozen Longsword"
+#~ msgstr "Морозный длинный меч"
+
+#~ msgid "Longsword of Destruction"
+#~ msgstr "Длинный меч разрушения"
+
+#~ msgid "Excalibur"
+#~ msgstr "Экскалибур"
+
+#~ msgid "Vampiric Sword"
+#~ msgstr "Вампирический меч"
+
+#~ msgid "Glamdring"
+#~ msgstr "Гламдринг"
+
+#~ msgid "Durendal"
+#~ msgstr "Дюрандаль"
+
+#~ msgid "Rapier"
+#~ msgstr "Рапира"
+
+#~ msgid "Dueling Sword"
+#~ msgstr "Дуэльный меч"
+
+#~ msgid "Flame Edge"
+#~ msgstr "Лезвие пламени"
+
+#~ msgid "Frost Edge"
+#~ msgstr "Лезвие мороза"
+
+#~ msgid "Vorpal Sword"
+#~ msgstr "Бравный меч"
+
+#~ msgid "Rusted Greatsword"
+#~ msgstr "Ржавый великий меч"
+
+#~ msgid "Cursed Greatsword"
+#~ msgstr "Проклятый великий меч"
+
+#~ msgid "Dull Greatsword"
+#~ msgstr "Тупой великий меч"
+
+#~ msgid "Dwarven Greatsword"
+#~ msgstr "Гномий великий меч"
+
+#~ msgid "Greatsword of Restoration"
+#~ msgstr "Великий меч восстановления"
+
+#~ msgid "Elven Greatsword"
+#~ msgstr "Эльфийский великий меч"
+
+#~ msgid "Greatsword of Meditation"
+#~ msgstr "Великий меч медитации"
+
+#~ msgid "Greatsword of Accuracy"
+#~ msgstr "Великий меч меткости"
+
+#~ msgid "Greatsword of Avoidance"
+#~ msgstr "Великий меч уклонения"
+
+#~ msgid "Summer Greatsword"
+#~ msgstr "Летний великий меч"
+
+#~ msgid "Winter Greatsword"
+#~ msgstr "Зимний великий меч"
+
+#~ msgid "Greatsword of Slaying"
+#~ msgstr "Великий меч убийства"
+
+#~ msgid "Warlord Greatsword"
+#~ msgstr "Великий меч военачальника"
+
+#~ msgid "Greatsword of Victory"
+#~ msgstr "Великий меч победы"
+
+#~ msgid "Archmage Greatsword"
+#~ msgstr "Великий меч архимага"
+
+#~ msgid "Greatsword of Wizardry"
+#~ msgstr "Великий меч волшебства"
+
+#~ msgid "Ancient Greatsword"
+#~ msgstr "Древний великий меч"
+
+#~ msgid "Greatsword of Precision"
+#~ msgstr "Великий меч точности"
+
+#~ msgid "Greatsword of Protection"
+#~ msgstr "Великий меч обороны"
+
+#~ msgid "Fiery Greatsword"
+#~ msgstr "Пламенный великий меч"
+
+#~ msgid "Frozen Greatsword"
+#~ msgstr "Морозный великий меч"
+
+#~ msgid "Greatsword of Destruction"
+#~ msgstr "Великий меч разрушения"
+
+#~ msgid "Ragnarok"
+#~ msgstr "Рагнарок"
+
+#~ msgid "Earth Rend"
+#~ msgstr "Рубитель камней"
+
+#~ msgid "Joyeuse"
+#~ msgstr "Жуаез"
+
+#~ msgid "Soul Rend"
+#~ msgstr "Рубитель душ"
+
+#~ msgid "Hrunting"
+#~ msgstr "Хрунтинг"
+
+#~ msgid "Naegling"
+#~ msgstr "Неглинг"
+
+#~ msgid "Sunblade"
+#~ msgstr "Клинок солнца"
+
+#~ msgid "Moonblade"
+#~ msgstr "Клинок луны"
+
+#~ msgid "Armageddon"
+#~ msgstr "Армагеддон"
+
+#~ msgid "Cracked Wand"
+#~ msgstr "Треснутый жезл"
+
+#~ msgid "Cursed Wand"
+#~ msgstr "Проклятый жезл"
+
+#~ msgid "Depleted Wand"
+#~ msgstr "Истёртый жезл"
+
+#~ msgid "Dwarven Wand"
+#~ msgstr "Гномий жезл"
+
+#~ msgid "Wand of Restoration"
+#~ msgstr "Жезл восстановления"
+
+#~ msgid "Elven Wand"
+#~ msgstr "Эльфийский жезл"
+
+#~ msgid "Wand of Meditation"
+#~ msgstr "Жезл медитации"
+
+#~ msgid "Battle Wand"
+#~ msgstr "Боевой жезл"
+
+#~ msgid "Wand of Accuracy"
+#~ msgstr "Жезл точности"
+
+#~ msgid "Wand of Avoidance"
+#~ msgstr "Жезл уклонения"
+
+#~ msgid "Summer Wand"
+#~ msgstr "Летний жезл"
+
+#~ msgid "Winter Wand"
+#~ msgstr "Зимний жезл"
+
+#~ msgid "Wand of Slaying"
+#~ msgstr "Жезл убийства"
+
+#~ msgid "Warlord Wand"
+#~ msgstr "Жезл военачальника"
+
+#~ msgid "Wand of Victory"
+#~ msgstr "Жезл победы"
+
+#~ msgid "Archmage Wand"
+#~ msgstr "Жезл архимага"
+
+#~ msgid "Wand of Wizardry"
+#~ msgstr "Жезл волшебства"
+
+#~ msgid "Ancient Wand"
+#~ msgstr "Древний жезл"
+
+#~ msgid "Wand of Precision"
+#~ msgstr "Жезл точности"
+
+#~ msgid "Wand of Protection"
+#~ msgstr "Жезл обороны"
+
+#~ msgid "Fiery Wand"
+#~ msgstr "Пламенный жезл"
+
+#~ msgid "Frozen Wand"
+#~ msgstr "Морозный жезл"
+
+#~ msgid "Wand of Destruction"
+#~ msgstr "Жезл разрушения"
+
+#~ msgid "Tongue Depressor"
+#~ msgstr "Подавитель языка"
+
+#~ msgid "Living Branch"
+#~ msgstr "Живая ветвь"
+
+#~ msgid "Glow Stick"
+#~ msgstr "Тлеющий прут"
+
+#~ msgid "Mana Catcher"
+#~ msgstr "Ловец маны"
+
+#~ msgid "Conductor's Baton"
+#~ msgstr "Дирижёрская палочка"
+
+#~ msgid "Blink Wand"
+#~ msgstr "Мерцающий жезл"
+
+#~ msgid "Enchanted Torch"
+#~ msgstr "Зачарованный факел"
+
+#~ msgid "Snowy Branch"
+#~ msgstr "Снежная ветвь"
+
+#~ msgid "Lich Finger"
+#~ msgstr "Палец лича"
+
+#~ msgid "Cracked Rod"
+#~ msgstr "Треснутый скипетр"
+
+#~ msgid "Cursed Rod"
+#~ msgstr "Проклятый скипетр"
+
+#~ msgid "Depleted Rod"
+#~ msgstr "Истёртый скипетр"
+
+#~ msgid "Dwarven Rod"
+#~ msgstr "Гномий скипетр"
+
+#~ msgid "Rod of Restoration"
+#~ msgstr "Скипетр восстановления"
+
+#~ msgid "Elven Rod"
+#~ msgstr "Эльфийский скипетр"
+
+#~ msgid "Rod of Meditation"
+#~ msgstr "Скипетр медитации"
+
+#~ msgid "Battle Rod"
+#~ msgstr "Боевой скипетр"
+
+#~ msgid "Rod of Accuracy"
+#~ msgstr "Скипетр меткости"
+
+#~ msgid "Rod of Avoidance"
+#~ msgstr "Скипетр уклонения"
+
+#~ msgid "Summer Rod"
+#~ msgstr "Летний скипетр"
+
+#~ msgid "Winter Rod"
+#~ msgstr "Зимний скипетр"
+
+#~ msgid "Rod of Slaying"
+#~ msgstr "Скипетр убийства"
+
+#~ msgid "Warlord Rod"
+#~ msgstr "Скипетр военачальника"
+
+#~ msgid "Rod of Victory"
+#~ msgstr "Скипетр победы"
+
+#~ msgid "Archmage Rod"
+#~ msgstr "Скипетр архимага"
+
+#~ msgid "Rod of Wizardry"
+#~ msgstr "Скипетр волшебства"
+
+#~ msgid "Ancient Rod"
+#~ msgstr "Древний скипетр"
+
+#~ msgid "Rod of Precision"
+#~ msgstr "Скипетр точности"
+
+#~ msgid "Rod of Protection"
+#~ msgstr "Скипетр обороны"
+
+#~ msgid "Fiery Rod"
+#~ msgstr "Пламенный скипетр"
+
+#~ msgid "Frozen Rod"
+#~ msgstr "Морозный скипетр"
+
+#~ msgid "Rod of Destruction"
+#~ msgstr "Скипетр разрушения"
+
+#~ msgid "Scepter of Kings"
+#~ msgstr "Скипетр королей"
+
+#~ msgid "Medic Rod"
+#~ msgstr "Скипетр медика"
+
+#~ msgid "Oracle Rod"
+#~ msgstr "Скипетр оракула"
+
+#~ msgid "Rod of Alignment"
+#~ msgstr "Скипетр порядка"
+
+#~ msgid "Warding Rod"
+#~ msgstr "Скипетр заключения"
+
+#~ msgid "Ruby-Tipped Cane"
+#~ msgstr "Трость с рубиновым наконечником"
+
+#~ msgid "Diamond-Tipped Cane"
+#~ msgstr "Трость с алмазным наконечником"
+
+#~ msgid "Unwraveller"
+#~ msgstr "Разоблачитель"
+
+#~ msgid "Cracked Staff"
+#~ msgstr "Треснутый посох"
+
+#~ msgid "Cursed Staff"
+#~ msgstr "Проклятый посох"
+
+#~ msgid "Depleted Staff"
+#~ msgstr "Истёртый посох"
+
+#~ msgid "Dwarven Staff"
+#~ msgstr "Гномий посох"
+
+#~ msgid "Staff of Restoration"
+#~ msgstr "Посох восстановления"
+
+#~ msgid "Elven Staff"
+#~ msgstr "Эльфийский посох"
+
+#~ msgid "Staff of Meditation"
+#~ msgstr "Посох медитации"
+
+#~ msgid "Battle Staff"
+#~ msgstr "Боевой посох"
+
+#~ msgid "Staff of Accuracy"
+#~ msgstr "Посох меткости"
+
+#~ msgid "Staff of Avoidance"
+#~ msgstr "Посох уклонения"
+
+#~ msgid "Summer Staff"
+#~ msgstr "Летний посох"
+
+#~ msgid "Winter Staff"
+#~ msgstr "Зимний посох"
+
+#~ msgid "Staff of Slaying"
+#~ msgstr "Посох убийства"
+
+#~ msgid "Warlord Staff"
+#~ msgstr "Посох военачальника"
+
+#~ msgid "Staff of Victory"
+#~ msgstr "Посох победы"
+
+#~ msgid "Archmage Staff"
+#~ msgstr "Посох архимага"
+
+#~ msgid "Staff of Wizardry"
+#~ msgstr "Посох волшебства"
+
+#~ msgid "Ancient Staff"
+#~ msgstr "Древний посох"
+
+#~ msgid "Staff of Precision"
+#~ msgstr "Посох точности"
+
+#~ msgid "Staff of Protection"
+#~ msgstr "Посох обороны"
+
+#~ msgid "Fiery Staff"
+#~ msgstr "Пламенный посох"
+
+#~ msgid "Frozen Staff"
+#~ msgstr "Морозный посох"
+
+#~ msgid "Staff of Destruction"
+#~ msgstr "Посох разрушения"
+
+#~ msgid "Walking Stick"
+#~ msgstr "Походная трость"
+
+#~ msgid "Totem of Life"
+#~ msgstr "Тотем жизни"
+
+#~ msgid "Cosmic Staff"
+#~ msgstr "Космический посох"
+
+#~ msgid "Totem of Dreams"
+#~ msgstr "Тотем снов"
+
+#~ msgid "Staff of True Sight"
+#~ msgstr "Посох истинного зрения"
+
+#~ msgid "Staff of Trials"
+#~ msgstr "Посох испытаний"
+
+#~ msgid "Magma Flow"
+#~ msgstr "Поток магмы"
+
+#~ msgid "Glacial Wind"
+#~ msgstr "Ледяной ветер"
+
+#~ msgid "Wyvern Spine"
+#~ msgstr "Шип виверна"
+
+#~ msgid "Cracked Greatstaff"
+#~ msgstr "Треснутый великий посох"
+
+#~ msgid "Cursed Greatstaff"
+#~ msgstr "Проклятый великий посох"
+
+#~ msgid "Depleted Greatstaff"
+#~ msgstr "Истёртый великий посох"
+
+#~ msgid "Dwarven Greatstaff"
+#~ msgstr "Гномий великий посох"
+
+#~ msgid "Greatstaff of Restoration"
+#~ msgstr "Великий посох восстановления"
+
+#~ msgid "Elven Greatstaff"
+#~ msgstr "Эльфийский великий посох"
+
+#~ msgid "Greatstaff of Meditation"
+#~ msgstr "Великий посох медитации"
+
+#~ msgid "Battle Greatstaff"
+#~ msgstr "Боевой великий посох"
+
+#~ msgid "Greatstaff of Accuracy"
+#~ msgstr "Великий посох меткости"
+
+#~ msgid "Greatstaff of Avoidance"
+#~ msgstr "Великий посох уклонения"
+
+#~ msgid "Summer Greatstaff"
+#~ msgstr "Летний великий посох"
+
+#~ msgid "Winter Greatstaff"
+#~ msgstr "Зимний великий посох"
+
+#~ msgid "Greatstaff of Slaying"
+#~ msgstr "Великий посох убийства"
+
+#~ msgid "Warlord Greatstaff"
+#~ msgstr "Великий посох военачальника"
+
+#~ msgid "Greatstaff of Victory"
+#~ msgstr "Великий посох победы"
+
+#~ msgid "Archmage Greatstaff"
+#~ msgstr "Великий посох архимага"
+
+#~ msgid "Greatstaff of Wizardry"
+#~ msgstr "Великий посох волшебства"
+
+#~ msgid "Ancient Greatstaff"
+#~ msgstr "Древний великий посох"
+
+#~ msgid "Greatstaff of Precision"
+#~ msgstr "Великий посох точности"
+
+#~ msgid "Greatstaff of Protection"
+#~ msgstr "Великий посох обороны"
+
+#~ msgid "Fiery Greatstaff"
+#~ msgstr "Пламенный великий посох"
+
+#~ msgid "Frozen Greatstaff"
+#~ msgstr "Морозный великий посох"
+
+#~ msgid "Greatstaff of Destruction"
+#~ msgstr "Великий посох разрушения"
+
+#~ msgid "Lifegiver"
+#~ msgstr "Дающий жизнь"
+
+#~ msgid "Preserver"
+#~ msgstr "Хранитель"
+
+#~ msgid "Enlightenment"
+#~ msgstr "Просветление"
+
+#~ msgid "Defiler"
+#~ msgstr "Осквернитель"
+
+#~ msgid "Precognition"
+#~ msgstr "Предвидение"
+
+#~ msgid "Singularity"
+#~ msgstr "Сингулярность"
+
+#~ msgid "Fission"
+#~ msgstr "Ращепление"
+
+#~ msgid "Fusion"
+#~ msgstr "Слияние"
+
+#~ msgid "Cataclysm"
+#~ msgstr "Катаклизм"
+
+#~ msgid "Cracked Slingshot"
+#~ msgstr "Треснутая праща"
+
+#~ msgid "Cursed Slingshot"
+#~ msgstr "Проклятая праща"
+
+#~ msgid "Warped Slingshot"
+#~ msgstr "Погнутая праща"
+
+#~ msgid "Dwarven Slingshot"
+#~ msgstr "Гномья праща"
+
+#~ msgid "Slingshot of Restoration"
+#~ msgstr "Праща восстановления"
+
+#~ msgid "Elven Slingshot"
+#~ msgstr "Эльфийская праща"
+
+#~ msgid "Slingshot of Meditation"
+#~ msgstr "Праща медитации"
+
+#~ msgid "Battle Slingshot"
+#~ msgstr "Боевая праща"
+
+#~ msgid "Slingshot of Accuracy"
+#~ msgstr "Праща меткости"
+
+#~ msgid "Slingshot of Avoidance"
+#~ msgstr "Праща уклонения"
+
+#~ msgid "Summer Slingshot"
+#~ msgstr "Летняя праща"
+
+#~ msgid "Winter Slingshot"
+#~ msgstr "Зимняя праща"
+
+#~ msgid "Slingshot of Slaying"
+#~ msgstr "Праща убийства"
+
+#~ msgid "Warlord Slingshot"
+#~ msgstr "Праща военачальника"
+
+#~ msgid "Slingshot of Victory"
+#~ msgstr "Праща победы"
+
+#~ msgid "Archmage Slingshot"
+#~ msgstr "Праща архимага"
+
+#~ msgid "Slingshot of Wizardry"
+#~ msgstr "Праща волшебства"
+
+#~ msgid "Ancient Slingshot"
+#~ msgstr "Древняя праща"
+
+#~ msgid "Slingshot of Precision"
+#~ msgstr "Праща точности"
+
+#~ msgid "Slingshot of Protection"
+#~ msgstr "Праща обороны"
+
+#~ msgid "Fiery Slingshot"
+#~ msgstr "Пламенная праща"
+
+#~ msgid "Frozen Slingshot"
+#~ msgstr "Морозная праща"
+
+#~ msgid "Slingshot of Destruction"
+#~ msgstr "Праща разрушения"
+
+#~ msgid "Ash Branch"
+#~ msgstr "Ветка ясеня"
+
+#~ msgid "Rock Sling"
+#~ msgstr "Каменная рогатка"
+
+#~ msgid "Willow Branch"
+#~ msgstr "Ветка ивы"
+
+#~ msgid "Wind Sling"
+#~ msgstr "Рогатка ветра"
+
+#~ msgid "Urchin Sling"
+#~ msgstr "Колючая рогатка"
+
+#~ msgid "Swift Sling"
+#~ msgstr "Стремительная рогатка"
+
+#~ msgid "Ember Slinger"
+#~ msgstr "Янтарная рогатка"
+
+#~ msgid "Snowball Slinger"
+#~ msgstr "Снежкомёт"
+
+#~ msgid "Giant Slayer"
+#~ msgstr "Убийца гигантов"
+
+#~ msgid "Cracked Shortbow"
+#~ msgstr "Треснутый короткий лук"
+
+#~ msgid "Cursed Shortbow"
+#~ msgstr "Проклятый короткий лук"
+
+#~ msgid "Warped Shortbow"
+#~ msgstr "Погнутый короткий лук"
+
+#~ msgid "Dwarven Shortbow"
+#~ msgstr "Гномий короткий лук"
+
+#~ msgid "Shortbow of Restoration"
+#~ msgstr "Короткий лук восстановления"
+
+#~ msgid "Elven Shortbow"
+#~ msgstr "Эльфийский короткий лук"
+
+#~ msgid "Shortbow of Meditation"
+#~ msgstr "Короткий лук медитации"
+
+#~ msgid "Battle Shortbow"
+#~ msgstr "Боевой короткий лук"
+
+#~ msgid "Shortbow of Accuracy"
+#~ msgstr "Короткий лук меткости"
+
+#~ msgid "Shortbow of Avoidance"
+#~ msgstr "Короткий лук уклонения"
+
+#~ msgid "Summer Shortbow"
+#~ msgstr "Летний короткий лук"
+
+#~ msgid "Winter Shortbow"
+#~ msgstr "Зимний короткий лук"
+
+#~ msgid "Shortbow of Slaying"
+#~ msgstr "Короткий лук убийства"
+
+#~ msgid "Warlord Shortbow"
+#~ msgstr "Короткий лук военачальника"
+
+#~ msgid "Shortbow of Victory"
+#~ msgstr "Короткий лук победы"
+
+#~ msgid "Archmage Shortbow"
+#~ msgstr "Короткий лук архимага"
+
+#~ msgid "Shortbow of Wizardry"
+#~ msgstr "Короткий лук волшебства"
+
+#~ msgid "Ancient Shortbow"
+#~ msgstr "Древний короткий лук"
+
+#~ msgid "Shortbow of Precision"
+#~ msgstr "Короткий лук точности"
+
+#~ msgid "Shortbow of Protection"
+#~ msgstr "Короткий лук обороны"
+
+#~ msgid "Fiery Shortbow"
+#~ msgstr "Пламенный короткий лук"
+
+#~ msgid "Frozen Shortbow"
+#~ msgstr "Морозный короткий лук"
+
+#~ msgid "Shortbow of Destruction"
+#~ msgstr "Короткий лук разрушения"
+
+#~ msgid "Orc Chieftan"
+#~ msgstr "Вождь орков"
+
+#~ msgid "Crag Bow"
+#~ msgstr "Горный лук"
+
+#~ msgid "Witch Doctor"
+#~ msgstr "Доктор ведьм"
+
+#~ msgid "Feywild Bow"
+#~ msgstr "Причудливый лук"
+
+#~ msgid "Bandit"
+#~ msgstr "Бандит"
+
+#~ msgid "Mithril Bow"
+#~ msgstr "Мифрильный лук"
+
+#~ msgid "Fire Striker"
+#~ msgstr "Огнестрел"
+
+#~ msgid "Ice Striker"
+#~ msgstr "Ледострел"
+
+#~ msgid "Assassin"
+#~ msgstr "Ассассин"
+
+#~ msgid "Cracked Longbow"
+#~ msgstr "Треснутый длинный лук"
+
+#~ msgid "Cursed Longbow"
+#~ msgstr "Проклятый длинный лук"
+
+#~ msgid "Warped Longbow"
+#~ msgstr "Погнутый длинный лук"
+
+#~ msgid "Dwarven Longbow"
+#~ msgstr "Гномий длинный лук"
+
+#~ msgid "Longbow of Restoration"
+#~ msgstr "Длинный лук восстановления"
+
+#~ msgid "Elven Longbow"
+#~ msgstr "Эльфийский длинный лук"
+
+#~ msgid "Longbow of Meditation"
+#~ msgstr "Длинный лук медитации"
+
+#~ msgid "Battle Longbow"
+#~ msgstr "Боевой длинный лук"
+
+#~ msgid "Longbow of Accuracy"
+#~ msgstr "Длинный лук меткости"
+
+#~ msgid "Longbow of Avoidance"
+#~ msgstr "Длинный лук уклонения"
+
+#~ msgid "Summer Longbow"
+#~ msgstr "Летний длинный лук"
+
+#~ msgid "Winter Longbow"
+#~ msgstr "Зимний длинный лук"
+
+#~ msgid "Longbow of Slaying"
+#~ msgstr "Длинный лук убийства"
+
+#~ msgid "Warlord Longbow"
+#~ msgstr "Длинный лук военачальника"
+
+#~ msgid "Longbow of Victory"
+#~ msgstr "Длинный лук победы"
+
+#~ msgid "Archmage Longbow"
+#~ msgstr "Длинный лук архимага"
+
+#~ msgid "Longbow of Wizardry"
+#~ msgstr "Длинный лук волшебства"
+
+#~ msgid "Ancient Longbow"
+#~ msgstr "Древний длинный лук"
+
+#~ msgid "Longbow of Precision"
+#~ msgstr "Длинный лук точности"
+
+#~ msgid "Longbow of Protection"
+#~ msgstr "Длинный лук обороны"
+
+#~ msgid "Fiery Longbow"
+#~ msgstr "Пламенный длинный лук"
+
+#~ msgid "Frozen Longbow"
+#~ msgstr "Морозный длинный лук"
+
+#~ msgid "Longbow of Destruction"
+#~ msgstr "Длинный лук разрушения"
+
+#~ msgid "Thunder"
+#~ msgstr "Гром"
+
+#~ msgid "Bow of the World Tree"
+#~ msgstr "Лук из дерева мира"
+
+#~ msgid "Lightning"
+#~ msgstr "Молния"
+
+#~ msgid "Pharaoh"
+#~ msgstr "Фараон"
+
+#~ msgid "Ranger's Bow"
+#~ msgstr "Охотничий лук"
+
+#~ msgid "Siege Bow"
+#~ msgstr "Осадный лук"
+
+#~ msgid "Ruby Strand"
+#~ msgstr "Рубиновая струна"
+
+#~ msgid "Diamond Strand"
+#~ msgstr "Алмазная струна"
+
+#~ msgid "Death Mark"
+#~ msgstr "Маска смерти"
+
+#~ msgid "Cracked Greatbow"
+#~ msgstr "Треснутый великий лук"
+
+#~ msgid "Cursed Greatbow"
+#~ msgstr "Проклятый великий лук"
+
+#~ msgid "Warped Greatbow"
+#~ msgstr "Погнутый великий лук"
+
+#~ msgid "Dwarven Greatbow"
+#~ msgstr "Гномий великий лук"
+
+#~ msgid "Greatbow of Restoration"
+#~ msgstr "Великий лук восстановления"
+
+#~ msgid "Elven Greatbow"
+#~ msgstr "Эльфийский великий лук"
+
+#~ msgid "Greatbow of Meditation"
+#~ msgstr "Великий лук медитации"
+
+#~ msgid "Battle Greatbow"
+#~ msgstr "Боевой великий лук"
+
+#~ msgid "Greatbow of Accuracy"
+#~ msgstr "Великий лук меткости"
+
+#~ msgid "Greatbow of Avoidance"
+#~ msgstr "Великий лук уклонения"
+
+#~ msgid "Summer Greatbow"
+#~ msgstr "Летний великий лук"
+
+#~ msgid "Winter Greatbow"
+#~ msgstr "Зимний великий лук"
+
+#~ msgid "Greatbow of Slaying"
+#~ msgstr "Великий лук убийства"
+
+#~ msgid "Warlord Greatbow"
+#~ msgstr "Великий лук военачальника"
+
+#~ msgid "Greatbow of Victory"
+#~ msgstr "Великий лук победы"
+
+#~ msgid "Archmage Greatbow"
+#~ msgstr "Великий лук архимага"
+
+#~ msgid "Greatbow of Wizardry"
+#~ msgstr "Великий лук волшебства"
+
+#~ msgid "Ancient Greatbow"
+#~ msgstr "Древний великий лук"
+
+#~ msgid "Greatbow of Precision"
+#~ msgstr "Великий лук точности"
+
+#~ msgid "Greatbow of Protection"
+#~ msgstr "Великий лук обороны"
+
+#~ msgid "Fiery Greatbow"
+#~ msgstr "Пламенный великий лук"
+
+#~ msgid "Frozen Greatbow"
+#~ msgstr "Морозный великий лук"
+
+#~ msgid "Greatbow of Destruction"
+#~ msgstr "Великий лук разрушения"
+
+#~ msgid "Dragonslayer"
+#~ msgstr "Убийца драконов"
+
+#~ msgid "Vampire Hunter"
+#~ msgstr "Охотник на вампиров"
+
+#~ msgid "Dimensional Rift"
+#~ msgstr "Щель между измерениями"
+
+#~ msgid "Vortex"
+#~ msgstr "Вихрь"
+
+#~ msgid "Gladys"
+#~ msgstr "Глэдис"
+
+#~ msgid "Ballista"
+#~ msgstr "Баллиста"
+
+#~ msgid "Starfire"
+#~ msgstr "Звёздный огонь"
+
+#~ msgid "Voidfire"
+#~ msgstr "Огонь пустоты"
+
+#~ msgid "Chaos"
+#~ msgstr "Хаос"
+
+#~ msgid "Cracked Leather Armor"
+#~ msgstr "Треснутая кожаная броня"
+
+#~ msgid "Cursed Leather Armor"
+#~ msgstr "Проклятая кожаная броня"
+
+#~ msgid "Dwarven Leather Armor"
+#~ msgstr "Гномья кожаная броня"
+
+#~ msgid "Leather Armor of Restoration"
+#~ msgstr "Кожаная броня восстановления"
+
+#~ msgid "Elven Leather Armor"
+#~ msgstr "Эльфийская кожаная броня"
+
+#~ msgid "Leather Armor of Meditation"
+#~ msgstr "Кожаная броня медитации"
+
+#~ msgid "Battle Leather Armor"
+#~ msgstr "Боевая кожаная броня"
+
+#~ msgid "Leather Armor of Accuracy"
+#~ msgstr "Кожаная броня меткости"
+
+#~ msgid "Leather Armor of Avoidance"
+#~ msgstr "Кожаная броня уклонения"
+
+#~ msgid "Summer Leather Armor"
+#~ msgstr "Летняя кожаная броня"
+
+#~ msgid "Winter Leather Armor"
+#~ msgstr "Зимняя кожаная броня"
+
+#~ msgid "Leather Armor of Slaying"
+#~ msgstr "Кожаная броня убийства"
+
+#~ msgid "Warlord Leather Armor"
+#~ msgstr "Кожаная броня военачальника"
+
+#~ msgid "Leather Armor of Victory"
+#~ msgstr "Кожаная броня победы"
+
+#~ msgid "Archmage Leather Armor"
+#~ msgstr "Кожаная броня архимага"
+
+#~ msgid "Leather Armor of Wizardry"
+#~ msgstr "Кожаная броня волшебства"
+
+#~ msgid "Ancient Leather Armor"
+#~ msgstr "Древняя кожаная броня"
+
+#~ msgid "Leather Armor of Precision"
+#~ msgstr "Кожаная броня точности"
+
+#~ msgid "Leather Armor of Protection"
+#~ msgstr "Кожаная броня обороны"
+
+#~ msgid "Fiery Leather Armor"
+#~ msgstr "Пламенная кожаная броня"
+
+#~ msgid "Frozen Leather Armor"
+#~ msgstr "Морозная кожаная броня"
+
+#~ msgid "Leather Armor of Destruction"
+#~ msgstr "Кожаная броня разрушения"
+
+#~ msgid "Barbarian Wrap"
+#~ msgstr "Накидка варвара"
+
+#~ msgid "Bugbear Tunic"
+#~ msgstr "Туника пугала"
+
+#~ msgid "Runic Leather"
+#~ msgstr "Руническая кожа"
+
+#~ msgid "Battlemage Tunic"
+#~ msgstr "Туника боевого мага"
+
+#~ msgid "Predator Hide"
+#~ msgstr "Шкура хищника"
+
+#~ msgid "Chimera Hide"
+#~ msgstr "Шкура химеры"
+
+#~ msgid "Red Dragonhide"
+#~ msgstr "Шкура красного дракона"
+
+#~ msgid "White Dragonhide"
+#~ msgstr "Шкура белого дракона"
+
+#~ msgid "Ninja Gi"
+#~ msgstr "Костюм ниндзя"
+
+#~ msgid "Buckler"
+#~ msgstr "Малый щит"
+
+#~ msgid "Cracked Buckler"
+#~ msgstr "Треснутый малый щит"
+
+#~ msgid "Cursed Buckler"
+#~ msgstr "Проклятый малый щит"
+
+#~ msgid "Dwarven Buckler"
+#~ msgstr "Гномий малый щит"
+
+#~ msgid "Buckler of Restoration"
+#~ msgstr "Малый щит восстановления"
+
+#~ msgid "Elven Buckler"
+#~ msgstr "Эльфийский малый щит"
+
+#~ msgid "Buckler of Meditation"
+#~ msgstr "Малый щит медитации"
+
+#~ msgid "Battle Buckler"
+#~ msgstr "Боевой малый щит"
+
+#~ msgid "Buckler of Accuracy"
+#~ msgstr "Малый щит меткости"
+
+#~ msgid "Buckler of Avoidance"
+#~ msgstr "Малый щит уклонения"
+
+#~ msgid "Summer Buckler"
+#~ msgstr "Летний малый щит"
+
+#~ msgid "Winter Buckler"
+#~ msgstr "Зимний малый щит"
+
+#~ msgid "Buckler of Slaying"
+#~ msgstr "Малый щит убийства"
+
+#~ msgid "Buckler of Victory"
+#~ msgstr "Малый щит победы"
+
+#~ msgid "Archmage Buckler"
+#~ msgstr "Малый щит архимага"
+
+#~ msgid "Buckler of Wizardry"
+#~ msgstr "Малый щит волшебства"
+
+#~ msgid "Ancient Buckler"
+#~ msgstr "Древний малый щит"
+
+#~ msgid "Buckler of Precision"
+#~ msgstr "Малый щит точности"
+
+#~ msgid "Buckler of Protection"
+#~ msgstr "Малый щит обороны"
+
+#~ msgid "Fiery Buckler"
+#~ msgstr "Пламенный малый щит"
+
+#~ msgid "Buckler of Destruction"
+#~ msgstr "Малый щит разрушения"
+
+#~ msgid "Gladiator Buckler"
+#~ msgstr "Щит гладиатора"
+
+#~ msgid "Holy Targe"
+#~ msgstr "Святой щит"
+
+#~ msgid "Averguard Disc"
+#~ msgstr "Диск Авергарда"
+
+#~ msgid "Focus Buckler"
+#~ msgstr "Щит сосредоточения"
+
+#~ msgid "Guardian Targe"
+#~ msgstr "Щит телохранителя"
+
+#~ msgid "Heat Barrier"
+#~ msgstr "Барьер жара"
+
+#~ msgid "Cold Barrier"
+#~ msgstr "Барьер холода"
+
+#~ msgid "Spiked Buckler"
+#~ msgstr "Шипованый щит"
+
+#~ msgid "Steel Armor"
+#~ msgstr "Стальная броня"
+
+#~ msgid "Cracked Steel Armor"
+#~ msgstr "Треснутая стальная броня"
+
+#~ msgid "Cursed Steel Armor"
+#~ msgstr "Проклятая стальная броня"
+
+#~ msgid "Dwarven Steel Armor"
+#~ msgstr "Гномья стальная броня"
+
+#~ msgid "Steel Armor of Restoration"
+#~ msgstr "Стальная броня восстановления"
+
+#~ msgid "Elven Steel Armor"
+#~ msgstr "Эльфийская стальная броня"
+
+#~ msgid "Steel Armor of Meditation"
+#~ msgstr "Стальная броня медитации"
+
+#~ msgid "Battle Steel Armor"
+#~ msgstr "Боевая стальная броня"
+
+#~ msgid "Steel Armor of Accuracy"
+#~ msgstr "Стальная броня меткости"
+
+#~ msgid "Steel Armor of Avoidance"
+#~ msgstr "Стальная броня уклонения"
+
+#~ msgid "Summer Steel Armor"
+#~ msgstr "Летняя стальная броня"
+
+#~ msgid "Winter Steel Armor"
+#~ msgstr "Зимняя стальная броня"
+
+#~ msgid "Steel Armor of Slaying"
+#~ msgstr "Стальная броня убийства"
+
+#~ msgid "Warlord Steel Armor"
+#~ msgstr "Стальная броня военачальника"
+
+#~ msgid "Steel Armor of Victory"
+#~ msgstr "Стальная броня победа"
+
+#~ msgid "Archmage Steel Armor"
+#~ msgstr "Стальная броня архимага"
+
+#~ msgid "Steel Armor of Wizardry"
+#~ msgstr "Стальная броня волшебства"
+
+#~ msgid "Ancient Steel Armor"
+#~ msgstr "Древняя стальная броня"
+
+#~ msgid "Steel Armor of Precision"
+#~ msgstr "Стальная броня точности"
+
+#~ msgid "Steel Armor of Protection"
+#~ msgstr "Стальная броня обороны"
+
+#~ msgid "Fiery Steel Armor"
+#~ msgstr "Пламенная стальная броня"
+
+#~ msgid "Frozen Steel Armor"
+#~ msgstr "Морозная стальная броня"
+
+#~ msgid "Steel Armor of Destruction"
+#~ msgstr "Стальная броня разрушения"
+
+#~ msgid "Wyrmrider Maille"
+#~ msgstr "Кольчуга наездника дракона"
+
+#~ msgid "Paladin's Oath"
+#~ msgstr "Клятва паладина"
+
+#~ msgid "Cleric Maille"
+#~ msgstr "Кольчуга лекаря"
+
+#~ msgid "Jousting Armor"
+#~ msgstr "Турнирный доспех"
+
+#~ msgid "Titan Plate"
+#~ msgstr "Пластинчатый доспех титана"
+
+#~ msgid "Ruby Scale Armor"
+#~ msgstr "Рубиновые латы"
+
+#~ msgid "Diamond Scale Armor"
+#~ msgstr "Алмазные латы"
+
+#~ msgid "Marauder Maille"
+#~ msgstr "Кольчуга мародёра"
+
+#~ msgid "Cracked Shield"
+#~ msgstr "Треснутый щит"
+
+#~ msgid "Dwarven Shield"
+#~ msgstr "Гномий щит"
+
+#~ msgid "Shield of Restoration"
+#~ msgstr "Щит восстановления"
+
+#~ msgid "Elven Shield"
+#~ msgstr "Эльфийский щит"
+
+#~ msgid "Shield of Meditation"
+#~ msgstr "Щит медитации"
+
+#~ msgid "Battle Shield"
+#~ msgstr "Боевой щит"
+
+#~ msgid "Shield of Accuracy"
+#~ msgstr "Щит меткости"
+
+#~ msgid "Shield of Avoidance"
+#~ msgstr "Щит уклонения"
+
+#~ msgid "Summer Shield"
+#~ msgstr "Летний щит"
+
+#~ msgid "Winter Shield"
+#~ msgstr "Зимний щит"
+
+#~ msgid "Shield of Slaying"
+#~ msgstr "Щит убийства"
+
+#~ msgid "Warlord Shield"
+#~ msgstr "Щит военачальника"
+
+#~ msgid "Shield of Victory"
+#~ msgstr "Щит победы"
+
+#~ msgid "Archmage Shield"
+#~ msgstr "Щит архимага"
+
+#~ msgid "Shield of Wizardry"
+#~ msgstr "Щит волшебства"
+
+#~ msgid "Ancient Shield"
+#~ msgstr "Древний щит"
+
+#~ msgid "Shield of Precision"
+#~ msgstr "Щит точности"
+
+#~ msgid "Shield of Protection"
+#~ msgstr "Щит обороны"
+
+#~ msgid "Frozen Shield"
+#~ msgstr "Морозный щит"
+
+#~ msgid "Shield of Destruction"
+#~ msgstr "Щит разрушения"
+
+#~ msgid "Knight's Defense"
+#~ msgstr "Защита рыцаря"
+
+#~ msgid "Aegis of Life"
+#~ msgstr "Эгида жизни"
+
+#~ msgid "Paladin's Honor"
+#~ msgstr "Честь паладина"
+
+#~ msgid "Aegis of Ether"
+#~ msgstr "Эгида эфира"
+
+#~ msgid "Steel Ward"
+#~ msgstr "Стальная опека"
+
+#~ msgid "The Rook"
+#~ msgstr "Тура"
+
+#~ msgid "Flame Tower"
+#~ msgstr "Башня пламени"
+
+#~ msgid "Frost Tower"
+#~ msgstr "Башня мороза"
+
+#~ msgid "Belt"
+#~ msgstr "Пояс"
+
+#~ msgid "Tattered Belt"
+#~ msgstr "Порванный пояс"
+
+#~ msgid "Dwarven Belt"
+#~ msgstr "Гномий пояс"
+
+#~ msgid "Elven Belt"
+#~ msgstr "Эльфийский пояс"
+
+#~ msgid "Warlord Belt"
+#~ msgstr "Пояс военачальника"
+
+#~ msgid "Archmage Belt"
+#~ msgstr "Пояс архимага"
+
+#~ msgid "Trollhair Belt"
+#~ msgstr "Пояс из шерсти тролля"
+
+#~ msgid "Spellpouch Belt"
+#~ msgstr "Пояс с сумкой заклинаний"
+
+#~ msgid "Boots of Avoidance"
+#~ msgstr "Ботинки уклонения"
+
+#~ msgid "Boots of Travel"
+#~ msgstr "Ботинки путешествия"
+
+#~ msgid "Boots of Protection"
+#~ msgstr "Ботинки обороны"
+
+#~ msgid "Windwalker Boots"
+#~ msgstr "Ботинки ходящего по ветру"
+
+#~ msgid "Tarnished Ring"
+#~ msgstr "Потускневшее кольцо"
+
+#~ msgid "Ring of Meditation"
+#~ msgstr "Кольцо медитации"
+
+#~ msgid "Ring of Wizardry"
+#~ msgstr "Кольцо волшебства"
+
+#~ msgid "Signet of Forgotten Kings"
+#~ msgstr "Печать забытых королей"
+
+#~ msgid "Band of Enlightenment"
+#~ msgstr "Повязка просвещения"
+
+#~ msgid "Body"
+#~ msgstr "Тело"
+
+#~ msgid "Boots of Testing Really Large Maps"
+#~ msgstr "Ботинки для тестирования очень больших карт"
+
+#~ msgid "Lightning Rod"
+#~ msgstr "Скипетр молнии"
+
+#~ msgid "Create a destructive blast of lightning bolts"
+#~ msgstr "Создать разрушительную бурю из молний"
+
+#~ msgid "Disenchant"
+#~ msgstr "Расколдовать"
+
+#~ msgid "earth"
+#~ msgstr "земля"
+
+#~ msgid "Earth Resistance"
+#~ msgstr "Сопротивление земле"
+
+#~ msgid "wind"
+#~ msgstr "ветер"
+
+#~ msgid "Wind Resistance"
+#~ msgstr "Сопротивление ветру"
+
+#~ msgid "shadow"
+#~ msgstr "тень"
+
+#~ msgid "Shadow Resistance"
+#~ msgstr "Сопротивление тени"
+
+#~ msgid "light"
+#~ msgstr "свет"
+
+#~ msgid "Light Resistance"
+#~ msgstr "Сопротивление свету"
 
 #~ msgid "Stun nearby enemies for 10 seconds "
 #~ msgstr "Парализовать близких врагов на 10 секунд "

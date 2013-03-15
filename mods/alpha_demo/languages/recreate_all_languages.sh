@@ -1,0 +1,1 @@
+../../fantasycore/languages/recreate_all_languages.sh

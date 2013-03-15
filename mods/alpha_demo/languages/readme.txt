@@ -1,0 +1,1 @@
+../../fantasycore/languages/readme.txt
