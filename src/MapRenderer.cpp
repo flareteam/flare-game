@@ -977,7 +977,7 @@ void MapRenderer::executeOnLoadEvents() {
 
 		if ((*it).type == "on_load") {
 			if (executeEvent(*it))
-				events.erase(it);
+				it = events.erase(it);
 		}
 	}
 }
@@ -1106,7 +1106,7 @@ void MapRenderer::checkHotspots() {
 
 						inpt->lock[MAIN1] = true;
 						if (executeEvent(*it))
-							events.erase(it);
+							it = events.erase(it);
 					}
 					return;
 				} else show_tooltip = false;
