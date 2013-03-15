@@ -36,12 +36,12 @@ using namespace std;
 
 class Action {
 public:
-	Action(std::string _id = "", std::string _label="") : label(NULL) {
-		id = _id;
-		if (id != "") {
-			label = new WidgetLabel();
+	Action(std::string _id = "", std::string _label="")
+		: id(_id)
+		, label(id != "" ? new WidgetLabel() : NULL)
+	{
+		if (label)
 			label->set(_label);
-		}
 	}
 
 	Action(const Action &r) : label(NULL) {
@@ -67,6 +67,8 @@ MenuNPCActions::MenuNPCActions()
 	, first_dialog_node(-1)
 	, current_action(-1)
 	, action_menu(NULL)
+	, vendor_label("Shop")
+	, cancel_label("Cancel")
 	, dialog_selected(false)
 	, vendor_selected(false)
 	, cancel_selected(false)
@@ -75,7 +77,7 @@ MenuNPCActions::MenuNPCActions()
 	// Setup defaults
 	vendor_normal_color.r = cancel_normal_color.r = topic_normal_color.r = 0xd0;
 	vendor_normal_color.g = cancel_normal_color.g = topic_normal_color.g = 0xd0;
-	vendor_normal_color.b =cancel_normal_color.b = topic_normal_color.b = 0xd0;
+	vendor_normal_color.b = cancel_normal_color.b = topic_normal_color.b = 0xd0;
 
 	vendor_hilight_color.r = cancel_hilight_color.r = topic_hilight_color.r = 0xff;
 	vendor_hilight_color.g = cancel_hilight_color.g = topic_hilight_color.g = 0xff;
@@ -83,9 +85,6 @@ MenuNPCActions::MenuNPCActions()
 
 	background_color.r = background_color.g = background_color.b = 0x00;
 	background_alpha = 0xd0;
-
-	vendor_label = "Shop";
-	cancel_label = "Cancel";
 
 	// Load config settings
 	FileParser infile;
@@ -236,7 +235,7 @@ void MenuNPCActions::setNPC(NPC *pnpc) {
 	// reset states
 	is_empty = true;
 	is_selected = false;
-	topics = 0;
+	int topics = 0;
 	first_dialog_node = -1;
 
 	npc = pnpc;
