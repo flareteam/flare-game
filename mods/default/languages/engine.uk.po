@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: 0.17\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-03-15 21:44+0100\n"
-"PO-Revision-Date: 2012-09-21 11:05+0300\n"
+"PO-Revision-Date: 2013-03-16 11:05+0300\n"
 "Last-Translator: Igor Paliychuk <mansonigor@gmail.com>\n"
 "Language-Team: Ukrainian <LL@li.org>\n"
 "Language: Ukrainian\n"
@@ -27,7 +27,7 @@ msgstr "Ви можете покращити характеристику в М�
 
 #: ../../../src/Avatar.cpp:640
 msgid "You are defeated. Game over! Press Enter to exit to Title."
-msgstr "Вас перемогли. Кінець гри. Натисніть Enter щоб повернйтись до меню."
+msgstr "Вас перемогли. Кінець гри! Натисніть Enter щоб повернутись до меню."
 
 #: ../../../src/Avatar.cpp:643
 #, c-format
@@ -78,11 +78,11 @@ msgstr "ЗД та МН відновлені."
 
 #: ../../../src/CampaignManager.cpp:176
 msgid "Negative effects removed."
-msgstr "Шкідливі ефекти усенено."
+msgstr "Шкідливі ефекти усунено."
 
 #: ../../../src/CampaignManager.cpp:182
 msgid "HP and MP restored, negative effects removed"
-msgstr "ЗД та МН відновлені, шкідливі ефекти усенено"
+msgstr "ЗД та МН відновлені, шкідливі ефекти усунено"
 
 #: ../../../src/Enemy.cpp:255 ../../../src/StatBlock.cpp:527
 #, c-format
@@ -137,12 +137,11 @@ msgstr "Скинути ВСЕ?"
 
 #: ../../../src/GameStateConfig.cpp:164
 msgid "OK"
-msgstr ""
+msgstr "Гаразд"
 
 #: ../../../src/GameStateConfig.cpp:164
-#, fuzzy
 msgid "Use this resolution?"
-msgstr "Розширення"
+msgstr "Використати це розширення?"
 
 #: ../../../src/GameStateConfig.cpp:254
 msgid "Full Screen Mode"
@@ -259,7 +258,7 @@ msgstr "Нова гра"
 
 #: ../../../src/GameStateLoad.cpp:479 ../../../src/GameStateLoad.cpp:489
 msgid "Enable a story mod to continue"
-msgstr ""
+msgstr "Увімкніть мод повісті щоб продовжити"
 
 #: ../../../src/GameStateLoad.cpp:485
 msgid "Load Game"
@@ -299,9 +298,8 @@ msgid "Permadeath?"
 msgstr "Не воскресає"
 
 #: ../../../src/GameStateNew.cpp:164
-#, fuzzy
 msgid "Choose a Class"
-msgstr "Виберіть слот"
+msgstr "Виберіть клас"
 
 #: ../../../src/GameStatePlay.cpp:99
 msgid "Loading..."
@@ -322,7 +320,7 @@ msgstr "Грати гру"
 
 #: ../../../src/GameStateTitle.cpp:45
 msgid "Enable a core mod to continue"
-msgstr ""
+msgstr "Увімкніть базовий мод щоб продовжити"
 
 #: ../../../src/GameStateTitle.cpp:49
 msgid "Configuration"
@@ -509,7 +507,7 @@ msgstr "Поглинання: %d"
 #: ../../../src/ItemManager.cpp:517
 #, c-format
 msgid "%d\\% Speed"
-msgstr ""
+msgstr "%d\\% Швидкості"
 
 #: ../../../src/ItemManager.cpp:522 ../../../src/ItemManager.cpp:614
 #, c-format
@@ -664,9 +662,8 @@ msgid "Ticks of MP regen per minute. Each point of Mental grants +%d MP regen. E
 msgstr "Відновлення МН за хвилину. Кожне очко Психіки додає +%d відновлення МН. Кожен рівень додає +%d відновлення МН"
 
 #: ../../../src/MenuCharacter.cpp:329
-#, fuzzy
 msgid "Accuracy:"
-msgstr "Точн (проти рів 1):"
+msgstr "Точність:"
 
 #: ../../../src/MenuCharacter.cpp:330
 #, c-format
@@ -674,9 +671,8 @@ msgid "Each point of Offense grants +%d accuracy. Each level grants +%d accuracy
 msgstr "Кожне очко Нападу додає +%d точності. Кожен рівень додає +%d точності"
 
 #: ../../../src/MenuCharacter.cpp:335
-#, fuzzy
 msgid "Avoidance:"
-msgstr "Ухилен (проти рів 1):"
+msgstr "Ухилення:"
 
 #: ../../../src/MenuCharacter.cpp:336
 #, c-format
@@ -705,40 +701,40 @@ msgstr "Поглинання:"
 
 #: ../../../src/MenuCharacter.cpp:387
 msgid "Poise: "
-msgstr ""
+msgstr "Рівновага: "
 
 #: ../../../src/MenuCharacter.cpp:388
 msgid "Reduces your chance of stumbling when hit"
-msgstr ""
+msgstr "Знижує ймовірність спотикання при попаданні"
 
 #: ../../../src/MenuCharacter.cpp:393 ../../../src/MenuCharacter.cpp:399
 msgid "Bonus"
-msgstr ""
+msgstr "Бонус"
 
 #: ../../../src/MenuCharacter.cpp:394
 msgid "Increases the XP gained per kill"
-msgstr ""
+msgstr "Збільшує ДВ отриманий за вбивство"
 
 #: ../../../src/MenuCharacter.cpp:400
-#, fuzzy, c-format
+#, c-format
 msgid "Increases the %s found per drop"
-msgstr "Збільшує %s на %d"
+msgstr "Збільшує %s знайдене за падіння"
 
 #: ../../../src/MenuCharacter.cpp:405
 msgid "Bonus Item Find: "
-msgstr ""
+msgstr "Бонус знайдених предметів: "
 
 #: ../../../src/MenuCharacter.cpp:406
 msgid "Increases the chance that an enemy will drop an item when killed"
-msgstr ""
+msgstr "Збільшує ймовірність того, що ворог впустить предмет, коли буде вбитий"
 
 #: ../../../src/MenuCharacter.cpp:411
 msgid "Stealth: "
-msgstr ""
+msgstr "Хитрість: "
 
 #: ../../../src/MenuCharacter.cpp:412
 msgid "Increases your ability to move undetected"
-msgstr ""
+msgstr "Збільшує уміння рухатись непоміченим"
 
 #: ../../../src/MenuCharacter.cpp:430
 #, c-format
@@ -803,7 +799,7 @@ msgstr "Цей предмет може бути використаний лиш�
 
 #: ../../../src/MenuLog.cpp:79
 msgid "Notes"
-msgstr "Заміткм"
+msgstr "Замітки"
 
 #: ../../../src/MenuLog.cpp:80
 msgid "Quests"
@@ -880,9 +876,9 @@ msgid "Costs %d MP"
 msgstr "Коштує %d MP"
 
 #: ../../../src/MenuPowers.cpp:594
-#, fuzzy, c-format
+#, c-format
 msgid "Costs %d HP"
-msgstr "Коштує %d MP"
+msgstr "Коштує %d HP"
 
 #: ../../../src/MenuPowers.cpp:598
 #, c-format
@@ -913,57 +909,3 @@ msgstr "Ви вже трансформовані, спершу відновіт�
 #: ../../../src/Settings.cpp:500
 msgid "Adventurer"
 msgstr "Шукач пригод"
-
-#~ msgid "Flare"
-#~ msgstr "Flare"
-
-#~ msgid "Accuracy (vs lvl 5):"
-#~ msgstr "Точн (проти рів 5):"
-
-#~ msgid "Avoidance (vs lvl 5):"
-#~ msgstr "Ухилен (проти рів 5):"
-
-#~ msgid "Unspent attribute points"
-#~ msgstr "Невитрачені очки атрибутів"
-
-#~ msgid "Stats"
-#~ msgstr "Стат"
-
-#~ msgid "Trade"
-#~ msgstr "Торгувати"
-
-#~ msgid "Grand Master"
-#~ msgstr "Великий Магістр"
-
-#~ msgid "Master"
-#~ msgstr "Магістр"
-
-#~ msgid "Warrior"
-#~ msgstr "Воїн"
-
-#~ msgid "Wizard"
-#~ msgstr "Чаклун"
-
-#~ msgid "Ranger"
-#~ msgstr "Мандрівник"
-
-#~ msgid "Paladin"
-#~ msgstr "Паладін"
-
-#~ msgid "Rogue"
-#~ msgstr "Злодій"
-
-#~ msgid "Knight"
-#~ msgstr "Лицар"
-
-#~ msgid "Shaman"
-#~ msgstr "Шаман"
-
-#~ msgid "Cleric"
-#~ msgstr "Церковник"
-
-#~ msgid "Battle Mage"
-#~ msgstr "Бойовий маг"
-
-#~ msgid "Heavy Archer"
-#~ msgstr "Важкий лучник"
