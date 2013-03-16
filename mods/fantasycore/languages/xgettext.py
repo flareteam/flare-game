@@ -107,6 +107,7 @@ extract('../menus/powers.txt')
 extract('../powers/powers.txt')
 extract('../engine/elements.txt')
 extract('../engine/loot.txt')
+extract('../engine/classes.txt')
 
 for folder in ['enemies', 'maps', 'quests', 'npcs']:
     target = os.path.join('..', folder)
