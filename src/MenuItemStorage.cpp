@@ -27,10 +27,10 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 using namespace std;
 
 MenuItemStorage::MenuItemStorage()
-	: area(vector<SDL_Rect>())
+	: area()
 	, icon_size(NULL)
 	, nb_cols(0)
-	, slot_type(vector<string>())
+	, slot_type()
 	, drag_prev_slot(0)
 	, highlight(NULL)
 	, highlight_image(NULL)

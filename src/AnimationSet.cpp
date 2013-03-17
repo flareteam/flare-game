@@ -52,7 +52,7 @@ Animation *AnimationSet::getAnimation()
 AnimationSet::AnimationSet(const std::string &animationname)
  : name(animationname)
  , loaded(false)
- , animations(vector<Animation*>())
+ , animations()
  , sprite(NULL)
 {
 	defaultAnimation = new Animation("default", "play_once", NULL);

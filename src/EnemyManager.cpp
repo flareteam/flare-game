@@ -34,7 +34,7 @@ using namespace std;
 EnemyManager::EnemyManager(PowerManager *_powers, MapRenderer *_map)
 	: map(_map)
 	, powers(_powers)
-	, enemies(vector<Enemy*>())
+	, enemies()
 	, hero_alive(true)
 	, hero_stealth(0)
 {

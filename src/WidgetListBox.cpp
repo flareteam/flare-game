@@ -43,7 +43,7 @@ WidgetListBox::WidgetListBox(int amount, int height, const std::string& _fileNam
 	, scrollbar(new WidgetScrollBar(mods->locate("images/menus/buttons/scrollbar_default.png")))
 	, color_normal(font->getColor("widget_normal"))
 	, color_disabled(font->getColor("widget_disabled"))
-	, pos_scroll(SDL_Rect())
+	, pos_scroll()
 	, pressed(false)
 	, selected(new bool[list_amount])
 	, multi_select(false)

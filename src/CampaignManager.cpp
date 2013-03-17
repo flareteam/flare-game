@@ -36,9 +36,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 using namespace std;
 
 CampaignManager::CampaignManager()
-	: status(vector<string>())
+	: status()
 	, log_msg("")
-	, drop_stack(ItemStack())
+	, drop_stack()
 	, items(NULL)
 	, carried_items(NULL)
 	, currency(NULL)
