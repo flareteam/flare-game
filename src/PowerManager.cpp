@@ -49,8 +49,8 @@ using namespace std;
 PowerManager::PowerManager()
 	: collider(NULL)
 	, log_msg("")
-	, used_items(std::vector<int>())
-	, used_equipped_items(std::vector<int>())
+	, used_items()
+	, used_equipped_items()
 {
 	loadAll();
 }

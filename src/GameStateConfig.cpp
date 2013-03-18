@@ -51,7 +51,7 @@ GameStateConfig::GameStateConfig ()
 	, defaults_button(NULL)
 	, cancel_button(NULL)
 	, imgFileName(mods->locate("images/menus/config.png"))
-	, tip_buf(TooltipData())
+	, tip_buf()
 	, input_key(0)
 	, check_resolution(true)
 {

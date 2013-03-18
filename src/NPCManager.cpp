@@ -41,7 +41,7 @@ NPCManager::NPCManager(MapRenderer *_map, LootManager *_loot, ItemManager *_item
 	, loot(_loot)
 	, items(_items)
 	, stats(_stats)
-	, tip_buf(TooltipData())
+	, tip_buf()
  {
 	FileParser infile;
 	// load tooltip_margin from engine config file

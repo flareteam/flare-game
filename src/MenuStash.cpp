@@ -37,7 +37,7 @@ MenuStash::MenuStash(ItemManager *_items, StatBlock *_stats)
 	, stats(_stats)
 	, closeButton(new WidgetButton(mods->locate("images/menus/buttons/button_x.png")))
 	, color_normal(font->getColor("menu_normal"))
-	, stock(MenuItemStorage())
+	, stock()
 	, updated(false)
 
 {
