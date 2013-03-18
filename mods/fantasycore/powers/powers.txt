@@ -376,7 +376,7 @@ cooldown=150
 
 [power]
 id=30
-name=Ice Shard [enemy]
+#name=Ice Shard [enemy]
 type=missile
 icon=0
 new_state=cast
@@ -398,7 +398,7 @@ post_effect=202,50,60
 
 [power]
 id=31
-name=Fireshot [enemy]
+#name=Fireshot [enemy]
 type=missile
 icon=0
 new_state=cast
@@ -419,10 +419,10 @@ wall_power=125
 
 [power]
 id=32
-name=Goblin Spear [enemy]
+#name=Goblin Spear [enemy]
+#description=Crude goblin spear toss
 type=missile
 icon=0
-description=Crude goblin spear toss
 new_state=shoot
 face=true
 directional=true
@@ -438,10 +438,10 @@ angle_variance=15
 
 [power]
 id=33
-name=Fireburst [enemy]
+#name=Fireburst [enemy]
+#description=Burn nearby enemies
 type=fixed
 icon=0
-description=Burn nearby enemies
 new_state=cast
 animation=quake.txt
 soundfx=quake.ogg
@@ -459,10 +459,10 @@ post_effect=202,50,15
 
 [power]
 id=34
-name=Arrow Shoot [enemy]
+#name=Arrow Shoot [enemy]
+#description=Bow shoot
 type=missile
 icon=3
-description=Bow shoot
 new_state=shoot
 face=true
 directional=true
@@ -480,7 +480,7 @@ wall_power=124
 
 [power]
 id=35
-name=Maddox's Ice Storm [enemy]
+#name=Maddox's Ice Storm [enemy]
 type=missile
 icon=0
 new_state=cast
@@ -504,10 +504,10 @@ post_effect=202,50,60
 
 [power]
 id=36
-name=Vampiric Strike
+#name=Vampiric Strike [enemy]
+#description=Turn 50% of damage you deal into HP
 type=fixed
 icon=1
-description=Turn 50% of damage you deal into HP
 new_state=swing
 face=true
 use_hazard=true
@@ -521,10 +521,10 @@ hp_steal=50
 
 [power]
 id=37
-name=Zombie Bite
+#name=Zombie Bite [enemy]
+#description=Deal melee damage and cause bleeding for 3 seconds
 type=fixed
 icon=1
-description=Deal melee damage and cause bleeding for 3 seconds
 new_state=cast
 face=true
 use_hazard=true
@@ -538,10 +538,10 @@ post_effect=200,5,90
 
 [power]
 id=38
-name=Chill Touch
+#name=Chill Touch [enemy]
+#description=Melee strike immobilizes target for 5 seconds
 type=fixed
 icon=0
-description=Melee strike immobilizes target for 5 seconds
 new_state=swing
 face=true
 use_hazard=true
@@ -555,10 +555,10 @@ post_effect=201,0,150
 
 [power]
 id=39
-name=Piercing Strike
+#name=Piercing Strike [enemy]
+#description=Melee strike ignores armor
 type=fixed
 icon=0
-description=Melee strike ignores armor
 new_state=swing
 face=true
 use_hazard=true
@@ -572,10 +572,10 @@ trait_armor_penetration=true
 
 [power]
 id=40
-name=Explode
+#name=Explode [enemy]
+#description=Damage everything nearby
 type=fixed
 icon=0
-description=Damage everything nearby
 new_state=cast
 face=true
 requires_los=true
@@ -592,13 +592,12 @@ starting_pos=source
 multitarget=true
 post_power=125
 
-# paralyzing spit
 [power]
 id=41
-name=Paralyzing Spit
+#name=Paralyzing Spit [enemy]
+#description=Poison spit that stuns the target for 1 second
 type=missile
 icon=0
-description=Poison spit that stuns the target for 1 second
 new_state=swing
 face=true
 directional=true
@@ -612,13 +611,12 @@ speed=24
 starting_pos=melee
 post_effect=203,0,30
 
-# enemy version of multishot
 [power]
 id=42
-name=Multishot
+#name=Multishot [enemy]
+#description=Shoot three projectiles simultaneously
 type=missile
 icon=8
-description=Shoot three projectiles simultaneously
 new_state=shoot
 face=true
 directional=true
@@ -900,7 +898,7 @@ visual_random=2
 
 [power]
 id=128
-name=Necrotic Bolt
+#name=Necrotic Bolt [enemy]
 type=missile
 icon=0
 new_state=shoot
@@ -967,8 +965,8 @@ post_effect=229,200,600
 
 [power]
 id=132
-name=Enemy Beacon
-description=Bring other enemies into the fight with a dummy attack
+#name=Enemy Beacon [enemy]
+#description=Bring other enemies into the fight with a dummy attack
 type=fixed
 icon=0
 use_hazard=true
@@ -980,7 +978,7 @@ beacon=true
 
 [power]
 id=133
-name=Summon Antlion
+#name=Summon Antlion
 type=spawn
 icon=0
 spawn_type=antlion
@@ -990,7 +988,7 @@ target_neighbor=1
 
 [power]
 id=134
-name=Summon Antlion Hatchling
+#name=Summon Antlion Hatchling
 type=spawn
 icon=0
 spawn_type=antlion_hatchling
@@ -1000,13 +998,13 @@ target_neighbor=1
 
 [power]
 id=135
-name=Transform into Antlion Freezer
+#name=Transform into Antlion Freezer
+#description=Transform into Antlion Freezer for 5 seconds
 type=transform
 icon=0
 new_state=cast
 spawn_type=antlion_freezer
 requires_mp=5
-description=Transform into Antlion Freezer for 5 seconds
 soundfx=quake.ogg
 transform_duration=150
 manual_untransform=true
@@ -1022,7 +1020,7 @@ description=Transform back to human
 
 [power]
 id=137
-name=Summon Rotting Zombie
+#name=Summon Rotting Zombie
 type=spawn
 icon=0
 spawn_type=zombie_rotting
@@ -1032,13 +1030,13 @@ target_neighbor=1
 
 [power]
 id=138
-name=Transform into Antlion Freezer permanently
+#name=Transform into Antlion Freezer permanently
+#description=Transform into Antlion Freezer permanently
 type=transform
 icon=0
 new_state=cast
 spawn_type=antlion_freezer
 requires_mp=5
-description=Transform into Antlion Freezer permanently
 soundfx=quake.ogg
 transform_duration=0
 manual_untransform=false
@@ -1111,7 +1109,7 @@ post_power=136
 [power]
 id=143
 icon=6
-name=Stealth
+#name=Stealth Effects
 type=fixed
 buff=true
 passive=true
@@ -1122,10 +1120,10 @@ post_effect=235,1,300
 
 [power]
 id=159
-name=Spike Ray
+#name=Spike Ray
+#description=Create a ray of deadly spikes
 type=repeater
 icon=0
-description=Create a ray of deadly spikes
 new_state=cast
 face=true
 requires_mp=1
@@ -1143,9 +1141,9 @@ post_effect=202,50,90
 
 [power]
 id=160
-name=Spikes
+#name=Spikes
+#description=Spikes Trap
 type=fixed
-description=Spikes Trap
 animation=spikes.txt
 use_hazard=true
 lifespan=16
@@ -1158,18 +1156,22 @@ soundfx=spikes.ogg
 
 [power]
 id=170
-name=Ouroboros Ring
+#name=Ouroboros Ring
+#description=Revive upon death
 type=fixed
-description=Revive upon death
 buff=true
 requires_equipped_item=112
 passive=true
 passive_trigger=on_death
 post_effect=234,0,1
 
+#
+# Status Effects
+#
+
 [power]
 id=200
-name=Bleeding
+#name=Bleeding
 type=effect
 icon=25
 effect_type=damage
@@ -1177,28 +1179,28 @@ animation=spark_red_loop.txt
 
 [power]
 id=201
-name=Immobilized
+#name=Immobilized
 type=effect
 icon=24
 effect_type=speed
 
 [power]
 id=202
-name=Slowed
+#name=Slowed
 type=effect
 icon=24
 effect_type=speed
 
 [power]
 id=203
-name=Stunned
+#name=Stunned
 type=effect
 icon=26
 effect_type=stun
 
 [power]
 id=210
-name=HP (bonus)
+#name=HP bonus
 tag=HP
 type=effect
 effect_type=hp
@@ -1206,7 +1208,7 @@ effect_additive=true
 
 [power]
 id=211
-name=HP Regen (bonus)
+#name=HP regen bonus
 tag=HP regen
 type=effect
 effect_type=hp_regen
@@ -1214,7 +1216,7 @@ effect_additive=true
 
 [power]
 id=212
-name=MP (bonus)
+#name=MP bonus
 tag=MP
 type=effect
 effect_type=mp
@@ -1222,7 +1224,7 @@ effect_additive=true
 
 [power]
 id=213
-name=MP Regen (bonus)
+#name=MP regen bonus
 tag=MP regen
 type=effect
 effect_type=mp_regen
@@ -1230,7 +1232,7 @@ effect_additive=true
 
 [power]
 id=214
-name=Accuracy (bonus)
+#name=Accuracy bonus
 tag=accuracy
 type=effect
 effect_type=accuracy
@@ -1238,7 +1240,7 @@ effect_additive=true
 
 [power]
 id=215
-name=Avoidance (bonus)
+#name=Avoidance bonus
 tag=avoidance
 type=effect
 effect_type=avoidance
@@ -1246,7 +1248,7 @@ effect_additive=true
 
 [power]
 id=216
-name=Crit (bonus)
+#name=Crit bonus
 tag=crit
 type=effect
 effect_type=crit
@@ -1254,14 +1256,14 @@ effect_additive=true
 
 [power]
 id=217
-name=Speed (bonus)
+#name=Speed bonus
 tag=speed
 type=effect
 effect_type=speed
 
 [power]
 id=218
-name=Offense (bonus)
+#name=Offense bonus
 tag=offense
 type=effect
 effect_type=offense
@@ -1269,7 +1271,7 @@ effect_additive=true
 
 [power]
 id=219
-name=Defense (bonus)
+#name=Defense bonus
 tag=defense
 type=effect
 effect_type=defense
@@ -1277,7 +1279,7 @@ effect_additive=true
 
 [power]
 id=220
-name=Physical (bonus)
+#name=Physical bonus
 tag=physical
 type=effect
 effect_type=physical
@@ -1285,7 +1287,7 @@ effect_additive=true
 
 [power]
 id=221
-name=Mental (bonus)
+#name=Mental bonus
 tag=mental
 type=effect
 effect_type=mental
@@ -1293,7 +1295,7 @@ effect_additive=true
 
 [power]
 id=222
-name=XP(bonus)
+#name=XP bonus
 tag=XP gain
 type=effect
 effect_type=xp
@@ -1301,7 +1303,7 @@ effect_additive=true
 
 [power]
 id=223
-name=Gold (bonus)
+#name=Gold find bonus
 tag=gold find
 type=effect
 effect_type=currency
@@ -1309,7 +1311,7 @@ effect_additive=true
 
 [power]
 id=224
-name=Fire Resistance (bonus)
+#name=Fire Resist bonus
 tag=fire resist
 type=effect
 effect_type=fire_resist
@@ -1317,7 +1319,7 @@ effect_additive=true
 
 [power]
 id=225
-name=Ice Resistance (bonus)
+#name=Ice Resist bonus
 tag=ice resist
 type=effect
 effect_type=ice_resist
@@ -1325,14 +1327,14 @@ effect_additive=true
 
 [power]
 id=226
-name=Immunity
+#name=Immunity
 type=effect
 icon=12
 effect_type=immunity
 
 [power]
 id=227
-name=Shield
+#name=Shield
 type=effect
 icon=15
 effect_type=shield
@@ -1340,7 +1342,7 @@ animation=shield.txt
 
 [power]
 id=228
-name=Heal
+#name=Heal
 type=effect
 icon=11
 effect_type=heal
@@ -1348,26 +1350,26 @@ animation=heal.txt
 
 [power]
 id=229
-name=Haste
+#name=Haste
 type=effect
 icon=9
 effect_type=speed
 
 [power]
 id=230
-name=HP over time
+#name=HP over time
 type=effect
 effect_type=hpot
 
 [power]
 id=231
-name=MP over time
+#name=MP over time
 type=effect
 effect_type=mpot
 
 [power]
 id=232
-name=Item find (bonus)
+#name=Item find bonus
 tag=item find
 type=effect
 effect_type=item_find
@@ -1375,7 +1377,7 @@ effect_additive=true
 
 [power]
 id=233
-name=Stealth (bonus)
+#name=Stealth bonus
 tag=stealth
 type=effect
 effect_type=stealth
@@ -1383,13 +1385,12 @@ effect_additive=true
 
 [power]
 id=234
-name=Revive
+#name=Revive
 type=effect
 effect_type=revive
 
 [power]
-# Stealth time remaining icon
 id=235
-name=Stealth
+#name=Stealth time remaining icon
 icon=6
 
