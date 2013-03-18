@@ -19,7 +19,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 Widget::Widget()
 	: render_to_alpha(false)
-	, pos(SDL_Rect())
+	, pos()
 {
 	pos.x = pos.y = pos.w = pos.h = 0;
 }

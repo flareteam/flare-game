@@ -50,10 +50,10 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 	, powers(_powers)
 	, stats(_stats)
 	, camp(_camp)
-	, tip_buf(TooltipData())
+	, tip_buf()
 	, key_lock(false)
 	, dragging(0)
-	, drag_stack(ItemStack())
+	, drag_stack()
 	, drag_power(0)
 	, drag_src(0)
 	, done(false)
@@ -79,7 +79,7 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 	, stash(NULL)
 	, pause(false)
 	, menus_open(false)
-	, drop_stack(ItemStack())
+	, drop_stack()
 {
 	loadIcons();
 

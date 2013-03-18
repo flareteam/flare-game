@@ -45,10 +45,10 @@ Animation::Animation(const std::string &_name, const std::string &_type, SDL_Sur
 	, max_kinds(0)
 	, additional_data(0)
 	, times_played(0)
-	, gfx(std::vector<SDL_Rect>())
-	, render_offset(std::vector<Point>())
-	, duration(std::vector<unsigned short>())
-	, active_frames(std::vector<short>())
+	, gfx()
+	, render_offset()
+	, duration()
+	, active_frames()
 {
 	if (type == NONE)
 		cout << "Warning: animation type " << _type << " is unknown" << endl;
