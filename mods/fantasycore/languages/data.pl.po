@@ -1,18 +1,19 @@
-# Copyright (C) 2011 Clint Bellanger
-# This file is distributed under the same license as the FLARE package.
+# Copyright (C) 2013 Paweł Puszczyński
+# This file is distributed under the same license as the PACKAGE package.
 #
-# Andrzej Adamczyk <akasei@inoto.net>, 2012.
+# Paweł Puszczyński <pawonashi@gmail.com>, 2013.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.17\n"
+"Project-Id-Version: 0.18\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-15 21:52+\n"
-"PO-Revision-Date: 2012-10-11 8:54+0100\n"
-"Last-Translator: Andrzej Adamczyk <akasei@inoto.net>\n"
+"POT-Creation-Date: 2013-03-15 21:45+0100\n"
+"PO-Revision-Date: 2013-03-18 15:19+0100\n"
+"Last-Translator: Paweł Puszczyński <pawonashi@gmail.com>\n"
 "Language-Team: \n"
-"Language: pl\n"
+"Language: Polish\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../items/items.txt:5
@@ -20,23 +21,20 @@ msgid "Health Potion"
 msgstr "Mikstura Życia"
 
 #: ../items/items.txt:9
-#, fuzzy
 msgid "Restore 100 HP"
-msgstr "Odnawia 25 pkt Życia"
+msgstr "Uzupełnia 100 PŻ"
 
-# Comment: przetłumaczyłbym to na 'jadalne' ale... poczekam, aż ktoś poda lepsze znaczenie :)
 #: ../items/items.txt:10
 msgid "consumable"
-msgstr "(można użyć)"
+msgstr "zużywalny"
 
 #: ../items/items.txt:19
 msgid "Mana Potion"
 msgstr "Mikstura Many"
 
 #: ../items/items.txt:23
-#, fuzzy
 msgid "Restore 100 MP"
-msgstr "Odnawia 25 pkt Many"
+msgstr "Uzupełnia 100 PM"
 
 #: ../items/items.txt:35
 msgid "Sapphire"
@@ -44,7 +42,7 @@ msgstr "Szafir"
 
 #: ../items/items.txt:39
 msgid "gem"
-msgstr "gem"
+msgstr "klejnot"
 
 #: ../items/items.txt:48
 msgid "Emerald"
@@ -64,7 +62,7 @@ msgstr "Sztylet"
 
 #: ../items/items.txt:92
 msgid "main"
-msgstr ""
+msgstr "prawa ręka"
 
 #: ../items/items.txt:103
 msgid "Shortsword"
@@ -76,23 +74,23 @@ msgstr "Długi Miecz"
 
 #: ../items/items.txt:131
 msgid "Greatsword"
-msgstr ""
+msgstr "Wielki Miecz"
 
 #: ../items/items.txt:147
 msgid "Wand"
-msgstr ""
+msgstr "Różdżka"
 
 #: ../items/items.txt:161
 msgid "Rod"
-msgstr ""
+msgstr "Rózga"
 
 #: ../items/items.txt:175
 msgid "Staff"
-msgstr ""
+msgstr "Laska"
 
 #: ../items/items.txt:189
 msgid "Greatstaff"
-msgstr ""
+msgstr "Wielka Laska"
 
 #: ../items/items.txt:205
 msgid "Slingshot"
@@ -100,7 +98,7 @@ msgstr "Proca"
 
 #: ../items/items.txt:208
 msgid "off"
-msgstr ""
+msgstr "lewa ręka"
 
 #: ../items/items.txt:220
 msgid "Shortbow"
@@ -108,191 +106,187 @@ msgstr "Krótki Łuk"
 
 #: ../items/items.txt:235
 msgid "Longbow"
-msgstr ""
+msgstr "Długi Łuk"
 
 #: ../items/items.txt:250
 msgid "Greatbow"
-msgstr ""
+msgstr "Wielki Łuk"
 
 #: ../items/items.txt:267
 msgid "Wood Buckler"
-msgstr ""
+msgstr "Drewniany Puklerz"
 
 #: ../items/items.txt:281
 msgid "Iron Buckler"
-msgstr ""
+msgstr "Metalowy Puklerz"
 
 #: ../items/items.txt:295
 msgid "Crest Shield"
-msgstr ""
+msgstr "Trójkątna Tarcza"
 
 #: ../items/items.txt:309
 msgid "Tower Shield"
-msgstr ""
+msgstr "Ciężka Tarcza"
 
 #: ../items/items.txt:325
 msgid "Cloth Shirt"
-msgstr ""
+msgstr "Płócienna Koszula"
 
 #: ../items/items.txt:328
 msgid "chest"
-msgstr ""
+msgstr "skrzynia"
 
 #: ../items/items.txt:337
-#, fuzzy
 msgid "Cloth Gloves"
-msgstr "Ubranie"
+msgstr "Płócienne Rękawice"
 
 #: ../items/items.txt:340
 msgid "hands"
-msgstr ""
+msgstr "dłonie"
 
 #: ../items/items.txt:349
-#, fuzzy
 msgid "Cloth Pants"
-msgstr "Ubranie"
+msgstr "Płócienne Spodnie"
 
 #: ../items/items.txt:352
 msgid "legs"
-msgstr ""
+msgstr "nogi"
 
 #: ../items/items.txt:361
-#, fuzzy
 msgid "Cloth Sandals"
-msgstr "Ubranie"
+msgstr "Płócienne Sandały"
 
 #: ../items/items.txt:364
 msgid "feet"
-msgstr ""
+msgstr "stopy"
 
 #: ../items/items.txt:376
 msgid "Mage Hood"
-msgstr ""
+msgstr "Kaptur Maga"
 
 #: ../items/items.txt:379
 msgid "head"
-msgstr ""
+msgstr "głowa"
 
 #: ../items/items.txt:390
 msgid "Mage Vest"
-msgstr ""
+msgstr "Kamizelka Maga"
 
 #: ../items/items.txt:404
 msgid "Mage Sleeves"
-msgstr ""
+msgstr "Rękawy Maga"
 
 #: ../items/items.txt:418
 msgid "Mage Skirt"
-msgstr ""
+msgstr "Toga Maga"
 
 #: ../items/items.txt:432
 msgid "Mage Boots"
-msgstr ""
+msgstr "Buty Maga"
 
 #: ../items/items.txt:449
 msgid "Leather Hood"
-msgstr ""
+msgstr "Skórzany Kaptur"
 
 #: ../items/items.txt:463
 msgid "Leather Chest"
-msgstr ""
+msgstr "Skórzana Zbroja"
 
 #: ../items/items.txt:477
 msgid "Leather Gloves"
-msgstr ""
+msgstr "Skórzane Rękawice"
 
 #: ../items/items.txt:491
 msgid "Leather Pants"
-msgstr ""
+msgstr "Skórzane Spodnie"
 
 #: ../items/items.txt:505
 msgid "Leather Boots"
-msgstr ""
+msgstr "Skórzane Buty"
 
 #: ../items/items.txt:522
 msgid "Chain Coif"
-msgstr ""
+msgstr "Kolczy Czepiec"
 
 #: ../items/items.txt:536
 msgid "Chain Cuirass"
-msgstr ""
+msgstr "Kolczy Pancerz"
 
 #: ../items/items.txt:550
 msgid "Chain Gloves"
-msgstr ""
+msgstr "Kolcze Rękawice"
 
 #: ../items/items.txt:564
 msgid "Chain Greaves"
-msgstr ""
+msgstr "Kolcze Nagolenice"
 
 #: ../items/items.txt:578
 msgid "Chain Boots"
-msgstr ""
+msgstr "Kolcze Buty"
 
 #: ../items/items.txt:595
 msgid "Plate Helmet"
-msgstr ""
+msgstr "Płytowy Hełm"
 
 #: ../items/items.txt:609
 msgid "Plate Cuirass"
-msgstr ""
+msgstr "Płytowa Zbroja"
 
 #: ../items/items.txt:623
 msgid "Plate Gauntlets"
-msgstr ""
+msgstr "Płytowe Rękawice"
 
 #: ../items/items.txt:637
 msgid "Plate Greaves"
-msgstr ""
+msgstr "Płytowe Nagolenice"
 
 #: ../items/items.txt:651
 msgid "Plate Boots"
-msgstr ""
+msgstr "Płytowe Buty"
 
 #: ../items/items.txt:668
 msgid "Boots of Speed"
-msgstr ""
+msgstr "Buty Szybkości"
 
 #: ../items/items.txt:669
 msgid "These enchanted boots are prized possessions of Courier guildsmen."
-msgstr ""
+msgstr "Te zaczarowane buty są należną własnością członków gildii Kurierskiej."
 
 #: ../items/items.txt:680
 msgid "speed"
-msgstr ""
+msgstr "Szybkość"
 
 #: ../items/items.txt:684
 msgid "Thief Gloves"
-msgstr ""
+msgstr "Rękawice Złodzieja"
 
 #: ../items/items.txt:685
 msgid "In Lower Sceleris there is honor among thieves. Everyone else is a mark."
-msgstr ""
+msgstr "W Dolnym Sceleris wśród złodziei znane jest pojęcie honoru. Każdy inny jest celem."
 
 #: ../items/items.txt:694
 msgid "gold find"
-msgstr ""
+msgstr "Znajdywane złoto"
 
 #: ../items/items.txt:698
 msgid "Ring of Invisibility"
-msgstr ""
+msgstr "Pierścień Niewidzialności"
 
 #: ../items/items.txt:699
 msgid "This nondescript ring was forged in the land where shadows lie."
-msgstr ""
+msgstr "Ten podejrzany pierścień został wykuty w krainie, gdzie zalegają cienie."
 
 #: ../items/items.txt:701
 msgid "ring"
-msgstr ""
+msgstr "pierścień"
 
 #: ../items/items.txt:706
 msgid "stealth"
-msgstr ""
+msgstr "Skradanie się"
 
 #: ../items/items.txt:710
-#, fuzzy
 msgid "Ring of Regeneration"
-msgstr "Proca Odnowy"
+msgstr "Pierścień Regeneracji"
 
 #: ../items/items.txt:711
 msgid "[TODO]"
@@ -300,546 +294,543 @@ msgstr ""
 
 #: ../items/items.txt:718
 msgid "HP regen"
-msgstr "Regeneracja Życia"
+msgstr "Regeneracja PŻ"
 
 #: ../items/items.txt:722
-#, fuzzy
 msgid "Ring of Concentration"
-msgstr "Proca Odnowy"
+msgstr "Pierścień Koncentracji"
 
 #: ../items/items.txt:730
 msgid "MP regen"
-msgstr "Regeneracja Many"
+msgstr "Regeneracja PM"
 
 #: ../items/items.txt:734
-#, fuzzy
 msgid "Ring of Fire"
-msgstr "Gnijące Zombi"
+msgstr "Pierścień Ognia"
 
 #: ../items/items.txt:742
 msgid "fire resist"
-msgstr "odporność na ogień"
+msgstr "Odporność na ogień"
 
 #: ../items/items.txt:746
 msgid "Ring of Ice"
-msgstr ""
+msgstr "Pierścień Lodu"
 
 #: ../items/items.txt:754
 msgid "ice resist"
-msgstr "odporność na lód"
+msgstr "Odporność na zimno"
 
 #: ../items/items.txt:758
 msgid "Lineage Signet Ring"
-msgstr ""
+msgstr "Pierścień z Sygnetem Rodowym"
 
 #: ../items/items.txt:766
 msgid "XP gain"
-msgstr ""
+msgstr "Zdobywane PD"
 
 #: ../items/items.txt:770
 msgid "Ouroboros Ring"
-msgstr ""
+msgstr "Pierścień Uroborosa"
 
 #: ../items/items.txt:779
 msgid "One-time protection from death"
-msgstr ""
+msgstr "Jednorazowo chroni przed śmiercią"
 
 #: ../items/items.txt:783
 msgid "Relic Hunter's Ring"
-msgstr ""
+msgstr "Pierścień Łowcy Reliktów"
 
 #: ../items/items.txt:791
 msgid "item find"
-msgstr ""
+msgstr "Znajdywanie przedmiotów"
 
 #: ../items/items.txt:795
 msgid "Silent Tabi"
-msgstr ""
+msgstr "Ciche Tabi"
 
 #: ../items/items.txt:810
 msgid "Duelist Gauntlets"
-msgstr ""
+msgstr "Rękawice Pięściarza"
 
 #: ../items/items.txt:821
 msgid "crit"
-msgstr "krytyk"
+msgstr "Szansa na atak krytyczny"
 
 #: ../items/items.txt:825
 msgid "Blood Cuirass"
-msgstr ""
+msgstr "Krwawa Zbroja"
 
 #: ../items/items.txt:836
 msgid "HP"
-msgstr "Życie"
+msgstr "PŻ"
 
 #: ../items/items.txt:840
 msgid "Blood Greaves"
-msgstr ""
+msgstr "Krwawe Nagolenice"
 
 #: ../items/items.txt:855
 msgid "Fencing Gloves"
-msgstr ""
+msgstr "Rękawice Szermiercze"
 
 #: ../items/items.txt:866
 msgid "accuracy"
-msgstr "celność"
+msgstr "Celność"
 
 #: ../items/items.txt:870
 msgid "Bear Figurine"
-msgstr ""
+msgstr "Figurka Niedźwiedzia"
 
 #: ../items/items.txt:873
 msgid "artifact"
-msgstr ""
+msgstr "artefakt"
 
 #: ../items/items.txt:878
 msgid "physical"
-msgstr ""
+msgstr "Siła fizyczna"
 
 #: ../items/items.txt:882
 msgid "Owl Figurine"
-msgstr ""
+msgstr "Figurka Sowy"
 
 #: ../items/items.txt:890
 msgid "mental"
-msgstr ""
+msgstr "Siła Umysłu"
 
 #: ../items/items.txt:894
 msgid "Snake Figurine"
-msgstr ""
+msgstr "Figurka Węża"
 
 #: ../items/items.txt:902
 msgid "offense"
-msgstr ""
+msgstr "Atak"
 
 #: ../items/items.txt:906
 msgid "Turtle Figurine"
-msgstr ""
+msgstr "Figurka Żółwia"
 
 #: ../items/items.txt:914
 msgid "defense"
-msgstr ""
+msgstr "Obrona"
 
 #: ../items/items.txt:918
 msgid "Sage Mantle"
-msgstr ""
+msgstr "Płaszcz Mędrca"
 
 #: ../items/items.txt:929
 msgid "MP"
-msgstr "Mana"
+msgstr "PM"
 
 #: ../items/items.txt:933
 msgid "Sage Frock"
-msgstr ""
+msgstr "Kitel Mędrca"
 
 #: ../items/items.txt:948
 msgid "Monastery Sandals"
-msgstr ""
+msgstr "Sandały Klasztornika"
 
 #: ../items/items.txt:959
 msgid "avoidance"
-msgstr "unik"
+msgstr "szansa na unik"
 
 #: ../items/items.txt:963
 msgid "Aether Walkers"
-msgstr ""
+msgstr "Eteryczne Chodaki"
 
 #: ../items/items.txt:976
-#, fuzzy
 msgid "Use: Blink to a nearby location"
-msgstr "Przenosi w pobliskie miejsce"
+msgstr "Użycie: Przenosi nieopodal"
 
 #: ../items/items.txt:980
 msgid "Ashwood Wand"
-msgstr ""
+msgstr "Różdżka Ashwood"
 
 #: ../items/items.txt:981
 msgid "The secrets to harvesting Yggdrasil twigs are known only to traitorous dryads."
-msgstr ""
+msgstr "Tajemnice zbierania gałązek z Yggdrasil znane są jedynie zdradzieckim driadom."
 
 #: ../items/items.txt:996
 msgid "Lawman's Sidearm"
-msgstr ""
+msgstr "Broń Podręczna Lawman'a"
 
 #: ../items/items.txt:997
 msgid "The workmanship on this blade appears hurried"
-msgstr ""
+msgstr "Wydaje się, jakby to ostrze wykuto w pośpiechu"
 
 #: ../items/types.txt:5
 msgid "Main Hand"
-msgstr ""
+msgstr "Prawa Ręka"
 
 #: ../items/types.txt:9
 msgid "Off Hand"
-msgstr ""
+msgstr "Lewa Ręka"
 
 #: ../items/types.txt:13
 msgid "Head"
-msgstr ""
+msgstr "Głowa"
 
 #: ../items/types.txt:17
 msgid "Chest"
-msgstr ""
+msgstr "Tors"
 
 #: ../items/types.txt:21
 msgid "Hands"
-msgstr ""
+msgstr "Ręce"
 
 #: ../items/types.txt:25
 msgid "Legs"
-msgstr ""
+msgstr "Nogi"
 
 #: ../items/types.txt:29
 msgid "Feet"
-msgstr ""
+msgstr "Stopy"
 
 #: ../items/types.txt:33
 msgid "Artifact"
-msgstr ""
+msgstr "Artefakt"
 
 #: ../items/types.txt:37
 msgid "Ring"
-msgstr ""
+msgstr "Pierścień"
 
 #: ../items/types.txt:43
 msgid "Consumable"
-msgstr ""
+msgstr "Zużywalne"
 
 #: ../items/types.txt:47
 msgid "Gem"
-msgstr ""
+msgstr "Klejnot"
 
 #: ../items/types.txt:50
 msgid "quest"
-msgstr ""
+msgstr "zadanie"
 
 #: ../items/types.txt:51
 msgid "Quest Item"
-msgstr ""
+msgstr "Przedmiot związany z zadaniem"
 
 #: ../menus/powers.txt:16
 msgid "Warrior"
-msgstr ""
+msgstr "Wojownik"
 
 #: ../menus/powers.txt:19
 msgid "Ranger"
-msgstr ""
+msgstr "Łowca"
 
 #: ../menus/powers.txt:22
 msgid "Magician"
-msgstr ""
+msgstr "Czarownik"
 
 #: ../powers/powers.txt:5
 msgid "Swing"
-msgstr ""
+msgstr "Zamach"
 
 #: ../powers/powers.txt:8
 msgid "Basic melee attack"
-msgstr ""
+msgstr "Podstawowy atak wręcz"
 
 #: ../powers/powers.txt:21
 msgid "Channel"
-msgstr ""
+msgstr "Przewodzenie"
 
 #: ../powers/powers.txt:24
 msgid "Basic magic attack"
-msgstr ""
+msgstr "Podstawowy atak magiczny"
 
 #: ../powers/powers.txt:40
 msgid "Block"
-msgstr ""
+msgstr "Blok"
 
 #: ../powers/powers.txt:42
 msgid "Raise your shield to double your avoidance and absorb"
-msgstr ""
+msgstr "Unosi tarczę, zwiększając absorbcję i szansę na unik"
 
 #: ../powers/powers.txt:48
 msgid "Immobilize"
-msgstr ""
+msgstr "Unieruchomienie"
 
 #: ../powers/powers.txt:51
 msgid "Pin an enemy down for 3 seconds"
-msgstr ""
+msgstr "Unieruchamia wroga na 3 sekundy"
 
 #: ../powers/powers.txt:63
 msgid "Blood Strike"
-msgstr ""
+msgstr "Krwawy Cios"
 
 #: ../powers/powers.txt:66
 msgid "Inflict a bleeding wound that causes additional damage over 5 seconds"
-msgstr ""
+msgstr "Zadaje poważną ranę, która krwawi przez 5 sekund zadając dodatkowe obrażenia"
 
 #: ../powers/powers.txt:82
 msgid "Shock"
-msgstr ""
+msgstr "Porażenie"
 
 #: ../powers/powers.txt:85
 msgid "Electrocute an enemy from a distance; +25% crit chance against movement-impaired enemies."
-msgstr ""
+msgstr "Poraża przeciwnika na odległość; +25% szansy na krytyczny cios w przypadku wrogów"
 
 #: ../powers/powers.txt:105
 msgid "Heal"
-msgstr ""
+msgstr "Leczenie"
 
 #: ../powers/powers.txt:108
 msgid "Restore HP"
-msgstr ""
+msgstr "Przywraca PŻ"
 
 #: ../powers/powers.txt:118
 msgid "Piercing Shot"
-msgstr ""
+msgstr "Przebijający strzał"
 
 #: ../powers/powers.txt:121
 msgid "Fire a shot that ignores armor and goes through multiple enemies"
-msgstr ""
+msgstr "Wystrzeliwuje pocisk przebijający pancerz wroga i raniący wszystkich na linii strzału"
 
 #: ../powers/powers.txt:134
 msgid "Warcry"
-msgstr ""
+msgstr "Okrzyk bojowy"
 
 #: ../powers/powers.txt:137
 msgid "Remove debuffs and become immune to debuffs for 10 seconds"
-msgstr ""
+msgstr "Usuwa negatywne efekty i uniewrażliwia na nie przez 10 sekund"
 
 #: ../powers/powers.txt:147
 msgid "Quake"
-msgstr ""
+msgstr "Wstrząs"
 
 #: ../powers/powers.txt:150
 msgid "Stun nearby enemies"
-msgstr ""
+msgstr "Ogłusza pobliskich wrogów"
 
 #: ../powers/powers.txt:168
 msgid "Shield"
-msgstr ""
+msgstr "Osłona"
 
 #: ../powers/powers.txt:171
 msgid "Create a force field that absorbs damage"
-msgstr ""
+msgstr "Tworzy pole energetyczne pochłaniające obrażenia"
 
 #: ../powers/powers.txt:180
 msgid "Haste"
-msgstr ""
+msgstr "Pośpiech"
 
 #: ../powers/powers.txt:182
 msgid "Double run and attack speed for 8 seconds"
-msgstr ""
+msgstr "Podwaja szybkość ruchu i ataku na 8 sekund"
 
 #: ../powers/powers.txt:192
 msgid "Cleave"
-msgstr ""
+msgstr "Rozmach"
 
 #: ../powers/powers.txt:195
 msgid "Attack all enemies in a wide arc"
-msgstr ""
+msgstr "Atakuje wszystkich przeciwników stojących przed Tobą"
 
 #: ../powers/powers.txt:210
 msgid "Freeze"
-msgstr ""
+msgstr "Zamrożenie"
 
 #: ../powers/powers.txt:213
 msgid "Create a ray of piercing cold that slows enemies"
-msgstr ""
+msgstr "Tworzy promień przeszywającego zimna, który spowalnia wrogów"
 
 #: ../powers/powers.txt:232
 msgid "Teleport"
-msgstr ""
+msgstr "Teleportacja"
 
 #: ../powers/powers.txt:235
 msgid "Blink to a nearby location"
-msgstr "Przenosi w pobliskie miejsce"
+msgstr "Przenosi nieopodal"
 
 #: ../powers/powers.txt:253
 msgid "Multishot"
-msgstr ""
+msgstr "Seryjny strzał"
 
 #: ../powers/powers.txt:256
 msgid "Shoot three projectiles simultaneously"
-msgstr ""
+msgstr "Wystrzeliwuje trzy pociski na raz"
 
 #: ../powers/powers.txt:269
 msgid "Burn"
-msgstr ""
+msgstr "Płomień"
 
 #: ../powers/powers.txt:272
 msgid "Blast enemies in a distant area with fire"
-msgstr ""
+msgstr "Podpala przeciwników w oddali"
 
 #: ../powers/powers.txt:293
 msgid "Time Stop"
-msgstr ""
+msgstr "Zatrzymanie Czasu"
 
 #: ../powers/powers.txt:296
 msgid "Stun nearby enemies for 5 seconds"
-msgstr ""
+msgstr "Ogłusza pobliskich wrogów na 5 sekund"
 
 #: ../powers/powers.txt:309
 msgid "Heroic Swing"
-msgstr ""
+msgstr "Heroiczny Zamach"
 
 #: ../powers/powers.txt:312
 msgid "Melee attack with 10% HP steal"
-msgstr ""
+msgstr "Atak wręcz kradnący 10% PŻ"
 
 #: ../powers/powers.txt:326
 msgid "Greater Channel"
-msgstr ""
+msgstr "Silniejsze Przewodzenie"
 
 #: ../powers/powers.txt:329
 msgid "Magic attack with 10% MP steal"
-msgstr ""
+msgstr "Magiczny atak kradnący 10% PM"
 
 #: ../powers/powers.txt:346
 msgid "Shoot"
-msgstr ""
+msgstr "Strzał"
 
 #: ../powers/powers.txt:349
 msgid "Basic ranged attack"
-msgstr ""
+msgstr "Podstawowy atak dystansowy"
 
 #: ../powers/powers.txt:360
 msgid "Rapid Fire"
-msgstr ""
+msgstr "Szybki Strzał"
 
 #: ../powers/powers.txt:363
 msgid "Fire five low power missiles in quick succession"
-msgstr ""
+msgstr "Wystrzeliwuje pięć pocisków o zmniejszonej sile w krótkim odstępie czasu"
 
 #: ../powers/powers.txt:379
 msgid "Ice Shard [enemy]"
-msgstr ""
+msgstr "Lodowy Odłamek [wróg]"
 
 #: ../powers/powers.txt:401
 msgid "Fireshot [enemy]"
-msgstr ""
+msgstr "Ognisty strzał [wróg]"
 
 #: ../powers/powers.txt:422
 msgid "Goblin Spear [enemy]"
-msgstr ""
+msgstr "Goblińska Włócznia [wróg]"
 
 #: ../powers/powers.txt:425
 msgid "Crude goblin spear toss"
-msgstr ""
+msgstr "Rzut goblińską włócznią"
 
 #: ../powers/powers.txt:441
 msgid "Fireburst [enemy]"
-msgstr ""
+msgstr "Podpalenie [wróg]"
 
 #: ../powers/powers.txt:444
 msgid "Burn nearby enemies"
-msgstr ""
+msgstr "Podpala pobliskich wrogów"
 
 #: ../powers/powers.txt:462
 msgid "Arrow Shoot [enemy]"
-msgstr ""
+msgstr "Wystrzał [wróg]"
 
 #: ../powers/powers.txt:465
 msgid "Bow shoot"
-msgstr ""
+msgstr "Strzał z łuku"
 
 #: ../powers/powers.txt:483
 msgid "Maddox's Ice Storm [enemy]"
-msgstr ""
+msgstr "Lodowa Burza Maddoxa [wróg]"
 
 #: ../powers/powers.txt:507
 msgid "Vampiric Strike"
-msgstr ""
+msgstr "Wampiryczny Atak"
 
 #: ../powers/powers.txt:510
 msgid "Turn 50% of damage you deal into HP"
-msgstr ""
+msgstr "Zadając obrażenia przywraca 50% z nich w postaci PŻ"
 
 #: ../powers/powers.txt:524
 msgid "Leech Strike"
-msgstr ""
+msgstr "Pijawka"
 
 #: ../powers/powers.txt:527
 msgid "Turn 25% of damage you deal into HP"
-msgstr ""
+msgstr "Zadając obrażenia przywraca 25% z nich w postaci PŻ"
 
 #: ../powers/powers.txt:541
 msgid "Chill Touch"
-msgstr ""
+msgstr "Zimny Dotyk"
 
 #: ../powers/powers.txt:544
 msgid "Melee strike immobilizes target for 5 seconds"
-msgstr ""
+msgstr "Atak w zwarciu unieruchamiający cel na 5 sekund"
 
 #: ../powers/powers.txt:558
 msgid "Piercing Strike"
-msgstr ""
+msgstr "Przebijający Cios"
 
 #: ../powers/powers.txt:561
 msgid "Melee strike ignores armor"
-msgstr ""
+msgstr "Atak w zwarciu ignorujący zbroję"
 
 #: ../powers/powers.txt:575
 msgid "Explode"
-msgstr ""
+msgstr "Eksplozja"
 
 #: ../powers/powers.txt:578
 msgid "Damage everything nearby"
-msgstr ""
+msgstr "Rani wszystkich w pobliżu"
 
 #: ../powers/powers.txt:598
 msgid "Paralyzing Spit"
-msgstr ""
+msgstr "Paraliżujące Splunięcie"
 
 #: ../powers/powers.txt:601
 msgid "Poison spit that stuns the target for 1 second"
-msgstr ""
+msgstr "Trujące splunięcie unieruchamiające cel na 1 sekundę"
 
 #: ../powers/powers.txt:641
 msgid "Throw Knife"
-msgstr ""
+msgstr "Rzut Nożem"
 
 #: ../powers/powers.txt:644
 msgid "Throw a knife to deal 75% of melee weapon damage"
-msgstr ""
+msgstr "Rzut nożem zadający obrażenia równe 75% wartości obrażeń w walce wręcz"
 
 #: ../powers/powers.txt:660
 msgid "Throw Axe"
-msgstr ""
+msgstr "Rzut Toporem"
 
 #: ../powers/powers.txt:663
 msgid "Throw an axe to deal 150% of melee weapon damage"
-msgstr ""
+msgstr "Rzut toporem zadający obrażenia równe 150% wartości obrażeń w walce wręcz"
 
 #: ../powers/powers.txt:679
 msgid "Caltrops"
-msgstr ""
+msgstr "Kolczatka"
 
 #: ../powers/powers.txt:682
 msgid "This trap deals 75% ranged weapon damage and slows the target."
-msgstr ""
+msgstr "Ta pułapka zadaje obrażenia równe 75% wartości obrażeń dystansowych i spowalnia cel"
 
 #: ../powers/powers.txt:700
 msgid "Bear Trap"
-msgstr ""
+msgstr "Pułapka na Niedźwiedzie"
 
 #: ../powers/powers.txt:703
 msgid "This trap deals 150% ranged weapon damage and immobilizes the target."
-msgstr ""
+msgstr "Ta pułapka zadaje obrażenia równe 150% wartości obrażeń dystansowych i unieruchamia cel"
 
 #: ../powers/powers.txt:758
 msgid "Melee Fire"
-msgstr ""
+msgstr "Ogień w Zwarciu"
 
 #: ../powers/powers.txt:767
 msgid "Melee Ice"
-msgstr ""
+msgstr "Zimno w Zwarciu"
 
 #: ../powers/powers.txt:776
 msgid "Slingshot Shoot"
-msgstr ""
+msgstr "Strzał z procy"
 
 #: ../powers/powers.txt:779
 msgid "Basic ranged attack (requires a ranged weapon)"
-msgstr ""
+msgstr "Podstawowy atak dystansowy (wymaga broni dystansowej)"
 
 #: ../powers/powers.txt:795
 msgid "Arrow Shoot"
-msgstr ""
+msgstr "Strzał"
 
 #: ../powers/powers.txt:815
 msgid "Fire Ammo"
@@ -851,234 +842,231 @@ msgstr "Lodowa Amunicja"
 
 #: ../powers/powers.txt:855
 msgid "Arrow Wall Strike"
-msgstr ""
+msgstr "Atak Ściany Strzał"
 
 #: ../powers/powers.txt:867
 msgid "Orange Spark"
-msgstr ""
+msgstr "Pomarańczowy Błysk"
 
 #: ../powers/powers.txt:879
 msgid "Blue Spark"
-msgstr ""
+msgstr "Niebieski Błysk"
 
 #: ../powers/powers.txt:891
 msgid "Red Spark"
-msgstr ""
+msgstr "Czerwony Błysk"
 
 #: ../powers/powers.txt:903
 msgid "Necrotic Bolt"
-msgstr ""
+msgstr "Nekrotyczny Piorun"
 
 #: ../powers/powers.txt:922
 msgid "Scroll of Teleport"
-msgstr "Zaklęcie Teleportacji"
+msgstr "Zwój Teleportacji"
 
 #: ../powers/powers.txt:942
 msgid "Scroll of Time Stop"
-msgstr "Zaklęcie Wstrzymania Czasu"
+msgstr "Zwój Zatrzymania Czasu"
 
 #: ../powers/powers.txt:945
 msgid "Stun nearby enemies for 10 seconds"
-msgstr "Ogłusza pobliskich przciwników na 10 sekund"
+msgstr "Ogłusza pobliskich wrogów na 10 sekund"
 
 #: ../powers/powers.txt:958
 msgid "Scroll of Haste"
-msgstr "Zaklęcie Przyspieszenia"
+msgstr "Zwój Pośpiechu"
 
 #: ../powers/powers.txt:960
 msgid "Double run and attack speed for 20 seconds"
-msgstr "Zwiększa dwukrotnie szybkość poruszania i ataku na 20 sek."
+msgstr "Podwaja szybkość ruchu i ataku na 20 sekund"
 
 #: ../powers/powers.txt:970
 msgid "Enemy Beacon"
-msgstr ""
+msgstr "Przynęta"
 
 #: ../powers/powers.txt:971
 msgid "Bring other enemies into the fight with a dummy attack"
-msgstr ""
+msgstr "Wciągnij wrogów do walki używając przynęty"
 
 #: ../powers/powers.txt:983
 msgid "Summon Antlion"
-msgstr ""
+msgstr "Przywołanie Antliona"
 
 #: ../powers/powers.txt:993
 msgid "Summon Antlion Hatchling"
-msgstr ""
+msgstr "Przywołanie Młodego Antliona"
 
 #: ../powers/powers.txt:1003
 msgid "Transform into Antlion Freezer"
-msgstr ""
+msgstr "Transformacja w Antliońskiego Zamrażacza"
 
 #: ../powers/powers.txt:1009
 msgid "Transform into Antlion Freezer for 5 seconds"
-msgstr ""
+msgstr "Przemienia w Antliońskiego Zamrażacza na 5 sekund"
 
 #: ../powers/powers.txt:1016
 msgid "Revert Form"
-msgstr ""
+msgstr "Odwrócona Transformacja"
 
 #: ../powers/powers.txt:1021
 msgid "Transform back to human"
-msgstr ""
+msgstr "Przemienia na powrót w człowieka"
 
 #: ../powers/powers.txt:1025
 msgid "Summon Rotting Zombie"
-msgstr ""
+msgstr "Przywołanie Gnijącego Zombie"
 
 #: ../powers/powers.txt:1035
 msgid "Transform into Antlion Freezer permanently"
-msgstr ""
+msgstr "Trwała przemiana w Antliońskiego Zamrażacza"
 
 #: ../powers/powers.txt:1048
 msgid "Disenchant [item]"
-msgstr ""
+msgstr "Odczarowywacz [przedmiot]"
 
 #: ../powers/powers.txt:1059
 msgid "Æther Walkers"
-msgstr ""
+msgstr "Eteryczne Chodaki"
 
 #: ../powers/powers.txt:1081
 msgid "Stealth"
-msgstr ""
+msgstr "Ukrycie"
 
 #: ../powers/powers.txt:1087
 msgid "Move undetected with the opportunity to perform a sneak attack"
-msgstr ""
+msgstr "Poruszaj się niezauważenie, by wykonać atak z zaskoczenia"
 
 #: ../powers/powers.txt:1094
 msgid "Sneak Attack"
-msgstr ""
+msgstr "Atak z Zaskoczenia"
 
 #: ../powers/powers.txt:1097
 msgid "Melee attack while stealthed for a high chance to crit"
-msgstr ""
+msgstr "Atak w zwarciu możliwy będąc ukrytym, mający dużą szansę na zadanie obrażeń krytycznych"
 
 #: ../powers/powers.txt:1123
 msgid "Spike Ray"
-msgstr ""
+msgstr "Kolczasty Promień"
 
 #: ../powers/powers.txt:1126
 msgid "Create a ray of deadly spikes"
-msgstr ""
+msgstr "Tworzy promień zabójczych kolców"
 
 #: ../powers/powers.txt:1144
 msgid "Spikes"
-msgstr ""
+msgstr "Kolce"
 
 #: ../powers/powers.txt:1146
 msgid "Spikes Trap"
-msgstr ""
+msgstr "Kolczasta Pułapka"
 
 #: ../powers/powers.txt:1161
 msgid "Revive upon death"
-msgstr ""
+msgstr "Ożywienie po śmierci"
 
 #: ../powers/powers.txt:1170
 msgid "Bleeding"
-msgstr ""
+msgstr "Krwawienie"
 
 #: ../powers/powers.txt:1178
 msgid "Immobilized"
-msgstr ""
+msgstr "Unieruchomienie"
 
 #: ../powers/powers.txt:1185
 msgid "Slowed"
-msgstr ""
+msgstr "Spowolnienie"
 
 #: ../powers/powers.txt:1192
 msgid "Stunned"
-msgstr ""
+msgstr "Ogłuszenie"
 
 #: ../powers/powers.txt:1199
 msgid "HP (bonus)"
-msgstr ""
+msgstr "PŻ (dodatkowo)"
 
 #: ../powers/powers.txt:1207
 msgid "HP Regen (bonus)"
-msgstr ""
+msgstr "Regeneracja PŻ (dodatkowo)"
 
 #: ../powers/powers.txt:1215
 msgid "MP (bonus)"
-msgstr ""
+msgstr "PM (dodatkowo)"
 
 #: ../powers/powers.txt:1223
 msgid "MP Regen (bonus)"
-msgstr ""
+msgstr "Regeneracja PM (dodatkowo)"
 
 #: ../powers/powers.txt:1231
 msgid "Accuracy (bonus)"
-msgstr ""
+msgstr "Celność (dodatkowo)"
 
 #: ../powers/powers.txt:1239
-#, fuzzy
 msgid "Avoidance (bonus)"
-msgstr "unik"
+msgstr "Szansa na unik (dodatkowo)"
 
 #: ../powers/powers.txt:1247
 msgid "Crit (bonus)"
-msgstr ""
+msgstr "Szansa na obr. kryt. (dodatkowo)"
 
 #: ../powers/powers.txt:1255
 msgid "Speed (bonus)"
-msgstr ""
+msgstr "Szybkość (dodatkowo)"
 
 #: ../powers/powers.txt:1262
 msgid "Offense (bonus)"
-msgstr ""
+msgstr "Atak (dodatkowo)"
 
 #: ../powers/powers.txt:1270
 msgid "Defense (bonus)"
-msgstr ""
+msgstr "Obrona (dodatkowo)"
 
 #: ../powers/powers.txt:1278
 msgid "Physical (bonus)"
-msgstr ""
+msgstr "Siła Fizyczna (dodatkowo)"
 
 #: ../powers/powers.txt:1286
 msgid "Mental (bonus)"
-msgstr ""
+msgstr "Siła Umysłu (dodatkowo)"
 
 #: ../powers/powers.txt:1294
 msgid "XP(bonus)"
-msgstr ""
+msgstr "PD (dodatkowo)"
 
 #: ../powers/powers.txt:1302
 msgid "Gold (bonus)"
-msgstr ""
+msgstr "Złoto (dodatkowo)"
 
 #: ../powers/powers.txt:1310
-#, fuzzy
 msgid "Fire Resistance (bonus)"
-msgstr "Odporność od Ognia"
+msgstr "Odporność na Ogień (dodatkowo)"
 
 #: ../powers/powers.txt:1318
-#, fuzzy
 msgid "Ice Resistance (bonus)"
-msgstr "Odporność od Lodu"
+msgstr "Odporność na Zimno (dodatkowo)"
 
 #: ../powers/powers.txt:1326
 msgid "Immunity"
-msgstr ""
+msgstr "Niewrażliwość"
 
 #: ../powers/powers.txt:1356
 msgid "HP over time"
-msgstr ""
+msgstr "PŻ na minutę"
 
 #: ../powers/powers.txt:1362
 msgid "MP over time"
-msgstr ""
+msgstr "PM na minutę"
 
 #: ../powers/powers.txt:1368
 msgid "Item find (bonus)"
-msgstr ""
+msgstr "Szansa na znalezienie przedmiotów (dodatkowo)"
 
 #: ../powers/powers.txt:1376
 msgid "Stealth (bonus)"
-msgstr ""
+msgstr "Skradanie się (dodatkowo)"
 
 #: ../powers/powers.txt:1384
 msgid "Revive"
-msgstr ""
+msgstr "Ożywienie"
 
 #: ../engine/elements.txt:3
 msgid "fire"
@@ -1086,48 +1074,47 @@ msgstr "ogień"
 
 #: ../engine/elements.txt:4
 msgid "Fire Resistance"
-msgstr "Odporność od Ognia"
+msgstr "Odporność na Ogień"
 
-# Comment: a może lepiej będzie 'chłodu' ?
 #: ../engine/elements.txt:7
 msgid "ice"
-msgstr "lód"
+msgstr "zimno"
 
 #: ../engine/elements.txt:8
 msgid "Ice Resistance"
-msgstr "Odporność od Lodu"
+msgstr "Odporność na Zimno"
 
 #: ../engine/loot.txt:19
 msgid "Gold"
-msgstr "szt. Złota"
+msgstr "Sztuk Złota"
 
 #: ../enemies/antlion.txt:1
 msgid "Antlion"
-msgstr ""
+msgstr "Antlion"
 
 #: ../enemies/antlion_blinker.txt:1
 msgid "Antlion Blinker"
-msgstr ""
+msgstr "Antlioński Migacz"
 
 #: ../enemies/antlion_burster.txt:1
 msgid "Antlion Burster"
-msgstr ""
+msgstr "Antlioński Pogromca"
 
 #: ../enemies/antlion_freezer.txt:1
 msgid "Antlion Freezer"
-msgstr ""
+msgstr "Antlioński Zamrażacz"
 
 #: ../enemies/antlion_hatchling.txt:1
 msgid "Antlion Hatchling"
-msgstr ""
+msgstr "Młode Antliona"
 
 #: ../enemies/antlion_slasher.txt:1
 msgid "Antlion Slasher"
-msgstr ""
+msgstr "Antlioński Siekacz"
 
 #: ../enemies/antlion_spitter.txt:1
 msgid "Antlion Spitter"
-msgstr ""
+msgstr "Antlioński Spluwacz"
 
 #: ../enemies/cursed_grave.txt:1
 msgid "Cursed Grave"
@@ -1139,11 +1126,11 @@ msgstr "Goblin"
 
 #: ../enemies/goblin_charger.txt:1
 msgid "Goblin Charger"
-msgstr ""
+msgstr "Gobliński Szarżownik"
 
 #: ../enemies/goblin_charger_elite.txt:1
 msgid "Goblin Charger Elite"
-msgstr ""
+msgstr "Elitarny Gobliński Szarżownik"
 
 #: ../enemies/goblin_shaman.txt:1
 msgid "Goblin Shaman"
@@ -1151,11 +1138,11 @@ msgstr "Gobliński Szaman"
 
 #: ../enemies/goblin_spearman.txt:1
 msgid "Goblin Spearman"
-msgstr ""
+msgstr "Gobliński Włócznik"
 
 #: ../enemies/goblin_spearman_elite.txt:1
 msgid "Goblin Spearman Elite"
-msgstr ""
+msgstr "Elitarny Gobliński Oszczepnik"
 
 #: ../enemies/minotaur.txt:1
 msgid "Minotaur"
@@ -1163,36 +1150,35 @@ msgstr "Minotaur"
 
 #: ../enemies/skeletal_archer.txt:1
 msgid "Skeletal Archer"
-msgstr "Szkielet Łucznik"
+msgstr "Szkieletowy Łucznik"
 
 #: ../enemies/skeletal_knight.txt:1
 msgid "Skeletal Knight"
-msgstr "Szkielet Rycerz"
+msgstr "Szkieletowy Rycerz"
 
 #: ../enemies/skeletal_mage.txt:1
 msgid "Skeletal Mage"
-msgstr "Szkielet Mag"
+msgstr "Szkieletowy Mag"
 
 #: ../enemies/skeletal_occultist.txt:1
 msgid "Skeletal Occultist"
-msgstr "Szkielet Okultysta"
+msgstr "Szkieletowy Okultysta"
 
 #: ../enemies/skeletal_sniper.txt:1
 msgid "Skeletal Sniper"
-msgstr "Szkielet Zwiadowca"
+msgstr "Szkieletowy Strzelec"
 
 #: ../enemies/skeletal_warrior.txt:1
 msgid "Skeletal Warrior"
-msgstr "Szkielet Wojownik"
+msgstr "Szkieletowy Wojownik"
 
 #: ../enemies/skeleton.txt:1
 msgid "Skeleton"
 msgstr "Szkielet"
 
 #: ../enemies/wyvern.txt:1
-#, fuzzy
 msgid "Venom Wyvern"
-msgstr "Wiwerna"
+msgstr "Jadowita Wiwerna"
 
 #: ../enemies/wyvern_adult.txt:1
 msgid "Adult Wyvern"
@@ -1200,380 +1186,21 @@ msgstr "Dorosła Wiwerna"
 
 #: ../enemies/zombie.txt:1
 msgid "Zombie"
-msgstr "Zombi"
+msgstr "Zombie"
 
 #: ../enemies/zombie_bloodthirsty.txt:1
 msgid "Bloodthirsty Zombie"
-msgstr "Krwiożerczy Zombi"
+msgstr "Zombie Krwiopijca"
 
 #: ../enemies/zombie_brute.txt:1
 msgid "Zombie Brute"
-msgstr "Zombie Brute"
+msgstr "Olbrzymi Zombie"
 
 #: ../enemies/zombie_iceclaw.txt:1
 msgid "Iceclaw Zombie"
-msgstr ""
+msgstr "Lodopalcy Zombie"
 
 #: ../enemies/zombie_rotting.txt:1
 msgid "Rotting Zombie"
-msgstr "Gnijące Zombi"
+msgstr "Gnijący Zombie"
 
-#~ msgid "Health Flask"
-#~ msgstr "Fiolka Życia"
-
-#~ msgid "Restore 75 HP"
-#~ msgstr "Odnawia 75 pkt Życia"
-
-#~ msgid "Mana Flask"
-#~ msgstr "Fiolka Many"
-
-#~ msgid "Restore 75 MP"
-#~ msgstr "Odnawia 75 pkt Many"
-
-#~ msgid "body"
-#~ msgstr "ciało"
-
-#~ msgid "Tattered Clothes"
-#~ msgstr "Obdarte Ubranie"
-
-#~ msgid "Dwarven Clothes"
-#~ msgstr "Krasnoludzkie Ubranie"
-
-#~ msgid "Clothes of Restoration"
-#~ msgstr "Ubranie Odnowy"
-
-#~ msgid "Elven Clothes"
-#~ msgstr "Elfickie Ubranie"
-
-#~ msgid "Clothes of Meditation"
-#~ msgstr "Ubranie Medytacji"
-
-#~ msgid "Battle Clothes"
-#~ msgstr "Ubranie Wojenne"
-
-#~ msgid "Clothes of Accuracy"
-#~ msgstr "Ubranie Celności"
-
-#~ msgid "Clothes of Avoidance"
-#~ msgstr "Ubranie Uników"
-
-#~ msgid "Summer Clothes"
-#~ msgstr "Letnie Ubranie"
-
-#~ msgid "Winter Clothes"
-#~ msgstr "Zimowe Ubranie"
-
-#~ msgid "Clothes of Slaying"
-#~ msgstr "Ubranie Mordercy"
-
-#~ msgid "Warlord Clothes"
-#~ msgstr "Ubranie Wodza"
-
-#~ msgid "Clothes of Victory"
-#~ msgstr "Ubranie Zwycięstwa"
-
-#~ msgid "Archmage Clothes"
-#~ msgstr "Ubranie Arcymaga"
-
-#~ msgid "Clothes of Wizardry"
-#~ msgstr "Ubranie Maga"
-
-#~ msgid "Ancient Clothes"
-#~ msgstr "Sędziwe Ubranie"
-
-#~ msgid "Clothes of Precision"
-#~ msgstr "Ubranie Prezycji"
-
-#~ msgid "Clothes of Protection"
-#~ msgstr "Ubranie Ochrony"
-
-#~ msgid "Fiery Clothes"
-#~ msgstr "Płomienne Ubranie"
-
-#~ msgid "Frozen Clothes"
-#~ msgstr "Ubranie Chłodu"
-
-#~ msgid "Clothes of Destruction"
-#~ msgstr "Ubranie Zniszczenia"
-
-#~ msgid "Butcher's Apron"
-#~ msgstr "Fartuch Rzeźnika"
-
-#~ msgid "Medic Wrap"
-#~ msgstr "Okład Leczniczy"
-
-#~ msgid "Wizard Tunic"
-#~ msgstr "Tunika Maga"
-
-#~ msgid "Spellwoven Clothes"
-#~ msgstr "Spellwoven Clothes"
-
-#~ msgid "Hunter's Garb"
-#~ msgstr "Strój Łowcy"
-
-#~ msgid "Night Watch"
-#~ msgstr "Posterunek"
-
-#~ msgid "Nomad Rags"
-#~ msgstr "Szmaty Koczowników"
-
-#~ msgid "Fur-Lined Tunic"
-#~ msgstr "Tunika z Futra"
-
-#~ msgid "Vigilante"
-#~ msgstr "Wartownik"
-
-#~ msgid "Rusted Dagger"
-#~ msgstr "Zardzewiały Sztylet"
-
-#~ msgid "Cursed Dagger"
-#~ msgstr "Przeklęty Sztylet"
-
-#~ msgid "Dull Dagger"
-#~ msgstr "Tępy Sztylet"
-
-#~ msgid "Dwarven Dagger"
-#~ msgstr "Krasnoludzki Sztylet"
-
-#~ msgid "Dagger of Restoration"
-#~ msgstr "Sztylet Odnowy"
-
-#~ msgid "Elven Dagger"
-#~ msgstr "Elficki Sztylet"
-
-#~ msgid "Dagger of Meditation"
-#~ msgstr "Sztylet Medytacji"
-
-#~ msgid "Battle Dagger"
-#~ msgstr "Sztylet Bitewny"
-
-#~ msgid "Dagger of Accuracy"
-#~ msgstr "Sztylet Celności"
-
-#~ msgid "Dagger of Avoidance"
-#~ msgstr "Sztylet Uników"
-
-#~ msgid "Summer Dagger"
-#~ msgstr "Letni Sztylet"
-
-#~ msgid "Winter Dagger"
-#~ msgstr "Zimowy Sztylet"
-
-#~ msgid "Dagger of Slaying"
-#~ msgstr "Sztylet Mordercy"
-
-#~ msgid "Warlord Dagger"
-#~ msgstr "Sztylet Wodza"
-
-#~ msgid "Dagger of Victory"
-#~ msgstr "Sztylet Zwycięstwa"
-
-#~ msgid "Archmage Dagger"
-#~ msgstr "Sztylet Arcymaga"
-
-#~ msgid "Dagger of Wizardry"
-#~ msgstr "Sztylet Maga"
-
-#~ msgid "Ancient Dagger"
-#~ msgstr "Starożytny Sztylet"
-
-#~ msgid "Dagger of Precision"
-#~ msgstr "Sztylet Precyzji"
-
-#~ msgid "Dagger of Protection"
-#~ msgstr "Sztylet Ochrony"
-
-#~ msgid "Fiery Dagger"
-#~ msgstr "Płomienny Sztylet"
-
-#~ msgid "Frozen Dagger"
-#~ msgstr "Sztylet Chłodu"
-
-#~ msgid "Dagger of Destruction"
-#~ msgstr "Sztylet Zniszczenia"
-
-#~ msgid "Sacrificial Knife"
-#~ msgstr "Nóż Ofiarny"
-
-#~ msgid "Thorn"
-#~ msgstr "Cierń"
-
-#~ msgid "Mind Shard"
-#~ msgstr "Okruch Pamięci"
-
-#~ msgid "Ether Slice"
-#~ msgstr "Kawałek Eteru"
-
-#~ msgid "Dancing Knife"
-#~ msgstr "Tańczący Nóż"
-
-#~ msgid "Fire Shard"
-#~ msgstr "Ognisty Odłamek"
-
-#~ msgid "Ice Shard"
-#~ msgstr "Lodowy Odłamek"
-
-#~ msgid "Rusted Shortsword"
-#~ msgstr "Zardzewiały Krótki Miecz"
-
-#~ msgid "Cursed Shortsword"
-#~ msgstr "Przeklęty Krótki Miecz"
-
-#~ msgid "Dull Shortsword"
-#~ msgstr "Tępy Krótki Miecz"
-
-#~ msgid "Dwarven Shortsword"
-#~ msgstr "Krasnoludzki Krótki Miecz"
-
-#~ msgid "Shortsword of Restoration"
-#~ msgstr "Krótki Miecz Odnowy"
-
-#~ msgid "Elven Shortsword"
-#~ msgstr "Elficki Krótki Miecz"
-
-#~ msgid "Shortsword of Meditation"
-#~ msgstr "Krótki Miecz Medytacji"
-
-#~ msgid "Battle Shortsword"
-#~ msgstr "Wojenny Krótki Miecz"
-
-#~ msgid "Shortsword of Accuracy"
-#~ msgstr "Krótki Miecz Celności"
-
-#~ msgid "Shortsword of Avoidance"
-#~ msgstr "Krótki Miecz Uników"
-
-#~ msgid "Summer Shortsword"
-#~ msgstr "Letni Krótki Miecz"
-
-#~ msgid "Winter Shortsword"
-#~ msgstr "Zimowy Krótki Miecz"
-
-#~ msgid "Shortsword of Slaying"
-#~ msgstr "Krótki Miecz Mordercy"
-
-#~ msgid "Warlord Shortsword"
-#~ msgstr "Krótki Miecz Wodza"
-
-#~ msgid "Shortsword of Victory"
-#~ msgstr "Krótki Miecz Zwycięstwa"
-
-#~ msgid "Archmage Shortsword"
-#~ msgstr "Krótki Miecz Arcymaga"
-
-#~ msgid "Shortsword of Wizardry"
-#~ msgstr "Krótki Miecz Maga"
-
-#~ msgid "Ancient Shortsword"
-#~ msgstr "Starożytny Krótki Miecz"
-
-#~ msgid "Shortsword of Precision"
-#~ msgstr "Krótki Miecz Prezycji"
-
-#~ msgid "Shortsword of Protection"
-#~ msgstr "Krótki Miecz Ochrony"
-
-#~ msgid "Fiery Shortsword"
-#~ msgstr "Płomienny Krótki Miecz"
-
-#~ msgid "Frozen Shortsword"
-#~ msgstr "Krótki Miecz Chłodu"
-
-#~ msgid "Shortsword of Destruction"
-#~ msgstr "Krótki Miecz Zniszczenia"
-
-#~ msgid "Gladius"
-#~ msgstr "Gladius"
-
-#~ msgid "Parry Blade"
-#~ msgstr "Ostrze Parowania"
-
-#~ msgid "Sting"
-#~ msgstr "Żądło"
-
-#~ msgid "Cracked Slingshot"
-#~ msgstr "Zniszczona Proca"
-
-#~ msgid "Cursed Slingshot"
-#~ msgstr "Przeklęta Proca"
-
-#~ msgid "Dwarven Slingshot"
-#~ msgstr "Krasnoludzka Proca"
-
-#~ msgid "Elven Slingshot"
-#~ msgstr "Elficka Proca"
-
-#~ msgid "Slingshot of Meditation"
-#~ msgstr "Proca Medytacji"
-
-#~ msgid "Battle Slingshot"
-#~ msgstr "Wojenna Proca"
-
-#~ msgid "Slingshot of Accuracy"
-#~ msgstr "Proca Celności"
-
-#~ msgid "Slingshot of Avoidance"
-#~ msgstr "Proca Uników"
-
-#~ msgid "Summer Slingshot"
-#~ msgstr "Lernia Proca"
-
-#~ msgid "Winter Slingshot"
-#~ msgstr "Zimowa Proca"
-
-#~ msgid "Slingshot of Slaying"
-#~ msgstr "Proca Mordercy"
-
-#~ msgid "Warlord Slingshot"
-#~ msgstr "Proca Wodza"
-
-#~ msgid "Slingshot of Victory"
-#~ msgstr "Proca Zwycięstwa"
-
-#~ msgid "Archmage Slingshot"
-#~ msgstr "Proca Arcymaga"
-
-#~ msgid "Slingshot of Wizardry"
-#~ msgstr "Proca Maga"
-
-#~ msgid "Ancient Slingshot"
-#~ msgstr "Starożytna Proca"
-
-#~ msgid "Slingshot of Precision"
-#~ msgstr "Proca Precyzji"
-
-#~ msgid "Slingshot of Protection"
-#~ msgstr "Proca Ochrony"
-
-#~ msgid "Fiery Slingshot"
-#~ msgstr "Płomienna PRoca"
-
-#~ msgid "Frozen Slingshot"
-#~ msgstr "Proca Chłodu"
-
-#~ msgid "Slingshot of Destruction"
-#~ msgstr "Proca Zniszczenia"
-
-#~ msgid "earth"
-#~ msgstr "ziemia"
-
-#~ msgid "Earth Resistance"
-#~ msgstr "Odporność od Ziemi"
-
-#~ msgid "wind"
-#~ msgstr "wiatr"
-
-#~ msgid "Wind Resistance"
-#~ msgstr "Odporność od Wiatru"
-
-#~ msgid "shadow"
-#~ msgstr "cień"
-
-#~ msgid "Shadow Resistance"
-#~ msgstr "Odporność od Cieni"
-
-#~ msgid "light"
-#~ msgstr "światło"
-
-#~ msgid "Light Resistance"
-#~ msgstr "Odporność od Światła"
