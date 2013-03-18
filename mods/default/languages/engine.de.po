@@ -138,12 +138,12 @@ msgstr "Einstellungen zurücksetzen?"
 
 #: ../../../src/GameStateConfig.cpp:164
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: ../../../src/GameStateConfig.cpp:164
 #, fuzzy
 msgid "Use this resolution?"
-msgstr "Auflösung"
+msgstr "Diese Auflösung verwenden?"
 
 #: ../../../src/GameStateConfig.cpp:254
 msgid "Full Screen Mode"
@@ -244,7 +244,7 @@ msgstr "Spielstand löschen"
 
 #: ../../../src/GameStateLoad.cpp:57
 msgid "Delete this save?"
-msgstr "Wirklich löschen?"
+msgstr "Spielstand wirklich löschen?"
 
 #: ../../../src/GameStateLoad.cpp:59
 msgid "Exit to Title"
@@ -252,7 +252,7 @@ msgstr "Zurück zum Menü"
 
 #: ../../../src/GameStateLoad.cpp:65
 msgid "Choose a Slot"
-msgstr "Speicherplatz..."
+msgstr "Speicherplatz wählen"
 
 #: ../../../src/GameStateLoad.cpp:476
 msgid "New Game"
@@ -260,7 +260,7 @@ msgstr "Neues Spiel"
 
 #: ../../../src/GameStateLoad.cpp:479 ../../../src/GameStateLoad.cpp:489
 msgid "Enable a story mod to continue"
-msgstr ""
+msgstr "Aktiviere einen 'story mod', um fortfahren zu können"
 
 #: ../../../src/GameStateLoad.cpp:485
 msgid "Load Game"
@@ -268,7 +268,7 @@ msgstr "Spiel laden"
 
 #: ../../../src/GameStateLoad.cpp:539
 msgid "Entering game world..."
-msgstr "Betrete die Spielwelt..."
+msgstr "Betreten der Spielwelt..."
 
 #: ../../../src/GameStateLoad.cpp:541
 msgid "Loading saved game..."
@@ -302,7 +302,7 @@ msgstr "Dauerhafter Tod?"
 #: ../../../src/GameStateNew.cpp:164
 #, fuzzy
 msgid "Choose a Class"
-msgstr "Speicherplatz..."
+msgstr "Wähle eine Klasse"
 
 #: ../../../src/GameStatePlay.cpp:99
 msgid "Loading..."
@@ -323,7 +323,7 @@ msgstr "Spiel starten"
 
 #: ../../../src/GameStateTitle.cpp:45
 msgid "Enable a core mod to continue"
-msgstr ""
+msgstr "Aktiviere einen 'core mod', um fortfahren zu können"
 
 #: ../../../src/GameStateTitle.cpp:49
 msgid "Configuration"
@@ -436,15 +436,15 @@ msgstr "Löschen"
 
 #: ../../../src/InputState.cpp:85
 msgid "lmb"
-msgstr ""
+msgstr "Linke Maustaste"
 
 #: ../../../src/InputState.cpp:86
 msgid "mmb"
-msgstr ""
+msgstr "Mittlere Maustaste"
 
 #: ../../../src/InputState.cpp:87
 msgid "rmb"
-msgstr ""
+msgstr "Rechte Maustaste"
 
 #: ../../../src/InputState.cpp:88
 msgid "wheel up"
@@ -510,7 +510,7 @@ msgstr "Absorbieren: %d"
 #: ../../../src/ItemManager.cpp:517
 #, c-format
 msgid "%d\\% Speed"
-msgstr ""
+msgstr "%d\\% Schnelligkeit"
 
 #: ../../../src/ItemManager.cpp:522 ../../../src/ItemManager.cpp:614
 #, c-format
@@ -706,19 +706,19 @@ msgstr "Absorbieren:"
 
 #: ../../../src/MenuCharacter.cpp:387
 msgid "Poise: "
-msgstr ""
+msgstr "Gelassenheit"
 
 #: ../../../src/MenuCharacter.cpp:388
 msgid "Reduces your chance of stumbling when hit"
-msgstr ""
+msgstr "Reduziert die Wahrscheinlichkeit, bei einem Treffer ins Taumeln zu geraten"
 
 #: ../../../src/MenuCharacter.cpp:393 ../../../src/MenuCharacter.cpp:399
 msgid "Bonus"
-msgstr ""
+msgstr "Bonus"
 
 #: ../../../src/MenuCharacter.cpp:394
 msgid "Increases the XP gained per kill"
-msgstr ""
+msgstr "Erhöht die erhaltenen EP pro Kill"
 
 #: ../../../src/MenuCharacter.cpp:400
 #, fuzzy, c-format
@@ -727,19 +727,19 @@ msgstr "Erhöht %s um %d"
 
 #: ../../../src/MenuCharacter.cpp:405
 msgid "Bonus Item Find: "
-msgstr ""
+msgstr "Bonus Item Find"
 
 #: ../../../src/MenuCharacter.cpp:406
 msgid "Increases the chance that an enemy will drop an item when killed"
-msgstr ""
+msgstr "Erhöht die Item-Drop-Rate, wenn ein Gegner getötet wurde"
 
 #: ../../../src/MenuCharacter.cpp:411
 msgid "Stealth: "
-msgstr ""
+msgstr "Verborgenheit: "
 
 #: ../../../src/MenuCharacter.cpp:412
 msgid "Increases your ability to move undetected"
-msgstr ""
+msgstr "Erhöht die Fähigkeit, sich unbemerkt zu bewegen"
 
 #: ../../../src/MenuCharacter.cpp:430
 #, c-format
@@ -763,15 +763,15 @@ msgstr "Basis (%d), Bonus (%d)"
 
 #: ../../../src/MenuCharacter.cpp:440
 msgid "Mental (M) increases mental weapon proficiency and total MP."
-msgstr "Mental (M) erhöht Zauberschaden und maximale MP."
+msgstr "Mental (M) erhöht die Fertigkeit für Mentale Waffen und maximale MP."
 
 #: ../../../src/MenuCharacter.cpp:444
 msgid "Offense (O) increases ranged weapon proficiency and accuracy."
-msgstr "Angriff (A) erhöht Fernkampffertigkeiten und Genauigkeit."
+msgstr "Angriff (A) erhöht die Fertigkeit für Fernkampfwaffen und Genauigkeit."
 
 #: ../../../src/MenuCharacter.cpp:448
 msgid "Defense (D) increases armor proficiency and avoidance."
-msgstr "Verteidigung (V) erhöht Rüstungskenntnis und Ausweichen."
+msgstr "Verteidigung (V) erhöht die Rüstungskenntnis und Ausweichen."
 
 #: ../../../src/MenuEnemy.cpp:138
 msgid "Dead"
@@ -818,7 +818,7 @@ msgstr "EP: %d/%d"
 #: ../../../src/MenuManager.cpp:426 ../../../src/MenuManager.cpp:427
 #: ../../../src/MenuManager.cpp:630 ../../../src/MenuManager.cpp:631
 msgid "Not enough money."
-msgstr "Nicht ausreichend viel Geld."
+msgstr "Nicht genug Geld."
 
 #: ../../../src/MenuPowers.cpp:460
 msgid "Unspent skill points:"
@@ -1084,7 +1084,7 @@ msgstr "Abenteurer"
 #~ msgstr "Fertigkeit: Stab"
 
 #~ msgid "Greatstaff Proficiency"
-#~ msgstr "Fertigkeit: Krummstab"
+#~ msgstr "Fertigkeit: Langstab"
 
 #~ msgid "Slingshot Proficiency"
 #~ msgstr "Fertigkeit: Schleuder"
