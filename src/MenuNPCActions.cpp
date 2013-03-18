@@ -67,24 +67,14 @@ MenuNPCActions::MenuNPCActions()
 	, first_dialog_node(-1)
 	, current_action(-1)
 	, action_menu(NULL)
-	, vendor_label("Shop")
-	, cancel_label("Cancel")
 	, dialog_selected(false)
 	, vendor_selected(false)
 	, cancel_selected(false)
 	, selected_dialog_node(-1)
 {
-	// Setup defaults
-	vendor_normal_color.r = cancel_normal_color.r = topic_normal_color.r = 0xd0;
-	vendor_normal_color.g = cancel_normal_color.g = topic_normal_color.g = 0xd0;
-	vendor_normal_color.b = cancel_normal_color.b = topic_normal_color.b = 0xd0;
 
-	vendor_hilight_color.r = cancel_hilight_color.r = topic_hilight_color.r = 0xff;
-	vendor_hilight_color.g = cancel_hilight_color.g = topic_hilight_color.g = 0xff;
-	vendor_hilight_color.b = cancel_hilight_color.b = topic_hilight_color.b = 0xff;
-
-	background_color.r = background_color.g = background_color.b = 0x00;
-	background_alpha = 0xd0;
+	vendor_label = msg->get("Trade");
+	cancel_label = msg->get("Cancel");
 
 	// Load config settings
 	FileParser infile;
@@ -127,14 +117,6 @@ MenuNPCActions::MenuNPCActions()
 				cancel_hilight_color.r = eatFirstInt(infile.val,',');
 				cancel_hilight_color.g = eatFirstInt(infile.val,',');
 				cancel_hilight_color.b = eatFirstInt(infile.val,',');
-			}
-			else if(infile.key == "vendor_label") {
-				vendor_label = eatFirstString(infile.val, ',');
-				vendor_label = msg->get(vendor_label);
-			}
-			else if(infile.key == "cancel_label") {
-				cancel_label = eatFirstString(infile.val, ',');
-				cancel_label = msg->get(cancel_label);
 			}
 		}
 		infile.close();
