@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-15 21:45+0100\n"
+"POT-Creation-Date: 2013-03-19 14:43+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,7 +40,7 @@ msgid "miss"
 msgstr ""
 
 #: ../../../src/Avatar.cpp:784 ../../../src/Enemy.cpp:248
-#: ../../../src/PowerManager.cpp:666 ../../../src/StatBlock.cpp:522
+#: ../../../src/PowerManager.cpp:668 ../../../src/StatBlock.cpp:523
 #, c-format
 msgid "+%d HP"
 msgstr ""
@@ -85,7 +85,7 @@ msgstr ""
 msgid "HP and MP restored, negative effects removed"
 msgstr ""
 
-#: ../../../src/Enemy.cpp:255 ../../../src/StatBlock.cpp:527
+#: ../../../src/Enemy.cpp:255 ../../../src/StatBlock.cpp:528
 #, c-format
 msgid "+%d MP"
 msgstr ""
@@ -99,7 +99,7 @@ msgid "Defaults"
 msgstr ""
 
 #: ../../../src/GameStateConfig.cpp:89 ../../../src/GameStateNew.cpp:55
-#: ../../../src/InputState.cpp:59
+#: ../../../src/InputState.cpp:59 ../../../src/MenuNPCActions.cpp:77
 msgid "Cancel"
 msgstr ""
 
@@ -578,7 +578,7 @@ msgstr ""
 msgid "%d %s"
 msgstr ""
 
-#: ../../../src/MapRenderer.cpp:1227
+#: ../../../src/MapRenderer.cpp:1225
 msgid "Unknown destination"
 msgstr ""
 
@@ -816,6 +816,10 @@ msgstr ""
 msgid "Not enough money."
 msgstr ""
 
+#: ../../../src/MenuNPCActions.cpp:76
+msgid "Trade"
+msgstr ""
+
 #: ../../../src/MenuPowers.cpp:460
 msgid "Unspent skill points:"
 msgstr ""
@@ -898,12 +902,12 @@ msgstr ""
 msgid "Vendor"
 msgstr ""
 
-#: ../../../src/PowerManager.cpp:659
+#: ../../../src/PowerManager.cpp:661
 #, c-format
 msgid "+%d Shield"
 msgstr ""
 
-#: ../../../src/PowerManager.cpp:901
+#: ../../../src/PowerManager.cpp:903
 msgid "You are already transformed, untransform first."
 msgstr ""
 
