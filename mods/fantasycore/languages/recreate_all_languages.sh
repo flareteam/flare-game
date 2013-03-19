@@ -5,6 +5,6 @@
 
 for f in $(ls *.po) ; do
 	echo "Processing $f"
-	msgmerge -U --no-wrap $f data.pot
+	msgmerge -U --no-wrap --no-fuzzy-matching $f data.pot
 done
 
