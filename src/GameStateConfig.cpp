@@ -76,7 +76,7 @@ void GameStateConfig::init() {
 	defaults_button = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
 	cancel_button = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
 
-	ok_button->label = msg->get("Ok");
+	ok_button->label = msg->get("OK");
 	ok_button->pos.x = VIEW_W_HALF - ok_button->pos.w/2;
 	ok_button->pos.y = VIEW_H - (cancel_button->pos.h*3);
 	ok_button->refresh();
