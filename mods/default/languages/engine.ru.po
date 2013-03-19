@@ -3,19 +3,20 @@
 # Copyright (C) 2011 Clint Bellanger
 # This file is distributed under the same license as the FLARE package.
 #
-# Sergey Basalaev <sbasalaev@gmail.com>, 2011.
+# Sergey Basalaev <sbasalaev@gmail.com>, 2011-2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: flare-engine 0.17\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-03-15 21:44+0100\n"
-"PO-Revision-Date: 2013-03-17 20:19+0500\n"
-"Last-Translator: Evgen Pavlov <sonjekua@gmail.com>\n"
+"PO-Revision-Date: 2013-03-19 09:45+0600\n"
+"Last-Translator: Sergey Basalaev <sbasalaev@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
 
 #: ../../../src/Avatar.cpp:411
 #, c-format
@@ -35,15 +36,12 @@ msgstr "Вы убиты.  Игра окончена! Нажмите Ввод, ч
 msgid "You are defeated.  You lose half your %s.  Press Enter to continue."
 msgstr "Вы убиты.  Вы теряете половину своего %s.  Нажмите Ввод для продолжения."
 
-#: ../../../src/Avatar.cpp:711
-#: ../../../src/Enemy.cpp:172
+#: ../../../src/Avatar.cpp:711 ../../../src/Enemy.cpp:172
 msgid "miss"
 msgstr "промах"
 
-#: ../../../src/Avatar.cpp:784
-#: ../../../src/Enemy.cpp:248
-#: ../../../src/PowerManager.cpp:666
-#: ../../../src/StatBlock.cpp:522
+#: ../../../src/Avatar.cpp:784 ../../../src/Enemy.cpp:248
+#: ../../../src/PowerManager.cpp:666 ../../../src/StatBlock.cpp:522
 #, c-format
 msgid "+%d HP"
 msgstr "+%d жизни"
@@ -88,8 +86,7 @@ msgstr "Отрицательные эффекты убраны."
 msgid "HP and MP restored, negative effects removed"
 msgstr "Жизнь и мана восстановлены, отрицательные эффекты убраны"
 
-#: ../../../src/Enemy.cpp:255
-#: ../../../src/StatBlock.cpp:527
+#: ../../../src/Enemy.cpp:255 ../../../src/StatBlock.cpp:527
 #, c-format
 msgid "+%d MP"
 msgstr "+%d маны"
@@ -98,13 +95,11 @@ msgstr "+%d маны"
 msgid "Ok"
 msgstr "Ок"
 
-#: ../../../src/GameStateConfig.cpp:84
-#: ../../../src/GameStateConfig.cpp:163
+#: ../../../src/GameStateConfig.cpp:84 ../../../src/GameStateConfig.cpp:163
 msgid "Defaults"
 msgstr "По умолчанию"
 
-#: ../../../src/GameStateConfig.cpp:89
-#: ../../../src/GameStateNew.cpp:55
+#: ../../../src/GameStateConfig.cpp:89 ../../../src/GameStateNew.cpp:55
 #: ../../../src/InputState.cpp:59
 msgid "Cancel"
 msgstr "Отмена"
@@ -133,8 +128,7 @@ msgstr "Привязки клавиш"
 msgid "Mods"
 msgstr "Моды"
 
-#: ../../../src/GameStateConfig.cpp:162
-#: ../../../src/GameStateConfig.cpp:963
+#: ../../../src/GameStateConfig.cpp:162 ../../../src/GameStateConfig.cpp:963
 #: ../../../src/GameStateConfig.cpp:965
 msgid "Assign: "
 msgstr "Назначить: "
@@ -227,8 +221,7 @@ msgstr "Джойстик"
 msgid "Language"
 msgstr "Язык"
 
-#: ../../../src/GameStateConfig.cpp:524
-#: ../../../src/GameStateConfig.cpp:531
+#: ../../../src/GameStateConfig.cpp:524 ../../../src/GameStateConfig.cpp:531
 #: ../../../src/GameStateConfig.cpp:538
 msgid "Disable for performance"
 msgstr "Уберите, если игра тормозит"
@@ -245,8 +238,7 @@ msgstr "<< Отключить"
 msgid "Enable >>"
 msgstr "Включить >>"
 
-#: ../../../src/GameStateLoad.cpp:57
-#: ../../../src/GameStateLoad.cpp:69
+#: ../../../src/GameStateLoad.cpp:57 ../../../src/GameStateLoad.cpp:69
 msgid "Delete Save"
 msgstr "Удалить игру"
 
@@ -266,10 +258,9 @@ msgstr "Выберите слот"
 msgid "New Game"
 msgstr "Новая игра"
 
-#: ../../../src/GameStateLoad.cpp:479
-#: ../../../src/GameStateLoad.cpp:489
+#: ../../../src/GameStateLoad.cpp:479 ../../../src/GameStateLoad.cpp:489
 msgid "Enable a story mod to continue"
-msgstr "Включите мод истории для продолжения"
+msgstr "Включите сюжетный мод для продолжения"
 
 #: ../../../src/GameStateLoad.cpp:485
 msgid "Load Game"
@@ -316,18 +307,12 @@ msgstr "Выберите класс"
 msgid "Loading..."
 msgstr "Загрузка..."
 
-#: ../../../src/GameStatePlay.cpp:216
-#: ../../../src/GameStatePlay.cpp:217
-#: ../../../src/GameStatePlay.cpp:238
-#: ../../../src/GameStatePlay.cpp:239
-#: ../../../src/MenuManager.cpp:431
-#: ../../../src/MenuManager.cpp:432
-#: ../../../src/MenuManager.cpp:456
-#: ../../../src/MenuManager.cpp:457
-#: ../../../src/MenuManager.cpp:635
-#: ../../../src/MenuManager.cpp:636
-#: ../../../src/MenuManager.cpp:655
-#: ../../../src/MenuManager.cpp:656
+#: ../../../src/GameStatePlay.cpp:216 ../../../src/GameStatePlay.cpp:217
+#: ../../../src/GameStatePlay.cpp:238 ../../../src/GameStatePlay.cpp:239
+#: ../../../src/MenuManager.cpp:431 ../../../src/MenuManager.cpp:432
+#: ../../../src/MenuManager.cpp:456 ../../../src/MenuManager.cpp:457
+#: ../../../src/MenuManager.cpp:635 ../../../src/MenuManager.cpp:636
+#: ../../../src/MenuManager.cpp:655 ../../../src/MenuManager.cpp:656
 msgid "Inventory is full."
 msgstr "Инвентарь полон."
 
@@ -411,24 +396,20 @@ msgstr "Меню9"
 msgid "Bar0"
 msgstr "Меню0"
 
-#: ../../../src/InputState.cpp:75
-#: ../../../src/MenuCharacter.cpp:219
+#: ../../../src/InputState.cpp:75 ../../../src/MenuCharacter.cpp:219
 msgid "Character"
 msgstr "Персонаж"
 
-#: ../../../src/InputState.cpp:76
-#: ../../../src/MenuInventory.cpp:172
+#: ../../../src/InputState.cpp:76 ../../../src/MenuInventory.cpp:172
 #: ../../../src/MenuVendor.cpp:51
 msgid "Inventory"
 msgstr "Инвентарь"
 
-#: ../../../src/InputState.cpp:77
-#: ../../../src/MenuPowers.cpp:173
+#: ../../../src/InputState.cpp:77 ../../../src/MenuPowers.cpp:173
 msgid "Powers"
 msgstr "Силы"
 
-#: ../../../src/InputState.cpp:78
-#: ../../../src/MenuLog.cpp:158
+#: ../../../src/InputState.cpp:78 ../../../src/MenuLog.cpp:158
 msgid "Log"
 msgstr "Журнал"
 
@@ -528,56 +509,48 @@ msgstr "Поглощение: %d"
 #: ../../../src/ItemManager.cpp:517
 #, c-format
 msgid "%d\\% Speed"
-msgstr ""
+msgstr "%d\\% скорости"
 
-#: ../../../src/ItemManager.cpp:522
-#: ../../../src/ItemManager.cpp:614
+#: ../../../src/ItemManager.cpp:522 ../../../src/ItemManager.cpp:614
 #, c-format
 msgid "Increases %s by %d"
 msgstr "Увеличивает %s на %d"
 
-#: ../../../src/ItemManager.cpp:529
-#: ../../../src/ItemManager.cpp:617
+#: ../../../src/ItemManager.cpp:529 ../../../src/ItemManager.cpp:617
 #, c-format
 msgid "Decreases %s by %d"
 msgstr "Уменьшает %s на %d"
 
-#: ../../../src/ItemManager.cpp:550
-#: ../../../src/MenuPowers.cpp:541
+#: ../../../src/ItemManager.cpp:550 ../../../src/MenuPowers.cpp:541
 #: ../../../src/MenuPowers.cpp:543
 #, c-format
 msgid "Requires Physical %d"
 msgstr "Требуется физическое %d"
 
-#: ../../../src/ItemManager.cpp:555
-#: ../../../src/MenuPowers.cpp:546
+#: ../../../src/ItemManager.cpp:555 ../../../src/MenuPowers.cpp:546
 #: ../../../src/MenuPowers.cpp:548
 #, c-format
 msgid "Requires Mental %d"
 msgstr "Требуется ментальное %d"
 
-#: ../../../src/ItemManager.cpp:560
-#: ../../../src/MenuPowers.cpp:531
+#: ../../../src/ItemManager.cpp:560 ../../../src/MenuPowers.cpp:531
 #: ../../../src/MenuPowers.cpp:533
 #, c-format
 msgid "Requires Offense %d"
-msgstr "Требуется нападение %d"
+msgstr "Требуется атака %d"
 
-#: ../../../src/ItemManager.cpp:565
-#: ../../../src/MenuPowers.cpp:536
+#: ../../../src/ItemManager.cpp:565 ../../../src/MenuPowers.cpp:536
 #: ../../../src/MenuPowers.cpp:538
 #, c-format
 msgid "Requires Defense %d"
 msgstr "Требуется защита %d"
 
-#: ../../../src/ItemManager.cpp:583
-#: ../../../src/ItemManager.cpp:591
+#: ../../../src/ItemManager.cpp:583 ../../../src/ItemManager.cpp:591
 #, c-format
 msgid "Buy Price: %d %s"
 msgstr "Цена покупки: %d %s"
 
-#: ../../../src/ItemManager.cpp:585
-#: ../../../src/ItemManager.cpp:593
+#: ../../../src/ItemManager.cpp:585 ../../../src/ItemManager.cpp:593
 #, c-format
 msgid "Buy Price: %d %s each"
 msgstr "Цена покупки: %d %s каждый"
@@ -596,14 +569,12 @@ msgstr "Цена продажи: %d %s каждый"
 msgid "Set: "
 msgstr "Установить: "
 
-#: ../../../src/ItemManager.cpp:614
-#: ../../../src/ItemManager.cpp:617
+#: ../../../src/ItemManager.cpp:614 ../../../src/ItemManager.cpp:617
 #, c-format
 msgid "%d items: "
 msgstr "%d предметов: "
 
-#: ../../../src/LootManager.cpp:183
-#: ../../../src/MenuInventory.cpp:176
+#: ../../../src/LootManager.cpp:183 ../../../src/MenuInventory.cpp:176
 #, c-format
 msgid "%d %s"
 msgstr "%d %s"
@@ -732,25 +703,24 @@ msgstr "Поглощение:"
 
 #: ../../../src/MenuCharacter.cpp:387
 msgid "Poise: "
-msgstr ""
+msgstr "Самообладание: "
 
 #: ../../../src/MenuCharacter.cpp:388
 msgid "Reduces your chance of stumbling when hit"
-msgstr ""
+msgstr "Уменьшает шанс задержки при получении урона"
 
-#: ../../../src/MenuCharacter.cpp:393
-#: ../../../src/MenuCharacter.cpp:399
+#: ../../../src/MenuCharacter.cpp:393 ../../../src/MenuCharacter.cpp:399
 msgid "Bonus"
 msgstr "Бонус"
 
 #: ../../../src/MenuCharacter.cpp:394
 msgid "Increases the XP gained per kill"
-msgstr "Увеличитение количества получаемого за убийство опыта"
+msgstr "Увеличивает количество опыта, получаемого за убийство"
 
 #: ../../../src/MenuCharacter.cpp:400
 #, c-format
 msgid "Increases the %s found per drop"
-msgstr "Увеличивает нахождение выпадающего %s"
+msgstr "Увеличивает количество выпадающего %s"
 
 #: ../../../src/MenuCharacter.cpp:405
 msgid "Bonus Item Find: "
@@ -758,11 +728,11 @@ msgstr "Бонус нахождения предметов: "
 
 #: ../../../src/MenuCharacter.cpp:406
 msgid "Increases the chance that an enemy will drop an item when killed"
-msgstr "Увеличивает вероятность выпадание предмета при смерти противника"
+msgstr "Повышает вероятность выпадания предмета при смерти противника"
 
 #: ../../../src/MenuCharacter.cpp:411
 msgid "Stealth: "
-msgstr "Скрытнось: "
+msgstr "Скрытность: "
 
 #: ../../../src/MenuCharacter.cpp:412
 msgid "Increases your ability to move undetected"
@@ -782,10 +752,8 @@ msgstr "Следующий: %d"
 msgid "Physical (P) increases melee weapon proficiency and total HP."
 msgstr "Физическое (P) увеличивает владение оружием ближнего боя и полное здоровье."
 
-#: ../../../src/MenuCharacter.cpp:437
-#: ../../../src/MenuCharacter.cpp:441
-#: ../../../src/MenuCharacter.cpp:445
-#: ../../../src/MenuCharacter.cpp:449
+#: ../../../src/MenuCharacter.cpp:437 ../../../src/MenuCharacter.cpp:441
+#: ../../../src/MenuCharacter.cpp:445 ../../../src/MenuCharacter.cpp:449
 #, c-format
 msgid "base (%d), bonus (%d)"
 msgstr "базовое (%d), бонус (%d)"
@@ -806,8 +774,7 @@ msgstr "Защита (D) увеличивает владение бронёй и
 msgid "Dead"
 msgstr "Мёртв"
 
-#: ../../../src/MenuEnemy.cpp:144
-#: ../../../src/MenuEnemy.cpp:146
+#: ../../../src/MenuEnemy.cpp:144 ../../../src/MenuEnemy.cpp:146
 #, c-format
 msgid "%s level %d"
 msgstr "%s уровень %d"
@@ -845,10 +812,8 @@ msgstr "Задания"
 msgid "XP: %d/%d"
 msgstr "Опыт: %d/%d"
 
-#: ../../../src/MenuManager.cpp:426
-#: ../../../src/MenuManager.cpp:427
-#: ../../../src/MenuManager.cpp:630
-#: ../../../src/MenuManager.cpp:631
+#: ../../../src/MenuManager.cpp:426 ../../../src/MenuManager.cpp:427
+#: ../../../src/MenuManager.cpp:630 ../../../src/MenuManager.cpp:631
 msgid "Not enough money."
 msgstr "Недостаточно денег."
 
@@ -868,38 +833,32 @@ msgstr "Требуется ментальное оружие"
 msgid "Requires an offense weapon"
 msgstr "Требуется оружие нападения"
 
-#: ../../../src/MenuPowers.cpp:511
-#: ../../../src/MenuPowers.cpp:513
+#: ../../../src/MenuPowers.cpp:511 ../../../src/MenuPowers.cpp:513
 #, c-format
 msgid "Requires Physical Offense %d"
 msgstr "Требуется физическое нападение %d"
 
-#: ../../../src/MenuPowers.cpp:516
-#: ../../../src/MenuPowers.cpp:518
+#: ../../../src/MenuPowers.cpp:516 ../../../src/MenuPowers.cpp:518
 #, c-format
 msgid "Requires Physical Defense %d"
 msgstr "Требуется физическая защита %d"
 
-#: ../../../src/MenuPowers.cpp:521
-#: ../../../src/MenuPowers.cpp:523
+#: ../../../src/MenuPowers.cpp:521 ../../../src/MenuPowers.cpp:523
 #, c-format
 msgid "Requires Mental Offense %d"
 msgstr "Требуется ментальное нападение %d"
 
-#: ../../../src/MenuPowers.cpp:526
-#: ../../../src/MenuPowers.cpp:528
+#: ../../../src/MenuPowers.cpp:526 ../../../src/MenuPowers.cpp:528
 #, c-format
 msgid "Requires Mental Defense %d"
 msgstr "Требуется ментальная защита %d"
 
-#: ../../../src/MenuPowers.cpp:553
-#: ../../../src/MenuPowers.cpp:556
+#: ../../../src/MenuPowers.cpp:553 ../../../src/MenuPowers.cpp:556
 #, c-format
 msgid "Requires Level %d"
 msgstr "Требуется уровень %d"
 
-#: ../../../src/MenuPowers.cpp:563
-#: ../../../src/MenuPowers.cpp:568
+#: ../../../src/MenuPowers.cpp:563 ../../../src/MenuPowers.cpp:568
 #, c-format
 msgid "Requires %d Skill Point"
 msgstr "Требуется %d очков навыка"
@@ -908,8 +867,7 @@ msgstr "Требуется %d очков навыка"
 msgid "Click to Unlock"
 msgstr "Щёлкните, чтобы разблокировать"
 
-#: ../../../src/MenuPowers.cpp:582
-#: ../../../src/MenuPowers.cpp:585
+#: ../../../src/MenuPowers.cpp:582 ../../../src/MenuPowers.cpp:585
 #, c-format
 msgid "Requires Power: %s"
 msgstr "Требуется сила: %s"
@@ -922,7 +880,7 @@ msgstr "Стоит %d маны"
 #: ../../../src/MenuPowers.cpp:594
 #, c-format
 msgid "Costs %d HP"
-msgstr "Стоит %d маны"
+msgstr "Стоит %d жизни"
 
 #: ../../../src/MenuPowers.cpp:598
 #, c-format
@@ -953,18 +911,6 @@ msgstr "Вы уже трансформированы, сперва растра�
 #: ../../../src/Settings.cpp:500
 msgid "Adventurer"
 msgstr "Приключенец"
-
-#~ msgid "Flare"
-#~ msgstr "Flare"
-
-#~ msgid "Accuracy (vs lvl 5):"
-#~ msgstr "Меткость (против уровня 5):"
-
-#~ msgid "Avoidance (vs lvl 5):"
-#~ msgstr "Уклонение (от уровня 5):"
-
-#~ msgid "Unspent attribute points"
-#~ msgstr "Неистраченные очки атрибутов"
 
 #~ msgid "Stats"
 #~ msgstr "Статистика"
