@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-15 21:44+0100\n"
+"POT-Creation-Date: 2013-03-20 16:40+0100\n"
 "PO-Revision-Date: 2011-12-22 22:46+9\n"
 "Last-Translator: Paul Wortmann (RoboPaul) <paul.wortmann@gmail.com>\n"
 "Language-Team: Paul Wortmann <www.physhexgames.co.nr>\n"
@@ -39,7 +39,7 @@ msgid "miss"
 msgstr ""
 
 #: ../../../src/Avatar.cpp:784 ../../../src/Enemy.cpp:248
-#: ../../../src/PowerManager.cpp:666 ../../../src/StatBlock.cpp:522
+#: ../../../src/PowerManager.cpp:668 ../../../src/StatBlock.cpp:523
 #, c-format
 msgid "+%d HP"
 msgstr ""
@@ -84,13 +84,13 @@ msgstr ""
 msgid "HP and MP restored, negative effects removed"
 msgstr ""
 
-#: ../../../src/Enemy.cpp:255 ../../../src/StatBlock.cpp:527
+#: ../../../src/Enemy.cpp:255 ../../../src/StatBlock.cpp:528
 #, c-format
 msgid "+%d MP"
 msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:79
-msgid "Ok"
+#: ../../../src/GameStateConfig.cpp:79 ../../../src/GameStateConfig.cpp:164
+msgid "OK"
 msgstr ""
 
 #: ../../../src/GameStateConfig.cpp:84 ../../../src/GameStateConfig.cpp:163
@@ -98,7 +98,7 @@ msgid "Defaults"
 msgstr ""
 
 #: ../../../src/GameStateConfig.cpp:89 ../../../src/GameStateNew.cpp:55
-#: ../../../src/InputState.cpp:59
+#: ../../../src/InputState.cpp:59 ../../../src/MenuNPCActions.cpp:77
 msgid "Cancel"
 msgstr "キャンセル"
 
@@ -133,10 +133,6 @@ msgstr ""
 
 #: ../../../src/GameStateConfig.cpp:163
 msgid "Reset ALL settings?"
-msgstr ""
-
-#: ../../../src/GameStateConfig.cpp:164
-msgid "OK"
 msgstr ""
 
 #: ../../../src/GameStateConfig.cpp:164
@@ -584,7 +580,7 @@ msgstr ""
 msgid "%d %s"
 msgstr "レベル %d %s"
 
-#: ../../../src/MapRenderer.cpp:1227
+#: ../../../src/MapRenderer.cpp:1225
 msgid "Unknown destination"
 msgstr "未知の目的地"
 
@@ -830,6 +826,10 @@ msgstr "XP側：%d/%dの"
 msgid "Not enough money."
 msgstr ""
 
+#: ../../../src/MenuNPCActions.cpp:76
+msgid "Trade"
+msgstr ""
+
 #: ../../../src/MenuPowers.cpp:460
 msgid "Unspent skill points:"
 msgstr ""
@@ -912,12 +912,12 @@ msgstr ""
 msgid "Vendor"
 msgstr "売手"
 
-#: ../../../src/PowerManager.cpp:659
+#: ../../../src/PowerManager.cpp:661
 #, c-format
 msgid "+%d Shield"
 msgstr ""
 
-#: ../../../src/PowerManager.cpp:901
+#: ../../../src/PowerManager.cpp:903
 msgid "You are already transformed, untransform first."
 msgstr ""
 
