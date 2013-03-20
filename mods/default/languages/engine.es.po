@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Flare v0.18\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-20 19:52+0100\n"
+"POT-Creation-Date: 2013-03-20 23:59+0100\n"
 "PO-Revision-Date: 2013-03-17 20:57+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -31,7 +31,7 @@ msgid "You are defeated. Game over! Press Enter to exit to Title."
 msgstr "Usted está derrotado. Se acabó el juego! Pulse Enter para salir al Título."
 
 #: ../../../src/Avatar.cpp:643
-#, fuzzy, c-format
+#, c-format
 msgid "You are defeated.  You lose half your %s.  Press Enter to continue."
 msgstr "Usted está derrotado. Pierde la mitad de su %s. Pulse Intro para continuar."
 
@@ -328,7 +328,8 @@ msgid "Exit Game"
 msgstr "Salir del juego"
 
 #: ../../../src/GameStateTitle.cpp:61
-msgid "Flare Alpha v0.17"
+#, fuzzy
+msgid "Flare Alpha v0.18"
 msgstr "Flare v0.18"
 
 #: ../../../src/InputState.cpp:60
@@ -910,6 +911,9 @@ msgstr "Usted ya está transformado, destransformase primero."
 #: ../../../src/Settings.cpp:500
 msgid "Adventurer"
 msgstr "Aventurero"
+
+#~ msgid "You are defeated. You lose half your %s. Press Enter to continue."
+#~ msgstr "Usted está derrotado. Pierde la mitad de su %s. Pulse Intro para continuar."
 
 #~ msgid "Ok"
 #~ msgstr "Aceptar"
