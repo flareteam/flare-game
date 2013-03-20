@@ -86,7 +86,7 @@ def save(filename):
     outfile.write(header.format(now=now.strftime('%Y-%m-%d %H:%M+%z')))
     remove_duplicates()
     for line_c,line in zip(comments,keys):
-        outfile.write(POT_STRING.format(comment=line_c, msgid=line).encode('UTF-8')
+        outfile.write(POT_STRING.format(comment=line_c, msgid=line).encode('UTF-8'))
 
 # this extracts the quest files from the quests directory
 def get_quests():
