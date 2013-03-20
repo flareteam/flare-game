@@ -46,6 +46,7 @@ public:
 
 	std::string key;
 	std::string val;
+	bool fuzzy;
 
 };
 

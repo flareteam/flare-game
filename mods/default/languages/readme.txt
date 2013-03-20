@@ -10,5 +10,5 @@ xgettext --no-wrap --keyword=get -o engine.pot ../../../src/*.cpp
 
 for f in $(ls *.po) ; do
 	echo "Processing $f"
-	msgmerge -U --no-wrap --no-fuzzy-matching $f engine.pot
+	msgmerge -U --no-wrap $f engine.pot
 done
