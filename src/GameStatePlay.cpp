@@ -764,7 +764,7 @@ void GameStatePlay::logic() {
 	// change hero powers on transformation
 	if (pc->setPowers) {
 		pc->setPowers = false;
-		menu->closeAll();
+		if (!pc->stats.humanoid && menu->pow->visible) menu->closeRight();
 		// save ActionBar state and lock slots from removing/replacing power
 		for (int i=0; i<12 ; i++) {
 			menu->act->actionbar[i] = menu->act->hotkeys[i];

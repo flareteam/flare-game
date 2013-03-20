@@ -361,7 +361,7 @@ void MenuCharacter::refreshStats() {
 		ss << msg->get("Mental Damage:") << " ";
 		if (stats->dmg_ment_min == stats->dmg_ment_max)
 			ss << stats->dmg_ment_min;
-		else		
+		else
 			ss << stats->dmg_ment_min << "-" << stats->dmg_ment_max;
 		statList->set(visible_stats++, ss.str(),"");
 	}
@@ -377,7 +377,7 @@ void MenuCharacter::refreshStats() {
 		ss << msg->get("Absorb:") << " ";
 		if (stats->absorb_min == stats->absorb_max)
 			ss << stats->absorb_min;
-		else			
+		else
 		ss << stats->absorb_min << "-" << stats->absorb_max;
 		statList->set(visible_stats++, ss.str(),"");
 	}
@@ -475,7 +475,7 @@ void MenuCharacter::logic() {
 	int spent = stats->physical_character + stats->mental_character + stats->offense_character + stats->defense_character -4;
 	skill_points = (stats->level * stats->stat_points_per_level) - spent;
 
-	if (stats->hp > 0 && spent < (stats->level * stats->stat_points_per_level) && spent < stats->max_spendable_stat_points) {
+	if (stats->hp > 0 && spent < (stats->level * stats->stat_points_per_level) && spent < stats->max_spendable_stat_points && stats->humanoid ) {
 		if (stats->physical_character < stats->max_points_per_stat && show_upgrade[0]) upgradeButton[0]->enabled = true;
 		if (stats->mental_character  < stats->max_points_per_stat && show_upgrade[1]) upgradeButton[1]->enabled = true;
 		if (stats->offense_character < stats->max_points_per_stat && show_upgrade[2]) upgradeButton[2]->enabled = true;

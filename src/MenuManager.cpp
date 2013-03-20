@@ -344,7 +344,7 @@ void MenuManager::logic() {
 	act->requires_attention[MENU_POWERS] = pow->getUnspent() > 0;
 
 	// character menu toggleggle
-	if (((inpt->pressing[CHARACTER] && !key_lock && !dragging) || clicking_character) && stats->humanoid) {
+	if (((inpt->pressing[CHARACTER] && !key_lock && !dragging) || clicking_character)) {
 		key_lock = true;
 		if (chr->visible) {
 			snd->play(chr->sfx_close);
