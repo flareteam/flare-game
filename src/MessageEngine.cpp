@@ -1,5 +1,6 @@
 /*
 Copyright © 2011-2012 Thane Brimhall
+Copyright © 2013 Henrik Andersson
 
 This file is part of FLARE.
 
@@ -36,7 +37,7 @@ MessageEngine::MessageEngine() {
 	for (unsigned int i = 0; i < mods->mod_list.size(); i++) {
 		string path = PATH_DATA + "mods/" + mods->mod_list[i] + "/languages/";
 		if (infile.open(path + "engine." + LANGUAGE + ".po")) {
-			while (infile.next()) {
+			while (infile.next() && !infile.fuzzy) {
 				messages.insert(pair<string,string>(infile.key, infile.val));
 			}
 		    infile.close();
@@ -44,8 +45,8 @@ MessageEngine::MessageEngine() {
 			fprintf(stderr, "Unable to open mods/%s/languages/engine.%s.po!\n", mods->mod_list[i].c_str(), LANGUAGE.c_str());
 		}
 		if (infile.open(path + "data." + LANGUAGE + ".po")) {
-			while (infile.next()) {
-				messages.insert(pair<string,string>(infile.key, infile.val));
+			while (infile.next() && !infile.fuzzy) {
+				messages.insert(pair<string,string>(infile.key, infile.val)); 		       
 			}
 		    infile.close();
 		} else if (LANGUAGE != "en" && mods->mod_list[i] != FALLBACK_MOD) {
