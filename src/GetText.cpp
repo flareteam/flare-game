@@ -1,5 +1,6 @@
 /*
 Copyright © 2011-2012 Clint Bellanger
+Copyright © 2013 Henrik Andersson
 
 This file is part of FLARE.
 
@@ -57,8 +58,14 @@ bool GetText::next() {
 	key = "";
 	val = "";
 
+	fuzzy = false;
+
 	while (infile.good()) {
 		line = getLine(infile);
+
+		// check if comment and if fuzzy
+		if (line.compare(0,2,"#,") && line.find("fuzzy") == 0)
+		        fuzzy = true;
 
 		// this is a key
 		if (line.find("msgid") == 0) {
