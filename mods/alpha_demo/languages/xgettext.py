@@ -45,7 +45,7 @@ def extract(filename):
     ]
     plain_text = [
         'msg', 'him', 'her', 'you', 'name', 'title', 'tooltip',
-        'quest_text', 'description', 'topic',
+        'quest_text', 'description', 'topic', 'flavor',
         ]
     for i, line in enumerate(infile, start=1):
         for trigger in triggers:
