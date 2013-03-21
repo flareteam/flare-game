@@ -344,7 +344,12 @@ void LootManager::determineLootByEnemy(const Enemy *e, Point pos) {
 		
 		// an item id of 0 means we should drop currency instead
 		if (new_loot.item == 0) {
-			addCurrency(new_loot.quantity, pos);
+		
+			// calculate bonus currency
+			int currency = new_loot.quantity;
+			currency = (currency * (100 + hero->effects.bonus_currency)) / 100;
+			
+			addCurrency(currency, pos);
 		} else {
 			addLoot(new_loot, pos);
 		}
