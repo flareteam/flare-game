@@ -36,6 +36,11 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 const int STYLE_FLOAT = 0;
 const int STYLE_TOPLABEL = 1;
 
+extern int TOOLTIP_CONTEXT;
+const int TOOLTIP_NONE = 0;
+const int TOOLTIP_MAP = 1;
+const int TOOLTIP_MENU = 2;
+
 /**
  * TooltipData contains the text and line colors for one tool tip.
  * Useful for keeping the data separate from the widget itself, so the data

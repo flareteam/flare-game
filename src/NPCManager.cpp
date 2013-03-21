@@ -153,7 +153,7 @@ void NPCManager::renderTooltips(Point cam, Point mouse) {
 		r.x = p.x - ren.offset.x;
 		r.y = p.y - ren.offset.y;
 
-		if (isWithin(r, mouse)) {
+		if (isWithin(r, mouse) && TOOLTIP_CONTEXT != TOOLTIP_MENU) {
 
 			// adjust dest.y so that the tooltip floats above the item
 			p.y -= tooltip_margin;
@@ -165,8 +165,11 @@ void NPCManager::renderTooltips(Point cam, Point mouse) {
 			}
 
 			tip->render(tip_buf, p, STYLE_TOPLABEL);
+			TOOLTIP_CONTEXT = TOOLTIP_MAP;
 
 			break; // display only one NPC tooltip at a time
+		} else if (TOOLTIP_CONTEXT != TOOLTIP_MENU) {
+			TOOLTIP_CONTEXT = TOOLTIP_NONE;
 		}
 	}
 }
