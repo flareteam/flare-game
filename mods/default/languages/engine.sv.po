@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Flare 0.17\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-15 21:44+0100\n"
+"POT-Creation-Date: 2013-03-20 23:59+0100\n"
 "PO-Revision-Date: 2013-01-22 23:27+0100\n"
 "Last-Translator: Henrik Andersson <hean01@users.sourceforge.net>\n"
 "Language-Team: SWEDISH <LL@li.org>\n"
@@ -40,7 +40,7 @@ msgid "miss"
 msgstr "miss"
 
 #: ../../../src/Avatar.cpp:784 ../../../src/Enemy.cpp:248
-#: ../../../src/PowerManager.cpp:666 ../../../src/StatBlock.cpp:522
+#: ../../../src/PowerManager.cpp:668 ../../../src/StatBlock.cpp:523
 #, c-format
 msgid "+%d HP"
 msgstr "+%d HP"
@@ -85,21 +85,21 @@ msgstr "Negativa effekter borttagna."
 msgid "HP and MP restored, negative effects removed"
 msgstr "HP och MP återställt, negativa effekter borttagna"
 
-#: ../../../src/Enemy.cpp:255 ../../../src/StatBlock.cpp:527
+#: ../../../src/Enemy.cpp:255 ../../../src/StatBlock.cpp:528
 #, c-format
 msgid "+%d MP"
 msgstr "+%d MP"
 
-#: ../../../src/GameStateConfig.cpp:79
-msgid "Ok"
-msgstr "Ok"
+#: ../../../src/GameStateConfig.cpp:79 ../../../src/GameStateConfig.cpp:164
+msgid "OK"
+msgstr "OK"
 
 #: ../../../src/GameStateConfig.cpp:84 ../../../src/GameStateConfig.cpp:163
 msgid "Defaults"
 msgstr "Standard"
 
 #: ../../../src/GameStateConfig.cpp:89 ../../../src/GameStateNew.cpp:55
-#: ../../../src/InputState.cpp:59
+#: ../../../src/InputState.cpp:59 ../../../src/MenuNPCActions.cpp:77
 msgid "Cancel"
 msgstr "Avbryt"
 
@@ -135,10 +135,6 @@ msgstr "Tilldela:"
 #: ../../../src/GameStateConfig.cpp:163
 msgid "Reset ALL settings?"
 msgstr "Återställ samtliga inställningar?"
-
-#: ../../../src/GameStateConfig.cpp:164
-msgid "OK"
-msgstr "OK"
 
 #: ../../../src/GameStateConfig.cpp:164
 msgid "Use this resolution?"
@@ -332,8 +328,9 @@ msgid "Exit Game"
 msgstr "Avsluta spelet"
 
 #: ../../../src/GameStateTitle.cpp:61
-msgid "Flare Alpha v0.17"
-msgstr "Flare Alpha v0.17"
+#, fuzzy
+msgid "Flare Alpha v0.18"
+msgstr "Flare Alpha v0.18"
 
 #: ../../../src/InputState.cpp:60
 msgid "Accept"
@@ -578,7 +575,7 @@ msgstr "%d föremål:"
 msgid "%d %s"
 msgstr "%d %s"
 
-#: ../../../src/MapRenderer.cpp:1227
+#: ../../../src/MapRenderer.cpp:1225
 msgid "Unknown destination"
 msgstr "Okänd destination"
 
@@ -816,6 +813,10 @@ msgstr "XP: %d/%d"
 msgid "Not enough money."
 msgstr "Inte tillräckligr med pengar."
 
+#: ../../../src/MenuNPCActions.cpp:76
+msgid "Trade"
+msgstr "Handel"
+
 #: ../../../src/MenuPowers.cpp:460
 msgid "Unspent skill points:"
 msgstr "Outnyttjade attributpoäng:"
@@ -898,12 +899,12 @@ msgstr "Återköp"
 msgid "Vendor"
 msgstr "Affärsman"
 
-#: ../../../src/PowerManager.cpp:659
+#: ../../../src/PowerManager.cpp:661
 #, c-format
 msgid "+%d Shield"
 msgstr "+%d Sköld"
 
-#: ../../../src/PowerManager.cpp:901
+#: ../../../src/PowerManager.cpp:903
 msgid "You are already transformed, untransform first."
 msgstr "Du är redan i omvandlad form, omvandla dig tillbaka först."
 
@@ -911,8 +912,8 @@ msgstr "Du är redan i omvandlad form, omvandla dig tillbaka först."
 msgid "Adventurer"
 msgstr "Äventyrare"
 
-#~ msgid "Trade"
-#~ msgstr "Handel"
+#~ msgid "Ok"
+#~ msgstr "Ok"
 
 #~ msgid "Flare"
 #~ msgstr "Flare"

@@ -2,13 +2,13 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR dallatower@libero.it, 2012.
-# 
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-15 21:44+0100\n"
+"POT-Creation-Date: 2013-03-20 23:59+0100\n"
 "PO-Revision-Date: 2012-07-02 19:21+0100\n"
 "Last-Translator: Giovanni Dalla Torre <dallatower@libero.it>\n"
 "Language-Team: Italiano <it@li.org>\n"
@@ -40,7 +40,7 @@ msgid "miss"
 msgstr "mancato"
 
 #: ../../../src/Avatar.cpp:784 ../../../src/Enemy.cpp:248
-#: ../../../src/PowerManager.cpp:666 ../../../src/StatBlock.cpp:522
+#: ../../../src/PowerManager.cpp:668 ../../../src/StatBlock.cpp:523
 #, c-format
 msgid "+%d HP"
 msgstr "+%d HP"
@@ -85,21 +85,21 @@ msgstr "Effetti Negativi rimossi"
 msgid "HP and MP restored, negative effects removed"
 msgstr "HP e MP ripristinati, Effetti Negativi rimossi"
 
-#: ../../../src/Enemy.cpp:255 ../../../src/StatBlock.cpp:527
+#: ../../../src/Enemy.cpp:255 ../../../src/StatBlock.cpp:528
 #, c-format
 msgid "+%d MP"
 msgstr "+%d MP"
 
-#: ../../../src/GameStateConfig.cpp:79
-msgid "Ok"
-msgstr "Ok"
+#: ../../../src/GameStateConfig.cpp:79 ../../../src/GameStateConfig.cpp:164
+msgid "OK"
+msgstr ""
 
 #: ../../../src/GameStateConfig.cpp:84 ../../../src/GameStateConfig.cpp:163
 msgid "Defaults"
 msgstr "Defaults"
 
 #: ../../../src/GameStateConfig.cpp:89 ../../../src/GameStateNew.cpp:55
-#: ../../../src/InputState.cpp:59
+#: ../../../src/InputState.cpp:59 ../../../src/MenuNPCActions.cpp:77
 msgid "Cancel"
 msgstr "Cancellare"
 
@@ -136,10 +136,6 @@ msgstr "Assegnazioni:"
 #, fuzzy
 msgid "Reset ALL settings?"
 msgstr "Settare TUTTI i settaggi a default?"
-
-#: ../../../src/GameStateConfig.cpp:164
-msgid "OK"
-msgstr ""
 
 #: ../../../src/GameStateConfig.cpp:164
 #, fuzzy
@@ -341,8 +337,8 @@ msgstr "Uscire dal Gioco"
 
 #: ../../../src/GameStateTitle.cpp:61
 #, fuzzy
-msgid "Flare Alpha v0.17"
-msgstr "Flare Alpha v0.16"
+msgid "Flare Alpha v0.18"
+msgstr "Flare Alpha v0.18"
 
 #: ../../../src/InputState.cpp:60
 msgid "Accept"
@@ -590,7 +586,7 @@ msgstr "%d oggetti: "
 msgid "%d %s"
 msgstr "Livello %d %s"
 
-#: ../../../src/MapRenderer.cpp:1227
+#: ../../../src/MapRenderer.cpp:1225
 msgid "Unknown destination"
 msgstr "Destinazione sconosciuta"
 
@@ -836,6 +832,10 @@ msgstr "XP: %d/%d"
 msgid "Not enough money."
 msgstr "Non hai abbastanza soldi."
 
+#: ../../../src/MenuNPCActions.cpp:76
+msgid "Trade"
+msgstr "Commerciante"
+
 #: ../../../src/MenuPowers.cpp:460
 #, fuzzy
 msgid "Unspent skill points:"
@@ -919,18 +919,21 @@ msgstr "Ricomprare"
 msgid "Vendor"
 msgstr "Venditore"
 
-#: ../../../src/PowerManager.cpp:659
+#: ../../../src/PowerManager.cpp:661
 #, c-format
 msgid "+%d Shield"
 msgstr "+%d scudi"
 
-#: ../../../src/PowerManager.cpp:901
+#: ../../../src/PowerManager.cpp:903
 msgid "You are already transformed, untransform first."
 msgstr "Sei già trasformato, annulla trasformazione prima"
 
 #: ../../../src/Settings.cpp:500
 msgid "Adventurer"
 msgstr "Avventuriero"
+
+#~ msgid "Ok"
+#~ msgstr "Ok"
 
 #~ msgid "Flare"
 #~ msgstr "Flare"
@@ -945,9 +948,6 @@ msgstr "Avventuriero"
 
 #~ msgid "Stats"
 #~ msgstr "Statistiche"
-
-#~ msgid "Trade"
-#~ msgstr "Commerciante"
 
 #~ msgid "Grand Master"
 #~ msgstr "Grande Maestro"
