@@ -34,6 +34,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "MenuInventory.h"
 #include "SharedResources.h"
 #include "UtilsParsing.h"
+#include "UtilsMath.h"
+#include "Utils.h"
 
 #include <sstream>
 #include <iostream>
@@ -301,6 +303,8 @@ void LootManager::checkMapForLoot() {
 void LootManager::determineLootByEnemy(const Enemy *e, Point pos) {
 	ItemStack new_loot;
 	std::vector<int> possible_ids;
+	std::vector<Point> possible_ranges;
+	Point range;
 	int common_chance = -1;
 
 	int chance = rand() % 100;
@@ -311,30 +315,40 @@ void LootManager::determineLootByEnemy(const Enemy *e, Point pos) {
 			if (chance < (e->stats.loot[i].chance * (hero->effects.bonus_item_find + 100)) / 100) {
 				possible_ids.push_back(e->stats.loot[i].id);
 				common_chance = e->stats.loot[i].chance;
+
+				range.x = e->stats.loot[i].count_min;
+				range.y = e->stats.loot[i].count_max;
+				possible_ranges.push_back(range);
+				
 				i=-1; // start searching from the beginning
 				continue;
 			}
 		} else {
 			// include loot with identical chances
-			if (e->stats.loot[i].chance == common_chance)
+			if (e->stats.loot[i].chance == common_chance) {
 				possible_ids.push_back(e->stats.loot[i].id);
+
+				range.x = e->stats.loot[i].count_min;
+				range.y = e->stats.loot[i].count_max;
+				possible_ranges.push_back(range);
+				
+			}
 		}
 	}
 
 	if (!possible_ids.empty()) {
-		// if there was more than one item with the same chance, randomly pick one of them
-		if (possible_ids.size() == 1) new_loot.item = possible_ids[0];
-		else new_loot.item = possible_ids[rand() % possible_ids.size()];
-		new_loot.quantity = 1;
-
+	
+		int roll = rand() % possible_ids.size();		
+		new_loot.item = possible_ids[roll];
+		new_loot.quantity = randBetween(possible_ranges[roll].x, possible_ranges[roll].y);
+		
 		// an item id of 0 means we should drop currency instead
 		if (new_loot.item == 0) {
-			int level = e->stats.level;
-			if (level == 0) level = 1; // avoid div/0 if enemy level is not specified
-
-			// TODO: move gold drop amounts to engine/loot.txt
-			int currency = rand() % (level * 2) + level;
+		
+			// calculate bonus currency
+			int currency = new_loot.quantity;
 			currency = (currency * (100 + hero->effects.bonus_currency)) / 100;
+			
 			addCurrency(currency, pos);
 		} else {
 			addLoot(new_loot, pos);
