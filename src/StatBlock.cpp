@@ -222,6 +222,8 @@ void StatBlock::load(const string& filename) {
 	}
 
 	int num = 0;
+	string loot_token;
+	
 	while (infile.next()) {
 		if (isInt(infile.val)) num = toInt(infile.val);
 		bool valid = false;
@@ -247,6 +249,8 @@ void StatBlock::load(const string& filename) {
 
 			// loot entries format:
 			// loot=[id],[percent_chance]
+			// optionally allow range:
+			// loot=[id],[percent_chance],[count_min],[count_max]
 
 			EnemyLoot el;
 			std::string loot_id = infile.nextValue();
@@ -257,6 +261,18 @@ void StatBlock::load(const string& filename) {
 			else
 				el.id = toInt(loot_id);
 			el.chance = toInt(infile.nextValue());
+			
+			// check for optional range.
+			loot_token = infile.nextValue();
+			if (loot_token != "") {
+				el.count_min = toInt(loot_token);
+				el.count_max = el.count_min;
+			}
+			loot_token = infile.nextValue();
+			if (loot_token != "") {
+				el.count_max = toInt(loot_token);
+			}
+			
 			loot.push_back(el);
 		}
 		else if (infile.key == "defeat_status") defeat_status = infile.val;

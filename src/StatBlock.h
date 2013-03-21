@@ -73,10 +73,14 @@ class EnemyLoot {
 public:
 	int id;
 	int chance;
+	int count_min;
+	int count_max;
 
 	EnemyLoot()
 		: id(0)
 		, chance(0)
+		, count_min(1)
+		, count_max(1)
 	{}
 };
 
