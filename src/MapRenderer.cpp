@@ -550,6 +550,9 @@ int MapRenderer::load(string filename) {
 					new_npc.id = infile.val;
 					e->s = infile.val;
 				}
+				else if (infile.key == "music") {
+					e->s = infile.val;
+				}
 			}
 		}
 	}
@@ -1346,6 +1349,12 @@ bool MapRenderer::executeEvent(Map_Event &ev) {
 		}
 		else if (ec->type == "npc") {
 			event_npc = ec->s;
+		}
+		else if (ec->type == "music") {
+			if (this->music_filename != ec->s) {
+				this->music_filename = ec->s;
+				loadMusic();
+			}
 		}
 	}
 	if (ev.type == "run_once" || ev.type == "on_load" || ev.type == "on_clear" || destroy_event)
