@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.17\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-15 20:52+\n"
+"POT-Creation-Date: 2013-03-20 19:49+\n"
 "PO-Revision-Date: 2012-09-26 16:20+0200\n"
 "Last-Translator: Christian Kirchberger\n"
 "Language-Team: \n"
@@ -134,6 +134,11 @@ msgstr "Grisbon"
 msgid "Krakatoa, Antlion Burster"
 msgstr "Krakatoa, Antlion-Berstling"
 
+#: ../enemies/miner.txt:1
+#, fuzzy
+msgid "Miner"
+msgstr "Bergarbeiter"
+
 #: ../enemies/necromancer_apprentice.txt:1
 msgid "Apprentice Necromancer"
 msgstr "Lehrling der Totenbeschwörung"
@@ -249,7 +254,7 @@ msgstr "Kiste"
 
 #: ../maps/averguard_academy.txt:462
 msgid "This tomb glows with magical runes."
-msgstr "Auf diesem Folianten glühen magischen Runen."
+msgstr "Auf dieser Gruft glühen magischen Runen."
 
 #: ../maps/averguard_academy.txt:470
 msgid "Langlier's Tomb"
@@ -341,15 +346,15 @@ msgstr "Maddox' Sarkophag"
 
 #: ../maps/brothers_lair_atrium.txt:8
 msgid "Brothers' Lair Atrium"
-msgstr "Unterschlupf der Brüder - Atrium"
+msgstr "Quartier der Brüder - Atrium"
 
 #: ../maps/brothers_lair_atrium.txt:248
 msgid "Brothers Lair Atrium waypoint discovered"
-msgstr "Teleporter entdeckt: Unterschlupf der Brüder - Atrium"
+msgstr "Teleporter entdeckt: Quartier der Brüder - Atrium"
 
 #: ../maps/brothers_lair_fire_hall.txt:8
 msgid "Brothers' Lair Fire Hall"
-msgstr "Unterschlupf der Brüder - Feuerhalle"
+msgstr "Quartier der Brüder - Feuerhalle"
 
 #: ../maps/brothers_lair_fire_hall.txt:346
 msgid "Runed Chest"
@@ -361,7 +366,7 @@ msgstr "\"Ich war wohl etwas zu wild für Pompeii -- es ist buchstäblich in die
 
 #: ../maps/brothers_lair_ice_hall.txt:8
 msgid "Brothers' Lair Ice Hall"
-msgstr "Unterschlupf der Brüder - Eishalle"
+msgstr "Quartier der Brüder - Eishalle"
 
 #: ../maps/brothers_lair_ice_hall.txt:287
 msgid "Suspicious Bookcase"
@@ -397,7 +402,7 @@ msgstr "\"Natürlich wurde V. für sein Verbrechen verstoßen. Obwohl es dumm wa
 
 #: ../maps/brothers_lair_ice_hall.txt:354
 msgid "\"G. suggested that each of us should take one of the halls in the old necromancer's lair.\""
-msgstr "\"G. hat vorgeschlagen, dass jeder von uns eine der Hallen im Unterschlupf des alten Totenbeschwörers nehmen soll.\""
+msgstr "\"G. hat vorgeschlagen, dass jeder von uns eine der Hallen im Quartier des alten Totenbeschwörers nehmen soll.\""
 
 #: ../maps/brothers_lair_ice_hall.txt:364
 msgid "\"It's days like today that make me wonder if I should go a step further and eliminate V. and G. too... they're getting on my nerves. ~Scathelocke\""
@@ -409,7 +414,7 @@ msgstr "Opferraum der Brüder"
 
 #: ../maps/brothers_lair_wind_hall.txt:8
 msgid "Brothers' Lair Wind Hall"
-msgstr "Unterschlupf der Brüder - Windhalle"
+msgstr "Quartier der Brüder - Windhalle"
 
 #: ../maps/brothers_lair_wind_hall.txt:191
 msgid "Rising Wind Switch"
@@ -585,19 +590,20 @@ msgstr "Ydrakka-Pass"
 
 #: ../maps/warp_zone.txt:260
 msgid "Brothers Lair Atrium"
-msgstr "Unterschlupf der Brüder - Atrium"
+msgstr "Quartier der Brüder - Atrium"
 
 #: ../maps/white_wind.txt:8
 msgid "White Wind"
 msgstr "Weisser Wind"
 
 #: ../maps/white_wind.txt:446
-msgid "So, there it is. The abandoned tower!"
-msgstr "Da ist er also -- Der Verlassene Turm!"
+msgid "You spot the abandoned tower in the distance."
+msgstr "Du siehst den verlassenen Turm in der Nähe"
 
 #: ../maps/white_wind.txt:454
-msgid "Looking through the grate... The tower is just empty."
-msgstr "Ich schaue durch das rostige Gitter... Der ist einfach verlassen."
+#, fuzzy
+msgid "Looking through the grate, you confirm the tower is empty."
+msgstr "Du schaust durch das rostige Gitter und bist dir sicher, dass niemand in dem Turm ist."
 
 #: ../maps/ydrakka_pass.txt:384
 msgid "Ydrakka Pass waypoint discovered."
@@ -720,15 +726,18 @@ msgid "Report the defeat of the Reanimated Skeleton to Martigan."
 msgstr "Berichte Martigan von dem Sieg über das Wiederbelebte Skelett."
 
 #: ../quests/rotten_tower.txt:5
-msgid "Search the rotten tower south west of the frontier plains. Beware of danger!"
-msgstr "Durchforste den fauligen Turm im Süd-Westen des Grenzgebiets. Halte dich vor Gefahren fern!"
+#, fuzzy
+msgid "Search the rotten tower south west of the Frontier Plains."
+msgstr "Suche nach dem Verlassenen Turm südwestlich des Grenzgebiets."
 
 #: ../quests/rotten_tower.txt:10
-msgid "Inspect the tower more closely!"
-msgstr "Untersuche den Turm etwas genauer!"
+#, fuzzy
+msgid "Inspect the tower more closely."
+msgstr "Untersuche den Turm etwas genauer."
 
 #: ../quests/rotten_tower.txt:15
-msgid "Return to Martigan and tell him about the empty abandoned tower!"
+#, fuzzy
+msgid "Return to Martigan and tell him about the abandoned tower."
 msgstr "Kehre zu Martigan zurück und erzähle ihm von dem leeren, verlassenen Turm!"
 
 #: ../npcs/captured_trader.txt:2
@@ -905,7 +914,7 @@ msgstr "Martigan, Aufseher"
 
 #: ../npcs/martigan.txt:13
 msgid "Welcome to my mines, stranger. If you have the back for it, I've got the work."
-msgstr "Wilkommen in meiner Mine, Fremder. Falls Ihr das Rückgrat habt, habe ich die Arbeit."
+msgstr "Wilkommen in meiner Mine, Fremder. Falls Ihr einen kräftigen Rücken habt, habe ich Arbeit für euch."
 
 #: ../npcs/martigan.txt:14
 msgid "I heard you might have something more interesting."
@@ -948,96 +957,89 @@ msgstr "Eine undankbare Aufgabe, aber meine Arbeiter werden heute Nacht sicher s
 msgid "A member of the Order passed through our camp a few days ago. He left for the tower ruins in Ydrakka Pass."
 msgstr "Ein Mitglied des Ordens ist vor einigen Tagen durch unsere Siedlung gekommen. Er verließ uns in Richtung der Turmruine im Ydrakka-Pass."
 
-#: ../npcs/martigan.txt:51
+#: ../npcs/martigan.txt:50
 msgid "Rotten Tower"
 msgstr "Fauliger Turm"
 
+#: ../npcs/martigan.txt:53
+msgid "This region was once well guarded. There are watch towers positioned throughout these plains, but most are abandoned and crumbling now."
+msgstr "Dieser Landstrich war mal gut bewacht. Es gibt Beobachtungstürme hier und da, aber die meisten sind verlassen und zerfallen jetzt."
+
 #: ../npcs/martigan.txt:54
-msgid "These areas were guarded well. There is yet another outpost tower in the wild."
-msgstr "Diese Gebiete sind gut bewacht. Es gibt sogar einen anderen Turm-Außenposten in der Wildniss."
+msgid "I need someone to inspect the outpost tower in White Winds, south west of the Frontier Plains. Let me know if goblins have found their way inside."
+msgstr "Also ich bräuchte da jemanden, der den Grenzposten in den Weißen Winden, südwestlich des Grenzgebietes kontrolliert. Sag mir Bescheid, ob dort Goblins in dem Turm hausen."
 
-#: ../npcs/martigan.txt:55
-msgid "These are rough lands and... you're looking for an adventure!"
-msgstr "Dies sind raue Lande und... du sucht wohl nach einem Abenteuer!"
-
-#: ../npcs/martigan.txt:56
-msgid "Let me know if the goblins found their way inside the abandoned tower."
-msgstr "Lass mich wissen, ob die Goblins ihren Weg in den Verlassenen Turm gefunden haben."
-
-#: ../npcs/martigan.txt:60
+#: ../npcs/martigan.txt:58
 msgid "Rotten Tower Search"
 msgstr "Suche nach dem Fauligen Turm"
 
-#: ../npcs/martigan.txt:63
-msgid "Search for the abandoned tower southwest of the Frontier plains."
-msgstr "Die Suche nach dem Verlassenen Turm südwestlich des Grenzgebiets."
+#: ../npcs/martigan.txt:61
+#, fuzzy
+msgid "Search for the abandoned tower southwest of the Frontier plains. The lands around there are called White Wind."
+msgstr "Suche nach dem Verlassenen Turm südwestlich des Grenzgebiets. Die Gegend da wird Weißer Wind genannt."
 
 #: ../npcs/martigan.txt:64
-msgid "The lands around there are called White Wind."
-msgstr "Die Lande hier werden Weisser Wind genannt."
-
-#: ../npcs/martigan.txt:67
 msgid "Rotten Tower Found"
 msgstr "Fauligen Turm gefunden"
 
-#: ../npcs/martigan.txt:70
-msgid "So there are plenty of goblins in the white winds area, but not near the tower."
+#: ../npcs/martigan.txt:67
+#, fuzzy
+msgid "There are plenty of goblins in the White Winds area, but not near the tower."
 msgstr "Es lungern viele Goblins im Gebiet Weisser Winde herum, aber nicht nahe des Turms."
 
-#: ../npcs/martigan.txt:71
-msgid "Are you sure?"
-msgstr "Bist du sicher?"
+#: ../npcs/martigan.txt:68
+msgid "Are you sure? Did you look inside the tower?"
+msgstr "Bist du dir sicher? Hast du auch in den Turm hineingeschaut?"
 
-#: ../npcs/martigan.txt:72
-msgid "What do you mean? Of course I am!"
-msgstr "Was meinst du? Natürlich bin ich das!"
-
-#: ../npcs/martigan.txt:73
-msgid "Did you look inside the tower? Did you make sure there aren't goblins in there?"
-msgstr "Hast du im Turm nachgesehen? Bist du dir sicher, dass sich dort keine Goblins aufhalten?"
-
-#: ../npcs/martigan.txt:74
+#: ../npcs/martigan.txt:69
 msgid "Well..."
 msgstr "Nun..."
 
-#: ../npcs/martigan.txt:82
-msgid "I looked inside through the locked iron grate door. No goblins!"
+#: ../npcs/martigan.txt:75
+#, fuzzy
+msgid "There are plenty of goblins in the white winds area, but not near the tower."
+msgstr "Es lungern viele Goblins im Gebiet Weisser Winde herum, aber nicht nahe des Turms."
+
+#: ../npcs/martigan.txt:77
+#, fuzzy
+msgid "I saw no signs of goblins through the locked iron grate door."
 msgstr "Ich habe durch das verschlossene, rostige Gittertor gesehen. Keine Goblins!"
 
-#: ../npcs/martigan.txt:84
-msgid "Good! Here goes a little reward!"
-msgstr "Gut! Dann nimm diese kleine Belohnung!"
+#: ../npcs/martigan.txt:79
+#, fuzzy
+msgid "Good! Have this small reward."
+msgstr "Gut! Dann nimm diese kleine Belohnung."
 
-#: ../npcs/martigan.txt:88
+#: ../npcs/martigan.txt:83
 #, fuzzy
 msgid "Mineshaft"
 msgstr "Minenschacht"
 
-#: ../npcs/martigan.txt:91
+#: ../npcs/martigan.txt:86
 msgid "So how's the mining business?"
 msgstr "Na, wie läuft das Grubengeschäft?"
 
-#: ../npcs/martigan.txt:92
+#: ../npcs/martigan.txt:87
 msgid "Not good at all. While I was digging, my pickaxe scraped a skull that was wedged in the rock wall. Before I knew it, the nasty thing started moving and a whole body emerged. Now that thing is in there, preventing any more mining."
 msgstr "Nicht so gut. Als ich am Graben war, schrammte meine Spitzhacke einen Schädel, der in der Steinwand festklemmte. Ehe ich mich versah, bewegte sich dieses scheußliche Ding und ein ganzer Körper kam heraus. Jetzt ist da dieses Ding, dass uns am weiteren Minenabbau hindert."
 
-#: ../npcs/martigan.txt:93
+#: ../npcs/martigan.txt:88
 msgid "Kill that skeleton for me, and I'll make it worth your while."
 msgstr "Töte dieses Skelett für mich und ich werde deine Mühen bezahlen."
 
-#: ../npcs/martigan.txt:101
+#: ../npcs/martigan.txt:96
 msgid "Please take care of that skeleton. Work in the mine can't continue otherwise."
 msgstr "Bitte kümmere dich um dieses Skelett. Die Arbeit in der Mine kann anderenfalls unmöglich weitergehen."
 
-#: ../npcs/martigan.txt:104
+#: ../npcs/martigan.txt:99
 msgid "Skeleton Defeated"
 msgstr "Das Skelett wurde besiegt."
 
-#: ../npcs/martigan.txt:108
+#: ../npcs/martigan.txt:103
 msgid "I've defeated the Reanimated Skeleton."
 msgstr "Ich habe das Wiederbelebte Skelett besiegt."
 
-#: ../npcs/martigan.txt:109
+#: ../npcs/martigan.txt:104
 msgid "Excellent work! As promised, here's a little something for your troubles."
 msgstr "Ausgezeichnete Arbeit! Wie versprochen gebe ich dir eine Kleinigkeit für deine Mühen."
 
@@ -1120,6 +1122,33 @@ msgstr "Grisbon."
 #: ../npcs/statue_guardian_wind.txt:23
 msgid "Welcome, Master Grisbon."
 msgstr "Wilkommen, Meister Grisbon."
+
+#~ msgid "So, there it is. The abandoned tower!"
+#~ msgstr "Da ist er also -- Der Verlassene Turm!"
+
+#~ msgid "Search the rotten tower south west of the frontier plains. Beware of danger!"
+#~ msgstr "Durchforste den fauligen Turm im Süd-Westen des Grenzgebiets. Halte dich vor Gefahren fern!"
+
+#~ msgid "These areas were guarded well. There is yet another outpost tower in the wild."
+#~ msgstr "Diese Gebiete sind gut bewacht. Es gibt sogar einen anderen Turm-Außenposten in der Wildniss."
+
+#~ msgid "These are rough lands and... you're looking for an adventure!"
+#~ msgstr "Dies sind raue Lande und... du sucht wohl nach einem Abenteuer!"
+
+#~ msgid "Let me know if the goblins found their way inside the abandoned tower."
+#~ msgstr "Lass mich wissen, ob die Goblins ihren Weg in den Verlassenen Turm gefunden haben."
+
+#~ msgid "The lands around there are called White Wind."
+#~ msgstr "Die Lande hier werden Weisser Wind genannt."
+
+#~ msgid "Are you sure?"
+#~ msgstr "Bist du sicher?"
+
+#~ msgid "What do you mean? Of course I am!"
+#~ msgstr "Was meinst du? Natürlich bin ich das!"
+
+#~ msgid "Did you look inside the tower? Did you make sure there aren't goblins in there?"
+#~ msgstr "Hast du im Turm nachgesehen? Bist du dir sicher, dass sich dort keine Goblins aufhalten?"
 
 #~ msgid "Looking to buy something?"
 #~ msgstr "Wollt Ihr etwas kaufen?"

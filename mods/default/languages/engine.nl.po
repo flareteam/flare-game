@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.16\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-15 21:44+0100\n"
+"POT-Creation-Date: 2013-03-20 23:59+0100\n"
 "PO-Revision-Date: 2012-08-23 21:23+0200\n"
 "Last-Translator: Bas Doodeman <bas.doodeman@basdoodeman.nl>\n"
 "Language-Team: Dutch; Flemish <>\n"
@@ -40,7 +40,7 @@ msgid "miss"
 msgstr ""
 
 #: ../../../src/Avatar.cpp:784 ../../../src/Enemy.cpp:248
-#: ../../../src/PowerManager.cpp:666 ../../../src/StatBlock.cpp:522
+#: ../../../src/PowerManager.cpp:668 ../../../src/StatBlock.cpp:523
 #, c-format
 msgid "+%d HP"
 msgstr ""
@@ -85,21 +85,21 @@ msgstr ""
 msgid "HP and MP restored, negative effects removed"
 msgstr ""
 
-#: ../../../src/Enemy.cpp:255 ../../../src/StatBlock.cpp:527
+#: ../../../src/Enemy.cpp:255 ../../../src/StatBlock.cpp:528
 #, c-format
 msgid "+%d MP"
 msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:79
-msgid "Ok"
-msgstr "Accepteren"
+#: ../../../src/GameStateConfig.cpp:79 ../../../src/GameStateConfig.cpp:164
+msgid "OK"
+msgstr ""
 
 #: ../../../src/GameStateConfig.cpp:84 ../../../src/GameStateConfig.cpp:163
 msgid "Defaults"
 msgstr "Standaardwaarden"
 
 #: ../../../src/GameStateConfig.cpp:89 ../../../src/GameStateNew.cpp:55
-#: ../../../src/InputState.cpp:59
+#: ../../../src/InputState.cpp:59 ../../../src/MenuNPCActions.cpp:77
 msgid "Cancel"
 msgstr "Annuleren"
 
@@ -136,10 +136,6 @@ msgstr ""
 #, fuzzy
 msgid "Reset ALL settings?"
 msgstr "ALLE instellingen terugzetten op de standaardwaarden?"
-
-#: ../../../src/GameStateConfig.cpp:164
-msgid "OK"
-msgstr ""
 
 #: ../../../src/GameStateConfig.cpp:164
 #, fuzzy
@@ -341,8 +337,8 @@ msgstr "Spel Stoppen"
 
 #: ../../../src/GameStateTitle.cpp:61
 #, fuzzy
-msgid "Flare Alpha v0.17"
-msgstr "Flare Alpha v0.16"
+msgid "Flare Alpha v0.18"
+msgstr "Flare Alpha v0.18"
 
 #: ../../../src/InputState.cpp:60
 msgid "Accept"
@@ -590,7 +586,7 @@ msgstr ""
 msgid "%d %s"
 msgstr "Niveau %d %s"
 
-#: ../../../src/MapRenderer.cpp:1227
+#: ../../../src/MapRenderer.cpp:1225
 msgid "Unknown destination"
 msgstr "Onbekende bestemming"
 
@@ -836,6 +832,10 @@ msgstr "EP: %d/%d"
 msgid "Not enough money."
 msgstr ""
 
+#: ../../../src/MenuNPCActions.cpp:76
+msgid "Trade"
+msgstr "Handelen"
+
 #: ../../../src/MenuPowers.cpp:460
 #, fuzzy
 msgid "Unspent skill points:"
@@ -919,18 +919,21 @@ msgstr ""
 msgid "Vendor"
 msgstr "Verkoper"
 
-#: ../../../src/PowerManager.cpp:659
+#: ../../../src/PowerManager.cpp:661
 #, c-format
 msgid "+%d Shield"
 msgstr ""
 
-#: ../../../src/PowerManager.cpp:901
+#: ../../../src/PowerManager.cpp:903
 msgid "You are already transformed, untransform first."
 msgstr ""
 
 #: ../../../src/Settings.cpp:500
 msgid "Adventurer"
 msgstr "Avonturier"
+
+#~ msgid "Ok"
+#~ msgstr "Accepteren"
 
 #~ msgid "Flare"
 #~ msgstr "Flare"
@@ -946,9 +949,6 @@ msgstr "Avonturier"
 #, fuzzy
 #~ msgid "Stats"
 #~ msgstr "Statistieken"
-
-#~ msgid "Trade"
-#~ msgstr "Handelen"
 
 #~ msgid "Grand Master"
 #~ msgstr "Grootmeester"

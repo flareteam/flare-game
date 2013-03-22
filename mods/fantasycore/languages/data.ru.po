@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flare-game 0.18\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-18 18:21+\n"
+"POT-Creation-Date: 2013-03-21 12:29+\n"
 "PO-Revision-Date: 2013-03-20 00:11+0600\n"
 "Last-Translator: Sergey Basalaev <sbasalaev@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -472,7 +472,8 @@ msgid "Lawman's Sidearm"
 msgstr "Личное оружие судебного исполнителя"
 
 #: ../items/items.txt:943
-msgid "The workmanship on this blade appears hurried"
+#, fuzzy
+msgid "The workmanship on this blade appears hurried, as if forged under the fever of vigilance."
 msgstr "Похоже, это лезвие делалось в спешке"
 
 #: ../items/items.txt:958
@@ -719,377 +720,133 @@ msgstr "Быстрый огонь"
 msgid "Fire five low power missiles in quick succession"
 msgstr "Быстро сделать пять маломощных выстрелов"
 
-#: ../powers/powers.txt:379
-msgid "Ice Shard [enemy]"
-msgstr "Осколок льда [враг]"
-
-#: ../powers/powers.txt:401
-msgid "Fireshot [enemy]"
-msgstr "Огнестрел [враг]"
-
-#: ../powers/powers.txt:422
-msgid "Goblin Spear [enemy]"
-msgstr "Копьё гоблина [враг]"
-
-#: ../powers/powers.txt:425
-msgid "Crude goblin spear toss"
-msgstr "Швырнуть грубое копьё гоблина"
-
-#: ../powers/powers.txt:441
-msgid "Fireburst [enemy]"
-msgstr "Огненный взрыв [враг]"
-
-#: ../powers/powers.txt:444
-msgid "Burn nearby enemies"
-msgstr "Сжечь ближайших врагов"
-
-#: ../powers/powers.txt:462
-msgid "Arrow Shoot [enemy]"
-msgstr "Выстрел стрелой [враг]"
-
-#: ../powers/powers.txt:465
-msgid "Bow shoot"
-msgstr "Выстрел из лука"
-
-#: ../powers/powers.txt:483
-msgid "Maddox's Ice Storm [enemy]"
-msgstr "Ледяной шторм Мэддокса [враг]"
-
-#: ../powers/powers.txt:507
-msgid "Vampiric Strike"
-msgstr "Удар вампира"
-
-#: ../powers/powers.txt:510
-msgid "Turn 50% of damage you deal into HP"
-msgstr "Преобразовать 50% нанесённого вреда в здоровье"
-
-#: ../powers/powers.txt:524
-msgid "Zombie Bite"
-msgstr "Укус зомби"
-
-#: ../powers/powers.txt:527
-msgid "Deal melee damage and cause bleeding for 3 seconds"
-msgstr "Нанести ближний вред т вызвать кровотечение на 3 секунды"
-
-#: ../powers/powers.txt:541
-msgid "Chill Touch"
-msgstr "Хладное касание"
-
-#: ../powers/powers.txt:544
-msgid "Melee strike immobilizes target for 5 seconds"
-msgstr "Ближний удар парализует цель на 5 секунд"
-
-#: ../powers/powers.txt:558
-msgid "Piercing Strike"
-msgstr "Пронзающий удар"
-
-#: ../powers/powers.txt:561
-msgid "Melee strike ignores armor"
-msgstr "Ближний удар игнорирует броню"
-
-#: ../powers/powers.txt:575
-msgid "Explode"
-msgstr "Взрыв"
-
-#: ../powers/powers.txt:578
-msgid "Damage everything nearby"
-msgstr "Нанести вред всему, что находится поблизости"
-
-#: ../powers/powers.txt:598
-msgid "Paralyzing Spit"
-msgstr "Парализующий плевок"
-
-#: ../powers/powers.txt:601
-msgid "Poison spit that stuns the target for 1 second"
-msgstr "Ядовитый плевок, обездвиживающий цель на 1 секунду"
-
-#: ../powers/powers.txt:641
+#: ../powers/powers.txt:639
 msgid "Throw Knife"
 msgstr "Бросок ножа"
 
-#: ../powers/powers.txt:644
+#: ../powers/powers.txt:642
 msgid "Throw a knife to deal 75% of melee weapon damage"
 msgstr "Кинуть нож чтоб нанести 75% урона ближнего оружия"
 
-#: ../powers/powers.txt:660
+#: ../powers/powers.txt:658
 msgid "Throw Axe"
 msgstr "Бросок топора"
 
-#: ../powers/powers.txt:663
+#: ../powers/powers.txt:661
 msgid "Throw an axe to deal 150% of melee weapon damage"
 msgstr "Кинуть топор чтоб нанести 150% урона ближнего оружия"
 
-#: ../powers/powers.txt:679
+#: ../powers/powers.txt:677
 msgid "Caltrops"
 msgstr "Капкан"
 
-#: ../powers/powers.txt:682
+#: ../powers/powers.txt:680
 msgid "This trap deals 75% ranged weapon damage and slows the target."
 msgstr "Эта ловушка наносит 75% урона дальнего оружия и замедляет цель"
 
-#: ../powers/powers.txt:700
+#: ../powers/powers.txt:698
 msgid "Bear Trap"
 msgstr "Медвежий капкан"
 
-#: ../powers/powers.txt:703
+#: ../powers/powers.txt:701
 msgid "This trap deals 150% ranged weapon damage and immobilizes the target."
 msgstr "Эта ловушка наносит 150% урона дальнего оружия и обездвиживает цель"
 
-#: ../powers/powers.txt:758
+#: ../powers/powers.txt:756
 msgid "Melee Fire"
 msgstr "Ближний огонь"
 
-#: ../powers/powers.txt:767
+#: ../powers/powers.txt:765
 msgid "Melee Ice"
 msgstr "Ближний лёд"
 
-#: ../powers/powers.txt:776
+#: ../powers/powers.txt:774
 msgid "Slingshot Shoot"
 msgstr "Выстрел из пращи"
 
-#: ../powers/powers.txt:779
+#: ../powers/powers.txt:777
 msgid "Basic ranged attack (requires a ranged weapon)"
 msgstr "Базовая дальняя атака (требуется дальнее оружие)"
 
-#: ../powers/powers.txt:795
+#: ../powers/powers.txt:793
 msgid "Arrow Shoot"
 msgstr "Выстрел стрелой"
 
-#: ../powers/powers.txt:815
+#: ../powers/powers.txt:813
 msgid "Fire Ammo"
 msgstr "Огненный заряд"
 
-#: ../powers/powers.txt:835
+#: ../powers/powers.txt:833
 msgid "Ice Ammo"
 msgstr "Ледяной заряд"
 
-#: ../powers/powers.txt:855
+#: ../powers/powers.txt:853
 msgid "Arrow Wall Strike"
 msgstr "Выстрел стрелой из стены"
 
-#: ../powers/powers.txt:867
+#: ../powers/powers.txt:865
 msgid "Orange Spark"
 msgstr "Оранжевая искра"
 
-#: ../powers/powers.txt:879
+#: ../powers/powers.txt:877
 msgid "Blue Spark"
 msgstr "Синяя искра"
 
-#: ../powers/powers.txt:891
+#: ../powers/powers.txt:889
 msgid "Red Spark"
 msgstr "Красная искра"
 
-#: ../powers/powers.txt:903
-msgid "Necrotic Bolt"
-msgstr "Мертвящий разряд"
-
-#: ../powers/powers.txt:922
+#: ../powers/powers.txt:920
 msgid "Scroll of Teleport"
 msgstr "Свиток телепорта"
 
-#: ../powers/powers.txt:942
+#: ../powers/powers.txt:940
 msgid "Scroll of Time Stop"
 msgstr "Свиток остановки времени"
 
-#: ../powers/powers.txt:945
+#: ../powers/powers.txt:943
 msgid "Stun nearby enemies for 10 seconds"
 msgstr "Парализовать близких врагов на 10 секунд"
 
-#: ../powers/powers.txt:958
+#: ../powers/powers.txt:956
 msgid "Scroll of Haste"
 msgstr "Свиток ускорения"
 
-#: ../powers/powers.txt:960
+#: ../powers/powers.txt:958
 msgid "Double run and attack speed for 20 seconds"
 msgstr "Удвоить скорость бега и атаки на 20 секунд"
 
-#: ../powers/powers.txt:970
-msgid "Enemy Beacon"
-msgstr "Маяк врага"
-
-#: ../powers/powers.txt:971
-msgid "Bring other enemies into the fight with a dummy attack"
-msgstr "Привести других врагов в битву с пустой атакой"
-
-#: ../powers/powers.txt:983
-msgid "Summon Antlion"
-msgstr "Призвать муравьиного льва"
-
-#: ../powers/powers.txt:993
-msgid "Summon Antlion Hatchling"
-msgstr "Призвать детёныша муравьиного льва"
-
-#: ../powers/powers.txt:1003
-msgid "Transform into Antlion Freezer"
-msgstr "Превратиться в морозного муравьиного льва"
-
-#: ../powers/powers.txt:1009
-msgid "Transform into Antlion Freezer for 5 seconds"
-msgstr "Превратиться в морозного муравьиного льва на 5 секунд"
-
-#: ../powers/powers.txt:1016
+#: ../powers/powers.txt:1014
 msgid "Revert Form"
 msgstr "Вернуть форму"
 
-#: ../powers/powers.txt:1021
+#: ../powers/powers.txt:1019
 msgid "Transform back to human"
 msgstr "Превратиться обратно в человека"
 
-#: ../powers/powers.txt:1025
-msgid "Summon Rotting Zombie"
-msgstr "Призвать гниющего зомби"
-
-#: ../powers/powers.txt:1035
-msgid "Transform into Antlion Freezer permanently"
-msgstr "Превратиться в морозного муравьиного льва насовсем"
-
-#: ../powers/powers.txt:1048
+#: ../powers/powers.txt:1046
 msgid "Disenchant [item]"
 msgstr "Расколдовать [предмет]"
 
-#: ../powers/powers.txt:1059
+#: ../powers/powers.txt:1057
 msgid "Æther Walkers"
 msgstr "Эфирные скороходы"
 
-#: ../powers/powers.txt:1081
+#: ../powers/powers.txt:1079
 msgid "Stealth"
 msgstr "Скрытность"
 
-#: ../powers/powers.txt:1087
+#: ../powers/powers.txt:1085
 msgid "Move undetected with the opportunity to perform a sneak attack"
 msgstr "Возможность двигаться незамеченным и провести скрытную атаку"
 
-#: ../powers/powers.txt:1096
+#: ../powers/powers.txt:1094
 msgid "Sneak Attack"
 msgstr "Скрытная атака"
 
-#: ../powers/powers.txt:1099
+#: ../powers/powers.txt:1097
 msgid "Melee attack while stealthed for a high chance to crit"
 msgstr "Ближняя атака при невидимости с высоким шансом критического удара"
-
-#: ../powers/powers.txt:1125
-msgid "Spike Ray"
-msgstr "Полоса шипов"
-
-#: ../powers/powers.txt:1128
-msgid "Create a ray of deadly spikes"
-msgstr "Создать полосу смертельных шипов"
-
-#: ../powers/powers.txt:1146
-msgid "Spikes"
-msgstr "Шипы"
-
-#: ../powers/powers.txt:1148
-msgid "Spikes Trap"
-msgstr "Ловушка с шипами"
-
-#: ../powers/powers.txt:1163
-msgid "Revive upon death"
-msgstr "Ожить после смерти"
-
-#: ../powers/powers.txt:1172
-msgid "Bleeding"
-msgstr "Кровотечение"
-
-#: ../powers/powers.txt:1180
-msgid "Immobilized"
-msgstr "Обездвижить"
-
-#: ../powers/powers.txt:1187
-msgid "Slowed"
-msgstr "Замедленный"
-
-#: ../powers/powers.txt:1194
-msgid "Stunned"
-msgstr "Оглушенный"
-
-#: ../powers/powers.txt:1201
-msgid "HP (bonus)"
-msgstr "Здоровье (бонус)"
-
-#: ../powers/powers.txt:1209
-msgid "HP Regen (bonus)"
-msgstr "Восстановление здоровья (бонус)"
-
-#: ../powers/powers.txt:1217
-msgid "MP (bonus)"
-msgstr "Мана (бонус)"
-
-#: ../powers/powers.txt:1225
-msgid "MP Regen (bonus)"
-msgstr "Восстановление маны (бонус)"
-
-#: ../powers/powers.txt:1233
-msgid "Accuracy (bonus)"
-msgstr "Точность (бонус)"
-
-#: ../powers/powers.txt:1241
-msgid "Avoidance (bonus)"
-msgstr "Уклонение (бонус)"
-
-#: ../powers/powers.txt:1249
-msgid "Crit (bonus)"
-msgstr "Крит (бонус)"
-
-#: ../powers/powers.txt:1257
-msgid "Speed (bonus)"
-msgstr "Скорость (бонус)"
-
-#: ../powers/powers.txt:1264
-msgid "Offense (bonus)"
-msgstr "Атака (бонус)"
-
-#: ../powers/powers.txt:1272
-msgid "Defense (bonus)"
-msgstr "Защита (бонус)"
-
-#: ../powers/powers.txt:1280
-msgid "Physical (bonus)"
-msgstr "Физическое (бонус)"
-
-#: ../powers/powers.txt:1288
-msgid "Mental (bonus)"
-msgstr "Ментальное (бонус)"
-
-#: ../powers/powers.txt:1296
-msgid "XP(bonus)"
-msgstr "Опыт (бонус)"
-
-#: ../powers/powers.txt:1304
-msgid "Gold (bonus)"
-msgstr "Золото (бонус)"
-
-#: ../powers/powers.txt:1312
-msgid "Fire Resistance (bonus)"
-msgstr "Сопротивление огню (бонус)"
-
-#: ../powers/powers.txt:1320
-msgid "Ice Resistance (bonus)"
-msgstr "Сопротивление льду (бонус)"
-
-#: ../powers/powers.txt:1328
-msgid "Immunity"
-msgstr "Иммунитет"
-
-#: ../powers/powers.txt:1358
-msgid "HP over time"
-msgstr "Жизнь за время"
-
-#: ../powers/powers.txt:1364
-msgid "MP over time"
-msgstr "Мана за время"
-
-#: ../powers/powers.txt:1370
-msgid "Item find (bonus)"
-msgstr "Поиск предметов (бонус)"
-
-#: ../powers/powers.txt:1378
-msgid "Stealth (bonus)"
-msgstr "Скрытность (бонус)"
-
-#: ../powers/powers.txt:1386
-msgid "Revive"
-msgstr "Оживить"
 
 #: ../engine/elements.txt:3
 msgid "fire"
@@ -1151,121 +908,304 @@ msgstr "Бродяга"
 msgid "Wanderers choose their own paths. Primary attribute: custom"
 msgstr "Бродяги выбирают свой собственный путь. Основной атрибут: на выбор"
 
-#: ..\enemies\antlion.txt:1
+#: ../enemies/antlion.txt:1
 msgid "Antlion"
 msgstr "Муравьиный лев"
 
-#: ..\enemies\antlion_blinker.txt:1
+#: ../enemies/antlion_blinker.txt:1
 msgid "Antlion Blinker"
 msgstr "Ослепляющий муравьиный лев"
 
-#: ..\enemies\antlion_burster.txt:1
+#: ../enemies/antlion_burster.txt:1
 msgid "Antlion Burster"
 msgstr "Взрывающийся муравьиный лев"
 
-#: ..\enemies\antlion_freezer.txt:1
+#: ../enemies/antlion_freezer.txt:1
 msgid "Antlion Freezer"
 msgstr "Морозный муравьиный лев"
 
-#: ..\enemies\antlion_hatchling.txt:1
+#: ../enemies/antlion_hatchling.txt:1
 msgid "Antlion Hatchling"
 msgstr "Детёныш муравьиного льва"
 
-#: ..\enemies\antlion_slasher.txt:1
+#: ../enemies/antlion_slasher.txt:1
 msgid "Antlion Slasher"
 msgstr "Драчливый муравьиный лев"
 
-#: ..\enemies\antlion_spitter.txt:1
+#: ../enemies/antlion_spitter.txt:1
 msgid "Antlion Spitter"
 msgstr "Плюющийся муравьиный лев"
 
-#: ..\enemies\cursed_grave.txt:1
+#: ../enemies/cursed_grave.txt:1
 msgid "Cursed Grave"
 msgstr "Проклятая могила"
 
-#: ..\enemies\goblin.txt:1
+#: ../enemies/goblin.txt:1
 msgid "Goblin"
 msgstr "Гоблин"
 
-#: ..\enemies\goblin_charger.txt:1
+#: ../enemies/goblin_charger.txt:1
 msgid "Goblin Charger"
 msgstr "Нападающий гоблинов"
 
-#: ..\enemies\goblin_charger_elite.txt:1
+#: ../enemies/goblin_charger_elite.txt:1
 msgid "Goblin Charger Elite"
 msgstr "Элитный нападающий гоблинов"
 
-#: ..\enemies\goblin_shaman.txt:1
+#: ../enemies/goblin_shaman.txt:1
 msgid "Goblin Shaman"
 msgstr "Гоблин шаман"
 
-#: ..\enemies\goblin_spearman.txt:1
+#: ../enemies/goblin_spearman.txt:1
 msgid "Goblin Spearman"
 msgstr "Копейщик гоблинов"
 
-#: ..\enemies\goblin_spearman_elite.txt:1
+#: ../enemies/goblin_spearman_elite.txt:1
 msgid "Goblin Spearman Elite"
 msgstr "Элитный копейщик гоблинов"
 
-#: ..\enemies\minotaur.txt:1
+#: ../enemies/minotaur.txt:1
 msgid "Minotaur"
 msgstr "Минотавр"
 
-#: ..\enemies\skeletal_archer.txt:1
+#: ../enemies/skeletal_archer.txt:1
 msgid "Skeletal Archer"
 msgstr "Скелет лучник"
 
-#: ..\enemies\skeletal_knight.txt:1
+#: ../enemies/skeletal_knight.txt:1
 msgid "Skeletal Knight"
 msgstr "Скелет рыцарь"
 
-#: ..\enemies\skeletal_mage.txt:1
+#: ../enemies/skeletal_mage.txt:1
 msgid "Skeletal Mage"
 msgstr "Скелет маг"
 
-#: ..\enemies\skeletal_occultist.txt:1
+#: ../enemies/skeletal_occultist.txt:1
 msgid "Skeletal Occultist"
 msgstr "Скелет оккультист"
 
-#: ..\enemies\skeletal_sniper.txt:1
+#: ../enemies/skeletal_sniper.txt:1
 msgid "Skeletal Sniper"
 msgstr "Скелет снайпер"
 
-#: ..\enemies\skeletal_warrior.txt:1
+#: ../enemies/skeletal_warrior.txt:1
 msgid "Skeletal Warrior"
 msgstr "Скелет воин"
 
-#: ..\enemies\skeleton.txt:1
+#: ../enemies/skeleton.txt:1
 msgid "Skeleton"
 msgstr "Скелет"
 
-#: ..\enemies\wyvern.txt:1
+#: ../enemies/wyvern.txt:1
 msgid "Venom Wyvern"
 msgstr "Ядовитый виверн"
 
-#: ..\enemies\wyvern_adult.txt:1
+#: ../enemies/wyvern_adult.txt:1
 msgid "Adult Wyvern"
 msgstr "Взрослый виверн"
 
-#: ..\enemies\zombie.txt:1
+#: ../enemies/zombie.txt:1
 msgid "Zombie"
 msgstr "Зомби"
 
-#: ..\enemies\zombie_bloodthirsty.txt:1
+#: ../enemies/zombie_bloodthirsty.txt:1
 msgid "Bloodthirsty Zombie"
 msgstr "Кровожадный зомби"
 
-#: ..\enemies\zombie_brute.txt:1
+#: ../enemies/zombie_brute.txt:1
 msgid "Zombie Brute"
 msgstr "Брутальный зомби"
 
-#: ..\enemies\zombie_iceclaw.txt:1
+#: ../enemies/zombie_iceclaw.txt:1
 msgid "Iceclaw Zombie"
 msgstr "Леденящий зомби"
 
-#: ..\enemies\zombie_rotting.txt:1
+#: ../enemies/zombie_rotting.txt:1
 msgid "Rotting Zombie"
 msgstr "Гниющий зомби"
+
+#~ msgid "Ice Shard [enemy]"
+#~ msgstr "Осколок льда [враг]"
+
+#~ msgid "Fireshot [enemy]"
+#~ msgstr "Огнестрел [враг]"
+
+#~ msgid "Goblin Spear [enemy]"
+#~ msgstr "Копьё гоблина [враг]"
+
+#~ msgid "Crude goblin spear toss"
+#~ msgstr "Швырнуть грубое копьё гоблина"
+
+#~ msgid "Fireburst [enemy]"
+#~ msgstr "Огненный взрыв [враг]"
+
+#~ msgid "Burn nearby enemies"
+#~ msgstr "Сжечь ближайших врагов"
+
+#~ msgid "Arrow Shoot [enemy]"
+#~ msgstr "Выстрел стрелой [враг]"
+
+#~ msgid "Bow shoot"
+#~ msgstr "Выстрел из лука"
+
+#~ msgid "Maddox's Ice Storm [enemy]"
+#~ msgstr "Ледяной шторм Мэддокса [враг]"
+
+#~ msgid "Vampiric Strike"
+#~ msgstr "Удар вампира"
+
+#~ msgid "Turn 50% of damage you deal into HP"
+#~ msgstr "Преобразовать 50% нанесённого вреда в здоровье"
+
+#~ msgid "Zombie Bite"
+#~ msgstr "Укус зомби"
+
+#~ msgid "Deal melee damage and cause bleeding for 3 seconds"
+#~ msgstr "Нанести ближний вред т вызвать кровотечение на 3 секунды"
+
+#~ msgid "Chill Touch"
+#~ msgstr "Хладное касание"
+
+#~ msgid "Melee strike immobilizes target for 5 seconds"
+#~ msgstr "Ближний удар парализует цель на 5 секунд"
+
+#~ msgid "Piercing Strike"
+#~ msgstr "Пронзающий удар"
+
+#~ msgid "Melee strike ignores armor"
+#~ msgstr "Ближний удар игнорирует броню"
+
+#~ msgid "Explode"
+#~ msgstr "Взрыв"
+
+#~ msgid "Damage everything nearby"
+#~ msgstr "Нанести вред всему, что находится поблизости"
+
+#~ msgid "Paralyzing Spit"
+#~ msgstr "Парализующий плевок"
+
+#~ msgid "Poison spit that stuns the target for 1 second"
+#~ msgstr "Ядовитый плевок, обездвиживающий цель на 1 секунду"
+
+#~ msgid "Necrotic Bolt"
+#~ msgstr "Мертвящий разряд"
+
+#~ msgid "Enemy Beacon"
+#~ msgstr "Маяк врага"
+
+#~ msgid "Bring other enemies into the fight with a dummy attack"
+#~ msgstr "Привести других врагов в битву с пустой атакой"
+
+#~ msgid "Summon Antlion"
+#~ msgstr "Призвать муравьиного льва"
+
+#~ msgid "Summon Antlion Hatchling"
+#~ msgstr "Призвать детёныша муравьиного льва"
+
+#~ msgid "Transform into Antlion Freezer"
+#~ msgstr "Превратиться в морозного муравьиного льва"
+
+#~ msgid "Transform into Antlion Freezer for 5 seconds"
+#~ msgstr "Превратиться в морозного муравьиного льва на 5 секунд"
+
+#~ msgid "Summon Rotting Zombie"
+#~ msgstr "Призвать гниющего зомби"
+
+#~ msgid "Transform into Antlion Freezer permanently"
+#~ msgstr "Превратиться в морозного муравьиного льва насовсем"
+
+#~ msgid "Spike Ray"
+#~ msgstr "Полоса шипов"
+
+#~ msgid "Create a ray of deadly spikes"
+#~ msgstr "Создать полосу смертельных шипов"
+
+#~ msgid "Spikes"
+#~ msgstr "Шипы"
+
+#~ msgid "Spikes Trap"
+#~ msgstr "Ловушка с шипами"
+
+#~ msgid "Revive upon death"
+#~ msgstr "Ожить после смерти"
+
+#~ msgid "Bleeding"
+#~ msgstr "Кровотечение"
+
+#~ msgid "Immobilized"
+#~ msgstr "Обездвижить"
+
+#~ msgid "Slowed"
+#~ msgstr "Замедленный"
+
+#~ msgid "Stunned"
+#~ msgstr "Оглушенный"
+
+#~ msgid "HP (bonus)"
+#~ msgstr "Здоровье (бонус)"
+
+#~ msgid "HP Regen (bonus)"
+#~ msgstr "Восстановление здоровья (бонус)"
+
+#~ msgid "MP (bonus)"
+#~ msgstr "Мана (бонус)"
+
+#~ msgid "MP Regen (bonus)"
+#~ msgstr "Восстановление маны (бонус)"
+
+#~ msgid "Accuracy (bonus)"
+#~ msgstr "Точность (бонус)"
+
+#~ msgid "Avoidance (bonus)"
+#~ msgstr "Уклонение (бонус)"
+
+#~ msgid "Crit (bonus)"
+#~ msgstr "Крит (бонус)"
+
+#~ msgid "Speed (bonus)"
+#~ msgstr "Скорость (бонус)"
+
+#~ msgid "Offense (bonus)"
+#~ msgstr "Атака (бонус)"
+
+#~ msgid "Defense (bonus)"
+#~ msgstr "Защита (бонус)"
+
+#~ msgid "Physical (bonus)"
+#~ msgstr "Физическое (бонус)"
+
+#~ msgid "Mental (bonus)"
+#~ msgstr "Ментальное (бонус)"
+
+#~ msgid "XP(bonus)"
+#~ msgstr "Опыт (бонус)"
+
+#~ msgid "Gold (bonus)"
+#~ msgstr "Золото (бонус)"
+
+#~ msgid "Fire Resistance (bonus)"
+#~ msgstr "Сопротивление огню (бонус)"
+
+#~ msgid "Ice Resistance (bonus)"
+#~ msgstr "Сопротивление льду (бонус)"
+
+#~ msgid "Immunity"
+#~ msgstr "Иммунитет"
+
+#~ msgid "HP over time"
+#~ msgstr "Жизнь за время"
+
+#~ msgid "MP over time"
+#~ msgstr "Мана за время"
+
+#~ msgid "Item find (bonus)"
+#~ msgstr "Поиск предметов (бонус)"
+
+#~ msgid "Stealth (bonus)"
+#~ msgstr "Скрытность (бонус)"
+
+#~ msgid "Revive"
+#~ msgstr "Оживить"
 
 #~ msgid "Leech Strike"
 #~ msgstr "Высасывающий удар"

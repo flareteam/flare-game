@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.18\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-19 14:43+0100\n"
+"POT-Creation-Date: 2013-03-20 23:59+0100\n"
 "PO-Revision-Date: 2012-09-25 16:57+0200\n"
 "Last-Translator: Stefan Beller\n"
 "Language-Team: \n"
@@ -91,9 +91,9 @@ msgstr "TP und MP wiederhergestellt, negative Eigenschaften entfernt."
 msgid "+%d MP"
 msgstr "+%d MP"
 
-#: ../../../src/GameStateConfig.cpp:79
-msgid "Ok"
-msgstr "Annehmen"
+#: ../../../src/GameStateConfig.cpp:79 ../../../src/GameStateConfig.cpp:164
+msgid "OK"
+msgstr "OK"
 
 #: ../../../src/GameStateConfig.cpp:84 ../../../src/GameStateConfig.cpp:163
 msgid "Defaults"
@@ -136,10 +136,6 @@ msgstr "Zuweisen: "
 #: ../../../src/GameStateConfig.cpp:163
 msgid "Reset ALL settings?"
 msgstr "ALLE Einstellungen zurücksetzen?"
-
-#: ../../../src/GameStateConfig.cpp:164
-msgid "OK"
-msgstr "OK"
 
 #: ../../../src/GameStateConfig.cpp:164
 msgid "Use this resolution?"
@@ -334,8 +330,9 @@ msgid "Exit Game"
 msgstr "Beenden"
 
 #: ../../../src/GameStateTitle.cpp:61
-msgid "Flare Alpha v0.17"
-msgstr "Flare Alpha v0.17"
+#, fuzzy
+msgid "Flare Alpha v0.18"
+msgstr "Flare Alpha v0.18"
 
 #: ../../../src/InputState.cpp:60
 msgid "Accept"
@@ -436,15 +433,15 @@ msgstr "Löschen"
 
 #: ../../../src/InputState.cpp:85
 msgid "lmb"
-msgstr "Linke Maustaste"
+msgstr "lmt"
 
 #: ../../../src/InputState.cpp:86
 msgid "mmb"
-msgstr "Mittlere Maustaste"
+msgstr "mmt"
 
 #: ../../../src/InputState.cpp:87
 msgid "rmb"
-msgstr "Rechte Maustaste"
+msgstr "rmt"
 
 #: ../../../src/InputState.cpp:88
 msgid "wheel up"
@@ -721,13 +718,13 @@ msgid "Increases the XP gained per kill"
 msgstr "Erhöht die erhaltenen EP pro getötetem Gegner"
 
 #: ../../../src/MenuCharacter.cpp:400
-#, fuzzy, c-format
+#, c-format
 msgid "Increases the %s found per drop"
-msgstr "Erhöht %s um %d"
+msgstr "Erhöhte Chance auf %s"
 
 #: ../../../src/MenuCharacter.cpp:405
 msgid "Bonus Item Find: "
-msgstr "Erhöhte Wahrscheinlichkeit um Gegenstände zu finden: "
+msgstr "Zusatzchance für Gegenstände: "
 
 #: ../../../src/MenuCharacter.cpp:406
 msgid "Increases the chance that an enemy will drop an item when killed"
@@ -792,11 +789,11 @@ msgstr "Speichern und zum Hauptmenü?"
 
 #: ../../../src/MenuInventory.cpp:210
 msgid "Use SHIFT to move only one item."
-msgstr "Halte SHIFT gedrückt, um nur einen Gegenstand zu nehmen."
+msgstr "Halte Shift gedrückt, um nur einen Gegenstand zu nehmen."
 
 #: ../../../src/MenuInventory.cpp:211
 msgid "CTRL-click a carried item to sell it."
-msgstr "Halte STRG gedrückt und klicke auf einen deiner Gegenstände, um ihn zu verkaufen."
+msgstr "Halte Strg gedrückt und klicke auf einen deiner Gegenstände, um ihn zu verkaufen."
 
 #: ../../../src/MenuInventory.cpp:415
 msgid "This item can only be used from the action bar."
@@ -918,6 +915,9 @@ msgstr "Du bist bereits verwandelt, beende die Verwandlung zunächst."
 #: ../../../src/Settings.cpp:500
 msgid "Adventurer"
 msgstr "Abenteurer"
+
+#~ msgid "Ok"
+#~ msgstr "Annehmen"
 
 #~ msgid "Flare"
 #~ msgstr "Flare"

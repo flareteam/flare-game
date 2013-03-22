@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.17\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-15 21:45+0100\n"
+"POT-Creation-Date: 2013-03-20 23:59+0100\n"
 "PO-Revision-Date: 2012-09-23 21:57+0300\n"
 "Last-Translator: Timo Sievänen <thematic@helsinkilainen.com>\n"
 "Language-Team: \n"
@@ -38,7 +38,7 @@ msgid "miss"
 msgstr "ohi"
 
 #: ../../../src/Avatar.cpp:784 ../../../src/Enemy.cpp:248
-#: ../../../src/PowerManager.cpp:666 ../../../src/StatBlock.cpp:522
+#: ../../../src/PowerManager.cpp:668 ../../../src/StatBlock.cpp:523
 #, c-format
 msgid "+%d HP"
 msgstr "+%d OP"
@@ -83,21 +83,21 @@ msgstr "Haitalliset vaikutukset poistuneet."
 msgid "HP and MP restored, negative effects removed"
 msgstr "OP ja MP palautuneet ja haitalliset vaikutukset poistuneet."
 
-#: ../../../src/Enemy.cpp:255 ../../../src/StatBlock.cpp:527
+#: ../../../src/Enemy.cpp:255 ../../../src/StatBlock.cpp:528
 #, c-format
 msgid "+%d MP"
 msgstr "+%d MP"
 
-#: ../../../src/GameStateConfig.cpp:79
-msgid "Ok"
-msgstr "Ok"
+#: ../../../src/GameStateConfig.cpp:79 ../../../src/GameStateConfig.cpp:164
+msgid "OK"
+msgstr ""
 
 #: ../../../src/GameStateConfig.cpp:84 ../../../src/GameStateConfig.cpp:163
 msgid "Defaults"
 msgstr "Oletukset"
 
 #: ../../../src/GameStateConfig.cpp:89 ../../../src/GameStateNew.cpp:55
-#: ../../../src/InputState.cpp:59
+#: ../../../src/InputState.cpp:59 ../../../src/MenuNPCActions.cpp:77
 msgid "Cancel"
 msgstr "Peru"
 
@@ -133,10 +133,6 @@ msgstr "Valinta: "
 #: ../../../src/GameStateConfig.cpp:163
 msgid "Reset ALL settings?"
 msgstr "Palauta KAIKKI asetukset?"
-
-#: ../../../src/GameStateConfig.cpp:164
-msgid "OK"
-msgstr ""
 
 #: ../../../src/GameStateConfig.cpp:164
 #, fuzzy
@@ -332,8 +328,9 @@ msgid "Exit Game"
 msgstr "Lopeta peli"
 
 #: ../../../src/GameStateTitle.cpp:61
-msgid "Flare Alpha v0.17"
-msgstr "Flare Alpha v0.17"
+#, fuzzy
+msgid "Flare Alpha v0.18"
+msgstr "Flare Alpha v0.18"
 
 #: ../../../src/InputState.cpp:60
 msgid "Accept"
@@ -578,7 +575,7 @@ msgstr "%d esinettä: "
 msgid "%d %s"
 msgstr ""
 
-#: ../../../src/MapRenderer.cpp:1227
+#: ../../../src/MapRenderer.cpp:1225
 msgid "Unknown destination"
 msgstr "Tuntematon määränpää"
 
@@ -818,6 +815,10 @@ msgstr "Kokemus: %d/%d"
 msgid "Not enough money."
 msgstr "Rahat eivät riitä."
 
+#: ../../../src/MenuNPCActions.cpp:76
+msgid "Trade"
+msgstr "Kaupankäynti"
+
 #: ../../../src/MenuPowers.cpp:460
 #, fuzzy
 msgid "Unspent skill points:"
@@ -901,18 +902,21 @@ msgstr "Myy?"
 msgid "Vendor"
 msgstr "Kauppias"
 
-#: ../../../src/PowerManager.cpp:659
+#: ../../../src/PowerManager.cpp:661
 #, c-format
 msgid "+%d Shield"
 msgstr "+%d kilpi"
 
-#: ../../../src/PowerManager.cpp:901
+#: ../../../src/PowerManager.cpp:903
 msgid "You are already transformed, untransform first."
 msgstr "Olet jo muuntunut, palaa ensin entisellesi."
 
 #: ../../../src/Settings.cpp:500
 msgid "Adventurer"
 msgstr "Seikkailija"
+
+#~ msgid "Ok"
+#~ msgstr "Ok"
 
 #~ msgid "Flare"
 #~ msgstr "Flare"
@@ -925,9 +929,6 @@ msgstr "Seikkailija"
 
 #~ msgid "Stats"
 #~ msgstr "Tilastot"
-
-#~ msgid "Trade"
-#~ msgstr "Kaupankäynti"
 
 #~ msgid "Grand Master"
 #~ msgstr "Suurmestari"

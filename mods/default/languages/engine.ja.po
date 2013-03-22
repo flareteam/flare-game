@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.17\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-15 21:45+0100\n"
+"POT-Creation-Date: 2013-03-21 17:26+0100\n"
 "PO-Revision-Date: 2013-03-21 11:18+0900\n"
 "Last-Translator: Paul Wortmann <paul.wortmann@gmail.com>\n"
 "Language-Team: Paul Wortmann <www.physhexgames.co.nr>\n"
@@ -32,16 +32,14 @@ msgstr "あなたは敗北している。ゲームオーバー！ Enterキーを
 #: ../../../src/Avatar.cpp:643
 #, c-format
 msgid "You are defeated.  You lose half your %s.  Press Enter to continue."
-msgstr ""
-"あなたは敗北している。あなたは半分自分の%sを失う。 Enterキーを押して続行しま"
-"す。"
+msgstr "あなたは敗北している。あなたは半分自分の%sを失う。 Enterキーを押して続行します。"
 
 #: ../../../src/Avatar.cpp:711 ../../../src/Enemy.cpp:172
 msgid "miss"
 msgstr "ミス"
 
 #: ../../../src/Avatar.cpp:784 ../../../src/Enemy.cpp:248
-#: ../../../src/PowerManager.cpp:666 ../../../src/StatBlock.cpp:522
+#: ../../../src/PowerManager.cpp:668 ../../../src/StatBlock.cpp:523
 #, c-format
 msgid "+%d HP"
 msgstr "+%d HP"
@@ -86,13 +84,13 @@ msgstr "負の影響は排除"
 msgid "HP and MP restored, negative effects removed"
 msgstr "HPとMP復元、削除の負の効果"
 
-#: ../../../src/Enemy.cpp:255 ../../../src/StatBlock.cpp:527
+#: ../../../src/Enemy.cpp:255 ../../../src/StatBlock.cpp:528
 #, c-format
 msgid "+%d MP"
 msgstr "+%d MP"
 
-#: ../../../src/GameStateConfig.cpp:79
-msgid "Ok"
+#: ../../../src/GameStateConfig.cpp:79 ../../../src/GameStateConfig.cpp:164
+msgid "OK"
 msgstr "オーケ"
 
 #: ../../../src/GameStateConfig.cpp:84 ../../../src/GameStateConfig.cpp:163
@@ -100,7 +98,7 @@ msgid "Defaults"
 msgstr "デフォルト"
 
 #: ../../../src/GameStateConfig.cpp:89 ../../../src/GameStateNew.cpp:55
-#: ../../../src/InputState.cpp:59
+#: ../../../src/InputState.cpp:59 ../../../src/MenuNPCActions.cpp:77
 msgid "Cancel"
 msgstr "キャンセル"
 
@@ -136,10 +134,6 @@ msgstr "割り当てる："
 #: ../../../src/GameStateConfig.cpp:163
 msgid "Reset ALL settings?"
 msgstr "すべての設定をリセット?"
-
-#: ../../../src/GameStateConfig.cpp:164
-msgid "OK"
-msgstr "オーケ"
 
 #: ../../../src/GameStateConfig.cpp:164
 msgid "Use this resolution?"
@@ -333,8 +327,8 @@ msgid "Exit Game"
 msgstr "ゲームを終了します"
 
 #: ../../../src/GameStateTitle.cpp:61
-msgid "Flare Alpha v0.17"
-msgstr "フレア 0.17 (アルファ)"
+msgid "Flare Alpha v0.18"
+msgstr "フレア 0.18 (アルファ)"
 
 #: ../../../src/InputState.cpp:60
 msgid "Accept"
@@ -579,7 +573,7 @@ msgstr "%d アイテム:"
 msgid "%d %s"
 msgstr "%d %s"
 
-#: ../../../src/MapRenderer.cpp:1227
+#: ../../../src/MapRenderer.cpp:1225
 msgid "Unknown destination"
 msgstr "未知の目的地"
 
@@ -642,12 +636,8 @@ msgstr "HP再生"
 
 #: ../../../src/MenuCharacter.cpp:312
 #, c-format
-msgid ""
-"Ticks of HP regen per minute. Each point of Physical grants +%d HP regen. "
-"Each level grants +%d HP regen"
-msgstr ""
-"分当たりHP自然回復。物理的な助成金の各点は、+％dのHP自然回復。各レベルの権限"
-"付与+％dは、HP自然回復"
+msgid "Ticks of HP regen per minute. Each point of Physical grants +%d HP regen. Each level grants +%d HP regen"
+msgstr "分当たりHP自然回復。物理的な助成金の各点は、+％dのHP自然回復。各レベルの権限付与+％dは、HP自然回復"
 
 #: ../../../src/MenuCharacter.cpp:317
 msgid "Max MP:"
@@ -664,12 +654,8 @@ msgstr "MP再生"
 
 #: ../../../src/MenuCharacter.cpp:324
 #, c-format
-msgid ""
-"Ticks of MP regen per minute. Each point of Mental grants +%d MP regen. Each "
-"level grants +%d MP regen"
-msgstr ""
-"毎分MP自然回復。精神的な助成金の各点は、+%d個のMP自然回復。各レベルの権限付与"
-"+%dのMP自然回復"
+msgid "Ticks of MP regen per minute. Each point of Mental grants +%d MP regen. Each level grants +%d MP regen"
+msgstr "毎分MP自然回復。精神的な助成金の各点は、+%d個のMP自然回復。各レベルの権限付与+%dのMP自然回復"
 
 #: ../../../src/MenuCharacter.cpp:329
 msgid "Accuracy:"
@@ -677,8 +663,7 @@ msgstr "精度："
 
 #: ../../../src/MenuCharacter.cpp:330
 #, c-format
-msgid ""
-"Each point of Offense grants +%d accuracy. Each level grants +%d accuracy"
+msgid "Each point of Offense grants +%d accuracy. Each level grants +%d accuracy"
 msgstr "犯罪の助成金の各点は、+％d個の精度。各レベルは+％dの精度を付与"
 
 #: ../../../src/MenuCharacter.cpp:335
@@ -687,8 +672,7 @@ msgstr "回避："
 
 #: ../../../src/MenuCharacter.cpp:336
 #, c-format
-msgid ""
-"Each point of Defense grants +%d avoidance. Each level grants +%d avoidance"
+msgid "Each point of Defense grants +%d avoidance. Each level grants +%d avoidance"
 msgstr "防衛補助金の各点は、+％dは回避。各レベルの権限付与は+％dの回避"
 
 #: ../../../src/MenuCharacter.cpp:341
@@ -827,6 +811,10 @@ msgstr "XP側：%d/%dの"
 msgid "Not enough money."
 msgstr "お金が足りない"
 
+#: ../../../src/MenuNPCActions.cpp:76
+msgid "Trade"
+msgstr ""
+
 #: ../../../src/MenuPowers.cpp:460
 msgid "Unspent skill points:"
 msgstr "未使用のスキルポイント："
@@ -909,18 +897,21 @@ msgstr "買い戻し"
 msgid "Vendor"
 msgstr "売手"
 
-#: ../../../src/PowerManager.cpp:659
+#: ../../../src/PowerManager.cpp:661
 #, c-format
 msgid "+%d Shield"
 msgstr "+%d シールド"
 
-#: ../../../src/PowerManager.cpp:901
+#: ../../../src/PowerManager.cpp:903
 msgid "You are already transformed, untransform first."
 msgstr "あなたは、すでに最初の非変換、変換されます"
 
 #: ../../../src/Settings.cpp:500
 msgid "Adventurer"
 msgstr "冒険家"
+
+#~ msgid "Ok"
+#~ msgstr "オーケ"
 
 #~ msgid "Flare"
 #~ msgstr "フレア"

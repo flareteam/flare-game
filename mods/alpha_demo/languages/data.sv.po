@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-15 20:52+\n"
+"POT-Creation-Date: 2013-03-20 19:49+\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Henrik Andersson <hean01@users.sourceforge.net>\n"
 "Language-Team: \n"
@@ -126,6 +126,11 @@ msgstr "Grisbon"
 #: ../enemies/krakatoa.txt:1
 msgid "Krakatoa, Antlion Burster"
 msgstr "Krakatoa, Myrlejon"
+
+#: ../enemies/miner.txt:1
+#, fuzzy
+msgid "Miner"
+msgstr "Gruvvagn"
 
 #: ../enemies/necromancer_apprentice.txt:1
 msgid "Apprentice Necromancer"
@@ -576,11 +581,12 @@ msgid "White Wind"
 msgstr "Vit Vind"
 
 #: ../maps/white_wind.txt:446
-msgid "So, there it is. The abandoned tower!"
-msgstr "Där är det. Det övergivna tornet!"
+msgid "You spot the abandoned tower in the distance."
+msgstr ""
 
 #: ../maps/white_wind.txt:454
-msgid "Looking through the grate... The tower is just empty."
+#, fuzzy
+msgid "Looking through the grate, you confirm the tower is empty."
 msgstr "Tittar genom gallret... Tornet är tomt."
 
 #: ../maps/ydrakka_pass.txt:384
@@ -704,15 +710,18 @@ msgid "Report the defeat of the Reanimated Skeleton to Martigan."
 msgstr "Rapportera besegringen av Återupplivat Skelett till Martigan."
 
 #: ../quests/rotten_tower.txt:5
-msgid "Search the rotten tower south west of the frontier plains. Beware of danger!"
-msgstr "Sök efter det Ruttna Tornet sydväst om Gränsslätterna. Seupp för fara! "
+#, fuzzy
+msgid "Search the rotten tower south west of the Frontier Plains."
+msgstr "Sök efter det övergivna tornet sydväst om Gränsslätterna."
 
 #: ../quests/rotten_tower.txt:10
-msgid "Inspect the tower more closely!"
+#, fuzzy
+msgid "Inspect the tower more closely."
 msgstr "Inspektera tornet närmare!"
 
 #: ../quests/rotten_tower.txt:15
-msgid "Return to Martigan and tell him about the empty abandoned tower!"
+#, fuzzy
+msgid "Return to Martigan and tell him about the abandoned tower."
 msgstr "Gå tillbaka till Martigan och berätta om det övergivna tornet!"
 
 #: ../npcs/captured_trader.txt:2
@@ -927,95 +936,88 @@ msgstr "Olycklig uppgift men mina arbetare kommer att kunna sova tryggt i natt. 
 msgid "A member of the Order passed through our camp a few days ago. He left for the tower ruins in Ydrakka Pass."
 msgstr "En medlem av Ordern passerade vårt läger för några dagar sedan. Han lämnade oss för att fortsätta till ruinerna i Ydrakka Pass."
 
-#: ../npcs/martigan.txt:51
+#: ../npcs/martigan.txt:50
 msgid "Rotten Tower"
 msgstr "ÖvergivetTorn"
 
+#: ../npcs/martigan.txt:53
+msgid "This region was once well guarded. There are watch towers positioned throughout these plains, but most are abandoned and crumbling now."
+msgstr ""
+
 #: ../npcs/martigan.txt:54
-msgid "These areas were guarded well. There is yet another outpost tower in the wild."
-msgstr "Dessa områden är väl bevakade. Det finns ytterligare ett utpost torn i det vilda markerna."
+msgid "I need someone to inspect the outpost tower in White Winds, south west of the Frontier Plains. Let me know if goblins have found their way inside."
+msgstr ""
 
-#: ../npcs/martigan.txt:55
-msgid "These are rough lands and... you're looking for an adventure!"
-msgstr "Det här är tuffa marker och... du letar efter ett äventyr!"
-
-#: ../npcs/martigan.txt:56
-msgid "Let me know if the goblins found their way inside the abandoned tower."
-msgstr "Låt mig få veta om troll har hittat sin väg in i det övergivna tornet."
-
-#: ../npcs/martigan.txt:60
+#: ../npcs/martigan.txt:58
 msgid "Rotten Tower Search"
 msgstr "Hitta ÖvergivetTorn"
 
-#: ../npcs/martigan.txt:63
-msgid "Search for the abandoned tower southwest of the Frontier plains."
+#: ../npcs/martigan.txt:61
+#, fuzzy
+msgid "Search for the abandoned tower southwest of the Frontier plains. The lands around there are called White Wind."
 msgstr "Sök efter det övergivna tornet sydväst om Gränsslätterna."
 
 #: ../npcs/martigan.txt:64
-msgid "The lands around there are called White Wind."
-msgstr "Marken omkring där kallas Vit Vind."
-
-#: ../npcs/martigan.txt:67
 msgid "Rotten Tower Found"
 msgstr "Övergivet Torn hittat"
 
-#: ../npcs/martigan.txt:70
-msgid "So there are plenty of goblins in the white winds area, but not near the tower."
+#: ../npcs/martigan.txt:67
+#, fuzzy
+msgid "There are plenty of goblins in the White Winds area, but not near the tower."
 msgstr "Det finns många troll i Vit Vind området, men inte vid tornet."
 
-#: ../npcs/martigan.txt:71
-msgid "Are you sure?"
-msgstr "Är du säker?"
+#: ../npcs/martigan.txt:68
+msgid "Are you sure? Did you look inside the tower?"
+msgstr ""
 
-#: ../npcs/martigan.txt:72
-msgid "What do you mean? Of course I am!"
-msgstr "Vad menar du? Självklart är jag det!"
-
-#: ../npcs/martigan.txt:73
-msgid "Did you look inside the tower? Did you make sure there aren't goblins in there?"
-msgstr "Sökte du inuti tornet? Är du säker på att det inte finns några troll där?"
-
-#: ../npcs/martigan.txt:74
+#: ../npcs/martigan.txt:69
 msgid "Well..."
 msgstr "Och..."
 
-#: ../npcs/martigan.txt:82
-msgid "I looked inside through the locked iron grate door. No goblins!"
+#: ../npcs/martigan.txt:75
+#, fuzzy
+msgid "There are plenty of goblins in the white winds area, but not near the tower."
+msgstr "Det finns många troll i Vit Vind området, men inte vid tornet."
+
+#: ../npcs/martigan.txt:77
+#, fuzzy
+msgid "I saw no signs of goblins through the locked iron grate door."
 msgstr "Jag tittade in genom den låsta järn gallerdörren. Inga troll där!"
 
-#: ../npcs/martigan.txt:84
-msgid "Good! Here goes a little reward!"
+#: ../npcs/martigan.txt:79
+#, fuzzy
+msgid "Good! Have this small reward."
 msgstr "Bra! Här får du en lite ersättning!"
 
-#: ../npcs/martigan.txt:88
+#: ../npcs/martigan.txt:83
 msgid "Mineshaft"
 msgstr "Gruva"
 
-#: ../npcs/martigan.txt:91
+#: ../npcs/martigan.txt:86
 msgid "So how's the mining business?"
 msgstr "Så, hur går det med gruvaffärerna ?"
 
-#: ../npcs/martigan.txt:92
+#: ../npcs/martigan.txt:87
 msgid "Not good at all. While I was digging, my pickaxe scraped a skull that was wedged in the rock wall. Before I knew it, the nasty thing started moving and a whole body emerged. Now that thing is in there, preventing any more mining."
 msgstr "Det är inte allts bra. Medans jag jobbade i gruvan slog jag min hacka i ett död skalle som satt fast i stenväggen. Innan jag förstod vad som har hänt så började den röra på sig och ett helt skelett trädde fram. Det är fortfarande inne där någonstans och förhindrar mig från att arbeta."
 
-#: ../npcs/martigan.txt:93
+#: ../npcs/martigan.txt:88
 msgid "Kill that skeleton for me, and I'll make it worth your while."
 msgstr "Besegra det skelettet och jag kommer att belöna dig för din tid."
 
-#: ../npcs/martigan.txt:101
+#: ../npcs/martigan.txt:96
 msgid "Please take care of that skeleton. Work in the mine can't continue otherwise."
 msgstr "Snälla ta hand om det skelettet. Arbetet i gruvorna kan inte fortsätta."
 
-#: ../npcs/martigan.txt:104
+#: ../npcs/martigan.txt:99
 msgid "Skeleton Defeated"
 msgstr "Skelett Besegrat"
 
-#: ../npcs/martigan.txt:108
+#: ../npcs/martigan.txt:103
 msgid "I've defeated the Reanimated Skeleton."
 msgstr "Jag har besegrat Återupplivat Skelett"
 
-#: ../npcs/martigan.txt:109
+#: ../npcs/martigan.txt:104
 msgid "Excellent work! As promised, here's a little something for your troubles."
 msgstr "Utmärkt arbete! Här får du lite för dina bekymmer som utlovat."
 
@@ -1099,3 +1101,29 @@ msgstr "Grisbon."
 msgid "Welcome, Master Grisbon."
 msgstr "Välkommen, mästare Grisbon."
 
+#~ msgid "So, there it is. The abandoned tower!"
+#~ msgstr "Där är det. Det övergivna tornet!"
+
+#~ msgid "Search the rotten tower south west of the frontier plains. Beware of danger!"
+#~ msgstr "Sök efter det Ruttna Tornet sydväst om Gränsslätterna. Seupp för fara! "
+
+#~ msgid "These areas were guarded well. There is yet another outpost tower in the wild."
+#~ msgstr "Dessa områden är väl bevakade. Det finns ytterligare ett utpost torn i det vilda markerna."
+
+#~ msgid "These are rough lands and... you're looking for an adventure!"
+#~ msgstr "Det här är tuffa marker och... du letar efter ett äventyr!"
+
+#~ msgid "Let me know if the goblins found their way inside the abandoned tower."
+#~ msgstr "Låt mig få veta om troll har hittat sin väg in i det övergivna tornet."
+
+#~ msgid "The lands around there are called White Wind."
+#~ msgstr "Marken omkring där kallas Vit Vind."
+
+#~ msgid "Are you sure?"
+#~ msgstr "Är du säker?"
+
+#~ msgid "What do you mean? Of course I am!"
+#~ msgstr "Vad menar du? Självklart är jag det!"
+
+#~ msgid "Did you look inside the tower? Did you make sure there aren't goblins in there?"
+#~ msgstr "Sökte du inuti tornet? Är du säker på att det inte finns några troll där?"
