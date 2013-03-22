@@ -8,14 +8,14 @@ tileset=tileset_grassland.txt
 title=White Wind
 
 [tilesets]
-tileset=../../../../flare-game/tiled/grassland/tiled_collision.png,64,32,0,0
-tileset=../../../../flare-game/tiled/grassland/grassland.png,64,128,0,0
-tileset=../../../../flare-game/tiled/grassland/grassland_water.png,64,64,0,32
-tileset=../../../../flare-game/tiled/grassland/grassland_structures.png,64,256,0,0
-tileset=../../../../flare-game/tiled/grassland/grassland_trees.png,128,256,-32,0
-tileset=../../../../flare-game/tiled/grassland/tiled_grassland_2x2.png,128,64,0,16
-tileset=../../../../flare-game/tiled/grassland/rottentower.png,358,358,0,48
-tileset=../../../../flare-game/tiled/grassland/set_rules.png,64,32,0,0
+tileset=../../../tiled/grassland/tiled_collision.png,64,32,0,0
+tileset=../../../tiled/grassland/grassland.png,64,128,0,0
+tileset=../../../tiled/grassland/grassland_water.png,64,64,0,32
+tileset=../../../tiled/grassland/grassland_structures.png,64,256,0,0
+tileset=../../../tiled/grassland/grassland_trees.png,128,256,-32,0
+tileset=../../../tiled/grassland/tiled_grassland_2x2.png,128,64,0,16
+tileset=../../../tiled/grassland/rottentower.png,358,358,0,48
+tileset=../../../tiled/grassland/set_rules.png,64,32,0,0
 
 [layer]
 type=background
@@ -424,7 +424,7 @@ intermap=frontier_plains.txt,162,233
 type=run_once
 location=54,6,1,1
 hotspot=location
-loot=currency,114,55,25,80
+loot=currency,114,55,fixed,1,25
 mapmod=object,114,54,6
 soundfx=soundfx/wood_open.ogg
 tooltip=Supplies
@@ -434,7 +434,7 @@ tooltip=Supplies
 type=run_once
 location=4,28,1,1
 hotspot=location
-loot=currency,5,28,10,80
+loot=currency,5,28,fixed,1,15
 mapmod=object,4,28,99
 soundfx=soundfx/wood_open.ogg
 tooltip=Supplies
