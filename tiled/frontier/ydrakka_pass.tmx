@@ -341,7 +341,7 @@
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
 </data>
  </layer>
- <objectgroup name="event" width="256" height="100" visible="0">
+ <objectgroup name="event" width="256" height="100">
   <object name="to Goblin Warrens" type="teleport" x="2944" y="1696" width="32" height="32">
    <properties>
     <property name="intermap" value="goblin_warrens.txt,29,79"/>
@@ -370,7 +370,7 @@
   <object name="camp supply" type="run_once" x="4000" y="1760" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,126,55,10,80"/>
+    <property name="loot" value="currency,126,55,fixed,1,10"/>
     <property name="mapmod" value="object,125,55,99"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Supplies"/>
