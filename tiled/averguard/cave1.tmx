@@ -349,7 +349,7 @@
   <object name="nest treasure" type="run_once" x="928" y="2400" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,30,75,10,80"/>
+    <property name="loot" value="currency,30,75,fixed,1,10"/>
     <property name="mapmod" value="object,29,75,178"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Barrel"/>
@@ -358,7 +358,7 @@
   <object type="run_once" x="1376" y="2944" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,45,93,20,80"/>
+    <property name="loot" value="currency,45,93,fixed,1,20"/>
     <property name="mapmod" value="object,43,92,176"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Treasure Chest"/>
@@ -367,7 +367,7 @@
   <object type="run_once" x="928" y="2432" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,30,76,10,80"/>
+    <property name="loot" value="currency,30,76,fixed,1,10"/>
     <property name="mapmod" value="object,29,76,178"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Barrel"/>
@@ -387,7 +387,7 @@
   <object name="crate in nest hallway" type="run_once" x="1888" y="1952" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,60,61,10,80"/>
+    <property name="loot" value="currency,60,61,fixed,1,10"/>
     <property name="mapmod" value="object,59,61,179"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Crate"/>
@@ -396,7 +396,7 @@
   <object type="run_once" x="64" y="928" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,3,29,10,80"/>
+    <property name="loot" value="currency,3,29,fixed,1,10"/>
     <property name="mapmod" value="object,2,29,178"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Barrel"/>
@@ -405,7 +405,7 @@
   <object type="run_once" x="64" y="960" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,3,30,10,80"/>
+    <property name="loot" value="currency,3,30,fixed,1,10"/>
     <property name="mapmod" value="object,2,30,178"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Barrel"/>
@@ -420,7 +420,7 @@
   <object type="run_once" x="1088" y="800" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,34,26,15,80"/>
+    <property name="loot" value="currency,34,26,fixed,1,15"/>
     <property name="mapmod" value="object,34,25,177"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Treasure Chest"/>
@@ -429,7 +429,7 @@
   <object type="run_once" x="2784" y="1696" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,87,54,15,80"/>
+    <property name="loot" value="currency,87,54,fixed,1,15"/>
     <property name="mapmod" value="object,87,53,177"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Treasure Chest"/>
@@ -438,7 +438,7 @@
   <object type="run_once" x="2880" y="1696" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,90,54,10,80"/>
+    <property name="loot" value="currency,90,54,fixed,1,10"/>
     <property name="mapmod" value="object,90,53,178"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Barrel"/>
@@ -447,7 +447,7 @@
   <object type="run_once" x="1344" y="128" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,43,5,15,80"/>
+    <property name="loot" value="currency,43,5,fixed,1,15"/>
     <property name="mapmod" value="object,42,4,129"/>
     <property name="tooltip" value="Mine Cart"/>
    </properties>
@@ -459,7 +459,7 @@
   </object>
   <object name="reward for being saved" type="run_once" x="2272" y="960" width="96" height="64">
    <properties>
-    <property name="loot" value="currency,73,32,15,fixed"/>
+    <property name="loot" value="currency,73,32,fixed,1,15"/>
     <property name="msg" value="Talrych says, &quot;You arrived just in time.  Please, take this.&quot;"/>
    </properties>
   </object>

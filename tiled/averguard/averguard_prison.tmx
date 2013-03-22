@@ -354,7 +354,7 @@
   <object name="control room crate" type="run_once" x="64" y="1504" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,2,46,5,80"/>
+    <property name="loot" value="currency,2,46,fixed,1,5"/>
     <property name="mapmod" value="object,2,47,163"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Crate"/>
@@ -363,7 +363,7 @@
   <object name="torture room chest" type="run_once" x="384" y="2688" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,12,85,10,80"/>
+    <property name="loot" value="currency,12,85,fixed,1,10"/>
     <property name="mapmod" value="object,12,84,161"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Treasure Chest"/>
@@ -389,7 +389,7 @@
   <object name="hidden room chest" type="run_once" x="672" y="960" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="1,21,31,1,fixed"/>
+    <property name="loot" value="1,21,31,fixed,1"/>
     <property name="mapmod" value="object,21,30,161"/>
     <property name="requires_not" value="av_prison_chest1"/>
     <property name="set_status" value="av_prison_chest1"/>
@@ -419,7 +419,7 @@
   <object type="run_once" x="2848" y="384" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,89,13,10,80"/>
+    <property name="loot" value="currency,89,13,fixed,1,10"/>
     <property name="mapmod" value="object,89,12,183"/>
    </properties>
   </object>
