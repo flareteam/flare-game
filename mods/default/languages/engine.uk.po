@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.17\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-18 13:13+0200\n"
+"POT-Creation-Date: 2013-03-20 23:59+0100\n"
 "PO-Revision-Date: 2013-03-16 11:05+0300\n"
 "Last-Translator: Igor Paliychuk <mansonigor@gmail.com>\n"
 "Language-Team: Ukrainian <LL@li.org>\n"
@@ -89,8 +89,8 @@ msgstr "ЗД та МН відновлені, шкідливі ефекти ус�
 msgid "+%d MP"
 msgstr "+%d МН"
 
-#: ../../../src/GameStateConfig.cpp:79
-msgid "Ok"
+#: ../../../src/GameStateConfig.cpp:79 ../../../src/GameStateConfig.cpp:164
+msgid "OK"
 msgstr "Гаразд"
 
 #: ../../../src/GameStateConfig.cpp:84 ../../../src/GameStateConfig.cpp:163
@@ -98,7 +98,7 @@ msgid "Defaults"
 msgstr "Типово"
 
 #: ../../../src/GameStateConfig.cpp:89 ../../../src/GameStateNew.cpp:55
-#: ../../../src/InputState.cpp:63 ../../../src/MenuNPCActions.cpp:77
+#: ../../../src/InputState.cpp:59 ../../../src/MenuNPCActions.cpp:77
 msgid "Cancel"
 msgstr "Скасувати"
 
@@ -126,18 +126,14 @@ msgstr "Клавіші"
 msgid "Mods"
 msgstr "Моди"
 
-#: ../../../src/GameStateConfig.cpp:162 ../../../src/GameStateConfig.cpp:995
-#: ../../../src/GameStateConfig.cpp:997
+#: ../../../src/GameStateConfig.cpp:162 ../../../src/GameStateConfig.cpp:963
+#: ../../../src/GameStateConfig.cpp:965
 msgid "Assign: "
 msgstr "Задати: "
 
 #: ../../../src/GameStateConfig.cpp:163
 msgid "Reset ALL settings?"
 msgstr "Скинути ВСЕ?"
-
-#: ../../../src/GameStateConfig.cpp:164
-msgid "OK"
-msgstr "Гаразд"
 
 #: ../../../src/GameStateConfig.cpp:164
 msgid "Use this resolution?"
@@ -211,28 +207,28 @@ msgstr "Активні моди"
 msgid "Available Mods"
 msgstr "Наявні моди"
 
-#: ../../../src/GameStateConfig.cpp:482
+#: ../../../src/GameStateConfig.cpp:477
 msgid "Joystick"
 msgstr "Джойстик"
 
-#: ../../../src/GameStateConfig.cpp:494
+#: ../../../src/GameStateConfig.cpp:489
 msgid "Language"
 msgstr "Мова"
 
-#: ../../../src/GameStateConfig.cpp:529 ../../../src/GameStateConfig.cpp:536
-#: ../../../src/GameStateConfig.cpp:543
+#: ../../../src/GameStateConfig.cpp:524 ../../../src/GameStateConfig.cpp:531
+#: ../../../src/GameStateConfig.cpp:538
 msgid "Disable for performance"
 msgstr "Вимкніть для швидкодії"
 
-#: ../../../src/GameStateConfig.cpp:550
+#: ../../../src/GameStateConfig.cpp:545
 msgid "Experimental"
 msgstr "Експериментально"
 
-#: ../../../src/GameStateConfig.cpp:570
+#: ../../../src/GameStateConfig.cpp:565
 msgid "<< Disable"
 msgstr "<< Вимкнути"
 
-#: ../../../src/GameStateConfig.cpp:578
+#: ../../../src/GameStateConfig.cpp:573
 msgid "Enable >>"
 msgstr "Ввімкнути >>"
 
@@ -252,32 +248,32 @@ msgstr "Головне меню"
 msgid "Choose a Slot"
 msgstr "Виберіть слот"
 
-#: ../../../src/GameStateLoad.cpp:488
+#: ../../../src/GameStateLoad.cpp:476
 msgid "New Game"
 msgstr "Нова гра"
 
-#: ../../../src/GameStateLoad.cpp:491 ../../../src/GameStateLoad.cpp:501
+#: ../../../src/GameStateLoad.cpp:479 ../../../src/GameStateLoad.cpp:489
 msgid "Enable a story mod to continue"
 msgstr "Увімкніть мод повісті щоб продовжити"
 
-#: ../../../src/GameStateLoad.cpp:497
+#: ../../../src/GameStateLoad.cpp:485
 msgid "Load Game"
 msgstr "Завантажити"
 
-#: ../../../src/GameStateLoad.cpp:551
+#: ../../../src/GameStateLoad.cpp:539
 msgid "Entering game world..."
 msgstr "Входжу в ігровий світ..."
 
-#: ../../../src/GameStateLoad.cpp:553
+#: ../../../src/GameStateLoad.cpp:541
 msgid "Loading saved game..."
 msgstr "Завантажую збереження..."
 
-#: ../../../src/GameStateLoad.cpp:574
+#: ../../../src/GameStateLoad.cpp:562
 #, c-format
 msgid "Level %d %s"
 msgstr "Рівень %d %s"
 
-#: ../../../src/GameStateLoad.cpp:598
+#: ../../../src/GameStateLoad.cpp:586
 msgid "Empty Slot"
 msgstr "Порожній слот"
 
@@ -331,131 +327,132 @@ msgid "Exit Game"
 msgstr "Вийти з гри"
 
 #: ../../../src/GameStateTitle.cpp:61
-msgid "Flare Alpha v0.17"
+#, fuzzy
+msgid "Flare Alpha v0.18"
 msgstr "Flare Альфа v0.17"
 
-#: ../../../src/InputState.cpp:64
+#: ../../../src/InputState.cpp:60
 msgid "Accept"
 msgstr "Прийняти"
 
-#: ../../../src/InputState.cpp:65
+#: ../../../src/InputState.cpp:61
 msgid "Up"
 msgstr "Вверх"
 
-#: ../../../src/InputState.cpp:66
+#: ../../../src/InputState.cpp:62
 msgid "Down"
 msgstr "Вниз"
 
-#: ../../../src/InputState.cpp:67
+#: ../../../src/InputState.cpp:63
 msgid "Left"
 msgstr "Вліво"
 
-#: ../../../src/InputState.cpp:68
+#: ../../../src/InputState.cpp:64
 msgid "Right"
 msgstr "Вправо"
 
-#: ../../../src/InputState.cpp:69
+#: ../../../src/InputState.cpp:65
 msgid "Bar1"
 msgstr "Слот1"
 
-#: ../../../src/InputState.cpp:70
+#: ../../../src/InputState.cpp:66
 msgid "Bar2"
 msgstr "Слот2"
 
-#: ../../../src/InputState.cpp:71
+#: ../../../src/InputState.cpp:67
 msgid "Bar3"
 msgstr "Слот3"
 
-#: ../../../src/InputState.cpp:72
+#: ../../../src/InputState.cpp:68
 msgid "Bar4"
 msgstr "Слот4"
 
-#: ../../../src/InputState.cpp:73
+#: ../../../src/InputState.cpp:69
 msgid "Bar5"
 msgstr "Слот5"
 
-#: ../../../src/InputState.cpp:74
+#: ../../../src/InputState.cpp:70
 msgid "Bar6"
 msgstr "Слот6"
 
-#: ../../../src/InputState.cpp:75
+#: ../../../src/InputState.cpp:71
 msgid "Bar7"
 msgstr "Слот7"
 
-#: ../../../src/InputState.cpp:76
+#: ../../../src/InputState.cpp:72
 msgid "Bar8"
 msgstr "Слот8"
 
-#: ../../../src/InputState.cpp:77
+#: ../../../src/InputState.cpp:73
 msgid "Bar9"
 msgstr "Слот9"
 
-#: ../../../src/InputState.cpp:78
+#: ../../../src/InputState.cpp:74
 msgid "Bar0"
 msgstr "Слот0"
 
-#: ../../../src/InputState.cpp:79 ../../../src/MenuCharacter.cpp:219
+#: ../../../src/InputState.cpp:75 ../../../src/MenuCharacter.cpp:219
 msgid "Character"
 msgstr "Персонаж"
 
-#: ../../../src/InputState.cpp:80 ../../../src/MenuInventory.cpp:172
+#: ../../../src/InputState.cpp:76 ../../../src/MenuInventory.cpp:172
 #: ../../../src/MenuVendor.cpp:51
 msgid "Inventory"
 msgstr "Інвентар"
 
-#: ../../../src/InputState.cpp:81 ../../../src/MenuPowers.cpp:173
+#: ../../../src/InputState.cpp:77 ../../../src/MenuPowers.cpp:173
 msgid "Powers"
 msgstr "Уміння"
 
-#: ../../../src/InputState.cpp:82 ../../../src/MenuLog.cpp:158
+#: ../../../src/InputState.cpp:78 ../../../src/MenuLog.cpp:158
 msgid "Log"
 msgstr "Журнал"
 
-#: ../../../src/InputState.cpp:83
+#: ../../../src/InputState.cpp:79
 msgid "Main1"
 msgstr "Дія1"
 
-#: ../../../src/InputState.cpp:84
+#: ../../../src/InputState.cpp:80
 msgid "Main2"
 msgstr "Дія2"
 
-#: ../../../src/InputState.cpp:85
+#: ../../../src/InputState.cpp:81
 msgid "Ctrl"
 msgstr "Ctrl"
 
-#: ../../../src/InputState.cpp:86
+#: ../../../src/InputState.cpp:82
 msgid "Shift"
 msgstr "Shift"
 
-#: ../../../src/InputState.cpp:87
+#: ../../../src/InputState.cpp:83
 msgid "Delete"
 msgstr "Видалити"
 
-#: ../../../src/InputState.cpp:89
+#: ../../../src/InputState.cpp:85
 msgid "lmb"
 msgstr "лкм"
 
-#: ../../../src/InputState.cpp:90
+#: ../../../src/InputState.cpp:86
 msgid "mmb"
 msgstr "скм"
 
-#: ../../../src/InputState.cpp:91
+#: ../../../src/InputState.cpp:87
 msgid "rmb"
 msgstr "пкм"
 
-#: ../../../src/InputState.cpp:92
+#: ../../../src/InputState.cpp:88
 msgid "wheel up"
 msgstr "кол вверх"
 
-#: ../../../src/InputState.cpp:93
+#: ../../../src/InputState.cpp:89
 msgid "wheel down"
 msgstr "кол вниз"
 
-#: ../../../src/InputState.cpp:94
+#: ../../../src/InputState.cpp:90
 msgid "mbx1"
 msgstr "кмx1"
 
-#: ../../../src/InputState.cpp:95
+#: ../../../src/InputState.cpp:91
 msgid "mbx2"
 msgstr "кмx2"
 
@@ -581,19 +578,19 @@ msgstr "%d %s"
 msgid "Unknown destination"
 msgstr "Невідомий пункт призначення"
 
-#: ../../../src/MenuActionBar.cpp:413
+#: ../../../src/MenuActionBar.cpp:401
 msgid "Character Menu (C)"
 msgstr "Меню персонажа (C)"
 
-#: ../../../src/MenuActionBar.cpp:417
+#: ../../../src/MenuActionBar.cpp:405
 msgid "Inventory Menu (I)"
 msgstr "Інвентар (I)"
 
-#: ../../../src/MenuActionBar.cpp:421
+#: ../../../src/MenuActionBar.cpp:409
 msgid "Power Menu (P)"
 msgstr "Уміння (P)"
 
-#: ../../../src/MenuActionBar.cpp:425
+#: ../../../src/MenuActionBar.cpp:413
 msgid "Log Menu (L)"
 msgstr "Журнал (L)"
 
@@ -913,3 +910,6 @@ msgstr "Ви вже трансформовані, спершу відновіт�
 #: ../../../src/Settings.cpp:500
 msgid "Adventurer"
 msgstr "Шукач пригод"
+
+#~ msgid "Ok"
+#~ msgstr "Гаразд"

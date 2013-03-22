@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flare 0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-15 21:44+0100\n"
+"POT-Creation-Date: 2013-03-20 23:59+0100\n"
 "PO-Revision-Date: 2011-12-15 03:57+0600\n"
 "Last-Translator: Mikhail Karalevich <saturn_by@tut.by>\n"
 "Language-Team: Belarussian <by@li.org>\n"
@@ -40,7 +40,7 @@ msgid "miss"
 msgstr ""
 
 #: ../../../src/Avatar.cpp:784 ../../../src/Enemy.cpp:248
-#: ../../../src/PowerManager.cpp:666 ../../../src/StatBlock.cpp:522
+#: ../../../src/PowerManager.cpp:668 ../../../src/StatBlock.cpp:523
 #, c-format
 msgid "+%d HP"
 msgstr ""
@@ -85,13 +85,13 @@ msgstr ""
 msgid "HP and MP restored, negative effects removed"
 msgstr ""
 
-#: ../../../src/Enemy.cpp:255 ../../../src/StatBlock.cpp:527
+#: ../../../src/Enemy.cpp:255 ../../../src/StatBlock.cpp:528
 #, c-format
 msgid "+%d MP"
 msgstr ""
 
-#: ../../../src/GameStateConfig.cpp:79
-msgid "Ok"
+#: ../../../src/GameStateConfig.cpp:79 ../../../src/GameStateConfig.cpp:164
+msgid "OK"
 msgstr ""
 
 #: ../../../src/GameStateConfig.cpp:84 ../../../src/GameStateConfig.cpp:163
@@ -99,7 +99,7 @@ msgid "Defaults"
 msgstr ""
 
 #: ../../../src/GameStateConfig.cpp:89 ../../../src/GameStateNew.cpp:55
-#: ../../../src/InputState.cpp:59
+#: ../../../src/InputState.cpp:59 ../../../src/MenuNPCActions.cpp:77
 msgid "Cancel"
 msgstr "Скасаваць"
 
@@ -134,10 +134,6 @@ msgstr ""
 
 #: ../../../src/GameStateConfig.cpp:163
 msgid "Reset ALL settings?"
-msgstr ""
-
-#: ../../../src/GameStateConfig.cpp:164
-msgid "OK"
 msgstr ""
 
 #: ../../../src/GameStateConfig.cpp:164
@@ -336,8 +332,8 @@ msgstr "Выйсці"
 
 #: ../../../src/GameStateTitle.cpp:61
 #, fuzzy
-msgid "Flare Alpha v0.17"
-msgstr "Flare Alpha v0.15"
+msgid "Flare Alpha v0.18"
+msgstr "Flare Alpha v0.18"
 
 #: ../../../src/InputState.cpp:60
 msgid "Accept"
@@ -585,7 +581,7 @@ msgstr ""
 msgid "%d %s"
 msgstr "Узровень %d %s"
 
-#: ../../../src/MapRenderer.cpp:1227
+#: ../../../src/MapRenderer.cpp:1225
 msgid "Unknown destination"
 msgstr "Невядомы накірунак"
 
@@ -831,6 +827,10 @@ msgstr "Вопыт: %d/%d"
 msgid "Not enough money."
 msgstr ""
 
+#: ../../../src/MenuNPCActions.cpp:76
+msgid "Trade"
+msgstr ""
+
 #: ../../../src/MenuPowers.cpp:460
 msgid "Unspent skill points:"
 msgstr ""
@@ -913,12 +913,12 @@ msgstr ""
 msgid "Vendor"
 msgstr "Гандляр"
 
-#: ../../../src/PowerManager.cpp:659
+#: ../../../src/PowerManager.cpp:661
 #, c-format
 msgid "+%d Shield"
 msgstr ""
 
-#: ../../../src/PowerManager.cpp:901
+#: ../../../src/PowerManager.cpp:903
 msgid "You are already transformed, untransform first."
 msgstr ""
 

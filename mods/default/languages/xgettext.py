@@ -1,6 +1,7 @@
 #! /usr/bin/python
 import os
 import datetime
+import codecs   # proper UTF8 handling with files
 
 keys = []
 comments = []
@@ -24,7 +25,7 @@ msgstr ""
 
 '''
 
-POT_STRING = '''\
+POT_STRING = u'''\
 #: {comment}
 msgid "{msgid}"
 msgstr ""
@@ -35,7 +36,7 @@ msgstr ""
 def extract(filename):
     if not os.path.exists(filename):
         return
-    infile = open(filename, 'r')
+    infile = codecs.open(filename, encoding='UTF-8', mode='r')
     triggers = [
         'msg', 'him', 'her', 'you', 'name', 'title', 'tooltip',
         'power_desc', 'quest_text', 'description', 'item_type',
@@ -44,7 +45,7 @@ def extract(filename):
     ]
     plain_text = [
         'msg', 'him', 'her', 'you', 'name', 'title', 'tooltip',
-        'quest_text', 'description', 'topic',
+        'quest_text', 'description', 'topic', 'flavor',
         ]
     for i, line in enumerate(infile, start=1):
         for trigger in triggers:
@@ -82,11 +83,11 @@ def remove_duplicates():
 
 # this writes the list of keys to a gettext .po file
 def save(filename):
-    outfile = open('data.pot', 'w')
+    outfile = codecs.open('data.pot', encoding='UTF-8', mode='w')
     outfile.write(header.format(now=now.strftime('%Y-%m-%d %H:%M+%z')))
     remove_duplicates()
     for line_c,line in zip(comments,keys):
-        outfile.write(POT_STRING.format(comment=line_c, msgid=line).encode('UTF-8'))
+        outfile.write(POT_STRING.format(comment=line_c, msgid=line))
 
 # this extracts the quest files from the quests directory
 def get_quests():
