@@ -550,6 +550,9 @@ int MapRenderer::load(string filename) {
 					new_npc.id = infile.val;
 					e->s = infile.val;
 				}
+				else if (infile.key == "music") {
+					e->s = infile.val;
+				}
 			}
 		}
 	}
@@ -1087,11 +1090,15 @@ void MapRenderer::checkHotspots() {
 					if ((*it).cooldown_ticks != 0) continue;
 
 					// new tooltip?
-					if (!(*it).tooltip.empty())
+					if (!(*it).tooltip.empty() && TOOLTIP_CONTEXT != TOOLTIP_MENU) {
 						show_tooltip = true;
-					if (!tip_buf.compareFirstLine((*it).tooltip)) {
-						tip_buf.clear();
-						tip_buf.addText((*it).tooltip);
+						if (!tip_buf.compareFirstLine((*it).tooltip)) {
+							tip_buf.clear();
+							tip_buf.addText((*it).tooltip);
+						}
+						TOOLTIP_CONTEXT = TOOLTIP_MAP;
+					} else if (TOOLTIP_CONTEXT != TOOLTIP_MENU) {
+						TOOLTIP_CONTEXT = TOOLTIP_NONE;
 					}
 
 					if ((abs(cam.x - (*it).location.x * UNITS_PER_TILE) < CLICK_RANGE)
@@ -1346,6 +1353,12 @@ bool MapRenderer::executeEvent(Map_Event &ev) {
 		}
 		else if (ec->type == "npc") {
 			event_npc = ec->s;
+		}
+		else if (ec->type == "music") {
+			if (this->music_filename != ec->s) {
+				this->music_filename = ec->s;
+				loadMusic();
+			}
 		}
 	}
 	if (ev.type == "run_once" || ev.type == "on_load" || ev.type == "on_clear" || destroy_event)
