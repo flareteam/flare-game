@@ -402,10 +402,17 @@ int MapRenderer::load(string filename) {
 					e->s = infile.nextValue();
 					e->x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
 					e->y = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
-					e->z = toInt(infile.nextValue());
+
+					// drop chance
 					string chance = infile.nextValue();
-					if (chance == "fixed") e->w = 0;
-					else e->w = toInt(chance);
+					if (chance == "fixed") e->z = 0;
+					else e->z = toInt(chance);
+
+					// quantity min/max
+					e->a = toInt(infile.nextValue());
+					if (e->a < 1) e->a = 1;
+					e->b = toInt(infile.nextValue());
+					if (e->b < e->a) e->b = e->a;
 
 					// add repeating loot
 					string repeat_val = infile.nextValue();
@@ -416,10 +423,15 @@ int MapRenderer::load(string filename) {
 						e->s = repeat_val;
 						e->x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
 						e->y = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
-						e->z = toInt(infile.nextValue());
-						chance = infile.nextValue();
-						if (chance == "fixed") e->w = 0;
-						else e->w = toInt(chance);
+
+						string chance = infile.nextValue();
+						if (chance == "fixed") e->z = 0;
+						else e->z = toInt(chance);
+
+						e->a = toInt(infile.nextValue());
+						if (e->a < 1) e->a = 1;
+						e->b = toInt(infile.nextValue());
+						if (e->b < e->a) e->b = e->a;
 
 						repeat_val = infile.nextValue();
 					}
