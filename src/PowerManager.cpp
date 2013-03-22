@@ -657,12 +657,12 @@ bool PowerManager::effect(StatBlock *src_stats, int power_index) {
 		if (effect_index > 0) {
 			if (powers[effect_index].effect_type == "shield") {
 				// charge shield to max ment weapon damage * damage multiplier
-				magnitude = (int)ceil(src_stats->dmg_ment_max * powers[power_index].damage_multiplier / 100.0) + (src_stats->get_mental()*src_stats->bonus_per_mental);
+				magnitude = (int)ceil(src_stats->dmg_ment_max * powers[power_index].damage_multiplier / 100.0);
 				comb->addMessage(msg->get("+%d Shield",magnitude), src_stats->pos, COMBAT_MESSAGE_BUFF);
 			} else if (powers[effect_index].effect_type == "heal") {
 				// heal for ment weapon damage * damage multiplier
-				int heal_max = (int)ceil(src_stats->dmg_ment_max * powers[power_index].damage_multiplier / 100.0) + (src_stats->get_mental()*src_stats->bonus_per_mental);
-				int heal_min = (int)ceil(src_stats->dmg_ment_min * powers[power_index].damage_multiplier / 100.0) + (src_stats->get_mental()*src_stats->bonus_per_mental);
+				int heal_max = (int)ceil(src_stats->dmg_ment_max * powers[power_index].damage_multiplier / 100.0);
+				int heal_min = (int)ceil(src_stats->dmg_ment_min * powers[power_index].damage_multiplier / 100.0);
 				magnitude = randBetween(heal_min, heal_max-1);
 
 				comb->addMessage(msg->get("+%d HP",magnitude), src_stats->pos, COMBAT_MESSAGE_BUFF);
