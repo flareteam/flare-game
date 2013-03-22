@@ -733,10 +733,10 @@ bool Avatar::takeHit(const Hazard &h) {
 			}
 
 			if (absorption > 0) {
-				if ((dmg*100)/absorption > MAX_BLOCK)
-					absorption = (absorption * MAX_BLOCK) /100;
-				if ((dmg*100)/absorption > MAX_ABSORB && !stats.effects.triggered_block)
-					absorption = (absorption * MAX_ABSORB) /100;
+				if ((absorption*100)/dmg > MAX_BLOCK)
+					absorption = (dmg * MAX_BLOCK) /100;
+				if ((absorption*100)/dmg > MAX_ABSORB && !stats.effects.triggered_block)
+					absorption = (dmg * MAX_ABSORB) /100;
 
 				// Sometimes, the absorb limits cause absorbtion to drop to 1
 				// This could be confusing to a player that has something with an absorb of 1 equipped
