@@ -390,7 +390,7 @@ void MenuCharacter::refreshStats() {
 
 	if (show_stat[12]) {
 		ss.str("");
-		ss << msg->get("Bonus") << " XP: " << stats->effects.bonus_xp << "%";
+		ss << msg->get("Bonus XP: " << stats->effects.bonus_xp << "%";
 		statList->set(visible_stats++, ss.str(),msg->get("Increases the XP gained per kill"));
 	}
 
