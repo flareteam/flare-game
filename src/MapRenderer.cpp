@@ -1090,11 +1090,15 @@ void MapRenderer::checkHotspots() {
 					if ((*it).cooldown_ticks != 0) continue;
 
 					// new tooltip?
-					if (!(*it).tooltip.empty())
+					if (!(*it).tooltip.empty() && TOOLTIP_CONTEXT != TOOLTIP_MENU) {
 						show_tooltip = true;
-					if (!tip_buf.compareFirstLine((*it).tooltip)) {
-						tip_buf.clear();
-						tip_buf.addText((*it).tooltip);
+						if (!tip_buf.compareFirstLine((*it).tooltip)) {
+							tip_buf.clear();
+							tip_buf.addText((*it).tooltip);
+						}
+						TOOLTIP_CONTEXT = TOOLTIP_MAP;
+					} else if (TOOLTIP_CONTEXT != TOOLTIP_MENU) {
+						TOOLTIP_CONTEXT = TOOLTIP_NONE;
 					}
 
 					if ((abs(cam.x - (*it).location.x * UNITS_PER_TILE) < CLICK_RANGE)

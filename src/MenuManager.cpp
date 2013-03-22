@@ -758,6 +758,9 @@ void MenuManager::render() {
 			tip_buf = tip_new;
 		}
 		tip->render(tip_buf, inpt->mouse, STYLE_FLOAT);
+		TOOLTIP_CONTEXT = TOOLTIP_MENU;
+	} else if (TOOLTIP_CONTEXT != TOOLTIP_MAP) {
+		TOOLTIP_CONTEXT = TOOLTIP_NONE;
 	}
 
 	// draw icon under cursor if dragging
