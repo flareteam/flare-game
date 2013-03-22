@@ -28,13 +28,19 @@ dmg_melee_min=10
 dmg_melee_max=30
 dmg_ment_min=20
 dmg_ment_max=50
-absorb_min=5
-absorb_max=10
+absorb_min=21
+absorb_max=21
 vulnerable_fire=50
 vulnerable_ice=200
 
 cooldown=25
 
 # loot
-loot=currency,33
+loot=currency,15,7,28
+
+# healing pot, mana pot, ring of fire, emerald
+loot=1,3
+loot=2,3
+loot=109,1
+loot=4,1
 

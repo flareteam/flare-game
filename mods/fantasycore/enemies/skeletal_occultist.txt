@@ -34,11 +34,24 @@ dmg_melee_min=15
 dmg_melee_max=45
 dmg_ment_min=20
 dmg_ment_max=50
+absorb_min=18
+absorb_max=18
 
 vulnerable_fire=200
 vulnerable_ice=50
 cooldown=15
 
 # loot
-loot=currency,33
+loot=currency,33,7,28
+
+# staff, mana pot
+loot=42,5
+loot=2,5
+
+# ring of concentration, owl figurine, sapphire, sage mantle, sage frock
+loot=108,1
+loot=120,1
+loot=3,1
+loot=123,1
+loot=124,1
 

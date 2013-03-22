@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flare-engine 0.17\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-15 21:44+0100\n"
+"POT-Creation-Date: 2013-03-20 23:59+0100\n"
 "PO-Revision-Date: 2013-03-19 09:45+0600\n"
 "Last-Translator: Sergey Basalaev <sbasalaev@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -41,7 +41,7 @@ msgid "miss"
 msgstr "промах"
 
 #: ../../../src/Avatar.cpp:784 ../../../src/Enemy.cpp:248
-#: ../../../src/PowerManager.cpp:666 ../../../src/StatBlock.cpp:522
+#: ../../../src/PowerManager.cpp:668 ../../../src/StatBlock.cpp:523
 #, c-format
 msgid "+%d HP"
 msgstr "+%d жизни"
@@ -86,21 +86,21 @@ msgstr "Отрицательные эффекты убраны."
 msgid "HP and MP restored, negative effects removed"
 msgstr "Жизнь и мана восстановлены, отрицательные эффекты убраны"
 
-#: ../../../src/Enemy.cpp:255 ../../../src/StatBlock.cpp:527
+#: ../../../src/Enemy.cpp:255 ../../../src/StatBlock.cpp:528
 #, c-format
 msgid "+%d MP"
 msgstr "+%d маны"
 
-#: ../../../src/GameStateConfig.cpp:79
-msgid "Ok"
-msgstr "Ок"
+#: ../../../src/GameStateConfig.cpp:79 ../../../src/GameStateConfig.cpp:164
+msgid "OK"
+msgstr "ОК"
 
 #: ../../../src/GameStateConfig.cpp:84 ../../../src/GameStateConfig.cpp:163
 msgid "Defaults"
 msgstr "По умолчанию"
 
 #: ../../../src/GameStateConfig.cpp:89 ../../../src/GameStateNew.cpp:55
-#: ../../../src/InputState.cpp:59
+#: ../../../src/InputState.cpp:59 ../../../src/MenuNPCActions.cpp:77
 msgid "Cancel"
 msgstr "Отмена"
 
@@ -136,10 +136,6 @@ msgstr "Назначить: "
 #: ../../../src/GameStateConfig.cpp:163
 msgid "Reset ALL settings?"
 msgstr "Сбросить ВСЕ настройки?"
-
-#: ../../../src/GameStateConfig.cpp:164
-msgid "OK"
-msgstr "ОК"
 
 #: ../../../src/GameStateConfig.cpp:164
 msgid "Use this resolution?"
@@ -333,8 +329,9 @@ msgid "Exit Game"
 msgstr "Выйти"
 
 #: ../../../src/GameStateTitle.cpp:61
-msgid "Flare Alpha v0.17"
-msgstr "Flare Alpha v0.17"
+#, fuzzy
+msgid "Flare Alpha v0.18"
+msgstr "Flare Alpha v0.18"
 
 #: ../../../src/InputState.cpp:60
 msgid "Accept"
@@ -579,7 +576,7 @@ msgstr "%d предметов: "
 msgid "%d %s"
 msgstr "%d %s"
 
-#: ../../../src/MapRenderer.cpp:1227
+#: ../../../src/MapRenderer.cpp:1225
 msgid "Unknown destination"
 msgstr "Место назначения неизвестно"
 
@@ -817,6 +814,10 @@ msgstr "Опыт: %d/%d"
 msgid "Not enough money."
 msgstr "Недостаточно денег."
 
+#: ../../../src/MenuNPCActions.cpp:76
+msgid "Trade"
+msgstr "Торговать"
+
 #: ../../../src/MenuPowers.cpp:460
 msgid "Unspent skill points:"
 msgstr "Неистраченные очки навыков:"
@@ -899,12 +900,12 @@ msgstr "Выкуп"
 msgid "Vendor"
 msgstr "Торговец"
 
-#: ../../../src/PowerManager.cpp:659
+#: ../../../src/PowerManager.cpp:661
 #, c-format
 msgid "+%d Shield"
 msgstr "+%d Щит"
 
-#: ../../../src/PowerManager.cpp:901
+#: ../../../src/PowerManager.cpp:903
 msgid "You are already transformed, untransform first."
 msgstr "Вы уже трансформированы, сперва растрансформируйтесь."
 
@@ -912,11 +913,23 @@ msgstr "Вы уже трансформированы, сперва растра�
 msgid "Adventurer"
 msgstr "Приключенец"
 
+#~ msgid "Ok"
+#~ msgstr "Ок"
+
+#~ msgid "Flare"
+#~ msgstr "Flare"
+
+#~ msgid "Accuracy (vs lvl 5):"
+#~ msgstr "Меткость (против уровня 5):"
+
+#~ msgid "Avoidance (vs lvl 5):"
+#~ msgstr "Уклонение (от уровня 5):"
+
+#~ msgid "Unspent attribute points"
+#~ msgstr "Неистраченные очки атрибутов"
+
 #~ msgid "Stats"
 #~ msgstr "Статистика"
-
-#~ msgid "Trade"
-#~ msgstr "Торговать"
 
 #~ msgid "Grand Master"
 #~ msgstr "Великий мастер"

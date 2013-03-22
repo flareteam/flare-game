@@ -28,6 +28,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 using namespace std;
 
+int TOOLTIP_CONTEXT = TOOLTIP_NONE;
 
 WidgetTooltip::WidgetTooltip() {
 

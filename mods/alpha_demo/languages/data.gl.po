@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-15 20:52+\n"
+"POT-Creation-Date: 2013-03-20 19:49+\n"
 "PO-Revision-Date: 2012-12-26 18:09+0100\n"
 "Last-Translator: Adrian Chaves Fernandez <adriyetichaves@gmail.com>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
@@ -132,6 +132,11 @@ msgstr "Grisbon"
 #: ../enemies/krakatoa.txt:1
 msgid "Krakatoa, Antlion Burster"
 msgstr "Cracatoa (formiga león incendiaria)"
+
+#: ../enemies/miner.txt:1
+#, fuzzy
+msgid "Miner"
+msgstr "Carreta"
 
 #: ../enemies/necromancer_apprentice.txt:1
 msgid "Apprentice Necromancer"
@@ -582,11 +587,11 @@ msgid "White Wind"
 msgstr ""
 
 #: ../maps/white_wind.txt:446
-msgid "So, there it is. The abandoned tower!"
+msgid "You spot the abandoned tower in the distance."
 msgstr ""
 
 #: ../maps/white_wind.txt:454
-msgid "Looking through the grate... The tower is just empty."
+msgid "Looking through the grate, you confirm the tower is empty."
 msgstr ""
 
 #: ../maps/ydrakka_pass.txt:384
@@ -710,15 +715,15 @@ msgid "Report the defeat of the Reanimated Skeleton to Martigan."
 msgstr ""
 
 #: ../quests/rotten_tower.txt:5
-msgid "Search the rotten tower south west of the frontier plains. Beware of danger!"
+msgid "Search the rotten tower south west of the Frontier Plains."
 msgstr ""
 
 #: ../quests/rotten_tower.txt:10
-msgid "Inspect the tower more closely!"
+msgid "Inspect the tower more closely."
 msgstr ""
 
 #: ../quests/rotten_tower.txt:15
-msgid "Return to Martigan and tell him about the empty abandoned tower!"
+msgid "Return to Martigan and tell him about the abandoned tower."
 msgstr ""
 
 #: ../npcs/captured_trader.txt:2
@@ -938,96 +943,84 @@ msgstr "Non é un traballo moi ético, pero polo menos os meus traballadores pod
 msgid "A member of the Order passed through our camp a few days ago. He left for the tower ruins in Ydrakka Pass."
 msgstr "Un membro da orde pasou por aquí non hai moito. Ía cara as ruínas da torre que hai no paso de Idraca."
 
-#: ../npcs/martigan.txt:51
+#: ../npcs/martigan.txt:50
 msgid "Rotten Tower"
 msgstr ""
 
+#: ../npcs/martigan.txt:53
+msgid "This region was once well guarded. There are watch towers positioned throughout these plains, but most are abandoned and crumbling now."
+msgstr ""
+
 #: ../npcs/martigan.txt:54
-msgid "These areas were guarded well. There is yet another outpost tower in the wild."
+msgid "I need someone to inspect the outpost tower in White Winds, south west of the Frontier Plains. Let me know if goblins have found their way inside."
 msgstr ""
 
-#: ../npcs/martigan.txt:55
-msgid "These are rough lands and... you're looking for an adventure!"
-msgstr ""
-
-#: ../npcs/martigan.txt:56
-msgid "Let me know if the goblins found their way inside the abandoned tower."
-msgstr ""
-
-#: ../npcs/martigan.txt:60
+#: ../npcs/martigan.txt:58
 msgid "Rotten Tower Search"
 msgstr ""
 
-#: ../npcs/martigan.txt:63
-msgid "Search for the abandoned tower southwest of the Frontier plains."
+#: ../npcs/martigan.txt:61
+msgid "Search for the abandoned tower southwest of the Frontier plains. The lands around there are called White Wind."
 msgstr ""
 
 #: ../npcs/martigan.txt:64
-msgid "The lands around there are called White Wind."
-msgstr ""
-
-#: ../npcs/martigan.txt:67
 msgid "Rotten Tower Found"
 msgstr ""
 
-#: ../npcs/martigan.txt:70
-msgid "So there are plenty of goblins in the white winds area, but not near the tower."
+#: ../npcs/martigan.txt:67
+msgid "There are plenty of goblins in the White Winds area, but not near the tower."
 msgstr ""
 
-#: ../npcs/martigan.txt:71
-msgid "Are you sure?"
+#: ../npcs/martigan.txt:68
+msgid "Are you sure? Did you look inside the tower?"
 msgstr ""
 
-#: ../npcs/martigan.txt:72
-msgid "What do you mean? Of course I am!"
-msgstr ""
-
-#: ../npcs/martigan.txt:73
-msgid "Did you look inside the tower? Did you make sure there aren't goblins in there?"
-msgstr ""
-
-#: ../npcs/martigan.txt:74
+#: ../npcs/martigan.txt:69
 msgid "Well..."
 msgstr ""
 
-#: ../npcs/martigan.txt:82
-msgid "I looked inside through the locked iron grate door. No goblins!"
+#: ../npcs/martigan.txt:75
+msgid "There are plenty of goblins in the white winds area, but not near the tower."
 msgstr ""
 
-#: ../npcs/martigan.txt:84
-msgid "Good! Here goes a little reward!"
+#: ../npcs/martigan.txt:77
+msgid "I saw no signs of goblins through the locked iron grate door."
 msgstr ""
 
-#: ../npcs/martigan.txt:88
+#: ../npcs/martigan.txt:79
+msgid "Good! Have this small reward."
+msgstr ""
+
+#: ../npcs/martigan.txt:83
 #, fuzzy
 msgid "Mineshaft"
 msgstr "Carreta"
 
-#: ../npcs/martigan.txt:91
+#: ../npcs/martigan.txt:86
 msgid "So how's the mining business?"
 msgstr ""
 
-#: ../npcs/martigan.txt:92
+#: ../npcs/martigan.txt:87
 msgid "Not good at all. While I was digging, my pickaxe scraped a skull that was wedged in the rock wall. Before I knew it, the nasty thing started moving and a whole body emerged. Now that thing is in there, preventing any more mining."
 msgstr ""
 
-#: ../npcs/martigan.txt:93
+#: ../npcs/martigan.txt:88
 msgid "Kill that skeleton for me, and I'll make it worth your while."
 msgstr ""
 
-#: ../npcs/martigan.txt:101
+#: ../npcs/martigan.txt:96
 msgid "Please take care of that skeleton. Work in the mine can't continue otherwise."
 msgstr ""
 
-#: ../npcs/martigan.txt:104
+#: ../npcs/martigan.txt:99
 msgid "Skeleton Defeated"
 msgstr ""
 
-#: ../npcs/martigan.txt:108
+#: ../npcs/martigan.txt:103
 msgid "I've defeated the Reanimated Skeleton."
 msgstr ""
 
-#: ../npcs/martigan.txt:109
+#: ../npcs/martigan.txt:104
 msgid "Excellent work! As promised, here's a little something for your troubles."
 msgstr ""
 

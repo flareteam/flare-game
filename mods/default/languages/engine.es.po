@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Flare v0.18\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-15 21:45+0100\n"
+"POT-Creation-Date: 2013-03-20 23:59+0100\n"
 "PO-Revision-Date: 2013-03-17 20:57+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: Español\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.4\n"
-"Language: Español\n"
 
 #: ../../../src/Avatar.cpp:411
 #, c-format
@@ -28,21 +28,19 @@ msgstr "Usted puede aumentar un atributo a través del Menú de Personaje."
 
 #: ../../../src/Avatar.cpp:640
 msgid "You are defeated. Game over! Press Enter to exit to Title."
-msgstr ""
-"Usted está derrotado. Se acabó el juego! Pulse Enter para salir al Título."
+msgstr "Usted está derrotado. Se acabó el juego! Pulse Enter para salir al Título."
 
 #: ../../../src/Avatar.cpp:643
 #, c-format
-msgid "You are defeated. You lose half your %s. Press Enter to continue."
-msgstr ""
-"Usted está derrotado. Pierde la mitad de su %s. Pulse Intro para continuar."
+msgid "You are defeated.  You lose half your %s.  Press Enter to continue."
+msgstr "Usted está derrotado. Pierde la mitad de su %s. Pulse Intro para continuar."
 
 #: ../../../src/Avatar.cpp:711 ../../../src/Enemy.cpp:172
 msgid "miss"
 msgstr "Falla"
 
 #: ../../../src/Avatar.cpp:784 ../../../src/Enemy.cpp:248
-#: ../../../src/PowerManager.cpp:666 ../../../src/StatBlock.cpp:522
+#: ../../../src/PowerManager.cpp:668 ../../../src/StatBlock.cpp:523
 #, c-format
 msgid "+%d HP"
 msgstr "+%d PV"
@@ -87,21 +85,21 @@ msgstr "Efectos negativos removidos."
 msgid "HP and MP restored, negative effects removed"
 msgstr "Restaurados PV y PM, efectos negativos removidos"
 
-#: ../../../src/Enemy.cpp:255 ../../../src/StatBlock.cpp:527
+#: ../../../src/Enemy.cpp:255 ../../../src/StatBlock.cpp:528
 #, c-format
 msgid "+%d MP"
 msgstr "+%d PM"
 
-#: ../../../src/GameStateConfig.cpp:79
-msgid "Ok"
-msgstr "Aceptar"
+#: ../../../src/GameStateConfig.cpp:79 ../../../src/GameStateConfig.cpp:164
+msgid "OK"
+msgstr "ACEPTAR"
 
 #: ../../../src/GameStateConfig.cpp:84 ../../../src/GameStateConfig.cpp:163
 msgid "Defaults"
 msgstr "Por defecto"
 
 #: ../../../src/GameStateConfig.cpp:89 ../../../src/GameStateNew.cpp:55
-#: ../../../src/InputState.cpp:59
+#: ../../../src/InputState.cpp:59 ../../../src/MenuNPCActions.cpp:77
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -137,10 +135,6 @@ msgstr "Asignar:"
 #: ../../../src/GameStateConfig.cpp:163
 msgid "Reset ALL settings?"
 msgstr "¿Restablecer TODOS los ajustes?"
-
-#: ../../../src/GameStateConfig.cpp:164
-msgid "OK"
-msgstr "ACEPTAR"
 
 #: ../../../src/GameStateConfig.cpp:164
 msgid "Use this resolution?"
@@ -334,7 +328,8 @@ msgid "Exit Game"
 msgstr "Salir del juego"
 
 #: ../../../src/GameStateTitle.cpp:61
-msgid "Flare Alpha v0.17"
+#, fuzzy
+msgid "Flare Alpha v0.18"
 msgstr "Flare v0.18"
 
 #: ../../../src/InputState.cpp:60
@@ -580,7 +575,7 @@ msgstr "%d artículos: "
 msgid "%d %s"
 msgstr "%d %s"
 
-#: ../../../src/MapRenderer.cpp:1227
+#: ../../../src/MapRenderer.cpp:1225
 msgid "Unknown destination"
 msgstr "Destino desconocido"
 
@@ -635,8 +630,7 @@ msgstr "PV Máximo:"
 #: ../../../src/MenuCharacter.cpp:306
 #, c-format
 msgid "Each point of Physical grants +%d HP. Each level grants +%d HP"
-msgstr ""
-"Cada punto de subvenciones físicas +%d PV. Cada nivel de subvenciones +%d PV"
+msgstr "Cada punto de subvenciones físicas +%d PV. Cada nivel de subvenciones +%d PV"
 
 #: ../../../src/MenuCharacter.cpp:311
 msgid "HP Regen:"
@@ -644,12 +638,8 @@ msgstr "Regeneración de PV:"
 
 #: ../../../src/MenuCharacter.cpp:312
 #, c-format
-msgid ""
-"Ticks of HP regen per minute. Each point of Physical grants +%d HP regen. "
-"Each level grants +%d HP regen"
-msgstr ""
-"Ticks de regeneración de PV por minuto. Cada punto de subvenciones físicas +"
-"%d PV de regeneración. Cada nivel de subvenciones +%d PV de regeneración"
+msgid "Ticks of HP regen per minute. Each point of Physical grants +%d HP regen. Each level grants +%d HP regen"
+msgstr "Ticks de regeneración de PV por minuto. Cada punto de subvenciones físicas +%d PV de regeneración. Cada nivel de subvenciones +%d PV de regeneración"
 
 #: ../../../src/MenuCharacter.cpp:317
 msgid "Max MP:"
@@ -658,8 +648,7 @@ msgstr "PM Máximo:"
 #: ../../../src/MenuCharacter.cpp:318
 #, c-format
 msgid "Each point of Mental grants +%d MP. Each level grants +%d MP"
-msgstr ""
-"Cada punto de subvenciones Mental +%d PM. Cada nivel de subvenciones +%d PM"
+msgstr "Cada punto de subvenciones Mental +%d PM. Cada nivel de subvenciones +%d PM"
 
 #: ../../../src/MenuCharacter.cpp:323
 msgid "MP Regen:"
@@ -667,12 +656,8 @@ msgstr "Regeneración de PM:"
 
 #: ../../../src/MenuCharacter.cpp:324
 #, c-format
-msgid ""
-"Ticks of MP regen per minute. Each point of Mental grants +%d MP regen. Each "
-"level grants +%d MP regen"
-msgstr ""
-"Ticks de regeneración de PM por minuto. Cada punto de subvenciones Mental +"
-"%d PM de regeneración. Cada nivel de subvenciones +%d PM de regeneración"
+msgid "Ticks of MP regen per minute. Each point of Mental grants +%d MP regen. Each level grants +%d MP regen"
+msgstr "Ticks de regeneración de PM por minuto. Cada punto de subvenciones Mental +%d PM de regeneración. Cada nivel de subvenciones +%d PM de regeneración"
 
 #: ../../../src/MenuCharacter.cpp:329
 msgid "Accuracy:"
@@ -680,11 +665,8 @@ msgstr "Precisión:"
 
 #: ../../../src/MenuCharacter.cpp:330
 #, c-format
-msgid ""
-"Each point of Offense grants +%d accuracy. Each level grants +%d accuracy"
-msgstr ""
-"Cada punto de subvenciones Ofensa +%d precisión. Cada nivel de subvenciones+"
-"%d precisión"
+msgid "Each point of Offense grants +%d accuracy. Each level grants +%d accuracy"
+msgstr "Cada punto de subvenciones Ofensa +%d precisión. Cada nivel de subvenciones+%d precisión"
 
 #: ../../../src/MenuCharacter.cpp:335
 msgid "Avoidance:"
@@ -692,11 +674,8 @@ msgstr "Evitación:"
 
 #: ../../../src/MenuCharacter.cpp:336
 #, c-format
-msgid ""
-"Each point of Defense grants +%d avoidance. Each level grants +%d avoidance"
-msgstr ""
-"Cada punto de subvenciones Defensa +%d evitación. Cada nivel de subvenciones "
-"+%d evitación"
+msgid "Each point of Defense grants +%d avoidance. Each level grants +%d avoidance"
+msgstr "Cada punto de subvenciones Defensa +%d evitación. Cada nivel de subvenciones +%d evitación"
 
 #: ../../../src/MenuCharacter.cpp:341
 msgid "Melee Damage:"
@@ -745,8 +724,7 @@ msgstr "Punto Bonus Buscar: "
 
 #: ../../../src/MenuCharacter.cpp:406
 msgid "Increases the chance that an enemy will drop an item when killed"
-msgstr ""
-"Aumenta la probabilidad de que un enemigo suelte un objeto cuando muera"
+msgstr "Aumenta la probabilidad de que un enemigo suelte un objeto cuando muera"
 
 #: ../../../src/MenuCharacter.cpp:411
 msgid "Stealth: "
@@ -782,9 +760,7 @@ msgstr "Mental (M) aumenta la capacidad de arma mental y PM total."
 
 #: ../../../src/MenuCharacter.cpp:444
 msgid "Offense (O) increases ranged weapon proficiency and accuracy."
-msgstr ""
-"Ofensa (O) aumenta la capacidad del rango de arma largo alcance y su "
-"precisión."
+msgstr "Ofensa (O) aumenta la capacidad del rango de arma largo alcance y su precisión."
 
 #: ../../../src/MenuCharacter.cpp:448
 msgid "Defense (D) increases armor proficiency and avoidance."
@@ -836,6 +812,10 @@ msgstr "Experiencia: %d/%d"
 #: ../../../src/MenuManager.cpp:630 ../../../src/MenuManager.cpp:631
 msgid "Not enough money."
 msgstr "No hay suficiente dinero."
+
+#: ../../../src/MenuNPCActions.cpp:76
+msgid "Trade"
+msgstr ""
 
 #: ../../../src/MenuPowers.cpp:460
 msgid "Unspent skill points:"
@@ -919,15 +899,21 @@ msgstr "Recompra"
 msgid "Vendor"
 msgstr "Vendedor"
 
-#: ../../../src/PowerManager.cpp:659
+#: ../../../src/PowerManager.cpp:661
 #, c-format
 msgid "+%d Shield"
 msgstr "+%d Escudo"
 
-#: ../../../src/PowerManager.cpp:901
+#: ../../../src/PowerManager.cpp:903
 msgid "You are already transformed, untransform first."
 msgstr "Usted ya está transformado, destransformase primero."
 
 #: ../../../src/Settings.cpp:500
 msgid "Adventurer"
 msgstr "Aventurero"
+
+#~ msgid "You are defeated. You lose half your %s. Press Enter to continue."
+#~ msgstr "Usted está derrotado. Pierde la mitad de su %s. Pulse Intro para continuar."
+
+#~ msgid "Ok"
+#~ msgstr "Aceptar"

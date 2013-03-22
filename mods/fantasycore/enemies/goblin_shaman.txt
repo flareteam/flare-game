@@ -31,12 +31,20 @@ avoidance=34
 
 dmg_ment_min=15
 dmg_ment_max=40
-absorb_min=5
-absorb_max=5
+absorb_min=9
+absorb_max=9
 cooldown=25
 cooldown_ranged_phys=90
 
 # loot
-loot=currency,33
+loot=currency,33,4,16
 
+# wand, mana potion
+loot=40,5
+loot=2,5
+
+# rod, mage gloves, mage boots
+loot=41,1
+loot=74,1
+loot=76,1
 

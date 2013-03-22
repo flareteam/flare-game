@@ -24,11 +24,16 @@ avoidance=34
 
 dmg_melee_min=15
 dmg_melee_max=45
-absorb_min=5
-absorb_max=10
+absorb_min=18
+absorb_max=18
 
 cooldown=10
 
 # loot
-loot=currency,33
+loot=currency,15,6,24
+
+# healing pot, mana pot, sapphire
+loot=1,3
+loot=2,3
+loot=3,1
 

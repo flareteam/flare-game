@@ -165,7 +165,7 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 				int y = eatFirstInt(infile.val, ',');
 				int w = eatFirstInt(infile.val, ',');
 				int h = eatFirstInt(infile.val, ',');
-				
+
 				menus[menu_index]->window_area.x = x;
 				menus[menu_index]->window_area.y = y;
 				menus[menu_index]->window_area.w = w;
@@ -178,7 +178,7 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 			} else if (infile.key == "soundfx_close") {
 				menus[menu_index]->sfx_close = snd->load(infile.val, "MenuManager close tab");
 			}
-			
+
 		}
 
 		infile.close();
@@ -298,7 +298,7 @@ void MenuManager::logic() {
 	}
 
 	// exit menu toggle
-	if ((!key_lock && !dragging) && !(stats->corpse && stats->permadeath) && stats->transform_duration < 1) {
+	if ((!key_lock && !dragging) && !(stats->corpse && stats->permadeath)) {
 		if (inpt->pressing[CANCEL] && !inpt->lock[CANCEL]) {
 			inpt->lock[CANCEL] = true;
 			key_lock = true;
@@ -344,7 +344,7 @@ void MenuManager::logic() {
 	act->requires_attention[MENU_POWERS] = pow->getUnspent() > 0;
 
 	// character menu toggleggle
-	if (((inpt->pressing[CHARACTER] && !key_lock && !dragging) || clicking_character) && stats->humanoid) {
+	if (((inpt->pressing[CHARACTER] && !key_lock && !dragging) || clicking_character)) {
 		key_lock = true;
 		if (chr->visible) {
 			snd->play(chr->sfx_close);
@@ -758,6 +758,9 @@ void MenuManager::render() {
 			tip_buf = tip_new;
 		}
 		tip->render(tip_buf, inpt->mouse, STYLE_FLOAT);
+		TOOLTIP_CONTEXT = TOOLTIP_MENU;
+	} else if (TOOLTIP_CONTEXT != TOOLTIP_MAP) {
+		TOOLTIP_CONTEXT = TOOLTIP_NONE;
 	}
 
 	// draw icon under cursor if dragging
