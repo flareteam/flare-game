@@ -27,6 +27,8 @@ power_beacon=132
 
 accuracy=78
 avoidance=28
+absorb_min=9
+absorb_max=9
 
 dmg_melee_min=5
 dmg_melee_max=25
@@ -38,5 +40,16 @@ vulnerable_ice=50
 cooldown=30
 
 # loot
-loot=currency,33
+loot=currency,33,4,16
+
+# rod, mana pot
+loot=41,5
+loot=2,5
+
+# mage set
+loot=72,1
+loot=73,1
+loot=74,1
+loot=75,1
+loot=76,1
 

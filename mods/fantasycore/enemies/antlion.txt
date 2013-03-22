@@ -22,14 +22,18 @@ power_beacon=132
 
 accuracy=72
 avoidance=22
-absorb_min=10
-absorb_max=10
+absorb_min=12
+absorb_max=12
 
 dmg_melee_min=10
 dmg_melee_max=35
 cooldown=10
 
 # loot
-loot=currency,33
+loot=currency,15,4,16
+
+# healing pot, mana pot
+loot=1,3
+loot=2,3
 
 

@@ -38,12 +38,28 @@ dmg_melee_max=40
 dmg_ment_min=25
 dmg_ment_max=60
 
-absorb_min=10
-absorb_max=10
+absorb_min=12
+absorb_max=12
 
 vulnerable_fire=150
 vulnerable_ice=75
 cooldown=20
 
 # loot
-loot=currency,33
+loot=currency,33,5,20
+
+# shortsword, chain armor, iron buckler, health pot
+loot=33,5
+loot=89,5
+loot=90,5
+loot=91,5
+loot=92,5
+loot=57,5
+loot=1,5
+
+# blood gear, long sword, crest shield, duelist guants
+loot=116,1
+loot=117,1
+loot=34,1
+loot=58,1
+loot=115,1

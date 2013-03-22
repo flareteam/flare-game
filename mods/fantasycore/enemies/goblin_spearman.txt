@@ -30,11 +30,20 @@ dmg_melee_min=5
 dmg_melee_max=25
 dmg_ranged_min=10
 dmg_ranged_max=35
-absorb_min=0
-absorb_max=5
+absorb_min=6
+absorb_max=6
 cooldown=25
 
 # loot
-loot=currency,33
+loot=currency,33,3,12
+
+# slingshot, leather chest, leather pants, health pot
+loot=48,5
+loot=81,5
+loot=83,5
+loot,1,5
+
+# short bow
+loot=49,1
 
 

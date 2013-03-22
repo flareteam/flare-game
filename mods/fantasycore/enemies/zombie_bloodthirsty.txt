@@ -30,7 +30,19 @@ dmg_melee_min=20
 dmg_melee_max=50
 dmg_ment_min=20
 dmg_ment_max=50
+absorb_min=12
+absorb_max=12
+
 cooldown=15
 
 # loot
-loot=currency,33
+loot=currency,33,5,20
+
+# health pot
+loot=1,5
+
+# blood gear, ring of regen
+loot=116,1
+loot=117,1
+loot=107,1
+

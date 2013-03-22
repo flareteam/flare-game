@@ -11,7 +11,7 @@ animations=fire_ant
 # antlions have low HP and high armor for their level
 hp=130
 speed=16
-dspeed=9
+dspeed=11
 melee_range=76
 threat_range=512
 turn_delay=4
@@ -27,12 +27,19 @@ avoidance=25
 
 dmg_ment_min=150
 dmg_ment_max=200
-absorb_min=25
-absorb_max=25
+absorb_min=24
+absorb_max=24
 vulnerable_fire=100
 vulnerable_ice=200
 
 cooldown=25
 
 # loot
-loot=currency,33
+loot=currency,15,8,32
+
+# healing pot, mana pot, ring of fire, ruby
+loot=1,3
+loot=2,3
+
+loot=109,1
+loot=5,1

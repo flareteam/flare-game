@@ -30,10 +30,21 @@ dmg_melee_min=5
 dmg_melee_max=25
 dmg_ranged_min=15
 dmg_ranged_max=40
-absorb_min=5
-absorb_max=5
+absorb_min=12
+absorb_max=12
 cooldown=25
 
 # loot
-loot=currency,75
+loot=currency,75,6,12
 
+# slingshot, leather chest, leather pants, health pot, mana pot
+loot=48,20
+loot=81,20
+loot=83,20
+loot,1,20
+loot=2,20
+
+# short bow, silent tabi, thief gloves, 
+loot=49,1
+loot=114,1
+loot=105,1

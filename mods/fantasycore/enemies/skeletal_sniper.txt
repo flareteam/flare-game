@@ -35,9 +35,21 @@ dmg_melee_min=5
 dmg_melee_max=25
 dmg_ranged_min=15
 dmg_ranged_max=45
+absorb_min=15
+absorb_max=15
 
 cooldown=15
 cooldown_ranged_ment=45
 
 # loot
-loot=currency,33
+loot=currency,33,6,24
+
+# long bow, chain coif, health pot
+loot=50,5
+loot=88,5
+loot=1,5
+
+# cat figurine, relic hunter's ring
+loot=121,1
+loot=113,1
+
