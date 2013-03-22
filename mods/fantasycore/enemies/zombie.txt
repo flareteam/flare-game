@@ -30,9 +30,18 @@ dmg_melee_min=5
 dmg_melee_max=25
 dmg_ment_min=15
 dmg_ment_max=30
+absorb_min=3
+absorb_max=3
+
 cooldown=20
 
 # loot
-loot=currency,33
+loot=currency,33,2,8
 
+# cloth set, healing pot
+loot=64,5
+loot=65,5
+loot=66,5
+loot=67,5
+loot,1,5
 
