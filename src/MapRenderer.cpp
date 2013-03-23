@@ -48,7 +48,6 @@ MapRenderer::MapRenderer(CampaignManager *_camp)
  , foreground(NULL)
  , collision(NULL)
  , shakycam(Point())
- , new_music(false)
  , backgroundsurface(NULL)
  , backgroundsurfaceoffset()
  , repaint_background(false)
@@ -121,16 +120,12 @@ int MapRenderer::load(string filename) {
 	FileParser infile;
 	string val;
 	maprow *cur_layer;
-	Map_Enemy new_enemy;
-	Map_Group new_group;
-	bool enemy_awaiting_queue = false;
-	bool group_awaiting_queue = false;
-	bool npc_awaiting_queue = false;
-	Map_NPC new_npc;
 
 	clearEvents();
 	clearLayers();
 	clearQueues();
+
+	std::queue<Map_Group> enemy_groups;
 
 	/* unload sounds */
 	snd->reset();
@@ -150,35 +145,15 @@ int MapRenderer::load(string filename) {
 	while (infile.next()) {
 		if (infile.new_section) {
 
-			if (enemy_awaiting_queue) {
-				enemies.push(new_enemy);
-				enemy_awaiting_queue = false;
-			}
-			if (npc_awaiting_queue) {
-				npcs.push(new_npc);
-				npc_awaiting_queue = false;
-			}
-			if (group_awaiting_queue) {
-				push_enemy_group(new_group);
-				group_awaiting_queue = false;
-			}
-
 			// for sections that are stored in collections, add a new object here
-			if (infile.section == "enemy") {
-				new_enemy = Map_Enemy();
-				enemy_awaiting_queue = true;
-			}
-			else if (infile.section == "enemygroup") {
-				new_group.clear();
-				group_awaiting_queue = true;
-			}
-			else if (infile.section == "npc") {
-				new_npc.clear();
-				npc_awaiting_queue = true;
-			}
-			else if (infile.section == "event") {
+			if (infile.section == "enemy")
+				enemies.push(Map_Enemy());
+			else if (infile.section == "enemygroup")
+				enemy_groups.push(Map_Group());
+			else if (infile.section == "npc")
+				npcs.push(Map_NPC());
+			else if (infile.section == "event")
 				events.push_back(Map_Event());
-			}
 
 		}
 		if (infile.section == "header") {
@@ -195,13 +170,7 @@ int MapRenderer::load(string filename) {
 				this->tileset = infile.val;
 			}
 			else if (infile.key == "music") {
-				if (this->music_filename == infile.val) {
-					this->new_music = false;
-				}
-				else {
-					this->music_filename = infile.val;
-					this->new_music = true;
-				}
+				loadMusic(infile.val);
 			}
 			else if (infile.key == "location") {
 				spawn.x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
@@ -239,14 +208,14 @@ int MapRenderer::load(string filename) {
 		}
 		else if (infile.section == "enemy") {
 			if (infile.key == "type") {
-				new_enemy.type = infile.val;
+				enemies.back().type = infile.val;
 			}
 			else if (infile.key == "location") {
-				new_enemy.pos.x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
-				new_enemy.pos.y = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+				enemies.back().pos.x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+				enemies.back().pos.y = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
 			}
 			else if (infile.key == "direction") {
-				new_enemy.direction = toInt(infile.val);
+				enemies.back().direction = toInt(infile.val);
 			}
 			else if (infile.key == "waypoints") {
 				string none = "";
@@ -257,53 +226,47 @@ int MapRenderer::load(string filename) {
 					Point p;
 					p.x = toInt(a) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
 					p.y = toInt(b) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
-					new_enemy.waypoints.push(p);
+					enemies.back().waypoints.push(p);
 					a = infile.nextValue();
 					b = infile.nextValue();
 				}
 			} else if (infile.key == "wander_area") {
-				new_enemy.wander = true;
-				new_enemy.wander_area.x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
-				new_enemy.wander_area.y = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
-				new_enemy.wander_area.w = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
-				new_enemy.wander_area.h = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
+				enemies.back().wander = true;
+				enemies.back().wander_area.x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
+				enemies.back().wander_area.y = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
+				enemies.back().wander_area.w = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
+				enemies.back().wander_area.h = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
 			}
 		}
 		else if (infile.section == "enemygroup") {
 			if (infile.key == "type") {
-				new_group.category = infile.val;
+				enemy_groups.back().category = infile.val;
 			}
 			else if (infile.key == "level") {
-				new_group.levelmin = toInt(infile.nextValue());
-				new_group.levelmax = toInt(infile.nextValue());
+				enemy_groups.back().levelmin = toInt(infile.nextValue());
+				enemy_groups.back().levelmax = toInt(infile.nextValue());
 			}
 			else if (infile.key == "location") {
-				new_group.pos.x = toInt(infile.nextValue());
-				new_group.pos.y = toInt(infile.nextValue());
-				new_group.area.x = toInt(infile.nextValue());
-				new_group.area.y = toInt(infile.nextValue());
+				enemy_groups.back().pos.x = toInt(infile.nextValue());
+				enemy_groups.back().pos.y = toInt(infile.nextValue());
+				enemy_groups.back().area.x = toInt(infile.nextValue());
+				enemy_groups.back().area.y = toInt(infile.nextValue());
 			}
 			else if (infile.key == "number") {
-				new_group.numbermin = toInt(infile.nextValue());
-				new_group.numbermax = toInt(infile.nextValue());
+				enemy_groups.back().numbermin = toInt(infile.nextValue());
+				enemy_groups.back().numbermax = toInt(infile.nextValue());
 			}
 			else if (infile.key == "chance") {
-				new_group.chance = toInt(infile.nextValue()) / 100.0f;
-				if (new_group.chance > 1.0f) {
-					new_group.chance = 1.0f;
-				}
-				if (new_group.chance < 0.0f) {
-					new_group.chance = 0.0f;
-				}
+				enemy_groups.back().chance = max(1.0f, min(0.0f, (toInt(infile.nextValue()) / 100.0f)));
 			}
 		}
 		else if (infile.section == "npc") {
 			if (infile.key == "type") {
-				new_npc.id = infile.val;
+				npcs.back().id = infile.val;
 			}
 			else if (infile.key == "location") {
-				new_npc.pos.x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
-				new_npc.pos.y = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+				npcs.back().pos.x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+				npcs.back().pos.y = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
 			}
 		}
 		else if (infile.section == "event") {
@@ -559,7 +522,7 @@ int MapRenderer::load(string filename) {
 					}
 				}
 				else if (infile.key == "npc") {
-					new_npc.id = infile.val;
+					npcs.back().id = infile.val;
 					e->s = infile.val;
 				}
 				else if (infile.key == "music") {
@@ -571,20 +534,11 @@ int MapRenderer::load(string filename) {
 
 	infile.close();
 
-	// reached end of file.  Handle any final sections.
-	if (enemy_awaiting_queue)
-		enemies.push(new_enemy);
-
-	if (npc_awaiting_queue)
-		npcs.push(new_npc);
-
-	if (group_awaiting_queue)
-		push_enemy_group(new_group);
-
-	if (this->new_music) {
-		loadMusic();
-		this->new_music = false;
+	while (!enemy_groups.empty()) {
+		push_enemy_group(enemy_groups.front());
+		enemy_groups.pop();
 	}
+
 	tset.load(this->tileset);
 
 	// some events automatically trigger when the map loads
@@ -621,7 +575,13 @@ void MapRenderer::clearLayers() {
 	backgroundsurface = 0;
 }
 
-void MapRenderer::loadMusic() {
+void MapRenderer::loadMusic(const std::string &new_music_filename) {
+
+	// keep playing if already the correct track
+	if (music_filename == new_music_filename)
+		return;
+
+	music_filename = new_music_filename;
 
 	if (music) {
 		Mix_HaltMusic();
@@ -1371,7 +1331,7 @@ bool MapRenderer::executeEvent(Map_Event &ev) {
 		else if (ec->type == "music") {
 			if (this->music_filename != ec->s) {
 				this->music_filename = ec->s;
-				loadMusic();
+				loadMusic(ec->s);
 			}
 		}
 	}

@@ -163,7 +163,7 @@ private:
 	void push_enemy_group(Map_Group g);
 	bool isActive(const Map_Event &e);
 
-	void loadMusic();
+	void loadMusic(const std::string &new_music_filename);
 
 	// map events
 	std::vector<Map_Event> events;
@@ -211,7 +211,6 @@ private:
 	void clearQueues();
 
 	Point shakycam;
-	bool new_music;
 	TileSet tset;
 	std::string tileset;
 	std::string music_filename;
