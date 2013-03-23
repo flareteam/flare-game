@@ -239,16 +239,16 @@ void LootManager::checkMapForLoot() {
 	// first drop any 'fixed' (0% chance) items
 	for (unsigned i = map->loot.size(); i > 0; i--) {
 		ec = &map->loot[i-1];
-		if (ec->w == 0) {
+		if (ec->z == 0) {
 			p.x = ec->x;
 			p.y = ec->y;
 
 			// an item id of 0 means we should drop currency instead
 			if (ec->s == "currency" || toInt(ec->s) == 0) {
-				addCurrency(ec->z, p);
+				addCurrency(randBetween(ec->a,ec->b), p);
 			} else {
 				new_loot.item = toInt(ec->s);
-				new_loot.quantity = ec->z;
+				new_loot.quantity = randBetween(ec->a,ec->b);
 				addLoot(new_loot, p);
 			}
 
@@ -262,15 +262,15 @@ void LootManager::checkMapForLoot() {
 
 		if (possible_ids.empty()) {
 			// find the rarest loot less than the chance roll
-			if (chance < (ec->w * (hero->effects.bonus_item_find + 100)) / 100) {
+			if (chance < (ec->z * (hero->effects.bonus_item_find + 100)) / 100) {
 				possible_ids.push_back(i-1);
-				common_chance = ec->w;
+				common_chance = ec->z;
 				i=map->loot.size(); // start searching from the beginning
 				continue;
 			}
 		} else {
 			// include loot with identical chances
-			if (ec->w == common_chance)
+			if (ec->z == common_chance)
 				possible_ids.push_back(i-1);
 		}
 	}
@@ -285,10 +285,10 @@ void LootManager::checkMapForLoot() {
 
 		// an item id of 0 means we should drop currency instead
 		if (ec->s == "currency" || toInt(ec->s) == 0) {
-			addCurrency(ec->z, p);
+			addCurrency(randBetween(ec->a,ec->b), p);
 		} else {
 			new_loot.item = toInt(ec->s);
-			new_loot.quantity = ec->z;
+			new_loot.quantity = randBetween(ec->a,ec->b);
 			addLoot(new_loot, p);
 		}
 	}
@@ -319,7 +319,7 @@ void LootManager::determineLootByEnemy(const Enemy *e, Point pos) {
 				range.x = e->stats.loot[i].count_min;
 				range.y = e->stats.loot[i].count_max;
 				possible_ranges.push_back(range);
-				
+
 				i=-1; // start searching from the beginning
 				continue;
 			}
@@ -331,24 +331,24 @@ void LootManager::determineLootByEnemy(const Enemy *e, Point pos) {
 				range.x = e->stats.loot[i].count_min;
 				range.y = e->stats.loot[i].count_max;
 				possible_ranges.push_back(range);
-				
+
 			}
 		}
 	}
 
 	if (!possible_ids.empty()) {
-	
-		int roll = rand() % possible_ids.size();		
+
+		int roll = rand() % possible_ids.size();
 		new_loot.item = possible_ids[roll];
 		new_loot.quantity = randBetween(possible_ranges[roll].x, possible_ranges[roll].y);
-		
+
 		// an item id of 0 means we should drop currency instead
 		if (new_loot.item == 0) {
-		
+
 			// calculate bonus currency
 			int currency = new_loot.quantity;
 			currency = (currency * (100 + hero->effects.bonus_currency)) / 100;
-			
+
 			addCurrency(currency, pos);
 		} else {
 			addLoot(new_loot, pos);
