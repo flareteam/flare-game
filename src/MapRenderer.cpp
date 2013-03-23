@@ -714,34 +714,39 @@ void MapRenderer::drawRenderable(vector<Renderable>::iterator r_cursor) {
 }
 
 void MapRenderer::renderIsoLayer(SDL_Surface *wheretorender, Point offset, const unsigned short layerdata[256][256]) {
-	short int i;
-	short int j;
+	int_fast16_t i; // first index of the map array
+	int_fast16_t j; // second index of the map array
 	SDL_Rect dest;
 	const Point upperright = screen_to_map(0, 0, shakycam.x, shakycam.y);
-	const short max_tiles_width =   (VIEW_W / TILE_W) + 2 * tset.max_size_x;
-	const short max_tiles_height = ((2 * VIEW_H / TILE_H) + 2 * tset.max_size_y) * 2;
+	const int_fast16_t max_tiles_width =   (VIEW_W / TILE_W) + 2 * tset.max_size_x;
+	const int_fast16_t max_tiles_height = ((2 * VIEW_H / TILE_H) + 2 * tset.max_size_y) * 2;
 
 	j = upperright.y / UNITS_PER_TILE - tset.max_size_y + tset.max_size_x;
 	i = upperright.x / UNITS_PER_TILE - tset.max_size_y - tset.max_size_x;
 
-	for (unsigned short y = max_tiles_height ; y; --y) {
-		short tiles_width = 0;
+	for (uint_fast16_t y = max_tiles_height ; y; --y) {
+		int_fast16_t tiles_width = 0;
 
 		// make sure the isometric corners are not rendered:
+		// corner north west, upper left  (i < 0)
 		if (i < -1) {
 			j += i + 1;
 			tiles_width -= i + 1;
 			i = -1;
 		}
-		const short d = j - h;
+		// corner north east, upper right (j > mapheight)
+		const int_fast16_t d = j - h;
 		if (d >= 0) {
 			j -= d; tiles_width += d; i += d;
 		}
-		const short j_end = std::max((j+i-w+1), std::max(j - max_tiles_width, 0));
 
+		// lower right (south east) corner is covered by (j+i-w+1)
+		// lower left (south west) corner is caught by having 0 in there, so j>0
+		const int_fast16_t j_end = std::max((j+i-w+1),	std::max(j - max_tiles_width, static_cast<int_fast16_t>(0)));
 
 		Point p = map_to_screen(i * UNITS_PER_TILE, j * UNITS_PER_TILE, shakycam.x, shakycam.y);
 		p = center_tile(p);
+
 		// draw one horizontal line
 		while (j > j_end) {
 			--j;
@@ -749,9 +754,7 @@ void MapRenderer::renderIsoLayer(SDL_Surface *wheretorender, Point offset, const
 			++tiles_width;
 			p.x += TILE_W;
 
-			const unsigned short current_tile = layerdata[i][j];
-
-			if (current_tile) {
+			if (const uint_fast16_t current_tile = layerdata[i][j]) {
 				dest.x = p.x - tset.tiles[current_tile].offset.x + offset.x;
 				dest.y = p.y - tset.tiles[current_tile].offset.y + offset.y;
 				// no need to set w and h in dest, as it is ignored
@@ -761,6 +764,7 @@ void MapRenderer::renderIsoLayer(SDL_Surface *wheretorender, Point offset, const
 		}
 		j += tiles_width;
 		i -= tiles_width;
+		// Go one line deeper, the starting position goes zig-zag
 		if (y % 2)
 			i++;
 		else
@@ -775,12 +779,12 @@ void MapRenderer::renderIsoBackObjects(vector<Renderable> &r) {
 }
 
 void MapRenderer::renderIsoFrontObjects(vector<Renderable> &r) {
-	short int i;
-	short int j;
+	int_fast16_t i;
+	int_fast16_t j;
 	SDL_Rect dest;
 	const Point upperright = screen_to_map(0, 0, shakycam.x, shakycam.y);
-	const short max_tiles_width =   (VIEW_W / TILE_W) + 2 * tset.max_size_x;
-	const short max_tiles_height = ((VIEW_H / TILE_H) + 2 * tset.max_size_y)*2;
+	const int_fast16_t max_tiles_width =   (VIEW_W / TILE_W) + 2 * tset.max_size_x;
+	const int_fast16_t max_tiles_height = ((VIEW_H / TILE_H) + 2 * tset.max_size_y)*2;
 
 	vector<Renderable>::iterator r_cursor = r.begin();
 	vector<Renderable>::iterator r_end = r.end();
@@ -792,8 +796,8 @@ void MapRenderer::renderIsoFrontObjects(vector<Renderable> &r) {
 	while (r_cursor != r_end && ((r_cursor->map_pos.x>>TILE_SHIFT) + (r_cursor->map_pos.y>>TILE_SHIFT) < i + j || (r_cursor->map_pos.x>>TILE_SHIFT) < i))
 		++r_cursor;
 
-	for (unsigned short y = max_tiles_height ; y; --y) {
-		short tiles_width = 0;
+	for (uint_fast16_t y = max_tiles_height ; y; --y) {
+		int_fast16_t tiles_width = 0;
 
 		// make sure the isometric corners are not rendered:
 		if (i < -1) {
@@ -801,11 +805,11 @@ void MapRenderer::renderIsoFrontObjects(vector<Renderable> &r) {
 			tiles_width -= i + 1;
 			i = -1;
 		}
-		const short d = j - h;
+		const int_fast16_t d = j - h;
 		if (d >= 0) {
 			j -= d; tiles_width += d; i += d;
 		}
-		const short j_end = std::max((j+i-w+1), std::max(j - max_tiles_width, 0));
+		const int_fast16_t j_end = std::max((j+i-w+1), std::max(j - max_tiles_width, static_cast<int_fast16_t>(0)));
 
 		// draw one horizontal line
 		Point p = map_to_screen(i * UNITS_PER_TILE, j * UNITS_PER_TILE, shakycam.x, shakycam.y);
@@ -816,9 +820,7 @@ void MapRenderer::renderIsoFrontObjects(vector<Renderable> &r) {
 			++tiles_width;
 			p.x += TILE_W;
 
-			const unsigned short current_tile = object[i][j];
-
-			if (current_tile) {
+			if (const uint_fast16_t current_tile = object[i][j]) {
 
 				dest.x = p.x - tset.tiles[current_tile].offset.x;
 				dest.y = p.y - tset.tiles[current_tile].offset.y;
@@ -837,6 +839,7 @@ void MapRenderer::renderIsoFrontObjects(vector<Renderable> &r) {
 			i++;
 		else
 			j++;
+
 		while (r_cursor != r_end && ((r_cursor->map_pos.x>>TILE_SHIFT) + (r_cursor->map_pos.y>>TILE_SHIFT) < i + j || (r_cursor->map_pos.x>>TILE_SHIFT) <= i))
 			++r_cursor;
 	}
