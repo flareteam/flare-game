@@ -118,8 +118,7 @@ void MapRenderer::push_enemy_group(Map_Group g) {
 
 int MapRenderer::load(string filename) {
 	FileParser infile;
-	string val;
-	maprow *cur_layer;
+	maprow *cur_layer = NULL;
 
 	clearEvents();
 	clearLayers();
@@ -134,7 +133,6 @@ int MapRenderer::load(string filename) {
 		sids.pop_back();
 	}
 
-	cur_layer = NULL;
 	show_tooltip = false;
 
 	if (!infile.open(mods->locate("maps/" + filename))) {
@@ -156,380 +154,18 @@ int MapRenderer::load(string filename) {
 				events.push_back(Map_Event());
 
 		}
-		if (infile.section == "header") {
-			if (infile.key == "title") {
-				this->title = msg->get(infile.val);
-			}
-			else if (infile.key == "width") {
-				this->w = toInt(infile.val);
-			}
-			else if (infile.key == "height") {
-				this->h = toInt(infile.val);
-			}
-			else if (infile.key == "tileset") {
-				this->tileset = infile.val;
-			}
-			else if (infile.key == "music") {
-				loadMusic(infile.val);
-			}
-			else if (infile.key == "location") {
-				spawn.x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
-				spawn.y = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
-				spawn_dir = toInt(infile.nextValue());
-			}
-		}
-		else if (infile.section == "layer") {
-			if (infile.key == "type") {
-				cur_layer = new maprow[w];
-				if (infile.val == "background") background = cur_layer;
-				else if (infile.val == "fringe") fringe = cur_layer;
-				else if (infile.val == "object") object = cur_layer;
-				else if (infile.val == "foreground") foreground = cur_layer;
-				else if (infile.val == "collision") collision = cur_layer;
-			}
-			else if (infile.key == "format") {
-				if (infile.val != "dec") {
-					fprintf(stderr, "ERROR: maploading: The format of a layer must be \"dec\"!\n");
-					SDL_Quit();
-					exit(1);
-				}
-			}
-			else if (infile.key == "data") {
-				// layer map data handled as a special case
-				// The next h lines must contain layer data.  TODO: err
-				for (int j=0; j<h; j++) {
-					val = infile.getRawLine() + ',';
-					for (int i=0; i<w; i++)
-						cur_layer[i][j] = eatFirstInt(val, ',');
-				}
-				if (cur_layer == collision)
-					collider.setmap(collision, w, h);
-			}
-		}
-		else if (infile.section == "enemy") {
-			if (infile.key == "type") {
-				enemies.back().type = infile.val;
-			}
-			else if (infile.key == "location") {
-				enemies.back().pos.x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
-				enemies.back().pos.y = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
-			}
-			else if (infile.key == "direction") {
-				enemies.back().direction = toInt(infile.val);
-			}
-			else if (infile.key == "waypoints") {
-				string none = "";
-				string a = infile.nextValue();
-				string b = infile.nextValue();
-
-				while (a != none) {
-					Point p;
-					p.x = toInt(a) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
-					p.y = toInt(b) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
-					enemies.back().waypoints.push(p);
-					a = infile.nextValue();
-					b = infile.nextValue();
-				}
-			} else if (infile.key == "wander_area") {
-				enemies.back().wander = true;
-				enemies.back().wander_area.x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
-				enemies.back().wander_area.y = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
-				enemies.back().wander_area.w = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
-				enemies.back().wander_area.h = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
-			}
-		}
-		else if (infile.section == "enemygroup") {
-			if (infile.key == "type") {
-				enemy_groups.back().category = infile.val;
-			}
-			else if (infile.key == "level") {
-				enemy_groups.back().levelmin = toInt(infile.nextValue());
-				enemy_groups.back().levelmax = toInt(infile.nextValue());
-			}
-			else if (infile.key == "location") {
-				enemy_groups.back().pos.x = toInt(infile.nextValue());
-				enemy_groups.back().pos.y = toInt(infile.nextValue());
-				enemy_groups.back().area.x = toInt(infile.nextValue());
-				enemy_groups.back().area.y = toInt(infile.nextValue());
-			}
-			else if (infile.key == "number") {
-				enemy_groups.back().numbermin = toInt(infile.nextValue());
-				enemy_groups.back().numbermax = toInt(infile.nextValue());
-			}
-			else if (infile.key == "chance") {
-				enemy_groups.back().chance = max(1.0f, min(0.0f, (toInt(infile.nextValue()) / 100.0f)));
-			}
-		}
-		else if (infile.section == "npc") {
-			if (infile.key == "type") {
-				npcs.back().id = infile.val;
-			}
-			else if (infile.key == "location") {
-				npcs.back().pos.x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
-				npcs.back().pos.y = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
-			}
-		}
-		else if (infile.section == "event") {
-			if (infile.key == "type") {
-				events.back().type = infile.val;
-			}
-			else if (infile.key == "location") {
-				events.back().location.x = toInt(infile.nextValue());
-				events.back().location.y = toInt(infile.nextValue());
-				events.back().location.w = toInt(infile.nextValue());
-				events.back().location.h = toInt(infile.nextValue());
-			}
-			else if (infile.key == "hotspot") {
-				if (infile.val == "location") {
-					events.back().hotspot.x = events.back().location.x;
-					events.back().hotspot.y = events.back().location.y;
-					events.back().hotspot.w = events.back().location.w;
-					events.back().hotspot.h = events.back().location.h;
-				}
-				else {
-					events.back().hotspot.x = toInt(infile.nextValue());
-					events.back().hotspot.y = toInt(infile.nextValue());
-					events.back().hotspot.w = toInt(infile.nextValue());
-					events.back().hotspot.h = toInt(infile.nextValue());
-				}
-			}
-			else if (infile.key == "tooltip") {
-				events.back().tooltip = msg->get(infile.val);
-			}
-			else if (infile.key == "power_path") {
-				events.back().power_src.x = toInt(infile.nextValue());
-				events.back().power_src.y = toInt(infile.nextValue());
-				string dest = infile.nextValue();
-				if (dest == "hero") {
-					events.back().targetHero = true;
-				}
-				else {
-					events.back().power_dest.x = toInt(dest);
-					events.back().power_dest.y = toInt(infile.nextValue());
-				}
-			}
-			else if (infile.key == "power_damage") {
-				events.back().damagemin = toInt(infile.nextValue());
-				events.back().damagemax = toInt(infile.nextValue());
-			}
-			else if (infile.key == "cooldown") {
-				events.back().cooldown = parse_duration(infile.val);
-			}
-			else {
-				// new event component
-				events.back().components.push_back(Event_Component());
-				Event_Component *e = &events.back().components.back();
-				e->type = infile.key;
-
-				if (infile.key == "intermap") {
-					e->s = infile.nextValue();
-					e->x = toInt(infile.nextValue());
-					e->y = toInt(infile.nextValue());
-				}
-				else if (infile.key == "intramap") {
-					e->x = toInt(infile.nextValue());
-					e->y = toInt(infile.nextValue());
-				}
-				else if (infile.key == "mapmod") {
-					e->s = infile.nextValue();
-					e->x = toInt(infile.nextValue());
-					e->y = toInt(infile.nextValue());
-					e->z = toInt(infile.nextValue());
-
-					// add repeating mapmods
-					string repeat_val = infile.nextValue();
-					while (repeat_val != "") {
-						events.back().components.push_back(Event_Component());
-						e = &events.back().components.back();
-						e->type = infile.key;
-						e->s = repeat_val;
-						e->x = toInt(infile.nextValue());
-						e->y = toInt(infile.nextValue());
-						e->z = toInt(infile.nextValue());
-
-						repeat_val = infile.nextValue();
-					}
-				}
-				else if (infile.key == "soundfx") {
-					e->s = infile.nextValue();
-					e->x = e->y = -1;
-
-					std::string s = infile.nextValue();
-					if (s != "") e->x = toInt(s);
-
-					s = infile.nextValue();
-					if (s != "") e->y = toInt(s);
-
-				}
-				else if (infile.key == "loot") {
-					e->s = infile.nextValue();
-					e->x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
-					e->y = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
-
-					// drop chance
-					string chance = infile.nextValue();
-					if (chance == "fixed") e->z = 0;
-					else e->z = toInt(chance);
-
-					// quantity min/max
-					e->a = toInt(infile.nextValue());
-					if (e->a < 1) e->a = 1;
-					e->b = toInt(infile.nextValue());
-					if (e->b < e->a) e->b = e->a;
-
-					// add repeating loot
-					string repeat_val = infile.nextValue();
-					while (repeat_val != "") {
-						events.back().components.push_back(Event_Component());
-						e = &events.back().components.back();
-						e->type = infile.key;
-						e->s = repeat_val;
-						e->x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
-						e->y = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
-
-						string chance = infile.nextValue();
-						if (chance == "fixed") e->z = 0;
-						else e->z = toInt(chance);
-
-						e->a = toInt(infile.nextValue());
-						if (e->a < 1) e->a = 1;
-						e->b = toInt(infile.nextValue());
-						if (e->b < e->a) e->b = e->a;
-
-						repeat_val = infile.nextValue();
-					}
-				}
-				else if (infile.key == "msg") {
-					e->s = msg->get(infile.val);
-				}
-				else if (infile.key == "shakycam") {
-					e->x = toInt(infile.val);
-				}
-				else if (infile.key == "requires_status") {
-					e->s = infile.nextValue();
-
-					// add repeating requires_status
-					string repeat_val = infile.nextValue();
-					while (repeat_val != "") {
-						events.back().components.push_back(Event_Component());
-						e = &events.back().components.back();
-						e->type = infile.key;
-						e->s = repeat_val;
-
-						repeat_val = infile.nextValue();
-					}
-				}
-				else if (infile.key == "requires_not") {
-					e->s = infile.nextValue();
-
-					// add repeating requires_not
-					string repeat_val = infile.nextValue();
-					while (repeat_val != "") {
-						events.back().components.push_back(Event_Component());
-						e = &events.back().components.back();
-						e->type = infile.key;
-						e->s = repeat_val;
-
-						repeat_val = infile.nextValue();
-					}
-				}
-				else if (infile.key == "requires_level") {
-					e->x = toInt(infile.nextValue());
-				}
-				else if (infile.key == "requires_not_level") {
-					e->x = toInt(infile.nextValue());
-				}
-				else if (infile.key == "requires_item") {
-					e->x = toInt(infile.nextValue());
-
-					// add repeating requires_item
-					string repeat_val = infile.nextValue();
-					while (repeat_val != "") {
-						events.back().components.push_back(Event_Component());
-						e = &events.back().components.back();
-						e->type = infile.key;
-						e->x = toInt(repeat_val);
-
-						repeat_val = infile.nextValue();
-					}
-				}
-				else if (infile.key == "set_status") {
-					e->s = infile.nextValue();
-
-					// add repeating set_status
-					string repeat_val = infile.nextValue();
-					while (repeat_val != "") {
-						events.back().components.push_back(Event_Component());
-						e = &events.back().components.back();
-						e->type = infile.key;
-						e->s = repeat_val;
-
-						repeat_val = infile.nextValue();
-					}
-				}
-				else if (infile.key == "unset_status") {
-					e->s = infile.nextValue();
-
-					// add repeating unset_status
-					string repeat_val = infile.nextValue();
-					while (repeat_val != "") {
-						events.back().components.push_back(Event_Component());
-						e = &events.back().components.back();
-						e->type = infile.key;
-						e->s = repeat_val;
-
-						repeat_val = infile.nextValue();
-					}
-				}
-				else if (infile.key == "remove_item") {
-					e->x = toInt(infile.nextValue());
-
-					// add repeating remove_item
-					string repeat_val = infile.nextValue();
-					while (repeat_val != "") {
-						events.back().components.push_back(Event_Component());
-						e = &events.back().components.back();
-						e->type = infile.key;
-						e->x = toInt(repeat_val);
-
-						repeat_val = infile.nextValue();
-					}
-				}
-				else if (infile.key == "reward_xp") {
-					e->x = toInt(infile.val);
-				}
-				else if (infile.key == "power") {
-					e->x = toInt(infile.val);
-				}
-				else if (infile.key == "spawn") {
-
-					e->s = infile.nextValue();
-					e->x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
-					e->y = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
-
-					// add repeating spawn
-					string repeat_val = infile.nextValue();
-					while (repeat_val != "") {
-						events.back().components.push_back(Event_Component());
-						e = &events.back().components.back();
-						e->type = infile.key;
-
-						e->s = repeat_val;
-						e->x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
-						e->y = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
-
-						repeat_val = infile.nextValue();
-					}
-				}
-				else if (infile.key == "npc") {
-					npcs.back().id = infile.val;
-					e->s = infile.val;
-				}
-				else if (infile.key == "music") {
-					e->s = infile.val;
-				}
-			}
-		}
+		if (infile.section == "header")
+			loadHeader(infile);
+		else if (infile.section == "layer")
+			loadLayer(infile, &cur_layer);
+		else if (infile.section == "enemy")
+			loadEnemy(infile);
+		else if (infile.section == "enemygroup")
+			loadEnemyGroup(infile, &enemy_groups.back());
+		else if (infile.section == "npc")
+			loadNPC(infile);
+		else if (infile.section == "event")
+			loadEvent(infile);
 	}
 
 	infile.close();
@@ -546,6 +182,398 @@ int MapRenderer::load(string filename) {
 	executeOnLoadEvents();
 
 	return 0;
+}
+
+void MapRenderer::loadHeader(FileParser &infile)
+{
+	if (infile.key == "title") {
+		this->title = msg->get(infile.val);
+	}
+	else if (infile.key == "width") {
+		this->w = toInt(infile.val);
+	}
+	else if (infile.key == "height") {
+		this->h = toInt(infile.val);
+	}
+	else if (infile.key == "tileset") {
+		this->tileset = infile.val;
+	}
+	else if (infile.key == "music") {
+		loadMusic(infile.val);
+	}
+	else if (infile.key == "location") {
+		spawn.x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+		spawn.y = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+		spawn_dir = toInt(infile.nextValue());
+	}
+}
+
+void MapRenderer::loadLayer(FileParser &infile, maprow **current_layer)
+{
+	if (infile.key == "type") {
+		*current_layer = new maprow[w];
+		if (infile.val == "background") background = *current_layer;
+		else if (infile.val == "fringe") fringe = *current_layer;
+		else if (infile.val == "object") object = *current_layer;
+		else if (infile.val == "foreground") foreground = *current_layer;
+		else if (infile.val == "collision") collision = *current_layer;
+	}
+	else if (infile.key == "format") {
+		if (infile.val != "dec") {
+			fprintf(stderr, "ERROR: maploading: The format of a layer must be \"dec\"!\n");
+			SDL_Quit();
+			exit(1);
+		}
+	}
+	else if (infile.key == "data") {
+		// layer map data handled as a special case
+		// The next h lines must contain layer data.  TODO: err
+		for (int j=0; j<h; j++) {
+			string val = infile.getRawLine() + ',';
+			for (int i=0; i<w; i++)
+				(*current_layer)[i][j] = eatFirstInt(val, ',');
+		}
+		if ((*current_layer) == collision)
+			collider.setmap(collision, w, h);
+	}
+}
+
+void MapRenderer::loadEnemy(FileParser &infile)
+{
+	if (infile.key == "type") {
+		enemies.back().type = infile.val;
+	}
+	else if (infile.key == "location") {
+		enemies.back().pos.x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+		enemies.back().pos.y = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+	}
+	else if (infile.key == "direction") {
+		enemies.back().direction = toInt(infile.val);
+	}
+	else if (infile.key == "waypoints") {
+		string none = "";
+		string a = infile.nextValue();
+		string b = infile.nextValue();
+
+		while (a != none) {
+			Point p;
+			p.x = toInt(a) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
+			p.y = toInt(b) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
+			enemies.back().waypoints.push(p);
+			a = infile.nextValue();
+			b = infile.nextValue();
+		}
+	} else if (infile.key == "wander_area") {
+		enemies.back().wander = true;
+		enemies.back().wander_area.x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
+		enemies.back().wander_area.y = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
+		enemies.back().wander_area.w = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
+		enemies.back().wander_area.h = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE / 2;
+	}
+}
+
+void MapRenderer::loadEnemyGroup(FileParser &infile, Map_Group *group)
+{
+	if (infile.key == "type") {
+		group->category = infile.val;
+	}
+	else if (infile.key == "level") {
+		group->levelmin = toInt(infile.nextValue());
+		group->levelmax = toInt(infile.nextValue());
+	}
+	else if (infile.key == "location") {
+		group->pos.x = toInt(infile.nextValue());
+		group->pos.y = toInt(infile.nextValue());
+		group->area.x = toInt(infile.nextValue());
+		group->area.y = toInt(infile.nextValue());
+	}
+	else if (infile.key == "number") {
+		group->numbermin = toInt(infile.nextValue());
+		group->numbermax = toInt(infile.nextValue());
+	}
+	else if (infile.key == "chance") {
+		float n = toInt(infile.nextValue()) / 100.0f;
+		group->chance = min(1.0f, max(0.0f, n));
+	}
+}
+
+void MapRenderer::loadNPC(FileParser &infile)
+{
+	if (infile.key == "type") {
+		npcs.back().id = infile.val;
+	}
+	else if (infile.key == "location") {
+		npcs.back().pos.x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+		npcs.back().pos.y = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+	}
+}
+
+void MapRenderer::loadEvent(FileParser &infile)
+{
+	if (infile.key == "type") {
+		events.back().type = infile.val;
+	}
+	else if (infile.key == "location") {
+		events.back().location.x = toInt(infile.nextValue());
+		events.back().location.y = toInt(infile.nextValue());
+		events.back().location.w = toInt(infile.nextValue());
+		events.back().location.h = toInt(infile.nextValue());
+	}
+	else if (infile.key == "hotspot") {
+		if (infile.val == "location") {
+			events.back().hotspot.x = events.back().location.x;
+			events.back().hotspot.y = events.back().location.y;
+			events.back().hotspot.w = events.back().location.w;
+			events.back().hotspot.h = events.back().location.h;
+		}
+		else {
+			events.back().hotspot.x = toInt(infile.nextValue());
+			events.back().hotspot.y = toInt(infile.nextValue());
+			events.back().hotspot.w = toInt(infile.nextValue());
+			events.back().hotspot.h = toInt(infile.nextValue());
+		}
+	}
+	else if (infile.key == "tooltip") {
+		events.back().tooltip = msg->get(infile.val);
+	}
+	else if (infile.key == "power_path") {
+		events.back().power_src.x = toInt(infile.nextValue());
+		events.back().power_src.y = toInt(infile.nextValue());
+		string dest = infile.nextValue();
+		if (dest == "hero") {
+			events.back().targetHero = true;
+		}
+		else {
+			events.back().power_dest.x = toInt(dest);
+			events.back().power_dest.y = toInt(infile.nextValue());
+		}
+	}
+	else if (infile.key == "power_damage") {
+		events.back().damagemin = toInt(infile.nextValue());
+		events.back().damagemax = toInt(infile.nextValue());
+	}
+	else if (infile.key == "cooldown") {
+		events.back().cooldown = parse_duration(infile.val);
+	}
+	else {
+		loadEventComponent(infile);
+	}
+}
+
+void MapRenderer::loadEventComponent(FileParser &infile)
+{
+	// new event component
+	events.back().components.push_back(Event_Component());
+	Event_Component *e = &events.back().components.back();
+	e->type = infile.key;
+
+	if (infile.key == "intermap") {
+		e->s = infile.nextValue();
+		e->x = toInt(infile.nextValue());
+		e->y = toInt(infile.nextValue());
+	}
+	else if (infile.key == "intramap") {
+		e->x = toInt(infile.nextValue());
+		e->y = toInt(infile.nextValue());
+	}
+	else if (infile.key == "mapmod") {
+		e->s = infile.nextValue();
+		e->x = toInt(infile.nextValue());
+		e->y = toInt(infile.nextValue());
+		e->z = toInt(infile.nextValue());
+
+		// add repeating mapmods
+		string repeat_val = infile.nextValue();
+		while (repeat_val != "") {
+			events.back().components.push_back(Event_Component());
+			e = &events.back().components.back();
+			e->type = infile.key;
+			e->s = repeat_val;
+			e->x = toInt(infile.nextValue());
+			e->y = toInt(infile.nextValue());
+			e->z = toInt(infile.nextValue());
+
+			repeat_val = infile.nextValue();
+		}
+	}
+	else if (infile.key == "soundfx") {
+		e->s = infile.nextValue();
+		e->x = e->y = -1;
+
+		std::string s = infile.nextValue();
+		if (s != "") e->x = toInt(s);
+
+		s = infile.nextValue();
+		if (s != "") e->y = toInt(s);
+
+	}
+	else if (infile.key == "loot") {
+		e->s = infile.nextValue();
+		e->x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+		e->y = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+
+		// drop chance
+		string chance = infile.nextValue();
+		if (chance == "fixed") e->z = 0;
+		else e->z = toInt(chance);
+
+		// quantity min/max
+		e->a = toInt(infile.nextValue());
+		if (e->a < 1) e->a = 1;
+		e->b = toInt(infile.nextValue());
+		if (e->b < e->a) e->b = e->a;
+
+		// add repeating loot
+		string repeat_val = infile.nextValue();
+		while (repeat_val != "") {
+			events.back().components.push_back(Event_Component());
+			e = &events.back().components.back();
+			e->type = infile.key;
+			e->s = repeat_val;
+			e->x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+			e->y = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+
+			string chance = infile.nextValue();
+			if (chance == "fixed") e->z = 0;
+			else e->z = toInt(chance);
+
+			e->a = toInt(infile.nextValue());
+			if (e->a < 1) e->a = 1;
+			e->b = toInt(infile.nextValue());
+			if (e->b < e->a) e->b = e->a;
+
+			repeat_val = infile.nextValue();
+		}
+	}
+	else if (infile.key == "msg") {
+		e->s = msg->get(infile.val);
+	}
+	else if (infile.key == "shakycam") {
+		e->x = toInt(infile.val);
+	}
+	else if (infile.key == "requires_status") {
+		e->s = infile.nextValue();
+
+		// add repeating requires_status
+		string repeat_val = infile.nextValue();
+		while (repeat_val != "") {
+			events.back().components.push_back(Event_Component());
+			e = &events.back().components.back();
+			e->type = infile.key;
+			e->s = repeat_val;
+
+			repeat_val = infile.nextValue();
+		}
+	}
+	else if (infile.key == "requires_not") {
+		e->s = infile.nextValue();
+
+		// add repeating requires_not
+		string repeat_val = infile.nextValue();
+		while (repeat_val != "") {
+			events.back().components.push_back(Event_Component());
+			e = &events.back().components.back();
+			e->type = infile.key;
+			e->s = repeat_val;
+
+			repeat_val = infile.nextValue();
+		}
+	}
+	else if (infile.key == "requires_level") {
+		e->x = toInt(infile.nextValue());
+	}
+	else if (infile.key == "requires_not_level") {
+		e->x = toInt(infile.nextValue());
+	}
+	else if (infile.key == "requires_item") {
+		e->x = toInt(infile.nextValue());
+
+		// add repeating requires_item
+		string repeat_val = infile.nextValue();
+		while (repeat_val != "") {
+			events.back().components.push_back(Event_Component());
+			e = &events.back().components.back();
+			e->type = infile.key;
+			e->x = toInt(repeat_val);
+
+			repeat_val = infile.nextValue();
+		}
+	}
+	else if (infile.key == "set_status") {
+		e->s = infile.nextValue();
+
+		// add repeating set_status
+		string repeat_val = infile.nextValue();
+		while (repeat_val != "") {
+			events.back().components.push_back(Event_Component());
+			e = &events.back().components.back();
+			e->type = infile.key;
+			e->s = repeat_val;
+
+			repeat_val = infile.nextValue();
+		}
+	}
+	else if (infile.key == "unset_status") {
+		e->s = infile.nextValue();
+
+		// add repeating unset_status
+		string repeat_val = infile.nextValue();
+		while (repeat_val != "") {
+			events.back().components.push_back(Event_Component());
+			e = &events.back().components.back();
+			e->type = infile.key;
+			e->s = repeat_val;
+
+			repeat_val = infile.nextValue();
+		}
+	}
+	else if (infile.key == "remove_item") {
+		e->x = toInt(infile.nextValue());
+
+		// add repeating remove_item
+		string repeat_val = infile.nextValue();
+		while (repeat_val != "") {
+			events.back().components.push_back(Event_Component());
+			e = &events.back().components.back();
+			e->type = infile.key;
+			e->x = toInt(repeat_val);
+
+			repeat_val = infile.nextValue();
+		}
+	}
+	else if (infile.key == "reward_xp") {
+		e->x = toInt(infile.val);
+	}
+	else if (infile.key == "power") {
+		e->x = toInt(infile.val);
+	}
+	else if (infile.key == "spawn") {
+
+		e->s = infile.nextValue();
+		e->x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+		e->y = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+
+		// add repeating spawn
+		string repeat_val = infile.nextValue();
+		while (repeat_val != "") {
+			events.back().components.push_back(Event_Component());
+			e = &events.back().components.back();
+			e->type = infile.key;
+
+			e->s = repeat_val;
+			e->x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+			e->y = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
+
+			repeat_val = infile.nextValue();
+		}
+	}
+	else if (infile.key == "npc") {
+		npcs.back().id = infile.val;
+		e->s = infile.val;
+	}
+	else if (infile.key == "music") {
+		e->s = infile.val;
+	}
 }
 
 void MapRenderer::clearQueues() {
