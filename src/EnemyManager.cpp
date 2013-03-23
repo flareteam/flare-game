@@ -201,45 +201,45 @@ void EnemyManager::logic() {
 
 	handleSpawn();
 
-	for (unsigned int i=0; i < enemies.size(); i++) {
-
+	vector<Enemy*>::iterator it;
+	for (it = enemies.begin(); it != enemies.end(); ++it) {
 		// hazards are processed after Avatar and Enemy[]
 		// so process and clear sound effects from previous frames
 		// check sound effects
 		if (AUDIO) {
-			vector<string>::iterator found = find (sfx_prefixes.begin(), sfx_prefixes.end(), enemies[i]->stats.sfx_prefix);
+			vector<string>::iterator found = find (sfx_prefixes.begin(), sfx_prefixes.end(), (*it)->stats.sfx_prefix);
 			unsigned pref_id = distance(sfx_prefixes.begin(), found);
 
 			if (pref_id >= sfx_prefixes.size()) {
 				cerr << "ERROR: enemy sfx_prefix doesn't match registered prefixes (enemy: '"
-					 << enemies[i]->stats.name << "', sfx_prefix: '"
-					 << enemies[i]->stats.sfx_prefix << "')" << endl;
+					 << (*it)->stats.name << "', sfx_prefix: '"
+					 << (*it)->stats.sfx_prefix << "')" << endl;
 			} else {
-				if (enemies[i]->sfx_phys)
-					snd->play(sound_phys[pref_id], GLOBAL_VIRTUAL_CHANNEL, enemies[i]->stats.pos, false);
-				if (enemies[i]->sfx_ment)
-					snd->play(sound_ment[pref_id], GLOBAL_VIRTUAL_CHANNEL, enemies[i]->stats.pos, false);
-				if (enemies[i]->sfx_hit)
-					snd->play(sound_hit[pref_id], GLOBAL_VIRTUAL_CHANNEL, enemies[i]->stats.pos, false);
-				if (enemies[i]->sfx_die)
-					snd->play(sound_die[pref_id], GLOBAL_VIRTUAL_CHANNEL, enemies[i]->stats.pos, false);
-				if (enemies[i]->sfx_critdie)
-					snd->play(sound_critdie[pref_id], GLOBAL_VIRTUAL_CHANNEL, enemies[i]->stats.pos, false);
+				if ((*it)->sfx_phys)
+					snd->play(sound_phys[pref_id], GLOBAL_VIRTUAL_CHANNEL, (*it)->stats.pos, false);
+				if ((*it)->sfx_ment)
+					snd->play(sound_ment[pref_id], GLOBAL_VIRTUAL_CHANNEL, (*it)->stats.pos, false);
+				if ((*it)->sfx_hit)
+					snd->play(sound_hit[pref_id], GLOBAL_VIRTUAL_CHANNEL, (*it)->stats.pos, false);
+				if ((*it)->sfx_die)
+					snd->play(sound_die[pref_id], GLOBAL_VIRTUAL_CHANNEL, (*it)->stats.pos, false);
+				if ((*it)->sfx_critdie)
+					snd->play(sound_critdie[pref_id], GLOBAL_VIRTUAL_CHANNEL, (*it)->stats.pos, false);
 			}
 
 			// clear sound flags
-			enemies[i]->sfx_hit = false;
-			enemies[i]->sfx_phys = false;
-			enemies[i]->sfx_ment = false;
-			enemies[i]->sfx_die = false;
-			enemies[i]->sfx_critdie = false;
+			(*it)->sfx_hit = false;
+			(*it)->sfx_phys = false;
+			(*it)->sfx_ment = false;
+			(*it)->sfx_die = false;
+			(*it)->sfx_critdie = false;
 		}
 
 		// new actions this round
-		enemies[i]->stats.hero_pos = hero_pos;
-		enemies[i]->stats.hero_alive = hero_alive;
-		enemies[i]->stats.hero_stealth = hero_stealth;
-		enemies[i]->logic();
+		(*it)->stats.hero_pos = hero_pos;
+		(*it)->stats.hero_alive = hero_alive;
+		(*it)->stats.hero_stealth = hero_stealth;
+		(*it)->logic();
 
 	}
 }
