@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Flare v0.18\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-20 23:59+0100\n"
+"POT-Creation-Date: 2013-03-24 14:09+0100\n"
 "PO-Revision-Date: 2013-03-17 20:57+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -40,7 +40,7 @@ msgid "miss"
 msgstr "Falla"
 
 #: ../../../src/Avatar.cpp:784 ../../../src/Enemy.cpp:248
-#: ../../../src/PowerManager.cpp:668 ../../../src/StatBlock.cpp:523
+#: ../../../src/PowerManager.cpp:668 ../../../src/StatBlock.cpp:539
 #, c-format
 msgid "+%d HP"
 msgstr "+%d PV"
@@ -85,7 +85,7 @@ msgstr "Efectos negativos removidos."
 msgid "HP and MP restored, negative effects removed"
 msgstr "Restaurados PV y PM, efectos negativos removidos"
 
-#: ../../../src/Enemy.cpp:255 ../../../src/StatBlock.cpp:528
+#: ../../../src/Enemy.cpp:255 ../../../src/StatBlock.cpp:544
 #, c-format
 msgid "+%d MP"
 msgstr "+%d PM"
@@ -503,8 +503,8 @@ msgid "Absorb: %d"
 msgstr "Absorber: %d"
 
 #: ../../../src/ItemManager.cpp:517
-#, c-format
-msgid "%d\\% Speed"
+#, fuzzy, c-format
+msgid "%d%% Speed"
 msgstr "%d\\% Velocidad"
 
 #: ../../../src/ItemManager.cpp:522 ../../../src/ItemManager.cpp:614
@@ -570,12 +570,12 @@ msgstr "Conjunto:"
 msgid "%d items: "
 msgstr "%d artículos: "
 
-#: ../../../src/LootManager.cpp:183 ../../../src/MenuInventory.cpp:176
+#: ../../../src/LootManager.cpp:185 ../../../src/MenuInventory.cpp:176
 #, c-format
 msgid "%d %s"
 msgstr "%d %s"
 
-#: ../../../src/MapRenderer.cpp:1225
+#: ../../../src/MapRenderer.cpp:1244
 msgid "Unknown destination"
 msgstr "Destino desconocido"
 
@@ -705,13 +705,18 @@ msgstr "Equilibrio: "
 msgid "Reduces your chance of stumbling when hit"
 msgstr "Reduce la probabilidad de tropezar cuando es golpeado"
 
-#: ../../../src/MenuCharacter.cpp:393 ../../../src/MenuCharacter.cpp:399
-msgid "Bonus"
+#: ../../../src/MenuCharacter.cpp:393
+#, fuzzy
+msgid "Bonus XP: "
 msgstr "Bonus"
 
 #: ../../../src/MenuCharacter.cpp:394
 msgid "Increases the XP gained per kill"
 msgstr "Aumenta la experiencia ganada por matar"
+
+#: ../../../src/MenuCharacter.cpp:399
+msgid "Bonus"
+msgstr "Bonus"
 
 #: ../../../src/MenuCharacter.cpp:400
 #, c-format

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-20 23:59+0100\n"
+"POT-Creation-Date: 2013-03-24 14:09+0100\n"
 "PO-Revision-Date: 2012-10-15 HO:MI+ZONE\n"
 "Last-Translator: Nubux<strauss.morgan@gmail.com>\n"
 "Language-Team:\n"
@@ -41,7 +41,7 @@ msgid "miss"
 msgstr "manqué"
 
 #: ../../../src/Avatar.cpp:784 ../../../src/Enemy.cpp:248
-#: ../../../src/PowerManager.cpp:668 ../../../src/StatBlock.cpp:523
+#: ../../../src/PowerManager.cpp:668 ../../../src/StatBlock.cpp:539
 #, c-format
 msgid "+%d HP"
 msgstr "+%d PV"
@@ -86,7 +86,7 @@ msgstr "Effet négatif supprimé"
 msgid "HP and MP restored, negative effects removed"
 msgstr "PV et PM restaurés, effet négatif supprimé"
 
-#: ../../../src/Enemy.cpp:255 ../../../src/StatBlock.cpp:528
+#: ../../../src/Enemy.cpp:255 ../../../src/StatBlock.cpp:544
 #, c-format
 msgid "+%d MP"
 msgstr "+%d PM"
@@ -504,8 +504,8 @@ msgid "Absorb: %d"
 msgstr "Absorbe : %d"
 
 #: ../../../src/ItemManager.cpp:517
-#, c-format
-msgid "%d\\% Speed"
+#, fuzzy, c-format
+msgid "%d%% Speed"
 msgstr "%d\\% Vitesse"
 
 #: ../../../src/ItemManager.cpp:522 ../../../src/ItemManager.cpp:614
@@ -571,12 +571,12 @@ msgstr "État : "
 msgid "%d items: "
 msgstr "%d items :"
 
-#: ../../../src/LootManager.cpp:183 ../../../src/MenuInventory.cpp:176
+#: ../../../src/LootManager.cpp:185 ../../../src/MenuInventory.cpp:176
 #, c-format
 msgid "%d %s"
 msgstr "%d %s"
 
-#: ../../../src/MapRenderer.cpp:1225
+#: ../../../src/MapRenderer.cpp:1244
 msgid "Unknown destination"
 msgstr "Destination inconnue"
 
@@ -706,13 +706,18 @@ msgstr "Aplomb : "
 msgid "Reduces your chance of stumbling when hit"
 msgstr "Réduit vos chances de trébucher quand vous êtes touché"
 
-#: ../../../src/MenuCharacter.cpp:393 ../../../src/MenuCharacter.cpp:399
-msgid "Bonus"
+#: ../../../src/MenuCharacter.cpp:393
+#, fuzzy
+msgid "Bonus XP: "
 msgstr "Bonus"
 
 #: ../../../src/MenuCharacter.cpp:394
 msgid "Increases the XP gained per kill"
 msgstr "Augmente l'XP recupérée par ennemi abattu"
+
+#: ../../../src/MenuCharacter.cpp:399
+msgid "Bonus"
+msgstr "Bonus"
 
 #: ../../../src/MenuCharacter.cpp:400
 #, c-format

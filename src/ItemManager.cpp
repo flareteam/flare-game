@@ -514,7 +514,7 @@ TooltipData ItemManager::getTooltip(int item, StatBlock *stats, int context) {
 	string modifier;
 	while (bonus_counter < items[item].bonus_val.size() && items[item].bonus_stat[bonus_counter] != "") {
 		if (items[item].bonus_stat[bonus_counter] == "speed") {
-			modifier = msg->get("%d\% Speed", items[item].bonus_val[bonus_counter]);
+			modifier = msg->get("%d%% Speed", items[item].bonus_val[bonus_counter]);
 			if (items[item].bonus_val[bonus_counter] >= 100) color = color_bonus;
 			else color = color_penalty;
 		} else {

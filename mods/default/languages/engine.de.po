@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.18\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-20 23:59+0100\n"
+"POT-Creation-Date: 2013-03-24 14:09+0100\n"
 "PO-Revision-Date: 2012-09-25 16:57+0200\n"
 "Last-Translator: Stefan Beller\n"
 "Language-Team: \n"
@@ -41,7 +41,7 @@ msgid "miss"
 msgstr "verfehlt"
 
 #: ../../../src/Avatar.cpp:784 ../../../src/Enemy.cpp:248
-#: ../../../src/PowerManager.cpp:668 ../../../src/StatBlock.cpp:523
+#: ../../../src/PowerManager.cpp:668 ../../../src/StatBlock.cpp:539
 #, c-format
 msgid "+%d HP"
 msgstr "+%d TP"
@@ -86,7 +86,7 @@ msgstr "Debuffs entfernt."
 msgid "HP and MP restored, negative effects removed"
 msgstr "TP und MP wiederhergestellt, negative Eigenschaften entfernt."
 
-#: ../../../src/Enemy.cpp:255 ../../../src/StatBlock.cpp:528
+#: ../../../src/Enemy.cpp:255 ../../../src/StatBlock.cpp:544
 #, c-format
 msgid "+%d MP"
 msgstr "+%d MP"
@@ -505,8 +505,8 @@ msgid "Absorb: %d"
 msgstr "Absorbieren: %d"
 
 #: ../../../src/ItemManager.cpp:517
-#, c-format
-msgid "%d\\% Speed"
+#, fuzzy, c-format
+msgid "%d%% Speed"
 msgstr "%d\\% Geschwindigkeit"
 
 #: ../../../src/ItemManager.cpp:522 ../../../src/ItemManager.cpp:614
@@ -572,12 +572,12 @@ msgstr "Set: "
 msgid "%d items: "
 msgstr "%d Gegenstände: "
 
-#: ../../../src/LootManager.cpp:183 ../../../src/MenuInventory.cpp:176
+#: ../../../src/LootManager.cpp:185 ../../../src/MenuInventory.cpp:176
 #, c-format
 msgid "%d %s"
 msgstr "%d %s"
 
-#: ../../../src/MapRenderer.cpp:1225
+#: ../../../src/MapRenderer.cpp:1244
 msgid "Unknown destination"
 msgstr "Unbekanntes Ziel"
 
@@ -709,13 +709,18 @@ msgstr "Gleichgewicht: "
 msgid "Reduces your chance of stumbling when hit"
 msgstr "Reduziert die Wahrscheinlichkeit, bei einem Treffer ins Taumeln zu geraten"
 
-#: ../../../src/MenuCharacter.cpp:393 ../../../src/MenuCharacter.cpp:399
-msgid "Bonus"
+#: ../../../src/MenuCharacter.cpp:393
+#, fuzzy
+msgid "Bonus XP: "
 msgstr "Bonus"
 
 #: ../../../src/MenuCharacter.cpp:394
 msgid "Increases the XP gained per kill"
 msgstr "Erhöht die erhaltenen EP pro getötetem Gegner"
+
+#: ../../../src/MenuCharacter.cpp:399
+msgid "Bonus"
+msgstr "Bonus"
 
 #: ../../../src/MenuCharacter.cpp:400
 #, fuzzy, c-format

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flare 0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-20 23:59+0100\n"
+"POT-Creation-Date: 2013-03-24 14:09+0100\n"
 "PO-Revision-Date: 2011-12-15 03:57+0600\n"
 "Last-Translator: Mikhail Karalevich <saturn_by@tut.by>\n"
 "Language-Team: Belarussian <by@li.org>\n"
@@ -40,7 +40,7 @@ msgid "miss"
 msgstr ""
 
 #: ../../../src/Avatar.cpp:784 ../../../src/Enemy.cpp:248
-#: ../../../src/PowerManager.cpp:668 ../../../src/StatBlock.cpp:523
+#: ../../../src/PowerManager.cpp:668 ../../../src/StatBlock.cpp:539
 #, c-format
 msgid "+%d HP"
 msgstr ""
@@ -85,7 +85,7 @@ msgstr ""
 msgid "HP and MP restored, negative effects removed"
 msgstr ""
 
-#: ../../../src/Enemy.cpp:255 ../../../src/StatBlock.cpp:528
+#: ../../../src/Enemy.cpp:255 ../../../src/StatBlock.cpp:544
 #, c-format
 msgid "+%d MP"
 msgstr ""
@@ -509,7 +509,7 @@ msgstr "Паглынанне: %d"
 
 #: ../../../src/ItemManager.cpp:517
 #, c-format
-msgid "%d\\% Speed"
+msgid "%d%% Speed"
 msgstr ""
 
 #: ../../../src/ItemManager.cpp:522 ../../../src/ItemManager.cpp:614
@@ -576,12 +576,12 @@ msgstr "Наступный: %d"
 msgid "%d items: "
 msgstr ""
 
-#: ../../../src/LootManager.cpp:183 ../../../src/MenuInventory.cpp:176
+#: ../../../src/LootManager.cpp:185 ../../../src/MenuInventory.cpp:176
 #, fuzzy, c-format
 msgid "%d %s"
 msgstr "Узровень %d %s"
 
-#: ../../../src/MapRenderer.cpp:1225
+#: ../../../src/MapRenderer.cpp:1244
 msgid "Unknown destination"
 msgstr "Невядомы накірунак"
 
@@ -719,12 +719,16 @@ msgstr ""
 msgid "Reduces your chance of stumbling when hit"
 msgstr ""
 
-#: ../../../src/MenuCharacter.cpp:393 ../../../src/MenuCharacter.cpp:399
-msgid "Bonus"
+#: ../../../src/MenuCharacter.cpp:393
+msgid "Bonus XP: "
 msgstr ""
 
 #: ../../../src/MenuCharacter.cpp:394
 msgid "Increases the XP gained per kill"
+msgstr ""
+
+#: ../../../src/MenuCharacter.cpp:399
+msgid "Bonus"
 msgstr ""
 
 #: ../../../src/MenuCharacter.cpp:400
