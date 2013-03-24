@@ -47,6 +47,17 @@ Installing dependencies on Fedora
 
     yum install git make cmake gcc-c++ SDL-devel SDL_image-devel SDL_mixer-devel SDL_ttf-devel
 
+### FreeBSD based systems
+
+Installing dependencies on FreeBSD based systems (FreeBSD, PC-BSD, GhostBSD, etc):
+
+    pkg_add -r cmake sdl sdl_mixer sdl_image sdl_ttf atk glib20 gdk-pixbuf2 pango git
+    pkg_add -r gtk-update-icon-cache gio-fam-backend gtk-update-icon-cache pcre 
+
+There is also a flare in the FreeBSD ports tree:
+http://www.freshports.org/games/flare/
+
+
 ## Building from Source
 
 There are several ways to build the game executable. For engine developers the cmake method is recommended as it has low overhead when it comes to changes in the code. However you can also build the engine with just one call to your compiler including all source files at once. This might be useful if you are
