@@ -67,15 +67,13 @@ MenuNPCActions::MenuNPCActions()
 	, first_dialog_node(-1)
 	, current_action(-1)
 	, action_menu(NULL)
+	, vendor_label(msg->get("Trade"))
+	, cancel_label(msg->get("Cancel"))
 	, dialog_selected(false)
 	, vendor_selected(false)
 	, cancel_selected(false)
 	, selected_dialog_node(-1)
 {
-
-	vendor_label = msg->get("Trade");
-	cancel_label = msg->get("Cancel");
-
 	// Load config settings
 	FileParser infile;
 	if(infile.open(mods->locate("menus/npc.txt"))) {
