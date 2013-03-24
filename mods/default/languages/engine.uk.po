@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.17\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-20 23:59+0100\n"
+"POT-Creation-Date: 2013-03-24 14:09+0100\n"
 "PO-Revision-Date: 2013-03-16 11:05+0300\n"
 "Last-Translator: Igor Paliychuk <mansonigor@gmail.com>\n"
 "Language-Team: Ukrainian <LL@li.org>\n"
@@ -39,7 +39,7 @@ msgid "miss"
 msgstr "промах"
 
 #: ../../../src/Avatar.cpp:784 ../../../src/Enemy.cpp:248
-#: ../../../src/PowerManager.cpp:668 ../../../src/StatBlock.cpp:523
+#: ../../../src/PowerManager.cpp:668 ../../../src/StatBlock.cpp:539
 #, c-format
 msgid "+%d HP"
 msgstr "+%d ЗД"
@@ -84,7 +84,7 @@ msgstr "Шкідливі ефекти усунено."
 msgid "HP and MP restored, negative effects removed"
 msgstr "ЗД та МН відновлені, шкідливі ефекти усунено"
 
-#: ../../../src/Enemy.cpp:255 ../../../src/StatBlock.cpp:528
+#: ../../../src/Enemy.cpp:255 ../../../src/StatBlock.cpp:544
 #, c-format
 msgid "+%d MP"
 msgstr "+%d МН"
@@ -502,8 +502,8 @@ msgid "Absorb: %d"
 msgstr "Поглинання: %d"
 
 #: ../../../src/ItemManager.cpp:517
-#, c-format
-msgid "%d\\% Speed"
+#, fuzzy, c-format
+msgid "%d%% Speed"
 msgstr "%d\\% Швидкості"
 
 #: ../../../src/ItemManager.cpp:522 ../../../src/ItemManager.cpp:614
@@ -569,12 +569,12 @@ msgstr "Набір: "
 msgid "%d items: "
 msgstr "%d предмети: "
 
-#: ../../../src/LootManager.cpp:183 ../../../src/MenuInventory.cpp:176
+#: ../../../src/LootManager.cpp:185 ../../../src/MenuInventory.cpp:176
 #, c-format
 msgid "%d %s"
 msgstr "%d %s"
 
-#: ../../../src/MapRenderer.cpp:1225
+#: ../../../src/MapRenderer.cpp:1244
 msgid "Unknown destination"
 msgstr "Невідомий пункт призначення"
 
@@ -704,13 +704,18 @@ msgstr "Рівновага: "
 msgid "Reduces your chance of stumbling when hit"
 msgstr "Знижує ймовірність спотикання при попаданні"
 
-#: ../../../src/MenuCharacter.cpp:393 ../../../src/MenuCharacter.cpp:399
-msgid "Bonus"
+#: ../../../src/MenuCharacter.cpp:393
+#, fuzzy
+msgid "Bonus XP: "
 msgstr "Бонус"
 
 #: ../../../src/MenuCharacter.cpp:394
 msgid "Increases the XP gained per kill"
 msgstr "Збільшує ДВ отриманий за вбивство"
+
+#: ../../../src/MenuCharacter.cpp:399
+msgid "Bonus"
+msgstr "Бонус"
 
 #: ../../../src/MenuCharacter.cpp:400
 #, c-format
