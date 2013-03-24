@@ -78,11 +78,10 @@ class Map_NPC {
 public:
 	std::string id;
 	Point pos;
-	void clear() {
-		id = "";
-		pos.x = 0;
-		pos.y = 0;
-	}
+	Map_NPC()
+	: id("")
+	, pos()
+	{}
 };
 
 class Map_Event {
@@ -109,6 +108,8 @@ public:
 	 , components(std::vector<Event_Component>())
 	 , tooltip("")
 	 , cooldown(0)
+	 , power_src()
+	 , power_dest()
 	 , targetHero(false)
 	 , damagemin(0)
 	 , damagemax(0)
@@ -117,8 +118,6 @@ public:
 	{
 		location.x = location.y = location.w = location.h = 0;
 		hotspot.x = hotspot.y = hotspot.w = hotspot.h = 0;
-		power_src.x = power_src.y = 0;
-		power_dest.x = power_dest.y = 0;
 	}
 
 	~Map_Event()
