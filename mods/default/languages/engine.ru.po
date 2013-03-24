@@ -3,21 +3,19 @@
 # Copyright (C) 2011 Clint Bellanger
 # This file is distributed under the same license as the FLARE package.
 #
-# Sergey Basalaev <sbasalaev@gmail.com>, 2011-2013.
-# Evgen Pavlov <sonjekua@gmail.com>, 2013.
+# Sergey Basalaev <sbasalaev@gmail.com>, 2011.
 msgid ""
 msgstr ""
-"Project-Id-Version: flare-engine 0.18\n"
+"Project-Id-Version: flare-engine 0.17\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-23 21:07+0700\n"
-"PO-Revision-Date: 2013-03-23 21:07+0600\n"
+"POT-Creation-Date: 2013-03-24 14:09+0100\n"
+"PO-Revision-Date: 2012-09-25 01:34+0600\n"
 "Last-Translator: Sergey Basalaev <sbasalaev@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.4\n"
 
 #: ../../../src/Avatar.cpp:411
 #, c-format
@@ -94,7 +92,7 @@ msgstr "+%d маны"
 
 #: ../../../src/GameStateConfig.cpp:79 ../../../src/GameStateConfig.cpp:164
 msgid "OK"
-msgstr "ОК"
+msgstr ""
 
 #: ../../../src/GameStateConfig.cpp:84 ../../../src/GameStateConfig.cpp:163
 msgid "Defaults"
@@ -127,7 +125,7 @@ msgstr "Привязки клавиш"
 
 #: ../../../src/GameStateConfig.cpp:159
 msgid "Mods"
-msgstr "Дополнения"
+msgstr "Моды"
 
 #: ../../../src/GameStateConfig.cpp:162 ../../../src/GameStateConfig.cpp:963
 #: ../../../src/GameStateConfig.cpp:965
@@ -139,8 +137,9 @@ msgid "Reset ALL settings?"
 msgstr "Сбросить ВСЕ настройки?"
 
 #: ../../../src/GameStateConfig.cpp:164
+#, fuzzy
 msgid "Use this resolution?"
-msgstr "Использовать это разрешение?"
+msgstr "Разрешение"
 
 #: ../../../src/GameStateConfig.cpp:254
 msgid "Full Screen Mode"
@@ -148,7 +147,7 @@ msgstr "Полноэкранный режим"
 
 #: ../../../src/GameStateConfig.cpp:267
 msgid "Move hero using mouse"
-msgstr "Перемещать героя мышью"
+msgstr "Двигать героя мышью"
 
 #: ../../../src/GameStateConfig.cpp:280
 msgid "Show combat text"
@@ -204,11 +203,11 @@ msgstr "Разрешение"
 
 #: ../../../src/GameStateConfig.cpp:451
 msgid "Active Mods"
-msgstr "Активные дополнения"
+msgstr "Активные моды"
 
 #: ../../../src/GameStateConfig.cpp:461
 msgid "Available Mods"
-msgstr "Доступные дополнения"
+msgstr "Доступные моды"
 
 #: ../../../src/GameStateConfig.cpp:477
 msgid "Joystick"
@@ -257,7 +256,7 @@ msgstr "Новая игра"
 
 #: ../../../src/GameStateLoad.cpp:479 ../../../src/GameStateLoad.cpp:489
 msgid "Enable a story mod to continue"
-msgstr "Включите сюжетное дополнение для продолжения"
+msgstr ""
 
 #: ../../../src/GameStateLoad.cpp:485
 msgid "Load Game"
@@ -297,8 +296,9 @@ msgid "Permadeath?"
 msgstr "Одна жизнь?"
 
 #: ../../../src/GameStateNew.cpp:164
+#, fuzzy
 msgid "Choose a Class"
-msgstr "Выберите класс"
+msgstr "Выберите слот"
 
 #: ../../../src/GameStatePlay.cpp:99
 msgid "Loading..."
@@ -319,7 +319,7 @@ msgstr "Играть"
 
 #: ../../../src/GameStateTitle.cpp:45
 msgid "Enable a core mod to continue"
-msgstr "Включите основное дополнение для продолжения"
+msgstr ""
 
 #: ../../../src/GameStateTitle.cpp:49
 msgid "Configuration"
@@ -330,6 +330,7 @@ msgid "Exit Game"
 msgstr "Выйти"
 
 #: ../../../src/GameStateTitle.cpp:61
+#, fuzzy
 msgid "Flare Alpha v0.18"
 msgstr "Flare Alpha v0.18"
 
@@ -466,32 +467,32 @@ msgstr "Уровень %d"
 #: ../../../src/ItemManager.cpp:487
 #, c-format
 msgid "Melee damage: %d-%d"
-msgstr "Ближний урон: %d-%d"
+msgstr "Ближний вред: %d-%d"
 
 #: ../../../src/ItemManager.cpp:489
 #, c-format
 msgid "Melee damage: %d"
-msgstr "Ближний урон: %d"
+msgstr "Ближний вред: %d"
 
 #: ../../../src/ItemManager.cpp:493
 #, c-format
 msgid "Ranged damage: %d-%d"
-msgstr "Дальний урон: %d-%d"
+msgstr "Дальний вред: %d-%d"
 
 #: ../../../src/ItemManager.cpp:495
 #, c-format
 msgid "Ranged damage: %d"
-msgstr "Дальний урон: %d"
+msgstr "Дальний вред: %d"
 
 #: ../../../src/ItemManager.cpp:499
 #, c-format
 msgid "Mental damage: %d-%d"
-msgstr "Ментальный урон: %d-%d"
+msgstr "Ментальный вред: %d-%d"
 
 #: ../../../src/ItemManager.cpp:501
 #, c-format
 msgid "Mental damage: %d"
-msgstr "Ментальный урон: %d"
+msgstr "Ментальный вред: %d"
 
 #: ../../../src/ItemManager.cpp:507
 #, c-format
@@ -505,8 +506,8 @@ msgstr "Поглощение: %d"
 
 #: ../../../src/ItemManager.cpp:517
 #, c-format
-msgid "%d\\% Speed"
-msgstr "%d\\% скорости"
+msgid "%d%% Speed"
+msgstr ""
 
 #: ../../../src/ItemManager.cpp:522 ../../../src/ItemManager.cpp:614
 #, c-format
@@ -534,7 +535,7 @@ msgstr "Требуется ментальное %d"
 #: ../../../src/MenuPowers.cpp:533
 #, c-format
 msgid "Requires Offense %d"
-msgstr "Требуется атака %d"
+msgstr "Требуется нападение %d"
 
 #: ../../../src/ItemManager.cpp:565 ../../../src/MenuPowers.cpp:536
 #: ../../../src/MenuPowers.cpp:538
@@ -661,8 +662,9 @@ msgid "Ticks of MP regen per minute. Each point of Mental grants +%d MP regen. E
 msgstr "Восстановление маны в минуту. Каждое ментальное очко даёт +%d регенерации. Каждый уровень даёт +%d регенерации"
 
 #: ../../../src/MenuCharacter.cpp:329
+#, fuzzy
 msgid "Accuracy:"
-msgstr "Меткость:"
+msgstr "Меткость (против уровня 1):"
 
 #: ../../../src/MenuCharacter.cpp:330
 #, c-format
@@ -670,8 +672,9 @@ msgid "Each point of Offense grants +%d accuracy. Each level grants +%d accuracy
 msgstr "Каждое очко нападения даёт +%d к меткости. Каждый уровень даёт +%d к меткости"
 
 #: ../../../src/MenuCharacter.cpp:335
+#, fuzzy
 msgid "Avoidance:"
-msgstr "Уклонение:"
+msgstr "Уклонение (от уровня 1):"
 
 #: ../../../src/MenuCharacter.cpp:336
 #, c-format
@@ -680,15 +683,15 @@ msgstr "Каждое очко защиты даёт +%d к уклонению. �
 
 #: ../../../src/MenuCharacter.cpp:341
 msgid "Melee Damage:"
-msgstr "Ближний урон:"
+msgstr "Ближний вред:"
 
 #: ../../../src/MenuCharacter.cpp:351
 msgid "Ranged Damage:"
-msgstr "Дальний урон:"
+msgstr "Дальний вред:"
 
 #: ../../../src/MenuCharacter.cpp:361
 msgid "Mental Damage:"
-msgstr "Ментальный урон:"
+msgstr "Ментальный вред:"
 
 #: ../../../src/MenuCharacter.cpp:371
 msgid "Crit:"
@@ -700,44 +703,44 @@ msgstr "Поглощение:"
 
 #: ../../../src/MenuCharacter.cpp:387
 msgid "Poise: "
-msgstr "Самообладание: "
+msgstr ""
 
 #: ../../../src/MenuCharacter.cpp:388
 msgid "Reduces your chance of stumbling when hit"
-msgstr "Уменьшает шанс задержки при получении урона"
+msgstr ""
 
 #: ../../../src/MenuCharacter.cpp:393
 msgid "Bonus XP: "
-msgstr "Бонус опыта: "
+msgstr ""
 
 #: ../../../src/MenuCharacter.cpp:394
 msgid "Increases the XP gained per kill"
-msgstr "Увеличивает количество опыта, получаемого за убийство"
+msgstr ""
 
 #: ../../../src/MenuCharacter.cpp:399
 msgid "Bonus"
-msgstr "Бонус"
+msgstr ""
 
 #: ../../../src/MenuCharacter.cpp:400
-#, c-format
+#, fuzzy, c-format
 msgid "Increases the %s found per drop"
-msgstr "Увеличивает количество выпадающего %s"
+msgstr "Увеличивает %s на %d"
 
 #: ../../../src/MenuCharacter.cpp:405
 msgid "Bonus Item Find: "
-msgstr "Бонус нахождения предметов: "
+msgstr ""
 
 #: ../../../src/MenuCharacter.cpp:406
 msgid "Increases the chance that an enemy will drop an item when killed"
-msgstr "Повышает вероятность выпадения предмета при смерти противника"
+msgstr ""
 
 #: ../../../src/MenuCharacter.cpp:411
 msgid "Stealth: "
-msgstr "Скрытность: "
+msgstr ""
 
 #: ../../../src/MenuCharacter.cpp:412
 msgid "Increases your ability to move undetected"
-msgstr "Повышает способность двигаться незамеченным"
+msgstr ""
 
 #: ../../../src/MenuCharacter.cpp:430
 #, c-format
@@ -883,9 +886,9 @@ msgid "Costs %d MP"
 msgstr "Стоит %d маны"
 
 #: ../../../src/MenuPowers.cpp:594
-#, c-format
+#, fuzzy, c-format
 msgid "Costs %d HP"
-msgstr "Стоит %d жизни"
+msgstr "Стоит %d маны"
 
 #: ../../../src/MenuPowers.cpp:598
 #, c-format
