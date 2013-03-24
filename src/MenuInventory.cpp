@@ -491,9 +491,9 @@ void MenuInventory::add(ItemStack stack, int area, int slot) {
 			// first search of stack to complete if the item is stackable
 			if (slot == -1 && max_quantity > 1) {
 				int i = 0;
-				while ((inventory[area][i].item != stack.item
-						|| inventory[area][i].quantity >= max_quantity)
-						&& i < MAX_CARRIED)
+				while (i < MAX_CARRIED &&
+						(inventory[area][i].item != stack.item
+						|| inventory[area][i].quantity >= max_quantity))
 					++i;
 				if (i < MAX_CARRIED)
 					slot = i;
