@@ -215,11 +215,7 @@ void GameStateConfig::init() {
 
 void GameStateConfig::readConfig () {
 	//Load the menu configuration from file
-	int x1 = 0;
-	int y1 = 0;
-	int x2 = 0;
-	int y2 = 0;
-	int setting_num = 0;
+
 	int offset_x = 0;
 	int offset_y = 0;
 
@@ -228,12 +224,12 @@ void GameStateConfig::readConfig () {
 		while (infile.next()) {
 
 			infile.val = infile.val + ',';
-			x1 = eatFirstInt(infile.val, ',');
-			y1 = eatFirstInt(infile.val, ',');
-			x2 = eatFirstInt(infile.val, ',');
-			y2 = eatFirstInt(infile.val, ',');
+			int x1 = eatFirstInt(infile.val, ',');
+			int y1 = eatFirstInt(infile.val, ',');
+			int x2 = eatFirstInt(infile.val, ',');
+			int y2 = eatFirstInt(infile.val, ',');
 
-			setting_num = -1;
+			int setting_num = -1;
 
 			if (infile.key == "listbox_scrollbar_offset") {
 				activemods_lstb->scrollbar_offset = x1;
