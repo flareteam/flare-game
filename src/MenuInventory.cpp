@@ -750,7 +750,8 @@ void MenuInventory::applyEquipment(ItemStack *equipped) {
 	// defaults
 	for (unsigned i=0; i<stats->powers_list_items.size(); ++i) {
 		int id = stats->powers_list_items[i];
-		if (powers->powers[id].passive)
+		// stats->hp > 0 is hack to keep on_death revive passives working
+		if (powers->powers[id].passive && stats->hp > 0)
 			stats->effects.removeEffectPassive(id);
 	}
 	stats->powers_list_items.clear();
