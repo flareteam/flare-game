@@ -57,6 +57,7 @@ public:
 	short requires_level;
 	short requires_power;
 	bool requires_point;
+	bool passive_on;
 	Power_Menu_Cell() {
 		id = -1;
 		tab = 0;
@@ -73,6 +74,7 @@ public:
 		requires_level = 0;
 		requires_power = 0;
 		requires_point = false;
+		passive_on = false;
 	}
 };
 
@@ -123,6 +125,7 @@ public:
 	void logic();
 	void render();
 	TooltipData checkTooltip(Point mouse);
+	bool baseRequirementsMet(int power_index);
 	bool requirementsMet(int power_index);
 	int click(Point mouse);
 	bool unlockClick(Point mouse);

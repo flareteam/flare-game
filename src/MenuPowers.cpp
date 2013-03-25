@@ -270,6 +270,22 @@ short MenuPowers::id_by_powerIndex(short power_index) {
 	return -1;
 }
 
+bool MenuPowers::baseRequirementsMet(int power_index) {
+	int id = id_by_powerIndex(power_index);
+
+	if ((stats->physoff() >= power_cell[id].requires_physoff) &&
+		(stats->physdef() >= power_cell[id].requires_physdef) &&
+		(stats->mentoff() >= power_cell[id].requires_mentoff) &&
+		(stats->mentdef() >= power_cell[id].requires_mentdef) &&
+		(stats->get_defense() >= power_cell[id].requires_defense) &&
+		(stats->get_offense() >= power_cell[id].requires_offense) &&
+		(stats->get_physical() >= power_cell[id].requires_physical) &&
+		(stats->get_mental() >= power_cell[id].requires_mental) &&
+		(stats->level >= power_cell[id].requires_level) &&
+		 requirementsMet(power_cell[id].requires_power)) return true;
+	return false;
+}
+
 /**
  * With great power comes great stat requirements.
  */
@@ -288,17 +304,7 @@ bool MenuPowers::requirementsMet(int power_index) {
 	if (find(stats->powers_list.begin(), stats->powers_list.end(), power_index) != stats->powers_list.end()) return true;
 
 	// Check the rest requirements
-	if ((stats->physoff() >= power_cell[id].requires_physoff) &&
-		(stats->physdef() >= power_cell[id].requires_physdef) &&
-		(stats->mentoff() >= power_cell[id].requires_mentoff) &&
-		(stats->mentdef() >= power_cell[id].requires_mentdef) &&
-		(stats->get_defense() >= power_cell[id].requires_defense) &&
-		(stats->get_offense() >= power_cell[id].requires_offense) &&
-		(stats->get_physical() >= power_cell[id].requires_physical) &&
-		(stats->get_mental() >= power_cell[id].requires_mental) &&
-		(stats->level >= power_cell[id].requires_level) &&
-		 requirementsMet(power_cell[id].requires_power) &&
-		!power_cell[id].requires_point) return true;
+	if (baseRequirementsMet(power_index) && !power_cell[id].requires_point) return true;
 	return false;
 }
 
@@ -321,16 +327,7 @@ bool MenuPowers::powerUnlockable(int power_index) {
 	if (requirementsMet(power_index)) return false;
 
 	// Check requirements
-	if ((stats->physoff() >= power_cell[id].requires_physoff) &&
-		(stats->physdef() >= power_cell[id].requires_physdef) &&
-		(stats->mentoff() >= power_cell[id].requires_mentoff) &&
-		(stats->mentdef() >= power_cell[id].requires_mentdef) &&
-		(stats->get_defense() >= power_cell[id].requires_defense) &&
-		(stats->get_offense() >= power_cell[id].requires_offense) &&
-		(stats->get_physical() >= power_cell[id].requires_physical) &&
-		(stats->get_mental() >= power_cell[id].requires_mental) &&
-		(stats->level >= power_cell[id].requires_level) &&
-		 requirementsMet(power_cell[id].requires_power)) return true;
+	if (baseRequirementsMet(power_index)) return true;
 	return false;
 }
 
@@ -374,8 +371,6 @@ bool MenuPowers::unlockClick(Point mouse) {
 					&& power_cell[i].requires_point && power_cell[i].tab == active_tab) {
 				stats->powers_list.push_back(power_cell[i].id);
 				stats->check_title = true;
-				// if the power is passive, activate it
-				powers->activateSinglePassive(stats, power_cell[i].id);
 				return true;
 			}
 		}
@@ -387,8 +382,6 @@ bool MenuPowers::unlockClick(Point mouse) {
 					&& points_left > 0 && power_cell[i].requires_point) {
 				stats->powers_list.push_back(power_cell[i].id);
 				stats->check_title = true;
-				// if the power is passive, activate it
-				powers->activateSinglePassive(stats, power_cell[i].id);
 				return true;
 			}
 		}
@@ -399,6 +392,24 @@ bool MenuPowers::unlockClick(Point mouse) {
 void MenuPowers::logic() {
 	short points_used = 0;
 	for (unsigned i=0; i<power_cell.size(); i++) {
+		if (powers->powers[power_cell[i].id].passive) {
+			if (find(stats->powers_list.begin(), stats->powers_list.end(), power_cell[i].id) != stats->powers_list.end()) {
+				vector<int>::iterator it = find(stats->powers_passive.begin(), stats->powers_passive.end(), power_cell[i].id);
+				if (it != stats->powers_passive.end()) {
+					if (!baseRequirementsMet(power_cell[i].id) && power_cell[i].passive_on) {
+						stats->powers_passive.erase(it);
+						stats->effects.removeEffectPassive(power_cell[i].id);
+						power_cell[i].passive_on = false;
+					}
+				} else if (baseRequirementsMet(power_cell[i].id) && !power_cell[i].passive_on) {
+					stats->powers_passive.push_back(power_cell[i].id);
+					power_cell[i].passive_on = true;
+					// for passives without special triggers, we need to trigger them here
+					if (stats->effects.triggered_others)
+						powers->activateSinglePassive(stats, power_cell[i].id);
+				}
+			}
+		}
 		if (power_cell[i].requires_point &&
 			(find(stats->powers_list.begin(), stats->powers_list.end(), power_cell[i].id) != stats->powers_list.end()))
 			points_used++;

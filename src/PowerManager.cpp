@@ -670,7 +670,10 @@ bool PowerManager::effect(StatBlock *src_stats, int power_index) {
 				if (src_stats->hp > src_stats->maxhp) src_stats->hp = src_stats->maxhp;
 			}
 
-			src_stats->effects.addEffect(effect_index, powers[effect_index].icon, duration, magnitude, powers[effect_index].effect_type, powers[effect_index].animation_name, powers[effect_index].effect_additive, false, powers[power_index].passive_trigger, powers[effect_index].effect_render_above);
+			int passive_id = 0;
+			if (powers[power_index].passive) passive_id = power_index;
+
+			src_stats->effects.addEffect(effect_index, powers[effect_index].icon, duration, magnitude, powers[effect_index].effect_type, powers[effect_index].animation_name, powers[effect_index].effect_additive, false, powers[power_index].passive_trigger, powers[effect_index].effect_render_above, passive_id);
 		}
 
 		// If there's a sound effect, play it here
@@ -972,7 +975,10 @@ void PowerManager::payPowerCost(int power_index, StatBlock *src_stats) {
 			src_stats->mp -= powers[power_index].requires_mp;
 			if (powers[power_index].requires_item != -1)
 				used_items.push_back(powers[power_index].requires_item);
-			if (powers[power_index].requires_equipped_item != -1)
+			// only allow one instance of duplicate items at a time in the used_equipped_items queue
+			// this is useful for Ouroboros rings, where we have 2 equipped, but only want to remove one at a time
+			if (powers[power_index].requires_equipped_item != -1 &&
+				find(used_equipped_items.begin(), used_equipped_items.end(), powers[power_index].requires_equipped_item) == used_equipped_items.end())
 				used_equipped_items.push_back(powers[power_index].requires_equipped_item);
 		}
 		src_stats->hp -= powers[power_index].requires_hp;
@@ -987,9 +993,9 @@ void PowerManager::activatePassives(StatBlock *src_stats) {
 	bool triggered_others = false;
 	int trigger = -1;
 	// unlocked powers
-	for (unsigned i=0; i<src_stats->powers_list.size(); i++) {
-		if (powers[src_stats->powers_list[i]].passive) {
-			trigger = powers[src_stats->powers_list[i]].passive_trigger;
+	for (unsigned i=0; i<src_stats->powers_passive.size(); i++) {
+		if (powers[src_stats->powers_passive[i]].passive) {
+			trigger = powers[src_stats->powers_passive[i]].passive_trigger;
 
 			if (trigger == -1) {
 				if (src_stats->effects.triggered_others) continue;
@@ -1007,7 +1013,7 @@ void PowerManager::activatePassives(StatBlock *src_stats) {
 			}
 			else if (trigger == TRIGGER_DEATH && !src_stats->effects.triggered_death) continue;
 
-			activate(src_stats->powers_list[i], src_stats, src_stats->pos);
+			activate(src_stats->powers_passive[i], src_stats, src_stats->pos);
 			src_stats->refresh_stats = true;
 		}
 	}

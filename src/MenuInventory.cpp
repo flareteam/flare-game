@@ -748,6 +748,12 @@ void MenuInventory::applyEquipment(ItemStack *equipped) {
 	}
 
 	// defaults
+	for (unsigned i=0; i<stats->powers_list_items.size(); ++i) {
+		int id = stats->powers_list_items[i];
+		// stats->hp > 0 is hack to keep on_death revive passives working
+		if (powers->powers[id].passive && stats->hp > 0)
+			stats->effects.removeEffectPassive(id);
+	}
 	stats->powers_list_items.clear();
 
 	// the default for weapons/absorb are not added to equipped items
@@ -837,13 +843,17 @@ void MenuInventory::applyItemStats(ItemStack *equipped) {
 			int id = powers->getIdFromTag(item.bonus_stat[bonus_counter]);
 
 			if (id > 0)
-				stats->effects.addEffect(id, powers->powers[id].icon, 0, item.bonus_val[bonus_counter], powers->powers[id].effect_type, powers->powers[id].animation_name, powers->powers[id].effect_additive, true, -1, powers->powers[id].effect_render_above);
+				stats->effects.addEffect(id, powers->powers[id].icon, 0, item.bonus_val[bonus_counter], powers->powers[id].effect_type, powers->powers[id].animation_name, powers->powers[id].effect_additive, true, -1, powers->powers[id].effect_render_above, 0);
 
 			bonus_counter++;
 		}
 
 		// add item powers
-		if (item.power > 0) stats->powers_list_items.push_back(item.power);
+		if (item.power > 0) {
+			stats->powers_list_items.push_back(item.power);
+			if (stats->effects.triggered_others)
+				powers->activateSinglePassive(stats,item.power);
+		}
 
 	}
 }
@@ -877,7 +887,7 @@ void MenuInventory::applyItemSetBonuses(ItemStack *equipped) {
 			int id = powers->getIdFromTag(temp_set.bonus[bonus_counter].bonus_stat);
 
 			if (id > 0)
-				stats->effects.addEffect(id, powers->powers[id].icon, 0, temp_set.bonus[bonus_counter].bonus_val, powers->powers[id].effect_type, powers->powers[id].animation_name, powers->powers[id].effect_additive, true, -1, powers->powers[id].effect_render_above);
+				stats->effects.addEffect(id, powers->powers[id].icon, 0, temp_set.bonus[bonus_counter].bonus_val, powers->powers[id].effect_type, powers->powers[id].animation_name, powers->powers[id].effect_additive, true, -1, powers->powers[id].effect_render_above, 0);
 		}
 	}
 }
