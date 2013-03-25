@@ -836,6 +836,7 @@ void Avatar::transform() {
 	stats.humanoid = charmed_stats->humanoid;
 	stats.animations = charmed_stats->animations;
 	stats.powers_list = charmed_stats->powers_list;
+	stats.powers_passive = charmed_stats->powers_passive;
 	stats.effects.clearEffects();
 
 	string animationname = "animations/enemies/"+charmed_stats->animations + ".txt";
@@ -895,6 +896,7 @@ void Avatar::untransform() {
 	stats.animations = hero_stats->animations;
 	stats.effects = hero_stats->effects;
 	stats.powers_list = hero_stats->powers_list;
+	stats.powers_passive = hero_stats->powers_passive;
 
 	anim->increaseCount("animations/hero.txt");
 	anim->decreaseCount("animations/enemies/"+charmed_stats->animations + ".txt");

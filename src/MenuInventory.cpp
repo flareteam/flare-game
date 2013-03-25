@@ -748,6 +748,11 @@ void MenuInventory::applyEquipment(ItemStack *equipped) {
 	}
 
 	// defaults
+	for (unsigned i=0; i<stats->powers_list_items.size(); ++i) {
+		int id = stats->powers_list_items[i];
+		if (powers->powers[id].passive)
+			stats->effects.removeEffectPassive(id);
+	}
 	stats->powers_list_items.clear();
 
 	// the default for weapons/absorb are not added to equipped items
@@ -837,7 +842,7 @@ void MenuInventory::applyItemStats(ItemStack *equipped) {
 			int id = powers->getIdFromTag(item.bonus_stat[bonus_counter]);
 
 			if (id > 0)
-				stats->effects.addEffect(id, powers->powers[id].icon, 0, item.bonus_val[bonus_counter], powers->powers[id].effect_type, powers->powers[id].animation_name, powers->powers[id].effect_additive, true, -1, powers->powers[id].effect_render_above);
+				stats->effects.addEffect(id, powers->powers[id].icon, 0, item.bonus_val[bonus_counter], powers->powers[id].effect_type, powers->powers[id].animation_name, powers->powers[id].effect_additive, true, -1, powers->powers[id].effect_render_above, 0);
 
 			bonus_counter++;
 		}
@@ -877,7 +882,7 @@ void MenuInventory::applyItemSetBonuses(ItemStack *equipped) {
 			int id = powers->getIdFromTag(temp_set.bonus[bonus_counter].bonus_stat);
 
 			if (id > 0)
-				stats->effects.addEffect(id, powers->powers[id].icon, 0, temp_set.bonus[bonus_counter].bonus_val, powers->powers[id].effect_type, powers->powers[id].animation_name, powers->powers[id].effect_additive, true, -1, powers->powers[id].effect_render_above);
+				stats->effects.addEffect(id, powers->powers[id].icon, 0, temp_set.bonus[bonus_counter].bonus_val, powers->powers[id].effect_type, powers->powers[id].animation_name, powers->powers[id].effect_additive, true, -1, powers->powers[id].effect_render_above, 0);
 		}
 	}
 }
