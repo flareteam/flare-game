@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.18\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-24 14:09+0100\n"
+"POT-Creation-Date: 2013-03-25 19:51+0100\n"
 "PO-Revision-Date: 2012-09-25 16:57+0200\n"
 "Last-Translator: Stefan Beller\n"
 "Language-Team: \n"
@@ -296,7 +296,6 @@ msgid "Permadeath?"
 msgstr "Dauerhafter Tod?"
 
 #: ../../../src/GameStateNew.cpp:164
-#, fuzzy
 msgid "Choose a Class"
 msgstr "Wähle eine Klasse"
 
@@ -319,7 +318,7 @@ msgstr "Spiel starten"
 
 #: ../../../src/GameStateTitle.cpp:45
 msgid "Enable a core mod to continue"
-msgstr "Aktiviere einen Basis Mod, um fortfahren zu können"
+msgstr "Aktiviere einen 'core mod', um fortfahren zu können"
 
 #: ../../../src/GameStateTitle.cpp:49
 msgid "Configuration"
@@ -330,7 +329,6 @@ msgid "Exit Game"
 msgstr "Beenden"
 
 #: ../../../src/GameStateTitle.cpp:61
-#, fuzzy
 msgid "Flare Alpha v0.18"
 msgstr "Flare Alpha v0.18"
 
@@ -433,15 +431,15 @@ msgstr "Löschen"
 
 #: ../../../src/InputState.cpp:85
 msgid "lmb"
-msgstr "lmt"
+msgstr "lMt"
 
 #: ../../../src/InputState.cpp:86
 msgid "mmb"
-msgstr "mmt"
+msgstr "mMt"
 
 #: ../../../src/InputState.cpp:87
 msgid "rmb"
-msgstr "rmt"
+msgstr "rMt"
 
 #: ../../../src/InputState.cpp:88
 msgid "wheel up"
@@ -487,12 +485,12 @@ msgstr "Fernkampfschaden: %d"
 #: ../../../src/ItemManager.cpp:499
 #, c-format
 msgid "Mental damage: %d-%d"
-msgstr "Zauberschaden: %d-%d"
+msgstr "Magieschaden: %d-%d"
 
 #: ../../../src/ItemManager.cpp:501
 #, c-format
 msgid "Mental damage: %d"
-msgstr "Zauberschaden: %d"
+msgstr "Magieschaden: %d"
 
 #: ../../../src/ItemManager.cpp:507
 #, c-format
@@ -662,7 +660,6 @@ msgid "Ticks of MP regen per minute. Each point of Mental grants +%d MP regen. E
 msgstr "Pro Minute regenerierte MP. Jeder Punkt in Geist erhöht MP-Regeneration um %d, jede Stufe um weitere %d."
 
 #: ../../../src/MenuCharacter.cpp:329
-#, fuzzy
 msgid "Accuracy:"
 msgstr "Genauigkeit:"
 
@@ -672,7 +669,6 @@ msgid "Each point of Offense grants +%d accuracy. Each level grants +%d accuracy
 msgstr "Jeder Punkt in Angriff erhöht Genauigkeit um %d, jede Stufe um weitere %d."
 
 #: ../../../src/MenuCharacter.cpp:335
-#, fuzzy
 msgid "Avoidance:"
 msgstr "Ausweichen:"
 
@@ -691,7 +687,7 @@ msgstr "Fernkampfschaden:"
 
 #: ../../../src/MenuCharacter.cpp:361
 msgid "Mental Damage:"
-msgstr "Zauberschaden:"
+msgstr "Magieschaden:"
 
 #: ../../../src/MenuCharacter.cpp:371
 msgid "Crit:"
@@ -710,9 +706,8 @@ msgid "Reduces your chance of stumbling when hit"
 msgstr "Reduziert die Wahrscheinlichkeit, bei einem Treffer ins Taumeln zu geraten"
 
 #: ../../../src/MenuCharacter.cpp:393
-#, fuzzy
 msgid "Bonus XP: "
-msgstr "Bonus"
+msgstr "Bonus EP: "
 
 #: ../../../src/MenuCharacter.cpp:394
 msgid "Increases the XP gained per kill"
@@ -723,13 +718,13 @@ msgid "Bonus"
 msgstr "Bonus"
 
 #: ../../../src/MenuCharacter.cpp:400
-#, fuzzy, c-format
+#, c-format
 msgid "Increases the %s found per drop"
-msgstr "Erhöht %s um %d"
+msgstr "Erhöhte Chance auf %s"
 
 #: ../../../src/MenuCharacter.cpp:405
 msgid "Bonus Item Find: "
-msgstr "Erhöhte Wahrscheinlichkeit um Gegenstände zu finden: "
+msgstr "Zusatzchance für Gegenstände: "
 
 #: ../../../src/MenuCharacter.cpp:406
 msgid "Increases the chance that an enemy will drop an item when killed"
@@ -810,7 +805,7 @@ msgstr "Aufzeichnungen"
 
 #: ../../../src/MenuLog.cpp:80
 msgid "Quests"
-msgstr "Quests"
+msgstr "Aufgaben"
 
 #: ../../../src/MenuManager.cpp:253
 #, c-format
@@ -820,7 +815,7 @@ msgstr "EP: %d/%d"
 #: ../../../src/MenuManager.cpp:426 ../../../src/MenuManager.cpp:427
 #: ../../../src/MenuManager.cpp:630 ../../../src/MenuManager.cpp:631
 msgid "Not enough money."
-msgstr "Nicht genug Geld."
+msgstr "Nicht genug Gold."
 
 #: ../../../src/MenuNPCActions.cpp:76
 msgid "Trade"
@@ -840,7 +835,7 @@ msgstr "Benötigt eine magische Waffe"
 
 #: ../../../src/MenuPowers.cpp:506
 msgid "Requires an offense weapon"
-msgstr "Benötigt eine offensive Waffe"
+msgstr "Benötigt eine Fernwaffe"
 
 #: ../../../src/MenuPowers.cpp:511 ../../../src/MenuPowers.cpp:513
 #, c-format
@@ -855,7 +850,7 @@ msgstr "Benötigt %d physische Verteidigung"
 #: ../../../src/MenuPowers.cpp:521 ../../../src/MenuPowers.cpp:523
 #, c-format
 msgid "Requires Mental Offense %d"
-msgstr "Benötigt %d magischer Angriff"
+msgstr "Benötigt %d magischen Angriff"
 
 #: ../../../src/MenuPowers.cpp:526 ../../../src/MenuPowers.cpp:528
 #, c-format
@@ -887,9 +882,9 @@ msgid "Costs %d MP"
 msgstr "Kostet %d MP"
 
 #: ../../../src/MenuPowers.cpp:594
-#, fuzzy, c-format
+#, c-format
 msgid "Costs %d HP"
-msgstr "Kostet %d MP"
+msgstr "Kostet %d TP"
 
 #: ../../../src/MenuPowers.cpp:598
 #, c-format
