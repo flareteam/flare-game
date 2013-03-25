@@ -848,7 +848,11 @@ void MenuInventory::applyItemStats(ItemStack *equipped) {
 		}
 
 		// add item powers
-		if (item.power > 0) stats->powers_list_items.push_back(item.power);
+		if (item.power > 0) {
+			stats->powers_list_items.push_back(item.power);
+			if (stats->effects.triggered_others)
+				powers->activateSinglePassive(stats,item.power);
+		}
 
 	}
 }
