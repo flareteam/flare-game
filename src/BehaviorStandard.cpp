@@ -55,6 +55,8 @@ void BehaviorStandard::logic() {
  * TODO: some of these actions could be moved to StatBlock::logic()
  */
 void BehaviorStandard::doUpkeep() {
+	// activate all passive powers
+	if (e->stats.hp > 0 || e->stats.effects.triggered_death) e->powers->activatePassives(&e->stats);
 
 	e->stats.logic();
 
@@ -495,9 +497,6 @@ void BehaviorStandard::updateState() {
 		default:
 			break;
 	}
-
-	// activate all passive powers
-	if (e->stats.hp > 0 || e->stats.effects.triggered_death) e->powers->activatePassives(&e->stats);
 }
 
 
