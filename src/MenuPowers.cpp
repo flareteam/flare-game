@@ -400,6 +400,7 @@ void MenuPowers::logic() {
 						stats->powers_passive.erase(it);
 						stats->effects.removeEffectPassive(power_cell[i].id);
 						power_cell[i].passive_on = false;
+						stats->refresh_stats = true;
 					}
 				} else if (baseRequirementsMet(power_cell[i].id) && !power_cell[i].passive_on) {
 					stats->powers_passive.push_back(power_cell[i].id);

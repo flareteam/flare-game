@@ -370,6 +370,9 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 	// clear current space to allow correct movement
 	map->collider.unblock(stats.pos.x, stats.pos.y);
 
+	// turn on all passive powers
+	if ((stats.hp > 0 || stats.effects.triggered_death) && !respawn) powers->activatePassives(&stats);
+
 	int stepfx;
 	stats.logic();
 	if (stats.effects.forced_move) {
@@ -671,9 +674,6 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 		default:
 			break;
 	}
-
-	// turn on all passive powers
-	if ((stats.hp > 0 || stats.effects.triggered_death) && !respawn) powers->activatePassives(&stats);
 
 	// calc new cam position from player position
 	// cam is focused at player position
