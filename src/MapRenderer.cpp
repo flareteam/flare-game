@@ -1318,23 +1318,25 @@ bool MapRenderer::executeEvent(Map_Event &ev) {
 
 			int power_index = ec->x;
 
-			// TODO: delete this without breaking hazards, takeHit, etc.
-			StatBlock *dummy = new StatBlock();
-			dummy->accuracy = 1000; //always hits its target
+			if (ev.stats == NULL) {
+				ev.stats = new StatBlock();
 
-			// if a power path was specified, place the source position there
-			if (ev.power_src.x > 0) {
-				dummy->pos.x = ev.power_src.x * UNITS_PER_TILE + UNITS_PER_TILE/2;
-				dummy->pos.y = ev.power_src.y * UNITS_PER_TILE + UNITS_PER_TILE/2;
-			}
-			// otherwise the source position is the event position
-			else {
-				dummy->pos.x = ev.location.x * UNITS_PER_TILE + UNITS_PER_TILE/2;
-				dummy->pos.y = ev.location.y * UNITS_PER_TILE + UNITS_PER_TILE/2;
-			}
+				ev.stats->accuracy = 1000; //always hits its target
 
-			dummy->dmg_melee_min = dummy->dmg_ranged_min = dummy->dmg_ment_min = ev.damagemin;
-			dummy->dmg_melee_max = dummy->dmg_ranged_max = dummy->dmg_ment_max = ev.damagemax;
+				// if a power path was specified, place the source position there
+				if (ev.power_src.x > 0) {
+					ev.stats->pos.x = ev.power_src.x * UNITS_PER_TILE + UNITS_PER_TILE/2;
+					ev.stats->pos.y = ev.power_src.y * UNITS_PER_TILE + UNITS_PER_TILE/2;
+				}
+				// otherwise the source position is the event position
+				else {
+					ev.stats->pos.x = ev.location.x * UNITS_PER_TILE + UNITS_PER_TILE/2;
+					ev.stats->pos.y = ev.location.y * UNITS_PER_TILE + UNITS_PER_TILE/2;
+				}
+
+				ev.stats->dmg_melee_min = ev.stats->dmg_ranged_min = ev.stats->dmg_ment_min = ev.damagemin;
+				ev.stats->dmg_melee_max = ev.stats->dmg_ranged_max = ev.stats->dmg_ment_max = ev.damagemax;
+			}
 
 			Point target;
 
@@ -1351,11 +1353,11 @@ bool MapRenderer::executeEvent(Map_Event &ev) {
 			}
 			// no path specified, targets self location
 			else {
-				target.x = dummy->pos.x;
-				target.y = dummy->pos.y;
+				target.x = ev.stats->pos.x;
+				target.y = ev.stats->pos.y;
 			}
 
-			powers->activate(power_index, dummy, target);
+			powers->activate(power_index, ev.stats, target);
 
 		}
 		else if (ec->type == "stash") {
