@@ -802,6 +802,7 @@ void GameStateConfig::logic ()
 		// Ok/Cancel Buttons
 		if (ok_button->checkClick()) {
 			inpt->saveKeyBindings();
+			inpt->setKeybindNames();
 			if (setMods()) {
 				reload_music = true;
 				delete mods;

@@ -716,11 +716,13 @@ void GameStatePlay::logic() {
 	if (!menu->pause) {
 
 		// these actions only occur when the game isn't paused
-		checkLoot();
+		if (pc->stats.alive) checkLoot();
 		checkEnemyFocus();
-		checkNPCInteraction();
-		map->checkHotspots();
-		map->checkNearestEvent(pc->stats.pos);
+		if (pc->stats.alive) {
+			checkNPCInteraction();
+			map->checkHotspots();
+			map->checkNearestEvent(pc->stats.pos);
+		}
 		checkTitle();
 
 		pc->logic(menu->act->checkAction(inpt->mouse), restrictPowerUse());

@@ -55,40 +55,7 @@ InputState::InputState(void)
 	}
 
 	loadKeyBindings();
-
-	binding_name[0] = msg->get("Cancel");
-	binding_name[1] = msg->get("Accept");
-	binding_name[2] = msg->get("Up");
-	binding_name[3] = msg->get("Down");
-	binding_name[4] = msg->get("Left");
-	binding_name[5] = msg->get("Right");
-	binding_name[6] = msg->get("Bar1");
-	binding_name[7] = msg->get("Bar2");
-	binding_name[8] = msg->get("Bar3");
-	binding_name[9] = msg->get("Bar4");
-	binding_name[10] = msg->get("Bar5");
-	binding_name[11] = msg->get("Bar6");
-	binding_name[12] = msg->get("Bar7");
-	binding_name[13] = msg->get("Bar8");
-	binding_name[14] = msg->get("Bar9");
-	binding_name[15] = msg->get("Bar0");
-	binding_name[16] = msg->get("Character");
-	binding_name[17] = msg->get("Inventory");
-	binding_name[18] = msg->get("Powers");
-	binding_name[19] = msg->get("Log");
-	binding_name[20] = msg->get("Main1");
-	binding_name[21] = msg->get("Main2");
-	binding_name[22] = msg->get("Ctrl");
-	binding_name[23] = msg->get("Shift");
-	binding_name[24] = msg->get("Delete");
-
-	mouse_button[0] = msg->get("lmb");
-	mouse_button[1] = msg->get("mmb");
-	mouse_button[2] = msg->get("rmb");
-	mouse_button[3] = msg->get("wheel up");
-	mouse_button[4] = msg->get("wheel down");
-	mouse_button[5] = msg->get("mbx1");
-	mouse_button[6] = msg->get("mbx2");
+	setKeybindNames();
 }
 
 
@@ -700,6 +667,42 @@ void InputState::unlockActionBar() {
 	lock[BAR_0] = false;
 	lock[MAIN1] = false;
 	lock[MAIN2] = false;
+}
+
+void InputState::setKeybindNames() {
+	binding_name[0] = msg->get("Cancel");
+	binding_name[1] = msg->get("Accept");
+	binding_name[2] = msg->get("Up");
+	binding_name[3] = msg->get("Down");
+	binding_name[4] = msg->get("Left");
+	binding_name[5] = msg->get("Right");
+	binding_name[6] = msg->get("Bar1");
+	binding_name[7] = msg->get("Bar2");
+	binding_name[8] = msg->get("Bar3");
+	binding_name[9] = msg->get("Bar4");
+	binding_name[10] = msg->get("Bar5");
+	binding_name[11] = msg->get("Bar6");
+	binding_name[12] = msg->get("Bar7");
+	binding_name[13] = msg->get("Bar8");
+	binding_name[14] = msg->get("Bar9");
+	binding_name[15] = msg->get("Bar0");
+	binding_name[16] = msg->get("Character");
+	binding_name[17] = msg->get("Inventory");
+	binding_name[18] = msg->get("Powers");
+	binding_name[19] = msg->get("Log");
+	binding_name[20] = msg->get("Main1");
+	binding_name[21] = msg->get("Main2");
+	binding_name[22] = msg->get("Ctrl");
+	binding_name[23] = msg->get("Shift");
+	binding_name[24] = msg->get("Delete");
+
+	mouse_button[0] = msg->get("lmb");
+	mouse_button[1] = msg->get("mmb");
+	mouse_button[2] = msg->get("rmb");
+	mouse_button[3] = msg->get("wheel up");
+	mouse_button[4] = msg->get("wheel down");
+	mouse_button[5] = msg->get("mbx1");
+	mouse_button[6] = msg->get("mbx2");
 }
 
 InputState::~InputState() {
