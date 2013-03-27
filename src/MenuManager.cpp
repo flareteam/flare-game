@@ -423,8 +423,8 @@ void MenuManager::logic() {
 					stack = vendor->click(inpt);
 					if (stack.item > 0) {
 						if (!inv->buy(stack,vendor->getTab())) {
-							log->add(msg->get("Not enough money."), LOG_TYPE_MESSAGES);
-							hudlog->add(msg->get("Not enough money."));
+							log->add(msg->get("Not enough %s.", CURRENCY), LOG_TYPE_MESSAGES);
+							hudlog->add(msg->get("Not enough %s.", CURRENCY));
 							vendor->itemReturn( stack);
 						} else {
 							if (inv->full(stack.item)) {
@@ -491,7 +491,7 @@ void MenuManager::logic() {
 							}
 						}
 						else {
-							// The vendor could have a limited amount of money in the future. It will be tested here.
+							// The vendor could have a limited amount of currency in the future. It will be tested here.
 							if ((SELL_WITHOUT_VENDOR || vendor->visible) && inv->sell(stack)) {
 								vendor->setTab(VENDOR_SELL);
 								vendor->add(stack);
@@ -627,8 +627,8 @@ void MenuManager::logic() {
 				// dropping an item from vendor (we only allow to drop into the carried area)
 				if (inv->visible && isWithin( inv->carried_area, inpt->mouse)) {
 					if (!inv->buy(drag_stack,vendor->getTab())) {
-						log->add(msg->get("Not enough money."), LOG_TYPE_MESSAGES);
-						hudlog->add(msg->get("Not enough money."));
+						log->add(msg->get("Not enough %s.", CURRENCY), LOG_TYPE_MESSAGES);
+						hudlog->add(msg->get("Not enough %s.", CURRENCY));
 						vendor->itemReturn( drag_stack);
 					} else {
 						if (inv->full(drag_stack.item)) {
