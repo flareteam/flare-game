@@ -102,6 +102,8 @@ public:
 	int damagemax;
 	int cooldown_ticks;
 
+	StatBlock *stats;
+
 	Map_Event()
 	 : type("")
 	 , components(std::vector<Event_Component>())
@@ -111,11 +113,17 @@ public:
 	 , damagemin(0)
 	 , damagemax(0)
 	 , cooldown_ticks(0)
+	 , stats(NULL)
 	{
 		location.x = location.y = location.w = location.h = 0;
 		hotspot.x = hotspot.y = hotspot.w = hotspot.h = 0;
 		power_src.x = power_src.y = 0;
 		power_dest.x = power_dest.y = 0;
+	}
+
+	~Map_Event()
+	{
+		delete stats; // may be NULL, but delete can deal with null pointers.
 	}
 };
 
