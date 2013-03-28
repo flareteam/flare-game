@@ -228,10 +228,7 @@ void EffectManager::addEffect(int id, int icon, int duration, int magnitude, std
 	}
 
 	for (unsigned i=0; i<effect_list.size(); i++) {
-		// Attempt to stack matching ids.
-		// Speed effects are the exception. We never want to stack them.
-		// TODO instead of hardcoding speed as an exception we want to allow power-effects to be set this way in powers.txt
-		if (effect_list[i].id == id && type != "speed") {
+		if (effect_list[i].id == id) {
 			if (trigger > -1 && effect_list[i].trigger == trigger) return; // trigger effects can only be cast once per trigger
 			if (effect_list[i].duration <= duration) {
 				effect_list[i].ticks = effect_list[i].duration = duration;
