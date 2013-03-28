@@ -189,11 +189,15 @@ bool Enemy::takeHit(const Hazard &h) {
 		if (!h.trait_armor_penetration) { // armor penetration ignores all absorption
 			// substract absorption from armor
 			int absorption = randBetween(stats.absorb_min, stats.absorb_max);
-			if (absorption > 0) {
-				if ((dmg*100)/absorption > MAX_ABSORB)
-					absorption = (absorption * MAX_ABSORB) / 100;
+
+			if (absorption > 0 && dmg > 0) {
+			
+				if ((absorption*100)/dmg > MAX_ABSORB && !stats.effects.triggered_block)
+					absorption = (dmg * MAX_ABSORB) /100;
+
 				if (absorption == 0) absorption = 1;
 			}
+
 			dmg = dmg - absorption;
 			if (dmg <= 0) {
 				dmg = 0;
