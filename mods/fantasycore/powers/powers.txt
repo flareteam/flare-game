@@ -551,7 +551,7 @@ lifespan=1
 radius=64
 starting_pos=melee
 allow_power_mod=true
-post_effect=236,0,150
+post_effect=201,0,150
 
 [power]
 id=39
@@ -690,7 +690,7 @@ lifespan=300
 cooldown=300
 radius=64
 damage_multiplier=75
-post_effect=238,50,90
+post_effect=202,50,90
 
 
 [power]
@@ -711,7 +711,7 @@ lifespan=300
 cooldown=300
 radius=64
 damage_multiplier=150
-post_effect=239,0,90
+post_effect=201,0,90
 post_power=47
 
 [power]
@@ -961,7 +961,7 @@ new_state=cast
 face=false
 requires_item=14
 buff=true
-post_effect=240,200,600
+post_effect=237,200,600
 
 [power]
 id=132
@@ -1114,7 +1114,7 @@ type=fixed
 buff=true
 passive=true
 post_effect=216,100,0
-post_effect=237,50,0
+post_effect=236,50,0
 post_effect=233,90,0
 post_effect=235,1,300
 
@@ -1165,7 +1165,7 @@ effect_type=speed
 
 [power]
 id=202
-#name=Speed (Freeze)
+#name=Speed (50% slow)
 type=effect
 icon=24
 effect_type=speed
@@ -1375,31 +1375,12 @@ icon=6
 
 [power]
 id=236
-#name=Speed (Chill Touch)
-type=effect
-icon=24
-effect_type=speed
-
-[power]
-id=237
 #name=Speed (Stealth)
 type=effect
 effect_type=speed
 
 [power]
-id=238
-#name=Speed (Caltrops)
-type=effect
-effect_type=speed
-
-[power]
-id=239
-#name=Speed (Bear Trap)
-type=effect
-effect_type=speed
-
-[power]
-id=240
+id=237
 #name=Speed (Scroll of Haste)
 type=effect
 effect_type=speed
