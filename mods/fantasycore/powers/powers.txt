@@ -394,7 +394,7 @@ speed=30
 trait_elemental=ice
 post_power=126
 wall_power=126
-post_effect=237,50,60
+post_effect=202,50,60
 
 [power]
 id=31
@@ -455,7 +455,7 @@ starting_pos=source
 multitarget=true
 visual_option=1
 post_power=125
-post_effect=238,50,15
+post_effect=202,50,15
 
 [power]
 id=34
@@ -500,7 +500,7 @@ wall_power=126
 #missile num needs to be odd, or the player can avoid just by standing there
 count=9
 missile_angle=40
-post_effect=239,50,60
+post_effect=202,50,60
 
 [power]
 id=36
@@ -690,7 +690,7 @@ lifespan=300
 cooldown=300
 radius=64
 damage_multiplier=75
-post_effect=240,50,90
+post_effect=238,50,90
 
 
 [power]
@@ -711,7 +711,7 @@ lifespan=300
 cooldown=300
 radius=64
 damage_multiplier=150
-post_effect=241,0,90
+post_effect=239,0,90
 post_power=47
 
 [power]
@@ -961,7 +961,7 @@ new_state=cast
 face=false
 requires_item=14
 buff=true
-post_effect=243,200,600
+post_effect=240,200,600
 
 [power]
 id=132
@@ -1114,7 +1114,7 @@ type=fixed
 buff=true
 passive=true
 post_effect=216,100,0
-post_effect=242,50,0
+post_effect=237,50,0
 post_effect=233,90,0
 post_effect=235,1,300
 
@@ -1382,38 +1382,24 @@ effect_type=speed
 
 [power]
 id=237
-#name=Speed (Ice Shard)
+#name=Speed (Stealth)
 type=effect
-icon=24
 effect_type=speed
 
 [power]
 id=238
-#name=Speed (Fireburst)
-type=effect
-effect_type=speed
-
-[power]
-id=239
-#name=Speed (Maddox's Ice Storm)
-type=effect
-icon=24
-effect_type=speed
-
-[power]
-id=231
 #name=Speed (Caltrops)
 type=effect
 effect_type=speed
 
 [power]
-id=242
+id=239
 #name=Speed (Bear Trap)
 type=effect
 effect_type=speed
 
 [power]
-id=243
+id=240
 #name=Speed (Scroll of Haste)
 type=effect
 effect_type=speed
