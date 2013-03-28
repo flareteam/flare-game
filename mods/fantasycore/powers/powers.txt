@@ -711,7 +711,7 @@ lifespan=300
 cooldown=300
 radius=64
 damage_multiplier=150
-post_effect=217,0,90
+post_effect=201,0,90
 post_power=47
 
 [power]
@@ -961,7 +961,7 @@ new_state=cast
 face=false
 requires_item=14
 buff=true
-post_effect=229,200,600
+post_effect=237,200,600
 
 [power]
 id=132
@@ -1114,30 +1114,9 @@ type=fixed
 buff=true
 passive=true
 post_effect=216,100,0
-post_effect=217,50,0
+post_effect=236,50,0
 post_effect=233,90,0
 post_effect=235,1,300
-
-[power]
-id=159
-#name=Spike Ray
-#description=Create a ray of deadly spikes
-type=repeater
-icon=0
-new_state=cast
-face=true
-requires_mp=1
-animation=spikes.txt
-soundfx=spikes.ogg
-speed=48
-radius=48
-lifespan=16
-base_damage=ment
-delay=6
-visual_random=4
-complete_animation=true
-count=10
-post_effect=202,50,90
 
 [power]
 id=160
@@ -1179,14 +1158,14 @@ animation=spark_red_loop.txt
 
 [power]
 id=201
-#name=Immobilized
+#name=Speed (Immobilize)
 type=effect
 icon=24
 effect_type=speed
 
 [power]
 id=202
-#name=Slowed
+#name=Speed (50% slow)
 type=effect
 icon=24
 effect_type=speed
@@ -1256,7 +1235,7 @@ effect_additive=true
 
 [power]
 id=217
-#name=Speed bonus
+#name=Speed (Boots of Speed)
 tag=speed
 type=effect
 effect_type=speed
@@ -1350,7 +1329,7 @@ animation=heal.txt
 
 [power]
 id=229
-#name=Haste
+#name=Speed (Haste)
 type=effect
 icon=9
 effect_type=speed
@@ -1393,4 +1372,16 @@ effect_type=revive
 id=235
 #name=Stealth time remaining icon
 icon=6
+
+[power]
+id=236
+#name=Speed (Stealth)
+type=effect
+effect_type=speed
+
+[power]
+id=237
+#name=Speed (Scroll of Haste)
+type=effect
+effect_type=speed
 
