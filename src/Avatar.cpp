@@ -732,7 +732,7 @@ bool Avatar::takeHit(const Hazard &h) {
 				absorption += absorption + stats.absorb_max; // blocking doubles your absorb amount
 			}
 
-			if (absorption > 0) {
+			if (absorption > 0 && dmg != 0) {
 				if ((absorption*100)/dmg > MAX_BLOCK)
 					absorption = (dmg * MAX_BLOCK) /100;
 				if ((absorption*100)/dmg > MAX_ABSORB && !stats.effects.triggered_block)
