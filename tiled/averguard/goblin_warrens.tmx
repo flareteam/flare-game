@@ -314,7 +314,7 @@
   <object name="dorm room chest" type="run_once" x="96" y="1152" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,4,36,fixed,1,10"/>
+    <property name="loot" value="currency,4,36,fixed,10,30"/>
     <property name="mapmod" value="object,3,36,160"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Treasure Chest"/>
@@ -323,7 +323,7 @@
   <object name="dorm room barrel" type="run_once" x="32" y="1024" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,2,32,fixed,1,5"/>
+    <property name="loot" value="currency,2,32,fixed,10,20"/>
     <property name="mapmod" value="object,1,32,162"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Barrel"/>
