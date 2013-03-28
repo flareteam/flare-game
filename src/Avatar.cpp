@@ -653,6 +653,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 
 			// allow respawn with Accept if not permadeath
 			if (inpt->pressing[ACCEPT]) {
+				inpt->lock[ACCEPT] = true;
 				map->teleportation = true;
 				map->teleport_mapname = map->respawn_map;
 				if (stats.permadeath) {
