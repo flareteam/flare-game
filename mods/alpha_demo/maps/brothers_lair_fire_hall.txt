@@ -321,7 +321,7 @@ tooltip=Crate
 type=run_once
 location=21,20,1,1
 power=18
-power_damage=8,10
+power_damage=100,150
 power_path=0,0,21,20
 
 [event]
@@ -329,7 +329,7 @@ power_path=0,0,21,20
 type=run_once
 location=24,20,1,1
 power=18
-power_damage=8,10
+power_damage=100,150
 power_path=0,0,24,20
 
 [event]
@@ -352,7 +352,7 @@ type=run_always
 location=21,60,1,1
 hotspot=location
 power=18
-power_damage=20,25
+power_damage=100,150
 power_path=21,60,21,60
 requires_not=lb_fire_key,lb_fire_looted
 tooltip=Runed Chest
