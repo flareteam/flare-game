@@ -252,6 +252,7 @@ public:
 
 	std::vector<int> powers_list;
 	std::vector<int> powers_list_items;
+	std::vector<int> powers_passive;
 	std::vector<int> power_chance;
 	std::vector<int> power_index;
 	std::vector<int> power_cooldown;

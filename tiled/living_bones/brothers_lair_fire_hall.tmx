@@ -329,14 +329,14 @@
   <object name="Burn Trap" type="run_once" x="672" y="640" width="32" height="32">
    <properties>
     <property name="power" value="18"/>
-    <property name="power_damage" value="8,10"/>
+    <property name="power_damage" value="100,150"/>
     <property name="power_path" value="0,0,21,20"/>
    </properties>
   </object>
   <object name="Burn Trap" type="run_once" x="768" y="640" width="32" height="32">
    <properties>
     <property name="power" value="18"/>
-    <property name="power_damage" value="8,10"/>
+    <property name="power_damage" value="100,150"/>
     <property name="power_path" value="0,0,24,20"/>
    </properties>
   </object>
@@ -357,7 +357,7 @@
    <properties>
     <property name="hotspot" value="location"/>
     <property name="power" value="18"/>
-    <property name="power_damage" value="20,25"/>
+    <property name="power_damage" value="100,150"/>
     <property name="power_path" value="21,60,21,60"/>
     <property name="requires_not" value="lb_fire_key,lb_fire_looted"/>
     <property name="tooltip" value="Runed Chest"/>

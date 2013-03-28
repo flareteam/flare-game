@@ -56,6 +56,7 @@ EffectManager& EffectManager::operator= (const EffectManager &emSource) {
 		effect_list[i].item = emSource.effect_list[i].item;
 		effect_list[i].trigger = emSource.effect_list[i].trigger;
 		effect_list[i].render_above = emSource.effect_list[i].render_above;
+		effect_list[i].passive_id = emSource.effect_list[i].passive_id;
 
 		if (emSource.effect_list[i].animation_name != "") {
 			effect_list[i].animation_name = emSource.effect_list[i].animation_name;
@@ -212,7 +213,7 @@ void EffectManager::logic() {
 	}
 }
 
-void EffectManager::addEffect(int id, int icon, int duration, int magnitude, std::string type, std::string animation, bool additive, bool item, int trigger, bool render_above) {
+void EffectManager::addEffect(int id, int icon, int duration, int magnitude, std::string type, std::string animation, bool additive, bool item, int trigger, bool render_above, int passive_id) {
 	// if we're already immune, don't add negative effects
 	if (immunity) {
 		if (type == "damage") return;
@@ -256,6 +257,7 @@ void EffectManager::addEffect(int id, int icon, int duration, int magnitude, std
 	e.item = item;
 	e.trigger = trigger;
 	e.render_above = render_above;
+	e.passive_id = passive_id;
 
 	if (animation != "") {
 		anim->increaseCount(animation);
@@ -283,6 +285,12 @@ void EffectManager::removeAnimation(int id) {
 void EffectManager::removeEffectType(std::string type) {
 	for (unsigned i=effect_list.size(); i > 0; i--) {
 		if (effect_list[i-1].type == type) removeEffect(i-1);
+	}
+}
+
+void EffectManager::removeEffectPassive(int id) {
+	for (unsigned i=effect_list.size(); i > 0; i--) {
+		if (effect_list[i-1].passive_id == id) removeEffect(i-1);
 	}
 }
 

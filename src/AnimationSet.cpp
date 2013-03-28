@@ -204,5 +204,6 @@ AnimationSet::~AnimationSet() {
 	if (imagefile != "") imag->decreaseCount(imagefile);
 	for (unsigned i = 0; i < animations.size(); ++i)
 		delete animations[i];
+	delete defaultAnimation;
 }
 

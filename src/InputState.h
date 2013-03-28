@@ -98,6 +98,7 @@ public:
 	void disableMouseEmulation();
 	void lockActionBar();
 	void unlockActionBar();
+	void setKeybindNames();
 
 	bool pressing[key_count];
 	bool lock[key_count];

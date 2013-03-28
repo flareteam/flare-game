@@ -359,5 +359,6 @@ void MenuNPCActions::render() {
 }
 
 MenuNPCActions::~MenuNPCActions() {
+	SDL_FreeSurface(action_menu);
 }
 

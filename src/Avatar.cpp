@@ -370,6 +370,9 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 	// clear current space to allow correct movement
 	map->collider.unblock(stats.pos.x, stats.pos.y);
 
+	// turn on all passive powers
+	if ((stats.hp > 0 || stats.effects.triggered_death) && !respawn) powers->activatePassives(&stats);
+
 	int stepfx;
 	stats.logic();
 	if (stats.effects.forced_move) {
@@ -650,6 +653,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 
 			// allow respawn with Accept if not permadeath
 			if (inpt->pressing[ACCEPT]) {
+				inpt->lock[ACCEPT] = true;
 				map->teleportation = true;
 				map->teleport_mapname = map->respawn_map;
 				if (stats.permadeath) {
@@ -671,9 +675,6 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 		default:
 			break;
 	}
-
-	// turn on all passive powers
-	if ((stats.hp > 0 || stats.effects.triggered_death) && !respawn) powers->activatePassives(&stats);
 
 	// calc new cam position from player position
 	// cam is focused at player position
@@ -732,7 +733,7 @@ bool Avatar::takeHit(const Hazard &h) {
 				absorption += absorption + stats.absorb_max; // blocking doubles your absorb amount
 			}
 
-			if (absorption > 0) {
+			if (absorption > 0 && dmg != 0) {
 				if ((absorption*100)/dmg > MAX_BLOCK)
 					absorption = (dmg * MAX_BLOCK) /100;
 				if ((absorption*100)/dmg > MAX_ABSORB && !stats.effects.triggered_block)
@@ -836,6 +837,7 @@ void Avatar::transform() {
 	stats.humanoid = charmed_stats->humanoid;
 	stats.animations = charmed_stats->animations;
 	stats.powers_list = charmed_stats->powers_list;
+	stats.powers_passive = charmed_stats->powers_passive;
 	stats.effects.clearEffects();
 
 	string animationname = "animations/enemies/"+charmed_stats->animations + ".txt";
@@ -895,6 +897,7 @@ void Avatar::untransform() {
 	stats.animations = hero_stats->animations;
 	stats.effects = hero_stats->effects;
 	stats.powers_list = hero_stats->powers_list;
+	stats.powers_passive = hero_stats->powers_passive;
 
 	anim->increaseCount("animations/hero.txt");
 	anim->decreaseCount("animations/enemies/"+charmed_stats->animations + ".txt");
