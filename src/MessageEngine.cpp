@@ -62,7 +62,7 @@ MessageEngine::MessageEngine() {
 string MessageEngine::get(const string& key) {
 	string message = messages[key];
 	if (message == "") message = key;
-	return message;
+	return unescape(message);
 }
 
 string MessageEngine::get(const string& key, int i) {
@@ -70,7 +70,7 @@ string MessageEngine::get(const string& key, int i) {
 	if (message == "") message = key;
 	size_t index = message.find("%d");
 	if (index != string::npos) message = message.replace(index, 2, str(i));
-	return message;
+	return unescape(message);
 }
 
 string MessageEngine::get(const string& key, const string& s) {
@@ -78,7 +78,7 @@ string MessageEngine::get(const string& key, const string& s) {
 	if (message == "") message = key;
 	size_t index = message.find("%s");
 	if (index != string::npos) message = message.replace(index, 2, s);
-	return message;
+	return unescape(message);
 }
 
 string MessageEngine::get(const string& key, int i, const string& s) {
@@ -88,7 +88,7 @@ string MessageEngine::get(const string& key, int i, const string& s) {
 	if (index != string::npos) message = message.replace(index, 2, str(i));
 	index = message.find("%s");
 	if (index != string::npos) message = message.replace(index, 2, s);
-	return message;
+	return unescape(message);
 }
 
 string MessageEngine::get(const string& key, int i, int j) {
@@ -98,7 +98,7 @@ string MessageEngine::get(const string& key, int i, int j) {
 	if (index != string::npos) message = message.replace(index, 2, str(i));
 	index = message.find("%d");
 	if (index != string::npos) message = message.replace(index, 2, str(j));
-	return message;
+	return unescape(message);
 }
 
 // Changes an int into a string
@@ -106,4 +106,15 @@ string MessageEngine::str(int i) {
 	stringstream ss;
 	ss << i;
 	return ss.str();
+}
+
+// unescape c formatted string
+string MessageEngine::unescape(string val) {
+
+	// unescape percentage %% to %
+	size_t pos;
+	while ((pos = val.find("%%")) != string::npos)
+		val = val.replace(pos, 2, "%");
+
+	return val;
 }
