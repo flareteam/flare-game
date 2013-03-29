@@ -383,6 +383,11 @@ bool checkPixel(Point px, SDL_Surface *surface) {
 	return true;
 }
 
+int calcDirection(const Point &src, const Point &dst)
+{
+	return calcDirection(src.x, src.y, dst.x, dst.y);
+}
+
 int calcDirection(int x0, int y0, int x1, int y1)
 {
 	// TODO: use calcTheta instead and check for the areas between -PI and PI

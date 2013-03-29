@@ -96,6 +96,7 @@ FPoint calcVector(Point pos, int direction, int dist);
 double calcDist(Point p1, Point p2);
 float calcTheta(int x1, int y1, int x2, int y2);
 int calcDirection(int x0, int y0, int x1, int y1);
+int calcDirection(const Point &src, const Point &dst);
 bool isWithin(Point center, int radius, Point target);
 bool isWithin(SDL_Rect r, Point target);
 
