@@ -1,5 +1,6 @@
 /*
 Copyright © 2011-2012 Thane Brimhall
+Copyright © 2013 Henrik Andersson
 
 This file is part of FLARE.
 
@@ -37,7 +38,7 @@ class MessageEngine {
 private:
 	std::map<std::string,std::string> messages;
 	std::string str(int i);
-
+	std::string unescape(std::string msg);
 public:
 	MessageEngine();
 	std::string get(const std::string& key);
