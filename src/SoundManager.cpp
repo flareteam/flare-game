@@ -170,8 +170,11 @@ SoundManager::SoundID SoundManager::load(const std::string& filename, const std:
 	lsnd.chunk = Mix_LoadWAV(realfilename.c_str());
 	lsnd.refCnt = 1;
 	if (!lsnd.chunk) {
-		fprintf(stderr, "%s: Loading sound %s (%s) failed: %s \n", errormessage.c_str(),
-			realfilename.c_str(), filename.c_str(), Mix_GetError());
+		// TODO: disabled for v0.18 as some sounds are just not needed such as
+		// EnemyManager critdeath sound: Loading sound ../flare-game/soundfx/enemies/wyvern_critdie.ogg (soundfx/enemies/wyvern_critdie.ogg) failed: Mix_LoadWAV_RW with NULL src
+		// EnemyManager mental attack sound: Loading sound ../flare-game/soundfx/enemies/antlion_ment.ogg (soundfx/enemies/antlion_ment.ogg) failed: Mix_LoadWAV_RW with NULL src
+		//fprintf(stderr, "%s: Loading sound %s (%s) failed: %s \n", errormessage.c_str(),
+		//	realfilename.c_str(), filename.c_str(), Mix_GetError());
 		return 0;
 	}
 

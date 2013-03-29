@@ -98,28 +98,27 @@ bool GetText::next() {
 
 			// handle keypairs
 			if (key != "")
-      {
-        if(val != "") // One-line value found.
-        {
-          return true;
-        }
-        else  // Might be a multi-line value.
-        {
-          line = getLine(infile);
-          while(line.find("\"") == 0)
-          {
-            // We remove the double quotes.
-            val += line.substr(1, line.length()-2);
-            line = getLine(infile);
-          }
-          if(val != "") // It was a multi-line value indeed.
-          {
-            return true;
-          }
-        }
-      }
+			{
+				if(val != "") // One-line value found.
+				{
+					return true;
+				}
+				else  // Might be a multi-line value.
+				{
+					line = getLine(infile);
+					while(line.find("\"") == 0)
+					{
+						// We remove the double quotes.
+						val += line.substr(1, line.length()-2);
+						line = getLine(infile);
+					}
+					if(val != "") // It was a multi-line value indeed.
+					{
+						return true;
+					}
+				}
+			}
 		}
-
 	}
 
 	// hit the end of file
