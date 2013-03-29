@@ -263,10 +263,13 @@ type=on_load
 location=8,24,1,1
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
-[enemy]
-type=reanimated_skeleton
-location=5,27,1,1
-direction=5
+[event]
+# spawn_reanimated_skeleton
+type=on_load
+location=22,46,4,4
+requires_not=ml_skeleton_defeated
+requires_status=ml_skeleton_search
+spawn=reanimated_skeleton,6,28
 
 [enemygroup]
 type=miner
