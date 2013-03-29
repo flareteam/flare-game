@@ -276,7 +276,6 @@ private:
 
 	int loadSFX(const std::string& filename);
 
-	int calcDirection(int origin_x, int origin_y, int target_x, int target_y);
 	Point limitRange(int range, Point src, Point target);
 	Point targetNeighbor(Point target, int range);
 	Point targetNeighbor(Point target, int range, bool ignore_blocked);
@@ -300,7 +299,6 @@ public:
 
 	void handleNewMap(MapCollision *_collider);
 	bool activate(int power_index, StatBlock *src_stats, Point target);
-	float calcTheta(int x1, int y1, int x2, int y2);
 	const Power &getPower(unsigned id) 	{assert(id < powers.size()); return powers[id];}
 	bool canUsePower(unsigned id) const;
 	bool hasValidTarget(int power_index, StatBlock *src_stats, Point target);
