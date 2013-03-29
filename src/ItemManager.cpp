@@ -126,10 +126,7 @@ void ItemManager::loadAll() {
 	shrinkVecToFit(item_sets);
 
 	if (items.empty()) fprintf(stderr, "No items were found.\n");
-
-	// TODO: disabled for 0.18, enable again
-	// we had no item sets in that release.
-	//if (item_sets.empty()) printf("No item sets were found.\n");
+	if (item_sets.empty()) printf("No item sets were found.\n");
 }
 
 /**
