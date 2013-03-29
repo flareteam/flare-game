@@ -56,8 +56,7 @@ SDL_Surface *ImageManager::getSurface(const std::string &name) {
 			if (!TEXTURE_QUALITY) {
 				string newname = string(name);
 				newname.replace(name.rfind("/"), 0, "/noalpha");
-				sprites[index] = loadGraphicSurface(newname, "Couldn't load image", false, true);
-				if (!sprites[index]) fprintf(stderr, "fallback to default version image of %s\n", newname.c_str());
+				sprites[index] = loadGraphicSurface(newname, "Falling back to alpha version", false, true);
 			}
 			if (!sprites[index])
 				sprites[index] = loadGraphicSurface(name);

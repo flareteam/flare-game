@@ -333,9 +333,7 @@ void GameStateLoad::loadPreview(int slot) {
 
 		if (!TEXTURE_QUALITY) {
 			string fname = "images/avatar/" + stats[slot].base + "/preview/noalpha/" + img_gfx[i] + ".png";
-			sprites[slot].back() = loadGraphicSurface(fname, "Couldn't load image", false, true);
-			if (!sprites[slot].back())
-				fprintf(stderr, "fallback to default version image of %s\n", fname.c_str());
+			sprites[slot].back() = loadGraphicSurface(fname, "Falling back to alpha version", false, true);
 		}
 		if (!sprites[slot].back()) {
 			sprites[slot].back() = loadGraphicSurface("images/avatar/" + stats[slot].base + "/preview/" + img_gfx[i] + ".png");
