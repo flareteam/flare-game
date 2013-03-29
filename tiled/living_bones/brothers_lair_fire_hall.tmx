@@ -293,7 +293,7 @@
   <object name="Barrel" type="run_once" x="736" y="2048" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,24,63,fixed,1,10"/>
+    <property name="loot" value="currency,24,63,fixed,10,30"/>
     <property name="mapmod" value="object,23,64,162"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Barrel"/>
@@ -302,7 +302,7 @@
   <object name="Barrel" type="run_once" x="704" y="2048" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,22,63,fixed,1,20"/>
+    <property name="loot" value="currency,22,63,fixed,10,30"/>
     <property name="mapmod" value="object,22,64,162"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Barrel"/>
@@ -311,7 +311,7 @@
   <object name="Crate" type="run_once" x="672" y="2048" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,21,63,fixed,1,15"/>
+    <property name="loot" value="currency,21,63,fixed,10,35"/>
     <property name="mapmod" value="object,21,64,163"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Crate"/>
@@ -320,7 +320,7 @@
   <object name="Crate" type="run_once" x="736" y="2016" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,23,62,fixed,1,25"/>
+    <property name="loot" value="currency,23,62,fixed,10,35"/>
     <property name="mapmod" value="object,23,63,163"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Crate"/>
@@ -343,7 +343,7 @@
   <object name="Vesuvvio's Chest" type="run_once" x="672" y="1920" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,22,60,fixed,100"/>
+    <property name="loot" value="currency,22,60,fixed,100,200"/>
     <property name="mapmod" value="object,21,60,160"/>
     <property name="remove_item" value="9102"/>
     <property name="requires_item" value="9102"/>

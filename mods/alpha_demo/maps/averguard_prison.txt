@@ -341,7 +341,7 @@ soundfx=soundfx/door_open.ogg,0,0
 type=run_once
 location=2,47,1,1
 hotspot=location
-loot=currency,2,46,fixed,1,5
+loot=currency,2,46,fixed,5,15
 mapmod=object,2,47,163
 soundfx=soundfx/wood_open.ogg
 tooltip=Crate
@@ -351,7 +351,7 @@ tooltip=Crate
 type=run_once
 location=12,84,1,1
 hotspot=location
-loot=currency,12,85,fixed,1,10
+loot=currency,12,85,fixed,10,25
 mapmod=object,12,84,161
 soundfx=soundfx/wood_open.ogg
 tooltip=Treasure Chest
@@ -413,7 +413,7 @@ soundfx=soundfx/environment/open_fire_loop.ogg
 type=run_once
 location=89,12,1,1
 hotspot=location
-loot=currency,89,13,fixed,1,10
+loot=currency,89,13,fixed,15,40
 mapmod=object,89,12,183
 
 [event]
