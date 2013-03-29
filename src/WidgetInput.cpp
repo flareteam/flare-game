@@ -60,11 +60,7 @@ bool WidgetInput::logic(int x, int y) {
 	Point mouse(x, y);
 
 	// Change the hover state
-	if (isWithin(pos, mouse)) {
-		hover = true;
-	} else {
-		hover = false;
-	}
+	hover = isWithin(pos, mouse);
 
 	if (checkClick()) {
 		inFocus = true;

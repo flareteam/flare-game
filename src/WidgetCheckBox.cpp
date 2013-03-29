@@ -74,12 +74,12 @@ bool WidgetCheckBox::checkClick (int x, int y) {
 
 	if (pressed && !inpt->lock[MAIN1]) { // this is a button release
 		pressed = false;
-	if (isWithin(pos, mouse)) { // the button release is done over the widget
+		if (isWithin(pos, mouse)) { // the button release is done over the widget
 			// toggle the state of the check button
 			checked = !checked;
-		// activate upon release
-		return true;
-	}
+			// activate upon release
+			return true;
+		}
 	}
 
 	if (inpt->pressing[MAIN1]) {

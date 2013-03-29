@@ -72,11 +72,7 @@ bool WidgetButton::checkClick(int x, int y) {
 	Point mouse(x,y);
 
 	// Change the hover state
-	if (isWithin(pos, mouse)) {
-		hover = true;
-	} else {
-		hover = false;
-	}
+	hover = isWithin(pos, mouse);
 
 	// Check the tooltip
 	tip_new = checkTooltip(mouse);
