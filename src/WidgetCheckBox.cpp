@@ -71,10 +71,7 @@ void WidgetCheckBox::unCheck ()
 
 bool WidgetCheckBox::checkClick()
 {
-	if (checkClick(inpt->mouse.x,inpt->mouse.y))
-		return true;
-	else
-		return false;
+	return checkClick(inpt->mouse.x,inpt->mouse.y);
 }
 
 bool WidgetCheckBox::checkClick (int x, int y) {

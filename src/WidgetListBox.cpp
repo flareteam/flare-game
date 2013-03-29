@@ -84,10 +84,7 @@ void WidgetListBox::loadArt() {
 }
 
 bool WidgetListBox::checkClick() {
-	if (checkClick(inpt->mouse.x,inpt->mouse.y))
-		return true;
-	else
-		return false;
+	return checkClick(inpt->mouse.x,inpt->mouse.y);
 }
 
 /**

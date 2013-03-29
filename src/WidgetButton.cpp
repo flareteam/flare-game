@@ -66,10 +66,7 @@ void WidgetButton::loadArt() {
 }
 
 bool WidgetButton::checkClick() {
-	if (checkClick(inpt->mouse.x,inpt->mouse.y))
-		return true;
-	else
-		return false;
+	return checkClick(inpt->mouse.x,inpt->mouse.y);
 }
 
 /**
