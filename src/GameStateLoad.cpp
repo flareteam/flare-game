@@ -326,26 +326,19 @@ void GameStateLoad::loadPreview(int slot) {
 
 	// composite the hero graphic
 	for (unsigned int i=0; i<img_gfx.size(); i++) {
-		if (img_gfx[i] == "") continue;
+		if (img_gfx[i] == "")
+			continue;
+
 		sprites[slot].push_back(NULL);
 
-		if (TEXTURE_QUALITY == false) {
-			sprites[slot].back() = IMG_Load(mods->locate("images/avatar/" + stats[slot].base + "/preview/noalpha/" + img_gfx[i] + ".png").c_str());
+		if (!TEXTURE_QUALITY) {
+			string fname = "images/avatar/" + stats[slot].base + "/preview/noalpha/" + img_gfx[i] + ".png";
+			sprites[slot].back() = loadGraphicSurface(fname, "Couldn't load image", false, true);
+			if (!sprites[slot].back())
+				fprintf(stderr, "fallback to default version image of %s\n", fname.c_str());
 		}
 		if (!sprites[slot].back()) {
-			sprites[slot].back() = IMG_Load(mods->locate("images/avatar/" + stats[slot].base + "/preview/" + img_gfx[i] + ".png").c_str());
-		} else {
-			SDL_SetColorKey(sprites[slot].back(), SDL_SRCCOLORKEY, SDL_MapRGB(sprites[slot].back()->format, 255, 0, 255));
-		}
-		if (!sprites[slot].back()) {
-			fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
-		}
-
-		// optimize
-		if (sprites[slot].back()) {
-			SDL_Surface *cleanup = sprites[slot].back();
-			sprites[slot].back() = SDL_DisplayFormatAlpha(sprites[slot].back());
-			SDL_FreeSurface(cleanup);
+			sprites[slot].back() = loadGraphicSurface("images/avatar/" + stats[slot].base + "/preview/" + img_gfx[i] + ".png");
 		}
 	}
 
