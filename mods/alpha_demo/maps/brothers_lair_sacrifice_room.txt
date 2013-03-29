@@ -9,13 +9,13 @@ tileset=tileset_dungeon.txt
 title=Brothers' Sacrifice Room
 
 [tilesets]
-tileset=../../../../flare-game/tiled/dungeon/tiled_collision.png,64,32,0,0
-tileset=../../../../flare-game/tiled/dungeon/tiled_dungeon.png,64,128,0,0
-tileset=../../../../flare-game/tiled/dungeon/set_rules.png,64,32,0,0
-tileset=../../../../flare-game/tiled/dungeon/tiled_dungeon_2x2.png,128,64,0,16
-tileset=../../../../flare-game/tiled/dungeon/door_left.png,64,128,-16,-8
-tileset=../../../../flare-game/tiled/dungeon/door_right.png,64,128,16,-8
-tileset=../../../../flare-game/tiled/dungeon/stairs.png,256,256,0,48
+tileset=../../../tiled/dungeon/tiled_collision.png,64,32,0,0
+tileset=../../../tiled/dungeon/tiled_dungeon.png,64,128,0,0
+tileset=../../../tiled/dungeon/set_rules.png,64,32,0,0
+tileset=../../../tiled/dungeon/tiled_dungeon_2x2.png,128,64,0,16
+tileset=../../../tiled/dungeon/door_left.png,64,128,-16,-8
+tileset=../../../tiled/dungeon/door_right.png,64,128,16,-8
+tileset=../../../tiled/dungeon/stairs.png,256,256,0,48
 
 [layer]
 type=background
@@ -214,7 +214,7 @@ type=run_always
 location=3,32,13,6
 cooldown=60
 power=6
-power_damage=5,10
+power_damage=25,50
 power_path=11,34,hero
 requires_status=lb_wind_attack
 
@@ -223,7 +223,7 @@ type=run_always
 location=3,32,13,6
 cooldown=60
 power=122
-power_damage=5,10
+power_damage=25,50
 power_path=9,34,hero
 requires_status=lb_fire_attack
 
@@ -232,7 +232,7 @@ type=run_always
 location=3,32,13,6
 cooldown=60
 power=123
-power_damage=5,10
+power_damage=25,50
 power_path=7,34,hero
 requires_status=lb_ice_attack
 

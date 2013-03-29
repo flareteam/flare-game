@@ -449,7 +449,7 @@
    <properties>
     <property name="cooldown" value="30"/>
     <property name="power" value="31"/>
-    <property name="power_damage" value="50,75"/>
+    <property name="power_damage" value="25,50"/>
     <property name="power_path" value="15,58,hero"/>
    </properties>
   </object>
@@ -514,7 +514,7 @@
   <object type="run_once" x="480" y="32" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,14,2,fixed,1,30;currency,15,2,fixed,1,35;currency,16,2,fixed,1,25"/>
+    <property name="loot" value="currency,14,2,fixed,15,30;currency,15,2,fixed,15,35;currency,16,2,fixed,10,25"/>
     <property name="mapmod" value="object,15,1,161"/>
     <property name="requires_status" value="ak_maddox_defeated"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -534,7 +534,7 @@
   <object type="run_once" x="480" y="288" width="32" height="64">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,16,9,fixed,1,25"/>
+    <property name="loot" value="currency,16,9,fixed,10,25"/>
     <property name="msg" value="You wipe dust away from the tomb lid, revealing an inscription: &quot;Here lies Sir Evan Maddox&quot;"/>
     <property name="tooltip" value="Maddox's Tomb"/>
    </properties>
