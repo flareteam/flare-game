@@ -17,7 +17,7 @@ set_status=martigan_init
 
 [dialog]
 topic=Goblin Camp
-requires_status=martigan_init
+requires_status=ml_skeleton_reward
 requires_not=fr_rilrak_search
 him=We're having problems. Goblins. All the noise from our mining is drawing their attention. We can't have them thinking we're easy prey.
 set_status=fr_rilrak_search
@@ -48,7 +48,7 @@ him=A member of the Order passed through our camp a few days ago. He left for th
 
 [dialog]
 topic=Rotten Tower
-requires_status=martigan_init
+requires_status=ml_skeleton_reward
 requires_not=rotten_tower_search
 him=This region was once well guarded. There are watch towers positioned throughout these plains, but most are abandoned and crumbling now.
 him=I need someone to inspect the outpost tower in White Winds, south west of the Frontier Plains. Let me know if goblins have found their way inside.
@@ -77,7 +77,8 @@ him=Are you sure? Did you look inside the tower?
 you=I saw no signs of goblins through the locked iron grate door.
 set_status=rotten_tower_reward
 him=Good! Have this small reward.
-reward_currency=25
+reward_currency=40
+reward_xp=20
 
 [dialog]
 topic=Mineshaft
@@ -103,5 +104,5 @@ requires_not=ml_skeleton_reward
 you=I've defeated the Reanimated Skeleton.
 him=Excellent work! As promised, here's a little something for your troubles.
 set_status=ml_skeleton_reward
-reward_currency=25
+reward_currency=10
 
