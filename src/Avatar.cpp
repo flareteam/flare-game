@@ -371,7 +371,8 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 	map->collider.unblock(stats.pos.x, stats.pos.y);
 
 	// turn on all passive powers
-	if ((stats.hp > 0 || stats.effects.triggered_death) && !respawn) powers->activatePassives(&stats);
+	if ((stats.hp > 0 || stats.effects.triggered_death) && !respawn && !transform_triggered) powers->activatePassives(&stats);
+	if (transform_triggered) transform_triggered = false;
 
 	int stepfx;
 	stats.logic();
@@ -454,7 +455,7 @@ void Avatar::logic(int actionbar_power, bool restrictPowerUse) {
 			anims[i]->advanceFrame();
 
 	// handle transformation
-	if (stats.transform_type != "" && stats.transform_type != "untransform" && transform_triggered == false) transform();
+	if (stats.transform_type != "" && stats.transform_type != "untransform" && stats.transformed == false) transform();
 	if (stats.transform_type != "" && stats.transform_duration == 0) untransform();
 
 	switch(stats.cur_state) {
@@ -884,7 +885,7 @@ void Avatar::untransform() {
 	if (!map->collider.is_valid_position(stats.pos.x,stats.pos.y,MOVEMENT_NORMAL)) return;
 
 	stats.transformed = false;
-	transform_triggered = false;
+	transform_triggered = true;
 	stats.transform_type = "";
 	revertPowers = true;
 	stats.effects.clearEffects();
