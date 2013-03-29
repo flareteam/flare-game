@@ -82,26 +82,11 @@ MenuLog::MenuLog() {
 	font->setFont("font_regular");
 	paragraph_spacing = font->getLineHeight()/2;
 
-	loadGraphics();
+	background = loadGraphicSurface("images/menus/log.png");
 
 	closeButton = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
 
 	color_normal = font->getColor("menu_normal");
-}
-
-void MenuLog::loadGraphics() {
-
-	background = IMG_Load(mods->locate("images/menus/log.png").c_str());
-
-	if(!background) {
-		fprintf(stderr, "Could not load image: %s\n", IMG_GetError());
-	} else {
-		// optimize
-		SDL_Surface *cleanup = background;
-		background = SDL_DisplayFormatAlpha(background);
-		SDL_FreeSurface(cleanup);
-	}
-
 }
 
 void MenuLog::update() {

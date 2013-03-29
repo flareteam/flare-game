@@ -119,4 +119,6 @@ SDL_Surface* createAlphaSurface(int width, int height);
  */
 SDL_Surface* createSurface(int width, int height);
 
+SDL_Surface* loadGraphicSurface(std::string filename);
+
 #endif

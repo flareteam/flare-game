@@ -46,7 +46,7 @@ MenuVendor::MenuVendor(ItemManager *_items, StatBlock *_stats)
 	, buyback_stock()
 	, talker_visible(false)
 {
-	loadGraphics();
+	background = loadGraphicSurface("images/menus/vendor.png");
 
 	tabControl->setTabTitle(VENDOR_BUY,msg->get("Inventory"));
 	tabControl->setTabTitle(VENDOR_SELL,msg->get("Buyback"));
@@ -77,18 +77,6 @@ MenuVendor::MenuVendor(ItemManager *_items, StatBlock *_stats)
 	} else fprintf(stderr, "Unable to open menus/vendor.txt!\n");
 
 	VENDOR_SLOTS = slots_cols * slots_rows;
-}
-
-void MenuVendor::loadGraphics() {
-	background = IMG_Load(mods->locate("images/menus/vendor.png").c_str());
-	if(!background) {
-		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
-	} else {
-		// optimize
-		SDL_Surface *cleanup = background;
-		background = SDL_DisplayFormatAlpha(background);
-		SDL_FreeSurface(cleanup);
-	}
 }
 
 void MenuVendor::update() {

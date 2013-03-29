@@ -201,21 +201,15 @@ GameStateLoad::GameStateLoad() : GameState() {
 }
 
 void GameStateLoad::loadGraphics() {
-	background = IMG_Load(mods->locate("images/menus/game_slots.png").c_str());
+	background = loadGraphicSurface("images/menus/game_slots.png");
 	selection = IMG_Load(mods->locate("images/menus/game_slot_select.png").c_str());
 	portrait_border = IMG_Load(mods->locate("images/menus/portrait_border.png").c_str());
-	if (!background || !selection || !portrait_border) {
+	if (!selection || !portrait_border) {
 		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
 	}
 
 	// optimize
 	SDL_Surface *cleanup;
-
-	if (background) {
-		cleanup = background;
-		background = SDL_DisplayFormatAlpha(background);
-		SDL_FreeSurface(cleanup);
-	}
 
 	if (selection) {
 		SDL_SetColorKey( selection, SDL_SRCCOLORKEY, SDL_MapRGB(selection->format, 255, 0, 255));

@@ -306,6 +306,19 @@ SDL_Surface* createSurface(int width, int height) {
 	return surface;
 }
 
+SDL_Surface* loadGraphicSurface(std::string filename)
+{
+	SDL_Surface *ret = NULL;
+	SDL_Surface *cleanup = IMG_Load(mods->locate(filename).c_str());
+	if(!cleanup) {
+		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
+	} else {
+		ret = SDL_DisplayFormatAlpha(cleanup);
+		SDL_FreeSurface(cleanup);
+	}
+	return ret;
+}
+
 /*
  * Returns false if a pixel at Point px is transparent
  *

@@ -46,8 +46,6 @@ private:
 	WidgetButton *closeButton;
 	WidgetTabControl *tabControl;
 
-	void loadGraphics();
-	SDL_Surface *background;
 	MenuItemStorage stock[2]; // items the vendor currently has in stock
 
 	int VENDOR_SLOTS;

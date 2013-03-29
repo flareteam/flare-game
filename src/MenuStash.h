@@ -43,9 +43,6 @@ private:
 	StatBlock *stats;
 	WidgetButton *closeButton;
 
-	void loadGraphics();
-	SDL_Surface *background;
-
 	int STASH_SLOTS;
 
 	// label and widget positions

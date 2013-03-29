@@ -64,29 +64,10 @@ MenuEnemy::MenuEnemy() {
 	color_normal = font->getColor("menu_normal");
 }
 
-void MenuEnemy::loadGraphics() {
-
-	background = IMG_Load(mods->locate("images/menus/enemy_bar.png").c_str());
-	bar_hp = IMG_Load(mods->locate("images/menus/enemy_bar_hp.png").c_str());
-
-	if(!background || !bar_hp) {
-		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
-	}
-
-	// optimize
-	SDL_Surface *cleanup;
-
-	if (background) {
-		cleanup = background;
-		background = SDL_DisplayFormatAlpha(background);
-		SDL_FreeSurface(cleanup);
-	}
-
-	if (bar_hp) {
-		cleanup = bar_hp;
-		bar_hp = SDL_DisplayFormatAlpha(bar_hp);
-		SDL_FreeSurface(cleanup);
-	}
+void MenuEnemy::loadGraphics()
+{
+	background = loadGraphicSurface("images/menus/enemy_bar.png");
+	bar_hp = loadGraphicSurface("images/menus/enemy_bar_hp.png");
 }
 
 void MenuEnemy::handleNewMap() {

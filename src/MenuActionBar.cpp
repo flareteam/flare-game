@@ -212,40 +212,10 @@ void MenuActionBar::clear() {
 
 void MenuActionBar::loadGraphics() {
 
-	emptyslot = IMG_Load(mods->locate("images/menus/slot_empty.png").c_str());
-	background = IMG_Load(mods->locate("images/menus/actionbar_trim.png").c_str());
-	disabled = IMG_Load(mods->locate("images/menus/disabled.png").c_str());
-	attention = IMG_Load(mods->locate("images/menus/attention_glow.png").c_str());
-	if(!emptyslot || !background || !disabled || !attention) {
-		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
-	}
-
-	// optimize
-	SDL_Surface *cleanup;
-
-	if (background) {
-		cleanup = background;
-		background = SDL_DisplayFormatAlpha(background);
-		SDL_FreeSurface(cleanup);
-	}
-
-	if (emptyslot) {
-		cleanup = emptyslot;
-		emptyslot = SDL_DisplayFormatAlpha(emptyslot);
-		SDL_FreeSurface(cleanup);
-	}
-
-	if (disabled) {
-		cleanup = disabled;
-		disabled = SDL_DisplayFormatAlpha(disabled);
-		SDL_FreeSurface(cleanup);
-	}
-
-	if (attention) {
-		cleanup = attention;
-		attention = SDL_DisplayFormatAlpha(attention);
-		SDL_FreeSurface(cleanup);
-	}
+	emptyslot = loadGraphicSurface("images/menus/slot_empty.png");
+	background = loadGraphicSurface("images/menus/actionbar_trim.png");
+	disabled = loadGraphicSurface("images/menus/disabled.png");
+	attention = loadGraphicSurface("images/menus/attention_glow.png");
 }
 
 /**

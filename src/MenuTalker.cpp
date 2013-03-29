@@ -58,7 +58,7 @@ MenuTalker::MenuTalker(MenuManager *_menu, CampaignManager *_camp) {
 	// fonts
 	font_who = font_dialog = "font_regular";
 
-	loadGraphics();
+	loadGraphicSurface("images/menus/dialog_box.png");
 
 	// Load config settings
 	FileParser infile;
@@ -105,20 +105,6 @@ MenuTalker::MenuTalker(MenuManager *_menu, CampaignManager *_camp) {
 	} else fprintf(stderr, "Unable to open menus/talker.txt!\n");
 
 	color_normal = font->getColor("menu_normal");
-}
-
-void MenuTalker::loadGraphics() {
-
-	SDL_FreeSurface(background);
-	background = IMG_Load(mods->locate("images/menus/dialog_box.png").c_str());
-	if(!background) {
-		fprintf(stderr, "Couldn't load image dialog_box.png: %s\n", IMG_GetError());
-	} else {
-		// optimize
-		SDL_Surface *cleanup = background;
-		background = SDL_DisplayFormatAlpha(background);
-		SDL_FreeSurface(cleanup);
-	}
 }
 
 void MenuTalker::chooseDialogNode(int request_dialog_node) {
