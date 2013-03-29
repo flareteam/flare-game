@@ -77,16 +77,8 @@ static void init() {
 	SDL_WM_SetIcon(titlebar_icon, NULL);
 
 	// Create window
-	Uint32 flags = 0;
+	setupSDLVideoMode(VIEW_W, VIEW_H);
 
-	if (FULLSCREEN) flags = flags | SDL_FULLSCREEN;
-	if (DOUBLEBUF) flags = flags | SDL_DOUBLEBUF;
-	if (HWSURFACE)
-		flags = flags | SDL_HWSURFACE | SDL_HWACCEL;
-	else
-		flags = flags | SDL_SWSURFACE;
-
-	screen = SDL_SetVideoMode (VIEW_W, VIEW_H, 0, flags);
 	if (screen == NULL) {
 
 		fprintf (stderr, "Error during SDL_SetVideoMode: %s\n", SDL_GetError());

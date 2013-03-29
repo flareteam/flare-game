@@ -777,7 +777,7 @@ void GameStateConfig::logic ()
 			delete requestedGameState;
 			requestedGameState = new GameStateTitle();
 		} else if (resolution_confirm->cancelClicked || resolution_confirm_ticks == 0) {
-			applyVideoSettings(screen, old_view_w, old_view_h);
+			applyVideoSettings(old_view_w, old_view_h);
 			saveSettings();
 			delete requestedGameState;
 			requestedGameState = new GameStateConfig();
@@ -803,7 +803,7 @@ void GameStateConfig::logic ()
 				SDL_JoystickClose(joy);
 				joy = SDL_JoystickOpen(JOYSTICK_DEVICE);
 			}
-			applyVideoSettings(screen, width, height);
+			applyVideoSettings(width, height);
 			if (width != old_view_w || height != old_view_h) {
 				resolution_confirm->window_area = menuConfirm_area;
 				resolution_confirm->align();
@@ -1190,44 +1190,22 @@ void GameStateConfig::refreshFont() {
 /**
  * Tries to apply the selected video settings, reverting back to the old settings upon failure
  */
-bool GameStateConfig::applyVideoSettings(SDL_Surface *src, int width, int height) {
+bool GameStateConfig::applyVideoSettings(int width, int height) {
 	if (MIN_VIEW_W > width && MIN_VIEW_H > height) {
 		fprintf (stderr, "A mod is requiring a minimum resolution of %dx%d\n", MIN_VIEW_W, MIN_VIEW_H);
 		if (width < MIN_VIEW_W) width = MIN_VIEW_W;
 		if (height < MIN_VIEW_H) height = MIN_VIEW_H;
 	}
 
-	// Temporarily save previous settings
-	int tmp_fs = FULLSCREEN;
-	int tmp_w = VIEW_W;
-	int tmp_h = VIEW_H;
-
 	// Attempt to apply the new settings
-	Uint32 flags = 0;
-	if (FULLSCREEN) flags = flags | SDL_FULLSCREEN;
-	if (DOUBLEBUF) flags = flags | SDL_DOUBLEBUF;
-	if (HWSURFACE)
-		flags = flags | SDL_HWSURFACE | SDL_HWACCEL;
-	else
-		flags = flags | SDL_SWSURFACE;
-
-	src = SDL_SetVideoMode (width, height, 0, flags);
+	setupSDLVideoMode(width, height);
 
 	// If the new settings fail, revert to the old ones
-	if (src == NULL) {
+	if (!screen) {
 		fprintf (stderr, "Error during SDL_SetVideoMode: %s\n", SDL_GetError());
-
-		flags = 0;
-		if (tmp_fs) flags = flags | SDL_FULLSCREEN;
-		if (DOUBLEBUF) flags = flags | SDL_DOUBLEBUF;
-		if (HWSURFACE)
-			flags = flags | SDL_HWSURFACE | SDL_HWACCEL;
-		else
-			flags = flags | SDL_SWSURFACE;
-
-		SDL_SetVideoMode (tmp_w, tmp_h, 0, flags);
-
+		setupSDLVideoMode(VIEW_W, VIEW_H);
 		return false;
+
 	} else {
 
 		// If the new settings succeed, adjust the view area

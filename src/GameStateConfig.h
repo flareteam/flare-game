@@ -72,7 +72,7 @@ private:
 	void update();
 	void setDefaultResolution();
 	void refreshFont();
-	bool applyVideoSettings(SDL_Surface *src, int width, int height);
+	bool applyVideoSettings(int width, int height);
 	void enableMods();
 	void disableMods();
 	bool setMods();

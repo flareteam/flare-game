@@ -148,4 +148,6 @@ SDL_Surface* loadGraphicSurface(std::string filename,
 								bool IfNotFoundExit = false,
 								bool HavePinkColorKey = false);
 
+void setupSDLVideoMode(unsigned width, unsigned height);
+
 #endif
