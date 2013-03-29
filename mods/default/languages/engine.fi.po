@@ -1,13 +1,13 @@
 # FLARE (Free/Libre Action RPG Engine)
-# Copyright (C) 2012 Clint Bellanger
+# Copyright (C) 2013 Clint Bellanger
 # This file is distributed under the same license as the FLARE package.
 # Timo Sievänen <thematic@helsinkilainen.com>, 2012.
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.17\n"
+"Project-Id-Version: 0.18\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-03-24 14:09+0100\n"
-"PO-Revision-Date: 2012-09-23 21:57+0300\n"
+"PO-Revision-Date: 2013-03-25 22:07+0200\n"
 "Last-Translator: Timo Sievänen <thematic@helsinkilainen.com>\n"
 "Language-Team: \n"
 "Language: Finnish\n"
@@ -90,7 +90,7 @@ msgstr "+%d MP"
 
 #: ../../../src/GameStateConfig.cpp:79 ../../../src/GameStateConfig.cpp:164
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: ../../../src/GameStateConfig.cpp:84 ../../../src/GameStateConfig.cpp:163
 msgid "Defaults"
@@ -135,9 +135,8 @@ msgid "Reset ALL settings?"
 msgstr "Palauta KAIKKI asetukset?"
 
 #: ../../../src/GameStateConfig.cpp:164
-#, fuzzy
 msgid "Use this resolution?"
-msgstr "Kuvakoko"
+msgstr "Käytä tätä kuvakokoa?"
 
 #: ../../../src/GameStateConfig.cpp:254
 msgid "Full Screen Mode"
@@ -230,7 +229,7 @@ msgstr "<< Poista käytöstä"
 
 #: ../../../src/GameStateConfig.cpp:573
 msgid "Enable >>"
-msgstr "Ota käyttöön"
+msgstr "Ota käyttöön >>"
 
 #: ../../../src/GameStateLoad.cpp:57 ../../../src/GameStateLoad.cpp:69
 msgid "Delete Save"
@@ -254,7 +253,7 @@ msgstr "Uusi peli"
 
 #: ../../../src/GameStateLoad.cpp:479 ../../../src/GameStateLoad.cpp:489
 msgid "Enable a story mod to continue"
-msgstr ""
+msgstr "Salli tarinamodin jatkaa"
 
 #: ../../../src/GameStateLoad.cpp:485
 msgid "Load Game"
@@ -294,9 +293,8 @@ msgid "Permadeath?"
 msgstr "Lopullinen kuolema?"
 
 #: ../../../src/GameStateNew.cpp:164
-#, fuzzy
 msgid "Choose a Class"
-msgstr "Valitse ura"
+msgstr "Valitse luokka"
 
 #: ../../../src/GameStatePlay.cpp:99
 msgid "Loading..."
@@ -317,7 +315,7 @@ msgstr "Pelaa"
 
 #: ../../../src/GameStateTitle.cpp:45
 msgid "Enable a core mod to continue"
-msgstr ""
+msgstr "Salli ydinmodin jatkaa"
 
 #: ../../../src/GameStateTitle.cpp:49
 msgid "Configuration"
@@ -328,7 +326,6 @@ msgid "Exit Game"
 msgstr "Lopeta peli"
 
 #: ../../../src/GameStateTitle.cpp:61
-#, fuzzy
 msgid "Flare Alpha v0.18"
 msgstr "Flare Alpha v0.18"
 
@@ -505,7 +502,7 @@ msgstr "Vaimennus: %d"
 #: ../../../src/ItemManager.cpp:517
 #, c-format
 msgid "%d%% Speed"
-msgstr ""
+msgstr "%d%% nopeus"
 
 #: ../../../src/ItemManager.cpp:522 ../../../src/ItemManager.cpp:614
 #, c-format
@@ -630,7 +627,7 @@ msgstr "Maksimi OP:"
 #: ../../../src/MenuCharacter.cpp:306
 #, c-format
 msgid "Each point of Physical grants +%d HP. Each level grants +%d HP"
-msgstr "Jokainen fyysinen piste lisää +%d HP. Jokainen taso lisää +%d HP"
+msgstr "Jokainen fyysinen piste lisää +%d OP. Jokainen taso lisää +%d OP"
 
 #: ../../../src/MenuCharacter.cpp:311
 msgid "HP Regen:"
@@ -660,9 +657,8 @@ msgid "Ticks of MP regen per minute. Each point of Mental grants +%d MP regen. E
 msgstr "MP:n lisäys minuuttia kohden. Jokainen mentaalipiste lisää uusiutumiseen +%d MP. Jokainen taso lisää uusiutumiseen +%d MP"
 
 #: ../../../src/MenuCharacter.cpp:329
-#, fuzzy
 msgid "Accuracy:"
-msgstr "Tarkkuus (vastassa taso 1):"
+msgstr "Tarkkuus:"
 
 #: ../../../src/MenuCharacter.cpp:330
 #, c-format
@@ -670,9 +666,8 @@ msgid "Each point of Offense grants +%d accuracy. Each level grants +%d accuracy
 msgstr "Jokainen hyökkäyspiste lisää +%d tarkkuuteen. Jokainen taso lisää +%d tarkkuuteen"
 
 #: ../../../src/MenuCharacter.cpp:335
-#, fuzzy
 msgid "Avoidance:"
-msgstr "Välttely (vastassa taso 1):"
+msgstr "Välttely"
 
 #: ../../../src/MenuCharacter.cpp:336
 #, c-format
@@ -701,44 +696,44 @@ msgstr "Vaimennus:"
 
 #: ../../../src/MenuCharacter.cpp:387
 msgid "Poise: "
-msgstr ""
+msgstr "Tasapaino:"
 
 #: ../../../src/MenuCharacter.cpp:388
 msgid "Reduces your chance of stumbling when hit"
-msgstr ""
+msgstr "Vähentää horjahduksen mahdollisuutta iskuja vastaanottaessa"
 
 #: ../../../src/MenuCharacter.cpp:393
 msgid "Bonus XP: "
-msgstr ""
+msgstr "Lisäkokemus: "
 
 #: ../../../src/MenuCharacter.cpp:394
 msgid "Increases the XP gained per kill"
-msgstr ""
+msgstr "Lisää kokemusta tapoista"
 
 #: ../../../src/MenuCharacter.cpp:399
 msgid "Bonus"
-msgstr ""
+msgstr "Lisä"
 
 #: ../../../src/MenuCharacter.cpp:400
-#, fuzzy, c-format
+#, c-format
 msgid "Increases the %s found per drop"
-msgstr "%s nousee %d"
+msgstr "Voitetuista lisää %s"
 
 #: ../../../src/MenuCharacter.cpp:405
 msgid "Bonus Item Find: "
-msgstr ""
+msgstr "Löytölisä: "
 
 #: ../../../src/MenuCharacter.cpp:406
 msgid "Increases the chance that an enemy will drop an item when killed"
-msgstr ""
+msgstr "Lisää mahdollisuutta saada esine tapetulta viholliselta"
 
 #: ../../../src/MenuCharacter.cpp:411
 msgid "Stealth: "
-msgstr ""
+msgstr "Häive: "
 
 #: ../../../src/MenuCharacter.cpp:412
 msgid "Increases your ability to move undetected"
-msgstr ""
+msgstr "Parantaa kykyäsi liikkua huomaamatta"
 
 #: ../../../src/MenuCharacter.cpp:430
 #, c-format
@@ -752,7 +747,7 @@ msgstr "Seuraava: %d"
 
 #: ../../../src/MenuCharacter.cpp:436
 msgid "Physical (P) increases melee weapon proficiency and total HP."
-msgstr "Fyysinen"
+msgstr "Fyysinen (P) lisää lähitaisteluasekykyä ja kokonaisosumapisteitä."
 
 #: ../../../src/MenuCharacter.cpp:437 ../../../src/MenuCharacter.cpp:441
 #: ../../../src/MenuCharacter.cpp:445 ../../../src/MenuCharacter.cpp:449
@@ -821,10 +816,9 @@ msgstr "Rahat eivät riitä."
 
 #: ../../../src/MenuNPCActions.cpp:76
 msgid "Trade"
-msgstr "Kaupankäynti"
+msgstr "Tee kaupat"
 
 #: ../../../src/MenuPowers.cpp:460
-#, fuzzy
 msgid "Unspent skill points:"
 msgstr "Käyttämättömät kykypisteet"
 
@@ -885,9 +879,9 @@ msgid "Costs %d MP"
 msgstr "Kustannus %d MP"
 
 #: ../../../src/MenuPowers.cpp:594
-#, fuzzy, c-format
+#, c-format
 msgid "Costs %d HP"
-msgstr "Kustannus %d MP"
+msgstr "Kustannus %d OP"
 
 #: ../../../src/MenuPowers.cpp:598
 #, c-format
@@ -900,7 +894,7 @@ msgstr "Jaettu kätkö"
 
 #: ../../../src/MenuVendor.cpp:52
 msgid "Buyback"
-msgstr "Myy?"
+msgstr "Takaisinosto"
 
 #: ../../../src/MenuVendor.cpp:155
 msgid "Vendor"
@@ -921,51 +915,3 @@ msgstr "Seikkailija"
 
 #~ msgid "Ok"
 #~ msgstr "Ok"
-
-#~ msgid "Flare"
-#~ msgstr "Flare"
-
-#~ msgid "Accuracy (vs lvl 5):"
-#~ msgstr "Tarkkuus (vastassa taso 5):"
-
-#~ msgid "Avoidance (vs lvl 5):"
-#~ msgstr "Välttely (vastassa taso 5):"
-
-#~ msgid "Stats"
-#~ msgstr "Tilastot"
-
-#~ msgid "Grand Master"
-#~ msgstr "Suurmestari"
-
-#~ msgid "Master"
-#~ msgstr "Mestari"
-
-#~ msgid "Warrior"
-#~ msgstr "Soturi"
-
-#~ msgid "Wizard"
-#~ msgstr "Velho"
-
-#~ msgid "Ranger"
-#~ msgstr "Metsänvartija"
-
-#~ msgid "Paladin"
-#~ msgstr "Paladiini"
-
-#~ msgid "Rogue"
-#~ msgstr "Konna"
-
-#~ msgid "Knight"
-#~ msgstr "Ritari"
-
-#~ msgid "Shaman"
-#~ msgstr "Shamaani"
-
-#~ msgid "Cleric"
-#~ msgstr "Pappi"
-
-#~ msgid "Battle Mage"
-#~ msgstr "Taistelumaagi"
-
-#~ msgid "Heavy Archer"
-#~ msgstr "Ampuja"
