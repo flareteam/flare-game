@@ -22,7 +22,7 @@ tab_tree=powers_tree.png
 tab_title=Mage
 tab_tree=powers_tree.png
 
-# First tab has index=0 
+# First tab has index=0
 # Don't add tab_title=, tab_tree=, and tab= keys if you use only 1 tab
 
 ### Warrior Tab ###############################################################
@@ -56,6 +56,23 @@ position=56,72
 requires_physical=2
 requires_point=true
 
+# throw knife
+[power]
+id=43
+tab=0
+position=88,72
+requires_physical=2
+requires_point=true
+
+# throw axe
+[power]
+id=44
+tab=0
+position=88,104
+requires_physical=3
+requires_power=43
+requires_point=true
+
 # cleave
 [power]
 id=13
@@ -83,30 +100,46 @@ tab=1
 position=24,40
 requires_offense=1
 
-# immobilize
-# TODO: change to Caltrops trap
+# caltrops
 [power]
-id=4
+id=45
 tab=1
 position=120,72
-requires_offense=1
 requires_defense=2
-requires_point=true
-
-# piercing shot
-[power]
-id=8
-tab=1
-position=56,72
-requires_offense=3
 requires_point=true
 
 # multi-shot
 [power]
 id=16
 tab=1
+position=56,72
+requires_offense=2
+requires_point=true
+
+# piercing shot
+[power]
+id=8
+tab=1
 position=56,104
-requires_offense=4
+requires_offense=3
+requires_point=true
+
+# bear trap
+[power]
+id=46
+tab=1
+position=120,104
+requires_offense=2
+requires_defense=2
+requires_point=true
+requires_power=45
+
+# stealth
+[power]
+id=141
+tab=1
+position=24,72
+requires_defense=2
 requires_point=true
 
 # rapid fire
@@ -114,7 +147,7 @@ requires_point=true
 id=23
 tab=1
 position=56,136
-requires_offense=5
+requires_offense=4
 requires_point=true
 
 
