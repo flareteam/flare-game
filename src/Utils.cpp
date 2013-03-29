@@ -306,13 +306,20 @@ SDL_Surface* createSurface(int width, int height) {
 	return surface;
 }
 
-SDL_Surface* loadGraphicSurface(std::string filename)
+SDL_Surface* loadGraphicSurface(std::string filename, std::string errormessage, bool IfNotFoundExit, bool HavePinkColorKey)
 {
 	SDL_Surface *ret = NULL;
 	SDL_Surface *cleanup = IMG_Load(mods->locate(filename).c_str());
 	if(!cleanup) {
-		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
+		if (!errormessage.empty())
+			fprintf(stderr, "%s: %s\n", errormessage.c_str(), IMG_GetError());
+		if (IfNotFoundExit) {
+			SDL_Quit();
+			exit(1);
+		}
 	} else {
+		if (HavePinkColorKey)
+			SDL_SetColorKey(cleanup, SDL_SRCCOLORKEY, SDL_MapRGB(cleanup->format, 255, 0, 255));
 		ret = SDL_DisplayFormatAlpha(cleanup);
 		SDL_FreeSurface(cleanup);
 	}

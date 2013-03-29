@@ -202,28 +202,8 @@ GameStateLoad::GameStateLoad() : GameState() {
 
 void GameStateLoad::loadGraphics() {
 	background = loadGraphicSurface("images/menus/game_slots.png");
-	selection = IMG_Load(mods->locate("images/menus/game_slot_select.png").c_str());
-	portrait_border = IMG_Load(mods->locate("images/menus/portrait_border.png").c_str());
-	if (!selection || !portrait_border) {
-		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
-	}
-
-	// optimize
-	SDL_Surface *cleanup;
-
-	if (selection) {
-		SDL_SetColorKey( selection, SDL_SRCCOLORKEY, SDL_MapRGB(selection->format, 255, 0, 255));
-		cleanup = selection;
-		selection = SDL_DisplayFormatAlpha(selection);
-		SDL_FreeSurface(cleanup);
-	}
-
-	if (portrait_border) {
-		SDL_SetColorKey( portrait_border, SDL_SRCCOLORKEY, SDL_MapRGB(portrait_border->format, 255, 0, 255));
-		cleanup = portrait_border;
-		portrait_border = SDL_DisplayFormatAlpha(portrait_border);
-		SDL_FreeSurface(cleanup);
-	}
+	selection = loadGraphicSurface("images/menus/game_slot_select.png", "Couldn't load image", false, true);
+	portrait_border = loadGraphicSurface("images/menus/portrait_border.png", "Couldn't load image", false, true);
 }
 
 void GameStateLoad::loadPortrait(int slot) {
@@ -234,13 +214,7 @@ void GameStateLoad::loadPortrait(int slot) {
 
 	if (stats[slot].name == "") return;
 
-	portrait = IMG_Load(mods->locate("images/portraits/" + stats[slot].portrait + ".png").c_str());
-	if (!portrait) return;
-
-	// optimize
-	SDL_Surface *cleanup = portrait;
-	portrait = SDL_DisplayFormatAlpha(portrait);
-	SDL_FreeSurface(cleanup);
+	portrait = loadGraphicSurface("images/portraits/" + stats[slot].portrait + ".png");
 }
 
 void GameStateLoad::readGameSlots() {

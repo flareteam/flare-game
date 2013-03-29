@@ -271,18 +271,7 @@ void MenuTalker::setHero(const string& name, const string& portrait_filename) {
 	hero_name = name;
 
 	SDL_FreeSurface(portrait);
-	portrait = IMG_Load(mods->locate("images/portraits/" + portrait_filename + ".png").c_str());
-	if(!portrait) {
-		fprintf(stderr, "Couldn't load portrait: %s\n", IMG_GetError());
-
-		// keep playing, just don't show this portrait
-	}
-	else {
-		// optimize
-		SDL_Surface *cleanup = portrait;
-		portrait = SDL_DisplayFormatAlpha(portrait);
-		SDL_FreeSurface(cleanup);
-	}
+	portrait = loadGraphicSurface("images/portraits/" + portrait_filename + ".png", "Couldn't load portrait");
 }
 
 MenuTalker::~MenuTalker() {

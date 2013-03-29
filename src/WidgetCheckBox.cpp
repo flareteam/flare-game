@@ -32,21 +32,12 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 using namespace std;
 
-WidgetCheckBox::WidgetCheckBox (const string  & fname)
-		: imgFileName(fname),
-		  cb(NULL),
+WidgetCheckBox::WidgetCheckBox (const string &fname)
+		: cb(NULL),
 		  checked(false),
 		  pressed(false)
 {
-	SDL_Surface * tmp = IMG_Load(imgFileName.c_str());
-	if (NULL == tmp) {
-		fprintf(stderr, "Could not load image \"%s\" error \"%s\"\n",
-				imgFileName.c_str(), IMG_GetError());
-		SDL_Quit();
-		exit(1);
-	}
-	cb = SDL_DisplayFormatAlpha(tmp);
-	SDL_FreeSurface(tmp);
+	cb = loadGraphicSurface(fname, "Couldn't load image", true, false);
 
 	pos.w = cb->w;
 	pos.h = cb->h / 2;

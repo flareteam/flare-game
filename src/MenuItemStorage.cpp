@@ -68,18 +68,9 @@ void MenuItemStorage::init(int _slot_number, ItemManager *_items, vector<SDL_Rec
 	loadGraphics();
 }
 
-void MenuItemStorage::loadGraphics() {
-
-	highlight_image = IMG_Load(mods->locate("images/menus/attention_glow.png").c_str());
-
-	if (!highlight_image) {
-		fprintf(stderr, "Couldn't load icon highlight image: %s\n", IMG_GetError());
-	} else {
-		// optimize
-		SDL_Surface *cleanup = highlight_image;
-		highlight_image = SDL_DisplayFormatAlpha(highlight_image);
-		SDL_FreeSurface(cleanup);
-	}
+void MenuItemStorage::loadGraphics()
+{
+	highlight_image = loadGraphicSurface("images/menus/attention_glow.png", "Couldn't load icon highlight image");
 }
 
 void MenuItemStorage::render() {

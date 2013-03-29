@@ -52,17 +52,12 @@ WidgetButton::WidgetButton(const std::string& _fileName)
 void WidgetButton::loadArt() {
 
 	// load button images
-	SDL_Surface *cleanup = IMG_Load(fileName.c_str());
+	buttons = loadGraphicSurface(fileName);
 
-	if(!cleanup) {
-		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
+	if (!buttons) {
 		SDL_Quit();
 		exit(1); // or abort ??
 	}
-
-	// optimize
-	buttons = SDL_DisplayFormatAlpha(cleanup);
-	SDL_FreeSurface(cleanup);
 }
 
 bool WidgetButton::checkClick() {

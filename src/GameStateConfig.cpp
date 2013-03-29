@@ -50,19 +50,11 @@ GameStateConfig::GameStateConfig ()
 	, ok_button(NULL)
 	, defaults_button(NULL)
 	, cancel_button(NULL)
-	, imgFileName(mods->locate("images/menus/config.png"))
 	, tip_buf()
 	, input_key(0)
 	, check_resolution(true)
 {
-	// Load background image
-	SDL_Surface * tmp = IMG_Load(imgFileName.c_str());
-	if (!tmp) {
-		fprintf(stderr, "Could not load image \"%s\"\n", imgFileName.c_str());
-	} else {
-		background = SDL_DisplayFormatAlpha(tmp);
-		SDL_FreeSurface(tmp);
-	}
+	background = loadGraphicSurface("images/menus/config.png");
 
 	init();
 	update();

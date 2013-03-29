@@ -193,53 +193,15 @@ void MenuPowers::update() {
 
 void MenuPowers::loadGraphics() {
 
-	background = IMG_Load(mods->locate("images/menus/powers.png").c_str());
+	background = loadGraphicSurface("images/menus/powers.png");
+	powers_unlock = loadGraphicSurface("images/menus/powers_unlock.png");
+	overlay_disabled = loadGraphicSurface("images/menus/disabled.png");
 
 	if (tree_image_files.empty()) {
-		tree_surf.push_back(IMG_Load(mods->locate("images/menus/powers_tree.png").c_str()));
+		tree_surf.push_back(loadGraphicSurface("images/menus/powers_tree.png"));
 	} else {
-		for (unsigned int i=0; i<tree_image_files.size(); i++) tree_surf.push_back(IMG_Load(mods->locate("images/menus/" + tree_image_files[i]).c_str()));
-	}
-
-	powers_unlock = IMG_Load(mods->locate("images/menus/powers_unlock.png").c_str());
-	overlay_disabled = IMG_Load(mods->locate("images/menus/disabled.png").c_str());
-
-	if(!background || !powers_unlock || !overlay_disabled) {
-		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
-	}
-	for (unsigned int i=0; i<tree_surf.size(); i++) {
-		if(!tree_surf[i]) {
-			fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
-		}
-	}
-
-	// optimize
-	SDL_Surface *cleanup;
-
-	if (background) {
-		cleanup = background;
-		background = SDL_DisplayFormatAlpha(background);
-		SDL_FreeSurface(cleanup);
-	}
-
-	for (unsigned int i=0; i<tree_surf.size(); i++) {
-		if (tree_surf[i]) {
-			cleanup = tree_surf[i];
-			tree_surf[i] = SDL_DisplayFormatAlpha(tree_surf[i]);
-			SDL_FreeSurface(cleanup);
-		}
-	}
-
-	if (powers_unlock) {
-		cleanup = powers_unlock;
-		powers_unlock = SDL_DisplayFormatAlpha(powers_unlock);
-		SDL_FreeSurface(cleanup);
-	}
-
-	if (overlay_disabled) {
-		cleanup = overlay_disabled;
-		overlay_disabled = SDL_DisplayFormatAlpha(overlay_disabled);
-		SDL_FreeSurface(cleanup);
+		for (unsigned int i = 0; i < tree_image_files.size(); ++i)
+			tree_surf.push_back(loadGraphicSurface("images/menus/" + tree_image_files[i]));
 	}
 }
 

@@ -84,7 +84,6 @@ private:
 	WidgetButton        * defaults_button;
 	WidgetButton        * cancel_button;
 	SDL_Surface         * background;
-	std::string         imgFileName;
 
 	WidgetCheckBox      * fullscreen_cb;
 	WidgetLabel         * fullscreen_lb;

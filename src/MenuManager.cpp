@@ -213,17 +213,9 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 /**
  * Icon set shared by all menus
  */
-void MenuManager::loadIcons() {
-
-	icons = IMG_Load(mods->locate("images/icons/icons.png").c_str());
-	if (!icons) {
-		fprintf(stderr, "Couldn't load icons: %s\n", IMG_GetError());
-	} else {
-		// optimize
-		SDL_Surface *cleanup = icons;
-		icons = SDL_DisplayFormatAlpha(icons);
-		SDL_FreeSurface(cleanup);
-	}
+void MenuManager::loadIcons()
+{
+	icons = loadGraphicSurface("images/icons/icons.png", "Couldn't load icons");
 }
 
 void MenuManager::renderIcon(int icon_id, int x, int y) {

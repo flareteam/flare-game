@@ -119,6 +119,29 @@ SDL_Surface* createAlphaSurface(int width, int height);
  */
 SDL_Surface* createSurface(int width, int height);
 
-SDL_Surface* loadGraphicSurface(std::string filename);
+/**
+ * @brief loadGraphicSurface loads an image from a file.
+ * @param filename
+ *        The parameter filename is mandatory and specifies the image to be
+ *        loaded. The filename will be located via the modmanager.
+ * @param errormessage
+ *        This is an optional parameter, which defines which error message
+ *        should be displayed. If the errormessage is an empty string, no error
+ *        message will be printed at all.
+ * @param IfNotFoundExit
+ *        If this optional boolean parameter is set to true, the program will
+ *        shutdown sdl and quit, if the specified image is not found.
+ * @param HavePinkColorKey
+ *        This optional parameter specifies whether a color key with
+ *        RGB(0xff, 0, 0xff) should be applied to the image.
+ * @return
+ *        Returns the SDL_Surface of the specified image or NULL if not
+ *        successful
+ */
+
+SDL_Surface* loadGraphicSurface(std::string filename,
+								std::string errormessage = "Couldn't load image",
+								bool IfNotFoundExit = false,
+								bool HavePinkColorKey = false);
 
 #endif

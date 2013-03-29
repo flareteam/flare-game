@@ -369,18 +369,9 @@ void ItemManager::loadSets(const string& filename) {
 /**
  * Icon sets
  */
-void ItemManager::loadIcons() {
-
-	icons = IMG_Load(mods->locate("images/icons/icons.png").c_str());
-
-	if (!icons) {
-		fprintf(stderr, "Couldn't load icons: %s\n", IMG_GetError());
-	} else {
-		// optimize
-		SDL_Surface *cleanup = icons;
-		icons = SDL_DisplayFormatAlpha(icons);
-		SDL_FreeSurface(cleanup);
-	}
+void ItemManager::loadIcons()
+{
+	icons = loadGraphicSurface("images/icons/icons.png", "Couldn't load icons");
 }
 
 /**

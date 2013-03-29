@@ -51,36 +51,17 @@ WidgetListBox::WidgetListBox(int amount, int height, const std::string& _fileNam
 	, can_select(true)
 	, scrollbar_offset(0)
 {
-	listboxs = NULL;
+	// load ListBox images
+	listboxs = loadGraphicSurface(fileName, "Couldn't load image", true);
 	click = NULL;
-
 
 	for (int i=0; i<list_amount; i++) {
 		selected[i] = false;
 		values[i] = "";
 	}
 
-	loadArt();
-
 	pos.w = listboxs->w;
 	pos.h = (listboxs->h / 3); // height of one item
-}
-
-void WidgetListBox::loadArt() {
-
-	// load ListBox images
-	listboxs = IMG_Load(fileName.c_str());
-
-	if(!listboxs) {
-		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
-		SDL_Quit();
-		exit(1); // or abort ??
-	}
-
-	// optimize
-	SDL_Surface *cleanup = listboxs;
-	listboxs = SDL_DisplayFormatAlpha(listboxs);
-	SDL_FreeSurface(cleanup);
 }
 
 bool WidgetListBox::checkClick() {

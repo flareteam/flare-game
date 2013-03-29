@@ -175,27 +175,12 @@ GameStateNew::GameStateNew() : GameState() {
 }
 
 void GameStateNew::loadGraphics() {
-	portrait_border = IMG_Load(mods->locate("images/menus/portrait_border.png").c_str());
-	if(!portrait_border) {
-		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
-	} else {
-		// optimize
-		SDL_SetColorKey( portrait_border, SDL_SRCCOLORKEY, SDL_MapRGB(portrait_border->format, 255, 0, 255) );
-		SDL_Surface *cleanup = portrait_border;
-		portrait_border = SDL_DisplayFormatAlpha(portrait_border);
-		SDL_FreeSurface(cleanup);
-	}
+	portrait_border = loadGraphicSurface("images/menus/portrait_border.png", "Couldn't load portrait border image", false, true);
 }
 
 void GameStateNew::loadPortrait(const string& portrait_filename) {
 	SDL_FreeSurface(portrait_image);
-	portrait_image = IMG_Load(mods->locate("images/portraits/" + portrait_filename + ".png").c_str());
-	if (!portrait_image) return;
-
-	// optimize
-	SDL_Surface *cleanup = portrait_image;
-	portrait_image = SDL_DisplayFormatAlpha(portrait_image);
-	SDL_FreeSurface(cleanup);
+	portrait_image = loadGraphicSurface("images/portraits/" + portrait_filename + ".png");
 }
 
 /**
