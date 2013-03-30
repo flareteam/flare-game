@@ -378,6 +378,7 @@ void GameStatePlay::loadTitles() {
 			else if (infile.key == "requires_status") titles.back().requires_status = infile.val;
 			else if (infile.key == "requires_not") titles.back().requires_not = infile.val;
 			else if (infile.key == "primary_stat") titles.back().primary_stat = infile.val;
+			else fprintf(stderr, "Unknown key value in title definitons: %s in file %s in section %s\n", infile.key.c_str(), infile.getFileName().c_str(), infile.section.c_str());
 		}
 		infile.close();
 	}

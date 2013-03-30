@@ -31,6 +31,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 class FileParser {
 private:
+	std::string filename;
 	std::ifstream infile;
 	std::string line;
 
@@ -43,6 +44,7 @@ public:
 	bool next();
 	std::string nextValue(); // next value inside one line.
 	std::string getRawLine();
+	std::string getFileName();
 
 	bool new_section;
 	std::string section;

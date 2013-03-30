@@ -574,6 +574,9 @@ void MapRenderer::loadEventComponent(FileParser &infile)
 	else if (infile.key == "music") {
 		e->s = infile.val;
 	}
+	else {
+		fprintf(stderr, "Unknown key value: %s in file %s in section %s\n", infile.key.c_str(), infile.getFileName().c_str(), infile.section.c_str());
+	}
 }
 
 void MapRenderer::clearQueues() {
