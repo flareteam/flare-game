@@ -57,8 +57,8 @@ public:
 	Renderable()
 		: sprite(0)
 		, src(SDL_Rect())
-		, map_pos(Point())
-		, offset(Point())
+		, map_pos()
+		, offset()
 		, prio(0)
 	{}
 };

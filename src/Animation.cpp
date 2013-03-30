@@ -203,9 +203,6 @@ Renderable Animation::getCurrentFrame(int kind) {
 		r.offset.y = render_offset[index].y;
 		r.sprite = sprite;
 	}
-	else {
-		memset(&r, 0, sizeof(Renderable));
-	}
 	return r;
 }
 
@@ -226,9 +223,10 @@ void Animation::syncTo(const Animation *other) {
 }
 
 void Animation::setActiveFrames(const std::vector<short> &_active_frames) {
-	if (_active_frames.size() == 1 && _active_frames[0] == -1)
-		for (short i=0; i < number_frames; ++i)
+	if (_active_frames.size() == 1 && _active_frames[0] == -1) {
+		for (short i = 0; i < number_frames; ++i)
 			active_frames.push_back(i);
+	}
 	else
 		active_frames = std::vector<short>(_active_frames);
 }
