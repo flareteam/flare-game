@@ -376,6 +376,34 @@ angle_variance=5
 cooldown=2s
 
 [power]
+id=24
+name=Ember Shot
+type=missile
+icon=23
+description=Fire a spray of burning embers at close range
+new_state=shoot
+face=true
+requires_offense_weapon=true
+base_damage=ranged
+#starting_pos=melee
+aim_assist=true
+trait_armor_penetration=true
+count=10
+damage_multiplier=15
+angle_variance=15
+speed_variance=15
+animation=ember.txt
+use_hazard=true
+lifespan=8
+radius=48
+speed=48
+directional=true
+soundfx=shoot.ogg
+post_power=125
+trait_elemental=fire
+
+
+[power]
 id=30
 #name=Ice Shard [enemy]
 type=missile
@@ -1385,4 +1413,6 @@ id=237
 #name=Speed (Scroll of Haste)
 type=effect
 effect_type=speed
+
+
 
