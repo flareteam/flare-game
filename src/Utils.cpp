@@ -449,7 +449,6 @@ float calcTheta(int x1, int y1, int x2, int y2) {
 void setupSDLVideoMode(unsigned width, unsigned height)
 {
 	Uint32 flags = 0;
-	SDL_Surface *ret = NULL;
 
 	if (FULLSCREEN) flags = flags | SDL_FULLSCREEN;
 	if (DOUBLEBUF) flags = flags | SDL_DOUBLEBUF;
