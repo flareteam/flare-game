@@ -378,6 +378,7 @@ void ItemManager::loadIcons()
 void ItemManager::renderIcon(ItemStack stack, int x, int y, int size) {
 	if (!icons) return;
 
+	SDL_Rect src, dest;
 	dest.x = x;
 	dest.y = y;
 	src.w = src.h = dest.w = dest.h = size;
