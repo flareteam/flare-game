@@ -595,7 +595,7 @@ void GameStateConfig::readConfig () {
 
 		  }
 		  infile.close();
-		} else fprintf(stderr, "Unable to open menus/config.txt!\n");
+		}
 
 	// Load the MenuConfirm positions and alignments from menus/menus.txt
 	if (infile.open(mods->locate("menus/menus.txt"))) {
@@ -622,7 +622,7 @@ void GameStateConfig::readConfig () {
 			}
 		}
 		infile.close();
-	} else fprintf(stderr, "Unable to open menus/menus.txt!\n");
+	}
 
 	defaults_confirm->window_area = menuConfirm_area;
 	defaults_confirm->alignment = menuConfirm_align;
@@ -1163,7 +1163,7 @@ bool GameStateConfig::getLanguagesList()
 			   i += 1;
 			}
 			infile.close();
-		} else fprintf(stderr, "Unable to open engine/languages.txt!\n");
+		}
 
 	return true;
 }
@@ -1177,7 +1177,7 @@ int GameStateConfig::getLanguagesNumber()
 			   languages_num += 1;
 			}
 			infile.close();
-		} else fprintf(stderr, "Unable to open engine/languages.txt!\n");
+		}
 
 	return languages_num;
 }

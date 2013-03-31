@@ -61,7 +61,7 @@ MenuLog::MenuLog() {
 			}
 		}
 		infile.close();
-	} else fprintf(stderr, "Unable to open menus/log.txt!\n");
+	}
 
 	// Store the amount of displayed log messages on each log, and the maximum.
 	for (int i=0; i<LOG_TYPE_COUNT; i++) {

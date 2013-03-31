@@ -121,7 +121,7 @@ GameStateNew::GameStateNew() : GameState() {
 		}
 	  }
 	  infile.close();
-	} else fprintf(stderr, "Unable to open menus/gamenew.txt!\n");
+	}
 
 	button_prev->pos.x += (VIEW_W - FRAME_W)/2;
 	button_prev->pos.y += (VIEW_H - FRAME_H)/2;

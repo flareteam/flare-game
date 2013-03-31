@@ -77,7 +77,7 @@ FontEngine::FontEngine()
 			}
 		}
 		infile.close();
-	} else fprintf(stderr, "Unable to open engine/font_settings.txt!\n");
+	}
 
 	// set the font colors
 	// RGB values, the last value is 'unused'. For info,
@@ -92,7 +92,7 @@ FontEngine::FontEngine()
 			color_map[infile.key] = color;
 		}
 		infile.close();
-	} else fprintf(stderr, "Unable to open engine/font_colors.txt!\n");
+	}
 
 	// Attempt to set the default active font
 	setFont("font_regular");

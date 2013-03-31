@@ -113,7 +113,7 @@ GameStateLoad::GameStateLoad() : GameState() {
 		}
 	  }
 	  infile.close();
-	} else fprintf(stderr, "Unable to open menus/gameload.txt!\n");
+	}
 
 	// Load the MenuConfirm positions and alignments from menus/menus.txt
 	if (infile.open(mods->locate("menus/menus.txt"))) {
@@ -140,7 +140,7 @@ GameStateLoad::GameStateLoad() : GameState() {
 			}
 		}
 		infile.close();
-	} else fprintf(stderr, "Unable to open menus/menus.txt!\n");
+	}
 
 	confirm->align();
 	confirm->update();
@@ -164,7 +164,7 @@ GameStateLoad::GameStateLoad() : GameState() {
 			}
 		}
 		infile.close();
-	} else fprintf(stderr, "Unable to open engine/hero_options.txt!\n");
+	}
 	if (!found_layer) fprintf(stderr, "Warning: Could not find layers for direction 6\n");
 
 	button_action->pos.x += (VIEW_W - FRAME_W)/2;
@@ -225,7 +225,7 @@ void GameStateLoad::readGameSlots() {
 
 string GameStateLoad::getMapName(const string& map_filename) {
 	FileParser infile;
-	if (!infile.open(mods->locate("maps/" + map_filename))) return "";
+	if (!infile.open(mods->locate("maps/" + map_filename), "")) return "";
 	string map_name = "";
 
 	while (map_name == "" && infile.next()) {
@@ -251,7 +251,7 @@ void GameStateLoad::readGameSlot(int slot) {
 	  filename << GAME_PREFIX << "_";
 	filename << "save" << (slot+1) << ".txt";
 
-	if (!infile.open(filename.str())) return;
+	if (!infile.open(filename.str(), "")) return;
 
 	while (infile.next()) {
 

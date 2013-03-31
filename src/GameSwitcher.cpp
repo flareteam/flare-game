@@ -118,7 +118,7 @@ void GameSwitcher::loadFPS() {
 			}
 		}
 		infile.close();
-	} else fprintf(stderr, "Unable to open menus/fps.txt!\n");
+	}
 
 	// this is a dummy string used to approximate the fps position when aligned to the right
 	font->setFont("font_regular");

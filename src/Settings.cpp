@@ -325,7 +325,7 @@ static ConfigEntry * getConfigEntry(const std::string & name) {
 void loadTilesetSettings() {
 	FileParser infile;
 	// load tileset settings from engine config
-	if (infile.open(mods->locate("engine/tileset_config.txt").c_str())) {
+	if (infile.open(mods->locate("engine/tileset_config.txt"), "Unable to open engine/tileset_config.txt! Defaulting to 64x32 isometric tiles.\n")) {
 		while (infile.next()) {
 			if (infile.key == "units_per_tile") {
 				UNITS_PER_TILE = toInt(infile.val);
@@ -344,7 +344,7 @@ void loadTilesetSettings() {
 			}
 		}
 		infile.close();
-	} else fprintf(stderr, "Unable to open engine/tileset_config.txt! Defaulting to 64x32 isometric tiles.\n");
+	}
 
 	// Init automatically calculated parameters
 	TILE_SHIFT = log2(UNITS_PER_TILE);
@@ -364,7 +364,7 @@ void loadMiscSettings() {
 	FileParser infile;
 	// load miscellaneous settings from engine config
 	// misc.txt
-	if (infile.open(mods->locate("engine/misc.txt").c_str())) {
+	if (infile.open(mods->locate("engine/misc.txt"))) {
 		while (infile.next()) {
 			if (infile.key == "save_hpmp") {
 				if (toInt(infile.val) == 1)
@@ -388,9 +388,9 @@ void loadMiscSettings() {
 
 		}
 		infile.close();
-	} else fprintf(stderr, "Unable to open engine/misc.txt!\n");
+	}
 	// resolutions.txt
-	if (infile.open(mods->locate("engine/resolutions.txt").c_str())) {
+	if (infile.open(mods->locate("engine/resolutions.txt"))) {
 		while (infile.next()) {
 			if (infile.key == "menu_frame_width")
 				FRAME_W = toInt(infile.val);
@@ -409,9 +409,9 @@ void loadMiscSettings() {
 			}
 		}
 		infile.close();
-	} else fprintf(stderr, "Unable to open engine/resolutions.txt!\n");
+	}
 	// gameplay.txt
-	if (infile.open(mods->locate("engine/gameplay.txt").c_str())) {
+	if (infile.open(mods->locate("engine/gameplay.txt"))) {
 		while (infile.next()) {
 			if (infile.key == "enable_playgame") {
 				if (toInt(infile.val) == 1)
@@ -421,9 +421,9 @@ void loadMiscSettings() {
 			}
 		}
 		infile.close();
-	} else fprintf(stderr, "Unable to open engine/gameplay.txt!\n");
+	}
 	// combat.txt
-	if (infile.open(mods->locate("engine/combat.txt").c_str())) {
+	if (infile.open(mods->locate("engine/combat.txt"))) {
 		while (infile.next()) {
 			if (infile.key == "max_absorb_percent") {
 				MAX_ABSORB = toInt(infile.val);
@@ -436,9 +436,9 @@ void loadMiscSettings() {
 			}
 		}
 		infile.close();
-	} else fprintf(stderr, "Unable to open engine/combat.txt!\n");
+	}
 	// elements.txt
-	if (infile.open(mods->locate("engine/elements.txt").c_str())) {
+	if (infile.open(mods->locate("engine/elements.txt"))) {
 		Element e;
 		ELEMENTS.clear();
 		while (infile.next()) {
@@ -451,9 +451,9 @@ void loadMiscSettings() {
 			}
 		}
 		infile.close();
-	} else fprintf(stderr, "Unable to open engine/elements.txt!\n");
+	}
 	// classes.txt
-	if (infile.open(mods->locate("engine/classes.txt").c_str())) {
+	if (infile.open(mods->locate("engine/classes.txt"))) {
 		HeroClass c;
 		HERO_CLASSES.clear();
 		while (infile.next()) {
@@ -492,7 +492,7 @@ void loadMiscSettings() {
 			}
 		}
 		infile.close();
-	} else fprintf(stderr, "Unable to open engine/classes.txt!\n");
+	}
 
 	// Make a default hero class if none were found
 	if (HERO_CLASSES.empty()) {
@@ -513,8 +513,8 @@ bool loadSettings() {
 
 	// try read from file
 	FileParser infile;
-	if (!infile.open(PATH_CONF + FILE_SETTINGS)) {
-		if (!infile.open(mods->locate("engine/default_settings.txt").c_str())) {
+	if (!infile.open(PATH_CONF + FILE_SETTINGS, "")) {
+		if (!infile.open(mods->locate("engine/default_settings.txt"), "")) {
 			saveSettings();
 			return true;
 		} else saveSettings();

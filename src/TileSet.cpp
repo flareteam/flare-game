@@ -128,7 +128,7 @@ void TileSet::load(const std::string& filename) {
 		}
 		infile.close();
 		loadGraphics(img);
-	}  else fprintf(stderr, "Unable to open tilesetdefs/%s!\n", filename.c_str());
+	}
 
 	current_map = filename;
 }

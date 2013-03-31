@@ -118,7 +118,7 @@ MenuNPCActions::MenuNPCActions()
 			}
 		}
 		infile.close();
-	} else fprintf(stderr, "Unable to open menus/npc.txt!\n");
+	}
 }
 
 void MenuNPCActions::update() {

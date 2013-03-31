@@ -199,7 +199,7 @@ MenuCharacter::MenuCharacter(StatBlock *_stats) {
 			}
 		}
 		infile.close();
-	} else fprintf(stderr, "Unable to open menus/character.txt!\n");
+	}
 
 	// stat list
 	statList = new WidgetListBox(STATLIST_COUNT-1+stats->vulnerable.size(), statlist_rows, mods->locate("images/menus/buttons/listbox_char.png"));

@@ -59,7 +59,7 @@ MenuActiveEffects::MenuActiveEffects(SDL_Surface *_icons) {
 			}
 		}
 		infile.close();
-	} else fprintf(stderr, "Unable to open menus/activeeffects.txt!\n");
+	}
 
 	loadGraphics();
 }

@@ -82,10 +82,8 @@ void PowerManager::loadAll() {
  */
 void PowerManager::loadPowers(const std::string& filename) {
 	FileParser infile;
-	if (!infile.open(filename)) {
-		fprintf(stderr, "Unable to open %s!\n", filename.c_str());
+	if (!infile.open(filename))
 		return;
-	}
 
 	int input_id = 0;
 	bool skippingEntry = false;

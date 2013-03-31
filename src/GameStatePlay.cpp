@@ -382,7 +382,6 @@ void GameStatePlay::loadTitles() {
 		}
 		infile.close();
 	}
-	else fprintf(stderr, "Unable to open engine/titles.txt!\n");
 }
 
 void GameStatePlay::checkTitle() {

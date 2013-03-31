@@ -33,10 +33,13 @@ FileParser::FileParser()
 	, val("")
 {}
 
-bool FileParser::open(const string& filename) {
+bool FileParser::open(const string& filename, const string &errormessage) {
 	this->filename = filename;
 	infile.open(filename.c_str(), ios::in);
-	return infile.is_open();
+	bool ret = infile.is_open();
+	if (!ret && !errormessage.empty())
+		fprintf(stderr, "%s: %s\n", errormessage.c_str(), filename.c_str());
+	return ret;
 }
 
 void FileParser::close() {

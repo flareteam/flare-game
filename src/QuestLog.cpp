@@ -102,10 +102,8 @@ void QuestLog::loadIndex(const std::string& filename) {
  */
 void QuestLog::load(const std::string& filename) {
 	FileParser infile;
-	if (!infile.open(mods->locate("quests/" + filename))) {
-		fprintf(stderr, "Unable to open quests/%s!\n", filename.c_str());
+	if (!infile.open(mods->locate("quests/" + filename)))
 		return;
-	}
 
 	while (infile.next()) {
 		if (infile.new_section) {

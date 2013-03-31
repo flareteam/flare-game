@@ -55,7 +55,7 @@ MenuEnemy::MenuEnemy() {
 			}
 		}
 		infile.close();
-	} else fprintf(stderr, "Unable to open menus/enemy.txt!\n");
+	}
 
 	loadGraphics();
 	enemy = NULL;

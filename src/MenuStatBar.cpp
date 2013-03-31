@@ -72,7 +72,7 @@ MenuStatBar::MenuStatBar(std::string type) {
 			}
 		}
 		infile.close();
-	} else fprintf(stderr, "Unable to open menus/%s.txt!\n", type.c_str());
+	}
 
 	loadGraphics(type);
 

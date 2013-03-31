@@ -135,10 +135,8 @@ int MapRenderer::load(string filename) {
 
 	show_tooltip = false;
 
-	if (!infile.open(mods->locate("maps/" + filename))) {
-		cerr << "Unable to open maps/" << filename << endl;
+	if (!infile.open(mods->locate("maps/" + filename)))
 		return 0;
-	}
 
 	while (infile.next()) {
 		if (infile.new_section) {

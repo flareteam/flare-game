@@ -171,7 +171,7 @@ void Avatar::loadLayerDefinitions() {
 			}
 		}
 		infile.close();
-	} else fprintf(stderr, "Unable to open engine/hero_options.txt!\n");
+	}
 
 	// There are the positions of the items relative to layer_reference_order
 	// so if layer_reference_order=main,body,head,off

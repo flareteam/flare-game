@@ -93,7 +93,7 @@ MenuInventory::MenuInventory(ItemManager *_items, StatBlock *_stats, PowerManage
 			}
 		}
 		infile.close();
-	} else fprintf(stderr, "Unable to open menus/inventory.txt!\n");
+	}
 
 	MAX_EQUIPPED = equipped_area.size();
 	MAX_CARRIED = carried_cols * carried_rows;
