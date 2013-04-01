@@ -2,7 +2,7 @@ Project (Flare)
 cmake_minimum_required (VERSION 2.6)
 
 Set (PACKAGE "FLARE")
-Set (VERSION "0.17")
+Set (VERSION "0.18")
 
 
 # Default definitions
