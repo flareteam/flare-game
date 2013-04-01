@@ -8,7 +8,10 @@ Set (VERSION "0.18")
 # Default definitions
 if (NOT MSVC)
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wunused -Wshadow -Woverloaded-virtual -Wunreachable-code")
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-math-errno -fno-exceptions -ffast-math")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-math-errno -fno-exceptions")
+  if (NOT CMAKE_CXX_COMPILER MATCHES "clang")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -ffast-math")
+  endif (NOT CMAKE_CXX_COMPILER MATCHES "clang")
   set(CMAKE_LD_FLAGS "-fwhole-program")
 endif (NOT MSVC)
 
