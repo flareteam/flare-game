@@ -120,24 +120,13 @@ void WidgetTabControl::updateHeader()
  */
 void WidgetTabControl::loadGraphics()
 {
-	activeTabSurface = IMG_Load(mods->locate("images/menus/tab_active.png").c_str());
-	inactiveTabSurface = IMG_Load(mods->locate("images/menus/tab_inactive.png").c_str());
+	activeTabSurface = loadGraphicSurface("images/menus/tab_active.png");
+	inactiveTabSurface = loadGraphicSurface("images/menus/tab_inactive.png");
 
-	if(!activeTabSurface || !inactiveTabSurface) {
-		fprintf(stderr, "Could not load image: %s\n", IMG_GetError());
+	if (!activeTabSurface || !inactiveTabSurface) {
 		SDL_Quit();
 		exit(1);
 	}
-
-	SDL_Surface *cleanup;
-
-	cleanup = activeTabSurface;
-	activeTabSurface = SDL_DisplayFormatAlpha(activeTabSurface);
-	SDL_FreeSurface(cleanup);
-
-	cleanup = inactiveTabSurface;
-	inactiveTabSurface = SDL_DisplayFormatAlpha(inactiveTabSurface);
-	SDL_FreeSurface(cleanup);
 }
 
 void WidgetTabControl::logic()

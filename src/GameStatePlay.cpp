@@ -80,7 +80,8 @@ GameStatePlay::GameStatePlay()
 	, npcs(new NPCManager(map, loot, items, &pc->stats))
 	, quests(new QuestLog(camp, menu->log))
 	, loading(new WidgetLabel())
-	, loading_bg(IMG_Load(mods->locate("images/menus/confirm_bg.png").c_str()))
+	// Load the loading screen image (we currently use the confirm dialog background):
+	, loading_bg(loadGraphicSurface("images/menus/confirm_bg.png"))
 	, npc_id(-1)
 	, eventDialogOngoing(false)
 	, eventPendingDialog(false)
@@ -98,16 +99,6 @@ GameStatePlay::GameStatePlay()
 	map->powers = powers;
 
 	loading->set(VIEW_W_HALF, VIEW_H_HALF, JUSTIFY_CENTER, VALIGN_CENTER, msg->get("Loading..."), color_normal);
-
-	// Load the loading screen image (we currently use the confirm dialog background)
-
-	if(!loading_bg) {
-		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
-	} else {
-		SDL_Surface *cleanup = loading_bg;
-		loading_bg = SDL_DisplayFormatAlpha(loading_bg);
-		SDL_FreeSurface(cleanup);
-	}
 
 	// load the config file for character titles
 	loadTitles();
@@ -388,10 +379,10 @@ void GameStatePlay::loadTitles() {
 			else if (infile.key == "requires_status") titles.back().requires_status = infile.val;
 			else if (infile.key == "requires_not") titles.back().requires_not = infile.val;
 			else if (infile.key == "primary_stat") titles.back().primary_stat = infile.val;
+			else fprintf(stderr, "Unknown key value in title definitons: %s in file %s in section %s\n", infile.key.c_str(), infile.getFileName().c_str(), infile.section.c_str());
 		}
 		infile.close();
 	}
-	else fprintf(stderr, "Unable to open engine/titles.txt!\n");
 }
 
 void GameStatePlay::checkTitle() {

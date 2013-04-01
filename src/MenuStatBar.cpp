@@ -72,36 +72,17 @@ MenuStatBar::MenuStatBar(std::string type) {
 			}
 		}
 		infile.close();
-	} else fprintf(stderr, "Unable to open menus/%s.txt!\n", type.c_str());
+	}
 
 	loadGraphics(type);
 
 	color_normal = font->getColor("menu_normal");
 }
 
-void MenuStatBar::loadGraphics(std::string type) {
-
-	background = IMG_Load(mods->locate("images/menus/bar_"+type+"_background.png").c_str());
-	bar = IMG_Load(mods->locate("images/menus/bar_"+type+".png").c_str());
-
-	if(!background || !bar) {
-		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
-	}
-
-	// optimize
-	SDL_Surface *cleanup;
-
-	if (background) {
-		cleanup = background;
-		background = SDL_DisplayFormatAlpha(background);
-		SDL_FreeSurface(cleanup);
-	}
-
-	if (bar) {
-		cleanup = bar;
-		bar = SDL_DisplayFormatAlpha(bar);
-		SDL_FreeSurface(cleanup);
-	}
+void MenuStatBar::loadGraphics(std::string type)
+{
+	background = loadGraphicSurface("images/menus/bar_" + type + "_background.png");
+	bar = loadGraphicSurface("images/menus/bar_" + type + ".png");
 }
 
 void MenuStatBar::update(int _stat_cur, int _stat_max, Point _mouse, std::string _custom_string) {

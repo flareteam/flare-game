@@ -66,10 +66,8 @@ void AnimationSet::load() {
 	FileParser parser;
 	const string filename = mods->locate(name);
 
-	if (!parser.open(filename.c_str())) {
-		cout << "Error loading animation definition file: " << name << endl;
+	if (!parser.open(filename, "Error loading animation definition: " + name))
 		return;
-	}
 
 	string _name = "";
 	int position = 0;

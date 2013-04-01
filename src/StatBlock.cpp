@@ -217,10 +217,8 @@ bool sortLoot(const EnemyLoot &a, const EnemyLoot &b) {
  */
 void StatBlock::load(const string& filename) {
 	FileParser infile;
-	if (!infile.open(mods->locate(filename))) {
-		fprintf(stderr, "Unable to open %s!\n", filename.c_str());
+	if (!infile.open(mods->locate(filename)))
 		return;
-	}
 
 	int num = 0;
 	string loot_token;
@@ -579,10 +577,8 @@ bool StatBlock::canUsePower(const Power &power, unsigned powerid) const {
 void StatBlock::loadHeroStats() {
 	// Redefine numbers from config file if present
 	FileParser infile;
-	if (!infile.open(mods->locate("engine/stats.txt"))) {
-		fprintf(stderr, "Unable to open engine/stats.txt!\n");
+	if (!infile.open(mods->locate("engine/stats.txt")))
 		return;
-	}
 
 	while (infile.next()) {
 		int value = toInt(infile.val);
@@ -672,10 +668,9 @@ void StatBlock::loadHeroStats() {
 	statsLoaded = true;
 
 	// Load the XP table as well
-	if (!infile.open(mods->locate("engine/xp_table.txt"))) {
-		fprintf(stderr, "Unable to open engine/xp_table.txt!\n");
+	if (!infile.open(mods->locate("engine/xp_table.txt")))
 		return;
-	}
+
 	while(infile.next()) {
 		xp_table[toInt(infile.key) - 1] = toInt(infile.val);
 	}

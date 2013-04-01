@@ -44,8 +44,6 @@ private:
 	CampaignManager *camp;
 	MenuManager *menu;
 
-	void loadGraphics();
-	SDL_Surface *background;
 	SDL_Surface *portrait;
 	SDL_Surface *msg_buffer;
 	std::string hero_name;

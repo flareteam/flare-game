@@ -175,8 +175,6 @@ public:
 class ItemManager {
 private:
 	SDL_Surface *icons;
-	SDL_Rect src;
-	SDL_Rect dest;
 
 	void load(const std::string& filename);
 	void loadTypes(const std::string& filename);

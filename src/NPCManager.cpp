@@ -52,7 +52,7 @@ NPCManager::NPCManager(MapRenderer *_map, LootManager *_loot, ItemManager *_item
 			}
 		}
 		infile.close();
-	} else fprintf(stderr, "Unable to open engine/tooltips.txt!\n");
+	}
 }
 
 void NPCManager::addRenders(std::vector<Renderable> &r) {

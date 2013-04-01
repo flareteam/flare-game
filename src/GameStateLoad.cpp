@@ -113,7 +113,7 @@ GameStateLoad::GameStateLoad() : GameState() {
 		}
 	  }
 	  infile.close();
-	} else fprintf(stderr, "Unable to open menus/gameload.txt!\n");
+	}
 
 	// Load the MenuConfirm positions and alignments from menus/menus.txt
 	if (infile.open(mods->locate("menus/menus.txt"))) {
@@ -140,7 +140,7 @@ GameStateLoad::GameStateLoad() : GameState() {
 			}
 		}
 		infile.close();
-	} else fprintf(stderr, "Unable to open menus/menus.txt!\n");
+	}
 
 	confirm->align();
 	confirm->update();
@@ -164,7 +164,7 @@ GameStateLoad::GameStateLoad() : GameState() {
 			}
 		}
 		infile.close();
-	} else fprintf(stderr, "Unable to open engine/hero_options.txt!\n");
+	}
 	if (!found_layer) fprintf(stderr, "Warning: Could not find layers for direction 6\n");
 
 	button_action->pos.x += (VIEW_W - FRAME_W)/2;
@@ -201,35 +201,9 @@ GameStateLoad::GameStateLoad() : GameState() {
 }
 
 void GameStateLoad::loadGraphics() {
-	background = IMG_Load(mods->locate("images/menus/game_slots.png").c_str());
-	selection = IMG_Load(mods->locate("images/menus/game_slot_select.png").c_str());
-	portrait_border = IMG_Load(mods->locate("images/menus/portrait_border.png").c_str());
-	if (!background || !selection || !portrait_border) {
-		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
-	}
-
-	// optimize
-	SDL_Surface *cleanup;
-
-	if (background) {
-		cleanup = background;
-		background = SDL_DisplayFormatAlpha(background);
-		SDL_FreeSurface(cleanup);
-	}
-
-	if (selection) {
-		SDL_SetColorKey( selection, SDL_SRCCOLORKEY, SDL_MapRGB(selection->format, 255, 0, 255));
-		cleanup = selection;
-		selection = SDL_DisplayFormatAlpha(selection);
-		SDL_FreeSurface(cleanup);
-	}
-
-	if (portrait_border) {
-		SDL_SetColorKey( portrait_border, SDL_SRCCOLORKEY, SDL_MapRGB(portrait_border->format, 255, 0, 255));
-		cleanup = portrait_border;
-		portrait_border = SDL_DisplayFormatAlpha(portrait_border);
-		SDL_FreeSurface(cleanup);
-	}
+	background = loadGraphicSurface("images/menus/game_slots.png");
+	selection = loadGraphicSurface("images/menus/game_slot_select.png", "Couldn't load image", false, true);
+	portrait_border = loadGraphicSurface("images/menus/portrait_border.png", "Couldn't load image", false, true);
 }
 
 void GameStateLoad::loadPortrait(int slot) {
@@ -240,13 +214,7 @@ void GameStateLoad::loadPortrait(int slot) {
 
 	if (stats[slot].name == "") return;
 
-	portrait = IMG_Load(mods->locate("images/portraits/" + stats[slot].portrait + ".png").c_str());
-	if (!portrait) return;
-
-	// optimize
-	SDL_Surface *cleanup = portrait;
-	portrait = SDL_DisplayFormatAlpha(portrait);
-	SDL_FreeSurface(cleanup);
+	portrait = loadGraphicSurface("images/portraits/" + stats[slot].portrait + ".png");
 }
 
 void GameStateLoad::readGameSlots() {
@@ -257,7 +225,7 @@ void GameStateLoad::readGameSlots() {
 
 string GameStateLoad::getMapName(const string& map_filename) {
 	FileParser infile;
-	if (!infile.open(mods->locate("maps/" + map_filename))) return "";
+	if (!infile.open(mods->locate("maps/" + map_filename), "")) return "";
 	string map_name = "";
 
 	while (map_name == "" && infile.next()) {
@@ -283,7 +251,7 @@ void GameStateLoad::readGameSlot(int slot) {
 	  filename << GAME_PREFIX << "_";
 	filename << "save" << (slot+1) << ".txt";
 
-	if (!infile.open(filename.str())) return;
+	if (!infile.open(filename.str(), "")) return;
 
 	while (infile.next()) {
 
@@ -358,26 +326,17 @@ void GameStateLoad::loadPreview(int slot) {
 
 	// composite the hero graphic
 	for (unsigned int i=0; i<img_gfx.size(); i++) {
-		if (img_gfx[i] == "") continue;
+		if (img_gfx[i] == "")
+			continue;
+
 		sprites[slot].push_back(NULL);
 
-		if (TEXTURE_QUALITY == false) {
-			sprites[slot].back() = IMG_Load(mods->locate("images/avatar/" + stats[slot].base + "/preview/noalpha/" + img_gfx[i] + ".png").c_str());
+		if (!TEXTURE_QUALITY) {
+			string fname = "images/avatar/" + stats[slot].base + "/preview/noalpha/" + img_gfx[i] + ".png";
+			sprites[slot].back() = loadGraphicSurface(fname, "Falling back to alpha version", false, true);
 		}
 		if (!sprites[slot].back()) {
-			sprites[slot].back() = IMG_Load(mods->locate("images/avatar/" + stats[slot].base + "/preview/" + img_gfx[i] + ".png").c_str());
-		} else {
-			SDL_SetColorKey(sprites[slot].back(), SDL_SRCCOLORKEY, SDL_MapRGB(sprites[slot].back()->format, 255, 0, 255));
-		}
-		if (!sprites[slot].back()) {
-			fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
-		}
-
-		// optimize
-		if (sprites[slot].back()) {
-			SDL_Surface *cleanup = sprites[slot].back();
-			sprites[slot].back() = SDL_DisplayFormatAlpha(sprites[slot].back());
-			SDL_FreeSurface(cleanup);
+			sprites[slot].back() = loadGraphicSurface("images/avatar/" + stats[slot].base + "/preview/" + img_gfx[i] + ".png");
 		}
 	}
 

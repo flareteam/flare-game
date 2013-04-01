@@ -48,6 +48,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 class CampaignManager;
 class PowerManager;
 
+class FileParser;
+
 // TODO: Move these Map_* classes to its own file.
 
 class Map_Group {
@@ -60,29 +62,26 @@ public:
 	int numbermin;
 	int numbermax;
 	float chance;
-	void clear() {
-		category = "";
-		pos.x = 0;
-		pos.y = 0;
-		area.x = 0;
-		area.y = 0;
-		levelmin = 0;
-		levelmax = 0;
-		numbermin = 0;
-		numbermax = 0;
-		chance = 1.0f;
-	}
+	Map_Group()
+		: category("")
+		, pos()
+		, area()
+		, levelmin(0)
+		, levelmax(0)
+		, numbermin(0)
+		, numbermax(0)
+		, chance(1.0f)
+	{}
 };
 
 class Map_NPC {
 public:
 	std::string id;
 	Point pos;
-	void clear() {
-		id = "";
-		pos.x = 0;
-		pos.y = 0;
-	}
+	Map_NPC()
+	: id("")
+	, pos()
+	{}
 };
 
 class Map_Event {
@@ -109,6 +108,8 @@ public:
 	 , components(std::vector<Event_Component>())
 	 , tooltip("")
 	 , cooldown(0)
+	 , power_src()
+	 , power_dest()
 	 , targetHero(false)
 	 , damagemin(0)
 	 , damagemax(0)
@@ -117,8 +118,6 @@ public:
 	{
 		location.x = location.y = location.w = location.h = 0;
 		hotspot.x = hotspot.y = hotspot.w = hotspot.h = 0;
-		power_src.x = power_src.y = 0;
-		power_dest.x = power_dest.y = 0;
 	}
 
 	~Map_Event()
@@ -163,15 +162,23 @@ private:
 	void push_enemy_group(Map_Group g);
 	bool isActive(const Map_Event &e);
 
-	void loadMusic();
+	void loadMusic(const std::string &new_music_filename);
+
+	typedef unsigned short maprow[256];
+
+	void loadHeader(FileParser &infile);
+	void loadLayer(FileParser &infile, maprow **cur_layer);
+	void loadEnemy(FileParser &infile);
+	void loadEnemyGroup(FileParser &infile, Map_Group *group);
+	void loadNPC(FileParser &infile);
+	void loadEvent(FileParser &infile);
+	void loadEventComponent(FileParser &infile);
 
 	// map events
 	std::vector<Map_Event> events;
 
 	// map soundids
 	std::vector<SoundManager::SoundID> sids;
-
-	typedef unsigned short maprow[256];
 
 	maprow *background;
 	maprow *fringe;
@@ -211,7 +218,6 @@ private:
 	void clearQueues();
 
 	Point shakycam;
-	bool new_music;
 	TileSet tset;
 	std::string tileset;
 	std::string music_filename;
@@ -235,6 +241,8 @@ public:
 	// functions
 	MapRenderer(CampaignManager *_camp);
 	~MapRenderer();
+
+	MapRenderer(const MapRenderer &copy); // not implemented
 
 	int load(std::string filename);
 	void logic();

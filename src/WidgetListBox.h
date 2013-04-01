@@ -64,7 +64,6 @@ public:
 	WidgetListBox(int amount, int height, const std::string& _fileName);
 	~WidgetListBox();
 
-	void loadArt();
 	bool checkClick();
 	bool checkClick(int x, int y);
 	TooltipData checkTooltip(Point mouse);

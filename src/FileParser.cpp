@@ -33,9 +33,13 @@ FileParser::FileParser()
 	, val("")
 {}
 
-bool FileParser::open(const string& filename) {
+bool FileParser::open(const string& filename, const string &errormessage) {
+	this->filename = filename;
 	infile.open(filename.c_str(), ios::in);
-	return infile.is_open();
+	bool ret = infile.is_open();
+	if (!ret && !errormessage.empty())
+		fprintf(stderr, "%s: %s\n", errormessage.c_str(), filename.c_str());
+	return ret;
 }
 
 void FileParser::close() {
@@ -105,7 +109,7 @@ string FileParser::nextValue() {
 	size_t seppos = val.find_first_of(',');
 	size_t alt_seppos = val.find_first_of(';');
 	if (alt_seppos != string::npos && alt_seppos < seppos)
-	    seppos = alt_seppos; // return the first ',' or ';'
+		seppos = alt_seppos; // return the first ',' or ';'
 
 	if (seppos == string::npos) {
 		s = val;
@@ -116,6 +120,11 @@ string FileParser::nextValue() {
 		val = val.substr(seppos+1);
 	}
 	return s;
+}
+
+std::string FileParser::getFileName()
+{
+	return filename;
 }
 
 FileParser::~FileParser() {

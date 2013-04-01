@@ -45,7 +45,7 @@ MenuInventory::MenuInventory(ItemManager *_items, StatBlock *_stats, PowerManage
 	MAX_EQUIPPED = 4;
 	MAX_CARRIED = 64;
 	visible = false;
-	loadGraphics();
+	background = loadGraphicSurface("images/menus/inventory.png");
 
 	currency = 0;
 
@@ -93,26 +93,13 @@ MenuInventory::MenuInventory(ItemManager *_items, StatBlock *_stats, PowerManage
 			}
 		}
 		infile.close();
-	} else fprintf(stderr, "Unable to open menus/inventory.txt!\n");
+	}
 
 	MAX_EQUIPPED = equipped_area.size();
 	MAX_CARRIED = carried_cols * carried_rows;
 
 	color_normal = font->getColor("menu_normal");
 	color_high = font->getColor("menu_bonus");
-}
-
-void MenuInventory::loadGraphics() {
-
-	background = IMG_Load(mods->locate("images/menus/inventory.png").c_str());
-	if(!background) {
-		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
-	} else {
-		// optimize
-		SDL_Surface *cleanup = background;
-		background = SDL_DisplayFormatAlpha(background);
-		SDL_FreeSurface(cleanup);
-	}
 }
 
 void MenuInventory::update() {

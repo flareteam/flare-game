@@ -47,19 +47,7 @@ WidgetScrollBar::WidgetScrollBar(const std::string& _fileName)
 
 void WidgetScrollBar::loadArt() {
 
-	// load ScrollBar images
-	scrollbars = IMG_Load(fileName.c_str());
-
-	if(!scrollbars) {
-		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
-		SDL_Quit();
-		exit(1); // or abort ??
-	}
-
-	// optimize
-	SDL_Surface *cleanup = scrollbars;
-	scrollbars = SDL_DisplayFormatAlpha(scrollbars);
-	SDL_FreeSurface(cleanup);
+	scrollbars = loadGraphicSurface(fileName, "Couldn't load image", true);
 }
 
 int WidgetScrollBar::checkClick() {
