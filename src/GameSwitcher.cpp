@@ -2,6 +2,7 @@
 Copyright © 2011-2012 Clint Bellanger
 Copyright © 2012 Igor Paliychuk
 Copyright © 2012 Stefan Beller
+Copyright © 2013 Henrik Andersson
 
 This file is part of FLARE.
 
@@ -32,6 +33,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "GameSwitcher.h"
 #include "GameStateTitle.h"
+#include "GameStateCutscene.h"
 #include "SharedResources.h"
 #include "Settings.h"
 #include "FileParser.h"
@@ -41,8 +43,16 @@ using namespace std;
 
 GameSwitcher::GameSwitcher() {
 
-	// The initial state is the title screen
-	currentState = new GameStateTitle();
+	// The initial state is the intro cutscene and then title screen
+	GameStateTitle *title=new GameStateTitle();
+	GameStateCutscene *intro = new GameStateCutscene(title);
+
+	currentState = intro;
+
+	if (!intro->load("intro.txt")) {
+		delete intro;
+		currentState = title;
+	}
 
 	label_fps = new WidgetLabel();
 	done = false;

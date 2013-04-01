@@ -1,6 +1,7 @@
 /*
 Copyright © 2011-2012 Clint Bellanger
 Copyright © 2012 Stefan Beller
+Copyright © 2013 Henrik Andersson
 
 This file is part of FLARE.
 
@@ -96,10 +97,12 @@ FPoint calcVector(Point pos, int direction, int dist);
 double calcDist(Point p1, Point p2);
 bool isWithin(Point center, int radius, Point target);
 bool isWithin(SDL_Rect r, Point target);
+Uint32 readPixel(SDL_Surface *screen, int x, int y);
 void drawPixel(SDL_Surface *screen, int x, int y, Uint32 color);
 void drawLine(SDL_Surface *screen, int x0, int y0, int x1, int y1, Uint32 color);
 void drawLine(SDL_Surface *screen, Point pos0, Point pos1, Uint32 color);
 bool checkPixel(Point px, SDL_Surface *surface);
+
 
 /**
  * Creates a SDL_Surface.
@@ -118,5 +121,7 @@ SDL_Surface* createAlphaSurface(int width, int height);
  * The bright pink (rgb 0xff00ff) is set as transparent color.
  */
 SDL_Surface* createSurface(int width, int height);
+
+SDL_Surface* scaleSurface(SDL_Surface *source, int width, int height);
 
 #endif

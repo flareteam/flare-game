@@ -280,6 +280,10 @@ public:
 	std::string respawn_map;
 	Point respawn_point;
 
+	// cutscene handling
+	bool cutscene;
+	std::string cutscene_file;
+
 	// message handling
 	std::string log_msg;
 

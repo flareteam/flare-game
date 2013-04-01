@@ -31,6 +31,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "GameStatePlay.h"
 #include "GameState.h"
 #include "GameStateTitle.h"
+#include "GameStateCutscene.h"
 #include "Hazard.h"
 #include "HazardManager.h"
 #include "LootManager.h"
@@ -704,11 +705,46 @@ void GameStatePlay::checkStash() {
 	}
 }
 
+void GameStatePlay::checkCutscene() {
+       if (!map->cutscene)
+               return;
+
+       GameStateCutscene *cutscene = new GameStateCutscene(NULL);
+
+       if (!cutscene->load(map->cutscene_file)) {
+               delete cutscene;
+               map->cutscene = false;
+               return;
+       }
+
+       // handle respawn point and set game play game_slot
+       cutscene->game_slot = game_slot;
+
+       if (map->teleportation) {
+
+	       if (map->teleport_mapname != "")
+		       map->respawn_map = map->teleport_mapname;
+
+	       map->respawn_point = map->teleport_destination;
+
+       } else {
+	       map->respawn_point = pc->stats.pos;
+       }
+
+       saveGame();
+
+       delete requestedGameState;
+       requestedGameState = cutscene;
+}
+
+
 /**
  * Process all actions for a single frame
  * This includes some message passing between child object
  */
 void GameStatePlay::logic() {
+
+	checkCutscene();
 
 	// check menus first (top layer gets mouse click priority)
 	menu->logic();

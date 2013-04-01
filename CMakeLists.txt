@@ -99,6 +99,7 @@ Set (FLARE_SOURCES
 	./src/FontEngine.cpp
 	./src/GameState.cpp
 	./src/GameStateConfig.cpp
+	./src/GameStateCutscene.cpp
 	./src/GameStateTitle.cpp
 	./src/GameStateLoad.cpp
 	./src/GameStatePlay.cpp

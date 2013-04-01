@@ -64,6 +64,8 @@ MapRenderer::MapRenderer(CampaignManager *_camp)
  , teleportation(false)
  , teleport_destination()
  , respawn_point()
+ , cutscene(false)
+ , cutscene_file("")
  , log_msg("")
  , shaky_cam_ticks(0)
  , stash(false)
@@ -563,6 +565,9 @@ int MapRenderer::load(string filename) {
 					e->s = infile.val;
 				}
 				else if (infile.key == "music") {
+					e->s = infile.val;
+				}
+				else if (infile.key == "cutscene") {
 					e->s = infile.val;
 				}
 			}
@@ -1373,6 +1378,10 @@ bool MapRenderer::executeEvent(Map_Event &ev) {
 				this->music_filename = ec->s;
 				loadMusic();
 			}
+		}
+		else if (ec->type == "cutscene") {
+			cutscene = true;
+			cutscene_file = ec->s;
 		}
 	}
 	if (ev.type == "run_once" || ev.type == "on_load" || ev.type == "on_clear" || destroy_event)

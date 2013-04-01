@@ -1,6 +1,7 @@
 /*
 Copyright © 2011-2012 Clint Bellanger
 Copyright © 2012 Stefan Beller
+Copyright © 2013 Henrik Andersson
 
 This file is part of FLARE.
 
@@ -163,6 +164,43 @@ bool isWithin(Point center, int radius, Point target) {
  */
 bool isWithin(SDL_Rect r, Point target) {
 	return target.x >= r.x && target.y >= r.y && target.x < r.x+r.w && target.y < r.y+r.h;
+}
+
+
+Uint32 readPixel(SDL_Surface *surface, int x, int y)
+{
+	SDL_LockSurface(surface);
+	int bpp = surface->format->BytesPerPixel;
+	Uint8 *p = (Uint8 *)surface->pixels + y * surface->pitch + x * bpp;
+	Uint32 pixel;
+
+	switch (bpp) {
+	case 1:
+		pixel = *p;
+		break;
+
+	case 2:
+		pixel = *(Uint16 *)p;
+		break;
+
+	case 3:
+	  if (SDL_BYTEORDER == SDL_BIG_ENDIAN)
+		  pixel = p[0] << 16 | p[1] << 8 | p[2];
+	  else
+		  pixel = p[0] | p[1] << 8 | p[2] << 16;
+	  break;
+
+	case 4:
+		pixel = *(Uint32 *)p;
+		break;
+
+	default:
+		SDL_UnlockSurface(surface);
+		return 0;
+	}
+
+	SDL_UnlockSurface(surface);
+	return pixel;
 }
 
 /*
@@ -361,4 +399,37 @@ bool checkPixel(Point px, SDL_Surface *surface) {
 	SDL_UnlockSurface(surface);
 
 	return true;
+}
+
+
+SDL_Surface* scaleSurface(SDL_Surface *source, int width, int height)
+{
+	if(!source || !width || !height)
+		return 0;
+
+	double _stretch_factor_x, _stretch_factor_y;
+	SDL_Surface *_ret = SDL_CreateRGBSurface(source->flags, width, height,
+						 source->format->BitsPerPixel,
+						 source->format->Rmask,
+						 source->format->Gmask,
+						 source->format->Bmask,
+						 source->format->Amask);
+
+	_stretch_factor_x = width / (double)source->w;
+	_stretch_factor_y = height / (double)source->h;
+
+	for(Uint32 y = 0; y < (Uint32)source->h; y++)
+		for(Uint32 x = 0; x < (Uint32)source->w; x++)
+		{
+			Uint32 spixel = readPixel(source, x, y);
+			for(Uint32 o_y = 0; o_y < _stretch_factor_y; ++o_y)
+				for(Uint32 o_x = 0; o_x < _stretch_factor_x; ++o_x)
+				{
+					Uint32 dx = (Sint32)(_stretch_factor_x * x) + o_x;
+					Uint32 dy = (Sint32)(_stretch_factor_y * y) + o_y;
+					drawPixel(_ret, dx, dy, spixel);
+				}
+		}
+
+	return _ret;
 }
