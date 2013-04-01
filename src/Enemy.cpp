@@ -168,7 +168,7 @@ bool Enemy::takeHit(const Hazard &h) {
 		// if it's a miss, do nothing
 		int avoidance = stats.avoidance;
 		clampCeil(avoidance, MAX_AVOIDANCE);
-		if (percentChance(avoidance - h.accuracy - 25)) {
+		if (percentChance(100 - (h.accuracy + 25 - avoidance))) {
 			combat_text->addMessage(msg->get("miss"), stats.pos, COMBAT_MESSAGE_MISS);
 			return false;
 		}
@@ -191,7 +191,7 @@ bool Enemy::takeHit(const Hazard &h) {
 			int absorption = randBetween(stats.absorb_min, stats.absorb_max);
 
 			if (absorption > 0 && dmg > 0) {
-			
+
 				if ((absorption*100)/dmg > MAX_ABSORB && !stats.effects.triggered_block)
 					absorption = (dmg * MAX_ABSORB) /100;
 
