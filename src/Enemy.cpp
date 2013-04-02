@@ -166,9 +166,9 @@ bool Enemy::takeHit(const Hazard &h) {
 		CombatText *combat_text = comb;
 
 		// if it's a miss, do nothing
-		int avoidance = stats.avoidance;
+		int avoidance = 100 - (h.accuracy + 25 - stats.avoidance);
 		clampCeil(avoidance, MAX_AVOIDANCE);
-		if (percentChance(100 - (h.accuracy + 25 - avoidance))) {
+		if (percentChance(avoidance)) {
 			combat_text->addMessage(msg->get("miss"), stats.pos, COMBAT_MESSAGE_MISS);
 			return false;
 		}
