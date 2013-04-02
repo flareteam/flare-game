@@ -33,8 +33,8 @@ FileParser::FileParser()
 	, val("")
 {}
 
-bool FileParser::open(const string& filename, const string &errormessage) {
-	this->filename = filename;
+bool FileParser::open(const string& _filename, const string &errormessage) {
+	this->filename = _filename;
 	infile.open(filename.c_str(), ios::in);
 	bool ret = infile.is_open();
 	if (!ret && !errormessage.empty())

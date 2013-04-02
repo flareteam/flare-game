@@ -433,7 +433,7 @@ void MapRenderer::loadEventComponent(FileParser &infile)
 			e->x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
 			e->y = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
 
-			string chance = infile.nextValue();
+			chance = infile.nextValue();
 			if (chance == "fixed") e->z = 0;
 			else e->z = toInt(chance);
 
