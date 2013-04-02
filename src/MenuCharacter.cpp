@@ -55,11 +55,11 @@ MenuCharacter::MenuCharacter(StatBlock *_stats) {
 	statlist_rows = 10;
 	statlist_scrollbar_offset = 0;
 
-	closeButton = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
+	closeButton = new WidgetButton("images/menus/buttons/button_x.png");
 
 	// Upgrade buttons
 	for (int i=0; i<4; i++) {
-		upgradeButton[i] = new WidgetButton(mods->locate("images/menus/buttons/upgrade.png"));
+		upgradeButton[i] = new WidgetButton("images/menus/buttons/upgrade.png");
 		upgradeButton[i]->enabled = false;
 		show_upgrade[i] = true;
 	}
@@ -202,7 +202,7 @@ MenuCharacter::MenuCharacter(StatBlock *_stats) {
 	}
 
 	// stat list
-	statList = new WidgetListBox(STATLIST_COUNT-1+stats->vulnerable.size(), statlist_rows, mods->locate("images/menus/buttons/listbox_char.png"));
+	statList = new WidgetListBox(STATLIST_COUNT-1+stats->vulnerable.size(), statlist_rows, "images/menus/buttons/listbox_char.png");
 	statList->can_select = false;
 	statList->scrollbar_offset = statlist_scrollbar_offset;
 

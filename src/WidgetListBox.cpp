@@ -40,7 +40,7 @@ WidgetListBox::WidgetListBox(int amount, int height, const std::string& _fileNam
 	, vlabels(new WidgetLabel[list_height])
 	, rows(new SDL_Rect[list_height])
 	, tip( new WidgetTooltip())
-	, scrollbar(new WidgetScrollBar(mods->locate("images/menus/buttons/scrollbar_default.png")))
+	, scrollbar(new WidgetScrollBar("images/menus/buttons/scrollbar_default.png"))
 	, color_normal(font->getColor("widget_normal"))
 	, color_disabled(font->getColor("widget_disabled"))
 	, pos_scroll()

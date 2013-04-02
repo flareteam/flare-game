@@ -51,25 +51,25 @@ GameStateNew::GameStateNew() : GameState() {
 	modified_name = false;
 
 	// set up buttons
-	button_exit = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
+	button_exit = new WidgetButton("images/menus/buttons/button_default.png");
 	button_exit->label = msg->get("Cancel");
 	button_exit->pos.x = VIEW_W_HALF - button_exit->pos.w;
 	button_exit->pos.y = VIEW_H - button_exit->pos.h;
 	button_exit->refresh();
 
-	button_create = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
+	button_create = new WidgetButton("images/menus/buttons/button_default.png");
 	button_create->label = msg->get("Create");
 	button_create->pos.x = VIEW_W_HALF;
 	button_create->pos.y = VIEW_H - button_create->pos.h;
 	button_create->enabled = false;
 	button_create->refresh();
 
-	button_prev = new WidgetButton(mods->locate("images/menus/buttons/left.png"));
-	button_next = new WidgetButton(mods->locate("images/menus/buttons/right.png"));
+	button_prev = new WidgetButton("images/menus/buttons/left.png");
+	button_next = new WidgetButton("images/menus/buttons/right.png");
 	input_name = new WidgetInput();
-	button_permadeath = new WidgetCheckBox(mods->locate("images/menus/buttons/checkbox_default.png"));
+	button_permadeath = new WidgetCheckBox("images/menus/buttons/checkbox_default.png");
 
-	class_list = new WidgetListBox (HERO_CLASSES.size(), 12, mods->locate("images/menus/buttons/listbox_default.png"));
+	class_list = new WidgetListBox (HERO_CLASSES.size(), 12, "images/menus/buttons/listbox_default.png");
 	class_list->can_deselect = false;
 	class_list->selected[0] = true;
 

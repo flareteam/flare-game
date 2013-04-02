@@ -32,7 +32,7 @@ WidgetInput::WidgetInput() {
 	hover = false;
 	max_characters = 20;
 
-	loadGraphics(mods->locate("images/menus/input.png"));
+	loadGraphics("images/menus/input.png");
 
 	// position
 	pos.w = background->w;
