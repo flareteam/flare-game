@@ -32,21 +32,12 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 using namespace std;
 
-WidgetCheckBox::WidgetCheckBox (const string  & fname)
-		: imgFileName(fname),
-		  cb(NULL),
+WidgetCheckBox::WidgetCheckBox (const string &fname)
+		: cb(NULL),
 		  checked(false),
 		  pressed(false)
 {
-	SDL_Surface * tmp = IMG_Load(imgFileName.c_str());
-	if (NULL == tmp) {
-		fprintf(stderr, "Could not load image \"%s\" error \"%s\"\n",
-				imgFileName.c_str(), IMG_GetError());
-		SDL_Quit();
-		exit(1);
-	}
-	cb = SDL_DisplayFormatAlpha(tmp);
-	SDL_FreeSurface(tmp);
+	cb = loadGraphicSurface(fname, "Couldn't load image", true, false);
 
 	pos.w = cb->w;
 	pos.h = cb->h / 2;
@@ -71,10 +62,7 @@ void WidgetCheckBox::unCheck ()
 
 bool WidgetCheckBox::checkClick()
 {
-	if (checkClick(inpt->mouse.x,inpt->mouse.y))
-		return true;
-	else
-		return false;
+	return checkClick(inpt->mouse.x,inpt->mouse.y);
 }
 
 bool WidgetCheckBox::checkClick (int x, int y) {
@@ -86,12 +74,12 @@ bool WidgetCheckBox::checkClick (int x, int y) {
 
 	if (pressed && !inpt->lock[MAIN1]) { // this is a button release
 		pressed = false;
-	if (isWithin(pos, mouse)) { // the button release is done over the widget
+		if (isWithin(pos, mouse)) { // the button release is done over the widget
 			// toggle the state of the check button
 			checked = !checked;
-		// activate upon release
-		return true;
-	}
+			// activate upon release
+			return true;
+		}
 	}
 
 	if (inpt->pressing[MAIN1]) {

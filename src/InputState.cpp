@@ -125,12 +125,9 @@ void InputState::defaultJoystickBindings ()
 void InputState::loadKeyBindings() {
 
 	FileParser infile;
-	int key1;
-	int key2;
-	int cursor;
 
-	if (!infile.open(PATH_CONF + FILE_KEYBINDINGS)) {
-		if (!infile.open(mods->locate("engine/default_keybindings.txt").c_str())) {
+	if (!infile.open(PATH_CONF + FILE_KEYBINDINGS, "")) {
+		if (!infile.open(mods->locate("engine/default_keybindings.txt"), "")) {
 			saveKeyBindings();
 			return;
 		} else saveKeyBindings();
@@ -138,10 +135,10 @@ void InputState::loadKeyBindings() {
 
 	while (infile.next()) {
 
-		key1 = eatFirstInt(infile.val, ',');
-		key2 = toInt(infile.val);
+		int key1 = eatFirstInt(infile.val, ',');
+		int key2 = toInt(infile.val);
 
-		cursor = -1;
+		int cursor = -1;
 
 		if (infile.key == "cancel") cursor = CANCEL;
 		else if (infile.key == "accept") cursor = ACCEPT;

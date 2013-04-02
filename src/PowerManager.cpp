@@ -33,6 +33,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "SharedResources.h"
 #include "StatBlock.h"
 #include "MapCollision.h"
+#include "Utils.h"
 #include "UtilsFileSystem.h"
 #include "UtilsMath.h"
 #include "UtilsParsing.h"
@@ -81,10 +82,8 @@ void PowerManager::loadAll() {
  */
 void PowerManager::loadPowers(const std::string& filename) {
 	FileParser infile;
-	if (!infile.open(filename)) {
-		fprintf(stderr, "Unable to open %s!\n", filename.c_str());
+	if (!infile.open(filename))
 		return;
-	}
 
 	int input_id = 0;
 	bool skippingEntry = false;
@@ -315,67 +314,6 @@ int PowerManager::loadSFX(const string& filename) {
  */
 void PowerManager::handleNewMap(MapCollision *_collider) {
 	collider = _collider;
-}
-
-// convert cartesian to polar theta where (x1,x2) is the origin
-float PowerManager::calcTheta(int x1, int y1, int x2, int y2) {
-
-	float pi = 3.1415926535898f;
-
-	// calculate base angle
-	float dx = (float)x2 - (float)x1;
-	float dy = (float)y2 - (float)y1;
-	int exact_dx = x2 - x1;
-	float theta;
-
-	// convert cartesian to polar coordinates
-	if (exact_dx == 0) {
-		if (dy > 0.0) theta = pi/2.0f;
-		else theta = -pi/2.0f;
-	}
-	else {
-		theta = atan(dy/dx);
-		if (dx < 0.0 && dy >= 0.0) theta += pi;
-		if (dx < 0.0 && dy < 0.0) theta -= pi;
-	}
-	return theta;
-}
-
-/**
- * Change direction to face the target map location
- */
-int PowerManager::calcDirection(int origin_x, int origin_y, int target_x, int target_y) {
-
-	// TODO: use calcTheta instead and check for the areas between -PI and PI
-
-	// inverting Y to convert map coordinates to standard cartesian coordinates
-	int dx = target_x - origin_x;
-	int dy = origin_y - target_y;
-
-	// avoid div by zero
-	if (dx == 0) {
-		if (dy > 0) return 3;
-		else return 7;
-	}
-
-	float slope = ((float)dy)/((float)dx);
-	if (0.5 <= slope && slope <= 2.0) {
-		if (dy > 0) return 4;
-		else return 0;
-	}
-	if (-0.5 <= slope && slope <= 0.5) {
-		if (dx > 0) return 5;
-		else return 1;
-	}
-	if (-2.0 <= slope && slope <= -0.5) {
-		if (dx > 0) return 6;
-		else return 2;
-	}
-	if (2.0 <= slope || -2.0 >= slope) {
-		if (dy > 0) return 3;
-		else return 7;
-	}
-	return 0;
 }
 
 /**

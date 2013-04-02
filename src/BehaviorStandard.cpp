@@ -315,7 +315,7 @@ void BehaviorStandard::checkMove() {
 				}
 			}
 
-			e->stats.direction = e->face(pursue_pos.x, pursue_pos.y);
+			e->stats.direction = calcDirection(e->stats.pos, pursue_pos);
 			e->stats.turn_ticks = 0;
 		}
 	}

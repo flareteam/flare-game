@@ -50,19 +50,11 @@ GameStateConfig::GameStateConfig ()
 	, ok_button(NULL)
 	, defaults_button(NULL)
 	, cancel_button(NULL)
-	, imgFileName(mods->locate("images/menus/config.png"))
 	, tip_buf()
 	, input_key(0)
 	, check_resolution(true)
 {
-	// Load background image
-	SDL_Surface * tmp = IMG_Load(imgFileName.c_str());
-	if (!tmp) {
-		fprintf(stderr, "Could not load image \"%s\"\n", imgFileName.c_str());
-	} else {
-		background = SDL_DisplayFormatAlpha(tmp);
-		SDL_FreeSurface(tmp);
-	}
+	background = loadGraphicSurface("images/menus/config.png");
 
 	init();
 	update();
@@ -215,11 +207,7 @@ void GameStateConfig::init() {
 
 void GameStateConfig::readConfig () {
 	//Load the menu configuration from file
-	int x1 = 0;
-	int y1 = 0;
-	int x2 = 0;
-	int y2 = 0;
-	int setting_num = 0;
+
 	int offset_x = 0;
 	int offset_y = 0;
 
@@ -228,12 +216,12 @@ void GameStateConfig::readConfig () {
 		while (infile.next()) {
 
 			infile.val = infile.val + ',';
-			x1 = eatFirstInt(infile.val, ',');
-			y1 = eatFirstInt(infile.val, ',');
-			x2 = eatFirstInt(infile.val, ',');
-			y2 = eatFirstInt(infile.val, ',');
+			int x1 = eatFirstInt(infile.val, ',');
+			int y1 = eatFirstInt(infile.val, ',');
+			int x2 = eatFirstInt(infile.val, ',');
+			int y2 = eatFirstInt(infile.val, ',');
 
-			setting_num = -1;
+			int setting_num = -1;
 
 			if (infile.key == "listbox_scrollbar_offset") {
 				activemods_lstb->scrollbar_offset = x1;
@@ -607,7 +595,7 @@ void GameStateConfig::readConfig () {
 
 		  }
 		  infile.close();
-		} else fprintf(stderr, "Unable to open menus/config.txt!\n");
+		}
 
 	// Load the MenuConfirm positions and alignments from menus/menus.txt
 	if (infile.open(mods->locate("menus/menus.txt"))) {
@@ -634,7 +622,7 @@ void GameStateConfig::readConfig () {
 			}
 		}
 		infile.close();
-	} else fprintf(stderr, "Unable to open menus/menus.txt!\n");
+	}
 
 	defaults_confirm->window_area = menuConfirm_area;
 	defaults_confirm->alignment = menuConfirm_align;
@@ -789,7 +777,7 @@ void GameStateConfig::logic ()
 			delete requestedGameState;
 			requestedGameState = new GameStateTitle();
 		} else if (resolution_confirm->cancelClicked || resolution_confirm_ticks == 0) {
-			applyVideoSettings(screen, old_view_w, old_view_h);
+			applyVideoSettings(old_view_w, old_view_h);
 			saveSettings();
 			delete requestedGameState;
 			requestedGameState = new GameStateConfig();
@@ -815,7 +803,7 @@ void GameStateConfig::logic ()
 				SDL_JoystickClose(joy);
 				joy = SDL_JoystickOpen(JOYSTICK_DEVICE);
 			}
-			applyVideoSettings(screen, width, height);
+			applyVideoSettings(width, height);
 			if (width != old_view_w || height != old_view_h) {
 				resolution_confirm->window_area = menuConfirm_area;
 				resolution_confirm->align();
@@ -1175,7 +1163,7 @@ bool GameStateConfig::getLanguagesList()
 			   i += 1;
 			}
 			infile.close();
-		} else fprintf(stderr, "Unable to open engine/languages.txt!\n");
+		}
 
 	return true;
 }
@@ -1189,7 +1177,7 @@ int GameStateConfig::getLanguagesNumber()
 			   languages_num += 1;
 			}
 			infile.close();
-		} else fprintf(stderr, "Unable to open engine/languages.txt!\n");
+		}
 
 	return languages_num;
 }
@@ -1202,44 +1190,22 @@ void GameStateConfig::refreshFont() {
 /**
  * Tries to apply the selected video settings, reverting back to the old settings upon failure
  */
-bool GameStateConfig::applyVideoSettings(SDL_Surface *src, int width, int height) {
+bool GameStateConfig::applyVideoSettings(int width, int height) {
 	if (MIN_VIEW_W > width && MIN_VIEW_H > height) {
 		fprintf (stderr, "A mod is requiring a minimum resolution of %dx%d\n", MIN_VIEW_W, MIN_VIEW_H);
 		if (width < MIN_VIEW_W) width = MIN_VIEW_W;
 		if (height < MIN_VIEW_H) height = MIN_VIEW_H;
 	}
 
-	// Temporarily save previous settings
-	int tmp_fs = FULLSCREEN;
-	int tmp_w = VIEW_W;
-	int tmp_h = VIEW_H;
-
 	// Attempt to apply the new settings
-	Uint32 flags = 0;
-	if (FULLSCREEN) flags = flags | SDL_FULLSCREEN;
-	if (DOUBLEBUF) flags = flags | SDL_DOUBLEBUF;
-	if (HWSURFACE)
-		flags = flags | SDL_HWSURFACE | SDL_HWACCEL;
-	else
-		flags = flags | SDL_SWSURFACE;
-
-	src = SDL_SetVideoMode (width, height, 0, flags);
+	setupSDLVideoMode(width, height);
 
 	// If the new settings fail, revert to the old ones
-	if (src == NULL) {
+	if (!screen) {
 		fprintf (stderr, "Error during SDL_SetVideoMode: %s\n", SDL_GetError());
-
-		flags = 0;
-		if (tmp_fs) flags = flags | SDL_FULLSCREEN;
-		if (DOUBLEBUF) flags = flags | SDL_DOUBLEBUF;
-		if (HWSURFACE)
-			flags = flags | SDL_HWSURFACE | SDL_HWACCEL;
-		else
-			flags = flags | SDL_SWSURFACE;
-
-		SDL_SetVideoMode (tmp_w, tmp_h, 0, flags);
-
+		setupSDLVideoMode(VIEW_W, VIEW_H);
 		return false;
+
 	} else {
 
 		// If the new settings succeed, adjust the view area

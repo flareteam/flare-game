@@ -34,22 +34,17 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 using namespace std;
 
 WidgetSlider::WidgetSlider (const string  & fname)
-	 : imgFileName(fname)
-	 , sl(NULL)
+	 : sl(NULL)
 	 , pressed(false)
 	 , minimum(0)
 	 , maximum(0)
 	 , value(0)
 {
-	SDL_Surface * tmp = IMG_Load(imgFileName.c_str());
-	if (NULL == tmp) {
-		fprintf(stderr, "Could not load image \"%s\" error \"%s\"\n",
-				imgFileName.c_str(), IMG_GetError());
+	sl = loadGraphicSurface(fname);
+	if (!sl) {
 		SDL_Quit();
 		exit(1);
 	}
-	sl = SDL_DisplayFormatAlpha(tmp);
-	SDL_FreeSurface(tmp);
 
 	pos.w = sl->w;
 	pos.h = sl->h / 2;
@@ -67,10 +62,7 @@ WidgetSlider::~WidgetSlider ()
 
 
 bool WidgetSlider::checkClick() {
-	if (checkClick(inpt->mouse.x,inpt->mouse.y))
-		return true;
-	else
-		return false;
+	return checkClick(inpt->mouse.x,inpt->mouse.y);
 }
 
 

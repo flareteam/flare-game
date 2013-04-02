@@ -182,7 +182,7 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 		}
 
 		infile.close();
-	} else fprintf(stderr, "Unable to open menus/menus.txt!\n");
+	}
 
 	// Some menus need to be updated to apply their new dimensions
 	act->update();
@@ -213,17 +213,9 @@ MenuManager::MenuManager(PowerManager *_powers, StatBlock *_stats, CampaignManag
 /**
  * Icon set shared by all menus
  */
-void MenuManager::loadIcons() {
-
-	icons = IMG_Load(mods->locate("images/icons/icons.png").c_str());
-	if (!icons) {
-		fprintf(stderr, "Couldn't load icons: %s\n", IMG_GetError());
-	} else {
-		// optimize
-		SDL_Surface *cleanup = icons;
-		icons = SDL_DisplayFormatAlpha(icons);
-		SDL_FreeSurface(cleanup);
-	}
+void MenuManager::loadIcons()
+{
+	icons = loadGraphicSurface("images/icons/icons.png", "Couldn't load icons");
 }
 
 void MenuManager::renderIcon(int icon_id, int x, int y) {
@@ -423,8 +415,8 @@ void MenuManager::logic() {
 					stack = vendor->click(inpt);
 					if (stack.item > 0) {
 						if (!inv->buy(stack,vendor->getTab())) {
-							log->add(msg->get("Not enough money."), LOG_TYPE_MESSAGES);
-							hudlog->add(msg->get("Not enough money."));
+							log->add(msg->get("Not enough %s.", CURRENCY), LOG_TYPE_MESSAGES);
+							hudlog->add(msg->get("Not enough %s.", CURRENCY));
 							vendor->itemReturn( stack);
 						} else {
 							if (inv->full(stack.item)) {
@@ -491,7 +483,7 @@ void MenuManager::logic() {
 							}
 						}
 						else {
-							// The vendor could have a limited amount of money in the future. It will be tested here.
+							// The vendor could have a limited amount of currency in the future. It will be tested here.
 							if ((SELL_WITHOUT_VENDOR || vendor->visible) && inv->sell(stack)) {
 								vendor->setTab(VENDOR_SELL);
 								vendor->add(stack);
@@ -627,8 +619,8 @@ void MenuManager::logic() {
 				// dropping an item from vendor (we only allow to drop into the carried area)
 				if (inv->visible && isWithin( inv->carried_area, inpt->mouse)) {
 					if (!inv->buy(drag_stack,vendor->getTab())) {
-						log->add(msg->get("Not enough money."), LOG_TYPE_MESSAGES);
-						hudlog->add(msg->get("Not enough money."));
+						log->add(msg->get("Not enough %s.", CURRENCY), LOG_TYPE_MESSAGES);
+						hudlog->add(msg->get("Not enough %s.", CURRENCY));
 						vendor->itemReturn( drag_stack);
 					} else {
 						if (inv->full(drag_stack.item)) {

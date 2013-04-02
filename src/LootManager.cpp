@@ -57,7 +57,7 @@ LootManager::LootManager(ItemManager *_items, MapRenderer *_map, StatBlock *_her
 
 	FileParser infile;
 	// load loot animation settings from engine config file
-	if (infile.open(mods->locate("engine/loot.txt").c_str())) {
+	if (infile.open(mods->locate("engine/loot.txt"))) {
 		while (infile.next()) {
 			infile.val = infile.val + ',';
 
@@ -96,7 +96,7 @@ LootManager::LootManager(ItemManager *_items, MapRenderer *_map, StatBlock *_her
 			}
 		}
 		infile.close();
-	} else fprintf(stderr, "Unable to open engine/loot.txt!\n");
+	}
 
 	// reset current map loot
 	loot.clear();

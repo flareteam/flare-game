@@ -240,7 +240,7 @@ bool Enemy::takeHit(const Hazard &h) {
 			powers->effect(&stats, h.power_index);
 
 			if (stats.effects.forced_move) {
-				float theta = powers->calcTheta(stats.hero_pos.x, stats.hero_pos.y, stats.pos.x, stats.pos.y);
+				float theta = calcTheta(stats.hero_pos.x, stats.hero_pos.y, stats.pos.x, stats.pos.y);
 				stats.forced_speed.x = static_cast<int>(ceil(stats.effects.forced_speed * cos(theta)));
 				stats.forced_speed.y = static_cast<int>(ceil(stats.effects.forced_speed * sin(theta)));
 			}

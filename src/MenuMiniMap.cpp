@@ -55,7 +55,7 @@ MenuMiniMap::MenuMiniMap() {
 			}
 		}
 		infile.close();
-	} else fprintf(stderr, "Unable to open menus/minimap.txt!\n");
+	}
 
 	// label for map name
 	label = new WidgetLabel();

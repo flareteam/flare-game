@@ -48,19 +48,7 @@ WidgetInput::WidgetInput() {
 void WidgetInput::loadGraphics(const string& filename) {
 
 	// load input background image
-	background = IMG_Load(filename.c_str());
-
-	if(!background) {
-		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
-		SDL_Quit();
-		exit(1);
-	}
-
-	// optimize
-	SDL_Surface *cleanup = background;
-	background = SDL_DisplayFormatAlpha(background);
-	SDL_FreeSurface(cleanup);
-
+	background = loadGraphicSurface(filename, "Couldn't load image", true);
 }
 
 void WidgetInput::logic() {
@@ -72,11 +60,7 @@ bool WidgetInput::logic(int x, int y) {
 	Point mouse(x, y);
 
 	// Change the hover state
-	if (isWithin(pos, mouse)) {
-		hover = true;
-	} else {
-		hover = false;
-	}
+	hover = isWithin(pos, mouse);
 
 	if (checkClick()) {
 		inFocus = true;

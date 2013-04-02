@@ -51,7 +51,9 @@ private:
 
 public:
 	NPCManager(MapRenderer *_map, LootManager *_loot, ItemManager *_items, StatBlock *stats);
+	NPCManager(const NPCManager &copy); // not implemented
 	~NPCManager();
+
 	std::vector<NPC*> npcs;
 	void handleNewMap();
 	void logic();

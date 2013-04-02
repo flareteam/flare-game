@@ -40,7 +40,6 @@ public:
 	SDL_Rect pos_knob; // This is the position of the slider's knob within the screen
 
 private:
-	std::string imgFileName;
 	SDL_Surface * sl;
 	bool pressed;
 	int minimum;

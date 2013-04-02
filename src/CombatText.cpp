@@ -54,7 +54,7 @@ CombatText::CombatText() {
 			}
 		}
 		infile.close();
-	} else fprintf(stderr, "Unable to open engine/combat_text.txt!\n");
+	}
 }
 
 void CombatText::setCam(Point location) {

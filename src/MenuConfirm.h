@@ -27,7 +27,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 class MenuConfirm : public Menu {
 protected:
-	void loadGraphics();
 
 	WidgetButton *buttonConfirm;
 	WidgetButton *buttonClose;

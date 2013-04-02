@@ -23,10 +23,12 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 using namespace std;
 
 
-GetText::GetText() {
-	line = "";
-	key = "";
-	val = "";
+GetText::GetText()
+	: line("")
+	, key("")
+	, val("")
+	, fuzzy(false)
+{
 }
 
 bool GetText::open(const string& filename) {
