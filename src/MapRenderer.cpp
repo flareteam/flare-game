@@ -433,7 +433,7 @@ void MapRenderer::loadEventComponent(FileParser &infile)
 			e->x = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
 			e->y = toInt(infile.nextValue()) * UNITS_PER_TILE + UNITS_PER_TILE/2;
 
-			string chance = infile.nextValue();
+			chance = infile.nextValue();
 			if (chance == "fixed") e->z = 0;
 			else e->z = toInt(chance);
 
@@ -748,7 +748,7 @@ void MapRenderer::renderIsoLayer(SDL_Surface *wheretorender, Point offset, const
 
 		// lower right (south east) corner is covered by (j+i-w+1)
 		// lower left (south west) corner is caught by having 0 in there, so j>0
-		const int_fast16_t j_end = std::max((j+i-w+1),	std::max(j - max_tiles_width, static_cast<int_fast16_t>(0)));
+		const int_fast16_t j_end = std::max(static_cast<int_fast16_t>(j+i-w+1),	std::max(static_cast<int_fast16_t>(j - max_tiles_width), static_cast<int_fast16_t>(0)));
 
 		Point p = map_to_screen(i * UNITS_PER_TILE, j * UNITS_PER_TILE, shakycam.x, shakycam.y);
 		p = center_tile(p);
@@ -815,7 +815,7 @@ void MapRenderer::renderIsoFrontObjects(vector<Renderable> &r) {
 		if (d >= 0) {
 			j -= d; tiles_width += d; i += d;
 		}
-		const int_fast16_t j_end = std::max((j+i-w+1), std::max(j - max_tiles_width, static_cast<int_fast16_t>(0)));
+		const int_fast16_t j_end = std::max(static_cast<int_fast16_t>(j+i-w+1), std::max(static_cast<int_fast16_t>(j - max_tiles_width), static_cast<int_fast16_t>(0)));
 
 		// draw one horizontal line
 		Point p = map_to_screen(i * UNITS_PER_TILE, j * UNITS_PER_TILE, shakycam.x, shakycam.y);
