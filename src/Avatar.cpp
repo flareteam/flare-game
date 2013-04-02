@@ -709,7 +709,7 @@ bool Avatar::takeHit(const Hazard &h) {
 		int avoidance = stats.avoidance;
 		if (stats.effects.triggered_block) avoidance *= 2;
 		clampCeil(avoidance, MAX_AVOIDANCE);
-		if (percentChance(avoidance - h.accuracy - 25)) {
+		if (percentChance(100 - (h.accuracy + 25 - avoidance))) {
 			combat_text->addMessage(msg->get("miss"), stats.pos, COMBAT_MESSAGE_MISS);
 			return false;
 		}
