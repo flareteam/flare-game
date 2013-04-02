@@ -1,6 +1,7 @@
 /*
 Copyright © 2011-2012 Clint Bellanger
 Copyright © 2012 Stefan Beller
+Copyright © 2013 Henrik Andersson
 
 This file is part of FLARE.
 
@@ -165,6 +166,43 @@ bool isWithin(SDL_Rect r, Point target) {
 	return target.x >= r.x && target.y >= r.y && target.x < r.x+r.w && target.y < r.y+r.h;
 }
 
+
+Uint32 readPixel(SDL_Surface *surface, int x, int y)
+{
+	SDL_LockSurface(surface);
+	int bpp = surface->format->BytesPerPixel;
+	Uint8 *p = (Uint8 *)surface->pixels + y * surface->pitch + x * bpp;
+	Uint32 pixel;
+
+	switch (bpp) {
+	case 1:
+		pixel = *p;
+		break;
+
+	case 2:
+		pixel = *(Uint16 *)p;
+		break;
+
+	case 3:
+	  if (SDL_BYTEORDER == SDL_BIG_ENDIAN)
+		  pixel = p[0] << 16 | p[1] << 8 | p[2];
+	  else
+		  pixel = p[0] | p[1] << 8 | p[2] << 16;
+	  break;
+
+	case 4:
+		pixel = *(Uint32 *)p;
+		break;
+
+	default:
+		SDL_UnlockSurface(surface);
+		return 0;
+	}
+
+	SDL_UnlockSurface(surface);
+	return pixel;
+}
+
 /*
  * Set the pixel at (x, y) to the given value
  * NOTE: The surface must be locked before calling this!
@@ -306,6 +344,26 @@ SDL_Surface* createSurface(int width, int height) {
 	return surface;
 }
 
+SDL_Surface* loadGraphicSurface(std::string filename, std::string errormessage, bool IfNotFoundExit, bool HavePinkColorKey)
+{
+	SDL_Surface *ret = NULL;
+	SDL_Surface *cleanup = IMG_Load(mods->locate(filename).c_str());
+	if(!cleanup) {
+		if (!errormessage.empty())
+			fprintf(stderr, "%s: %s\n", errormessage.c_str(), IMG_GetError());
+		if (IfNotFoundExit) {
+			SDL_Quit();
+			exit(1);
+		}
+	} else {
+		if (HavePinkColorKey)
+			SDL_SetColorKey(cleanup, SDL_SRCCOLORKEY, SDL_MapRGB(cleanup->format, 255, 0, 255));
+		ret = SDL_DisplayFormatAlpha(cleanup);
+		SDL_FreeSurface(cleanup);
+	}
+	return ret;
+}
+
 /*
  * Returns false if a pixel at Point px is transparent
  *
@@ -362,3 +420,113 @@ bool checkPixel(Point px, SDL_Surface *surface) {
 
 	return true;
 }
+
+SDL_Surface* scaleSurface(SDL_Surface *source, int width, int height)
+{
+	if(!source || !width || !height)
+		return 0;
+
+	double _stretch_factor_x, _stretch_factor_y;
+	SDL_Surface *_ret = SDL_CreateRGBSurface(source->flags, width, height,
+						 source->format->BitsPerPixel,
+						 source->format->Rmask,
+						 source->format->Gmask,
+						 source->format->Bmask,
+						 source->format->Amask);
+
+	_stretch_factor_x = width / (double)source->w;
+	_stretch_factor_y = height / (double)source->h;
+
+	for(Uint32 y = 0; y < (Uint32)source->h; y++)
+		for(Uint32 x = 0; x < (Uint32)source->w; x++)
+		{
+			Uint32 spixel = readPixel(source, x, y);
+			for(Uint32 o_y = 0; o_y < _stretch_factor_y; ++o_y)
+				for(Uint32 o_x = 0; o_x < _stretch_factor_x; ++o_x)
+				{
+					Uint32 dx = (Sint32)(_stretch_factor_x * x) + o_x;
+					Uint32 dy = (Sint32)(_stretch_factor_y * y) + o_y;
+					drawPixel(_ret, dx, dy, spixel);
+				}
+		}
+
+	return _ret;
+}
+
+int calcDirection(const Point &src, const Point &dst)
+{
+	return calcDirection(src.x, src.y, dst.x, dst.y);
+}
+
+int calcDirection(int x0, int y0, int x1, int y1)
+{
+	// TODO: use calcTheta instead and check for the areas between -PI and PI
+
+	// inverting Y to convert map coordinates to standard cartesian coordinates
+	int dx = x1 - x0;
+	int dy = y0 - y1;
+
+	// avoid div by zero
+	if (dx == 0) {
+		if (dy > 0) return 3;
+		else return 7;
+	}
+
+	float slope = ((float)dy)/((float)dx);
+	if (0.5 <= slope && slope <= 2.0) {
+		if (dy > 0) return 4;
+		else return 0;
+	}
+	if (-0.5 <= slope && slope <= 0.5) {
+		if (dx > 0) return 5;
+		else return 1;
+	}
+	if (-2.0 <= slope && slope <= -0.5) {
+		if (dx > 0) return 6;
+		else return 2;
+	}
+	if (2.0 <= slope || -2.0 >= slope) {
+		if (dy > 0) return 3;
+		else return 7;
+	}
+	return 0;
+}
+
+// convert cartesian to polar theta where (x1,x2) is the origin
+float calcTheta(int x1, int y1, int x2, int y2) {
+
+	float pi = 3.1415926535898f;
+
+	// calculate base angle
+	float dx = (float)x2 - (float)x1;
+	float dy = (float)y2 - (float)y1;
+	int exact_dx = x2 - x1;
+	float theta;
+
+	// convert cartesian to polar coordinates
+	if (exact_dx == 0) {
+		if (dy > 0.0) theta = pi/2.0f;
+		else theta = -pi/2.0f;
+	}
+	else {
+		theta = atan(dy/dx);
+		if (dx < 0.0 && dy >= 0.0) theta += pi;
+		if (dx < 0.0 && dy < 0.0) theta -= pi;
+	}
+	return theta;
+}
+
+void setupSDLVideoMode(unsigned width, unsigned height)
+{
+	Uint32 flags = 0;
+
+	if (FULLSCREEN) flags = flags | SDL_FULLSCREEN;
+	if (DOUBLEBUF) flags = flags | SDL_DOUBLEBUF;
+	if (HWSURFACE)
+		flags = flags | SDL_HWSURFACE | SDL_HWACCEL;
+	else
+		flags = flags | SDL_SWSURFACE;
+
+	screen = SDL_SetVideoMode (width, height, 0, flags);
+}
+

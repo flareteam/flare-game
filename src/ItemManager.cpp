@@ -126,10 +126,7 @@ void ItemManager::loadAll() {
 	shrinkVecToFit(item_sets);
 
 	if (items.empty()) fprintf(stderr, "No items were found.\n");
-
-	// TODO: disabled for 0.18, enable again
-	// we had no item sets in that release.
-	//if (item_sets.empty()) printf("No item sets were found.\n");
+	if (item_sets.empty()) printf("No item sets were found.\n");
 }
 
 /**
@@ -139,10 +136,8 @@ void ItemManager::loadAll() {
  */
 void ItemManager::load(const string& filename) {
 	FileParser infile;
-	if (!infile.open(filename)) {
-		fprintf(stderr, "Unable to open %s!\n", filename.c_str());
+	if (!infile.open(filename))
 		return;
-	}
 
 	int id = 0;
 	bool id_line = false;
@@ -296,7 +291,7 @@ void ItemManager::loadTypes(const string& filename) {
 			}
 		}
 		infile.close();
-	} else fprintf(stderr, "Unable to open %s!\n", filename.c_str());
+	}
 }
 
 string ItemManager::getItemType(std::string _type) {
@@ -310,10 +305,8 @@ string ItemManager::getItemType(std::string _type) {
 
 void ItemManager::loadSets(const string& filename) {
 	FileParser infile;
-	if (!infile.open(filename)) {
-		fprintf(stderr, "Unable to open %s!\n", filename.c_str());
+	if (!infile.open(filename))
 		return;
-	}
 
 	int id = 0;
 	bool id_line;
@@ -369,18 +362,9 @@ void ItemManager::loadSets(const string& filename) {
 /**
  * Icon sets
  */
-void ItemManager::loadIcons() {
-
-	icons = IMG_Load(mods->locate("images/icons/icons.png").c_str());
-
-	if (!icons) {
-		fprintf(stderr, "Couldn't load icons: %s\n", IMG_GetError());
-	} else {
-		// optimize
-		SDL_Surface *cleanup = icons;
-		icons = SDL_DisplayFormatAlpha(icons);
-		SDL_FreeSurface(cleanup);
-	}
+void ItemManager::loadIcons()
+{
+	icons = loadGraphicSurface("images/icons/icons.png", "Couldn't load icons");
 }
 
 /**
@@ -390,6 +374,7 @@ void ItemManager::loadIcons() {
 void ItemManager::renderIcon(ItemStack stack, int x, int y, int size) {
 	if (!icons) return;
 
+	SDL_Rect src, dest;
 	dest.x = x;
 	dest.y = y;
 	src.w = src.h = dest.w = dest.h = size;

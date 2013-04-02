@@ -32,19 +32,7 @@ MenuExit::MenuExit() : Menu() {
 
 	buttonClose = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
 
-	loadGraphics();
-}
-
-void MenuExit::loadGraphics() {
-	background = IMG_Load(mods->locate("images/menus/confirm_bg.png").c_str());
-	if(!background) {
-		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
-	} else {
-		// optimize
-		SDL_Surface *cleanup = background;
-		background = SDL_DisplayFormatAlpha(background);
-		SDL_FreeSurface(cleanup);
-	}
+	background = loadGraphicSurface("images/menus/confirm_bg.png");
 }
 
 void MenuExit::update() {

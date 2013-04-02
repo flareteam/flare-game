@@ -77,7 +77,7 @@ void EnemyGroupManager::parseEnemyFileAndStore(const string& filename) {
 			}
 		}
 		infile.close();
-	} else fprintf(stderr, "Unable to open enemies/%s!\n", filename.c_str());
+	}
 }
 
 Enemy_Level EnemyGroupManager::getRandomEnemy(const std::string& category, int minlevel, int maxlevel) const {

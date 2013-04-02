@@ -52,24 +52,16 @@ WidgetButton::WidgetButton(const std::string& _fileName)
 void WidgetButton::loadArt() {
 
 	// load button images
-	SDL_Surface *cleanup = IMG_Load(fileName.c_str());
+	buttons = loadGraphicSurface(fileName);
 
-	if(!cleanup) {
-		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
+	if (!buttons) {
 		SDL_Quit();
 		exit(1); // or abort ??
 	}
-
-	// optimize
-	buttons = SDL_DisplayFormatAlpha(cleanup);
-	SDL_FreeSurface(cleanup);
 }
 
 bool WidgetButton::checkClick() {
-	if (checkClick(inpt->mouse.x,inpt->mouse.y))
-		return true;
-	else
-		return false;
+	return checkClick(inpt->mouse.x,inpt->mouse.y);
 }
 
 /**
@@ -80,11 +72,7 @@ bool WidgetButton::checkClick(int x, int y) {
 	Point mouse(x,y);
 
 	// Change the hover state
-	if (isWithin(pos, mouse)) {
-		hover = true;
-	} else {
-		hover = false;
-	}
+	hover = isWithin(pos, mouse);
 
 	// Check the tooltip
 	tip_new = checkTooltip(mouse);

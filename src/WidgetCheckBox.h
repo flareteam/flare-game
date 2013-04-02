@@ -29,7 +29,7 @@ class Widget;
 
 class WidgetCheckBox : public Widget {
 public:
-	WidgetCheckBox (const std::string & fname);
+	WidgetCheckBox (const std::string &fname);
 	~WidgetCheckBox ();
 
 	void Check ();
@@ -40,7 +40,6 @@ public:
 	void render (SDL_Surface *target = NULL);
 
 private:
-	std::string imgFileName;
 	SDL_Surface * cb;
 	bool checked;
 	bool pressed;

@@ -176,7 +176,7 @@ void NPC::load(const string& npc_id, int hero_level) {
 			}
 		}
 		infile.close();
-	} else fprintf(stderr, "Unable to open npcs/%s.txt!\n", npc_id.c_str());
+	}
 	loadGraphics(filename_portrait);
 }
 
@@ -188,20 +188,8 @@ void NPC::loadGraphics(const string& filename_portrait) {
 		animationSet = anim->getAnimationSet(anim_name);
 		activeAnimation = animationSet->getAnimation();
 	}
-	if (filename_portrait != "") {
-		portrait = IMG_Load(mods->locate("images/portraits/" + filename_portrait + ".png").c_str());
-		if(!portrait) {
-			fprintf(stderr, "Couldn't load NPC portrait: %s\n", IMG_GetError());
-		}
-
-		SDL_SetColorKey( portrait, SDL_SRCCOLORKEY, SDL_MapRGB(portrait->format, 255, 0, 255) );
-
-		// optimize
-		SDL_Surface *cleanup = portrait;
-		portrait = SDL_DisplayFormatAlpha(portrait);
-		SDL_FreeSurface(cleanup);
-	}
-
+	if (filename_portrait != "")
+		portrait = loadGraphicSurface("images/portraits/" + filename_portrait + ".png", "Couldn't load NPC portrait", false, true);
 }
 
 /**

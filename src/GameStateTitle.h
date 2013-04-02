@@ -30,13 +30,12 @@ private:
 	SDL_Surface *logo;
 	WidgetButton *button_play;
 	WidgetButton *button_exit;
-    WidgetButton *button_cfg;
+	WidgetButton *button_cfg;
 	WidgetLabel *label_version;
 
 public:
 	GameStateTitle();
 	~GameStateTitle();
-	void loadGraphics();
 	void logic();
 	void render();
 

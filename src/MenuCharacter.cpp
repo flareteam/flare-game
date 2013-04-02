@@ -199,14 +199,14 @@ MenuCharacter::MenuCharacter(StatBlock *_stats) {
 			}
 		}
 		infile.close();
-	} else fprintf(stderr, "Unable to open menus/character.txt!\n");
+	}
 
 	// stat list
 	statList = new WidgetListBox(STATLIST_COUNT-1+stats->vulnerable.size(), statlist_rows, mods->locate("images/menus/buttons/listbox_char.png"));
 	statList->can_select = false;
 	statList->scrollbar_offset = statlist_scrollbar_offset;
 
-	loadGraphics();
+	background = loadGraphicSurface("images/menus/character.png");
 }
 
 void MenuCharacter::update() {
@@ -243,20 +243,6 @@ void MenuCharacter::update() {
 	cstat[CSTAT_MENTAL].setHover(window_area.x+value_pos[3].x, window_area.y+value_pos[3].y, value_pos[3].w, value_pos[3].h);
 	cstat[CSTAT_OFFENSE].setHover(window_area.x+value_pos[4].x, window_area.y+value_pos[4].y, value_pos[4].w, value_pos[4].h);
 	cstat[CSTAT_DEFENSE].setHover(window_area.x+value_pos[5].x, window_area.y+value_pos[5].y, value_pos[5].w, value_pos[5].h);
-}
-
-void MenuCharacter::loadGraphics() {
-
-	background = IMG_Load(mods->locate("images/menus/character.png").c_str());
-	if(!background) {
-		fprintf(stderr, "Couldn't load image: %s\n", IMG_GetError());
-	} else {
-		// optimize
-		SDL_Surface *cleanup = background;
-		background = SDL_DisplayFormatAlpha(background);
-		SDL_FreeSurface(cleanup);
-	}
-
 }
 
 /**

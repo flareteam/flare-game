@@ -31,6 +31,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 class FileParser {
 private:
+	std::string filename;
 	std::ifstream infile;
 	std::string line;
 
@@ -38,11 +39,21 @@ public:
 	FileParser();
 	~FileParser();
 
-	bool open(const std::string& filename);
+	/**
+	 * @brief open
+	 * @param filename The file to be opened
+	 * @param errormessage
+	 * Optional parameter, will be printed to stderr together with the filename
+	 * if an error occurs. If errormessage is empty, there will be no output to
+	 * stderr in any case.
+	 * @return true if file could be opened successfully for reading.
+	 */
+	bool open(const std::string& filename, const std::string &errormessage = "Could not open text file");
 	void close();
 	bool next();
 	std::string nextValue(); // next value inside one line.
 	std::string getRawLine();
+	std::string getFileName();
 
 	bool new_section;
 	std::string section;
