@@ -32,11 +32,11 @@ MenuConfirm::MenuConfirm(const string& _buttonMsg, const string& _boxMsg) : Menu
 	boxMsg = _boxMsg;
 
 	if (hasConfirmButton) {
-		buttonConfirm = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
+		buttonConfirm = new WidgetButton("images/menus/buttons/button_default.png");
 		buttonConfirm->label = _buttonMsg;
 	}
 
-	buttonClose = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
+	buttonClose = new WidgetButton("images/menus/buttons/button_x.png");
 
 	background = loadGraphicSurface("images/menus/confirm_bg.png");
 }

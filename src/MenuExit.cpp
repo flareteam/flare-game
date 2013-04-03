@@ -27,10 +27,10 @@ MenuExit::MenuExit() : Menu() {
 
 	exitClicked = false;
 
-	buttonExit = new WidgetButton(mods->locate("images/menus/buttons/button_default.png"));
+	buttonExit = new WidgetButton("images/menus/buttons/button_default.png");
 	buttonExit->label = msg->get("Exit");
 
-	buttonClose = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
+	buttonClose = new WidgetButton("images/menus/buttons/button_x.png");
 
 	background = loadGraphicSurface("images/menus/confirm_bg.png");
 }
