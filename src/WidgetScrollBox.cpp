@@ -32,7 +32,7 @@ WidgetScrollBox::WidgetScrollBox(int width, int height) {
 	cursor = 0;
 	bg.r = bg.g = bg.b = 0;
 	contents = NULL;
-	scrollbar = new WidgetScrollBar(mods->locate("images/menus/buttons/scrollbar_default.png"));
+	scrollbar = new WidgetScrollBar("images/menus/buttons/scrollbar_default.png");
 	update = true;
 	render_to_alpha = false;
 	resize(height);

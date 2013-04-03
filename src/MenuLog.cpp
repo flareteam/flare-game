@@ -84,7 +84,7 @@ MenuLog::MenuLog() {
 
 	background = loadGraphicSurface("images/menus/log.png");
 
-	closeButton = new WidgetButton(mods->locate("images/menus/buttons/button_x.png"));
+	closeButton = new WidgetButton("images/menus/buttons/button_x.png");
 
 	color_normal = font->getColor("menu_normal");
 }
