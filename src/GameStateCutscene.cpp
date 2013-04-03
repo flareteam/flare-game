@@ -150,10 +150,8 @@ void GameStateCutscene::render() {
 bool GameStateCutscene::load(std::string filename) {
 	FileParser infile;
 
-	if (!infile.open(mods->locate("cutscenes/" + filename))) {
-		cerr << "Unable to open cutscenes/" << filename << endl;
+	if (!infile.open(mods->locate("cutscenes/" + filename)))
 		return false;
-	}
 
 	// parse the cutscene file
 	while (infile.next()) {
