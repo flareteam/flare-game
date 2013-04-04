@@ -1,0 +1,12 @@
+# this file is automatically loaded when a New Game starts.
+# it's a dummy map to send the player to the actual starting point.
+
+[header]
+width=1
+height=1
+location=0,0,3
+
+[event]
+type=teleport
+location=0,0,1,1
+intermap=intro_cutscene.txt,2,18
