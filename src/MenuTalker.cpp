@@ -58,7 +58,7 @@ MenuTalker::MenuTalker(MenuManager *_menu, CampaignManager *_camp) {
 	// fonts
 	font_who = font_dialog = "font_regular";
 
-	loadGraphicSurface("images/menus/dialog_box.png");
+	background = loadGraphicSurface("images/menus/dialog_box.png");
 
 	// Load config settings
 	FileParser infile;
