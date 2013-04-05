@@ -1,19 +1,16 @@
 # Flare
 
-Flare (Free Libre Action Roleplaying Engine) is a simple game engine built to handle a very specific kind of game: single-player 2D action RPGs. Flare is not a reimplementation of an existing game or engine. It is a tribute to and exploration of the action RPG genre.
+Flare is a a single-player 2D action RPG with fast-paced action and a dark fantasy style.
 
-Rather than building a very abstract, robust game engine, the goal of this project is to build several real games and harvest an engine from the common, reusable code.
-This is the first game made with the flare-engine featuring a fantasy dungeon crawl game. Currently this game is actively developed.
+It is built on the FLARE engine (Free/Libre Action Roleplaying Engine). Its repo is at https://github.com/clintbellanger/flare-engine
 
-Flare uses simple file formats (INI style config files) for most of the game data, allowing anyone to easily modify game contents. Open formats are preferred (png, ogg). The game code is C++.
-
-
+Flare uses simple file formats (INI style config files) for most of the game data, allowing anyone to easily modify game contents. Open formats are preferred (png, ogg). Maps are edited using Tiled.
 
 ## Copyright and License
 
-Most of Flare is Copyright © 2010-2013 Clint Bellanger. Contributors retain copyrights to their original contributions.
+Flare (the game) is Copyright ©2010-2013 Clint Bellanger. Contributors retain copyrights to their original contributions.
 
-All of Flare's source code is released under the GNU GPL version 3. Later versions are permitted.
+The Flare Engine is released under GPL version 3 or later.
 
 All of Flare's art and data files are released under CC-BY-SA 3.0. Later versions are permitted.
 
@@ -25,28 +22,28 @@ The GNU Unifont font is released under GPL v2, with the exception that embedding
 ## Links
 
 * Homepage  http://flarerpg.org
-* Source    https://github.com/clintbellanger/flare-engine
+* Repo      https://github.com/clintbellanger/flare-game
+* Binaries  https://sourceforge.net/projects/flare-game/
 * Forums    http://opengameart.org/forums/flare
 * Email     clintbellanger@gmail.com
 
 
 ## Installation
 
-Please see INSTALL.engine for further steps.
+See the Flare-Engine repo for instructions on how to install Flare:
 
-## Running Flare
+https://github.com/clintbellanger/flare-engine
 
-If the program is installing system-wide (i.e., you typed 'make install' and it worked), you can run it just by executing the 'flare' command.
+Flare Game is installed as a set of mods for Flare Engine. Place the contents of the "mods" folder inside Flare Engine's mods folder.
 
-If you did not perform the installation step, you should find the binary in in the top directory, and run it from there, like this:
+* On Windows, the mods folder will be in the same directory as the flare executable.
+* On OSX, this will be inside the Flare.app folder, in Resources/mods 
+* On Linux, the default location of the mods folder is /usr/local/share/flare/mods/
 
-    ./flare
+Then enable these mods in Flare's Configuration screen.
 
-Also, in newer versions, the game can be launched from an icon in your main menu in your GUI environment (KDE, GNOME, etc.).
-
-If you're running flare from your operating system's gui file browser (e.g. Windows Explorer or OSX Finder), you'll want to use one of the provided launchers.  This helps the flare executable use its own working directory, so it can see all those data folders.
-
-
+    fantasycore
+	alpha_demo
 
 ## Settings
 
@@ -58,8 +55,6 @@ Settings are stored in one of these places:
 
 Here you can enable fullscreen, change the game resolution, enable mouse-move, and change keybindings. The settings files are created the first time you run Flare.
 
-
-
 ## Save Files
 
 Save files are stored in one of these places:
@@ -69,3 +64,15 @@ Save files are stored in one of these places:
     ./saves
 
 If permissions are correct, the game is automatically saved when you exit.
+
+## Packaging and Distributing
+
+If you are packaging Flare Game for release (e.g. on an operating system's software repo), we suggest creating two packages.
+
+* flare-engine the package that contains the single engine reused by several games
+* flare-game, a package that requires flare-engine that only contains this game data
+
+When distributing flare-game you may elect to omit these folders which are not used at runtime.
+
+* art_src contains the raw files (e.g. Blender files) used to generate Flare's art.
+* tiled contains the Tiled-native map files used to export Flare's maps
