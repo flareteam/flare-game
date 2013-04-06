@@ -1,0 +1,912 @@
+# Copyright (C) 2011 Clint Bellanger
+# This file is distributed under the same license as Flare package.
+# Nikita Vaňků <zarakaangel@gmail.com>, 2013.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: 0.18\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-03-21 12:29+\n"
+"PO-Revision-Date: 2013-03-25 10:03+ZONE\n"
+"Last-Translator: Nikita Vaňků <ZarakaAngel@gmail.com>\n"
+"Language-Team:\n"
+"Language: cs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../src/Avatar.cpp:411
+#, c-format
+msgid "Congratulations, you have reached level %d!"
+msgstr "Dosáhl jsi levelu %d!"
+
+#: ../../../src/Avatar.cpp:413
+msgid "You may increase one attribute through the Character Menu."
+msgstr "Můžete zvýšit jeden atribtu v Menu Postavy"
+
+#: ../../../src/Avatar.cpp:640
+msgid "You are defeated. Game over! Press Enter to exit to Title."
+msgstr "Jsi poražen. Game over! Stiskni Enter pro odchod do Menu."
+
+#: ../../../src/Avatar.cpp:643
+#, c-format
+msgid "You are defeated.  You lose half your %s.  Press Enter to continue."
+msgstr "Jsi poražen. Ztrácíš polovinu tvých %s. Pro pokračování stiskni Enter."
+
+#: ../../../src/Avatar.cpp:711 ../../../src/Enemy.cpp:172
+msgid "miss"
+msgstr "minout"
+
+#: ../../../src/Avatar.cpp:784 ../../../src/Enemy.cpp:248
+#: ../../../src/PowerManager.cpp:668 ../../../src/StatBlock.cpp:523
+#, c-format
+msgid "+%d HP"
+msgstr ""
+
+#: ../../../src/CampaignManager.cpp:140
+#, c-format
+msgid "You receive %s."
+msgstr "Dostáváš %s."
+
+#: ../../../src/CampaignManager.cpp:142
+#, c-format
+msgid "You receive %s x%d."
+msgstr "Dostáváš %s x%d."
+
+#: ../../../src/CampaignManager.cpp:150
+#, c-format
+msgid "You receive %d %s."
+msgstr "Dostáváš %d %s."
+
+#: ../../../src/CampaignManager.cpp:157
+#, c-format
+msgid "You receive %d XP."
+msgstr "Dostáváš %d XP."
+
+#: ../../../src/CampaignManager.cpp:163
+msgid "HP restored."
+msgstr "HP obnoveno."
+
+#: ../../../src/CampaignManager.cpp:167
+msgid "MP restored."
+msgstr "MP obnoveno."
+
+#: ../../../src/CampaignManager.cpp:172
+msgid "HP and MP restored."
+msgstr "HP a MP obnoveno."
+
+#: ../../../src/CampaignManager.cpp:176
+msgid "Negative effects removed."
+msgstr "Negativní účinky odstraněny."
+
+#: ../../../src/CampaignManager.cpp:182
+msgid "HP and MP restored, negative effects removed"
+msgstr "HP a MP obnoveno, negativní účtinky odstraněny"
+
+#: ../../../src/Enemy.cpp:255 ../../../src/StatBlock.cpp:528
+#, c-format
+msgid "+%d MP"
+msgstr "%d MP"
+
+#: ../../../src/GameStateConfig.cpp:79 ../../../src/GameStateConfig.cpp:164
+msgid "OK"
+msgstr ""
+
+#: ../../../src/GameStateConfig.cpp:84 ../../../src/GameStateConfig.cpp:163
+msgid "Defaults"
+msgstr "Původní"
+
+#: ../../../src/GameStateConfig.cpp:89 ../../../src/GameStateNew.cpp:55
+#: ../../../src/InputState.cpp:59 ../../../src/MenuNPCActions.cpp:77
+msgid "Cancel"
+msgstr "Zrušit"
+
+#: ../../../src/GameStateConfig.cpp:154
+msgid "Video"
+msgstr ""
+
+#: ../../../src/GameStateConfig.cpp:155
+msgid "Audio"
+msgstr ""
+
+#: ../../../src/GameStateConfig.cpp:156
+msgid "Interface"
+msgstr ""
+
+#: ../../../src/GameStateConfig.cpp:157
+msgid "Input"
+msgstr "Vstup"
+
+#: ../../../src/GameStateConfig.cpp:158
+msgid "Keybindings"
+msgstr "Nastavení kláves"
+
+#: ../../../src/GameStateConfig.cpp:159
+msgid "Mods"
+msgstr "Mody"
+
+#: ../../../src/GameStateConfig.cpp:162 ../../../src/GameStateConfig.cpp:963
+#: ../../../src/GameStateConfig.cpp:965
+msgid "Assign: "
+msgstr "Přiřadit: "
+
+#: ../../../src/GameStateConfig.cpp:163
+msgid "Reset ALL settings?"
+msgstr "Vrátit původní nastavení?"
+
+#: ../../../src/GameStateConfig.cpp:164
+msgid "Use this resolution?"
+msgstr "Použít toto rozlišení?"
+
+#: ../../../src/GameStateConfig.cpp:254
+msgid "Full Screen Mode"
+msgstr "Mod plné obrazovky"
+
+#: ../../../src/GameStateConfig.cpp:267
+msgid "Move hero using mouse"
+msgstr "Chůze pomocí myši"
+
+#: ../../../src/GameStateConfig.cpp:280
+msgid "Show combat text"
+msgstr "Zobraz bojový text"
+
+#: ../../../src/GameStateConfig.cpp:294
+msgid "Hardware surfaces"
+msgstr "Hardwarové povrchy"
+
+#: ../../../src/GameStateConfig.cpp:307
+msgid "Double buffering"
+msgstr "Dvojitý buffering"
+
+#: ../../../src/GameStateConfig.cpp:321
+msgid "Use joystick"
+msgstr "Použít joystick"
+
+#: ../../../src/GameStateConfig.cpp:334
+msgid "High Quality Textures"
+msgstr "Textury Vysoké kvality"
+
+#: ../../../src/GameStateConfig.cpp:347
+msgid "Allow changing gamma"
+msgstr "Povolit změnu gammy"
+
+#: ../../../src/GameStateConfig.cpp:360
+msgid "Animated tiles"
+msgstr "Animované dlaždice"
+
+#: ../../../src/GameStateConfig.cpp:373
+msgid "Mouse aim"
+msgstr "Míření myší"
+
+#: ../../../src/GameStateConfig.cpp:386
+msgid "Show FPS"
+msgstr "Zobraz FPS"
+
+#: ../../../src/GameStateConfig.cpp:400
+msgid "Music Volume"
+msgstr "Hlasitost Hudby"
+
+#: ../../../src/GameStateConfig.cpp:413
+msgid "Sound Volume"
+msgstr "Hlasitost Zvuku"
+
+#: ../../../src/GameStateConfig.cpp:426
+msgid "Gamma"
+msgstr ""
+
+#: ../../../src/GameStateConfig.cpp:440
+msgid "Resolution"
+msgstr "Rozlišení"
+
+#: ../../../src/GameStateConfig.cpp:451
+msgid "Active Mods"
+msgstr "Aktivní mody"
+
+#: ../../../src/GameStateConfig.cpp:461
+msgid "Available Mods"
+msgstr "Mody k dispozici"
+
+#: ../../../src/GameStateConfig.cpp:477
+msgid "Joystick"
+msgstr ""
+
+#: ../../../src/GameStateConfig.cpp:489
+msgid "Language"
+msgstr "Jazyk"
+
+#: ../../../src/GameStateConfig.cpp:524 ../../../src/GameStateConfig.cpp:531
+#: ../../../src/GameStateConfig.cpp:538
+msgid "Disable for performance"
+msgstr "Zakážte pro rychlejší vykreslování"
+
+#: ../../../src/GameStateConfig.cpp:545
+msgid "Experimental"
+msgstr "Experimentální"
+
+#: ../../../src/GameStateConfig.cpp:565
+msgid "<< Disable"
+msgstr "<< Zakázat"
+
+#: ../../../src/GameStateConfig.cpp:573
+msgid "Enable >>"
+msgstr "Povolit >>"
+
+#: ../../../src/GameStateLoad.cpp:57 ../../../src/GameStateLoad.cpp:69
+msgid "Delete Save"
+msgstr "Vymazat uložené pozice"
+
+#: ../../../src/GameStateLoad.cpp:57
+msgid "Delete this save?"
+msgstr "Vymazat tuto pozici?"
+
+#: ../../../src/GameStateLoad.cpp:59
+msgid "Exit to Title"
+msgstr "Ukončit do menu"
+
+#: ../../../src/GameStateLoad.cpp:65
+msgid "Choose a Slot"
+msgstr "Vyber si pozici"
+
+#: ../../../src/GameStateLoad.cpp:476
+msgid "New Game"
+msgstr "Nová Hra"
+
+#: ../../../src/GameStateLoad.cpp:479 ../../../src/GameStateLoad.cpp:489
+msgid "Enable a story mod to continue"
+msgstr "Pro pokračování povol příběhový mod"
+
+#: ../../../src/GameStateLoad.cpp:485
+msgid "Load Game"
+msgstr "Nahrát Hru"
+
+#: ../../../src/GameStateLoad.cpp:539
+msgid "Entering game world..."
+msgstr "Vstupuji do herního světa..."
+
+#: ../../../src/GameStateLoad.cpp:541
+msgid "Loading saved game..."
+msgstr "Nahrávám uloženou pozici..."
+
+#: ../../../src/GameStateLoad.cpp:562
+#, c-format
+msgid "Level %d %s"
+msgstr ""
+
+#: ../../../src/GameStateLoad.cpp:586
+msgid "Empty Slot"
+msgstr "Volná pozice"
+
+#: ../../../src/GameStateNew.cpp:61
+msgid "Create"
+msgstr "Vytvořit"
+
+#: ../../../src/GameStateNew.cpp:158
+msgid "Choose a Portrait"
+msgstr "Zvol si Portrét"
+
+#: ../../../src/GameStateNew.cpp:160
+msgid "Choose a Name"
+msgstr "Zvol své Jméno"
+
+#: ../../../src/GameStateNew.cpp:162
+msgid "Permadeath?"
+msgstr "Pernamentní smrt?"
+
+#: ../../../src/GameStateNew.cpp:164
+msgid "Choose a Class"
+msgstr "Zvol své povolání"
+
+#: ../../../src/GameStatePlay.cpp:99
+msgid "Loading..."
+msgstr "Nahrávám..."
+
+#: ../../../src/GameStatePlay.cpp:216 ../../../src/GameStatePlay.cpp:217
+#: ../../../src/GameStatePlay.cpp:238 ../../../src/GameStatePlay.cpp:239
+#: ../../../src/MenuManager.cpp:431 ../../../src/MenuManager.cpp:432
+#: ../../../src/MenuManager.cpp:456 ../../../src/MenuManager.cpp:457
+#: ../../../src/MenuManager.cpp:635 ../../../src/MenuManager.cpp:636
+#: ../../../src/MenuManager.cpp:655 ../../../src/MenuManager.cpp:656
+msgid "Inventory is full."
+msgstr "Inventář je plný."
+
+#: ../../../src/GameStateTitle.cpp:40
+msgid "Play Game"
+msgstr "Hrát Hru"
+
+#: ../../../src/GameStateTitle.cpp:45
+msgid "Enable a core mod to continue"
+msgstr "Pro pokračování povol mod jádra"
+
+#: ../../../src/GameStateTitle.cpp:49
+msgid "Configuration"
+msgstr "Nastavení"
+
+#: ../../../src/GameStateTitle.cpp:54
+msgid "Exit Game"
+msgstr "Ukončit Hru"
+
+#: ../../../src/GameStateTitle.cpp:61
+msgid "Flare Alpha v0.18"
+msgstr ""
+
+#: ../../../src/InputState.cpp:60
+msgid "Accept"
+msgstr "Příjmout"
+
+#: ../../../src/InputState.cpp:61
+msgid "Up"
+msgstr "Nahoru"
+
+#: ../../../src/InputState.cpp:62
+msgid "Down"
+msgstr "Dolů"
+
+#: ../../../src/InputState.cpp:63
+msgid "Left"
+msgstr "Doleva"
+
+#: ../../../src/InputState.cpp:64
+msgid "Right"
+msgstr "Doprava"
+
+#: ../../../src/InputState.cpp:65
+msgid "Bar1"
+msgstr ""
+
+#: ../../../src/InputState.cpp:66
+msgid "Bar2"
+msgstr ""
+
+#: ../../../src/InputState.cpp:67
+msgid "Bar3"
+msgstr ""
+
+#: ../../../src/InputState.cpp:68
+msgid "Bar4"
+msgstr ""
+
+#: ../../../src/InputState.cpp:69
+msgid "Bar5"
+msgstr ""
+
+#: ../../../src/InputState.cpp:70
+msgid "Bar6"
+msgstr ""
+
+#: ../../../src/InputState.cpp:71
+msgid "Bar7"
+msgstr ""
+
+#: ../../../src/InputState.cpp:72
+msgid "Bar8"
+msgstr ""
+
+#: ../../../src/InputState.cpp:73
+msgid "Bar9"
+msgstr ""
+
+#: ../../../src/InputState.cpp:74
+msgid "Bar0"
+msgstr ""
+
+#: ../../../src/InputState.cpp:75 ../../../src/MenuCharacter.cpp:219
+msgid "Character"
+msgstr "Postava"
+
+#: ../../../src/InputState.cpp:76 ../../../src/MenuInventory.cpp:172
+#: ../../../src/MenuVendor.cpp:51
+msgid "Inventory"
+msgstr "Inventář"
+
+#: ../../../src/InputState.cpp:77 ../../../src/MenuPowers.cpp:173
+msgid "Powers"
+msgstr "Schopnosti"
+
+#: ../../../src/InputState.cpp:78 ../../../src/MenuLog.cpp:158
+msgid "Log"
+msgstr "Deník"
+
+#: ../../../src/InputState.cpp:79
+msgid "Main1"
+msgstr ""
+
+#: ../../../src/InputState.cpp:80
+msgid "Main2"
+msgstr ""
+
+#: ../../../src/InputState.cpp:81
+msgid "Ctrl"
+msgstr ""
+
+#: ../../../src/InputState.cpp:82
+msgid "Shift"
+msgstr ""
+
+#: ../../../src/InputState.cpp:83
+msgid "Delete"
+msgstr ""
+
+#: ../../../src/InputState.cpp:85
+msgid "lmb"
+msgstr "L. tl. myši"
+
+#: ../../../src/InputState.cpp:86
+msgid "mmb"
+msgstr "Pros. tl. myši"
+
+#: ../../../src/InputState.cpp:87
+msgid "rmb"
+msgstr "P. tl. myši."
+
+#: ../../../src/InputState.cpp:88
+msgid "wheel up"
+msgstr "kolečko nahoru"
+
+#: ../../../src/InputState.cpp:89
+msgid "wheel down"
+msgstr "kolečko dolů"
+
+#: ../../../src/InputState.cpp:90
+msgid "mbx1"
+msgstr ""
+
+#: ../../../src/InputState.cpp:91
+msgid "mbx2"
+msgstr ""
+
+#: ../../../src/ItemManager.cpp:476
+#, c-format
+msgid "Level %d"
+msgstr ""
+
+#: ../../../src/ItemManager.cpp:487
+#, c-format
+msgid "Melee damage: %d-%d"
+msgstr "Poškození zblízka: %d-%d"
+
+#: ../../../src/ItemManager.cpp:489
+#, c-format
+msgid "Melee damage: %d"
+msgstr "Poškození zblízka: %d-%d"
+
+#: ../../../src/ItemManager.cpp:493
+#, c-format
+msgid "Ranged damage: %d-%d"
+msgstr "Střelné poškození: %d-%d"
+
+#: ../../../src/ItemManager.cpp:495
+#, c-format
+msgid "Ranged damage: %d"
+msgstr "Střelné poškození: %d"
+
+#: ../../../src/ItemManager.cpp:499
+#, c-format
+msgid "Mental damage: %d-%d"
+msgstr "Psychické poškození: %d-%d"
+
+#: ../../../src/ItemManager.cpp:501
+#, c-format
+msgid "Mental damage: %d"
+msgstr "Psychické poškození: %d"
+
+#: ../../../src/ItemManager.cpp:507
+#, c-format
+msgid "Absorb: %d-%d"
+msgstr "Absorbuje: %d-%d"
+
+#: ../../../src/ItemManager.cpp:509
+#, c-format
+msgid "Absorb: %d"
+msgstr "Absorbuje: %d"
+
+#: ../../../src/ItemManager.cpp:517
+#, c-format
+msgid "%d\\% Speed"
+msgstr "%d\\% Rychlost"
+
+#: ../../../src/ItemManager.cpp:522 ../../../src/ItemManager.cpp:614
+#, c-format
+msgid "Increases %s by %d"
+msgstr "Zvyšuje %s o %d"
+
+#: ../../../src/ItemManager.cpp:529 ../../../src/ItemManager.cpp:617
+#, c-format
+msgid "Decreases %s by %d"
+msgstr "Snižuje %s o %d"
+
+#: ../../../src/ItemManager.cpp:550 ../../../src/MenuPowers.cpp:541
+#: ../../../src/MenuPowers.cpp:543
+#, c-format
+msgid "Requires Physical %d"
+msgstr "Potřebuje Fyzickou sílu %d"
+
+#: ../../../src/ItemManager.cpp:555 ../../../src/MenuPowers.cpp:546
+#: ../../../src/MenuPowers.cpp:548
+#, c-format
+msgid "Requires Mental %d"
+msgstr "Potřebuje Mentální sílu %d"
+
+#: ../../../src/ItemManager.cpp:560 ../../../src/MenuPowers.cpp:531
+#: ../../../src/MenuPowers.cpp:533
+#, c-format
+msgid "Requires Offense %d"
+msgstr "Potřebuje Útok %d"
+
+#: ../../../src/ItemManager.cpp:565 ../../../src/MenuPowers.cpp:536
+#: ../../../src/MenuPowers.cpp:538
+#, c-format
+msgid "Requires Defense %d"
+msgstr "Potřebuje Obranu %d"
+
+#: ../../../src/ItemManager.cpp:583 ../../../src/ItemManager.cpp:591
+#, c-format
+msgid "Buy Price: %d %s"
+msgstr "Nákupní Cena: %d %s"
+
+#: ../../../src/ItemManager.cpp:585 ../../../src/ItemManager.cpp:593
+#, c-format
+msgid "Buy Price: %d %s each"
+msgstr "Nákupní Cena: %d %s každý"
+
+#: ../../../src/ItemManager.cpp:598
+#, c-format
+msgid "Sell Price: %d %s"
+msgstr "Prodejní Cena: %d %s"
+
+#: ../../../src/ItemManager.cpp:600
+#, c-format
+msgid "Sell Price: %d %s each"
+msgstr "Prodejní Cena: %d %s každý"
+
+#: ../../../src/ItemManager.cpp:610
+msgid "Set: "
+msgstr "Nastavit: "
+
+#: ../../../src/ItemManager.cpp:614 ../../../src/ItemManager.cpp:617
+#, c-format
+msgid "%d items: "
+msgstr "%d předměty: "
+
+#: ../../../src/LootManager.cpp:183 ../../../src/MenuInventory.cpp:176
+#, c-format
+msgid "%d %s"
+msgstr ""
+
+#: ../../../src/MapRenderer.cpp:1225
+msgid "Unknown destination"
+msgstr "Neznámá lokace"
+
+#: ../../../src/MenuActionBar.cpp:401
+msgid "Character Menu (C)"
+msgstr "Postava (C)"
+
+#: ../../../src/MenuActionBar.cpp:405
+msgid "Inventory Menu (I)"
+msgstr "Inventář (I)"
+
+#: ../../../src/MenuActionBar.cpp:409
+msgid "Power Menu (P)"
+msgstr "Schopnosti (P)"
+
+#: ../../../src/MenuActionBar.cpp:413
+msgid "Log Menu (L)"
+msgstr "Deník (L)"
+
+#: ../../../src/MenuCharacter.cpp:232
+msgid "Name"
+msgstr "Jméno"
+
+#: ../../../src/MenuCharacter.cpp:233
+msgid "Level"
+msgstr ""
+
+#: ../../../src/MenuCharacter.cpp:234
+msgid "Physical"
+msgstr "Fyzická Sílá"
+
+#: ../../../src/MenuCharacter.cpp:235
+msgid "Mental"
+msgstr "Mentální Síla"
+
+#: ../../../src/MenuCharacter.cpp:236
+msgid "Offense"
+msgstr "Útok"
+
+#: ../../../src/MenuCharacter.cpp:237
+msgid "Defense"
+msgstr "Obrana"
+
+#: ../../../src/MenuCharacter.cpp:295
+msgid "points remaining"
+msgstr "zbývající body"
+
+#: ../../../src/MenuCharacter.cpp:305
+msgid "Max HP:"
+msgstr ""
+
+#: ../../../src/MenuCharacter.cpp:306
+#, c-format
+msgid "Each point of Physical grants +%d HP. Each level grants +%d HP"
+msgstr "Každý bod Fyzické Síly přidá +%d HP. Každý level se zvýší +%d HP"
+
+#: ../../../src/MenuCharacter.cpp:311
+msgid "HP Regen:"
+msgstr "HP Regenerace"
+
+#: ../../../src/MenuCharacter.cpp:312
+#, c-format
+msgid "Ticks of HP regen per minute. Each point of Physical grants +%d HP regen. Each level grants +%d HP regen"
+msgstr "Regenerace HP za minutu. Každý bod Fyzické síly zvýší +%d HP regeneraci. Každý level se zvýší +%d HP regenerace."
+
+#: ../../../src/MenuCharacter.cpp:317
+msgid "Max MP:"
+msgstr ""
+
+#: ../../../src/MenuCharacter.cpp:318
+#, c-format
+msgid "Each point of Mental grants +%d MP. Each level grants +%d MP"
+msgstr "Každý bod Mentální síly přidá +%d MP. Každý level se zvýší +%d MP"
+
+#: ../../../src/MenuCharacter.cpp:323
+msgid "MP Regen:"
+msgstr "MP Regenerace:"
+
+#: ../../../src/MenuCharacter.cpp:324
+#, c-format
+msgid "Ticks of MP regen per minute. Each point of Mental grants +%d MP regen. Each level grants +%d MP regen"
+msgstr "Regenerace MP za minutu. Každý bod Mentální síly zvýší +%d HP regeneraci. Každý level se zvýši +%d MP regenerace."
+
+#: ../../../src/MenuCharacter.cpp:329
+msgid "Accuracy:"
+msgstr "Přesnost:"
+
+#: ../../../src/MenuCharacter.cpp:330
+#, c-format
+msgid "Each point of Offense grants +%d accuracy. Each level grants +%d accuracy"
+msgstr "Každý bod Útoku přidá +%d k přesnosti. Každý level zvýší  +%d přesnosti"
+
+#: ../../../src/MenuCharacter.cpp:335
+msgid "Avoidance:"
+msgstr "Vyhýbání se:"
+
+#: ../../../src/MenuCharacter.cpp:336
+#, c-format
+msgid "Each point of Defense grants +%d avoidance. Each level grants +%d avoidance"
+msgstr "Každý bod Obrany zvýší schopnost vyhýbání se +%d. Každý level zvýší schopnost vyhýbání se +%d."
+
+#: ../../../src/MenuCharacter.cpp:341
+msgid "Melee Damage:"
+msgstr "Poškození chladnými zbraněmi:"
+
+#: ../../../src/MenuCharacter.cpp:351
+msgid "Ranged Damage:"
+msgstr "Poškození střelnými zbraněmi:"
+
+#: ../../../src/MenuCharacter.cpp:361
+msgid "Mental Damage:"
+msgstr "Mentální poškození:"
+
+#: ../../../src/MenuCharacter.cpp:371
+msgid "Crit:"
+msgstr ""
+
+#: ../../../src/MenuCharacter.cpp:377
+msgid "Absorb:"
+msgstr "Absorbovat:"
+
+#: ../../../src/MenuCharacter.cpp:387
+msgid "Poise: "
+msgstr ""
+
+#: ../../../src/MenuCharacter.cpp:388
+msgid "Reduces your chance of stumbling when hit"
+msgstr "Snižuje tvou šanci ochromení při zásahu"
+
+#: ../../../src/MenuCharacter.cpp:393 ../../../src/MenuCharacter.cpp:399
+msgid "Bonus"
+msgstr ""
+
+#: ../../../src/MenuCharacter.cpp:394
+msgid "Increases the XP gained per kill"
+msgstr "Zvyšuje XP získane zabitím"
+
+#: ../../../src/MenuCharacter.cpp:400
+#, c-format
+msgid "Increases the %s found per drop"
+msgstr "Zvyšuje šanci nalezení %s"
+
+#: ../../../src/MenuCharacter.cpp:405
+msgid "Bonus Item Find: "
+msgstr ""
+
+#: ../../../src/MenuCharacter.cpp:406
+msgid "Increases the chance that an enemy will drop an item when killed"
+msgstr "Zvyšuje šanci, že nepřítel bude po smrti u sebe mít předmět"
+
+#: ../../../src/MenuCharacter.cpp:411
+msgid "Stealth: "
+msgstr ""
+
+#: ../../../src/MenuCharacter.cpp:412
+msgid "Increases your ability to move undetected"
+msgstr "Zvyšuje schopnost pohybovat se nepozorovaně."
+
+#: ../../../src/MenuCharacter.cpp:430
+#, c-format
+msgid "XP: %d"
+msgstr ""
+
+#: ../../../src/MenuCharacter.cpp:432
+#, c-format
+msgid "Next: %d"
+msgstr "Další: %d"
+
+#: ../../../src/MenuCharacter.cpp:436
+msgid "Physical (P) increases melee weapon proficiency and total HP."
+msgstr "Fyzická Síla (P) zvyšuje účinnost chladných zbraní a maximální HP."
+
+#: ../../../src/MenuCharacter.cpp:437 ../../../src/MenuCharacter.cpp:441
+#: ../../../src/MenuCharacter.cpp:445 ../../../src/MenuCharacter.cpp:449
+#, c-format
+msgid "base (%d), bonus (%d)"
+msgstr "základní (%d), bonus (%d)"
+
+#: ../../../src/MenuCharacter.cpp:440
+msgid "Mental (M) increases mental weapon proficiency and total MP."
+msgstr "Mentální síla (M) zvyšuje účinnost mentální zbraní a maximální MP."
+
+#: ../../../src/MenuCharacter.cpp:444
+msgid "Offense (O) increases ranged weapon proficiency and accuracy."
+msgstr "Útok (O) zvyšuje účinnost a přesnost střelných zbrnaí."
+
+#: ../../../src/MenuCharacter.cpp:448
+msgid "Defense (D) increases armor proficiency and avoidance."
+msgstr "Obrana (D) zvyšuje účinnost zbroje a šanci úniku."
+
+#: ../../../src/MenuEnemy.cpp:138
+msgid "Dead"
+msgstr "Mrtvý"
+
+#: ../../../src/MenuEnemy.cpp:144 ../../../src/MenuEnemy.cpp:146
+#, c-format
+msgid "%s level %d"
+msgstr ""
+
+#: ../../../src/MenuExit.cpp:31
+msgid "Exit"
+msgstr "Konec"
+
+#: ../../../src/MenuExit.cpp:58
+msgid "Save and exit to title?"
+msgstr "Uložit a ukončit do menu?"
+
+#: ../../../src/MenuInventory.cpp:210
+msgid "Use SHIFT to move only one item."
+msgstr "Použíjte SHIFT k přesunu pouze jediné věci"
+
+#: ../../../src/MenuInventory.cpp:211
+msgid "CTRL-click a carried item to sell it."
+msgstr "CTRL-kliknutí na předmět v inventáři k jeho prodání."
+
+#: ../../../src/MenuInventory.cpp:415
+msgid "This item can only be used from the action bar."
+msgstr "Tento předmět může být použit pouze z akčního menu"
+
+#: ../../../src/MenuLog.cpp:79
+msgid "Notes"
+msgstr "Poznámky"
+
+#: ../../../src/MenuLog.cpp:80
+msgid "Quests"
+msgstr "Úkoly"
+
+#: ../../../src/MenuManager.cpp:253
+#, c-format
+msgid "XP: %d/%d"
+msgstr ""
+
+#: ../../../src/MenuManager.cpp:426 ../../../src/MenuManager.cpp:427
+#: ../../../src/MenuManager.cpp:630 ../../../src/MenuManager.cpp:631
+msgid "Not enough money."
+msgstr "Nedostatek peněz."
+
+#: ../../../src/MenuNPCActions.cpp:76
+msgid "Trade"
+msgstr "Obchodovat"
+
+#: ../../../src/MenuPowers.cpp:460
+msgid "Unspent skill points:"
+msgstr "Zbývající body schopnosti"
+
+#: ../../../src/MenuPowers.cpp:502
+msgid "Requires a physical weapon"
+msgstr "Potřebuje fyzickou zbraň"
+
+#: ../../../src/MenuPowers.cpp:504
+msgid "Requires a mental weapon"
+msgstr "Potřebuje psychickou zbraň"
+
+#: ../../../src/MenuPowers.cpp:506
+msgid "Requires an offense weapon"
+msgstr "Potřebuješ střelnou zbraň"
+
+#: ../../../src/MenuPowers.cpp:511 ../../../src/MenuPowers.cpp:513
+#, c-format
+msgid "Requires Physical Offense %d"
+msgstr ""
+
+#: ../../../src/MenuPowers.cpp:516 ../../../src/MenuPowers.cpp:518
+#, c-format
+msgid "Requires Physical Defense %d"
+msgstr ""
+
+#: ../../../src/MenuPowers.cpp:521 ../../../src/MenuPowers.cpp:523
+#, c-format
+msgid "Requires Mental Offense %d"
+msgstr ""
+
+#: ../../../src/MenuPowers.cpp:526 ../../../src/MenuPowers.cpp:528
+#, c-format
+msgid "Requires Mental Defense %d"
+msgstr ""
+
+#: ../../../src/MenuPowers.cpp:553 ../../../src/MenuPowers.cpp:556
+#, c-format
+msgid "Requires Level %d"
+msgstr "Potřebuje Level %d"
+
+#: ../../../src/MenuPowers.cpp:563 ../../../src/MenuPowers.cpp:568
+#, c-format
+msgid "Requires %d Skill Point"
+msgstr "Potřebuje %d Bodu Schopnosti"
+
+#: ../../../src/MenuPowers.cpp:576
+msgid "Click to Unlock"
+msgstr "Kliknutím odemknete"
+
+#: ../../../src/MenuPowers.cpp:582 ../../../src/MenuPowers.cpp:585
+#, c-format
+msgid "Requires Power: %s"
+msgstr "Potřebuje Schopnost: %s"
+
+#: ../../../src/MenuPowers.cpp:590
+#, c-format
+msgid "Costs %d MP"
+msgstr "Stojí %d MP"
+
+#: ../../../src/MenuPowers.cpp:594
+#, c-format
+msgid "Costs %d HP"
+msgstr "Stojí %d HP"
+
+#: ../../../src/MenuPowers.cpp:598
+#, c-format
+msgid "Cooldown: %d seconds"
+msgstr "Obnovení: %d sekund"
+
+#: ../../../src/MenuStash.cpp:125
+msgid "Shared Stash"
+msgstr "Sdílená Skrýš"
+
+#: ../../../src/MenuVendor.cpp:52
+msgid "Buyback"
+msgstr "Koupit Zpět"
+
+#: ../../../src/MenuVendor.cpp:155
+msgid "Vendor"
+msgstr "Obchodník"
+
+#: ../../../src/PowerManager.cpp:661
+#, c-format
+msgid "+%d Shield"
+msgstr "%d Štít"
+
+#: ../../../src/PowerManager.cpp:903
+msgid "You are already transformed, untransform first."
+msgstr "Už jsi transformovaný, nejdřív se transformuj zpět."
+
+#: ../../../src/Settings.cpp:500
+msgid "Adventurer"
+msgstr "Dobrodruh"
+
