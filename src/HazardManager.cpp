@@ -52,8 +52,10 @@ void HazardManager::logic() {
 		h[i]->logic();
 
 		// remove all hazards that need to die immediately (e.g. exit the map)
-		if (h[i]->remove_now)
+		if (h[i]->remove_now) {
 			expire(i);
+			continue;
+		}
 
 
 		// if a moving hazard hits a wall, check for an after-effect
