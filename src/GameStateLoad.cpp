@@ -445,8 +445,6 @@ void GameStateLoad::logic() {
 				perror("Error deleting save from path");
 			stats[selected_slot] = StatBlock();
 			readGameSlot(selected_slot);
-			loadPreview(selected_slot);
-			loadPortrait(selected_slot);
 
 			updateButtons();
 
