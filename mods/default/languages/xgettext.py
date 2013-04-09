@@ -41,7 +41,7 @@ def extract(filename):
         'msg', 'him', 'her', 'you', 'name', 'title', 'tooltip',
         'power_desc', 'quest_text', 'description', 'item_type',
         'slot_name', 'tab_title', 'resist', 'currency_name',
-        'bonus', 'flavor', 'topic',
+        'bonus', 'flavor', 'topic', 'option'
     ]
     plain_text = [
         'msg', 'him', 'her', 'you', 'name', 'title', 'tooltip',
@@ -64,6 +64,9 @@ def extract(filename):
                 elif len(values) == 3:
                    # bonus={set_level},{stat},{value}
                    set_level, stat, value = values
+                elif len(values) == 4:
+                   # option=base,head,portrait,name
+                   stat = values[-1]
                 comment = filename + ':' + str(i)
                 comments.append(comment)
                 keys.append(stat.rstrip())
@@ -109,6 +112,8 @@ extract('../powers/powers.txt')
 extract('../engine/elements.txt')
 extract('../engine/loot.txt')
 extract('../engine/classes.txt')
+extract('../engine/hero_options.txt')
+extract('../engine/titles.txt')
 
 for folder in ['enemies', 'maps', 'quests', 'npcs']:
     target = os.path.join('..', folder)

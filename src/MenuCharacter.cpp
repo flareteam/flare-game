@@ -501,12 +501,11 @@ void MenuCharacter::render() {
 	SDL_Rect dest;
 
 	// background
+	dest = window_area;
 	src.x = 0;
 	src.y = 0;
-	dest.x = window_area.x;
-	dest.y = window_area.y;
-	src.w = dest.w = 320;
-	src.h = dest.h = 416;
+	src.w = window_area.w;
+	src.h = window_area.h;
 	SDL_BlitSurface(background, &src, screen, &dest);
 
 	// close button
