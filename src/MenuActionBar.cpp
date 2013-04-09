@@ -286,14 +286,11 @@ void MenuActionBar::render() {
 	SDL_Rect dest;
 	SDL_Rect trimsrc;
 
-	dest.x = window_area.x;
-	dest.y = window_area.y;
-	dest.w = window_area.w;
-	dest.h = window_area.h;
+	dest = window_area;
 	trimsrc.x = 0;
 	trimsrc.y = 0;
-	trimsrc.w = 640;
-	trimsrc.h = 35;
+	trimsrc.w = window_area.w;
+	trimsrc.h = window_area.h;
 
 	SDL_BlitSurface(background, &trimsrc, screen, &dest);
 
