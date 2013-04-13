@@ -713,6 +713,7 @@ void MenuManager::logic() {
 
 				// if a non-consumable item power is unequipped, disable that slot
 				if (!inv->isItemEquipped(item_id)) {
+					act->slot_item_count[i] = 0;
 					act->slot_enabled[i] = false;
 				}
 			}
