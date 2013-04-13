@@ -18,9 +18,7 @@ EndIf(NOT IS_ABSOLUTE "${DATADIR}")
 install(DIRECTORY
   "${CMAKE_CURRENT_SOURCE_DIR}/mods"
   DESTINATION ${DATADIR})
-install(FILES
-  "${CMAKE_CURRENT_BINARY_DIR}/flare-game.desktop"
-  DESTINATION ${CMAKE_INSTALL_PREFIX}/share/applications)
+# TODO: Have a logo for the flare-game:
 #install(FILES
 #  "${CMAKE_CURRENT_SOURCE_DIR}/distribution/flare_logo.svg"
 #  DESTINATION ${CMAKE_INSTALL_PREFIX}/share/icons/hicolor/scalable/apps
