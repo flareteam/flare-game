@@ -284,7 +284,10 @@ void GameStatePlay::checkTeleport() {
 			// return to title (permadeath) OR auto-save
 			if (pc->stats.permadeath && pc->stats.corpse) {
 				stringstream filename;
-				filename << PATH_USER << "save" << game_slot << ".txt";
+				filename << PATH_USER;
+				if (GAME_PREFIX.length() > 0)
+					filename << GAME_PREFIX << "_";
+				filename << "save" << game_slot << ".txt";
 				if(remove(filename.str().c_str()) != 0)
 					perror("Error deleting save from path");
 
