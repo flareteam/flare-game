@@ -247,19 +247,19 @@ location=12,35,1,1
 
 [event]
 # to Mineshaft Longsword
-type=teleport
+type=custom
 location=19,11,2,1
 intermap=mineshaft_longsword.txt,44,61
 
 [event]
 # to River Road
-type=teleport
+type=custom
 location=43,62,4,1
 intermap=river_road.txt,32,4
 
 [event]
 # to Frontier Plains
-type=teleport
+type=custom
 location=1,12,1,2
 intermap=frontier_plains.txt,248,186
 
@@ -289,7 +289,7 @@ requires_status=waypoint_frontier_outpost
 
 [event]
 # Warp Zone
-type=teleport
+type=custom
 location=33,9,2,2
 hotspot=location
 intermap=warp_zone.txt,29,44

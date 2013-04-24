@@ -242,17 +242,17 @@
   <object x="736" y="1280"/>
  </objectgroup>
  <objectgroup name="event" width="64" height="64">
-  <object name="to Mineshaft Longsword" type="teleport" x="608" y="352" width="64" height="32">
+  <object name="to Mineshaft Longsword" type="custom" x="608" y="352" width="64" height="32">
    <properties>
     <property name="intermap" value="mineshaft_longsword.txt,44,61"/>
    </properties>
   </object>
-  <object name="to River Road" type="teleport" x="1376" y="1984" width="128" height="32">
+  <object name="to River Road" type="custom" x="1376" y="1984" width="128" height="32">
    <properties>
     <property name="intermap" value="river_road.txt,32,4"/>
    </properties>
   </object>
-  <object name="to Frontier Plains" type="teleport" x="32" y="384" width="32" height="64">
+  <object name="to Frontier Plains" type="custom" x="32" y="384" width="32" height="64">
    <properties>
     <property name="intermap" value="frontier_plains.txt,248,186"/>
    </properties>
@@ -279,7 +279,7 @@
     <property name="requires_status" value="waypoint_frontier_outpost"/>
    </properties>
   </object>
-  <object name="Warp Zone" type="teleport" x="1056" y="288" width="64" height="64">
+  <object name="Warp Zone" type="custom" x="1056" y="288" width="64" height="64">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="intermap" value="warp_zone.txt,29,44"/>

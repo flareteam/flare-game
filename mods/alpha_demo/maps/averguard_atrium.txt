@@ -210,35 +210,35 @@ data=
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
 
 [event]
-type=teleport
+type=custom
 location=18,10,1,2
 hotspot=19,10,1,2
 intermap=goblin_warrens.txt,2,9
 soundfx=soundfx/door_open.ogg,0,0
 
 [event]
-type=teleport
+type=custom
 location=8,1,2,1
 hotspot=8,1,2,1
 intermap=averguard_temple.txt,15,126
 soundfx=soundfx/door_open.ogg,0,0
 
 [event]
-type=teleport
+type=custom
 location=16,51,1,2
 hotspot=17,51,1,2
 intermap=averguard_prison.txt,2,55
 soundfx=soundfx/door_open.ogg,0,0
 
 [event]
-type=teleport
+type=custom
 location=8,58,2,1
 hotspot=8,59,2,1
 intermap=averguard_academy.txt,62,3
 soundfx=soundfx/door_open.ogg,0,0
 
 [event]
-type=teleport
+type=custom
 location=1,51,1,2
 hotspot=1,51,1,2
 intermap=averguard_complex.txt,98,70
@@ -251,7 +251,7 @@ mapmod=background,8,50,265
 requires_status=waypoint_averguard_atrium
 
 [event]
-type=teleport
+type=custom
 location=8,49,2,2
 hotspot=location
 intermap=warp_zone.txt,30,32

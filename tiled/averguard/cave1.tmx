@@ -328,12 +328,12 @@
 </data>
  </layer>
  <objectgroup name="event" width="100" height="100">
-  <object name="exit to goblin warrens" type="teleport" x="64" y="384" width="32" height="64">
+  <object name="exit to goblin warrens" type="custom" x="64" y="384" width="32" height="64">
    <properties>
     <property name="intermap" value="goblin_warrens.txt,51,14"/>
    </properties>
   </object>
-  <object name="exit to lost mines level 1" type="teleport" x="480" y="2176" width="64" height="32">
+  <object name="exit to lost mines level 1" type="custom" x="480" y="2176" width="64" height="32">
    <properties>
     <property name="intermap" value="lost_mines1.txt,53,5"/>
    </properties>
