@@ -355,92 +355,92 @@
 </data>
  </layer>
  <objectgroup name="event" width="104" height="104">
-  <object name="to Frontier Plains" type="teleport" x="1536" y="3232" width="64" height="32">
+  <object name="to Frontier Plains" type="custom" x="1536" y="3232" width="64" height="32">
    <properties>
     <property name="hotspot" value="48,102,2,1"/>
     <property name="intermap" value="frontier_plains.txt,118,138"/>
     <property name="soundfx" value="soundfx/door_open.ogg,0,0"/>
    </properties>
   </object>
-  <object type="teleport" x="320" y="480" width="64" height="32">
+  <object type="custom" x="320" y="480" width="64" height="32">
    <properties>
     <property name="intramap" value="11,11"/>
     <property name="soundfx" value="soundfx/powers/teleport.ogg"/>
    </properties>
   </object>
-  <object type="teleport" x="320" y="384" width="64" height="32">
+  <object type="custom" x="320" y="384" width="64" height="32">
    <properties>
     <property name="intramap" value="10,16"/>
     <property name="soundfx" value="soundfx/powers/teleport.ogg"/>
    </properties>
   </object>
-  <object type="teleport" x="416" y="288" width="32" height="64">
+  <object type="custom" x="416" y="288" width="32" height="64">
    <properties>
     <property name="intramap" value="21,12"/>
     <property name="soundfx" value="soundfx/powers/teleport.ogg"/>
    </properties>
   </object>
-  <object type="teleport" x="640" y="352" width="32" height="64">
+  <object type="custom" x="640" y="352" width="32" height="64">
    <properties>
     <property name="intramap" value="12,9"/>
     <property name="soundfx" value="soundfx/powers/teleport.ogg"/>
    </properties>
   </object>
-  <object type="teleport" x="864" y="352" width="32" height="64">
+  <object type="custom" x="864" y="352" width="32" height="64">
    <properties>
     <property name="intramap" value="34,15"/>
     <property name="soundfx" value="soundfx/powers/teleport.ogg"/>
    </properties>
   </object>
-  <object type="teleport" x="1056" y="448" width="32" height="64">
+  <object type="custom" x="1056" y="448" width="32" height="64">
    <properties>
     <property name="intramap" value="26,11"/>
     <property name="soundfx" value="soundfx/powers/teleport.ogg"/>
    </properties>
   </object>
-  <object type="teleport" x="1472" y="448" width="32" height="64">
+  <object type="custom" x="1472" y="448" width="32" height="64">
    <properties>
     <property name="intramap" value="52,15"/>
     <property name="soundfx" value="soundfx/powers/teleport.ogg"/>
    </properties>
   </object>
-  <object type="teleport" x="1728" y="544" width="64" height="32">
+  <object type="custom" x="1728" y="544" width="64" height="32">
    <properties>
     <property name="intramap" value="54,21"/>
     <property name="soundfx" value="soundfx/powers/teleport.ogg"/>
    </properties>
   </object>
-  <object type="teleport" x="1728" y="640" width="64" height="32">
+  <object type="custom" x="1728" y="640" width="64" height="32">
    <properties>
     <property name="intramap" value="55,16"/>
     <property name="soundfx" value="soundfx/powers/teleport.ogg"/>
    </properties>
   </object>
-  <object type="teleport" x="1728" y="1024" width="32" height="64">
+  <object type="custom" x="1728" y="1024" width="32" height="64">
    <properties>
     <property name="intramap" value="47,31"/>
     <property name="soundfx" value="soundfx/powers/teleport.ogg"/>
    </properties>
   </object>
-  <object type="teleport" x="1536" y="992" width="32" height="64">
+  <object type="custom" x="1536" y="992" width="32" height="64">
    <properties>
     <property name="intramap" value="55,31"/>
     <property name="soundfx" value="soundfx/powers/teleport.ogg"/>
    </properties>
   </object>
-  <object type="teleport" x="1184" y="1248" width="32" height="64">
+  <object type="custom" x="1184" y="1248" width="32" height="64">
    <properties>
     <property name="intramap" value="31,39"/>
     <property name="soundfx" value="soundfx/powers/teleport.ogg"/>
    </properties>
   </object>
-  <object type="teleport" x="1024" y="1248" width="32" height="64">
+  <object type="custom" x="1024" y="1248" width="32" height="64">
    <properties>
     <property name="intramap" value="38,40"/>
     <property name="soundfx" value="soundfx/powers/teleport.ogg"/>
    </properties>
   </object>
-  <object type="teleport" x="1632" y="448" width="32" height="64">
+  <object type="custom" x="1632" y="448" width="32" height="64">
    <properties>
     <property name="intramap" value="45,14"/>
     <property name="soundfx" value="soundfx/powers/teleport.ogg"/>
@@ -607,7 +607,7 @@
     <property name="set_status" value="waypoint_ancient_temple"/>
    </properties>
   </object>
-  <object name="Waypoint" type="teleport" x="1408" y="2976" width="64" height="64">
+  <object name="Waypoint" type="custom" x="1408" y="2976" width="64" height="64">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="intermap" value="warp_zone.txt,22,44"/>

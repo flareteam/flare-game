@@ -342,27 +342,27 @@
 </data>
  </layer>
  <objectgroup name="event" width="256" height="100">
-  <object name="to Goblin Warrens" type="teleport" x="2944" y="1696" width="32" height="32">
+  <object name="to Goblin Warrens" type="custom" x="2944" y="1696" width="32" height="32">
    <properties>
     <property name="intermap" value="goblin_warrens.txt,29,79"/>
    </properties>
   </object>
-  <object name="to Goblin Warrens" type="teleport" x="2944" y="1568" width="32" height="32">
+  <object name="to Goblin Warrens" type="custom" x="2944" y="1568" width="32" height="32">
    <properties>
     <property name="intermap" value="goblin_warrens.txt,29,77"/>
    </properties>
   </object>
-  <object name="to Frontier Plains" type="teleport" x="832" y="3136" width="64" height="32">
+  <object name="to Frontier Plains" type="custom" x="832" y="3136" width="64" height="32">
    <properties>
     <property name="intermap" value="frontier_plains.txt,175,61"/>
    </properties>
   </object>
-  <object name="to Valley Grove" type="teleport" x="8128" y="256" width="32" height="128">
+  <object name="to Valley Grove" type="custom" x="8128" y="256" width="32" height="128">
    <properties>
     <property name="intermap" value="valley_grove.txt,4,64"/>
    </properties>
   </object>
-  <object name="to Cave of Living Bones" type="teleport" x="6784" y="960" width="64" height="32">
+  <object name="to Cave of Living Bones" type="custom" x="6784" y="960" width="64" height="32">
    <properties>
     <property name="intermap" value="cave_of_living_bones1.txt,53,94"/>
    </properties>
@@ -376,7 +376,7 @@
     <property name="tooltip" value="Supplies"/>
    </properties>
   </object>
-  <object name="Warp Zone" type="teleport" x="3232" y="1472" width="64" height="64">
+  <object name="Warp Zone" type="custom" x="3232" y="1472" width="64" height="64">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="intermap" value="warp_zone.txt,29,36"/>

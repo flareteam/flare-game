@@ -264,17 +264,17 @@
 </data>
  </layer>
  <objectgroup name="event" width="80" height="80">
-  <object name="to Cave 1" type="teleport" x="1152" y="2400" width="96" height="32">
+  <object name="to Cave 1" type="custom" x="1152" y="2400" width="96" height="32">
    <properties>
     <property name="intermap" value="cave_of_living_bones1.txt,33,3"/>
    </properties>
   </object>
-  <object name="to Cave 3" type="teleport" x="64" y="1152" width="32" height="128">
+  <object name="to Cave 3" type="custom" x="64" y="1152" width="32" height="128">
    <properties>
     <property name="intermap" value="cave_of_living_bones3.txt,47,19"/>
    </properties>
   </object>
-  <object name="to Atrium" type="teleport" x="1024" y="96" width="32" height="32">
+  <object name="to Atrium" type="custom" x="1024" y="96" width="32" height="32">
    <properties>
     <property name="intermap" value="brothers_lair_atrium.txt,15,46"/>
    </properties>

@@ -180,7 +180,7 @@ data=
 
 [event]
 # to Ice Hall
-type=teleport
+type=custom
 location=2,13,1,2
 hotspot=2,13,1,2
 intermap=brothers_lair_ice_hall.txt,47,71
@@ -188,13 +188,13 @@ soundfx=soundfx/door_open.ogg,0,0
 
 [event]
 # to Sacrifice Room
-type=teleport
+type=custom
 location=14,15,2,1
 intermap=brothers_lair_sacrifice_room.txt,9,41
 
 [event]
 # to Cave 2
-type=teleport
+type=custom
 location=14,47,2,1
 hotspot=14,48,2,1
 intermap=cave_of_living_bones2.txt,32,4
@@ -202,7 +202,7 @@ soundfx=soundfx/door_open.ogg,0,0
 
 [event]
 # to Fire Hall
-type=teleport
+type=custom
 location=13,1,2,1
 hotspot=13,1,2,1
 intermap=brothers_lair_fire_hall.txt,25,77
@@ -210,7 +210,7 @@ soundfx=soundfx/door_open.ogg,0,0
 
 [event]
 # to Wind Hall
-type=teleport
+type=custom
 location=27,13,1,2
 hotspot=28,13,1,2
 intermap=brothers_lair_wind_hall.txt,3,19
@@ -235,7 +235,7 @@ mapmod=background,14,20,265
 requires_status=waypoint_brothers_lair_atrium
 
 [event]
-type=teleport
+type=custom
 location=14,19,2,2
 hotspot=location
 intermap=warp_zone.txt,36,38

@@ -290,21 +290,21 @@
 </data>
  </layer>
  <objectgroup name="event" width="60" height="82">
-  <object type="teleport" x="32" y="256" width="32" height="64">
+  <object type="custom" x="32" y="256" width="32" height="64">
    <properties>
     <property name="hotspot" value="1,8,1,2"/>
     <property name="intermap" value="averguard_atrium.txt,17,10"/>
     <property name="soundfx" value="soundfx/door_open.ogg,0,0"/>
    </properties>
   </object>
-  <object type="teleport" x="1664" y="416" width="32" height="64">
+  <object type="custom" x="1664" y="416" width="32" height="64">
    <properties>
     <property name="hotspot" value="53,13,1,2"/>
     <property name="intermap" value="cave1.txt,3,13"/>
     <property name="soundfx" value="soundfx/door_open.ogg,0,0"/>
    </properties>
   </object>
-  <object type="teleport" x="896" y="2560" width="64" height="32">
+  <object type="custom" x="896" y="2560" width="64" height="32">
    <properties>
     <property name="hotspot" value="28,81,2,1"/>
     <property name="intermap" value="ydrakka_pass.txt,92,54"/>
