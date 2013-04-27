@@ -258,10 +258,11 @@
     <property name="intermap" value="frontier_plains.txt,248,186"/>
    </properties>
   </object>
-  <object name="Shared stash" type="stash" x="704" y="896" width="32" height="32">
+  <object name="Shared stash" type="on_trigger" x="704" y="896" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="stash" value="true"/>
     <property name="tooltip" value="Shared Stash"/>
    </properties>
   </object>

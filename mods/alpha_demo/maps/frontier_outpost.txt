@@ -265,10 +265,11 @@ intermap=frontier_plains.txt,248,186
 
 [event]
 # Shared stash
-type=stash
+type=on_trigger
 location=22,28,1,1
 hotspot=location
 soundfx=soundfx/wood_open.ogg
+stash=true
 tooltip=Shared Stash
 
 [event]
