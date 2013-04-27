@@ -193,7 +193,7 @@
 </data>
  </layer>
  <objectgroup name="event" width="40" height="50">
-  <object name="Rising Wind Switch (Death)" type="run_once" x="736" y="928" width="32" height="32">
+  <object name="Rising Wind Switch (Death)" type="on_trigger" x="736" y="928" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="mapmod" value="object,23,29,166"/>
@@ -202,9 +202,10 @@
     <property name="power_path" value="23,29,hero"/>
     <property name="soundfx" value="soundfx/door_open.ogg"/>
     <property name="tooltip" value="Rising Wind Switch"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="Rising Fire Switch (Death)" type="run_once" x="800" y="928" width="32" height="32">
+  <object name="Rising Fire Switch (Death)" type="on_trigger" x="800" y="928" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="mapmod" value="object,25,29,166"/>
@@ -213,17 +214,19 @@
     <property name="power_path" value="25,29,hero"/>
     <property name="soundfx" value="soundfx/door_open.ogg"/>
     <property name="tooltip" value="Rising Fire Switch"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="Rising Ice Switch (Left Door)" type="run_once" x="864" y="928" width="32" height="32">
+  <object name="Rising Ice Switch (Left Door)" type="on_trigger" x="864" y="928" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="mapmod" value="object,10,31,112;collision,10,31,0;object,27,29,166"/>
     <property name="soundfx" value="soundfx/door_open.ogg"/>
     <property name="tooltip" value="Rising Ice Switch"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="Falling Ice Switch (Death)" type="run_once" x="864" y="992" width="32" height="32">
+  <object name="Falling Ice Switch (Death)" type="on_trigger" x="864" y="992" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="mapmod" value="object,27,31,166"/>
@@ -232,17 +235,19 @@
     <property name="power_path" value="27,31,hero"/>
     <property name="soundfx" value="soundfx/door_open.ogg"/>
     <property name="tooltip" value="Falling Ice Switch"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="Falling Wind Switch (Right Door)" type="run_once" x="736" y="992" width="32" height="32">
+  <object name="Falling Wind Switch (Right Door)" type="on_trigger" x="736" y="992" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="mapmod" value="object,23,31,166;object,25,16,113;collision,25,16,0"/>
     <property name="soundfx" value="soundfx/door_open.ogg"/>
     <property name="tooltip" value="Falling Wind Switch"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="Falling Fire Switch (Death)" type="run_once" x="800" y="992" width="32" height="32">
+  <object name="Falling Fire Switch (Death)" type="on_trigger" x="800" y="992" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="mapmod" value="object,25,31,166"/>
@@ -251,9 +256,10 @@
     <property name="power_path" value="25,31,hero"/>
     <property name="soundfx" value="soundfx/door_open.ogg"/>
     <property name="tooltip" value="Falling Fire Switch"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="Waiting Wind Switch (Death)" type="run_once" x="736" y="1056" width="32" height="32">
+  <object name="Waiting Wind Switch (Death)" type="on_trigger" x="736" y="1056" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="mapmod" value="object,23,33,166"/>
@@ -262,18 +268,20 @@
     <property name="power_path" value="23,33,hero"/>
     <property name="soundfx" value="soundfx/door_open.ogg"/>
     <property name="tooltip" value="Waiting Wind Switch"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="Waiting Fire Switch (Treasure)" type="run_once" x="800" y="1056" width="32" height="32">
+  <object name="Waiting Fire Switch (Treasure)" type="on_trigger" x="800" y="1056" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,25,34,fixed,10,50"/>
     <property name="mapmod" value="object,25,33,166"/>
     <property name="soundfx" value="soundfx/door_open.ogg"/>
     <property name="tooltip" value="Waiting Fire Switch"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="Waiting Ice Switch (Death)" type="run_once" x="864" y="1056" width="32" height="32">
+  <object name="Waiting Ice Switch (Death)" type="on_trigger" x="864" y="1056" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="mapmod" value="object,27,33,166"/>
@@ -282,6 +290,7 @@
     <property name="power_path" value="27,33,hero"/>
     <property name="soundfx" value="soundfx/door_open.ogg"/>
     <property name="tooltip" value="Waiting Ice Switch"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object name="Storage Room Clue Book" type="run_always" x="416" y="992" width="32" height="32">
@@ -302,7 +311,7 @@
     <property name="tooltip" value="Book Stand"/>
    </properties>
   </object>
-  <object name="Warp to Atrium" type="custom" x="64" y="576" width="32" height="64">
+  <object name="Warp to Atrium" type="on_trigger" x="64" y="576" width="32" height="64">
    <properties>
     <property name="hotspot" value="2,18,1,2"/>
     <property name="intermap" value="brothers_lair_atrium.txt,26,14"/>
@@ -319,88 +328,97 @@
     <property name="tooltip" value="Book Stand"/>
    </properties>
   </object>
-  <object name="Crate" type="run_once" x="992" y="480" width="32" height="32">
+  <object name="Crate" type="on_trigger" x="992" y="480" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,31,14,fixed,15,30"/>
     <property name="mapmod" value="object,31,15,163"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Crate"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="Crate" type="run_once" x="1152" y="448" width="32" height="32">
+  <object name="Crate" type="on_trigger" x="1152" y="448" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,35,13,fixed,15,30"/>
     <property name="mapmod" value="object,36,14,163"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Crate"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="Crate" type="run_once" x="352" y="1472" width="32" height="32">
+  <object name="Crate" type="on_trigger" x="352" y="1472" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,11,45,fixed,15,30"/>
     <property name="mapmod" value="object,11,46,163"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Crate"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="Crate" type="run_once" x="96" y="1472" width="32" height="32">
+  <object name="Crate" type="on_trigger" x="96" y="1472" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,4,45,fixed,15,30"/>
     <property name="mapmod" value="object,3,46,163"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Crate"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="Barrel" type="run_once" x="96" y="1440" width="32" height="32">
+  <object name="Barrel" type="on_trigger" x="96" y="1440" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,3,44,fixed,15,30"/>
     <property name="mapmod" value="object,3,45,162"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Barrel"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="Barrel" type="run_once" x="128" y="1472" width="32" height="32">
+  <object name="Barrel" type="on_trigger" x="128" y="1472" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,5,46,fixed,15,30"/>
     <property name="mapmod" value="object,4,46,162"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Barrel"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="Barrel" type="run_once" x="320" y="1472" width="32" height="32">
+  <object name="Barrel" type="on_trigger" x="320" y="1472" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,9,46,fixed,15,30"/>
     <property name="mapmod" value="object,10,46,162"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Barrel"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="Barrel" type="run_once" x="352" y="1408" width="32" height="32">
+  <object name="Barrel" type="on_trigger" x="352" y="1408" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,10,44,fixed,15,30"/>
     <property name="mapmod" value="object,11,44,162"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Barrel"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="Barrel" type="run_once" x="1152" y="480" width="32" height="32">
+  <object name="Barrel" type="on_trigger" x="1152" y="480" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,35,14,fixed,15,30"/>
     <property name="mapmod" value="object,36,15,162"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Barrel"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="Grisbon's Chest" type="run_once" x="992" y="224" width="32" height="32">
+  <object name="Grisbon's Chest" type="on_trigger" x="992" y="224" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,32,7,fixed,100,200"/>
@@ -411,6 +429,7 @@
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Runed Chest"/>
     <property name="unset_status" value="lb_wind_key"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object name="Grisbon's Chest Locked" type="run_always" x="992" y="224" width="32" height="32">

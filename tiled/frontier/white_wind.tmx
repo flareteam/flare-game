@@ -430,41 +430,45 @@
 </data>
  </layer>
  <objectgroup name="event" width="128" height="128">
-  <object name="to Frontier Plains" type="custom" x="1984" y="0" width="64" height="32">
+  <object name="to Frontier Plains" type="on_trigger" x="1984" y="0" width="64" height="32">
    <properties>
     <property name="intermap" value="frontier_plains.txt,162,233"/>
    </properties>
   </object>
-  <object name="secret box" type="run_once" x="1728" y="192" width="32" height="32">
+  <object name="secret box" type="on_trigger" x="1728" y="192" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,114,55,fixed,15,30"/>
     <property name="mapmod" value="object,114,54,6"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Supplies"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="camp supply" type="run_once" x="128" y="896" width="32" height="32">
+  <object name="camp supply" type="on_trigger" x="128" y="896" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,5,28,fixed,10,25"/>
     <property name="mapmod" value="object,4,28,99"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Supplies"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="Rotten Tower Found Trigger" type="run_once" x="1728" y="2688" width="736" height="864">
+  <object name="Rotten Tower Found Trigger" type="on_trigger" x="1728" y="2688" width="736" height="864">
    <properties>
     <property name="msg" value="You spot the abandoned tower in the distance."/>
     <property name="requires_status" value="rotten_tower_search"/>
     <property name="set_status" value="rotten_tower_found"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="Rotten Tower Inspected Trigger" type="run_once" x="2112" y="3296" width="64" height="64">
+  <object name="Rotten Tower Inspected Trigger" type="on_trigger" x="2112" y="3296" width="64" height="64">
    <properties>
     <property name="msg" value="Looking through the grate, you confirm the tower is empty."/>
     <property name="requires_status" value="rotten_tower_found"/>
     <property name="set_status" value="rotten_tower_inspected"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object name="River sound" type="on_load" x="2016" y="192" width="32" height="32">

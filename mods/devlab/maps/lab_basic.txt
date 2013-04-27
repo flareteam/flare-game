@@ -119,7 +119,7 @@ data=
 3,3,3,3,3,3,3,3,3,3
 
 [event]
-type=custom
+type=on_trigger
 location=3,28,2,2
 hotspot=location
 intermap=lab_welcome.txt,4,2
@@ -127,30 +127,34 @@ soundfx=soundfx/door_open.ogg,0,0
 
 [event]
 # Maps
-type=run_once
+type=on_trigger
 location=1,20,2,2
 hotspot=location
+repeat=false
 tooltip=Map Drawing
 
 [event]
 # Events
-type=run_once
+type=on_trigger
 location=1,17,2,2
 hotspot=location
+repeat=false
 tooltip=Map Events
 
 [event]
 # Teleport
-type=run_once
+type=on_trigger
 location=1,14,2,2
 hotspot=location
+repeat=false
 tooltip=Teleports
 
 [event]
 # Folders
-type=run_once
+type=on_trigger
 location=1,23,2,2
 hotspot=location
+repeat=false
 tooltip=Folders
 
 [event]
@@ -161,22 +165,25 @@ tooltip=Intermediate Lessons
 
 [event]
 # Enemies
-type=run_once
+type=on_trigger
 location=1,11,2,2
 hotspot=location
+repeat=false
 tooltip=Placing Enemies
 
 [event]
 # Enemies
-type=run_once
+type=on_trigger
 location=1,8,2,2
 hotspot=location
+repeat=false
 tooltip=Random Enemies
 
 [event]
 # NPCs
-type=run_once
+type=on_trigger
 location=1,5,2,2
 hotspot=location
+repeat=false
 tooltip=Placing NPCs
 

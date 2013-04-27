@@ -174,32 +174,36 @@ data=
 3,3,3,3,3,3,1,1,1,1,1,1,1,1,3,3,3,3,3,3
 
 [event]
-type=custom
+type=on_trigger
 location=9,43,2,2
 intermap=brothers_lair_atrium.txt,15,16
 
 [event]
-type=run_once
+type=on_trigger
 location=0,0,20,47
+repeat=false
 requires_status=lb_ice_defeated,lb_fire_defeated,lb_wind_defeated
 set_status=lb_necromancers_defeated
 
 [event]
-type=run_once
+type=on_trigger
 location=0,0,20,47
 mapmod=collision,9,23,0;object,9,23,113
+repeat=false
 requires_status=lb_wind_unlocked
 
 [event]
-type=run_once
+type=on_trigger
 location=0,0,20,47
 mapmod=collision,9,26,0;object,9,26,113
+repeat=false
 requires_status=lb_fire_unlocked
 
 [event]
-type=run_once
+type=on_trigger
 location=0,0,20,47
 mapmod=collision,9,29,0;object,9,29,113
+repeat=false
 requires_status=lb_ice_unlocked
 
 [event]

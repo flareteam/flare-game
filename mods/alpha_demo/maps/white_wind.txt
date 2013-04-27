@@ -415,43 +415,47 @@ data=
 
 [event]
 # to Frontier Plains
-type=custom
+type=on_trigger
 location=62,0,2,1
 intermap=frontier_plains.txt,162,233
 
 [event]
 # secret box
-type=run_once
+type=on_trigger
 location=54,6,1,1
 hotspot=location
 loot=currency,114,55,fixed,15,30
 mapmod=object,114,54,6
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Supplies
 
 [event]
 # camp supply
-type=run_once
+type=on_trigger
 location=4,28,1,1
 hotspot=location
 loot=currency,5,28,fixed,10,25
 mapmod=object,4,28,99
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Supplies
 
 [event]
 # Rotten Tower Found Trigger
-type=run_once
+type=on_trigger
 location=54,84,23,27
 msg=You spot the abandoned tower in the distance.
+repeat=false
 requires_status=rotten_tower_search
 set_status=rotten_tower_found
 
 [event]
 # Rotten Tower Inspected Trigger
-type=run_once
+type=on_trigger
 location=66,103,2,2
 msg=Looking through the grate, you confirm the tower is empty.
+repeat=false
 requires_status=rotten_tower_found
 set_status=rotten_tower_inspected
 

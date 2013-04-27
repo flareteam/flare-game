@@ -275,16 +275,17 @@
   <object type="antlion_hatchling" x="1312" y="576" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="event" width="64" height="64">
-  <object name="cliff passage container" type="run_once" x="640" y="1376" width="32" height="32">
+  <object name="cliff passage container" type="on_trigger" x="640" y="1376" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,21,44,fixed,5,15"/>
     <property name="mapmod" value="object,20,43,99"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Supplies"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="boss container 1" type="run_once" x="320" y="416" width="32" height="32">
+  <object name="boss container 1" type="on_trigger" x="320" y="416" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="127,11,13,fixed,1"/>
@@ -293,9 +294,10 @@
     <property name="set_status" value="re_crate4"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Supplies"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="boss container 2" type="run_once" x="288" y="480" width="32" height="32">
+  <object name="boss container 2" type="on_trigger" x="288" y="480" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="2,10,15,fixed,1"/>
@@ -304,9 +306,10 @@
     <property name="set_status" value="re_crate3"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Supplies"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="pier container" type="run_once" x="1216" y="864" width="32" height="32">
+  <object name="pier container" type="on_trigger" x="1216" y="864" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="1,38,26,fixed,1"/>
@@ -315,14 +318,15 @@
     <property name="set_status" value="re_crate1"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Supplies"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="to Frontier Plains" type="custom" x="1632" y="1984" width="64" height="32">
+  <object name="to Frontier Plains" type="on_trigger" x="1632" y="1984" width="64" height="32">
    <properties>
     <property name="intermap" value="frontier_plains.txt,63,18"/>
    </properties>
   </object>
-  <object name="to River Barrow" type="custom" x="1120" y="96" width="32" height="64">
+  <object name="to River Barrow" type="on_trigger" x="1120" y="96" width="32" height="64">
    <properties>
     <property name="intermap" value="river_barrow.txt,60,30"/>
    </properties>

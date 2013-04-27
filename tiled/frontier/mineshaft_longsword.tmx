@@ -217,36 +217,39 @@
 </data>
  </layer>
  <objectgroup name="event" width="64" height="64">
-  <object name="to Frontier Outpost" type="custom" x="1376" y="2016" width="64" height="32">
+  <object name="to Frontier Outpost" type="on_trigger" x="1376" y="2016" width="64" height="32">
    <properties>
     <property name="intermap" value="frontier_outpost.txt,20,13"/>
    </properties>
   </object>
-  <object name="fork_crate" type="run_once" x="1504" y="1184" width="32" height="32">
+  <object name="fork_crate" type="on_trigger" x="1504" y="1184" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,46,38,fixed,3,8"/>
     <property name="mapmod" value="object,47,37,179"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Crate"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="backside_crate" type="run_once" x="896" y="480" width="32" height="32">
+  <object name="backside_crate" type="on_trigger" x="896" y="480" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,27,14,fixed,5,10"/>
     <property name="mapmod" value="object,28,15,179"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Crate"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="backside_barrel" type="run_once" x="480" y="384" width="32" height="32">
+  <object name="backside_barrel" type="on_trigger" x="480" y="384" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,16,13,fixed,3,8"/>
     <property name="mapmod" value="object,15,12,178"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Barrel"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object name="wind sound" type="on_load" x="0" y="0" width="32" height="32">

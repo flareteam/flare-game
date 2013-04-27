@@ -265,49 +265,52 @@ data=
 
 [event]
 # to Cave 1
-type=custom
+type=on_trigger
 location=36,75,3,1
 intermap=cave_of_living_bones1.txt,33,3
 
 [event]
 # to Cave 3
-type=custom
+type=on_trigger
 location=2,36,1,4
 intermap=cave_of_living_bones3.txt,47,19
 
 [event]
 # to Atrium
-type=custom
+type=on_trigger
 location=32,3,1,1
 intermap=brothers_lair_atrium.txt,15,46
 
 [event]
 # Barrel
-type=run_once
+type=on_trigger
 location=46,4,1,1
 hotspot=location
 loot=currency,46,5,fixed,10,30
 mapmod=object,46,4,178
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
 # Crate
-type=run_once
+type=on_trigger
 location=48,5,1,1
 hotspot=location
 loot=currency,48,6,fixed,10,30
 mapmod=object,48,5,179
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Crate
 
 [event]
 # Crate
-type=run_once
+type=on_trigger
 location=19,44,1,1
 hotspot=location
 loot=currency,20,44,fixed,10,30
 mapmod=object,19,44,179
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Crate
 
@@ -334,11 +337,12 @@ tooltip=Place Explosive
 
 [event]
 # Trigger Explosive Bottom
-type=run_once
+type=on_trigger
 location=41,50,13,1
 mapmod=object,47,44,0;object,47,43,0;collision,47,43,2;object,47,42,0;collision,47,42,2;object,46,43,0;collision,46,43,2;object,46,44,0;collision,46,44,2;object,45,44,0;collision,45,44,2;object,46,42,0;collision,46,42,2;object,45,43,80;collision,45,43,1;object,47,41,80;object,45,42,68;collison,45,42,1;object,46,41,69;collison,46,41,1;object,45,41,76;collison,45,41,1;object,48,43,0;collision,48,43,0;object,48,44,0;collision,48,44,0;object,46,45,0;collision,46,45,0;object,49,40,0;collision,49,40,2;object,46,39,0;collision,46,39,2;object,48,40,150;collision,48,40,0;object,48,39,151;collision,48,39,0;collision,49,39,0;object,48,38,151;collision,48,38,0;object,49,37,152;collision,49,37,0;object,48,36,151;collision,48,36,0;object,49,35,152;collision,49,35,0;object,47,38,150;collision,47,38,0;object,45,46,150;collision,45,46,2;object,48,45,152;collision,48,45,2;object,49,44,150;collision,49,44,2;object,49,43,151;collision,49,43,2;object,51,42,152
 power=18
 power_path=47,44,47,44
+repeat=false
 requires_not=lb_explosive_detonated
 requires_status=lb_explosive_set
 set_status=lb_explosive_detonated
@@ -346,11 +350,12 @@ shakycam=60
 
 [event]
 # Trigger Explosive Left Side
-type=run_once
+type=on_trigger
 location=41,44,1,6
 mapmod=object,47,44,0;object,47,43,0;collision,47,43,2;object,47,42,0;collision,47,42,2;object,46,43,0;collision,46,43,2;object,46,44,0;collision,46,44,2;object,45,44,0;collision,45,44,2;object,46,42,0;collision,46,42,2;object,45,43,80;collision,45,43,1;object,47,41,80;object,45,42,68;collison,45,42,1;object,46,41,69;collison,46,41,1;object,45,41,76;collison,45,41,1;object,48,43,0;collision,48,43,0;object,48,44,0;collision,48,44,0;object,46,45,0;collision,46,45,0;object,49,40,0;collision,49,40,2;object,46,39,0;collision,46,39,2;object,48,40,150;collision,48,40,0;object,48,39,151;collision,48,39,0;collision,49,39,0;object,48,38,151;collision,48,38,0;object,49,37,152;collision,49,37,0;object,48,36,151;collision,48,36,0;object,49,35,152;collision,49,35,0;object,47,38,150;collision,47,38,0;object,45,46,150;collision,45,46,2;object,48,45,152;collision,48,45,2;object,49,44,150;collision,49,44,2;object,49,43,151;collision,49,43,2;object,51,42,152
 power=18
 power_path=47,44,47,44
+repeat=false
 requires_not=lb_explosive_detonated
 requires_status=lb_explosive_set
 set_status=lb_explosive_detonated
@@ -358,11 +363,12 @@ shakycam=60
 
 [event]
 # Trigger Explosive Right Side
-type=run_once
+type=on_trigger
 location=53,40,1,10
 mapmod=object,47,44,0;object,47,43,0;collision,47,43,2;object,47,42,0;collision,47,42,2;object,46,43,0;collision,46,43,2;object,46,44,0;collision,46,44,2;object,45,44,0;collision,45,44,2;object,46,42,0;collision,46,42,2;object,45,43,80;collision,45,43,1;object,47,41,80;object,45,42,68;collison,45,42,1;object,46,41,69;collison,46,41,1;object,45,41,76;collison,45,41,1;object,48,43,0;collision,48,43,0;object,48,44,0;collision,48,44,0;object,46,45,0;collision,46,45,0;object,49,40,0;collision,49,40,2;object,46,39,0;collision,46,39,2;object,48,40,150;collision,48,40,0;object,48,39,151;collision,48,39,0;collision,49,39,0;object,48,38,151;collision,48,38,0;object,49,37,152;collision,49,37,0;object,48,36,151;collision,48,36,0;object,49,35,152;collision,49,35,0;object,47,38,150;collision,47,38,0;object,45,46,150;collision,45,46,2;object,48,45,152;collision,48,45,2;object,49,44,150;collision,49,44,2;object,49,43,151;collision,49,43,2;object,51,42,152
 power=18
 power_path=47,44,47,44
+repeat=false
 requires_not=lb_explosive_detonated
 requires_status=lb_explosive_set
 set_status=lb_explosive_detonated

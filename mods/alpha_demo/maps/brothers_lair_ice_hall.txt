@@ -270,7 +270,7 @@ data=
 
 [event]
 # Warp to Atrium
-type=custom
+type=on_trigger
 location=48,70,1,2
 hotspot=49,70,1,2
 intermap=brothers_lair_atrium.txt,3,13
@@ -278,10 +278,11 @@ soundfx=soundfx/door_open.ogg,0,0
 
 [event]
 # Bookcase Door
-type=run_once
+type=on_trigger
 location=17,45,1,1
 hotspot=location
 mapmod=object,17,45,0;collision,17,45,0
+repeat=false
 shakycam=20
 sound=soundfx/powers/quake.ogg
 tooltip=Suspicious Bookcase
@@ -368,82 +369,90 @@ tooltip=Book Stand
 
 [event]
 # Crate
-type=run_once
+type=on_trigger
 location=11,13,1,1
 hotspot=location
 loot=currency,12,13,fixed,15,30
 mapmod=object,11,13,163
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Crate
 
 [event]
 # Crate
-type=run_once
+type=on_trigger
 location=22,13,1,1
 hotspot=location
 loot=currency,22,14,fixed,10,30
 mapmod=object,22,13,163
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Crate
 
 [event]
 # Crate
-type=run_once
+type=on_trigger
 location=29,48,1,1
 hotspot=location
 loot=currency,29,49,fixed,15,30
 mapmod=object,29,48,163
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Crate
 
 [event]
 # Barrel
-type=run_once
+type=on_trigger
 location=11,14,1,1
 hotspot=location
 loot=currency,11,15,fixed,10,30
 mapmod=object,11,14,162
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
 # Barrel
-type=run_once
+type=on_trigger
 location=12,14,1,1
 hotspot=location
 loot=currency,12,15,fixed,15,30
 mapmod=object,12,14,162
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
 # Barrel
-type=run_once
+type=on_trigger
 location=23,13,1,1
 hotspot=location
 loot=currency,23,14,fixed,10,30
 mapmod=object,23,13,162
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
 # Treasure Chest
-type=run_once
+type=on_trigger
 location=7,50,1,1
 hotspot=location
 loot=currency,8,50,fixed,15,40
 mapmod=object,7,50,160
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Treasure Chest
 
 [event]
 # Scathelocke's Chest (Spellbook)
-type=run_once
+type=on_trigger
 location=14,10,1,1
 hotspot=location
 loot=9100,15,10,fixed,1
 mapmod=object,14,10,160
 remove_item=9101
+repeat=false
 requires_item=9101
 requires_not=lb_ice_spellbook,lb_ice_looted
 set_status=lb_ice_looted,lb_ice_spellbook
@@ -453,12 +462,13 @@ unset_status=lb_ice_key
 
 [event]
 # Scathelocke's Chest
-type=run_once
+type=on_trigger
 location=14,10,1,1
 hotspot=location
 loot=currency,15,10,fixed,100,200
 mapmod=object,14,10,160
 remove_item=9101
+repeat=false
 requires_item=9101
 requires_not=lb_ice_looted
 set_status=lb_ice_looted
@@ -479,26 +489,29 @@ tooltip=Runed Chest
 
 [event]
 # Trapped Tile
-type=run_once
+type=on_trigger
 location=17,34,1,2
 mapmod=object,13,31,0;collision,13,31,0;object,21,31,0;collision,21,31,0;object,13,38,0;collision,13,38,0;object,21,38,0;collision,21,38,0
+repeat=false
 soundfx=soundfx/door_open.ogg
 
 [event]
 # Treasure
-type=run_once
+type=on_trigger
 location=30,57,1,1
 hotspot=location
 loot=currency,31,57,fixed,15,40
+repeat=false
 soundfx=soundfx/inventory/inventory_page.ogg
 tooltip=Bookcase
 
 [event]
 # Treasure
-type=run_once
+type=on_trigger
 location=6,61,1,1
 hotspot=location
 loot=currency,7,61,fixed,15,40
+repeat=false
 soundfx=soundfx/inventory/inventory_page.ogg
 tooltip=Bookcase
 
