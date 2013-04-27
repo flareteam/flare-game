@@ -133,59 +133,66 @@
 </data>
  </layer>
  <objectgroup name="event" width="10" height="30" visible="0">
-  <object type="custom" x="96" y="896" width="64" height="64">
+  <object type="on_trigger" x="96" y="896" width="64" height="64">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="intermap" value="lab_welcome.txt,4,2"/>
     <property name="soundfx" value="soundfx/door_open.ogg,0,0"/>
    </properties>
   </object>
-  <object name="Maps" type="run_once" x="32" y="640" width="64" height="64">
+  <object name="Maps" type="on_trigger" x="32" y="640" width="64" height="64">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="tooltip" value="Map Drawing"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="Events" type="run_once" x="32" y="544" width="64" height="64">
+  <object name="Events" type="on_trigger" x="32" y="544" width="64" height="64">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="tooltip" value="Map Events"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="Teleport" type="run_once" x="32" y="448" width="64" height="64">
+  <object name="Teleport" type="on_trigger" x="32" y="448" width="64" height="64">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="tooltip" value="Teleports"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="Folders" type="run_once" x="32" y="736" width="64" height="64">
+  <object name="Folders" type="on_trigger" x="32" y="736" width="64" height="64">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="tooltip" value="Folders"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object type="run_always" x="64" y="128" width="32" height="32">
+  <object type="on_trigger" x="64" y="128" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="tooltip" value="Intermediate Lessons"/>
    </properties>
   </object>
-  <object name="Enemies" type="run_once" x="32" y="352" width="64" height="64">
+  <object name="Enemies" type="on_trigger" x="32" y="352" width="64" height="64">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="tooltip" value="Placing Enemies"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="Enemies" type="run_once" x="32" y="256" width="64" height="64">
+  <object name="Enemies" type="on_trigger" x="32" y="256" width="64" height="64">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="tooltip" value="Random Enemies"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="NPCs" type="run_once" x="32" y="160" width="64" height="64">
+  <object name="NPCs" type="on_trigger" x="32" y="160" width="64" height="64">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="tooltip" value="Placing NPCs"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
  </objectgroup>

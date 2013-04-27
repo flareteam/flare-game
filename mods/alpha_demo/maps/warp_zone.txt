@@ -221,7 +221,7 @@ data=
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
 
 [event]
-type=custom
+type=on_trigger
 location=22,45,2,2
 hotspot=location
 intermap=ancient_temple.txt,47,94
@@ -229,14 +229,14 @@ requires_status=waypoint_ancient_temple
 tooltip=Ancient Temple
 
 [event]
-type=custom
+type=on_trigger
 location=30,45,2,2
 hotspot=location
 intermap=frontier_outpost.txt,36,12
 tooltip=Frontier Outpost
 
 [event]
-type=custom
+type=on_trigger
 location=30,37,2,2
 hotspot=location
 intermap=ydrakka_pass.txt,99,49
@@ -244,7 +244,7 @@ requires_status=waypoint_ydrakka_pass
 tooltip=Ydrakka Pass
 
 [event]
-type=custom
+type=on_trigger
 location=30,29,2,2
 hotspot=location
 intermap=averguard_atrium.txt,11,52
@@ -252,7 +252,7 @@ requires_status=waypoint_averguard_atrium
 tooltip=Averguard Atrium
 
 [event]
-type=custom
+type=on_trigger
 location=38,37,2,2
 hotspot=location
 intermap=brothers_lair_atrium.txt,17,22

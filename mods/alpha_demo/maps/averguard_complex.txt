@@ -390,7 +390,7 @@ data=
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
 
 [event]
-type=custom
+type=on_trigger
 location=99,70,1,2
 hotspot=100,70,1,2
 intermap=averguard_atrium.txt,2,52
@@ -398,190 +398,210 @@ soundfx=soundfx/door_open.ogg,0,0
 
 [event]
 # intro crate
-type=run_once
+type=on_trigger
 location=85,74,1,1
 hotspot=location
 loot=currency,86,74,fixed,5,20
 mapmod=object,85,74,163
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Crate
 
 [event]
 # zombie barrels
-type=run_once
+type=on_trigger
 location=74,63,1,1
 hotspot=location
 loot=currency,74,64,fixed,5,15
 mapmod=object,74,63,162
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
-type=run_once
+type=on_trigger
 location=73,62,1,1
 hotspot=location
 loot=currency,72,62,fixed,5,15
 mapmod=object,73,62,162
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
-type=run_once
+type=on_trigger
 location=74,62,1,1
 hotspot=location
 loot=currency,74,61,fixed,5,20
 mapmod=object,74,62,162
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
 # goblin firepit barrel/crate
-type=run_once
+type=on_trigger
 location=72,96,1,1
 hotspot=location
 loot=currency,73,96,fixed,5,15
 mapmod=object,72,96,162
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
-type=run_once
+type=on_trigger
 location=72,97,1,1
 hotspot=location
 loot=currency,73,97,fixed,5,15
 mapmod=object,72,97,163
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Crate
 
 [event]
 # secret room crate
-type=run_once
+type=on_trigger
 location=73,110,1,1
 hotspot=location
 loot=currency,72,109,fixed,5,15
 mapmod=object,73,110,163
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Crate
 
 [event]
 # conference room book
-type=run_once
+type=on_trigger
 location=50,90,1,1
 hotspot=location
 mapmod=object,50,90,164
 msg=This book is entitled "Training Your Antlion". Chapter 1 is "How Not To Get Eaten". The rest of the book is unfinished.
+repeat=false
 soundfx=soundfx/inventory/inventory_page.ogg
 tooltip=Book Stand
 
 [event]
 # barracks chests
-type=run_once
+type=on_trigger
 location=41,59,1,1
 hotspot=location
 loot=currency,42,59,fixed,5,10
 mapmod=object,41,59,160
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Treasure Chest
 
 [event]
-type=run_once
+type=on_trigger
 location=41,57,1,1
 hotspot=location
 loot=currency,42,57,fixed,5,15
 mapmod=object,41,57,160
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Treasure Chest
 
 [event]
-type=run_once
+type=on_trigger
 location=41,55,1,1
 hotspot=location
 loot=currency,42,55,fixed,10,25
 mapmod=object,41,55,160
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Treasure Chest
 
 [event]
-type=run_once
+type=on_trigger
 location=41,53,1,1
 hotspot=location
 loot=currency,42,53,fixed,5,10
 mapmod=object,41,53,160
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Treasure Chest
 
 [event]
-type=run_once
+type=on_trigger
 location=41,51,1,1
 hotspot=location
 loot=currency,42,51,fixed,5,10
 mapmod=object,41,51,160
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Treasure Chest
 
 [event]
 # large room storage
-type=run_once
+type=on_trigger
 location=50,28,1,1
 hotspot=location
 loot=currency,51,28,fixed,5,15
 mapmod=object,50,28,162
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
-type=run_once
+type=on_trigger
 location=50,29,1,1
 hotspot=location
 loot=currency,51,29,fixed,5,15
 mapmod=object,50,29,163
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Crate
 
 [event]
-type=run_once
+type=on_trigger
 location=55,28,1,1
 hotspot=location
 loot=currency,54,28,fixed,5,10
 mapmod=object,55,28,163
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Crate
 
 [event]
-type=run_once
+type=on_trigger
 location=55,29,1,1
 hotspot=location
 loot=currency,54,29,fixed,5,10
 mapmod=object,55,29,162
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
 # kill room chest
-type=run_once
+type=on_trigger
 location=9,20,1,1
 hotspot=location
 loot=currency,10,20,fixed,15,35;currency,9,21,fixed,15,35
 mapmod=object,9,20,160
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Treasure Chest
 
 [event]
 # kill room chest
-type=run_once
+type=on_trigger
 location=9,29,1,1
 hotspot=location
 loot=currency,10,29,fixed,15,30;currency,9,28,fixed,15,40
 mapmod=object,9,29,160
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Treasure Chest
 
 [event]
 # kill room switches
-type=run_once
+type=on_trigger
 location=12,24,1,2
 hotspot=location
 mapmod=object,12,24,166;object,12,25,150;object,11,22,0;object,12,22,0;object,13,22,0;object,14,22,0;object,15,22,0;object,16,22,0;object,17,22,0;object,18,22,0;object,19,22,0;object,20,22,0;object,21,22,0;object,22,22,0;object,23,22,0;object,24,22,0;object,11,23,0;object,11,24,0;object,11,25,0;object,11,26,0;object,11,27,0;object,12,27,0;object,13,27,0;object,14,27,0;object,15,27,0;object,16,27,0;object,17,27,0;object,18,27,0;object,19,27,0;object,20,27,0;object,21,27,0;object,22,27,0;object,23,27,0;object,24,27,0;collision,11,22,0;collision,12,22,0;collision,13,22,0;collision,14,22,0;collision,15,22,0;collision,16,22,0;collision,17,22,0;collision,18,22,0;collision,19,22,0;collision,20,22,0;collision,21,22,0;collision,22,22,0;collision,23,22,0;collision,24,22,0;collision,11,23,0;collision,11,24,0;collision,11,25,0;collision,11,26,0;collision,11,27,0;collision,12,27,0;collision,13,27,0;collision,14,27,0;collision,15,27,0;collision,16,27,0;collision,17,27,0;collision,18,27,0;collision,19,27,0;collision,20,27,0;collision,21,27,0;collision,22,27,0;collision,23,27,0;collision,24,27,0
+repeat=false
 soundfx=soundfx/door_open.ogg
 tooltip=Switch System
 

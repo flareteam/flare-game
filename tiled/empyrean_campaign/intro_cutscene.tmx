@@ -103,55 +103,60 @@
 </data>
  </layer>
  <objectgroup name="event" width="4" height="20">
-  <object type="run_once" x="32" y="416" width="32" height="32">
+  <object type="on_trigger" x="32" y="416" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="mapmod" value="object,1,13,164"/>
     <property name="msg" value="Empyrean, the city in the sky. It is a magestic fortress and the last bastin of humankind. At the height of the kingdom's power, the city was a beacon of peace and law."/>
     <property name="soundfx" value="soundfx/inventory/inventory_page.ogg"/>
     <property name="tooltip" value="Book Stand"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object x="160" y="417"/>
-  <object type="run_once" x="32" y="224" width="32" height="32">
+  <object type="on_trigger" x="32" y="224" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="mapmod" value="object,1,7,164"/>
     <property name="msg" value="People down here still cling to hope. Hope that they'll return to Empyrean some day. Hope that some hero will fight back against the darkness."/>
     <property name="soundfx" value="soundfx/inventory/inventory_page.ogg"/>
     <property name="tooltip" value="Book Stand"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object x="32" y="448"/>
   <object x="51" y="428"/>
-  <object type="run_once" x="32" y="352" width="32" height="32">
+  <object type="on_trigger" x="32" y="352" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="mapmod" value="object,1,11,164"/>
     <property name="msg" value="When darkness invaded the world in the last age, people abandoned the surface. Empyrean was their only refuge. Now the Age of Humanity is ending. Empyrean is crumbling. Scarcity and political infighting have consumed the city."/>
     <property name="soundfx" value="soundfx/inventory/inventory_page.ogg"/>
     <property name="tooltip" value="Book Stand"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object type="run_once" x="32" y="288" width="32" height="32">
+  <object type="on_trigger" x="32" y="288" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="mapmod" value="object,1,9,164"/>
     <property name="msg" value="Some, in desperation, turn to the Wilderness -- hoping to survive without the protection of the city. But no one returns from the Wilderness. Most die or go missing. A few hide and survive, for a while."/>
     <property name="soundfx" value="soundfx/inventory/inventory_page.ogg"/>
     <property name="tooltip" value="Book Stand"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object type="run_once" x="32" y="160" width="32" height="32">
+  <object type="on_trigger" x="32" y="160" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="mapmod" value="object,1,5,164"/>
     <property name="msg" value="There is always hope. But not for everyone: not for you. Not for the Exiled."/>
     <property name="soundfx" value="soundfx/inventory/inventory_page.ogg"/>
     <property name="tooltip" value="Book Stand"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object type="custom" x="32" y="32" width="64" height="32">
+  <object type="on_trigger" x="32" y="32" width="64" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="intermap" value="arrival.txt,20,20"/>

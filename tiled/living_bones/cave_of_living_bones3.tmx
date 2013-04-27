@@ -114,35 +114,38 @@
 </data>
  </layer>
  <objectgroup name="event" width="50" height="30">
-  <object name="Warp to Cave 2" type="custom" x="1536" y="544" width="32" height="128">
+  <object name="Warp to Cave 2" type="on_trigger" x="1536" y="544" width="32" height="128">
    <properties>
     <property name="intermap" value="cave_of_living_bones2.txt,3,38"/>
    </properties>
   </object>
-  <object name="Crate of Blasting Powder" type="run_once" x="192" y="192" width="32" height="32">
+  <object name="Crate of Blasting Powder" type="on_trigger" x="192" y="192" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="mapmod" value="collision,6,6,0;object,6,6,0"/>
     <property name="set_status" value="lb_has_explosive"/>
     <property name="tooltip" value="Crate of Blasting Powder"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="Barrel" type="run_once" x="160" y="192" width="32" height="32">
+  <object name="Barrel" type="on_trigger" x="160" y="192" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,6,7,fixed,20,40"/>
     <property name="mapmod" value="object,5,6,178"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Barrel"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="Barrel" type="run_once" x="96" y="576" width="32" height="32">
+  <object name="Barrel" type="on_trigger" x="96" y="576" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,4,19,fixed,20,40"/>
     <property name="mapmod" value="object,3,18,178"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Barrel"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object name="Cave wind sound effect" type="on_load" x="0" y="0" width="32" height="32">

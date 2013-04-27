@@ -115,36 +115,39 @@ data=
 
 [event]
 # Warp to Cave 2
-type=custom
+type=on_trigger
 location=48,17,1,4
 intermap=cave_of_living_bones2.txt,3,38
 
 [event]
 # Crate of Blasting Powder
-type=run_once
+type=on_trigger
 location=6,6,1,1
 hotspot=location
 mapmod=collision,6,6,0;object,6,6,0
+repeat=false
 set_status=lb_has_explosive
 tooltip=Crate of Blasting Powder
 
 [event]
 # Barrel
-type=run_once
+type=on_trigger
 location=5,6,1,1
 hotspot=location
 loot=currency,6,7,fixed,20,40
 mapmod=object,5,6,178
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
 # Barrel
-type=run_once
+type=on_trigger
 location=3,18,1,1
 hotspot=location
 loot=currency,4,19,fixed,20,40
 mapmod=object,3,18,178
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
