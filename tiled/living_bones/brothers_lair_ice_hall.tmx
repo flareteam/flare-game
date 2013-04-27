@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="isometric" width="50" height="80" tilewidth="64" tileheight="32" backgroundcolor="#000000">
  <properties>
   <property name="music" value="magical_theme.ogg"/>
@@ -294,10 +295,10 @@
    <properties>
     <property name="hotspot" value="location"/>
     <property name="mapmod" value="object,17,45,0;collision,17,45,0"/>
-    <property name="shakycam" value="20"/>
-    <property name="sound" value="soundfx/powers/quake.ogg"/>
-    <property name="tooltip" value="Suspicious Bookcase"/>
     <property name="repeat" value="false"/>
+    <property name="shakycam" value="20"/>
+    <property name="soundfx" value="soundfx/powers/quake.ogg"/>
+    <property name="tooltip" value="Suspicious Bookcase"/>
    </properties>
   </object>
   <object name="Lore: Plotting" type="on_trigger" x="576" y="1472" width="32" height="32">
@@ -377,9 +378,9 @@
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,12,13,fixed,15,30"/>
     <property name="mapmod" value="object,11,13,163"/>
+    <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Crate"/>
-    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object name="Crate" type="on_trigger" x="704" y="416" width="32" height="32">
@@ -387,9 +388,9 @@
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,22,14,fixed,10,30"/>
     <property name="mapmod" value="object,22,13,163"/>
+    <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Crate"/>
-    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object name="Crate" type="on_trigger" x="928" y="1536" width="32" height="32">
@@ -397,9 +398,9 @@
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,29,49,fixed,15,30"/>
     <property name="mapmod" value="object,29,48,163"/>
+    <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Crate"/>
-    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object name="Barrel" type="on_trigger" x="352" y="448" width="32" height="32">
@@ -407,9 +408,9 @@
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,11,15,fixed,10,30"/>
     <property name="mapmod" value="object,11,14,162"/>
+    <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Barrel"/>
-    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object name="Barrel" type="on_trigger" x="384" y="448" width="32" height="32">
@@ -417,9 +418,9 @@
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,12,15,fixed,15,30"/>
     <property name="mapmod" value="object,12,14,162"/>
+    <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Barrel"/>
-    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object name="Barrel" type="on_trigger" x="736" y="416" width="32" height="32">
@@ -427,9 +428,9 @@
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,23,14,fixed,10,30"/>
     <property name="mapmod" value="object,23,13,162"/>
+    <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Barrel"/>
-    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object name="Treasure Chest" type="on_trigger" x="224" y="1600" width="32" height="32">
@@ -437,9 +438,9 @@
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,8,50,fixed,15,40"/>
     <property name="mapmod" value="object,7,50,160"/>
+    <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Treasure Chest"/>
-    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object name="Scathelocke's Chest (Spellbook)" type="on_trigger" x="448" y="320" width="32" height="32">
@@ -448,13 +449,13 @@
     <property name="loot" value="9100,15,10,fixed,1"/>
     <property name="mapmod" value="object,14,10,160"/>
     <property name="remove_item" value="9101"/>
+    <property name="repeat" value="false"/>
     <property name="requires_item" value="9101"/>
     <property name="requires_not" value="lb_ice_spellbook,lb_ice_looted"/>
     <property name="set_status" value="lb_ice_looted,lb_ice_spellbook"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Runed Chest"/>
     <property name="unset_status" value="lb_ice_key"/>
-    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object name="Scathelocke's Chest" type="on_trigger" x="448" y="320" width="32" height="32">
@@ -463,13 +464,13 @@
     <property name="loot" value="currency,15,10,fixed,100,200"/>
     <property name="mapmod" value="object,14,10,160"/>
     <property name="remove_item" value="9101"/>
+    <property name="repeat" value="false"/>
     <property name="requires_item" value="9101"/>
     <property name="requires_not" value="lb_ice_looted"/>
     <property name="set_status" value="lb_ice_looted"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Runed Chest"/>
     <property name="unset_status" value="lb_ice_key"/>
-    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object name="Scathelocke's Chest Locked" type="on_trigger" x="448" y="320" width="32" height="32">
@@ -485,26 +486,26 @@
   <object name="Trapped Tile" type="on_trigger" x="544" y="1088" width="32" height="64">
    <properties>
     <property name="mapmod" value="object,13,31,0;collision,13,31,0;object,21,31,0;collision,21,31,0;object,13,38,0;collision,13,38,0;object,21,38,0;collision,21,38,0"/>
-    <property name="soundfx" value="soundfx/door_open.ogg"/>
     <property name="repeat" value="false"/>
+    <property name="soundfx" value="soundfx/door_open.ogg"/>
    </properties>
   </object>
   <object name="Treasure" type="on_trigger" x="960" y="1824" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,31,57,fixed,15,40"/>
+    <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/inventory/inventory_page.ogg"/>
     <property name="tooltip" value="Bookcase"/>
-    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object name="Treasure" type="on_trigger" x="192" y="1952" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,7,61,fixed,15,40"/>
+    <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/inventory/inventory_page.ogg"/>
     <property name="tooltip" value="Bookcase"/>
-    <property name="repeat" value="false"/>
    </properties>
   </object>
  </objectgroup>
