@@ -293,7 +293,7 @@
     <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="Storage Room Clue Book" type="run_always" x="416" y="992" width="32" height="32">
+  <object name="Storage Room Clue Book" type="on_trigger" x="416" y="992" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="mapmod" value="object,13,31,164"/>
@@ -302,7 +302,7 @@
     <property name="tooltip" value="Book Stand"/>
    </properties>
   </object>
-  <object name="Bedroom Clue Book" type="run_always" x="800" y="608" width="32" height="32">
+  <object name="Bedroom Clue Book" type="on_trigger" x="800" y="608" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="mapmod" value="object,25,19,165"/>
@@ -318,7 +318,7 @@
     <property name="soundfx" value="soundfx/door_open.ogg,0,0"/>
    </properties>
   </object>
-  <object name="Grisbon's Diary" type="run_always" x="992" y="256" width="32" height="32">
+  <object name="Grisbon's Diary" type="on_trigger" x="992" y="256" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="mapmod" value="object,31,8,164"/>
@@ -432,7 +432,7 @@
     <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="Grisbon's Chest Locked" type="run_always" x="992" y="224" width="32" height="32">
+  <object name="Grisbon's Chest Locked" type="on_trigger" x="992" y="224" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="power" value="6"/>
@@ -442,7 +442,7 @@
     <property name="tooltip" value="Runed Chest"/>
    </properties>
   </object>
-  <object name="brazier sound effect" type="run_always" x="288" y="960" width="224" height="224">
+  <object name="brazier sound effect" type="on_trigger" x="288" y="960" width="224" height="224">
    <properties>
     <property name="cooldown" value="120"/>
     <property name="soundfx" value="soundfx/environment/open_fire.ogg"/>

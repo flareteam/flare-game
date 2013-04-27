@@ -355,7 +355,7 @@ unset_status=lb_fire_key
 
 [event]
 # Vesuvvio's Chest Locked
-type=run_always
+type=on_trigger
 location=21,60,1,1
 hotspot=location
 power=18
@@ -366,7 +366,7 @@ tooltip=Runed Chest
 
 [event]
 # Vesuvvio's Diary
-type=run_always
+type=on_trigger
 location=19,16,1,1
 hotspot=location
 mapmod=object,19,16,165

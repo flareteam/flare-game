@@ -208,13 +208,13 @@ requires_status=lb_ice_unlocked
 
 [event]
 # brazier sound effect
-type=run_always
+type=on_trigger
 location=4,6,8,5
 cooldown=120
 soundfx=soundfx/environment/open_fire.ogg
 
 [event]
-type=run_always
+type=on_trigger
 location=3,32,13,6
 cooldown=60
 power=6
@@ -223,7 +223,7 @@ power_path=11,34,hero
 requires_status=lb_wind_attack
 
 [event]
-type=run_always
+type=on_trigger
 location=3,32,13,6
 cooldown=60
 power=122
@@ -232,7 +232,7 @@ power_path=9,34,hero
 requires_status=lb_fire_attack
 
 [event]
-type=run_always
+type=on_trigger
 location=3,32,13,6
 cooldown=60
 power=123

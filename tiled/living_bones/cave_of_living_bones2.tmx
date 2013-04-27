@@ -309,7 +309,7 @@
     <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="Give Pillar Quest" type="run_always" x="1504" y="1408" width="32" height="32">
+  <object name="Give Pillar Quest" type="on_trigger" x="1504" y="1408" width="32" height="32">
    <properties>
     <property name="hotspot" value="45,42,3,3"/>
     <property name="msg" value="This pillar is laced with cracks and crevices. Maybe with enough force it can be knocked down."/>
@@ -318,7 +318,7 @@
     <property name="tooltip" value="Giant Pillar"/>
    </properties>
   </object>
-  <object name="Place Explosive" type="run_always" x="1504" y="1408" width="32" height="32">
+  <object name="Place Explosive" type="on_trigger" x="1504" y="1408" width="32" height="32">
    <properties>
     <property name="hotspot" value="45,42,3,3"/>
     <property name="mapmod" value="object,47,44,163"/>

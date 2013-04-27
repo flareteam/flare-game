@@ -360,7 +360,7 @@
     <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="Vesuvvio's Chest Locked" type="run_always" x="672" y="1920" width="32" height="32">
+  <object name="Vesuvvio's Chest Locked" type="on_trigger" x="672" y="1920" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="power" value="18"/>
@@ -370,7 +370,7 @@
     <property name="tooltip" value="Runed Chest"/>
    </properties>
   </object>
-  <object name="Vesuvvio's Diary" type="run_always" x="608" y="512" width="32" height="32">
+  <object name="Vesuvvio's Diary" type="on_trigger" x="608" y="512" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="mapmod" value="object,19,16,165"/>

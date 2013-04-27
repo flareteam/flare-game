@@ -289,7 +289,7 @@ tooltip=Waiting Ice Switch
 
 [event]
 # Storage Room Clue Book
-type=run_always
+type=on_trigger
 location=13,31,1,1
 hotspot=location
 mapmod=object,13,31,164
@@ -299,7 +299,7 @@ tooltip=Book Stand
 
 [event]
 # Bedroom Clue Book
-type=run_always
+type=on_trigger
 location=25,19,1,1
 hotspot=location
 mapmod=object,25,19,165
@@ -317,7 +317,7 @@ soundfx=soundfx/door_open.ogg,0,0
 
 [event]
 # Grisbon's Diary
-type=run_always
+type=on_trigger
 location=31,8,1,1
 hotspot=location
 mapmod=object,31,8,164
@@ -442,7 +442,7 @@ unset_status=lb_wind_key
 
 [event]
 # Grisbon's Chest Locked
-type=run_always
+type=on_trigger
 location=31,7,1,1
 hotspot=location
 power=6
@@ -453,7 +453,7 @@ tooltip=Runed Chest
 
 [event]
 # brazier sound effect
-type=run_always
+type=on_trigger
 location=9,30,7,7
 cooldown=120
 soundfx=soundfx/environment/open_fire.ogg

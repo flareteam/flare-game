@@ -316,7 +316,7 @@ tooltip=Crate
 
 [event]
 # Give Pillar Quest
-type=run_always
+type=on_trigger
 location=47,44,1,1
 hotspot=45,42,3,3
 msg=This pillar is laced with cracks and crevices. Maybe with enough force it can be knocked down.
@@ -326,7 +326,7 @@ tooltip=Giant Pillar
 
 [event]
 # Place Explosive
-type=run_always
+type=on_trigger
 location=47,44,1,1
 hotspot=45,42,3,3
 mapmod=object,47,44,163

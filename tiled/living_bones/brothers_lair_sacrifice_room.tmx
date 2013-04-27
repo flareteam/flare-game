@@ -221,13 +221,13 @@
     <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="brazier sound effect" type="run_always" x="128" y="192" width="256" height="160">
+  <object name="brazier sound effect" type="on_trigger" x="128" y="192" width="256" height="160">
    <properties>
     <property name="cooldown" value="120"/>
     <property name="soundfx" value="soundfx/environment/open_fire.ogg"/>
    </properties>
   </object>
-  <object type="run_always" x="96" y="1024" width="416" height="192">
+  <object type="on_trigger" x="96" y="1024" width="416" height="192">
    <properties>
     <property name="cooldown" value="60"/>
     <property name="power" value="6"/>
@@ -236,7 +236,7 @@
     <property name="requires_status" value="lb_wind_attack"/>
    </properties>
   </object>
-  <object type="run_always" x="96" y="1024" width="416" height="192">
+  <object type="on_trigger" x="96" y="1024" width="416" height="192">
    <properties>
     <property name="cooldown" value="60"/>
     <property name="power" value="122"/>
@@ -245,7 +245,7 @@
     <property name="requires_status" value="lb_fire_attack"/>
    </properties>
   </object>
-  <object type="run_always" x="96" y="1024" width="416" height="192">
+  <object type="on_trigger" x="96" y="1024" width="416" height="192">
    <properties>
     <property name="cooldown" value="60"/>
     <property name="power" value="123"/>

@@ -289,7 +289,7 @@ tooltip=Suspicious Bookcase
 
 [event]
 # Lore: Plotting
-type=run_always
+type=on_trigger
 location=18,46,1,1
 hotspot=location
 mapmod=object,18,46,165
@@ -299,7 +299,7 @@ tooltip=Book Stand
 
 [event]
 # Lore: The Trap
-type=run_always
+type=on_trigger
 location=16,46,1,1
 hotspot=location
 mapmod=object,16,46,165
@@ -309,7 +309,7 @@ tooltip=Book Stand
 
 [event]
 # Lore: Under the Wing
-type=run_always
+type=on_trigger
 location=25,60,1,1
 hotspot=location
 msg="My brothers and I wandered around for a few days. In an incredible stroke of luck, we encountered a master necromancer who, seeing the marks of banishment on our foreheads, took us as his apprentices."
@@ -318,7 +318,7 @@ tooltip=Bookcase
 
 [event]
 # Lore: Outgrowing
-type=run_always
+type=on_trigger
 location=30,48,1,1
 hotspot=location
 mapmod=object,30,48,165
@@ -328,7 +328,7 @@ tooltip=Book Stand
 
 [event]
 # Lore: Academy
-type=run_always
+type=on_trigger
 location=7,51,1,1
 hotspot=location
 mapmod=object,7,51,164
@@ -338,7 +338,7 @@ tooltip=Book Stand
 
 [event]
 # Lore: Outcast
-type=run_always
+type=on_trigger
 location=17,71,1,1
 hotspot=location
 mapmod=object,17,71,164
@@ -348,7 +348,7 @@ tooltip=Book Stand
 
 [event]
 # Lore: New Residence
-type=run_always
+type=on_trigger
 location=16,10,1,1
 hotspot=location
 mapmod=object,16,10,165
@@ -358,7 +358,7 @@ tooltip=Book Stand
 
 [event]
 # Scathelocke's Diary
-type=run_always
+type=on_trigger
 location=18,10,1,1
 hotspot=location
 mapmod=object,18,10,165
@@ -478,7 +478,7 @@ unset_status=lb_ice_key
 
 [event]
 # Scathelocke's Chest Locked
-type=run_always
+type=on_trigger
 location=14,10,1,1
 hotspot=location
 power=14
