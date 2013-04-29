@@ -344,49 +344,53 @@
 </data>
  </layer>
  <objectgroup name="event" width="100" height="100">
-  <object type="teleport" x="32" y="1728" width="32" height="64">
+  <object type="on_trigger" x="32" y="1728" width="32" height="64">
    <properties>
     <property name="hotspot" value="1,54,1,2"/>
     <property name="intermap" value="averguard_atrium.txt,15,51"/>
     <property name="soundfx" value="soundfx/door_open.ogg,0,0"/>
    </properties>
   </object>
-  <object name="control room crate" type="run_once" x="64" y="1504" width="32" height="32">
+  <object name="control room crate" type="on_trigger" x="64" y="1504" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,2,46,fixed,5,15"/>
     <property name="mapmod" value="object,2,47,163"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Crate"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="torture room chest" type="run_once" x="384" y="2688" width="32" height="32">
+  <object name="torture room chest" type="on_trigger" x="384" y="2688" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,12,85,fixed,10,25"/>
     <property name="mapmod" value="object,12,84,161"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Treasure Chest"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="control room switch to open the cell with the hidden passage" type="run_once" x="96" y="1376" width="32" height="32">
+  <object name="control room switch to open the cell with the hidden passage" type="on_trigger" x="96" y="1376" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="mapmod" value="object,3,43,150;object,23,53,113;collision,23,53,0"/>
     <property name="soundfx" value="soundfx/door_open.ogg"/>
     <property name="tooltip" value="Switch"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="hidden room book" type="run_once" x="736" y="928" width="32" height="32">
+  <object name="hidden room book" type="on_trigger" x="736" y="928" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="mapmod" value="object,23,29,165"/>
     <property name="msg" value="The last entry of this well-preserved journal reads: &quot;I feared it would come to this.  I knew the Warden's secrets but they would not be contained forever.&quot;"/>
     <property name="soundfx" value="soundfx/inventory/inventory_page.ogg"/>
     <property name="tooltip" value="Book Stand"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="hidden room chest" type="run_once" x="672" y="960" width="32" height="32">
+  <object name="hidden room chest" type="on_trigger" x="672" y="960" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="1,21,31,fixed,1"/>
@@ -395,20 +399,23 @@
     <property name="set_status" value="av_prison_chest1"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Treasure Chest"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="hidden room crate" type="run_once" x="704" y="896" width="32" height="32">
+  <object name="hidden room crate" type="on_trigger" x="704" y="896" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="mapmod" value="object,22,28,163"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Crate"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="trap tile that opens three cells" type="run_once" x="2112" y="1568" width="32" height="64">
+  <object name="trap tile that opens three cells" type="on_trigger" x="2112" y="1568" width="32" height="64">
    <properties>
     <property name="mapmod" value="object,63,48,113;object,66,48,113;object,69,48,113;collision,63,48,0;collision,66,48,0;collision,69,48,0"/>
     <property name="soundfx" value="soundfx/door_open.ogg"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object name="brazier sound effect" type="on_load" x="2752" y="1312" width="32" height="32">
@@ -416,11 +423,12 @@
     <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
    </properties>
   </object>
-  <object type="run_once" x="2848" y="384" width="32" height="32">
+  <object type="on_trigger" x="2848" y="384" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,89,13,fixed,15,40"/>
     <property name="mapmod" value="object,89,12,183"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object name="brazier sound effect" type="on_load" x="416" y="2688" width="32" height="32">

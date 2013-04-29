@@ -351,21 +351,23 @@ location=41,18,1,1
 
 [event]
 # cliff passage container
-type=run_once
+type=on_trigger
 location=20,43,1,1
 hotspot=location
 loot=currency,21,44,fixed,5,15
 mapmod=object,20,43,99
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Supplies
 
 [event]
 # boss container 1
-type=run_once
+type=on_trigger
 location=10,13,1,1
 hotspot=location
 loot=127,11,13,fixed,1
 mapmod=object,10,13,99
+repeat=false
 requires_not=re_crate4
 set_status=re_crate4
 soundfx=soundfx/wood_open.ogg
@@ -373,11 +375,12 @@ tooltip=Supplies
 
 [event]
 # boss container 2
-type=run_once
+type=on_trigger
 location=9,15,1,1
 hotspot=location
 loot=2,10,15,fixed,1
 mapmod=object,9,15,97
+repeat=false
 requires_not=re_crate3
 set_status=re_crate3
 soundfx=soundfx/wood_open.ogg
@@ -385,11 +388,12 @@ tooltip=Supplies
 
 [event]
 # pier container
-type=run_once
+type=on_trigger
 location=38,27,1,1
 hotspot=location
 loot=1,38,26,fixed,1
 mapmod=object,38,27,97
+repeat=false
 requires_not=re_crate1
 set_status=re_crate1
 soundfx=soundfx/wood_open.ogg
@@ -397,13 +401,13 @@ tooltip=Supplies
 
 [event]
 # to Frontier Plains
-type=teleport
+type=on_trigger
 location=51,62,2,1
 intermap=frontier_plains.txt,63,18
 
 [event]
 # to River Barrow
-type=teleport
+type=on_trigger
 location=35,3,1,2
 intermap=river_barrow.txt,60,30
 

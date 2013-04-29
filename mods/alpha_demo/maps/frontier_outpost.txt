@@ -247,25 +247,25 @@ location=12,35,1,1
 
 [event]
 # to Mineshaft Longsword
-type=teleport
+type=on_trigger
 location=19,11,2,1
 intermap=mineshaft_longsword.txt,44,61
 
 [event]
 # to River Road
-type=teleport
+type=on_trigger
 location=43,62,4,1
 intermap=river_road.txt,32,4
 
 [event]
 # to Frontier Plains
-type=teleport
+type=on_trigger
 location=1,12,1,2
 intermap=frontier_plains.txt,248,186
 
 [event]
 # Shared stash
-type=stash
+type=on_trigger
 location=22,28,1,1
 hotspot=location
 soundfx=soundfx/wood_open.ogg
@@ -274,10 +274,11 @@ tooltip=Shared Stash
 
 [event]
 # Activate_Teleporter
-type=run_once
+type=on_trigger
 location=32,8,5,5
 mapmod=background,33,10,265
 msg=Frontier Outpost waypoint discovered.
+repeat=false
 requires_not=waypoint_frontier_outpost
 set_status=waypoint_frontier_outpost
 
@@ -289,7 +290,7 @@ requires_status=waypoint_frontier_outpost
 
 [event]
 # Warp Zone
-type=teleport
+type=on_trigger
 location=33,9,2,2
 hotspot=location
 intermap=warp_zone.txt,29,44

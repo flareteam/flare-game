@@ -330,7 +330,7 @@ data=
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
 
 [event]
-type=teleport
+type=on_trigger
 location=62,2,2,1
 hotspot=62,2,2,1
 intermap=averguard_atrium.txt,9,57
@@ -338,52 +338,57 @@ soundfx=soundfx/door_open.ogg,0,0
 
 [event]
 # bookstand
-type=run_once
+type=on_trigger
 location=31,22,1,1
 hotspot=location
 mapmod=object,31,22,165
 msg="Some say the Averguard Academy is the greatest collection of knowledge within the empire."
+repeat=false
 soundfx=soundfx/inventory/inventory_page.ogg
 tooltip=Book Stand
 
 [event]
 # bookstand
-type=run_once
+type=on_trigger
 location=28,22,1,1
 hotspot=location
 mapmod=object,28,22,165
 msg="Professor Langlier is High Sage of the Averguard.  Several volumes kept here are his own writings."
+repeat=false
 soundfx=soundfx/inventory/inventory_page.ogg
 tooltip=Book Stand
 
 [event]
 # bookstand
-type=run_once
+type=on_trigger
 location=25,22,1,1
 hotspot=location
 mapmod=object,25,22,165
 msg="The Academy is only open to oathkeeping members of the Averguard.  Few others know of its existence."
+repeat=false
 soundfx=soundfx/inventory/inventory_page.ogg
 tooltip=Book Stand
 
 [event]
 # bookstand
-type=run_once
+type=on_trigger
 location=22,31,1,1
 hotspot=location
 mapmod=object,22,31,164
 msg="The peasants could not be trusted with literacy.  Most gave up their books without incident."
+repeat=false
 soundfx=soundfx/inventory/inventory_page.ogg
 tooltip=Book Stand
 
 [event]
 # bookstand
-type=run_once
+type=on_trigger
 location=20,75,1,1
 hotspot=location
 loot=2,21,75,fixed,1
 mapmod=object,20,75,164
 msg=This false book has a secret compartment.
+repeat=false
 requires_not=av_academy_bookstand1
 set_status=av_academy_bookstand1
 soundfx=soundfx/inventory/inventory_page.ogg
@@ -391,91 +396,101 @@ tooltip=Book Stand
 
 [event]
 # barrel
-type=run_once
+type=on_trigger
 location=10,49,1,1
 hotspot=location
 mapmod=object,10,49,162
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
 # barrel
-type=run_once
+type=on_trigger
 location=10,48,1,1
 hotspot=location
 loot=currency,11,48,fixed,5,20
 mapmod=object,10,48,162
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
 # barrel
-type=run_once
+type=on_trigger
 location=10,47,1,1
 hotspot=location
 mapmod=object,10,47,162
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
 # barrel
-type=run_once
+type=on_trigger
 location=12,49,1,1
 hotspot=location
 mapmod=object,12,49,162
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
 # crate
-type=run_once
+type=on_trigger
 location=11,46,1,1
 hotspot=location
 loot=currency,12,46,fixed,5,20
 mapmod=object,11,46,163
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Crate
 
 [event]
 # crate
-type=run_once
+type=on_trigger
 location=13,49,1,1
 hotspot=location
 mapmod=object,13,49,163
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Crate
 
 [event]
 # crate
-type=run_once
+type=on_trigger
 location=15,49,1,1
 hotspot=location
 loot=currency,14,48,fixed,5,20
 mapmod=object,15,49,163
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Crate
 
 [event]
 # boss tomb
-type=run_once
+type=on_trigger
 location=3,88,5,5
 msg=This tomb glows with magical runes.
+repeat=false
 
 [event]
 # boss tomb
-type=run_once
+type=on_trigger
 location=4,90,1,2
 hotspot=location
 loot=currency,5,90,fixed,10,25;currency,5,91,fixed,10,30
+repeat=false
 tooltip=Langlier's Tomb
 
 [event]
 # teleport chest
-type=run_once
+type=on_trigger
 location=45,97,1,1
 hotspot=location
 loot=currency,45,98,15,50
 mapmod=object,45,97,161
+repeat=false
 tooltip=Treasure Chest
 
 [event]

@@ -180,107 +180,116 @@ data=
 
 [event]
 # Rising Wind Switch (Death)
-type=run_once
+type=on_trigger
 location=23,29,1,1
 hotspot=location
 mapmod=object,23,29,166
 power=6
 power_damage=1000,1000
 power_path=23,29,hero
+repeat=false
 soundfx=soundfx/door_open.ogg
 tooltip=Rising Wind Switch
 
 [event]
 # Rising Fire Switch (Death)
-type=run_once
+type=on_trigger
 location=25,29,1,1
 hotspot=location
 mapmod=object,25,29,166
 power=6
 power_damage=1000,1000
 power_path=25,29,hero
+repeat=false
 soundfx=soundfx/door_open.ogg
 tooltip=Rising Fire Switch
 
 [event]
 # Rising Ice Switch (Left Door)
-type=run_once
+type=on_trigger
 location=27,29,1,1
 hotspot=location
 mapmod=object,10,31,112;collision,10,31,0;object,27,29,166
+repeat=false
 soundfx=soundfx/door_open.ogg
 tooltip=Rising Ice Switch
 
 [event]
 # Falling Ice Switch (Death)
-type=run_once
+type=on_trigger
 location=27,31,1,1
 hotspot=location
 mapmod=object,27,31,166
 power=6
 power_damage=1000,1000
 power_path=27,31,hero
+repeat=false
 soundfx=soundfx/door_open.ogg
 tooltip=Falling Ice Switch
 
 [event]
 # Falling Wind Switch (Right Door)
-type=run_once
+type=on_trigger
 location=23,31,1,1
 hotspot=location
 mapmod=object,23,31,166;object,25,16,113;collision,25,16,0
+repeat=false
 soundfx=soundfx/door_open.ogg
 tooltip=Falling Wind Switch
 
 [event]
 # Falling Fire Switch (Death)
-type=run_once
+type=on_trigger
 location=25,31,1,1
 hotspot=location
 mapmod=object,25,31,166
 power=6
 power_damage=1000,1000
 power_path=25,31,hero
+repeat=false
 soundfx=soundfx/door_open.ogg
 tooltip=Falling Fire Switch
 
 [event]
 # Waiting Wind Switch (Death)
-type=run_once
+type=on_trigger
 location=23,33,1,1
 hotspot=location
 mapmod=object,23,33,166
 power=6
 power_damage=1000,1000
 power_path=23,33,hero
+repeat=false
 soundfx=soundfx/door_open.ogg
 tooltip=Waiting Wind Switch
 
 [event]
 # Waiting Fire Switch (Treasure)
-type=run_once
+type=on_trigger
 location=25,33,1,1
 hotspot=location
 loot=currency,25,34,fixed,10,50
 mapmod=object,25,33,166
+repeat=false
 soundfx=soundfx/door_open.ogg
 tooltip=Waiting Fire Switch
 
 [event]
 # Waiting Ice Switch (Death)
-type=run_once
+type=on_trigger
 location=27,33,1,1
 hotspot=location
 mapmod=object,27,33,166
 power=6
 power_damage=1000,1000
 power_path=27,33,hero
+repeat=false
 soundfx=soundfx/door_open.ogg
 tooltip=Waiting Ice Switch
 
 [event]
 # Storage Room Clue Book
-type=run_always
+type=on_trigger
 location=13,31,1,1
 hotspot=location
 mapmod=object,13,31,164
@@ -290,7 +299,7 @@ tooltip=Book Stand
 
 [event]
 # Bedroom Clue Book
-type=run_always
+type=on_trigger
 location=25,19,1,1
 hotspot=location
 mapmod=object,25,19,165
@@ -300,7 +309,7 @@ tooltip=Book Stand
 
 [event]
 # Warp to Atrium
-type=teleport
+type=on_trigger
 location=2,18,1,2
 hotspot=2,18,1,2
 intermap=brothers_lair_atrium.txt,26,14
@@ -308,7 +317,7 @@ soundfx=soundfx/door_open.ogg,0,0
 
 [event]
 # Grisbon's Diary
-type=run_always
+type=on_trigger
 location=31,8,1,1
 hotspot=location
 mapmod=object,31,8,164
@@ -319,102 +328,112 @@ tooltip=Book Stand
 
 [event]
 # Crate
-type=run_once
+type=on_trigger
 location=31,15,1,1
 hotspot=location
 loot=currency,31,14,fixed,15,30
 mapmod=object,31,15,163
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Crate
 
 [event]
 # Crate
-type=run_once
+type=on_trigger
 location=36,14,1,1
 hotspot=location
 loot=currency,35,13,fixed,15,30
 mapmod=object,36,14,163
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Crate
 
 [event]
 # Crate
-type=run_once
+type=on_trigger
 location=11,46,1,1
 hotspot=location
 loot=currency,11,45,fixed,15,30
 mapmod=object,11,46,163
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Crate
 
 [event]
 # Crate
-type=run_once
+type=on_trigger
 location=3,46,1,1
 hotspot=location
 loot=currency,4,45,fixed,15,30
 mapmod=object,3,46,163
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Crate
 
 [event]
 # Barrel
-type=run_once
+type=on_trigger
 location=3,45,1,1
 hotspot=location
 loot=currency,3,44,fixed,15,30
 mapmod=object,3,45,162
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
 # Barrel
-type=run_once
+type=on_trigger
 location=4,46,1,1
 hotspot=location
 loot=currency,5,46,fixed,15,30
 mapmod=object,4,46,162
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
 # Barrel
-type=run_once
+type=on_trigger
 location=10,46,1,1
 hotspot=location
 loot=currency,9,46,fixed,15,30
 mapmod=object,10,46,162
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
 # Barrel
-type=run_once
+type=on_trigger
 location=11,44,1,1
 hotspot=location
 loot=currency,10,44,fixed,15,30
 mapmod=object,11,44,162
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
 # Barrel
-type=run_once
+type=on_trigger
 location=36,15,1,1
 hotspot=location
 loot=currency,35,14,fixed,15,30
 mapmod=object,36,15,162
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
 # Grisbon's Chest
-type=run_once
+type=on_trigger
 location=31,7,1,1
 hotspot=location
 loot=currency,32,7,fixed,100,200
 mapmod=object,31,7,160
 remove_item=9103
+repeat=false
 requires_item=9103
 set_status=lb_wind_looted
 soundfx=soundfx/wood_open.ogg
@@ -423,7 +442,7 @@ unset_status=lb_wind_key
 
 [event]
 # Grisbon's Chest Locked
-type=run_always
+type=on_trigger
 location=31,7,1,1
 hotspot=location
 power=6
@@ -434,7 +453,7 @@ tooltip=Runed Chest
 
 [event]
 # brazier sound effect
-type=run_always
+type=on_trigger
 location=9,30,7,7
 cooldown=120
 soundfx=soundfx/environment/open_fire.ogg

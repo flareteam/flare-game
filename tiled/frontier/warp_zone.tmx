@@ -235,7 +235,7 @@
 </data>
  </layer>
  <objectgroup name="event" width="64" height="64" visible="0">
-  <object type="teleport" x="704" y="1440" width="64" height="64">
+  <object type="on_trigger" x="704" y="1440" width="64" height="64">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="intermap" value="ancient_temple.txt,47,94"/>
@@ -243,14 +243,14 @@
     <property name="tooltip" value="Ancient Temple"/>
    </properties>
   </object>
-  <object type="teleport" x="960" y="1440" width="64" height="64">
+  <object type="on_trigger" x="960" y="1440" width="64" height="64">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="intermap" value="frontier_outpost.txt,36,12"/>
     <property name="tooltip" value="Frontier Outpost"/>
    </properties>
   </object>
-  <object type="teleport" x="960" y="1184" width="64" height="64">
+  <object type="on_trigger" x="960" y="1184" width="64" height="64">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="intermap" value="ydrakka_pass.txt,99,49"/>
@@ -258,7 +258,7 @@
     <property name="tooltip" value="Ydrakka Pass"/>
    </properties>
   </object>
-  <object type="teleport" x="960" y="928" width="64" height="64">
+  <object type="on_trigger" x="960" y="928" width="64" height="64">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="intermap" value="averguard_atrium.txt,11,52"/>
@@ -266,7 +266,7 @@
     <property name="tooltip" value="Averguard Atrium"/>
    </properties>
   </object>
-  <object type="teleport" x="1216" y="1184" width="64" height="64">
+  <object type="on_trigger" x="1216" y="1184" width="64" height="64">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="intermap" value="brothers_lair_atrium.txt,17,22"/>

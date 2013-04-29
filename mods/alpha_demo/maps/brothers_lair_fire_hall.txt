@@ -270,7 +270,7 @@ data=
 
 [event]
 # Warp to Atrium
-type=teleport
+type=on_trigger
 location=24,78,2,1
 hotspot=24,79,2,1
 intermap=brothers_lair_atrium.txt,14,2
@@ -278,68 +278,75 @@ soundfx=soundfx/door_open.ogg,0,0
 
 [event]
 # Barrel
-type=run_once
+type=on_trigger
 location=23,64,1,1
 hotspot=location
 loot=currency,24,63,fixed,10,30
 mapmod=object,23,64,162
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
 # Barrel
-type=run_once
+type=on_trigger
 location=22,64,1,1
 hotspot=location
 loot=currency,22,63,fixed,10,30
 mapmod=object,22,64,162
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
 # Crate
-type=run_once
+type=on_trigger
 location=21,64,1,1
 hotspot=location
 loot=currency,21,63,fixed,10,35
 mapmod=object,21,64,163
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Crate
 
 [event]
 # Crate
-type=run_once
+type=on_trigger
 location=23,63,1,1
 hotspot=location
 loot=currency,23,62,fixed,10,35
 mapmod=object,23,63,163
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Crate
 
 [event]
 # Burn Trap
-type=run_once
+type=on_trigger
 location=21,20,1,1
 power=18
 power_damage=100,150
 power_path=0,0,21,20
+repeat=false
 
 [event]
 # Burn Trap
-type=run_once
+type=on_trigger
 location=24,20,1,1
 power=18
 power_damage=100,150
 power_path=0,0,24,20
+repeat=false
 
 [event]
 # Vesuvvio's Chest
-type=run_once
+type=on_trigger
 location=21,60,1,1
 hotspot=location
 loot=currency,22,60,fixed,100,200
 mapmod=object,21,60,160
 remove_item=9102
+repeat=false
 requires_item=9102
 set_status=lb_fire_looted
 soundfx=soundfx/wood_open.ogg
@@ -348,7 +355,7 @@ unset_status=lb_fire_key
 
 [event]
 # Vesuvvio's Chest Locked
-type=run_always
+type=on_trigger
 location=21,60,1,1
 hotspot=location
 power=18
@@ -359,7 +366,7 @@ tooltip=Runed Chest
 
 [event]
 # Vesuvvio's Diary
-type=run_always
+type=on_trigger
 location=19,16,1,1
 hotspot=location
 mapmod=object,19,16,165
