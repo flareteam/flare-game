@@ -276,21 +276,21 @@ data=
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
 
 [event]
-type=custom
+type=on_trigger
 location=1,8,1,2
 hotspot=1,8,1,2
 intermap=averguard_atrium.txt,17,10
 soundfx=soundfx/door_open.ogg,0,0
 
 [event]
-type=custom
+type=on_trigger
 location=52,13,1,2
 hotspot=53,13,1,2
 intermap=cave1.txt,3,13
 soundfx=soundfx/door_open.ogg,0,0
 
 [event]
-type=custom
+type=on_trigger
 location=28,80,2,1
 hotspot=28,81,2,1
 intermap=ydrakka_pass.txt,92,54
@@ -298,32 +298,35 @@ soundfx=soundfx/door_open.ogg,0,0
 
 [event]
 # dorm room chest
-type=run_once
+type=on_trigger
 location=3,36,1,1
 hotspot=location
 loot=currency,4,36,fixed,10,30
 mapmod=object,3,36,160
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Treasure Chest
 
 [event]
 # dorm room barrel
-type=run_once
+type=on_trigger
 location=1,32,1,1
 hotspot=location
 loot=currency,2,32,fixed,10,20
 mapmod=object,1,32,162
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
 # dorm room book
-type=run_once
+type=on_trigger
 location=2,28,1,1
 hotspot=location
 loot=9000,2,29,fixed,1
 mapmod=object,2,28,165
 msg=This book bears the seal of the Averguard
+repeat=false
 requires_not=ak_tome_found
 requires_status=ak_tome_search
 soundfx=soundfx/inventory/inventory_page.ogg
@@ -331,27 +334,29 @@ tooltip=Book Stand
 
 [event]
 # overlook book 1
-type=run_once
+type=on_trigger
 location=38,51,1,1
 hotspot=location
 mapmod=object,38,51,164
 msg="In the Age of Settlement, the Averguard Knights defended peasants against the chaos of the wilderness."
+repeat=false
 soundfx=soundfx/inventory/inventory_page.ogg
 tooltip=Book Stand
 
 [event]
 # overlook book 2
-type=run_once
+type=on_trigger
 location=38,46,1,1
 hotspot=location
 mapmod=object,38,46,164
 msg="Sir Evan Maddox led the Averguard when the plague struck.  Powerful clerics from the corners of the world were brought here.  By the time a cure was found it was too late."
+repeat=false
 soundfx=soundfx/inventory/inventory_page.ogg
 tooltip=Book Stand
 
 [event]
 # brazier sound effect
-type=run_always
+type=on_trigger
 location=41,44,5,9
 cooldown=120
 soundfx=soundfx/environment/open_fire.ogg

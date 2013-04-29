@@ -430,22 +430,23 @@
 </data>
  </layer>
  <objectgroup name="event" width="28" height="129">
-  <object type="custom" x="448" y="4064" width="64" height="32">
+  <object type="on_trigger" x="448" y="4064" width="64" height="32">
    <properties>
     <property name="hotspot" value="14,128,2,1"/>
     <property name="intermap" value="averguard_atrium.txt,8,2"/>
     <property name="soundfx" value="soundfx/door_open.ogg,0,0"/>
    </properties>
   </object>
-  <object name="switch to open the temple library room" type="run_once" x="608" y="3776" width="32" height="32">
+  <object name="switch to open the temple library room" type="on_trigger" x="608" y="3776" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="mapmod" value="object,19,118,150;object,10,118,112;collision,10,118,0"/>
     <property name="soundfx" value="soundfx/door_open.ogg"/>
     <property name="tooltip" value="Switch"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="fire statue trap" type="run_always" x="192" y="1632" width="608" height="448">
+  <object name="fire statue trap" type="on_trigger" x="192" y="1632" width="608" height="448">
    <properties>
     <property name="cooldown" value="30"/>
     <property name="power" value="31"/>
@@ -453,7 +454,7 @@
     <property name="power_path" value="15,58,hero"/>
    </properties>
   </object>
-  <object name="if the player doesn't have the talisman and key, the door is sealed" type="run_once" x="480" y="2816" width="32" height="32">
+  <object name="if the player doesn't have the talisman and key, the door is sealed" type="on_trigger" x="480" y="2816" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="msg" value="You insert the Averguard Key. Runes glow around the door, then fade. The door is still sealed."/>
@@ -462,9 +463,10 @@
     <property name="requires_status" value="ak_key_found"/>
     <property name="set_status" value="ak_temple_sealed"/>
     <property name="tooltip" value="Sealed Temple Door"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="the first time you use the talisman" type="run_once" x="416" y="2848" width="32" height="32">
+  <object name="the first time you use the talisman" type="on_trigger" x="416" y="2848" width="32" height="32">
    <properties>
     <property name="hotspot" value="15,88,1,1"/>
     <property name="msg" value="You read aloud the runes on Langlier's Talisman. The Avergard Key begins to glow!"/>
@@ -474,44 +476,49 @@
     <property name="shakycam" value="60"/>
     <property name="soundfx" value="soundfx/powers/quake.ogg"/>
     <property name="tooltip" value="Activate Talisman"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object type="run_once" x="544" y="2912" width="32" height="32">
+  <object type="on_trigger" x="544" y="2912" width="32" height="32">
    <properties>
     <property name="hotspot" value="15,88,1,1"/>
     <property name="mapmod" value="object,15,88,113;collision,15,88,0"/>
     <property name="requires_status" value="ak_talisman_used"/>
     <property name="soundfx" value="soundfx/door_open.ogg"/>
     <property name="tooltip" value="Temple Door"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object type="run_once" x="64" y="3744" width="32" height="32">
+  <object type="on_trigger" x="64" y="3744" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="mapmod" value="object,2,117,164"/>
     <property name="msg" value="&quot;Some said Sir Maddox cared too much for the peasants.  He would not quarantine, saying the villagers did not deserve to die locked away.&quot;"/>
     <property name="soundfx" value="soundfx/inventory/inventory_page.ogg"/>
     <property name="tooltip" value="Book Stand"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object type="run_once" x="64" y="3872" width="32" height="32">
+  <object type="on_trigger" x="64" y="3872" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="mapmod" value="object,2,121,164"/>
     <property name="msg" value="&quot;Maddox died of the plague in 638.  After attempts to magically revive him failed he was sealed deep behind the temple.&quot;"/>
     <property name="soundfx" value="soundfx/inventory/inventory_page.ogg"/>
     <property name="tooltip" value="Book Stand"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="chest in the boss room" type="run_once" x="480" y="32" width="32" height="32">
+  <object name="chest in the boss room" type="on_trigger" x="480" y="32" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="msg" value="This chest is locked."/>
     <property name="requires_not" value="ak_maddox_defeated"/>
     <property name="tooltip" value="Treasure Chest"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object type="run_once" x="480" y="32" width="32" height="32">
+  <object type="on_trigger" x="480" y="32" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,14,2,fixed,15,30;currency,15,2,fixed,15,35;currency,16,2,fixed,10,25"/>
@@ -519,24 +526,28 @@
     <property name="requires_status" value="ak_maddox_defeated"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Treasure Chest"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object type="run_once" x="448" y="1984" width="96" height="32">
+  <object type="on_trigger" x="448" y="1984" width="96" height="32">
    <properties>
     <property name="msg" value="A plaque under the statue reads &quot;Sir Evan Maddox, may he return to rescue us all&quot;"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="when entering Maddox's Burial Chamber" type="run_once" x="480" y="608" width="64" height="64">
+  <object name="when entering Maddox's Burial Chamber" type="on_trigger" x="480" y="608" width="64" height="64">
    <properties>
     <property name="msg" value="A ghastly voice reverberates from the next chamber.  &quot;What fool disturbs my tomb?!&quot;"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object type="run_once" x="480" y="288" width="32" height="64">
+  <object type="on_trigger" x="480" y="288" width="32" height="64">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,16,9,fixed,10,25"/>
     <property name="msg" value="You wipe dust away from the tomb lid, revealing an inscription: &quot;Here lies Sir Evan Maddox&quot;"/>
     <property name="tooltip" value="Maddox's Tomb"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object name="brazier sound effect" type="on_load" x="448" y="3136" width="32" height="32">

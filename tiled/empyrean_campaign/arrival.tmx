@@ -161,12 +161,13 @@
 </data>
  </layer>
  <objectgroup name="event" width="40" height="40">
-  <object type="run_once" x="608" y="608" width="64" height="64">
+  <object type="on_trigger" x="608" y="608" width="64" height="64">
    <properties>
     <property name="shakycam" value="60"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object type="custom" x="1216" y="1088" width="32" height="64">
+  <object type="on_trigger" x="1216" y="1088" width="32" height="64">
    <properties>
     <property name="intermap" value="lost.txt,2,4"/>
    </properties>

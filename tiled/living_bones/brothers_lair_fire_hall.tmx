@@ -283,64 +283,70 @@
 </data>
  </layer>
  <objectgroup name="event" width="50" height="80">
-  <object name="Warp to Atrium" type="custom" x="768" y="2496" width="64" height="32">
+  <object name="Warp to Atrium" type="on_trigger" x="768" y="2496" width="64" height="32">
    <properties>
     <property name="hotspot" value="24,79,2,1"/>
     <property name="intermap" value="brothers_lair_atrium.txt,14,2"/>
     <property name="soundfx" value="soundfx/door_open.ogg,0,0"/>
    </properties>
   </object>
-  <object name="Barrel" type="run_once" x="736" y="2048" width="32" height="32">
+  <object name="Barrel" type="on_trigger" x="736" y="2048" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,24,63,fixed,10,30"/>
     <property name="mapmod" value="object,23,64,162"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Barrel"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="Barrel" type="run_once" x="704" y="2048" width="32" height="32">
+  <object name="Barrel" type="on_trigger" x="704" y="2048" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,22,63,fixed,10,30"/>
     <property name="mapmod" value="object,22,64,162"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Barrel"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="Crate" type="run_once" x="672" y="2048" width="32" height="32">
+  <object name="Crate" type="on_trigger" x="672" y="2048" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,21,63,fixed,10,35"/>
     <property name="mapmod" value="object,21,64,163"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Crate"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="Crate" type="run_once" x="736" y="2016" width="32" height="32">
+  <object name="Crate" type="on_trigger" x="736" y="2016" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,23,62,fixed,10,35"/>
     <property name="mapmod" value="object,23,63,163"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Crate"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="Burn Trap" type="run_once" x="672" y="640" width="32" height="32">
+  <object name="Burn Trap" type="on_trigger" x="672" y="640" width="32" height="32">
    <properties>
     <property name="power" value="18"/>
     <property name="power_damage" value="100,150"/>
     <property name="power_path" value="0,0,21,20"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="Burn Trap" type="run_once" x="768" y="640" width="32" height="32">
+  <object name="Burn Trap" type="on_trigger" x="768" y="640" width="32" height="32">
    <properties>
     <property name="power" value="18"/>
     <property name="power_damage" value="100,150"/>
     <property name="power_path" value="0,0,24,20"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="Vesuvvio's Chest" type="run_once" x="672" y="1920" width="32" height="32">
+  <object name="Vesuvvio's Chest" type="on_trigger" x="672" y="1920" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,22,60,fixed,100,200"/>
@@ -351,9 +357,10 @@
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Runed Chest"/>
     <property name="unset_status" value="lb_fire_key"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="Vesuvvio's Chest Locked" type="run_always" x="672" y="1920" width="32" height="32">
+  <object name="Vesuvvio's Chest Locked" type="on_trigger" x="672" y="1920" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="power" value="18"/>
@@ -363,7 +370,7 @@
     <property name="tooltip" value="Runed Chest"/>
    </properties>
   </object>
-  <object name="Vesuvvio's Diary" type="run_always" x="608" y="512" width="32" height="32">
+  <object name="Vesuvvio's Diary" type="on_trigger" x="608" y="512" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="mapmod" value="object,19,16,165"/>

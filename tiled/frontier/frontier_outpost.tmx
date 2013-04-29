@@ -243,34 +243,36 @@
   <object x="736" y="1280"/>
  </objectgroup>
  <objectgroup name="event" width="64" height="64">
-  <object name="to Mineshaft Longsword" type="custom" x="608" y="352" width="64" height="32">
+  <object name="to Mineshaft Longsword" type="on_trigger" x="608" y="352" width="64" height="32">
    <properties>
     <property name="intermap" value="mineshaft_longsword.txt,44,61"/>
    </properties>
   </object>
-  <object name="to River Road" type="custom" x="1376" y="1984" width="128" height="32">
+  <object name="to River Road" type="on_trigger" x="1376" y="1984" width="128" height="32">
    <properties>
     <property name="intermap" value="river_road.txt,32,4"/>
    </properties>
   </object>
-  <object name="to Frontier Plains" type="custom" x="32" y="384" width="32" height="64">
+  <object name="to Frontier Plains" type="on_trigger" x="32" y="384" width="32" height="64">
    <properties>
     <property name="intermap" value="frontier_plains.txt,248,186"/>
    </properties>
   </object>
-  <object name="Shared stash" type="stash" x="704" y="896" width="32" height="32">
+  <object name="Shared stash" type="on_trigger" x="704" y="896" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="stash" value="true"/>
     <property name="tooltip" value="Shared Stash"/>
    </properties>
   </object>
-  <object name="Activate_Teleporter" type="run_once" x="1024" y="256" width="160" height="160">
+  <object name="Activate_Teleporter" type="on_trigger" x="1024" y="256" width="160" height="160">
    <properties>
     <property name="mapmod" value="background,33,10,265"/>
     <property name="msg" value="Frontier Outpost waypoint discovered."/>
     <property name="requires_not" value="waypoint_frontier_outpost"/>
     <property name="set_status" value="waypoint_frontier_outpost"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object type="on_load" x="1024" y="192" width="32" height="32">
@@ -279,7 +281,7 @@
     <property name="requires_status" value="waypoint_frontier_outpost"/>
    </properties>
   </object>
-  <object name="Warp Zone" type="custom" x="1056" y="288" width="64" height="64">
+  <object name="Warp Zone" type="on_trigger" x="1056" y="288" width="64" height="64">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="intermap" value="warp_zone.txt,29,44"/>

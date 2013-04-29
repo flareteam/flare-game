@@ -342,103 +342,104 @@ data=
 
 [event]
 # to Frontier Plains
-type=custom
+type=on_trigger
 location=48,101,2,1
 hotspot=48,102,2,1
 intermap=frontier_plains.txt,118,138
 soundfx=soundfx/door_open.ogg,0,0
 
 [event]
-type=custom
+type=on_trigger
 location=10,15,2,1
 intramap=11,11
 soundfx=soundfx/powers/teleport.ogg
 
 [event]
-type=custom
+type=on_trigger
 location=10,12,2,1
 intramap=10,16
 soundfx=soundfx/powers/teleport.ogg
 
 [event]
-type=custom
+type=on_trigger
 location=13,9,1,2
 intramap=21,12
 soundfx=soundfx/powers/teleport.ogg
 
 [event]
-type=custom
+type=on_trigger
 location=20,11,1,2
 intramap=12,9
 soundfx=soundfx/powers/teleport.ogg
 
 [event]
-type=custom
+type=on_trigger
 location=27,11,1,2
 intramap=34,15
 soundfx=soundfx/powers/teleport.ogg
 
 [event]
-type=custom
+type=on_trigger
 location=33,14,1,2
 intramap=26,11
 soundfx=soundfx/powers/teleport.ogg
 
 [event]
-type=custom
+type=on_trigger
 location=46,14,1,2
 intramap=52,15
 soundfx=soundfx/powers/teleport.ogg
 
 [event]
-type=custom
+type=on_trigger
 location=54,17,2,1
 intramap=54,21
 soundfx=soundfx/powers/teleport.ogg
 
 [event]
-type=custom
+type=on_trigger
 location=54,20,2,1
 intramap=55,16
 soundfx=soundfx/powers/teleport.ogg
 
 [event]
-type=custom
+type=on_trigger
 location=54,32,1,2
 intramap=47,31
 soundfx=soundfx/powers/teleport.ogg
 
 [event]
-type=custom
+type=on_trigger
 location=48,31,1,2
 intramap=55,31
 soundfx=soundfx/powers/teleport.ogg
 
 [event]
-type=custom
+type=on_trigger
 location=37,39,1,2
 intramap=31,39
 soundfx=soundfx/powers/teleport.ogg
 
 [event]
-type=custom
+type=on_trigger
 location=32,39,1,2
 intramap=38,40
 soundfx=soundfx/powers/teleport.ogg
 
 [event]
-type=custom
+type=on_trigger
 location=51,14,1,2
 intramap=45,14
 soundfx=soundfx/powers/teleport.ogg
 
 [event]
 # island chest
-type=run_once
+type=on_trigger
 location=23,12,1,1
 hotspot=location
 loot=128,23,13,fixed,1
 mapmod=object,23,12,161
+repeat=false
 requires_not=at_chest1
 set_status=at_chest1
 soundfx=soundfx/wood_open.ogg
@@ -446,11 +447,12 @@ tooltip=Treasure Chest
 
 [event]
 # island chest
-type=run_once
+type=on_trigger
 location=24,11,1,1
 hotspot=location
 loot=57,25,11,fixed,1
 mapmod=object,24,11,160
+repeat=false
 requires_not=at_chest2
 set_status=at_chest2
 soundfx=soundfx/wood_open.ogg
@@ -458,29 +460,32 @@ tooltip=Treasure Chest
 
 [event]
 # book stand
-type=run_once
+type=on_trigger
 location=39,9,1,1
 hotspot=location
 mapmod=object,39,9,165
 msg=Tho' Nature, red in tooth and claw; With ravine, shriek'd against his creed
+repeat=false
 soundfx=soundfx/inventory/inventory_page.ogg
 tooltip=In Memoriam
 
 [event]
 # zombie ambush
-type=run_once
+type=on_trigger
 location=11,52,4,2
+repeat=false
 spawn=zombie,12,50;zombie,13,50;zombie,12,55;zombie,13,55
 
 [event]
 # entrance brute
-type=run_once
+type=on_trigger
 location=48,86,2,2
+repeat=false
 spawn=zombie_brute,48,81
 
 [event]
 # floor spikes
-type=trap
+type=on_trigger
 location=24,81,1,1
 cooldown=90
 hotspot=location
@@ -489,7 +494,7 @@ power_damage=50,75
 
 [event]
 # floor spikes
-type=trap
+type=on_trigger
 location=23,81,1,1
 cooldown=90
 hotspot=location
@@ -498,7 +503,7 @@ power_damage=50,75
 
 [event]
 # floor spikes
-type=trap
+type=on_trigger
 location=20,82,1,1
 cooldown=90
 hotspot=location
@@ -507,7 +512,7 @@ power_damage=50,75
 
 [event]
 # floor spikes
-type=trap
+type=on_trigger
 location=22,81,1,1
 cooldown=90
 hotspot=location
@@ -516,7 +521,7 @@ power_damage=50,75
 
 [event]
 # floor spikes
-type=trap
+type=on_trigger
 location=20,81,1,1
 cooldown=90
 hotspot=location
@@ -525,7 +530,7 @@ power_damage=50,75
 
 [event]
 # floor spikes
-type=trap
+type=on_trigger
 location=21,81,1,1
 cooldown=90
 hotspot=location
@@ -534,7 +539,7 @@ power_damage=50,75
 
 [event]
 # floor spikes
-type=trap
+type=on_trigger
 location=16,84,1,1
 cooldown=90
 hotspot=location
@@ -543,7 +548,7 @@ power_damage=50,75
 
 [event]
 # floor spikes
-type=trap
+type=on_trigger
 location=20,83,1,1
 cooldown=90
 hotspot=location
@@ -552,7 +557,7 @@ power_damage=50,75
 
 [event]
 # floor spikes
-type=trap
+type=on_trigger
 location=19,84,1,1
 cooldown=90
 hotspot=location
@@ -561,7 +566,7 @@ power_damage=50,75
 
 [event]
 # floor spikes
-type=trap
+type=on_trigger
 location=20,84,1,1
 cooldown=90
 hotspot=location
@@ -570,7 +575,7 @@ power_damage=50,75
 
 [event]
 # floor spikes
-type=trap
+type=on_trigger
 location=17,84,1,1
 cooldown=90
 hotspot=location
@@ -579,7 +584,7 @@ power_damage=50,75
 
 [event]
 # floor spikes
-type=trap
+type=on_trigger
 location=16,82,1,1
 cooldown=90
 hotspot=location
@@ -588,7 +593,7 @@ power_damage=50,75
 
 [event]
 # floor spikes
-type=trap
+type=on_trigger
 location=18,84,1,1
 cooldown=90
 hotspot=location
@@ -597,7 +602,7 @@ power_damage=50,75
 
 [event]
 # floor spikes
-type=trap
+type=on_trigger
 location=16,83,1,1
 cooldown=90
 hotspot=location
@@ -606,16 +611,17 @@ power_damage=50,75
 
 [event]
 # Activate Teleporter
-type=run_once
+type=on_trigger
 location=44,92,4,5
 mapmod=background,44,94,265
 msg=Ancient Temple waypoint discovered.
+repeat=false
 requires_not=waypoint_ancient_temple
 set_status=waypoint_ancient_temple
 
 [event]
 # Waypoint
-type=custom
+type=on_trigger
 location=44,93,2,2
 hotspot=location
 intermap=warp_zone.txt,22,44
@@ -629,26 +635,29 @@ requires_status=waypoint_ancient_temple
 
 [event]
 # double doors
-type=run_once
+type=on_trigger
 location=37,71,2,2
 hotspot=location
 mapmod=collision,37,71,0;collision,38,71,0;collision,37,72,0;collision,38,72,0;object,38,71,0;object,38,72,0;object,37,70,213;object,37,73,219
+repeat=false
 soundfx=soundfx/door_open.ogg
 
 [event]
 # double doors
-type=run_once
+type=on_trigger
 location=58,70,2,2
 hotspot=location
 mapmod=collision,58,70,0;collision,59,70,0;collision,58,71,0;collision,59,71,0;object,59,70,0;object,59,71,0;object,59,69,209;object,59,72,223
+repeat=false
 soundfx=soundfx/door_open.ogg
 
 [event]
-type=run_once
+type=on_trigger
 location=15,71,1,1
 hotspot=location
 loot=currency,15,72,fixed,5,10
 mapmod=object,15,71,183
+repeat=false
 
 [event]
 type=on_load

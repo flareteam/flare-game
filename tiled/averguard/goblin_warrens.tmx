@@ -290,46 +290,48 @@
 </data>
  </layer>
  <objectgroup name="event" width="60" height="82">
-  <object type="custom" x="32" y="256" width="32" height="64">
+  <object type="on_trigger" x="32" y="256" width="32" height="64">
    <properties>
     <property name="hotspot" value="1,8,1,2"/>
     <property name="intermap" value="averguard_atrium.txt,17,10"/>
     <property name="soundfx" value="soundfx/door_open.ogg,0,0"/>
    </properties>
   </object>
-  <object type="custom" x="1664" y="416" width="32" height="64">
+  <object type="on_trigger" x="1664" y="416" width="32" height="64">
    <properties>
     <property name="hotspot" value="53,13,1,2"/>
     <property name="intermap" value="cave1.txt,3,13"/>
     <property name="soundfx" value="soundfx/door_open.ogg,0,0"/>
    </properties>
   </object>
-  <object type="custom" x="896" y="2560" width="64" height="32">
+  <object type="on_trigger" x="896" y="2560" width="64" height="32">
    <properties>
     <property name="hotspot" value="28,81,2,1"/>
     <property name="intermap" value="ydrakka_pass.txt,92,54"/>
     <property name="soundfx" value="soundfx/door_open.ogg,0,0"/>
    </properties>
   </object>
-  <object name="dorm room chest" type="run_once" x="96" y="1152" width="32" height="32">
+  <object name="dorm room chest" type="on_trigger" x="96" y="1152" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,4,36,fixed,10,30"/>
     <property name="mapmod" value="object,3,36,160"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Treasure Chest"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="dorm room barrel" type="run_once" x="32" y="1024" width="32" height="32">
+  <object name="dorm room barrel" type="on_trigger" x="32" y="1024" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,2,32,fixed,10,20"/>
     <property name="mapmod" value="object,1,32,162"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Barrel"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="dorm room book" type="run_once" x="64" y="896" width="32" height="32">
+  <object name="dorm room book" type="on_trigger" x="64" y="896" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="9000,2,29,fixed,1"/>
@@ -339,27 +341,30 @@
     <property name="requires_status" value="ak_tome_search"/>
     <property name="soundfx" value="soundfx/inventory/inventory_page.ogg"/>
     <property name="tooltip" value="Book Stand"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="overlook book 1" type="run_once" x="1216" y="1632" width="32" height="32">
+  <object name="overlook book 1" type="on_trigger" x="1216" y="1632" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="mapmod" value="object,38,51,164"/>
     <property name="msg" value="&quot;In the Age of Settlement, the Averguard Knights defended peasants against the chaos of the wilderness.&quot;"/>
     <property name="soundfx" value="soundfx/inventory/inventory_page.ogg"/>
     <property name="tooltip" value="Book Stand"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="overlook book 2" type="run_once" x="1216" y="1472" width="32" height="32">
+  <object name="overlook book 2" type="on_trigger" x="1216" y="1472" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="mapmod" value="object,38,46,164"/>
     <property name="msg" value="&quot;Sir Evan Maddox led the Averguard when the plague struck.  Powerful clerics from the corners of the world were brought here.  By the time a cure was found it was too late.&quot;"/>
     <property name="soundfx" value="soundfx/inventory/inventory_page.ogg"/>
     <property name="tooltip" value="Book Stand"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="brazier sound effect" type="run_always" x="1312" y="1408" width="160" height="288">
+  <object name="brazier sound effect" type="on_trigger" x="1312" y="1408" width="160" height="288">
    <properties>
     <property name="cooldown" value="120"/>
     <property name="soundfx" value="soundfx/environment/open_fire.ogg"/>
