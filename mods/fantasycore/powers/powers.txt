@@ -126,7 +126,7 @@ requires_mp=3
 multitarget=true
 base_damage=ranged
 aim_assist=true
-trait_armor_penetration=true
+modifier_damage=multiply,100,0,1
 allow_power_mod=true
 
 [power]
@@ -371,7 +371,7 @@ aim_assist=true
 allow_power_mod=true
 count=5
 delay=2
-damage_multiplier=75
+modifier_damage=multiply,75,0,0
 angle_variance=5
 cooldown=2s
 
@@ -387,9 +387,8 @@ requires_offense_weapon=true
 base_damage=ranged
 #starting_pos=melee
 aim_assist=true
-trait_armor_penetration=true
 count=10
-damage_multiplier=15
+modifier_damage=multiply,15,0,1
 angle_variance=15
 speed_variance=15
 animation=ember.txt
@@ -597,7 +596,7 @@ lifespan=1
 radius=64
 starting_pos=melee
 allow_power_mod=true
-trait_armor_penetration=true
+modifier_damage=multiply,100,0,1
 
 [power]
 id=40
@@ -680,7 +679,7 @@ base_damage=melee
 lifespan=16
 radius=64
 speed=24
-damage_multiplier=75
+modifier_damage=multiply,75,0,0
 
 [power]
 id=44
@@ -699,7 +698,7 @@ base_damage=melee
 lifespan=23
 radius=64
 speed=24
-damage_multiplier=150
+modifier_damage=multiply,150,0,0
 
 [power]
 id=45
@@ -718,7 +717,7 @@ base_damage=ranged
 lifespan=300
 cooldown=300
 radius=64
-damage_multiplier=75
+modifier_damage=multiply,75,0,0
 post_effect=202,50,90
 
 
@@ -739,7 +738,7 @@ base_damage=ranged
 lifespan=300
 cooldown=300
 radius=64
-damage_multiplier=150
+modifier_damage=multiply,150,0,0
 post_effect=201,0,90
 post_power=47
 
