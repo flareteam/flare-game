@@ -344,50 +344,54 @@
 </data>
  </layer>
  <objectgroup name="event" width="70" height="100">
-  <object type="teleport" x="1984" y="64" width="64" height="32">
+  <object type="on_trigger" x="1984" y="64" width="64" height="32">
    <properties>
     <property name="hotspot" value="62,2,2,1"/>
     <property name="intermap" value="averguard_atrium.txt,9,57"/>
     <property name="soundfx" value="soundfx/door_open.ogg,0,0"/>
    </properties>
   </object>
-  <object name="bookstand" type="run_once" x="992" y="704" width="32" height="32">
+  <object name="bookstand" type="on_trigger" x="992" y="704" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="mapmod" value="object,31,22,165"/>
     <property name="msg" value="&quot;Some say the Averguard Academy is the greatest collection of knowledge within the empire.&quot;"/>
     <property name="soundfx" value="soundfx/inventory/inventory_page.ogg"/>
     <property name="tooltip" value="Book Stand"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="bookstand" type="run_once" x="896" y="704" width="32" height="32">
+  <object name="bookstand" type="on_trigger" x="896" y="704" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="mapmod" value="object,28,22,165"/>
     <property name="msg" value="&quot;Professor Langlier is High Sage of the Averguard.  Several volumes kept here are his own writings.&quot;"/>
     <property name="soundfx" value="soundfx/inventory/inventory_page.ogg"/>
     <property name="tooltip" value="Book Stand"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="bookstand" type="run_once" x="800" y="704" width="32" height="32">
+  <object name="bookstand" type="on_trigger" x="800" y="704" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="mapmod" value="object,25,22,165"/>
     <property name="msg" value="&quot;The Academy is only open to oathkeeping members of the Averguard.  Few others know of its existence.&quot;"/>
     <property name="soundfx" value="soundfx/inventory/inventory_page.ogg"/>
     <property name="tooltip" value="Book Stand"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="bookstand" type="run_once" x="704" y="992" width="32" height="32">
+  <object name="bookstand" type="on_trigger" x="704" y="992" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="mapmod" value="object,22,31,164"/>
     <property name="msg" value="&quot;The peasants could not be trusted with literacy.  Most gave up their books without incident.&quot;"/>
     <property name="soundfx" value="soundfx/inventory/inventory_page.ogg"/>
     <property name="tooltip" value="Book Stand"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="bookstand" type="run_once" x="640" y="2400" width="32" height="32">
+  <object name="bookstand" type="on_trigger" x="640" y="2400" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="2,21,75,fixed,1"/>
@@ -397,85 +401,96 @@
     <property name="set_status" value="av_academy_bookstand1"/>
     <property name="soundfx" value="soundfx/inventory/inventory_page.ogg"/>
     <property name="tooltip" value="Book Stand"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="barrel" type="run_once" x="320" y="1568" width="32" height="32">
+  <object name="barrel" type="on_trigger" x="320" y="1568" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="mapmod" value="object,10,49,162"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Barrel"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="barrel" type="run_once" x="320" y="1536" width="32" height="32">
+  <object name="barrel" type="on_trigger" x="320" y="1536" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,11,48,fixed,5,20"/>
     <property name="mapmod" value="object,10,48,162"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Barrel"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="barrel" type="run_once" x="320" y="1504" width="32" height="32">
+  <object name="barrel" type="on_trigger" x="320" y="1504" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="mapmod" value="object,10,47,162"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Barrel"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="barrel" type="run_once" x="384" y="1568" width="32" height="32">
+  <object name="barrel" type="on_trigger" x="384" y="1568" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="mapmod" value="object,12,49,162"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Barrel"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="crate" type="run_once" x="352" y="1472" width="32" height="32">
+  <object name="crate" type="on_trigger" x="352" y="1472" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,12,46,fixed,5,20"/>
     <property name="mapmod" value="object,11,46,163"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Crate"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="crate" type="run_once" x="416" y="1568" width="32" height="32">
+  <object name="crate" type="on_trigger" x="416" y="1568" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="mapmod" value="object,13,49,163"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Crate"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="crate" type="run_once" x="480" y="1568" width="32" height="32">
+  <object name="crate" type="on_trigger" x="480" y="1568" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,14,48,fixed,5,20"/>
     <property name="mapmod" value="object,15,49,163"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Crate"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="boss tomb" type="run_once" x="96" y="2816" width="160" height="160">
+  <object name="boss tomb" type="on_trigger" x="96" y="2816" width="160" height="160">
    <properties>
     <property name="msg" value="This tomb glows with magical runes."/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="boss tomb" type="run_once" x="128" y="2880" width="32" height="64">
+  <object name="boss tomb" type="on_trigger" x="128" y="2880" width="32" height="64">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,5,90,fixed,10,25;currency,5,91,fixed,10,30"/>
     <property name="tooltip" value="Langlier's Tomb"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="teleport chest" type="run_once" x="1440" y="3104" width="32" height="32">
+  <object name="teleport chest" type="on_trigger" x="1440" y="3104" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,45,98,15,50"/>
     <property name="mapmod" value="object,45,97,161"/>
     <property name="tooltip" value="Treasure Chest"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object type="on_load" x="576" y="2368" width="32" height="32">

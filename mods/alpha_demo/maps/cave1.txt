@@ -327,161 +327,179 @@ data=
 
 [event]
 # exit to goblin warrens
-type=teleport
+type=on_trigger
 location=2,12,1,2
 intermap=goblin_warrens.txt,51,14
 
 [event]
 # exit to lost mines level 1
-type=teleport
+type=on_trigger
 location=15,68,2,1
 intermap=lost_mines1.txt,53,5
 
 [event]
-type=run_once
+type=on_trigger
 location=17,48,1,1
 hotspot=location
 loot=currency,18,48,fixed,15,30
 mapmod=object,17,48,128
+repeat=false
 tooltip=Mine Cart
 
 [event]
 # nest treasure
-type=run_once
+type=on_trigger
 location=29,75,1,1
 hotspot=location
 loot=currency,30,75,fixed,15,40
 mapmod=object,29,75,178
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
-type=run_once
+type=on_trigger
 location=43,92,1,1
 hotspot=location
 loot=currency,45,93,fixed,20,50
 mapmod=object,43,92,176
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Treasure Chest
 
 [event]
-type=run_once
+type=on_trigger
 location=29,76,1,1
 hotspot=location
 loot=currency,30,76,fixed,10,40
 mapmod=object,29,76,178
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
 # warning message
-type=run_once
+type=on_trigger
 location=19,14,3,3
 msg=The crumbling walls of the south tunnel are held up by planks of rotting wood.
+repeat=false
 
 [event]
-type=run_once
+type=on_trigger
 location=8,8,5,5
 power=134
 power_path=12,12,hero
+repeat=false
 
 [event]
 # crate in nest hallway
-type=run_once
+type=on_trigger
 location=59,61,1,1
 hotspot=location
 loot=currency,60,61,fixed,10,30
 mapmod=object,59,61,179
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Crate
 
 [event]
-type=run_once
+type=on_trigger
 location=2,29,1,1
 hotspot=location
 loot=currency,3,29,fixed,10,30
 mapmod=object,2,29,178
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
-type=run_once
+type=on_trigger
 location=2,30,1,1
 hotspot=location
 loot=currency,3,30,fixed,10,30
 mapmod=object,2,30,178
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
 # two hatchlings spawn
-type=run_once
+type=on_trigger
 location=8,8,5,5
 power=134
 power_path=12,9,hero
+repeat=false
 
 [event]
-type=run_once
+type=on_trigger
 location=34,25,1,1
 hotspot=location
 loot=currency,34,26,fixed,10,25
 mapmod=object,34,25,177
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Treasure Chest
 
 [event]
-type=run_once
+type=on_trigger
 location=87,53,1,1
 hotspot=location
 loot=currency,87,54,fixed,10,25
 mapmod=object,87,53,177
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Treasure Chest
 
 [event]
-type=run_once
+type=on_trigger
 location=90,53,1,1
 hotspot=location
 loot=currency,90,54,fixed,5,25
 mapmod=object,90,53,178
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
-type=run_once
+type=on_trigger
 location=42,4,1,1
 hotspot=location
 loot=currency,43,5,fixed,10,25
 mapmod=object,42,4,129
+repeat=false
 tooltip=Mine Cart
 
 [event]
 # ritual message
-type=run_once
+type=on_trigger
 location=65,27,3,5
 msg=These goblins have captured a human trader.  Human bones are carefully arranged around the pillar in preparation for a goblin ritual.
+repeat=false
 
 [event]
 # reward for being saved
-type=run_once
+type=on_trigger
 location=71,30,3,2
 loot=currency,73,32,fixed,15,30
 msg=Talrych says, "You arrived just in time.  Please, take this."
+repeat=false
 
 [event]
 # cave-in event
-type=run_once
+type=on_trigger
 location=19,22,2,2
 mapmod=collision,19,20,1;collision,20,20,1;collision,19,19,1;collision,20,19,1;object,19,21,151;object,18,20,72;object,19,20,65;object,20,20,69;object,21,20,73;object,18,19,75;object,19,19,67;object,20,19,71;object,21,19,74
 msg=The walls collapse inward and rubble blocks off the passage!
+repeat=false
 shakycam=60
 soundfx=soundfx/powers/quake.ogg
 
 [event]
 # release the skeletal mage
-type=run_once
+type=on_trigger
 location=15,44,6,2
 mapmod=object,14,44,80;object,14,45,0;object,14,46,83;object,13,44,105;object,13,46,107;collision,14,45,0;collision,13,45,0
+repeat=false
 soundfx=soundfx/door_open.ogg
 
 [event]

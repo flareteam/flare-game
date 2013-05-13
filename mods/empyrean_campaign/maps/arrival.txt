@@ -7,13 +7,13 @@ tileset=tileset_grassland.txt
 title=Arrival
 
 [tilesets]
-tileset=../../../../flare-game/tiled/grassland/tiled_collision.png,64,32,0,0
-tileset=../../../../flare-game/tiled/grassland/grassland.png,64,128,0,0
-tileset=../../../../flare-game/tiled/grassland/grassland_water.png,64,64,0,32
-tileset=../../../../flare-game/tiled/grassland/grassland_structures.png,64,256,0,0
-tileset=../../../../flare-game/tiled/grassland/grassland_trees.png,128,256,-32,0
-tileset=../../../../flare-game/tiled/grassland/set_rules.png,64,32,0,0
-tileset=../../../../flare-game/tiled/grassland/tiled_grassland_2x2.png,128,64,0,16
+tileset=../../../tiled/grassland/tiled_collision.png,64,32,0,0
+tileset=../../../tiled/grassland/grassland.png,64,128,0,0
+tileset=../../../tiled/grassland/grassland_water.png,64,64,0,32
+tileset=../../../tiled/grassland/grassland_structures.png,64,256,0,0
+tileset=../../../tiled/grassland/grassland_trees.png,128,256,-32,0
+tileset=../../../tiled/grassland/set_rules.png,64,32,0,0
+tileset=../../../tiled/grassland/tiled_grassland_2x2.png,128,64,0,16
 
 [layer]
 type=background
@@ -148,12 +148,13 @@ data=
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
 
 [event]
-type=run_once
+type=on_trigger
 location=19,19,2,2
+repeat=false
 shakycam=60
 
 [event]
-type=teleport
+type=on_trigger
 location=38,34,1,2
 intermap=lost.txt,2,4
 

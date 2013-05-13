@@ -324,131 +324,144 @@
 </data>
  </layer>
  <objectgroup name="event" width="100" height="100">
-  <object name="to Ydrakka Pass" type="teleport" x="1728" y="3072" width="64" height="32">
+  <object name="to Ydrakka Pass" type="on_trigger" x="1728" y="3072" width="64" height="32">
    <properties>
     <property name="intermap" value="ydrakka_pass.txt,213,31"/>
    </properties>
   </object>
-  <object name="to Cave 2" type="teleport" x="1024" y="64" width="96" height="32">
+  <object name="to Cave 2" type="on_trigger" x="1024" y="64" width="96" height="32">
    <properties>
     <property name="intermap" value="cave_of_living_bones2.txt,37,74"/>
    </properties>
   </object>
-  <object name="Crate" type="run_once" x="2208" y="2112" width="32" height="32">
+  <object name="Crate" type="on_trigger" x="2208" y="2112" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,69,67,fixed,10,30"/>
     <property name="mapmod" value="object,69,66,179"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Crate"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="Crate" type="run_once" x="2656" y="2656" width="32" height="32">
+  <object name="Crate" type="on_trigger" x="2656" y="2656" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,84,82,fixed,10,30"/>
     <property name="mapmod" value="object,83,83,179"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Crate"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="Crate" type="run_once" x="2816" y="2432" width="32" height="32">
+  <object name="Crate" type="on_trigger" x="2816" y="2432" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,87,76,fixed,10,30"/>
     <property name="mapmod" value="object,88,76,179"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Crate"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="Crate" type="run_once" x="960" y="2272" width="32" height="32">
+  <object name="Crate" type="on_trigger" x="960" y="2272" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,29,71,fixed,10,30"/>
     <property name="mapmod" value="object,30,71,179"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Crate"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="Crate" type="run_once" x="1056" y="1184" width="32" height="32">
+  <object name="Crate" type="on_trigger" x="1056" y="1184" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,34,37,fixed,10,30"/>
     <property name="mapmod" value="object,33,37,179"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Crate"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="Crate" type="run_once" x="736" y="1248" width="32" height="32">
+  <object name="Crate" type="on_trigger" x="736" y="1248" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,23,40,fixed,10,30"/>
     <property name="mapmod" value="object,23,39,179"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Crate"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="Barrel" type="run_once" x="928" y="2240" width="32" height="32">
+  <object name="Barrel" type="on_trigger" x="928" y="2240" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,28,70,fixed,10,30"/>
     <property name="mapmod" value="object,29,70,178"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Barrel"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="Barrel" type="run_once" x="2176" y="2080" width="32" height="32">
+  <object name="Barrel" type="on_trigger" x="2176" y="2080" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,67,65,fixed,10,30"/>
     <property name="mapmod" value="object,68,65,178"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Barrel"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="Barrel" type="run_once" x="2720" y="2368" width="32" height="32">
+  <object name="Barrel" type="on_trigger" x="2720" y="2368" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,85,75,fixed,10,30"/>
     <property name="mapmod" value="object,85,74,178"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Barrel"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="Barrel" type="run_once" x="2656" y="2688" width="32" height="32">
+  <object name="Barrel" type="on_trigger" x="2656" y="2688" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,84,83,fixed,10,30"/>
     <property name="mapmod" value="object,83,84,178"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Barrel"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="Barrel" type="run_once" x="2336" y="1120" width="32" height="32">
+  <object name="Barrel" type="on_trigger" x="2336" y="1120" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,73,36,fixed,10,30"/>
     <property name="mapmod" value="object,73,35,178"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Barrel"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="Treasure Chest" type="run_once" x="672" y="1216" width="32" height="32">
+  <object name="Treasure Chest" type="on_trigger" x="672" y="1216" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,21,39,fixed,15,35"/>
     <property name="mapmod" value="object,21,38,177"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Treasure Chest"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="Treasure Chest" type="run_once" x="928" y="1696" width="32" height="32">
+  <object name="Treasure Chest" type="on_trigger" x="928" y="1696" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,29,54,fixed,15,35"/>
     <property name="mapmod" value="object,29,53,177"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Treasure Chest"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object name="Cave wind sound effect" type="on_load" x="0" y="0" width="32" height="32">

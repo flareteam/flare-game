@@ -797,41 +797,42 @@ data=
 
 [event]
 # to Frontier Outpost
-type=teleport
+type=on_trigger
 location=249,186,1,2
 intermap=frontier_outpost.txt,2,12
 
 [event]
 # to River Encampment
-type=teleport
+type=on_trigger
 location=63,17,2,1
 intermap=river_encampment.txt,51,61
 
 [event]
 # to Ydrakka Pass
-type=teleport
+type=on_trigger
 location=175,60,2,1
 intermap=ydrakka_pass.txt,26,97
 
 [event]
 # to White Wind
-type=teleport
+type=on_trigger
 location=162,234,2,1
 intermap=white_wind.txt,62,1
 
 [event]
 # to Ancient Temple
-type=teleport
+type=on_trigger
 location=117,134,4,4
 intermap=ancient_temple.txt,49,99
 
 [event]
 # camp supply
-type=run_once
+type=on_trigger
 location=117,35,1,1
 hotspot=location
 loot=65,117,36,fixed,1
 mapmod=object,117,35,99
+repeat=false
 requires_not=fp_crate3
 set_status=fp_crate3
 soundfx=soundfx/wood_open.ogg
@@ -839,11 +840,12 @@ tooltip=Supplies
 
 [event]
 # camp supply
-type=run_once
+type=on_trigger
 location=50,30,1,1
 hotspot=location
 loot=1,50,31,fixed,1
 mapmod=object,50,30,97
+repeat=false
 requires_not=fp_crate1
 set_status=fp_crate1
 soundfx=soundfx/wood_open.ogg
@@ -851,33 +853,36 @@ tooltip=Supplies
 
 [event]
 # camp supply
-type=run_once
+type=on_trigger
 location=125,43,1,1
 hotspot=location
 loot=currency,124,43,fixed,5,10
 mapmod=object,125,43,97
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Supplies
 
 [event]
 # camp supply
-type=run_once
+type=on_trigger
 location=114,97,1,1
 hotspot=location
 loot=currency,114,98,fixed,5,10
 mapmod=object,114,97,99
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Supplies
 
 [event]
 # hidden grove entrance
-type=teleport
+type=on_trigger
 location=35,194,1,2
 intermap=hidden_grove.txt,120,60
 
 [event]
-type=run_once
+type=on_trigger
 location=48,155,5,5
+repeat=false
 spawn=zombie_rotting,45,155;zombie_rotting,46,160;zombie_rotting,50,153;zombie_rotting,52,161;zombie_rotting,54,157
 
 [event]

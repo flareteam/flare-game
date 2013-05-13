@@ -330,7 +330,7 @@ data=
 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
 
 [event]
-type=teleport
+type=on_trigger
 location=1,54,1,2
 hotspot=1,54,1,2
 intermap=averguard_atrium.txt,15,51
@@ -338,50 +338,55 @@ soundfx=soundfx/door_open.ogg,0,0
 
 [event]
 # control room crate
-type=run_once
+type=on_trigger
 location=2,47,1,1
 hotspot=location
 loot=currency,2,46,fixed,5,15
 mapmod=object,2,47,163
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Crate
 
 [event]
 # torture room chest
-type=run_once
+type=on_trigger
 location=12,84,1,1
 hotspot=location
 loot=currency,12,85,fixed,10,25
 mapmod=object,12,84,161
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Treasure Chest
 
 [event]
 # control room switch to open the cell with the hidden passage
-type=run_once
+type=on_trigger
 location=3,43,1,1
 hotspot=location
 mapmod=object,3,43,150;object,23,53,113;collision,23,53,0
+repeat=false
 soundfx=soundfx/door_open.ogg
 tooltip=Switch
 
 [event]
 # hidden room book
-type=run_once
+type=on_trigger
 location=23,29,1,1
 hotspot=location
 mapmod=object,23,29,165
 msg=The last entry of this well-preserved journal reads: "I feared it would come to this.  I knew the Warden's secrets but they would not be contained forever."
+repeat=false
 soundfx=soundfx/inventory/inventory_page.ogg
 tooltip=Book Stand
 
 [event]
 # hidden room chest
-type=run_once
+type=on_trigger
 location=21,30,1,1
 hotspot=location
 loot=1,21,31,fixed,1
 mapmod=object,21,30,161
+repeat=false
 requires_not=av_prison_chest1
 set_status=av_prison_chest1
 soundfx=soundfx/wood_open.ogg
@@ -389,18 +394,20 @@ tooltip=Treasure Chest
 
 [event]
 # hidden room crate
-type=run_once
+type=on_trigger
 location=22,28,1,1
 hotspot=location
 mapmod=object,22,28,163
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Crate
 
 [event]
 # trap tile that opens three cells
-type=run_once
+type=on_trigger
 location=66,49,1,2
 mapmod=object,63,48,113;object,66,48,113;object,69,48,113;collision,63,48,0;collision,66,48,0;collision,69,48,0
+repeat=false
 soundfx=soundfx/door_open.ogg
 
 [event]
@@ -410,11 +417,12 @@ location=86,41,1,1
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
-type=run_once
+type=on_trigger
 location=89,12,1,1
 hotspot=location
 loot=currency,89,13,fixed,15,40
 mapmod=object,89,12,183
+repeat=false
 
 [event]
 # brazier sound effect

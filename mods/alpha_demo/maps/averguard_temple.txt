@@ -416,7 +416,7 @@ data=
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 
 [event]
-type=teleport
+type=on_trigger
 location=14,127,2,1
 hotspot=14,128,2,1
 intermap=averguard_atrium.txt,8,2
@@ -424,16 +424,17 @@ soundfx=soundfx/door_open.ogg,0,0
 
 [event]
 # switch to open the temple library room
-type=run_once
+type=on_trigger
 location=19,118,1,1
 hotspot=location
 mapmod=object,19,118,150;object,10,118,112;collision,10,118,0
+repeat=false
 soundfx=soundfx/door_open.ogg
 tooltip=Switch
 
 [event]
 # fire statue trap
-type=run_always
+type=on_trigger
 location=6,51,19,14
 cooldown=30
 power=31
@@ -442,10 +443,11 @@ power_path=15,58,hero
 
 [event]
 # if the player doesn't have the talisman and key, the door is sealed
-type=run_once
+type=on_trigger
 location=15,88,1,1
 hotspot=location
 msg=You insert the Averguard Key. Runes glow around the door, then fade. The door is still sealed.
+repeat=false
 requires_item=9001
 requires_not=ak_talisman_found
 requires_status=ak_key_found
@@ -454,10 +456,11 @@ tooltip=Sealed Temple Door
 
 [event]
 # the first time you use the talisman
-type=run_once
+type=on_trigger
 location=13,89,1,1
 hotspot=15,88,1,1
 msg=You read aloud the runes on Langlier's Talisman. The Avergard Key begins to glow!
+repeat=false
 requires_not=ak_talisman_used
 requires_status=ak_key_found,ak_talisman_found
 set_status=ak_talisman_used
@@ -466,68 +469,76 @@ soundfx=soundfx/powers/quake.ogg
 tooltip=Activate Talisman
 
 [event]
-type=run_once
+type=on_trigger
 location=17,91,1,1
 hotspot=15,88,1,1
 mapmod=object,15,88,113;collision,15,88,0
+repeat=false
 requires_status=ak_talisman_used
 soundfx=soundfx/door_open.ogg
 tooltip=Temple Door
 
 [event]
-type=run_once
+type=on_trigger
 location=2,117,1,1
 hotspot=location
 mapmod=object,2,117,164
 msg="Some said Sir Maddox cared too much for the peasants.  He would not quarantine, saying the villagers did not deserve to die locked away."
+repeat=false
 soundfx=soundfx/inventory/inventory_page.ogg
 tooltip=Book Stand
 
 [event]
-type=run_once
+type=on_trigger
 location=2,121,1,1
 hotspot=location
 mapmod=object,2,121,164
 msg="Maddox died of the plague in 638.  After attempts to magically revive him failed he was sealed deep behind the temple."
+repeat=false
 soundfx=soundfx/inventory/inventory_page.ogg
 tooltip=Book Stand
 
 [event]
 # chest in the boss room
-type=run_once
+type=on_trigger
 location=15,1,1,1
 hotspot=location
 msg=This chest is locked.
+repeat=false
 requires_not=ak_maddox_defeated
 tooltip=Treasure Chest
 
 [event]
-type=run_once
+type=on_trigger
 location=15,1,1,1
 hotspot=location
 loot=currency,14,2,fixed,15,30;currency,15,2,fixed,15,35;currency,16,2,fixed,10,25
 mapmod=object,15,1,161
+repeat=false
 requires_status=ak_maddox_defeated
 soundfx=soundfx/wood_open.ogg
 tooltip=Treasure Chest
 
 [event]
-type=run_once
+type=on_trigger
 location=14,62,3,1
 msg=A plaque under the statue reads "Sir Evan Maddox, may he return to rescue us all"
+repeat=false
 
 [event]
 # when entering Maddox's Burial Chamber
-type=run_once
+type=on_trigger
 location=15,19,2,2
 msg=A ghastly voice reverberates from the next chamber.  "What fool disturbs my tomb?!"
+repeat=false
 
 [event]
-type=run_once
+type=on_trigger
 location=15,9,1,2
 hotspot=location
 loot=currency,16,9,fixed,10,25
 msg=You wipe dust away from the tomb lid, revealing an inscription: "Here lies Sir Evan Maddox"
+repeat=false
 tooltip=Maddox's Tomb
 
 [event]

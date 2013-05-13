@@ -807,32 +807,32 @@
 </data>
  </layer>
  <objectgroup name="event" width="256" height="256">
-  <object name="to Frontier Outpost" type="teleport" x="7968" y="5952" width="32" height="64">
+  <object name="to Frontier Outpost" type="on_trigger" x="7968" y="5952" width="32" height="64">
    <properties>
     <property name="intermap" value="frontier_outpost.txt,2,12"/>
    </properties>
   </object>
-  <object name="to River Encampment" type="teleport" x="2016" y="544" width="64" height="32">
+  <object name="to River Encampment" type="on_trigger" x="2016" y="544" width="64" height="32">
    <properties>
     <property name="intermap" value="river_encampment.txt,51,61"/>
    </properties>
   </object>
-  <object name="to Ydrakka Pass" type="teleport" x="5600" y="1920" width="64" height="32">
+  <object name="to Ydrakka Pass" type="on_trigger" x="5600" y="1920" width="64" height="32">
    <properties>
     <property name="intermap" value="ydrakka_pass.txt,26,97"/>
    </properties>
   </object>
-  <object name="to White Wind" type="teleport" x="5184" y="7488" width="64" height="32">
+  <object name="to White Wind" type="on_trigger" x="5184" y="7488" width="64" height="32">
    <properties>
     <property name="intermap" value="white_wind.txt,62,1"/>
    </properties>
   </object>
-  <object name="to Ancient Temple" type="teleport" x="3744" y="4288" width="128" height="128">
+  <object name="to Ancient Temple" type="on_trigger" x="3744" y="4288" width="128" height="128">
    <properties>
     <property name="intermap" value="ancient_temple.txt,49,99"/>
    </properties>
   </object>
-  <object name="camp supply" type="run_once" x="3744" y="1120" width="32" height="32">
+  <object name="camp supply" type="on_trigger" x="3744" y="1120" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="65,117,36,fixed,1"/>
@@ -841,9 +841,10 @@
     <property name="set_status" value="fp_crate3"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Supplies"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="camp supply" type="run_once" x="1600" y="960" width="32" height="32">
+  <object name="camp supply" type="on_trigger" x="1600" y="960" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="1,50,31,fixed,1"/>
@@ -852,34 +853,38 @@
     <property name="set_status" value="fp_crate1"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Supplies"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="camp supply" type="run_once" x="4000" y="1376" width="32" height="32">
+  <object name="camp supply" type="on_trigger" x="4000" y="1376" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,124,43,fixed,5,10"/>
     <property name="mapmod" value="object,125,43,97"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Supplies"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="camp supply" type="run_once" x="3648" y="3104" width="32" height="32">
+  <object name="camp supply" type="on_trigger" x="3648" y="3104" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,114,98,fixed,5,10"/>
     <property name="mapmod" value="object,114,97,99"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Supplies"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object name="hidden grove entrance" type="teleport" x="1120" y="6208" width="32" height="64">
+  <object name="hidden grove entrance" type="on_trigger" x="1120" y="6208" width="32" height="64">
    <properties>
     <property name="intermap" value="hidden_grove.txt,120,60"/>
    </properties>
   </object>
-  <object type="run_once" x="1536" y="4960" width="160" height="160">
+  <object type="on_trigger" x="1536" y="4960" width="160" height="160">
    <properties>
     <property name="spawn" value="zombie_rotting,45,155;zombie_rotting,46,160;zombie_rotting,50,153;zombie_rotting,52,161;zombie_rotting,54,157"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object type="on_load" x="1632" y="928" width="32" height="32">

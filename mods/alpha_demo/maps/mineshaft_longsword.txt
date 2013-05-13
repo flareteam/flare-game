@@ -217,37 +217,40 @@ data=
 
 [event]
 # to Frontier Outpost
-type=teleport
+type=on_trigger
 location=43,63,2,1
 intermap=frontier_outpost.txt,20,13
 
 [event]
 # fork_crate
-type=run_once
+type=on_trigger
 location=47,37,1,1
 hotspot=location
 loot=currency,46,38,fixed,3,8
 mapmod=object,47,37,179
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Crate
 
 [event]
 # backside_crate
-type=run_once
+type=on_trigger
 location=28,15,1,1
 hotspot=location
 loot=currency,27,14,fixed,5,10
 mapmod=object,28,15,179
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Crate
 
 [event]
 # backside_barrel
-type=run_once
+type=on_trigger
 location=15,12,1,1
 hotspot=location
 loot=currency,16,13,fixed,3,8
 mapmod=object,15,12,178
+repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
