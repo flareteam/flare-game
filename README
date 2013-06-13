@@ -27,6 +27,16 @@ The GNU Unifont font is released under GPL v2, with the exception that embedding
 * Forums    http://opengameart.org/forums/flare
 * Email     clintbellanger@gmail.com
 
+## The Simplest Setup
+
+If you are building and running Flare Game from source, this is the simplest way to get started on all operating systems. Here you build and play Flare in a local folder instead of installing it to a standard OS folder (e.g. /usr/local or Program Files).
+
+* Clone the flare-engine repo and build the executable.
+* Clone the flare-game repo into your user directory.
+* Copy the flare-engine "default" mod into the flare-game mods folder.
+* Put the flare executable inside the flare-game folder
+* The executable and the "mods" folder should be in the same directory
+* Run Flare
 
 ## Installation
 
@@ -43,7 +53,7 @@ Flare Game is installed as a set of mods for Flare Engine. Place the contents of
 Then enable these mods in Flare's Configuration screen.
 
     fantasycore
-	alpha_demo
+    alpha_demo
 
 ## Settings
 
