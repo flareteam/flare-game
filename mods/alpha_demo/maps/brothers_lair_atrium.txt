@@ -183,6 +183,7 @@ data=
 type=on_trigger
 location=2,13,1,2
 hotspot=2,13,1,2
+tooltip=Ice Hall
 intermap=brothers_lair_ice_hall.txt,47,71
 soundfx=soundfx/door_open.ogg,0,0
 
@@ -190,6 +191,7 @@ soundfx=soundfx/door_open.ogg,0,0
 # to Sacrifice Room
 type=on_trigger
 location=14,15,2,1
+tooltip=Stairs Up
 intermap=brothers_lair_sacrifice_room.txt,9,41
 
 [event]
@@ -197,6 +199,7 @@ intermap=brothers_lair_sacrifice_room.txt,9,41
 type=on_trigger
 location=14,47,2,1
 hotspot=14,48,2,1
+tooltip=Deep Cavern
 intermap=cave_of_living_bones2.txt,32,4
 soundfx=soundfx/door_open.ogg,0,0
 
@@ -205,6 +208,7 @@ soundfx=soundfx/door_open.ogg,0,0
 type=on_trigger
 location=13,1,2,1
 hotspot=13,1,2,1
+tooltip=Fire Hall
 intermap=brothers_lair_fire_hall.txt,25,77
 soundfx=soundfx/door_open.ogg,0,0
 
@@ -213,6 +217,7 @@ soundfx=soundfx/door_open.ogg,0,0
 type=on_trigger
 location=27,13,1,2
 hotspot=28,13,1,2
+tooltip=Wind Hall
 intermap=brothers_lair_wind_hall.txt,3,19
 soundfx=soundfx/door_open.ogg,0,0
 
@@ -238,6 +243,7 @@ requires_status=waypoint_brothers_lair_atrium
 type=on_trigger
 location=14,19,2,2
 hotspot=location
+tooltip=Nexus
 intermap=warp_zone.txt,36,38
 tooltip=Warp Zone
 

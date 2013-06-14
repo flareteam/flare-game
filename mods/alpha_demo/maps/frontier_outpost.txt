@@ -249,18 +249,21 @@ location=12,35,1,1
 # to Mineshaft Longsword
 type=on_trigger
 location=19,11,2,1
+tooltip=Mineshaft Longsword
 intermap=mineshaft_longsword.txt,44,61
 
 [event]
 # to River Road
 type=on_trigger
 location=43,62,4,1
+tooltip=River Road
 intermap=river_road.txt,32,4
 
 [event]
 # to Frontier Plains
 type=on_trigger
 location=1,12,1,2
+tooltip=Frontier Plains
 intermap=frontier_plains.txt,248,186
 
 [event]
@@ -293,6 +296,7 @@ requires_status=waypoint_frontier_outpost
 type=on_trigger
 location=33,9,2,2
 hotspot=location
+tooltip=Nexus
 intermap=warp_zone.txt,29,44
 tooltip=Warp Zone
 
