@@ -329,12 +329,16 @@ data=
 # exit to goblin warrens
 type=on_trigger
 location=2,12,1,2
+hotspot=location
+tooltip=Goblin Warrens
 intermap=goblin_warrens.txt,51,14
 
 [event]
 # exit to lost mines level 1
 type=on_trigger
 location=15,68,2,1
+hotspot=location
+tooltip=Lost Mines
 intermap=lost_mines1.txt,53,5
 
 [event]
