@@ -332,6 +332,7 @@ data=
 # to Goblin Warrens
 type=on_trigger
 location=92,53,1,1
+hotspot=location
 tooltip=Goblin Warrens
 intermap=goblin_warrens.txt,29,79
 
@@ -339,6 +340,7 @@ intermap=goblin_warrens.txt,29,79
 # to Goblin Warrens
 type=on_trigger
 location=92,49,1,1
+hotspot=location
 tooltip=Goblin Warrens
 intermap=goblin_warrens.txt,29,77
 
@@ -346,6 +348,7 @@ intermap=goblin_warrens.txt,29,77
 # to Frontier Plains
 type=on_trigger
 location=26,98,2,1
+hotspot=location
 tooltip=Frontier Plains
 intermap=frontier_plains.txt,175,61
 
@@ -353,6 +356,7 @@ intermap=frontier_plains.txt,175,61
 # to Valley Grove
 type=on_trigger
 location=254,8,1,4
+hotspot=location
 tooltip=Valley Grove
 intermap=valley_grove.txt,4,64
 
@@ -360,7 +364,8 @@ intermap=valley_grove.txt,4,64
 # to Cave of Living Bones
 type=on_trigger
 location=212,30,2,1
-tooltip=Cave
+hotspot=location
+tooltip=Cave of Living Bones
 intermap=cave_of_living_bones1.txt,53,94
 
 [event]
