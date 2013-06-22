@@ -27,23 +27,69 @@ The GNU Unifont font is released under GPL v2, with the exception that embedding
 * Forums    http://opengameart.org/forums/flare
 * Email     clintbellanger@gmail.com
 
+## The Simplest Setup
 
-## Installation
+If you are building and running Flare Game from source, this is the simplest way to get started on all operating systems. Here you build and play Flare in a local folder instead of installing it to a standard OS folder (e.g. /usr/local or Program Files).
 
-See the Flare-Engine repo for instructions on how to install Flare:
+* Clone the flare-engine repo and build the executable.
+* Clone the flare-game repo into your user directory.
+* Copy the flare-engine "default" mod into the flare-game mods folder.
+* Put the flare executable inside the flare-game folder
+* The executable and the "mods" folder should be in the same directory
+* Run Flare
+
+## Building and Running (non-Linux)
+
+See the Flare-Engine repo for instructions on how to build/install Flare:
 
 https://github.com/clintbellanger/flare-engine
 
 Flare Game is installed as a set of mods for Flare Engine. Place the contents of the "mods" folder inside Flare Engine's mods folder.
 
 * On Windows, the mods folder will be in the same directory as the flare executable.
-* On OSX, this will be inside the Flare.app folder, in Resources/mods 
-* On Linux, the default location of the mods folder is /usr/local/share/flare/mods/
+* On OSX, this will be inside the Flare.app folder, in Resources/mods
 
 Then enable these mods in Flare's Configuration screen.
 
     fantasycore
-	alpha_demo
+    alpha_demo
+
+
+### Building and Running on Linux
+
+Clone the repos:
+
+	git clone https://github.com/clintbellanger/flare-engine
+	git clone https://github.com/clintbellanger/flare-game
+
+
+Move to the flare-engine repo and build:
+
+	cd flare-engine
+	cmake . && make
+
+
+From this point we have two options:
+
+Option 1
+Install the game system-wide (requires root access):
+
+	sudo make install
+	cd ../flare-game
+	cmake . && sudo make install
+	cd ~ #this step is important because we don't want to load mods from the repo folders
+	flare --game=flare-game #alternatively, launch Flare from the desktop application menu
+
+
+Option 2
+Run the game without installing:
+
+	ln -s flare ../flare-game/flare
+	ln -s mods/default ../flare-game/mods/default
+	cd ../flare-game
+	./flare --game=flare-game
+
+
 
 ## Settings
 
