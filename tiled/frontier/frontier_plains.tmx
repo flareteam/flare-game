@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="isometric" width="256" height="256" tilewidth="64" tileheight="32">
  <properties>
   <property name="music" value="overworld_theme.ogg"/>
@@ -837,11 +838,11 @@
     <property name="hotspot" value="location"/>
     <property name="loot" value="65,117,36,fixed,1"/>
     <property name="mapmod" value="object,117,35,99"/>
+    <property name="repeat" value="false"/>
     <property name="requires_not" value="fp_crate3"/>
     <property name="set_status" value="fp_crate3"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Supplies"/>
-    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object name="camp supply" type="on_trigger" x="1600" y="960" width="32" height="32">
@@ -849,11 +850,11 @@
     <property name="hotspot" value="location"/>
     <property name="loot" value="1,50,31,fixed,1"/>
     <property name="mapmod" value="object,50,30,97"/>
+    <property name="repeat" value="false"/>
     <property name="requires_not" value="fp_crate1"/>
     <property name="set_status" value="fp_crate1"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Supplies"/>
-    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object name="camp supply" type="on_trigger" x="4000" y="1376" width="32" height="32">
@@ -861,9 +862,9 @@
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,124,43,fixed,5,10"/>
     <property name="mapmod" value="object,125,43,97"/>
+    <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Supplies"/>
-    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object name="camp supply" type="on_trigger" x="3648" y="3104" width="32" height="32">
@@ -871,9 +872,9 @@
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,114,98,fixed,5,10"/>
     <property name="mapmod" value="object,114,97,99"/>
+    <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Supplies"/>
-    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object name="hidden grove entrance" type="on_trigger" x="1120" y="6208" width="32" height="64">
@@ -883,8 +884,8 @@
   </object>
   <object type="on_trigger" x="1536" y="4960" width="160" height="160">
    <properties>
-    <property name="spawn" value="zombie_rotting,45,155;zombie_rotting,46,160;zombie_rotting,50,153;zombie_rotting,52,161;zombie_rotting,54,157"/>
     <property name="repeat" value="false"/>
+    <property name="spawn" value="zombie_rotting,45,155;zombie_rotting,46,160;zombie_rotting,50,153;zombie_rotting,52,161;zombie_rotting,54,157"/>
    </properties>
   </object>
   <object type="on_load" x="1632" y="928" width="32" height="32">
@@ -1067,6 +1068,13 @@
   <object name="Raven sound effect" type="on_load" x="2413" y="3031" width="32" height="32">
    <properties>
     <property name="soundfx" value="soundfx/environment/raven_loop.ogg"/>
+   </properties>
+  </object>
+  <object name="Cutscene" type="on_load" x="7872" y="5824" width="64" height="64">
+   <properties>
+    <property name="cutscene" value="frontier_plains_cutscene.txt"/>
+    <property name="requires_not" value="been_on_plains"/>
+    <property name="set_status" value="been_on_plains"/>
    </properties>
   </object>
  </objectgroup>
