@@ -390,23 +390,13 @@ tooltip=Barrel
 
 [event]
 type=on_trigger
-location=25,24,1,1
+location=26,25,1,1
 hotspot=location
 loot=currency,25,25,fixed,5,15
 mapmod=object,26,24,179
 repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Crate
-
-[event]
-type=on_trigger
-location=25,24,1,1
-hotspot=location
-loot=currency,25,25,fixed,5,15
-mapmod=object,25,24,178
-repeat=false
-soundfx=soundfx/wood_open.ogg
-tooltip=Barrel
 
 [event]
 type=on_trigger
@@ -625,6 +615,16 @@ soundfx=soundfx/environment/river_loop.ogg
 type=on_load
 location=98.125,66,1,1
 soundfx=soundfx/environment/river_loop.ogg
+
+[event]
+type=on_trigger
+location=26,24,1,1
+hotspot=location
+loot=currency,25,25,fixed,5,15
+mapmod=object,26,24,179
+repeat=false
+soundfx=soundfx/wood_open.ogg
+tooltip=Crate
 
 [enemy]
 type=skeletal_warrior
