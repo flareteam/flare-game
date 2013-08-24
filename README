@@ -64,6 +64,8 @@ Clone the repos:
 
 
 Move to the flare-engine repo and build:
+For instructions more in detail see the INSTALL file in the
+flare-engine repo.
 
 	cd flare-engine
 	cmake . && make
@@ -84,9 +86,11 @@ Install the game system-wide (requires root access):
 Option 2
 Run the game without installing:
 
-	ln -s flare ../flare-game/flare
-	ln -s mods/default ../flare-game/mods/default
 	cd ../flare-game
+	ln -s ../flare-engine/flare flare
+	cd mods
+	ln -s ../../flare-engine/mods/default default
+	cd ..
 	./flare --game=flare-game
 
 
