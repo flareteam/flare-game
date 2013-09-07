@@ -64,6 +64,14 @@ position=176,144
 requires_physical=2
 requires_point=true
 
+# cleave
+[power]
+id=13
+tab=0
+position=112,208
+requires_physical=3
+requires_point=true
+
 # throw axe
 [power]
 id=44
@@ -71,14 +79,6 @@ tab=0
 position=176,208
 requires_physical=3
 requires_power=43
-requires_point=true
-
-# cleave
-[power]
-id=13
-tab=0
-position=112,208
-requires_physical=3
 requires_point=true
 
 # war cry
@@ -103,11 +103,11 @@ tab=1
 position=48,80
 requires_offense=1
 
-# caltrops
+# stealth
 [power]
-id=45
+id=141
 tab=1
-position=240,144
+position=48,144
 requires_defense=2
 requires_point=true
 
@@ -117,6 +117,14 @@ id=16
 tab=1
 position=112,144
 requires_offense=2
+requires_point=true
+
+# caltrops
+[power]
+id=45
+tab=1
+position=240,144
+requires_defense=2
 requires_point=true
 
 # piercing shot
@@ -136,14 +144,6 @@ requires_offense=2
 requires_defense=2
 requires_point=true
 requires_power=45
-
-# stealth
-[power]
-id=141
-tab=1
-position=48,144
-requires_defense=2
-requires_point=true
 
 # rapid fire
 [power]
