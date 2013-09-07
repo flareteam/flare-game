@@ -1,0 +1,960 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-03-24 14:09+0100\n"
+"PO-Revision-Date: 2013-04-09 18:55+0800\n"
+"Last-Translator: lonsine <lonsine@qq.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../src/Avatar.cpp:411
+#, c-format
+msgid "Congratulations, you have reached level %d!"
+msgstr "恭喜！你到到了等级 %d!"
+
+#: ../../../src/Avatar.cpp:413
+msgid "You may increase one attribute through the Character Menu."
+msgstr "你可以在角色菜单增加一点属性"
+
+#: ../../../src/Avatar.cpp:640
+msgid "You are defeated. Game over! Press Enter to exit to Title."
+msgstr "角色死亡，游戏结束！按下回车键返回游戏开戏。"
+
+#: ../../../src/Avatar.cpp:643
+#, c-format
+msgid "You are defeated.  You lose half your %s.  Press Enter to continue."
+msgstr "角色死亡，你失去了一般的 %s.  按下回车键继续。"
+
+#: ../../../src/Avatar.cpp:711
+#: ../../../src/Enemy.cpp:172
+msgid "miss"
+msgstr "未击中"
+
+#: ../../../src/Avatar.cpp:784
+#: ../../../src/Enemy.cpp:248
+#: ../../../src/PowerManager.cpp:668
+#: ../../../src/StatBlock.cpp:539
+#, c-format
+msgid "+%d HP"
+msgstr "+%d HP"
+
+#: ../../../src/CampaignManager.cpp:140
+#, c-format
+msgid "You receive %s."
+msgstr "你收到 %s."
+
+#: ../../../src/CampaignManager.cpp:142
+#, c-format
+msgid "You receive %s x%d."
+msgstr "你收到 %s x%d."
+
+#: ../../../src/CampaignManager.cpp:150
+#, c-format
+msgid "You receive %d %s."
+msgstr "你收到 %d %s."
+
+#: ../../../src/CampaignManager.cpp:157
+#, c-format
+msgid "You receive %d XP."
+msgstr "你收到 %d XP."
+
+#: ../../../src/CampaignManager.cpp:163
+msgid "HP restored."
+msgstr "HP 已恢复."
+
+#: ../../../src/CampaignManager.cpp:167
+msgid "MP restored."
+msgstr "MP 已恢复."
+
+#: ../../../src/CampaignManager.cpp:172
+msgid "HP and MP restored."
+msgstr "HP 和 MP 已恢复."
+
+#: ../../../src/CampaignManager.cpp:176
+msgid "Negative effects removed."
+msgstr "负面影响已消除."
+
+#: ../../../src/CampaignManager.cpp:182
+msgid "HP and MP restored, negative effects removed"
+msgstr "HP 和MP 已恢复, 负面影响已消除"
+
+#: ../../../src/Enemy.cpp:255
+#: ../../../src/StatBlock.cpp:544
+#, c-format
+msgid "+%d MP"
+msgstr "+%d MP"
+
+#: ../../../src/GameStateConfig.cpp:79
+#: ../../../src/GameStateConfig.cpp:164
+msgid "OK"
+msgstr "确定"
+
+#: ../../../src/GameStateConfig.cpp:84
+#: ../../../src/GameStateConfig.cpp:163
+msgid "Defaults"
+msgstr "默认设置"
+
+#: ../../../src/GameStateConfig.cpp:89
+#: ../../../src/GameStateNew.cpp:55
+#: ../../../src/InputState.cpp:59
+#: ../../../src/MenuNPCActions.cpp:77
+msgid "Cancel"
+msgstr "取消设置"
+
+#: ../../../src/GameStateConfig.cpp:154
+msgid "Video"
+msgstr "画面"
+
+#: ../../../src/GameStateConfig.cpp:155
+msgid "Audio"
+msgstr "声音"
+
+#: ../../../src/GameStateConfig.cpp:156
+msgid "Interface"
+msgstr "界面"
+
+#: ../../../src/GameStateConfig.cpp:157
+msgid "Input"
+msgstr "输入"
+
+#: ../../../src/GameStateConfig.cpp:158
+msgid "Keybindings"
+msgstr "快捷键"
+
+#: ../../../src/GameStateConfig.cpp:159
+msgid "Mods"
+msgstr "模块"
+
+#: ../../../src/GameStateConfig.cpp:162
+#: ../../../src/GameStateConfig.cpp:963
+#: ../../../src/GameStateConfig.cpp:965
+msgid "Assign: "
+msgstr "分配"
+
+#: ../../../src/GameStateConfig.cpp:163
+msgid "Reset ALL settings?"
+msgstr "确定重置?"
+
+#: ../../../src/GameStateConfig.cpp:164
+msgid "Use this resolution?"
+msgstr "使用此分辨率"
+
+#: ../../../src/GameStateConfig.cpp:254
+msgid "Full Screen Mode"
+msgstr "全屏模式"
+
+#: ../../../src/GameStateConfig.cpp:267
+msgid "Move hero using mouse"
+msgstr "使用鼠标移动人物"
+
+#: ../../../src/GameStateConfig.cpp:280
+msgid "Show combat text"
+msgstr "显示战斗文字"
+
+#: ../../../src/GameStateConfig.cpp:294
+msgid "Hardware surfaces"
+msgstr "硬件加速"
+
+#: ../../../src/GameStateConfig.cpp:307
+msgid "Double buffering"
+msgstr "双缓冲"
+
+#: ../../../src/GameStateConfig.cpp:321
+msgid "Use joystick"
+msgstr "使用joystick"
+
+#: ../../../src/GameStateConfig.cpp:334
+msgid "High Quality Textures"
+msgstr "高质量背景"
+
+#: ../../../src/GameStateConfig.cpp:347
+msgid "Allow changing gamma"
+msgstr "允许更改亮度"
+
+#: ../../../src/GameStateConfig.cpp:360
+msgid "Animated tiles"
+msgstr "动画拼图"
+
+#: ../../../src/GameStateConfig.cpp:373
+msgid "Mouse aim"
+msgstr "使用鼠标瞄准敌人"
+
+#: ../../../src/GameStateConfig.cpp:386
+msgid "Show FPS"
+msgstr "显示画面每秒帧数"
+
+#: ../../../src/GameStateConfig.cpp:400
+msgid "Music Volume"
+msgstr "背景音乐音量"
+
+#: ../../../src/GameStateConfig.cpp:413
+msgid "Sound Volume"
+msgstr "游戏音乐音量"
+
+#: ../../../src/GameStateConfig.cpp:426
+msgid "Gamma"
+msgstr "亮度"
+
+#: ../../../src/GameStateConfig.cpp:440
+msgid "Resolution"
+msgstr "分辨率"
+
+#: ../../../src/GameStateConfig.cpp:451
+msgid "Active Mods"
+msgstr "激活模块"
+
+#: ../../../src/GameStateConfig.cpp:461
+msgid "Available Mods"
+msgstr "可用模块"
+
+#: ../../../src/GameStateConfig.cpp:477
+msgid "Joystick"
+msgstr "Joystick"
+
+#: ../../../src/GameStateConfig.cpp:489
+msgid "Language"
+msgstr "语言"
+
+#: ../../../src/GameStateConfig.cpp:524
+#: ../../../src/GameStateConfig.cpp:531
+#: ../../../src/GameStateConfig.cpp:538
+msgid "Disable for performance"
+msgstr "禁用以提高性能"
+
+#: ../../../src/GameStateConfig.cpp:545
+msgid "Experimental"
+msgstr "实验功能"
+
+#: ../../../src/GameStateConfig.cpp:565
+msgid "<< Disable"
+msgstr "<< 禁用"
+
+#: ../../../src/GameStateConfig.cpp:573
+msgid "Enable >>"
+msgstr " 启用>>"
+
+#: ../../../src/GameStateLoad.cpp:57
+#: ../../../src/GameStateLoad.cpp:69
+msgid "Delete Save"
+msgstr "删除角色"
+
+#: ../../../src/GameStateLoad.cpp:57
+msgid "Delete this save?"
+msgstr "确定删除角色?"
+
+#: ../../../src/GameStateLoad.cpp:59
+msgid "Exit to Title"
+msgstr "回到游戏开始"
+
+#: ../../../src/GameStateLoad.cpp:65
+msgid "Choose a Slot"
+msgstr "选择一个人物"
+
+#: ../../../src/GameStateLoad.cpp:476
+msgid "New Game"
+msgstr "新游戏"
+
+#: ../../../src/GameStateLoad.cpp:479
+#: ../../../src/GameStateLoad.cpp:489
+msgid "Enable a story mod to continue"
+msgstr "使用故事模式继续"
+
+#: ../../../src/GameStateLoad.cpp:485
+msgid "Load Game"
+msgstr "载入游戏"
+
+#: ../../../src/GameStateLoad.cpp:539
+msgid "Entering game world..."
+msgstr "进入游戏..."
+
+#: ../../../src/GameStateLoad.cpp:541
+msgid "Loading saved game..."
+msgstr "载入游戏..."
+
+#: ../../../src/GameStateLoad.cpp:562
+#, c-format
+msgid "Level %d %s"
+msgstr "级别 %d %s"
+
+#: ../../../src/GameStateLoad.cpp:586
+msgid "Empty Slot"
+msgstr "空"
+
+#: ../../../src/GameStateNew.cpp:61
+msgid "Create"
+msgstr "创建"
+
+#: ../../../src/GameStateNew.cpp:158
+msgid "Choose a Portrait"
+msgstr "选择头像"
+
+#: ../../../src/GameStateNew.cpp:160
+msgid "Choose a Name"
+msgstr "输入名字"
+
+#: ../../../src/GameStateNew.cpp:162
+msgid "Permadeath?"
+msgstr "死亡后不可复活?"
+
+#: ../../../src/GameStateNew.cpp:164
+msgid "Choose a Class"
+msgstr "选择职业"
+
+#: ../../../src/GameStatePlay.cpp:99
+msgid "Loading..."
+msgstr "载入中..."
+
+#: ../../../src/GameStatePlay.cpp:216
+#: ../../../src/GameStatePlay.cpp:217
+#: ../../../src/GameStatePlay.cpp:238
+#: ../../../src/GameStatePlay.cpp:239
+#: ../../../src/MenuManager.cpp:431
+#: ../../../src/MenuManager.cpp:432
+#: ../../../src/MenuManager.cpp:456
+#: ../../../src/MenuManager.cpp:457
+#: ../../../src/MenuManager.cpp:635
+#: ../../../src/MenuManager.cpp:636
+#: ../../../src/MenuManager.cpp:655
+#: ../../../src/MenuManager.cpp:656
+msgid "Inventory is full."
+msgstr "背包已满"
+
+#: ../../../src/GameStateTitle.cpp:40
+msgid "Play Game"
+msgstr "开始游戏"
+
+#: ../../../src/GameStateTitle.cpp:45
+msgid "Enable a core mod to continue"
+msgstr "使用 core mod 继续"
+
+#: ../../../src/GameStateTitle.cpp:49
+msgid "Configuration"
+msgstr "配置"
+
+#: ../../../src/GameStateTitle.cpp:54
+msgid "Exit Game"
+msgstr "退出游戏"
+
+#: ../../../src/GameStateTitle.cpp:61
+msgid "Flare Alpha v0.18"
+msgstr "Flare 测试版 v0.18"
+
+#: ../../../src/InputState.cpp:60
+msgid "Accept"
+msgstr "确定"
+
+#: ../../../src/InputState.cpp:61
+msgid "Up"
+msgstr "上"
+
+#: ../../../src/InputState.cpp:62
+msgid "Down"
+msgstr "下"
+
+#: ../../../src/InputState.cpp:63
+msgid "Left"
+msgstr "左"
+
+#: ../../../src/InputState.cpp:64
+msgid "Right"
+msgstr "右"
+
+#: ../../../src/InputState.cpp:65
+msgid "Bar1"
+msgstr "槽1"
+
+#: ../../../src/InputState.cpp:66
+msgid "Bar2"
+msgstr "槽2"
+
+#: ../../../src/InputState.cpp:67
+msgid "Bar3"
+msgstr "槽3"
+
+#: ../../../src/InputState.cpp:68
+msgid "Bar4"
+msgstr "槽4"
+
+#: ../../../src/InputState.cpp:69
+msgid "Bar5"
+msgstr "槽5"
+
+#: ../../../src/InputState.cpp:70
+msgid "Bar6"
+msgstr "槽6"
+
+#: ../../../src/InputState.cpp:71
+msgid "Bar7"
+msgstr "槽7"
+
+#: ../../../src/InputState.cpp:72
+msgid "Bar8"
+msgstr "槽8"
+
+#: ../../../src/InputState.cpp:73
+msgid "Bar9"
+msgstr "槽9"
+
+#: ../../../src/InputState.cpp:74
+msgid "Bar0"
+msgstr "槽0"
+
+#: ../../../src/InputState.cpp:75
+#: ../../../src/MenuCharacter.cpp:219
+msgid "Character"
+msgstr "角色"
+
+#: ../../../src/InputState.cpp:76
+#: ../../../src/MenuInventory.cpp:172
+#: ../../../src/MenuVendor.cpp:51
+msgid "Inventory"
+msgstr "物品"
+
+#: ../../../src/InputState.cpp:77
+#: ../../../src/MenuPowers.cpp:173
+msgid "Powers"
+msgstr "技能"
+
+#: ../../../src/InputState.cpp:78
+#: ../../../src/MenuLog.cpp:158
+msgid "Log"
+msgstr "说明"
+
+#: ../../../src/InputState.cpp:79
+msgid "Main1"
+msgstr "主槽1"
+
+#: ../../../src/InputState.cpp:80
+msgid "Main2"
+msgstr "主槽2"
+
+#: ../../../src/InputState.cpp:81
+msgid "Ctrl"
+msgstr "Ctrl"
+
+#: ../../../src/InputState.cpp:82
+msgid "Shift"
+msgstr "Shift"
+
+#: ../../../src/InputState.cpp:83
+msgid "Delete"
+msgstr "删除"
+
+#: ../../../src/InputState.cpp:85
+msgid "lmb"
+msgstr "左键"
+
+#: ../../../src/InputState.cpp:86
+msgid "mmb"
+msgstr "mmb"
+
+#: ../../../src/InputState.cpp:87
+msgid "rmb"
+msgstr "右键"
+
+#: ../../../src/InputState.cpp:88
+msgid "wheel up"
+msgstr "向上滚轮"
+
+#: ../../../src/InputState.cpp:89
+msgid "wheel down"
+msgstr "向下滚轮"
+
+#: ../../../src/InputState.cpp:90
+msgid "mbx1"
+msgstr "mbx1"
+
+#: ../../../src/InputState.cpp:91
+msgid "mbx2"
+msgstr "mbx2"
+
+#: ../../../src/ItemManager.cpp:476
+#, c-format
+msgid "Level %d"
+msgstr "级别 %d"
+
+#: ../../../src/ItemManager.cpp:487
+#, c-format
+msgid "Melee damage: %d-%d"
+msgstr "近战伤害: %d-%d"
+
+#: ../../../src/ItemManager.cpp:489
+#, c-format
+msgid "Melee damage: %d"
+msgstr "近战伤害 : %d"
+
+#: ../../../src/ItemManager.cpp:493
+#, c-format
+msgid "Ranged damage: %d-%d"
+msgstr "远程伤害: %d-%d"
+
+#: ../../../src/ItemManager.cpp:495
+#, c-format
+msgid "Ranged damage: %d"
+msgstr "远程伤害: %d"
+
+#: ../../../src/ItemManager.cpp:499
+#, c-format
+msgid "Mental damage: %d-%d"
+msgstr "精神伤害: %d-%d"
+
+#: ../../../src/ItemManager.cpp:501
+#, c-format
+msgid "Mental damage: %d"
+msgstr "精神伤害: %d"
+
+#: ../../../src/ItemManager.cpp:507
+#, c-format
+msgid "Absorb: %d-%d"
+msgstr "抵消攻击: %d-%d"
+
+#: ../../../src/ItemManager.cpp:509
+#, c-format
+msgid "Absorb: %d"
+msgstr "抵消攻击: %d"
+
+#: ../../../src/ItemManager.cpp:517
+#, c-format
+msgid "%d%% Speed"
+msgstr "%d%% 速度"
+
+#: ../../../src/ItemManager.cpp:522
+#: ../../../src/ItemManager.cpp:614
+#, c-format
+msgid "Increases %s by %d"
+msgstr "增加 %s 量 %d"
+
+#: ../../../src/ItemManager.cpp:529
+#: ../../../src/ItemManager.cpp:617
+#, c-format
+msgid "Decreases %s by %d"
+msgstr "减少 %s 量 %d"
+
+#: ../../../src/ItemManager.cpp:550
+#: ../../../src/MenuPowers.cpp:541
+#: ../../../src/MenuPowers.cpp:543
+#, c-format
+msgid "Requires Physical %d"
+msgstr "需要体力 %d"
+
+#: ../../../src/ItemManager.cpp:555
+#: ../../../src/MenuPowers.cpp:546
+#: ../../../src/MenuPowers.cpp:548
+#, c-format
+msgid "Requires Mental %d"
+msgstr "需要精神 %d"
+
+#: ../../../src/ItemManager.cpp:560
+#: ../../../src/MenuPowers.cpp:531
+#: ../../../src/MenuPowers.cpp:533
+#, c-format
+msgid "Requires Offense %d"
+msgstr "需要攻击 %d"
+
+#: ../../../src/ItemManager.cpp:565
+#: ../../../src/MenuPowers.cpp:536
+#: ../../../src/MenuPowers.cpp:538
+#, c-format
+msgid "Requires Defense %d"
+msgstr "需要防御 %d"
+
+#: ../../../src/ItemManager.cpp:583
+#: ../../../src/ItemManager.cpp:591
+#, c-format
+msgid "Buy Price: %d %s"
+msgstr "购买价格: %d %s"
+
+#: ../../../src/ItemManager.cpp:585
+#: ../../../src/ItemManager.cpp:593
+#, c-format
+msgid "Buy Price: %d %s each"
+msgstr "购买单价: %d %s "
+
+#: ../../../src/ItemManager.cpp:598
+#, c-format
+msgid "Sell Price: %d %s"
+msgstr "出售价格: %d %s"
+
+#: ../../../src/ItemManager.cpp:600
+#, c-format
+msgid "Sell Price: %d %s each"
+msgstr "出售单价: %d %s "
+
+#: ../../../src/ItemManager.cpp:610
+msgid "Set: "
+msgstr "设置: "
+
+#: ../../../src/ItemManager.cpp:614
+#: ../../../src/ItemManager.cpp:617
+#, c-format
+msgid "%d items: "
+msgstr "%d 物品: "
+
+#: ../../../src/LootManager.cpp:185
+#: ../../../src/MenuInventory.cpp:176
+#, c-format
+msgid "%d %s"
+msgstr "%d %s"
+
+#: ../../../src/MapRenderer.cpp:1244
+msgid "Unknown destination"
+msgstr "无法进入"
+
+#: ../../../src/MenuActionBar.cpp:401
+msgid "Character Menu (C)"
+msgstr "角色菜单 (C)"
+
+#: ../../../src/MenuActionBar.cpp:405
+msgid "Inventory Menu (I)"
+msgstr "背包菜单 (I)"
+
+#: ../../../src/MenuActionBar.cpp:409
+msgid "Power Menu (P)"
+msgstr "技能菜单 (P)"
+
+#: ../../../src/MenuActionBar.cpp:413
+msgid "Log Menu (L)"
+msgstr "说明菜单 (L)"
+
+#: ../../../src/MenuCharacter.cpp:232
+msgid "Name"
+msgstr "名字"
+
+#: ../../../src/MenuCharacter.cpp:233
+msgid "Level"
+msgstr "级别"
+
+#: ../../../src/MenuCharacter.cpp:234
+msgid "Physical"
+msgstr "体力"
+
+#: ../../../src/MenuCharacter.cpp:235
+msgid "Mental"
+msgstr "精神"
+
+#: ../../../src/MenuCharacter.cpp:236
+msgid "Offense"
+msgstr "攻击"
+
+#: ../../../src/MenuCharacter.cpp:237
+msgid "Defense"
+msgstr "防御"
+
+#: ../../../src/MenuCharacter.cpp:295
+msgid "points remaining"
+msgstr "未用点数"
+
+#: ../../../src/MenuCharacter.cpp:305
+msgid "Max HP:"
+msgstr "最大 HP:"
+
+#: ../../../src/MenuCharacter.cpp:306
+#, c-format
+msgid "Each point of Physical grants +%d HP. Each level grants +%d HP"
+msgstr "每点体力增加 +%d HP. 每升一级增加 +%d HP"
+
+#: ../../../src/MenuCharacter.cpp:311
+msgid "HP Regen:"
+msgstr "HP 恢复:"
+
+#: ../../../src/MenuCharacter.cpp:312
+#, c-format
+msgid "Ticks of HP regen per minute. Each point of Physical grants +%d HP regen. Each level grants +%d HP regen"
+msgstr "每分钟恢复HP量. 每点体力增加 +%d HP恢复. 每升一级 +%d HP恢复"
+
+#: ../../../src/MenuCharacter.cpp:317
+msgid "Max MP:"
+msgstr "最大 MP:"
+
+#: ../../../src/MenuCharacter.cpp:318
+#, c-format
+msgid "Each point of Mental grants +%d MP. Each level grants +%d MP"
+msgstr "每点精神增加 +%d MP. 每升一级增加 +%d MP"
+
+#: ../../../src/MenuCharacter.cpp:323
+msgid "MP Regen:"
+msgstr "MP 恢复:"
+
+#: ../../../src/MenuCharacter.cpp:324
+#, c-format
+msgid "Ticks of MP regen per minute. Each point of Mental grants +%d MP regen. Each level grants +%d MP regen"
+msgstr "每分钟恢复MP量. 每点体力增加 +%d MP恢复. 每升一级 +%d MP恢复"
+
+#: ../../../src/MenuCharacter.cpp:329
+msgid "Accuracy:"
+msgstr "准确:"
+
+#: ../../../src/MenuCharacter.cpp:330
+#, c-format
+msgid "Each point of Offense grants +%d accuracy. Each level grants +%d accuracy"
+msgstr "每点攻击增加 +%d 准确度. 每升一级增加 +%d 准确度"
+
+#: ../../../src/MenuCharacter.cpp:335
+msgid "Avoidance:"
+msgstr "敏捷:"
+
+#: ../../../src/MenuCharacter.cpp:336
+#, c-format
+msgid "Each point of Defense grants +%d avoidance. Each level grants +%d avoidance"
+msgstr "每点防御增加 +%d 敏捷度. 每升一级增加 +%d 敏捷度"
+
+#: ../../../src/MenuCharacter.cpp:341
+msgid "Melee Damage:"
+msgstr "近战伤害:"
+
+#: ../../../src/MenuCharacter.cpp:351
+msgid "Ranged Damage:"
+msgstr "远程伤害:"
+
+#: ../../../src/MenuCharacter.cpp:361
+msgid "Mental Damage:"
+msgstr "精神伤害:"
+
+#: ../../../src/MenuCharacter.cpp:371
+msgid "Crit:"
+msgstr "暴击:"
+
+#: ../../../src/MenuCharacter.cpp:377
+msgid "Absorb:"
+msgstr "抵消:"
+
+#: ../../../src/MenuCharacter.cpp:387
+msgid "Poise: "
+msgstr "平衡: "
+
+#: ../../../src/MenuCharacter.cpp:388
+msgid "Reduces your chance of stumbling when hit"
+msgstr "减少被击中后跌倒的可能"
+
+#: ../../../src/MenuCharacter.cpp:393
+msgid "Bonus XP: "
+msgstr "奖励 XP: "
+
+#: ../../../src/MenuCharacter.cpp:394
+msgid "Increases the XP gained per kill"
+msgstr "增加 XP "
+
+#: ../../../src/MenuCharacter.cpp:399
+msgid "Bonus"
+msgstr "奖励"
+
+#: ../../../src/MenuCharacter.cpp:400
+#, c-format
+msgid "Increases the %s found per drop"
+msgstr "爆出金钱增加 %s "
+
+#: ../../../src/MenuCharacter.cpp:405
+msgid "Bonus Item Find: "
+msgstr "爆出物品概率"
+
+#: ../../../src/MenuCharacter.cpp:406
+msgid "Increases the chance that an enemy will drop an item when killed"
+msgstr "增加敌人死亡后爆出物品的概率"
+
+#: ../../../src/MenuCharacter.cpp:411
+msgid "Stealth: "
+msgstr "潜行: "
+
+#: ../../../src/MenuCharacter.cpp:412
+msgid "Increases your ability to move undetected"
+msgstr "提升移动时不被发现的能力"
+
+#: ../../../src/MenuCharacter.cpp:430
+#, c-format
+msgid "XP: %d"
+msgstr "XP: %d"
+
+#: ../../../src/MenuCharacter.cpp:432
+#, c-format
+msgid "Next: %d"
+msgstr "Next: %d"
+
+#: ../../../src/MenuCharacter.cpp:436
+msgid "Physical (P) increases melee weapon proficiency and total HP."
+msgstr "体力 (P)增加近战武器熟练度和总l HP."
+
+#: ../../../src/MenuCharacter.cpp:437
+#: ../../../src/MenuCharacter.cpp:441
+#: ../../../src/MenuCharacter.cpp:445
+#: ../../../src/MenuCharacter.cpp:449
+#, c-format
+msgid "base (%d), bonus (%d)"
+msgstr "base (%d), bonus (%d)"
+
+#: ../../../src/MenuCharacter.cpp:440
+msgid "Mental (M) increases mental weapon proficiency and total MP."
+msgstr "精神 (M)增加精神武器熟练度和总 MP."
+
+#: ../../../src/MenuCharacter.cpp:444
+msgid "Offense (O) increases ranged weapon proficiency and accuracy."
+msgstr "攻击(O)增加远程武器熟练度和准确度."
+
+#: ../../../src/MenuCharacter.cpp:448
+msgid "Defense (D) increases armor proficiency and avoidance."
+msgstr "防御 (D) 增加盾牌熟练度和敏捷度."
+
+#: ../../../src/MenuEnemy.cpp:138
+msgid "Dead"
+msgstr "死亡"
+
+#: ../../../src/MenuEnemy.cpp:144
+#: ../../../src/MenuEnemy.cpp:146
+#, c-format
+msgid "%s level %d"
+msgstr "%s 级别 %d"
+
+#: ../../../src/MenuExit.cpp:31
+msgid "Exit"
+msgstr "退出"
+
+#: ../../../src/MenuExit.cpp:58
+msgid "Save and exit to title?"
+msgstr "保存并回到游戏开始菜单?"
+
+#: ../../../src/MenuInventory.cpp:210
+msgid "Use SHIFT to move only one item."
+msgstr "使用SHIFT移动单个物品"
+
+#: ../../../src/MenuInventory.cpp:211
+msgid "CTRL-click a carried item to sell it."
+msgstr "按住CTRL点击物品出售"
+
+#: ../../../src/MenuInventory.cpp:415
+msgid "This item can only be used from the action bar."
+msgstr "此物品只能从动作槽使用"
+
+#: ../../../src/MenuLog.cpp:79
+msgid "Notes"
+msgstr "提示"
+
+#: ../../../src/MenuLog.cpp:80
+msgid "Quests"
+msgstr "任务"
+
+#: ../../../src/MenuManager.cpp:253
+#, c-format
+msgid "XP: %d/%d"
+msgstr "XP: %d/%d"
+
+#: ../../../src/MenuManager.cpp:426
+#: ../../../src/MenuManager.cpp:427
+#: ../../../src/MenuManager.cpp:630
+#: ../../../src/MenuManager.cpp:631
+msgid "Not enough money."
+msgstr "金钱不足"
+
+#: ../../../src/MenuNPCActions.cpp:76
+msgid "Trade"
+msgstr "交易"
+
+#: ../../../src/MenuPowers.cpp:460
+msgid "Unspent skill points:"
+msgstr "未用点数"
+
+#: ../../../src/MenuPowers.cpp:502
+msgid "Requires a physical weapon"
+msgstr "需要近战武器"
+
+#: ../../../src/MenuPowers.cpp:504
+msgid "Requires a mental weapon"
+msgstr "需要精神武器"
+
+#: ../../../src/MenuPowers.cpp:506
+msgid "Requires an offense weapon"
+msgstr "需要远程武器"
+
+#: ../../../src/MenuPowers.cpp:511
+#: ../../../src/MenuPowers.cpp:513
+#, c-format
+msgid "Requires Physical Offense %d"
+msgstr "需要体力+攻击 %d"
+
+#: ../../../src/MenuPowers.cpp:516
+#: ../../../src/MenuPowers.cpp:518
+#, c-format
+msgid "Requires Physical Defense %d"
+msgstr "需要体力+防御 %d"
+
+#: ../../../src/MenuPowers.cpp:521
+#: ../../../src/MenuPowers.cpp:523
+#, c-format
+msgid "Requires Mental Offense %d"
+msgstr "需要精神+攻击 %d"
+
+#: ../../../src/MenuPowers.cpp:526
+#: ../../../src/MenuPowers.cpp:528
+#, c-format
+msgid "Requires Mental Defense %d"
+msgstr "需要精神+防御 %d"
+
+#: ../../../src/MenuPowers.cpp:553
+#: ../../../src/MenuPowers.cpp:556
+#, c-format
+msgid "Requires Level %d"
+msgstr "需要级别 %d"
+
+#: ../../../src/MenuPowers.cpp:563
+#: ../../../src/MenuPowers.cpp:568
+#, c-format
+msgid "Requires %d Skill Point"
+msgstr "需要 %d 技能点"
+
+#: ../../../src/MenuPowers.cpp:576
+msgid "Click to Unlock"
+msgstr "点击解锁"
+
+#: ../../../src/MenuPowers.cpp:582
+#: ../../../src/MenuPowers.cpp:585
+#, c-format
+msgid "Requires Power: %s"
+msgstr "需要技能点: %s"
+
+#: ../../../src/MenuPowers.cpp:590
+#, c-format
+msgid "Costs %d MP"
+msgstr "消耗 %d MP"
+
+#: ../../../src/MenuPowers.cpp:594
+#, c-format
+msgid "Costs %d HP"
+msgstr "消耗 %d HP"
+
+#: ../../../src/MenuPowers.cpp:598
+#, c-format
+msgid "Cooldown: %d seconds"
+msgstr "冷却时间: %d 秒"
+
+#: ../../../src/MenuStash.cpp:125
+msgid "Shared Stash"
+msgstr "储物柜"
+
+#: ../../../src/MenuVendor.cpp:52
+msgid "Buyback"
+msgstr "购回"
+
+#: ../../../src/MenuVendor.cpp:155
+msgid "Vendor"
+msgstr "商人"
+
+#: ../../../src/PowerManager.cpp:661
+#, c-format
+msgid "+%d Shield"
+msgstr "+%d Shield"
+
+#: ../../../src/PowerManager.cpp:903
+msgid "You are already transformed, untransform first."
+msgstr "You are already transformed, untransform first."
+
+#: ../../../src/Settings.cpp:500
+msgid "Adventurer"
+msgstr "玩家"
+
