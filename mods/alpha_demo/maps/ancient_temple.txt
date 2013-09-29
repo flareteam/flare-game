@@ -440,7 +440,7 @@ hotspot=location
 loot=128,23,13,fixed,1
 mapmod=object,23,12,161
 repeat=false
-requires_not=at_chest1
+requires_not_status=at_chest1
 set_status=at_chest1
 soundfx=soundfx/wood_open.ogg
 tooltip=Treasure Chest
@@ -453,7 +453,7 @@ hotspot=location
 loot=57,25,11,fixed,1
 mapmod=object,24,11,160
 repeat=false
-requires_not=at_chest2
+requires_not_status=at_chest2
 set_status=at_chest2
 soundfx=soundfx/wood_open.ogg
 tooltip=Treasure Chest
@@ -616,7 +616,7 @@ location=44,92,4,5
 mapmod=background,44,94,265
 msg=Ancient Temple waypoint discovered.
 repeat=false
-requires_not=waypoint_ancient_temple
+requires_not_status=waypoint_ancient_temple
 set_status=waypoint_ancient_temple
 
 [event]

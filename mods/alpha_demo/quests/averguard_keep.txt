@@ -4,63 +4,63 @@
 
 [quest]
 requires_status=ak_ukkonen_search
-requires_not=ak_ukkonen_defeated
+requires_not_status=ak_ukkonen_defeated
 quest_text=Defeat Ukkonen in the Goblin Warrens.
 
 [quest]
 requires_status=ak_ukkonen_search
 requires_status=ak_ukkonen_defeated
-requires_not=ak_ukkonen_reward
+requires_not_status=ak_ukkonen_reward
 quest_text=Report your victory over Ukkonen to Guill in the Goblin Warrens.
 
 [quest]
 requires_status=ak_tome_search
-requires_not=ak_tome_found
+requires_not_status=ak_tome_found
 quest_text=Search Ukkonen's lair in the Goblin Warrens for a missing Averguard Tome.
 
 [quest]
 requires_status=ak_tome_found
-requires_not=ak_tome_reward
+requires_not_status=ak_tome_reward
 quest_text=Deliver the Averguard Tome to Guill in the Goblin Warrens.
 
 [quest]
 requires_status=ak_key_search
-requires_not=ak_key_found
+requires_not_status=ak_key_found
 quest_text=Find the Averguard Key. It is held in Averguard Prison.
 
 [quest]
 requires_status=ak_key_found
-requires_not=ak_key_reward
+requires_not_status=ak_key_reward
 quest_text=Tell Guill that you have found the Averguard Key.
 
 [quest]
 requires_status=ak_temple_search
-requires_not=ak_temple_sealed
-requires_not=ak_talisman_used
+requires_not_status=ak_temple_sealed
+requires_not_status=ak_talisman_used
 quest_text=Use the Averguard Key to enter the burial chamber deep within Averguard Temple.
 
 [quest]
 requires_status=ak_temple_sealed
-requires_not=ak_talisman_search
+requires_not_status=ak_talisman_search
 quest_text=The Averguard Key did not open the burial chamber door. Speak to Guill for help.
 
 [quest]
 requires_status=ak_talisman_search
-requires_not=ak_talisman_found
+requires_not_status=ak_talisman_found
 quest_text=Search the Averguard Academy for Professor Langlier's secret to breaking the Burial Chamber seal.
 
 [quest]
 requires_status=ak_talisman_found
-requires_not=ak_talisman_reward
+requires_not_status=ak_talisman_reward
 quest_text=Show Langlier's Talisman to Guill.
 
 [quest]
 requires_status=ak_maddox_search
-requires_not=ak_maddox_defeated
+requires_not_status=ak_maddox_defeated
 quest_text=Enter the Averguard Temple burial chamber and defeat Sir Evan Maddox.
 
 [quest]
 requires_status=ak_maddox_defeated
-requires_not=ak_maddox_reward
+requires_not_status=ak_maddox_reward
 quest_text=Report Maddox's defeat to Guill
 

@@ -462,7 +462,7 @@ mapmod=object,14,10,160
 remove_item=9101
 repeat=false
 requires_item=9101
-requires_not=lb_ice_spellbook,lb_ice_looted
+requires_not_status=lb_ice_spellbook,lb_ice_looted
 set_status=lb_ice_looted,lb_ice_spellbook
 soundfx=soundfx/wood_open.ogg
 tooltip=Runed Chest
@@ -478,7 +478,7 @@ mapmod=object,14,10,160
 remove_item=9101
 repeat=false
 requires_item=9101
-requires_not=lb_ice_looted
+requires_not_status=lb_ice_looted
 set_status=lb_ice_looted
 soundfx=soundfx/wood_open.ogg
 tooltip=Runed Chest
@@ -492,7 +492,7 @@ hotspot=location
 power=14
 power_damage=100,150
 power_path=14,10,hero
-requires_not=lb_ice_looted;lb_ice_key
+requires_not_status=lb_ice_looted;lb_ice_key
 tooltip=Runed Chest
 
 [event]
