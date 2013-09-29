@@ -839,7 +839,7 @@
     <property name="loot" value="65,117,36,fixed,1"/>
     <property name="mapmod" value="object,117,35,99"/>
     <property name="repeat" value="false"/>
-    <property name="requires_not" value="fp_crate3"/>
+    <property name="requires_not_status" value="fp_crate3"/>
     <property name="set_status" value="fp_crate3"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Supplies"/>
@@ -851,7 +851,7 @@
     <property name="loot" value="1,50,31,fixed,1"/>
     <property name="mapmod" value="object,50,30,97"/>
     <property name="repeat" value="false"/>
-    <property name="requires_not" value="fp_crate1"/>
+    <property name="requires_not_status" value="fp_crate1"/>
     <property name="set_status" value="fp_crate1"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Supplies"/>
@@ -1073,7 +1073,7 @@
   <object name="Cutscene" type="on_load" x="7872" y="5824" width="64" height="64">
    <properties>
     <property name="cutscene" value="frontier_plains_cutscene.txt"/>
-    <property name="requires_not" value="been_on_plains"/>
+    <property name="requires_not_status" value="been_on_plains"/>
     <property name="set_status" value="been_on_plains"/>
    </properties>
   </object>

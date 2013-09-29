@@ -313,7 +313,7 @@
    <properties>
     <property name="hotspot" value="45,42,3,3"/>
     <property name="msg" value="This pillar is laced with cracks and crevices. Maybe with enough force it can be knocked down."/>
-    <property name="requires_not" value="lb_has_explosive"/>
+    <property name="requires_not_status" value="lb_has_explosive"/>
     <property name="set_status" value="lb_destroy_pillar"/>
     <property name="tooltip" value="Giant Pillar"/>
    </properties>
@@ -322,7 +322,7 @@
    <properties>
     <property name="hotspot" value="45,42,3,3"/>
     <property name="mapmod" value="object,47,44,163"/>
-    <property name="requires_not" value="lb_explosive_set"/>
+    <property name="requires_not_status" value="lb_explosive_set"/>
     <property name="requires_status" value="lb_has_explosive"/>
     <property name="set_status" value="lb_explosive_set"/>
     <property name="tooltip" value="Place Explosive"/>
@@ -333,7 +333,7 @@
     <property name="mapmod" value="object,47,44,0;object,47,43,0;collision,47,43,2;object,47,42,0;collision,47,42,2;object,46,43,0;collision,46,43,2;object,46,44,0;collision,46,44,2;object,45,44,0;collision,45,44,2;object,46,42,0;collision,46,42,2;object,45,43,80;collision,45,43,1;object,47,41,80;object,45,42,68;collison,45,42,1;object,46,41,69;collison,46,41,1;object,45,41,76;collison,45,41,1;object,48,43,0;collision,48,43,0;object,48,44,0;collision,48,44,0;object,46,45,0;collision,46,45,0;object,49,40,0;collision,49,40,2;object,46,39,0;collision,46,39,2;object,48,40,150;collision,48,40,0;object,48,39,151;collision,48,39,0;collision,49,39,0;object,48,38,151;collision,48,38,0;object,49,37,152;collision,49,37,0;object,48,36,151;collision,48,36,0;object,49,35,152;collision,49,35,0;object,47,38,150;collision,47,38,0;object,45,46,150;collision,45,46,2;object,48,45,152;collision,48,45,2;object,49,44,150;collision,49,44,2;object,49,43,151;collision,49,43,2;object,51,42,152"/>
     <property name="power" value="18"/>
     <property name="power_path" value="47,44,47,44"/>
-    <property name="requires_not" value="lb_explosive_detonated"/>
+    <property name="requires_not_status" value="lb_explosive_detonated"/>
     <property name="requires_status" value="lb_explosive_set"/>
     <property name="set_status" value="lb_explosive_detonated"/>
     <property name="shakycam" value="60"/>
@@ -345,7 +345,7 @@
     <property name="mapmod" value="object,47,44,0;object,47,43,0;collision,47,43,2;object,47,42,0;collision,47,42,2;object,46,43,0;collision,46,43,2;object,46,44,0;collision,46,44,2;object,45,44,0;collision,45,44,2;object,46,42,0;collision,46,42,2;object,45,43,80;collision,45,43,1;object,47,41,80;object,45,42,68;collison,45,42,1;object,46,41,69;collison,46,41,1;object,45,41,76;collison,45,41,1;object,48,43,0;collision,48,43,0;object,48,44,0;collision,48,44,0;object,46,45,0;collision,46,45,0;object,49,40,0;collision,49,40,2;object,46,39,0;collision,46,39,2;object,48,40,150;collision,48,40,0;object,48,39,151;collision,48,39,0;collision,49,39,0;object,48,38,151;collision,48,38,0;object,49,37,152;collision,49,37,0;object,48,36,151;collision,48,36,0;object,49,35,152;collision,49,35,0;object,47,38,150;collision,47,38,0;object,45,46,150;collision,45,46,2;object,48,45,152;collision,48,45,2;object,49,44,150;collision,49,44,2;object,49,43,151;collision,49,43,2;object,51,42,152"/>
     <property name="power" value="18"/>
     <property name="power_path" value="47,44,47,44"/>
-    <property name="requires_not" value="lb_explosive_detonated"/>
+    <property name="requires_not_status" value="lb_explosive_detonated"/>
     <property name="requires_status" value="lb_explosive_set"/>
     <property name="set_status" value="lb_explosive_detonated"/>
     <property name="shakycam" value="60"/>
@@ -357,7 +357,7 @@
     <property name="mapmod" value="object,47,44,0;object,47,43,0;collision,47,43,2;object,47,42,0;collision,47,42,2;object,46,43,0;collision,46,43,2;object,46,44,0;collision,46,44,2;object,45,44,0;collision,45,44,2;object,46,42,0;collision,46,42,2;object,45,43,80;collision,45,43,1;object,47,41,80;object,45,42,68;collison,45,42,1;object,46,41,69;collison,46,41,1;object,45,41,76;collison,45,41,1;object,48,43,0;collision,48,43,0;object,48,44,0;collision,48,44,0;object,46,45,0;collision,46,45,0;object,49,40,0;collision,49,40,2;object,46,39,0;collision,46,39,2;object,48,40,150;collision,48,40,0;object,48,39,151;collision,48,39,0;collision,49,39,0;object,48,38,151;collision,48,38,0;object,49,37,152;collision,49,37,0;object,48,36,151;collision,48,36,0;object,49,35,152;collision,49,35,0;object,47,38,150;collision,47,38,0;object,45,46,150;collision,45,46,2;object,48,45,152;collision,48,45,2;object,49,44,150;collision,49,44,2;object,49,43,151;collision,49,43,2;object,51,42,152"/>
     <property name="power" value="18"/>
     <property name="power_path" value="47,44,47,44"/>
-    <property name="requires_not" value="lb_explosive_detonated"/>
+    <property name="requires_not_status" value="lb_explosive_detonated"/>
     <property name="requires_status" value="lb_explosive_set"/>
     <property name="set_status" value="lb_explosive_detonated"/>
     <property name="shakycam" value="60"/>

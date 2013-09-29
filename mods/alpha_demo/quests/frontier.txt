@@ -1,11 +1,11 @@
 [quest]
 requires_status=fr_rilrak_search
-requires_not=fr_rilrak_defeated
+requires_not_status=fr_rilrak_defeated
 quest_text=Defeat the goblins at the River Encampment
 
 [quest]
 requires_status=fr_rilrak_search
 requires_status=fr_rilrak_defeated
-requires_not=fr_rilrak_reward
+requires_not_status=fr_rilrak_reward
 quest_text=River Encampment cleared. Return to Martigan for your reward.
 

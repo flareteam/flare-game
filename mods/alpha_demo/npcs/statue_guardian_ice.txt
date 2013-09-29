@@ -7,7 +7,7 @@ talker=true
 gfx=statue_guardian_ice
 
 [dialog]
-requires_not=lb_ice_password
+requires_not_status=lb_ice_password
 him=Who goes there?
 you=Uh... a lone adventurer?
 set_status=lb_ice_locked
@@ -16,7 +16,7 @@ him=Intruder! You shall not interrupt the masters' work!
 
 [dialog]
 requires_status=lb_ice_password
-requires_not=lb_ice_unlocked
+requires_not_status=lb_ice_unlocked
 him=Who goes there?
 you=Scathelocke.
 set_status=lb_ice_unlocked

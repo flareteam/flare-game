@@ -270,7 +270,7 @@ soundfx=soundfx/environment/cave_droplets_loop.ogg
 # spawn_reanimated_skeleton
 type=on_load
 location=22,46,4,4
-requires_not=ml_skeleton_defeated
+requires_not_status=ml_skeleton_defeated
 requires_status=ml_skeleton_search
 spawn=reanimated_skeleton,6,28
 

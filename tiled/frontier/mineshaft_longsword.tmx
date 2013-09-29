@@ -264,7 +264,7 @@
   </object>
   <object name="spawn_reanimated_skeleton" type="on_load" x="704" y="1472" width="128" height="128">
    <properties>
-    <property name="requires_not" value="ml_skeleton_defeated"/>
+    <property name="requires_not_status" value="ml_skeleton_defeated"/>
     <property name="requires_status" value="ml_skeleton_search"/>
     <property name="spawn" value="reanimated_skeleton,6,28"/>
    </properties>
