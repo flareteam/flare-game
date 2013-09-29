@@ -458,7 +458,7 @@
     <property name="remove_item" value="9101"/>
     <property name="repeat" value="false"/>
     <property name="requires_item" value="9101"/>
-    <property name="requires_not" value="lb_ice_spellbook,lb_ice_looted"/>
+    <property name="requires_not_status" value="lb_ice_spellbook,lb_ice_looted"/>
     <property name="set_status" value="lb_ice_looted,lb_ice_spellbook"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Runed Chest"/>
@@ -473,7 +473,7 @@
     <property name="remove_item" value="9101"/>
     <property name="repeat" value="false"/>
     <property name="requires_item" value="9101"/>
-    <property name="requires_not" value="lb_ice_looted"/>
+    <property name="requires_not_status" value="lb_ice_looted"/>
     <property name="set_status" value="lb_ice_looted"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Runed Chest"/>
@@ -486,7 +486,7 @@
     <property name="power" value="14"/>
     <property name="power_damage" value="100,150"/>
     <property name="power_path" value="14,10,hero"/>
-    <property name="requires_not" value="lb_ice_looted;lb_ice_key"/>
+    <property name="requires_not_status" value="lb_ice_looted;lb_ice_key"/>
     <property name="tooltip" value="Runed Chest"/>
    </properties>
   </object>

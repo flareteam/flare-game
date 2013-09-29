@@ -1,10 +1,10 @@
 [quest]
 requires_status=ml_skeleton_search
-requires_not=ml_skeleton_defeated
+requires_not_status=ml_skeleton_defeated
 quest_text=Find and defeat the Reanimated Skeleton in Mineshaft Longsword.
 
 [quest]
 requires_status=ml_skeleton_search
 requires_status=ml_skeleton_defeated
-requires_not=ml_skeleton_reward
+requires_not_status=ml_skeleton_reward
 quest_text=Report the defeat of the Reanimated Skeleton to Martigan.

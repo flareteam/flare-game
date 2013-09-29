@@ -451,7 +451,7 @@
     <property name="hotspot" value="location"/>
     <property name="loot" value="128,23,13,fixed,1"/>
     <property name="mapmod" value="object,23,12,161"/>
-    <property name="requires_not" value="at_chest1"/>
+    <property name="requires_not_status" value="at_chest1"/>
     <property name="set_status" value="at_chest1"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Treasure Chest"/>
@@ -463,7 +463,7 @@
     <property name="hotspot" value="location"/>
     <property name="loot" value="57,25,11,fixed,1"/>
     <property name="mapmod" value="object,24,11,160"/>
-    <property name="requires_not" value="at_chest2"/>
+    <property name="requires_not_status" value="at_chest2"/>
     <property name="set_status" value="at_chest2"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Treasure Chest"/>
@@ -608,7 +608,7 @@
    <properties>
     <property name="mapmod" value="background,44,94,265"/>
     <property name="msg" value="Ancient Temple waypoint discovered."/>
-    <property name="requires_not" value="waypoint_ancient_temple"/>
+    <property name="requires_not_status" value="waypoint_ancient_temple"/>
     <property name="set_status" value="waypoint_ancient_temple"/>
     <property name="repeat" value="false"/>
    </properties>
