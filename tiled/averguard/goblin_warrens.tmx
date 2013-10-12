@@ -203,7 +203,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,282,283,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="collision" width="60" height="82" visible="0">
+ <layer name="collision" width="60" height="82">
   <data encoding="csv">
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,3,3,3,3,3,3,1,1,1,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,0,0,1,3,3,3,3,3,3,1,0,0,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
@@ -278,8 +278,8 @@
 3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,0,0,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,0,0,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
-3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,4,0,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,0,0,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
+3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,4,0,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,0,0,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,0,0,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,0,0,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
@@ -316,9 +316,9 @@
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,4,36,fixed,10,30"/>
     <property name="mapmod" value="object,3,36,160"/>
+    <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Treasure Chest"/>
-    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object name="dorm room barrel" type="on_trigger" x="32" y="1024" width="32" height="32">
@@ -326,9 +326,9 @@
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,2,32,fixed,10,20"/>
     <property name="mapmod" value="object,1,32,162"/>
+    <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Barrel"/>
-    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object name="dorm room book" type="on_trigger" x="64" y="896" width="32" height="32">
@@ -337,11 +337,11 @@
     <property name="loot" value="9000,2,29,fixed,1"/>
     <property name="mapmod" value="object,2,28,165"/>
     <property name="msg" value="This book bears the seal of the Averguard"/>
+    <property name="repeat" value="false"/>
     <property name="requires_not_status" value="ak_tome_found"/>
     <property name="requires_status" value="ak_tome_search"/>
     <property name="soundfx" value="soundfx/inventory/inventory_page.ogg"/>
     <property name="tooltip" value="Book Stand"/>
-    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object name="overlook book 1" type="on_trigger" x="1216" y="1632" width="32" height="32">
@@ -349,9 +349,9 @@
     <property name="hotspot" value="location"/>
     <property name="mapmod" value="object,38,51,164"/>
     <property name="msg" value="&quot;In the Age of Settlement, the Averguard Knights defended peasants against the chaos of the wilderness.&quot;"/>
+    <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/inventory/inventory_page.ogg"/>
     <property name="tooltip" value="Book Stand"/>
-    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object name="overlook book 2" type="on_trigger" x="1216" y="1472" width="32" height="32">
@@ -359,9 +359,9 @@
     <property name="hotspot" value="location"/>
     <property name="mapmod" value="object,38,46,164"/>
     <property name="msg" value="&quot;Sir Evan Maddox led the Averguard when the plague struck.  Powerful clerics from the corners of the world were brought here.  By the time a cure was found it was too late.&quot;"/>
+    <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/inventory/inventory_page.ogg"/>
     <property name="tooltip" value="Book Stand"/>
-    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object name="brazier sound effect" type="on_trigger" x="1312" y="1408" width="160" height="288">
@@ -472,7 +472,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="npc" width="60" height="82" visible="0">
+ <objectgroup name="npc" width="60" height="82">
   <object type="guill" x="896" y="2368" width="32" height="32"/>
  </objectgroup>
 </map>
