@@ -114,6 +114,7 @@ extract('../engine/loot.txt')
 extract('../engine/classes.txt')
 extract('../engine/hero_options.txt')
 extract('../engine/titles.txt')
+extract('../engine/equip_flags.txt')
 
 for folder in ['enemies', 'maps', 'quests', 'npcs', 'cutscenes']:
     target = os.path.join('..', folder)
