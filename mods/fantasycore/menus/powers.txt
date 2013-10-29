@@ -111,11 +111,19 @@ position=48,144
 requires_defense=2
 requires_point=true
 
+# ember shot
+[power]
+id=24
+tab=1
+position=112,144
+requires_offense=2
+requires_point=true
+
 # multi-shot
 [power]
 id=16
 tab=1
-position=112,144
+position=176,144
 requires_offense=2
 requires_point=true
 
@@ -176,6 +184,15 @@ tab=2
 position=112,144
 requires_mental=2
 requires_point=true
+
+# thunderstrike
+[power]
+id=25
+tab=2
+position=176,144
+requires_mental=2
+requires_point=true
+
 
 # heal
 [power]
