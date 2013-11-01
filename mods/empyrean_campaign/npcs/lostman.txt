@@ -1,0 +1,31 @@
+name=Lost Man
+
+portrait=male18
+
+talker=true
+
+# animation info
+gfx=peasant_man1
+
+[dialog]
+requires_not_status=lostman_init
+him=I am no demon, lord! Please spare me!
+you=I'm not going to harm you. Who are you? Are you lost?
+set_status=lostman_init
+him=I ... don't recall. That's the trouble here on the surface. Things just slip the mind.
+
+[dialog]
+topic=Forgetting
+requires_status=lostman_init
+requires_not_status=lostman_forget
+you=There are things I'd rather not remember.
+set_status=lostman_forget
+reward_xp=10
+him=That sounds sad. I wish I could remember. It was all I had left.
+
+[dialog]
+topic=Forgetting
+requires_status=lostman_forget
+you=There are things I'd rather not remember.
+him=That sounds sad. I wish I could remember. It was all I had left.
+

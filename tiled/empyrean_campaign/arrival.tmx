@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="isometric" width="40" height="40" tilewidth="64" tileheight="32" backgroundcolor="#000000">
  <properties>
+  <property name="music" value="wind_ambient.ogg"/>
   <property name="tileset" value="tileset_grassland.txt"/>
   <property name="title" value="Arrival"/>
  </properties>
@@ -163,8 +164,8 @@
  <objectgroup name="event" width="40" height="40">
   <object type="on_trigger" x="608" y="608" width="64" height="64">
    <properties>
-    <property name="shakycam" value="60"/>
     <property name="repeat" value="false"/>
+    <property name="shakycam" value="60"/>
    </properties>
   </object>
   <object type="on_trigger" x="1216" y="1088" width="32" height="64">
