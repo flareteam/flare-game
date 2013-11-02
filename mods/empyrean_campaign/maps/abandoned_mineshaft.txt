@@ -5,7 +5,7 @@ tilewidth=64
 tileheight=32
 music=cave_theme.ogg
 tileset=tileset_cave.txt
-title=New Cave Map
+title=Abandoned Mineshaft
 
 [tilesets]
 tileset=../../../../flare-game/tiled/cave/tiled_collision.png,64,32,0,0
@@ -168,6 +168,12 @@ type=on_load
 location=11,21,1,1
 mapmod=object,11,25,176
 requires_status=e_forgottenring
+
+[event]
+# to Exile
+type=on_trigger
+location=27,35,2,1
+intermap=exile.txt,6,4
 
 [enemygroup]
 # random antlions
