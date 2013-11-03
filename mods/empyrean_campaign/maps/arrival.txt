@@ -159,3 +159,11 @@ type=on_trigger
 location=38,34,1,2
 intermap=lost.txt,2,4
 
+[event]
+# backstory cutscene
+type=on_load
+location=17,17,1,1
+cutscene=backstory.txt
+requires_not_status=empyrean_backstory
+set_status=empyrean_backstory
+

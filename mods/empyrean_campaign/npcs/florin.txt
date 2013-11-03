@@ -42,3 +42,12 @@ requires_not_status=florin_stash
 set_status=florin_stash
 him=You can store spare equipment in the Shared Stash next to the spare tent. Take items if you will put them to good use, but try to leave something for your fellow survivors.
 
+[dialog]
+topic=Lost Man
+requires_status=florin_intro
+requires_status=lostman_intro
+requires_not_status=florin_lostman
+you=I saw an old, bearded man who appeared lost. Who is that?
+set_status=florin_lostman
+him=Doesn't sound like anyone who's been through our camp in months.
+

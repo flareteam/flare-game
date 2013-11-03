@@ -8,15 +8,15 @@ talker=true
 gfx=peasant_man1
 
 [dialog]
-requires_not_status=lostman_init
+requires_not_status=lostman_intro
 him=I am no demon, lord! Please spare me!
 you=I'm not going to harm you. Who are you? Are you lost?
-set_status=lostman_init
+set_status=lostman_intro
 him=I ... don't recall. That's the trouble here on the surface. Things just slip the mind.
 
 [dialog]
 topic=Forgetting
-requires_status=lostman_init
+requires_status=lostman_intro
 requires_not_status=lostman_forget
 you=There are things I'd rather not remember.
 set_status=lostman_forget

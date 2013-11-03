@@ -197,6 +197,10 @@
   <object x="529" y="630"/>
  </objectgroup>
  <objectgroup name="npc" width="20" height="42">
-  <object name="Lost Man" type="lostman" x="288" y="864" width="32" height="32"/>
+  <object name="Lost Man" type="lostman" x="288" y="864" width="32" height="32">
+   <properties>
+    <property name="requires_not_status" value="florin_lostman"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>

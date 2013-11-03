@@ -173,5 +173,12 @@
     <property name="intermap" value="lost.txt,2,4"/>
    </properties>
   </object>
+  <object name="backstory cutscene" type="on_load" x="544" y="544" width="32" height="32">
+   <properties>
+    <property name="cutscene" value="backstory.txt"/>
+    <property name="requires_not_status" value="empyrean_backstory"/>
+    <property name="set_status" value="empyrean_backstory"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>
