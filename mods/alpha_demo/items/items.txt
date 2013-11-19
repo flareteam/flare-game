@@ -12,7 +12,7 @@ dmg=8,16
 bonus=crit,50
 soundfx=soundfx/inventory/inventory_wood.ogg
 gfx=rod
-loot_animation=rod
+loot_animation=animations/loot/rod.txt
 price=1337
 power=115
 power_desc=Use: Shock
@@ -26,7 +26,7 @@ abs=2
 item_type=feet
 soundfx=soundfx/inventory/inventory_leather.ogg
 gfx=mage_boots
-loot_animation=boots
+loot_animation=animations/loot/boots.txt
 bonus=speed,300
 power=114
 power_desc=Use: Teleport
@@ -38,7 +38,7 @@ quality=epic
 icon=205
 item_type=ring
 soundfx=soundfx/inventory/inventory_gem.ogg
-loot_animation=ring
+loot_animation=animations/loot/ring.txt
 bonus=HP regen,1000
 
 # Quest Items
@@ -50,7 +50,7 @@ icon=225
 power_desc=This tome bears the seal of the Averguard
 item_type=quest
 soundfx=soundfx/inventory/inventory_object.ogg
-loot_animation=book
+loot_animation=animations/loot/book.txt
 pickup_status=ak_tome_found
 
 [item]
@@ -60,7 +60,7 @@ icon=226
 power_desc=Opens special doors in Averguard Keep
 item_type=quest
 soundfx=soundfx/inventory/inventory_gem.ogg
-loot_animation=gem
+loot_animation=animations/loot/gem.txt
 pickup_status=ak_key_found
 
 [item]
@@ -71,7 +71,7 @@ icon=71
 power_desc=Etched runes surround this talisman
 item_type=quest
 soundfx=soundfx/inventory/inventory_gem.ogg
-loot_animation=gem
+loot_animation=animations/loot/gem.txt
 pickup_status=ak_talisman_found
 
 # Quest Items
@@ -83,7 +83,7 @@ quality=epic
 icon=225
 item_type=artifact
 soundfx=soundfx/inventory/inventory_object.ogg
-loot_animation=book
+loot_animation=animations/loot/book.txt
 bonus=mental,1
 pickup_status=lb_spellbook_found
 
@@ -94,7 +94,7 @@ icon=226
 power_desc=Opens Scathelocke's Runed Chest
 item_type=quest
 soundfx=soundfx/inventory/inventory_gem.ogg
-loot_animation=gem
+loot_animation=animations/loot/gem.txt
 pickup_status=lb_ice_key
 
 [item]
@@ -104,7 +104,7 @@ icon=226
 power_desc=Opens Vesuvvio's Runed Chest
 item_type=quest
 soundfx=soundfx/inventory/inventory_gem.ogg
-loot_animation=gem
+loot_animation=animations/loot/gem.txt
 pickup_status=lb_fire_key
 
 [item]
@@ -114,5 +114,5 @@ icon=226
 power_desc=Opens Grisbon's Runed Chest
 item_type=quest
 soundfx=soundfx/inventory/inventory_gem.ogg
-loot_animation=gem
+loot_animation=animations/loot/gem.txt
 pickup_status=lb_wind_key
