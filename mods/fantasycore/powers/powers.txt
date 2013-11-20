@@ -57,7 +57,7 @@ requires_mp=1
 base_damage=ranged
 aim_assist=true
 allow_power_mod=true
-post_effect=201,0,90
+post_effect=immobilize,0,90
 
 [power]
 id=5
@@ -76,7 +76,7 @@ radius=1.0
 starting_pos=melee
 post_power=127
 allow_power_mod=true
-post_effect=200,5,150
+post_effect=bleeding,5,150
 
 [power]
 id=6
@@ -112,7 +112,7 @@ requires_mp=1
 soundfx=soundfx/powers/heal.ogg
 trait_elemental=light
 buff=true
-post_effect=228,0,0
+post_effect=heal,0,0
 
 [power]
 id=8
@@ -141,7 +141,7 @@ requires_mp=2
 soundfx=soundfx/powers/warcry.ogg
 trait_elemental=light
 buff=true
-post_effect=226,0,300
+post_effect=immunity,0,300
 
 [power]
 id=10
@@ -162,7 +162,7 @@ trait_elemental=earth
 starting_pos=source
 multitarget=true
 cooldown=90
-post_effect=203,0,30
+post_effect=stun,0,30
 
 [power]
 id=11
@@ -174,7 +174,7 @@ new_state=cast
 requires_mp=2
 soundfx=soundfx/powers/shield.ogg
 buff=true
-post_effect=227,0,0
+post_effect=shield,0,0
 
 [power]
 id=12
@@ -186,7 +186,7 @@ new_state=cast
 face=false
 requires_mp=1
 buff=true
-post_effect=229,200,240
+post_effect=haste,200,240
 
 [power]
 id=13
@@ -226,7 +226,7 @@ delay=3
 visual_random=3
 complete_animation=true
 count=10
-post_effect=202,50,90
+post_effect=slow,50,90
 
 [power]
 id=15
@@ -303,7 +303,7 @@ lifespan=1
 radius=8.0
 multitarget=true
 base_damage=none
-post_effect=203,0,150
+post_effect=stun,0,150
 
 [power]
 id=20
@@ -426,7 +426,7 @@ starting_pos=target
 multitarget=true
 post_power=126
 target_range=8.0
-post_effect=203,0,45
+post_effect=stun,0,45
 
 [power]
 id=30
@@ -448,7 +448,7 @@ speed=15
 trait_elemental=ice
 post_power=126
 wall_power=126
-post_effect=202,50,60
+post_effect=slow,50,60
 
 [power]
 id=31
@@ -509,7 +509,7 @@ starting_pos=source
 multitarget=true
 visual_option=1
 post_power=125
-post_effect=202,50,15
+post_effect=slow,50,15
 
 [power]
 id=34
@@ -554,7 +554,7 @@ wall_power=126
 #missile num needs to be odd, or the player can avoid just by standing there
 count=9
 missile_angle=40
-post_effect=202,50,60
+post_effect=slow,50,60
 
 [power]
 id=36
@@ -588,7 +588,7 @@ lifespan=1
 radius=1.0
 starting_pos=melee
 allow_power_mod=true
-post_effect=200,5,90
+post_effect=bleeding,5,90
 
 [power]
 id=38
@@ -605,7 +605,7 @@ lifespan=1
 radius=1.0
 starting_pos=melee
 allow_power_mod=true
-post_effect=201,0,150
+post_effect=immobilize,0,150
 
 [power]
 id=39
@@ -663,7 +663,7 @@ lifespan=8
 radius=1.0
 speed=12
 starting_pos=melee
-post_effect=203,0,30
+post_effect=stun,0,30
 
 [power]
 id=42
@@ -744,7 +744,7 @@ lifespan=300
 cooldown=300
 radius=1.0
 modifier_damage=multiply,75,0
-post_effect=202,50,90
+post_effect=slow,50,90
 
 
 [power]
@@ -765,7 +765,7 @@ lifespan=300
 cooldown=300
 radius=1.0
 modifier_damage=multiply,150,0
-post_effect=201,0,90
+post_effect=immobilize,0,90
 post_power=47
 
 [power]
@@ -789,7 +789,7 @@ new_state=instant
 requires_item=1
 cooldown=15
 buff=true
-post_effect=230,100,1
+post_effect=HP restore,100,1
 
 [power]
 id=101
@@ -801,7 +801,7 @@ soundfx=soundfx/powers/potion.ogg
 requires_item=2
 cooldown=15
 buff=true
-post_effect=231,100,1
+post_effect=MP restore,100,1
 
 [power]
 id=118
@@ -1001,7 +1001,7 @@ radius=8.0
 multitarget=true
 base_damage=none
 requires_item=13
-post_effect=203,0,300
+post_effect=stun,0,300
 
 [power]
 id=131
@@ -1013,7 +1013,7 @@ new_state=cast
 face=false
 requires_item=14
 buff=true
-post_effect=237,200,600
+post_effect=haste,200,600
 
 [power]
 id=132
@@ -1166,10 +1166,10 @@ icon=6
 type=fixed
 buff=true
 passive=true
-post_effect=216,100,0
-post_effect=236,50,0
-post_effect=233,90,0
-post_effect=235,1,300
+post_effect=crit,100,0
+post_effect=stealth,90,0
+post_effect=stealth speed,50,0
+post_effect=stealth icon,1,300
 
 [power]
 id=160
@@ -1195,248 +1195,5 @@ buff=true
 requires_equipped_item=112
 passive=true
 passive_trigger=on_death
-post_effect=234,0,1
-
-#
-# Status Effects
-#
-
-[power]
-id=200
-#name=Bleeding
-type=effect
-icon=25
-effect_type=damage
-animation=animations/powers/spark_red_loop.txt
-
-[power]
-id=201
-#name=Speed (Immobilize)
-type=effect
-icon=24
-effect_type=speed
-
-[power]
-id=202
-#name=Speed (50% slow)
-type=effect
-icon=24
-effect_type=speed
-
-[power]
-id=203
-#name=Stunned
-type=effect
-icon=26
-effect_type=stun
-
-[power]
-id=210
-#name=HP bonus
-tag=HP
-type=effect
-effect_type=hp
-effect_additive=true
-
-[power]
-id=211
-#name=HP regen bonus
-tag=HP regen
-type=effect
-effect_type=hp_regen
-effect_additive=true
-
-[power]
-id=212
-#name=MP bonus
-tag=MP
-type=effect
-effect_type=mp
-effect_additive=true
-
-[power]
-id=213
-#name=MP regen bonus
-tag=MP regen
-type=effect
-effect_type=mp_regen
-effect_additive=true
-
-[power]
-id=214
-#name=Accuracy bonus
-tag=accuracy
-type=effect
-effect_type=accuracy
-effect_additive=true
-
-[power]
-id=215
-#name=Avoidance bonus
-tag=avoidance
-type=effect
-effect_type=avoidance
-effect_additive=true
-
-[power]
-id=216
-#name=Crit bonus
-tag=crit
-type=effect
-effect_type=crit
-effect_additive=true
-
-[power]
-id=217
-#name=Speed (Boots of Speed)
-tag=speed
-type=effect
-effect_type=speed
-
-[power]
-id=218
-#name=Offense bonus
-tag=offense
-type=effect
-effect_type=offense
-effect_additive=true
-
-[power]
-id=219
-#name=Defense bonus
-tag=defense
-type=effect
-effect_type=defense
-effect_additive=true
-
-[power]
-id=220
-#name=Physical bonus
-tag=physical
-type=effect
-effect_type=physical
-effect_additive=true
-
-[power]
-id=221
-#name=Mental bonus
-tag=mental
-type=effect
-effect_type=mental
-effect_additive=true
-
-[power]
-id=222
-#name=XP bonus
-tag=XP gain
-type=effect
-effect_type=xp_gain
-effect_additive=true
-
-[power]
-id=223
-#name=Gold find bonus
-tag=gold find
-type=effect
-effect_type=currency_find
-effect_additive=true
-
-[power]
-id=224
-#name=Fire Resist bonus
-tag=fire resist
-type=effect
-effect_type=fire_resist
-effect_additive=true
-
-[power]
-id=225
-#name=Ice Resist bonus
-tag=ice resist
-type=effect
-effect_type=ice_resist
-effect_additive=true
-
-[power]
-id=226
-#name=Immunity
-type=effect
-icon=12
-effect_type=immunity
-
-[power]
-id=227
-#name=Shield
-type=effect
-icon=15
-effect_type=shield
-animation=animations/powers/shield.txt
-
-[power]
-id=228
-#name=Heal
-type=effect
-icon=11
-effect_type=heal
-animation=animations/powers/heal.txt
-
-[power]
-id=229
-#name=Speed (Haste)
-type=effect
-icon=9
-effect_type=speed
-
-[power]
-id=230
-#name=HP over time
-type=effect
-effect_type=hpot
-
-[power]
-id=231
-#name=MP over time
-type=effect
-effect_type=mpot
-
-[power]
-id=232
-#name=Item find bonus
-tag=item find
-type=effect
-effect_type=item_find
-effect_additive=true
-
-[power]
-id=233
-#name=Stealth bonus
-tag=stealth
-type=effect
-effect_type=stealth
-effect_additive=true
-
-[power]
-id=234
-#name=Revive
-type=effect
-effect_type=revive
-
-[power]
-id=235
-#name=Stealth time remaining icon
-icon=6
-
-[power]
-id=236
-#name=Speed (Stealth)
-type=effect
-effect_type=speed
-
-[power]
-id=237
-#name=Speed (Scroll of Haste)
-type=effect
-effect_type=speed
-
-
+post_effect=revive,0,1
 
