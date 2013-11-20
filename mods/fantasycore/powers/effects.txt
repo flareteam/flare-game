@@ -1,0 +1,172 @@
+## Status Effects
+
+# Primary stats
+[effect]
+name=physical
+type=physical
+additive=true
+
+[effect]
+name=mental
+type=mental
+additive=true
+
+[effect]
+name=offense
+type=offense
+additive=true
+
+[effect]
+name=defense
+type=defense
+additive=true
+
+
+
+# Base stats
+[effect]
+name=HP
+type=hp
+additive=true
+
+[effect]
+name=HP regen
+type=hp_regen
+additive=true
+
+[effect]
+name=MP
+type=mp
+additive=true
+
+[effect]
+name=MP regen
+type=mp_regen
+additive=true
+
+[effect]
+name=accuracy
+type=accuracy
+additive=true
+
+[effect]
+name=avoidance
+type=avoidance
+additive=true
+
+[effect]
+name=crit
+type=crit
+additive=true
+
+[effect]
+name=poise
+type=poise
+additive=true
+
+[effect]
+name=XP gain
+type=xp_gain
+additive=true
+
+[effect]
+name=gold find
+type=currency_find
+additive=true
+
+[effect]
+name=item find
+type=item_find
+additive=true
+
+[effect]
+name=stealth
+type=stealth
+additive=true
+
+[effect]
+name=speed
+type=speed
+
+
+
+# Elemental affinity
+[effect]
+name=fire resist
+type=fire_resist
+additive=true
+
+[effect]
+name=ice resist
+type=ice_resist
+additive=true
+
+
+
+# Special-case effects
+[effect]
+name=shield
+type=shield
+icon=15
+animation=animations/powers/shield.txt
+
+[effect]
+name=heal
+type=heal
+icon=11
+animation=animations/powers/heal.txt
+
+
+
+# Other effects
+[effect]
+name=bleeding
+type=damage
+icon=25
+animation=animations/powers/spark_red_loop.txt
+
+[effect]
+name=immobilize
+type=speed
+icon=24
+
+[effect]
+name=slow
+type=speed
+icon=24
+
+[effect]
+name=stun
+type=stun
+icon=26
+
+[effect]
+name=immunity
+type=immunity
+icon=12
+
+[effect]
+name=haste
+type=speed
+icon=9
+
+[effect]
+name=HP restore
+type=hpot
+
+[effect]
+name=MP restore
+type=mpot
+
+[effect]
+name=revive
+type=revive
+
+[effect]
+name=stealth icon
+icon=6
+
+[effect]
+name=stealth speed
+type=speed
+
