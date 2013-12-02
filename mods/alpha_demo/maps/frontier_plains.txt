@@ -1101,14 +1101,6 @@ type=on_load
 location=75.4062,94.7188,1,1
 soundfx=soundfx/environment/raven_loop.ogg
 
-[event]
-# Cutscene
-type=on_load
-location=246,182,2,2
-cutscene=frontier_plains_cutscene.txt
-requires_not_status=been_on_plains
-set_status=been_on_plains
-
 [enemygroup]
 # goblin camp
 type=goblin

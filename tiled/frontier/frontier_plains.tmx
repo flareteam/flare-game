@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="isometric" width="256" height="256" tilewidth="64" tileheight="32">
  <properties>
   <property name="music" value="music/overworld_theme.ogg"/>
@@ -1068,13 +1067,6 @@
   <object name="Raven sound effect" type="on_load" x="2413" y="3031" width="32" height="32">
    <properties>
     <property name="soundfx" value="soundfx/environment/raven_loop.ogg"/>
-   </properties>
-  </object>
-  <object name="Cutscene" type="on_load" x="7872" y="5824" width="64" height="64">
-   <properties>
-    <property name="cutscene" value="frontier_plains_cutscene.txt"/>
-    <property name="requires_not_status" value="been_on_plains"/>
-    <property name="set_status" value="been_on_plains"/>
    </properties>
   </object>
  </objectgroup>
