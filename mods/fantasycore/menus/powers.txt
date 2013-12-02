@@ -33,6 +33,13 @@ id=1
 tab=0
 position=48,80
 requires_physical=1
+upgrades=20
+
+# heroic swing
+[upgrade]
+id=20
+requires_physical=2
+requires_point=true
 
 # block
 [power]
@@ -41,13 +48,6 @@ tab=0
 position=240,80
 requires_defense=1
 
-# heroic swing
-[power]
-id=20
-tab=0
-position=48,144
-requires_physical=2
-requires_point=true
 
 # blood strike
 [power]
@@ -169,12 +169,11 @@ id=2
 tab=2
 position=48,80
 requires_mental=1
+upgrades=21
 
 # greater channel
-[power]
+[upgrade]
 id=21
-tab=2
-position=48,144
 requires_mental=2
 requires_point=true
 
