@@ -1,349 +1,345 @@
-# Copyright (C) 2011 Clint Bellanger
-# This file is distributed under the same license as the FLARE package.
-#
-# Adrian Chaves Fernandez (Gallaecio) <adriyetichaves@gmail.com>, 2011, 2012, 2013.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# GunChleoc <fios@foramnagaidhlig.net>, 2013.
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: flare-engine\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-20 16:48+0100\n"
-"PO-Revision-Date: 2013-04-08 19:50+0200\n"
-"Last-Translator: Adrián Chaves Fernández <adriyetichaves@gmail.com>\n"
-"Language-Team: Galician <proxecto@trasno.net>\n"
-"Language: gl\n"
+"PO-Revision-Date: 2013-11-29 19:38+0100\n"
+"Last-Translator: GunChleoc <fios@foramnagaidhlig.net>\n"
+"Language-Team: Fòram na Gàidhlig http://www.foramnagaidhlig.net\n"
+"Language: gd\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=4; plural=(n==1 || n==11) ? 0 : (n==2 || n==12) ? 1 : "
+"(n > 2 && n < 20) ? 2 : 3;\n"
+"X-Generator: Virtaal 0.7.1\n"
 
 #: ../../../src/Avatar.cpp:430
 #, c-format
 msgid "Congratulations, you have reached level %d!"
-msgstr "Parabéns, chegaches ao nivel %d!"
+msgstr "Meal do naidheachd, ruig thu leibheil %d!"
 
 #: ../../../src/Avatar.cpp:432
 msgid "You may increase one attribute through the Character Menu."
-msgstr "Podes aumentar un atributo desde o menú da personaxe."
+msgstr "Faodaidh tu aon bhuadh àrdachadh tro clàr-taice a' charactair."
 
 #: ../../../src/Avatar.cpp:631
 msgid "You are defeated. Game over! Press Enter to exit to Title."
-msgstr "Derrotáronte. Perdiches! Preme Intro para ir ao menú."
+msgstr ""
+"Chaidh do ruaig. Crìoch a' gheama! Brùth air Enter gus fàgail gun tiotal."
 
 #: ../../../src/Avatar.cpp:634
-#, fuzzy
 msgid "You are defeated. Press Enter to continue."
-msgstr "Derrotáronte, e perdiches a metade do %s. Preme Intro para continuar."
+msgstr "Chaidh do ruaig. Brùth air Enter gus leantainn air adhart."
 
 #: ../../../src/CampaignManager.cpp:133
 #, c-format
 msgid "%d %s removed."
-msgstr ""
+msgstr "Chaidh %d %s a thoirt air falbh."
 
 #: ../../../src/CampaignManager.cpp:139
 #, c-format
 msgid "%s removed."
-msgstr ""
+msgstr "Chaidh %s a thoirt air falbh."
 
 #: ../../../src/CampaignManager.cpp:154
 #, c-format
 msgid "You receive %s."
-msgstr "Obtiveches unha unidade de %s."
+msgstr "Fhuair thu %s."
 
 #: ../../../src/CampaignManager.cpp:156
 #, c-format
 msgid "You receive %s x%d."
-msgstr "Obtiveches %d unidades de %s."
+msgstr "Gheibh thu %s x%d."
 
 #: ../../../src/CampaignManager.cpp:168
 #, c-format
 msgid "You receive %d %s."
-msgstr "Obtiveches %d %s."
+msgstr "Gheibh thu %d %s."
 
 #: ../../../src/CampaignManager.cpp:178
 #, c-format
 msgid "You receive %d XP."
-msgstr "A túa experiencia aumentou %d puntos."
+msgstr "Gheibh thu %d PE."
 
 #: ../../../src/CampaignManager.cpp:184
 msgid "HP restored."
-msgstr "Recuperaches a vida."
+msgstr "Chaidh PB a leigheas."
 
 #: ../../../src/CampaignManager.cpp:188
 msgid "MP restored."
-msgstr "Recuperaches a enerxía."
+msgstr "Chaidh PG a leigheas."
 
 #: ../../../src/CampaignManager.cpp:193
 msgid "HP and MP restored."
-msgstr "Recuperaches a vida e a enerxía."
+msgstr "Chaidh PB is PG a leigheas."
 
 #: ../../../src/CampaignManager.cpp:197
 msgid "Negative effects removed."
-msgstr "Elimináronse os efectos negativos."
+msgstr "Chaidh èifeachdan dona a thoirt air falbh."
 
 #: ../../../src/CampaignManager.cpp:203
 msgid "HP and MP restored, negative effects removed"
-msgstr "Recuperaches a vida e a enerxía, e elimináronse os efectos negativos."
+msgstr "Chaidh PB is PG a leigheas is èifeachdan dona a thoirt air falbh."
 
 #: ../../../src/Entity.cpp:158
 msgid "miss"
-msgstr "fallo"
+msgstr "mearachdadh"
 
 #: ../../../src/Entity.cpp:278 ../../../src/PowerManager.cpp:772
 #: ../../../src/StatBlock.cpp:568
 #, c-format
 msgid "+%d HP"
-msgstr "+%d de vida"
+msgstr "+%d PB"
 
 #: ../../../src/Entity.cpp:284 ../../../src/StatBlock.cpp:573
 #, c-format
 msgid "+%d MP"
-msgstr "+%d de enerxía"
+msgstr "+%d PG"
 
 #: ../../../src/EventManager.cpp:457
 msgid "Unknown destination"
-msgstr "Destino descoñecido."
+msgstr "Ceann-uidhe neo-aithnichte"
 
 #: ../../../src/GameStateConfig.cpp:74 ../../../src/GameStateConfig.cpp:166
 msgid "OK"
-msgstr "Aceptar"
+msgstr "Ceart ma-thà"
 
 #: ../../../src/GameStateConfig.cpp:79 ../../../src/GameStateConfig.cpp:165
 msgid "Defaults"
-msgstr "Restablecer"
+msgstr "Bun-roghainnean"
 
 #: ../../../src/GameStateConfig.cpp:84 ../../../src/GameStateNew.cpp:56
 #: ../../../src/InputState.cpp:622 ../../../src/MenuNPCActions.cpp:71
 msgid "Cancel"
-msgstr "Cancelar"
+msgstr "Sguir dheth"
 
 #: ../../../src/GameStateConfig.cpp:156
 msgid "Video"
-msgstr "Vídeo"
+msgstr "Video"
 
 #: ../../../src/GameStateConfig.cpp:157
 msgid "Audio"
-msgstr "Son"
+msgstr "Fuaim"
 
 #: ../../../src/GameStateConfig.cpp:158
 msgid "Interface"
-msgstr "Interface"
+msgstr "Eadar-aghaidh"
 
 #: ../../../src/GameStateConfig.cpp:159
 msgid "Input"
-msgstr "Entrada"
+msgstr "Ion-chur"
 
 #: ../../../src/GameStateConfig.cpp:160
 msgid "Keybindings"
-msgstr "Controis"
+msgstr "Iuchraichean"
 
 #: ../../../src/GameStateConfig.cpp:161
 msgid "Mods"
-msgstr "Mods"
+msgstr "Tuilleadain"
 
 #: ../../../src/GameStateConfig.cpp:164 ../../../src/GameStateConfig.cpp:1003
 #: ../../../src/GameStateConfig.cpp:1005
 msgid "Assign: "
-msgstr "Asignar: "
+msgstr "Sònraich: "
 
 #: ../../../src/GameStateConfig.cpp:165
 msgid "Reset ALL settings?"
-msgstr "Volver á configuración inicial?"
+msgstr "A bheil thu airson GACH roghainn ath-shuidheachadh?"
 
 #: ../../../src/GameStateConfig.cpp:166
 msgid "Use this resolution?"
-msgstr "Usar esta resolución?"
+msgstr "A bheil thu airson an dùmhlachd-bhreacaidh seo a chleachdadh?"
 
 #: ../../../src/GameStateConfig.cpp:288
 msgid "Full Screen Mode"
-msgstr "Pantalla completa:"
+msgstr "Modh làn-sgrìn"
 
 #: ../../../src/GameStateConfig.cpp:291
 msgid "Move hero using mouse"
-msgstr "Mover a personaxe co cursor:"
+msgstr "Gluais an gaisgeach le luchag"
 
 #: ../../../src/GameStateConfig.cpp:294
 msgid "Show combat text"
-msgstr "Amosar texto de combate:"
+msgstr "Seall teacsa na còmhraige"
 
 #: ../../../src/GameStateConfig.cpp:297
 msgid "Hardware surfaces"
-msgstr "Superficies por hardware:"
+msgstr "Uachdaran bathair-chruaidh"
 
 #: ../../../src/GameStateConfig.cpp:300
 msgid "Double buffering"
-msgstr "Dobre búfer:"
+msgstr "Bufaireadh dùbailte"
 
 #: ../../../src/GameStateConfig.cpp:303
 msgid "Use joystick"
-msgstr "Empregar un mando:"
+msgstr "Cleachd joystick"
 
 #: ../../../src/GameStateConfig.cpp:306
 msgid "High Quality Textures"
-msgstr "Texturas de alta calidade:"
+msgstr "Innich le càileachd àrd"
 
 #: ../../../src/GameStateConfig.cpp:309
 msgid "Allow changing gamma"
-msgstr "Permitir cambiar o gamma:"
+msgstr "Faodar gamma atharrachadh"
 
 #: ../../../src/GameStateConfig.cpp:312
 msgid "Animated tiles"
-msgstr "Animacións no revestimento:"
+msgstr "Beòthachadh nan leacan"
 
 #: ../../../src/GameStateConfig.cpp:315
 msgid "Mouse aim"
-msgstr "Apuntar co rato:"
+msgstr "Amas luchaige"
 
 #: ../../../src/GameStateConfig.cpp:318
-#, fuzzy
 msgid "Do not use mouse"
-msgstr "Mover a personaxe co cursor:"
+msgstr "Na cleachd an luchag"
 
 #: ../../../src/GameStateConfig.cpp:321
 msgid "Show FPS"
-msgstr "Amosar os FPS:"
+msgstr "Seall FPS"
 
 #: ../../../src/GameStateConfig.cpp:324
 msgid "Show Hotkeys Labels"
-msgstr ""
+msgstr "Seall leubailean nan hotkeys"
 
 #: ../../../src/GameStateConfig.cpp:327
 msgid "Colorblind Mode"
-msgstr ""
+msgstr "Modh dath-dhoille"
 
 #: ../../../src/GameStateConfig.cpp:338
 msgid "Music Volume"
-msgstr "Volume da música:"
+msgstr "Àirde a' chiùil"
 
 #: ../../../src/GameStateConfig.cpp:351
 msgid "Sound Volume"
-msgstr "Volume dos sons:"
+msgstr "Àirde na fuaime"
 
 #: ../../../src/GameStateConfig.cpp:364
 msgid "Gamma"
-msgstr "Gamma:"
+msgstr "Gamma"
 
 #: ../../../src/GameStateConfig.cpp:377
-#, fuzzy
 msgid "Joystick Deadzone"
-msgstr "Mando:"
+msgstr "Marbh-sòn an joystick"
 
 #: ../../../src/GameStateConfig.cpp:391
 msgid "Resolution"
-msgstr "Resolución:"
+msgstr "Dùmhlachd-bhreacaidh"
 
 #: ../../../src/GameStateConfig.cpp:402
 msgid "Active Mods"
-msgstr "Mods activos:"
+msgstr "Tuilleadain ghnìomhach"
 
 #: ../../../src/GameStateConfig.cpp:412
 msgid "Available Mods"
-msgstr "Mods dispoñíbeis:"
+msgstr "Tuilleadain ri làimh"
 
 #: ../../../src/GameStateConfig.cpp:428
 msgid "Joystick"
-msgstr "Mando:"
+msgstr "Joystick"
 
 #: ../../../src/GameStateConfig.cpp:440
 msgid "Language"
-msgstr "Idioma:"
+msgstr "Cànan"
 
 #: ../../../src/GameStateConfig.cpp:479 ../../../src/GameStateConfig.cpp:486
 #: ../../../src/GameStateConfig.cpp:493
 msgid "Disable for performance"
-msgstr "Desactivalo mellora o rendemento."
+msgstr "Cuir à comas airson dèanadas"
 
 #: ../../../src/GameStateConfig.cpp:500
 msgid "Experimental"
-msgstr "Experimental."
+msgstr "Deuchainneil"
 
 #: ../../../src/GameStateConfig.cpp:507
 msgid "For handheld devices"
-msgstr ""
+msgstr "Airson innealan-làimhe"
 
 #: ../../../src/GameStateConfig.cpp:527
 msgid "<< Disable"
-msgstr "← Desactivar"
+msgstr "<< Cuir à comas"
 
 #: ../../../src/GameStateConfig.cpp:535
 msgid "Enable >>"
-msgstr "Activar →"
+msgstr "Cuir an comas >>"
 
 #: ../../../src/GameStateLoad.cpp:55 ../../../src/GameStateLoad.cpp:67
 msgid "Delete Save"
-msgstr "Borrar a partida"
+msgstr "Sguab às"
 
 #: ../../../src/GameStateLoad.cpp:55
 msgid "Delete this save?"
-msgstr "Estás seguro?"
+msgstr "A bheil thu airson an gheama air a shàbhaladh a sguabadh às?"
 
 #: ../../../src/GameStateLoad.cpp:57
 msgid "Exit to Title"
-msgstr "Menú principal"
+msgstr "Fàg gun tiotal"
 
 #: ../../../src/GameStateLoad.cpp:63
 msgid "Choose a Slot"
-msgstr "Escolla un espazo"
+msgstr "Tagh slot"
 
 #: ../../../src/GameStateLoad.cpp:482
 msgid "New Game"
-msgstr "Nova partida"
+msgstr "Geama ùr"
 
-# Nin idea de onde atopar esta cadea.
 #: ../../../src/GameStateLoad.cpp:486 ../../../src/GameStateLoad.cpp:501
 msgid "Enable a story mod to continue"
-msgstr "Activa unha modificación de historia para continuar."
+msgstr "Cuir tuilleadan sgeulachd an comas gus leantainn air adhart"
 
 #: ../../../src/GameStateLoad.cpp:496
 msgid "Load Game"
-msgstr "Cargar a partida"
+msgstr "Luchdaich geama"
 
 #: ../../../src/GameStateLoad.cpp:551
 msgid "Entering game world..."
-msgstr "Cargando o mundo…"
+msgstr "A' dol a-steach do shaoghal a' gheama..."
 
 #: ../../../src/GameStateLoad.cpp:554
 msgid "Loading saved game..."
-msgstr "Cargando a partida..."
+msgstr "A' luchdaidh geama air a shàbhaladh..."
 
-# Aparece no menú de escolla de partida, para dicir o tipo de personaxe protagonista da partida, así como o seu nivel.
 #: ../../../src/GameStateLoad.cpp:577
 #, c-format
 msgid "Level %d %s"
-msgstr "%s de nivel %d"
+msgstr "%s leibheil %d"
 
 #: ../../../src/GameStateLoad.cpp:579
-#, fuzzy
 msgid "Permadeath"
-msgstr "Perder a partida ao morrer."
+msgstr "Bàs maireannach"
 
 #: ../../../src/GameStateLoad.cpp:603
 msgid "Empty Slot"
-msgstr "Espazo sen usar."
+msgstr "Slot falamh"
 
 #: ../../../src/GameStateNew.cpp:62
 msgid "Create"
-msgstr "Crear"
+msgstr "Cruthaich"
 
 #: ../../../src/GameStateNew.cpp:173
 msgid "Choose a Portrait"
-msgstr "Retrato:"
+msgstr "Tagh dealbh"
 
 #: ../../../src/GameStateNew.cpp:175
 msgid "Choose a Name"
-msgstr "Nome:"
+msgstr "Tagh ainm"
 
 #: ../../../src/GameStateNew.cpp:177
 msgid "Permadeath?"
-msgstr "Perder a partida ao morrer."
+msgstr "Bàs maireannach?"
 
 #: ../../../src/GameStateNew.cpp:179
 msgid "Choose a Class"
-msgstr "Clase:"
+msgstr "Tagh clas"
 
 #: ../../../src/GameStatePlay.cpp:99
 msgid "Loading..."
-msgstr "Cargando…"
+msgstr "'Ga luchdadh..."
 
 #: ../../../src/GameStatePlay.cpp:227 ../../../src/GameStatePlay.cpp:228
 #: ../../../src/GameStatePlay.cpp:245 ../../../src/GameStatePlay.cpp:246
@@ -354,532 +350,533 @@ msgstr "Cargando…"
 #: ../../../src/MenuManager.cpp:1043 ../../../src/MenuManager.cpp:1044
 #: ../../../src/MenuManager.cpp:1084 ../../../src/MenuManager.cpp:1085
 msgid "Inventory is full."
-msgstr "O inventario está cheo."
+msgstr "Tha an tasgadh làn."
 
 #: ../../../src/GameStateTitle.cpp:41
 msgid "Play Game"
-msgstr "Xogar"
+msgstr "Cluich geama"
 
 #: ../../../src/GameStateTitle.cpp:46
 msgid "Enable a core mod to continue"
-msgstr "Activa unha modificación base para continuar."
+msgstr "Cuir bun-sgeulachd an comas gus leantainn air adhart"
 
 #: ../../../src/GameStateTitle.cpp:50
 msgid "Configuration"
-msgstr "Configuración"
+msgstr "Rèiteachadh"
 
 #: ../../../src/GameStateTitle.cpp:55
 msgid "Credits"
-msgstr ""
+msgstr "Cliù"
 
 #: ../../../src/GameStateTitle.cpp:60
 msgid "Exit Game"
-msgstr "Saír"
+msgstr "Fàg an-seo"
 
 #: ../../../src/GameStateTitle.cpp:67
-#, fuzzy
 msgid "Flare Alpha v0.19"
-msgstr "Flare 0.18 (alfa)"
+msgstr "Flare Alpha v0.19"
 
 #: ../../../src/InputState.cpp:623
 msgid "Accept"
-msgstr "Aceptar"
+msgstr "Gabh ris"
 
 #: ../../../src/InputState.cpp:624
 msgid "Up"
-msgstr "Arriba"
+msgstr "Suas"
 
 #: ../../../src/InputState.cpp:625
 msgid "Down"
-msgstr "Abaixo"
+msgstr "Sìos"
 
 #: ../../../src/InputState.cpp:626
 msgid "Left"
-msgstr "Esquerda"
+msgstr "Gu clì"
 
 #: ../../../src/InputState.cpp:627
 msgid "Right"
-msgstr "Dereita"
+msgstr "Gu deas"
 
 #: ../../../src/InputState.cpp:628
 msgid "Bar1"
-msgstr "Acción 1"
+msgstr "Bàr1"
 
 #: ../../../src/InputState.cpp:629
 msgid "Bar2"
-msgstr "Acción 2"
+msgstr "Bàr2"
 
 #: ../../../src/InputState.cpp:630
 msgid "Bar3"
-msgstr "Acción 3"
+msgstr "Bàr3"
 
 #: ../../../src/InputState.cpp:631
 msgid "Bar4"
-msgstr "Acción 4"
+msgstr "Bàr4"
 
 #: ../../../src/InputState.cpp:632
 msgid "Bar5"
-msgstr "Acción 5"
+msgstr "Bàr5"
 
 #: ../../../src/InputState.cpp:633
 msgid "Bar6"
-msgstr "Acción 6"
+msgstr "Bàr6"
 
 #: ../../../src/InputState.cpp:634
 msgid "Bar7"
-msgstr "Acción 7"
+msgstr "Bàr7"
 
 #: ../../../src/InputState.cpp:635
 msgid "Bar8"
-msgstr "Acción 8"
+msgstr "Bàr8"
 
 #: ../../../src/InputState.cpp:636
 msgid "Bar9"
-msgstr "Acción 9"
+msgstr "Bàr9"
 
 #: ../../../src/InputState.cpp:637
 msgid "Bar0"
-msgstr "Acción 0"
+msgstr "Bàr0"
 
 #: ../../../src/InputState.cpp:638 ../../../src/MenuActionBar.cpp:380
 #: ../../../src/MenuActionBar.cpp:382 ../../../src/MenuCharacter.cpp:262
 msgid "Character"
-msgstr "Personaxe"
+msgstr "Pearsa"
 
 #: ../../../src/InputState.cpp:639 ../../../src/MenuActionBar.cpp:387
 #: ../../../src/MenuActionBar.cpp:389 ../../../src/MenuInventory.cpp:224
 #: ../../../src/MenuVendor.cpp:50
 msgid "Inventory"
-msgstr "Inventario"
+msgstr "Tasgadh"
 
 #: ../../../src/InputState.cpp:640 ../../../src/MenuActionBar.cpp:394
 #: ../../../src/MenuActionBar.cpp:396 ../../../src/MenuPowers.cpp:194
 msgid "Powers"
-msgstr "Habilidades"
+msgstr "Cumhachdan"
 
 #: ../../../src/InputState.cpp:641 ../../../src/MenuActionBar.cpp:401
 #: ../../../src/MenuActionBar.cpp:403 ../../../src/MenuLog.cpp:152
 msgid "Log"
-msgstr "Rexistro"
+msgstr "Loga"
 
 #: ../../../src/InputState.cpp:642
 msgid "Main1"
-msgstr "Acción principal"
+msgstr "Prìomh1"
 
 #: ../../../src/InputState.cpp:643
 msgid "Main2"
-msgstr "Acción secundaria"
+msgstr "Prìomh2"
 
 #: ../../../src/InputState.cpp:644
 msgid "Ctrl"
-msgstr "Control"
+msgstr "Ctrl"
 
 #: ../../../src/InputState.cpp:645
 msgid "Shift"
-msgstr "Maiúsculas"
+msgstr "Shift"
 
 #: ../../../src/InputState.cpp:646
 msgid "Delete"
-msgstr "Suprimir"
+msgstr "Sguab às"
 
 #: ../../../src/InputState.cpp:647
 msgid "ActionBar Accept"
-msgstr ""
+msgstr "Bàr-ghnìomh - Gabh ris"
 
 #: ../../../src/InputState.cpp:648
 msgid "ActionBar Left"
-msgstr ""
+msgstr "Bàr-ghnìomh - Gu clì"
 
 #: ../../../src/InputState.cpp:649
 msgid "ActionBar Right"
-msgstr ""
+msgstr "Bàr-ghnìomh - Gu deas"
 
 #: ../../../src/InputState.cpp:650
 msgid "ActionBar Use"
-msgstr ""
+msgstr "Bàr-ghnìomh - Cleachd"
 
 #: ../../../src/InputState.cpp:652
 msgid "lmb"
-msgstr "B.E."
+msgstr "clì"
 
 #: ../../../src/InputState.cpp:653
 msgid "mmb"
-msgstr "B.C."
+msgstr "meadh"
 
 #: ../../../src/InputState.cpp:654
 msgid "rmb"
-msgstr "B.D."
+msgstr "deas"
 
 #: ../../../src/InputState.cpp:655
 msgid "wheel up"
-msgstr "Roda arriba"
+msgstr "cuibhle suas"
 
 #: ../../../src/InputState.cpp:656
 msgid "wheel down"
-msgstr "Roda abaixo"
+msgstr "cuibhle sìos"
 
 #: ../../../src/InputState.cpp:657
 msgid "mbx1"
-msgstr "B. 1"
+msgstr "luchx1"
 
 #: ../../../src/InputState.cpp:658
 msgid "mbx2"
-msgstr "B. 2"
+msgstr "luchx2"
 
 #: ../../../src/ItemManager.cpp:488
-#, fuzzy
 msgid "Low"
-msgstr "Rexistro"
+msgstr "Ìseal"
 
 #: ../../../src/ItemManager.cpp:492
 msgid "Normal"
-msgstr ""
+msgstr "Àbhaisteach"
 
 #: ../../../src/ItemManager.cpp:496
 msgid "High"
-msgstr ""
+msgstr "Àrd"
 
 #: ../../../src/ItemManager.cpp:500
 msgid "Epic"
-msgstr ""
+msgstr "Dàna"
 
 #: ../../../src/ItemManager.cpp:513
 #, c-format
 msgid "Level %d"
-msgstr "Nivel %d"
+msgstr "Leibheil %d"
 
 #: ../../../src/ItemManager.cpp:524
 #, c-format
 msgid "Melee damage: %d-%d"
-msgstr "Dano corpo a corpo: %d-%d"
+msgstr "Dochann dlùth: %d-%d"
 
 #: ../../../src/ItemManager.cpp:526
 #, c-format
 msgid "Melee damage: %d"
-msgstr "Dano corpo a corpo: %d"
+msgstr "Dochann dlùth: %d"
 
 #: ../../../src/ItemManager.cpp:530
 #, c-format
 msgid "Ranged damage: %d-%d"
-msgstr "Dano a distancia: %d-%d"
+msgstr "Dochann astair: %d-%d"
 
 #: ../../../src/ItemManager.cpp:532
 #, c-format
 msgid "Ranged damage: %d"
-msgstr "Dano a distancia: %d"
+msgstr "Dochann astair: %d"
 
 #: ../../../src/ItemManager.cpp:536
 #, c-format
 msgid "Mental damage: %d-%d"
-msgstr "Dano mental: %d-%d"
+msgstr "Dochann inntinneil: %d-%d"
 
 #: ../../../src/ItemManager.cpp:538
 #, c-format
 msgid "Mental damage: %d"
-msgstr "Dano mental: %d"
+msgstr "Dochann inntinneil: %d"
 
 #: ../../../src/ItemManager.cpp:544
 #, c-format
 msgid "Absorb: %d-%d"
-msgstr "Absorción: %d-%d"
+msgstr "Ceapadh: %d-%d"
 
 #: ../../../src/ItemManager.cpp:546
 #, c-format
 msgid "Absorb: %d"
-msgstr "Absorción: %d"
+msgstr "Ceapadh: %d"
 
 #: ../../../src/ItemManager.cpp:554
-#, fuzzy, c-format
+#, c-format
 msgid "%d% Speed"
-msgstr "%d%% velocidade"
+msgstr "Luaths de %d%"
 
 #: ../../../src/ItemManager.cpp:560 ../../../src/ItemManager.cpp:659
 #, c-format
 msgid "Increases %s by %d"
-msgstr "Aumenta %s en %d"
+msgstr "Meudaichidh seo %s le %d"
 
 #: ../../../src/ItemManager.cpp:567 ../../../src/ItemManager.cpp:662
 #, c-format
 msgid "Decreases %s by %d"
-msgstr "Reduce %s en %d"
+msgstr "Lùghdaichidh seo %s le %d"
 
 #: ../../../src/ItemManager.cpp:588 ../../../src/MenuPowers.cpp:566
 #: ../../../src/MenuPowers.cpp:569
 #, c-format
 msgid "Requires Physical %d"
-msgstr "Require %d de físico."
+msgstr "Feum air buadh fhiosaigeach de %d"
 
 #: ../../../src/ItemManager.cpp:593 ../../../src/MenuPowers.cpp:572
 #: ../../../src/MenuPowers.cpp:575
 #, c-format
 msgid "Requires Mental %d"
-msgstr "Require %d de mente."
+msgstr "Feum air buadh inntinneil de %d"
 
 #: ../../../src/ItemManager.cpp:598 ../../../src/MenuPowers.cpp:554
 #: ../../../src/MenuPowers.cpp:557
 #, c-format
 msgid "Requires Offense %d"
-msgstr "Require %d de ataque."
+msgstr "Feum air buadh ionnsaighe de %d"
 
 #: ../../../src/ItemManager.cpp:603 ../../../src/MenuPowers.cpp:560
 #: ../../../src/MenuPowers.cpp:563
 #, c-format
 msgid "Requires Defense %d"
-msgstr "Require %d de defensa."
+msgstr "Feum air buadh dìona de %d"
 
 #: ../../../src/ItemManager.cpp:609
 #, c-format
 msgid "Quality: %s"
-msgstr ""
+msgstr "Càileachd: %s"
 
 #: ../../../src/ItemManager.cpp:626 ../../../src/ItemManager.cpp:635
 #, c-format
 msgid "Buy Price: %d %s"
-msgstr "Prezo de compra: %d %s"
+msgstr "Prìs ceannaich: %d %s"
 
 #: ../../../src/ItemManager.cpp:628 ../../../src/ItemManager.cpp:637
 #, c-format
 msgid "Buy Price: %d %s each"
-msgstr "Prezo de compra: %d %s por unidade"
+msgstr "Prìs ceannaich: %d %s an urra"
 
 #: ../../../src/ItemManager.cpp:643
 #, c-format
 msgid "Sell Price: %d %s"
-msgstr "Prezo de venda: %d %s"
+msgstr "Prìs reic: %d %s"
 
 #: ../../../src/ItemManager.cpp:645
 #, c-format
 msgid "Sell Price: %d %s each"
-msgstr "Prezo de venda: %d %s por unidade"
+msgstr "Prìs reic: %d %s an urra"
 
 #: ../../../src/ItemManager.cpp:655
 msgid "Set: "
-msgstr "Grupo: "
+msgstr "Seata: "
 
 #: ../../../src/ItemManager.cpp:659 ../../../src/ItemManager.cpp:662
 #, c-format
 msgid "%d items: "
-msgstr "%d obxectos: "
+msgstr "%d nithean: "
 
 #: ../../../src/MenuCharacter.cpp:275
 msgid "Name"
-msgstr "Nome"
+msgstr "Ainm"
 
 #: ../../../src/MenuCharacter.cpp:276
 msgid "Level"
-msgstr "Nivel"
+msgstr "Leibheil"
 
 #: ../../../src/MenuCharacter.cpp:277
 msgid "Physical"
-msgstr "Físico"
+msgstr "Fiosaigeach"
 
 #: ../../../src/MenuCharacter.cpp:278
 msgid "Mental"
-msgstr "Mente"
+msgstr "Inntinneil"
 
 #: ../../../src/MenuCharacter.cpp:279
 msgid "Offense"
-msgstr "Ataque"
+msgstr "Ionnsaigh"
 
 #: ../../../src/MenuCharacter.cpp:280
 msgid "Defense"
-msgstr "Defensa"
+msgstr "Dìon"
 
 #: ../../../src/MenuCharacter.cpp:324
 msgid "points remaining"
-msgstr "puntos restantes"
+msgstr "puingean air fhàgail"
 
 #: ../../../src/MenuCharacter.cpp:334
 msgid "Max HP:"
-msgstr "Vida máxima:"
+msgstr "PB as motha:"
 
 #: ../../../src/MenuCharacter.cpp:340
 msgid "HP Regen:"
-msgstr "Recuperación:"
+msgstr "Ath-ghintinn nam PB:"
 
 #: ../../../src/MenuCharacter.cpp:341
-#, fuzzy
 msgid "Ticks of HP regen per minute. "
-msgstr "Recuperación por minuto"
+msgstr "Ath-ghintinn nam PB gach mionaid. "
 
 #: ../../../src/MenuCharacter.cpp:346
 msgid "Max MP:"
-msgstr "Enerxía máxima:"
+msgstr "PG as motha:"
 
 #: ../../../src/MenuCharacter.cpp:352
 msgid "MP Regen:"
-msgstr "Rexeneración:"
+msgstr "Ath-ghintinn nam PG:"
 
 #: ../../../src/MenuCharacter.cpp:353
-#, fuzzy
 msgid "Ticks of MP regen per minute. "
-msgstr "Rexeneración por minuto"
+msgstr "Ath-ghintinn nam PG gach mionaid. "
 
 #: ../../../src/MenuCharacter.cpp:358
 msgid "Accuracy:"
-msgstr "Puntería:"
+msgstr "Pongalachd:"
 
 #: ../../../src/MenuCharacter.cpp:364
 msgid "Avoidance:"
-msgstr "Esquivar:"
+msgstr "Teàrnadh:"
 
 #: ../../../src/MenuCharacter.cpp:370
 msgid "Melee Damage:"
-msgstr "Dano corpo a corpo:"
+msgstr "Dochann dlùth:"
 
 #: ../../../src/MenuCharacter.cpp:380
 msgid "Ranged Damage:"
-msgstr "Dano a distancia:"
+msgstr "Dochann astair:"
 
 #: ../../../src/MenuCharacter.cpp:390
 msgid "Mental Damage:"
-msgstr "Dano mental:"
+msgstr "Dochann inntinneil:"
 
 #: ../../../src/MenuCharacter.cpp:400
 msgid "Crit:"
-msgstr "Crítico:"
+msgstr "Èiginneach:"
 
 #: ../../../src/MenuCharacter.cpp:406
 msgid "Absorb:"
-msgstr "Absorción:"
+msgstr "Ceapadh:"
 
 #: ../../../src/MenuCharacter.cpp:416
 msgid "Poise: "
-msgstr "Equilibrio: "
+msgstr "Giùlan: "
 
 #: ../../../src/MenuCharacter.cpp:417
 msgid "Reduces your chance of stumbling when hit"
-msgstr "Reduce a probabilidade de tropezar ao recibir un golpe."
+msgstr "Cha tuit thu gu furasta nuair a thèid bualadh ort"
 
 #: ../../../src/MenuCharacter.cpp:422
 msgid "Bonus XP: "
-msgstr "Experiencia adicional: "
+msgstr "Duais PB: "
 
 #: ../../../src/MenuCharacter.cpp:423
 msgid "Increases the XP gained per kill"
-msgstr "Aumenta a experiencia conseguida ao matar."
+msgstr "Bheir seo barrachd phuingean-beatha dhut leis gach marbhadh"
 
 #: ../../../src/MenuCharacter.cpp:428
 msgid "Bonus"
-msgstr "Bonificación"
+msgstr "Duais"
 
 #: ../../../src/MenuCharacter.cpp:429
 #, c-format
 msgid "Increases the %s found per drop"
-msgstr "Aumenta o %s que se atopa en cada botín."
+msgstr "Lorgaidh tu %s a bharrachd leis gach tuiteam"
 
 #: ../../../src/MenuCharacter.cpp:434
 msgid "Bonus Item Find: "
-msgstr "Atopar obxectos adicionais:"
+msgstr "Duais lorg nan nithean: "
 
 #: ../../../src/MenuCharacter.cpp:435
 msgid "Increases the chance that an enemy will drop an item when killed"
-msgstr "Aumenta a probabilidade de que o botín ao matar inimigos conteña obxectos."
+msgstr ""
+"Bidh barrachd teans gun leig nàmhaid nì a thuiteam nuair a mharbhas tu e"
 
 #: ../../../src/MenuCharacter.cpp:440
 msgid "Stealth: "
-msgstr "Sixilo: "
+msgstr "Tàisleachadh: "
 
 #: ../../../src/MenuCharacter.cpp:441
 msgid "Increases your ability to move undetected"
-msgstr "Aumenta a capacidade de pasar inadvertido ao moverse."
+msgstr "Cuiridh seo ri do chomas nach tèid do mhothachadh"
 
 #: ../../../src/MenuCharacter.cpp:459
 #, c-format
 msgid "XP: %d"
-msgstr "Experiencia: %d"
+msgstr "PE: %d"
 
 #: ../../../src/MenuCharacter.cpp:461
 #, c-format
 msgid "Next: %d"
-msgstr "Seguinte nivel: %d"
+msgstr "An ath-fhear: %d"
 
 #: ../../../src/MenuCharacter.cpp:465
 msgid "Physical (P) increases melee weapon proficiency and total HP."
-msgstr "O físico (F) aumenta a habilidade coas armas corpo a corpo e a vida."
+msgstr ""
+"Cuiridh a' bhuadh fhiosaigeach (F) ri do chomas air airm dlùtha agus ris na "
+"puingean-beatha iomlan agad."
 
 #: ../../../src/MenuCharacter.cpp:466 ../../../src/MenuCharacter.cpp:470
 #: ../../../src/MenuCharacter.cpp:474 ../../../src/MenuCharacter.cpp:478
 #, c-format
 msgid "base (%d), bonus (%d)"
-msgstr "Base: %d. Bonificación: %d."
+msgstr "bunait (%d), duais (%d)"
 
 #: ../../../src/MenuCharacter.cpp:469
 msgid "Mental (M) increases mental weapon proficiency and total MP."
-msgstr "A mente (M) aumenta a habilidade coas armas mentais e a enerxía."
+msgstr ""
+"Cuiridh a' bhuadh inntinneil (N) ri do chomas air airm inntinneil agus ris "
+"na puingean-gluasaid iomlan agad."
 
 #: ../../../src/MenuCharacter.cpp:473
 msgid "Offense (O) increases ranged weapon proficiency and accuracy."
-msgstr "O ataque (A) aumenta a habilidade coas armas a distancia e a puntería."
+msgstr ""
+"Cuiridh a' bhuadh ionnsaighe (I) ri do chomas air airm astair agus do "
+"phongalachd."
 
 #: ../../../src/MenuCharacter.cpp:477
 msgid "Defense (D) increases armor proficiency and avoidance."
-msgstr "A defensa (D) aumenta a habilidade coa armadura e esquivando."
+msgstr "Cuiridh a' bhuadh dìona (D) ri do chomas armachd agus do theàrnadh."
 
 #: ../../../src/MenuCharacter.cpp:498
-#, fuzzy, c-format
+#, c-format
 msgid "Each level grants %d. "
-msgstr "Cada nivel aumenta en 2 a vida."
+msgstr "Bheir gabh leibheil %d dhut. "
 
 #: ../../../src/MenuCharacter.cpp:500
-#, fuzzy, c-format
+#, c-format
 msgid "Each point of Physical grants %d. "
-msgstr "Cada punto de físico aumenta en 8 a vida."
+msgstr "Bheir gach puing dhen bhuadh fhiosaigeach %d dhut. "
 
 #: ../../../src/MenuCharacter.cpp:502
-#, fuzzy, c-format
+#, c-format
 msgid "Each point of Mental grants %d. "
-msgstr "Cada punto de mente aumenta en 8 a enerxía."
+msgstr "Bheir gach puing dhen bhuadh inntinneil %d dhut. "
 
 #: ../../../src/MenuCharacter.cpp:504
-#, fuzzy, c-format
+#, c-format
 msgid "Each point of Offense grants %d. "
-msgstr "Cada punto de mente aumenta en 8 a enerxía."
+msgstr "Bheir gach puing dhen bhuadh ionnsaighe %d dhut. "
 
 #: ../../../src/MenuCharacter.cpp:506
-#, fuzzy, c-format
+#, c-format
 msgid "Each point of Defense grants %d. "
-msgstr "Cada punto de mente aumenta en 8 a enerxía."
+msgstr "Bheir gach puing dhen bhuadh dìona %d dhut. "
 
 #: ../../../src/MenuEnemy.cpp:117
 msgid "Dead"
-msgstr "Morto"
+msgstr "Marbh"
 
-# Indicación do inimigo ao que se está a apuntar.
 #: ../../../src/MenuEnemy.cpp:123 ../../../src/MenuEnemy.cpp:126
 #, c-format
 msgid "%s level %d"
-msgstr "%s (nivel %d)"
+msgstr "%s leibheil %d"
 
 #: ../../../src/MenuExit.cpp:31
 msgid "Exit"
-msgstr "Volver ao menú"
+msgstr "Fàg an geama"
 
 #: ../../../src/MenuExit.cpp:48
 msgid "Save and exit to title?"
-msgstr "Gardar e saír ao menú?"
+msgstr "Sàbhaladh is fàgail gun tiotal?"
 
 #: ../../../src/MenuInventory.cpp:146
 #, c-format
 msgid "Lost %d%% of %s. "
-msgstr ""
+msgstr "Chaill thu %d%% de %s. "
 
 #: ../../../src/MenuInventory.cpp:153
 #, c-format
 msgid "Lost %d%% of total XP. "
-msgstr ""
+msgstr "Chaill thu %d%% dhe na puingean-eòlais iomlan. "
 
 #: ../../../src/MenuInventory.cpp:158
 #, c-format
 msgid "Lost %d%% of current level XP. "
-msgstr ""
+msgstr "Chaill thu %d%% dhe na puingean-eòlais airson an leibheil seo. "
 
 #: ../../../src/MenuInventory.cpp:184
 #, c-format
 msgid "Lost %s."
-msgstr ""
+msgstr "Chaill thu %s."
 
-# Aparece no menú de escolla de partida, para dicir o tipo de personaxe protagonista da partida, así como o seu nivel.
 #: ../../../src/MenuInventory.cpp:228
 #, c-format
 msgid "%d %s"
@@ -887,369 +884,138 @@ msgstr "%d %s"
 
 #: ../../../src/MenuInventory.cpp:263
 msgid "Use SHIFT to move only one item."
-msgstr "Prema Maiús para mover só un obxecto."
+msgstr "Cleachd SHIFT gus nì a-mhàin a ghluasad."
 
 #: ../../../src/MenuInventory.cpp:264
 msgid "CTRL-click a carried item to sell it."
-msgstr "Prema Ctrl e un obxecto para vendelo."
+msgstr "Dèan CTRL-briogadh air nì a ghiùlaineas tu gus a reic."
 
 #: ../../../src/MenuInventory.cpp:472
 msgid "This item can only be used from the action bar."
-msgstr "Este obxecto só pode empregarse desde a barra de acción."
+msgstr "Cha ghabh an nì seo cleachdadh ach on bhàr-ghnìomhan."
 
 #: ../../../src/MenuLog.cpp:76
 msgid "Notes"
-msgstr "Notas"
+msgstr "Nòtaichean"
 
 #: ../../../src/MenuLog.cpp:77
 msgid "Quests"
-msgstr "Misións"
+msgstr "Sireadh"
 
 #: ../../../src/MenuManager.cpp:452
 #, c-format
 msgid "XP: %d/%d"
-msgstr "Experiencia: %d/%d"
+msgstr "PE: %d/%d"
 
 #: ../../../src/MenuManager.cpp:652 ../../../src/MenuManager.cpp:653
 #: ../../../src/MenuManager.cpp:859 ../../../src/MenuManager.cpp:860
 #: ../../../src/MenuManager.cpp:1037 ../../../src/MenuManager.cpp:1038
-#, fuzzy, c-format
+#, c-format
 msgid "Not enough %s."
-msgstr "Non tes dabondo."
+msgstr "Chan eil %s gu leòr agad."
 
 #: ../../../src/MenuNPCActions.cpp:70
 msgid "Trade"
-msgstr "Comercio"
+msgstr "Malart"
 
 #: ../../../src/MenuPowers.cpp:463
 msgid "Unspent skill points:"
-msgstr "Puntos de atributos sen usar:"
+msgstr "Puingean-sgil nach deach a chleachdadh:"
 
 #: ../../../src/MenuPowers.cpp:505
 msgid ""
 "\n"
 "Next Level:"
 msgstr ""
+"\n"
+"An t-ath-leibheil:"
 
 #: ../../../src/MenuPowers.cpp:525
-#, fuzzy, c-format
+#, c-format
 msgid "Requires a %s"
-msgstr "Require %d de mente."
+msgstr "Feum air %s"
 
 #: ../../../src/MenuPowers.cpp:530 ../../../src/MenuPowers.cpp:533
 #, c-format
 msgid "Requires Physical Offense %d"
-msgstr "Require %s de ataque físico."
+msgstr "Feum air ionnsaigh fiosaigeach de %d"
 
 #: ../../../src/MenuPowers.cpp:536 ../../../src/MenuPowers.cpp:539
 #, c-format
 msgid "Requires Physical Defense %d"
-msgstr "Require %d de defensa física."
+msgstr "Feum air dìon fiosaigeach de %d"
 
 #: ../../../src/MenuPowers.cpp:542 ../../../src/MenuPowers.cpp:545
 #, c-format
 msgid "Requires Mental Offense %d"
-msgstr "Require %d de ataque mental."
+msgstr "Feum air ionnsaigh inntinneil de %d"
 
 #: ../../../src/MenuPowers.cpp:548 ../../../src/MenuPowers.cpp:551
 #, c-format
 msgid "Requires Mental Defense %d"
-msgstr "Require %d de defensa mental."
+msgstr "Feum air dìon inntinneil de %d"
 
 #: ../../../src/MenuPowers.cpp:580 ../../../src/MenuPowers.cpp:583
 #, c-format
 msgid "Requires Level %d"
-msgstr "Require o nivel %d."
+msgstr "Feum air leibheil %d"
 
 #: ../../../src/MenuPowers.cpp:590 ../../../src/MenuPowers.cpp:595
 #, c-format
 msgid "Requires %d Skill Point"
-msgstr "Require %d puntos de habilidade."
+msgstr "Feum air %d puingean-sgil"
 
 #: ../../../src/MenuPowers.cpp:603
 msgid "Click to Unlock"
-msgstr "Preme para desbloquear."
+msgstr "Briog air gus a neo-ghlasadh"
 
 #: ../../../src/MenuPowers.cpp:611 ../../../src/MenuPowers.cpp:614
 #, c-format
 msgid "Requires Power: %s"
-msgstr "Require a habilidade «%s»."
+msgstr "Feum air cumhachd: %s"
 
 #: ../../../src/MenuPowers.cpp:621
 #, c-format
 msgid "Costs %d MP"
-msgstr "Consume %d de enerxía"
+msgstr "Cosgaidh e %d PG"
 
 #: ../../../src/MenuPowers.cpp:625
 #, c-format
 msgid "Costs %d HP"
-msgstr "Consume %d de vida"
+msgstr "Cosgaidh e %d PB"
 
 #: ../../../src/MenuPowers.cpp:629
 #, c-format
 msgid "Cooldown: %d seconds"
-msgstr "Recarga: %d segundos"
+msgstr "Fuarachadh: %d diog"
 
 #: ../../../src/MenuStash.cpp:124
 msgid "Shared Stash"
-msgstr "Reserva compartida"
+msgstr "Stòr co-roinnte"
 
 #: ../../../src/MenuVendor.cpp:51
 msgid "Buyback"
-msgstr "Recuperar"
+msgstr "Ceannach air ais"
 
 #: ../../../src/MenuVendor.cpp:171
 msgid "Vendor"
-msgstr "Vendedor"
+msgstr "Reiceadair"
 
 #: ../../../src/PowerManager.cpp:759
 #, c-format
 msgid "+%d Shield"
-msgstr "+%d de escudo"
+msgstr "Sgiath +%d"
 
 #: ../../../src/PowerManager.cpp:1006
 msgid "You are already transformed, untransform first."
-msgstr "Xa estás transformado, primeiro recupera a forma orixinal."
+msgstr ""
+"Tha thu air cruth-atharrachadh mar-thà, feumaidh tu an cruth tùsail agad a "
+"ghabhail an toiseach."
 
 #: ../../../src/Settings.cpp:594
 msgid "Adventurer"
-msgstr "Aventureiro"
+msgstr "Baoghlair"
 
 #: ../../../src/Utils.cpp:519
-#, fuzzy
 msgid "k"
-msgstr "Aceptar"
-
-#~ msgid "Character Menu (C)"
-#~ msgstr "Personaxe (C)"
-
-#~ msgid "Inventory Menu (I)"
-#~ msgstr "Inventario (I)"
-
-#~ msgid "Power Menu (P)"
-#~ msgstr "Habilidades (P)"
-
-#~ msgid "Log Menu (L)"
-#~ msgstr "Rexistro (L)"
-
-#~ msgid "Each point of Physical grants +%d HP. Each level grants +%d HP"
-#~ msgstr "Cada punto de físico aumenta en %d a vida. Cada nivel auméntaa en %d."
-
-#~ msgid "Ticks of HP regen per minute. Each point of Physical grants +%d HP regen. Each level grants +%d HP regen"
-#~ msgstr "Cantidade de vida recuperada por minuto. Cada punto de físico aumenta en %d a recuperación. Cada nivel auméntaa en %d."
-
-#~ msgid "Each point of Mental grants +%d MP. Each level grants +%d MP"
-#~ msgstr "Cada punto de mente aumenta en %d a rexeneración. Cada nivel auméntaa en %d."
-
-#~ msgid "Ticks of MP regen per minute. Each point of Mental grants +%d MP regen. Each level grants +%d MP regen"
-#~ msgstr "Cantidade de enerxía recuperada por minuto. Cada punto de mente aumenta en %d a rexeneración. Cada nivel auméntaa en %d."
-
-#~ msgid "Each point of Offense grants +%d accuracy. Each level grants +%d accuracy"
-#~ msgstr "Cada punto de ataque aumenta en %d a puntería. Cada nivel auméntaa en %d."
-
-#~ msgid "Each point of Defense grants +%d avoidance. Each level grants +%d avoidance"
-#~ msgstr "Cada punto de defensa aumenta en %d a capacidade para esquivar. Cada nivel auméntaa en %d."
-
-#~ msgid "Requires a physical weapon"
-#~ msgstr "Require unha arma física."
-
-#~ msgid "Requires a mental weapon"
-#~ msgstr "Require unha arma mental."
-
-#~ msgid "Requires an offense weapon"
-#~ msgstr "Require unha arma ofensiva."
-
-#~ msgid "Flare"
-#~ msgstr "Flare"
-
-#~ msgid "Accuracy (vs lvl 5):"
-#~ msgstr "Puntería (vs n5):"
-
-#~ msgid "Avoidance (vs lvl 5):"
-#~ msgstr "Esquivar (vs n5):"
-
-#~ msgid "Unspent attribute points"
-#~ msgstr "Puntos de atributos sen usar"
-
-#~ msgid "Stats"
-#~ msgstr "Estatísticas"
-
-#~ msgid "Grand Master"
-#~ msgstr "Gran mestre"
-
-#~ msgid "Master"
-#~ msgstr "Mestre"
-
-#~ msgid "Warrior"
-#~ msgstr "Guerreiro"
-
-#~ msgid "Wizard"
-#~ msgstr "Mago"
-
-#~ msgid "Ranger"
-#~ msgstr "Silvano"
-
-#~ msgid "Paladin"
-#~ msgstr "Paladín"
-
-#~ msgid "Rogue"
-#~ msgstr "Pillabán"
-
-#~ msgid "Knight"
-#~ msgstr "Cabaleiro"
-
-#~ msgid "Shaman"
-#~ msgstr "Xamán"
-
-#~ msgid "Cleric"
-#~ msgstr "Clérigo"
-
-#~ msgid "Battle Mage"
-#~ msgstr "Mago guerreiro"
-
-#~ msgid "Heavy Archer"
-#~ msgstr "Arqueiro pesado"
-
-#~ msgid "You receive %d gold."
-#~ msgstr "Obtiveches %d moedas."
-
-#~ msgid "Press a key to assign: "
-#~ msgstr "Prema unha tecla para asignala: "
-
-#~ msgid "Activate >>"
-#~ msgstr "Activar →"
-
-#~ msgid "Create Character"
-#~ msgstr "Crear"
-
-#~ msgid "Main Hand"
-#~ msgstr "Man der."
-
-#~ msgid "Body"
-#~ msgstr "Corpo"
-
-#~ msgid "Off Hand"
-#~ msgstr "Man esq."
-
-#~ msgid "Artifact"
-#~ msgstr "Artefacto"
-
-#~ msgid "Consumable"
-#~ msgstr "Consumíbel"
-
-#~ msgid "Gem"
-#~ msgstr "Xema"
-
-#~ msgid "Quest Item"
-#~ msgstr "Obxecto dunha misión"
-
-#~ msgid "%d Gold"
-#~ msgstr "%d moedas"
-
-#~ msgid "Total HP"
-#~ msgstr "Vida"
-
-#~ msgid "Total MP"
-#~ msgstr "Enerxía"
-
-#~ msgid "vs. Def 5"
-#~ msgstr "vs 5 Def."
-
-#~ msgid "vs. Off 5"
-#~ msgstr "vs 5 Ata."
-
-#~ msgid "Main Weapon"
-#~ msgstr "Arma principal"
-
-#~ msgid "Ranged Weapon"
-#~ msgstr "Arma a distancia"
-
-#~ msgid "Crit Chance"
-#~ msgstr "Probabilidade de crítico"
-
-#~ msgid "Fire Resist"
-#~ msgstr "Res. ao lume"
-
-#~ msgid "Ice Resist"
-#~ msgstr "Res. ao xeo"
-
-#~ msgid "Each level grants +1 HP regen"
-#~ msgstr "Cada nivel aumenta en 1 a recuperación."
-
-#~ msgid "Each level grants +2 MP"
-#~ msgstr "Cada nivel aumenta en 2 a enerxía."
-
-#~ msgid "Each level grants +1 MP regen"
-#~ msgstr "Cada nivel aumenta en 1 a rexeneración."
-
-#~ msgid "Each level grants +1 accuracy"
-#~ msgstr "Cada nivel aumenta en 1 a puntería."
-
-#~ msgid "Each level grants +1 avoidance"
-#~ msgstr "Cada nivel aumenta en 1 a capacidade para esquivar."
-
-#~ msgid "Dagger Proficiency"
-#~ msgstr "Habilidade coa daga"
-
-#~ msgid "Shortsword Proficiency"
-#~ msgstr "Habilidade coa espada curta"
-
-#~ msgid "Longsword Proficiency"
-#~ msgstr "Habilidade coa espada longa"
-
-#~ msgid "Greatsword Proficiency"
-#~ msgstr "Habilidade coa gran espada"
-
-#~ msgid "Wand Proficiency"
-#~ msgstr "Habilidade co pau"
-
-#~ msgid "Rod Proficiency"
-#~ msgstr "Habilidade coa vara"
-
-#~ msgid "Staff Proficiency"
-#~ msgstr "Habilidade co bastón"
-
-#~ msgid "Greatstaff Proficiency"
-#~ msgstr "Habilidade co gran bastón"
-
-#~ msgid "Slingshot Proficiency"
-#~ msgstr "Habilidade co tiracroios"
-
-#~ msgid "Shortbow Proficiency"
-#~ msgstr "Habilidade co arco curto"
-
-#~ msgid "Longbow Proficiency"
-#~ msgstr "Habilidade co arco longo"
-
-#~ msgid "Greatbow Proficiency"
-#~ msgstr "Habilidade co gran arco"
-
-#~ msgid "Light Armor Proficiency"
-#~ msgstr "Habilidade coa armadura lixeira"
-
-#~ msgid "Light Shield Proficiency"
-#~ msgstr "Habilidade co escudo lixeiro"
-
-#~ msgid "Heavy Armor Proficiency"
-#~ msgstr "Habilidade coa armadura pesada"
-
-#~ msgid "Heavy Shield Proficiency"
-#~ msgstr "Habilidade co escudo pesado"
-
-#~ msgid "Messages"
-#~ msgstr "Mensaxes"
-
-#~ msgid "Physical + Offense grants melee and ranged attacks"
-#~ msgstr "A combinación de físico e ataque permite os ataques corpo a corpo e a distancia"
-
-#~ msgid "Physical + Defense grants melee protection"
-#~ msgstr "A combinación de físico e defensa permite a protección corpo a corpo"
-
-#~ msgid "Mental + Offense grants elemental spell attacks"
-#~ msgstr "A combinación de mente e ataque permite encantamentos de ataque elementais"
-
-#~ msgid "Mental + Defense grants healing and magical protection"
-#~ msgstr "A combinación de mente e defensa permite sandar e a protección máxica"
-
-#~ msgid "Achievements"
-#~ msgstr "Logros"
+msgstr "k"
