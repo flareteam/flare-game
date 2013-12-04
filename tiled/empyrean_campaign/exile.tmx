@@ -169,7 +169,11 @@
   </object>
   <object x="32" y="160" width="32" height="128"/>
   <object x="896" y="128" width="128" height="32"/>
-  <object x="1152" y="1024" width="32" height="128"/>
+  <object type="on_trigger" x="1152" y="1024" width="32" height="128">
+   <properties>
+    <property name="intermap" value="salted_field.txt,3,38"/>
+   </properties>
+  </object>
   <object name="Shared Stash" type="on_trigger" x="736" y="800" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
