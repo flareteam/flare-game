@@ -196,33 +196,33 @@
   <object name="to Ice Hall" type="on_trigger" x="64" y="416" width="32" height="64">
    <properties>
     <property name="hotspot" value="2,13,1,2"/>
-    <property name="intermap" value="brothers_lair_ice_hall.txt,47,71"/>
+    <property name="intermap" value="maps/brothers_lair_ice_hall.txt,47,71"/>
     <property name="soundfx" value="soundfx/door_open.ogg,0,0"/>
    </properties>
   </object>
   <object name="to Sacrifice Room" type="on_trigger" x="448" y="480" width="64" height="32">
    <properties>
-    <property name="intermap" value="brothers_lair_sacrifice_room.txt,9,41"/>
+    <property name="intermap" value="maps/brothers_lair_sacrifice_room.txt,9,41"/>
    </properties>
   </object>
   <object name="to Cave 2" type="on_trigger" x="448" y="1504" width="64" height="32">
    <properties>
     <property name="hotspot" value="14,48,2,1"/>
-    <property name="intermap" value="cave_of_living_bones2.txt,32,4"/>
+    <property name="intermap" value="maps/cave_of_living_bones2.txt,32,4"/>
     <property name="soundfx" value="soundfx/door_open.ogg,0,0"/>
    </properties>
   </object>
   <object name="to Fire Hall" type="on_trigger" x="416" y="32" width="64" height="32">
    <properties>
     <property name="hotspot" value="13,1,2,1"/>
-    <property name="intermap" value="brothers_lair_fire_hall.txt,25,77"/>
+    <property name="intermap" value="maps/brothers_lair_fire_hall.txt,25,77"/>
     <property name="soundfx" value="soundfx/door_open.ogg,0,0"/>
    </properties>
   </object>
   <object name="to Wind Hall" type="on_trigger" x="864" y="416" width="32" height="64">
    <properties>
     <property name="hotspot" value="28,13,1,2"/>
-    <property name="intermap" value="brothers_lair_wind_hall.txt,3,19"/>
+    <property name="intermap" value="maps/brothers_lair_wind_hall.txt,3,19"/>
     <property name="soundfx" value="soundfx/door_open.ogg,0,0"/>
    </properties>
   </object>
@@ -245,7 +245,7 @@
   <object type="on_trigger" x="448" y="608" width="64" height="64">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="intermap" value="warp_zone.txt,36,38"/>
+    <property name="intermap" value="maps/warp_zone.txt,36,38"/>
     <property name="tooltip" value="Warp Zone"/>
    </properties>
   </object>
