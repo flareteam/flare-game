@@ -4,8 +4,8 @@ height=48
 tilewidth=64
 tileheight=32
 location=28,76,3
-music=magical_theme.ogg
-tileset=tileset_dungeon.txt
+music=music/magical_theme.ogg
+tileset=tilesetdefs/tileset_dungeon.txt
 title=Brothers' Sacrifice Room
 
 [tilesets]
@@ -176,7 +176,7 @@ data=
 [event]
 type=on_trigger
 location=9,43,2,2
-intermap=brothers_lair_atrium.txt,15,16
+intermap=maps/brothers_lair_atrium.txt,15,16
 
 [event]
 type=on_trigger

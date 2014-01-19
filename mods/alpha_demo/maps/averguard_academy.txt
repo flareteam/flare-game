@@ -4,8 +4,8 @@ height=100
 tilewidth=64
 tileheight=32
 location=62,3,7
-music=dungeon_theme.ogg
-tileset=tileset_dungeon.txt
+music=music/dungeon_theme.ogg
+tileset=tilesetdefs/tileset_dungeon.txt
 title=Averguard Academy
 
 [tilesets]
@@ -333,7 +333,7 @@ data=
 type=on_trigger
 location=62,2,2,1
 hotspot=62,2,2,1
-intermap=averguard_atrium.txt,9,57
+intermap=maps/averguard_atrium.txt,9,57
 soundfx=soundfx/door_open.ogg,0,0
 
 [event]
@@ -389,7 +389,7 @@ loot=2,21,75,fixed,1
 mapmod=object,20,75,164
 msg=This false book has a secret compartment.
 repeat=false
-requires_not=av_academy_bookstand1
+requires_not_status=av_academy_bookstand1
 set_status=av_academy_bookstand1
 soundfx=soundfx/inventory/inventory_page.ogg
 tooltip=Book Stand

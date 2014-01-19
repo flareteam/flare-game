@@ -12,7 +12,7 @@ use_hazard=true
 aim_assist=true
 base_damage=melee
 lifespan=1
-radius=64
+radius=1.0
 starting_pos=melee
 allow_power_mod=true
 
@@ -23,16 +23,16 @@ type=missile
 icon=2
 description=Basic magic attack
 new_state=swing
-requires_mental_weapon=true
+requires_flags=mental
 face=true
 directional=true
-animation=channel.txt
+animation=animations/powers/channel.txt
 use_hazard=true
 aim_assist=true
 base_damage=ment
 lifespan=8
-radius=64
-speed=24
+radius=1.0
+speed=12
 starting_pos=melee
 
 [power]
@@ -42,6 +42,7 @@ icon=4
 description=Raise your shield to double your avoidance and absorb
 new_state=block
 face=true
+requires_flags=shield
 
 [power]
 id=4
@@ -51,12 +52,12 @@ icon=3
 description=Pin an enemy down for 3 seconds
 new_state=shoot
 face=true
-requires_offense_weapon=true
+requires_flags=ranged
 requires_mp=1
 base_damage=ranged
 aim_assist=true
 allow_power_mod=true
-post_effect=201,0,90
+post_effect=immobilize,0,90
 
 [power]
 id=5
@@ -71,32 +72,32 @@ aim_assist=true
 requires_mp=1
 base_damage=melee
 lifespan=1
-radius=64
+radius=1.0
 starting_pos=melee
 post_power=127
 allow_power_mod=true
-post_effect=200,5,150
+post_effect=bleeding,5,150
 
 [power]
 id=6
 name=Shock
 type=missile
 icon=7
-description=Electrocute an enemy from a distance; +25% crit chance against movement-impaired enemies.
+description=Electrocute an enemy from a distance; +50% crit chance against movement-impaired enemies.
 new_state=cast
 requires_mp=1
 face=true
 directional=true
-animation=lightning.txt
-soundfx=shock.ogg
+animation=animations/powers/lightning.txt
+soundfx=soundfx/powers/shock.ogg
 use_hazard=true
 aim_assist=true
 base_damage=ment
 lifespan=24
-radius=64
-speed=32
+radius=1.0
+speed=16
 trait_elemental=wind
-trait_crits_impaired=25
+trait_crits_impaired=50
 post_power=126
 wall_power=126
 
@@ -108,10 +109,10 @@ icon=11
 description=Restore HP
 new_state=cast
 requires_mp=1
-soundfx=heal.ogg
+soundfx=soundfx/powers/heal.ogg
 trait_elemental=light
 buff=true
-post_effect=228,0,0
+post_effect=heal,0,0
 
 [power]
 id=8
@@ -121,7 +122,7 @@ icon=16
 description=Fire a shot that ignores armor and goes through multiple enemies
 new_state=shoot
 face=true
-requires_offense_weapon=true
+requires_flags=ranged
 requires_mp=3
 multitarget=true
 base_damage=ranged
@@ -137,10 +138,10 @@ icon=12
 description=Remove debuffs and become immune to debuffs for 10 seconds
 new_state=cast
 requires_mp=2
-soundfx=warcry.ogg
+soundfx=soundfx/powers/warcry.ogg
 trait_elemental=light
 buff=true
-post_effect=226,0,300
+post_effect=immunity,0,300
 
 [power]
 id=10
@@ -150,18 +151,18 @@ icon=10
 description=Stun nearby enemies
 new_state=cast
 requires_mp=2
-animation=quake.txt
-soundfx=quake.ogg
+animation=animations/powers/quake.txt
+soundfx=soundfx/powers/quake.ogg
 use_hazard=true
 base_damage=ment
 lifespan=12
-radius=128
+radius=2.0
 floor=true
 trait_elemental=earth
 starting_pos=source
 multitarget=true
 cooldown=90
-post_effect=203,0,30
+post_effect=stun,0,30
 
 [power]
 id=11
@@ -171,9 +172,9 @@ icon=15
 description=Create a force field that absorbs damage
 new_state=cast
 requires_mp=2
-soundfx=shield.ogg
+soundfx=soundfx/powers/shield.ogg
 buff=true
-post_effect=227,0,0
+post_effect=shield,0,0
 
 [power]
 id=12
@@ -185,7 +186,7 @@ new_state=cast
 face=false
 requires_mp=1
 buff=true
-post_effect=229,200,240
+post_effect=haste,200,240
 
 [power]
 id=13
@@ -201,7 +202,7 @@ multitarget=true
 aim_assist=true
 base_damage=melee
 lifespan=1
-radius=128
+radius=2.0
 starting_pos=melee
 allow_power_mod=true
 
@@ -214,18 +215,18 @@ description=Create a ray of piercing cold that slows enemies
 new_state=cast
 face=true
 requires_mp=2
-animation=freeze.txt
-soundfx=freeze.ogg
-speed=32
+animation=animations/powers/freeze.txt
+soundfx=soundfx/powers/freeze.ogg
+speed=16
 trait_elemental=ice
-radius=64
+radius=1.0
 lifespan=12
 base_damage=ment
 delay=3
 visual_random=3
 complete_animation=true
 count=10
-post_effect=202,50,90
+post_effect=slow,50,90
 
 [power]
 id=15
@@ -237,15 +238,15 @@ new_state=cast
 requires_mp=3
 requires_empty_target=true
 requires_targeting=true
-animation=runes.txt
-soundfx=teleport.ogg
+animation=animations/powers/runes.txt
+soundfx=soundfx/powers/teleport.ogg
 use_hazard=true
 no_attack=true
 lifespan=16
 floor=true
 starting_pos=source
 buff_teleport=true
-range=512
+target_range=8.0
 target_neighbor=1
 
 [power]
@@ -258,7 +259,7 @@ new_state=shoot
 face=true
 count=3
 missile_angle=15
-requires_offense_weapon=true
+requires_flags=ranged
 requires_mp=2
 base_damage=ranged
 aim_assist=true
@@ -275,18 +276,18 @@ face=true
 requires_mp=3
 requires_los=true
 requires_targeting=true
-animation=blast.txt
-soundfx=burn.ogg
+animation=animations/powers/blast.txt
+soundfx=soundfx/powers/burn.ogg
 use_hazard=true
 base_damage=ment
 lifespan=18
-radius=128
+radius=2.0
 floor=true
 trait_elemental=fire
 starting_pos=target
 multitarget=true
 post_power=125
-range=512
+target_range=8.0
 
 [power]
 id=19
@@ -296,13 +297,13 @@ icon=0
 description=Stun nearby enemies for 5 seconds
 new_state=cast
 requires_mp=1
-soundfx=timestop.ogg
+soundfx=soundfx/powers/timestop.ogg
 use_hazard=true
 lifespan=1
-radius=512
+radius=8.0
 multitarget=true
 base_damage=none
-post_effect=203,0,150
+post_effect=stun,0,150
 
 [power]
 id=20
@@ -316,7 +317,7 @@ use_hazard=true
 aim_assist=true
 base_damage=melee
 lifespan=1
-radius=64
+radius=1.0
 starting_pos=melee
 allow_power_mod=true
 hp_steal=10
@@ -328,16 +329,16 @@ type=missile
 icon=2
 description=Magic attack with 10% MP steal
 new_state=swing
-requires_mental_weapon=true
+requires_flags=mental
 face=true
 directional=true
-animation=channel.txt
+animation=animations/powers/channel.txt
 use_hazard=true
 aim_assist=true
 base_damage=ment
 lifespan=8
-radius=64
-speed=24
+radius=1.0
+speed=12
 starting_pos=melee
 mp_steal=10
 
@@ -349,7 +350,7 @@ icon=3
 description=Basic ranged attack
 new_state=shoot
 face=true
-requires_offense_weapon=true
+requires_flags=ranged
 base_damage=ranged
 starting_pos=melee
 aim_assist=true
@@ -363,7 +364,7 @@ icon=23
 description=Fire five low power missiles in quick succession
 new_state=shoot
 face=true
-requires_offense_weapon=true
+requires_flags=ranged
 requires_mp=3
 base_damage=ranged
 starting_pos=melee
@@ -379,29 +380,53 @@ cooldown=2s
 id=24
 name=Ember Shot
 type=missile
-icon=23
-description=Fire a spray of burning embers at close range
+icon=18
+description=Fire a spray of burning embers at close range. Effective against armored enemies.
 new_state=shoot
 face=true
-requires_offense_weapon=true
+requires_flags=ranged
 base_damage=ranged
 #starting_pos=melee
+requires_mp=1
 aim_assist=true
 count=10
 trait_armor_penetration=true
 modifier_damage=multiply,15,0
 angle_variance=15
-speed_variance=15
-animation=ember.txt
+speed_variance=0.15
+animation=animations/powers/ember.txt
 use_hazard=true
 lifespan=8
-radius=48
-speed=48
+radius=0.75
+speed=24
 directional=true
-soundfx=shoot.ogg
+soundfx=soundfx/powers/shoot.ogg
 post_power=125
 trait_elemental=fire
 
+[power]
+id=25
+name=Thunderstrike
+type=fixed
+icon=7
+description=Lightning strikes from the sky to stun enemies
+new_state=cast
+face=true
+requires_mp=2
+requires_los=true
+requires_targeting=true
+animation=animations/powers/thunderstrike.txt
+soundfx=soundfx/powers/thunder.ogg
+use_hazard=true
+base_damage=ment
+lifespan=6
+radius=1.5
+trait_elemental=air
+starting_pos=target
+multitarget=true
+post_power=126
+target_range=8.0
+post_effect=stun,0,45
 
 [power]
 id=30
@@ -412,18 +437,18 @@ new_state=cast
 face=true
 directional=true
 requires_los=true
-animation=icicle.txt
-soundfx=shock.ogg
+animation=animations/powers/icicle.txt
+soundfx=soundfx/powers/shock.ogg
 use_hazard=true
 aim_assist=true
 base_damage=ment
 lifespan=26
-radius=64
-speed=30
+radius=1.0
+speed=15
 trait_elemental=ice
 post_power=126
 wall_power=126
-post_effect=202,50,60
+post_effect=slow,50,60
 
 [power]
 id=31
@@ -434,14 +459,14 @@ new_state=cast
 face=true
 directional=true
 requires_los=true
-animation=fireball.txt
-soundfx=fireball.ogg
+animation=animations/powers/fireball.txt
+soundfx=soundfx/powers/fireball.ogg
 use_hazard=true
 aim_assist=true
 base_damage=ment
 lifespan=26
-radius=64
-speed=30
+radius=1.0
+speed=15
 trait_elemental=fire
 post_power=125
 wall_power=125
@@ -456,13 +481,13 @@ new_state=shoot
 face=true
 directional=true
 requires_los=true
-animation=spear.txt
+animation=animations/powers/spear.txt
 use_hazard=true
 aim_assist=true
 base_damage=ranged
 lifespan=27
-radius=64
-speed=24
+radius=1.0
+speed=12
 angle_variance=15
 
 [power]
@@ -472,19 +497,19 @@ id=33
 type=fixed
 icon=0
 new_state=cast
-animation=quake.txt
-soundfx=quake.ogg
+animation=animations/powers/quake.txt
+soundfx=soundfx/powers/quake.ogg
 use_hazard=true
 base_damage=ment
 lifespan=12
-radius=128
+radius=2.0
 floor=true
 trait_elemental=fire
 starting_pos=source
 multitarget=true
 visual_option=1
 post_power=125
-post_effect=202,50,15
+post_effect=slow,50,15
 
 [power]
 id=34
@@ -496,15 +521,15 @@ new_state=shoot
 face=true
 directional=true
 requires_los=true
-animation=arrows.txt
-soundfx=shoot.ogg
+animation=animations/powers/arrows.txt
+soundfx=soundfx/powers/shoot.ogg
 use_hazard=true
 aim_assist=true
-requires_offense_weapon=true
+requires_flags=ranged
 base_damage=ranged
 lifespan=16
-radius=64
-speed=48
+radius=1.0
+speed=24
 wall_power=124
 
 [power]
@@ -515,21 +540,21 @@ icon=0
 new_state=cast
 face=true
 directional=true
-animation=icicle.txt
-soundfx=shock.ogg
+animation=animations/powers/icicle.txt
+soundfx=soundfx/powers/shock.ogg
 use_hazard=true
 aim_assist=true
 base_damage=ment
 lifespan=32
-radius=64
-speed=30
+radius=1.0
+speed=15
 trait_elemental=ice
 post_power=126
 wall_power=126
 #missile num needs to be odd, or the player can avoid just by standing there
 count=9
 missile_angle=40
-post_effect=202,50,60
+post_effect=slow,50,60
 
 [power]
 id=36
@@ -543,7 +568,7 @@ use_hazard=true
 aim_assist=true
 base_damage=melee
 lifespan=1
-radius=64
+radius=1.0
 starting_pos=melee
 allow_power_mod=true
 hp_steal=50
@@ -560,10 +585,10 @@ use_hazard=true
 aim_assist=true
 base_damage=melee
 lifespan=1
-radius=64
+radius=1.0
 starting_pos=melee
 allow_power_mod=true
-post_effect=200,5,90
+post_effect=bleeding,5,90
 
 [power]
 id=38
@@ -577,10 +602,10 @@ use_hazard=true
 aim_assist=true
 base_damage=melee
 lifespan=1
-radius=64
+radius=1.0
 starting_pos=melee
 allow_power_mod=true
-post_effect=201,0,150
+post_effect=immobilize,0,150
 
 [power]
 id=39
@@ -594,7 +619,7 @@ use_hazard=true
 aim_assist=true
 base_damage=melee
 lifespan=1
-radius=64
+radius=1.0
 starting_pos=melee
 allow_power_mod=true
 trait_armor_penetration=true
@@ -608,13 +633,13 @@ icon=0
 new_state=cast
 face=true
 requires_los=true
-animation=blast.txt
-soundfx=burn.ogg
+animation=animations/powers/blast.txt
+soundfx=soundfx/powers/burn.ogg
 use_hazard=true
 source_type=neutral
 base_damage=ment
 lifespan=18
-radius=128
+radius=2.0
 floor=true
 trait_elemental=fire
 starting_pos=source
@@ -630,15 +655,15 @@ icon=0
 new_state=swing
 face=true
 directional=true
-animation=channel.txt
+animation=animations/powers/channel.txt
 use_hazard=true
 aim_assist=true
 base_damage=ment
 lifespan=8
-radius=64
-speed=24
+radius=1.0
+speed=12
 starting_pos=melee
-post_effect=203,0,30
+post_effect=stun,0,30
 
 [power]
 id=42
@@ -650,15 +675,15 @@ new_state=shoot
 face=true
 directional=true
 requires_los=true
-animation=arrows.txt
-soundfx=shoot.ogg
+animation=animations/powers/arrows.txt
+soundfx=soundfx/powers/shoot.ogg
 use_hazard=true
 aim_assist=true
-requires_offense_weapon=true
+requires_flags=ranged
 base_damage=ranged
 lifespan=16
-radius=64
-speed=48
+radius=1.0
+speed=24
 wall_power=124
 count=3
 missile_angle=15
@@ -673,13 +698,13 @@ new_state=swing
 requires_mp=1
 face=true
 directional=true
-animation=throw_knife.txt
+animation=animations/powers/throw_knife.txt
 use_hazard=true
 aim_assist=true
 base_damage=melee
 lifespan=16
-radius=64
-speed=24
+radius=1.0
+speed=12
 modifier_damage=multiply,75,0
 
 [power]
@@ -692,13 +717,13 @@ new_state=swing
 requires_mp=2
 face=true
 directional=true
-animation=throw_axe.txt
+animation=animations/powers/throw_axe.txt
 use_hazard=true
 aim_assist=true
 base_damage=melee
 lifespan=23
-radius=64
-speed=24
+radius=1.0
+speed=12
 modifier_damage=multiply,150,0
 
 [power]
@@ -712,14 +737,14 @@ requires_mp=2
 face=true
 directional=true
 starting_pos=melee
-animation=caltrops.txt
+animation=animations/powers/caltrops.txt
 use_hazard=true
 base_damage=ranged
 lifespan=300
 cooldown=300
-radius=64
+radius=1.0
 modifier_damage=multiply,75,0
-post_effect=202,50,90
+post_effect=slow,50,90
 
 
 [power]
@@ -733,21 +758,21 @@ requires_mp=3
 face=true
 directional=true
 starting_pos=melee
-animation=bear_trap.txt
+animation=animations/powers/bear_trap.txt
 use_hazard=true
 base_damage=ranged
 lifespan=300
 cooldown=300
-radius=64
+radius=1.0
 modifier_damage=multiply,150,0
-post_effect=201,0,90
+post_effect=immobilize,0,90
 post_power=47
 
 [power]
 id=47
 # animated bear trap trigger
 type=fixed
-animation=bear_trap_trigger.txt
+animation=animations/powers/bear_trap_trigger.txt
 use_hazard=true
 no_attack=true
 directional=true
@@ -759,12 +784,12 @@ id=100
 type=fixed
 icon=64
 name=Health Potion
-soundfx=potion.ogg
+soundfx=soundfx/powers/potion.ogg
 new_state=instant
 requires_item=1
 cooldown=15
 buff=true
-post_effect=230,100,1
+post_effect=HP restore,100,1
 
 [power]
 id=101
@@ -772,11 +797,11 @@ type=fixed
 icon=65
 name=Mana Potion
 new_state=instant
-soundfx=potion.ogg
+soundfx=soundfx/powers/potion.ogg
 requires_item=2
 cooldown=15
 buff=true
-post_effect=231,100,1
+post_effect=MP restore,100,1
 
 [power]
 id=118
@@ -805,15 +830,15 @@ description=Basic ranged attack (requires a ranged weapon)
 new_state=shoot
 face=true
 directional=false
-animation=stone.txt
-soundfx=shoot.ogg
+animation=animations/powers/stone.txt
+soundfx=soundfx/powers/shoot.ogg
 use_hazard=true
 aim_assist=true
-requires_offense_weapon=true
+requires_flags=ranged
 base_damage=ranged
 lifespan=16
-radius=64
-speed=48
+radius=1.0
+speed=24
 
 [power]
 id=121
@@ -824,15 +849,15 @@ description=Basic ranged attack (requires a ranged weapon)
 new_state=shoot
 face=true
 directional=true
-animation=arrows.txt
-soundfx=shoot.ogg
+animation=animations/powers/arrows.txt
+soundfx=soundfx/powers/shoot.ogg
 use_hazard=true
 aim_assist=true
-requires_offense_weapon=true
+requires_flags=ranged
 base_damage=ranged
 lifespan=16
-radius=64
-speed=48
+radius=1.0
+speed=24
 wall_power=124
 
 [power]
@@ -843,14 +868,14 @@ icon=0
 new_state=shoot
 face=true
 directional=true
-animation=fireball.txt
-soundfx=fireball.ogg
+animation=animations/powers/fireball.txt
+soundfx=soundfx/powers/fireball.ogg
 use_hazard=true
 aim_assist=true
 base_damage=ranged
 lifespan=25
-radius=64
-speed=30
+radius=1.0
+speed=15
 trait_elemental=fire
 post_power=125
 wall_power=125
@@ -863,14 +888,14 @@ icon=0
 new_state=shoot
 face=true
 directional=true
-animation=icicle.txt
-soundfx=shock.ogg
+animation=animations/powers/icicle.txt
+soundfx=soundfx/powers/shock.ogg
 use_hazard=true
 aim_assist=true
 base_damage=ranged
 lifespan=25
-radius=64
-speed=30
+radius=1.0
+speed=15
 trait_elemental=ice
 post_power=126
 wall_power=126
@@ -880,7 +905,7 @@ id=124
 name=Arrow Wall Strike
 type=fixed
 icon=0
-animation=arrow_stuck.txt
+animation=animations/powers/arrow_stuck.txt
 use_hazard=true
 no_attack=true
 directional=true
@@ -892,7 +917,7 @@ id=125
 name=Orange Spark
 type=fixed
 icon=0
-animation=spark_orange.txt
+animation=animations/powers/spark_orange.txt
 use_hazard=true
 no_attack=true
 lifespan=12
@@ -904,7 +929,7 @@ id=126
 name=Blue Spark
 type=fixed
 icon=0
-animation=spark_blue.txt
+animation=animations/powers/spark_blue.txt
 use_hazard=true
 no_attack=true
 lifespan=12
@@ -916,7 +941,7 @@ id=127
 name=Red Spark
 type=fixed
 icon=0
-animation=spark_red.txt
+animation=animations/powers/spark_red.txt
 use_hazard=true
 no_attack=true
 lifespan=12
@@ -930,14 +955,14 @@ type=missile
 icon=0
 new_state=shoot
 face=true
-animation=plasmaball.txt
-soundfx=shock.ogg
+animation=animations/powers/plasmaball.txt
+soundfx=soundfx/powers/shock.ogg
 use_hazard=true
 aim_assist=true
 base_damage=ment
 lifespan=32
-radius=64
-speed=30
+radius=1.0
+speed=15
 trait_elemental=shadow
 post_power=126
 wall_power=126
@@ -951,8 +976,8 @@ description=Blink to a nearby location
 new_state=cast
 requires_empty_target=true
 requires_targeting=true
-animation=runes.txt
-soundfx=teleport.ogg
+animation=animations/powers/runes.txt
+soundfx=soundfx/powers/teleport.ogg
 use_hazard=true
 no_attack=true
 lifespan=16
@@ -960,7 +985,7 @@ floor=true
 starting_pos=source
 buff_teleport=true
 requires_item=12
-range=512
+target_range=8.0
 
 [power]
 id=130
@@ -969,14 +994,14 @@ type=fixed
 icon=73
 description=Stun nearby enemies for 10 seconds
 new_state=cast
-soundfx=timestop.ogg
+soundfx=soundfx/powers/timestop.ogg
 use_hazard=true
 lifespan=1
-radius=512
+radius=8.0
 multitarget=true
 base_damage=none
 requires_item=13
-post_effect=203,0,300
+post_effect=stun,0,300
 
 [power]
 id=131
@@ -988,7 +1013,7 @@ new_state=cast
 face=false
 requires_item=14
 buff=true
-post_effect=237,200,600
+post_effect=haste,200,600
 
 [power]
 id=132
@@ -998,7 +1023,7 @@ type=fixed
 icon=0
 use_hazard=true
 lifespan=1
-radius=256
+radius=4.0
 multitarget=true
 source_type=hero
 beacon=true
@@ -1032,7 +1057,7 @@ icon=0
 new_state=cast
 spawn_type=antlion_freezer
 requires_mp=5
-soundfx=quake.ogg
+soundfx=soundfx/powers/quake.ogg
 transform_duration=150
 manual_untransform=true
 
@@ -1064,7 +1089,7 @@ icon=0
 new_state=cast
 spawn_type=antlion_freezer
 requires_mp=5
-soundfx=quake.ogg
+soundfx=soundfx/powers/quake.ogg
 transform_duration=0
 manual_untransform=false
 
@@ -1077,7 +1102,7 @@ new_state=instant
 spawn_type=untransform
 description=Transform back to human
 requires_item=948
-soundfx=quake.ogg
+soundfx=soundfx/powers/quake.ogg
 
 [power]
 id=140
@@ -1090,15 +1115,15 @@ requires_mp=3
 requires_empty_target=true
 requires_targeting=true
 requires_item=126
-animation=runes.txt
-soundfx=teleport.ogg
+animation=animations/powers/runes.txt
+soundfx=soundfx/powers/teleport.ogg
 use_hazard=true
 no_attack=true
 lifespan=16
 floor=true
 starting_pos=source
 buff_teleport=true
-range=512
+target_range=8.0
 target_neighbor=1
 cooldown=450
 
@@ -1129,7 +1154,7 @@ use_hazard=true
 aim_assist=true
 base_damage=melee
 lifespan=1
-radius=64
+radius=1.0
 starting_pos=melee
 allow_power_mod=true
 post_power=136
@@ -1141,25 +1166,25 @@ icon=6
 type=fixed
 buff=true
 passive=true
-post_effect=216,100,0
-post_effect=236,50,0
-post_effect=233,90,0
-post_effect=235,1,300
+post_effect=crit,100,0
+post_effect=stealth,90,0
+post_effect=stealth speed,50,0
+post_effect=stealth icon,1,300
 
 [power]
 id=160
 #name=Spikes
 #description=Spikes Trap
 type=fixed
-animation=spikes.txt
+animation=animations/powers/spikes.txt
 use_hazard=true
 lifespan=16
-radius=48
+radius=0.75
 starting_pos=source
 complete_animation=true
 base_damage=melee
 visual_random=4
-soundfx=spikes.ogg
+soundfx=soundfx/powers/spikes.ogg
 
 [power]
 id=170
@@ -1170,248 +1195,5 @@ buff=true
 requires_equipped_item=112
 passive=true
 passive_trigger=on_death
-post_effect=234,0,1
-
-#
-# Status Effects
-#
-
-[power]
-id=200
-#name=Bleeding
-type=effect
-icon=25
-effect_type=damage
-animation=spark_red_loop.txt
-
-[power]
-id=201
-#name=Speed (Immobilize)
-type=effect
-icon=24
-effect_type=speed
-
-[power]
-id=202
-#name=Speed (50% slow)
-type=effect
-icon=24
-effect_type=speed
-
-[power]
-id=203
-#name=Stunned
-type=effect
-icon=26
-effect_type=stun
-
-[power]
-id=210
-#name=HP bonus
-tag=HP
-type=effect
-effect_type=hp
-effect_additive=true
-
-[power]
-id=211
-#name=HP regen bonus
-tag=HP regen
-type=effect
-effect_type=hp_regen
-effect_additive=true
-
-[power]
-id=212
-#name=MP bonus
-tag=MP
-type=effect
-effect_type=mp
-effect_additive=true
-
-[power]
-id=213
-#name=MP regen bonus
-tag=MP regen
-type=effect
-effect_type=mp_regen
-effect_additive=true
-
-[power]
-id=214
-#name=Accuracy bonus
-tag=accuracy
-type=effect
-effect_type=accuracy
-effect_additive=true
-
-[power]
-id=215
-#name=Avoidance bonus
-tag=avoidance
-type=effect
-effect_type=avoidance
-effect_additive=true
-
-[power]
-id=216
-#name=Crit bonus
-tag=crit
-type=effect
-effect_type=crit
-effect_additive=true
-
-[power]
-id=217
-#name=Speed (Boots of Speed)
-tag=speed
-type=effect
-effect_type=speed
-
-[power]
-id=218
-#name=Offense bonus
-tag=offense
-type=effect
-effect_type=offense
-effect_additive=true
-
-[power]
-id=219
-#name=Defense bonus
-tag=defense
-type=effect
-effect_type=defense
-effect_additive=true
-
-[power]
-id=220
-#name=Physical bonus
-tag=physical
-type=effect
-effect_type=physical
-effect_additive=true
-
-[power]
-id=221
-#name=Mental bonus
-tag=mental
-type=effect
-effect_type=mental
-effect_additive=true
-
-[power]
-id=222
-#name=XP bonus
-tag=XP gain
-type=effect
-effect_type=xp
-effect_additive=true
-
-[power]
-id=223
-#name=Gold find bonus
-tag=gold find
-type=effect
-effect_type=currency
-effect_additive=true
-
-[power]
-id=224
-#name=Fire Resist bonus
-tag=fire resist
-type=effect
-effect_type=fire_resist
-effect_additive=true
-
-[power]
-id=225
-#name=Ice Resist bonus
-tag=ice resist
-type=effect
-effect_type=ice_resist
-effect_additive=true
-
-[power]
-id=226
-#name=Immunity
-type=effect
-icon=12
-effect_type=immunity
-
-[power]
-id=227
-#name=Shield
-type=effect
-icon=15
-effect_type=shield
-animation=shield.txt
-
-[power]
-id=228
-#name=Heal
-type=effect
-icon=11
-effect_type=heal
-animation=heal.txt
-
-[power]
-id=229
-#name=Speed (Haste)
-type=effect
-icon=9
-effect_type=speed
-
-[power]
-id=230
-#name=HP over time
-type=effect
-effect_type=hpot
-
-[power]
-id=231
-#name=MP over time
-type=effect
-effect_type=mpot
-
-[power]
-id=232
-#name=Item find bonus
-tag=item find
-type=effect
-effect_type=item_find
-effect_additive=true
-
-[power]
-id=233
-#name=Stealth bonus
-tag=stealth
-type=effect
-effect_type=stealth
-effect_additive=true
-
-[power]
-id=234
-#name=Revive
-type=effect
-effect_type=revive
-
-[power]
-id=235
-#name=Stealth time remaining icon
-icon=6
-
-[power]
-id=236
-#name=Speed (Stealth)
-type=effect
-effect_type=speed
-
-[power]
-id=237
-#name=Speed (Scroll of Haste)
-type=effect
-effect_type=speed
-
-
+post_effect=revive,0,1
 

@@ -1,0 +1,49 @@
+name=Udana, Metalworker
+
+portrait=female07
+
+# animation info
+gfx=animations/npcs/peasant_woman2.txt
+
+# shop info
+vendor=true
+constant_stock=32,33,48,49,56,57,80,81,82,83,84,88,89,90,91,92,118
+
+# voiceover files
+vox_intro=soundfx/npcs/female_merchant_01.ogg
+vox_intro=soundfx/npcs/female_merchant_02.ogg
+vox_intro=soundfx/npcs/female_merchant_03.ogg
+vox_intro=soundfx/npcs/female_merchant_04.ogg
+
+talker=true
+
+[dialog]
+topic=Introduction
+requires_not_status=udana_intro
+her=I'm Udana. I was a union smith in Empyrean. Supplies are thin here but I can spare a few pieces.
+you=Thanks Udana. I'm not sure yet where here is. My name is ...
+set_status=udana_intro
+her=Stop. I'd rather not know. Exiles like you show up every few days and don't last long.
+
+[dialog]
+topic=Florin
+requires_not_status=udana_florin
+requires_status=florin_intro
+requires_status=udana_intro
+you=Is Florin trustworthy?
+her=Florin is a decent person. That's rare anywhere, much less down here on the surface.
+reward_xp=10
+set_status=udana_florin
+her=If you tell him I said that I will break your arms.
+
+[dialog]
+topic=Equipment
+requires_status=udana_intro
+requires_not_status=ore_search
+set_status=ore_search
+her=I live to work with steel. There's never enough material here. I've exhausted the ore in the mineshaft. It's too dangerous to go deeper in, past the breach.
+
+[dialog]
+topic=Equipment
+requires_status=ore_search
+her=Yeah. I wish we had better equipment here too. Why don't you talk to the monsters deep down in the mineshaft? Best case scenario, they'll just eat your face and we'll lose the gear I already sold you.

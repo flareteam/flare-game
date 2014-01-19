@@ -2,8 +2,8 @@
 <map version="1.0" orientation="isometric" width="100" height="100" tilewidth="64" tileheight="32">
  <properties>
   <property name="location" value="4,12,5"/>
-  <property name="music" value="cave_theme.ogg"/>
-  <property name="tileset" value="tileset_cave.txt"/>
+  <property name="music" value="music/cave_theme.ogg"/>
+  <property name="tileset" value="tilesetdefs/tileset_cave.txt"/>
   <property name="title" value="Caves Level 1"/>
  </properties>
  <tileset firstgid="1" name="tiled_collision.png" tilewidth="64" tileheight="32">
@@ -330,12 +330,12 @@
  <objectgroup name="event" width="100" height="100">
   <object name="exit to goblin warrens" type="on_trigger" x="64" y="384" width="32" height="64">
    <properties>
-    <property name="intermap" value="goblin_warrens.txt,51,14"/>
+    <property name="intermap" value="maps/goblin_warrens.txt,51,14"/>
    </properties>
   </object>
   <object name="exit to lost mines level 1" type="on_trigger" x="480" y="2176" width="64" height="32">
    <properties>
-    <property name="intermap" value="lost_mines1.txt,53,5"/>
+    <property name="intermap" value="maps/lost_mines1.txt,53,5"/>
    </properties>
   </object>
   <object type="on_trigger" x="544" y="1536" width="32" height="32">

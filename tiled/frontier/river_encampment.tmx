@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="isometric" width="64" height="64" tilewidth="64" tileheight="32">
  <properties>
-  <property name="music" value="overworld_theme.ogg"/>
-  <property name="tileset" value="tileset_grassland.txt"/>
+  <property name="music" value="music/overworld_theme.ogg"/>
+  <property name="tileset" value="tilesetdefs/tileset_grassland.txt"/>
   <property name="title" value="River Encampment"/>
  </properties>
  <tileset firstgid="1" name="collision" tilewidth="64" tileheight="32">
@@ -290,7 +290,7 @@
     <property name="hotspot" value="location"/>
     <property name="loot" value="127,11,13,fixed,1"/>
     <property name="mapmod" value="object,10,13,99"/>
-    <property name="requires_not" value="re_crate4"/>
+    <property name="requires_not_status" value="re_crate4"/>
     <property name="set_status" value="re_crate4"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Supplies"/>
@@ -302,7 +302,7 @@
     <property name="hotspot" value="location"/>
     <property name="loot" value="2,10,15,fixed,1"/>
     <property name="mapmod" value="object,9,15,97"/>
-    <property name="requires_not" value="re_crate3"/>
+    <property name="requires_not_status" value="re_crate3"/>
     <property name="set_status" value="re_crate3"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Supplies"/>
@@ -314,7 +314,7 @@
     <property name="hotspot" value="location"/>
     <property name="loot" value="1,38,26,fixed,1"/>
     <property name="mapmod" value="object,38,27,97"/>
-    <property name="requires_not" value="re_crate1"/>
+    <property name="requires_not_status" value="re_crate1"/>
     <property name="set_status" value="re_crate1"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Supplies"/>
@@ -323,12 +323,12 @@
   </object>
   <object name="to Frontier Plains" type="on_trigger" x="1632" y="1984" width="64" height="32">
    <properties>
-    <property name="intermap" value="frontier_plains.txt,63,18"/>
+    <property name="intermap" value="maps/frontier_plains.txt,63,18"/>
    </properties>
   </object>
   <object name="to River Barrow" type="on_trigger" x="1120" y="96" width="32" height="64">
    <properties>
-    <property name="intermap" value="river_barrow.txt,60,30"/>
+    <property name="intermap" value="maps/river_barrow.txt,60,30"/>
    </properties>
   </object>
   <object type="on_load" x="1216" y="928" width="32" height="32">

@@ -41,11 +41,11 @@ def extract(filename):
         'msg', 'him', 'her', 'you', 'name', 'title', 'tooltip',
         'power_desc', 'quest_text', 'description', 'item_type',
         'slot_name', 'tab_title', 'resist', 'currency_name',
-        'bonus', 'flavor', 'topic','option'
+        'bonus', 'flavor', 'topic', 'option', 'caption'
     ]
     plain_text = [
         'msg', 'him', 'her', 'you', 'name', 'title', 'tooltip',
-        'quest_text', 'description', 'topic', 'flavor',
+        'quest_text', 'description', 'topic', 'flavor', 'caption',
         ]
     for i, line in enumerate(infile, start=1):
         for trigger in triggers:
@@ -108,14 +108,16 @@ extract('../items/types.txt')
 extract('../items/sets.txt')
 extract('../menus/inventory.txt')
 extract('../menus/powers.txt')
+extract('../powers/effects.txt')
 extract('../powers/powers.txt')
 extract('../engine/elements.txt')
 extract('../engine/loot.txt')
 extract('../engine/classes.txt')
 extract('../engine/hero_options.txt')
 extract('../engine/titles.txt')
+extract('../engine/equip_flags.txt')
 
-for folder in ['enemies', 'maps', 'quests', 'npcs']:
+for folder in ['enemies', 'maps', 'quests', 'npcs', 'cutscenes']:
     target = os.path.join('..', folder)
     if os.path.exists(target):
         for filename in sorted(os.listdir(target)):

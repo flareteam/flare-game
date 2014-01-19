@@ -4,8 +4,8 @@ height=100
 tilewidth=64
 tileheight=32
 location=1,54,4
-music=dungeon_theme.ogg
-tileset=tileset_dungeon.txt
+music=music/dungeon_theme.ogg
+tileset=tilesetdefs/tileset_dungeon.txt
 title=Averguard Prison
 
 [tilesets]
@@ -333,7 +333,7 @@ data=
 type=on_trigger
 location=1,54,1,2
 hotspot=1,54,1,2
-intermap=averguard_atrium.txt,15,51
+intermap=maps/averguard_atrium.txt,15,51
 soundfx=soundfx/door_open.ogg,0,0
 
 [event]
@@ -387,7 +387,7 @@ hotspot=location
 loot=1,21,31,fixed,1
 mapmod=object,21,30,161
 repeat=false
-requires_not=av_prison_chest1
+requires_not_status=av_prison_chest1
 set_status=av_prison_chest1
 soundfx=soundfx/wood_open.ogg
 tooltip=Treasure Chest

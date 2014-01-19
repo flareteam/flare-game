@@ -3,8 +3,8 @@ width=28
 height=129
 tilewidth=64
 tileheight=32
-music=boss_theme.ogg
-tileset=tileset_dungeon.txt
+music=music/boss_theme.ogg
+tileset=tilesetdefs/tileset_dungeon.txt
 title=Averguard Temple
 
 [tilesets]
@@ -419,7 +419,7 @@ data=
 type=on_trigger
 location=14,127,2,1
 hotspot=14,128,2,1
-intermap=averguard_atrium.txt,8,2
+intermap=maps/averguard_atrium.txt,8,2
 soundfx=soundfx/door_open.ogg,0,0
 
 [event]
@@ -449,7 +449,7 @@ hotspot=location
 msg=You insert the Averguard Key. Runes glow around the door, then fade. The door is still sealed.
 repeat=false
 requires_item=9001
-requires_not=ak_talisman_found
+requires_not_status=ak_talisman_found
 requires_status=ak_key_found
 set_status=ak_temple_sealed
 tooltip=Sealed Temple Door
@@ -461,7 +461,7 @@ location=13,89,1,1
 hotspot=15,88,1,1
 msg=You read aloud the runes on Langlier's Talisman. The Avergard Key begins to glow!
 repeat=false
-requires_not=ak_talisman_used
+requires_not_status=ak_talisman_used
 requires_status=ak_key_found,ak_talisman_found
 set_status=ak_talisman_used
 shakycam=60
@@ -505,7 +505,7 @@ location=15,1,1,1
 hotspot=location
 msg=This chest is locked.
 repeat=false
-requires_not=ak_maddox_defeated
+requires_not_status=ak_maddox_defeated
 tooltip=Treasure Chest
 
 [event]

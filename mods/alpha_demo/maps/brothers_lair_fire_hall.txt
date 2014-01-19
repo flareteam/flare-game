@@ -3,8 +3,8 @@ width=50
 height=80
 tilewidth=64
 tileheight=32
-music=magical_theme.ogg
-tileset=tileset_dungeon.txt
+music=music/magical_theme.ogg
+tileset=tilesetdefs/tileset_dungeon.txt
 title=Brothers' Lair Fire Hall
 
 [tilesets]
@@ -273,7 +273,7 @@ data=
 type=on_trigger
 location=24,78,2,1
 hotspot=24,79,2,1
-intermap=brothers_lair_atrium.txt,14,2
+intermap=maps/brothers_lair_atrium.txt,14,2
 soundfx=soundfx/door_open.ogg,0,0
 
 [event]
@@ -361,7 +361,7 @@ hotspot=location
 power=18
 power_damage=100,150
 power_path=21,60,21,60
-requires_not=lb_fire_key,lb_fire_looted
+requires_not_status=lb_fire_key,lb_fire_looted
 tooltip=Runed Chest
 
 [event]
@@ -371,6 +371,7 @@ location=19,16,1,1
 hotspot=location
 mapmod=object,19,16,165
 msg="Today Pompeii got a little over-excited to meet me and blew himself up. So I had to go into the caves and catch myself a NEW antlion burster. Again. I think I'm going to name this one 'Krakatoa'. ~Vesuvvio (the Destroyer)"
+repeat=false
 set_status=lb_fire_password
 soundfx=soundfx/inventory/inventory_page.ogg
 tooltip=Book Stand

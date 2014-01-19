@@ -4,16 +4,15 @@ categories=antlion,dungeon,cave
 xp=20
 
 sfx_prefix=antlion
-animations=antlion
+animations=animations/enemies/antlion.txt
 
 
 # combat stats
 # antlions have low HP and high armor for their level
 hp=90
-speed=10
-dspeed=7
-melee_range=76
-threat_range=512
+speed=5
+melee_range=1.1875
+threat_range=8.0
 turn_delay=8
 chance_pursue=40
 chance_melee_phys=16

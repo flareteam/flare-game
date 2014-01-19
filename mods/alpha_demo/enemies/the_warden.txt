@@ -3,8 +3,8 @@ level=5
 xp=75
 
 sfx_prefix=zombie
-animations=zombie
-speed=150
+animations=animations/enemies/zombie.txt
+speed=75
 
 
 # averguard key
@@ -12,10 +12,9 @@ quest_loot=ak_tome_reward,ak_key_found,9001
 
 # combat stats
 hp=280
-speed=7
-dspeed=5
-melee_range=72
-threat_range=640
+speed=3.5
+melee_range=1.125
+threat_range=10.0
 turn_delay=6
 chance_pursue=25
 chance_melee_phys=20

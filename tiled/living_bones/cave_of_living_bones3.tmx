@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="isometric" width="50" height="30" tilewidth="64" tileheight="32">
  <properties>
-  <property name="music" value="cave_theme.ogg"/>
-  <property name="tileset" value="tileset_cave.txt"/>
+  <property name="music" value="music/cave_theme.ogg"/>
+  <property name="tileset" value="tilesetdefs/tileset_cave.txt"/>
   <property name="title" value="Cave of Living Bones 3"/>
  </properties>
  <tileset firstgid="1" name="tiled_collision.png" tilewidth="64" tileheight="32">
@@ -116,7 +116,7 @@
  <objectgroup name="event" width="50" height="30">
   <object name="Warp to Cave 2" type="on_trigger" x="1536" y="544" width="32" height="128">
    <properties>
-    <property name="intermap" value="cave_of_living_bones2.txt,3,38"/>
+    <property name="intermap" value="maps/cave_of_living_bones2.txt,3,38"/>
    </properties>
   </object>
   <object name="Crate of Blasting Powder" type="on_trigger" x="192" y="192" width="32" height="32">

@@ -3,28 +3,28 @@
 
 default_M1_power=1
 
-slot1=16,3,16,16
-slot2=32,3,16,16
-slot3=48,3,16,16
-slot4=64,3,16,16
-slot5=80,3,16,16
-slot6=96,3,16,16
-slot7=112,3,16,16
-slot8=128,3,16,16
-slot9=144,3,16,16
-slot10=160,3,16,16
+slot1=16,1,16,16
+slot2=32,1,16,16
+slot3=48,1,16,16
+slot4=64,1,16,16
+slot5=80,1,16,16
+slot6=96,1,16,16
+slot7=112,1,16,16
+slot8=128,1,16,16
+slot9=144,1,16,16
+slot10=160,1,16,16
 
-slot_M1=192,3,16,16
-slot_M2=208,3,16,16
+slot_M1=192,1,16,16
+slot_M2=208,1,16,16
 
-char_menu=240,3,16,16
-inv_menu=256,3,16,16
-powers_menu=272,3,16,16
-log_menu=288,3,16,16
+char_menu=240,1,16,16
+inv_menu=256,1,16,16
+powers_menu=272,1,16,16
+log_menu=288,1,16,16
 
 # screen areas occupied by the three main sections
 # TODO maybe we should calculate them
-# x,width,height. There is no y, it's taken from menus.txt 
+# x,width,height. There is no y, it's taken from menus.txt
 numberArea=16,160,16
 mouseArea=192,32,16
 menuArea=240,64,16

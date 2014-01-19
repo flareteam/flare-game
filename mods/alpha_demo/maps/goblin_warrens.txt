@@ -4,8 +4,8 @@ height=82
 tilewidth=64
 tileheight=32
 location=28,76,3
-music=dungeon_theme.ogg
-tileset=tileset_dungeon.txt
+music=music/dungeon_theme.ogg
+tileset=tilesetdefs/tileset_dungeon.txt
 title=Goblin Warrens
 
 [tilesets]
@@ -265,8 +265,8 @@ data=
 3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,0,0,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,0,0,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
-3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,4,0,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,0,0,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
+3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,4,0,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,0,0,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,0,0,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,0,0,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
@@ -279,21 +279,21 @@ data=
 type=on_trigger
 location=1,8,1,2
 hotspot=1,8,1,2
-intermap=averguard_atrium.txt,17,10
+intermap=maps/averguard_atrium.txt,17,10
 soundfx=soundfx/door_open.ogg,0,0
 
 [event]
 type=on_trigger
 location=52,13,1,2
 hotspot=53,13,1,2
-intermap=cave1.txt,3,13
+intermap=maps/cave1.txt,3,13
 soundfx=soundfx/door_open.ogg,0,0
 
 [event]
 type=on_trigger
 location=28,80,2,1
 hotspot=28,81,2,1
-intermap=ydrakka_pass.txt,92,54
+intermap=maps/ydrakka_pass.txt,92,54
 soundfx=soundfx/door_open.ogg,0,0
 
 [event]
@@ -327,7 +327,7 @@ loot=9000,2,29,fixed,1
 mapmod=object,2,28,165
 msg=This book bears the seal of the Averguard
 repeat=false
-requires_not=ak_tome_found
+requires_not_status=ak_tome_found
 requires_status=ak_tome_search
 soundfx=soundfx/inventory/inventory_page.ogg
 tooltip=Book Stand

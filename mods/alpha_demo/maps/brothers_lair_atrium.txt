@@ -3,8 +3,8 @@ width=30
 height=50
 tilewidth=64
 tileheight=32
-music=magical_theme.ogg
-tileset=tileset_dungeon.txt
+music=music/magical_theme.ogg
+tileset=tilesetdefs/tileset_dungeon.txt
 title=Brothers' Lair Atrium
 
 [tilesets]
@@ -183,21 +183,21 @@ data=
 type=on_trigger
 location=2,13,1,2
 hotspot=2,13,1,2
-intermap=brothers_lair_ice_hall.txt,47,71
+intermap=maps/brothers_lair_ice_hall.txt,47,71
 soundfx=soundfx/door_open.ogg,0,0
 
 [event]
 # to Sacrifice Room
 type=on_trigger
 location=14,15,2,1
-intermap=brothers_lair_sacrifice_room.txt,9,41
+intermap=maps/brothers_lair_sacrifice_room.txt,9,41
 
 [event]
 # to Cave 2
 type=on_trigger
 location=14,47,2,1
 hotspot=14,48,2,1
-intermap=cave_of_living_bones2.txt,32,4
+intermap=maps/cave_of_living_bones2.txt,32,4
 soundfx=soundfx/door_open.ogg,0,0
 
 [event]
@@ -205,7 +205,7 @@ soundfx=soundfx/door_open.ogg,0,0
 type=on_trigger
 location=13,1,2,1
 hotspot=13,1,2,1
-intermap=brothers_lair_fire_hall.txt,25,77
+intermap=maps/brothers_lair_fire_hall.txt,25,77
 soundfx=soundfx/door_open.ogg,0,0
 
 [event]
@@ -213,7 +213,7 @@ soundfx=soundfx/door_open.ogg,0,0
 type=on_trigger
 location=27,13,1,2
 hotspot=28,13,1,2
-intermap=brothers_lair_wind_hall.txt,3,19
+intermap=maps/brothers_lair_wind_hall.txt,3,19
 soundfx=soundfx/door_open.ogg,0,0
 
 [event]
@@ -238,7 +238,7 @@ requires_status=waypoint_brothers_lair_atrium
 type=on_trigger
 location=14,19,2,2
 hotspot=location
-intermap=warp_zone.txt,36,38
+intermap=maps/warp_zone.txt,36,38
 tooltip=Warp Zone
 
 [event]
@@ -246,7 +246,7 @@ type=on_trigger
 location=12,17,6,6
 mapmod=background,14,20,265
 msg=Brothers Lair Atrium waypoint discovered
-requires_not=waypoint_brothers_lair_atrium
+requires_not_status=waypoint_brothers_lair_atrium
 set_status=waypoint_brothers_lair_atrium
 repeat=false
 

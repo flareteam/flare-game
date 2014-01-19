@@ -5,7 +5,8 @@
 # Mental + Offense grants elemental spell attacks
 # Mental + Defense grants healing and magical protection
 
-caption=80,4,center,top
+[header]
+label_title=80,4,center,top
 close=147,1
 unspent_points=80,198,center,top
 #unspent_points=hidden
@@ -14,13 +15,13 @@ tabs=3
 tab_area=16,15,120,174
 
 tab_title=Warrior
-tab_tree=powers_tree.png
+tab_tree=images/menus/powers_tree.png
 
 tab_title=Ranger
-tab_tree=powers_tree.png
+tab_tree=images/menus/powers_tree.png
 
 tab_title=Mage
-tab_tree=powers_tree.png
+tab_tree=images/menus/powers_tree.png
 
 # First tab has index=0
 # Don't add tab_title=, tab_tree=, and tab= keys if you use only 1 tab

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="isometric" width="28" height="129" tilewidth="64" tileheight="32" backgroundcolor="#000000">
  <properties>
-  <property name="music" value="boss_theme.ogg"/>
-  <property name="tileset" value="tileset_dungeon.txt"/>
+  <property name="music" value="music/boss_theme.ogg"/>
+  <property name="tileset" value="tilesetdefs/tileset_dungeon.txt"/>
   <property name="title" value="Averguard Temple"/>
  </properties>
  <tileset firstgid="1" name="collision" tilewidth="64" tileheight="32">
@@ -433,7 +433,7 @@
   <object type="on_trigger" x="448" y="4064" width="64" height="32">
    <properties>
     <property name="hotspot" value="14,128,2,1"/>
-    <property name="intermap" value="averguard_atrium.txt,8,2"/>
+    <property name="intermap" value="maps/averguard_atrium.txt,8,2"/>
     <property name="soundfx" value="soundfx/door_open.ogg,0,0"/>
    </properties>
   </object>
@@ -459,7 +459,7 @@
     <property name="hotspot" value="location"/>
     <property name="msg" value="You insert the Averguard Key. Runes glow around the door, then fade. The door is still sealed."/>
     <property name="requires_item" value="9001"/>
-    <property name="requires_not" value="ak_talisman_found"/>
+    <property name="requires_not_status" value="ak_talisman_found"/>
     <property name="requires_status" value="ak_key_found"/>
     <property name="set_status" value="ak_temple_sealed"/>
     <property name="tooltip" value="Sealed Temple Door"/>
@@ -470,7 +470,7 @@
    <properties>
     <property name="hotspot" value="15,88,1,1"/>
     <property name="msg" value="You read aloud the runes on Langlier's Talisman. The Avergard Key begins to glow!"/>
-    <property name="requires_not" value="ak_talisman_used"/>
+    <property name="requires_not_status" value="ak_talisman_used"/>
     <property name="requires_status" value="ak_key_found,ak_talisman_found"/>
     <property name="set_status" value="ak_talisman_used"/>
     <property name="shakycam" value="60"/>
@@ -513,7 +513,7 @@
    <properties>
     <property name="hotspot" value="location"/>
     <property name="msg" value="This chest is locked."/>
-    <property name="requires_not" value="ak_maddox_defeated"/>
+    <property name="requires_not_status" value="ak_maddox_defeated"/>
     <property name="tooltip" value="Treasure Chest"/>
     <property name="repeat" value="false"/>
    </properties>

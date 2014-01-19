@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="isometric" width="50" height="80" tilewidth="64" tileheight="32" backgroundcolor="#000000">
  <properties>
-  <property name="music" value="magical_theme.ogg"/>
-  <property name="tileset" value="tileset_dungeon.txt"/>
+  <property name="music" value="music/magical_theme.ogg"/>
+  <property name="tileset" value="tilesetdefs/tileset_dungeon.txt"/>
   <property name="title" value="Brothers' Lair Fire Hall"/>
  </properties>
  <tileset firstgid="1" name="tiled_collision.png" tilewidth="64" tileheight="32">
@@ -286,7 +286,7 @@
   <object name="Warp to Atrium" type="on_trigger" x="768" y="2496" width="64" height="32">
    <properties>
     <property name="hotspot" value="24,79,2,1"/>
-    <property name="intermap" value="brothers_lair_atrium.txt,14,2"/>
+    <property name="intermap" value="maps/brothers_lair_atrium.txt,14,2"/>
     <property name="soundfx" value="soundfx/door_open.ogg,0,0"/>
    </properties>
   </object>
@@ -295,9 +295,9 @@
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,24,63,fixed,10,30"/>
     <property name="mapmod" value="object,23,64,162"/>
+    <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Barrel"/>
-    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object name="Barrel" type="on_trigger" x="704" y="2048" width="32" height="32">
@@ -305,9 +305,9 @@
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,22,63,fixed,10,30"/>
     <property name="mapmod" value="object,22,64,162"/>
+    <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Barrel"/>
-    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object name="Crate" type="on_trigger" x="672" y="2048" width="32" height="32">
@@ -315,9 +315,9 @@
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,21,63,fixed,10,35"/>
     <property name="mapmod" value="object,21,64,163"/>
+    <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Crate"/>
-    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object name="Crate" type="on_trigger" x="736" y="2016" width="32" height="32">
@@ -325,9 +325,9 @@
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,23,62,fixed,10,35"/>
     <property name="mapmod" value="object,23,63,163"/>
+    <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Crate"/>
-    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object name="Burn Trap" type="on_trigger" x="672" y="640" width="32" height="32">
@@ -352,12 +352,12 @@
     <property name="loot" value="currency,22,60,fixed,100,200"/>
     <property name="mapmod" value="object,21,60,160"/>
     <property name="remove_item" value="9102"/>
+    <property name="repeat" value="false"/>
     <property name="requires_item" value="9102"/>
     <property name="set_status" value="lb_fire_looted"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Runed Chest"/>
     <property name="unset_status" value="lb_fire_key"/>
-    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object name="Vesuvvio's Chest Locked" type="on_trigger" x="672" y="1920" width="32" height="32">
@@ -366,7 +366,7 @@
     <property name="power" value="18"/>
     <property name="power_damage" value="100,150"/>
     <property name="power_path" value="21,60,21,60"/>
-    <property name="requires_not" value="lb_fire_key,lb_fire_looted"/>
+    <property name="requires_not_status" value="lb_fire_key,lb_fire_looted"/>
     <property name="tooltip" value="Runed Chest"/>
    </properties>
   </object>
@@ -375,6 +375,7 @@
     <property name="hotspot" value="location"/>
     <property name="mapmod" value="object,19,16,165"/>
     <property name="msg" value="&quot;Today Pompeii got a little over-excited to meet me and blew himself up. So I had to go into the caves and catch myself a NEW antlion burster. Again. I think I'm going to name this one 'Krakatoa'. ~Vesuvvio (the Destroyer)&quot;"/>
+    <property name="repeat" value="false"/>
     <property name="set_status" value="lb_fire_password"/>
     <property name="soundfx" value="soundfx/inventory/inventory_page.ogg"/>
     <property name="tooltip" value="Book Stand"/>

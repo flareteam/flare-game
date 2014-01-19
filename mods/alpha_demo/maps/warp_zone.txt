@@ -3,8 +3,8 @@ width=64
 height=64
 tilewidth=64
 tileheight=32
-music=magical_theme.ogg
-tileset=tileset_dungeon.txt
+music=music/magical_theme.ogg
+tileset=tilesetdefs/tileset_dungeon.txt
 title=Warp Zone
 
 [tilesets]
@@ -224,7 +224,7 @@ data=
 type=on_trigger
 location=22,45,2,2
 hotspot=location
-intermap=ancient_temple.txt,47,94
+intermap=maps/ancient_temple.txt,47,94
 requires_status=waypoint_ancient_temple
 tooltip=Ancient Temple
 
@@ -232,14 +232,14 @@ tooltip=Ancient Temple
 type=on_trigger
 location=30,45,2,2
 hotspot=location
-intermap=frontier_outpost.txt,36,12
+intermap=maps/frontier_outpost.txt,36,12
 tooltip=Frontier Outpost
 
 [event]
 type=on_trigger
 location=30,37,2,2
 hotspot=location
-intermap=ydrakka_pass.txt,99,49
+intermap=maps/ydrakka_pass.txt,99,49
 requires_status=waypoint_ydrakka_pass
 tooltip=Ydrakka Pass
 
@@ -247,7 +247,7 @@ tooltip=Ydrakka Pass
 type=on_trigger
 location=30,29,2,2
 hotspot=location
-intermap=averguard_atrium.txt,11,52
+intermap=maps/averguard_atrium.txt,11,52
 requires_status=waypoint_averguard_atrium
 tooltip=Averguard Atrium
 
@@ -255,7 +255,7 @@ tooltip=Averguard Atrium
 type=on_trigger
 location=38,37,2,2
 hotspot=location
-intermap=brothers_lair_atrium.txt,17,22
+intermap=maps/brothers_lair_atrium.txt,17,22
 requires_status=waypoint_brothers_lair_atrium
 tooltip=Brothers Lair Atrium
 

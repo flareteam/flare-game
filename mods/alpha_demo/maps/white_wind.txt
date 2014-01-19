@@ -3,8 +3,8 @@ width=128
 height=128
 tilewidth=64
 tileheight=32
-music=overworld_theme.ogg
-tileset=tileset_grassland.txt
+music=music/overworld_theme.ogg
+tileset=tilesetdefs/tileset_grassland.txt
 title=White Wind
 
 [tilesets]
@@ -417,7 +417,7 @@ data=
 # to Frontier Plains
 type=on_trigger
 location=62,0,2,1
-intermap=frontier_plains.txt,162,233
+intermap=maps/frontier_plains.txt,162,233
 
 [event]
 # secret box

@@ -3,8 +3,8 @@ width=104
 height=104
 tilewidth=64
 tileheight=32
-music=safe_room_theme.ogg
-tileset=tileset_dungeon.txt
+music=music/safe_room_theme.ogg
+tileset=tilesetdefs/tileset_dungeon.txt
 title=Ancient Temple
 
 [tilesets]
@@ -345,7 +345,7 @@ data=
 type=on_trigger
 location=48,101,2,1
 hotspot=48,102,2,1
-intermap=frontier_plains.txt,118,138
+intermap=maps/frontier_plains.txt,118,138
 soundfx=soundfx/door_open.ogg,0,0
 
 [event]
@@ -440,7 +440,7 @@ hotspot=location
 loot=128,23,13,fixed,1
 mapmod=object,23,12,161
 repeat=false
-requires_not=at_chest1
+requires_not_status=at_chest1
 set_status=at_chest1
 soundfx=soundfx/wood_open.ogg
 tooltip=Treasure Chest
@@ -453,7 +453,7 @@ hotspot=location
 loot=57,25,11,fixed,1
 mapmod=object,24,11,160
 repeat=false
-requires_not=at_chest2
+requires_not_status=at_chest2
 set_status=at_chest2
 soundfx=soundfx/wood_open.ogg
 tooltip=Treasure Chest
@@ -616,7 +616,7 @@ location=44,92,4,5
 mapmod=background,44,94,265
 msg=Ancient Temple waypoint discovered.
 repeat=false
-requires_not=waypoint_ancient_temple
+requires_not_status=waypoint_ancient_temple
 set_status=waypoint_ancient_temple
 
 [event]
@@ -624,7 +624,7 @@ set_status=waypoint_ancient_temple
 type=on_trigger
 location=44,93,2,2
 hotspot=location
-intermap=warp_zone.txt,22,44
+intermap=maps/warp_zone.txt,22,44
 tooltip=Warp Zone
 
 [event]

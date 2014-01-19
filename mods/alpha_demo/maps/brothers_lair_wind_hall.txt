@@ -3,8 +3,8 @@ width=40
 height=50
 tilewidth=64
 tileheight=32
-music=magical_theme.ogg
-tileset=tileset_dungeon.txt
+music=music/magical_theme.ogg
+tileset=tilesetdefs/tileset_dungeon.txt
 title=Brothers' Lair Wind Hall
 
 [tilesets]
@@ -294,6 +294,7 @@ location=13,31,1,1
 hotspot=location
 mapmod=object,13,31,164
 msg="Fire is either Falling or Waiting. One element, one temperament."
+repeat=false
 soundfx=soundfx/inventory/inventory_page.ogg
 tooltip=Book Stand
 
@@ -304,6 +305,7 @@ location=25,19,1,1
 hotspot=location
 mapmod=object,25,19,165
 msg="Wind is not Rising. Wind is Falling on the firmament."
+repeat=false
 soundfx=soundfx/inventory/inventory_page.ogg
 tooltip=Book Stand
 
@@ -312,7 +314,7 @@ tooltip=Book Stand
 type=on_trigger
 location=2,18,1,2
 hotspot=2,18,1,2
-intermap=brothers_lair_atrium.txt,26,14
+intermap=maps/brothers_lair_atrium.txt,26,14
 soundfx=soundfx/door_open.ogg,0,0
 
 [event]
@@ -322,6 +324,7 @@ location=31,8,1,1
 hotspot=location
 mapmod=object,31,8,164
 msg="People used to ask me why I use a sword rather than a wand. It never occurs to them that the metal blade can conduct and channel lightning as well as (or better than!) any enchanted twig. ~Grisbon"
+repeat=false
 set_status=lb_wind_password
 soundfx=soundfx/inventory/inventory_page.ogg
 tooltip=Book Stand
@@ -448,7 +451,7 @@ hotspot=location
 power=6
 power_damage=100,150
 power_path=31,7,hero
-requires_not=lb_wind_key,lb_wind_looted
+requires_not_status=lb_wind_key,lb_wind_looted
 tooltip=Runed Chest
 
 [event]

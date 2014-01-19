@@ -5,16 +5,15 @@ categories=skeleton,undead,dungeon
 xp=2
 
 sfx_prefix=skeleton
-animations=skeleton_weak
+animations=animations/enemies/skeleton_weak.txt
 
 
 
 # combat stats
 hp=50
-speed=9
-dspeed=6
-melee_range=72
-threat_range=512
+speed=4.5
+melee_range=1.125
+threat_range=8.0
 turn_delay=7
 chance_pursue=10
 chance_melee_phys=5

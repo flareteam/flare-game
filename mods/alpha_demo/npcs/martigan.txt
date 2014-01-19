@@ -6,10 +6,10 @@ portrait=male05
 talker=true
 
 # animation info
-gfx=guild_man1
+gfx=animations/npcs/guild_man1.txt
 
 [dialog]
-requires_not=martigan_init
+requires_not_status=martigan_init
 him=Welcome to my mines, stranger. If you have the back for it, I've got the work.
 you=I heard you might have something more interesting.
 him=Ah, you're the adventurer? If you seek out danger you're in the right place. We had two guards stationed here; both were recalled to Ancelot. Now we're vulnerable.
@@ -18,7 +18,7 @@ set_status=martigan_init
 [dialog]
 topic=Goblin Camp
 requires_status=ml_skeleton_reward
-requires_not=fr_rilrak_search
+requires_not_status=fr_rilrak_search
 him=We're having problems. Goblins. All the noise from our mining is drawing their attention. We can't have them thinking we're easy prey.
 set_status=fr_rilrak_search
 unset_status=fr_rilrak_defeated
@@ -28,14 +28,14 @@ him=Attack their encampment up river from here. 20 gold now, 80 more when you re
 [dialog]
 topic=Goblin Camp Search
 requires_status=fr_rilrak_search
-requires_not=fr_rilrak_defeated
+requires_not_status=fr_rilrak_defeated
 him=The goblins have an encampment up the river from here on the west side. Clear them out and I'll pay you 80 gold.
 
 [dialog]
 topic=Rilrak Defeated
 requires_status=fr_rilrak_search
 requires_status=fr_rilrak_defeated
-requires_not=fr_rilrak_reward
+requires_not_status=fr_rilrak_reward
 set_status=fr_rilrak_reward
 reward_currency=80
 reward_xp=50
@@ -49,7 +49,7 @@ him=A member of the Order passed through our camp a few days ago. He left for th
 [dialog]
 topic=Rotten Tower
 requires_status=ml_skeleton_reward
-requires_not=rotten_tower_search
+requires_not_status=rotten_tower_search
 him=This region was once well guarded. There are watch towers positioned throughout these plains, but most are abandoned and crumbling now.
 him=I need someone to inspect the outpost tower in White Winds, south west of the Frontier Plains. Let me know if goblins have found their way inside.
 set_status=rotten_tower_search
@@ -57,13 +57,13 @@ set_status=rotten_tower_search
 [dialog]
 topic=Rotten Tower Search
 requires_status=rotten_tower_search
-requires_not=rotten_tower_found
+requires_not_status=rotten_tower_found
 him=Search for the abandoned tower southwest of the Frontier plains. The lands around there are called White Wind.
 
 [dialog]
 topic=Rotten Tower Found
 requires_status=rotten_tower_found
-requires_not=rotten_tower_inspected
+requires_not_status=rotten_tower_inspected
 you=There are plenty of goblins in the White Winds area, but not near the tower.
 him=Are you sure? Did you look inside the tower?
 you=Well...
@@ -71,7 +71,7 @@ you=Well...
 [dialog]
 topic=Rotten Tower Found
 requires_status=rotten_tower_inspected
-requires_not=rotten_tower_reward
+requires_not_status=rotten_tower_reward
 you=There are plenty of goblins in the white winds area, but not near the tower.
 him=Are you sure? Did you look inside the tower?
 you=I saw no signs of goblins through the locked iron grate door.
@@ -83,7 +83,7 @@ reward_xp=20
 [dialog]
 topic=Mineshaft
 requires_status=martigan_init
-requires_not=ml_skeleton_search
+requires_not_status=ml_skeleton_search
 you=So how's the mining business?
 him=Not good at all. While I was digging, my pickaxe scraped a skull that was wedged in the rock wall. Before I knew it, the nasty thing started moving and a whole body emerged. Now that thing is in there, preventing any more mining.
 him=Kill that skeleton for me, and I'll make it worth your while.
@@ -93,14 +93,14 @@ unset_status=ml_skeleton_defeated
 [dialog]
 topic=Reanimated Skeleton
 requires_status=ml_skeleton_search
-requires_not=ml_skeleton_defeated
+requires_not_status=ml_skeleton_defeated
 him=Please take care of that skeleton. Work in the mine can't continue otherwise.
 
 [dialog]
 topic=Skeleton Defeated
 requires_status=ml_skeleton_search
 requires_status=ml_skeleton_defeated
-requires_not=ml_skeleton_reward
+requires_not_status=ml_skeleton_reward
 you=I've defeated the Reanimated Skeleton.
 him=Excellent work! As promised, here's a little something for your troubles.
 set_status=ml_skeleton_reward

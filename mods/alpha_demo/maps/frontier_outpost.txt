@@ -3,8 +3,8 @@ width=64
 height=64
 tilewidth=64
 tileheight=32
-music=unrest_theme.ogg
-tileset=tileset_grassland.txt
+music=music/unrest_theme.ogg
+tileset=tilesetdefs/tileset_grassland.txt
 title=Frontier Outpost
 
 [tilesets]
@@ -249,19 +249,19 @@ location=12,35,1,1
 # to Mineshaft Longsword
 type=on_trigger
 location=19,11,2,1
-intermap=mineshaft_longsword.txt,44,61
+intermap=maps/mineshaft_longsword.txt,44,61
 
 [event]
 # to River Road
 type=on_trigger
 location=43,62,4,1
-intermap=river_road.txt,32,4
+intermap=maps/river_road.txt,32,4
 
 [event]
 # to Frontier Plains
 type=on_trigger
 location=1,12,1,2
-intermap=frontier_plains.txt,248,186
+intermap=maps/frontier_plains.txt,248,186
 
 [event]
 # Shared stash
@@ -279,7 +279,7 @@ location=32,8,5,5
 mapmod=background,33,10,265
 msg=Frontier Outpost waypoint discovered.
 repeat=false
-requires_not=waypoint_frontier_outpost
+requires_not_status=waypoint_frontier_outpost
 set_status=waypoint_frontier_outpost
 
 [event]
@@ -293,7 +293,7 @@ requires_status=waypoint_frontier_outpost
 type=on_trigger
 location=33,9,2,2
 hotspot=location
-intermap=warp_zone.txt,29,44
+intermap=maps/warp_zone.txt,29,44
 tooltip=Warp Zone
 
 [event]

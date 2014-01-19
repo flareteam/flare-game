@@ -3,8 +3,8 @@ width=80
 height=80
 tilewidth=64
 tileheight=32
-music=cave_theme.ogg
-tileset=tileset_cave.txt
+music=music/cave_theme.ogg
+tileset=tilesetdefs/tileset_cave.txt
 title=Cave of Living Bones 2
 
 [tilesets]
@@ -267,19 +267,19 @@ data=
 # to Cave 1
 type=on_trigger
 location=36,75,3,1
-intermap=cave_of_living_bones1.txt,33,3
+intermap=maps/cave_of_living_bones1.txt,33,3
 
 [event]
 # to Cave 3
 type=on_trigger
 location=2,36,1,4
-intermap=cave_of_living_bones3.txt,47,19
+intermap=maps/cave_of_living_bones3.txt,47,19
 
 [event]
 # to Atrium
 type=on_trigger
 location=32,3,1,1
-intermap=brothers_lair_atrium.txt,15,46
+intermap=maps/brothers_lair_atrium.txt,15,46
 
 [event]
 # Barrel
@@ -320,7 +320,7 @@ type=on_trigger
 location=47,44,1,1
 hotspot=45,42,3,3
 msg=This pillar is laced with cracks and crevices. Maybe with enough force it can be knocked down.
-requires_not=lb_has_explosive
+requires_not_status=lb_has_explosive
 set_status=lb_destroy_pillar
 tooltip=Giant Pillar
 
@@ -330,7 +330,7 @@ type=on_trigger
 location=47,44,1,1
 hotspot=45,42,3,3
 mapmod=object,47,44,163
-requires_not=lb_explosive_set
+requires_not_status=lb_explosive_set
 requires_status=lb_has_explosive
 set_status=lb_explosive_set
 tooltip=Place Explosive
@@ -343,7 +343,7 @@ mapmod=object,47,44,0;object,47,43,0;collision,47,43,2;object,47,42,0;collision,
 power=18
 power_path=47,44,47,44
 repeat=false
-requires_not=lb_explosive_detonated
+requires_not_status=lb_explosive_detonated
 requires_status=lb_explosive_set
 set_status=lb_explosive_detonated
 shakycam=60
@@ -356,7 +356,7 @@ mapmod=object,47,44,0;object,47,43,0;collision,47,43,2;object,47,42,0;collision,
 power=18
 power_path=47,44,47,44
 repeat=false
-requires_not=lb_explosive_detonated
+requires_not_status=lb_explosive_detonated
 requires_status=lb_explosive_set
 set_status=lb_explosive_detonated
 shakycam=60
@@ -369,7 +369,7 @@ mapmod=object,47,44,0;object,47,43,0;collision,47,43,2;object,47,42,0;collision,
 power=18
 power_path=47,44,47,44
 repeat=false
-requires_not=lb_explosive_detonated
+requires_not_status=lb_explosive_detonated
 requires_status=lb_explosive_set
 set_status=lb_explosive_detonated
 shakycam=60

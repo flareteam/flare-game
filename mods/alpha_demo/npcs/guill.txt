@@ -4,7 +4,7 @@ talker=true
 portrait=male04
 
 # animation info
-gfx=wandering_trader2
+gfx=animations/npcs/wandering_trader2.txt
 
 # convention:
 # XX_arc_status, where XX is the area abbreviation
@@ -14,7 +14,7 @@ gfx=wandering_trader2
 [dialog]
 topic=Chat
 set_status=ak_intro
-requires_not=ak_maddox_reward
+requires_not_status=ak_maddox_reward
 him=I am Guill, a scribe with the Order. I am grateful you've come -- we are short on trained warriors due to the call-to-arms in Ancelot.
 you=Why is the Order interested in these ruins?
 him=What the locals call the Goblin Warrens is actually the entrance to a grand underground fortress known as Averguard Keep. This site is sacred to our order. Our primary mission is to cleanse the evil from this place.
@@ -22,7 +22,7 @@ him=What the locals call the Goblin Warrens is actually the entrance to a grand 
 [dialog]
 topic=Goblins Warrens
 requires_status=ak_intro
-requires_not=ak_ukkonen_search
+requires_not_status=ak_ukkonen_search
 set_status=ak_ukkonen_search
 unset_status=ak_ukkonen_defeated
 him=The goblins in the Warrens answer to a warlord named Ukkonen. Most goblins are merely curious; this Ukkonen is bloodthirsty. Punish him for desecrating this place. His lair is here in the Warrens.
@@ -30,14 +30,14 @@ him=The goblins in the Warrens answer to a warlord named Ukkonen. Most goblins a
 [dialog]
 topic=Ukkonen Search
 requires_status=ak_ukkonen_search
-requires_not=ak_ukkonen_defeated
+requires_not_status=ak_ukkonen_defeated
 him=Ukkonen's lair is somewhere here in the Goblin Warrens.
 
 [dialog]
 topic=Ukkonen Defeated
 requires_status=ak_ukkonen_search
 requires_status=ak_ukkonen_defeated
-requires_not=ak_ukkonen_reward
+requires_not_status=ak_ukkonen_reward
 set_status=ak_ukkonen_reward
 reward_currency=50
 reward_xp=100
@@ -46,7 +46,7 @@ him=Ukkonen is defeated -- I sensed a calm in this place the moment you ended hi
 [dialog]
 topic=Averguard Chronicles
 requires_status=ak_intro
-requires_not=ak_tome_found
+requires_not_status=ak_tome_found
 set_status=ak_tome_search
 him=The Averguard left a set of Chronicles detailing their final era. One volume is missing. I've searched this entire area except for Ukkonen's lair. If you find the book please return to me.
 you=I'll keep an eye out for it.
@@ -65,7 +65,7 @@ him=You found this tome in Ukkonen's lair? Most excellent -- I feared this volum
 [dialog]
 topic=Averguard Keep
 requires_status=ak_tome_reward
-requires_not=ak_key_found
+requires_not_status=ak_key_found
 set_status=ak_key_search
 him=This tome confirms what we know of Averguard Keep -- it crumbled against the plague many centuries ago. But not all of the infected were destroyed. It appears many undead where locked away in hopes that a cure would be found.
 you=Why were the undead spared?
@@ -73,7 +73,7 @@ him=I don't know, but we should investigate. Head into the Atrium, then the Aver
 
 [dialog]
 topic=Averguard Key
-requires_not=ak_key_reward
+requires_not_status=ak_key_reward
 requires_status=ak_key_found
 requires_item=9001
 you=I have the prison key. The old prison warden carried it on his person -- he was infected, haunting the depths of the Prison.
@@ -87,8 +87,8 @@ him=A true shame that he was infected.  Well, now that we have the Averguard Key
 [dialog]
 topic=Burial Chamber
 requires_status=ak_key_reward
-requires_not=ak_temple_sealed
-requires_not=ak_talisman_used
+requires_not_status=ak_temple_sealed
+requires_not_status=ak_talisman_used
 set_status=ak_temple_search
 him=There is one place within the Keep that no living being has seen for centuries: the burial chamber behind Averguard Temple. From the Atrium you can access the Temple. Use your key to enter the Burial Chamber.
 you=Who is buried there?
@@ -98,7 +98,7 @@ him=The powerful leader of the Averguard -- Sir Evan Maddox.
 
 [dialog]
 topic=Key to Burial Chamber
-requires_not=ak_talisman_found
+requires_not_status=ak_talisman_found
 requires_status=ak_temple_sealed
 set_status=ak_talisman_search
 you=I tried the key on the Burial Chamber door but it would not open.
@@ -111,7 +111,7 @@ him=I must admit jealousy -- I have dreamed many years of seeing the old volumes
 [dialog]
 topic=Langlier's Talisman
 requires_status=ak_talisman_found
-requires_not=ak_talisman_reward
+requires_not_status=ak_talisman_reward
 requires_item=9002
 you=I am back from the Academy. Langlier was rags and bones, yet still a powerful mage. He wore this symbol.
 set_status=ak_talisman_reward
@@ -121,7 +121,7 @@ him=Fate has delivered this talisman to you. With it and the Averguard Key, you 
 
 [dialog]
 topic=Sir Evan Maddox
-requires_not=ak_maddox_defeated
+requires_not_status=ak_maddox_defeated
 requires_status=ak_key_found
 requires_status=ak_talisman_found
 set_status=ak_maddox_search
@@ -132,7 +132,7 @@ topic=Maddox Defeated
 requires_status=ak_maddox_defeated
 requires_status=ak_key_reward
 requires_status=ak_talisman_reward
-requires_not=ak_maddox_reward
+requires_not_status=ak_maddox_reward
 set_status=ak_maddox_reward
 remove_item=9001
 remove_item=9002

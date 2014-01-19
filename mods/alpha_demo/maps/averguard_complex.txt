@@ -4,8 +4,8 @@ height=120
 tilewidth=64
 tileheight=32
 location=98,70,1
-music=dungeon_theme.ogg
-tileset=tileset_dungeon.txt
+music=music/dungeon_theme.ogg
+tileset=tilesetdefs/tileset_dungeon.txt
 title=Averguard Complex
 
 [tilesets]
@@ -393,7 +393,7 @@ data=
 type=on_trigger
 location=99,70,1,2
 hotspot=100,70,1,2
-intermap=averguard_atrium.txt,2,52
+intermap=maps/averguard_atrium.txt,2,52
 soundfx=soundfx/door_open.ogg,0,0
 
 [event]

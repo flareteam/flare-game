@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="isometric" width="104" height="104" tilewidth="64" tileheight="32" backgroundcolor="#000000">
  <properties>
-  <property name="music" value="safe_room_theme.ogg"/>
-  <property name="tileset" value="tileset_dungeon.txt"/>
+  <property name="music" value="music/safe_room_theme.ogg"/>
+  <property name="tileset" value="tilesetdefs/tileset_dungeon.txt"/>
   <property name="title" value="Ancient Temple"/>
  </properties>
  <tileset firstgid="1" name="collision" tilewidth="64" tileheight="32">
@@ -358,7 +358,7 @@
   <object name="to Frontier Plains" type="on_trigger" x="1536" y="3232" width="64" height="32">
    <properties>
     <property name="hotspot" value="48,102,2,1"/>
-    <property name="intermap" value="frontier_plains.txt,118,138"/>
+    <property name="intermap" value="maps/frontier_plains.txt,118,138"/>
     <property name="soundfx" value="soundfx/door_open.ogg,0,0"/>
    </properties>
   </object>
@@ -451,7 +451,7 @@
     <property name="hotspot" value="location"/>
     <property name="loot" value="128,23,13,fixed,1"/>
     <property name="mapmod" value="object,23,12,161"/>
-    <property name="requires_not" value="at_chest1"/>
+    <property name="requires_not_status" value="at_chest1"/>
     <property name="set_status" value="at_chest1"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Treasure Chest"/>
@@ -463,7 +463,7 @@
     <property name="hotspot" value="location"/>
     <property name="loot" value="57,25,11,fixed,1"/>
     <property name="mapmod" value="object,24,11,160"/>
-    <property name="requires_not" value="at_chest2"/>
+    <property name="requires_not_status" value="at_chest2"/>
     <property name="set_status" value="at_chest2"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Treasure Chest"/>
@@ -608,7 +608,7 @@
    <properties>
     <property name="mapmod" value="background,44,94,265"/>
     <property name="msg" value="Ancient Temple waypoint discovered."/>
-    <property name="requires_not" value="waypoint_ancient_temple"/>
+    <property name="requires_not_status" value="waypoint_ancient_temple"/>
     <property name="set_status" value="waypoint_ancient_temple"/>
     <property name="repeat" value="false"/>
    </properties>
@@ -616,7 +616,7 @@
   <object name="Waypoint" type="on_trigger" x="1408" y="2976" width="64" height="64">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="intermap" value="warp_zone.txt,22,44"/>
+    <property name="intermap" value="maps/warp_zone.txt,22,44"/>
     <property name="tooltip" value="Warp Zone"/>
    </properties>
   </object>
