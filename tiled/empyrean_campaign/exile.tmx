@@ -180,7 +180,11 @@
     <property name="tooltip" value="Shared Stash"/>
    </properties>
   </object>
-  <object x="416" y="608" width="64" height="64"/>
+  <object type="on_trigger" x="416" y="608" width="64" height="64">
+   <properties>
+    <property name="intermap" value="maps/hyperspace.txt,11,11"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="npc" width="40" height="40">
   <object name="Blacksmith" type="udana" x="576" y="832" width="32" height="32"/>
