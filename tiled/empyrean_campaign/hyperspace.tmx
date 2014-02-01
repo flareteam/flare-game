@@ -168,7 +168,11 @@
     <property name="intermap" value="maps/perdition_harbor.txt,15,23"/>
    </properties>
   </object>
-  <object x="512" y="224" width="64" height="64"/>
+  <object type="on_trigger" x="512" y="224" width="64" height="64">
+   <properties>
+    <property name="intermap" value="maps/stonewood.txt,59,43"/>
+   </properties>
+  </object>
   <object x="704" y="224" width="64" height="64"/>
   <object x="928" y="288" width="64" height="64"/>
   <object x="992" y="512" width="64" height="64"/>
