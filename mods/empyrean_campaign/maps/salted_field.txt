@@ -209,14 +209,13 @@ data=
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
 
 [event]
-# to Exile
 type=on_trigger
 location=2,36,1,4
-intermap=maps/exile.txt,35,33
+intermap=maps/perdition_harbor.txt,37,17
 
 [event]
 # to Stonewood
-type=intermap
+type=on_trigger
 location=57,11,1,4
 intermap=maps/stonewood.txt,2,8
 

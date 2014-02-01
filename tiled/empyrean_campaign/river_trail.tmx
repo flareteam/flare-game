@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="isometric" width="80" height="40" tilewidth="64" tileheight="32" backgroundcolor="#000000">
  <properties>
-  <property name="music" value="music/overworld_theme.ogg"/>
+  <property name="music" value="music/wind_ambient.ogg"/>
   <property name="tileset" value="tilesetdefs/tileset_grassland.txt"/>
   <property name="title" value="River Trail"/>
  </properties>
@@ -167,9 +167,9 @@
     <property name="intermap" value="maps/arrival.txt,37,34"/>
    </properties>
   </object>
-  <object name="to Exile" type="on_trigger" x="2496" y="800" width="32" height="128">
+  <object type="on_trigger" x="2496" y="800" width="32" height="128">
    <properties>
-    <property name="intermap" value="maps/exile.txt,2,7"/>
+    <property name="intermap" value="maps/perdition_harbor.txt,2,24"/>
    </properties>
   </object>
  </objectgroup>
