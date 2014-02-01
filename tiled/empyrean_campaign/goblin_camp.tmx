@@ -3,7 +3,7 @@
  <properties>
   <property name="music" value="music/overworld_theme.ogg"/>
   <property name="tileset" value="tilesetdefs/tileset_grassland.txt"/>
-  <property name="title" value="New Grassland Map"/>
+  <property name="title" value="Goblin Camp"/>
  </properties>
  <tileset firstgid="1" name="collision" tilewidth="64" tileheight="32">
   <image source="../grassland/tiled_collision.png" width="960" height="32"/>
@@ -221,4 +221,11 @@
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
 </data>
  </layer>
+ <objectgroup name="event" width="60" height="60">
+  <object name="to Stonewood" type="on_trigger" x="128" y="32" width="128" height="32">
+   <properties>
+    <property name="intermap" value="maps/stonewood.txt,52,76"/>
+   </properties>
+  </object>
+ </objectgroup>
 </map>
