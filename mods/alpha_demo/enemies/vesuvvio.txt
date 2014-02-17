@@ -2,7 +2,11 @@ name=Vesuvvio (the Destroyer)
 level=11
 xp=2000
 
-sfx_prefix=human_male
+sfx_phys=soundfx/melee_attack.ogg
+sfx_hit=soundfx/male_hit.ogg
+sfx_die=soundfx/male_die.ogg
+sfx_critdie=soundfx/male_die.ogg
+
 animations=animations/enemies/vesuvvio.txt
 
 quest_loot=lb_fire_unlocked,lb_fire_key,9102
