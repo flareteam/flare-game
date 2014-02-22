@@ -2,8 +2,8 @@
 <!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="isometric" width="100" height="100" tilewidth="64" tileheight="32">
  <properties>
-  <property name="music" value="title_theme.ogg"/>
-  <property name="tileset" value="tileset_dungeon.txt"/>
+  <property name="music" value="music/title_theme.ogg"/>
+  <property name="tileset" value="tilesetdefs/tileset_dungeon.txt"/>
   <property name="title" value="Dev Lab - Basic Lessons"/>
  </properties>
  <tileset firstgid="1" name="collision" tilewidth="64" tileheight="32">
@@ -344,14 +344,14 @@
 </data>
  </layer>
  <objectgroup name="event" width="100" height="100">
-  <object name="Basic lab" type="teleport" x="2656" y="1664" width="64" height="64">
+  <object name="Basic lab" type="on_trigger" x="2656" y="1664" width="64" height="64">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="intermap" value="maps/lab_basic.txt,3,21"/>
     <property name="tooltip" value="Basic lab"/>
    </properties>
   </object>
-  <object name="Book Stand" type="run_once" x="256" y="1216" width="32" height="32">
+  <object name="Book Stand" type="on_trigger" x="256" y="1216" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="mapmod" value="object,8,38,164"/>
@@ -360,7 +360,7 @@
     <property name="tooltip" value="Book stand"/>
    </properties>
   </object>
-  <object name="Book Stand" type="run_once" x="128" y="2400" width="32" height="32">
+  <object name="Book Stand" type="on_trigger" x="128" y="2400" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="mapmod" value="object,8,38,164"/>
@@ -369,30 +369,30 @@
     <property name="tooltip" value="Book stand"/>
    </properties>
   </object>
-  <object type="teleport" x="224" y="2144" width="64" height="32">
+  <object type="on_trigger" x="224" y="2144" width="64" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="intermap" value="lab_mapping.txt,7,75"/>
+    <property name="intermap" value="maps/lab_mapping.txt,7,75"/>
     <property name="tooltip" value="Runes on the ground."/>
    </properties>
   </object>
- </objectgroup>
- <objectgroup name="npc" width="100" height="100">
-  <object type="mapping_welcome" x="1888" y="1600" width="32" height="32"/>
-  <object type="mapping_tiles" x="1472" y="1152" width="32" height="32"/>
-  <object type="mapping_basics" x="1856" y="1184" width="32" height="32"/>
-  <object type="mapping_tilesets" x="1376" y="1600" width="32" height="32"/>
-  <object type="mapping_structure" x="608" y="1312" width="32" height="32"/>
   <object name="brazier sound effect" type="on_load" x="640" y="1280" width="32" height="32">
    <properties>
     <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
    </properties>
   </object>
-  <object type="mapping_collision" x="192" y="1568" width="32" height="32"/>
   <object name="brazier sound effect" type="on_load" x="128" y="1568" width="32" height="32">
    <properties>
     <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
    </properties>
   </object>
+ </objectgroup>
+ <objectgroup name="npc" width="100" height="100" visible="0">
+  <object type="mapping_welcome" x="1888" y="1600" width="32" height="32"/>
+  <object type="mapping_tiles" x="1472" y="1152" width="32" height="32"/>
+  <object type="mapping_basics" x="1856" y="1184" width="32" height="32"/>
+  <object type="mapping_tilesets" x="1376" y="1600" width="32" height="32"/>
+  <object type="mapping_structure" x="608" y="1312" width="32" height="32"/>
+  <object type="mapping_collision" x="192" y="1568" width="32" height="32"/>
  </objectgroup>
 </map>
