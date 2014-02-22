@@ -1,6 +1,9 @@
 # Settings for actionbar menu
 # pos is x,y,width,height
 
+pos=0,0,320,18
+align=bottom
+
 default_M1_power=1
 
 slot1=16,1,16,16
@@ -24,7 +27,7 @@ log_menu=288,1,16,16
 
 # screen areas occupied by the three main sections
 # TODO maybe we should calculate them
-# x,width,height. There is no y, it's taken from menus.txt
-numberArea=16,160,16
-mouseArea=192,32,16
-menuArea=240,64,16
+# x,width,height. y is ignored, since it is taken from the "pos" key's y value
+numberArea=16,0,160,16
+mouseArea=192,0,32,16
+menuArea=240,0,64,16
