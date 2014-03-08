@@ -235,12 +235,12 @@
   <object x="160" y="352" width="32" height="64"/>
  </objectgroup>
  <objectgroup name="enemy" width="60" height="60">
-  <object type="goblin_charger" x="1216" y="1024" width="32" height="32">
+  <object type="enemies/goblin_charger.txt" x="1216" y="1024" width="32" height="32">
    <properties>
     <property name="waypoints" value="38,32;28,25;22,34;34,37;50,44;47,26"/>
    </properties>
   </object>
-  <object type="goblin_spearman" x="1248" y="1152" width="32" height="32"/>
+  <object type="enemies/goblin_spearman.txt" x="1248" y="1152" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="enemygroup" width="60" height="60" visible="0">
   <object type="zombie" x="192" y="1664" width="448" height="192">

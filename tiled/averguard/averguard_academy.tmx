@@ -502,20 +502,20 @@
   <object x="576" y="2400"/>
  </objectgroup>
  <objectgroup name="enemy" width="70" height="100" visible="0">
-  <object name="entrance guards" type="skeletal_mage" x="1920" y="448" width="32" height="32">
+  <object name="entrance guards" type="enemies/skeletal_mage.txt" x="1920" y="448" width="32" height="32">
    <properties>
     <property name="direction" value="3"/>
    </properties>
   </object>
-  <object type="skeletal_mage" x="2080" y="448" width="32" height="32">
+  <object type="enemies/skeletal_mage.txt" x="2080" y="448" width="32" height="32">
    <properties>
     <property name="direction" value="3"/>
    </properties>
   </object>
-  <object type="zombie_rotting" x="1600" y="800" width="32" height="32"/>
-  <object type="zombie" x="1600" y="960" width="32" height="32"/>
-  <object name="guards teleport chest" type="zombie" x="1440" y="2720" width="32" height="32"/>
-  <object type="professor_langlier" x="160" y="2912" width="32" height="32">
+  <object type="enemies/zombie_rotting.txt" x="1600" y="800" width="32" height="32"/>
+  <object type="enemies/zombie.txt" x="1600" y="960" width="32" height="32"/>
+  <object name="guards teleport chest" type="enemies/zombie.txt" x="1440" y="2720" width="32" height="32"/>
+  <object type="enemies/professor_langlier.txt" x="160" y="2912" width="32" height="32">
    <properties>
     <property name="direction" value="1"/>
    </properties>
