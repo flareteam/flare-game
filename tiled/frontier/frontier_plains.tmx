@@ -1223,21 +1223,20 @@
   </object>
  </objectgroup>
  <objectgroup name="enemy" width="256" height="256" visible="0">
-  <object name="mourning zombie" type="zombie_brute" x="640" y="5056" width="32" height="32">
+  <object name="mourning zombie" type="enemies/zombie_brute" x="640" y="5056" width="32" height="32">
    <properties>
     <property name="direction" value="1"/>
    </properties>
   </object>
-  <object name="guarding wyvern" type="wyvern" x="3808" y="4096" width="32" height="32">
+  <object name="guarding wyvern" type="enemies/wyvern.txt" x="3808" y="4096" width="32" height="32">
    <properties>
     <property name="direction" value="3"/>
    </properties>
   </object>
-  <object name="Zombie spawner" type="cursed_grave" x="1024" y="4896" width="32" height="32">
+  <object name="Zombie spawner" type="enemies/cursed_grave.txt" x="1024" y="4896" width="32" height="32">
    <properties>
     <property name="direction" value="3"/>
    </properties>
   </object>
-  <object x="1592" y="4998"/>
  </objectgroup>
 </map>

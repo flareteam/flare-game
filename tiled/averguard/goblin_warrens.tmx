@@ -382,17 +382,17 @@
   </object>
  </objectgroup>
  <objectgroup name="enemy" width="60" height="82" visible="0">
-  <object type="skeleton" x="480" y="576" width="32" height="32">
+  <object type="enemies/skeleton.txt" x="480" y="576" width="32" height="32">
    <properties>
     <property name="direction" value="5"/>
    </properties>
   </object>
-  <object type="skeleton" x="704" y="576" width="32" height="32">
+  <object type="enemies/skeleton.txt" x="704" y="576" width="32" height="32">
    <properties>
     <property name="direction" value="1"/>
    </properties>
   </object>
-  <object type="ukkonen" x="128" y="1056" width="32" height="32">
+  <object type="enemies/ukkonen.txt" x="128" y="1056" width="32" height="32">
    <properties>
     <property name="direction" value="2"/>
    </properties>

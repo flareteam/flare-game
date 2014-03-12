@@ -234,45 +234,42 @@
 </data>
  </layer>
  <objectgroup name="enemy" width="64" height="64" visible="0">
-  <object type="goblin" x="1888" y="1568" width="32" height="32"/>
-  <object type="goblin" x="1824" y="1376" width="32" height="32"/>
-  <object type="goblin" x="1504" y="928" width="32" height="32"/>
-  <object type="goblin" x="1088" y="672" width="32" height="32"/>
-  <object type="goblin" x="608" y="1088" width="32" height="32"/>
-  <object type="goblin_spearman" x="1504" y="1344" width="32" height="32"/>
-  <object type="goblin_spearman" x="1312" y="1280" width="32" height="32"/>
-  <object x="1504" y="1344"/>
-  <object x="1504" y="1376"/>
-  <object type="goblin_spearman" x="1216" y="1024" width="32" height="32"/>
-  <object type="goblin_spearman" x="1024" y="832" width="32" height="32"/>
-  <object type="goblin_spearman" x="1280" y="800" width="32" height="32"/>
-  <object type="goblin_spearman_elite" x="608" y="800" width="32" height="32"/>
-  <object type="goblin_spearman" x="832" y="1024" width="32" height="32"/>
-  <object type="goblin_spearman" x="928" y="1024" width="32" height="32"/>
-  <object type="goblin_spearman" x="352" y="672" width="32" height="32"/>
-  <object type="goblin_charger_elite" x="288" y="320" width="32" height="32"/>
-  <object type="goblin_spearman" x="512" y="288" width="32" height="32"/>
-  <object type="goblin_charger" x="1440" y="992" width="32" height="32"/>
-  <object type="goblin_charger" x="1216" y="1184" width="32" height="32"/>
-  <object type="goblin_spearman_elite" x="1024" y="1440" width="32" height="32"/>
-  <object type="goblin_charger" x="1312" y="1440" width="32" height="32"/>
-  <object type="goblin_charger" x="672" y="1408" width="32" height="32"/>
-  <object type="goblin_charger" x="672" y="1376" width="32" height="32"/>
-  <object type="goblin_charger" x="736" y="1184" width="32" height="32"/>
-  <object type="goblin_charger" x="928" y="576" width="32" height="32"/>
-  <object type="goblin_charger" x="832" y="576" width="32" height="32"/>
-  <object type="goblin_charger_elite" x="896" y="704" width="32" height="32"/>
-  <object type="goblin_charger" x="576" y="480" width="32" height="32"/>
-  <object type="goblin_spearman" x="448" y="608" width="32" height="32"/>
-  <object type="rilrak" x="352" y="448" width="32" height="32">
+  <object type="enemies/goblin.txt" x="1888" y="1568" width="32" height="32"/>
+  <object type="enemies/goblin.txt" x="1824" y="1376" width="32" height="32"/>
+  <object type="enemies/goblin.txt" x="1504" y="928" width="32" height="32"/>
+  <object type="enemies/goblin.txt" x="1088" y="672" width="32" height="32"/>
+  <object type="enemies/goblin.txt" x="608" y="1088" width="32" height="32"/>
+  <object type="enemies/goblin_spearman.txt" x="1504" y="1344" width="32" height="32"/>
+  <object type="enemies/goblin_spearman.txt" x="1312" y="1280" width="32" height="32"/>
+  <object type="enemies/goblin_spearman.txt" x="1216" y="1024" width="32" height="32"/>
+  <object type="enemies/goblin_spearman.txt" x="1024" y="832" width="32" height="32"/>
+  <object type="enemies/goblin_spearman.txt" x="1280" y="800" width="32" height="32"/>
+  <object type="enemies/goblin_spearman_elite.txt" x="608" y="800" width="32" height="32"/>
+  <object type="enemies/goblin_spearman.txt" x="832" y="1024" width="32" height="32"/>
+  <object type="enemies/goblin_spearman.txt" x="928" y="1024" width="32" height="32"/>
+  <object type="enemies/goblin_spearman.txt" x="352" y="672" width="32" height="32"/>
+  <object type="enemies/goblin_charger_elite.txt" x="288" y="320" width="32" height="32"/>
+  <object type="enemies/goblin_spearman.txt" x="512" y="288" width="32" height="32"/>
+  <object type="enemies/goblin_charger.txt" x="1440" y="992" width="32" height="32"/>
+  <object type="enemies/goblin_charger.txt" x="1216" y="1184" width="32" height="32"/>
+  <object type="enemies/goblin_spearman_elite.txt" x="1024" y="1440" width="32" height="32"/>
+  <object type="enemies/goblin_charger.txt" x="1312" y="1440" width="32" height="32"/>
+  <object type="enemies/goblin_charger.txt" x="672" y="1408" width="32" height="32"/>
+  <object type="enemies/goblin_charger.txt" x="672" y="1376" width="32" height="32"/>
+  <object type="enemies/goblin_charger.txt" x="736" y="1184" width="32" height="32"/>
+  <object type="enemies/goblin_charger.txt" x="928" y="576" width="32" height="32"/>
+  <object type="enemies/goblin_charger.txt" x="832" y="576" width="32" height="32"/>
+  <object type="enemies/goblin_charger_elite.txt" x="896" y="704" width="32" height="32"/>
+  <object type="enemies/goblin_charger.txt" x="576" y="480" width="32" height="32"/>
+  <object type="enemies/goblin_spearman.txt" x="448" y="608" width="32" height="32"/>
+  <object type="enemies/rilrak.txt" x="352" y="448" width="32" height="32">
    <properties>
     <property name="direction" value="5"/>
    </properties>
   </object>
-  <object x="1400" y="1736"/>
-  <object type="antlion_hatchling" x="1440" y="480" width="32" height="32"/>
-  <object type="antlion_hatchling" x="1312" y="480" width="32" height="32"/>
-  <object type="antlion_hatchling" x="1312" y="576" width="32" height="32"/>
+  <object type="enemies/antlion_hatchling.txt" x="1440" y="480" width="32" height="32"/>
+  <object type="enemies/antlion_hatchling.txt" x="1312" y="480" width="32" height="32"/>
+  <object type="enemies/antlion_hatchling.txt" x="1312" y="576" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="event" width="64" height="64">
   <object name="cliff passage container" type="on_trigger" x="640" y="1376" width="32" height="32">

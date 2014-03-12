@@ -709,14 +709,14 @@
   </object>
  </objectgroup>
  <objectgroup name="enemy" width="128" height="128">
-  <object name="goblin_shaman" type="goblin_shaman" x="2304" y="1632" width="32" height="32"/>
-  <object name="goblin_shaman" type="goblin_shaman" x="2208" y="1504" width="32" height="32"/>
-  <object name="guarding wyvern" type="wyvern" x="1856" y="416" width="32" height="32">
+  <object name="goblin_shaman" type="enemies/goblin_shaman.txt" x="2304" y="1632" width="32" height="32"/>
+  <object name="goblin_shaman" type="enemies/goblin_shaman.txt" x="2208" y="1504" width="32" height="32"/>
+  <object name="guarding wyvern" type="enemies/wyvern.txt" x="1856" y="416" width="32" height="32">
    <properties>
     <property name="direction" value="4"/>
    </properties>
   </object>
-  <object name="guarding wyvern" type="wyvern" x="2176" y="736" width="32" height="32">
+  <object name="guarding wyvern" type="enemies/wyvern.txt" x="2176" y="736" width="32" height="32">
    <properties>
     <property name="direction" value="4"/>
    </properties>
