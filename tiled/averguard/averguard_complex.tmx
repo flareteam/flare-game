@@ -696,22 +696,22 @@
   </object>
   <object type="enemies/skeletal_warrior.txt" x="2112" y="2944" width="32" height="32"/>
   <object type="enemies/skeletal_sniper.txt" x="1952" y="2784" width="32" height="32"/>
-  <object type="enemies/zombie_iceclaw" x="1952" y="2848" width="32" height="32"/>
-  <object type="enemies/zombie_iceclaw" x="1984" y="2912" width="32" height="32"/>
+  <object type="enemies/zombie_iceclaw.txt" x="1952" y="2848" width="32" height="32"/>
+  <object type="enemies/zombie_iceclaw.txt" x="1984" y="2912" width="32" height="32"/>
   <object type="enemies/skeletal_warrior.txt" x="1632" y="2880" width="32" height="32">
    <properties>
     <property name="direction" value="1"/>
    </properties>
   </object>
-  <object type="enemies/zombie_brute" x="1472" y="2784" width="32" height="32"/>
-  <object type="enemies/zombie_brute" x="1472" y="3008" width="32" height="32"/>
+  <object type="enemies/zombie_brute.txt" x="1472" y="2784" width="32" height="32"/>
+  <object type="enemies/zombie_brute.txt" x="1472" y="3008" width="32" height="32"/>
   <object type="enemies/antlion.txt" x="1568" y="2848" width="32" height="32"/>
   <object type="enemies/antlion.txt" x="1536" y="2848" width="32" height="32"/>
   <object type="enemies/antlion.txt" x="1536" y="2880" width="32" height="32"/>
   <object type="enemies/antlion.txt" x="1536" y="2912" width="32" height="32"/>
   <object type="enemies/antlion.txt" x="1568" y="2912" width="32" height="32"/>
-  <object type="enemies/zombie_brute" x="1344" y="3520" width="32" height="32"/>
-  <object type="enemies/zombie_iceclaw" x="1504" y="3680" width="32" height="32"/>
+  <object type="enemies/zombie_brute.txt" x="1344" y="3520" width="32" height="32"/>
+  <object type="enemies/zombie_iceclaw.txt" x="1504" y="3680" width="32" height="32"/>
   <object type="enemies/zombie_bloodthirsty.txt" x="1664" y="3520" width="32" height="32"/>
   <object type="enemies/skeletal_warrior.txt" x="1504" y="3584" width="32" height="32"/>
   <object type="enemies/antlion.txt" x="1536" y="3776" width="32" height="32"/>
@@ -786,12 +786,12 @@
   <object type="enemies/skeletal_warrior.txt" x="1408" y="1728" width="32" height="32"/>
   <object type="enemies/skeletal_mage.txt" x="1408" y="1792" width="32" height="32"/>
   <object type="enemies/skeletal_warrior.txt" x="1344" y="1568" width="32" height="32"/>
-  <object type="enemies/zombie_brute" x="2304" y="1344" width="32" height="32"/>
-  <object type="enemies/zombie_brute" x="2176" y="1504" width="32" height="32"/>
-  <object type="enemies/zombie_brute" x="2048" y="1376" width="32" height="32"/>
-  <object type="enemies/zombie_iceclaw" x="1856" y="1312" width="32" height="32"/>
-  <object type="enemies/zombie_iceclaw" x="1792" y="1504" width="32" height="32"/>
-  <object type="enemies/zombie_iceclaw" x="2048" y="1536" width="32" height="32"/>
+  <object type="enemies/zombie_brute.txt" x="2304" y="1344" width="32" height="32"/>
+  <object type="enemies/zombie_brute.txt" x="2176" y="1504" width="32" height="32"/>
+  <object type="enemies/zombie_brute.txt" x="2048" y="1376" width="32" height="32"/>
+  <object type="enemies/zombie_iceclaw.txt" x="1856" y="1312" width="32" height="32"/>
+  <object type="enemies/zombie_iceclaw.txt" x="1792" y="1504" width="32" height="32"/>
+  <object type="enemies/zombie_iceclaw.txt" x="2048" y="1536" width="32" height="32"/>
   <object type="enemies/zombie_bloodthirsty.txt" x="1824" y="1408" width="32" height="32"/>
   <object type="enemies/zombie_bloodthirsty.txt" x="1728" y="1344" width="32" height="32"/>
   <object type="enemies/zombie_bloodthirsty.txt" x="2368" y="1408" width="32" height="32"/>
@@ -802,8 +802,8 @@
   <object type="enemies/skeletal_sniper.txt" x="1888" y="1728" width="32" height="32"/>
   <object type="enemies/antlion.txt" x="1888" y="1696" width="32" height="32"/>
   <object type="enemies/antlion.txt" x="1888" y="1760" width="32" height="32"/>
-  <object type="enemies/antlion_blinker" x="1376" y="1120" width="32" height="32"/>
-  <object type="enemies/antlion_blinker" x="1408" y="1152" width="32" height="32"/>
+  <object type="enemies/antlion_blinker.txt" x="1376" y="1120" width="32" height="32"/>
+  <object type="enemies/antlion_blinker.txt" x="1408" y="1152" width="32" height="32"/>
   <object type="enemies/antlion.txt" x="2208" y="736" width="32" height="32"/>
   <object type="enemies/antlion.txt" x="2240" y="832" width="32" height="32"/>
   <object type="enemies/antlion.txt" x="2304" y="768" width="32" height="32"/>
@@ -874,7 +874,7 @@
     <property name="direction" value="3"/>
    </properties>
   </object>
-  <object name="kill room creature" type="enemies/zombie_iceclaw" x="416" y="928" width="32" height="32">
+  <object name="kill room creature" type="enemies/zombie_iceclaw.txt" x="416" y="928" width="32" height="32">
    <properties>
     <property name="direction" value="3"/>
    </properties>
@@ -884,7 +884,7 @@
     <property name="direction" value="3"/>
    </properties>
   </object>
-  <object name="kill room creature" type="enemies/zombie_iceclaw" x="544" y="928" width="32" height="32">
+  <object name="kill room creature" type="enemies/zombie_iceclaw.txt" x="544" y="928" width="32" height="32">
    <properties>
     <property name="direction" value="3"/>
    </properties>
