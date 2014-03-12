@@ -8,13 +8,13 @@ tileset=tilesetdefs/tileset_grassland.txt
 title=River Trail
 
 [tilesets]
-tileset=../../../../flare-game/tiled/grassland/tiled_collision.png,64,32,0,0
-tileset=../../../../flare-game/tiled/grassland/grassland.png,64,128,0,0
-tileset=../../../../flare-game/tiled/grassland/grassland_water.png,64,64,0,32
-tileset=../../../../flare-game/tiled/grassland/grassland_structures.png,64,256,0,0
-tileset=../../../../flare-game/tiled/grassland/grassland_trees.png,128,256,-32,0
-tileset=../../../../flare-game/tiled/grassland/set_rules.png,64,32,0,0
-tileset=../../../../flare-game/tiled/grassland/tiled_grassland_2x2.png,128,64,0,16
+tileset=../../../tiled/grassland/tiled_collision.png,64,32,0,0
+tileset=../../../tiled/grassland/grassland.png,64,128,0,0
+tileset=../../../tiled/grassland/grassland_water.png,64,64,0,32
+tileset=../../../tiled/grassland/grassland_structures.png,64,256,0,0
+tileset=../../../tiled/grassland/grassland_trees.png,128,256,-32,0
+tileset=../../../tiled/grassland/set_rules.png,64,32,0,0
+tileset=../../../tiled/grassland/tiled_grassland_2x2.png,128,64,0,16
 
 [layer]
 type=background
@@ -158,4 +158,16 @@ intermap=maps/arrival.txt,37,34
 type=on_trigger
 location=78,25,1,4
 intermap=maps/perdition_harbor.txt,2,24
+
+[enemy]
+type=enemies/zombie_rotting.txt
+location=4,21,1,1
+
+[enemy]
+type=enemies/zombie_rotting.txt
+location=46,5,1,1
+
+[enemy]
+type=enemies/zombie_rotting.txt
+location=54,7,1,1
 

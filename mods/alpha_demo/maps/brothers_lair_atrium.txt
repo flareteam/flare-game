@@ -246,9 +246,9 @@ type=on_trigger
 location=12,17,6,6
 mapmod=background,14,20,265
 msg=Brothers Lair Atrium waypoint discovered
+repeat=false
 requires_not_status=waypoint_brothers_lair_atrium
 set_status=waypoint_brothers_lair_atrium
-repeat=false
 
 [event]
 # brazier sound effect
@@ -258,7 +258,7 @@ soundfx=soundfx/environment/open_fire_loop.ogg
 
 [enemy]
 # Patrolling undead
-type=skeletal_warrior
+type=enemies/skeletal_warrior.txt
 location=9,8,1,1
 waypoints=9,8;20,8;20,19;9,19
 
