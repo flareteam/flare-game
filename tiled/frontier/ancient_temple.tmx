@@ -451,11 +451,11 @@
     <property name="hotspot" value="location"/>
     <property name="loot" value="128,23,13,fixed,1"/>
     <property name="mapmod" value="object,23,12,161"/>
+    <property name="repeat" value="false"/>
     <property name="requires_not_status" value="at_chest1"/>
     <property name="set_status" value="at_chest1"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Treasure Chest"/>
-    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object name="island chest" type="on_trigger" x="768" y="352" width="32" height="32">
@@ -463,11 +463,11 @@
     <property name="hotspot" value="location"/>
     <property name="loot" value="57,25,11,fixed,1"/>
     <property name="mapmod" value="object,24,11,160"/>
+    <property name="repeat" value="false"/>
     <property name="requires_not_status" value="at_chest2"/>
     <property name="set_status" value="at_chest2"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Treasure Chest"/>
-    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object name="book stand" type="on_trigger" x="1248" y="288" width="32" height="32">
@@ -475,21 +475,21 @@
     <property name="hotspot" value="location"/>
     <property name="mapmod" value="object,39,9,165"/>
     <property name="msg" value="Tho' Nature, red in tooth and claw; With ravine, shriek'd against his creed"/>
+    <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/inventory/inventory_page.ogg"/>
     <property name="tooltip" value="In Memoriam"/>
-    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object name="zombie ambush" type="on_trigger" x="352" y="1664" width="128" height="64">
    <properties>
-    <property name="spawn" value="zombie,12,50;zombie,13,50;zombie,12,55;zombie,13,55"/>
     <property name="repeat" value="false"/>
+    <property name="spawn" value="enemies/zombie.txt,12,50;enemies/zombie.txt,13,50;enemies/zombie.txt,12,55;enemies/zombie.txt,13,55"/>
    </properties>
   </object>
   <object name="entrance brute" type="on_trigger" x="1536" y="2752" width="64" height="64">
    <properties>
-    <property name="spawn" value="zombie_brute,48,81"/>
     <property name="repeat" value="false"/>
+    <property name="spawn" value="enemies/zombie_brute.txt,48,81"/>
    </properties>
   </object>
   <object name="floor spikes" type="on_trigger" x="768" y="2592" width="32" height="32">
@@ -608,9 +608,9 @@
    <properties>
     <property name="mapmod" value="background,44,94,265"/>
     <property name="msg" value="Ancient Temple waypoint discovered."/>
+    <property name="repeat" value="false"/>
     <property name="requires_not_status" value="waypoint_ancient_temple"/>
     <property name="set_status" value="waypoint_ancient_temple"/>
-    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object name="Waypoint" type="on_trigger" x="1408" y="2976" width="64" height="64">
@@ -630,16 +630,16 @@
    <properties>
     <property name="hotspot" value="location"/>
     <property name="mapmod" value="collision,37,71,0;collision,38,71,0;collision,37,72,0;collision,38,72,0;object,38,71,0;object,38,72,0;object,37,70,213;object,37,73,219"/>
-    <property name="soundfx" value="soundfx/door_open.ogg"/>
     <property name="repeat" value="false"/>
+    <property name="soundfx" value="soundfx/door_open.ogg"/>
    </properties>
   </object>
   <object name="double doors" type="on_trigger" x="1856" y="2240" width="64" height="64">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="mapmod" value="collision,58,70,0;collision,59,70,0;collision,58,71,0;collision,59,71,0;object,59,70,0;object,59,71,0;object,59,69,209;object,59,72,223"/>
-    <property name="soundfx" value="soundfx/door_open.ogg"/>
     <property name="repeat" value="false"/>
+    <property name="soundfx" value="soundfx/door_open.ogg"/>
    </properties>
   </object>
   <object type="on_trigger" x="480" y="2272" width="32" height="32">

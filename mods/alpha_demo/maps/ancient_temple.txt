@@ -474,14 +474,14 @@ tooltip=In Memoriam
 type=on_trigger
 location=11,52,4,2
 repeat=false
-spawn=zombie,12,50;zombie,13,50;zombie,12,55;zombie,13,55
+spawn=enemies/zombie.txt,12,50;enemies/zombie.txt,13,50;enemies/zombie.txt,12,55;enemies/zombie.txt,13,55
 
 [event]
 # entrance brute
 type=on_trigger
 location=48,86,2,2
 repeat=false
-spawn=zombie_brute,48,81
+spawn=enemies/zombie_brute.txt,48,81
 
 [event]
 # floor spikes
