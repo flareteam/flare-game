@@ -883,7 +883,7 @@ intermap=maps/hidden_grove.txt,120,60
 type=on_trigger
 location=48,155,5,5
 repeat=false
-spawn=zombie_rotting,45,155;zombie_rotting,46,160;zombie_rotting,50,153;zombie_rotting,52,161;zombie_rotting,54,157
+spawn=enemies/zombie_rotting.txt,45,155;enemies/zombie_rotting.txt,46,160;enemies/zombie_rotting.txt,50,153;enemies/zombie_rotting.txt,52,161;enemies/zombie_rotting.txt,54,157
 
 [event]
 type=on_load
@@ -1278,19 +1278,19 @@ number=8,12
 
 [enemy]
 # mourning zombie
-type=zombie_brute
+type=enemies/zombie_brute.txt
 location=20,158,1,1
 direction=1
 
 [enemy]
 # guarding wyvern
-type=wyvern
+type=enemies/wyvern.txt
 location=119,128,1,1
 direction=3
 
 [enemy]
 # Zombie spawner
-type=cursed_grave
+type=enemies/cursed_grave.txt
 location=32,153,1,1
 direction=3
 

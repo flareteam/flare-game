@@ -884,7 +884,7 @@
   <object type="on_trigger" x="1536" y="4960" width="160" height="160">
    <properties>
     <property name="repeat" value="false"/>
-    <property name="spawn" value="zombie_rotting,45,155;zombie_rotting,46,160;zombie_rotting,50,153;zombie_rotting,52,161;zombie_rotting,54,157"/>
+    <property name="spawn" value="enemies/zombie_rotting.txt,45,155;enemies/zombie_rotting.txt,46,160;enemies/zombie_rotting.txt,50,153;enemies/zombie_rotting.txt,52,161;enemies/zombie_rotting.txt,54,157"/>
    </properties>
   </object>
   <object type="on_load" x="1632" y="928" width="32" height="32">
@@ -1223,7 +1223,7 @@
   </object>
  </objectgroup>
  <objectgroup name="enemy" width="256" height="256" visible="0">
-  <object name="mourning zombie" type="enemies/zombie_brute" x="640" y="5056" width="32" height="32">
+  <object name="mourning zombie" type="enemies/zombie_brute.txt" x="640" y="5056" width="32" height="32">
    <properties>
     <property name="direction" value="1"/>
    </properties>

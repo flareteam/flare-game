@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="isometric" width="64" height="64" tilewidth="64" tileheight="32" backgroundcolor="#000000">
  <properties>
   <property name="music" value="music/cave_theme.ogg"/>
@@ -227,9 +226,9 @@
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,46,38,fixed,3,8"/>
     <property name="mapmod" value="object,47,37,179"/>
+    <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Crate"/>
-    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object name="backside_crate" type="on_trigger" x="896" y="480" width="32" height="32">
@@ -237,9 +236,9 @@
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,27,14,fixed,5,10"/>
     <property name="mapmod" value="object,28,15,179"/>
+    <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Crate"/>
-    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object name="backside_barrel" type="on_trigger" x="480" y="384" width="32" height="32">
@@ -247,9 +246,9 @@
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,16,13,fixed,3,8"/>
     <property name="mapmod" value="object,15,12,178"/>
+    <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Barrel"/>
-    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object name="wind sound" type="on_load" x="0" y="0" width="32" height="32">
@@ -266,7 +265,7 @@
    <properties>
     <property name="requires_not_status" value="ml_skeleton_defeated"/>
     <property name="requires_status" value="ml_skeleton_search"/>
-    <property name="spawn" value="reanimated_skeleton,6,28"/>
+    <property name="spawn" value="enemies/reanimated_skeleton.txt,6,28"/>
    </properties>
   </object>
  </objectgroup>
