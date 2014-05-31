@@ -18,7 +18,7 @@ hp=75
 speed=3.5
 melee_range=1.1875
 threat_range=8.0
-turn_delay=6
+turn_delay=200ms
 chance_pursue=5
 chance_melee_phys=5
 chance_melee_ment=0
@@ -38,7 +38,7 @@ dmg_ranged_max=30
 absorb_min=6
 absorb_max=6
 
-cooldown=30
+cooldown=1s
 
 # loot
 loot=currency,33,3,12
