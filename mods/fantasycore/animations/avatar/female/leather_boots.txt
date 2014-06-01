@@ -3,7 +3,7 @@ image=images/avatar/female/leather_boots.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,199,97,23,18,10,15
 frame=0,1,53,134,22,19,10,15
@@ -40,7 +40,7 @@ frame=3,7,429,188,15,20,6,15
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,40,69,27,17,12,14
 frame=0,1,255,58,24,21,11,17
@@ -77,7 +77,7 @@ frame=3,7,338,164,17,21,7,15
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,0,19,44,18,18,17
 frame=0,1,0,126,29,27,11,20
@@ -146,7 +146,7 @@ frame=7,7,92,72,26,17,8,16
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,67,70,25,19,11,16
 frame=0,1,172,173,22,21,11,17
@@ -199,7 +199,7 @@ frame=5,7,418,113,22,13,12,4
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,170,155,24,18,11,15
 frame=0,1,259,203,22,19,10,15
@@ -236,7 +236,7 @@ frame=3,7,369,205,12,20,6,15
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,142,135,28,17,13,14
 frame=0,1,205,57,25,21,12,16
@@ -273,7 +273,7 @@ frame=3,7,150,174,22,23,9,17
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,67,70,25,19,11,16
 frame=0,1,172,173,22,21,11,17
@@ -294,7 +294,7 @@ frame=1,7,400,107,18,19,10,13
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,266,167,24,18,11,15
 frame=0,1,223,110,23,20,11,16

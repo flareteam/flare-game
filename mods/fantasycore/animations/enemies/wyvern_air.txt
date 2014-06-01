@@ -3,7 +3,7 @@ image=images/enemies/wyvern_air.png
 
 [stance]
 frames=8
-duration=3
+duration=800ms
 type=looped
 frame=0,0,962,1053,45,75,12,60
 frame=0,1,389,332,65,73,22,61
@@ -72,7 +72,7 @@ frame=7,7,1007,1041,71,73,28,60
 
 [shoot]
 frames=8
-duration=3
+duration=800ms
 type=play_once
 frame=0,0,980,1570,73,69,19,54
 frame=0,1,1026,1262,65,73,22,58
@@ -141,7 +141,7 @@ frame=7,7,587,1264,82,77,18,71
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,321,582,78,83,25,61
 frame=0,1,847,538,88,73,35,56
@@ -210,7 +210,7 @@ frame=7,7,416,1133,82,73,29,61
 
 [die]
 frames=8
-duration=4
+duration=1066ms
 type=play_once
 frame=0,0,744,843,74,80,25,58
 frame=0,1,245,899,86,69,34,51
@@ -279,7 +279,7 @@ frame=7,7,1237,1606,75,25,34,16
 
 [critdie]
 frames=8
-duration=4
+duration=1066ms
 type=play_once
 frame=0,0,744,843,74,80,25,58
 frame=0,1,245,899,86,69,34,51
@@ -348,7 +348,7 @@ frame=7,7,1237,1606,75,25,34,16
 
 [cast]
 frames=8
-duration=3
+duration=800ms
 type=play_once
 frame=0,0,980,1570,73,69,19,54
 frame=0,1,1026,1262,65,73,22,58
@@ -417,7 +417,7 @@ frame=7,7,587,1264,82,77,18,71
 
 [swing]
 frames=8
-duration=4
+duration=1066ms
 type=play_once
 frame=0,0,587,1341,89,76,43,62
 frame=0,1,251,1339,82,79,46,69
@@ -486,7 +486,7 @@ frame=7,7,744,923,75,78,46,57
 
 [hit]
 frames=8
-duration=2
+duration=533ms
 type=play_once
 frame=0,0,410,647,74,87,22,67
 frame=0,1,331,1202,85,76,37,61
@@ -555,7 +555,7 @@ frame=7,7,753,1334,81,76,35,60
 
 [block]
 frames=2
-duration=3
+duration=200ms
 type=play_once
 frame=0,0,962,1053,45,75,12,60
 frame=0,1,389,332,65,73,22,61

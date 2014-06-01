@@ -3,7 +3,7 @@ image=images/avatar/female/wand.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,139,223,11,21,-2,33
 frame=0,1,98,158,16,20,-8,29
@@ -40,7 +40,7 @@ frame=3,7,217,126,20,18,15,31
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,51,122,10,26,6,26
 frame=0,1,41,168,13,26,11,29
@@ -77,7 +77,7 @@ frame=3,7,85,241,15,23,3,25
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,123,256,20,15,6,27
 frame=0,1,166,165,13,17,-4,25
@@ -146,7 +146,7 @@ frame=7,7,235,87,19,20,15,27
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,312,238,9,9,-2,21
 frame=0,1,321,183,13,21,-7,31
@@ -198,7 +198,7 @@ frame=5,7,257,199,18,4,38,-4
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,139,197,11,26,-2,42
 frame=0,1,236,61,18,26,-12,38
@@ -235,7 +235,7 @@ frame=3,7,190,0,24,34,6,58
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,110,0,28,36,-4,59
 frame=0,1,280,0,20,35,-9,53
@@ -272,7 +272,7 @@ frame=3,7,150,220,14,23,20,20
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,312,238,9,9,-2,21
 frame=0,1,321,183,13,21,-7,31
@@ -293,7 +293,7 @@ frame=1,7,173,235,14,16,20,25
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,252,240,11,19,-4,31
 frame=0,1,178,185,16,20,-10,28

@@ -3,7 +3,7 @@ image=images/avatar/female/head_long.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,66,69,21,33,6,47
 frame=0,1,44,34,22,34,6,48
@@ -40,7 +40,7 @@ frame=3,7,278,66,21,34,5,48
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,297,100,21,33,9,46
 frame=0,1,315,199,20,33,7,47
@@ -77,7 +77,7 @@ frame=3,7,250,166,21,33,8,45
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,452,0,22,33,8,46
 frame=0,1,172,102,21,33,7,47
@@ -146,7 +146,7 @@ frame=7,7,191,203,21,32,8,45
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,106,201,22,33,8,47
 frame=0,1,105,234,21,34,7,48
@@ -199,7 +199,7 @@ frame=5,7,409,324,11,10,36,10
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,292,133,21,33,5,47
 frame=0,1,63,136,21,34,5,48
@@ -236,7 +236,7 @@ frame=3,7,84,234,21,34,5,48
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,63,272,21,34,5,47
 frame=0,1,84,268,21,34,5,47
@@ -273,7 +273,7 @@ frame=3,7,416,163,20,32,10,42
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,106,201,22,33,8,47
 frame=0,1,105,234,21,34,7,48
@@ -294,7 +294,7 @@ frame=1,7,354,163,21,32,11,42
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,294,199,21,33,7,46
 frame=0,1,253,301,21,33,6,47

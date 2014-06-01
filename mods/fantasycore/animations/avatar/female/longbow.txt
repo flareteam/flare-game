@@ -3,7 +3,7 @@ image=images/avatar/female/longbow.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,161,35,53,22,28,24
 frame=0,1,145,401,31,33,19,34
@@ -40,7 +40,7 @@ frame=3,7,374,35,47,33,19,31
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,71,393,38,44,31,44
 frame=0,1,221,344,21,52,19,53
@@ -77,7 +77,7 @@ frame=3,7,63,218,47,38,30,36
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,102,256,28,46,23,46
 frame=0,1,165,348,20,53,21,54
@@ -146,7 +146,7 @@ frame=7,7,437,529,23,32,12,33
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,404,159,51,24,28,25
 frame=0,1,389,433,30,34,19,35
@@ -199,7 +199,7 @@ frame=5,7,441,462,15,34,17,24
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,421,53,52,27,31,28
 frame=0,1,247,264,40,39,28,40
@@ -236,7 +236,7 @@ frame=3,7,421,0,52,31,23,31
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,78,555,42,41,28,41
 frame=0,1,336,335,19,49,18,49
@@ -273,7 +273,7 @@ frame=3,7,318,495,17,43,-8,40
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,404,159,51,24,28,25
 frame=0,1,389,433,30,34,19,35
@@ -294,7 +294,7 @@ frame=1,7,322,158,50,29,26,26
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,473,99,30,49,24,49
 frame=0,1,185,348,12,55,12,56

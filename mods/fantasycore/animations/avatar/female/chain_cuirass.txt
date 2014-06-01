@@ -3,7 +3,7 @@ image=images/avatar/female/chain_cuirass.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,91,34,23,33,7,41
 frame=0,1,91,102,26,33,8,41
@@ -40,7 +40,7 @@ frame=3,7,279,228,21,33,5,41
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,215,415,24,32,11,40
 frame=0,1,156,325,28,32,11,40
@@ -77,7 +77,7 @@ frame=3,7,376,99,19,33,7,40
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,229,199,24,33,7,40
 frame=0,1,210,33,29,33,10,40
@@ -146,7 +146,7 @@ frame=7,7,261,391,22,31,7,39
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,345,66,22,33,8,41
 frame=0,1,295,129,26,33,9,41
@@ -199,7 +199,7 @@ frame=5,7,212,367,19,16,30,14
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,154,391,21,33,6,41
 frame=0,1,72,293,28,33,9,41
@@ -236,7 +236,7 @@ frame=3,7,50,261,21,35,5,43
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,0,233,24,39,7,47
 frame=0,1,304,0,31,37,9,45
@@ -273,7 +273,7 @@ frame=3,7,103,231,30,30,13,36
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,345,66,22,33,8,41
 frame=0,1,295,129,26,33,9,41
@@ -294,7 +294,7 @@ frame=1,7,312,464,19,30,9,36
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,321,222,26,32,10,40
 frame=0,1,100,261,30,32,12,40

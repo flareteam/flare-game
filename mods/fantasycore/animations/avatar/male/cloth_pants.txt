@@ -3,7 +3,7 @@ image=images/avatar/male/cloth_pants.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,56,0,26,24,12,27
 frame=0,1,27,54,25,20,11,24
@@ -40,7 +40,7 @@ frame=3,7,108,180,19,26,6,26
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,0,155,24,27,10,29
 frame=0,1,129,50,24,22,10,26
@@ -77,7 +77,7 @@ frame=3,7,348,101,18,27,5,28
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,24,74,17,29,1,32
 frame=0,1,24,219,19,28,3,31
@@ -146,7 +146,7 @@ frame=7,7,166,72,18,28,3,32
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,306,51,24,23,10,26
 frame=0,1,211,232,25,20,10,24
@@ -199,7 +199,7 @@ frame=5,7,460,146,19,17,5,12
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,314,0,25,26,12,28
 frame=0,1,91,253,25,22,12,27
@@ -236,7 +236,7 @@ frame=3,7,340,178,17,27,5,28
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,388,0,25,25,13,28
 frame=0,1,116,253,25,22,13,26
@@ -273,7 +273,7 @@ frame=3,7,392,176,16,25,9,25
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,306,51,24,23,10,26
 frame=0,1,211,232,25,20,10,24
@@ -294,7 +294,7 @@ frame=1,7,291,50,15,25,4,26
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,52,50,26,23,12,26
 frame=0,1,64,232,27,19,12,23

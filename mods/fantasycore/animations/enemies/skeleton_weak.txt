@@ -3,7 +3,7 @@ image=images/enemies/skeleton_weak.png
 
 [stance]
 frames=4
-duration=4
+duration=533ms
 type=back_forth
 frame=0,0,406,276,46,57,27,50
 frame=0,1,0,434,69,61,29,54
@@ -40,7 +40,7 @@ frame=3,7,476,921,40,49,22,45
 
 [shoot]
 frames=4
-duration=4
+duration=533ms
 type=play_once
 frame=0,0,672,654,45,56,23,50
 frame=0,1,451,618,46,61,30,53
@@ -77,7 +77,7 @@ frame=3,7,273,862,56,56,36,52
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,500,801,36,60,19,56
 frame=0,1,501,740,39,60,20,57
@@ -146,7 +146,7 @@ frame=7,7,491,118,52,61,28,53
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,634,484,36,58,19,52
 frame=0,1,449,396,52,61,20,53
@@ -199,7 +199,7 @@ frame=5,7,697,907,51,22,29,12
 
 [critdie]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,634,484,36,58,19,52
 frame=0,1,449,396,52,61,20,53
@@ -252,7 +252,7 @@ frame=5,7,697,907,51,22,29,12
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,633,356,37,59,22,53
 frame=0,1,181,288,60,61,28,55
@@ -289,7 +289,7 @@ frame=3,7,69,617,63,60,38,56
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,670,406,47,56,24,50
 frame=0,1,466,801,34,62,20,54
@@ -326,7 +326,7 @@ frame=3,7,240,48,78,44,48,40
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=back_forth
 frame=0,0,634,484,36,58,19,52
 frame=0,1,449,396,52,61,20,53
@@ -347,7 +347,7 @@ frame=1,7,329,865,40,53,18,51
 
 [block]
 frames=2
-duration=3
+duration=200ms
 type=play_once
 frame=0,0,573,820,45,58,26,51
 frame=0,1,543,115,56,61,21,54

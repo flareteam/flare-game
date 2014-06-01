@@ -3,7 +3,7 @@ image=images/enemies/wyvern_fire.png
 
 [stance]
 frames=8
-duration=3
+duration=800ms
 type=looped
 frame=0,0,1143,399,45,75,12,60
 frame=0,1,98,845,65,73,22,61
@@ -72,7 +72,7 @@ frame=7,7,628,464,71,73,28,60
 
 [shoot]
 frames=8
-duration=3
+duration=800ms
 type=play_once
 frame=0,0,1166,858,73,69,19,54
 frame=0,1,791,1582,65,73,22,58
@@ -141,7 +141,7 @@ frame=7,7,1037,626,82,77,18,71
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,176,1381,78,83,25,61
 frame=0,1,435,702,88,73,35,56
@@ -210,7 +210,7 @@ frame=7,7,1187,632,82,73,29,61
 
 [die]
 frames=8
-duration=4
+duration=1066ms
 type=play_once
 frame=0,0,986,388,74,80,25,58
 frame=0,1,446,1514,86,69,34,51
@@ -279,7 +279,7 @@ frame=7,7,791,1655,75,25,34,16
 
 [critdie]
 frames=8
-duration=4
+duration=1066ms
 type=play_once
 frame=0,0,986,388,74,80,25,58
 frame=0,1,446,1514,86,69,34,51
@@ -348,7 +348,7 @@ frame=7,7,791,1655,75,25,34,16
 
 [cast]
 frames=8
-duration=3
+duration=800ms
 type=play_once
 frame=0,0,1166,858,73,69,19,54
 frame=0,1,791,1582,65,73,22,58
@@ -417,7 +417,7 @@ frame=7,7,1037,626,82,77,18,71
 
 [swing]
 frames=8
-duration=4
+duration=1066ms
 type=play_once
 frame=0,0,1104,167,89,76,43,62
 frame=0,1,791,544,82,79,46,69
@@ -486,7 +486,7 @@ frame=7,7,770,1188,75,78,46,57
 
 [hit]
 frames=8
-duration=2
+duration=533ms
 type=play_once
 frame=0,0,358,715,74,87,22,67
 frame=0,1,438,857,85,76,37,61
@@ -555,7 +555,7 @@ frame=7,7,1187,705,81,76,35,60
 
 [block]
 frames=2
-duration=3
+duration=200ms
 type=play_once
 frame=0,0,1143,399,45,75,12,60
 frame=0,1,98,845,65,73,22,61

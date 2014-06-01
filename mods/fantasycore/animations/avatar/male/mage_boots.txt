@@ -3,7 +3,7 @@ image=images/avatar/male/mage_boots.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,179,55,36,21,15,16
 frame=0,1,108,111,35,22,16,19
@@ -40,7 +40,7 @@ frame=3,7,292,384,19,23,7,15
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,275,77,33,22,13,17
 frame=0,1,307,201,33,20,15,17
@@ -77,7 +77,7 @@ frame=3,7,341,437,16,24,5,17
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,114,83,26,28,0,25
 frame=0,1,215,199,26,24,3,19
@@ -146,7 +146,7 @@ frame=7,7,0,209,23,36,2,32
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,76,91,38,20,15,15
 frame=0,1,238,24,38,20,15,17
@@ -199,7 +199,7 @@ frame=5,7,335,261,26,21,-2,14
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,53,378,34,22,16,17
 frame=0,1,85,156,36,20,18,17
@@ -236,7 +236,7 @@ frame=3,7,275,415,16,27,7,19
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,78,176,37,21,15,17
 frame=0,1,78,213,36,22,16,18
@@ -273,7 +273,7 @@ frame=3,7,340,235,21,26,9,18
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,76,91,38,20,15,15
 frame=0,1,238,24,38,20,15,17
@@ -294,7 +294,7 @@ frame=1,7,164,402,15,26,6,18
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,78,255,36,21,14,16
 frame=0,1,41,174,37,22,16,19

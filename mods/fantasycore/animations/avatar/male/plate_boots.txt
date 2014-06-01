@@ -3,7 +3,7 @@ image=images/avatar/male/plate_boots.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,32,187,37,21,16,16
 frame=0,1,170,62,36,20,17,17
@@ -40,7 +40,7 @@ frame=3,7,366,341,19,25,7,16
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,260,126,34,22,14,17
 frame=0,1,128,285,33,19,15,16
@@ -77,7 +77,7 @@ frame=3,7,401,297,17,25,6,17
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,294,41,25,28,-1,25
 frame=0,1,236,208,26,25,3,20
@@ -146,7 +146,7 @@ frame=7,7,0,242,25,37,3,32
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,34,120,39,20,16,15
 frame=0,1,281,22,38,19,15,16
@@ -199,7 +199,7 @@ frame=5,7,433,78,27,21,-2,14
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,223,104,35,22,17,17
 frame=0,1,170,122,37,20,19,17
@@ -236,7 +236,7 @@ frame=3,7,232,342,17,28,8,19
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,25,230,38,22,16,17
 frame=0,1,133,81,37,21,17,18
@@ -273,7 +273,7 @@ frame=3,7,191,320,20,28,8,19
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,34,120,39,20,16,15
 frame=0,1,281,22,38,19,15,16
@@ -294,7 +294,7 @@ frame=1,7,347,290,16,27,7,18
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,170,142,37,20,15,15
 frame=0,1,63,208,37,21,16,18

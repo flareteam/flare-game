@@ -3,7 +3,7 @@ image=images/enemies/stealth.png
 
 [stance]
 frames=4
-duration=8
+duration=1066ms
 type=back_forth
 frame=0,0,221,47,50,43,18,38
 frame=0,1,44,304,49,44,18,40
@@ -40,9 +40,8 @@ frame=3,7,70,402,25,45,9,36
 
 [run]
 frames=8
-duration=3
+duration=800ms
 type=looped
-active_frame=10
 frame=0,0,291,403,42,44,15,40
 frame=0,1,255,353,39,46,12,43
 frame=0,2,338,219,28,52,10,45
@@ -112,7 +111,6 @@ frame=7,7,378,308,26,43,12,36
 frames=1
 duration=0
 type=play_once
-active_frame=10
 frame=0,0,221,47,50,43,18,38
 frame=0,1,44,304,49,44,18,40
 frame=0,2,142,99,31,51,12,41
@@ -124,9 +122,8 @@ frame=0,7,409,180,25,46,9,37
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
-active_frame=10
 frame=0,0,173,129,47,42,21,37
 frame=0,1,173,254,43,44,16,42
 frame=0,2,137,200,36,51,14,45

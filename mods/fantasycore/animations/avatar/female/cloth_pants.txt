@@ -3,7 +3,7 @@ image=images/avatar/female/cloth_pants.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,129,139,18,24,6,28
 frame=0,1,147,196,19,22,7,27
@@ -40,7 +40,7 @@ frame=3,7,279,70,16,25,4,27
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,326,37,25,23,13,27
 frame=0,1,295,75,22,22,10,26
@@ -77,7 +77,7 @@ frame=3,7,201,53,21,26,8,27
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,56,373,22,24,10,26
 frame=0,1,201,79,21,25,9,27
@@ -146,7 +146,7 @@ frame=7,7,300,215,20,24,8,27
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,279,119,22,23,10,27
 frame=0,1,261,295,20,22,8,28
@@ -199,7 +199,7 @@ frame=5,7,339,78,13,16,17,9
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,301,307,19,23,7,27
 frame=0,1,241,272,21,23,9,28
@@ -236,7 +236,7 @@ frame=3,7,336,108,16,24,4,26
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,279,142,22,23,9,27
 frame=0,1,281,302,20,22,8,27
@@ -273,7 +273,7 @@ frame=3,7,113,33,31,25,8,25
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,279,119,22,23,10,27
 frame=0,1,261,295,20,22,8,28
@@ -294,7 +294,7 @@ frame=1,7,241,126,20,25,10,25
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,317,60,22,23,10,26
 frame=0,1,95,224,23,29,11,35

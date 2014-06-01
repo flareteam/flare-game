@@ -3,7 +3,7 @@ image=images/avatar/male/staff.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,508,30,58,22,17,35
 frame=0,1,396,489,32,28,-7,28
@@ -40,7 +40,7 @@ frame=3,7,459,210,51,25,28,35
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,31,356,20,60,-3,58
 frame=0,1,120,118,34,56,6,54
@@ -77,7 +77,7 @@ frame=3,7,199,443,19,58,2,59
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,405,157,58,20,26,33
 frame=0,1,220,74,49,36,14,40
@@ -146,7 +146,7 @@ frame=7,7,503,283,22,27,22,30
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,455,111,53,20,13,32
 frame=0,1,285,513,26,23,-7,24
@@ -199,7 +199,7 @@ frame=5,7,544,515,22,20,9,18
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,120,443,41,40,19,57
 frame=0,1,37,483,37,53,2,61
@@ -236,7 +236,7 @@ frame=3,7,449,358,31,42,11,66
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,118,0,63,32,31,53
 frame=0,1,303,242,40,41,9,55
@@ -273,7 +273,7 @@ frame=3,7,492,400,14,48,19,33
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,455,111,53,20,13,32
 frame=0,1,285,513,26,23,-7,24
@@ -294,7 +294,7 @@ frame=1,7,244,283,44,41,17,46
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,508,112,59,18,16,32
 frame=0,1,492,448,35,29,-6,29

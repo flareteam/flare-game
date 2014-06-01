@@ -3,7 +3,7 @@ image=images/avatar/female/longsword.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,155,371,12,22,-2,33
 frame=0,1,426,195,27,30,-7,38
@@ -40,7 +40,7 @@ frame=3,7,0,400,38,26,31,38
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,50,328,16,35,9,29
 frame=0,1,124,261,13,38,10,32
@@ -77,7 +77,7 @@ frame=3,7,384,359,19,31,5,28
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,379,120,39,17,23,28
 frame=0,1,177,284,17,21,-1,28
@@ -146,7 +146,7 @@ frame=7,7,379,137,36,26,32,29
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,238,335,25,32,13,43
 frame=0,1,147,393,18,33,-7,42
@@ -199,7 +199,7 @@ frame=5,7,367,322,35,6,53,-3
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,316,93,14,44,0,58
 frame=0,1,212,144,32,40,-10,51
@@ -236,7 +236,7 @@ frame=3,7,302,0,41,42,8,65
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,212,0,46,40,-2,61
 frame=0,1,184,144,28,43,-7,55
@@ -273,7 +273,7 @@ frame=3,7,49,363,24,33,30,21
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,238,335,25,32,13,43
 frame=0,1,147,393,18,33,-7,42
@@ -294,7 +294,7 @@ frame=1,7,154,242,41,20,38,27
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,397,268,16,30,0,41
 frame=0,1,263,364,26,30,-9,37

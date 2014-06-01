@@ -3,7 +3,7 @@ image=images/avatar/male/shortbow.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,276,167,15,39,14,39
 frame=0,1,76,396,15,37,12,41
@@ -40,7 +40,7 @@ frame=3,7,230,353,18,35,12,35
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,65,268,23,36,18,36
 frame=0,1,49,80,21,40,18,42
@@ -77,7 +77,7 @@ frame=3,7,312,244,24,23,11,23
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,186,100,39,23,13,26
 frame=0,1,63,158,28,29,13,31
@@ -146,7 +146,7 @@ frame=7,7,225,102,30,32,1,36
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,156,351,21,33,17,33
 frame=0,1,142,262,11,37,11,38
@@ -199,7 +199,7 @@ frame=5,7,30,127,24,7,20,-1
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,70,80,21,40,20,44
 frame=0,1,308,0,33,37,24,46
@@ -236,7 +236,7 @@ frame=3,7,0,226,18,48,-3,48
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,309,67,32,28,20,28
 frame=0,1,153,262,20,36,19,36
@@ -273,7 +273,7 @@ frame=3,7,111,352,30,29,7,34
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,156,351,21,33,17,33
 frame=0,1,142,262,11,37,11,38
@@ -294,7 +294,7 @@ frame=1,7,182,213,36,17,20,17
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,187,384,15,36,14,43
 frame=0,1,133,451,22,29,11,38
