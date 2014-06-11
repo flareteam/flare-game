@@ -3,7 +3,7 @@ image=images/avatar/male/greatbow.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,28,484,11,29,11,26
 frame=0,1,25,939,14,28,8,27
@@ -40,7 +40,7 @@ frame=3,7,24,1109,15,26,10,23
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,0,64,32,14,12,14
 frame=0,1,0,1343,23,19,11,17
@@ -109,7 +109,7 @@ frame=7,7,0,1031,24,22,4,21
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,0,1770,21,25,15,22
 frame=0,1,25,880,14,30,12,27
@@ -146,7 +146,7 @@ frame=3,7,21,1815,18,15,9,12
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,20,1884,19,31,14,28
 frame=0,1,0,555,26,26,17,28
@@ -183,7 +183,7 @@ frame=3,7,27,513,12,35,-1,30
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,22,1549,17,25,13,21
 frame=0,1,32,0,7,28,7,24
@@ -236,7 +236,7 @@ frame=5,7,21,1846,18,5,10,-1
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,0,508,27,19,16,17
 frame=0,1,22,1523,17,26,14,22
@@ -273,7 +273,7 @@ frame=3,7,0,910,25,20,8,20
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,22,1549,17,25,13,21
 frame=0,1,32,0,7,28,7,24
@@ -294,7 +294,7 @@ frame=1,7,0,158,31,11,16,9
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,24,1082,15,27,9,27
 frame=0,1,23,1322,16,25,8,28

@@ -3,7 +3,7 @@ image=images/avatar/female/plate_boots.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,12,709,11,9,5,7
 frame=0,1,13,593,10,9,5,7
@@ -40,7 +40,7 @@ frame=3,7,14,1128,7,10,3,8
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,0,9,21,8,9,8
 frame=0,1,0,245,14,13,5,10
@@ -109,7 +109,7 @@ frame=7,7,0,510,13,9,4,8
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,0,546,13,8,6,7
 frame=0,1,0,674,12,10,5,8
@@ -146,7 +146,7 @@ frame=3,7,14,396,8,11,4,8
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,12,772,11,9,5,7
 frame=0,1,0,917,10,9,5,7
@@ -183,7 +183,7 @@ frame=3,7,14,1148,7,10,3,7
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,0,704,12,9,5,8
 frame=0,1,0,835,11,9,5,8
@@ -236,7 +236,7 @@ frame=5,7,11,897,11,6,6,2
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,0,537,13,9,6,7
 frame=0,1,0,684,12,10,6,8
@@ -273,7 +273,7 @@ frame=3,7,13,542,10,11,4,8
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,0,704,12,9,5,8
 frame=0,1,0,835,11,9,5,8
@@ -294,7 +294,7 @@ frame=1,7,14,326,9,10,5,7
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,11,835,11,9,5,7
 frame=0,1,0,844,11,9,5,8

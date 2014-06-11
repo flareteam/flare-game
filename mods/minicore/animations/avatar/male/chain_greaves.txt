@@ -3,7 +3,7 @@ image=images/avatar/male/chain_greaves.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,123,14,13,12,6,13
 frame=0,1,136,14,13,12,5,13
@@ -40,7 +40,7 @@ frame=3,7,1211,13,10,13,3,13
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,0,0,10,15,1,16
 frame=0,1,540,0,10,14,2,15
@@ -109,7 +109,7 @@ frame=7,7,660,0,10,14,2,16
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,858,13,13,13,5,14
 frame=0,1,997,0,12,13,5,14
@@ -146,7 +146,7 @@ frame=3,7,700,0,10,14,3,14
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,1021,0,12,13,6,14
 frame=0,1,214,14,13,12,6,14
@@ -183,7 +183,7 @@ frame=3,7,760,0,10,14,4,14
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,468,14,12,12,5,13
 frame=0,1,253,14,13,12,5,12
@@ -236,7 +236,7 @@ frame=5,7,1386,9,9,9,2,7
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,934,0,13,13,6,14
 frame=0,1,791,13,14,13,6,14
@@ -273,7 +273,7 @@ frame=3,7,1281,0,10,13,5,13
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,468,14,12,12,5,13
 frame=0,1,253,14,13,12,5,12
@@ -294,7 +294,7 @@ frame=1,7,1261,0,10,13,3,13
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,331,14,13,12,6,13
 frame=0,1,344,14,13,12,6,12

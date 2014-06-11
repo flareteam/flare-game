@@ -3,7 +3,7 @@ image=images/avatar/female/plate_helm.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,0,728,11,16,3,23
 frame=0,1,0,99,11,17,3,24
@@ -40,7 +40,7 @@ frame=3,7,11,220,11,17,2,24
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,0,792,11,16,4,23
 frame=0,1,0,235,11,17,3,24
@@ -109,7 +109,7 @@ frame=7,7,11,874,11,16,4,23
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,0,888,11,16,5,23
 frame=0,1,22,596,10,17,3,24
@@ -146,7 +146,7 @@ frame=3,7,11,492,11,17,4,22
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,0,1000,11,16,3,23
 frame=0,1,0,507,11,17,2,24
@@ -183,7 +183,7 @@ frame=3,7,0,643,11,17,2,24
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,11,1018,11,16,4,23
 frame=0,1,11,645,11,17,3,24
@@ -236,7 +236,7 @@ frame=5,7,13,1311,6,5,18,5
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,11,1050,11,16,3,23
 frame=0,1,0,1064,11,16,2,23
@@ -273,7 +273,7 @@ frame=3,7,22,1041,10,16,5,21
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,11,1018,11,16,4,23
 frame=0,1,11,645,11,17,3,24
@@ -294,7 +294,7 @@ frame=1,7,22,961,10,16,5,21
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,11,1146,11,16,4,23
 frame=0,1,11,696,11,17,3,24

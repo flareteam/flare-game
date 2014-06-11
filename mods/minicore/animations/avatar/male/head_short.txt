@@ -3,7 +3,7 @@ image=images/avatar/male/head_short.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,0,17,11,15,4,22
 frame=0,1,784,0,10,16,3,23
@@ -40,7 +40,7 @@ frame=3,7,197,17,10,15,3,21
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,36,0,11,17,5,24
 frame=0,1,641,0,11,16,4,25
@@ -109,7 +109,7 @@ frame=7,7,310,0,10,17,3,23
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,687,16,11,16,4,23
 frame=0,1,856,16,10,16,3,24
@@ -146,7 +146,7 @@ frame=3,7,914,0,10,16,3,23
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,731,16,11,16,3,23
 frame=0,1,916,16,10,16,2,24
@@ -183,7 +183,7 @@ frame=3,7,460,0,10,17,2,24
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,207,17,10,15,5,22
 frame=0,1,383,17,9,15,1,23
@@ -236,7 +236,7 @@ frame=5,7,1051,28,5,4,13,5
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,773,0,11,16,6,23
 frame=0,1,227,17,10,15,4,24
@@ -273,7 +273,7 @@ frame=3,7,1098,0,8,13,7,15
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,207,17,10,15,5,22
 frame=0,1,383,17,9,15,1,23
@@ -294,7 +294,7 @@ frame=1,7,1054,14,5,14,8,21
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,277,17,10,15,3,22
 frame=0,1,401,17,9,15,2,22

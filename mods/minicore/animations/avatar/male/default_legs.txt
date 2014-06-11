@@ -3,7 +3,7 @@ image=images/avatar/male/default_legs.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,40,13,13,10,6,11
 frame=0,1,320,13,12,9,5,11
@@ -40,7 +40,7 @@ frame=3,7,994,0,9,12,3,12
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,459,0,8,13,0,15
 frame=0,1,41,0,10,13,1,14
@@ -109,7 +109,7 @@ frame=7,7,405,0,9,13,1,15
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,634,12,12,11,5,12
 frame=0,1,105,13,12,10,5,13
@@ -146,7 +146,7 @@ frame=3,7,441,0,9,13,2,13
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,670,12,12,11,6,12
 frame=0,1,682,12,12,11,6,13
@@ -183,7 +183,7 @@ frame=3,7,507,0,8,13,2,14
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,176,13,11,10,5,12
 frame=0,1,368,13,12,9,5,11
@@ -236,7 +236,7 @@ frame=5,7,497,13,9,8,2,6
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,766,12,12,11,6,12
 frame=0,1,778,12,12,11,6,13
@@ -273,7 +273,7 @@ frame=3,7,1253,0,8,12,4,12
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,176,13,11,10,5,12
 frame=0,1,368,13,12,9,5,11
@@ -294,7 +294,7 @@ frame=1,7,1228,12,7,11,2,12
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,13,14,13,9,6,11
 frame=0,1,404,13,12,9,6,11

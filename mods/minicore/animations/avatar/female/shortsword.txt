@@ -3,7 +3,7 @@ image=images/avatar/female/shortsword.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,942,0,5,11,-1,16
 frame=0,1,708,12,10,12,-4,16
@@ -40,7 +40,7 @@ frame=3,7,201,22,14,10,11,16
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,675,24,14,8,7,14
 frame=0,1,970,9,6,9,-2,13
@@ -109,7 +109,7 @@ frame=7,7,883,0,13,11,11,13
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,522,17,6,15,3,14
 frame=0,1,585,0,6,14,5,15
@@ -146,7 +146,7 @@ frame=3,7,556,0,5,15,0,14
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,517,0,6,17,-1,24
 frame=0,1,491,17,12,15,-6,21
@@ -183,7 +183,7 @@ frame=3,7,399,0,16,19,3,31
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,747,12,9,12,4,18
 frame=0,1,624,0,8,13,-4,17
@@ -236,7 +236,7 @@ frame=5,7,553,30,12,2,22,-2
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,364,0,18,19,-2,30
 frame=0,1,441,0,12,19,-5,27
@@ -273,7 +273,7 @@ frame=3,7,615,13,9,13,12,10
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,747,12,9,12,4,18
 frame=0,1,624,0,8,13,-4,17
@@ -294,7 +294,7 @@ frame=1,7,856,22,15,9,14,13
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,974,22,5,9,-3,15
 frame=0,1,728,12,10,12,-5,15

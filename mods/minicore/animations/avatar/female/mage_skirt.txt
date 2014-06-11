@@ -3,7 +3,7 @@ image=images/avatar/female/mage_skirt.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,865,15,12,14,5,14
 frame=0,1,1081,15,11,14,5,14
@@ -40,7 +40,7 @@ frame=3,7,544,0,11,15,4,14
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,144,15,17,14,7,14
 frame=0,1,143,0,14,15,6,13
@@ -109,7 +109,7 @@ frame=7,7,480,15,14,14,5,14
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,670,15,13,14,6,13
 frame=0,1,92,16,13,13,6,13
@@ -146,7 +146,7 @@ frame=3,7,26,0,12,16,5,14
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,1147,15,11,14,5,13
 frame=0,1,1158,15,11,14,5,14
@@ -183,7 +183,7 @@ frame=3,7,775,0,11,15,4,14
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,722,15,13,14,6,14
 frame=0,1,1021,15,12,14,5,14
@@ -236,7 +236,7 @@ frame=5,7,1393,0,10,10,8,5
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,787,15,13,14,6,13
 frame=0,1,800,15,13,14,6,14
@@ -273,7 +273,7 @@ frame=3,7,1045,15,12,14,6,13
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,722,15,13,14,6,14
 frame=0,1,1021,15,12,14,5,14
@@ -294,7 +294,7 @@ frame=1,7,497,0,12,15,6,13
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,826,15,13,14,6,13
 frame=0,1,1057,15,12,14,5,14

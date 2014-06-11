@@ -3,7 +3,7 @@ image=images/avatar/female/shortbow.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,184,20,17,12,9,13
 frame=0,1,813,0,10,15,7,16
@@ -40,7 +40,7 @@ frame=3,7,1249,0,17,11,6,12
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,307,0,9,19,9,20
 frame=0,1,334,0,7,19,9,22
@@ -109,7 +109,7 @@ frame=7,7,862,0,9,15,3,16
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,452,0,11,18,11,19
 frame=0,1,150,0,9,20,8,23
@@ -146,7 +146,7 @@ frame=3,7,718,16,16,16,11,16
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,238,19,17,13,11,14
 frame=0,1,585,0,13,17,10,18
@@ -183,7 +183,7 @@ frame=3,7,603,17,17,15,6,15
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,1018,0,17,12,10,13
 frame=0,1,839,15,10,15,7,17
@@ -236,7 +236,7 @@ frame=5,7,1153,12,6,12,7,10
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,440,0,12,18,9,18
 frame=0,1,168,0,8,20,8,21
@@ -273,7 +273,7 @@ frame=3,7,780,16,9,16,-3,17
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,1018,0,17,12,10,13
 frame=0,1,839,15,10,15,7,17
@@ -294,7 +294,7 @@ frame=1,7,1237,22,17,10,9,10
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,159,0,9,20,9,21
 frame=0,1,182,0,6,20,6,24

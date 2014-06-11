@@ -3,7 +3,7 @@ image=images/avatar/female/leather_armor.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,1303,44,13,22,5,21
 frame=0,1,720,23,16,23,6,21
@@ -40,7 +40,7 @@ frame=3,7,1024,0,12,23,4,21
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,1398,20,22,20,9,20
 frame=0,1,402,24,19,24,9,20
@@ -109,7 +109,7 @@ frame=7,7,1370,0,13,21,4,20
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,1145,0,18,22,11,20
 frame=0,1,1145,22,18,22,9,20
@@ -146,7 +146,7 @@ frame=3,7,563,24,14,24,8,21
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,1289,44,14,22,6,21
 frame=0,1,604,23,21,23,8,21
@@ -183,7 +183,7 @@ frame=3,7,84,30,11,30,3,27
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,1317,22,13,22,5,20
 frame=0,1,875,23,15,23,6,21
@@ -236,7 +236,7 @@ frame=5,7,158,56,20,11,15,7
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,63,30,21,30,8,28
 frame=0,1,95,29,22,29,8,27
@@ -273,7 +273,7 @@ frame=3,7,798,46,20,21,8,18
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,1317,22,13,22,5,20
 frame=0,1,875,23,15,23,6,21
@@ -294,7 +294,7 @@ frame=1,7,1330,0,11,22,6,19
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,1163,0,18,22,9,20
 frame=0,1,1197,44,17,22,6,20

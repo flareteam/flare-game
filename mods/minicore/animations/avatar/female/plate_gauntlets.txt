@@ -3,7 +3,7 @@ image=images/avatar/female/plate_gauntlets.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,19,695,12,15,4,17
 frame=0,1,0,1429,16,12,6,15
@@ -40,7 +40,7 @@ frame=3,7,20,1769,10,14,3,15
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,0,1109,17,14,9,17
 frame=0,1,0,662,19,12,9,17
@@ -109,7 +109,7 @@ frame=7,7,0,1837,9,14,3,15
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,15,1484,15,14,10,17
 frame=0,1,0,1215,17,12,9,19
@@ -146,7 +146,7 @@ frame=3,7,17,974,14,19,8,20
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,18,804,13,17,6,18
 frame=0,1,0,551,20,13,8,17
@@ -183,7 +183,7 @@ frame=3,7,12,1693,10,26,3,27
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,19,679,12,16,4,17
 frame=0,1,15,1524,15,13,6,16
@@ -236,7 +236,7 @@ frame=5,7,12,1682,12,11,14,7
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,0,370,20,26,8,28
 frame=0,1,0,215,22,21,8,26
@@ -273,7 +273,7 @@ frame=3,7,0,494,20,15,8,17
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,19,679,12,16,4,17
 frame=0,1,15,1524,15,13,6,16
@@ -294,7 +294,7 @@ frame=1,7,0,1788,10,14,6,14
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,0,1165,17,13,9,17
 frame=0,1,0,1178,17,13,6,17

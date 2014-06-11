@@ -3,7 +3,7 @@ image=images/avatar/male/cloth_sandals.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,0,383,18,10,7,7
 frame=0,1,0,683,17,10,8,8
@@ -40,7 +40,7 @@ frame=3,7,18,1287,9,11,3,7
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,16,881,12,14,-1,12
 frame=0,1,15,1092,13,12,1,9
@@ -109,7 +109,7 @@ frame=7,7,16,863,12,18,1,16
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,0,863,16,11,6,8
 frame=0,1,0,1008,16,9,7,8
@@ -146,7 +146,7 @@ frame=3,7,8,1347,8,12,2,8
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,0,628,17,11,8,8
 frame=0,1,0,443,18,10,9,8
@@ -183,7 +183,7 @@ frame=3,7,8,1334,8,13,3,9
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,0,162,19,10,7,7
 frame=0,1,0,523,18,9,7,8
@@ -236,7 +236,7 @@ frame=5,7,15,1126,13,10,-1,7
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,0,453,18,10,7,8
 frame=0,1,0,339,18,11,8,9
@@ -273,7 +273,7 @@ frame=3,7,18,380,10,13,4,9
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,0,162,19,10,7,7
 frame=0,1,0,523,18,9,7,8
@@ -294,7 +294,7 @@ frame=1,7,21,56,7,13,3,9
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,0,493,18,10,7,7
 frame=0,1,0,503,18,10,8,9

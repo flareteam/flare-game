@@ -3,7 +3,7 @@ image=images/enemies/grisbon.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,1926,25,25,25,14,22
 frame=0,1,1952,50,21,25,8,23
@@ -40,7 +40,7 @@ frame=3,7,1540,54,30,26,22,21
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,1352,54,34,26,20,24
 frame=0,1,1073,28,22,28,10,25
@@ -109,7 +109,7 @@ frame=7,7,1861,0,29,25,18,23
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,1768,52,19,26,8,23
 frame=0,1,1694,26,23,26,9,24
@@ -146,7 +146,7 @@ frame=3,7,1561,27,15,27,5,23
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,197,42,23,38,14,35
 frame=0,1,463,0,22,40,10,38
@@ -183,7 +183,7 @@ frame=3,7,46,0,19,45,4,41
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,2148,0,21,24,10,22
 frame=0,1,1991,0,19,25,7,23
@@ -236,7 +236,7 @@ frame=5,7,835,58,29,22,13,18
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,0,45,31,35,8,33
 frame=0,1,711,30,32,29,9,27
@@ -273,7 +273,7 @@ frame=3,7,1505,0,21,27,11,18
 
 [critdie]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,2148,0,21,24,10,22
 frame=0,1,1991,0,19,25,7,23
@@ -326,7 +326,7 @@ frame=5,7,835,58,29,22,13,18
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,2148,0,21,24,10,22
 frame=0,1,1991,0,19,25,7,23
@@ -347,7 +347,7 @@ frame=1,7,2028,0,15,25,9,21
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,2113,24,25,24,14,22
 frame=0,1,2160,48,20,24,8,22

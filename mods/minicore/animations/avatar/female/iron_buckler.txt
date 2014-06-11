@@ -3,7 +3,7 @@ image=images/avatar/female/iron_buckler.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,303,17,15,15,8,15
 frame=0,1,980,16,11,16,8,17
@@ -40,7 +40,7 @@ frame=3,7,864,0,13,16,3,15
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,287,17,16,15,12,17
 frame=0,1,584,0,12,17,12,20
@@ -109,7 +109,7 @@ frame=7,7,1013,16,11,16,3,15
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,795,16,15,16,13,18
 frame=0,1,620,0,12,17,11,21
@@ -146,7 +146,7 @@ frame=3,7,449,0,15,17,11,17
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,824,16,14,16,9,15
 frame=0,1,917,16,13,16,11,18
@@ -183,7 +183,7 @@ frame=3,7,419,0,15,17,5,16
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,550,17,14,15,9,15
 frame=0,1,1075,16,10,16,8,17
@@ -236,7 +236,7 @@ frame=5,7,1396,9,13,9,11,9
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,314,0,15,17,11,17
 frame=0,1,596,0,12,17,11,20
@@ -273,7 +273,7 @@ frame=3,7,629,17,13,15,-2,18
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,550,17,14,15,9,15
 frame=0,1,1075,16,10,16,8,17
@@ -294,7 +294,7 @@ frame=1,7,1157,14,13,14,6,13
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,942,0,13,16,11,18
 frame=0,1,773,0,7,17,8,22

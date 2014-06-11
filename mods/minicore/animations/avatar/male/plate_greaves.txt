@@ -3,7 +3,7 @@ image=images/avatar/male/plate_greaves.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,138,14,13,12,6,13
 frame=0,1,1225,0,14,10,6,12
@@ -40,7 +40,7 @@ frame=3,7,1122,13,9,13,3,13
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,39,0,8,15,0,16
 frame=0,1,389,0,10,14,2,15
@@ -109,7 +109,7 @@ frame=7,7,20,0,10,15,2,16
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,836,0,12,13,5,14
 frame=0,1,28,15,13,11,5,13
@@ -146,7 +146,7 @@ frame=3,7,613,0,9,14,2,14
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,861,13,12,13,6,14
 frame=0,1,685,14,13,11,6,13
@@ -183,7 +183,7 @@ frame=3,7,640,0,9,14,3,14
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,397,14,12,12,5,13
 frame=0,1,1253,0,13,10,5,12
@@ -236,7 +236,7 @@ frame=5,7,1316,18,9,8,2,6
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,873,13,12,13,6,14
 frame=0,1,0,15,14,11,7,13
@@ -273,7 +273,7 @@ frame=3,7,1158,0,9,13,5,12
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,397,14,12,12,5,13
 frame=0,1,1253,0,13,10,5,12
@@ -294,7 +294,7 @@ frame=1,7,716,0,8,14,2,14
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,333,14,13,12,6,13
 frame=0,1,1289,0,14,9,6,11

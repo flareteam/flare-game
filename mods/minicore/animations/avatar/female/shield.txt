@@ -3,7 +3,7 @@ image=images/avatar/female/shield.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,1264,16,15,16,6,16
 frame=0,1,372,0,9,19,7,18
@@ -40,7 +40,7 @@ frame=3,7,589,18,15,14,2,15
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,1013,0,13,17,10,16
 frame=0,1,1395,0,10,16,10,18
@@ -109,7 +109,7 @@ frame=7,7,1386,16,11,16,4,17
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,212,0,13,19,12,19
 frame=0,1,390,0,9,19,9,21
@@ -146,7 +146,7 @@ frame=3,7,13,0,15,20,10,18
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,915,0,14,17,7,17
 frame=0,1,288,0,12,19,9,19
@@ -183,7 +183,7 @@ frame=3,7,478,0,14,18,3,17
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,1294,16,15,16,7,16
 frame=0,1,399,0,9,19,7,18
@@ -236,7 +236,7 @@ frame=5,7,427,19,11,11,11,12
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,171,0,14,19,10,18
 frame=0,1,362,0,10,19,9,20
@@ -273,7 +273,7 @@ frame=3,7,1372,0,12,16,-1,19
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,1294,16,15,16,7,16
 frame=0,1,399,0,9,19,7,18
@@ -294,7 +294,7 @@ frame=1,7,258,19,14,13,4,12
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,1187,0,11,17,10,18
 frame=0,1,760,0,7,18,7,20

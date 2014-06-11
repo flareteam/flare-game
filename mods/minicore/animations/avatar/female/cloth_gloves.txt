@@ -3,7 +3,7 @@ image=images/avatar/female/cloth_gloves.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,19,547,11,15,4,16
 frame=0,1,0,1290,16,12,6,15
@@ -40,7 +40,7 @@ frame=3,7,0,1676,10,14,3,15
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,0,994,17,14,9,17
 frame=0,1,0,760,18,12,9,17
@@ -109,7 +109,7 @@ frame=7,7,0,1808,9,13,3,14
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,0,1473,15,13,10,17
 frame=0,1,0,1151,17,11,8,17
@@ -146,7 +146,7 @@ frame=3,7,17,873,13,19,8,20
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,17,981,13,17,6,18
 frame=0,1,0,437,20,13,8,16
@@ -183,7 +183,7 @@ frame=3,7,20,349,10,26,3,27
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,0,1646,11,14,4,16
 frame=0,1,15,1475,15,13,6,16
@@ -236,7 +236,7 @@ frame=5,7,0,1606,13,10,14,6
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,0,332,20,26,8,28
 frame=0,1,0,213,22,21,8,26
@@ -273,7 +273,7 @@ frame=3,7,0,408,20,15,8,16
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,0,1646,11,14,4,16
 frame=0,1,15,1475,15,13,6,16
@@ -294,7 +294,7 @@ frame=1,7,10,1693,10,14,6,14
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,0,1117,17,12,9,16
 frame=0,1,0,1104,17,13,6,17

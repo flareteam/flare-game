@@ -3,7 +3,7 @@ image=images/enemies/ice_ant.png
 
 [stance]
 frames=4
-duration=4
+duration=533ms
 type=back_forth
 frame=0,0,2089,0,25,23,11,16
 frame=0,1,1373,0,32,24,16,16
@@ -40,7 +40,7 @@ frame=3,7,1722,0,33,23,16,15
 
 [spawn]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,230,30,4,11,2,9
 frame=0,1,220,30,10,11,4,8
@@ -93,7 +93,7 @@ frame=5,7,3501,0,27,21,15,14
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,2859,22,25,19,11,14
 frame=0,1,3633,0,25,21,14,14
@@ -162,7 +162,7 @@ frame=7,7,3528,0,27,21,11,14
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,485,0,28,26,13,19
 frame=0,1,420,0,35,27,19,19
@@ -199,7 +199,7 @@ frame=3,7,3285,21,34,20,22,11
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,485,0,28,26,13,19
 frame=0,1,420,0,35,27,19,19
@@ -236,7 +236,7 @@ frame=3,7,3285,21,34,20,22,11
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,1553,0,26,24,9,19
 frame=0,1,792,0,29,25,11,19
@@ -289,7 +289,7 @@ frame=5,7,3730,21,27,20,12,18
 
 [swing]
 frames=4
-duration=2
+duration=266ms
 type=play_once
 frame=0,0,485,0,28,26,13,19
 frame=0,1,420,0,35,27,19,19
@@ -326,7 +326,7 @@ frame=3,7,3285,21,34,20,22,11
 
 [critdie]
 frames=8
-duration=4
+duration=1066ms
 type=play_once
 frame=0,0,3450,21,31,20,13,12
 frame=0,1,3385,21,33,20,19,12
@@ -395,7 +395,7 @@ frame=7,7,1835,23,29,18,13,11
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=back_forth
 frame=0,0,1553,0,26,24,9,19
 frame=0,1,792,0,29,25,11,19
@@ -416,7 +416,7 @@ frame=1,7,2808,22,26,19,9,16
 
 [block]
 frames=2
-duration=3
+duration=200ms
 type=play_once
 frame=0,0,3418,0,28,21,14,15
 frame=0,1,2535,0,28,22,12,14
