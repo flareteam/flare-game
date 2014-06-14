@@ -3,7 +3,7 @@ image=images/avatar/male/leather_armor.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,454,433,36,45,15,40
 frame=0,1,127,207,40,42,16,39
@@ -40,7 +40,7 @@ frame=3,7,659,49,25,48,11,40
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,490,333,36,47,16,42
 frame=0,1,610,373,36,45,18,42
@@ -77,7 +77,7 @@ frame=3,7,239,94,26,50,10,43
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,459,343,31,48,5,45
 frame=0,1,419,146,31,50,8,45
@@ -146,7 +146,7 @@ frame=7,7,567,180,36,47,14,43
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,646,143,38,45,15,40
 frame=0,1,646,445,38,42,15,39
@@ -199,7 +199,7 @@ frame=5,7,570,517,48,24,20,15
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,382,196,38,50,20,45
 frame=0,1,603,133,43,46,19,43
@@ -236,7 +236,7 @@ frame=3,7,40,355,27,62,7,54
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,126,53,37,55,15,51
 frame=0,1,75,538,38,56,18,52
@@ -273,7 +273,7 @@ frame=3,7,540,603,34,40,16,32
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,646,143,38,45,15,40
 frame=0,1,646,445,38,42,15,39
@@ -294,7 +294,7 @@ frame=1,7,395,613,23,47,12,39
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,365,528,36,44,14,39
 frame=0,1,183,619,40,41,16,38

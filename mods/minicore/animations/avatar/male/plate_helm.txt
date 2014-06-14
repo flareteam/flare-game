@@ -3,7 +3,7 @@ image=images/avatar/male/plate_helm.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,11,1629,11,16,4,23
 frame=0,1,11,1323,11,17,3,23
@@ -40,7 +40,7 @@ frame=3,7,0,1886,11,15,4,22
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,0,173,12,18,5,25
 frame=0,1,11,1357,11,17,4,26
@@ -109,7 +109,7 @@ frame=7,7,11,1233,11,18,4,24
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,0,580,12,17,4,24
 frame=0,1,0,1758,11,16,3,24
@@ -146,7 +146,7 @@ frame=3,7,11,1527,11,17,3,23
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,0,916,12,16,4,23
 frame=0,1,0,1528,11,17,3,24
@@ -183,7 +183,7 @@ frame=3,7,0,443,12,18,3,24
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,11,1773,11,16,5,23
 frame=0,1,12,687,10,16,2,23
@@ -236,7 +236,7 @@ frame=5,7,6,1997,5,6,13,6
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,0,835,12,17,6,23
 frame=0,1,0,1790,11,16,4,24
@@ -273,7 +273,7 @@ frame=3,7,12,900,10,14,8,16
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,11,1773,11,16,5,23
 frame=0,1,12,687,10,16,2,23
@@ -294,7 +294,7 @@ frame=1,7,0,1961,11,14,9,21
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,0,1822,11,16,4,22
 frame=0,1,11,1837,11,16,3,23

@@ -3,7 +3,7 @@ image=images/avatar/female/slingshot.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,40,90,18,17,14,20
 frame=0,1,56,190,16,20,16,25
@@ -40,7 +40,7 @@ frame=3,7,117,260,18,19,6,19
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,16,320,23,27,24,33
 frame=0,1,74,55,19,26,19,39
@@ -77,7 +77,7 @@ frame=3,7,88,109,17,27,21,29
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,93,29,13,28,19,33
 frame=0,1,40,62,15,28,20,40
@@ -146,7 +146,7 @@ frame=7,7,217,231,16,22,8,24
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,82,233,19,18,16,21
 frame=0,1,53,378,15,20,16,26
@@ -199,7 +199,7 @@ frame=5,7,149,389,6,13,9,13
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,185,180,19,20,18,22
 frame=0,1,217,208,16,23,22,29
@@ -236,7 +236,7 @@ frame=3,7,160,86,19,23,10,25
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,72,334,12,22,20,28
 frame=0,1,52,245,11,24,18,36
@@ -273,7 +273,7 @@ frame=3,7,53,315,14,23,-11,26
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,82,233,19,18,16,21
 frame=0,1,53,378,15,20,16,26
@@ -294,7 +294,7 @@ frame=1,7,199,302,18,16,12,14
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,204,225,13,25,21,35
 frame=0,1,200,60,15,27,15,41

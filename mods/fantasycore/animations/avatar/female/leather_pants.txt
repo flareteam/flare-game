@@ -3,7 +3,7 @@ image=images/avatar/female/leather_pants.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,22,53,19,25,7,28
 frame=0,1,62,266,21,22,8,27
@@ -40,7 +40,7 @@ frame=3,7,197,326,17,25,4,27
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,100,0,24,24,12,27
 frame=0,1,83,311,23,21,10,26
@@ -77,7 +77,7 @@ frame=3,7,118,125,20,26,8,27
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,147,48,22,24,11,26
 frame=0,1,161,98,18,26,6,27
@@ -146,7 +146,7 @@ frame=7,7,139,225,21,25,9,28
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,69,372,22,24,10,28
 frame=0,1,216,199,21,23,8,28
@@ -199,7 +199,7 @@ frame=5,7,239,351,12,16,17,9
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,214,149,19,25,7,28
 frame=0,1,155,372,21,24,8,29
@@ -236,7 +236,7 @@ frame=3,7,254,248,17,25,4,27
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,192,24,23,24,10,27
 frame=0,1,251,47,22,23,9,28
@@ -273,7 +273,7 @@ frame=3,7,272,262,17,25,9,25
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,69,372,22,24,10,28
 frame=0,1,216,199,21,23,8,28
@@ -294,7 +294,7 @@ frame=1,7,231,47,20,25,10,25
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,102,50,23,24,10,27
 frame=0,1,251,337,22,22,9,27

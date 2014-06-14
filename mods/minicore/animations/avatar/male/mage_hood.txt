@@ -3,7 +3,7 @@ image=images/avatar/male/mage_hood.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,0,1596,12,17,4,24
 frame=0,1,12,1353,11,17,3,23
@@ -40,7 +40,7 @@ frame=3,7,12,1523,11,17,4,23
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,0,38,13,19,5,26
 frame=0,1,0,930,12,18,4,26
@@ -109,7 +109,7 @@ frame=7,7,0,798,12,19,4,25
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,0,257,13,18,4,25
 frame=0,1,0,1254,12,18,3,25
@@ -146,7 +146,7 @@ frame=3,7,12,1191,11,18,3,25
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,0,416,13,17,3,24
 frame=0,1,0,1817,12,17,3,24
@@ -183,7 +183,7 @@ frame=3,7,0,893,12,19,3,25
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,12,1574,11,17,5,24
 frame=0,1,13,209,10,17,2,24
@@ -236,7 +236,7 @@ frame=5,7,0,2073,8,6,15,7
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,0,347,13,18,6,24
 frame=0,1,12,1625,11,17,4,25
@@ -273,7 +273,7 @@ frame=3,7,13,505,10,15,8,17
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,12,1574,11,17,5,24
 frame=0,1,13,209,10,17,2,24
@@ -294,7 +294,7 @@ frame=1,7,12,1827,11,16,9,22
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,0,1902,12,17,4,23
 frame=0,1,12,1710,11,17,3,23

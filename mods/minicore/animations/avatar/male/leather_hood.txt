@@ -3,7 +3,7 @@ image=images/avatar/male/leather_hood.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,22,423,11,16,4,23
 frame=0,1,22,439,11,16,3,23
@@ -40,7 +40,7 @@ frame=3,7,44,469,11,16,4,22
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,0,53,12,18,5,25
 frame=0,1,0,143,12,17,4,26
@@ -109,7 +109,7 @@ frame=7,7,24,123,12,18,4,24
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,36,209,12,17,4,24
 frame=0,1,48,334,11,17,3,24
@@ -146,7 +146,7 @@ frame=3,7,47,402,11,17,3,23
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,12,389,11,17,3,24
 frame=0,1,0,390,11,17,3,24
@@ -183,7 +183,7 @@ frame=3,7,44,436,11,17,3,24
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,22,471,11,16,5,23
 frame=0,1,40,687,10,16,2,23
@@ -236,7 +236,7 @@ frame=5,7,52,64,6,6,13,6
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,0,279,12,17,6,23
 frame=0,1,11,423,11,17,5,24
@@ -273,7 +273,7 @@ frame=3,7,0,736,10,14,8,16
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,22,471,11,16,5,23
 frame=0,1,40,687,10,16,2,23
@@ -294,7 +294,7 @@ frame=1,7,30,706,10,14,9,21
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,22,487,11,16,4,22
 frame=0,1,20,688,10,16,3,22

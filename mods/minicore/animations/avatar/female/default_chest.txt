@@ -3,7 +3,7 @@ image=images/avatar/female/default_chest.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,1059,16,11,16,3,20
 frame=0,1,872,0,12,16,3,20
@@ -40,7 +40,7 @@ frame=3,7,1232,16,10,16,2,20
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,951,16,12,16,3,20
 frame=0,1,725,0,14,16,5,20
@@ -109,7 +109,7 @@ frame=7,7,1365,0,10,15,3,19
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,992,0,12,16,5,20
 frame=0,1,739,0,14,16,5,20
@@ -146,7 +146,7 @@ frame=3,7,1322,16,9,16,3,20
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,1256,0,10,16,3,20
 frame=0,1,746,16,14,16,4,20
@@ -183,7 +183,7 @@ frame=3,7,570,0,10,17,2,21
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,1158,16,11,16,4,20
 frame=0,1,1023,16,12,16,4,20
@@ -236,7 +236,7 @@ frame=5,7,1452,7,9,7,15,6
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,63,0,12,19,3,23
 frame=0,1,120,0,15,18,4,22
@@ -273,7 +273,7 @@ frame=3,7,296,17,14,15,6,18
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,1158,16,11,16,4,20
 frame=0,1,1023,16,12,16,4,20
@@ -294,7 +294,7 @@ frame=1,7,1375,0,9,15,4,18
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,859,0,13,16,5,20
 frame=0,1,710,0,15,16,6,20

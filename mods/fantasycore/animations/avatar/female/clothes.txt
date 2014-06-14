@@ -3,7 +3,7 @@ image=images/avatar/female/clothes.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,445,42,26,45,10,42
 frame=0,1,202,156,32,45,12,42
@@ -40,7 +40,7 @@ frame=3,7,180,335,22,47,7,42
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,276,292,35,43,21,40
 frame=0,1,797,85,34,44,17,41
@@ -77,7 +77,7 @@ frame=3,7,866,40,28,48,16,42
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,234,251,43,40,18,40
 frame=0,1,234,203,37,48,18,41
@@ -146,7 +146,7 @@ frame=7,7,866,238,26,41,8,40
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,773,348,25,44,11,41
 frame=0,1,629,379,30,45,12,42
@@ -199,7 +199,7 @@ frame=5,7,854,159,40,23,30,14
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,764,304,27,44,12,41
 frame=0,1,162,389,41,45,17,42
@@ -236,7 +236,7 @@ frame=3,7,81,285,21,59,6,54
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,0,175,41,60,17,57
 frame=0,1,51,54,44,57,17,53
@@ -273,7 +273,7 @@ frame=3,7,511,82,40,43,16,37
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,773,348,25,44,11,41
 frame=0,1,629,379,30,45,12,42
@@ -294,7 +294,7 @@ frame=1,7,818,294,23,43,12,37
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,831,84,35,44,18,41
 frame=0,1,276,335,34,44,13,41

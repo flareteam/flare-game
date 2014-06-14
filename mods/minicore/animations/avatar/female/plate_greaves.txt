@@ -3,7 +3,7 @@ image=images/avatar/female/plate_greaves.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,987,13,9,12,3,14
 frame=0,1,105,14,10,11,4,13
@@ -40,7 +40,7 @@ frame=3,7,1101,13,8,12,2,13
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,495,13,11,12,5,13
 frame=0,1,89,0,9,14,3,14
@@ -109,7 +109,7 @@ frame=7,7,637,0,10,13,4,14
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,363,13,12,12,5,13
 frame=0,1,0,14,12,11,5,13
@@ -146,7 +146,7 @@ frame=3,7,134,0,9,14,3,14
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,1014,13,9,12,3,14
 frame=0,1,917,13,10,12,4,14
@@ -183,7 +183,7 @@ frame=3,7,1159,0,8,13,2,14
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,660,13,11,12,5,14
 frame=0,1,72,14,11,11,4,14
@@ -236,7 +236,7 @@ frame=5,7,1161,13,6,8,8,5
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,682,13,11,12,4,13
 frame=0,1,83,14,11,11,4,14
@@ -273,7 +273,7 @@ frame=3,7,1050,13,9,12,4,12
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,660,13,11,12,5,14
 frame=0,1,72,14,11,11,4,14
@@ -294,7 +294,7 @@ frame=1,7,827,0,10,13,5,12
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,726,13,11,12,5,13
 frame=0,1,94,14,11,11,5,14

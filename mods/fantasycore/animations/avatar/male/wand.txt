@@ -3,7 +3,7 @@ image=images/avatar/male/wand.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,22,364,22,19,6,34
 frame=0,1,114,359,11,17,-13,27
@@ -40,7 +40,7 @@ frame=3,7,111,303,15,18,19,31
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,90,407,11,16,-6,24
 frame=0,1,51,266,10,25,-6,28
@@ -77,7 +77,7 @@ frame=3,7,156,305,15,19,4,30
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,159,51,23,18,15,31
 frame=0,1,61,281,3,3,-11,15
@@ -146,7 +146,7 @@ frame=7,7,138,265,18,21,19,27
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,135,206,11,15,-5,27
 frame=0,1,177,371,10,14,-11,22
@@ -197,7 +197,7 @@ frame=5,7,177,399,10,8,-2,16
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,127,0,20,30,11,51
 frame=0,1,142,30,17,33,-6,52
@@ -234,7 +234,7 @@ frame=3,7,0,303,20,37,5,61
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,0,0,28,33,7,54
 frame=0,1,79,0,24,30,-2,50
@@ -271,7 +271,7 @@ frame=3,7,149,360,11,19,17,12
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,135,206,11,15,-5,27
 frame=0,1,177,371,10,14,-11,22
@@ -292,7 +292,7 @@ frame=1,7,37,315,4,4,9,20
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,58,408,12,15,-5,29
 frame=0,1,77,361,13,19,-10,28

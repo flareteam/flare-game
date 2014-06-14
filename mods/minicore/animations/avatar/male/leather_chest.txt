@@ -3,7 +3,7 @@ image=images/avatar/male/leather_chest.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,1347,17,13,17,4,20
 frame=0,1,557,18,16,16,5,19
@@ -40,7 +40,7 @@ frame=3,7,1551,17,9,17,2,19
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,407,0,10,19,2,22
 frame=0,1,221,0,12,19,3,22
@@ -109,7 +109,7 @@ frame=7,7,871,18,14,16,4,21
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,813,0,13,18,4,21
 frame=0,1,1245,17,15,17,6,20
@@ -146,7 +146,7 @@ frame=3,7,1123,0,10,18,2,21
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,839,0,13,18,5,21
 frame=0,1,522,18,18,16,7,20
@@ -183,7 +183,7 @@ frame=3,7,1473,17,12,17,3,20
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,1477,0,12,17,4,20
 frame=0,1,1250,0,15,17,5,19
@@ -236,7 +236,7 @@ frame=5,7,1641,16,9,8,10,7
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,1052,0,11,18,5,21
 frame=0,1,1333,17,14,17,6,21
@@ -273,7 +273,7 @@ frame=3,7,423,19,13,13,8,15
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,1477,0,12,17,4,20
 frame=0,1,1250,0,15,17,5,19
@@ -294,7 +294,7 @@ frame=1,7,1512,0,11,17,6,19
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,1275,17,15,17,5,19
 frame=0,1,637,18,16,16,5,19

@@ -448,7 +448,7 @@
   </object>
   <object name="fire statue trap" type="on_trigger" x="192" y="1632" width="608" height="448">
    <properties>
-    <property name="cooldown" value="30"/>
+    <property name="cooldown" value="1s"/>
     <property name="power" value="31"/>
     <property name="power_damage" value="25,50"/>
     <property name="power_path" value="15,58,hero"/>
@@ -473,7 +473,7 @@
     <property name="requires_not_status" value="ak_talisman_used"/>
     <property name="requires_status" value="ak_key_found,ak_talisman_found"/>
     <property name="set_status" value="ak_talisman_used"/>
-    <property name="shakycam" value="60"/>
+    <property name="shakycam" value="2s"/>
     <property name="soundfx" value="soundfx/powers/quake.ogg"/>
     <property name="tooltip" value="Activate Talisman"/>
     <property name="repeat" value="false"/>

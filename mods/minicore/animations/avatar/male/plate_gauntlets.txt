@@ -3,7 +3,7 @@ image=images/avatar/male/plate_gauntlets.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,0,1505,17,15,8,18
 frame=0,1,0,1138,18,11,6,16
@@ -40,7 +40,7 @@ frame=3,7,22,1914,10,15,5,17
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,23,314,9,15,2,16
 frame=0,1,18,1178,13,16,4,18
@@ -109,7 +109,7 @@ frame=7,7,0,1044,18,14,7,18
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,20,650,12,15,8,17
 frame=0,1,0,1856,16,11,9,16
@@ -146,7 +146,7 @@ frame=3,7,21,559,11,21,5,21
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,0,952,18,17,10,21
 frame=0,1,0,459,22,15,10,21
@@ -183,7 +183,7 @@ frame=3,7,19,753,13,23,3,27
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,0,1829,16,14,7,17
 frame=0,1,0,1171,18,11,6,15
@@ -236,7 +236,7 @@ frame=5,7,11,1936,11,11,8,7
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,21,534,11,25,6,26
 frame=0,1,0,715,19,23,9,26
@@ -273,7 +273,7 @@ frame=3,7,0,1390,17,17,8,16
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,0,1829,16,14,7,17
 frame=0,1,0,1171,18,11,6,15
@@ -294,7 +294,7 @@ frame=1,7,0,1990,8,10,4,10
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,0,1648,17,13,7,18
 frame=0,1,0,1072,18,14,6,18

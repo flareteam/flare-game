@@ -3,7 +3,7 @@ image=images/avatar/female/greatstaff.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,2120,18,9,18,-1,16
 frame=0,1,1671,0,21,24,3,21
@@ -40,7 +40,7 @@ frame=3,7,1871,20,32,19,17,21
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,2198,34,34,13,13,17
 frame=0,1,2266,0,19,17,3,15
@@ -109,7 +109,7 @@ frame=7,7,840,30,33,17,16,18
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,163,0,15,35,1,32
 frame=0,1,643,0,22,31,6,29
@@ -146,7 +146,7 @@ frame=3,7,193,0,10,35,1,33
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,709,0,7,31,1,30
 frame=0,1,968,0,23,28,2,26
@@ -183,7 +183,7 @@ frame=3,7,1566,0,31,24,13,35
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,1732,0,20,24,7,23
 frame=0,1,1544,0,12,25,0,23
@@ -236,7 +236,7 @@ frame=5,7,1892,39,33,6,28,0
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,1210,0,34,26,10,34
 frame=0,1,1319,0,17,26,-1,30
@@ -273,7 +273,7 @@ frame=3,7,1087,0,22,27,15,21
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,1732,0,20,24,7,23
 frame=0,1,1544,0,12,25,0,23
@@ -294,7 +294,7 @@ frame=1,7,133,35,35,12,20,15
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,1828,24,11,22,0,20
 frame=0,1,1752,0,20,24,2,21

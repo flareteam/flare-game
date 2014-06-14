@@ -3,7 +3,7 @@ image=images/enemies/skeleton_mage.png
 
 [stance]
 frames=4
-duration=4
+duration=533ms
 type=back_forth
 frame=0,0,1504,0,23,29,11,26
 frame=0,1,513,0,34,31,13,27
@@ -40,7 +40,7 @@ frame=3,7,373,64,20,25,11,23
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=back_forth
 frame=0,0,1382,0,18,30,8,27
 frame=0,1,203,0,28,32,9,28
@@ -61,7 +61,7 @@ frame=1,7,956,62,21,28,10,26
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,1387,30,17,30,8,27
 frame=0,1,615,0,31,31,12,28
@@ -98,7 +98,7 @@ frame=3,7,646,31,31,31,19,29
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,1382,0,18,30,8,27
 frame=0,1,203,0,28,32,9,28
@@ -151,7 +151,7 @@ frame=5,7,1745,53,23,12,14,6
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,1543,58,23,29,13,26
 frame=0,1,1011,31,17,31,10,27
@@ -188,7 +188,7 @@ frame=3,7,444,64,38,23,24,21
 
 [critdie]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,1382,0,18,30,8,27
 frame=0,1,203,0,28,32,9,28
@@ -241,7 +241,7 @@ frame=5,7,1745,53,23,12,14,6
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,1349,30,19,30,10,28
 frame=0,1,954,0,20,31,9,29
@@ -310,7 +310,7 @@ frame=7,7,764,0,26,31,16,27
 
 [block]
 frames=2
-duration=3
+duration=200ms
 type=play_once
 frame=0,0,1220,30,23,30,12,26
 frame=0,1,707,0,29,31,9,28

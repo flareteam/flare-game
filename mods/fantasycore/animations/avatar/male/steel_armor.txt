@@ -3,7 +3,7 @@ image=images/avatar/male/steel_armor.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,187,157,37,46,16,41
 frame=0,1,269,402,42,42,17,39
@@ -40,7 +40,7 @@ frame=3,7,428,299,27,50,11,41
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,495,533,36,47,16,42
 frame=0,1,455,498,39,45,19,42
@@ -77,7 +77,7 @@ frame=3,7,409,349,26,52,10,44
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,645,368,32,48,6,45
 frame=0,1,433,99,31,50,8,45
@@ -146,7 +146,7 @@ frame=7,7,642,559,36,49,14,44
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,258,679,39,46,16,41
 frame=0,1,531,591,38,42,15,39
@@ -199,7 +199,7 @@ frame=5,7,127,382,49,46,20,37
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,495,46,39,50,21,45
 frame=0,1,557,142,44,46,20,43
@@ -236,7 +236,7 @@ frame=3,7,43,662,29,63,8,54
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,43,234,38,57,16,52
 frame=0,1,41,346,39,55,19,52
@@ -273,7 +273,7 @@ frame=3,7,496,580,35,46,17,37
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,258,679,39,46,16,41
 frame=0,1,531,591,38,42,15,39
@@ -294,7 +294,7 @@ frame=1,7,356,493,24,49,12,40
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,462,630,37,45,15,40
 frame=0,1,153,640,41,41,16,38

@@ -3,7 +3,7 @@ image=images/avatar/female/buckler.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,494,13,11,13,6,14
 frame=0,1,411,14,8,14,7,16
@@ -40,7 +40,7 @@ frame=3,7,571,13,10,13,2,14
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,233,0,11,14,9,16
 frame=0,1,348,14,9,14,10,18
@@ -109,7 +109,7 @@ frame=7,7,435,14,7,14,2,14
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,244,0,11,14,11,16
 frame=0,1,183,0,9,15,9,20
@@ -146,7 +146,7 @@ frame=3,7,95,0,12,15,9,16
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,266,0,11,14,7,14
 frame=0,1,266,14,11,14,10,16
@@ -183,7 +183,7 @@ frame=3,7,152,0,11,15,3,15
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,557,0,11,13,7,14
 frame=0,1,652,26,9,13,7,16
@@ -236,7 +236,7 @@ frame=5,7,178,30,9,8,9,8
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,277,0,11,14,9,16
 frame=0,1,385,0,9,14,9,18
@@ -273,7 +273,7 @@ frame=3,7,329,0,10,14,-3,17
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,557,0,11,13,7,14
 frame=0,1,652,26,9,13,7,16
@@ -294,7 +294,7 @@ frame=1,7,339,28,11,11,5,11
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,329,14,10,14,10,17
 frame=0,1,472,0,6,14,7,20

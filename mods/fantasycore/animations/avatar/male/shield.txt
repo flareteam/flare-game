@@ -3,7 +3,7 @@ image=images/avatar/male/shield.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,129,230,21,34,17,35
 frame=0,1,325,131,16,32,14,39
@@ -40,7 +40,7 @@ frame=3,7,178,403,27,34,17,32
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,178,368,28,35,21,35
 frame=0,1,72,214,21,40,21,41
@@ -77,7 +77,7 @@ frame=3,7,371,194,23,29,8,28
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,93,230,36,28,9,30
 frame=0,1,192,185,29,34,15,34
@@ -146,7 +146,7 @@ frame=7,7,244,182,28,33,-3,37
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,206,354,20,35,18,32
 frame=0,1,275,403,12,34,14,37
@@ -199,7 +199,7 @@ frame=5,7,88,388,27,20,23,6
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,0,433,28,41,24,42
 frame=0,1,40,259,30,36,27,46
@@ -236,7 +236,7 @@ frame=3,7,52,174,20,45,-4,43
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,226,319,27,33,17,31
 frame=0,1,50,404,22,38,21,37
@@ -273,7 +273,7 @@ frame=3,7,343,207,28,30,6,37
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,206,354,20,35,18,32
 frame=0,1,275,403,12,34,14,37
@@ -294,7 +294,7 @@ frame=1,7,119,361,32,23,16,21
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,291,283,18,34,16,39
 frame=0,1,394,60,22,32,13,43

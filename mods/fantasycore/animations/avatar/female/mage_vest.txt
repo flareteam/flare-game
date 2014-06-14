@@ -3,7 +3,7 @@ image=images/avatar/female/mage_vest.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,30,227,23,34,7,42
 frame=0,1,86,35,24,33,7,41
@@ -40,7 +40,7 @@ frame=3,7,318,295,20,33,5,41
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,126,299,24,33,11,41
 frame=0,1,212,98,28,33,11,41
@@ -77,7 +77,7 @@ frame=3,7,406,293,20,33,7,40
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,76,400,24,34,7,41
 frame=0,1,22,296,29,34,10,41
@@ -146,7 +146,7 @@ frame=7,7,301,358,21,32,7,40
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,426,303,22,33,8,42
 frame=0,1,423,204,25,33,8,41
@@ -199,7 +199,7 @@ frame=5,7,414,430,19,15,30,13
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,310,261,22,34,6,42
 frame=0,1,240,98,28,33,9,41
@@ -236,7 +236,7 @@ frame=3,7,194,164,21,35,5,43
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,0,338,24,39,7,47
 frame=0,1,0,153,31,37,9,45
@@ -273,7 +273,7 @@ frame=3,7,343,101,29,31,12,37
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,426,303,22,33,8,42
 frame=0,1,423,204,25,33,8,41
@@ -294,7 +294,7 @@ frame=1,7,406,326,20,31,9,37
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,127,166,26,34,10,42
 frame=0,1,314,67,30,32,12,40

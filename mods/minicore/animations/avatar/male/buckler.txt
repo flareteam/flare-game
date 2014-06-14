@@ -3,7 +3,7 @@ image=images/avatar/male/buckler.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,13,395,10,15,8,16
 frame=0,1,13,1490,6,15,6,19
@@ -40,7 +40,7 @@ frame=3,7,0,1220,12,13,6,14
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,0,558,13,14,3,15
 frame=0,1,12,911,11,15,6,16
@@ -109,7 +109,7 @@ frame=7,7,13,545,10,15,-3,18
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,0,642,13,14,9,15
 frame=0,1,13,560,10,15,10,18
@@ -146,7 +146,7 @@ frame=3,7,0,1363,9,13,2,13
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,0,365,13,18,11,20
 frame=0,1,0,942,12,17,11,23
@@ -183,7 +183,7 @@ frame=3,7,14,121,9,19,-3,21
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,13,757,10,13,9,14
 frame=0,1,18,1520,5,14,6,16
@@ -236,7 +236,7 @@ frame=5,7,0,1356,10,7,11,3
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,0,656,13,14,8,13
 frame=0,1,12,1184,11,14,11,16
@@ -273,7 +273,7 @@ frame=3,7,0,763,13,12,2,17
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,13,757,10,13,9,14
 frame=0,1,18,1520,5,14,6,16
@@ -294,7 +294,7 @@ frame=1,7,0,1271,12,12,7,11
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,15,86,8,16,8,19
 frame=0,1,0,1571,6,15,7,21

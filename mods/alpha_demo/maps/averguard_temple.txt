@@ -436,7 +436,7 @@ tooltip=Switch
 # fire statue trap
 type=on_trigger
 location=6,51,19,14
-cooldown=30
+cooldown=1s
 power=31
 power_damage=25,50
 power_path=15,58,hero
@@ -464,7 +464,7 @@ repeat=false
 requires_not_status=ak_talisman_used
 requires_status=ak_key_found,ak_talisman_found
 set_status=ak_talisman_used
-shakycam=60
+shakycam=2s
 soundfx=soundfx/powers/quake.ogg
 tooltip=Activate Talisman
 

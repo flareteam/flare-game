@@ -3,7 +3,7 @@ image=images/avatar/female/cloth_sandals.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,59,175,23,18,10,15
 frame=0,1,82,266,21,18,10,15
@@ -40,7 +40,7 @@ frame=3,7,99,369,15,20,6,15
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,196,73,26,17,12,14
 frame=0,1,73,148,23,21,11,17
@@ -77,7 +77,7 @@ frame=3,7,179,79,17,21,7,15
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,0,18,43,17,18,17
 frame=0,1,0,135,28,26,11,19
@@ -146,7 +146,7 @@ frame=7,7,222,85,25,17,8,16
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,117,174,24,19,11,16
 frame=0,1,201,341,22,19,11,16
@@ -199,7 +199,7 @@ frame=5,7,201,388,22,13,12,4
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,201,270,22,18,10,15
 frame=0,1,223,345,21,18,10,15
@@ -236,7 +236,7 @@ frame=3,7,141,173,13,20,6,15
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,153,101,27,17,13,14
 frame=0,1,154,131,23,20,11,16
@@ -273,7 +273,7 @@ frame=3,7,120,193,21,22,8,16
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,117,174,24,19,11,16
 frame=0,1,201,341,22,19,11,16
@@ -294,7 +294,7 @@ frame=1,7,202,197,18,19,10,13
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,220,180,24,18,11,15
 frame=0,1,76,350,22,19,11,16

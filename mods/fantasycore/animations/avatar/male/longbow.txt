@@ -3,7 +3,7 @@ image=images/avatar/male/longbow.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,233,240,17,51,16,47
 frame=0,1,212,193,26,47,15,50
@@ -40,7 +40,7 @@ frame=3,7,346,239,23,47,15,42
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,317,162,32,44,24,41
 frame=0,1,711,55,25,52,21,49
@@ -77,7 +77,7 @@ frame=3,7,365,204,32,26,15,24
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,546,0,54,23,20,25
 frame=0,1,605,62,40,35,19,33
@@ -146,7 +146,7 @@ frame=7,7,598,23,41,39,6,40
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,734,144,28,45,21,39
 frame=0,1,517,254,13,48,13,44
@@ -199,7 +199,7 @@ frame=5,7,139,293,32,9,20,-2
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,72,96,31,53,24,51
 frame=0,1,146,0,45,46,30,52
@@ -236,7 +236,7 @@ frame=3,7,90,149,21,61,-2,55
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,658,21,45,35,27,32
 frame=0,1,369,230,27,46,23,42
@@ -273,7 +273,7 @@ frame=3,7,909,44,42,36,13,38
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,734,144,28,45,21,39
 frame=0,1,517,254,13,48,13,44
@@ -294,7 +294,7 @@ frame=1,7,330,48,52,19,28,17
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,267,236,27,49,17,50
 frame=0,1,396,234,28,42,14,51

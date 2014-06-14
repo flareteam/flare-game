@@ -3,7 +3,7 @@ image=images/avatar/female/default_hands.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,19,558,11,15,4,16
 frame=0,1,0,1303,16,12,6,15
@@ -40,7 +40,7 @@ frame=3,7,0,1681,10,14,3,15
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,0,979,17,14,9,17
 frame=0,1,0,746,18,12,9,17
@@ -109,7 +109,7 @@ frame=7,7,0,1811,9,13,3,14
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,15,1474,15,13,10,17
 frame=0,1,0,1149,17,11,8,17
@@ -146,7 +146,7 @@ frame=3,7,17,852,13,19,8,20
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,17,979,13,17,6,18
 frame=0,1,0,463,20,12,8,16
@@ -183,7 +183,7 @@ frame=3,7,20,347,10,26,3,27
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,0,1651,11,14,4,16
 frame=0,1,15,1500,15,12,6,16
@@ -236,7 +236,7 @@ frame=5,7,13,1607,13,10,14,6
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,0,332,20,26,8,28
 frame=0,1,0,213,22,21,8,26
@@ -273,7 +273,7 @@ frame=3,7,0,408,20,15,8,16
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,0,1651,11,14,4,16
 frame=0,1,15,1500,15,12,6,16
@@ -294,7 +294,7 @@ frame=1,7,18,1796,9,14,6,14
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,0,1115,17,12,9,16
 frame=0,1,0,1089,17,13,6,17

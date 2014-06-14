@@ -2,9 +2,11 @@
 image=images/powers/spark_red.png
 
 [power]
-frames=4
-duration=400ms
-type=play_once
+# this animation is only 4 frames
+# but we use extra blank frames to sync it with bleeding spurts
+frames=10
+duration=1s
+type=looped
 frame=0,0,35,32,10,7,5,20
 frame=0,1,25,32,10,9,4,20
 frame=1,0,28,0,18,16,8,24

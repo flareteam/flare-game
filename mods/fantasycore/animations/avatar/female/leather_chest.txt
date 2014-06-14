@@ -3,7 +3,7 @@ image=images/avatar/female/leather_chest.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,105,69,23,35,7,41
 frame=0,1,162,36,26,33,8,41
@@ -40,7 +40,7 @@ frame=3,7,414,68,22,36,6,41
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,338,134,25,36,11,41
 frame=0,1,363,134,29,33,11,40
@@ -77,7 +77,7 @@ frame=3,7,191,443,21,34,7,40
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,171,242,25,35,7,40
 frame=0,1,75,69,30,35,10,40
@@ -146,7 +146,7 @@ frame=7,7,331,411,22,33,7,39
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,102,377,23,35,8,41
 frame=0,1,324,340,25,34,8,41
@@ -199,7 +199,7 @@ frame=5,7,426,461,20,15,30,13
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,222,345,24,35,7,41
 frame=0,1,73,202,29,33,9,41
@@ -236,7 +236,7 @@ frame=3,7,23,198,22,38,5,43
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,0,242,25,42,7,47
 frame=0,1,0,323,31,38,9,45
@@ -273,7 +273,7 @@ frame=3,7,75,170,30,32,12,36
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,102,377,23,35,8,41
 frame=0,1,324,340,25,34,8,41
@@ -294,7 +294,7 @@ frame=1,7,346,444,20,33,9,36
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,71,235,27,35,10,41
 frame=0,1,218,34,31,34,12,41

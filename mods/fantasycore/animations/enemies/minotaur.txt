@@ -3,7 +3,7 @@ image=images/enemies/minotaur.png
 
 [stance]
 frames=8
-duration=6
+duration=1600ms
 type=looped
 frame=0,0,75,258,48,83,25,76
 frame=0,1,134,1091,53,83,24,75
@@ -72,7 +72,7 @@ frame=7,7,823,875,71,75,44,70
 
 [shoot]
 frames=8
-duration=3
+duration=800ms
 type=play_once
 frame=0,0,259,1170,48,83,25,76
 frame=0,1,256,831,53,83,24,75
@@ -141,7 +141,7 @@ frame=7,7,1304,434,68,75,38,70
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,801,482,54,78,25,74
 frame=0,1,142,851,61,84,25,75
@@ -210,7 +210,7 @@ frame=7,7,960,193,75,69,47,65
 
 [die]
 frames=8
-duration=4
+duration=1066ms
 type=play_once
 frame=0,0,327,994,48,83,25,76
 frame=0,1,304,662,53,83,24,75
@@ -279,7 +279,7 @@ frame=7,7,819,134,82,48,41,22
 
 [critdie]
 frames=8
-duration=4
+duration=1066ms
 type=play_once
 frame=0,0,327,994,48,83,25,76
 frame=0,1,304,662,53,83,24,75
@@ -348,7 +348,7 @@ frame=7,7,819,134,82,48,41,22
 
 [cast]
 frames=8
-duration=3
+duration=800ms
 type=play_once
 frame=0,0,295,330,48,83,25,76
 frame=0,1,258,914,53,83,24,75
@@ -417,7 +417,7 @@ frame=7,7,1311,735,70,72,44,67
 
 [swing]
 frames=8
-duration=4
+duration=1066ms
 type=play_once
 frame=0,0,356,1160,48,83,25,76
 frame=0,1,307,745,53,83,24,75
@@ -486,7 +486,7 @@ frame=7,7,1394,83,77,75,47,70
 
 [hit]
 frames=3
-duration=2
+duration=200ms
 type=back_forth
 frame=0,0,327,994,48,83,25,76
 frame=0,1,304,662,53,83,24,75
@@ -515,7 +515,7 @@ frame=2,7,738,115,81,63,38,51
 
 [block]
 frames=8
-duration=1
+duration=266ms
 type=play_once
 frame=0,0,430,894,48,83,25,76
 frame=0,1,309,828,53,83,24,75

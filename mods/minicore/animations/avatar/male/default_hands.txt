@@ -3,7 +3,7 @@ image=images/avatar/male/default_hands.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,0,1197,17,14,7,17
 frame=0,1,0,964,18,11,6,16
@@ -40,7 +40,7 @@ frame=3,7,0,1889,10,14,5,16
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,22,1848,9,15,2,16
 frame=0,1,18,904,13,16,4,17
@@ -109,7 +109,7 @@ frame=7,7,0,913,18,13,7,17
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,0,1798,12,11,8,13
 frame=0,1,0,1716,16,11,9,16
@@ -146,7 +146,7 @@ frame=3,7,20,544,11,20,5,20
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,0,1119,17,17,10,21
 frame=0,1,0,471,21,15,9,21
@@ -183,7 +183,7 @@ frame=3,7,18,741,13,23,3,27
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,16,1520,15,14,7,16
 frame=0,1,0,1738,16,10,6,14
@@ -236,7 +236,7 @@ frame=5,7,11,1861,11,11,8,6
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,20,519,11,25,6,25
 frame=0,1,0,749,18,22,9,26
@@ -273,7 +273,7 @@ frame=3,7,0,1446,16,16,7,16
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,16,1520,15,14,7,16
 frame=0,1,0,1738,16,10,6,14
@@ -294,7 +294,7 @@ frame=1,7,25,100,6,10,4,10
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,0,1618,16,13,7,17
 frame=0,1,0,873,18,14,5,18

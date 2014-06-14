@@ -3,7 +3,7 @@ image=images/avatar/male/default_feet.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,33,123,36,20,15,15
 frame=0,1,59,190,35,20,16,17
@@ -40,7 +40,7 @@ frame=3,7,351,306,19,23,7,15
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,316,136,33,22,13,17
 frame=0,1,283,180,33,19,15,16
@@ -77,7 +77,7 @@ frame=3,7,265,352,16,24,5,17
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,30,143,25,28,-1,25
 frame=0,1,154,55,26,24,3,19
@@ -146,7 +146,7 @@ frame=7,7,0,209,24,36,2,32
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,180,17,38,20,15,15
 frame=0,1,180,37,38,19,15,16
@@ -199,7 +199,7 @@ frame=5,7,182,257,26,21,-2,14
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,59,167,34,23,16,17
 frame=0,1,311,82,36,20,18,17
@@ -236,7 +236,7 @@ frame=3,7,407,309,16,26,7,18
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,120,132,37,20,15,16
 frame=0,1,225,118,36,22,16,18
@@ -273,7 +273,7 @@ frame=3,7,294,242,20,26,8,18
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,180,17,38,20,15,15
 frame=0,1,180,37,38,19,15,16
@@ -294,7 +294,7 @@ frame=1,7,416,62,15,26,6,18
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,311,102,36,20,14,15
 frame=0,1,224,77,37,21,16,18

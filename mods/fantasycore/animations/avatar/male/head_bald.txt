@@ -3,7 +3,7 @@ image=images/avatar/male/head_bald.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,147,168,21,31,7,45
 frame=0,1,80,268,19,31,5,45
@@ -40,7 +40,7 @@ frame=3,7,157,415,19,30,7,43
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,282,33,21,32,7,47
 frame=0,1,157,230,20,31,6,47
@@ -77,7 +77,7 @@ frame=3,7,39,237,20,33,6,46
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,0,0,22,34,9,49
 frame=0,1,85,102,20,33,7,51
@@ -146,7 +146,7 @@ frame=7,7,65,68,21,34,7,47
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,234,257,19,30,9,45
 frame=0,1,114,457,17,30,3,46
@@ -199,7 +199,7 @@ frame=5,7,294,238,9,9,26,11
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,126,100,21,33,6,47
 frame=0,1,99,297,20,32,5,47
@@ -236,7 +236,7 @@ frame=3,7,21,169,21,34,5,48
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,99,361,20,32,11,46
 frame=0,1,118,263,19,32,8,48
@@ -273,7 +273,7 @@ frame=3,7,286,342,17,27,15,31
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,234,257,19,30,9,45
 frame=0,1,114,457,17,30,3,46
@@ -294,7 +294,7 @@ frame=1,7,245,317,10,28,16,42
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,137,292,20,31,6,44
 frame=0,1,148,447,19,30,5,44

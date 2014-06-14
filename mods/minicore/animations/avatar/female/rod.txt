@@ -3,7 +3,7 @@ image=images/avatar/female/rod.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,932,0,6,12,-1,16
 frame=0,1,470,19,11,13,-3,16
@@ -40,7 +40,7 @@ frame=3,7,979,11,15,11,11,17
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,882,24,15,8,6,13
 frame=0,1,1139,0,8,9,-2,12
@@ -109,7 +109,7 @@ frame=7,7,1104,0,13,10,11,13
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,633,0,5,16,3,14
 frame=0,1,638,0,5,16,4,16
@@ -146,7 +146,7 @@ frame=3,7,687,0,7,15,2,14
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,544,0,6,18,0,24
 frame=0,1,605,0,13,16,-5,21
@@ -183,7 +183,7 @@ frame=3,7,494,0,17,18,5,30
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,821,13,10,13,4,18
 frame=0,1,734,0,8,14,-3,18
@@ -236,7 +236,7 @@ frame=5,7,658,30,13,2,22,-2
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,390,0,19,19,0,30
 frame=0,1,467,0,12,19,-4,26
@@ -273,7 +273,7 @@ frame=3,7,663,0,9,15,12,11
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,821,13,10,13,4,18
 frame=0,1,734,0,8,14,-3,18
@@ -294,7 +294,7 @@ frame=1,7,79,24,16,8,14,12
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,931,12,7,12,-2,16
 frame=0,1,790,13,11,13,-4,16

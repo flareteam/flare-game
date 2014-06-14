@@ -3,7 +3,7 @@ image=images/avatar/female/plate_cuirass.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,93,35,23,34,7,42
 frame=0,1,107,69,27,34,8,42
@@ -40,7 +40,7 @@ frame=3,7,188,240,22,34,6,42
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,187,308,25,34,11,41
 frame=0,1,223,133,28,33,11,41
@@ -77,7 +77,7 @@ frame=3,7,261,332,21,34,8,41
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,188,274,24,34,7,41
 frame=0,1,32,333,29,34,10,41
@@ -146,7 +146,7 @@ frame=7,7,374,299,23,32,8,40
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,282,331,23,34,8,42
 frame=0,1,300,198,26,33,9,42
@@ -199,7 +199,7 @@ frame=5,7,347,450,19,16,30,14
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,84,320,24,35,7,42
 frame=0,1,369,34,29,33,9,41
@@ -236,7 +236,7 @@ frame=3,7,200,102,22,35,6,43
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,31,154,25,39,7,47
 frame=0,1,0,154,31,37,9,45
@@ -273,7 +273,7 @@ frame=3,7,398,36,30,32,13,38
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,282,331,23,34,8,42
 frame=0,1,300,198,26,33,9,42
@@ -294,7 +294,7 @@ frame=1,7,394,402,21,32,10,38
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,428,208,26,33,10,41
 frame=0,1,91,434,31,33,12,41

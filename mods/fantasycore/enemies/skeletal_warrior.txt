@@ -13,14 +13,14 @@ sfx_critdie=soundfx/enemies/skeleton_critdie.ogg
 animations=animations/enemies/skeleton.txt
 
 
-waypoint_pause=30
+waypoint_pause=1s
 
 # combat stats
 hp=130
 speed=5
 melee_range=1.1875
 threat_range=8.0
-turn_delay=6
+turn_delay=200ms
 
 chance_pursue=25
 chance_melee_phys=10
@@ -32,7 +32,7 @@ power_melee_phys=5
 power_melee_ment=39
 
 power_beacon=132
-cooldown_ranged_ment=150
+cooldown_ranged_ment=5s
 
 accuracy=81
 avoidance=37
@@ -47,7 +47,7 @@ absorb_max=12
 
 vulnerable_fire=150
 vulnerable_ice=75
-cooldown=20
+cooldown=666ms
 
 # loot
 loot=currency,33,5,20

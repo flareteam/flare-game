@@ -3,7 +3,7 @@ image=images/avatar/female/leather_hood.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,0,768,11,17,3,24
 frame=0,1,11,773,11,17,3,24
@@ -40,7 +40,7 @@ frame=3,7,12,411,10,17,2,24
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,11,1368,11,16,4,23
 frame=0,1,12,428,10,17,3,24
@@ -109,7 +109,7 @@ frame=7,7,10,1758,10,16,4,23
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,11,1480,11,16,5,23
 frame=0,1,11,1266,11,17,4,24
@@ -146,7 +146,7 @@ frame=3,7,0,1556,11,16,4,22
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,0,1159,11,17,2,24
 frame=0,1,0,696,11,18,2,24
@@ -183,7 +183,7 @@ frame=3,7,0,1261,11,17,3,24
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,11,1592,11,16,4,23
 frame=0,1,11,1334,11,17,3,24
@@ -236,7 +236,7 @@ frame=5,7,6,1983,6,6,18,5
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,11,1113,11,17,3,23
 frame=0,1,0,1125,11,17,2,24
@@ -273,7 +273,7 @@ frame=3,7,0,1476,11,16,5,21
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,11,1592,11,16,4,23
 frame=0,1,11,1334,11,17,3,24
@@ -294,7 +294,7 @@ frame=1,7,11,1608,11,16,6,21
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,0,1312,11,17,4,23
 frame=0,1,10,1724,10,17,3,24

@@ -3,7 +3,7 @@ image=images/enemies/scathelocke.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,1116,51,29,25,8,22
 frame=0,1,1162,0,27,25,8,23
@@ -40,7 +40,7 @@ frame=3,7,1200,50,25,25,14,21
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,960,26,29,26,13,24
 frame=0,1,646,56,24,28,7,25
@@ -109,7 +109,7 @@ frame=7,7,1249,50,22,25,11,23
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,469,31,19,31,8,29
 frame=0,1,531,29,23,29,9,27
@@ -146,7 +146,7 @@ frame=3,7,306,33,13,33,5,29
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,447,62,21,31,10,28
 frame=0,1,362,32,27,32,9,30
@@ -183,7 +183,7 @@ frame=3,7,0,0,16,37,5,33
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,1471,48,27,24,7,22
 frame=0,1,1239,0,23,25,7,23
@@ -236,7 +236,7 @@ frame=5,7,747,83,28,13,13,9
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,83,68,31,28,15,26
 frame=0,1,518,60,24,29,9,27
@@ -273,7 +273,7 @@ frame=3,7,1529,0,19,24,9,16
 
 [critdie]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,1471,48,27,24,7,22
 frame=0,1,1239,0,23,25,7,23
@@ -326,7 +326,7 @@ frame=5,7,747,83,28,13,13,9
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,1471,48,27,24,7,22
 frame=0,1,1239,0,23,25,7,23
@@ -347,7 +347,7 @@ frame=1,7,848,54,22,27,9,23
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,1396,72,29,24,8,22
 frame=0,1,1422,24,28,24,8,22

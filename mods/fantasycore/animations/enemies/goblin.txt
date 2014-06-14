@@ -3,7 +3,7 @@ image=images/enemies/goblin.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,372,116,38,32,23,28
 frame=0,1,246,186,28,31,11,28
@@ -40,7 +40,7 @@ frame=3,7,513,377,32,29,21,25
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,181,104,41,37,12,36
 frame=0,1,171,141,38,40,12,36
@@ -77,7 +77,7 @@ frame=3,7,163,434,40,30,30,27
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=back_forth
 frame=0,0,281,46,42,33,21,29
 frame=0,1,333,348,40,30,16,27
@@ -98,7 +98,7 @@ frame=1,7,430,600,27,35,10,28
 
 [die]
 frames=6
-duration=2
+duration=400ms
 type=play_once
 frame=0,0,281,46,42,33,21,29
 frame=0,1,333,348,40,30,16,27
@@ -151,7 +151,7 @@ frame=5,7,489,228,35,25,17,18
 
 [critdie]
 frames=8
-duration=3
+duration=800ms
 type=play_once
 frame=0,0,517,330,21,45,13,39
 frame=0,1,35,466,22,48,11,43
@@ -220,7 +220,7 @@ frame=7,7,197,299,33,41,17,33
 
 [cast]
 frames=4
-duration=4
+duration=533ms
 type=play_once
 frame=0,0,390,569,21,30,15,26
 frame=0,1,600,235,35,31,23,28
@@ -257,7 +257,7 @@ frame=3,7,0,418,36,48,17,44
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,405,224,43,29,21,26
 frame=0,1,166,631,34,31,13,29
@@ -326,7 +326,7 @@ frame=7,7,599,456,33,32,23,28
 
 [swing]
 frames=3
-duration=3
+duration=300ms
 type=play_once
 frame=0,0,338,186,33,37,13,34
 frame=0,1,271,329,33,40,14,38
@@ -356,7 +356,7 @@ frame=2,7,271,398,42,25,32,21
 
 [block]
 frames=2
-duration=3
+duration=200ms
 type=play_once
 frame=0,0,581,686,27,31,14,27
 frame=0,1,543,603,28,35,13,31

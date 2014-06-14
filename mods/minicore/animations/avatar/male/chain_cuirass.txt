@@ -3,7 +3,7 @@ image=images/avatar/male/chain_cuirass.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,1351,17,13,16,4,19
 frame=0,1,859,17,16,16,5,19
@@ -40,7 +40,7 @@ frame=3,7,1547,0,9,17,2,19
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,744,0,10,18,2,22
 frame=0,1,531,0,13,18,3,22
@@ -109,7 +109,7 @@ frame=7,7,1105,17,15,16,4,21
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,1221,0,13,17,4,20
 frame=0,1,1067,0,15,17,6,20
@@ -146,7 +146,7 @@ frame=3,7,754,0,10,18,2,21
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,1234,0,13,17,5,21
 frame=0,1,806,17,18,16,7,20
@@ -183,7 +183,7 @@ frame=3,7,1628,0,11,16,2,20
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,1507,17,13,16,5,19
 frame=0,1,1035,0,16,17,5,19
@@ -236,7 +236,7 @@ frame=5,7,1677,16,9,8,10,7
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,733,0,11,18,4,21
 frame=0,1,517,0,14,18,6,21
@@ -273,7 +273,7 @@ frame=3,7,640,18,13,13,8,15
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,1507,17,13,16,5,19
 frame=0,1,1035,0,16,17,5,19
@@ -294,7 +294,7 @@ frame=1,7,1332,0,12,17,6,19
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,1195,17,15,16,5,19
 frame=0,1,923,17,16,16,5,19

@@ -3,7 +3,7 @@ image=images/avatar/female/staff.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,311,636,18,35,-2,33
 frame=0,1,122,333,34,39,4,36
@@ -40,7 +40,7 @@ frame=3,7,241,138,53,30,26,36
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,0,439,35,55,10,53
 frame=0,1,336,133,41,45,15,48
@@ -77,7 +77,7 @@ frame=3,7,36,237,19,60,0,56
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,241,168,53,20,13,29
 frame=0,1,330,471,28,29,-2,27
@@ -146,7 +146,7 @@ frame=7,7,186,89,54,30,25,35
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,375,376,34,40,11,40
 frame=0,1,186,631,22,42,-1,39
@@ -199,7 +199,7 @@ frame=5,7,421,296,53,5,48,-3
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,360,249,14,52,0,52
 frame=0,1,123,92,39,49,2,47
@@ -236,7 +236,7 @@ frame=3,7,55,359,51,39,24,62
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,338,0,57,38,16,59
 frame=0,1,347,531,29,40,-3,54
@@ -273,7 +273,7 @@ frame=3,7,323,249,37,48,26,39
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,375,376,34,40,11,40
 frame=0,1,186,631,22,42,-1,39
@@ -294,7 +294,7 @@ frame=1,7,61,428,59,22,32,29
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,418,572,19,34,-3,33
 frame=0,1,331,335,34,38,3,34

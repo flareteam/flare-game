@@ -3,7 +3,7 @@ image=images/avatar/female/steel_armor.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,444,179,27,45,11,42
 frame=0,1,209,187,32,45,12,42
@@ -40,7 +40,7 @@ frame=3,7,283,279,23,48,7,43
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,326,443,35,44,21,41
 frame=0,1,190,485,35,44,18,41
@@ -77,7 +77,7 @@ frame=3,7,414,270,29,48,16,42
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,166,138,43,41,18,41
 frame=0,1,128,152,38,48,18,41
@@ -146,7 +146,7 @@ frame=7,7,565,495,27,43,9,41
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,509,532,26,45,11,42
 frame=0,1,341,531,31,46,12,43
@@ -199,7 +199,7 @@ frame=5,7,654,484,41,22,30,14
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,544,405,29,45,12,42
 frame=0,1,374,44,41,45,17,42
@@ -236,7 +236,7 @@ frame=3,7,91,172,23,60,6,54
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,0,235,41,60,17,57
 frame=0,1,0,411,44,57,17,53
@@ -273,7 +273,7 @@ frame=3,7,403,179,41,44,17,38
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,509,532,26,45,11,42
 frame=0,1,341,531,31,46,12,43
@@ -294,7 +294,7 @@ frame=1,7,592,496,23,45,12,38
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,254,486,35,44,18,41
 frame=0,1,219,440,35,45,13,42

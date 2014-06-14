@@ -3,7 +3,7 @@ image=images/avatar/male/chain_gloves.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,0,604,17,14,7,17
 frame=0,1,18,480,18,11,6,16
@@ -40,7 +40,7 @@ frame=3,7,36,481,10,14,5,16
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,18,1250,9,15,2,16
 frame=0,1,0,1105,13,15,4,17
@@ -109,7 +109,7 @@ frame=7,7,0,456,18,13,7,17
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,12,1162,12,11,8,13
 frame=0,1,16,852,16,11,9,16
@@ -146,7 +146,7 @@ frame=3,7,11,1182,11,20,5,20
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,0,556,17,17,10,21
 frame=0,1,25,130,21,15,9,21
@@ -183,7 +183,7 @@ frame=3,7,0,1048,13,23,3,27
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,0,973,15,13,7,16
 frame=0,1,0,864,16,10,6,14
@@ -236,7 +236,7 @@ frame=5,7,22,1223,11,11,8,6
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,0,1182,11,25,6,25
 frame=0,1,18,374,18,22,9,26
@@ -273,7 +273,7 @@ frame=3,7,16,730,16,16,7,16
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,0,973,15,13,7,16
 frame=0,1,0,864,16,10,6,14
@@ -294,7 +294,7 @@ frame=1,7,40,1051,6,10,4,10
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,0,803,16,13,7,17
 frame=0,1,18,427,18,14,5,18

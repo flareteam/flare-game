@@ -3,7 +3,7 @@ image=images/avatar/male/slingshot.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,301,0,6,13,8,16
 frame=0,1,305,13,6,13,5,19
@@ -40,7 +40,7 @@ frame=3,7,665,27,3,5,6,13
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,613,0,9,9,3,10
 frame=0,1,653,9,7,9,6,11
@@ -109,7 +109,7 @@ frame=7,7,444,0,9,11,-3,13
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,319,0,11,12,10,14
 frame=0,1,404,11,11,11,10,17
@@ -146,7 +146,7 @@ frame=3,7,637,9,8,9,4,9
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,680,6,2,6,10,20
 frame=0,1,651,27,5,5,9,23
@@ -183,7 +183,7 @@ frame=3,7,45,0,10,19,-2,21
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,382,24,5,8,9,12
 frame=0,1,557,0,6,11,6,15
@@ -235,7 +235,7 @@ frame=5,7,197,30,5,2,10,-2
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,574,20,8,10,8,10
 frame=0,1,537,0,7,11,11,13
@@ -272,7 +272,7 @@ frame=3,7,322,12,9,12,-3,16
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,382,24,5,8,9,12
 frame=0,1,557,0,6,11,6,15
@@ -293,7 +293,7 @@ frame=1,7,669,18,8,7,6,6
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,685,26,3,5,7,19
 frame=0,1,339,12,8,12,3,21

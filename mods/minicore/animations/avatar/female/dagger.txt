@@ -3,7 +3,7 @@ image=images/avatar/female/dagger.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,13,129,5,10,-1,16
 frame=0,1,10,619,8,10,-4,14
@@ -40,7 +40,7 @@ frame=3,7,0,557,10,9,7,16
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,0,663,10,8,3,13
 frame=0,1,12,1095,6,8,-2,12
@@ -109,7 +109,7 @@ frame=7,7,0,915,9,9,7,13
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,11,231,7,12,3,13
 frame=0,1,13,42,5,13,4,14
@@ -146,7 +146,7 @@ frame=3,7,9,877,9,10,2,12
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,13,94,5,13,-1,21
 frame=0,1,9,810,9,13,-6,19
@@ -183,7 +183,7 @@ frame=3,7,0,171,12,17,3,29
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,14,1052,4,4,-1,10
 frame=0,1,12,1076,6,10,-4,15
@@ -235,7 +235,7 @@ frame=5,7,8,983,8,2,18,-2
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,0,117,13,17,-2,29
 frame=0,1,0,401,10,17,-4,26
@@ -272,7 +272,7 @@ frame=3,7,11,311,7,11,10,10
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,14,1052,4,4,-1,10
 frame=0,1,12,1076,6,10,-4,15
@@ -293,7 +293,7 @@ frame=1,7,7,1032,7,8,10,12
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,14,1005,4,8,-3,14
 frame=0,1,0,1005,7,10,-5,14

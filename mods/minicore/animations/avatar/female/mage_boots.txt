@@ -3,7 +3,7 @@ image=images/avatar/female/mage_boots.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,11,916,11,9,5,7
 frame=0,1,12,800,10,9,5,7
@@ -40,7 +40,7 @@ frame=3,7,14,1185,7,10,3,7
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,0,9,21,8,9,8
 frame=0,1,0,333,14,13,5,10
@@ -109,7 +109,7 @@ frame=7,7,0,579,13,8,5,8
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,0,587,13,8,6,7
 frame=0,1,0,893,11,10,5,8
@@ -146,7 +146,7 @@ frame=3,7,13,613,9,10,4,7
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,0,950,11,9,5,7
 frame=0,1,12,863,10,9,5,7
@@ -183,7 +183,7 @@ frame=3,7,16,179,6,10,3,7
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,0,777,12,9,5,8
 frame=0,1,0,977,11,9,5,8
@@ -236,7 +236,7 @@ frame=5,7,11,1017,11,6,6,2
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,0,611,13,8,6,7
 frame=0,1,11,906,11,10,5,8
@@ -273,7 +273,7 @@ frame=3,7,11,885,11,11,5,8
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,0,777,12,9,5,8
 frame=0,1,0,977,11,9,5,8
@@ -294,7 +294,7 @@ frame=1,7,10,1032,10,9,6,6
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,0,786,12,9,5,7
 frame=0,1,11,979,11,9,5,8

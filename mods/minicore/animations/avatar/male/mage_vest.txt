@@ -3,7 +3,7 @@ image=images/avatar/male/mage_vest.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,585,34,13,17,4,20
 frame=0,1,770,16,16,16,5,19
@@ -40,7 +40,7 @@ frame=3,7,742,17,10,17,3,20
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,49,0,10,19,2,23
 frame=0,1,219,0,13,18,4,22
@@ -109,7 +109,7 @@ frame=7,7,833,16,15,16,4,21
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,265,18,13,18,4,21
 frame=0,1,509,34,16,17,6,20
@@ -146,7 +146,7 @@ frame=3,7,714,0,11,17,3,20
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,636,17,13,17,5,21
 frame=0,1,752,16,18,16,7,20
@@ -183,7 +183,7 @@ frame=3,7,687,17,12,17,3,21
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,691,0,12,17,4,20
 frame=0,1,558,0,15,17,5,19
@@ -236,7 +236,7 @@ frame=5,7,1105,34,9,8,10,7
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,364,18,12,18,5,21
 frame=0,1,587,0,14,17,6,21
@@ -273,7 +273,7 @@ frame=3,7,1054,0,14,14,8,16
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,691,0,12,17,4,20
 frame=0,1,558,0,15,17,5,19
@@ -294,7 +294,7 @@ frame=1,7,358,0,12,18,6,20
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,568,17,15,17,5,20
 frame=0,1,793,32,16,16,5,19

@@ -3,7 +3,7 @@ image=images/enemies/wyvern_water.png
 
 [stance]
 frames=8
-duration=3
+duration=800ms
 type=looped
 frame=0,0,851,234,45,75,12,60
 frame=0,1,282,870,65,73,22,61
@@ -72,7 +72,7 @@ frame=7,7,832,1289,71,73,28,60
 
 [shoot]
 frames=8
-duration=3
+duration=800ms
 type=play_once
 frame=0,0,270,801,73,69,19,54
 frame=0,1,861,1509,65,73,22,58
@@ -141,7 +141,7 @@ frame=7,7,840,452,82,77,18,71
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,309,222,78,83,25,61
 frame=0,1,194,870,88,73,35,56
@@ -210,7 +210,7 @@ frame=7,7,347,870,82,73,29,61
 
 [die]
 frames=8
-duration=4
+duration=1066ms
 type=play_once
 frame=0,0,445,1334,74,80,25,58
 frame=0,1,281,1511,86,69,34,51
@@ -279,7 +279,7 @@ frame=7,7,1116,1621,75,25,34,16
 
 [critdie]
 frames=8
-duration=4
+duration=1066ms
 type=play_once
 frame=0,0,445,1334,74,80,25,58
 frame=0,1,281,1511,86,69,34,51
@@ -348,7 +348,7 @@ frame=7,7,1116,1621,75,25,34,16
 
 [cast]
 frames=8
-duration=3
+duration=800ms
 type=play_once
 frame=0,0,270,801,73,69,19,54
 frame=0,1,861,1509,65,73,22,58
@@ -417,7 +417,7 @@ frame=7,7,840,452,82,77,18,71
 
 [swing]
 frames=8
-duration=4
+duration=1066ms
 type=play_once
 frame=0,0,1104,167,89,76,43,62
 frame=0,1,558,464,82,79,46,69
@@ -486,7 +486,7 @@ frame=7,7,567,835,75,78,46,57
 
 [hit]
 frames=8
-duration=2
+duration=533ms
 type=play_once
 frame=0,0,324,615,74,87,22,67
 frame=0,1,924,680,86,76,38,61
@@ -555,7 +555,7 @@ frame=7,7,739,1037,81,76,35,60
 
 [block]
 frames=2
-duration=3
+duration=200ms
 type=play_once
 frame=0,0,851,234,45,75,12,60
 frame=0,1,282,870,65,73,22,61

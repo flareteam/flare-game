@@ -3,7 +3,7 @@ image=images/avatar/female/chain_coif.png
 
 [stance]
 frames=4
-duration=6
+duration=800ms
 type=back_forth
 frame=0,0,10,923,10,17,3,23
 frame=0,1,10,940,10,17,2,24
@@ -40,7 +40,7 @@ frame=3,7,10,1127,10,17,2,24
 
 [run]
 frames=8
-duration=2
+duration=533ms
 type=looped
 frame=0,0,0,442,11,16,4,23
 frame=0,1,10,1518,10,16,3,23
@@ -109,7 +109,7 @@ frame=7,7,10,1630,10,16,4,22
 
 [shoot]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,0,554,11,16,4,22
 frame=0,1,0,1631,10,16,3,23
@@ -146,7 +146,7 @@ frame=3,7,0,1349,10,17,4,22
 
 [cast]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,0,1743,10,16,2,23
 frame=0,1,10,1365,10,17,2,24
@@ -183,7 +183,7 @@ frame=3,7,10,1450,10,17,2,24
 
 [die]
 frames=6
-duration=4
+duration=800ms
 type=play_once
 frame=0,0,0,408,11,17,4,23
 frame=0,1,0,1759,10,16,3,24
@@ -236,7 +236,7 @@ frame=5,7,11,838,6,5,18,5
 
 [swing]
 frames=4
-duration=3
+duration=400ms
 type=play_once
 frame=0,0,10,1806,10,16,2,23
 frame=0,1,10,1484,10,17,2,23
@@ -273,7 +273,7 @@ frame=3,7,10,1902,10,16,5,21
 
 [hit]
 frames=2
-duration=2
+duration=133ms
 type=play_once
 frame=0,0,0,408,11,17,4,23
 frame=0,1,0,1759,10,16,3,24
@@ -294,7 +294,7 @@ frame=1,7,0,1791,10,16,5,21
 
 [block]
 frames=2
-duration=1
+duration=66ms
 type=play_once
 frame=0,0,0,810,11,16,3,23
 frame=0,1,0,1903,10,16,3,23
