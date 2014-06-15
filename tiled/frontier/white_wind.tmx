@@ -440,9 +440,9 @@
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,114,55,fixed,15,30"/>
     <property name="mapmod" value="object,114,54,6"/>
+    <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Supplies"/>
-    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object name="camp supply" type="on_trigger" x="128" y="896" width="32" height="32">
@@ -450,25 +450,25 @@
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,5,28,fixed,10,25"/>
     <property name="mapmod" value="object,4,28,99"/>
+    <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Supplies"/>
-    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object name="Rotten Tower Found Trigger" type="on_trigger" x="1728" y="2688" width="736" height="864">
    <properties>
     <property name="msg" value="You spot the abandoned tower in the distance."/>
+    <property name="repeat" value="false"/>
     <property name="requires_status" value="rotten_tower_search"/>
     <property name="set_status" value="rotten_tower_found"/>
-    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object name="Rotten Tower Inspected Trigger" type="on_trigger" x="2112" y="3296" width="64" height="64">
    <properties>
     <property name="msg" value="Looking through the grate, you confirm the tower is empty."/>
+    <property name="repeat" value="false"/>
     <property name="requires_status" value="rotten_tower_found"/>
     <property name="set_status" value="rotten_tower_inspected"/>
-    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object name="River sound" type="on_load" x="2016" y="192" width="32" height="32">
@@ -652,7 +652,21 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="enemygroup" width="128" height="128">
+ <objectgroup name="enemy" width="128" height="128">
+  <object name="goblin_shaman" type="goblin_shaman" x="2304" y="1632" width="32" height="32"/>
+  <object name="goblin_shaman" type="goblin_shaman" x="2208" y="1504" width="32" height="32"/>
+  <object name="guarding wyvern" type="wyvern_normal" x="1888" y="448" width="32" height="32">
+   <properties>
+    <property name="direction" value="4"/>
+    <property name="wander_radius" value="0"/>
+   </properties>
+  </object>
+  <object name="guarding wyvern" type="wyvern_normal" x="2176" y="736" width="32" height="32">
+   <properties>
+    <property name="direction" value="4"/>
+    <property name="wander_radius" value="0"/>
+   </properties>
+  </object>
   <object name="goblin camp" type="goblin" x="1984" y="1376" width="32" height="64">
    <properties>
     <property name="level" value="2,4"/>
@@ -679,7 +693,6 @@
   </object>
   <object name="goblin elite camp chargers" type="goblin_charger_elite" x="160" y="704" width="128" height="224">
    <properties>
-    <property name="level" value="3,5"/>
     <property name="number" value="2,4"/>
    </properties>
   </object>
@@ -705,20 +718,6 @@
    <properties>
     <property name="level" value="2,3"/>
     <property name="number" value="2,3"/>
-   </properties>
-  </object>
- </objectgroup>
- <objectgroup name="enemy" width="128" height="128">
-  <object name="goblin_shaman" type="enemies/goblin_shaman.txt" x="2304" y="1632" width="32" height="32"/>
-  <object name="goblin_shaman" type="enemies/goblin_shaman.txt" x="2208" y="1504" width="32" height="32"/>
-  <object name="guarding wyvern" type="enemies/wyvern.txt" x="1856" y="416" width="32" height="32">
-   <properties>
-    <property name="direction" value="4"/>
-   </properties>
-  </object>
-  <object name="guarding wyvern" type="enemies/wyvern.txt" x="2176" y="736" width="32" height="32">
-   <properties>
-    <property name="direction" value="4"/>
    </properties>
   </object>
  </objectgroup>

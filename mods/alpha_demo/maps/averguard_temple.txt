@@ -554,132 +554,151 @@ location=16,98,1,1
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [enemy]
-type=enemies/zombie_rotting.txt
+type=zombie_rotting
 location=12,115,1,1
 
 [enemy]
-type=enemies/zombie.txt
+type=zombie_normal
 location=16,118,1,1
 
 [enemy]
-type=enemies/zombie_rotting.txt
+type=zombie_rotting
 location=13,109,1,1
 
 [enemy]
-type=enemies/zombie_rotting.txt
+type=zombie_rotting
 location=10,106,1,1
 direction=3
+wander_radius=0
 
 [enemy]
-type=enemies/zombie_rotting.txt
+type=zombie_rotting
 location=9,104,1,1
 direction=3
+wander_radius=0
 
 [enemy]
-type=enemies/zombie_rotting.txt
+type=zombie_rotting
 location=10,104,1,1
 direction=3
+wander_radius=0
 
 [enemy]
-type=enemies/zombie.txt
+type=zombie_normal
 location=9,102,1,1
 direction=3
+wander_radius=0
 
 [enemy]
-type=enemies/zombie_rotting.txt
+type=zombie_rotting
 location=10,100,1,1
 direction=3
+wander_radius=0
 
 [enemy]
-type=enemies/zombie_rotting.txt
+type=zombie_rotting
 location=12,106,1,1
 direction=3
+wander_radius=0
 
 [enemy]
-type=enemies/zombie_rotting.txt
+type=zombie_rotting
 location=13,102,1,1
 direction=3
+wander_radius=0
 
 [enemy]
-type=enemies/zombie_brute.txt
+type=zombie_brute
 location=12,100,1,1
 direction=3
+wander_radius=0
 
 [enemy]
-type=enemies/zombie_rotting.txt
+type=zombie_rotting
 location=13,100,1,1
 direction=3
+wander_radius=0
 
 [enemy]
-type=enemies/zombie_rotting.txt
+type=zombie_rotting
 location=17,106,1,1
 direction=3
+wander_radius=0
 
 [enemy]
-type=enemies/zombie.txt
+type=zombie_normal
 location=17,104,1,1
 direction=3
+wander_radius=0
 
 [enemy]
-type=enemies/zombie_rotting.txt
+type=zombie_rotting
 location=18,100,1,1
 direction=3
+wander_radius=0
 
 [enemy]
-type=enemies/zombie_rotting.txt
+type=zombie_rotting
 location=20,102,1,1
 direction=3
+wander_radius=0
 
 [enemy]
-type=enemies/zombie_rotting.txt
+type=zombie_rotting
 location=21,102,1,1
 direction=3
+wander_radius=0
 
 [enemy]
-type=enemies/zombie_iceclaw.txt
+type=zombie_iceclaw
 location=21,104,1,1
 direction=3
+wander_radius=0
 
 [enemy]
-type=enemies/skeletal_mage.txt
+type=skeletal_mage
 location=15,99,1,1
 direction=3
+wander_radius=0
 
 [enemy]
-type=enemies/skeletal_warrior.txt
+type=skeletal_warrior
 location=15,95,1,1
 direction=7
+wander_radius=0
 
 [enemy]
-type=enemies/skeletal_sniper.txt
+type=skeletal_sniper
 location=14,27,1,1
 direction=7
+wander_radius=0
 
 [enemy]
-type=enemies/skeletal_sniper.txt
+type=skeletal_sniper
 location=16,27,1,1
 direction=7
+wander_radius=0
 
 [enemy]
-type=enemies/sir_evan_maddox.txt
+type=sir_evan_maddox
 location=16,8,1,1
 direction=7
 
-[enemygroup]
-type=undead
-location=6,49,19,18
-level=3,6
-number=3,5
-
-[enemygroup]
-type=undead
-location=6,49,19,18
-level=3,6
-number=3,5
-
-[enemygroup]
+[enemy]
 type=undead
 location=1,115,5,9
 level=4,6
 number=1,3
+
+[enemy]
+type=undead
+location=6,49,19,18
+level=3,6
+number=3,5
+
+[enemy]
+type=undead
+location=6,49,19,18
+level=3,6
+number=3,5
 

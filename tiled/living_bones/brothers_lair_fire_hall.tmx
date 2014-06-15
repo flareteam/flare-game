@@ -472,7 +472,8 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="enemygroup" width="50" height="80" visible="0">
+ <objectgroup name="enemy" width="50" height="80">
+  <object type="krakatoa" x="704" y="576" width="32" height="32"/>
   <object name="4-6 Undead" type="undead" x="672" y="1824" width="256" height="256">
    <properties>
     <property name="level" value="5,8"/>
@@ -497,8 +498,5 @@
     <property name="number" value="1,3"/>
    </properties>
   </object>
- </objectgroup>
- <objectgroup name="enemy" width="50" height="80" visible="0">
-  <object type="enemies/krakatoa.txt" x="704" y="576" width="32" height="32"/>
  </objectgroup>
 </map>

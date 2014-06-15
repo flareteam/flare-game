@@ -449,122 +449,130 @@ mapmod=object,21,30,161
 requires_status=av_prison_chest1
 
 [enemy]
-type=enemies/zombie_brute.txt
+type=zombie_brute
 location=20,52,1,1
+wander_radius=0
 
 [enemy]
-type=enemies/goblin_charger_elite.txt
+type=goblin_charger_elite
 location=23,52,1,1
+wander_radius=0
 
 [enemy]
-type=enemies/zombie_brute.txt
+type=zombie_brute
 location=12,65,1,1
+wander_radius=0
 
 [enemy]
-type=enemies/skeletal_warrior.txt
+type=skeletal_warrior
 location=16,84,1,1
 
 [enemy]
-type=enemies/zombie_brute.txt
+type=zombie_brute
 location=36,55,1,1
+wander_radius=0
 
 [enemy]
-type=enemies/zombie_brute.txt
+type=zombie_brute
 location=38,55,1,1
+wander_radius=0
 
 [enemy]
-type=enemies/zombie_brute.txt
+type=zombie_brute
 location=37,54,1,1
+wander_radius=0
 
 [enemy]
-type=enemies/zombie_brute.txt
+type=zombie_brute
 location=37,56,1,1
+wander_radius=0
 
 [enemy]
-type=enemies/skeletal_archer.txt
+type=skeletal_archer
 location=56,57,1,1
 
 [enemy]
-type=enemies/skeletal_archer.txt
+type=skeletal_archer
 location=63,52,1,1
 
 [enemy]
-type=enemies/the_warden.txt
+type=the_warden
 location=89,6,1,1
 direction=7
+wander_radius=0
 
-[enemygroup]
+[enemy]
 type=zombie
 location=2,43,5,5
 level=2,4
 number=1,3
 
-[enemygroup]
+[enemy]
 type=zombie
 location=14,56,2,22
 level=2,4
 number=0,2
 
-[enemygroup]
-type=zombie
-location=2,74,7,1
-level=2,4
-number=3,3
-
-[enemygroup]
-type=zombie
-location=23,62,2,5
-level=2,4
-number=1,2
-
-[enemygroup]
+[enemy]
 type=zombie
 location=23,62,2,5
 level=2,4
 number=0,2
 
-[enemygroup]
+[enemy]
+type=zombie
+location=23,62,2,5
+level=2,4
+number=1,2
+
+[enemy]
+type=zombie
+location=2,74,7,1
+level=2,4
+number=3,3
+wander_radius=0
+
+[enemy]
+# torture room
+type=antlion_normal
+location=17,91,2,2
+number=2,4
+
+[enemy]
+type=undead
+location=7,82,12,11
+level=3,5
+number=3,5
+
+[enemy]
 # outside torture room
 type=undead
 location=9,97,6,2
 level=2,4
 number=3,5
 
-[enemygroup]
-# torture room
-type=antlion
-location=17,91,2,2
-level=1,2
-number=2,4
-
-[enemygroup]
-type=undead
-location=7,82,12,11
-level=3,5
-number=3,5
-
-[enemygroup]
+[enemy]
 type=zombie
 location=51,47,19,1
 level=2,4
 number=6,6
 
-[enemygroup]
+[enemy]
 type=undead
 location=86,63,8,18
 level=2,5
 number=3,4
 
-[enemygroup]
+[enemy]
+type=antlion
+location=86,52,4,9
+level=2,4
+number=4,6
+
+[enemy]
 # warden's guards
 type=zombie
 location=86,41,8,4
 level=3,5
 number=2,3
-
-[enemygroup]
-type=antlion
-location=86,52,4,9
-level=2,4
-number=4,6
 

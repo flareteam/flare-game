@@ -123,9 +123,9 @@
    <properties>
     <property name="hotspot" value="location"/>
     <property name="mapmod" value="collision,6,6,0;object,6,6,0"/>
+    <property name="repeat" value="false"/>
     <property name="set_status" value="lb_has_explosive"/>
     <property name="tooltip" value="Crate of Blasting Powder"/>
-    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object name="Barrel" type="on_trigger" x="160" y="192" width="32" height="32">
@@ -133,9 +133,9 @@
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,6,7,fixed,20,40"/>
     <property name="mapmod" value="object,5,6,178"/>
+    <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Barrel"/>
-    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object name="Barrel" type="on_trigger" x="96" y="576" width="32" height="32">
@@ -143,9 +143,9 @@
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,4,19,fixed,20,40"/>
     <property name="mapmod" value="object,3,18,178"/>
+    <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Barrel"/>
-    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object name="Cave wind sound effect" type="on_load" x="0" y="0" width="32" height="32">
@@ -154,7 +154,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="enemygroup" width="50" height="30">
+ <objectgroup name="enemy" width="50" height="30">
   <object name="Guard the Explosives" type="undead" x="160" y="224" width="192" height="544">
    <properties>
     <property name="level" value="6,8"/>

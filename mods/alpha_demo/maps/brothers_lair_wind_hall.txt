@@ -461,28 +461,28 @@ location=9,30,7,7
 cooldown=4s
 soundfx=soundfx/environment/open_fire.ogg
 
-[enemygroup]
+[enemy]
+type=skeletal_thundersword
+location=34,11,1,1
+
+[enemy]
 # 4-5 Undead
 type=undead
 location=3,40,9,7
 level=7,8
 number=4,5
 
-[enemygroup]
+[enemy]
 # 1-3 Undead
 type=undead
 location=12,27,18,9
 level=7,8
 number=1,3
 
-[enemygroup]
+[enemy]
 # 1-3 Undead
 type=undead
 location=21,18,9,18
 level=7,8
 number=1,3
-
-[enemy]
-type=enemies/skeletal_thundersword.txt
-location=34,11,1,1
 

@@ -195,30 +195,30 @@
   </object>
   <object type="on_trigger" x="0" y="0" width="640" height="1504">
    <properties>
+    <property name="repeat" value="false"/>
     <property name="requires_status" value="lb_ice_defeated,lb_fire_defeated,lb_wind_defeated"/>
     <property name="set_status" value="lb_necromancers_defeated"/>
-    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object type="on_trigger" x="0" y="0" width="640" height="1504">
    <properties>
     <property name="mapmod" value="collision,9,23,0;object,9,23,113"/>
-    <property name="requires_status" value="lb_wind_unlocked"/>
     <property name="repeat" value="false"/>
+    <property name="requires_status" value="lb_wind_unlocked"/>
    </properties>
   </object>
   <object type="on_trigger" x="0" y="0" width="640" height="1504">
    <properties>
     <property name="mapmod" value="collision,9,26,0;object,9,26,113"/>
-    <property name="requires_status" value="lb_fire_unlocked"/>
     <property name="repeat" value="false"/>
+    <property name="requires_status" value="lb_fire_unlocked"/>
    </properties>
   </object>
   <object type="on_trigger" x="0" y="0" width="640" height="1504">
    <properties>
     <property name="mapmod" value="collision,9,29,0;object,9,29,113"/>
-    <property name="requires_status" value="lb_ice_unlocked"/>
     <property name="repeat" value="false"/>
+    <property name="requires_status" value="lb_ice_unlocked"/>
    </properties>
   </object>
   <object name="brazier sound effect" type="on_trigger" x="128" y="192" width="256" height="160">
@@ -260,9 +260,21 @@
   <object type="npcs/statue_guardian_fire.txt" x="288" y="1088" width="32" height="32"/>
   <object type="npcs/statue_guardian_wind.txt" x="352" y="1088" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="enemy" width="20" height="48" visible="0">
-  <object type="enemies/grisbon.txt" x="288" y="416" width="32" height="32"/>
-  <object type="enemies/scathelocke.txt" x="224" y="320" width="32" height="32"/>
-  <object type="enemies/vesuvvio.txt" x="352" y="320" width="32" height="32"/>
+ <objectgroup name="enemy" width="20" height="48">
+  <object type="grisbon" x="288" y="416" width="32" height="32">
+   <properties>
+    <property name="wander_area" value="0"/>
+   </properties>
+  </object>
+  <object type="scathelocke" x="224" y="320" width="32" height="32">
+   <properties>
+    <property name="wander_area" value="0"/>
+   </properties>
+  </object>
+  <object type="vesuvvio" x="352" y="320" width="32" height="32">
+   <properties>
+    <property name="wander_area" value="0"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>
