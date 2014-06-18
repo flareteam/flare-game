@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="isometric" width="100" height="100" tilewidth="64" tileheight="32">
  <properties>
   <property name="location" value="56,69,4"/>
@@ -328,7 +327,7 @@
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,1,2,2,1,3,3,3,3,3,3,3,3,3,1,2,2,2,2,2,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
 </data>
  </layer>
- <objectgroup name="event" width="100" height="100">
+ <objectgroup name="event" width="100" height="100" visible="0">
   <object name="exit to cave level 1" type="on_trigger" x="1696" y="128" width="64" height="32">
    <properties>
     <property name="intermap" value="maps/cave1.txt,15,67"/>
@@ -615,37 +614,27 @@
   </object>
  </objectgroup>
  <objectgroup name="enemy" width="100" height="100">
-  <object type="enemies/skeletal_warrior.txt" x="1568" y="672" width="32" height="32"/>
-  <object type="enemies/skeletal_warrior.txt" x="1824" y="640" width="32" height="32"/>
-  <object type="enemies/goblin_spearman.txt" x="1536" y="800" width="32" height="32"/>
-  <object type="enemies/minotaur.txt" x="1760" y="992" width="32" height="32"/>
-  <object type="enemies/skeletal_archer.txt" x="1792" y="1024" width="32" height="32"/>
-  <object type="enemies/skeletal_archer.txt" x="1696" y="1024" width="32" height="32"/>
-  <object type="enemies/antlion_freezer.txt" x="2496" y="2112" width="32" height="32"/>
-  <object type="enemies/antlion_freezer.txt" x="2592" y="2112" width="32" height="32"/>
-  <object type="enemies/necromancer_apprentice.txt" x="576" y="896" width="32" height="32"/>
-  <object type="enemies/skeletal_warrior.txt" x="1760" y="2560" width="32" height="32"/>
-  <object type="enemies/skeletal_warrior.txt" x="1792" y="2560" width="32" height="32"/>
-  <object type="enemies/antlion_spitter.txt" x="2272" y="2272" width="32" height="32"/>
-  <object type="enemies/minotaur.txt" x="1792" y="1984" width="32" height="32"/>
- </objectgroup>
- <objectgroup name="enemygroup" width="100" height="100" visible="0">
-  <object type="undead" x="192" y="352" width="672" height="1120">
+  <object type="skeletal_warrior" x="1568" y="672" width="32" height="32"/>
+  <object type="skeletal_warrior" x="1824" y="640" width="32" height="32"/>
+  <object type="goblin_spearman" x="1536" y="800" width="32" height="32">
    <properties>
-    <property name="level" value="3,3"/>
-    <property name="number" value="10,10"/>
+    <property name="wander_radius" value="0"/>
    </properties>
   </object>
-  <object type="undead" x="192" y="352" width="672" height="1120">
+  <object type="minotaur" x="1760" y="992" width="32" height="32"/>
+  <object type="skeletal_archer" x="1792" y="1024" width="32" height="32"/>
+  <object type="skeletal_archer" x="1696" y="1024" width="32" height="32"/>
+  <object type="antlion_freezer" x="2496" y="2112" width="32" height="32"/>
+  <object type="antlion_freezer" x="2592" y="2112" width="32" height="32"/>
+  <object type="necromancer_apprentice" x="576" y="896" width="32" height="32"/>
+  <object type="skeletal_warrior" x="1760" y="2560" width="32" height="32"/>
+  <object type="skeletal_warrior" x="1792" y="2560" width="32" height="32"/>
+  <object type="antlion_spitter" x="2272" y="2272" width="32" height="32"/>
+  <object type="minotaur" x="1792" y="1984" width="32" height="32"/>
+  <object type="antlion_hatchling" x="2912" y="1824" width="64" height="128">
    <properties>
-    <property name="level" value="4,5"/>
+    <property name="level" value="2,6"/>
     <property name="number" value="5,5"/>
-   </properties>
-  </object>
-  <object type="undead" x="480" y="1568" width="1056" height="384">
-   <properties>
-    <property name="level" value="3,5"/>
-    <property name="number" value="6,6"/>
    </properties>
   </object>
   <object type="antlion" x="2112" y="1760" width="768" height="576">
@@ -654,10 +643,22 @@
     <property name="number" value="6,6"/>
    </properties>
   </object>
-  <object type="antlion_hatchling" x="2912" y="1824" width="64" height="128">
+  <object type="undead" x="480" y="1568" width="1056" height="384">
    <properties>
-    <property name="level" value="2,6"/>
+    <property name="level" value="3,5"/>
+    <property name="number" value="6,6"/>
+   </properties>
+  </object>
+  <object type="undead" x="192" y="352" width="672" height="1120">
+   <properties>
+    <property name="level" value="4,5"/>
     <property name="number" value="5,5"/>
+   </properties>
+  </object>
+  <object type="undead" x="192" y="352" width="672" height="1120">
+   <properties>
+    <property name="level" value="3,3"/>
+    <property name="number" value="10,10"/>
    </properties>
   </object>
  </objectgroup>

@@ -675,88 +675,89 @@ type=on_load
 location=0,0,1,1
 soundfx=soundfx/environment/wind_loop.ogg
 
-[enemygroup]
+[enemy]
+# goblin_shaman
+type=goblin_shaman
+location=72,51,1,1
+
+[enemy]
+# goblin_shaman
+type=goblin_shaman
+location=69,47,1,1
+
+[enemy]
+# guarding wyvern
+type=wyvern_normal
+location=59,14,1,1
+direction=4
+wander_radius=0
+
+[enemy]
+# guarding wyvern
+type=wyvern_normal
+location=68,23,1,1
+direction=4
+wander_radius=0
+
+[enemy]
 # goblin camp
 type=goblin
 location=62,43,1,2
 level=2,4
 number=1,2
 
-[enemygroup]
+[enemy]
 # goblin camp
 type=goblin
 location=83,50,3,3
 level=2,4
 number=3,5
 
-[enemygroup]
+[enemy]
 # goblin camp
 type=goblin
 location=66,50,2,1
 level=2,4
 number=1,2
 
-[enemygroup]
+[enemy]
 # goblin elite camp
 type=goblin_elite
 location=5,24,5,7
 level=3,5
 number=2,4
 
-[enemygroup]
+[enemy]
 # goblin elite camp chargers
 type=goblin_charger_elite
 location=5,22,4,7
-level=3,5
 number=2,4
 
-[enemygroup]
+[enemy]
 # random goblins
 type=goblin
 location=21,23,18,17
 level=2,3
 number=2,3
 
-[enemygroup]
+[enemy]
 # random goblins
 type=goblin
 location=7,43,10,8
 level=2,3
 number=3,5
 
-[enemygroup]
+[enemy]
 # random charger goblins
 type=goblin_charger
 location=7,41,7,7
 level=2,3
 number=3,4
 
-[enemygroup]
+[enemy]
 # random goblins
 type=goblin
 location=42,50,18,17
 level=2,3
 number=2,3
-
-[enemy]
-# goblin_shaman
-type=enemies/goblin_shaman.txt
-location=72,51,1,1
-
-[enemy]
-# goblin_shaman
-type=enemies/goblin_shaman.txt
-location=69,47,1,1
-
-[enemy]
-# guarding wyvern
-type=enemies/wyvern.txt
-location=58,13,1,1
-direction=4
-
-[enemy]
-# guarding wyvern
-type=enemies/wyvern.txt
-location=68,23,1,1
-direction=4
 

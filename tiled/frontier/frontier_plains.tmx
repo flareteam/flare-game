@@ -806,7 +806,7 @@
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
 </data>
  </layer>
- <objectgroup name="event" width="256" height="256">
+ <objectgroup name="event" width="256" height="256" visible="0">
   <object name="to Frontier Outpost" type="on_trigger" x="7968" y="5952" width="32" height="64">
    <properties>
     <property name="intermap" value="maps/frontier_outpost.txt,2,12"/>
@@ -1070,7 +1070,24 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="enemygroup" width="256" height="256" visible="0">
+ <objectgroup name="enemy" width="256" height="256">
+  <object name="mourning zombie" type="zombie_brute" x="640" y="5056" width="32" height="32">
+   <properties>
+    <property name="direction" value="1"/>
+    <property name="wander_radius" value="0"/>
+   </properties>
+  </object>
+  <object name="guarding wyvern" type="wyvern_normal" x="3808" y="4096" width="32" height="32">
+   <properties>
+    <property name="direction" value="3"/>
+   </properties>
+  </object>
+  <object name="Zombie spawner" type="cursed_grave" x="1024" y="4896" width="32" height="32">
+   <properties>
+    <property name="direction" value="3"/>
+    <property name="wander_radius" value="0"/>
+   </properties>
+  </object>
   <object name="goblin camp" type="goblin" x="1568" y="960" width="192" height="192">
    <properties>
     <property name="level" value="1,3"/>
@@ -1219,23 +1236,6 @@
    <properties>
     <property name="level" value="1,1"/>
     <property name="number" value="8,12"/>
-   </properties>
-  </object>
- </objectgroup>
- <objectgroup name="enemy" width="256" height="256" visible="0">
-  <object name="mourning zombie" type="enemies/zombie_brute.txt" x="640" y="5056" width="32" height="32">
-   <properties>
-    <property name="direction" value="1"/>
-   </properties>
-  </object>
-  <object name="guarding wyvern" type="enemies/wyvern.txt" x="3808" y="4096" width="32" height="32">
-   <properties>
-    <property name="direction" value="3"/>
-   </properties>
-  </object>
-  <object name="Zombie spawner" type="enemies/cursed_grave.txt" x="1024" y="4896" width="32" height="32">
-   <properties>
-    <property name="direction" value="3"/>
    </properties>
   </object>
  </objectgroup>

@@ -1101,196 +1101,198 @@ type=on_load
 location=75.4062,94.7188,1,1
 soundfx=soundfx/environment/raven_loop.ogg
 
-[enemygroup]
+[enemy]
+# mourning zombie
+type=zombie_brute
+location=20,158,1,1
+direction=1
+wander_radius=0
+
+[enemy]
+# guarding wyvern
+type=wyvern_normal
+location=119,128,1,1
+direction=3
+
+[enemy]
+# Zombie spawner
+type=cursed_grave
+location=32,153,1,1
+direction=3
+wander_radius=0
+
+[enemy]
 # goblin camp
 type=goblin
 location=49,30,6,6
 level=1,3
 number=3,5
 
-[enemygroup]
+[enemy]
 # random goblins
 type=goblin
 location=34,37,12,25
 level=1,2
 number=2,4
 
-[enemygroup]
+[enemy]
 # random goblins
 type=goblin
 location=64,39,16,13
 level=1,2
 number=2,3
 
-[enemygroup]
+[enemy]
 # random goblins
 type=goblin
 location=47,37,27,37
 level=1,1
 number=1,5
 
-[enemygroup]
+[enemy]
 # random zombies
 type=zombie
 location=11,132,35,41
 level=1,2
 number=10,16
 
-[enemygroup]
+[enemy]
 # northeast woods goblins
 type=goblin
 location=15,75,31,56
 level=1,2
 number=5,10
 
-[enemygroup]
+[enemy]
 # goblin camp
 type=goblin
 location=110,94,6,6
 level=1,3
 number=3,5
 
-[enemygroup]
+[enemy]
 # goblin camp
 type=goblin
 location=120,72,6,5
 level=1,3
 number=2,4
 
-[enemygroup]
+[enemy]
 # goblin camp
 type=goblin
 location=106,50,7,7
 level=2,4
 number=2,3
 
-[enemygroup]
+[enemy]
 # goblin camp
 type=goblin
 location=114,36,10,9
 level=2,3
 number=2,4
 
-[enemygroup]
+[enemy]
 # goblin camp
 type=goblin
 location=100,58,6,6
 level=1,3
 number=3,5
 
-[enemygroup]
+[enemy]
 # goblin camp
 type=goblin
 location=94,36,4,4
 level=1,3
 number=2,4
 
-[enemygroup]
+[enemy]
 # woodcut wandering goblins
 type=goblin
 location=80,28,59,95
 level=1,1
 number=10,15
 
-[enemygroup]
+[enemy]
 # goblin elite camp
 type=goblin_elite
 location=115,37,8,7
 level=2,3
 number=2
 
-[enemygroup]
+[enemy]
 # water area zombies
 type=zombie
 location=144,206,34,22
 level=1,2
 number=6,10
 
-[enemygroup]
+[enemy]
 # west goblins
 type=goblin
 location=33,174,110,66
 level=1,2
 number=15,20
 
-[enemygroup]
+[enemy]
 # road goblins
 type=goblin
 location=47,75,32,98
 level=1,1
 number=8,12
 
-[enemygroup]
+[enemy]
 # plains goblins
 type=goblin
 location=144,149,79,56
 level=1,1
 number=10,20
 
-[enemygroup]
+[enemy]
 # goblins
 type=goblin
 location=179,206,30,21
 level=1,2
 number=3,7
 
-[enemygroup]
+[enemy]
 # east goblins
 type=goblin
 location=140,104,88,44
 level=1,2
 number=10,15
 
-[enemygroup]
+[enemy]
 # antlions
 type=antlion
 location=158,72,11,11
 level=1,3
 number=4,8
 
-[enemygroup]
+[enemy]
 # antlions
 type=antlion
 location=166,87,11,11
 level=1,3
 number=4,8
 
-[enemygroup]
+[enemy]
 # antlions
 type=antlion
 location=182,69,11,11
 level=1,3
 number=4,8
 
-[enemygroup]
+[enemy]
 # antlions
 type=antlion
 location=192,82,11,11
 level=1,3
 number=4,8
 
-[enemygroup]
+[enemy]
 # road goblins
 type=goblin
 location=80,153,63,20
 level=1,1
 number=8,12
-
-[enemy]
-# mourning zombie
-type=enemies/zombie_brute.txt
-location=20,158,1,1
-direction=1
-
-[enemy]
-# guarding wyvern
-type=enemies/wyvern.txt
-location=119,128,1,1
-direction=3
-
-[enemy]
-# Zombie spawner
-type=enemies/cursed_grave.txt
-location=32,153,1,1
-direction=3
 

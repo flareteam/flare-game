@@ -343,7 +343,7 @@
 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
 </data>
  </layer>
- <objectgroup name="event" width="100" height="100">
+ <objectgroup name="event" width="100" height="100" visible="0">
   <object type="on_trigger" x="32" y="1728" width="32" height="64">
    <properties>
     <property name="hotspot" value="1,54,1,2"/>
@@ -356,9 +356,9 @@
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,2,46,fixed,5,15"/>
     <property name="mapmod" value="object,2,47,163"/>
+    <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Crate"/>
-    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object name="torture room chest" type="on_trigger" x="384" y="2688" width="32" height="32">
@@ -366,18 +366,18 @@
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,12,85,fixed,10,25"/>
     <property name="mapmod" value="object,12,84,161"/>
+    <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Treasure Chest"/>
-    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object name="control room switch to open the cell with the hidden passage" type="on_trigger" x="96" y="1376" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="mapmod" value="object,3,43,150;object,23,53,113;collision,23,53,0"/>
+    <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/door_open.ogg"/>
     <property name="tooltip" value="Switch"/>
-    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object name="hidden room book" type="on_trigger" x="736" y="928" width="32" height="32">
@@ -385,9 +385,9 @@
     <property name="hotspot" value="location"/>
     <property name="mapmod" value="object,23,29,165"/>
     <property name="msg" value="The last entry of this well-preserved journal reads: &quot;I feared it would come to this.  I knew the Warden's secrets but they would not be contained forever.&quot;"/>
+    <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/inventory/inventory_page.ogg"/>
     <property name="tooltip" value="Book Stand"/>
-    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object name="hidden room chest" type="on_trigger" x="672" y="960" width="32" height="32">
@@ -395,27 +395,27 @@
     <property name="hotspot" value="location"/>
     <property name="loot" value="1,21,31,fixed,1"/>
     <property name="mapmod" value="object,21,30,161"/>
+    <property name="repeat" value="false"/>
     <property name="requires_not_status" value="av_prison_chest1"/>
     <property name="set_status" value="av_prison_chest1"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Treasure Chest"/>
-    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object name="hidden room crate" type="on_trigger" x="704" y="896" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="mapmod" value="object,22,28,163"/>
+    <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Crate"/>
-    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object name="trap tile that opens three cells" type="on_trigger" x="2112" y="1568" width="32" height="64">
    <properties>
     <property name="mapmod" value="object,63,48,113;object,66,48,113;object,69,48,113;collision,63,48,0;collision,66,48,0;collision,69,48,0"/>
-    <property name="soundfx" value="soundfx/door_open.ogg"/>
     <property name="repeat" value="false"/>
+    <property name="soundfx" value="soundfx/door_open.ogg"/>
    </properties>
   </object>
   <object name="brazier sound effect" type="on_load" x="2752" y="1312" width="32" height="32">
@@ -453,24 +453,51 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="enemy" width="100" height="100" visible="0">
-  <object type="enemies/zombie_brute.txt" x="640" y="1664" width="32" height="32"/>
-  <object type="enemies/goblin_charger_elite.txt" x="736" y="1664" width="32" height="32"/>
-  <object type="enemies/zombie_brute.txt" x="384" y="2080" width="32" height="32"/>
-  <object type="enemies/skeletal_warrior.txt" x="512" y="2688" width="32" height="32"/>
-  <object type="enemies/zombie_brute.txt" x="1152" y="1760" width="32" height="32"/>
-  <object type="enemies/zombie_brute.txt" x="1216" y="1760" width="32" height="32"/>
-  <object type="enemies/zombie_brute.txt" x="1184" y="1728" width="32" height="32"/>
-  <object type="enemies/zombie_brute.txt" x="1184" y="1792" width="32" height="32"/>
-  <object type="enemies/skeletal_archer.txt" x="1792" y="1824" width="32" height="32"/>
-  <object type="enemies/skeletal_archer.txt" x="2016" y="1664" width="32" height="32"/>
-  <object type="enemies/the_warden.txt" x="2848" y="192" width="32" height="32">
+ <objectgroup name="enemy" width="100" height="100">
+  <object type="zombie_brute" x="640" y="1664" width="32" height="32">
    <properties>
-    <property name="direction" value="7"/>
+    <property name="wander_radius" value="0"/>
    </properties>
   </object>
- </objectgroup>
- <objectgroup name="enemygroup" width="100" height="100" visible="0">
+  <object type="goblin_charger_elite" x="736" y="1664" width="32" height="32">
+   <properties>
+    <property name="wander_radius" value="0"/>
+   </properties>
+  </object>
+  <object type="zombie_brute" x="384" y="2080" width="32" height="32">
+   <properties>
+    <property name="wander_radius" value="0"/>
+   </properties>
+  </object>
+  <object type="skeletal_warrior" x="512" y="2688" width="32" height="32"/>
+  <object type="zombie_brute" x="1152" y="1760" width="32" height="32">
+   <properties>
+    <property name="wander_radius" value="0"/>
+   </properties>
+  </object>
+  <object type="zombie_brute" x="1216" y="1760" width="32" height="32">
+   <properties>
+    <property name="wander_radius" value="0"/>
+   </properties>
+  </object>
+  <object type="zombie_brute" x="1184" y="1728" width="32" height="32">
+   <properties>
+    <property name="wander_radius" value="0"/>
+   </properties>
+  </object>
+  <object type="zombie_brute" x="1184" y="1792" width="32" height="32">
+   <properties>
+    <property name="wander_radius" value="0"/>
+   </properties>
+  </object>
+  <object type="skeletal_archer" x="1792" y="1824" width="32" height="32"/>
+  <object type="skeletal_archer" x="2016" y="1664" width="32" height="32"/>
+  <object type="the_warden" x="2848" y="192" width="32" height="32">
+   <properties>
+    <property name="direction" value="7"/>
+    <property name="wander_radius" value="0"/>
+   </properties>
+  </object>
   <object type="zombie" x="64" y="1376" width="160" height="160">
    <properties>
     <property name="level" value="2,4"/>
@@ -483,10 +510,10 @@
     <property name="number" value="0,2"/>
    </properties>
   </object>
-  <object type="zombie" x="64" y="2368" width="224" height="32">
+  <object type="zombie" x="736" y="1984" width="64" height="160">
    <properties>
     <property name="level" value="2,4"/>
-    <property name="number" value="3,3"/>
+    <property name="number" value="0,2"/>
    </properties>
   </object>
   <object type="zombie" x="736" y="1984" width="64" height="160">
@@ -495,27 +522,27 @@
     <property name="number" value="1,2"/>
    </properties>
   </object>
-  <object type="zombie" x="736" y="1984" width="64" height="160">
+  <object type="zombie" x="64" y="2368" width="224" height="32">
    <properties>
     <property name="level" value="2,4"/>
-    <property name="number" value="0,2"/>
+    <property name="number" value="3,3"/>
+    <property name="wander_radius" value="0"/>
    </properties>
   </object>
-  <object name="outside torture room" type="undead" x="288" y="3104" width="192" height="64">
+  <object name="torture room" type="antlion_normal" x="544" y="2912" width="64" height="64">
    <properties>
-    <property name="level" value="2,4"/>
-    <property name="number" value="3,5"/>
-   </properties>
-  </object>
-  <object name="torture room" type="antlion" x="544" y="2912" width="64" height="64">
-   <properties>
-    <property name="level" value="1,2"/>
     <property name="number" value="2,4"/>
    </properties>
   </object>
   <object type="undead" x="224" y="2624" width="384" height="352">
    <properties>
     <property name="level" value="3,5"/>
+    <property name="number" value="3,5"/>
+   </properties>
+  </object>
+  <object name="outside torture room" type="undead" x="288" y="3104" width="192" height="64">
+   <properties>
+    <property name="level" value="2,4"/>
     <property name="number" value="3,5"/>
    </properties>
   </object>
@@ -531,16 +558,16 @@
     <property name="number" value="3,4"/>
    </properties>
   </object>
-  <object name="warden's guards" type="zombie" x="2752" y="1312" width="256" height="128">
-   <properties>
-    <property name="level" value="3,5"/>
-    <property name="number" value="2,3"/>
-   </properties>
-  </object>
   <object type="antlion" x="2752" y="1664" width="128" height="288">
    <properties>
     <property name="level" value="2,4"/>
     <property name="number" value="4,6"/>
+   </properties>
+  </object>
+  <object name="warden's guards" type="zombie" x="2752" y="1312" width="256" height="128">
+   <properties>
+    <property name="level" value="3,5"/>
+    <property name="number" value="2,3"/>
    </properties>
   </object>
  </objectgroup>

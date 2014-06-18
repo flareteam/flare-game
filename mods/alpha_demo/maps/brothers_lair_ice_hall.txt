@@ -523,14 +523,46 @@ repeat=false
 soundfx=soundfx/inventory/inventory_page.ogg
 tooltip=Bookcase
 
-[enemygroup]
+[enemy]
+# Skeletal Knight
+type=skeletal_knight
+location=22,38,1,1
+direction=1
+wander_radius=0
+
+[enemy]
+# Skeletal Knight
+type=skeletal_knight
+location=22,31,1,1
+direction=1
+wander_radius=0
+
+[enemy]
+# Skeletal Knight
+type=skeletal_knight
+location=12,38,1,1
+direction=5
+wander_radius=0
+
+[enemy]
+# Skeletal Knight
+type=skeletal_knight
+location=12,31,1,1
+direction=5
+wander_radius=0
+
+[enemy]
+type=skeletal_prophet
+location=20,14,1,1
+
+[enemy]
 # 3-4 Undead
 type=undead
 location=15,52,12,13
 level=6,8
 number=3,4
 
-[enemygroup]
+[enemy]
 # 1-3 Undead
 type=undead
 location=7,48,4,5
@@ -538,7 +570,7 @@ chance=80
 level=6,8
 number=1,3
 
-[enemygroup]
+[enemy]
 # 1-3 Undead
 type=undead
 location=7,57,4,7
@@ -546,7 +578,7 @@ chance=80
 level=6,8
 number=1,3
 
-[enemygroup]
+[enemy]
 # 1-3 Undead
 type=undead
 location=17,68,4,6
@@ -554,7 +586,7 @@ chance=80
 level=6,8
 number=1,3
 
-[enemygroup]
+[enemy]
 # 1-3 Undead
 type=undead
 location=27,48,6,4
@@ -562,38 +594,10 @@ chance=80
 level=6,8
 number=1,3
 
-[enemygroup]
+[enemy]
 # 2 Undead
 type=undead
 location=31,56,4,4
 level=6,8
 number=2,2
-
-[enemy]
-# Skeletal Knight
-type=enemies/skeletal_knight.txt
-location=22,38,1,1
-direction=1
-
-[enemy]
-# Skeletal Knight
-type=enemies/skeletal_knight.txt
-location=22,31,1,1
-direction=1
-
-[enemy]
-# Skeletal Knight
-type=enemies/skeletal_knight.txt
-location=12,38,1,1
-direction=5
-
-[enemy]
-# Skeletal Knight
-type=enemies/skeletal_knight.txt
-location=12,31,1,1
-direction=5
-
-[enemy]
-type=enemies/skeletal_prophet.txt
-location=20,14,1,1
 

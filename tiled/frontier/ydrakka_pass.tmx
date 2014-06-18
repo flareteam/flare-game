@@ -372,9 +372,9 @@
     <property name="hotspot" value="location"/>
     <property name="loot" value="currency,126,55,fixed,10,20"/>
     <property name="mapmod" value="object,125,55,99"/>
+    <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Supplies"/>
-    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object name="Warp Zone" type="on_trigger" x="3232" y="1472" width="64" height="64">
@@ -388,9 +388,9 @@
    <properties>
     <property name="mapmod" value="background,101,47,265"/>
     <property name="msg" value="Ydrakka Pass waypoint discovered."/>
+    <property name="repeat" value="false"/>
     <property name="requires_not_status" value="waypoint_ydrakka_pass"/>
     <property name="set_status" value="waypoint_ydrakka_pass"/>
-    <property name="repeat" value="false"/>
    </properties>
   </object>
   <object x="3338" y="1580"/>
@@ -518,7 +518,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="enemygroup" width="256" height="100" visible="0">
+ <objectgroup name="enemy" width="256" height="100">
   <object name="elite goblin camp" type="goblin_elite" x="4032" y="1728" width="160" height="160">
    <properties>
     <property name="level" value="2,3"/>

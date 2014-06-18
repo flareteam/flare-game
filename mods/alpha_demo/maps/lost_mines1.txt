@@ -627,84 +627,85 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Crate
 
 [enemy]
-type=enemies/skeletal_warrior.txt
+type=skeletal_warrior
 location=49,21,1,1
 
 [enemy]
-type=enemies/skeletal_warrior.txt
+type=skeletal_warrior
 location=57,20,1,1
 
 [enemy]
-type=enemies/goblin_spearman.txt
+type=goblin_spearman
 location=48,25,1,1
+wander_radius=0
 
 [enemy]
-type=enemies/minotaur.txt
+type=minotaur
 location=55,31,1,1
 
 [enemy]
-type=enemies/skeletal_archer.txt
+type=skeletal_archer
 location=56,32,1,1
 
 [enemy]
-type=enemies/skeletal_archer.txt
+type=skeletal_archer
 location=53,32,1,1
 
 [enemy]
-type=enemies/antlion_freezer.txt
+type=antlion_freezer
 location=78,66,1,1
 
 [enemy]
-type=enemies/antlion_freezer.txt
+type=antlion_freezer
 location=81,66,1,1
 
 [enemy]
-type=enemies/necromancer_apprentice.txt
+type=necromancer_apprentice
 location=18,28,1,1
 
 [enemy]
-type=enemies/skeletal_warrior.txt
+type=skeletal_warrior
 location=55,80,1,1
 
 [enemy]
-type=enemies/skeletal_warrior.txt
+type=skeletal_warrior
 location=56,80,1,1
 
 [enemy]
-type=enemies/antlion_spitter.txt
+type=antlion_spitter
 location=71,71,1,1
 
 [enemy]
-type=enemies/minotaur.txt
+type=minotaur
 location=56,62,1,1
 
-[enemygroup]
-type=undead
-location=6,11,21,35
-level=3,3
-number=10,10
-
-[enemygroup]
-type=undead
-location=6,11,21,35
-level=4,5
+[enemy]
+type=antlion_hatchling
+location=91,57,2,4
+level=2,6
 number=5,5
 
-[enemygroup]
-type=undead
-location=15,49,33,12
-level=3,5
-number=6,6
-
-[enemygroup]
+[enemy]
 type=antlion
 location=66,55,24,18
 level=4,6
 number=6,6
 
-[enemygroup]
-type=antlion_hatchling
-location=91,57,2,4
-level=2,6
+[enemy]
+type=undead
+location=15,49,33,12
+level=3,5
+number=6,6
+
+[enemy]
+type=undead
+location=6,11,21,35
+level=4,5
 number=5,5
+
+[enemy]
+type=undead
+location=6,11,21,35
+level=3,3
+number=10,10
 
