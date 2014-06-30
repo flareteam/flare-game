@@ -207,7 +207,7 @@ install(PROGRAMS
   DESTINATION ${BINDIR})
 install(DIRECTORY
   "${CMAKE_CURRENT_SOURCE_DIR}/mods"
-  DESTINATION ${DATADIR}/flare-game)
+  DESTINATION ${DATADIR})
 install(FILES
   "${CMAKE_CURRENT_BINARY_DIR}/flare.desktop"
   DESTINATION ${CMAKE_INSTALL_PREFIX}/share/applications)
@@ -220,7 +220,3 @@ install(FILES
   DESTINATION ${MANDIR}/man1
   RENAME flare.1)
 
-# also install the default game data
-install(DIRECTORY
-  "${CMAKE_CURRENT_SOURCE_DIR}/mods/default"
-  DESTINATION ${DATADIR}/default/mods)
