@@ -14,9 +14,6 @@ hws_note=204,36
 dbuf_note=204,52
 change_gamma=172,68,188,64
 gamma=172,84,188,80
-texture_quality=172,100,188,96
-animated_tiles=172,116,188,112
-anim_tiles_note=204,116
 test_note=204,68
 
 [audio]
@@ -28,6 +25,8 @@ language=16,4,0,16
 combat_text=172,20,188,16
 show_fps=172,36,188,32
 colorblind=172,52,188,48
+show_hotkeys=172,68,188,64
+hardware_cursor=172,84,188,80
 
 [input]
 joystick_device=16,4,0,16
@@ -43,40 +42,40 @@ handheld_note=208,68
 # scrollpane values are positions x, y and sizes width, height
 scrollpane=-4,2,300,160
 # scrollpane_contents is the height of the scrollpane's internal area
-scrollpane_contents=390
+scrollpane_contents=440
 
 keybinds_bg_color=26,26,26
-cancel=80,5,101,5
-accept=80,20,101,20
-up=80,35,101,35
-down=80,50,101,50
-left=80,65,101,65
-right=80,80,101,80
-bar1=80,95,101,95
-bar2=80,110,101,110
+cancel=48,5,69,5
+accept=48,20,69,20
+up=48,35,69,35
+down=48,50,69,50
+left=48,65,69,65
+right=48,80,69,80
+bar1=48,95,69,95
+bar2=48,110,69,110
 
-bar3=80,125,101,125
-bar4=80,140,101,140
-bar5=80,155,101,155
-bar6=80,170,101,170
-bar7=80,185,101,185
-bar8=80,200,101,200
-bar9=80,215,101,215
-bar0=80,230,101,230
+bar3=48,125,69,125
+bar4=48,140,69,140
+bar5=48,155,69,155
+bar6=48,170,69,170
+bar7=48,185,69,185
+bar8=48,200,69,200
+bar9=48,215,69,215
+bar0=48,230,69,230
 
-main1=80,245,101,245
-main2=80,260,101,260
-character=80,275,101,275
-inventory=80,290,101,290
-powers=80,305,101,305
-log=80,320,101,320
-ctrl=80,335,101,335
-shift=80,350,101,350
-delete=80,365,101,365
-actionbar=80,380,101,380
-actionbar_back=80,395,101,395
-actionbar_forward=80,410,101,410
-actionbar_use=80,425,101,425
+main1=48,245,69,245
+main2=48,260,69,260
+character=48,275,69,275
+inventory=48,290,69,290
+powers=48,305,69,305
+log=48,320,69,320
+ctrl=48,335,69,335
+shift=48,350,69,350
+delete=48,365,69,365
+actionbar=48,380,69,380
+actionbar_back=48,395,69,395
+actionbar_forward=48,410,69,410
+actionbar_use=48,425,69,425
 secondary_offset=72,0
 
 [mods]
