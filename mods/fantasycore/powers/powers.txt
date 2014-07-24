@@ -14,7 +14,6 @@ base_damage=melee
 lifespan=33ms
 radius=1.0
 starting_pos=melee
-allow_power_mod=true
 
 [power]
 id=2
@@ -50,14 +49,8 @@ name=Immobilize
 type=missile
 icon=3
 description=Pin an enemy down for 3 seconds
-new_state=shoot
-face=true
 requires_flags=ranged
-requires_mp=1
-base_damage=ranged
-aim_assist=true
-allow_power_mod=true
-post_effect=immobilize,0,3s
+meta_power=true
 
 [power]
 id=5
@@ -75,7 +68,6 @@ lifespan=33ms
 radius=1.0
 starting_pos=melee
 post_power=127
-allow_power_mod=true
 post_effect=bleeding,5,5s
 
 [power]
@@ -120,15 +112,8 @@ name=Piercing Shot
 type=missile
 icon=16
 description=Fire a shot that ignores armor and goes through multiple enemies
-new_state=shoot
-face=true
 requires_flags=ranged
-requires_mp=3
-multitarget=true
-base_damage=ranged
-aim_assist=true
-trait_armor_penetration=true
-allow_power_mod=true
+meta_power=true
 
 [power]
 id=9
@@ -204,7 +189,6 @@ base_damage=melee
 lifespan=33ms
 radius=2.0
 starting_pos=melee
-allow_power_mod=true
 
 [power]
 id=14
@@ -255,15 +239,8 @@ name=Multishot
 type=missile
 icon=8
 description=Shoot three projectiles simultaneously
-new_state=shoot
-face=true
-count=3
-missile_angle=15
 requires_flags=ranged
-requires_mp=2
-base_damage=ranged
-aim_assist=true
-allow_power_mod=true
+meta_power=true
 
 [power]
 id=18
@@ -319,7 +296,6 @@ base_damage=melee
 lifespan=33ms
 radius=1.0
 starting_pos=melee
-allow_power_mod=true
 hp_steal=10
 
 [power]
@@ -348,13 +324,8 @@ name=Shoot
 type=missile
 icon=3
 description=Basic ranged attack
-new_state=shoot
-face=true
 requires_flags=ranged
-base_damage=ranged
-starting_pos=melee
-aim_assist=true
-allow_power_mod=true
+meta_power=true
 
 [power]
 id=23
@@ -362,19 +333,8 @@ name=Rapid Fire
 type=missile
 icon=23
 description=Fire five low power missiles in quick succession
-new_state=shoot
-face=true
 requires_flags=ranged
-requires_mp=3
-base_damage=ranged
-starting_pos=melee
-aim_assist=true
-allow_power_mod=true
-count=5
-delay=66ms
-modifier_damage=multiply,75,0
-angle_variance=5
-cooldown=2s
+meta_power=true
 
 [power]
 id=24
@@ -570,7 +530,6 @@ base_damage=melee
 lifespan=33ms
 radius=1.0
 starting_pos=melee
-allow_power_mod=true
 hp_steal=50
 
 [power]
@@ -587,7 +546,6 @@ base_damage=melee
 lifespan=33ms
 radius=1.0
 starting_pos=melee
-allow_power_mod=true
 post_effect=bleeding,5,3s
 
 [power]
@@ -604,7 +562,6 @@ base_damage=melee
 lifespan=33ms
 radius=1.0
 starting_pos=melee
-allow_power_mod=true
 post_effect=immobilize,0,5s
 
 [power]
@@ -621,7 +578,6 @@ base_damage=melee
 lifespan=33ms
 radius=1.0
 starting_pos=melee
-allow_power_mod=true
 trait_armor_penetration=true
 
 [power]
@@ -821,39 +777,43 @@ post_power=126
 base_damage=melee
 starting_pos=melee
 
+# slingshot/rock
 [power]
 id=120
-name=Slingshot Shoot
+name=Shoot
 type=missile
-icon=0
-description=Basic ranged attack (requires a ranged weapon)
+icon=3
+description=Basic ranged attack (requires a slingshot)
 new_state=shoot
 face=true
 directional=false
 animation=animations/powers/stone.txt
 soundfx=soundfx/powers/shoot.ogg
 use_hazard=true
+starting_pos=melee
 aim_assist=true
-requires_flags=ranged
+requires_flags=ranged,slingshot
 base_damage=ranged
 lifespan=533ms
 radius=1.0
 speed=24
 
+# bow/arrow
 [power]
 id=121
-name=Arrow Shoot
+name=Shoot
 type=missile
-icon=0
-description=Basic ranged attack (requires a ranged weapon)
+icon=3
+description=Basic ranged attack (requires a bow)
 new_state=shoot
 face=true
 directional=true
 animation=animations/powers/arrows.txt
 soundfx=soundfx/powers/shoot.ogg
 use_hazard=true
+starting_pos=melee
 aim_assist=true
-requires_flags=ranged
+requires_flags=ranged,bow
 base_damage=ranged
 lifespan=533ms
 radius=1.0
@@ -1156,7 +1116,6 @@ base_damage=melee
 lifespan=33ms
 radius=1.0
 starting_pos=melee
-allow_power_mod=true
 post_power=136
 
 [power]
@@ -1196,4 +1155,202 @@ requires_equipped_item=112
 passive=true
 passive_trigger=on_death
 post_effect=revive,0,33s
+
+
+# slingshot (rock) powers
+[power]
+id=180
+name=Immobilize
+type=missile
+icon=3
+description=Pin an enemy down for 3 seconds
+new_state=shoot
+face=true
+requires_flags=ranged,slingshot
+requires_mp=1
+base_damage=ranged
+aim_assist=true
+post_effect=immobilize,0,3s
+directional=false
+animation=animations/powers/stone.txt
+soundfx=soundfx/powers/shoot.ogg
+use_hazard=true
+starting_pos=melee
+lifespan=533ms
+radius=1.0
+speed=24
+
+[power]
+id=181
+name=Piercing Shot
+type=missile
+icon=16
+description=Fire a shot that ignores armor and goes through multiple enemies
+new_state=shoot
+face=true
+requires_flags=ranged,slingshot
+requires_mp=3
+multitarget=true
+base_damage=ranged
+aim_assist=true
+trait_armor_penetration=true
+directional=false
+animation=animations/powers/stone.txt
+soundfx=soundfx/powers/shoot.ogg
+use_hazard=true
+starting_pos=melee
+lifespan=533ms
+radius=1.0
+speed=24
+
+[power]
+id=182
+name=Multishot
+type=missile
+icon=8
+description=Shoot three projectiles simultaneously
+new_state=shoot
+face=true
+count=3
+missile_angle=15
+requires_flags=ranged,slingshot
+requires_mp=2
+base_damage=ranged
+aim_assist=true
+directional=false
+animation=animations/powers/stone.txt
+soundfx=soundfx/powers/shoot.ogg
+use_hazard=true
+starting_pos=melee
+lifespan=533ms
+radius=1.0
+speed=24
+
+[power]
+id=183
+name=Rapid Fire
+type=missile
+icon=23
+description=Fire five low power missiles in quick succession
+new_state=shoot
+face=true
+requires_flags=ranged,slingshot
+requires_mp=3
+base_damage=ranged
+starting_pos=melee
+aim_assist=true
+count=5
+delay=66ms
+modifier_damage=multiply,75,0
+angle_variance=5
+cooldown=2s
+directional=false
+animation=animations/powers/stone.txt
+soundfx=soundfx/powers/shoot.ogg
+use_hazard=true
+starting_pos=melee
+lifespan=533ms
+radius=1.0
+speed=24
+
+
+# bow (arrow) powers
+[power]
+id=190
+name=Immobilize
+type=missile
+icon=3
+description=Pin an enemy down for 3 seconds
+new_state=shoot
+face=true
+requires_flags=ranged,bow
+requires_mp=1
+base_damage=ranged
+aim_assist=true
+post_effect=immobilize,0,3s
+directional=true
+animation=animations/powers/arrows.txt
+soundfx=soundfx/powers/shoot.ogg
+use_hazard=true
+starting_pos=melee
+lifespan=533ms
+radius=1.0
+speed=24
+wall_power=124
+
+[power]
+id=191
+name=Piercing Shot
+type=missile
+icon=16
+description=Fire a shot that ignores armor and goes through multiple enemies
+new_state=shoot
+face=true
+requires_flags=ranged,bow
+requires_mp=3
+multitarget=true
+base_damage=ranged
+aim_assist=true
+trait_armor_penetration=true
+directional=true
+animation=animations/powers/arrows.txt
+soundfx=soundfx/powers/shoot.ogg
+use_hazard=true
+starting_pos=melee
+lifespan=533ms
+radius=1.0
+speed=24
+wall_power=124
+
+[power]
+id=192
+name=Multishot
+type=missile
+icon=8
+description=Shoot three projectiles simultaneously
+new_state=shoot
+face=true
+count=3
+missile_angle=15
+requires_flags=ranged,bow
+requires_mp=2
+base_damage=ranged
+aim_assist=true
+directional=true
+animation=animations/powers/arrows.txt
+soundfx=soundfx/powers/shoot.ogg
+use_hazard=true
+starting_pos=melee
+lifespan=533ms
+radius=1.0
+speed=24
+wall_power=124
+
+[power]
+id=193
+name=Rapid Fire
+type=missile
+icon=23
+description=Fire five low power missiles in quick succession
+new_state=shoot
+face=true
+requires_flags=ranged,bow
+requires_mp=3
+base_damage=ranged
+starting_pos=melee
+aim_assist=true
+count=5
+delay=66ms
+modifier_damage=multiply,75,0
+angle_variance=5
+cooldown=2s
+directional=true
+animation=animations/powers/arrows.txt
+soundfx=soundfx/powers/shoot.ogg
+use_hazard=true
+starting_pos=melee
+lifespan=533ms
+radius=1.0
+speed=24
+wall_power=124
 
