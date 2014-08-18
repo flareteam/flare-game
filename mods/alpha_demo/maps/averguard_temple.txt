@@ -442,10 +442,10 @@ power_damage=25,50
 power_path=15,58,hero
 
 [event]
-# if the player doesn't have the talisman and key, the door is sealed
+# have key, but no talisman
 type=on_trigger
-location=15,88,1,1
-hotspot=location
+location=10,82,1,1
+hotspot=15,88,1,1
 msg=You insert the Averguard Key. Runes glow around the door, then fade. The door is still sealed.
 repeat=false
 requires_item=9001
@@ -455,10 +455,11 @@ set_status=ak_temple_sealed
 tooltip=Sealed Temple Door
 
 [event]
-# the first time you use the talisman
+# have key and talisman
 type=on_trigger
-location=13,89,1,1
+location=10,80,1,1
 hotspot=15,88,1,1
+mapmod=object,15,88,113;collision,15,88,0
 msg=You read aloud the runes on Langlier's Talisman. The Avergard Key begins to glow!
 repeat=false
 requires_not_status=ak_talisman_used
@@ -467,16 +468,15 @@ set_status=ak_talisman_used
 shakycam=2s
 soundfx=soundfx/powers/quake.ogg
 tooltip=Activate Talisman
+unset_status=ak_temple_sealed
 
 [event]
-type=on_trigger
-location=17,91,1,1
-hotspot=15,88,1,1
+# door is already open
+type=on_load
+location=10,78,1,1
 mapmod=object,15,88,113;collision,15,88,0
 repeat=false
 requires_status=ak_talisman_used
-soundfx=soundfx/door_open.ogg
-tooltip=Temple Door
 
 [event]
 type=on_trigger
@@ -552,6 +552,16 @@ soundfx=soundfx/environment/open_fire_loop.ogg
 type=on_load
 location=16,98,1,1
 soundfx=soundfx/environment/open_fire_loop.ogg
+
+[event]
+# don't have key
+type=on_trigger
+location=10,84,1,1
+hotspot=15,88,1,1
+msg=A locked gate is here, with a small keyhole in the center.
+repeat=false
+requires_not_status=ak_key_found
+tooltip=Sealed Temple Door
 
 [enemy]
 type=zombie_rotting

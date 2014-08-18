@@ -429,7 +429,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <objectgroup name="event" width="28" height="129" visible="0">
+ <objectgroup name="event" width="28" height="129">
   <object type="on_trigger" x="448" y="4064" width="64" height="32">
    <properties>
     <property name="hotspot" value="14,128,2,1"/>
@@ -454,9 +454,9 @@
     <property name="power_path" value="15,58,hero"/>
    </properties>
   </object>
-  <object name="if the player doesn't have the talisman and key, the door is sealed" type="on_trigger" x="480" y="2816" width="32" height="32">
+  <object name="have key, but no talisman" type="on_trigger" x="320" y="2624" width="32" height="32">
    <properties>
-    <property name="hotspot" value="location"/>
+    <property name="hotspot" value="15,88,1,1"/>
     <property name="msg" value="You insert the Averguard Key. Runes glow around the door, then fade. The door is still sealed."/>
     <property name="repeat" value="false"/>
     <property name="requires_item" value="9001"/>
@@ -466,9 +466,10 @@
     <property name="tooltip" value="Sealed Temple Door"/>
    </properties>
   </object>
-  <object name="the first time you use the talisman" type="on_trigger" x="416" y="2848" width="32" height="32">
+  <object name="have key and talisman" type="on_trigger" x="320" y="2560" width="32" height="32">
    <properties>
     <property name="hotspot" value="15,88,1,1"/>
+    <property name="mapmod" value="object,15,88,113;collision,15,88,0"/>
     <property name="msg" value="You read aloud the runes on Langlier's Talisman. The Avergard Key begins to glow!"/>
     <property name="repeat" value="false"/>
     <property name="requires_not_status" value="ak_talisman_used"/>
@@ -477,16 +478,14 @@
     <property name="shakycam" value="2s"/>
     <property name="soundfx" value="soundfx/powers/quake.ogg"/>
     <property name="tooltip" value="Activate Talisman"/>
+    <property name="unset_status" value="ak_temple_sealed"/>
    </properties>
   </object>
-  <object type="on_trigger" x="544" y="2912" width="32" height="32">
+  <object name="door is already open" type="on_load" x="320" y="2496" width="32" height="32">
    <properties>
-    <property name="hotspot" value="15,88,1,1"/>
     <property name="mapmod" value="object,15,88,113;collision,15,88,0"/>
     <property name="repeat" value="false"/>
     <property name="requires_status" value="ak_talisman_used"/>
-    <property name="soundfx" value="soundfx/door_open.ogg"/>
-    <property name="tooltip" value="Temple Door"/>
    </properties>
   </object>
   <object type="on_trigger" x="64" y="3744" width="32" height="32">
@@ -558,6 +557,15 @@
   <object name="brazier sound effect" type="on_load" x="512" y="3136" width="32" height="32">
    <properties>
     <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
+   </properties>
+  </object>
+  <object name="don't have key" type="on_trigger" x="320" y="2688" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="15,88,1,1"/>
+    <property name="msg" value="A locked gate is here, with a small keyhole in the center."/>
+    <property name="repeat" value="false"/>
+    <property name="requires_not_status" value="ak_key_found"/>
+    <property name="tooltip" value="Sealed Temple Door"/>
    </properties>
   </object>
  </objectgroup>
