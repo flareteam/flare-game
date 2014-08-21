@@ -1,37 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="isometric" width="32" height="50" tilewidth="64" tileheight="32" backgroundcolor="#000000">
- <properties>
-  <property name="music" value="music/dungeon_theme.ogg"/>
-  <property name="tileset" value="tilesetdefs/tileset_dungeon.txt"/>
-  <property name="title" value="New Dungeon Map"/>
- </properties>
- <tileset firstgid="1" name="collision" tilewidth="64" tileheight="32">
-  <image source="tiled_collision.png" width="960" height="32"/>
- </tileset>
- <tileset firstgid="16" name="dungeon" tilewidth="64" tileheight="128">
-  <image source="tiled_dungeon.png" width="1024" height="1920"/>
- </tileset>
- <tileset firstgid="256" name="set_rules" tilewidth="64" tileheight="32">
-  <image source="set_rules.png" width="128" height="128"/>
- </tileset>
- <tileset firstgid="264" name="tiled_dungeon_2x2" tilewidth="128" tileheight="64">
-  <tileoffset x="0" y="16"/>
-  <image source="tiled_dungeon_2x2.png" width="512" height="256"/>
- </tileset>
- <tileset firstgid="280" name="door_left" tilewidth="64" tileheight="128">
-  <tileoffset x="-16" y="-8"/>
-  <image source="door_left.png" width="128" height="128"/>
- </tileset>
- <tileset firstgid="282" name="door_right" tilewidth="64" tileheight="128">
-  <tileoffset x="16" y="-8"/>
-  <image source="door_right.png" width="128" height="128"/>
- </tileset>
- <tileset firstgid="284" name="stairs" tilewidth="256" tileheight="256">
-  <tileoffset x="0" y="48"/>
-  <image source="stairs.png" width="1024" height="256"/>
- </tileset>
- <layer name="background" width="32" height="50">
-  <data encoding="csv">
+[header]
+width=32
+height=50
+tilewidth=64
+tileheight=32
+music=music/dungeon_theme.ogg
+tileset=tilesetdefs/tileset_dungeon.txt
+title=New Dungeon Map
+
+[tilesets]
+tileset=../../../tiled/dungeon/tiled_collision.png,64,32,0,0
+tileset=../../../tiled/dungeon/tiled_dungeon.png,64,128,0,0
+tileset=../../../tiled/dungeon/set_rules.png,64,32,0,0
+tileset=../../../tiled/dungeon/tiled_dungeon_2x2.png,128,64,0,16
+tileset=../../../tiled/dungeon/door_left.png,64,128,-16,-8
+tileset=../../../tiled/dungeon/door_right.png,64,128,16,-8
+tileset=../../../tiled/dungeon/stairs.png,256,256,0,48
+
+[layer]
+type=background
+data=
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,24,21,21,21,21,21,25,49,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,20,16,16,16,16,16,22,49,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -82,10 +69,10 @@
 0,0,0,0,0,0,0,0,0,0,0,0,20,16,16,16,16,16,22,49,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,27,23,23,23,23,23,26,49,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,50,50,50,50,50,50,50,0,0,0,0,0,0,0,0,0,0,0,0,0
-</data>
- </layer>
- <layer name="object" width="32" height="50">
-  <data encoding="csv">
+
+[layer]
+type=object
+data=
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -136,10 +123,10 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,285,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-</data>
- </layer>
- <layer name="collision" width="32" height="50">
-  <data encoding="csv">
+
+[layer]
+type=collision
+data=
 3,3,3,3,3,3,3,3,3,3,3,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,2,0,0,0,0,0,0,0,2,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,2,0,0,1,1,1,1,0,2,3,3,3,3,3,3,3,3,3,3,3,3,
@@ -190,6 +177,4 @@
 3,3,3,3,3,3,3,3,3,3,3,2,0,1,1,1,1,0,0,2,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,2,0,0,0,0,0,0,0,2,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3
-</data>
- </layer>
-</map>
+
