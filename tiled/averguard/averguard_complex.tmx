@@ -414,7 +414,7 @@
   <object name="intro crate" type="on_trigger" x="2720" y="2368" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,86,74,fixed,5,20"/>
+    <property name="loot" value="currency,fixed,5,20"/>
     <property name="mapmod" value="object,85,74,163"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -424,7 +424,7 @@
   <object name="zombie barrels" type="on_trigger" x="2368" y="2016" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,74,64,fixed,5,15"/>
+    <property name="loot" value="currency,fixed,5,15"/>
     <property name="mapmod" value="object,74,63,162"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -434,7 +434,7 @@
   <object type="on_trigger" x="2336" y="1984" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,72,62,fixed,5,15"/>
+    <property name="loot" value="currency,fixed,5,15"/>
     <property name="mapmod" value="object,73,62,162"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -444,7 +444,7 @@
   <object type="on_trigger" x="2368" y="1984" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,74,61,fixed,5,20"/>
+    <property name="loot" value="currency,fixed,5,20"/>
     <property name="mapmod" value="object,74,62,162"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -454,7 +454,7 @@
   <object name="goblin firepit barrel/crate" type="on_trigger" x="2304" y="3072" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,73,96,fixed,5,15"/>
+    <property name="loot" value="currency,fixed,5,15"/>
     <property name="mapmod" value="object,72,96,162"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -464,7 +464,7 @@
   <object type="on_trigger" x="2304" y="3104" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,73,97,fixed,5,15"/>
+    <property name="loot" value="currency,fixed,5,15"/>
     <property name="mapmod" value="object,72,97,163"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -474,7 +474,7 @@
   <object name="secret room crate" type="on_trigger" x="2336" y="3520" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,72,109,fixed,5,15"/>
+    <property name="loot" value="currency,fixed,5,15"/>
     <property name="mapmod" value="object,73,110,163"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -494,7 +494,7 @@
   <object name="barracks chests" type="on_trigger" x="1312" y="1888" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,42,59,fixed,5,10"/>
+    <property name="loot" value="currency,fixed,5,10"/>
     <property name="mapmod" value="object,41,59,160"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -504,7 +504,7 @@
   <object type="on_trigger" x="1312" y="1824" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,42,57,fixed,5,15"/>
+    <property name="loot" value="currency,fixed,5,15"/>
     <property name="mapmod" value="object,41,57,160"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -514,7 +514,7 @@
   <object type="on_trigger" x="1312" y="1760" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,42,55,fixed,10,25"/>
+    <property name="loot" value="currency,fixed,10,25"/>
     <property name="mapmod" value="object,41,55,160"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -524,7 +524,7 @@
   <object type="on_trigger" x="1312" y="1696" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,42,53,fixed,5,10"/>
+    <property name="loot" value="currency,fixed,5,10"/>
     <property name="mapmod" value="object,41,53,160"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -534,7 +534,7 @@
   <object type="on_trigger" x="1312" y="1632" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,42,51,fixed,5,10"/>
+    <property name="loot" value="currency,fixed,5,10"/>
     <property name="mapmod" value="object,41,51,160"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -544,7 +544,7 @@
   <object name="large room storage" type="on_trigger" x="1600" y="896" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,51,28,fixed,5,15"/>
+    <property name="loot" value="currency,fixed,5,15"/>
     <property name="mapmod" value="object,50,28,162"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -554,7 +554,7 @@
   <object type="on_trigger" x="1600" y="928" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,51,29,fixed,5,15"/>
+    <property name="loot" value="currency,fixed,5,15"/>
     <property name="mapmod" value="object,50,29,163"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -564,7 +564,7 @@
   <object type="on_trigger" x="1760" y="896" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,54,28,fixed,5,10"/>
+    <property name="loot" value="currency,fixed,5,10"/>
     <property name="mapmod" value="object,55,28,163"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -574,7 +574,7 @@
   <object type="on_trigger" x="1760" y="928" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,54,29,fixed,5,10"/>
+    <property name="loot" value="currency,fixed,5,10"/>
     <property name="mapmod" value="object,55,29,162"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -584,7 +584,7 @@
   <object name="kill room chest" type="on_trigger" x="288" y="640" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,10,20,fixed,15,35;currency,9,21,fixed,15,35"/>
+    <property name="loot" value="currency,fixed,15,35;currency,fixed,15,35"/>
     <property name="mapmod" value="object,9,20,160"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -594,7 +594,7 @@
   <object name="kill room chest" type="on_trigger" x="288" y="928" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,10,29,fixed,15,30;currency,9,28,fixed,15,40"/>
+    <property name="loot" value="currency,fixed,15,30;currency,fixed,15,40"/>
     <property name="mapmod" value="object,9,29,160"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>

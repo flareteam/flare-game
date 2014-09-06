@@ -341,7 +341,7 @@
   <object type="on_trigger" x="544" y="1536" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,18,48,fixed,15,30"/>
+    <property name="loot" value="currency,fixed,15,30"/>
     <property name="mapmod" value="object,17,48,128"/>
     <property name="repeat" value="false"/>
     <property name="tooltip" value="Mine Cart"/>
@@ -350,7 +350,7 @@
   <object name="nest treasure" type="on_trigger" x="928" y="2400" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,30,75,fixed,15,40"/>
+    <property name="loot" value="currency,fixed,15,40"/>
     <property name="mapmod" value="object,29,75,178"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -360,7 +360,7 @@
   <object type="on_trigger" x="1376" y="2944" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,45,93,fixed,20,50"/>
+    <property name="loot" value="currency,fixed,20,50"/>
     <property name="mapmod" value="object,43,92,176"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -370,7 +370,7 @@
   <object type="on_trigger" x="928" y="2432" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,30,76,fixed,10,40"/>
+    <property name="loot" value="currency,fixed,10,40"/>
     <property name="mapmod" value="object,29,76,178"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -393,7 +393,7 @@
   <object name="crate in nest hallway" type="on_trigger" x="1888" y="1952" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,60,61,fixed,10,30"/>
+    <property name="loot" value="currency,fixed,10,30"/>
     <property name="mapmod" value="object,59,61,179"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -403,7 +403,7 @@
   <object type="on_trigger" x="64" y="928" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,3,29,fixed,10,30"/>
+    <property name="loot" value="currency,fixed,10,30"/>
     <property name="mapmod" value="object,2,29,178"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -413,7 +413,7 @@
   <object type="on_trigger" x="64" y="960" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,3,30,fixed,10,30"/>
+    <property name="loot" value="currency,fixed,10,30"/>
     <property name="mapmod" value="object,2,30,178"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -430,7 +430,7 @@
   <object type="on_trigger" x="1088" y="800" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,34,26,fixed,10,25"/>
+    <property name="loot" value="currency,fixed,10,25"/>
     <property name="mapmod" value="object,34,25,177"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -440,7 +440,7 @@
   <object type="on_trigger" x="2784" y="1696" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,87,54,fixed,10,25"/>
+    <property name="loot" value="currency,fixed,10,25"/>
     <property name="mapmod" value="object,87,53,177"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -450,7 +450,7 @@
   <object type="on_trigger" x="2880" y="1696" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,90,54,fixed,5,25"/>
+    <property name="loot" value="currency,fixed,5,25"/>
     <property name="mapmod" value="object,90,53,178"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -460,7 +460,7 @@
   <object type="on_trigger" x="1344" y="128" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,43,5,fixed,10,25"/>
+    <property name="loot" value="currency,fixed,10,25"/>
     <property name="mapmod" value="object,42,4,129"/>
     <property name="repeat" value="false"/>
     <property name="tooltip" value="Mine Cart"/>
@@ -474,7 +474,7 @@
   </object>
   <object name="reward for being saved" type="on_trigger" x="2272" y="960" width="96" height="64">
    <properties>
-    <property name="loot" value="currency,73,32,fixed,15,30"/>
+    <property name="loot" value="currency,fixed,15,30"/>
     <property name="msg" value="Talrych says, &quot;You arrived just in time.  Please, take this.&quot;"/>
     <property name="repeat" value="false"/>
    </properties>

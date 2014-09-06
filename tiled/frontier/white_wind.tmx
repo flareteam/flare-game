@@ -438,7 +438,7 @@
   <object name="secret box" type="on_trigger" x="1728" y="192" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,114,55,fixed,15,30"/>
+    <property name="loot" value="currency,fixed,15,30"/>
     <property name="mapmod" value="object,114,54,6"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -448,7 +448,7 @@
   <object name="camp supply" type="on_trigger" x="128" y="896" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,5,28,fixed,10,25"/>
+    <property name="loot" value="currency,fixed,10,25"/>
     <property name="mapmod" value="object,4,28,99"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>

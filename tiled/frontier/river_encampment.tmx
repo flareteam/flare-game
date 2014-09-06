@@ -284,7 +284,7 @@
   <object name="cliff passage container" type="on_trigger" x="640" y="1376" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,21,44,fixed,5,15"/>
+    <property name="loot" value="currency,fixed,5,15"/>
     <property name="mapmod" value="object,20,43,99"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -294,7 +294,7 @@
   <object name="boss container 1" type="on_trigger" x="320" y="416" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="127,11,13,fixed,1"/>
+    <property name="loot" value="127,fixed,1"/>
     <property name="mapmod" value="object,10,13,99"/>
     <property name="repeat" value="false"/>
     <property name="requires_not_status" value="re_crate4"/>
@@ -306,7 +306,7 @@
   <object name="boss container 2" type="on_trigger" x="288" y="480" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="2,10,15,fixed,1"/>
+    <property name="loot" value="2,fixed,1"/>
     <property name="mapmod" value="object,9,15,97"/>
     <property name="repeat" value="false"/>
     <property name="requires_not_status" value="re_crate3"/>
@@ -318,7 +318,7 @@
   <object name="pier container" type="on_trigger" x="1216" y="864" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="1,38,26,fixed,1"/>
+    <property name="loot" value="1,fixed,1"/>
     <property name="mapmod" value="object,38,27,97"/>
     <property name="repeat" value="false"/>
     <property name="requires_not_status" value="re_crate1"/>

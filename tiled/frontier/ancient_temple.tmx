@@ -449,7 +449,7 @@
   <object name="island chest" type="on_trigger" x="736" y="384" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="128,23,13,fixed,1"/>
+    <property name="loot" value="128,fixed,1"/>
     <property name="mapmod" value="object,23,12,161"/>
     <property name="repeat" value="false"/>
     <property name="requires_not_status" value="at_chest1"/>
@@ -461,7 +461,7 @@
   <object name="island chest" type="on_trigger" x="768" y="352" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="57,25,11,fixed,1"/>
+    <property name="loot" value="57,fixed,1"/>
     <property name="mapmod" value="object,24,11,160"/>
     <property name="repeat" value="false"/>
     <property name="requires_not_status" value="at_chest2"/>
@@ -645,7 +645,7 @@
   <object type="on_trigger" x="480" y="2272" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,15,72,fixed,5,10"/>
+    <property name="loot" value="currency,fixed,5,10"/>
     <property name="mapmod" value="object,15,71,183"/>
     <property name="repeat" value="false"/>
    </properties>
