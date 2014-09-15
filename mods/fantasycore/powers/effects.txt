@@ -4,22 +4,18 @@
 [effect]
 name=physical
 type=physical
-additive=true
 
 [effect]
 name=mental
 type=mental
-additive=true
 
 [effect]
 name=offense
 type=offense
-additive=true
 
 [effect]
 name=defense
 type=defense
-additive=true
 
 
 
@@ -27,62 +23,50 @@ additive=true
 [effect]
 name=HP
 type=hp
-additive=true
 
 [effect]
 name=HP regen
 type=hp_regen
-additive=true
 
 [effect]
 name=MP
 type=mp
-additive=true
 
 [effect]
 name=MP regen
 type=mp_regen
-additive=true
 
 [effect]
 name=accuracy
 type=accuracy
-additive=true
 
 [effect]
 name=avoidance
 type=avoidance
-additive=true
 
 [effect]
 name=crit
 type=crit
-additive=true
 
 [effect]
 name=poise
 type=poise
-additive=true
 
 [effect]
 name=XP gain
 type=xp_gain
-additive=true
 
 [effect]
 name=gold find
 type=currency_find
-additive=true
 
 [effect]
 name=item find
 type=item_find
-additive=true
 
 [effect]
 name=stealth
 type=stealth
-additive=true
 
 [effect]
 name=speed
@@ -94,12 +78,10 @@ type=speed
 [effect]
 name=fire resist
 type=fire_resist
-additive=true
 
 [effect]
 name=ice resist
 type=ice_resist
-additive=true
 
 
 
@@ -109,12 +91,14 @@ name=shield
 type=shield
 icon=15
 animation=animations/powers/shield.txt
+can_stack=false
 
 [effect]
 name=heal
 type=heal
 icon=11
 animation=animations/powers/heal.txt
+can_stack=false
 
 
 
@@ -124,6 +108,7 @@ name=bleeding
 type=damage
 icon=25
 animation=animations/powers/spark_red_loop.txt
+can_stack=false
 
 [effect]
 name=immobilize
@@ -144,11 +129,13 @@ icon=26
 name=immunity
 type=immunity
 icon=12
+can_stack=false
 
 [effect]
 name=haste
 type=speed
 icon=9
+can_stack=false
 
 [effect]
 name=HP restore
@@ -161,12 +148,15 @@ type=mpot
 [effect]
 name=revive
 type=revive
+can_stack=false
 
 [effect]
 name=stealth icon
 icon=6
+can_stack=false
 
 [effect]
 name=stealth speed
 type=speed
+can_stack=false
 
