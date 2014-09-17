@@ -806,7 +806,7 @@
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
 </data>
  </layer>
- <objectgroup name="event" width="256" height="256" visible="0">
+ <objectgroup name="event" width="256" height="256">
   <object name="to Frontier Outpost" type="on_trigger" x="7968" y="5952" width="32" height="64">
    <properties>
     <property name="intermap" value="maps/frontier_outpost.txt,2,12"/>
@@ -835,11 +835,9 @@
   <object name="camp supply" type="on_trigger" x="3744" y="1120" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="65,fixed,1"/>
+    <property name="loot" value="loot/leveled_low.txt"/>
     <property name="mapmod" value="object,117,35,99"/>
     <property name="repeat" value="false"/>
-    <property name="requires_not_status" value="fp_crate3"/>
-    <property name="set_status" value="fp_crate3"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Supplies"/>
    </properties>
@@ -847,11 +845,9 @@
   <object name="camp supply" type="on_trigger" x="1600" y="960" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="1,fixed,1"/>
+    <property name="loot" value="loot/leveled_low.txt"/>
     <property name="mapmod" value="object,50,30,97"/>
     <property name="repeat" value="false"/>
-    <property name="requires_not_status" value="fp_crate1"/>
-    <property name="set_status" value="fp_crate1"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Supplies"/>
    </properties>
@@ -859,7 +855,7 @@
   <object name="camp supply" type="on_trigger" x="4000" y="1376" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,fixed,5,10"/>
+    <property name="loot" value="loot/leveled_low.txt"/>
     <property name="mapmod" value="object,125,43,97"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -869,7 +865,7 @@
   <object name="camp supply" type="on_trigger" x="3648" y="3104" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,fixed,5,10"/>
+    <property name="loot" value="loot/leveled_low.txt"/>
     <property name="mapmod" value="object,114,97,99"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -885,18 +881,6 @@
    <properties>
     <property name="repeat" value="false"/>
     <property name="spawn" value="enemies/zombie_rotting.txt,45,155;enemies/zombie_rotting.txt,46,160;enemies/zombie_rotting.txt,50,153;enemies/zombie_rotting.txt,52,161;enemies/zombie_rotting.txt,54,157"/>
-   </properties>
-  </object>
-  <object type="on_load" x="1632" y="928" width="32" height="32">
-   <properties>
-    <property name="mapmod" value="object,50,30,97"/>
-    <property name="requires_status" value="fp_crate1"/>
-   </properties>
-  </object>
-  <object type="on_load" x="3776" y="1088" width="32" height="32">
-   <properties>
-    <property name="mapmod" value="object,117,35,99"/>
-    <property name="requires_status" value="fp_crate3"/>
    </properties>
   </object>
   <object name="River sound" type="on_load" x="2176" y="672" width="32" height="32">
@@ -1070,7 +1054,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="enemy" width="256" height="256">
+ <objectgroup name="enemy" width="256" height="256" visible="0">
   <object name="mourning zombie" type="zombie_brute" x="640" y="5056" width="32" height="32">
    <properties>
     <property name="direction" value="1"/>

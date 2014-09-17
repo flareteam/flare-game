@@ -520,7 +520,7 @@
   <object type="on_trigger" x="480" y="32" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,fixed,15,30;currency,fixed,15,35;currency,fixed,10,25"/>
+    <property name="loot" value="loot/leveled_high.txt"/>
     <property name="mapmod" value="object,15,1,161"/>
     <property name="repeat" value="false"/>
     <property name="requires_status" value="ak_maddox_defeated"/>
@@ -543,7 +543,7 @@
   <object type="on_trigger" x="480" y="288" width="32" height="64">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,fixed,10,25"/>
+    <property name="loot" value="loot/leveled_high.txt"/>
     <property name="msg" value="You wipe dust away from the tomb lid, revealing an inscription: &quot;Here lies Sir Evan Maddox&quot;"/>
     <property name="repeat" value="false"/>
     <property name="tooltip" value="Maddox's Tomb"/>

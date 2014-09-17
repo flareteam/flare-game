@@ -370,7 +370,7 @@
   <object name="camp supply" type="on_trigger" x="4000" y="1760" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,fixed,10,20"/>
+    <property name="loot" value="loot/leveled_mid.txt"/>
     <property name="mapmod" value="object,125,55,99"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -393,15 +393,12 @@
     <property name="set_status" value="waypoint_ydrakka_pass"/>
    </properties>
   </object>
-  <object x="3338" y="1580"/>
-  <object x="3360" y="1600"/>
   <object type="on_load" x="3136" y="1312" width="32" height="32">
    <properties>
     <property name="mapmod" value="background,101,47,265"/>
     <property name="requires_status" value="waypoint_ydrakka_pass"/>
    </properties>
   </object>
-  <object x="3222" y="1554"/>
   <object name="River sound" type="on_load" x="3392" y="2080" width="32" height="32">
    <properties>
     <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>

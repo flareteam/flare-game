@@ -433,7 +433,7 @@ intramap=45,14
 soundfx=soundfx/powers/teleport.ogg
 
 [event]
-# island chest
+# island chest (dagger)
 type=on_trigger
 location=23,12,1,1
 hotspot=location
@@ -446,7 +446,7 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Treasure Chest
 
 [event]
-# island chest
+# island chest (buckler)
 type=on_trigger
 location=24,11,1,1
 hotspot=location
@@ -660,16 +660,28 @@ mapmod=object,15,71,183
 repeat=false
 
 [event]
-type=on_load
-location=23,15,1,1
+# island chest
+type=on_trigger
+location=23,12,1,1
+hotspot=location
+loot=loot/leveled_low.txt
 mapmod=object,23,12,161
+repeat=false
 requires_status=at_chest1
+soundfx=soundfx/wood_open.ogg
+tooltip=Treasure Chest
 
 [event]
-type=on_load
-location=24,8,1,1
+# island chest
+type=on_trigger
+location=24,11,1,1
+hotspot=location
+loot=loot/leveled_low.txt
 mapmod=object,24,11,160
+repeat=false
 requires_status=at_chest2
+soundfx=soundfx/wood_open.ogg
+tooltip=Treasure Chest
 
 [enemy]
 type=cursed_grave

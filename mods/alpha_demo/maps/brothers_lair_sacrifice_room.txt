@@ -240,6 +240,12 @@ power_damage=25,50
 power_path=7,34,hero
 requires_status=lb_ice_attack
 
+[event]
+# unset statue attack statuses
+type=on_load
+location=-2,39,1,1
+unset_status=lb_ice_attack,lb_fire_attack,lb_wind_attack
+
 [npc]
 type=npcs/statue_guardian_ice.txt
 location=7,34,1,1
@@ -255,15 +261,15 @@ location=11,34,1,1
 [enemy]
 type=grisbon
 location=9,13,1,1
-wander_area=0
+wander_radius=0
 
 [enemy]
 type=scathelocke
 location=7,10,1,1
-wander_area=0
+wander_radius=0
 
 [enemy]
 type=vesuvvio
 location=11,10,1,1
-wander_area=0
+wander_radius=0
 

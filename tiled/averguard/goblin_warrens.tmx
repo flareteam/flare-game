@@ -314,7 +314,7 @@
   <object name="dorm room chest" type="on_trigger" x="96" y="1152" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,fixed,10,30"/>
+    <property name="loot" value="loot/leveled_mid.txt"/>
     <property name="mapmod" value="object,3,36,160"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -324,7 +324,7 @@
   <object name="dorm room barrel" type="on_trigger" x="32" y="1024" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,fixed,10,20"/>
+    <property name="loot" value="loot/leveled_low.txt"/>
     <property name="mapmod" value="object,1,32,162"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>

@@ -383,7 +383,7 @@
   <object name="Crate" type="on_trigger" x="352" y="416" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,fixed,15,30"/>
+    <property name="loot" value="loot/leveled_mid.txt"/>
     <property name="mapmod" value="object,11,13,163"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -393,7 +393,7 @@
   <object name="Crate" type="on_trigger" x="704" y="416" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,fixed,10,30"/>
+    <property name="loot" value="loot/leveled_mid.txt"/>
     <property name="mapmod" value="object,22,13,163"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -403,7 +403,7 @@
   <object name="Crate" type="on_trigger" x="928" y="1536" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,fixed,15,30"/>
+    <property name="loot" value="loot/leveled_mid.txt"/>
     <property name="mapmod" value="object,29,48,163"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -413,7 +413,7 @@
   <object name="Barrel" type="on_trigger" x="352" y="448" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,fixed,10,30"/>
+    <property name="loot" value="loot/leveled_mid.txt"/>
     <property name="mapmod" value="object,11,14,162"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -423,7 +423,7 @@
   <object name="Barrel" type="on_trigger" x="384" y="448" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,fixed,15,30"/>
+    <property name="loot" value="loot/leveled_mid.txt"/>
     <property name="mapmod" value="object,12,14,162"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -433,7 +433,7 @@
   <object name="Barrel" type="on_trigger" x="736" y="416" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,fixed,10,30"/>
+    <property name="loot" value="loot/leveled_mid.txt"/>
     <property name="mapmod" value="object,23,13,162"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -443,7 +443,7 @@
   <object name="Treasure Chest" type="on_trigger" x="224" y="1600" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,fixed,15,40"/>
+    <property name="loot" value="loot/leveled_mid.txt"/>
     <property name="mapmod" value="object,7,50,160"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -453,12 +453,12 @@
   <object name="Scathelocke's Chest (Spellbook)" type="on_trigger" x="448" y="320" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="9100,fixed,1"/>
+    <property name="loot" value="9100,fixed,1,1;loot/leveled_high.txt"/>
     <property name="mapmod" value="object,14,10,160"/>
     <property name="remove_item" value="9101"/>
     <property name="repeat" value="false"/>
     <property name="requires_item" value="9101"/>
-    <property name="requires_not_status" value="lb_ice_spellbook,lb_ice_looted"/>
+    <property name="requires_not_status" value="lb_ice_spellbook"/>
     <property name="set_status" value="lb_ice_looted,lb_ice_spellbook"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Runed Chest"/>
@@ -468,12 +468,12 @@
   <object name="Scathelocke's Chest" type="on_trigger" x="448" y="320" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,fixed,100,200"/>
+    <property name="loot" value="currency,fixed,50,100;loot/leveled_high.txt"/>
     <property name="mapmod" value="object,14,10,160"/>
     <property name="remove_item" value="9101"/>
     <property name="repeat" value="false"/>
     <property name="requires_item" value="9101"/>
-    <property name="requires_not_status" value="lb_ice_looted"/>
+    <property name="requires_status" value="lb_ice_spellbook"/>
     <property name="set_status" value="lb_ice_looted"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Runed Chest"/>
@@ -500,7 +500,7 @@
   <object name="Treasure" type="on_trigger" x="960" y="1824" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,fixed,15,40"/>
+    <property name="loot" value="loot/leveled_mid.txt"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/inventory/inventory_page.ogg"/>
     <property name="tooltip" value="Bookcase"/>
@@ -509,12 +509,18 @@
   <object name="Treasure" type="on_trigger" x="192" y="1952" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,fixed,15,40"/>
+    <property name="loot" value="loot/leveled_mid.txt"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/inventory/inventory_page.ogg"/>
     <property name="tooltip" value="Bookcase"/>
    </properties>
   </object>
+  <object type="on_load" x="352" y="224" width="32" height="32">
+   <properties>
+    <property name="unset_status" value="lb_ice_looted"/>
+   </properties>
+  </object>
+  <object x="384" y="256"/>
  </objectgroup>
  <objectgroup name="enemy" width="50" height="80">
   <object name="Skeletal Knight" type="skeletal_knight" x="704" y="1216" width="32" height="32">
