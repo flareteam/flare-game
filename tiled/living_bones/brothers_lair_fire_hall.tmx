@@ -293,7 +293,7 @@
   <object name="Barrel" type="on_trigger" x="736" y="2048" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,24,63,fixed,10,30"/>
+    <property name="loot" value="loot/leveled_mid.txt"/>
     <property name="mapmod" value="object,23,64,162"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -303,7 +303,7 @@
   <object name="Barrel" type="on_trigger" x="704" y="2048" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,22,63,fixed,10,30"/>
+    <property name="loot" value="loot/leveled_mid.txt"/>
     <property name="mapmod" value="object,22,64,162"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -313,7 +313,7 @@
   <object name="Crate" type="on_trigger" x="672" y="2048" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,21,63,fixed,10,35"/>
+    <property name="loot" value="loot/leveled_mid.txt"/>
     <property name="mapmod" value="object,21,64,163"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -323,7 +323,7 @@
   <object name="Crate" type="on_trigger" x="736" y="2016" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,23,62,fixed,10,35"/>
+    <property name="loot" value="loot/leveled_mid.txt"/>
     <property name="mapmod" value="object,23,63,163"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -349,7 +349,7 @@
   <object name="Vesuvvio's Chest" type="on_trigger" x="672" y="1920" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,22,60,fixed,100,200"/>
+    <property name="loot" value="currency,fixed,50,100;loot/leveled_high.txt"/>
     <property name="mapmod" value="object,21,60,160"/>
     <property name="remove_item" value="9102"/>
     <property name="repeat" value="false"/>
@@ -469,6 +469,11 @@
   <object name="brazier sound effect" type="on_load" x="384" y="1472" width="32" height="32">
    <properties>
     <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
+   </properties>
+  </object>
+  <object type="on_load" x="512" y="1824" width="32" height="32">
+   <properties>
+    <property name="unset_status" value="lb_fire_looted"/>
    </properties>
   </object>
  </objectgroup>

@@ -830,11 +830,9 @@ intermap=maps/ancient_temple.txt,49,99
 type=on_trigger
 location=117,35,1,1
 hotspot=location
-loot=65,117,36,fixed,1
+loot=loot/leveled_low.txt
 mapmod=object,117,35,99
 repeat=false
-requires_not_status=fp_crate3
-set_status=fp_crate3
 soundfx=soundfx/wood_open.ogg
 tooltip=Supplies
 
@@ -843,11 +841,9 @@ tooltip=Supplies
 type=on_trigger
 location=50,30,1,1
 hotspot=location
-loot=1,50,31,fixed,1
+loot=loot/leveled_low.txt
 mapmod=object,50,30,97
 repeat=false
-requires_not_status=fp_crate1
-set_status=fp_crate1
 soundfx=soundfx/wood_open.ogg
 tooltip=Supplies
 
@@ -856,7 +852,7 @@ tooltip=Supplies
 type=on_trigger
 location=125,43,1,1
 hotspot=location
-loot=currency,124,43,fixed,5,10
+loot=loot/leveled_low.txt
 mapmod=object,125,43,97
 repeat=false
 soundfx=soundfx/wood_open.ogg
@@ -867,7 +863,7 @@ tooltip=Supplies
 type=on_trigger
 location=114,97,1,1
 hotspot=location
-loot=currency,114,98,fixed,5,10
+loot=loot/leveled_low.txt
 mapmod=object,114,97,99
 repeat=false
 soundfx=soundfx/wood_open.ogg
@@ -884,18 +880,6 @@ type=on_trigger
 location=48,155,5,5
 repeat=false
 spawn=enemies/zombie_rotting.txt,45,155;enemies/zombie_rotting.txt,46,160;enemies/zombie_rotting.txt,50,153;enemies/zombie_rotting.txt,52,161;enemies/zombie_rotting.txt,54,157
-
-[event]
-type=on_load
-location=51,29,1,1
-mapmod=object,50,30,97
-requires_status=fp_crate1
-
-[event]
-type=on_load
-location=118,34,1,1
-mapmod=object,117,35,99
-requires_status=fp_crate3
 
 [event]
 # River sound

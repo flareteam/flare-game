@@ -131,7 +131,7 @@
   <object name="Barrel" type="on_trigger" x="160" y="192" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,6,7,fixed,20,40"/>
+    <property name="loot" value="loot/leveled_high.txt"/>
     <property name="mapmod" value="object,5,6,178"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -141,7 +141,7 @@
   <object name="Barrel" type="on_trigger" x="96" y="576" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,4,19,fixed,20,40"/>
+    <property name="loot" value="loot/leveled_mid.txt"/>
     <property name="mapmod" value="object,3,18,178"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>

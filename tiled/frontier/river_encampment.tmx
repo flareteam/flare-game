@@ -233,7 +233,7 @@
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,3,3,3,3,3,3,3,3,3,3,1,3,3
 </data>
  </layer>
- <objectgroup name="enemy" width="64" height="64">
+ <objectgroup name="enemy" width="64" height="64" visible="0">
   <object type="goblin_normal" x="1888" y="1568" width="32" height="32"/>
   <object type="goblin_normal" x="1824" y="1376" width="32" height="32"/>
   <object type="goblin_normal" x="1504" y="928" width="32" height="32"/>
@@ -280,25 +280,25 @@
   <object type="antlion_hatchling" x="1312" y="480" width="32" height="32"/>
   <object type="antlion_hatchling" x="1312" y="576" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="event" width="64" height="64" visible="0">
+ <objectgroup name="event" width="64" height="64">
   <object name="cliff passage container" type="on_trigger" x="640" y="1376" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,21,44,fixed,5,15"/>
+    <property name="loot" value="loot/leveled_low.txt"/>
     <property name="mapmod" value="object,20,43,99"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Supplies"/>
    </properties>
   </object>
-  <object name="boss container 1" type="on_trigger" x="320" y="416" width="32" height="32">
+  <object name="boss container 1 (wand)" type="on_trigger" x="320" y="416" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="127,11,13,fixed,1"/>
+    <property name="loot" value="127,fixed,1"/>
     <property name="mapmod" value="object,10,13,99"/>
     <property name="repeat" value="false"/>
-    <property name="requires_not_status" value="re_crate4"/>
-    <property name="set_status" value="re_crate4"/>
+    <property name="requires_not_status" value="re_crate1"/>
+    <property name="set_status" value="re_crate1"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Supplies"/>
    </properties>
@@ -306,11 +306,9 @@
   <object name="boss container 2" type="on_trigger" x="288" y="480" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="2,10,15,fixed,1"/>
+    <property name="loot" value="loot/leveled_mid.txt"/>
     <property name="mapmod" value="object,9,15,97"/>
     <property name="repeat" value="false"/>
-    <property name="requires_not_status" value="re_crate3"/>
-    <property name="set_status" value="re_crate3"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Supplies"/>
    </properties>
@@ -318,11 +316,9 @@
   <object name="pier container" type="on_trigger" x="1216" y="864" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="1,38,26,fixed,1"/>
+    <property name="loot" value="loot/leveled_low.txt"/>
     <property name="mapmod" value="object,38,27,97"/>
     <property name="repeat" value="false"/>
-    <property name="requires_not_status" value="re_crate1"/>
-    <property name="set_status" value="re_crate1"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Supplies"/>
    </properties>
@@ -335,24 +331,6 @@
   <object name="to River Barrow" type="on_trigger" x="1120" y="96" width="32" height="64">
    <properties>
     <property name="intermap" value="maps/river_barrow.txt,60,30"/>
-   </properties>
-  </object>
-  <object type="on_load" x="1216" y="928" width="32" height="32">
-   <properties>
-    <property name="mapmod" value="object,38,27,97"/>
-    <property name="requires_status" value="re_crate1"/>
-   </properties>
-  </object>
-  <object type="on_load" x="224" y="512" width="32" height="32">
-   <properties>
-    <property name="mapmod" value="object,9,15,97"/>
-    <property name="requires_status" value="re_crate3"/>
-   </properties>
-  </object>
-  <object type="on_load" x="256" y="352" width="32" height="32">
-   <properties>
-    <property name="mapmod" value="object,10,13,99"/>
-    <property name="requires_status" value="re_crate4"/>
    </properties>
   </object>
   <object name="River sound" type="on_load" x="1824" y="2016" width="32" height="32">
@@ -413,6 +391,17 @@
   <object name="Bird twitter" type="on_load" x="1408" y="1504" width="32" height="32">
    <properties>
     <property name="soundfx" value="soundfx/environment/bird_twitter_loop.ogg"/>
+   </properties>
+  </object>
+  <object name="boss container 1" type="on_trigger" x="320" y="416" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="loot/leveled_mid.txt"/>
+    <property name="mapmod" value="object,10,13,99"/>
+    <property name="repeat" value="false"/>
+    <property name="requires_status" value="re_crate1"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Supplies"/>
    </properties>
   </object>
  </objectgroup>
