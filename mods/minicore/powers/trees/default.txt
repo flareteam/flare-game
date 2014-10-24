@@ -1,0 +1,215 @@
+# tab 0
+[tab]
+title=Warrior
+
+# tab 1
+[tab]
+title=Ranger
+
+# tab 2
+[tab]
+title=Mage
+
+### Warrior Tab ###############################################################
+# swing
+[power]
+id=1
+tab=0
+position=24,40
+requires_physical=1
+
+# block
+[power]
+id=3
+tab=0
+position=120,40
+requires_defense=1
+
+# heroic swing
+[power]
+id=20
+tab=0
+position=24,72
+requires_physical=2
+requires_point=true
+
+# blood strike
+[power]
+id=5
+tab=0
+position=56,72
+requires_physical=2
+requires_point=true
+
+# throw knife
+[power]
+id=43
+tab=0
+position=88,72
+requires_physical=2
+requires_point=true
+
+# throw axe
+[power]
+id=44
+tab=0
+position=88,104
+requires_physical=3
+requires_power=43
+requires_point=true
+
+# cleave
+[power]
+id=13
+tab=0
+position=56,104
+requires_physical=3
+requires_point=true
+
+# war cry
+[power]
+id=9
+tab=0
+position=120,104
+requires_defense=2
+requires_physical=2
+requires_point=true
+
+
+
+### Ranger Tab ################################################################
+# shoot
+[power]
+id=22
+tab=1
+position=24,40
+requires_offense=1
+
+# caltrops
+[power]
+id=45
+tab=1
+position=120,72
+requires_defense=2
+requires_point=true
+
+# multi-shot
+[power]
+id=16
+tab=1
+position=56,72
+requires_offense=2
+requires_point=true
+
+# piercing shot
+[power]
+id=8
+tab=1
+position=56,104
+requires_offense=3
+requires_point=true
+
+# bear trap
+[power]
+id=46
+tab=1
+position=120,104
+requires_offense=2
+requires_defense=2
+requires_point=true
+requires_power=45
+
+# stealth
+[power]
+id=141
+tab=1
+position=24,72
+requires_defense=2
+requires_point=true
+
+# rapid fire
+[power]
+id=23
+tab=1
+position=56,136
+requires_offense=4
+requires_point=true
+
+
+### Wizard Tab ################################################################
+# channel
+[power]
+id=2
+tab=2
+position=24,40
+requires_mental=1
+
+# greater channel
+[power]
+id=21
+tab=2
+position=24,72
+requires_mental=2
+requires_point=true
+
+# shock
+[power]
+id=6
+tab=2
+position=56,72
+requires_mental=2
+requires_point=true
+
+# heal
+[power]
+id=7
+tab=2
+position=120,72
+requires_mental=1
+requires_defense=2
+requires_point=true
+
+# freeze
+[power]
+id=14
+tab=2
+position=56,104
+requires_mental=3
+requires_point=true
+
+# quake
+[power]
+id=10
+tab=2
+position=88,104
+requires_mental=3
+requires_point=true
+
+# shield
+[power]
+id=11
+tab=2
+position=120,104
+requires_mental=2
+requires_defense=2
+requires_point=true
+
+# burn
+[power]
+id=18
+tab=2
+position=56,136
+requires_mental=4
+requires_point=true
+
+# teleport
+[power]
+id=15
+tab=2
+position=120,136
+requires_mental=2
+requires_defense=3
+requires_point=true
+
+
+
