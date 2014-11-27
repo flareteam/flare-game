@@ -3,6 +3,7 @@ width=50
 height=80
 tilewidth=64
 tileheight=32
+orientation=isometric
 music=music/magical_theme.ogg
 tileset=tilesetdefs/tileset_dungeon.txt
 title=Brothers' Lair Fire Hall
@@ -326,7 +327,6 @@ type=on_trigger
 location=21,20,1,1
 power=18
 power_damage=100,150
-power_path=0,0,21,20
 repeat=false
 
 [event]
@@ -335,7 +335,6 @@ type=on_trigger
 location=24,20,1,1
 power=18
 power_damage=100,150
-power_path=0,0,24,20
 repeat=false
 
 [event]
