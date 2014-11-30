@@ -3,6 +3,7 @@ width=256
 height=256
 tilewidth=64
 tileheight=32
+orientation=isometric
 music=music/overworld_theme.ogg
 tileset=tilesetdefs/tileset_grassland.txt
 title=Frontier Plains
@@ -879,7 +880,7 @@ intermap=maps/hidden_grove.txt,120,60
 type=on_trigger
 location=48,155,5,5
 repeat=false
-spawn=enemies/zombie_rotting.txt,45,155;enemies/zombie_rotting.txt,46,160;enemies/zombie_rotting.txt,50,153;enemies/zombie_rotting.txt,52,161;enemies/zombie_rotting.txt,54,157
+spawn=zombie_rotting,45,155;zombie_rotting,46,160;zombie_rotting,50,153;zombie_rotting,52,161;zombie_rotting,54,157
 
 [event]
 # River sound
@@ -1004,19 +1005,19 @@ soundfx=soundfx/environment/bird_twitter_loop.ogg
 [event]
 # Bird twitter
 type=on_load
-location=46.125,98.3438,1,1
+location=46,98,1,1
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Bird twitter
 type=on_load
-location=23.4062,103.25,1,1
+location=23,103,1,1
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Bird twitter
 type=on_load
-location=73.3438,118.281,1,1
+location=73,118,1,1
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
@@ -1028,13 +1029,13 @@ soundfx=soundfx/environment/bird_twitter_loop.ogg
 [event]
 # Bird twitter
 type=on_load
-location=172.5,89.75,1,1
+location=172,89,1,1
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Bird twitter
 type=on_load
-location=78.4062,192.188,1,1
+location=78,192,1,1
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
@@ -1082,7 +1083,7 @@ soundfx=soundfx/environment/raven_loop.ogg
 [event]
 # Raven sound effect
 type=on_load
-location=75.4062,94.7188,1,1
+location=75,94,1,1
 soundfx=soundfx/environment/raven_loop.ogg
 
 [enemy]

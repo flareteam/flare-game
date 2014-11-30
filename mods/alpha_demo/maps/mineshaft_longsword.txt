@@ -3,6 +3,7 @@ width=64
 height=64
 tilewidth=64
 tileheight=32
+orientation=isometric
 music=music/cave_theme.ogg
 tileset=tilesetdefs/tileset_cave.txt
 title=Mineshaft Longsword
@@ -272,7 +273,7 @@ type=on_load
 location=22,46,4,4
 requires_not_status=ml_skeleton_defeated
 requires_status=ml_skeleton_search
-spawn=enemies/reanimated_skeleton.txt,6,28
+spawn=reanimated_skeleton,6,28
 
 [enemy]
 type=miner
