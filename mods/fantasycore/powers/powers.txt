@@ -158,6 +158,7 @@ requires_mp=2
 soundfx=soundfx/powers/shield.ogg
 buff=true
 post_effect=shield,0,0
+cooldown=3s
 
 [power]
 id=12
@@ -426,6 +427,7 @@ speed=15
 trait_elemental=fire
 post_power=125
 wall_power=125
+cooldown=3s
 
 [power]
 id=32
@@ -611,6 +613,7 @@ radius=1.0
 speed=12
 starting_pos=melee
 post_effect=stun,0,1s
+cooldown=1500ms
 
 [power]
 id=42
@@ -634,6 +637,7 @@ speed=24
 wall_power=124
 count=3
 missile_angle=15
+cooldown=1500ms
 
 [power]
 id=43
@@ -725,6 +729,30 @@ no_attack=true
 directional=true
 lifespan=3s
 starting_pos=target
+
+[power]
+id=48
+name=Shock [enemy]
+type=missile
+icon=7
+description=Electrocute an enemy from a distance; +50% crit chance against movement-impaired enemies.
+new_state=cast
+requires_mp=1
+face=true
+directional=true
+animation=animations/powers/lightning.txt
+soundfx=soundfx/powers/shock.ogg
+use_hazard=true
+aim_assist=true
+base_damage=ment
+lifespan=800ms
+radius=1.0
+speed=16
+trait_elemental=wind
+trait_crits_impaired=50
+post_power=126
+wall_power=126
+cooldown=5s
 
 [power]
 id=100
