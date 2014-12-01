@@ -3,6 +3,7 @@ width=104
 height=104
 tilewidth=64
 tileheight=32
+orientation=isometric
 music=music/safe_room_theme.ogg
 tileset=tilesetdefs/tileset_dungeon.txt
 title=Ancient Temple
@@ -474,14 +475,14 @@ tooltip=In Memoriam
 type=on_trigger
 location=11,52,4,2
 repeat=false
-spawn=enemies/zombie.txt,12,50;enemies/zombie.txt,13,50;enemies/zombie.txt,12,55;enemies/zombie.txt,13,55
+spawn=zombie_normal,12,50;zombie_normal,13,50;zombie_normal,12,55;zombie_normal,13,55
 
 [event]
 # entrance brute
 type=on_trigger
 location=48,86,2,2
 repeat=false
-spawn=enemies/zombie_brute.txt,48,81
+spawn=zombie_brute,48,81
 
 [event]
 # floor spikes
