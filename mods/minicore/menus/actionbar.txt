@@ -4,28 +4,22 @@
 pos=0,0,320,18
 align=bottom
 
-slot1=16,1,16,16
-slot2=32,1,16,16
-slot3=48,1,16,16
-slot4=64,1,16,16
-slot5=80,1,16,16
-slot6=96,1,16,16
-slot7=112,1,16,16
-slot8=128,1,16,16
-slot9=144,1,16,16
-slot10=160,1,16,16
+slot=1,16,1
+slot=2,32,1
+slot=3,48,1
+slot=4,64,1
+slot=5,80,1
+slot=6,96,1
+slot=7,112,1
+slot=8,128,1
+slot=9,144,1
+slot=10,160,1
 
-slot_M1=192,1,16,16
-slot_M2=208,1,16,16
+slot_M1=192,1
+slot_M2=208,1
 
-char_menu=240,1,16,16
-inv_menu=256,1,16,16
-powers_menu=272,1,16,16
-log_menu=288,1,16,16
+char_menu=240,1
+inv_menu=256,1
+powers_menu=272,1
+log_menu=288,1
 
-# screen areas occupied by the three main sections
-# TODO maybe we should calculate them
-# x,width,height. y is ignored, since it is taken from the "pos" key's y value
-numberArea=16,0,160,16
-mouseArea=192,0,32,16
-menuArea=240,0,64,16
