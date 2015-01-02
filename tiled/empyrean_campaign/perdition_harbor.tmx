@@ -162,7 +162,7 @@
 </data>
  </layer>
  <objectgroup name="event">
-  <object id="1" type="on_trigger" x="32" y="704" width="32" height="128">
+  <object id="1" name="to River Trail" type="on_trigger" x="32" y="704" width="32" height="128">
    <properties>
     <property name="intermap" value="maps/river_trail.txt,77,26"/>
    </properties>
@@ -175,12 +175,12 @@
     <property name="tooltip" value="Shared Stash"/>
    </properties>
   </object>
-  <object id="4" type="on_trigger" x="512" y="800" width="64" height="64">
+  <object id="4" name="to Hyperspace" type="on_trigger" x="512" y="800" width="64" height="64">
    <properties>
     <property name="intermap" value="maps/hyperspace.txt,12,12"/>
    </properties>
   </object>
-  <object id="7" type="on_trigger" x="1056" y="512" width="128" height="128">
+  <object id="7" name="to Book of the Dead" type="on_trigger" x="1056" y="512" width="128" height="128">
    <properties>
     <property name="intermap" value="maps/book_of_the_dead.txt,17,46"/>
    </properties>
