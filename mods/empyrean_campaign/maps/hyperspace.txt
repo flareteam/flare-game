@@ -150,18 +150,28 @@ data=
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
 
 [event]
+# to Perdition Harbor
 type=on_trigger
 location=9,9,2,2
 intermap=maps/perdition_harbor.txt,15,23
 
 [event]
+# to Stonewood
 type=on_trigger
 location=16,7,2,2
 intermap=maps/stonewood.txt,59,43
+requires_status=emp_waypoint_1
 
 [event]
 # Wind sound
 type=on_load
 location=0,0,1,1
 soundfx=soundfx/environment/cave_wind_loop.ogg
+
+[event]
+# unlock Stonewood
+type=on_load
+location=16,5,1,1
+mapmod=background,16,8,265
+requires_status=emp_waypoint_1
 

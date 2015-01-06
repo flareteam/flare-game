@@ -288,6 +288,7 @@ location=51,77,4,1
 intermap=maps/goblin_camp.txt,5,2
 
 [event]
+# to Hyperspace
 type=on_trigger
 location=59,44,2,2
 intermap=maps/hyperspace.txt,17,10
@@ -468,6 +469,23 @@ soundfx=soundfx/environment/raven_loop.ogg
 type=on_load
 location=23,8,1,1
 soundfx=soundfx/environment/raven_loop.ogg
+
+[event]
+# Unlock waypoint
+type=on_trigger
+location=57,42,6,6
+mapmod=background,59,45,265
+msg=Stonewood waypoint discovered.
+repeat=false
+requires_not_status=emp_waypoint_1
+set_status=emp_waypoint_1
+
+[event]
+# Unlock waypoint (on_load)
+type=on_load
+location=57,49,1,1
+mapmod=background,59,45,265
+requires_status=emp_waypoint_1
 
 [enemy]
 # zombies
