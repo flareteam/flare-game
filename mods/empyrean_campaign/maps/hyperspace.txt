@@ -3,18 +3,19 @@ width=40
 height=40
 tilewidth=64
 tileheight=32
+orientation=isometric
 music=music/dungeon_theme.ogg
 tileset=tilesetdefs/tileset_dungeon.txt
 title=Hyperspace
 
 [tilesets]
-tileset=../../../../flare-game/tiled/dungeon/tiled_collision.png,64,32,0,0
-tileset=../../../../flare-game/tiled/dungeon/tiled_dungeon.png,64,128,0,0
-tileset=../../../../flare-game/tiled/dungeon/set_rules.png,64,32,0,0
-tileset=../../../../flare-game/tiled/dungeon/tiled_dungeon_2x2.png,128,64,0,16
-tileset=../../../../flare-game/tiled/dungeon/door_left.png,64,128,-16,-8
-tileset=../../../../flare-game/tiled/dungeon/door_right.png,64,128,16,-8
-tileset=../../../../flare-game/tiled/dungeon/stairs.png,256,256,0,48
+tileset=../../../tiled/dungeon/tiled_collision.png,64,32,0,0
+tileset=../../../tiled/dungeon/tiled_dungeon.png,64,128,0,0
+tileset=../../../tiled/dungeon/set_rules.png,64,32,0,0
+tileset=../../../tiled/dungeon/tiled_dungeon_2x2.png,128,64,0,16
+tileset=../../../tiled/dungeon/door_left.png,64,128,-16,-8
+tileset=../../../tiled/dungeon/door_right.png,64,128,16,-8
+tileset=../../../tiled/dungeon/stairs.png,256,256,0,48
 
 [layer]
 type=background
@@ -157,4 +158,10 @@ intermap=maps/perdition_harbor.txt,15,23
 type=on_trigger
 location=16,7,2,2
 intermap=maps/stonewood.txt,59,43
+
+[event]
+# Wind sound
+type=on_load
+location=0,0,1,1
+soundfx=soundfx/environment/cave_wind_loop.ogg
 

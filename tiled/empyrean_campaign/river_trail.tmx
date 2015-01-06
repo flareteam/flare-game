@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="isometric" width="80" height="40" tilewidth="64" tileheight="32" backgroundcolor="#000000">
+<map version="1.0" orientation="isometric" renderorder="right-down" width="80" height="40" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="23">
  <properties>
   <property name="music" value="music/wind_ambient.ogg"/>
   <property name="tileset" value="tilesetdefs/tileset_grassland.txt"/>
@@ -161,21 +161,101 @@
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
 </data>
  </layer>
- <objectgroup name="event" width="80" height="40">
-  <object name="to Arrival" type="on_trigger" x="192" y="128" width="32" height="64">
+ <objectgroup name="event">
+  <object id="1" name="to Arrival" type="on_trigger" x="192" y="128" width="32" height="64">
    <properties>
     <property name="intermap" value="maps/arrival.txt,37,34"/>
    </properties>
   </object>
-  <object type="on_trigger" x="2496" y="800" width="32" height="128">
+  <object id="2" name="to Perdition Harbor" type="on_trigger" x="2496" y="800" width="32" height="128">
    <properties>
     <property name="intermap" value="maps/perdition_harbor.txt,2,24"/>
    </properties>
   </object>
+  <object id="6" name="Wind and crickets sound effect" type="on_load" x="0" y="0" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/wind_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="7" name="River sound" type="on_load" x="256" y="768" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="8" name="River sound" type="on_load" x="736" y="768" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="9" name="River sound" type="on_load" x="1184" y="1024" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="10" name="River sound" type="on_load" x="1536" y="928" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="11" name="River sound" type="on_load" x="1664" y="576" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="12" name="River sound" type="on_load" x="1984" y="864" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="13" name="River sound" type="on_load" x="2368" y="1056" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="14" name="Bird twitter" type="on_load" x="448" y="160" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/bird_twitter_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="15" name="Forrest owl sound effect" type="on_load" x="896" y="608" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/forest_owl_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="16" name="Raven sound effect" type="on_load" x="160" y="512" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/raven_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="17" name="Bird twitter" type="on_load" x="1056" y="864" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/bird_twitter_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="18" name="Forrest owl sound effect" type="on_load" x="1280" y="416" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/forest_owl_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="20" name="Raven sound effect" type="on_load" x="1664" y="448" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/raven_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="21" name="Bird twitter" type="on_load" x="1568" y="128" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/bird_twitter_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="22" name="Forrest owl sound effect" type="on_load" x="2208" y="768" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/forest_owl_loop.ogg"/>
+   </properties>
+  </object>
  </objectgroup>
- <objectgroup name="enemy" width="80" height="40">
-  <object type="zombie_rotting" x="128" y="672" width="32" height="32"/>
-  <object type="zombie_rotting" x="1472" y="160" width="32" height="32"/>
-  <object type="zombie_rotting" x="1728" y="224" width="32" height="32"/>
+ <objectgroup name="enemy">
+  <object id="3" type="zombie_rotting" x="128" y="672" width="32" height="32"/>
+  <object id="4" type="zombie_rotting" x="1472" y="160" width="32" height="32"/>
+  <object id="5" type="zombie_rotting" x="1728" y="224" width="32" height="32"/>
  </objectgroup>
 </map>

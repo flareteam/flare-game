@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="isometric" renderorder="right-down" width="60" height="60" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="17">
+<map version="1.0" orientation="isometric" renderorder="right-down" width="60" height="60" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="28">
  <properties>
   <property name="music" value="music/unrest_theme.ogg"/>
   <property name="tileset" value="tilesetdefs/tileset_grassland.txt"/>
@@ -157,7 +157,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="collision" width="60" height="60">
+ <layer name="collision" width="60" height="60" visible="0">
   <data encoding="csv">
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
@@ -242,8 +242,48 @@
     <property name="tooltip" value="Supplies"/>
    </properties>
   </object>
+  <object id="17" name="Wind and crickets sound effect" type="on_load" x="0" y="0" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/wind_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="18" name="Raven sound effect" type="on_load" x="224" y="416" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/raven_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="19" name="Raven sound effect" type="on_load" x="928" y="1504" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/raven_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="21" name="Bird twitter" type="on_load" x="192" y="1504" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/bird_twitter_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="22" name="Bird twitter" type="on_load" x="1120" y="832" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/bird_twitter_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="23" name="Bird twitter" type="on_load" x="1632" y="320" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/bird_twitter_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="24" name="Forrest owl sound effect" type="on_load" x="544" y="1152" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/forest_owl_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="25" name="Forrest owl sound effect" type="on_load" x="832" y="576" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/forest_owl_loop.ogg"/>
+   </properties>
+  </object>
  </objectgroup>
- <objectgroup name="enemy">
+ <objectgroup name="enemy" visible="0">
   <object id="4" type="goblin_charger" x="1216" y="1024" width="32" height="32">
    <properties>
     <property name="waypoints" value="38,32;28,25;22,34;34,37;50,44;47,26"/>

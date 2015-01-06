@@ -232,6 +232,54 @@ repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Supplies
 
+[event]
+# Wind and crickets sound effect
+type=on_load
+location=0,0,1,1
+soundfx=soundfx/environment/wind_loop.ogg
+
+[event]
+# Raven sound effect
+type=on_load
+location=7,13,1,1
+soundfx=soundfx/environment/raven_loop.ogg
+
+[event]
+# Raven sound effect
+type=on_load
+location=29,47,1,1
+soundfx=soundfx/environment/raven_loop.ogg
+
+[event]
+# Bird twitter
+type=on_load
+location=6,47,1,1
+soundfx=soundfx/environment/bird_twitter_loop.ogg
+
+[event]
+# Bird twitter
+type=on_load
+location=35,26,1,1
+soundfx=soundfx/environment/bird_twitter_loop.ogg
+
+[event]
+# Bird twitter
+type=on_load
+location=51,10,1,1
+soundfx=soundfx/environment/bird_twitter_loop.ogg
+
+[event]
+# Forrest owl sound effect
+type=on_load
+location=17,36,1,1
+soundfx=soundfx/environment/forest_owl_loop.ogg
+
+[event]
+# Forrest owl sound effect
+type=on_load
+location=26,18,1,1
+soundfx=soundfx/environment/forest_owl_loop.ogg
+
 [enemy]
 type=goblin_charger
 location=38,32,1,1
