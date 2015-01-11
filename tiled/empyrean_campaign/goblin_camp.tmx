@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="isometric" width="60" height="60" tilewidth="64" tileheight="32" backgroundcolor="#000000">
+<map version="1.0" orientation="isometric" renderorder="right-down" width="60" height="60" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="36">
  <properties>
   <property name="music" value="music/overworld_theme.ogg"/>
   <property name="tileset" value="tilesetdefs/tileset_grassland.txt"/>
@@ -221,11 +221,213 @@
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
 </data>
  </layer>
- <objectgroup name="event" width="60" height="60">
-  <object name="to Stonewood" type="on_trigger" x="128" y="32" width="128" height="32">
+ <objectgroup name="event">
+  <object id="1" name="to Stonewood" type="on_trigger" x="128" y="32" width="128" height="32">
    <properties>
     <property name="intermap" value="maps/stonewood.txt,52,76"/>
    </properties>
   </object>
+  <object id="3" name="lumber" type="on_trigger" x="416" y="192" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="mapmod" value="background,12,6,198;object,13,6,0;collision,12,6,0;collision,13,6,0"/>
+    <property name="reachable_from" value="14,6,2,1"/>
+    <property name="repeat" value="false"/>
+    <property name="requires_not_status" value="emp_goblincamp_shortcut"/>
+    <property name="set_status" value="emp_goblincamp_shortcut"/>
+    <property name="soundfx" value="soundfx/inventory/inventory_wood.ogg"/>
+    <property name="tooltip" value="Lumber"/>
+   </properties>
+  </object>
+  <object id="4" name="open shortcut (on load)" type="on_load" x="384" y="128" width="32" height="32">
+   <properties>
+    <property name="mapmod" value="background,12,6,198;object,13,6,0;collision,12,6,0;collision,13,6,0"/>
+    <property name="requires_status" value="emp_goblincamp_shortcut"/>
+   </properties>
+  </object>
+  <object id="5" name="Supplies" type="on_trigger" x="224" y="928" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="loot/leveled_low.txt"/>
+    <property name="mapmod" value="object,7,29,97"/>
+    <property name="repeat" value="false"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Supplies"/>
+   </properties>
+  </object>
+  <object id="6" name="Supplies" type="on_trigger" x="992" y="992" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="loot/leveled_low.txt"/>
+    <property name="mapmod" value="object,31,31,99"/>
+    <property name="repeat" value="false"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Supplies"/>
+   </properties>
+  </object>
+  <object id="7" name="Supplies" type="on_trigger" x="1696" y="1248" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="loot/leveled_low.txt"/>
+    <property name="mapmod" value="object,53,39,99"/>
+    <property name="repeat" value="false"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Supplies"/>
+   </properties>
+  </object>
+  <object id="8" name="Supplies" type="on_trigger" x="1760" y="1216" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="loot/leveled_low.txt"/>
+    <property name="mapmod" value="object,55,38,97"/>
+    <property name="repeat" value="false"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Supplies"/>
+   </properties>
+  </object>
+  <object id="10" name="Wind and crickets sound effect" type="on_load" x="0" y="0" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/wind_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="11" name="River sound" type="on_load" x="384" y="256" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="12" name="River sound" type="on_load" x="416" y="576" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="13" name="River sound" type="on_load" x="960" y="896" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="14" name="River sound" type="on_load" x="1344" y="992" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="15" name="River sound" type="on_load" x="992" y="1216" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="16" name="River sound" type="on_load" x="896" y="1632" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="17" name="River sound" type="on_load" x="576" y="1216" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="18" name="River sound" type="on_load" x="448" y="864" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="19" name="Bird twitter" type="on_load" x="608" y="544" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/bird_twitter_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="20" name="Raven sound effect" type="on_load" x="160" y="352" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/raven_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="21" name="Forrest owl sound effect" type="on_load" x="128" y="864" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/forest_owl_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="22" name="Raven sound effect" type="on_load" x="832" y="1568" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/raven_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="23" name="Forrest owl sound effect" type="on_load" x="1344" y="1376" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/forest_owl_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="24" name="Bird twitter" type="on_load" x="1728" y="1088" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/bird_twitter_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="25" name="Raven sound effect" type="on_load" x="1280" y="736" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/raven_loop.ogg"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="enemy">
+  <object id="2" name="goblins" type="goblin" x="64" y="768" width="352" height="256">
+   <properties>
+    <property name="level" value="1,4"/>
+    <property name="number" value="3,5"/>
+   </properties>
+  </object>
+  <object id="27" name="goblins" type="goblin" x="480" y="736" width="320" height="224">
+   <properties>
+    <property name="level" value="1,4"/>
+    <property name="number" value="3,5"/>
+   </properties>
+  </object>
+  <object id="28" name="goblins" type="goblin" x="768" y="960" width="128" height="256">
+   <properties>
+    <property name="level" value="1,4"/>
+    <property name="number" value="3,5"/>
+   </properties>
+  </object>
+  <object id="29" name="goblins" type="goblin" x="512" y="1344" width="288" height="160">
+   <properties>
+    <property name="level" value="1,4"/>
+    <property name="number" value="3,5"/>
+   </properties>
+  </object>
+  <object id="30" name="goblins" type="goblin" x="1056" y="800" width="256" height="96">
+   <properties>
+    <property name="level" value="1,4"/>
+    <property name="number" value="3,5"/>
+   </properties>
+  </object>
+  <object id="31" name="goblins" type="goblin" x="1152" y="1088" width="320" height="64">
+   <properties>
+    <property name="level" value="1,4"/>
+    <property name="number" value="3,5"/>
+   </properties>
+  </object>
+  <object id="32" name="goblins" type="goblin" x="1472" y="896" width="192" height="416">
+   <properties>
+    <property name="level" value="1,4"/>
+    <property name="number" value="3,5"/>
+   </properties>
+  </object>
+  <object id="33" name="goblin boss" type="goblin_charger_elite" x="1664" y="1120" width="32" height="32">
+   <properties>
+    <property name="number" value="1"/>
+   </properties>
+  </object>
+  <object id="34" name="goblins" type="goblin" x="928" y="352" width="320" height="160">
+   <properties>
+    <property name="level" value="1,4"/>
+    <property name="number" value="3,5"/>
+   </properties>
+  </object>
+  <object id="35" name="zombies" type="zombie" x="768" y="576" width="96" height="96">
+   <properties>
+    <property name="level" value="1,3"/>
+    <property name="number" value="1,2"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="npc">
+  <object id="26" type="npcs/traveling_merchant.txt" x="512" y="160" width="32" height="32"/>
  </objectgroup>
 </map>
