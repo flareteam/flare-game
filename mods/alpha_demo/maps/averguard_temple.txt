@@ -3,6 +3,7 @@ width=28
 height=129
 tilewidth=64
 tileheight=32
+orientation=isometric
 music=music/boss_theme.ogg
 tileset=tilesetdefs/tileset_dungeon.txt
 title=Averguard Temple
@@ -436,7 +437,7 @@ tooltip=Switch
 # fire statue trap
 type=on_trigger
 location=6,51,19,14
-cooldown=1s
+cooldown=3s
 power=31
 power_damage=25,50
 power_path=15,58,hero
