@@ -3,6 +3,7 @@ width=80
 height=80
 tilewidth=64
 tileheight=32
+orientation=isometric
 music=music/cave_theme.ogg
 tileset=tilesetdefs/tileset_cave.txt
 title=Cave of Living Bones 2
@@ -330,6 +331,8 @@ type=on_trigger
 location=47,44,1,1
 hotspot=45,42,3,3
 mapmod=object,47,44,163
+msg=Run! You don't want to be caught in the blast of your own explosion!
+
 requires_not_status=lb_explosive_set
 requires_status=lb_has_explosive
 set_status=lb_explosive_set
