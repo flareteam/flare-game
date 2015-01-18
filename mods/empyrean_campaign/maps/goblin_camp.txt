@@ -375,6 +375,12 @@ type=on_load
 location=40,23,1,1
 soundfx=soundfx/environment/raven_loop.ogg
 
+[event]
+# to Merrimead Swamp
+type=on_trigger
+location=53,14,1,4
+intermap=maps/merrimead_swamp.txt,3,17
+
 [enemy]
 # goblins
 type=goblin

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="isometric" renderorder="right-down" width="60" height="60" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="36">
+<map version="1.0" orientation="isometric" renderorder="right-down" width="60" height="60" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="37">
  <properties>
   <property name="music" value="music/overworld_theme.ogg"/>
   <property name="tileset" value="tilesetdefs/tileset_grassland.txt"/>
@@ -363,6 +363,11 @@
   <object id="25" name="Raven sound effect" type="on_load" x="1280" y="736" width="32" height="32">
    <properties>
     <property name="soundfx" value="soundfx/environment/raven_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="36" name="to Merrimead Swamp" type="on_trigger" x="1696" y="448" width="32" height="128">
+   <properties>
+    <property name="intermap" value="maps/merrimead_swamp.txt,3,17"/>
    </properties>
   </object>
  </objectgroup>
