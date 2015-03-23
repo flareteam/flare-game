@@ -452,6 +452,12 @@ repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Supplies
 
+[event]
+# to Valverde Cemetery
+type=on_trigger
+location=79,11,1,4
+intermap=maps/valverde_cemetery.txt,1,33
+
 [enemy]
 # goblins
 type=goblin

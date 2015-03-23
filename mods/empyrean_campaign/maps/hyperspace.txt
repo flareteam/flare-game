@@ -163,6 +163,13 @@ intermap=maps/stonewood.txt,59,43
 requires_status=emp_waypoint_1
 
 [event]
+# to Valverde Cemetery
+type=on_trigger
+location=22,7,2,2
+intermap=maps/valverde_cemetery.txt,37,27
+requires_status=emp_waypoint_2
+
+[event]
 # Wind sound
 type=on_load
 location=0,0,1,1
@@ -174,4 +181,11 @@ type=on_load
 location=16,5,1,1
 mapmod=background,16,8,265
 requires_status=emp_waypoint_1
+
+[event]
+# unlock Valverde Cemetery
+type=on_load
+location=22,5,1,1
+mapmod=background,22,8,265
+requires_status=emp_waypoint_2
 
