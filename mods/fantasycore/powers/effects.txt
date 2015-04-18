@@ -72,6 +72,17 @@ type=stealth
 name=speed
 type=speed
 
+[effect]
+name=reflect chance
+type=reflect_chance
+
+[effect]
+name=absorb_min
+type=absorb_min
+
+[effect]
+name=absorb_max
+type=absorb_max
 
 
 # Elemental affinity
@@ -163,3 +174,7 @@ name=stealth speed
 type=speed
 can_stack=false
 
+[effect]
+name=block icon
+icon=4
+can_stack=false
