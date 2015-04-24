@@ -1,0 +1,58 @@
+[power]
+id=100
+type=fixed
+icon=64
+name=Health Potion
+soundfx=soundfx/powers/potion.ogg
+new_state=instant
+requires_item=1
+cooldown=500ms
+buff=true
+post_effect=HP restore,100,33ms
+
+[power]
+id=101
+type=fixed
+icon=65
+name=Mana Potion
+new_state=instant
+soundfx=soundfx/powers/potion.ogg
+requires_item=2
+cooldown=500ms
+buff=true
+post_effect=MP restore,100,33ms
+
+[power]
+id=140
+name=Æther Walkers
+type=fixed
+icon=176
+description=Blink to a nearby location
+new_state=cast
+requires_mp=3
+requires_empty_target=true
+requires_targeting=true
+requires_equipped_item=126
+animation=animations/powers/runes.txt
+soundfx=soundfx/powers/teleport.ogg
+use_hazard=true
+no_attack=true
+lifespan=533ms
+floor=true
+starting_pos=source
+buff_teleport=true
+target_range=8.0
+target_neighbor=1
+cooldown=15s
+
+[power]
+id=170
+#name=Ouroboros Ring
+#description=Revive upon death
+type=fixed
+buff=true
+requires_equipped_item=112,1
+passive=true
+passive_trigger=on_death
+post_effect=revive,0,33s
+

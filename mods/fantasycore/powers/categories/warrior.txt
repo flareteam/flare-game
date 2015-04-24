@@ -1,0 +1,128 @@
+
+[power]
+id=1
+name=Swing
+type=fixed
+icon=1
+description=Basic melee attack
+new_state=swing
+face=true
+use_hazard=true
+base_damage=melee
+lifespan=33ms
+radius=1.0
+starting_pos=melee
+
+[power]
+id=3
+name=Block
+icon=4
+description=Raise your shield to raise your avoidance by 10% and absorb by 1-5. Chance to reflect missiles increased by 50%.
+new_state=block
+face=true
+requires_flags=shield
+post_effect=reflect chance,50,0
+post_effect=avoidance,10,0
+post_effect=absorb_min,1,0
+post_effect=absorb_max,5,0
+post_effect=block icon,1,0
+
+[power]
+id=5
+name=Blood Strike
+type=fixed
+icon=5
+description=Inflict a bleeding wound that causes additional damage over 5 seconds
+new_state=swing
+face=true
+use_hazard=true
+requires_mp=1
+base_damage=melee
+lifespan=33ms
+radius=1.0
+starting_pos=melee
+post_power=127
+post_effect=bleeding,5,5s
+
+[power]
+id=9
+name=Warcry
+type=fixed
+icon=12
+description=Remove debuffs and become immune to debuffs for 10 seconds
+new_state=cast
+requires_mp=2
+soundfx=soundfx/powers/warcry.ogg
+trait_elemental=light
+buff=true
+post_effect=immunity,0,10s
+
+[power]
+id=13
+name=Cleave
+type=fixed
+icon=22
+description=Attack all enemies in a wide arc
+new_state=swing
+face=true
+use_hazard=true
+requires_mp=2
+multitarget=true
+base_damage=melee
+lifespan=33ms
+radius=2.0
+starting_pos=melee
+
+[power]
+id=20
+name=Heroic Swing
+type=fixed
+icon=1
+description=Melee attack with 10% HP steal
+new_state=swing
+face=true
+use_hazard=true
+base_damage=melee
+lifespan=33ms
+radius=1.0
+starting_pos=melee
+hp_steal=10
+
+[power]
+id=43
+name=Throw Knife
+type=missile
+icon=32
+description=Throw a knife to deal 75% of melee weapon damage
+new_state=swing
+requires_mp=1
+face=true
+directional=true
+animation=animations/powers/throw_knife.txt
+use_hazard=true
+aim_assist=true
+base_damage=melee
+lifespan=533ms
+radius=1.0
+speed=12
+modifier_damage=multiply,75,0
+
+[power]
+id=44
+name=Throw Axe
+type=missile
+icon=33
+description=Throw an axe to deal 150% of melee weapon damage
+new_state=swing
+requires_mp=2
+face=true
+directional=true
+animation=animations/powers/throw_axe.txt
+use_hazard=true
+aim_assist=true
+base_damage=melee
+lifespan=766ms
+radius=1.0
+speed=12
+modifier_damage=multiply,150,0
+

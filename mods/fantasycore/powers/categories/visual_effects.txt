@@ -1,0 +1,48 @@
+[power]
+id=124
+name=Arrow Wall Strike
+type=fixed
+icon=0
+animation=animations/powers/arrow_stuck.txt
+use_hazard=true
+no_attack=true
+directional=true
+lifespan=3s
+starting_pos=target
+
+[power]
+id=125
+name=Orange Spark
+type=fixed
+icon=0
+animation=animations/powers/spark_orange.txt
+use_hazard=true
+no_attack=true
+lifespan=400ms
+starting_pos=target
+visual_random=2
+
+[power]
+id=126
+name=Blue Spark
+type=fixed
+icon=0
+animation=animations/powers/spark_blue.txt
+use_hazard=true
+no_attack=true
+lifespan=400ms
+starting_pos=target
+visual_random=2
+
+[power]
+id=127
+name=Red Spark
+type=fixed
+icon=0
+animation=animations/powers/spark_red.txt
+use_hazard=true
+no_attack=true
+lifespan=400ms
+starting_pos=target
+visual_random=2
+
