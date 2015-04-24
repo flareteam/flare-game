@@ -1,0 +1,76 @@
+# Robes ###############################
+
+[item]
+id=72
+name=Mage Hood
+flavor=The seams on this hood are designed to aid the flow of mana.
+quality=high
+item_type=head
+icon=136
+requires_stat=mental,2
+bonus=MP regen,10
+soundfx=soundfx/inventory/inventory_cloth.ogg
+gfx=mage_hood
+loot_animation=animations/loot/clothes.txt
+price=55
+
+[item]
+id=73
+name=Mage Vest
+flavor=Frost resistance runes line the inside of this vest.
+quality=high
+item_type=chest
+icon=137
+abs=1
+requires_stat=mental,2
+bonus=ice resist,10
+soundfx=soundfx/inventory/inventory_cloth.ogg
+gfx=mage_vest
+loot_animation=animations/loot/clothes.txt
+price=65
+
+[item]
+id=74
+name=Mage Sleeves
+flavor=The fire resistance runes that hem these sleeves help protect beginner students of Pyromancy.
+quality=high
+item_type=hands
+icon=138
+bonus=fire resist,10
+requires_stat=mental,2
+soundfx=soundfx/inventory/inventory_cloth.ogg
+gfx=mage_sleeves
+loot_animation=animations/loot/clothes.txt
+price=45
+
+[item]
+id=75
+name=Mage Skirt
+flavor=Spell components are tucked into hidden pockets covering this skirt.
+quality=high
+item_type=legs
+icon=139
+abs=1
+bonus=MP,15
+requires_stat=mental,2
+soundfx=soundfx/inventory/inventory_cloth.ogg
+gfx=mage_skirt
+loot_animation=animations/loot/clothes.txt
+price=90
+
+[item]
+id=76
+name=Mage Boots
+flavor=Attunement with the elements allow mages to ice and fire walk.
+quality=high
+item_type=feet
+icon=140
+requires_stat=mental,2
+bonus=fire resist,5
+bonus=ice resist,5
+soundfx=soundfx/inventory/inventory_cloth.ogg
+gfx=mage_boots
+loot_animation=animations/loot/clothes.txt
+price=70
+stepfx=cloth
+

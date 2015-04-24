@@ -1,0 +1,219 @@
+# Magic Items
+
+[item]
+id=104
+name=Seven-league boots
+flavor=These enchanted boots are prized possessions of Courier guildsmen.
+quality=high
+item_type=feet
+icon=176
+abs=2
+requires_stat=defense,2
+soundfx=soundfx/inventory/inventory_leather.ogg
+gfx=mage_boots
+loot_animation=animations/loot/boots.txt
+stepfx=leather
+bonus=speed,125
+price=250
+
+[item]
+id=105
+name=Thief Gloves
+flavor=In Lower Sceleris there is honor among thieves. Everyone else is a mark.
+quality=high
+item_type=hands
+icon=130
+abs=1
+soundfx=soundfx/inventory/inventory_cloth.ogg
+gfx=cloth_gloves
+loot_animation=animations/loot/clothes.txt
+bonus=gold find,25
+price=333
+
+[item]
+id=114
+name=Silent Tabi
+quality=epic
+item_type=feet
+icon=148
+abs=2
+requires_stat=defense,2
+soundfx=soundfx/inventory/inventory_cloth.ogg
+gfx=leather_boots
+loot_animation=animations/loot/clothes.txt
+bonus=stealth,50
+price=500
+
+[item]
+id=115
+name=Duelist Gauntlets
+quality=high
+item_type=hands
+icon=154
+abs=3
+requires_stat=defense,3
+soundfx=soundfx/inventory/inventory_maille.ogg
+gfx=chain_gloves
+loot_animation=animations/loot/steel_armor.txt
+bonus=crit,5
+price=200
+
+[item]
+id=116
+name=Blood Cuirass
+quality=high
+item_type=chest
+icon=153
+abs=5
+requires_stat=defense,3
+soundfx=soundfx/inventory/inventory_maille.ogg
+gfx=chain_cuirass
+loot_animation=animations/loot/steel_armor.txt
+bonus=HP,50
+price=400
+
+[item]
+id=117
+name=Blood Greaves
+quality=high
+item_type=legs
+icon=155
+abs=4
+requires_stat=defense,3
+soundfx=soundfx/inventory/inventory_maille.ogg
+gfx=chain_greaves
+loot_animation=animations/loot/steel_armor.txt
+bonus=HP regen,25
+price=350
+
+[item]
+id=118
+name=Fencing Gloves
+quality=high
+item_type=hands
+icon=146
+abs=2
+requires_stat=defense,2
+soundfx=soundfx/inventory/inventory_leather.ogg
+gfx=leather_gloves
+loot_animation=animations/loot/leather_armor.txt
+bonus=accuracy,15
+price=75
+
+[item]
+id=123
+name=Sage Mantle
+quality=epic
+item_type=chest
+icon=137
+abs=3
+requires_stat=mental,3
+soundfx=soundfx/inventory/inventory_cloth.ogg
+gfx=mage_vest
+loot_animation=animations/loot/clothes.txt
+bonus=MP,50
+bonus=ice resist,15
+price=500
+
+[item]
+id=124
+name=Sage Frock
+quality=epic
+item_type=legs
+icon=139
+abs=3
+requires_stat=mental,3
+soundfx=soundfx/inventory/inventory_cloth.ogg
+gfx=mage_skirt
+loot_animation=animations/loot/clothes.txt
+bonus=MP regen,25
+bonus=fire resist,15
+price=500
+
+[item]
+id=125
+name=Monastery Sandals
+quality=high
+item_type=feet
+icon=132
+abs=1
+soundfx=soundfx/inventory/inventory_cloth.ogg
+gfx=cloth_sandals
+loot_animation=animations/loot/clothes.txt
+stepfx=cloth
+bonus=avoidance,15
+price=125
+
+[item]
+id=126
+name=Æther Walkers
+quality=epic
+item_type=feet
+icon=176
+abs=2
+requires_stat=defense,2
+soundfx=soundfx/inventory/inventory_leather.ogg
+gfx=mage_boots
+loot_animation=animations/loot/boots.txt
+stepfx=leather
+power=140
+power_desc=Use: Blink to a nearby location
+price=800
+
+[item]
+id=127
+name=Ashwood Wand
+flavor=The secrets to harvesting Yggdrasil twigs are known only to traitorous dryads.
+quality=high
+item_type=main
+equip_flags=mental
+icon=104
+dmg_ment=15,35
+bonus=MP,5
+bonus=accuracy,2
+requires_stat=mental,2
+soundfx=soundfx/inventory/inventory_wood.ogg
+gfx=wand
+loot_animation=animations/loot/wand.txt
+price=80
+
+[item]
+id=128
+name=Lawman's Sidearm
+flavor=The workmanship on this blade appears hurried, as if forged under the fever of vigilance.
+quality=high
+item_type=main
+equip_flags=melee
+icon=96
+dmg_melee=15,35
+bonus=avoidance,5
+bonus=HP,3
+requires_stat=physical,2
+soundfx=soundfx/inventory/inventory_metal.ogg
+gfx=dagger
+loot_animation=animations/loot/dagger.txt
+price=100
+
+[item]
+id=129
+name=Miner's Gloves
+quality=high
+item_type=hands
+icon=130
+bonus=HP,5
+soundfx=soundfx/inventory/inventory_cloth.ogg
+gfx=cloth_gloves
+loot_animation=animations/loot/clothes.txt
+price=50
+
+[item]
+id=130
+name=Forgotten Ring
+flavor=Faded memories are vivid to the wearer of this silver band.
+quality=high
+item_type=ring
+icon=198
+soundfx=soundfx/inventory/inventory_gem.ogg
+loot_animation=animations/loot/gem.txt
+price=50
+bonus=XP gain,10

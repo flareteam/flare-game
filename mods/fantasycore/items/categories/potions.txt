@@ -1,0 +1,28 @@
+# Potions #############################
+
+[item]
+id=1
+name=Health Potion
+quality=high
+icon=64
+power=100
+power_desc=Restore 100 HP
+item_type=consumable
+soundfx=soundfx/inventory/inventory_potion.ogg
+loot_animation=animations/loot/hp_potion.txt
+price=25
+max_quantity=10
+
+[item]
+id=2
+name=Mana Potion
+quality=high
+icon=65
+power=101
+power_desc=Restore 100 MP
+item_type=consumable
+soundfx=soundfx/inventory/inventory_potion.ogg
+loot_animation=animations/loot/mp_potion.txt
+price=25
+max_quantity=10
+
