@@ -12,6 +12,7 @@ base_damage=melee
 lifespan=33ms
 radius=1.0
 starting_pos=melee
+aim_assist=true
 
 [power]
 id=3
@@ -62,7 +63,7 @@ id=13
 name=Cleave
 type=fixed
 icon=22
-description=Attack all enemies in a wide arc
+description=Attack all enemies in a wide arc, dealing 50% of melee weapon damage
 new_state=swing
 face=true
 use_hazard=true
@@ -72,6 +73,8 @@ base_damage=melee
 lifespan=33ms
 radius=2.0
 starting_pos=melee
+modifier_damage=multiply,50,0
+aim_assist=true
 
 [power]
 id=20
