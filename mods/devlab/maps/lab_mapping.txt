@@ -3,6 +3,7 @@ width=100
 height=100
 tilewidth=64
 tileheight=32
+orientation=isometric
 music=music/title_theme.ogg
 tileset=tilesetdefs/tileset_dungeon.txt
 title=Dev Lab - Basic Lessons
@@ -398,4 +399,8 @@ location=19,41,1,1
 [npc]
 type=npcs/mapping_collision.txt
 location=6,49,1,1
+
+[npc]
+type=npcs/mapping_console.txt
+location=6,84,1,1
 
