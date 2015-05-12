@@ -22,11 +22,11 @@ description=Raise your shield to raise your avoidance by 10% and absorb by 1-5. 
 new_state=block
 face=true
 requires_flags=shield
-post_effect=reflect chance,50,0
+post_effect=reflect_chance,50,0
 post_effect=avoidance,10,0
 post_effect=absorb_min,1,0
 post_effect=absorb_max,5,0
-post_effect=block icon,1,0
+post_effect=block_icon,1,0
 
 [power]
 id=5
