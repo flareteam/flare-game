@@ -1,22 +1,13 @@
+INCLUDE enemies/base/minotaur.txt
+
 name=Minotaur
-humanoid=true
 level=8
 categories=minotaur,dungeon
 xp=200
 
-sfx_phys=soundfx/enemies/minotaur_phys.ogg
-sfx_hit=soundfx/enemies/minotaur_hit.ogg
-sfx_die=soundfx/enemies/minotaur_die.ogg
-sfx_critdie=soundfx/enemies/minotaur_critdie.ogg
-
-animations=animations/enemies/minotaur.txt
-
-
 # combat stats
 hp=180
 speed=5.5
-melee_range=1.1875
-threat_range=8.0
 turn_delay=166ms
 chance_pursue=30
 chance_melee_phys=10
@@ -25,7 +16,6 @@ chance_ranged_phys=0
 chance_ranged_ment=0
 power_melee_phys=1
 power_melee_ment=10
-power_beacon=132
 
 accuracy=90
 avoidance=40

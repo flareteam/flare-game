@@ -1,22 +1,14 @@
+INCLUDE enemies/base/antlion.txt
+
 name=Antlion Blinker
 level=5
 categories=antlion_blinker,antlion,dungeon,cave
 xp=20
 
-sfx_phys=soundfx/enemies/antlion_phys.ogg
-sfx_hit=soundfx/enemies/antlion_hit.ogg
-sfx_die=soundfx/enemies/antlion_die.ogg
-sfx_critdie=soundfx/enemies/antlion_critdie.ogg
-
-animations=animations/enemies/antlion.txt
-
-
 # combat stats
 # antlions have low HP and high armor for their level
 hp=90
 speed=5
-melee_range=1.1875
-threat_range=8.0
 turn_delay=266ms
 chance_pursue=40
 chance_melee_phys=16
@@ -28,8 +20,6 @@ power_melee_phys=1
 power_melee_ment=41
 # teleports into melee range
 power_ranged_ment=15
-
-power_beacon=132
 
 accuracy=81
 avoidance=31

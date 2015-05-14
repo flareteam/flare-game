@@ -1,27 +1,18 @@
+INCLUDE enemies/base/antlion.txt
+
 name=Antlion
 level=4
 categories=antlion_normal,antlion,dungeon,cave
 xp=10
 
-sfx_phys=soundfx/enemies/antlion_phys.ogg
-sfx_hit=soundfx/enemies/antlion_hit.ogg
-sfx_die=soundfx/enemies/antlion_die.ogg
-sfx_critdie=soundfx/enemies/antlion_critdie.ogg
-
-animations=animations/enemies/antlion.txt
-
-
 # combat stats
 # antlions have low HP and high armor for their level
 hp=70
 speed=5.5
-melee_range=1.1875
-threat_range=8.0
 turn_delay=166ms
 chance_pursue=30
 chance_melee_phys=20
 power_melee_phys=1
-power_beacon=132
 
 accuracy=72
 avoidance=22

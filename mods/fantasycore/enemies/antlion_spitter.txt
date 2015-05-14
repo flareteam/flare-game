@@ -1,28 +1,19 @@
+INCLUDE enemies/base/antlion_fire.txt
+
 name=Antlion Spitter
 level=7
 categories=antlion_spitter,antlion,dungeon,cave,fire
 xp=100
 
-sfx_phys=soundfx/enemies/antlion_phys.ogg
-sfx_hit=soundfx/enemies/antlion_hit.ogg
-sfx_die=soundfx/enemies/antlion_die.ogg
-sfx_critdie=soundfx/enemies/antlion_critdie.ogg
-
-animations=animations/enemies/fire_ant.txt
-
-
 # combat stats
 hp=140
 speed=5
-melee_range=1.1875
-threat_range=8.0
 turn_delay=200ms
 chance_pursue=10
 chance_melee_phys=5
 chance_ranged_ment=10
 power_melee_phys=1
 power_ranged_ment=31
-power_beacon=132
 
 accuracy=87
 avoidance=37

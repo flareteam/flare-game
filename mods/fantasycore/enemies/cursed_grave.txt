@@ -1,26 +1,15 @@
+INCLUDE enemies/base/grave.txt
+
 name=Cursed Grave
 level=3
 xp=5
 categories=cursed_grave
 
-animations=animations/enemies/cursed_grave.txt
-
-
 # combat stats
 hp=300
-speed=0
-facing=0
-melee_range=2.375
-threat_range=8.0
 
-chance_pursue=0
-
-chance_ranged_ment=100
-chance_melee_ment=100
 power_ranged_ment=137
 power_melee_ment=137
-
-avoidance=0
 
 cooldown=3s
 

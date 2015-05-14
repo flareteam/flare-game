@@ -1,31 +1,20 @@
+INCLUDE enemies/base/goblin.txt
+
 name=Goblin Spearman
-humanoid=true
 level=3
 categories=goblin_spearman,goblin,dungeon
 rarity=uncommon
 xp=5
 
-sfx_phys=soundfx/enemies/goblin_phys.ogg
-sfx_ment=soundfx/enemies/goblin_ment.ogg
-sfx_hit=soundfx/enemies/goblin_hit.ogg
-sfx_die=soundfx/enemies/goblin_die.ogg
-sfx_critdie=soundfx/enemies/goblin_critdie.ogg
-
-animations=animations/enemies/goblin.txt
-
-
 # combat stats
 hp=60
 speed=2
-melee_range=1.1875
-threat_range=8.0
 turn_delay=400ms
 chance_pursue=15
 chance_melee_phys=6
 chance_ranged_phys=2
 power_melee_phys=1
 power_ranged_phys=32
-power_beacon=132
 
 accuracy=80
 avoidance=25

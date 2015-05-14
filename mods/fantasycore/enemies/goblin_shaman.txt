@@ -1,24 +1,15 @@
+INCLUDE enemies/base/goblin.txt
+
 name=Goblin Shaman
-humanoid=true
 level=4
 categories=goblin_shaman,goblin,dungeon,lightning
 rarity=rare
 xp=10
 
-sfx_phys=soundfx/enemies/goblin_phys.ogg
-sfx_ment=soundfx/enemies/goblin_ment.ogg
-sfx_hit=soundfx/enemies/goblin_hit.ogg
-sfx_die=soundfx/enemies/goblin_die.ogg
-sfx_critdie=soundfx/enemies/goblin_critdie.ogg
-
-animations=animations/enemies/goblin.txt
-
-
 # combat stats
 hp=105
 speed=2
 melee_range=2.375
-threat_range=8.0
 turn_delay=200ms
 chance_pursue=10
 chance_melee_phys=0
@@ -28,7 +19,6 @@ chance_ranged_ment=10
 power_melee_ment=6
 power_ranged_phys=11
 power_ranged_ment=6
-power_beacon=132
 
 accuracy=84
 avoidance=34

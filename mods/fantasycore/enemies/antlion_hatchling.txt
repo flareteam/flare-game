@@ -1,27 +1,18 @@
+INCLUDE enemies/base/antlion_small.txt
+
 name=Antlion Hatchling
 level=3
 categories=antlion_hatchling,antlion,dungeon,cave
 xp=5
 
-sfx_phys=soundfx/enemies/antlion_phys.ogg
-sfx_hit=soundfx/enemies/antlion_hit.ogg
-sfx_die=soundfx/enemies/antlion_die.ogg
-sfx_critdie=soundfx/enemies/antlion_critdie.ogg
-
-animations=animations/enemies/antlion_small.txt
-
-
 # combat stats
 # antlions have low HP and high armor for their level
 hp=40
 speed=5
-melee_range=0.75
-threat_range=8.0
 turn_delay=200ms
 chance_pursue=10
 chance_melee_phys=5
 power_melee_phys=1
-power_beacon=132
 
 accuracy=75
 avoidance=25

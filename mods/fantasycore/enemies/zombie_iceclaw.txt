@@ -1,22 +1,13 @@
+INCLUDE enemies/base/zombie.txt
+
 name=Iceclaw Zombie
 level=4
 categories=zombie_iceclaw,zombie,undead,dungeon
 xp=10
 
-sfx_phys=soundfx/enemies/zombie_phys.ogg
-sfx_ment=soundfx/enemies/zombie_ment.ogg
-sfx_hit=soundfx/enemies/zombie_hit.ogg
-sfx_die=soundfx/enemies/zombie_die.ogg
-sfx_critdie=soundfx/enemies/zombie_critdie.ogg
-
-animations=animations/enemies/zombie.txt
-
-
 # combat stats
 hp=80
 speed=4.5
-melee_range=1.125
-threat_range=8.0
 turn_delay=233ms
 chance_pursue=20
 chance_melee_phys=15
@@ -27,7 +18,6 @@ chance_ranged_ment=0
 # melee power Chill Touch (5s immobilize)
 power_melee_phys=38
 power_melee_ment=1
-power_beacon=132
 
 accuracy=85
 avoidance=30

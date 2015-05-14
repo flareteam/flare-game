@@ -1,23 +1,13 @@
+INCLUDE enemies/base/skeleton_archer.txt
+
 name=Skeletal Archer
-humanoid=true
 level=3
 categories=skeletal_archer,skeleton,undead,dungeon
 xp=5
 
-sfx_phys=soundfx/enemies/skeleton_phys.ogg
-sfx_ment=soundfx/enemies/skeleton_ment.ogg
-sfx_hit=soundfx/enemies/skeleton_hit.ogg
-sfx_die=soundfx/enemies/skeleton_die.ogg
-sfx_critdie=soundfx/enemies/skeleton_critdie.ogg
-
-animations=animations/enemies/skeleton_archer.txt
-
-
 # combat stats
 hp=75
 speed=3.5
-melee_range=1.1875
-threat_range=8.0
 turn_delay=200ms
 chance_pursue=5
 chance_melee_phys=5
@@ -26,7 +16,6 @@ chance_ranged_phys=5
 chance_ranged_ment=0
 power_melee_phys=1
 power_ranged_phys=34
-power_beacon=132
 
 accuracy=83
 avoidance=28

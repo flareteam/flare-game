@@ -1,31 +1,20 @@
+INCLUDE enemies/base/goblin_runner.txt
+
 name=Goblin Charger
-humanoid=true
 level=2
 categories=goblin_charger,goblin,dungeon
 rarity=uncommon
 xp=2
 
-sfx_phys=soundfx/enemies/goblin_phys.ogg
-sfx_ment=soundfx/enemies/goblin_ment.ogg
-sfx_hit=soundfx/enemies/goblin_hit.ogg
-sfx_die=soundfx/enemies/goblin_die.ogg
-sfx_critdie=soundfx/enemies/goblin_critdie.ogg
-
-animations=animations/enemies/goblin_runner.txt
-
-
 # combat stats
 hp=50
 speed=5
-melee_range=1.1875
-threat_range=8.0
 turn_delay=200ms
 chance_pursue=10
 chance_melee_phys=3
 chance_melee_ment=1
 power_melee_phys=1
 power_melee_ment=5
-power_beacon=132
 
 accuracy=75
 avoidance=25

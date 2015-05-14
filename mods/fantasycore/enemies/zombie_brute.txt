@@ -1,22 +1,13 @@
+INCLUDE enemies/base/zombie.txt
+
 name=Zombie Brute
 level=3
 categories=zombie_brute,zombie,undead,dungeon
 xp=5
 
-sfx_phys=soundfx/enemies/zombie_phys.ogg
-sfx_ment=soundfx/enemies/zombie_ment.ogg
-sfx_hit=soundfx/enemies/zombie_hit.ogg
-sfx_die=soundfx/enemies/zombie_die.ogg
-sfx_critdie=soundfx/enemies/zombie_critdie.ogg
-
-animations=animations/enemies/zombie.txt
-
-
 # combat stats
 hp=100
 speed=5
-melee_range=1.125
-threat_range=8.0
 turn_delay=200ms
 chance_pursue=30
 chance_melee_phys=15
@@ -25,7 +16,6 @@ chance_ranged_phys=0
 chance_ranged_ment=0
 power_melee_phys=1
 power_melee_ment=1
-power_beacon=132
 
 accuracy=78
 avoidance=28

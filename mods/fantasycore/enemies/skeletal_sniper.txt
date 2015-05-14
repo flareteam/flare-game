@@ -1,23 +1,13 @@
+INCLUDE enemies/base/skeleton_archer.txt
+
 name=Skeletal Sniper
-humanoid=true
 level=6
 categories=skeletal_sniper,skeleton,undead,dungeon
 xp=50
 
-sfx_phys=soundfx/enemies/skeleton_phys.ogg
-sfx_ment=soundfx/enemies/skeleton_ment.ogg
-sfx_hit=soundfx/enemies/skeleton_hit.ogg
-sfx_die=soundfx/enemies/skeleton_die.ogg
-sfx_critdie=soundfx/enemies/skeleton_critdie.ogg
-
-animations=animations/enemies/skeleton_archer.txt
-
-
 # combat stats
 hp=150
 speed=3.5
-melee_range=1.1875
-threat_range=8.0
 turn_delay=200ms
 chance_pursue=5
 chance_melee_phys=5
@@ -30,7 +20,6 @@ power_melee_phys=1
 power_ranged_phys=34
 # multi-shot
 power_ranged_ment=42
-power_beacon=132
 
 accuracy=89
 avoidance=34

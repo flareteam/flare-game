@@ -1,26 +1,17 @@
+INCLUDE enemies/base/antlion.txt
+
 name=Antlion Slasher
 level=6
 categories=antlion_slasher,antlion,dungeon,cave
 xp=50
 
-sfx_phys=soundfx/enemies/antlion_phys.ogg
-sfx_hit=soundfx/enemies/antlion_hit.ogg
-sfx_die=soundfx/enemies/antlion_die.ogg
-sfx_critdie=soundfx/enemies/antlion_critdie.ogg
-
-animations=animations/enemies/antlion.txt
-
-
 # combat stats
 hp=105
 speed=6.5
-melee_range=1.1875
-threat_range=8.0
 turn_delay=133ms
 chance_pursue=10
 chance_melee_phys=10
 power_melee_phys=5
-power_beacon=132
 
 accuracy=84
 avoidance=34

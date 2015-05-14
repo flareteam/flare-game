@@ -1,29 +1,20 @@
+INCLUDE enemies/base/antlion_fire.txt
+
 name=Antlion Burster
 level=8
 categories=antlion_burster,antlion,dungeon,cave,fire
 xp=200
 
-sfx_phys=soundfx/enemies/antlion_phys.ogg
-sfx_hit=soundfx/enemies/antlion_hit.ogg
-sfx_die=soundfx/enemies/antlion_die.ogg
-sfx_critdie=soundfx/enemies/antlion_critdie.ogg
-
-animations=animations/enemies/fire_ant.txt
-
-
 # combat stats
 # antlions have low HP and high armor for their level
 hp=130
 speed=8
-melee_range=1.1875
-threat_range=8.0
 turn_delay=133ms
 chance_pursue=50
 chance_melee_ment=100
 
 # explode
 power_melee_ment=40
-power_beacon=132
 
 accuracy=100
 avoidance=25

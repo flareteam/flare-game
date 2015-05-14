@@ -1,25 +1,15 @@
+INCLUDE enemies/base/skeleton.txt
+
 name=Skeletal Warrior
-humanoid=true
 level=5
 categories=skeletal_warrior,skeleton,undead,dungeon
 xp=20
-
-sfx_phys=soundfx/enemies/skeleton_phys.ogg
-sfx_ment=soundfx/enemies/skeleton_ment.ogg
-sfx_hit=soundfx/enemies/skeleton_hit.ogg
-sfx_die=soundfx/enemies/skeleton_die.ogg
-sfx_critdie=soundfx/enemies/skeleton_critdie.ogg
-
-animations=animations/enemies/skeleton.txt
-
 
 waypoint_pause=1s
 
 # combat stats
 hp=130
 speed=5
-melee_range=1.1875
-threat_range=8.0
 turn_delay=200ms
 
 chance_pursue=25
@@ -30,8 +20,6 @@ chance_melee_ment=10
 power_melee_phys=5
 # piercing strike
 power_melee_ment=39
-
-power_beacon=132
 
 accuracy=81
 avoidance=37

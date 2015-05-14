@@ -1,31 +1,20 @@
+INCLUDE enemies/base/goblin_elite.txt
+
 name=Goblin Spearman Elite
-humanoid=true
 level=3
 categories=goblin_spearman_elite,goblin_elite
 rarity=rare
 xp=20
 
-sfx_phys=soundfx/enemies/goblin_phys.ogg
-sfx_ment=soundfx/enemies/goblin_ment.ogg
-sfx_hit=soundfx/enemies/goblin_hit.ogg
-sfx_die=soundfx/enemies/goblin_die.ogg
-sfx_critdie=soundfx/enemies/goblin_critdie.ogg
-
-animations=animations/enemies/goblin_elite.txt
-
-
 # combat stats
 hp=100
 speed=3.5
-melee_range=1.1875
-threat_range=8.0
 turn_delay=300ms
 chance_pursue=15
 chance_melee_phys=6
 chance_ranged_phys=30
 power_melee_phys=1
 power_ranged_phys=32
-power_beacon=132
 
 accuracy=84
 avoidance=28

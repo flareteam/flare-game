@@ -1,23 +1,13 @@
+INCLUDE enemies/base/skeleton_mage.txt
+
 name=Skeletal Mage
-humanoid=true
 level=4
 categories=skeletal_mage,skeleton,undead,dungeon,ice
 xp=10
 
-sfx_phys=soundfx/enemies/skeleton_phys.ogg
-sfx_ment=soundfx/enemies/skeleton_ment.ogg
-sfx_hit=soundfx/enemies/skeleton_hit.ogg
-sfx_die=soundfx/enemies/skeleton_die.ogg
-sfx_critdie=soundfx/enemies/skeleton_critdie.ogg
-
-animations=animations/enemies/skeleton_mage.txt
-
-
 # combat stats
 hp=90
 speed=3.5
-melee_range=1.1875
-threat_range=8.0
 turn_delay=200ms
 
 chance_pursue=15
