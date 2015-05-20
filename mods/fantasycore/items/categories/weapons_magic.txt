@@ -3,56 +3,32 @@
 [item]
 id=40
 name=Wand
-quality=normal
-item_type=main
-equip_flags=mental
-icon=104
+INCLUDE items/base/weapons/magic/wand.txt
 dmg_ment=10,30
 requires_stat=mental,2
-soundfx=soundfx/inventory/inventory_wood.ogg
-gfx=wand
-loot_animation=animations/loot/wand.txt
 price=24
 
 [item]
 id=41
 name=Rod
-quality=normal
-item_type=main
-equip_flags=mental
-icon=105
+INCLUDE items/base/weapons/magic/rod.txt
 dmg_ment=15,40
 requires_stat=mental,3
-soundfx=soundfx/inventory/inventory_wood.ogg
-gfx=rod
-loot_animation=animations/loot/rod.txt
 price=115
 
 [item]
 id=42
 name=Staff
-quality=normal
-item_type=main
-equip_flags=mental
-icon=106
+INCLUDE items/base/weapons/magic/staff.txt
 dmg_ment=20,50
 requires_stat=mental,4
-soundfx=soundfx/inventory/inventory_wood.ogg
-gfx=staff
-loot_animation=animations/loot/staff.txt
 price=620
 
 [item]
 id=43
 name=Greatstaff
-quality=normal
-item_type=main
-equip_flags=mental
-icon=107
+INCLUDE items/base/weapons/magic/greatstaff.txt
 dmg_ment=25,60
 requires_stat=mental,5
-soundfx=soundfx/inventory/inventory_wood.ogg
-gfx=greatstaff
-loot_animation=animations/loot/greatstaff.txt
 price=2240
 

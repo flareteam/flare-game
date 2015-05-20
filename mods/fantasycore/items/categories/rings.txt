@@ -3,78 +3,50 @@
 [item]
 id=106
 name=Ring of Invisibility
+INCLUDE items/base/rings/gold_1.txt
 flavor=This nondescript ring was forged in the land where shadows lie.
-quality=epic
-item_type=ring
-icon=199
-soundfx=soundfx/inventory/inventory_gem.ogg
-loot_animation=animations/loot/gem.txt
 bonus=stealth,100
 price=5000
 
 [item]
 id=107
 name=Ring of Regeneration
-quality=high
-item_type=ring
-icon=205
-soundfx=soundfx/inventory/inventory_gem.ogg
-loot_animation=animations/loot/gem.txt
+INCLUDE items/base/rings/gold_4.txt
 bonus=hp_regen,25
 price=750
 
 [item]
 id=108
 name=Ring of Concentration
-quality=high
-item_type=ring
-icon=204
-soundfx=soundfx/inventory/inventory_gem.ogg
-loot_animation=animations/loot/gem.txt
+INCLUDE items/base/rings/silver_4.txt
 bonus=mp_regen,35
 price=850
 
 [item]
 id=109
 name=Ring of Fire
-quality=high
-item_type=ring
-icon=207
-soundfx=soundfx/inventory/inventory_gem.ogg
-loot_animation=animations/loot/gem.txt
+INCLUDE items/base/rings/gold_5.txt
 bonus=fire_resist,25
 price=2000
 
 [item]
 id=110
 name=Ring of Ice
-quality=high
-item_type=ring
-icon=206
-soundfx=soundfx/inventory/inventory_gem.ogg
-loot_animation=animations/loot/gem.txt
+INCLUDE items/base/rings/silver_5.txt
 bonus=ice_resist,25
 price=2000
 
 [item]
 id=111
 name=Lineage Signet Ring
-quality=epic
-item_type=ring
-icon=200
-soundfx=soundfx/inventory/inventory_gem.ogg
-loot_animation=animations/loot/gem.txt
+INCLUDE items/base/rings/silver_2.txt
 price=1000
 bonus=xp_gain,25
 
 [item]
 id=112
 name=Ouroboros Ring
-quality=epic
-item_type=ring
-icon=203
-soundfx=soundfx/inventory/inventory_gem.ogg
-loot_animation=animations/loot/gem.txt
+INCLUDE items/base/rings/gold_3.txt
 price=1000
 power=170
 power_desc=One-time protection from death
@@ -82,10 +54,6 @@ power_desc=One-time protection from death
 [item]
 id=113
 name=Relic Hunter's Ring
-quality=epic
-item_type=ring
-icon=201
-soundfx=soundfx/inventory/inventory_gem.ogg
-loot_animation=animations/loot/gem.txt
+INCLUDE items/base/rings/gold_2.txt
 bonus=item_find,25
 price=4000

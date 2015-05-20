@@ -3,66 +3,40 @@
 [item]
 id=88
 name=Chain Coif
-quality=normal
-item_type=head
-icon=152
+INCLUDE items/base/armor/chain/head.txt
 abs=2
 requires_stat=defense,3
-soundfx=soundfx/inventory/inventory_maille.ogg
-gfx=chain_coif
-loot_animation=animations/loot/steel_armor.txt
 price=75
 
 [item]
 id=89
 name=Chain Cuirass
-quality=normal
-item_type=chest
-icon=153
+INCLUDE items/base/armor/chain/chest.txt
 abs=4
 requires_stat=defense,3
-soundfx=soundfx/inventory/inventory_maille.ogg
-gfx=chain_cuirass
-loot_animation=animations/loot/steel_armor.txt
 price=100
 
 [item]
 id=90
 name=Chain Gloves
-quality=normal
-item_type=hands
-icon=154
+INCLUDE items/base/armor/chain/hands.txt
 abs=2
 requires_stat=defense,3
-soundfx=soundfx/inventory/inventory_maille.ogg
-gfx=chain_gloves
-loot_animation=animations/loot/steel_armor.txt
 price=60
 
 [item]
 id=91
 name=Chain Greaves
-quality=normal
-item_type=legs
-icon=155
+INCLUDE items/base/armor/chain/legs.txt
 abs=3
 requires_stat=defense,3
-soundfx=soundfx/inventory/inventory_maille.ogg
-gfx=chain_greaves
-loot_animation=animations/loot/steel_armor.txt
 price=90
 
 [item]
 id=92
 name=Chain Boots
-quality=normal
-item_type=feet
-icon=156
+INCLUDE items/base/armor/chain/feet.txt
 abs=2
 requires_stat=defense,3
-soundfx=soundfx/inventory/inventory_maille.ogg
-gfx=chain_boots
-loot_animation=animations/loot/steel_armor.txt
 price=80
-stepfx=metal
 

@@ -3,56 +3,32 @@
 [item]
 id=56
 name=Wood Buckler
-quality=normal
-item_type=off
-equip_flags=shield
-icon=120
+INCLUDE items/base/shields/wood.txt
 abs=0,10
 requires_stat=defense,2
-soundfx=soundfx/inventory/inventory_wood.ogg
-gfx=buckler
-loot_animation=animations/loot/buckler.txt
 price=30
 
 [item]
 id=57
 name=Iron Buckler
-quality=normal
-item_type=off
-equip_flags=shield
-icon=121
+INCLUDE items/base/shields/iron.txt
 abs=5,15
 requires_stat=defense,3
-soundfx=soundfx/inventory/inventory_wood.ogg
-gfx=iron_buckler
-loot_animation=animations/loot/buckler.txt
 price=140
 
 [item]
 id=58
 name=Crest Shield
-quality=normal
-item_type=off
-equip_flags=shield
-icon=122
+INCLUDE items/base/shields/steel.txt
 abs=10,20
 requires_stat=defense,4
-soundfx=soundfx/inventory/inventory_heavy.ogg
-gfx=shield
-loot_animation=animations/loot/shield.txt
 price=560
 
 [item]
 id=59
 name=Tower Shield
-quality=normal
-item_type=off
-equip_flags=shield
-icon=122
+INCLUDE items/base/shields/steel.txt
 abs=15,25
 requires_stat=defense,5
-soundfx=soundfx/inventory/inventory_heavy.ogg
-gfx=shield
-loot_animation=animations/loot/shield.txt
 price=3000
 

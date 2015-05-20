@@ -3,66 +3,40 @@
 [item]
 id=80
 name=Leather Hood
-quality=normal
-item_type=head
-icon=144
+INCLUDE items/base/armor/leather/head.txt
 abs=1
 requires_stat=defense,2
-soundfx=soundfx/inventory/inventory_cloth.ogg
-gfx=leather_hood
-loot_animation=animations/loot/leather_armor.txt
 price=14
 
 [item]
 id=81
 name=Leather Chest
-quality=normal
-item_type=chest
-icon=145
+INCLUDE items/base/armor/leather/chest.txt
 abs=2
 requires_stat=defense,2
-soundfx=soundfx/inventory/inventory_leather.ogg
-gfx=leather_chest
-loot_animation=animations/loot/leather_armor.txt
 price=20
 
 [item]
 id=82
 name=Leather Gloves
-quality=normal
-item_type=hands
-icon=146
+INCLUDE items/base/armor/leather/hands.txt
 abs=1
 requires_stat=defense,2
-soundfx=soundfx/inventory/inventory_leather.ogg
-gfx=leather_gloves
-loot_animation=animations/loot/leather_armor.txt
 price=12
 
 [item]
 id=83
 name=Leather Pants
-quality=normal
-item_type=legs
-icon=147
+INCLUDE items/base/armor/leather/legs.txt
 abs=2
 requires_stat=defense,2
-soundfx=soundfx/inventory/inventory_leather.ogg
-gfx=leather_pants
-loot_animation=animations/loot/leather_armor.txt
 price=18
 
 [item]
 id=84
 name=Leather Boots
-quality=normal
-item_type=feet
-icon=148
+INCLUDE items/base/armor/leather/feet.txt
 abs=1
 requires_stat=defense,2
-soundfx=soundfx/inventory/inventory_leather.ogg
-gfx=leather_boots
-loot_animation=animations/loot/leather_armor.txt
 price=16
-stepfx=leather
 
