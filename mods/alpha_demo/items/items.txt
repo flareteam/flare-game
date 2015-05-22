@@ -1,79 +1,29 @@
 APPEND
 
-# Dungeon Master's test items
-[item]
-id=1021
-item_type=main
-equip_flags=mental
-name=Lightning Rod
-quality=epic
-item_type=main
-icon=105
-requires_stat=mental,1
-dmg_ment=8,16
-bonus=crit,50
-soundfx=soundfx/inventory/inventory_wood.ogg
-gfx=rod
-loot_animation=animations/loot/rod.txt
-price=1337
-power=115
-power_desc=Use: Shock
-
-[item]
-id=1022
-name=Boots of Testing Really Large Maps
-quality=epic
-icon=176
-abs=2
-item_type=feet
-soundfx=soundfx/inventory/inventory_leather.ogg
-gfx=mage_boots
-loot_animation=animations/loot/boots.txt
-bonus=speed,300
-power=114
-power_desc=Use: Teleport
-
-[item]
-id=1023
-name=Adamantium Ring of Mutant Healing
-quality=epic
-icon=205
-item_type=ring
-soundfx=soundfx/inventory/inventory_gem.ogg
-loot_animation=animations/loot/ring.txt
-bonus=hp_regen,1000
-
 # Quest Items
 
 [item]
 id=9000
 name=Averguard Tome
-icon=225
+INCLUDE items/base/misc/book.txt
 power_desc=This tome bears the seal of the Averguard
 item_type=quest
-soundfx=soundfx/inventory/inventory_object.ogg
-loot_animation=animations/loot/book.txt
 pickup_status=ak_tome_found
 
 [item]
 id=9001
 name=Averguard Key
-icon=226
+INCLUDE items/base/misc/key.txt
 power_desc=Opens special doors in Averguard Keep
 item_type=quest
-soundfx=soundfx/inventory/inventory_gem.ogg
-loot_animation=animations/loot/gem.txt
 pickup_status=ak_key_found
 
 [item]
 id=9002
 name=Langlier's Talisman
-quality=high
-icon=71
+INCLUDE items/base/gems/diamond.txt
 power_desc=Etched runes surround this talisman
 item_type=quest
-soundfx=soundfx/inventory/inventory_gem.ogg
-loot_animation=animations/loot/gem.txt
 pickup_status=ak_talisman_found
 
 # Quest Items
@@ -81,40 +31,32 @@ pickup_status=ak_talisman_found
 [item]
 id=9100
 name=Scathelocke's Spellbook
+INCLUDE items/base/misc/book.txt
 quality=epic
-icon=225
 item_type=artifact
-soundfx=soundfx/inventory/inventory_object.ogg
-loot_animation=animations/loot/book.txt
 bonus=mental,1
 pickup_status=lb_spellbook_found
 
 [item]
 id=9101
 name=Scathelocke's Key
-icon=226
+INCLUDE items/base/misc/key.txt
 power_desc=Opens Scathelocke's Runed Chest
 item_type=quest
-soundfx=soundfx/inventory/inventory_gem.ogg
-loot_animation=animations/loot/gem.txt
 pickup_status=lb_ice_key
 
 [item]
 id=9102
 name=Vesuvvio's Key
-icon=226
+INCLUDE items/base/misc/key.txt
 power_desc=Opens Vesuvvio's Runed Chest
 item_type=quest
-soundfx=soundfx/inventory/inventory_gem.ogg
-loot_animation=animations/loot/gem.txt
 pickup_status=lb_fire_key
 
 [item]
 id=9103
 name=Grisbon's Key
-icon=226
+INCLUDE items/base/misc/key.txt
 power_desc=Opens Grisbon's Runed Chest
 item_type=quest
-soundfx=soundfx/inventory/inventory_gem.ogg
-loot_animation=animations/loot/gem.txt
 pickup_status=lb_wind_key
