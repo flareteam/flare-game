@@ -3,6 +3,7 @@ width=100
 height=100
 tilewidth=64
 tileheight=32
+orientation=isometric
 location=4,12,5
 music=music/cave_theme.ogg
 tileset=tilesetdefs/tileset_cave.txt
@@ -387,9 +388,8 @@ repeat=false
 [event]
 type=on_trigger
 location=8,8,5,5
-power=134
-power_path=12,12,hero
 repeat=false
+spawn=antlion_hatchling,12,9;antlion_hatchling,12,12
 
 [event]
 # crate in nest hallway
@@ -421,14 +421,6 @@ mapmod=object,2,30,178
 repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
-
-[event]
-# two hatchlings spawn
-type=on_trigger
-location=8,8,5,5
-power=134
-power_path=12,9,hero
-repeat=false
 
 [event]
 type=on_trigger
