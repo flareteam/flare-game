@@ -1,0 +1,17 @@
+type=missile
+icon=16
+description=Fire a shot that ignores armor and goes through multiple enemies
+new_state=shoot
+face=true
+requires_mp=3
+multitarget=true
+base_damage=ranged
+aim_assist=true
+trait_armor_penetration=true
+soundfx=soundfx/powers/shoot.ogg
+use_hazard=true
+starting_pos=melee
+lifespan=533ms
+radius=1.0
+speed=24
+
