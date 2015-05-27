@@ -2,14 +2,14 @@
 
 # Special-case effects
 [effect]
-name=shield
+id=shield
 type=shield
 icon=15
 animation=animations/powers/shield.txt
 can_stack=false
 
 [effect]
-name=heal
+id=heal
 type=heal
 icon=11
 animation=animations/powers/heal.txt
@@ -19,66 +19,66 @@ can_stack=false
 
 # Other effects
 [effect]
-name=bleeding
+id=bleeding
 type=damage
 icon=25
 animation=animations/powers/spark_red_loop.txt
 can_stack=false
 
 [effect]
-name=immobilize
+id=immobilize
 type=speed
 icon=24
 can_stack=false
 
 [effect]
-name=slow
+id=slow
 type=speed
 icon=24
 can_stack=false
 
 [effect]
-name=stun
+id=stun
 type=stun
 icon=26
 can_stack=false
 
 [effect]
-name=immunity
+id=immunity
 type=immunity
 icon=12
 can_stack=false
 
 [effect]
-name=haste
+id=haste
 type=speed
 icon=9
 can_stack=false
 
 [effect]
-name=hp_restore
+id=hp_restore
 type=hpot
 
 [effect]
-name=mp_restore
+id=mp_restore
 type=mpot
 
 [effect]
-name=revive
+id=revive
 type=revive
 can_stack=false
 
 [effect]
-name=stealth_icon
+id=stealth_icon
 icon=6
 can_stack=false
 
 [effect]
-name=stealth_speed
+id=stealth_speed
 type=speed
 can_stack=false
 
 [effect]
-name=block_icon
+id=block_icon
 icon=4
 can_stack=false
