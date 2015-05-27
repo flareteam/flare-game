@@ -39,9 +39,9 @@ def extract(filename):
     infile = codecs.open(filename, encoding='UTF-8', mode='r')
     triggers = [
         'msg', 'him', 'her', 'you', 'name', 'title', 'tooltip',
-        'power_desc', 'quest_text', 'description', 'item_type',
-        'slot_name', 'tab_title', 'resist', 'currency_name',
-        'bonus', 'flavor', 'topic', 'option', 'caption'
+        'power_desc', 'quest_text', 'description', 'slot_name',
+        'tab_title', 'currency_name', 'flavor', 'topic', 'option',
+        'caption'
     ]
     plain_text = [
         'msg', 'him', 'her', 'you', 'name', 'title', 'tooltip',
@@ -106,6 +106,7 @@ def get_quests():
 extract('../items/items.txt')
 extract('../items/types.txt')
 extract('../items/sets.txt')
+extract('../items/qualities.txt')
 extract('../menus/inventory.txt')
 extract('../menus/powers.txt')
 extract('../powers/effects.txt')
@@ -119,8 +120,23 @@ extract('../engine/equip_flags.txt')
 
 for folder in ['enemies', 'maps', 'quests', 'npcs', 'cutscenes']:
     target = os.path.join('..', folder)
-    if os.path.exists(target):
+    if os.path.isdir(target):
         for filename in sorted(os.listdir(target)):
-            extract(os.path.join(target, filename))
+                filename = os.path.join(target, filename)
+                if os.path.isfile(filename):
+                    extract(filename)
+
+# definitions for some larger collections of data are split up, so extract them here
+for folder in ['enemies', 'items', 'powers']:
+    target = os.path.join('..', folder)
+    if os.path.isdir(target):
+        for filename in sorted(os.listdir(target)):
+                subfolder = os.path.join(target, filename)
+                if os.path.isdir(subfolder):
+                    for root, dirs, files in os.walk(subfolder):
+                        for f in files:
+                            f = os.path.join(root, f)
+                            if os.path.isfile(f):
+                                extract(f)
 
 save('data.pot')
