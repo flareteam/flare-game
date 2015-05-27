@@ -1,0 +1,650 @@
+####
+### Swing
+####
+
+[power]
+id=1
+name=Swing
+type=fixed
+icon=1
+description=Basic melee attack.
+new_state=swing
+face=true
+use_hazard=true
+base_damage=melee
+lifespan=33ms
+radius=1.0
+starting_pos=melee
+aim_assist=true
+
+
+
+####
+### Block
+####
+
+[power]
+id=2
+name=Block 1
+icon=4
+description=Raise your shield to raise your avoidance by 10% and absorb by 1-5. Chance to reflect missiles increased by 50%.
+new_state=block
+face=true
+requires_flags=shield
+post_effect=reflect_chance,50,0
+post_effect=avoidance,10,0
+post_effect=absorb_min,1,0
+post_effect=absorb_max,5,0
+post_effect=block_icon,1,0
+
+[power]
+id=3
+name=Block 2
+icon=4
+description=Raise your shield to raise your avoidance by 10% and absorb by 5-10. Chance to reflect missiles increased by 60%.
+new_state=block
+face=true
+requires_flags=shield
+post_effect=reflect_chance,60,0
+post_effect=avoidance,10,0
+post_effect=absorb_min,5,0
+post_effect=absorb_max,10,0
+post_effect=block_icon,1,0
+
+[power]
+id=4
+name=Block 3
+icon=4
+description=Raise your shield to raise your avoidance by 10% and absorb by 10-15. Chance to reflect missiles increased by 70%.
+new_state=block
+face=true
+requires_flags=shield
+post_effect=reflect_chance,70,0
+post_effect=avoidance,10,0
+post_effect=absorb_min,10,0
+post_effect=absorb_max,15,0
+post_effect=block_icon,1,0
+
+[power]
+id=5
+name=Block 4
+icon=4
+description=Raise your shield to raise your avoidance by 10% and absorb by 15-20. Chance to reflect missiles increased by 80%.
+new_state=block
+face=true
+requires_flags=shield
+post_effect=reflect_chance,80,0
+post_effect=avoidance,10,0
+post_effect=absorb_min,15,0
+post_effect=absorb_max,20,0
+post_effect=block_icon,1,0
+
+[power]
+id=6
+name=Block 5
+icon=4
+description=Raise your shield to raise your avoidance by 10% and absorb by 20-25. Chance to reflect missiles increased by 90%.
+new_state=block
+face=true
+requires_flags=shield
+post_effect=reflect_chance,90,0
+post_effect=avoidance,10,0
+post_effect=absorb_min,20,0
+post_effect=absorb_max,25,0
+post_effect=block_icon,1,0
+
+
+
+####
+### Blood Strike
+####
+
+[power]
+id=7
+name=Blood Strike 1
+type=fixed
+icon=5
+description=Inflict a bleeding wound that causes an additional 20 damage over 10 seconds.
+new_state=swing
+face=true
+use_hazard=true
+requires_mp=1
+base_damage=melee
+lifespan=33ms
+radius=1.0
+starting_pos=melee
+post_power=127
+post_effect=bleeding,2,10s
+cooldown=200ms
+
+[power]
+id=8
+name=Blood Strike 2
+type=fixed
+icon=5
+description=Inflict a bleeding wound that causes an additional 40 damage over 10 seconds.
+new_state=swing
+face=true
+use_hazard=true
+requires_mp=2
+base_damage=melee
+lifespan=33ms
+radius=1.0
+starting_pos=melee
+post_power=127
+post_effect=bleeding,4,10s
+cooldown=200ms
+
+[power]
+id=9
+name=Blood Strike 3
+type=fixed
+icon=5
+description=Inflict a bleeding wound that causes an additional 60 damage over 10 seconds.
+new_state=swing
+face=true
+use_hazard=true
+requires_mp=3
+base_damage=melee
+lifespan=33ms
+radius=1.0
+starting_pos=melee
+post_power=127
+post_effect=bleeding,6,10s
+cooldown=200ms
+
+[power]
+id=10
+name=Blood Strike 4
+type=fixed
+icon=5
+description=Inflict a bleeding wound that causes an additional 80 damage over 10 seconds.
+new_state=swing
+face=true
+use_hazard=true
+requires_mp=4
+base_damage=melee
+lifespan=33ms
+radius=1.0
+starting_pos=melee
+post_power=127
+post_effect=bleeding,8,10s
+cooldown=200ms
+
+[power]
+id=11
+name=Blood Strike 5
+type=fixed
+icon=5
+description=Inflict a bleeding wound that causes an additional 100 damage over 10 seconds.
+new_state=swing
+face=true
+use_hazard=true
+requires_mp=5
+base_damage=melee
+lifespan=33ms
+radius=1.0
+starting_pos=melee
+post_power=127
+post_effect=bleeding,10,10s
+cooldown=200ms
+
+
+
+####
+### Warcry
+####
+
+[power]
+id=12
+name=Warcry 1
+type=fixed
+icon=12
+description=Remove debuffs and become immune to debuffs for 10 seconds.
+new_state=cast
+requires_mp=2
+soundfx=soundfx/powers/warcry.ogg
+buff=true
+post_effect=immunity,0,10s
+cooldown=45s
+
+[power]
+id=13
+name=Warcry 2
+type=fixed
+icon=12
+description=Remove debuffs and become immune to debuffs for 10 seconds.
+new_state=cast
+requires_mp=4
+soundfx=soundfx/powers/warcry.ogg
+buff=true
+post_effect=immunity,0,10s
+cooldown=40s
+
+[power]
+id=14
+name=Warcry 3
+type=fixed
+icon=12
+description=Remove debuffs and become immune to debuffs for 10 seconds.
+new_state=cast
+requires_mp=6
+soundfx=soundfx/powers/warcry.ogg
+buff=true
+post_effect=immunity,0,10s
+cooldown=35s
+
+[power]
+id=15
+name=Warcry 4
+type=fixed
+icon=12
+description=Remove debuffs and become immune to debuffs for 10 seconds.
+new_state=cast
+requires_mp=8
+soundfx=soundfx/powers/warcry.ogg
+buff=true
+post_effect=immunity,0,10s
+cooldown=30s
+
+[power]
+id=16
+name=Warcry 5
+type=fixed
+icon=12
+description=Remove debuffs and become immune to debuffs for 10 seconds.
+new_state=cast
+requires_mp=10
+soundfx=soundfx/powers/warcry.ogg
+buff=true
+post_effect=immunity,0,10s
+cooldown=25s
+
+
+
+####
+### Cleave
+####
+
+[power]
+id=17
+name=Cleave 1
+type=fixed
+icon=22
+description=Attack all enemies in a wide arc, dealing 50% of melee weapon damage.
+new_state=swing
+face=true
+use_hazard=true
+requires_mp=2
+multitarget=true
+base_damage=melee
+lifespan=400ms
+radius=1.5
+starting_pos=melee
+modifier_damage=multiply,50,0
+aim_assist=true
+directional=true
+animation=animations/powers/cleave.txt
+floor=true
+cooldown=400ms
+
+[power]
+id=18
+name=Cleave 2
+type=fixed
+icon=22
+description=Attack all enemies in a wide arc, dealing 60% of melee weapon damage.
+new_state=swing
+face=true
+use_hazard=true
+requires_mp=4
+multitarget=true
+base_damage=melee
+lifespan=400ms
+radius=1.5
+starting_pos=melee
+modifier_damage=multiply,60,0
+aim_assist=true
+directional=true
+animation=animations/powers/cleave.txt
+floor=true
+cooldown=400ms
+
+[power]
+id=19
+name=Cleave 3
+type=fixed
+icon=22
+description=Attack all enemies in a wide arc, dealing 70% of melee weapon damage.
+new_state=swing
+face=true
+use_hazard=true
+requires_mp=6
+multitarget=true
+base_damage=melee
+lifespan=400ms
+radius=1.5
+starting_pos=melee
+modifier_damage=multiply,70,0
+aim_assist=true
+directional=true
+animation=animations/powers/cleave.txt
+floor=true
+cooldown=400ms
+
+[power]
+id=20
+name=Cleave 4
+type=fixed
+icon=22
+description=Attack all enemies in a wide arc, dealing 80% of melee weapon damage.
+new_state=swing
+face=true
+use_hazard=true
+requires_mp=8
+multitarget=true
+base_damage=melee
+lifespan=400ms
+radius=1.5
+starting_pos=melee
+modifier_damage=multiply,80,0
+aim_assist=true
+directional=true
+animation=animations/powers/cleave.txt
+floor=true
+cooldown=400ms
+
+[power]
+id=21
+name=Cleave 5
+type=fixed
+icon=22
+description=Attack all enemies in a wide arc, dealing 90% of melee weapon damage.
+new_state=swing
+face=true
+use_hazard=true
+requires_mp=10
+multitarget=true
+base_damage=melee
+lifespan=400ms
+radius=1.5
+starting_pos=melee
+modifier_damage=multiply,90,0
+aim_assist=true
+directional=true
+animation=animations/powers/cleave.txt
+floor=true
+cooldown=400ms
+
+
+
+####
+### Throw Knife
+####
+
+[power]
+id=22
+name=Throw Knife 1
+type=missile
+icon=32
+description=Throw a knife to deal 75% of melee weapon damage.
+new_state=swing
+requires_mp=1
+face=true
+directional=true
+animation=animations/powers/throw_knife.txt
+use_hazard=true
+aim_assist=true
+base_damage=melee
+lifespan=533ms
+radius=1.0
+speed=12
+modifier_damage=multiply,75,0
+cooldown=400ms
+
+[power]
+id=23
+name=Throw Knife 2
+type=missile
+icon=32
+description=Throw a knife to deal 80% of melee weapon damage.
+new_state=swing
+requires_mp=2
+face=true
+directional=true
+animation=animations/powers/throw_knife.txt
+use_hazard=true
+aim_assist=true
+base_damage=melee
+lifespan=533ms
+radius=1.0
+speed=12
+modifier_damage=multiply,80,0
+cooldown=400ms
+
+[power]
+id=24
+name=Throw Knife 3
+type=missile
+icon=32
+description=Throw a knife to deal 85% of melee weapon damage.
+new_state=swing
+requires_mp=3
+face=true
+directional=true
+animation=animations/powers/throw_knife.txt
+use_hazard=true
+aim_assist=true
+base_damage=melee
+lifespan=533ms
+radius=1.0
+speed=12
+modifier_damage=multiply,85,0
+cooldown=400ms
+
+[power]
+id=25
+name=Throw Knife 4
+type=missile
+icon=32
+description=Throw a knife to deal 90% of melee weapon damage.
+new_state=swing
+requires_mp=4
+face=true
+directional=true
+animation=animations/powers/throw_knife.txt
+use_hazard=true
+aim_assist=true
+base_damage=melee
+lifespan=533ms
+radius=1.0
+speed=12
+modifier_damage=multiply,90,0
+cooldown=400ms
+
+[power]
+id=26
+name=Throw Knife 5
+type=missile
+icon=32
+description=Throw a knife to deal 95% of melee weapon damage.
+new_state=swing
+requires_mp=5
+face=true
+directional=true
+animation=animations/powers/throw_knife.txt
+use_hazard=true
+aim_assist=true
+base_damage=melee
+lifespan=533ms
+radius=1.0
+speed=12
+modifier_damage=multiply,95,0
+cooldown=400ms
+
+
+
+####
+### Throw Axe
+####
+
+[power]
+id=27
+name=Throw Axe 1
+type=missile
+icon=33
+description=Throw an axe to deal 150% of melee weapon damage.
+new_state=swing
+requires_mp=2
+face=true
+directional=true
+animation=animations/powers/throw_axe.txt
+use_hazard=true
+aim_assist=true
+base_damage=melee
+lifespan=766ms
+radius=1.0
+speed=12
+modifier_damage=multiply,150,0
+cooldown=800ms
+
+[power]
+id=28
+name=Throw Axe 2
+type=missile
+icon=33
+description=Throw an axe to deal 160% of melee weapon damage.
+new_state=swing
+requires_mp=4
+face=true
+directional=true
+animation=animations/powers/throw_axe.txt
+use_hazard=true
+aim_assist=true
+base_damage=melee
+lifespan=766ms
+radius=1.0
+speed=12
+modifier_damage=multiply,160,0
+cooldown=800ms
+
+[power]
+id=29
+name=Throw Axe 3
+type=missile
+icon=33
+description=Throw an axe to deal 170% of melee weapon damage.
+new_state=swing
+requires_mp=6
+face=true
+directional=true
+animation=animations/powers/throw_axe.txt
+use_hazard=true
+aim_assist=true
+base_damage=melee
+lifespan=766ms
+radius=1.0
+speed=12
+modifier_damage=multiply,170,0
+cooldown=800ms
+
+[power]
+id=30
+name=Throw Axe 4
+type=missile
+icon=33
+description=Throw an axe to deal 180% of melee weapon damage.
+new_state=swing
+requires_mp=8
+face=true
+directional=true
+animation=animations/powers/throw_axe.txt
+use_hazard=true
+aim_assist=true
+base_damage=melee
+lifespan=766ms
+radius=1.0
+speed=12
+modifier_damage=multiply,180,0
+cooldown=800ms
+
+[power]
+id=31
+name=Throw Axe 5
+type=missile
+icon=33
+description=Throw an axe to deal 190% of melee weapon damage.
+new_state=swing
+requires_mp=10
+face=true
+directional=true
+animation=animations/powers/throw_axe.txt
+use_hazard=true
+aim_assist=true
+base_damage=melee
+lifespan=766ms
+radius=1.0
+speed=12
+modifier_damage=multiply,190,0
+cooldown=800ms
+
+[power]
+id=32
+name=Stone Wall 1
+type=fixed
+icon=11
+description=Increases HP by 50 and damage absorption by 5.
+buff=true
+passive=true
+post_effect=hp,50,0
+post_effect=absorb_min,5,0
+post_effect=absorb_max,5,0
+
+[power]
+id=33
+name=Stone Wall 2
+type=fixed
+icon=11
+description=Increases HP by 100 and damage absorption by 10.
+buff=true
+passive=true
+post_effect=hp,50,0
+post_effect=absorb_min,5,0
+post_effect=absorb_max,5,0
+
+[power]
+id=34
+name=Stone Wall 3
+type=fixed
+icon=11
+description=Increases HP by 150 and damage absorption by 15.
+buff=true
+passive=true
+post_effect=hp,50,0
+post_effect=absorb_min,5,0
+post_effect=absorb_max,5,0
+
+[power]
+id=35
+name=Stone Wall 4
+type=fixed
+icon=11
+description=Increases HP by 200 and damage absorption by 20.
+buff=true
+passive=true
+post_effect=hp,50,0
+post_effect=absorb_min,5,0
+post_effect=absorb_max,5,0
+
+[power]
+id=36
+name=Stone Wall 5
+type=fixed
+icon=11
+description=Increases HP by 250 and damage absorption by 25.
+buff=true
+passive=true
+post_effect=hp,50,0
+post_effect=absorb_min,5,0
+post_effect=absorb_max,5,0
+
