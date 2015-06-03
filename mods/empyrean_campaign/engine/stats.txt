@@ -16,7 +16,7 @@ mp_regen=10
 mp_regen_per_level=1
 mp_regen_per_mental=4
 accuracy=75
-accuracy_per_level=2
+accuracy_per_level=1
 accuracy_per_offense=1
 avoidance=25
 avoidance_per_level=1
@@ -41,8 +41,11 @@ dmg_ranged_max_per_offense=5
 
 #absorb_min=0
 #absorb_max=0
-absorb_min_per_defense=5
-absorb_max_per_defense=5
+absorb_min_per_defense=1
+absorb_max_per_defense=1
+
+poise=60
+poise_per_defense=1
 
 speed=6
 
