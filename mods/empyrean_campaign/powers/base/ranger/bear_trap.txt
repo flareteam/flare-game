@@ -1,0 +1,17 @@
+type=fixed
+icon=21
+new_state=swing
+requires_mp=3
+face=true
+directional=true
+starting_pos=melee
+animation=animations/powers/bear_trap.txt
+use_hazard=true
+base_damage=ranged
+lifespan=10s
+cooldown=5s
+radius=1.0
+modifier_damage=multiply,150,0
+post_effect=immobilize,0,3s
+post_power=47
+

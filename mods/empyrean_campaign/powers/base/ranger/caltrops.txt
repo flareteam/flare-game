@@ -1,0 +1,16 @@
+type=fixed
+icon=20
+new_state=swing
+requires_mp=2
+face=true
+directional=true
+starting_pos=melee
+animation=animations/powers/caltrops.txt
+use_hazard=true
+base_damage=ranged
+lifespan=10s
+cooldown=3s
+radius=1.0
+modifier_damage=multiply,75,0
+post_effect=slow,50,3s
+
