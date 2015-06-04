@@ -25,7 +25,6 @@ aim_assist=true
 
 [power]
 id=2
-name=Block 1
 INCLUDE powers/base/warrior/block.txt
 description=Raise your shield to raise your avoidance by 10% and absorb by 1-5. Chance to reflect missiles increased by 50%.
 post_effect=reflect_chance,50,0
@@ -34,7 +33,6 @@ post_effect=absorb_max,5,0
 
 [power]
 id=3
-name=Block 2
 INCLUDE powers/base/warrior/block.txt
 description=Raise your shield to raise your avoidance by 10% and absorb by 5-10. Chance to reflect missiles increased by 60%.
 post_effect=reflect_chance,60,0
@@ -43,7 +41,6 @@ post_effect=absorb_max,10,0
 
 [power]
 id=4
-name=Block 3
 INCLUDE powers/base/warrior/block.txt
 description=Raise your shield to raise your avoidance by 10% and absorb by 10-15. Chance to reflect missiles increased by 70%.
 post_effect=reflect_chance,70,0
@@ -52,7 +49,6 @@ post_effect=absorb_max,15,0
 
 [power]
 id=5
-name=Block 4
 INCLUDE powers/base/warrior/block.txt
 description=Raise your shield to raise your avoidance by 10% and absorb by 15-20. Chance to reflect missiles increased by 80%.
 post_effect=reflect_chance,80,0
@@ -61,7 +57,6 @@ post_effect=absorb_max,20,0
 
 [power]
 id=6
-name=Block 5
 INCLUDE powers/base/warrior/block.txt
 description=Raise your shield to raise your avoidance by 10% and absorb by 20-25. Chance to reflect missiles increased by 90%.
 post_effect=reflect_chance,90,0
@@ -76,7 +71,6 @@ post_effect=absorb_max,25,0
 
 [power]
 id=7
-name=Blood Strike 1
 INCLUDE powers/base/warrior/blood_strike.txt
 description=Inflict a bleeding wound that causes an additional 20 damage over 10 seconds.
 requires_mp=1
@@ -84,7 +78,6 @@ post_effect=bleeding,2,10s
 
 [power]
 id=8
-name=Blood Strike 2
 INCLUDE powers/base/warrior/blood_strike.txt
 description=Inflict a bleeding wound that causes an additional 40 damage over 10 seconds.
 requires_mp=2
@@ -92,7 +85,6 @@ post_effect=bleeding,4,10s
 
 [power]
 id=9
-name=Blood Strike 3
 INCLUDE powers/base/warrior/blood_strike.txt
 description=Inflict a bleeding wound that causes an additional 60 damage over 10 seconds.
 requires_mp=3
@@ -100,7 +92,6 @@ post_effect=bleeding,6,10s
 
 [power]
 id=10
-name=Blood Strike 4
 INCLUDE powers/base/warrior/blood_strike.txt
 description=Inflict a bleeding wound that causes an additional 80 damage over 10 seconds.
 requires_mp=4
@@ -108,7 +99,6 @@ post_effect=bleeding,8,10s
 
 [power]
 id=11
-name=Blood Strike 5
 INCLUDE powers/base/warrior/blood_strike.txt
 description=Inflict a bleeding wound that causes an additional 100 damage over 10 seconds.
 requires_mp=5
@@ -122,35 +112,30 @@ post_effect=bleeding,10,10s
 
 [power]
 id=12
-name=Warcry 1
 INCLUDE powers/base/warrior/warcry.txt
 requires_mp=2
 cooldown=45s
 
 [power]
 id=13
-name=Warcry 2
 INCLUDE powers/base/warrior/warcry.txt
 requires_mp=4
 cooldown=40s
 
 [power]
 id=14
-name=Warcry 3
 INCLUDE powers/base/warrior/warcry.txt
 requires_mp=6
 cooldown=35s
 
 [power]
 id=15
-name=Warcry 4
 INCLUDE powers/base/warrior/warcry.txt
 requires_mp=8
 cooldown=30s
 
 [power]
 id=16
-name=Warcry 5
 INCLUDE powers/base/warrior/warcry.txt
 requires_mp=10
 cooldown=25s
@@ -163,7 +148,6 @@ cooldown=25s
 
 [power]
 id=17
-name=Cleave 1
 INCLUDE powers/base/warrior/cleave.txt
 description=Attack all enemies in a wide arc, dealing 50% of melee weapon damage.
 requires_mp=2
@@ -171,7 +155,6 @@ modifier_damage=multiply,50,0
 
 [power]
 id=18
-name=Cleave 2
 INCLUDE powers/base/warrior/cleave.txt
 description=Attack all enemies in a wide arc, dealing 60% of melee weapon damage.
 requires_mp=4
@@ -179,7 +162,6 @@ modifier_damage=multiply,60,0
 
 [power]
 id=19
-name=Cleave 3
 INCLUDE powers/base/warrior/cleave.txt
 description=Attack all enemies in a wide arc, dealing 70% of melee weapon damage.
 requires_mp=6
@@ -187,7 +169,6 @@ modifier_damage=multiply,70,0
 
 [power]
 id=20
-name=Cleave 4
 INCLUDE powers/base/warrior/cleave.txt
 description=Attack all enemies in a wide arc, dealing 80% of melee weapon damage.
 requires_mp=8
@@ -195,7 +176,6 @@ modifier_damage=multiply,80,0
 
 [power]
 id=21
-name=Cleave 5
 INCLUDE powers/base/warrior/cleave.txt
 description=Attack all enemies in a wide arc, dealing 90% of melee weapon damage.
 requires_mp=10
@@ -209,7 +189,6 @@ modifier_damage=multiply,90,0
 
 [power]
 id=22
-name=Throw Knife 1
 INCLUDE powers/base/warrior/throw_knife.txt
 description=Throw a knife to deal 75% of melee weapon damage.
 requires_mp=1
@@ -217,7 +196,6 @@ modifier_damage=multiply,75,0
 
 [power]
 id=23
-name=Throw Knife 2
 INCLUDE powers/base/warrior/throw_knife.txt
 description=Throw a knife to deal 80% of melee weapon damage.
 requires_mp=2
@@ -225,7 +203,6 @@ modifier_damage=multiply,80,0
 
 [power]
 id=24
-name=Throw Knife 3
 INCLUDE powers/base/warrior/throw_knife.txt
 description=Throw a knife to deal 85% of melee weapon damage.
 requires_mp=3
@@ -233,7 +210,6 @@ modifier_damage=multiply,85,0
 
 [power]
 id=25
-name=Throw Knife 4
 INCLUDE powers/base/warrior/throw_knife.txt
 description=Throw a knife to deal 90% of melee weapon damage.
 requires_mp=4
@@ -241,7 +217,6 @@ modifier_damage=multiply,90,0
 
 [power]
 id=26
-name=Throw Knife 5
 INCLUDE powers/base/warrior/throw_knife.txt
 description=Throw a knife to deal 95% of melee weapon damage.
 requires_mp=5
@@ -255,7 +230,6 @@ modifier_damage=multiply,95,0
 
 [power]
 id=27
-name=Throw Axe 1
 INCLUDE powers/base/warrior/throw_axe.txt
 description=Throw an axe to deal 150% of melee weapon damage.
 requires_mp=2
@@ -263,7 +237,6 @@ modifier_damage=multiply,150,0
 
 [power]
 id=28
-name=Throw Axe 2
 INCLUDE powers/base/warrior/throw_axe.txt
 description=Throw an axe to deal 160% of melee weapon damage.
 requires_mp=4
@@ -271,7 +244,6 @@ modifier_damage=multiply,160,0
 
 [power]
 id=29
-name=Throw Axe 3
 INCLUDE powers/base/warrior/throw_axe.txt
 description=Throw an axe to deal 170% of melee weapon damage.
 requires_mp=6
@@ -279,7 +251,6 @@ modifier_damage=multiply,170,0
 
 [power]
 id=30
-name=Throw Axe 4
 INCLUDE powers/base/warrior/throw_axe.txt
 description=Throw an axe to deal 180% of melee weapon damage.
 requires_mp=8
@@ -287,7 +258,6 @@ modifier_damage=multiply,180,0
 
 [power]
 id=31
-name=Throw Axe 5
 INCLUDE powers/base/warrior/throw_axe.txt
 description=Throw an axe to deal 190% of melee weapon damage.
 requires_mp=10
@@ -301,31 +271,26 @@ modifier_damage=multiply,190,0
 
 [power]
 id=32
-name=Stone Wall 1
 INCLUDE powers/base/warrior/stone_wall.txt
 description=Increases HP by 50 and damage absorption by 5.
 
 [power]
 id=33
-name=Stone Wall 2
 INCLUDE powers/base/warrior/stone_wall.txt
 description=Increases HP by 100 and damage absorption by 10.
 
 [power]
 id=34
-name=Stone Wall 3
 INCLUDE powers/base/warrior/stone_wall.txt
 description=Increases HP by 150 and damage absorption by 15.
 
 [power]
 id=35
-name=Stone Wall 4
 INCLUDE powers/base/warrior/stone_wall.txt
 description=Increases HP by 200 and damage absorption by 20.
 
 [power]
 id=36
-name=Stone Wall 5
 INCLUDE powers/base/warrior/stone_wall.txt
 description=Increases HP by 250 and damage absorption by 25.
 
