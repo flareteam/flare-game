@@ -1,4 +1,5 @@
-name=Piercing Shot 1
 INCLUDE powers/base/ranger/piercing_shot.txt
-description=Fire a shot that ignores armor and goes through multiple enemies
+description=Fire a shot that ignores armor and goes through multiple enemies, dealing 80% of ranged damage.
+modifier_damage=multiply,80,0
+requires_mp=2
 

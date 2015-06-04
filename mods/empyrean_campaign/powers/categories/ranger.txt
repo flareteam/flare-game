@@ -268,33 +268,38 @@ INCLUDE powers/base/ranger/ammo_arrow.txt
 
 [power]
 id=85
-name=Ember Shot 1
 INCLUDE powers/base/ranger/ember_shot.txt
-description=Fire a spray of burning embers at close range. Effective against armored enemies.
+requires_mp=1
+cooldown=1s
+count=10
 
 [power]
 id=86
-name=Ember Shot 2
 INCLUDE powers/base/ranger/ember_shot.txt
-description=Fire a spray of burning embers at close range. Effective against armored enemies.
+requires_mp=2
+cooldown=1s
+count=15
 
 [power]
 id=87
-name=Ember Shot 3
 INCLUDE powers/base/ranger/ember_shot.txt
-description=Fire a spray of burning embers at close range. Effective against armored enemies.
+requires_mp=3
+cooldown=750ms
+count=20
 
 [power]
 id=88
-name=Ember Shot 4
 INCLUDE powers/base/ranger/ember_shot.txt
-description=Fire a spray of burning embers at close range. Effective against armored enemies.
+requires_mp=4
+cooldown=750ms
+count=25
 
 [power]
 id=89
-name=Ember Shot 5
 INCLUDE powers/base/ranger/ember_shot.txt
-description=Fire a spray of burning embers at close range. Effective against armored enemies.
+requires_mp=5
+cooldown=500ms
+count=30
 
 
 
@@ -304,33 +309,23 @@ description=Fire a spray of burning embers at close range. Effective against arm
 
 [power]
 id=90
-name=Caltrops 1
 INCLUDE powers/base/ranger/caltrops.txt
-description=This trap deals 75% ranged weapon damage and slows the target.
 
 [power]
 id=91
-name=Caltrops 2
 INCLUDE powers/base/ranger/caltrops.txt
-description=This trap deals 75% ranged weapon damage and slows the target.
 
 [power]
 id=92
-name=Caltrops 3
 INCLUDE powers/base/ranger/caltrops.txt
-description=This trap deals 75% ranged weapon damage and slows the target.
 
 [power]
 id=93
-name=Caltrops 4
 INCLUDE powers/base/ranger/caltrops.txt
-description=This trap deals 75% ranged weapon damage and slows the target.
 
 [power]
 id=94
-name=Caltrops 5
 INCLUDE powers/base/ranger/caltrops.txt
-description=This trap deals 75% ranged weapon damage and slows the target.
 
 
 
@@ -340,33 +335,23 @@ description=This trap deals 75% ranged weapon damage and slows the target.
 
 [power]
 id=95
-name=Bear Trap 1
 INCLUDE powers/base/ranger/bear_trap.txt
-description=This trap deals 150% ranged weapon damage and immobilizes the target.
 
 [power]
 id=96
-name=Bear Trap 2
 INCLUDE powers/base/ranger/bear_trap.txt
-description=This trap deals 150% ranged weapon damage and immobilizes the target.
 
 [power]
 id=97
-name=Bear Trap 3
 INCLUDE powers/base/ranger/bear_trap.txt
-description=This trap deals 150% ranged weapon damage and immobilizes the target.
 
 [power]
 id=98
-name=Bear Trap 4
 INCLUDE powers/base/ranger/bear_trap.txt
-description=This trap deals 150% ranged weapon damage and immobilizes the target.
 
 [power]
 id=99
-name=Bear Trap 5
 INCLUDE powers/base/ranger/bear_trap.txt
-description=This trap deals 150% ranged weapon damage and immobilizes the target.
 
 
 

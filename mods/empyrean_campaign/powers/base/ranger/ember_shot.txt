@@ -1,3 +1,5 @@
+name=Ember Shot
+description=Fire a spray of burning embers at close range. Effective against armored enemies.
 type=missile
 icon=18
 new_state=shoot
@@ -9,7 +11,7 @@ requires_mp=1
 aim_assist=true
 count=10
 trait_armor_penetration=true
-modifier_damage=multiply,15,0
+modifier_damage=multiply,25,0
 angle_variance=15
 speed_variance=0.15
 animation=animations/powers/ember.txt
