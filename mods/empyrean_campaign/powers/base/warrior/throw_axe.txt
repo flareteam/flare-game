@@ -1,4 +1,5 @@
 name=Throw Axe
+description=Throw an axe to deal 150% of melee weapon damage.
 type=missile
 icon=33
 new_state=swing
@@ -11,5 +12,5 @@ base_damage=melee
 lifespan=766ms
 radius=1.0
 speed=12
-cooldown=800ms
+modifier_damage=multiply,150,0
 

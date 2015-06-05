@@ -26,7 +26,6 @@ aim_assist=true
 [power]
 id=2
 INCLUDE powers/base/warrior/block.txt
-description=Raise your shield to raise your avoidance by 10% and absorb by 1-5. Chance to reflect missiles increased by 50%.
 post_effect=reflect_chance,50,0
 post_effect=absorb_min,1,0
 post_effect=absorb_max,5,0
@@ -34,7 +33,6 @@ post_effect=absorb_max,5,0
 [power]
 id=3
 INCLUDE powers/base/warrior/block.txt
-description=Raise your shield to raise your avoidance by 10% and absorb by 5-10. Chance to reflect missiles increased by 60%.
 post_effect=reflect_chance,60,0
 post_effect=absorb_min,5,0
 post_effect=absorb_max,10,0
@@ -42,7 +40,6 @@ post_effect=absorb_max,10,0
 [power]
 id=4
 INCLUDE powers/base/warrior/block.txt
-description=Raise your shield to raise your avoidance by 10% and absorb by 10-15. Chance to reflect missiles increased by 70%.
 post_effect=reflect_chance,70,0
 post_effect=absorb_min,10,0
 post_effect=absorb_max,15,0
@@ -50,7 +47,6 @@ post_effect=absorb_max,15,0
 [power]
 id=5
 INCLUDE powers/base/warrior/block.txt
-description=Raise your shield to raise your avoidance by 10% and absorb by 15-20. Chance to reflect missiles increased by 80%.
 post_effect=reflect_chance,80,0
 post_effect=absorb_min,15,0
 post_effect=absorb_max,20,0
@@ -58,7 +54,6 @@ post_effect=absorb_max,20,0
 [power]
 id=6
 INCLUDE powers/base/warrior/block.txt
-description=Raise your shield to raise your avoidance by 10% and absorb by 20-25. Chance to reflect missiles increased by 90%.
 post_effect=reflect_chance,90,0
 post_effect=absorb_min,20,0
 post_effect=absorb_max,25,0
@@ -72,37 +67,37 @@ post_effect=absorb_max,25,0
 [power]
 id=7
 INCLUDE powers/base/warrior/blood_strike.txt
-description=Inflict a bleeding wound that causes an additional 20 damage over 10 seconds.
 requires_mp=1
 post_effect=bleeding,2,10s
+cooldown=1s
 
 [power]
 id=8
 INCLUDE powers/base/warrior/blood_strike.txt
-description=Inflict a bleeding wound that causes an additional 40 damage over 10 seconds.
 requires_mp=2
 post_effect=bleeding,4,10s
+cooldown=800ms
 
 [power]
 id=9
 INCLUDE powers/base/warrior/blood_strike.txt
-description=Inflict a bleeding wound that causes an additional 60 damage over 10 seconds.
 requires_mp=3
 post_effect=bleeding,6,10s
+cooldown=600ms
 
 [power]
 id=10
 INCLUDE powers/base/warrior/blood_strike.txt
-description=Inflict a bleeding wound that causes an additional 80 damage over 10 seconds.
 requires_mp=4
 post_effect=bleeding,8,10s
+cooldown=400ms
 
 [power]
 id=11
 INCLUDE powers/base/warrior/blood_strike.txt
-description=Inflict a bleeding wound that causes an additional 100 damage over 10 seconds.
 requires_mp=5
 post_effect=bleeding,10,10s
+cooldown=200ms
 
 
 
@@ -149,35 +144,30 @@ cooldown=25s
 [power]
 id=17
 INCLUDE powers/base/warrior/cleave.txt
-description=Attack all enemies in a wide arc, dealing 50% of melee weapon damage.
 requires_mp=2
 modifier_damage=multiply,50,0
 
 [power]
 id=18
 INCLUDE powers/base/warrior/cleave.txt
-description=Attack all enemies in a wide arc, dealing 60% of melee weapon damage.
 requires_mp=4
 modifier_damage=multiply,60,0
 
 [power]
 id=19
 INCLUDE powers/base/warrior/cleave.txt
-description=Attack all enemies in a wide arc, dealing 70% of melee weapon damage.
 requires_mp=6
 modifier_damage=multiply,70,0
 
 [power]
 id=20
 INCLUDE powers/base/warrior/cleave.txt
-description=Attack all enemies in a wide arc, dealing 80% of melee weapon damage.
 requires_mp=8
 modifier_damage=multiply,80,0
 
 [power]
 id=21
 INCLUDE powers/base/warrior/cleave.txt
-description=Attack all enemies in a wide arc, dealing 90% of melee weapon damage.
 requires_mp=10
 modifier_damage=multiply,90,0
 
@@ -190,37 +180,32 @@ modifier_damage=multiply,90,0
 [power]
 id=22
 INCLUDE powers/base/warrior/throw_knife.txt
-description=Throw a knife to deal 75% of melee weapon damage.
 requires_mp=1
-modifier_damage=multiply,75,0
+cooldown=2s
 
 [power]
 id=23
 INCLUDE powers/base/warrior/throw_knife.txt
-description=Throw a knife to deal 80% of melee weapon damage.
 requires_mp=2
-modifier_damage=multiply,80,0
+cooldown=1600ms
 
 [power]
 id=24
 INCLUDE powers/base/warrior/throw_knife.txt
-description=Throw a knife to deal 85% of melee weapon damage.
 requires_mp=3
-modifier_damage=multiply,85,0
+cooldown=1200ms
 
 [power]
 id=25
 INCLUDE powers/base/warrior/throw_knife.txt
-description=Throw a knife to deal 90% of melee weapon damage.
 requires_mp=4
-modifier_damage=multiply,90,0
+cooldown=800ms
 
 [power]
 id=26
 INCLUDE powers/base/warrior/throw_knife.txt
-description=Throw a knife to deal 95% of melee weapon damage.
 requires_mp=5
-modifier_damage=multiply,95,0
+cooldown=400ms
 
 
 
@@ -231,37 +216,32 @@ modifier_damage=multiply,95,0
 [power]
 id=27
 INCLUDE powers/base/warrior/throw_axe.txt
-description=Throw an axe to deal 150% of melee weapon damage.
 requires_mp=2
-modifier_damage=multiply,150,0
+cooldown=2s
 
 [power]
 id=28
 INCLUDE powers/base/warrior/throw_axe.txt
-description=Throw an axe to deal 160% of melee weapon damage.
 requires_mp=4
-modifier_damage=multiply,160,0
+cooldown=1600ms
 
 [power]
 id=29
 INCLUDE powers/base/warrior/throw_axe.txt
-description=Throw an axe to deal 170% of melee weapon damage.
 requires_mp=6
-modifier_damage=multiply,170,0
+cooldown=1200ms
 
 [power]
 id=30
 INCLUDE powers/base/warrior/throw_axe.txt
-description=Throw an axe to deal 180% of melee weapon damage.
 requires_mp=8
-modifier_damage=multiply,180,0
+cooldown=800ms
 
 [power]
 id=31
 INCLUDE powers/base/warrior/throw_axe.txt
-description=Throw an axe to deal 190% of melee weapon damage.
 requires_mp=10
-modifier_damage=multiply,190,0
+cooldown=400ms
 
 
 
@@ -272,25 +252,20 @@ modifier_damage=multiply,190,0
 [power]
 id=32
 INCLUDE powers/base/warrior/stone_wall.txt
-description=Increases HP by 50 and damage absorption by 5.
 
 [power]
 id=33
 INCLUDE powers/base/warrior/stone_wall.txt
-description=Increases HP by 100 and damage absorption by 10.
 
 [power]
 id=34
 INCLUDE powers/base/warrior/stone_wall.txt
-description=Increases HP by 150 and damage absorption by 15.
 
 [power]
 id=35
 INCLUDE powers/base/warrior/stone_wall.txt
-description=Increases HP by 200 and damage absorption by 20.
 
 [power]
 id=36
 INCLUDE powers/base/warrior/stone_wall.txt
-description=Increases HP by 250 and damage absorption by 25.
 
