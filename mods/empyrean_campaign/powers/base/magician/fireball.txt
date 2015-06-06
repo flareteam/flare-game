@@ -1,0 +1,20 @@
+name=Fireball
+description=Launch a ball of fire that does extra mental damage.
+type=missile
+icon=18
+new_state=cast
+face=true
+directional=true
+animation=animations/powers/fireball.txt
+soundfx=soundfx/powers/fireball.ogg
+use_hazard=true
+aim_assist=true
+base_damage=ment
+lifespan=800ms
+radius=1.0
+speed=16
+trait_elemental=fire
+post_power=201
+wall_power=201
+cooldown=1s
+

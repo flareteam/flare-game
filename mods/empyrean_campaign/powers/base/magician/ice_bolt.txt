@@ -1,0 +1,21 @@
+name=Ice Bolt
+description=Launch a chunk of ice that slows enemies.
+type=missile
+icon=14
+new_state=cast
+face=true
+directional=true
+animation=animations/powers/icicle.txt
+soundfx=soundfx/powers/shock.ogg
+use_hazard=true
+aim_assist=true
+base_damage=ment
+lifespan=800ms
+radius=1.0
+speed=16
+trait_elemental=ice
+post_power=202
+wall_power=202
+cooldown=1s
+
+

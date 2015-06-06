@@ -1,0 +1,21 @@
+name=Shock
+description=Electrocute an enemy from a distance with a bonus 25% chance to critically damage movement-impaired enemies.
+type=missile
+icon=7
+new_state=cast
+face=true
+directional=true
+animation=animations/powers/lightning.txt
+soundfx=soundfx/powers/shock.ogg
+use_hazard=true
+aim_assist=true
+base_damage=ment
+lifespan=800ms
+radius=1.0
+speed=16
+trait_elemental=air
+trait_crits_impaired=25
+post_power=202
+wall_power=202
+cooldown=1s
+

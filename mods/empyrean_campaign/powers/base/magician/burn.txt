@@ -1,0 +1,23 @@
+name=Burn
+type=fixed
+icon=18
+description=Blast multiple enemies in a distant area with fire.
+new_state=cast
+face=true
+requires_los=true
+requires_targeting=true
+animation=animations/powers/blast.txt
+soundfx=soundfx/powers/burn.ogg
+use_hazard=true
+base_damage=ment
+lifespan=600ms
+radius=2.0
+floor=true
+trait_elemental=fire
+starting_pos=target
+multitarget=true
+post_power=201
+target_range=8.0
+modifier_damage=multiply,75,0
+cooldown=1600ms
+

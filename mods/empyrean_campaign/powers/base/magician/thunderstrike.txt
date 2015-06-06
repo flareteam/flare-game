@@ -1,0 +1,22 @@
+name=Thunderstrike
+type=fixed
+icon=7
+description=Lightning strikes from the sky with a bonus 50% chance to critically damage movement-impaired enemies.
+new_state=cast
+face=true
+requires_los=true
+requires_targeting=true
+animation=animations/powers/thunderstrike.txt
+soundfx=soundfx/powers/thunder.ogg
+use_hazard=true
+base_damage=ment
+lifespan=200ms
+radius=1.5
+trait_elemental=air
+starting_pos=target
+multitarget=true
+post_power=202
+target_range=8.0
+trait_crits_impaired=50
+cooldown=1200ms
+

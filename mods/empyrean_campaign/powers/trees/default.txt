@@ -7,8 +7,8 @@ title=Warrior
 title=Ranger
 
 # tab 2
-#[tab]
-#title=Magician
+[tab]
+title=Magician
 
 ### Warrior Tab ###############################################################
 # swing
@@ -205,28 +205,58 @@ requires_physical=15
 requires_point=true
 
 
-# stone wall
+# quake
 [power]
 id=32
 tab=0
-position=48,336
+position=240,272
+requires_physical=4
 requires_point=true
 upgrades=33,34,35,36
 
 [upgrade]
 id=33
+requires_physical=8
 requires_point=true
 
 [upgrade]
 id=34
+requires_physical=12
 requires_point=true
 
 [upgrade]
 id=35
+requires_physical=16
 requires_point=true
 
 [upgrade]
 id=36
+requires_physical=20
+requires_point=true
+
+
+# stone wall
+[power]
+id=37
+tab=0
+position=48,336
+requires_point=true
+upgrades=38,39,40,41
+
+[upgrade]
+id=38
+requires_point=true
+
+[upgrade]
+id=39
+requires_point=true
+
+[upgrade]
+id=40
+requires_point=true
+
+[upgrade]
+id=41
 requires_point=true
 
 
@@ -235,279 +265,498 @@ requires_point=true
 ### Ranger Tab ################################################################
 # shoot
 [power]
-id=37
+id=42
 tab=1
 position=48,80
 requires_offense=1
 
 
+# haste
+[power]
+id=45
+tab=1
+position=240,80
+requires_defense=2
+requires_point=true
+upgrades=46,47,48,49
+
+[upgrade]
+id=46
+requires_defense=4
+requires_point=true
+
+[upgrade]
+id=47
+requires_defense=6
+requires_point=true
+
+[upgrade]
+id=48
+requires_defense=8
+requires_point=true
+
+[upgrade]
+id=49
+requires_defense=10
+requires_point=true
+
+
 # piercing shot
 [power]
-id=40
+id=50
 tab=1
 position=112,208
 requires_offense=3
 requires_point=true
-upgrades=41,42,43,44
+upgrades=51,52,53,54
 
 [upgrade]
-id=41
+id=51
 requires_offense=6
 requires_point=true
 
 [upgrade]
-id=42
+id=52
 requires_offense=9
 requires_point=true
 
 [upgrade]
-id=43
+id=53
 requires_offense=12
 requires_point=true
 
 [upgrade]
-id=44
+id=54
 requires_offense=15
 requires_point=true
 
 
 # rapid fire
 [power]
-id=55
+id=65
 tab=1
 position=112,272
 requires_offense=4
 requires_point=true
-upgrades=56,57,58,59
+upgrades=66,67,68,69
 
 [upgrade]
-id=56
+id=66
 requires_offense=8
 requires_point=true
 
 [upgrade]
-id=57
+id=67
 requires_offense=12
 requires_point=true
 
 [upgrade]
-id=58
+id=68
 requires_offense=16
 requires_point=true
 
 [upgrade]
-id=59
+id=69
 requires_offense=20
 requires_point=true
 
 
 # multi-shot
 [power]
-id=70
+id=80
 tab=1
 position=176,144
 requires_offense=2
 requires_point=true
-upgrades=71,72,73,74
+upgrades=81,82,83,84
 
 [upgrade]
-id=71
+id=81
 requires_offense=4
 requires_point=true
 
 [upgrade]
-id=72
+id=82
 requires_offense=6
 requires_point=true
 
 [upgrade]
-id=73
+id=83
 requires_offense=8
 requires_point=true
 
 [upgrade]
-id=74
+id=84
 requires_offense=10
 requires_point=true
 
 
 # ember shot
 [power]
-id=85
+id=95
 tab=1
 position=112,144
 requires_offense=2
 requires_point=true
-upgrades=86,87,88,89
+upgrades=96,97,98,99
 
 [upgrade]
-id=86
+id=96
 requires_offense=4
 requires_point=true
 
 [upgrade]
-id=87
+id=97
 requires_offense=6
 requires_point=true
 
 [upgrade]
-id=88
+id=98
 requires_offense=8
 requires_point=true
 
 [upgrade]
-id=89
+id=99
 requires_offense=10
 requires_point=true
 
 
 # caltrops
 [power]
-id=90
+id=100
 tab=1
 position=240,144
 requires_defense=2
 requires_point=true
-upgrades=91,92,93,94
+upgrades=101,102,103,104
 
 [upgrade]
-id=91
+id=101
 requires_defense=4
 requires_point=true
 
 [upgrade]
-id=92
+id=102
 requires_defense=6
 requires_point=true
 
 [upgrade]
-id=93
+id=103
 requires_defense=8
 requires_point=true
 
 [upgrade]
-id=94
+id=104
 requires_defense=10
 requires_point=true
 
 
 # bear trap
 [power]
-id=95
+id=105
 tab=1
 position=240,208
 requires_offense=2
 requires_defense=2
 requires_point=true
 requires_power=45
-upgrades=96,97,98,99
+upgrades=106,107,108,109
 
 [upgrade]
-id=96
+id=106
 requires_offense=4
 requires_defense=4
 requires_point=true
 
 [upgrade]
-id=97
+id=107
 requires_offense=6
 requires_defense=6
 requires_point=true
 
 [upgrade]
-id=98
+id=108
 requires_offense=8
 requires_defense=8
 requires_point=true
 
 [upgrade]
-id=99
+id=109
 requires_offense=10
 requires_defense=10
 requires_point=true
 
+# wolf's eye
+[power]
+id=111
+tab=1
+position=48,336
+requires_point=true
+upgrades=112,113,114,115
+
+[upgrade]
+id=112
+requires_point=true
+
+[upgrade]
+id=113
+requires_point=true
+
+[upgrade]
+id=114
+requires_point=true
+
+[upgrade]
+id=115
+requires_point=true
 
 
-#### Wizard Tab ################################################################
-## channel
-#[power]
-#id=2
-#tab=2
-#position=48,80
-#requires_mental=1
-#upgrades=21
-#
-## greater channel
-#[upgrade]
-#id=21
-#requires_mental=2
-#requires_point=true
-#
-## shock
-#[power]
-#id=6
-#tab=2
-#position=112,144
-#requires_mental=2
-#requires_point=true
-#
-## thunderstrike
-#[power]
-#id=25
-#tab=2
-#position=176,144
-#requires_mental=2
-#requires_point=true
-#
-#
-## heal
-#[power]
-#id=7
-#tab=2
-#position=240,144
-#requires_mental=1
-#requires_defense=2
-#requires_point=true
-#
-## freeze
-#[power]
-#id=14
-#tab=2
-#position=112,208
-#requires_mental=3
-#requires_point=true
-#
-## quake
-#[power]
-#id=10
-#tab=2
-#position=176,208
-#requires_mental=3
-#requires_point=true
-#
-## shield
-#[power]
-#id=11
-#tab=2
-#position=240,208
-#requires_mental=2
-#requires_defense=2
-#requires_point=true
-#
-## burn
-#[power]
-#id=18
-#tab=2
-#position=112,272
-#requires_mental=4
-#requires_point=true
-#
-## teleport
-#[power]
-#id=15
-#tab=2
-#position=240,272
-#requires_mental=2
-#requires_defense=3
-#requires_point=true
-#
+
+#### Magician Tab ################################################################
+# channel
+[power]
+id=116
+tab=2
+position=48,80
+requires_mental=1
+
+
+# shield
+[power]
+id=117
+tab=2
+position=240,80
+requires_mental=1
+requires_defense=2
+requires_point=true
+upgrades=118,119,120,121
+
+[upgrade]
+id=118
+requires_mental=2
+requires_defense=4
+requires_point=true
+
+[upgrade]
+id=119
+requires_mental=3
+requires_defense=6
+requires_point=true
+
+[upgrade]
+id=120
+requires_mental=4
+requires_defense=8
+requires_point=true
+
+[upgrade]
+id=121
+requires_mental=5
+requires_defense=10
+requires_point=true
+
+
+# fireball
+[power]
+id=122
+tab=2
+position=112,144
+requires_mental=1
+requires_point=true
+upgrades=123,124,125,126
+
+[upgrade]
+id=123
+requires_mental=2
+requires_point=true
+
+[upgrade]
+id=124
+requires_mental=3
+requires_point=true
+
+[upgrade]
+id=125
+requires_mental=4
+requires_point=true
+
+[upgrade]
+id=126
+requires_mental=5
+requires_point=true
+
+
+# ice bolt
+[power]
+id=127
+tab=2
+position=176,144
+requires_mental=1
+requires_point=true
+upgrades=128,129,130,131
+
+[upgrade]
+id=128
+requires_mental=2
+requires_point=true
+
+[upgrade]
+id=129
+requires_mental=3
+requires_point=true
+
+[upgrade]
+id=130
+requires_mental=4
+requires_point=true
+
+[upgrade]
+id=131
+requires_mental=5
+requires_point=true
+
+
+# shock
+[power]
+id=132
+tab=2
+position=240,144
+requires_mental=1
+requires_point=true
+upgrades=133,134,135,136
+
+[upgrade]
+id=133
+requires_mental=2
+requires_point=true
+
+[upgrade]
+id=134
+requires_mental=3
+requires_point=true
+
+[upgrade]
+id=135
+requires_mental=4
+requires_point=true
+
+[upgrade]
+id=136
+requires_mental=5
+requires_point=true
+
+
+# burn
+[power]
+id=137
+tab=2
+position=112,208
+requires_mental=4
+requires_point=true
+upgrades=138,139,140,141
+
+[upgrade]
+id=138
+requires_mental=8
+requires_point=true
+
+[upgrade]
+id=139
+requires_mental=12
+requires_point=true
+
+[upgrade]
+id=140
+requires_mental=16
+requires_point=true
+
+[upgrade]
+id=141
+requires_mental=20
+requires_point=true
+
+
+# freeze
+[power]
+id=142
+tab=2
+position=176,208
+requires_mental=3
+requires_point=true
+upgrades=143,144,145,146
+
+[upgrade]
+id=143
+requires_mental=6
+requires_point=true
+
+[upgrade]
+id=144
+requires_mental=9
+requires_point=true
+
+[upgrade]
+id=145
+requires_mental=12
+requires_point=true
+
+[upgrade]
+id=146
+requires_mental=15
+requires_point=true
+
+
+# thunderstrike
+[power]
+id=147
+tab=2
+position=240,208
+requires_mental=2
+requires_point=true
+upgrades=148,149,150,151
+
+[upgrade]
+id=148
+requires_mental=4
+requires_point=true
+
+[upgrade]
+id=149
+requires_mental=6
+requires_point=true
+
+[upgrade]
+id=150
+requires_mental=8
+requires_point=true
+
+[upgrade]
+id=151
+requires_mental=10
+requires_point=true
+
+
+# energy flow
+[power]
+id=152
+tab=2
+position=48,336
+requires_point=true
+upgrades=153,154,155,156
+
+[upgrade]
+id=153
+requires_point=true
+
+[upgrade]
+id=154
+requires_point=true
+
+[upgrade]
+id=155
+requires_point=true
+
+[upgrade]
+id=156
+requires_point=true
+
