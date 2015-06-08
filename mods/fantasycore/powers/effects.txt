@@ -20,7 +20,7 @@ can_stack=false
 # Other effects
 [effect]
 id=bleeding
-type=damage
+type=damage_percent
 icon=25
 animation=animations/powers/spark_red_loop.txt
 can_stack=false
@@ -57,11 +57,11 @@ can_stack=false
 
 [effect]
 id=hp_restore
-type=hpot
+type=hpot_percent
 
 [effect]
 id=mp_restore
-type=mpot
+type=mpot_percent
 
 [effect]
 id=revive
