@@ -3,7 +3,6 @@ type=fixed
 icon=10
 description=Stun nearby enemies.
 new_state=cast
-requires_mp=2
 animation=animations/powers/quake.txt
 soundfx=soundfx/powers/quake.ogg
 use_hazard=true
@@ -13,7 +12,6 @@ radius=2.0
 floor=true
 starting_pos=source
 multitarget=true
-modifier_damage=multiply,50,0
 post_effect=stun,0,1s
-cooldown=1600ms
+cooldown=2s
 

@@ -1,5 +1,5 @@
 name=Throw Knife
-description=Throw a knife to deal 75% of melee weapon damage.
+description=Throw a knife to deal reduced melee weapon damage.
 type=missile
 icon=32
 new_state=swing
@@ -12,5 +12,5 @@ base_damage=melee
 lifespan=533ms
 radius=1.0
 speed=12
-modifier_damage=multiply,75,0
+cooldown=600ms
 

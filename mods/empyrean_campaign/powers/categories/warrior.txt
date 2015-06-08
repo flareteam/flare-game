@@ -27,36 +27,36 @@ aim_assist=true
 id=2
 INCLUDE powers/base/warrior/block.txt
 post_effect=reflect_chance,50,0
-post_effect=absorb_min,1,0
-post_effect=absorb_max,5,0
+post_effect=absorb_min,10,0
+post_effect=absorb_max,10,0
 
 [power]
 id=3
 INCLUDE powers/base/warrior/block.txt
 post_effect=reflect_chance,60,0
-post_effect=absorb_min,5,0
-post_effect=absorb_max,10,0
+post_effect=absorb_min,20,0
+post_effect=absorb_max,20,0
 
 [power]
 id=4
 INCLUDE powers/base/warrior/block.txt
 post_effect=reflect_chance,70,0
-post_effect=absorb_min,10,0
-post_effect=absorb_max,15,0
+post_effect=absorb_min,30,0
+post_effect=absorb_max,30,0
 
 [power]
 id=5
 INCLUDE powers/base/warrior/block.txt
 post_effect=reflect_chance,80,0
-post_effect=absorb_min,15,0
-post_effect=absorb_max,20,0
+post_effect=absorb_min,40,0
+post_effect=absorb_max,40,0
 
 [power]
 id=6
 INCLUDE powers/base/warrior/block.txt
 post_effect=reflect_chance,90,0
-post_effect=absorb_min,20,0
-post_effect=absorb_max,25,0
+post_effect=absorb_min,50,0
+post_effect=absorb_max,50,0
 
 
 
@@ -68,36 +68,31 @@ post_effect=absorb_max,25,0
 id=7
 INCLUDE powers/base/warrior/blood_strike.txt
 requires_mp=1
-post_effect=bleeding,2,10s
-cooldown=1s
+post_effect=bleeding,4,5s
 
 [power]
 id=8
 INCLUDE powers/base/warrior/blood_strike.txt
 requires_mp=2
-post_effect=bleeding,4,10s
-cooldown=800ms
+post_effect=bleeding,5,5s
 
 [power]
 id=9
 INCLUDE powers/base/warrior/blood_strike.txt
 requires_mp=3
-post_effect=bleeding,6,10s
-cooldown=600ms
+post_effect=bleeding,6,5s
 
 [power]
 id=10
 INCLUDE powers/base/warrior/blood_strike.txt
 requires_mp=4
-post_effect=bleeding,8,10s
-cooldown=400ms
+post_effect=bleeding,7,5s
 
 [power]
 id=11
 INCLUDE powers/base/warrior/blood_strike.txt
 requires_mp=5
-post_effect=bleeding,10,10s
-cooldown=200ms
+post_effect=bleeding,8,5s
 
 
 
@@ -109,31 +104,31 @@ cooldown=200ms
 id=12
 INCLUDE powers/base/warrior/warcry.txt
 requires_mp=2
-cooldown=45s
+cooldown=40s
 
 [power]
 id=13
 INCLUDE powers/base/warrior/warcry.txt
-requires_mp=4
-cooldown=40s
+requires_mp=3
+cooldown=35s
 
 [power]
 id=14
 INCLUDE powers/base/warrior/warcry.txt
-requires_mp=6
-cooldown=35s
+requires_mp=4
+cooldown=30s
 
 [power]
 id=15
 INCLUDE powers/base/warrior/warcry.txt
-requires_mp=8
-cooldown=30s
+requires_mp=5
+cooldown=25s
 
 [power]
 id=16
 INCLUDE powers/base/warrior/warcry.txt
-requires_mp=10
-cooldown=25s
+requires_mp=6
+cooldown=20s
 
 
 
@@ -145,31 +140,31 @@ cooldown=25s
 id=17
 INCLUDE powers/base/warrior/cleave.txt
 requires_mp=2
-modifier_damage=multiply,50,0
+modifier_damage=multiply,40,0
 
 [power]
 id=18
 INCLUDE powers/base/warrior/cleave.txt
-requires_mp=4
+requires_mp=3
 modifier_damage=multiply,60,0
 
 [power]
 id=19
 INCLUDE powers/base/warrior/cleave.txt
-requires_mp=6
-modifier_damage=multiply,70,0
+requires_mp=4
+modifier_damage=multiply,80,0
 
 [power]
 id=20
 INCLUDE powers/base/warrior/cleave.txt
-requires_mp=8
-modifier_damage=multiply,80,0
+requires_mp=5
+modifier_damage=multiply,100,0
 
 [power]
 id=21
 INCLUDE powers/base/warrior/cleave.txt
-requires_mp=10
-modifier_damage=multiply,90,0
+requires_mp=6
+modifier_damage=multiply,120,0
 
 
 
@@ -181,31 +176,31 @@ modifier_damage=multiply,90,0
 id=22
 INCLUDE powers/base/warrior/throw_knife.txt
 requires_mp=1
-cooldown=2s
+modifier_damage=multiply,40,0
 
 [power]
 id=23
 INCLUDE powers/base/warrior/throw_knife.txt
 requires_mp=2
-cooldown=1600ms
+modifier_damage=multiply,50,0
 
 [power]
 id=24
 INCLUDE powers/base/warrior/throw_knife.txt
 requires_mp=3
-cooldown=1200ms
+modifier_damage=multiply,60,0
 
 [power]
 id=25
 INCLUDE powers/base/warrior/throw_knife.txt
 requires_mp=4
-cooldown=800ms
+modifier_damage=multiply,70,0
 
 [power]
 id=26
 INCLUDE powers/base/warrior/throw_knife.txt
 requires_mp=5
-cooldown=400ms
+modifier_damage=multiply,80,0
 
 
 
@@ -217,31 +212,31 @@ cooldown=400ms
 id=27
 INCLUDE powers/base/warrior/throw_axe.txt
 requires_mp=2
-cooldown=2s
+modifier_damage=multiply,120,0
 
 [power]
 id=28
 INCLUDE powers/base/warrior/throw_axe.txt
-requires_mp=4
-cooldown=1600ms
+requires_mp=3
+modifier_damage=multiply,140,0
 
 [power]
 id=29
 INCLUDE powers/base/warrior/throw_axe.txt
-requires_mp=6
-cooldown=1200ms
+requires_mp=4
+modifier_damage=multiply,160,0
 
 [power]
 id=30
 INCLUDE powers/base/warrior/throw_axe.txt
-requires_mp=8
-cooldown=800ms
+requires_mp=5
+modifier_damage=multiply,180,0
 
 [power]
 id=31
 INCLUDE powers/base/warrior/throw_axe.txt
-requires_mp=10
-cooldown=400ms
+requires_mp=6
+modifier_damage=multiply,200,0
 
 
 
@@ -252,22 +247,32 @@ cooldown=400ms
 [power]
 id=32
 INCLUDE powers/base/warrior/quake.txt
+requires_mp=3
+modifier_damage=multiply,40,0
 
 [power]
 id=33
 INCLUDE powers/base/warrior/quake.txt
+requires_mp=4
+modifier_damage=multiply,60,0
 
 [power]
 id=34
 INCLUDE powers/base/warrior/quake.txt
+requires_mp=5
+modifier_damage=multiply,80,0
 
 [power]
 id=35
 INCLUDE powers/base/warrior/quake.txt
+requires_mp=6
+modifier_damage=multiply,100,0
 
 [power]
 id=36
 INCLUDE powers/base/warrior/quake.txt
+requires_mp=7
+modifier_damage=multiply,120,0
 
 
 

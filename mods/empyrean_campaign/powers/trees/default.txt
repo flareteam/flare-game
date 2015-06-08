@@ -19,98 +19,33 @@ position=48,80
 requires_physical=1
 
 
-# block
-[power]
-id=2
-tab=0
-position=240,80
-requires_defense=2
-requires_point=true
-upgrades=3,4,5,6
-
-[upgrade]
-id=3
-requires_defense=4
-requires_point=true
-
-[upgrade]
-id=4
-requires_defense=6
-requires_point=true
-
-[upgrade]
-id=5
-requires_defense=8
-requires_point=true
-
-[upgrade]
-id=6
-requires_defense=10
-requires_point=true
-
-
 # blood strike
 [power]
 id=7
 tab=0
 position=112,144
-requires_physical=2
+requires_physical=4
 requires_point=true
 upgrades=8,9,10,11
 
 [upgrade]
 id=8
-requires_physical=4
+requires_physical=16
 requires_point=true
 
 [upgrade]
 id=9
-requires_physical=6
+requires_physical=28
 requires_point=true
 
 [upgrade]
 id=10
-requires_physical=8
+requires_physical=40
 requires_point=true
 
 [upgrade]
 id=11
-requires_physical=10
-requires_point=true
-
-
-# war cry
-[power]
-id=12
-tab=0
-position=240,208
-requires_defense=2
-requires_physical=2
-requires_point=true
-upgrades=13,14,15,16
-
-[upgrade]
-id=13
-requires_defense=4
-requires_physical=4
-requires_point=true
-
-[upgrade]
-id=14
-requires_defense=6
-requires_physical=6
-requires_point=true
-
-[upgrade]
-id=15
-requires_defense=8
-requires_physical=8
-requires_point=true
-
-[upgrade]
-id=16
-requires_defense=10
-requires_physical=10
+requires_physical=52
 requires_point=true
 
 
@@ -119,28 +54,28 @@ requires_point=true
 id=17
 tab=0
 position=112,208
-requires_physical=3
+requires_physical=12
 requires_point=true
 upgrades=18,19,20,21
 
 [upgrade]
 id=18
-requires_physical=6
+requires_physical=24
 requires_point=true
 
 [upgrade]
 id=19
-requires_physical=9
+requires_physical=36
 requires_point=true
 
 [upgrade]
 id=20
-requires_physical=12
+requires_physical=48
 requires_point=true
 
 [upgrade]
 id=21
-requires_physical=15
+requires_physical=60
 requires_point=true
 
 
@@ -149,28 +84,28 @@ requires_point=true
 id=22
 tab=0
 position=176,144
-requires_physical=2
+requires_physical=8
 requires_point=true
 upgrades=23,24,25,26
 
 [upgrade]
 id=23
-requires_physical=6
+requires_physical=20
 requires_point=true
 
 [upgrade]
 id=24
-requires_physical=8
+requires_physical=32
 requires_point=true
 
 [upgrade]
 id=25
-requires_physical=10
+requires_physical=44
 requires_point=true
 
 [upgrade]
 id=26
-requires_physical=12
+requires_physical=56
 requires_point=true
 
 
@@ -179,29 +114,103 @@ requires_point=true
 id=27
 tab=0
 position=176,208
-requires_physical=3
-requires_power=26
+requires_physical=14
+requires_power=22
 requires_point=true
 upgrades=28,29,30,31
 
 [upgrade]
 id=28
-requires_physical=6
+requires_physical=26
+requires_power=23
 requires_point=true
 
 [upgrade]
 id=29
-requires_physical=9
+requires_physical=38
+requires_power=24
 requires_point=true
 
 [upgrade]
 id=30
-requires_physical=12
+requires_physical=50
+requires_power=25
 requires_point=true
 
 [upgrade]
 id=31
-requires_physical=15
+requires_physical=62
+requires_power=26
+requires_point=true
+
+
+# block
+[power]
+id=2
+tab=0
+position=240,80
+requires_defense=4
+requires_physical=2
+requires_point=true
+upgrades=3,4,5,6
+
+[upgrade]
+id=3
+requires_defense=12
+requires_physical=6
+requires_point=true
+
+[upgrade]
+id=4
+requires_defense=20
+requires_physical=10
+requires_point=true
+
+[upgrade]
+id=5
+requires_defense=28
+requires_physical=14
+requires_point=true
+
+[upgrade]
+id=6
+requires_defense=36
+requires_physical=18
+requires_point=true
+
+
+# war cry
+[power]
+id=12
+tab=0
+position=240,208
+requires_defense=8
+requires_physical=4
+requires_point=true
+upgrades=13,14,15,16
+
+[upgrade]
+id=13
+requires_defense=16
+requires_physical=8
+requires_point=true
+
+[upgrade]
+id=14
+requires_defense=24
+requires_physical=12
+requires_point=true
+
+[upgrade]
+id=15
+requires_defense=32
+requires_physical=16
+requires_point=true
+
+[upgrade]
+id=16
+requires_defense=40
+requires_physical=20
 requires_point=true
 
 
@@ -210,28 +219,33 @@ requires_point=true
 id=32
 tab=0
 position=240,272
-requires_physical=4
+requires_defense=8
+requires_physical=6
 requires_point=true
 upgrades=33,34,35,36
 
 [upgrade]
 id=33
-requires_physical=8
-requires_point=true
-
-[upgrade]
-id=34
+requires_defense=16
 requires_physical=12
 requires_point=true
 
 [upgrade]
+id=34
+requires_defense=24
+requires_physical=18
+requires_point=true
+
+[upgrade]
 id=35
-requires_physical=16
+requires_defense=32
+requires_physical=24
 requires_point=true
 
 [upgrade]
 id=36
-requires_physical=20
+requires_defense=40
+requires_physical=30
 requires_point=true
 
 
@@ -241,23 +255,28 @@ id=37
 tab=0
 position=48,336
 requires_point=true
+requires_level=2
 upgrades=38,39,40,41
 
 [upgrade]
 id=38
 requires_point=true
+requires_level=5
 
 [upgrade]
 id=39
 requires_point=true
+requires_level=8
 
 [upgrade]
 id=40
 requires_point=true
+requires_level=11
 
 [upgrade]
 id=41
 requires_point=true
+requires_level=14
 
 
 
