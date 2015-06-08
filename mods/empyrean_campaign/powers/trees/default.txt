@@ -295,28 +295,33 @@ requires_offense=1
 id=45
 tab=1
 position=240,80
-requires_defense=2
+requires_defense=4
+requires_offense=2
 requires_point=true
 upgrades=46,47,48,49
 
 [upgrade]
 id=46
-requires_defense=4
+requires_defense=12
+requires_offense=6
 requires_point=true
 
 [upgrade]
 id=47
-requires_defense=6
+requires_defense=20
+requires_offense=10
 requires_point=true
 
 [upgrade]
 id=48
-requires_defense=8
+requires_defense=28
+requires_offense=14
 requires_point=true
 
 [upgrade]
 id=49
-requires_defense=10
+requires_defense=36
+requires_offense=18
 requires_point=true
 
 
@@ -324,29 +329,59 @@ requires_point=true
 [power]
 id=50
 tab=1
-position=112,208
-requires_offense=3
+position=112,144
+requires_offense=4
 requires_point=true
 upgrades=51,52,53,54
 
 [upgrade]
 id=51
-requires_offense=6
+requires_offense=16
 requires_point=true
 
 [upgrade]
 id=52
-requires_offense=9
+requires_offense=28
 requires_point=true
 
 [upgrade]
 id=53
-requires_offense=12
+requires_offense=40
 requires_point=true
 
 [upgrade]
 id=54
-requires_offense=15
+requires_offense=52
+requires_point=true
+
+
+# multi-shot
+[power]
+id=80
+tab=1
+position=112,208
+requires_offense=12
+requires_point=true
+upgrades=81,82,83,84
+
+[upgrade]
+id=81
+requires_offense=24
+requires_point=true
+
+[upgrade]
+id=82
+requires_offense=36
+requires_point=true
+
+[upgrade]
+id=83
+requires_offense=48
+requires_point=true
+
+[upgrade]
+id=84
+requires_offense=60
 requires_point=true
 
 
@@ -355,58 +390,28 @@ requires_point=true
 id=65
 tab=1
 position=112,272
-requires_offense=4
+requires_offense=14
 requires_point=true
 upgrades=66,67,68,69
 
 [upgrade]
 id=66
-requires_offense=8
+requires_offense=26
 requires_point=true
 
 [upgrade]
 id=67
-requires_offense=12
+requires_offense=38
 requires_point=true
 
 [upgrade]
 id=68
-requires_offense=16
+requires_offense=50
 requires_point=true
 
 [upgrade]
 id=69
-requires_offense=20
-requires_point=true
-
-
-# multi-shot
-[power]
-id=80
-tab=1
-position=112,144
-requires_offense=2
-requires_point=true
-upgrades=81,82,83,84
-
-[upgrade]
-id=81
-requires_offense=4
-requires_point=true
-
-[upgrade]
-id=82
-requires_offense=6
-requires_point=true
-
-[upgrade]
-id=83
-requires_offense=8
-requires_point=true
-
-[upgrade]
-id=84
-requires_offense=10
+requires_offense=62
 requires_point=true
 
 
@@ -415,28 +420,28 @@ requires_point=true
 id=95
 tab=1
 position=176,144
-requires_offense=2
+requires_offense=8
 requires_point=true
 upgrades=96,97,98,99
 
 [upgrade]
 id=96
-requires_offense=4
+requires_offense=20
 requires_point=true
 
 [upgrade]
 id=97
-requires_offense=6
+requires_offense=32
 requires_point=true
 
 [upgrade]
 id=98
-requires_offense=8
+requires_offense=44
 requires_point=true
 
 [upgrade]
 id=99
-requires_offense=10
+requires_offense=56
 requires_point=true
 
 
@@ -445,28 +450,33 @@ requires_point=true
 id=100
 tab=1
 position=240,144
+requires_offense=4
 requires_defense=2
 requires_point=true
 upgrades=101,102,103,104
 
 [upgrade]
 id=101
-requires_defense=4
-requires_point=true
-
-[upgrade]
-id=102
-requires_defense=6
-requires_point=true
-
-[upgrade]
-id=103
+requires_offense=12
 requires_defense=8
 requires_point=true
 
 [upgrade]
+id=102
+requires_offense=20
+requires_defense=14
+requires_point=true
+
+[upgrade]
+id=103
+requires_offense=28
+requires_defense=20
+requires_point=true
+
+[upgrade]
 id=104
-requires_defense=10
+requires_offense=36
+requires_defense=26
 requires_point=true
 
 
@@ -475,35 +485,39 @@ requires_point=true
 id=105
 tab=1
 position=240,208
-requires_offense=2
-requires_defense=2
+requires_offense=12
+requires_defense=6
 requires_point=true
-requires_power=45
+requires_power=100
 upgrades=106,107,108,109
 
 [upgrade]
 id=106
-requires_offense=4
-requires_defense=4
+requires_offense=20
+requires_defense=12
 requires_point=true
+requires_power=101
 
 [upgrade]
 id=107
-requires_offense=6
-requires_defense=6
+requires_offense=28
+requires_defense=18
 requires_point=true
+requires_power=102
 
 [upgrade]
 id=108
-requires_offense=8
-requires_defense=8
+requires_offense=36
+requires_defense=24
 requires_point=true
+requires_power=103
 
 [upgrade]
 id=109
-requires_offense=10
-requires_defense=10
+requires_offense=44
+requires_defense=30
 requires_point=true
+requires_power=104
 
 # wolf's eye
 [power]
@@ -511,23 +525,28 @@ id=111
 tab=1
 position=48,336
 requires_point=true
+requires_level=2
 upgrades=112,113,114,115
 
 [upgrade]
 id=112
 requires_point=true
+requires_level=5
 
 [upgrade]
 id=113
 requires_point=true
+requires_level=8
 
 [upgrade]
 id=114
 requires_point=true
+requires_level=11
 
 [upgrade]
 id=115
 requires_point=true
+requires_level=14
 
 
 

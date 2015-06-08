@@ -27,31 +27,31 @@ INCLUDE powers/base/ranger/ammo_arrow.txt
 id=45
 INCLUDE powers/base/ranger/haste.txt
 post_effect=haste,110,10s
-requires_mp=1
+requires_mp=2
 
 [power]
 id=46
 INCLUDE powers/base/ranger/haste.txt
 post_effect=haste,120,10s
-requires_mp=2
+requires_mp=3
 
 [power]
 id=47
 INCLUDE powers/base/ranger/haste.txt
 post_effect=haste,130,10s
-requires_mp=3
+requires_mp=4
 
 [power]
 id=48
 INCLUDE powers/base/ranger/haste.txt
 post_effect=haste,140,10s
-requires_mp=4
+requires_mp=5
 
 [power]
 id=49
 INCLUDE powers/base/ranger/haste.txt
 post_effect=haste,150,10s
-requires_mp=5
+requires_mp=6
 
 
 
@@ -305,36 +305,31 @@ INCLUDE powers/base/ranger/ammo_arrow.txt
 [power]
 id=95
 INCLUDE powers/base/ranger/ember_shot.txt
-requires_mp=1
-cooldown=1s
+requires_mp=2
 count=10
 
 [power]
 id=96
 INCLUDE powers/base/ranger/ember_shot.txt
-requires_mp=2
-cooldown=1s
+requires_mp=3
 count=15
 
 [power]
 id=97
 INCLUDE powers/base/ranger/ember_shot.txt
-requires_mp=3
-cooldown=750ms
+requires_mp=4
 count=20
 
 [power]
 id=98
 INCLUDE powers/base/ranger/ember_shot.txt
-requires_mp=4
-cooldown=750ms
+requires_mp=5
 count=25
 
 [power]
 id=99
 INCLUDE powers/base/ranger/ember_shot.txt
-requires_mp=5
-cooldown=500ms
+requires_mp=6
 count=30
 
 
@@ -346,31 +341,31 @@ count=30
 [power]
 id=100
 INCLUDE powers/base/ranger/caltrops.txt
-requires_mp=1
+requires_mp=2
 cooldown=10s
 
 [power]
 id=101
 INCLUDE powers/base/ranger/caltrops.txt
-requires_mp=2
+requires_mp=3
 cooldown=8s
 
 [power]
 id=102
 INCLUDE powers/base/ranger/caltrops.txt
-requires_mp=3
+requires_mp=4
 cooldown=6s
 
 [power]
 id=103
 INCLUDE powers/base/ranger/caltrops.txt
-requires_mp=4
+requires_mp=5
 cooldown=4s
 
 [power]
 id=104
 INCLUDE powers/base/ranger/caltrops.txt
-requires_mp=5
+requires_mp=6
 cooldown=2s
 
 
@@ -382,7 +377,7 @@ cooldown=2s
 [power]
 id=105
 INCLUDE powers/base/ranger/bear_trap.txt
-requires_mp=2
+requires_mp=3
 cooldown=10s
 
 [power]
@@ -394,19 +389,19 @@ cooldown=8s
 [power]
 id=107
 INCLUDE powers/base/ranger/bear_trap.txt
-requires_mp=6
+requires_mp=5
 cooldown=6s
 
 [power]
 id=108
 INCLUDE powers/base/ranger/bear_trap.txt
-requires_mp=8
+requires_mp=6
 cooldown=4s
 
 [power]
 id=109
 INCLUDE powers/base/ranger/bear_trap.txt
-requires_mp=10
+requires_mp=7
 cooldown=2s
 
 
