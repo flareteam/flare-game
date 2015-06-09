@@ -1,0 +1,20 @@
+# Potions #############################
+
+[item]
+id=2
+name=Health Potion
+INCLUDE items/base/potion/hp.txt
+power=100
+power_desc=Restore 50% of maximum HP
+price=25
+max_quantity=10
+
+[item]
+id=3
+name=Mana Potion
+INCLUDE items/base/potion/mp.txt
+power=101
+power_desc=Restore 50% of maximum MP
+price=25
+max_quantity=10
+
