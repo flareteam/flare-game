@@ -1,21 +1,13 @@
+INCLUDE enemies/base/necromancer.txt
+
 name=Apprentice Necromancer
 level=10
 categories=necromancer_apprentice,human,undead
 xp=1000
 
-sfx_phys=soundfx/melee_attack.ogg
-sfx_hit=soundfx/male_hit.ogg
-sfx_die=soundfx/male_die.ogg
-sfx_critdie=soundfx/male_die.ogg
-
-animations=animations/enemies/necromancer.txt
-
-
 # combat stats
 hp=225
 speed=3
-melee_range=1.1875
-threat_range=8.0
 turn_delay=200ms
 chance_pursue=30
 chance_melee_phys=5
@@ -24,7 +16,6 @@ chance_ranged_phys=0
 chance_ranged_ment=15
 power_melee_phys=1
 power_ranged_ment=128
-power_beacon=132
 
 accuracy=96
 avoidance=49

@@ -1,14 +1,9 @@
+INCLUDE enemies/base/grisbon.txt
+
 name=Grisbon
 level=11
 xp=2000
 categories=grisbon
-
-sfx_phys=soundfx/melee_attack.ogg
-sfx_hit=soundfx/male_hit.ogg
-sfx_die=soundfx/male_die.ogg
-sfx_critdie=soundfx/male_die.ogg
-
-animations=animations/enemies/grisbon.txt
 
 quest_loot=lb_wind_unlocked,lb_wind_key,9103
 defeat_status=lb_wind_defeated
@@ -16,8 +11,6 @@ defeat_status=lb_wind_defeated
 # combat stats
 hp=350
 speed=6
-melee_range=1.1875
-threat_range=8.0
 turn_delay=166ms
 chance_pursue=60
 chance_melee_phys=15
@@ -26,7 +19,6 @@ chance_ranged_phys=0
 chance_ranged_ment=5
 power_melee_phys=5
 power_ranged_ment=6
-power_beacon=132
 
 accuracy=96
 avoidance=49

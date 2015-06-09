@@ -1,16 +1,9 @@
+INCLUDE enemies/base/zombie.txt
+
 name=The Warden
 level=5
 xp=75
 categories=the_warden
-
-sfx_phys=soundfx/enemies/zombie_phys.ogg
-sfx_ment=soundfx/enemies/zombie_ment.ogg
-sfx_hit=soundfx/enemies/zombie_hit.ogg
-sfx_die=soundfx/enemies/zombie_die.ogg
-sfx_critdie=soundfx/enemies/zombie_critdie.ogg
-
-animations=animations/enemies/zombie.txt
-
 
 # averguard key
 quest_loot=ak_tome_reward,ak_key_found,9001
@@ -18,7 +11,6 @@ quest_loot=ak_tome_reward,ak_key_found,9001
 # combat stats
 hp=280
 speed=3.5
-melee_range=1.125
 threat_range=10.0
 turn_delay=400ms
 chance_pursue=25

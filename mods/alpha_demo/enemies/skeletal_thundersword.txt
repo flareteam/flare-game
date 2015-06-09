@@ -1,22 +1,13 @@
+INCLUDE enemies/base/skeleton.txt
+
 name=Skeletal Thundersword
 level=10
 xp=1000
 categories=skeletal_thundersword
 
-sfx_phys=soundfx/enemies/skeleton_phys.ogg
-sfx_ment=soundfx/enemies/skeleton_ment.ogg
-sfx_hit=soundfx/enemies/skeleton_hit.ogg
-sfx_die=soundfx/enemies/skeleton_die.ogg
-sfx_critdie=soundfx/enemies/skeleton_critdie.ogg
-
-animations=animations/enemies/skeleton.txt
-
-
 # combat stats
 hp=275
 speed=6.5
-melee_range=1.1875
-threat_range=8.0
 turn_delay=133ms
 
 chance_pursue=45
@@ -30,8 +21,6 @@ power_melee_phys=5
 power_melee_ment=39
 #shock
 power_ranged_ment=48
-
-power_beacon=132
 
 accuracy=90
 avoidance=45

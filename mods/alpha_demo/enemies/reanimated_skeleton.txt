@@ -1,30 +1,21 @@
+INCLUDE enemies/base/skeleton_weak.txt
+
 name=Reanimated Skeleton
 humanoid=true
 level=2
 xp=10
 categories=reanimated_skeleton
 
-sfx_phys=soundfx/enemies/skeleton_phys.ogg
-sfx_ment=soundfx/enemies/skeleton_ment.ogg
-sfx_hit=soundfx/enemies/skeleton_hit.ogg
-sfx_die=soundfx/enemies/skeleton_die.ogg
-sfx_critdie=soundfx/enemies/skeleton_critdie.ogg
-
-animations=animations/enemies/skeleton_weak.txt
-
 defeat_status=ml_skeleton_defeated
-
 
 # combat stats
 hp=120
 speed=4.5
-melee_range=1.125
 threat_range=8.0
 turn_delay=233ms
 chance_pursue=25
 chance_melee_phys=15
 power_melee_phys=1
-power_beacon=132
 
 accuracy=75
 avoidance=25

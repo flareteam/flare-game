@@ -1,14 +1,9 @@
+INCLUDE enemies/base/scathelocke.txt
+
 name=Scathelocke
 level=11
 xp=2000
 categories=scathelocke
-
-sfx_phys=soundfx/melee_attack.ogg
-sfx_hit=soundfx/male_hit.ogg
-sfx_die=soundfx/male_die.ogg
-sfx_critdie=soundfx/male_die.ogg
-
-animations=animations/enemies/scathelocke.txt
 
 quest_loot=lb_ice_unlocked,lb_ice_key,9101
 defeat_status=lb_ice_defeated
@@ -16,8 +11,6 @@ defeat_status=lb_ice_defeated
 # combat stats
 hp=300
 speed=6
-melee_range=1.1875
-threat_range=8.0
 turn_delay=166ms
 chance_pursue=30
 chance_melee_phys=5
@@ -27,7 +20,6 @@ chance_ranged_ment=15
 #chill touch
 power_melee_phys=38
 power_ranged_ment=30
-power_beacon=132
 
 accuracy=96
 avoidance=49

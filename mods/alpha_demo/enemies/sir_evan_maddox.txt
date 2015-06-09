@@ -1,23 +1,15 @@
+INCLUDE enemies/base/skeleton.txt
+
 name=Sir Evan Maddox
 level=7
 xp=500
 categories=sir_evan_maddox
-
-sfx_phys=soundfx/enemies/skeleton_phys.ogg
-sfx_ment=soundfx/enemies/skeleton_ment.ogg
-sfx_hit=soundfx/enemies/skeleton_hit.ogg
-sfx_die=soundfx/enemies/skeleton_die.ogg
-sfx_critdie=soundfx/enemies/skeleton_critdie.ogg
-
-animations=animations/enemies/skeleton.txt
-
 
 defeat_status=ak_maddox_defeated
 
 # combat stats
 hp=225
 speed=6.5
-melee_range=1.1875
 threat_range=10.0
 turn_delay=133ms
 chance_pursue=25

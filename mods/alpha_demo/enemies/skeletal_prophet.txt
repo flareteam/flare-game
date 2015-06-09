@@ -1,22 +1,13 @@
+INCLUDE enemies/base/skeleton_mage.txt
+
 name=Skeletal Prophet
 level=9
 xp=500
 categories=skeletal_prophet
 
-sfx_phys=soundfx/enemies/skeleton_phys.ogg
-sfx_ment=soundfx/enemies/skeleton_ment.ogg
-sfx_hit=soundfx/enemies/skeleton_hit.ogg
-sfx_die=soundfx/enemies/skeleton_die.ogg
-sfx_critdie=soundfx/enemies/skeleton_critdie.ogg
-
-animations=animations/enemies/skeleton_mage.txt
-
-
 # combat stats
 hp=250
 speed=3.5
-melee_range=1.1875
-threat_range=8.0
 turn_delay=200ms
 
 chance_pursue=15
@@ -27,7 +18,6 @@ chance_ranged_ment=10
 power_melee_phys=1
 power_ranged_phys=19
 power_ranged_ment=30
-power_beacon=132
 
 accuracy=87
 avoidance=37

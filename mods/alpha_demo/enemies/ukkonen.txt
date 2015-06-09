@@ -1,24 +1,15 @@
+INCLUDE enemies/base/goblin_elite_runner.txt
+
 name=Ukkonen, Goblin Chieftain
 level=4
 xp=40
 categories=ukkonen
 
-sfx_phys=soundfx/enemies/goblin_phys.ogg
-sfx_ment=soundfx/enemies/goblin_ment.ogg
-sfx_hit=soundfx/enemies/goblin_hit.ogg
-sfx_die=soundfx/enemies/goblin_die.ogg
-sfx_critdie=soundfx/enemies/goblin_critdie.ogg
-
-animations=animations/enemies/goblin_elite_runner.txt
-
 defeat_status=ak_ukkonen_defeated
-
 
 # combat stats
 hp=180
 speed=6.5
-melee_range=1.1875
-threat_range=8.0
 turn_delay=133ms
 chance_pursue=30
 chance_melee_phys=20

@@ -1,16 +1,9 @@
+INCLUDE enemies/base/skeleton_mage.txt
+
 name=Professor Langlier
 level=6
 xp=200
 categories=professor_langlier
-
-sfx_phys=soundfx/enemies/skeleton_phys.ogg
-sfx_ment=soundfx/enemies/skeleton_ment.ogg
-sfx_hit=soundfx/enemies/skeleton_hit.ogg
-sfx_die=soundfx/enemies/skeleton_die.ogg
-sfx_critdie=soundfx/enemies/skeleton_critdie.ogg
-
-animations=animations/enemies/skeleton_mage.txt
-
 
 # langlier's talisman
 quest_loot=ak_tome_reward,ak_talisman_found,9002
@@ -18,13 +11,9 @@ quest_loot=ak_tome_reward,ak_talisman_found,9002
 # combat stats
 hp=200
 speed=3.5
-melee_range=1.1875
-threat_range=8.0
 turn_delay=200ms
 chance_pursue=15
 chance_melee_phys=5
-chance_melee_ment=0
-chance_ranged_phys=0
 chance_ranged_ment=4
 
 power_melee_phys=1
