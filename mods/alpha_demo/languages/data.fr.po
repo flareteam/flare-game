@@ -1,206 +1,524 @@
 # Copyright (C) 2011 Clint Bellanger
 # This file is distributed under the same license as the FLARE package.
 #
-# Christoph J. Thompson <cjsthmpson@gmail.com>, 2013.
-# Morgan 'Nubux' Strauss <strauss.morgan@gmail.com>, 2012.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-20 19:49+\n"
-"PO-Revision-Date: 2012-10-15 :MI+ZONE\n"
+"POT-Creation-Date: 2015-06-10 07:45+\n"
+"PO-Revision-Date: 2012-10-15 HO:MI+ZONE\n"
 "Last-Translator: Nubux <strauss.morgan@gmail.com>\n"
-"Language-Team:\n"
-"Language: french\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../items/items.txt:4
-msgid "main"
-msgstr "1ere main"
+#: ../items/items.txt:8
+#: ../engine/loot.txt:19
+msgid "Gold"
+msgstr "Or"
 
-#: ../items/items.txt:5
-msgid "Lightning Rod"
-msgstr "Canne de foudre"
-
-#: ../items/items.txt:11
-msgid "crit"
-msgstr "critique"
-
-#: ../items/items.txt:17
-msgid "Use: Shock"
-msgstr "Utilise: Décharge"
-
-#: ../items/items.txt:21
-msgid "Boots of Testing Really Large Maps"
-msgstr "Bottes de testage de maps très grandes"
-
-#: ../items/items.txt:25
-msgid "feet"
-msgstr "pieds"
-
-#: ../items/items.txt:29
-msgid "speed"
-msgstr "vitesse"
-
-#: ../items/items.txt:31
-msgid "Use: Teleport"
-msgstr "Utilise: Téléportation"
-
-#: ../items/items.txt:35
-msgid "Adamantium Ring of Mutant Healing"
-msgstr "Anneau de Soin Mutant en Adamantium"
-
-#: ../items/items.txt:38
-msgid "ring"
-msgstr "anneau"
-
-#: ../items/items.txt:41
-msgid "HP regen"
-msgstr "Régénération de PV"
-
+#: ../items/items.txt:68
 #: ../items/items.txt:47
 msgid "Averguard Tome"
 msgstr "Tome d'Averguard"
 
+#: ../items/items.txt:70
 #: ../items/items.txt:49
 msgid "This tome bears the seal of the Averguard"
 msgstr "Ce tome porte le sceau d'Averguard"
 
-#: ../items/items.txt:50
-msgid "quest"
-msgstr "quête"
-
+#: ../items/items.txt:76
 #: ../items/items.txt:57
 msgid "Averguard Key"
 msgstr "Clé d'Averguard"
 
+#: ../items/items.txt:78
 #: ../items/items.txt:59
 msgid "Opens special doors in Averguard Keep"
 msgstr "Ouvre des portes spéciales dans Fort Averguard"
 
+#: ../items/items.txt:84
 #: ../items/items.txt:67
 msgid "Langlier's Talisman"
 msgstr "L'amulette du pr.Langlier"
 
+#: ../items/items.txt:86
 #: ../items/items.txt:70
 msgid "Etched runes surround this talisman"
 msgstr "Cette amulette est entourée de runes gravées"
 
+#: ../items/items.txt:94
 #: ../items/items.txt:80
 msgid "Scathelocke's Spellbook"
 msgstr "Grimmoire de Scathelocke"
 
-#: ../items/items.txt:83
-msgid "artifact"
-msgstr "artefact"
-
-#: ../items/items.txt:86
-msgid "mental"
-msgstr "mental"
-
+#: ../items/items.txt:103
 #: ../items/items.txt:91
 msgid "Scathelocke's Key"
 msgstr "La clé de Scathelocke"
 
+#: ../items/items.txt:105
 #: ../items/items.txt:93
 msgid "Opens Scathelocke's Runed Chest"
 msgstr "Ouvre le coffre orné de runes de Scathelocke"
 
+#: ../items/items.txt:111
 #: ../items/items.txt:101
 msgid "Vesuvvio's Key"
 msgstr "La clé de Vesuvvio"
 
+#: ../items/items.txt:113
 #: ../items/items.txt:103
 msgid "Opens Vesuvvio's Runed Chest"
 msgstr "Ouvre le coffre orné de runes de Vesuvvio"
 
+#: ../items/items.txt:119
 #: ../items/items.txt:111
 msgid "Grisbon's Key"
 msgstr "La clé de Grisbon"
 
+#: ../items/items.txt:121
 #: ../items/items.txt:113
 msgid "Opens Grisbon's Runed Chest"
 msgstr "Ouvre le coffre orné de runes de Grisbon"
 
+#: ../items/sets.txt:3
+msgid "Sage's Wardrobe"
+msgstr ""
+
+#: ../engine/elements.txt:3
+#: ../engine/elements.txt:4
+msgid "Fire Resistance"
+msgstr "résist. au feu"
+
+#: ../engine/elements.txt:7
+#: ../engine/elements.txt:8
+msgid "Ice Resistance"
+msgstr "résist. à la glace"
+
+#: ../engine/classes.txt:6
+msgid "Brute"
+msgstr "Brute"
+
+#: ../engine/classes.txt:7
+msgid "Brutes rely on physical strength and melee weapons to strike down foes. Primary attribute: Physical"
+msgstr ""
+"Les brutes comptent sur la force physique et les armes de corps-à-corps pour "
+"terrasser les enemis. Attribut principal : Physique"
+
+#: ../engine/classes.txt:15
+msgid "Adept"
+msgstr "Adepte"
+
+#: ../engine/classes.txt:16
+msgid "Adepts have natural abilities in casting magical spells. Primary attribute: Mental"
+msgstr ""
+"Les adeptes ont des aptitudes naturelles pour lancer des sorts. Attribut "
+"principal : Mental"
+
+#: ../engine/classes.txt:25
+msgid "Scout"
+msgstr "Scout"
+
+#: ../engine/classes.txt:26
+msgid "Scouts specialize in range weaponry and combat accuracy. Primary attribute: Offense"
+msgstr ""
+"Les scouts se spécialisent dans les armes à distance et la précision au "
+"combat. Attribut principal : Attaque"
+
+#: ../engine/classes.txt:35
+msgid "Keeper"
+msgstr "Gardien"
+
+#: ../engine/classes.txt:36
+msgid "Keepers focus on defensive powers for survival. Primary attribute: Defense"
+msgstr ""
+"Les gardiens se concentrent sur les pouvoirs défensifs pour leur survie. "
+"Attribut principal : Défense"
+
+#: ../engine/classes.txt:44
+msgid "Wanderer"
+msgstr "Vagabond"
+
+#: ../engine/classes.txt:45
+msgid "Wanderers choose their own paths. Primary attribute: custom"
+msgstr ""
+"Les vagabonds choisissent leur propre chemin. Attribut principal : au choix"
+
+#: ../engine/titles.txt:4
+msgid "Grand Master"
+msgstr ""
+
+#: ../engine/titles.txt:9
+msgid "Master"
+msgstr ""
+
+#: ../engine/titles.txt:15
+msgid "Warlord"
+msgstr ""
+
+#: ../engine/titles.txt:20
+msgid "Archwizard"
+msgstr ""
+
+#: ../engine/titles.txt:25
+msgid "Sniper"
+msgstr ""
+
+#: ../engine/titles.txt:30
+msgid "Templar"
+msgstr ""
+
+#: ../engine/titles.txt:36
+msgid "Assassin"
+msgstr "Assassin"
+
+#: ../engine/titles.txt:41
+msgid "Lord"
+msgstr ""
+
+#: ../engine/titles.txt:46
+msgid "Tempest"
+msgstr ""
+
+#: ../engine/titles.txt:51
+msgid "High Priest"
+msgstr ""
+
+#: ../engine/titles.txt:56
+msgid "Battle Archmage"
+msgstr ""
+
+#: ../engine/titles.txt:61
+msgid "High Warden"
+msgstr ""
+
+#: ../engine/titles.txt:65
+msgid "Hero"
+msgstr ""
+
+#: ../engine/titles.txt:71
+#: ../menus/powers.txt:16
+msgid "Warrior"
+msgstr "Guerrier"
+
+#: ../engine/titles.txt:76
+#: ../menus/powers.txt:19
+msgid "Ranger"
+msgstr "Rôdeur"
+
+#: ../engine/titles.txt:81
+msgid "Wizard"
+msgstr ""
+
+#: ../engine/titles.txt:86
+msgid "Paladin"
+msgstr ""
+
+#: ../engine/titles.txt:92
+msgid "Rogue"
+msgstr ""
+
+#: ../engine/titles.txt:97
+msgid "Knight"
+msgstr ""
+
+#: ../engine/titles.txt:102
+msgid "Striker"
+msgstr ""
+
+#: ../engine/titles.txt:107
+msgid "Cleric"
+msgstr ""
+
+#: ../engine/titles.txt:112
+msgid "Battle Mage"
+msgstr ""
+
+#: ../engine/titles.txt:117
+msgid "Warden"
+msgstr ""
+
+#: ../engine/titles.txt:121
+msgid "Adventurer"
+msgstr ""
+
+#: ../engine/titles.txt:143
+msgid "Knave"
+msgstr ""
+
+#: ../engine/titles.txt:147
+msgid "Squire"
+msgstr ""
+
+#: ../engine/titles.txt:151
+msgid "Slinger"
+msgstr ""
+
+#: ../engine/titles.txt:155
+msgid "Shepherd"
+msgstr ""
+
+#: ../engine/titles.txt:159
+msgid "Sparkblade"
+msgstr ""
+
+#: ../engine/titles.txt:163
+msgid "Watch"
+msgstr ""
+
+#: ../enemies/antlion.txt:3
+#: ../enemies/antlion.txt:1
+msgid "Antlion"
+msgstr "Antlion"
+
+#: ../enemies/antlion_blinker.txt:3
+#: ../enemies/antlion_blinker.txt:1
+msgid "Antlion Blinker"
+msgstr "Antlion clignotant"
+
+#: ../enemies/antlion_burster.txt:3
+#: ../enemies/antlion_burster.txt:1
+msgid "Antlion Burster"
+msgstr "Antlion explosif"
+
+#: ../enemies/antlion_freezer.txt:3
+#: ../enemies/antlion_freezer.txt:1
+msgid "Antlion Freezer"
+msgstr "Antlion paralysant"
+
+#: ../enemies/antlion_hatchling.txt:3
+#: ../enemies/antlion_hatchling.txt:1
+msgid "Antlion Hatchling"
+msgstr "Antlion petit"
+
+#: ../enemies/antlion_slasher.txt:3
+#: ../enemies/antlion_slasher.txt:1
+msgid "Antlion Slasher"
+msgstr "Antlion tailladeur"
+
+#: ../enemies/antlion_spitter.txt:3
+#: ../enemies/antlion_spitter.txt:1
+msgid "Antlion Spitter"
+msgstr "Antlion cracheur"
+
+#: ../enemies/cursed_grave.txt:3
+#: ../enemies/cursed_grave.txt:1
+msgid "Cursed Grave"
+msgstr "Tombe maudite"
+
+#: ../enemies/goblin.txt:3
+#: ../enemies/goblin.txt:1
+msgid "Goblin"
+msgstr "Gobelin"
+
+#: ../enemies/goblin_charger.txt:3
+#: ../enemies/goblin_charger.txt:1
+msgid "Goblin Charger"
+msgstr "Gobelin fantassin"
+
+#: ../enemies/goblin_charger_elite.txt:3
+#: ../enemies/goblin_charger_elite.txt:1
+msgid "Goblin Charger Elite"
+msgstr "Gobelin fantassin d'élite"
+
+#: ../enemies/goblin_shaman.txt:3
+#: ../enemies/goblin_shaman.txt:1
+msgid "Goblin Shaman"
+msgstr "Gobelin chamane"
+
+#: ../enemies/goblin_spearman.txt:3
+#: ../enemies/goblin_spearman.txt:1
+msgid "Goblin Spearman"
+msgstr "Gobelin lancier"
+
+#: ../enemies/goblin_spearman_elite.txt:3
+#: ../enemies/goblin_spearman_elite.txt:1
+msgid "Goblin Spearman Elite"
+msgstr "Gobelin lancier d'élite"
+
+#: ../enemies/grisbon.txt:3
 #: ../enemies/grisbon.txt:1
 msgid "Grisbon"
 msgstr "Grisbon"
 
+#: ../enemies/krakatoa.txt:3
 #: ../enemies/krakatoa.txt:1
 msgid "Krakatoa, Antlion Burster"
 msgstr "Krakatoa, Antlion explosif"
 
+#: ../enemies/miner.txt:3
 #: ../enemies/miner.txt:1
 msgid "Miner"
 msgstr "Mineur"
 
+#: ../enemies/minotaur.txt:3
+#: ../enemies/minotaur.txt:1
+msgid "Minotaur"
+msgstr "Minotaure"
+
+#: ../enemies/necromancer_apprentice.txt:3
 #: ../enemies/necromancer_apprentice.txt:1
 msgid "Apprentice Necromancer"
 msgstr "Apprentis nécromancien"
 
+#: ../enemies/professor_langlier.txt:3
 #: ../enemies/professor_langlier.txt:1
 msgid "Professor Langlier"
 msgstr "Professeur Langlier"
 
+#: ../enemies/reanimated_skeleton.txt:3
 #: ../enemies/reanimated_skeleton.txt:1
 msgid "Reanimated Skeleton"
 msgstr "Squelette réanimé"
 
+#: ../enemies/rilrak.txt:3
 #: ../enemies/rilrak.txt:1
 msgid "Rilrak, Goblin Shaman"
 msgstr "Rilrak, chamane Gobelin"
 
+#: ../enemies/scathelocke.txt:3
 #: ../enemies/scathelocke.txt:1
 msgid "Scathelocke"
 msgstr "Scathelocke"
 
+#: ../enemies/sir_evan_maddox.txt:3
 #: ../enemies/sir_evan_maddox.txt:1
 msgid "Sir Evan Maddox"
 msgstr "Sire Evan Maddox"
 
+#: ../enemies/skeletal_archer.txt:3
+#: ../enemies/skeletal_archer.txt:1
+msgid "Skeletal Archer"
+msgstr "Squelette archer"
+
+#: ../enemies/skeletal_knight.txt:3
+#: ../enemies/skeletal_knight.txt:1
+msgid "Skeletal Knight"
+msgstr "Squelette chevalier"
+
+#: ../enemies/skeletal_mage.txt:3
+#: ../enemies/skeletal_mage.txt:1
+msgid "Skeletal Mage"
+msgstr "Squelette mage"
+
+#: ../enemies/skeletal_occultist.txt:3
+#: ../enemies/skeletal_occultist.txt:1
+msgid "Skeletal Occultist"
+msgstr "Squelette occultiste"
+
+#: ../enemies/skeletal_prophet.txt:3
 #: ../enemies/skeletal_prophet.txt:1
 msgid "Skeletal Prophet"
 msgstr "Squelette prophète"
 
+#: ../enemies/skeletal_sniper.txt:3
+#: ../enemies/skeletal_sniper.txt:1
+msgid "Skeletal Sniper"
+msgstr "Squelette sniper"
+
+#: ../enemies/skeletal_thundersword.txt:3
 #: ../enemies/skeletal_thundersword.txt:1
 msgid "Skeletal Thundersword"
 msgstr "Squelette Foudrépée"
 
+#: ../enemies/skeletal_warrior.txt:3
+#: ../enemies/skeletal_warrior.txt:1
+msgid "Skeletal Warrior"
+msgstr "Squelette guerrier"
+
+#: ../enemies/skeleton.txt:3
+#: ../enemies/skeleton.txt:1
+msgid "Skeleton"
+msgstr "Squelette"
+
+#: ../enemies/stealth.txt:1
+#: ../powers/powers.txt:1079
+msgid "Stealth"
+msgstr "Furtivité"
+
+#: ../enemies/the_warden.txt:3
 #: ../enemies/the_warden.txt:1
 msgid "The Warden"
 msgstr "Le Gardien"
 
+#: ../enemies/ukkonen.txt:3
 #: ../enemies/ukkonen.txt:1
 msgid "Ukkonen, Goblin Chieftain"
 msgstr "Ukkonen, Chef des Gobelins"
 
+#: ../enemies/vesuvvio.txt:3
 #: ../enemies/vesuvvio.txt:1
 msgid "Vesuvvio (the Destroyer)"
 msgstr "Vesuvvio (le Destructeur)"
 
+#: ../enemies/wyvern.txt:3
+#: ../enemies/wyvern.txt:1
+msgid "Venom Wyvern"
+msgstr "Vouivre vénéneuse"
+
+#: ../enemies/wyvern_adult.txt:3
+#: ../enemies/wyvern_adult.txt:1
+msgid "Adult Wyvern"
+msgstr "Vouivre adulte"
+
+#: ../enemies/zombie.txt:3
+#: ../enemies/zombie.txt:1
+msgid "Zombie"
+msgstr "Zombie"
+
+#: ../enemies/zombie_bloodthirsty.txt:3
+#: ../enemies/zombie_bloodthirsty.txt:1
+msgid "Bloodthirsty Zombie"
+msgstr "Zombie assoiffé de sang"
+
+#: ../enemies/zombie_brute.txt:3
+#: ../enemies/zombie_brute.txt:1
+msgid "Zombie Brute"
+msgstr "Zombie brute"
+
+#: ../enemies/zombie_iceclaw.txt:3
+#: ../enemies/zombie_iceclaw.txt:1
+msgid "Iceclaw Zombie"
+msgstr "Zombie glacegriffe"
+
+#: ../enemies/zombie_rotting.txt:3
+#: ../enemies/zombie_rotting.txt:1
+msgid "Rotting Zombie"
+msgstr "Zombie pourrissant"
+
+#: ../maps/ancient_temple.txt:9
 #: ../maps/ancient_temple.txt:8
 msgid "Ancient Temple"
 msgstr "Ancien temple"
 
+#: ../maps/ancient_temple.txt:447
 #: ../maps/ancient_temple.txt:445
 msgid "Treasure Chest"
 msgstr "Coffre aux trésors"
 
 # http://gallica.bnf.fr/ark:/12148/bpt6k1143463/f59.image
+#: ../maps/ancient_temple.txt:468
 #: ../maps/ancient_temple.txt:465
 msgid "Tho' Nature, red in tooth and claw; With ravine, shriek'd against his creed"
-msgstr "Alors que la Nature, aux crocs ensanglantés, élevait sa clameur contre cette croyance"
+msgstr ""
+"Alors que la Nature, aux crocs ensanglantés, élevait sa clameur contre cette "
+"croyance"
 
+#: ../maps/ancient_temple.txt:471
 #: ../maps/ancient_temple.txt:467
 msgid "In Memoriam"
 msgstr "In Memoriam"
 
+#: ../maps/ancient_temple.txt:618
 #: ../maps/ancient_temple.txt:612
 msgid "Ancient Temple waypoint discovered."
 msgstr "Portail pour l'Ancien temple découvert."
 
+#: ../maps/ancient_temple.txt:629
 #: ../maps/ancient_temple.txt:622
 msgid "Warp Zone"
 msgstr "Portail"
@@ -211,40 +529,57 @@ msgstr "L'académie d'Averguard"
 
 #: ../maps/averguard_academy.txt:345
 msgid "\"Some say the Averguard Academy is the greatest collection of knowledge within the empire.\""
-msgstr "\"On dit que l'académie d'Averguard est la plus grande collection de savoir à travers tout l'empire.\""
+msgstr ""
+"\"On dit que l'académie d'Averguard est la plus grande collection de savoir "
+"à travers tout l'empire.\""
 
+#: ../maps/averguard_academy.txt:348
 #: ../maps/averguard_academy.txt:347
 msgid "Book Stand"
 msgstr "Lutrin"
 
+#: ../maps/averguard_academy.txt:356
 #: ../maps/averguard_academy.txt:355
 msgid "\"Professor Langlier is High Sage of the Averguard.  Several volumes kept here are his own writings.\""
-msgstr "\"Le professeur Langlier est le Grand Sage d'Averguard. Plusieurs volumes dont il est l'auteur sont stockés ici.\""
+msgstr ""
+"\"Le professeur Langlier est le Grand Sage d'Averguard. Plusieurs volumes "
+"dont il est l'auteur sont stockés ici.\""
 
+#: ../maps/averguard_academy.txt:367
 #: ../maps/averguard_academy.txt:365
 msgid "\"The Academy is only open to oathkeeping members of the Averguard.  Few others know of its existence.\""
-msgstr "\"L'académie n'est ouverte qu'aux membres assermentés de l'Averguard. En dehors de ces derniers rares sont ceux qui connaissent son existence.\""
+msgstr ""
+"\"L'académie n'est ouverte qu'aux membres assermentés de l'Averguard. En "
+"dehors de ces derniers rares sont ceux qui connaissent son existence.\""
 
+#: ../maps/averguard_academy.txt:378
 #: ../maps/averguard_academy.txt:375
 msgid "\"The peasants could not be trusted with literacy.  Most gave up their books without incident.\""
-msgstr "\"Des paysans instruits ne sont pas dignes de confiance. La plupart ont abandonné leurs livres sans incident.\""
+msgstr ""
+"\"Des paysans instruits ne sont pas dignes de confiance. La plupart ont "
+"abandonné leurs livres sans incident.\""
 
+#: ../maps/averguard_academy.txt:390
 #: ../maps/averguard_academy.txt:386
 msgid "This false book has a secret compartment."
 msgstr "Ce faux livre a un compartiment secret."
 
+#: ../maps/averguard_academy.txt:406
 #: ../maps/averguard_academy.txt:399
 msgid "Barrel"
 msgstr "Tonneau"
 
+#: ../maps/averguard_academy.txt:450
 #: ../maps/averguard_academy.txt:437
 msgid "Crate"
 msgstr "Caisse"
 
+#: ../maps/averguard_academy.txt:478
 #: ../maps/averguard_academy.txt:462
 msgid "This tomb glows with magical runes."
 msgstr "Cette tombe porte des runes scintillantes."
 
+#: ../maps/averguard_academy.txt:488
 #: ../maps/averguard_academy.txt:470
 msgid "Langlier's Tomb"
 msgstr "La tombe de Langlier"
@@ -261,10 +596,14 @@ msgstr "Le portail de l'atrium d'Averguard est découvert"
 msgid "Averguard Complex"
 msgstr "Le complexe d'Averguard"
 
+#: ../maps/averguard_complex.txt:479
 #: ../maps/averguard_complex.txt:472
 msgid "This book is entitled \"Training Your Antlion\". Chapter 1 is \"How Not To Get Eaten\". The rest of the book is unfinished."
-msgstr "Ce livre s'intitule : \"Entrainez votre Antlion\". Le chapitre I est : \"Comment ne pas se faire dévorer\". Bizarrement, la suite n'a pas été écrite."
+msgstr ""
+"Ce livre s'intitule : \"Entrainez votre Antlion\". Le chapitre I est : \""
+"Comment ne pas se faire dévorer\". Bizarrement, la suite n'a pas été écrite."
 
+#: ../maps/averguard_complex.txt:606
 #: ../maps/averguard_complex.txt:586
 msgid "Switch System"
 msgstr "Levier"
@@ -273,129 +612,206 @@ msgstr "Levier"
 msgid "Averguard Prison"
 msgstr "La prison d'Averguard"
 
+#: ../maps/averguard_prison.txt:369
 #: ../maps/averguard_prison.txt:366
 msgid "Switch"
 msgstr "Levier"
 
+#: ../maps/averguard_prison.txt:377
 #: ../maps/averguard_prison.txt:374
 msgid "The last entry of this well-preserved journal reads: \"I feared it would come to this.  I knew the Warden's secrets but they would not be contained forever.\""
-msgstr "La dernière inscription de ce journal bien préservé dit: \" Je craignais que cela n'arriva. Je connaissais les secrets du Gardien de prison mais ils n'auraient jamais pu être gardés pour toujours.\""
+msgstr ""
+"La dernière inscription de ce journal bien préservé dit: \" Je craignais que "
+"cela n'arriva. Je connaissais les secrets du Gardien de prison mais ils "
+"n'auraient jamais pu être gardés pour toujours.\""
 
+#: ../maps/averguard_temple.txt:9
 #: ../maps/averguard_temple.txt:8
 msgid "Averguard Temple"
 msgstr "Le temple d'Averguard"
 
+#: ../maps/averguard_temple.txt:450
 #: ../maps/averguard_temple.txt:448
 msgid "You insert the Averguard Key. Runes glow around the door, then fade. The door is still sealed."
-msgstr "Vos insérez la clé d'Averguard. Les runes luisent autour de la porte, puis s'estompent. La porte est toujours scellée."
+msgstr ""
+"Vos insérez la clé d'Averguard. Les runes luisent autour de la porte, puis "
+"s'estompent. La porte est toujours scellée."
 
+#: ../maps/averguard_temple.txt:456
 #: ../maps/averguard_temple.txt:453
 msgid "Sealed Temple Door"
 msgstr "Porte du temple scellée"
 
+#: ../maps/averguard_temple.txt:464
 #: ../maps/averguard_temple.txt:460
 msgid "You read aloud the runes on Langlier's Talisman. The Avergard Key begins to glow!"
-msgstr "Vous lisez à voix haute les runes inscrites sur l'amulette de Langlier. La clé d'Averguard commence à luire !"
+msgstr ""
+"Vous lisez à voix haute les runes inscrites sur l'amulette de Langlier. La "
+"clé d'Averguard commence à luire !"
 
+#: ../maps/averguard_temple.txt:471
 #: ../maps/averguard_temple.txt:466
 msgid "Activate Talisman"
 msgstr "Activer l'amulette"
 
-#: ../maps/averguard_temple.txt:475
-msgid "Temple Door"
-msgstr "Porte du temple"
-
+#: ../maps/averguard_temple.txt:487
 #: ../maps/averguard_temple.txt:482
 msgid "\"Some said Sir Maddox cared too much for the peasants.  He would not quarantine, saying the villagers did not deserve to die locked away.\""
-msgstr "\"Certains disent que sire Maddox avait trop de compassion pour les paysans. Il aurait refusé la quarantaine, disant qu'il serait injuste que les villageois meurent enfermés.\""
+msgstr ""
+"\"Certains disent que sire Maddox avait trop de compassion pour les paysans. "
+"Il aurait refusé la quarantaine, disant qu'il serait injuste que les "
+"villageois meurent enfermés.\""
 
+#: ../maps/averguard_temple.txt:497
 #: ../maps/averguard_temple.txt:491
 msgid "\"Maddox died of the plague in 638.  After attempts to magically revive him failed he was sealed deep behind the temple.\""
-msgstr "\"Maddox mourut de la peste en 638. Après de vaines tentatives pour le ramener à la vie par la magie, on a scélé sa dépouille dans les profondeurs du temple.\""
+msgstr ""
+"\"Maddox mourut de la peste en 638. Après de vaines tentatives pour le "
+"ramener à la vie par la magie, on a scélé sa dépouille dans les profondeurs "
+"du temple.\""
 
+#: ../maps/averguard_temple.txt:507
 #: ../maps/averguard_temple.txt:500
 msgid "This chest is locked."
 msgstr "Ce coffre est fermé à clé."
 
+#: ../maps/averguard_temple.txt:526
 #: ../maps/averguard_temple.txt:517
 msgid "A plaque under the statue reads \"Sir Evan Maddox, may he return to rescue us all\""
-msgstr "Une plaque sous la statue porte l'inscription :\"Sire Evan Maddox, faites qu'il revienne nous sauver tous.\""
+msgstr ""
+"Une plaque sous la statue porte l'inscription :\"Sire Evan Maddox, faites "
+"qu'il revienne nous sauver tous.\""
 
+#: ../maps/averguard_temple.txt:533
 #: ../maps/averguard_temple.txt:523
 msgid "A ghastly voice reverberates from the next chamber.  \"What fool disturbs my tomb?!\""
-msgstr "Une voix terrifiante s'élève de la pièce voisine. \"Qui ose troubler mon repos ?\""
+msgstr ""
+"Une voix terrifiante s'élève de la pièce voisine. \"Qui ose troubler mon "
+"repos ?\""
 
+#: ../maps/averguard_temple.txt:541
 #: ../maps/averguard_temple.txt:530
 msgid "You wipe dust away from the tomb lid, revealing an inscription: \"Here lies Sir Evan Maddox\""
-msgstr "Vous essuyez la poussière sur le couvercle de la tombe, révélant une inscription: \" Ici repose sire Evan Maddox\""
+msgstr ""
+"Vous essuyez la poussière sur le couvercle de la tombe, révélant une "
+"inscription: \" Ici repose sire Evan Maddox\""
 
+#: ../maps/averguard_temple.txt:543
 #: ../maps/averguard_temple.txt:531
 msgid "Maddox's Tomb"
 msgstr "La tombe de sire Maddox"
+
+#: ../maps/averguard_temple.txt:562
+msgid "A locked gate is here, with a small keyhole in the center."
+msgstr ""
 
 #: ../maps/brothers_lair_atrium.txt:8
 msgid "Brothers' Lair Atrium"
 msgstr "Repaire des frères, l'atrium "
 
+#: ../maps/brothers_lair_atrium.txt:242
 #: ../maps/brothers_lair_atrium.txt:248
 msgid "Brothers Lair Atrium waypoint discovered"
 msgstr "Le portail de l'atrium du repaire des frères est découvert"
 
+#: ../maps/brothers_lair_fire_hall.txt:9
 #: ../maps/brothers_lair_fire_hall.txt:8
 msgid "Brothers' Lair Fire Hall"
 msgstr "Repaire des frères, Salle du feu"
 
+#: ../maps/brothers_lair_fire_hall.txt:352
 #: ../maps/brothers_lair_fire_hall.txt:346
 msgid "Runed Chest"
 msgstr "Coffre orné de runes"
 
+#: ../maps/brothers_lair_fire_hall.txt:372
 #: ../maps/brothers_lair_fire_hall.txt:366
 msgid "\"Today Pompeii got a little over-excited to meet me and blew himself up. So I had to go into the caves and catch myself a NEW antlion burster. Again. I think I'm going to name this one 'Krakatoa'. ~Vesuvvio (the Destroyer)\""
-msgstr "\"Aujourd'hui Pompeii était un peu trop impatient de me rejoindre et il s'est fait exploser. Donc j'ai dû descendre dans les caves afin de capturer moi même un nouvel Antlion explosif. Encore. Je pense que je nommerais celui-là 'Krakatoa'. ~Vesuvvio (le Destructeur)\""
+msgstr ""
+"\"Aujourd'hui Pompeii était un peu trop impatient de me rejoindre et il "
+"s'est fait exploser. Donc j'ai dû descendre dans les caves afin de capturer "
+"moi même un nouvel Antlion explosif. Encore. Je pense que je nommerais celui-"
+"là 'Krakatoa'. ~Vesuvvio (le Destructeur)\""
 
+#: ../maps/brothers_lair_ice_hall.txt:9
 #: ../maps/brothers_lair_ice_hall.txt:8
 msgid "Brothers' Lair Ice Hall"
 msgstr "Repaire des frères, Salle de la glace"
 
+#: ../maps/brothers_lair_ice_hall.txt:289
 #: ../maps/brothers_lair_ice_hall.txt:287
 msgid "Suspicious Bookcase"
 msgstr "Bibliothèque suspecte"
 
+#: ../maps/brothers_lair_ice_hall.txt:297
 #: ../maps/brothers_lair_ice_hall.txt:295
 msgid "\"When we could no longer stand the idiotic practices of our master, I hatched a plan to kill him. My brothers agreed the deed had to be done.\""
-msgstr "\"Comme nous ne supportions plus les pratiques idiotes de notre maître, j'ai élaboré un plan pour le tuer. Mes frères convinrent que cela devait être fait.\""
+msgstr ""
+"\"Comme nous ne supportions plus les pratiques idiotes de notre maître, j'ai "
+"élaboré un plan pour le tuer. Mes frères convinrent que cela devait être "
+"fait.\""
 
+#: ../maps/brothers_lair_ice_hall.txt:308
 #: ../maps/brothers_lair_ice_hall.txt:305
 msgid "\"In accordance with our plan, G. asked the old fool to teach him about the preparation of corpses in the later stages of decay. Naturally, the corpse in question was a cleverly disguised bomb made by V.\""
-msgstr "\"En accord avec notre plan, G. a demandé au vieux fou  de lui enseigner l'art de la préparation des corps en décomposition avancée. Naturellement, le corps en question abritait une bombe habilement dissimulée.\""
+msgstr ""
+"\"En accord avec notre plan, G. a demandé au vieux fou  de lui enseigner "
+"l'art de la préparation des corps en décomposition avancée. Naturellement, "
+"le corps en question abritait une bombe habilement dissimulée.\""
 
+#: ../maps/brothers_lair_ice_hall.txt:318
 #: ../maps/brothers_lair_ice_hall.txt:314
 msgid "\"My brothers and I wandered around for a few days. In an incredible stroke of luck, we encountered a master necromancer who, seeing the marks of banishment on our foreheads, took us as his apprentices.\""
-msgstr "\"Mes frères et moi avons erré plusieurs jours. Par un coup de chance extraordinaire nous avons rencontré un maître nécromancien qui, voyant les marques de banissement que nous portions au front, nous prit comme apprentis.\""
+msgstr ""
+"\"Mes frères et moi avons erré plusieurs jours. Par un coup de chance "
+"extraordinaire nous avons rencontré un maître nécromancien qui, voyant les "
+"marques de banissement que nous portions au front, nous prit comme apprentis."
+"\""
 
+#: ../maps/brothers_lair_ice_hall.txt:321
 #: ../maps/brothers_lair_ice_hall.txt:316
 msgid "Bookcase"
 msgstr "Bibliothèque"
 
+#: ../maps/brothers_lair_ice_hall.txt:329
 #: ../maps/brothers_lair_ice_hall.txt:324
 msgid "\"We grew swiftly under the tutelage of the necromancer. The more we learned, the more we realized we could do better than the short-sighted git.\""
-msgstr "\"Nous progressions rapidement sous la tutelle du nécromancien. Plus nous en apprenions, plus nous réalisions que nous pourrions faire mieux que ce vieux borné.\""
+msgstr ""
+"\"Nous progressions rapidement sous la tutelle du nécromancien. Plus nous en "
+"apprenions, plus nous réalisions que nous pourrions faire mieux que ce vieux "
+"borné.\""
 
+#: ../maps/brothers_lair_ice_hall.txt:340
 #: ../maps/brothers_lair_ice_hall.txt:334
 msgid "\"My brothers V. and G. used to go to a wizard's academy with me. We were top students until one day V. killed another student in a spontaneous fit of rage.\""
-msgstr "\"Mes frères V. et G. venaient avec moi à l'académie des mages. Nous étions d'excellents étudiants mais un jour V., dans un accès de rage, a tué un autre étudiant.\""
+msgstr ""
+"\"Mes frères V. et G. venaient avec moi à l'académie des mages. Nous étions "
+"d'excellents étudiants mais un jour V., dans un accès de rage, a tué un "
+"autre étudiant.\""
 
+#: ../maps/brothers_lair_ice_hall.txt:351
 #: ../maps/brothers_lair_ice_hall.txt:344
 msgid "\"Naturally, V. was expelled for his crime. It was foolish of us, but G. and I decided to defend our brother. We were expelled too. The wizards magically marked us with a sign of banishment on our foreheads so that no wizard would dare teach us.\""
-msgstr "\"Naturellement, V. a été exclu pour ce crime. C'était un peu idiot mais G. et moi avons décidé de défendre notre frère. Nous avons été exclus aussi. Les mages nous ont marqués du sceau de bannissement sur nos fronts afin qu'aucun mage n'ose nous enseigner quoi que ce soit.\""
+msgstr ""
+"\"Naturellement, V. a été exclu pour ce crime. C'était un peu idiot mais G. "
+"et moi avons décidé de défendre notre frère. Nous avons été exclus aussi. "
+"Les mages nous ont marqués du sceau de bannissement sur nos fronts afin "
+"qu'aucun mage n'ose nous enseigner quoi que ce soit.\""
 
+#: ../maps/brothers_lair_ice_hall.txt:362
 #: ../maps/brothers_lair_ice_hall.txt:354
 msgid "\"G. suggested that each of us should take one of the halls in the old necromancer's lair.\""
-msgstr "\"G. a suggéré que chacun de nous prenne une des salles du repaire du vieux nécromancien.\""
+msgstr ""
+"\"G. a suggéré que chacun de nous prenne une des salles du repaire du vieux "
+"nécromancien.\""
 
+#: ../maps/brothers_lair_ice_hall.txt:373
 #: ../maps/brothers_lair_ice_hall.txt:364
 msgid "\"It's days like today that make me wonder if I should go a step further and eliminate V. and G. too... they're getting on my nerves. ~Scathelocke\""
-msgstr "\"Ce sont des jours comme celui-ci qui me font me demander si je ne devrais pas franchir une nouvelle étape et me débarrasser de V. et G. aussi... Ils commencent à m'ennerver. ~Scathelocke\""
+msgstr ""
+"\"Ce sont des jours comme celui-ci qui me font me demander si je ne devrais "
+"pas franchir une nouvelle étape et me débarrasser de V. et G. aussi... Ils "
+"commencent à m'ennerver. ~Scathelocke\""
 
 #: ../maps/brothers_lair_sacrifice_room.txt:9
 msgid "Brothers' Sacrifice Room"
@@ -405,74 +821,101 @@ msgstr "La chambre de sacrifice des frères"
 msgid "Brothers' Lair Wind Hall"
 msgstr "Repère des frères, Salle des vents"
 
+#: ../maps/brothers_lair_wind_hall.txt:192
 #: ../maps/brothers_lair_wind_hall.txt:191
 msgid "Rising Wind Switch"
 msgstr "Vent: lever"
 
+#: ../maps/brothers_lair_wind_hall.txt:205
 #: ../maps/brothers_lair_wind_hall.txt:203
 msgid "Rising Fire Switch"
 msgstr "Feu: lever"
 
+#: ../maps/brothers_lair_wind_hall.txt:215
 #: ../maps/brothers_lair_wind_hall.txt:212
 msgid "Rising Ice Switch"
 msgstr "Glace: lever"
 
+#: ../maps/brothers_lair_wind_hall.txt:228
 #: ../maps/brothers_lair_wind_hall.txt:224
 msgid "Falling Ice Switch"
 msgstr "Glace: baisser"
 
+#: ../maps/brothers_lair_wind_hall.txt:238
 #: ../maps/brothers_lair_wind_hall.txt:233
 msgid "Falling Wind Switch"
 msgstr "Vent: baisser"
 
+#: ../maps/brothers_lair_wind_hall.txt:251
 #: ../maps/brothers_lair_wind_hall.txt:245
 msgid "Falling Fire Switch"
 msgstr "Feu: baisser"
 
+#: ../maps/brothers_lair_wind_hall.txt:264
 #: ../maps/brothers_lair_wind_hall.txt:257
 msgid "Waiting Wind Switch"
 msgstr "Vent: attendre "
 
+#: ../maps/brothers_lair_wind_hall.txt:275
 #: ../maps/brothers_lair_wind_hall.txt:267
 msgid "Waiting Fire Switch"
 msgstr "Feu: attendre"
 
+#: ../maps/brothers_lair_wind_hall.txt:288
 #: ../maps/brothers_lair_wind_hall.txt:279
 msgid "Waiting Ice Switch"
 msgstr "Glace: attendre"
 
+#: ../maps/brothers_lair_wind_hall.txt:296
 #: ../maps/brothers_lair_wind_hall.txt:287
 msgid "\"Fire is either Falling or Waiting. One element, one temperament.\""
 msgstr "\"Le feu est soit montant soit patient. Un élément, un tempérament.\""
 
+#: ../maps/brothers_lair_wind_hall.txt:307
 #: ../maps/brothers_lair_wind_hall.txt:297
 msgid "\"Wind is not Rising. Wind is Falling on the firmament.\""
 msgstr "\"Le vent ne monte pas. Le vent descend vers le firmament.\""
 
+#: ../maps/brothers_lair_wind_hall.txt:326
 #: ../maps/brothers_lair_wind_hall.txt:315
 msgid "\"People used to ask me why I use a sword rather than a wand. It never occurs to them that the metal blade can conduct and channel lightning as well as (or better than!) any enchanted twig. ~Grisbon\""
-msgstr "\"On a l'habitude de me demander pourquoi j'utilise l'épée plutôt que la baguette. Il ne leur vient jamais à l'esprit qu'une lame de métal peut canaliser la foudre aussi bien, sinon mieux, que n'importe quelle rameau. ~Grisbon\""
+msgstr ""
+"\"On a l'habitude de me demander pourquoi j'utilise l'épée plutôt que la "
+"baguette. Il ne leur vient jamais à l'esprit qu'une lame de métal peut "
+"canaliser la foudre aussi bien, sinon mieux, que n'importe quelle rameau. ~"
+"Grisbon\""
 
+#: ../maps/cave1.txt:10
 #: ../maps/cave1.txt:9
 msgid "Caves Level 1"
 msgstr "Caves Niveau 1"
 
+#: ../maps/cave1.txt:348
 #: ../maps/cave1.txt:346
 msgid "Mine Cart"
 msgstr "Chariot de mine"
 
+#: ../maps/cave1.txt:385
 #: ../maps/cave1.txt:380
 msgid "The crumbling walls of the south tunnel are held up by planks of rotting wood."
-msgstr "Les murs croulants du tunnel sud sont soutenus par des planches de bois pourri."
+msgstr ""
+"Les murs croulants du tunnel sud sont soutenus par des planches de bois "
+"pourri."
 
+#: ../maps/cave1.txt:468
 #: ../maps/cave1.txt:462
 msgid "These goblins have captured a human trader.  Human bones are carefully arranged around the pillar in preparation for a goblin ritual."
-msgstr "Ces gobelins ont capturés un marchand humain. Des ossements humains sont soigneusement arrangés autour du pillier en préparation d'un rituel gobelin. "
+msgstr ""
+"Ces gobelins ont capturés un marchand humain. Des ossements humains sont "
+"soigneusement arrangés autour du pillier en préparation d'un rituel gobelin. "
 
+#: ../maps/cave1.txt:476
 #: ../maps/cave1.txt:469
 msgid "Talrych says, \"You arrived just in time.  Please, take this.\""
-msgstr "Talrych dit,\"Vous êtes arrivé juste à temps. S'il vous plaît, prenez ceci.\""
+msgstr ""
+"Talrych dit,\"Vous êtes arrivé juste à temps. S'il vous plaît, prenez ceci.\""
 
+#: ../maps/cave1.txt:484
 #: ../maps/cave1.txt:476
 msgid "The walls collapse inward and rubble blocks off the passage!"
 msgstr "Les murs s'éffondrent et les débris bloquent le passage !"
@@ -481,18 +924,29 @@ msgstr "Les murs s'éffondrent et les débris bloquent le passage !"
 msgid "Cave of Living Bones 1"
 msgstr "Caverne des Os Animés 1"
 
+#: ../maps/cave_of_living_bones2.txt:9
 #: ../maps/cave_of_living_bones2.txt:8
 msgid "Cave of Living Bones 2"
 msgstr "Caverne des Os Animés 2"
 
+#: ../maps/cave_of_living_bones2.txt:323
 #: ../maps/cave_of_living_bones2.txt:319
 msgid "This pillar is laced with cracks and crevices. Maybe with enough force it can be knocked down."
-msgstr "Ce pillier est trés endommagé, avec assez de force il se peut qu'on puisse l'abbatre."
+msgstr ""
+"Ce pillier est trés endommagé, avec assez de force il se peut qu'on puisse "
+"l'abbatre."
 
+#: ../maps/cave_of_living_bones2.txt:326
 #: ../maps/cave_of_living_bones2.txt:322
 msgid "Giant Pillar"
 msgstr "Pillier géant"
 
+#: ../maps/cave_of_living_bones2.txt:334
+#: ../quests/living_bones.txt:19
+msgid "Run! You don't want to be caught in the blast of your own explosion!"
+msgstr "Cours! Il faut éviter d'être la victime de ta propre explosion !"
+
+#: ../maps/cave_of_living_bones2.txt:339
 #: ../maps/cave_of_living_bones2.txt:333
 msgid "Place Explosive"
 msgstr "Placer l'explosif"
@@ -501,6 +955,7 @@ msgstr "Placer l'explosif"
 msgid "Cave of Living Bones 3"
 msgstr "Caverne des Os Animés 3"
 
+#: ../maps/cave_of_living_bones3.txt:130
 #: ../maps/cave_of_living_bones3.txt:129
 msgid "Crate of Blasting Powder"
 msgstr "Caisse de poudre explosive"
@@ -517,6 +972,7 @@ msgstr "Coffre commun"
 msgid "Frontier Outpost waypoint discovered."
 msgstr "Le portail de l'Avant-poste de la Marche est découvert."
 
+#: ../maps/frontier_plains.txt:9
 #: ../maps/frontier_plains.txt:8
 msgid "Frontier Plains"
 msgstr "Plaines de la Marche"
@@ -529,42 +985,60 @@ msgstr "Fournitures"
 msgid "Goblin Warrens"
 msgstr "Le Repaire des Gobelins"
 
+#: ../maps/goblin_warrens.txt:328
 #: ../maps/goblin_warrens.txt:326
 msgid "This book bears the seal of the Averguard"
 msgstr "Ce livre porte le sceau d'Averguard"
 
+#: ../maps/goblin_warrens.txt:341
 #: ../maps/goblin_warrens.txt:338
 msgid "\"In the Age of Settlement, the Averguard Knights defended peasants against the chaos of the wilderness.\""
-msgstr "\" A l'âge des pionniers, les chevaliers d'Averguard défendaient les paysans contre le chaos des terres sauvages.\""
+msgstr ""
+"\" A l'âge des pionniers, les chevaliers d'Averguard défendaient les paysans "
+"contre le chaos des terres sauvages.\""
 
+#: ../maps/goblin_warrens.txt:352
 #: ../maps/goblin_warrens.txt:348
 msgid "\"Sir Evan Maddox led the Averguard when the plague struck.  Powerful clerics from the corners of the world were brought here.  By the time a cure was found it was too late.\""
-msgstr "\"Sire Evan Maddox administrait Averguard quand la peste frappa. Les plus puissants clercs des quatre coins du monde furent convoqués. Le temps de trouver un remède, il était trop tard.\""
+msgstr ""
+"\"Sire Evan Maddox administrait Averguard quand la peste frappa. Les plus "
+"puissants clercs des quatre coins du monde furent convoqués. Le temps de "
+"trouver un remède, il était trop tard.\""
 
 #: ../maps/lost_mines1.txt:9
 msgid "Lost Mines Level 1"
 msgstr "Les Mines Perdues, niveau 1"
 
+#: ../maps/lost_mines1.txt:358
 #: ../maps/lost_mines1.txt:356
 msgid "It looks like the necromancer has been raising the corpses of dead miners as his minions."
-msgstr "Il semblerait que le nécromancien ait rappelé les corps des mineurs à son service."
+msgstr ""
+"Il semblerait que le nécromancien ait rappelé les corps des mineurs à son "
+"service."
 
+#: ../maps/lost_mines1.txt:415
 #: ../maps/lost_mines1.txt:416
 msgid "A natural underground river flows through this room."
 msgstr "Une rivière souterraine coule à travers cette pièce."
 
+#: ../maps/lost_mines1.txt:457
 #: ../maps/lost_mines1.txt:453
 msgid "Stalagmite Pillar"
 msgstr "Pillier stalagmite"
 
+#: ../maps/lost_mines1.txt:463
 #: ../maps/lost_mines1.txt:459
 msgid "The river appears to have swollen recently, covering the location where the tracks once were."
 msgstr "La rivière à débordé récement, recouvrant l'endroit ou était le chemin."
 
+#: ../maps/lost_mines1.txt:490
 #: ../maps/lost_mines1.txt:483
 msgid "The undead in this room are dressed in the remnants of shredded mining clothes."
-msgstr "Les morts-vivants dans cette pièce portent les restes déchiquetés de leur vêtements de mineurs."
+msgstr ""
+"Les morts-vivants dans cette pièce portent les restes déchiquetés de leur "
+"vêtements de mineurs."
 
+#: ../maps/mineshaft_longsword.txt:9
 #: ../maps/mineshaft_longsword.txt:8
 msgid "Mineshaft Longsword"
 msgstr "Épée longue du puit de mine"
@@ -585,14 +1059,18 @@ msgstr "Atrium du Repère des Frères"
 msgid "White Wind"
 msgstr "Vent blanc"
 
+#: ../maps/white_wind.txt:448
 #: ../maps/white_wind.txt:446
 msgid "You spot the abandoned tower in the distance."
 msgstr "Vous apercevez au loin la tour abandonnée."
 
+#: ../maps/white_wind.txt:457
 #: ../maps/white_wind.txt:454
 msgid "Looking through the grate, you confirm the tower is empty."
-msgstr "En regardant à travers la grille, vous vous assurez que la tour est vide."
+msgstr ""
+"En regardant à travers la grille, vous vous assurez que la tour est vide."
 
+#: ../maps/ydrakka_pass.txt:385
 #: ../maps/ydrakka_pass.txt:384
 msgid "Ydrakka Pass waypoint discovered."
 msgstr "Portail du Col Ydrakka découvert."
@@ -603,11 +1081,15 @@ msgstr "Vaincre Ukkonen dans le Repaire des Gobelins."
 
 #: ../quests/averguard_keep.txt:14
 msgid "Report your victory over Ukkonen to Guill in the Goblin Warrens."
-msgstr "Faites état de votre victoire sur Ukkonen à Guill dans le Repaire des Gobelins."
+msgstr ""
+"Faites état de votre victoire sur Ukkonen à Guill dans le Repaire des "
+"Gobelins."
 
 #: ../quests/averguard_keep.txt:19
 msgid "Search Ukkonen's lair in the Goblin Warrens for a missing Averguard Tome."
-msgstr "Fouillez l'antre de Ukkonen dans le Repaire des Gobelins et trouvez Le Tome d'Averguard manquant."
+msgstr ""
+"Fouillez l'antre de Ukkonen dans le Repaire des Gobelins et trouvez Le Tome "
+"d'Averguard manquant."
 
 #: ../quests/averguard_keep.txt:24
 msgid "Deliver the Averguard Tome to Guill in the Goblin Warrens."
@@ -623,15 +1105,21 @@ msgstr "Allez dire à Guill que vous avez trouvé la clé d'Averguard."
 
 #: ../quests/averguard_keep.txt:40
 msgid "Use the Averguard Key to enter the burial chamber deep within Averguard Temple."
-msgstr "Utilisez la clé d'Averguard pour entrer dans la chambre funéraire, dans les profondeurs du Temple d'Averguard."
+msgstr ""
+"Utilisez la clé d'Averguard pour entrer dans la chambre funéraire, dans les "
+"profondeurs du Temple d'Averguard."
 
 #: ../quests/averguard_keep.txt:45
 msgid "The Averguard Key did not open the burial chamber door. Speak to Guill for help."
-msgstr "La clé d'Averguard n'a pas ouvert la porte de la chambre funéraire. Allez demander de l'aide à Guill."
+msgstr ""
+"La clé d'Averguard n'a pas ouvert la porte de la chambre funéraire. Allez "
+"demander de l'aide à Guill."
 
 #: ../quests/averguard_keep.txt:50
 msgid "Search the Averguard Academy for Professor Langlier's secret to breaking the Burial Chamber seal."
-msgstr "Fouillez l'académie d'Averguard et trouvez le secret du professeur Langlier permettant d'ouvrir la porte scellée de la Chambre Funéraire"
+msgstr ""
+"Fouillez l'académie d'Averguard et trouvez le secret du professeur Langlier "
+"permettant d'ouvrir la porte scellée de la Chambre Funéraire"
 
 #: ../quests/averguard_keep.txt:55
 msgid "Show Langlier's Talisman to Guill."
@@ -639,7 +1127,9 @@ msgstr "Montrez l'Amulette de Langlier à Guill."
 
 #: ../quests/averguard_keep.txt:60
 msgid "Enter the Averguard Temple burial chamber and defeat Sir Evan Maddox."
-msgstr "Entrez dans la Chambre Funéraire du Temple d'Averguard et venez à bout de sire Evan Maddox."
+msgstr ""
+"Entrez dans la Chambre Funéraire du Temple d'Averguard et venez à bout de "
+"sire Evan Maddox."
 
 #: ../quests/averguard_keep.txt:65
 msgid "Report Maddox's defeat to Guill"
@@ -651,7 +1141,9 @@ msgstr "Vaincre les gobelins du Camp de la Rivière"
 
 #: ../quests/frontier.txt:10
 msgid "River Encampment cleared. Return to Martigan for your reward."
-msgstr "Le Camp de la Rivière est nettoyé. Retournez voir Martigan pour la récompense."
+msgstr ""
+"Le Camp de la Rivière est nettoyé. Retournez voir Martigan pour la "
+"récompense."
 
 #: ../quests/living_bones.txt:9
 msgid "Find a way to destroy the large pillar near the lake."
@@ -659,15 +1151,14 @@ msgstr "Trouver un moyen de détruire le grand pillier près du lac."
 
 #: ../quests/living_bones.txt:14
 msgid "Use the blasting powder you found to destroy the large pillar."
-msgstr "Utiliser la poudre explosive que vous avez trouvé pour détruire le grand pillier."
-
-#: ../quests/living_bones.txt:19
-msgid "Run! You don't want to be caught in the blast of your own explosion!"
-msgstr "Cours! Il faut éviter d'être la victime de ta propre explosion !"
+msgstr ""
+"Utiliser la poudre explosive que vous avez trouvé pour détruire le grand "
+"pillier."
 
 #: ../quests/living_bones.txt:25
 msgid "Search for the name of the ice wizard to pass the statue guardian."
-msgstr "Chercher le nom du magicien de la glace pour passer la statue gardienne. "
+msgstr ""
+"Chercher le nom du magicien de la glace pour passer la statue gardienne. "
 
 #: ../quests/living_bones.txt:30
 msgid "Search for the name of the fire wizard to pass the statue guardian."
@@ -679,7 +1170,8 @@ msgstr "Chercher le nom du magicien des vents pour passer la statue gardienne."
 
 #: ../quests/living_bones.txt:40
 msgid "Pass the ice statue guardian by using the name \"Scathelocke\"."
-msgstr "Passer la statue gardienne de glace en utilisant le nom \"Scathelocke\"."
+msgstr ""
+"Passer la statue gardienne de glace en utilisant le nom \"Scathelocke\"."
 
 #: ../quests/living_bones.txt:45
 msgid "Pass the fire statue guardian by using the name \"Vesuvvio\"."
@@ -707,7 +1199,9 @@ msgstr "Utiliser la clé de Grisbon pour ouvrir son coffre."
 
 #: ../quests/mineshaft_longsword.txt:4
 msgid "Find and defeat the Reanimated Skeleton in Mineshaft Longsword."
-msgstr "Trouvez et annéantissez le squelette réanimé dans l'Épée longue du puits de mine."
+msgstr ""
+"Trouvez et annéantissez le squelette réanimé dans l'Épée longue du puits de "
+"mine."
 
 #: ../quests/mineshaft_longsword.txt:10
 msgid "Report the defeat of the Reanimated Skeleton to Martigan."
@@ -723,7 +1217,8 @@ msgstr "Inspectez la tour de plus près."
 
 #: ../quests/rotten_tower.txt:15
 msgid "Return to Martigan and tell him about the abandoned tower."
-msgstr "Retournez voir Martigan et rendez-lui compte à propos de la tour abandonnée."
+msgstr ""
+"Retournez voir Martigan et rendez-lui compte à propos de la tour abandonnée."
 
 #: ../npcs/captured_trader.txt:2
 msgid "Talrych, Captured Trader"
@@ -739,7 +1234,9 @@ msgstr "Discuter"
 
 #: ../npcs/guill.txt:18
 msgid "I am Guill, a scribe with the Order. I am grateful you've come -- we are short on trained warriors due to the call-to-arms in Ancelot."
-msgstr "Je suis Guill, un scribe de l'Ordre. Je suis heureux que tu sois là -- nous manquons de guerriers aguérris depuis l'appel aux armes à Ancelot."
+msgstr ""
+"Je suis Guill, un scribe de l'Ordre. Je suis heureux que tu sois là -- nous "
+"manquons de guerriers aguérris depuis l'appel aux armes à Ancelot."
 
 #: ../npcs/guill.txt:19
 msgid "Why is the Order interested in these ruins?"
@@ -747,7 +1244,11 @@ msgstr "Pourquoi l'Ordre s'intéresse-t-il à ces ruines?"
 
 #: ../npcs/guill.txt:20
 msgid "What the locals call the Goblin Warrens is actually the entrance to a grand underground fortress known as Averguard Keep. This site is sacred to our order. Our primary mission is to cleanse the evil from this place."
-msgstr "Ce que les gens du coin appellent le Repaire des Gobelins n'est autre que l'entrée d'une grand complexe souterrain connu sous le nom de forteresse d'Averguard. Ce site est sacré pour notre ordre. Notre tâche principale est de bânnir le mal de ce lieu."
+msgstr ""
+"Ce que les gens du coin appellent le Repaire des Gobelins n'est autre que "
+"l'entrée d'une grand complexe souterrain connu sous le nom de forteresse "
+"d'Averguard. Ce site est sacré pour notre ordre. Notre tâche principale est "
+"de bânnir le mal de ce lieu."
 
 #: ../npcs/guill.txt:23
 msgid "Goblins Warrens"
@@ -755,7 +1256,11 @@ msgstr "Le Repaire des Gobelins"
 
 #: ../npcs/guill.txt:28
 msgid "The goblins in the Warrens answer to a warlord named Ukkonen. Most goblins are merely curious; this Ukkonen is bloodthirsty. Punish him for desecrating this place. His lair is here in the Warrens."
-msgstr "Dans le Repaire, les gobelins obéissent à un guerrier nommé Ukkonen. La plupart des gobelins sont simplement curieux; cet Ukkonen est assoiffé de sang. Punis-le pour avoir osé souiller ce lieu. Son antre est dans le Repaire."
+msgstr ""
+"Dans le Repaire, les gobelins obéissent à un guerrier nommé Ukkonen. La "
+"plupart des gobelins sont simplement curieux; cet Ukkonen est assoiffé de "
+"sang. Punis-le pour avoir osé souiller ce lieu. Son antre est dans le "
+"Repaire."
 
 #: ../npcs/guill.txt:31
 msgid "Ukkonen Search"
@@ -763,7 +1268,8 @@ msgstr "La recherche d'Ukkonen"
 
 #: ../npcs/guill.txt:34
 msgid "Ukkonen's lair is somewhere here in the Goblin Warrens."
-msgstr "L'antre d'Ukkonen est quelque part par ici dans le Repaire des Gobelins."
+msgstr ""
+"L'antre d'Ukkonen est quelque part par ici dans le Repaire des Gobelins."
 
 #: ../npcs/guill.txt:37
 msgid "Ukkonen Defeated"
@@ -771,7 +1277,9 @@ msgstr "Ukkonen vaincu"
 
 #: ../npcs/guill.txt:44
 msgid "Ukkonen is defeated -- I sensed a calm in this place the moment you ended him. Take this reward for your bravery."
-msgstr "Ukkonen est vaincu -- j'ai ressenti un apaisement dans ces lieux quand il est mort. Prends cette récompense pour ta bravoure."
+msgstr ""
+"Ukkonen est vaincu -- j'ai ressenti un apaisement dans ces lieux quand il "
+"est mort. Prends cette récompense pour ta bravoure."
 
 #: ../npcs/guill.txt:47
 msgid "Averguard Chronicles"
@@ -779,7 +1287,10 @@ msgstr "Les chroniques d'Averguard"
 
 #: ../npcs/guill.txt:51
 msgid "The Averguard left a set of Chronicles detailing their final era. One volume is missing. I've searched this entire area except for Ukkonen's lair. If you find the book please return to me."
-msgstr "Il reste quelques chroniques détaillant le déclin d'Averguard. Un de ces volumes est manquant. Je l'ai cherché dans tout le secteur ormis l'antre d'Ukkonen. Si tu trouves ce volume, reviens me voir."
+msgstr ""
+"Il reste quelques chroniques détaillant le déclin d'Averguard. Un de ces "
+"volumes est manquant. Je l'ai cherché dans tout le secteur ormis l'antre "
+"d'Ukkonen. Si tu trouves ce volume, reviens me voir."
 
 #: ../npcs/guill.txt:52
 msgid "I'll keep an eye out for it."
@@ -787,7 +1298,11 @@ msgstr "J'ouvrirais l'oeil."
 
 #: ../npcs/guill.txt:63
 msgid "You found this tome in Ukkonen's lair? Most excellent -- I feared this volume was lost. With it we can piece together the true history of this keep. I just need a moment to study..."
-msgstr "C'est donc Ukkonen qui avait ce volume ? Excellentissime -- je craignais que ce livre ne soit perdu à jamais. Grâce à lui nous pourrons enfin reconstituer la vraie histoire de cette forteresse. J'ai besoin d'un petit moment pour le parcourir..."
+msgstr ""
+"C'est donc Ukkonen qui avait ce volume ? Excellentissime -- je craignais que "
+"ce livre ne soit perdu à jamais. Grâce à lui nous pourrons enfin "
+"reconstituer la vraie histoire de cette forteresse. J'ai besoin d'un petit "
+"moment pour le parcourir..."
 
 #: ../npcs/guill.txt:66
 msgid "Averguard Keep"
@@ -795,7 +1310,11 @@ msgstr "La forteresse d'Averguard"
 
 #: ../npcs/guill.txt:70
 msgid "This tome confirms what we know of Averguard Keep -- it crumbled against the plague many centuries ago. But not all of the infected were destroyed. It appears many undead where locked away in hopes that a cure would be found."
-msgstr "Ce volume confirme ce que nous savions de la forteresse d'Averguard -- il a été ravagé par le fléau il y a bien des siècles. Les contaminés n'ont pas tous été détruits. Il semblerait qu'un grand nombre de ces morts-vivants aient été enfermés dans l'espoir de trouver un remède."
+msgstr ""
+"Ce volume confirme ce que nous savions de la forteresse d'Averguard -- il a "
+"été ravagé par le fléau il y a bien des siècles. Les contaminés n'ont pas "
+"tous été détruits. Il semblerait qu'un grand nombre de ces morts-vivants "
+"aient été enfermés dans l'espoir de trouver un remède."
 
 #: ../npcs/guill.txt:71
 msgid "Why were the undead spared?"
@@ -803,15 +1322,23 @@ msgstr "Mais pourquoi épargner des morts-vivants ?"
 
 #: ../npcs/guill.txt:72
 msgid "I don't know, but we should investigate. Head into the Atrium, then the Averguard Prison. Search for a key to access the sealed areas of the Keep."
-msgstr "Je l'ignore, mais nous allons tenter de le découvrir. Allez dans l'Atrium, puis à la Prison d'Averguard. Tu trouveras une clé qui te permettra d'accéder à la partie scellée de la forteresse."
+msgstr ""
+"Je l'ignore, mais nous allons tenter de le découvrir. Allez dans l'Atrium, "
+"puis à la Prison d'Averguard. Tu trouveras une clé qui te permettra "
+"d'accéder à la partie scellée de la forteresse."
 
 #: ../npcs/guill.txt:79
 msgid "I have the prison key. The old prison warden carried it on his person -- he was infected, haunting the depths of the Prison."
-msgstr "J'ai la clé de la prison. Le vieux Gardien de Prison l'avait sur lui -- il était contaminé et hantait les profondeurs de la Prison."
+msgstr ""
+"J'ai la clé de la prison. Le vieux Gardien de Prison l'avait sur lui -- il "
+"était contaminé et hantait les profondeurs de la Prison."
 
 #: ../npcs/guill.txt:85
 msgid "A true shame that he was infected.  Well, now that we have the Averguard Key, the depths of Averguard Keep are open to us. The Order thanks you."
-msgstr "Le pauvre homme... eh bien, maintenant que nous avons la clé d'Averguard, les profondeurs de la forteresse d'Averguard nous sont accessibles. L'Ordre vous remercie."
+msgstr ""
+"Le pauvre homme... eh bien, maintenant que nous avons la clé d'Averguard, "
+"les profondeurs de la forteresse d'Averguard nous sont accessibles. L'Ordre "
+"vous remercie."
 
 #: ../npcs/guill.txt:88
 msgid "Burial Chamber"
@@ -819,7 +1346,11 @@ msgstr "Chambre Funéraire"
 
 #: ../npcs/guill.txt:93
 msgid "There is one place within the Keep that no living being has seen for centuries: the burial chamber behind Averguard Temple. From the Atrium you can access the Temple. Use your key to enter the Burial Chamber."
-msgstr "Il est un lieu dans la forteresse que nul être humain n'as vu depuis des siècles : la Chambre Funéraire derrière le Temple d'Averguard. De l'Atruim vous pourrez accéder au Temple. Utilisez la clé pour entrer dans la Chambre Funéraire."
+msgstr ""
+"Il est un lieu dans la forteresse que nul être humain n'as vu depuis des "
+"siècles : la Chambre Funéraire derrière le Temple d'Averguard. De l'Atruim "
+"vous pourrez accéder au Temple. Utilisez la clé pour entrer dans la Chambre "
+"Funéraire."
 
 #: ../npcs/guill.txt:94
 msgid "Who is buried there?"
@@ -835,11 +1366,17 @@ msgstr "Clé de la Chambre Funéraire"
 
 #: ../npcs/guill.txt:104
 msgid "I tried the key on the Burial Chamber door but it would not open."
-msgstr "J'ai essayé la clé sur la porte de la Chambre Funéraire mais elle ne s'ouvre pas."
+msgstr ""
+"J'ai essayé la clé sur la porte de la Chambre Funéraire mais elle ne s'ouvre "
+"pas."
 
 #: ../npcs/guill.txt:105
 msgid "It must be sealed by powerful magic. There was only one sorceror of Averguard with that kind of power - Professor Langlier. Search through his collection to find a way into the Burial Chamber. Enter the Academy through the Atrium."
-msgstr "Elle doit être scellée par une puissante magie. Il n'y avait qu'un mage d'Averguard qui disposait d'une telle puissance - le professeur Langlier. Vous devriez pouvoir trouver un moyen d'entrer dans cette Chambre Funéraire... Cherchez donc dans l'Académie, elle est voisine de l'Atrium."
+msgstr ""
+"Elle doit être scellée par une puissante magie. Il n'y avait qu'un mage "
+"d'Averguard qui disposait d'une telle puissance - le professeur Langlier. "
+"Vous devriez pouvoir trouver un moyen d'entrer dans cette Chambre "
+"Funéraire... Cherchez donc dans l'Académie, elle est voisine de l'Atrium."
 
 #: ../npcs/guill.txt:106
 msgid "As you wish."
@@ -847,19 +1384,33 @@ msgstr "Très bien, j'y vais."
 
 #: ../npcs/guill.txt:107
 msgid "I must admit jealousy -- I have dreamed many years of seeing the old volumes there, but it is simply too dangerous yet."
-msgstr "Je dois confesser ma jalousie -- j'ai tant rêvé de voir les vieux volumes qui s'y trouvent, mais c'est bien trop dangeureux pour l'instant."
+msgstr ""
+"Je dois confesser ma jalousie -- j'ai tant rêvé de voir les vieux volumes "
+"qui s'y trouvent, mais c'est bien trop dangeureux pour l'instant."
 
 #: ../npcs/guill.txt:116
 msgid "I am back from the Academy. Langlier was rags and bones, yet still a powerful mage. He wore this symbol."
-msgstr "Je reviens de l'Académie. Langlier n'était plus que de la peau sur des os, mais malgré cela encore un puissant mage. Il portait ce symbole."
+msgstr ""
+"Je reviens de l'Académie. Langlier n'était plus que de la peau sur des os, "
+"mais malgré cela encore un puissant mage. Il portait ce symbole."
 
 #: ../npcs/guill.txt:120
 msgid "Fate has delivered this talisman to you. With it and the Averguard Key, you have the ability to open the Burial Chamber. Read these runes aloud at the sealed door and the path will be opened."
-msgstr "Le destin vous a remis cette Amulette. Avec celle-ci et la clé d'Averguard vous pourrez ouvrir la Chambre Funéraire. Lis ces runes à haute voix près de la porte scellée et la voie sera libre."
+msgstr ""
+"Le destin vous a remis cette Amulette. Avec celle-ci et la clé d'Averguard "
+"vous pourrez ouvrir la Chambre Funéraire. Lis ces runes à haute voix près de "
+"la porte scellée et la voie sera libre."
 
 #: ../npcs/guill.txt:128
 msgid "My worst fear is come alive. Just as with the Warden and with Professor Langlier, Sir Evan Maddox himself was inflicted with undeath. If we are to reclaim the Keep, you must defeat him. The Order will reward you magnificently for this service. But be prepared -- not even undeath will limit Maddox's zeal. Enter the Burial Chamber and allow him redemption."
-msgstr "Mes pires craintes se sont avérées. Tout comme le Guardien et le professeur Langlier, sire Evan Maddox lui-même est devenu un mort-vivant. Si nous voulons reprendre possession de la forteresse d'Averguard vous allez devoir le vaincre. L'Ordre vous récompensera très généreusement pour ce service. Mais soyez prévenu -- la ferveur de Maddox ne connaît pas de limite, même dans la non-mort. Entrez dans la Chambre Funéraire et libérez-le de son tourment."
+msgstr ""
+"Mes pires craintes se sont avérées. Tout comme le Guardien et le professeur "
+"Langlier, sire Evan Maddox lui-même est devenu un mort-vivant. Si nous "
+"voulons reprendre possession de la forteresse d'Averguard vous allez devoir "
+"le vaincre. L'Ordre vous récompensera très généreusement pour ce service. "
+"Mais soyez prévenu -- la ferveur de Maddox ne connaît pas de limite, même "
+"dans la non-mort. Entrez dans la Chambre Funéraire et libérez-le de son "
+"tourment."
 
 #: ../npcs/guill.txt:131
 msgid "Maddox Defeated"
@@ -867,7 +1418,11 @@ msgstr "Maddox vaincu"
 
 #: ../npcs/guill.txt:142
 msgid "You have risked much for the Order. Take this final reward, as your mission here is complete. The grip of necromancy over Averguard Keep is broken -- in time the remaining undead will pass over into death."
-msgstr "Vous avez pris d'énormes risques pour l'Ordre. Prenez cette dernière récompense, votre mission ici est achevée. La nécromancie n'a plus de prise sur la forteresse d'Averguard -- le temps aidant, les derniers mort-vivants franchiront les portes de la vraie mort."
+msgstr ""
+"Vous avez pris d'énormes risques pour l'Ordre. Prenez cette dernière "
+"récompense, votre mission ici est achevée. La nécromancie n'a plus de prise "
+"sur la forteresse d'Averguard -- le temps aidant, les derniers mort-vivants "
+"franchiront les portes de la vraie mort."
 
 #: ../npcs/guill.txt:143
 msgid "Thank you Guill. I am glad to be of service."
@@ -875,7 +1430,9 @@ msgstr "Merci Guill. Je suis heureux d'avoir pu vous aider."
 
 #: ../npcs/guill.txt:148
 msgid "It is still dangerous here, but with Maddox defeated his followers will soon find rest."
-msgstr "Ces lieux sont toujours dangereux, mais maintenant que Maddox est vaincu ses partisans trouveront bientôt le repos."
+msgstr ""
+"Ces lieux sont toujours dangereux, mais maintenant que Maddox est vaincu ses "
+"partisans trouveront bientôt le repos."
 
 #: ../npcs/kayl.txt:1
 msgid "Kayl, Alchemist"
@@ -899,11 +1456,16 @@ msgstr "Bienvenue dans mes mines, étranger. T'as les bras ? J'ai le boulot."
 
 #: ../npcs/martigan.txt:14
 msgid "I heard you might have something more interesting."
-msgstr "J'ai entendu dire que vous auriez quelque chose de plus intéressant à me proposer."
+msgstr ""
+"J'ai entendu dire que vous auriez quelque chose de plus intéressant à me "
+"proposer."
 
 #: ../npcs/martigan.txt:15
 msgid "Ah, you're the adventurer? If you seek out danger you're in the right place. We had two guards stationed here; both were recalled to Ancelot. Now we're vulnerable."
-msgstr "Ah, c'est vous l'aventurier ? Si c'est le danger qui vous attire, vous êtes au bon endroit. On avait deux gardes en faction ici ; tous deux ont été rappelés à Ancelot. À présent nous sommes vulnérables."
+msgstr ""
+"Ah, c'est vous l'aventurier ? Si c'est le danger qui vous attire, vous êtes "
+"au bon endroit. On avait deux gardes en faction ici ; tous deux ont été "
+"rappelés à Ancelot. À présent nous sommes vulnérables."
 
 #: ../npcs/martigan.txt:19
 msgid "Goblin Camp"
@@ -911,11 +1473,16 @@ msgstr "Le Camp des Gobelins"
 
 #: ../npcs/martigan.txt:22
 msgid "We're having problems. Goblins. All the noise from our mining is drawing their attention. We can't have them thinking we're easy prey."
-msgstr "On a des ennuis. Les gobelins. Tout ce bruit à cause du travail dans la mine attire leur attention. Il ne faut pas qu'ils s'imaginent que nous sommes des proies faciles."
+msgstr ""
+"On a des ennuis. Les gobelins. Tout ce bruit à cause du travail dans la mine "
+"attire leur attention. Il ne faut pas qu'ils s'imaginent que nous sommes des "
+"proies faciles."
 
 #: ../npcs/martigan.txt:26
 msgid "Attack their encampment up river from here. 20 gold now, 80 more when you return."
-msgstr "Attaquez leur campement en amont de la rivière. 20 pièces d'or maintenant, 80 de plus à votre retour."
+msgstr ""
+"Attaquez leur campement en amont de la rivière. 20 pièces d'or maintenant, "
+"80 de plus à votre retour."
 
 #: ../npcs/martigan.txt:29
 msgid "Goblin Camp Search"
@@ -923,7 +1490,9 @@ msgstr "La recherche du Camp des Gobelins"
 
 #: ../npcs/martigan.txt:32
 msgid "The goblins have an encampment up the river from here on the west side. Clear them out and I'll pay you 80 gold."
-msgstr "Les gobelins ont un campement en amont de la rivière. Faites le ménage et je vous donnerais 80 pièces d'or."
+msgstr ""
+"Les gobelins ont un campement en amont de la rivière. Faites le ménage et je "
+"vous donnerais 80 pièces d'or."
 
 #: ../npcs/martigan.txt:35
 msgid "Rilrak Defeated"
@@ -931,11 +1500,15 @@ msgstr "Rilrak vaincu"
 
 #: ../npcs/martigan.txt:42
 msgid "Unfortunate work, but my workers will sleep safe tonight. Here's your reward."
-msgstr "Une tâche ingrate, mais mes ouvriers dormiront en sécurité cette nuit. Voila votre récompense."
+msgstr ""
+"Une tâche ingrate, mais mes ouvriers dormiront en sécurité cette nuit. Voila "
+"votre récompense."
 
 #: ../npcs/martigan.txt:47
 msgid "A member of the Order passed through our camp a few days ago. He left for the tower ruins in Ydrakka Pass."
-msgstr "Un membre de l'Ordre est passé par notre campement il y a quelques jours. Il est parti pour les ruines de la tour, au col d'Ydrakka."
+msgstr ""
+"Un membre de l'Ordre est passé par notre campement il y a quelques jours. Il "
+"est parti pour les ruines de la tour, au col d'Ydrakka."
 
 #: ../npcs/martigan.txt:50
 msgid "Rotten Tower"
@@ -943,11 +1516,17 @@ msgstr "Tour Pourrie"
 
 #: ../npcs/martigan.txt:53
 msgid "This region was once well guarded. There are watch towers positioned throughout these plains, but most are abandoned and crumbling now."
-msgstr "Cette région fût jadis bien gardée. Il y a des tours de guet disposées à travers ces plaines. Mais la plupart sont abandonnées et s'écroulent à présent."
+msgstr ""
+"Cette région fût jadis bien gardée. Il y a des tours de guet disposées à "
+"travers ces plaines. Mais la plupart sont abandonnées et s'écroulent à "
+"présent."
 
 #: ../npcs/martigan.txt:54
 msgid "I need someone to inspect the outpost tower in White Winds, south west of the Frontier Plains. Let me know if goblins have found their way inside."
-msgstr "Il me faut quelqu'un pour inspecter la tour d'avant-poste à Vent Blanc, au sud ouest des Plaines de la Marche. Prévenez-moi si des gobelins s'y sont introduits."
+msgstr ""
+"Il me faut quelqu'un pour inspecter la tour d'avant-poste à Vent Blanc, au "
+"sud ouest des Plaines de la Marche. Prévenez-moi si des gobelins s'y sont "
+"introduits."
 
 #: ../npcs/martigan.txt:58
 msgid "Rotten Tower Search"
@@ -955,7 +1534,9 @@ msgstr "La recherche de la Tour Pourrie"
 
 #: ../npcs/martigan.txt:61
 msgid "Search for the abandoned tower southwest of the Frontier plains. The lands around there are called White Wind."
-msgstr "Recherchez la tour abandonnée au sud ouest des Plaines de la Marche. Les terres par là bas ont pour nom « Vent Blanc »."
+msgstr ""
+"Recherchez la tour abandonnée au sud ouest des Plaines de la Marche. Les "
+"terres par là bas ont pour nom « Vent Blanc »."
 
 #: ../npcs/martigan.txt:64
 msgid "Rotten Tower Found"
@@ -963,7 +1544,9 @@ msgstr "Tour pourrie trouvée"
 
 #: ../npcs/martigan.txt:67
 msgid "There are plenty of goblins in the White Winds area, but not near the tower."
-msgstr "Il y a plein de gobelins dans la région du Vent Blanc, mais pas dans les environs de la tour."
+msgstr ""
+"Il y a plein de gobelins dans la région du Vent Blanc, mais pas dans les "
+"environs de la tour."
 
 #: ../npcs/martigan.txt:68
 msgid "Are you sure? Did you look inside the tower?"
@@ -975,47 +1558,67 @@ msgstr "En fait..."
 
 #: ../npcs/martigan.txt:75
 msgid "There are plenty of goblins in the white winds area, but not near the tower."
-msgstr "Il y a plein de gobelins dans la région du Vent Blanc, mais pas dans les environs de la tour."
+msgstr ""
+"Il y a plein de gobelins dans la région du Vent Blanc, mais pas dans les "
+"environs de la tour."
 
 #: ../npcs/martigan.txt:77
 msgid "I saw no signs of goblins through the locked iron grate door."
-msgstr "Je n'ai pas vu l'ombre d'un gobelin à travers la grille en fer verrouillée."
+msgstr ""
+"Je n'ai pas vu l'ombre d'un gobelin à travers la grille en fer verrouillée."
 
 #: ../npcs/martigan.txt:79
 msgid "Good! Have this small reward."
 msgstr "Bien! Voici une petite récompense."
 
+#: ../npcs/martigan.txt:84
 #: ../npcs/martigan.txt:83
 msgid "Mineshaft"
 msgstr "Puits de mine"
 
+#: ../npcs/martigan.txt:87
 #: ../npcs/martigan.txt:86
 msgid "So how's the mining business?"
 msgstr "Comment vont les affaires à la mine ?"
 
+#: ../npcs/martigan.txt:88
 #: ../npcs/martigan.txt:87
 msgid "Not good at all. While I was digging, my pickaxe scraped a skull that was wedged in the rock wall. Before I knew it, the nasty thing started moving and a whole body emerged. Now that thing is in there, preventing any more mining."
-msgstr "Pas bien du tout. Alors que je creusais, ma pioche à raclé sur un crâne qui était encastré dans le mur de pierre. Aussitôt, cette chose immonde a commencé à bouger et un corps tout entier est apparu. À présent cette chose est là dedans, empêchant tout travail dans la mine."
+msgstr ""
+"Pas bien du tout. Alors que je creusais, ma pioche à raclé sur un crâne qui "
+"était encastré dans le mur de pierre. Aussitôt, cette chose immonde a "
+"commencé à bouger et un corps tout entier est apparu. À présent cette chose "
+"est là dedans, empêchant tout travail dans la mine."
 
+#: ../npcs/martigan.txt:89
 #: ../npcs/martigan.txt:88
 msgid "Kill that skeleton for me, and I'll make it worth your while."
-msgstr "Tuez-moi ce squelette, et je saurais récompenser ce service à sa juste valeur."
+msgstr ""
+"Tuez-moi ce squelette, et je saurais récompenser ce service à sa juste "
+"valeur."
 
+#: ../npcs/martigan.txt:97
 #: ../npcs/martigan.txt:96
 msgid "Please take care of that skeleton. Work in the mine can't continue otherwise."
-msgstr "Occupez-vous de ce squelette, je vous prie. Sans quoi le travail dans la mine ne peut se poursuivre."
+msgstr ""
+"Occupez-vous de ce squelette, je vous prie. Sans quoi le travail dans la "
+"mine ne peut se poursuivre."
 
+#: ../npcs/martigan.txt:100
 #: ../npcs/martigan.txt:99
 msgid "Skeleton Defeated"
 msgstr "Squelette vaincu"
 
+#: ../npcs/martigan.txt:104
 #: ../npcs/martigan.txt:103
 msgid "I've defeated the Reanimated Skeleton."
 msgstr "J'ai vaincu le squelette réanimé."
 
+#: ../npcs/martigan.txt:105
 #: ../npcs/martigan.txt:104
 msgid "Excellent work! As promised, here's a little something for your troubles."
-msgstr "Bon travail ! Comme promis, voici un petit quelque chose pour le dérangement."
+msgstr ""
+"Bon travail ! Comme promis, voici un petit quelque chose pour le dérangement."
 
 #: ../npcs/nerin.txt:1
 msgid "Nerin, Bowyer"
@@ -1037,33 +1640,47 @@ msgstr "Je suis ici pour tuer beaucoup de monstres."
 msgid "Intruder! You shall not interrupt the masters' work!"
 msgstr "Un intrus! Tu n'interrompras pas le travail des maîtres !"
 
+#: ../npcs/statue_guardian_fire.txt:21
 #: ../npcs/statue_guardian_fire.txt:20
 msgid "Vesuvvio."
 msgstr "Vesuvvio."
 
+#: ../npcs/statue_guardian_fire.txt:22
 #: ../npcs/statue_guardian_fire.txt:21
 msgid "...Are you feeling alright, Master Vesuvvio? You did not refer to yourself as \"the Destroyer.\""
-msgstr "...Vous sentez-vous bien, maître Vesuvvio? Vous ne vous êtes pas présenté comme \"Le Destructeur.\""
+msgstr ""
+"...Vous sentez-vous bien, maître Vesuvvio? Vous ne vous êtes pas présenté "
+"comme \"Le Destructeur.\""
 
+#: ../npcs/statue_guardian_fire.txt:23
 #: ../npcs/statue_guardian_fire.txt:22
 msgid "Have your brothers been teasing you about your real name being Stootley again?"
-msgstr "Vos frères ne vous ont-ils pas encore taquinés sur le fait que votre vrais nom est Stooley?"
+msgstr ""
+"Vos frères ne vous ont-ils pas encore taquinés sur le fait que votre vrais "
+"nom est Stooley?"
 
+#: ../npcs/statue_guardian_fire.txt:24
 #: ../npcs/statue_guardian_fire.txt:23
 msgid "Er, no. It's all right. I'm Vesuvvio the Destroyer."
 msgstr "Heu, non. Tout va bien. Je suis Vesuvvio le Destructeur."
 
+#: ../npcs/statue_guardian_fire.txt:27
 #: ../npcs/statue_guardian_fire.txt:26
 msgid "Then welcome, Master Vesuvvio, may you enjoy your destruction tonight."
-msgstr "Alors bienvenue, maître Vesuvvio, que votre destruction vous soit agréable ce soir."
+msgstr ""
+"Alors bienvenue, maître Vesuvvio, que votre destruction vous soit agréable "
+"ce soir."
 
+#: ../npcs/statue_guardian_fire.txt:28
 #: ../npcs/statue_guardian_fire.txt:27
 msgid "(This Vesuvvio guy sure is strange...)"
 msgstr "(Ce Vesuvvio est fort étrange...)"
 
+#: ../npcs/statue_guardian_fire.txt:32
 #: ../npcs/statue_guardian_fire.txt:31
 msgid "Welcome, Master Vesuvvio, may you enjoy your destruction tonight."
-msgstr "Bienvenue, maître Vesuvvio, que votre destruction vous soit agréable ce soir."
+msgstr ""
+"Bienvenue, maître Vesuvvio, que votre destruction vous soit agréable ce soir."
 
 #: ../npcs/statue_guardian_ice.txt:1
 msgid "Statue Guardian (Ice)"
@@ -1073,10 +1690,12 @@ msgstr "Statue gardienne (Glace)"
 msgid "Uh... a lone adventurer?"
 msgstr "Hmm... un aventurier solitaire?"
 
+#: ../npcs/statue_guardian_ice.txt:21
 #: ../npcs/statue_guardian_ice.txt:20
 msgid "Scathelocke."
 msgstr "Scathelocke."
 
+#: ../npcs/statue_guardian_ice.txt:24
 #: ../npcs/statue_guardian_ice.txt:23
 msgid "Welcome, Master Scathelocke."
 msgstr "Bienvenue, maître Scathelocke."
@@ -1089,40 +1708,786 @@ msgstr "Statue gardienne (Vent)"
 msgid "A friend of the masters."
 msgstr "Un ami des maîtres."
 
+#: ../npcs/statue_guardian_wind.txt:21
 #: ../npcs/statue_guardian_wind.txt:20
 msgid "Grisbon."
 msgstr "Grisbon."
 
+#: ../npcs/statue_guardian_wind.txt:24
 #: ../npcs/statue_guardian_wind.txt:23
 msgid "Welcome, Master Grisbon."
 msgstr "Bienvenue, maître Grisbon."
 
-#~ msgid "So, there it is. The abandoned tower!"
-#~ msgstr "La voilà donc. La tour abandonnée !"
+#: ../cutscenes/credits.txt:8
+msgid "Flare Game Credits - alpha_demo"
+msgstr ""
 
-#~ msgid "Search the rotten tower south west of the frontier plains. Beware of danger!"
-#~ msgstr "Fouillez la tour pourrie au sud ouest des plaines de la marche. Prenez garde au danger!"
+#: ../cutscenes/credits.txt:10
+msgid "Content Designers - Clint Bellanger, Justin Jacobs, Stefan Beller, and Thane Brimhall"
+msgstr ""
 
-#~ msgid "These areas were guarded well. There is yet another outpost tower in the wild."
-#~ msgstr "Ces environs étaient bien gardés. Il y a encore une autre tour de guet quelque part dans la nature."
+#: ../cutscenes/credits.txt:12
+msgid "Translators - Adrian Chaves Fernandez, Andrea Ranaldi, Andreas Berheim Brudin, Bas Doodeman, Bonbadil, Carlos Sanchez, Chris Oelmueller, Christoph J. Thompson, Evgen Pavlov, Giovanni Dalla Torre, Hans Joachim Desserud, Igor Paliychuk, Juan Pablo Tamayo, Mikhail Karalevich, Miro Jánošík, Morgan Strauss, Nikita Vanku, Paul Wortmann, Pawel Puszczynski, Quentin Stievenart, Sergey Basalaev, Stefan Beller, Thomas Glamsch, Timo Sievänen, and Yannis Anthymidis"
+msgstr ""
 
-#~ msgid "These are rough lands and... you're looking for an adventure!"
-#~ msgstr "Ces terres sont sauvages et... vous êtes en quête d'aventure !"
+#: ../items/categories/armor_cloth.txt:5
+#: ../items/items.txt:305
+msgid "Cloth Shirt"
+msgstr "Chemise d'étoffe"
 
-#~ msgid "Let me know if the goblins found their way inside the abandoned tower."
-#~ msgstr "Prévenez-moi si les gobelins ont pénétré à l'intérieur de la tour abandonnée."
+#: ../items/categories/armor_cloth.txt:11
+#: ../items/items.txt:316
+msgid "Cloth Gloves"
+msgstr "Gants d'étoffe"
 
-#~ msgid "The lands around there are called White Wind."
-#~ msgstr "Les terres par là bas se nomment Vent Blanc."
+#: ../items/categories/armor_cloth.txt:17
+#: ../items/items.txt:327
+msgid "Cloth Pants"
+msgstr "Pantalon d'étoffe"
 
-#~ msgid "Are you sure?"
-#~ msgstr "Êtes-vous sûr ?"
+#: ../items/categories/armor_cloth.txt:23
+#: ../items/items.txt:338
+msgid "Cloth Sandals"
+msgstr "Sandales d'étoffe"
 
-#~ msgid "What do you mean? Of course I am!"
-#~ msgstr "Que voulez-vous dire ? Bien sûr que je le suis !"
+#: ../items/categories/weapons_ranged.txt:5
+#: ../items/items.txt:193
+msgid "Slingshot"
+msgstr "Fronde"
 
-#~ msgid "Did you look inside the tower? Did you make sure there aren't goblins in there?"
-#~ msgstr "Avez-vous jeté un oeil à l'intérieur de la tour ? Vous êtes vous assuré qu'il n'y a pas de gobelins à l'intérieur ?"
+#: ../items/categories/weapons_ranged.txt:13
+#: ../items/items.txt:207
+msgid "Shortbow"
+msgstr "Arc court"
 
-#~ msgid "Looking to buy something?"
-#~ msgstr "Tu cherches à acheter quelquechose?"
+#: ../items/categories/weapons_ranged.txt:21
+#: ../items/items.txt:221
+msgid "Longbow"
+msgstr "Arc long"
+
+#: ../items/categories/weapons_ranged.txt:29
+#: ../items/items.txt:235
+msgid "Greatbow"
+msgstr "Grand arc"
+
+#: ../items/categories/potions.txt:5
+#: ../items/items.txt:5
+msgid "Health Potion"
+msgstr "Potion de soin"
+
+#: ../items/categories/potions.txt:8
+msgid "Restore 50% of maximum HP"
+msgstr ""
+
+#: ../items/categories/potions.txt:14
+#: ../items/items.txt:19
+msgid "Mana Potion"
+msgstr "Potion de mana"
+
+#: ../items/categories/potions.txt:17
+msgid "Restore 50% of maximum MP"
+msgstr ""
+
+#: ../items/categories/armor_leather.txt:5
+#: ../items/items.txt:428
+msgid "Leather Hood"
+msgstr "Capuche de cuir"
+
+#: ../items/categories/armor_leather.txt:13
+#: ../items/items.txt:441
+msgid "Leather Chest"
+msgstr "Cuirasse"
+
+#: ../items/categories/armor_leather.txt:21
+#: ../items/items.txt:454
+msgid "Leather Gloves"
+msgstr "Gants de cuir"
+
+#: ../items/categories/armor_leather.txt:29
+#: ../items/items.txt:467
+msgid "Leather Pants"
+msgstr "Pantalon de cuir"
+
+#: ../items/categories/armor_leather.txt:37
+#: ../items/items.txt:480
+msgid "Leather Boots"
+msgstr "Bottes de cuir"
+
+#: ../items/categories/magic.txt:5
+msgid "Seven-league boots"
+msgstr ""
+
+#: ../items/categories/magic.txt:7
+#: ../items/items.txt:633
+msgid "These enchanted boots are prized possessions of Courier guildsmen."
+msgstr ""
+"Ces bottes enchantées sont de précieux biens des hommes de la guilde de "
+"Courier."
+
+#: ../items/categories/magic.txt:15
+#: ../items/items.txt:648
+msgid "Thief Gloves"
+msgstr "Gants de voleur"
+
+#: ../items/categories/magic.txt:17
+#: ../items/items.txt:649
+msgid "In Lower Sceleris there is honor among thieves. Everyone else is a mark."
+msgstr ""
+"Dans la Basse Sceleris l'honneur existe parmi les voleurs. Tous les autres "
+"sont des proies."
+
+#: ../items/categories/magic.txt:25
+#: ../items/items.txt:752
+msgid "Silent Tabi"
+msgstr "Tabi silencieuses"
+
+#: ../items/categories/magic.txt:35
+#: ../items/items.txt:766
+msgid "Duelist Gauntlets"
+msgstr "Gantelets du dueliste"
+
+#: ../items/categories/magic.txt:45
+#: ../items/items.txt:780
+msgid "Blood Cuirass"
+msgstr "Cuirasse de sang"
+
+#: ../items/categories/magic.txt:55
+#: ../items/items.txt:794
+msgid "Blood Greaves"
+msgstr "Jambières de sang"
+
+#: ../items/categories/magic.txt:65
+#: ../items/items.txt:808
+msgid "Fencing Gloves"
+msgstr "Gants d'escrime"
+
+#: ../items/categories/magic.txt:75
+#: ../items/items.txt:866
+msgid "Sage Mantle"
+msgstr "Manteau du sage"
+
+#: ../items/categories/magic.txt:86
+#: ../items/items.txt:881
+msgid "Sage Frock"
+msgstr "Défroque du sage"
+
+#: ../items/categories/magic.txt:97
+#: ../items/items.txt:896
+msgid "Monastery Sandals"
+msgstr "Sandales de monastère"
+
+#: ../items/categories/magic.txt:106
+#: ../powers/powers.txt:1057
+msgid "Æther Walkers"
+msgstr "Marcheurs d'ether"
+
+#: ../items/categories/magic.txt:112
+#: ../items/items.txt:921
+msgid "Use: Blink to a nearby location"
+msgstr "Utiliser: Téléporte vers une destination proche"
+
+#: ../items/categories/magic.txt:117
+#: ../items/items.txt:926
+msgid "Ashwood Wand"
+msgstr "Baguette de frêne"
+
+#: ../items/categories/magic.txt:119
+#: ../items/items.txt:927
+msgid "The secrets to harvesting Yggdrasil twigs are known only to traitorous dryads."
+msgstr ""
+"Les secrets de la récolte de rameaux d'Yggdrasil ne sont connus que des "
+"dryades traîtres."
+
+#: ../items/categories/magic.txt:129
+#: ../items/items.txt:942
+msgid "Lawman's Sidearm"
+msgstr "L'arme légère de l'homme de loi"
+
+#: ../items/categories/magic.txt:131
+#: ../items/items.txt:943
+msgid "The workmanship on this blade appears hurried, as if forged under the fever of vigilance."
+msgstr ""
+"La confection de cette lame paraît bâclée, comme si elle avait été forgée "
+"dans la fièvre de la vigilance."
+
+#: ../items/categories/magic.txt:141
+#: ../items/items.txt:958
+msgid "Miner's Gloves"
+msgstr "Gants du mineur"
+
+#: ../items/categories/magic.txt:149
+msgid "Forgotten Ring"
+msgstr ""
+
+#: ../items/categories/magic.txt:151
+msgid "Faded memories are vivid to the wearer of this silver band."
+msgstr ""
+
+#: ../items/categories/armor_plate.txt:5
+#: ../items/items.txt:564
+msgid "Plate Helmet"
+msgstr "Casque de plaques"
+
+#: ../items/categories/armor_plate.txt:13
+#: ../items/items.txt:577
+msgid "Plate Cuirass"
+msgstr "Armure de plaques"
+
+#: ../items/categories/armor_plate.txt:21
+#: ../items/items.txt:590
+msgid "Plate Gauntlets"
+msgstr "Gantelets de plaques"
+
+#: ../items/categories/armor_plate.txt:29
+#: ../items/items.txt:603
+msgid "Plate Greaves"
+msgstr "Jambières de plaques"
+
+#: ../items/categories/armor_plate.txt:37
+#: ../items/items.txt:616
+msgid "Plate Boots"
+msgstr "Bottes de plaques"
+
+#: ../items/categories/weapons_magic.txt:5
+#: ../items/items.txt:139
+msgid "Wand"
+msgstr "Baguette"
+
+#: ../items/categories/weapons_magic.txt:13
+#: ../items/items.txt:152
+msgid "Rod"
+msgstr "Canne"
+
+#: ../items/categories/weapons_magic.txt:21
+#: ../items/items.txt:165
+msgid "Staff"
+msgstr "Bâton"
+
+#: ../items/categories/weapons_magic.txt:29
+#: ../items/items.txt:178
+msgid "Greatstaff"
+msgstr "Grand bâton"
+
+#: ../items/categories/armor_chain.txt:5
+#: ../items/items.txt:496
+msgid "Chain Coif"
+msgstr "Coiffe de maille"
+
+#: ../items/categories/armor_chain.txt:13
+#: ../items/items.txt:509
+msgid "Chain Cuirass"
+msgstr "Côte de maille"
+
+#: ../items/categories/armor_chain.txt:21
+#: ../items/items.txt:522
+msgid "Chain Gloves"
+msgstr "Gants de maille"
+
+#: ../items/categories/armor_chain.txt:29
+#: ../items/items.txt:535
+msgid "Chain Greaves"
+msgstr "Jambières de maille"
+
+#: ../items/categories/armor_chain.txt:37
+#: ../items/items.txt:548
+msgid "Chain Boots"
+msgstr "Bottes de maille"
+
+#: ../items/categories/shields.txt:5
+#: ../items/items.txt:251
+msgid "Wood Buckler"
+msgstr "Rondache de bois"
+
+#: ../items/categories/shields.txt:13
+#: ../items/items.txt:264
+msgid "Iron Buckler"
+msgstr "Rondache de fer"
+
+#: ../items/categories/shields.txt:21
+#: ../items/items.txt:277
+msgid "Crest Shield"
+msgstr "Bouclier héraldique"
+
+#: ../items/categories/shields.txt:29
+#: ../items/items.txt:290
+msgid "Tower Shield"
+msgstr "Pavois"
+
+#: ../items/categories/armor_mage.txt:5
+#: ../items/items.txt:352
+msgid "Mage Hood"
+msgstr "Capuche de mage"
+
+#: ../items/categories/armor_mage.txt:7
+#: ../items/items.txt:353
+msgid "The seams on this hood are designed to aid the flow of mana."
+msgstr ""
+"Les coutures de cette capuche sont conçues pour faciliter le flux de la mana."
+
+#: ../items/categories/armor_mage.txt:14
+#: ../items/items.txt:366
+msgid "Mage Vest"
+msgstr "Veste de mage"
+
+#: ../items/categories/armor_mage.txt:16
+#: ../items/items.txt:367
+msgid "Frost resistance runes line the inside of this vest."
+msgstr "Des runes de résistance au gel recouvrent l'intérieur de cette veste."
+
+#: ../items/categories/armor_mage.txt:24
+#: ../items/items.txt:381
+msgid "Mage Sleeves"
+msgstr "Manches de mage"
+
+#: ../items/categories/armor_mage.txt:26
+#: ../items/items.txt:382
+msgid "The fire resistance runes that hem these sleeves help protect beginner students of Pyromancy."
+msgstr ""
+"Les runes de résistance au feu qui ourlent ces manches aident à protéger "
+"l'étudiant en pyromancie débutant."
+
+#: ../items/categories/armor_mage.txt:33
+#: ../items/items.txt:395
+msgid "Mage Skirt"
+msgstr "Jupe de mage"
+
+#: ../items/categories/armor_mage.txt:35
+#: ../items/items.txt:396
+msgid "Spell components are tucked into hidden pockets covering this skirt."
+msgstr ""
+"Des ingrédients de sorts sont rangés dans des poches cachées recouvrant "
+"cette jupe."
+
+#: ../items/categories/armor_mage.txt:43
+#: ../items/items.txt:410
+msgid "Mage Boots"
+msgstr "Bottes de mage"
+
+#: ../items/categories/armor_mage.txt:45
+#: ../items/items.txt:411
+msgid "Attunement with the elements allow mages to ice and fire walk."
+msgstr ""
+"L'harmonie avec les éléments permet aux mages le pas de feu et de glace."
+
+#: ../items/categories/rings.txt:5
+#: ../items/items.txt:662
+msgid "Ring of Invisibility"
+msgstr "Anneau d'invisibilité"
+
+#: ../items/categories/rings.txt:7
+#: ../items/items.txt:663
+msgid "This nondescript ring was forged in the land where shadows lie."
+msgstr ""
+"Cet anneau peu remarquable fut forgé sur les terres où s'étendent les ombres."
+
+#: ../items/categories/rings.txt:13
+#: ../items/items.txt:674
+msgid "Ring of Regeneration"
+msgstr "Anneau de régénération"
+
+#: ../items/categories/rings.txt:20
+#: ../items/items.txt:685
+msgid "Ring of Concentration"
+msgstr "Anneau de concentration"
+
+#: ../items/categories/rings.txt:27
+#: ../items/items.txt:696
+msgid "Ring of Fire"
+msgstr "Anneau de feu"
+
+#: ../items/categories/rings.txt:34
+#: ../items/items.txt:707
+msgid "Ring of Ice"
+msgstr "Anneau de glace"
+
+#: ../items/categories/rings.txt:41
+#: ../items/items.txt:718
+msgid "Lineage Signet Ring"
+msgstr "Chevalière de lignée"
+
+#: ../items/categories/rings.txt:48
+#: ../items/items.txt:729
+msgid "Ouroboros Ring"
+msgstr "Anneau d'Ouroboros"
+
+#: ../items/categories/rings.txt:52
+#: ../items/items.txt:737
+msgid "One-time protection from death"
+msgstr "Protection contre la mort à usage unique"
+
+#: ../items/categories/rings.txt:56
+#: ../items/items.txt:741
+msgid "Relic Hunter's Ring"
+msgstr "Anneau relique du chasseur"
+
+#: ../items/categories/gems.txt:5
+#: ../items/items.txt:35
+msgid "Sapphire"
+msgstr "Saphir"
+
+#: ../items/categories/gems.txt:13
+#: ../items/items.txt:47
+msgid "Emerald"
+msgstr "Émeraude"
+
+#: ../items/categories/gems.txt:21
+#: ../items/items.txt:59
+msgid "Ruby"
+msgstr "Rubis"
+
+#: ../items/categories/gems.txt:29
+#: ../items/items.txt:71
+msgid "Diamond"
+msgstr "Diamant"
+
+#: ../items/categories/weapons_melee.txt:5
+#: ../items/items.txt:85
+msgid "Dagger"
+msgstr "Dague"
+
+#: ../items/categories/weapons_melee.txt:13
+#: ../items/items.txt:98
+msgid "Shortsword"
+msgstr "Épée courte"
+
+#: ../items/categories/weapons_melee.txt:21
+#: ../items/items.txt:111
+msgid "Longsword"
+msgstr "Épée longue"
+
+#: ../items/categories/weapons_melee.txt:29
+#: ../items/items.txt:124
+msgid "Greatsword"
+msgstr "Grande épée"
+
+#: ../items/categories/figurines.txt:5
+#: ../items/items.txt:822
+msgid "Bear Figurine"
+msgstr "Figurine de l'ours"
+
+#: ../items/categories/figurines.txt:12
+#: ../items/items.txt:833
+msgid "Owl Figurine"
+msgstr "Figurine de la chouette"
+
+#: ../items/categories/figurines.txt:19
+#: ../items/items.txt:844
+msgid "Cat Figurine"
+msgstr "Figurine du chat"
+
+#: ../items/categories/figurines.txt:26
+#: ../items/items.txt:855
+msgid "Turtle Figurine"
+msgstr "Figurine de la tortue"
+
+#: ../powers/categories/items.txt:30
+#: ../powers/powers.txt:235
+msgid "Blink to a nearby location"
+msgstr "Téléporte vers une destination proche"
+
+#: ../powers/categories/warrior.txt:4
+#: ../powers/powers.txt:5
+msgid "Swing"
+msgstr "Taille"
+
+#: ../powers/categories/warrior.txt:7
+#: ../powers/powers.txt:8
+msgid "Basic melee attack"
+msgstr "Attaque au corps à corps basique"
+
+#: ../powers/categories/warrior.txt:19
+#: ../powers/powers.txt:40
+msgid "Block"
+msgstr "Bloque"
+
+#: ../powers/categories/warrior.txt:21
+msgid "Raise your shield to raise your avoidance by 10% and absorb by 1-5. Chance to reflect missiles increased by 50%."
+msgstr ""
+
+#: ../powers/categories/warrior.txt:33
+#: ../powers/powers.txt:63
+msgid "Blood Strike"
+msgstr "Saignée"
+
+#: ../powers/categories/warrior.txt:36
+#: ../powers/powers.txt:66
+msgid "Inflict a bleeding wound that causes additional damage over 5 seconds"
+msgstr "Inflige une hémoragie causant des dégats additionels durant 5 secondes"
+
+#: ../powers/categories/warrior.txt:51
+#: ../powers/powers.txt:134
+msgid "Warcry"
+msgstr "Cris de guerre"
+
+#: ../powers/categories/warrior.txt:54
+#: ../powers/powers.txt:137
+msgid "Remove debuffs and become immune to debuffs for 10 seconds"
+msgstr ""
+"Enlève les debuffs (malus subis) et immunise aux debuffs durant 10 secondes"
+
+#: ../powers/categories/warrior.txt:65
+#: ../powers/powers.txt:192
+msgid "Cleave"
+msgstr "Fendre"
+
+#: ../powers/categories/warrior.txt:68
+msgid "Attack all enemies in a wide arc, dealing 50% of melee weapon damage"
+msgstr ""
+
+#: ../powers/categories/warrior.txt:87
+#: ../powers/powers.txt:309
+msgid "Heroic Swing"
+msgstr "Coup Héroïque"
+
+#: ../powers/categories/warrior.txt:90
+#: ../powers/powers.txt:312
+msgid "Melee attack with 10% HP steal"
+msgstr "Attaque au corps a corps volant 10% des PV"
+
+#: ../powers/categories/warrior.txt:103
+#: ../powers/powers.txt:639
+msgid "Throw Knife"
+msgstr "Jeter un couteau"
+
+#: ../powers/categories/warrior.txt:106
+#: ../powers/powers.txt:642
+msgid "Throw a knife to deal 75% of melee weapon damage"
+msgstr "Jeter un couteau pour infliger 75% de dommage d'arme de mêlée"
+
+#: ../powers/categories/warrior.txt:123
+#: ../powers/powers.txt:658
+msgid "Throw Axe"
+msgstr "Jeter une hache"
+
+#: ../powers/categories/warrior.txt:126
+#: ../powers/powers.txt:661
+msgid "Throw an axe to deal 150% of melee weapon damage"
+msgstr "Jeter une hache pour infliger 150% de dommage d'arme de mêlée"
+
+#: ../powers/categories/ranger.txt:3
+#: ../powers/powers.txt:118
+msgid "Piercing Shot"
+msgstr "Tir perçant"
+
+#: ../powers/categories/ranger.txt:6
+#: ../powers/powers.txt:121
+msgid "Fire a shot that ignores armor and goes through multiple enemies"
+msgstr "Le projectile traverse les armures et atteint plusieurs ennemis"
+
+#: ../powers/categories/ranger.txt:13
+#: ../powers/powers.txt:253
+msgid "Multishot"
+msgstr "Tir multiple"
+
+#: ../powers/categories/ranger.txt:16
+#: ../powers/powers.txt:256
+msgid "Shoot three projectiles simultaneously"
+msgstr "Tire trois projectiles simultanément"
+
+#: ../powers/categories/ranger.txt:23
+#: ../powers/powers.txt:346
+msgid "Shoot"
+msgstr "Tir"
+
+#: ../powers/categories/ranger.txt:26
+#: ../powers/powers.txt:349
+msgid "Basic ranged attack"
+msgstr "Attaque à distance basique"
+
+#: ../powers/categories/ranger.txt:32
+#: ../powers/powers.txt:360
+msgid "Rapid Fire"
+msgstr "Tir fournis"
+
+#: ../powers/categories/ranger.txt:35
+#: ../powers/powers.txt:363
+msgid "Fire five low power missiles in quick succession"
+msgstr "Lance rapidement 3 projectiles faibles"
+
+#: ../powers/categories/ranger.txt:42
+msgid "Ember Shot"
+msgstr ""
+
+#: ../powers/categories/ranger.txt:45
+msgid "Fire a spray of burning embers at close range. Effective against armored enemies."
+msgstr ""
+
+#: ../powers/categories/ranger.txt:71
+#: ../powers/powers.txt:677
+msgid "Caltrops"
+msgstr "Chausse-trappe"
+
+#: ../powers/categories/ranger.txt:74
+#: ../powers/powers.txt:680
+msgid "This trap deals 75% ranged weapon damage and slows the target."
+msgstr "Ce piège inflige 75% de dommage d'arme de jet et ralenti la cible."
+
+#: ../powers/categories/ranger.txt:92
+#: ../powers/powers.txt:698
+msgid "Bear Trap"
+msgstr "Piège à ours"
+
+#: ../powers/categories/ranger.txt:95
+#: ../powers/powers.txt:701
+msgid "This trap deals 150% ranged weapon damage and immobilizes the target."
+msgstr "Ce piège inflige 150% de dommage d'arme de jet et immobilise la cible."
+
+#: ../powers/categories/ranger.txt:143
+#: ../powers/powers.txt:1014
+msgid "Revert Form"
+msgstr "Revenir à la forme antérieure"
+
+#: ../powers/categories/ranger.txt:148
+#: ../powers/powers.txt:1019
+msgid "Transform back to human"
+msgstr "Revenir à la forme humaine"
+
+#: ../powers/categories/ranger.txt:158
+#: ../powers/powers.txt:1085
+msgid "Move undetected with the opportunity to perform a sneak attack"
+msgstr ""
+"Se déplacer sans être détecté avec la possibilité d'effectuer une attaque "
+"furtive"
+
+#: ../powers/categories/ranger.txt:168
+#: ../powers/powers.txt:1094
+msgid "Sneak Attack"
+msgstr "Attaque furtive"
+
+#: ../powers/categories/ranger.txt:171
+#: ../powers/powers.txt:1097
+msgid "Melee attack while stealthed for a high chance to crit"
+msgstr ""
+"Attaque au corps-à-corps pendant la furtivité pour de grandes chances de "
+"coup critique"
+
+#: ../powers/categories/visual_effects.txt:3
+#: ../powers/powers.txt:853
+msgid "Arrow Wall Strike"
+msgstr "Mur de flèches"
+
+#: ../powers/categories/visual_effects.txt:16
+#: ../powers/powers.txt:865
+msgid "Orange Spark"
+msgstr "Éclair orange"
+
+#: ../powers/categories/visual_effects.txt:28
+#: ../powers/powers.txt:877
+msgid "Blue Spark"
+msgstr "Éclair bleu"
+
+#: ../powers/categories/visual_effects.txt:40
+#: ../powers/powers.txt:889
+msgid "Red Spark"
+msgstr "Éclair rouge"
+
+#: ../powers/categories/enemy.txt:257
+msgid "Shock [enemy]"
+msgstr ""
+
+#: ../powers/categories/enemy.txt:260
+msgid "Electrocute an enemy from a distance; +50% crit chance against movement-impaired enemies."
+msgstr ""
+
+#: ../powers/categories/magician.txt:3
+#: ../powers/powers.txt:21
+msgid "Channel"
+msgstr "Canal"
+
+#: ../powers/categories/magician.txt:6
+#: ../powers/powers.txt:24
+msgid "Basic magic attack"
+msgstr "Attaque magique basique"
+
+#: ../powers/categories/magician.txt:22
+#: ../powers/powers.txt:82
+msgid "Shock"
+msgstr "Secousse"
+
+#: ../powers/categories/magician.txt:46
+#: ../powers/powers.txt:105
+msgid "Heal"
+msgstr "Soin"
+
+#: ../powers/categories/magician.txt:49
+#: ../powers/powers.txt:108
+msgid "Restore HP"
+msgstr "Restaure des PV"
+
+#: ../powers/categories/magician.txt:60
+#: ../powers/powers.txt:147
+msgid "Quake"
+msgstr "Séisme"
+
+#: ../powers/categories/magician.txt:63
+#: ../powers/powers.txt:150
+msgid "Stun nearby enemies"
+msgstr "Étourdis les ennemis proches"
+
+#: ../powers/categories/magician.txt:82
+#: ../powers/powers.txt:168
+msgid "Shield"
+msgstr "Bouclier"
+
+#: ../powers/categories/magician.txt:85
+#: ../powers/powers.txt:171
+msgid "Create a force field that absorbs damage"
+msgstr "Crée un champ de force qui absorbe les dégats"
+
+#: ../powers/categories/magician.txt:95
+#: ../powers/powers.txt:210
+msgid "Freeze"
+msgstr "Givre"
+
+#: ../powers/categories/magician.txt:98
+#: ../powers/powers.txt:213
+msgid "Create a ray of piercing cold that slows enemies"
+msgstr "Crée un rayon de givre qui ralentit les ennemis"
+
+#: ../powers/categories/magician.txt:119
+#: ../powers/powers.txt:232
+msgid "Teleport"
+msgstr "Téléportation"
+
+#: ../powers/categories/magician.txt:141
+#: ../powers/powers.txt:269
+msgid "Burn"
+msgstr "Brasier"
+
+#: ../powers/categories/magician.txt:144
+#: ../powers/powers.txt:272
+msgid "Blast enemies in a distant area with fire"
+msgstr "Carbonise les ennemis sur une zone à distance"
+
+#: ../powers/categories/magician.txt:167
+#: ../powers/powers.txt:326
+msgid "Greater Channel"
+msgstr "Grand Canal"
+
+#: ../powers/categories/magician.txt:170
+#: ../powers/powers.txt:329
+msgid "Magic attack with 10% MP steal"
+msgstr "Attaque magique volant 10% de PM"
+
+#: ../powers/categories/magician.txt:187
+msgid "Thunderstrike"
+msgstr ""
+
+#: ../powers/categories/magician.txt:190
+msgid "Lightning strikes from the sky to stun enemies"
+msgstr ""
+
+#: ../powers/categories/map_hazards.txt:3
+#: ../powers/powers.txt:813
+msgid "Fire Ammo"
+msgstr "Billes de feu"
+
+#: ../powers/categories/map_hazards.txt:23
+#: ../powers/powers.txt:833
+msgid "Ice Ammo"
+msgstr "billes de glace"
+
+#: ../powers/trees/default.txt:11
+#: ../menus/powers.txt:22
+msgid "Magician"
+msgstr "Mage"
