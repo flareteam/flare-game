@@ -1,0 +1,49 @@
+# equipment intended for players level 1
+
+[item]
+id=4
+name=Cloth Shirt
+INCLUDE items/base/armor/cloth/chest.txt
+price=6
+
+[item]
+id=5
+name=Cloth Pants
+INCLUDE items/base/armor/cloth/legs.txt
+price=4
+
+[item]
+id=6
+name=Cloth Sandals
+INCLUDE items/base/armor/cloth/feet.txt
+price=3
+
+[item]
+id=7
+name=Cloth Gloves
+INCLUDE items/base/armor/cloth/hands.txt
+price=2
+
+[item]
+id=8
+name=Dagger
+INCLUDE items/base/weapons/melee/dagger.txt
+dmg_melee=10,30
+requires_stat=physical,4
+price=12
+
+[item]
+id=9
+name=Slingshot
+INCLUDE items/base/weapons/ranged/slingshot.txt
+dmg_ranged=10,30
+requires_stat=offense,4
+price=12
+
+[item]
+id=10
+name=Wand
+INCLUDE items/base/weapons/magic/wand.txt
+dmg_ment=10,30
+requires_stat=mental,4
+price=12
