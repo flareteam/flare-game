@@ -6,23 +6,23 @@ INCLUDE items/base/armor/cloth/chest.txt
 quality=high
 price=70
 abs=4
-bonus=hp,150
+bonus=hp,75
 
 [item]
 id=12
 INCLUDE items/base/armor/cloth/chest.txt
 quality=high
 price=60
-abs=5
-bonus=hp_regen,90
+abs=4
+bonus=hp_regen,45
 
 [item]
 id=13
 INCLUDE items/base/armor/cloth/legs.txt
 quality=high
 price=50
-abs=3
-bonus=xp_gain,25
+abs=1
+bonus=avoidance,10
 
 [item]
 id=14
@@ -30,15 +30,14 @@ INCLUDE items/base/armor/cloth/legs.txt
 quality=high
 price=60
 abs=3
-bonus=currency_find,25
+bonus=poise,20
 
 [item]
 id=15
 INCLUDE items/base/armor/cloth/feet.txt
 quality=high
 price=30
-abs=1
-bonus=avoidance,40
+bonus=avoidance,5
 
 [item]
 id=16
@@ -46,34 +45,63 @@ INCLUDE items/base/armor/cloth/feet.txt
 quality=high
 price=20
 abs=2
-bonus=poise,25
+bonus=poise,10
 
 [item]
 id=17
 INCLUDE items/base/armor/cloth/hands.txt
 quality=high
 price=30
-bonus=crit,15
+bonus=crit,10
 
 [item]
 id=18
 INCLUDE items/base/armor/cloth/hands.txt
 quality=high
 price=20
-bonus=accuracy,25
+bonus=accuracy,15
 
 [item]
 id=19
 INCLUDE items/base/armor/mage/head.txt
 quality=high
 price=40
-abs=2
-bonus=mp,30
+abs=1
+bonus=mp,15
 
 [item]
 id=20
 INCLUDE items/base/armor/mage/head.txt
 price=30
-abs=2
-bonus=mp_regen,20
+abs=1
+bonus=mp_regen,10
 
+[item]
+id=21
+INCLUDE items/base/weapons/melee/dagger.txt
+quality=high
+price=80
+dmg_melee=10,30
+requires_stat=physical,4
+bonus=dmg_melee_min,20
+bonus=dmg_melee_max,20
+
+[item]
+id=22
+INCLUDE items/base/weapons/ranged/slingshot.txt
+quality=high
+price=80
+dmg_ranged=10,30
+requires_stat=offense,4
+bonus=dmg_ranged_min,20
+bonus=dmg_ranged_max,20
+
+[item]
+id=23
+INCLUDE items/base/weapons/magic/wand.txt
+quality=high
+price=80
+dmg_ment=10,30
+requires_stat=mental,4
+bonus=dmg_ment_min,20
+bonus=dmg_ment_max,20
