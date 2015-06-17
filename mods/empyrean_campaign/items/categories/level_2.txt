@@ -105,3 +105,46 @@ dmg_ment=10,30
 requires_stat=mental,4
 bonus=dmg_ment_min,20
 bonus=dmg_ment_max,20
+
+[item]
+id=24
+INCLUDE items/base/rings/gold_5.txt
+quality=high
+price=100
+bonus=fire_resist,15
+
+[item]
+id=25
+INCLUDE items/base/rings/silver_4.txt
+quality=high
+price=100
+bonus=ice_resist,15
+
+[item]
+id=26
+INCLUDE items/base/rings/silver_5.txt
+quality=high
+price=100
+bonus=lightning_resist,15
+
+[item]
+id=27
+INCLUDE items/base/rings/silver_2.txt
+quality=high
+price=100
+bonus=xp_gain,5
+
+[item]
+id=28
+INCLUDE items/base/rings/gold_2.txt
+quality=high
+price=100
+bonus=currency_find,5
+
+[item]
+id=29
+INCLUDE items/base/rings/gold_4.txt
+quality=high
+price=100
+bonus=item_find,5
+
