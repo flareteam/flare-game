@@ -1,0 +1,119 @@
+# equipment intended for players level 4
+
+[item]
+id=49
+INCLUDE items/base/armor/cloth/chest.txt
+quality=unique
+price=280
+abs=6
+bonus=hp,120
+bonus=hp_regen,60
+
+[item]
+id=50
+INCLUDE items/base/armor/cloth/legs.txt
+quality=unique
+price=240
+abs=4
+bonus=avoidance,12
+bonus=poise,24
+
+[item]
+id=51
+INCLUDE items/base/armor/cloth/feet.txt
+quality=unique
+price=120
+abs=3
+bonus=avoidance,6
+bonus=poise,12
+
+[item]
+id=52
+INCLUDE items/base/armor/cloth/hands.txt
+quality=unique
+price=120
+abs=2
+bonus=crit,6
+bonus=accuracy,12
+
+[item]
+id=53
+INCLUDE items/base/armor/mage/head.txt
+quality=unique
+price=160
+abs=3
+bonus=mp,24
+bonus=mp_regen,12
+
+[item]
+id=54
+INCLUDE items/base/weapons/melee/dagger.txt
+quality=unique
+price=320
+dmg_melee=10,30
+requires_stat=physical,12
+bonus=dmg_melee_min,15
+bonus=dmg_melee_max,15
+
+[item]
+id=55
+INCLUDE items/base/weapons/ranged/slingshot.txt
+quality=unique
+price=320
+dmg_ranged=10,30
+requires_stat=offense,12
+bonus=dmg_ranged_min,15
+bonus=dmg_ranged_max,15
+
+[item]
+id=56
+INCLUDE items/base/weapons/magic/wand.txt
+quality=unique
+price=320
+dmg_ment=10,30
+requires_stat=mental,12
+bonus=dmg_ment_min,15
+bonus=dmg_ment_max,15
+
+[item]
+id=57
+INCLUDE items/base/rings/gold_5.txt
+quality=unique
+price=400
+bonus=fire_resist,20
+
+[item]
+id=58
+INCLUDE items/base/rings/silver_4.txt
+quality=unique
+price=400
+bonus=ice_resist,20
+
+[item]
+id=59
+INCLUDE items/base/rings/silver_5.txt
+quality=unique
+price=400
+bonus=lightning_resist,20
+
+[item]
+id=60
+INCLUDE items/base/rings/silver_2.txt
+quality=unique
+price=400
+bonus=xp_gain,15
+
+[item]
+id=61
+INCLUDE items/base/rings/gold_2.txt
+quality=unique
+price=400
+bonus=currency_find,15
+
+[item]
+id=62
+INCLUDE items/base/rings/gold_4.txt
+quality=unique
+price=400
+bonus=item_find,15
+
