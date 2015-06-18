@@ -6,7 +6,7 @@ INCLUDE items/base/armor/cloth/chest.txt
 quality=high
 price=70
 abs=4
-bonus=hp,75
+bonus=hp,40
 
 [item]
 id=12
@@ -14,7 +14,7 @@ INCLUDE items/base/armor/cloth/chest.txt
 quality=high
 price=60
 abs=4
-bonus=hp_regen,45
+bonus=hp_regen,20
 
 [item]
 id=13
@@ -22,7 +22,7 @@ INCLUDE items/base/armor/cloth/legs.txt
 quality=high
 price=50
 abs=1
-bonus=avoidance,10
+bonus=avoidance,4
 
 [item]
 id=14
@@ -30,14 +30,14 @@ INCLUDE items/base/armor/cloth/legs.txt
 quality=high
 price=60
 abs=3
-bonus=poise,20
+bonus=poise,8
 
 [item]
 id=15
 INCLUDE items/base/armor/cloth/feet.txt
 quality=high
 price=30
-bonus=avoidance,5
+bonus=avoidance,2
 
 [item]
 id=16
@@ -45,21 +45,21 @@ INCLUDE items/base/armor/cloth/feet.txt
 quality=high
 price=20
 abs=2
-bonus=poise,10
+bonus=poise,4
 
 [item]
 id=17
 INCLUDE items/base/armor/cloth/hands.txt
 quality=high
 price=30
-bonus=crit,10
+bonus=crit,2
 
 [item]
 id=18
 INCLUDE items/base/armor/cloth/hands.txt
 quality=high
 price=20
-bonus=accuracy,15
+bonus=accuracy,4
 
 [item]
 id=19
@@ -67,14 +67,14 @@ INCLUDE items/base/armor/mage/head.txt
 quality=high
 price=40
 abs=1
-bonus=mp,15
+bonus=mp,8
 
 [item]
 id=20
 INCLUDE items/base/armor/mage/head.txt
 price=30
 abs=1
-bonus=mp_regen,10
+bonus=mp_regen,4
 
 [item]
 id=21
@@ -83,8 +83,8 @@ quality=high
 price=80
 dmg_melee=10,30
 requires_stat=physical,4
-bonus=dmg_melee_min,20
-bonus=dmg_melee_max,20
+bonus=dmg_melee_min,5
+bonus=dmg_melee_max,5
 
 [item]
 id=22
@@ -93,8 +93,8 @@ quality=high
 price=80
 dmg_ranged=10,30
 requires_stat=offense,4
-bonus=dmg_ranged_min,20
-bonus=dmg_ranged_max,20
+bonus=dmg_ranged_min,5
+bonus=dmg_ranged_max,5
 
 [item]
 id=23
@@ -103,29 +103,29 @@ quality=high
 price=80
 dmg_ment=10,30
 requires_stat=mental,4
-bonus=dmg_ment_min,20
-bonus=dmg_ment_max,20
+bonus=dmg_ment_min,5
+bonus=dmg_ment_max,5
 
 [item]
 id=24
 INCLUDE items/base/rings/gold_5.txt
 quality=high
 price=100
-bonus=fire_resist,15
+bonus=fire_resist,10
 
 [item]
 id=25
 INCLUDE items/base/rings/silver_4.txt
 quality=high
 price=100
-bonus=ice_resist,15
+bonus=ice_resist,10
 
 [item]
 id=26
 INCLUDE items/base/rings/silver_5.txt
 quality=high
 price=100
-bonus=lightning_resist,15
+bonus=lightning_resist,10
 
 [item]
 id=27
