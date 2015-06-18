@@ -1,7 +1,7 @@
 # equipment intended for players level 2
 
 [item]
-id=11
+id=12
 INCLUDE items/base/armor/cloth/chest.txt
 quality=high
 price=70
@@ -9,7 +9,7 @@ abs=4
 bonus=hp,40
 
 [item]
-id=12
+id=13
 INCLUDE items/base/armor/cloth/chest.txt
 quality=high
 price=60
@@ -17,7 +17,7 @@ abs=4
 bonus=hp_regen,20
 
 [item]
-id=13
+id=14
 INCLUDE items/base/armor/cloth/legs.txt
 quality=high
 price=50
@@ -25,7 +25,7 @@ abs=1
 bonus=avoidance,4
 
 [item]
-id=14
+id=15
 INCLUDE items/base/armor/cloth/legs.txt
 quality=high
 price=60
@@ -33,14 +33,14 @@ abs=3
 bonus=poise,8
 
 [item]
-id=15
+id=16
 INCLUDE items/base/armor/cloth/feet.txt
 quality=high
 price=30
 bonus=avoidance,2
 
 [item]
-id=16
+id=17
 INCLUDE items/base/armor/cloth/feet.txt
 quality=high
 price=20
@@ -48,21 +48,21 @@ abs=2
 bonus=poise,4
 
 [item]
-id=17
+id=18
 INCLUDE items/base/armor/cloth/hands.txt
 quality=high
 price=30
 bonus=crit,2
 
 [item]
-id=18
+id=19
 INCLUDE items/base/armor/cloth/hands.txt
 quality=high
 price=20
 bonus=accuracy,4
 
 [item]
-id=19
+id=20
 INCLUDE items/base/armor/mage/head.txt
 quality=high
 price=40
@@ -70,14 +70,14 @@ abs=1
 bonus=mp,8
 
 [item]
-id=20
+id=21
 INCLUDE items/base/armor/mage/head.txt
 price=30
 abs=1
 bonus=mp_regen,4
 
 [item]
-id=21
+id=22
 INCLUDE items/base/weapons/melee/dagger.txt
 quality=high
 price=80
@@ -87,7 +87,7 @@ bonus=dmg_melee_min,5
 bonus=dmg_melee_max,5
 
 [item]
-id=22
+id=23
 INCLUDE items/base/weapons/ranged/slingshot.txt
 quality=high
 price=80
@@ -97,7 +97,7 @@ bonus=dmg_ranged_min,5
 bonus=dmg_ranged_max,5
 
 [item]
-id=23
+id=24
 INCLUDE items/base/weapons/magic/wand.txt
 quality=high
 price=80
@@ -107,42 +107,52 @@ bonus=dmg_ment_min,5
 bonus=dmg_ment_max,5
 
 [item]
-id=24
+id=25
+INCLUDE items/base/shields/wood.txt
+quality=high
+abs=0,10
+requires_stat=defense,2
+price=60
+bonus=absorb_min,5
+bonus=absorb_max,5
+
+[item]
+id=26
 INCLUDE items/base/rings/gold_5.txt
 quality=high
 price=100
 bonus=fire_resist,10
 
 [item]
-id=25
+id=27
 INCLUDE items/base/rings/silver_4.txt
 quality=high
 price=100
 bonus=ice_resist,10
 
 [item]
-id=26
+id=28
 INCLUDE items/base/rings/silver_5.txt
 quality=high
 price=100
 bonus=lightning_resist,10
 
 [item]
-id=27
+id=29
 INCLUDE items/base/rings/silver_2.txt
 quality=high
 price=100
 bonus=xp_gain,5
 
 [item]
-id=28
+id=30
 INCLUDE items/base/rings/gold_2.txt
 quality=high
 price=100
 bonus=currency_find,5
 
 [item]
-id=29
+id=31
 INCLUDE items/base/rings/gold_4.txt
 quality=high
 price=100

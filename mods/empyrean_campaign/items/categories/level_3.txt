@@ -1,7 +1,7 @@
 # equipment intended for players level 3
 
 [item]
-id=30
+id=32
 INCLUDE items/base/armor/cloth/chest.txt
 quality=epic
 price=140
@@ -9,7 +9,7 @@ abs=5
 bonus=hp,80
 
 [item]
-id=31
+id=33
 INCLUDE items/base/armor/cloth/chest.txt
 quality=epic
 price=120
@@ -17,7 +17,7 @@ abs=5
 bonus=hp_regen,40
 
 [item]
-id=32
+id=34
 INCLUDE items/base/armor/cloth/legs.txt
 quality=epic
 price=100
@@ -25,7 +25,7 @@ abs=2
 bonus=avoidance,8
 
 [item]
-id=33
+id=35
 INCLUDE items/base/armor/cloth/legs.txt
 quality=epic
 price=120
@@ -33,7 +33,7 @@ abs=4
 bonus=poise,16
 
 [item]
-id=34
+id=36
 INCLUDE items/base/armor/cloth/feet.txt
 quality=epic
 price=60
@@ -41,7 +41,7 @@ abs=1
 bonus=avoidance,4
 
 [item]
-id=35
+id=37
 INCLUDE items/base/armor/cloth/feet.txt
 quality=epic
 price=40
@@ -49,7 +49,7 @@ abs=3
 bonus=poise,8
 
 [item]
-id=36
+id=38
 INCLUDE items/base/armor/cloth/hands.txt
 quality=epic
 price=60
@@ -57,7 +57,7 @@ abs=1
 bonus=crit,4
 
 [item]
-id=37
+id=39
 INCLUDE items/base/armor/cloth/hands.txt
 quality=epic
 price=40
@@ -65,7 +65,7 @@ abs=1
 bonus=accuracy,8
 
 [item]
-id=38
+id=40
 INCLUDE items/base/armor/mage/head.txt
 quality=epic
 price=80
@@ -73,14 +73,15 @@ abs=2
 bonus=mp,16
 
 [item]
-id=39
+id=41
 INCLUDE items/base/armor/mage/head.txt
+quality=epic
 price=60
 abs=2
 bonus=mp_regen,8
 
 [item]
-id=40
+id=42
 INCLUDE items/base/weapons/melee/dagger.txt
 quality=epic
 price=160
@@ -90,7 +91,7 @@ bonus=dmg_melee_min,10
 bonus=dmg_melee_max,10
 
 [item]
-id=41
+id=43
 INCLUDE items/base/weapons/ranged/slingshot.txt
 quality=epic
 price=160
@@ -100,7 +101,7 @@ bonus=dmg_ranged_min,10
 bonus=dmg_ranged_max,10
 
 [item]
-id=42
+id=44
 INCLUDE items/base/weapons/magic/wand.txt
 quality=epic
 price=160
@@ -110,42 +111,52 @@ bonus=dmg_ment_min,10
 bonus=dmg_ment_max,10
 
 [item]
-id=43
+id=45
+INCLUDE items/base/shields/wood.txt
+quality=epic
+abs=0,10
+requires_stat=defense,6
+price=120
+bonus=absorb_min,10
+bonus=absorb_max,10
+
+[item]
+id=46
 INCLUDE items/base/rings/gold_5.txt
 quality=epic
 price=200
 bonus=fire_resist,15
 
 [item]
-id=44
+id=47
 INCLUDE items/base/rings/silver_4.txt
 quality=epic
 price=200
 bonus=ice_resist,15
 
 [item]
-id=45
+id=48
 INCLUDE items/base/rings/silver_5.txt
 quality=epic
 price=200
 bonus=lightning_resist,15
 
 [item]
-id=46
+id=49
 INCLUDE items/base/rings/silver_2.txt
 quality=epic
 price=200
 bonus=xp_gain,10
 
 [item]
-id=47
+id=50
 INCLUDE items/base/rings/gold_2.txt
 quality=epic
 price=200
 bonus=currency_find,10
 
 [item]
-id=48
+id=51
 INCLUDE items/base/rings/gold_4.txt
 quality=epic
 price=200
