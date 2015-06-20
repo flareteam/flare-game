@@ -224,7 +224,9 @@
  <objectgroup name="event">
   <object id="1" name="to Stonewood" type="on_trigger" x="128" y="32" width="128" height="32">
    <properties>
+    <property name="hotspot" value="location"/>
     <property name="intermap" value="maps/stonewood.txt,52,76"/>
+    <property name="tooltip" value="Stonewood"/>
    </properties>
   </object>
   <object id="3" name="lumber" type="on_trigger" x="416" y="192" width="32" height="32">
@@ -367,7 +369,9 @@
   </object>
   <object id="36" name="to Merrimead Swamp" type="on_trigger" x="1696" y="448" width="32" height="128">
    <properties>
+    <property name="hotspot" value="location"/>
     <property name="intermap" value="maps/merrimead_swamp.txt,3,17"/>
+    <property name="tooltip" value="Merrimead Swamp"/>
    </properties>
   </object>
  </objectgroup>

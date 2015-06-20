@@ -341,7 +341,9 @@
  <objectgroup name="event">
   <object id="13" name="to Merrimead Swamp" type="on_trigger" x="0" y="992" width="32" height="128">
    <properties>
+    <property name="hotspot" value="location"/>
     <property name="intermap" value="maps/merrimead_swamp.txt,78,13"/>
+    <property name="tooltip" value="Merrimead Swamp"/>
    </properties>
   </object>
   <object id="16" name="Unlock waypoint" type="on_trigger" x="1024" y="704" width="192" height="192">
@@ -355,7 +357,9 @@
   </object>
   <object id="17" name="to Hyperspace" type="on_trigger" x="1088" y="768" width="64" height="64">
    <properties>
+    <property name="hotspot" value="location"/>
     <property name="intermap" value="maps/hyperspace.txt,23,10"/>
+    <property name="tooltip" value="Hyperspace"/>
    </properties>
   </object>
   <object id="18" name="unlock waypoint (on_load)" type="on_load" x="1088" y="640" width="32" height="32">

@@ -153,13 +153,17 @@ data=
 # to Arrival
 type=on_trigger
 location=6,4,1,2
+hotspot=location
 intermap=maps/arrival.txt,37,34
+tooltip=Arrival
 
 [event]
 # to Perdition Harbor
 type=on_trigger
 location=78,25,1,4
+hotspot=location
 intermap=maps/perdition_harbor.txt,2,24
+tooltip=Perdition Harbor
 
 [event]
 # Wind and crickets sound effect

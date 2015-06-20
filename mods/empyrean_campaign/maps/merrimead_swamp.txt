@@ -273,7 +273,9 @@ data=
 # to Goblin Camp
 type=on_trigger
 location=2,15,1,4
+hotspot=location
 intermap=maps/goblin_camp.txt,52,15
+tooltip=Goblin Camp
 
 [event]
 # Wind and crickets sound effect
@@ -456,7 +458,9 @@ tooltip=Supplies
 # to Valverde Cemetery
 type=on_trigger
 location=79,11,1,4
+hotspot=location
 intermap=maps/valverde_cemetery.txt,1,33
+tooltip=Valverde Cemetery
 
 [enemy]
 # goblins

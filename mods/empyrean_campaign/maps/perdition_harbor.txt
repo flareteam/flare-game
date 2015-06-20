@@ -153,7 +153,9 @@ data=
 # to River Trail
 type=on_trigger
 location=1,22,1,4
+hotspot=location
 intermap=maps/river_trail.txt,77,26
+tooltip=River Trail
 
 [event]
 # Shared stash
@@ -168,13 +170,17 @@ tooltip=Shared Stash
 # to Hyperspace
 type=on_trigger
 location=16,25,2,2
+hotspot=location
 intermap=maps/hyperspace.txt,12,12
+tooltip=Hyperspace
 
 [event]
 # to Book of the Dead
 type=on_trigger
 location=33,16,4,4
+hotspot=location
 intermap=maps/book_of_the_dead.txt,17,46
+tooltip=Book of the Dead
 
 [event]
 # Wind and crickets sound effect

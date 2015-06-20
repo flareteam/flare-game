@@ -164,7 +164,9 @@
  <objectgroup name="event">
   <object id="1" name="to River Trail" type="on_trigger" x="32" y="704" width="32" height="128">
    <properties>
+    <property name="hotspot" value="location"/>
     <property name="intermap" value="maps/river_trail.txt,77,26"/>
+    <property name="tooltip" value="River Trail"/>
    </properties>
   </object>
   <object id="3" name="Shared stash" type="on_trigger" x="768" y="544" width="32" height="32">
@@ -177,12 +179,16 @@
   </object>
   <object id="4" name="to Hyperspace" type="on_trigger" x="512" y="800" width="64" height="64">
    <properties>
+    <property name="hotspot" value="location"/>
     <property name="intermap" value="maps/hyperspace.txt,12,12"/>
+    <property name="tooltip" value="Hyperspace"/>
    </properties>
   </object>
   <object id="7" name="to Book of the Dead" type="on_trigger" x="1056" y="512" width="128" height="128">
    <properties>
+    <property name="hotspot" value="location"/>
     <property name="intermap" value="maps/book_of_the_dead.txt,17,46"/>
+    <property name="tooltip" value="Book of the Dead"/>
    </properties>
   </object>
   <object id="8" name="Wind and crickets sound effect" type="on_load" x="0" y="0" width="32" height="32">

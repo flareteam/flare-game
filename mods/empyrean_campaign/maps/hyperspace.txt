@@ -153,21 +153,27 @@ data=
 # to Perdition Harbor
 type=on_trigger
 location=9,9,2,2
+hotspot=location
 intermap=maps/perdition_harbor.txt,15,23
+tooltip=Perdition Harbor
 
 [event]
 # to Stonewood
 type=on_trigger
 location=16,7,2,2
+hotspot=location
 intermap=maps/stonewood.txt,59,43
 requires_status=emp_waypoint_1
+tooltip=Stonewood
 
 [event]
 # to Valverde Cemetery
 type=on_trigger
 location=22,7,2,2
+hotspot=location
 intermap=maps/valverde_cemetery.txt,37,27
 requires_status=emp_waypoint_2
+tooltip=Valverde Cemetery
 
 [event]
 # Wind sound

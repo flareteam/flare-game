@@ -213,7 +213,9 @@ data=
 # to Stonewood
 type=on_trigger
 location=4,1,4,1
+hotspot=location
 intermap=maps/stonewood.txt,52,76
+tooltip=Stonewood
 
 [event]
 # lumber
@@ -379,7 +381,9 @@ soundfx=soundfx/environment/raven_loop.ogg
 # to Merrimead Swamp
 type=on_trigger
 location=53,14,1,4
+hotspot=location
 intermap=maps/merrimead_swamp.txt,3,17
+tooltip=Merrimead Swamp
 
 [enemy]
 # goblins

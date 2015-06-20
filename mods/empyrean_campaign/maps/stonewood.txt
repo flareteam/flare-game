@@ -273,19 +273,25 @@ data=
 # to Salted Field
 type=on_trigger
 location=1,6,1,4
+hotspot=location
 intermap=maps/salted_field.txt,56,12
+tooltip=Salted Field
 
 [event]
 # to Goblin Camp
 type=on_trigger
 location=51,77,4,1
+hotspot=location
 intermap=maps/goblin_camp.txt,5,2
+tooltip=Goblin Camp
 
 [event]
 # to Hyperspace
 type=on_trigger
 location=59,44,2,2
+hotspot=location
 intermap=maps/hyperspace.txt,17,10
+tooltip=Hyperspace
 
 [event]
 # Supplies

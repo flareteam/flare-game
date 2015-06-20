@@ -339,7 +339,9 @@ direction=W
 # to Merrimead Swamp
 type=on_trigger
 location=0,31,1,4
+hotspot=location
 intermap=maps/merrimead_swamp.txt,78,13
+tooltip=Merrimead Swamp
 
 [event]
 # Unlock waypoint
@@ -355,7 +357,9 @@ set_status=emp_waypoint_2
 # to Hyperspace
 type=on_trigger
 location=34,24,2,2
+hotspot=location
 intermap=maps/hyperspace.txt,23,10
+tooltip=Hyperspace
 
 [event]
 # unlock waypoint (on_load)

@@ -284,17 +284,23 @@
  <objectgroup name="event">
   <object id="1" name="to Salted Field" type="on_trigger" x="32" y="192" width="32" height="128">
    <properties>
+    <property name="hotspot" value="location"/>
     <property name="intermap" value="maps/salted_field.txt,56,12"/>
+    <property name="tooltip" value="Salted Field"/>
    </properties>
   </object>
   <object id="3" name="to Goblin Camp" type="on_trigger" x="1632" y="2464" width="128" height="32">
    <properties>
+    <property name="hotspot" value="location"/>
     <property name="intermap" value="maps/goblin_camp.txt,5,2"/>
+    <property name="tooltip" value="Goblin Camp"/>
    </properties>
   </object>
   <object id="4" name="to Hyperspace" type="on_trigger" x="1888" y="1408" width="64" height="64">
    <properties>
+    <property name="hotspot" value="location"/>
     <property name="intermap" value="maps/hyperspace.txt,17,10"/>
+    <property name="tooltip" value="Hyperspace"/>
    </properties>
   </object>
   <object id="20" name="Supplies" type="on_trigger" x="2688" y="544" width="32" height="32">

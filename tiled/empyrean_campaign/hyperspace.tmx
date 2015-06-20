@@ -165,19 +165,25 @@
  <objectgroup name="event">
   <object id="1" name="to Perdition Harbor" type="on_trigger" x="288" y="288" width="64" height="64">
    <properties>
+    <property name="hotspot" value="location"/>
     <property name="intermap" value="maps/perdition_harbor.txt,15,23"/>
+    <property name="tooltip" value="Perdition Harbor"/>
    </properties>
   </object>
   <object id="2" name="to Stonewood" type="on_trigger" x="512" y="224" width="64" height="64">
    <properties>
+    <property name="hotspot" value="location"/>
     <property name="intermap" value="maps/stonewood.txt,59,43"/>
     <property name="requires_status" value="emp_waypoint_1"/>
+    <property name="tooltip" value="Stonewood"/>
    </properties>
   </object>
   <object id="3" name="to Valverde Cemetery" type="on_trigger" x="704" y="224" width="64" height="64">
    <properties>
+    <property name="hotspot" value="location"/>
     <property name="intermap" value="maps/valverde_cemetery.txt,37,27"/>
     <property name="requires_status" value="emp_waypoint_2"/>
+    <property name="tooltip" value="Valverde Cemetery"/>
    </properties>
   </object>
   <object id="4" x="928" y="288" width="64" height="64"/>

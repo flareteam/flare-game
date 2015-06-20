@@ -284,7 +284,9 @@
  <objectgroup name="event">
   <object id="1" name="to Goblin Camp" type="on_trigger" x="64" y="480" width="32" height="128">
    <properties>
+    <property name="hotspot" value="location"/>
     <property name="intermap" value="maps/goblin_camp.txt,52,15"/>
+    <property name="tooltip" value="Goblin Camp"/>
    </properties>
   </object>
   <object id="2" name="Wind and crickets sound effect" type="on_load" x="0" y="0" width="32" height="32">
@@ -439,7 +441,9 @@
   </object>
   <object id="47" name="to Valverde Cemetery" type="on_trigger" x="2528" y="352" width="32" height="128">
    <properties>
+    <property name="hotspot" value="location"/>
     <property name="intermap" value="maps/valverde_cemetery.txt,1,33"/>
+    <property name="tooltip" value="Valverde Cemetery"/>
    </properties>
   </object>
  </objectgroup>

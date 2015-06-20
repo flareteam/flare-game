@@ -224,12 +224,16 @@
  <objectgroup name="event">
   <object id="1" name="to Book of the Dead" type="on_trigger" x="224" y="1248" width="128" height="128">
    <properties>
+    <property name="hotspot" value="location"/>
     <property name="intermap" value="maps/book_of_the_dead.txt,16,7"/>
+    <property name="tooltip" value="Book of the Dead"/>
    </properties>
   </object>
   <object id="2" name="to Stonewood" type="on_trigger" x="1824" y="352" width="32" height="128">
    <properties>
+    <property name="hotspot" value="location"/>
     <property name="intermap" value="maps/stonewood.txt,2,8"/>
+    <property name="tooltip" value="Stonewood"/>
    </properties>
   </object>
   <object id="16" name="Supplies" type="on_trigger" x="320" y="320" width="32" height="32">

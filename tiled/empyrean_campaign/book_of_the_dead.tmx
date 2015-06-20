@@ -195,12 +195,16 @@
  <objectgroup name="event">
   <object id="1" name="to Perdition Harbor" type="on_trigger" x="512" y="1440" width="32" height="64">
    <properties>
+    <property name="hotspot" value="location"/>
     <property name="intermap" value="maps/perdition_harbor.txt,32,20"/>
+    <property name="tooltip" value="Perdition Harbor"/>
    </properties>
   </object>
   <object id="2" name="to Salted Field" type="on_trigger" x="480" y="160" width="64" height="32">
    <properties>
+    <property name="hotspot" value="location"/>
     <property name="intermap" value="maps/salted_field.txt,11,44"/>
+    <property name="tooltip" value="Salted Field"/>
    </properties>
   </object>
   <object id="3" name="brazier sound effect" type="on_load" x="320" y="640" width="32" height="32">

@@ -164,12 +164,16 @@
  <objectgroup name="event">
   <object id="1" name="to Arrival" type="on_trigger" x="192" y="128" width="32" height="64">
    <properties>
+    <property name="hotspot" value="location"/>
     <property name="intermap" value="maps/arrival.txt,37,34"/>
+    <property name="tooltip" value="Arrival"/>
    </properties>
   </object>
   <object id="2" name="to Perdition Harbor" type="on_trigger" x="2496" y="800" width="32" height="128">
    <properties>
+    <property name="hotspot" value="location"/>
     <property name="intermap" value="maps/perdition_harbor.txt,2,24"/>
+    <property name="tooltip" value="Perdition Harbor"/>
    </properties>
   </object>
   <object id="6" name="Wind and crickets sound effect" type="on_load" x="0" y="0" width="32" height="32">
