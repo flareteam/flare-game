@@ -344,10 +344,11 @@ data=
 [event]
 # to Frontier Plains
 type=on_trigger
-location=48,101,2,1
-hotspot=48,102,2,1
+location=48,101,2,2
+hotspot=location
 intermap=maps/frontier_plains.txt,118,138
 soundfx=soundfx/door_open.ogg,0,0
+tooltip=Frontier Plains
 
 [event]
 type=on_trigger

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="isometric" width="100" height="100" tilewidth="64" tileheight="32">
+<map version="1.0" orientation="isometric" renderorder="right-down" width="100" height="100" tilewidth="64" tileheight="32" nextobjectid="55">
  <properties>
   <property name="location" value="56,69,4"/>
   <property name="music" value="music/cave_theme.ogg"/>
@@ -327,13 +327,15 @@
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,1,2,2,1,3,3,3,3,3,3,3,3,3,1,2,2,2,2,2,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
 </data>
  </layer>
- <objectgroup name="event" width="100" height="100">
-  <object name="exit to cave level 1" type="on_trigger" x="1696" y="128" width="64" height="32">
+ <objectgroup name="event">
+  <object id="1" name="exit to cave level 1" type="on_trigger" x="1696" y="128" width="64" height="32">
    <properties>
+    <property name="hotspot" value="location"/>
     <property name="intermap" value="maps/cave1.txt,15,67"/>
+    <property name="tooltip" value="Caves Level 1"/>
    </properties>
   </object>
-  <object type="on_trigger" x="416" y="704" width="32" height="32">
+  <object id="2" type="on_trigger" x="416" y="704" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="loot/leveled_low.txt"/>
@@ -343,7 +345,7 @@
     <property name="tooltip" value="Barrel"/>
    </properties>
   </object>
-  <object type="on_trigger" x="352" y="672" width="32" height="32">
+  <object id="3" type="on_trigger" x="352" y="672" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="loot/leveled_mid.txt"/>
@@ -353,13 +355,13 @@
     <property name="tooltip" value="Treasure Chest"/>
    </properties>
   </object>
-  <object name="necromancer message" type="on_trigger" x="576" y="896" width="160" height="160">
+  <object id="4" name="necromancer message" type="on_trigger" x="576" y="896" width="160" height="160">
    <properties>
     <property name="msg" value="It looks like the necromancer has been raising the corpses of dead miners as his minions."/>
     <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object type="on_trigger" x="800" y="768" width="32" height="32">
+  <object id="5" type="on_trigger" x="800" y="768" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="loot/leveled_low.txt"/>
@@ -369,7 +371,7 @@
     <property name="tooltip" value="Barrel"/>
    </properties>
   </object>
-  <object type="on_trigger" x="832" y="1024" width="32" height="32">
+  <object id="6" type="on_trigger" x="832" y="1024" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="loot/leveled_low.txt"/>
@@ -379,7 +381,7 @@
     <property name="tooltip" value="Crate"/>
    </properties>
   </object>
-  <object type="on_trigger" x="896" y="1056" width="32" height="32">
+  <object id="7" type="on_trigger" x="896" y="1056" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="loot/leveled_low.txt"/>
@@ -389,7 +391,7 @@
     <property name="tooltip" value="Barrel"/>
    </properties>
   </object>
-  <object type="on_trigger" x="832" y="800" width="32" height="32">
+  <object id="8" type="on_trigger" x="832" y="800" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="loot/leveled_low.txt"/>
@@ -399,7 +401,7 @@
     <property name="tooltip" value="Crate"/>
    </properties>
   </object>
-  <object type="on_trigger" x="1792" y="3040" width="32" height="32">
+  <object id="9" type="on_trigger" x="1792" y="3040" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="loot/leveled_mid.txt"/>
@@ -409,13 +411,13 @@
     <property name="tooltip" value="Treasure Chest"/>
    </properties>
   </object>
-  <object name="river message" type="on_trigger" x="2144" y="1984" width="128" height="128">
+  <object id="10" name="river message" type="on_trigger" x="2144" y="1984" width="128" height="128">
    <properties>
     <property name="msg" value="A natural underground river flows through this room."/>
     <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object type="on_trigger" x="2016" y="2240" width="32" height="32">
+  <object id="11" type="on_trigger" x="2016" y="2240" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="loot/leveled_low.txt"/>
@@ -425,7 +427,7 @@
     <property name="tooltip" value="Barrel"/>
    </properties>
   </object>
-  <object type="on_trigger" x="2272" y="2336" width="32" height="32">
+  <object id="12" type="on_trigger" x="2272" y="2336" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="loot/leveled_low.txt"/>
@@ -435,7 +437,7 @@
     <property name="tooltip" value="Barrel"/>
    </properties>
   </object>
-  <object type="on_trigger" x="1600" y="1664" width="32" height="32">
+  <object id="13" type="on_trigger" x="1600" y="1664" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="loot/leveled_low.txt"/>
@@ -445,7 +447,7 @@
     <property name="tooltip" value="Barrel"/>
    </properties>
   </object>
-  <object name="falling pillar/bridge event" type="on_trigger" x="2560" y="1920" width="32" height="32">
+  <object id="14" name="falling pillar/bridge event" type="on_trigger" x="2560" y="1920" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="mapmod" value="collision,80,60,0;collision,80,61,0;collision,80,62,0;collision,80,63,0;object,80,60,151;object,80,61,152;object,80,62,151;object,80,63,152"/>
@@ -455,13 +457,13 @@
     <property name="tooltip" value="Stalagmite Pillar"/>
    </properties>
   </object>
-  <object name="river message 2" type="on_trigger" x="2816" y="2112" width="96" height="96">
+  <object id="15" name="river message 2" type="on_trigger" x="2816" y="2112" width="96" height="96">
    <properties>
     <property name="msg" value="The river appears to have swollen recently, covering the location where the tracks once were."/>
     <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object type="on_trigger" x="1472" y="928" width="32" height="32">
+  <object id="16" type="on_trigger" x="1472" y="928" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="loot/leveled_low.txt"/>
@@ -471,7 +473,7 @@
     <property name="tooltip" value="Crate"/>
    </properties>
   </object>
-  <object type="on_trigger" x="1504" y="1024" width="32" height="32">
+  <object id="17" type="on_trigger" x="1504" y="1024" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="loot/leveled_low.txt"/>
@@ -481,13 +483,13 @@
     <property name="tooltip" value="Barrel"/>
    </properties>
   </object>
-  <object name="miners message" type="on_trigger" x="512" y="1504" width="96" height="96">
+  <object id="18" name="miners message" type="on_trigger" x="512" y="1504" width="96" height="96">
    <properties>
     <property name="msg" value="The undead in this room are dressed in the remnants of shredded mining clothes."/>
     <property name="repeat" value="false"/>
    </properties>
   </object>
-  <object type="on_trigger" x="2560" y="2144" width="32" height="32">
+  <object id="19" type="on_trigger" x="2560" y="2144" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="loot/leveled_low.txt"/>
@@ -497,7 +499,7 @@
     <property name="tooltip" value="Barrel"/>
    </properties>
   </object>
-  <object type="on_trigger" x="2592" y="2144" width="32" height="32">
+  <object id="20" type="on_trigger" x="2592" y="2144" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="loot/leveled_low.txt"/>
@@ -507,7 +509,7 @@
     <property name="tooltip" value="Crate"/>
    </properties>
   </object>
-  <object type="on_trigger" x="2528" y="2176" width="32" height="32">
+  <object id="21" type="on_trigger" x="2528" y="2176" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="loot/leveled_low.txt"/>
@@ -517,7 +519,7 @@
     <property name="tooltip" value="Barrel"/>
    </properties>
   </object>
-  <object type="on_trigger" x="3136" y="1920" width="32" height="32">
+  <object id="22" type="on_trigger" x="3136" y="1920" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="loot/leveled_mid.txt"/>
@@ -527,7 +529,7 @@
     <property name="tooltip" value="Treasure Chest"/>
    </properties>
   </object>
-  <object type="on_trigger" x="160" y="1088" width="32" height="32">
+  <object id="23" type="on_trigger" x="160" y="1088" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="loot/leveled_low.txt"/>
@@ -537,7 +539,7 @@
     <property name="tooltip" value="Barrel"/>
    </properties>
   </object>
-  <object type="on_trigger" x="192" y="1056" width="32" height="32">
+  <object id="24" type="on_trigger" x="192" y="1056" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="loot/leveled_low.txt"/>
@@ -547,62 +549,62 @@
     <property name="tooltip" value="Crate"/>
    </properties>
   </object>
-  <object name="Cave wind sound effect" type="on_load" x="0" y="0" width="32" height="32">
+  <object id="25" name="Cave wind sound effect" type="on_load" x="0" y="0" width="32" height="32">
    <properties>
     <property name="soundfx" value="soundfx/environment/cave_wind_loop.ogg"/>
    </properties>
   </object>
-  <object name="Water dripping" type="on_load" x="768" y="1568" width="32" height="32">
+  <object id="26" name="Water dripping" type="on_load" x="768" y="1568" width="32" height="32">
    <properties>
     <property name="soundfx" value="soundfx/environment/cave_droplets_loop.ogg"/>
    </properties>
   </object>
-  <object name="Water dripping" type="on_load" x="2048" y="2080" width="32" height="32">
+  <object id="27" name="Water dripping" type="on_load" x="2048" y="2080" width="32" height="32">
    <properties>
     <property name="soundfx" value="soundfx/environment/cave_droplets_loop.ogg"/>
    </properties>
   </object>
-  <object name="Water dripping" type="on_load" x="2976" y="1984" width="32" height="32">
+  <object id="28" name="Water dripping" type="on_load" x="2976" y="1984" width="32" height="32">
    <properties>
     <property name="soundfx" value="soundfx/environment/cave_droplets_loop.ogg"/>
    </properties>
   </object>
-  <object name="River sound" type="on_load" x="2375" y="3127" width="32" height="32">
+  <object id="29" name="River sound" type="on_load" x="2375" y="3127" width="32" height="32">
    <properties>
     <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>
    </properties>
   </object>
-  <object name="River sound" type="on_load" x="2222" y="2643" width="32" height="32">
+  <object id="30" name="River sound" type="on_load" x="2222" y="2643" width="32" height="32">
    <properties>
     <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>
    </properties>
   </object>
-  <object name="River sound" type="on_load" x="2187" y="2324" width="32" height="32">
+  <object id="31" name="River sound" type="on_load" x="2187" y="2324" width="32" height="32">
    <properties>
     <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>
    </properties>
   </object>
-  <object name="River sound" type="on_load" x="2329" y="2125" width="32" height="32">
+  <object id="32" name="River sound" type="on_load" x="2329" y="2125" width="32" height="32">
    <properties>
     <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>
    </properties>
   </object>
-  <object name="River sound" type="on_load" x="2602" y="1997" width="32" height="32">
+  <object id="33" name="River sound" type="on_load" x="2602" y="1997" width="32" height="32">
    <properties>
     <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>
    </properties>
   </object>
-  <object name="River sound" type="on_load" x="2822" y="2262" width="32" height="32">
+  <object id="34" name="River sound" type="on_load" x="2822" y="2262" width="32" height="32">
    <properties>
     <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>
    </properties>
   </object>
-  <object name="River sound" type="on_load" x="3140" y="2112" width="32" height="32">
+  <object id="35" name="River sound" type="on_load" x="3140" y="2112" width="32" height="32">
    <properties>
     <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>
    </properties>
   </object>
-  <object type="on_trigger" x="832" y="768" width="32" height="32">
+  <object id="36" type="on_trigger" x="832" y="768" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="loot/leveled_low.txt"/>
@@ -613,49 +615,49 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="enemy" width="100" height="100" visible="0">
-  <object type="skeletal_warrior" x="1568" y="672" width="32" height="32"/>
-  <object type="skeletal_warrior" x="1824" y="640" width="32" height="32"/>
-  <object type="goblin_spearman" x="1536" y="800" width="32" height="32">
+ <objectgroup name="enemy" visible="0">
+  <object id="37" type="skeletal_warrior" x="1568" y="672" width="32" height="32"/>
+  <object id="38" type="skeletal_warrior" x="1824" y="640" width="32" height="32"/>
+  <object id="39" type="goblin_spearman" x="1536" y="800" width="32" height="32">
    <properties>
     <property name="wander_radius" value="0"/>
    </properties>
   </object>
-  <object type="minotaur" x="1760" y="992" width="32" height="32"/>
-  <object type="skeletal_archer" x="1792" y="1024" width="32" height="32"/>
-  <object type="skeletal_archer" x="1696" y="1024" width="32" height="32"/>
-  <object type="antlion_freezer" x="2496" y="2112" width="32" height="32"/>
-  <object type="antlion_freezer" x="2592" y="2112" width="32" height="32"/>
-  <object type="necromancer_apprentice" x="576" y="896" width="32" height="32"/>
-  <object type="skeletal_warrior" x="1760" y="2560" width="32" height="32"/>
-  <object type="skeletal_warrior" x="1792" y="2560" width="32" height="32"/>
-  <object type="antlion_spitter" x="2272" y="2272" width="32" height="32"/>
-  <object type="minotaur" x="1792" y="1984" width="32" height="32"/>
-  <object type="antlion_hatchling" x="2912" y="1824" width="64" height="128">
+  <object id="40" type="minotaur" x="1760" y="992" width="32" height="32"/>
+  <object id="41" type="skeletal_archer" x="1792" y="1024" width="32" height="32"/>
+  <object id="42" type="skeletal_archer" x="1696" y="1024" width="32" height="32"/>
+  <object id="43" type="antlion_freezer" x="2496" y="2112" width="32" height="32"/>
+  <object id="44" type="antlion_freezer" x="2592" y="2112" width="32" height="32"/>
+  <object id="45" type="necromancer_apprentice" x="576" y="896" width="32" height="32"/>
+  <object id="46" type="skeletal_warrior" x="1760" y="2560" width="32" height="32"/>
+  <object id="47" type="skeletal_warrior" x="1792" y="2560" width="32" height="32"/>
+  <object id="48" type="antlion_spitter" x="2272" y="2272" width="32" height="32"/>
+  <object id="49" type="minotaur" x="1792" y="1984" width="32" height="32"/>
+  <object id="50" type="antlion_hatchling" x="2912" y="1824" width="64" height="128">
    <properties>
     <property name="level" value="2,6"/>
     <property name="number" value="5,5"/>
    </properties>
   </object>
-  <object type="antlion" x="2112" y="1760" width="768" height="576">
+  <object id="51" type="antlion" x="2112" y="1760" width="768" height="576">
    <properties>
     <property name="level" value="4,6"/>
     <property name="number" value="6,6"/>
    </properties>
   </object>
-  <object type="undead" x="480" y="1568" width="1056" height="384">
+  <object id="52" type="undead" x="480" y="1568" width="1056" height="384">
    <properties>
     <property name="level" value="3,5"/>
     <property name="number" value="6,6"/>
    </properties>
   </object>
-  <object type="undead" x="192" y="352" width="672" height="1120">
+  <object id="53" type="undead" x="192" y="352" width="672" height="1120">
    <properties>
     <property name="level" value="4,5"/>
     <property name="number" value="5,5"/>
    </properties>
   </object>
-  <object type="undead" x="192" y="352" width="672" height="1120">
+  <object id="54" type="undead" x="192" y="352" width="672" height="1120">
    <properties>
     <property name="level" value="3,3"/>
     <property name="number" value="10,10"/>

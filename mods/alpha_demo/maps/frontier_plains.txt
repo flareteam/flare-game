@@ -800,31 +800,41 @@ data=
 # to Frontier Outpost
 type=on_trigger
 location=249,186,1,2
+hotspot=location
 intermap=maps/frontier_outpost.txt,2,12
+tooltip=Frontier Outpost
 
 [event]
 # to River Encampment
 type=on_trigger
 location=63,17,2,1
+hotspot=location
 intermap=maps/river_encampment.txt,51,61
+tooltip=River Encampment
 
 [event]
 # to Ydrakka Pass
 type=on_trigger
 location=175,60,2,1
+hotspot=location
 intermap=maps/ydrakka_pass.txt,26,97
+tooltip=Ydrakka Pass
 
 [event]
 # to White Wind
 type=on_trigger
 location=162,234,2,1
+hotspot=location
 intermap=maps/white_wind.txt,62,1
+tooltip=White Wind
 
 [event]
 # to Ancient Temple
 type=on_trigger
 location=117,134,4,4
+hotspot=location
 intermap=maps/ancient_temple.txt,49,99
+tooltip=Ancient Temple
 
 [event]
 # camp supply
@@ -869,12 +879,6 @@ mapmod=object,114,97,99
 repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Supplies
-
-[event]
-# hidden grove entrance
-type=on_trigger
-location=35,194,1,2
-intermap=maps/hidden_grove.txt,120,60
 
 [event]
 type=on_trigger

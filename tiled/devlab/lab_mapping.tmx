@@ -3,7 +3,7 @@
  <properties>
   <property name="music" value="music/title_theme.ogg"/>
   <property name="tileset" value="tilesetdefs/tileset_dungeon.txt"/>
-  <property name="title" value="Dev Lab - Basic Lessons"/>
+  <property name="title" value="Dev Lab - Map Drawing"/>
  </properties>
  <tileset firstgid="1" name="tiled_collision.png" tilewidth="64" tileheight="32">
   <image source="../dungeon/tiled_collision.png" width="960" height="32"/>
@@ -50,7 +50,7 @@
    <properties>
     <property name="hotspot" value="location"/>
     <property name="intermap" value="maps/lab_basic.txt,3,21"/>
-    <property name="tooltip" value="Basic lab"/>
+    <property name="tooltip" value="Dev Lab - Basic Lessons"/>
    </properties>
   </object>
   <object id="2" name="Book Stand" type="on_trigger" x="256" y="1216" width="32" height="32">

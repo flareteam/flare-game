@@ -3,6 +3,7 @@ width=64
 height=64
 tilewidth=64
 tileheight=32
+orientation=isometric
 music=music/unrest_theme.ogg
 tileset=tilesetdefs/tileset_grassland.txt
 title=Frontier Outpost
@@ -149,7 +150,7 @@ data=
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,63,71,0,0,0,0,0,0,0,0,114,0,0,0,0,126,112,0,0,0,54,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,60,68,0,0,0,127,0,0,0,0,0,0,0,128,0,0,115,0,0,70,58,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,52,0,242,0,0,0,0,0,0,0,0,0,0,0,0,247,0,0,0,50,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,63,71,0,95,95,0,0,0,0,129,0,0,0,0,0,0,0,247,125,54,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,63,71,0,0,0,0,0,0,0,129,0,0,0,0,0,0,0,247,125,54,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 
 [layer]
@@ -249,19 +250,17 @@ location=12,35,1,1
 # to Mineshaft Longsword
 type=on_trigger
 location=19,11,2,1
+hotspot=location
 intermap=maps/mineshaft_longsword.txt,44,61
-
-[event]
-# to River Road
-type=on_trigger
-location=43,62,4,1
-intermap=maps/river_road.txt,32,4
+tooltip=Mineshaft Longsword
 
 [event]
 # to Frontier Plains
 type=on_trigger
 location=1,12,1,2
+hotspot=location
 intermap=maps/frontier_plains.txt,248,186
+tooltip=Frontier Plains
 
 [event]
 # Shared stash

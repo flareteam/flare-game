@@ -3,6 +3,7 @@ width=70
 height=100
 tilewidth=64
 tileheight=32
+orientation=isometric
 location=62,3,7
 music=music/dungeon_theme.ogg
 tileset=tilesetdefs/tileset_dungeon.txt
@@ -332,9 +333,10 @@ data=
 [event]
 type=on_trigger
 location=62,2,2,1
-hotspot=62,2,2,1
+hotspot=location
 intermap=maps/averguard_atrium.txt,9,57
 soundfx=soundfx/door_open.ogg,0,0
+tooltip=Averguard Atrium
 
 [event]
 # bookstand

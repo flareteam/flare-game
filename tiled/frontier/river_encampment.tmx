@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="isometric" width="64" height="64" tilewidth="64" tileheight="32">
+<map version="1.0" orientation="isometric" renderorder="right-down" width="64" height="64" tilewidth="64" tileheight="32" nextobjectid="52">
  <properties>
   <property name="music" value="music/overworld_theme.ogg"/>
   <property name="tileset" value="tilesetdefs/tileset_grassland.txt"/>
@@ -233,55 +233,55 @@
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,3,3,3,3,3,3,3,3,3,3,1,3,3
 </data>
  </layer>
- <objectgroup name="enemy" width="64" height="64" visible="0">
-  <object type="goblin_normal" x="1888" y="1568" width="32" height="32"/>
-  <object type="goblin_normal" x="1824" y="1376" width="32" height="32"/>
-  <object type="goblin_normal" x="1504" y="928" width="32" height="32"/>
-  <object type="goblin_normal" x="1088" y="672" width="32" height="32"/>
-  <object type="goblin_normal" x="608" y="1088" width="32" height="32"/>
-  <object type="goblin_spearman" x="1504" y="1344" width="32" height="32">
+ <objectgroup name="enemy" visible="0">
+  <object id="1" type="goblin_normal" x="1888" y="1568" width="32" height="32"/>
+  <object id="2" type="goblin_normal" x="1824" y="1376" width="32" height="32"/>
+  <object id="3" type="goblin_normal" x="1504" y="928" width="32" height="32"/>
+  <object id="4" type="goblin_normal" x="1088" y="672" width="32" height="32"/>
+  <object id="5" type="goblin_normal" x="608" y="1088" width="32" height="32"/>
+  <object id="6" type="goblin_spearman" x="1504" y="1344" width="32" height="32">
    <properties>
     <property name="wander_radius" value="0"/>
    </properties>
   </object>
-  <object type="goblin_spearman" x="1312" y="1280" width="32" height="32"/>
-  <object type="goblin_spearman" x="1216" y="1024" width="32" height="32"/>
-  <object type="goblin_spearman" x="1024" y="832" width="32" height="32"/>
-  <object type="goblin_spearman" x="1280" y="800" width="32" height="32"/>
-  <object type="goblin_spearman_elite" x="608" y="800" width="32" height="32"/>
-  <object type="goblin_spearman" x="832" y="1024" width="32" height="32"/>
-  <object type="goblin_spearman" x="928" y="1024" width="32" height="32"/>
-  <object type="goblin_spearman" x="352" y="672" width="32" height="32"/>
-  <object type="goblin_charger_elite" x="288" y="320" width="32" height="32"/>
-  <object type="goblin_spearman" x="512" y="288" width="32" height="32"/>
-  <object type="goblin_charger" x="1440" y="992" width="32" height="32"/>
-  <object type="goblin_charger" x="1216" y="1184" width="32" height="32"/>
-  <object type="goblin_spearman_elite" x="1024" y="1440" width="32" height="32"/>
-  <object type="goblin_charger" x="1312" y="1440" width="32" height="32"/>
-  <object type="goblin_charger" x="672" y="1408" width="32" height="32"/>
-  <object type="goblin_charger" x="672" y="1376" width="32" height="32"/>
-  <object type="goblin_charger" x="736" y="1184" width="32" height="32"/>
-  <object type="goblin_charger" x="928" y="576" width="32" height="32"/>
-  <object type="goblin_charger" x="832" y="576" width="32" height="32"/>
-  <object type="goblin_charger_elite" x="896" y="704" width="32" height="32">
+  <object id="7" type="goblin_spearman" x="1312" y="1280" width="32" height="32"/>
+  <object id="8" type="goblin_spearman" x="1216" y="1024" width="32" height="32"/>
+  <object id="9" type="goblin_spearman" x="1024" y="832" width="32" height="32"/>
+  <object id="10" type="goblin_spearman" x="1280" y="800" width="32" height="32"/>
+  <object id="11" type="goblin_spearman_elite" x="608" y="800" width="32" height="32"/>
+  <object id="12" type="goblin_spearman" x="832" y="1024" width="32" height="32"/>
+  <object id="13" type="goblin_spearman" x="928" y="1024" width="32" height="32"/>
+  <object id="14" type="goblin_spearman" x="352" y="672" width="32" height="32"/>
+  <object id="15" type="goblin_charger_elite" x="288" y="320" width="32" height="32"/>
+  <object id="16" type="goblin_spearman" x="512" y="288" width="32" height="32"/>
+  <object id="17" type="goblin_charger" x="1440" y="992" width="32" height="32"/>
+  <object id="18" type="goblin_charger" x="1216" y="1184" width="32" height="32"/>
+  <object id="19" type="goblin_spearman_elite" x="1024" y="1440" width="32" height="32"/>
+  <object id="20" type="goblin_charger" x="1312" y="1440" width="32" height="32"/>
+  <object id="21" type="goblin_charger" x="672" y="1408" width="32" height="32"/>
+  <object id="22" type="goblin_charger" x="672" y="1376" width="32" height="32"/>
+  <object id="23" type="goblin_charger" x="736" y="1184" width="32" height="32"/>
+  <object id="24" type="goblin_charger" x="928" y="576" width="32" height="32"/>
+  <object id="25" type="goblin_charger" x="832" y="576" width="32" height="32"/>
+  <object id="26" type="goblin_charger_elite" x="896" y="704" width="32" height="32">
    <properties>
     <property name="wander_radius" value="0"/>
    </properties>
   </object>
-  <object type="goblin_charger" x="576" y="480" width="32" height="32"/>
-  <object type="goblin_spearman" x="448" y="608" width="32" height="32"/>
-  <object type="rilrak" x="352" y="448" width="32" height="32">
+  <object id="27" type="goblin_charger" x="576" y="480" width="32" height="32"/>
+  <object id="28" type="goblin_spearman" x="448" y="608" width="32" height="32"/>
+  <object id="29" type="rilrak" x="352" y="448" width="32" height="32">
    <properties>
     <property name="direction" value="5"/>
     <property name="wander_radius" value="0"/>
    </properties>
   </object>
-  <object type="antlion_hatchling" x="1440" y="480" width="32" height="32"/>
-  <object type="antlion_hatchling" x="1312" y="480" width="32" height="32"/>
-  <object type="antlion_hatchling" x="1312" y="576" width="32" height="32"/>
+  <object id="30" type="antlion_hatchling" x="1440" y="480" width="32" height="32"/>
+  <object id="31" type="antlion_hatchling" x="1312" y="480" width="32" height="32"/>
+  <object id="32" type="antlion_hatchling" x="1312" y="576" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="event" width="64" height="64">
-  <object name="cliff passage container" type="on_trigger" x="640" y="1376" width="32" height="32">
+ <objectgroup name="event">
+  <object id="33" name="cliff passage container" type="on_trigger" x="640" y="1376" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="loot/leveled_low.txt"/>
@@ -291,7 +291,7 @@
     <property name="tooltip" value="Supplies"/>
    </properties>
   </object>
-  <object name="boss container 1 (wand)" type="on_trigger" x="320" y="416" width="32" height="32">
+  <object id="34" name="boss container 1 (wand)" type="on_trigger" x="320" y="416" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="127,fixed,1"/>
@@ -303,7 +303,7 @@
     <property name="tooltip" value="Supplies"/>
    </properties>
   </object>
-  <object name="boss container 2" type="on_trigger" x="288" y="480" width="32" height="32">
+  <object id="35" name="boss container 2" type="on_trigger" x="288" y="480" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="loot/leveled_mid.txt"/>
@@ -313,7 +313,7 @@
     <property name="tooltip" value="Supplies"/>
    </properties>
   </object>
-  <object name="pier container" type="on_trigger" x="1216" y="864" width="32" height="32">
+  <object id="36" name="pier container" type="on_trigger" x="1216" y="864" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="loot/leveled_low.txt"/>
@@ -323,77 +323,74 @@
     <property name="tooltip" value="Supplies"/>
    </properties>
   </object>
-  <object name="to Frontier Plains" type="on_trigger" x="1632" y="1984" width="64" height="32">
+  <object id="37" name="to Frontier Plains" type="on_trigger" x="1632" y="1984" width="64" height="32">
    <properties>
+    <property name="hotspot" value="location"/>
     <property name="intermap" value="maps/frontier_plains.txt,63,18"/>
+    <property name="tooltip" value="Frontier Plains"/>
    </properties>
   </object>
-  <object name="to River Barrow" type="on_trigger" x="1120" y="96" width="32" height="64">
-   <properties>
-    <property name="intermap" value="maps/river_barrow.txt,60,30"/>
-   </properties>
-  </object>
-  <object name="River sound" type="on_load" x="1824" y="2016" width="32" height="32">
+  <object id="39" name="River sound" type="on_load" x="1824" y="2016" width="32" height="32">
    <properties>
     <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>
    </properties>
   </object>
-  <object name="River sound" type="on_load" x="1696" y="1600" width="32" height="32">
+  <object id="40" name="River sound" type="on_load" x="1696" y="1600" width="32" height="32">
    <properties>
     <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>
    </properties>
   </object>
-  <object name="River sound" type="on_load" x="1216" y="1376" width="32" height="32">
+  <object id="41" name="River sound" type="on_load" x="1216" y="1376" width="32" height="32">
    <properties>
     <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>
    </properties>
   </object>
-  <object name="River sound" type="on_load" x="1408" y="1152" width="32" height="32">
+  <object id="42" name="River sound" type="on_load" x="1408" y="1152" width="32" height="32">
    <properties>
     <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>
    </properties>
   </object>
-  <object name="River sound" type="on_load" x="800" y="1088" width="32" height="32">
+  <object id="43" name="River sound" type="on_load" x="800" y="1088" width="32" height="32">
    <properties>
     <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>
    </properties>
   </object>
-  <object name="River sound" type="on_load" x="928" y="832" width="32" height="32">
+  <object id="44" name="River sound" type="on_load" x="928" y="832" width="32" height="32">
    <properties>
     <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>
    </properties>
   </object>
-  <object name="River sound" type="on_load" x="544" y="800" width="32" height="32">
+  <object id="45" name="River sound" type="on_load" x="544" y="800" width="32" height="32">
    <properties>
     <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>
    </properties>
   </object>
-  <object name="River sound" type="on_load" x="544" y="512" width="32" height="32">
+  <object id="46" name="River sound" type="on_load" x="544" y="512" width="32" height="32">
    <properties>
     <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>
    </properties>
   </object>
-  <object name="River sound" type="on_load" x="224" y="64" width="32" height="32">
+  <object id="47" name="River sound" type="on_load" x="224" y="64" width="32" height="32">
    <properties>
     <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>
    </properties>
   </object>
-  <object name="Wind and crickets sound effect" type="on_load" x="0" y="0" width="32" height="32">
+  <object id="48" name="Wind and crickets sound effect" type="on_load" x="0" y="0" width="32" height="32">
    <properties>
     <property name="soundfx" value="soundfx/environment/wind_loop.ogg"/>
    </properties>
   </object>
-  <object name="Bird twitter" type="on_load" x="480" y="192" width="32" height="32">
+  <object id="49" name="Bird twitter" type="on_load" x="480" y="192" width="32" height="32">
    <properties>
     <property name="soundfx" value="soundfx/environment/bird_twitter_loop.ogg"/>
    </properties>
   </object>
-  <object name="Bird twitter" type="on_load" x="1408" y="1504" width="32" height="32">
+  <object id="50" name="Bird twitter" type="on_load" x="1408" y="1504" width="32" height="32">
    <properties>
     <property name="soundfx" value="soundfx/environment/bird_twitter_loop.ogg"/>
    </properties>
   </object>
-  <object name="boss container 1" type="on_trigger" x="320" y="416" width="32" height="32">
+  <object id="51" name="boss container 1" type="on_trigger" x="320" y="416" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="loot/leveled_mid.txt"/>

@@ -3,6 +3,7 @@ width=60
 height=82
 tilewidth=64
 tileheight=32
+orientation=isometric
 location=28,76,3
 music=music/dungeon_theme.ogg
 tileset=tilesetdefs/tileset_dungeon.txt
@@ -278,23 +279,26 @@ data=
 [event]
 type=on_trigger
 location=1,8,1,2
-hotspot=1,8,1,2
+hotspot=location
 intermap=maps/averguard_atrium.txt,17,10
 soundfx=soundfx/door_open.ogg,0,0
+tooltip=Averguard Atrium
 
 [event]
 type=on_trigger
-location=52,13,1,2
-hotspot=53,13,1,2
+location=52,13,2,2
+hotspot=location
 intermap=maps/cave1.txt,3,13
 soundfx=soundfx/door_open.ogg,0,0
+tooltip=Caves Level 1
 
 [event]
 type=on_trigger
-location=28,80,2,1
-hotspot=28,81,2,1
+location=28,80,2,2
+hotspot=location
 intermap=maps/ydrakka_pass.txt,92,54
 soundfx=soundfx/door_open.ogg,0,0
+tooltip=Ydrakka Pass
 
 [event]
 # dorm room chest

@@ -272,10 +272,11 @@ data=
 [event]
 # Warp to Atrium
 type=on_trigger
-location=48,70,1,2
-hotspot=49,70,1,2
+location=48,70,2,2
+hotspot=location
 intermap=maps/brothers_lair_atrium.txt,3,13
 soundfx=soundfx/door_open.ogg,0,0
+tooltip=Brothers' Lair Atrium
 
 [event]
 # Bookcase Door

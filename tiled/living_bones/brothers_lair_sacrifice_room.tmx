@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="isometric" width="20" height="48" tilewidth="64" tileheight="32" backgroundcolor="#000000">
+<map version="1.0" orientation="isometric" renderorder="right-down" width="20" height="48" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="17">
  <properties>
   <property name="location" value="28,76,3"/>
   <property name="music" value="music/magical_theme.ogg"/>
@@ -187,47 +187,49 @@
 3,3,3,3,3,3,1,1,1,1,1,1,1,1,3,3,3,3,3,3
 </data>
  </layer>
- <objectgroup name="event" width="20" height="48">
-  <object type="on_trigger" x="288" y="1376" width="64" height="64">
+ <objectgroup name="event">
+  <object id="1" type="on_trigger" x="256" y="1344" width="128" height="128">
    <properties>
+    <property name="hotspot" value="location"/>
     <property name="intermap" value="maps/brothers_lair_atrium.txt,15,16"/>
+    <property name="tooltip" value="Brothers' Lair Atrium"/>
    </properties>
   </object>
-  <object type="on_trigger" x="0" y="0" width="640" height="1504">
+  <object id="2" type="on_trigger" x="0" y="0" width="640" height="1504">
    <properties>
     <property name="repeat" value="false"/>
     <property name="requires_status" value="lb_ice_defeated,lb_fire_defeated,lb_wind_defeated"/>
     <property name="set_status" value="lb_necromancers_defeated"/>
    </properties>
   </object>
-  <object type="on_trigger" x="0" y="0" width="640" height="1504">
+  <object id="3" type="on_trigger" x="0" y="0" width="640" height="1504">
    <properties>
     <property name="mapmod" value="collision,9,23,0;object,9,23,113"/>
     <property name="repeat" value="false"/>
     <property name="requires_status" value="lb_wind_unlocked"/>
    </properties>
   </object>
-  <object type="on_trigger" x="0" y="0" width="640" height="1504">
+  <object id="4" type="on_trigger" x="0" y="0" width="640" height="1504">
    <properties>
     <property name="mapmod" value="collision,9,26,0;object,9,26,113"/>
     <property name="repeat" value="false"/>
     <property name="requires_status" value="lb_fire_unlocked"/>
    </properties>
   </object>
-  <object type="on_trigger" x="0" y="0" width="640" height="1504">
+  <object id="5" type="on_trigger" x="0" y="0" width="640" height="1504">
    <properties>
     <property name="mapmod" value="collision,9,29,0;object,9,29,113"/>
     <property name="repeat" value="false"/>
     <property name="requires_status" value="lb_ice_unlocked"/>
    </properties>
   </object>
-  <object name="brazier sound effect" type="on_trigger" x="128" y="192" width="256" height="160">
+  <object id="6" name="brazier sound effect" type="on_trigger" x="128" y="192" width="256" height="160">
    <properties>
     <property name="cooldown" value="4s"/>
     <property name="soundfx" value="soundfx/environment/open_fire.ogg"/>
    </properties>
   </object>
-  <object type="on_trigger" x="96" y="1024" width="416" height="192">
+  <object id="7" type="on_trigger" x="96" y="1024" width="416" height="192">
    <properties>
     <property name="cooldown" value="2s"/>
     <property name="power" value="6"/>
@@ -236,7 +238,7 @@
     <property name="requires_status" value="lb_wind_attack"/>
    </properties>
   </object>
-  <object type="on_trigger" x="96" y="1024" width="416" height="192">
+  <object id="8" type="on_trigger" x="96" y="1024" width="416" height="192">
    <properties>
     <property name="cooldown" value="2s"/>
     <property name="power" value="122"/>
@@ -245,7 +247,7 @@
     <property name="requires_status" value="lb_fire_attack"/>
    </properties>
   </object>
-  <object type="on_trigger" x="96" y="1024" width="416" height="192">
+  <object id="9" type="on_trigger" x="96" y="1024" width="416" height="192">
    <properties>
     <property name="cooldown" value="2s"/>
     <property name="power" value="123"/>
@@ -254,29 +256,29 @@
     <property name="requires_status" value="lb_ice_attack"/>
    </properties>
   </object>
-  <object name="unset statue attack statuses" type="on_load" x="-64" y="1248" width="32" height="32">
+  <object id="10" name="unset statue attack statuses" type="on_load" x="-64" y="1248" width="32" height="32">
    <properties>
     <property name="unset_status" value="lb_ice_attack,lb_fire_attack,lb_wind_attack"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="npc" width="20" height="48" visible="0">
-  <object type="npcs/statue_guardian_ice.txt" x="224" y="1088" width="32" height="32"/>
-  <object type="npcs/statue_guardian_fire.txt" x="288" y="1088" width="32" height="32"/>
-  <object type="npcs/statue_guardian_wind.txt" x="352" y="1088" width="32" height="32"/>
+ <objectgroup name="npc" visible="0">
+  <object id="11" type="npcs/statue_guardian_ice.txt" x="224" y="1088" width="32" height="32"/>
+  <object id="12" type="npcs/statue_guardian_fire.txt" x="288" y="1088" width="32" height="32"/>
+  <object id="13" type="npcs/statue_guardian_wind.txt" x="352" y="1088" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="enemy" width="20" height="48">
-  <object type="grisbon" x="288" y="416" width="32" height="32">
+ <objectgroup name="enemy">
+  <object id="14" type="grisbon" x="288" y="416" width="32" height="32">
    <properties>
     <property name="wander_radius" value="0"/>
    </properties>
   </object>
-  <object type="scathelocke" x="224" y="320" width="32" height="32">
+  <object id="15" type="scathelocke" x="224" y="320" width="32" height="32">
    <properties>
     <property name="wander_radius" value="0"/>
    </properties>
   </object>
-  <object type="vesuvvio" x="352" y="320" width="32" height="32">
+  <object id="16" type="vesuvvio" x="352" y="320" width="32" height="32">
    <properties>
     <property name="wander_radius" value="0"/>
    </properties>

@@ -3,6 +3,7 @@ width=30
 height=50
 tilewidth=64
 tileheight=32
+orientation=isometric
 music=music/magical_theme.ogg
 tileset=tilesetdefs/tileset_dungeon.txt
 title=Brothers' Lair Atrium
@@ -182,39 +183,45 @@ data=
 # to Ice Hall
 type=on_trigger
 location=2,13,1,2
-hotspot=2,13,1,2
+hotspot=location
 intermap=maps/brothers_lair_ice_hall.txt,47,71
 soundfx=soundfx/door_open.ogg,0,0
+tooltip=Brothers' Lair Ice Hall
 
 [event]
 # to Sacrifice Room
 type=on_trigger
 location=14,15,2,1
+hotspot=location
 intermap=maps/brothers_lair_sacrifice_room.txt,9,41
+tooltip=Brothers' Sacrifice Room
 
 [event]
 # to Cave 2
 type=on_trigger
-location=14,47,2,1
-hotspot=14,48,2,1
+location=14,47,2,2
+hotspot=location
 intermap=maps/cave_of_living_bones2.txt,32,4
 soundfx=soundfx/door_open.ogg,0,0
+tooltip=Cave of Living Bones 2
 
 [event]
 # to Fire Hall
 type=on_trigger
 location=13,1,2,1
-hotspot=13,1,2,1
+hotspot=location
 intermap=maps/brothers_lair_fire_hall.txt,25,77
 soundfx=soundfx/door_open.ogg,0,0
+tooltip=Brothers' Lair Fire Hall
 
 [event]
 # to Wind Hall
 type=on_trigger
-location=27,13,1,2
-hotspot=28,13,1,2
+location=27,13,2,2
+hotspot=location
 intermap=maps/brothers_lair_wind_hall.txt,3,19
 soundfx=soundfx/door_open.ogg,0,0
+tooltip=Brothers' Lair Wind Hall
 
 [event]
 # brazier sound effect

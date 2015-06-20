@@ -3,6 +3,7 @@ width=64
 height=64
 tilewidth=64
 tileheight=32
+orientation=isometric
 music=music/overworld_theme.ogg
 tileset=tilesetdefs/tileset_grassland.txt
 title=River Encampment
@@ -402,13 +403,9 @@ tooltip=Supplies
 # to Frontier Plains
 type=on_trigger
 location=51,62,2,1
+hotspot=location
 intermap=maps/frontier_plains.txt,63,18
-
-[event]
-# to River Barrow
-type=on_trigger
-location=35,3,1,2
-intermap=maps/river_barrow.txt,60,30
+tooltip=Frontier Plains
 
 [event]
 # River sound

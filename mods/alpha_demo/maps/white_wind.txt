@@ -3,6 +3,7 @@ width=128
 height=128
 tilewidth=64
 tileheight=32
+orientation=isometric
 music=music/overworld_theme.ogg
 tileset=tilesetdefs/tileset_grassland.txt
 title=White Wind
@@ -417,7 +418,9 @@ data=
 # to Frontier Plains
 type=on_trigger
 location=62,0,2,1
+hotspot=location
 intermap=maps/frontier_plains.txt,162,233
+tooltip=Frontier Plains
 
 [event]
 # secret box
@@ -522,7 +525,7 @@ soundfx=soundfx/environment/river_loop.ogg
 [event]
 # River sound
 type=on_load
-location=38.375,46.3125,1,1
+location=38,46,1,1
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
@@ -558,13 +561,13 @@ soundfx=soundfx/environment/forest_owl_loop.ogg
 [event]
 # Forrest owl sound effect
 type=on_load
-location=92.9375,105.062,1,1
+location=92,105,1,1
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]
 # Forrest owl sound effect
 type=on_load
-location=25.4062,41.7188,1,1
+location=25,41,1,1
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]

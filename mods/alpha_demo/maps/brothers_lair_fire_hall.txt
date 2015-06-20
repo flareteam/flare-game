@@ -272,10 +272,11 @@ data=
 [event]
 # Warp to Atrium
 type=on_trigger
-location=24,78,2,1
-hotspot=24,79,2,1
+location=24,78,2,2
+hotspot=location
 intermap=maps/brothers_lair_atrium.txt,14,2
 soundfx=soundfx/door_open.ogg,0,0
+tooltip=Brothers' Lair Atrium
 
 [event]
 # Barrel

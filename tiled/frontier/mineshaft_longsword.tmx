@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="isometric" renderorder="right-down" width="64" height="64" tilewidth="64" tileheight="32" backgroundcolor="#000000">
+<map version="1.0" orientation="isometric" renderorder="right-down" width="64" height="64" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="12">
  <properties>
   <property name="music" value="music/cave_theme.ogg"/>
   <property name="tileset" value="tilesetdefs/tileset_cave.txt"/>
@@ -216,12 +216,14 @@
 </data>
  </layer>
  <objectgroup name="event">
-  <object name="to Frontier Outpost" type="on_trigger" x="1376" y="2016" width="64" height="32">
+  <object id="1" name="to Frontier Outpost" type="on_trigger" x="1376" y="2016" width="64" height="32">
    <properties>
+    <property name="hotspot" value="location"/>
     <property name="intermap" value="maps/frontier_outpost.txt,20,13"/>
+    <property name="tooltip" value="Frontier Outpost"/>
    </properties>
   </object>
-  <object name="fork_crate" type="on_trigger" x="1504" y="1184" width="32" height="32">
+  <object id="2" name="fork_crate" type="on_trigger" x="1504" y="1184" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="loot/leveled_low.txt"/>
@@ -231,7 +233,7 @@
     <property name="tooltip" value="Crate"/>
    </properties>
   </object>
-  <object name="backside_crate" type="on_trigger" x="896" y="480" width="32" height="32">
+  <object id="3" name="backside_crate" type="on_trigger" x="896" y="480" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="loot/leveled_low.txt"/>
@@ -241,7 +243,7 @@
     <property name="tooltip" value="Crate"/>
    </properties>
   </object>
-  <object name="backside_barrel" type="on_trigger" x="480" y="384" width="32" height="32">
+  <object id="4" name="backside_barrel" type="on_trigger" x="480" y="384" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="loot/leveled_low.txt"/>
@@ -251,17 +253,17 @@
     <property name="tooltip" value="Barrel"/>
    </properties>
   </object>
-  <object name="wind sound" type="on_load" x="0" y="0" width="32" height="32">
+  <object id="5" name="wind sound" type="on_load" x="0" y="0" width="32" height="32">
    <properties>
     <property name=" soundfx" value="soundfx/environment/cave_wind_loop.ogg"/>
    </properties>
   </object>
-  <object name="droplets sound" type="on_load" x="256" y="768" width="32" height="32">
+  <object id="6" name="droplets sound" type="on_load" x="256" y="768" width="32" height="32">
    <properties>
     <property name="soundfx" value="soundfx/environment/cave_droplets_loop.ogg"/>
    </properties>
   </object>
-  <object name="spawn_reanimated_skeleton" type="on_load" x="704" y="1472" width="128" height="128">
+  <object id="7" name="spawn_reanimated_skeleton" type="on_load" x="704" y="1472" width="128" height="128">
    <properties>
     <property name="requires_not_status" value="ml_skeleton_defeated"/>
     <property name="requires_status" value="ml_skeleton_search"/>
@@ -270,25 +272,25 @@
   </object>
  </objectgroup>
  <objectgroup name="enemy">
-  <object type="miner" x="800" y="832" width="480" height="192">
+  <object id="8" type="miner" x="800" y="832" width="480" height="192">
    <properties>
     <property name="level" value="1,1"/>
     <property name="number" value="1,3"/>
    </properties>
   </object>
-  <object type="miner" x="352" y="704" width="128" height="320">
+  <object id="9" type="miner" x="352" y="704" width="128" height="320">
    <properties>
     <property name="level" value="1,1"/>
     <property name="number" value="2,4"/>
    </properties>
   </object>
-  <object type="miner" x="480" y="384" width="608" height="192">
+  <object id="10" type="miner" x="480" y="384" width="608" height="192">
    <properties>
     <property name="level" value="1,1"/>
     <property name="number" value="2,4"/>
    </properties>
   </object>
-  <object type="miner" x="1152" y="384" width="480" height="416">
+  <object id="11" type="miner" x="1152" y="384" width="480" height="416">
    <properties>
     <property name="level" value="1,1"/>
     <property name="number" value="2,4"/>

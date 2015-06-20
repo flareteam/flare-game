@@ -3,6 +3,7 @@ width=20
 height=48
 tilewidth=64
 tileheight=32
+orientation=isometric
 location=28,76,3
 music=music/magical_theme.ogg
 tileset=tilesetdefs/tileset_dungeon.txt
@@ -175,8 +176,10 @@ data=
 
 [event]
 type=on_trigger
-location=9,43,2,2
+location=8,42,4,4
+hotspot=location
 intermap=maps/brothers_lair_atrium.txt,15,16
+tooltip=Brothers' Lair Atrium
 
 [event]
 type=on_trigger

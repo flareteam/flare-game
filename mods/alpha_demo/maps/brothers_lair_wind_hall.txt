@@ -3,6 +3,7 @@ width=40
 height=50
 tilewidth=64
 tileheight=32
+orientation=isometric
 music=music/magical_theme.ogg
 tileset=tilesetdefs/tileset_dungeon.txt
 title=Brothers' Lair Wind Hall
@@ -313,9 +314,10 @@ tooltip=Book Stand
 # Warp to Atrium
 type=on_trigger
 location=2,18,1,2
-hotspot=2,18,1,2
+hotspot=location
 intermap=maps/brothers_lair_atrium.txt,26,14
 soundfx=soundfx/door_open.ogg,0,0
+tooltip=Brothers' Lair Atrium
 
 [event]
 # Grisbon's Diary

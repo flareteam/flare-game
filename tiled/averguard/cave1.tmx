@@ -330,12 +330,16 @@
  <objectgroup name="event">
   <object id="1" name="exit to goblin warrens" type="on_trigger" x="64" y="384" width="32" height="64">
    <properties>
+    <property name="hotspot" value="location"/>
     <property name="intermap" value="maps/goblin_warrens.txt,51,14"/>
+    <property name="tooltip" value="Goblin Warrens"/>
    </properties>
   </object>
   <object id="2" name="exit to lost mines level 1" type="on_trigger" x="480" y="2176" width="64" height="32">
    <properties>
+    <property name="hotspot" value="location"/>
     <property name="intermap" value="maps/lost_mines1.txt,53,5"/>
+    <property name="tooltip" value="Lost Mines Level 1"/>
    </properties>
   </object>
   <object id="3" type="on_trigger" x="544" y="1536" width="32" height="32">
