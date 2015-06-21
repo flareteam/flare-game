@@ -1,0 +1,30 @@
+INCLUDE enemies/base/goblin.txt
+
+name=Goblin Scamp
+level=1
+categories=goblin_normal,goblin,dungeon
+rarity=common
+xp=1
+
+# combat stats
+hp=150
+speed=2
+melee_range=1.125
+turn_delay=400ms
+chance_pursue=10
+chance_melee_phys=2
+power_melee_phys=164
+
+accuracy=75
+avoidance=25
+poise=60
+
+dmg_melee_min=10
+dmg_melee_max=30
+cooldown=500ms
+
+# loot
+loot=loot/leveled_low.txt
+loot=loot/level_1.txt
+
+
