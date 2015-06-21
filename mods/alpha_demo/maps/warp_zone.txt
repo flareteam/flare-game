@@ -3,6 +3,7 @@ width=64
 height=64
 tilewidth=64
 tileheight=32
+orientation=isometric
 music=music/magical_theme.ogg
 tileset=tilesetdefs/tileset_dungeon.txt
 title=Warp Zone
@@ -226,6 +227,7 @@ location=22,45,2,2
 hotspot=location
 intermap=maps/ancient_temple.txt,47,94
 requires_status=waypoint_ancient_temple
+soundfx=soundfx/environment/teleporter.ogg,0,0
 tooltip=Ancient Temple
 
 [event]
@@ -233,6 +235,7 @@ type=on_trigger
 location=30,45,2,2
 hotspot=location
 intermap=maps/frontier_outpost.txt,36,12
+soundfx=soundfx/environment/teleporter.ogg,0,0
 tooltip=Frontier Outpost
 
 [event]
@@ -241,6 +244,7 @@ location=30,37,2,2
 hotspot=location
 intermap=maps/ydrakka_pass.txt,99,49
 requires_status=waypoint_ydrakka_pass
+soundfx=soundfx/environment/teleporter.ogg,0,0
 tooltip=Ydrakka Pass
 
 [event]
@@ -249,6 +253,7 @@ location=30,29,2,2
 hotspot=location
 intermap=maps/averguard_atrium.txt,11,52
 requires_status=waypoint_averguard_atrium
+soundfx=soundfx/environment/teleporter.ogg,0,0
 tooltip=Averguard Atrium
 
 [event]
@@ -257,6 +262,7 @@ location=38,37,2,2
 hotspot=location
 intermap=maps/brothers_lair_atrium.txt,17,22
 requires_status=waypoint_brothers_lair_atrium
+soundfx=soundfx/environment/teleporter.ogg,0,0
 tooltip=Brothers Lair Atrium
 
 [event]
