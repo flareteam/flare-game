@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="isometric" renderorder="right-down" width="60" height="60" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="28">
+<map version="1.0" orientation="isometric" renderorder="right-down" width="60" height="60" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="31">
  <properties>
   <property name="music" value="music/unrest_theme.ogg"/>
   <property name="tileset" value="tilesetdefs/tileset_grassland.txt"/>
@@ -106,9 +106,9 @@
 0,0,0,0,0,0,56,64,241,0,0,0,0,69,53,53,57,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,52,253,123,127,120,0,65,61,0,0,0,60,53,61,0,0,0,0,0,0,
 0,0,0,0,0,0,52,243,141,0,127,118,0,113,123,0,69,57,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,48,120,0,0,0,254,0,50,0,0,60,68,250,69,53,53,61,0,0,0,
 0,0,0,0,0,56,68,0,143,0,96,0,0,0,0,117,0,65,57,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,60,53,53,57,0,63,67,121,127,120,0,121,54,0,60,64,253,113,120,0,251,69,53,0,0,
-0,0,0,0,0,48,0,0,0,0,0,0,0,0,0,124,0,0,54,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,56,64,112,0,54,0,0,59,67,0,0,0,126,65,53,64,121,0,0,0,0,126,115,94,0,0,
-0,0,0,0,0,48,0,0,125,0,125,0,0,0,0,0,127,0,69,49,53,53,61,0,56,53,53,57,0,0,0,0,0,0,52,112,121,249,69,61,0,60,68,250,0,0,0,0,0,0,126,0,0,0,0,0,0,94,0,0,
-0,0,0,0,0,48,125,246,0,0,0,0,125,0,0,0,0,0,125,0,0,249,65,53,68,120,254,69,57,0,0,0,0,0,48,122,0,0,112,69,49,64,0,121,125,0,0,0,0,0,0,0,0,0,124,0,0,94,0,0,
+0,0,0,0,0,48,130,0,0,0,0,0,0,0,0,124,0,0,54,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,56,64,112,0,54,0,0,59,67,0,0,0,126,65,53,64,121,0,0,0,0,126,115,94,0,0,
+0,0,0,0,0,229,113,0,125,0,125,0,0,0,0,0,127,0,69,49,53,53,61,0,56,53,53,57,0,0,0,0,0,0,52,112,121,249,69,61,0,60,68,250,0,0,0,0,0,0,126,0,0,0,0,0,0,94,0,0,
+0,0,0,0,0,228,125,0,0,0,0,0,125,0,0,0,0,0,125,0,0,249,65,53,68,120,254,69,57,0,0,0,0,0,48,122,0,0,112,69,49,64,0,121,125,0,0,0,0,0,0,0,0,0,124,0,0,94,0,0,
 0,0,0,0,0,48,0,0,0,0,0,124,0,0,0,0,0,0,125,0,124,0,0,0,0,0,124,0,65,57,0,0,0,56,68,122,123,0,0,121,0,0,0,0,0,0,0,0,0,120,0,0,0,0,0,0,0,94,0,0,
 0,0,0,0,0,59,67,0,125,125,0,0,0,0,127,0,0,124,0,0,0,0,0,0,0,116,125,127,0,54,0,0,56,64,0,243,121,0,0,0,0,0,0,0,0,66,55,55,71,0,124,0,0,0,0,255,66,55,0,0,
 0,0,0,0,0,0,52,240,0,0,0,0,0,0,0,127,0,0,0,0,0,0,0,70,51,67,121,0,0,65,49,53,68,0,0,0,0,0,0,0,127,0,0,0,0,54,0,0,63,51,67,0,0,240,66,55,62,0,0,0,
@@ -157,7 +157,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="collision" width="60" height="60" visible="0">
+ <layer name="collision" width="60" height="60">
   <data encoding="csv">
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
@@ -170,9 +170,9 @@
 3,3,3,3,3,3,1,1,1,0,0,0,0,1,1,1,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,1,0,0,0,0,1,1,3,3,3,1,1,1,3,3,3,3,3,3,
 3,3,3,3,3,3,1,1,4,0,0,0,0,0,0,0,1,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,0,0,0,0,1,0,1,3,3,1,1,1,1,1,1,1,3,3,3,
 3,3,3,3,3,1,1,0,4,0,4,0,0,0,0,0,0,1,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,3,1,1,0,0,0,0,0,1,3,1,1,1,0,0,0,1,1,1,3,3,
-3,3,3,3,3,1,0,0,0,0,0,0,0,0,0,0,0,0,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,1,0,0,1,3,3,1,1,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,3,3,
-3,3,3,3,3,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,3,1,1,1,1,3,3,3,3,3,3,1,0,0,1,1,1,3,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,3,
-3,3,3,3,3,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,1,1,1,3,3,3,3,3,1,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,3,
+3,3,3,3,3,1,4,0,0,0,0,0,0,0,0,0,0,0,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,1,0,0,1,3,3,1,1,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,3,3,
+3,3,3,3,3,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,3,1,1,1,1,3,3,3,3,3,3,1,0,0,1,1,1,3,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,3,
+3,3,3,3,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,1,1,1,3,3,3,3,3,1,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,3,
 3,3,3,3,3,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,3,3,3,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,3,
 3,3,3,3,3,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,3,3,1,1,0,1,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,1,1,1,3,3,
 3,3,3,3,3,3,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,3,3,1,1,1,0,0,1,1,1,1,3,3,3,
@@ -252,11 +252,6 @@
     <property name="soundfx" value="soundfx/environment/wind_loop.ogg"/>
    </properties>
   </object>
-  <object id="18" name="Raven sound effect" type="on_load" x="224" y="416" width="32" height="32">
-   <properties>
-    <property name="soundfx" value="soundfx/environment/raven_loop.ogg"/>
-   </properties>
-  </object>
   <object id="19" name="Raven sound effect" type="on_load" x="928" y="1504" width="32" height="32">
    <properties>
     <property name="soundfx" value="soundfx/environment/raven_loop.ogg"/>
@@ -287,67 +282,64 @@
     <property name="soundfx" value="soundfx/environment/forest_owl_loop.ogg"/>
    </properties>
   </object>
+  <object id="29" name="to Perdition Mine" type="on_trigger" x="160" y="384" width="32" height="64">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="intermap" value="maps/perdition_mine.txt,0,0"/>
+    <property name="tooltip" value="Perdition Mine"/>
+   </properties>
+  </object>
  </objectgroup>
- <objectgroup name="enemy" visible="0">
-  <object id="4" type="goblin_charger" x="1216" y="1024" width="32" height="32">
+ <objectgroup name="enemy">
+  <object id="6" type="grassland" x="192" y="1632" width="448" height="192">
    <properties>
-    <property name="waypoints" value="38,32;28,25;22,34;34,37;50,44;47,26"/>
-   </properties>
-  </object>
-  <object id="5" type="goblin_spearman" x="1248" y="1152" width="32" height="32">
-   <properties>
-    <property name="waypoints" value="39,36"/>
-   </properties>
-  </object>
-  <object id="6" type="zombie" x="192" y="1664" width="448" height="192">
-   <properties>
-    <property name="level" value="1,1"/>
+    <property name="level" value="1"/>
     <property name="number" value="1,3"/>
    </properties>
   </object>
-  <object id="7" type="zombie" x="800" y="1568" width="256" height="192">
+  <object id="7" type="grassland" x="800" y="1568" width="256" height="192">
    <properties>
-    <property name="level" value="1,1"/>
-    <property name="number" value="1,3"/>
+    <property name="level" value="1"/>
+    <property name="number" value="1,2"/>
    </properties>
   </object>
-  <object id="8" type="zombie" x="1472" y="960" width="352" height="352">
+  <object id="8" type="grassland" x="1472" y="960" width="352" height="352">
    <properties>
-    <property name="level" value="1,1"/>
-    <property name="number" value="1,3"/>
-   </properties>
-  </object>
-  <object id="9" type="goblin" x="832" y="576" width="192" height="320">
-   <properties>
-    <property name="level" value="1,1"/>
+    <property name="level" value="1"/>
     <property name="number" value="2,3"/>
    </properties>
   </object>
-  <object id="10" type="goblin" x="1184" y="1536" width="224" height="224">
+  <object id="9" type="grassland" x="832" y="576" width="192" height="320">
    <properties>
-    <property name="level" value="1,2"/>
-    <property name="number" value="2,3"/>
+    <property name="level" value="1"/>
+    <property name="number" value="1,2"/>
    </properties>
   </object>
-  <object id="11" type="zombie" x="512" y="1152" width="544" height="288">
+  <object id="10" type="grassland" x="1184" y="1536" width="224" height="224">
    <properties>
-    <property name="level" value="1,1"/>
+    <property name="level" value="1"/>
+    <property name="number" value="1,2"/>
+   </properties>
+  </object>
+  <object id="11" type="grassland" x="512" y="1152" width="544" height="288">
+   <properties>
+    <property name="level" value="1"/>
     <property name="number" value="1,3"/>
    </properties>
   </object>
-  <object id="12" type="zombie" x="1088" y="608" width="320" height="352">
+  <object id="12" type="grassland" x="1088" y="608" width="320" height="352">
    <properties>
-    <property name="level" value="1,1"/>
+    <property name="level" value="1"/>
     <property name="number" value="1,3"/>
    </properties>
   </object>
-  <object id="13" type="zombie" x="544" y="416" width="192" height="128">
+  <object id="13" type="undead" x="256" y="320" width="480" height="256">
    <properties>
-    <property name="level" value="1,2"/>
-    <property name="number" value="1,3"/>
+    <property name="level" value="1"/>
+    <property name="number" value="3,4"/>
    </properties>
   </object>
-  <object id="14" type="zombie" x="1120" y="224" width="320" height="224">
+  <object id="14" type="grassland" x="1120" y="224" width="320" height="224">
    <properties>
     <property name="level" value="1,1"/>
     <property name="number" value="1,3"/>

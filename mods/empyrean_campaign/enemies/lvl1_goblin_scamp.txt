@@ -2,12 +2,12 @@ INCLUDE enemies/base/goblin.txt
 
 name=Goblin Scamp
 level=1
-categories=goblin_normal,goblin,dungeon
+categories=goblin,dungeon,grassland
 rarity=common
 xp=1
 
 # combat stats
-hp=150
+hp=125
 speed=2
 melee_range=1.125
 turn_delay=400ms
@@ -15,13 +15,16 @@ chance_pursue=100
 chance_melee_phys=100
 power_melee_phys=164
 
-accuracy=95
+accuracy=90
 avoidance=5
 poise=60
 
 dmg_melee_min=15
 dmg_melee_max=20
-cooldown=1600ms
+cooldown=1200ms
+
+absorb_min=0
+absorb_max=5
 
 # loot
 loot=loot/level_1.txt

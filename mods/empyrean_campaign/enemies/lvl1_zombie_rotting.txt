@@ -2,18 +2,18 @@ INCLUDE enemies/base/zombie.txt
 
 name=Rotting Zombie
 level=1
-categories=zombie_rotting,zombie,undead,dungeon
+categories=zombie,undead,dungeon,grassland
 xp=1
 
 # combat stats
-hp=125
+hp=175
 speed=1.5
 turn_delay=400ms
 chance_pursue=5
 chance_melee_phys=5
 power_melee_phys=164
 
-accuracy=95
+accuracy=90
 avoidance=5
 poise=75
 
