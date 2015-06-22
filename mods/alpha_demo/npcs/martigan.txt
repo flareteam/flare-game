@@ -9,11 +9,15 @@ talker=true
 gfx=animations/npcs/guild_man1.txt
 
 [dialog]
-requires_not_status=martigan_init
+requires_not_status=ml_skeleton_search
 him=Welcome to my mines, stranger. If you have the back for it, I've got the work.
 you=I heard you might have something more interesting.
 him=Ah, you're the adventurer? If you seek out danger you're in the right place. We had two guards stationed here; both were recalled to Ancelot. Now we're vulnerable.
-set_status=martigan_init
+you=So how's the mining business?
+him=Not good at all. While I was digging, my pickaxe scraped a skull that was wedged in the rock wall. Before I knew it, the nasty thing started moving and a whole body emerged. Now that thing is in there, preventing any more mining.
+him=Kill that skeleton for me, and I'll make it worth your while.
+set_status=ml_skeleton_search
+unset_status=ml_skeleton_defeated
 
 [dialog]
 topic=Goblin Camp
@@ -79,16 +83,6 @@ set_status=rotten_tower_reward
 him=Good! Have this small reward.
 reward_currency=40
 reward_xp=20
-
-[dialog]
-topic=Mineshaft
-requires_status=martigan_init
-requires_not_status=ml_skeleton_search
-you=So how's the mining business?
-him=Not good at all. While I was digging, my pickaxe scraped a skull that was wedged in the rock wall. Before I knew it, the nasty thing started moving and a whole body emerged. Now that thing is in there, preventing any more mining.
-him=Kill that skeleton for me, and I'll make it worth your while.
-set_status=ml_skeleton_search
-unset_status=ml_skeleton_defeated
 
 [dialog]
 topic=Reanimated Skeleton
