@@ -3,7 +3,7 @@ INCLUDE enemies/base/zombie.txt
 name=Rotting Zombie
 level=1
 categories=zombie_rotting,zombie,undead,dungeon
-xp=1
+#xp=1
 
 # combat stats
 hp=125
@@ -13,14 +13,13 @@ chance_pursue=5
 chance_melee_phys=5
 power_melee_phys=164
 
-accuracy=70
-avoidance=20
-poise=50
+accuracy=95
+avoidance=5
+poise=75
 
-dmg_melee_min=10
-dmg_melee_max=30
-cooldown=833ms
+dmg_melee_min=15
+dmg_melee_max=20
+cooldown=2s
 
 #loot
-loot=loot/leveled_low.txt
 loot=loot/level_1.txt
