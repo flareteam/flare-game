@@ -5,17 +5,19 @@ id=32
 name=Cloth Shirt
 INCLUDE items/base/armor/cloth/chest.txt
 quality=epic
-price=140
-abs=5
-bonus=hp,80
+price=600
+abs=2,3
+requires_stat=defense,3
+bonus=hp,40
 
 [item]
 id=33
 name=Cloth Shirt
 INCLUDE items/base/armor/cloth/chest.txt
 quality=epic
-price=120
-abs=5
+price=600
+abs=2,3
+requires_stat=defense,3
 bonus=hp_regen,40
 
 [item]
@@ -23,8 +25,9 @@ id=34
 name=Cloth Pants
 INCLUDE items/base/armor/cloth/legs.txt
 quality=epic
-price=100
-abs=2
+price=400
+abs=1,2
+requires_stat=defense,3
 bonus=avoidance,8
 
 [item]
@@ -32,17 +35,19 @@ id=35
 name=Cloth Pants
 INCLUDE items/base/armor/cloth/legs.txt
 quality=epic
-price=120
-abs=4
-bonus=poise,16
+price=400
+abs=1,2
+requires_stat=defense,3
+bonus=poise,4
 
 [item]
 id=36
 name=Cloth Sandals
 INCLUDE items/base/armor/cloth/feet.txt
 quality=epic
-price=60
+price=300
 abs=1
+requires_stat=defense,3
 bonus=avoidance,4
 
 [item]
@@ -50,17 +55,19 @@ id=37
 name=Cloth Sandals
 INCLUDE items/base/armor/cloth/feet.txt
 quality=epic
-price=40
-abs=3
-bonus=poise,8
+price=300
+abs=1
+requires_stat=defense,3
+bonus=poise,2
 
 [item]
 id=38
 name=Cloth Gloves
 INCLUDE items/base/armor/cloth/hands.txt
 quality=epic
-price=60
+price=200
 abs=1
+requires_stat=defense,3
 bonus=crit,4
 
 [item]
@@ -68,8 +75,9 @@ id=39
 name=Cloth Gloves
 INCLUDE items/base/armor/cloth/hands.txt
 quality=epic
-price=40
+price=200
 abs=1
+requires_stat=defense,3
 bonus=accuracy,8
 
 [item]
@@ -77,8 +85,9 @@ id=40
 name=Cloth Hood
 INCLUDE items/base/armor/mage/head.txt
 quality=epic
-price=80
-abs=2
+price=400
+abs=1
+requires_stat=defense,3
 bonus=mp,16
 
 [item]
@@ -86,8 +95,9 @@ id=41
 name=Cloth Hood
 INCLUDE items/base/armor/mage/head.txt
 quality=epic
-price=60
-abs=2
+price=400
+abs=1
+requires_stat=defense,3
 bonus=mp_regen,8
 
 [item]
@@ -95,9 +105,9 @@ id=42
 name=Dagger
 INCLUDE items/base/weapons/melee/dagger.txt
 quality=epic
-price=160
+price=600
 dmg_melee=10,30
-requires_stat=physical,8
+requires_stat=physical,7
 bonus=dmg_melee_min,10
 bonus=dmg_melee_max,10
 
@@ -106,9 +116,9 @@ id=43
 name=Slingshot
 INCLUDE items/base/weapons/ranged/slingshot.txt
 quality=epic
-price=160
+price=600
 dmg_ranged=10,30
-requires_stat=offense,8
+requires_stat=offense,7
 bonus=dmg_ranged_min,10
 bonus=dmg_ranged_max,10
 
@@ -117,9 +127,9 @@ id=44
 name=Wand
 INCLUDE items/base/weapons/magic/wand.txt
 quality=epic
-price=160
+price=600
 dmg_ment=10,30
-requires_stat=mental,8
+requires_stat=mental,7
 bonus=dmg_ment_min,10
 bonus=dmg_ment_max,10
 
@@ -128,9 +138,9 @@ id=45
 name=Wood Buckler
 INCLUDE items/base/shields/wood.txt
 quality=epic
-abs=0,10
-requires_stat=defense,6
-price=120
+abs=0,5
+requires_stat=defense,5
+price=800
 bonus=absorb_min,10
 bonus=absorb_max,10
 
@@ -139,7 +149,7 @@ id=46
 name=Fire Ring
 INCLUDE items/base/rings/gold_5.txt
 quality=epic
-price=200
+price=1500
 bonus=fire_resist,15
 
 [item]
@@ -147,7 +157,7 @@ id=47
 name=Ice Ring
 INCLUDE items/base/rings/silver_4.txt
 quality=epic
-price=200
+price=1500
 bonus=ice_resist,15
 
 [item]
@@ -155,7 +165,7 @@ id=48
 name=Lightning Ring
 INCLUDE items/base/rings/silver_5.txt
 quality=epic
-price=200
+price=1500
 bonus=lightning_resist,15
 
 [item]
@@ -163,22 +173,22 @@ id=49
 name=Experience Ring
 INCLUDE items/base/rings/silver_2.txt
 quality=epic
-price=200
-bonus=xp_gain,10
+price=1500
+bonus=xp_gain,15
 
 [item]
 id=50
 name=Wealth Ring
 INCLUDE items/base/rings/gold_2.txt
 quality=epic
-price=200
-bonus=currency_find,10
+price=1500
+bonus=currency_find,30
 
 [item]
 id=51
 name=Treasure Ring
 INCLUDE items/base/rings/gold_4.txt
 quality=epic
-price=200
-bonus=item_find,10
+price=1500
+bonus=item_find,40
 

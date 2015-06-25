@@ -3,26 +3,27 @@ INCLUDE enemies/base/skeleton_weak.txt
 name=Cracked Skeleton
 level=1
 categories=skeleton,undead,dungeon
+rarity=common
 xp=1
 
 # combat stats
-hp=150
+hp=70
 speed=3
 turn_delay=400ms
-chance_pursue=100
-chance_melee_phys=100
+chance_pursue=10
+chance_melee_phys=5
 power_melee_phys=164
 
 accuracy=90
 avoidance=10
-poise=65
+poise=45
 
-dmg_melee_min=15
-dmg_melee_max=25
-cooldown=1600ms
+dmg_melee_min=10
+dmg_melee_max=35
+cooldown=2200ms
 
 absorb_min=5
-absorb_max=15
+absorb_max=5
 
 # loot
 loot=loot/level_1.txt
