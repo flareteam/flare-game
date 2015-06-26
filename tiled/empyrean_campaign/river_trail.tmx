@@ -258,8 +258,20 @@
   </object>
  </objectgroup>
  <objectgroup name="enemy">
-  <object id="3" type="zombie_rotting" x="128" y="672" width="32" height="32"/>
-  <object id="4" type="zombie_rotting" x="1472" y="160" width="32" height="32"/>
-  <object id="5" type="zombie_rotting" x="1728" y="224" width="32" height="32"/>
+  <object id="3" type="zombie" x="128" y="672" width="32" height="32">
+   <properties>
+    <property name="level" value="1"/>
+   </properties>
+  </object>
+  <object id="4" type="zombie" x="1472" y="160" width="32" height="32">
+   <properties>
+    <property name="level" value="1"/>
+   </properties>
+  </object>
+  <object id="5" type="zombie" x="1728" y="224" width="32" height="32">
+   <properties>
+    <property name="level" value="1"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>
