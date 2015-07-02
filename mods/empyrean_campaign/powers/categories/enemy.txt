@@ -12,3 +12,20 @@ lifespan=33ms
 radius=1.0
 starting_pos=melee
 
+# throw spear
+[power]
+id=165
+type=missile
+new_state=shoot
+face=true
+directional=true
+requires_los=true
+animation=animations/powers/spear.txt
+use_hazard=true
+aim_assist=true
+base_damage=ranged
+lifespan=900ms
+radius=1.0
+speed=16
+angle_variance=10
+
