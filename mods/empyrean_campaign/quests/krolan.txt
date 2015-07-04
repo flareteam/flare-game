@@ -1,0 +1,14 @@
+[quest]
+requires_status=emp_krolan_init
+requires_not_status=emp_krolan_key
+quest_text=Travel to the Perdition Mines and look for Krolan.
+
+[quest]
+requires_status=emp_krolan_key
+requires_not_status=emp_krolan_emerald
+quest_text=Use Krolan's key to search his chest.
+
+[quest]
+requires_status=emp_krolan_emerald
+requires_not_status=emp_krolan_finish
+quest_text=Return to Udana and inform her of Krolan's death.

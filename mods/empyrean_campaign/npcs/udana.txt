@@ -15,4 +15,45 @@ vox_intro=soundfx/npcs/female_merchant_02.ogg
 vox_intro=soundfx/npcs/female_merchant_03.ogg
 vox_intro=soundfx/npcs/female_merchant_04.ogg
 
-#talker=true
+talker=true
+
+[dialog]
+topic=Talk
+requires_not_status=emp_krolan_init
+requires_not_status=emp_krolan_finish
+her=Greetings stranger. It's not often that we have people come here from the west.
+her=I see that you're carrying a weapon. Would you be interested in helping us?
+you=Go on.
+her=One of our encampment's residents, Krolan, works in the nearby mines. He supplies me with various gems that I craft into jewelery.
+her=Krolan has not returned in some time, and I am starting to think the worst.
+her=Could you please travel to the mines and look for Krolan? I will find some way to reward you for your trouble.
+set_status=emp_krolan_init
+
+[dialog]
+topic=Krolan
+requires_status=emp_krolan_init
+requires_not_status=emp_krolan_emerald
+her=Please hurry to find Krolan. The Perdition Mines are located near the Salted Field.
+
+[dialog]
+topic=Krolan
+requires_status=emp_krolan_init
+requires_status=emp_krolan_emerald
+you=I have found Krolan, but he was no longer of this world.
+her=This is terrible news. Our camp is already small, so this is a devastating loss.
+you=If it's any solace, I have his key and this emerald. Mementos to remember him by.
+her=The key is enough of a memento. For your invaluable help, I can at least make you a ring with this emerald.
+remove_item=1000
+remove_item=1001
+reward_xp=30
+reward_item=51,1
+set_status=emp_krolan_finish
+unset_status=emp_krolan_init
+unset_status=emp_krolan_key
+unset_status=emp_krolan_emerald
+
+[dialog]
+topic=Talk
+requires_status=emp_krolan_finish
+her=Thank you again for your help.
+

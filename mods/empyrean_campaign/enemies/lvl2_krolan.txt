@@ -1,0 +1,34 @@
+INCLUDE enemies/base/skeleton_weak.txt
+
+name=Krolan
+level=2
+categories=skeleton,undead,dungeon,krolan
+rarity=rare
+xp=5
+
+# combat stats
+hp=280
+speed=3
+turn_delay=400ms
+chance_pursue=10
+chance_melee_phys=10
+power_melee_phys=164
+
+accuracy=90
+avoidance=10
+poise=45
+
+dmg_melee_min=35
+dmg_melee_max=75
+cooldown=2200ms
+
+absorb_min=5
+absorb_max=10
+
+# quest key
+quest_loot=emp_krolan_init,emp_krolan_key,1000
+
+# loot
+loot=loot/level_2.txt
+
+

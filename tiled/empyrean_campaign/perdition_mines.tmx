@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="isometric" renderorder="right-down" width="56" height="38" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="7">
+<map version="1.0" orientation="isometric" renderorder="right-down" width="56" height="38" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="14">
  <properties>
   <property name="music" value="music/cave_theme.ogg"/>
   <property name="tileset" value="tilesetdefs/tileset_cave.txt"/>
@@ -148,6 +148,41 @@
     <property name="tooltip" value="Salted Field"/>
    </properties>
   </object>
+  <object id="9" name="Krolan chest (no key)" type="on_trigger" x="32" y="384" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="4,16,1,1"/>
+    <property name="requires_not_status" value="emp_krolan_key"/>
+    <property name="requires_status" value="emp_krolan_init"/>
+    <property name="tooltip" value="Krolan's Chest"/>
+   </properties>
+  </object>
+  <object id="10" name="Krolan chest (ready to unlock)" type="on_trigger" x="32" y="448" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="4,16,1,1"/>
+    <property name="loot" value="1001,fixed,1"/>
+    <property name="mapmod" value="object,4,16,176"/>
+    <property name="repeat" value="false"/>
+    <property name="requires_not_status" value="emp_krolan_emerald"/>
+    <property name="requires_status" value="emp_krolan_init,emp_krolan_key"/>
+    <property name="tooltip" value="Krolan's Chest"/>
+   </properties>
+  </object>
+  <object id="11" name="Treasure chest (no quest)" type="on_trigger" x="128" y="512" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="loot/level_2.txt"/>
+    <property name="mapmod" value="object,4,16,176"/>
+    <property name="repeat" value="false"/>
+    <property name="requires_not_status" value="emp_krolan_init"/>
+    <property name="tooltip" value="Treasure Chest"/>
+   </properties>
+  </object>
+  <object id="13" name="Krolan chest (opened)" type="on_load" x="32" y="320" width="32" height="32">
+   <properties>
+    <property name="mapmod" value="object,4,16,176"/>
+    <property name="requires_status" value="emp_krolan_init,emp_krolan_key,emp_krolan_emerald"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="enemy">
   <object id="2" type="undead" x="1088" y="160" width="288" height="288">
@@ -178,6 +213,17 @@
    <properties>
     <property name="level" value="1"/>
     <property name="number" value="4,5"/>
+   </properties>
+  </object>
+  <object id="7" type="krolan" x="160" y="480" width="32" height="32">
+   <properties>
+    <property name="number" value="1"/>
+   </properties>
+  </object>
+  <object id="8" type="undead" x="320" y="384" width="192" height="160">
+   <properties>
+    <property name="level" value="1"/>
+    <property name="number" value="2,3"/>
    </properties>
   </object>
  </objectgroup>

@@ -147,6 +147,45 @@ hotspot=location
 intermap=maps/salted_field.txt,7,13
 tooltip=Salted Field
 
+[event]
+# Krolan chest (no key)
+type=on_trigger
+location=1,12,1,1
+hotspot=4,16,1,1
+requires_not_status=emp_krolan_key
+requires_status=emp_krolan_init
+tooltip=Krolan's Chest
+
+[event]
+# Krolan chest (ready to unlock)
+type=on_trigger
+location=1,14,1,1
+hotspot=4,16,1,1
+loot=1001,fixed,1
+mapmod=object,4,16,176
+repeat=false
+requires_not_status=emp_krolan_emerald
+requires_status=emp_krolan_init,emp_krolan_key
+tooltip=Krolan's Chest
+
+[event]
+# Treasure chest (no quest)
+type=on_trigger
+location=4,16,1,1
+hotspot=location
+loot=loot/level_2.txt
+mapmod=object,4,16,176
+repeat=false
+requires_not_status=emp_krolan_init
+tooltip=Treasure Chest
+
+[event]
+# Krolan chest (opened)
+type=on_load
+location=1,10,1,1
+mapmod=object,4,16,176
+requires_status=emp_krolan_init,emp_krolan_key,emp_krolan_emerald
+
 [enemy]
 type=undead
 location=34,5,9,9
@@ -176,4 +215,15 @@ type=undead
 location=20,14,17,7
 level=1
 number=4,5
+
+[enemy]
+type=krolan
+location=5,15,1,1
+number=1
+
+[enemy]
+type=undead
+location=10,12,6,5
+level=1
+number=2,3
 
