@@ -186,6 +186,48 @@ location=1,10,1,1
 mapmod=object,4,16,176
 requires_status=emp_krolan_init,emp_krolan_key,emp_krolan_emerald
 
+[event]
+# Cave wind sound effect
+type=on_load
+location=0,0,1,1
+soundfx=soundfx/environment/cave_wind_loop.ogg
+
+[event]
+# Water dripping
+type=on_load
+location=7,16,1,1
+soundfx=soundfx/environment/cave_droplets_loop.ogg
+
+[event]
+# Water dripping
+type=on_load
+location=19,6,1,1
+soundfx=soundfx/environment/cave_droplets_loop.ogg
+
+[event]
+# Water dripping
+type=on_load
+location=27,16,1,1
+soundfx=soundfx/environment/cave_droplets_loop.ogg
+
+[event]
+# Water dripping
+type=on_load
+location=17,30,1,1
+soundfx=soundfx/environment/cave_droplets_loop.ogg
+
+[event]
+# Water dripping
+type=on_load
+location=38,7,1,1
+soundfx=soundfx/environment/cave_droplets_loop.ogg
+
+[event]
+# Water dripping
+type=on_load
+location=38,29,1,1
+soundfx=soundfx/environment/cave_droplets_loop.ogg
+
 [enemy]
 type=undead
 location=34,5,9,9
