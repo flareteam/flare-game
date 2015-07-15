@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="isometric" renderorder="right-down" width="60" height="60" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="37">
+<map version="1.0" orientation="isometric" renderorder="right-down" width="60" height="60" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="38">
  <properties>
   <property name="music" value="music/overworld_theme.ogg"/>
   <property name="tileset" value="tilesetdefs/tileset_grassland.txt"/>
@@ -119,8 +119,8 @@
 52,131,0,0,0,70,58,0,0,0,52,0,0,0,0,0,0,0,0,0,0,0,125,0,0,0,0,0,54,0,0,0,0,0,0,0,0,0,0,56,68,0,254,0,0,0,0,70,51,62,0,0,0,0,0,0,0,0,0,0,
 59,67,0,0,0,50,0,0,0,0,48,0,0,0,0,0,121,0,0,240,0,0,0,0,0,127,0,0,69,61,0,0,0,0,0,0,0,0,56,64,0,0,116,0,0,0,0,50,0,0,0,0,0,0,0,0,0,0,0,0,
 0,52,0,0,0,69,57,0,0,0,63,71,0,0,0,0,0,0,74,75,0,0,0,0,0,0,0,0,0,50,0,0,0,0,0,0,0,60,68,0,248,0,0,0,0,0,0,65,61,0,0,0,0,0,0,0,0,0,0,0,
-0,48,0,0,0,0,65,61,0,0,0,48,0,243,0,124,73,0,0,0,126,0,0,0,0,0,0,117,0,65,49,49,57,0,0,56,49,64,0,116,0,114,0,115,123,0,0,0,54,0,0,0,0,0,0,0,0,0,0,0,
-0,48,243,0,0,0,0,54,0,0,60,64,0,0,0,0,72,0,0,0,0,0,0,0,0,0,0,114,0,0,247,0,69,53,53,64,128,0,124,0,0,0,0,0,0,0,126,0,50,0,0,0,0,0,0,0,0,0,0,0,
+0,48,0,0,0,0,65,61,0,0,0,48,0,243,0,124,73,0,0,0,126,0,0,0,0,0,0,117,0,65,49,49,57,0,0,0,0,48,0,116,0,114,0,115,123,0,0,0,54,0,0,0,0,0,0,0,0,0,0,0,
+0,48,243,0,0,0,0,54,0,0,60,64,0,0,0,0,72,0,0,0,0,0,0,0,0,0,0,114,0,0,247,0,69,53,53,226,227,64,124,0,0,0,0,0,0,0,126,0,50,0,0,0,0,0,0,0,0,0,0,0,
 0,63,71,0,0,0,0,65,53,49,68,0,0,0,0,0,0,0,0,0,0,0,0,0,244,0,0,0,0,0,0,0,241,0,122,125,0,0,0,0,136,0,0,0,0,0,0,0,69,49,0,0,0,0,0,0,0,0,0,0,
 0,0,48,0,246,0,0,0,0,0,0,0,0,0,0,0,117,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,124,0,0,0,0,0,0,0,0,0,0,0,0,50,0,0,0,0,0,0,0,0,0,
 0,0,63,51,51,67,0,0,0,0,0,0,124,0,0,0,0,0,0,0,66,51,67,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,127,0,0,0,252,0,0,126,0,0,69,53,61,0,0,0,0,0,0,0,
@@ -157,7 +157,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="collision" width="60" height="60" visible="0">
+ <layer name="collision" width="60" height="60">
   <data encoding="csv">
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,1,0,0,0,0,2,2,2,2,2,2,2,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
@@ -184,7 +184,7 @@
 1,1,0,0,0,1,3,3,3,3,1,2,2,2,2,2,0,0,0,1,2,2,2,2,2,0,0,0,1,1,3,3,3,3,3,3,3,3,1,1,2,2,2,0,0,0,0,1,3,3,3,3,3,3,3,3,3,3,3,3,
 3,1,0,0,0,1,1,3,3,3,1,1,2,2,2,2,0,0,2,2,0,2,2,2,2,2,2,2,0,1,3,3,3,3,3,3,3,1,1,2,2,2,2,2,0,0,0,1,1,3,3,3,3,3,3,3,3,3,3,3,
 3,1,0,0,0,0,1,1,3,3,3,1,2,2,2,2,2,0,0,0,0,0,2,2,2,2,2,2,2,1,1,1,1,3,3,1,1,1,0,2,2,2,2,2,0,0,0,0,1,3,3,3,3,3,3,3,3,3,3,3,
-3,1,1,0,0,0,0,1,3,3,1,1,2,2,2,0,2,0,0,0,0,0,0,0,2,2,2,2,2,2,2,2,1,1,1,1,2,0,0,0,2,2,2,2,2,0,0,0,1,3,3,3,3,3,3,3,3,3,3,3,
+3,1,1,0,0,0,0,1,3,3,1,1,2,2,2,0,2,0,0,0,0,0,0,0,2,2,2,2,2,2,2,2,1,1,1,0,0,1,0,0,2,2,2,2,2,0,0,0,1,3,3,3,3,3,3,3,3,3,3,3,
 3,1,1,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,2,2,2,2,2,2,2,2,0,0,0,0,0,0,2,2,2,2,2,0,0,0,1,1,3,3,3,3,3,3,3,3,3,3,
 3,3,1,0,1,0,0,0,0,0,0,0,2,2,2,0,0,0,0,0,0,0,0,0,0,0,2,2,2,2,2,2,2,2,2,2,0,0,0,0,2,2,2,2,0,0,0,0,0,0,1,3,3,3,3,3,3,3,3,3,
 3,3,1,1,1,1,0,0,0,0,0,0,2,2,2,0,0,0,0,0,1,1,1,0,0,0,2,2,2,2,2,2,2,2,2,2,0,2,2,2,2,2,2,2,1,0,0,0,0,0,1,1,1,3,3,3,3,3,3,3,
@@ -374,64 +374,66 @@
     <property name="tooltip" value="Merrimead Swamp"/>
    </properties>
   </object>
+  <object id="37" name="to Goblin Cave" type="on_trigger" x="1120" y="800" width="64" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="intermap" value="maps/goblin_cave.txt,0,0"/>
+    <property name="tooltip" value="Goblin Cave"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="enemy">
-  <object id="2" name="goblins" type="goblin" x="64" y="768" width="352" height="256">
+  <object id="2" type="goblin" x="64" y="768" width="352" height="256">
    <properties>
-    <property name="level" value="1,4"/>
+    <property name="level" value="1"/>
     <property name="number" value="2,3"/>
    </properties>
   </object>
-  <object id="27" name="goblins" type="goblin" x="480" y="736" width="320" height="224">
+  <object id="27" type="goblin" x="480" y="736" width="320" height="224">
    <properties>
-    <property name="level" value="1,4"/>
+    <property name="level" value="1"/>
     <property name="number" value="2,3"/>
    </properties>
   </object>
-  <object id="28" name="goblins" type="goblin" x="768" y="960" width="128" height="256">
+  <object id="28" type="goblin" x="768" y="960" width="128" height="256">
    <properties>
-    <property name="level" value="1,4"/>
+    <property name="level" value="1"/>
     <property name="number" value="2,3"/>
    </properties>
   </object>
-  <object id="29" name="goblins" type="goblin" x="512" y="1344" width="288" height="160">
+  <object id="29" type="goblin" x="512" y="1344" width="288" height="160">
    <properties>
-    <property name="level" value="1,4"/>
+    <property name="level" value="1"/>
     <property name="number" value="2,3"/>
    </properties>
   </object>
-  <object id="30" name="goblins" type="goblin" x="1056" y="800" width="256" height="96">
+  <object id="30" type="goblin" x="1152" y="928" width="32" height="128">
    <properties>
-    <property name="level" value="1,4"/>
-    <property name="number" value="2,3"/>
-   </properties>
-  </object>
-  <object id="31" name="goblins" type="goblin" x="1152" y="1088" width="320" height="64">
-   <properties>
-    <property name="level" value="1,4"/>
+    <property name="level" value="1"/>
     <property name="number" value="1,2"/>
    </properties>
   </object>
-  <object id="32" name="goblins" type="goblin" x="1472" y="896" width="192" height="416">
+  <object id="31" type="goblin" x="1152" y="1088" width="320" height="64">
    <properties>
-    <property name="level" value="1,4"/>
+    <property name="level" value="1"/>
+    <property name="number" value="1,2"/>
+   </properties>
+  </object>
+  <object id="32" type="goblin" x="1472" y="896" width="192" height="416">
+   <properties>
+    <property name="level" value="1"/>
     <property name="number" value="3,4"/>
    </properties>
   </object>
-  <object id="33" name="goblin boss" type="goblin_charger_elite" x="1664" y="1120" width="32" height="32">
+  <object id="34" type="goblin" x="928" y="352" width="320" height="160">
    <properties>
-    <property name="number" value="1"/>
-   </properties>
-  </object>
-  <object id="34" name="goblins" type="goblin" x="928" y="352" width="320" height="160">
-   <properties>
-    <property name="level" value="1,4"/>
+    <property name="level" value="1"/>
     <property name="number" value="2,3"/>
    </properties>
   </object>
-  <object id="35" name="zombies" type="zombie" x="768" y="576" width="96" height="96">
+  <object id="35" type="undead" x="768" y="576" width="96" height="96">
    <properties>
-    <property name="level" value="1,3"/>
+    <property name="level" value="1"/>
     <property name="number" value="1,2"/>
    </properties>
   </object>
