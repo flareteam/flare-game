@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="isometric" renderorder="right-down" width="48" height="48" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="28">
+<map version="1.0" orientation="isometric" renderorder="right-down" width="48" height="48" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="32">
  <properties>
   <property name="music" value="music/cave_theme.ogg"/>
   <property name="tileset" value="tilesetdefs/tileset_cave.txt"/>
@@ -216,6 +216,46 @@
   <object id="27" name="Water dripping" type="on_load" x="1248" y="864" width="32" height="32">
    <properties>
     <property name="soundfx" value="soundfx/environment/cave_droplets_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="28" name="Treasure Chest" type="on_trigger" x="96" y="160" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="loot/level_2.txt"/>
+    <property name="mapmod" value="object,3,5,177"/>
+    <property name="repeat" value="false"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Treasure Chest"/>
+   </properties>
+  </object>
+  <object id="29" name="Barrel" type="on_trigger" x="352" y="384" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="loot/level_1.txt"/>
+    <property name="mapmod" value="object,11,12,178"/>
+    <property name="repeat" value="false"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Barrel"/>
+   </properties>
+  </object>
+  <object id="30" name="Crate" type="on_trigger" x="896" y="256" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="loot/level_1.txt"/>
+    <property name="mapmod" value="object,28,8,179"/>
+    <property name="repeat" value="false"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Crate"/>
+   </properties>
+  </object>
+  <object id="31" name="Crate" type="on_trigger" x="1120" y="1088" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="loot/level_1.txt"/>
+    <property name="mapmod" value="object,35,34,179"/>
+    <property name="repeat" value="false"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Crate"/>
    </properties>
   </object>
  </objectgroup>
