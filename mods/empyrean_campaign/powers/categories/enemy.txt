@@ -29,3 +29,35 @@ radius=1.0
 speed=16
 angle_variance=10
 
+# goblin shaman shock
+[power]
+id=166
+type=missile
+new_state=cast
+face=true
+directional=false
+animation=animations/powers/lightning.txt
+soundfx=soundfx/powers/shock.ogg
+use_hazard=true
+aim_assist=true
+base_damage=ment
+lifespan=800ms
+radius=1.0
+speed=16
+trait_elemental=lightning
+trait_crits_impaired=25
+post_power=159
+wall_power=159
+cooldown=800ms
+
+# goblin shaman shield
+[power]
+id=167
+type=fixed
+new_state=cast
+soundfx=soundfx/powers/shield.ogg
+buff=true
+post_effect=shield,0,0
+cooldown=10s
+modifier_damage=multiply,50,0
+
