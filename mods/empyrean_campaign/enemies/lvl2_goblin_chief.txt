@@ -11,13 +11,11 @@ hp=300
 speed=2
 melee_range=2.375
 turn_delay=200ms
-chance_pursue=10
-chance_melee_ment=5
-chance_ranged_phys=5
-chance_ranged_ment=10
-power_melee_ment=166
-power_ranged_phys=167
-power_ranged_ment=166
+chance_pursue=50
+
+power=melee,166,5
+power=ranged,166,10
+power=on_join_combat,167,100
 
 accuracy=90
 avoidance=35
