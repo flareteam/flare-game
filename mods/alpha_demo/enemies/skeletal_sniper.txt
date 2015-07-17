@@ -10,16 +10,12 @@ hp=150
 speed=3.5
 turn_delay=200ms
 chance_pursue=5
-chance_melee_phys=5
-chance_melee_ment=0
-chance_ranged_phys=10
-chance_ranged_ment=5
-power_melee_phys=1
 
+power=melee,1,5
 # shoot
-power_ranged_phys=34
+power=ranged,34,10
 # multi-shot
-power_ranged_ment=42
+power=ranged,42,5
 
 accuracy=89
 avoidance=34

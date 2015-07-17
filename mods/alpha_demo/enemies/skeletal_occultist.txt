@@ -11,13 +11,13 @@ speed=3.5
 turn_delay=200ms
 
 chance_pursue=15
-chance_melee_phys=10
-chance_ranged_ment=10
 
 # channel
-power_melee_phys=2
+power=melee,2,10
 # freeze
-power_ranged_ment=14
+power=melee,14,10
+# ice shard
+power=ranged,30,2
 
 accuracy=87
 avoidance=37

@@ -11,16 +11,13 @@ speed=6.5
 turn_delay=133ms
 
 chance_pursue=45
-chance_ranged_ment=15
-chance_melee_phys=15
-chance_melee_ment=15
 
 # blood strike
-power_melee_phys=5
+power=melee,5,15
 # piercing strike
-power_melee_ment=39
-#shock
-power_ranged_ment=48
+power=melee,39,15
+# shock
+power=ranged,48,15
 
 accuracy=90
 avoidance=45

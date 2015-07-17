@@ -10,14 +10,10 @@ hp=80
 speed=4.5
 turn_delay=233ms
 chance_pursue=20
-chance_melee_phys=15
-chance_melee_ment=3
-chance_ranged_phys=0
-chance_ranged_ment=0
 
 # melee power Chill Touch (5s immobilize)
-power_melee_phys=38
-power_melee_ment=1
+power=melee,38,15
+power=melee,1,3
 
 accuracy=85
 avoidance=30

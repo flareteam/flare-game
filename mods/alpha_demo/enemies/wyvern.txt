@@ -11,15 +11,11 @@ hp=70
 speed=5
 turn_delay=200ms
 chance_pursue=35
-chance_melee_phys=15
-chance_melee_ment=0
-chance_ranged_phys=0
-chance_ranged_ment=2
 
 # bleed sting
-power_melee_phys=5
+power=melee,5,15
 # fire spit
-power_ranged_ment=31
+power=ranged,31,2
 
 accuracy=77
 avoidance=27

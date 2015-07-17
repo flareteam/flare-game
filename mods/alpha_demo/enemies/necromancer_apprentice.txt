@@ -10,12 +10,9 @@ hp=225
 speed=3
 turn_delay=200ms
 chance_pursue=30
-chance_melee_phys=5
-chance_melee_ment=0
-chance_ranged_phys=0
-chance_ranged_ment=15
-power_melee_phys=1
-power_ranged_ment=128
+
+power=melee,1,5
+power=ranged,128,15
 
 accuracy=96
 avoidance=49

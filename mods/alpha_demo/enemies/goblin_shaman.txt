@@ -12,13 +12,10 @@ speed=2
 melee_range=2.375
 turn_delay=200ms
 chance_pursue=10
-chance_melee_phys=0
-chance_melee_ment=5
-chance_ranged_phys=5
-chance_ranged_ment=10
-power_melee_ment=6
-power_ranged_phys=11
-power_ranged_ment=6
+
+power=melee,6,5
+power=ranged,11,5
+power=ranged,6,10
 
 accuracy=84
 avoidance=34
