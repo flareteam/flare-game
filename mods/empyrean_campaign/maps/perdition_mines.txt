@@ -286,10 +286,19 @@ number=4,5
 type=krolan
 location=5,15,1,1
 number=1
+requires_not_status=emp_krolan_key
+requires_status=emp_krolan_init
 
 [enemy]
 type=undead
 location=10,12,6,5
 level=1
 number=2,3
+
+[enemy]
+type=skeleton
+location=5,16,1,1
+level=2
+number=1
+requires_not_status=emp_krolan_init
 

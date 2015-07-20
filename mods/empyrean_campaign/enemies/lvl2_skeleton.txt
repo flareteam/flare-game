@@ -1,0 +1,31 @@
+INCLUDE enemies/base/skeleton_weak.txt
+
+name=Skeleton
+level=2
+categories=skeleton,undead,dungeon
+rarity=common
+xp=2
+
+# combat stats
+hp=140
+speed=3
+turn_delay=400ms
+chance_pursue=10
+
+power=melee,164,10
+
+accuracy=90
+avoidance=10
+poise=45
+
+dmg_melee_min=30
+dmg_melee_max=60
+cooldown=2200ms
+
+absorb_min=5
+absorb_max=8
+
+# loot
+loot=loot/level_2.txt
+
+
