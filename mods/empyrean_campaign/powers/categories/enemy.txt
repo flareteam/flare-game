@@ -61,3 +61,18 @@ post_effect=shield,0,0
 cooldown=10s
 modifier_damage=multiply,50,0
 
+# blood strike
+[power]
+id=168
+type=fixed
+new_state=swing
+face=true
+use_hazard=true
+base_damage=melee
+lifespan=33ms
+radius=1.0
+starting_pos=melee
+post_power=160
+cooldown=400ms
+post_effect=bleeding,4,5s
+
