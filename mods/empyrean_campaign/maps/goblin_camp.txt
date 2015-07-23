@@ -395,43 +395,40 @@ tooltip=Goblin Cave
 
 [enemy]
 type=goblin
-location=2,24,11,8
+location=1,20,11,11
 level=1
-number=2,3
+number=3
 
 [enemy]
 type=goblin
-location=15,23,10,7
+location=15,23,12,7
 level=1
-number=2,3
+number=3,4
+wander_radius=1
 
 [enemy]
 type=goblin
-location=24,30,4,8
+location=18,45,9,2
 level=1
 number=2,3
+wander_radius=1
+
+[enemy]
+type=goblin_spearman
+location=36,37,1,1
+level=2
+number=1
+wander_radius=0
 
 [enemy]
 type=goblin
-location=16,42,9,5
-level=1
-number=2,3
-
-[enemy]
-type=goblin
-location=36,29,1,4
+location=41,34,6,2
 level=1
 number=1,2
 
 [enemy]
 type=goblin
-location=36,34,10,2
-level=1
-number=1,2
-
-[enemy]
-type=goblin
-location=46,28,6,13
+location=50,31,6,13
 level=1
 number=3,4
 
@@ -443,11 +440,18 @@ number=2,3
 
 [enemy]
 type=undead
-location=24,18,3,3
+location=25,16,4,4
 level=1
 number=1,2
+wander_radius=1
+
+[enemy]
+type=undead
+location=19,5,7,7
+level=1
+number=2,3
 
 [npc]
 type=npcs/traveling_merchant.txt
-location=16,5,1,1
+location=21,35,1,1
 
