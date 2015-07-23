@@ -1,5 +1,5 @@
 name=Blood Strike
-description=Inflict a bleeding wound that causes additional damage over 5 seconds.
+description=Deal extra melee damage, as well as inflict a bleeding wound that causes additional damage over 5 seconds.
 type=fixed
 icon=5
 new_state=swing
@@ -11,4 +11,5 @@ radius=1.0
 starting_pos=melee
 post_power=160
 cooldown=400ms
+modifier_damage=multiply,150,0
 
