@@ -1,5 +1,6 @@
 # equipment intended for players level 4
 
+# cloth shirt
 [item]
 id=52
 INCLUDE items/base/armor/cloth/chest.txt
@@ -10,6 +11,7 @@ requires_stat=defense,6
 bonus=hp,175
 bonus=hp_regen,175
 
+# cloth pants
 [item]
 id=53
 INCLUDE items/base/armor/cloth/legs.txt
@@ -20,6 +22,7 @@ requires_stat=defense,6
 bonus=avoidance,12
 bonus=poise,6
 
+# cloth sandals
 [item]
 id=54
 INCLUDE items/base/armor/cloth/feet.txt
@@ -29,6 +32,7 @@ requires_stat=defense,6
 bonus=avoidance,6
 bonus=poise,3
 
+# cloth gloves
 [item]
 id=55
 INCLUDE items/base/armor/cloth/hands.txt
@@ -38,6 +42,7 @@ requires_stat=defense,6
 bonus=crit,6
 bonus=accuracy,12
 
+# cloth hood
 [item]
 id=56
 INCLUDE items/base/armor/mage/head.txt
@@ -47,84 +52,94 @@ requires_stat=defense,6
 bonus=mp,45
 bonus=mp_regen,45
 
+# dagger
 [item]
 id=57
 INCLUDE items/base/weapons/melee/dagger.txt
 quality=unique
-price=1200
+price=1600
 dmg_melee=25,30
 requires_stat=physical,10
 bonus=dmg_melee_min,15
 bonus=dmg_melee_max,15
 
+# slingshot
 [item]
 id=58
 INCLUDE items/base/weapons/ranged/slingshot.txt
 quality=unique
-price=1200
+price=1600
 dmg_ranged=25,30
 requires_stat=offense,10
 bonus=dmg_ranged_min,15
 bonus=dmg_ranged_max,15
 
+# wand
 [item]
 id=59
 INCLUDE items/base/weapons/magic/wand.txt
 quality=unique
-price=1200
+price=1600
 dmg_ment=25,30
 requires_stat=mental,10
 bonus=dmg_ment_min,15
 bonus=dmg_ment_max,15
 
+# wood buckler
 [item]
 id=60
 INCLUDE items/base/shields/wood.txt
 quality=unique
 abs=0,1
 requires_stat=defense,8
-price=1600
+price=1200
 bonus=absorb_max,3
 
+# fire ring
 [item]
 id=61
 INCLUDE items/base/rings/gold_5.txt
 quality=unique
-price=3000
+price=2800
 bonus=fire_resist,20
 
+# ice ring
 [item]
 id=62
 INCLUDE items/base/rings/silver_4.txt
 quality=unique
-price=3000
+price=2800
 bonus=ice_resist,20
 
+# lightning ring
 [item]
 id=63
 INCLUDE items/base/rings/silver_5.txt
 quality=unique
-price=3000
+price=2800
 bonus=lightning_resist,20
 
+# experience ring
 [item]
 id=64
 INCLUDE items/base/rings/silver_2.txt
 quality=unique
-price=3000
+price=2800
 bonus=xp_gain,20
 
+# wealth ring
 [item]
 id=65
 INCLUDE items/base/rings/gold_2.txt
 quality=unique
-price=3000
+price=2800
 bonus=currency_find,40
 
+# treasure ring
 [item]
 id=66
 INCLUDE items/base/rings/gold_4.txt
 quality=unique
-price=3000
+price=2800
 bonus=item_find,50
 
