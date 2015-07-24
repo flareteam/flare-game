@@ -6,9 +6,9 @@ name=Cloth Shirt
 INCLUDE items/base/armor/cloth/chest.txt
 quality=epic
 price=600
-abs=2,3
+abs=1
 requires_stat=defense,3
-bonus=hp,40
+bonus=hp,125
 
 [item]
 id=33
@@ -16,9 +16,9 @@ name=Cloth Shirt
 INCLUDE items/base/armor/cloth/chest.txt
 quality=epic
 price=600
-abs=2,3
+abs=1
 requires_stat=defense,3
-bonus=hp_regen,40
+bonus=hp_regen,125
 
 [item]
 id=34
@@ -26,7 +26,7 @@ name=Cloth Pants
 INCLUDE items/base/armor/cloth/legs.txt
 quality=epic
 price=400
-abs=1,2
+abs=0,1
 requires_stat=defense,3
 bonus=avoidance,8
 
@@ -36,7 +36,7 @@ name=Cloth Pants
 INCLUDE items/base/armor/cloth/legs.txt
 quality=epic
 price=400
-abs=1,2
+abs=0,1
 requires_stat=defense,3
 bonus=poise,4
 
@@ -46,7 +46,6 @@ name=Cloth Sandals
 INCLUDE items/base/armor/cloth/feet.txt
 quality=epic
 price=300
-abs=1
 requires_stat=defense,3
 bonus=avoidance,4
 
@@ -56,7 +55,6 @@ name=Cloth Sandals
 INCLUDE items/base/armor/cloth/feet.txt
 quality=epic
 price=300
-abs=1
 requires_stat=defense,3
 bonus=poise,2
 
@@ -66,7 +64,6 @@ name=Cloth Gloves
 INCLUDE items/base/armor/cloth/hands.txt
 quality=epic
 price=200
-abs=1
 requires_stat=defense,3
 bonus=crit,4
 
@@ -76,7 +73,6 @@ name=Cloth Gloves
 INCLUDE items/base/armor/cloth/hands.txt
 quality=epic
 price=200
-abs=1
 requires_stat=defense,3
 bonus=accuracy,8
 
@@ -86,7 +82,6 @@ name=Cloth Hood
 INCLUDE items/base/armor/mage/head.txt
 quality=epic
 price=400
-abs=1
 requires_stat=defense,3
 bonus=mp,30
 
@@ -96,7 +91,6 @@ name=Cloth Hood
 INCLUDE items/base/armor/mage/head.txt
 quality=epic
 price=400
-abs=1
 requires_stat=defense,3
 bonus=mp_regen,30
 
@@ -106,7 +100,7 @@ name=Dagger
 INCLUDE items/base/weapons/melee/dagger.txt
 quality=epic
 price=600
-dmg_melee=10,30
+dmg_melee=25,30
 requires_stat=physical,7
 bonus=dmg_melee_min,10
 bonus=dmg_melee_max,10
@@ -117,7 +111,7 @@ name=Slingshot
 INCLUDE items/base/weapons/ranged/slingshot.txt
 quality=epic
 price=600
-dmg_ranged=10,30
+dmg_ranged=25,30
 requires_stat=offense,7
 bonus=dmg_ranged_min,10
 bonus=dmg_ranged_max,10
@@ -128,7 +122,7 @@ name=Wand
 INCLUDE items/base/weapons/magic/wand.txt
 quality=epic
 price=600
-dmg_ment=10,30
+dmg_ment=25,30
 requires_stat=mental,7
 bonus=dmg_ment_min,10
 bonus=dmg_ment_max,10
@@ -138,11 +132,10 @@ id=45
 name=Wood Buckler
 INCLUDE items/base/shields/wood.txt
 quality=epic
-abs=0,5
+abs=0,1
 requires_stat=defense,5
 price=800
-bonus=absorb_min,10
-bonus=absorb_max,10
+bonus=absorb_max,2
 
 [item]
 id=46

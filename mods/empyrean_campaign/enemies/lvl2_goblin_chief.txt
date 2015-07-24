@@ -7,25 +7,25 @@ rarity=rare
 xp=5
 
 # combat stats
-hp=300
+hp=125
 speed=2
 melee_range=2.375
 turn_delay=200ms
 chance_pursue=50
 
-power=melee,166,5
-power=ranged,166,10
+power=melee,166,10
+power=ranged,166,15
 power=on_join_combat,167,100
 
 accuracy=90
 avoidance=35
 poise=50
 
-dmg_ment_min=30
-dmg_ment_max=65
-absorb_min=5
-absorb_max=5
-cooldown=1800ms
+dmg_ment_min=50
+dmg_ment_max=55
+absorb_min=1
+absorb_max=1
+cooldown=1000ms
 
 # quest_loot
 quest_loot=emp_journal_init,emp_journal_found,1002

@@ -48,7 +48,6 @@ trait_elemental=lightning
 trait_crits_impaired=25
 post_power=159
 wall_power=159
-cooldown=800ms
 
 # goblin shaman shield
 [power]
@@ -58,7 +57,7 @@ new_state=cast
 soundfx=soundfx/powers/shield.ogg
 buff=true
 post_effect=shield,0,0
-cooldown=10s
+cooldown=3s
 modifier_damage=multiply,50,0
 
 # blood strike
@@ -73,7 +72,6 @@ lifespan=33ms
 radius=1.0
 starting_pos=melee
 post_power=160
-cooldown=400ms
 modifier_damage=multiply,125,0
 post_effect=bleeding,4,5s
 

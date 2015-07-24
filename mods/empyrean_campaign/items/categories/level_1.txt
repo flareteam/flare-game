@@ -28,7 +28,7 @@ price=2
 id=8
 name=Dagger
 INCLUDE items/base/weapons/melee/dagger.txt
-dmg_melee=10,30
+dmg_melee=25,30
 requires_stat=physical,4
 price=12
 
@@ -36,7 +36,7 @@ price=12
 id=9
 name=Slingshot
 INCLUDE items/base/weapons/ranged/slingshot.txt
-dmg_ranged=10,30
+dmg_ranged=25,30
 requires_stat=offense,4
 price=12
 
@@ -44,7 +44,7 @@ price=12
 id=10
 name=Wand
 INCLUDE items/base/weapons/magic/wand.txt
-dmg_ment=10,30
+dmg_ment=25,30
 requires_stat=mental,4
 price=12
 
@@ -52,7 +52,7 @@ price=12
 id=11
 name=Wood Buckler
 INCLUDE items/base/shields/wood.txt
-abs=0,5
+abs=0,1
 requires_stat=defense,2
 price=10
 

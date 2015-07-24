@@ -5,17 +5,17 @@ id=52
 INCLUDE items/base/armor/cloth/chest.txt
 quality=unique
 price=1200
-abs=3
+abs=1
 requires_stat=defense,6
-bonus=hp,60
-bonus=hp_regen,60
+bonus=hp,175
+bonus=hp_regen,175
 
 [item]
 id=53
 INCLUDE items/base/armor/cloth/legs.txt
 quality=unique
 price=800
-abs=2
+abs=0,1
 requires_stat=defense,6
 bonus=avoidance,12
 bonus=poise,6
@@ -25,7 +25,6 @@ id=54
 INCLUDE items/base/armor/cloth/feet.txt
 quality=unique
 price=600
-abs=1,2
 requires_stat=defense,6
 bonus=avoidance,6
 bonus=poise,3
@@ -35,7 +34,6 @@ id=55
 INCLUDE items/base/armor/cloth/hands.txt
 quality=unique
 price=400
-abs=1,2
 requires_stat=defense,6
 bonus=crit,6
 bonus=accuracy,12
@@ -45,7 +43,6 @@ id=56
 INCLUDE items/base/armor/mage/head.txt
 quality=unique
 price=800
-abs=1,2
 requires_stat=defense,6
 bonus=mp,45
 bonus=mp_regen,45
@@ -55,7 +52,7 @@ id=57
 INCLUDE items/base/weapons/melee/dagger.txt
 quality=unique
 price=1200
-dmg_melee=10,30
+dmg_melee=25,30
 requires_stat=physical,10
 bonus=dmg_melee_min,15
 bonus=dmg_melee_max,15
@@ -65,7 +62,7 @@ id=58
 INCLUDE items/base/weapons/ranged/slingshot.txt
 quality=unique
 price=1200
-dmg_ranged=10,30
+dmg_ranged=25,30
 requires_stat=offense,10
 bonus=dmg_ranged_min,15
 bonus=dmg_ranged_max,15
@@ -75,7 +72,7 @@ id=59
 INCLUDE items/base/weapons/magic/wand.txt
 quality=unique
 price=1200
-dmg_ment=10,30
+dmg_ment=25,30
 requires_stat=mental,10
 bonus=dmg_ment_min,15
 bonus=dmg_ment_max,15
@@ -84,11 +81,10 @@ bonus=dmg_ment_max,15
 id=60
 INCLUDE items/base/shields/wood.txt
 quality=unique
-abs=0,5
+abs=0,1
 requires_stat=defense,8
 price=1600
-bonus=absorb_min,15
-bonus=absorb_max,15
+bonus=absorb_max,3
 
 [item]
 id=61
