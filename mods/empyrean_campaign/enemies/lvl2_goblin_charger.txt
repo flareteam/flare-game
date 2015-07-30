@@ -1,13 +1,13 @@
 INCLUDE enemies/base/goblin_runner.txt
 
-name=Goblin Runner
-level=1
+name=Goblin Charger
+level=2
 categories=goblin_charger,goblin,dungeon,grassland
 rarity=uncommon
-xp=1
+xp=2
 
 # combat stats
-hp=40
+hp=90
 speed=4
 turn_delay=200ms
 chance_pursue=10
@@ -19,12 +19,12 @@ accuracy=90
 avoidance=10
 poise=60
 
-dmg_melee_min=15
-dmg_melee_max=20
+dmg_melee_min=30
+dmg_melee_max=35
 cooldown=1600ms
-absorb_min=0
+absorb_min=1
 absorb_max=1
 
 # loot
-loot=loot/level_1.txt
+loot=loot/level_2.txt
 

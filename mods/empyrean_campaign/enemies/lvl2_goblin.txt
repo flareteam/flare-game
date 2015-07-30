@@ -1,28 +1,26 @@
 INCLUDE enemies/base/goblin.txt
 
-name=Goblin Spearman
+name=Goblin
 level=2
-categories=goblin,goblin_spearman,dungeon,grassland
-rarity=uncommon
+categories=goblin,dungeon,grassland
+rarity=common
 xp=2
 
 # combat stats
-hp=90
+hp=100
 speed=2
+melee_range=1.125
 turn_delay=400ms
-chance_pursue=15
+chance_pursue=10
 
 power=melee,164,5
-power=ranged,165,10
 
 accuracy=85
 avoidance=10
-poise=45
+poise=40
 
 dmg_melee_min=40
 dmg_melee_max=45
-dmg_ranged_min=45
-dmg_ranged_max=50
 cooldown=2000ms
 
 # loot
