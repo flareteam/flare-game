@@ -75,3 +75,39 @@ post_power=160
 modifier_damage=multiply,125,0
 post_effect=bleeding,4,5s
 
+# summon raised zombie
+[power]
+id=169
+type=spawn
+spawn_type=zombie_raised
+new_state=cast
+starting_pos=source
+target_neighbor=1
+
+# status effect immunity
+[power]
+id=170
+type=fixed
+buff=true
+passive=true
+post_effect=immunity,0,0
+
+# shoot arrow
+[power]
+id=171
+type=missile
+new_state=shoot
+face=true
+directional=true
+requires_los=true
+animation=animations/powers/arrows.txt
+soundfx=soundfx/powers/shoot.ogg
+use_hazard=true
+aim_assist=true
+requires_flags=ranged
+base_damage=ranged
+lifespan=533ms
+radius=1.0
+speed=24
+wall_power=200
+

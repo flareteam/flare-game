@@ -1,0 +1,19 @@
+INCLUDE enemies/base/grave.txt
+
+name=Cursed Grave
+level=3
+xp=5
+categories=cursed_grave
+
+# combat stats
+hp=400
+
+power=melee,169,100
+power=ranged,169,100
+passive_powers=170
+
+cooldown=3s
+
+# loot
+loot=loot/level_3.txt
+

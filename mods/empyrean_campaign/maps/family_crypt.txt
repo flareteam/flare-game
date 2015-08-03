@@ -210,15 +210,6 @@ location=8,14,1,2
 intramap=16,15
 
 [event]
-# treasure stash
-type=on_trigger
-location=11,3,1,2
-hotspot=location
-loot=loot/level_1.txt
-repeat=false
-tooltip=Coffin
-
-[event]
 # open door
 type=on_trigger
 location=12,3,1,1
@@ -233,7 +224,7 @@ tooltip=Switch
 type=on_trigger
 location=10,51,1,1
 hotspot=location
-loot=loot/level_1.txt
+loot=loot/level_2.txt
 mapmod=object,10,51,160
 repeat=false
 soundfx=soundfx/wood_open.ogg
@@ -250,27 +241,35 @@ repeat=false
 soundfx=soundfx/inventory/inventory_page.ogg
 tooltip=In Memoriam
 
+[event]
+# to Valverde Cemetery
+type=on_trigger
+location=31,38,2,1
+hotspot=location
+intermap=maps/valverde_cemetery.txt,48,46
+tooltip=Valverde Cemetery
+
 [enemy]
-# Skeleton Archer
-type=skeletal_archer
+type=skeleton_archer
 location=12,34,1,1
+level=2
+number=1
 
 [enemy]
-# Skeleton Archer
-type=skeletal_archer
+type=skeleton_archer
 location=11,26,1,1
+level=2
+number=1
 
 [enemy]
-# Zombies
-type=zombie
+type=undead
 location=2,17,4,20
-level=1,2
-number=4,6
+level=2
+number=3,4
 
 [enemy]
-# Zombies
-type=zombie
+type=undead
 location=18,17,4,20
-level=1,2
-number=4,6
+level=2
+number=3,4
 
