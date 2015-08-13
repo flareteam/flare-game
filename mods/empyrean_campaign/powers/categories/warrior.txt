@@ -249,30 +249,35 @@ id=32
 INCLUDE powers/base/warrior/quake.txt
 requires_mp=4
 modifier_damage=multiply,40,0
+post_effect=knockback,5,100ms
 
 [power]
 id=33
 INCLUDE powers/base/warrior/quake.txt
 requires_mp=8
 modifier_damage=multiply,60,0
+post_effect=knockback,10,100ms
 
 [power]
 id=34
 INCLUDE powers/base/warrior/quake.txt
 requires_mp=12
 modifier_damage=multiply,80,0
+post_effect=knockback,15,100ms
 
 [power]
 id=35
 INCLUDE powers/base/warrior/quake.txt
 requires_mp=16
 modifier_damage=multiply,100,0
+post_effect=knockback,20,100ms
 
 [power]
 id=36
 INCLUDE powers/base/warrior/quake.txt
 requires_mp=20
 modifier_damage=multiply,120,0
+post_effect=knockback,25,100ms
 
 
 
