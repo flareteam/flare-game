@@ -1,0 +1,19 @@
+[quest]
+requires_status=emp_ardwen_init
+requires_not_status=emp_ardwen_ring
+quest_text=Find a way to escape the Family Crypt.
+
+[quest]
+requires_status=emp_ardwen_ring
+requires_not_status=emp_ardwen_summoned
+quest_text=You found a strange ring. Maybe it will aid in escaping the Family Crypt.
+
+[quest]
+requires_status=emp_ardwen_summoned
+requires_not_status=emp_ardwen_defeated
+quest_text=Defeat Ardwen.
+
+[quest]
+requires_status=emp_ardwen_defeated
+requires_not_status=emp_ardwen_finish
+quest_text=Ardwen has been defeated. The lever near his coffin will likely open the nearby gate.
