@@ -229,7 +229,8 @@ tooltip=Switch
 type=on_trigger
 location=8,51,1,1
 hotspot=10,51,1,1
-loot=1003,fixed,1
+loot=loot/level_2.txt;1003,fixed,1
+loot_count=1,2
 mapmod=object,10,51,160
 repeat=false
 requires_not_status=emp_ardwen_ring
@@ -264,6 +265,7 @@ type=on_trigger
 location=10,51,1,1
 hotspot=location
 loot=loot/level_2.txt
+loot_count=1,2
 mapmod=object,10,51,160
 repeat=false
 requires_not_status=emp_ardwen_init;emp_ardwen_chest
@@ -394,7 +396,7 @@ wander_radius=2
 
 [enemy]
 type=undead
-location=10,49,4,5
+location=11,49,3,5
 level=2
 number=2
 

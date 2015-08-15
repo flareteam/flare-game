@@ -238,7 +238,8 @@
   <object id="13" name="Ardwen's key" type="on_trigger" x="256" y="1632" width="32" height="32">
    <properties>
     <property name="hotspot" value="10,51,1,1"/>
-    <property name="loot" value="1003,fixed,1"/>
+    <property name="loot" value="loot/level_2.txt;1003,fixed,1"/>
+    <property name="loot_count" value="1,2"/>
     <property name="mapmod" value="object,10,51,160"/>
     <property name="repeat" value="false"/>
     <property name="requires_not_status" value="emp_ardwen_ring"/>
@@ -270,6 +271,7 @@
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="loot/level_2.txt"/>
+    <property name="loot_count" value="1,2"/>
     <property name="mapmod" value="object,10,51,160"/>
     <property name="repeat" value="false"/>
     <property name="requires_not_status" value="emp_ardwen_init;emp_ardwen_chest"/>
@@ -393,7 +395,7 @@
     <property name="wander_radius" value="2"/>
    </properties>
   </object>
-  <object id="35" type="undead" x="320" y="1568" width="128" height="160">
+  <object id="35" type="undead" x="352" y="1568" width="96" height="160">
    <properties>
     <property name="level" value="2"/>
     <property name="number" value="2"/>
