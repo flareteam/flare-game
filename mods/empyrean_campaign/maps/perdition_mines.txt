@@ -161,7 +161,8 @@ tooltip=Krolan's Chest
 type=on_trigger
 location=1,14,1,1
 hotspot=4,16,1,1
-loot=1001,fixed,1
+loot=loot/level_2.txt;1001,fixed,1
+loot_count=3,4
 mapmod=object,4,16,176
 repeat=false
 requires_not_status=emp_krolan_emerald
@@ -175,6 +176,7 @@ type=on_trigger
 location=4,16,1,1
 hotspot=location
 loot=loot/level_2.txt
+loot_count=3,4
 mapmod=object,4,16,176
 repeat=false
 requires_not_status=emp_krolan_init
@@ -297,23 +299,23 @@ wander_radius=1
 
 [enemy]
 type=undead
-location=2,17,11,2
+location=9,17,4,2
 level=1
-number=3
+number=1,2
 wander_radius=1
 
 [enemy]
 type=skeleton
-location=5,16,1,1
+location=3,13,4,6
 level=2
-number=1
+number=2
 requires_not_status=emp_krolan_init
 wander_radius=1
 
 [enemy]
 type=undead
-location=2,13,9,2
+location=10,13,5,2
 level=1
-number=3
+number=2
 wander_radius=1
 

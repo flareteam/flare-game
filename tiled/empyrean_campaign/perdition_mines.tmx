@@ -5,13 +5,13 @@
   <property name="tileset" value="tilesetdefs/tileset_cave.txt"/>
   <property name="title" value="Perdition Mines"/>
  </properties>
- <tileset firstgid="1" name="collision" tilewidth="64" tileheight="32">
+ <tileset firstgid="1" name="collision" tilewidth="64" tileheight="32" tilecount="15">
   <image source="../cave/tiled_collision.png" width="960" height="32"/>
  </tileset>
- <tileset firstgid="16" name="cave" tilewidth="64" tileheight="128">
+ <tileset firstgid="16" name="cave" tilewidth="64" tileheight="128" tilecount="240">
   <image source="../cave/tiled_cave.png" width="1024" height="1920"/>
  </tileset>
- <tileset firstgid="256" name="set_rules" tilewidth="64" tileheight="32">
+ <tileset firstgid="256" name="set_rules" tilewidth="64" tileheight="32" tilecount="8">
   <image source="../cave/set_rules.png" width="128" height="128"/>
  </tileset>
  <layer name="background" width="56" height="38">
@@ -159,7 +159,8 @@
   <object id="10" name="Krolan chest (ready to unlock)" type="on_trigger" x="32" y="448" width="32" height="32">
    <properties>
     <property name="hotspot" value="4,16,1,1"/>
-    <property name="loot" value="1001,fixed,1"/>
+    <property name="loot" value="loot/level_2.txt;1001,fixed,1"/>
+    <property name="loot_count" value="3,4"/>
     <property name="mapmod" value="object,4,16,176"/>
     <property name="repeat" value="false"/>
     <property name="requires_not_status" value="emp_krolan_emerald"/>
@@ -172,6 +173,7 @@
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="loot/level_2.txt"/>
+    <property name="loot_count" value="3,4"/>
     <property name="mapmod" value="object,4,16,176"/>
     <property name="repeat" value="false"/>
     <property name="requires_not_status" value="emp_krolan_init"/>
@@ -285,25 +287,25 @@
     <property name="wander_radius" value="1"/>
    </properties>
   </object>
-  <object id="8" type="undead" x="64" y="544" width="352" height="64">
+  <object id="8" type="undead" x="288" y="544" width="128" height="64">
    <properties>
     <property name="level" value="1"/>
-    <property name="number" value="3"/>
+    <property name="number" value="1,2"/>
     <property name="wander_radius" value="1"/>
    </properties>
   </object>
-  <object id="23" type="skeleton" x="160" y="512" width="32" height="32">
+  <object id="23" type="skeleton" x="96" y="416" width="128" height="192">
    <properties>
     <property name="level" value="2"/>
-    <property name="number" value="1"/>
+    <property name="number" value="2"/>
     <property name="requires_not_status" value="emp_krolan_init"/>
     <property name="wander_radius" value="1"/>
    </properties>
   </object>
-  <object id="24" type="undead" x="64" y="416" width="288" height="64">
+  <object id="24" type="undead" x="320" y="416" width="160" height="64">
    <properties>
     <property name="level" value="1"/>
-    <property name="number" value="3"/>
+    <property name="number" value="2"/>
     <property name="wander_radius" value="1"/>
    </properties>
   </object>
