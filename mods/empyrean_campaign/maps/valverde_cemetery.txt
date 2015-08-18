@@ -430,6 +430,14 @@ type=on_load
 location=44,3,1,1
 soundfx=soundfx/environment/raven_loop.ogg
 
+[event]
+# to Valverde
+type=on_trigger
+location=46,79,4,1
+hotspot=location
+intermap=maps/valverde.txt,43,1
+tooltip=Valverde
+
 [enemy]
 type=cursed_grave
 location=28,50,1,1
