@@ -245,18 +245,18 @@ type=on_trigger
 location=25,37,1,1
 hotspot=location
 mapmod=object,25,37,165
-msg=Ardwen (1308-1364), founder of Valverde
+msg=Ardwen (1308-1364), founder of Lochport
 repeat=false
 soundfx=soundfx/inventory/inventory_page.ogg
 tooltip=In Memoriam
 
 [event]
-# to Valverde Cemetery
+# to Lochport Cemetery
 type=on_trigger
 location=31,38,2,1
 hotspot=location
-intermap=maps/valverde_cemetery.txt,48,46
-tooltip=Valverde Cemetery
+intermap=maps/lochport_cemetery.txt,48,46
+tooltip=Lochport Cemetery
 unset_status=emp_ardwen_chest
 
 [event]
