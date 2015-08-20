@@ -143,3 +143,45 @@ quality=rare
 price=2800
 bonus=item_find,50
 
+# unique items
+[item]
+id=67
+name=Krolan's Pick
+flavor=Sharp enough to cut through stone.
+INCLUDE items/base/weapons/melee/dagger.txt
+quality=unique
+price=3200
+dmg_melee=25,30
+requires_stat=physical,10
+bonus=dmg_melee_min,20
+bonus=dmg_melee_max,20
+bonus=crit,1
+bonus=currency_find,30
+
+[item]
+id=68
+name=Goblin Branch
+flavor=Mana flows inside its primitive exterior.
+INCLUDE items/base/weapons/magic/wand.txt
+quality=unique
+price=3200
+dmg_ment=25,30
+requires_stat=mental,10
+bonus=dmg_ment_min,20
+bonus=dmg_ment_max,20
+bonus=mp_regen,30
+bonus=lightning_resist,40
+
+[item]
+id=69
+name=Ardwen's Gloves
+flavor=These hands built a village.
+INCLUDE items/base/armor/cloth/hands.txt
+quality=unique
+price=800
+requires_stat=offense,4
+requires_stat=defense,6
+bonus=absorb_min,2
+bonus=accuracy,25
+bonus=poise,5
+bonus=xp_gain,10
