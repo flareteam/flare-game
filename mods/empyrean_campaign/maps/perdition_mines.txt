@@ -258,64 +258,54 @@ tooltip=Crate
 type=undead
 location=34,5,9,7
 level=1
-number=3
+number=2
 wander_radius=1
 
 [enemy]
 type=undead
-location=35,24,9,9
+location=35,26,9,7
+level=1
+number=2
+wander_radius=1
+
+[enemy]
+type=undead
+location=16,27,7,6
 level=1
 number=2,3
 wander_radius=1
 
 [enemy]
 type=undead
-location=14,25,11,8
+location=15,3,9,5
 level=1
-number=3
+number=2,3
 wander_radius=1
 
 [enemy]
 type=undead
-location=15,3,9,6
+location=23,13,6,10
 level=1
-number=2
-wander_radius=1
-
-[enemy]
-type=undead
-location=20,12,12,11
-level=1
-number=4
+number=3,4
 wander_radius=2
 
 [enemy]
 type=krolan
 location=5,15,1,1
 number=1
-requires_not_status=emp_krolan_key
-requires_status=emp_krolan_init
 wander_radius=1
 
 [enemy]
 type=undead
 location=9,17,4,2
 level=1
-number=1,2
-wander_radius=1
-
-[enemy]
-type=skeleton
-location=3,13,4,6
-level=2
-number=2
-requires_not_status=emp_krolan_init
+number=1
 wander_radius=1
 
 [enemy]
 type=undead
-location=10,13,5,2
+location=6,13,5,2
 level=1
-number=2
+number=1
 wander_radius=1
 
