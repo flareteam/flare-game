@@ -343,8 +343,6 @@ type=goblin_chief
 location=5,5,1,1
 level=2
 number=1
-requires_not_status=emp_journal_found
-requires_status=emp_journal_init
 
 [enemy]
 type=goblin
@@ -372,13 +370,5 @@ type=goblin
 location=11,13,5,4
 level=1
 number=2
-wander_radius=1
-
-[enemy]
-type=goblin
-location=3,2,5,4
-level=2
-number=2
-requires_not_status=emp_journal_init
 wander_radius=1
 
