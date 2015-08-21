@@ -428,7 +428,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="enemy" visible="0">
+ <objectgroup name="enemy">
   <object id="11" type="cursed_grave" x="896" y="1600" width="32" height="32">
    <properties>
     <property name="direction" value="6"/>
@@ -485,76 +485,84 @@
     <property name="number" value="1"/>
    </properties>
   </object>
-  <object id="22" type="undead" x="512" y="1152" width="192" height="448">
+  <object id="22" type="undead" x="544" y="1152" width="128" height="128">
+   <properties>
+    <property name="level" value="2"/>
+    <property name="number" value="2"/>
+    <property name="wander_radius" value="2"/>
+   </properties>
+  </object>
+  <object id="23" type="undead" x="224" y="1952" width="96" height="192">
+   <properties>
+    <property name="level" value="2"/>
+    <property name="number" value="1,2"/>
+    <property name="wander_radius" value="2"/>
+   </properties>
+  </object>
+  <object id="24" type="undead" x="224" y="1280" width="64" height="160">
+   <properties>
+    <property name="level" value="2"/>
+    <property name="number" value="1,2"/>
+    <property name="wander_radius" value="2"/>
+   </properties>
+  </object>
+  <object id="25" type="undead" x="544" y="2112" width="128" height="128">
+   <properties>
+    <property name="level" value="2"/>
+    <property name="number" value="2"/>
+    <property name="wander_radius" value="2"/>
+   </properties>
+  </object>
+  <object id="26" type="undead" x="992" y="2016" width="96" height="224">
+   <properties>
+    <property name="level" value="2"/>
+    <property name="number" value="1,2"/>
+    <property name="wander_radius" value="2"/>
+   </properties>
+  </object>
+  <object id="27" type="undead" x="960" y="1312" width="96" height="192">
+   <properties>
+    <property name="level" value="2"/>
+    <property name="number" value="1,2"/>
+    <property name="wander_radius" value="2"/>
+   </properties>
+  </object>
+  <object id="28" type="undead" x="1280" y="1952" width="224" height="160">
    <properties>
     <property name="level" value="2"/>
     <property name="number" value="3"/>
+    <property name="wander_radius" value="2"/>
    </properties>
   </object>
-  <object id="23" type="undead" x="256" y="1792" width="96" height="352">
+  <object id="29" type="undead" x="1120" y="928" width="256" height="160">
    <properties>
     <property name="level" value="2"/>
     <property name="number" value="2,3"/>
-   </properties>
-  </object>
-  <object id="24" type="undead" x="224" y="1280" width="96" height="352">
-   <properties>
-    <property name="level" value="2"/>
-    <property name="number" value="2,3"/>
-   </properties>
-  </object>
-  <object id="25" type="undead" x="512" y="1856" width="192" height="384">
-   <properties>
-    <property name="level" value="2"/>
-    <property name="number" value="3"/>
-   </properties>
-  </object>
-  <object id="26" type="undead" x="960" y="1888" width="128" height="352">
-   <properties>
-    <property name="level" value="2"/>
-    <property name="number" value="2,3"/>
-   </properties>
-  </object>
-  <object id="27" type="undead" x="928" y="1312" width="128" height="352">
-   <properties>
-    <property name="level" value="2"/>
-    <property name="number" value="2,3"/>
-   </properties>
-  </object>
-  <object id="28" type="undead" x="1248" y="1952" width="352" height="320">
-   <properties>
-    <property name="level" value="2"/>
-    <property name="number" value="4"/>
-   </properties>
-  </object>
-  <object id="29" type="undead" x="1280" y="864" width="160" height="320">
-   <properties>
-    <property name="level" value="2"/>
-    <property name="number" value="2,3"/>
+    <property name="wander_radius" value="2"/>
    </properties>
   </object>
   <object id="30" type="undead" x="384" y="128" width="288" height="160">
    <properties>
     <property name="level" value="2"/>
-    <property name="number" value="2,3"/>
+    <property name="number" value="2"/>
    </properties>
   </object>
-  <object id="31" type="undead" x="832" y="192" width="224" height="256">
+  <object id="31" type="undead" x="864" y="224" width="192" height="160">
+   <properties>
+    <property name="level" value="2"/>
+    <property name="number" value="2"/>
+   </properties>
+  </object>
+  <object id="32" type="undead" x="512" y="640" width="480" height="192">
    <properties>
     <property name="level" value="2"/>
     <property name="number" value="2,3"/>
    </properties>
   </object>
-  <object id="32" type="undead" x="704" y="640" width="288" height="160">
+  <object id="33" type="undead" x="352" y="672" width="128" height="192">
    <properties>
     <property name="level" value="2"/>
-    <property name="number" value="2,3"/>
-   </properties>
-  </object>
-  <object id="33" type="undead" x="448" y="672" width="192" height="128">
-   <properties>
-    <property name="level" value="2"/>
-    <property name="number" value="2,3"/>
+    <property name="number" value="1,2"/>
    </properties>
   </object>
  </objectgroup>

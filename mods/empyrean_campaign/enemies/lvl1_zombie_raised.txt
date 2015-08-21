@@ -1,13 +1,13 @@
 INCLUDE enemies/base/zombie.txt
 
-name=Raised Zombie
+name=Cursed Zombie
 level=1
 categories=zombie_raised
 rarity=common
 
 # combat stats
-hp=40
-speed=2
+hp=30
+speed=1.5
 turn_delay=400ms
 chance_pursue=10
 
@@ -18,6 +18,6 @@ avoidance=10
 poise=50
 
 dmg_melee_min=30
-dmg_melee_max=40
-cooldown=2000ms
+dmg_melee_max=35
+cooldown=2400ms
 
