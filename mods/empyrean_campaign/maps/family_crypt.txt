@@ -294,7 +294,7 @@ requires_not_status=emp_ardwen_summoned
 requires_status=emp_ardwen_ring
 set_status=emp_ardwen_summoned
 shakycam=1s
-spawn=ardwen,12,4
+spawn=ardwen_quest,12,4
 tooltip=Ardwen's Coffin
 
 [event]
@@ -335,7 +335,7 @@ location=8,1,1,1
 mapmod=collision,12,4,0
 repeat=false
 requires_status=emp_ardwen_summoned
-spawn=ardwen,12,4
+spawn=ardwen_quest,12,4
 
 [event]
 # remove chest status
@@ -351,6 +351,14 @@ unset_status=emp_ardwen_chest
 type=on_load
 location=0,0,1,1
 soundfx=soundfx/environment/cave_wind_loop.ogg
+
+[event]
+# post-quest Ardwen spawn
+type=on_load
+location=6,1,1,1
+mapmod=collision,12,4,0
+requires_status=emp_ardwen_finish
+spawn=ardwen,12,4
 
 [enemy]
 type=skeleton_archer
