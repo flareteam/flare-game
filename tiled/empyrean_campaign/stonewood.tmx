@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="isometric" renderorder="right-down" width="100" height="80" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="51">
+<map version="1.0" orientation="isometric" renderorder="right-down" width="100" height="80" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="52">
  <properties>
   <property name="music" value="music/forest_theme.ogg"/>
   <property name="tileset" value="tilesetdefs/tileset_grassland.txt"/>
   <property name="title" value="Stonewood"/>
  </properties>
- <tileset firstgid="1" name="collision" tilewidth="64" tileheight="32">
+ <tileset firstgid="1" name="collision" tilewidth="64" tileheight="32" tilecount="15">
   <image source="../grassland/tiled_collision.png" width="960" height="32"/>
  </tileset>
- <tileset firstgid="16" name="grassland" tilewidth="64" tileheight="128">
+ <tileset firstgid="16" name="grassland" tilewidth="64" tileheight="128" tilecount="128">
   <image source="../grassland/grassland.png" width="1024" height="1024"/>
  </tileset>
- <tileset firstgid="144" name="water" tilewidth="64" tileheight="64">
+ <tileset firstgid="144" name="water" tilewidth="64" tileheight="64" tilecount="64">
   <tileoffset x="0" y="32"/>
   <image source="../grassland/grassland_water.png" width="1024" height="256"/>
  </tileset>
- <tileset firstgid="208" name="tall structures" tilewidth="64" tileheight="256">
+ <tileset firstgid="208" name="tall structures" tilewidth="64" tileheight="256" tilecount="32">
   <image source="../grassland/grassland_structures.png" width="1024" height="512"/>
  </tileset>
- <tileset firstgid="240" name="trees" tilewidth="128" tileheight="256">
+ <tileset firstgid="240" name="trees" tilewidth="128" tileheight="256" tilecount="16">
   <tileoffset x="-32" y="0"/>
   <image source="../grassland/grassland_trees.png" width="1024" height="512"/>
  </tileset>
- <tileset firstgid="256" name="set_rules" tilewidth="64" tileheight="32">
+ <tileset firstgid="256" name="set_rules" tilewidth="64" tileheight="32" tilecount="8">
   <image source="../grassland/set_rules.png" width="128" height="128"/>
  </tileset>
- <tileset firstgid="264" name="tiled_grassland_2x2" tilewidth="128" tileheight="64">
+ <tileset firstgid="264" name="tiled_grassland_2x2" tilewidth="128" tileheight="64" tilecount="32">
   <tileoffset x="0" y="16"/>
   <image source="../grassland/tiled_grassland_2x2.png" width="512" height="512"/>
  </tileset>
@@ -197,7 +197,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="collision" width="100" height="80" visible="0">
+ <layer name="collision" width="100" height="80">
   <data encoding="csv">
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,2,2,2,2,2,2,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
@@ -471,83 +471,88 @@
   </object>
  </objectgroup>
  <objectgroup name="enemy">
-  <object id="5" type="grassland" x="384" y="608" width="192" height="384">
-   <properties>
-    <property name="Name" value=""/>
-    <property name="level" value="1"/>
-    <property name="number" value="2,3"/>
-   </properties>
-  </object>
-  <object id="8" type="grassland" x="640" y="224" width="512" height="160">
+  <object id="5" type="grassland" x="448" y="736" width="160" height="160">
    <properties>
     <property name="level" value="1"/>
-    <property name="number" value="3,4"/>
+    <property name="number" value="2"/>
    </properties>
   </object>
-  <object id="9" type="grassland" x="1696" y="416" width="544" height="160">
-   <properties>
-    <property name="level" value="1"/>
-    <property name="number" value="3,4"/>
-   </properties>
-  </object>
-  <object id="10" type="goblin" x="2560" y="448" width="352" height="288">
-   <properties>
-    <property name="level" value="1"/>
-    <property name="number" value="3,4"/>
-   </properties>
-  </object>
-  <object id="11" type="grassland" x="2592" y="960" width="256" height="288">
-   <properties>
-    <property name="level" value="1"/>
-    <property name="number" value="3,4"/>
-   </properties>
-  </object>
-  <object id="12" type="grassland" x="2112" y="1280" width="224" height="160">
-   <properties>
-    <property name="level" value="1"/>
-    <property name="number" value="3,4"/>
-   </properties>
-  </object>
-  <object id="13" type="grassland" x="768" y="640" width="192" height="512">
+  <object id="8" type="grassland" x="736" y="256" width="288" height="128">
    <properties>
     <property name="level" value="1"/>
     <property name="number" value="2,3"/>
    </properties>
   </object>
-  <object id="14" type="grassland" x="1120" y="960" width="448" height="160">
+  <object id="9" type="grassland" x="1312" y="480" width="160" height="96">
+   <properties>
+    <property name="level" value="1"/>
+    <property name="number" value="1,2"/>
+   </properties>
+  </object>
+  <object id="10" type="goblin" x="2688" y="448" width="224" height="288">
+   <properties>
+    <property name="level" value="1"/>
+    <property name="number" value="3"/>
+   </properties>
+  </object>
+  <object id="11" type="grassland" x="2624" y="1024" width="192" height="192">
    <properties>
     <property name="level" value="1"/>
     <property name="number" value="2,3"/>
    </properties>
   </object>
-  <object id="15" type="undead" x="480" y="1408" width="352" height="288">
+  <object id="12" type="grassland" x="2144" y="1280" width="192" height="160">
+   <properties>
+    <property name="level" value="1"/>
+    <property name="number" value="2"/>
+   </properties>
+  </object>
+  <object id="13" type="grassland" x="832" y="704" width="128" height="224">
+   <properties>
+    <property name="level" value="1"/>
+    <property name="number" value="2"/>
+   </properties>
+  </object>
+  <object id="14" type="grassland" x="1152" y="992" width="224" height="128">
+   <properties>
+    <property name="level" value="1"/>
+    <property name="number" value="3"/>
+   </properties>
+  </object>
+  <object id="15" type="undead" x="608" y="1504" width="192" height="160">
    <properties>
     <property name="level" value="1"/>
     <property name="number" value="2,3"/>
    </properties>
   </object>
-  <object id="16" type="grassland" x="960" y="1440" width="384" height="160">
+  <object id="16" type="grassland" x="1120" y="1472" width="224" height="128">
    <properties>
     <property name="level" value="1"/>
-    <property name="number" value="3,4"/>
+    <property name="number" value="2"/>
    </properties>
   </object>
-  <object id="17" type="grassland" x="384" y="1888" width="384" height="288">
+  <object id="17" type="grassland" x="448" y="1952" width="256" height="192">
    <properties>
     <property name="level" value="1"/>
-    <property name="number" value="3,4"/>
+    <property name="number" value="3"/>
    </properties>
   </object>
-  <object id="18" type="grassland" x="960" y="2016" width="416" height="256">
+  <object id="18" type="grassland" x="1088" y="2048" width="288" height="224">
    <properties>
     <property name="level" value="1"/>
-    <property name="number" value="3,4"/>
+    <property name="number" value="2"/>
    </properties>
   </object>
-  <object id="50" type="undead" x="256" y="1088" width="384" height="192">
+  <object id="50" type="undead" x="256" y="1088" width="192" height="192">
    <properties>
     <property name="level" value="1"/>
-    <property name="number" value="2,4"/>
+    <property name="number" value="2,3"/>
+   </properties>
+  </object>
+  <object id="51" type="grassland" x="1696" y="416" width="256" height="128">
+   <properties>
+    <property name="level" value="1"/>
+    <property name="number" value="2,3"/>
    </properties>
   </object>
  </objectgroup>
