@@ -31,31 +31,31 @@ starting_pos=melee
 id=117
 INCLUDE powers/base/magician/shield.txt
 requires_mp=9
-modifier_damage=multiply,80,0
+modifier_damage=multiply,200,0
 
 [power]
 id=118
 INCLUDE powers/base/magician/shield.txt
 requires_mp=18
-modifier_damage=multiply,100,0
+modifier_damage=multiply,300,0
 
 [power]
 id=119
 INCLUDE powers/base/magician/shield.txt
 requires_mp=27
-modifier_damage=multiply,120,0
+modifier_damage=multiply,400,0
 
 [power]
 id=120
 INCLUDE powers/base/magician/shield.txt
 requires_mp=36
-modifier_damage=multiply,140,0
+modifier_damage=multiply,500,0
 
 [power]
 id=121
 INCLUDE powers/base/magician/shield.txt
 requires_mp=45
-modifier_damage=multiply,160,0
+modifier_damage=multiply,600,0
 
 
 
@@ -103,31 +103,31 @@ modifier_damage=multiply,200,0
 id=127
 INCLUDE powers/base/magician/ice_bolt.txt
 requires_mp=5
-post_effect=slow,75,2s
+post_effect=slow,75,4s
 
 [power]
 id=128
 INCLUDE powers/base/magician/ice_bolt.txt
 requires_mp=10
-post_effect=slow,75,4s
+post_effect=slow,75,6s
 
 [power]
 id=129
 INCLUDE powers/base/magician/ice_bolt.txt
 requires_mp=15
-post_effect=slow,75,6s
+post_effect=slow,75,8s
 
 [power]
 id=130
 INCLUDE powers/base/magician/ice_bolt.txt
 requires_mp=20
-post_effect=slow,75,8s
+post_effect=slow,75,10s
 
 [power]
 id=131
 INCLUDE powers/base/magician/ice_bolt.txt
 requires_mp=25
-post_effect=slow,75,10s
+post_effect=slow,75,12s
 
 
 
@@ -139,31 +139,31 @@ post_effect=slow,75,10s
 id=132
 INCLUDE powers/base/magician/shock.txt
 requires_mp=4
-modifier_damage=multiply,60,0
+modifier_damage=multiply,110,0
 
 [power]
 id=133
 INCLUDE powers/base/magician/shock.txt
 requires_mp=8
-modifier_damage=multiply,80,0
+modifier_damage=multiply,120,0
 
 [power]
 id=134
 INCLUDE powers/base/magician/shock.txt
 requires_mp=12
-modifier_damage=multiply,100,0
+modifier_damage=multiply,130,0
 
 [power]
 id=135
 INCLUDE powers/base/magician/shock.txt
 requires_mp=16
-modifier_damage=multiply,120,0
+modifier_damage=multiply,140,0
 
 [power]
 id=136
 INCLUDE powers/base/magician/shock.txt
 requires_mp=20
-modifier_damage=multiply,140,0
+modifier_damage=multiply,150,0
 
 
 
@@ -212,30 +212,35 @@ id=142
 INCLUDE powers/base/magician/freeze.txt
 requires_mp=7
 modifier_damage=multiply,20,0
+post_effect=slow,50,4s
 
 [power]
 id=143
 INCLUDE powers/base/magician/freeze.txt
 requires_mp=14
-modifier_damage=multiply,40,0
+modifier_damage=multiply,25,0
+post_effect=slow,50,6s
 
 [power]
 id=144
 INCLUDE powers/base/magician/freeze.txt
 requires_mp=21
-modifier_damage=multiply,60,0
+modifier_damage=multiply,30,0
+post_effect=slow,50,8s
 
 [power]
 id=145
 INCLUDE powers/base/magician/freeze.txt
 requires_mp=28
-modifier_damage=multiply,80,0
+modifier_damage=multiply,35,0
+post_effect=slow,50,10s
 
 [power]
 id=146
 INCLUDE powers/base/magician/freeze.txt
 requires_mp=35
-modifier_damage=multiply,100,0
+modifier_damage=multiply,40,0
+post_effect=slow,50,12s
 
 
 
