@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="isometric" renderorder="right-down" width="60" height="60" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="39">
+<map version="1.0" orientation="isometric" renderorder="right-down" width="60" height="60" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="40">
  <properties>
   <property name="music" value="music/overworld_theme.ogg"/>
   <property name="tileset" value="tilesetdefs/tileset_grassland.txt"/>
   <property name="title" value="Goblin Camp"/>
  </properties>
- <tileset firstgid="1" name="collision" tilewidth="64" tileheight="32">
+ <tileset firstgid="1" name="collision" tilewidth="64" tileheight="32" tilecount="15">
   <image source="../grassland/tiled_collision.png" width="960" height="32"/>
  </tileset>
- <tileset firstgid="16" name="grassland" tilewidth="64" tileheight="128">
+ <tileset firstgid="16" name="grassland" tilewidth="64" tileheight="128" tilecount="128">
   <image source="../grassland/grassland.png" width="1024" height="1024"/>
  </tileset>
- <tileset firstgid="144" name="water" tilewidth="64" tileheight="64">
+ <tileset firstgid="144" name="water" tilewidth="64" tileheight="64" tilecount="64">
   <tileoffset x="0" y="32"/>
   <image source="../grassland/grassland_water.png" width="1024" height="256"/>
  </tileset>
- <tileset firstgid="208" name="tall structures" tilewidth="64" tileheight="256">
+ <tileset firstgid="208" name="tall structures" tilewidth="64" tileheight="256" tilecount="32">
   <image source="../grassland/grassland_structures.png" width="1024" height="512"/>
  </tileset>
- <tileset firstgid="240" name="trees" tilewidth="128" tileheight="256">
+ <tileset firstgid="240" name="trees" tilewidth="128" tileheight="256" tilecount="16">
   <tileoffset x="-32" y="0"/>
   <image source="../grassland/grassland_trees.png" width="1024" height="512"/>
  </tileset>
- <tileset firstgid="256" name="set_rules" tilewidth="64" tileheight="32">
+ <tileset firstgid="256" name="set_rules" tilewidth="64" tileheight="32" tilecount="8">
   <image source="../grassland/set_rules.png" width="128" height="128"/>
  </tileset>
- <tileset firstgid="264" name="tiled_grassland_2x2" tilewidth="128" tileheight="64">
+ <tileset firstgid="264" name="tiled_grassland_2x2" tilewidth="128" tileheight="64" tilecount="32">
   <tileoffset x="0" y="16"/>
   <image source="../grassland/tiled_grassland_2x2.png" width="512" height="512"/>
  </tileset>
@@ -383,23 +383,23 @@
   </object>
  </objectgroup>
  <objectgroup name="enemy">
-  <object id="2" type="goblin" x="32" y="640" width="352" height="352">
-   <properties>
-    <property name="level" value="1"/>
-    <property name="number" value="3"/>
-   </properties>
-  </object>
-  <object id="27" type="goblin" x="480" y="736" width="384" height="224">
-   <properties>
-    <property name="level" value="1"/>
-    <property name="number" value="3,4"/>
-    <property name="wander_radius" value="1"/>
-   </properties>
-  </object>
-  <object id="29" type="goblin" x="576" y="1440" width="288" height="64">
+  <object id="2" type="goblin" x="64" y="704" width="160" height="256">
    <properties>
     <property name="level" value="1"/>
     <property name="number" value="2,3"/>
+   </properties>
+  </object>
+  <object id="27" type="goblin" x="544" y="768" width="224" height="128">
+   <properties>
+    <property name="level" value="1"/>
+    <property name="number" value="2,3"/>
+    <property name="wander_radius" value="1"/>
+   </properties>
+  </object>
+  <object id="29" type="goblin" x="576" y="1376" width="192" height="128">
+   <properties>
+    <property name="level" value="1"/>
+    <property name="number" value="2"/>
     <property name="wander_radius" value="1"/>
    </properties>
   </object>
@@ -410,35 +410,41 @@
     <property name="wander_radius" value="0"/>
    </properties>
   </object>
-  <object id="31" type="goblin" x="1312" y="1088" width="192" height="64">
+  <object id="31" type="goblin" x="1344" y="1088" width="160" height="64">
    <properties>
     <property name="level" value="1"/>
     <property name="number" value="1,2"/>
    </properties>
   </object>
-  <object id="32" type="goblin" x="1600" y="992" width="192" height="416">
+  <object id="32" type="goblin" x="1600" y="1056" width="192" height="224">
    <properties>
     <property name="level" value="1"/>
-    <property name="number" value="3,4"/>
+    <property name="number" value="3"/>
    </properties>
   </object>
-  <object id="34" type="goblin" x="928" y="352" width="320" height="160">
+  <object id="34" type="goblin" x="1056" y="384" width="192" height="160">
    <properties>
     <property name="level" value="1"/>
     <property name="number" value="2,3"/>
    </properties>
   </object>
-  <object id="35" type="undead" x="800" y="512" width="128" height="128">
+  <object id="35" type="undead" x="800" y="480" width="160" height="160">
    <properties>
     <property name="level" value="1"/>
-    <property name="number" value="1,2"/>
+    <property name="number" value="2"/>
     <property name="wander_radius" value="1"/>
    </properties>
   </object>
-  <object id="38" type="undead" x="608" y="160" width="224" height="224">
+  <object id="38" type="undead" x="576" y="160" width="224" height="160">
    <properties>
     <property name="level" value="1"/>
     <property name="number" value="2,3"/>
+   </properties>
+  </object>
+  <object id="39" type="goblin" x="992" y="1248" width="96" height="128">
+   <properties>
+    <property name="level" value="1"/>
+    <property name="number" value="2"/>
    </properties>
   </object>
  </objectgroup>
