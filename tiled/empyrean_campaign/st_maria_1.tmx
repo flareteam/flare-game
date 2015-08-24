@@ -1,25 +1,37 @@
-[header]
-width=70
-height=70
-tilewidth=64
-tileheight=32
-orientation=isometric
-music=music/dungeon_theme.ogg
-tileset=tilesetdefs/tileset_dungeon.txt
-title=Lochport Tower 1
-
-[tilesets]
-tileset=../../../tiled/dungeon/tiled_collision.png,64,32,0,0
-tileset=../../../tiled/dungeon/tiled_dungeon.png,64,128,0,0
-tileset=../../../tiled/dungeon/set_rules.png,64,32,0,0
-tileset=../../../tiled/dungeon/tiled_dungeon_2x2.png,128,64,0,16
-tileset=../../../tiled/dungeon/door_left.png,64,128,-16,-8
-tileset=../../../tiled/dungeon/door_right.png,64,128,16,-8
-tileset=../../../tiled/dungeon/stairs.png,256,256,0,48
-
-[layer]
-type=background
-data=
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="isometric" renderorder="right-down" width="70" height="70" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="12">
+ <properties>
+  <property name="music" value="music/dungeon_theme.ogg"/>
+  <property name="tileset" value="tilesetdefs/tileset_dungeon.txt"/>
+  <property name="title" value="St. Maria: Mausoleum"/>
+ </properties>
+ <tileset firstgid="1" name="collision" tilewidth="64" tileheight="32" tilecount="15">
+  <image source="../dungeon/tiled_collision.png" width="960" height="32"/>
+ </tileset>
+ <tileset firstgid="16" name="dungeon" tilewidth="64" tileheight="128" tilecount="240">
+  <image source="../dungeon/tiled_dungeon.png" width="1024" height="1920"/>
+ </tileset>
+ <tileset firstgid="256" name="set_rules" tilewidth="64" tileheight="32" tilecount="8">
+  <image source="../dungeon/set_rules.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="264" name="tiled_dungeon_2x2" tilewidth="128" tileheight="64" tilecount="16">
+  <tileoffset x="0" y="16"/>
+  <image source="../dungeon/tiled_dungeon_2x2.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="280" name="door_left" tilewidth="64" tileheight="128" tilecount="2">
+  <tileoffset x="-16" y="-8"/>
+  <image source="../dungeon/door_left.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="282" name="door_right" tilewidth="64" tileheight="128" tilecount="2">
+  <tileoffset x="16" y="-8"/>
+  <image source="../dungeon/door_right.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="284" name="stairs" tilewidth="256" tileheight="256" tilecount="4">
+  <tileoffset x="0" y="48"/>
+  <image source="../dungeon/stairs.png" width="1024" height="256"/>
+ </tileset>
+ <layer name="background" width="70" height="70">
+  <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,0,
@@ -90,10 +102,10 @@ data=
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,16,16,16,16,16,16,16,16,16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,16,16,16,16,16,16,16,16,16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-
-[layer]
-type=object
-data=
+</data>
+ </layer>
+ <layer name="object" width="70" height="70">
+  <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,77,69,99,105,65,78,0,0,0,0,0,0,77,69,103,99,103,107,65,65,107,103,99,103,65,78,0,0,0,0,0,0,77,69,101,101,103,99,69,107,105,65,107,65,99,103,101,101,69,78,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,64,0,0,0,0,74,107,103,65,213,103,107,73,0,0,0,0,0,0,0,0,0,0,0,0,74,107,103,209,69,103,107,73,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,70,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,106,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,82,
@@ -164,10 +176,10 @@ data=
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,102,0,0,0,0,0,0,0,0,82,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,64,0,0,0,0,0,0,0,0,82,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,76,71,83,83,282,283,83,83,83,95,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-
-[layer]
-type=collision
-data=
+</data>
+ </layer>
+ <layer name="collision" width="70" height="70" visible="0">
+  <data encoding="csv">
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,1,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
@@ -238,59 +250,60 @@ data=
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,0,0,0,0,0,0,0,0,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,0,0,0,0,0,0,0,0,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
-
-[event]
-# to Lochport
-type=on_trigger
-location=38,68,2,2
-hotspot=location
-intermap=maps/lochport.txt,7,43
-tooltip=Lochport
-
-[event]
-# open loop door
-type=on_trigger
-location=58,49,1,1
-hotspot=location
-mapmod=collision,46,54,0;collision,47,54,0;collision,46,55,0;collision,47,55,0;object,47,54,0;object,47,55,0;object,46,53,213;object,46,56,219;object,58,49,166
-repeat=false
-tooltip=Switch
-
-[event]
-# to Lochport Tower 2
-type=on_trigger
-location=37,15,4,4
-hotspot=location
-intermap=maps/lochport_tower_2.txt,0,0
-tooltip=Lochport Tower 2
-
-[event]
-type=on_trigger
-location=22,23,1,1
-hotspot=location
-loot=loot/level_3.txt
-mapmod=object,22,23,163
-repeat=false
-soundfx=soundfx/wood_open.ogg
-tooltip=Crate
-
-[event]
-type=on_trigger
-location=54,27,1,1
-hotspot=location
-loot=loot/level_3.txt
-mapmod=object,22,23,160
-repeat=false
-soundfx=soundfx/wood_open.ogg
-tooltip=Treasure Chest
-
-[event]
-type=on_trigger
-location=54,30,1,1
-hotspot=location
-loot=loot/level_3.txt
-mapmod=object,22,23,160
-repeat=false
-soundfx=soundfx/wood_open.ogg
-tooltip=Treasure Chest
-
+</data>
+ </layer>
+ <objectgroup name="event">
+  <object id="5" name="to Lochport" type="on_trigger" x="1216" y="2176" width="64" height="64">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="intermap" value="maps/lochport.txt,7,43"/>
+    <property name="tooltip" value="Lochport"/>
+   </properties>
+  </object>
+  <object id="6" name="open loop door" type="on_trigger" x="1856" y="1568" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="mapmod" value="collision,46,54,0;collision,47,54,0;collision,46,55,0;collision,47,55,0;object,47,54,0;object,47,55,0;object,46,53,213;object,46,56,219;object,58,49,166"/>
+    <property name="repeat" value="false"/>
+    <property name="tooltip" value="Switch"/>
+   </properties>
+  </object>
+  <object id="7" name="to Lochport Tower 2" type="on_trigger" x="1184" y="480" width="128" height="128">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="intermap" value="maps/lochport_tower_2.txt,0,0"/>
+    <property name="tooltip" value="Lochport Tower 2"/>
+   </properties>
+  </object>
+  <object id="8" type="on_trigger" x="704" y="736" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="loot/level_3.txt"/>
+    <property name="mapmod" value="object,22,23,163"/>
+    <property name="repeat" value="false"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Crate"/>
+   </properties>
+  </object>
+  <object id="9" type="on_trigger" x="1728" y="864" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="loot/level_3.txt"/>
+    <property name="mapmod" value="object,22,23,160"/>
+    <property name="repeat" value="false"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Treasure Chest"/>
+   </properties>
+  </object>
+  <object id="11" type="on_trigger" x="1728" y="960" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="loot/level_3.txt"/>
+    <property name="mapmod" value="object,22,23,160"/>
+    <property name="repeat" value="false"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Treasure Chest"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>
