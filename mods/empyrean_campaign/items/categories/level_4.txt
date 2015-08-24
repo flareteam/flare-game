@@ -6,7 +6,7 @@ name=Cloth Shirt
 INCLUDE items/base/armor/cloth/chest.txt
 quality=rare
 price=1200
-abs=1
+abs=1,2
 requires_stat=defense,6
 bonus=hp,175
 bonus=hp_regen,175
@@ -17,7 +17,7 @@ name=Cloth Pants
 INCLUDE items/base/armor/cloth/legs.txt
 quality=rare
 price=800
-abs=0,1
+abs=1,2
 requires_stat=defense,6
 bonus=avoidance,12
 bonus=poise,6
@@ -28,6 +28,7 @@ name=Cloth Sandals
 INCLUDE items/base/armor/cloth/feet.txt
 quality=rare
 price=600
+abs=1
 requires_stat=defense,6
 bonus=avoidance,6
 bonus=poise,3
@@ -38,6 +39,7 @@ name=Cloth Gloves
 INCLUDE items/base/armor/cloth/hands.txt
 quality=rare
 price=400
+abs=1
 requires_stat=defense,6
 bonus=crit,6
 bonus=accuracy,12
@@ -48,6 +50,7 @@ name=Cloth Sash
 INCLUDE items/base/armor/belt.txt
 quality=rare
 price=800
+abs=1
 requires_stat=defense,6
 bonus=mp,45
 bonus=mp_regen,45
@@ -90,7 +93,7 @@ id=60
 name=Wood Buckler
 INCLUDE items/base/shields/wood.txt
 quality=rare
-abs=0,1
+abs=2
 requires_stat=defense,8
 price=1200
 bonus=absorb_max,3
@@ -179,6 +182,7 @@ flavor=These hands built a village.
 INCLUDE items/base/armor/cloth/hands.txt
 quality=unique
 price=800
+abs=1,2
 requires_stat=offense,4
 requires_stat=defense,6
 bonus=absorb_min,2
