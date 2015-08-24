@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="isometric" renderorder="right-down" width="70" height="70" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="8">
+<map version="1.0" orientation="isometric" renderorder="right-down" width="70" height="70" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="12">
  <properties>
   <property name="music" value="music/dungeon_theme.ogg"/>
   <property name="tileset" value="tilesetdefs/tileset_dungeon.txt"/>
-  <property name="title" value="Lockport Tower 1"/>
+  <property name="title" value="Lochport Tower 1"/>
  </properties>
  <tileset firstgid="1" name="collision" tilewidth="64" tileheight="32" tilecount="15">
   <image source="../dungeon/tiled_collision.png" width="960" height="32"/>
@@ -252,7 +252,7 @@
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
 </data>
  </layer>
- <objectgroup name="event" visible="0">
+ <objectgroup name="event">
   <object id="5" name="to Lochport" type="on_trigger" x="1216" y="2176" width="64" height="64">
    <properties>
     <property name="hotspot" value="location"/>
@@ -273,6 +273,36 @@
     <property name="hotspot" value="location"/>
     <property name="intermap" value="maps/lochport_tower_2.txt,0,0"/>
     <property name="tooltip" value="Lochport Tower 2"/>
+   </properties>
+  </object>
+  <object id="8" type="on_trigger" x="704" y="736" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="loot/level_3.txt"/>
+    <property name="mapmod" value="object,22,23,163"/>
+    <property name="repeat" value="false"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Crate"/>
+   </properties>
+  </object>
+  <object id="9" type="on_trigger" x="1728" y="864" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="loot/level_3.txt"/>
+    <property name="mapmod" value="object,22,23,160"/>
+    <property name="repeat" value="false"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Treasure Chest"/>
+   </properties>
+  </object>
+  <object id="11" type="on_trigger" x="1728" y="960" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="loot/level_3.txt"/>
+    <property name="mapmod" value="object,22,23,160"/>
+    <property name="repeat" value="false"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Treasure Chest"/>
    </properties>
   </object>
  </objectgroup>
