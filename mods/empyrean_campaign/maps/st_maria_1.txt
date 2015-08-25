@@ -327,6 +327,40 @@ repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Crate
 
+[event]
+# Locked Door
+type=on_trigger
+location=38,22,2,2
+hotspot=location
+msg=This door needs a key to be opened.
+requires_not_status=emp_stmaria1_key;emp_stmaria1_door
+tooltip=Locked Door
+
+[event]
+# Unlock Door
+type=on_trigger
+location=35,24,1,1
+hotspot=38,22,2,2
+mapmod=collision,38,22,0;collision,39,22,0;collision,38,23,0;collision,39,23,0;object,38,23,0;object,39,23,0;object,37,22,216;object,40,22,222
+remove_item=1004
+requires_item=1004
+requires_not_status=emp_stmaria1_door
+set_status=emp_stmaria1_door
+tooltip=Locked Door
+
+[event]
+# Unlock Door (on_load)
+type=on_load
+location=35,22,1,1
+mapmod=collision,38,22,0;collision,39,22,0;collision,38,23,0;collision,39,23,0;object,38,23,0;object,39,23,0;object,37,22,216;object,40,22,222
+requires_status=emp_stmaria1_door
+
+[event]
+type=on_load
+location=28,63,1,1
+requires_not_status=emp_stmaria1_init
+set_status=emp_stmaria1_init
+
 [enemy]
 type=skeleton_mage
 location=37,50,1,1
@@ -498,4 +532,10 @@ location=37,38,4,6
 level=3
 number=2
 wander_radius=2
+
+[enemy]
+type=geno
+location=55,29,1,1
+number=1
+wander_radius=1
 

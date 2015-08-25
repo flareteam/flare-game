@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="isometric" renderorder="right-down" width="70" height="70" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="47">
+<map version="1.0" orientation="isometric" renderorder="right-down" width="70" height="70" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="52">
  <properties>
   <property name="music" value="music/dungeon_theme.ogg"/>
   <property name="tileset" value="tilesetdefs/tileset_dungeon.txt"/>
@@ -338,6 +338,37 @@
     <property name="tooltip" value="Crate"/>
    </properties>
   </object>
+  <object id="47" name="Locked Door" type="on_trigger" x="1216" y="704" width="64" height="64">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="msg" value="This door needs a key to be opened."/>
+    <property name="requires_not_status" value="emp_stmaria1_key;emp_stmaria1_door"/>
+    <property name="tooltip" value="Locked Door"/>
+   </properties>
+  </object>
+  <object id="48" name="Unlock Door" type="on_trigger" x="1120" y="768" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="38,22,2,2"/>
+    <property name="mapmod" value="collision,38,22,0;collision,39,22,0;collision,38,23,0;collision,39,23,0;object,38,23,0;object,39,23,0;object,37,22,216;object,40,22,222"/>
+    <property name="remove_item" value="1004"/>
+    <property name="requires_item" value="1004"/>
+    <property name="requires_not_status" value="emp_stmaria1_door"/>
+    <property name="set_status" value="emp_stmaria1_door"/>
+    <property name="tooltip" value="Locked Door"/>
+   </properties>
+  </object>
+  <object id="49" name="Unlock Door (on_load)" type="on_load" x="1120" y="704" width="32" height="32">
+   <properties>
+    <property name="mapmod" value="collision,38,22,0;collision,39,22,0;collision,38,23,0;collision,39,23,0;object,38,23,0;object,39,23,0;object,37,22,216;object,40,22,222"/>
+    <property name="requires_status" value="emp_stmaria1_door"/>
+   </properties>
+  </object>
+  <object id="51" type="on_load" x="896" y="2016" width="32" height="32">
+   <properties>
+    <property name="requires_not_status" value="emp_stmaria1_init"/>
+    <property name="set_status" value="emp_stmaria1_init"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="enemy">
   <object id="17" type="skeleton_mage" x="1184" y="1600" width="32" height="32">
@@ -510,6 +541,12 @@
     <property name="level" value="3"/>
     <property name="number" value="2"/>
     <property name="wander_radius" value="2"/>
+   </properties>
+  </object>
+  <object id="50" type="geno" x="1760" y="928" width="32" height="32">
+   <properties>
+    <property name="number" value="1"/>
+    <property name="wander_radius" value="1"/>
    </properties>
   </object>
  </objectgroup>

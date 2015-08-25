@@ -1,0 +1,39 @@
+INCLUDE enemies/base/skeleton_mage.txt
+
+name=Geno
+level=4
+categories=geno
+xp=32
+
+# combat stats
+hp=620
+speed=3.5
+turn_delay=200ms
+
+chance_pursue=15
+
+power=melee,164,5
+power=ranged,174,15
+
+accuracy=105
+avoidance=40
+poise=26
+
+absorb_min=3
+absorb_max=4
+
+dmg_melee_min=85
+dmg_melee_max=90
+dmg_ment_min=105
+dmg_ment_max=125
+
+cooldown=1000ms
+
+loot_count=3,4
+
+# st. maria key
+quest_loot=emp_stmaria1_init,emp_stmaria1_key,1004
+
+# loot
+loot=loot/level_4.txt
+

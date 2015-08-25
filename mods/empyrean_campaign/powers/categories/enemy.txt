@@ -153,3 +153,23 @@ post_power=158
 wall_power=158
 modifier_damage=multiply,120,0
 
+# skeleton shock
+[power]
+id=174
+type=missile
+new_state=cast
+face=true
+directional=false
+animation=animations/powers/lightning.txt
+soundfx=soundfx/powers/shock.ogg
+use_hazard=true
+aim_assist=true
+base_damage=ment
+lifespan=866ms
+radius=1.0
+speed=15
+trait_elemental=lightning
+trait_crits_impaired=50
+post_power=159
+wall_power=159
+
