@@ -1,0 +1,30 @@
+INCLUDE enemies/base/skeleton.txt
+
+name=Skeleton Knight
+level=3
+categories=skeleton_knight,skeleton,undead,dungeon
+rarity=common
+xp=8
+
+# combat stats
+hp=160
+speed=4
+turn_delay=400ms
+chance_pursue=10
+
+power=melee,164,10
+
+accuracy=100
+avoidance=20
+poise=51
+
+dmg_melee_min=55
+dmg_melee_max=65
+cooldown=2200ms
+
+absorb_min=3
+absorb_max=3
+
+# loot
+loot=loot/level_3.txt
+

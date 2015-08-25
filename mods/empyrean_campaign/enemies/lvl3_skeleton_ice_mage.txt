@@ -1,0 +1,38 @@
+INCLUDE enemies/base/skeleton_mage.txt
+
+name=Skeleton Ice Mage
+level=3
+categories=skeleton_mage,skeleton,undead,dungeon,ice
+rarity=uncommon
+xp=8
+
+# combat stats
+hp=160
+speed=3.5
+turn_delay=200ms
+
+chance_pursue=15
+
+power=melee,164,5
+power=ranged,172,15
+
+accuracy=100
+avoidance=35
+poise=24
+
+absorb_min=2
+absorb_max=3
+
+dmg_melee_min=40
+dmg_melee_max=45
+dmg_ment_min=60
+dmg_ment_max=80
+
+vulnerable_fire=200
+vulnerable_ice=50
+
+cooldown=2000ms
+
+# loot
+loot=loot/level_3.txt
+

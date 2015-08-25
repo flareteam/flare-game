@@ -111,3 +111,45 @@ radius=1.0
 speed=24
 wall_power=157
 
+# ice bolt
+[power]
+id=172
+type=missile
+new_state=cast
+face=true
+directional=true
+requires_los=true
+animation=animations/powers/icicle.txt
+soundfx=soundfx/powers/shock.ogg
+use_hazard=true
+aim_assist=true
+base_damage=ment
+lifespan=866ms
+radius=1.0
+speed=15
+trait_elemental=ice
+post_power=159
+wall_power=159
+post_effect=slow,50,2s
+
+# fireball
+[power]
+id=173
+type=missile
+new_state=cast
+face=true
+directional=true
+requires_los=true
+animation=animations/powers/fireball.txt
+soundfx=soundfx/powers/fireball.ogg
+use_hazard=true
+aim_assist=true
+base_damage=ment
+lifespan=866ms
+radius=1.0
+speed=15
+trait_elemental=fire
+post_power=158
+wall_power=158
+modifier_damage=multiply,120,0
+
