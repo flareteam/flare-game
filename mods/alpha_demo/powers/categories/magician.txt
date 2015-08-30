@@ -39,7 +39,6 @@ trait_elemental=wind
 trait_crits_impaired=50
 post_power=126
 wall_power=126
-cooldown=400ms
 
 [power]
 id=7
@@ -53,7 +52,7 @@ soundfx=soundfx/powers/heal.ogg
 trait_elemental=light
 buff=true
 post_effect=heal,0,0
-cooldown=10s
+cooldown=5s
 
 [power]
 id=10
@@ -113,7 +112,6 @@ complete_animation=true
 count=12
 post_effect=slow,50,1s
 modifier_damage=multiply,40,0
-cooldown=1200ms
 
 [power]
 id=15
@@ -161,7 +159,6 @@ multitarget=true
 post_power=125
 target_range=8.0
 modifier_damage=multiply,75,0
-cooldown=1600ms
 
 [power]
 id=21

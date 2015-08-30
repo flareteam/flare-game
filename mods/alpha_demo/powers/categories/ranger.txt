@@ -5,7 +5,6 @@ type=missile
 icon=16
 description=Fire a shot that ignores armor and goes through multiple enemies
 requires_flags=ranged
-cooldown=400ms
 meta_power=true
 
 [power]
@@ -15,7 +14,6 @@ type=missile
 icon=8
 description=Shoot three projectiles simultaneously
 requires_flags=ranged
-cooldown=800ms
 meta_power=true
 
 [power]
@@ -34,7 +32,7 @@ type=missile
 icon=23
 description=Fire five low power missiles in quick succession
 requires_flags=ranged
-cooldown=1600ms
+cooldown=400ms
 meta_power=true
 
 [power]
@@ -64,7 +62,6 @@ directional=true
 soundfx=soundfx/powers/shoot.ogg
 post_power=125
 trait_elemental=fire
-cooldown=400ms
 
 [power]
 id=45
@@ -81,7 +78,7 @@ animation=animations/powers/caltrops.txt
 use_hazard=true
 base_damage=ranged
 lifespan=10s
-cooldown=3s
+cooldown=1s
 radius=1.0
 modifier_damage=multiply,75,0
 post_effect=slow,50,3s
@@ -102,7 +99,7 @@ animation=animations/powers/bear_trap.txt
 use_hazard=true
 base_damage=ranged
 lifespan=10s
-cooldown=5s
+cooldown=1s
 radius=1.0
 modifier_damage=multiply,150,0
 post_effect=immobilize,0,3s

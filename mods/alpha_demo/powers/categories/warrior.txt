@@ -44,7 +44,6 @@ radius=1.0
 starting_pos=melee
 post_power=127
 post_effect=bleeding,2,5s
-cooldown=200ms
 
 [power]
 id=9
@@ -58,7 +57,7 @@ soundfx=soundfx/powers/warcry.ogg
 trait_elemental=light
 buff=true
 post_effect=immunity,0,10s
-cooldown=20s
+cooldown=15s
 
 [power]
 id=13
@@ -75,12 +74,11 @@ base_damage=melee
 lifespan=400ms
 radius=1.5
 starting_pos=melee
-modifier_damage=multiply,50,0
+modifier_damage=multiply,75,0
 aim_assist=true
 directional=true
 animation=animations/powers/cleave.txt
 floor=true
-cooldown=400ms
 
 [power]
 id=20
@@ -116,7 +114,6 @@ lifespan=533ms
 radius=1.0
 speed=12
 modifier_damage=multiply,75,0
-cooldown=400ms
 
 [power]
 id=44
@@ -136,5 +133,5 @@ lifespan=766ms
 radius=1.0
 speed=12
 modifier_damage=multiply,150,0
-cooldown=800ms
+cooldown=400ms
 
