@@ -252,7 +252,7 @@
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
 </data>
  </layer>
- <objectgroup name="event" visible="0">
+ <objectgroup name="event">
   <object id="5" name="to Lochport" type="on_trigger" x="1216" y="2176" width="64" height="64">
    <properties>
     <property name="hotspot" value="location"/>
@@ -272,7 +272,7 @@
   <object id="7" name="to St. Maria: Prison" type="on_trigger" x="1184" y="480" width="128" height="128">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="intermap" value="maps/st_maria_2.txt,0,0"/>
+    <property name="intermap" value="maps/st_maria_2.txt,33,7"/>
     <property name="tooltip" value="St. Maria: Prison"/>
    </properties>
   </object>
@@ -354,6 +354,7 @@
     <property name="requires_item" value="1004"/>
     <property name="requires_not_status" value="emp_stmaria1_door"/>
     <property name="set_status" value="emp_stmaria1_door"/>
+    <property name="soundfx" value="soundfx/door_open.ogg"/>
     <property name="tooltip" value="Locked Door"/>
    </properties>
   </object>

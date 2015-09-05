@@ -262,7 +262,7 @@ tooltip=Switch
 type=on_trigger
 location=37,15,4,4
 hotspot=location
-intermap=maps/st_maria_2.txt,0,0
+intermap=maps/st_maria_2.txt,33,7
 tooltip=St. Maria: Prison
 
 [event]
@@ -346,6 +346,7 @@ remove_item=1004
 requires_item=1004
 requires_not_status=emp_stmaria1_door
 set_status=emp_stmaria1_door
+soundfx=soundfx/door_open.ogg
 tooltip=Locked Door
 
 [event]

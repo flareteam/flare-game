@@ -187,3 +187,23 @@ starting_pos=melee
 post_effect=slow,0,5s
 cooldown=5s
 
+# shadowball
+[power]
+id=176
+type=missile
+new_state=cast
+face=true
+directional=false
+animation=animations/powers/plasmaball.txt
+soundfx=soundfx/powers/shock.ogg
+use_hazard=true
+aim_assist=true
+base_damage=ment
+lifespan=866ms
+radius=1.0
+speed=15
+trait_elemental=dark
+modifier_accuracy=multiply,150,0
+post_power=160
+wall_power=160
+
