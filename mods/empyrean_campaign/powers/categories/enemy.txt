@@ -173,3 +173,17 @@ trait_crits_impaired=50
 post_power=159
 wall_power=159
 
+# chill touch
+[power]
+id=175
+type=fixed
+new_state=swing
+face=true
+use_hazard=true
+base_damage=melee
+lifespan=33ms
+radius=1.0
+starting_pos=melee
+post_effect=slow,0,5s
+cooldown=5s
+

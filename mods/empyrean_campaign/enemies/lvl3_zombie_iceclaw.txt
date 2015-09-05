@@ -1,0 +1,27 @@
+INCLUDE enemies/base/zombie.txt
+
+name=Iceclaw Zombie
+level=3
+categories=zombie,undead,dungeon,grassland
+rarity=uncommon
+xp=8
+
+# combat stats
+hp=140
+speed=2.5
+turn_delay=400ms
+chance_pursue=10
+
+power=melee,164,2
+power=melee,175,10
+
+accuracy=90
+avoidance=20
+poise=26
+
+dmg_melee_min=60
+dmg_melee_max=65
+cooldown=2400ms
+
+#loot
+loot=loot/level_3.txt
