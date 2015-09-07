@@ -2,91 +2,133 @@
 
 [item]
 id=12
-name=Cloth Shirt
+name=Brute Shirt
 INCLUDE items/base/armor/cloth/chest.txt
 quality=high
 price=300
 abs=1
-bonus=hp,75
+bonus=hp,50
 
 [item]
 id=13
-name=Cloth Shirt
+name=Scout Shirt
 INCLUDE items/base/armor/cloth/chest.txt
 quality=high
 price=300
 abs=1
-bonus=hp_regen,75
+bonus=accuracy,4
 
 [item]
 id=14
-name=Cloth Pants
-INCLUDE items/base/armor/cloth/legs.txt
+name=Adept Shirt
+INCLUDE items/base/armor/cloth/chest.txt
 quality=high
-price=200
-abs=0,1
-bonus=avoidance,4
+price=300
+abs=1
+bonus=mp,10
 
 [item]
 id=15
-name=Cloth Pants
+name=Brute Pants
 INCLUDE items/base/armor/cloth/legs.txt
 quality=high
 price=200
 abs=0,1
-bonus=poise,2
+bonus=poise,3
 
 [item]
 id=16
-name=Cloth Sandals
-INCLUDE items/base/armor/cloth/feet.txt
+name=Scout Pants
+INCLUDE items/base/armor/cloth/legs.txt
 quality=high
-price=150
+price=200
+abs=0,1
 bonus=avoidance,2
 
 [item]
 id=17
-name=Cloth Sandals
-INCLUDE items/base/armor/cloth/feet.txt
+name=Adept Pants
+INCLUDE items/base/armor/cloth/legs.txt
 quality=high
-price=150
-bonus=poise,1
+price=200
+abs=0,1
+bonus=mp,5
 
 [item]
 id=18
-name=Cloth Gloves
-INCLUDE items/base/armor/cloth/hands.txt
+name=Brute Sandals
+INCLUDE items/base/armor/cloth/feet.txt
 quality=high
-price=100
-bonus=crit,2
+price=150
+bonus=poise,2
 
 [item]
 id=19
-name=Cloth Gloves
-INCLUDE items/base/armor/cloth/hands.txt
+name=Scout Sandals
+INCLUDE items/base/armor/cloth/feet.txt
 quality=high
-price=100
-bonus=accuracy,4
+price=150
+bonus=avoidance,1
 
 [item]
 id=20
-name=Cloth Sash
-INCLUDE items/base/armor/belt.txt
+name=Adept Sandals
+INCLUDE items/base/armor/cloth/feet.txt
 quality=high
-price=200
-bonus=mp,15
+price=150
+bonus=mp_regen,2
 
 [item]
 id=21
-name=Cloth Sash
-INCLUDE items/base/armor/belt.txt
+name=Brute Gloves
+INCLUDE items/base/armor/cloth/hands.txt
 quality=high
-price=200
-bonus=mp_regen,15
+price=100
+bonus=crit,1
 
 [item]
 id=22
-name=Dagger
+name=Scout Gloves
+INCLUDE items/base/armor/cloth/hands.txt
+quality=high
+price=100
+bonus=accuracy,1
+
+[item]
+id=23
+name=Adept Gloves
+INCLUDE items/base/armor/cloth/hands.txt
+quality=high
+price=100
+bonus=mp_regen,3
+
+[item]
+id=24
+name=Brute Sash
+INCLUDE items/base/armor/belt.txt
+quality=high
+price=200
+bonus=hp_regen,25
+
+[item]
+id=25
+name=Scout Sash
+INCLUDE items/base/armor/belt.txt
+quality=high
+price=200
+bonus=avoidance,2
+
+[item]
+id=26
+name=Adept Sash
+INCLUDE items/base/armor/belt.txt
+quality=high
+price=200
+bonus=mp_regen,10
+
+[item]
+id=27
+name=Brute Dagger
 INCLUDE items/base/weapons/melee/dagger.txt
 quality=high
 price=400
@@ -96,8 +138,8 @@ bonus=dmg_melee_min,5
 bonus=dmg_melee_max,5
 
 [item]
-id=23
-name=Slingshot
+id=28
+name=Scout Slingshot
 INCLUDE items/base/weapons/ranged/slingshot.txt
 quality=high
 price=400
@@ -107,8 +149,8 @@ bonus=dmg_ranged_min,5
 bonus=dmg_ranged_max,5
 
 [item]
-id=24
-name=Wand
+id=29
+name=Adept Wand
 INCLUDE items/base/weapons/magic/wand.txt
 quality=high
 price=400
@@ -118,8 +160,8 @@ bonus=dmg_ment_min,5
 bonus=dmg_ment_max,5
 
 [item]
-id=25
-name=Wood Buckler
+id=30
+name=Keeper Buckler
 INCLUDE items/base/shields/wood.txt
 quality=high
 abs=1
@@ -128,50 +170,58 @@ price=300
 bonus=absorb_max,1
 
 [item]
-id=26
-name=Fire Ring
+id=31
+name=Exiled Fire Ring
 INCLUDE items/base/rings/gold_5.txt
 quality=high
 price=700
-bonus=fire_resist,10
+bonus=fire_resist,5
 
 [item]
-id=27
-name=Ice Ring
+id=32
+name=Exiled Ice Ring
 INCLUDE items/base/rings/silver_4.txt
 quality=high
 price=700
-bonus=ice_resist,10
+bonus=ice_resist,5
 
 [item]
-id=28
-name=Lightning Ring
+id=33
+name=Exiled Lightning Ring
 INCLUDE items/base/rings/silver_5.txt
 quality=high
 price=700
-bonus=lightning_resist,10
+bonus=lightning_resist,5
 
 [item]
-id=29
-name=Experience Ring
+id=34
+name=Exiled Dark Ring
+INCLUDE items/base/rings/gold_3.txt
+quality=high
+price=700
+bonus=dark_resist,5
+
+[item]
+id=35
+name=Exiled Experience Ring
 INCLUDE items/base/rings/silver_2.txt
 quality=high
 price=700
-bonus=xp_gain,10
+bonus=xp_gain,5
 
 [item]
-id=30
-name=Wealth Ring
+id=36
+name=Exiled Wealth Ring
 INCLUDE items/base/rings/gold_2.txt
 quality=high
 price=700
-bonus=currency_find,20
+bonus=currency_find,10
 
 [item]
-id=31
-name=Treasure Ring
+id=37
+name=Exiled Treasure Ring
 INCLUDE items/base/rings/gold_4.txt
 quality=high
 price=700
-bonus=item_find,30
+bonus=item_find,25
 

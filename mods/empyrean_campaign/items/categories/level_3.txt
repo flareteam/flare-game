@@ -1,108 +1,158 @@
 # equipment intended for players level 3
 
 [item]
-id=32
-name=Cloth Shirt
-INCLUDE items/base/armor/cloth/chest.txt
-quality=epic
-price=600
-abs=1,2
-requires_stat=defense,3
-bonus=hp,125
-
-[item]
-id=33
-name=Cloth Shirt
-INCLUDE items/base/armor/cloth/chest.txt
-quality=epic
-price=600
-abs=1,2
-requires_stat=defense,3
-bonus=hp_regen,125
-
-[item]
-id=34
-name=Cloth Pants
-INCLUDE items/base/armor/cloth/legs.txt
-quality=epic
-price=400
-abs=1
-requires_stat=defense,3
-bonus=avoidance,8
-
-[item]
-id=35
-name=Cloth Pants
-INCLUDE items/base/armor/cloth/legs.txt
-quality=epic
-price=400
-abs=1
-requires_stat=defense,3
-bonus=poise,4
-
-[item]
-id=36
-name=Cloth Sandals
-INCLUDE items/base/armor/cloth/feet.txt
-quality=epic
-price=300
-abs=0,1
-requires_stat=defense,3
-bonus=avoidance,4
-
-[item]
-id=37
-name=Cloth Sandals
-INCLUDE items/base/armor/cloth/feet.txt
-quality=epic
-price=300
-abs=0,1
-requires_stat=defense,3
-bonus=poise,2
-
-[item]
 id=38
-name=Cloth Gloves
-INCLUDE items/base/armor/cloth/hands.txt
+name=Brute Shirt
+INCLUDE items/base/armor/cloth/chest.txt
 quality=epic
-price=200
-abs=0,1
+price=600
+abs=1,2
 requires_stat=defense,3
-bonus=crit,4
+bonus=hp,100
 
 [item]
 id=39
-name=Cloth Gloves
-INCLUDE items/base/armor/cloth/hands.txt
+name=Scout Shirt
+INCLUDE items/base/armor/cloth/chest.txt
 quality=epic
-price=200
-abs=0,1
+price=600
+abs=1,2
 requires_stat=defense,3
 bonus=accuracy,8
 
 [item]
 id=40
-name=Cloth Sash
-INCLUDE items/base/armor/belt.txt
+name=Adept Shirt
+INCLUDE items/base/armor/cloth/chest.txt
 quality=epic
-price=400
-abs=0,1
+price=600
+abs=1,2
 requires_stat=defense,3
-bonus=mp,30
+bonus=mp,20
 
 [item]
 id=41
-name=Cloth Sash
+name=Brute Pants
+INCLUDE items/base/armor/cloth/legs.txt
+quality=epic
+price=400
+abs=1
+requires_stat=defense,3
+bonus=poise,6
+
+[item]
+id=42
+name=Scout Pants
+INCLUDE items/base/armor/cloth/legs.txt
+quality=epic
+price=400
+abs=1
+requires_stat=defense,3
+bonus=avoidance,4
+
+[item]
+id=43
+name=Adept Pants
+INCLUDE items/base/armor/cloth/legs.txt
+quality=epic
+price=400
+abs=1
+requires_stat=defense,3
+bonus=mp,10
+
+[item]
+id=44
+name=Brute Sandals
+INCLUDE items/base/armor/cloth/feet.txt
+quality=epic
+price=300
+abs=0,1
+requires_stat=defense,3
+bonus=poise,4
+
+[item]
+id=45
+name=Scout Sandals
+INCLUDE items/base/armor/cloth/feet.txt
+quality=epic
+price=300
+abs=0,1
+requires_stat=defense,3
+bonus=avoidance,2
+
+[item]
+id=46
+name=Adept Sandals
+INCLUDE items/base/armor/cloth/feet.txt
+quality=epic
+price=300
+abs=0,1
+requires_stat=defense,3
+bonus=mp_regen,4
+
+[item]
+id=47
+name=Brute Gloves
+INCLUDE items/base/armor/cloth/hands.txt
+quality=epic
+price=200
+abs=0,1
+requires_stat=defense,3
+bonus=crit,2
+
+[item]
+id=48
+name=Scout Gloves
+INCLUDE items/base/armor/cloth/hands.txt
+quality=epic
+price=200
+abs=0,1
+requires_stat=defense,3
+bonus=accuracy,2
+
+[item]
+id=49
+name=Adept Gloves
+INCLUDE items/base/armor/cloth/hands.txt
+quality=epic
+price=200
+abs=0,1
+requires_stat=defense,3
+bonus=mp_regen,6
+
+[item]
+id=50
+name=Brute Sash
 INCLUDE items/base/armor/belt.txt
 quality=epic
 price=400
 abs=0,1
 requires_stat=defense,3
-bonus=mp_regen,30
+bonus=hp_regen,50
 
 [item]
-id=42
-name=Dagger
+id=51
+name=Scout Sash
+INCLUDE items/base/armor/belt.txt
+quality=epic
+price=400
+abs=0,1
+requires_stat=defense,3
+bonus=avoidance,4
+
+[item]
+id=52
+name=Adept Sash
+INCLUDE items/base/armor/belt.txt
+quality=epic
+price=400
+abs=0,1
+requires_stat=defense,3
+bonus=mp_regen,20
+
+[item]
+id=53
+name=Brute Dagger
 INCLUDE items/base/weapons/melee/dagger.txt
 quality=epic
 price=800
@@ -112,8 +162,8 @@ bonus=dmg_melee_min,10
 bonus=dmg_melee_max,10
 
 [item]
-id=43
-name=Slingshot
+id=54
+name=Scout Slingshot
 INCLUDE items/base/weapons/ranged/slingshot.txt
 quality=epic
 price=800
@@ -123,8 +173,8 @@ bonus=dmg_ranged_min,10
 bonus=dmg_ranged_max,10
 
 [item]
-id=44
-name=Wand
+id=55
+name=Adept Wand
 INCLUDE items/base/weapons/magic/wand.txt
 quality=epic
 price=800
@@ -134,8 +184,8 @@ bonus=dmg_ment_min,10
 bonus=dmg_ment_max,10
 
 [item]
-id=45
-name=Wood Buckler
+id=56
+name=Keeper Buckler
 INCLUDE items/base/shields/wood.txt
 quality=epic
 abs=1,2
@@ -144,50 +194,58 @@ price=600
 bonus=absorb_max,2
 
 [item]
-id=46
-name=Fire Ring
+id=57
+name=Exiled Fire Ring
 INCLUDE items/base/rings/gold_5.txt
 quality=epic
 price=1400
-bonus=fire_resist,15
+bonus=fire_resist,10
 
 [item]
-id=47
-name=Ice Ring
+id=58
+name=Exiled Ice Ring
 INCLUDE items/base/rings/silver_4.txt
 quality=epic
 price=1400
-bonus=ice_resist,15
+bonus=ice_resist,10
 
 [item]
-id=48
-name=Lightning Ring
+id=59
+name=Exiled Lightning Ring
 INCLUDE items/base/rings/silver_5.txt
 quality=epic
 price=1400
-bonus=lightning_resist,15
+bonus=lightning_resist,10
 
 [item]
-id=49
-name=Experience Ring
+id=60
+name=Exiled Dark Ring
+INCLUDE items/base/rings/gold_3.txt
+quality=epic
+price=1400
+bonus=dark_resist,10
+
+[item]
+id=61
+name=Exiled Experience Ring
 INCLUDE items/base/rings/silver_2.txt
 quality=epic
 price=1400
-bonus=xp_gain,15
+bonus=xp_gain,10
 
 [item]
-id=50
-name=Wealth Ring
+id=62
+name=Exiled Wealth Ring
 INCLUDE items/base/rings/gold_2.txt
 quality=epic
 price=1400
-bonus=currency_find,30
+bonus=currency_find,20
 
 [item]
-id=51
-name=Treasure Ring
+id=63
+name=Exiled Treasure Ring
 INCLUDE items/base/rings/gold_4.txt
 quality=epic
 price=1400
-bonus=item_find,40
+bonus=item_find,50
 

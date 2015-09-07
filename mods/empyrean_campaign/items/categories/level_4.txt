@@ -1,63 +1,159 @@
 # equipment intended for players level 4
 
 [item]
-id=52
-name=Cloth Shirt
+id=64
+name=Brute Shirt
 INCLUDE items/base/armor/cloth/chest.txt
 quality=rare
 price=1200
-abs=1,2
+abs=2
 requires_stat=defense,6
-bonus=hp,175
-bonus=hp_regen,175
+bonus=hp,150
 
 [item]
-id=53
-name=Cloth Pants
+id=65
+name=Scout Shirt
+INCLUDE items/base/armor/cloth/chest.txt
+quality=rare
+price=1200
+abs=2
+requires_stat=defense,6
+bonus=accuracy,8
+
+[item]
+id=66
+name=Adept Shirt
+INCLUDE items/base/armor/cloth/chest.txt
+quality=rare
+price=1200
+abs=2
+requires_stat=defense,6
+bonus=mp,20
+
+[item]
+id=67
+name=Brute Pants
 INCLUDE items/base/armor/cloth/legs.txt
 quality=rare
 price=800
 abs=1,2
 requires_stat=defense,6
-bonus=avoidance,12
 bonus=poise,6
 
 [item]
-id=54
-name=Cloth Sandals
+id=68
+name=Scout Pants
+INCLUDE items/base/armor/cloth/legs.txt
+quality=rare
+price=800
+abs=1,2
+requires_stat=defense,6
+bonus=avoidance,4
+
+[item]
+id=69
+name=Adept Pants
+INCLUDE items/base/armor/cloth/legs.txt
+quality=rare
+price=800
+abs=1,2
+requires_stat=defense,6
+bonus=mp,10
+
+[item]
+id=70
+name=Brute Sandals
 INCLUDE items/base/armor/cloth/feet.txt
 quality=rare
 price=600
 abs=1
 requires_stat=defense,6
-bonus=avoidance,6
-bonus=poise,3
+bonus=poise,4
 
 [item]
-id=55
-name=Cloth Gloves
+id=71
+name=Scout Sandals
+INCLUDE items/base/armor/cloth/feet.txt
+quality=rare
+price=600
+abs=1
+requires_stat=defense,6
+bonus=avoidance,2
+
+[item]
+id=72
+name=Adept Sandals
+INCLUDE items/base/armor/cloth/feet.txt
+quality=rare
+price=600
+abs=1
+requires_stat=defense,6
+bonus=mp_regen,4
+
+[item]
+id=73
+name=Brute Gloves
 INCLUDE items/base/armor/cloth/hands.txt
 quality=rare
 price=400
 abs=1
 requires_stat=defense,6
-bonus=crit,6
-bonus=accuracy,12
+bonus=crit,2
 
 [item]
-id=56
-name=Cloth Sash
+id=74
+name=Scout Gloves
+INCLUDE items/base/armor/cloth/hands.txt
+quality=rare
+price=400
+abs=1
+requires_stat=defense,6
+bonus=accuracy,2
+
+[item]
+id=75
+name=Adept Gloves
+INCLUDE items/base/armor/cloth/hands.txt
+quality=rare
+price=400
+abs=1
+requires_stat=defense,6
+bonus=mp_regen,6
+
+[item]
+id=76
+name=Brute Sash
 INCLUDE items/base/armor/belt.txt
 quality=rare
 price=800
 abs=1
 requires_stat=defense,6
-bonus=mp,45
-bonus=mp_regen,45
+bonus=hp_regen,50
 
 [item]
-id=57
-name=Dagger
+id=77
+name=Scout Sash
+INCLUDE items/base/armor/belt.txt
+quality=rare
+price=800
+abs=1
+requires_stat=defense,6
+bonus=avoidance,4
+
+[item]
+id=78
+name=Adept Sash
+INCLUDE items/base/armor/belt.txt
+quality=rare
+price=800
+abs=1
+requires_stat=defense,6
+bonus=mp_regen,20
+
+
+[item]
+id=79
+name=Brute Dagger
 INCLUDE items/base/weapons/melee/dagger.txt
 quality=rare
 price=1600
@@ -67,8 +163,8 @@ bonus=dmg_melee_min,15
 bonus=dmg_melee_max,15
 
 [item]
-id=58
-name=Slingshot
+id=80
+name=Scout Slingshot
 INCLUDE items/base/weapons/ranged/slingshot.txt
 quality=rare
 price=1600
@@ -78,8 +174,8 @@ bonus=dmg_ranged_min,15
 bonus=dmg_ranged_max,15
 
 [item]
-id=59
-name=Wand
+id=81
+name=Adept Wand
 INCLUDE items/base/weapons/magic/wand.txt
 quality=rare
 price=1600
@@ -89,8 +185,8 @@ bonus=dmg_ment_min,15
 bonus=dmg_ment_max,15
 
 [item]
-id=60
-name=Wood Buckler
+id=82
+name=Keeper Buckler
 INCLUDE items/base/shields/wood.txt
 quality=rare
 abs=2
@@ -99,56 +195,64 @@ price=1200
 bonus=absorb_max,3
 
 [item]
-id=61
-name=Fire Ring
+id=83
+name=Exiled Fire Ring
 INCLUDE items/base/rings/gold_5.txt
 quality=rare
 price=2800
-bonus=fire_resist,20
+bonus=fire_resist,15
 
 [item]
-id=62
-name=Ice Ring
+id=84
+name=Exiled Ice Ring
 INCLUDE items/base/rings/silver_4.txt
 quality=rare
 price=2800
-bonus=ice_resist,20
+bonus=ice_resist,15
 
 [item]
-id=63
-name=Lightning Ring
+id=85
+name=Exiled Lightning Ring
 INCLUDE items/base/rings/silver_5.txt
 quality=rare
 price=2800
-bonus=lightning_resist,20
+bonus=lightning_resist,15
 
 [item]
-id=64
-name=Experience Ring
+id=86
+name=Exiled Dark Ring
+INCLUDE items/base/rings/gold_3.txt
+quality=rare
+price=2800
+bonus=dark_resist,15
+
+[item]
+id=87
+name=Exiled Experience Ring
 INCLUDE items/base/rings/silver_2.txt
 quality=rare
 price=2800
-bonus=xp_gain,20
+bonus=xp_gain,15
 
 [item]
-id=65
-name=Wealth Ring
+id=88
+name=Exiled Wealth Ring
 INCLUDE items/base/rings/gold_2.txt
 quality=rare
 price=2800
-bonus=currency_find,40
+bonus=currency_find,30
 
 [item]
-id=66
-name=Treasure Ring
+id=89
+name=Exiled Treasure Ring
 INCLUDE items/base/rings/gold_4.txt
 quality=rare
 price=2800
-bonus=item_find,50
+bonus=item_find,75
 
 # unique items
 [item]
-id=67
+id=90
 name=Krolan's Pick
 flavor=Sharp enough to cut through stone.
 INCLUDE items/base/weapons/melee/dagger.txt
@@ -159,10 +263,10 @@ requires_stat=physical,10
 bonus=dmg_melee_min,20
 bonus=dmg_melee_max,20
 bonus=crit,1
-bonus=currency_find,30
+bonus=currency_find,10
 
 [item]
-id=68
+id=91
 name=Goblin Branch
 flavor=Mana flows inside its primitive exterior.
 INCLUDE items/base/weapons/magic/wand.txt
@@ -172,11 +276,11 @@ dmg_ment=25,30
 requires_stat=mental,10
 bonus=dmg_ment_min,20
 bonus=dmg_ment_max,20
-bonus=mp_regen,30
-bonus=lightning_resist,40
+bonus=mp_regen,10
+bonus=lightning_resist,5
 
 [item]
-id=69
+id=92
 name=Ardwen's Gloves
 flavor=These hands built a village.
 INCLUDE items/base/armor/cloth/hands.txt
@@ -186,6 +290,6 @@ abs=1,2
 requires_stat=offense,4
 requires_stat=defense,6
 bonus=absorb_min,2
-bonus=accuracy,25
+bonus=accuracy,5
 bonus=poise,5
 bonus=xp_gain,10
