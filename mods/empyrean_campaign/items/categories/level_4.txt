@@ -2,8 +2,9 @@
 
 [item]
 id=64
-name=Brute Shirt
+name=Warlord Cloth Shirt
 INCLUDE items/base/armor/cloth/chest.txt
+level=4
 quality=rare
 price=1200
 abs=2
@@ -12,8 +13,9 @@ bonus=hp,150
 
 [item]
 id=65
-name=Scout Shirt
+name=Sniper Cloth Shirt
 INCLUDE items/base/armor/cloth/chest.txt
+level=4
 quality=rare
 price=1200
 abs=2
@@ -22,8 +24,9 @@ bonus=accuracy,8
 
 [item]
 id=66
-name=Adept Shirt
+name=Archwizard Cloth Shirt
 INCLUDE items/base/armor/cloth/chest.txt
+level=4
 quality=rare
 price=1200
 abs=2
@@ -32,8 +35,9 @@ bonus=mp,20
 
 [item]
 id=67
-name=Brute Pants
+name=Warlord Cloth Pants
 INCLUDE items/base/armor/cloth/legs.txt
+level=4
 quality=rare
 price=800
 abs=1,2
@@ -42,8 +46,9 @@ bonus=poise,6
 
 [item]
 id=68
-name=Scout Pants
+name=Sniper Cloth Pants
 INCLUDE items/base/armor/cloth/legs.txt
+level=4
 quality=rare
 price=800
 abs=1,2
@@ -52,8 +57,9 @@ bonus=avoidance,4
 
 [item]
 id=69
-name=Adept Pants
+name=Archwizard Cloth Pants
 INCLUDE items/base/armor/cloth/legs.txt
+level=4
 quality=rare
 price=800
 abs=1,2
@@ -62,8 +68,9 @@ bonus=mp,10
 
 [item]
 id=70
-name=Brute Sandals
+name=Warlord Cloth Sandals
 INCLUDE items/base/armor/cloth/feet.txt
+level=4
 quality=rare
 price=600
 abs=1
@@ -72,8 +79,9 @@ bonus=poise,4
 
 [item]
 id=71
-name=Scout Sandals
+name=Sniper Cloth Sandals
 INCLUDE items/base/armor/cloth/feet.txt
+level=4
 quality=rare
 price=600
 abs=1
@@ -82,8 +90,9 @@ bonus=avoidance,2
 
 [item]
 id=72
-name=Adept Sandals
+name=Archwizard Cloth Sandals
 INCLUDE items/base/armor/cloth/feet.txt
+level=4
 quality=rare
 price=600
 abs=1
@@ -92,8 +101,9 @@ bonus=mp_regen,4
 
 [item]
 id=73
-name=Brute Gloves
+name=Warlord Cloth Gloves
 INCLUDE items/base/armor/cloth/hands.txt
+level=4
 quality=rare
 price=400
 abs=1
@@ -102,8 +112,9 @@ bonus=crit,2
 
 [item]
 id=74
-name=Scout Gloves
+name=Sniper Cloth Gloves
 INCLUDE items/base/armor/cloth/hands.txt
+level=4
 quality=rare
 price=400
 abs=1
@@ -112,8 +123,9 @@ bonus=accuracy,2
 
 [item]
 id=75
-name=Adept Gloves
+name=Archwizard Cloth Gloves
 INCLUDE items/base/armor/cloth/hands.txt
+level=4
 quality=rare
 price=400
 abs=1
@@ -122,8 +134,9 @@ bonus=mp_regen,6
 
 [item]
 id=76
-name=Brute Sash
+name=Warlord Cloth Sash
 INCLUDE items/base/armor/belt.txt
+level=4
 quality=rare
 price=800
 abs=1
@@ -132,8 +145,9 @@ bonus=hp_regen,50
 
 [item]
 id=77
-name=Scout Sash
+name=Sniper Cloth Sash
 INCLUDE items/base/armor/belt.txt
+level=4
 quality=rare
 price=800
 abs=1
@@ -142,8 +156,9 @@ bonus=avoidance,4
 
 [item]
 id=78
-name=Adept Sash
+name=Archwizard Cloth Sash
 INCLUDE items/base/armor/belt.txt
+level=4
 quality=rare
 price=800
 abs=1
@@ -153,8 +168,9 @@ bonus=mp_regen,20
 
 [item]
 id=79
-name=Brute Dagger
+name=Warlord Dagger
 INCLUDE items/base/weapons/melee/dagger.txt
+level=4
 quality=rare
 price=1600
 dmg_melee=25,30
@@ -164,8 +180,9 @@ bonus=dmg_melee_max,15
 
 [item]
 id=80
-name=Scout Slingshot
+name=Sniper Slingshot
 INCLUDE items/base/weapons/ranged/slingshot.txt
+level=4
 quality=rare
 price=1600
 dmg_ranged=25,30
@@ -175,8 +192,9 @@ bonus=dmg_ranged_max,15
 
 [item]
 id=81
-name=Adept Wand
+name=Archwizard Wand
 INCLUDE items/base/weapons/magic/wand.txt
+level=4
 quality=rare
 price=1600
 dmg_ment=25,30
@@ -186,8 +204,9 @@ bonus=dmg_ment_max,15
 
 [item]
 id=82
-name=Keeper Buckler
+name=Templar Wood Buckler
 INCLUDE items/base/shields/wood.txt
+level=4
 quality=rare
 abs=2
 requires_stat=defense,8
@@ -196,56 +215,63 @@ bonus=absorb_max,3
 
 [item]
 id=83
-name=Exiled Fire Ring
+name=Master Fire Ring
 INCLUDE items/base/rings/gold_5.txt
+level=4
 quality=rare
 price=2800
 bonus=fire_resist,15
 
 [item]
 id=84
-name=Exiled Ice Ring
+name=Master Ice Ring
 INCLUDE items/base/rings/silver_4.txt
+level=4
 quality=rare
 price=2800
 bonus=ice_resist,15
 
 [item]
 id=85
-name=Exiled Lightning Ring
+name=Master Lightning Ring
 INCLUDE items/base/rings/silver_5.txt
+level=4
 quality=rare
 price=2800
 bonus=lightning_resist,15
 
 [item]
 id=86
-name=Exiled Dark Ring
+name=Master Dark Ring
 INCLUDE items/base/rings/gold_3.txt
+level=4
 quality=rare
 price=2800
 bonus=dark_resist,15
 
 [item]
 id=87
-name=Exiled Experience Ring
+name=Master Experience Ring
 INCLUDE items/base/rings/silver_2.txt
+level=4
 quality=rare
 price=2800
 bonus=xp_gain,15
 
 [item]
 id=88
-name=Exiled Wealth Ring
+name=Master Wealth Ring
 INCLUDE items/base/rings/gold_2.txt
+level=4
 quality=rare
 price=2800
 bonus=currency_find,30
 
 [item]
 id=89
-name=Exiled Treasure Ring
+name=Master Treasure Ring
 INCLUDE items/base/rings/gold_4.txt
+level=4
 quality=rare
 price=2800
 bonus=item_find,75
@@ -256,6 +282,7 @@ id=90
 name=Krolan's Pick
 flavor=Sharp enough to cut through stone.
 INCLUDE items/base/weapons/melee/dagger.txt
+level=4
 quality=unique
 price=3200
 dmg_melee=25,30
@@ -270,6 +297,7 @@ id=91
 name=Goblin Branch
 flavor=Mana flows inside its primitive exterior.
 INCLUDE items/base/weapons/magic/wand.txt
+level=4
 quality=unique
 price=3200
 dmg_ment=25,30
@@ -284,6 +312,7 @@ id=92
 name=Ardwen's Gloves
 flavor=These hands built a village.
 INCLUDE items/base/armor/cloth/hands.txt
+level=4
 quality=unique
 price=800
 abs=1,2
