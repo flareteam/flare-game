@@ -207,3 +207,18 @@ modifier_accuracy=multiply,150,0
 post_power=160
 wall_power=160
 
+# destroy seagate's tombstones
+[power]
+id=177
+type=fixed
+new_state=instant
+source_type=hero
+use_hazard=true
+base_damage=phys
+lifespan=33ms
+radius=1.0
+multitarget=true
+starting_pos=target
+modifier_damage=absolute,1000,1000
+modifier_accuracy=absolute,1100,0
+

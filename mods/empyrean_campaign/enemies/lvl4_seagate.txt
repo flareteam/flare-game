@@ -1,0 +1,33 @@
+INCLUDE enemies/base/seagate.txt
+
+name=Seagate
+level=4
+categories=seagate
+xp=64
+
+defeat_status=emp_seagate_defeated
+
+# combat stats
+hp=2560
+speed=5
+turn_delay=400ms
+chance_pursue=10
+
+power=melee,164,10
+
+accuracy=105
+avoidance=25
+poise=24
+
+dmg_melee_min=100
+dmg_melee_max=110
+cooldown=1100ms
+
+absorb_min=4
+absorb_max=4
+
+# loot
+loot_count=5,7
+
+loot=loot/level_4.txt
+
