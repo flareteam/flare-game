@@ -7,7 +7,7 @@ INCLUDE items/base/armor/cloth/chest.txt
 level=4
 quality=rare
 price=1200
-abs=2
+abs=2,3
 requires_stat=defense,6
 bonus=hp,75
 
@@ -29,7 +29,7 @@ INCLUDE items/base/armor/cloth/chest.txt
 level=4
 quality=rare
 price=1200
-abs=2
+abs=1,2
 requires_stat=defense,6
 bonus=mp,9
 
@@ -40,7 +40,7 @@ INCLUDE items/base/armor/cloth/legs.txt
 level=4
 quality=rare
 price=800
-abs=1,2
+abs=2
 requires_stat=defense,6
 bonus=poise,9
 
@@ -62,7 +62,7 @@ INCLUDE items/base/armor/cloth/legs.txt
 level=4
 quality=rare
 price=800
-abs=1,2
+abs=1
 requires_stat=defense,6
 bonus=mp,6
 
@@ -73,7 +73,7 @@ INCLUDE items/base/armor/cloth/feet.txt
 level=4
 quality=rare
 price=600
-abs=1
+abs=1,2
 requires_stat=defense,6
 bonus=poise,6
 
@@ -95,7 +95,7 @@ INCLUDE items/base/armor/cloth/feet.txt
 level=4
 quality=rare
 price=600
-abs=1
+abs=0,1
 requires_stat=defense,6
 bonus=mp_regen,3
 
@@ -106,7 +106,7 @@ INCLUDE items/base/armor/cloth/hands.txt
 level=4
 quality=rare
 price=400
-abs=1
+abs=1,2
 requires_stat=defense,6
 bonus=crit,3
 
@@ -128,7 +128,7 @@ INCLUDE items/base/armor/cloth/hands.txt
 level=4
 quality=rare
 price=400
-abs=1
+abs=0,1
 requires_stat=defense,6
 bonus=mp_regen,6
 
@@ -139,7 +139,6 @@ INCLUDE items/base/armor/belt.txt
 level=4
 quality=rare
 price=800
-abs=1
 requires_stat=defense,6
 bonus=hp_regen,75
 
@@ -150,7 +149,6 @@ INCLUDE items/base/armor/belt.txt
 level=4
 quality=rare
 price=800
-abs=1
 requires_stat=defense,6
 bonus=avoidance,6
 
@@ -161,7 +159,6 @@ INCLUDE items/base/armor/belt.txt
 level=4
 quality=rare
 price=800
-abs=1
 requires_stat=defense,6
 bonus=mp_regen,6
 

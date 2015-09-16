@@ -7,7 +7,7 @@ INCLUDE items/base/armor/cloth/chest.txt
 level=2
 quality=high
 price=300
-abs=1
+abs=1,2
 bonus=hp,25
 
 [item]
@@ -27,7 +27,7 @@ INCLUDE items/base/armor/cloth/chest.txt
 level=2
 quality=high
 price=300
-abs=1
+abs=0,1
 bonus=mp,3
 
 [item]
@@ -37,7 +37,7 @@ INCLUDE items/base/armor/cloth/legs.txt
 level=2
 quality=high
 price=200
-abs=0,1
+abs=1
 bonus=poise,3
 
 [item]
@@ -57,7 +57,6 @@ INCLUDE items/base/armor/cloth/legs.txt
 level=2
 quality=high
 price=200
-abs=0,1
 bonus=mp,2
 
 [item]
@@ -67,6 +66,7 @@ INCLUDE items/base/armor/cloth/feet.txt
 level=2
 quality=high
 price=150
+abs=0,1
 bonus=poise,2
 
 [item]
@@ -94,6 +94,7 @@ INCLUDE items/base/armor/cloth/hands.txt
 level=2
 quality=high
 price=100
+abs=0,1
 bonus=crit,1
 
 [item]
