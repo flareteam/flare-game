@@ -412,6 +412,60 @@ type=on_load
 location=1,40,1,1
 unset_status=emp_seagate_teleport,emp_seagate_defeated
 
+[event]
+# floor spikes
+type=on_trigger
+location=7,10,1,1
+cooldown=3s
+hotspot=location
+power=178
+power_damage=70,80
+
+[event]
+# floor spikes
+type=on_trigger
+location=8,10,1,1
+cooldown=3s
+hotspot=location
+power=178
+power_damage=70,80
+
+[event]
+# floor spikes
+type=on_trigger
+location=8,9,1,1
+cooldown=3s
+hotspot=location
+power=178
+power_damage=70,80
+
+[event]
+# floor spikes
+type=on_trigger
+location=25,9,1,1
+cooldown=3s
+hotspot=location
+power=178
+power_damage=70,80
+
+[event]
+# floor spikes
+type=on_trigger
+location=25,10,1,1
+cooldown=3s
+hotspot=location
+power=178
+power_damage=70,80
+
+[event]
+# floor spikes
+type=on_trigger
+location=26,10,1,1
+cooldown=3s
+hotspot=location
+power=178
+power_damage=70,80
+
 [enemy]
 type=seagate_tombstone
 location=6,5,1,1

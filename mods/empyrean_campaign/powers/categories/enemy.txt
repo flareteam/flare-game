@@ -214,11 +214,25 @@ type=fixed
 new_state=instant
 source_type=hero
 use_hazard=true
-base_damage=phys
+base_damage=melee
 lifespan=33ms
 radius=1.0
 multitarget=true
 starting_pos=target
 modifier_damage=absolute,1000,1000
 modifier_accuracy=absolute,1100,0
+
+# spike trap
+[power]
+id=178
+type=fixed
+animation=animations/powers/spikes.txt
+use_hazard=true
+lifespan=533ms
+radius=0.75
+starting_pos=source
+complete_animation=true
+base_damage=melee
+visual_random=4
+soundfx=soundfx/powers/spikes.ogg
 
