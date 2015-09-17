@@ -26,37 +26,42 @@ aim_assist=true
 [power]
 id=2
 INCLUDE powers/base/warrior/block.txt
-post_effect=reflect_chance,80,0
-post_effect=absorb_min,10,0
-post_effect=absorb_max,20,0
+#post_effect=reflect_chance,80,0
+post_effect=absorb_min,15,0
+post_effect=absorb_max,15,0
+post_effect=return_damage,100
 
 [power]
 id=3
 INCLUDE powers/base/warrior/block.txt
-post_effect=reflect_chance,85,0
-post_effect=absorb_min,55,0
-post_effect=absorb_max,65,0
+#post_effect=reflect_chance,85,0
+post_effect=absorb_min,30,0
+post_effect=absorb_max,30,0
+post_effect=return_damage,125
 
 [power]
 id=4
 INCLUDE powers/base/warrior/block.txt
 post_effect=reflect_chance,90,0
-post_effect=absorb_min,100,0
-post_effect=absorb_max,110,0
+post_effect=absorb_min,45,0
+post_effect=absorb_max,45,0
+post_effect=return_damage,150
 
 [power]
 id=5
 INCLUDE powers/base/warrior/block.txt
 post_effect=reflect_chance,95,0
-post_effect=absorb_min,190,0
-post_effect=absorb_max,200,0
+post_effect=absorb_min,60,0
+post_effect=absorb_max,60,0
+post_effect=return_damage,175
 
 [power]
 id=6
 INCLUDE powers/base/warrior/block.txt
 post_effect=reflect_chance,100,0
-post_effect=absorb_min,235,0
-post_effect=absorb_max,245,0
+post_effect=absorb_min,75,0
+post_effect=absorb_max,75,0
+post_effect=return_damage,200
 
 
 
