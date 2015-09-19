@@ -306,31 +306,31 @@ INCLUDE powers/base/ranger/ammo_arrow.txt
 id=95
 INCLUDE powers/base/ranger/ember_shot.txt
 requires_mp=2
-count=10
+modifier_damage=multiply,20,0
 
 [power]
 id=96
 INCLUDE powers/base/ranger/ember_shot.txt
 requires_mp=4
-count=15
+modifier_damage=multiply,25,0
 
 [power]
 id=97
 INCLUDE powers/base/ranger/ember_shot.txt
 requires_mp=6
-count=20
+modifier_damage=multiply,30,0
 
 [power]
 id=98
 INCLUDE powers/base/ranger/ember_shot.txt
 requires_mp=8
-count=25
+modifier_damage=multiply,35,0
 
 [power]
 id=99
 INCLUDE powers/base/ranger/ember_shot.txt
 requires_mp=10
-count=30
+modifier_damage=multiply,40,0
 
 
 
@@ -343,30 +343,35 @@ id=100
 INCLUDE powers/base/ranger/caltrops.txt
 requires_mp=2
 cooldown=2s
+modifier_damage=multiply,75,0
 
 [power]
 id=101
 INCLUDE powers/base/ranger/caltrops.txt
 requires_mp=4
 cooldown=1600ms
+modifier_damage=multiply,80,0
 
 [power]
 id=102
 INCLUDE powers/base/ranger/caltrops.txt
 requires_mp=6
 cooldown=1200ms
+modifier_damage=multiply,85,0
 
 [power]
 id=103
 INCLUDE powers/base/ranger/caltrops.txt
 requires_mp=8
 cooldown=800ms
+modifier_damage=multiply,90,0
 
 [power]
 id=104
 INCLUDE powers/base/ranger/caltrops.txt
 requires_mp=10
 cooldown=400ms
+modifier_damage=multiply,95,0
 
 
 
@@ -379,30 +384,35 @@ id=105
 INCLUDE powers/base/ranger/bear_trap.txt
 requires_mp=3
 cooldown=2s
+modifier_damage=multiply,120,0
 
 [power]
 id=106
 INCLUDE powers/base/ranger/bear_trap.txt
 requires_mp=6
 cooldown=1600ms
+modifier_damage=multiply,125,0
 
 [power]
 id=107
 INCLUDE powers/base/ranger/bear_trap.txt
 requires_mp=9
 cooldown=1200ms
+modifier_damage=multiply,130,0
 
 [power]
 id=108
 INCLUDE powers/base/ranger/bear_trap.txt
 requires_mp=12
 cooldown=800ms
+modifier_damage=multiply,135,0
 
 [power]
 id=109
 INCLUDE powers/base/ranger/bear_trap.txt
 requires_mp=16
 cooldown=400ms
+modifier_damage=multiply,140,0
 
 
 
