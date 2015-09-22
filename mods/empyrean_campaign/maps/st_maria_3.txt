@@ -96,7 +96,7 @@ data=
 0,0,0,122,0,82,80,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,82,80,0,122,0,0,0,0,0,0,0,0,0,
 0,0,0,119,0,90,89,0,0,0,0,0,0,0,0,0,195,0,0,0,0,0,0,0,0,0,0,90,89,0,119,0,0,0,0,0,0,0,0,0,
 0,0,0,128,0,0,0,0,0,0,0,0,0,0,0,0,194,0,0,0,0,0,0,0,0,0,0,0,0,0,130,0,0,0,0,0,0,0,0,0,
-0,0,0,167,0,0,0,0,0,0,0,0,0,0,0,0,149,135,0,0,0,0,0,0,0,0,0,0,0,0,167,0,0,0,0,0,0,0,0,0,
+0,0,0,167,0,0,0,0,0,0,0,0,0,0,0,0,165,135,0,0,0,0,0,0,0,0,0,0,0,0,167,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,151,0,0,0,0,151,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -465,6 +465,32 @@ cooldown=3s
 hotspot=location
 power=178
 power_damage=70,80
+
+[event]
+# plaque
+type=on_trigger
+location=16,12,1,1
+hotspot=location
+msg=The plaque reads: Grave of the Saints
+tooltip=Plaque
+
+[event]
+# spawn gravebloom
+type=on_trigger
+location=15,20,4,1
+hotspot=17,12,1,1
+loot=1100,fixed,1
+msg=A gravebloom emerges from the center of the altar.
+repeat=false
+requires_not_status=emp_main_gravebloom
+requires_status=emp_main_init
+
+[event]
+# start main quest
+type=on_load
+location=1,38,1,1
+requires_not_status=emp_main_init
+set_status=emp_main_init
 
 [enemy]
 type=seagate_tombstone
