@@ -219,6 +219,7 @@
   </object>
   <object id="5" name="start Ardwen quest" type="on_trigger" x="224" y="448" width="32" height="32">
    <properties>
+    <property name="msg" value="Quest added."/>
     <property name="repeat" value="false"/>
     <property name="requires_not_status" value="emp_ardwen_init,emp_ardwen_finish"/>
     <property name="save_game" value="true"/>
