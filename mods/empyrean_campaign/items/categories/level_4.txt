@@ -334,3 +334,45 @@ bonus=absorb_min,2
 bonus=accuracy,5
 bonus=poise,5
 bonus=xp_gain,10
+
+[item]
+id=93
+name=Blood Tunic
+flavor=
+INCLUDE items/base/armor/cloth/chest.txt
+level=4
+quality=unique
+price=2400
+abs=3
+requires_stat=physical,4
+requires_stat=defense,6
+bonus=hp,100
+bonus=hp_regen,100
+
+[item]
+id=94
+name=Dark Steppers
+INCLUDE items/base/armor/cloth/feet.txt
+level=4
+quality=unique
+price=1200
+abs=1,2
+requires_stat=offense,4
+requires_stat=defense,6
+bonus=avoidance,15
+bonus=dark_resist,10
+
+[item]
+id=95
+name=Segate's Tri-pants
+INCLUDE items/base/armor/cloth/legs.txt
+level=4
+quality=unique
+price=1600
+abs=1,2
+requires_stat=mental,4
+requires_stat=defense,6
+bonus=fire_resist,10
+bonus=ice_resist,10
+bonus=lightning_resist,10
+
