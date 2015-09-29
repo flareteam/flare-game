@@ -1,0 +1,325 @@
+# equipment intended for players level 6
+
+[item]
+id=110
+name=Fighting Leather Hood
+INCLUDE items/base/armor/leather/head.txt
+level=6
+quality=high
+price=600
+abs=2,3
+requires_stat=defense,10
+requires_stat=physical,7
+bonus=poise,5
+
+[item]
+id=111
+name=Recon Leather Hood
+INCLUDE items/base/armor/leather/head.txt
+level=6
+quality=high
+price=600
+abs=2
+requires_stat=defense,9
+requires_stat=offense,7
+bonus=accuracy,5
+
+[item]
+id=112
+name=Sorcerer Wool Hood
+INCLUDE items/base/armor/mage/head.txt
+level=6
+quality=high
+price=600
+abs=1,2
+requires_stat=defense,8
+requires_stat=mental,7
+bonus=mp,5
+
+[item]
+id=113
+name=Fighting Leather Tunic
+INCLUDE items/base/armor/leather/chest.txt
+level=6
+quality=high
+price=1200
+abs=3,4
+requires_stat=defense,10
+requires_stat=physical,7
+bonus=hp,100
+
+[item]
+id=114
+name=Recon Leather Tunic
+INCLUDE items/base/armor/leather/chest.txt
+level=6
+quality=high
+price=1200
+abs=3
+requires_stat=defense,9
+requires_stat=offense,7
+bonus=accuracy,12
+
+[item]
+id=115
+name=Sorcerer Wool Vest
+INCLUDE items/base/armor/mage/chest.txt
+level=6
+quality=high
+price=1200
+abs=2,3
+requires_stat=defense,8
+requires_stat=mental,7
+bonus=mp,12
+
+[item]
+id=116
+name=Fighting Leather Pants
+INCLUDE items/base/armor/leather/legs.txt
+level=6
+quality=high
+price=800
+abs=3
+requires_stat=defense,10
+requires_stat=physical,7
+bonus=poise,12
+
+[item]
+id=117
+name=Recon Leather Pants
+INCLUDE items/base/armor/leather/legs.txt
+level=6
+quality=high
+price=800
+abs=2,3
+requires_stat=defense,9
+requires_stat=offense,7
+bonus=avoidance,12
+
+[item]
+id=118
+name=Sorcerer Wool Skirt
+INCLUDE items/base/armor/mage/legs.txt
+level=6
+quality=high
+price=800
+abs=2
+requires_stat=defense,8
+requires_stat=mental,7
+bonus=mp,8
+
+[item]
+id=119
+name=Fighting Leather Boots
+INCLUDE items/base/armor/leather/feet.txt
+level=6
+quality=high
+price=600
+abs=2,3
+requires_stat=defense,10
+requires_stat=physical,7
+bonus=poise,8
+
+[item]
+id=120
+name=Recon Leather Boots
+INCLUDE items/base/armor/leather/feet.txt
+level=6
+quality=high
+price=600
+abs=2
+requires_stat=defense,9
+requires_stat=offense,7
+bonus=avoidance,16
+
+[item]
+id=121
+name=Sorcerer Wool Boots
+INCLUDE items/base/armor/mage/feet.txt
+level=6
+quality=high
+price=600
+abs=1,2
+requires_stat=defense,8
+requires_stat=mental,7
+bonus=mp_regen,4
+
+[item]
+id=122
+name=Fighting Leather Gloves
+INCLUDE items/base/armor/leather/hands.txt
+level=6
+quality=high
+price=400
+abs=2,3
+requires_stat=defense,10
+requires_stat=physical,7
+bonus=crit,4
+
+[item]
+id=123
+name=Recon Leather Gloves
+INCLUDE items/base/armor/leather/hands.txt
+level=6
+quality=high
+price=400
+abs=2
+requires_stat=defense,9
+requires_stat=offense,7
+bonus=accuracy,8
+
+[item]
+id=124
+name=Sorcerer Wool Gloves
+INCLUDE items/base/armor/mage/hands.txt
+level=6
+quality=high
+price=400
+abs=1,2
+requires_stat=defense,8
+requires_stat=mental,7
+bonus=mp_regen,8
+
+[item]
+id=125
+name=Fighting Leather Belt
+INCLUDE items/base/armor/belt.txt
+level=6
+quality=high
+price=800
+requires_stat=defense,10
+requires_stat=physical,7
+bonus=hp_regen,100
+
+[item]
+id=126
+name=Recon Leather Belt
+INCLUDE items/base/armor/belt.txt
+level=6
+quality=high
+price=800
+requires_stat=defense,9
+requires_stat=offense,7
+bonus=avoidance,12
+
+[item]
+id=127
+name=Sorcerer Leather Belt
+INCLUDE items/base/armor/belt.txt
+level=6
+quality=high
+price=800
+requires_stat=defense,8
+requires_stat=mental,7
+bonus=mp_regen,8
+
+[item]
+id=128
+name=Fighting Shortsword
+INCLUDE items/base/weapons/melee/shortsword.txt
+level=6
+quality=high
+dmg_melee=45,50
+requires_stat=physical,16
+price=1600
+bonus=dmg_melee_min,5
+bonus=dmg_melee_max,5
+
+[item]
+id=129
+name=Recon Shortbow
+INCLUDE items/base/weapons/ranged/shortbow.txt
+level=6
+quality=high
+dmg_ranged=60,65
+requires_stat=offense,16
+price=1600
+bonus=dmg_ranged_min,5
+bonus=dmg_ranged_max,5
+
+[item]
+id=130
+name=Sorcerer Rod
+INCLUDE items/base/weapons/magic/rod.txt
+level=6
+quality=high
+dmg_ment=45,50
+requires_stat=mental,16
+price=1600
+bonus=dmg_ment_min,5
+bonus=dmg_ment_max,5
+
+[item]
+id=131
+name=Keeper Iron Buckler
+INCLUDE items/base/shields/iron.txt
+level=6
+quality=high
+abs=2,3
+requires_stat=defense,14
+price=1200
+bonus=absorb_max,1
+
+[item]
+id=132
+name=Wandering Burn Ring
+INCLUDE items/base/rings/gold_5.txt
+level=6
+quality=high
+price=2800
+bonus=fire_resist,20
+
+[item]
+id=133
+name=Wandering Frost Ring
+INCLUDE items/base/rings/silver_4.txt
+level=6
+quality=high
+price=2800
+bonus=ice_resist,20
+
+[item]
+id=134
+name=Wandering Electric Ring
+INCLUDE items/base/rings/silver_5.txt
+level=6
+quality=high
+price=2800
+bonus=lightning_resist,20
+
+[item]
+id=135
+name=Wandering Shadow Ring
+INCLUDE items/base/rings/gold_3.txt
+level=6
+quality=high
+price=2800
+bonus=dark_resist,20
+
+[item]
+id=136
+name=Wandering Knowledge Ring
+INCLUDE items/base/rings/silver_2.txt
+level=6
+quality=high
+price=2800
+bonus=xp_gain,20
+
+[item]
+id=137
+name=Wandering Prosperity Ring
+INCLUDE items/base/rings/gold_2.txt
+level=6
+quality=high
+price=2800
+bonus=currency_find,20
+
+[item]
+id=138
+name=Wandering Loot Ring
+INCLUDE items/base/rings/gold_4.txt
+level=6
+quality=high
+price=2800
+bonus=item_find,20
+

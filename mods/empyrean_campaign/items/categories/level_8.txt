@@ -1,0 +1,325 @@
+# equipment intended for players level 8
+
+[item]
+id=168
+name=Warlord Leather Hood
+INCLUDE items/base/armor/leather/head.txt
+level=8
+quality=rare
+price=2400
+abs=3,4
+requires_stat=defense,16
+requires_stat=physical,9
+bonus=poise,15
+
+[item]
+id=169
+name=Sniper Leather Hood
+INCLUDE items/base/armor/leather/head.txt
+level=8
+quality=rare
+price=2400
+abs=3
+requires_stat=defense,15
+requires_stat=offense,9
+bonus=accuracy,15
+
+[item]
+id=170
+name=Archwizard Wool Hood
+INCLUDE items/base/armor/mage/head.txt
+level=8
+quality=rare
+price=2400
+abs=2,3
+requires_stat=defense,14
+requires_stat=mental,9
+bonus=mp,15
+
+[item]
+id=171
+name=Warlord Leather Tunic
+INCLUDE items/base/armor/leather/chest.txt
+level=8
+quality=rare
+price=4800
+abs=4,5
+requires_stat=defense,16
+requires_stat=physical,9
+bonus=hp,150
+
+[item]
+id=172
+name=Sniper Leather Tunic
+INCLUDE items/base/armor/leather/chest.txt
+level=8
+quality=rare
+price=4800
+abs=4
+requires_stat=defense,15
+requires_stat=offense,9
+bonus=accuracy,18
+
+[item]
+id=173
+name=Archwizard Wool Vest
+INCLUDE items/base/armor/mage/chest.txt
+level=8
+quality=rare
+price=4800
+abs=3,4
+requires_stat=defense,14
+requires_stat=mental,9
+bonus=mp,18
+
+[item]
+id=174
+name=Warlord Leather Pants
+INCLUDE items/base/armor/leather/legs.txt
+level=8
+quality=rare
+price=3200
+abs=4
+requires_stat=defense,16
+requires_stat=physical,9
+bonus=poise,18
+
+[item]
+id=175
+name=Sniper Leather Pants
+INCLUDE items/base/armor/leather/legs.txt
+level=8
+quality=rare
+price=3200
+abs=3,4
+requires_stat=defense,15
+requires_stat=offense,9
+bonus=avoidance,18
+
+[item]
+id=176
+name=Archwizard Wool Skirt
+INCLUDE items/base/armor/mage/legs.txt
+level=8
+quality=rare
+price=3200
+abs=3
+requires_stat=defense,14
+requires_stat=mental,9
+bonus=mp,12
+
+[item]
+id=177
+name=Warlord Leather Boots
+INCLUDE items/base/armor/leather/feet.txt
+level=8
+quality=rare
+price=2400
+abs=3,4
+requires_stat=defense,16
+requires_stat=physical,8
+bonus=poise,12
+
+[item]
+id=178
+name=Sniper Leather Boots
+INCLUDE items/base/armor/leather/feet.txt
+level=8
+quality=rare
+price=2400
+abs=3
+requires_stat=defense,15
+requires_stat=offense,9
+bonus=avoidance,24
+
+[item]
+id=179
+name=Archwizard Wool Boots
+INCLUDE items/base/armor/mage/feet.txt
+level=8
+quality=rare
+price=2400
+abs=2,3
+requires_stat=defense,14
+requires_stat=mental,9
+bonus=mp_regen,6
+
+[item]
+id=180
+name=Warlord Leather Gloves
+INCLUDE items/base/armor/leather/hands.txt
+level=8
+quality=rare
+price=1600
+abs=3,4
+requires_stat=defense,16
+requires_stat=physical,9
+bonus=crit,6
+
+[item]
+id=181
+name=Sniper Leather Gloves
+INCLUDE items/base/armor/leather/hands.txt
+level=8
+quality=rare
+price=1600
+abs=3
+requires_stat=defense,15
+requires_stat=offense,9
+bonus=accuracy,12
+
+[item]
+id=182
+name=Archwizard Wool Gloves
+INCLUDE items/base/armor/mage/hands.txt
+level=8
+quality=rare
+price=1600
+abs=2,3
+requires_stat=defense,14
+requires_stat=mental,9
+bonus=mp_regen,12
+
+[item]
+id=183
+name=Warlord Leather Belt
+INCLUDE items/base/armor/belt.txt
+level=8
+quality=rare
+price=3200
+requires_stat=defense,16
+requires_stat=physical,9
+bonus=hp_regen,150
+
+[item]
+id=184
+name=Sniper Leather Belt
+INCLUDE items/base/armor/belt.txt
+level=8
+quality=rare
+price=3200
+requires_stat=defense,15
+requires_stat=offense,9
+bonus=avoidance,18
+
+[item]
+id=185
+name=Archwizard Leather Belt
+INCLUDE items/base/armor/belt.txt
+level=8
+quality=rare
+price=3200
+requires_stat=defense,14
+requires_stat=mental,9
+bonus=mp_regen,12
+
+[item]
+id=186
+name=Warlord Shortsword
+INCLUDE items/base/weapons/melee/shortsword.txt
+level=8
+quality=rare
+dmg_melee=45,50
+requires_stat=physical,22
+price=6400
+bonus=dmg_melee_min,15
+bonus=dmg_melee_max,15
+
+[item]
+id=187
+name=Sniper Shortbow
+INCLUDE items/base/weapons/ranged/shortbow.txt
+level=8
+quality=rare
+dmg_ranged=60,65
+requires_stat=offense,22
+price=6400
+bonus=dmg_ranged_min,15
+bonus=dmg_ranged_max,15
+
+[item]
+id=188
+name=Archwizard Rod
+INCLUDE items/base/weapons/magic/rod.txt
+level=8
+quality=rare
+dmg_ment=45,50
+requires_stat=mental,22
+price=6400
+bonus=dmg_ment_min,15
+bonus=dmg_ment_max,15
+
+[item]
+id=189
+name=Templar Iron Buckler
+INCLUDE items/base/shields/iron.txt
+level=8
+quality=rare
+abs=2,3
+requires_stat=defense,20
+price=4800
+bonus=absorb_max,3
+
+[item]
+id=190
+name=Master Burn Ring
+INCLUDE items/base/rings/gold_5.txt
+level=8
+quality=rare
+price=11200
+bonus=fire_resist,30
+
+[item]
+id=191
+name=Master Frost Ring
+INCLUDE items/base/rings/silver_4.txt
+level=8
+quality=rare
+price=11200
+bonus=ice_resist,30
+
+[item]
+id=192
+name=Master Electric Ring
+INCLUDE items/base/rings/silver_5.txt
+level=8
+quality=rare
+price=11200
+bonus=lightning_resist,30
+
+[item]
+id=193
+name=Master Shadow Ring
+INCLUDE items/base/rings/gold_3.txt
+level=8
+quality=rare
+price=11200
+bonus=dark_resist,30
+
+[item]
+id=194
+name=Master Knowledge Ring
+INCLUDE items/base/rings/silver_2.txt
+level=8
+quality=rare
+price=11200
+bonus=xp_gain,30
+
+[item]
+id=195
+name=Master Prosperity Ring
+INCLUDE items/base/rings/gold_2.txt
+level=8
+quality=rare
+price=11200
+bonus=currency_find,30
+
+[item]
+id=196
+name=Master Loot Ring
+INCLUDE items/base/rings/gold_4.txt
+level=8
+quality=rare
+price=11200
+bonus=item_find,30
+
