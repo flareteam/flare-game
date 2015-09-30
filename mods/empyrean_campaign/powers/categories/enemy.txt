@@ -256,3 +256,17 @@ cooldown=2s
 modifier_damage=multiply,70,0
 post_effect=knockback,15,100ms
 
+# freezing melee attack
+[power]
+id=180
+type=fixed
+new_state=swing
+face=true
+use_hazard=true
+base_damage=melee
+lifespan=33ms
+radius=1.0
+starting_pos=melee
+trait_elemental=ice
+post_power=159
+post_effect=slow,50,2s

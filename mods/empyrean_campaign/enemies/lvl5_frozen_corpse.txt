@@ -1,0 +1,30 @@
+INCLUDE enemies/base/zombie.txt
+
+name=Frozen Corpse
+level=5
+categories=zombie,undead,dungeon,snowplains
+rarity=uncommon
+xp=32
+
+# combat stats
+hp=260
+speed=3
+turn_delay=400ms
+chance_pursue=10
+
+power=melee,164,2
+power=melee,175,10
+
+accuracy=100
+avoidance=30
+poise=32
+
+dmg_melee_min=90
+dmg_melee_max=95
+cooldown=2400ms
+
+vulnerable_fire=125
+vulnerable_ice=50
+
+#loot
+loot=loot/level_5.txt

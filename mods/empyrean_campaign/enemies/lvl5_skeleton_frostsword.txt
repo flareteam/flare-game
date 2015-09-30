@@ -1,0 +1,33 @@
+INCLUDE enemies/base/skeleton.txt
+
+name=Skeleton Frostsword
+level=5
+categories=skeleton,undead,dungeon,snowplains
+rarity=common
+xp=32
+
+# combat stats
+hp=260
+speed=4.5
+turn_delay=400ms
+chance_pursue=10
+
+power=melee,180,10
+
+accuracy=110
+avoidance=30
+poise=27
+
+dmg_melee_min=85
+dmg_melee_max=95
+cooldown=2200ms
+
+absorb_min=5
+absorb_max=5
+
+vulnerable_fire=125
+vulnerable_ice=50
+
+# loot
+loot=loot/level_5.txt
+
