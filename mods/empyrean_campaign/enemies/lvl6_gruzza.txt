@@ -1,0 +1,34 @@
+INCLUDE enemies/base/goblin_elite_runner.txt
+
+name=Gruzza
+level=6
+categories=gruzza
+rarity=rare
+xp=64
+
+# combat stats
+hp=720
+speed=4.5
+turn_delay=200ms
+chance_pursue=50
+
+power=melee,164,2
+power=melee,168,5
+
+accuracy=115
+avoidance=35
+poise=30
+
+dmg_melee_min=120
+dmg_melee_max=125
+absorb_min=6
+absorb_max=6
+cooldown=1000ms
+
+# quest loot
+quest_loot=emp_amir_init,emp_amir_gem_b,1007
+
+# loot
+loot_count=3,4
+loot=loot/level_6.txt
+
