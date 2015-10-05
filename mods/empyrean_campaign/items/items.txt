@@ -34,3 +34,15 @@ INCLUDE items/categories/level_8.txt
 
 # Quest items (starts at 1000)
 INCLUDE items/categories/quest.txt
+
+# developer items
+[item]
+id=2000
+name=DEV Boots
+INCLUDE items/base/armor/magic_boots.txt
+quality=unique
+bonus=stealth,100
+power=500
+power_desc=Use: Teleport to target position.
+
+
