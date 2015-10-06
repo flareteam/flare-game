@@ -1,19 +1,19 @@
 INCLUDE enemies/base/goblin.txt
 
-name=Goblin Vanguard
+name=Goblin Hurler
 level=5
-categories=goblin,dungeon
-rarity=common
+categories=goblin,goblin_spearman,dungeon
+rarity=uncommon
 xp=32
 
 # combat stats
 hp=250
-speed=2.5
-melee_range=1.125
+speed=2
 turn_delay=400ms
-chance_pursue=10
+chance_pursue=15
 
 power=melee,164,5
+power=ranged,165,3
 
 accuracy=105
 avoidance=30
@@ -21,7 +21,11 @@ poise=22
 
 dmg_melee_min=85
 dmg_melee_max=90
+dmg_ranged_min=90
+dmg_ranged_max=95
 cooldown=2000ms
+absorb_min=4
+absorb_max=5
 
 # loot
 loot=loot/level_5.txt
