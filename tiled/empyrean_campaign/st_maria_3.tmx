@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="isometric" renderorder="right-down" width="40" height="60" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="61">
+<map version="1.0" orientation="isometric" renderorder="right-down" width="40" height="60" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="63">
  <properties>
   <property name="music" value="music/boss_theme.ogg"/>
   <property name="tileset" value="tilesetdefs/tileset_dungeon.txt"/>
@@ -98,7 +98,7 @@
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,145,0,0,110,244,245,110,0,0,145,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,145,0,0,167,183,0,167,0,0,145,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,121,0,0,0,0,0,0,0,0,0,0,121,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,167,0,193,0,0,193,0,0,126,123,123,123,123,123,123,123,123,123,123,125,0,0,193,0,0,193,0,167,0,0,0,0,0,0,0,0,0,
@@ -162,7 +162,7 @@
   <data encoding="csv">
 4,4,4,4,4,4,0,0,0,0,0,0,0,2,2,2,2,2,2,2,2,0,0,0,0,0,0,0,4,4,4,4,4,4,4,4,4,4,4,4,
 4,4,4,4,4,4,0,4,4,4,2,0,0,0,0,0,0,0,0,0,0,0,0,2,4,4,4,0,4,4,4,4,4,4,4,4,4,4,4,4,
-4,4,4,4,4,4,0,4,4,4,2,0,4,0,0,1,0,0,1,0,0,4,0,2,4,4,4,0,4,4,4,4,4,4,4,4,4,4,4,4,
+4,4,4,4,4,4,0,4,4,4,2,0,4,0,0,4,0,3,4,0,0,4,0,2,4,4,4,0,4,4,4,4,4,4,4,4,4,4,4,4,
 4,4,4,4,4,4,0,4,4,4,2,0,0,0,0,0,0,0,0,0,0,0,0,2,4,4,4,0,4,4,4,4,4,4,4,4,4,4,4,4,
 4,4,2,2,2,2,4,2,2,2,2,4,0,0,0,0,0,0,0,0,0,0,4,2,2,2,2,4,2,2,2,2,4,4,4,4,4,4,4,4,
 4,4,2,4,0,0,0,0,0,0,0,4,4,4,4,4,4,4,4,4,4,4,4,0,0,0,0,0,0,0,4,2,4,4,4,4,4,4,4,4,
@@ -298,15 +298,6 @@
     <property name="power_path" value="27,5,27,5"/>
     <property name="repeat" value="false"/>
     <property name="requires_status" value="emp_seagate_defeated"/>
-   </properties>
-  </object>
-  <object id="19" name="to Lake Kuuma" type="on_trigger" x="512" y="64" width="64" height="32">
-   <properties>
-    <property name="hotspot" value="location"/>
-    <property name="intermap" value="maps/lake_kuuma.txt,26,28"/>
-    <property name="soundfx" value="soundfx/environment/teleporter.ogg,0,0"/>
-    <property name="tooltip" value="Lake Kuuma"/>
-    <property name="unset_status" value="emp_seagate_door"/>
    </properties>
   </object>
   <object id="20" name="kill seagate's tombstones (on_load)" type="on_load" x="384" y="160" width="32" height="32">
@@ -474,6 +465,11 @@
     <property name="set_status" value="emp_main_init"/>
    </properties>
   </object>
+  <object id="62" name="brazier sound effect" type="on_load" x="512" y="64" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="enemy">
   <object id="15" type="seagate_tombstone" x="192" y="160" width="32" height="32">
@@ -523,5 +519,8 @@
     <property name="wander_radius" value="0"/>
    </properties>
   </object>
+ </objectgroup>
+ <objectgroup name="npc">
+  <object id="61" type="npcs/glowing_obelisk_1.txt" x="544" y="64" width="32" height="32"/>
  </objectgroup>
 </map>
