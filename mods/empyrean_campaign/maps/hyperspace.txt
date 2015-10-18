@@ -189,6 +189,16 @@ soundfx=soundfx/environment/teleporter.ogg,0,0
 tooltip=St. Maria: Prison
 
 [event]
+# to Blackmire Mines
+type=on_trigger
+location=31,16,2,2
+hotspot=location
+intermap=maps/blackmire_mines.txt,63,19
+requires_status=emp_waypoint_4
+soundfx=soundfx/environment/teleporter.ogg,0,0
+tooltip=Blackmire Mines
+
+[event]
 # Wind sound
 type=on_load
 location=0,0,1,1
@@ -214,4 +224,11 @@ type=on_load
 location=29,7,1,1
 mapmod=background,29,10,265
 requires_status=emp_waypoint_3
+
+[event]
+# unlock Blackmire Mines
+type=on_load
+location=34,16,1,1
+mapmod=background,31,17,265
+requires_status=emp_waypoint_4
 

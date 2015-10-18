@@ -942,10 +942,11 @@
     <property name="tooltip" value="Fort Amir"/>
    </properties>
   </object>
-  <object id="42" name="to Mines" type="on_trigger" x="1504" y="3328" width="32" height="64">
+  <object id="42" name="to Blackmire Mines" type="on_trigger" x="1504" y="3328" width="32" height="64">
    <properties>
     <property name="hotspot" value="location"/>
-    <property name="tooltip" value="Unknown Destination"/>
+    <property name="intermap" value="maps/blackmire_mines.txt,76,6"/>
+    <property name="tooltip" value="Blackmire Mines"/>
    </properties>
   </object>
   <object id="43" name="Wind and crickets sound effect" type="on_load" x="0" y="0" width="32" height="32">
