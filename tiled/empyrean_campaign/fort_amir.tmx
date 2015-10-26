@@ -440,12 +440,15 @@
     <property name="requires_not_status" value="emp_amir_bookcase"/>
     <property name="requires_status" value="emp_amir_init,emp_amir_statue_a,emp_amir_statue_b"/>
     <property name="set_status" value="emp_amir_bookcase"/>
+    <property name="soundfx" value="soundfx/environment/stone_open.ogg,40,51"/>
    </properties>
   </object>
-  <object id="36" name="open bookcase (on_load)" type="on_load" x="1184" y="1504" width="32" height="32">
+  <object id="36" name="open bookcase (post-quest)" type="on_trigger" x="1216" y="1824" width="128" height="32">
    <properties>
     <property name="mapmod" value="object,40,51,0;collision,40,51,0"/>
+    <property name="repeat" value="false"/>
     <property name="requires_status" value="emp_amir_bookcase"/>
+    <property name="soundfx" value="soundfx/environment/stone_open.ogg,40,51"/>
    </properties>
   </object>
   <object id="37" name="quest reward" type="on_trigger" x="1728" y="1376" width="32" height="32">

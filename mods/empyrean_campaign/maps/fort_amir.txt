@@ -438,13 +438,16 @@ repeat=false
 requires_not_status=emp_amir_bookcase
 requires_status=emp_amir_init,emp_amir_statue_a,emp_amir_statue_b
 set_status=emp_amir_bookcase
+soundfx=soundfx/environment/stone_open.ogg,40,51
 
 [event]
-# open bookcase (on_load)
-type=on_load
-location=37,47,1,1
+# open bookcase (post-quest)
+type=on_trigger
+location=38,57,4,1
 mapmod=object,40,51,0;collision,40,51,0
+repeat=false
 requires_status=emp_amir_bookcase
+soundfx=soundfx/environment/stone_open.ogg,40,51
 
 [event]
 # quest reward
