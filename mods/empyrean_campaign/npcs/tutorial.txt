@@ -1,0 +1,17 @@
+name=Skeleton with note
+
+# animation info
+gfx=animations/npcs/dead_skeleton.txt
+
+talker=true
+
+[dialog]
+topic=Tutorial
+allow_movement=false
+her=Welcome to the lands of the exiled. Allow me to go over a few things. Click on the arrow to continue.
+her=Your health, mana, and experience points are displayed in the top left of the screen.
+her=In the top right is a map of your current location.
+her=On the bottom of the screen is your action bar. Here, you have quick access to your most used abilities.
+her=In addition, you can access the Character, Inventory, Powers, and Log menus from the action bar.
+her=${INPUT_MOVEMENT} will allow you to move around. ${INPUT_ATTACK} will use your primary attack.
+her=Good luck!
