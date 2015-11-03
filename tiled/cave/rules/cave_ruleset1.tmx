@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="isometric" width="11" height="7" tilewidth="64" tileheight="32">
+<map version="1.0" orientation="isometric" renderorder="right-down" width="11" height="7" tilewidth="64" tileheight="32" nextobjectid="1">
  <properties>
   <property name="AutomappingRadius" value="1"/>
   <property name="NoOverlappingRules" value="1"/>
  </properties>
- <tileset firstgid="1" name="collision" tilewidth="64" tileheight="32">
+ <tileset firstgid="1" name="collision" tilewidth="64" tileheight="32" tilecount="15">
   <image source="../tiled_collision.png" width="960" height="32"/>
  </tileset>
- <tileset firstgid="16" name="cave" tilewidth="64" tileheight="128">
+ <tileset firstgid="16" name="cave" tilewidth="64" tileheight="128" tilecount="240">
   <image source="../tiled_cave.png" width="1024" height="1920"/>
  </tileset>
- <tileset firstgid="256" name="set_rules" tilewidth="64" tileheight="32">
+ <tileset firstgid="256" name="set_rules" tilewidth="64" tileheight="32" tilecount="8">
   <image source="../set_rules.png" width="128" height="128"/>
  </tileset>
  <layer name="regions" width="11" height="7" visible="0">
@@ -28,7 +28,7 @@
    eJxjYCANsDAyMDAzQtgwmgWJD2Nj04esh1qAkLnkuhcfAAAtBABJ
   </data>
  </layer>
- <layer name="output_background" width="11" height="7" visible="0">
+ <layer name="output_background" width="11" height="7">
   <data encoding="base64" compression="zlib">
    eJxjYCANCBApRm9wGI/cASh9EE38EJl2AQAPfwMn
   </data>
@@ -38,22 +38,67 @@
    eJxjYCANCBApRm9wHI/cESh9FE38GJl2AQAUbwM3
   </data>
  </layer>
+ <layer name="output2_background" width="11" height="7" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJxjYCANCBApRm9wGI/cASh9EE38EJl2AQAPfwMn
+  </data>
+ </layer>
+ <layer name="output3_background" width="11" height="7" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJxjYCANCBApRm9wHI/cESh9FE38GJl2AQAUbwM3
+  </data>
+ </layer>
+ <layer name="output4_background" width="11" height="7" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJxjYCANCBApRm9wGI/cASh9EE38EJl2AQAPfwMn
+  </data>
+ </layer>
  <layer name="output_object" width="11" height="7">
   <data encoding="base64" compression="zlib">
    eJxjYCANOGARc0RiO+HQ50yiPYMZAADvUAEH
   </data>
  </layer>
- <layer name="output1_object" width="11" height="7">
+ <layer name="output1_object" width="11" height="7" visible="0">
   <data encoding="base64" compression="zlib">
    eJxjYCANuGARc0Viu+HQ506iPYMZAAD94AEX
   </data>
  </layer>
- <layer name="output_collision" width="11" height="7" visible="0">
+ <layer name="output2_object" width="11" height="7" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJxjYCANJGARS0RiO+HQ50yiPYMZAAAt3wFH
+  </data>
+ </layer>
+ <layer name="output3_object" width="11" height="7" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJxjYCANpGARS0Viu+HQ506iPYMZAAA8bwFX
+  </data>
+ </layer>
+ <layer name="output4_object" width="11" height="7" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJxjYCANFGARK0RiO+HQ50yiPYMZAABNHwFn
+  </data>
+ </layer>
+ <layer name="output_collision" width="11" height="7">
   <data encoding="base64" compression="zlib">
    eJxjYCANMBIQwyaPT5xagIkIOXQ1+PTgAwAHUAAN
   </data>
  </layer>
  <layer name="output1_collision" width="11" height="7" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJxjYCANMBIQwyaPT5xagIkIOXQ1+PTgAwAHUAAN
+  </data>
+ </layer>
+ <layer name="output2_collision" width="11" height="7" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJxjYCANMBIQwyaPT5xagIkIOXQ1+PTgAwAHUAAN
+  </data>
+ </layer>
+ <layer name="output3_collision" width="11" height="7" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJxjYCANMBIQwyaPT5xagIkIOXQ1+PTgAwAHUAAN
+  </data>
+ </layer>
+ <layer name="output4_collision" width="11" height="7" visible="0">
   <data encoding="base64" compression="zlib">
    eJxjYCANMBIQwyaPT5xagIkIOXQ1+PTgAwAHUAAN
   </data>
