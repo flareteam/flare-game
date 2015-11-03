@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="isometric" width="13" height="13" tilewidth="64" tileheight="32">
+<map version="1.0" orientation="isometric" renderorder="right-down" width="13" height="13" tilewidth="64" tileheight="32" nextobjectid="1">
  <properties>
   <property name="AutomappingRadius" value="1"/>
  </properties>
- <tileset firstgid="1" name="collision" tilewidth="64" tileheight="32">
+ <tileset firstgid="1" name="collision" tilewidth="64" tileheight="32" tilecount="15">
   <image source="../tiled_collision.png" width="960" height="32"/>
  </tileset>
- <tileset firstgid="16" name="cave" tilewidth="64" tileheight="128">
+ <tileset firstgid="16" name="cave" tilewidth="64" tileheight="128" tilecount="240">
   <image source="../tiled_cave.png" width="1024" height="1920"/>
  </tileset>
- <tileset firstgid="256" name="set_rules" tilewidth="64" tileheight="32">
+ <tileset firstgid="256" name="set_rules" tilewidth="64" tileheight="32" tilecount="8">
   <image source="../set_rules.png" width="128" height="128"/>
  </tileset>
  <layer name="regions" width="13" height="13" visible="0">
@@ -27,14 +27,14 @@
    eJxjYCAPsDBCMDqbGU2cmRFVDzMOddjY5AJc9jCjiSO7DZccPv+Q67ahHm7IgNhwowQAAIMlARk=
   </data>
  </layer>
- <layer name="output_background" width="13" height="13" visible="0">
+ <layer name="output_background" width="13" height="13">
   <data encoding="base64" compression="zlib">
-   eJxjYCAfCEBpSxzyFjjU0xqg24PLfaQCdP9QE5xG459A45+E0qdo6AZc4DIa/wIa/yKUvkQj+wG7Jgd/
+   eJxjYCAPCEAxCFjiUGOBRQ89ALo9uNxHKkD3DzXBaTT+CTT+SSh9ioZuwAUuo/EvoPEvQulLNLIfAOHmB48=
   </data>
  </layer>
- <layer name="output1_background" width="13" height="13" visible="0">
+ <layer name="output1_background" width="13" height="13">
   <data encoding="base64" compression="zlib">
-   eJxjYCAfCEBpSxzyFjjU0xqg24PLfaQCdP9QE5xH459B45+F0udo6AZc4DIa/wIa/yKUvkQj+wHLhgeP
+   eJxjYCAPCEAxCFjiUGOBRQ89ALo9uNxHKkD3DzXBeTT+GTT+WSh9joZuwAUuo/EvoPEvQulLNLIfAPJGB58=
   </data>
  </layer>
  <layer name="output_object" width="13" height="13">
