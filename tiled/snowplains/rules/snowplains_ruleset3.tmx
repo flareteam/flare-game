@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="isometric" renderorder="right-down" width="20" height="20" tilewidth="64" tileheight="32" nextobjectid="1">
+<map version="1.0" orientation="isometric" renderorder="right-down" width="20" height="24" tilewidth="64" tileheight="32" nextobjectid="1">
  <properties>
   <property name="AutomappingRadius" value="1"/>
  </properties>
@@ -23,34 +23,34 @@
  <tileset firstgid="256" name="set_rules" tilewidth="64" tileheight="32" tilecount="8">
   <image source="../set_rules.png" width="128" height="128"/>
  </tileset>
- <layer name="regions" width="20" height="20">
+ <layer name="regions" width="20" height="24">
   <data encoding="base64" compression="zlib">
-   eJxjYKABYKSBeTDMgMZGV0OqmbjsYMDDxmUeIfcQsm+kA1zhgS++8YUfLjX4xIl1IzFmEhu3wyUdkBJ+xOgjJY6J0UNKfJDiBlLBcIhrKAAA3bEAQA==
+   eJzVVEEKACAIW///dKcgxOk8DEoIJGzNrQQMsQx4ZyHksWaKye5AkTO8jk/Wg0OrX4PpUWlZ9ctqqn2Vo4KpeqG+g9e9neinnFvofVb+8YRfrHP801d8VOZoNns7vGzGZZiMw5Tzzcs1V02xAVvDAF0=
   </data>
  </layer>
- <layer name="input_automap" width="20" height="20">
+ <layer name="input_automap" width="20" height="24">
   <data encoding="base64" compression="zlib">
-   eJzdklEKwCAMQ430/mce4gqSZWuF/sxAP7T6WhtbqxdQyzPMcC7uNZ/ZqcvnvcbK5XzEWwXRD/DMV8/qz+qYkdnnP/HFY2+68NqZkd7qmvAzwxs65R9k3qu8VJ47T/nEd41mrjwfys6YeVEPuzrBa9cFBUoA6A==
+   eJzNlOEKgCAQg5v4/s8cYgfHWOdZUg78odl36pzHsV7AWl5Fb8bF1ec5M3V5vtXwXP4+4nlBrAe0BzXnrVbzvlRBb5lxvhMRj70pwmtjjnRXtwo/M7ym7D3I8v5SZn3KS+W58VQu+d9KZ648b8pmg3lR/SfaJaNRrrhvY9E5cK58/vyeQbzZdzvyNvMu7KQT0CQBWg==
   </data>
  </layer>
- <layer name="input_automap" width="20" height="20">
+ <layer name="input_automap" width="20" height="24" visible="0">
   <data encoding="base64" compression="zlib">
-   eJxjYKA+YGKkrXkgPrXtGAWjYBSMglFAGgAAShAADQ==
+   eJxjYKA+YGKkrXkgPrXtGAWjYBSMglEwCugJAFpQAA0=
   </data>
  </layer>
- <layer name="input_automap" width="20" height="20">
+ <layer name="input_automap" width="20" height="24" visible="0">
   <data encoding="base64" compression="zlib">
-   eJxjYKA+YGGkrnlMaOaBzEcXGwWjYBSMglFAXwAAYQAAEQ==
+   eJxjYKA+YGGkrnlMaOaBzEcXGwWjYBSMglEwCoYSAAB2QAAR
   </data>
  </layer>
- <layer name="input_automap" width="20" height="20">
+ <layer name="input_automap" width="20" height="24" visible="0">
   <data encoding="base64" compression="zlib">
-   eJxjYKA+YGakrXkgPrXtGAUDD3DFK7nxjc+8UTAwAFucUBIfo/E7sAAA5FAAQQ==
+   eJxjYKA+YGakrXkgPrXtGAUDD3DFK7nxjc+8UTAwAFucUBIfo/E7CoYyAAA1nwBB
   </data>
  </layer>
- <layer name="output_snowtop" width="20" height="20" visible="0">
+ <layer name="output_snowtop" width="20" height="24" visible="0">
   <data encoding="base64" compression="zlib">
-   eJxjYKA+EKCBmYTMHwg7RwH1ASlxSyhOBCjQOwpoA6gZv7j0jMYt/QAANW0A8Q==
+   eJxjYKA+EKCBmYTMHwg7RwH1ASlxSyhOBCjQOwpoA6gZv7j0jMYtcYCYuCDEJ2T+aFzgBwDhPAFR
   </data>
  </layer>
 </map>
