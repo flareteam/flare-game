@@ -1,0 +1,33 @@
+INCLUDE enemies/base/antlion.txt
+
+name=Antlion
+level=5
+categories=antlion,dungeon
+rarity=uncommon
+xp=32
+
+# combat stats
+hp=260
+speed=5.5
+turn_delay=166ms
+
+chance_pursue=30
+
+power=melee,164,2
+power=melee,168,5
+
+accuracy=105
+avoidance=45
+poise=32
+
+absorb_min=6
+absorb_max=8
+
+dmg_melee_min=90
+dmg_melee_max=95
+
+cooldown=1600ms
+
+# loot
+loot=loot/level_5.txt
+
