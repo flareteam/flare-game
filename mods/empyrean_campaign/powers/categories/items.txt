@@ -22,3 +22,16 @@ cooldown=500ms
 buff=true
 post_effect=mp_restore,25,33ms
 
+[power]
+id=181
+type=spawn
+icon=72
+name=Summon Zombie
+new_state=cast
+#soundfx=
+requires_item=203
+cooldown=2s
+spawn_type=summon_zombie
+spawn_limit=fixed,1
+requires_los=true
+requires_empty_target=true
