@@ -6,7 +6,7 @@ name=Warrior Cloth Shirt
 INCLUDE items/base/armor/cloth/chest.txt
 level=3
 quality=epic
-price=600
+price=225
 abs=2
 requires_stat=defense,3
 requires_stat=physical,3
@@ -18,7 +18,7 @@ name=Ranger Cloth Shirt
 INCLUDE items/base/armor/cloth/chest.txt
 level=3
 quality=epic
-price=600
+price=225
 abs=1,2
 requires_stat=defense,3
 requires_stat=offense,3
@@ -30,7 +30,7 @@ name=Wizard Cloth Shirt
 INCLUDE items/base/armor/cloth/chest.txt
 level=3
 quality=epic
-price=600
+price=225
 abs=1
 requires_stat=defense,3
 requires_stat=mental,3
@@ -42,7 +42,7 @@ name=Warrior Cloth Pants
 INCLUDE items/base/armor/cloth/legs.txt
 level=3
 quality=epic
-price=400
+price=150
 abs=1,2
 requires_stat=defense,3
 requires_stat=physical,3
@@ -54,7 +54,7 @@ name=Ranger Cloth Pants
 INCLUDE items/base/armor/cloth/legs.txt
 level=3
 quality=epic
-price=400
+price=150
 abs=1
 requires_stat=defense,3
 requires_stat=offense,3
@@ -66,7 +66,7 @@ name=Wizard Cloth Pants
 INCLUDE items/base/armor/cloth/legs.txt
 level=3
 quality=epic
-price=400
+price=150
 abs=0,1
 requires_stat=defense,3
 requires_stat=mental,3
@@ -78,7 +78,7 @@ name=Warrior Cloth Sandals
 INCLUDE items/base/armor/cloth/feet.txt
 level=3
 quality=epic
-price=300
+price=90
 abs=1
 requires_stat=defense,3
 requires_stat=physical,3
@@ -90,7 +90,7 @@ name=Ranger Cloth Sandals
 INCLUDE items/base/armor/cloth/feet.txt
 level=3
 quality=epic
-price=300
+price=90
 abs=0,1
 requires_stat=defense,3
 requires_stat=offense,3
@@ -102,7 +102,7 @@ name=Wizard Cloth Sandals
 INCLUDE items/base/armor/cloth/feet.txt
 level=3
 quality=epic
-price=300
+price=90
 requires_stat=defense,3
 requires_stat=mental,3
 bonus=mp_regen,2
@@ -113,7 +113,7 @@ name=Warrior Cloth Gloves
 INCLUDE items/base/armor/cloth/hands.txt
 level=3
 quality=epic
-price=200
+price=75
 abs=1
 requires_stat=defense,3
 requires_stat=physical,3
@@ -125,7 +125,7 @@ name=Ranger Cloth Gloves
 INCLUDE items/base/armor/cloth/hands.txt
 level=3
 quality=epic
-price=200
+price=75
 abs=0,1
 requires_stat=defense,3
 requires_stat=offense,3
@@ -137,7 +137,7 @@ name=Wizard Cloth Gloves
 INCLUDE items/base/armor/cloth/hands.txt
 level=3
 quality=epic
-price=200
+price=75
 requires_stat=defense,3
 requires_stat=mental,3
 bonus=mp_regen,4
@@ -148,7 +148,7 @@ name=Warrior Cloth Sash
 INCLUDE items/base/armor/belt.txt
 level=3
 quality=epic
-price=400
+price=150
 requires_stat=defense,3
 requires_stat=physical,3
 bonus=hp_regen,50
@@ -159,7 +159,7 @@ name=Ranger Cloth Sash
 INCLUDE items/base/armor/belt.txt
 level=3
 quality=epic
-price=400
+price=150
 requires_stat=defense,3
 requires_stat=offense,3
 bonus=avoidance,6
@@ -170,7 +170,7 @@ name=Wizard Cloth Sash
 INCLUDE items/base/armor/belt.txt
 level=3
 quality=epic
-price=400
+price=150
 requires_stat=defense,3
 requires_stat=mental,3
 bonus=mp_regen,4
@@ -181,7 +181,7 @@ name=Warrior Dagger
 INCLUDE items/base/weapons/melee/dagger.txt
 level=3
 quality=epic
-price=800
+price=300
 dmg_melee=25,30
 requires_stat=physical,7
 bonus=dmg_melee_min,10
@@ -193,7 +193,7 @@ name=Ranger Slingshot
 INCLUDE items/base/weapons/ranged/slingshot.txt
 level=3
 quality=epic
-price=800
+price=300
 dmg_ranged=40,45
 requires_stat=offense,7
 bonus=dmg_ranged_min,10
@@ -205,7 +205,7 @@ name=Wizard Wand
 INCLUDE items/base/weapons/magic/wand.txt
 level=3
 quality=epic
-price=800
+price=300
 dmg_ment=25,30
 requires_stat=mental,7
 bonus=dmg_ment_min,10
@@ -219,7 +219,7 @@ level=3
 quality=epic
 abs=1,2
 requires_stat=defense,5
-price=600
+price=225
 bonus=absorb_max,2
 
 [item]
@@ -228,7 +228,7 @@ name=Adventurer Fire Ring
 INCLUDE items/base/rings/gold_5.txt
 level=3
 quality=epic
-price=1400
+price=300
 bonus=fire_resist,10
 
 [item]
@@ -237,7 +237,7 @@ name=Adventurer Ice Ring
 INCLUDE items/base/rings/silver_4.txt
 level=3
 quality=epic
-price=1400
+price=300
 bonus=ice_resist,10
 
 [item]
@@ -246,7 +246,7 @@ name=Adventurer Lightning Ring
 INCLUDE items/base/rings/silver_5.txt
 level=3
 quality=epic
-price=1400
+price=300
 bonus=lightning_resist,10
 
 [item]
@@ -255,7 +255,7 @@ name=Adventurer Dark Ring
 INCLUDE items/base/rings/gold_3.txt
 level=3
 quality=epic
-price=1400
+price=300
 bonus=dark_resist,10
 
 [item]
@@ -264,7 +264,7 @@ name=Adventurer Experience Ring
 INCLUDE items/base/rings/silver_2.txt
 level=3
 quality=epic
-price=1400
+price=300
 bonus=xp_gain,10
 
 [item]
@@ -273,7 +273,7 @@ name=Adventurer Wealth Ring
 INCLUDE items/base/rings/gold_2.txt
 level=3
 quality=epic
-price=1400
+price=300
 bonus=currency_find,10
 
 [item]
@@ -282,6 +282,6 @@ name=Adventurer Treasure Ring
 INCLUDE items/base/rings/gold_4.txt
 level=3
 quality=epic
-price=1400
+price=300
 bonus=item_find,10
 

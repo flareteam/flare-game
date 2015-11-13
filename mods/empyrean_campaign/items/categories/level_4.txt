@@ -6,7 +6,7 @@ name=Warlord Cloth Shirt
 INCLUDE items/base/armor/cloth/chest.txt
 level=4
 quality=rare
-price=1200
+price=300
 abs=2,3
 requires_stat=defense,6
 requires_stat=physical,4
@@ -18,7 +18,7 @@ name=Sniper Cloth Shirt
 INCLUDE items/base/armor/cloth/chest.txt
 level=4
 quality=rare
-price=1200
+price=300
 abs=2
 requires_stat=defense,6
 requires_stat=offense,4
@@ -30,7 +30,7 @@ name=Archwizard Cloth Shirt
 INCLUDE items/base/armor/cloth/chest.txt
 level=4
 quality=rare
-price=1200
+price=300
 abs=1,2
 requires_stat=defense,6
 requires_stat=mental,4
@@ -42,7 +42,7 @@ name=Warlord Cloth Pants
 INCLUDE items/base/armor/cloth/legs.txt
 level=4
 quality=rare
-price=800
+price=200
 abs=2
 requires_stat=defense,6
 requires_stat=physical,4
@@ -54,7 +54,7 @@ name=Sniper Cloth Pants
 INCLUDE items/base/armor/cloth/legs.txt
 level=4
 quality=rare
-price=800
+price=200
 abs=1,2
 requires_stat=defense,6
 requires_stat=offense,4
@@ -66,7 +66,7 @@ name=Archwizard Cloth Pants
 INCLUDE items/base/armor/cloth/legs.txt
 level=4
 quality=rare
-price=800
+price=200
 abs=1
 requires_stat=defense,6
 requires_stat=mental,4
@@ -78,7 +78,7 @@ name=Warlord Cloth Sandals
 INCLUDE items/base/armor/cloth/feet.txt
 level=4
 quality=rare
-price=600
+price=120
 abs=1,2
 requires_stat=defense,6
 requires_stat=physical,4
@@ -90,7 +90,7 @@ name=Sniper Cloth Sandals
 INCLUDE items/base/armor/cloth/feet.txt
 level=4
 quality=rare
-price=600
+price=120
 abs=1
 requires_stat=defense,6
 requires_stat=offense,4
@@ -102,7 +102,7 @@ name=Archwizard Cloth Sandals
 INCLUDE items/base/armor/cloth/feet.txt
 level=4
 quality=rare
-price=600
+price=120
 abs=0,1
 requires_stat=defense,6
 requires_stat=mental,4
@@ -114,7 +114,7 @@ name=Warlord Cloth Gloves
 INCLUDE items/base/armor/cloth/hands.txt
 level=4
 quality=rare
-price=400
+price=100
 abs=1,2
 requires_stat=defense,6
 requires_stat=physical,4
@@ -126,7 +126,7 @@ name=Sniper Cloth Gloves
 INCLUDE items/base/armor/cloth/hands.txt
 level=4
 quality=rare
-price=400
+price=100
 abs=1
 requires_stat=defense,6
 requires_stat=offense,4
@@ -138,7 +138,7 @@ name=Archwizard Cloth Gloves
 INCLUDE items/base/armor/cloth/hands.txt
 level=4
 quality=rare
-price=400
+price=100
 abs=0,1
 requires_stat=defense,6
 requires_stat=mental,4
@@ -150,7 +150,7 @@ name=Warlord Cloth Sash
 INCLUDE items/base/armor/belt.txt
 level=4
 quality=rare
-price=800
+price=200
 requires_stat=defense,6
 requires_stat=physical,4
 bonus=hp_regen,75
@@ -161,7 +161,7 @@ name=Sniper Cloth Sash
 INCLUDE items/base/armor/belt.txt
 level=4
 quality=rare
-price=800
+price=200
 requires_stat=defense,6
 requires_stat=offense,4
 bonus=avoidance,9
@@ -172,7 +172,7 @@ name=Archwizard Cloth Sash
 INCLUDE items/base/armor/belt.txt
 level=4
 quality=rare
-price=800
+price=200
 requires_stat=defense,6
 requires_stat=mental,4
 bonus=mp_regen,6
@@ -184,7 +184,7 @@ name=Warlord Dagger
 INCLUDE items/base/weapons/melee/dagger.txt
 level=4
 quality=rare
-price=1600
+price=400
 dmg_melee=25,30
 requires_stat=physical,10
 bonus=dmg_melee_min,15
@@ -196,7 +196,7 @@ name=Sniper Slingshot
 INCLUDE items/base/weapons/ranged/slingshot.txt
 level=4
 quality=rare
-price=1600
+price=400
 dmg_ranged=40,45
 requires_stat=offense,10
 bonus=dmg_ranged_min,15
@@ -208,7 +208,7 @@ name=Archwizard Wand
 INCLUDE items/base/weapons/magic/wand.txt
 level=4
 quality=rare
-price=1600
+price=400
 dmg_ment=25,30
 requires_stat=mental,10
 bonus=dmg_ment_min,15
@@ -222,7 +222,7 @@ level=4
 quality=rare
 abs=2
 requires_stat=defense,8
-price=1200
+price=300
 bonus=absorb_max,3
 
 [item]
@@ -231,7 +231,7 @@ name=Master Fire Ring
 INCLUDE items/base/rings/gold_5.txt
 level=4
 quality=rare
-price=2800
+price=400
 bonus=fire_resist,15
 
 [item]
@@ -240,7 +240,7 @@ name=Master Ice Ring
 INCLUDE items/base/rings/silver_4.txt
 level=4
 quality=rare
-price=2800
+price=400
 bonus=ice_resist,15
 
 [item]
@@ -249,7 +249,7 @@ name=Master Lightning Ring
 INCLUDE items/base/rings/silver_5.txt
 level=4
 quality=rare
-price=2800
+price=400
 bonus=lightning_resist,15
 
 [item]
@@ -258,7 +258,7 @@ name=Master Dark Ring
 INCLUDE items/base/rings/gold_3.txt
 level=4
 quality=rare
-price=2800
+price=400
 bonus=dark_resist,15
 
 [item]
@@ -267,7 +267,7 @@ name=Master Experience Ring
 INCLUDE items/base/rings/silver_2.txt
 level=4
 quality=rare
-price=2800
+price=400
 bonus=xp_gain,15
 
 [item]
@@ -276,7 +276,7 @@ name=Master Wealth Ring
 INCLUDE items/base/rings/gold_2.txt
 level=4
 quality=rare
-price=2800
+price=400
 bonus=currency_find,15
 
 [item]
@@ -285,7 +285,7 @@ name=Master Treasure Ring
 INCLUDE items/base/rings/gold_4.txt
 level=4
 quality=rare
-price=2800
+price=400
 bonus=item_find,15
 
 # unique items
@@ -296,7 +296,7 @@ flavor=Sharp enough to cut through stone.
 INCLUDE items/base/weapons/melee/dagger.txt
 level=4
 quality=unique
-price=3200
+price=500
 dmg_melee=25,30
 requires_stat=physical,10
 bonus=dmg_melee_min,20
@@ -311,7 +311,7 @@ flavor=Mana flows inside its primitive exterior.
 INCLUDE items/base/weapons/magic/wand.txt
 level=4
 quality=unique
-price=3200
+price=500
 dmg_ment=25,30
 requires_stat=mental,10
 bonus=dmg_ment_min,20
@@ -326,7 +326,7 @@ flavor=These hands built a village.
 INCLUDE items/base/armor/cloth/hands.txt
 level=4
 quality=unique
-price=800
+price=125
 abs=1,2
 requires_stat=offense,4
 requires_stat=defense,6
@@ -342,7 +342,7 @@ flavor=When worn, this shirt heats the wearers veins.
 INCLUDE items/base/armor/cloth/chest.txt
 level=4
 quality=unique
-price=2400
+price=375
 abs=3
 requires_stat=physical,4
 requires_stat=defense,6
@@ -356,7 +356,7 @@ flavor=Dancing through the shadows.
 INCLUDE items/base/armor/cloth/feet.txt
 level=4
 quality=unique
-price=1200
+price=150
 abs=1,2
 requires_stat=offense,4
 requires_stat=defense,6
@@ -370,7 +370,7 @@ flavor=These ragged trousers are covered in scorch marks, yet are cold to the to
 INCLUDE items/base/armor/cloth/legs.txt
 level=4
 quality=unique
-price=1600
+price=250
 abs=1,2
 requires_stat=mental,4
 requires_stat=defense,6

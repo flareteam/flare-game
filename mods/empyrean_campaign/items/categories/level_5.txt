@@ -6,7 +6,7 @@ id=96
 name=Leather Hood
 INCLUDE items/base/armor/leather/head.txt
 level=5
-price=300
+price=150
 abs=1,2
 requires_stat=defense,9
 
@@ -15,7 +15,7 @@ id=97
 name=Leather Tunic
 INCLUDE items/base/armor/leather/chest.txt
 level=5
-price=600
+price=375
 abs=2,3
 requires_stat=defense,9
 
@@ -24,7 +24,7 @@ id=98
 name=Leather Pants
 INCLUDE items/base/armor/leather/legs.txt
 level=5
-price=400
+price=250
 abs=2
 requires_stat=defense,9
 
@@ -33,7 +33,7 @@ id=99
 name=Leather Boots
 INCLUDE items/base/armor/leather/feet.txt
 level=5
-price=300
+price=150
 abs=1,2
 requires_stat=defense,9
 
@@ -42,7 +42,7 @@ id=100
 name=Leather Gloves
 INCLUDE items/base/armor/leather/hands.txt
 level=5
-price=200
+price=125
 abs=1,2
 requires_stat=defense,9
 
@@ -52,7 +52,7 @@ id=101
 name=Wool Hood
 INCLUDE items/base/armor/mage/head.txt
 level=5
-price=300
+price=150
 abs=1
 requires_stat=defense,8
 
@@ -61,7 +61,7 @@ id=102
 name=Wool Vest
 INCLUDE items/base/armor/mage/chest.txt
 level=5
-price=600
+price=375
 abs=2
 requires_stat=defense,8
 
@@ -70,7 +70,7 @@ id=103
 name=Wool Skirt
 INCLUDE items/base/armor/mage/legs.txt
 level=5
-price=400
+price=250
 abs=1,2
 requires_stat=defense,8
 
@@ -79,7 +79,7 @@ id=104
 name=Wool Boots
 INCLUDE items/base/armor/mage/feet.txt
 level=5
-price=300
+price=150
 abs=1
 requires_stat=defense,8
 
@@ -88,7 +88,7 @@ id=105
 name=Wool Sleeves
 INCLUDE items/base/armor/mage/hands.txt
 level=5
-price=200
+price=125
 abs=1
 requires_stat=defense,8
 
@@ -100,7 +100,7 @@ INCLUDE items/base/weapons/melee/shortsword.txt
 level=5
 dmg_melee=45,50
 requires_stat=physical,13
-price=800
+price=500
 
 [item]
 id=107
@@ -109,7 +109,7 @@ INCLUDE items/base/weapons/ranged/shortbow.txt
 level=5
 dmg_ranged=60,65
 requires_stat=offense,13
-price=800
+price=500
 
 [item]
 id=108
@@ -118,7 +118,7 @@ INCLUDE items/base/weapons/magic/rod.txt
 level=5
 dmg_ment=45,50
 requires_stat=mental,13
-price=800
+price=500
 
 # buckler
 [item]
@@ -128,5 +128,5 @@ INCLUDE items/base/shields/iron.txt
 level=5
 abs=2,3
 requires_stat=defense,11
-price=600
+price=375
 

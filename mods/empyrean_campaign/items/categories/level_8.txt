@@ -6,7 +6,7 @@ name=Warlord Leather Hood
 INCLUDE items/base/armor/leather/head.txt
 level=8
 quality=rare
-price=2400
+price=240
 abs=3,4
 requires_stat=defense,16
 requires_stat=physical,9
@@ -18,7 +18,7 @@ name=Sniper Leather Hood
 INCLUDE items/base/armor/leather/head.txt
 level=8
 quality=rare
-price=2400
+price=240
 abs=3
 requires_stat=defense,15
 requires_stat=offense,9
@@ -30,7 +30,7 @@ name=Archwizard Wool Hood
 INCLUDE items/base/armor/mage/head.txt
 level=8
 quality=rare
-price=2400
+price=240
 abs=2,3
 requires_stat=defense,14
 requires_stat=mental,9
@@ -42,7 +42,7 @@ name=Warlord Leather Tunic
 INCLUDE items/base/armor/leather/chest.txt
 level=8
 quality=rare
-price=4800
+price=600
 abs=4,5
 requires_stat=defense,16
 requires_stat=physical,9
@@ -54,7 +54,7 @@ name=Sniper Leather Tunic
 INCLUDE items/base/armor/leather/chest.txt
 level=8
 quality=rare
-price=4800
+price=600
 abs=4
 requires_stat=defense,15
 requires_stat=offense,9
@@ -66,7 +66,7 @@ name=Archwizard Wool Vest
 INCLUDE items/base/armor/mage/chest.txt
 level=8
 quality=rare
-price=4800
+price=600
 abs=3,4
 requires_stat=defense,14
 requires_stat=mental,9
@@ -78,7 +78,7 @@ name=Warlord Leather Pants
 INCLUDE items/base/armor/leather/legs.txt
 level=8
 quality=rare
-price=3200
+price=400
 abs=4
 requires_stat=defense,16
 requires_stat=physical,9
@@ -90,7 +90,7 @@ name=Sniper Leather Pants
 INCLUDE items/base/armor/leather/legs.txt
 level=8
 quality=rare
-price=3200
+price=400
 abs=3,4
 requires_stat=defense,15
 requires_stat=offense,9
@@ -102,7 +102,7 @@ name=Archwizard Wool Skirt
 INCLUDE items/base/armor/mage/legs.txt
 level=8
 quality=rare
-price=3200
+price=400
 abs=3
 requires_stat=defense,14
 requires_stat=mental,9
@@ -114,7 +114,7 @@ name=Warlord Leather Boots
 INCLUDE items/base/armor/leather/feet.txt
 level=8
 quality=rare
-price=2400
+price=240
 abs=3,4
 requires_stat=defense,16
 requires_stat=physical,8
@@ -126,7 +126,7 @@ name=Sniper Leather Boots
 INCLUDE items/base/armor/leather/feet.txt
 level=8
 quality=rare
-price=2400
+price=240
 abs=3
 requires_stat=defense,15
 requires_stat=offense,9
@@ -138,7 +138,7 @@ name=Archwizard Wool Boots
 INCLUDE items/base/armor/mage/feet.txt
 level=8
 quality=rare
-price=2400
+price=240
 abs=2,3
 requires_stat=defense,14
 requires_stat=mental,9
@@ -150,7 +150,7 @@ name=Warlord Leather Gloves
 INCLUDE items/base/armor/leather/hands.txt
 level=8
 quality=rare
-price=1600
+price=200
 abs=3,4
 requires_stat=defense,16
 requires_stat=physical,9
@@ -162,7 +162,7 @@ name=Sniper Leather Gloves
 INCLUDE items/base/armor/leather/hands.txt
 level=8
 quality=rare
-price=1600
+price=200
 abs=3
 requires_stat=defense,15
 requires_stat=offense,9
@@ -174,7 +174,7 @@ name=Archwizard Wool Sleeves
 INCLUDE items/base/armor/mage/hands.txt
 level=8
 quality=rare
-price=1600
+price=200
 abs=2,3
 requires_stat=defense,14
 requires_stat=mental,9
@@ -186,7 +186,7 @@ name=Warlord Leather Belt
 INCLUDE items/base/armor/belt.txt
 level=8
 quality=rare
-price=3200
+price=400
 requires_stat=defense,16
 requires_stat=physical,9
 bonus=hp_regen,150
@@ -197,7 +197,7 @@ name=Sniper Leather Belt
 INCLUDE items/base/armor/belt.txt
 level=8
 quality=rare
-price=3200
+price=400
 requires_stat=defense,15
 requires_stat=offense,9
 bonus=avoidance,18
@@ -208,7 +208,7 @@ name=Archwizard Leather Belt
 INCLUDE items/base/armor/belt.txt
 level=8
 quality=rare
-price=3200
+price=400
 requires_stat=defense,14
 requires_stat=mental,9
 bonus=mp_regen,12
@@ -221,7 +221,7 @@ level=8
 quality=rare
 dmg_melee=45,50
 requires_stat=physical,22
-price=6400
+price=800
 bonus=dmg_melee_min,15
 bonus=dmg_melee_max,15
 
@@ -233,7 +233,7 @@ level=8
 quality=rare
 dmg_ranged=60,65
 requires_stat=offense,22
-price=6400
+price=800
 bonus=dmg_ranged_min,15
 bonus=dmg_ranged_max,15
 
@@ -245,7 +245,7 @@ level=8
 quality=rare
 dmg_ment=45,50
 requires_stat=mental,22
-price=6400
+price=800
 bonus=dmg_ment_min,15
 bonus=dmg_ment_max,15
 
@@ -257,7 +257,7 @@ level=8
 quality=rare
 abs=2,3
 requires_stat=defense,20
-price=4800
+price=600
 bonus=absorb_max,3
 
 [item]
@@ -266,7 +266,7 @@ name=Master Burn Ring
 INCLUDE items/base/rings/gold_5.txt
 level=8
 quality=rare
-price=11200
+price=800
 bonus=fire_resist,30
 
 [item]
@@ -275,7 +275,7 @@ name=Master Frost Ring
 INCLUDE items/base/rings/silver_4.txt
 level=8
 quality=rare
-price=11200
+price=800
 bonus=ice_resist,30
 
 [item]
@@ -284,7 +284,7 @@ name=Master Electric Ring
 INCLUDE items/base/rings/silver_5.txt
 level=8
 quality=rare
-price=11200
+price=800
 bonus=lightning_resist,30
 
 [item]
@@ -293,7 +293,7 @@ name=Master Shadow Ring
 INCLUDE items/base/rings/gold_3.txt
 level=8
 quality=rare
-price=11200
+price=800
 bonus=dark_resist,30
 
 [item]
@@ -302,7 +302,7 @@ name=Master Knowledge Ring
 INCLUDE items/base/rings/silver_2.txt
 level=8
 quality=rare
-price=11200
+price=800
 bonus=xp_gain,30
 
 [item]
@@ -311,7 +311,7 @@ name=Master Prosperity Ring
 INCLUDE items/base/rings/gold_2.txt
 level=8
 quality=rare
-price=11200
+price=800
 bonus=currency_find,30
 
 [item]
@@ -320,7 +320,7 @@ name=Master Loot Ring
 INCLUDE items/base/rings/gold_4.txt
 level=8
 quality=rare
-price=11200
+price=800
 bonus=item_find,30
 
 # 197-202

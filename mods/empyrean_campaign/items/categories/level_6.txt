@@ -6,7 +6,7 @@ name=Fighting Leather Hood
 INCLUDE items/base/armor/leather/head.txt
 level=6
 quality=high
-price=600
+price=180
 abs=2,3
 requires_stat=defense,10
 requires_stat=physical,7
@@ -18,7 +18,7 @@ name=Recon Leather Hood
 INCLUDE items/base/armor/leather/head.txt
 level=6
 quality=high
-price=600
+price=180
 abs=2
 requires_stat=defense,9
 requires_stat=offense,7
@@ -30,7 +30,7 @@ name=Sorcerer Wool Hood
 INCLUDE items/base/armor/mage/head.txt
 level=6
 quality=high
-price=600
+price=180
 abs=1,2
 requires_stat=defense,8
 requires_stat=mental,7
@@ -42,7 +42,7 @@ name=Fighting Leather Tunic
 INCLUDE items/base/armor/leather/chest.txt
 level=6
 quality=high
-price=1200
+price=450
 abs=3,4
 requires_stat=defense,10
 requires_stat=physical,7
@@ -54,7 +54,7 @@ name=Recon Leather Tunic
 INCLUDE items/base/armor/leather/chest.txt
 level=6
 quality=high
-price=1200
+price=450
 abs=3
 requires_stat=defense,9
 requires_stat=offense,7
@@ -66,7 +66,7 @@ name=Sorcerer Wool Vest
 INCLUDE items/base/armor/mage/chest.txt
 level=6
 quality=high
-price=1200
+price=450
 abs=2,3
 requires_stat=defense,8
 requires_stat=mental,7
@@ -78,7 +78,7 @@ name=Fighting Leather Pants
 INCLUDE items/base/armor/leather/legs.txt
 level=6
 quality=high
-price=800
+price=300
 abs=3
 requires_stat=defense,10
 requires_stat=physical,7
@@ -90,7 +90,7 @@ name=Recon Leather Pants
 INCLUDE items/base/armor/leather/legs.txt
 level=6
 quality=high
-price=800
+price=300
 abs=2,3
 requires_stat=defense,9
 requires_stat=offense,7
@@ -102,7 +102,7 @@ name=Sorcerer Wool Skirt
 INCLUDE items/base/armor/mage/legs.txt
 level=6
 quality=high
-price=800
+price=300
 abs=2
 requires_stat=defense,8
 requires_stat=mental,7
@@ -114,7 +114,7 @@ name=Fighting Leather Boots
 INCLUDE items/base/armor/leather/feet.txt
 level=6
 quality=high
-price=600
+price=180
 abs=2,3
 requires_stat=defense,10
 requires_stat=physical,7
@@ -126,7 +126,7 @@ name=Recon Leather Boots
 INCLUDE items/base/armor/leather/feet.txt
 level=6
 quality=high
-price=600
+price=180
 abs=2
 requires_stat=defense,9
 requires_stat=offense,7
@@ -138,7 +138,7 @@ name=Sorcerer Wool Boots
 INCLUDE items/base/armor/mage/feet.txt
 level=6
 quality=high
-price=600
+price=180
 abs=1,2
 requires_stat=defense,8
 requires_stat=mental,7
@@ -150,7 +150,7 @@ name=Fighting Leather Gloves
 INCLUDE items/base/armor/leather/hands.txt
 level=6
 quality=high
-price=400
+price=150
 abs=2,3
 requires_stat=defense,10
 requires_stat=physical,7
@@ -162,7 +162,7 @@ name=Recon Leather Gloves
 INCLUDE items/base/armor/leather/hands.txt
 level=6
 quality=high
-price=400
+price=150
 abs=2
 requires_stat=defense,9
 requires_stat=offense,7
@@ -174,7 +174,7 @@ name=Sorcerer Wool Sleeves
 INCLUDE items/base/armor/mage/hands.txt
 level=6
 quality=high
-price=400
+price=150
 abs=1,2
 requires_stat=defense,8
 requires_stat=mental,7
@@ -186,7 +186,7 @@ name=Fighting Leather Belt
 INCLUDE items/base/armor/belt.txt
 level=6
 quality=high
-price=800
+price=300
 requires_stat=defense,10
 requires_stat=physical,7
 bonus=hp_regen,100
@@ -197,7 +197,7 @@ name=Recon Leather Belt
 INCLUDE items/base/armor/belt.txt
 level=6
 quality=high
-price=800
+price=300
 requires_stat=defense,9
 requires_stat=offense,7
 bonus=avoidance,12
@@ -208,7 +208,7 @@ name=Sorcerer Leather Belt
 INCLUDE items/base/armor/belt.txt
 level=6
 quality=high
-price=800
+price=300
 requires_stat=defense,8
 requires_stat=mental,7
 bonus=mp_regen,8
@@ -221,7 +221,7 @@ level=6
 quality=high
 dmg_melee=45,50
 requires_stat=physical,16
-price=1600
+price=600
 bonus=dmg_melee_min,5
 bonus=dmg_melee_max,5
 
@@ -233,7 +233,7 @@ level=6
 quality=high
 dmg_ranged=60,65
 requires_stat=offense,16
-price=1600
+price=600
 bonus=dmg_ranged_min,5
 bonus=dmg_ranged_max,5
 
@@ -245,7 +245,7 @@ level=6
 quality=high
 dmg_ment=45,50
 requires_stat=mental,16
-price=1600
+price=600
 bonus=dmg_ment_min,5
 bonus=dmg_ment_max,5
 
@@ -257,7 +257,7 @@ level=6
 quality=high
 abs=2,3
 requires_stat=defense,14
-price=1200
+price=450
 bonus=absorb_max,1
 
 [item]
@@ -266,7 +266,7 @@ name=Wandering Burn Ring
 INCLUDE items/base/rings/gold_5.txt
 level=6
 quality=high
-price=2800
+price=600
 bonus=fire_resist,20
 
 [item]
@@ -275,7 +275,7 @@ name=Wandering Frost Ring
 INCLUDE items/base/rings/silver_4.txt
 level=6
 quality=high
-price=2800
+price=600
 bonus=ice_resist,20
 
 [item]
@@ -284,7 +284,7 @@ name=Wandering Electric Ring
 INCLUDE items/base/rings/silver_5.txt
 level=6
 quality=high
-price=2800
+price=600
 bonus=lightning_resist,20
 
 [item]
@@ -293,7 +293,7 @@ name=Wandering Shadow Ring
 INCLUDE items/base/rings/gold_3.txt
 level=6
 quality=high
-price=2800
+price=600
 bonus=dark_resist,20
 
 [item]
@@ -302,7 +302,7 @@ name=Wandering Knowledge Ring
 INCLUDE items/base/rings/silver_2.txt
 level=6
 quality=high
-price=2800
+price=600
 bonus=xp_gain,20
 
 [item]
@@ -311,7 +311,7 @@ name=Wandering Prosperity Ring
 INCLUDE items/base/rings/gold_2.txt
 level=6
 quality=high
-price=2800
+price=600
 bonus=currency_find,20
 
 [item]
@@ -320,6 +320,6 @@ name=Wandering Loot Ring
 INCLUDE items/base/rings/gold_4.txt
 level=6
 quality=high
-price=2800
+price=600
 bonus=item_find,20
 
