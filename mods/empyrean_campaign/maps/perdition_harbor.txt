@@ -261,6 +261,14 @@ location=15,31,1,1
 mapmod=background,16,26,265
 requires_status=emp_waypoint_0
 
+[event]
+# unlock level 5 gear
+type=on_load
+location=1,37,1,1
+requires_level=5
+requires_not_status=emp_perdition_trader1
+set_status=emp_perdition_trader1
+
 [npc]
 type=npcs/florin.txt
 location=25,8,1,1

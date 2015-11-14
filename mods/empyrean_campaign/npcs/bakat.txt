@@ -1,4 +1,4 @@
-name=Bakat
+name=Bakat, Goblin Packrat
 
 # animation info
 gfx=animations/npcs/peddler_goblin.txt
@@ -8,4 +8,6 @@ vox_intro=soundfx/enemies/goblin_ment.ogg
 
 # shop info
 vendor=true
-constant_stock=2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,203,203,203,203,203
+constant_stock=2,2,2,2,2,3,3,3,3,3,203,203,203,203,203
+random_stock=loot/trader_bakat.txt
+random_stock_count=15,20

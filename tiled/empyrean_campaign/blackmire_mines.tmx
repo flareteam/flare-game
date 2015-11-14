@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="isometric" renderorder="right-down" width="80" height="80" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="50">
+<map version="1.0" orientation="isometric" renderorder="right-down" width="80" height="80" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="51">
  <properties>
   <property name="music" value="music/cave_theme.ogg"/>
   <property name="tileset" value="tilesetdefs/tileset_cave.txt"/>
@@ -459,7 +459,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="enemy" visible="0">
+ <objectgroup name="enemy">
   <object id="30" type="undead" x="960" y="128" width="640" height="512">
    <properties>
     <property name="level" value="5"/>
@@ -472,10 +472,10 @@
     <property name="number" value="3,4"/>
    </properties>
   </object>
-  <object id="33" type="goblin" x="320" y="704" width="224" height="224">
+  <object id="33" type="goblin" x="320" y="704" width="224" height="192">
    <properties>
     <property name="level" value="5"/>
-    <property name="number" value="2,3"/>
+    <property name="number" value="2"/>
    </properties>
   </object>
   <object id="34" type="dungeon" x="192" y="128" width="576" height="288">
@@ -538,8 +538,11 @@
     <property name="number" value="2"/>
    </properties>
   </object>
- </objectgroup>
- <objectgroup name="npc">
-  <object id="49" type="npcs/bakat.txt" x="224" y="960" width="32" height="32"/>
+  <object id="50" type="goblin" x="128" y="832" width="96" height="224">
+   <properties>
+    <property name="level" value="5"/>
+    <property name="number" value="2,3"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>
