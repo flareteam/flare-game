@@ -446,7 +446,9 @@ type=on_trigger
 location=38,57,4,1
 mapmod=object,40,51,0;collision,40,51,0
 repeat=false
-requires_status=emp_amir_bookcase
+requires_not_status=emp_amir_bookcase
+requires_status=emp_amir_finish
+set_status=emp_amir_bookcase
 soundfx=soundfx/environment/stone_open.ogg,40,51
 
 [event]
@@ -534,6 +536,13 @@ soundfx=soundfx/environment/open_fire_loop.ogg
 type=on_load
 location=37,57,1,1
 soundfx=soundfx/environment/open_fire_loop.ogg
+
+[event]
+# clear bookcase status
+type=on_load
+location=16,78,1,1
+requires_status=emp_amir_finish
+unset_status=emp_amir_bookcase
 
 [enemy]
 type=dungeon
