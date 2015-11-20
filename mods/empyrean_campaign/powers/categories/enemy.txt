@@ -28,6 +28,7 @@ lifespan=900ms
 radius=1.0
 speed=16
 angle_variance=10
+modifier_accuracy=multiply,75,0
 
 # goblin shaman shock
 [power]
@@ -48,6 +49,7 @@ trait_elemental=lightning
 trait_crits_impaired=25
 post_power=159
 wall_power=159
+modifier_accuracy=multiply,75,0
 
 # goblin shaman shield
 [power]
@@ -110,6 +112,7 @@ lifespan=533ms
 radius=1.0
 speed=24
 wall_power=157
+modifier_accuracy=multiply,75,0
 
 # ice bolt
 [power]
@@ -131,6 +134,7 @@ trait_elemental=ice
 post_power=159
 wall_power=159
 post_effect=slow,50,2s
+modifier_accuracy=multiply,75,0
 
 # fireball
 [power]
@@ -152,6 +156,7 @@ trait_elemental=fire
 post_power=158
 wall_power=158
 modifier_damage=multiply,120,0
+modifier_accuracy=multiply,75,0
 
 # skeleton shock
 [power]
@@ -172,6 +177,7 @@ trait_elemental=lightning
 trait_crits_impaired=50
 post_power=159
 wall_power=159
+modifier_accuracy=multiply,75,0
 
 # chill touch
 [power]
@@ -203,7 +209,7 @@ lifespan=866ms
 radius=1.0
 speed=15
 trait_elemental=dark
-modifier_accuracy=multiply,150,0
+modifier_accuracy=multiply,125,0
 post_power=160
 wall_power=160
 
