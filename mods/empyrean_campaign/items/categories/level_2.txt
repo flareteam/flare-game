@@ -8,7 +8,6 @@ level=2
 quality=high
 price=150
 abs=1,2
-requires_stat=physical,2
 bonus=hp,25
 
 [item]
@@ -19,7 +18,6 @@ level=2
 quality=high
 price=150
 abs=1
-requires_stat=offense,2
 bonus=accuracy,3
 
 [item]
@@ -30,7 +28,6 @@ level=2
 quality=high
 price=150
 abs=0,1
-requires_stat=mental,2
 bonus=mp,3
 
 [item]
@@ -41,7 +38,6 @@ level=2
 quality=high
 price=100
 abs=1
-requires_stat=physical,2
 bonus=poise,3
 
 [item]
@@ -52,7 +48,6 @@ level=2
 quality=high
 price=100
 abs=0,1
-requires_stat=offense,2
 bonus=avoidance,3
 
 [item]
@@ -63,7 +58,6 @@ level=2
 quality=high
 price=100
 bonus=mp,2
-requires_stat=mental,2
 
 [item]
 id=18
@@ -73,7 +67,6 @@ level=2
 quality=high
 price=60
 abs=0,1
-requires_stat=physical,2
 bonus=poise,2
 
 [item]
@@ -83,7 +76,6 @@ INCLUDE items/base/armor/cloth/feet.txt
 level=2
 quality=high
 price=60
-requires_stat=offense,2
 bonus=avoidance,4
 
 [item]
@@ -94,7 +86,6 @@ level=2
 quality=high
 price=60
 bonus=mp_regen,1
-requires_stat=mental,2
 
 [item]
 id=21
@@ -104,7 +95,6 @@ level=2
 quality=high
 price=50
 abs=0,1
-requires_stat=physical,2
 bonus=crit,1
 
 [item]
@@ -114,7 +104,6 @@ INCLUDE items/base/armor/cloth/hands.txt
 level=2
 quality=high
 price=50
-requires_stat=offense,2
 bonus=accuracy,2
 
 [item]
@@ -125,7 +114,6 @@ level=2
 quality=high
 price=50
 bonus=mp_regen,2
-requires_stat=mental,2
 
 [item]
 id=24
@@ -134,7 +122,6 @@ INCLUDE items/base/armor/belt.txt
 level=2
 quality=high
 price=100
-requires_stat=physical,2
 bonus=hp_regen,25
 
 [item]
@@ -144,7 +131,6 @@ INCLUDE items/base/armor/belt.txt
 level=2
 quality=high
 price=100
-requires_stat=offense,2
 bonus=avoidance,3
 
 [item]
@@ -155,7 +141,6 @@ level=2
 quality=high
 price=100
 bonus=mp_regen,2
-requires_stat=mental,2
 
 [item]
 id=27
@@ -165,7 +150,7 @@ level=2
 quality=high
 price=200
 dmg_melee=25,30
-requires_stat=physical,4
+requires_stat=physical,2
 bonus=dmg_melee_min,5
 bonus=dmg_melee_max,5
 
@@ -177,7 +162,7 @@ level=2
 quality=high
 price=200
 dmg_ranged=40,45
-requires_stat=offense,4
+requires_stat=offense,2
 bonus=dmg_ranged_min,5
 bonus=dmg_ranged_max,5
 
@@ -189,7 +174,7 @@ level=2
 quality=high
 price=200
 dmg_ment=25,30
-requires_stat=mental,4
+requires_stat=mental,2
 bonus=dmg_ment_min,5
 bonus=dmg_ment_max,5
 
@@ -200,7 +185,6 @@ INCLUDE items/base/shields/wood.txt
 level=2
 quality=high
 abs=1
-requires_stat=defense,2
 price=150
 bonus=absorb_max,1
 

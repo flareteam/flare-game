@@ -8,8 +8,8 @@ level=6
 quality=high
 price=180
 abs=2,3
-requires_stat=defense,10
-requires_stat=physical,7
+requires_stat=defense,8
+requires_stat=physical,5
 bonus=poise,5
 
 [item]
@@ -20,8 +20,8 @@ level=6
 quality=high
 price=180
 abs=2
-requires_stat=defense,9
-requires_stat=offense,7
+requires_stat=defense,7
+requires_stat=offense,5
 bonus=accuracy,5
 
 [item]
@@ -32,8 +32,8 @@ level=6
 quality=high
 price=180
 abs=1,2
-requires_stat=defense,8
-requires_stat=mental,7
+requires_stat=defense,6
+requires_stat=mental,5
 bonus=mp,5
 
 [item]
@@ -44,8 +44,8 @@ level=6
 quality=high
 price=450
 abs=3,4
-requires_stat=defense,10
-requires_stat=physical,7
+requires_stat=defense,8
+requires_stat=physical,5
 bonus=hp,100
 
 [item]
@@ -56,8 +56,8 @@ level=6
 quality=high
 price=450
 abs=3
-requires_stat=defense,9
-requires_stat=offense,7
+requires_stat=defense,7
+requires_stat=offense,5
 bonus=accuracy,12
 
 [item]
@@ -68,8 +68,8 @@ level=6
 quality=high
 price=450
 abs=2,3
-requires_stat=defense,8
-requires_stat=mental,7
+requires_stat=defense,6
+requires_stat=mental,5
 bonus=mp,12
 
 [item]
@@ -80,8 +80,8 @@ level=6
 quality=high
 price=300
 abs=3
-requires_stat=defense,10
-requires_stat=physical,7
+requires_stat=defense,8
+requires_stat=physical,5
 bonus=poise,12
 
 [item]
@@ -92,8 +92,8 @@ level=6
 quality=high
 price=300
 abs=2,3
-requires_stat=defense,9
-requires_stat=offense,7
+requires_stat=defense,7
+requires_stat=offense,5
 bonus=avoidance,12
 
 [item]
@@ -104,8 +104,8 @@ level=6
 quality=high
 price=300
 abs=2
-requires_stat=defense,8
-requires_stat=mental,7
+requires_stat=defense,6
+requires_stat=mental,5
 bonus=mp,8
 
 [item]
@@ -116,8 +116,8 @@ level=6
 quality=high
 price=180
 abs=2,3
-requires_stat=defense,10
-requires_stat=physical,7
+requires_stat=defense,8
+requires_stat=physical,5
 bonus=poise,8
 
 [item]
@@ -128,8 +128,8 @@ level=6
 quality=high
 price=180
 abs=2
-requires_stat=defense,9
-requires_stat=offense,7
+requires_stat=defense,7
+requires_stat=offense,5
 bonus=avoidance,16
 
 [item]
@@ -140,8 +140,8 @@ level=6
 quality=high
 price=180
 abs=1,2
-requires_stat=defense,8
-requires_stat=mental,7
+requires_stat=defense,6
+requires_stat=mental,5
 bonus=mp_regen,4
 
 [item]
@@ -152,8 +152,8 @@ level=6
 quality=high
 price=150
 abs=2,3
-requires_stat=defense,10
-requires_stat=physical,7
+requires_stat=defense,8
+requires_stat=physical,5
 bonus=crit,4
 
 [item]
@@ -164,8 +164,8 @@ level=6
 quality=high
 price=150
 abs=2
-requires_stat=defense,9
-requires_stat=offense,7
+requires_stat=defense,7
+requires_stat=offense,5
 bonus=accuracy,8
 
 [item]
@@ -176,8 +176,8 @@ level=6
 quality=high
 price=150
 abs=1,2
-requires_stat=defense,8
-requires_stat=mental,7
+requires_stat=defense,6
+requires_stat=mental,5
 bonus=mp_regen,8
 
 [item]
@@ -187,8 +187,8 @@ INCLUDE items/base/armor/belt.txt
 level=6
 quality=high
 price=300
-requires_stat=defense,10
-requires_stat=physical,7
+requires_stat=defense,8
+requires_stat=physical,5
 bonus=hp_regen,100
 
 [item]
@@ -198,8 +198,8 @@ INCLUDE items/base/armor/belt.txt
 level=6
 quality=high
 price=300
-requires_stat=defense,9
-requires_stat=offense,7
+requires_stat=defense,7
+requires_stat=offense,5
 bonus=avoidance,12
 
 [item]
@@ -209,8 +209,8 @@ INCLUDE items/base/armor/belt.txt
 level=6
 quality=high
 price=300
-requires_stat=defense,8
-requires_stat=mental,7
+requires_stat=defense,6
+requires_stat=mental,5
 bonus=mp_regen,8
 
 [item]
@@ -220,7 +220,7 @@ INCLUDE items/base/weapons/melee/shortsword.txt
 level=6
 quality=high
 dmg_melee=45,50
-requires_stat=physical,16
+requires_stat=physical,14
 price=600
 bonus=dmg_melee_min,5
 bonus=dmg_melee_max,5
@@ -232,7 +232,7 @@ INCLUDE items/base/weapons/ranged/shortbow.txt
 level=6
 quality=high
 dmg_ranged=60,65
-requires_stat=offense,16
+requires_stat=offense,14
 price=600
 bonus=dmg_ranged_min,5
 bonus=dmg_ranged_max,5
@@ -244,7 +244,7 @@ INCLUDE items/base/weapons/magic/rod.txt
 level=6
 quality=high
 dmg_ment=45,50
-requires_stat=mental,16
+requires_stat=mental,14
 price=600
 bonus=dmg_ment_min,5
 bonus=dmg_ment_max,5
@@ -256,7 +256,7 @@ INCLUDE items/base/shields/iron.txt
 level=6
 quality=high
 abs=6
-requires_stat=defense,14
+requires_stat=defense,12
 price=450
 bonus=absorb_max,1
 

@@ -8,8 +8,8 @@ level=8
 quality=rare
 price=240
 abs=3,4
-requires_stat=defense,16
-requires_stat=physical,9
+requires_stat=defense,14
+requires_stat=physical,7
 bonus=poise,15
 
 [item]
@@ -20,8 +20,8 @@ level=8
 quality=rare
 price=240
 abs=3
-requires_stat=defense,15
-requires_stat=offense,9
+requires_stat=defense,13
+requires_stat=offense,7
 bonus=accuracy,15
 
 [item]
@@ -32,8 +32,8 @@ level=8
 quality=rare
 price=240
 abs=2,3
-requires_stat=defense,14
-requires_stat=mental,9
+requires_stat=defense,12
+requires_stat=mental,7
 bonus=mp,15
 
 [item]
@@ -44,8 +44,8 @@ level=8
 quality=rare
 price=600
 abs=4,5
-requires_stat=defense,16
-requires_stat=physical,9
+requires_stat=defense,14
+requires_stat=physical,7
 bonus=hp,150
 
 [item]
@@ -56,8 +56,8 @@ level=8
 quality=rare
 price=600
 abs=4
-requires_stat=defense,15
-requires_stat=offense,9
+requires_stat=defense,13
+requires_stat=offense,7
 bonus=accuracy,18
 
 [item]
@@ -68,8 +68,8 @@ level=8
 quality=rare
 price=600
 abs=3,4
-requires_stat=defense,14
-requires_stat=mental,9
+requires_stat=defense,12
+requires_stat=mental,7
 bonus=mp,18
 
 [item]
@@ -80,8 +80,8 @@ level=8
 quality=rare
 price=400
 abs=4
-requires_stat=defense,16
-requires_stat=physical,9
+requires_stat=defense,14
+requires_stat=physical,7
 bonus=poise,18
 
 [item]
@@ -92,8 +92,8 @@ level=8
 quality=rare
 price=400
 abs=3,4
-requires_stat=defense,15
-requires_stat=offense,9
+requires_stat=defense,13
+requires_stat=offense,7
 bonus=avoidance,18
 
 [item]
@@ -104,8 +104,8 @@ level=8
 quality=rare
 price=400
 abs=3
-requires_stat=defense,14
-requires_stat=mental,9
+requires_stat=defense,12
+requires_stat=mental,7
 bonus=mp,12
 
 [item]
@@ -116,8 +116,8 @@ level=8
 quality=rare
 price=240
 abs=3,4
-requires_stat=defense,16
-requires_stat=physical,8
+requires_stat=defense,14
+requires_stat=physical,6
 bonus=poise,12
 
 [item]
@@ -128,8 +128,8 @@ level=8
 quality=rare
 price=240
 abs=3
-requires_stat=defense,15
-requires_stat=offense,9
+requires_stat=defense,13
+requires_stat=offense,7
 bonus=avoidance,24
 
 [item]
@@ -140,8 +140,8 @@ level=8
 quality=rare
 price=240
 abs=2,3
-requires_stat=defense,14
-requires_stat=mental,9
+requires_stat=defense,12
+requires_stat=mental,7
 bonus=mp_regen,6
 
 [item]
@@ -152,8 +152,8 @@ level=8
 quality=rare
 price=200
 abs=3,4
-requires_stat=defense,16
-requires_stat=physical,9
+requires_stat=defense,14
+requires_stat=physical,7
 bonus=crit,6
 
 [item]
@@ -164,8 +164,8 @@ level=8
 quality=rare
 price=200
 abs=3
-requires_stat=defense,15
-requires_stat=offense,9
+requires_stat=defense,13
+requires_stat=offense,7
 bonus=accuracy,12
 
 [item]
@@ -176,8 +176,8 @@ level=8
 quality=rare
 price=200
 abs=2,3
-requires_stat=defense,14
-requires_stat=mental,9
+requires_stat=defense,12
+requires_stat=mental,7
 bonus=mp_regen,12
 
 [item]
@@ -187,8 +187,8 @@ INCLUDE items/base/armor/belt.txt
 level=8
 quality=rare
 price=400
-requires_stat=defense,16
-requires_stat=physical,9
+requires_stat=defense,14
+requires_stat=physical,7
 bonus=hp_regen,150
 
 [item]
@@ -198,8 +198,8 @@ INCLUDE items/base/armor/belt.txt
 level=8
 quality=rare
 price=400
-requires_stat=defense,15
-requires_stat=offense,9
+requires_stat=defense,13
+requires_stat=offense,7
 bonus=avoidance,18
 
 [item]
@@ -209,8 +209,8 @@ INCLUDE items/base/armor/belt.txt
 level=8
 quality=rare
 price=400
-requires_stat=defense,14
-requires_stat=mental,9
+requires_stat=defense,12
+requires_stat=mental,7
 bonus=mp_regen,12
 
 [item]
@@ -220,7 +220,7 @@ INCLUDE items/base/weapons/melee/shortsword.txt
 level=8
 quality=rare
 dmg_melee=45,50
-requires_stat=physical,22
+requires_stat=physical,20
 price=800
 bonus=dmg_melee_min,15
 bonus=dmg_melee_max,15
@@ -232,7 +232,7 @@ INCLUDE items/base/weapons/ranged/shortbow.txt
 level=8
 quality=rare
 dmg_ranged=60,65
-requires_stat=offense,22
+requires_stat=offense,20
 price=800
 bonus=dmg_ranged_min,15
 bonus=dmg_ranged_max,15
@@ -244,7 +244,7 @@ INCLUDE items/base/weapons/magic/rod.txt
 level=8
 quality=rare
 dmg_ment=45,50
-requires_stat=mental,22
+requires_stat=mental,20
 price=800
 bonus=dmg_ment_min,15
 bonus=dmg_ment_max,15
@@ -256,7 +256,7 @@ INCLUDE items/base/shields/iron.txt
 level=8
 quality=rare
 abs=7
-requires_stat=defense,20
+requires_stat=defense,18
 price=600
 bonus=absorb_max,3
 

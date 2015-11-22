@@ -8,8 +8,8 @@ level=7
 quality=epic
 price=210
 abs=3
-requires_stat=defense,13
-requires_stat=physical,8
+requires_stat=defense,11
+requires_stat=physical,6
 bonus=poise,10
 
 [item]
@@ -20,8 +20,8 @@ level=7
 quality=epic
 price=210
 abs=2,3
-requires_stat=defense,12
-requires_stat=offense,8
+requires_stat=defense,10
+requires_stat=offense,6
 bonus=accuracy,10
 
 [item]
@@ -32,8 +32,8 @@ level=7
 quality=epic
 price=210
 abs=2
-requires_stat=defense,11
-requires_stat=mental,8
+requires_stat=defense,9
+requires_stat=mental,6
 bonus=mp,10
 
 [item]
@@ -44,8 +44,8 @@ level=7
 quality=epic
 price=525
 abs=4
-requires_stat=defense,13
-requires_stat=physical,8
+requires_stat=defense,11
+requires_stat=physical,6
 bonus=hp,125
 
 [item]
@@ -56,8 +56,8 @@ level=7
 quality=epic
 price=525
 abs=3,4
-requires_stat=defense,12
-requires_stat=offense,8
+requires_stat=defense,10
+requires_stat=offense,6
 bonus=accuracy,15
 
 [item]
@@ -68,8 +68,8 @@ level=7
 quality=epic
 price=525
 abs=3
-requires_stat=defense,11
-requires_stat=mental,8
+requires_stat=defense,9
+requires_stat=mental,6
 bonus=mp,15
 
 [item]
@@ -80,8 +80,8 @@ level=7
 quality=epic
 price=350
 abs=3,4
-requires_stat=defense,13
-requires_stat=physical,8
+requires_stat=defense,11
+requires_stat=physical,6
 bonus=poise,15
 
 [item]
@@ -92,8 +92,8 @@ level=7
 quality=epic
 price=350
 abs=3
-requires_stat=defense,12
-requires_stat=offense,8
+requires_stat=defense,10
+requires_stat=offense,6
 bonus=avoidance,15
 
 [item]
@@ -104,8 +104,8 @@ level=7
 quality=epic
 price=350
 abs=2,3
-requires_stat=defense,11
-requires_stat=mental,8
+requires_stat=defense,9
+requires_stat=mental,6
 bonus=mp,10
 
 [item]
@@ -116,8 +116,8 @@ level=7
 quality=epic
 price=210
 abs=3
-requires_stat=defense,13
-requires_stat=physical,7
+requires_stat=defense,11
+requires_stat=physical,5
 bonus=poise,10
 
 [item]
@@ -128,8 +128,8 @@ level=7
 quality=epic
 price=210
 abs=2,3
-requires_stat=defense,12
-requires_stat=offense,8
+requires_stat=defense,10
+requires_stat=offense,6
 bonus=avoidance,18
 
 [item]
@@ -140,8 +140,8 @@ level=7
 quality=epic
 price=210
 abs=2
-requires_stat=defense,11
-requires_stat=mental,8
+requires_stat=defense,9
+requires_stat=mental,6
 bonus=mp_regen,5
 
 [item]
@@ -152,8 +152,8 @@ level=7
 quality=epic
 price=175
 abs=3
-requires_stat=defense,13
-requires_stat=physical,8
+requires_stat=defense,11
+requires_stat=physical,6
 bonus=crit,5
 
 [item]
@@ -164,8 +164,8 @@ level=7
 quality=epic
 price=175
 abs=2,3
-requires_stat=defense,12
-requires_stat=offense,8
+requires_stat=defense,10
+requires_stat=offense,6
 bonus=accuracy,10
 
 [item]
@@ -176,8 +176,8 @@ level=7
 quality=epic
 price=175
 abs=2
-requires_stat=defense,11
-requires_stat=mental,8
+requires_stat=defense,9
+requires_stat=mental,6
 bonus=mp_regen,10
 
 [item]
@@ -187,8 +187,8 @@ INCLUDE items/base/armor/belt.txt
 level=7
 quality=epic
 price=350
-requires_stat=defense,13
-requires_stat=physical,8
+requires_stat=defense,11
+requires_stat=physical,6
 bonus=hp_regen,125
 
 [item]
@@ -198,8 +198,8 @@ INCLUDE items/base/armor/belt.txt
 level=7
 quality=epic
 price=350
-requires_stat=defense,12
-requires_stat=offense,8
+requires_stat=defense,10
+requires_stat=offense,6
 bonus=avoidance,15
 
 [item]
@@ -209,8 +209,8 @@ INCLUDE items/base/armor/belt.txt
 level=7
 quality=epic
 price=350
-requires_stat=defense,11
-requires_stat=mental,8
+requires_stat=defense,9
+requires_stat=mental,6
 bonus=mp_regen,10
 
 [item]
@@ -220,7 +220,7 @@ INCLUDE items/base/weapons/melee/shortsword.txt
 level=7
 quality=epic
 dmg_melee=45,50
-requires_stat=physical,19
+requires_stat=physical,17
 price=700
 bonus=dmg_melee_min,10
 bonus=dmg_melee_max,10
@@ -232,7 +232,7 @@ INCLUDE items/base/weapons/ranged/shortbow.txt
 level=7
 quality=epic
 dmg_ranged=60,65
-requires_stat=offense,19
+requires_stat=offense,17
 price=700
 bonus=dmg_ranged_min,10
 bonus=dmg_ranged_max,10
@@ -244,7 +244,7 @@ INCLUDE items/base/weapons/magic/rod.txt
 level=7
 quality=epic
 dmg_ment=45,50
-requires_stat=mental,19
+requires_stat=mental,17
 price=700
 bonus=dmg_ment_min,10
 bonus=dmg_ment_max,10
@@ -256,7 +256,7 @@ INCLUDE items/base/shields/iron.txt
 level=7
 quality=epic
 abs=6,7
-requires_stat=defense,17
+requires_stat=defense,15
 price=525
 bonus=absorb_max,2
 

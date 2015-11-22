@@ -8,8 +8,8 @@ level=4
 quality=rare
 price=300
 abs=2,3
-requires_stat=defense,6
-requires_stat=physical,4
+requires_stat=defense,4
+requires_stat=physical,2
 bonus=hp,75
 
 [item]
@@ -20,8 +20,8 @@ level=4
 quality=rare
 price=300
 abs=2
-requires_stat=defense,6
-requires_stat=offense,4
+requires_stat=defense,4
+requires_stat=offense,2
 bonus=accuracy,9
 
 [item]
@@ -32,8 +32,8 @@ level=4
 quality=rare
 price=300
 abs=1,2
-requires_stat=defense,6
-requires_stat=mental,4
+requires_stat=defense,4
+requires_stat=mental,2
 bonus=mp,9
 
 [item]
@@ -44,8 +44,8 @@ level=4
 quality=rare
 price=200
 abs=2
-requires_stat=defense,6
-requires_stat=physical,4
+requires_stat=defense,4
+requires_stat=physical,2
 bonus=poise,9
 
 [item]
@@ -56,8 +56,8 @@ level=4
 quality=rare
 price=200
 abs=1,2
-requires_stat=defense,6
-requires_stat=offense,4
+requires_stat=defense,4
+requires_stat=offense,2
 bonus=avoidance,9
 
 [item]
@@ -68,8 +68,8 @@ level=4
 quality=rare
 price=200
 abs=1
-requires_stat=defense,6
-requires_stat=mental,4
+requires_stat=defense,4
+requires_stat=mental,2
 bonus=mp,6
 
 [item]
@@ -80,8 +80,8 @@ level=4
 quality=rare
 price=120
 abs=1,2
-requires_stat=defense,6
-requires_stat=physical,4
+requires_stat=defense,4
+requires_stat=physical,2
 bonus=poise,6
 
 [item]
@@ -92,8 +92,8 @@ level=4
 quality=rare
 price=120
 abs=1
-requires_stat=defense,6
-requires_stat=offense,4
+requires_stat=defense,4
+requires_stat=offense,2
 bonus=avoidance,12
 
 [item]
@@ -104,8 +104,8 @@ level=4
 quality=rare
 price=120
 abs=0,1
-requires_stat=defense,6
-requires_stat=mental,4
+requires_stat=defense,4
+requires_stat=mental,2
 bonus=mp_regen,3
 
 [item]
@@ -116,8 +116,8 @@ level=4
 quality=rare
 price=100
 abs=1,2
-requires_stat=defense,6
-requires_stat=physical,4
+requires_stat=defense,4
+requires_stat=physical,2
 bonus=crit,3
 
 [item]
@@ -128,8 +128,8 @@ level=4
 quality=rare
 price=100
 abs=1
-requires_stat=defense,6
-requires_stat=offense,4
+requires_stat=defense,4
+requires_stat=offense,2
 bonus=accuracy,6
 
 [item]
@@ -140,8 +140,8 @@ level=4
 quality=rare
 price=100
 abs=0,1
-requires_stat=defense,6
-requires_stat=mental,4
+requires_stat=defense,4
+requires_stat=mental,2
 bonus=mp_regen,6
 
 [item]
@@ -151,8 +151,8 @@ INCLUDE items/base/armor/belt.txt
 level=4
 quality=rare
 price=200
-requires_stat=defense,6
-requires_stat=physical,4
+requires_stat=defense,4
+requires_stat=physical,2
 bonus=hp_regen,75
 
 [item]
@@ -162,8 +162,8 @@ INCLUDE items/base/armor/belt.txt
 level=4
 quality=rare
 price=200
-requires_stat=defense,6
-requires_stat=offense,4
+requires_stat=defense,4
+requires_stat=offense,2
 bonus=avoidance,9
 
 [item]
@@ -173,8 +173,8 @@ INCLUDE items/base/armor/belt.txt
 level=4
 quality=rare
 price=200
-requires_stat=defense,6
-requires_stat=mental,4
+requires_stat=defense,4
+requires_stat=mental,2
 bonus=mp_regen,6
 
 
@@ -186,7 +186,7 @@ level=4
 quality=rare
 price=400
 dmg_melee=25,30
-requires_stat=physical,10
+requires_stat=physical,8
 bonus=dmg_melee_min,15
 bonus=dmg_melee_max,15
 
@@ -198,7 +198,7 @@ level=4
 quality=rare
 price=400
 dmg_ranged=40,45
-requires_stat=offense,10
+requires_stat=offense,8
 bonus=dmg_ranged_min,15
 bonus=dmg_ranged_max,15
 
@@ -210,7 +210,7 @@ level=4
 quality=rare
 price=400
 dmg_ment=25,30
-requires_stat=mental,10
+requires_stat=mental,8
 bonus=dmg_ment_min,15
 bonus=dmg_ment_max,15
 
@@ -221,7 +221,7 @@ INCLUDE items/base/shields/wood.txt
 level=4
 quality=rare
 abs=2
-requires_stat=defense,8
+requires_stat=defense,6
 price=300
 bonus=absorb_max,3
 
@@ -298,7 +298,7 @@ level=4
 quality=unique
 price=500
 dmg_melee=25,30
-requires_stat=physical,10
+requires_stat=physical,8
 bonus=dmg_melee_min,20
 bonus=dmg_melee_max,20
 bonus=crit,1
@@ -313,7 +313,7 @@ level=4
 quality=unique
 price=500
 dmg_ment=25,30
-requires_stat=mental,10
+requires_stat=mental,8
 bonus=dmg_ment_min,20
 bonus=dmg_ment_max,20
 bonus=mp_regen,10
@@ -328,8 +328,8 @@ level=4
 quality=unique
 price=125
 abs=1,2
-requires_stat=offense,4
-requires_stat=defense,6
+requires_stat=offense,2
+requires_stat=defense,4
 bonus=absorb_min,2
 bonus=accuracy,5
 bonus=poise,10
@@ -344,8 +344,8 @@ level=4
 quality=unique
 price=375
 abs=3,4
-requires_stat=physical,4
-requires_stat=defense,6
+requires_stat=physical,2
+requires_stat=defense,4
 bonus=hp,100
 bonus=hp_regen,100
 
@@ -358,8 +358,8 @@ level=4
 quality=unique
 price=150
 abs=2
-requires_stat=offense,4
-requires_stat=defense,6
+requires_stat=offense,2
+requires_stat=defense,4
 bonus=avoidance,15
 bonus=dark_resist,25
 
@@ -372,8 +372,8 @@ level=4
 quality=unique
 price=250
 abs=2
-requires_stat=mental,4
-requires_stat=defense,6
+requires_stat=mental,2
+requires_stat=defense,4
 bonus=fire_resist,25
 bonus=ice_resist,25
 bonus=lightning_resist,25
