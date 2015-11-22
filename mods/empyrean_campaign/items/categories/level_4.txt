@@ -317,7 +317,7 @@ requires_stat=mental,10
 bonus=dmg_ment_min,20
 bonus=dmg_ment_max,20
 bonus=mp_regen,10
-bonus=lightning_resist,5
+bonus=lightning_resist,10
 
 [item]
 id=92
@@ -332,8 +332,8 @@ requires_stat=offense,4
 requires_stat=defense,6
 bonus=absorb_min,2
 bonus=accuracy,5
-bonus=poise,5
-bonus=xp_gain,10
+bonus=poise,10
+bonus=xp_gain,5
 
 [item]
 id=93
@@ -343,7 +343,7 @@ INCLUDE items/base/armor/cloth/chest.txt
 level=4
 quality=unique
 price=375
-abs=3
+abs=3,4
 requires_stat=physical,4
 requires_stat=defense,6
 bonus=hp,100
@@ -357,11 +357,11 @@ INCLUDE items/base/armor/cloth/feet.txt
 level=4
 quality=unique
 price=150
-abs=1,2
+abs=2
 requires_stat=offense,4
 requires_stat=defense,6
 bonus=avoidance,15
-bonus=dark_resist,10
+bonus=dark_resist,25
 
 [item]
 id=95
@@ -371,10 +371,10 @@ INCLUDE items/base/armor/cloth/legs.txt
 level=4
 quality=unique
 price=250
-abs=1,2
+abs=2
 requires_stat=mental,4
 requires_stat=defense,6
-bonus=fire_resist,10
-bonus=ice_resist,10
-bonus=lightning_resist,10
+bonus=fire_resist,25
+bonus=ice_resist,25
+bonus=lightning_resist,25
 
