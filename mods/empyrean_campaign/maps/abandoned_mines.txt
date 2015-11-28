@@ -490,6 +490,14 @@ repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Treasure Chest
 
+[event]
+# to The Breach
+type=on_trigger
+location=47,0,3,1
+hotspot=location
+intermap=maps/the_breach.txt,46,98
+tooltip=The Breach
+
 [enemy]
 type=goblin
 location=54,62,6,12
