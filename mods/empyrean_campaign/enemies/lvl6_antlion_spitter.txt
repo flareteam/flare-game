@@ -1,0 +1,38 @@
+INCLUDE enemies/base/antlion_fire.txt
+
+name=Antlion Spitter
+level=6
+categories=antlion,antlion_fire,fire
+rarity=uncommon
+xp=64
+
+# combat stats
+hp=165
+speed=5
+turn_delay=200ms
+
+chance_pursue=10
+
+power=melee,164,1
+power=ranged,173,5
+
+accuracy=110
+avoidance=50
+poise=25
+
+absorb_min=6
+absorb_max=7
+
+dmg_melee_min=80
+dmg_melee_max=85
+dmg_ment_min=95
+dmg_ment_max=100
+
+vulnerable_fire=75
+vulnerable_ice=150
+
+cooldown=1475ms
+
+# loot
+loot=loot/level_6.txt
+

@@ -1,0 +1,33 @@
+INCLUDE enemies/base/antlion.txt
+
+name=Antlion Slasher
+level=6
+categories=antlion,dungeon
+rarity=common
+xp=64
+
+# combat stats
+hp=185
+speed=5
+turn_delay=166ms
+
+chance_pursue=30
+
+power=melee,164,2
+power=melee,168,5
+
+accuracy=110
+avoidance=50
+poise=35
+
+absorb_min=7
+absorb_max=9
+
+dmg_melee_min=90
+dmg_melee_max=100
+
+cooldown=1475ms
+
+# loot
+loot=loot/level_6.txt
+

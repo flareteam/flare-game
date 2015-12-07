@@ -276,3 +276,25 @@ starting_pos=melee
 trait_elemental=ice
 post_power=159
 post_effect=slow,50,2s
+
+# antlion explode
+[power]
+id=182
+type=fixed
+new_state=instant
+face=true
+requires_los=true
+animation=animations/powers/blast.txt
+soundfx=soundfx/powers/burn.ogg
+use_hazard=true
+base_damage=ment
+lifespan=600ms
+radius=2.0
+floor=true
+trait_elemental=fire
+starting_pos=source
+multitarget=true
+post_power=158
+requires_hp=1000
+sacrifice=true
+

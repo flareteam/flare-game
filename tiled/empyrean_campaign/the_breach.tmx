@@ -1,22 +1,25 @@
-[header]
-width=100
-height=100
-tilewidth=64
-tileheight=32
-orientation=isometric
-music=music/cave_theme.ogg
-tileset=tilesetdefs/tileset_cave.txt
-title=The Breach
-
-[tilesets]
-tileset=../../../tiled/cave/tiled_collision.png,64,32,0,0
-tileset=../../../tiled/cave/tiled_cave.png,64,128,0,0
-tileset=../../../tiled/cave/set_rules.png,64,32,0,0
-tileset=../../../tiled/cave/tiled_cave_2x2.png,128,64,0,16
-
-[layer]
-type=background
-data=
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="isometric" renderorder="right-down" width="100" height="100" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="40">
+ <properties>
+  <property name="music" value="music/cave_theme.ogg"/>
+  <property name="tileset" value="tilesetdefs/tileset_cave.txt"/>
+  <property name="title" value="The Breach"/>
+ </properties>
+ <tileset firstgid="1" name="collision" tilewidth="64" tileheight="32" tilecount="15">
+  <image source="../cave/tiled_collision.png" width="960" height="32"/>
+ </tileset>
+ <tileset firstgid="16" name="cave" tilewidth="64" tileheight="128" tilecount="240">
+  <image source="../cave/tiled_cave.png" width="1024" height="1920"/>
+ </tileset>
+ <tileset firstgid="256" name="set_rules" tilewidth="64" tileheight="32" tilecount="8">
+  <image source="../cave/set_rules.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="264" name="tiled_cave_2x2" tilewidth="128" tileheight="64" tilecount="2">
+  <tileoffset x="0" y="16"/>
+  <image source="../cave/tiled_cave_2x2.png" width="256" height="64"/>
+ </tileset>
+ <layer name="background" width="100" height="100">
+  <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -117,10 +120,10 @@ data=
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,56,29,30,31,28,29,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,28,29,30,31,28,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,16,17,18,19,16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,20,21,22,23,20,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-
-[layer]
-type=object
-data=
+</data>
+ </layer>
+ <layer name="object" width="100" height="100">
+  <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -221,10 +224,10 @@ data=
 0,0,0,0,0,0,0,0,0,0,0,0,0,75,67,67,87,0,0,0,0,0,82,67,78,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,64,0,0,0,0,86,78,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,75,71,67,67,67,67,78,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,64,0,0,0,0,66,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,100,241,241,241,241,66,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-
-[layer]
-type=collision
-data=
+</data>
+ </layer>
+ <layer name="collision" width="100" height="100">
+  <data encoding="csv">
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
@@ -325,266 +328,261 @@ data=
 3,3,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,0,0,0,0,0,1,1,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,0,0,0,0,1,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,0,0,0,0,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,0,0,0,0,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
-
-[event]
-# to Abandoned Mines
-type=on_trigger
-location=45,99,4,1
-hotspot=location
-intermap=maps/abandoned_mines.txt,47,2
-tooltip=Abandoned Mines
-
-[event]
-# to Stormrock Pass (SW)
-type=on_trigger
-location=6,62,2,1
-hotspot=location
-intermap=maps/stormrock_pass.txt,24,81
-tooltip=Stormrock Pass
-
-[event]
-# to Stormrock Pass (NW)
-type=on_trigger
-location=21,14,1,2
-hotspot=location
-intermap=maps/stormrock_pass.txt,31,25
-tooltip=Stormrock Pass
-
-[event]
-# to Stormrock Pass (NE)
-type=on_trigger
-location=77,39,2,1
-hotspot=location
-intermap=maps/stormrock_pass.txt,100,26
-tooltip=Stormrock Pass
-
-[event]
-# to Stormrock Pass (SE)
-type=on_trigger
-location=92,88,1,2
-hotspot=location
-intermap=maps/stormrock_pass.txt,97,105
-tooltip=Stormrock Pass
-
-[event]
-# Crate
-type=on_trigger
-location=42,44,1,1
-hotspot=location
-loot=loot/level_6.txt
-mapmod=object,42,44,179
-repeat=false
-soundfx=soundfx/wood_open.ogg
-tooltip=Crate
-
-[event]
-# Crate
-type=on_trigger
-location=12,78,1,1
-hotspot=location
-loot=loot/level_6.txt
-mapmod=object,12,78,179
-repeat=false
-soundfx=soundfx/wood_open.ogg
-tooltip=Crate
-
-[event]
-# Barrel
-type=on_trigger
-location=84,8,1,1
-hotspot=location
-loot=loot/level_6.txt
-mapmod=object,84,8,178
-repeat=false
-soundfx=soundfx/wood_open.ogg
-tooltip=Barrel
-
-[event]
-# Treasure Chest
-type=on_trigger
-location=6,31,1,1
-hotspot=location
-loot=loot/level_6.txt
-mapmod=object,6,31,176
-repeat=false
-soundfx=soundfx/wood_open.ogg
-tooltip=Treasure Chest
-
-[event]
-# Treasure Chest
-type=on_trigger
-location=84,64,1,1
-hotspot=location
-loot=loot/level_6.txt
-mapmod=object,84,64,176
-repeat=false
-soundfx=soundfx/wood_open.ogg
-tooltip=Treasure Chest
-
-[event]
-# Barrel
-type=on_trigger
-location=44,59,1,1
-hotspot=location
-loot=loot/level_6.txt
-mapmod=object,44,59,178
-repeat=false
-soundfx=soundfx/wood_open.ogg
-tooltip=Barrel
-
-[enemy]
-type=antlion_burster
-location=46,80,1,1
-level=6
-number=1
-
-[enemy]
-type=antlion
-location=39,55,12,6
-level=6
-number=3
-
-[enemy]
-type=antlion_burster
-location=44,66,1,1
-level=6
-number=1
-
-[enemy]
-type=antlion_ice
-location=46,68,1,1
-level=6
-number=1
-
-[enemy]
-type=antlion
-location=11,78,6,5
-level=6
-number=3
-
-[enemy]
-type=antlion
-location=1,72,5,10
-level=6
-number=2
-
-[enemy]
-type=antlion
-location=19,57,5,6
-level=6
-number=2
-
-[enemy]
-type=antlion
-location=60,56,12,5
-level=6
-number=2
-
-[enemy]
-type=antlion
-location=61,87,12,6
-level=6
-number=3
-
-[enemy]
-type=antlion
-location=59,70,6,7
-level=6
-number=2
-
-[enemy]
-type=antlion
-location=83,61,5,7
-level=6
-number=3
-
-[enemy]
-type=antlion
-location=11,91,5,6
-level=6
-number=2
-
-[enemy]
-type=antlion
-location=77,75,7,3
-level=6
-number=2
-
-[enemy]
-type=antlion
-location=34,40,15,8
-level=6
-number=3
-
-[enemy]
-type=antlion
-location=80,7,7,7
-level=6
-number=3
-
-[enemy]
-type=antlion
-location=72,29,12,5
-level=6
-number=2
-
-[enemy]
-type=antlion
-location=63,15,12,8
-level=6
-number=2
-
-[enemy]
-type=antlion
-location=37,13,12,8
-level=6
-number=3
-
-[enemy]
-type=antlion
-location=8,34,8,8
-level=6
-number=3
-
-[enemy]
-type=antlion
-location=1,19,5,6
-level=6
-number=2
-
-[enemy]
-type=antlion
-location=13,19,5,6
-level=6
-number=2
-
-[enemy]
-type=antlion
-location=54,30,6,5
-level=6
-number=2
-
-[enemy]
-type=antlion
-location=41,26,6,10
-level=6
-number=2
-
-[enemy]
-type=antlion
-location=27,76,9,5
-level=6
-number=2
-
-[enemy]
-type=antlion
-location=17,47,8,5
-level=6
-number=2
-
-[enemy]
-type=antlion
-location=61,42,7,4
-level=6
-number=2
-
+</data>
+ </layer>
+ <objectgroup name="event">
+  <object id="1" name="to Abandoned Mines" type="on_trigger" x="1440" y="3168" width="128" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="intermap" value="maps/abandoned_mines.txt,47,2"/>
+    <property name="tooltip" value="Abandoned Mines"/>
+   </properties>
+  </object>
+  <object id="2" name="to Stormrock Pass (SW)" type="on_trigger" x="192" y="1984" width="64" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="intermap" value="maps/stormrock_pass.txt,24,81"/>
+    <property name="tooltip" value="Stormrock Pass"/>
+   </properties>
+  </object>
+  <object id="3" name="to Stormrock Pass (NW)" type="on_trigger" x="672" y="448" width="32" height="64">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="intermap" value="maps/stormrock_pass.txt,31,25"/>
+    <property name="tooltip" value="Stormrock Pass"/>
+   </properties>
+  </object>
+  <object id="4" name="to Stormrock Pass (NE)" type="on_trigger" x="2464" y="1248" width="64" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="intermap" value="maps/stormrock_pass.txt,100,26"/>
+    <property name="tooltip" value="Stormrock Pass"/>
+   </properties>
+  </object>
+  <object id="5" name="to Stormrock Pass (SE)" type="on_trigger" x="2944" y="2816" width="32" height="64">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="intermap" value="maps/stormrock_pass.txt,97,105"/>
+    <property name="tooltip" value="Stormrock Pass"/>
+   </properties>
+  </object>
+  <object id="6" name="Crate" type="on_trigger" x="1344" y="1408" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="loot/level_6.txt"/>
+    <property name="mapmod" value="object,42,44,179"/>
+    <property name="repeat" value="false"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Crate"/>
+   </properties>
+  </object>
+  <object id="7" name="Crate" type="on_trigger" x="384" y="2496" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="loot/level_6.txt"/>
+    <property name="mapmod" value="object,12,78,179"/>
+    <property name="repeat" value="false"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Crate"/>
+   </properties>
+  </object>
+  <object id="8" name="Barrel" type="on_trigger" x="2688" y="256" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="loot/level_6.txt"/>
+    <property name="mapmod" value="object,84,8,178"/>
+    <property name="repeat" value="false"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Barrel"/>
+   </properties>
+  </object>
+  <object id="9" name="Treasure Chest" type="on_trigger" x="192" y="992" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="loot/level_6.txt"/>
+    <property name="mapmod" value="object,6,31,176"/>
+    <property name="repeat" value="false"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Treasure Chest"/>
+   </properties>
+  </object>
+  <object id="10" name="Treasure Chest" type="on_trigger" x="2688" y="2048" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="loot/level_6.txt"/>
+    <property name="mapmod" value="object,84,64,176"/>
+    <property name="repeat" value="false"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Treasure Chest"/>
+   </properties>
+  </object>
+  <object id="11" name="Barrel" type="on_trigger" x="1408" y="1888" width="32" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="loot/level_6.txt"/>
+    <property name="mapmod" value="object,44,59,178"/>
+    <property name="repeat" value="false"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Barrel"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="enemy" visible="0">
+  <object id="12" type="antlion_burster" x="1472" y="2560" width="32" height="32">
+   <properties>
+    <property name="level" value="6"/>
+    <property name="number" value="1"/>
+   </properties>
+  </object>
+  <object id="14" type="antlion" x="1248" y="1760" width="384" height="192">
+   <properties>
+    <property name="level" value="6"/>
+    <property name="number" value="3"/>
+   </properties>
+  </object>
+  <object id="15" type="antlion_burster" x="1408" y="2112" width="32" height="32">
+   <properties>
+    <property name="level" value="6"/>
+    <property name="number" value="1"/>
+   </properties>
+  </object>
+  <object id="16" type="antlion_ice" x="1472" y="2176" width="32" height="32">
+   <properties>
+    <property name="level" value="6"/>
+    <property name="number" value="1"/>
+   </properties>
+  </object>
+  <object id="17" type="antlion" x="352" y="2496" width="192" height="160">
+   <properties>
+    <property name="level" value="6"/>
+    <property name="number" value="3"/>
+   </properties>
+  </object>
+  <object id="19" type="antlion" x="32" y="2304" width="160" height="320">
+   <properties>
+    <property name="level" value="6"/>
+    <property name="number" value="2"/>
+   </properties>
+  </object>
+  <object id="20" type="antlion" x="608" y="1824" width="160" height="192">
+   <properties>
+    <property name="level" value="6"/>
+    <property name="number" value="2"/>
+   </properties>
+  </object>
+  <object id="21" type="antlion" x="1920" y="1792" width="384" height="160">
+   <properties>
+    <property name="level" value="6"/>
+    <property name="number" value="2"/>
+   </properties>
+  </object>
+  <object id="22" type="antlion" x="1952" y="2784" width="384" height="192">
+   <properties>
+    <property name="level" value="6"/>
+    <property name="number" value="3"/>
+   </properties>
+  </object>
+  <object id="23" type="antlion" x="1888" y="2240" width="192" height="224">
+   <properties>
+    <property name="level" value="6"/>
+    <property name="number" value="2"/>
+   </properties>
+  </object>
+  <object id="24" type="antlion" x="2656" y="1952" width="160" height="224">
+   <properties>
+    <property name="level" value="6"/>
+    <property name="number" value="3"/>
+   </properties>
+  </object>
+  <object id="25" type="antlion" x="352" y="2912" width="160" height="192">
+   <properties>
+    <property name="level" value="6"/>
+    <property name="number" value="2"/>
+   </properties>
+  </object>
+  <object id="26" type="antlion" x="2464" y="2400" width="224" height="96">
+   <properties>
+    <property name="level" value="6"/>
+    <property name="number" value="2"/>
+   </properties>
+  </object>
+  <object id="27" type="antlion" x="1088" y="1280" width="480" height="256">
+   <properties>
+    <property name="level" value="6"/>
+    <property name="number" value="3"/>
+   </properties>
+  </object>
+  <object id="28" type="antlion" x="2560" y="224" width="224" height="224">
+   <properties>
+    <property name="level" value="6"/>
+    <property name="number" value="3"/>
+   </properties>
+  </object>
+  <object id="29" type="antlion" x="2304" y="928" width="384" height="160">
+   <properties>
+    <property name="level" value="6"/>
+    <property name="number" value="2"/>
+   </properties>
+  </object>
+  <object id="30" type="antlion" x="2016" y="480" width="384" height="256">
+   <properties>
+    <property name="level" value="6"/>
+    <property name="number" value="2"/>
+   </properties>
+  </object>
+  <object id="31" type="antlion" x="1184" y="416" width="384" height="256">
+   <properties>
+    <property name="level" value="6"/>
+    <property name="number" value="3"/>
+   </properties>
+  </object>
+  <object id="32" type="antlion" x="256" y="1088" width="256" height="256">
+   <properties>
+    <property name="level" value="6"/>
+    <property name="number" value="3"/>
+   </properties>
+  </object>
+  <object id="33" type="antlion" x="32" y="608" width="160" height="192">
+   <properties>
+    <property name="level" value="6"/>
+    <property name="number" value="2"/>
+   </properties>
+  </object>
+  <object id="34" type="antlion" x="416" y="608" width="160" height="192">
+   <properties>
+    <property name="level" value="6"/>
+    <property name="number" value="2"/>
+   </properties>
+  </object>
+  <object id="35" type="antlion" x="1728" y="960" width="192" height="160">
+   <properties>
+    <property name="level" value="6"/>
+    <property name="number" value="2"/>
+   </properties>
+  </object>
+  <object id="36" type="antlion" x="1312" y="832" width="192" height="320">
+   <properties>
+    <property name="level" value="6"/>
+    <property name="number" value="2"/>
+   </properties>
+  </object>
+  <object id="37" type="antlion" x="864" y="2432" width="288" height="160">
+   <properties>
+    <property name="level" value="6"/>
+    <property name="number" value="2"/>
+   </properties>
+  </object>
+  <object id="38" type="antlion" x="544" y="1504" width="256" height="160">
+   <properties>
+    <property name="level" value="6"/>
+    <property name="number" value="2"/>
+   </properties>
+  </object>
+  <object id="39" type="antlion" x="1952" y="1344" width="224" height="128">
+   <properties>
+    <property name="level" value="6"/>
+    <property name="number" value="2"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

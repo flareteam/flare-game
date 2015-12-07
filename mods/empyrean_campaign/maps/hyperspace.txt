@@ -199,6 +199,16 @@ soundfx=soundfx/environment/teleporter.ogg,0,0
 tooltip=Blackmire Mines
 
 [event]
+# to Stormrock Pass
+type=on_trigger
+location=31,22,2,2
+hotspot=location
+intermap=maps/stormrock_pass.txt,70,65
+requires_status=emp_waypoint_5
+soundfx=soundfx/environment/teleporter.ogg,0,0
+tooltip=Stormrock Pass
+
+[event]
 # Wind sound
 type=on_load
 location=0,0,1,1
@@ -231,4 +241,11 @@ type=on_load
 location=34,16,1,1
 mapmod=background,31,17,265
 requires_status=emp_waypoint_4
+
+[event]
+# unlock Stormrock Pass
+type=on_load
+location=34,22,1,1
+mapmod=background,31,23,265
+requires_status=emp_waypoint_5
 
