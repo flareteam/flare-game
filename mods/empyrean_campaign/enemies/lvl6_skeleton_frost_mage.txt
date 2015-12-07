@@ -1,0 +1,39 @@
+INCLUDE enemies/base/skeleton_mage.txt
+
+name=Skeleton Frost Mage
+level=6
+categories=skeleton_mage,skeleton,undead,dungeon,ice,snowplains
+rarity=uncommon
+xp=64
+
+# combat stats
+hp=165
+speed=4
+turn_delay=200ms
+
+chance_pursue=5
+
+power=melee,164,1
+power=melee,183,5
+power=ranged,172,3
+
+accuracy=115
+avoidance=40
+poise=25
+
+absorb_min=5
+absorb_max=5
+
+dmg_melee_min=80
+dmg_melee_max=85
+dmg_ment_min=90
+dmg_ment_max=95
+
+vulnerable_fire=150
+vulnerable_ice=75
+
+cooldown=1475ms
+
+# loot
+loot=loot/level_6.txt
+
