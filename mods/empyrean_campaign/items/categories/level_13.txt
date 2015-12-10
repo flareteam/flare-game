@@ -1,0 +1,128 @@
+# equipment intended for players level 13
+
+[item]
+id=311
+name=Plate Helmet
+INCLUDE items/base/armor/plate/head.txt
+level=13
+price=390
+abs=5,6
+requires_stat=defense,30
+
+[item]
+id=312
+name=Plate Curiass
+INCLUDE items/base/armor/plate/chest.txt
+level=13
+price=975
+abs=6,7
+requires_stat=defense,30
+
+[item]
+id=313
+name=Plate Greaves
+INCLUDE items/base/armor/plate/legs.txt
+level=13
+price=650
+abs=6
+requires_stat=defense,30
+
+[item]
+id=314
+name=Plate Boots
+INCLUDE items/base/armor/plate/feet.txt
+level=13
+price=390
+abs=5,6
+requires_stat=defense,30
+
+[item]
+id=315
+name=Plate Gauntlets
+INCLUDE items/base/armor/plate/hands.txt
+level=13
+price=325
+abs=5,6
+requires_stat=defense,30
+
+[item]
+id=316
+name=Velvet Hood
+INCLUDE items/base/armor/mage/head.txt
+level=13
+price=390
+abs=5
+requires_stat=defense,29
+
+[item]
+id=317
+name=Velvet Vest
+INCLUDE items/base/armor/mage/chest.txt
+level=13
+price=975
+abs=6
+requires_stat=defense,29
+
+[item]
+id=318
+name=Velvet Skirt
+INCLUDE items/base/armor/mage/legs.txt
+level=13
+price=650
+abs=5,6
+requires_stat=defense,29
+
+[item]
+id=319
+name=Velvet Boots
+INCLUDE items/base/armor/mage/feet.txt
+level=13
+price=390
+abs=5
+requires_stat=defense,29
+
+[item]
+id=320
+name=Velvet Sleeves
+INCLUDE items/base/armor/mage/hands.txt
+level=13
+price=325
+abs=5
+requires_stat=defense,29
+
+[item]
+id=321
+name=Greatsword
+INCLUDE items/base/weapons/melee/greatsword.txt
+level=13
+price=1300
+dmg_melee=85,90
+requires_stat=physical,35
+
+[item]
+id=322
+name=Greatbow
+INCLUDE items/base/weapons/ranged/greatbow.txt
+level=13
+price=1300
+dmg_ranged=85,90
+requires_stat=offense,35
+
+[item]
+id=323
+name=Greatsword
+INCLUDE items/base/weapons/magic/greatstaff.txt
+level=13
+price=1300
+dmg_ment=85,90
+requires_stat=mental,35
+
+[item]
+id=324
+name=Tower Shield
+INCLUDE items/base/shields/steel.txt
+level=13
+price=975
+abs=15,16
+requires_stat=defense,33
+

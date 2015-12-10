@@ -1,0 +1,337 @@
+# equipment intended for players level 12
+
+[item]
+id=276
+name=Warlord Chain Coif
+INCLUDE items/base/armor/chain/head.txt
+level=12
+quality=rare
+price=360
+abs=5,6
+requires_stat=defense,28
+requires_stat=physical,10
+bonus=poise,6
+
+[item]
+id=277
+name=Sniper Chain Coif
+INCLUDE items/base/armor/chain/head.txt
+level=12
+quality=rare
+price=360
+abs=5
+requires_stat=defense,27
+requires_stat=offense,11
+bonus=accuracy,12
+
+[item]
+id=278
+name=Archwizard Silk Hood
+INCLUDE items/base/armor/mage/head.txt
+level=12
+quality=rare
+price=360
+abs=4,5
+requires_stat=defense,26
+requires_stat=mental,12
+bonus=mp,18
+
+[item]
+id=279
+name=Warlord Chain Curiass
+INCLUDE items/base/armor/chain/chest.txt
+level=12
+quality=rare
+price=900
+abs=6,7
+requires_stat=defense,28
+requires_stat=physical,10
+bonus=hp,225
+
+[item]
+id=280
+name=Sniper Chain Curiass
+INCLUDE items/base/armor/chain/chest.txt
+level=12
+quality=rare
+price=900
+abs=6
+requires_stat=defense,27
+requires_stat=offense,11
+bonus=accuracy,27
+
+[item]
+id=281
+name=Archwizard Silk Vest
+INCLUDE items/base/armor/mage/chest.txt
+level=12
+quality=rare
+price=900
+abs=5,6
+requires_stat=defense,26
+requires_stat=mental,12
+bonus=mp,27
+
+[item]
+id=282
+name=Warlord Chain Greaves
+INCLUDE items/base/armor/chain/legs.txt
+level=12
+quality=rare
+price=600
+abs=6
+requires_stat=defense,28
+requires_stat=physical,10
+bonus=poise,27
+
+[item]
+id=283
+name=Sniper Chain Greaves
+INCLUDE items/base/armor/chain/legs.txt
+level=12
+quality=rare
+price=600
+abs=5,6
+requires_stat=defense,27
+requires_stat=offense,11
+bonus=avoidance,27
+
+[item]
+id=284
+name=Archwizard Silk Skirt
+INCLUDE items/base/armor/mage/legs.txt
+level=12
+quality=rare
+price=600
+abs=5
+requires_stat=defense,26
+requires_stat=mental,12
+bonus=mp,18
+
+[item]
+id=285
+name=Warlord Chain Boots
+INCLUDE items/base/armor/chain/feet.txt
+level=12
+quality=rare
+price=360
+abs=5,6
+requires_stat=defense,28
+requires_stat=physical,10
+bonus=poise,18
+
+[item]
+id=286
+name=Sniper Chain Boots
+INCLUDE items/base/armor/chain/feet.txt
+level=12
+quality=rare
+price=360
+abs=5
+requires_stat=defense,27
+requires_stat=offense,11
+bonus=avoidance,36
+
+[item]
+id=287
+name=Archwizard Silk Boots
+INCLUDE items/base/armor/mage/feet.txt
+level=12
+quality=rare
+price=360
+abs=4,5
+requires_stat=defense,26
+requires_stat=mental,12
+bonus=mp_regen,9
+
+[item]
+id=288
+name=Warlord Chain Gloves
+INCLUDE items/base/armor/chain/hands.txt
+level=12
+quality=rare
+price=300
+abs=5,6
+requires_stat=defense,28
+requires_stat=physical,10
+bonus=crit,9
+
+[item]
+id=289
+name=Sniper Chain Gloves
+INCLUDE items/base/armor/chain/hands.txt
+level=12
+quality=rare
+price=300
+abs=5
+requires_stat=defense,27
+requires_stat=offense,11
+bonus=accuracy,18
+
+[item]
+id=290
+name=Archwizard Silk Sleeves
+INCLUDE items/base/armor/mage/hands.txt
+level=12
+quality=rare
+price=300
+abs=4,5
+requires_stat=defense,26
+requires_stat=mental,12
+bonus=mp_regen,18
+
+[item]
+id=291
+name=Warlord Padded Belt
+INCLUDE items/base/armor/belt.txt
+level=12
+quality=rare
+price=600
+abs=3,4
+requires_stat=defense,28
+requires_stat=physical,10
+bonus=hp_regen,225
+
+[item]
+id=292
+name=Sniper Padded Belt
+INCLUDE items/base/armor/belt.txt
+level=12
+quality=rare
+price=600
+abs=3,4
+requires_stat=defense,27
+requires_stat=offense,11
+bonus=avoidance,27
+
+[item]
+id=293
+name=Archwizard Padded Belt
+INCLUDE items/base/armor/belt.txt
+level=12
+quality=rare
+price=600
+abs=3,4
+requires_stat=defense,26
+requires_stat=mental,12
+bonus=mp_regen,18
+
+[item]
+id=294
+name=Warlord Longsword
+INCLUDE items/base/weapons/melee/longsword.txt
+level=12
+quality=rare
+price=1200
+dmg_melee=65,70
+requires_stat=physical,32
+bonus=dmg_melee_min,15
+bonus=dmg_melee_max,15
+
+[item]
+id=295
+name=Sniper Longbow
+INCLUDE items/base/weapons/ranged/longbow.txt
+level=12
+quality=rare
+price=1200
+dmg_ranged=65,70
+requires_stat=offense,32
+bonus=dmg_ranged_min,15
+bonus=dmg_ranged_max,15
+
+[item]
+id=296
+name=Archwizard Staff
+INCLUDE items/base/weapons/magic/staff.txt
+level=12
+quality=rare
+price=1200
+dmg_ment=65,70
+requires_stat=mental,32
+bonus=dmg_ment_min,15
+bonus=dmg_ment_max,15
+
+[item]
+id=297
+name=Templar Crest Shield
+INCLUDE items/base/shields/steel.txt
+level=12
+quality=rare
+price=900
+abs=12
+requires_stat=defense,30
+bonus=absorb_max,3
+
+[item]
+id=298
+name=Master Blaze Ring
+INCLUDE items/base/rings/gold_5.txt
+level=12
+quality=rare
+price=1200
+requires_level=10
+bonus=fire_resist,18
+
+[item]
+id=299
+name=Master Freeze Ring
+INCLUDE items/base/rings/silver_4.txt
+level=12
+quality=rare
+price=1200
+requires_level=10
+bonus=ice_resist,18
+
+[item]
+id=300
+name=Master Shock Ring
+INCLUDE items/base/rings/silver_5.txt
+level=12
+quality=rare
+price=1200
+requires_level=10
+bonus=lightning_resist,18
+
+[item]
+id=301
+name=Master Gloom Ring
+INCLUDE items/base/rings/gold_3.txt
+level=12
+quality=rare
+price=1200
+requires_level=10
+bonus=dark_resist,18
+
+[item]
+id=302
+name=Master Intellectual Ring
+INCLUDE items/base/rings/silver_2.txt
+level=12
+quality=rare
+price=1200
+requires_level=10
+bonus=xp_gain,9
+
+[item]
+id=303
+name=Master Lucrative Ring
+INCLUDE items/base/rings/gold_2.txt
+level=12
+quality=rare
+price=1200
+requires_level=10
+bonus=currency_find,18
+
+[item]
+id=304
+name=Master Artifact Ring
+INCLUDE items/base/rings/gold_4.txt
+level=12
+quality=rare
+price=1200
+requires_level=10
+bonus=item_find,45
+
+# 305-310
+# unique and set items

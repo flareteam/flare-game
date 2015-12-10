@@ -1,0 +1,335 @@
+# equipment intended for players level 14
+
+[item]
+id=325
+name=Fighting Plate Helmet
+INCLUDE items/base/armor/plate/head.txt
+level=14
+quality=high
+price=420
+abs=6,7
+requires_stat=defense,34
+requires_stat=physical,12
+bonus=poise,7
+
+[item]
+id=326
+name=Recon Plate Helmet
+INCLUDE items/base/armor/plate/head.txt
+level=14
+quality=high
+price=420
+abs=6
+requires_stat=defense,33
+requires_stat=offense,13
+bonus=accuracy,14
+
+[item]
+id=327
+name=Sorcerer Velvet Hood
+INCLUDE items/base/armor/mage/head.txt
+level=14
+quality=high
+price=420
+abs=5,6
+requires_stat=defense,32
+requires_stat=mental,14
+bonus=mp,21
+
+[item]
+id=328
+name=Fighting Plate Curiass
+INCLUDE items/base/armor/plate/chest.txt
+level=14
+quality=high
+price=1050
+abs=7,8
+requires_stat=defense,34
+requires_stat=physical,12
+bonus=hp,250
+
+[item]
+id=329
+name=Recon Plate Curiass
+INCLUDE items/base/armor/plate/chest.txt
+level=14
+quality=high
+price=1050
+abs=7
+requires_stat=defense,33
+requires_stat=offense,13
+bonus=accuracy,30
+
+[item]
+id=330
+name=Sorcerer Velvet Vest
+INCLUDE items/base/armor/mage/chest.txt
+level=14
+quality=high
+price=1050
+abs=6,7
+requires_stat=defense,32
+requires_stat=mental,14
+bonus=mp,30
+
+[item]
+id=331
+name=Fighting Plate Greaves
+INCLUDE items/base/armor/plate/legs.txt
+level=14
+quality=high
+price=700
+abs=7
+requires_stat=defense,34
+requires_stat=physical,12
+bonus=poise,30
+
+[item]
+id=332
+name=Recon Plate Greaves
+INCLUDE items/base/armor/plate/legs.txt
+level=14
+quality=high
+price=700
+abs=6,7
+requires_stat=defense,33
+requires_stat=offense,13
+bonus=avoidance,30
+
+[item]
+id=333
+name=Sorcerer Velvet Skirt
+INCLUDE items/base/armor/mage/legs.txt
+level=14
+quality=high
+price=700
+abs=6
+requires_stat=defense,32
+requires_stat=mental,14
+bonus=mp,20
+
+[item]
+id=334
+name=Fighting Plate Boots
+INCLUDE items/base/armor/plate/feet.txt
+level=14
+quality=high
+price=420
+abs=6,7
+requires_stat=defense,34
+requires_stat=physical,12
+bonus=poise,20
+
+[item]
+id=335
+name=Recon Plate Boots
+INCLUDE items/base/armor/plate/feet.txt
+level=14
+quality=high
+price=420
+abs=6
+requires_stat=defense,33
+requires_stat=offense,13
+bonus=avoidance,40
+
+[item]
+id=336
+name=Sorcerer Velvet Boots
+INCLUDE items/base/armor/mage/feet.txt
+level=14
+quality=high
+price=420
+abs=5,6
+requires_stat=defense,32
+requires_stat=mental,14
+bonus=mp_regen,10
+
+[item]
+id=337
+name=Fighting Plate Gauntlets
+INCLUDE items/base/armor/plate/hands.txt
+level=14
+quality=high
+price=350
+abs=6,7
+requires_stat=defense,34
+requires_stat=physical,12
+bonus=crit,10
+
+[item]
+id=338
+name=Recon Plate Gauntlets
+INCLUDE items/base/armor/plate/hands.txt
+level=14
+quality=high
+price=350
+abs=6
+requires_stat=defense,33
+requires_stat=offense,13
+bonus=accuracy,20
+
+[item]
+id=339
+name=Sorcerer Velvet Sleeves
+INCLUDE items/base/armor/mage/hands.txt
+level=14
+quality=high
+price=350
+abs=5,6
+requires_stat=defense,32
+requires_stat=mental,14
+bonus=mp_regen,20
+
+[item]
+id=340
+name=Fighting Armored Belt
+INCLUDE items/base/armor/belt.txt
+level=14
+quality=high
+price=700
+abs=4,5
+requires_stat=defense,34
+requires_stat=physical,12
+bonus=hp_regen,250
+
+[item]
+id=341
+name=Recon Armored Belt
+INCLUDE items/base/armor/belt.txt
+level=14
+quality=high
+price=700
+abs=4,5
+requires_stat=defense,33
+requires_stat=offense,13
+bonus=avoidance,30
+
+[item]
+id=342
+name=Sorcerer Armored Belt
+INCLUDE items/base/armor/belt.txt
+level=14
+quality=high
+price=700
+abs=4,5
+requires_stat=defense,32
+requires_stat=mental,14
+bonus=mp_regen,20
+
+[item]
+id=343
+name=Fighting Greatsword
+INCLUDE items/base/weapons/melee/greatsword.txt
+level=14
+quality=high
+price=1400
+dmg_melee=85,90
+requires_stat=physical,38
+bonus=dmg_melee_min,5
+bonus=dmg_melee_max,5
+
+[item]
+id=344
+name=Recon Greatbow
+INCLUDE items/base/weapons/ranged/greatbow.txt
+level=14
+quality=high
+price=1400
+dmg_ranged=85,90
+requires_stat=offense,38
+bonus=dmg_ranged_min,5
+bonus=dmg_ranged_max,5
+
+[item]
+id=345
+name=Sorcerer Greatsword
+INCLUDE items/base/weapons/magic/greatstaff.txt
+level=14
+quality=high
+price=1400
+dmg_ment=85,90
+requires_stat=mental,38
+bonus=dmg_ment_min,5
+bonus=dmg_ment_max,5
+
+[item]
+id=346
+name=Keeper Tower Shield
+INCLUDE items/base/shields/steel.txt
+level=14
+quality=high
+price=1050
+abs=16
+requires_stat=defense,36
+bonus=absorb_max,1
+
+[item]
+id=347
+name=Wandering Inferno Ring
+INCLUDE items/base/rings/gold_5.txt
+level=14
+quality=high
+price=1400
+requires_level=12
+bonus=fire_resist,20
+
+[item]
+id=348
+name=Wandering Glacial Ring
+INCLUDE items/base/rings/silver_4.txt
+level=14
+quality=high
+price=1400
+requires_level=12
+bonus=ice_resist,20
+
+[item]
+id=349
+name=Wandering Volt Ring
+INCLUDE items/base/rings/silver_5.txt
+level=14
+quality=high
+price=1400
+requires_level=12
+bonus=lightning_resist,20
+
+[item]
+id=350
+name=Wandering Void Ring
+INCLUDE items/base/rings/gold_3.txt
+level=14
+quality=high
+price=1400
+requires_level=12
+bonus=dark_resist,20
+
+[item]
+id=351
+name=Wandering Scholar Ring
+INCLUDE items/base/rings/silver_2.txt
+level=14
+quality=high
+price=1400
+requires_level=12
+bonus=xp_gain,10
+
+[item]
+id=352
+name=Wandering Affluence Ring
+INCLUDE items/base/rings/gold_2.txt
+level=14
+quality=high
+price=1400
+requires_level=12
+bonus=currency_find,20
+
+[item]
+id=353
+name=Wandering Relic Ring
+INCLUDE items/base/rings/gold_4.txt
+level=14
+quality=high
+price=1400
+requires_level=12
+bonus=item_find,50
+

@@ -1,0 +1,335 @@
+# equipment intended for players level 10
+
+[item]
+id=218
+name=Fighting Chain Coif
+INCLUDE items/base/armor/chain/head.txt
+level=10
+quality=high
+price=300
+abs=4,5
+requires_stat=defense,22
+requires_stat=physical,8
+bonus=poise,4
+
+[item]
+id=219
+name=Recon Chain Coif
+INCLUDE items/base/armor/chain/head.txt
+level=10
+quality=high
+price=300
+abs=4
+requires_stat=defense,21
+requires_stat=offense,9
+bonus=accuracy,8
+
+[item]
+id=220
+name=Sorcerer Silk Hood
+INCLUDE items/base/armor/mage/head.txt
+level=10
+quality=high
+price=300
+abs=3,4
+requires_stat=defense,20
+requires_stat=mental,10
+bonus=mp,12
+
+[item]
+id=221
+name=Fighting Chain Curiass
+INCLUDE items/base/armor/chain/chest.txt
+level=10
+quality=high
+price=750
+abs=5,6
+requires_stat=defense,22
+requires_stat=physical,8
+bonus=hp,175
+
+[item]
+id=222
+name=Recon Chain Curiass
+INCLUDE items/base/armor/chain/chest.txt
+level=10
+quality=high
+price=750
+abs=5
+requires_stat=defense,21
+requires_stat=offense,9
+bonus=accuracy,21
+
+[item]
+id=223
+name=Sorcerer Silk Vest
+INCLUDE items/base/armor/mage/chest.txt
+level=10
+quality=high
+price=750
+abs=4,5
+requires_stat=defense,20
+requires_stat=mental,10
+bonus=mp,21
+
+[item]
+id=224
+name=Fighting Chain Greaves
+INCLUDE items/base/armor/chain/legs.txt
+level=10
+quality=high
+price=500
+abs=5
+requires_stat=defense,22
+requires_stat=physical,8
+bonus=poise,21
+
+[item]
+id=225
+name=Recon Chain Greaves
+INCLUDE items/base/armor/chain/legs.txt
+level=10
+quality=high
+price=500
+abs=4,5
+requires_stat=defense,21
+requires_stat=offense,9
+bonus=avoidance,21
+
+[item]
+id=226
+name=Sorcerer Silk Skirt
+INCLUDE items/base/armor/mage/legs.txt
+level=10
+quality=high
+price=500
+abs=4
+requires_stat=defense,20
+requires_stat=mental,10
+bonus=mp,14
+
+[item]
+id=227
+name=Fighting Chain Boots
+INCLUDE items/base/armor/chain/feet.txt
+level=10
+quality=high
+price=300
+abs=4,5
+requires_stat=defense,22
+requires_stat=physical,8
+bonus=poise,14
+
+[item]
+id=228
+name=Recon Chain Boots
+INCLUDE items/base/armor/chain/feet.txt
+level=10
+quality=high
+price=300
+abs=4
+requires_stat=defense,21
+requires_stat=offense,9
+bonus=avoidance,28
+
+[item]
+id=229
+name=Sorcerer Silk Boots
+INCLUDE items/base/armor/mage/feet.txt
+level=10
+quality=high
+price=300
+abs=3,4
+requires_stat=defense,20
+requires_stat=mental,10
+bonus=mp_regen,7
+
+[item]
+id=230
+name=Fighting Chain Gloves
+INCLUDE items/base/armor/chain/hands.txt
+level=10
+quality=high
+price=250
+abs=4,5
+requires_stat=defense,22
+requires_stat=physical,8
+bonus=crit,7
+
+[item]
+id=231
+name=Recon Chain Gloves
+INCLUDE items/base/armor/chain/hands.txt
+level=10
+quality=high
+price=250
+abs=4
+requires_stat=defense,21
+requires_stat=offense,9
+bonus=accuracy,14
+
+[item]
+id=232
+name=Sorcerer Silk Sleeves
+INCLUDE items/base/armor/mage/hands.txt
+level=10
+quality=high
+price=250
+abs=3,4
+requires_stat=defense,20
+requires_stat=mental,10
+bonus=mp_regen,14
+
+[item]
+id=233
+name=Fighting Padded Belt
+INCLUDE items/base/armor/belt.txt
+level=10
+quality=high
+price=500
+abs=2,3
+requires_stat=defense,22
+requires_stat=physical,8
+bonus=hp_regen,175
+
+[item]
+id=234
+name=Recon Padded Belt
+INCLUDE items/base/armor/belt.txt
+level=10
+quality=high
+price=500
+abs=2,3
+requires_stat=defense,21
+requires_stat=offense,9
+bonus=avoidance,21
+
+[item]
+id=235
+name=Sorcerer Padded Belt
+INCLUDE items/base/armor/belt.txt
+level=10
+quality=high
+price=500
+abs=2,3
+requires_stat=defense,20
+requires_stat=mental,10
+bonus=mp_regen,14
+
+[item]
+id=236
+name=Fighting Longsword
+INCLUDE items/base/weapons/melee/longsword.txt
+level=10
+quality=high
+price=1000
+dmg_melee=65,70
+requires_stat=physical,26
+bonus=dmg_melee_min,5
+bonus=dmg_melee_max,5
+
+[item]
+id=237
+name=Recon Longbow
+INCLUDE items/base/weapons/ranged/longbow.txt
+level=10
+quality=high
+price=1000
+dmg_ranged=65,70
+requires_stat=offense,26
+bonus=dmg_ranged_min,5
+bonus=dmg_ranged_max,5
+
+[item]
+id=238
+name=Sorcerer Staff
+INCLUDE items/base/weapons/magic/staff.txt
+level=10
+quality=high
+price=1000
+dmg_ment=65,70
+requires_stat=mental,26
+bonus=dmg_ment_min,5
+bonus=dmg_ment_max,5
+
+[item]
+id=239
+name=Keeper Crest Shield
+INCLUDE items/base/shields/steel.txt
+level=10
+quality=high
+price=750
+abs=11
+requires_stat=defense,24
+bonus=absorb_max,1
+
+[item]
+id=240
+name=Wandering Blaze Ring
+INCLUDE items/base/rings/gold_5.txt
+level=10
+quality=high
+price=1000
+requires_level=8
+bonus=fire_resist,14
+
+[item]
+id=241
+name=Wandering Freeze Ring
+INCLUDE items/base/rings/silver_4.txt
+level=10
+quality=high
+price=1000
+requires_level=8
+bonus=ice_resist,14
+
+[item]
+id=242
+name=Wandering Shock Ring
+INCLUDE items/base/rings/silver_5.txt
+level=10
+quality=high
+price=1000
+requires_level=8
+bonus=lightning_resist,14
+
+[item]
+id=243
+name=Wandering Gloom Ring
+INCLUDE items/base/rings/gold_3.txt
+level=10
+quality=high
+price=1000
+requires_level=8
+bonus=dark_resist,14
+
+[item]
+id=244
+name=Wandering Intellectual Ring
+INCLUDE items/base/rings/silver_2.txt
+level=10
+quality=high
+price=1000
+requires_level=8
+bonus=xp_gain,7
+
+[item]
+id=245
+name=Wandering Lucrative Ring
+INCLUDE items/base/rings/gold_2.txt
+level=10
+quality=high
+price=1000
+requires_level=8
+bonus=currency_find,14
+
+[item]
+id=246
+name=Wandering Artifact Ring
+INCLUDE items/base/rings/gold_4.txt
+level=10
+quality=high
+price=1000
+requires_level=8
+bonus=item_find,35
+

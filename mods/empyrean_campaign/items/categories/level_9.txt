@@ -1,0 +1,128 @@
+# equipment intended for players level 9
+
+[item]
+id=204
+name=Chain Coif
+INCLUDE items/base/armor/chain/head.txt
+level=9
+price=270
+abs=3,4
+requires_stat=defense,18
+
+[item]
+id=205
+name=Chain Curiass
+INCLUDE items/base/armor/chain/chest.txt
+level=9
+price=675
+abs=4,5
+requires_stat=defense,18
+
+[item]
+id=206
+name=Chain Greaves
+INCLUDE items/base/armor/chain/legs.txt
+level=9
+price=450
+abs=4
+requires_stat=defense,18
+
+[item]
+id=207
+name=Chain Boots
+INCLUDE items/base/armor/chain/feet.txt
+level=9
+price=270
+abs=3,4
+requires_stat=defense,18
+
+[item]
+id=208
+name=Chain Gloves
+INCLUDE items/base/armor/chain/hands.txt
+level=9
+price=225
+abs=3,4
+requires_stat=defense,18
+
+[item]
+id=209
+name=Silk Hood
+INCLUDE items/base/armor/mage/head.txt
+level=9
+price=270
+abs=3
+requires_stat=defense,17
+
+[item]
+id=210
+name=Silk Vest
+INCLUDE items/base/armor/mage/chest.txt
+level=9
+price=675
+abs=4
+requires_stat=defense,17
+
+[item]
+id=211
+name=Silk Skirt
+INCLUDE items/base/armor/mage/legs.txt
+level=9
+price=450
+abs=3,4
+requires_stat=defense,17
+
+[item]
+id=212
+name=Silk Boots
+INCLUDE items/base/armor/mage/feet.txt
+level=9
+price=270
+abs=3
+requires_stat=defense,17
+
+[item]
+id=213
+name=Silk Sleeves
+INCLUDE items/base/armor/mage/hands.txt
+level=9
+price=225
+abs=3
+requires_stat=defense,17
+
+[item]
+id=214
+name=Longsword
+INCLUDE items/base/weapons/melee/longsword.txt
+level=9
+price=900
+dmg_melee=65,70
+requires_stat=physical,23
+
+[item]
+id=215
+name=Longbow
+INCLUDE items/base/weapons/ranged/longbow.txt
+level=9
+price=900
+dmg_ranged=65,70
+requires_stat=offense,23
+
+[item]
+id=216
+name=Staff
+INCLUDE items/base/weapons/magic/staff.txt
+level=9
+price=900
+dmg_ment=65,70
+requires_stat=mental,23
+
+[item]
+id=217
+name=Crest Shield
+INCLUDE items/base/shields/steel.txt
+level=9
+price=675
+abs=10,11
+requires_stat=defense,21
+

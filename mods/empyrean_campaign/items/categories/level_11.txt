@@ -1,0 +1,335 @@
+# equipment intended for players level 11
+
+[item]
+id=247
+name=Warrior Chain Coif
+INCLUDE items/base/armor/chain/head.txt
+level=11
+quality=epic
+price=330
+abs=5
+requires_stat=defense,25
+requires_stat=physical,9
+bonus=poise,5
+
+[item]
+id=248
+name=Ranger Chain Coif
+INCLUDE items/base/armor/chain/head.txt
+level=11
+quality=epic
+price=330
+abs=4,5
+requires_stat=defense,24
+requires_stat=offense,10
+bonus=accuracy,10
+
+[item]
+id=249
+name=Wizard Silk Hood
+INCLUDE items/base/armor/mage/head.txt
+level=11
+quality=epic
+price=330
+abs=4
+requires_stat=defense,23
+requires_stat=mental,11
+bonus=mp,15
+
+[item]
+id=250
+name=Warrior Chain Curiass
+INCLUDE items/base/armor/chain/chest.txt
+level=11
+quality=epic
+price=825
+abs=6
+requires_stat=defense,25
+requires_stat=physical,9
+bonus=hp,200
+
+[item]
+id=251
+name=Ranger Chain Curiass
+INCLUDE items/base/armor/chain/chest.txt
+level=11
+quality=epic
+price=825
+abs=5,6
+requires_stat=defense,24
+requires_stat=offense,10
+bonus=accuracy,24
+
+[item]
+id=252
+name=Wizard Silk Vest
+INCLUDE items/base/armor/mage/chest.txt
+level=11
+quality=epic
+price=825
+abs=5
+requires_stat=defense,23
+requires_stat=mental,11
+bonus=mp,24
+
+[item]
+id=253
+name=Warrior Chain Greaves
+INCLUDE items/base/armor/chain/legs.txt
+level=11
+quality=epic
+price=550
+abs=5,6
+requires_stat=defense,25
+requires_stat=physical,9
+bonus=poise,24
+
+[item]
+id=254
+name=Ranger Chain Greaves
+INCLUDE items/base/armor/chain/legs.txt
+level=11
+quality=epic
+price=550
+abs=5
+requires_stat=defense,24
+requires_stat=offense,10
+bonus=avoidance,24
+
+[item]
+id=255
+name=Wizard Silk Skirt
+INCLUDE items/base/armor/mage/legs.txt
+level=11
+quality=epic
+price=550
+abs=4,5
+requires_stat=defense,23
+requires_stat=mental,11
+bonus=mp,16
+
+[item]
+id=256
+name=Warrior Chain Boots
+INCLUDE items/base/armor/chain/feet.txt
+level=11
+quality=epic
+price=330
+abs=5
+requires_stat=defense,25
+requires_stat=physical,9
+bonus=poise,16
+
+[item]
+id=257
+name=Ranger Chain Boots
+INCLUDE items/base/armor/chain/feet.txt
+level=11
+quality=epic
+price=330
+abs=4,5
+requires_stat=defense,24
+requires_stat=offense,10
+bonus=avoidance,32
+
+[item]
+id=258
+name=Wizard Silk Boots
+INCLUDE items/base/armor/mage/feet.txt
+level=11
+quality=epic
+price=330
+abs=4
+requires_stat=defense,23
+requires_stat=mental,11
+bonus=mp_regen,8
+
+[item]
+id=259
+name=Warrior Chain Gloves
+INCLUDE items/base/armor/chain/hands.txt
+level=11
+quality=epic
+price=275
+abs=5
+requires_stat=defense,25
+requires_stat=physical,9
+bonus=crit,8
+
+[item]
+id=260
+name=Ranger Chain Gloves
+INCLUDE items/base/armor/chain/hands.txt
+level=11
+quality=epic
+price=275
+abs=4,5
+requires_stat=defense,24
+requires_stat=offense,10
+bonus=accuracy,16
+
+[item]
+id=261
+name=Wizard Silk Sleeves
+INCLUDE items/base/armor/mage/hands.txt
+level=11
+quality=epic
+price=275
+abs=4
+requires_stat=defense,23
+requires_stat=mental,11
+bonus=mp_regen,16
+
+[item]
+id=262
+name=Warrior Padded Belt
+INCLUDE items/base/armor/belt.txt
+level=11
+quality=epic
+price=550
+abs=3
+requires_stat=defense,25
+requires_stat=physical,9
+bonus=hp_regen,200
+
+[item]
+id=263
+name=Ranger Padded Belt
+INCLUDE items/base/armor/belt.txt
+level=11
+quality=epic
+price=550
+abs=3
+requires_stat=defense,24
+requires_stat=offense,10
+bonus=avoidance,24
+
+[item]
+id=264
+name=Wizard Padded Belt
+INCLUDE items/base/armor/belt.txt
+level=11
+quality=epic
+price=550
+abs=3
+requires_stat=defense,23
+requires_stat=mental,11
+bonus=mp_regen,16
+
+[item]
+id=265
+name=Warrior Longsword
+INCLUDE items/base/weapons/melee/longsword.txt
+level=11
+quality=epic
+price=1100
+dmg_melee=65,70
+requires_stat=physical,29
+bonus=dmg_melee_min,10
+bonus=dmg_melee_max,10
+
+[item]
+id=266
+name=Ranger Longbow
+INCLUDE items/base/weapons/ranged/longbow.txt
+level=11
+quality=epic
+price=1100
+dmg_ranged=65,70
+requires_stat=offense,29
+bonus=dmg_ranged_min,10
+bonus=dmg_ranged_max,10
+
+[item]
+id=267
+name=Wizard Staff
+INCLUDE items/base/weapons/magic/staff.txt
+level=11
+quality=epic
+price=1100
+dmg_ment=65,70
+requires_stat=mental,29
+bonus=dmg_ment_min,10
+bonus=dmg_ment_max,10
+
+[item]
+id=268
+name=Paladin Crest Shield
+INCLUDE items/base/shields/steel.txt
+level=11
+quality=epic
+price=825
+abs=11,12
+requires_stat=defense,27
+bonus=absorb_max,2
+
+[item]
+id=269
+name=Adventurer Blaze Ring
+INCLUDE items/base/rings/gold_5.txt
+level=11
+quality=epic
+price=1100
+requires_level=9
+bonus=fire_resist,16
+
+[item]
+id=270
+name=Adventurer Freeze Ring
+INCLUDE items/base/rings/silver_4.txt
+level=11
+quality=epic
+price=1100
+requires_level=9
+bonus=ice_resist,16
+
+[item]
+id=271
+name=Adventurer Shock Ring
+INCLUDE items/base/rings/silver_5.txt
+level=11
+quality=epic
+price=1100
+requires_level=9
+bonus=lightning_resist,16
+
+[item]
+id=272
+name=Adventurer Gloom Ring
+INCLUDE items/base/rings/gold_3.txt
+level=11
+quality=epic
+price=1100
+requires_level=9
+bonus=dark_resist,16
+
+[item]
+id=273
+name=Adventurer Intellectual Ring
+INCLUDE items/base/rings/silver_2.txt
+level=11
+quality=epic
+price=1100
+requires_level=9
+bonus=xp_gain,8
+
+[item]
+id=274
+name=Adventurer Lucrative Ring
+INCLUDE items/base/rings/gold_2.txt
+level=11
+quality=epic
+price=1100
+requires_level=9
+bonus=currency_find,16
+
+[item]
+id=275
+name=Adventurer Artifact Ring
+INCLUDE items/base/rings/gold_4.txt
+level=11
+quality=epic
+price=1100
+requires_level=9
+bonus=item_find,40
+

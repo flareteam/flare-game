@@ -1,0 +1,337 @@
+# equipment intended for players level 16
+
+[item]
+id=383
+name=Warlord Plate Helmet
+INCLUDE items/base/armor/plate/head.txt
+level=16
+quality=rare
+price=480
+abs=7,8
+requires_stat=defense,40
+requires_stat=physical,14
+bonus=poise,9
+
+[item]
+id=384
+name=Sniper Plate Helmet
+INCLUDE items/base/armor/plate/head.txt
+level=16
+quality=rare
+price=480
+abs=7
+requires_stat=defense,39
+requires_stat=offense,15
+bonus=accuracy,18
+
+[item]
+id=385
+name=Archwizard Velvet Hood
+INCLUDE items/base/armor/mage/head.txt
+level=16
+quality=rare
+price=480
+abs=6,7
+requires_stat=defense,38
+requires_stat=mental,16
+bonus=mp,27
+
+[item]
+id=386
+name=Warlord Plate Curiass
+INCLUDE items/base/armor/plate/chest.txt
+level=16
+quality=rare
+price=1200
+abs=8,9
+requires_stat=defense,40
+requires_stat=physical,14
+bonus=hp,300
+
+[item]
+id=387
+name=Sniper Plate Curiass
+INCLUDE items/base/armor/plate/chest.txt
+level=16
+quality=rare
+price=1200
+abs=8
+requires_stat=defense,39
+requires_stat=offense,15
+bonus=accuracy,36
+
+[item]
+id=388
+name=Archwizard Velvet Vest
+INCLUDE items/base/armor/mage/chest.txt
+level=16
+quality=rare
+price=1200
+abs=7,8
+requires_stat=defense,38
+requires_stat=mental,16
+bonus=mp,36
+
+[item]
+id=389
+name=Warlord Plate Greaves
+INCLUDE items/base/armor/plate/legs.txt
+level=16
+quality=rare
+price=800
+abs=8
+requires_stat=defense,40
+requires_stat=physical,14
+bonus=poise,36
+
+[item]
+id=390
+name=Sniper Plate Greaves
+INCLUDE items/base/armor/plate/legs.txt
+level=16
+quality=rare
+price=800
+abs=7,8
+requires_stat=defense,39
+requires_stat=offense,15
+bonus=avoidance,36
+
+[item]
+id=391
+name=Archwizard Velvet Skirt
+INCLUDE items/base/armor/mage/legs.txt
+level=16
+quality=rare
+price=800
+abs=7
+requires_stat=defense,38
+requires_stat=mental,16
+bonus=mp,24
+
+[item]
+id=392
+name=Warlord Plate Boots
+INCLUDE items/base/armor/plate/feet.txt
+level=16
+quality=rare
+price=480
+abs=7,8
+requires_stat=defense,40
+requires_stat=physical,14
+bonus=poise,24
+
+[item]
+id=393
+name=Sniper Plate Boots
+INCLUDE items/base/armor/plate/feet.txt
+level=16
+quality=rare
+price=480
+abs=7
+requires_stat=defense,39
+requires_stat=offense,15
+bonus=avoidance,48
+
+[item]
+id=394
+name=Archwizard Velvet Boots
+INCLUDE items/base/armor/mage/feet.txt
+level=16
+quality=rare
+price=480
+abs=6,7
+requires_stat=defense,38
+requires_stat=mental,16
+bonus=mp_regen,12
+
+[item]
+id=395
+name=Warlord Plate Gauntlets
+INCLUDE items/base/armor/plate/hands.txt
+level=16
+quality=rare
+price=400
+abs=7,8
+requires_stat=defense,40
+requires_stat=physical,14
+bonus=crit,12
+
+[item]
+id=396
+name=Sniper Plate Gauntlets
+INCLUDE items/base/armor/plate/hands.txt
+level=16
+quality=rare
+price=400
+abs=7
+requires_stat=defense,39
+requires_stat=offense,15
+bonus=accuracy,24
+
+[item]
+id=397
+name=Archwizard Velvet Sleeves
+INCLUDE items/base/armor/mage/hands.txt
+level=16
+quality=rare
+price=400
+abs=6,7
+requires_stat=defense,38
+requires_stat=mental,16
+bonus=mp_regen,24
+
+[item]
+id=398
+name=Warlord Armored Belt
+INCLUDE items/base/armor/belt.txt
+level=16
+quality=rare
+price=800
+abs=5,6
+requires_stat=defense,40
+requires_stat=physical,14
+bonus=hp_regen,300
+
+[item]
+id=399
+name=Sniper Armored Belt
+INCLUDE items/base/armor/belt.txt
+level=16
+quality=rare
+price=800
+abs=5,6
+requires_stat=defense,39
+requires_stat=offense,15
+bonus=avoidance,36
+
+[item]
+id=400
+name=Archwizard Armored Belt
+INCLUDE items/base/armor/belt.txt
+level=16
+quality=rare
+price=800
+abs=5,6
+requires_stat=defense,38
+requires_stat=mental,16
+bonus=mp_regen,24
+
+[item]
+id=401
+name=Warlord Greatsword
+INCLUDE items/base/weapons/melee/greatsword.txt
+level=16
+quality=rare
+price=1600
+dmg_melee=85,90
+requires_stat=physical,44
+bonus=dmg_melee_min,15
+bonus=dmg_melee_max,15
+
+[item]
+id=402
+name=Sniper Greatbow
+INCLUDE items/base/weapons/ranged/greatbow.txt
+level=16
+quality=rare
+price=1600
+dmg_ranged=85,90
+requires_stat=offense,44
+bonus=dmg_ranged_min,15
+bonus=dmg_ranged_max,15
+
+[item]
+id=403
+name=Archwizard Greatsword
+INCLUDE items/base/weapons/magic/greatstaff.txt
+level=16
+quality=rare
+price=1600
+dmg_ment=85,90
+requires_stat=mental,44
+bonus=dmg_ment_min,15
+bonus=dmg_ment_max,15
+
+[item]
+id=404
+name=Templar Tower Shield
+INCLUDE items/base/shields/steel.txt
+level=16
+quality=rare
+price=1200
+abs=17
+requires_stat=defense,42
+bonus=absorb_max,3
+
+[item]
+id=405
+name=Master Inferno Ring
+INCLUDE items/base/rings/gold_5.txt
+level=16
+quality=rare
+price=1600
+requires_level=14
+bonus=fire_resist,24
+
+[item]
+id=406
+name=Master Glacial Ring
+INCLUDE items/base/rings/silver_4.txt
+level=16
+quality=rare
+price=1600
+requires_level=14
+bonus=ice_resist,24
+
+[item]
+id=407
+name=Master Volt Ring
+INCLUDE items/base/rings/silver_5.txt
+level=16
+quality=rare
+price=1600
+requires_level=14
+bonus=lightning_resist,24
+
+[item]
+id=408
+name=Master Void Ring
+INCLUDE items/base/rings/gold_3.txt
+level=16
+quality=rare
+price=1600
+requires_level=14
+bonus=dark_resist,24
+
+[item]
+id=409
+name=Master Scholar Ring
+INCLUDE items/base/rings/silver_2.txt
+level=16
+quality=rare
+price=1600
+requires_level=14
+bonus=xp_gain,12
+
+[item]
+id=410
+name=Master Affluence Ring
+INCLUDE items/base/rings/gold_2.txt
+level=16
+quality=rare
+price=1600
+requires_level=14
+bonus=currency_find,24
+
+[item]
+id=411
+name=Master Relic Ring
+INCLUDE items/base/rings/gold_4.txt
+level=16
+quality=rare
+price=1600
+requires_level=14
+bonus=item_find,60
+
+# 412-417
+# unique and set items

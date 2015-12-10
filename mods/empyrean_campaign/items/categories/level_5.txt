@@ -1,6 +1,5 @@
 # equipment intended for players level 5
 
-### Warrior/Archer armor
 [item]
 id=96
 name=Leather Hood
@@ -8,7 +7,7 @@ INCLUDE items/base/armor/leather/head.txt
 level=5
 price=150
 abs=1,2
-requires_stat=defense,7
+requires_stat=defense,6
 
 [item]
 id=97
@@ -17,7 +16,7 @@ INCLUDE items/base/armor/leather/chest.txt
 level=5
 price=375
 abs=2,3
-requires_stat=defense,7
+requires_stat=defense,6
 
 [item]
 id=98
@@ -26,7 +25,7 @@ INCLUDE items/base/armor/leather/legs.txt
 level=5
 price=250
 abs=2
-requires_stat=defense,7
+requires_stat=defense,6
 
 [item]
 id=99
@@ -35,7 +34,7 @@ INCLUDE items/base/armor/leather/feet.txt
 level=5
 price=150
 abs=1,2
-requires_stat=defense,7
+requires_stat=defense,6
 
 [item]
 id=100
@@ -44,9 +43,8 @@ INCLUDE items/base/armor/leather/hands.txt
 level=5
 price=125
 abs=1,2
-requires_stat=defense,7
+requires_stat=defense,6
 
-### Mage armor
 [item]
 id=101
 name=Wool Hood
@@ -54,7 +52,7 @@ INCLUDE items/base/armor/mage/head.txt
 level=5
 price=150
 abs=1
-requires_stat=defense,6
+requires_stat=defense,5
 
 [item]
 id=102
@@ -63,7 +61,7 @@ INCLUDE items/base/armor/mage/chest.txt
 level=5
 price=375
 abs=2
-requires_stat=defense,6
+requires_stat=defense,5
 
 [item]
 id=103
@@ -72,7 +70,7 @@ INCLUDE items/base/armor/mage/legs.txt
 level=5
 price=250
 abs=1,2
-requires_stat=defense,6
+requires_stat=defense,5
 
 [item]
 id=104
@@ -81,7 +79,7 @@ INCLUDE items/base/armor/mage/feet.txt
 level=5
 price=150
 abs=1
-requires_stat=defense,6
+requires_stat=defense,5
 
 [item]
 id=105
@@ -90,43 +88,41 @@ INCLUDE items/base/armor/mage/hands.txt
 level=5
 price=125
 abs=1
-requires_stat=defense,6
+requires_stat=defense,5
 
-# weapons
 [item]
 id=106
 name=Shortsword
 INCLUDE items/base/weapons/melee/shortsword.txt
 level=5
+price=500
 dmg_melee=45,50
 requires_stat=physical,11
-price=500
 
 [item]
 id=107
 name=Shortbow
 INCLUDE items/base/weapons/ranged/shortbow.txt
 level=5
+price=500
 dmg_ranged=45,50
 requires_stat=offense,11
-price=500
 
 [item]
 id=108
 name=Rod
 INCLUDE items/base/weapons/magic/rod.txt
 level=5
+price=500
 dmg_ment=45,50
 requires_stat=mental,11
-price=500
 
-# buckler
 [item]
 id=109
 name=Iron Buckler
 INCLUDE items/base/shields/iron.txt
 level=5
+price=375
 abs=5,6
 requires_stat=defense,9
-price=375
 

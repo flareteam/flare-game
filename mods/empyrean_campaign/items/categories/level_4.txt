@@ -20,8 +20,8 @@ level=4
 quality=rare
 price=300
 abs=2
-requires_stat=defense,4
-requires_stat=offense,2
+requires_stat=defense,3
+requires_stat=offense,3
 bonus=accuracy,9
 
 [item]
@@ -32,8 +32,8 @@ level=4
 quality=rare
 price=300
 abs=1,2
-requires_stat=defense,4
-requires_stat=mental,2
+requires_stat=defense,2
+requires_stat=mental,4
 bonus=mp,9
 
 [item]
@@ -56,8 +56,8 @@ level=4
 quality=rare
 price=200
 abs=1,2
-requires_stat=defense,4
-requires_stat=offense,2
+requires_stat=defense,3
+requires_stat=offense,3
 bonus=avoidance,9
 
 [item]
@@ -68,8 +68,8 @@ level=4
 quality=rare
 price=200
 abs=1
-requires_stat=defense,4
-requires_stat=mental,2
+requires_stat=defense,2
+requires_stat=mental,4
 bonus=mp,6
 
 [item]
@@ -92,8 +92,8 @@ level=4
 quality=rare
 price=120
 abs=1
-requires_stat=defense,4
-requires_stat=offense,2
+requires_stat=defense,3
+requires_stat=offense,3
 bonus=avoidance,12
 
 [item]
@@ -104,8 +104,8 @@ level=4
 quality=rare
 price=120
 abs=0,1
-requires_stat=defense,4
-requires_stat=mental,2
+requires_stat=defense,2
+requires_stat=mental,4
 bonus=mp_regen,3
 
 [item]
@@ -128,8 +128,8 @@ level=4
 quality=rare
 price=100
 abs=1
-requires_stat=defense,4
-requires_stat=offense,2
+requires_stat=defense,3
+requires_stat=offense,3
 bonus=accuracy,6
 
 [item]
@@ -140,8 +140,8 @@ level=4
 quality=rare
 price=100
 abs=0,1
-requires_stat=defense,4
-requires_stat=mental,2
+requires_stat=defense,2
+requires_stat=mental,4
 bonus=mp_regen,6
 
 [item]
@@ -162,8 +162,8 @@ INCLUDE items/base/armor/belt.txt
 level=4
 quality=rare
 price=200
-requires_stat=defense,4
-requires_stat=offense,2
+requires_stat=defense,3
+requires_stat=offense,3
 bonus=avoidance,9
 
 [item]
@@ -173,10 +173,9 @@ INCLUDE items/base/armor/belt.txt
 level=4
 quality=rare
 price=200
-requires_stat=defense,4
-requires_stat=mental,2
+requires_stat=defense,2
+requires_stat=mental,4
 bonus=mp_regen,6
-
 
 [item]
 id=79
@@ -220,9 +219,9 @@ name=Templar Wood Buckler
 INCLUDE items/base/shields/wood.txt
 level=4
 quality=rare
+price=300
 abs=2
 requires_stat=defense,6
-price=300
 bonus=absorb_max,3
 
 [item]
@@ -232,6 +231,7 @@ INCLUDE items/base/rings/gold_5.txt
 level=4
 quality=rare
 price=400
+requires_level=2
 bonus=fire_resist,6
 
 [item]
@@ -241,6 +241,7 @@ INCLUDE items/base/rings/silver_4.txt
 level=4
 quality=rare
 price=400
+requires_level=2
 bonus=ice_resist,6
 
 [item]
@@ -250,6 +251,7 @@ INCLUDE items/base/rings/silver_5.txt
 level=4
 quality=rare
 price=400
+requires_level=2
 bonus=lightning_resist,6
 
 [item]
@@ -259,6 +261,7 @@ INCLUDE items/base/rings/gold_3.txt
 level=4
 quality=rare
 price=400
+requires_level=2
 bonus=dark_resist,6
 
 [item]
@@ -268,6 +271,7 @@ INCLUDE items/base/rings/silver_2.txt
 level=4
 quality=rare
 price=400
+requires_level=2
 bonus=xp_gain,3
 
 [item]
@@ -277,6 +281,7 @@ INCLUDE items/base/rings/gold_2.txt
 level=4
 quality=rare
 price=400
+requires_level=2
 bonus=currency_find,6
 
 [item]
@@ -286,6 +291,7 @@ INCLUDE items/base/rings/gold_4.txt
 level=4
 quality=rare
 price=400
+requires_level=2
 bonus=item_find,15
 
 # unique items
@@ -328,8 +334,8 @@ level=4
 quality=unique
 price=125
 abs=1,2
-requires_stat=offense,2
-requires_stat=defense,4
+requires_stat=defense,3
+requires_stat=offense,3
 bonus=absorb_min,2
 bonus=accuracy,5
 bonus=poise,10
@@ -344,8 +350,8 @@ level=4
 quality=unique
 price=375
 abs=3,4
-requires_stat=physical,2
 requires_stat=defense,4
+requires_stat=physical,2
 bonus=hp,100
 bonus=hp_regen,100
 
@@ -358,8 +364,8 @@ level=4
 quality=unique
 price=150
 abs=2
-requires_stat=offense,2
-requires_stat=defense,4
+requires_stat=defense,3
+requires_stat=offense,3
 bonus=avoidance,15
 bonus=dark_resist,25
 
@@ -372,8 +378,8 @@ level=4
 quality=unique
 price=250
 abs=2
-requires_stat=mental,2
-requires_stat=defense,4
+requires_stat=defense,2
+requires_stat=mental,4
 bonus=fire_resist,25
 bonus=ice_resist,25
 bonus=lightning_resist,25

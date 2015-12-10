@@ -1,0 +1,335 @@
+# equipment intended for players level 15
+
+[item]
+id=354
+name=Warrior Plate Helmet
+INCLUDE items/base/armor/plate/head.txt
+level=15
+quality=epic
+price=450
+abs=7
+requires_stat=defense,37
+requires_stat=physical,13
+bonus=poise,8
+
+[item]
+id=355
+name=Ranger Plate Helmet
+INCLUDE items/base/armor/plate/head.txt
+level=15
+quality=epic
+price=450
+abs=6,7
+requires_stat=defense,36
+requires_stat=offense,14
+bonus=accuracy,16
+
+[item]
+id=356
+name=Wizard Velvet Hood
+INCLUDE items/base/armor/mage/head.txt
+level=15
+quality=epic
+price=450
+abs=6
+requires_stat=defense,35
+requires_stat=mental,15
+bonus=mp,24
+
+[item]
+id=357
+name=Warrior Plate Curiass
+INCLUDE items/base/armor/plate/chest.txt
+level=15
+quality=epic
+price=1125
+abs=8
+requires_stat=defense,37
+requires_stat=physical,13
+bonus=hp,275
+
+[item]
+id=358
+name=Ranger Plate Curiass
+INCLUDE items/base/armor/plate/chest.txt
+level=15
+quality=epic
+price=1125
+abs=7,8
+requires_stat=defense,36
+requires_stat=offense,14
+bonus=accuracy,33
+
+[item]
+id=359
+name=Wizard Velvet Vest
+INCLUDE items/base/armor/mage/chest.txt
+level=15
+quality=epic
+price=1125
+abs=7
+requires_stat=defense,35
+requires_stat=mental,15
+bonus=mp,33
+
+[item]
+id=360
+name=Warrior Plate Greaves
+INCLUDE items/base/armor/plate/legs.txt
+level=15
+quality=epic
+price=750
+abs=7,8
+requires_stat=defense,37
+requires_stat=physical,13
+bonus=poise,33
+
+[item]
+id=361
+name=Ranger Plate Greaves
+INCLUDE items/base/armor/plate/legs.txt
+level=15
+quality=epic
+price=750
+abs=7
+requires_stat=defense,36
+requires_stat=offense,14
+bonus=avoidance,33
+
+[item]
+id=362
+name=Wizard Velvet Skirt
+INCLUDE items/base/armor/mage/legs.txt
+level=15
+quality=epic
+price=750
+abs=6,7
+requires_stat=defense,35
+requires_stat=mental,15
+bonus=mp,22
+
+[item]
+id=363
+name=Warrior Plate Boots
+INCLUDE items/base/armor/plate/feet.txt
+level=15
+quality=epic
+price=450
+abs=7
+requires_stat=defense,37
+requires_stat=physical,13
+bonus=poise,22
+
+[item]
+id=364
+name=Ranger Plate Boots
+INCLUDE items/base/armor/plate/feet.txt
+level=15
+quality=epic
+price=450
+abs=6,7
+requires_stat=defense,36
+requires_stat=offense,14
+bonus=avoidance,44
+
+[item]
+id=365
+name=Wizard Velvet Boots
+INCLUDE items/base/armor/mage/feet.txt
+level=15
+quality=epic
+price=450
+abs=6
+requires_stat=defense,35
+requires_stat=mental,15
+bonus=mp_regen,11
+
+[item]
+id=366
+name=Warrior Plate Gauntlets
+INCLUDE items/base/armor/plate/hands.txt
+level=15
+quality=epic
+price=375
+abs=7
+requires_stat=defense,37
+requires_stat=physical,13
+bonus=crit,11
+
+[item]
+id=367
+name=Ranger Plate Gauntlets
+INCLUDE items/base/armor/plate/hands.txt
+level=15
+quality=epic
+price=375
+abs=6,7
+requires_stat=defense,36
+requires_stat=offense,14
+bonus=accuracy,22
+
+[item]
+id=368
+name=Wizard Velvet Sleeves
+INCLUDE items/base/armor/mage/hands.txt
+level=15
+quality=epic
+price=375
+abs=6
+requires_stat=defense,35
+requires_stat=mental,15
+bonus=mp_regen,22
+
+[item]
+id=369
+name=Warrior Armored Belt
+INCLUDE items/base/armor/belt.txt
+level=15
+quality=epic
+price=750
+abs=5
+requires_stat=defense,37
+requires_stat=physical,13
+bonus=hp_regen,275
+
+[item]
+id=370
+name=Ranger Armored Belt
+INCLUDE items/base/armor/belt.txt
+level=15
+quality=epic
+price=750
+abs=5
+requires_stat=defense,36
+requires_stat=offense,14
+bonus=avoidance,33
+
+[item]
+id=371
+name=Wizard Armored Belt
+INCLUDE items/base/armor/belt.txt
+level=15
+quality=epic
+price=750
+abs=5
+requires_stat=defense,35
+requires_stat=mental,15
+bonus=mp_regen,22
+
+[item]
+id=372
+name=Warrior Greatsword
+INCLUDE items/base/weapons/melee/greatsword.txt
+level=15
+quality=epic
+price=1500
+dmg_melee=85,90
+requires_stat=physical,41
+bonus=dmg_melee_min,10
+bonus=dmg_melee_max,10
+
+[item]
+id=373
+name=Ranger Greatbow
+INCLUDE items/base/weapons/ranged/greatbow.txt
+level=15
+quality=epic
+price=1500
+dmg_ranged=85,90
+requires_stat=offense,41
+bonus=dmg_ranged_min,10
+bonus=dmg_ranged_max,10
+
+[item]
+id=374
+name=Wizard Greatsword
+INCLUDE items/base/weapons/magic/greatstaff.txt
+level=15
+quality=epic
+price=1500
+dmg_ment=85,90
+requires_stat=mental,41
+bonus=dmg_ment_min,10
+bonus=dmg_ment_max,10
+
+[item]
+id=375
+name=Paladin Tower Shield
+INCLUDE items/base/shields/steel.txt
+level=15
+quality=epic
+price=1125
+abs=16,17
+requires_stat=defense,39
+bonus=absorb_max,2
+
+[item]
+id=376
+name=Adventurer Inferno Ring
+INCLUDE items/base/rings/gold_5.txt
+level=15
+quality=epic
+price=1500
+requires_level=13
+bonus=fire_resist,22
+
+[item]
+id=377
+name=Adventurer Glacial Ring
+INCLUDE items/base/rings/silver_4.txt
+level=15
+quality=epic
+price=1500
+requires_level=13
+bonus=ice_resist,22
+
+[item]
+id=378
+name=Adventurer Volt Ring
+INCLUDE items/base/rings/silver_5.txt
+level=15
+quality=epic
+price=1500
+requires_level=13
+bonus=lightning_resist,22
+
+[item]
+id=379
+name=Adventurer Void Ring
+INCLUDE items/base/rings/gold_3.txt
+level=15
+quality=epic
+price=1500
+requires_level=13
+bonus=dark_resist,22
+
+[item]
+id=380
+name=Adventurer Scholar Ring
+INCLUDE items/base/rings/silver_2.txt
+level=15
+quality=epic
+price=1500
+requires_level=13
+bonus=xp_gain,11
+
+[item]
+id=381
+name=Adventurer Affluence Ring
+INCLUDE items/base/rings/gold_2.txt
+level=15
+quality=epic
+price=1500
+requires_level=13
+bonus=currency_find,22
+
+[item]
+id=382
+name=Adventurer Relic Ring
+INCLUDE items/base/rings/gold_4.txt
+level=15
+quality=epic
+price=1500
+requires_level=13
+bonus=item_find,55
+
