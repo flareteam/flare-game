@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="isometric" renderorder="right-down" width="132" height="132" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="27">
+<map version="1.0" orientation="isometric" renderorder="right-down" width="132" height="132" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="44">
  <properties>
   <property name="music" value="music/overworld_theme.ogg"/>
   <property name="tileset" value="tilesetdefs/tileset_snowplains.txt"/>
@@ -908,7 +908,7 @@
     <property name="requires_status" value="emp_waypoint_5"/>
    </properties>
   </object>
-  <object id="25" type="on_trigger" x="2368" y="1344" width="32" height="32">
+  <object id="25" name="Supplies" type="on_trigger" x="2368" y="1344" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="loot/level_6.txt"/>
@@ -919,7 +919,7 @@
     <property name="tooltip" value="Supplies"/>
    </properties>
   </object>
-  <object id="26" type="on_trigger" x="2368" y="3488" width="32" height="32">
+  <object id="26" name="Supplies" type="on_trigger" x="2368" y="3488" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
     <property name="loot" value="loot/level_6.txt"/>
@@ -928,6 +928,86 @@
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Supplies"/>
+   </properties>
+  </object>
+  <object id="27" name="Cave wind sound effect" type="on_load" x="0" y="0" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/cave_wind_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="28" name="River sound" type="on_load" x="2240" y="2400" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="29" name="River sound" type="on_load" x="1888" y="2176" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="30" name="River sound" type="on_load" x="2528" y="2208" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="31" name="River sound" type="on_load" x="2112" y="2048" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="32" name="Raven sound effect" type="on_load" x="1152" y="896" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/raven_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="33" name="Raven sound effect" type="on_load" x="3392" y="3200" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/raven_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="34" name="Raven sound effect" type="on_load" x="1184" y="2400" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/raven_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="35" name="Raven sound effect" type="on_load" x="2080" y="3296" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/raven_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="36" name="Raven sound effect" type="on_load" x="2784" y="2016" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/raven_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="37" name="Forrest owl sound effect" type="on_load" x="2208" y="1504" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/forest_owl_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="38" name="Forrest owl sound effect" type="on_load" x="1056" y="3136" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/forest_owl_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="39" name="Forrest owl sound effect" type="on_load" x="1216" y="1664" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/forest_owl_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="40" name="Bird twitter" type="on_load" x="1728" y="1568" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/bird_twitter_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="41" name="Bird twitter" type="on_load" x="2048" y="2848" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/bird_twitter_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="43" name="Bird twitter" type="on_load" x="3136" y="960" width="32" height="32">
+   <properties>
+    <property name="soundfx" value="soundfx/environment/bird_twitter_loop.ogg"/>
    </properties>
   </object>
  </objectgroup>
