@@ -269,6 +269,22 @@ requires_level=5
 requires_not_status=emp_perdition_trader1
 set_status=emp_perdition_trader1
 
+[event]
+# unlock level 9 gear
+type=on_load
+location=3,37,1,1
+requires_level=9
+requires_not_status=emp_perdition_trader2
+set_status=emp_perdition_trader2
+
+[event]
+# unlock level 13 gear
+type=on_load
+location=5,37,1,1
+requires_level=13
+requires_not_status=emp_perdition_trader3
+set_status=emp_perdition_trader3
+
 [npc]
 type=npcs/florin.txt
 location=25,8,1,1
