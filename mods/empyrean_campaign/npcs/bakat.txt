@@ -1,5 +1,7 @@
 name=Bakat, Goblin Packrat
 
+portrait=images/portraits/goblin.png
+
 # animation info
 gfx=animations/npcs/peddler_goblin.txt
 
@@ -11,3 +13,19 @@ vendor=true
 constant_stock=2,2,2,2,2,3,3,3,3,3,203,203,203,203,203
 random_stock=loot/trader_bakat.txt
 random_stock_count=15,20
+
+talker=true
+
+[dialog]
+topic=Goblin's Ruby
+requires_status=emp_ort_init
+requires_not_status=emp_ort_finish
+you=(You show Bakat the ruby you received from Ort).
+him=(Bakat snatches the jewel from your grasp).
+him=(He holds the ruby up into the light and examines it closely).
+him=(Looking satisfied, he reaches into his bag and hands you a wooden bear figurine).
+you=...
+remove_item=1008
+reward_item=1009,1
+set_status=emp_ort_finish
+unset_status=emp_ort_init

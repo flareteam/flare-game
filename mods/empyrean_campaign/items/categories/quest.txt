@@ -63,6 +63,24 @@ quality=unique
 item_type=quest
 pickup_status=emp_amir_gem_b
 
+[item]
+id=1008
+name=Goblin's Ruby
+INCLUDE items/base/gems/ruby.txt
+quality=unique
+item_type=quest
+pickup_status=emp_goblin_brother_init
+
+[item]
+id=1009
+name=Bear Figurine
+INCLUDE items/base/figurines/bear.txt
+flavor=Wood sculpture of a bear. A "1" is carved into the bottom.
+quality=unique
+item_type=quest
+# TODO allow this to be both a quest item and an equippable artifact
+#bonus=dmg_melee_min,10
+#bonus=dmg_melee_max,10
 
 
 ### Main quest items

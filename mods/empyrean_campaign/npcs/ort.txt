@@ -1,0 +1,33 @@
+name=Ort, Goblin Packrat
+
+portrait=images/portraits/goblin.png
+
+# animation info
+gfx=animations/npcs/peddler_goblin.txt
+
+# voiceover files
+vox_intro=soundfx/enemies/goblin_ment.ogg
+
+talker=true
+
+[dialog]
+topic=Talk
+requires_status=emp_ort_init
+requires_not_status=emp_ort_finish
+him=...
+
+[dialog]
+topic=Talk
+requires_status=emp_ort_finish
+requires_not_status=emp_ort_init
+him=...
+
+[dialog]
+topic=Talk
+requires_not_status=emp_ort_init
+requires_not_status=emp_ort_finish
+him=... Bro-ther... g-give...
+him=(Ort grabs your hand and places a red gem in it).
+reward_item=1008,1
+set_status=emp_ort_init
+msg=Quest added.

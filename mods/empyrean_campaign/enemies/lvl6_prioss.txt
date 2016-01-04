@@ -1,0 +1,33 @@
+INCLUDE enemies/base/goblin_elite.txt
+
+name=Prioss
+level=6
+categories=prioss
+rarity=rare
+xp=64
+
+# combat stats
+hp=700
+speed=3.9
+turn_delay=400ms
+chance_pursue=15
+
+power=melee,164,2
+power=ranged,184,5
+
+accuracy=110
+avoidance=35
+poise=25
+
+dmg_melee_min=115
+dmg_melee_max=120
+dmg_ranged_min=120
+dmg_ranged_max=125
+cooldown=1625ms
+absorb_min=5
+absorb_max=6
+
+# loot
+loot_count=3,4
+loot=loot/level_6.txt
+

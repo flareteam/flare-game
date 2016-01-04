@@ -318,3 +318,22 @@ count=12
 modifier_damage=multiply,75,0
 post_effect=slow,50,4s
 
+# Prioss's multi-spear
+[power]
+id=184
+type=missile
+new_state=shoot
+face=true
+directional=true
+requires_los=true
+animation=animations/powers/spear.txt
+use_hazard=true
+aim_assist=true
+base_damage=ranged
+lifespan=900ms
+radius=1.0
+speed=18
+angle_variance=15
+modifier_accuracy=multiply,60,0
+count=3
+
