@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="isometric" renderorder="right-down" width="17" height="19" tilewidth="64" tileheight="32" nextobjectid="1">
+ <properties>
+  <property name="AutomappingRadius" value="1"/>
+ </properties>
+ <tileset firstgid="1" name="collision" tilewidth="64" tileheight="32" tilecount="15">
+  <image source="../tiled_collision.png" width="960" height="32"/>
+ </tileset>
+ <tileset firstgid="16" name="cave" tilewidth="64" tileheight="128" tilecount="240">
+  <image source="../tiled_cave.png" width="1024" height="1920"/>
+ </tileset>
+ <tileset firstgid="256" name="set_rules" tilewidth="64" tileheight="32" tilecount="8">
+  <image source="../set_rules.png" width="128" height="128"/>
+ </tileset>
+ <layer name="regions" width="17" height="19">
+  <data encoding="base64" compression="zlib">
+   eJxjYKASYKSQHnXHqDtG3THqjgF0BwC7BABJ
+  </data>
+ </layer>
+ <layer name="input_object" width="17" height="19">
+  <data encoding="base64" compression="zlib">
+   eJytzklCAQAYhmFHy5SERNQ2JVKGBopd5QJpUHYNF1AuaPO4wf9tnuX3JhIx22KSKaaZYZbbzAX9b7bDPHdZYJEl7rEc3LHPCqs8YI11HvIouOOYDZ7wlE2escV2cMc5O7zgJbvssc9BcMcVr3nDWw454h3vgzvGnPCZM77wlW98D+6Y84OfXPCBj3ziNLjji9/84S+X/OM/V4ENa9s6Hzk=
+  </data>
+ </layer>
+ <layer name="output_collision" width="17" height="19">
+  <data encoding="base64" compression="zlib">
+   eJxjYKAOYKSQphYYdceoO4aiO1gI0LRyByH7CLmL1u4glqYGAADqUACC
+  </data>
+ </layer>
+</map>
