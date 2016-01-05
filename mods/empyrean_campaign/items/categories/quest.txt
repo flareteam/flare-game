@@ -2,24 +2,27 @@
 id=1000
 name=Krolan's Key
 INCLUDE items/base/misc/key.txt
+quest_item=true
 quality=unique
-item_type=quest
+item_type=key
 pickup_status=emp_krolan_key
 
 [item]
 id=1001
 name=Krolan's Emerald
 INCLUDE items/base/gems/emerald.txt
+quest_item=true
 quality=unique
-item_type=quest
+item_type=gem
 pickup_status=emp_krolan_emerald
 
 [item]
 id=1002
 name=Abasi's Journal
 INCLUDE items/base/misc/book.txt
+quest_item=true
 quality=unique
-item_type=quest
+item_type=book
 pickup_status=emp_journal_found
 book=books/merchants_journal.txt
 
@@ -27,60 +30,67 @@ book=books/merchants_journal.txt
 id=1003
 name=Ardwen's Ring
 INCLUDE items/base/rings/silver_3.txt
+quest_item=true
 quality=unique
-item_type=quest
+item_type=ring
 pickup_status=emp_ardwen_ring
 
 [item]
 id=1004
 name=St. Maria Mausoleum Key
 INCLUDE items/base/misc/key.txt
+quest_item=true
 quality=unique
-item_type=quest
+item_type=key
 pickup_status=emp_stmaria1_key
 
 [item]
 id=1005
 name=St. Maria Prison Key
 INCLUDE items/base/misc/key.txt
+quest_item=true
 quality=unique
-item_type=quest
+item_type=key
 pickup_status=emp_stmaria2_key
 
 [item]
 id=1006
 name=Strange Sapphire A
 INCLUDE items/base/gems/sapphire.txt
+quest_item=true
 quality=unique
-item_type=quest
+item_type=gem
 pickup_status=emp_amir_gem_a
 
 [item]
 id=1007
 name=Strange Sapphire B
 INCLUDE items/base/gems/sapphire.txt
+quest_item=true
 quality=unique
-item_type=quest
+item_type=gem
 pickup_status=emp_amir_gem_b
 
 [item]
 id=1008
 name=Goblin's Ruby
 INCLUDE items/base/gems/ruby.txt
+quest_item=true
 quality=unique
-item_type=quest
+item_type=gem
 pickup_status=emp_goblin_brother_init
 
 [item]
 id=1009
 name=Bear Figurine
 INCLUDE items/base/figurines/bear.txt
+quest_item=true
 flavor=Wood sculpture of a bear. A "1" is carved into the bottom.
 quality=unique
-item_type=quest
+item_type=artifact
 # TODO allow this to be both a quest item and an equippable artifact
-#bonus=dmg_melee_min,10
-#bonus=dmg_melee_max,10
+bonus=dmg_melee_min,10
+bonus=dmg_melee_max,10
 
 # Owl Figurine (1010)
 # Cat Figurine (1011)
@@ -90,8 +100,9 @@ item_type=quest
 id=1013
 name=Stormrock Key
 INCLUDE items/base/misc/key.txt
+quest_item=true
 quality=unique
-item_type=quest
+item_type=key
 pickup_status=emp_stormrock_key
 
 ### Main quest items
@@ -99,41 +110,41 @@ pickup_status=emp_stormrock_key
 id=1100
 name=Gravebloom
 INCLUDE items/base/misc/generic.txt
+quest_item=true
 flavor=An odor of iron and its abrasive petals make this rare plant easy to identify.
 icon=240
 quality=unique
-item_type=quest
 pickup_status=emp_main_gravebloom
 
 [item]
 id=1101
 name=Black Quill
 INCLUDE items/base/misc/generic.txt
+quest_item=true
 icon=241
 quality=unique
-item_type=quest
 
 [item]
 id=1102
 name=Knife of Sacrifices
 INCLUDE items/base/weapons/melee/dagger.txt
+quest_item=true
 icon=242
 quality=unique
-item_type=quest
 
 [item]
 id=1103
 name=Vial of Your Blood
 INCLUDE items/base/misc/generic.txt
+quest_item=true
 icon=243
 quality=unique
-item_type=quest
 
 [item]
 id=1104
 name=Blood Inkwell
 INCLUDE items/base/misc/generic.txt
+quest_item=true
 icon=244
 quality=unique
-item_type=quest
 

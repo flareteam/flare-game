@@ -68,24 +68,27 @@ INCLUDE items/categories/magic.txt
 id=9000
 name=Averguard Tome
 INCLUDE items/base/misc/book.txt
+quest_item=true
 power_desc=This tome bears the seal of the Averguard
-item_type=quest
+item_type=book
 pickup_status=ak_tome_found
 
 [item]
 id=9001
 name=Averguard Key
 INCLUDE items/base/misc/key.txt
+quest_item=true
 power_desc=Opens special doors in Averguard Keep
-item_type=quest
+item_type=key
 pickup_status=ak_key_found
 
 [item]
 id=9002
 name=Langlier's Talisman
 INCLUDE items/base/gems/diamond.txt
+quest_item=true
 power_desc=Etched runes surround this talisman
-item_type=quest
+item_type=Book
 pickup_status=ak_talisman_found
 
 # Quest Items
@@ -94,6 +97,7 @@ pickup_status=ak_talisman_found
 id=9100
 name=Scathelocke's Spellbook
 INCLUDE items/base/misc/book.txt
+#quest_item=true
 quality=epic
 item_type=artifact
 bonus=mental,1
@@ -104,22 +108,25 @@ price=3000
 id=9101
 name=Scathelocke's Key
 INCLUDE items/base/misc/key.txt
+quest_item=true
 power_desc=Opens Scathelocke's Runed Chest
-item_type=quest
+item_type=key
 pickup_status=lb_ice_key
 
 [item]
 id=9102
 name=Vesuvvio's Key
 INCLUDE items/base/misc/key.txt
+quest_item=true
 power_desc=Opens Vesuvvio's Runed Chest
-item_type=quest
+item_type=key
 pickup_status=lb_fire_key
 
 [item]
 id=9103
 name=Grisbon's Key
 INCLUDE items/base/misc/key.txt
+quest_item=true
 power_desc=Opens Grisbon's Runed Chest
-item_type=quest
+item_type=key
 pickup_status=lb_wind_key
