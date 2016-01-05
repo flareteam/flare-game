@@ -82,6 +82,17 @@ item_type=quest
 #bonus=dmg_melee_min,10
 #bonus=dmg_melee_max,10
 
+# Owl Figurine (1010)
+# Cat Figurine (1011)
+# Turtle Figurine (1012)
+
+[item]
+id=1013
+name=Stormrock Key
+INCLUDE items/base/misc/key.txt
+quality=unique
+item_type=quest
+pickup_status=emp_stormrock_key
 
 ### Main quest items
 [item]

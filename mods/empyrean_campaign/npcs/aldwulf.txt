@@ -1,0 +1,23 @@
+name=Aldwulf, Treasure Hunter
+
+talker=true
+portrait=images/portraits/male05.png
+
+# animation info
+gfx=animations/npcs/guild_man2.txt
+
+[dialog]
+topic=Talk
+requires_not_status=emp_stormrock_search
+him=Greetings wanderer. I did not expect to meet anyone in a place like this.
+him=I'm in a bit of a predicament. I wanted to come here in search of treasure, but my partner disagreed with my intentions.
+him=In an effort to stop me, he stole the key we found that supposedly opened the door up ahead.
+him=Regardless, I took my chances and left our camp south of Stonewood, hoping I could break through without the key. As you might be able to tell, that hasn't worked out in my favor.
+him=If you come across my partner in your travels, do what you must to get that key from him and bring it to me. Do that, and I'll split whatever we find in these ruins with you.
+set_status=emp_stormrock_init
+set_status=emp_stormrock_search
+
+[dialog]
+topic=Talk
+requires_status=emp_stormrock_search
+him=Have you gotten the key yet? My partner likely has it hidden somewhere in the camp south of Stonewood.

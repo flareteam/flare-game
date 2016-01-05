@@ -1,0 +1,16 @@
+name=Locked Out
+
+[quest]
+requires_status=emp_stormrock_init
+requires_not_status=emp_stormrock_search
+quest_text=The door to the Stormrock Ruins is locked. There must be a way to unlock it.
+
+[quest]
+requires_status=emp_stormrock_search
+requires_not_status=emp_stormrock_key
+quest_text=Aldwulf wants you to get the key to unlock the Stormrock Ruins. It should be hidden somewhere in the camp south of Stonewood.
+
+[quest]
+requires_status=emp_stormrock_key
+requires_not_status=emp_stormrock_door
+quest_text=You found the key to the Stormrock Ruins. You should return there and speak to Aldwulf.

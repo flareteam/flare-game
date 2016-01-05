@@ -383,6 +383,17 @@ hotspot=location
 intermap=maps/goblin_cave.txt,18,46
 tooltip=Goblin Cave
 
+[event]
+# Stormrock key
+type=on_trigger
+location=24,19,1,1
+hotspot=location
+loot=1013,fixed,1
+repeat=false
+requires_not_status=emp_stormrock_key;emp_stormrock_door
+requires_status=emp_stormrock_search
+tooltip=Gravestone
+
 [enemy]
 type=goblin
 location=2,22,5,8
