@@ -88,13 +88,41 @@ quest_item=true
 flavor=Wood sculpture of a bear. A "1" is carved into the bottom.
 quality=unique
 item_type=artifact
-# TODO allow this to be both a quest item and an equippable artifact
 bonus=dmg_melee_min,10
 bonus=dmg_melee_max,10
 
-# Owl Figurine (1010)
-# Cat Figurine (1011)
-# Turtle Figurine (1012)
+[item]
+id=1010
+name=Owl Figurine
+INCLUDE items/base/figurines/owl.txt
+quest_item=true
+flavor=Wood sculpture of an owl. A "2" is carved into the bottom.
+quality=unique
+item_type=artifact
+bonus=dmg_ment_min,10
+bonus=dmg_ment_max,10
+
+[item]
+id=1011
+name=Cat Figurine
+INCLUDE items/base/figurines/cat.txt
+quest_item=true
+flavor=Wood sculpture of a cat. A "3" is carved into the bottom.
+quality=unique
+item_type=artifact
+bonus=dmg_ranged_min,10
+bonus=dmg_ranged_max,10
+
+[item]
+id=1012
+name=Turtle Figurine
+INCLUDE items/base/figurines/turtle.txt
+quest_item=true
+flavor=Wood sculpture of a turtle. A "4" is carved into the bottom.
+quality=unique
+item_type=artifact
+bonus=absorb_min,10
+bonus=absorb_max,10
 
 [item]
 id=1013
