@@ -494,6 +494,14 @@ type=on_load
 location=39,45,1,1
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
+[event]
+# to Antlion Nest
+type=on_trigger
+location=0,47,1,4
+hotspot=location
+intermap=maps/antlion_nest.txt,76,66
+tooltip=Antlion Nest
+
 [enemy]
 type=antlion_burster
 location=46,80,1,1
