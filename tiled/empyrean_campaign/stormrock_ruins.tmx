@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="isometric" renderorder="right-down" width="100" height="100" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="83">
+<map version="1.0" orientation="isometric" renderorder="right-down" width="100" height="100" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="87">
  <properties>
   <property name="music" value="music/dungeon_theme.ogg"/>
   <property name="tileset" value="tilesetdefs/tileset_dungeon.txt"/>
@@ -657,7 +657,7 @@
    <properties>
     <property name="mapmod" value="object,43,73,183"/>
     <property name="requires_status" value="emp_stormrock_key"/>
-    <property name="spawn" value="antlion_ice_lvl6,43,75"/>
+    <property name="spawn" value="antlion_burster_lvl6,43,75"/>
    </properties>
   </object>
   <object id="82" name="Aldwulf corpse" type="on_load" x="1248" y="2304" width="32" height="32">
@@ -665,7 +665,7 @@
     <property name="mapmod" value="object,43,73,183"/>
     <property name="requires_not_status" value="emp_stormrock_key"/>
     <property name="requires_status" value="emp_stormrock_door"/>
-    <property name="spawn" value="antlion_ice_lvl6,43,75"/>
+    <property name="spawn" value="antlion_burster_lvl6,43,75"/>
    </properties>
   </object>
  </objectgroup>
@@ -781,31 +781,31 @@
   <object id="70" type="antlion" x="576" y="1344" width="128" height="256">
    <properties>
     <property name="level" value="6"/>
-    <property name="number" value="3"/>
+    <property name="number" value="2"/>
    </properties>
   </object>
   <object id="71" type="antlion" x="768" y="1952" width="128" height="128">
    <properties>
     <property name="level" value="6"/>
-    <property name="number" value="2"/>
+    <property name="number" value="1"/>
    </properties>
   </object>
   <object id="72" type="antlion" x="768" y="2272" width="128" height="128">
    <properties>
     <property name="level" value="6"/>
-    <property name="number" value="2"/>
+    <property name="number" value="1"/>
    </properties>
   </object>
   <object id="73" type="antlion" x="320" y="2656" width="128" height="288">
    <properties>
     <property name="level" value="6"/>
-    <property name="number" value="3"/>
+    <property name="number" value="2"/>
    </properties>
   </object>
   <object id="74" type="snowplains" x="704" y="2752" width="288" height="128">
    <properties>
     <property name="level" value="6"/>
-    <property name="number" value="3"/>
+    <property name="number" value="2"/>
    </properties>
   </object>
   <object id="77" type="antlion_hatchling" x="320" y="2080" width="192" height="192">
@@ -818,6 +818,34 @@
    <properties>
     <property name="level" value="7"/>
     <property name="number" value="1"/>
+   </properties>
+  </object>
+  <object id="83" type="antlion_burster" x="2784" y="1440" width="32" height="32">
+   <properties>
+    <property name="level" value="6"/>
+    <property name="number" value="1"/>
+    <property name="wander_radius" value="1"/>
+   </properties>
+  </object>
+  <object id="84" type="antlion_burster" x="2560" y="2592" width="32" height="32">
+   <properties>
+    <property name="level" value="6"/>
+    <property name="number" value="1"/>
+    <property name="wander_radius" value="1"/>
+   </properties>
+  </object>
+  <object id="85" type="antlion_burster" x="576" y="1856" width="32" height="32">
+   <properties>
+    <property name="level" value="6"/>
+    <property name="number" value="1"/>
+    <property name="wander_radius" value="0"/>
+   </properties>
+  </object>
+  <object id="86" type="antlion_burster" x="672" y="1856" width="32" height="32">
+   <properties>
+    <property name="level" value="6"/>
+    <property name="number" value="1"/>
+    <property name="wander_radius" value="0"/>
    </properties>
   </object>
  </objectgroup>

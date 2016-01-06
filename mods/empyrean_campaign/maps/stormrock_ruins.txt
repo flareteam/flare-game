@@ -679,7 +679,7 @@ type=on_load
 location=39,74,1,1
 mapmod=object,43,73,183
 requires_status=emp_stormrock_key
-spawn=antlion_ice_lvl6,43,75
+spawn=antlion_burster_lvl6,43,75
 
 [event]
 # Aldwulf corpse
@@ -688,7 +688,7 @@ location=39,72,1,1
 mapmod=object,43,73,183
 requires_not_status=emp_stormrock_key
 requires_status=emp_stormrock_door
-spawn=antlion_ice_lvl6,43,75
+spawn=antlion_burster_lvl6,43,75
 
 [enemy]
 type=snowplains
@@ -802,31 +802,31 @@ number=3
 type=antlion
 location=18,42,4,8
 level=6
-number=3
+number=2
 
 [enemy]
 type=antlion
 location=24,61,4,4
 level=6
-number=2
+number=1
 
 [enemy]
 type=antlion
 location=24,71,4,4
 level=6
-number=2
+number=1
 
 [enemy]
 type=antlion
 location=10,83,4,9
 level=6
-number=3
+number=2
 
 [enemy]
 type=snowplains
 location=22,86,9,4
 level=6
-number=3
+number=2
 
 [enemy]
 type=antlion_hatchling
@@ -839,6 +839,34 @@ type=antlion_queen
 location=19,67,1,1
 level=7
 number=1
+
+[enemy]
+type=antlion_burster
+location=87,45,1,1
+level=6
+number=1
+wander_radius=1
+
+[enemy]
+type=antlion_burster
+location=80,81,1,1
+level=6
+number=1
+wander_radius=1
+
+[enemy]
+type=antlion_burster
+location=18,58,1,1
+level=6
+number=1
+wander_radius=0
+
+[enemy]
+type=antlion_burster
+location=21,58,1,1
+level=6
+number=1
+wander_radius=0
 
 [npc]
 # Aldwulf
