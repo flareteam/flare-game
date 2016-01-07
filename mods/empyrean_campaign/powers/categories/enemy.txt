@@ -337,3 +337,11 @@ angle_variance=15
 modifier_accuracy=multiply,60,0
 count=3
 
+# Skeleton bleeding immunity
+[power]
+id=185
+type=fixed
+buff=true
+passive=true
+post_effect=immunity_bleed,0,0
+
