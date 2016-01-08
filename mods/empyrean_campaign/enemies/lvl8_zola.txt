@@ -1,0 +1,32 @@
+INCLUDE enemies/base/zombie_dark.txt
+
+name=Zola
+level=8
+categories=zola
+rarity=rare
+xp=256
+
+# combat stats
+hp=940
+speed=4.8
+turn_delay=400ms
+chance_pursue=10
+
+power=melee,164,4
+power=melee,187,6
+power=ranged,188,8
+
+accuracy=110
+avoidance=40
+poise=38
+
+dmg_melee_min=150
+dmg_melee_max=155
+cooldown=1575ms
+
+# temple of mez key
+quest_loot=emp_mez1_init,emp_mez1_key,1014
+
+#loot
+loot_count=3,4
+loot=loot/level_8.txt

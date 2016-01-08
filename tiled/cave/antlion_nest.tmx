@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="isometric" renderorder="right-down" width="80" height="80" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="36">
+<map version="1.0" orientation="isometric" renderorder="right-down" width="80" height="80" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="37">
  <properties>
   <property name="music" value="music/cave_theme.ogg"/>
   <property name="tileset" value="tilesetdefs/tileset_cave.txt"/>
@@ -356,6 +356,13 @@
   <object id="32" name="Water dripping" type="on_load" x="1344" y="1664" width="32" height="32">
    <properties>
     <property name="soundfx" value="soundfx/environment/cave_droplets_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="36" name="to Temple of Mez 1" type="on_trigger" x="0" y="320" width="32" height="128">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="intermap" value="maps/temple_of_mez_1.txt,76,34"/>
+    <property name="tooltip" value="Temple of Mez: Basement"/>
    </properties>
   </object>
  </objectgroup>

@@ -1,0 +1,32 @@
+INCLUDE enemies/base/wyvern.txt
+
+name=Wyvern
+level=7
+categories=wyvern,wyvern_normal
+rarity=common
+xp=128
+
+# combat stats
+hp=220
+speed=5.2
+turn_delay=200ms
+chance_pursue=25
+
+power=melee,164,5
+power=melee,168,2
+
+accuracy=120
+avoidance=50
+poise=33
+
+dmg_melee_min=100
+dmg_melee_max=110
+absorb_min=7
+absorb_max=7
+
+cooldown=1450ms
+
+# loot
+loot=loot/level_7.txt
+
+

@@ -1,0 +1,37 @@
+INCLUDE enemies/base/wyvern_fire.txt
+
+name=Fire Wyvern
+level=7
+categories=wyvern,wyvern_fire
+rarity=uncommon
+xp=128
+
+# combat stats
+hp=210
+speed=4.7
+turn_delay=200ms
+chance_pursue=5
+
+power=melee,164,1
+power=ranged,173,5
+
+accuracy=125
+avoidance=55
+poise=28
+
+dmg_melee_min=95
+dmg_melee_max=100
+dmg_ranged_min=105
+dmg_ranged_max=115
+absorb_min=6
+absorb_max=7
+
+vulnerable_fire=75
+vulnerable_ice=150
+
+cooldown=1650ms
+
+# loot
+loot=loot/level_7.txt
+
+

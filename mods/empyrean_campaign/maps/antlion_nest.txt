@@ -366,6 +366,14 @@ type=on_load
 location=42,52,1,1
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
+[event]
+# to Temple of Mez 1
+type=on_trigger
+location=0,10,1,4
+hotspot=location
+intermap=maps/temple_of_mez_1.txt,76,34
+tooltip=Temple of Mez: Basement
+
 [enemy]
 type=antlion
 location=50,55,8,9
