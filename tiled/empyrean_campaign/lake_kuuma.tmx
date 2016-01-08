@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="isometric" renderorder="right-down" width="132" height="132" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="81">
+<map version="1.0" orientation="isometric" renderorder="right-down" width="132" height="132" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="82">
  <properties>
   <property name="music" value="music/overworld_theme.ogg"/>
   <property name="tileset" value="tilesetdefs/tileset_snowplains.txt"/>
@@ -1107,6 +1107,14 @@
   <object id="77" name="River sound" type="on_load" x="2144" y="1504" width="32" height="32">
    <properties>
     <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="81" name="award XP for aquiring Gravebloom" type="on_load" x="512" y="608" width="32" height="32">
+   <properties>
+    <property name="requires_not_status" value="emp_main_reward1"/>
+    <property name="requires_status" value="emp_main_gravebloom"/>
+    <property name="reward_xp" value="800"/>
+    <property name="set_status" value="emp_main_reward1"/>
    </properties>
   </object>
  </objectgroup>

@@ -1125,6 +1125,15 @@ type=on_load
 location=67,47,1,1
 soundfx=soundfx/environment/river_loop.ogg
 
+[event]
+# award XP for aquiring Gravebloom
+type=on_load
+location=16,19,1,1
+requires_not_status=emp_main_reward1
+requires_status=emp_main_gravebloom
+reward_xp=800
+set_status=emp_main_reward1
+
 [enemy]
 type=antlion_ice
 location=39,27,5,6
