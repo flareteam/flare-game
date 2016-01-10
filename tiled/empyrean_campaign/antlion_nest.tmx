@@ -6,17 +6,17 @@
   <property name="title" value="Antlion Nest"/>
  </properties>
  <tileset firstgid="1" name="collision" tilewidth="64" tileheight="32" tilecount="15">
-  <image source="tiled_collision.png" width="960" height="32"/>
+  <image source="../cave/tiled_collision.png" width="960" height="32"/>
  </tileset>
  <tileset firstgid="16" name="cave" tilewidth="64" tileheight="128" tilecount="240">
-  <image source="tiled_cave.png" width="1024" height="1920"/>
+  <image source="../cave/tiled_cave.png" width="1024" height="1920"/>
  </tileset>
  <tileset firstgid="256" name="set_rules" tilewidth="64" tileheight="32" tilecount="8">
-  <image source="set_rules.png" width="128" height="128"/>
+  <image source="../cave/set_rules.png" width="128" height="128"/>
  </tileset>
  <tileset firstgid="264" name="tiled_cave_2x2" tilewidth="128" tileheight="64" tilecount="2">
   <tileoffset x="0" y="16"/>
-  <image source="tiled_cave_2x2.png" width="256" height="64"/>
+  <image source="../cave/tiled_cave_2x2.png" width="256" height="64"/>
  </tileset>
  <layer name="background" width="80" height="80">
   <data encoding="csv">
