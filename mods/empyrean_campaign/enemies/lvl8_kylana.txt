@@ -1,0 +1,38 @@
+INCLUDE enemies/base/antlion.txt
+
+name=Kylana
+level=8
+categories=kylana
+rarity=rare
+xp=256
+
+# combat stats
+hp=940
+speed=5.8
+turn_delay=166ms
+
+chance_pursue=50
+
+power=melee,164,10
+power=melee,168,5
+power=melee,179,3
+
+accuracy=120
+avoidance=60
+poise=41
+
+absorb_min=9
+absorb_max=11
+
+dmg_melee_min=150
+dmg_melee_max=160
+
+cooldown=1375ms
+
+# temple of mez key
+quest_loot=emp_mez2_init,emp_mez2_key,1015
+
+# loot
+loot_count=3,4
+loot=loot/level_8.txt
+

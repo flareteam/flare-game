@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="isometric" renderorder="right-down" width="40" height="40" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="21">
+<map version="1.0" orientation="isometric" renderorder="right-down" width="40" height="40" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="22">
  <properties>
   <property name="music" value="music/dungeon_theme.ogg"/>
   <property name="tileset" value="tilesetdefs/tileset_dungeon.txt"/>
@@ -216,7 +216,15 @@
     <property name="tooltip" value="Stormrock Pass"/>
    </properties>
   </object>
-  <object id="7" x="928" y="928" width="64" height="64"/>
+  <object id="7" name="to Temple of Mez: Main Hall" type="on_trigger" x="928" y="928" width="64" height="64">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="intermap" value="maps/temple_of_mez_2.txt,41,30"/>
+    <property name="requires_status" value="emp_waypoint_6"/>
+    <property name="soundfx" value="soundfx/environment/teleporter.ogg,0,0"/>
+    <property name="tooltip" value="Temple of Mez: Main Hall"/>
+   </properties>
+  </object>
   <object id="8" x="704" y="992" width="64" height="64"/>
   <object id="9" x="512" y="992" width="64" height="64"/>
   <object id="10" x="288" y="928" width="64" height="64"/>
@@ -255,6 +263,12 @@
    <properties>
     <property name="mapmod" value="background,31,23,265"/>
     <property name="requires_status" value="emp_waypoint_5"/>
+   </properties>
+  </object>
+  <object id="21" name="unlock Temple of Mez: Main Hall" type="on_load" x="1024" y="928" width="32" height="32">
+   <properties>
+    <property name="mapmod" value="background,29,30,265"/>
+    <property name="requires_status" value="emp_waypoint_6"/>
    </properties>
   </object>
  </objectgroup>

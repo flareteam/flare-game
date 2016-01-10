@@ -209,6 +209,16 @@ soundfx=soundfx/environment/teleporter.ogg,0,0
 tooltip=Stormrock Pass
 
 [event]
+# to Temple of Mez: Main Hall
+type=on_trigger
+location=29,29,2,2
+hotspot=location
+intermap=maps/temple_of_mez_2.txt,41,30
+requires_status=emp_waypoint_6
+soundfx=soundfx/environment/teleporter.ogg,0,0
+tooltip=Temple of Mez: Main Hall
+
+[event]
 # Wind sound
 type=on_load
 location=0,0,1,1
@@ -248,4 +258,11 @@ type=on_load
 location=34,22,1,1
 mapmod=background,31,23,265
 requires_status=emp_waypoint_5
+
+[event]
+# unlock Temple of Mez: Main Hall
+type=on_load
+location=32,29,1,1
+mapmod=background,29,30,265
+requires_status=emp_waypoint_6
 

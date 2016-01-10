@@ -539,6 +539,15 @@ type=on_load
 location=15,50,1,1
 soundfx=soundfx/environment/open_fire_loop.ogg
 
+[event]
+# to Temple of Mez: Main Hall
+type=on_trigger
+location=15,13,1,2
+hotspot=location
+intermap=maps/temple_of_mez_2.txt,70,10
+soundfx=soundfx/environment/stairs.ogg,0,0
+tooltip=Temple of Mez: Main Hall
+
 [enemy]
 type=wyvern_normal
 location=63,28,1,1
