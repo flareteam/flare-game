@@ -2,7 +2,7 @@ name=Return to Empyrean
 
 [quest]
 requires_status=emp_main_init
-quest_text=The Book of the Dead states redemption is possible for those who sign their name in gravebloom ink. Aquiring gravebloom ink may be the key to return to the city of Empyrean.
+quest_text=The Book of the Dead states redemption is possible for those who sign their name in gravebloom ink. Florin in Perdition Harbor can tell you more.
 
 [quest]
 requires_status=emp_seagate_defeated
@@ -11,8 +11,25 @@ quest_text=Before leaving St. Maria's Crypt, it would be wise to look for anythi
 
 [quest]
 requires_status=emp_main_gravebloom
-quest_text=You've found a gravebloom flower. It's likely to be used as a component in the creation of gravebloom ink.
+requires_not_status=emp_main_info1
+quest_text=Ask Florin about the Gravebloom flower.
+
+[quest]
+requires_status=emp_main_gravebloom
+requires_status=emp_main_info1
+quest_text=You've found a gravebloom flower. It is a primary component in the creation of gravebloom ink.
+
+[quest]
+requires_status=emp_mez_defeated
+requires_not_status=emp_main_quill
+quest_text=A strange black feather fell off of Mez. You should take it before leaving the Temple of Mez.
 
 [quest]
 requires_status=emp_main_quill
+requires_not_status=emp_main_info2
+quest_text=Ask Florin about the Black Quill.
+
+[quest]
+requires_status=emp_main_quill
+requires_status=emp_main_info2
 quest_text=The Black Quill you found is the only thing capable of holding gravebloom ink. It will be the only way to write in the Book of the Dead.

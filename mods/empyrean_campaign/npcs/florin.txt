@@ -18,4 +18,28 @@ vox_intro=soundfx/npcs/male_merchant_02.ogg
 vox_intro=soundfx/npcs/male_merchant_03.ogg
 vox_intro=soundfx/npcs/male_merchant_04.ogg
 
-#talker=true
+talker=true
+
+[dialog]
+topic=Book of the Dead
+requires_status=emp_main_init
+you=What can you tell me about the Book of the Dead?
+him=The Book of the Dead tells of redemption for those who sign their name in gravebloom ink. Your sins will be washed away, and you will be able to return to wherever you were banished from.
+you=So, where can I find gravebloom ink?
+him=Gravebloom ink is not something you find. You must make it yourself. Besides the Gravebloom flower, you will need to sacrifice your own blood with a special blade.
+him=Even if you can create some gravebloom ink, you won't be able to write with just anything. The ink won't stick to a normal quill. You will need to find something capable of holding the gravebloom ink.
+him=If you can perform the ritual to make gravebloom ink and find a suitable writing utensil, redemption may be yours.
+
+[dialog]
+topic=Gravebloom
+requires_status=emp_main_gravebloom
+set_status=emp_main_info1
+him=Ah yes, that is most certainly a gravebloom flower. It is the primary component in the creation of gravebloom ink.
+
+[dialog]
+topic=Black Quill
+requires_status=emp_main_quill
+you=Do you think this quill is capable of holding gravebloom ink?
+him=It's certainly no normal quill. I've never seen anything like it.
+set_status=emp_main_info2
+him=If anything is capable of writing with gravebloom ink, it is that quill.
