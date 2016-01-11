@@ -1,0 +1,18 @@
+name=Glowing Obelisk
+
+# animation info
+gfx=animations/npcs/return_obelisk1.txt
+
+talker=true
+
+[dialog]
+topic=Teleport
+requires_not_status=emp_main_quill
+him=(You touch the obelisk, but nothing happens.)
+
+[dialog]
+topic=Teleport
+requires_status=emp_main_quill
+soundfx=soundfx/environment/teleporter.ogg,0,0
+intermap=maps/temple_of_mez_2.txt,61,93
+unset_status=emp_mez_trap

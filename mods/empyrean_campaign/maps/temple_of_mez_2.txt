@@ -510,6 +510,15 @@ hotspot=location
 msg=The plaque reads: Red Altar
 tooltip=Plaque
 
+[event]
+# to Temple of Mez: Entrance
+type=on_trigger
+location=61,91,2,1
+hotspot=location
+intermap=maps/temple_of_mez_3.txt,26,31
+soundfx=soundfx/environment/stairs.ogg,0,0
+tooltip=Temple of Mez: Entrance
+
 [enemy]
 type=undead
 location=40,8,12,4

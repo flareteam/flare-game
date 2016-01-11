@@ -1,0 +1,41 @@
+INCLUDE enemies/base/wyvern_air.txt
+
+name=Mez
+level=8
+categories=mez
+rarity=rare
+xp=1024
+
+defeat_status=emp_mez_defeated
+
+# combat stats
+hp=3760
+speed=5.7
+turn_delay=200ms
+chance_pursue=15
+
+power=melee,168,2
+power=melee,189,10
+power=ranged,190,5
+
+accuracy=130
+avoidance=60
+poise=31
+
+dmg_melee_min=140
+dmg_melee_max=145
+dmg_ment_min=150
+dmg_ment_max=160
+absorb_min=7
+absorb_max=8
+
+cooldown=1575ms
+
+# Black Quill
+quest_loot=emp_main_init,emp_main_quill,1101
+
+# loot
+loot_count=5,7
+loot=loot/level_8.txt
+
+

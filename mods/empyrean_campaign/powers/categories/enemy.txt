@@ -400,3 +400,46 @@ hp_steal=25
 post_power=160
 wall_power=160
 
+# mez's ram attack
+[power]
+id=189
+type=fixed
+new_state=dash_attack
+state_duration=200ms
+face=true
+use_hazard=true
+base_damage=melee
+lifespan=200ms
+radius=1.0
+starting_pos=melee
+aim_assist=true
+charge_speed=12
+cooldown=1500ms
+relative_pos=true
+soundfx_hit=soundfx/powers/block.ogg
+soundfx=soundfx/powers/shock.ogg
+post_effect=knockback,10,100ms
+modifier_damage=multiply,125,0
+
+# mez's thunderstrike
+[power]
+id=190
+type=fixed
+new_state=cast
+face=true
+requires_los=true
+requires_targeting=true
+animation=animations/powers/thunderstrike.txt
+soundfx=soundfx/powers/thunder.ogg
+use_hazard=true
+base_damage=ment
+lifespan=200ms
+radius=1.5
+trait_elemental=lightning
+starting_pos=target
+multitarget=true
+post_power=159
+target_range=8.0
+post_effect=stun,0,1s
+modifier_damage=multiply,75,0
+
