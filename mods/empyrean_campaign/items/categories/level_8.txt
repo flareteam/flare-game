@@ -333,5 +333,95 @@ price=800
 requires_level=6
 bonus=item_find,30
 
-# 197-202
 # unique and set items
+[item]
+id=197
+name=Amir Blade
+flavor=A remnant of those who guarded Fort Amir.
+INCLUDE items/base/weapons/melee/shortsword.txt
+level=8
+quality=unique
+price=900
+dmg_melee=45,50
+requires_stat=physical,20
+bonus=dmg_melee_min,20
+bonus=dmg_melee_max,20
+bonus=accuracy,15
+bonus=lightning_resist,20
+
+[item]
+id=198
+name=Huntsman Bow
+flavor=Compact enough to be deadly at all ranges of combat.
+INCLUDE items/base/weapons/ranged/shortbow.txt
+level=8
+quality=unique
+price=900
+dmg_ranged=45,50
+requires_stat=offense,20
+bonus=dmg_ranged_min,20
+bonus=dmg_ranged_max,20
+bonus=crit,5
+bonus=poise,10
+
+[item]
+id=199
+name=Greed Cowl
+flavor=Riches fit for a queen.
+INCLUDE items/base/armor/mage/head.txt
+level=8
+quality=unique
+price=270
+abs=3
+requires_stat=defense,14
+requires_stat=mental,8
+bonus=xp_gain,1
+bonus=currency_find,10
+bonus=item_find,25
+
+[item]
+id=200
+name=Battle Leathers
+flavor=Designed to keep its wearer moving forward.
+INCLUDE items/base/armor/leather/legs.txt
+level=8
+quality=unique
+price=450
+abs=5
+requires_stat=defense,16
+requires_stat=physical,6
+bonus=hp_regen,150
+bonus=poise,25
+bonus=fire_resist,35
+
+[item]
+id=201
+name=Escape Boots
+flavor=Running away doesn't mean the battle is lost.
+INCLUDE items/base/armor/mage/feet.txt
+level=8
+quality=unique
+price=270
+abs=3,4
+requires_stat=defense,14
+requires_stat=mental,8
+bonus=mp_regen,15
+bonus=speed,125
+bonus=avoidance,25
+
+[item]
+id=202
+name=Mez's Wraps
+flavor=With its layers of reptilian skin, not much can penetrate this armor.
+INCLUDE items/base/armor/leather/chest.txt
+level=8
+quality=unique
+price=675
+abs=5
+requires_stat=defense,15
+requires_stat=offense,7
+bonus=hp,150
+bonus=accuracy,15
+bonus=crit,1
+bonus=poise,20
+
