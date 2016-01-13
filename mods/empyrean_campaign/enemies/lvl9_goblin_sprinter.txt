@@ -1,0 +1,30 @@
+INCLUDE enemies/base/goblin_runner.txt
+
+name=Goblin Sprinter
+level=9
+categories=goblin_charger,goblin,dungeon,grassland
+rarity=uncommon
+xp=512
+
+# combat stats
+hp=290
+speed=6.1
+turn_delay=200ms
+chance_pursue=10
+
+power=melee,164,5
+power=melee,168,1
+
+accuracy=130
+avoidance=50
+poise=39
+
+dmg_melee_min=125
+dmg_melee_max=130
+cooldown=1200ms
+absorb_min=9
+absorb_max=9
+
+# loot
+loot=loot/level_9.txt
+

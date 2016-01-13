@@ -443,3 +443,26 @@ target_range=8.0
 post_effect=stun,0,1s
 modifier_damage=multiply,75,0
 
+# antlion fire spray
+[power]
+id=191
+type=missile
+new_state=shoot
+face=true
+base_damage=ment
+aim_assist=true
+count=10
+trait_armor_penetration=true
+angle_variance=15
+speed_variance=0.15
+animation=animations/powers/ember.txt
+use_hazard=true
+lifespan=266ms
+radius=0.75
+speed=24
+directional=true
+soundfx=soundfx/powers/shoot.ogg
+post_power=158
+trait_elemental=fire
+modifier_damage=multiply,20,0
+

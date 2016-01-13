@@ -1,0 +1,32 @@
+INCLUDE enemies/base/goblin.txt
+
+name=Goblin Hunter
+level=9
+categories=goblin,goblin_spearman,dungeon,grassland
+rarity=uncommon
+xp=512
+
+# combat stats
+hp=250
+speed=4.1
+turn_delay=400ms
+chance_pursue=15
+
+power=melee,164,5
+power=ranged,165,3
+
+accuracy=125
+avoidance=50
+poise=34
+
+dmg_melee_min=130
+dmg_melee_max=135
+dmg_ranged_min=135
+dmg_ranged_max=140
+cooldown=1600ms
+absorb_min=8
+absorb_max=9
+
+# loot
+loot=loot/level_9.txt
+

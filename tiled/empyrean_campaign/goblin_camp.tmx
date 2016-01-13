@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="isometric" renderorder="right-down" width="60" height="60" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="41">
+<map version="1.0" orientation="isometric" renderorder="right-down" width="60" height="60" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="42">
  <properties>
   <property name="music" value="music/overworld_theme.ogg"/>
   <property name="tileset" value="tilesetdefs/tileset_grassland.txt"/>
   <property name="title" value="Goblin Camp"/>
  </properties>
- <tileset firstgid="1" name="collision" tilewidth="64" tileheight="32" tilecount="15">
+ <tileset firstgid="1" name="collision" tilewidth="64" tileheight="32" tilecount="15" columns="15">
   <image source="../grassland/tiled_collision.png" width="960" height="32"/>
  </tileset>
- <tileset firstgid="16" name="grassland" tilewidth="64" tileheight="128" tilecount="128">
+ <tileset firstgid="16" name="grassland" tilewidth="64" tileheight="128" tilecount="128" columns="16">
   <image source="../grassland/grassland.png" width="1024" height="1024"/>
  </tileset>
- <tileset firstgid="144" name="water" tilewidth="64" tileheight="64" tilecount="64">
+ <tileset firstgid="144" name="water" tilewidth="64" tileheight="64" tilecount="64" columns="16">
   <tileoffset x="0" y="32"/>
   <image source="../grassland/grassland_water.png" width="1024" height="256"/>
  </tileset>
- <tileset firstgid="208" name="tall structures" tilewidth="64" tileheight="256" tilecount="32">
+ <tileset firstgid="208" name="tall structures" tilewidth="64" tileheight="256" tilecount="32" columns="16">
   <image source="../grassland/grassland_structures.png" width="1024" height="512"/>
  </tileset>
- <tileset firstgid="240" name="trees" tilewidth="128" tileheight="256" tilecount="16">
+ <tileset firstgid="240" name="trees" tilewidth="128" tileheight="256" tilecount="16" columns="8">
   <tileoffset x="-32" y="0"/>
   <image source="../grassland/grassland_trees.png" width="1024" height="512"/>
  </tileset>
- <tileset firstgid="256" name="set_rules" tilewidth="64" tileheight="32" tilecount="8">
+ <tileset firstgid="256" name="set_rules" tilewidth="64" tileheight="32" tilecount="8" columns="2">
   <image source="../grassland/set_rules.png" width="128" height="128"/>
  </tileset>
- <tileset firstgid="264" name="tiled_grassland_2x2" tilewidth="128" tileheight="64" tilecount="32">
+ <tileset firstgid="264" name="tiled_grassland_2x2" tilewidth="128" tileheight="64" tilecount="32" columns="4">
   <tileoffset x="0" y="16"/>
   <image source="../grassland/tiled_grassland_2x2.png" width="512" height="512"/>
  </tileset>
- <tileset firstgid="296" name="collision" tilewidth="64" tileheight="32" tilecount="15">
+ <tileset firstgid="296" name="collision" tilewidth="64" tileheight="32" tilecount="15" columns="15">
   <image source="../dungeon/tiled_collision.png" width="960" height="32"/>
  </tileset>
  <layer name="background" width="60" height="60">
@@ -384,6 +384,12 @@
     <property name="tooltip" value="Gravestone"/>
    </properties>
   </object>
+  <object id="41" name="clear Abasi's collision tile" type="on_load" x="608" y="1024" width="32" height="32">
+   <properties>
+    <property name="mapmod" value="collision,21,35,0"/>
+    <property name="requires_status" value="emp_abasi_2"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="enemy">
   <object id="2" type="goblin" x="64" y="704" width="160" height="256">
@@ -452,6 +458,10 @@
   </object>
  </objectgroup>
  <objectgroup name="npc">
-  <object id="26" type="npcs/abasi.txt" x="672" y="1120" width="32" height="32"/>
+  <object id="26" type="npcs/abasi.txt" x="672" y="1120" width="32" height="32">
+   <properties>
+    <property name="requires_not_status" value="emp_abasi_2"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>

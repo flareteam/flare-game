@@ -1,0 +1,37 @@
+INCLUDE enemies/base/wyvern_ice.txt
+
+name=Tundra Wyvern
+level=9
+categories=wyvern,wyvern_ice,dungeon,grassland
+rarity=uncommon
+xp=512
+
+# combat stats
+hp=260
+speed=5.1
+turn_delay=200ms
+chance_pursue=5
+
+power=melee,164,1
+power=melee,183,15
+
+accuracy=135
+avoidance=65
+poise=34
+
+dmg_melee_min=125
+dmg_melee_max=130
+dmg_ment_min=135
+dmg_ment_max=145
+absorb_min=8
+absorb_max=9
+
+vulnerable_fire=150
+vulnerable_ice=75
+
+cooldown=1600ms
+
+# loot
+loot=loot/level_9.txt
+
+

@@ -394,6 +394,13 @@ requires_not_status=emp_stormrock_key;emp_stormrock_door
 requires_status=emp_stormrock_search
 tooltip=Gravestone
 
+[event]
+# clear Abasi's collision tile
+type=on_load
+location=19,32,1,1
+mapmod=collision,21,35,0
+requires_status=emp_abasi_2
+
 [enemy]
 type=goblin
 location=2,22,5,8
@@ -461,4 +468,5 @@ number=2
 [npc]
 type=npcs/abasi.txt
 location=21,35,1,1
+requires_not_status=emp_abasi_2
 
