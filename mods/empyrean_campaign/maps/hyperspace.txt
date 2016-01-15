@@ -219,6 +219,16 @@ soundfx=soundfx/environment/teleporter.ogg,0,0
 tooltip=Temple of Mez: Main Hall
 
 [event]
+# to Nazia Underground
+type=on_trigger
+location=22,31,2,2
+hotspot=location
+intermap=maps/nazia_underground.txt,58,18
+requires_status=emp_waypoint_7
+soundfx=soundfx/environment/teleporter.ogg,0,0
+tooltip=Nazia Underground
+
+[event]
 # Wind sound
 type=on_load
 location=0,0,1,1
@@ -265,4 +275,11 @@ type=on_load
 location=32,29,1,1
 mapmod=background,29,30,265
 requires_status=emp_waypoint_6
+
+[event]
+# unlock Nazia Underground
+type=on_load
+location=22,34,1,1
+mapmod=background,22,32,265
+requires_status=emp_waypoint_7
 

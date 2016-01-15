@@ -360,6 +360,15 @@ location=75,3,1,1
 requires_not_status=emp_abasi_2
 set_status=emp_abasi_2
 
+[event]
+# to Nazia Underground
+type=on_trigger
+location=4,62,4,4
+hotspot=location
+intermap=maps/nazia_underground.txt,92,29
+soundfx=soundfx/environment/stairs.ogg,0,0
+tooltip=Nazia Underground
+
 [enemy]
 type=grassland
 location=34,7,24,25
