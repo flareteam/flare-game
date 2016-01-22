@@ -387,6 +387,15 @@ location=51,13,1,1
 mapmod=background,57,16,265
 requires_status=emp_waypoint_7
 
+[event]
+# to Southern Ridge
+type=on_trigger
+location=5,29,1,2
+hotspot=location
+intermap=maps/southern_ridge.txt,65,66
+soundfx=soundfx/environment/stairs.ogg,0,0
+tooltip=Southern Ridge
+
 [enemy]
 type=dungeon
 location=66,28,12,20
