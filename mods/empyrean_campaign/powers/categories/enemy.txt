@@ -466,3 +466,49 @@ post_power=158
 trait_elemental=fire
 modifier_damage=multiply,20,0
 
+# minotaur axe throw
+[power]
+id=192
+type=missile
+new_state=shoot
+face=true
+directional=true
+animation=animations/powers/throw_axe.txt
+use_hazard=true
+aim_assist=true
+base_damage=melee
+lifespan=766ms
+radius=1.0
+speed=12
+modifier_damage=multiply,155,0
+
+# summon skeleton minion
+[power]
+id=193
+type=spawn
+new_state=cast
+soundfx=soundfx/powers/teleport.ogg
+spawn_type=lvl10_skeleton_minion
+spawn_limit=fixed,3
+starting_pos=source
+target_neighbor=2
+requires_los=true
+requires_empty_target=true
+
+# Spawn effect (for enemies without spawn animations)
+[power]
+id=194
+type=fixed
+passive=true
+buff=true
+post_effect=spawn_runes,0,533ms
+
+# Heal minions
+# FIXME: does not work
+# [power]
+# id=195
+# type=fixed
+# new_state=shoot
+# buff_party=true
+# soundfx=soundfx/powers/heal.ogg
+# post_effect=hp_restore,25,33ms

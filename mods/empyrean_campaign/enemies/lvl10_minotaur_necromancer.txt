@@ -1,0 +1,33 @@
+INCLUDE enemies/base/minotaur.txt
+
+name=Minotaur Necromancer
+level=10
+categories=minotaur,minotaur_necromancer,dungeon,grassland
+rarity=rare
+xp=1024
+
+# combat stats
+hp=305
+speed=7
+turn_delay=166ms
+chance_pursue=0
+chance_flee=100
+threat_range=8
+
+power=ranged,193,100
+
+accuracy=135
+avoidance=55
+poise=52
+
+dmg_melee_min=150
+dmg_melee_max=180
+dmg_ranged_min=145
+dmg_ranged_max=155
+absorb_min=10
+absorb_max=11
+cooldown=1575ms
+
+# loot
+loot=loot/level_10.txt
+

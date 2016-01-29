@@ -1,0 +1,26 @@
+INCLUDE enemies/base/skeleton_weak.txt
+
+name=Skeleton Minion
+level=10
+categories=lvl10_skeleton_minion
+
+# combat stats
+hp=160
+speed=5.3
+turn_delay=400ms
+chance_pursue=20
+
+power=melee,164,5
+passive_powers=185,194
+
+accuracy=135
+avoidance=55
+poise=42
+
+dmg_melee_min=145
+dmg_melee_max=155
+cooldown=1375ms
+
+absorb_min=5
+absorb_max=5
+

@@ -1,8 +1,7 @@
+# Arrow Wall Strike
 [power]
 id=157
-name=Arrow Wall Strike
 type=fixed
-icon=0
 animation=animations/powers/arrow_stuck.txt
 use_hazard=true
 no_attack=true
@@ -11,11 +10,10 @@ lifespan=3s
 starting_pos=target
 soundfx=soundfx/powers/arrow_wall.ogg
 
+# Orange Spark
 [power]
 id=158
-name=Orange Spark
 type=fixed
-icon=0
 animation=animations/powers/spark_orange.txt
 use_hazard=true
 no_attack=true
@@ -23,11 +21,10 @@ lifespan=400ms
 starting_pos=target
 visual_random=2
 
+# Blue Spark
 [power]
 id=159
-name=Blue Spark
 type=fixed
-icon=0
 animation=animations/powers/spark_blue.txt
 use_hazard=true
 no_attack=true
@@ -35,11 +32,10 @@ lifespan=400ms
 starting_pos=target
 visual_random=2
 
+# Red Spark
 [power]
 id=160
-name=Red Spark
 type=fixed
-icon=0
 animation=animations/powers/spark_red.txt
 use_hazard=true
 no_attack=true
