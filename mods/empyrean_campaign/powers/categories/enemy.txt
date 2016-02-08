@@ -482,11 +482,11 @@ radius=1.0
 speed=12
 modifier_damage=multiply,155,0
 
-# summon skeleton minion
+# summon skeleton minion (minotaur)
 [power]
 id=193
 type=spawn
-new_state=cast
+new_state=cast_alt
 soundfx=soundfx/powers/teleport.ogg
 spawn_type=lvl10_skeleton_minion
 spawn_limit=fixed,3
@@ -503,11 +503,11 @@ passive=true
 buff=true
 post_effect=spawn_runes,0,533ms
 
-# Heal minions
+# Heal minions (minotaur)
 [power]
 id=195
 type=fixed
-new_state=cast
+new_state=cast_alt
 buff_party=true
 requires_spawns=1
 soundfx=soundfx/powers/heal.ogg
