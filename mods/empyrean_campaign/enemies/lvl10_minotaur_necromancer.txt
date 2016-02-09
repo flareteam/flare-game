@@ -14,8 +14,13 @@ chance_pursue=10
 chance_flee=25
 threat_range=16
 
-power=ranged,193,25
-power=ranged,195,50
+# spawn minions
+power=melee,193,10
+power=ranged,193,10
+
+# heal minions
+power=melee,195,1
+power=ranged,195,1
 
 accuracy=135
 avoidance=55
