@@ -366,6 +366,14 @@ type=on_load
 location=60,21,1,1
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
+[event]
+# to Black Oak Farm
+type=on_trigger
+location=18,0,4,1
+hotspot=location
+intermap=maps/black_oak_farm.txt,87,97
+tooltip=Black Oak Farm
+
 [enemy]
 type=grassland
 location=38,59,18,12
