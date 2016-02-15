@@ -15,12 +15,12 @@ chance_flee=25
 threat_range=16
 
 # spawn minions
-power=melee,193,10
-power=ranged,193,10
+power=melee,193,2
+power=ranged,193,3
 
 # heal minions
 power=melee,195,1
-power=ranged,195,1
+power=ranged,195,2
 
 accuracy=135
 avoidance=55
@@ -28,7 +28,7 @@ poise=52
 
 absorb_min=10
 absorb_max=11
-cooldown=575ms
+cooldown=1575ms
 
 # loot
 loot=loot/level_10.txt

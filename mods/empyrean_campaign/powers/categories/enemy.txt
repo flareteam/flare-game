@@ -480,7 +480,7 @@ base_damage=melee
 lifespan=766ms
 radius=1.0
 speed=12
-modifier_damage=multiply,155,0
+modifier_damage=multiply,125,0
 
 # summon skeleton minion (minotaur)
 [power]
@@ -494,6 +494,7 @@ starting_pos=source
 target_neighbor=2
 requires_los=true
 requires_empty_target=true
+cooldown=3s
 
 # Spawn effect (for enemies without spawn animations)
 [power]
@@ -511,6 +512,6 @@ new_state=cast_alt
 buff_party=true
 requires_spawns=1
 soundfx=soundfx/powers/heal.ogg
-post_effect=hp_restore,25,33ms
+post_effect=hp_restore,50,33ms
 post_effect=heal_animation,0,600ms
-cooldown=800ms
+cooldown=6s
