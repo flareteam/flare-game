@@ -41,7 +41,7 @@ def extract(filename):
         'msg', 'him', 'her', 'you', 'name', 'title', 'tooltip',
         'power_desc', 'quest_text', 'description', 'slot_name',
         'tab_title', 'currency_name', 'flavor', 'topic', 'option',
-        'caption'
+        'caption', 'text'
     ]
     plain_text = [
         'msg', 'him', 'her', 'you', 'name', 'title', 'tooltip',
@@ -118,7 +118,7 @@ extract('../engine/hero_options.txt')
 extract('../engine/titles.txt')
 extract('../engine/equip_flags.txt')
 
-for folder in ['enemies', 'maps', 'quests', 'npcs', 'cutscenes']:
+for folder in ['enemies', 'maps', 'quests', 'npcs', 'cutscenes', 'books']:
     target = os.path.join('..', folder)
     if os.path.isdir(target):
         for filename in sorted(os.listdir(target)):
