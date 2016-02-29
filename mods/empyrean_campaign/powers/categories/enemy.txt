@@ -489,12 +489,12 @@ type=spawn
 new_state=cast_alt
 soundfx=soundfx/powers/teleport.ogg
 spawn_type=lvl10_skeleton_minion
-spawn_limit=fixed,3
+spawn_limit=fixed,2
 starting_pos=source
 target_neighbor=2
 requires_los=true
 requires_empty_target=true
-cooldown=3s
+cooldown=10s
 
 # Spawn effect (for enemies without spawn animations)
 [power]
@@ -514,4 +514,4 @@ requires_spawns=1
 soundfx=soundfx/powers/heal.ogg
 post_effect=hp_restore,50,33ms
 post_effect=heal_animation,0,600ms
-cooldown=6s
+cooldown=5s
