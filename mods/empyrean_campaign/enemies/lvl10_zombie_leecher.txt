@@ -1,0 +1,27 @@
+INCLUDE enemies/base/zombie.txt
+
+name=Leecher Zombie
+level=10
+categories=zombie,undead,dungeon,grassland
+rarity=uncommon
+xp=1024
+
+# combat stats
+hp=285
+speed=4.8
+turn_delay=400ms
+chance_pursue=10
+
+power=melee,164,4
+power=melee,187,6
+
+accuracy=125
+avoidance=55
+poise=47
+
+dmg_melee_min=150
+dmg_melee_max=155
+cooldown=1575ms
+
+#loot
+loot=loot/level_10.txt

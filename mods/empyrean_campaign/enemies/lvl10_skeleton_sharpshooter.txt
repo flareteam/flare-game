@@ -1,0 +1,35 @@
+INCLUDE enemies/base/skeleton_archer.txt
+
+name=Skeleton Sharpshooter
+level=10
+categories=skeleton_archer,skeleton,undead,dungeon,grassland
+rarity=uncommon
+xp=1024
+
+# combat stats
+hp=275
+speed=4.8
+turn_delay=200ms
+chance_pursue=5
+
+power=melee,164,1
+power=ranged,196,5
+passive_powers=185
+
+accuracy=140
+avoidance=65
+poise=37
+
+dmg_melee_min=140
+dmg_melee_max=145
+dmg_ranged_min=150
+dmg_ranged_max=155
+absorb_min=9
+absorb_max=10
+
+cooldown=1575ms
+
+# loot
+loot=loot/level_10.txt
+
+

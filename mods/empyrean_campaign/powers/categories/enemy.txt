@@ -515,3 +515,26 @@ soundfx=soundfx/powers/heal.ogg
 post_effect=hp_restore,50,33ms
 post_effect=heal_animation,0,600ms
 cooldown=5s
+
+# shoot 3 arrows
+[power]
+id=196
+type=missile
+new_state=shoot
+face=true
+directional=true
+requires_los=true
+animation=animations/powers/arrows.txt
+soundfx=soundfx/powers/shoot.ogg
+use_hazard=true
+aim_assist=true
+requires_flags=ranged
+base_damage=ranged
+lifespan=533ms
+radius=1.0
+speed=24
+count=3
+angle_variance=20
+speed_variance=0.15
+wall_power=157
+modifier_accuracy=multiply,50,0
