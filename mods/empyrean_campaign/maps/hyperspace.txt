@@ -229,6 +229,16 @@ soundfx=soundfx/environment/teleporter.ogg,0,0
 tooltip=Nazia Underground
 
 [event]
+# to Dilapidated Sewers
+type=on_trigger
+location=16,31,2,2
+hotspot=location
+intermap=maps/dilapidated_sewers.txt,36,30
+requires_status=emp_waypoint_8
+soundfx=soundfx/environment/teleporter.ogg,0,0
+tooltip=Dilapidated Sewers
+
+[event]
 # Wind sound
 type=on_load
 location=0,0,1,1
@@ -282,4 +292,11 @@ type=on_load
 location=22,34,1,1
 mapmod=background,22,32,265
 requires_status=emp_waypoint_7
+
+[event]
+# unlock Dilapidated Sewers
+type=on_load
+location=16,34,1,1
+mapmod=background,16,32,265
+requires_status=emp_waypoint_8
 
