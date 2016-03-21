@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="isometric" renderorder="right-down" width="80" height="80" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="21">
+<map version="1.0" orientation="isometric" renderorder="right-down" width="80" height="80" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="23">
  <properties>
   <property name="music" value="music/overworld_theme.ogg"/>
   <property name="tileset" value="tilesetdefs/tileset_grassland.txt"/>
@@ -128,7 +128,7 @@
 0,0,0,48,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,65,61,0,0,0,0,0,48,0,0,211,0,0,0,0,0,0,0,0,0,0,0,142,69,49,57,0,0,0,0,0,0,0,0,0,0,0,48,104,0,0,0,0,0,0,0,0,0,255,50,0,0,0,
 0,0,0,48,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,249,0,50,0,0,0,0,0,52,0,0,210,0,0,0,0,0,0,0,0,0,0,0,118,0,0,65,49,53,49,61,0,0,0,0,0,0,60,68,0,0,0,0,0,0,0,0,0,0,0,50,0,0,0,
 0,0,0,52,240,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,50,0,0,0,0,0,52,0,208,209,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,69,49,49,49,53,53,53,68,116,0,0,0,0,0,0,0,0,0,0,0,50,0,0,0,
-0,0,0,48,0,0,0,0,0,0,0,0,244,66,51,55,55,71,98,0,0,0,0,0,0,0,0,0,50,0,0,0,0,60,64,0,101,96,0,0,0,0,250,0,0,0,0,0,0,0,0,0,0,0,0,252,0,0,0,128,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,70,58,0,0,0,
+0,0,0,48,0,0,0,0,0,0,0,0,244,66,51,55,55,71,137,0,0,0,0,0,0,0,0,0,50,0,0,0,0,60,64,0,101,96,0,0,0,0,250,0,0,0,0,0,0,0,0,0,0,0,0,252,0,0,0,128,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,70,58,0,0,0,
 0,0,0,52,0,0,0,0,0,0,0,66,55,58,0,0,0,59,67,0,0,0,0,0,0,0,0,0,54,0,0,0,0,52,131,0,246,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,251,0,0,0,0,0,0,0,0,0,240,0,70,62,0,0,0,0,
 0,0,0,63,71,0,0,0,0,0,0,54,0,0,0,0,0,0,63,67,0,0,0,0,0,0,0,0,50,0,0,0,0,48,0,0,0,0,0,0,130,0,0,0,0,113,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,70,55,55,55,58,0,0,0,0,0,
 0,0,0,0,48,0,124,0,0,0,0,50,0,0,0,0,0,0,0,48,0,0,0,0,0,0,0,0,50,0,0,0,0,52,0,0,0,0,0,0,102,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,50,0,0,0,0,0,0,0,0,0,
@@ -310,16 +310,6 @@
     <property name="soundfx" value="soundfx/environment/forest_owl_loop.ogg"/>
    </properties>
   </object>
-  <object id="6" name="Supplies" type="on_trigger" x="576" y="416" width="32" height="32">
-   <properties>
-    <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/level_9.txt"/>
-    <property name="mapmod" value="object,18,13,99"/>
-    <property name="repeat" value="false"/>
-    <property name="soundfx" value="soundfx/wood_open.ogg"/>
-    <property name="tooltip" value="Supplies"/>
-   </properties>
-  </object>
   <object id="7" name="Supplies" type="on_trigger" x="1184" y="416" width="32" height="32">
    <properties>
     <property name="hotspot" value="location"/>
@@ -369,6 +359,13 @@
     <property name="tooltip" value="Nazia Underground"/>
    </properties>
   </object>
+  <object id="21" type="on_trigger" x="384" y="160" width="64" height="32">
+   <properties>
+    <property name="hotspot" value="location"/>
+    <property name="msg" value="Unknown destination"/>
+    <property name="repeat" value="false"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="enemy">
   <object id="12" type="grassland" x="1088" y="224" width="768" height="800">
@@ -389,16 +386,22 @@
     <property name="number" value="6,7"/>
    </properties>
   </object>
-  <object id="15" type="grassland" x="128" y="192" width="768" height="800">
+  <object id="15" type="grassland" x="128" y="384" width="256" height="608">
    <properties>
     <property name="level" value="9"/>
-    <property name="number" value="6,7"/>
+    <property name="number" value="3,4"/>
    </properties>
   </object>
   <object id="17" type="grassland" x="256" y="1184" width="224" height="704">
    <properties>
     <property name="level" value="9"/>
     <property name="number" value="3"/>
+   </properties>
+  </object>
+  <object id="22" type="grassland" x="640" y="288" width="256" height="608">
+   <properties>
+    <property name="level" value="9"/>
+    <property name="number" value="3,4"/>
    </properties>
   </object>
  </objectgroup>
