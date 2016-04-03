@@ -17,5 +17,39 @@ vox_intro=soundfx/npcs/male_merchant_02.ogg
 vox_intro=soundfx/npcs/male_merchant_03.ogg
 vox_intro=soundfx/npcs/male_merchant_04.ogg
 
-#talker=true
+talker=true
+
+[dialog]
+topic=Talk
+requires_not_status=emp_journal_init
+requires_not_status=emp_journal_finish
+him=Greetings, wanderer.
+him=Judging from your appearance, you're no stranger to a long journey. For that reason, I ask that you keep an eye out for my missing journal.
+him=I first noticed it was missing after a night of camping near the Goblin Cave. I searched for a while, but ultimately decided it was best to move on.
+him=If you come across my journal in your travels, please return it to me.
+set_status=emp_journal_init
+set_status=emp_journal_later
+msg=Quest added.
+
+[dialog]
+topic=Journal
+requires_status=emp_journal_init
+requires_not_status=emp_journal_found
+him=Any luck finding my journal?
+you=Not yet.
+
+[dialog]
+topic=Journal
+requires_status=emp_journal_init
+requires_status=emp_journal_found
+you=Here is your journal.
+him=Wonderful! I had considered it forever lost at this point.
+him=I am in your debt. Please take this as a reward for your trouble.
+remove_item=1002
+reward_currency=300
+reward_xp=100
+set_status=emp_journal_finish
+unset_status=emp_journal_init
+unset_status=emp_journal_found
+unset_status=emp_journal_later
 

@@ -3,7 +3,14 @@ name=The Merchant's Journal
 [quest]
 requires_status=emp_journal_init
 requires_not_status=emp_journal_found
+requires_not_status=emp_journal_later
 quest_text=Find Abasi's journal. It is likely being carried by a nearby goblin.
+
+[quest]
+requires_status=emp_journal_init
+requires_status=emp_journal_later
+requires_not_status=emp_journal_found
+quest_text=Find Abasi's journal. He said that it was last seen near the Goblin Cave.
 
 [quest]
 requires_status=emp_journal_found
