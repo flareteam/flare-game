@@ -10,8 +10,7 @@ xp=1024
 hp=385
 speed=4.3
 turn_delay=166ms
-chance_flee=25
-threat_range=20
+chance_pursue=2
 
 # spawn minions
 power=melee,193,2
@@ -21,13 +20,20 @@ power=ranged,193,3
 power=melee,195,1
 power=ranged,195,2
 
+# force field
+power=on_join_combat,197,100
+power=ranged,197,100
+
 accuracy=135
 avoidance=55
 poise=52
 
 absorb_min=10
 absorb_max=11
-cooldown=1575ms
+# no overall cooldown. We let power cooldowns take over here
+
+dmg_ment_min=140
+dmg_ment_max=145
 
 # loot
 loot=loot/level_10.txt

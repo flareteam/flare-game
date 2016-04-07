@@ -539,3 +539,31 @@ angle_variance=20
 speed_variance=0.15
 wall_power=157
 modifier_accuracy=multiply,50,0
+
+# minotaur force field initializer & buff
+[power]
+id=197
+type=fixed
+new_state=cast_alt
+buff=true
+post_effect=reflect_chance,100,5s
+post_effect=return_damage,25,5s
+post_power=198
+cooldown=8s
+
+# minotaur force field hazard
+[power]
+id=198
+type=fixed
+animation=animations/powers/shield_orange.txt
+use_hazard=true
+base_damage=ment
+lifespan=5s
+radius=2
+multitarget=true
+multihit=true
+relative_pos=true
+starting_pos=source
+expire_with_caster=true
+modifier_accuracy=absolute,1000,0
+post_effect=knockback,20,150ms
