@@ -297,9 +297,9 @@ bonus=item_find,15
 # unique items
 [item]
 id=90
-name=Krolan's Pick
-flavor=Sharp enough to cut through stone.
-INCLUDE items/base/weapons/melee/dagger.txt
+name=Krolan's Hammer
+flavor=An essential tool for any blacksmith.
+INCLUDE items/base/weapons/melee/smith_hammer.txt
 level=4
 quality=unique
 price=500
@@ -314,7 +314,7 @@ bonus=currency_find,10
 id=91
 name=Goblin Branch
 flavor=Mana flows inside its primitive exterior.
-INCLUDE items/base/weapons/magic/wand.txt
+INCLUDE items/base/weapons/melee/club.txt
 level=4
 quality=unique
 price=500
