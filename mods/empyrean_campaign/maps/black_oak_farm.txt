@@ -504,6 +504,26 @@ intermap=maps/dilapidated_sewers.txt,21,72
 soundfx=soundfx/environment/stairs.ogg,0,0
 tooltip=Dilapidated Sewers
 
+[event]
+# lumber
+type=on_trigger
+location=37,41,1,1
+hotspot=location
+mapmod=object,37,41,0;collision,37,41,0;collision,38,41,0;collision,39,41,0;background,38,41,202;background,39,41,202
+reachable_from=35,41,2,1
+repeat=false
+requires_not_status=emp_blackoak_shortcut
+set_status=emp_blackoak_shortcut
+soundfx=soundfx/inventory/inventory_wood.ogg
+tooltip=Lumber
+
+[event]
+# open shortcut (on load)
+type=on_load
+location=38,39,1,1
+mapmod=object,37,41,0;collision,37,41,0;collision,38,41,0;collision,39,41,0;background,38,41,202;background,39,41,202
+requires_status=emp_blackoak_shortcut
+
 [enemy]
 type=minotaur_necromancer
 location=69,81,1,1
