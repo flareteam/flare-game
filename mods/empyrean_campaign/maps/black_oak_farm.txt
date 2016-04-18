@@ -524,6 +524,14 @@ location=38,39,1,1
 mapmod=object,37,41,0;collision,37,41,0;collision,38,41,0;collision,39,41,0;background,38,41,202;background,39,41,202
 requires_status=emp_blackoak_shortcut
 
+[event]
+# to Black Oak City
+type=on_trigger
+location=0,10,1,4
+hotspot=location
+intermap=maps/black_oak_city.txt,98,50
+tooltip=Black Oak City
+
 [enemy]
 type=minotaur_necromancer
 location=69,81,1,1
