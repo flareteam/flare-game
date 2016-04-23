@@ -358,11 +358,12 @@
     <property name="tooltip" value="Nazia Underground" />
    <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object height="32" id="21" type="event" width="64" x="384" y="160">
+  <object height="32" id="21" name="to Nazia Mines" type="event" width="64" x="384" y="160">
    <properties>
     <property name="hotspot" value="location" />
-    <property name="msg" value="Unknown destination" />
+    <property name="intermap" value="maps/nazia_mines.txt,33,57" />
     <property name="repeat" value="false" />
+    <property name="tooltip" value="Nazia Mines"/>
    <property name="activate" value="on_trigger" /></properties>
   </object>
  </objectgroup>

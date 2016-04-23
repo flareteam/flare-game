@@ -371,12 +371,14 @@ soundfx=soundfx/environment/stairs.ogg,0,0
 tooltip=Nazia Underground
 
 [event]
+# to Nazia Mines
 type=event
 location=12,5,2,1
 activate=on_trigger
 hotspot=location
-msg=Unknown destination
+intermap=maps/nazia_mines.txt,33,57
 repeat=false
+tooltip=Nazia Mines
 
 [enemy]
 type=enemy

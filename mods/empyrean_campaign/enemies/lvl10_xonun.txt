@@ -1,0 +1,41 @@
+INCLUDE enemies/base/skeleton_mage.txt
+
+name=Xonun
+level=10
+categories=xonun
+rarity=rare
+xp=2048
+
+# combat stats
+stat=hp,1060
+speed=5.2
+turn_delay=200ms
+
+chance_pursue=25
+
+power=melee,164,10
+power=melee,201,5
+power=ranged,201,15
+passive_powers=185
+
+stat=accuracy,135
+stat=avoidance,60
+stat=poise,37
+
+stat=absorb_min,9
+stat=absorb_max,9
+
+stat=dmg_melee_min,140
+stat=dmg_melee_max,145
+stat=dmg_ment_min,150
+stat=dmg_ment_max,155
+
+vulnerable=lightning,150
+vulnerable=dark,75
+
+cooldown=1325ms
+
+# loot
+loot_count=3,4
+loot=loot/level_10.txt
+

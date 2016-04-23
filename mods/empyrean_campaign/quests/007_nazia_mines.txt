@@ -1,0 +1,16 @@
+name=Trapped!
+
+[quest]
+requires_status=emp_naziamines_init
+requires_not_status=emp_naziamines_cleared
+quest_text=The path behind you has caved in. Find a way to escape the Nazia Mines.
+
+[quest]
+requires_status=emp_naziamines_dynamite
+requires_not_status=emp_naziamines_cleared
+quest_text=You found some sticks of dynamite. Those should be useful.
+
+[quest]
+requires_status=emp_naziamines_cleared
+quest_text=You successfully cleared the rubble and can safely escape the Nazia Mines.
+
