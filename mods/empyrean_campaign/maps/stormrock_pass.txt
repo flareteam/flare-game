@@ -838,40 +838,45 @@ data=
 
 [event]
 # to The Breach (SW)
-type=on_trigger
+type=event
 location=23,79,2,1
+activate=on_trigger
 hotspot=location
 intermap=maps/the_breach.txt,5,59
 tooltip=The Breach
 
 [event]
 # to The Breach (SE)
-type=on_trigger
+type=event
 location=95,104,1,2
+activate=on_trigger
 hotspot=location
 intermap=maps/the_breach.txt,89,87
 tooltip=The Breach
 
 [event]
 # to The Breach (NW)
-type=on_trigger
+type=event
 location=29,25,1,2
+activate=on_trigger
 hotspot=location
 intermap=maps/the_breach.txt,23,14
 tooltip=The Breach
 
 [event]
 # to The Breach (NW)
-type=on_trigger
+type=event
 location=101,24,2,1
+activate=on_trigger
 hotspot=location
 intermap=maps/the_breach.txt,76,41
 tooltip=The Breach
 
 [event]
 # to Hyperspace
-type=on_trigger
+type=event
 location=70,63,2,2
+activate=on_trigger
 hotspot=location
 intermap=maps/hyperspace.txt,30,23
 soundfx=soundfx/environment/teleporter.ogg,0,0
@@ -879,8 +884,9 @@ tooltip=Hyperspace
 
 [event]
 # Unlock waypoint
-type=on_trigger
+type=event
 location=69,63,4,5
+activate=on_trigger
 mapmod=background,70,64,265
 msg=Stormrock Pass waypoint discovered.
 repeat=false
@@ -889,15 +895,17 @@ set_status=emp_waypoint_5
 
 [event]
 # unlock waypoint (on_load)
-type=on_load
+type=event
 location=70,59,1,1
+activate=on_load
 mapmod=background,70,64,265
 requires_status=emp_waypoint_5
 
 [event]
 # Supplies
-type=on_trigger
+type=event
 location=74,42,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_6.txt
 loot_count=2
@@ -908,8 +916,9 @@ tooltip=Supplies
 
 [event]
 # Supplies
-type=on_trigger
+type=event
 location=74,109,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_6.txt
 loot_count=2
@@ -920,215 +929,250 @@ tooltip=Supplies
 
 [event]
 # Cave wind sound effect
-type=on_load
+type=event
 location=0,0,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_wind_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=70,75,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=59,68,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=79,69,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=66,64,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=36,28,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=106,100,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=37,75,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=65,103,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=87,63,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=69,47,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=33,98,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=38,52,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=54,49,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=64,89,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=98,30,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # to Stormrock Ruins
-type=on_trigger
+type=event
 location=81,63,1,1
+activate=on_trigger
 hotspot=location
 intermap=maps/stormrock_ruins.txt,48,97
 tooltip=Stormrock Ruins
 
 [event]
 # to Stormrock Ruins
-type=on_trigger
+type=event
 location=81,59,1,1
+activate=on_trigger
 hotspot=location
 intermap=maps/stormrock_ruins.txt,48,97
 tooltip=Stormrock Ruins
 
 [enemy]
-type=snowplains
+type=enemy
 location=41,90,7,7
+category=snowplains
 level=6
 number=2
 
 [enemy]
-type=snowplains
+type=enemy
 location=67,105,14,7
+category=snowplains
 level=6
 number=3
 
 [enemy]
-type=snowplains
+type=enemy
 location=66,85,7,7
+category=snowplains
 level=6
 number=2
 
 [enemy]
-type=snowplains
+type=enemy
 location=101,89,7,7
+category=snowplains
 level=6
 number=2
 
 [enemy]
-type=snowplains
+type=enemy
 location=90,81,7,7
+category=snowplains
 level=6
 number=2
 
 [enemy]
-type=snowplains
+type=enemy
 location=55,90,7,7
+category=snowplains
 level=6
 number=2
 
 [enemy]
-type=snowplains
+type=enemy
 location=76,77,8,7
+category=snowplains
 level=6
 number=2
 
 [enemy]
-type=snowplains
+type=enemy
 location=36,72,6,7
+category=snowplains
 level=6
 number=2
 
 [enemy]
-type=snowplains
+type=enemy
 location=46,71,4,2
+category=snowplains
 level=6
 number=1,2
 
 [enemy]
-type=snowplains
+type=enemy
 location=58,54,8,6
+category=snowplains
 level=6
 number=2
 
 [enemy]
-type=snowplains
+type=enemy
 location=73,38,7,9
+category=snowplains
 level=6
 number=3
 
 [enemy]
-type=snowplains
+type=enemy
 location=48,36,8,6
+category=snowplains
 level=6
 number=2
 
 [enemy]
-type=snowplains
+type=enemy
 location=45,60,6,6
+category=snowplains
 level=6
 number=2
 
 [enemy]
-type=snowplains
+type=enemy
 location=36,42,6,6
+category=snowplains
 level=6
 number=2
 
 [enemy]
-type=snowplains
+type=enemy
 location=37,53,6,6
+category=snowplains
 level=6
 number=2
 
 [enemy]
-type=snowplains
+type=enemy
 location=88,47,6,6
+category=snowplains
 level=6
 number=2
 
 [enemy]
-type=snowplains
+type=enemy
 location=100,38,6,6
+category=snowplains
 level=6
 number=2
 

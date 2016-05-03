@@ -181,8 +181,9 @@ data=
 
 [event]
 # to Ice Hall
-type=on_trigger
+type=event
 location=2,13,1,2
+activate=on_trigger
 hotspot=location
 intermap=maps/brothers_lair_ice_hall.txt,47,71
 soundfx=soundfx/door_open.ogg,0,0
@@ -190,8 +191,9 @@ tooltip=Brothers' Lair Ice Hall
 
 [event]
 # to Sacrifice Room
-type=on_trigger
+type=event
 location=14,15,2,1
+activate=on_trigger
 hotspot=location
 intermap=maps/brothers_lair_sacrifice_room.txt,9,41
 soundfx=soundfx/environment/stairs.ogg,0,0
@@ -199,8 +201,9 @@ tooltip=Brothers' Sacrifice Room
 
 [event]
 # to Cave 2
-type=on_trigger
+type=event
 location=14,47,2,2
+activate=on_trigger
 hotspot=location
 intermap=maps/cave_of_living_bones2.txt,32,4
 soundfx=soundfx/door_open.ogg,0,0
@@ -208,8 +211,9 @@ tooltip=Cave of Living Bones 2
 
 [event]
 # to Fire Hall
-type=on_trigger
+type=event
 location=13,1,2,1
+activate=on_trigger
 hotspot=location
 intermap=maps/brothers_lair_fire_hall.txt,25,77
 soundfx=soundfx/door_open.ogg,0,0
@@ -217,8 +221,9 @@ tooltip=Brothers' Lair Fire Hall
 
 [event]
 # to Wind Hall
-type=on_trigger
+type=event
 location=27,13,2,2
+activate=on_trigger
 hotspot=location
 intermap=maps/brothers_lair_wind_hall.txt,3,19
 soundfx=soundfx/door_open.ogg,0,0
@@ -226,27 +231,31 @@ tooltip=Brothers' Lair Wind Hall
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=12,5,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
-type=on_load
+type=event
 location=1,1,1,1
+activate=on_load
 mapmod=background,14,20,265
 requires_status=waypoint_brothers_lair_atrium
 
 [event]
-type=on_trigger
+type=event
 location=14,19,2,2
+activate=on_trigger
 hotspot=location
 intermap=maps/warp_zone.txt,36,38
 soundfx=soundfx/environment/teleporter.ogg,0,0
 tooltip=Warp Zone
 
 [event]
-type=on_trigger
+type=event
 location=12,17,6,6
+activate=on_trigger
 mapmod=background,14,20,265
 msg=Brothers Lair Atrium waypoint discovered
 repeat=false
@@ -255,13 +264,15 @@ set_status=waypoint_brothers_lair_atrium
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=15,5,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [enemy]
 # Patrolling undead
-type=skeletal_warrior
+type=enemy
 location=9,8,1,1
+category=skeletal_warrior
 waypoints=9,8;20,8;20,19;9,19
 

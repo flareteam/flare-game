@@ -331,8 +331,9 @@ data=
 
 [event]
 # Basic lab
-type=on_trigger
+type=event
 location=83,52,2,2
+activate=on_trigger
 hotspot=location
 intermap=maps/lab_basic.txt,3,21
 soundfx=soundfx/environment/teleporter.ogg,0,0
@@ -340,8 +341,9 @@ tooltip=Dev Lab - Basic Lessons
 
 [event]
 # Book Stand
-type=on_trigger
+type=event
 location=8,38,1,1
+activate=on_trigger
 hotspot=location
 mapmod=object,8,38,164
 msg=Mankind tends to lead by example. Be it good or bad.
@@ -350,8 +352,9 @@ tooltip=Book stand
 
 [event]
 # Book Stand
-type=on_trigger
+type=event
 location=4,75,1,1
+activate=on_trigger
 hotspot=location
 mapmod=object,8,38,164
 msg=Some traps cannot be escaped easily. Only those who can modify the map can get out of here.
@@ -359,49 +362,59 @@ soundfx=soundfx/inventory/inventory_page.ogg
 tooltip=Book stand
 
 [event]
-type=on_trigger
+type=event
 location=7,67,2,1
+activate=on_trigger
 hotspot=location
 intermap=maps/lab_mapping.txt,7,75
 tooltip=Runes on the ground.
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=20,40,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=4,49,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [npc]
-type=npcs/mapping_welcome.txt
+type=npc
 location=59,50,1,1
+filename=npcs/mapping_welcome.txt
 
 [npc]
-type=npcs/mapping_tiles.txt
+type=npc
 location=46,36,1,1
+filename=npcs/mapping_tiles.txt
 
 [npc]
-type=npcs/mapping_basics.txt
+type=npc
 location=58,37,1,1
+filename=npcs/mapping_basics.txt
 
 [npc]
-type=npcs/mapping_tilesets.txt
+type=npc
 location=43,50,1,1
+filename=npcs/mapping_tilesets.txt
 
 [npc]
-type=npcs/mapping_structure.txt
+type=npc
 location=19,41,1,1
+filename=npcs/mapping_structure.txt
 
 [npc]
-type=npcs/mapping_collision.txt
+type=npc
 location=6,49,1,1
+filename=npcs/mapping_collision.txt
 
 [npc]
-type=npcs/mapping_console.txt
+type=npc
 location=6,84,1,1
+filename=npcs/mapping_console.txt
 

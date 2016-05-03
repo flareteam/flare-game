@@ -646,8 +646,9 @@ data=
 
 [event]
 # rock trrap
-type=on_trigger
+type=event
 location=41,47,1,1
+activate=on_trigger
 mapmod=collision,40,47,1;collision,66,62,1;object,40,47,132;object,66,62,134
 repeat=false
 requires_not_status=emp_mez_trap
@@ -658,8 +659,9 @@ soundfx=soundfx/environment/stone_open.ogg,0,0
 
 [event]
 # to Temple of Mez: Main Hall
-type=on_trigger
+type=event
 location=24,25,4,4
+activate=on_trigger
 hotspot=location
 intermap=maps/temple_of_mez_2.txt,61,93
 soundfx=soundfx/environment/stairs.ogg,0,0
@@ -667,21 +669,24 @@ tooltip=Temple of Mez: Main Hall
 
 [event]
 # rock trrap (on_load)
-type=on_load
+type=event
 location=38,42,1,1
+activate=on_load
 mapmod=collision,40,47,1;collision,66,62,1;object,40,47,132;object,66,62,134
 requires_status=emp_mez_trap
 
 [event]
 # reset status
-type=on_load
+type=event
 location=15,18,1,1
+activate=on_load
 unset_status=emp_mez_defeated
 
 [event]
 # deactivate rock trap
-type=on_trigger
+type=event
 location=41,28,27,36
+activate=on_trigger
 mapmod=collision,40,47,0;collision,66,62,0;object,40,47,0;object,66,62,0
 repeat=false
 requires_status=emp_mez_trap,emp_mez_defeated
@@ -691,8 +696,9 @@ unset_status=emp_mez_trap
 
 [event]
 # Supplies
-type=on_trigger
+type=event
 location=74,74,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_8.txt
 loot_count=4,5
@@ -703,8 +709,9 @@ tooltip=Supplies
 
 [event]
 # Supplies
-type=on_trigger
+type=event
 location=75,70,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_8.txt
 loot_count=4,5
@@ -715,48 +722,56 @@ tooltip=Supplies
 
 [event]
 # Cave wind sound effect
-type=on_load
+type=event
 location=0,0,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_wind_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=63,68,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=53,35,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=53,58,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [enemy]
-type=wyvern
+type=enemy
 location=46,29,18,10
+category=wyvern
 level=7
 number=4
 
 [enemy]
-type=wyvern
+type=enemy
 location=57,39,8,20
+category=wyvern
 level=7
 number=4
 
 [enemy]
-type=mez
+type=enemy
 location=53,44,1,1
+category=mez
 level=8
 number=1
 wander_radius=1
 
 [npc]
-type=npcs/glowing_obelisk_2.txt
+type=npc
 location=67,71,1,1
+filename=npcs/glowing_obelisk_2.txt
 

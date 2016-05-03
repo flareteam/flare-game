@@ -199,15 +199,17 @@ data=
 
 [event]
 # rune teleport
-type=on_trigger
+type=event
 location=15,14,1,2
+activate=on_trigger
 intramap=7,14
 soundfx=soundfx/environment/teleporter.ogg
 
 [event]
 # start Ardwen quest
-type=on_trigger
+type=event
 location=7,14,1,1
+activate=on_trigger
 msg=Quest added.
 repeat=false
 requires_not_status=emp_ardwen_init,emp_ardwen_finish
@@ -216,8 +218,9 @@ set_status=emp_ardwen_init
 
 [event]
 # open door
-type=on_trigger
+type=event
 location=12,3,1,1
+activate=on_trigger
 hotspot=location
 mapmod=object,12,3,166;object,19,12,113;collision,19,12,0
 repeat=false
@@ -227,8 +230,9 @@ tooltip=Switch
 
 [event]
 # Ardwen's key
-type=on_trigger
+type=event
 location=8,51,1,1
+activate=on_trigger
 hotspot=10,51,1,1
 loot=loot/level_2.txt;1003,fixed,1
 loot_count=1,2
@@ -242,8 +246,9 @@ tooltip=Treasure Chest
 
 [event]
 # In Memoriam
-type=on_trigger
+type=event
 location=25,37,1,1
+activate=on_trigger
 hotspot=location
 mapmod=object,25,37,165
 msg=Ardwen (1308-1364), founder of Lochport
@@ -253,8 +258,9 @@ tooltip=In Memoriam
 
 [event]
 # to Lochport Cemetery
-type=on_trigger
+type=event
 location=31,38,2,1
+activate=on_trigger
 hotspot=location
 intermap=maps/lochport_cemetery.txt,48,46
 soundfx=soundfx/environment/stairs.ogg,0,0
@@ -263,8 +269,9 @@ unset_status=emp_ardwen_chest
 
 [event]
 # treasure
-type=on_trigger
+type=event
 location=10,51,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_2.txt
 loot_count=1,2
@@ -276,8 +283,9 @@ tooltip=Treasure Chest
 
 [event]
 # Ardwen's key (on_load)
-type=on_load
+type=event
 location=8,49,1,1
+activate=on_load
 mapmod=object,10,51,160
 repeat=false
 requires_status=emp_ardwen_ring
@@ -285,8 +293,9 @@ set_status=emp_ardwen_chest
 
 [event]
 # Spawn Ardwen
-type=on_trigger
+type=event
 location=11,3,1,2
+activate=on_trigger
 hotspot=location
 mapmod=collision,12,4,0
 msg=The coffin has a small slot the size of Ardwen's ring. You place the ring in the slot.
@@ -302,8 +311,9 @@ tooltip=Ardwen's Coffin
 
 [event]
 # open door (ardwen defeated)
-type=on_trigger
+type=event
 location=12,1,1,1
+activate=on_trigger
 hotspot=12,3,1,1
 mapmod=object,12,3,166;object,19,12,113;collision,19,12,0
 repeat=false
@@ -316,8 +326,9 @@ unset_status=emp_ardwen_init;emp_ardwen_ring;emp_ardwen_summoned;emp_ardwen_defe
 
 [event]
 # locked door
-type=on_trigger
+type=event
 location=14,1,1,1
+activate=on_trigger
 hotspot=12,3,1,1
 msg=The switch won't budge.
 requires_not_status=emp_ardwen_defeated
@@ -326,15 +337,17 @@ tooltip=Switch
 
 [event]
 # clear Ardwen quest collision tile
-type=on_load
+type=event
 location=10,1,1,1
+activate=on_load
 mapmod=collision,12,4,0
 requires_not_status=emp_ardwen_init
 
 [event]
 # Spawn Ardwen (on_load)
-type=on_load
+type=event
 location=8,1,1,1
+activate=on_load
 mapmod=collision,12,4,0
 repeat=false
 requires_status=emp_ardwen_summoned
@@ -342,8 +355,9 @@ spawn=ardwen_quest,12,4
 
 [event]
 # remove chest status
-type=on_load
+type=event
 location=6,49,1,1
+activate=on_load
 repeat=false
 requires_not_status=emp_ardwen_init
 requires_status=emp_ardwen_chest
@@ -351,63 +365,72 @@ unset_status=emp_ardwen_chest
 
 [event]
 # Wind sound
-type=on_load
+type=event
 location=0,0,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_wind_loop.ogg
 
 [event]
 # post-quest Ardwen spawn
-type=on_load
+type=event
 location=6,1,1,1
+activate=on_load
 mapmod=collision,12,4,0
 requires_status=emp_ardwen_finish
 spawn=ardwen,12,4
 
 [enemy]
-type=skeleton_archer
+type=enemy
 location=12,34,1,1
+category=skeleton_archer
 level=2
 number=1
 wander_radius=1
 
 [enemy]
-type=skeleton_archer
+type=enemy
 location=11,26,1,1
+category=skeleton_archer
 level=2
 number=1
 wander_radius=1
 
 [enemy]
-type=undead
+type=enemy
 location=2,23,3,10
+category=undead
 level=2
 number=2
 wander_radius=1
 
 [enemy]
-type=undead
+type=enemy
 location=20,27,2,10
+category=undead
 level=2
 number=2
 wander_radius=1
 
 [enemy]
-type=undead
+type=enemy
 location=20,13,2,10
+category=undead
 level=2
 number=2
 wander_radius=1
 
 [enemy]
-type=undead
+type=enemy
 location=2,37,6,4
+category=undead
 level=2
 number=2,3
 wander_radius=2
 
 [enemy]
-type=undead
+type=enemy
 location=11,49,3,5
+category=undead
 level=2
 number=2,3
 

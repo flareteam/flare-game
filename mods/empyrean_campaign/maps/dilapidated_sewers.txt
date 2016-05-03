@@ -271,8 +271,9 @@ data=
 
 [event]
 # to Black Oak Farm (east)
-type=on_trigger
+type=event
 location=63,7,1,2
+activate=on_trigger
 hotspot=location
 intermap=maps/black_oak_farm.txt,31,14
 soundfx=soundfx/environment/stairs.ogg,0,0
@@ -280,8 +281,9 @@ tooltip=Black Oak Farm
 
 [event]
 # to Black Oak Farm (west)
-type=on_trigger
+type=event
 location=21,70,2,1
+activate=on_trigger
 hotspot=location
 intermap=maps/black_oak_farm.txt,7,77
 soundfx=soundfx/environment/stairs.ogg,0,0
@@ -289,8 +291,9 @@ tooltip=Black Oak Farm
 
 [event]
 # to Hyperspace
-type=on_trigger
+type=event
 location=35,27,2,2
+activate=on_trigger
 hotspot=location
 intermap=maps/hyperspace.txt,17,30
 soundfx=soundfx/environment/teleporter.ogg,0,0
@@ -298,8 +301,9 @@ tooltip=Hyperspace
 
 [event]
 # Unlock waypoint
-type=on_trigger
+type=event
 location=33,25,6,6
+activate=on_trigger
 mapmod=background,35,28,265
 msg=Dilapidated Sewers waypoint discovered.
 repeat=false
@@ -308,15 +312,17 @@ set_status=emp_waypoint_8
 
 [event]
 # unlock waypoint (on_load)
-type=on_load
+type=event
 location=26,23,1,1
+activate=on_load
 mapmod=background,35,28,265
 requires_status=emp_waypoint_8
 
 [event]
 # Crate
-type=on_trigger
+type=event
 location=38,48,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_10.txt
 loot_count=1,2
@@ -327,8 +333,9 @@ tooltip=Crate
 
 [event]
 # Barrel
-type=on_trigger
+type=event
 location=72,43,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_10.txt
 loot_count=1,2
@@ -339,296 +346,345 @@ tooltip=Barrel
 
 [event]
 # Wind sound
-type=on_load
+type=event
 location=0,0,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_wind_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=21,68,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=71,8,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=32,56,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=32,68,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=11,68,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=31,18,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=31,31,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=71,17,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=65,27,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=49,27,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=15,39,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=16,6,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=27,56,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=27,51,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=32,51,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=27,63,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=16,63,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=21,73,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=65,8,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=71,34,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=59,43,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=40,19,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=15,31,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=31,6,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=15,18,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=7,59,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=7,72,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=36,72,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=37,53,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=21,48,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
-type=on_trigger
+type=event
 location=0,6,2,2
+activate=on_trigger
 hotspot=location
 msg=Unknown destination
 repeat=false
 
 [enemy]
-type=dungeon
+type=enemy
 location=72,6,4,4
+category=dungeon
 level=10
 number=1
 
 [enemy]
-type=dungeon
+type=enemy
 location=70,17,4,9
+category=dungeon
 level=10
 number=2
 
 [enemy]
-type=dungeon
+type=enemy
 location=70,31,4,6
+category=dungeon
 level=10
 number=2
 
 [enemy]
-type=dungeon
+type=enemy
 location=56,26,8,4
+category=dungeon
 level=10
 number=2
 
 [enemy]
-type=dungeon
+type=enemy
 location=58,40,4,6
+category=dungeon
 level=10
 number=2
 
 [enemy]
-type=dungeon
+type=enemy
 location=67,42,7,4
+category=dungeon
 level=10
 number=3
 
 [enemy]
-type=dungeon
+type=enemy
 location=44,26,8,4
+category=dungeon
 level=10
 number=2
 
 [enemy]
-type=dungeon
+type=enemy
 location=20,30,8,4
+category=dungeon
 level=10
 number=2
 
 [enemy]
-type=dungeon
+type=enemy
 location=30,11,4,6
+category=dungeon
 level=10
 number=2
 
 [enemy]
-type=dungeon
+type=enemy
 location=18,4,10,6
+category=dungeon
 level=10
 number=2,3
 
 [enemy]
-type=dungeon
+type=enemy
 location=12,11,6,10
+category=dungeon
 level=10
 number=2,3
 
 [enemy]
-type=dungeon
+type=enemy
 location=14,35,4,8
+category=dungeon
 level=10
 number=2
 
 [enemy]
-type=dungeon
+type=enemy
 location=35,46,7,7
+category=dungeon
 level=10
 number=3
 
 [enemy]
-type=dungeon
+type=enemy
 location=22,50,4,8
+category=dungeon
 level=10
 number=2
 
 [enemy]
-type=dungeon
+type=enemy
 location=11,58,8,4
+category=dungeon
 level=10
 number=2
 
 [enemy]
-type=dungeon
+type=enemy
 location=6,66,4,8
+category=dungeon
 level=10
 number=2
 
 [enemy]
-type=dungeon
+type=enemy
 location=34,66,4,8
+category=dungeon
 level=10
 number=2
 

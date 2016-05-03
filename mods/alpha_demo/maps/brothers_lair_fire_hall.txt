@@ -271,8 +271,9 @@ data=
 
 [event]
 # Warp to Atrium
-type=on_trigger
+type=event
 location=24,78,2,2
+activate=on_trigger
 hotspot=location
 intermap=maps/brothers_lair_atrium.txt,14,2
 soundfx=soundfx/door_open.ogg,0,0
@@ -280,8 +281,9 @@ tooltip=Brothers' Lair Atrium
 
 [event]
 # Barrel
-type=on_trigger
+type=event
 location=23,64,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_mid.txt
 mapmod=object,23,64,162
@@ -291,8 +293,9 @@ tooltip=Barrel
 
 [event]
 # Barrel
-type=on_trigger
+type=event
 location=22,64,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_mid.txt
 mapmod=object,22,64,162
@@ -302,8 +305,9 @@ tooltip=Barrel
 
 [event]
 # Crate
-type=on_trigger
+type=event
 location=21,64,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_mid.txt
 mapmod=object,21,64,163
@@ -313,8 +317,9 @@ tooltip=Crate
 
 [event]
 # Crate
-type=on_trigger
+type=event
 location=23,63,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_mid.txt
 mapmod=object,23,63,163
@@ -324,24 +329,27 @@ tooltip=Crate
 
 [event]
 # Burn Trap
-type=on_trigger
+type=event
 location=21,20,1,1
+activate=on_trigger
 power=18
 power_damage=100,150
 repeat=false
 
 [event]
 # Burn Trap
-type=on_trigger
+type=event
 location=24,20,1,1
+activate=on_trigger
 power=18
 power_damage=100,150
 repeat=false
 
 [event]
 # Vesuvvio's Chest
-type=on_trigger
+type=event
 location=21,60,1,1
+activate=on_trigger
 hotspot=location
 loot=currency,fixed,50,100;loot/leveled_high.txt
 mapmod=object,21,60,160
@@ -355,8 +363,9 @@ unset_status=lb_fire_key
 
 [event]
 # Vesuvvio's Chest Locked
-type=on_trigger
+type=event
 location=21,60,1,1
+activate=on_trigger
 hotspot=location
 power=18
 power_damage=100,150
@@ -366,8 +375,9 @@ tooltip=Runed Chest
 
 [event]
 # Vesuvvio's Diary
-type=on_trigger
+type=event
 location=19,16,1,1
+activate=on_trigger
 hotspot=location
 mapmod=object,19,16,165
 msg="Today Pompeii got a little over-excited to meet me and blew himself up. So I had to go into the caves and catch myself a NEW antlion burster. Again. I think I'm going to name this one 'Krakatoa'. ~Vesuvvio (the Destroyer)"
@@ -378,146 +388,170 @@ tooltip=Book Stand
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=12,36,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=12,31,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=16,29,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=19,29,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=17,18,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=17,16,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=30,29,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=35,29,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=37,32,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=37,34,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=28,54,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=37,51,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=34,54,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=37,47,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=17,54,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=14,54,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=12,48,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=12,46,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
-type=on_load
+type=event
 location=16,57,1,1
+activate=on_load
 unset_status=lb_fire_looted
 
 [enemy]
-type=krakatoa
+type=enemy
 location=22,18,1,1
+category=krakatoa
 
 [enemy]
 # 4-6 Undead
-type=undead
+type=enemy
 location=21,57,8,8
+category=undead
 level=5,8
 number=4,6
 
 [enemy]
 # 3-7 Undead
-type=undead
+type=enemy
 location=42,40,4,36
+category=undead
 level=5,8
 number=3,7
 
 [enemy]
 # 3-7 Undead
-type=undead
+type=enemy
 location=4,40,4,36
+category=undead
 level=5,8
 number=3,7
 
 [enemy]
 # 1-3 Undead
-type=undead
+type=enemy
 location=14,31,22,22
+category=undead
 level=8,8
 number=1,3
 

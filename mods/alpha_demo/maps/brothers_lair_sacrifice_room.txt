@@ -175,51 +175,58 @@ data=
 3,3,3,3,3,3,1,1,1,1,1,1,1,1,3,3,3,3,3,3
 
 [event]
-type=on_trigger
+type=event
 location=8,42,4,4
+activate=on_trigger
 hotspot=location
 intermap=maps/brothers_lair_atrium.txt,15,16
 soundfx=soundfx/environment/stairs.ogg,0,0
 tooltip=Brothers' Lair Atrium
 
 [event]
-type=on_trigger
+type=event
 location=0,0,20,47
+activate=on_trigger
 repeat=false
 requires_status=lb_ice_defeated,lb_fire_defeated,lb_wind_defeated
 set_status=lb_necromancers_defeated
 
 [event]
-type=on_trigger
+type=event
 location=0,0,20,47
+activate=on_trigger
 mapmod=collision,9,23,0;object,9,23,113
 repeat=false
 requires_status=lb_wind_unlocked
 
 [event]
-type=on_trigger
+type=event
 location=0,0,20,47
+activate=on_trigger
 mapmod=collision,9,26,0;object,9,26,113
 repeat=false
 requires_status=lb_fire_unlocked
 
 [event]
-type=on_trigger
+type=event
 location=0,0,20,47
+activate=on_trigger
 mapmod=collision,9,29,0;object,9,29,113
 repeat=false
 requires_status=lb_ice_unlocked
 
 [event]
 # brazier sound effect
-type=on_trigger
+type=event
 location=4,6,8,5
+activate=on_trigger
 cooldown=4s
 soundfx=soundfx/environment/open_fire.ogg
 
 [event]
-type=on_trigger
+type=event
 location=3,32,13,6
+activate=on_trigger
 cooldown=2s
 power=6
 power_damage=25,50
@@ -227,8 +234,9 @@ power_path=11,34,hero
 requires_status=lb_wind_attack
 
 [event]
-type=on_trigger
+type=event
 location=3,32,13,6
+activate=on_trigger
 cooldown=2s
 power=122
 power_damage=25,50
@@ -236,8 +244,9 @@ power_path=9,34,hero
 requires_status=lb_fire_attack
 
 [event]
-type=on_trigger
+type=event
 location=3,32,13,6
+activate=on_trigger
 cooldown=2s
 power=123
 power_damage=25,50
@@ -246,34 +255,41 @@ requires_status=lb_ice_attack
 
 [event]
 # unset statue attack statuses
-type=on_load
+type=event
 location=-2,39,1,1
+activate=on_load
 unset_status=lb_ice_attack,lb_fire_attack,lb_wind_attack
 
 [npc]
-type=npcs/statue_guardian_ice.txt
+type=npc
 location=7,34,1,1
+filename=npcs/statue_guardian_ice.txt
 
 [npc]
-type=npcs/statue_guardian_fire.txt
+type=npc
 location=9,34,1,1
+filename=npcs/statue_guardian_fire.txt
 
 [npc]
-type=npcs/statue_guardian_wind.txt
+type=npc
 location=11,34,1,1
+filename=npcs/statue_guardian_wind.txt
 
 [enemy]
-type=grisbon
+type=enemy
 location=9,13,1,1
+category=grisbon
 wander_radius=0
 
 [enemy]
-type=scathelocke
+type=enemy
 location=7,10,1,1
+category=scathelocke
 wander_radius=0
 
 [enemy]
-type=vesuvvio
+type=enemy
 location=11,10,1,1
+category=vesuvvio
 wander_radius=0
 

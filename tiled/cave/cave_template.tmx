@@ -1,24 +1,23 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="isometric" renderorder="right-down" width="20" height="20" tilewidth="64" tileheight="32" nextobjectid="1">
+<map height="20" nextobjectid="1" orientation="isometric" renderorder="right-down" tileheight="32" tilewidth="64" version="1.0" width="20">
  <properties>
-  <property name="music" value="music/cave_theme.ogg"/>
-  <property name="tileset" value="tilesetdefs/tileset_cave.txt"/>
-  <property name="title" value="New Cave Map"/>
+  <property name="music" value="music/cave_theme.ogg" />
+  <property name="tileset" value="tilesetdefs/tileset_cave.txt" />
+  <property name="title" value="New Cave Map" />
  </properties>
- <tileset firstgid="1" name="collision" tilewidth="64" tileheight="32" tilecount="15">
-  <image source="tiled_collision.png" width="960" height="32"/>
+ <tileset firstgid="1" name="collision" tilecount="15" tileheight="32" tilewidth="64">
+  <image height="32" source="tiled_collision.png" width="960" />
  </tileset>
- <tileset firstgid="16" name="cave" tilewidth="64" tileheight="128" tilecount="240">
-  <image source="tiled_cave.png" width="1024" height="1920"/>
+ <tileset firstgid="16" name="cave" tilecount="240" tileheight="128" tilewidth="64">
+  <image height="1920" source="tiled_cave.png" width="1024" />
  </tileset>
- <tileset firstgid="256" name="set_rules" tilewidth="64" tileheight="32" tilecount="8">
-  <image source="set_rules.png" width="128" height="128"/>
+ <tileset firstgid="256" name="set_rules" tilecount="8" tileheight="32" tilewidth="64">
+  <image height="128" source="set_rules.png" width="128" />
  </tileset>
- <tileset firstgid="264" name="tiled_cave_2x2" tilewidth="128" tileheight="64" tilecount="2">
-  <tileoffset x="0" y="16"/>
-  <image source="tiled_cave_2x2.png" width="256" height="64"/>
+ <tileset firstgid="264" name="tiled_cave_2x2" tilecount="2" tileheight="64" tilewidth="128">
+  <tileoffset x="0" y="16" />
+  <image height="64" source="tiled_cave_2x2.png" width="256" />
  </tileset>
- <layer name="background" width="20" height="20">
+ <layer height="20" name="background" width="20">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -42,7 +41,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="object" width="20" height="20">
+ <layer height="20" name="object" width="20">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -66,7 +65,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="collision" width="20" height="20">
+ <layer height="20" name="collision" width="20">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -90,7 +89,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="automap" width="20" height="20">
+ <layer height="20" name="automap" width="20">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,

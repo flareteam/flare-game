@@ -331,8 +331,9 @@ data=
 
 [event]
 # open loop door
-type=on_trigger
+type=event
 location=35,89,1,1
+activate=on_trigger
 hotspot=location
 mapmod=object,35,89,166;object,45,88,112;collision,45,88,0
 repeat=false
@@ -341,8 +342,9 @@ tooltip=Switch
 
 [event]
 # to Stormrock Pass
-type=on_trigger
+type=event
 location=47,98,2,2
+activate=on_trigger
 hotspot=location
 intermap=maps/stormrock_pass.txt, 84,64
 soundfx=soundfx/door_open.ogg,0,0
@@ -350,8 +352,9 @@ tooltip=Stormrock Pass
 
 [event]
 # Locked Door
-type=on_trigger
+type=event
 location=47,68,2,2
+activate=on_trigger
 hotspot=location
 msg=This door needs a key to be opened.
 requires_not_status=emp_stormrock_key;emp_stormrock_door
@@ -360,8 +363,9 @@ tooltip=Locked Door
 
 [event]
 # Unlock Door
-type=on_trigger
+type=event
 location=43,69,1,1
+activate=on_trigger
 hotspot=47,68,2,2
 mapmod=collision,47,68,0;collision,48,68,0;collision,47,69,0;collision,48,69,0;object,47,69,0;object,48,69,0;object,46,68,208;object,49,68,222
 remove_item=1013
@@ -375,57 +379,66 @@ unset_status=emp_stormrock_init;emp_stormrock_search;emp_stormrock_key
 
 [event]
 # Unlock Door (on_load)
-type=on_load
+type=event
 location=43,67,1,1
+activate=on_load
 mapmod=collision,47,68,0;collision,48,68,0;collision,47,69,0;collision,48,69,0;object,47,69,0;object,48,69,0;object,46,68,208;object,49,68,222
 requires_status=emp_stormrock_door
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=50,74,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=70,76,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=89,76,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=37,39,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=37,12,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=10,70,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # Wind sound
-type=on_load
+type=event
 location=0,0,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_wind_loop.ogg
 
 [event]
 # Crate
-type=on_trigger
+type=event
 location=22,12,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_6.txt
 mapmod=object,22,12,163
@@ -435,8 +448,9 @@ tooltip=Crate
 
 [event]
 # Treasure Chest
-type=on_trigger
+type=event
 location=19,14,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_6.txt
 loot_count=1,2
@@ -447,8 +461,9 @@ tooltip=Treasure Chest
 
 [event]
 # Treasure Chest
-type=on_trigger
+type=event
 location=79,79,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_6.txt
 loot_count=1,2
@@ -460,8 +475,9 @@ tooltip=Treasure Chest
 
 [event]
 # Treasure Chest
-type=on_trigger
+type=event
 location=11,66,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_7.txt
 loot_count=2,3
@@ -472,8 +488,9 @@ tooltip=Treasure Chest
 
 [event]
 # Treasure Chest
-type=on_trigger
+type=event
 location=11,69,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_7.txt
 loot_count=2,3
@@ -484,8 +501,9 @@ tooltip=Treasure Chest
 
 [event]
 # Barrel
-type=on_trigger
+type=event
 location=27,84,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_6.txt
 mapmod=object,27,84,162
@@ -495,8 +513,9 @@ tooltip=Barrel
 
 [event]
 # Crate
-type=on_trigger
+type=event
 location=23,91,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_6.txt
 mapmod=object,23,91,163
@@ -506,104 +525,117 @@ tooltip=Crate
 
 [event]
 # floor spikes
-type=on_trigger
+type=event
 location=86,63,1,1
+activate=on_trigger
 cooldown=3s
 power=178
 power_damage=160,170
 
 [event]
 # floor spikes
-type=on_trigger
+type=event
 location=89,59,1,1
+activate=on_trigger
 cooldown=3s
 power=178
 power_damage=160,170
 
 [event]
 # floor spikes
-type=on_trigger
+type=event
 location=89,55,1,1
+activate=on_trigger
 cooldown=3s
 power=178
 power_damage=160,170
 
 [event]
 # floor spikes
-type=on_trigger
+type=event
 location=86,55,1,1
+activate=on_trigger
 cooldown=3s
 power=178
 power_damage=160,170
 
 [event]
 # floor spikes
-type=on_trigger
+type=event
 location=87,51,1,1
+activate=on_trigger
 cooldown=3s
 power=178
 power_damage=160,170
 
 [event]
 # floor spikes
-type=on_trigger
+type=event
 location=88,51,1,1
+activate=on_trigger
 cooldown=3s
 power=178
 power_damage=160,170
 
 [event]
 # floor spikes
-type=on_trigger
+type=event
 location=86,47,1,1
+activate=on_trigger
 cooldown=3s
 power=178
 power_damage=160,170
 
 [event]
 # floor spikes
-type=on_trigger
+type=event
 location=88,47,1,1
+activate=on_trigger
 cooldown=3s
 power=178
 power_damage=160,170
 
 [event]
 # floor spikes
-type=on_trigger
+type=event
 location=89,47,1,1
+activate=on_trigger
 cooldown=3s
 power=178
 power_damage=160,170
 
 [event]
 # floor spikes
-type=on_trigger
+type=event
 location=86,43,1,1
+activate=on_trigger
 cooldown=3s
 power=178
 power_damage=160,170
 
 [event]
 # floor spikes
-type=on_trigger
+type=event
 location=87,43,1,1
+activate=on_trigger
 cooldown=3s
 power=178
 power_damage=160,170
 
 [event]
 # floor spikes
-type=on_trigger
+type=event
 location=89,43,1,1
+activate=on_trigger
 cooldown=3s
 power=178
 power_damage=160,170
 
 [event]
 # Crate
-type=on_trigger
+type=event
 location=85,8,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_6.txt
 mapmod=object,85,8,163
@@ -613,8 +645,9 @@ tooltip=Crate
 
 [event]
 # Treasure Chest
-type=on_trigger
+type=event
 location=83,22,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_6.txt
 loot_count=1,2
@@ -625,8 +658,9 @@ tooltip=Treasure Chest
 
 [event]
 # Barrel
-type=on_trigger
+type=event
 location=74,8,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_6.txt
 mapmod=object,74,8,162
@@ -635,217 +669,251 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
-type=on_trigger
+type=event
 location=43,13,1,2
+activate=on_trigger
 hotspot=location
 intramap=47,26
 soundfx=soundfx/environment/teleporter.ogg,0,0
 
 [event]
-type=on_trigger
+type=event
 location=43,37,1,2
+activate=on_trigger
 hotspot=location
 intramap=47,26
 soundfx=soundfx/environment/teleporter.ogg,0,0
 
 [event]
 # Aldwulf corpse
-type=on_load
+type=event
 location=39,74,1,1
+activate=on_load
 mapmod=object,43,73,183
 requires_status=emp_stormrock_key
 spawn=antlion_burster_lvl6,43,75
 
 [event]
 # Aldwulf corpse
-type=on_load
+type=event
 location=39,72,1,1
+activate=on_load
 mapmod=object,43,73,183
 requires_not_status=emp_stormrock_key
 requires_status=emp_stormrock_door
 spawn=antlion_burster_lvl6,43,75
 
 [enemy]
-type=snowplains
+type=enemy
 location=62,72,4,10
+category=snowplains
 level=6
 number=3
 
 [enemy]
-type=snowplains
+type=enemy
 location=46,48,12,12
+category=snowplains
 level=6
 number=4
 
 [enemy]
-type=antlion
+type=enemy
 location=66,48,8,8
+category=antlion
 level=6
 number=3
 
 [enemy]
-type=antlion
+type=enemy
 location=62,92,12,4
+category=antlion
 level=6
 number=3
 
 [enemy]
-type=antlion
+type=enemy
 location=86,92,12,4
+category=antlion
 level=6
 number=3
 
 [enemy]
-type=snowplains
+type=enemy
 location=74,76,12,8
+category=snowplains
 level=6
 number=4
 
 [enemy]
-type=snowplains
+type=enemy
 location=94,72,4,11
+category=snowplains
 level=6
 number=3
 
 [enemy]
-type=snowplains
+type=enemy
 location=86,52,4,11
+category=snowplains
 level=6
 number=2
 
 [enemy]
-type=snowplains
+type=enemy
 location=62,36,7,4
+category=snowplains
 level=6
 number=3
 
 [enemy]
-type=antlion
+type=enemy
 location=75,36,7,4
+category=antlion
 level=6
 number=3
 
 [enemy]
-type=snowplains
+type=enemy
 location=70,8,7,4
+category=snowplains
 level=6
 number=3
 
 [enemy]
-type=snowplains
+type=enemy
 location=83,8,7,4
+category=snowplains
 level=6
 number=3
 
 [enemy]
-type=antlion
+type=enemy
 location=70,20,7,4
+category=antlion
 level=6
 number=3
 
 [enemy]
-type=antlion
+type=enemy
 location=83,20,7,4
+category=antlion
 level=6
 number=3
 
 [enemy]
-type=antlion
+type=enemy
 location=47,36,7,4
+category=antlion
 level=6
 number=3
 
 [enemy]
-type=antlion
+type=enemy
 location=46,12,7,4
+category=antlion
 level=6
 number=3
 
 [enemy]
-type=snowplains
+type=enemy
 location=24,24,7,4
+category=snowplains
 level=6
 number=3
 
 [enemy]
-type=snowplains
+type=enemy
 location=18,12,7,4
+category=snowplains
 level=6
 number=3
 
 [enemy]
-type=antlion
+type=enemy
 location=18,42,4,8
+category=antlion
 level=6
 number=2
 
 [enemy]
-type=antlion
+type=enemy
 location=24,61,4,4
+category=antlion
 level=6
 number=1
 
 [enemy]
-type=antlion
+type=enemy
 location=24,71,4,4
+category=antlion
 level=6
 number=1
 
 [enemy]
-type=antlion
+type=enemy
 location=10,83,4,9
+category=antlion
 level=6
 number=2
 
 [enemy]
-type=snowplains
+type=enemy
 location=22,86,9,4
+category=snowplains
 level=6
 number=2
 
 [enemy]
-type=antlion_hatchling
+type=enemy
 location=10,65,6,6
+category=antlion_hatchling
 level=6
 number=8
 
 [enemy]
-type=antlion_queen
+type=enemy
 location=19,67,1,1
+category=antlion_queen
 level=7
 number=1
 
 [enemy]
-type=antlion_burster
+type=enemy
 location=87,45,1,1
+category=antlion_burster
 level=6
 number=1
 wander_radius=1
 
 [enemy]
-type=antlion_burster
+type=enemy
 location=80,81,1,1
+category=antlion_burster
 level=6
 number=1
 wander_radius=1
 
 [enemy]
-type=antlion_burster
+type=enemy
 location=18,58,1,1
+category=antlion_burster
 level=6
 number=1
 wander_radius=0
 
 [enemy]
-type=antlion_burster
+type=enemy
 location=21,58,1,1
+category=antlion_burster
 level=6
 number=1
 wander_radius=0
 
 [npc]
 # Aldwulf
-type=npcs/aldwulf.txt
+type=npc
 location=43,73,1,1
+filename=npcs/aldwulf.txt
 requires_not_status=emp_stormrock_key;emp_stormrock_door
 

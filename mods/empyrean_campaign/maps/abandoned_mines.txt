@@ -328,106 +328,123 @@ data=
 
 [event]
 # to Blackmire Mines
-type=on_trigger
+type=event
 location=79,72,1,2
+activate=on_trigger
 hotspot=location
 intermap=maps/blackmire_mines.txt,3,44
 tooltip=Blackmire Mines
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=59,76,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=66,7,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=31,70,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=61,92,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=13,61,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=26,8,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=40,16,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=15,56,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=1,66,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=29,49,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=24,32,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=18,39,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=33,25,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=45,3,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # Cave wind sound effect
-type=on_load
+type=event
 location=0,0,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_wind_loop.ogg
 
 [event]
 # Treasure Chest
-type=on_trigger
+type=event
 location=64,3,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_5.txt
 mapmod=object,64,3,177
@@ -437,8 +454,9 @@ tooltip=Treasure Chest
 
 [event]
 # Crate
-type=on_trigger
+type=event
 location=72,6,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_5.txt
 mapmod=object,72,6,179
@@ -448,8 +466,9 @@ tooltip=Crate
 
 [event]
 # Crate
-type=on_trigger
+type=event
 location=25,37,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_5.txt
 mapmod=object,25,37,179
@@ -459,8 +478,9 @@ tooltip=Crate
 
 [event]
 # Barrel
-type=on_trigger
+type=event
 location=20,30,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_5.txt
 mapmod=object,20,30,178
@@ -470,8 +490,9 @@ tooltip=Barrel
 
 [event]
 # Barrel
-type=on_trigger
+type=event
 location=62,92,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_5.txt
 mapmod=object,62,92,178
@@ -481,8 +502,9 @@ tooltip=Barrel
 
 [event]
 # Treasure Chest
-type=on_trigger
+type=event
 location=57,80,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_5.txt
 mapmod=object,57,80,176
@@ -492,125 +514,145 @@ tooltip=Treasure Chest
 
 [event]
 # to The Breach
-type=on_trigger
+type=event
 location=47,0,3,1
+activate=on_trigger
 hotspot=location
 intermap=maps/the_breach.txt,46,98
 tooltip=The Breach
 
 [event]
 # to Grot Lagoon
-type=on_trigger
+type=event
 location=0,68,1,2
+activate=on_trigger
 hotspot=location
 intermap=maps/grot_lagoon.txt,90,62
 tooltip=Grot Lagoon
 
 [enemy]
-type=goblin
+type=enemy
 location=54,62,6,12
+category=goblin
 level=5
 number=2
 
 [enemy]
-type=goblin
+type=enemy
 location=64,50,5,6
+category=goblin
 level=5
 number=2
 
 [enemy]
-type=undead
+type=enemy
 location=73,38,4,14
+category=undead
 level=5
 number=3
 
 [enemy]
-type=undead
+type=enemy
 location=53,38,11,13
+category=undead
 level=5
 number=3
 
 [enemy]
-type=antlion
+type=enemy
 location=62,3,14,9
+category=antlion
 level=5
 number=4
 
 [enemy]
-type=antlion
+type=enemy
 location=25,34,5,7
+category=antlion
 level=5
 number=2
 
 [enemy]
-type=undead
+type=enemy
 location=58,19,19,16
+category=undead
 level=5
 number=4
 
 [enemy]
-type=undead
+type=enemy
 location=37,30,19,13
+category=undead
 level=5
 number=3
 
 [enemy]
-type=undead
+type=enemy
 location=42,63,7,13
+category=undead
 level=5
 number=3
 
 [enemy]
-type=undead
+type=enemy
 location=28,65,5,9
+category=undead
 level=5
 number=2
 
 [enemy]
-type=antlion
+type=enemy
 location=55,86,8,11
+category=antlion
 level=5
 number=2
 
 [enemy]
-type=undead
+type=enemy
 location=57,80,3,6
+category=undead
 level=5
 number=2
 
 [enemy]
-type=undead
+type=enemy
 location=30,88,13,7
+category=undead
 level=5
 number=2
 
 [enemy]
-type=undead
+type=enemy
 location=14,86,13,7
+category=undead
 level=5
 number=3
 
 [enemy]
-type=antlion
+type=enemy
 location=12,69,7,14
+category=antlion
 level=5
 number=2
 
 [enemy]
-type=antlion
+type=enemy
 location=7,29,11,20
+category=antlion
 level=5
 number=3
 
 [enemy]
-type=undead
+type=enemy
 location=4,-1,31,25
+category=undead
 level=5
 number=5,6
 
 [enemy]
-type=undead
+type=enemy
 location=40,16,8,5
+category=undead
 level=5
 number=2
 

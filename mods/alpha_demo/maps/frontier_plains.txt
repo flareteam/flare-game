@@ -798,40 +798,45 @@ data=
 
 [event]
 # to Frontier Outpost
-type=on_trigger
+type=event
 location=249,186,1,2
+activate=on_trigger
 hotspot=location
 intermap=maps/frontier_outpost.txt,2,12
 tooltip=Frontier Outpost
 
 [event]
 # to River Encampment
-type=on_trigger
+type=event
 location=63,17,2,1
+activate=on_trigger
 hotspot=location
 intermap=maps/river_encampment.txt,51,61
 tooltip=River Encampment
 
 [event]
 # to Ydrakka Pass
-type=on_trigger
+type=event
 location=175,60,2,1
+activate=on_trigger
 hotspot=location
 intermap=maps/ydrakka_pass.txt,26,97
 tooltip=Ydrakka Pass
 
 [event]
 # to White Wind
-type=on_trigger
+type=event
 location=162,234,2,1
+activate=on_trigger
 hotspot=location
 intermap=maps/white_wind.txt,62,1
 tooltip=White Wind
 
 [event]
 # to Ancient Temple
-type=on_trigger
+type=event
 location=117,134,4,4
+activate=on_trigger
 hotspot=location
 intermap=maps/ancient_temple.txt,49,99
 soundfx=soundfx/environment/stairs.ogg,0,0
@@ -839,8 +844,9 @@ tooltip=Ancient Temple
 
 [event]
 # camp supply
-type=on_trigger
+type=event
 location=117,35,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_low.txt
 mapmod=object,117,35,99
@@ -850,8 +856,9 @@ tooltip=Supplies
 
 [event]
 # camp supply
-type=on_trigger
+type=event
 location=50,30,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_low.txt
 mapmod=object,50,30,97
@@ -861,8 +868,9 @@ tooltip=Supplies
 
 [event]
 # camp supply
-type=on_trigger
+type=event
 location=125,43,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_low.txt
 mapmod=object,125,43,97
@@ -872,8 +880,9 @@ tooltip=Supplies
 
 [event]
 # camp supply
-type=on_trigger
+type=event
 location=114,97,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_low.txt
 mapmod=object,114,97,99
@@ -882,407 +891,470 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Supplies
 
 [event]
-type=on_trigger
+type=event
 location=48,155,5,5
+activate=on_trigger
 repeat=false
 spawn=zombie_rotting,45,155;zombie_rotting,46,160;zombie_rotting,50,153;zombie_rotting,52,161;zombie_rotting,54,157
 
 [event]
 # River sound
-type=on_load
+type=event
 location=68,21,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=74,33,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=84,46,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=89,63,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=92,80,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=92,96,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=117,126,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=177,151,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=160,166,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=198,161,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=217,168,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=233,172,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=250,183,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=200,198,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=143,127,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=42,200,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=23,109,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=199,95,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]
 # Wind and crickets sound effect
-type=on_load
+type=event
 location=0,0,1,1
+activate=on_load
 soundfx=soundfx/environment/wind_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=79,154,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=46,98,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=23,103,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=73,118,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=206,105,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=172,89,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=78,192,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=189,196,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=164,215,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=139,168,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=159,131,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=15,152,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=31,154,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=22,80,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=75,94,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [enemy]
 # mourning zombie
-type=zombie_brute
+type=enemy
 location=20,158,1,1
+category=zombie_brute
 direction=1
 wander_radius=0
 
 [enemy]
 # guarding wyvern
-type=wyvern_normal
+type=enemy
 location=119,128,1,1
+category=wyvern_normal
 direction=3
 
 [enemy]
 # Zombie spawner
-type=cursed_grave
+type=enemy
 location=32,153,1,1
+category=cursed_grave
 direction=3
 wander_radius=0
 
 [enemy]
 # goblin camp
-type=goblin
+type=enemy
 location=49,30,6,6
+category=goblin
 level=1,3
 number=3,5
 
 [enemy]
 # random goblins
-type=goblin
+type=enemy
 location=34,37,12,25
+category=goblin
 level=1,2
 number=2,4
 
 [enemy]
 # random goblins
-type=goblin
+type=enemy
 location=64,39,16,13
+category=goblin
 level=1,2
 number=2,3
 
 [enemy]
 # random goblins
-type=goblin
+type=enemy
 location=47,37,27,37
+category=goblin
 level=1,1
 number=1,5
 
 [enemy]
 # random zombies
-type=zombie
+type=enemy
 location=11,132,35,41
+category=zombie
 level=1,2
 number=10,16
 
 [enemy]
 # northeast woods goblins
-type=goblin
+type=enemy
 location=15,75,31,56
+category=goblin
 level=1,2
 number=5,10
 
 [enemy]
 # goblin camp
-type=goblin
+type=enemy
 location=110,94,6,6
+category=goblin
 level=1,3
 number=3,5
 
 [enemy]
 # goblin camp
-type=goblin
+type=enemy
 location=120,72,6,5
+category=goblin
 level=1,3
 number=2,4
 
 [enemy]
 # goblin camp
-type=goblin
+type=enemy
 location=106,50,7,7
+category=goblin
 level=2,4
 number=2,3
 
 [enemy]
 # goblin camp
-type=goblin
+type=enemy
 location=114,36,10,9
+category=goblin
 level=2,3
 number=2,4
 
 [enemy]
 # goblin camp
-type=goblin
+type=enemy
 location=100,58,6,6
+category=goblin
 level=1,3
 number=3,5
 
 [enemy]
 # goblin camp
-type=goblin
+type=enemy
 location=94,36,4,4
+category=goblin
 level=1,3
 number=2,4
 
 [enemy]
 # woodcut wandering goblins
-type=goblin
+type=enemy
 location=80,28,59,95
+category=goblin
 level=1,1
 number=10,15
 
 [enemy]
 # goblin elite camp
-type=goblin_elite
+type=enemy
 location=115,37,8,7
+category=goblin_elite
 level=2,3
 number=2
 
 [enemy]
 # water area zombies
-type=zombie
+type=enemy
 location=144,206,34,22
+category=zombie
 level=1,2
 number=6,10
 
 [enemy]
 # west goblins
-type=goblin
+type=enemy
 location=33,174,110,66
+category=goblin
 level=1,2
 number=15,20
 
 [enemy]
 # road goblins
-type=goblin
+type=enemy
 location=47,75,32,98
+category=goblin
 level=1,1
 number=8,12
 
 [enemy]
 # plains goblins
-type=goblin
+type=enemy
 location=144,149,79,56
+category=goblin
 level=1,1
 number=10,20
 
 [enemy]
 # goblins
-type=goblin
+type=enemy
 location=179,206,30,21
+category=goblin
 level=1,2
 number=3,7
 
 [enemy]
 # east goblins
-type=goblin
+type=enemy
 location=140,104,88,44
+category=goblin
 level=1,2
 number=10,15
 
 [enemy]
 # antlions
-type=antlion
+type=enemy
 location=158,72,11,11
+category=antlion
 level=1,3
 number=4,8
 
 [enemy]
 # antlions
-type=antlion
+type=enemy
 location=166,87,11,11
+category=antlion
 level=1,3
 number=4,8
 
 [enemy]
 # antlions
-type=antlion
+type=enemy
 location=182,69,11,11
+category=antlion
 level=1,3
 number=4,8
 
 [enemy]
 # antlions
-type=antlion
+type=enemy
 location=192,82,11,11
+category=antlion
 level=1,3
 number=4,8
 
 [enemy]
 # road goblins
-type=goblin
+type=enemy
 location=80,153,63,20
+category=goblin
 level=1,1
 number=8,12
 

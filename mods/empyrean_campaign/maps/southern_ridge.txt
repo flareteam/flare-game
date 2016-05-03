@@ -271,8 +271,9 @@ data=
 
 [event]
 # to Nazia Underground
-type=on_trigger
+type=event
 location=65,61,4,4
+activate=on_trigger
 hotspot=location
 intermap=maps/nazia_underground.txt,7,30
 soundfx=soundfx/environment/stairs.ogg,0,0
@@ -280,8 +281,9 @@ tooltip=Nazia Underground
 
 [event]
 # Supplies
-type=on_trigger
+type=event
 location=64,5,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_9.txt
 mapmod=object,64,5,99
@@ -291,8 +293,9 @@ tooltip=Supplies
 
 [event]
 # Supplies
-type=on_trigger
+type=event
 location=3,63,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_9.txt
 mapmod=object,3,63,97
@@ -302,160 +305,186 @@ tooltip=Supplies
 
 [event]
 # Wind and crickets sound effect
-type=on_load
+type=event
 location=0,0,1,1
+activate=on_load
 soundfx=soundfx/environment/wind_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=20,22,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=49,13,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=26,45,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=4,65,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=71,5,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=44,49,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=31,65,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=13,35,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=35,3,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=60,21,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # to Black Oak Farm
-type=on_trigger
+type=event
 location=18,0,4,1
+activate=on_trigger
 hotspot=location
 intermap=maps/black_oak_farm.txt,87,97
 tooltip=Black Oak Farm
 
 [event]
-type=on_trigger
+type=event
 location=23,48,1,2
+activate=on_trigger
 hotspot=location
 msg=Unknown destination
 repeat=false
 
 [enemy]
-type=grassland
+type=enemy
 location=38,59,18,12
+category=grassland
 level=9
 number=4
 
 [enemy]
-type=grassland
+type=enemy
 location=38,46,22,12
+category=grassland
 level=9
 number=4,5
 
 [enemy]
-type=grassland
+type=enemy
 location=26,59,11,12
+category=grassland
 level=9
 number=3
 
 [enemy]
-type=grassland
+type=enemy
 location=3,55,21,19
+category=grassland
 level=9
 number=6
 
 [enemy]
-type=grassland
+type=enemy
 location=6,31,17,23
+category=grassland
 level=9
 number=5
 
 [enemy]
-type=grassland
+type=enemy
 location=29,32,18,12
+category=grassland
 level=9
 number=4
 
 [enemy]
-type=grassland
+type=enemy
 location=23,21,12,6
+category=grassland
 level=9
 number=4
 
 [enemy]
-type=grassland
+type=enemy
 location=28,1,19,10
+category=grassland
 level=9
 number=4
 
 [enemy]
-type=grassland
+type=enemy
 location=39,13,22,18
+category=grassland
 level=9
 number=5
 
 [enemy]
-type=grassland
+type=enemy
 location=49,2,25,10
+category=grassland
 level=9
 number=4
 
 [enemy]
-type=grassland
+type=enemy
 location=63,14,12,10
+category=grassland
 level=9
 number=2
 
 [enemy]
-type=grassland
+type=enemy
 location=48,34,12,10
+category=grassland
 level=9
 number=1,2
 
 [enemy]
-type=grassland
+type=enemy
 location=33,49,4,9
+category=grassland
 level=9
 number=2
 

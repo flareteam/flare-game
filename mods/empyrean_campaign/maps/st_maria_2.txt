@@ -241,8 +241,9 @@ data=
 
 [event]
 # to St. Maria: Mausoleum
-type=on_trigger
+type=event
 location=32,6,2,1
+activate=on_trigger
 hotspot=location
 intermap=maps/st_maria_1.txt,39,14
 soundfx=soundfx/environment/stairs.ogg,0,0
@@ -250,8 +251,9 @@ tooltip=St. Maria: Mausoleum
 
 [event]
 # to Hyperspace
-type=on_trigger
+type=event
 location=43,21,2,2
+activate=on_trigger
 hotspot=location
 intermap=maps/hyperspace.txt,28,11
 soundfx=soundfx/environment/teleporter.ogg,0,0
@@ -259,8 +261,9 @@ tooltip=Hyperspace
 
 [event]
 # Unlock waypoint
-type=on_trigger
+type=event
 location=42,21,4,5
+activate=on_trigger
 mapmod=background,43,22,265
 msg=St. Maria: Prison waypoint discovered.
 repeat=false
@@ -269,15 +272,17 @@ set_status=emp_waypoint_3
 
 [event]
 # unlock waypoint (on_load)
-type=on_load
+type=event
 location=46,19,1,1
+activate=on_load
 mapmod=background,43,22,265
 requires_status=emp_waypoint_3
 
 [event]
 # open loop door
-type=on_trigger
+type=event
 location=48,59,1,1
+activate=on_trigger
 hotspot=location
 mapmod=collision,45,50,0;collision,46,50,0;collision,45,44,0;collision,46,44,0;object,45,50,0;object,46,50,0;object,45,44,0;object,46,44,0;object,48,59,166;background,45,45,51;background,45,46,51;background,45,47,51;background,45,48,51;background,45,49,51;background,46,45,51;background,46,46,51;background,46,47,51;background,46,48,51;background,46,49,51;collision,45,45,0;collision,45,46,0;collision,45,47,0;collision,45,48,0;collision,45,49,0;collision,46,45,0;collision,46,46,0;collision,46,47,0;collision,46,48,0;collision,46,49,0
 repeat=false
@@ -286,8 +291,9 @@ tooltip=Switch
 
 [event]
 # Locked Door
-type=on_trigger
+type=event
 location=27,50,2,2
+activate=on_trigger
 hotspot=location
 msg=This door needs a key to be opened.
 requires_not_status=emp_stmaria2_key;emp_stmaria2_door
@@ -295,15 +301,17 @@ tooltip=Locked Door
 
 [event]
 # Unlock Door (on_load)
-type=on_load
+type=event
 location=26,53,1,1
+activate=on_load
 mapmod=collision,27,50,0;collision,28,50,0;collision,27,51,0;collision,28,51,0;object,28,50,0;object,28,51,0;object,27,49,213;object,27,52,219
 requires_status=emp_stmaria2_door
 
 [event]
 # Unlock Door
-type=on_trigger
+type=event
 location=26,55,1,1
+activate=on_trigger
 hotspot=27,50,2,2
 mapmod=collision,27,50,0;collision,28,50,0;collision,27,51,0;collision,28,51,0;object,28,50,0;object,28,51,0;object,27,49,213;object,27,52,219
 remove_item=1005
@@ -314,14 +322,16 @@ soundfx=soundfx/door_open.ogg
 tooltip=Locked Door
 
 [event]
-type=on_load
+type=event
 location=34,3,1,1
+activate=on_load
 requires_not_status=emp_stmaria2_init
 set_status=emp_stmaria2_init
 
 [event]
-type=on_trigger
+type=event
 location=39,60,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_3.txt
 loot_count=3,4
@@ -331,8 +341,9 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Treasure Chest
 
 [event]
-type=on_trigger
+type=event
 location=39,57,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_3.txt
 loot_count=3,4
@@ -342,8 +353,9 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Treasure Chest
 
 [event]
-type=on_trigger
+type=event
 location=51,39,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_3.txt
 mapmod=object,51,39,163
@@ -352,8 +364,9 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Crate
 
 [event]
-type=on_trigger
+type=event
 location=53,8,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_3.txt
 mapmod=object,53,8,162
@@ -362,8 +375,9 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
-type=on_trigger
+type=event
 location=19,39,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_3.txt
 mapmod=object,19,39,163
@@ -372,8 +386,9 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Crate
 
 [event]
-type=on_trigger
+type=event
 location=4,26,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_3.txt
 mapmod=object,4,26,162
@@ -383,37 +398,43 @@ tooltip=Barrel
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=36,7,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=29,7,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=16,7,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=16,2,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # Wind sound
-type=on_load
+type=event
 location=0,0,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_wind_loop.ogg
 
 [event]
-type=on_trigger
+type=event
 location=53,59,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_3.txt
 mapmod=object,53,59,162
@@ -423,14 +444,16 @@ tooltip=Barrel
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=54,57,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # to St. Maria: Crypt
-type=on_trigger
+type=event
 location=17,3,4,4
+activate=on_trigger
 hotspot=location
 intermap=maps/st_maria_3.txt,7,47
 soundfx=soundfx/environment/stairs.ogg,0,0
@@ -438,103 +461,116 @@ tooltip=St. Maria: Crypt
 
 [event]
 # floor spikes
-type=on_trigger
+type=event
 location=55,8,1,1
+activate=on_trigger
 cooldown=3s
 power=178
 power_damage=70,80
 
 [event]
 # floor spikes
-type=on_trigger
+type=event
 location=56,8,1,1
+activate=on_trigger
 cooldown=3s
 power=178
 power_damage=70,80
 
 [event]
 # floor spikes
-type=on_trigger
+type=event
 location=56,9,1,1
+activate=on_trigger
 cooldown=3s
 power=178
 power_damage=70,80
 
 [event]
 # floor spikes
-type=on_trigger
+type=event
 location=55,9,1,1
+activate=on_trigger
 cooldown=3s
 power=178
 power_damage=70,80
 
 [event]
 # floor spikes
-type=on_trigger
+type=event
 location=58,8,1,1
+activate=on_trigger
 cooldown=3s
 power=178
 power_damage=70,80
 
 [event]
 # floor spikes
-type=on_trigger
+type=event
 location=59,8,1,1
+activate=on_trigger
 cooldown=3s
 power=178
 power_damage=70,80
 
 [event]
 # floor spikes
-type=on_trigger
+type=event
 location=58,9,1,1
+activate=on_trigger
 cooldown=3s
 power=178
 power_damage=70,80
 
 [event]
 # floor spikes
-type=on_trigger
+type=event
 location=59,9,1,1
+activate=on_trigger
 cooldown=3s
 power=178
 power_damage=70,80
 
 [event]
 # floor spikes
-type=on_trigger
+type=event
 location=61,8,1,1
+activate=on_trigger
 cooldown=3s
 power=178
 power_damage=70,80
 
 [event]
 # floor spikes
-type=on_trigger
+type=event
 location=62,8,1,1
+activate=on_trigger
 cooldown=3s
 power=178
 power_damage=70,80
 
 [event]
 # floor spikes
-type=on_trigger
+type=event
 location=61,9,1,1
+activate=on_trigger
 cooldown=3s
 power=178
 power_damage=70,80
 
 [event]
 # floor spikes
-type=on_trigger
+type=event
 location=62,9,1,1
+activate=on_trigger
 cooldown=3s
 power=178
 power_damage=70,80
 
 [event]
-type=on_trigger
+type=event
 location=63,26,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_3.txt
 mapmod=object,63,26,162
@@ -543,8 +579,9 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
-type=on_trigger
+type=event
 location=66,23,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_3.txt
 mapmod=object,66,23,163
@@ -553,166 +590,190 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Crate
 
 [enemy]
-type=undead
+type=enemy
 location=31,27,4,4
+category=undead
 level=3
 number=1,2
 wander_radius=2
 
 [enemy]
-type=undead
+type=enemy
 location=36,34,4,8
+category=undead
 level=3
 number=2
 wander_radius=2
 
 [enemy]
-type=undead
+type=enemy
 location=26,34,4,8
+category=undead
 level=3
 number=2
 wander_radius=2
 
 [enemy]
-type=undead
+type=enemy
 location=19,14,2,3
+category=undead
 level=3
 number=1
 wander_radius=2
 
 [enemy]
-type=undead
+type=enemy
 location=43,14,2,3
+category=undead
 level=3
 number=1
 wander_radius=2
 
 [enemy]
-type=undead
+type=enemy
 location=19,37,2,6
+category=undead
 level=3
 number=1,2
 wander_radius=1,2
 
 [enemy]
-type=undead
+type=enemy
 location=26,22,4,8
+category=undead
 level=3
 number=2
 wander_radius=2
 
 [enemy]
-type=undead
+type=enemy
 location=31,49,4,4
+category=undead
 level=3
 number=1,2
 wander_radius=2
 
 [enemy]
-type=undead
+type=enemy
 location=47,31,8,4
+category=undead
 level=3
 number=2,3
 wander_radius=2
 
 [enemy]
-type=undead
+type=enemy
 location=63,17,4,16
+category=undead
 level=3
 number=3
 wander_radius=2
 
 [enemy]
-type=undead
+type=enemy
 location=55,39,8,4
+category=undead
 level=3
 number=2,3
 wander_radius=2
 
 [enemy]
-type=undead
+type=enemy
 location=55,57,4,4
+category=undead
 level=3
 number=2
 wander_radius=2
 
 [enemy]
-type=undead
+type=enemy
 location=39,53,4,4
+category=undead
 level=3
 number=2
 wander_radius=2
 
 [enemy]
-type=undead
+type=enemy
 location=39,61,4,4
+category=undead
 level=3
 number=2
 wander_radius=2
 
 [enemy]
-type=undead
+type=enemy
 location=47,63,4,4
+category=undead
 level=3
 number=2
 wander_radius=2
 
 [enemy]
-type=undead
+type=enemy
 location=18,49,8,4
+category=undead
 level=3
 number=2
 wander_radius=2
 
 [enemy]
-type=undead
+type=enemy
 location=11,45,4,8
+category=undead
 level=3
 number=2
 wander_radius=2
 
 [enemy]
-type=undead
+type=enemy
 location=11,29,4,8
+category=undead
 level=3
 number=2
 wander_radius=2
 
 [enemy]
-type=undead
+type=enemy
 location=3,21,4,8
+category=undead
 level=3
 number=3
 wander_radius=2
 
 [enemy]
-type=undead
+type=enemy
 location=7,9,4,8
+category=undead
 level=3
 number=2
 wander_radius=2
 
 [enemy]
-type=cid
+type=enemy
 location=46,59,1,1
+category=cid
 number=1
 wander_radius=1
 
 [enemy]
-type=undead
+type=enemy
 location=51,9,4,17
+category=undead
 level=3
 number=3
 wander_radius=2
 
 [enemy]
-type=undead
+type=enemy
 location=44,51,4,2
+category=undead
 level=3
 number=2
 wander_radius=2
 
 [npc]
-type=npcs/yora.txt
+type=npc
 location=20,23,1,1
+filename=npcs/yora.txt
 

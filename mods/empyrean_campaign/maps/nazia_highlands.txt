@@ -271,8 +271,9 @@ data=
 
 [event]
 # award XP for aquiring Black Quill
-type=on_load
+type=event
 location=62,3,1,1
+activate=on_load
 requires_not_status=emp_main_reward2
 requires_status=emp_main_quill
 reward_xp=6400
@@ -280,32 +281,37 @@ set_status=emp_main_reward2
 
 [event]
 # Wind and crickets sound effect
-type=on_load
+type=event
 location=0,0,1,1
+activate=on_load
 soundfx=soundfx/environment/wind_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=12,13,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=42,13,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=67,6,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]
 # Supplies
-type=on_trigger
+type=event
 location=37,13,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_9.txt
 mapmod=object,37,13,97
@@ -315,8 +321,9 @@ tooltip=Supplies
 
 [event]
 # Supplies
-type=on_trigger
+type=event
 location=40,59,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_9.txt
 mapmod=object,40,59,97
@@ -326,82 +333,95 @@ tooltip=Supplies
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=60,67,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=45,46,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=23,45,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # move Abasi to this map
-type=on_load
+type=event
 location=75,3,1,1
+activate=on_load
 requires_not_status=emp_abasi_2
 set_status=emp_abasi_2
 
 [event]
 # to Nazia Underground
-type=on_trigger
+type=event
 location=4,62,4,4
+activate=on_trigger
 hotspot=location
 intermap=maps/nazia_underground.txt,92,29
 soundfx=soundfx/environment/stairs.ogg,0,0
 tooltip=Nazia Underground
 
 [event]
-type=on_trigger
+type=event
 location=12,5,2,1
+activate=on_trigger
 hotspot=location
 msg=Unknown destination
 repeat=false
 
 [enemy]
-type=grassland
+type=enemy
 location=34,7,24,25
+category=grassland
 level=9
 number=6,7
 
 [enemy]
-type=grassland
+type=enemy
 location=42,32,29,32
+category=grassland
 level=9
 number=6,7
 
 [enemy]
-type=grassland
+type=enemy
 location=18,32,24,31
+category=grassland
 level=9
 number=6,7
 
 [enemy]
-type=grassland
+type=enemy
 location=4,12,8,19
+category=grassland
 level=9
 number=3,4
 
 [enemy]
-type=grassland
+type=enemy
 location=8,37,7,22
+category=grassland
 level=9
 number=3
 
 [enemy]
-type=grassland
+type=enemy
 location=20,9,8,19
+category=grassland
 level=9
 number=3,4
 
 [npc]
-type=npcs/abasi_2.txt
+type=npc
 location=62,72,1,1
+filename=npcs/abasi_2.txt
 

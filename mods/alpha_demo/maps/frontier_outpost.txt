@@ -223,49 +223,57 @@ data=
 
 [npc]
 # Trader
-type=npcs/kenrik.txt
+type=npc
 location=29,27,1,1
+filename=npcs/kenrik.txt
 
 [npc]
 # Alchemist
-type=npcs/kayl.txt
+type=npc
 location=41,18,1,1
+filename=npcs/kayl.txt
 
 [npc]
 # Overseer
-type=npcs/martigan.txt
+type=npc
 location=21,15,1,1
+filename=npcs/martigan.txt
 
 [npc]
 # Blacksmith
-type=npcs/lorund.txt
+type=npc
 location=23,39,1,1
+filename=npcs/lorund.txt
 
 [npc]
 # Bowyer
-type=npcs/nerin.txt
+type=npc
 location=12,35,1,1
+filename=npcs/nerin.txt
 
 [event]
 # to Mineshaft Longsword
-type=on_trigger
+type=event
 location=19,11,2,1
+activate=on_trigger
 hotspot=location
 intermap=maps/mineshaft_longsword.txt,44,61
 tooltip=Mineshaft Longsword
 
 [event]
 # to Frontier Plains
-type=on_trigger
+type=event
 location=1,12,1,2
+activate=on_trigger
 hotspot=location
 intermap=maps/frontier_plains.txt,248,186
 tooltip=Frontier Plains
 
 [event]
 # Shared stash
-type=on_trigger
+type=event
 location=22,28,1,1
+activate=on_trigger
 hotspot=location
 soundfx=soundfx/wood_open.ogg
 stash=true
@@ -273,8 +281,9 @@ tooltip=Shared Stash
 
 [event]
 # Activate_Teleporter
-type=on_trigger
+type=event
 location=32,8,5,5
+activate=on_trigger
 mapmod=background,33,10,265
 msg=Frontier Outpost waypoint discovered.
 repeat=false
@@ -282,15 +291,17 @@ requires_not_status=waypoint_frontier_outpost
 set_status=waypoint_frontier_outpost
 
 [event]
-type=on_load
+type=event
 location=32,6,1,1
+activate=on_load
 mapmod=background,33,10,265
 requires_status=waypoint_frontier_outpost
 
 [event]
 # Warp Zone
-type=on_trigger
+type=event
 location=33,9,2,2
+activate=on_trigger
 hotspot=location
 intermap=maps/warp_zone.txt,29,44
 soundfx=soundfx/environment/teleporter.ogg,0,0
@@ -298,91 +309,106 @@ tooltip=Warp Zone
 
 [event]
 # River sound
-type=on_load
+type=event
 location=5,10,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=26,35,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=23,22,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=28,23,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=32,18,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=46,33,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=56,45,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=55,55,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=37,8,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=20,25,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]
 # Wind and crickets sound effect
-type=on_load
+type=event
 location=0,0,1,1
+activate=on_load
 soundfx=soundfx/environment/wind_loop.ogg
 
 [event]
 # Anvil sound
-type=on_load
+type=event
 location=23,38,1,1
+activate=on_load
 soundfx=soundfx/environment/anvil_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=50,12,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=48,38,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=11,43,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 

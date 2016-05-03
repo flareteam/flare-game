@@ -120,8 +120,9 @@ data=
 3,3,3,3,3,3,3,3,3,3
 
 [event]
-type=on_trigger
+type=event
 location=3,28,2,1
+activate=on_trigger
 hotspot=location
 intermap=maps/lab_welcome.txt,4,2
 soundfx=soundfx/door_open.ogg,0,0
@@ -129,8 +130,9 @@ tooltip=Dev Lab - Welcome
 
 [event]
 # Maps
-type=on_trigger
+type=event
 location=1,20,2,2
+activate=on_trigger
 hotspot=location
 intermap=maps/lab_mapping.txt,82,53
 repeat=false
@@ -139,54 +141,61 @@ tooltip=Dev Lab - Map Drawing
 
 [event]
 # Events
-type=on_trigger
+type=event
 location=1,17,2,2
+activate=on_trigger
 hotspot=location
 repeat=false
 tooltip=Map Events
 
 [event]
 # Teleport
-type=on_trigger
+type=event
 location=1,14,2,2
+activate=on_trigger
 hotspot=location
 repeat=false
 tooltip=Teleports
 
 [event]
 # Folders
-type=on_trigger
+type=event
 location=1,23,2,2
+activate=on_trigger
 hotspot=location
 repeat=false
 tooltip=Folders
 
 [event]
-type=on_trigger
+type=event
 location=2,4,1,1
+activate=on_trigger
 hotspot=location
 tooltip=Intermediate Lessons
 
 [event]
 # Enemies
-type=on_trigger
+type=event
 location=1,11,2,2
+activate=on_trigger
 hotspot=location
 repeat=false
 tooltip=Placing Enemies
 
 [event]
 # Enemies
-type=on_trigger
+type=event
 location=1,8,2,2
+activate=on_trigger
 hotspot=location
 repeat=false
 tooltip=Random Enemies
 
 [event]
 # NPCs
-type=on_trigger
+type=event
 location=1,5,2,2
+activate=on_trigger
 hotspot=location
 repeat=false
 tooltip=Placing NPCs

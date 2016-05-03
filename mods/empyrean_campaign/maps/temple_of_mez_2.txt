@@ -331,8 +331,9 @@ data=
 
 [event]
 # to Hyperspace
-type=on_trigger
+type=event
 location=38,29,2,2
+activate=on_trigger
 hotspot=location
 intermap=maps/hyperspace.txt,28,28
 soundfx=soundfx/environment/teleporter.ogg,0,0
@@ -340,8 +341,9 @@ tooltip=Hyperspace
 
 [event]
 # Unlock waypoint
-type=on_trigger
+type=event
 location=36,27,6,6
+activate=on_trigger
 mapmod=background,38,30,265
 msg=Temple of Mez: Main Hall waypoint discovered.
 repeat=false
@@ -350,15 +352,17 @@ set_status=emp_waypoint_6
 
 [event]
 # unlock waypoint (on_load)
-type=on_load
+type=event
 location=32,27,1,1
+activate=on_load
 mapmod=background,38,30,265
 requires_status=emp_waypoint_6
 
 [event]
 # to Temple of Mez: Basement
-type=on_trigger
+type=event
 location=72,8,4,4
+activate=on_trigger
 hotspot=location
 intermap=maps/temple_of_mez_1.txt,17,14
 soundfx=soundfx/environment/stairs.ogg,0,0
@@ -366,8 +370,9 @@ tooltip=Temple of Mez: Basement
 
 [event]
 # open loop door 1
-type=on_trigger
+type=event
 location=50,45,1,1
+activate=on_trigger
 hotspot=location
 mapmod=collision,45,39,0;collision,46,39,0;collision,45,40,0;collision,46,40,0;object,45,40,0;object,46,40,0;object,44,39,208;object,47,39,222;object,50,45,166
 repeat=false
@@ -376,8 +381,9 @@ tooltip=Switch
 
 [event]
 # open loop door 2
-type=on_trigger
+type=event
 location=92,21,1,1
+activate=on_trigger
 hotspot=location
 mapmod=collision,66,29,0;collision,67,29,0;collision,66,30,0;collision,67,30,0;object,67,29,0;object,67,30,0;object,66,28,213;object,66,31,219;object,92,21,166
 repeat=false
@@ -386,8 +392,9 @@ tooltip=Switch
 
 [event]
 # Locked Door
-type=on_trigger
+type=event
 location=45,81,2,2
+activate=on_trigger
 hotspot=location
 msg=This door needs a key to be opened.
 requires_not_status=emp_mez2_key;emp_mez2_door
@@ -395,8 +402,9 @@ tooltip=Locked Door
 
 [event]
 # Unlock Door
-type=on_trigger
+type=event
 location=41,82,1,1
+activate=on_trigger
 hotspot=45,81,2,2
 mapmod=collision,45,81,0;collision,46,81,0;collision,45,82,0;collision,46,82,0;object,45,82,0;object,46,82,0;object,44,82,212;object,47,82,218
 remove_item=1015
@@ -408,15 +416,17 @@ tooltip=Locked Door
 
 [event]
 # Unlock Door (on_load)
-type=on_load
+type=event
 location=41,80,1,1
+activate=on_load
 mapmod=collision,45,81,0;collision,46,81,0;collision,45,82,0;collision,46,82,0;object,45,82,0;object,46,82,0;object,44,82,212;object,47,82,218
 requires_status=emp_mez2_door
 
 [event]
 # Crate
-type=on_trigger
+type=event
 location=5,70,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_7.txt
 loot_count=1,2
@@ -427,8 +437,9 @@ tooltip=Crate
 
 [event]
 # Barrel
-type=on_trigger
+type=event
 location=82,73,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_7.txt
 loot_count=1,2
@@ -439,8 +450,9 @@ tooltip=Barrel
 
 [event]
 # Treasure Chest
-type=on_trigger
+type=event
 location=9,13,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_7.txt
 loot_count=3,4
@@ -451,8 +463,9 @@ tooltip=Treasure Chest
 
 [event]
 # Treasure Chest
-type=on_trigger
+type=event
 location=94,22,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_7.txt
 loot_count=6,8
@@ -463,175 +476,203 @@ tooltip=Treasure Chest
 
 [event]
 # Wind sound
-type=on_load
+type=event
 location=0,0,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_wind_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=4,12,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=23,39,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=45,50,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=76,36,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=95,20,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
-type=on_load
+type=event
 location=82,9,1,1
+activate=on_load
 requires_not_status=emp_mez2_init
 set_status=emp_mez2_init
 
 [event]
-type=on_trigger
+type=event
 location=46,56,1,1
+activate=on_trigger
 hotspot=location
 msg=The plaque reads: Red Altar
 tooltip=Plaque
 
 [event]
 # to Temple of Mez: Entrance
-type=on_trigger
+type=event
 location=61,91,2,1
+activate=on_trigger
 hotspot=location
 intermap=maps/temple_of_mez_3.txt,26,31
 soundfx=soundfx/environment/stairs.ogg,0,0
 tooltip=Temple of Mez: Entrance
 
 [enemy]
-type=undead
+type=enemy
 location=40,8,12,4
+category=undead
 level=7
 number=3
 
 [enemy]
-type=undead
+type=enemy
 location=20,8,8,8
+category=undead
 level=7
 number=3
 
 [enemy]
-type=wyvern
+type=enemy
 location=12,20,12,10
+category=wyvern
 level=7
 number=1
 
 [enemy]
-type=wyvern
+type=enemy
 location=4,12,8,10
+category=wyvern
 level=7
 number=3
 
 [enemy]
-type=undead
+type=enemy
 location=9,44,3,4
+category=undead
 level=7
 number=2
 wander_radius=1
 
 [enemy]
-type=undead
+type=enemy
 location=9,54,3,4
+category=undead
 level=7
 number=2
 wander_radius=1
 
 [enemy]
-type=wyvern
+type=enemy
 location=4,64,12,12
+category=wyvern
 level=7
 number=4
 
 [enemy]
-type=wyvern
+type=enemy
 location=76,64,12,12
+category=wyvern
 level=7
 number=4
 
 [enemy]
-type=wyvern
+type=enemy
 location=40,59,12,12
+category=wyvern
 level=7
 number=4
 
 [enemy]
-type=wyvern
+type=enemy
 location=30,46,4,10
+category=wyvern
 level=7
 number=3
 
 [enemy]
-type=wyvern
+type=enemy
 location=58,46,4,9
+category=wyvern
 level=7
 number=3
 
 [enemy]
-type=undead
+type=enemy
 location=58,65,4,9
+category=undead
 level=7
 number=3
 
 [enemy]
-type=undead
+type=enemy
 location=30,64,4,10
+category=undead
 level=7
 number=3
 
 [enemy]
-type=wyvern
+type=enemy
 location=76,20,10,8
+category=wyvern
 level=7
 number=3
 
 [enemy]
-type=undead
+type=enemy
 location=76,48,4,8
+category=undead
 level=7
 number=2
 
 [enemy]
-type=wyvern
+type=enemy
 location=4,22,12,10
+category=wyvern
 level=7
 number=1
 
 [enemy]
-type=wyvern
+type=enemy
 location=16,30,8,10
+category=wyvern
 level=7
 number=3
 
 [enemy]
-type=wyvern
+type=enemy
 location=86,20,10,4
+category=wyvern
 level=7
 number=3
 
 [enemy]
-type=kylana
+type=enemy
 location=77,22,1,1
+category=kylana
 level=8
 number=1
 

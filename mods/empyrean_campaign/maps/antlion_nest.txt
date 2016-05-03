@@ -268,16 +268,18 @@ data=
 
 [event]
 # to The Breach
-type=on_trigger
+type=event
 location=79,65,1,4
+activate=on_trigger
 hotspot=location
 intermap=maps/the_breach.txt,2,48
 tooltip=The Breach
 
 [event]
 # Crate
-type=on_trigger
+type=event
 location=12,68,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_6.txt
 mapmod=object,12,68,179
@@ -287,8 +289,9 @@ tooltip=Crate
 
 [event]
 # Barrel
-type=on_trigger
+type=event
 location=65,15,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_6.txt
 mapmod=object,65,15,178
@@ -298,8 +301,9 @@ tooltip=Barrel
 
 [event]
 # Treasure Chest
-type=on_trigger
+type=event
 location=3,39,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_6.txt
 mapmod=object,3,39,176
@@ -309,8 +313,9 @@ tooltip=Treasure Chest
 
 [event]
 # Crate
-type=on_trigger
+type=event
 location=33,7,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_6.txt
 mapmod=object,33,7,179
@@ -320,172 +325,200 @@ tooltip=Crate
 
 [event]
 # Cave wind sound effect
-type=on_load
+type=event
 location=0,0,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_wind_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=16,9,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=8,39,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=20,66,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=61,15,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=37,17,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=23,49,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=42,52,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # to Temple of Mez 1
-type=on_trigger
+type=event
 location=0,10,1,4
+activate=on_trigger
 hotspot=location
 intermap=maps/temple_of_mez_1.txt,76,34
 tooltip=Temple of Mez: Basement
 
 [enemy]
-type=antlion
+type=enemy
 location=50,55,8,9
+category=antlion
 level=6
 number=3
 
 [enemy]
-type=antlion
+type=enemy
 location=38,47,8,9
+category=antlion
 level=6
 number=3
 
 [enemy]
-type=antlion
+type=enemy
 location=47,30,8,9
+category=antlion
 level=6
 number=3
 
 [enemy]
-type=antlion
+type=enemy
 location=34,15,11,10
+category=antlion
 level=6
 number=4
 
 [enemy]
-type=antlion
+type=enemy
 location=60,22,8,10
+category=antlion
 level=6
 number=4
 
 [enemy]
-type=antlion
+type=enemy
 location=21,33,8,9
+category=antlion
 level=6
 number=3
 
 [enemy]
-type=antlion
+type=enemy
 location=25,55,8,9
+category=antlion
 level=6
 number=3
 
 [enemy]
-type=antlion
+type=enemy
 location=11,53,10,11
+category=antlion
 level=6
 number=4
 
 [enemy]
-type=antlion
+type=enemy
 location=2,33,11,11
+category=antlion
 level=6
 number=4
 
 [enemy]
-type=antlion
+type=enemy
 location=12,23,8,9
+category=antlion
 level=6
 number=3
 
 [enemy]
-type=antlion
+type=enemy
 location=13,7,8,9
+category=antlion
 level=6
 number=3
 
 [enemy]
-type=antlion_hatchling
+type=enemy
 location=62,12,8,10
+category=antlion_hatchling
 level=6
 number=4
 
 [enemy]
-type=antlion_hatchling
+type=enemy
 location=29,4,8,10
+category=antlion_hatchling
 level=6
 number=4
 
 [enemy]
-type=antlion_hatchling
+type=enemy
 location=1,20,8,8
+category=antlion_hatchling
 level=6
 number=4
 
 [enemy]
-type=antlion_hatchling
+type=enemy
 location=8,64,10,8
+category=antlion_hatchling
 level=6
 number=4
 
 [enemy]
-type=antlion_hatchling
+type=enemy
 location=38,65,8,9
+category=antlion_hatchling
 level=6
 number=4
 
 [enemy]
-type=antlion
+type=enemy
 location=34,34,8,9
+category=antlion
 level=6
 number=3
 
 [enemy]
-type=antlion_burster
+type=enemy
 location=32,7,1,1
+category=antlion_burster
 level=6
 number=1
 wander_radius=0
 
 [enemy]
-type=antlion_burster
+type=enemy
 location=11,68,1,1
+category=antlion_burster
 level=6
 number=1
 wander_radius=0

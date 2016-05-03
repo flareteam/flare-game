@@ -151,8 +151,9 @@ data=
 
 [event]
 # to Perdition Harbor
-type=on_trigger
+type=event
 location=9,9,2,2
+activate=on_trigger
 hotspot=location
 intermap=maps/perdition_harbor.txt,15,23
 soundfx=soundfx/environment/teleporter.ogg,0,0
@@ -160,8 +161,9 @@ tooltip=Perdition Harbor
 
 [event]
 # to Stonewood
-type=on_trigger
+type=event
 location=16,7,2,2
+activate=on_trigger
 hotspot=location
 intermap=maps/stonewood.txt,59,43
 requires_status=emp_waypoint_1
@@ -170,8 +172,9 @@ tooltip=Stonewood
 
 [event]
 # to Lochport Cemetery
-type=on_trigger
+type=event
 location=22,7,2,2
+activate=on_trigger
 hotspot=location
 intermap=maps/lochport_cemetery.txt,44,13
 requires_status=emp_waypoint_2
@@ -180,8 +183,9 @@ tooltip=Lochport Cemetery
 
 [event]
 # to St. Maria: Prison
-type=on_trigger
+type=event
 location=29,9,2,2
+activate=on_trigger
 hotspot=location
 intermap=maps/st_maria_2.txt,44,24
 requires_status=emp_waypoint_3
@@ -190,8 +194,9 @@ tooltip=St. Maria: Prison
 
 [event]
 # to Blackmire Mines
-type=on_trigger
+type=event
 location=31,16,2,2
+activate=on_trigger
 hotspot=location
 intermap=maps/blackmire_mines.txt,63,19
 requires_status=emp_waypoint_4
@@ -200,8 +205,9 @@ tooltip=Blackmire Mines
 
 [event]
 # to Stormrock Pass
-type=on_trigger
+type=event
 location=31,22,2,2
+activate=on_trigger
 hotspot=location
 intermap=maps/stormrock_pass.txt,70,65
 requires_status=emp_waypoint_5
@@ -210,8 +216,9 @@ tooltip=Stormrock Pass
 
 [event]
 # to Temple of Mez: Main Hall
-type=on_trigger
+type=event
 location=29,29,2,2
+activate=on_trigger
 hotspot=location
 intermap=maps/temple_of_mez_2.txt,41,30
 requires_status=emp_waypoint_6
@@ -220,8 +227,9 @@ tooltip=Temple of Mez: Main Hall
 
 [event]
 # to Nazia Underground
-type=on_trigger
+type=event
 location=22,31,2,2
+activate=on_trigger
 hotspot=location
 intermap=maps/nazia_underground.txt,58,18
 requires_status=emp_waypoint_7
@@ -230,8 +238,9 @@ tooltip=Nazia Underground
 
 [event]
 # to Dilapidated Sewers
-type=on_trigger
+type=event
 location=16,31,2,2
+activate=on_trigger
 hotspot=location
 intermap=maps/dilapidated_sewers.txt,36,30
 requires_status=emp_waypoint_8
@@ -240,63 +249,72 @@ tooltip=Dilapidated Sewers
 
 [event]
 # Wind sound
-type=on_load
+type=event
 location=0,0,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_wind_loop.ogg
 
 [event]
 # unlock Stonewood
-type=on_load
+type=event
 location=16,5,1,1
+activate=on_load
 mapmod=background,16,8,265
 requires_status=emp_waypoint_1
 
 [event]
 # unlock Lochport Cemetery
-type=on_load
+type=event
 location=22,5,1,1
+activate=on_load
 mapmod=background,22,8,265
 requires_status=emp_waypoint_2
 
 [event]
 # unlock St. Maria: Prison
-type=on_load
+type=event
 location=29,7,1,1
+activate=on_load
 mapmod=background,29,10,265
 requires_status=emp_waypoint_3
 
 [event]
 # unlock Blackmire Mines
-type=on_load
+type=event
 location=34,16,1,1
+activate=on_load
 mapmod=background,31,17,265
 requires_status=emp_waypoint_4
 
 [event]
 # unlock Stormrock Pass
-type=on_load
+type=event
 location=34,22,1,1
+activate=on_load
 mapmod=background,31,23,265
 requires_status=emp_waypoint_5
 
 [event]
 # unlock Temple of Mez: Main Hall
-type=on_load
+type=event
 location=32,29,1,1
+activate=on_load
 mapmod=background,29,30,265
 requires_status=emp_waypoint_6
 
 [event]
 # unlock Nazia Underground
-type=on_load
+type=event
 location=22,34,1,1
+activate=on_load
 mapmod=background,22,32,265
 requires_status=emp_waypoint_7
 
 [event]
 # unlock Dilapidated Sewers
-type=on_load
+type=event
 location=16,34,1,1
+activate=on_load
 mapmod=background,16,32,265
 requires_status=emp_waypoint_8
 

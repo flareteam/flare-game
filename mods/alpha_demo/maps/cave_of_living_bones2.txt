@@ -266,32 +266,36 @@ data=
 
 [event]
 # to Cave 1
-type=on_trigger
+type=event
 location=36,75,3,1
+activate=on_trigger
 hotspot=location
 intermap=maps/cave_of_living_bones1.txt,33,3
 tooltip=Cave of Living Bones 1
 
 [event]
 # to Cave 3
-type=on_trigger
+type=event
 location=2,36,1,4
+activate=on_trigger
 hotspot=location
 intermap=maps/cave_of_living_bones3.txt,47,19
 tooltip=Cave of Living Bones 3
 
 [event]
 # to Atrium
-type=on_trigger
+type=event
 location=32,3,1,1
+activate=on_trigger
 hotspot=location
 intermap=maps/brothers_lair_atrium.txt,15,46
 tooltip=Brothers' Lair Atrium
 
 [event]
 # Barrel
-type=on_trigger
+type=event
 location=46,4,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_mid.txt
 mapmod=object,46,4,178
@@ -301,8 +305,9 @@ tooltip=Barrel
 
 [event]
 # Crate
-type=on_trigger
+type=event
 location=48,5,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_mid.txt
 mapmod=object,48,5,179
@@ -312,8 +317,9 @@ tooltip=Crate
 
 [event]
 # Crate
-type=on_trigger
+type=event
 location=19,44,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_mid.txt
 mapmod=object,19,44,179
@@ -323,8 +329,9 @@ tooltip=Crate
 
 [event]
 # Give Pillar Quest
-type=on_trigger
+type=event
 location=47,44,1,1
+activate=on_trigger
 hotspot=45,42,3,3
 msg=This pillar is laced with cracks and crevices. Maybe with enough force it can be knocked down.
 requires_not_status=lb_has_explosive
@@ -333,8 +340,9 @@ tooltip=Giant Pillar
 
 [event]
 # Place Explosive
-type=on_trigger
+type=event
 location=47,44,1,1
+activate=on_trigger
 hotspot=45,42,3,3
 mapmod=object,47,44,163
 msg=Run! You don't want to be caught in the blast of your own explosion!
@@ -346,8 +354,9 @@ tooltip=Place Explosive
 
 [event]
 # Trigger Explosive Bottom
-type=on_trigger
+type=event
 location=41,50,13,1
+activate=on_trigger
 mapmod=object,47,44,0;object,47,43,0;collision,47,43,2;object,47,42,0;collision,47,42,2;object,46,43,0;collision,46,43,2;object,46,44,0;collision,46,44,2;object,45,44,0;collision,45,44,2;object,46,42,0;collision,46,42,2;object,45,43,80;collision,45,43,1;object,47,41,80;object,45,42,68;collision,45,42,1;object,46,41,69;collision,46,41,1;object,45,41,76;collision,45,41,1;object,48,43,0;collision,48,43,0;object,48,44,0;collision,48,44,0;object,46,45,0;collision,46,45,0;object,49,40,0;collision,49,40,2;object,46,39,0;collision,46,39,2;object,48,40,150;collision,48,40,0;object,48,39,151;collision,48,39,0;collision,49,39,0;object,48,38,151;collision,48,38,0;object,49,37,152;collision,49,37,0;object,48,36,151;collision,48,36,0;object,49,35,152;collision,49,35,0;object,47,38,150;collision,47,38,0;object,45,46,150;collision,45,46,2;object,48,45,152;collision,48,45,2;object,49,44,150;collision,49,44,2;object,49,43,151;collision,49,43,2;object,51,42,152
 power=18
 power_path=47,44,47,44
@@ -359,8 +368,9 @@ shakycam=2s
 
 [event]
 # Trigger Explosive Left Side
-type=on_trigger
+type=event
 location=41,44,1,6
+activate=on_trigger
 mapmod=object,47,44,0;object,47,43,0;collision,47,43,2;object,47,42,0;collision,47,42,2;object,46,43,0;collision,46,43,2;object,46,44,0;collision,46,44,2;object,45,44,0;collision,45,44,2;object,46,42,0;collision,46,42,2;object,45,43,80;collision,45,43,1;object,47,41,80;object,45,42,68;collision,45,42,1;object,46,41,69;collision,46,41,1;object,45,41,76;collision,45,41,1;object,48,43,0;collision,48,43,0;object,48,44,0;collision,48,44,0;object,46,45,0;collision,46,45,0;object,49,40,0;collision,49,40,2;object,46,39,0;collision,46,39,2;object,48,40,150;collision,48,40,0;object,48,39,151;collision,48,39,0;collision,49,39,0;object,48,38,151;collision,48,38,0;object,49,37,152;collision,49,37,0;object,48,36,151;collision,48,36,0;object,49,35,152;collision,49,35,0;object,47,38,150;collision,47,38,0;object,45,46,150;collision,45,46,2;object,48,45,152;collision,48,45,2;object,49,44,150;collision,49,44,2;object,49,43,151;collision,49,43,2;object,51,42,152
 power=18
 power_path=47,44,47,44
@@ -372,8 +382,9 @@ shakycam=2s
 
 [event]
 # Trigger Explosive Right Side
-type=on_trigger
+type=event
 location=53,40,1,10
+activate=on_trigger
 mapmod=object,47,44,0;object,47,43,0;collision,47,43,2;object,47,42,0;collision,47,42,2;object,46,43,0;collision,46,43,2;object,46,44,0;collision,46,44,2;object,45,44,0;collision,45,44,2;object,46,42,0;collision,46,42,2;object,45,43,80;collision,45,43,1;object,47,41,80;object,45,42,68;collision,45,42,1;object,46,41,69;collision,46,41,1;object,45,41,76;collision,45,41,1;object,48,43,0;collision,48,43,0;object,48,44,0;collision,48,44,0;object,46,45,0;collision,46,45,0;object,49,40,0;collision,49,40,2;object,46,39,0;collision,46,39,2;object,48,40,150;collision,48,40,0;object,48,39,151;collision,48,39,0;collision,49,39,0;object,48,38,151;collision,48,38,0;object,49,37,152;collision,49,37,0;object,48,36,151;collision,48,36,0;object,49,35,152;collision,49,35,0;object,47,38,150;collision,47,38,0;object,45,46,150;collision,45,46,2;object,48,45,152;collision,48,45,2;object,49,44,150;collision,49,44,2;object,49,43,151;collision,49,43,2;object,51,42,152
 power=18
 power_path=47,44,47,44
@@ -385,84 +396,97 @@ shakycam=2s
 
 [event]
 # Persist Explosion
-type=on_load
+type=event
 location=35,70,4,5
+activate=on_load
 mapmod=object,47,44,0;object,47,43,0;collision,47,43,2;object,47,42,0;collision,47,42,2;object,46,43,0;collision,46,43,2;object,46,44,0;collision,46,44,2;object,45,44,0;collision,45,44,2;object,46,42,0;collision,46,42,2;object,45,43,80;collision,45,43,1;object,47,41,80;object,45,42,68;collision,45,42,1;object,46,41,69;collision,46,41,1;object,45,41,76;collision,45,41,1;object,48,43,0;collision,48,43,0;object,48,44,0;collision,48,44,0;object,46,45,0;collision,46,45,0;object,49,40,0;collision,49,40,2;object,46,39,0;collision,46,39,2;object,48,40,150;collision,48,40,0;object,48,39,151;collision,48,39,0;collision,49,39,0;object,48,38,151;collision,48,38,0;object,49,37,152;collision,49,37,0;object,48,36,151;collision,48,36,0;object,49,35,152;collision,49,35,0;object,47,38,150;collision,47,38,0;object,45,46,150;collision,45,46,2;object,48,45,152;collision,48,45,2;object,49,44,150;collision,49,44,2;object,49,43,151;collision,49,43,2;object,51,42,152
 requires_status=lb_explosive_detonated
 
 [event]
 # Cave wind sound effect
-type=on_load
+type=event
 location=0,0,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_wind_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=44,22,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=49,37,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=15,31,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=46,41,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=35,59,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=49,4,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=20,11,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [enemy]
 # 3-5 Undead
-type=undead
+type=enemy
 location=35,46,10,11
+category=undead
 level=5,8
 number=3,5
 
 [enemy]
 # 3-4 Undead
-type=undead
+type=enemy
 location=45,42,10,8
+category=undead
 level=5,8
 number=3,4
 
 [enemy]
 # 3-4 Undead
-type=undead
+type=enemy
 location=24,43,10,10
+category=undead
 level=5,8
 number=3,4
 
 [enemy]
 # 3-5 Undead
-type=undead
+type=enemy
 location=30,11,14,8
+category=undead
 level=5,8
 number=3,5
 

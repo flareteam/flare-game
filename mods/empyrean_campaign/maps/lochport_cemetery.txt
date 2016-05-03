@@ -271,24 +271,27 @@ data=
 
 [event]
 # to Family Crypt
-type=on_trigger
+type=event
 location=47,47,4,4
+activate=on_trigger
 hotspot=location
 intermap=maps/family_crypt.txt,31,39
 tooltip=Family Crypt
 
 [event]
 # to Merrimead Swamp
-type=on_trigger
+type=event
 location=0,5,1,6
+activate=on_trigger
 hotspot=location
 intermap=maps/merrimead_swamp.txt,78,13
 tooltip=Merrimead Swamp
 
 [event]
 # to Hyperspace
-type=on_trigger
+type=event
 location=45,14,2,2
+activate=on_trigger
 hotspot=location
 intermap=maps/hyperspace.txt,23,10
 soundfx=soundfx/environment/teleporter.ogg,0,0
@@ -296,8 +299,9 @@ tooltip=Hyperspace
 
 [event]
 # Unlock waypoint
-type=on_trigger
+type=event
 location=41,13,6,3
+activate=on_trigger
 mapmod=background,45,15,265
 msg=Lochport Cemetery waypoint discovered.
 repeat=false
@@ -306,22 +310,25 @@ set_status=emp_waypoint_2
 
 [event]
 # unlock waypoint (on_load)
-type=on_load
+type=event
 location=46,11,1,1
+activate=on_load
 mapmod=background,45,15,265
 requires_status=emp_waypoint_2
 
 [event]
 # surprise zombies
-type=on_trigger
+type=event
 location=17,52,5,5
+activate=on_trigger
 repeat=false
 spawn=zombie_lvl2,13,54;zombie_lvl2,19,48;zombie_lvl2,25,54;zombie_lvl2,19,60
 
 [event]
 # Supplies
-type=on_trigger
+type=event
 location=19,55,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_2.txt
 mapmod=object,19,55,99
@@ -331,8 +338,9 @@ tooltip=Supplies
 
 [event]
 # Supplies
-type=on_trigger
+type=event
 location=11,25,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_2.txt
 mapmod=object,11,25,97
@@ -342,106 +350,123 @@ tooltip=Supplies
 
 [event]
 # River sound
-type=on_load
+type=event
 location=39,13,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=29,28,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=17,31,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=7,36,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=53,18,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # Wind and crickets sound effect
-type=on_load
+type=event
 location=0,0,1,1
+activate=on_load
 soundfx=soundfx/environment/wind_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=25,63,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=10,19,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=34,5,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=45,31,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=42,68,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=13,62,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=12,44,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=44,49,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=44,3,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # to Lochport
-type=on_trigger
+type=event
 location=46,79,4,1
+activate=on_trigger
 hotspot=location
 intermap=maps/lochport.txt,43,1
 tooltip=Lochport
 
 [event]
 # Supplies
-type=on_trigger
+type=event
 location=7,62,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_2.txt
 mapmod=object,7,62,97
@@ -450,138 +475,158 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Supplies
 
 [enemy]
-type=cursed_grave
+type=enemy
 location=28,50,1,1
+category=cursed_grave
 direction=6
 level=3
 number=1
 
 [enemy]
-type=cursed_grave
+type=enemy
 location=22,43,1,1
+category=cursed_grave
 direction=3
 level=3
 number=1
 
 [enemy]
-type=cursed_grave
+type=enemy
 location=15,46,1,1
+category=cursed_grave
 direction=5
 level=3
 number=1
 
 [enemy]
-type=cursed_grave
+type=enemy
 location=10,40,1,1
+category=cursed_grave
 direction=2
 level=3
 number=1
 
 [enemy]
-type=cursed_grave
+type=enemy
 location=11,61,1,1
+category=cursed_grave
 direction=3
 level=3
 number=1
 
 [enemy]
-type=cursed_grave
+type=enemy
 location=15,67,1,1
+category=cursed_grave
 direction=5
 level=3
 number=1
 
 [enemy]
-type=cursed_grave
+type=enemy
 location=22,64,1,1
+category=cursed_grave
 direction=3
 level=3
 number=1
 
 [enemy]
-type=cursed_grave
+type=enemy
 location=28,58,1,1
+category=cursed_grave
 direction=5
 level=3
 number=1
 
 [enemy]
-type=undead
+type=enemy
 location=17,36,4,4
+category=undead
 level=2
 number=2
 wander_radius=2
 
 [enemy]
-type=undead
+type=enemy
 location=7,61,3,6
+category=undead
 level=2
 number=1,2
 wander_radius=2
 
 [enemy]
-type=undead
+type=enemy
 location=7,40,2,5
+category=undead
 level=2
 number=1,2
 wander_radius=2
 
 [enemy]
-type=undead
+type=enemy
 location=17,66,4,4
+category=undead
 level=2
 number=2
 wander_radius=2
 
 [enemy]
-type=undead
+type=enemy
 location=31,63,3,7
+category=undead
 level=2
 number=1,2
 wander_radius=2
 
 [enemy]
-type=undead
+type=enemy
 location=30,41,3,6
+category=undead
 level=2
 number=1,2
 wander_radius=2
 
 [enemy]
-type=undead
+type=enemy
 location=40,61,7,5
+category=undead
 level=2
 number=3
 wander_radius=2
 
 [enemy]
-type=undead
+type=enemy
 location=35,29,8,5
+category=undead
 level=2
 number=2,3
 wander_radius=2
 
 [enemy]
-type=undead
+type=enemy
 location=12,4,9,5
+category=undead
 level=2
 number=2
 
 [enemy]
-type=undead
+type=enemy
 location=27,7,6,5
+category=undead
 level=2
 number=2
 
 [enemy]
-type=undead
+type=enemy
 location=16,20,15,6
+category=undead
 level=2
 number=2,3
 
 [enemy]
-type=undead
+type=enemy
 location=11,21,4,6
+category=undead
 level=2
 number=1,2
 

@@ -151,16 +151,18 @@ data=
 
 [event]
 # to River Trail
-type=on_trigger
+type=event
 location=1,22,1,4
+activate=on_trigger
 hotspot=location
 intermap=maps/river_trail.txt,77,26
 tooltip=River Trail
 
 [event]
 # Shared stash
-type=on_trigger
+type=event
 location=24,17,1,1
+activate=on_trigger
 hotspot=location
 soundfx=soundfx/wood_open.ogg
 stash=true
@@ -168,8 +170,9 @@ tooltip=Shared Stash
 
 [event]
 # to Hyperspace
-type=on_trigger
+type=event
 location=16,25,2,2
+activate=on_trigger
 hotspot=location
 intermap=maps/hyperspace.txt,12,12
 soundfx=soundfx/environment/teleporter.ogg,0,0
@@ -177,8 +180,9 @@ tooltip=Hyperspace
 
 [event]
 # to Book of the Dead
-type=on_trigger
+type=event
 location=33,16,4,4
+activate=on_trigger
 hotspot=location
 intermap=maps/book_of_the_dead.txt,17,46
 soundfx=soundfx/environment/stairs.ogg,0,0
@@ -186,68 +190,79 @@ tooltip=Book of the Dead
 
 [event]
 # Wind and crickets sound effect
-type=on_load
+type=event
 location=0,0,1,1
+activate=on_load
 soundfx=soundfx/environment/wind_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=2,8,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Anvil sound
-type=on_load
+type=event
 location=8,14,1,1
+activate=on_load
 soundfx=soundfx/environment/anvil_loop.ogg
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=21,8,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=13,21,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=9,29,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=17,15,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=25,24,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=14,3,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=23,26,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Unlock waypoint
-type=on_trigger
+type=event
 location=14,23,6,6
+activate=on_trigger
 mapmod=background,16,26,265
 msg=Perdition Harbor waypoint discovered.
 repeat=false
@@ -256,40 +271,46 @@ set_status=emp_waypoint_0
 
 [event]
 # Unlock waypoint (on_load)
-type=on_load
+type=event
 location=15,31,1,1
+activate=on_load
 mapmod=background,16,26,265
 requires_status=emp_waypoint_0
 
 [event]
 # unlock level 5 gear
-type=on_load
+type=event
 location=1,37,1,1
+activate=on_load
 requires_level=5
 requires_not_status=emp_perdition_trader1
 set_status=emp_perdition_trader1
 
 [event]
 # unlock level 9 gear
-type=on_load
+type=event
 location=3,37,1,1
+activate=on_load
 requires_level=9
 requires_not_status=emp_perdition_trader2
 set_status=emp_perdition_trader2
 
 [event]
 # unlock level 13 gear
-type=on_load
+type=event
 location=5,37,1,1
+activate=on_load
 requires_level=13
 requires_not_status=emp_perdition_trader3
 set_status=emp_perdition_trader3
 
 [npc]
-type=npcs/florin.txt
+type=npc
 location=25,8,1,1
+filename=npcs/florin.txt
 
 [npc]
-type=npcs/udana.txt
+type=npc
 location=8,13,1,1
+filename=npcs/udana.txt
 

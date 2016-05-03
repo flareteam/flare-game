@@ -331,8 +331,9 @@ data=
 
 [event]
 # to Goblin Warrens
-type=on_trigger
+type=event
 location=92,53,1,1
+activate=on_trigger
 hotspot=location
 intermap=maps/goblin_warrens.txt,29,79
 soundfx=soundfx/environment/stairs.ogg,0,0
@@ -340,8 +341,9 @@ tooltip=Goblin Warrens
 
 [event]
 # to Goblin Warrens
-type=on_trigger
+type=event
 location=92,49,1,1
+activate=on_trigger
 hotspot=location
 intermap=maps/goblin_warrens.txt,29,77
 soundfx=soundfx/environment/stairs.ogg,0,0
@@ -349,24 +351,27 @@ tooltip=Goblin Warrens
 
 [event]
 # to Frontier Plains
-type=on_trigger
+type=event
 location=26,98,2,1
+activate=on_trigger
 hotspot=location
 intermap=maps/frontier_plains.txt,175,61
 tooltip=Frontier Plains
 
 [event]
 # to Cave of Living Bones
-type=on_trigger
+type=event
 location=212,30,2,1
+activate=on_trigger
 hotspot=location
 intermap=maps/cave_of_living_bones1.txt,53,94
 tooltip=Cave of Living Bones 1
 
 [event]
 # camp supply
-type=on_trigger
+type=event
 location=125,55,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_mid.txt
 mapmod=object,125,55,99
@@ -376,8 +381,9 @@ tooltip=Supplies
 
 [event]
 # Warp Zone
-type=on_trigger
+type=event
 location=101,46,2,2
+activate=on_trigger
 hotspot=location
 intermap=maps/warp_zone.txt,29,36
 soundfx=soundfx/environment/teleporter.ogg,0,0
@@ -385,8 +391,9 @@ tooltip=Warp Zone
 
 [event]
 # Activate
-type=on_trigger
+type=event
 location=99,44,6,6
+activate=on_trigger
 mapmod=background,101,47,265
 msg=Ydrakka Pass waypoint discovered.
 repeat=false
@@ -394,216 +401,250 @@ requires_not_status=waypoint_ydrakka_pass
 set_status=waypoint_ydrakka_pass
 
 [event]
-type=on_load
+type=event
 location=98,41,1,1
+activate=on_load
 mapmod=background,101,47,265
 requires_status=waypoint_ydrakka_pass
 
 [event]
 # River sound
-type=on_load
+type=event
 location=106,65,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=99,50,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=97,38,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=51,27,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=29,80,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=83,39,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]
 # Wind and crickets sound effect
-type=on_load
+type=event
 location=0,0,1,1
+activate=on_load
 soundfx=soundfx/environment/wind_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=79,26,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=63,36,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=46,35,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=61,54,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=78,60,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=32,48,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=5,77,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=28,68,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=100,43,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=119,31,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=143,27,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=168,34,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=179,23,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=203,52,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=232,49,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=48,48,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [enemy]
 # elite goblin camp
-type=goblin_elite
+type=enemy
 location=126,54,5,5
+category=goblin_elite
 level=2,3
 number=2,3
 
 [enemy]
 # random goblins
-type=goblin
+type=enemy
 location=4,72,18,17
+category=goblin
 level=2,3
 number=2,3
 
 [enemy]
 # random goblins
-type=goblin
+type=enemy
 location=18,45,32,26
+category=goblin
 level=2,3
 number=2,4
 
 [enemy]
 # random goblins
-type=goblin
+type=enemy
 location=51,50,36,27
+category=goblin
 level=2,3
 number=2,4
 
 [enemy]
 # random goblins
-type=goblin
+type=enemy
 location=112,47,30,20
+category=goblin
 level=2,3
 number=2,4
 
 [enemy]
 # random antlions
-type=antlion
+type=enemy
 location=38,23,47,26
+category=antlion
 level=2,3
 number=16,18
 
 [enemy]
 # random antlions
-type=antlion
+type=enemy
 location=112,21,40,25
+category=antlion
 level=3,4
 number=14,18
 
 [enemy]
 # random antlions
-type=antlion
+type=enemy
 location=153,21,57,59
+category=antlion
 level=3,6
 number=18,24
 
 [enemy]
 # random antlions
-type=antlion
+type=enemy
 location=211,45,30,36
+category=antlion
 level=3,4
 number=4,8
 
 [enemy]
 # random antlions
-type=antlion
+type=enemy
 location=221,-2,16,36
+category=antlion
 level=3,4
 number=4,8
 

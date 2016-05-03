@@ -212,16 +212,18 @@ data=
 
 [event]
 # to Stonewood
-type=on_trigger
+type=event
 location=4,1,4,1
+activate=on_trigger
 hotspot=location
 intermap=maps/stonewood.txt,52,76
 tooltip=Stonewood
 
 [event]
 # lumber
-type=on_trigger
+type=event
 location=13,6,1,1
+activate=on_trigger
 hotspot=location
 mapmod=background,12,6,198;object,13,6,0;collision,12,6,0;collision,13,6,0
 reachable_from=14,6,2,1
@@ -233,15 +235,17 @@ tooltip=Lumber
 
 [event]
 # open shortcut (on load)
-type=on_load
+type=event
 location=12,4,1,1
+activate=on_load
 mapmod=background,12,6,198;object,13,6,0;collision,12,6,0;collision,13,6,0
 requires_status=emp_goblincamp_shortcut
 
 [event]
 # Supplies
-type=on_trigger
+type=event
 location=7,29,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_1.txt
 mapmod=object,7,29,97
@@ -251,8 +255,9 @@ tooltip=Supplies
 
 [event]
 # Supplies
-type=on_trigger
+type=event
 location=31,31,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_1.txt
 mapmod=object,31,31,99
@@ -262,8 +267,9 @@ tooltip=Supplies
 
 [event]
 # Supplies
-type=on_trigger
+type=event
 location=53,39,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_1.txt
 mapmod=object,53,39,99
@@ -273,120 +279,139 @@ tooltip=Supplies
 
 [event]
 # Wind and crickets sound effect
-type=on_load
+type=event
 location=0,0,1,1
+activate=on_load
 soundfx=soundfx/environment/wind_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=12,8,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=13,18,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=30,28,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=42,31,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=31,38,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=28,51,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=18,38,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=14,27,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=19,17,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=5,11,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=4,27,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=26,49,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=42,43,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=54,34,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=40,23,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # to Merrimead Swamp
-type=on_trigger
+type=event
 location=53,14,1,4
+activate=on_trigger
 hotspot=location
 intermap=maps/merrimead_swamp.txt,3,17
 tooltip=Merrimead Swamp
 
 [event]
 # to Goblin Cave
-type=on_trigger
+type=event
 location=35,25,2,1
+activate=on_trigger
 hotspot=location
 intermap=maps/goblin_cave.txt,18,46
 tooltip=Goblin Cave
 
 [event]
 # Stormrock key
-type=on_trigger
+type=event
 location=24,19,1,1
+activate=on_trigger
 hotspot=location
 loot=1013,fixed,1
 repeat=false
@@ -396,77 +421,89 @@ tooltip=Gravestone
 
 [event]
 # clear Abasi's collision tile
-type=on_load
+type=event
 location=19,32,1,1
+activate=on_load
 mapmod=collision,21,35,0
 requires_status=emp_abasi_2
 
 [enemy]
-type=goblin
+type=enemy
 location=2,22,5,8
+category=goblin
 level=1
 number=2,3
 
 [enemy]
-type=goblin
+type=enemy
 location=17,24,7,4
+category=goblin
 level=1
 number=2,3
 wander_radius=1
 
 [enemy]
-type=goblin
+type=enemy
 location=18,43,6,4
+category=goblin
 level=1
 number=2
 wander_radius=1
 
 [enemy]
-type=goblin_spearman
+type=enemy
 location=36,37,1,1
+category=goblin_spearman
 level=2
 number=1
 wander_radius=0
 
 [enemy]
-type=goblin
+type=enemy
 location=42,34,5,2
+category=goblin
 level=1
 number=1,2
 
 [enemy]
-type=goblin
+type=enemy
 location=50,33,6,7
+category=goblin
 level=1
 number=3
 
 [enemy]
-type=goblin
+type=enemy
 location=33,12,6,5
+category=goblin
 level=1
 number=2,3
 
 [enemy]
-type=undead
+type=enemy
 location=25,15,5,5
+category=undead
 level=1
 number=2
 wander_radius=1
 
 [enemy]
-type=undead
+type=enemy
 location=18,5,7,5
+category=undead
 level=1
 number=2,3
 
 [enemy]
-type=goblin
+type=enemy
 location=31,39,3,4
+category=goblin
 level=1
 number=2
 
 [npc]
-type=npcs/abasi.txt
+type=npc
 location=21,35,1,1
+filename=npcs/abasi.txt
 requires_not_status=emp_abasi_2
 

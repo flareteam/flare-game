@@ -1,36 +1,35 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="isometric" renderorder="right-down" width="50" height="80" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="35">
+<map backgroundcolor="#000000" height="80" nextobjectid="35" orientation="isometric" renderorder="right-down" tileheight="32" tilewidth="64" version="1.0" width="50">
  <properties>
-  <property name="music" value="music/magical_theme.ogg"/>
-  <property name="tileset" value="tilesetdefs/tileset_dungeon.txt"/>
-  <property name="title" value="Brothers' Lair Fire Hall"/>
+  <property name="music" value="music/magical_theme.ogg" />
+  <property name="tileset" value="tilesetdefs/tileset_dungeon.txt" />
+  <property name="title" value="Brothers' Lair Fire Hall" />
  </properties>
- <tileset firstgid="1" name="tiled_collision.png" tilewidth="64" tileheight="32">
-  <image source="../dungeon/tiled_collision.png" width="960" height="32"/>
+ <tileset firstgid="1" name="tiled_collision.png" tileheight="32" tilewidth="64">
+  <image height="32" source="../dungeon/tiled_collision.png" width="960" />
  </tileset>
- <tileset firstgid="16" name="tiled_dungeon.png" tilewidth="64" tileheight="128">
-  <image source="../dungeon/tiled_dungeon.png" width="1024" height="1920"/>
+ <tileset firstgid="16" name="tiled_dungeon.png" tileheight="128" tilewidth="64">
+  <image height="1920" source="../dungeon/tiled_dungeon.png" width="1024" />
  </tileset>
- <tileset firstgid="256" name="set_rules.png" tilewidth="64" tileheight="32">
-  <image source="../dungeon/set_rules.png" width="128" height="128"/>
+ <tileset firstgid="256" name="set_rules.png" tileheight="32" tilewidth="64">
+  <image height="128" source="../dungeon/set_rules.png" width="128" />
  </tileset>
- <tileset firstgid="264" name="tiled_dungeon_2x2.png" tilewidth="128" tileheight="64">
-  <tileoffset x="0" y="16"/>
-  <image source="../dungeon/tiled_dungeon_2x2.png" width="512" height="256"/>
+ <tileset firstgid="264" name="tiled_dungeon_2x2.png" tileheight="64" tilewidth="128">
+  <tileoffset x="0" y="16" />
+  <image height="256" source="../dungeon/tiled_dungeon_2x2.png" width="512" />
  </tileset>
- <tileset firstgid="280" name="door_left.png" tilewidth="64" tileheight="128">
-  <tileoffset x="-16" y="-8"/>
-  <image source="../dungeon/door_left.png" width="128" height="128"/>
+ <tileset firstgid="280" name="door_left.png" tileheight="128" tilewidth="64">
+  <tileoffset x="-16" y="-8" />
+  <image height="128" source="../dungeon/door_left.png" width="128" />
  </tileset>
- <tileset firstgid="282" name="door_right.png" tilewidth="64" tileheight="128">
-  <tileoffset x="16" y="-8"/>
-  <image source="../dungeon/door_right.png" width="128" height="128"/>
+ <tileset firstgid="282" name="door_right.png" tileheight="128" tilewidth="64">
+  <tileoffset x="16" y="-8" />
+  <image height="128" source="../dungeon/door_right.png" width="128" />
  </tileset>
- <tileset firstgid="284" name="stairs.png" tilewidth="256" tileheight="256">
-  <tileoffset x="0" y="48"/>
-  <image source="../dungeon/stairs.png" width="1024" height="256"/>
+ <tileset firstgid="284" name="stairs.png" tileheight="256" tilewidth="256">
+  <tileoffset x="0" y="48" />
+  <image height="256" source="../dungeon/stairs.png" width="1024" />
  </tileset>
- <layer name="background" width="50" height="80">
+ <layer height="80" name="background" width="50">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -114,7 +113,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="object" width="50" height="80">
+ <layer height="80" name="object" width="50">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -198,7 +197,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,282,283,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="collision" width="50" height="80" visible="0">
+ <layer height="80" name="collision" visible="0" width="50">
   <data encoding="csv">
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
@@ -283,224 +282,224 @@
 </data>
  </layer>
  <objectgroup name="event">
-  <object id="1" name="Warp to Atrium" type="on_trigger" x="768" y="2496" width="64" height="64">
+  <object height="64" id="1" name="Warp to Atrium" type="event" width="64" x="768" y="2496">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="intermap" value="maps/brothers_lair_atrium.txt,14,2"/>
-    <property name="soundfx" value="soundfx/door_open.ogg,0,0"/>
-    <property name="tooltip" value="Brothers' Lair Atrium"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="intermap" value="maps/brothers_lair_atrium.txt,14,2" />
+    <property name="soundfx" value="soundfx/door_open.ogg,0,0" />
+    <property name="tooltip" value="Brothers' Lair Atrium" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="2" name="Barrel" type="on_trigger" x="736" y="2048" width="32" height="32">
+  <object height="32" id="2" name="Barrel" type="event" width="32" x="736" y="2048">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/leveled_mid.txt"/>
-    <property name="mapmod" value="object,23,64,162"/>
-    <property name="repeat" value="false"/>
-    <property name="soundfx" value="soundfx/wood_open.ogg"/>
-    <property name="tooltip" value="Barrel"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="loot" value="loot/leveled_mid.txt" />
+    <property name="mapmod" value="object,23,64,162" />
+    <property name="repeat" value="false" />
+    <property name="soundfx" value="soundfx/wood_open.ogg" />
+    <property name="tooltip" value="Barrel" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="3" name="Barrel" type="on_trigger" x="704" y="2048" width="32" height="32">
+  <object height="32" id="3" name="Barrel" type="event" width="32" x="704" y="2048">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/leveled_mid.txt"/>
-    <property name="mapmod" value="object,22,64,162"/>
-    <property name="repeat" value="false"/>
-    <property name="soundfx" value="soundfx/wood_open.ogg"/>
-    <property name="tooltip" value="Barrel"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="loot" value="loot/leveled_mid.txt" />
+    <property name="mapmod" value="object,22,64,162" />
+    <property name="repeat" value="false" />
+    <property name="soundfx" value="soundfx/wood_open.ogg" />
+    <property name="tooltip" value="Barrel" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="4" name="Crate" type="on_trigger" x="672" y="2048" width="32" height="32">
+  <object height="32" id="4" name="Crate" type="event" width="32" x="672" y="2048">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/leveled_mid.txt"/>
-    <property name="mapmod" value="object,21,64,163"/>
-    <property name="repeat" value="false"/>
-    <property name="soundfx" value="soundfx/wood_open.ogg"/>
-    <property name="tooltip" value="Crate"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="loot" value="loot/leveled_mid.txt" />
+    <property name="mapmod" value="object,21,64,163" />
+    <property name="repeat" value="false" />
+    <property name="soundfx" value="soundfx/wood_open.ogg" />
+    <property name="tooltip" value="Crate" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="5" name="Crate" type="on_trigger" x="736" y="2016" width="32" height="32">
+  <object height="32" id="5" name="Crate" type="event" width="32" x="736" y="2016">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/leveled_mid.txt"/>
-    <property name="mapmod" value="object,23,63,163"/>
-    <property name="repeat" value="false"/>
-    <property name="soundfx" value="soundfx/wood_open.ogg"/>
-    <property name="tooltip" value="Crate"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="loot" value="loot/leveled_mid.txt" />
+    <property name="mapmod" value="object,23,63,163" />
+    <property name="repeat" value="false" />
+    <property name="soundfx" value="soundfx/wood_open.ogg" />
+    <property name="tooltip" value="Crate" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="6" name="Burn Trap" type="on_trigger" x="672" y="640" width="32" height="32">
+  <object height="32" id="6" name="Burn Trap" type="event" width="32" x="672" y="640">
    <properties>
-    <property name="power" value="18"/>
-    <property name="power_damage" value="100,150"/>
-    <property name="repeat" value="false"/>
-   </properties>
+    <property name="power" value="18" />
+    <property name="power_damage" value="100,150" />
+    <property name="repeat" value="false" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="7" name="Burn Trap" type="on_trigger" x="768" y="640" width="32" height="32">
+  <object height="32" id="7" name="Burn Trap" type="event" width="32" x="768" y="640">
    <properties>
-    <property name="power" value="18"/>
-    <property name="power_damage" value="100,150"/>
-    <property name="repeat" value="false"/>
-   </properties>
+    <property name="power" value="18" />
+    <property name="power_damage" value="100,150" />
+    <property name="repeat" value="false" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="8" name="Vesuvvio's Chest" type="on_trigger" x="672" y="1920" width="32" height="32">
+  <object height="32" id="8" name="Vesuvvio's Chest" type="event" width="32" x="672" y="1920">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,fixed,50,100;loot/leveled_high.txt"/>
-    <property name="mapmod" value="object,21,60,160"/>
-    <property name="remove_item" value="9102"/>
-    <property name="repeat" value="false"/>
-    <property name="requires_item" value="9102"/>
-    <property name="set_status" value="lb_fire_looted"/>
-    <property name="soundfx" value="soundfx/wood_open.ogg"/>
-    <property name="tooltip" value="Runed Chest"/>
-    <property name="unset_status" value="lb_fire_key"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="loot" value="currency,fixed,50,100;loot/leveled_high.txt" />
+    <property name="mapmod" value="object,21,60,160" />
+    <property name="remove_item" value="9102" />
+    <property name="repeat" value="false" />
+    <property name="requires_item" value="9102" />
+    <property name="set_status" value="lb_fire_looted" />
+    <property name="soundfx" value="soundfx/wood_open.ogg" />
+    <property name="tooltip" value="Runed Chest" />
+    <property name="unset_status" value="lb_fire_key" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="9" name="Vesuvvio's Chest Locked" type="on_trigger" x="672" y="1920" width="32" height="32">
+  <object height="32" id="9" name="Vesuvvio's Chest Locked" type="event" width="32" x="672" y="1920">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="power" value="18"/>
-    <property name="power_damage" value="100,150"/>
-    <property name="power_path" value="21,60,21,60"/>
-    <property name="requires_not_status" value="lb_fire_key,lb_fire_looted"/>
-    <property name="tooltip" value="Runed Chest"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="power" value="18" />
+    <property name="power_damage" value="100,150" />
+    <property name="power_path" value="21,60,21,60" />
+    <property name="requires_not_status" value="lb_fire_key,lb_fire_looted" />
+    <property name="tooltip" value="Runed Chest" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="10" name="Vesuvvio's Diary" type="on_trigger" x="608" y="512" width="32" height="32">
+  <object height="32" id="10" name="Vesuvvio's Diary" type="event" width="32" x="608" y="512">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="mapmod" value="object,19,16,165"/>
-    <property name="msg" value="&quot;Today Pompeii got a little over-excited to meet me and blew himself up. So I had to go into the caves and catch myself a NEW antlion burster. Again. I think I'm going to name this one 'Krakatoa'. ~Vesuvvio (the Destroyer)&quot;"/>
-    <property name="repeat" value="false"/>
-    <property name="set_status" value="lb_fire_password"/>
-    <property name="soundfx" value="soundfx/inventory/inventory_page.ogg"/>
-    <property name="tooltip" value="Book Stand"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="mapmod" value="object,19,16,165" />
+    <property name="msg" value="&quot;Today Pompeii got a little over-excited to meet me and blew himself up. So I had to go into the caves and catch myself a NEW antlion burster. Again. I think I'm going to name this one 'Krakatoa'. ~Vesuvvio (the Destroyer)&quot;" />
+    <property name="repeat" value="false" />
+    <property name="set_status" value="lb_fire_password" />
+    <property name="soundfx" value="soundfx/inventory/inventory_page.ogg" />
+    <property name="tooltip" value="Book Stand" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="11" name="brazier sound effect" type="on_load" x="384" y="1152" width="32" height="32">
+  <object height="32" id="11" name="brazier sound effect" type="event" width="32" x="384" y="1152">
    <properties>
-    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="12" name="brazier sound effect" type="on_load" x="384" y="992" width="32" height="32">
+  <object height="32" id="12" name="brazier sound effect" type="event" width="32" x="384" y="992">
    <properties>
-    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="13" name="brazier sound effect" type="on_load" x="512" y="928" width="32" height="32">
+  <object height="32" id="13" name="brazier sound effect" type="event" width="32" x="512" y="928">
    <properties>
-    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="14" name="brazier sound effect" type="on_load" x="608" y="928" width="32" height="32">
+  <object height="32" id="14" name="brazier sound effect" type="event" width="32" x="608" y="928">
    <properties>
-    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="15" name="brazier sound effect" type="on_load" x="544" y="576" width="32" height="32">
+  <object height="32" id="15" name="brazier sound effect" type="event" width="32" x="544" y="576">
    <properties>
-    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="16" name="brazier sound effect" type="on_load" x="544" y="512" width="32" height="32">
+  <object height="32" id="16" name="brazier sound effect" type="event" width="32" x="544" y="512">
    <properties>
-    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="17" name="brazier sound effect" type="on_load" x="960" y="928" width="32" height="32">
+  <object height="32" id="17" name="brazier sound effect" type="event" width="32" x="960" y="928">
    <properties>
-    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="18" name="brazier sound effect" type="on_load" x="1120" y="928" width="32" height="32">
+  <object height="32" id="18" name="brazier sound effect" type="event" width="32" x="1120" y="928">
    <properties>
-    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="19" name="brazier sound effect" type="on_load" x="1184" y="1024" width="32" height="32">
+  <object height="32" id="19" name="brazier sound effect" type="event" width="32" x="1184" y="1024">
    <properties>
-    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="20" name="brazier sound effect" type="on_load" x="1184" y="1088" width="32" height="32">
+  <object height="32" id="20" name="brazier sound effect" type="event" width="32" x="1184" y="1088">
    <properties>
-    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="21" name="brazier sound effect" type="on_load" x="896" y="1728" width="32" height="32">
+  <object height="32" id="21" name="brazier sound effect" type="event" width="32" x="896" y="1728">
    <properties>
-    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="22" name="brazier sound effect" type="on_load" x="1184" y="1632" width="32" height="32">
+  <object height="32" id="22" name="brazier sound effect" type="event" width="32" x="1184" y="1632">
    <properties>
-    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="23" name="brazier sound effect" type="on_load" x="1088" y="1728" width="32" height="32">
+  <object height="32" id="23" name="brazier sound effect" type="event" width="32" x="1088" y="1728">
    <properties>
-    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="24" name="brazier sound effect" type="on_load" x="1184" y="1504" width="32" height="32">
+  <object height="32" id="24" name="brazier sound effect" type="event" width="32" x="1184" y="1504">
    <properties>
-    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="25" name="brazier sound effect" type="on_load" x="544" y="1728" width="32" height="32">
+  <object height="32" id="25" name="brazier sound effect" type="event" width="32" x="544" y="1728">
    <properties>
-    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="26" name="brazier sound effect" type="on_load" x="448" y="1728" width="32" height="32">
+  <object height="32" id="26" name="brazier sound effect" type="event" width="32" x="448" y="1728">
    <properties>
-    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="27" name="brazier sound effect" type="on_load" x="384" y="1536" width="32" height="32">
+  <object height="32" id="27" name="brazier sound effect" type="event" width="32" x="384" y="1536">
    <properties>
-    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="28" name="brazier sound effect" type="on_load" x="384" y="1472" width="32" height="32">
+  <object height="32" id="28" name="brazier sound effect" type="event" width="32" x="384" y="1472">
    <properties>
-    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="29" type="on_load" x="512" y="1824" width="32" height="32">
+  <object height="32" id="29" type="event" width="32" x="512" y="1824">
    <properties>
-    <property name="unset_status" value="lb_fire_looted"/>
-   </properties>
+    <property name="unset_status" value="lb_fire_looted" />
+   <property name="activate" value="on_load" /></properties>
   </object>
  </objectgroup>
  <objectgroup name="enemy">
-  <object id="30" type="krakatoa" x="704" y="576" width="32" height="32"/>
-  <object id="31" name="4-6 Undead" type="undead" x="672" y="1824" width="256" height="256">
+  <object height="32" id="30" type="enemy" width="32" x="704" y="576"><properties><property name="category" value="krakatoa" /></properties></object>
+  <object height="256" id="31" name="4-6 Undead" type="enemy" width="256" x="672" y="1824">
    <properties>
-    <property name="level" value="5,8"/>
-    <property name="number" value="4,6"/>
-   </properties>
+    <property name="level" value="5,8" />
+    <property name="number" value="4,6" />
+   <property name="category" value="undead" /></properties>
   </object>
-  <object id="32" name="3-7 Undead" type="undead" x="1344" y="1280" width="128" height="1152">
+  <object height="1152" id="32" name="3-7 Undead" type="enemy" width="128" x="1344" y="1280">
    <properties>
-    <property name="level" value="5,8"/>
-    <property name="number" value="3,7"/>
-   </properties>
+    <property name="level" value="5,8" />
+    <property name="number" value="3,7" />
+   <property name="category" value="undead" /></properties>
   </object>
-  <object id="33" name="3-7 Undead" type="undead" x="128" y="1280" width="128" height="1152">
+  <object height="1152" id="33" name="3-7 Undead" type="enemy" width="128" x="128" y="1280">
    <properties>
-    <property name="level" value="5,8"/>
-    <property name="number" value="3,7"/>
-   </properties>
+    <property name="level" value="5,8" />
+    <property name="number" value="3,7" />
+   <property name="category" value="undead" /></properties>
   </object>
-  <object id="34" name="1-3 Undead" type="undead" x="448" y="992" width="704" height="704">
+  <object height="704" id="34" name="1-3 Undead" type="enemy" width="704" x="448" y="992">
    <properties>
-    <property name="level" value="8,8"/>
-    <property name="number" value="1,3"/>
-   </properties>
+    <property name="level" value="8,8" />
+    <property name="number" value="1,3" />
+   <property name="category" value="undead" /></properties>
   </object>
  </objectgroup>
 </map>

@@ -272,24 +272,27 @@ data=
 
 [event]
 # to Salted Field
-type=on_trigger
+type=event
 location=1,6,1,4
+activate=on_trigger
 hotspot=location
 intermap=maps/salted_field.txt,56,12
 tooltip=Salted Field
 
 [event]
 # to Goblin Camp
-type=on_trigger
+type=event
 location=51,77,4,1
+activate=on_trigger
 hotspot=location
 intermap=maps/goblin_camp.txt,5,2
 tooltip=Goblin Camp
 
 [event]
 # to Hyperspace
-type=on_trigger
+type=event
 location=59,44,2,2
+activate=on_trigger
 hotspot=location
 intermap=maps/hyperspace.txt,17,10
 soundfx=soundfx/environment/teleporter.ogg,0,0
@@ -297,8 +300,9 @@ tooltip=Hyperspace
 
 [event]
 # Supplies
-type=on_trigger
+type=event
 location=84,17,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_1.txt
 mapmod=object,84,17,97
@@ -308,8 +312,9 @@ tooltip=Supplies
 
 [event]
 # Supplies
-type=on_trigger
+type=event
 location=89,20,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_1.txt
 mapmod=object,89,20,99
@@ -319,8 +324,9 @@ tooltip=Supplies
 
 [event]
 # Supplies
-type=on_trigger
+type=event
 location=10,36,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_1.txt
 mapmod=object,10,36,97
@@ -330,152 +336,177 @@ tooltip=Supplies
 
 [event]
 # Wind and crickets sound effect
-type=on_load
+type=event
 location=0,0,1,1
+activate=on_load
 soundfx=soundfx/environment/wind_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=9,8,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=42,15,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=74,29,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=46,35,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=7,47,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=49,59,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=58,73,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=56,58,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=53,39,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=51,24,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=48,10,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=20,25,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=64,12,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=86,40,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=36,37,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=25,51,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=39,73,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=37,64,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=11,61,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=31,43,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=64,33,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=80,18,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=23,8,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # Unlock waypoint
-type=on_trigger
+type=event
 location=57,42,6,6
+activate=on_trigger
 mapmod=background,59,45,265
 msg=Stonewood waypoint discovered.
 repeat=false
@@ -484,92 +515,107 @@ set_status=emp_waypoint_1
 
 [event]
 # Unlock waypoint (on_load)
-type=on_load
+type=event
 location=57,49,1,1
+activate=on_load
 mapmod=background,59,45,265
 requires_status=emp_waypoint_1
 
 [enemy]
-type=grassland
+type=enemy
 location=14,23,5,5
+category=grassland
 level=1
 number=2
 
 [enemy]
-type=grassland
+type=enemy
 location=23,8,9,4
+category=grassland
 level=1
 number=2,3
 
 [enemy]
-type=grassland
+type=enemy
 location=41,15,5,3
+category=grassland
 level=1
 number=1,2
 
 [enemy]
-type=goblin
+type=enemy
 location=84,14,7,9
+category=goblin
 level=1
 number=3
 
 [enemy]
-type=grassland
+type=enemy
 location=82,32,6,6
+category=grassland
 level=1
 number=2,3
 
 [enemy]
-type=grassland
+type=enemy
 location=67,40,6,5
+category=grassland
 level=1
 number=2
 
 [enemy]
-type=grassland
+type=enemy
 location=26,22,4,7
+category=grassland
 level=1
 number=2
 
 [enemy]
-type=grassland
+type=enemy
 location=36,31,7,4
+category=grassland
 level=1
 number=3
 
 [enemy]
-type=undead
+type=enemy
 location=19,47,6,5
+category=undead
 level=1
 number=2,3
 
 [enemy]
-type=grassland
+type=enemy
 location=35,46,7,4
+category=grassland
 level=1
 number=2
 
 [enemy]
-type=grassland
+type=enemy
 location=14,61,8,6
+category=grassland
 level=1
 number=3
 
 [enemy]
-type=grassland
+type=enemy
 location=34,64,9,7
+category=grassland
 level=1
 number=2
 
 [enemy]
-type=undead
+type=enemy
 location=8,34,6,6
+category=undead
 level=1
 number=2,3
 
 [enemy]
-type=grassland
+type=enemy
 location=53,13,8,4
+category=grassland
 level=1
 number=2,3
 

@@ -271,38 +271,43 @@ data=
 
 [event]
 # first trap
-type=on_trigger
+type=event
 location=63,33,2,2
+activate=on_trigger
 mapmod=collision,63,27,4;collision,64,27,4;collision,63,28,4;collision,64,28,4;collision,63,29,4;collision,64,29,4;collision,63,38,4;collision,64,38,4;collision,63,39,4;collision,64,39,4;collision,63,40,4;collision,64,40,4;object,63,29,0;object,64,29,0;object,63,38,0;object,64,38,0
 repeat=false
 soundfx=soundfx/powers/teleport.ogg
 
 [event]
 # second trap
-type=on_trigger
+type=event
 location=55,33,2,2
+activate=on_trigger
 mapmod=collision,55,27,4;collision,56,27,4;collision,55,28,4;collision,56,28,4;collision,55,29,4;collision,56,29,4;collision,55,38,4;collision,56,38,4;collision,55,39,4;collision,56,39,4;collision,55,40,4;collision,56,40,4;object,55,29,0;object,56,29,0;object,55,38,0;object,56,38,0
 repeat=false
 soundfx=soundfx/powers/teleport.ogg
 
 [event]
 # north teleport
-type=on_trigger
+type=event
 location=59,21,2,1
+activate=on_trigger
 intramap=60,48
 soundfx=soundfx/environment/teleporter.ogg,0,0
 
 [event]
 # south teleport
-type=on_trigger
+type=event
 location=59,46,2,1
+activate=on_trigger
 intramap=60,19
 soundfx=soundfx/environment/teleporter.ogg,0,0
 
 [event]
 # to Antlion Nest
-type=on_trigger
+type=event
 location=78,33,2,2
+activate=on_trigger
 hotspot=location
 intermap=maps/antlion_nest.txt,2,11
 soundfx=soundfx/door_open.ogg,0,0
@@ -310,8 +315,9 @@ tooltip=Antlion Nest
 
 [event]
 # Crate
-type=on_trigger
+type=event
 location=74,74,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_7.txt
 mapmod=object,74,74,163
@@ -321,8 +327,9 @@ tooltip=Crate
 
 [event]
 # Treasure Chest
-type=on_trigger
+type=event
 location=64,74,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_7.txt
 loot_count=1,2
@@ -333,8 +340,9 @@ tooltip=Treasure Chest
 
 [event]
 # Treasure Chest
-type=on_trigger
+type=event
 location=49,73,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_7.txt
 loot_count=1,2
@@ -345,8 +353,9 @@ tooltip=Treasure Chest
 
 [event]
 # Treasure Chest
-type=on_trigger
+type=event
 location=62,8,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_7.txt
 loot_count=1,2
@@ -357,8 +366,9 @@ tooltip=Treasure Chest
 
 [event]
 # Treasure Chest
-type=on_trigger
+type=event
 location=13,29,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_7.txt
 loot_count=3,4
@@ -369,8 +379,9 @@ tooltip=Treasure Chest
 
 [event]
 # Treasure Chest
-type=on_trigger
+type=event
 location=18,29,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_7.txt
 loot_count=3,4
@@ -381,8 +392,9 @@ tooltip=Treasure Chest
 
 [event]
 # Locked Door
-type=on_trigger
+type=event
 location=29,13,2,2
+activate=on_trigger
 hotspot=location
 msg=This door needs a key to be opened.
 requires_not_status=emp_mez1_key;emp_mez1_door
@@ -390,8 +402,9 @@ tooltip=Locked Door
 
 [event]
 # Unlock Door
-type=on_trigger
+type=event
 location=31,10,1,1
+activate=on_trigger
 hotspot=29,13,2,2
 mapmod=collision,29,13,0;collision,30,13,0;collision,29,14,0;collision,30,14,0;object,30,13,0;object,30,14,0;object,29,12,213;object,29,15,219
 remove_item=1014
@@ -403,15 +416,17 @@ tooltip=Locked Door
 
 [event]
 # Unlock Door (on_load)
-type=on_load
+type=event
 location=31,8,1,1
+activate=on_load
 mapmod=collision,29,13,0;collision,30,13,0;collision,29,14,0;collision,30,14,0;object,30,13,0;object,30,14,0;object,29,12,213;object,29,15,219
 requires_status=emp_mez1_door
 
 [event]
 # open loop door
-type=on_trigger
+type=event
 location=15,57,1,1
+activate=on_trigger
 hotspot=location
 mapmod=collision,41,39,0;collision,42,39,0;collision,41,40,0;collision,42,40,0;object,41,40,0;object,42,40,0;object,40,39,208;object,43,39,222;object,15,57,166
 reachable_from=15,57,2,2
@@ -420,141 +435,163 @@ soundfx=soundfx/door_open.ogg
 tooltip=Switch
 
 [event]
-type=on_load
+type=event
 location=74,27,1,1
+activate=on_load
 requires_not_status=emp_mez1_init
 set_status=emp_mez1_init
 
 [event]
 # Wind sound
-type=on_load
+type=event
 location=0,0,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_wind_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=19,11,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=68,5,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=68,34,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=15,50,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # to Temple of Mez: Main Hall
-type=on_trigger
+type=event
 location=15,13,1,2
+activate=on_trigger
 hotspot=location
 intermap=maps/temple_of_mez_2.txt,70,10
 soundfx=soundfx/environment/stairs.ogg,0,0
 tooltip=Temple of Mez: Main Hall
 
 [enemy]
-type=wyvern_normal
+type=enemy
 location=63,28,1,1
+category=wyvern_normal
 level=7
 number=1
 wander_radius=1
 
 [enemy]
-type=wyvern_normal
+type=enemy
 location=63,39,1,1
+category=wyvern_normal
 level=7
 number=1
 wander_radius=1
 
 [enemy]
-type=wyvern_fire
+type=enemy
 location=56,28,1,1
+category=wyvern_fire
 level=7
 number=1
 wander_radius=1
 
 [enemy]
-type=wyvern_ice
+type=enemy
 location=56,39,1,1
+category=wyvern_ice
 level=7
 number=1
 wander_radius=1
 
 [enemy]
-type=wyvern
+type=enemy
 location=54,4,16,12
+category=wyvern
 level=7
 number=4
 
 [enemy]
-type=undead
+type=enemy
 location=40,19,4,11
+category=undead
 level=7
 number=3
 
 [enemy]
-type=undead
+type=enemy
 location=40,4,6,4
+category=undead
 level=7
 number=2
 
 [enemy]
-type=undead
+type=enemy
 location=70,52,6,4
+category=undead
 level=7
 number=2
 
 [enemy]
-type=wyvern
+type=enemy
 location=64,63,12,13
+category=wyvern
 level=7
 number=4
 
 [enemy]
-type=undead
+type=enemy
 location=40,52,6,4
+category=undead
 level=7
 number=2
 
 [enemy]
-type=wyvern
+type=enemy
 location=44,63,12,13
+category=wyvern
 level=7
 number=4
 
 [enemy]
-type=wyvern
+type=enemy
 location=10,29,12,12
+category=wyvern
 level=7
 number=4
 
 [enemy]
-type=undead
+type=enemy
 location=9,46,14,13
+category=undead
 level=7
 number=4
 
 [enemy]
-type=undead
+type=enemy
 location=29,44,6,4
+category=undead
 level=7
 number=2
 
 [enemy]
-type=zola
+type=enemy
 location=15,43,1,1
+category=zola
 direction=5
 level=8
 number=1

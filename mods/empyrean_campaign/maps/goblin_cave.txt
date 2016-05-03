@@ -172,64 +172,74 @@ data=
 
 [event]
 # to Goblin Camp
-type=on_trigger
+type=event
 location=17,47,4,1
+activate=on_trigger
 hotspot=location
 intermap=maps/goblin_camp.txt,36,26
 tooltip=Goblin Camp
 
 [event]
 # Cave wind sound effect
-type=on_load
+type=event
 location=0,0,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_wind_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=11,20,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=35,12,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=17,5,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=20,25,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=25,39,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=6,38,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=39,27,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # Treasure Chest
-type=on_trigger
+type=event
 location=3,5,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_2.txt
 loot_count=3,4
@@ -240,8 +250,9 @@ tooltip=Treasure Chest
 
 [event]
 # Barrel
-type=on_trigger
+type=event
 location=11,12,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_1.txt
 mapmod=object,11,12,178
@@ -251,8 +262,9 @@ tooltip=Barrel
 
 [event]
 # Crate
-type=on_trigger
+type=event
 location=29,4,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_1.txt
 mapmod=object,29,4,179
@@ -262,8 +274,9 @@ tooltip=Crate
 
 [event]
 # Crate
-type=on_trigger
+type=event
 location=35,34,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_1.txt
 mapmod=object,35,34,179
@@ -272,103 +285,118 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Crate
 
 [enemy]
-type=goblin
+type=enemy
 location=4,36,5,6
+category=goblin
 level=1
 number=1,2
 wander_radius=1
 
 [enemy]
-type=goblin
+type=enemy
 location=21,34,9,11
+category=goblin
 level=1
 number=2,3
 wander_radius=1
 
 [enemy]
-type=goblin
+type=enemy
 location=4,21,5,4
+category=goblin
 level=1
 number=2
 wander_radius=1
 
 [enemy]
-type=goblin
+type=enemy
 location=35,30,6,6
+category=goblin
 level=1
 number=2
 wander_radius=1
 
 [enemy]
-type=goblin
+type=enemy
 location=30,5,6,4
+category=goblin
 level=1
 number=2
 wander_radius=1
 
 [enemy]
-type=goblin
+type=enemy
 location=16,4,8,4
+category=goblin
 level=1
 number=1,2
 wander_radius=1
 
 [enemy]
-type=goblin
+type=enemy
 location=22,24,6,5
+category=goblin
 level=1
 number=1,2
 wander_radius=1
 
 [enemy]
-type=goblin
+type=enemy
 location=20,14,8,4
+category=goblin
 level=1
 number=2
 wander_radius=1
 
 [enemy]
-type=goblin_spearman
+type=enemy
 location=8,17,1,1
+category=goblin_spearman
 level=2
 number=1
 
 [enemy]
-type=goblin_spearman
+type=enemy
 location=31,11,1,1
+category=goblin_spearman
 level=2
 number=1
 
 [enemy]
-type=goblin_chief
+type=enemy
 location=5,5,1,1
+category=goblin_chief
 level=2
 number=1
 
 [enemy]
-type=goblin
+type=enemy
 location=3,6,5,4
+category=goblin
 level=1
 number=2
 wander_radius=1
 
 [enemy]
-type=goblin
+type=enemy
 location=8,3,4,5
+category=goblin
 level=1
 number=2
 wander_radius=1
 
 [enemy]
-type=goblin
+type=enemy
 location=35,14,6,5
+category=goblin
 level=1
 number=2
 wander_radius=1
 
 [enemy]
-type=goblin
+type=enemy
 location=11,13,5,4
+category=goblin
 level=1
 number=2
 wander_radius=1

@@ -838,8 +838,9 @@ data=
 
 [event]
 # boat to ice
-type=on_trigger
+type=event
 location=65,77,3,1
+activate=on_trigger
 hotspot=location
 intramap=55,49
 mapmod=object,65,77,0;object,66,77,0;object,67,77,0;object,56,47,173;object,56,48,172;object,56,49,171
@@ -849,8 +850,9 @@ tooltip=Boat
 
 [event]
 # boat to land
-type=on_trigger
+type=event
 location=56,47,1,3
+activate=on_trigger
 hotspot=location
 intramap=66,76
 mapmod=object,65,77,168;object,66,77,169;object,67,77,170;object,56,47,0;object,56,48,0;object,56,49,0
@@ -860,14 +862,16 @@ unset_status=emp_kuuma_boat
 
 [event]
 # reset boat
-type=on_load
+type=event
 location=22,14,1,1
+activate=on_load
 requires_status=emp_kuuma_boat
 unset_status=emp_kuuma_boat
 
 [event]
-type=on_trigger
+type=event
 location=39,58,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_5.txt
 loot_count=2
@@ -877,8 +881,9 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Supplies
 
 [event]
-type=on_trigger
+type=event
 location=40,60,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_5.txt
 loot_count=2
@@ -888,8 +893,9 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Supplies
 
 [event]
-type=on_trigger
+type=event
 location=87,100,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_5.txt
 mapmod=object,87,100,521
@@ -898,8 +904,9 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Supplies
 
 [event]
-type=on_trigger
+type=event
 location=75,75,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_5.txt
 mapmod=object,75,75,97
@@ -908,8 +915,9 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Supplies
 
 [event]
-type=on_trigger
+type=event
 location=85,40,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_5.txt
 mapmod=object,85,40,99
@@ -919,337 +927,392 @@ tooltip=Supplies
 
 [event]
 # to Fort Amir
-type=on_trigger
+type=event
 location=102,26,2,1
+activate=on_trigger
 hotspot=location
 intermap=maps/fort_amir.txt,11,77
 tooltip=Fort Amir
 
 [event]
 # to Blackmire Mines
-type=on_trigger
+type=event
 location=47,104,1,2
+activate=on_trigger
 hotspot=location
 intermap=maps/blackmire_mines.txt,76,6
 tooltip=Blackmire Mines
 
 [event]
 # Wind and crickets sound effect
-type=on_load
+type=event
 location=0,0,1,1
+activate=on_load
 soundfx=soundfx/environment/wind_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=29,33,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=86,41,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=74,99,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=53,26,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=105,73,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=70,74,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=21,66,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=36,93,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=101,98,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=108,27,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=72,59,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=33,42,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=45,36,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=59,38,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=64,54,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=56,48,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=66,76,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=78,69,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=86,80,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=86,64,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=91,92,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=77,91,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=60,81,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=48,74,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=45,56,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=98,67,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=89,52,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=77,86,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=90,75,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=68,65,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=67,47,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # award XP for aquiring Gravebloom
-type=on_load
+type=event
 location=16,19,1,1
+activate=on_load
 requires_not_status=emp_main_reward1
 requires_status=emp_main_gravebloom
 reward_xp=800
 set_status=emp_main_reward1
 
 [enemy]
-type=antlion_ice
+type=enemy
 location=39,27,5,6
+category=antlion_ice
 level=5
 number=2
 
 [enemy]
-type=snowplains
+type=enemy
 location=66,18,23,12
+category=snowplains
 level=5
 number=3
 
 [enemy]
-type=undead
+type=enemy
 location=48,26,15,5
+category=undead
 level=5
 number=2
 
 [enemy]
-type=snowplains
+type=enemy
 location=66,36,7,13
+category=snowplains
 level=5
 number=1,2
 
 [enemy]
-type=antlion_ice
+type=enemy
 location=39,56,5,6
+category=antlion_ice
 level=5
 number=2
 
 [enemy]
-type=antlion_ice
+type=enemy
 location=40,48,5,6
+category=antlion_ice
 level=5
 number=1
 
 [enemy]
-type=antlion_ice
+type=enemy
 location=46,58,5,6
+category=antlion_ice
 level=5
 number=1
 
 [enemy]
-type=goblin
+type=enemy
 location=102,35,8,3
+category=goblin
 level=5
 number=2
 
 [enemy]
-type=undead
+type=enemy
 location=83,40,6,4
+category=undead
 level=5
 number=2
 wander_radius=1
 
 [enemy]
-type=snowplains
+type=enemy
 location=68,53,15,13
+category=snowplains
 level=5
 number=2,3
 
 [enemy]
-type=undead
+type=enemy
 location=95,43,8,12
+category=undead
 level=5
 number=2
 
 [enemy]
-type=goblin
+type=enemy
 location=22,59,6,8
+category=goblin
 level=5
 number=2,3
 
 [enemy]
-type=snowplains
+type=enemy
 location=92,78,7,6
+category=snowplains
 level=5
 number=2
 
 [enemy]
-type=snowplains
+type=enemy
 location=102,62,8,25
+category=snowplains
 level=5
 number=3
 
 [enemy]
-type=snowplains
+type=enemy
 location=90,97,18,10
+category=snowplains
 level=5
 number=2,3
 
 [enemy]
-type=snowplains
+type=enemy
 location=63,89,21,19
+category=snowplains
 level=5
 number=3
 
 [enemy]
-type=snowplains
+type=enemy
 location=45,76,14,17
+category=snowplains
 level=5
 number=2
 
 [enemy]
-type=snowplains
+type=enemy
 location=21,73,7,15
+category=snowplains
 level=5
 number=2
 
 [enemy]
-type=goblin
+type=enemy
 location=93,21,2,5
+category=goblin
 level=5
 number=2
 
 [npc]
-type=npcs/bakat.txt
+type=npc
 location=72,78,1,1
+filename=npcs/bakat.txt
 

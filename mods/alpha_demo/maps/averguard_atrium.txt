@@ -211,62 +211,70 @@ data=
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
 
 [event]
-type=on_trigger
+type=event
 location=18,10,2,2
+activate=on_trigger
 hotspot=location
 intermap=maps/goblin_warrens.txt,2,9
 soundfx=soundfx/door_open.ogg,0,0
 tooltip=Goblin Warrens
 
 [event]
-type=on_trigger
+type=event
 location=8,1,2,1
+activate=on_trigger
 hotspot=location
 intermap=maps/averguard_temple.txt,15,126
 soundfx=soundfx/door_open.ogg,0,0
 tooltip=Averguard Temple
 
 [event]
-type=on_trigger
+type=event
 location=16,51,2,2
+activate=on_trigger
 hotspot=location
 intermap=maps/averguard_prison.txt,2,55
 soundfx=soundfx/door_open.ogg,0,0
 tooltip=Averguard Prison
 
 [event]
-type=on_trigger
+type=event
 location=8,58,2,2
+activate=on_trigger
 hotspot=location
 intermap=maps/averguard_academy.txt,62,3
 soundfx=soundfx/door_open.ogg,0,0
 tooltip=Averguard Academy
 
 [event]
-type=on_trigger
+type=event
 location=1,51,1,2
+activate=on_trigger
 hotspot=location
 intermap=maps/averguard_complex.txt,98,70
 soundfx=soundfx/door_open.ogg,0,0
 tooltip=Averguard Complex
 
 [event]
-type=on_load
+type=event
 location=2,48,1,1
+activate=on_load
 mapmod=background,8,50,265
 requires_status=waypoint_averguard_atrium
 
 [event]
-type=on_trigger
+type=event
 location=8,49,2,2
+activate=on_trigger
 hotspot=location
 intermap=maps/warp_zone.txt,30,32
 soundfx=soundfx/environment/teleporter.ogg,0,0
 tooltip=Warp Zone
 
 [event]
-type=on_trigger
+type=event
 location=6,47,6,6
+activate=on_trigger
 mapmod=background,8,50,265
 msg=Averguard Atrium waypoint discovered
 repeat=false
@@ -274,26 +282,32 @@ requires_not_status=waypoint_averguard_atrium
 set_status=waypoint_averguard_atrium
 
 [enemy]
-type=goblin_charger
+type=enemy
 location=8,22,1,1
+category=goblin_charger
 
 [enemy]
-type=goblin_spearman
+type=enemy
 location=4,5,1,1
+category=goblin_spearman
 
 [enemy]
-type=goblin_spearman
+type=enemy
 location=8,16,1,1
+category=goblin_spearman
 
 [enemy]
-type=skeleton_normal
+type=enemy
 location=5,32,1,1
+category=skeleton_normal
 
 [enemy]
-type=skeleton_normal
+type=enemy
 location=11,32,1,1
+category=skeleton_normal
 
 [enemy]
-type=skeleton_normal
+type=enemy
 location=4,37,1,1
+category=skeleton_normal
 

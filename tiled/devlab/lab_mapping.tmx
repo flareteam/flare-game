@@ -1,102 +1,101 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="isometric" renderorder="right-down" width="100" height="100" tilewidth="64" tileheight="32" nextobjectid="14">
+<map height="100" nextobjectid="14" orientation="isometric" renderorder="right-down" tileheight="32" tilewidth="64" version="1.0" width="100">
  <properties>
-  <property name="music" value="music/title_theme.ogg"/>
-  <property name="tileset" value="tilesetdefs/tileset_dungeon.txt"/>
-  <property name="title" value="Dev Lab - Map Drawing"/>
+  <property name="music" value="music/title_theme.ogg" />
+  <property name="tileset" value="tilesetdefs/tileset_dungeon.txt" />
+  <property name="title" value="Dev Lab - Map Drawing" />
  </properties>
- <tileset firstgid="1" name="tiled_collision.png" tilewidth="64" tileheight="32">
-  <image source="../dungeon/tiled_collision.png" width="960" height="32"/>
+ <tileset firstgid="1" name="tiled_collision.png" tileheight="32" tilewidth="64">
+  <image height="32" source="../dungeon/tiled_collision.png" width="960" />
  </tileset>
- <tileset firstgid="16" name="tiled_dungeon.png" tilewidth="64" tileheight="128">
-  <image source="../dungeon/tiled_dungeon.png" width="1024" height="1920"/>
+ <tileset firstgid="16" name="tiled_dungeon.png" tileheight="128" tilewidth="64">
+  <image height="1920" source="../dungeon/tiled_dungeon.png" width="1024" />
  </tileset>
- <tileset firstgid="256" name="set_rules.png" tilewidth="64" tileheight="32">
-  <image source="../dungeon/set_rules.png" width="128" height="128"/>
+ <tileset firstgid="256" name="set_rules.png" tileheight="32" tilewidth="64">
+  <image height="128" source="../dungeon/set_rules.png" width="128" />
  </tileset>
- <tileset firstgid="264" name="tiled_dungeon_2x2.png" tilewidth="128" tileheight="64">
-  <tileoffset x="0" y="16"/>
-  <image source="../dungeon/tiled_dungeon_2x2.png" width="512" height="256"/>
+ <tileset firstgid="264" name="tiled_dungeon_2x2.png" tileheight="64" tilewidth="128">
+  <tileoffset x="0" y="16" />
+  <image height="256" source="../dungeon/tiled_dungeon_2x2.png" width="512" />
  </tileset>
- <tileset firstgid="280" name="door_left.png" tilewidth="64" tileheight="128">
-  <tileoffset x="-16" y="-8"/>
-  <image source="../dungeon/door_left.png" width="128" height="128"/>
+ <tileset firstgid="280" name="door_left.png" tileheight="128" tilewidth="64">
+  <tileoffset x="-16" y="-8" />
+  <image height="128" source="../dungeon/door_left.png" width="128" />
  </tileset>
- <tileset firstgid="282" name="door_right.png" tilewidth="64" tileheight="128">
-  <tileoffset x="16" y="-8"/>
-  <image source="../dungeon/door_right.png" width="128" height="128"/>
+ <tileset firstgid="282" name="door_right.png" tileheight="128" tilewidth="64">
+  <tileoffset x="16" y="-8" />
+  <image height="128" source="../dungeon/door_right.png" width="128" />
  </tileset>
- <tileset firstgid="284" name="stairs.png" tilewidth="256" tileheight="256">
-  <tileoffset x="0" y="48"/>
-  <image source="../dungeon/stairs.png" width="1024" height="256"/>
+ <tileset firstgid="284" name="stairs.png" tileheight="256" tilewidth="256">
+  <tileoffset x="0" y="48" />
+  <image height="256" source="../dungeon/stairs.png" width="1024" />
  </tileset>
- <layer name="background" width="100" height="100">
-  <data encoding="base64" compression="zlib">
+ <layer height="100" name="background" width="100">
+  <data compression="zlib" encoding="base64">
    eJztm9mS2zYQRfEJkibeYpdDjR68JA+On1P5/88KWVaX7xw1KA4JReT4niqUNBySAtArmmApxhhjjDHGGGOMMcYYY4wxxhhjjDHGGGOMMcYYY4wxxhizfXZ9O/RtL5/78/FoGQ9oeu0B1z/M6FfcV/ulfa3dc4f+R9+0r2tm6OuXvv3Vt899+1qezsXYuKOpDOOaXXk6n88l5jFkq30a65fKTs/Vfq2ZoX+fz+3Tual+h25xrmOu4lj8Hait7Gf0K64/9q3r26O0Y3mq+9qvmm4c5Pw1M/R5kMWf5VK3Vf85PtU9yqLI8Th3Tr+Gdio/5RHfu3LpE7UvD/gfdWvNRN8HP6W2zrhCH3bNj6s85uhk6MRJWiffVW+y7+rrdExzdOP/JOZ68FOM6RoDKZ8Djme+Qr/P6dfQBt80zL/6q076p58qf/0fz1szMQ6Vh/pajQPqBzj2B1xLfze3X4/lMnY8yu9zrtkP5ntrjx+MFyqT0O8M5rM6brWNufE8ZKo2EfLoRvpFP6W2vgV/xdw0PtUHZ2Q5pdqTtjk5pvpGriWu9SuzCf3cAprbj42XMCdr7Q+Y3029f5YPbwnmsVPHncWUlnBNOPX+2p+xOsNambtuUv+h+Uwr1G8+JxYxn1h73CBZDj+FbN11i35pfjcFPX8LeS5hfWNq/28tD8bi59rtFuM46w5cE2ZkcmgpF9YRuQYdy3ezWrDmjUv7xdxS52xpPsN7ci21RB5Lxs7aAMc9ti6i/FQuS/1Wtl6jzJfen+sH1nwypsqj1rhWoz+KMcd6XNeCjyP9ivHo+fF5wv25XtLcgfWenVy3w7m6Plpqf3of7aP6i9p1S+XB3CnLUbtyWSs5lroehmy1Lqw1MK0lqC+sfWo+oP4zO6+Fn9a+0b7HYmgr+6BusX4Z88j5vWa3R1wb3zmH6muokyoHHmec0vlbQjYveu9ajGrtr1i3jGNhE520U6nbR9z/JNcdpR2SprKg/6Y9U26t7YM12VqNtjbupfJgTSr0K2QzzGvoeieftTwm+t2Vn7LUa2MsWS2YsUNrQRo/aA9qYy3sg/GL9ai59nHtd8eIsWVxQOe1Np6uPI3j6q+WQN3J4t4SVK6MsWP521J5TOlXFj+vrYtUp7L8aan+Mv+gn29ZK7pF/cnMQ336luoLLxU+w9la/e2lQX/Y+rmSeR5c9ziG3BeVQ4s6qFkG6yO2j/vCeo3lcV+yOrO5H5Hjso5k7kPkVv/27Z/ifPfe0Da8HrwvWhPb4n6llwafkzl+jPO2b6/Q3vXt74a/wRq1qfNbuXy+8Losl4fOP58Pu85b55by0P0LfD5lv5VzK3noXg7uN2ux3+6lcmt/pbVdHjOXvO/bm7790beP5++/lzbyyPas6HNic8n3cxvsZLCLb+e/l8I9Xdx75DxrnJBHqzw35lz3cOzwt6lza3lwr77jxzit5ZHZBvfImTqt5RHwHRCvO6bRUh76TFD3Tmd2wjzYa/cftJRHtvdU14KUUbZf9VentX1wvzbtQ+vv2frkV6e1fTCeq63oO3Jcs98rF87eT+Lef937qu8M8D2KffKdOpi97xHHhhr7h9LeX6mf4hqEexz0OJ+XZO+3MJdWH5jdk/rA3+L1jHmUBW2a+2jYD857lnvqOa3qVgW/pfXdTDaM64w1mVx5z8we97gfa5mUQRbbOIc8T/uQ5ZHUGY5H9SsbV0v7oF7SzmvHdS6y87L3SWqyy3Q50wfugRk7l/6H9pnJM7tmit22jOf0Mcxnszw3kyHPzXwLbYK+7YBzavFL5Ued1t/RxpydzxlUf3b4mz6c9ttKHuw/x5Xpd+armTPT19PWMl+lsUh/P/M1a6O1fWTzr7pB3VH9MO1gzMz8O2vwtHvTjizGMS6qj8/yL9MO5qJZHFRZMbewv2oLYwNzba4vuPazfbQl03muNTTmZ/HFtCPL6TnfXIcx/zbGmFvyH8yyjCE=
   </data>
  </layer>
- <layer name="collision" width="100" height="100">
-  <data encoding="base64" compression="zlib">
+ <layer height="100" name="collision" width="100">
+  <data compression="zlib" encoding="base64">
    eJzt2ItOxCAQhWFWff9nNsYYTeUywAw9lP9LGmO2S6c9lMumBAAAAAAAAAAAAAAAAAAAAAAAAAD7exmP0e/V2rizLlWW2kr37X2d3vNH63pCHtY+VvrcI4+PibpmalnJs7bac4l+n3J+8putZaVcrV5jfe06vXV52imPnu/1zJnkYTOTR08b5GFTq+3152+p/1/n2JTWvR+nzue968pV6+Onrncte6vRz0b3YNF1qfPsa95r6JH2o+uKpnrfqnVFU71v1bqiXcfVmbUKeYwrzbmtuTh63lSdz0trlZm1S679L7m9RErle7O0PUp1vava/sx+raePlfqIta7afnWmrprI96/UfuRYHD13jY4pq/IYOUdhbtyprt7vvjcOz2t6WZ1Hbez0qkHx/Th9vGq9E3fO5632d6nL6pqHtf2d5zX19W4u+1af8OpL1rqs7avWNXqd0v9YS3XteCry0EIeWshDC3loIQ8t5KGFPLSQhxby0EIedm+NwwN52NWeuWceEb9TPlFkHqt+P36S6Dw8zjkJeWhZMV61zsEv3g8tubWt13qXPMZd8/BAHuPIQwt5aInK47rvYz9o451H6blb9+ynZxWRh0IbuyIPLeTRP5ZGHn8p5XHnc1Chkge+kYcW8tBych53z+O5QyUPhbXNU3jlAR/koYU8tJCHFvLQQh5aWHsC/30CZ60DWg==
   </data>
  </layer>
- <layer name="object" width="100" height="100">
-  <data encoding="base64" compression="zlib">
+ <layer height="100" name="object" width="100">
+  <data compression="zlib" encoding="base64">
    eJztnEuO1DAQhs2OIyBxmYKhecPw2KAB0SPEuzdIA3s23ACJI3ACxEm4D7FoM57qsrvs2LGT/j+plIzbrqnkjxO7Om5jAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABg/jwY7NpgHwZbCft2+zDSztrG2195bTd7fGjiejfYG7Z1/kNxuRg2LBZXnhrLlJCizk2h7Ebi/5F8xND4vy6UkaJdaixT8l5R52Swx+b8+rJ2J1D3+WBPB3vGyp8kxvVWUeeuOe+XzkJxjYllSqigL6vFerv/iH2Weg5ejw/nP9/Y33PS4+tg3xN9uD6x9sq43xr9I5c56aHFauCelWtz8Tlun5f8vtGyf3B61uM0s51/TD/ZZ58H+xSpr+FQ+0dsHPNju3X3I9/WoUbm3/Fyv6nngBR1pLj4OEKiZz004yspfkqsX0OP1Lhi7Xrh/mBHg90WPpOe0367W0a+Ht1n2v5UOq6cdr0h3bc01xEf12rbacmNK7ddL/R63JTpf+56kFCmiT+3nZZc/3PXw953/XuuP9eOUfu4e+23tXB5VJ6Tcjkray8D7UJ5rBMzPo+6z39uXKG8cEpcPGfm5/XG+iezO5/j5I4rpfyrFo3/FnFp8s5j8sekqJN73C7/ujK715D0fYl/fWmOe4weoetcisnv67lxaal53LlYHXPz5h8L+udt/ijbLU0PLVJcqd+TpXD1kq7eGD0o07+mXW1axHWFaXJZ0Ghp/eOekfMdnNz7lR3La/KOPjamUB6G06seUv5VY8eV47LtXijiOPLseNu29vOcMv33Os7oNS4tLh/K+6J/bcfyu7Hra0weNdd/r3GlYsfjfH4uzX/BNJBQNod8z1IhoQx6tIOEMujRjrnmp5cKCWXQox3oH31BQhn0aAcJZdCjHSSUQY924PnRFySUQY92kFAGPdrh8rxfzG7OH0yHvx7Vvk9xZnbf/eh5PerS8J/jv7fbX96+Zcz7SiCN3HXFoA52Xdi+9ZvQYzrQP/rilaIO9JgO9I++gB59QYo60GM6/Pev+Pwc8/Rp8efmzs6Esti6Dczdy0EFfPT8W1Jzo8RaCeSAyzFHPfz1p3xtWcxC9fl+zK9flrq+SgMV8OH/dlzoPISOOXZ+Que5xnnoBWodALhAzbV2IB3o0Rdz1SN3HVwtS12LGIIK+Ghxbubw+1U5UAEfmH+Ugwr4gB7loAI+oEc55jg/XzLQoy+gR19o1rYf6tgTHC5/AWHaz5g=
   </data>
  </layer>
  <objectgroup name="event">
-  <object id="1" name="Basic lab" type="on_trigger" x="2656" y="1664" width="64" height="64">
+  <object height="64" id="1" name="Basic lab" type="event" width="64" x="2656" y="1664">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="intermap" value="maps/lab_basic.txt,3,21"/>
-    <property name="soundfx" value="soundfx/environment/teleporter.ogg,0,0"/>
-    <property name="tooltip" value="Dev Lab - Basic Lessons"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="intermap" value="maps/lab_basic.txt,3,21" />
+    <property name="soundfx" value="soundfx/environment/teleporter.ogg,0,0" />
+    <property name="tooltip" value="Dev Lab - Basic Lessons" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="2" name="Book Stand" type="on_trigger" x="256" y="1216" width="32" height="32">
+  <object height="32" id="2" name="Book Stand" type="event" width="32" x="256" y="1216">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="mapmod" value="object,8,38,164"/>
-    <property name="msg" value="Mankind tends to lead by example. Be it good or bad."/>
-    <property name="soundfx" value="soundfx/inventory/inventory_page.ogg"/>
-    <property name="tooltip" value="Book stand"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="mapmod" value="object,8,38,164" />
+    <property name="msg" value="Mankind tends to lead by example. Be it good or bad." />
+    <property name="soundfx" value="soundfx/inventory/inventory_page.ogg" />
+    <property name="tooltip" value="Book stand" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="3" name="Book Stand" type="on_trigger" x="128" y="2400" width="32" height="32">
+  <object height="32" id="3" name="Book Stand" type="event" width="32" x="128" y="2400">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="mapmod" value="object,8,38,164"/>
-    <property name="msg" value="Some traps cannot be escaped easily. Only those who can modify the map can get out of here."/>
-    <property name="soundfx" value="soundfx/inventory/inventory_page.ogg"/>
-    <property name="tooltip" value="Book stand"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="mapmod" value="object,8,38,164" />
+    <property name="msg" value="Some traps cannot be escaped easily. Only those who can modify the map can get out of here." />
+    <property name="soundfx" value="soundfx/inventory/inventory_page.ogg" />
+    <property name="tooltip" value="Book stand" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="4" type="on_trigger" x="224" y="2144" width="64" height="32">
+  <object height="32" id="4" type="event" width="64" x="224" y="2144">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="intermap" value="maps/lab_mapping.txt,7,75"/>
-    <property name="tooltip" value="Runes on the ground."/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="intermap" value="maps/lab_mapping.txt,7,75" />
+    <property name="tooltip" value="Runes on the ground." />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="5" name="brazier sound effect" type="on_load" x="640" y="1280" width="32" height="32">
+  <object height="32" id="5" name="brazier sound effect" type="event" width="32" x="640" y="1280">
    <properties>
-    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="6" name="brazier sound effect" type="on_load" x="128" y="1568" width="32" height="32">
+  <object height="32" id="6" name="brazier sound effect" type="event" width="32" x="128" y="1568">
    <properties>
-    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
  </objectgroup>
  <objectgroup name="npc">
-  <object id="7" type="npcs/mapping_welcome.txt" x="1888" y="1600" width="32" height="32"/>
-  <object id="8" type="npcs/mapping_tiles.txt" x="1472" y="1152" width="32" height="32"/>
-  <object id="9" type="npcs/mapping_basics.txt" x="1856" y="1184" width="32" height="32"/>
-  <object id="10" type="npcs/mapping_tilesets.txt" x="1376" y="1600" width="32" height="32"/>
-  <object id="11" type="npcs/mapping_structure.txt" x="608" y="1312" width="32" height="32"/>
-  <object id="12" type="npcs/mapping_collision.txt" x="192" y="1568" width="32" height="32"/>
-  <object id="13" type="npcs/mapping_console.txt" x="192" y="2688" width="32" height="32"/>
+  <object height="32" id="7" type="npc" width="32" x="1888" y="1600"><properties><property name="filename" value="npcs/mapping_welcome.txt" /></properties></object>
+  <object height="32" id="8" type="npc" width="32" x="1472" y="1152"><properties><property name="filename" value="npcs/mapping_tiles.txt" /></properties></object>
+  <object height="32" id="9" type="npc" width="32" x="1856" y="1184"><properties><property name="filename" value="npcs/mapping_basics.txt" /></properties></object>
+  <object height="32" id="10" type="npc" width="32" x="1376" y="1600"><properties><property name="filename" value="npcs/mapping_tilesets.txt" /></properties></object>
+  <object height="32" id="11" type="npc" width="32" x="608" y="1312"><properties><property name="filename" value="npcs/mapping_structure.txt" /></properties></object>
+  <object height="32" id="12" type="npc" width="32" x="192" y="1568"><properties><property name="filename" value="npcs/mapping_collision.txt" /></properties></object>
+  <object height="32" id="13" type="npc" width="32" x="192" y="2688"><properties><property name="filename" value="npcs/mapping_console.txt" /></properties></object>
  </objectgroup>
 </map>

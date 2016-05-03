@@ -116,16 +116,18 @@ data=
 
 [event]
 # Warp to Cave 2
-type=on_trigger
+type=event
 location=48,17,1,4
+activate=on_trigger
 hotspot=location
 intermap=maps/cave_of_living_bones2.txt,3,38
 tooltip=Cave of Living Bones 2
 
 [event]
 # Crate of Blasting Powder
-type=on_trigger
+type=event
 location=6,6,1,1
+activate=on_trigger
 hotspot=location
 mapmod=collision,6,6,0;object,6,6,0
 repeat=false
@@ -134,8 +136,9 @@ tooltip=Crate of Blasting Powder
 
 [event]
 # Barrel
-type=on_trigger
+type=event
 location=5,6,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_high.txt
 mapmod=object,5,6,178
@@ -145,8 +148,9 @@ tooltip=Barrel
 
 [event]
 # Barrel
-type=on_trigger
+type=event
 location=3,18,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_mid.txt
 mapmod=object,3,18,178
@@ -156,21 +160,24 @@ tooltip=Barrel
 
 [event]
 # Cave wind sound effect
-type=on_load
+type=event
 location=0,0,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_wind_loop.ogg
 
 [enemy]
 # Guard the Explosives
-type=undead
+type=enemy
 location=5,7,6,17
+category=undead
 level=6,8
 number=5,7
 
 [enemy]
 # Various Enemies
-type=undead
+type=enemy
 location=11,8,26,17
+category=undead
 level=6,8
 number=7,10
 

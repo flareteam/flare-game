@@ -66,12 +66,14 @@ data=
 3,3,3,3,3,3,3,3,3,3
 
 [npc]
-type=npcs/prog_welcome.txt
+type=npc
 location=2,3,1,1
+filename=npcs/prog_welcome.txt
 
 [event]
-type=on_trigger
+type=event
 location=4,1,2,1
+activate=on_trigger
 hotspot=location
 intermap=maps/lab_basic.txt,4,27
 soundfx=soundfx/door_open.ogg,0,0

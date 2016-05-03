@@ -181,8 +181,9 @@ data=
 
 [event]
 # to Perdition Harbor
-type=on_trigger
+type=event
 location=16,45,1,2
+activate=on_trigger
 hotspot=location
 intermap=maps/perdition_harbor.txt,32,20
 soundfx=soundfx/environment/stairs.ogg,0,0
@@ -190,8 +191,9 @@ tooltip=Perdition Harbor
 
 [event]
 # to Salted Field
-type=on_trigger
+type=event
 location=15,5,2,1
+activate=on_trigger
 hotspot=location
 intermap=maps/salted_field.txt,11,44
 soundfx=soundfx/environment/stairs.ogg,0,0
@@ -199,81 +201,92 @@ tooltip=Salted Field
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=9,23,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=9,27,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # Wind sound
-type=on_load
+type=event
 location=0,0,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_wind_loop.ogg
 
 [event]
 # north-east tele
-type=on_trigger
+type=event
 location=15,16,1,1
+activate=on_trigger
 intramap=20,25
 requires_status=emp_main_init
 soundfx=soundfx/environment/teleporter.ogg,0,0
 
 [event]
 # east-north tele
-type=on_trigger
+type=event
 location=27,23,1,1
+activate=on_trigger
 intramap=15,15
 soundfx=soundfx/environment/teleporter.ogg,0,0
 
 [event]
 # west-north tele
-type=on_trigger
+type=event
 location=27,27,1,1
+activate=on_trigger
 hotspot=location
 intramap=15,35
 soundfx=soundfx/environment/teleporter.ogg,0,0
 
 [event]
 # south-east tele
-type=on_trigger
+type=event
 location=15,34,1,1
+activate=on_trigger
 intramap=20,25
 requires_status=emp_main_init
 soundfx=soundfx/environment/teleporter.ogg,0,0
 
 [event]
 # south-west tele
-type=on_trigger
+type=event
 location=15,34,1,1
+activate=on_trigger
 intramap=9,25
 requires_not_status=emp_main_init
 soundfx=soundfx/environment/teleporter.ogg,0,0
 
 [event]
 # north-west tele
-type=on_trigger
+type=event
 location=15,16,1,1
+activate=on_trigger
 intramap=9,25
 requires_not_status=emp_main_init
 soundfx=soundfx/environment/teleporter.ogg,0,0
 
 [event]
 # west-east tele
-type=on_trigger
+type=event
 location=10,25,1,1
+activate=on_trigger
 intramap=20,25
 requires_status=emp_main_init
 soundfx=soundfx/environment/teleporter.ogg,0,0
 
 [event]
 # book of the dead (start main quest)
-type=on_trigger
+type=event
 location=4,25,1,1
+activate=on_trigger
 book=books/book_of_the_dead.txt
 hotspot=location
 mapmod=background,10,25,61;background,18,25,61
@@ -286,8 +299,9 @@ tooltip=Book of the Dead
 
 [event]
 # book of the dead (normal)
-type=on_trigger
+type=event
 location=2,20,1,1
+activate=on_trigger
 book=books/book_of_the_dead.txt
 hotspot=4,25,1,1
 requires_status=emp_main_init
@@ -296,27 +310,31 @@ tooltip=Book of the Dead
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=30,28,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=30,22,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # east-west tele
-type=on_trigger
+type=event
 location=18,25,1,1
+activate=on_trigger
 intramap=9,25
 requires_status=emp_main_init
 soundfx=soundfx/environment/teleporter.ogg,0,0
 
 [event]
-type=on_load
+type=event
 location=8,34,1,1
+activate=on_load
 mapmod=background,10,25,61;background,18,25,61
 requires_status=emp_main_init
 

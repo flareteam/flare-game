@@ -271,160 +271,186 @@ data=
 
 [event]
 # to Goblin Camp
-type=on_trigger
+type=event
 location=2,15,1,4
+activate=on_trigger
 hotspot=location
 intermap=maps/goblin_camp.txt,52,15
 tooltip=Goblin Camp
 
 [event]
 # Wind and crickets sound effect
-type=on_load
+type=event
 location=0,0,1,1
+activate=on_load
 soundfx=soundfx/environment/wind_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=22,22,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=13,21,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=27,32,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=29,13,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=17,43,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=15,65,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=25,57,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=35,49,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=53,64,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=46,43,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=60,49,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=48,29,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=5,10,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=13,40,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=21,71,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=58,59,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=60,37,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=40,44,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=64,17,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=24,7,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=7,54,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=73,11,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=43,27,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]
 # Supplies
-type=on_trigger
+type=event
 location=45,25,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_2.txt
 mapmod=object,45,25,99
@@ -434,8 +460,9 @@ tooltip=Supplies
 
 [event]
 # Supplies
-type=on_trigger
+type=event
 location=16,61,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_2.txt
 mapmod=object,16,61,97
@@ -445,8 +472,9 @@ tooltip=Supplies
 
 [event]
 # Supplies
-type=on_trigger
+type=event
 location=62,34,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_2.txt
 mapmod=object,62,34,97
@@ -456,105 +484,122 @@ tooltip=Supplies
 
 [event]
 # to Lochport Cemetery
-type=on_trigger
+type=event
 location=79,11,1,4
+activate=on_trigger
 hotspot=location
 intermap=maps/lochport_cemetery.txt,2,7
 tooltip=Lochport Cemetery
 
 [enemy]
-type=dungeon
+type=enemy
 location=19,15,5,10
+category=dungeon
 level=2
 number=2,3
 
 [enemy]
-type=goblin
+type=enemy
 location=13,31,6,10
+category=goblin
 level=2
 number=2,3
 
 [enemy]
-type=goblin
+type=enemy
 location=15,45,7,8
+category=goblin
 level=2
 number=2
 
 [enemy]
-type=goblin
+type=enemy
 location=3,60,5,7
+category=goblin
 level=2
 number=2
 
 [enemy]
-type=goblin
+type=enemy
 location=11,71,8,5
+category=goblin
 level=2
 number=2
 
 [enemy]
-type=goblin
+type=enemy
 location=27,67,5,7
+category=goblin
 level=2
 number=2
 
 [enemy]
-type=dungeon
+type=enemy
 location=30,52,12,4
+category=dungeon
 level=2
 number=2,3
 
 [enemy]
-type=dungeon
+type=enemy
 location=30,42,13,4
+category=dungeon
 level=2
 number=2,3
 
 [enemy]
-type=dungeon
+type=enemy
 location=33,27,11,7
+category=dungeon
 level=2
 number=2
 
 [enemy]
-type=dungeon
+type=enemy
 location=28,10,6,12
+category=dungeon
 level=2
 number=2
 
 [enemy]
-type=undead
+type=enemy
 location=55,53,6,12
+category=undead
 level=2
 number=2,3
 
 [enemy]
-type=undead
+type=enemy
 location=60,32,5,12
+category=undead
 level=2
 number=2
 
 [enemy]
-type=undead
+type=enemy
 location=53,18,10,7
+category=undead
 level=2
 number=2
 
 [enemy]
-type=undead
+type=enemy
 location=49,27,5,17
+category=undead
 level=2
 number=2,3
 
 [enemy]
-type=undead
+type=enemy
 location=63,11,5,7
+category=undead
 level=2
 number=1,2
 
 [enemy]
-type=goblin
+type=enemy
 location=19,60,7,5
+category=goblin
 level=2
 number=2
 

@@ -1,24 +1,23 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="isometric" renderorder="right-down" width="80" height="80" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="37">
+<map backgroundcolor="#000000" height="80" nextobjectid="37" orientation="isometric" renderorder="right-down" tileheight="32" tilewidth="64" version="1.0" width="80">
  <properties>
-  <property name="music" value="music/cave_theme.ogg"/>
-  <property name="tileset" value="tilesetdefs/tileset_cave.txt"/>
-  <property name="title" value="Antlion Nest"/>
+  <property name="music" value="music/cave_theme.ogg" />
+  <property name="tileset" value="tilesetdefs/tileset_cave.txt" />
+  <property name="title" value="Antlion Nest" />
  </properties>
- <tileset firstgid="1" name="collision" tilewidth="64" tileheight="32" tilecount="15">
-  <image source="../cave/tiled_collision.png" width="960" height="32"/>
+ <tileset firstgid="1" name="collision" tilecount="15" tileheight="32" tilewidth="64">
+  <image height="32" source="../cave/tiled_collision.png" width="960" />
  </tileset>
- <tileset firstgid="16" name="cave" tilewidth="64" tileheight="128" tilecount="240">
-  <image source="../cave/tiled_cave.png" width="1024" height="1920"/>
+ <tileset firstgid="16" name="cave" tilecount="240" tileheight="128" tilewidth="64">
+  <image height="1920" source="../cave/tiled_cave.png" width="1024" />
  </tileset>
- <tileset firstgid="256" name="set_rules" tilewidth="64" tileheight="32" tilecount="8">
-  <image source="../cave/set_rules.png" width="128" height="128"/>
+ <tileset firstgid="256" name="set_rules" tilecount="8" tileheight="32" tilewidth="64">
+  <image height="128" source="../cave/set_rules.png" width="128" />
  </tileset>
- <tileset firstgid="264" name="tiled_cave_2x2" tilewidth="128" tileheight="64" tilecount="2">
-  <tileoffset x="0" y="16"/>
-  <image source="../cave/tiled_cave_2x2.png" width="256" height="64"/>
+ <tileset firstgid="264" name="tiled_cave_2x2" tilecount="2" tileheight="64" tilewidth="128">
+  <tileoffset x="0" y="16" />
+  <image height="64" source="../cave/tiled_cave_2x2.png" width="256" />
  </tileset>
- <layer name="background" width="80" height="80">
+ <layer height="80" name="background" width="80">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -102,7 +101,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="object" width="80" height="80">
+ <layer height="80" name="object" width="80">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -186,7 +185,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="collision" width="80" height="80" visible="0">
+ <layer height="80" name="collision" visible="0" width="80">
   <data encoding="csv">
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
@@ -271,217 +270,217 @@
 </data>
  </layer>
  <objectgroup name="event">
-  <object id="13" name="to The Breach" type="on_trigger" x="2528" y="2080" width="32" height="128">
+  <object height="128" id="13" name="to The Breach" type="event" width="32" x="2528" y="2080">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="intermap" value="maps/the_breach.txt,2,48"/>
-    <property name="tooltip" value="The Breach"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="intermap" value="maps/the_breach.txt,2,48" />
+    <property name="tooltip" value="The Breach" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="14" name="Crate" type="on_trigger" x="384" y="2176" width="32" height="32">
+  <object height="32" id="14" name="Crate" type="event" width="32" x="384" y="2176">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/level_6.txt"/>
-    <property name="mapmod" value="object,12,68,179"/>
-    <property name="repeat" value="false"/>
-    <property name="soundfx" value="soundfx/wood_open.ogg"/>
-    <property name="tooltip" value="Crate"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="loot" value="loot/level_6.txt" />
+    <property name="mapmod" value="object,12,68,179" />
+    <property name="repeat" value="false" />
+    <property name="soundfx" value="soundfx/wood_open.ogg" />
+    <property name="tooltip" value="Crate" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="15" name="Barrel" type="on_trigger" x="2080" y="480" width="32" height="32">
+  <object height="32" id="15" name="Barrel" type="event" width="32" x="2080" y="480">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/level_6.txt"/>
-    <property name="mapmod" value="object,65,15,178"/>
-    <property name="repeat" value="false"/>
-    <property name="soundfx" value="soundfx/wood_open.ogg"/>
-    <property name="tooltip" value="Barrel"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="loot" value="loot/level_6.txt" />
+    <property name="mapmod" value="object,65,15,178" />
+    <property name="repeat" value="false" />
+    <property name="soundfx" value="soundfx/wood_open.ogg" />
+    <property name="tooltip" value="Barrel" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="16" name="Treasure Chest" type="on_trigger" x="96" y="1248" width="32" height="32">
+  <object height="32" id="16" name="Treasure Chest" type="event" width="32" x="96" y="1248">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/level_6.txt"/>
-    <property name="mapmod" value="object,3,39,176"/>
-    <property name="repeat" value="false"/>
-    <property name="soundfx" value="soundfx/wood_open.ogg"/>
-    <property name="tooltip" value="Treasure Chest"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="loot" value="loot/level_6.txt" />
+    <property name="mapmod" value="object,3,39,176" />
+    <property name="repeat" value="false" />
+    <property name="soundfx" value="soundfx/wood_open.ogg" />
+    <property name="tooltip" value="Treasure Chest" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="17" name="Crate" type="on_trigger" x="1056" y="224" width="32" height="32">
+  <object height="32" id="17" name="Crate" type="event" width="32" x="1056" y="224">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/level_6.txt"/>
-    <property name="mapmod" value="object,33,7,179"/>
-    <property name="repeat" value="false"/>
-    <property name="soundfx" value="soundfx/wood_open.ogg"/>
-    <property name="tooltip" value="Crate"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="loot" value="loot/level_6.txt" />
+    <property name="mapmod" value="object,33,7,179" />
+    <property name="repeat" value="false" />
+    <property name="soundfx" value="soundfx/wood_open.ogg" />
+    <property name="tooltip" value="Crate" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="25" name="Cave wind sound effect" type="on_load" x="0" y="0" width="32" height="32">
+  <object height="32" id="25" name="Cave wind sound effect" type="event" width="32" x="0" y="0">
    <properties>
-    <property name="soundfx" value="soundfx/environment/cave_wind_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/cave_wind_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="26" name="Water dripping" type="on_load" x="512" y="288" width="32" height="32">
+  <object height="32" id="26" name="Water dripping" type="event" width="32" x="512" y="288">
    <properties>
-    <property name="soundfx" value="soundfx/environment/cave_droplets_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/cave_droplets_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="27" name="Water dripping" type="on_load" x="256" y="1248" width="32" height="32">
+  <object height="32" id="27" name="Water dripping" type="event" width="32" x="256" y="1248">
    <properties>
-    <property name="soundfx" value="soundfx/environment/cave_droplets_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/cave_droplets_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="28" name="Water dripping" type="on_load" x="640" y="2112" width="32" height="32">
+  <object height="32" id="28" name="Water dripping" type="event" width="32" x="640" y="2112">
    <properties>
-    <property name="soundfx" value="soundfx/environment/cave_droplets_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/cave_droplets_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="29" name="Water dripping" type="on_load" x="1952" y="480" width="32" height="32">
+  <object height="32" id="29" name="Water dripping" type="event" width="32" x="1952" y="480">
    <properties>
-    <property name="soundfx" value="soundfx/environment/cave_droplets_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/cave_droplets_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="30" name="Water dripping" type="on_load" x="1184" y="544" width="32" height="32">
+  <object height="32" id="30" name="Water dripping" type="event" width="32" x="1184" y="544">
    <properties>
-    <property name="soundfx" value="soundfx/environment/cave_droplets_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/cave_droplets_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="31" name="Water dripping" type="on_load" x="736" y="1568" width="32" height="32">
+  <object height="32" id="31" name="Water dripping" type="event" width="32" x="736" y="1568">
    <properties>
-    <property name="soundfx" value="soundfx/environment/cave_droplets_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/cave_droplets_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="32" name="Water dripping" type="on_load" x="1344" y="1664" width="32" height="32">
+  <object height="32" id="32" name="Water dripping" type="event" width="32" x="1344" y="1664">
    <properties>
-    <property name="soundfx" value="soundfx/environment/cave_droplets_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/cave_droplets_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="36" name="to Temple of Mez 1" type="on_trigger" x="0" y="320" width="32" height="128">
+  <object height="128" id="36" name="to Temple of Mez 1" type="event" width="32" x="0" y="320">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="intermap" value="maps/temple_of_mez_1.txt,76,34"/>
-    <property name="tooltip" value="Temple of Mez: Basement"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="intermap" value="maps/temple_of_mez_1.txt,76,34" />
+    <property name="tooltip" value="Temple of Mez: Basement" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
  </objectgroup>
  <objectgroup name="enemy">
-  <object id="1" type="antlion" x="1600" y="1760" width="256" height="288">
+  <object height="288" id="1" type="enemy" width="256" x="1600" y="1760">
    <properties>
-    <property name="level" value="6"/>
-    <property name="number" value="3"/>
-   </properties>
+    <property name="level" value="6" />
+    <property name="number" value="3" />
+   <property name="category" value="antlion" /></properties>
   </object>
-  <object id="2" type="antlion" x="1216" y="1504" width="256" height="288">
+  <object height="288" id="2" type="enemy" width="256" x="1216" y="1504">
    <properties>
-    <property name="level" value="6"/>
-    <property name="number" value="3"/>
-   </properties>
+    <property name="level" value="6" />
+    <property name="number" value="3" />
+   <property name="category" value="antlion" /></properties>
   </object>
-  <object id="3" type="antlion" x="1504" y="960" width="256" height="288">
+  <object height="288" id="3" type="enemy" width="256" x="1504" y="960">
    <properties>
-    <property name="level" value="6"/>
-    <property name="number" value="3"/>
-   </properties>
+    <property name="level" value="6" />
+    <property name="number" value="3" />
+   <property name="category" value="antlion" /></properties>
   </object>
-  <object id="4" type="antlion" x="1088" y="480" width="352" height="320">
+  <object height="320" id="4" type="enemy" width="352" x="1088" y="480">
    <properties>
-    <property name="level" value="6"/>
-    <property name="number" value="4"/>
-   </properties>
+    <property name="level" value="6" />
+    <property name="number" value="4" />
+   <property name="category" value="antlion" /></properties>
   </object>
-  <object id="5" type="antlion" x="1920" y="704" width="256" height="320">
+  <object height="320" id="5" type="enemy" width="256" x="1920" y="704">
    <properties>
-    <property name="level" value="6"/>
-    <property name="number" value="4"/>
-   </properties>
+    <property name="level" value="6" />
+    <property name="number" value="4" />
+   <property name="category" value="antlion" /></properties>
   </object>
-  <object id="6" type="antlion" x="672" y="1056" width="256" height="288">
+  <object height="288" id="6" type="enemy" width="256" x="672" y="1056">
    <properties>
-    <property name="level" value="6"/>
-    <property name="number" value="3"/>
-   </properties>
+    <property name="level" value="6" />
+    <property name="number" value="3" />
+   <property name="category" value="antlion" /></properties>
   </object>
-  <object id="7" type="antlion" x="800" y="1760" width="256" height="288">
+  <object height="288" id="7" type="enemy" width="256" x="800" y="1760">
    <properties>
-    <property name="level" value="6"/>
-    <property name="number" value="3"/>
-   </properties>
+    <property name="level" value="6" />
+    <property name="number" value="3" />
+   <property name="category" value="antlion" /></properties>
   </object>
-  <object id="8" type="antlion" x="352" y="1696" width="320" height="352">
+  <object height="352" id="8" type="enemy" width="320" x="352" y="1696">
    <properties>
-    <property name="level" value="6"/>
-    <property name="number" value="4"/>
-   </properties>
+    <property name="level" value="6" />
+    <property name="number" value="4" />
+   <property name="category" value="antlion" /></properties>
   </object>
-  <object id="9" type="antlion" x="64" y="1056" width="352" height="352">
+  <object height="352" id="9" type="enemy" width="352" x="64" y="1056">
    <properties>
-    <property name="level" value="6"/>
-    <property name="number" value="4"/>
-   </properties>
+    <property name="level" value="6" />
+    <property name="number" value="4" />
+   <property name="category" value="antlion" /></properties>
   </object>
-  <object id="10" type="antlion" x="384" y="736" width="256" height="288">
+  <object height="288" id="10" type="enemy" width="256" x="384" y="736">
    <properties>
-    <property name="level" value="6"/>
-    <property name="number" value="3"/>
-   </properties>
+    <property name="level" value="6" />
+    <property name="number" value="3" />
+   <property name="category" value="antlion" /></properties>
   </object>
-  <object id="11" type="antlion" x="416" y="224" width="256" height="288">
+  <object height="288" id="11" type="enemy" width="256" x="416" y="224">
    <properties>
-    <property name="level" value="6"/>
-    <property name="number" value="3"/>
-   </properties>
+    <property name="level" value="6" />
+    <property name="number" value="3" />
+   <property name="category" value="antlion" /></properties>
   </object>
-  <object id="19" type="antlion_hatchling" x="1984" y="384" width="256" height="320">
+  <object height="320" id="19" type="enemy" width="256" x="1984" y="384">
    <properties>
-    <property name="level" value="6"/>
-    <property name="number" value="4"/>
-   </properties>
+    <property name="level" value="6" />
+    <property name="number" value="4" />
+   <property name="category" value="antlion_hatchling" /></properties>
   </object>
-  <object id="20" type="antlion_hatchling" x="928" y="128" width="256" height="320">
+  <object height="320" id="20" type="enemy" width="256" x="928" y="128">
    <properties>
-    <property name="level" value="6"/>
-    <property name="number" value="4"/>
-   </properties>
+    <property name="level" value="6" />
+    <property name="number" value="4" />
+   <property name="category" value="antlion_hatchling" /></properties>
   </object>
-  <object id="21" type="antlion_hatchling" x="32" y="640" width="256" height="256">
+  <object height="256" id="21" type="enemy" width="256" x="32" y="640">
    <properties>
-    <property name="level" value="6"/>
-    <property name="number" value="4"/>
-   </properties>
+    <property name="level" value="6" />
+    <property name="number" value="4" />
+   <property name="category" value="antlion_hatchling" /></properties>
   </object>
-  <object id="22" type="antlion_hatchling" x="256" y="2048" width="320" height="256">
+  <object height="256" id="22" type="enemy" width="320" x="256" y="2048">
    <properties>
-    <property name="level" value="6"/>
-    <property name="number" value="4"/>
-   </properties>
+    <property name="level" value="6" />
+    <property name="number" value="4" />
+   <property name="category" value="antlion_hatchling" /></properties>
   </object>
-  <object id="23" type="antlion_hatchling" x="1216" y="2080" width="256" height="288">
+  <object height="288" id="23" type="enemy" width="256" x="1216" y="2080">
    <properties>
-    <property name="level" value="6"/>
-    <property name="number" value="4"/>
-   </properties>
+    <property name="level" value="6" />
+    <property name="number" value="4" />
+   <property name="category" value="antlion_hatchling" /></properties>
   </object>
-  <object id="24" type="antlion" x="1088" y="1088" width="256" height="288">
+  <object height="288" id="24" type="enemy" width="256" x="1088" y="1088">
    <properties>
-    <property name="level" value="6"/>
-    <property name="number" value="3"/>
-   </properties>
+    <property name="level" value="6" />
+    <property name="number" value="3" />
+   <property name="category" value="antlion" /></properties>
   </object>
-  <object id="34" type="antlion_burster" x="1024" y="224" width="32" height="32">
+  <object height="32" id="34" type="enemy" width="32" x="1024" y="224">
    <properties>
-    <property name="level" value="6"/>
-    <property name="number" value="1"/>
-    <property name="wander_radius" value="0"/>
-   </properties>
+    <property name="level" value="6" />
+    <property name="number" value="1" />
+    <property name="wander_radius" value="0" />
+   <property name="category" value="antlion_burster" /></properties>
   </object>
-  <object id="35" type="antlion_burster" x="352" y="2176" width="32" height="32">
+  <object height="32" id="35" type="enemy" width="32" x="352" y="2176">
    <properties>
-    <property name="level" value="6"/>
-    <property name="number" value="1"/>
-    <property name="wander_radius" value="0"/>
-   </properties>
+    <property name="level" value="6" />
+    <property name="number" value="1" />
+    <property name="wander_radius" value="0" />
+   <property name="category" value="antlion_burster" /></properties>
   </object>
  </objectgroup>
 </map>

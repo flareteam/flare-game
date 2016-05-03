@@ -718,82 +718,95 @@ data=
 
 [event]
 # to Abandoned Mines
-type=on_trigger
+type=event
 location=89,60,2,1
+activate=on_trigger
 hotspot=location
 intermap=maps/abandoned_mines.txt,1,68
 tooltip=Abandoned Mines
 
 [event]
 # Wind and crickets sound effect
-type=on_load
+type=event
 location=0,0,1,1
+activate=on_load
 soundfx=soundfx/environment/wind_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=92,66,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=68,51,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=52,23,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=23,61,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=45,52,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=34,26,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=21,78,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=51,85,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=75,30,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=50,50,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Supplies
-type=on_trigger
+type=event
 location=78,28,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_5.txt
 mapmod=object,78,28,523
@@ -803,8 +816,9 @@ tooltip=Supplies
 
 [event]
 # Supplies
-type=on_trigger
+type=event
 location=21,77,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_5.txt
 mapmod=object,21,77,97
@@ -814,8 +828,9 @@ tooltip=Supplies
 
 [event]
 # Supplies
-type=on_trigger
+type=event
 location=59,40,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_5.txt
 loot_count=3
@@ -826,167 +841,195 @@ tooltip=Supplies
 
 [event]
 # River sound
-type=on_load
+type=event
 location=61,58,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=59,73,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=45,74,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=32,76,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=38,64,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=42,56,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=36,47,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=43,38,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=54,33,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=68,37,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=64,47,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [enemy]
-type=snowplains
+type=enemy
 location=65,51,10,15
+category=snowplains
 level=5
 number=3
 
 [enemy]
-type=snowplains
+type=enemy
 location=71,25,9,10
+category=snowplains
 level=5
 number=3
 
 [enemy]
-type=snowplains
+type=enemy
 location=39,21,16,8
+category=snowplains
 level=5
 number=3
 
 [enemy]
-type=snowplains
+type=enemy
 location=31,24,6,12
+category=snowplains
 level=5
 number=3
 
 [enemy]
-type=snowplains
+type=enemy
 location=25,37,7,10
+category=snowplains
 level=5
 number=3
 
 [enemy]
-type=snowplains
+type=enemy
 location=26,52,8,10
+category=snowplains
 level=5
 number=3
 
 [enemy]
-type=snowplains
+type=enemy
 location=22,65,7,10
+category=snowplains
 level=5
 number=3
 
 [enemy]
-type=snowplains
+type=enemy
 location=22,79,7,10
+category=snowplains
 level=5
 number=3
 
 [enemy]
-type=snowplains
+type=enemy
 location=36,79,11,9
+category=snowplains
 level=5
 number=3
 
 [enemy]
-type=snowplains
+type=enemy
 location=51,78,11,9
+category=snowplains
 level=5
 number=3
 
 [enemy]
-type=snowplains
+type=enemy
 location=66,72,11,14
+category=snowplains
 level=5
 number=3
 
 [enemy]
-type=goblin
+type=enemy
 location=50,39,7,10
+category=goblin
 level=5
 number=3
 
 [enemy]
-type=goblin
+type=enemy
 location=46,51,7,10
+category=goblin
 level=5
 number=3
 
 [enemy]
-type=snowplains
+type=enemy
 location=74,38,6,11
+category=snowplains
 level=5
 number=3
 
 [enemy]
-type=snowplains
+type=enemy
 location=58,22,9,10
+category=snowplains
 level=5
 number=3
 
 [enemy]
-type=prioss
+type=enemy
 location=44,46,1,1
+category=rioss
 level=6
 number=1
 
 [npc]
-type=npcs/ort.txt
+type=npc
 location=42,67,1,1
+filename=npcs/ort.txt
 

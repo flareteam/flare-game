@@ -271,8 +271,9 @@ data=
 
 [event]
 # to Lake Kuuma
-type=on_trigger
+type=event
 location=11,78,2,2
+activate=on_trigger
 hotspot=location
 intermap=maps/lake_kuuma.txt,103,27
 soundfx=soundfx/door_open.ogg,0,0
@@ -280,16 +281,18 @@ tooltip=Lake Kuuma
 
 [event]
 # open door
-type=on_trigger
+type=event
 location=32,61,1,1
+activate=on_trigger
 hotspot=location
 mapmod=collision,25,65,0;collision,26,65,0;collision,25,66,0;collision,26,66,0;object,26,65,0;object,26,66,0;object,26,64,209;object,26,67,223;object,32,61,166
 soundfx=soundfx/door_open.ogg
 tooltip=Switch
 
 [event]
-type=on_trigger
+type=event
 location=37,32,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_5.txt
 mapmod=object,37,32,163
@@ -298,8 +301,9 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Crate
 
 [event]
-type=on_trigger
+type=event
 location=44,37,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_5.txt
 mapmod=object,44,37,162
@@ -308,8 +312,9 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
-type=on_trigger
+type=event
 location=59,57,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_5.txt
 mapmod=object,59,57,163
@@ -318,8 +323,9 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Crate
 
 [event]
-type=on_trigger
+type=event
 location=68,4,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_5.txt
 mapmod=object,68,4,162
@@ -328,8 +334,9 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
-type=on_trigger
+type=event
 location=5,13,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_5.txt
 loot_count=2
@@ -340,8 +347,9 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Treasure Chest
 
 [event]
-type=on_trigger
+type=event
 location=65,6,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_5.txt
 mapmod=object,65,6,161
@@ -351,8 +359,9 @@ tooltip=Treasure Chest
 
 [event]
 # book pedestal (gem a)
-type=on_trigger
+type=event
 location=32,53,1,1
+activate=on_trigger
 hotspot=location
 loot=1006,fixed,1
 mapmod=object,32,53,165
@@ -364,23 +373,26 @@ tooltip=Book
 
 [event]
 # book mapmod (have gem)
-type=on_load
+type=event
 location=29,50,1,1
+activate=on_load
 mapmod=object,32,53,165
 requires_not_status=emp_amir_statue_a
 requires_status=emp_amir_gem_a
 
 [event]
 # book mapmod (used gem)
-type=on_load
+type=event
 location=31,50,1,1
+activate=on_load
 mapmod=object,32,53,165
 requires_status=emp_amir_statue_a
 
 [event]
 # place gem a
-type=on_trigger
+type=event
 location=38,53,1,1
+activate=on_trigger
 hotspot=location
 msg=The statue is missing an eye. The sapphire fits securely in the statue's eye socket.
 remove_item=1006
@@ -391,8 +403,9 @@ tooltip=Statue
 
 [event]
 # place gem b
-type=on_trigger
+type=event
 location=41,53,1,1
+activate=on_trigger
 hotspot=location
 msg=The statue is missing an eye. The sapphire fits securely in the statue's eye socket.
 remove_item=1007
@@ -403,8 +416,9 @@ tooltip=Statue
 
 [event]
 # statue a message
-type=on_trigger
+type=event
 location=36,50,1,1
+activate=on_trigger
 hotspot=38,53,1,1
 msg=The statue is missing an eye.
 requires_not_status=emp_amir_gem_a,emp_amir_statue_a
@@ -412,8 +426,9 @@ tooltip=Statue
 
 [event]
 # statue b message
-type=on_trigger
+type=event
 location=38,50,1,1
+activate=on_trigger
 hotspot=41,53,1,1
 msg=The statue is missing an eye.
 requires_not_status=emp_amir_gem_b,emp_amir_statue_b
@@ -421,8 +436,9 @@ tooltip=Statue
 
 [event]
 # start statue quest
-type=on_trigger
+type=event
 location=50,64,1,4
+activate=on_trigger
 msg=Quest added.
 repeat=false
 requires_not_status=emp_amir_init,emp_amir_finish
@@ -430,8 +446,9 @@ set_status=emp_amir_init
 
 [event]
 # open bookcase
-type=on_trigger
+type=event
 location=34,52,12,5
+activate=on_trigger
 mapmod=object,40,51,0;collision,40,51,0
 msg=The bookcase slides back and reveals a hidden path.
 repeat=false
@@ -442,8 +459,9 @@ soundfx=soundfx/environment/stone_open.ogg,40,51
 
 [event]
 # open bookcase (post-quest)
-type=on_trigger
+type=event
 location=38,57,4,1
+activate=on_trigger
 mapmod=object,40,51,0;collision,40,51,0
 repeat=false
 requires_not_status=emp_amir_bookcase
@@ -453,16 +471,18 @@ soundfx=soundfx/environment/stone_open.ogg,40,51
 
 [event]
 # quest reward
-type=on_trigger
+type=event
 location=54,43,1,1
+activate=on_trigger
 requires_not_status=emp_amir_finish
 reward_xp=800
 set_status=emp_amir_finish
 unset_status=emp_amir_init,emp_amir_gem_a,emp_amir_gem_b
 
 [event]
-type=on_trigger
+type=event
 location=53,36,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_6.txt
 loot_count=5,7
@@ -473,158 +493,184 @@ tooltip=Treasure Chest
 
 [event]
 # Wind sound
-type=on_load
+type=event
 location=0,0,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_wind_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=8,9,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=8,18,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=59,5,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=76,5,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=65,35,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=70,35,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=65,44,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=70,44,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=42,57,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=37,57,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # clear bookcase status
-type=on_load
+type=event
 location=16,78,1,1
+activate=on_load
 requires_status=emp_amir_finish
 unset_status=emp_amir_bookcase
 
 [enemy]
-type=dungeon
+type=enemy
 location=2,32,20,34
+category=dungeon
 level=5
 number=10,11
 
 [enemy]
-type=dungeon
+type=enemy
 location=23,36,11,4
+category=dungeon
 level=5
 number=2
 
 [enemy]
-type=dungeon
+type=enemy
 location=34,31,12,13
+category=dungeon
 level=5
 number=3
 
 [enemy]
-type=dungeon
+type=enemy
 location=38,17,4,11
+category=dungeon
 level=5
 number=3
 
 [enemy]
-type=dungeon
+type=enemy
 location=23,12,10,4
+category=dungeon
 level=5
 number=3
 
 [enemy]
-type=snowplains
+type=enemy
 location=5,7,14,14
+category=snowplains
 level=5
 number=6,7
 
 [enemy]
-type=dungeon
+type=enemy
 location=45,12,10,4
+category=dungeon
 level=5
 number=3
 
 [enemy]
-type=dungeon
+type=enemy
 location=63,7,10,12
+category=dungeon
 level=5
 number=4,5
 
 [enemy]
-type=dungeon
+type=enemy
 location=62,32,12,16
+category=dungeon
 level=5
 number=5,6
 
 [enemy]
-type=antlion
+type=enemy
 location=66,65,6,7
+category=antlion
 level=5
 number=2,3
 
 [enemy]
-type=dungeon
+type=enemy
 location=58,56,6,20
+category=dungeon
 level=5
 number=4
 
 [enemy]
-type=dungeon
+type=enemy
 location=72,56,6,20
+category=dungeon
 level=5
 number=4
 
 [enemy]
-type=dungeon
+type=enemy
 location=30,58,20,14
+category=dungeon
 level=5
 number=6,7
 
 [enemy]
-type=gruzza
+type=enemy
 location=39,54,1,1
+category=gruzza
 direction=7
 level=6
 number=1

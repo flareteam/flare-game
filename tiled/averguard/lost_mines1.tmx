@@ -1,21 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="isometric" renderorder="right-down" width="100" height="100" tilewidth="64" tileheight="32" nextobjectid="55">
+<map height="100" nextobjectid="55" orientation="isometric" renderorder="right-down" tileheight="32" tilewidth="64" version="1.0" width="100">
  <properties>
-  <property name="location" value="56,69,4"/>
-  <property name="music" value="music/cave_theme.ogg"/>
-  <property name="tileset" value="tilesetdefs/tileset_cave.txt"/>
-  <property name="title" value="Lost Mines Level 1"/>
+  <property name="location" value="56,69,4" />
+  <property name="music" value="music/cave_theme.ogg" />
+  <property name="tileset" value="tilesetdefs/tileset_cave.txt" />
+  <property name="title" value="Lost Mines Level 1" />
  </properties>
- <tileset firstgid="1" name="tiled_collision.png" tilewidth="64" tileheight="32">
-  <image source="../cave/tiled_collision.png" width="960" height="32"/>
+ <tileset firstgid="1" name="tiled_collision.png" tileheight="32" tilewidth="64">
+  <image height="32" source="../cave/tiled_collision.png" width="960" />
  </tileset>
- <tileset firstgid="16" name="tiled_cave.png" tilewidth="64" tileheight="128">
-  <image source="../cave/tiled_cave.png" width="1024" height="1920"/>
+ <tileset firstgid="16" name="tiled_cave.png" tileheight="128" tilewidth="64">
+  <image height="1920" source="../cave/tiled_cave.png" width="1024" />
  </tileset>
- <tileset firstgid="256" name="set_rules.png" tilewidth="64" tileheight="32">
-  <image source="../cave/set_rules.png" width="128" height="128"/>
+ <tileset firstgid="256" name="set_rules.png" tileheight="32" tilewidth="64">
+  <image height="128" source="../cave/set_rules.png" width="128" />
  </tileset>
- <layer name="background" width="100" height="100">
+ <layer height="100" name="background" width="100">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -119,7 +118,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,56,29,33,20,0,0,0,0,0,0,0,0,0,0,219,219,219,219,218,217,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="object" width="100" height="100">
+ <layer height="100" name="object" width="100">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -223,7 +222,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,96,153,150,146,66,0,0,0,0,0,0,0,0,0,64,134,0,0,0,132,66,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="collision" width="100" height="100" visible="0">
+ <layer height="100" name="collision" visible="0" width="100">
   <data encoding="csv">
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
@@ -328,340 +327,340 @@
 </data>
  </layer>
  <objectgroup name="event">
-  <object id="1" name="exit to cave level 1" type="on_trigger" x="1696" y="128" width="64" height="32">
+  <object height="32" id="1" name="exit to cave level 1" type="event" width="64" x="1696" y="128">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="intermap" value="maps/cave1.txt,15,67"/>
-    <property name="tooltip" value="Caves Level 1"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="intermap" value="maps/cave1.txt,15,67" />
+    <property name="tooltip" value="Caves Level 1" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="2" type="on_trigger" x="416" y="704" width="32" height="32">
+  <object height="32" id="2" type="event" width="32" x="416" y="704">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/leveled_low.txt"/>
-    <property name="mapmod" value="object,13,22,178"/>
-    <property name="repeat" value="false"/>
-    <property name="soundfx" value="soundfx/wood_open.ogg"/>
-    <property name="tooltip" value="Barrel"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="loot" value="loot/leveled_low.txt" />
+    <property name="mapmod" value="object,13,22,178" />
+    <property name="repeat" value="false" />
+    <property name="soundfx" value="soundfx/wood_open.ogg" />
+    <property name="tooltip" value="Barrel" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="3" type="on_trigger" x="352" y="672" width="32" height="32">
+  <object height="32" id="3" type="event" width="32" x="352" y="672">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/leveled_mid.txt"/>
-    <property name="mapmod" value="object,11,21,177"/>
-    <property name="repeat" value="false"/>
-    <property name="soundfx" value="soundfx/wood_open.ogg"/>
-    <property name="tooltip" value="Treasure Chest"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="loot" value="loot/leveled_mid.txt" />
+    <property name="mapmod" value="object,11,21,177" />
+    <property name="repeat" value="false" />
+    <property name="soundfx" value="soundfx/wood_open.ogg" />
+    <property name="tooltip" value="Treasure Chest" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="4" name="necromancer message" type="on_trigger" x="576" y="896" width="160" height="160">
+  <object height="160" id="4" name="necromancer message" type="event" width="160" x="576" y="896">
    <properties>
-    <property name="msg" value="It looks like the necromancer has been raising the corpses of dead miners as his minions."/>
-    <property name="repeat" value="false"/>
-   </properties>
+    <property name="msg" value="It looks like the necromancer has been raising the corpses of dead miners as his minions." />
+    <property name="repeat" value="false" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="5" type="on_trigger" x="800" y="768" width="32" height="32">
+  <object height="32" id="5" type="event" width="32" x="800" y="768">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/leveled_low.txt"/>
-    <property name="mapmod" value="object,25,24,178"/>
-    <property name="repeat" value="false"/>
-    <property name="soundfx" value="soundfx/wood_open.ogg"/>
-    <property name="tooltip" value="Barrel"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="loot" value="loot/leveled_low.txt" />
+    <property name="mapmod" value="object,25,24,178" />
+    <property name="repeat" value="false" />
+    <property name="soundfx" value="soundfx/wood_open.ogg" />
+    <property name="tooltip" value="Barrel" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="6" type="on_trigger" x="832" y="1024" width="32" height="32">
+  <object height="32" id="6" type="event" width="32" x="832" y="1024">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/leveled_low.txt"/>
-    <property name="mapmod" value="object,26,32,179"/>
-    <property name="repeat" value="false"/>
-    <property name="soundfx" value="soundfx/wood_open.ogg"/>
-    <property name="tooltip" value="Crate"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="loot" value="loot/leveled_low.txt" />
+    <property name="mapmod" value="object,26,32,179" />
+    <property name="repeat" value="false" />
+    <property name="soundfx" value="soundfx/wood_open.ogg" />
+    <property name="tooltip" value="Crate" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="7" type="on_trigger" x="896" y="1056" width="32" height="32">
+  <object height="32" id="7" type="event" width="32" x="896" y="1056">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/leveled_low.txt"/>
-    <property name="mapmod" value="object,28,33,178"/>
-    <property name="repeat" value="false"/>
-    <property name="soundfx" value="soundfx/wood_open.ogg"/>
-    <property name="tooltip" value="Barrel"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="loot" value="loot/leveled_low.txt" />
+    <property name="mapmod" value="object,28,33,178" />
+    <property name="repeat" value="false" />
+    <property name="soundfx" value="soundfx/wood_open.ogg" />
+    <property name="tooltip" value="Barrel" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="8" type="on_trigger" x="832" y="800" width="32" height="32">
+  <object height="32" id="8" type="event" width="32" x="832" y="800">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/leveled_low.txt"/>
-    <property name="mapmod" value="object,26,25,179"/>
-    <property name="repeat" value="false"/>
-    <property name="soundfx" value="soundfx/wood_open.ogg"/>
-    <property name="tooltip" value="Crate"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="loot" value="loot/leveled_low.txt" />
+    <property name="mapmod" value="object,26,25,179" />
+    <property name="repeat" value="false" />
+    <property name="soundfx" value="soundfx/wood_open.ogg" />
+    <property name="tooltip" value="Crate" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="9" type="on_trigger" x="1792" y="3040" width="32" height="32">
+  <object height="32" id="9" type="event" width="32" x="1792" y="3040">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/leveled_mid.txt"/>
-    <property name="mapmod" value="object,56,95,176"/>
-    <property name="repeat" value="false"/>
-    <property name="soundfx" value="soundfx/wood_open.ogg"/>
-    <property name="tooltip" value="Treasure Chest"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="loot" value="loot/leveled_mid.txt" />
+    <property name="mapmod" value="object,56,95,176" />
+    <property name="repeat" value="false" />
+    <property name="soundfx" value="soundfx/wood_open.ogg" />
+    <property name="tooltip" value="Treasure Chest" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="10" name="river message" type="on_trigger" x="2144" y="1984" width="128" height="128">
+  <object height="128" id="10" name="river message" type="event" width="128" x="2144" y="1984">
    <properties>
-    <property name="msg" value="A natural underground river flows through this room."/>
-    <property name="repeat" value="false"/>
-   </properties>
+    <property name="msg" value="A natural underground river flows through this room." />
+    <property name="repeat" value="false" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="11" type="on_trigger" x="2016" y="2240" width="32" height="32">
+  <object height="32" id="11" type="event" width="32" x="2016" y="2240">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/leveled_low.txt"/>
-    <property name="mapmod" value="object,63,70,178"/>
-    <property name="repeat" value="false"/>
-    <property name="soundfx" value="soundfx/wood_open.ogg"/>
-    <property name="tooltip" value="Barrel"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="loot" value="loot/leveled_low.txt" />
+    <property name="mapmod" value="object,63,70,178" />
+    <property name="repeat" value="false" />
+    <property name="soundfx" value="soundfx/wood_open.ogg" />
+    <property name="tooltip" value="Barrel" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="12" type="on_trigger" x="2272" y="2336" width="32" height="32">
+  <object height="32" id="12" type="event" width="32" x="2272" y="2336">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/leveled_low.txt"/>
-    <property name="mapmod" value="object,71,73,178"/>
-    <property name="repeat" value="false"/>
-    <property name="soundfx" value="soundfx/wood_open.ogg"/>
-    <property name="tooltip" value="Barrel"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="loot" value="loot/leveled_low.txt" />
+    <property name="mapmod" value="object,71,73,178" />
+    <property name="repeat" value="false" />
+    <property name="soundfx" value="soundfx/wood_open.ogg" />
+    <property name="tooltip" value="Barrel" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="13" type="on_trigger" x="1600" y="1664" width="32" height="32">
+  <object height="32" id="13" type="event" width="32" x="1600" y="1664">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/leveled_low.txt"/>
-    <property name="mapmod" value="object,50,52,178"/>
-    <property name="repeat" value="false"/>
-    <property name="soundfx" value="soundfx/wood_open.ogg"/>
-    <property name="tooltip" value="Barrel"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="loot" value="loot/leveled_low.txt" />
+    <property name="mapmod" value="object,50,52,178" />
+    <property name="repeat" value="false" />
+    <property name="soundfx" value="soundfx/wood_open.ogg" />
+    <property name="tooltip" value="Barrel" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="14" name="falling pillar/bridge event" type="on_trigger" x="2560" y="1920" width="32" height="32">
+  <object height="32" id="14" name="falling pillar/bridge event" type="event" width="32" x="2560" y="1920">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="mapmod" value="collision,80,60,0;collision,80,61,0;collision,80,62,0;collision,80,63,0;object,80,60,151;object,80,61,152;object,80,62,151;object,80,63,152"/>
-    <property name="repeat" value="false"/>
-    <property name="shakycam" value="666ms"/>
-    <property name="soundfx" value="soundfx/powers/quake.ogg"/>
-    <property name="tooltip" value="Stalagmite Pillar"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="mapmod" value="collision,80,60,0;collision,80,61,0;collision,80,62,0;collision,80,63,0;object,80,60,151;object,80,61,152;object,80,62,151;object,80,63,152" />
+    <property name="repeat" value="false" />
+    <property name="shakycam" value="666ms" />
+    <property name="soundfx" value="soundfx/powers/quake.ogg" />
+    <property name="tooltip" value="Stalagmite Pillar" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="15" name="river message 2" type="on_trigger" x="2816" y="2112" width="96" height="96">
+  <object height="96" id="15" name="river message 2" type="event" width="96" x="2816" y="2112">
    <properties>
-    <property name="msg" value="The river appears to have swollen recently, covering the location where the tracks once were."/>
-    <property name="repeat" value="false"/>
-   </properties>
+    <property name="msg" value="The river appears to have swollen recently, covering the location where the tracks once were." />
+    <property name="repeat" value="false" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="16" type="on_trigger" x="1472" y="928" width="32" height="32">
+  <object height="32" id="16" type="event" width="32" x="1472" y="928">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/leveled_low.txt"/>
-    <property name="mapmod" value="object,46,29,179"/>
-    <property name="repeat" value="false"/>
-    <property name="soundfx" value="soundfx/wood_open.ogg"/>
-    <property name="tooltip" value="Crate"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="loot" value="loot/leveled_low.txt" />
+    <property name="mapmod" value="object,46,29,179" />
+    <property name="repeat" value="false" />
+    <property name="soundfx" value="soundfx/wood_open.ogg" />
+    <property name="tooltip" value="Crate" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="17" type="on_trigger" x="1504" y="1024" width="32" height="32">
+  <object height="32" id="17" type="event" width="32" x="1504" y="1024">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/leveled_low.txt"/>
-    <property name="mapmod" value="object,47,32,178"/>
-    <property name="repeat" value="false"/>
-    <property name="soundfx" value="soundfx/wood_open.ogg"/>
-    <property name="tooltip" value="Barrel"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="loot" value="loot/leveled_low.txt" />
+    <property name="mapmod" value="object,47,32,178" />
+    <property name="repeat" value="false" />
+    <property name="soundfx" value="soundfx/wood_open.ogg" />
+    <property name="tooltip" value="Barrel" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="18" name="miners message" type="on_trigger" x="512" y="1504" width="96" height="96">
+  <object height="96" id="18" name="miners message" type="event" width="96" x="512" y="1504">
    <properties>
-    <property name="msg" value="The undead in this room are dressed in the remnants of shredded mining clothes."/>
-    <property name="repeat" value="false"/>
-   </properties>
+    <property name="msg" value="The undead in this room are dressed in the remnants of shredded mining clothes." />
+    <property name="repeat" value="false" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="19" type="on_trigger" x="2560" y="2144" width="32" height="32">
+  <object height="32" id="19" type="event" width="32" x="2560" y="2144">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/leveled_low.txt"/>
-    <property name="mapmod" value="object,80,67,178"/>
-    <property name="repeat" value="false"/>
-    <property name="soundfx" value="soundfx/wood_open.ogg"/>
-    <property name="tooltip" value="Barrel"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="loot" value="loot/leveled_low.txt" />
+    <property name="mapmod" value="object,80,67,178" />
+    <property name="repeat" value="false" />
+    <property name="soundfx" value="soundfx/wood_open.ogg" />
+    <property name="tooltip" value="Barrel" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="20" type="on_trigger" x="2592" y="2144" width="32" height="32">
+  <object height="32" id="20" type="event" width="32" x="2592" y="2144">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/leveled_low.txt"/>
-    <property name="mapmod" value="object,81,67,179"/>
-    <property name="repeat" value="false"/>
-    <property name="soundfx" value="soundfx/wood_open.ogg"/>
-    <property name="tooltip" value="Crate"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="loot" value="loot/leveled_low.txt" />
+    <property name="mapmod" value="object,81,67,179" />
+    <property name="repeat" value="false" />
+    <property name="soundfx" value="soundfx/wood_open.ogg" />
+    <property name="tooltip" value="Crate" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="21" type="on_trigger" x="2528" y="2176" width="32" height="32">
+  <object height="32" id="21" type="event" width="32" x="2528" y="2176">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/leveled_low.txt"/>
-    <property name="mapmod" value="object,79,68,178"/>
-    <property name="repeat" value="false"/>
-    <property name="soundfx" value="soundfx/wood_open.ogg"/>
-    <property name="tooltip" value="Barrel"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="loot" value="loot/leveled_low.txt" />
+    <property name="mapmod" value="object,79,68,178" />
+    <property name="repeat" value="false" />
+    <property name="soundfx" value="soundfx/wood_open.ogg" />
+    <property name="tooltip" value="Barrel" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="22" type="on_trigger" x="3136" y="1920" width="32" height="32">
+  <object height="32" id="22" type="event" width="32" x="3136" y="1920">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/leveled_mid.txt"/>
-    <property name="mapmod" value="object,98,60,177"/>
-    <property name="repeat" value="false"/>
-    <property name="soundfx" value="soundfx/wood_open.ogg"/>
-    <property name="tooltip" value="Treasure Chest"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="loot" value="loot/leveled_mid.txt" />
+    <property name="mapmod" value="object,98,60,177" />
+    <property name="repeat" value="false" />
+    <property name="soundfx" value="soundfx/wood_open.ogg" />
+    <property name="tooltip" value="Treasure Chest" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="23" type="on_trigger" x="160" y="1088" width="32" height="32">
+  <object height="32" id="23" type="event" width="32" x="160" y="1088">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/leveled_low.txt"/>
-    <property name="mapmod" value="object,5,34,178"/>
-    <property name="repeat" value="false"/>
-    <property name="soundfx" value="soundfx/wood_open.ogg"/>
-    <property name="tooltip" value="Barrel"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="loot" value="loot/leveled_low.txt" />
+    <property name="mapmod" value="object,5,34,178" />
+    <property name="repeat" value="false" />
+    <property name="soundfx" value="soundfx/wood_open.ogg" />
+    <property name="tooltip" value="Barrel" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="24" type="on_trigger" x="192" y="1056" width="32" height="32">
+  <object height="32" id="24" type="event" width="32" x="192" y="1056">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/leveled_low.txt"/>
-    <property name="mapmod" value="object,6,33,179"/>
-    <property name="repeat" value="false"/>
-    <property name="soundfx" value="soundfx/wood_open.ogg"/>
-    <property name="tooltip" value="Crate"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="loot" value="loot/leveled_low.txt" />
+    <property name="mapmod" value="object,6,33,179" />
+    <property name="repeat" value="false" />
+    <property name="soundfx" value="soundfx/wood_open.ogg" />
+    <property name="tooltip" value="Crate" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="25" name="Cave wind sound effect" type="on_load" x="0" y="0" width="32" height="32">
+  <object height="32" id="25" name="Cave wind sound effect" type="event" width="32" x="0" y="0">
    <properties>
-    <property name="soundfx" value="soundfx/environment/cave_wind_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/cave_wind_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="26" name="Water dripping" type="on_load" x="768" y="1568" width="32" height="32">
+  <object height="32" id="26" name="Water dripping" type="event" width="32" x="768" y="1568">
    <properties>
-    <property name="soundfx" value="soundfx/environment/cave_droplets_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/cave_droplets_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="27" name="Water dripping" type="on_load" x="2048" y="2080" width="32" height="32">
+  <object height="32" id="27" name="Water dripping" type="event" width="32" x="2048" y="2080">
    <properties>
-    <property name="soundfx" value="soundfx/environment/cave_droplets_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/cave_droplets_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="28" name="Water dripping" type="on_load" x="2976" y="1984" width="32" height="32">
+  <object height="32" id="28" name="Water dripping" type="event" width="32" x="2976" y="1984">
    <properties>
-    <property name="soundfx" value="soundfx/environment/cave_droplets_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/cave_droplets_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="29" name="River sound" type="on_load" x="2375" y="3127" width="32" height="32">
+  <object height="32" id="29" name="River sound" type="event" width="32" x="2375" y="3127">
    <properties>
-    <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/river_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="30" name="River sound" type="on_load" x="2222" y="2643" width="32" height="32">
+  <object height="32" id="30" name="River sound" type="event" width="32" x="2222" y="2643">
    <properties>
-    <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/river_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="31" name="River sound" type="on_load" x="2187" y="2324" width="32" height="32">
+  <object height="32" id="31" name="River sound" type="event" width="32" x="2187" y="2324">
    <properties>
-    <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/river_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="32" name="River sound" type="on_load" x="2329" y="2125" width="32" height="32">
+  <object height="32" id="32" name="River sound" type="event" width="32" x="2329" y="2125">
    <properties>
-    <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/river_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="33" name="River sound" type="on_load" x="2602" y="1997" width="32" height="32">
+  <object height="32" id="33" name="River sound" type="event" width="32" x="2602" y="1997">
    <properties>
-    <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/river_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="34" name="River sound" type="on_load" x="2822" y="2262" width="32" height="32">
+  <object height="32" id="34" name="River sound" type="event" width="32" x="2822" y="2262">
    <properties>
-    <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/river_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="35" name="River sound" type="on_load" x="3140" y="2112" width="32" height="32">
+  <object height="32" id="35" name="River sound" type="event" width="32" x="3140" y="2112">
    <properties>
-    <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/river_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="36" type="on_trigger" x="832" y="768" width="32" height="32">
+  <object height="32" id="36" type="event" width="32" x="832" y="768">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/leveled_low.txt"/>
-    <property name="mapmod" value="object,26,24,179"/>
-    <property name="repeat" value="false"/>
-    <property name="soundfx" value="soundfx/wood_open.ogg"/>
-    <property name="tooltip" value="Crate"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="loot" value="loot/leveled_low.txt" />
+    <property name="mapmod" value="object,26,24,179" />
+    <property name="repeat" value="false" />
+    <property name="soundfx" value="soundfx/wood_open.ogg" />
+    <property name="tooltip" value="Crate" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
  </objectgroup>
  <objectgroup name="enemy" visible="0">
-  <object id="37" type="skeletal_warrior" x="1568" y="672" width="32" height="32"/>
-  <object id="38" type="skeletal_warrior" x="1824" y="640" width="32" height="32"/>
-  <object id="39" type="goblin_spearman" x="1536" y="800" width="32" height="32">
+  <object height="32" id="37" type="enemy" width="32" x="1568" y="672"><properties><property name="category" value="skeletal_warrior" /></properties></object>
+  <object height="32" id="38" type="enemy" width="32" x="1824" y="640"><properties><property name="category" value="skeletal_warrior" /></properties></object>
+  <object height="32" id="39" type="enemy" width="32" x="1536" y="800">
    <properties>
-    <property name="wander_radius" value="0"/>
-   </properties>
+    <property name="wander_radius" value="0" />
+   <property name="category" value="goblin_spearman" /></properties>
   </object>
-  <object id="40" type="minotaur" x="1760" y="992" width="32" height="32"/>
-  <object id="41" type="skeletal_archer" x="1792" y="1024" width="32" height="32"/>
-  <object id="42" type="skeletal_archer" x="1696" y="1024" width="32" height="32"/>
-  <object id="43" type="antlion_freezer" x="2496" y="2112" width="32" height="32"/>
-  <object id="44" type="antlion_freezer" x="2592" y="2112" width="32" height="32"/>
-  <object id="45" type="necromancer_apprentice" x="576" y="896" width="32" height="32"/>
-  <object id="46" type="skeletal_warrior" x="1760" y="2560" width="32" height="32"/>
-  <object id="47" type="skeletal_warrior" x="1792" y="2560" width="32" height="32"/>
-  <object id="48" type="antlion_spitter" x="2272" y="2272" width="32" height="32"/>
-  <object id="49" type="minotaur" x="1792" y="1984" width="32" height="32"/>
-  <object id="50" type="antlion_hatchling" x="2912" y="1824" width="64" height="128">
+  <object height="32" id="40" type="enemy" width="32" x="1760" y="992"><properties><property name="category" value="minotaur" /></properties></object>
+  <object height="32" id="41" type="enemy" width="32" x="1792" y="1024"><properties><property name="category" value="skeletal_archer" /></properties></object>
+  <object height="32" id="42" type="enemy" width="32" x="1696" y="1024"><properties><property name="category" value="skeletal_archer" /></properties></object>
+  <object height="32" id="43" type="enemy" width="32" x="2496" y="2112"><properties><property name="category" value="antlion_freezer" /></properties></object>
+  <object height="32" id="44" type="enemy" width="32" x="2592" y="2112"><properties><property name="category" value="antlion_freezer" /></properties></object>
+  <object height="32" id="45" type="enemy" width="32" x="576" y="896"><properties><property name="category" value="necromancer_apprentice" /></properties></object>
+  <object height="32" id="46" type="enemy" width="32" x="1760" y="2560"><properties><property name="category" value="skeletal_warrior" /></properties></object>
+  <object height="32" id="47" type="enemy" width="32" x="1792" y="2560"><properties><property name="category" value="skeletal_warrior" /></properties></object>
+  <object height="32" id="48" type="enemy" width="32" x="2272" y="2272"><properties><property name="category" value="antlion_spitter" /></properties></object>
+  <object height="32" id="49" type="enemy" width="32" x="1792" y="1984"><properties><property name="category" value="minotaur" /></properties></object>
+  <object height="128" id="50" type="enemy" width="64" x="2912" y="1824">
    <properties>
-    <property name="level" value="2,6"/>
-    <property name="number" value="5,5"/>
-   </properties>
+    <property name="level" value="2,6" />
+    <property name="number" value="5,5" />
+   <property name="category" value="antlion_hatchling" /></properties>
   </object>
-  <object id="51" type="antlion" x="2112" y="1760" width="768" height="576">
+  <object height="576" id="51" type="enemy" width="768" x="2112" y="1760">
    <properties>
-    <property name="level" value="4,6"/>
-    <property name="number" value="6,6"/>
-   </properties>
+    <property name="level" value="4,6" />
+    <property name="number" value="6,6" />
+   <property name="category" value="antlion" /></properties>
   </object>
-  <object id="52" type="undead" x="480" y="1568" width="1056" height="384">
+  <object height="384" id="52" type="enemy" width="1056" x="480" y="1568">
    <properties>
-    <property name="level" value="3,5"/>
-    <property name="number" value="6,6"/>
-   </properties>
+    <property name="level" value="3,5" />
+    <property name="number" value="6,6" />
+   <property name="category" value="undead" /></properties>
   </object>
-  <object id="53" type="undead" x="192" y="352" width="672" height="1120">
+  <object height="1120" id="53" type="enemy" width="672" x="192" y="352">
    <properties>
-    <property name="level" value="4,5"/>
-    <property name="number" value="5,5"/>
-   </properties>
+    <property name="level" value="4,5" />
+    <property name="number" value="5,5" />
+   <property name="category" value="undead" /></properties>
   </object>
-  <object id="54" type="undead" x="192" y="352" width="672" height="1120">
+  <object height="1120" id="54" type="enemy" width="672" x="192" y="352">
    <properties>
-    <property name="level" value="3,3"/>
-    <property name="number" value="10,10"/>
-   </properties>
+    <property name="level" value="3,3" />
+    <property name="number" value="10,10" />
+   <property name="category" value="undead" /></properties>
   </object>
  </objectgroup>
 </map>

@@ -391,8 +391,9 @@ data=
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
 
 [event]
-type=on_trigger
+type=event
 location=99,70,2,2
+activate=on_trigger
 hotspot=location
 intermap=maps/averguard_atrium.txt,2,52
 soundfx=soundfx/door_open.ogg,0,0
@@ -400,8 +401,9 @@ tooltip=Averguard Atrium
 
 [event]
 # intro crate
-type=on_trigger
+type=event
 location=85,74,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_low.txt
 mapmod=object,85,74,163
@@ -411,8 +413,9 @@ tooltip=Crate
 
 [event]
 # zombie barrels
-type=on_trigger
+type=event
 location=74,63,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_low.txt
 mapmod=object,74,63,162
@@ -421,8 +424,9 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
-type=on_trigger
+type=event
 location=73,62,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_low.txt
 mapmod=object,73,62,162
@@ -431,8 +435,9 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
-type=on_trigger
+type=event
 location=74,62,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_low.txt
 mapmod=object,74,62,162
@@ -442,8 +447,9 @@ tooltip=Barrel
 
 [event]
 # goblin firepit barrel/crate
-type=on_trigger
+type=event
 location=72,96,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_low.txt
 mapmod=object,72,96,162
@@ -452,8 +458,9 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
-type=on_trigger
+type=event
 location=72,97,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_low.txt
 mapmod=object,72,97,163
@@ -463,8 +470,9 @@ tooltip=Crate
 
 [event]
 # secret room crate
-type=on_trigger
+type=event
 location=73,110,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_low.txt
 mapmod=object,73,110,163
@@ -474,8 +482,9 @@ tooltip=Crate
 
 [event]
 # conference room book
-type=on_trigger
+type=event
 location=50,90,1,1
+activate=on_trigger
 hotspot=location
 mapmod=object,50,90,164
 msg=This book is entitled "Training Your Antlion". Chapter 1 is "How Not To Get Eaten". The rest of the book is unfinished.
@@ -485,8 +494,9 @@ tooltip=Book Stand
 
 [event]
 # barracks chests
-type=on_trigger
+type=event
 location=41,59,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_low.txt
 mapmod=object,41,59,160
@@ -495,8 +505,9 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Treasure Chest
 
 [event]
-type=on_trigger
+type=event
 location=41,57,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_low.txt
 mapmod=object,41,57,160
@@ -505,8 +516,9 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Treasure Chest
 
 [event]
-type=on_trigger
+type=event
 location=41,55,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_low.txt
 mapmod=object,41,55,160
@@ -515,8 +527,9 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Treasure Chest
 
 [event]
-type=on_trigger
+type=event
 location=41,53,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_low.txt
 mapmod=object,41,53,160
@@ -525,8 +538,9 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Treasure Chest
 
 [event]
-type=on_trigger
+type=event
 location=41,51,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_low.txt
 mapmod=object,41,51,160
@@ -536,8 +550,9 @@ tooltip=Treasure Chest
 
 [event]
 # large room storage
-type=on_trigger
+type=event
 location=50,28,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_low.txt
 mapmod=object,50,28,162
@@ -546,8 +561,9 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
-type=on_trigger
+type=event
 location=50,29,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_low.txt
 mapmod=object,50,29,163
@@ -556,8 +572,9 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Crate
 
 [event]
-type=on_trigger
+type=event
 location=55,28,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_low.txt
 mapmod=object,55,28,163
@@ -566,8 +583,9 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Crate
 
 [event]
-type=on_trigger
+type=event
 location=55,29,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_low.txt
 mapmod=object,55,29,162
@@ -577,8 +595,9 @@ tooltip=Barrel
 
 [event]
 # kill room chest
-type=on_trigger
+type=event
 location=9,20,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_mid.txt
 mapmod=object,9,20,160
@@ -588,8 +607,9 @@ tooltip=Treasure Chest
 
 [event]
 # kill room chest
-type=on_trigger
+type=event
 location=9,29,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_mid.txt
 mapmod=object,9,29,160
@@ -599,8 +619,9 @@ tooltip=Treasure Chest
 
 [event]
 # kill room switches
-type=on_trigger
+type=event
 location=12,24,1,2
+activate=on_trigger
 hotspot=location
 mapmod=object,12,24,166;object,12,25,150;object,11,22,0;object,12,22,0;object,13,22,0;object,14,22,0;object,15,22,0;object,16,22,0;object,17,22,0;object,18,22,0;object,19,22,0;object,20,22,0;object,21,22,0;object,22,22,0;object,23,22,0;object,24,22,0;object,11,23,0;object,11,24,0;object,11,25,0;object,11,26,0;object,11,27,0;object,12,27,0;object,13,27,0;object,14,27,0;object,15,27,0;object,16,27,0;object,17,27,0;object,18,27,0;object,19,27,0;object,20,27,0;object,21,27,0;object,22,27,0;object,23,27,0;object,24,27,0;collision,11,22,0;collision,12,22,0;collision,13,22,0;collision,14,22,0;collision,15,22,0;collision,16,22,0;collision,17,22,0;collision,18,22,0;collision,19,22,0;collision,20,22,0;collision,21,22,0;collision,22,22,0;collision,23,22,0;collision,24,22,0;collision,11,23,0;collision,11,24,0;collision,11,25,0;collision,11,26,0;collision,11,27,0;collision,12,27,0;collision,13,27,0;collision,14,27,0;collision,15,27,0;collision,16,27,0;collision,17,27,0;collision,18,27,0;collision,19,27,0;collision,20,27,0;collision,21,27,0;collision,22,27,0;collision,23,27,0;collision,24,27,0
 repeat=false
@@ -609,506 +630,605 @@ tooltip=Switch System
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=47,20,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=75,94,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=48,20,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=48,19,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=47,19,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=59,20,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=59,19,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=60,19,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=60,20,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [enemy]
-type=skeletal_sniper
+type=enemy
 location=85,69,1,1
+category=skeletal_sniper
 direction=5
 wander_radius=0
 
 [enemy]
-type=skeletal_sniper
+type=enemy
 location=85,72,1,1
+category=skeletal_sniper
 direction=5
 wander_radius=0
 
 [enemy]
-type=zombie_bloodthirsty
+type=enemy
 location=71,62,1,1
+category=zombie_bloodthirsty
 
 [enemy]
-type=zombie_bloodthirsty
+type=enemy
 location=73,63,1,1
+category=zombie_bloodthirsty
 
 [enemy]
-type=zombie_bloodthirsty
+type=enemy
 location=73,72,1,1
+category=zombie_bloodthirsty
 
 [enemy]
-type=zombie_bloodthirsty
+type=enemy
 location=68,69,1,1
+category=zombie_bloodthirsty
 
 [enemy]
-type=skeletal_archer
+type=enemy
 location=69,81,1,1
+category=skeletal_archer
 
 [enemy]
-type=skeletal_archer
+type=enemy
 location=70,84,1,1
+category=skeletal_archer
 
 [enemy]
-type=skeletal_mage
+type=enemy
 location=73,83,1,1
+category=skeletal_mage
 
 [enemy]
-type=goblin_charger_elite
+type=enemy
 location=74,94,1,1
+category=goblin_charger_elite
 direction=5
 wander_radius=0
 
 [enemy]
-type=goblin_charger_elite
+type=enemy
 location=76,94,1,1
+category=goblin_charger_elite
 direction=1
 wander_radius=0
 
 [enemy]
-type=goblin_spearman_elite
+type=enemy
 location=75,93,1,1
+category=goblin_spearman_elite
 direction=7
 wander_radius=0
 
 [enemy]
-type=goblin_spearman_elite
+type=enemy
 location=75,95,1,1
+category=goblin_spearman_elite
 direction=3
 wander_radius=0
 
 [enemy]
-type=skeletal_warrior
+type=enemy
 location=66,92,1,1
+category=skeletal_warrior
 
 [enemy]
-type=skeletal_sniper
+type=enemy
 location=61,87,1,1
+category=skeletal_sniper
 
 [enemy]
-type=zombie_iceclaw
+type=enemy
 location=61,89,1,1
+category=zombie_iceclaw
 
 [enemy]
-type=zombie_iceclaw
+type=enemy
 location=62,91,1,1
+category=zombie_iceclaw
 
 [enemy]
-type=skeletal_warrior
+type=enemy
 location=51,90,1,1
+category=skeletal_warrior
 direction=1
 wander_radius=0
 
 [enemy]
-type=zombie_brute
+type=enemy
 location=46,87,1,1
+category=zombie_brute
 
 [enemy]
-type=zombie_brute
+type=enemy
 location=46,94,1,1
+category=zombie_brute
 
 [enemy]
-type=antlion_normal
+type=enemy
 location=49,91,1,1
+category=antlion_normal
 wander_radius=0
 
 [enemy]
-type=zombie_brute
+type=enemy
 location=42,110,1,1
+category=zombie_brute
 
 [enemy]
-type=zombie_iceclaw
+type=enemy
 location=47,115,1,1
+category=zombie_iceclaw
 
 [enemy]
-type=zombie_bloodthirsty
+type=enemy
 location=52,110,1,1
+category=zombie_bloodthirsty
 
 [enemy]
-type=skeletal_warrior
+type=enemy
 location=47,112,1,1
+category=skeletal_warrior
 
 [enemy]
-type=antlion_normal
+type=enemy
 location=48,118,1,1
+category=antlion_normal
 
 [enemy]
-type=antlion_normal
+type=enemy
 location=39,109,1,1
+category=antlion_normal
 
 [enemy]
-type=skeletal_warrior
+type=enemy
 location=56,80,1,1
+category=skeletal_warrior
 direction=7
 wander_radius=0
 
 [enemy]
-type=skeletal_warrior
+type=enemy
 location=55,73,1,1
+category=skeletal_warrior
 direction=3
 wander_radius=0
 
 [enemy]
-type=skeletal_warrior
+type=enemy
 location=39,76,1,1
+category=skeletal_warrior
 direction=1
 wander_radius=0
 
 [enemy]
-type=skeleton_normal
+type=enemy
 location=37,78,1,1
+category=skeleton_normal
 direction=5
 wander_radius=0
 
 [enemy]
-type=skeletal_warrior
+type=enemy
 location=42,69,1,1
+category=skeletal_warrior
 direction=7
 wander_radius=0
 
 [enemy]
-type=skeletal_warrior
+type=enemy
 location=45,69,1,1
+category=skeletal_warrior
 direction=7
 wander_radius=0
 
 [enemy]
-type=skeletal_warrior
+type=enemy
 location=40,60,1,1
+category=skeletal_warrior
 
 [enemy]
-type=skeletal_sniper
+type=enemy
 location=42,53,1,1
+category=skeletal_sniper
 
 [enemy]
-type=skeletal_warrior
+type=enemy
 location=44,54,1,1
+category=skeletal_warrior
 
 [enemy]
-type=skeletal_mage
+type=enemy
 location=44,56,1,1
+category=skeletal_mage
 
 [enemy]
-type=skeletal_warrior
+type=enemy
 location=42,49,1,1
+category=skeletal_warrior
 
 [enemy]
-type=zombie_brute
+type=enemy
 location=72,42,1,1
+category=zombie_brute
 
 [enemy]
-type=zombie_brute
+type=enemy
 location=68,47,1,1
+category=zombie_brute
 
 [enemy]
-type=zombie_brute
+type=enemy
 location=64,43,1,1
+category=zombie_brute
 
 [enemy]
-type=zombie_iceclaw
+type=enemy
 location=58,41,1,1
+category=zombie_iceclaw
 
 [enemy]
-type=zombie_iceclaw
+type=enemy
 location=56,47,1,1
+category=zombie_iceclaw
 
 [enemy]
-type=zombie_iceclaw
+type=enemy
 location=64,48,1,1
+category=zombie_iceclaw
 
 [enemy]
-type=zombie_bloodthirsty
+type=enemy
 location=57,44,1,1
+category=zombie_bloodthirsty
 
 [enemy]
-type=zombie_bloodthirsty
+type=enemy
 location=54,42,1,1
+category=zombie_bloodthirsty
 
 [enemy]
-type=zombie_bloodthirsty
+type=enemy
 location=74,44,1,1
+category=zombie_bloodthirsty
 
 [enemy]
-type=zombie_bloodthirsty
+type=enemy
 location=67,41,1,1
+category=zombie_bloodthirsty
 
 [enemy]
-type=skeletal_sniper
+type=enemy
 location=55,63,1,1
+category=skeletal_sniper
 
 [enemy]
-type=antlion_normal
+type=enemy
 location=55,62,1,1
+category=antlion_normal
 
 [enemy]
-type=antlion_normal
+type=enemy
 location=56,63,1,1
+category=antlion_normal
 
 [enemy]
-type=skeletal_sniper
+type=enemy
 location=59,54,1,1
+category=skeletal_sniper
 
 [enemy]
-type=antlion_normal
+type=enemy
 location=59,53,1,1
+category=antlion_normal
 
 [enemy]
-type=antlion_normal
+type=enemy
 location=59,55,1,1
+category=antlion_normal
 
 [enemy]
-type=antlion_blinker
+type=enemy
 location=43,35,1,1
+category=antlion_blinker
 
 [enemy]
-type=antlion_blinker
+type=enemy
 location=44,36,1,1
+category=antlion_blinker
 
 [enemy]
-type=antlion_normal
+type=enemy
 location=69,23,1,1
+category=antlion_normal
 
 [enemy]
-type=antlion_normal
+type=enemy
 location=70,26,1,1
+category=antlion_normal
 
 [enemy]
-type=antlion_normal
+type=enemy
 location=72,24,1,1
+category=antlion_normal
 
 [enemy]
-type=skeletal_warrior
+type=enemy
 location=51,28,1,1
+category=skeletal_warrior
 
 [enemy]
-type=skeletal_warrior
+type=enemy
 location=54,29,1,1
+category=skeletal_warrior
 
 [enemy]
-type=skeletal_mage
+type=enemy
 location=58,18,1,1
+category=skeletal_mage
 direction=6
 wander_radius=0
 
 [enemy]
-type=skeletal_warrior
+type=enemy
 location=61,18,1,1
+category=skeletal_warrior
 direction=0
 wander_radius=0
 
 [enemy]
-type=antlion_normal
+type=enemy
 location=61,21,1,1
+category=antlion_normal
 direction=2
 wander_radius=0
 
 [enemy]
-type=skeletal_sniper
+type=enemy
 location=58,21,1,1
+category=skeletal_sniper
 direction=4
 wander_radius=0
 
 [enemy]
-type=skeletal_mage
+type=enemy
 location=46,18,1,1
+category=skeletal_mage
 direction=6
 wander_radius=0
 
 [enemy]
-type=skeletal_warrior
+type=enemy
 location=49,18,1,1
+category=skeletal_warrior
 direction=0
 wander_radius=0
 
 [enemy]
-type=antlion_normal
+type=enemy
 location=46,21,1,1
+category=antlion_normal
 direction=2
 wander_radius=0
 
 [enemy]
-type=skeletal_sniper
+type=enemy
 location=49,21,1,1
+category=skeletal_sniper
 direction=4
 wander_radius=0
 
 [enemy]
 # kill room creature
-type=antlion_normal
+type=enemy
 location=11,20,1,1
+category=antlion_normal
 direction=7
 wander_radius=0
 
 [enemy]
 # kill room creature
-type=zombie_bloodthirsty
+type=enemy
 location=13,20,1,1
+category=zombie_bloodthirsty
 direction=7
 wander_radius=0
 
 [enemy]
 # kill room creature
-type=antlion_normal
+type=enemy
 location=15,20,1,1
+category=antlion_normal
 direction=7
 wander_radius=0
 
 [enemy]
 # kill room creature
-type=zombie_bloodthirsty
+type=enemy
 location=17,20,1,1
+category=zombie_bloodthirsty
 direction=7
 wander_radius=0
 
 [enemy]
 # kill room creature
-type=antlion_normal
+type=enemy
 location=11,29,1,1
+category=antlion_normal
 direction=3
 wander_radius=0
 
 [enemy]
 # kill room creature
-type=zombie_iceclaw
+type=enemy
 location=13,29,1,1
+category=zombie_iceclaw
 direction=3
 wander_radius=0
 
 [enemy]
 # kill room creature
-type=antlion_normal
+type=enemy
 location=15,29,1,1
+category=antlion_normal
 direction=3
 wander_radius=0
 
 [enemy]
 # kill room creature
-type=zombie_iceclaw
+type=enemy
 location=17,29,1,1
+category=zombie_iceclaw
 direction=3
 wander_radius=0
 
 [enemy]
 # kill room creature
-type=skeletal_occultist
+type=enemy
 location=9,23,1,1
+category=skeletal_occultist
 direction=5
 wander_radius=0
 
 [enemy]
 # kill room creature
-type=skeletal_sniper
+type=enemy
 location=9,26,1,1
+category=skeletal_sniper
 direction=5
 wander_radius=0
 
 [enemy]
-type=antlion_normal
+type=enemy
 location=48,91,1,1
+category=antlion_normal
 wander_radius=0
 
 [enemy]
-type=antlion_normal
+type=enemy
 location=48,90,1,1
+category=antlion_normal
 wander_radius=0
 
 [enemy]
-type=antlion_normal
+type=enemy
 location=48,89,1,1
+category=antlion_normal
 wander_radius=0
 
 [enemy]
-type=antlion_normal
+type=enemy
 location=49,89,1,1
+category=antlion_normal
 wander_radius=0
 
 [enemy]
-type=skeleton_normal
+type=enemy
 location=37,77,1,1
+category=skeleton_normal
 direction=5
 wander_radius=0
 
 [enemy]
-type=skeleton_normal
+type=enemy
 location=37,76,1,1
+category=skeleton_normal
 direction=5
 wander_radius=0
 
 [enemy]
-type=skeleton_normal
+type=enemy
 location=37,75,1,1
+category=skeleton_normal
 direction=5
 wander_radius=0
 
 [enemy]
-type=skeleton_normal
+type=enemy
 location=36,75,1,1
+category=skeleton_normal
 direction=5
 wander_radius=0
 
 [enemy]
-type=skeleton_normal
+type=enemy
 location=36,76,1,1
+category=skeleton_normal
 direction=5
 wander_radius=0
 
 [enemy]
-type=skeleton_normal
+type=enemy
 location=36,77,1,1
+category=skeleton_normal
 direction=5
 wander_radius=0
 
 [enemy]
-type=skeleton_normal
+type=enemy
 location=36,78,1,1
+category=skeleton_normal
 direction=5
 wander_radius=0
 

@@ -332,16 +332,18 @@ data=
 
 [event]
 # to Southern Ridge
-type=on_trigger
+type=event
 location=87,99,4,1
+activate=on_trigger
 hotspot=location
 intermap=maps/southern_ridge.txt,19,2
 tooltip=Southern Ridge
 
 [event]
 # Supplies
-type=on_trigger
+type=event
 location=86,46,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_10.txt
 mapmod=object,86,46,99
@@ -351,8 +353,9 @@ tooltip=Supplies
 
 [event]
 # Supplies
-type=on_trigger
+type=event
 location=8,41,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_10.txt
 mapmod=object,8,41,97
@@ -362,134 +365,156 @@ tooltip=Supplies
 
 [event]
 # Wind and crickets sound effect
-type=on_load
+type=event
 location=0,0,1,1
+activate=on_load
 soundfx=soundfx/environment/wind_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=41,71,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=84,40,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=10,18,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=45,8,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=8,82,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=63,47,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=22,51,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=75,8,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=6,91,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=30,91,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=51,81,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=55,67,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=47,57,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=39,42,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=37,28,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=50,18,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=67,14,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=19,3,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=22,14,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=27,23,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # to Dilapidated Sewers (east)
-type=on_trigger
+type=event
 location=32,9,4,4
+activate=on_trigger
 hotspot=location
 intermap=maps/dilapidated_sewers.txt,64,8
 soundfx=soundfx/environment/stairs.ogg,0,0
@@ -497,8 +522,9 @@ tooltip=Dilapidated Sewers
 
 [event]
 # to Dilapidated Sewers (west)
-type=on_trigger
+type=event
 location=9,73,4,4
+activate=on_trigger
 hotspot=location
 intermap=maps/dilapidated_sewers.txt,21,72
 soundfx=soundfx/environment/stairs.ogg,0,0
@@ -506,8 +532,9 @@ tooltip=Dilapidated Sewers
 
 [event]
 # lumber
-type=on_trigger
+type=event
 location=37,41,1,1
+activate=on_trigger
 hotspot=location
 mapmod=object,37,41,0;collision,37,41,0;collision,38,41,0;collision,39,41,0;background,38,41,202;background,39,41,202
 reachable_from=35,41,2,1
@@ -519,100 +546,116 @@ tooltip=Lumber
 
 [event]
 # open shortcut (on load)
-type=on_load
+type=event
 location=38,39,1,1
+activate=on_load
 mapmod=object,37,41,0;collision,37,41,0;collision,38,41,0;collision,39,41,0;background,38,41,202;background,39,41,202
 requires_status=emp_blackoak_shortcut
 
 [event]
 # to Black Oak City
-type=on_trigger
+type=event
 location=0,10,1,4
+activate=on_trigger
 hotspot=location
 intermap=maps/black_oak_city.txt,98,50
 tooltip=Black Oak City
 
 [enemy]
-type=minotaur_necromancer
+type=enemy
 location=69,81,1,1
+category=minotaur_necromancer
 level=10
 number=1
 
 [enemy]
-type=grassland
+type=enemy
 location=62,63,9,5
+category=grassland
 level=10
 number=2,3
 
 [enemy]
-type=grassland
+type=enemy
 location=69,49,5,9
+category=grassland
 level=10
 number=3
 
 [enemy]
-type=grassland
+type=enemy
 location=56,47,5,9
+category=grassland
 level=10
 number=3
 
 [enemy]
-type=grassland
+type=enemy
 location=52,32,5,9
+category=grassland
 level=10
 number=2,3
 
 [enemy]
-type=grassland
+type=enemy
 location=64,33,5,9
+category=grassland
 level=10
 number=2,3
 
 [enemy]
-type=grassland
+type=enemy
 location=83,34,10,26
+category=grassland
 level=10
 number=3,4
 
 [enemy]
-type=grassland
+type=enemy
 location=63,24,11,6
+category=grassland
 level=10
 number=3
 
 [enemy]
-type=grassland
+type=enemy
 location=62,3,11,6
+category=grassland
 level=10
 number=2
 
 [enemy]
-type=grassland
+type=enemy
 location=44,5,11,6
+category=grassland
 level=10
 number=2
 
 [enemy]
-type=grassland
+type=enemy
 location=21,71,13,16
+category=grassland
 level=10
 number=3,4
 
 [enemy]
-type=grassland
+type=enemy
 location=24,45,13,16
+category=grassland
 level=10
 number=4
 
 [enemy]
-type=grassland
+type=enemy
 location=6,33,13,12
+category=grassland
 level=10
 number=3,4
 
 [enemy]
-type=grassland
+type=enemy
 location=18,26,13,13
+category=grassland
 level=10
 number=3
 

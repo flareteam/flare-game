@@ -150,8 +150,9 @@ data=
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
 
 [event]
-type=on_trigger
+type=event
 location=19,19,2,2
+activate=on_trigger
 npc=npcs/tutorial.txt
 repeat=false
 requires_not_status=emp_arrival
@@ -159,45 +160,52 @@ set_status=emp_arrival
 shakycam=2s
 
 [event]
-type=on_trigger
+type=event
 location=38,34,1,2
+activate=on_trigger
 hotspot=location
 intermap=maps/river_trail.txt,7,5
 tooltip=River Trail
 
 [event]
 # backstory cutscene
-type=on_load
+type=event
 location=17,17,1,1
+activate=on_load
 cutscene=cutscenes/backstory.txt
 requires_not_status=empyrean_backstory
 set_status=empyrean_backstory
 
 [event]
 # Wind and crickets sound effect
-type=on_load
+type=event
 location=0,0,1,1
+activate=on_load
 soundfx=soundfx/environment/wind_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=27,14,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=11,9,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=10,27,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [npc]
-type=npcs/tutorial.txt
+type=npc
 location=19,18,1,1
+filename=npcs/tutorial.txt
 

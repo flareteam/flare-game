@@ -1,36 +1,35 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="isometric" renderorder="right-down" width="32" height="50" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="25">
+<map backgroundcolor="#000000" height="50" nextobjectid="25" orientation="isometric" renderorder="right-down" tileheight="32" tilewidth="64" version="1.0" width="32">
  <properties>
-  <property name="music" value="music/unrest_theme.ogg"/>
-  <property name="tileset" value="tilesetdefs/tileset_dungeon.txt"/>
-  <property name="title" value="Book of the Dead"/>
+  <property name="music" value="music/unrest_theme.ogg" />
+  <property name="tileset" value="tilesetdefs/tileset_dungeon.txt" />
+  <property name="title" value="Book of the Dead" />
  </properties>
- <tileset firstgid="1" name="collision" tilewidth="64" tileheight="32" tilecount="15">
-  <image source="../dungeon/tiled_collision.png" width="960" height="32"/>
+ <tileset firstgid="1" name="collision" tilecount="15" tileheight="32" tilewidth="64">
+  <image height="32" source="../dungeon/tiled_collision.png" width="960" />
  </tileset>
- <tileset firstgid="16" name="dungeon" tilewidth="64" tileheight="128" tilecount="240">
-  <image source="../dungeon/tiled_dungeon.png" width="1024" height="1920"/>
+ <tileset firstgid="16" name="dungeon" tilecount="240" tileheight="128" tilewidth="64">
+  <image height="1920" source="../dungeon/tiled_dungeon.png" width="1024" />
  </tileset>
- <tileset firstgid="256" name="set_rules" tilewidth="64" tileheight="32" tilecount="8">
-  <image source="../dungeon/set_rules.png" width="128" height="128"/>
+ <tileset firstgid="256" name="set_rules" tilecount="8" tileheight="32" tilewidth="64">
+  <image height="128" source="../dungeon/set_rules.png" width="128" />
  </tileset>
- <tileset firstgid="264" name="tiled_dungeon_2x2" tilewidth="128" tileheight="64" tilecount="16">
-  <tileoffset x="0" y="16"/>
-  <image source="../dungeon/tiled_dungeon_2x2.png" width="512" height="256"/>
+ <tileset firstgid="264" name="tiled_dungeon_2x2" tilecount="16" tileheight="64" tilewidth="128">
+  <tileoffset x="0" y="16" />
+  <image height="256" source="../dungeon/tiled_dungeon_2x2.png" width="512" />
  </tileset>
- <tileset firstgid="280" name="door_left" tilewidth="64" tileheight="128" tilecount="2">
-  <tileoffset x="-16" y="-8"/>
-  <image source="../dungeon/door_left.png" width="128" height="128"/>
+ <tileset firstgid="280" name="door_left" tilecount="2" tileheight="128" tilewidth="64">
+  <tileoffset x="-16" y="-8" />
+  <image height="128" source="../dungeon/door_left.png" width="128" />
  </tileset>
- <tileset firstgid="282" name="door_right" tilewidth="64" tileheight="128" tilecount="2">
-  <tileoffset x="16" y="-8"/>
-  <image source="../dungeon/door_right.png" width="128" height="128"/>
+ <tileset firstgid="282" name="door_right" tilecount="2" tileheight="128" tilewidth="64">
+  <tileoffset x="16" y="-8" />
+  <image height="128" source="../dungeon/door_right.png" width="128" />
  </tileset>
- <tileset firstgid="284" name="stairs" tilewidth="256" tileheight="256" tilecount="4">
-  <tileoffset x="0" y="48"/>
-  <image source="../dungeon/stairs.png" width="1024" height="256"/>
+ <tileset firstgid="284" name="stairs" tilecount="4" tileheight="256" tilewidth="256">
+  <tileoffset x="0" y="48" />
+  <image height="256" source="../dungeon/stairs.png" width="1024" />
  </tileset>
- <layer name="background" width="32" height="50">
+ <layer height="50" name="background" width="32">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,24,21,21,21,21,21,25,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -84,7 +83,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="object" width="32" height="50">
+ <layer height="50" name="object" width="32">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,77,103,107,103,107,105,78,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -138,7 +137,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="collision" width="32" height="50" visible="0">
+ <layer height="50" name="collision" visible="0" width="32">
   <data encoding="csv">
 4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,
 4,4,4,4,4,4,4,4,4,4,4,4,1,1,1,1,1,1,1,4,4,4,4,4,4,4,4,4,4,4,4,4,
@@ -193,129 +192,129 @@
 </data>
  </layer>
  <objectgroup name="event">
-  <object id="1" name="to Perdition Harbor" type="on_trigger" x="512" y="1440" width="32" height="64">
+  <object height="64" id="1" name="to Perdition Harbor" type="event" width="32" x="512" y="1440">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="intermap" value="maps/perdition_harbor.txt,32,20"/>
-    <property name="soundfx" value="soundfx/environment/stairs.ogg,0,0"/>
-    <property name="tooltip" value="Perdition Harbor"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="intermap" value="maps/perdition_harbor.txt,32,20" />
+    <property name="soundfx" value="soundfx/environment/stairs.ogg,0,0" />
+    <property name="tooltip" value="Perdition Harbor" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="2" name="to Salted Field" type="on_trigger" x="480" y="160" width="64" height="32">
+  <object height="32" id="2" name="to Salted Field" type="event" width="64" x="480" y="160">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="intermap" value="maps/salted_field.txt,11,44"/>
-    <property name="soundfx" value="soundfx/environment/stairs.ogg,0,0"/>
-    <property name="tooltip" value="Salted Field"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="intermap" value="maps/salted_field.txt,11,44" />
+    <property name="soundfx" value="soundfx/environment/stairs.ogg,0,0" />
+    <property name="tooltip" value="Salted Field" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="3" name="brazier sound effect" type="on_load" x="288" y="736" width="32" height="32">
+  <object height="32" id="3" name="brazier sound effect" type="event" width="32" x="288" y="736">
    <properties>
-    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="9" name="brazier sound effect" type="on_load" x="288" y="864" width="32" height="32">
+  <object height="32" id="9" name="brazier sound effect" type="event" width="32" x="288" y="864">
    <properties>
-    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="10" name="Wind sound" type="on_load" x="0" y="0" width="32" height="32">
+  <object height="32" id="10" name="Wind sound" type="event" width="32" x="0" y="0">
    <properties>
-    <property name="soundfx" value="soundfx/environment/cave_wind_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/cave_wind_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="11" name="north-east tele" type="on_trigger" x="480" y="512" width="32" height="32">
+  <object height="32" id="11" name="north-east tele" type="event" width="32" x="480" y="512">
    <properties>
-    <property name="intramap" value="20,25"/>
-    <property name="requires_status" value="emp_main_init"/>
-    <property name="soundfx" value="soundfx/environment/teleporter.ogg,0,0"/>
-   </properties>
+    <property name="intramap" value="20,25" />
+    <property name="requires_status" value="emp_main_init" />
+    <property name="soundfx" value="soundfx/environment/teleporter.ogg,0,0" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="12" name="east-north tele" type="on_trigger" x="864" y="736" width="32" height="32">
+  <object height="32" id="12" name="east-north tele" type="event" width="32" x="864" y="736">
    <properties>
-    <property name="intramap" value="15,15"/>
-    <property name="soundfx" value="soundfx/environment/teleporter.ogg,0,0"/>
-   </properties>
+    <property name="intramap" value="15,15" />
+    <property name="soundfx" value="soundfx/environment/teleporter.ogg,0,0" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="13" name="west-north tele" type="on_trigger" x="864" y="864" width="32" height="32">
+  <object height="32" id="13" name="west-north tele" type="event" width="32" x="864" y="864">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="intramap" value="15,35"/>
-    <property name="soundfx" value="soundfx/environment/teleporter.ogg,0,0"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="intramap" value="15,35" />
+    <property name="soundfx" value="soundfx/environment/teleporter.ogg,0,0" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="14" name="south-east tele" type="on_trigger" x="480" y="1088" width="32" height="32">
+  <object height="32" id="14" name="south-east tele" type="event" width="32" x="480" y="1088">
    <properties>
-    <property name="intramap" value="20,25"/>
-    <property name="requires_status" value="emp_main_init"/>
-    <property name="soundfx" value="soundfx/environment/teleporter.ogg,0,0"/>
-   </properties>
+    <property name="intramap" value="20,25" />
+    <property name="requires_status" value="emp_main_init" />
+    <property name="soundfx" value="soundfx/environment/teleporter.ogg,0,0" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="15" name="south-west tele" type="on_trigger" x="480" y="1088" width="32" height="32">
+  <object height="32" id="15" name="south-west tele" type="event" width="32" x="480" y="1088">
    <properties>
-    <property name="intramap" value="9,25"/>
-    <property name="requires_not_status" value="emp_main_init"/>
-    <property name="soundfx" value="soundfx/environment/teleporter.ogg,0,0"/>
-   </properties>
+    <property name="intramap" value="9,25" />
+    <property name="requires_not_status" value="emp_main_init" />
+    <property name="soundfx" value="soundfx/environment/teleporter.ogg,0,0" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="16" name="north-west tele" type="on_trigger" x="480" y="512" width="32" height="32">
+  <object height="32" id="16" name="north-west tele" type="event" width="32" x="480" y="512">
    <properties>
-    <property name="intramap" value="9,25"/>
-    <property name="requires_not_status" value="emp_main_init"/>
-    <property name="soundfx" value="soundfx/environment/teleporter.ogg,0,0"/>
-   </properties>
+    <property name="intramap" value="9,25" />
+    <property name="requires_not_status" value="emp_main_init" />
+    <property name="soundfx" value="soundfx/environment/teleporter.ogg,0,0" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="17" name="west-east tele" type="on_trigger" x="320" y="800" width="32" height="32">
+  <object height="32" id="17" name="west-east tele" type="event" width="32" x="320" y="800">
    <properties>
-    <property name="intramap" value="20,25"/>
-    <property name="requires_status" value="emp_main_init"/>
-    <property name="soundfx" value="soundfx/environment/teleporter.ogg,0,0"/>
-   </properties>
+    <property name="intramap" value="20,25" />
+    <property name="requires_status" value="emp_main_init" />
+    <property name="soundfx" value="soundfx/environment/teleporter.ogg,0,0" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="18" name="book of the dead (start main quest)" type="on_trigger" x="128" y="800" width="32" height="32">
+  <object height="32" id="18" name="book of the dead (start main quest)" type="event" width="32" x="128" y="800">
    <properties>
-    <property name="book" value="books/book_of_the_dead.txt"/>
-    <property name="hotspot" value="location"/>
-    <property name="mapmod" value="background,10,25,61;background,18,25,61"/>
-    <property name="msg" value="Quest added."/>
-    <property name="repeat" value="false"/>
-    <property name="requires_not_status" value="emp_main_init"/>
-    <property name="set_status" value="emp_main_init"/>
-    <property name="soundfx" value="soundfx/inventory/inventory_page.ogg"/>
-    <property name="tooltip" value="Book of the Dead"/>
-   </properties>
+    <property name="book" value="books/book_of_the_dead.txt" />
+    <property name="hotspot" value="location" />
+    <property name="mapmod" value="background,10,25,61;background,18,25,61" />
+    <property name="msg" value="Quest added." />
+    <property name="repeat" value="false" />
+    <property name="requires_not_status" value="emp_main_init" />
+    <property name="set_status" value="emp_main_init" />
+    <property name="soundfx" value="soundfx/inventory/inventory_page.ogg" />
+    <property name="tooltip" value="Book of the Dead" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="20" name="book of the dead (normal)" type="on_trigger" x="64" y="640" width="32" height="32">
+  <object height="32" id="20" name="book of the dead (normal)" type="event" width="32" x="64" y="640">
    <properties>
-    <property name="book" value="books/book_of_the_dead.txt"/>
-    <property name="hotspot" value="4,25,1,1"/>
-    <property name="requires_status" value="emp_main_init"/>
-    <property name="soundfx" value="soundfx/inventory/inventory_page.ogg"/>
-    <property name="tooltip" value="Book of the Dead"/>
-   </properties>
+    <property name="book" value="books/book_of_the_dead.txt" />
+    <property name="hotspot" value="4,25,1,1" />
+    <property name="requires_status" value="emp_main_init" />
+    <property name="soundfx" value="soundfx/inventory/inventory_page.ogg" />
+    <property name="tooltip" value="Book of the Dead" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="21" name="brazier sound effect" type="on_load" x="960" y="896" width="32" height="32">
+  <object height="32" id="21" name="brazier sound effect" type="event" width="32" x="960" y="896">
    <properties>
-    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="22" name="brazier sound effect" type="on_load" x="960" y="704" width="32" height="32">
+  <object height="32" id="22" name="brazier sound effect" type="event" width="32" x="960" y="704">
    <properties>
-    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="23" name="east-west tele" type="on_trigger" x="576" y="800" width="32" height="32">
+  <object height="32" id="23" name="east-west tele" type="event" width="32" x="576" y="800">
    <properties>
-    <property name="intramap" value="9,25"/>
-    <property name="requires_status" value="emp_main_init"/>
-    <property name="soundfx" value="soundfx/environment/teleporter.ogg,0,0"/>
-   </properties>
+    <property name="intramap" value="9,25" />
+    <property name="requires_status" value="emp_main_init" />
+    <property name="soundfx" value="soundfx/environment/teleporter.ogg,0,0" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="24" type="on_load" x="256" y="1088" width="32" height="32">
+  <object height="32" id="24" type="event" width="32" x="256" y="1088">
    <properties>
-    <property name="mapmod" value="background,10,25,61;background,18,25,61"/>
-    <property name="requires_status" value="emp_main_init"/>
-   </properties>
+    <property name="mapmod" value="background,10,25,61;background,18,25,61" />
+    <property name="requires_status" value="emp_main_init" />
+   <property name="activate" value="on_load" /></properties>
   </object>
  </objectgroup>
 </map>

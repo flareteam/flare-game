@@ -211,106 +211,123 @@ data=
 
 [event]
 # to Lochport Cemetery
-type=on_trigger
+type=event
 location=41,0,6,1
+activate=on_trigger
 hotspot=location
 intermap=maps/lochport_cemetery.txt,48,78
 tooltip=Lochport Cemetery
 
 [event]
 # Wind and crickets sound effect
-type=on_load
+type=event
 location=0,0,1,1
+activate=on_load
 soundfx=soundfx/environment/wind_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=2,11,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=16,25,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=20,34,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=17,42,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=15,54,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=4,35,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=2,53,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=9,46,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=28,10,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=44,18,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=25,55,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=23,23,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=42,51,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=7,11,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]
 # Supplies
-type=on_trigger
+type=event
 location=11,11,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_2.txt
 mapmod=object,11,11,99
@@ -320,8 +337,9 @@ tooltip=Supplies
 
 [event]
 # Supplies
-type=on_trigger
+type=event
 location=20,33,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_2.txt
 mapmod=object,20,33,97
@@ -331,102 +349,116 @@ tooltip=Supplies
 
 [event]
 # to St. Maria: Mausoleum
-type=on_trigger
+type=event
 location=6,44,1,1
+activate=on_trigger
 hotspot=location
 intermap=maps/st_maria_1.txt,39,66
 tooltip=St. Maria: Mausoleum
 
 [event]
 # to St. Maria: Mausoleum
-type=on_trigger
+type=event
 location=6,48,1,1
+activate=on_trigger
 hotspot=location
 intermap=maps/st_maria_1.txt,39,66
 tooltip=St. Maria: Mausoleum
 
 [enemy]
-type=skeleton_archer
+type=enemy
 location=24,45,1,1
+category=skeleton_archer
 direction=5
 level=2
 number=1
 wander_radius=0
 
 [enemy]
-type=skeleton_archer
+type=enemy
 location=24,49,1,1
+category=skeleton_archer
 direction=5
 level=2
 number=1
 wander_radius=0
 
 [enemy]
-type=zombie
+type=enemy
 location=26,9,8,3
+category=zombie
 level=2
 number=2
 wander_radius=1
 
 [enemy]
-type=undead
+type=enemy
 location=9,11,7,4
+category=undead
 level=2
 number=2,3
 wander_radius=1
 
 [enemy]
-type=zombie
+type=enemy
 location=23,19,6,5
+category=zombie
 level=2
 number=2
 wander_radius=1
 
 [enemy]
-type=undead
+type=enemy
 location=34,26,4,11
+category=undead
 level=2
 number=3
 wander_radius=1
 
 [enemy]
-type=zombie
+type=enemy
 location=40,47,4,5
+category=zombie
 level=2
 number=2
 wander_radius=1
 
 [enemy]
-type=undead
+type=enemy
 location=22,33,5,2
+category=undead
 level=2
 number=1,2
 wander_radius=1
 
 [enemy]
-type=undead
+type=enemy
 location=32,46,6,4
+category=undead
 level=2
 number=2,3
 wander_radius=1
 
 [enemy]
-type=undead
+type=enemy
 location=17,39,2,3
+category=undead
 level=2
 number=1,2
 wander_radius=1
 
 [enemy]
-type=undead
+type=enemy
 location=34,52,5,3
+category=undead
 level=2
 number=1,2
 wander_radius=1
 
 [enemy]
-type=undead
+type=enemy
 location=42,32,3,8
+category=undead
 level=2
 number=2
 wander_radius=1

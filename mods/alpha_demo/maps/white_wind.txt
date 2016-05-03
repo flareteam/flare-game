@@ -416,16 +416,18 @@ data=
 
 [event]
 # to Frontier Plains
-type=on_trigger
+type=event
 location=62,0,2,1
+activate=on_trigger
 hotspot=location
 intermap=maps/frontier_plains.txt,162,233
 tooltip=Frontier Plains
 
 [event]
 # secret box
-type=on_trigger
+type=event
 location=54,6,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_mid.txt
 mapmod=object,114,54,6
@@ -435,8 +437,9 @@ tooltip=Supplies
 
 [event]
 # camp supply
-type=on_trigger
+type=event
 location=4,28,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_mid.txt
 mapmod=object,4,28,99
@@ -446,8 +449,9 @@ tooltip=Supplies
 
 [event]
 # Rotten Tower Found Trigger
-type=on_trigger
+type=event
 location=54,84,23,27
+activate=on_trigger
 msg=You spot the abandoned tower in the distance.
 repeat=false
 requires_status=rotten_tower_search
@@ -455,8 +459,9 @@ set_status=rotten_tower_found
 
 [event]
 # Rotten Tower Inspected Trigger
-type=on_trigger
+type=event
 location=66,103,2,2
+activate=on_trigger
 msg=Looking through the grate, you confirm the tower is empty.
 repeat=false
 requires_status=rotten_tower_found
@@ -464,303 +469,352 @@ set_status=rotten_tower_inspected
 
 [event]
 # River sound
-type=on_load
+type=event
 location=63,6,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=63,35,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=70,55,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=79,87,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=84,102,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=79,113,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=72,124,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=43,38,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=36,41,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=48,46,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=38,46,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=30,49,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=27,41,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=9,34,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=9,40,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=88,86,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=92,105,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=25,41,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=23,21,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=32,42,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=46,28,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=59,63,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=69,49,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=66,16,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=69,9,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=65,40,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=46,56,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=74,69,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=16,48,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=23,32,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=85,88,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=58,103,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=77,118,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=37,59,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=7,34,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Wind and crickets sound effect
-type=on_load
+type=event
 location=0,0,1,1
+activate=on_load
 soundfx=soundfx/environment/wind_loop.ogg
 
 [enemy]
 # goblin_shaman
-type=goblin_shaman
+type=enemy
 location=72,51,1,1
+category=goblin_shaman
 
 [enemy]
 # goblin_shaman
-type=goblin_shaman
+type=enemy
 location=69,47,1,1
+category=goblin_shaman
 
 [enemy]
 # guarding wyvern
-type=wyvern_normal
+type=enemy
 location=59,14,1,1
+category=wyvern_normal
 direction=4
 wander_radius=0
 
 [enemy]
 # guarding wyvern
-type=wyvern_normal
+type=enemy
 location=68,23,1,1
+category=wyvern_normal
 direction=4
 wander_radius=0
 
 [enemy]
 # goblin camp
-type=goblin
+type=enemy
 location=62,43,1,2
+category=goblin
 level=2,4
 number=1,2
 
 [enemy]
 # goblin camp
-type=goblin
+type=enemy
 location=83,50,3,3
+category=goblin
 level=2,4
 number=3,5
 
 [enemy]
 # goblin camp
-type=goblin
+type=enemy
 location=66,50,2,1
+category=goblin
 level=2,4
 number=1,2
 
 [enemy]
 # goblin elite camp
-type=goblin_elite
+type=enemy
 location=5,24,5,7
+category=goblin_elite
 level=3,5
 number=2,4
 
 [enemy]
 # goblin elite camp chargers
-type=goblin_charger_elite
+type=enemy
 location=5,22,4,7
+category=goblin_charger_elite
 number=2,4
 
 [enemy]
 # random goblins
-type=goblin
+type=enemy
 location=21,23,18,17
+category=goblin
 level=2,3
 number=2,3
 
 [enemy]
 # random goblins
-type=goblin
+type=enemy
 location=7,43,10,8
+category=goblin
 level=2,3
 number=3,5
 
 [enemy]
 # random charger goblins
-type=goblin_charger
+type=enemy
 location=7,41,7,7
+category=goblin_charger
 level=2,3
 number=3,4
 
 [enemy]
 # random goblins
-type=goblin
+type=enemy
 location=42,50,18,17
+category=goblin
 level=2,3
 number=2,3
 

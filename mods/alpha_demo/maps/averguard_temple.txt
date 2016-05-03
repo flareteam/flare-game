@@ -417,8 +417,9 @@ data=
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 
 [event]
-type=on_trigger
+type=event
 location=14,127,2,2
+activate=on_trigger
 hotspot=location
 intermap=maps/averguard_atrium.txt,8,2
 soundfx=soundfx/door_open.ogg,0,0
@@ -426,8 +427,9 @@ tooltip=Averguard Atrium
 
 [event]
 # switch to open the temple library room
-type=on_trigger
+type=event
 location=19,118,1,1
+activate=on_trigger
 hotspot=location
 mapmod=object,19,118,150;object,10,118,112;collision,10,118,0
 repeat=false
@@ -436,8 +438,9 @@ tooltip=Switch
 
 [event]
 # fire statue trap
-type=on_trigger
+type=event
 location=6,51,19,14
+activate=on_trigger
 cooldown=3s
 power=31
 power_damage=25,50
@@ -445,8 +448,9 @@ power_path=15,58,hero
 
 [event]
 # have key, but no talisman
-type=on_trigger
+type=event
 location=10,82,1,1
+activate=on_trigger
 hotspot=15,88,1,1
 msg=You insert the Averguard Key. Runes glow around the door, then fade. The door is still sealed.
 repeat=false
@@ -458,8 +462,9 @@ tooltip=Sealed Temple Door
 
 [event]
 # have key and talisman
-type=on_trigger
+type=event
 location=10,80,1,1
+activate=on_trigger
 hotspot=15,88,1,1
 mapmod=object,15,88,113;collision,15,88,0
 msg=You read aloud the runes on Langlier's Talisman. The Avergard Key begins to glow!
@@ -474,15 +479,17 @@ unset_status=ak_temple_sealed
 
 [event]
 # door is already open
-type=on_load
+type=event
 location=10,78,1,1
+activate=on_load
 mapmod=object,15,88,113;collision,15,88,0
 repeat=false
 requires_status=ak_talisman_used
 
 [event]
-type=on_trigger
+type=event
 location=2,117,1,1
+activate=on_trigger
 hotspot=location
 mapmod=object,2,117,164
 msg="Some said Sir Maddox cared too much for the peasants.  He would not quarantine, saying the villagers did not deserve to die locked away."
@@ -491,8 +498,9 @@ soundfx=soundfx/inventory/inventory_page.ogg
 tooltip=Book Stand
 
 [event]
-type=on_trigger
+type=event
 location=2,121,1,1
+activate=on_trigger
 hotspot=location
 mapmod=object,2,121,164
 msg="Maddox died of the plague in 638.  After attempts to magically revive him failed he was sealed deep behind the temple."
@@ -502,8 +510,9 @@ tooltip=Book Stand
 
 [event]
 # chest in the boss room
-type=on_trigger
+type=event
 location=15,1,1,1
+activate=on_trigger
 hotspot=location
 msg=This chest is locked.
 repeat=false
@@ -511,8 +520,9 @@ requires_not_status=ak_maddox_defeated
 tooltip=Treasure Chest
 
 [event]
-type=on_trigger
+type=event
 location=15,1,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_high.txt
 mapmod=object,15,1,161
@@ -522,21 +532,24 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Treasure Chest
 
 [event]
-type=on_trigger
+type=event
 location=14,62,3,1
+activate=on_trigger
 msg=A plaque under the statue reads "Sir Evan Maddox, may he return to rescue us all"
 repeat=false
 
 [event]
 # when entering Maddox's Burial Chamber
-type=on_trigger
+type=event
 location=15,19,2,2
+activate=on_trigger
 msg=A ghastly voice reverberates from the next chamber.  "What fool disturbs my tomb?!"
 repeat=false
 
 [event]
-type=on_trigger
+type=event
 location=15,9,1,2
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_high.txt
 msg=You wipe dust away from the tomb lid, revealing an inscription: "Here lies Sir Evan Maddox"
@@ -545,20 +558,23 @@ tooltip=Maddox's Tomb
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=14,98,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=16,98,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # don't have key
-type=on_trigger
+type=event
 location=10,84,1,1
+activate=on_trigger
 hotspot=15,88,1,1
 msg=A locked gate is here, with a small keyhole in the center.
 repeat=false
@@ -566,151 +582,177 @@ requires_not_status=ak_key_found
 tooltip=Sealed Temple Door
 
 [enemy]
-type=zombie_rotting
+type=enemy
 location=12,115,1,1
+category=zombie_rotting
 
 [enemy]
-type=zombie_normal
+type=enemy
 location=16,118,1,1
+category=zombie_normal
 
 [enemy]
-type=zombie_rotting
+type=enemy
 location=13,109,1,1
+category=zombie_rotting
 
 [enemy]
-type=zombie_rotting
+type=enemy
 location=10,106,1,1
+category=zombie_rotting
 direction=3
 wander_radius=0
 
 [enemy]
-type=zombie_rotting
+type=enemy
 location=9,104,1,1
+category=zombie_rotting
 direction=3
 wander_radius=0
 
 [enemy]
-type=zombie_rotting
+type=enemy
 location=10,104,1,1
+category=zombie_rotting
 direction=3
 wander_radius=0
 
 [enemy]
-type=zombie_normal
+type=enemy
 location=9,102,1,1
+category=zombie_normal
 direction=3
 wander_radius=0
 
 [enemy]
-type=zombie_rotting
+type=enemy
 location=10,100,1,1
+category=zombie_rotting
 direction=3
 wander_radius=0
 
 [enemy]
-type=zombie_rotting
+type=enemy
 location=12,106,1,1
+category=zombie_rotting
 direction=3
 wander_radius=0
 
 [enemy]
-type=zombie_rotting
+type=enemy
 location=13,102,1,1
+category=zombie_rotting
 direction=3
 wander_radius=0
 
 [enemy]
-type=zombie_brute
+type=enemy
 location=12,100,1,1
+category=zombie_brute
 direction=3
 wander_radius=0
 
 [enemy]
-type=zombie_rotting
+type=enemy
 location=13,100,1,1
+category=zombie_rotting
 direction=3
 wander_radius=0
 
 [enemy]
-type=zombie_rotting
+type=enemy
 location=17,106,1,1
+category=zombie_rotting
 direction=3
 wander_radius=0
 
 [enemy]
-type=zombie_normal
+type=enemy
 location=17,104,1,1
+category=zombie_normal
 direction=3
 wander_radius=0
 
 [enemy]
-type=zombie_rotting
+type=enemy
 location=18,100,1,1
+category=zombie_rotting
 direction=3
 wander_radius=0
 
 [enemy]
-type=zombie_rotting
+type=enemy
 location=20,102,1,1
+category=zombie_rotting
 direction=3
 wander_radius=0
 
 [enemy]
-type=zombie_rotting
+type=enemy
 location=21,102,1,1
+category=zombie_rotting
 direction=3
 wander_radius=0
 
 [enemy]
-type=zombie_iceclaw
+type=enemy
 location=21,104,1,1
+category=zombie_iceclaw
 direction=3
 wander_radius=0
 
 [enemy]
-type=skeletal_mage
+type=enemy
 location=15,99,1,1
+category=skeletal_mage
 direction=3
 wander_radius=0
 
 [enemy]
-type=skeletal_warrior
+type=enemy
 location=15,95,1,1
+category=skeletal_warrior
 direction=7
 wander_radius=0
 
 [enemy]
-type=skeletal_sniper
+type=enemy
 location=14,27,1,1
+category=skeletal_sniper
 direction=7
 wander_radius=0
 
 [enemy]
-type=skeletal_sniper
+type=enemy
 location=16,27,1,1
+category=skeletal_sniper
 direction=7
 wander_radius=0
 
 [enemy]
-type=sir_evan_maddox
+type=enemy
 location=16,8,1,1
+category=sir_evan_maddox
 direction=7
 
 [enemy]
-type=undead
+type=enemy
 location=1,115,5,9
+category=undead
 level=4,6
 number=1,3
 
 [enemy]
-type=undead
+type=enemy
 location=6,49,19,18
+category=undead
 level=3,6
 number=3,5
 
 [enemy]
-type=undead
+type=enemy
 location=6,49,19,18
+category=undead
 level=3,6
 number=3,5
 

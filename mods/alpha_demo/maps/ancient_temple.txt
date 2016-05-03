@@ -343,101 +343,117 @@ data=
 
 [event]
 # to Frontier Plains
-type=on_trigger
+type=event
 location=48,101,2,2
+activate=on_trigger
 hotspot=location
 intermap=maps/frontier_plains.txt,118,138
 soundfx=soundfx/door_open.ogg,0,0
 tooltip=Frontier Plains
 
 [event]
-type=on_trigger
+type=event
 location=10,15,2,1
+activate=on_trigger
 intramap=11,11
 soundfx=soundfx/powers/teleport.ogg
 
 [event]
-type=on_trigger
+type=event
 location=10,12,2,1
+activate=on_trigger
 intramap=10,16
 soundfx=soundfx/powers/teleport.ogg
 
 [event]
-type=on_trigger
+type=event
 location=13,9,1,2
+activate=on_trigger
 intramap=21,12
 soundfx=soundfx/powers/teleport.ogg
 
 [event]
-type=on_trigger
+type=event
 location=20,11,1,2
+activate=on_trigger
 intramap=12,9
 soundfx=soundfx/powers/teleport.ogg
 
 [event]
-type=on_trigger
+type=event
 location=27,11,1,2
+activate=on_trigger
 intramap=34,15
 soundfx=soundfx/powers/teleport.ogg
 
 [event]
-type=on_trigger
+type=event
 location=33,14,1,2
+activate=on_trigger
 intramap=26,11
 soundfx=soundfx/powers/teleport.ogg
 
 [event]
-type=on_trigger
+type=event
 location=46,14,1,2
+activate=on_trigger
 intramap=52,15
 soundfx=soundfx/powers/teleport.ogg
 
 [event]
-type=on_trigger
+type=event
 location=54,17,2,1
+activate=on_trigger
 intramap=54,21
 soundfx=soundfx/powers/teleport.ogg
 
 [event]
-type=on_trigger
+type=event
 location=54,20,2,1
+activate=on_trigger
 intramap=55,16
 soundfx=soundfx/powers/teleport.ogg
 
 [event]
-type=on_trigger
+type=event
 location=54,32,1,2
+activate=on_trigger
 intramap=47,31
 soundfx=soundfx/powers/teleport.ogg
 
 [event]
-type=on_trigger
+type=event
 location=48,31,1,2
+activate=on_trigger
 intramap=55,31
 soundfx=soundfx/powers/teleport.ogg
 
 [event]
-type=on_trigger
+type=event
 location=37,39,1,2
+activate=on_trigger
 intramap=31,39
 soundfx=soundfx/powers/teleport.ogg
 
 [event]
-type=on_trigger
+type=event
 location=32,39,1,2
+activate=on_trigger
 intramap=38,40
 soundfx=soundfx/powers/teleport.ogg
 
 [event]
-type=on_trigger
+type=event
 location=51,14,1,2
+activate=on_trigger
 intramap=45,14
 soundfx=soundfx/powers/teleport.ogg
 
 [event]
 # island chest (dagger)
-type=on_trigger
+type=event
 location=23,12,1,1
+activate=on_trigger
 hotspot=location
 loot=128,fixed,1
 mapmod=object,23,12,161
@@ -449,8 +465,9 @@ tooltip=Treasure Chest
 
 [event]
 # island chest (buckler)
-type=on_trigger
+type=event
 location=24,11,1,1
+activate=on_trigger
 hotspot=location
 loot=57,fixed,1
 mapmod=object,24,11,160
@@ -462,8 +479,9 @@ tooltip=Treasure Chest
 
 [event]
 # book stand
-type=on_trigger
+type=event
 location=39,9,1,1
+activate=on_trigger
 hotspot=location
 mapmod=object,39,9,165
 msg=Tho' Nature, red in tooth and claw; With ravine, shriek'd against his creed
@@ -473,22 +491,25 @@ tooltip=In Memoriam
 
 [event]
 # zombie ambush
-type=on_trigger
+type=event
 location=11,52,4,2
+activate=on_trigger
 repeat=false
 spawn=zombie_normal,12,50;zombie_normal,13,50;zombie_normal,12,55;zombie_normal,13,55
 
 [event]
 # entrance brute
-type=on_trigger
+type=event
 location=48,86,2,2
+activate=on_trigger
 repeat=false
 spawn=zombie_brute,48,81
 
 [event]
 # floor spikes
-type=on_trigger
+type=event
 location=24,81,1,1
+activate=on_trigger
 cooldown=3s
 hotspot=location
 power=160
@@ -496,8 +517,9 @@ power_damage=50,75
 
 [event]
 # floor spikes
-type=on_trigger
+type=event
 location=23,81,1,1
+activate=on_trigger
 cooldown=3s
 hotspot=location
 power=160
@@ -505,8 +527,9 @@ power_damage=50,75
 
 [event]
 # floor spikes
-type=on_trigger
+type=event
 location=20,82,1,1
+activate=on_trigger
 cooldown=3s
 hotspot=location
 power=160
@@ -514,8 +537,9 @@ power_damage=50,75
 
 [event]
 # floor spikes
-type=on_trigger
+type=event
 location=22,81,1,1
+activate=on_trigger
 cooldown=3s
 hotspot=location
 power=160
@@ -523,8 +547,9 @@ power_damage=50,75
 
 [event]
 # floor spikes
-type=on_trigger
+type=event
 location=20,81,1,1
+activate=on_trigger
 cooldown=3s
 hotspot=location
 power=160
@@ -532,8 +557,9 @@ power_damage=50,75
 
 [event]
 # floor spikes
-type=on_trigger
+type=event
 location=21,81,1,1
+activate=on_trigger
 cooldown=3s
 hotspot=location
 power=160
@@ -541,8 +567,9 @@ power_damage=50,75
 
 [event]
 # floor spikes
-type=on_trigger
+type=event
 location=16,84,1,1
+activate=on_trigger
 cooldown=3s
 hotspot=location
 power=160
@@ -550,8 +577,9 @@ power_damage=50,75
 
 [event]
 # floor spikes
-type=on_trigger
+type=event
 location=20,83,1,1
+activate=on_trigger
 cooldown=3s
 hotspot=location
 power=160
@@ -559,8 +587,9 @@ power_damage=50,75
 
 [event]
 # floor spikes
-type=on_trigger
+type=event
 location=19,84,1,1
+activate=on_trigger
 cooldown=3s
 hotspot=location
 power=160
@@ -568,8 +597,9 @@ power_damage=50,75
 
 [event]
 # floor spikes
-type=on_trigger
+type=event
 location=20,84,1,1
+activate=on_trigger
 cooldown=3s
 hotspot=location
 power=160
@@ -577,8 +607,9 @@ power_damage=50,75
 
 [event]
 # floor spikes
-type=on_trigger
+type=event
 location=17,84,1,1
+activate=on_trigger
 cooldown=3s
 hotspot=location
 power=160
@@ -586,8 +617,9 @@ power_damage=50,75
 
 [event]
 # floor spikes
-type=on_trigger
+type=event
 location=16,82,1,1
+activate=on_trigger
 cooldown=3s
 hotspot=location
 power=160
@@ -595,8 +627,9 @@ power_damage=50,75
 
 [event]
 # floor spikes
-type=on_trigger
+type=event
 location=18,84,1,1
+activate=on_trigger
 cooldown=3s
 hotspot=location
 power=160
@@ -604,8 +637,9 @@ power_damage=50,75
 
 [event]
 # floor spikes
-type=on_trigger
+type=event
 location=16,83,1,1
+activate=on_trigger
 cooldown=3s
 hotspot=location
 power=160
@@ -613,8 +647,9 @@ power_damage=50,75
 
 [event]
 # Activate Teleporter
-type=on_trigger
+type=event
 location=44,92,4,5
+activate=on_trigger
 mapmod=background,44,94,265
 msg=Ancient Temple waypoint discovered.
 repeat=false
@@ -623,23 +658,26 @@ set_status=waypoint_ancient_temple
 
 [event]
 # Waypoint
-type=on_trigger
+type=event
 location=44,93,2,2
+activate=on_trigger
 hotspot=location
 intermap=maps/warp_zone.txt,22,44
 soundfx=soundfx/environment/teleporter.ogg,0,0
 tooltip=Warp Zone
 
 [event]
-type=on_load
+type=event
 location=38,90,1,1
+activate=on_load
 mapmod=background,44,94,265
 requires_status=waypoint_ancient_temple
 
 [event]
 # double doors
-type=on_trigger
+type=event
 location=37,71,2,2
+activate=on_trigger
 hotspot=location
 mapmod=collision,37,71,0;collision,38,71,0;collision,37,72,0;collision,38,72,0;object,38,71,0;object,38,72,0;object,37,70,213;object,37,73,219
 repeat=false
@@ -647,16 +685,18 @@ soundfx=soundfx/door_open.ogg
 
 [event]
 # double doors
-type=on_trigger
+type=event
 location=58,70,2,2
+activate=on_trigger
 hotspot=location
 mapmod=collision,58,70,0;collision,59,70,0;collision,58,71,0;collision,59,71,0;object,59,70,0;object,59,71,0;object,59,69,209;object,59,72,223
 repeat=false
 soundfx=soundfx/door_open.ogg
 
 [event]
-type=on_trigger
+type=event
 location=15,71,1,1
+activate=on_trigger
 hotspot=location
 loot=currency,fixed,5,10
 mapmod=object,15,71,183
@@ -664,8 +704,9 @@ repeat=false
 
 [event]
 # island chest
-type=on_trigger
+type=event
 location=23,12,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_low.txt
 mapmod=object,23,12,161
@@ -676,8 +717,9 @@ tooltip=Treasure Chest
 
 [event]
 # island chest
-type=on_trigger
+type=event
 location=24,11,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_low.txt
 mapmod=object,24,11,160
@@ -687,158 +729,184 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Treasure Chest
 
 [enemy]
-type=cursed_grave
+type=enemy
 location=79,37,1,1
+category=cursed_grave
 direction=7
 wander_radius=0
 
 [enemy]
-type=cursed_grave
+type=enemy
 location=74,42,1,1
+category=cursed_grave
 direction=5
 wander_radius=0
 
 [enemy]
-type=cursed_grave
+type=enemy
 location=84,42,1,1
+category=cursed_grave
 direction=1
 wander_radius=0
 
 [enemy]
-type=cursed_grave
+type=enemy
 location=75,38,1,1
+category=cursed_grave
 direction=6
 wander_radius=0
 
 [enemy]
-type=cursed_grave
+type=enemy
 location=83,38,1,1
+category=cursed_grave
 direction=0
 wander_radius=0
 
 [enemy]
-type=wyvern_normal
+type=enemy
 location=5,74,1,1
+category=wyvern_normal
 direction=5
 wander_radius=0
 
 [enemy]
-type=wyvern_normal
+type=enemy
 location=5,78,1,1
+category=wyvern_normal
 direction=5
 wander_radius=0
 
 [enemy]
-type=skeletal_archer
+type=enemy
 location=5,76,1,1
+category=skeletal_archer
 direction=5
 wander_radius=0
 
 [enemy]
-type=undead
+type=enemy
 location=51,70,7,4
+category=undead
 level=1,2
 number=1,2
 
 [enemy]
-type=undead
+type=enemy
 location=39,70,7,4
+category=undead
 level=1,2
 number=1,2
 
 [enemy]
-type=undead
+type=enemy
 location=17,80,9,7
+category=undead
 level=2,3
 number=2,4
 
 [enemy]
-type=undead
+type=enemy
 location=10,77,6,10
+category=undead
 level=1,2
 number=0,2
 
 [enemy]
-type=undead
+type=enemy
 location=10,71,7,5
+category=undead
 level=1,2
 number=1,3
 
 [enemy]
-type=wyvern
+type=enemy
 location=24,36,5,5
+category=wyvern
 level=3,3
 number=1,3
 
 [enemy]
-type=undead
+type=enemy
 location=38,31,8,8
+category=undead
 level=1,2
 number=1,3
 
 [enemy]
-type=wyvern
+type=enemy
 location=11,26,5,5
+category=wyvern
 level=3,3
 number=1,3
 
 [enemy]
-type=wyvern
+type=enemy
 location=8,7,5,5
+category=wyvern
 level=3,3
 number=1,3
 
 [enemy]
-type=wyvern
+type=enemy
 location=21,9,6,6
+category=wyvern
 level=3,3
 number=1,3
 
 [enemy]
-type=wyvern
+type=enemy
 location=38,8,4,14
+category=wyvern
 level=3,3
 number=1,3
 
 [enemy]
-type=undead
+type=enemy
 location=53,13,10,3
+category=undead
 level=1,3
 number=2,5
 
 [enemy]
-type=undead
+type=enemy
 location=71,13,10,3
+category=undead
 level=1,4
 number=2,5
 
 [enemy]
-type=undead
+type=enemy
 location=92,20,2,9
+category=undead
 level=1,2
 number=0,3
 
 [enemy]
-type=undead
+type=enemy
 location=81,56,2,8
+category=undead
 level=1,2
 number=0,3
 
 [enemy]
-type=undead
+type=enemy
 location=79,70,4,4
+category=undead
 level=1,2
 number=1,3
 
 [enemy]
-type=undead
+type=enemy
 location=68,80,10,9
+category=undead
 level=2,3
 number=3,5
 
 [enemy]
-type=undead
+type=enemy
 location=64,70,4,4
+category=undead
 level=1,2
 number=1,2
 

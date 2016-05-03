@@ -1,36 +1,35 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="isometric" renderorder="right-down" width="104" height="104" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="69">
+<map backgroundcolor="#000000" height="104" nextobjectid="69" orientation="isometric" renderorder="right-down" tileheight="32" tilewidth="64" version="1.0" width="104">
  <properties>
-  <property name="music" value="music/safe_room_theme.ogg"/>
-  <property name="tileset" value="tilesetdefs/tileset_dungeon.txt"/>
-  <property name="title" value="Ancient Temple"/>
+  <property name="music" value="music/safe_room_theme.ogg" />
+  <property name="tileset" value="tilesetdefs/tileset_dungeon.txt" />
+  <property name="title" value="Ancient Temple" />
  </properties>
- <tileset firstgid="1" name="collision" tilewidth="64" tileheight="32">
-  <image source="../dungeon/tiled_collision.png" width="960" height="32"/>
+ <tileset firstgid="1" name="collision" tileheight="32" tilewidth="64">
+  <image height="32" source="../dungeon/tiled_collision.png" width="960" />
  </tileset>
- <tileset firstgid="16" name="dungeon" tilewidth="64" tileheight="128">
-  <image source="../dungeon/tiled_dungeon.png" width="1024" height="1920"/>
+ <tileset firstgid="16" name="dungeon" tileheight="128" tilewidth="64">
+  <image height="1920" source="../dungeon/tiled_dungeon.png" width="1024" />
  </tileset>
- <tileset firstgid="256" name="set_rules" tilewidth="64" tileheight="32">
-  <image source="../dungeon/set_rules.png" width="128" height="128"/>
+ <tileset firstgid="256" name="set_rules" tileheight="32" tilewidth="64">
+  <image height="128" source="../dungeon/set_rules.png" width="128" />
  </tileset>
- <tileset firstgid="264" name="tiled_dungeon_2x2" tilewidth="128" tileheight="64">
-  <tileoffset x="0" y="16"/>
-  <image source="../dungeon/tiled_dungeon_2x2.png" width="512" height="256"/>
+ <tileset firstgid="264" name="tiled_dungeon_2x2" tileheight="64" tilewidth="128">
+  <tileoffset x="0" y="16" />
+  <image height="256" source="../dungeon/tiled_dungeon_2x2.png" width="512" />
  </tileset>
- <tileset firstgid="280" name="door_left" tilewidth="64" tileheight="128">
-  <tileoffset x="-16" y="-8"/>
-  <image source="../dungeon/door_left.png" width="128" height="128"/>
+ <tileset firstgid="280" name="door_left" tileheight="128" tilewidth="64">
+  <tileoffset x="-16" y="-8" />
+  <image height="128" source="../dungeon/door_left.png" width="128" />
  </tileset>
- <tileset firstgid="282" name="door_right" tilewidth="64" tileheight="128">
-  <tileoffset x="16" y="-8"/>
-  <image source="../dungeon/door_right.png" width="128" height="128"/>
+ <tileset firstgid="282" name="door_right" tileheight="128" tilewidth="64">
+  <tileoffset x="16" y="-8" />
+  <image height="128" source="../dungeon/door_right.png" width="128" />
  </tileset>
- <tileset firstgid="284" name="stairs" tilewidth="256" tileheight="256">
-  <tileoffset x="0" y="48"/>
-  <image source="../dungeon/stairs.png" width="1024" height="256"/>
+ <tileset firstgid="284" name="stairs" tileheight="256" tilewidth="256">
+  <tileoffset x="0" y="48" />
+  <image height="256" source="../dungeon/stairs.png" width="1024" />
  </tileset>
- <layer name="background" width="104" height="104">
+ <layer height="104" name="background" width="104">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -138,7 +137,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="object" width="104" height="104">
+ <layer height="104" name="object" width="104">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -246,7 +245,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="collision" width="104" height="104" visible="0">
+ <layer height="104" name="collision" visible="0" width="104">
   <data encoding="csv">
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
@@ -355,482 +354,482 @@
 </data>
  </layer>
  <objectgroup name="event">
-  <object id="1" name="to Frontier Plains" type="on_trigger" x="1536" y="3232" width="64" height="64">
+  <object height="64" id="1" name="to Frontier Plains" type="event" width="64" x="1536" y="3232">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="intermap" value="maps/frontier_plains.txt,118,138"/>
-    <property name="soundfx" value="soundfx/door_open.ogg,0,0"/>
-    <property name="tooltip" value="Frontier Plains"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="intermap" value="maps/frontier_plains.txt,118,138" />
+    <property name="soundfx" value="soundfx/door_open.ogg,0,0" />
+    <property name="tooltip" value="Frontier Plains" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="2" type="on_trigger" x="320" y="480" width="64" height="32">
+  <object height="32" id="2" type="event" width="64" x="320" y="480">
    <properties>
-    <property name="intramap" value="11,11"/>
-    <property name="soundfx" value="soundfx/powers/teleport.ogg"/>
-   </properties>
+    <property name="intramap" value="11,11" />
+    <property name="soundfx" value="soundfx/powers/teleport.ogg" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="3" type="on_trigger" x="320" y="384" width="64" height="32">
+  <object height="32" id="3" type="event" width="64" x="320" y="384">
    <properties>
-    <property name="intramap" value="10,16"/>
-    <property name="soundfx" value="soundfx/powers/teleport.ogg"/>
-   </properties>
+    <property name="intramap" value="10,16" />
+    <property name="soundfx" value="soundfx/powers/teleport.ogg" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="4" type="on_trigger" x="416" y="288" width="32" height="64">
+  <object height="64" id="4" type="event" width="32" x="416" y="288">
    <properties>
-    <property name="intramap" value="21,12"/>
-    <property name="soundfx" value="soundfx/powers/teleport.ogg"/>
-   </properties>
+    <property name="intramap" value="21,12" />
+    <property name="soundfx" value="soundfx/powers/teleport.ogg" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="5" type="on_trigger" x="640" y="352" width="32" height="64">
+  <object height="64" id="5" type="event" width="32" x="640" y="352">
    <properties>
-    <property name="intramap" value="12,9"/>
-    <property name="soundfx" value="soundfx/powers/teleport.ogg"/>
-   </properties>
+    <property name="intramap" value="12,9" />
+    <property name="soundfx" value="soundfx/powers/teleport.ogg" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="6" type="on_trigger" x="864" y="352" width="32" height="64">
+  <object height="64" id="6" type="event" width="32" x="864" y="352">
    <properties>
-    <property name="intramap" value="34,15"/>
-    <property name="soundfx" value="soundfx/powers/teleport.ogg"/>
-   </properties>
+    <property name="intramap" value="34,15" />
+    <property name="soundfx" value="soundfx/powers/teleport.ogg" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="7" type="on_trigger" x="1056" y="448" width="32" height="64">
+  <object height="64" id="7" type="event" width="32" x="1056" y="448">
    <properties>
-    <property name="intramap" value="26,11"/>
-    <property name="soundfx" value="soundfx/powers/teleport.ogg"/>
-   </properties>
+    <property name="intramap" value="26,11" />
+    <property name="soundfx" value="soundfx/powers/teleport.ogg" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="8" type="on_trigger" x="1472" y="448" width="32" height="64">
+  <object height="64" id="8" type="event" width="32" x="1472" y="448">
    <properties>
-    <property name="intramap" value="52,15"/>
-    <property name="soundfx" value="soundfx/powers/teleport.ogg"/>
-   </properties>
+    <property name="intramap" value="52,15" />
+    <property name="soundfx" value="soundfx/powers/teleport.ogg" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="9" type="on_trigger" x="1728" y="544" width="64" height="32">
+  <object height="32" id="9" type="event" width="64" x="1728" y="544">
    <properties>
-    <property name="intramap" value="54,21"/>
-    <property name="soundfx" value="soundfx/powers/teleport.ogg"/>
-   </properties>
+    <property name="intramap" value="54,21" />
+    <property name="soundfx" value="soundfx/powers/teleport.ogg" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="10" type="on_trigger" x="1728" y="640" width="64" height="32">
+  <object height="32" id="10" type="event" width="64" x="1728" y="640">
    <properties>
-    <property name="intramap" value="55,16"/>
-    <property name="soundfx" value="soundfx/powers/teleport.ogg"/>
-   </properties>
+    <property name="intramap" value="55,16" />
+    <property name="soundfx" value="soundfx/powers/teleport.ogg" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="11" type="on_trigger" x="1728" y="1024" width="32" height="64">
+  <object height="64" id="11" type="event" width="32" x="1728" y="1024">
    <properties>
-    <property name="intramap" value="47,31"/>
-    <property name="soundfx" value="soundfx/powers/teleport.ogg"/>
-   </properties>
+    <property name="intramap" value="47,31" />
+    <property name="soundfx" value="soundfx/powers/teleport.ogg" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="12" type="on_trigger" x="1536" y="992" width="32" height="64">
+  <object height="64" id="12" type="event" width="32" x="1536" y="992">
    <properties>
-    <property name="intramap" value="55,31"/>
-    <property name="soundfx" value="soundfx/powers/teleport.ogg"/>
-   </properties>
+    <property name="intramap" value="55,31" />
+    <property name="soundfx" value="soundfx/powers/teleport.ogg" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="13" type="on_trigger" x="1184" y="1248" width="32" height="64">
+  <object height="64" id="13" type="event" width="32" x="1184" y="1248">
    <properties>
-    <property name="intramap" value="31,39"/>
-    <property name="soundfx" value="soundfx/powers/teleport.ogg"/>
-   </properties>
+    <property name="intramap" value="31,39" />
+    <property name="soundfx" value="soundfx/powers/teleport.ogg" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="14" type="on_trigger" x="1024" y="1248" width="32" height="64">
+  <object height="64" id="14" type="event" width="32" x="1024" y="1248">
    <properties>
-    <property name="intramap" value="38,40"/>
-    <property name="soundfx" value="soundfx/powers/teleport.ogg"/>
-   </properties>
+    <property name="intramap" value="38,40" />
+    <property name="soundfx" value="soundfx/powers/teleport.ogg" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="15" type="on_trigger" x="1632" y="448" width="32" height="64">
+  <object height="64" id="15" type="event" width="32" x="1632" y="448">
    <properties>
-    <property name="intramap" value="45,14"/>
-    <property name="soundfx" value="soundfx/powers/teleport.ogg"/>
-   </properties>
+    <property name="intramap" value="45,14" />
+    <property name="soundfx" value="soundfx/powers/teleport.ogg" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="16" name="island chest (dagger)" type="on_trigger" x="736" y="384" width="32" height="32">
+  <object height="32" id="16" name="island chest (dagger)" type="event" width="32" x="736" y="384">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="loot" value="128,fixed,1"/>
-    <property name="mapmod" value="object,23,12,161"/>
-    <property name="repeat" value="false"/>
-    <property name="requires_not_status" value="at_chest1"/>
-    <property name="set_status" value="at_chest1"/>
-    <property name="soundfx" value="soundfx/wood_open.ogg"/>
-    <property name="tooltip" value="Treasure Chest"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="loot" value="128,fixed,1" />
+    <property name="mapmod" value="object,23,12,161" />
+    <property name="repeat" value="false" />
+    <property name="requires_not_status" value="at_chest1" />
+    <property name="set_status" value="at_chest1" />
+    <property name="soundfx" value="soundfx/wood_open.ogg" />
+    <property name="tooltip" value="Treasure Chest" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="17" name="island chest (buckler)" type="on_trigger" x="768" y="352" width="32" height="32">
+  <object height="32" id="17" name="island chest (buckler)" type="event" width="32" x="768" y="352">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="loot" value="57,fixed,1"/>
-    <property name="mapmod" value="object,24,11,160"/>
-    <property name="repeat" value="false"/>
-    <property name="requires_not_status" value="at_chest2"/>
-    <property name="set_status" value="at_chest2"/>
-    <property name="soundfx" value="soundfx/wood_open.ogg"/>
-    <property name="tooltip" value="Treasure Chest"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="loot" value="57,fixed,1" />
+    <property name="mapmod" value="object,24,11,160" />
+    <property name="repeat" value="false" />
+    <property name="requires_not_status" value="at_chest2" />
+    <property name="set_status" value="at_chest2" />
+    <property name="soundfx" value="soundfx/wood_open.ogg" />
+    <property name="tooltip" value="Treasure Chest" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="18" name="book stand" type="on_trigger" x="1248" y="288" width="32" height="32">
+  <object height="32" id="18" name="book stand" type="event" width="32" x="1248" y="288">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="mapmod" value="object,39,9,165"/>
-    <property name="msg" value="Tho' Nature, red in tooth and claw; With ravine, shriek'd against his creed"/>
-    <property name="repeat" value="false"/>
-    <property name="soundfx" value="soundfx/inventory/inventory_page.ogg"/>
-    <property name="tooltip" value="In Memoriam"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="mapmod" value="object,39,9,165" />
+    <property name="msg" value="Tho' Nature, red in tooth and claw; With ravine, shriek'd against his creed" />
+    <property name="repeat" value="false" />
+    <property name="soundfx" value="soundfx/inventory/inventory_page.ogg" />
+    <property name="tooltip" value="In Memoriam" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="19" name="zombie ambush" type="on_trigger" x="352" y="1664" width="128" height="64">
+  <object height="64" id="19" name="zombie ambush" type="event" width="128" x="352" y="1664">
    <properties>
-    <property name="repeat" value="false"/>
-    <property name="spawn" value="zombie_normal,12,50;zombie_normal,13,50;zombie_normal,12,55;zombie_normal,13,55"/>
-   </properties>
+    <property name="repeat" value="false" />
+    <property name="spawn" value="zombie_normal,12,50;zombie_normal,13,50;zombie_normal,12,55;zombie_normal,13,55" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="20" name="entrance brute" type="on_trigger" x="1536" y="2752" width="64" height="64">
+  <object height="64" id="20" name="entrance brute" type="event" width="64" x="1536" y="2752">
    <properties>
-    <property name="repeat" value="false"/>
-    <property name="spawn" value="zombie_brute,48,81"/>
-   </properties>
+    <property name="repeat" value="false" />
+    <property name="spawn" value="zombie_brute,48,81" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="21" name="floor spikes" type="on_trigger" x="768" y="2592" width="32" height="32">
+  <object height="32" id="21" name="floor spikes" type="event" width="32" x="768" y="2592">
    <properties>
-    <property name="cooldown" value="3s"/>
-    <property name="hotspot" value="location"/>
-    <property name="power" value="160"/>
-    <property name="power_damage" value="50,75"/>
-   </properties>
+    <property name="cooldown" value="3s" />
+    <property name="hotspot" value="location" />
+    <property name="power" value="160" />
+    <property name="power_damage" value="50,75" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="22" name="floor spikes" type="on_trigger" x="736" y="2592" width="32" height="32">
+  <object height="32" id="22" name="floor spikes" type="event" width="32" x="736" y="2592">
    <properties>
-    <property name="cooldown" value="3s"/>
-    <property name="hotspot" value="location"/>
-    <property name="power" value="160"/>
-    <property name="power_damage" value="50,75"/>
-   </properties>
+    <property name="cooldown" value="3s" />
+    <property name="hotspot" value="location" />
+    <property name="power" value="160" />
+    <property name="power_damage" value="50,75" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="23" name="floor spikes" type="on_trigger" x="640" y="2624" width="32" height="32">
+  <object height="32" id="23" name="floor spikes" type="event" width="32" x="640" y="2624">
    <properties>
-    <property name="cooldown" value="3s"/>
-    <property name="hotspot" value="location"/>
-    <property name="power" value="160"/>
-    <property name="power_damage" value="50,75"/>
-   </properties>
+    <property name="cooldown" value="3s" />
+    <property name="hotspot" value="location" />
+    <property name="power" value="160" />
+    <property name="power_damage" value="50,75" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="24" name="floor spikes" type="on_trigger" x="704" y="2592" width="32" height="32">
+  <object height="32" id="24" name="floor spikes" type="event" width="32" x="704" y="2592">
    <properties>
-    <property name="cooldown" value="3s"/>
-    <property name="hotspot" value="location"/>
-    <property name="power" value="160"/>
-    <property name="power_damage" value="50,75"/>
-   </properties>
+    <property name="cooldown" value="3s" />
+    <property name="hotspot" value="location" />
+    <property name="power" value="160" />
+    <property name="power_damage" value="50,75" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="25" name="floor spikes" type="on_trigger" x="640" y="2592" width="32" height="32">
+  <object height="32" id="25" name="floor spikes" type="event" width="32" x="640" y="2592">
    <properties>
-    <property name="cooldown" value="3s"/>
-    <property name="hotspot" value="location"/>
-    <property name="power" value="160"/>
-    <property name="power_damage" value="50,75"/>
-   </properties>
+    <property name="cooldown" value="3s" />
+    <property name="hotspot" value="location" />
+    <property name="power" value="160" />
+    <property name="power_damage" value="50,75" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="26" name="floor spikes" type="on_trigger" x="672" y="2592" width="32" height="32">
+  <object height="32" id="26" name="floor spikes" type="event" width="32" x="672" y="2592">
    <properties>
-    <property name="cooldown" value="3s"/>
-    <property name="hotspot" value="location"/>
-    <property name="power" value="160"/>
-    <property name="power_damage" value="50,75"/>
-   </properties>
+    <property name="cooldown" value="3s" />
+    <property name="hotspot" value="location" />
+    <property name="power" value="160" />
+    <property name="power_damage" value="50,75" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="27" name="floor spikes" type="on_trigger" x="512" y="2688" width="32" height="32">
+  <object height="32" id="27" name="floor spikes" type="event" width="32" x="512" y="2688">
    <properties>
-    <property name="cooldown" value="3s"/>
-    <property name="hotspot" value="location"/>
-    <property name="power" value="160"/>
-    <property name="power_damage" value="50,75"/>
-   </properties>
+    <property name="cooldown" value="3s" />
+    <property name="hotspot" value="location" />
+    <property name="power" value="160" />
+    <property name="power_damage" value="50,75" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="28" name="floor spikes" type="on_trigger" x="640" y="2656" width="32" height="32">
+  <object height="32" id="28" name="floor spikes" type="event" width="32" x="640" y="2656">
    <properties>
-    <property name="cooldown" value="3s"/>
-    <property name="hotspot" value="location"/>
-    <property name="power" value="160"/>
-    <property name="power_damage" value="50,75"/>
-   </properties>
+    <property name="cooldown" value="3s" />
+    <property name="hotspot" value="location" />
+    <property name="power" value="160" />
+    <property name="power_damage" value="50,75" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="29" name="floor spikes" type="on_trigger" x="608" y="2688" width="32" height="32">
+  <object height="32" id="29" name="floor spikes" type="event" width="32" x="608" y="2688">
    <properties>
-    <property name="cooldown" value="3s"/>
-    <property name="hotspot" value="location"/>
-    <property name="power" value="160"/>
-    <property name="power_damage" value="50,75"/>
-   </properties>
+    <property name="cooldown" value="3s" />
+    <property name="hotspot" value="location" />
+    <property name="power" value="160" />
+    <property name="power_damage" value="50,75" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="30" name="floor spikes" type="on_trigger" x="640" y="2688" width="32" height="32">
+  <object height="32" id="30" name="floor spikes" type="event" width="32" x="640" y="2688">
    <properties>
-    <property name="cooldown" value="3s"/>
-    <property name="hotspot" value="location"/>
-    <property name="power" value="160"/>
-    <property name="power_damage" value="50,75"/>
-   </properties>
+    <property name="cooldown" value="3s" />
+    <property name="hotspot" value="location" />
+    <property name="power" value="160" />
+    <property name="power_damage" value="50,75" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="31" name="floor spikes" type="on_trigger" x="544" y="2688" width="32" height="32">
+  <object height="32" id="31" name="floor spikes" type="event" width="32" x="544" y="2688">
    <properties>
-    <property name="cooldown" value="3s"/>
-    <property name="hotspot" value="location"/>
-    <property name="power" value="160"/>
-    <property name="power_damage" value="50,75"/>
-   </properties>
+    <property name="cooldown" value="3s" />
+    <property name="hotspot" value="location" />
+    <property name="power" value="160" />
+    <property name="power_damage" value="50,75" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="32" name="floor spikes" type="on_trigger" x="512" y="2624" width="32" height="32">
+  <object height="32" id="32" name="floor spikes" type="event" width="32" x="512" y="2624">
    <properties>
-    <property name="cooldown" value="3s"/>
-    <property name="hotspot" value="location"/>
-    <property name="power" value="160"/>
-    <property name="power_damage" value="50,75"/>
-   </properties>
+    <property name="cooldown" value="3s" />
+    <property name="hotspot" value="location" />
+    <property name="power" value="160" />
+    <property name="power_damage" value="50,75" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="33" name="floor spikes" type="on_trigger" x="576" y="2688" width="32" height="32">
+  <object height="32" id="33" name="floor spikes" type="event" width="32" x="576" y="2688">
    <properties>
-    <property name="cooldown" value="3s"/>
-    <property name="hotspot" value="location"/>
-    <property name="power" value="160"/>
-    <property name="power_damage" value="50,75"/>
-   </properties>
+    <property name="cooldown" value="3s" />
+    <property name="hotspot" value="location" />
+    <property name="power" value="160" />
+    <property name="power_damage" value="50,75" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="34" name="floor spikes" type="on_trigger" x="512" y="2656" width="32" height="32">
+  <object height="32" id="34" name="floor spikes" type="event" width="32" x="512" y="2656">
    <properties>
-    <property name="cooldown" value="3s"/>
-    <property name="hotspot" value="location"/>
-    <property name="power" value="160"/>
-    <property name="power_damage" value="50,75"/>
-   </properties>
+    <property name="cooldown" value="3s" />
+    <property name="hotspot" value="location" />
+    <property name="power" value="160" />
+    <property name="power_damage" value="50,75" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="35" name="Activate Teleporter" type="on_trigger" x="1408" y="2944" width="128" height="160">
+  <object height="160" id="35" name="Activate Teleporter" type="event" width="128" x="1408" y="2944">
    <properties>
-    <property name="mapmod" value="background,44,94,265"/>
-    <property name="msg" value="Ancient Temple waypoint discovered."/>
-    <property name="repeat" value="false"/>
-    <property name="requires_not_status" value="waypoint_ancient_temple"/>
-    <property name="set_status" value="waypoint_ancient_temple"/>
-   </properties>
+    <property name="mapmod" value="background,44,94,265" />
+    <property name="msg" value="Ancient Temple waypoint discovered." />
+    <property name="repeat" value="false" />
+    <property name="requires_not_status" value="waypoint_ancient_temple" />
+    <property name="set_status" value="waypoint_ancient_temple" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="36" name="Waypoint" type="on_trigger" x="1408" y="2976" width="64" height="64">
+  <object height="64" id="36" name="Waypoint" type="event" width="64" x="1408" y="2976">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="intermap" value="maps/warp_zone.txt,22,44"/>
-    <property name="soundfx" value="soundfx/environment/teleporter.ogg,0,0"/>
-    <property name="tooltip" value="Warp Zone"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="intermap" value="maps/warp_zone.txt,22,44" />
+    <property name="soundfx" value="soundfx/environment/teleporter.ogg,0,0" />
+    <property name="tooltip" value="Warp Zone" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="37" type="on_load" x="1216" y="2880" width="32" height="32">
+  <object height="32" id="37" type="event" width="32" x="1216" y="2880">
    <properties>
-    <property name="mapmod" value="background,44,94,265"/>
-    <property name="requires_status" value="waypoint_ancient_temple"/>
-   </properties>
+    <property name="mapmod" value="background,44,94,265" />
+    <property name="requires_status" value="waypoint_ancient_temple" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="38" name="double doors" type="on_trigger" x="1184" y="2272" width="64" height="64">
+  <object height="64" id="38" name="double doors" type="event" width="64" x="1184" y="2272">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="mapmod" value="collision,37,71,0;collision,38,71,0;collision,37,72,0;collision,38,72,0;object,38,71,0;object,38,72,0;object,37,70,213;object,37,73,219"/>
-    <property name="repeat" value="false"/>
-    <property name="soundfx" value="soundfx/door_open.ogg"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="mapmod" value="collision,37,71,0;collision,38,71,0;collision,37,72,0;collision,38,72,0;object,38,71,0;object,38,72,0;object,37,70,213;object,37,73,219" />
+    <property name="repeat" value="false" />
+    <property name="soundfx" value="soundfx/door_open.ogg" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="39" name="double doors" type="on_trigger" x="1856" y="2240" width="64" height="64">
+  <object height="64" id="39" name="double doors" type="event" width="64" x="1856" y="2240">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="mapmod" value="collision,58,70,0;collision,59,70,0;collision,58,71,0;collision,59,71,0;object,59,70,0;object,59,71,0;object,59,69,209;object,59,72,223"/>
-    <property name="repeat" value="false"/>
-    <property name="soundfx" value="soundfx/door_open.ogg"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="mapmod" value="collision,58,70,0;collision,59,70,0;collision,58,71,0;collision,59,71,0;object,59,70,0;object,59,71,0;object,59,69,209;object,59,72,223" />
+    <property name="repeat" value="false" />
+    <property name="soundfx" value="soundfx/door_open.ogg" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="40" type="on_trigger" x="480" y="2272" width="32" height="32">
+  <object height="32" id="40" type="event" width="32" x="480" y="2272">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="loot" value="currency,fixed,5,10"/>
-    <property name="mapmod" value="object,15,71,183"/>
-    <property name="repeat" value="false"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="loot" value="currency,fixed,5,10" />
+    <property name="mapmod" value="object,15,71,183" />
+    <property name="repeat" value="false" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="41" name="island chest" type="on_trigger" x="736" y="384" width="32" height="32">
+  <object height="32" id="41" name="island chest" type="event" width="32" x="736" y="384">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/leveled_low.txt"/>
-    <property name="mapmod" value="object,23,12,161"/>
-    <property name="repeat" value="false"/>
-    <property name="requires_status" value="at_chest1"/>
-    <property name="soundfx" value="soundfx/wood_open.ogg"/>
-    <property name="tooltip" value="Treasure Chest"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="loot" value="loot/leveled_low.txt" />
+    <property name="mapmod" value="object,23,12,161" />
+    <property name="repeat" value="false" />
+    <property name="requires_status" value="at_chest1" />
+    <property name="soundfx" value="soundfx/wood_open.ogg" />
+    <property name="tooltip" value="Treasure Chest" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="42" name="island chest" type="on_trigger" x="768" y="352" width="32" height="32">
+  <object height="32" id="42" name="island chest" type="event" width="32" x="768" y="352">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/leveled_low.txt"/>
-    <property name="mapmod" value="object,24,11,160"/>
-    <property name="repeat" value="false"/>
-    <property name="requires_status" value="at_chest2"/>
-    <property name="soundfx" value="soundfx/wood_open.ogg"/>
-    <property name="tooltip" value="Treasure Chest"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="loot" value="loot/leveled_low.txt" />
+    <property name="mapmod" value="object,24,11,160" />
+    <property name="repeat" value="false" />
+    <property name="requires_status" value="at_chest2" />
+    <property name="soundfx" value="soundfx/wood_open.ogg" />
+    <property name="tooltip" value="Treasure Chest" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
  </objectgroup>
  <objectgroup name="enemy" visible="0">
-  <object id="43" type="cursed_grave" x="2528" y="1184" width="32" height="32">
+  <object height="32" id="43" type="enemy" width="32" x="2528" y="1184">
    <properties>
-    <property name="direction" value="7"/>
-    <property name="wander_radius" value="0"/>
-   </properties>
+    <property name="direction" value="7" />
+    <property name="wander_radius" value="0" />
+   <property name="category" value="cursed_grave" /></properties>
   </object>
-  <object id="44" type="cursed_grave" x="2368" y="1344" width="32" height="32">
+  <object height="32" id="44" type="enemy" width="32" x="2368" y="1344">
    <properties>
-    <property name="direction" value="5"/>
-    <property name="wander_radius" value="0"/>
-   </properties>
+    <property name="direction" value="5" />
+    <property name="wander_radius" value="0" />
+   <property name="category" value="cursed_grave" /></properties>
   </object>
-  <object id="45" type="cursed_grave" x="2688" y="1344" width="32" height="32">
+  <object height="32" id="45" type="enemy" width="32" x="2688" y="1344">
    <properties>
-    <property name="direction" value="1"/>
-    <property name="wander_radius" value="0"/>
-   </properties>
+    <property name="direction" value="1" />
+    <property name="wander_radius" value="0" />
+   <property name="category" value="cursed_grave" /></properties>
   </object>
-  <object id="46" type="cursed_grave" x="2400" y="1216" width="32" height="32">
+  <object height="32" id="46" type="enemy" width="32" x="2400" y="1216">
    <properties>
-    <property name="direction" value="6"/>
-    <property name="wander_radius" value="0"/>
-   </properties>
+    <property name="direction" value="6" />
+    <property name="wander_radius" value="0" />
+   <property name="category" value="cursed_grave" /></properties>
   </object>
-  <object id="47" type="cursed_grave" x="2656" y="1216" width="32" height="32">
+  <object height="32" id="47" type="enemy" width="32" x="2656" y="1216">
    <properties>
-    <property name="direction" value="0"/>
-    <property name="wander_radius" value="0"/>
-   </properties>
+    <property name="direction" value="0" />
+    <property name="wander_radius" value="0" />
+   <property name="category" value="cursed_grave" /></properties>
   </object>
-  <object id="48" type="wyvern_normal" x="160" y="2368" width="32" height="32">
+  <object height="32" id="48" type="enemy" width="32" x="160" y="2368">
    <properties>
-    <property name="direction" value="5"/>
-    <property name="wander_radius" value="0"/>
-   </properties>
+    <property name="direction" value="5" />
+    <property name="wander_radius" value="0" />
+   <property name="category" value="wyvern_normal" /></properties>
   </object>
-  <object id="49" type="wyvern_normal" x="160" y="2496" width="32" height="32">
+  <object height="32" id="49" type="enemy" width="32" x="160" y="2496">
    <properties>
-    <property name="direction" value="5"/>
-    <property name="wander_radius" value="0"/>
-   </properties>
+    <property name="direction" value="5" />
+    <property name="wander_radius" value="0" />
+   <property name="category" value="wyvern_normal" /></properties>
   </object>
-  <object id="50" type="skeletal_archer" x="160" y="2432" width="32" height="32">
+  <object height="32" id="50" type="enemy" width="32" x="160" y="2432">
    <properties>
-    <property name="direction" value="5"/>
-    <property name="wander_radius" value="0"/>
-   </properties>
+    <property name="direction" value="5" />
+    <property name="wander_radius" value="0" />
+   <property name="category" value="skeletal_archer" /></properties>
   </object>
-  <object id="51" type="undead" x="1632" y="2240" width="224" height="128">
+  <object height="128" id="51" type="enemy" width="224" x="1632" y="2240">
    <properties>
-    <property name="level" value="1,2"/>
-    <property name="number" value="1,2"/>
-   </properties>
+    <property name="level" value="1,2" />
+    <property name="number" value="1,2" />
+   <property name="category" value="undead" /></properties>
   </object>
-  <object id="52" type="undead" x="1248" y="2240" width="224" height="128">
+  <object height="128" id="52" type="enemy" width="224" x="1248" y="2240">
    <properties>
-    <property name="level" value="1,2"/>
-    <property name="number" value="1,2"/>
-   </properties>
+    <property name="level" value="1,2" />
+    <property name="number" value="1,2" />
+   <property name="category" value="undead" /></properties>
   </object>
-  <object id="53" type="undead" x="544" y="2560" width="288" height="224">
+  <object height="224" id="53" type="enemy" width="288" x="544" y="2560">
    <properties>
-    <property name="level" value="2,3"/>
-    <property name="number" value="2,4"/>
-   </properties>
+    <property name="level" value="2,3" />
+    <property name="number" value="2,4" />
+   <property name="category" value="undead" /></properties>
   </object>
-  <object id="54" type="undead" x="320" y="2464" width="192" height="320">
+  <object height="320" id="54" type="enemy" width="192" x="320" y="2464">
    <properties>
-    <property name="level" value="1,2"/>
-    <property name="number" value="0,2"/>
-   </properties>
+    <property name="level" value="1,2" />
+    <property name="number" value="0,2" />
+   <property name="category" value="undead" /></properties>
   </object>
-  <object id="55" type="undead" x="320" y="2272" width="224" height="160">
+  <object height="160" id="55" type="enemy" width="224" x="320" y="2272">
    <properties>
-    <property name="level" value="1,2"/>
-    <property name="number" value="1,3"/>
-   </properties>
+    <property name="level" value="1,2" />
+    <property name="number" value="1,3" />
+   <property name="category" value="undead" /></properties>
   </object>
-  <object id="56" type="wyvern" x="768" y="1152" width="160" height="160">
+  <object height="160" id="56" type="enemy" width="160" x="768" y="1152">
    <properties>
-    <property name="level" value="3,3"/>
-    <property name="number" value="1,3"/>
-   </properties>
+    <property name="level" value="3,3" />
+    <property name="number" value="1,3" />
+   <property name="category" value="wyvern" /></properties>
   </object>
-  <object id="57" type="undead" x="1216" y="992" width="256" height="256">
+  <object height="256" id="57" type="enemy" width="256" x="1216" y="992">
    <properties>
-    <property name="level" value="1,2"/>
-    <property name="number" value="1,3"/>
-   </properties>
+    <property name="level" value="1,2" />
+    <property name="number" value="1,3" />
+   <property name="category" value="undead" /></properties>
   </object>
-  <object id="58" type="wyvern" x="352" y="832" width="160" height="160">
+  <object height="160" id="58" type="enemy" width="160" x="352" y="832">
    <properties>
-    <property name="level" value="3,3"/>
-    <property name="number" value="1,3"/>
-   </properties>
+    <property name="level" value="3,3" />
+    <property name="number" value="1,3" />
+   <property name="category" value="wyvern" /></properties>
   </object>
-  <object id="59" type="wyvern" x="256" y="224" width="160" height="160">
+  <object height="160" id="59" type="enemy" width="160" x="256" y="224">
    <properties>
-    <property name="level" value="3,3"/>
-    <property name="number" value="1,3"/>
-   </properties>
+    <property name="level" value="3,3" />
+    <property name="number" value="1,3" />
+   <property name="category" value="wyvern" /></properties>
   </object>
-  <object id="60" type="wyvern" x="672" y="288" width="192" height="192">
+  <object height="192" id="60" type="enemy" width="192" x="672" y="288">
    <properties>
-    <property name="level" value="3,3"/>
-    <property name="number" value="1,3"/>
-   </properties>
+    <property name="level" value="3,3" />
+    <property name="number" value="1,3" />
+   <property name="category" value="wyvern" /></properties>
   </object>
-  <object id="61" type="wyvern" x="1216" y="256" width="128" height="448">
+  <object height="448" id="61" type="enemy" width="128" x="1216" y="256">
    <properties>
-    <property name="level" value="3,3"/>
-    <property name="number" value="1,3"/>
-   </properties>
+    <property name="level" value="3,3" />
+    <property name="number" value="1,3" />
+   <property name="category" value="wyvern" /></properties>
   </object>
-  <object id="62" type="undead" x="1696" y="416" width="320" height="96">
+  <object height="96" id="62" type="enemy" width="320" x="1696" y="416">
    <properties>
-    <property name="level" value="1,3"/>
-    <property name="number" value="2,5"/>
-   </properties>
+    <property name="level" value="1,3" />
+    <property name="number" value="2,5" />
+   <property name="category" value="undead" /></properties>
   </object>
-  <object id="63" type="undead" x="2272" y="416" width="320" height="96">
+  <object height="96" id="63" type="enemy" width="320" x="2272" y="416">
    <properties>
-    <property name="level" value="1,4"/>
-    <property name="number" value="2,5"/>
-   </properties>
+    <property name="level" value="1,4" />
+    <property name="number" value="2,5" />
+   <property name="category" value="undead" /></properties>
   </object>
-  <object id="64" type="undead" x="2944" y="640" width="64" height="288">
+  <object height="288" id="64" type="enemy" width="64" x="2944" y="640">
    <properties>
-    <property name="level" value="1,2"/>
-    <property name="number" value="0,3"/>
-   </properties>
+    <property name="level" value="1,2" />
+    <property name="number" value="0,3" />
+   <property name="category" value="undead" /></properties>
   </object>
-  <object id="65" type="undead" x="2592" y="1792" width="64" height="256">
+  <object height="256" id="65" type="enemy" width="64" x="2592" y="1792">
    <properties>
-    <property name="level" value="1,2"/>
-    <property name="number" value="0,3"/>
-   </properties>
+    <property name="level" value="1,2" />
+    <property name="number" value="0,3" />
+   <property name="category" value="undead" /></properties>
   </object>
-  <object id="66" type="undead" x="2528" y="2240" width="128" height="128">
+  <object height="128" id="66" type="enemy" width="128" x="2528" y="2240">
    <properties>
-    <property name="level" value="1,2"/>
-    <property name="number" value="1,3"/>
-   </properties>
+    <property name="level" value="1,2" />
+    <property name="number" value="1,3" />
+   <property name="category" value="undead" /></properties>
   </object>
-  <object id="67" type="undead" x="2176" y="2560" width="320" height="288">
+  <object height="288" id="67" type="enemy" width="320" x="2176" y="2560">
    <properties>
-    <property name="level" value="2,3"/>
-    <property name="number" value="3,5"/>
-   </properties>
+    <property name="level" value="2,3" />
+    <property name="number" value="3,5" />
+   <property name="category" value="undead" /></properties>
   </object>
-  <object id="68" type="undead" x="2048" y="2240" width="128" height="128">
+  <object height="128" id="68" type="enemy" width="128" x="2048" y="2240">
    <properties>
-    <property name="level" value="1,2"/>
-    <property name="number" value="1,2"/>
-   </properties>
+    <property name="level" value="1,2" />
+    <property name="number" value="1,2" />
+   <property name="category" value="undead" /></properties>
   </object>
  </objectgroup>
 </map>

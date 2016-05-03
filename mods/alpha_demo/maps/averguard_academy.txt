@@ -331,8 +331,9 @@ data=
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
 
 [event]
-type=on_trigger
+type=event
 location=62,2,2,1
+activate=on_trigger
 hotspot=location
 intermap=maps/averguard_atrium.txt,9,57
 soundfx=soundfx/door_open.ogg,0,0
@@ -340,8 +341,9 @@ tooltip=Averguard Atrium
 
 [event]
 # bookstand
-type=on_trigger
+type=event
 location=31,22,1,1
+activate=on_trigger
 hotspot=location
 mapmod=object,31,22,165
 msg="Some say the Averguard Academy is the greatest collection of knowledge within the empire."
@@ -351,8 +353,9 @@ tooltip=Book Stand
 
 [event]
 # bookstand
-type=on_trigger
+type=event
 location=28,22,1,1
+activate=on_trigger
 hotspot=location
 mapmod=object,28,22,165
 msg="Professor Langlier is High Sage of the Averguard.  Several volumes kept here are his own writings."
@@ -362,8 +365,9 @@ tooltip=Book Stand
 
 [event]
 # bookstand
-type=on_trigger
+type=event
 location=25,22,1,1
+activate=on_trigger
 hotspot=location
 mapmod=object,25,22,165
 msg="The Academy is only open to oathkeeping members of the Averguard.  Few others know of its existence."
@@ -373,8 +377,9 @@ tooltip=Book Stand
 
 [event]
 # bookstand
-type=on_trigger
+type=event
 location=22,31,1,1
+activate=on_trigger
 hotspot=location
 mapmod=object,22,31,164
 msg="The peasants could not be trusted with literacy.  Most gave up their books without incident."
@@ -384,8 +389,9 @@ tooltip=Book Stand
 
 [event]
 # bookstand
-type=on_trigger
+type=event
 location=20,75,1,1
+activate=on_trigger
 hotspot=location
 loot=2,fixed,1
 mapmod=object,20,75,164
@@ -398,8 +404,9 @@ tooltip=Book Stand
 
 [event]
 # barrel
-type=on_trigger
+type=event
 location=10,49,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_low.txt
 mapmod=object,10,49,162
@@ -409,8 +416,9 @@ tooltip=Barrel
 
 [event]
 # barrel
-type=on_trigger
+type=event
 location=10,48,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_low.txt
 mapmod=object,10,48,162
@@ -420,8 +428,9 @@ tooltip=Barrel
 
 [event]
 # barrel
-type=on_trigger
+type=event
 location=10,47,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_low.txt
 mapmod=object,10,47,162
@@ -431,8 +440,9 @@ tooltip=Barrel
 
 [event]
 # barrel
-type=on_trigger
+type=event
 location=12,49,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_low.txt
 mapmod=object,12,49,162
@@ -442,8 +452,9 @@ tooltip=Barrel
 
 [event]
 # crate
-type=on_trigger
+type=event
 location=11,46,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_low.txt
 mapmod=object,11,46,163
@@ -453,8 +464,9 @@ tooltip=Crate
 
 [event]
 # crate
-type=on_trigger
+type=event
 location=13,49,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_low.txt
 mapmod=object,13,49,163
@@ -464,8 +476,9 @@ tooltip=Crate
 
 [event]
 # crate
-type=on_trigger
+type=event
 location=15,49,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_low.txt
 mapmod=object,15,49,163
@@ -475,15 +488,17 @@ tooltip=Crate
 
 [event]
 # boss tomb
-type=on_trigger
+type=event
 location=3,88,5,5
+activate=on_trigger
 msg=This tomb glows with magical runes.
 repeat=false
 
 [event]
 # boss tomb
-type=on_trigger
+type=event
 location=4,90,1,2
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_high.txt
 repeat=false
@@ -491,8 +506,9 @@ tooltip=Langlier's Tomb
 
 [event]
 # teleport chest
-type=on_trigger
+type=event
 location=45,97,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_mid.txt
 mapmod=object,45,97,161
@@ -500,112 +516,130 @@ repeat=false
 tooltip=Treasure Chest
 
 [event]
-type=on_load
+type=event
 location=18,74,1,1
+activate=on_load
 mapmod=object,20,75,164
 requires_status=av_academy_bookstand1
 
 [enemy]
 # entrance guards
-type=skeletal_mage
+type=enemy
 location=60,14,1,1
+category=skeletal_mage
 direction=3
 wander_radius=0
 
 [enemy]
-type=skeletal_mage
+type=enemy
 location=65,14,1,1
+category=skeletal_mage
 direction=3
 wander_radius=0
 
 [enemy]
-type=zombie_rotting
+type=enemy
 location=50,25,1,1
+category=zombie_rotting
 wander_radius=0
 
 [enemy]
-type=zombie_normal
+type=enemy
 location=50,30,1,1
+category=zombie_normal
 wander_radius=0
 
 [enemy]
 # guards teleport chest
-type=zombie_normal
+type=enemy
 location=45,85,1,1
+category=zombie_normal
 
 [enemy]
-type=professor_langlier
+type=enemy
 location=5,91,1,1
+category=rofessor_langlier
 direction=1
 wander_radius=0
 
 [enemy]
-type=undead
+type=enemy
 location=58,23,9,7
+category=undead
 level=3,5
 number=1,3
 
 [enemy]
 # foyer
-type=undead
+type=enemy
 location=34,26,9,14
+category=undead
 level=4,6
 number=2,3
 
 [enemy]
-type=zombie
+type=enemy
 location=15,22,18,18
+category=zombie
 level=3,5
 number=2,2
 
 [enemy]
-type=undead
+type=enemy
 location=15,22,18,18
+category=undead
 level=3,5
 number=1,2
 
 [enemy]
 # north book location
-type=zombie
+type=enemy
 location=15,22,18,18
+category=zombie
 level=3,5
 number=3,4
 
 [enemy]
-type=antlion
+type=enemy
 location=51,66,7,9
+category=antlion
 level=3,5
 number=1,3
 
 [enemy]
-type=skeletal_mage
+type=enemy
 location=25,42,33,33
+category=skeletal_mage
 number=4,6
 
 [enemy]
-type=zombie
+type=enemy
 location=25,42,30,30
+category=zombie
 level=3,5
 number=3,7
 
 [enemy]
 # center book location
-type=zombie
+type=enemy
 location=25,42,30,30
+category=zombie
 level=3,5
 number=7,10
 
 [enemy]
 # south book location
-type=undead
+type=enemy
 location=13,68,12,8
+category=undead
 level=3,5
 number=2,4
 
 [enemy]
 # langlier's location
-type=antlion
+type=enemy
 location=8,67,17,26
+category=antlion
 level=3,5
 number=3,5
 

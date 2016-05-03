@@ -328,15 +328,17 @@ data=
 
 [event]
 # exit to cave level 1
-type=on_trigger
+type=event
 location=53,4,2,1
+activate=on_trigger
 hotspot=location
 intermap=maps/cave1.txt,15,67
 tooltip=Caves Level 1
 
 [event]
-type=on_trigger
+type=event
 location=13,22,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_low.txt
 mapmod=object,13,22,178
@@ -345,8 +347,9 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
-type=on_trigger
+type=event
 location=11,21,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_mid.txt
 mapmod=object,11,21,177
@@ -356,14 +359,16 @@ tooltip=Treasure Chest
 
 [event]
 # necromancer message
-type=on_trigger
+type=event
 location=18,28,5,5
+activate=on_trigger
 msg=It looks like the necromancer has been raising the corpses of dead miners as his minions.
 repeat=false
 
 [event]
-type=on_trigger
+type=event
 location=25,24,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_low.txt
 mapmod=object,25,24,178
@@ -372,8 +377,9 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
-type=on_trigger
+type=event
 location=26,32,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_low.txt
 mapmod=object,26,32,179
@@ -382,8 +388,9 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Crate
 
 [event]
-type=on_trigger
+type=event
 location=28,33,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_low.txt
 mapmod=object,28,33,178
@@ -392,8 +399,9 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
-type=on_trigger
+type=event
 location=26,25,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_low.txt
 mapmod=object,26,25,179
@@ -402,8 +410,9 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Crate
 
 [event]
-type=on_trigger
+type=event
 location=56,95,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_mid.txt
 mapmod=object,56,95,176
@@ -413,14 +422,16 @@ tooltip=Treasure Chest
 
 [event]
 # river message
-type=on_trigger
+type=event
 location=67,62,4,4
+activate=on_trigger
 msg=A natural underground river flows through this room.
 repeat=false
 
 [event]
-type=on_trigger
+type=event
 location=63,70,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_low.txt
 mapmod=object,63,70,178
@@ -429,8 +440,9 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
-type=on_trigger
+type=event
 location=71,73,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_low.txt
 mapmod=object,71,73,178
@@ -439,8 +451,9 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
-type=on_trigger
+type=event
 location=50,52,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_low.txt
 mapmod=object,50,52,178
@@ -450,8 +463,9 @@ tooltip=Barrel
 
 [event]
 # falling pillar/bridge event
-type=on_trigger
+type=event
 location=80,60,1,1
+activate=on_trigger
 hotspot=location
 mapmod=collision,80,60,0;collision,80,61,0;collision,80,62,0;collision,80,63,0;object,80,60,151;object,80,61,152;object,80,62,151;object,80,63,152
 repeat=false
@@ -461,14 +475,16 @@ tooltip=Stalagmite Pillar
 
 [event]
 # river message 2
-type=on_trigger
+type=event
 location=88,66,3,3
+activate=on_trigger
 msg=The river appears to have swollen recently, covering the location where the tracks once were.
 repeat=false
 
 [event]
-type=on_trigger
+type=event
 location=46,29,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_low.txt
 mapmod=object,46,29,179
@@ -477,8 +493,9 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Crate
 
 [event]
-type=on_trigger
+type=event
 location=47,32,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_low.txt
 mapmod=object,47,32,178
@@ -488,14 +505,16 @@ tooltip=Barrel
 
 [event]
 # miners message
-type=on_trigger
+type=event
 location=16,47,3,3
+activate=on_trigger
 msg=The undead in this room are dressed in the remnants of shredded mining clothes.
 repeat=false
 
 [event]
-type=on_trigger
+type=event
 location=80,67,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_low.txt
 mapmod=object,80,67,178
@@ -504,8 +523,9 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
-type=on_trigger
+type=event
 location=81,67,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_low.txt
 mapmod=object,81,67,179
@@ -514,8 +534,9 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Crate
 
 [event]
-type=on_trigger
+type=event
 location=79,68,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_low.txt
 mapmod=object,79,68,178
@@ -524,8 +545,9 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
-type=on_trigger
+type=event
 location=98,60,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_mid.txt
 mapmod=object,98,60,177
@@ -534,8 +556,9 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Treasure Chest
 
 [event]
-type=on_trigger
+type=event
 location=5,34,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_low.txt
 mapmod=object,5,34,178
@@ -544,8 +567,9 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
-type=on_trigger
+type=event
 location=6,33,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_low.txt
 mapmod=object,6,33,179
@@ -555,73 +579,85 @@ tooltip=Crate
 
 [event]
 # Cave wind sound effect
-type=on_load
+type=event
 location=0,0,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_wind_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=24,49,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=64,65,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=93,62,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=74,97,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=69,82,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=68,72,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=72,66,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=81,62,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=88,70,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=98,66,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
-type=on_trigger
+type=event
 location=26,24,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_low.txt
 mapmod=object,26,24,179
@@ -630,85 +666,103 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Crate
 
 [enemy]
-type=skeletal_warrior
+type=enemy
 location=49,21,1,1
+category=skeletal_warrior
 
 [enemy]
-type=skeletal_warrior
+type=enemy
 location=57,20,1,1
+category=skeletal_warrior
 
 [enemy]
-type=goblin_spearman
+type=enemy
 location=48,25,1,1
+category=goblin_spearman
 wander_radius=0
 
 [enemy]
-type=minotaur
+type=enemy
 location=55,31,1,1
+category=minotaur
 
 [enemy]
-type=skeletal_archer
+type=enemy
 location=56,32,1,1
+category=skeletal_archer
 
 [enemy]
-type=skeletal_archer
+type=enemy
 location=53,32,1,1
+category=skeletal_archer
 
 [enemy]
-type=antlion_freezer
+type=enemy
 location=78,66,1,1
+category=antlion_freezer
 
 [enemy]
-type=antlion_freezer
+type=enemy
 location=81,66,1,1
+category=antlion_freezer
 
 [enemy]
-type=necromancer_apprentice
+type=enemy
 location=18,28,1,1
+category=necromancer_apprentice
 
 [enemy]
-type=skeletal_warrior
+type=enemy
 location=55,80,1,1
+category=skeletal_warrior
 
 [enemy]
-type=skeletal_warrior
+type=enemy
 location=56,80,1,1
+category=skeletal_warrior
 
 [enemy]
-type=antlion_spitter
+type=enemy
 location=71,71,1,1
+category=antlion_spitter
 
 [enemy]
-type=minotaur
+type=enemy
 location=56,62,1,1
+category=minotaur
 
 [enemy]
-type=antlion_hatchling
+type=enemy
 location=91,57,2,4
+category=antlion_hatchling
 level=2,6
 number=5,5
 
 [enemy]
-type=antlion
+type=enemy
 location=66,55,24,18
+category=antlion
 level=4,6
 number=6,6
 
 [enemy]
-type=undead
+type=enemy
 location=15,49,33,12
+category=undead
 level=3,5
 number=6,6
 
 [enemy]
-type=undead
+type=enemy
 location=6,11,21,35
+category=undead
 level=4,5
 number=5,5
 
 [enemy]
-type=undead
+type=enemy
 location=6,11,21,35
+category=undead
 level=3,3
 number=10,10
 

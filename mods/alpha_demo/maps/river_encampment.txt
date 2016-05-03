@@ -222,141 +222,174 @@ data=
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,3,3,3,3,3,3,3,3,3,3,1,3,3
 
 [enemy]
-type=goblin_normal
+type=enemy
 location=59,49,1,1
+category=goblin_normal
 
 [enemy]
-type=goblin_normal
+type=enemy
 location=57,43,1,1
+category=goblin_normal
 
 [enemy]
-type=goblin_normal
+type=enemy
 location=47,29,1,1
+category=goblin_normal
 
 [enemy]
-type=goblin_normal
+type=enemy
 location=34,21,1,1
+category=goblin_normal
 
 [enemy]
-type=goblin_normal
+type=enemy
 location=19,34,1,1
+category=goblin_normal
 
 [enemy]
-type=goblin_spearman
+type=enemy
 location=47,42,1,1
+category=goblin_spearman
 wander_radius=0
 
 [enemy]
-type=goblin_spearman
+type=enemy
 location=41,40,1,1
+category=goblin_spearman
 
 [enemy]
-type=goblin_spearman
+type=enemy
 location=38,32,1,1
+category=goblin_spearman
 
 [enemy]
-type=goblin_spearman
+type=enemy
 location=32,26,1,1
+category=goblin_spearman
 
 [enemy]
-type=goblin_spearman
+type=enemy
 location=40,25,1,1
+category=goblin_spearman
 
 [enemy]
-type=goblin_spearman_elite
+type=enemy
 location=19,25,1,1
+category=goblin_spearman_elite
 
 [enemy]
-type=goblin_spearman
+type=enemy
 location=26,32,1,1
+category=goblin_spearman
 
 [enemy]
-type=goblin_spearman
+type=enemy
 location=29,32,1,1
+category=goblin_spearman
 
 [enemy]
-type=goblin_spearman
+type=enemy
 location=11,21,1,1
+category=goblin_spearman
 
 [enemy]
-type=goblin_charger_elite
+type=enemy
 location=9,10,1,1
+category=goblin_charger_elite
 
 [enemy]
-type=goblin_spearman
+type=enemy
 location=16,9,1,1
+category=goblin_spearman
 
 [enemy]
-type=goblin_charger
+type=enemy
 location=45,31,1,1
+category=goblin_charger
 
 [enemy]
-type=goblin_charger
+type=enemy
 location=38,37,1,1
+category=goblin_charger
 
 [enemy]
-type=goblin_spearman_elite
+type=enemy
 location=32,45,1,1
+category=goblin_spearman_elite
 
 [enemy]
-type=goblin_charger
+type=enemy
 location=41,45,1,1
+category=goblin_charger
 
 [enemy]
-type=goblin_charger
+type=enemy
 location=21,44,1,1
+category=goblin_charger
 
 [enemy]
-type=goblin_charger
+type=enemy
 location=21,43,1,1
+category=goblin_charger
 
 [enemy]
-type=goblin_charger
+type=enemy
 location=23,37,1,1
+category=goblin_charger
 
 [enemy]
-type=goblin_charger
+type=enemy
 location=29,18,1,1
+category=goblin_charger
 
 [enemy]
-type=goblin_charger
+type=enemy
 location=26,18,1,1
+category=goblin_charger
 
 [enemy]
-type=goblin_charger_elite
+type=enemy
 location=28,22,1,1
+category=goblin_charger_elite
 wander_radius=0
 
 [enemy]
-type=goblin_charger
+type=enemy
 location=18,15,1,1
+category=goblin_charger
 
 [enemy]
-type=goblin_spearman
+type=enemy
 location=14,19,1,1
+category=goblin_spearman
 
 [enemy]
-type=rilrak
+type=enemy
 location=11,14,1,1
+category=rilrak
 direction=5
 wander_radius=0
 
 [enemy]
-type=antlion_hatchling
+type=enemy
 location=45,15,1,1
+category=antlion_hatchling
 
 [enemy]
-type=antlion_hatchling
+type=enemy
 location=41,15,1,1
+category=antlion_hatchling
 
 [enemy]
-type=antlion_hatchling
+type=enemy
 location=41,18,1,1
+category=antlion_hatchling
 
 [event]
 # cliff passage container
-type=on_trigger
+type=event
 location=20,43,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_low.txt
 mapmod=object,20,43,99
@@ -366,8 +399,9 @@ tooltip=Supplies
 
 [event]
 # boss container 1 (wand)
-type=on_trigger
+type=event
 location=10,13,1,1
+activate=on_trigger
 hotspot=location
 loot=127,fixed,1
 mapmod=object,10,13,99
@@ -379,8 +413,9 @@ tooltip=Supplies
 
 [event]
 # boss container 2
-type=on_trigger
+type=event
 location=9,15,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_mid.txt
 mapmod=object,9,15,97
@@ -390,8 +425,9 @@ tooltip=Supplies
 
 [event]
 # pier container
-type=on_trigger
+type=event
 location=38,27,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_low.txt
 mapmod=object,38,27,97
@@ -401,88 +437,102 @@ tooltip=Supplies
 
 [event]
 # to Frontier Plains
-type=on_trigger
+type=event
 location=51,62,2,1
+activate=on_trigger
 hotspot=location
 intermap=maps/frontier_plains.txt,63,18
 tooltip=Frontier Plains
 
 [event]
 # River sound
-type=on_load
+type=event
 location=57,63,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=53,50,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=38,43,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=44,36,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=25,34,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=29,26,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=17,25,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=17,16,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=7,2,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # Wind and crickets sound effect
-type=on_load
+type=event
 location=0,0,1,1
+activate=on_load
 soundfx=soundfx/environment/wind_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=15,6,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=44,47,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # boss container 1
-type=on_trigger
+type=event
 location=10,13,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/leveled_mid.txt
 mapmod=object,10,13,99

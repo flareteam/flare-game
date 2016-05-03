@@ -332,16 +332,18 @@ data=
 
 [event]
 # to Black Oak Farm
-type=on_trigger
+type=event
 location=99,48,1,4
+activate=on_trigger
 hotspot=location
 intermap=maps/black_oak_farm.txt,2,12
 tooltip=Black Oak Farm
 
 [event]
 # Supplies
-type=on_trigger
+type=event
 location=41,8,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_10.txt
 mapmod=object,41,8,99
@@ -351,8 +353,9 @@ tooltip=Supplies
 
 [event]
 # Supplies
-type=on_trigger
+type=event
 location=13,73,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_10.txt
 mapmod=object,13,73,99
@@ -362,8 +365,9 @@ tooltip=Supplies
 
 [event]
 # Supplies
-type=on_trigger
+type=event
 location=50,91,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_10.txt
 mapmod=object,50,91,97
@@ -373,8 +377,9 @@ tooltip=Supplies
 
 [event]
 # Supplies
-type=on_trigger
+type=event
 location=8,19,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_10.txt
 mapmod=object,8,19,97
@@ -384,283 +389,330 @@ tooltip=Supplies
 
 [event]
 # Wind and crickets sound effect
-type=on_load
+type=event
 location=0,0,1,1
+activate=on_load
 soundfx=soundfx/environment/wind_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=50,27,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=28,50,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=21,36,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=34,27,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=32,19,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=31,37,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=60,22,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=63,33,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=73,39,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=70,67,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=73,54,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=64,72,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=67,84,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=50,76,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=37,71,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=30,64,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=23,60,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=39,80,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=17,19,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=82,81,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=51,87,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=44,10,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=76,21,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=19,75,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=47,39,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=48,62,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=90,49,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=14,46,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [enemy]
-type=grassland
+type=enemy
 location=74,45,8,13
+category=grassland
 level=10
 number=3
 
 [enemy]
-type=grassland
+type=enemy
 location=85,73,8,13
+category=grassland
 level=10
 number=3
 
 [enemy]
-type=grassland
+type=enemy
 location=73,75,8,13
+category=grassland
 level=10
 number=3
 
 [enemy]
-type=grassland
+type=enemy
 location=55,81,8,13
+category=grassland
 level=10
 number=2
 
 [enemy]
-type=grassland
+type=enemy
 location=41,80,8,13
+category=grassland
 level=10
 number=2
 
 [enemy]
-type=grassland
+type=enemy
 location=12,68,8,13
+category=grassland
 level=10
 number=3
 
 [enemy]
-type=grassland
+type=enemy
 location=26,71,8,13
+category=grassland
 level=10
 number=3
 
 [enemy]
-type=grassland
+type=enemy
 location=12,52,13,9
+category=grassland
 level=10
 number=3
 
 [enemy]
-type=grassland
+type=enemy
 location=12,40,12,7
+category=grassland
 level=10
 number=3
 
 [enemy]
-type=grassland
+type=enemy
 location=8,12,7,14
+category=grassland
 level=10
 number=3
 
 [enemy]
-type=grassland
+type=enemy
 location=19,13,7,14
+category=grassland
 level=10
 number=3
 
 [enemy]
-type=grassland
+type=enemy
 location=36,5,7,14
+category=grassland
 level=10
 number=2
 
 [enemy]
-type=grassland
+type=enemy
 location=50,9,7,14
+category=grassland
 level=10
 number=2
 
 [enemy]
-type=grassland
+type=enemy
 location=68,13,17,9
+category=grassland
 level=10
 number=3
 
 [enemy]
-type=grassland
+type=enemy
 location=69,26,17,9
+category=grassland
 level=10
 number=3
 
 [enemy]
-type=grassland
+type=enemy
 location=39,37,20,5
+category=grassland
 level=10
 number=3
 
 [enemy]
-type=grassland
+type=enemy
 location=39,58,20,5
+category=grassland
 level=10
 number=3
 
 [enemy]
-type=grassland
+type=enemy
 location=60,44,5,12
+category=grassland
 level=10
 number=2
 

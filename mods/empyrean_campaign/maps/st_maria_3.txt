@@ -211,8 +211,9 @@ data=
 
 [event]
 # to St. Maria: Crypt
-type=on_trigger
+type=event
 location=6,46,1,2
+activate=on_trigger
 hotspot=location
 intermap=maps/st_maria_2.txt,15,5
 soundfx=soundfx/environment/stairs.ogg,0,0
@@ -220,77 +221,87 @@ tooltip=St. Maria: Prison
 
 [event]
 # torch (top left)
-type=on_trigger
+type=event
 location=15,36,4,1
+activate=on_trigger
 mapmod=object,12,39,167
 repeat=false
 soundfx=soundfx/environment/open_fire_loop.ogg,12,39,true
 
 [event]
 # torch (bottom left)
-type=on_trigger
+type=event
 location=15,36,4,1
+activate=on_trigger
 mapmod=object,21,39,167
 repeat=false
 soundfx=soundfx/environment/open_fire_loop.ogg,21,39,true
 
 [event]
 # torch (trigger sfx)
-type=on_trigger
+type=event
 location=15,36,4,1
+activate=on_trigger
 repeat=false
 soundfx=soundfx/powers/fireball.ogg,0,0
 
 [event]
 # torch (top middle)
-type=on_trigger
+type=event
 location=15,28,4,1
+activate=on_trigger
 mapmod=object,12,31,167
 repeat=false
 soundfx=soundfx/environment/open_fire_loop.ogg,12,31,true
 
 [event]
 # torch (bottom middle)
-type=on_trigger
+type=event
 location=15,28,4,1
+activate=on_trigger
 mapmod=object,21,31,167
 repeat=false
 soundfx=soundfx/environment/open_fire_loop.ogg,21,31,true
 
 [event]
 # torch (trigger sfx)
-type=on_trigger
+type=event
 location=15,28,4,1
+activate=on_trigger
 repeat=false
 soundfx=soundfx/powers/fireball.ogg,0,0
 
 [event]
 # torch (top right)
-type=on_trigger
+type=event
 location=15,20,4,1
+activate=on_trigger
 mapmod=object,12,23,167
 repeat=false
 soundfx=soundfx/environment/open_fire_loop.ogg,12,23,true
 
 [event]
 # torch (bottom right)
-type=on_trigger
+type=event
 location=15,20,4,1
+activate=on_trigger
 mapmod=object,21,23,167
 repeat=false
 soundfx=soundfx/environment/open_fire_loop.ogg,21,23,true
 
 [event]
 # torch (trigger sfx)
-type=on_trigger
+type=event
 location=15,20,4,1
+activate=on_trigger
 repeat=false
 soundfx=soundfx/powers/fireball.ogg,0,0
 
 [event]
 # kill seagate's tombstone (bottom)
-type=on_trigger
+type=event
 location=3,1,28,44
+activate=on_trigger
 mapmod=collision,27,4,0
 power=177
 power_path=27,5,27,5
@@ -299,16 +310,18 @@ requires_status=emp_seagate_defeated
 
 [event]
 # kill seagate's tombstones (on_load)
-type=on_load
+type=event
 location=12,5,1,1
+activate=on_load
 mapmod=collision,6,4,0;collision,27,4,0
 repeat=false
 requires_status=emp_seagate_defeated
 
 [event]
 # kill seagate's tombstone (top)
-type=on_trigger
+type=event
 location=3,1,28,44
+activate=on_trigger
 mapmod=collision,6,4,0
 power=177
 power_path=6,5,6,5
@@ -317,8 +330,9 @@ requires_status=emp_seagate_defeated
 
 [event]
 # lock door
-type=on_trigger
+type=event
 location=15,41,4,1
+activate=on_trigger
 mapmod=object,16,45,115;collision,16,45,1
 repeat=false
 requires_not_status=emp_seagate_door
@@ -328,44 +342,51 @@ soundfx=soundfx/door_open.ogg
 
 [event]
 # lock door (on_load)
-type=on_load
+type=event
 location=13,41,1,1
+activate=on_load
 mapmod=object,16,45,115;collision,16,45,1
 requires_status=emp_seagate_door
 
 [event]
 # Wind sound
-type=on_load
+type=event
 location=0,0,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_wind_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=3,5,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=3,12,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=30,12,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=30,5,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
-type=on_trigger
+type=event
 location=12,2,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_4.txt
 loot_count=4,5
@@ -375,8 +396,9 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Treasure Chest
 
 [event]
-type=on_trigger
+type=event
 location=21,2,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_4.txt
 loot_count=4,5
@@ -387,8 +409,9 @@ tooltip=Treasure Chest
 
 [event]
 # teleport trap
-type=on_trigger
+type=event
 location=15,17,4,1
+activate=on_trigger
 intramap=16,7
 mapmod=background,16,17,57;background,17,17,59;collision,12,16,0;collision,13,16,0;collision,14,16,0;collision,15,16,0;collision,16,16,0;collision,17,16,0;collision,18,16,0;collision,19,16,0;collision,20,16,0;collision,21,16,0
 requires_not_status=emp_seagate_teleport
@@ -398,70 +421,79 @@ spawn=zombie_lvl3,13,39;zombie_lvl3,13,31;zombie_lvl3,13,23;zombie_lvl3,20,39;zo
 
 [event]
 # reset statuses
-type=on_load
+type=event
 location=1,40,1,1
+activate=on_load
 unset_status=emp_seagate_teleport,emp_seagate_defeated
 
 [event]
 # floor spikes
-type=on_trigger
+type=event
 location=7,10,1,1
+activate=on_trigger
 cooldown=3s
 power=178
 power_damage=70,80
 
 [event]
 # floor spikes
-type=on_trigger
+type=event
 location=8,10,1,1
+activate=on_trigger
 cooldown=3s
 power=178
 power_damage=70,80
 
 [event]
 # floor spikes
-type=on_trigger
+type=event
 location=8,9,1,1
+activate=on_trigger
 cooldown=3s
 power=178
 power_damage=70,80
 
 [event]
 # floor spikes
-type=on_trigger
+type=event
 location=25,9,1,1
+activate=on_trigger
 cooldown=3s
 power=178
 power_damage=70,80
 
 [event]
 # floor spikes
-type=on_trigger
+type=event
 location=25,10,1,1
+activate=on_trigger
 cooldown=3s
 power=178
 power_damage=70,80
 
 [event]
 # floor spikes
-type=on_trigger
+type=event
 location=26,10,1,1
+activate=on_trigger
 cooldown=3s
 power=178
 power_damage=70,80
 
 [event]
 # plaque
-type=on_trigger
+type=event
 location=16,12,1,1
+activate=on_trigger
 hotspot=location
 msg=The plaque reads: Grave of the Saints
 tooltip=Plaque
 
 [event]
 # spawn gravebloom
-type=on_trigger
+type=event
 location=15,20,4,1
+activate=on_trigger
 hotspot=17,12,1,1
 loot=1100,fixed,1
 msg=A gravebloom emerges from the center of the altar.
@@ -471,65 +503,75 @@ requires_status=emp_main_init
 
 [event]
 # start main quest
-type=on_load
+type=event
 location=1,38,1,1
+activate=on_load
 requires_not_status=emp_main_init
 set_status=emp_main_init
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=16,2,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [enemy]
-type=seagate_tombstone
+type=enemy
 location=6,5,1,1
+category=seagate_tombstone
 direction=7
 number=1
 
 [enemy]
-type=seagate_tombstone
+type=enemy
 location=27,5,1,1
+category=seagate_tombstone
 direction=7
 number=1
 
 [enemy]
-type=seagate
+type=enemy
 location=17,9,1,1
+category=seagate
 direction=3
 number=1
 wander_radius=0
 
 [enemy]
-type=undead
+type=enemy
 location=15,46,4,11
+category=undead
 level=3
 number=2,3
 wander_radius=2
 
 [enemy]
-type=undead
+type=enemy
 location=9,53,6,4
+category=undead
 level=3
 number=1,2
 wander_radius=2
 
 [enemy]
-type=undead
+type=enemy
 location=7,9,1,1
+category=undead
 level=3
 number=1
 wander_radius=0
 
 [enemy]
-type=undead
+type=enemy
 location=26,9,1,1
+category=undead
 level=3
 number=1
 wander_radius=0
 
 [npc]
-type=npcs/glowing_obelisk_1.txt
+type=npc
 location=17,2,1,1
+filename=npcs/glowing_obelisk_1.txt
 

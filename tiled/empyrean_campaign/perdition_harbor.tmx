@@ -1,35 +1,34 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="isometric" renderorder="right-down" width="40" height="40" tilewidth="64" tileheight="32" backgroundcolor="#eeeeee" nextobjectid="30">
+<map backgroundcolor="#eeeeee" height="40" nextobjectid="30" orientation="isometric" renderorder="right-down" tileheight="32" tilewidth="64" version="1.0" width="40">
  <properties>
-  <property name="music" value="music/unrest_theme.ogg"/>
-  <property name="tileset" value="tilesetdefs/tileset_grassland.txt"/>
-  <property name="title" value="Perdition Harbor"/>
+  <property name="music" value="music/unrest_theme.ogg" />
+  <property name="tileset" value="tilesetdefs/tileset_grassland.txt" />
+  <property name="title" value="Perdition Harbor" />
  </properties>
- <tileset firstgid="1" name="collision" tilewidth="64" tileheight="32" tilecount="15">
-  <image source="../grassland/tiled_collision.png" width="960" height="32"/>
+ <tileset firstgid="1" name="collision" tilecount="15" tileheight="32" tilewidth="64">
+  <image height="32" source="../grassland/tiled_collision.png" width="960" />
  </tileset>
- <tileset firstgid="16" name="grassland" tilewidth="64" tileheight="128" tilecount="128">
-  <image source="../grassland/grassland.png" width="1024" height="1024"/>
+ <tileset firstgid="16" name="grassland" tilecount="128" tileheight="128" tilewidth="64">
+  <image height="1024" source="../grassland/grassland.png" width="1024" />
  </tileset>
- <tileset firstgid="144" name="water" tilewidth="64" tileheight="64" tilecount="64">
-  <tileoffset x="0" y="32"/>
-  <image source="../grassland/grassland_water.png" width="1024" height="256"/>
+ <tileset firstgid="144" name="water" tilecount="64" tileheight="64" tilewidth="64">
+  <tileoffset x="0" y="32" />
+  <image height="256" source="../grassland/grassland_water.png" width="1024" />
  </tileset>
- <tileset firstgid="208" name="tall structures" tilewidth="64" tileheight="256" tilecount="32">
-  <image source="../grassland/grassland_structures.png" width="1024" height="512"/>
+ <tileset firstgid="208" name="tall structures" tilecount="32" tileheight="256" tilewidth="64">
+  <image height="512" source="../grassland/grassland_structures.png" width="1024" />
  </tileset>
- <tileset firstgid="240" name="trees" tilewidth="128" tileheight="256" tilecount="16">
-  <tileoffset x="-32" y="0"/>
-  <image source="../grassland/grassland_trees.png" width="1024" height="512"/>
+ <tileset firstgid="240" name="trees" tilecount="16" tileheight="256" tilewidth="128">
+  <tileoffset x="-32" y="0" />
+  <image height="512" source="../grassland/grassland_trees.png" width="1024" />
  </tileset>
- <tileset firstgid="256" name="set_rules" tilewidth="64" tileheight="32" tilecount="8">
-  <image source="../grassland/set_rules.png" width="128" height="128"/>
+ <tileset firstgid="256" name="set_rules" tilecount="8" tileheight="32" tilewidth="64">
+  <image height="128" source="../grassland/set_rules.png" width="128" />
  </tileset>
- <tileset firstgid="264" name="tiled_grassland_2x2" tilewidth="128" tileheight="64" tilecount="32">
-  <tileoffset x="0" y="16"/>
-  <image source="../grassland/tiled_grassland_2x2.png" width="512" height="512"/>
+ <tileset firstgid="264" name="tiled_grassland_2x2" tilecount="32" tileheight="64" tilewidth="128">
+  <tileoffset x="0" y="16" />
+  <image height="512" source="../grassland/tiled_grassland_2x2.png" width="512" />
  </tileset>
- <layer name="background" width="40" height="40">
+ <layer height="40" name="background" width="40">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,19,148,176,150,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -73,7 +72,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="object" width="40" height="40">
+ <layer height="40" name="object" width="40">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,48,0,0,0,54,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -117,7 +116,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="collision" width="40" height="40">
+ <layer height="40" name="collision" width="40">
   <data encoding="csv">
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,1,2,2,2,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
@@ -162,126 +161,126 @@
 </data>
  </layer>
  <objectgroup name="event">
-  <object id="1" name="to River Trail" type="on_trigger" x="32" y="704" width="32" height="128">
+  <object height="128" id="1" name="to River Trail" type="event" width="32" x="32" y="704">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="intermap" value="maps/river_trail.txt,77,26"/>
-    <property name="tooltip" value="River Trail"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="intermap" value="maps/river_trail.txt,77,26" />
+    <property name="tooltip" value="River Trail" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="3" name="Shared stash" type="on_trigger" x="768" y="544" width="32" height="32">
+  <object height="32" id="3" name="Shared stash" type="event" width="32" x="768" y="544">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="soundfx" value="soundfx/wood_open.ogg"/>
-    <property name="stash" value="true"/>
-    <property name="tooltip" value="Shared Stash"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="soundfx" value="soundfx/wood_open.ogg" />
+    <property name="stash" value="true" />
+    <property name="tooltip" value="Shared Stash" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="4" name="to Hyperspace" type="on_trigger" x="512" y="800" width="64" height="64">
+  <object height="64" id="4" name="to Hyperspace" type="event" width="64" x="512" y="800">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="intermap" value="maps/hyperspace.txt,12,12"/>
-    <property name="soundfx" value="soundfx/environment/teleporter.ogg,0,0"/>
-    <property name="tooltip" value="Hyperspace"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="intermap" value="maps/hyperspace.txt,12,12" />
+    <property name="soundfx" value="soundfx/environment/teleporter.ogg,0,0" />
+    <property name="tooltip" value="Hyperspace" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="7" name="to Book of the Dead" type="on_trigger" x="1056" y="512" width="128" height="128">
+  <object height="128" id="7" name="to Book of the Dead" type="event" width="128" x="1056" y="512">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="intermap" value="maps/book_of_the_dead.txt,17,46"/>
-    <property name="soundfx" value="soundfx/environment/stairs.ogg,0,0"/>
-    <property name="tooltip" value="Book of the Dead"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="intermap" value="maps/book_of_the_dead.txt,17,46" />
+    <property name="soundfx" value="soundfx/environment/stairs.ogg,0,0" />
+    <property name="tooltip" value="Book of the Dead" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="8" name="Wind and crickets sound effect" type="on_load" x="0" y="0" width="32" height="32">
+  <object height="32" id="8" name="Wind and crickets sound effect" type="event" width="32" x="0" y="0">
    <properties>
-    <property name="soundfx" value="soundfx/environment/wind_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/wind_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="9" name="Bird twitter" type="on_load" x="64" y="256" width="32" height="32">
+  <object height="32" id="9" name="Bird twitter" type="event" width="32" x="64" y="256">
    <properties>
-    <property name="soundfx" value="soundfx/environment/bird_twitter_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/bird_twitter_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="10" name="Anvil sound" type="on_load" x="256" y="448" width="32" height="32">
+  <object height="32" id="10" name="Anvil sound" type="event" width="32" x="256" y="448">
    <properties>
-    <property name="soundfx" value="soundfx/environment/anvil_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/anvil_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="11" name="Forrest owl sound effect" type="on_load" x="672" y="256" width="32" height="32">
+  <object height="32" id="11" name="Forrest owl sound effect" type="event" width="32" x="672" y="256">
    <properties>
-    <property name="soundfx" value="soundfx/environment/forest_owl_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/forest_owl_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="12" name="Raven sound effect" type="on_load" x="416" y="672" width="32" height="32">
+  <object height="32" id="12" name="Raven sound effect" type="event" width="32" x="416" y="672">
    <properties>
-    <property name="soundfx" value="soundfx/environment/raven_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/raven_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="13" name="River sound" type="on_load" x="288" y="928" width="32" height="32">
+  <object height="32" id="13" name="River sound" type="event" width="32" x="288" y="928">
    <properties>
-    <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/river_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="14" name="River sound" type="on_load" x="544" y="480" width="32" height="32">
+  <object height="32" id="14" name="River sound" type="event" width="32" x="544" y="480">
    <properties>
-    <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/river_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="15" name="River sound" type="on_load" x="800" y="768" width="32" height="32">
+  <object height="32" id="15" name="River sound" type="event" width="32" x="800" y="768">
    <properties>
-    <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/river_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="16" name="River sound" type="on_load" x="448" y="96" width="32" height="32">
+  <object height="32" id="16" name="River sound" type="event" width="32" x="448" y="96">
    <properties>
-    <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/river_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="17" name="Bird twitter" type="on_load" x="736" y="832" width="32" height="32">
+  <object height="32" id="17" name="Bird twitter" type="event" width="32" x="736" y="832">
    <properties>
-    <property name="soundfx" value="soundfx/environment/bird_twitter_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/bird_twitter_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="23" name="Unlock waypoint" type="on_trigger" x="448" y="736" width="192" height="192">
+  <object height="192" id="23" name="Unlock waypoint" type="event" width="192" x="448" y="736">
    <properties>
-    <property name="mapmod" value="background,16,26,265"/>
-    <property name="msg" value="Perdition Harbor waypoint discovered."/>
-    <property name="repeat" value="false"/>
-    <property name="requires_not_status" value="emp_waypoint_0"/>
-    <property name="set_status" value="emp_waypoint_0"/>
-   </properties>
+    <property name="mapmod" value="background,16,26,265" />
+    <property name="msg" value="Perdition Harbor waypoint discovered." />
+    <property name="repeat" value="false" />
+    <property name="requires_not_status" value="emp_waypoint_0" />
+    <property name="set_status" value="emp_waypoint_0" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="25" name="Unlock waypoint (on_load)" type="on_load" x="480" y="992" width="32" height="32">
+  <object height="32" id="25" name="Unlock waypoint (on_load)" type="event" width="32" x="480" y="992">
    <properties>
-    <property name="mapmod" value="background,16,26,265"/>
-    <property name="requires_status" value="emp_waypoint_0"/>
-   </properties>
+    <property name="mapmod" value="background,16,26,265" />
+    <property name="requires_status" value="emp_waypoint_0" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="27" name="unlock level 5 gear" type="on_load" x="32" y="1184" width="32" height="32">
+  <object height="32" id="27" name="unlock level 5 gear" type="event" width="32" x="32" y="1184">
    <properties>
-    <property name="requires_level" value="5"/>
-    <property name="requires_not_status" value="emp_perdition_trader1"/>
-    <property name="set_status" value="emp_perdition_trader1"/>
-   </properties>
+    <property name="requires_level" value="5" />
+    <property name="requires_not_status" value="emp_perdition_trader1" />
+    <property name="set_status" value="emp_perdition_trader1" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="28" name="unlock level 9 gear" type="on_load" x="96" y="1184" width="32" height="32">
+  <object height="32" id="28" name="unlock level 9 gear" type="event" width="32" x="96" y="1184">
    <properties>
-    <property name="requires_level" value="9"/>
-    <property name="requires_not_status" value="emp_perdition_trader2"/>
-    <property name="set_status" value="emp_perdition_trader2"/>
-   </properties>
+    <property name="requires_level" value="9" />
+    <property name="requires_not_status" value="emp_perdition_trader2" />
+    <property name="set_status" value="emp_perdition_trader2" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="29" name="unlock level 13 gear" type="on_load" x="160" y="1184" width="32" height="32">
+  <object height="32" id="29" name="unlock level 13 gear" type="event" width="32" x="160" y="1184">
    <properties>
-    <property name="requires_level" value="13"/>
-    <property name="requires_not_status" value="emp_perdition_trader3"/>
-    <property name="set_status" value="emp_perdition_trader3"/>
-   </properties>
+    <property name="requires_level" value="13" />
+    <property name="requires_not_status" value="emp_perdition_trader3" />
+    <property name="set_status" value="emp_perdition_trader3" />
+   <property name="activate" value="on_load" /></properties>
   </object>
  </objectgroup>
  <objectgroup name="npc">
-  <object id="5" type="npcs/florin.txt" x="800" y="256" width="32" height="32"/>
-  <object id="6" type="npcs/udana.txt" x="256" y="416" width="32" height="32"/>
+  <object height="32" id="5" type="npc" width="32" x="800" y="256"><properties><property name="filename" value="npcs/florin.txt" /></properties></object>
+  <object height="32" id="6" type="npc" width="32" x="256" y="416"><properties><property name="filename" value="npcs/udana.txt" /></properties></object>
  </objectgroup>
 </map>

@@ -328,48 +328,54 @@ data=
 
 [event]
 # to Abandoned Mines
-type=on_trigger
+type=event
 location=45,99,4,1
+activate=on_trigger
 hotspot=location
 intermap=maps/abandoned_mines.txt,47,2
 tooltip=Abandoned Mines
 
 [event]
 # to Stormrock Pass (SW)
-type=on_trigger
+type=event
 location=6,62,2,1
+activate=on_trigger
 hotspot=location
 intermap=maps/stormrock_pass.txt,24,81
 tooltip=Stormrock Pass
 
 [event]
 # to Stormrock Pass (NW)
-type=on_trigger
+type=event
 location=21,14,1,2
+activate=on_trigger
 hotspot=location
 intermap=maps/stormrock_pass.txt,31,25
 tooltip=Stormrock Pass
 
 [event]
 # to Stormrock Pass (NE)
-type=on_trigger
+type=event
 location=77,39,2,1
+activate=on_trigger
 hotspot=location
 intermap=maps/stormrock_pass.txt,102,27
 tooltip=Stormrock Pass
 
 [event]
 # to Stormrock Pass (SE)
-type=on_trigger
+type=event
 location=92,88,1,2
+activate=on_trigger
 hotspot=location
 intermap=maps/stormrock_pass.txt,97,105
 tooltip=Stormrock Pass
 
 [event]
 # Crate
-type=on_trigger
+type=event
 location=12,78,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_6.txt
 mapmod=object,12,78,179
@@ -379,8 +385,9 @@ tooltip=Crate
 
 [event]
 # Barrel
-type=on_trigger
+type=event
 location=84,8,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_6.txt
 mapmod=object,84,8,178
@@ -390,8 +397,9 @@ tooltip=Barrel
 
 [event]
 # Treasure Chest
-type=on_trigger
+type=event
 location=6,31,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_6.txt
 mapmod=object,6,31,176
@@ -401,8 +409,9 @@ tooltip=Treasure Chest
 
 [event]
 # Treasure Chest
-type=on_trigger
+type=event
 location=84,64,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_6.txt
 mapmod=object,84,64,176
@@ -412,255 +421,297 @@ tooltip=Treasure Chest
 
 [event]
 # Cave wind sound effect
-type=on_load
+type=event
 location=0,0,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_wind_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=46,79,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=14,80,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=6,57,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=82,85,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=69,67,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=41,56,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=43,16,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=2,18,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=20,33,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=72,11,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=81,29,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=57,40,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=39,45,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # to Antlion Nest
-type=on_trigger
+type=event
 location=0,47,1,4
+activate=on_trigger
 hotspot=location
 intermap=maps/antlion_nest.txt,76,66
 tooltip=Antlion Nest
 
 [enemy]
-type=antlion_burster
+type=enemy
 location=46,80,1,1
+category=antlion_burster
 level=6
 number=1
 
 [enemy]
-type=antlion
+type=enemy
 location=39,55,12,6
+category=antlion
 level=6
 number=3
 
 [enemy]
-type=antlion_burster
+type=enemy
 location=44,66,1,1
+category=antlion_burster
 level=6
 number=1
 
 [enemy]
-type=antlion_ice
+type=enemy
 location=46,68,1,1
+category=antlion_ice
 level=6
 number=1
 
 [enemy]
-type=antlion
+type=enemy
 location=11,78,6,5
+category=antlion
 level=6
 number=3
 
 [enemy]
-type=antlion
+type=enemy
 location=1,72,5,10
+category=antlion
 level=6
 number=2
 
 [enemy]
-type=antlion
+type=enemy
 location=19,57,5,6
+category=antlion
 level=6
 number=2
 
 [enemy]
-type=antlion
+type=enemy
 location=60,56,12,5
+category=antlion
 level=6
 number=2
 
 [enemy]
-type=antlion
+type=enemy
 location=61,87,12,6
+category=antlion
 level=6
 number=3
 
 [enemy]
-type=antlion
+type=enemy
 location=59,70,6,7
+category=antlion
 level=6
 number=2
 
 [enemy]
-type=antlion
+type=enemy
 location=83,61,5,7
+category=antlion
 level=6
 number=3
 
 [enemy]
-type=antlion
+type=enemy
 location=11,91,5,6
+category=antlion
 level=6
 number=2
 
 [enemy]
-type=antlion
+type=enemy
 location=77,75,7,3
+category=antlion
 level=6
 number=2
 
 [enemy]
-type=antlion
+type=enemy
 location=34,40,15,8
+category=antlion
 level=6
 number=3
 
 [enemy]
-type=antlion
+type=enemy
 location=80,7,7,7
+category=antlion
 level=6
 number=3
 
 [enemy]
-type=antlion
+type=enemy
 location=72,29,12,5
+category=antlion
 level=6
 number=2
 
 [enemy]
-type=antlion
+type=enemy
 location=63,15,12,8
+category=antlion
 level=6
 number=2
 
 [enemy]
-type=antlion
+type=enemy
 location=37,13,12,8
+category=antlion
 level=6
 number=3
 
 [enemy]
-type=antlion
+type=enemy
 location=8,34,8,8
+category=antlion
 level=6
 number=3
 
 [enemy]
-type=antlion
+type=enemy
 location=1,19,5,6
+category=antlion
 level=6
 number=2
 
 [enemy]
-type=antlion
+type=enemy
 location=13,19,5,6
+category=antlion
 level=6
 number=2
 
 [enemy]
-type=antlion
+type=enemy
 location=54,30,6,5
+category=antlion
 level=6
 number=2
 
 [enemy]
-type=antlion
+type=enemy
 location=41,26,6,10
+category=antlion
 level=6
 number=2
 
 [enemy]
-type=antlion
+type=enemy
 location=27,76,9,5
+category=antlion
 level=6
 number=2
 
 [enemy]
-type=antlion
+type=enemy
 location=17,47,8,5
+category=antlion
 level=6
 number=2
 
 [enemy]
-type=antlion
+type=enemy
 location=61,42,7,4
+category=antlion
 level=6
 number=2
 
 [enemy]
-type=antlion_burster
+type=enemy
 location=41,44,1,1
+category=antlion_burster
 level=6
 number=1
 

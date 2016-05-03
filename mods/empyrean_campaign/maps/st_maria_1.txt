@@ -241,8 +241,9 @@ data=
 
 [event]
 # to Lochport
-type=on_trigger
+type=event
 location=38,68,2,2
+activate=on_trigger
 hotspot=location
 intermap=maps/lochport.txt,7,43
 soundfx=soundfx/door_open.ogg,0,0
@@ -250,8 +251,9 @@ tooltip=Lochport
 
 [event]
 # open loop door
-type=on_trigger
+type=event
 location=58,49,1,1
+activate=on_trigger
 hotspot=location
 mapmod=collision,46,54,0;collision,47,54,0;collision,46,55,0;collision,47,55,0;object,47,54,0;object,47,55,0;object,46,53,213;object,46,56,219;object,58,49,166
 repeat=false
@@ -260,16 +262,18 @@ tooltip=Switch
 
 [event]
 # to St. Maria: Prison
-type=on_trigger
+type=event
 location=37,15,4,4
+activate=on_trigger
 hotspot=location
 intermap=maps/st_maria_2.txt,33,7
 soundfx=soundfx/environment/stairs.ogg,0,0
 tooltip=St. Maria: Prison
 
 [event]
-type=on_trigger
+type=event
 location=22,23,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_3.txt
 mapmod=object,22,23,163
@@ -278,8 +282,9 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Crate
 
 [event]
-type=on_trigger
+type=event
 location=54,27,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_3.txt
 loot_count=3,4
@@ -289,8 +294,9 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Treasure Chest
 
 [event]
-type=on_trigger
+type=event
 location=54,30,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_3.txt
 loot_count=3,4
@@ -300,8 +306,9 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Treasure Chest
 
 [event]
-type=on_trigger
+type=event
 location=58,7,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_3.txt
 mapmod=object,58,7,162
@@ -310,8 +317,9 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
-type=on_trigger
+type=event
 location=59,42,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_3.txt
 mapmod=object,59,42,162
@@ -320,8 +328,9 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
-type=on_trigger
+type=event
 location=59,14,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_3.txt
 mapmod=object,59,14,163
@@ -331,8 +340,9 @@ tooltip=Crate
 
 [event]
 # Locked Door
-type=on_trigger
+type=event
 location=38,22,2,2
+activate=on_trigger
 hotspot=location
 msg=This door needs a key to be opened.
 requires_not_status=emp_stmaria1_key;emp_stmaria1_door
@@ -340,8 +350,9 @@ tooltip=Locked Door
 
 [event]
 # Unlock Door
-type=on_trigger
+type=event
 location=35,24,1,1
+activate=on_trigger
 hotspot=38,22,2,2
 mapmod=collision,38,22,0;collision,39,22,0;collision,38,23,0;collision,39,23,0;object,38,23,0;object,39,23,0;object,37,22,216;object,40,22,222
 remove_item=1004
@@ -353,234 +364,268 @@ tooltip=Locked Door
 
 [event]
 # Unlock Door (on_load)
-type=on_load
+type=event
 location=35,22,1,1
+activate=on_load
 mapmod=collision,38,22,0;collision,39,22,0;collision,38,23,0;collision,39,23,0;object,38,23,0;object,39,23,0;object,37,22,216;object,40,22,222
 requires_status=emp_stmaria1_door
 
 [event]
-type=on_load
+type=event
 location=28,63,1,1
+activate=on_load
 requires_not_status=emp_stmaria1_init
 set_status=emp_stmaria1_init
 
 [event]
 # Wind sound
-type=on_load
+type=event
 location=0,0,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_wind_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=56,24,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=56,33,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=43,30,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=34,30,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=23,34,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=23,23,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [enemy]
-type=skeleton_mage
+type=enemy
 location=37,50,1,1
+category=skeleton_mage
 direction=7
 level=3
 number=1
 wander_radius=0
 
 [enemy]
-type=skeleton_mage
+type=enemy
 location=40,50,1,1
+category=skeleton_mage
 direction=7
 level=3
 number=1
 wander_radius=0
 
 [enemy]
-type=undead
+type=enemy
 location=21,53,4,4
+category=undead
 level=3
 number=2
 wander_radius=2
 
 [enemy]
-type=undead
+type=enemy
 location=22,35,2,6
+category=undead
 level=3
 number=2
 wander_radius=2
 
 [enemy]
-type=undead
+type=enemy
 location=1,49,4,4
+category=undead
 level=3
 number=1
 wander_radius=2
 
 [enemy]
-type=undead
+type=enemy
 location=10,50,3,3
+category=undead
 level=3
 number=1
 wander_radius=2
 
 [enemy]
-type=undead
+type=enemy
 location=9,41,3,3
+category=undead
 level=3
 number=1
 wander_radius=2
 
 [enemy]
-type=undead
+type=enemy
 location=5,24,4,10
+category=undead
 level=3
 number=3
 wander_radius=2
 
 [enemy]
-type=undead
+type=enemy
 location=1,41,4,4
+category=undead
 level=3
 number=1
 wander_radius=2
 
 [enemy]
-type=undead
+type=enemy
 location=3,7,8,8
+category=undead
 level=3
 number=3
 wander_radius=2
 
 [enemy]
-type=undead
+type=enemy
 location=22,17,2,6
+category=undead
 level=3
 number=2
 wander_radius=2
 
 [enemy]
-type=undead
+type=enemy
 location=33,1,12,4
+category=undead
 level=3
 number=3
 wander_radius=2
 
 [enemy]
-type=undead
+type=enemy
 location=65,3,4,4
+category=undead
 level=3
 number=1,2
 wander_radius=2
 
 [enemy]
-type=undead
+type=enemy
 location=65,39,4,4
+category=undead
 level=3
 number=1,2
 wander_radius=2
 
 [enemy]
-type=undead
+type=enemy
 location=55,32,4,4
+category=undead
 level=3
 number=2
 wander_radius=2
 
 [enemy]
-type=undead
+type=enemy
 location=57,4,4,4
+category=undead
 level=3
 number=1,2
 wander_radius=2
 
 [enemy]
-type=undead
+type=enemy
 location=65,15,4,4
+category=undead
 level=3
 number=1,2
 wander_radius=2
 
 [enemy]
-type=undead
+type=enemy
 location=55,22,4,4
+category=undead
 level=3
 number=2
 wander_radius=2
 
 [enemy]
-type=undead
+type=enemy
 location=65,51,4,4
+category=undead
 level=3
 number=1,2
 wander_radius=2
 
 [enemy]
-type=undead
+type=enemy
 location=51,53,4,4
+category=undead
 level=3
 number=1,2
 wander_radius=2
 
 [enemy]
-type=undead
+type=enemy
 location=21,1,4,4
+category=undead
 level=3
 number=2
 wander_radius=2
 
 [enemy]
-type=skeleton_knight
+type=enemy
 location=37,31,1,1
+category=skeleton_knight
 direction=7
 level=3
 number=1
 wander_radius=0
 
 [enemy]
-type=skeleton_knight
+type=enemy
 location=40,31,1,1
+category=skeleton_knight
 direction=7
 level=3
 number=1
 wander_radius=0
 
 [enemy]
-type=undead
+type=enemy
 location=37,38,4,6
+category=undead
 level=3
 number=2
 wander_radius=2
 
 [enemy]
-type=geno
+type=enemy
 location=55,29,1,1
+category=geno
 number=1
 wander_radius=1
 

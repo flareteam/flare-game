@@ -211,8 +211,9 @@ data=
 
 [event]
 # switch 1
-type=on_trigger
+type=event
 location=67,30,1,1
+activate=on_trigger
 hotspot=location
 mapmod=object,67,30,166
 repeat=false
@@ -223,8 +224,9 @@ tooltip=Switch
 
 [event]
 # switch 2
-type=on_trigger
+type=event
 location=32,29,1,1
+activate=on_trigger
 hotspot=location
 mapmod=object,32,29,166
 repeat=false
@@ -235,8 +237,9 @@ tooltip=Switch
 
 [event]
 # switch 3
-type=on_trigger
+type=event
 location=38,45,1,1
+activate=on_trigger
 hotspot=location
 mapmod=collision,39,48,0;collision,40,48,0;collision,39,49,0;collision,40,49,0;object,38,49,212;object,41,49,218;object,39,49,0;object,40,49,0;object,38,45,166
 repeat=false
@@ -248,8 +251,9 @@ tooltip=Switch
 
 [event]
 # stuck switch (need both)
-type=on_trigger
+type=event
 location=35,44,1,1
+activate=on_trigger
 hotspot=38,45,1,1
 msg=The switch won't budge.
 requires_not_status=emp_nazia_switch1,emp_nazia_switch2
@@ -257,8 +261,9 @@ tooltip=Switch
 
 [event]
 # stuck switch (need #1)
-type=on_trigger
+type=event
 location=35,42,1,1
+activate=on_trigger
 hotspot=38,45,1,1
 msg=The switch won't budge.
 requires_not_status=emp_nazia_switch2
@@ -267,8 +272,9 @@ tooltip=Switch
 
 [event]
 # stuck switch (need #2)
-type=on_trigger
+type=event
 location=35,40,1,1
+activate=on_trigger
 hotspot=38,45,1,1
 msg=The switch won't budge.
 requires_not_status=emp_nazia_switch1
@@ -277,14 +283,16 @@ tooltip=Switch
 
 [event]
 # reset statuses
-type=on_load
+type=event
 location=91,17,1,1
+activate=on_load
 unset_status=emp_nazia_switch1,emp_nazia_switch2,emp_nazia_door
 
 [event]
 # Crate
-type=on_trigger
+type=event
 location=35,7,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_9.txt
 mapmod=object,35,7,163
@@ -294,8 +302,9 @@ tooltip=Crate
 
 [event]
 # Barrel
-type=on_trigger
+type=event
 location=65,52,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_9.txt
 mapmod=object,65,52,162
@@ -305,8 +314,9 @@ tooltip=Barrel
 
 [event]
 # to Nazia Highlands
-type=on_trigger
+type=event
 location=91,27,2,1
+activate=on_trigger
 hotspot=location
 intermap=maps/nazia_highlands.txt,9,65
 soundfx=soundfx/environment/stairs.ogg,0,0
@@ -314,38 +324,44 @@ tooltip=Nazia Highlands
 
 [event]
 # Wind sound
-type=on_load
+type=event
 location=0,0,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_wind_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=66,29,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=61,12,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=33,30,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=38,46,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # to Hyperspace
-type=on_trigger
+type=event
 location=57,15,2,2
+activate=on_trigger
 hotspot=location
 intermap=maps/hyperspace.txt,23,30
 soundfx=soundfx/environment/teleporter.ogg,0,0
@@ -353,8 +369,9 @@ tooltip=Hyperspace
 
 [event]
 # Unlock waypoint
-type=on_trigger
+type=event
 location=55,13,6,6
+activate=on_trigger
 mapmod=background,57,16,265
 msg=Nazia Underground waypoint discovered.
 repeat=false
@@ -363,15 +380,17 @@ set_status=emp_waypoint_7
 
 [event]
 # unlock waypoint (on_load)
-type=on_load
+type=event
 location=51,13,1,1
+activate=on_load
 mapmod=background,57,16,265
 requires_status=emp_waypoint_7
 
 [event]
 # to Southern Ridge
-type=on_trigger
+type=event
 location=5,29,1,2
+activate=on_trigger
 hotspot=location
 intermap=maps/southern_ridge.txt,65,66
 soundfx=soundfx/environment/stairs.ogg,0,0
@@ -379,8 +398,9 @@ tooltip=Southern Ridge
 
 [event]
 # Treasure Chest
-type=on_trigger
+type=event
 location=38,56,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_9.txt
 loot_count=2,3
@@ -391,8 +411,9 @@ tooltip=Treasure Chest
 
 [event]
 # Treasure Chest
-type=on_trigger
+type=event
 location=38,53,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_9.txt
 loot_count=2,3
@@ -402,32 +423,37 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Treasure Chest
 
 [enemy]
-type=dungeon
+type=enemy
 location=66,28,12,20
+category=dungeon
 level=9
 number=4
 
 [enemy]
-type=dungeon
+type=enemy
 location=54,36,16,20
+category=dungeon
 level=9
 number=5
 
 [enemy]
-type=dungeon
+type=enemy
 location=30,4,16,20
+category=dungeon
 level=9
 number=5
 
 [enemy]
-type=dungeon
+type=enemy
 location=22,12,12,20
+category=dungeon
 level=9
 number=4
 
 [enemy]
-type=dungeon
+type=enemy
 location=38,24,24,12
+category=dungeon
 level=9
 number=6
 

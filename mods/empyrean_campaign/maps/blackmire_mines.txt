@@ -268,8 +268,9 @@ data=
 
 [event]
 # Unlock waypoint
-type=on_trigger
+type=event
 location=63,19,6,6
+activate=on_trigger
 mapmod=background,65,22,265
 msg=Blackmire Mines waypoint discovered.
 repeat=false
@@ -278,8 +279,9 @@ set_status=emp_waypoint_4
 
 [event]
 # to Hyperspace
-type=on_trigger
+type=event
 location=65,21,2,2
+activate=on_trigger
 hotspot=location
 intermap=maps/hyperspace.txt,30,17
 soundfx=soundfx/environment/teleporter.ogg,0,0
@@ -287,15 +289,17 @@ tooltip=Hyperspace
 
 [event]
 # unlock waypoint (on_load)
-type=on_load
+type=event
 location=69,14,1,1
+activate=on_load
 mapmod=background,65,22,265
 requires_status=emp_waypoint_4
 
 [event]
 # Treasure Chest
-type=on_trigger
+type=event
 location=22,5,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_5.txt
 mapmod=object,22,5,177
@@ -305,8 +309,9 @@ tooltip=Treasure Chest
 
 [event]
 # Crate
-type=on_trigger
+type=event
 location=16,8,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_5.txt
 mapmod=object,16,8,179
@@ -316,8 +321,9 @@ tooltip=Crate
 
 [event]
 # Crate
-type=on_trigger
+type=event
 location=67,67,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_5.txt
 mapmod=object,67,67,179
@@ -327,8 +333,9 @@ tooltip=Crate
 
 [event]
 # Barrel
-type=on_trigger
+type=event
 location=68,41,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_5.txt
 mapmod=object,68,41,178
@@ -338,8 +345,9 @@ tooltip=Barrel
 
 [event]
 # Treasure Chest
-type=on_trigger
+type=event
 location=22,72,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_5.txt
 mapmod=object,22,72,176
@@ -349,112 +357,130 @@ tooltip=Treasure Chest
 
 [event]
 # Cave wind sound effect
-type=on_load
+type=event
 location=0,0,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_wind_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=14,7,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=63,71,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=7,29,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=35,8,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=56,12,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=72,8,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=32,34,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=67,42,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=52,31,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=55,54,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=30,50,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=33,65,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=7,59,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # Water dripping
-type=on_load
+type=event
 location=21,72,1,1
+activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
 # River sound
-type=on_load
+type=event
 location=24,69,1,1
+activate=on_load
 soundfx=soundfx/environment/river_loop.ogg
 
 [event]
 # to Lake Kuuma
-type=on_trigger
+type=event
 location=78,6,1,2
+activate=on_trigger
 hotspot=location
 intermap=maps/lake_kuuma.txt,49,105
 tooltip=Lake Kuuma
 
 [event]
 # Barrel
-type=on_trigger
+type=event
 location=51,67,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_5.txt
 mapmod=object,51,67,178
@@ -464,8 +490,9 @@ tooltip=Barrel
 
 [event]
 # Crate
-type=on_trigger
+type=event
 location=24,46,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_5.txt
 mapmod=object,24,46,179
@@ -475,93 +502,108 @@ tooltip=Crate
 
 [event]
 # to Abandoned Mines
-type=on_trigger
+type=event
 location=1,43,1,2
+activate=on_trigger
 hotspot=location
 intermap=maps/abandoned_mines.txt,76,71
 tooltip=Abandoned Mines
 
 [enemy]
-type=undead
+type=enemy
 location=30,4,20,16
+category=undead
 level=5
 number=4,5
 
 [enemy]
-type=undead
+type=enemy
 location=29,24,9,13
+category=undead
 level=5
 number=3,4
 
 [enemy]
-type=goblin
+type=enemy
 location=10,22,7,6
+category=goblin
 level=5
 number=2
 
 [enemy]
-type=dungeon
+type=enemy
 location=6,4,18,9
+category=dungeon
 level=5
 number=4
 
 [enemy]
-type=undead
+type=enemy
 location=45,27,13,10
+category=undead
 level=5
 number=3,4
 
 [enemy]
-type=dungeon
+type=enemy
 location=62,40,9,8
+category=dungeon
 level=5
 number=3
 
 [enemy]
-type=dungeon
+type=enemy
 location=46,48,8,5
+category=dungeon
 level=5
 number=2,3
 
 [enemy]
-type=dungeon
+type=enemy
 location=62,60,10,11
+category=dungeon
 level=5
 number=3,4
 
 [enemy]
-type=dungeon
+type=enemy
 location=48,60,7,13
+category=dungeon
 level=5
 number=2,3
 
 [enemy]
-type=undead
+type=enemy
 location=23,44,15,6
+category=undead
 level=5
 number=3
 
 [enemy]
-type=undead
+type=enemy
 location=27,60,13,9
+category=undead
 level=5
 number=3
 
 [enemy]
-type=undead
+type=enemy
 location=9,60,13,9
+category=undead
 level=5
 number=3
 
 [enemy]
-type=undead
+type=enemy
 location=8,50,6,9
+category=undead
 level=5
 number=2
 
 [enemy]
-type=goblin
+type=enemy
 location=4,26,3,7
+category=goblin
 level=5
 number=2,3
 

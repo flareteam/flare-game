@@ -1,36 +1,35 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="isometric" renderorder="right-down" width="10" height="12" tilewidth="64" tileheight="32" nextobjectid="3">
+<map height="12" nextobjectid="3" orientation="isometric" renderorder="right-down" tileheight="32" tilewidth="64" version="1.0" width="10">
  <properties>
-  <property name="music" value="music/title_theme.ogg"/>
-  <property name="tileset" value="tilesetdefs/tileset_dungeon.txt"/>
-  <property name="title" value="Dev Lab - Welcome"/>
+  <property name="music" value="music/title_theme.ogg" />
+  <property name="tileset" value="tilesetdefs/tileset_dungeon.txt" />
+  <property name="title" value="Dev Lab - Welcome" />
  </properties>
- <tileset firstgid="1" name="collision" tilewidth="64" tileheight="32">
-  <image source="../dungeon/tiled_collision.png" width="960" height="32"/>
+ <tileset firstgid="1" name="collision" tileheight="32" tilewidth="64">
+  <image height="32" source="../dungeon/tiled_collision.png" width="960" />
  </tileset>
- <tileset firstgid="16" name="dungeon" tilewidth="64" tileheight="128">
-  <image source="../dungeon/tiled_dungeon.png" width="1024" height="1920"/>
+ <tileset firstgid="16" name="dungeon" tileheight="128" tilewidth="64">
+  <image height="1920" source="../dungeon/tiled_dungeon.png" width="1024" />
  </tileset>
- <tileset firstgid="256" name="set_rules" tilewidth="64" tileheight="32">
-  <image source="../dungeon/set_rules.png" width="128" height="128"/>
+ <tileset firstgid="256" name="set_rules" tileheight="32" tilewidth="64">
+  <image height="128" source="../dungeon/set_rules.png" width="128" />
  </tileset>
- <tileset firstgid="264" name="tiled_dungeon_2x2" tilewidth="128" tileheight="64">
-  <tileoffset x="0" y="16"/>
-  <image source="../dungeon/tiled_dungeon_2x2.png" width="512" height="256"/>
+ <tileset firstgid="264" name="tiled_dungeon_2x2" tileheight="64" tilewidth="128">
+  <tileoffset x="0" y="16" />
+  <image height="256" source="../dungeon/tiled_dungeon_2x2.png" width="512" />
  </tileset>
- <tileset firstgid="280" name="door_left" tilewidth="64" tileheight="128">
-  <tileoffset x="-16" y="-8"/>
-  <image source="../dungeon/door_left.png" width="128" height="128"/>
+ <tileset firstgid="280" name="door_left" tileheight="128" tilewidth="64">
+  <tileoffset x="-16" y="-8" />
+  <image height="128" source="../dungeon/door_left.png" width="128" />
  </tileset>
- <tileset firstgid="282" name="door_right" tilewidth="64" tileheight="128">
-  <tileoffset x="16" y="-8"/>
-  <image source="../dungeon/door_right.png" width="128" height="128"/>
+ <tileset firstgid="282" name="door_right" tileheight="128" tilewidth="64">
+  <tileoffset x="16" y="-8" />
+  <image height="128" source="../dungeon/door_right.png" width="128" />
  </tileset>
- <tileset firstgid="284" name="stairs" tilewidth="256" tileheight="256">
-  <tileoffset x="0" y="48"/>
-  <image source="../dungeon/stairs.png" width="1024" height="256"/>
+ <tileset firstgid="284" name="stairs" tileheight="256" tilewidth="256">
+  <tileoffset x="0" y="48" />
+  <image height="256" source="../dungeon/stairs.png" width="1024" />
  </tileset>
- <layer name="background" width="10" height="12">
+ <layer height="12" name="background" width="10">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,
 17,18,17,17,18,17,18,19,18,0,
@@ -46,7 +45,7 @@
 0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="object" width="10" height="12">
+ <layer height="12" name="object" width="10">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,
 77,69,101,73,282,283,74,101,69,78,
@@ -62,7 +61,7 @@
 0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="collision" width="10" height="12" visible="0">
+ <layer height="12" name="collision" visible="0" width="10">
   <data encoding="csv">
 3,3,3,3,3,3,3,3,3,3,
 1,1,1,1,0,0,1,1,1,1,
@@ -79,16 +78,16 @@
 </data>
  </layer>
  <objectgroup name="npc">
-  <object id="1" type="npcs/prog_welcome.txt" x="64" y="96" width="32" height="32"/>
+  <object height="32" id="1" type="npc" width="32" x="64" y="96"><properties><property name="filename" value="npcs/prog_welcome.txt" /></properties></object>
  </objectgroup>
  <objectgroup name="event">
-  <object id="2" type="on_trigger" x="128" y="32" width="64" height="32">
+  <object height="32" id="2" type="event" width="64" x="128" y="32">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="intermap" value="maps/lab_basic.txt,4,27"/>
-    <property name="soundfx" value="soundfx/door_open.ogg,0,0"/>
-    <property name="tooltip" value="Dev Lab - Basic Lessons"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="intermap" value="maps/lab_basic.txt,4,27" />
+    <property name="soundfx" value="soundfx/door_open.ogg,0,0" />
+    <property name="tooltip" value="Dev Lab - Basic Lessons" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
  </objectgroup>
 </map>

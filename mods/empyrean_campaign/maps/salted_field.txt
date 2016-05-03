@@ -211,8 +211,9 @@ data=
 
 [event]
 # to Book of the Dead
-type=on_trigger
+type=event
 location=7,39,4,4
+activate=on_trigger
 hotspot=location
 intermap=maps/book_of_the_dead.txt,16,7
 soundfx=soundfx/environment/stairs.ogg,0,0
@@ -220,16 +221,18 @@ tooltip=Book of the Dead
 
 [event]
 # to Stonewood
-type=on_trigger
+type=event
 location=57,11,1,4
+activate=on_trigger
 hotspot=location
 intermap=maps/stonewood.txt,2,8
 tooltip=Stonewood
 
 [event]
 # Supplies
-type=on_trigger
+type=event
 location=9,8,1,1
+activate=on_trigger
 hotspot=location
 loot=loot/level_1.txt
 mapmod=object,9,8,97
@@ -239,111 +242,129 @@ tooltip=Supplies
 
 [event]
 # Wind and crickets sound effect
-type=on_load
+type=event
 location=0,0,1,1
+activate=on_load
 soundfx=soundfx/environment/wind_loop.ogg
 
 [event]
 # Raven sound effect
-type=on_load
+type=event
 location=29,47,1,1
+activate=on_load
 soundfx=soundfx/environment/raven_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=6,47,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=35,26,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Bird twitter
-type=on_load
+type=event
 location=51,10,1,1
+activate=on_load
 soundfx=soundfx/environment/bird_twitter_loop.ogg
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=17,36,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]
 # Forrest owl sound effect
-type=on_load
+type=event
 location=26,18,1,1
+activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
 
 [event]
 # to Perdition Mines
-type=on_trigger
+type=event
 location=5,12,1,2
+activate=on_trigger
 hotspot=location
 intermap=maps/perdition_mines.txt,52,18
 tooltip=Perdition Mines
 
 [enemy]
-type=grassland
+type=enemy
 location=6,53,14,4
+category=grassland
 level=1
 number=1,2
 
 [enemy]
-type=grassland
+type=enemy
 location=25,49,8,6
+category=grassland
 level=1
 number=1,2
 
 [enemy]
-type=grassland
+type=enemy
 location=46,30,11,11
+category=grassland
 level=1
 number=2
 
 [enemy]
-type=grassland
+type=enemy
 location=26,18,6,10
+category=grassland
 level=1
 number=1,2
 
 [enemy]
-type=grassland
+type=enemy
 location=37,48,9,7
+category=grassland
 level=1
 number=2
 
 [enemy]
-type=grassland
+type=enemy
 location=21,36,12,9
+category=grassland
 level=1
 number=2
 
 [enemy]
-type=grassland
+type=enemy
 location=34,19,10,11
+category=grassland
 level=1
 number=2
 
 [enemy]
-type=undead
+type=enemy
 location=20,13,6,4
+category=undead
 level=1
 number=2
 
 [enemy]
-type=grassland
+type=enemy
 location=35,7,10,7
+category=grassland
 level=1
 number=2
 
 [enemy]
-type=goblin_spearman
+type=enemy
 location=39,36,1,1
+category=goblin_spearman
 level=2
 number=1
 wander_radius=0

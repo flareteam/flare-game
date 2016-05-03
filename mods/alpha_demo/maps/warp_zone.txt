@@ -222,8 +222,9 @@ data=
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
 
 [event]
-type=on_trigger
+type=event
 location=22,45,2,2
+activate=on_trigger
 hotspot=location
 intermap=maps/ancient_temple.txt,47,94
 requires_status=waypoint_ancient_temple
@@ -231,16 +232,18 @@ soundfx=soundfx/environment/teleporter.ogg,0,0
 tooltip=Ancient Temple
 
 [event]
-type=on_trigger
+type=event
 location=30,45,2,2
+activate=on_trigger
 hotspot=location
 intermap=maps/frontier_outpost.txt,36,12
 soundfx=soundfx/environment/teleporter.ogg,0,0
 tooltip=Frontier Outpost
 
 [event]
-type=on_trigger
+type=event
 location=30,37,2,2
+activate=on_trigger
 hotspot=location
 intermap=maps/ydrakka_pass.txt,99,49
 requires_status=waypoint_ydrakka_pass
@@ -248,8 +251,9 @@ soundfx=soundfx/environment/teleporter.ogg,0,0
 tooltip=Ydrakka Pass
 
 [event]
-type=on_trigger
+type=event
 location=30,29,2,2
+activate=on_trigger
 hotspot=location
 intermap=maps/averguard_atrium.txt,11,52
 requires_status=waypoint_averguard_atrium
@@ -257,8 +261,9 @@ soundfx=soundfx/environment/teleporter.ogg,0,0
 tooltip=Averguard Atrium
 
 [event]
-type=on_trigger
+type=event
 location=38,37,2,2
+activate=on_trigger
 hotspot=location
 intermap=maps/brothers_lair_atrium.txt,17,22
 requires_status=waypoint_brothers_lair_atrium
@@ -266,38 +271,44 @@ soundfx=soundfx/environment/teleporter.ogg,0,0
 tooltip=Brothers Lair Atrium
 
 [event]
-type=on_load
+type=event
 location=21,41,1,1
+activate=on_load
 mapmod=background,22,46,265
 requires_status=waypoint_ancient_temple
 
 [event]
-type=on_load
+type=event
 location=26,37,1,1
+activate=on_load
 mapmod=background,30,38,265
 requires_status=waypoint_ydrakka_pass
 
 [event]
-type=on_load
+type=event
 location=26,29,1,1
+activate=on_load
 mapmod=background,30,30,265
 requires_status=waypoint_averguard_atrium
 
 [event]
-type=on_load
+type=event
 location=38,33,1,1
+activate=on_load
 mapmod=background,38,38,265
 requires_status=waypoint_brothers_lair_atrium
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=41,40,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
 # brazier sound effect
-type=on_load
+type=event
 location=41,35,1,1
+activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 

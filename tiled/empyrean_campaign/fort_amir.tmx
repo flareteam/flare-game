@@ -1,36 +1,35 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="isometric" renderorder="right-down" width="80" height="80" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="51">
+<map backgroundcolor="#000000" height="80" nextobjectid="51" orientation="isometric" renderorder="right-down" tileheight="32" tilewidth="64" version="1.0" width="80">
  <properties>
-  <property name="music" value="music/dungeon_theme.ogg"/>
-  <property name="tileset" value="tilesetdefs/tileset_dungeon.txt"/>
-  <property name="title" value="Fort Amir"/>
+  <property name="music" value="music/dungeon_theme.ogg" />
+  <property name="tileset" value="tilesetdefs/tileset_dungeon.txt" />
+  <property name="title" value="Fort Amir" />
  </properties>
- <tileset firstgid="1" name="collision" tilewidth="64" tileheight="32" tilecount="15">
-  <image source="../dungeon/tiled_collision.png" width="960" height="32"/>
+ <tileset firstgid="1" name="collision" tilecount="15" tileheight="32" tilewidth="64">
+  <image height="32" source="../dungeon/tiled_collision.png" width="960" />
  </tileset>
- <tileset firstgid="16" name="dungeon" tilewidth="64" tileheight="128" tilecount="240">
-  <image source="../dungeon/tiled_dungeon.png" width="1024" height="1920"/>
+ <tileset firstgid="16" name="dungeon" tilecount="240" tileheight="128" tilewidth="64">
+  <image height="1920" source="../dungeon/tiled_dungeon.png" width="1024" />
  </tileset>
- <tileset firstgid="256" name="set_rules" tilewidth="64" tileheight="32" tilecount="8">
-  <image source="../dungeon/set_rules.png" width="128" height="128"/>
+ <tileset firstgid="256" name="set_rules" tilecount="8" tileheight="32" tilewidth="64">
+  <image height="128" source="../dungeon/set_rules.png" width="128" />
  </tileset>
- <tileset firstgid="264" name="tiled_dungeon_2x2" tilewidth="128" tileheight="64" tilecount="16">
-  <tileoffset x="0" y="16"/>
-  <image source="../dungeon/tiled_dungeon_2x2.png" width="512" height="256"/>
+ <tileset firstgid="264" name="tiled_dungeon_2x2" tilecount="16" tileheight="64" tilewidth="128">
+  <tileoffset x="0" y="16" />
+  <image height="256" source="../dungeon/tiled_dungeon_2x2.png" width="512" />
  </tileset>
- <tileset firstgid="280" name="door_left" tilewidth="64" tileheight="128" tilecount="2">
-  <tileoffset x="-16" y="-8"/>
-  <image source="../dungeon/door_left.png" width="128" height="128"/>
+ <tileset firstgid="280" name="door_left" tilecount="2" tileheight="128" tilewidth="64">
+  <tileoffset x="-16" y="-8" />
+  <image height="128" source="../dungeon/door_left.png" width="128" />
  </tileset>
- <tileset firstgid="282" name="door_right" tilewidth="64" tileheight="128" tilecount="2">
-  <tileoffset x="16" y="-8"/>
-  <image source="../dungeon/door_right.png" width="128" height="128"/>
+ <tileset firstgid="282" name="door_right" tilecount="2" tileheight="128" tilewidth="64">
+  <tileoffset x="16" y="-8" />
+  <image height="128" source="../dungeon/door_right.png" width="128" />
  </tileset>
- <tileset firstgid="284" name="stairs" tilewidth="256" tileheight="256" tilecount="4">
-  <tileoffset x="0" y="48"/>
-  <image source="../dungeon/stairs.png" width="1024" height="256"/>
+ <tileset firstgid="284" name="stairs" tilecount="4" tileheight="256" tilewidth="256">
+  <tileoffset x="0" y="48" />
+  <image height="256" source="../dungeon/stairs.png" width="1024" />
  </tileset>
- <layer name="background" width="80" height="80">
+ <layer height="80" name="background" width="80">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -114,7 +113,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="object" width="80" height="80">
+ <layer height="80" name="object" width="80">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -198,7 +197,7 @@
 0,0,0,0,0,0,0,0,0,76,71,282,283,83,95,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="collision" width="80" height="80">
+ <layer height="80" name="collision" width="80">
   <data encoding="csv">
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
@@ -283,343 +282,343 @@
 </data>
  </layer>
  <objectgroup name="event">
-  <object id="1" name="to Lake Kuuma" type="on_trigger" x="352" y="2496" width="64" height="64">
+  <object height="64" id="1" name="to Lake Kuuma" type="event" width="64" x="352" y="2496">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="intermap" value="maps/lake_kuuma.txt,103,27"/>
-    <property name="soundfx" value="soundfx/door_open.ogg,0,0"/>
-    <property name="tooltip" value="Lake Kuuma"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="intermap" value="maps/lake_kuuma.txt,103,27" />
+    <property name="soundfx" value="soundfx/door_open.ogg,0,0" />
+    <property name="tooltip" value="Lake Kuuma" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="15" name="open door" type="on_trigger" x="1024" y="1952" width="32" height="32">
+  <object height="32" id="15" name="open door" type="event" width="32" x="1024" y="1952">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="mapmod" value="collision,25,65,0;collision,26,65,0;collision,25,66,0;collision,26,66,0;object,26,65,0;object,26,66,0;object,26,64,209;object,26,67,223;object,32,61,166"/>
-    <property name="soundfx" value="soundfx/door_open.ogg"/>
-    <property name="tooltip" value="Switch"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="mapmod" value="collision,25,65,0;collision,26,65,0;collision,25,66,0;collision,26,66,0;object,26,65,0;object,26,66,0;object,26,64,209;object,26,67,223;object,32,61,166" />
+    <property name="soundfx" value="soundfx/door_open.ogg" />
+    <property name="tooltip" value="Switch" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="16" type="on_trigger" x="1184" y="1024" width="32" height="32">
+  <object height="32" id="16" type="event" width="32" x="1184" y="1024">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/level_5.txt"/>
-    <property name="mapmod" value="object,37,32,163"/>
-    <property name="repeat" value="false"/>
-    <property name="soundfx" value="soundfx/wood_open.ogg"/>
-    <property name="tooltip" value="Crate"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="loot" value="loot/level_5.txt" />
+    <property name="mapmod" value="object,37,32,163" />
+    <property name="repeat" value="false" />
+    <property name="soundfx" value="soundfx/wood_open.ogg" />
+    <property name="tooltip" value="Crate" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="17" type="on_trigger" x="1408" y="1184" width="32" height="32">
+  <object height="32" id="17" type="event" width="32" x="1408" y="1184">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/level_5.txt"/>
-    <property name="mapmod" value="object,44,37,162"/>
-    <property name="repeat" value="false"/>
-    <property name="soundfx" value="soundfx/wood_open.ogg"/>
-    <property name="tooltip" value="Barrel"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="loot" value="loot/level_5.txt" />
+    <property name="mapmod" value="object,44,37,162" />
+    <property name="repeat" value="false" />
+    <property name="soundfx" value="soundfx/wood_open.ogg" />
+    <property name="tooltip" value="Barrel" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="18" type="on_trigger" x="1888" y="1824" width="32" height="32">
+  <object height="32" id="18" type="event" width="32" x="1888" y="1824">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/level_5.txt"/>
-    <property name="mapmod" value="object,59,57,163"/>
-    <property name="repeat" value="false"/>
-    <property name="soundfx" value="soundfx/wood_open.ogg"/>
-    <property name="tooltip" value="Crate"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="loot" value="loot/level_5.txt" />
+    <property name="mapmod" value="object,59,57,163" />
+    <property name="repeat" value="false" />
+    <property name="soundfx" value="soundfx/wood_open.ogg" />
+    <property name="tooltip" value="Crate" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="19" type="on_trigger" x="2176" y="128" width="32" height="32">
+  <object height="32" id="19" type="event" width="32" x="2176" y="128">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/level_5.txt"/>
-    <property name="mapmod" value="object,68,4,162"/>
-    <property name="repeat" value="false"/>
-    <property name="soundfx" value="soundfx/wood_open.ogg"/>
-    <property name="tooltip" value="Barrel"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="loot" value="loot/level_5.txt" />
+    <property name="mapmod" value="object,68,4,162" />
+    <property name="repeat" value="false" />
+    <property name="soundfx" value="soundfx/wood_open.ogg" />
+    <property name="tooltip" value="Barrel" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="20" type="on_trigger" x="160" y="416" width="32" height="32">
+  <object height="32" id="20" type="event" width="32" x="160" y="416">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/level_5.txt"/>
-    <property name="loot_count" value="2"/>
-    <property name="mapmod" value="object,5,13,160"/>
-    <property name="reachable_from" value="3,13,2,2"/>
-    <property name="repeat" value="false"/>
-    <property name="soundfx" value="soundfx/wood_open.ogg"/>
-    <property name="tooltip" value="Treasure Chest"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="loot" value="loot/level_5.txt" />
+    <property name="loot_count" value="2" />
+    <property name="mapmod" value="object,5,13,160" />
+    <property name="reachable_from" value="3,13,2,2" />
+    <property name="repeat" value="false" />
+    <property name="soundfx" value="soundfx/wood_open.ogg" />
+    <property name="tooltip" value="Treasure Chest" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="23" type="on_trigger" x="2080" y="192" width="32" height="32">
+  <object height="32" id="23" type="event" width="32" x="2080" y="192">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/level_5.txt"/>
-    <property name="mapmod" value="object,65,6,161"/>
-    <property name="repeat" value="false"/>
-    <property name="soundfx" value="soundfx/wood_open.ogg"/>
-    <property name="tooltip" value="Treasure Chest"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="loot" value="loot/level_5.txt" />
+    <property name="mapmod" value="object,65,6,161" />
+    <property name="repeat" value="false" />
+    <property name="soundfx" value="soundfx/wood_open.ogg" />
+    <property name="tooltip" value="Treasure Chest" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="25" name="book pedestal (gem a)" type="on_trigger" x="1024" y="1696" width="32" height="32">
+  <object height="32" id="25" name="book pedestal (gem a)" type="event" width="32" x="1024" y="1696">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="loot" value="1006,fixed,1"/>
-    <property name="mapmod" value="object,32,53,165"/>
-    <property name="msg" value="Opening the book reveals that it has been hollowed out. A gem is concealed inside."/>
-    <property name="repeat" value="false"/>
-    <property name="requires_not_status" value="emp_amir_gem_a,emp_amir_statue_a,emp_amir_finish"/>
-    <property name="soundfx" value="soundfx/inventory/inventory_page.ogg"/>
-    <property name="tooltip" value="Book"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="loot" value="1006,fixed,1" />
+    <property name="mapmod" value="object,32,53,165" />
+    <property name="msg" value="Opening the book reveals that it has been hollowed out. A gem is concealed inside." />
+    <property name="repeat" value="false" />
+    <property name="requires_not_status" value="emp_amir_gem_a,emp_amir_statue_a,emp_amir_finish" />
+    <property name="soundfx" value="soundfx/inventory/inventory_page.ogg" />
+    <property name="tooltip" value="Book" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="26" name="book mapmod (have gem)" type="on_load" x="928" y="1600" width="32" height="32">
+  <object height="32" id="26" name="book mapmod (have gem)" type="event" width="32" x="928" y="1600">
    <properties>
-    <property name="mapmod" value="object,32,53,165"/>
-    <property name="requires_not_status" value="emp_amir_statue_a"/>
-    <property name="requires_status" value="emp_amir_gem_a"/>
-   </properties>
+    <property name="mapmod" value="object,32,53,165" />
+    <property name="requires_not_status" value="emp_amir_statue_a" />
+    <property name="requires_status" value="emp_amir_gem_a" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="27" name="book mapmod (used gem)" type="on_load" x="992" y="1600" width="32" height="32">
+  <object height="32" id="27" name="book mapmod (used gem)" type="event" width="32" x="992" y="1600">
    <properties>
-    <property name="mapmod" value="object,32,53,165"/>
-    <property name="requires_status" value="emp_amir_statue_a"/>
-   </properties>
+    <property name="mapmod" value="object,32,53,165" />
+    <property name="requires_status" value="emp_amir_statue_a" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="29" name="place gem a" type="on_trigger" x="1216" y="1696" width="32" height="32">
+  <object height="32" id="29" name="place gem a" type="event" width="32" x="1216" y="1696">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="msg" value="The statue is missing an eye. The sapphire fits securely in the statue's eye socket."/>
-    <property name="remove_item" value="1006"/>
-    <property name="requires_not_status" value="emp_amir_statue_a"/>
-    <property name="requires_status" value="emp_amir_gem_a"/>
-    <property name="set_status" value="emp_amir_statue_a"/>
-    <property name="tooltip" value="Statue"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="msg" value="The statue is missing an eye. The sapphire fits securely in the statue's eye socket." />
+    <property name="remove_item" value="1006" />
+    <property name="requires_not_status" value="emp_amir_statue_a" />
+    <property name="requires_status" value="emp_amir_gem_a" />
+    <property name="set_status" value="emp_amir_statue_a" />
+    <property name="tooltip" value="Statue" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="30" name="place gem b" type="on_trigger" x="1312" y="1696" width="32" height="32">
+  <object height="32" id="30" name="place gem b" type="event" width="32" x="1312" y="1696">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="msg" value="The statue is missing an eye. The sapphire fits securely in the statue's eye socket."/>
-    <property name="remove_item" value="1007"/>
-    <property name="requires_not_status" value="emp_amir_statue_b"/>
-    <property name="requires_status" value="emp_amir_gem_b"/>
-    <property name="set_status" value="emp_amir_statue_b"/>
-    <property name="tooltip" value="Statue"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="msg" value="The statue is missing an eye. The sapphire fits securely in the statue's eye socket." />
+    <property name="remove_item" value="1007" />
+    <property name="requires_not_status" value="emp_amir_statue_b" />
+    <property name="requires_status" value="emp_amir_gem_b" />
+    <property name="set_status" value="emp_amir_statue_b" />
+    <property name="tooltip" value="Statue" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="31" name="statue a message" type="on_trigger" x="1152" y="1600" width="32" height="32">
+  <object height="32" id="31" name="statue a message" type="event" width="32" x="1152" y="1600">
    <properties>
-    <property name="hotspot" value="38,53,1,1"/>
-    <property name="msg" value="The statue is missing an eye."/>
-    <property name="requires_not_status" value="emp_amir_gem_a,emp_amir_statue_a"/>
-    <property name="tooltip" value="Statue"/>
-   </properties>
+    <property name="hotspot" value="38,53,1,1" />
+    <property name="msg" value="The statue is missing an eye." />
+    <property name="requires_not_status" value="emp_amir_gem_a,emp_amir_statue_a" />
+    <property name="tooltip" value="Statue" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="32" name="statue b message" type="on_trigger" x="1216" y="1600" width="32" height="32">
+  <object height="32" id="32" name="statue b message" type="event" width="32" x="1216" y="1600">
    <properties>
-    <property name="hotspot" value="41,53,1,1"/>
-    <property name="msg" value="The statue is missing an eye."/>
-    <property name="requires_not_status" value="emp_amir_gem_b,emp_amir_statue_b"/>
-    <property name="tooltip" value="Statue"/>
-   </properties>
+    <property name="hotspot" value="41,53,1,1" />
+    <property name="msg" value="The statue is missing an eye." />
+    <property name="requires_not_status" value="emp_amir_gem_b,emp_amir_statue_b" />
+    <property name="tooltip" value="Statue" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="34" name="start statue quest" type="on_trigger" x="1600" y="2048" width="32" height="128">
+  <object height="128" id="34" name="start statue quest" type="event" width="32" x="1600" y="2048">
    <properties>
-    <property name="msg" value="Quest added."/>
-    <property name="repeat" value="false"/>
-    <property name="requires_not_status" value="emp_amir_init,emp_amir_finish"/>
-    <property name="set_status" value="emp_amir_init"/>
-   </properties>
+    <property name="msg" value="Quest added." />
+    <property name="repeat" value="false" />
+    <property name="requires_not_status" value="emp_amir_init,emp_amir_finish" />
+    <property name="set_status" value="emp_amir_init" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="35" name="open bookcase" type="on_trigger" x="1088" y="1664" width="384" height="160">
+  <object height="160" id="35" name="open bookcase" type="event" width="384" x="1088" y="1664">
    <properties>
-    <property name="mapmod" value="object,40,51,0;collision,40,51,0"/>
-    <property name="msg" value="The bookcase slides back and reveals a hidden path."/>
-    <property name="repeat" value="false"/>
-    <property name="requires_not_status" value="emp_amir_bookcase"/>
-    <property name="requires_status" value="emp_amir_init,emp_amir_statue_a,emp_amir_statue_b"/>
-    <property name="set_status" value="emp_amir_bookcase"/>
-    <property name="soundfx" value="soundfx/environment/stone_open.ogg,40,51"/>
-   </properties>
+    <property name="mapmod" value="object,40,51,0;collision,40,51,0" />
+    <property name="msg" value="The bookcase slides back and reveals a hidden path." />
+    <property name="repeat" value="false" />
+    <property name="requires_not_status" value="emp_amir_bookcase" />
+    <property name="requires_status" value="emp_amir_init,emp_amir_statue_a,emp_amir_statue_b" />
+    <property name="set_status" value="emp_amir_bookcase" />
+    <property name="soundfx" value="soundfx/environment/stone_open.ogg,40,51" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="36" name="open bookcase (post-quest)" type="on_trigger" x="1216" y="1824" width="128" height="32">
+  <object height="32" id="36" name="open bookcase (post-quest)" type="event" width="128" x="1216" y="1824">
    <properties>
-    <property name="mapmod" value="object,40,51,0;collision,40,51,0"/>
-    <property name="repeat" value="false"/>
-    <property name="requires_not_status" value="emp_amir_bookcase"/>
-    <property name="requires_status" value="emp_amir_finish"/>
-    <property name="set_status" value="emp_amir_bookcase"/>
-    <property name="soundfx" value="soundfx/environment/stone_open.ogg,40,51"/>
-   </properties>
+    <property name="mapmod" value="object,40,51,0;collision,40,51,0" />
+    <property name="repeat" value="false" />
+    <property name="requires_not_status" value="emp_amir_bookcase" />
+    <property name="requires_status" value="emp_amir_finish" />
+    <property name="set_status" value="emp_amir_bookcase" />
+    <property name="soundfx" value="soundfx/environment/stone_open.ogg,40,51" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="37" name="quest reward" type="on_trigger" x="1728" y="1376" width="32" height="32">
+  <object height="32" id="37" name="quest reward" type="event" width="32" x="1728" y="1376">
    <properties>
-    <property name="requires_not_status" value="emp_amir_finish"/>
-    <property name="reward_xp" value="800"/>
-    <property name="set_status" value="emp_amir_finish"/>
-    <property name="unset_status" value="emp_amir_init,emp_amir_gem_a,emp_amir_gem_b"/>
-   </properties>
+    <property name="requires_not_status" value="emp_amir_finish" />
+    <property name="reward_xp" value="800" />
+    <property name="set_status" value="emp_amir_finish" />
+    <property name="unset_status" value="emp_amir_init,emp_amir_gem_a,emp_amir_gem_b" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="38" type="on_trigger" x="1696" y="1152" width="32" height="32">
+  <object height="32" id="38" type="event" width="32" x="1696" y="1152">
    <properties>
-    <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/level_6.txt"/>
-    <property name="loot_count" value="5,7"/>
-    <property name="mapmod" value="object,53,36,161"/>
-    <property name="repeat" value="false"/>
-    <property name="soundfx" value="soundfx/wood_open.ogg"/>
-    <property name="tooltip" value="Treasure Chest"/>
-   </properties>
+    <property name="hotspot" value="location" />
+    <property name="loot" value="loot/level_6.txt" />
+    <property name="loot_count" value="5,7" />
+    <property name="mapmod" value="object,53,36,161" />
+    <property name="repeat" value="false" />
+    <property name="soundfx" value="soundfx/wood_open.ogg" />
+    <property name="tooltip" value="Treasure Chest" />
+   <property name="activate" value="on_trigger" /></properties>
   </object>
-  <object id="39" name="Wind sound" type="on_load" x="0" y="0" width="32" height="32">
+  <object height="32" id="39" name="Wind sound" type="event" width="32" x="0" y="0">
    <properties>
-    <property name="soundfx" value="soundfx/environment/cave_wind_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/cave_wind_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="40" name="brazier sound effect" type="on_load" x="256" y="288" width="32" height="32">
+  <object height="32" id="40" name="brazier sound effect" type="event" width="32" x="256" y="288">
    <properties>
-    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="41" name="brazier sound effect" type="on_load" x="256" y="576" width="32" height="32">
+  <object height="32" id="41" name="brazier sound effect" type="event" width="32" x="256" y="576">
    <properties>
-    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="42" name="brazier sound effect" type="on_load" x="1888" y="160" width="32" height="32">
+  <object height="32" id="42" name="brazier sound effect" type="event" width="32" x="1888" y="160">
    <properties>
-    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="43" name="brazier sound effect" type="on_load" x="2432" y="160" width="32" height="32">
+  <object height="32" id="43" name="brazier sound effect" type="event" width="32" x="2432" y="160">
    <properties>
-    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="44" name="brazier sound effect" type="on_load" x="2080" y="1120" width="32" height="32">
+  <object height="32" id="44" name="brazier sound effect" type="event" width="32" x="2080" y="1120">
    <properties>
-    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="45" name="brazier sound effect" type="on_load" x="2240" y="1120" width="32" height="32">
+  <object height="32" id="45" name="brazier sound effect" type="event" width="32" x="2240" y="1120">
    <properties>
-    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="46" name="brazier sound effect" type="on_load" x="2080" y="1408" width="32" height="32">
+  <object height="32" id="46" name="brazier sound effect" type="event" width="32" x="2080" y="1408">
    <properties>
-    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="47" name="brazier sound effect" type="on_load" x="2240" y="1408" width="32" height="32">
+  <object height="32" id="47" name="brazier sound effect" type="event" width="32" x="2240" y="1408">
    <properties>
-    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="48" name="brazier sound effect" type="on_load" x="1344" y="1824" width="32" height="32">
+  <object height="32" id="48" name="brazier sound effect" type="event" width="32" x="1344" y="1824">
    <properties>
-    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="49" name="brazier sound effect" type="on_load" x="1184" y="1824" width="32" height="32">
+  <object height="32" id="49" name="brazier sound effect" type="event" width="32" x="1184" y="1824">
    <properties>
-    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
-   </properties>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg" />
+   <property name="activate" value="on_load" /></properties>
   </object>
-  <object id="50" name="clear bookcase status" type="on_load" x="512" y="2496" width="32" height="32">
+  <object height="32" id="50" name="clear bookcase status" type="event" width="32" x="512" y="2496">
    <properties>
-    <property name="requires_status" value="emp_amir_finish"/>
-    <property name="unset_status" value="emp_amir_bookcase"/>
-   </properties>
+    <property name="requires_status" value="emp_amir_finish" />
+    <property name="unset_status" value="emp_amir_bookcase" />
+   <property name="activate" value="on_load" /></properties>
   </object>
  </objectgroup>
  <objectgroup name="enemy" visible="0">
-  <object id="2" type="dungeon" x="64" y="1024" width="640" height="1088">
+  <object height="1088" id="2" type="enemy" width="640" x="64" y="1024">
    <properties>
-    <property name="level" value="5"/>
-    <property name="number" value="10,11"/>
-   </properties>
+    <property name="level" value="5" />
+    <property name="number" value="10,11" />
+   <property name="category" value="dungeon" /></properties>
   </object>
-  <object id="3" type="dungeon" x="736" y="1152" width="352" height="128">
+  <object height="128" id="3" type="enemy" width="352" x="736" y="1152">
    <properties>
-    <property name="level" value="5"/>
-    <property name="number" value="2"/>
-   </properties>
+    <property name="level" value="5" />
+    <property name="number" value="2" />
+   <property name="category" value="dungeon" /></properties>
   </object>
-  <object id="4" type="dungeon" x="1088" y="992" width="384" height="416">
+  <object height="416" id="4" type="enemy" width="384" x="1088" y="992">
    <properties>
-    <property name="level" value="5"/>
-    <property name="number" value="3"/>
-   </properties>
+    <property name="level" value="5" />
+    <property name="number" value="3" />
+   <property name="category" value="dungeon" /></properties>
   </object>
-  <object id="5" type="dungeon" x="1216" y="544" width="128" height="352">
+  <object height="352" id="5" type="enemy" width="128" x="1216" y="544">
    <properties>
-    <property name="level" value="5"/>
-    <property name="number" value="3"/>
-   </properties>
+    <property name="level" value="5" />
+    <property name="number" value="3" />
+   <property name="category" value="dungeon" /></properties>
   </object>
-  <object id="6" type="dungeon" x="736" y="384" width="320" height="128">
+  <object height="128" id="6" type="enemy" width="320" x="736" y="384">
    <properties>
-    <property name="level" value="5"/>
-    <property name="number" value="3"/>
-   </properties>
+    <property name="level" value="5" />
+    <property name="number" value="3" />
+   <property name="category" value="dungeon" /></properties>
   </object>
-  <object id="7" type="snowplains" x="160" y="224" width="448" height="448">
+  <object height="448" id="7" type="enemy" width="448" x="160" y="224">
    <properties>
-    <property name="level" value="5"/>
-    <property name="number" value="6,7"/>
-   </properties>
+    <property name="level" value="5" />
+    <property name="number" value="6,7" />
+   <property name="category" value="snowplains" /></properties>
   </object>
-  <object id="8" type="dungeon" x="1440" y="384" width="320" height="128">
+  <object height="128" id="8" type="enemy" width="320" x="1440" y="384">
    <properties>
-    <property name="level" value="5"/>
-    <property name="number" value="3"/>
-   </properties>
+    <property name="level" value="5" />
+    <property name="number" value="3" />
+   <property name="category" value="dungeon" /></properties>
   </object>
-  <object id="9" type="dungeon" x="2016" y="224" width="320" height="384">
+  <object height="384" id="9" type="enemy" width="320" x="2016" y="224">
    <properties>
-    <property name="level" value="5"/>
-    <property name="number" value="4,5"/>
-   </properties>
+    <property name="level" value="5" />
+    <property name="number" value="4,5" />
+   <property name="category" value="dungeon" /></properties>
   </object>
-  <object id="10" type="dungeon" x="1984" y="1024" width="384" height="512">
+  <object height="512" id="10" type="enemy" width="384" x="1984" y="1024">
    <properties>
-    <property name="level" value="5"/>
-    <property name="number" value="5,6"/>
-   </properties>
+    <property name="level" value="5" />
+    <property name="number" value="5,6" />
+   <property name="category" value="dungeon" /></properties>
   </object>
-  <object id="11" type="antlion" x="2112" y="2080" width="192" height="224">
+  <object height="224" id="11" type="enemy" width="192" x="2112" y="2080">
    <properties>
-    <property name="level" value="5"/>
-    <property name="number" value="2,3"/>
-   </properties>
+    <property name="level" value="5" />
+    <property name="number" value="2,3" />
+   <property name="category" value="antlion" /></properties>
   </object>
-  <object id="12" type="dungeon" x="1856" y="1792" width="192" height="640">
+  <object height="640" id="12" type="enemy" width="192" x="1856" y="1792">
    <properties>
-    <property name="level" value="5"/>
-    <property name="number" value="4"/>
-   </properties>
+    <property name="level" value="5" />
+    <property name="number" value="4" />
+   <property name="category" value="dungeon" /></properties>
   </object>
-  <object id="13" type="dungeon" x="2304" y="1792" width="192" height="640">
+  <object height="640" id="13" type="enemy" width="192" x="2304" y="1792">
    <properties>
-    <property name="level" value="5"/>
-    <property name="number" value="4"/>
-   </properties>
+    <property name="level" value="5" />
+    <property name="number" value="4" />
+   <property name="category" value="dungeon" /></properties>
   </object>
-  <object id="14" type="dungeon" x="960" y="1856" width="640" height="448">
+  <object height="448" id="14" type="enemy" width="640" x="960" y="1856">
    <properties>
-    <property name="level" value="5"/>
-    <property name="number" value="6,7"/>
-   </properties>
+    <property name="level" value="5" />
+    <property name="number" value="6,7" />
+   <property name="category" value="dungeon" /></properties>
   </object>
-  <object id="24" type="gruzza" x="1248" y="1728" width="32" height="32">
+  <object height="32" id="24" type="enemy" width="32" x="1248" y="1728">
    <properties>
-    <property name="direction" value="7"/>
-    <property name="level" value="6"/>
-    <property name="number" value="1"/>
-    <property name="wander_radius" value="0"/>
-   </properties>
+    <property name="direction" value="7" />
+    <property name="level" value="6" />
+    <property name="number" value="1" />
+    <property name="wander_radius" value="0" />
+   <property name="category" value="gruzza" /></properties>
   </object>
  </objectgroup>
 </map>
