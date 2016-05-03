@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objecttypes>
+ <objecttype name="event" color="#3fffff">
+  <property name="activate" type="string"/>
+  <property name="book" type="string"/>
+  <property name="cooldown" type="string"/>
+  <property name="cutscene" type="string"/>
+  <property name="hotspot" type="string"/>
+  <property name="intermap" type="string"/>
+  <property name="intramap" type="string"/>
+  <property name="loot" type="string"/>
+  <property name="loot_count" type="string"/>
+  <property name="mapmod" type="string"/>
+  <property name="msg" type="string"/>
+  <property name="music" type="string"/>
+  <property name="npc" type="string"/>
+  <property name="power" type="string"/>
+  <property name="power_damage" type="string"/>
+  <property name="power_path" type="string"/>
+  <property name="reachable_from" type="string"/>
+  <property name="remove_currency" type="string"/>
+  <property name="remove_item" type="string"/>
+  <property name="repeat" type="string"/>
+  <property name="requires_class" type="string"/>
+  <property name="requires_currency" type="string"/>
+  <property name="requires_item" type="string"/>
+  <property name="requires_level" type="string"/>
+  <property name="requires_not_class" type="string"/>
+  <property name="requires_not_currency" type="string"/>
+  <property name="requires_not_item" type="string"/>
+  <property name="requires_not_level" type="string"/>
+  <property name="requires_not_status" type="string"/>
+  <property name="requires_status" type="string"/>
+  <property name="restore" type="string"/>
+  <property name="reward_currency" type="string"/>
+  <property name="reward_item" type="string"/>
+  <property name="reward_xp" type="string"/>
+  <property name="save_game" type="string"/>
+  <property name="set_status" type="string"/>
+  <property name="shakycam" type="string"/>
+  <property name="soundfx" type="string"/>
+  <property name="spawn" type="string"/>
+  <property name="stash" type="string"/>
+  <property name="tooltip" type="string"/>
+  <property name="unset_status" type="string"/>
+ </objecttype>
+ <objecttype name="enemy" color="#ff9f3f">
+  <property name="category" type="string"/>
+  <property name="chance" type="string"/>
+  <property name="direction" type="string"/>
+  <property name="level" type="string"/>
+  <property name="number" type="string"/>
+  <property name="requires_not_status" type="string"/>
+  <property name="requires_status" type="string"/>
+  <property name="wander_radius" type="string"/>
+  <property name="waypoints" type="string"/>
+ </objecttype>
+ <objecttype name="npc" color="#9f40ff">
+  <property name="filename" type="string"/>
+  <property name="requires_not_status" type="string"/>
+  <property name="requires_status" type="string"/>
+ </objecttype>
+</objecttypes>
