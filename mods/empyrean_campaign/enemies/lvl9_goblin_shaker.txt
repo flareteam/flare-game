@@ -7,7 +7,7 @@ rarity=common
 xp=512
 
 # combat stats
-hp=240
+stat=hp,240
 speed=4.1
 melee_range=1.125
 turn_delay=400ms
@@ -16,16 +16,16 @@ chance_pursue=10
 power=melee,179,10
 power=on_join_combat,167,100
 
-accuracy=130
-avoidance=55
-poise=34
+stat=accuracy,130
+stat=avoidance,55
+stat=poise,34
 
-dmg_melee_min=135
-dmg_melee_max=145
-dmg_ment_min=135
-dmg_ment_max=145
-absorb_min=8
-absorb_max=9
+stat=dmg_melee_min,135
+stat=dmg_melee_max,145
+stat=dmg_ment_min,135
+stat=dmg_ment_max,145
+stat=absorb_min,8
+stat=absorb_max,9
 cooldown=1400ms
 
 # loot

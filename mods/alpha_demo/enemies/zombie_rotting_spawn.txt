@@ -6,19 +6,19 @@ categories=zombie_rotting_spawn
 xp=1
 
 # combat stats
-hp=25
+stat=hp,25
 speed=1.5
 turn_delay=400ms
 chance_pursue=5
 
 power=melee,1,1
 
-accuracy=69
-avoidance=19
+stat=accuracy,69
+stat=avoidance,19
 
-dmg_melee_min=5
-dmg_melee_max=15
-dmg_ment_min=10
-dmg_ment_max=20
+stat=dmg_melee_min,5
+stat=dmg_melee_max,15
+stat=dmg_ment_min,10
+stat=dmg_ment_max,20
 cooldown=833ms
 

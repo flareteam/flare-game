@@ -6,7 +6,7 @@ categories=necromancer_apprentice,human,undead
 xp=1000
 
 # combat stats
-hp=225
+stat=hp,225
 speed=3
 turn_delay=200ms
 chance_pursue=30
@@ -14,17 +14,17 @@ chance_pursue=30
 power=melee,1,5
 power=ranged,128,15
 
-accuracy=96
-avoidance=49
+stat=accuracy,96
+stat=avoidance,49
 
-dmg_melee_min=5
-dmg_melee_max=25
-dmg_ment_min=25
-dmg_ment_max=65
-absorb_min=10
-absorb_max=10
-vulnerable_fire=50
-vulnerable_ice=50
+stat=dmg_melee_min,5
+stat=dmg_melee_max,25
+stat=dmg_ment_min,25
+stat=dmg_ment_max,65
+stat=absorb_min,10
+stat=absorb_max,10
+vulnerable=fire,50
+vulnerable=ice,50
 cooldown=1s
 
 # loot

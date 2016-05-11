@@ -7,7 +7,7 @@ rarity=rare
 xp=128
 
 # combat stats
-hp=840
+stat=hp,840
 speed=5.6
 turn_delay=166ms
 
@@ -17,15 +17,15 @@ power=melee,164,2
 power=melee,168,3
 power=melee,179,5
 
-accuracy=110
-avoidance=50
-poise=35
+stat=accuracy,110
+stat=avoidance,50
+stat=poise,35
 
-absorb_min=8
-absorb_max=10
+stat=absorb_min,8
+stat=absorb_max,10
 
-dmg_melee_min=135
-dmg_melee_max=145
+stat=dmg_melee_min,135
+stat=dmg_melee_max,145
 
 cooldown=1400ms
 

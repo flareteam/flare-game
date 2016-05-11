@@ -6,7 +6,7 @@ categories=zombie_iceclaw,zombie,undead,dungeon
 xp=10
 
 # combat stats
-hp=80
+stat=hp,80
 speed=4.5
 turn_delay=233ms
 chance_pursue=20
@@ -15,15 +15,15 @@ chance_pursue=20
 power=melee,38,15
 power=melee,1,3
 
-accuracy=85
-avoidance=30
+stat=accuracy,85
+stat=avoidance,30
 
-dmg_melee_min=15
-dmg_melee_max=40
-dmg_ment_min=20
-dmg_ment_max=50
-absorb_min=9
-absorb_max=9
+stat=dmg_melee_min,15
+stat=dmg_melee_max,40
+stat=dmg_ment_min,20
+stat=dmg_ment_max,50
+stat=absorb_min,9
+stat=absorb_max,9
 cooldown=666ms
 
 # loot

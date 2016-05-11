@@ -7,7 +7,7 @@ rarity=rare
 xp=256
 
 # combat stats
-hp=940
+stat=hp,940
 speed=4.8
 turn_delay=400ms
 chance_pursue=10
@@ -16,12 +16,12 @@ power=melee,164,4
 power=melee,187,6
 power=ranged,188,8
 
-accuracy=110
-avoidance=40
-poise=38
+stat=accuracy,110
+stat=avoidance,40
+stat=poise,38
 
-dmg_melee_min=150
-dmg_melee_max=155
+stat=dmg_melee_min,150
+stat=dmg_melee_max,155
 cooldown=1575ms
 
 # temple of mez key

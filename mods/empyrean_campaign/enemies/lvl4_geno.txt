@@ -6,7 +6,7 @@ categories=geno
 xp=32
 
 # combat stats
-hp=460
+stat=hp,460
 speed=4.4
 turn_delay=200ms
 
@@ -16,17 +16,17 @@ power=melee,164,5
 power=ranged,174,15
 passive_powers=185
 
-accuracy=105
-avoidance=30
-poise=75
+stat=accuracy,105
+stat=avoidance,30
+stat=poise,75
 
-absorb_min=3
-absorb_max=3
+stat=absorb_min,3
+stat=absorb_max,3
 
-dmg_melee_min=80
-dmg_melee_max=85
-dmg_ment_min=90
-dmg_ment_max=95
+stat=dmg_melee_min,80
+stat=dmg_melee_max,85
+stat=dmg_ment_min,90
+stat=dmg_ment_max,95
 
 cooldown=1425ms
 

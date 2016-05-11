@@ -7,7 +7,7 @@ rarity=uncommon
 xp=32
 
 # combat stats
-hp=160
+stat=hp,160
 speed=3.8
 turn_delay=400ms
 chance_pursue=10
@@ -15,16 +15,16 @@ chance_pursue=10
 power=melee,164,2
 power=melee,175,10
 
-accuracy=100
-avoidance=30
-poise=32
+stat=accuracy,100
+stat=avoidance,30
+stat=poise,32
 
-dmg_melee_min=75
-dmg_melee_max=80
+stat=dmg_melee_min,75
+stat=dmg_melee_max,80
 cooldown=1700ms
 
-vulnerable_fire=125
-vulnerable_ice=90
+vulnerable=fire,125
+vulnerable=ice,90
 
 #loot
 loot=loot/level_5.txt

@@ -6,7 +6,7 @@ categories=miner
 xp=1
 
 # combat stats
-hp=20
+stat=hp,20
 speed=1.5
 threat_range=4.0
 turn_delay=400ms
@@ -14,13 +14,13 @@ chance_pursue=1
 
 power=melee,37,1
 
-accuracy=50
-avoidance=10
+stat=accuracy,50
+stat=avoidance,10
 
-dmg_melee_min=5
-dmg_melee_max=15
-dmg_ment_min=10
-dmg_ment_max=20
+stat=dmg_melee_min,5
+stat=dmg_melee_max,15
+stat=dmg_ment_min,10
+stat=dmg_ment_max,20
 cooldown=3s
 
 # loot

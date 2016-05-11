@@ -8,7 +8,7 @@ categories=sir_evan_maddox
 defeat_status=ak_maddox_defeated
 
 # combat stats
-hp=225
+stat=hp,225
 speed=6.5
 threat_range=10.0
 turn_delay=133ms
@@ -17,17 +17,17 @@ chance_pursue=25
 power=melee,1,25
 power=ranged,35,2
 
-accuracy=93
-avoidance=43
+stat=accuracy,93
+stat=avoidance,43
 
-dmg_melee_min=25
-dmg_melee_max=60
-dmg_ment_min=25
-dmg_ment_max=60
-absorb_min=10
-absorb_max=15
-vulnerable_fire=150
-vulnerable_ice=75
+stat=dmg_melee_min,25
+stat=dmg_melee_max,60
+stat=dmg_ment_min,25
+stat=dmg_ment_max,60
+stat=absorb_min,10
+stat=absorb_max,15
+vulnerable=fire,150
+vulnerable=ice,75
 
 cooldown=833ms
 

@@ -6,7 +6,7 @@ categories=zombie_bloodthirsty,zombie,undead,dungeon
 xp=20
 
 # combat stats
-hp=135
+stat=hp,135
 speed=5.5
 turn_delay=166ms
 chance_pursue=20
@@ -14,15 +14,15 @@ chance_pursue=20
 # melee power vampiric
 power=melee,36,15
 
-accuracy=85
-avoidance=31
+stat=accuracy,85
+stat=avoidance,31
 
-dmg_melee_min=20
-dmg_melee_max=50
-dmg_ment_min=20
-dmg_ment_max=50
-absorb_min=12
-absorb_max=12
+stat=dmg_melee_min,20
+stat=dmg_melee_max,50
+stat=dmg_ment_min,20
+stat=dmg_ment_max,50
+stat=absorb_min,12
+stat=absorb_max,12
 
 cooldown=500ms
 

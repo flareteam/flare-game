@@ -8,7 +8,7 @@ xp=64
 defeat_status=emp_seagate_defeated
 
 # combat stats
-hp=2160
+stat=hp,2160
 speed=4.9
 turn_delay=400ms
 chance_pursue=10
@@ -17,16 +17,16 @@ power=melee,164,10
 power=melee,179,2
 passive_powers=185
 
-accuracy=105
-avoidance=25
-poise=100
+stat=accuracy,105
+stat=avoidance,25
+stat=poise,100
 
-dmg_melee_min=85
-dmg_melee_max=95
+stat=dmg_melee_min,85
+stat=dmg_melee_max,95
 cooldown=1425ms
 
-absorb_min=4
-absorb_max=4
+stat=absorb_min,4
+stat=absorb_max,4
 
 # loot
 loot_count=5,7

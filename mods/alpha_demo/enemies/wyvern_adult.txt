@@ -7,7 +7,7 @@ rarity=common
 xp=50
 
 # combat stats
-hp=200
+stat=hp,200
 speed=9
 turn_delay=100ms
 chance_pursue=10
@@ -17,15 +17,15 @@ power=melee,5,15
 # fire spit
 power=ranged,31,2
 
-accuracy=82
-avoidance=32
+stat=accuracy,82
+stat=avoidance,32
 
-dmg_melee_min=20
-dmg_melee_max=40
-dmg_ment_min=30
-dmg_ment_max=60
-absorb_min=15
-absorb_max=15
+stat=dmg_melee_min,20
+stat=dmg_melee_max,40
+stat=dmg_ment_min,30
+stat=dmg_ment_max,60
+stat=absorb_min,15
+stat=absorb_max,15
 
 cooldown=1s
 

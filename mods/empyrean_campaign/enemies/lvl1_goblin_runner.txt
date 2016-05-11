@@ -7,7 +7,7 @@ rarity=uncommon
 xp=2
 
 # combat stats
-hp=60
+stat=hp,60
 speed=4.5
 turn_delay=200ms
 chance_pursue=10
@@ -15,15 +15,15 @@ chance_pursue=10
 power=melee,164,5
 power=melee,168,1
 
-accuracy=90
-avoidance=10
-poise=15
+stat=accuracy,90
+stat=avoidance,10
+stat=poise,15
 
-dmg_melee_min=5
-dmg_melee_max=10
+stat=dmg_melee_min,5
+stat=dmg_melee_max,10
 cooldown=1400ms
-absorb_min=1
-absorb_max=1
+stat=absorb_min,1
+stat=absorb_max,1
 
 # loot
 loot=loot/level_1.txt

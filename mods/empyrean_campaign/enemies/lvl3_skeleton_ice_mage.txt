@@ -7,7 +7,7 @@ rarity=uncommon
 xp=8
 
 # combat stats
-hp=90
+stat=hp,90
 speed=3.4
 turn_delay=200ms
 
@@ -17,20 +17,20 @@ power=melee,164,5
 power=ranged,172,3
 passive_powers=185
 
-accuracy=100
-avoidance=25
-poise=16
+stat=accuracy,100
+stat=avoidance,25
+stat=poise,16
 
-absorb_min=2
-absorb_max=2
+stat=absorb_min,2
+stat=absorb_max,2
 
-dmg_melee_min=35
-dmg_melee_max=40
-dmg_ment_min=45
-dmg_ment_max=50
+stat=dmg_melee_min,35
+stat=dmg_melee_max,40
+stat=dmg_ment_min,45
+stat=dmg_ment_max,50
 
-vulnerable_fire=150
-vulnerable_ice=75
+vulnerable=fire,150
+vulnerable=ice,75
 
 cooldown=1550ms
 

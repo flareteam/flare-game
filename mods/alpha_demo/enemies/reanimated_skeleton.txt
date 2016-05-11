@@ -9,7 +9,7 @@ categories=reanimated_skeleton
 defeat_status=ml_skeleton_defeated
 
 # combat stats
-hp=120
+stat=hp,120
 speed=4.5
 threat_range=8.0
 turn_delay=233ms
@@ -17,15 +17,15 @@ chance_pursue=25
 
 power=melee,1,15
 
-accuracy=75
-avoidance=25
+stat=accuracy,75
+stat=avoidance,25
 
-dmg_melee_min=5
-dmg_melee_max=20
+stat=dmg_melee_min,5
+stat=dmg_melee_max,20
 cooldown=833ms
 
-absorb_min=5
-absorb_max=15
+stat=absorb_min,5
+stat=absorb_max,15
 
 # loot
 loot=loot/leveled_low.txt

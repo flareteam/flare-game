@@ -7,7 +7,7 @@ rarity=uncommon
 xp=2
 
 # combat stats
-hp=50
+stat=hp,50
 speed=5
 turn_delay=200ms
 chance_pursue=10
@@ -15,16 +15,16 @@ chance_pursue=10
 power=melee,1,3
 power=melee,5,1
 
-accuracy=75
-avoidance=25
+stat=accuracy,75
+stat=avoidance,25
 
-dmg_melee_min=5
-dmg_melee_max=20
-dmg_ment_min=5
-dmg_ment_max=15
+stat=dmg_melee_min,5
+stat=dmg_melee_max,20
+stat=dmg_ment_min,5
+stat=dmg_ment_max,15
 cooldown=666ms
-absorb_min=3
-absorb_max=3
+stat=absorb_min,3
+stat=absorb_max,3
 
 # loot
 loot=loot/leveled_low.txt

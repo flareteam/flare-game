@@ -9,7 +9,7 @@ quest_loot=lb_ice_unlocked,lb_ice_key,9101
 defeat_status=lb_ice_defeated
 
 # combat stats
-hp=300
+stat=hp,300
 speed=6
 turn_delay=166ms
 chance_pursue=30
@@ -18,18 +18,18 @@ power=melee,38,5
 #chill touch
 power=ranged,30,15
 
-accuracy=96
-avoidance=49
+stat=accuracy,96
+stat=avoidance,49
 
-dmg_melee_min=5
-dmg_melee_max=25
-dmg_ment_min=25
-dmg_ment_max=65
-absorb_min=10
-absorb_max=10
+stat=dmg_melee_min,5
+stat=dmg_melee_max,25
+stat=dmg_ment_min,25
+stat=dmg_ment_max,65
+stat=absorb_min,10
+stat=absorb_max,10
 #immune ice
-vulnerable_fire=200
-vulnerable_ice=0
+vulnerable=fire,200
+vulnerable=ice,0
 cooldown=1s
 
 # loot

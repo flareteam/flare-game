@@ -6,7 +6,7 @@ categories=skeletal_archer,skeleton,undead,dungeon
 xp=5
 
 # combat stats
-hp=75
+stat=hp,75
 speed=3.5
 turn_delay=200ms
 chance_pursue=5
@@ -14,15 +14,15 @@ chance_pursue=5
 power=melee,1,5
 power=ranged,34,5
 
-accuracy=83
-avoidance=28
+stat=accuracy,83
+stat=avoidance,28
 
-dmg_melee_min=5
-dmg_melee_max=25
-dmg_ranged_min=10
-dmg_ranged_max=30
-absorb_min=6
-absorb_max=6
+stat=dmg_melee_min,5
+stat=dmg_melee_max,25
+stat=dmg_ranged_min,10
+stat=dmg_ranged_max,30
+stat=absorb_min,6
+stat=absorb_max,6
 
 cooldown=1s
 

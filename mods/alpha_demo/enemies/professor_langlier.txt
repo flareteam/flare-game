@@ -9,7 +9,7 @@ categories=professor_langlier
 quest_loot=ak_tome_reward,ak_talisman_found,9002
 
 # combat stats
-hp=200
+stat=hp,200
 speed=3.5
 turn_delay=200ms
 chance_pursue=15
@@ -17,17 +17,17 @@ chance_pursue=15
 power=melee,1,5
 power=ranged,30,4
 
-accuracy=90
-avoidance=36
+stat=accuracy,90
+stat=avoidance,36
 
-dmg_melee_min=15
-dmg_melee_max=40
-dmg_ment_min=20
-dmg_ment_max=55
-absorb_min=5
-absorb_max=10
-vulnerable_fire=200
-vulnerable_ice=50
+stat=dmg_melee_min,15
+stat=dmg_melee_max,40
+stat=dmg_ment_min,20
+stat=dmg_ment_max,55
+stat=absorb_min,5
+stat=absorb_max,10
+vulnerable=fire,200
+vulnerable=ice,50
 cooldown=1s
 
 # loot

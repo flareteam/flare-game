@@ -6,7 +6,7 @@ categories=skeletal_sniper,skeleton,undead,dungeon
 xp=50
 
 # combat stats
-hp=150
+stat=hp,150
 speed=3.5
 turn_delay=200ms
 chance_pursue=5
@@ -17,15 +17,15 @@ power=ranged,34,10
 # multi-shot
 power=ranged,42,5
 
-accuracy=89
-avoidance=34
+stat=accuracy,89
+stat=avoidance,34
 
-dmg_melee_min=5
-dmg_melee_max=25
-dmg_ranged_min=15
-dmg_ranged_max=45
-absorb_min=15
-absorb_max=15
+stat=dmg_melee_min,5
+stat=dmg_melee_max,25
+stat=dmg_ranged_min,15
+stat=dmg_ranged_max,45
+stat=absorb_min,15
+stat=absorb_max,15
 
 cooldown=500ms
 

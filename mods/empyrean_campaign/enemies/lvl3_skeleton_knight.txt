@@ -7,7 +7,7 @@ rarity=common
 xp=8
 
 # combat stats
-hp=110
+stat=hp,110
 speed=3.9
 turn_delay=400ms
 chance_pursue=10
@@ -15,16 +15,16 @@ chance_pursue=10
 power=melee,164,10
 passive_powers=185
 
-accuracy=100
-avoidance=20
-poise=21
+stat=accuracy,100
+stat=avoidance,20
+stat=poise,21
 
-dmg_melee_min=40
-dmg_melee_max=50
+stat=dmg_melee_min,40
+stat=dmg_melee_max,50
 cooldown=1550ms
 
-absorb_min=3
-absorb_max=3
+stat=absorb_min,3
+stat=absorb_max,3
 
 # loot
 loot=loot/level_3.txt

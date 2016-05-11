@@ -6,20 +6,20 @@ categories=antlion_slasher,antlion,dungeon,cave
 xp=50
 
 # combat stats
-hp=105
+stat=hp,105
 speed=6.5
 turn_delay=133ms
 chance_pursue=10
 
 power=melee,5,10
 
-accuracy=84
-avoidance=34
+stat=accuracy,84
+stat=avoidance,34
 
-dmg_melee_min=15
-dmg_melee_max=45
-absorb_min=18
-absorb_max=18
+stat=dmg_melee_min,15
+stat=dmg_melee_max,45
+stat=absorb_min,18
+stat=absorb_max,18
 
 cooldown=333ms
 

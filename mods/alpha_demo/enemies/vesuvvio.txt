@@ -9,7 +9,7 @@ quest_loot=lb_fire_unlocked,lb_fire_key,9102
 defeat_status=lb_fire_defeated
 
 # combat stats
-hp=300
+stat=hp,300
 speed=6
 turn_delay=166ms
 
@@ -18,18 +18,18 @@ chance_pursue=30
 power=melee,33,5
 power=ranged,31,15
 
-accuracy=96
-avoidance=49
+stat=accuracy,96
+stat=avoidance,49
 
-dmg_melee_min=25
-dmg_melee_max=40
-dmg_ment_min=25
-dmg_ment_max=65
-absorb_min=2
-absorb_max=2
+stat=dmg_melee_min,25
+stat=dmg_melee_max,40
+stat=dmg_ment_min,25
+stat=dmg_ment_max,65
+stat=absorb_min,2
+stat=absorb_max,2
 #immune fire
-vulnerable_fire=0
-vulnerable_ice=100
+vulnerable=fire,0
+vulnerable=ice,100
 cooldown=1s
 
 # loot

@@ -5,7 +5,7 @@ level=5
 categories=summon_zombie
 
 # combat stats
-hp=640
+stat=hp,640
 speed=6
 turn_delay=400ms
 chance_pursue=10
@@ -13,10 +13,10 @@ chance_pursue=10
 power=melee,164,10
 power=melee,168,5
 
-accuracy=100
-avoidance=30
-poise=32
+stat=accuracy,100
+stat=avoidance,30
+stat=poise,32
 
-dmg_melee_min=75
-dmg_melee_max=80
+stat=dmg_melee_min,75
+stat=dmg_melee_max,80
 cooldown=1600ms

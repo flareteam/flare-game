@@ -6,7 +6,7 @@ xp=500
 categories=skeletal_prophet
 
 # combat stats
-hp=250
+stat=hp,250
 speed=3.5
 turn_delay=200ms
 
@@ -16,16 +16,16 @@ power=melee,1,10
 power=melee,14,15
 power=ranged,30,5
 
-accuracy=87
-avoidance=37
+stat=accuracy,87
+stat=avoidance,37
 
-dmg_melee_min=10
-dmg_melee_max=30
-dmg_ment_min=15
-dmg_ment_max=40
+stat=dmg_melee_min,10
+stat=dmg_melee_max,30
+stat=dmg_ment_min,15
+stat=dmg_ment_max,40
 
-vulnerable_fire=200
-vulnerable_ice=50
+vulnerable=fire,200
+vulnerable=ice,50
 cooldown=500ms
 
 # loot

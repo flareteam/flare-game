@@ -6,7 +6,7 @@ categories=skeletal_knight,skeleton,undead,dungeon
 xp=200
 
 # combat stats
-hp=200
+stat=hp,200
 speed=6.5
 turn_delay=133ms
 
@@ -17,19 +17,19 @@ power=melee,5,15
 # piercing strike
 power=melee,39,15
 
-accuracy=90
-avoidance=45
+stat=accuracy,90
+stat=avoidance,45
 
-dmg_melee_min=55
-dmg_melee_max=65
-dmg_ment_min=30
-dmg_ment_max=45
+stat=dmg_melee_min,55
+stat=dmg_melee_max,65
+stat=dmg_ment_min,30
+stat=dmg_ment_max,45
 
-absorb_min=21
-absorb_max=21
+stat=absorb_min,21
+stat=absorb_max,21
 
-vulnerable_fire=150
-vulnerable_ice=75
+vulnerable=fire,150
+vulnerable=ice,75
 cooldown=333ms
 
 # loot

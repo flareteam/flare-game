@@ -8,7 +8,7 @@ xp=20
 waypoint_pause=1s
 
 # combat stats
-hp=130
+stat=hp,130
 speed=5
 turn_delay=200ms
 
@@ -19,19 +19,19 @@ power=melee,5,10
 # piercing strike
 power=melee,39,10
 
-accuracy=81
-avoidance=37
+stat=accuracy,81
+stat=avoidance,37
 
-dmg_melee_min=15
-dmg_melee_max=40
-dmg_ment_min=25
-dmg_ment_max=60
+stat=dmg_melee_min,15
+stat=dmg_melee_max,40
+stat=dmg_ment_min,25
+stat=dmg_ment_max,60
 
-absorb_min=12
-absorb_max=12
+stat=absorb_min,12
+stat=absorb_max,12
 
-vulnerable_fire=150
-vulnerable_ice=75
+vulnerable=fire,150
+vulnerable=ice,75
 cooldown=666ms
 
 # loot

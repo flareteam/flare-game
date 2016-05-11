@@ -5,7 +5,7 @@ level=10
 categories=lvl10_skeleton_minion
 
 # combat stats
-hp=160
+stat=hp,160
 speed=5.3
 turn_delay=400ms
 chance_pursue=20
@@ -14,14 +14,14 @@ threat_range=20
 power=melee,164,5
 passive_powers=185,194
 
-accuracy=135
-avoidance=55
-poise=42
+stat=accuracy,135
+stat=avoidance,55
+stat=poise,42
 
-dmg_melee_min=115
-dmg_melee_max=125
+stat=dmg_melee_min,115
+stat=dmg_melee_max,125
 cooldown=1375ms
 
-absorb_min=10
-absorb_max=10
+stat=absorb_min,10
+stat=absorb_max,10
 

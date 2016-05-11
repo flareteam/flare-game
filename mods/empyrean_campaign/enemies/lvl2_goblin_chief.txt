@@ -7,7 +7,7 @@ rarity=rare
 xp=8
 
 # combat stats
-hp=230
+stat=hp,230
 speed=3.5
 melee_range=2.375
 turn_delay=200ms
@@ -17,14 +17,14 @@ power=melee,166,1
 power=ranged,166,5
 power=on_join_combat,167,100
 
-accuracy=95
-avoidance=20
-poise=75
+stat=accuracy,95
+stat=avoidance,20
+stat=poise,75
 
-dmg_ment_min=60
-dmg_ment_max=70
-absorb_min=1
-absorb_max=2
+stat=dmg_ment_min,60
+stat=dmg_ment_max,70
+stat=absorb_min,1
+stat=absorb_max,2
 cooldown=1525ms
 
 # quest_loot

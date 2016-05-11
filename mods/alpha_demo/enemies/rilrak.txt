@@ -8,7 +8,7 @@ categories=rilrak
 defeat_status=fr_rilrak_defeated
 
 # combat stats
-hp=190
+stat=hp,190
 speed=2
 melee_range=2.375
 turn_delay=200ms
@@ -18,13 +18,13 @@ power=melee,6,5
 power=ranged,11,5
 power=ranged,6,10
 
-accuracy=84
-avoidance=34
+stat=accuracy,84
+stat=avoidance,34
 
-dmg_ment_min=15
-dmg_ment_max=45
-absorb_min=5
-absorb_max=5
+stat=dmg_ment_min,15
+stat=dmg_ment_max,45
+stat=absorb_min,5
+stat=absorb_max,5
 cooldown=833ms
 
 # loot

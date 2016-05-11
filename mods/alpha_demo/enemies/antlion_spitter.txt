@@ -6,7 +6,7 @@ categories=antlion_spitter,antlion,dungeon,cave,fire
 xp=100
 
 # combat stats
-hp=140
+stat=hp,140
 speed=5
 turn_delay=200ms
 chance_pursue=10
@@ -14,17 +14,17 @@ chance_pursue=10
 power=melee,1,5
 power=ranged,31,10
 
-accuracy=87
-avoidance=37
+stat=accuracy,87
+stat=avoidance,37
 
-dmg_melee_min=10
-dmg_melee_max=30
-dmg_ment_min=20
-dmg_ment_max=50
-absorb_min=21
-absorb_max=21
-vulnerable_fire=50
-vulnerable_ice=200
+stat=dmg_melee_min,10
+stat=dmg_melee_max,30
+stat=dmg_ment_min,20
+stat=dmg_ment_max,50
+stat=absorb_min,21
+stat=absorb_max,21
+vulnerable=fire,50
+vulnerable=ice,200
 
 cooldown=833ms
 

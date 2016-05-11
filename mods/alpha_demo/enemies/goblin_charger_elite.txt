@@ -7,7 +7,7 @@ rarity=rare
 xp=10
 
 # combat stats
-hp=120
+stat=hp,120
 speed=6.5
 turn_delay=133ms
 chance_pursue=25
@@ -15,15 +15,15 @@ chance_pursue=25
 power=melee,1,8
 power=melee,5,4
 
-accuracy=78
-avoidance=28
+stat=accuracy,78
+stat=avoidance,28
 
-dmg_melee_min=10
-dmg_melee_max=30
-dmg_ment_min=10
-dmg_ment_max=30
-absorb_min=9
-absorb_max=9
+stat=dmg_melee_min,10
+stat=dmg_melee_max,30
+stat=dmg_ment_min,10
+stat=dmg_ment_max,30
+stat=absorb_min,9
+stat=absorb_max,9
 cooldown=500ms
 
 # loot

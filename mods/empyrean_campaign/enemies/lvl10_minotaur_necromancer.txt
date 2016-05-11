@@ -7,7 +7,7 @@ rarity=rare
 xp=1024
 
 # combat stats
-hp=385
+stat=hp,385
 speed=4.3
 turn_delay=166ms
 chance_flee=2
@@ -24,16 +24,16 @@ power=ranged,195,2
 power=on_join_combat,197,100
 power=ranged,197,5
 
-accuracy=135
-avoidance=55
-poise=52
+stat=accuracy,135
+stat=avoidance,55
+stat=poise,52
 
-absorb_min=10
-absorb_max=11
+stat=absorb_min,10
+stat=absorb_max,11
 # no overall cooldown. We let power cooldowns take over here
 
-dmg_ment_min=140
-dmg_ment_max=145
+stat=dmg_ment_min,140
+stat=dmg_ment_max,145
 
 # loot
 loot=loot/level_10.txt

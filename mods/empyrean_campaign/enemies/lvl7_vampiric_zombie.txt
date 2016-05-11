@@ -7,7 +7,7 @@ rarity=common
 xp=128
 
 # combat stats
-hp=210
+stat=hp,210
 speed=4.2
 turn_delay=400ms
 chance_pursue=10
@@ -15,12 +15,12 @@ chance_pursue=10
 power=melee,164,4
 power=melee,187,6
 
-accuracy=110
-avoidance=40
-poise=38
+stat=accuracy,110
+stat=avoidance,40
+stat=poise,38
 
-dmg_melee_min=105
-dmg_melee_max=110
+stat=dmg_melee_min,105
+stat=dmg_melee_max,110
 cooldown=1650ms
 
 #loot

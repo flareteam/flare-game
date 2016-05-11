@@ -9,7 +9,7 @@ categories=the_warden
 quest_loot=ak_tome_reward,ak_key_found,9001
 
 # combat stats
-hp=280
+stat=hp,280
 speed=3.5
 threat_range=10.0
 turn_delay=400ms
@@ -18,13 +18,13 @@ chance_pursue=25
 power=melee,1,20
 power=melee,5,15
 
-accuracy=87
-avoidance=37
+stat=accuracy,87
+stat=avoidance,37
 
-dmg_melee_min=20
-dmg_melee_max=50
-dmg_ment_min=25
-dmg_ment_max=55
+stat=dmg_melee_min,20
+stat=dmg_melee_max,50
+stat=dmg_ment_min,25
+stat=dmg_ment_max,55
 cooldown=833ms
 
 # loot

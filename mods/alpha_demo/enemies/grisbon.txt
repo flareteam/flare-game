@@ -9,7 +9,7 @@ quest_loot=lb_wind_unlocked,lb_wind_key,9103
 defeat_status=lb_wind_defeated
 
 # combat stats
-hp=350
+stat=hp,350
 speed=6
 turn_delay=166ms
 chance_pursue=60
@@ -17,18 +17,18 @@ chance_pursue=60
 power=melee,5,15
 power=ranged,6,5
 
-accuracy=96
-avoidance=49
+stat=accuracy,96
+stat=avoidance,49
 
-dmg_melee_min=25
-dmg_melee_max=60
-dmg_ment_min=25
-dmg_ment_max=50
-absorb_min=15
-absorb_max=15
+stat=dmg_melee_min,25
+stat=dmg_melee_max,60
+stat=dmg_ment_min,25
+stat=dmg_ment_max,50
+stat=absorb_min,15
+stat=absorb_max,15
 #resistant to both
-vulnerable_fire=75
-vulnerable_ice=75
+vulnerable=fire,75
+vulnerable=ice,75
 cooldown=666ms
 
 # loot

@@ -7,7 +7,7 @@ xp=20
 
 # combat stats
 # antlions have low HP and high armor for their level
-hp=90
+stat=hp,90
 speed=5
 turn_delay=266ms
 chance_pursue=40
@@ -18,15 +18,15 @@ power=melee,41,8
 # teleports into melee range
 power=ranged,15,10
 
-accuracy=81
-avoidance=31
+stat=accuracy,81
+stat=avoidance,31
 
-dmg_melee_min=5
-dmg_melee_max=40
-dmg_ment_min=10
-dmg_ment_max=30
-absorb_min=15
-absorb_max=15
+stat=dmg_melee_min,5
+stat=dmg_melee_max,40
+stat=dmg_ment_min,10
+stat=dmg_ment_max,30
+stat=absorb_min,15
+stat=absorb_max,15
 
 cooldown=333ms
 

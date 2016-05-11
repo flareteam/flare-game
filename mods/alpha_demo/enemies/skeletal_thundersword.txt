@@ -6,7 +6,7 @@ xp=1000
 categories=skeletal_thundersword
 
 # combat stats
-hp=275
+stat=hp,275
 speed=6.5
 turn_delay=133ms
 
@@ -19,18 +19,18 @@ power=melee,39,15
 # shock
 power=ranged,48,15
 
-accuracy=90
-avoidance=45
+stat=accuracy,90
+stat=avoidance,45
 
-dmg_melee_min=20
-dmg_melee_max=55
-dmg_ment_min=30
-dmg_ment_max=70
-absorb_min=3
-absorb_max=3
+stat=dmg_melee_min,20
+stat=dmg_melee_max,55
+stat=dmg_ment_min,30
+stat=dmg_ment_max,70
+stat=absorb_min,3
+stat=absorb_max,3
 
-vulnerable_fire=150
-vulnerable_ice=75
+vulnerable=fire,150
+vulnerable=ice,75
 cooldown=333ms
 
 # loot
