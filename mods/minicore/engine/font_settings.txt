@@ -1,14 +1,17 @@
 # Only .ttf files are supported, due to limitations in SDL_ttf
 # The font must be placed in /fonts
 
-[font_regular]
-default=LiberationSans-Regular.ttf,9,1
-ja=unifont-5.1.ttf,9,1
+[font]
+id=font_regular
+style=default,LiberationSans-Regular.ttf,9,1
+style=ja,unifont-5.1.ttf,9,1
 
-[font_bold]
-default=LiberationSans-Bold.ttf,9,1
-ja=unifont-5.1.ttf,9,1
+[font]
+id=font_bold
+style=default,LiberationSans-Bold.ttf,9,1
+style=ja,unifont-5.1.ttf,9,1
 
-[font_italic]
-default=LiberationSans-Italic.ttf,9,1
-ja=unifont-5.1.ttf,9,1
+[font]
+id=font_italic
+style=default,LiberationSans-Italic.ttf,9,1
+style=ja,unifont-5.1.ttf,9,1
