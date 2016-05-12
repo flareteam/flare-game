@@ -39,7 +39,7 @@ def extract(filename):
     infile = codecs.open(filename, encoding='UTF-8', mode='r')
     triggers = [
         'msg', 'him', 'her', 'you', 'name', 'title', 'tooltip',
-        'power_desc', 'quest_text', 'description', 'slot_name',
+        'power_desc', 'quest_text', 'description',
         'tab_title', 'currency_name', 'flavor', 'topic', 'option',
         'caption', 'text'
     ]
@@ -107,7 +107,6 @@ extract('../items/items.txt')
 extract('../items/types.txt')
 extract('../items/sets.txt')
 extract('../items/qualities.txt')
-extract('../menus/inventory.txt')
 extract('../menus/powers.txt')
 extract('../powers/effects.txt')
 extract('../powers/powers.txt')
