@@ -1,0 +1,32 @@
+INCLUDE enemies/base/minotaur.txt
+
+name=Mog
+level=10
+categories=mog
+xp=2048
+
+# combat stats
+stat=hp,1220
+speed=5.7
+turn_delay=166ms
+chance_pursue=25
+
+power=melee,164,10
+power=ranged,192,5
+
+stat=accuracy,135
+stat=avoidance,55
+stat=poise,52
+
+stat=dmg_melee_min,180
+stat=dmg_melee_max,190
+stat=dmg_ranged_min,175
+stat=dmg_ranged_max,185
+stat=absorb_min,10
+stat=absorb_max,11
+cooldown=1525ms
+
+# loot
+loot_count=3,4
+loot=loot/level_10.txt
+

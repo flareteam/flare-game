@@ -390,12 +390,13 @@ intermap=maps/black_oak_farm.txt,87,97
 tooltip=Black Oak Farm
 
 [event]
+# to Mog Caverns
 type=event
 location=23,48,1,2
 activate=on_trigger
 hotspot=location
-msg=Unknown destination
-repeat=false
+intermap=maps/mog_caverns.txt,56,66
+tooltip=Mog Caverns
 
 [enemy]
 type=enemy

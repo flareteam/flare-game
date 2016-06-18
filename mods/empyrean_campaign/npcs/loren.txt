@@ -1,0 +1,32 @@
+name=Loren, Undead Trader
+
+# portrait=images/portraits/male11.png
+
+# animation info
+gfx=animations/enemies/zombie.txt
+direction=5
+
+# shop info
+vendor=true
+vendor_requires_status=emp_mog_finish
+constant_stock=2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3
+random_stock=loot/trader_loren.txt
+random_stock_count=20,30
+
+# voiceover files
+vox_intro=soundfx/enemies/zombie_phys.ogg
+# vox_intro=soundfx/enemies/zombie_ment.ogg
+
+talker=true
+
+[dialog]
+topic=Talk
+requires_item=1017,1018,1019,1020,1021
+requires_not_status=emp_mog_finish
+voice=soundfx/enemies/zombie_phys.ogg
+remove_item=1017,1018,1019,1020,1021
+set_status=emp_mog_finish
+unset_status=emp_mog_init,emp_mog_note2,emp_mog_note3,emp_mog_note4,emp_mog_note5
+reward_xp=6400
+him=...
+

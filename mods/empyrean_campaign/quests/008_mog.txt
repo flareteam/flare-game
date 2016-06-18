@@ -1,0 +1,17 @@
+name=The Lost Soul of the Mog Caverns
+
+[quest]
+requires_status=emp_mog_init
+requires_not_status=emp_mog_door1,emp_mog_finish
+quest_text=You found a mysterious note in the Mog Caverns. Maybe its directions will lead to treasure?
+
+[quest]
+requires_status=emp_mog_note2
+requires_not_status=emp_mog_door1,emp_mog_finish
+quest_text=You found another note. Keep following the trail.
+
+[quest]
+requires_status=emp_mog_door1
+requires_not_status=emp_mog_finish
+quest_text=A secret passage has been unveiled.
+
