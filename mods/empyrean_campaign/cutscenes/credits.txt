@@ -1,14 +1,17 @@
 APPEND
-#this scales art to width of flare window
-#scale_gfx=true
 
-[scene]
-image=images/menus/credits_empyrean_campaign.png
-caption=Flare Game Credits - empyrean_campaign
-pause=2s
-caption=Lead Content Designer - Clint Bellanger
-pause=5s
+[vscroll]
+image=images/menus/logo.png
+separator=8
 
-# caption=Translators - TO BE DONE
-# pause=20s
+text=Flare Game Credits - empyrean_campaign
+separator=16
 
+text=Lead Content Designers
+separator=16
+text=Clint Bellanger
+text=Justin Jacobs
+
+# TODO Art & Translations
+
+separator=64
