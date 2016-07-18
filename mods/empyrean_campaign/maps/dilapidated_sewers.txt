@@ -562,12 +562,15 @@ activate=on_load
 soundfx=soundfx/environment/cave_droplets_loop.ogg
 
 [event]
+# to Fort Nasu
 type=event
 location=0,6,2,2
 activate=on_trigger
 hotspot=location
-msg=Unknown destination
+intermap=maps/fort_nasu.txt,96,66
 repeat=false
+soundfx=soundfx/door_open.ogg,0,0
+tooltip=Fort Nasu
 
 [enemy]
 type=enemy
