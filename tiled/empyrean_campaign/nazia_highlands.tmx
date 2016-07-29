@@ -1,34 +1,36 @@
-<map backgroundcolor="#000000" height="80" nextobjectid="23" orientation="isometric" renderorder="right-down" tileheight="32" tilewidth="64" version="1.0" width="80">
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="isometric" renderorder="right-down" width="80" height="80" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="23">
  <properties>
-  <property name="music" value="music/overworld_theme.ogg" />
-  <property name="tileset" value="tilesetdefs/tileset_grassland.txt" />
-  <property name="title" value="Nazia Highlands" />
+  <property name="hero_pos" value="69,9"/>
+  <property name="music" value="music/overworld_theme.ogg"/>
+  <property name="tileset" value="tilesetdefs/tileset_grassland.txt"/>
+  <property name="title" value="Nazia Highlands"/>
  </properties>
- <tileset columns="15" firstgid="1" name="collision" tilecount="15" tileheight="32" tilewidth="64">
-  <image height="32" source="../grassland/tiled_collision.png" width="960" />
+ <tileset firstgid="1" name="collision" tilewidth="64" tileheight="32" tilecount="15" columns="15">
+  <image source="../grassland/tiled_collision.png" width="960" height="32"/>
  </tileset>
- <tileset columns="16" firstgid="16" name="grassland" tilecount="128" tileheight="128" tilewidth="64">
-  <image height="1024" source="../grassland/grassland.png" width="1024" />
+ <tileset firstgid="16" name="grassland" tilewidth="64" tileheight="128" tilecount="128" columns="16">
+  <image source="../grassland/grassland.png" width="1024" height="1024"/>
  </tileset>
- <tileset columns="16" firstgid="144" name="water" tilecount="64" tileheight="64" tilewidth="64">
-  <tileoffset x="0" y="32" />
-  <image height="256" source="../grassland/grassland_water.png" width="1024" />
+ <tileset firstgid="144" name="water" tilewidth="64" tileheight="64" tilecount="64" columns="16">
+  <tileoffset x="0" y="32"/>
+  <image source="../grassland/grassland_water.png" width="1024" height="256"/>
  </tileset>
- <tileset columns="16" firstgid="208" name="tall structures" tilecount="32" tileheight="256" tilewidth="64">
-  <image height="512" source="../grassland/grassland_structures.png" width="1024" />
+ <tileset firstgid="208" name="tall structures" tilewidth="64" tileheight="256" tilecount="32" columns="16">
+  <image source="../grassland/grassland_structures.png" width="1024" height="512"/>
  </tileset>
- <tileset columns="8" firstgid="240" name="trees" tilecount="16" tileheight="256" tilewidth="128">
-  <tileoffset x="-32" y="0" />
-  <image height="512" source="../grassland/grassland_trees.png" width="1024" />
+ <tileset firstgid="240" name="trees" tilewidth="128" tileheight="256" tilecount="16" columns="8">
+  <tileoffset x="-32" y="0"/>
+  <image source="../grassland/grassland_trees.png" width="1024" height="512"/>
  </tileset>
- <tileset columns="2" firstgid="256" name="set_rules" tilecount="8" tileheight="32" tilewidth="64">
-  <image height="128" source="../grassland/set_rules.png" width="128" />
+ <tileset firstgid="256" name="set_rules" tilewidth="64" tileheight="32" tilecount="8" columns="2">
+  <image source="../grassland/set_rules.png" width="128" height="128"/>
  </tileset>
- <tileset columns="4" firstgid="264" name="tiled_grassland_2x2" tilecount="32" tileheight="64" tilewidth="128">
-  <tileoffset x="0" y="16" />
-  <image height="512" source="../grassland/tiled_grassland_2x2.png" width="512" />
+ <tileset firstgid="264" name="tiled_grassland_2x2" tilewidth="128" tileheight="64" tilecount="32" columns="4">
+  <tileoffset x="0" y="16"/>
+  <image source="../grassland/tiled_grassland_2x2.png" width="512" height="512"/>
  </tileset>
- <layer height="80" name="background" width="80">
+ <layer name="background" width="80" height="80">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -112,7 +114,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer height="80" name="object" width="80">
+ <layer name="object" width="80" height="80">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -196,7 +198,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer height="80" name="collision" width="80">
+ <layer name="collision" width="80" height="80">
   <data encoding="csv">
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
@@ -281,131 +283,154 @@
 </data>
  </layer>
  <objectgroup name="event">
-  <object height="32" id="1" name="award XP for aquiring Black Quill" type="event" width="32" x="1984" y="96">
+  <object id="1" name="award XP for aquiring Black Quill" type="event" x="1984" y="96" width="32" height="32">
    <properties>
-    <property name="requires_not_status" value="emp_main_reward2" />
-    <property name="requires_status" value="emp_main_quill" />
-    <property name="reward_xp" value="6400" />
-    <property name="set_status" value="emp_main_reward2" />
-   <property name="activate" value="on_load" /></properties>
+    <property name="activate" value="on_load"/>
+    <property name="requires_not_status" value="emp_main_reward2"/>
+    <property name="requires_status" value="emp_main_quill"/>
+    <property name="reward_xp" value="6400"/>
+    <property name="set_status" value="emp_main_reward2"/>
+   </properties>
   </object>
-  <object height="32" id="2" name="Wind and crickets sound effect" type="event" width="32" x="0" y="0">
+  <object id="2" name="Wind and crickets sound effect" type="event" x="0" y="0" width="32" height="32">
    <properties>
-    <property name="soundfx" value="soundfx/environment/wind_loop.ogg" />
-   <property name="activate" value="on_load" /></properties>
+    <property name="activate" value="on_load"/>
+    <property name="soundfx" value="soundfx/environment/wind_loop.ogg"/>
+   </properties>
   </object>
-  <object height="32" id="3" name="Raven sound effect" type="event" width="32" x="384" y="416">
+  <object id="3" name="Raven sound effect" type="event" x="384" y="416" width="32" height="32">
    <properties>
-    <property name="soundfx" value="soundfx/environment/raven_loop.ogg" />
-   <property name="activate" value="on_load" /></properties>
+    <property name="activate" value="on_load"/>
+    <property name="soundfx" value="soundfx/environment/raven_loop.ogg"/>
+   </properties>
   </object>
-  <object height="32" id="4" name="Bird twitter" type="event" width="32" x="1344" y="416">
+  <object id="4" name="Bird twitter" type="event" x="1344" y="416" width="32" height="32">
    <properties>
-    <property name="soundfx" value="soundfx/environment/bird_twitter_loop.ogg" />
-   <property name="activate" value="on_load" /></properties>
+    <property name="activate" value="on_load"/>
+    <property name="soundfx" value="soundfx/environment/bird_twitter_loop.ogg"/>
+   </properties>
   </object>
-  <object height="32" id="5" name="Forrest owl sound effect" type="event" width="32" x="2144" y="192">
+  <object id="5" name="Forrest owl sound effect" type="event" x="2144" y="192" width="32" height="32">
    <properties>
-    <property name="soundfx" value="soundfx/environment/forest_owl_loop.ogg" />
-   <property name="activate" value="on_load" /></properties>
+    <property name="activate" value="on_load"/>
+    <property name="soundfx" value="soundfx/environment/forest_owl_loop.ogg"/>
+   </properties>
   </object>
-  <object height="32" id="7" name="Supplies" type="event" width="32" x="1184" y="416">
+  <object id="7" name="Supplies" type="event" x="1184" y="416" width="32" height="32">
    <properties>
-    <property name="hotspot" value="location" />
-    <property name="loot" value="loot/level_9.txt" />
-    <property name="mapmod" value="object,37,13,97" />
-    <property name="repeat" value="false" />
-    <property name="soundfx" value="soundfx/wood_open.ogg" />
-    <property name="tooltip" value="Supplies" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="loot/level_9.txt"/>
+    <property name="mapmod" value="object,37,13,97"/>
+    <property name="repeat" value="false"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Supplies"/>
+   </properties>
   </object>
-  <object height="32" id="8" name="Supplies" type="event" width="32" x="1280" y="1888">
+  <object id="8" name="Supplies" type="event" x="1280" y="1888" width="32" height="32">
    <properties>
-    <property name="hotspot" value="location" />
-    <property name="loot" value="loot/level_9.txt" />
-    <property name="mapmod" value="object,40,59,97" />
-    <property name="repeat" value="false" />
-    <property name="soundfx" value="soundfx/wood_open.ogg" />
-    <property name="tooltip" value="Supplies" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="loot/level_9.txt"/>
+    <property name="mapmod" value="object,40,59,97"/>
+    <property name="repeat" value="false"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Supplies"/>
+   </properties>
   </object>
-  <object height="32" id="9" name="Forrest owl sound effect" type="event" width="32" x="1920" y="2144">
+  <object id="9" name="Forrest owl sound effect" type="event" x="1920" y="2144" width="32" height="32">
    <properties>
-    <property name="soundfx" value="soundfx/environment/forest_owl_loop.ogg" />
-   <property name="activate" value="on_load" /></properties>
+    <property name="activate" value="on_load"/>
+    <property name="soundfx" value="soundfx/environment/forest_owl_loop.ogg"/>
+   </properties>
   </object>
-  <object height="32" id="10" name="Raven sound effect" type="event" width="32" x="1440" y="1472">
+  <object id="10" name="Raven sound effect" type="event" x="1440" y="1472" width="32" height="32">
    <properties>
-    <property name="soundfx" value="soundfx/environment/raven_loop.ogg" />
-   <property name="activate" value="on_load" /></properties>
+    <property name="activate" value="on_load"/>
+    <property name="soundfx" value="soundfx/environment/raven_loop.ogg"/>
+   </properties>
   </object>
-  <object height="32" id="11" name="Bird twitter" type="event" width="32" x="736" y="1440">
+  <object id="11" name="Bird twitter" type="event" x="736" y="1440" width="32" height="32">
    <properties>
-    <property name="soundfx" value="soundfx/environment/bird_twitter_loop.ogg" />
-   <property name="activate" value="on_load" /></properties>
+    <property name="activate" value="on_load"/>
+    <property name="soundfx" value="soundfx/environment/bird_twitter_loop.ogg"/>
+   </properties>
   </object>
-  <object height="32" id="19" name="move Abasi to this map" type="event" width="32" x="2400" y="96">
+  <object id="19" name="move Abasi to this map" type="event" x="2400" y="96" width="32" height="32">
    <properties>
-    <property name="requires_not_status" value="emp_abasi_2" />
-    <property name="set_status" value="emp_abasi_2" />
-   <property name="activate" value="on_load" /></properties>
+    <property name="activate" value="on_load"/>
+    <property name="requires_not_status" value="emp_abasi_2"/>
+    <property name="set_status" value="emp_abasi_2"/>
+   </properties>
   </object>
-  <object height="128" id="20" name="to Nazia Underground" type="event" width="128" x="128" y="1984">
+  <object id="20" name="to Nazia Underground" type="event" x="128" y="1984" width="128" height="128">
    <properties>
-    <property name="hotspot" value="location" />
-    <property name="intermap" value="maps/nazia_underground.txt,92,29" />
-    <property name="soundfx" value="soundfx/environment/stairs.ogg,0,0" />
-    <property name="tooltip" value="Nazia Underground" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="intermap" value="maps/nazia_underground.txt,92,29"/>
+    <property name="soundfx" value="soundfx/environment/stairs.ogg,0,0"/>
+    <property name="tooltip" value="Nazia Underground"/>
+   </properties>
   </object>
-  <object height="32" id="21" name="to Nazia Mines" type="event" width="64" x="384" y="160">
+  <object id="21" name="to Nazia Mines" type="event" x="384" y="160" width="64" height="32">
    <properties>
-    <property name="hotspot" value="location" />
-    <property name="intermap" value="maps/nazia_mines.txt,33,57" />
-    <property name="repeat" value="false" />
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="intermap" value="maps/nazia_mines.txt,33,57"/>
+    <property name="repeat" value="false"/>
     <property name="tooltip" value="Nazia Mines"/>
-   <property name="activate" value="on_trigger" /></properties>
+   </properties>
   </object>
  </objectgroup>
  <objectgroup name="enemy">
-  <object height="800" id="12" type="enemy" width="768" x="1088" y="224">
+  <object id="12" type="enemy" x="1088" y="224" width="768" height="800">
    <properties>
-    <property name="level" value="9" />
-    <property name="number" value="6,7" />
-   <property name="category" value="grassland" /></properties>
+    <property name="category" value="grassland"/>
+    <property name="level" value="9"/>
+    <property name="number" value="6,7"/>
+   </properties>
   </object>
-  <object height="1024" id="13" type="enemy" width="928" x="1344" y="1024">
+  <object id="13" type="enemy" x="1344" y="1024" width="928" height="1024">
    <properties>
-    <property name="level" value="9" />
-    <property name="number" value="6,7" />
-   <property name="category" value="grassland" /></properties>
+    <property name="category" value="grassland"/>
+    <property name="level" value="9"/>
+    <property name="number" value="6,7"/>
+   </properties>
   </object>
-  <object height="992" id="14" type="enemy" width="768" x="576" y="1024">
+  <object id="14" type="enemy" x="576" y="1024" width="768" height="992">
    <properties>
-    <property name="level" value="9" />
-    <property name="number" value="6,7" />
-   <property name="category" value="grassland" /></properties>
+    <property name="category" value="grassland"/>
+    <property name="level" value="9"/>
+    <property name="number" value="6,7"/>
+   </properties>
   </object>
-  <object height="608" id="15" type="enemy" width="256" x="128" y="384">
+  <object id="15" type="enemy" x="128" y="384" width="256" height="608">
    <properties>
-    <property name="level" value="9" />
-    <property name="number" value="3,4" />
-   <property name="category" value="grassland" /></properties>
+    <property name="category" value="grassland"/>
+    <property name="level" value="9"/>
+    <property name="number" value="3,4"/>
+   </properties>
   </object>
-  <object height="704" id="17" type="enemy" width="224" x="256" y="1184">
+  <object id="17" type="enemy" x="256" y="1184" width="224" height="704">
    <properties>
-    <property name="level" value="9" />
-    <property name="number" value="3" />
-   <property name="category" value="grassland" /></properties>
+    <property name="category" value="grassland"/>
+    <property name="level" value="9"/>
+    <property name="number" value="3"/>
+   </properties>
   </object>
-  <object height="608" id="22" type="enemy" width="256" x="640" y="288">
+  <object id="22" type="enemy" x="640" y="288" width="256" height="608">
    <properties>
-    <property name="level" value="9" />
-    <property name="number" value="3,4" />
-   <property name="category" value="grassland" /></properties>
+    <property name="category" value="grassland"/>
+    <property name="level" value="9"/>
+    <property name="number" value="3,4"/>
+   </properties>
   </object>
  </objectgroup>
  <objectgroup name="npc">
-  <object height="32" id="18" type="npc" width="32" x="1984" y="2304"><properties><property name="filename" value="npcs/abasi_2.txt" /></properties></object>
+  <object id="18" type="npc" x="1984" y="2304" width="32" height="32">
+   <properties>
+    <property name="filename" value="npcs/abasi_2.txt"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>

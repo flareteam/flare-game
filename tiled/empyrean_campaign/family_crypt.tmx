@@ -1,35 +1,37 @@
-<map backgroundcolor="#000000" height="56" nextobjectid="43" orientation="isometric" renderorder="right-down" tileheight="32" tilewidth="64" version="1.0" width="38">
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="isometric" renderorder="right-down" width="38" height="56" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="43">
  <properties>
-  <property name="music" value="music/dungeon_theme.ogg" />
-  <property name="tileset" value="tilesetdefs/tileset_dungeon.txt" />
-  <property name="title" value="Family Crypt" />
+  <property name="hero_pos" value="31,39"/>
+  <property name="music" value="music/dungeon_theme.ogg"/>
+  <property name="tileset" value="tilesetdefs/tileset_dungeon.txt"/>
+  <property name="title" value="Family Crypt"/>
  </properties>
- <tileset firstgid="1" name="collision" tilecount="15" tileheight="32" tilewidth="64">
-  <image height="32" source="../dungeon/tiled_collision.png" width="960" />
+ <tileset firstgid="1" name="collision" tilewidth="64" tileheight="32" tilecount="15" columns="15">
+  <image source="../dungeon/tiled_collision.png" width="960" height="32"/>
  </tileset>
- <tileset firstgid="16" name="dungeon" tilecount="240" tileheight="128" tilewidth="64">
-  <image height="1920" source="../dungeon/tiled_dungeon.png" width="1024" />
+ <tileset firstgid="16" name="dungeon" tilewidth="64" tileheight="128" tilecount="240" columns="16">
+  <image source="../dungeon/tiled_dungeon.png" width="1024" height="1920"/>
  </tileset>
- <tileset firstgid="256" name="set_rules" tilecount="8" tileheight="32" tilewidth="64">
-  <image height="128" source="../dungeon/set_rules.png" width="128" />
+ <tileset firstgid="256" name="set_rules" tilewidth="64" tileheight="32" tilecount="8" columns="2">
+  <image source="../dungeon/set_rules.png" width="128" height="128"/>
  </tileset>
- <tileset firstgid="264" name="tiled_dungeon_2x2" tilecount="16" tileheight="64" tilewidth="128">
-  <tileoffset x="0" y="16" />
-  <image height="256" source="../dungeon/tiled_dungeon_2x2.png" width="512" />
+ <tileset firstgid="264" name="tiled_dungeon_2x2" tilewidth="128" tileheight="64" tilecount="16" columns="4">
+  <tileoffset x="0" y="16"/>
+  <image source="../dungeon/tiled_dungeon_2x2.png" width="512" height="256"/>
  </tileset>
- <tileset firstgid="280" name="door_left" tilecount="2" tileheight="128" tilewidth="64">
-  <tileoffset x="-16" y="-8" />
-  <image height="128" source="../dungeon/door_left.png" width="128" />
+ <tileset firstgid="280" name="door_left" tilewidth="64" tileheight="128" tilecount="2" columns="2">
+  <tileoffset x="-16" y="-8"/>
+  <image source="../dungeon/door_left.png" width="128" height="128"/>
  </tileset>
- <tileset firstgid="282" name="door_right" tilecount="2" tileheight="128" tilewidth="64">
-  <tileoffset x="16" y="-8" />
-  <image height="128" source="../dungeon/door_right.png" width="128" />
+ <tileset firstgid="282" name="door_right" tilewidth="64" tileheight="128" tilecount="2" columns="2">
+  <tileoffset x="16" y="-8"/>
+  <image source="../dungeon/door_right.png" width="128" height="128"/>
  </tileset>
- <tileset firstgid="284" name="stairs" tilecount="4" tileheight="256" tilewidth="256">
-  <tileoffset x="0" y="48" />
-  <image height="256" source="../dungeon/stairs.png" width="1024" />
+ <tileset firstgid="284" name="stairs" tilewidth="256" tileheight="256" tilecount="4" columns="4">
+  <tileoffset x="0" y="48"/>
+  <image source="../dungeon/stairs.png" width="1024" height="256"/>
  </tileset>
- <layer height="56" name="background" width="38">
+ <layer name="background" width="38" height="56">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,40,36,42,42,46,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -89,7 +91,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer height="56" name="object" width="38">
+ <layer name="object" width="38" height="56">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,77,99,107,99,65,78,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -149,7 +151,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer height="56" name="collision" width="38">
+ <layer name="collision" width="38" height="56">
   <data encoding="csv">
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
@@ -210,205 +212,228 @@
 </data>
  </layer>
  <objectgroup name="event">
-  <object height="64" id="4" name="rune teleport" type="event" width="32" x="480" y="448">
+  <object id="4" name="rune teleport" type="event" x="480" y="448" width="32" height="64">
    <properties>
-    <property name="intramap" value="7,14" />
-    <property name="soundfx" value="soundfx/environment/teleporter.ogg" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="intramap" value="7,14"/>
+    <property name="soundfx" value="soundfx/environment/teleporter.ogg"/>
+   </properties>
   </object>
-  <object height="32" id="5" name="start Ardwen quest" type="event" width="32" x="224" y="448">
+  <object id="5" name="start Ardwen quest" type="event" x="224" y="448" width="32" height="32">
    <properties>
-    <property name="msg" value="Quest added." />
-    <property name="repeat" value="false" />
-    <property name="requires_not_status" value="emp_ardwen_init,emp_ardwen_finish" />
-    <property name="save_game" value="true" />
-    <property name="set_status" value="emp_ardwen_init" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="msg" value="Quest added."/>
+    <property name="repeat" value="false"/>
+    <property name="requires_not_status" value="emp_ardwen_init,emp_ardwen_finish"/>
+    <property name="save_game" value="true"/>
+    <property name="set_status" value="emp_ardwen_init"/>
+   </properties>
   </object>
-  <object height="32" id="12" name="open door" type="event" width="32" x="384" y="96">
+  <object id="12" name="open door" type="event" x="384" y="96" width="32" height="32">
    <properties>
-    <property name="hotspot" value="location" />
-    <property name="mapmod" value="object,12,3,166;object,19,12,113;collision,19,12,0" />
-    <property name="repeat" value="false" />
-    <property name="requires_not_status" value="emp_ardwen_init" />
-    <property name="soundfx" value="soundfx/door_open.ogg" />
-    <property name="tooltip" value="Switch" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="mapmod" value="object,12,3,166;object,19,12,113;collision,19,12,0"/>
+    <property name="repeat" value="false"/>
+    <property name="requires_not_status" value="emp_ardwen_init"/>
+    <property name="soundfx" value="soundfx/door_open.ogg"/>
+    <property name="tooltip" value="Switch"/>
+   </properties>
   </object>
-  <object height="32" id="13" name="Ardwen's key" type="event" width="32" x="256" y="1632">
+  <object id="13" name="Ardwen's key" type="event" x="256" y="1632" width="32" height="32">
    <properties>
-    <property name="hotspot" value="10,51,1,1" />
-    <property name="loot" value="loot/level_2.txt;1003,fixed,1" />
-    <property name="loot_count" value="1,2" />
-    <property name="mapmod" value="object,10,51,160" />
-    <property name="repeat" value="false" />
-    <property name="requires_not_status" value="emp_ardwen_ring" />
-    <property name="requires_status" value="emp_ardwen_init" />
-    <property name="set_status" value="emp_ardwen_chest" />
-    <property name="soundfx" value="soundfx/wood_open.ogg" />
-    <property name="tooltip" value="Treasure Chest" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="10,51,1,1"/>
+    <property name="loot" value="loot/level_2.txt;1003,fixed,1"/>
+    <property name="loot_count" value="1,2"/>
+    <property name="mapmod" value="object,10,51,160"/>
+    <property name="repeat" value="false"/>
+    <property name="requires_not_status" value="emp_ardwen_ring"/>
+    <property name="requires_status" value="emp_ardwen_init"/>
+    <property name="set_status" value="emp_ardwen_chest"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Treasure Chest"/>
+   </properties>
   </object>
-  <object height="32" id="15" name="In Memoriam" type="event" width="32" x="800" y="1184">
+  <object id="15" name="In Memoriam" type="event" x="800" y="1184" width="32" height="32">
    <properties>
-    <property name="hotspot" value="location" />
-    <property name="mapmod" value="object,25,37,165" />
-    <property name="msg" value="Ardwen (1308-1364), founder of Lochport" />
-    <property name="repeat" value="false" />
-    <property name="soundfx" value="soundfx/inventory/inventory_page.ogg" />
-    <property name="tooltip" value="In Memoriam" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="mapmod" value="object,25,37,165"/>
+    <property name="msg" value="Ardwen (1308-1364), founder of Lochport"/>
+    <property name="repeat" value="false"/>
+    <property name="soundfx" value="soundfx/inventory/inventory_page.ogg"/>
+    <property name="tooltip" value="In Memoriam"/>
+   </properties>
   </object>
-  <object height="32" id="23" name="to Lochport Cemetery" type="event" width="64" x="992" y="1216">
+  <object id="23" name="to Lochport Cemetery" type="event" x="992" y="1216" width="64" height="32">
    <properties>
-    <property name="hotspot" value="location" />
-    <property name="intermap" value="maps/lochport_cemetery.txt,48,46" />
-    <property name="soundfx" value="soundfx/environment/stairs.ogg,0,0" />
-    <property name="tooltip" value="Lochport Cemetery" />
-    <property name="unset_status" value="emp_ardwen_chest" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="intermap" value="maps/lochport_cemetery.txt,48,46"/>
+    <property name="soundfx" value="soundfx/environment/stairs.ogg,0,0"/>
+    <property name="tooltip" value="Lochport Cemetery"/>
+    <property name="unset_status" value="emp_ardwen_chest"/>
+   </properties>
   </object>
-  <object height="32" id="24" name="treasure" type="event" width="32" x="320" y="1632">
+  <object id="24" name="treasure" type="event" x="320" y="1632" width="32" height="32">
    <properties>
-    <property name="hotspot" value="location" />
-    <property name="loot" value="loot/level_2.txt" />
-    <property name="loot_count" value="1,2" />
-    <property name="mapmod" value="object,10,51,160" />
-    <property name="repeat" value="false" />
-    <property name="requires_not_status" value="emp_ardwen_init;emp_ardwen_chest" />
-    <property name="soundfx" value="soundfx/wood_open.ogg" />
-    <property name="tooltip" value="Treasure Chest" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="loot/level_2.txt"/>
+    <property name="loot_count" value="1,2"/>
+    <property name="mapmod" value="object,10,51,160"/>
+    <property name="repeat" value="false"/>
+    <property name="requires_not_status" value="emp_ardwen_init;emp_ardwen_chest"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Treasure Chest"/>
+   </properties>
   </object>
-  <object height="32" id="25" name="Ardwen's key (on_load)" type="event" width="32" x="256" y="1568">
+  <object id="25" name="Ardwen's key (on_load)" type="event" x="256" y="1568" width="32" height="32">
    <properties>
-    <property name="mapmod" value="object,10,51,160" />
-    <property name="repeat" value="false" />
-    <property name="requires_status" value="emp_ardwen_ring" />
-    <property name="set_status" value="emp_ardwen_chest" />
-   <property name="activate" value="on_load" /></properties>
+    <property name="activate" value="on_load"/>
+    <property name="mapmod" value="object,10,51,160"/>
+    <property name="repeat" value="false"/>
+    <property name="requires_status" value="emp_ardwen_ring"/>
+    <property name="set_status" value="emp_ardwen_chest"/>
+   </properties>
   </object>
-  <object height="64" id="26" name="Spawn Ardwen" type="event" width="32" x="352" y="96">
+  <object id="26" name="Spawn Ardwen" type="event" x="352" y="96" width="32" height="64">
    <properties>
-    <property name="hotspot" value="location" />
-    <property name="mapmod" value="collision,12,4,0" />
-    <property name="msg" value="The coffin has a small slot the size of Ardwen's ring. You place the ring in the slot." />
-    <property name="remove_item" value="1003" />
-    <property name="repeat" value="false" />
-    <property name="requires_not_status" value="emp_ardwen_summoned" />
-    <property name="requires_status" value="emp_ardwen_ring" />
-    <property name="set_status" value="emp_ardwen_summoned" />
-    <property name="shakycam" value="1s" />
-    <property name="soundfx" value="soundfx/environment/stone_open.ogg,11,4" />
-    <property name="spawn" value="ardwen_quest,12,4" />
-    <property name="tooltip" value="Ardwen's Coffin" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="mapmod" value="collision,12,4,0"/>
+    <property name="msg" value="The coffin has a small slot the size of Ardwen's ring. You place the ring in the slot."/>
+    <property name="remove_item" value="1003"/>
+    <property name="repeat" value="false"/>
+    <property name="requires_not_status" value="emp_ardwen_summoned"/>
+    <property name="requires_status" value="emp_ardwen_ring"/>
+    <property name="set_status" value="emp_ardwen_summoned"/>
+    <property name="shakycam" value="1s"/>
+    <property name="soundfx" value="soundfx/environment/stone_open.ogg,11,4"/>
+    <property name="spawn" value="ardwen_quest,12,4"/>
+    <property name="tooltip" value="Ardwen's Coffin"/>
+   </properties>
   </object>
-  <object height="32" id="28" name="open door (ardwen defeated)" type="event" width="32" x="384" y="32">
+  <object id="28" name="open door (ardwen defeated)" type="event" x="384" y="32" width="32" height="32">
    <properties>
-    <property name="hotspot" value="12,3,1,1" />
-    <property name="mapmod" value="object,12,3,166;object,19,12,113;collision,19,12,0" />
-    <property name="repeat" value="false" />
-    <property name="requires_status" value="emp_ardwen_defeated" />
-    <property name="reward_xp" value="200" />
-    <property name="set_status" value="emp_ardwen_finish" />
-    <property name="soundfx" value="soundfx/door_open.ogg" />
-    <property name="tooltip" value="Switch" />
-    <property name="unset_status" value="emp_ardwen_init;emp_ardwen_ring;emp_ardwen_summoned;emp_ardwen_defeated" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="12,3,1,1"/>
+    <property name="mapmod" value="object,12,3,166;object,19,12,113;collision,19,12,0"/>
+    <property name="repeat" value="false"/>
+    <property name="requires_status" value="emp_ardwen_defeated"/>
+    <property name="reward_xp" value="200"/>
+    <property name="set_status" value="emp_ardwen_finish"/>
+    <property name="soundfx" value="soundfx/door_open.ogg"/>
+    <property name="tooltip" value="Switch"/>
+    <property name="unset_status" value="emp_ardwen_init;emp_ardwen_ring;emp_ardwen_summoned;emp_ardwen_defeated"/>
+   </properties>
   </object>
-  <object height="32" id="29" name="locked door" type="event" width="32" x="448" y="32">
+  <object id="29" name="locked door" type="event" x="448" y="32" width="32" height="32">
    <properties>
-    <property name="hotspot" value="12,3,1,1" />
-    <property name="msg" value="The switch won't budge." />
-    <property name="requires_not_status" value="emp_ardwen_defeated" />
-    <property name="requires_status" value="emp_ardwen_init" />
-    <property name="tooltip" value="Switch" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="12,3,1,1"/>
+    <property name="msg" value="The switch won't budge."/>
+    <property name="requires_not_status" value="emp_ardwen_defeated"/>
+    <property name="requires_status" value="emp_ardwen_init"/>
+    <property name="tooltip" value="Switch"/>
+   </properties>
   </object>
-  <object height="32" id="30" name="clear Ardwen quest collision tile" type="event" width="32" x="320" y="32">
+  <object id="30" name="clear Ardwen quest collision tile" type="event" x="320" y="32" width="32" height="32">
    <properties>
-    <property name="mapmod" value="collision,12,4,0" />
-    <property name="requires_not_status" value="emp_ardwen_init" />
-   <property name="activate" value="on_load" /></properties>
+    <property name="activate" value="on_load"/>
+    <property name="mapmod" value="collision,12,4,0"/>
+    <property name="requires_not_status" value="emp_ardwen_init"/>
+   </properties>
   </object>
-  <object height="32" id="31" name="Spawn Ardwen (on_load)" type="event" width="32" x="256" y="32">
+  <object id="31" name="Spawn Ardwen (on_load)" type="event" x="256" y="32" width="32" height="32">
    <properties>
-    <property name="mapmod" value="collision,12,4,0" />
-    <property name="repeat" value="false" />
-    <property name="requires_status" value="emp_ardwen_summoned" />
-    <property name="spawn" value="ardwen_quest,12,4" />
-   <property name="activate" value="on_load" /></properties>
+    <property name="activate" value="on_load"/>
+    <property name="mapmod" value="collision,12,4,0"/>
+    <property name="repeat" value="false"/>
+    <property name="requires_status" value="emp_ardwen_summoned"/>
+    <property name="spawn" value="ardwen_quest,12,4"/>
+   </properties>
   </object>
-  <object height="32" id="32" name="remove chest status" type="event" width="32" x="192" y="1568">
+  <object id="32" name="remove chest status" type="event" x="192" y="1568" width="32" height="32">
    <properties>
-    <property name="repeat" value="false" />
-    <property name="requires_not_status" value="emp_ardwen_init" />
-    <property name="requires_status" value="emp_ardwen_chest" />
-    <property name="unset_status" value="emp_ardwen_chest" />
-   <property name="activate" value="on_load" /></properties>
+    <property name="activate" value="on_load"/>
+    <property name="repeat" value="false"/>
+    <property name="requires_not_status" value="emp_ardwen_init"/>
+    <property name="requires_status" value="emp_ardwen_chest"/>
+    <property name="unset_status" value="emp_ardwen_chest"/>
+   </properties>
   </object>
-  <object height="32" id="37" name="Wind sound" type="event" width="32" x="0" y="0">
+  <object id="37" name="Wind sound" type="event" x="0" y="0" width="32" height="32">
    <properties>
-    <property name="soundfx" value="soundfx/environment/cave_wind_loop.ogg" />
-   <property name="activate" value="on_load" /></properties>
+    <property name="activate" value="on_load"/>
+    <property name="soundfx" value="soundfx/environment/cave_wind_loop.ogg"/>
+   </properties>
   </object>
-  <object height="32" id="42" name="post-quest Ardwen spawn" type="event" width="32" x="192" y="32">
+  <object id="42" name="post-quest Ardwen spawn" type="event" x="192" y="32" width="32" height="32">
    <properties>
-    <property name="mapmod" value="collision,12,4,0" />
-    <property name="requires_status" value="emp_ardwen_finish" />
-    <property name="spawn" value="ardwen,12,4" />
-   <property name="activate" value="on_load" /></properties>
+    <property name="activate" value="on_load"/>
+    <property name="mapmod" value="collision,12,4,0"/>
+    <property name="requires_status" value="emp_ardwen_finish"/>
+    <property name="spawn" value="ardwen,12,4"/>
+   </properties>
   </object>
  </objectgroup>
  <objectgroup name="enemy">
-  <object height="32" id="16" type="enemy" width="32" x="384" y="1088">
+  <object id="16" type="enemy" x="384" y="1088" width="32" height="32">
    <properties>
-    <property name="level" value="2" />
-    <property name="number" value="1" />
-    <property name="wander_radius" value="1" />
-   <property name="category" value="skeleton_archer" /></properties>
+    <property name="category" value="skeleton_archer"/>
+    <property name="level" value="2"/>
+    <property name="number" value="1"/>
+    <property name="wander_radius" value="1"/>
+   </properties>
   </object>
-  <object height="32" id="17" type="enemy" width="32" x="352" y="832">
+  <object id="17" type="enemy" x="352" y="832" width="32" height="32">
    <properties>
-    <property name="level" value="2" />
-    <property name="number" value="1" />
-    <property name="wander_radius" value="1" />
-   <property name="category" value="skeleton_archer" /></properties>
+    <property name="category" value="skeleton_archer"/>
+    <property name="level" value="2"/>
+    <property name="number" value="1"/>
+    <property name="wander_radius" value="1"/>
+   </properties>
   </object>
-  <object height="320" id="19" type="enemy" width="96" x="64" y="736">
+  <object id="19" type="enemy" x="64" y="736" width="96" height="320">
    <properties>
-    <property name="level" value="2" />
-    <property name="number" value="2" />
-    <property name="wander_radius" value="1" />
-   <property name="category" value="undead" /></properties>
+    <property name="category" value="undead"/>
+    <property name="level" value="2"/>
+    <property name="number" value="2"/>
+    <property name="wander_radius" value="1"/>
+   </properties>
   </object>
-  <object height="320" id="21" type="enemy" width="64" x="640" y="864">
+  <object id="21" type="enemy" x="640" y="864" width="64" height="320">
    <properties>
-    <property name="level" value="2" />
-    <property name="number" value="2" />
-    <property name="wander_radius" value="1" />
-   <property name="category" value="undead" /></properties>
+    <property name="category" value="undead"/>
+    <property name="level" value="2"/>
+    <property name="number" value="2"/>
+    <property name="wander_radius" value="1"/>
+   </properties>
   </object>
-  <object height="320" id="33" type="enemy" width="64" x="640" y="416">
+  <object id="33" type="enemy" x="640" y="416" width="64" height="320">
    <properties>
-    <property name="level" value="2" />
-    <property name="number" value="2" />
-    <property name="wander_radius" value="1" />
-   <property name="category" value="undead" /></properties>
+    <property name="category" value="undead"/>
+    <property name="level" value="2"/>
+    <property name="number" value="2"/>
+    <property name="wander_radius" value="1"/>
+   </properties>
   </object>
-  <object height="128" id="34" type="enemy" width="192" x="64" y="1184">
+  <object id="34" type="enemy" x="64" y="1184" width="192" height="128">
    <properties>
-    <property name="level" value="2" />
-    <property name="number" value="2,3" />
-    <property name="wander_radius" value="2" />
-   <property name="category" value="undead" /></properties>
+    <property name="category" value="undead"/>
+    <property name="level" value="2"/>
+    <property name="number" value="2,3"/>
+    <property name="wander_radius" value="2"/>
+   </properties>
   </object>
-  <object height="160" id="35" type="enemy" width="96" x="352" y="1568">
+  <object id="35" type="enemy" x="352" y="1568" width="96" height="160">
    <properties>
-    <property name="level" value="2" />
-    <property name="number" value="2,3" />
-   <property name="category" value="undead" /></properties>
+    <property name="category" value="undead"/>
+    <property name="level" value="2"/>
+    <property name="number" value="2,3"/>
+   </properties>
   </object>
  </objectgroup>
 </map>

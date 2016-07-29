@@ -1,35 +1,37 @@
-<map backgroundcolor="#000000" height="40" nextobjectid="24" orientation="isometric" renderorder="right-down" tileheight="32" tilewidth="64" version="1.0" width="40">
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="isometric" renderorder="right-down" width="40" height="40" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="24">
  <properties>
-  <property name="music" value="music/dungeon_theme.ogg" />
-  <property name="tileset" value="tilesetdefs/tileset_dungeon.txt" />
-  <property name="title" value="Hyperspace" />
+  <property name="hero_pos" value="12,12"/>
+  <property name="music" value="music/dungeon_theme.ogg"/>
+  <property name="tileset" value="tilesetdefs/tileset_dungeon.txt"/>
+  <property name="title" value="Hyperspace"/>
  </properties>
- <tileset columns="15" firstgid="1" name="collision" tilecount="15" tileheight="32" tilewidth="64">
-  <image height="32" source="../dungeon/tiled_collision.png" width="960" />
+ <tileset firstgid="1" name="collision" tilewidth="64" tileheight="32" tilecount="15" columns="15">
+  <image source="../dungeon/tiled_collision.png" width="960" height="32"/>
  </tileset>
- <tileset columns="16" firstgid="16" name="dungeon" tilecount="240" tileheight="128" tilewidth="64">
-  <image height="1920" source="../dungeon/tiled_dungeon.png" width="1024" />
+ <tileset firstgid="16" name="dungeon" tilewidth="64" tileheight="128" tilecount="240" columns="16">
+  <image source="../dungeon/tiled_dungeon.png" width="1024" height="1920"/>
  </tileset>
- <tileset columns="2" firstgid="256" name="set_rules" tilecount="8" tileheight="32" tilewidth="64">
-  <image height="128" source="../dungeon/set_rules.png" width="128" />
+ <tileset firstgid="256" name="set_rules" tilewidth="64" tileheight="32" tilecount="8" columns="2">
+  <image source="../dungeon/set_rules.png" width="128" height="128"/>
  </tileset>
- <tileset columns="4" firstgid="264" name="tiled_dungeon_2x2" tilecount="16" tileheight="64" tilewidth="128">
-  <tileoffset x="0" y="16" />
-  <image height="256" source="../dungeon/tiled_dungeon_2x2.png" width="512" />
+ <tileset firstgid="264" name="tiled_dungeon_2x2" tilewidth="128" tileheight="64" tilecount="16" columns="4">
+  <tileoffset x="0" y="16"/>
+  <image source="../dungeon/tiled_dungeon_2x2.png" width="512" height="256"/>
  </tileset>
- <tileset columns="2" firstgid="280" name="door_left" tilecount="2" tileheight="128" tilewidth="64">
-  <tileoffset x="-16" y="-8" />
-  <image height="128" source="../dungeon/door_left.png" width="128" />
+ <tileset firstgid="280" name="door_left" tilewidth="64" tileheight="128" tilecount="2" columns="2">
+  <tileoffset x="-16" y="-8"/>
+  <image source="../dungeon/door_left.png" width="128" height="128"/>
  </tileset>
- <tileset columns="2" firstgid="282" name="door_right" tilecount="2" tileheight="128" tilewidth="64">
-  <tileoffset x="16" y="-8" />
-  <image height="128" source="../dungeon/door_right.png" width="128" />
+ <tileset firstgid="282" name="door_right" tilewidth="64" tileheight="128" tilecount="2" columns="2">
+  <tileoffset x="16" y="-8"/>
+  <image source="../dungeon/door_right.png" width="128" height="128"/>
  </tileset>
- <tileset columns="4" firstgid="284" name="stairs" tilecount="4" tileheight="256" tilewidth="256">
-  <tileoffset x="0" y="48" />
-  <image height="256" source="../dungeon/stairs.png" width="1024" />
+ <tileset firstgid="284" name="stairs" tilewidth="256" tileheight="256" tilecount="4" columns="4">
+  <tileoffset x="0" y="48"/>
+  <image source="../dungeon/stairs.png" width="1024" height="256"/>
  </tileset>
- <layer height="40" name="background" width="40">
+ <layer name="background" width="40" height="40">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -73,7 +75,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer height="40" name="object" width="40">
+ <layer name="object" width="40" height="40">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -117,7 +119,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer height="40" name="collision" visible="0" width="40">
+ <layer name="collision" width="40" height="40" visible="0">
   <data encoding="csv">
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,3,
@@ -162,141 +164,159 @@
 </data>
  </layer>
  <objectgroup name="event">
-  <object height="64" id="1" name="to Perdition Harbor" type="event" width="64" x="288" y="288">
+  <object id="1" name="to Perdition Harbor" type="event" x="288" y="288" width="64" height="64">
    <properties>
-    <property name="hotspot" value="location" />
-    <property name="intermap" value="maps/perdition_harbor.txt,15,23" />
-    <property name="soundfx" value="soundfx/environment/teleporter.ogg,0,0" />
-    <property name="tooltip" value="Perdition Harbor" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="intermap" value="maps/perdition_harbor.txt,15,23"/>
+    <property name="soundfx" value="soundfx/environment/teleporter.ogg,0,0"/>
+    <property name="tooltip" value="Perdition Harbor"/>
+   </properties>
   </object>
-  <object height="64" id="2" name="to Stonewood" type="event" width="64" x="512" y="224">
+  <object id="2" name="to Stonewood" type="event" x="512" y="224" width="64" height="64">
    <properties>
-    <property name="hotspot" value="location" />
-    <property name="intermap" value="maps/stonewood.txt,59,43" />
-    <property name="requires_status" value="emp_waypoint_1" />
-    <property name="soundfx" value="soundfx/environment/teleporter.ogg,0,0" />
-    <property name="tooltip" value="Stonewood" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="intermap" value="maps/stonewood.txt,59,43"/>
+    <property name="requires_status" value="emp_waypoint_1"/>
+    <property name="soundfx" value="soundfx/environment/teleporter.ogg,0,0"/>
+    <property name="tooltip" value="Stonewood"/>
+   </properties>
   </object>
-  <object height="64" id="3" name="to Lochport Cemetery" type="event" width="64" x="704" y="224">
+  <object id="3" name="to Lochport Cemetery" type="event" x="704" y="224" width="64" height="64">
    <properties>
-    <property name="hotspot" value="location" />
-    <property name="intermap" value="maps/lochport_cemetery.txt,44,13" />
-    <property name="requires_status" value="emp_waypoint_2" />
-    <property name="soundfx" value="soundfx/environment/teleporter.ogg,0,0" />
-    <property name="tooltip" value="Lochport Cemetery" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="intermap" value="maps/lochport_cemetery.txt,44,13"/>
+    <property name="requires_status" value="emp_waypoint_2"/>
+    <property name="soundfx" value="soundfx/environment/teleporter.ogg,0,0"/>
+    <property name="tooltip" value="Lochport Cemetery"/>
+   </properties>
   </object>
-  <object height="64" id="4" name="to St. Maria: Prison" type="event" width="64" x="928" y="288">
+  <object id="4" name="to St. Maria: Prison" type="event" x="928" y="288" width="64" height="64">
    <properties>
-    <property name="hotspot" value="location" />
-    <property name="intermap" value="maps/st_maria_2.txt,44,24" />
-    <property name="requires_status" value="emp_waypoint_3" />
-    <property name="soundfx" value="soundfx/environment/teleporter.ogg,0,0" />
-    <property name="tooltip" value="St. Maria: Prison" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="intermap" value="maps/st_maria_2.txt,44,24"/>
+    <property name="requires_status" value="emp_waypoint_3"/>
+    <property name="soundfx" value="soundfx/environment/teleporter.ogg,0,0"/>
+    <property name="tooltip" value="St. Maria: Prison"/>
+   </properties>
   </object>
-  <object height="64" id="5" name="to Blackmire Mines" type="event" width="64" x="992" y="512">
+  <object id="5" name="to Blackmire Mines" type="event" x="992" y="512" width="64" height="64">
    <properties>
-    <property name="hotspot" value="location" />
-    <property name="intermap" value="maps/blackmire_mines.txt,63,19" />
-    <property name="requires_status" value="emp_waypoint_4" />
-    <property name="soundfx" value="soundfx/environment/teleporter.ogg,0,0" />
-    <property name="tooltip" value="Blackmire Mines" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="intermap" value="maps/blackmire_mines.txt,63,19"/>
+    <property name="requires_status" value="emp_waypoint_4"/>
+    <property name="soundfx" value="soundfx/environment/teleporter.ogg,0,0"/>
+    <property name="tooltip" value="Blackmire Mines"/>
+   </properties>
   </object>
-  <object height="64" id="6" name="to Stormrock Pass" type="event" width="64" x="992" y="704">
+  <object id="6" name="to Stormrock Pass" type="event" x="992" y="704" width="64" height="64">
    <properties>
-    <property name="hotspot" value="location" />
-    <property name="intermap" value="maps/stormrock_pass.txt,70,65" />
-    <property name="requires_status" value="emp_waypoint_5" />
-    <property name="soundfx" value="soundfx/environment/teleporter.ogg,0,0" />
-    <property name="tooltip" value="Stormrock Pass" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="intermap" value="maps/stormrock_pass.txt,70,65"/>
+    <property name="requires_status" value="emp_waypoint_5"/>
+    <property name="soundfx" value="soundfx/environment/teleporter.ogg,0,0"/>
+    <property name="tooltip" value="Stormrock Pass"/>
+   </properties>
   </object>
-  <object height="64" id="7" name="to Temple of Mez: Main Hall" type="event" width="64" x="928" y="928">
+  <object id="7" name="to Temple of Mez: Main Hall" type="event" x="928" y="928" width="64" height="64">
    <properties>
-    <property name="hotspot" value="location" />
-    <property name="intermap" value="maps/temple_of_mez_2.txt,41,30" />
-    <property name="requires_status" value="emp_waypoint_6" />
-    <property name="soundfx" value="soundfx/environment/teleporter.ogg,0,0" />
-    <property name="tooltip" value="Temple of Mez: Main Hall" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="intermap" value="maps/temple_of_mez_2.txt,41,30"/>
+    <property name="requires_status" value="emp_waypoint_6"/>
+    <property name="soundfx" value="soundfx/environment/teleporter.ogg,0,0"/>
+    <property name="tooltip" value="Temple of Mez: Main Hall"/>
+   </properties>
   </object>
-  <object height="64" id="8" name="to Nazia Underground" type="event" width="64" x="704" y="992">
+  <object id="8" name="to Nazia Underground" type="event" x="704" y="992" width="64" height="64">
    <properties>
-    <property name="hotspot" value="location" />
-    <property name="intermap" value="maps/nazia_underground.txt,58,18" />
-    <property name="requires_status" value="emp_waypoint_7" />
-    <property name="soundfx" value="soundfx/environment/teleporter.ogg,0,0" />
-    <property name="tooltip" value="Nazia Underground" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="intermap" value="maps/nazia_underground.txt,58,18"/>
+    <property name="requires_status" value="emp_waypoint_7"/>
+    <property name="soundfx" value="soundfx/environment/teleporter.ogg,0,0"/>
+    <property name="tooltip" value="Nazia Underground"/>
+   </properties>
   </object>
-  <object height="64" id="9" name="to Dilapidated Sewers" type="event" width="64" x="512" y="992">
+  <object id="9" name="to Dilapidated Sewers" type="event" x="512" y="992" width="64" height="64">
    <properties>
-    <property name="hotspot" value="location" />
-    <property name="intermap" value="maps/dilapidated_sewers.txt,36,30" />
-    <property name="requires_status" value="emp_waypoint_8" />
-    <property name="soundfx" value="soundfx/environment/teleporter.ogg,0,0" />
-    <property name="tooltip" value="Dilapidated Sewers" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="intermap" value="maps/dilapidated_sewers.txt,36,30"/>
+    <property name="requires_status" value="emp_waypoint_8"/>
+    <property name="soundfx" value="soundfx/environment/teleporter.ogg,0,0"/>
+    <property name="tooltip" value="Dilapidated Sewers"/>
+   </properties>
   </object>
-  <object height="64" id="10" width="64" x="288" y="928" />
-  <object height="64" id="11" width="64" x="224" y="704" />
-  <object height="64" id="12" width="64" x="224" y="512" />
-  <object height="32" id="13" name="Wind sound" type="event" width="32" x="0" y="0">
+  <object id="10" x="288" y="928" width="64" height="64"/>
+  <object id="11" x="224" y="704" width="64" height="64"/>
+  <object id="12" x="224" y="512" width="64" height="64"/>
+  <object id="13" name="Wind sound" type="event" x="0" y="0" width="32" height="32">
    <properties>
-    <property name="soundfx" value="soundfx/environment/cave_wind_loop.ogg" />
-   <property name="activate" value="on_load" /></properties>
+    <property name="activate" value="on_load"/>
+    <property name="soundfx" value="soundfx/environment/cave_wind_loop.ogg"/>
+   </properties>
   </object>
-  <object height="32" id="14" name="unlock Stonewood" type="event" width="32" x="512" y="160">
+  <object id="14" name="unlock Stonewood" type="event" x="512" y="160" width="32" height="32">
    <properties>
-    <property name="mapmod" value="background,16,8,265" />
-    <property name="requires_status" value="emp_waypoint_1" />
-   <property name="activate" value="on_load" /></properties>
+    <property name="activate" value="on_load"/>
+    <property name="mapmod" value="background,16,8,265"/>
+    <property name="requires_status" value="emp_waypoint_1"/>
+   </properties>
   </object>
-  <object height="32" id="15" name="unlock Lochport Cemetery" type="event" width="32" x="704" y="160">
+  <object id="15" name="unlock Lochport Cemetery" type="event" x="704" y="160" width="32" height="32">
    <properties>
-    <property name="mapmod" value="background,22,8,265" />
-    <property name="requires_status" value="emp_waypoint_2" />
-   <property name="activate" value="on_load" /></properties>
+    <property name="activate" value="on_load"/>
+    <property name="mapmod" value="background,22,8,265"/>
+    <property name="requires_status" value="emp_waypoint_2"/>
+   </properties>
   </object>
-  <object height="32" id="17" name="unlock St. Maria: Prison" type="event" width="32" x="928" y="224">
+  <object id="17" name="unlock St. Maria: Prison" type="event" x="928" y="224" width="32" height="32">
    <properties>
-    <property name="mapmod" value="background,29,10,265" />
-    <property name="requires_status" value="emp_waypoint_3" />
-   <property name="activate" value="on_load" /></properties>
+    <property name="activate" value="on_load"/>
+    <property name="mapmod" value="background,29,10,265"/>
+    <property name="requires_status" value="emp_waypoint_3"/>
+   </properties>
   </object>
-  <object height="32" id="19" name="unlock Blackmire Mines" type="event" width="32" x="1088" y="512">
+  <object id="19" name="unlock Blackmire Mines" type="event" x="1088" y="512" width="32" height="32">
    <properties>
-    <property name="mapmod" value="background,31,17,265" />
-    <property name="requires_status" value="emp_waypoint_4" />
-   <property name="activate" value="on_load" /></properties>
+    <property name="activate" value="on_load"/>
+    <property name="mapmod" value="background,31,17,265"/>
+    <property name="requires_status" value="emp_waypoint_4"/>
+   </properties>
   </object>
-  <object height="32" id="20" name="unlock Stormrock Pass" type="event" width="32" x="1088" y="704">
+  <object id="20" name="unlock Stormrock Pass" type="event" x="1088" y="704" width="32" height="32">
    <properties>
-    <property name="mapmod" value="background,31,23,265" />
-    <property name="requires_status" value="emp_waypoint_5" />
-   <property name="activate" value="on_load" /></properties>
+    <property name="activate" value="on_load"/>
+    <property name="mapmod" value="background,31,23,265"/>
+    <property name="requires_status" value="emp_waypoint_5"/>
+   </properties>
   </object>
-  <object height="32" id="21" name="unlock Temple of Mez: Main Hall" type="event" width="32" x="1024" y="928">
+  <object id="21" name="unlock Temple of Mez: Main Hall" type="event" x="1024" y="928" width="32" height="32">
    <properties>
-    <property name="mapmod" value="background,29,30,265" />
-    <property name="requires_status" value="emp_waypoint_6" />
-   <property name="activate" value="on_load" /></properties>
+    <property name="activate" value="on_load"/>
+    <property name="mapmod" value="background,29,30,265"/>
+    <property name="requires_status" value="emp_waypoint_6"/>
+   </properties>
   </object>
-  <object height="32" id="22" name="unlock Nazia Underground" type="event" width="32" x="704" y="1088">
+  <object id="22" name="unlock Nazia Underground" type="event" x="704" y="1088" width="32" height="32">
    <properties>
-    <property name="mapmod" value="background,22,32,265" />
-    <property name="requires_status" value="emp_waypoint_7" />
-   <property name="activate" value="on_load" /></properties>
+    <property name="activate" value="on_load"/>
+    <property name="mapmod" value="background,22,32,265"/>
+    <property name="requires_status" value="emp_waypoint_7"/>
+   </properties>
   </object>
-  <object height="32" id="23" name="unlock Dilapidated Sewers" type="event" width="32" x="512" y="1088">
+  <object id="23" name="unlock Dilapidated Sewers" type="event" x="512" y="1088" width="32" height="32">
    <properties>
-    <property name="mapmod" value="background,16,32,265" />
-    <property name="requires_status" value="emp_waypoint_8" />
-   <property name="activate" value="on_load" /></properties>
+    <property name="activate" value="on_load"/>
+    <property name="mapmod" value="background,16,32,265"/>
+    <property name="requires_status" value="emp_waypoint_8"/>
+   </properties>
   </object>
  </objectgroup>
 </map>

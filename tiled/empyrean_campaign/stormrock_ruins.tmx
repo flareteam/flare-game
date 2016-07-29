@@ -1,35 +1,37 @@
-<map backgroundcolor="#000000" height="100" nextobjectid="87" orientation="isometric" renderorder="right-down" tileheight="32" tilewidth="64" version="1.0" width="100">
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="isometric" renderorder="right-down" width="100" height="100" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="87">
  <properties>
-  <property name="music" value="music/dungeon_theme.ogg" />
-  <property name="tileset" value="tilesetdefs/tileset_dungeon.txt" />
-  <property name="title" value="Stormrock Ruins" />
+  <property name="hero_pos" value="48,97"/>
+  <property name="music" value="music/dungeon_theme.ogg"/>
+  <property name="tileset" value="tilesetdefs/tileset_dungeon.txt"/>
+  <property name="title" value="Stormrock Ruins"/>
  </properties>
- <tileset firstgid="1" name="collision" tilecount="15" tileheight="32" tilewidth="64">
-  <image height="32" source="../dungeon/tiled_collision.png" width="960" />
+ <tileset firstgid="1" name="collision" tilewidth="64" tileheight="32" tilecount="15" columns="15">
+  <image source="../dungeon/tiled_collision.png" width="960" height="32"/>
  </tileset>
- <tileset firstgid="16" name="dungeon" tilecount="240" tileheight="128" tilewidth="64">
-  <image height="1920" source="../dungeon/tiled_dungeon.png" width="1024" />
+ <tileset firstgid="16" name="dungeon" tilewidth="64" tileheight="128" tilecount="240" columns="16">
+  <image source="../dungeon/tiled_dungeon.png" width="1024" height="1920"/>
  </tileset>
- <tileset firstgid="256" name="set_rules" tilecount="8" tileheight="32" tilewidth="64">
-  <image height="128" source="../dungeon/set_rules.png" width="128" />
+ <tileset firstgid="256" name="set_rules" tilewidth="64" tileheight="32" tilecount="8" columns="2">
+  <image source="../dungeon/set_rules.png" width="128" height="128"/>
  </tileset>
- <tileset firstgid="264" name="tiled_dungeon_2x2" tilecount="16" tileheight="64" tilewidth="128">
-  <tileoffset x="0" y="16" />
-  <image height="256" source="../dungeon/tiled_dungeon_2x2.png" width="512" />
+ <tileset firstgid="264" name="tiled_dungeon_2x2" tilewidth="128" tileheight="64" tilecount="16" columns="4">
+  <tileoffset x="0" y="16"/>
+  <image source="../dungeon/tiled_dungeon_2x2.png" width="512" height="256"/>
  </tileset>
- <tileset firstgid="280" name="door_left" tilecount="2" tileheight="128" tilewidth="64">
-  <tileoffset x="-16" y="-8" />
-  <image height="128" source="../dungeon/door_left.png" width="128" />
+ <tileset firstgid="280" name="door_left" tilewidth="64" tileheight="128" tilecount="2" columns="2">
+  <tileoffset x="-16" y="-8"/>
+  <image source="../dungeon/door_left.png" width="128" height="128"/>
  </tileset>
- <tileset firstgid="282" name="door_right" tilecount="2" tileheight="128" tilewidth="64">
-  <tileoffset x="16" y="-8" />
-  <image height="128" source="../dungeon/door_right.png" width="128" />
+ <tileset firstgid="282" name="door_right" tilewidth="64" tileheight="128" tilecount="2" columns="2">
+  <tileoffset x="16" y="-8"/>
+  <image source="../dungeon/door_right.png" width="128" height="128"/>
  </tileset>
- <tileset firstgid="284" name="stairs" tilecount="4" tileheight="256" tilewidth="256">
-  <tileoffset x="0" y="48" />
-  <image height="256" source="../dungeon/stairs.png" width="1024" />
+ <tileset firstgid="284" name="stairs" tilewidth="256" tileheight="256" tilecount="4" columns="4">
+  <tileoffset x="0" y="48"/>
+  <image source="../dungeon/stairs.png" width="1024" height="256"/>
  </tileset>
- <layer height="100" name="background" width="100">
+ <layer name="background" width="100" height="100">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -133,7 +135,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,36,19,0,0,19,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer height="100" name="object" width="100">
+ <layer name="object" width="100" height="100">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -237,7 +239,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,76,71,282,283,83,95,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer height="100" name="collision" width="100">
+ <layer name="collision" width="100" height="100">
   <data encoding="csv">
 4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
@@ -342,492 +344,560 @@
 </data>
  </layer>
  <objectgroup name="event">
-  <object height="32" id="1" name="open loop door" type="event" width="32" x="1120" y="2848">
+  <object id="1" name="open loop door" type="event" x="1120" y="2848" width="32" height="32">
    <properties>
-    <property name="hotspot" value="location" />
-    <property name="mapmod" value="object,35,89,166;object,45,88,112;collision,45,88,0" />
-    <property name="repeat" value="false" />
-    <property name="soundfx" value="soundfx/door_open.ogg" />
-    <property name="tooltip" value="Switch" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="mapmod" value="object,35,89,166;object,45,88,112;collision,45,88,0"/>
+    <property name="repeat" value="false"/>
+    <property name="soundfx" value="soundfx/door_open.ogg"/>
+    <property name="tooltip" value="Switch"/>
+   </properties>
   </object>
-  <object height="64" id="2" name="to Stormrock Pass" type="event" width="64" x="1504" y="3136">
+  <object id="2" name="to Stormrock Pass" type="event" x="1504" y="3136" width="64" height="64">
    <properties>
-    <property name="hotspot" value="location" />
-    <property name="intermap" value="maps/stormrock_pass.txt, 84,64" />
-    <property name="soundfx" value="soundfx/door_open.ogg,0,0" />
-    <property name="tooltip" value="Stormrock Pass" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="intermap" value="maps/stormrock_pass.txt, 84,64"/>
+    <property name="soundfx" value="soundfx/door_open.ogg,0,0"/>
+    <property name="tooltip" value="Stormrock Pass"/>
+   </properties>
   </object>
-  <object height="64" id="7" name="Locked Door" type="event" width="64" x="1504" y="2176">
+  <object id="7" name="Locked Door" type="event" x="1504" y="2176" width="64" height="64">
    <properties>
-    <property name="hotspot" value="location" />
-    <property name="msg" value="This door needs a key to be opened." />
-    <property name="requires_not_status" value="emp_stormrock_key;emp_stormrock_door" />
-    <property name="set_status" value="emp_stormrock_init" />
-    <property name="tooltip" value="Locked Door" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="msg" value="This door needs a key to be opened."/>
+    <property name="requires_not_status" value="emp_stormrock_key;emp_stormrock_door"/>
+    <property name="set_status" value="emp_stormrock_init"/>
+    <property name="tooltip" value="Locked Door"/>
+   </properties>
   </object>
-  <object height="32" id="8" name="Unlock Door" type="event" width="32" x="1376" y="2208">
+  <object id="8" name="Unlock Door" type="event" x="1376" y="2208" width="32" height="32">
    <properties>
-    <property name="hotspot" value="47,68,2,2" />
-    <property name="mapmod" value="collision,47,68,0;collision,48,68,0;collision,47,69,0;collision,48,69,0;object,47,69,0;object,48,69,0;object,46,68,208;object,49,68,222" />
-    <property name="remove_item" value="1013" />
-    <property name="requires_item" value="1013" />
-    <property name="requires_not_status" value="emp_stormrock_door" />
-    <property name="reward_xp" value="1600" />
-    <property name="set_status" value="emp_stormrock_door;emp_stormrock_finish" />
-    <property name="soundfx" value="soundfx/door_open.ogg" />
-    <property name="tooltip" value="Locked Door" />
-    <property name="unset_status" value="emp_stormrock_init;emp_stormrock_search;emp_stormrock_key" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="47,68,2,2"/>
+    <property name="mapmod" value="collision,47,68,0;collision,48,68,0;collision,47,69,0;collision,48,69,0;object,47,69,0;object,48,69,0;object,46,68,208;object,49,68,222"/>
+    <property name="remove_item" value="1013"/>
+    <property name="requires_item" value="1013"/>
+    <property name="requires_not_status" value="emp_stormrock_door"/>
+    <property name="reward_xp" value="1600"/>
+    <property name="set_status" value="emp_stormrock_door;emp_stormrock_finish"/>
+    <property name="soundfx" value="soundfx/door_open.ogg"/>
+    <property name="tooltip" value="Locked Door"/>
+    <property name="unset_status" value="emp_stormrock_init;emp_stormrock_search;emp_stormrock_key"/>
+   </properties>
   </object>
-  <object height="32" id="9" name="Unlock Door (on_load)" type="event" width="32" x="1376" y="2144">
+  <object id="9" name="Unlock Door (on_load)" type="event" x="1376" y="2144" width="32" height="32">
    <properties>
-    <property name="mapmod" value="collision,47,68,0;collision,48,68,0;collision,47,69,0;collision,48,69,0;object,47,69,0;object,48,69,0;object,46,68,208;object,49,68,222" />
-    <property name="requires_status" value="emp_stormrock_door" />
-   <property name="activate" value="on_load" /></properties>
+    <property name="activate" value="on_load"/>
+    <property name="mapmod" value="collision,47,68,0;collision,48,68,0;collision,47,69,0;collision,48,69,0;object,47,69,0;object,48,69,0;object,46,68,208;object,49,68,222"/>
+    <property name="requires_status" value="emp_stormrock_door"/>
+   </properties>
   </object>
-  <object height="32" id="10" name="brazier sound effect" type="event" width="32" x="1600" y="2368">
+  <object id="10" name="brazier sound effect" type="event" x="1600" y="2368" width="32" height="32">
    <properties>
-    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg" />
-   <property name="activate" value="on_load" /></properties>
+    <property name="activate" value="on_load"/>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
+   </properties>
   </object>
-  <object height="32" id="11" name="brazier sound effect" type="event" width="32" x="2240" y="2432">
+  <object id="11" name="brazier sound effect" type="event" x="2240" y="2432" width="32" height="32">
    <properties>
-    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg" />
-   <property name="activate" value="on_load" /></properties>
+    <property name="activate" value="on_load"/>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
+   </properties>
   </object>
-  <object height="32" id="12" name="brazier sound effect" type="event" width="32" x="2848" y="2432">
+  <object id="12" name="brazier sound effect" type="event" x="2848" y="2432" width="32" height="32">
    <properties>
-    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg" />
-   <property name="activate" value="on_load" /></properties>
+    <property name="activate" value="on_load"/>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
+   </properties>
   </object>
-  <object height="32" id="13" name="brazier sound effect" type="event" width="32" x="1184" y="1248">
+  <object id="13" name="brazier sound effect" type="event" x="1184" y="1248" width="32" height="32">
    <properties>
-    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg" />
-   <property name="activate" value="on_load" /></properties>
+    <property name="activate" value="on_load"/>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
+   </properties>
   </object>
-  <object height="32" id="14" name="brazier sound effect" type="event" width="32" x="1184" y="384">
+  <object id="14" name="brazier sound effect" type="event" x="1184" y="384" width="32" height="32">
    <properties>
-    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg" />
-   <property name="activate" value="on_load" /></properties>
+    <property name="activate" value="on_load"/>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
+   </properties>
   </object>
-  <object height="32" id="15" name="brazier sound effect" type="event" width="32" x="320" y="2240">
+  <object id="15" name="brazier sound effect" type="event" x="320" y="2240" width="32" height="32">
    <properties>
-    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg" />
-   <property name="activate" value="on_load" /></properties>
+    <property name="activate" value="on_load"/>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
+   </properties>
   </object>
-  <object height="32" id="16" name="Wind sound" type="event" width="32" x="0" y="0">
+  <object id="16" name="Wind sound" type="event" x="0" y="0" width="32" height="32">
    <properties>
-    <property name="soundfx" value="soundfx/environment/cave_wind_loop.ogg" />
-   <property name="activate" value="on_load" /></properties>
+    <property name="activate" value="on_load"/>
+    <property name="soundfx" value="soundfx/environment/cave_wind_loop.ogg"/>
+   </properties>
   </object>
-  <object height="32" id="17" name="Crate" type="event" width="32" x="704" y="384">
+  <object id="17" name="Crate" type="event" x="704" y="384" width="32" height="32">
    <properties>
-    <property name="hotspot" value="location" />
-    <property name="loot" value="loot/level_6.txt" />
-    <property name="mapmod" value="object,22,12,163" />
-    <property name="repeat" value="false" />
-    <property name="soundfx" value="soundfx/wood_open.ogg" />
-    <property name="tooltip" value="Crate" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="loot/level_6.txt"/>
+    <property name="mapmod" value="object,22,12,163"/>
+    <property name="repeat" value="false"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Crate"/>
+   </properties>
   </object>
-  <object height="32" id="18" name="Treasure Chest" type="event" width="32" x="608" y="448">
+  <object id="18" name="Treasure Chest" type="event" x="608" y="448" width="32" height="32">
    <properties>
-    <property name="hotspot" value="location" />
-    <property name="loot" value="loot/level_6.txt" />
-    <property name="loot_count" value="1,2" />
-    <property name="mapmod" value="object,19,14,160" />
-    <property name="repeat" value="false" />
-    <property name="soundfx" value="soundfx/wood_open.ogg" />
-    <property name="tooltip" value="Treasure Chest" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="loot/level_6.txt"/>
+    <property name="loot_count" value="1,2"/>
+    <property name="mapmod" value="object,19,14,160"/>
+    <property name="repeat" value="false"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Treasure Chest"/>
+   </properties>
   </object>
-  <object height="32" id="19" name="Treasure Chest" type="event" width="32" x="2528" y="2528">
+  <object id="19" name="Treasure Chest" type="event" x="2528" y="2528" width="32" height="32">
    <properties>
-    <property name="hotspot" value="location" />
-    <property name="loot" value="loot/level_6.txt" />
-    <property name="loot_count" value="1,2" />
-    <property name="mapmod" value="object,79,79,161" />
-    <property name="reachable_from" value="79,80,2,2" />
-    <property name="repeat" value="false" />
-    <property name="soundfx" value="soundfx/wood_open.ogg" />
-    <property name="tooltip" value="Treasure Chest" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="loot/level_6.txt"/>
+    <property name="loot_count" value="1,2"/>
+    <property name="mapmod" value="object,79,79,161"/>
+    <property name="reachable_from" value="79,80,2,2"/>
+    <property name="repeat" value="false"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Treasure Chest"/>
+   </properties>
   </object>
-  <object height="32" id="20" name="Treasure Chest" type="event" width="32" x="352" y="2112">
+  <object id="20" name="Treasure Chest" type="event" x="352" y="2112" width="32" height="32">
    <properties>
-    <property name="hotspot" value="location" />
-    <property name="loot" value="loot/level_7.txt" />
-    <property name="loot_count" value="2,3" />
-    <property name="mapmod" value="object,11,66,160" />
-    <property name="repeat" value="false" />
-    <property name="soundfx" value="soundfx/wood_open.ogg" />
-    <property name="tooltip" value="Treasure Chest" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="loot/level_7.txt"/>
+    <property name="loot_count" value="2,3"/>
+    <property name="mapmod" value="object,11,66,160"/>
+    <property name="repeat" value="false"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Treasure Chest"/>
+   </properties>
   </object>
-  <object height="32" id="21" name="Treasure Chest" type="event" width="32" x="352" y="2208">
+  <object id="21" name="Treasure Chest" type="event" x="352" y="2208" width="32" height="32">
    <properties>
-    <property name="hotspot" value="location" />
-    <property name="loot" value="loot/level_7.txt" />
-    <property name="loot_count" value="2,3" />
-    <property name="mapmod" value="object,11,69,160" />
-    <property name="repeat" value="false" />
-    <property name="soundfx" value="soundfx/wood_open.ogg" />
-    <property name="tooltip" value="Treasure Chest" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="loot/level_7.txt"/>
+    <property name="loot_count" value="2,3"/>
+    <property name="mapmod" value="object,11,69,160"/>
+    <property name="repeat" value="false"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Treasure Chest"/>
+   </properties>
   </object>
-  <object height="32" id="22" name="Barrel" type="event" width="32" x="864" y="2688">
+  <object id="22" name="Barrel" type="event" x="864" y="2688" width="32" height="32">
    <properties>
-    <property name="hotspot" value="location" />
-    <property name="loot" value="loot/level_6.txt" />
-    <property name="mapmod" value="object,27,84,162" />
-    <property name="repeat" value="false" />
-    <property name="soundfx" value="soundfx/wood_open.ogg" />
-    <property name="tooltip" value="Barrel" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="loot/level_6.txt"/>
+    <property name="mapmod" value="object,27,84,162"/>
+    <property name="repeat" value="false"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Barrel"/>
+   </properties>
   </object>
-  <object height="32" id="23" name="Crate" type="event" width="32" x="736" y="2912">
+  <object id="23" name="Crate" type="event" x="736" y="2912" width="32" height="32">
    <properties>
-    <property name="hotspot" value="location" />
-    <property name="loot" value="loot/level_6.txt" />
-    <property name="mapmod" value="object,23,91,163" />
-    <property name="repeat" value="false" />
-    <property name="soundfx" value="soundfx/wood_open.ogg" />
-    <property name="tooltip" value="Crate" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="loot/level_6.txt"/>
+    <property name="mapmod" value="object,23,91,163"/>
+    <property name="repeat" value="false"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Crate"/>
+   </properties>
   </object>
-  <object height="32" id="34" name="floor spikes" type="event" width="32" x="2752" y="2016">
+  <object id="34" name="floor spikes" type="event" x="2752" y="2016" width="32" height="32">
    <properties>
-    <property name="cooldown" value="3s" />
-    <property name="power" value="178" />
-    <property name="power_damage" value="160,170" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="cooldown" value="3s"/>
+    <property name="power" value="178"/>
+    <property name="power_damage" value="160,170"/>
+   </properties>
   </object>
-  <object height="32" id="35" name="floor spikes" type="event" width="32" x="2848" y="1888">
+  <object id="35" name="floor spikes" type="event" x="2848" y="1888" width="32" height="32">
    <properties>
-    <property name="cooldown" value="3s" />
-    <property name="power" value="178" />
-    <property name="power_damage" value="160,170" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="cooldown" value="3s"/>
+    <property name="power" value="178"/>
+    <property name="power_damage" value="160,170"/>
+   </properties>
   </object>
-  <object height="32" id="36" name="floor spikes" type="event" width="32" x="2848" y="1760">
+  <object id="36" name="floor spikes" type="event" x="2848" y="1760" width="32" height="32">
    <properties>
-    <property name="cooldown" value="3s" />
-    <property name="power" value="178" />
-    <property name="power_damage" value="160,170" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="cooldown" value="3s"/>
+    <property name="power" value="178"/>
+    <property name="power_damage" value="160,170"/>
+   </properties>
   </object>
-  <object height="32" id="37" name="floor spikes" type="event" width="32" x="2752" y="1760">
+  <object id="37" name="floor spikes" type="event" x="2752" y="1760" width="32" height="32">
    <properties>
-    <property name="cooldown" value="3s" />
-    <property name="power" value="178" />
-    <property name="power_damage" value="160,170" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="cooldown" value="3s"/>
+    <property name="power" value="178"/>
+    <property name="power_damage" value="160,170"/>
+   </properties>
   </object>
-  <object height="32" id="38" name="floor spikes" type="event" width="32" x="2784" y="1632">
+  <object id="38" name="floor spikes" type="event" x="2784" y="1632" width="32" height="32">
    <properties>
-    <property name="cooldown" value="3s" />
-    <property name="power" value="178" />
-    <property name="power_damage" value="160,170" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="cooldown" value="3s"/>
+    <property name="power" value="178"/>
+    <property name="power_damage" value="160,170"/>
+   </properties>
   </object>
-  <object height="32" id="39" name="floor spikes" type="event" width="32" x="2816" y="1632">
+  <object id="39" name="floor spikes" type="event" x="2816" y="1632" width="32" height="32">
    <properties>
-    <property name="cooldown" value="3s" />
-    <property name="power" value="178" />
-    <property name="power_damage" value="160,170" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="cooldown" value="3s"/>
+    <property name="power" value="178"/>
+    <property name="power_damage" value="160,170"/>
+   </properties>
   </object>
-  <object height="32" id="40" name="floor spikes" type="event" width="32" x="2752" y="1504">
+  <object id="40" name="floor spikes" type="event" x="2752" y="1504" width="32" height="32">
    <properties>
-    <property name="cooldown" value="3s" />
-    <property name="power" value="178" />
-    <property name="power_damage" value="160,170" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="cooldown" value="3s"/>
+    <property name="power" value="178"/>
+    <property name="power_damage" value="160,170"/>
+   </properties>
   </object>
-  <object height="32" id="42" name="floor spikes" type="event" width="32" x="2816" y="1504">
+  <object id="42" name="floor spikes" type="event" x="2816" y="1504" width="32" height="32">
    <properties>
-    <property name="cooldown" value="3s" />
-    <property name="power" value="178" />
-    <property name="power_damage" value="160,170" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="cooldown" value="3s"/>
+    <property name="power" value="178"/>
+    <property name="power_damage" value="160,170"/>
+   </properties>
   </object>
-  <object height="32" id="43" name="floor spikes" type="event" width="32" x="2848" y="1504">
+  <object id="43" name="floor spikes" type="event" x="2848" y="1504" width="32" height="32">
    <properties>
-    <property name="cooldown" value="3s" />
-    <property name="power" value="178" />
-    <property name="power_damage" value="160,170" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="cooldown" value="3s"/>
+    <property name="power" value="178"/>
+    <property name="power_damage" value="160,170"/>
+   </properties>
   </object>
-  <object height="32" id="44" name="floor spikes" type="event" width="32" x="2752" y="1376">
+  <object id="44" name="floor spikes" type="event" x="2752" y="1376" width="32" height="32">
    <properties>
-    <property name="cooldown" value="3s" />
-    <property name="power" value="178" />
-    <property name="power_damage" value="160,170" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="cooldown" value="3s"/>
+    <property name="power" value="178"/>
+    <property name="power_damage" value="160,170"/>
+   </properties>
   </object>
-  <object height="32" id="45" name="floor spikes" type="event" width="32" x="2784" y="1376">
+  <object id="45" name="floor spikes" type="event" x="2784" y="1376" width="32" height="32">
    <properties>
-    <property name="cooldown" value="3s" />
-    <property name="power" value="178" />
-    <property name="power_damage" value="160,170" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="cooldown" value="3s"/>
+    <property name="power" value="178"/>
+    <property name="power_damage" value="160,170"/>
+   </properties>
   </object>
-  <object height="32" id="46" name="floor spikes" type="event" width="32" x="2848" y="1376">
+  <object id="46" name="floor spikes" type="event" x="2848" y="1376" width="32" height="32">
    <properties>
-    <property name="cooldown" value="3s" />
-    <property name="power" value="178" />
-    <property name="power_damage" value="160,170" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="cooldown" value="3s"/>
+    <property name="power" value="178"/>
+    <property name="power_damage" value="160,170"/>
+   </properties>
   </object>
-  <object height="32" id="54" name="Crate" type="event" width="32" x="2720" y="256">
+  <object id="54" name="Crate" type="event" x="2720" y="256" width="32" height="32">
    <properties>
-    <property name="hotspot" value="location" />
-    <property name="loot" value="loot/level_6.txt" />
-    <property name="mapmod" value="object,85,8,163" />
-    <property name="repeat" value="false" />
-    <property name="soundfx" value="soundfx/wood_open.ogg" />
-    <property name="tooltip" value="Crate" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="loot/level_6.txt"/>
+    <property name="mapmod" value="object,85,8,163"/>
+    <property name="repeat" value="false"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Crate"/>
+   </properties>
   </object>
-  <object height="32" id="55" name="Treasure Chest" type="event" width="32" x="2656" y="704">
+  <object id="55" name="Treasure Chest" type="event" x="2656" y="704" width="32" height="32">
    <properties>
-    <property name="hotspot" value="location" />
-    <property name="loot" value="loot/level_6.txt" />
-    <property name="loot_count" value="1,2" />
-    <property name="mapmod" value="object,83,22,160" />
-    <property name="repeat" value="false" />
-    <property name="soundfx" value="soundfx/wood_open.ogg" />
-    <property name="tooltip" value="Treasure Chest" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="loot/level_6.txt"/>
+    <property name="loot_count" value="1,2"/>
+    <property name="mapmod" value="object,83,22,160"/>
+    <property name="repeat" value="false"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Treasure Chest"/>
+   </properties>
   </object>
-  <object height="32" id="56" name="Barrel" type="event" width="32" x="2368" y="256">
+  <object id="56" name="Barrel" type="event" x="2368" y="256" width="32" height="32">
    <properties>
-    <property name="hotspot" value="location" />
-    <property name="loot" value="loot/level_6.txt" />
-    <property name="mapmod" value="object,74,8,162" />
-    <property name="repeat" value="false" />
-    <property name="soundfx" value="soundfx/wood_open.ogg" />
-    <property name="tooltip" value="Barrel" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="loot/level_6.txt"/>
+    <property name="mapmod" value="object,74,8,162"/>
+    <property name="repeat" value="false"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Barrel"/>
+   </properties>
   </object>
-  <object height="64" id="75" type="event" width="32" x="1376" y="416">
+  <object id="75" type="event" x="1376" y="416" width="32" height="64">
    <properties>
-    <property name="hotspot" value="location" />
-    <property name="intramap" value="47,26" />
-    <property name="soundfx" value="soundfx/environment/teleporter.ogg,0,0" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="intramap" value="47,26"/>
+    <property name="soundfx" value="soundfx/environment/teleporter.ogg,0,0"/>
+   </properties>
   </object>
-  <object height="64" id="76" type="event" width="32" x="1376" y="1184">
+  <object id="76" type="event" x="1376" y="1184" width="32" height="64">
    <properties>
-    <property name="hotspot" value="location" />
-    <property name="intramap" value="47,26" />
-    <property name="soundfx" value="soundfx/environment/teleporter.ogg,0,0" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="intramap" value="47,26"/>
+    <property name="soundfx" value="soundfx/environment/teleporter.ogg,0,0"/>
+   </properties>
   </object>
-  <object height="32" id="81" name="Aldwulf corpse" type="event" width="32" x="1248" y="2368">
+  <object id="81" name="Aldwulf corpse" type="event" x="1248" y="2368" width="32" height="32">
    <properties>
-    <property name="mapmod" value="object,43,73,183" />
-    <property name="requires_status" value="emp_stormrock_key" />
-    <property name="spawn" value="antlion_burster_lvl6,43,75" />
-   <property name="activate" value="on_load" /></properties>
+    <property name="activate" value="on_load"/>
+    <property name="mapmod" value="object,43,73,183"/>
+    <property name="requires_status" value="emp_stormrock_key"/>
+    <property name="spawn" value="antlion_burster_lvl6,43,75"/>
+   </properties>
   </object>
-  <object height="32" id="82" name="Aldwulf corpse" type="event" width="32" x="1248" y="2304">
+  <object id="82" name="Aldwulf corpse" type="event" x="1248" y="2304" width="32" height="32">
    <properties>
-    <property name="mapmod" value="object,43,73,183" />
-    <property name="requires_not_status" value="emp_stormrock_key" />
-    <property name="requires_status" value="emp_stormrock_door" />
-    <property name="spawn" value="antlion_burster_lvl6,43,75" />
-   <property name="activate" value="on_load" /></properties>
+    <property name="activate" value="on_load"/>
+    <property name="mapmod" value="object,43,73,183"/>
+    <property name="requires_not_status" value="emp_stormrock_key"/>
+    <property name="requires_status" value="emp_stormrock_door"/>
+    <property name="spawn" value="antlion_burster_lvl6,43,75"/>
+   </properties>
   </object>
  </objectgroup>
  <objectgroup name="enemy">
-  <object height="320" id="27" type="enemy" width="128" x="1984" y="2304">
+  <object id="27" type="enemy" x="1984" y="2304" width="128" height="320">
    <properties>
-    <property name="level" value="6" />
-    <property name="number" value="3" />
-   <property name="category" value="snowplains" /></properties>
+    <property name="category" value="snowplains"/>
+    <property name="level" value="6"/>
+    <property name="number" value="3"/>
+   </properties>
   </object>
-  <object height="384" id="28" type="enemy" width="384" x="1472" y="1536">
+  <object id="28" type="enemy" x="1472" y="1536" width="384" height="384">
    <properties>
-    <property name="level" value="6" />
-    <property name="number" value="4" />
-   <property name="category" value="snowplains" /></properties>
+    <property name="category" value="snowplains"/>
+    <property name="level" value="6"/>
+    <property name="number" value="4"/>
+   </properties>
   </object>
-  <object height="256" id="29" type="enemy" width="256" x="2112" y="1536">
+  <object id="29" type="enemy" x="2112" y="1536" width="256" height="256">
    <properties>
-    <property name="level" value="6" />
-    <property name="number" value="3" />
-   <property name="category" value="antlion" /></properties>
+    <property name="category" value="antlion"/>
+    <property name="level" value="6"/>
+    <property name="number" value="3"/>
+   </properties>
   </object>
-  <object height="128" id="30" type="enemy" width="384" x="1984" y="2944">
+  <object id="30" type="enemy" x="1984" y="2944" width="384" height="128">
    <properties>
-    <property name="level" value="6" />
-    <property name="number" value="3" />
-   <property name="category" value="antlion" /></properties>
+    <property name="category" value="antlion"/>
+    <property name="level" value="6"/>
+    <property name="number" value="3"/>
+   </properties>
   </object>
-  <object height="128" id="31" type="enemy" width="384" x="2752" y="2944">
+  <object id="31" type="enemy" x="2752" y="2944" width="384" height="128">
    <properties>
-    <property name="level" value="6" />
-    <property name="number" value="3" />
-   <property name="category" value="antlion" /></properties>
+    <property name="category" value="antlion"/>
+    <property name="level" value="6"/>
+    <property name="number" value="3"/>
+   </properties>
   </object>
-  <object height="256" id="32" type="enemy" width="384" x="2368" y="2432">
+  <object id="32" type="enemy" x="2368" y="2432" width="384" height="256">
    <properties>
-    <property name="level" value="6" />
-    <property name="number" value="4" />
-   <property name="category" value="snowplains" /></properties>
+    <property name="category" value="snowplains"/>
+    <property name="level" value="6"/>
+    <property name="number" value="4"/>
+   </properties>
   </object>
-  <object height="352" id="33" type="enemy" width="128" x="3008" y="2304">
+  <object id="33" type="enemy" x="3008" y="2304" width="128" height="352">
    <properties>
-    <property name="level" value="6" />
-    <property name="number" value="3" />
-   <property name="category" value="snowplains" /></properties>
+    <property name="category" value="snowplains"/>
+    <property name="level" value="6"/>
+    <property name="number" value="3"/>
+   </properties>
   </object>
-  <object height="352" id="47" type="enemy" width="128" x="2752" y="1664">
+  <object id="47" type="enemy" x="2752" y="1664" width="128" height="352">
    <properties>
-    <property name="level" value="6" />
-    <property name="number" value="2" />
-   <property name="category" value="snowplains" /></properties>
+    <property name="category" value="snowplains"/>
+    <property name="level" value="6"/>
+    <property name="number" value="2"/>
+   </properties>
   </object>
-  <object height="128" id="48" type="enemy" width="224" x="1984" y="1152">
+  <object id="48" type="enemy" x="1984" y="1152" width="224" height="128">
    <properties>
-    <property name="level" value="6" />
-    <property name="number" value="3" />
-   <property name="category" value="snowplains" /></properties>
+    <property name="category" value="snowplains"/>
+    <property name="level" value="6"/>
+    <property name="number" value="3"/>
+   </properties>
   </object>
-  <object height="128" id="49" type="enemy" width="224" x="2400" y="1152">
+  <object id="49" type="enemy" x="2400" y="1152" width="224" height="128">
    <properties>
-    <property name="level" value="6" />
-    <property name="number" value="3" />
-   <property name="category" value="antlion" /></properties>
+    <property name="category" value="antlion"/>
+    <property name="level" value="6"/>
+    <property name="number" value="3"/>
+   </properties>
   </object>
-  <object height="128" id="50" type="enemy" width="224" x="2240" y="256">
+  <object id="50" type="enemy" x="2240" y="256" width="224" height="128">
    <properties>
-    <property name="level" value="6" />
-    <property name="number" value="3" />
-   <property name="category" value="snowplains" /></properties>
+    <property name="category" value="snowplains"/>
+    <property name="level" value="6"/>
+    <property name="number" value="3"/>
+   </properties>
   </object>
-  <object height="128" id="51" type="enemy" width="224" x="2656" y="256">
+  <object id="51" type="enemy" x="2656" y="256" width="224" height="128">
    <properties>
-    <property name="level" value="6" />
-    <property name="number" value="3" />
-   <property name="category" value="snowplains" /></properties>
+    <property name="category" value="snowplains"/>
+    <property name="level" value="6"/>
+    <property name="number" value="3"/>
+   </properties>
   </object>
-  <object height="128" id="52" type="enemy" width="224" x="2240" y="640">
+  <object id="52" type="enemy" x="2240" y="640" width="224" height="128">
    <properties>
-    <property name="level" value="6" />
-    <property name="number" value="3" />
-   <property name="category" value="antlion" /></properties>
+    <property name="category" value="antlion"/>
+    <property name="level" value="6"/>
+    <property name="number" value="3"/>
+   </properties>
   </object>
-  <object height="128" id="53" type="enemy" width="224" x="2656" y="640">
+  <object id="53" type="enemy" x="2656" y="640" width="224" height="128">
    <properties>
-    <property name="level" value="6" />
-    <property name="number" value="3" />
-   <property name="category" value="antlion" /></properties>
+    <property name="category" value="antlion"/>
+    <property name="level" value="6"/>
+    <property name="number" value="3"/>
+   </properties>
   </object>
-  <object height="128" id="66" type="enemy" width="224" x="1504" y="1152">
+  <object id="66" type="enemy" x="1504" y="1152" width="224" height="128">
    <properties>
-    <property name="level" value="6" />
-    <property name="number" value="3" />
-   <property name="category" value="antlion" /></properties>
+    <property name="category" value="antlion"/>
+    <property name="level" value="6"/>
+    <property name="number" value="3"/>
+   </properties>
   </object>
-  <object height="128" id="67" type="enemy" width="224" x="1472" y="384">
+  <object id="67" type="enemy" x="1472" y="384" width="224" height="128">
    <properties>
-    <property name="level" value="6" />
-    <property name="number" value="3" />
-   <property name="category" value="antlion" /></properties>
+    <property name="category" value="antlion"/>
+    <property name="level" value="6"/>
+    <property name="number" value="3"/>
+   </properties>
   </object>
-  <object height="128" id="68" type="enemy" width="224" x="768" y="768">
+  <object id="68" type="enemy" x="768" y="768" width="224" height="128">
    <properties>
-    <property name="level" value="6" />
-    <property name="number" value="3" />
-   <property name="category" value="snowplains" /></properties>
+    <property name="category" value="snowplains"/>
+    <property name="level" value="6"/>
+    <property name="number" value="3"/>
+   </properties>
   </object>
-  <object height="128" id="69" type="enemy" width="224" x="576" y="384">
+  <object id="69" type="enemy" x="576" y="384" width="224" height="128">
    <properties>
-    <property name="level" value="6" />
-    <property name="number" value="3" />
-   <property name="category" value="snowplains" /></properties>
+    <property name="category" value="snowplains"/>
+    <property name="level" value="6"/>
+    <property name="number" value="3"/>
+   </properties>
   </object>
-  <object height="256" id="70" type="enemy" width="128" x="576" y="1344">
+  <object id="70" type="enemy" x="576" y="1344" width="128" height="256">
    <properties>
-    <property name="level" value="6" />
-    <property name="number" value="2" />
-   <property name="category" value="antlion" /></properties>
+    <property name="category" value="antlion"/>
+    <property name="level" value="6"/>
+    <property name="number" value="2"/>
+   </properties>
   </object>
-  <object height="128" id="71" type="enemy" width="128" x="768" y="1952">
+  <object id="71" type="enemy" x="768" y="1952" width="128" height="128">
    <properties>
-    <property name="level" value="6" />
-    <property name="number" value="1" />
-   <property name="category" value="antlion" /></properties>
+    <property name="category" value="antlion"/>
+    <property name="level" value="6"/>
+    <property name="number" value="1"/>
+   </properties>
   </object>
-  <object height="128" id="72" type="enemy" width="128" x="768" y="2272">
+  <object id="72" type="enemy" x="768" y="2272" width="128" height="128">
    <properties>
-    <property name="level" value="6" />
-    <property name="number" value="1" />
-   <property name="category" value="antlion" /></properties>
+    <property name="category" value="antlion"/>
+    <property name="level" value="6"/>
+    <property name="number" value="1"/>
+   </properties>
   </object>
-  <object height="288" id="73" type="enemy" width="128" x="320" y="2656">
+  <object id="73" type="enemy" x="320" y="2656" width="128" height="288">
    <properties>
-    <property name="level" value="6" />
-    <property name="number" value="2" />
-   <property name="category" value="antlion" /></properties>
+    <property name="category" value="antlion"/>
+    <property name="level" value="6"/>
+    <property name="number" value="2"/>
+   </properties>
   </object>
-  <object height="128" id="74" type="enemy" width="288" x="704" y="2752">
+  <object id="74" type="enemy" x="704" y="2752" width="288" height="128">
    <properties>
-    <property name="level" value="6" />
-    <property name="number" value="2" />
-   <property name="category" value="snowplains" /></properties>
+    <property name="category" value="snowplains"/>
+    <property name="level" value="6"/>
+    <property name="number" value="2"/>
+   </properties>
   </object>
-  <object height="192" id="77" type="enemy" width="192" x="320" y="2080">
+  <object id="77" type="enemy" x="320" y="2080" width="192" height="192">
    <properties>
-    <property name="level" value="6" />
-    <property name="number" value="8" />
-   <property name="category" value="antlion_hatchling" /></properties>
+    <property name="category" value="antlion_hatchling"/>
+    <property name="level" value="6"/>
+    <property name="number" value="8"/>
+   </properties>
   </object>
-  <object height="32" id="78" type="enemy" width="32" x="608" y="2144">
+  <object id="78" type="enemy" x="608" y="2144" width="32" height="32">
    <properties>
-    <property name="level" value="7" />
-    <property name="number" value="1" />
-   <property name="category" value="antlion_queen" /></properties>
+    <property name="category" value="antlion_queen"/>
+    <property name="level" value="7"/>
+    <property name="number" value="1"/>
+   </properties>
   </object>
-  <object height="32" id="83" type="enemy" width="32" x="2784" y="1440">
+  <object id="83" type="enemy" x="2784" y="1440" width="32" height="32">
    <properties>
-    <property name="level" value="6" />
-    <property name="number" value="1" />
-    <property name="wander_radius" value="1" />
-   <property name="category" value="antlion_burster" /></properties>
+    <property name="category" value="antlion_burster"/>
+    <property name="level" value="6"/>
+    <property name="number" value="1"/>
+    <property name="wander_radius" value="1"/>
+   </properties>
   </object>
-  <object height="32" id="84" type="enemy" width="32" x="2560" y="2592">
+  <object id="84" type="enemy" x="2560" y="2592" width="32" height="32">
    <properties>
-    <property name="level" value="6" />
-    <property name="number" value="1" />
-    <property name="wander_radius" value="1" />
-   <property name="category" value="antlion_burster" /></properties>
+    <property name="category" value="antlion_burster"/>
+    <property name="level" value="6"/>
+    <property name="number" value="1"/>
+    <property name="wander_radius" value="1"/>
+   </properties>
   </object>
-  <object height="32" id="85" type="enemy" width="32" x="576" y="1856">
+  <object id="85" type="enemy" x="576" y="1856" width="32" height="32">
    <properties>
-    <property name="level" value="6" />
-    <property name="number" value="1" />
-    <property name="wander_radius" value="0" />
-   <property name="category" value="antlion_burster" /></properties>
+    <property name="category" value="antlion_burster"/>
+    <property name="level" value="6"/>
+    <property name="number" value="1"/>
+    <property name="wander_radius" value="0"/>
+   </properties>
   </object>
-  <object height="32" id="86" type="enemy" width="32" x="672" y="1856">
+  <object id="86" type="enemy" x="672" y="1856" width="32" height="32">
    <properties>
-    <property name="level" value="6" />
-    <property name="number" value="1" />
-    <property name="wander_radius" value="0" />
-   <property name="category" value="antlion_burster" /></properties>
+    <property name="category" value="antlion_burster"/>
+    <property name="level" value="6"/>
+    <property name="number" value="1"/>
+    <property name="wander_radius" value="0"/>
+   </properties>
   </object>
  </objectgroup>
  <objectgroup name="npc">
-  <object height="32" id="5" name="Aldwulf" type="npc" width="32" x="1376" y="2336">
+  <object id="5" name="Aldwulf" type="npc" x="1376" y="2336" width="32" height="32">
    <properties>
-    <property name="requires_not_status" value="emp_stormrock_key;emp_stormrock_door" />
-   <property name="filename" value="npcs/aldwulf.txt" /></properties>
+    <property name="filename" value="npcs/aldwulf.txt"/>
+    <property name="requires_not_status" value="emp_stormrock_key;emp_stormrock_door"/>
+   </properties>
   </object>
  </objectgroup>
 </map>
