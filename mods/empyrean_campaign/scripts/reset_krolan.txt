@@ -1,0 +1,12 @@
+[event]
+unset_status=emp_krolan_init
+unset_status=emp_krolan_key
+unset_status=emp_krolan_emerald
+unset_status=emp_krolan_finish
+remove_item=1000
+remove_item=1001
+msg=Reset quest: "Krolan's Missing"
+
+[event]
+requires_not_status=disable_reset_teleport
+intermap=maps/perdition_harbor.txt

@@ -1,0 +1,19 @@
+[event]
+unset_status=emp_mog_init
+unset_status=emp_mog_note2
+unset_status=emp_mog_note3
+unset_status=emp_mog_note4
+unset_status=emp_mog_note5
+unset_status=emp_mog_door1
+unset_status=emp_mog_door2
+unset_status=emp_mog_finish
+remove_item=1017
+remove_item=1018
+remove_item=1019
+remove_item=1020
+remove_item=1021
+msg=Reset quest: "The Lost Soul of the Mog Caverns"
+
+[event]
+requires_not_status=disable_reset_teleport
+intermap=maps/mog_caverns.txt

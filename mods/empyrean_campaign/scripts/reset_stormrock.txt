@@ -1,0 +1,11 @@
+[event]
+unset_status=emp_stormrock_init
+unset_status=emp_stormrock_search
+unset_status=emp_stormrock_key
+unset_status=emp_stormrock_door
+remove_item=1013
+msg=Reset quest: "Locked Out"
+
+[event]
+requires_not_status=disable_reset_teleport
+intermap=maps/stormrock_ruins.txt

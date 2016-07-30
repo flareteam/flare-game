@@ -1,0 +1,11 @@
+[event]
+unset_status=emp_ort_init
+unset_status=emp_ort_finish
+remove_item=1008
+remove_item=1009
+msg=Reset quest: "Brother?"
+# TODO reset figurine quest
+
+[event]
+requires_not_status=disable_reset_teleport
+intermap=maps/grot_lagoon.txt

@@ -1,0 +1,13 @@
+[event]
+unset_status=emp_ardwen_init
+unset_status=emp_ardwen_ring
+unset_status=emp_ardwen_chest
+unset_status=emp_ardwen_summoned
+unset_status=emp_ardwen_defeated
+unset_status=emp_ardwen_finish
+remove_item=1003
+msg=Reset quest: "Trapped in the Crypt"
+
+[event]
+requires_not_status=disable_reset_teleport
+intermap=maps/family_crypt.txt

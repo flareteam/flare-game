@@ -1,0 +1,12 @@
+[event]
+unset_status=emp_journal_init
+unset_status=emp_journal_found
+unset_status=emp_journal_later
+unset_status=emp_journal_finish
+unset_status=emp_abasi_2
+remove_item=1002
+msg=Reset quest: "The Merchant's Journal"
+
+[event]
+requires_not_status=disable_reset_teleport
+intermap=maps/goblin_camp.txt
