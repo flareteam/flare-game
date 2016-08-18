@@ -1,0 +1,26 @@
+name=An Unusual Name...
+
+[quest]
+requires_status=emp_nasu_init
+requires_not_status=emp_nasu_door1
+quest_text=Discover a way to open the entrance door in Fort Nasu.
+
+[quest]
+requires_status=emp_nasu_init,emp_nasu_door1
+requires_not_status=emp_nasu_door2
+quest_text=Discover a way to open the library door in Fort Nasu.
+
+[quest]
+requires_status=emp_nasu_init,emp_nasu_door2
+requires_not_status=emp_nasu_door3
+quest_text=Discover a way to open the pit room door in Fort Nasu.
+
+[quest]
+requires_status=emp_nasu_init,emp_nasu_door3
+requires_not_status=emp_nasu_door5
+quest_text=Discover a way to open the final door in Fort Nasu.
+
+[quest]
+requires_status=emp_nasu_init,emp_nasu_door5
+requires_not_status=emp_nasu_buchi
+quest_text=Defeat Buchi.
