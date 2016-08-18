@@ -283,7 +283,7 @@
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
 </data>
  </layer>
- <objectgroup name="event" visible="0">
+ <objectgroup name="event">
   <object id="1" name="to Black Oak Farm (east)" type="event" x="2016" y="224" width="32" height="64">
    <properties>
     <property name="activate" value="on_trigger"/>
@@ -297,7 +297,7 @@
    <properties>
     <property name="activate" value="on_trigger"/>
     <property name="hotspot" value="location"/>
-    <property name="intermap" value="maps/black_oak_farm.txt,7,77"/>
+    <property name="intermap" value="maps/black_oak_farm.txt,38,73"/>
     <property name="soundfx" value="soundfx/environment/stairs.ogg,0,0"/>
     <property name="tooltip" value="Black Oak Farm"/>
    </properties>
@@ -549,7 +549,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="enemy" visible="0">
+ <objectgroup name="enemy">
   <object id="41" type="enemy" x="2304" y="192" width="128" height="128">
    <properties>
     <property name="category" value="dungeon"/>
