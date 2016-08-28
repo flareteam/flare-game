@@ -1108,6 +1108,36 @@ msg=Quest added.
 requires_not_status=emp_nasu_init,emp_nasu_finish
 set_status=emp_nasu_init
 
+[event]
+# Cat fig
+type=event
+location=18,7,1,1
+activate=on_trigger
+hotspot=location
+loot=1011,fixed,1
+repeat=false
+requires_not_status=emp_fig_3
+tooltip=Altar
+
+[event]
+# Fig message
+type=event
+location=18,11,2,1
+activate=on_trigger
+msg=As you enter the throne room, you see an Altar with a wooden figurine placed upon it.
+repeat=false
+requires_not_status=emp_fig_3
+
+[event]
+# Set Cat fig status
+type=event
+location=93,58,1,1
+activate=on_load
+repeat=false
+requires_item=1011
+requires_not_status=emp_fig_3
+set_status=emp_fig_3
+
 [enemy]
 type=enemy
 location=59,64,13,4

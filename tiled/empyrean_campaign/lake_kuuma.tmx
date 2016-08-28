@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="isometric" renderorder="right-down" width="132" height="132" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="82">
+<map version="1.0" orientation="isometric" renderorder="right-down" width="132" height="132" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="83">
  <properties>
   <property name="hero_pos" value="26,28"/>
   <property name="music" value="music/overworld_theme.ogg"/>
@@ -1159,6 +1159,15 @@
     <property name="requires_status" value="emp_main_gravebloom"/>
     <property name="reward_xp" value="800"/>
     <property name="set_status" value="emp_main_reward1"/>
+   </properties>
+  </object>
+  <object id="82" name="Set Bear fig status" type="event" x="512" y="736" width="32" height="32">
+   <properties>
+    <property name="activate" value="on_load"/>
+    <property name="repeat" value="false"/>
+    <property name="requires_item" value="1009"/>
+    <property name="requires_not_status" value="emp_fig_1"/>
+    <property name="set_status" value="emp_fig_1"/>
    </properties>
   </object>
  </objectgroup>

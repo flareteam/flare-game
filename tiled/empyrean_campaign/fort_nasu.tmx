@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="isometric" renderorder="right-down" width="100" height="100" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="94">
+<map version="1.0" orientation="isometric" renderorder="right-down" width="100" height="100" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="97">
  <properties>
   <property name="hero_pos" value="96,66"/>
   <property name="music" value="music/dungeon_theme.ogg"/>
@@ -1059,6 +1059,33 @@
     <property name="msg" value="Quest added."/>
     <property name="requires_not_status" value="emp_nasu_init,emp_nasu_finish"/>
     <property name="set_status" value="emp_nasu_init"/>
+   </properties>
+  </object>
+  <object id="94" name="Cat fig" type="event" x="576" y="224" width="32" height="32">
+   <properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="1011,fixed,1"/>
+    <property name="repeat" value="false"/>
+    <property name="requires_not_status" value="emp_fig_3"/>
+    <property name="tooltip" value="Altar"/>
+   </properties>
+  </object>
+  <object id="95" name="Fig message" type="event" x="576" y="352" width="64" height="32">
+   <properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="msg" value="As you enter the throne room, you see an Altar with a wooden figurine placed upon it."/>
+    <property name="repeat" value="false"/>
+    <property name="requires_not_status" value="emp_fig_3"/>
+   </properties>
+  </object>
+  <object id="96" name="Set Cat fig status" type="event" x="2976" y="1856" width="32" height="32">
+   <properties>
+    <property name="activate" value="on_load"/>
+    <property name="repeat" value="false"/>
+    <property name="requires_item" value="1011"/>
+    <property name="requires_not_status" value="emp_fig_3"/>
+    <property name="set_status" value="emp_fig_3"/>
    </properties>
   </object>
  </objectgroup>

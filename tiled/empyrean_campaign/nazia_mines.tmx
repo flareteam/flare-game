@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="isometric" renderorder="right-down" width="40" height="60" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="32">
+<map version="1.0" orientation="isometric" renderorder="right-down" width="40" height="60" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="34">
  <properties>
   <property name="hero_pos" value="33,57"/>
   <property name="music" value="music/cave_theme.ogg"/>
@@ -344,9 +344,7 @@
   <object id="15" name="finish quest" type="event" x="928" y="1312" width="64" height="32">
    <properties>
     <property name="activate" value="on_trigger"/>
-    <property name="msg" value="You pick up a glimmering object from the rubble."/>
     <property name="requires_status" value="emp_naziamines_cleared"/>
-    <property name="reward_item" value="1010,1"/>
     <property name="reward_xp" value="6400"/>
     <property name="set_status" value="emp_naziamines_finish"/>
     <property name="unset_status" value="emp_naziamines_init,emp_naziamines_cleared"/>
@@ -371,6 +369,23 @@
     <property name="activate" value="on_load"/>
     <property name="mapmod" value="collision,29,30,0;object,29,30,0"/>
     <property name="requires_status" value="emp_naziamines_cleared"/>
+   </properties>
+  </object>
+  <object id="32" name="Owl fig" type="event" x="928" y="1312" width="64" height="32">
+   <properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="loot" value="1010,fixed,1"/>
+    <property name="repeat" value="false"/>
+    <property name="requires_not_status" value="emp_fig_2"/>
+   </properties>
+  </object>
+  <object id="33" name="Set Owl fig status" type="event" x="1216" y="1792" width="32" height="32">
+   <properties>
+    <property name="activate" value="on_load"/>
+    <property name="repeat" value="false"/>
+    <property name="requires_item" value="1010"/>
+    <property name="requires_not_status" value="emp_fig_2"/>
+    <property name="set_status" value="emp_fig_2"/>
    </properties>
   </object>
  </objectgroup>

@@ -351,9 +351,7 @@ tooltip=Treasure Chest
 type=event
 location=29,41,2,1
 activate=on_trigger
-msg=You pick up a glimmering object from the rubble.
 requires_status=emp_naziamines_cleared
-reward_item=1010,1
 reward_xp=6400
 set_status=emp_naziamines_finish
 unset_status=emp_naziamines_init,emp_naziamines_cleared
@@ -381,6 +379,25 @@ location=24,27,1,1
 activate=on_load
 mapmod=collision,29,30,0;object,29,30,0
 requires_status=emp_naziamines_cleared
+
+[event]
+# Owl fig
+type=event
+location=29,41,2,1
+activate=on_trigger
+loot=1010,fixed,1
+repeat=false
+requires_not_status=emp_fig_2
+
+[event]
+# Set Owl fig status
+type=event
+location=38,56,1,1
+activate=on_load
+repeat=false
+requires_item=1010
+requires_not_status=emp_fig_2
+set_status=emp_fig_2
 
 [enemy]
 type=enemy

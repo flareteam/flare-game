@@ -1178,6 +1178,16 @@ requires_status=emp_main_gravebloom
 reward_xp=800
 set_status=emp_main_reward1
 
+[event]
+# Set Bear fig status
+type=event
+location=16,23,1,1
+activate=on_load
+repeat=false
+requires_item=1009
+requires_not_status=emp_fig_1
+set_status=emp_fig_1
+
 [enemy]
 type=enemy
 location=39,27,5,6
