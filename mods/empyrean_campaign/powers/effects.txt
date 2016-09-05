@@ -3,6 +3,7 @@
 # Special-case effects
 [effect]
 id=shield
+name=Shield
 type=shield
 icon=15
 animation=animations/powers/shield.txt
@@ -12,6 +13,7 @@ can_stack=false
 # Other effects
 [effect]
 id=bleeding
+name=Bleeding
 type=damage_percent
 icon=25
 animation=animations/powers/spark_red_loop.txt
@@ -19,24 +21,28 @@ can_stack=false
 
 [effect]
 id=slow
+name=Slow
 type=speed
 icon=24
 can_stack=false
 
 [effect]
 id=stun
+name=Stun
 type=stun
 icon=26
 can_stack=false
 
 [effect]
 id=immunity
+name=Immunity
 type=immunity
 icon=12
 can_stack=false
 
 [effect]
 id=haste
+name=Haste
 type=speed
 icon=9
 can_stack=false
@@ -48,11 +54,6 @@ type=hpot_percent
 [effect]
 id=mp_restore
 type=mpot_percent
-
-[effect]
-id=block_icon
-icon=4
-can_stack=false
 
 [effect]
 id=knockback
@@ -78,6 +79,7 @@ render_above=true
 
 [effect]
 id=dark_mist
+name=Stun
 type=stun
 icon=27
 can_stack=false
