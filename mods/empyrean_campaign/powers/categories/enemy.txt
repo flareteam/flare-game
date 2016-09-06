@@ -546,10 +546,10 @@ id=197
 type=fixed
 new_state=cast_alt
 buff=true
-post_effect=reflect_chance,100,5s
-post_effect=return_damage,25,5s
+post_effect=reflect_chance,100,2s
+post_effect=return_damage,25,2s
 post_power=198
-cooldown=8s
+cooldown=6s
 soundfx=soundfx/powers/shield.ogg
 
 # minotaur force field hazard
@@ -559,7 +559,7 @@ type=fixed
 animation=animations/powers/shield_orange.txt
 use_hazard=true
 base_damage=ment
-lifespan=5s
+lifespan=2s
 radius=2
 multitarget=true
 multihit=true
