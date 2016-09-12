@@ -1,0 +1,89 @@
+[item]
+id=90
+name=Krolan's Hammer
+flavor=An essential tool for any blacksmith.
+INCLUDE items/base/weapons/melee/smith_hammer.txt
+level=4
+quality=unique
+price=500
+dmg_melee=25,30
+requires_stat=physical,8
+bonus=dmg_melee_min,20
+bonus=dmg_melee_max,20
+bonus=crit,1
+bonus=currency_find,10
+
+[item]
+id=91
+name=Goblin Branch
+flavor=Mana flows inside its primitive exterior.
+INCLUDE items/base/weapons/melee/club.txt
+level=4
+quality=unique
+price=500
+dmg_ment=25,30
+requires_stat=mental,8
+bonus=dmg_ment_min,20
+bonus=dmg_ment_max,20
+bonus=mp_regen,10
+bonus=lightning_resist,10
+
+[item]
+id=92
+name=Ardwen's Gloves
+flavor=These hands built a village.
+INCLUDE items/base/armor/cloth/hands.txt
+level=4
+quality=unique
+price=125
+abs=1,2
+requires_stat=defense,3
+requires_stat=offense,3
+bonus=absorb_min,2
+bonus=accuracy,5
+bonus=poise,10
+bonus=xp_gain,5
+
+[item]
+id=93
+name=Blood Tunic
+flavor=When worn, this shirt heats the wearers veins.
+INCLUDE items/base/armor/cloth/chest.txt
+level=4
+quality=unique
+price=375
+abs=3,4
+requires_stat=defense,4
+requires_stat=physical,2
+bonus=hp,100
+bonus=hp_regen,100
+
+[item]
+id=94
+name=Dark Steppers
+flavor=Dancing through the shadows.
+INCLUDE items/base/armor/cloth/feet.txt
+level=4
+quality=unique
+price=150
+abs=2
+requires_stat=defense,3
+requires_stat=offense,3
+bonus=avoidance,15
+bonus=dark_resist,25
+
+[item]
+id=95
+name=Seagate's Tri-pants
+flavor=These ragged trousers are covered in scorch marks, yet are cold to the touch.
+INCLUDE items/base/armor/cloth/legs.txt
+level=4
+quality=unique
+price=250
+abs=2
+requires_stat=defense,2
+requires_stat=mental,4
+bonus=fire_resist,25
+bonus=ice_resist,25
+bonus=lightning_resist,25
+
