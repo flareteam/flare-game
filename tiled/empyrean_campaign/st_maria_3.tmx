@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="isometric" renderorder="right-down" width="40" height="60" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="64">
+<map version="1.0" orientation="isometric" renderorder="right-down" width="40" height="60" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="67">
  <properties>
   <property name="hero_pos" value="7,47"/>
   <property name="music" value="music/boss_theme.ogg"/>
@@ -327,6 +327,7 @@
     <property name="power" value="177"/>
     <property name="power_path" value="6,5,6,5"/>
     <property name="repeat" value="false"/>
+    <property name="requires_not_status" value="emp_seagate_spawn_reset"/>
     <property name="requires_status" value="emp_seagate_defeated"/>
    </properties>
   </object>
@@ -339,13 +340,16 @@
     <property name="save_game" value="true"/>
     <property name="set_status" value="emp_seagate_door"/>
     <property name="soundfx" value="soundfx/door_open.ogg"/>
+    <property name="unset_status" value="emp_seagate_defeated"/>
    </properties>
   </object>
   <object id="26" name="lock door (on_load)" type="event" x="416" y="1312" width="32" height="32">
    <properties>
     <property name="activate" value="on_load"/>
     <property name="mapmod" value="object,16,45,115;collision,16,45,1"/>
+    <property name="requires_not_status" value="emp_seagate_spawn_reset"/>
     <property name="requires_status" value="emp_seagate_door"/>
+    <property name="unset_status" value="emp_seagate_defeated"/>
    </properties>
   </object>
   <object id="27" name="Wind sound" type="event" x="0" y="0" width="32" height="32">
@@ -416,7 +420,7 @@
   <object id="35" name="reset statuses" type="event" x="32" y="1280" width="32" height="32">
    <properties>
     <property name="activate" value="on_load"/>
-    <property name="unset_status" value="emp_seagate_teleport,emp_seagate_defeated"/>
+    <property name="unset_status" value="emp_seagate_teleport"/>
    </properties>
   </object>
   <object id="37" name="floor spikes" type="event" x="224" y="320" width="32" height="32">
@@ -497,6 +501,29 @@
    <properties>
     <property name="activate" value="on_load"/>
     <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="64" name="warp to status reset" type="event" x="320" y="1312" width="32" height="32">
+   <properties>
+    <property name="activate" value="on_load"/>
+    <property name="intramap" value="7,47"/>
+    <property name="requires_status" value="emp_seagate_door,emp_seagate_defeated"/>
+    <property name="set_status" value="emp_seagate_spawn_reset"/>
+   </properties>
+  </object>
+  <object id="65" name="reset statuses (post defeat)" type="event" x="224" y="1504" width="32" height="32">
+   <properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="requires_status" value="emp_seagate_spawn_reset"/>
+    <property name="save_game" value="true"/>
+    <property name="unset_status" value="emp_seagate_spawn_reset,emp_seagate_door,emp_seagate_defeated"/>
+   </properties>
+  </object>
+  <object id="66" name="reset defeated status" type="event" x="480" y="1472" width="128" height="32">
+   <properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="repeat" value="false"/>
+    <property name="unset_status" value="emp_seagate_defeated"/>
    </properties>
   </object>
  </objectgroup>

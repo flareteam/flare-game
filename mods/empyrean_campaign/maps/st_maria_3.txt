@@ -327,6 +327,7 @@ mapmod=collision,6,4,0
 power=177
 power_path=6,5,6,5
 repeat=false
+requires_not_status=emp_seagate_spawn_reset
 requires_status=emp_seagate_defeated
 
 [event]
@@ -340,6 +341,7 @@ requires_not_status=emp_seagate_door
 save_game=true
 set_status=emp_seagate_door
 soundfx=soundfx/door_open.ogg
+unset_status=emp_seagate_defeated
 
 [event]
 # lock door (on_load)
@@ -347,7 +349,9 @@ type=event
 location=13,41,1,1
 activate=on_load
 mapmod=object,16,45,115;collision,16,45,1
+requires_not_status=emp_seagate_spawn_reset
 requires_status=emp_seagate_door
+unset_status=emp_seagate_defeated
 
 [event]
 # Wind sound
@@ -425,7 +429,7 @@ spawn=zombie_lvl3,13,39;zombie_lvl3,13,31;zombie_lvl3,13,23;zombie_lvl3,20,39;zo
 type=event
 location=1,40,1,1
 activate=on_load
-unset_status=emp_seagate_teleport,emp_seagate_defeated
+unset_status=emp_seagate_teleport
 
 [event]
 # floor spikes
@@ -516,6 +520,32 @@ type=event
 location=16,2,1,1
 activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
+
+[event]
+# warp to status reset
+type=event
+location=10,41,1,1
+activate=on_load
+intramap=7,47
+requires_status=emp_seagate_door,emp_seagate_defeated
+set_status=emp_seagate_spawn_reset
+
+[event]
+# reset statuses (post defeat)
+type=event
+location=7,47,1,1
+activate=on_trigger
+requires_status=emp_seagate_spawn_reset
+save_game=true
+unset_status=emp_seagate_spawn_reset,emp_seagate_door,emp_seagate_defeated
+
+[event]
+# reset defeated status
+type=event
+location=15,46,4,1
+activate=on_trigger
+repeat=false
+unset_status=emp_seagate_defeated
 
 [enemy]
 type=enemy
