@@ -10,10 +10,6 @@ xp=32
 stat=hp,150
 speed=3.3
 turn_delay=400ms
-chance_pursue=15
-
-power=melee,164,5
-power=ranged,165,3
 
 stat=accuracy,105
 stat=avoidance,30
@@ -30,3 +26,30 @@ stat=absorb_max,5
 # loot
 loot=loot/level_5.txt
 
+
+### Section of ranged units behaviour
+
+#It cause shooter to come closer, sometimes.
+#Not only if player is out of range, but it's realistic enough --- real shooter would like to come closer, to aim better ;)
+chance_pursue=7
+
+#That chance is enough. It can vary, but works nice, as for me
+chance_flee= 20
+
+#Just copied that stats from necro-minotaur, assuming they are default
+flee_duration=3s
+flee_cooldown=1s
+
+#With this setting enemy do shooting from visible area.
+#Remember: (threat_range / 2) is hardcoded in standart-behaviour (as for 15.09.2016) as range, closer than which fleeng enemies can't come to hero.
+#I was trying different values, and can say, that 10 is surely less than needed (10/2=5 -- very small range)
+#and 20 is surely more than needed (skeletons starts shooting even if u do not see them. also it's hard to catch them. really hard)
+threat_range = 12	
+
+#However, if player came close enough to skeleton, he will not run forever, but will take a fight as a man
+#melee_range = 1.125 #it's set in fantasycore files
+power=melee,164,10
+
+#Following is maximised to let shooter not only flee from one side to another.
+#Did not tested lower values, maybe it can be decreased
+power=ranged,165,30
