@@ -646,13 +646,13 @@ data=
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
 
 [event]
-# rock trrap
+# rock trap
 type=event
 location=41,47,1,1
 activate=on_trigger
 mapmod=collision,40,47,1;collision,66,62,1;object,40,47,132;object,66,62,134
 repeat=false
-requires_not_status=emp_mez_trap
+requires_not_status=emp_mez_spawn_reset,emp_mez_trap,emp_mez_defeated
 save_game=true
 set_status=emp_mez_trap
 shakycam=2s
@@ -677,11 +677,13 @@ mapmod=collision,40,47,1;collision,66,62,1;object,40,47,132;object,66,62,134
 requires_status=emp_mez_trap
 
 [event]
-# reset status
+# warp to status reset
 type=event
 location=15,18,1,1
 activate=on_load
-unset_status=emp_mez_defeated
+intramap=26,31
+requires_status=emp_mez_defeated
+set_status=emp_mez_spawn_reset
 
 [event]
 # deactivate rock trap
@@ -748,6 +750,15 @@ type=event
 location=53,58,1,1
 activate=on_load
 soundfx=soundfx/environment/forest_owl_loop.ogg
+
+[event]
+# reset statuses
+type=event
+location=26,31,1,1
+activate=on_trigger
+requires_status=emp_mez_spawn_reset
+save_game=true
+unset_status=emp_mez_spawn_reset,emp_mez_trap,emp_mez_defeated
 
 [enemy]
 type=enemy
