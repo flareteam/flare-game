@@ -31,30 +31,11 @@ cooldown=1500ms
 # loot
 loot=loot/level_5.txt
 
-### Section of ranged units behaviour
-
-#It cause shooter to come closer, sometimes.
-#Not only if player is out of range, but it's realistic enough --- real shooter would like to come closer, to aim better ;)
+# Ranged units behaviour, see docs/ranged_behavior.txt
 chance_pursue=5
-
-#That chance is enough. It can vary, but works nice, as for me
 chance_flee= 13
-
-#Just copied that stats from necro-minotaur, assuming they are default
 flee_duration=3s
 flee_cooldown=1s
-
-#With this setting enemy do shooting from visible area.
-#Remember: (threat_range / 2) is hardcoded in standart-behaviour (as for 15.09.2016) as range, closer than which fleeng enemies can't come to hero.
-#I was trying different values, and can say, that 10 is surely less than needed (10/2=5 -- very small range)
-#and 20 is surely more than needed (skeletons starts shooting even if u do not see them. also it's hard to catch them. really hard)
 threat_range = 10
-
-#However, if player came close enough to skeleton, he will not run forever, but will take a fight as a man
-#That values are default, so I assume, we do not need them here (but keep in mind -- final config needs that stats)
-#melee_range = 1.125
 power=melee,164,30
-
-#Following is maximised to let shooter not only flee from one side to another.
-#Did not tested lower values, maybe it can be decreased
 power=ranged,172,50
