@@ -27,9 +27,11 @@ stat=absorb_max,9
 loot=loot/level_9.txt
 
 # Ranged units behaviour, see docs/ranged_behavior.txt
-chance_pursue=7
-chance_flee= 20
+chance_pursue=2
+chance_flee= 30
 flee_duration=3s
 flee_cooldown=1s
-threat_range = 14
-power=ranged,165,80
+flee_range = 6
+threat_range = 14, 20
+power=melee,164,7
+power=ranged,165,60

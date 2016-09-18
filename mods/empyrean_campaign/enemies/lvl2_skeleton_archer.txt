@@ -30,10 +30,11 @@ cooldown=1775ms
 loot=loot/level_2.txt
 
 # Ranged units behaviour, see docs/ranged_behavior.txt
-chance_pursue=5
+chance_pursue=4
 chance_flee= 20
 flee_duration=3s
 flee_cooldown=1s
-threat_range = 15
-power=melee,164,10
-power=ranged,171,34
+flee_range = 8;
+threat_range = 15, 20
+power=melee,164,5
+power=ranged,171,50s

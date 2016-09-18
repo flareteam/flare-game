@@ -1,27 +1,45 @@
-### Ranged unit behavior
+#
+### Ranged units behavior
+# The docs and smart-ranged-behavior settings are provided by @DoKel
+#
 
 # It cause shooter to come closer, sometimes.
 # Not only if player is out of range, but it's realistic enough --- real shooter would like to come closer, to aim better ;)
-# chance_pursue=1
+# Less value is, more careful creature is. Even 1% is enough.
+	# chance_pursue= %chance%
 
-# That chance is enough. It can vary, but works nice, as for me
-# chance_flee= 20
+# It's common to use value "20" here. I tryed to play with it a bit, but don't have strong recommendations. NecroMinotaur uses 25 chance, for comparsion.
+	# chance_flee= %chance%
 
 # Just copied that stats from necro-minotaur, assuming they are default
-# flee_duration=3s
-# flee_cooldown=1s
+# However, 2s duration looks nice on antlions, which are not supposed to be very smart.
+	# flee_duration=3s
+	# flee_cooldown=1s
 
-# With this setting enemy do shooting from visible area.
-# Remember: (threat_range / 2) is hardcoded in standart-behaviour (as for 15.09.2016) as range, closer than which fleeng enemies can't come to hero.
-# I was trying different values, and can say, that 10 is surely less than needed (10/2=5 -- very small range)
-# and 20 is surely more than needed (skeletons starts shooting even if u do not see them. also it's hard to catch them. really hard)
-# threat_range = 17
+# Default %radius_see_hero% is 8. It's too close for ranged enemies, so I recommend values betweeen 10 and 17. Higher values will allow enemies from all the map run to you immediately.
+# Default %radius_miss_hero% is 8*2=16, so I do not recommend use values higher than, let's say, 20. That's not cool, when after 10-20 or even 30 seconds U meet some goblins finally coming to you.
+	# threat_range = %radius_see_her%, %radius_miss_hero%
 
-# However, if player came close enough to skeleton, he will not run forever, but will take a fight as a man
-# That values are default, so I assume, we do not need them here (but keep in mind -- final config needs that stats)
-# melee_range = 1.125
-# power=melee,164,5
+# If player came close enough to skeleton, he will not run forever, but will take a fight as a man
+# (However, long fleeing is also balanced by flee_duration and flee_cooldown stats)
+# That value is set by "enemies/base/*.txt" templates, so I assume, we do not need them in "enemies/*.txt" directly.
+# But keep in mind -- it's highly recommended final config to have that stat to at non-zero value (and also to have melee power at all).
+	# melee_range = %range%
 
-# Following is maximised to let shooter not only flee from one side to another.
-# Did not tested lower values, maybe it can be decreased
-# power=ranged,196,80
+# With increasing %chance% increases chances (Captain Obvious ._.) to ignore flee and switch to melee fight , so it's better to use low chances, like smth in range (1, 5)
+# Nice feature! Using low (like 1 or 2) %chance% and low chance of pursue in combo with other described here stats allows enemies to walk over player and attack him from another side.
+# I mean, form | ENEMY SPACE HERO | to |HERO SPACE ENEMY|
+	# power=melee, %power%, %chance%
+
+# With increasing %chance%, creature gets more agressive. Also it decreases chances to get closer and waste time switching from threat-walking to flee-walking again and again.
+# Recommended to use values higher than 50%, unless you want creature to act stupid.
+	# power=ranged, %power%, %chance%
+
+#Some additional notes, how ranged behavior balanced in empyrean (as of DoKel's commits):
+# 1. Higher-level creatures becomes more and more careful and effective. So, with game progress there is not only grow of HP or damage (static values), but also smartness of enemy. It's cool, imho.
+# 2. Goblins and antlions are made stupid. They have higher chances of switching to melee attack or coming closer.
+#     Choosing from the two, goblins are smarter. There are *really* many ranged antlions on some maps. Running towards each and trying to do a single hit would be crazy.
+#     Assuming the result I get, goblins prefer to attack from short distance with lower chance of switching to melee, and antlions just switch to melee pretty fast (with chance of flee, don't forget).
+# 3. Ice creatures are a bit less careful, than fire. That made for a little balance -- ice guys already have "freeze" attack effect, and fire mages had nothing cool until that.
+# 4. 
+#
