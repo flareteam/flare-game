@@ -6,10 +6,10 @@
 # It cause shooter to come closer, sometimes.
 # Not only if player is out of range, but it's realistic enough --- real shooter would like to come closer, to aim better ;)
 # Less value is, more careful creature is. Even 1% is enough.
-	# chance_pursue= %chance%
+	# chance_pursue=%chance%
 
 # It's common to use value "20" here. I tryed to play with it a bit, but don't have strong recommendations. NecroMinotaur uses 25 chance, for comparsion.
-	# chance_flee= %chance%
+	# chance_flee=%chance%
 
 # Just copied that stats from necro-minotaur, assuming they are default
 # However, 2s duration looks nice on antlions, which are not supposed to be very smart.
@@ -18,22 +18,22 @@
 
 # Default %radius_see_hero% is 8. It's too close for ranged enemies, so I recommend values betweeen 10 and 17. Higher values will allow enemies from all the map run to you immediately.
 # Default %radius_miss_hero% is 8*2=16, so I do not recommend use values higher than, let's say, 20. That's not cool, when after 10-20 or even 30 seconds U meet some goblins finally coming to you.
-	# threat_range = %radius_see_her%, %radius_miss_hero%
+	# threat_range=%radius_see_her%,%radius_miss_hero%
 
 # If player came close enough to skeleton, he will not run forever, but will take a fight as a man
 # (However, long fleeing is also balanced by flee_duration and flee_cooldown stats)
 # That value is set by "enemies/base/*.txt" templates, so I assume, we do not need them in "enemies/*.txt" directly.
 # But keep in mind -- it's highly recommended final config to have that stat to at non-zero value (and also to have melee power at all).
-	# melee_range = %range%
+	# melee_range=%range%
 
 # With increasing %chance% increases chances (Captain Obvious ._.) to ignore flee and switch to melee fight , so it's better to use low chances, like smth in range (1, 5)
 # Nice feature! Using low (like 1 or 2) %chance% and low chance of pursue in combo with other described here stats allows enemies to walk over player and attack him from another side.
 # I mean, form | ENEMY SPACE HERO | to |HERO SPACE ENEMY|
-	# power=melee, %power%, %chance%
+	# power=melee,%power%,%chance%
 
 # With increasing %chance%, creature gets more agressive. Also it decreases chances to get closer and waste time switching from threat-walking to flee-walking again and again.
 # Recommended to use values higher than 50%, unless you want creature to act stupid.
-	# power=ranged, %power%, %chance%
+	# power=ranged,%power%,%chance%
 
 #Some additional notes, how ranged behavior balanced in empyrean (as of DoKel's commits):
 # 1. Higher-level creatures becomes more and more careful and effective. So, with game progress there is not only grow of HP or damage (static values), but also smartness of enemy. It's cool, imho.
@@ -41,5 +41,4 @@
 #     Choosing from the two, goblins are smarter. There are *really* many ranged antlions on some maps. Running towards each and trying to do a single hit would be crazy.
 #     Assuming the result I get, goblins prefer to attack from short distance with lower chance of switching to melee, and antlions just switch to melee pretty fast (with chance of flee, don't forget).
 # 3. Ice creatures are a bit less careful, than fire. That made for a little balance -- ice guys already have "freeze" attack effect, and fire mages had nothing cool until that.
-# 4. 
 #
