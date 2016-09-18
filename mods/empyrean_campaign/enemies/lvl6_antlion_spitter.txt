@@ -32,10 +32,11 @@ cooldown=1475ms
 loot=loot/level_6.txt
 
 # Ranged units behaviour, see docs/ranged_behavior.txt
-chance_pursue=5
-chance_flee= 13
-flee_duration=3s
+chance_pursue=4
+chance_flee= 16
+flee_duration=2s
 flee_cooldown=1s
-threat_range = 10
-power=melee,164,30
-power=ranged,172,50
+flee_range = 6
+threat_range = 8, 16 #defaults, but adding them here makes thing clearer
+power=melee,164,10
+power=ranged,173,50
