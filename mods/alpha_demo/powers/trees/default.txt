@@ -16,13 +16,13 @@ title=Magician
 id=1
 tab=0
 position=48,80
-requires_physical=1
+requires_primary=physical,1
 upgrades=20
 
 # heroic swing
 [upgrade]
 id=20
-requires_physical=2
+requires_primary=physical,2
 requires_point=true
 
 # block
@@ -30,7 +30,7 @@ requires_point=true
 id=3
 tab=0
 position=240,80
-requires_defense=1
+requires_primary=defense,1
 
 
 # blood strike
@@ -38,7 +38,7 @@ requires_defense=1
 id=5
 tab=0
 position=112,144
-requires_physical=2
+requires_primary=physical,2
 requires_point=true
 
 # throw knife
@@ -46,7 +46,7 @@ requires_point=true
 id=43
 tab=0
 position=176,144
-requires_physical=2
+requires_primary=physical,2
 requires_point=true
 
 # cleave
@@ -54,7 +54,7 @@ requires_point=true
 id=13
 tab=0
 position=112,208
-requires_physical=3
+requires_primary=physical,3
 requires_point=true
 
 # throw axe
@@ -62,7 +62,7 @@ requires_point=true
 id=44
 tab=0
 position=176,208
-requires_physical=3
+requires_primary=physical,3
 requires_power=43
 requires_point=true
 
@@ -71,8 +71,8 @@ requires_point=true
 id=9
 tab=0
 position=240,208
-requires_defense=2
-requires_physical=2
+requires_primary=defense,2
+requires_primary=physical,2
 requires_point=true
 
 
@@ -86,14 +86,14 @@ requires_point=true
 id=22
 tab=1
 position=48,80
-requires_offense=1
+requires_primary=offense,1
 
 # stealth
 [power]
 id=141
 tab=1
 position=48,144
-requires_defense=2
+requires_primary=defense,2
 requires_point=true
 
 # ember shot
@@ -101,7 +101,7 @@ requires_point=true
 id=24
 tab=1
 position=112,144
-requires_offense=2
+requires_primary=offense,2
 requires_point=true
 
 # multi-shot
@@ -109,7 +109,7 @@ requires_point=true
 id=16
 tab=1
 position=176,144
-requires_offense=2
+requires_primary=offense,2
 requires_point=true
 
 # caltrops
@@ -117,7 +117,7 @@ requires_point=true
 id=45
 tab=1
 position=240,144
-requires_defense=2
+requires_primary=defense,2
 requires_point=true
 
 # piercing shot
@@ -125,7 +125,7 @@ requires_point=true
 id=8
 tab=1
 position=112,208
-requires_offense=3
+requires_primary=offense,3
 requires_point=true
 
 # bear trap
@@ -133,8 +133,8 @@ requires_point=true
 id=46
 tab=1
 position=240,208
-requires_offense=2
-requires_defense=2
+requires_primary=offense,2
+requires_primary=defense,2
 requires_point=true
 requires_power=45
 
@@ -143,7 +143,7 @@ requires_power=45
 id=23
 tab=1
 position=112,272
-requires_offense=4
+requires_primary=offense,4
 requires_point=true
 
 ### Wizard Tab ################################################################
@@ -152,13 +152,13 @@ requires_point=true
 id=2
 tab=2
 position=48,80
-requires_mental=1
+requires_primary=mental,1
 upgrades=21
 
 # greater channel
 [upgrade]
 id=21
-requires_mental=2
+requires_primary=mental,2
 requires_point=true
 
 # shock
@@ -166,7 +166,7 @@ requires_point=true
 id=6
 tab=2
 position=112,144
-requires_mental=2
+requires_primary=mental,2
 requires_point=true
 
 # thunderstrike
@@ -174,7 +174,7 @@ requires_point=true
 id=25
 tab=2
 position=176,144
-requires_mental=2
+requires_primary=mental,2
 requires_point=true
 
 
@@ -183,8 +183,8 @@ requires_point=true
 id=7
 tab=2
 position=240,144
-requires_mental=1
-requires_defense=2
+requires_primary=mental,1
+requires_primary=defense,2
 requires_point=true
 
 # freeze
@@ -192,7 +192,7 @@ requires_point=true
 id=14
 tab=2
 position=112,208
-requires_mental=3
+requires_primary=mental,3
 requires_point=true
 
 # quake
@@ -200,7 +200,7 @@ requires_point=true
 id=10
 tab=2
 position=176,208
-requires_mental=3
+requires_primary=mental,3
 requires_point=true
 
 # shield
@@ -208,8 +208,8 @@ requires_point=true
 id=11
 tab=2
 position=240,208
-requires_mental=2
-requires_defense=2
+requires_primary=mental,2
+requires_primary=defense,2
 requires_point=true
 
 # burn
@@ -217,7 +217,7 @@ requires_point=true
 id=18
 tab=2
 position=112,272
-requires_mental=4
+requires_primary=mental,4
 requires_point=true
 
 # teleport
@@ -225,7 +225,7 @@ requires_point=true
 id=15
 tab=2
 position=240,272
-requires_mental=2
-requires_defense=3
+requires_primary=mental,2
+requires_primary=defense,3
 requires_point=true
 

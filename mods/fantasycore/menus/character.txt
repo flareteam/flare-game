@@ -10,10 +10,10 @@ soundfx_close=soundfx/inventory/inventory_book.ogg
 close=294,2
 label_title=160,8,center,top
 
-upgrade_physical=40,56
-upgrade_mental=40,80
-upgrade_offense=40,104
-upgrade_defense=40,128
+upgrade_primary=physical,40,56
+upgrade_primary=mental,40,80
+upgrade_primary=offense,40,104
+upgrade_primary=defense,40,128
 
 statlist=24,152
 statlist_rows=11
@@ -25,17 +25,17 @@ label_name=72,40,right,center
 level=256,32,32,16
 label_level=248,40,right,center
 
-physical=80,56,32,16
-label_physical=160,64,left,center
+primary=physical,80,56,32,16
+label_primary=physical,160,64,left,center
 
-mental=80,80,32,16
-label_mental=160,88,left,center
+primary=mental,80,80,32,16
+label_primary=mental,160,88,left,center
 
-offense=80,104,32,16
-label_offense=160,112,left,center
+primary=offense,80,104,32,16
+label_primary=offense,160,112,left,center
 
-defense=80,128,32,16
-label_defense=160,136,left,center
+primary=defense,80,128,32,16
+label_primary=defense,160,136,left,center
 
 unspent=160,396,center,top
 
