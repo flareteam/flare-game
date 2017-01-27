@@ -1,0 +1,45 @@
+INCLUDE enemies/base/skeleton_mage.txt
+
+name=Blaze Skeleton
+level=11
+categories=skeleton_mage,skeleton,undead,dungeon,fire
+rarity=uncommon
+xp=4096
+
+# combat stats
+stat=hp,290
+speed=5
+turn_delay=200ms
+
+passive_powers=185
+
+stat=accuracy,140
+stat=avoidance,65
+stat=poise,40
+
+stat=absorb_min,10
+stat=absorb_max,10
+
+stat=dmg_melee_min,155
+stat=dmg_melee_max,160
+stat=dmg_ment_min,165
+stat=dmg_ment_max,170
+
+vulnerable=fire,50
+vulnerable=ice,125
+
+cooldown=1350ms
+
+# loot
+loot=loot/level_11.txt
+
+# Ranged units behaviour, see docs/ranged_behavior.txt
+chance_pursue=3
+chance_flee=20
+flee_duration=3s
+flee_cooldown=1s
+flee_range=8
+threat_range=10,20
+power=melee,164,1
+power=ranged,173,50
+power=ranged,203,100

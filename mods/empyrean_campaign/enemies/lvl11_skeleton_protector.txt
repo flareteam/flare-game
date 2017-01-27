@@ -1,0 +1,32 @@
+INCLUDE enemies/base/skeleton.txt
+
+name=Skeleton Protector
+level=11
+categories=skeleton_protector,undead,dungeon
+rarity=common
+xp=4096
+
+# combat stats
+stat=hp,310
+speed=5.5
+turn_delay=400ms
+chance_pursue=3
+
+power=melee,164,5
+power=ranged,202,10
+passive_powers=185
+
+stat=accuracy,140
+stat=avoidance,60
+stat=poise,45
+
+stat=dmg_melee_min,160
+stat=dmg_melee_max,170
+cooldown=1350ms
+
+stat=absorb_min,11
+stat=absorb_max,11
+
+# loot
+loot=loot/level_11.txt
+
