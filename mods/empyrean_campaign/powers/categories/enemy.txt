@@ -654,10 +654,11 @@ lifespan=866ms
 radius=1.0
 speed=15
 trait_elemental=dark
-modifier_damage=absolute,1,1
+modifier_damage=absolute,0,0
 modifier_accuracy=multiply,200,0
-post_power=160
-wall_power=160
+post_power=158
+wall_power=158
 post_effect=fire_weakness,-100,10s
 cooldown=5s
+ignore_zero_damage=true
 
