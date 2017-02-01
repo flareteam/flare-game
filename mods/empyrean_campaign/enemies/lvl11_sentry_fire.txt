@@ -1,0 +1,22 @@
+INCLUDE enemies/base/grave.txt
+
+name=Fire Sentry
+level=11
+xp=4096
+categories=fire_sentry,sentry
+
+# combat stats
+stat=hp,600
+stat=accuracy,140
+stat=dmg_ment_min,165
+stat=dmg_ment_max,170
+
+power=melee,206,100
+power=ranged,206,100
+passive_powers=170
+
+cooldown=2500ms
+
+# loot
+loot=loot/level_11.txt
+
