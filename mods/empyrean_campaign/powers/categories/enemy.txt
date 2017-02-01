@@ -735,3 +735,14 @@ modifier_accuracy=multiply,75,0
 count=12
 missile_angle=30
 
+# spawn Nishi: visual effect
+[power]
+id=207
+type=fixed
+#new_state=cast
+animation=animations/powers/thunderstrike.txt
+soundfx=soundfx/powers/thunder.ogg
+use_hazard=true
+lifespan=200ms
+starting_pos=source
+

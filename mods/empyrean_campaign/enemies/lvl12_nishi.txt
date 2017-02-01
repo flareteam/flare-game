@@ -1,0 +1,39 @@
+INCLUDE enemies/base/wyvern_fire.txt
+
+name=Nishi
+level=12
+categories=nishi
+xp=8192
+
+# combat stats
+stat=hp,1340
+speed=6.1
+turn_delay=200ms
+chance_pursue=15
+
+power=melee,164,5
+power=ranged,173,60
+
+stat=accuracy,150
+stat=avoidance,80
+stat=poise,43
+
+stat=dmg_melee_min,200
+stat=dmg_melee_max,205
+stat=dmg_ment_min,195
+stat=dmg_ment_max,205
+stat=absorb_min,11
+stat=absorb_max,12
+
+vulnerable=fire,50
+vulnerable=ice,125
+
+cooldown=1275ms
+
+# wizard's tower entrance key
+quest_loot=emp_wizard1_init,emp_wizard1_key,1022
+
+# loot
+loot_count=5,7
+loot=loot/level_12.txt
+
