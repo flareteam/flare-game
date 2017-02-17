@@ -22,7 +22,7 @@ price=420
 abs=6
 requires_stat=defense,33
 requires_stat=offense,13
-bonus=accuracy,14
+bonus=accuracy,7
 
 [item]
 id=327
@@ -58,7 +58,7 @@ price=1050
 abs=7
 requires_stat=defense,33
 requires_stat=offense,13
-bonus=accuracy,30
+bonus=accuracy,10
 
 [item]
 id=330
@@ -82,7 +82,7 @@ price=700
 abs=7
 requires_stat=defense,34
 requires_stat=physical,12
-bonus=poise,30
+bonus=poise,20
 
 [item]
 id=332
@@ -94,7 +94,7 @@ price=700
 abs=6,7
 requires_stat=defense,33
 requires_stat=offense,13
-bonus=avoidance,30
+bonus=avoidance,10
 
 [item]
 id=333
@@ -118,7 +118,7 @@ price=420
 abs=6,7
 requires_stat=defense,34
 requires_stat=physical,12
-bonus=poise,20
+bonus=poise,10
 
 [item]
 id=335
@@ -130,7 +130,7 @@ price=420
 abs=6
 requires_stat=defense,33
 requires_stat=offense,13
-bonus=avoidance,40
+bonus=avoidance,20
 
 [item]
 id=336
@@ -182,7 +182,7 @@ bonus=mp_regen,20
 
 [item]
 id=340
-name=Fighting Armored Belt
+name=Wandering Warlord Leather Belt
 INCLUDE items/base/armor/belt.txt
 level=14
 quality=high
@@ -194,20 +194,20 @@ bonus=hp_regen,250
 
 [item]
 id=341
-name=Recon Armored Belt
-INCLUDE items/base/armor/belt.txt
+name=Wandering Sniper Pendant
+INCLUDE items/base/necklaces/gold_1.txt
 level=14
 quality=high
 price=700
 abs=4,5
 requires_stat=defense,33
 requires_stat=offense,13
-bonus=avoidance,30
+bonus=avoidance,10
 
 [item]
 id=342
-name=Sorcerer Armored Belt
-INCLUDE items/base/armor/belt.txt
+name=Wandering Archwizard Spellbook
+INCLUDE items/base/misc/spellbook.txt
 level=14
 quality=high
 price=700

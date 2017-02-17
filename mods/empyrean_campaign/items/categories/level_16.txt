@@ -22,7 +22,7 @@ price=480
 abs=7
 requires_stat=defense,39
 requires_stat=offense,15
-bonus=accuracy,18
+bonus=accuracy,9
 
 [item]
 id=385
@@ -58,7 +58,7 @@ price=1200
 abs=8
 requires_stat=defense,39
 requires_stat=offense,15
-bonus=accuracy,36
+bonus=accuracy,12
 
 [item]
 id=388
@@ -82,7 +82,7 @@ price=800
 abs=8
 requires_stat=defense,40
 requires_stat=physical,14
-bonus=poise,36
+bonus=poise,24
 
 [item]
 id=390
@@ -94,7 +94,7 @@ price=800
 abs=7,8
 requires_stat=defense,39
 requires_stat=offense,15
-bonus=avoidance,36
+bonus=avoidance,12
 
 [item]
 id=391
@@ -118,7 +118,7 @@ price=480
 abs=7,8
 requires_stat=defense,40
 requires_stat=physical,14
-bonus=poise,24
+bonus=poise,12
 
 [item]
 id=393
@@ -130,7 +130,7 @@ price=480
 abs=7
 requires_stat=defense,39
 requires_stat=offense,15
-bonus=avoidance,48
+bonus=avoidance,24
 
 [item]
 id=394
@@ -182,7 +182,7 @@ bonus=mp_regen,24
 
 [item]
 id=398
-name=Warlord Armored Belt
+name=Master Warlord Leather Belt
 INCLUDE items/base/armor/belt.txt
 level=16
 quality=rare
@@ -194,20 +194,20 @@ bonus=hp_regen,300
 
 [item]
 id=399
-name=Sniper Armored Belt
-INCLUDE items/base/armor/belt.txt
+name=Master Sniper Pendant
+INCLUDE items/base/necklaces/gold_1.txt
 level=16
 quality=rare
 price=800
 abs=5,6
 requires_stat=defense,39
 requires_stat=offense,15
-bonus=avoidance,36
+bonus=avoidance,12
 
 [item]
 id=400
-name=Archwizard Armored Belt
-INCLUDE items/base/armor/belt.txt
+name=Master Archwizard Spellbook
+INCLUDE items/base/misc/spellbook.txt
 level=16
 quality=rare
 price=800
@@ -333,5 +333,3 @@ price=1600
 requires_level=14
 bonus=item_find,60
 
-# 412-417
-# unique and set items

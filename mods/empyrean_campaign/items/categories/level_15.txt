@@ -22,7 +22,7 @@ price=450
 abs=6,7
 requires_stat=defense,36
 requires_stat=offense,14
-bonus=accuracy,16
+bonus=accuracy,8
 
 [item]
 id=356
@@ -58,7 +58,7 @@ price=1125
 abs=7,8
 requires_stat=defense,36
 requires_stat=offense,14
-bonus=accuracy,33
+bonus=accuracy,11
 
 [item]
 id=359
@@ -82,7 +82,7 @@ price=750
 abs=7,8
 requires_stat=defense,37
 requires_stat=physical,13
-bonus=poise,33
+bonus=poise,22
 
 [item]
 id=361
@@ -94,7 +94,7 @@ price=750
 abs=7
 requires_stat=defense,36
 requires_stat=offense,14
-bonus=avoidance,33
+bonus=avoidance,11
 
 [item]
 id=362
@@ -118,7 +118,7 @@ price=450
 abs=7
 requires_stat=defense,37
 requires_stat=physical,13
-bonus=poise,22
+bonus=poise,11
 
 [item]
 id=364
@@ -130,7 +130,7 @@ price=450
 abs=6,7
 requires_stat=defense,36
 requires_stat=offense,14
-bonus=avoidance,44
+bonus=avoidance,22
 
 [item]
 id=365
@@ -182,7 +182,7 @@ bonus=mp_regen,22
 
 [item]
 id=369
-name=Warrior Armored Belt
+name=Adventurer Warlord Leather Belt
 INCLUDE items/base/armor/belt.txt
 level=15
 quality=epic
@@ -194,20 +194,20 @@ bonus=hp_regen,275
 
 [item]
 id=370
-name=Ranger Armored Belt
-INCLUDE items/base/armor/belt.txt
+name=Adventurer Sniper Pendant
+INCLUDE items/base/necklaces/gold_1.txt
 level=15
 quality=epic
 price=750
 abs=5
 requires_stat=defense,36
 requires_stat=offense,14
-bonus=avoidance,33
+bonus=avoidance,11
 
 [item]
 id=371
-name=Wizard Armored Belt
-INCLUDE items/base/armor/belt.txt
+name=Adventurer Archwizard Spellbook
+INCLUDE items/base/misc/spellbook.txt
 level=15
 quality=epic
 price=750
