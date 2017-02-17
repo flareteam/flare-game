@@ -1,36 +1,50 @@
 # Nazia Mines
-# book artifact
 [item]
 id=305
+INCLUDE items/base/misc/spellbook.txt
 name=Lost Totem
+level=12
+quality=unique
 
 # Mog Caverens
-# throwing axe; needs alternate powers for ammo
+# TODO needs alternate powers for ammo
 [item]
 id=306
+INCLUDE items/base/weapons/ranged/throwing_axe.txt
 name=Mog's Axe
+level=12
+quality=unique
 
 # Fort Nasu
-# chain curiass
 [item]
 id=307
+INCLUDE items/base/armor/chain/chest.txt
 name=Guardsman Curiass
+level=12
+quality=unique
 
 # Wizard's Tower 1
-# battlemage gauntlets
 [item]
 id=308
-name=WIZARD TOWER MINIBOSS 1 ITEM
+INCLUDE items/base/necklaces/gold_2.txt
+name=Inferno Pendant
+level=12
+quality=unique
 
 # Wizard's Tower 2
-# artifact; belt or something new like a necklace?
+# TODO maybe this should make Channel drop potions randomly?
 [item]
 id=309
-name=WIZARD TOWER MINIBOSS 2 ITEM
+INCLUDE items/base/armor/mage_alt2/legs.txt
+name=Alchemist's Skirt
+level=12
+quality=unique
 
 # Metzger
-# battlemage mace
 [item]
 id=310
+INCLUDE items/base/weapons/melee/reinforced_club.txt
 name=Metzger's Battlemace
+level=12
+quality=unique
 
