@@ -31,13 +31,15 @@ level=12
 quality=unique
 
 # Wizard's Tower 2
-# TODO maybe this should make Channel drop potions randomly?
 [item]
 id=309
 INCLUDE items/base/armor/mage_alt2/legs.txt
 name=Alchemist's Skirt
 level=12
 quality=unique
+replace_power=162,234
+replace_power=163,235
+power_desc=Drinking potions may create another potion of the same type.
 
 # Metzger
 [item]

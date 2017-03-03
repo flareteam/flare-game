@@ -1,26 +1,20 @@
 [power]
 id=162
-type=fixed
-icon=64
-name=Health Potion
-soundfx=soundfx/powers/potion.ogg
-new_state=instant
-requires_item=2
-cooldown=500ms
-buff=true
-post_effect=hp_restore,25,33ms
+INCLUDE powers/base/items/health_potion.txt
 
 [power]
 id=163
-type=fixed
-icon=65
-name=Mana Potion
-new_state=instant
-soundfx=soundfx/powers/potion.ogg
-requires_item=3
-cooldown=500ms
-buff=true
-post_effect=mp_restore,25,33ms
+INCLUDE powers/base/items/mana_potion.txt
+
+[power]
+id=234
+INCLUDE powers/base/items/health_potion.txt
+script=on_cast,scripts/powers/alchemist_skirt_hp.txt
+
+[power]
+id=235
+INCLUDE powers/base/items/mana_potion.txt
+script=on_cast,scripts/powers/alchemist_skirt_mp.txt
 
 [power]
 id=181

@@ -1,0 +1,9 @@
+type=fixed
+icon=65
+name=Mana Potion
+new_state=instant
+soundfx=soundfx/powers/potion.ogg
+requires_item=3
+cooldown=500ms
+buff=true
+post_effect=mp_restore,25,33ms
