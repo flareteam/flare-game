@@ -257,7 +257,7 @@ radius=2.0
 floor=true
 starting_pos=source
 multitarget=true
-post_effect=stun,0,1s
+post_effect=stun,0,1s,25
 cooldown=5s
 modifier_damage=multiply,75,0
 post_effect=knockback,15,100ms
@@ -441,7 +441,7 @@ starting_pos=target
 multitarget=true
 post_power=159
 target_range=8.0
-post_effect=stun,0,1s
+post_effect=stun,0,1s,25
 modifier_damage=multiply,75,0
 cooldown=5s
 
@@ -614,7 +614,7 @@ starting_pos=target
 base_damage=ment
 trait_elemental=dark
 modifier_accuracy=multiply,125,0
-post_effect=dark_mist,0,5s
+post_effect=dark_mist,0,5s,25
 post_effect=bleeding,5,5s
 cooldown=6s
 
