@@ -214,7 +214,6 @@ activate=on_trigger
 msg=Quest added.
 repeat=false
 requires_not_status=emp_ardwen_init,emp_ardwen_finish
-save_game=true
 set_status=emp_ardwen_init
 
 [event]
@@ -379,6 +378,16 @@ activate=on_load
 mapmod=collision,12,4,0
 requires_status=emp_ardwen_finish
 spawn=ardwen,12,4
+
+[event]
+# reset quest
+type=event
+location=2,0,1,1
+activate=on_load
+msg=Reset quest: "Trapped in the Crypt"
+requires_not_status=emp_ardwen_finish
+requires_status=emp_ardwen_init
+script=scripts/maps/family_crypt/reset_quest.txt
 
 [enemy]
 type=enemy
