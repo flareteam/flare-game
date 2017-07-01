@@ -225,7 +225,6 @@ activate=on_trigger
 msg=Quest added.
 repeat=false
 requires_not_status=emp_naziamines_init,emp_naziamines_finish
-save_game=true
 set_status=emp_naziamines_init
 shakycam=1s
 soundfx=soundfx/environment/falling_rocks.ogg
@@ -400,14 +399,33 @@ requires_item=1010
 requires_not_status=emp_fig_2
 set_status=emp_fig_2
 
-[enemy]
-type=enemy
+[event]
+# Wind sound
+type=event
+location=0,0,1,1
+activate=on_load
+soundfx=soundfx/environment/cave_wind_loop.ogg
+
+[event]
+# spawn boulder
+type=event
 location=29,40,1,1
-category=nazia_boulder
-level=9
-number=1
+activate=on_load
+repeat=false
 requires_not_status=emp_naziamines_cleared
 requires_status=emp_naziamines_init
+spawn=nazia_boulder,29,40
+
+[event]
+# reset quest
+type=event
+location=2,0,1,1
+activate=on_load
+msg=Reset Quest: "Trapped!"
+repeat=false
+requires_not_status=emp_naziamines_finish
+requires_status=emp_naziamines_init
+script=scripts/maps/nazia_mines/reset_quest.txt
 
 [enemy]
 type=enemy
