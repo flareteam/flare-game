@@ -28,7 +28,7 @@ data=
 0,0,0,0,0,0,51,0,0,0,0,20,47,16,40,38,41,36,36,39,39,17,22,49,0,0,0,51,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,24,21,21,16,21,21,21,21,28,38,47,36,42,37,44,47,42,17,39,29,21,21,21,21,16,21,21,25,49,0,0,0,0,0,0,0,0,
 0,0,0,20,35,32,35,34,34,35,47,40,38,19,46,47,19,45,47,19,47,40,47,36,34,34,34,32,35,32,22,49,0,0,0,0,0,0,0,0,
-0,0,0,20,34,47,43,16,39,35,36,39,47,39,38,19,57,59,18,19,36,46,47,36,33,38,44,19,44,32,22,49,0,0,0,0,0,0,0,0,
+0,0,0,20,34,47,43,16,39,35,36,39,47,39,38,19,41,39,18,19,36,46,47,36,33,38,44,19,44,32,22,49,0,0,0,0,0,0,0,0,
 0,0,0,20,35,18,36,47,41,32,36,40,18,45,24,21,21,21,21,25,16,44,16,43,32,47,46,18,18,35,22,49,0,0,0,0,0,0,0,0,
 0,0,0,20,34,43,40,43,51,32,44,46,39,17,20,34,34,32,34,22,40,45,37,45,32,51,40,44,45,34,22,49,0,0,0,0,0,0,0,0,
 0,0,0,20,34,46,16,51,51,32,39,38,18,42,20,32,35,32,34,22,18,38,44,36,34,51,51,37,39,32,22,49,0,0,0,0,0,0,0,0,
@@ -38,7 +38,7 @@ data=
 0,0,0,0,0,0,0,0,0,0,0,20,39,44,16,36,39,18,43,42,41,46,22,49,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,20,40,16,46,47,19,40,44,36,46,42,22,49,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,27,23,23,23,31,36,16,30,23,23,23,26,49,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,50,50,50,50,20,61,63,22,48,50,50,50,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,50,50,50,50,20,17,42,22,48,50,50,50,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,20,39,45,22,49,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,20,46,18,22,49,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,20,37,17,22,49,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -165,7 +165,7 @@ data=
 4,4,2,2,2,2,2,2,2,2,2,0,0,0,4,0,0,0,0,4,0,0,0,2,2,2,2,2,2,2,2,2,4,4,4,4,4,4,4,4,
 4,4,4,4,4,4,4,4,4,4,2,0,0,0,0,0,0,0,0,0,0,0,0,2,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,
 4,4,4,4,4,4,4,4,4,4,2,0,0,0,0,0,0,0,0,0,0,0,0,2,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,
-4,4,4,4,4,4,4,4,4,4,2,1,3,3,3,3,3,3,3,3,3,3,1,2,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,
+4,4,4,4,4,4,4,4,4,4,2,1,0,0,0,0,0,0,0,0,0,0,1,2,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,
 4,4,4,4,4,4,4,4,4,4,2,2,2,2,2,0,0,0,0,2,2,2,2,2,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,
 4,4,4,4,4,4,4,4,4,4,4,4,4,4,2,0,0,0,0,2,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,
 4,4,4,4,4,4,4,4,4,4,4,4,4,4,2,0,0,0,0,2,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,
@@ -221,88 +221,40 @@ soundfx=soundfx/environment/stairs.ogg,0,0
 tooltip=St. Maria: Prison
 
 [event]
-# torch (top left)
+# torch set 1
 type=event
-location=15,36,4,1
-activate=on_trigger
-mapmod=object,12,39,167
-repeat=false
-soundfx=soundfx/environment/open_fire_loop.ogg,12,39,true
-
-[event]
-# torch (bottom left)
-type=event
-location=15,36,4,1
-activate=on_trigger
-mapmod=object,21,39,167
-repeat=false
-soundfx=soundfx/environment/open_fire_loop.ogg,21,39,true
-
-[event]
-# torch (trigger sfx)
-type=event
-location=15,36,4,1
+location=11,38,12,2
 activate=on_trigger
 repeat=false
+requires_not_status=emp_seagate_torches
+script=scripts/maps/st_maria_3/torch_1.txt
 soundfx=soundfx/powers/fireball.ogg,0,0
 
 [event]
-# torch (top middle)
+# torch set 2
 type=event
-location=15,28,4,1
-activate=on_trigger
-mapmod=object,12,31,167
-repeat=false
-soundfx=soundfx/environment/open_fire_loop.ogg,12,31,true
-
-[event]
-# torch (bottom middle)
-type=event
-location=15,28,4,1
-activate=on_trigger
-mapmod=object,21,31,167
-repeat=false
-soundfx=soundfx/environment/open_fire_loop.ogg,21,31,true
-
-[event]
-# torch (trigger sfx)
-type=event
-location=15,28,4,1
+location=11,30,12,2
 activate=on_trigger
 repeat=false
+requires_not_status=emp_seagate_torches
+script=scripts/maps/st_maria_3/torch_2.txt
 soundfx=soundfx/powers/fireball.ogg,0,0
 
 [event]
-# torch (top right)
+# torch set 3
 type=event
-location=15,20,4,1
-activate=on_trigger
-mapmod=object,12,23,167
-repeat=false
-soundfx=soundfx/environment/open_fire_loop.ogg,12,23,true
-
-[event]
-# torch (bottom right)
-type=event
-location=15,20,4,1
-activate=on_trigger
-mapmod=object,21,23,167
-repeat=false
-soundfx=soundfx/environment/open_fire_loop.ogg,21,23,true
-
-[event]
-# torch (trigger sfx)
-type=event
-location=15,20,4,1
+location=11,22,12,2
 activate=on_trigger
 repeat=false
+requires_not_status=emp_seagate_torches
+script=scripts/maps/st_maria_3/torch_3.txt
 soundfx=soundfx/powers/fireball.ogg,0,0
 
 [event]
 # kill seagate's tombstone (bottom)
 type=event
-location=3,1,28,44
-activate=on_trigger
+location=1,3,1,1
+activate=static
 mapmod=collision,27,4,0
 power=177
 power_path=27,5,27,5
@@ -310,24 +262,14 @@ repeat=false
 requires_status=emp_seagate_defeated
 
 [event]
-# kill seagate's tombstones (on_load)
-type=event
-location=12,5,1,1
-activate=on_load
-mapmod=collision,6,4,0;collision,27,4,0
-repeat=false
-requires_status=emp_seagate_defeated
-
-[event]
 # kill seagate's tombstone (top)
 type=event
-location=3,1,28,44
-activate=on_trigger
+location=0,3,1,1
+activate=static
 mapmod=collision,6,4,0
 power=177
 power_path=6,5,6,5
 repeat=false
-requires_not_status=emp_seagate_spawn_reset
 requires_status=emp_seagate_defeated
 
 [event]
@@ -337,21 +279,7 @@ location=15,41,4,1
 activate=on_trigger
 mapmod=object,16,45,115;collision,16,45,1
 repeat=false
-requires_not_status=emp_seagate_door
-save_game=true
-set_status=emp_seagate_door
 soundfx=soundfx/door_open.ogg
-unset_status=emp_seagate_defeated
-
-[event]
-# lock door (on_load)
-type=event
-location=13,41,1,1
-activate=on_load
-mapmod=object,16,45,115;collision,16,45,1
-requires_not_status=emp_seagate_spawn_reset
-requires_status=emp_seagate_door
-unset_status=emp_seagate_defeated
 
 [event]
 # Wind sound
@@ -389,6 +317,7 @@ activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
+# Treasure Chest
 type=event
 location=12,2,1,1
 activate=on_trigger
@@ -397,10 +326,13 @@ loot=loot/level_4.txt
 loot_count=4,5
 mapmod=object,12,2,161
 repeat=false
+requires_not_status=emp_seagate_chest1
+set_status=emp_seagate_chest1
 soundfx=soundfx/wood_open.ogg
 tooltip=Treasure Chest
 
 [event]
+# Treasure Chest
 type=event
 location=21,2,1,1
 activate=on_trigger
@@ -409,27 +341,10 @@ loot=loot/level_4.txt
 loot_count=4,5
 mapmod=object,21,2,161
 repeat=false
+requires_not_status=emp_seagate_chest2
+set_status=emp_seagate_chest2
 soundfx=soundfx/wood_open.ogg
 tooltip=Treasure Chest
-
-[event]
-# teleport trap
-type=event
-location=15,17,4,1
-activate=on_trigger
-intramap=16,7
-mapmod=background,16,17,57;background,17,17,59;collision,12,16,0;collision,13,16,0;collision,14,16,0;collision,15,16,0;collision,16,16,0;collision,17,16,0;collision,18,16,0;collision,19,16,0;collision,20,16,0;collision,21,16,0
-requires_not_status=emp_seagate_teleport
-set_status=emp_seagate_teleport
-soundfx=soundfx/environment/teleporter.ogg,0,0
-spawn=zombie_lvl3,13,39;zombie_lvl3,13,31;zombie_lvl3,13,23;zombie_lvl3,20,39;zombie_lvl3,20,31;zombie_lvl3,20,23
-
-[event]
-# reset statuses
-type=event
-location=1,40,1,1
-activate=on_load
-unset_status=emp_seagate_teleport
 
 [event]
 # floor spikes
@@ -495,24 +410,18 @@ msg=The plaque reads: Grave of the Saints
 tooltip=Plaque
 
 [event]
-# spawn gravebloom
+# gravebloom
 type=event
-location=15,20,4,1
+location=17,12,1,1
 activate=on_trigger
-hotspot=17,12,1,1
-loot=1100,fixed,1
-msg=A gravebloom emerges from the center of the altar.
+hotspot=location
+msg=You remove the gravebloom flower from the Altar.
 repeat=false
 requires_not_status=emp_main_gravebloom
-requires_status=emp_main_init
-
-[event]
-# start main quest
-type=event
-location=1,38,1,1
-activate=on_load
-requires_not_status=emp_main_init
-set_status=emp_main_init
+requires_status=emp_main_init,emp_seagate_defeated
+reward_item=1100,1
+set_status=emp_main_gravebloom
+tooltip=Altar
 
 [event]
 # brazier sound effect
@@ -522,30 +431,79 @@ activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
 [event]
-# warp to status reset
+# gravebloom (frozen)
 type=event
-location=10,41,1,1
-activate=on_load
-intramap=7,47
-requires_status=emp_seagate_door,emp_seagate_defeated
-set_status=emp_seagate_spawn_reset
-
-[event]
-# reset statuses (post defeat)
-type=event
-location=7,47,1,1
+location=17,11,1,1
 activate=on_trigger
-requires_status=emp_seagate_spawn_reset
-save_game=true
-unset_status=emp_seagate_spawn_reset,emp_seagate_door,emp_seagate_defeated
-
-[event]
-# reset defeated status
-type=event
-location=15,46,4,1
-activate=on_trigger
+hotspot=17,12,1,1
+msg=There is a gravebloom flower on the altar, but it is frozen in place.
 repeat=false
-unset_status=emp_seagate_defeated
+requires_not_status=emp_main_gravebloom,emp_seagate_defeated
+requires_status=emp_main_init
+shakycam=2s
+soundfx=soundfx/powers/quake.ogg
+spawn=seagate,17,9
+tooltip=Altar
+
+[event]
+# gravebloom (thaw msg)
+type=event
+location=0,6,1,1
+activate=static
+msg=The gravebloom flower laid upon the altar has thawed.
+repeat=false
+requires_not_status=emp_main_gravebloom
+requires_status=emp_seagate_defeated
+
+[event]
+# start main quest
+type=event
+location=1,0,1,1
+activate=on_load
+requires_not_status=emp_main_init
+set_status=emp_main_init
+
+[event]
+# reset statuses
+type=event
+location=2,0,1,1
+activate=on_load
+requires_status=emp_seagate_respawn
+unset_status=emp_seagate_defeated,emp_seagate_chest1,emp_seagate_chest2
+
+[event]
+# light torches (on_load)
+type=event
+location=8,40,1,1
+activate=on_load
+requires_status=emp_seagate_torches
+script=scripts/maps/st_maria_3/torch_all.txt
+
+[event]
+# set torch status
+type=event
+location=7,40,1,1
+activate=static
+requires_status=emp_seagate_defeated
+set_status=emp_seagate_torches
+
+[event]
+# chest1 open
+type=event
+location=0,1,1,1
+activate=on_load
+mapmod=object,12,2,161
+requires_not_status=emp_seagate_respawn
+requires_status=emp_seagate_chest1
+
+[event]
+# chest2 open
+type=event
+location=1,1,1,1
+activate=on_load
+mapmod=object,21,2,161
+requires_not_status=emp_seagate_respawn
+requires_status=emp_seagate_chest2
 
 [enemy]
 type=enemy
@@ -567,6 +525,7 @@ location=17,9,1,1
 category=seagate
 direction=3
 number=1
+requires_status=emp_seagate_respawn
 wander_radius=0
 
 [enemy]

@@ -1,0 +1,16 @@
+# top torch
+[event]
+repeat=false
+mapmod=object,12,23,167
+soundfx=soundfx/environment/open_fire_loop.ogg,12,23,true
+
+# bottom torch
+[event]
+repeat=false
+mapmod=object,21,23,167
+soundfx=soundfx/environment/open_fire_loop.ogg,21,23,true
+
+# spawn zombie pair
+[event]
+repeat=false
+spawn=zombie_lvl3,13,23;zombie_lvl3,20,23
