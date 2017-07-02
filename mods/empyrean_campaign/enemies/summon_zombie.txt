@@ -1,0 +1,28 @@
+INCLUDE enemies/base/zombie.txt
+
+name=Your Summoned Zombie
+level=1
+categories=summon_zombie
+
+# combat stats
+stat=hp,240
+stat_per_level=hp,100
+speed=6
+turn_delay=400ms
+chance_pursue=10
+
+power=melee,164,10
+power=melee,168,5
+
+stat=accuracy,80
+stat=avoidance,10
+stat=poise,20
+stat_per_level=accuracy,5
+stat_per_level=avoidance,5
+stat_per_level=poise,3
+
+stat=dmg_melee_min,15
+stat=dmg_melee_max,20
+stat_per_level=dmg_melee_min,15
+stat_per_level=dmg_melee_max,15
+cooldown=1800ms
