@@ -652,8 +652,7 @@ location=41,47,1,1
 activate=on_trigger
 mapmod=collision,40,47,1;collision,66,62,1;object,40,47,132;object,66,62,134
 repeat=false
-requires_not_status=emp_mez_spawn_reset,emp_mez_trap,emp_mez_defeated
-save_game=true
+requires_not_status=emp_mez_trap,emp_mez_defeated
 set_status=emp_mez_trap
 shakycam=2s
 soundfx=soundfx/environment/stone_open.ogg,0,0
@@ -669,27 +668,10 @@ soundfx=soundfx/environment/stairs.ogg,0,0
 tooltip=Temple of Mez: Main Hall
 
 [event]
-# rock trrap (on_load)
-type=event
-location=38,42,1,1
-activate=on_load
-mapmod=collision,40,47,1;collision,66,62,1;object,40,47,132;object,66,62,134
-requires_status=emp_mez_trap
-
-[event]
-# warp to status reset
-type=event
-location=15,18,1,1
-activate=on_load
-intramap=26,31
-requires_status=emp_mez_defeated
-set_status=emp_mez_spawn_reset
-
-[event]
 # deactivate rock trap
 type=event
-location=41,28,27,36
-activate=on_trigger
+location=38,42,1,1
+activate=static
 mapmod=collision,40,47,0;collision,66,62,0;object,40,47,0;object,66,62,0
 repeat=false
 requires_status=emp_mez_trap,emp_mez_defeated
@@ -707,6 +689,8 @@ loot=loot/level_8.txt
 loot_count=4,5
 mapmod=object,74,74,97
 repeat=false
+requires_not_status=emp_mez_chest2
+set_status=emp_mez_chest2
 soundfx=soundfx/wood_open.ogg
 tooltip=Supplies
 
@@ -720,6 +704,8 @@ loot=loot/level_8.txt
 loot_count=4,5
 mapmod=object,75,70,99
 repeat=false
+requires_not_status=emp_mez_chest1
+set_status=emp_mez_chest1
 soundfx=soundfx/wood_open.ogg
 tooltip=Supplies
 
@@ -754,11 +740,47 @@ soundfx=soundfx/environment/forest_owl_loop.ogg
 [event]
 # reset statuses
 type=event
-location=26,31,1,1
-activate=on_trigger
-requires_status=emp_mez_spawn_reset
-save_game=true
-unset_status=emp_mez_spawn_reset,emp_mez_trap,emp_mez_defeated
+location=1,0,1,1
+activate=on_load
+requires_status=emp_mez_respawn
+unset_status=emp_mez_defeated,emp_mez_chest1,emp_mez_chest2
+
+[event]
+# reset trap
+type=event
+location=2,0,1,1
+activate=on_load
+requires_status=emp_mez_trap
+unset_status=emp_mez_trap
+
+[event]
+# Black Quill
+type=event
+location=52,45,1,1
+activate=on_load
+hotspot=location
+loot=1101,fixed,1
+repeat=false
+requires_not_status=emp_main_quill
+requires_status=emp_mez_defeated
+
+[event]
+# chest1 open
+type=event
+location=0,2,1,1
+activate=on_load
+mapmod=object,75,70,99
+requires_not_status=emp_mez_respawn
+requires_status=emp_mez_chest1
+
+[event]
+# chest2 open
+type=event
+location=1,2,1,1
+activate=on_load
+mapmod=object,74,74,97
+requires_not_status=emp_mez_respawn
+requires_status=emp_mez_chest2
 
 [enemy]
 type=enemy
@@ -775,11 +797,23 @@ level=7
 number=4
 
 [enemy]
+# Mez (respawn)
 type=enemy
 location=53,44,1,1
 category=mez
 level=8
 number=1
+requires_status=emp_mez_respawn
+wander_radius=1
+
+[enemy]
+# Mez (first encounter)
+type=enemy
+location=53,44,1,1
+category=mez
+level=8
+number=1
+requires_not_status=emp_mez_respawn,emp_mez_defeated
 wander_radius=1
 
 [npc]
