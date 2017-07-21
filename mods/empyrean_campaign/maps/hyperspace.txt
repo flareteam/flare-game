@@ -249,6 +249,17 @@ soundfx=soundfx/environment/teleporter.ogg,0,0
 tooltip=Dilapidated Sewers
 
 [event]
+# to Wizard's Tower: Research Chambers
+type=event
+location=9,29,2,2
+activate=on_trigger
+hotspot=location
+intermap=maps/wizards_tower_2.txt,15,83
+requires_status=emp_waypoint_9
+soundfx=soundfx/environment/teleporter.ogg,0,0
+tooltip=Wizard's Tower: Research Chambers
+
+[event]
 # Wind sound
 type=event
 location=0,0,1,1
@@ -318,4 +329,12 @@ location=16,34,1,1
 activate=on_load
 mapmod=background,16,32,265
 requires_status=emp_waypoint_8
+
+[event]
+# unlock Wizard's Tower: Research Chambers
+type=event
+location=9,32,1,1
+activate=on_load
+mapmod=background,9,30,265
+requires_status=emp_waypoint_9
 

@@ -603,11 +603,22 @@ requires_not_status=emp_wizard1_key,emp_wizard1_door
 tooltip=Locked Door
 
 [event]
+# initialize map status
 type=event
 location=26,40,1,1
 activate=on_load
 requires_not_status=emp_wizard1_init
 set_status=emp_wizard1_init
+
+[event]
+# to Wizard's Tower: Research Chambers
+type=event
+location=62,27,1,2
+activate=on_trigger
+hotspot=location
+intermap=maps/wizards_tower_2.txt,9,68
+soundfx=soundfx/environment/stairs.ogg,0,0
+tooltip=to Wizard's Tower: Research Chambers
 
 [enemy]
 type=enemy

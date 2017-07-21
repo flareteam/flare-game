@@ -466,3 +466,42 @@ data=
 257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,260,260,260,260,260,260,260,260,260,260,260,260,260,260,260,260,260,260,260,260,260,260,260,260,260,260,260,260,260,260,260,260,260,260,257,257,257,257,257,
 257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257
 
+[event]
+# Unlock waypoint
+type=event
+location=15,83,6,6
+activate=on_trigger
+mapmod=background,17,86,265
+msg=Wizard's Tower: Research Chambers waypoint discovered.
+repeat=false
+requires_not_status=emp_waypoint_9
+set_status=emp_waypoint_9
+
+[event]
+# to Hyperspace
+type=event
+location=17,85,2,2
+activate=on_trigger
+hotspot=location
+intermap=maps/hyperspace.txt,11,28
+soundfx=soundfx/environment/teleporter.ogg,0,0
+tooltip=Hyperspace
+
+[event]
+# unlock waypoint (on_load)
+type=event
+location=23,80,1,1
+activate=on_load
+mapmod=background,17,86,265
+requires_status=emp_waypoint_9
+
+[event]
+# to Wizard's Tower: Research Chambers
+type=event
+location=8,67,1,2
+activate=on_trigger
+hotspot=location
+intermap=maps/wizards_tower_1.txt,61,28
+soundfx=soundfx/environment/stairs.ogg,0,0
+tooltip=Wizard's Tower: Entrance Hall
+
