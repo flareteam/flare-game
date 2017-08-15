@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="isometric" renderorder="right-down" width="132" height="132" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="46">
+<map version="1.0" tiledversion="1.0.2" orientation="isometric" renderorder="right-down" width="132" height="132" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="46">
  <properties>
   <property name="hero_pos" value="24,81"/>
   <property name="music" value="music/overworld_theme.ogg"/>
+  <property name="parallax_layers" value="maps/parallax/snow.txt"/>
   <property name="tileset" value="tilesetdefs/tileset_snowplains.txt"/>
   <property name="title" value="Stormrock Pass"/>
  </properties>
