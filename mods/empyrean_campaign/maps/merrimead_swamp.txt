@@ -6,6 +6,7 @@ tileheight=32
 orientation=isometric
 hero_pos=3,17
 music=music/overworld_theme.ogg
+parallax_layers=maps/parallax/rain.txt
 tileset=tilesetdefs/tileset_grassland.txt
 title=Merrimead Swamp
 
@@ -491,6 +492,13 @@ activate=on_trigger
 hotspot=location
 intermap=maps/lochport_cemetery.txt,2,7
 tooltip=Lochport Cemetery
+
+[event]
+# Rain sound effect
+type=event
+location=0,0,1,1
+activate=on_load
+soundfx=soundfx/environment/rain.ogg
 
 [enemy]
 type=enemy
