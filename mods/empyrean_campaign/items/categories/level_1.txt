@@ -34,7 +34,7 @@ name=Dagger
 INCLUDE items/base/weapons/melee/dagger.txt
 level=1
 price=100
-dmg_melee=25,30
+dmg=melee,25,30
 requires_stat=physical,2
 
 [item]
@@ -43,7 +43,7 @@ name=Slingshot
 INCLUDE items/base/weapons/ranged/slingshot.txt
 level=1
 price=100
-dmg_ranged=25,30
+dmg=ranged,25,30
 requires_stat=offense,2
 
 [item]
@@ -52,7 +52,7 @@ name=Wand
 INCLUDE items/base/weapons/magic/wand.txt
 level=1
 price=100
-dmg_ment=25,30
+dmg=ment,25,30
 requires_stat=mental,2
 
 [item]

@@ -220,7 +220,7 @@ INCLUDE items/base/weapons/melee/greatsword.txt
 level=14
 quality=high
 price=1400
-dmg_melee=85,90
+dmg=melee,85,90
 requires_stat=physical,38
 bonus=dmg_melee_min,5
 bonus=dmg_melee_max,5
@@ -232,7 +232,7 @@ INCLUDE items/base/weapons/ranged/greatbow.txt
 level=14
 quality=high
 price=1400
-dmg_ranged=85,90
+dmg=ranged,85,90
 requires_stat=offense,38
 bonus=dmg_ranged_min,5
 bonus=dmg_ranged_max,5
@@ -244,7 +244,7 @@ INCLUDE items/base/weapons/magic/greatstaff.txt
 level=14
 quality=high
 price=1400
-dmg_ment=85,90
+dmg=ment,85,90
 requires_stat=mental,38
 bonus=dmg_ment_min,5
 bonus=dmg_ment_max,5

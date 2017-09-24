@@ -220,7 +220,7 @@ INCLUDE items/base/weapons/melee/shortsword.txt
 level=7
 quality=epic
 price=700
-dmg_melee=45,50
+dmg=melee,45,50
 requires_stat=physical,17
 bonus=dmg_melee_min,10
 bonus=dmg_melee_max,10
@@ -232,7 +232,7 @@ INCLUDE items/base/weapons/ranged/shortbow.txt
 level=7
 quality=epic
 price=700
-dmg_ranged=45,50
+dmg=ranged,45,50
 requires_stat=offense,17
 bonus=dmg_ranged_min,10
 bonus=dmg_ranged_max,10
@@ -244,7 +244,7 @@ INCLUDE items/base/weapons/magic/rod.txt
 level=7
 quality=epic
 price=700
-dmg_ment=45,50
+dmg=ment,45,50
 requires_stat=mental,17
 bonus=dmg_ment_min,10
 bonus=dmg_ment_max,10

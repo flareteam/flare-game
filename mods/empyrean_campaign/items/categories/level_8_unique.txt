@@ -6,7 +6,7 @@ INCLUDE items/base/weapons/melee/zweihander.txt
 level=8
 quality=unique
 price=900
-dmg_melee=45,50
+dmg=melee,45,50
 requires_stat=physical,20
 bonus=dmg_melee_min,20
 bonus=dmg_melee_max,20
@@ -21,7 +21,7 @@ INCLUDE items/base/weapons/ranged/shortbow.txt
 level=8
 quality=unique
 price=900
-dmg_ranged=45,50
+dmg=ranged,45,50
 requires_stat=offense,20
 bonus=dmg_ranged_min,20
 bonus=dmg_ranged_max,20

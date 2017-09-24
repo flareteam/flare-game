@@ -149,7 +149,7 @@ INCLUDE items/base/weapons/melee/dagger.txt
 level=2
 quality=high
 price=200
-dmg_melee=25,30
+dmg=melee,25,30
 requires_stat=physical,2
 bonus=dmg_melee_min,5
 bonus=dmg_melee_max,5
@@ -161,7 +161,7 @@ INCLUDE items/base/weapons/ranged/slingshot.txt
 level=2
 quality=high
 price=200
-dmg_ranged=25,30
+dmg=ranged,25,30
 requires_stat=offense,2
 bonus=dmg_ranged_min,5
 bonus=dmg_ranged_max,5
@@ -173,7 +173,7 @@ INCLUDE items/base/weapons/magic/wand.txt
 level=2
 quality=high
 price=200
-dmg_ment=25,30
+dmg=ment,25,30
 requires_stat=mental,2
 bonus=dmg_ment_min,5
 bonus=dmg_ment_max,5

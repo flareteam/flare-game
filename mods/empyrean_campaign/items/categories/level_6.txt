@@ -220,7 +220,7 @@ INCLUDE items/base/weapons/melee/shortsword.txt
 level=6
 quality=high
 price=600
-dmg_melee=45,50
+dmg=melee,45,50
 requires_stat=physical,14
 bonus=dmg_melee_min,5
 bonus=dmg_melee_max,5
@@ -232,7 +232,7 @@ INCLUDE items/base/weapons/ranged/shortbow.txt
 level=6
 quality=high
 price=600
-dmg_ranged=45,50
+dmg=ranged,45,50
 requires_stat=offense,14
 bonus=dmg_ranged_min,5
 bonus=dmg_ranged_max,5
@@ -244,7 +244,7 @@ INCLUDE items/base/weapons/magic/rod.txt
 level=6
 quality=high
 price=600
-dmg_ment=45,50
+dmg=ment,45,50
 requires_stat=mental,14
 bonus=dmg_ment_min,5
 bonus=dmg_ment_max,5

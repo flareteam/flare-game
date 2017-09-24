@@ -4,7 +4,7 @@
 id=32
 name=Dagger
 INCLUDE items/base/weapons/melee/dagger.txt
-dmg_melee=10,30
+dmg=melee,10,30
 requires_stat=physical,2
 price=20
 
@@ -12,7 +12,7 @@ price=20
 id=33
 name=Shortsword
 INCLUDE items/base/weapons/melee/shortsword.txt
-dmg_melee=15,40
+dmg=melee,15,40
 requires_stat=physical,3
 price=100
 
@@ -20,7 +20,7 @@ price=100
 id=34
 name=Longsword
 INCLUDE items/base/weapons/melee/longsword.txt
-dmg_melee=20,50
+dmg=melee,20,50
 requires_stat=physical,4
 price=500
 
@@ -28,7 +28,7 @@ price=500
 id=35
 name=Greatsword
 INCLUDE items/base/weapons/melee/greatsword.txt
-dmg_melee=25,60
+dmg=melee,25,60
 requires_stat=physical,5
 price=2000
 
