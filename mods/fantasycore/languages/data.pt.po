@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Flare v0.18\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-10 07:45+\n"
+"POT-Creation-Date: 2017-10-02 15:56+\n"
 "PO-Revision-Date: 2013-12-02 15:47-0300\n"
 "Last-Translator: Phillippe Caetano <ph.ufeb@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -60,8 +60,12 @@ msgid "Gem"
 msgstr "Gema"
 
 #: ../items/types.txt:51
-msgid "Quest Item"
-msgstr "Item de Aventura"
+msgid "Key"
+msgstr ""
+
+#: ../items/types.txt:55
+msgid "Book"
+msgstr ""
 
 #: ../items/qualities.txt:3
 msgid "Low"
@@ -80,167 +84,163 @@ msgid "Epic"
 msgstr ""
 
 #: ../items/qualities.txt:23
+msgid "Rare"
+msgstr ""
+
+#: ../items/qualities.txt:28
 msgid "Unique"
 msgstr ""
 
-#: ../engine/loot.txt:13
-#: ../engine/loot.txt:19
+#: ../items/qualities.txt:33
+msgid "One-time Use"
+msgstr ""
+
+#: ../items/qualities.txt:38
+msgid "Currency"
+msgstr ""
+
+#: ../engine/loot.txt:14
 msgid "Gold"
 msgstr "Ouro"
 
 #: ../engine/hero_options.txt:6
-#: ../engine/hero_options.txt:7
 msgid "Delrek"
 msgstr ""
 
 #: ../engine/hero_options.txt:7
-#: ../engine/hero_options.txt:8
 msgid "Anthem"
 msgstr ""
 
 #: ../engine/hero_options.txt:8
-#: ../engine/hero_options.txt:9
 msgid "Kuroko"
 msgstr ""
 
 #: ../engine/hero_options.txt:9
-#: ../engine/hero_options.txt:10
 msgid "Silus"
 msgstr ""
 
 #: ../engine/hero_options.txt:10
-#: ../engine/hero_options.txt:11
 msgid "Wardell"
 msgstr ""
 
 #: ../engine/hero_options.txt:11
-#: ../engine/hero_options.txt:12
 msgid "Meck"
 msgstr ""
 
 #: ../engine/hero_options.txt:12
-#: ../engine/hero_options.txt:13
 msgid "Jereth"
 msgstr ""
 
 #: ../engine/hero_options.txt:13
-#: ../engine/hero_options.txt:14
 msgid "Ecnerwal"
 msgstr ""
 
 #: ../engine/hero_options.txt:14
-#: ../engine/hero_options.txt:15
 msgid "Chane"
 msgstr ""
 
 #: ../engine/hero_options.txt:15
-#: ../engine/hero_options.txt:16
 msgid "Esteban"
 msgstr ""
 
 #: ../engine/hero_options.txt:16
-#: ../engine/hero_options.txt:17
 msgid "Kelen"
 msgstr ""
 
 #: ../engine/hero_options.txt:17
-#: ../engine/hero_options.txt:18
 msgid "Jochanan"
 msgstr ""
 
 #: ../engine/hero_options.txt:18
-#: ../engine/hero_options.txt:19
 msgid "Ichijo"
 msgstr ""
 
 #: ../engine/hero_options.txt:19
-#: ../engine/hero_options.txt:20
 msgid "Torwald"
 msgstr ""
 
 #: ../engine/hero_options.txt:20
-#: ../engine/hero_options.txt:21
 msgid "Rudyard"
 msgstr ""
 
 #: ../engine/hero_options.txt:21
-#: ../engine/hero_options.txt:22
 msgid "Gryphon"
 msgstr ""
 
 #: ../engine/hero_options.txt:22
-#: ../engine/hero_options.txt:23
 msgid "Percival"
 msgstr ""
 
 #: ../engine/hero_options.txt:23
-#: ../engine/hero_options.txt:24
 msgid "Eldmoor"
 msgstr ""
 
 #: ../engine/hero_options.txt:24
-#: ../engine/hero_options.txt:25
 msgid "Lott"
 msgstr ""
 
 #: ../engine/hero_options.txt:25
-#: ../engine/hero_options.txt:26
 msgid "Respute"
 msgstr ""
 
 #: ../engine/hero_options.txt:27
-#: ../engine/hero_options.txt:28
 msgid "Elise"
 msgstr ""
 
 #: ../engine/hero_options.txt:28
-#: ../engine/hero_options.txt:29
 msgid "River"
 msgstr ""
 
 #: ../engine/hero_options.txt:29
-#: ../engine/hero_options.txt:30
 msgid "Nital"
 msgstr ""
 
 #: ../engine/hero_options.txt:30
-#: ../engine/hero_options.txt:31
 msgid "Karyli"
 msgstr ""
 
 #: ../engine/hero_options.txt:31
-#: ../engine/hero_options.txt:32
 msgid "Venka"
 msgstr ""
 
 #: ../engine/hero_options.txt:32
-#: ../engine/hero_options.txt:33
 msgid "Mikal"
 msgstr ""
 
 #: ../engine/hero_options.txt:33
-#: ../engine/hero_options.txt:34
 msgid "Hira"
 msgstr ""
 
 #: ../engine/hero_options.txt:34
-#: ../engine/hero_options.txt:35
 msgid "Blynn"
 msgstr ""
 
 #: ../engine/hero_options.txt:35
-#: ../engine/hero_options.txt:36
 msgid "Ashdara"
 msgstr ""
 
 #: ../engine/hero_options.txt:36
-#: ../engine/hero_options.txt:37
 msgid "Calyss"
 msgstr ""
 
 #: ../engine/hero_options.txt:37
-#: ../engine/hero_options.txt:38
 msgid "Zeldyn"
+msgstr ""
+
+#: ../engine/hero_options.txt:38
+msgid "Malia"
+msgstr ""
+
+#: ../engine/hero_options.txt:39
+msgid "Ayah"
+msgstr ""
+
+#: ../engine/hero_options.txt:40
+msgid "Gywn"
+msgstr ""
+
+#: ../engine/hero_options.txt:41
+msgid "Sonia"
 msgstr ""
 
 #: ../engine/equip_flags.txt:5
@@ -267,30 +267,169 @@ msgstr ""
 msgid "bow"
 msgstr ""
 
-#: ../cutscenes/credits.txt:8
+#: ../cutscenes/credits.txt:7
 msgid "Flare Game Credits - fantasycore"
 msgstr ""
 
 #: ../cutscenes/credits.txt:10
-msgid "Lead Visual Artists - Clint Bellanger and Justin Nichol"
+msgid "Lead Visual Artists"
 msgstr ""
 
 #: ../cutscenes/credits.txt:12
-msgid "Visual Artists - Blarumyrran, Jessica Cox, Sarah Benalene, Scrittl, and Stefan Beller"
+msgid "Clint Bellanger"
 msgstr ""
 
-#: ../cutscenes/credits.txt:14
-msgid "Composers - Brandon Morris and remaxim"
+#: ../cutscenes/credits.txt:13
+msgid "Justin Nichol"
 msgstr ""
 
 #: ../cutscenes/credits.txt:16
-msgid "Foley Artist - Brandon Morris"
+msgid "Visual Artists"
 msgstr ""
 
 #: ../cutscenes/credits.txt:18
-msgid "Voice Actors - Brandon Morris and Holly Daniel"
+msgid "Blarumyrran"
+msgstr ""
+
+#: ../cutscenes/credits.txt:19
+msgid "Jessica Cox"
 msgstr ""
 
 #: ../cutscenes/credits.txt:20
-msgid "Translators - Adrian Chaves Fernandez, Andrea Ranaldi, Andreas Berheim Brudin, Bas Doodeman, Bonbadil, Carlos Sanchez, Chris Oelmueller, Christoph J. Thompson, Evgen Pavlov, Giovanni Dalla Torre, Hans Joachim Desserud, Igor Paliychuk, Juan Pablo Tamayo, Mikhail Karalevich, Miro Jánošík, Morgan Strauss, Nikita Vanku, Paul Wortmann, Pawel Puszczynski, Quentin Stievenart, Sergey Basalaev, Stefan Beller, Thomas Glamsch, Timo Sievänen, and Yannis Anthymidis"
+msgid "Sarah Benalene"
 msgstr ""
+
+#: ../cutscenes/credits.txt:21
+msgid "Scrittl"
+msgstr ""
+
+#: ../cutscenes/credits.txt:22
+msgid "Stefan Beller"
+msgstr ""
+
+#: ../cutscenes/credits.txt:25
+msgid "Composers"
+msgstr ""
+
+#: ../cutscenes/credits.txt:27
+msgid "Brandon Morris"
+msgstr ""
+
+#: ../cutscenes/credits.txt:28
+msgid "remaxim"
+msgstr ""
+
+#: ../cutscenes/credits.txt:31
+msgid "Foley Artists"
+msgstr ""
+
+#: ../cutscenes/credits.txt:36
+msgid "Voice Actors"
+msgstr ""
+
+#: ../cutscenes/credits.txt:39
+msgid "Holly Daniel"
+msgstr ""
+
+#: ../cutscenes/credits.txt:42
+msgid "Translators"
+msgstr ""
+
+#: ../cutscenes/credits.txt:44
+msgid "Adrian Chaves Fernandez"
+msgstr ""
+
+#: ../cutscenes/credits.txt:45
+msgid "Andrea Ranaldi"
+msgstr ""
+
+#: ../cutscenes/credits.txt:46
+msgid "Andreas Berheim Brudin"
+msgstr ""
+
+#: ../cutscenes/credits.txt:47
+msgid "Bas Doodeman"
+msgstr ""
+
+#: ../cutscenes/credits.txt:48
+msgid "Bonbadil"
+msgstr ""
+
+#: ../cutscenes/credits.txt:49
+msgid "Carlos Sanchez"
+msgstr ""
+
+#: ../cutscenes/credits.txt:50
+msgid "Chris Oelmueller"
+msgstr ""
+
+#: ../cutscenes/credits.txt:51
+msgid "Christoph J. Thompson"
+msgstr ""
+
+#: ../cutscenes/credits.txt:52
+msgid "Evgen Pavlov"
+msgstr ""
+
+#: ../cutscenes/credits.txt:53
+msgid "Giovanni Dalla Torre"
+msgstr ""
+
+#: ../cutscenes/credits.txt:54
+msgid "Hans Joachim Desserud"
+msgstr ""
+
+#: ../cutscenes/credits.txt:55
+msgid "Igor Paliychuk"
+msgstr ""
+
+#: ../cutscenes/credits.txt:56
+msgid "Juan Pablo Tamayo"
+msgstr ""
+
+#: ../cutscenes/credits.txt:57
+msgid "Mikhail Karalevich"
+msgstr ""
+
+#: ../cutscenes/credits.txt:58
+msgid "Miro Jánošík"
+msgstr ""
+
+#: ../cutscenes/credits.txt:59
+msgid "Morgan Strauss"
+msgstr ""
+
+#: ../cutscenes/credits.txt:60
+msgid "Nikita Vanku"
+msgstr ""
+
+#: ../cutscenes/credits.txt:61
+msgid "Paul Wortmann"
+msgstr ""
+
+#: ../cutscenes/credits.txt:62
+msgid "Pawel Puszczynski"
+msgstr ""
+
+#: ../cutscenes/credits.txt:63
+msgid "Quentin Stievenart"
+msgstr ""
+
+#: ../cutscenes/credits.txt:64
+msgid "Sergey Basalaev"
+msgstr ""
+
+#: ../cutscenes/credits.txt:66
+msgid "Thomas Glamsch"
+msgstr ""
+
+#: ../cutscenes/credits.txt:67
+msgid "Timo Sievänen"
+msgstr ""
+
+#: ../cutscenes/credits.txt:68
+msgid "Yannis Anthymidis"
+msgstr ""
+
+#~ msgid "Quest Item"
+#~ msgstr "Item de Aventura"

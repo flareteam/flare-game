@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-10 07:45+\n"
+"POT-Creation-Date: 2017-10-02 15:56+\n"
 "PO-Revision-Date: 2014-10-26 20:36+0100\n"
 "Last-Translator: Adrián Chaves Fernández <adriyetichaves@gmail.com>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
@@ -60,8 +60,12 @@ msgid "Gem"
 msgstr "Xema"
 
 #: ../items/types.txt:51
-msgid "Quest Item"
-msgstr "Obxecto dunha misión"
+msgid "Key"
+msgstr ""
+
+#: ../items/types.txt:55
+msgid "Book"
+msgstr ""
 
 #: ../items/qualities.txt:3
 msgid "Low"
@@ -80,11 +84,22 @@ msgid "Epic"
 msgstr ""
 
 #: ../items/qualities.txt:23
+msgid "Rare"
+msgstr ""
+
+#: ../items/qualities.txt:28
 msgid "Unique"
 msgstr ""
 
-#: ../engine/loot.txt:13
-#: ../items/items.txt:83
+#: ../items/qualities.txt:33
+msgid "One-time Use"
+msgstr ""
+
+#: ../items/qualities.txt:38
+msgid "Currency"
+msgstr ""
+
+#: ../engine/loot.txt:14
 msgid "Gold"
 msgstr "moedas"
 
@@ -212,6 +227,22 @@ msgstr "Calis"
 msgid "Zeldyn"
 msgstr "Celdin"
 
+#: ../engine/hero_options.txt:38
+msgid "Malia"
+msgstr ""
+
+#: ../engine/hero_options.txt:39
+msgid "Ayah"
+msgstr ""
+
+#: ../engine/hero_options.txt:40
+msgid "Gywn"
+msgstr ""
+
+#: ../engine/hero_options.txt:41
+msgid "Sonia"
+msgstr ""
+
 #: ../engine/equip_flags.txt:5
 msgid "melee weapon"
 msgstr "arma de contacto"
@@ -225,54 +256,197 @@ msgid "mental weapon"
 msgstr "arma mental"
 
 #: ../engine/equip_flags.txt:17
-#: ../powers/effects.txt:90
 msgid "shield"
 msgstr "escudo"
 
 #: ../engine/equip_flags.txt:21
-#: ../engine/equip_flags.txt:20
 msgid "slingshot"
 msgstr "tiracroios"
 
 #: ../engine/equip_flags.txt:25
-#: ../engine/equip_flags.txt:24
 msgid "bow"
 msgstr "arco"
 
-#: ../cutscenes/credits.txt:8
+#: ../cutscenes/credits.txt:7
 msgid "Flare Game Credits - fantasycore"
 msgstr "Autores de Flare, o xogo — fantasycore"
 
 #: ../cutscenes/credits.txt:10
-msgid "Lead Visual Artists - Clint Bellanger and Justin Nichol"
-msgstr "Deseñadores gráficos principais: Clint Bellanger e Justin Nichol"
+msgid "Lead Visual Artists"
+msgstr ""
 
 #: ../cutscenes/credits.txt:12
-msgid "Visual Artists - Blarumyrran, Jessica Cox, Sarah Benalene, Scrittl, and Stefan Beller"
+msgid "Clint Bellanger"
 msgstr ""
-"Deseñadores gráficos: Blarumyrran, Jessica Cox, Sarah Benalene, Scrittl e "
-"Stefan Beller"
 
-#: ../cutscenes/credits.txt:14
-msgid "Composers - Brandon Morris and remaxim"
-msgstr "Música: Brandon Morris e remaxim"
+#: ../cutscenes/credits.txt:13
+msgid "Justin Nichol"
+msgstr ""
 
 #: ../cutscenes/credits.txt:16
-msgid "Foley Artist - Brandon Morris"
-msgstr "Efectos de son: Brandon Morris"
+msgid "Visual Artists"
+msgstr ""
 
 #: ../cutscenes/credits.txt:18
-msgid "Voice Actors - Brandon Morris and Holly Daniel"
-msgstr "Voces: Brandon Morris e Holly Daniel"
+msgid "Blarumyrran"
+msgstr ""
+
+#: ../cutscenes/credits.txt:19
+msgid "Jessica Cox"
+msgstr ""
 
 #: ../cutscenes/credits.txt:20
-#: ../cutscenes/credits.txt:12
-msgid "Translators - Adrian Chaves Fernandez, Andrea Ranaldi, Andreas Berheim Brudin, Bas Doodeman, Bonbadil, Carlos Sanchez, Chris Oelmueller, Christoph J. Thompson, Evgen Pavlov, Giovanni Dalla Torre, Hans Joachim Desserud, Igor Paliychuk, Juan Pablo Tamayo, Mikhail Karalevich, Miro Jánošík, Morgan Strauss, Nikita Vanku, Paul Wortmann, Pawel Puszczynski, Quentin Stievenart, Sergey Basalaev, Stefan Beller, Thomas Glamsch, Timo Sievänen, and Yannis Anthymidis"
+msgid "Sarah Benalene"
 msgstr ""
-"Tradutores: Adrian Chaves Fernandez, Andrea Ranaldi, Andreas Berheim Brudin, "
-"Bas Doodeman, Bonbadil, Carlos Sanchez, Chris Oelmueller, Christoph J. "
-"Thompson, Evgen Pavlov, Giovanni Dalla Torre, gunchleoc, Hans Joachim "
-"Desserud, Igor Paliychuk, Juan Pablo Tamayo, Mikhail Karalevich, Miro "
-"Jánošík, Morgan Strauss, Nikita Vanku, Paul Wortmann, Pawel Puszczynski, "
-"Quentin Stievenart, Sergey Basalaev, Stefan Beller, Thomas Glamsch, Timo "
-"Sievänen, Wuzzy e Yannis Anthymidis"
+
+#: ../cutscenes/credits.txt:21
+msgid "Scrittl"
+msgstr ""
+
+#: ../cutscenes/credits.txt:22
+msgid "Stefan Beller"
+msgstr ""
+
+#: ../cutscenes/credits.txt:25
+msgid "Composers"
+msgstr ""
+
+#: ../cutscenes/credits.txt:27
+#, fuzzy
+msgid "Brandon Morris"
+msgstr "Efectos de son: Brandon Morris"
+
+#: ../cutscenes/credits.txt:28
+msgid "remaxim"
+msgstr ""
+
+#: ../cutscenes/credits.txt:31
+#, fuzzy
+msgid "Foley Artists"
+msgstr "Efectos de son: Brandon Morris"
+
+#: ../cutscenes/credits.txt:36
+msgid "Voice Actors"
+msgstr ""
+
+#: ../cutscenes/credits.txt:39
+msgid "Holly Daniel"
+msgstr ""
+
+#: ../cutscenes/credits.txt:42
+msgid "Translators"
+msgstr ""
+
+#: ../cutscenes/credits.txt:44
+msgid "Adrian Chaves Fernandez"
+msgstr ""
+
+#: ../cutscenes/credits.txt:45
+msgid "Andrea Ranaldi"
+msgstr ""
+
+#: ../cutscenes/credits.txt:46
+msgid "Andreas Berheim Brudin"
+msgstr ""
+
+#: ../cutscenes/credits.txt:47
+msgid "Bas Doodeman"
+msgstr ""
+
+#: ../cutscenes/credits.txt:48
+msgid "Bonbadil"
+msgstr ""
+
+#: ../cutscenes/credits.txt:49
+msgid "Carlos Sanchez"
+msgstr ""
+
+#: ../cutscenes/credits.txt:50
+msgid "Chris Oelmueller"
+msgstr ""
+
+#: ../cutscenes/credits.txt:51
+msgid "Christoph J. Thompson"
+msgstr ""
+
+#: ../cutscenes/credits.txt:52
+msgid "Evgen Pavlov"
+msgstr ""
+
+#: ../cutscenes/credits.txt:53
+msgid "Giovanni Dalla Torre"
+msgstr ""
+
+#: ../cutscenes/credits.txt:54
+msgid "Hans Joachim Desserud"
+msgstr ""
+
+#: ../cutscenes/credits.txt:55
+msgid "Igor Paliychuk"
+msgstr ""
+
+#: ../cutscenes/credits.txt:56
+msgid "Juan Pablo Tamayo"
+msgstr ""
+
+#: ../cutscenes/credits.txt:57
+msgid "Mikhail Karalevich"
+msgstr ""
+
+#: ../cutscenes/credits.txt:58
+msgid "Miro Jánošík"
+msgstr ""
+
+#: ../cutscenes/credits.txt:59
+msgid "Morgan Strauss"
+msgstr ""
+
+#: ../cutscenes/credits.txt:60
+msgid "Nikita Vanku"
+msgstr ""
+
+#: ../cutscenes/credits.txt:61
+msgid "Paul Wortmann"
+msgstr ""
+
+#: ../cutscenes/credits.txt:62
+msgid "Pawel Puszczynski"
+msgstr ""
+
+#: ../cutscenes/credits.txt:63
+msgid "Quentin Stievenart"
+msgstr ""
+
+#: ../cutscenes/credits.txt:64
+msgid "Sergey Basalaev"
+msgstr ""
+
+#: ../cutscenes/credits.txt:66
+msgid "Thomas Glamsch"
+msgstr ""
+
+#: ../cutscenes/credits.txt:67
+msgid "Timo Sievänen"
+msgstr ""
+
+#: ../cutscenes/credits.txt:68
+msgid "Yannis Anthymidis"
+msgstr ""
+
+#~ msgid "Quest Item"
+#~ msgstr "Obxecto dunha misión"
+
+#~ msgid "Lead Visual Artists - Clint Bellanger and Justin Nichol"
+#~ msgstr "Deseñadores gráficos principais: Clint Bellanger e Justin Nichol"
+
+#~ msgid "Visual Artists - Blarumyrran, Jessica Cox, Sarah Benalene, Scrittl, and Stefan Beller"
+#~ msgstr "Deseñadores gráficos: Blarumyrran, Jessica Cox, Sarah Benalene, Scrittl e Stefan Beller"
+
+#~ msgid "Composers - Brandon Morris and remaxim"
+#~ msgstr "Música: Brandon Morris e remaxim"
+
+#~ msgid "Voice Actors - Brandon Morris and Holly Daniel"
+#~ msgstr "Voces: Brandon Morris e Holly Daniel"
+
+#~ msgid "Translators - Adrian Chaves Fernandez, Andrea Ranaldi, Andreas Berheim Brudin, Bas Doodeman, Bonbadil, Carlos Sanchez, Chris Oelmueller, Christoph J. Thompson, Evgen Pavlov, Giovanni Dalla Torre, Hans Joachim Desserud, Igor Paliychuk, Juan Pablo Tamayo, Mikhail Karalevich, Miro Jánošík, Morgan Strauss, Nikita Vanku, Paul Wortmann, Pawel Puszczynski, Quentin Stievenart, Sergey Basalaev, Stefan Beller, Thomas Glamsch, Timo Sievänen, and Yannis Anthymidis"
+#~ msgstr "Tradutores: Adrian Chaves Fernandez, Andrea Ranaldi, Andreas Berheim Brudin, Bas Doodeman, Bonbadil, Carlos Sanchez, Chris Oelmueller, Christoph J. Thompson, Evgen Pavlov, Giovanni Dalla Torre, gunchleoc, Hans Joachim Desserud, Igor Paliychuk, Juan Pablo Tamayo, Mikhail Karalevich, Miro Jánošík, Morgan Strauss, Nikita Vanku, Paul Wortmann, Pawel Puszczynski, Quentin Stievenart, Sergey Basalaev, Stefan Beller, Thomas Glamsch, Timo Sievänen, Wuzzy e Yannis Anthymidis"
