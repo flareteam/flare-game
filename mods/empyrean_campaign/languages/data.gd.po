@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-26 15:53+\n"
+"POT-Creation-Date: 2017-10-02 15:54+\n"
 "PO-Revision-Date: 2015-11-16 12:06+0100\n"
 "Last-Translator: GunChleoc <fios@foramnagaidhlig.net>\n"
 "Language-Team: Fòram na Gàidhlig\n"
@@ -13,25 +13,86 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n==1 || n==11) ? 0 : (n==2 || n==12) ? 1 : "
-"(n > 2 && n < 20) ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=(n==1 || n==11) ? 0 : (n==2 || n==12) ? 1 : (n > 2 && n < 20) ? 2 : 3;\n"
 "X-Generator: Virtaal 0.7.1\n"
 
 #: ../items/items.txt:8
 msgid "Gold"
 msgstr "Òr"
 
+#: ../items/items.txt:54
+msgid "DEV Boots"
+msgstr ""
+
+#: ../items/items.txt:59
+msgid "Use: Teleport to target position."
+msgstr ""
+
+#: ../items/sets.txt:3
+msgid "St. Maria Garb"
+msgstr ""
+
+#: ../items/sets.txt:14
+msgid "Temple Guard's Outfit"
+msgstr ""
+
+#: ../items/sets.txt:25
+msgid "Wizard's Apparatus"
+msgstr ""
+
+#: ../powers/effects.txt:6
+msgid "Shield"
+msgstr "Sgiath"
+
+#: ../powers/effects.txt:16
+msgid "Bleeding"
+msgstr ""
+
+#: ../powers/effects.txt:24
+msgid "Slow"
+msgstr ""
+
+#: ../powers/effects.txt:31
+msgid "Stun"
+msgstr ""
+
+#: ../powers/effects.txt:38
+msgid "Immunity"
+msgstr ""
+
+#: ../powers/effects.txt:45
+msgid "Haste"
+msgstr "Cabhag"
+
+#: ../powers/effects.txt:96
+msgid "Weakness to Fire"
+msgstr ""
+
+#: ../powers/effects.txt:105
+msgid "Weakness to Ice"
+msgstr ""
+
+#: ../powers/powers.txt:23
+msgid "Teleport"
+msgstr ""
+
 #: ../engine/elements.txt:3
-msgid "Fire Resistance"
-msgstr "Comas-seasaimh an aghaidh teine"
+#, fuzzy
+msgid "Fire"
+msgstr "Bàla-teine"
 
 #: ../engine/elements.txt:7
-msgid "Ice Resistance"
-msgstr "Comas-seasaimh an aghaidh deighe"
+msgid "Ice"
+msgstr ""
 
 #: ../engine/elements.txt:11
-msgid "Lightning Resistance"
-msgstr "Comas-seasaimh an aghaidh dealanaich"
+#, fuzzy
+msgid "Lightning"
+msgstr "Fàinne an dealanaich"
+
+#: ../engine/elements.txt:15
+msgid "Dark"
+msgstr ""
 
 #: ../engine/classes.txt:6
 msgid "Brute"
@@ -55,9 +116,7 @@ msgstr "Innleachdach"
 
 #: ../engine/classes.txt:27
 msgid "Adepts have natural abilities in casting magical spells. Primary attribute: Mental"
-msgstr ""
-"Tha comasan nàdarra aig innleachdaich gus geasan a chur. Prìomh-bhuadh: "
-"inntinn"
+msgstr "Tha comasan nàdarra aig innleachdaich gus geasan a chur. Prìomh-bhuadh: inntinn"
 
 #: ../engine/titles.txt:3
 msgid "Grand Master"
@@ -199,784 +258,3689 @@ msgstr "Freiceadan"
 msgid "Exiled"
 msgstr "Fogharaiche"
 
-#: ..\enemies\lvl1_goblin_runner.txt:3
+#: ../engine/equip_flags.txt:5
+#, fuzzy
+msgid "throwing axe"
+msgstr "Tilgeil tuagha"
+
+#: ../enemies/lvl10_minotaur.txt:3
+msgid "Minotaur"
+msgstr ""
+
+#: ../enemies/lvl10_minotaur_necromancer.txt:3
+msgid "Minotaur Necromancer"
+msgstr ""
+
+#: ../enemies/lvl10_mog.txt:3
+msgid "Mog"
+msgstr ""
+
+#: ../enemies/lvl10_skeleton_minion.txt:3
+#, fuzzy
+msgid "Skeleton Minion"
+msgstr "Cnàimhneach"
+
+#: ../enemies/lvl10_skeleton_sharpshooter.txt:3
+#, fuzzy
+msgid "Skeleton Sharpshooter"
+msgstr "Boghadair Cnàimhnich"
+
+#: ../enemies/lvl10_xonun.txt:3
+msgid "Xonun"
+msgstr ""
+
+#: ../enemies/lvl10_zombie_leecher.txt:3
+#, fuzzy
+msgid "Leecher Zombie"
+msgstr "Corp coisiche"
+
+#: ../enemies/lvl11_buchi.txt:3
+msgid "Buchi"
+msgstr ""
+
+#: ../enemies/lvl11_sentry_fire.txt:3
+#, fuzzy
+msgid "Fire Sentry"
+msgstr "Fàinne an teine"
+
+#: ../enemies/lvl11_sentry_ice.txt:3
+msgid "Ice Sentry"
+msgstr ""
+
+#: ../enemies/lvl11_skeleton_blaze.txt:3
+#, fuzzy
+msgid "Blaze Skeleton"
+msgstr "Cnàimhneach sgagach"
+
+#: ../enemies/lvl11_skeleton_frost.txt:3
+#, fuzzy
+msgid "Frost Skeleton"
+msgstr "Cnàimhneach"
+
+#: ../enemies/lvl11_skeleton_protector.txt:3
+#, fuzzy
+msgid "Skeleton Protector"
+msgstr "Boghadair Cnàimhnich"
+
+#: ../enemies/lvl12_nishi.txt:3
+msgid "Nishi"
+msgstr ""
+
+#: ../enemies/lvl1_goblin_runner.txt:3
 msgid "Goblin Runner"
 msgstr "Ruithear Bòcain"
 
-#: ..\enemies\lvl1_goblin_scamp.txt:3
+#: ../enemies/lvl1_goblin_scamp.txt:3
 msgid "Goblin Scamp"
 msgstr "Slaightear Bòcain"
 
-#: ..\enemies\lvl1_skeleton_cracked.txt:3
+#: ../enemies/lvl1_skeleton_cracked.txt:3
 msgid "Cracked Skeleton"
 msgstr "Cnàimhneach sgagach"
 
-#: ..\enemies\lvl1_zombie_raised.txt:3
+#: ../enemies/lvl1_zombie_raised.txt:3
 msgid "Cursed Zombie"
 msgstr "Corp coisiche damainte"
 
-#: ..\enemies\lvl1_zombie_rotting.txt:3
+#: ../enemies/lvl1_zombie_rotting.txt:3
 msgid "Rotting Zombie"
 msgstr "Corp coisiche a' lobhadh"
 
-#: ..\enemies\lvl2_goblin.txt:3
+#: ../enemies/lvl2_goblin.txt:3
 msgid "Goblin"
 msgstr "Bòcan"
 
-#: ..\enemies\lvl2_goblin_charger.txt:3
+#: ../enemies/lvl2_goblin_charger.txt:3
 msgid "Goblin Charger"
 msgstr "Cruinn-leumadair Bòcain"
 
-#: ..\enemies\lvl2_goblin_chief.txt:3
+#: ../enemies/lvl2_goblin_chief.txt:3
 msgid "Goblin Chief"
 msgstr "Ceannard Bòcain"
 
-#: ..\enemies\lvl2_goblin_spearman.txt:3
+#: ../enemies/lvl2_goblin_spearman.txt:3
 msgid "Goblin Spearman"
 msgstr "Sleaghair Bòcain"
 
-#: ..\enemies\lvl2_krolan.txt:3
+#: ../enemies/lvl2_krolan.txt:3
 msgid "Krolan"
 msgstr "Cròlan"
 
-#: ..\enemies\lvl2_skeleton.txt:3
+#: ../enemies/lvl2_skeleton.txt:3
 msgid "Skeleton"
 msgstr "Cnàimhneach"
 
-#: ..\enemies\lvl2_skeleton_archer.txt:3
+#: ../enemies/lvl2_skeleton_archer.txt:3
 msgid "Skeleton Archer"
 msgstr "Boghadair Cnàimhnich"
 
-#: ..\enemies\lvl2_zombie.txt:3
+#: ../enemies/lvl2_zombie.txt:3
 msgid "Zombie"
 msgstr "Corp coisiche"
 
-#: ..\enemies\lvl3_ardwen_quest.txt:3
-msgid "Ardwen (Quest)"
-msgstr "Àrdear (ceann-turais)"
-
-#: ..\enemies\lvl3_cursed_grave.txt:3
-msgid "Cursed Grave"
-msgstr "Uaigh damainte"
-
-#: ..\maps\arrival.txt:9
-msgid "Arrival"
-msgstr "Teachd"
-
-#: ..\maps\arrival.txt:165
-msgid "River Trail"
-msgstr "Slighe na h-aibhne"
-
-#: ..\maps\book_of_the_dead.txt:9
-msgid "Book of the Dead"
-msgstr "Leabhar nam marbh"
-
-#: ..\maps\book_of_the_dead.txt:189
-msgid "Perdition Harbor"
-msgstr "Port an Dubh-chaill"
-
-#: ..\maps\book_of_the_dead.txt:198
-msgid "Salted Field"
-msgstr "Achadh Saillte"
-
-#: ..\maps\family_crypt.txt:9
-msgid "Family Crypt"
-msgstr "Rèilig teaghlaich"
-
-#: ..\maps\family_crypt.txt:225
-msgid "Switch"
-msgstr "Suidse"
-
-#: ..\maps\family_crypt.txt:240
-msgid "Treasure Chest"
-msgstr "Ciste ulaidh"
-
-#: ..\maps\family_crypt.txt:248
-msgid "Ardwen (1308-1364), founder of Lochport"
-msgstr "Àrdear (1308-1364), Ceann-phort an Locha"
-
-#: ..\maps\family_crypt.txt:251
-msgid "In Memoriam"
-msgstr "Mar chuimhneachan"
-
-#: ..\maps\family_crypt.txt:259
-msgid "Lochport Cemetery"
-msgstr "Cladh Phort an Locha"
-
-#: ..\maps\family_crypt.txt:290
-msgid "The coffin has a small slot the size of Ardwen's ring. You place the ring in the slot."
-msgstr ""
-"Tha slot beag sa chiste-aighe air meud fàinne Àrdeir. Tha thu a' cur an "
-"fhàinne san t-slot."
-
-#: ..\maps\family_crypt.txt:298
-msgid "Ardwen's Coffin"
-msgstr "Ciste-laighe Àrdeir"
-
-#: ..\maps\family_crypt.txt:319
-msgid "The switch won't budge."
-msgstr "Cha ghluais an t-suidse."
-
-#: ..\maps\goblin_camp.txt:9
-msgid "Goblin Camp"
-msgstr "Campa nam bòcan"
-
-#: ..\maps\goblin_camp.txt:218
-msgid "Stonewood"
-msgstr "Coille nan Clach"
-
-#: ..\maps\goblin_camp.txt:231
-msgid "Lumber"
-msgstr "Fiodh"
-
-#: ..\maps\goblin_camp.txt:249
-msgid "Supplies"
-msgstr "Stòrasan"
-
-#: ..\maps\goblin_camp.txt:386
-msgid "Merrimead Swamp"
-msgstr "Boglach na mìl-dhibhe meire"
-
-#: ..\maps\goblin_camp.txt:394
-msgid "Goblin Cave"
-msgstr "Uamh nam bòcan"
-
-#: ..\maps\goblin_cave.txt:249
-msgid "Barrel"
-msgstr "Tunna"
-
-#: ..\maps\goblin_cave.txt:260
-msgid "Crate"
-msgstr "Creat"
-
-#: ..\maps\hyperspace.txt:9
-msgid "Hyperspace"
-msgstr "Os-fhànais"
-
-#: ..\maps\lochport.txt:9
-msgid "Lochport"
-msgstr "Port an Locha"
-
-#: ..\maps\lochport_cemetery.txt:302
-msgid "Valverde Cemetery waypoint discovered."
-msgstr "Chaidh puing-thurais Cladh na Glinne Guirme a lorg."
-
-#: ..\maps\perdition_harbor.txt:167
-msgid "Shared Stash"
-msgstr "Stòr co-roinnte"
-
-#: ..\maps\perdition_harbor.txt:252
-msgid "Perdition Harbor waypoint discovered."
-msgstr "Chaidh puing-thurais Phort an Locha a lorg."
-
-#: ..\maps\perdition_mines.txt:9
-msgid "Perdition Mines"
-msgstr "Mèinnean an Dubh-chaill"
-
-#: ..\maps\perdition_mines.txt:157
-msgid "Krolan's Chest"
-msgstr "Ciste Chròlain"
-
-#: ..\maps\stonewood.txt:479
-msgid "Stonewood waypoint discovered."
-msgstr "Chaidh puing-thurais Coille nan Clach a lorg."
-
-#: ..\quests\ardwen.txt:4
-msgid "Find a way to escape the Family Crypt."
-msgstr "Lorg slighe a-mach às an rèilig teaghlaich."
-
-#: ..\quests\ardwen.txt:9
-msgid "You found a strange ring. Maybe it will aid in escaping the Family Crypt."
-msgstr ""
-"Lorg thu fàinne neònach. 'S dòcha gun cuidich e thu ach an teich thu o "
-"rèilig an teaghlaich."
-
-#: ..\quests\ardwen.txt:14
-msgid "Defeat Ardwen."
-msgstr "Cuir ruaig air Àrdear."
-
-#: ..\quests\ardwen.txt:19
-msgid "Ardwen has been defeated. The lever near his coffin will likely open the nearby gate."
-msgstr ""
-"Chuir thu ruaig air Àrdear. Saoil am fosgail an luamhan faisg air a chiste-"
-"laighe an geata am fagas?"
-
-#: ..\quests\journal.txt:4
-msgid "Find the traveling merchant's journal. It is likely being carried by a nearby goblin."
-msgstr ""
-"Lorg leabhar-latha a' mharsanta-shiubhail. Cha lughaid gu bheil e aig bòcan "
-"a tha faisg ort."
-
-#: ..\quests\journal.txt:9
-msgid "Return the journal to the traveling merchant."
-msgstr "Till an leabhar-latha gun mharsanta-siubhail."
-
-#: ..\quests\krolan.txt:4
-msgid "Travel to the Perdition Mines and look for Krolan."
-msgstr "Siubhail gu Mèinnean an Dubh-chaill agus lorg Cròlan."
-
-#: ..\quests\krolan.txt:9
-msgid "Use Krolan's key to search his chest."
-msgstr "Cleachd iuchair Chròlain gus a' chiste seo a rannsachadh."
-
-#: ..\quests\krolan.txt:14
-msgid "Return to Udana and inform her of Krolan's death."
-msgstr "Till gu Udana agus innis dhi mu bhàs Chròlain."
-
-#: ..\npcs\florin.txt:1
-msgid "Florin, Apothecary"
-msgstr "Flòran, Poitigeir"
-
-#: ..\npcs\traveling_merchant.txt:1
-msgid "Traveling Merchant"
-msgstr "Marsanta-siubhail"
-
-#: ..\npcs\traveling_merchant.txt:21
-msgid "Talk"
-msgstr "Deasbaireachd"
-
-#: ..\npcs\traveling_merchant.txt:24
-msgid "Be careful on these roads. Those goblins are nothing but trouble."
-msgstr "Thoir an aire air na rathaidean seo. Tha na bòcain 'nan trioblaid mhòr."
-
-#: ..\npcs\traveling_merchant.txt:25
-msgid "Thanks for the warning."
-msgstr "Mòran taing airson an rabhaidh."
-
-#: ..\npcs\traveling_merchant.txt:26
-msgid "It's the least I can do."
-msgstr "Tha thu làn di-beathte."
-
-#: ..\npcs\traveling_merchant.txt:27
-msgid "When I awoke this morning, my journal was missing. No doubt one of those filty green creatures stole it from me."
-msgstr ""
-"Nuair an dhùisg mi an-diugh, bha an leabhar-latha agam a dhìth. Ghoid fear "
-"dhe na creutairean salach uaine seo e gun teagamh."
-
-#: ..\npcs\traveling_merchant.txt:28
-msgid "If you come across my journal in your travels, please return it to me."
-msgstr ""
-"Ma thachras tu ris an leabhar-latha agam air an turas agad, an till thu "
-"dhomh e?"
-
-#: ..\npcs\traveling_merchant.txt:32
-msgid "Journal"
-msgstr "Leabhar-latha"
-
-#: ..\npcs\traveling_merchant.txt:35
-msgid "Any luck finding my journal?"
-msgstr "An deach leat an leabhar-latha agam a lorg?"
-
-#: ..\npcs\traveling_merchant.txt:36
-msgid "Not yet."
-msgstr "Cha deach fhathast."
-
-#: ..\npcs\traveling_merchant.txt:42
-msgid "Here is your journal."
-msgstr "Seo an leabhar-latha agad dhut."
-
-#: ..\npcs\traveling_merchant.txt:43
-msgid "Wonderful! I had considered it forever lost at this point."
-msgstr "Mìorbhaileach! B' eagal leam nach faicinn a-rithist e."
-
-#: ..\npcs\traveling_merchant.txt:44
-msgid "I am in your debt. Please take this as a reward for your trouble."
-msgstr "Tha mi fada 'nad chomain. Gabh seo mar dhais airson do thrioblaid."
-
-#: ..\npcs\traveling_merchant.txt:55
-msgid "Show no mercy for those thieving goblins."
-msgstr "Na bhiodh tròcair agad air na mèirlich bòcain ud."
-
-#: ..\npcs\udana.txt:1
-msgid "Udana, Metalworker"
-msgstr "Udana, Ceàrd"
-
-#: ..\npcs\udana.txt:24
-msgid "Greetings stranger. It's not often that we have people come here from the west."
-msgstr "Fàilte, a choigrich. Cha dig daoine a' tadhal oirnn on taobh siar tric."
-
-#: ..\npcs\udana.txt:25
-msgid "I see that you're carrying a weapon. Would you be interested in helping us?"
-msgstr "Chì mi gu bheil arm agad. Am biodh tu deònach ar cuideachadh?"
-
-#: ..\npcs\udana.txt:26
-msgid "Go on."
-msgstr "Dè seòrsa cuideachaidh?"
-
-#: ..\npcs\udana.txt:27
-msgid "One of our encampment's residents, Krolan, works in the nearby mines. He supplies me with various gems that I craft into jewelery."
-msgstr ""
-"Tha Cròlan, fear-còmhnaidh a' champachaidh againn, ag obair sna mèinnean "
-"faisg oirnn. Bheir e caochladh sheudan dhomh 's nì mi seudraidh dhiubh."
-
-#: ..\npcs\udana.txt:28
-msgid "Krolan has not returned in some time, and I am starting to think the worst."
-msgstr "'S ann fhada nach do thill Cròlan agus tha iomagain orm."
-
-#: ..\npcs\udana.txt:29
-msgid "Could you please travel to the mines and look for Krolan? I will find some way to reward you for your trouble."
-msgstr ""
-"An siubhail thu dha na mèinnean gus Cròlan a lorg? Bidh dòigh agam gus taing "
-"a thoirt dhut airson do thrioblaid."
-
-#: ..\npcs\udana.txt:36
-msgid "Please hurry to find Krolan. The Perdition Mines are located near the Salted Field."
-msgstr ""
-"Dèan cabhag gus Cròlan a lorg. Tha Mèinnean an Dubh-chaill faisg air an "
-"Achadh Shaillte."
-
-#: ..\npcs\udana.txt:42
-msgid "I have found Krolan, but he was no longer of this world."
-msgstr "Lorg mi Cròlan ach bha e air a chaochladh."
-
-#: ..\npcs\udana.txt:43
-msgid "This is terrible news. Our camp is already small, so this is a devastating loss."
-msgstr ""
-"Abair droch-naidheachd. Tha an campa againn beag mar-thà, mar sin seo call "
-"mòr duinn."
-
-#: ..\npcs\udana.txt:44
-msgid "If it's any solace, I have his key and this emerald. Mementos to remember him by."
-msgstr ""
-"Mas e sòlas a th' ann idir, tha an iuchair 's an smàrag seo agam. Tha iad "
-"'nan cuimhneachain air."
-
-#: ..\npcs\udana.txt:45
-msgid "The key is enough of a memento. For your invaluable help, I can at least make you a ring with this emerald."
-msgstr ""
-"Foghnaidh an iuchair mar chuimhneachan. Airson do chuideachadh luachmhor, nì "
-"mi fàinne dhut dhen smàrag seo."
-
-#: ..\npcs\udana.txt:58
-msgid "Thank you again for your help."
-msgstr "Mòran taing a-rithist airson do chuideachaidh."
-
-#: ..\cutscenes\backstory.txt:3
-msgid "Empyrean, the city in the sky. It is a majestic fortress and the last bastion of humankind."
-msgstr ""
-"Impirean, am baile sna speuran. 'S e dùn mòr a th' ann agus 's i "
-"daingneachadh mu dheireadh nan daoine."
-
-#: ..\cutscenes\backstory.txt:5
-msgid "At the height of the kingdom's power the city was a beacon of peace and law."
-msgstr ""
-"Air àirde cumhachd na rìoghachd, 's e lòchran sìthe 's lagha a bh' anns a' "
-"bhaile."
-
-#: ..\cutscenes\backstory.txt:7
-msgid "When darkness invaded the world in the last age people abandoned the surface. Empyrean was their only refuge."
-msgstr ""
-"Nuair an do lunn an dorchadas air an t-saoghal sa linn seo chaidh, thrèig na "
-"daoine an t-uachdar. Cha robh comraich ann dhaibh ach Impirean."
-
-#: ..\cutscenes\backstory.txt:9
-msgid "Now the Age of Humanity is ending. Empyrean is crumbling. Scarcity and political infighting have consumed the city."
-msgstr ""
-"Tha Linn nan Daoine a' tighinn gu crìch a-nis. Tha Impirean ga bhruanadh "
-"agus gainnead is còmhstri poileataigeach a' caitheamh a' bhaile."
-
-#: ..\cutscenes\backstory.txt:11
-msgid "Some, in desperation, flee to the surface hoping to survive without the protection of the city."
-msgstr ""
-"Tha cuid air teicheadh on chruadal dhan uachdar feuch am mair iad beò gun "
-"dìon a' bhaile."
-
-#: ..\cutscenes\backstory.txt:13
-msgid "But no one returns from the surface. Most die or go missing. A few hide and survive, for a while."
-msgstr ""
-"Ach cha do thill duine beò on uachdar. Gheibh a' mhòrchuid bàs no thèid iad "
-"air chall. Thèid le cuid falach is tighinn beò greiseag co-dhiù."
-
-#: ..\cutscenes\backstory.txt:15
-msgid "Surface dwellers cling to hope. Hope that they'll return to Empyrean some day. Hope that a hero will fight back against the darkness."
-msgstr ""
-"Tha daoine an uachdair an dòchas gun dig an latha a thilleas iad gu "
-"Impirean. An dòchas gun sabaid gaisgeach ris an dorchadas."
-
-#: ..\cutscenes\backstory.txt:17
-msgid "There is always hope. But not for everyone: not for you. Not for the Exiled."
-msgstr ""
-"Tha dòchas ann an-còmhnaidh. Ach chan ann aig a h-uile duine: chan ann "
-"agadsa. Chan ann aig na fògraich."
-
-#: ..\cutscenes\credits.txt:7
-msgid "Flare Game Credits - empyrean_campaign"
-msgstr "Urram Geama Flare - empyrean_campaign"
-
-#: ..\cutscenes\credits.txt:9
-msgid "Lead Content Designer - Clint Bellanger"
-msgstr "Prìomh-dhealbhaiche na susbainte - Clint Bellanger"
-
-#: ..\enemies\base\ardwen.txt:3
+#: ../enemies/lvl3_ardwen_quest.txt:3
 msgid "Ardwen"
 msgstr "Àrdear"
 
-#: ..\items\categories\level_1.txt:5
-msgid "Cloth Shirt"
-msgstr "Lèine clòtha"
+#: ../enemies/lvl3_cursed_grave.txt:3
+msgid "Cursed Grave"
+msgstr "Uaigh damainte"
 
-#: ..\items\categories\level_1.txt:11
-msgid "Cloth Pants"
-msgstr "Briogais clòtha"
+#: ../enemies/lvl3_skeleton_fire_mage.txt:3
+#, fuzzy
+msgid "Skeleton Fire Mage"
+msgstr "Boghadair Cnàimhnich"
 
-#: ..\items\categories\level_1.txt:17
-msgid "Cloth Sandals"
-msgstr "Cuarain clòtha"
+#: ../enemies/lvl3_skeleton_ice_mage.txt:3
+#, fuzzy
+msgid "Skeleton Ice Mage"
+msgstr "Boghadair Cnàimhnich"
 
-#: ..\items\categories\level_1.txt:23
-msgid "Cloth Gloves"
-msgstr "Miotagan clòtha"
+#: ../enemies/lvl3_skeleton_knight.txt:3
+#, fuzzy
+msgid "Skeleton Knight"
+msgstr "Cnàimhneach"
 
-#: ..\items\categories\level_1.txt:29
-msgid "Dagger"
-msgstr "Biodag"
+#: ../enemies/lvl3_skeleton_sniper.txt:3
+#, fuzzy
+msgid "Skeleton Sniper"
+msgstr "Boghadair Cnàimhnich"
 
-#: ..\items\categories\level_1.txt:37
-msgid "Slingshot"
-msgstr "Longag"
+#: ../enemies/lvl3_zombie_bloodthirsty.txt:3
+#, fuzzy
+msgid "Bloodthirsty Zombie"
+msgstr "Corp coisiche a' lobhadh"
 
-#: ..\items\categories\level_1.txt:45
-msgid "Wand"
-msgstr "Slatan"
+#: ../enemies/lvl3_zombie_brute.txt:3
+#, fuzzy
+msgid "Zombie Brute"
+msgstr "Corp coisiche"
 
-#: ..\items\categories\level_1.txt:53
-msgid "Wood Buckler"
-msgstr "Sgiathag fiodha"
+#: ../enemies/lvl3_zombie_iceclaw.txt:3
+#, fuzzy
+msgid "Iceclaw Zombie"
+msgstr "Corp coisiche"
 
-#: ..\items\categories\level_2.txt:73
-msgid "Cloth Sash"
-msgstr "Bann clòtha"
+#: ../enemies/lvl4_cid.txt:3
+msgid "Cid"
+msgstr ""
 
-#: ..\items\categories\level_2.txt:132
-msgid "Fire Ring"
+#: ../enemies/lvl4_geno.txt:3
+msgid "Geno"
+msgstr ""
+
+#: ../enemies/lvl4_seagate.txt:3
+msgid "Seagate"
+msgstr ""
+
+#: ../enemies/lvl4_seagate_tombstone.txt:3
+msgid "Seagate's Tombstone"
+msgstr ""
+
+#: ../enemies/lvl5_antlion.txt:3
+msgid "Antlion"
+msgstr ""
+
+#: ../enemies/lvl5_antlion_freezer.txt:3
+msgid "Antlion Freezer"
+msgstr ""
+
+#: ../enemies/lvl5_frozen_corpse.txt:3
+msgid "Frozen Corpse"
+msgstr ""
+
+#: ../enemies/lvl5_goblin_hurler.txt:3
+#, fuzzy
+msgid "Goblin Hurler"
+msgstr "Ruithear Bòcain"
+
+#: ../enemies/lvl5_goblin_vanguard.txt:3
+#, fuzzy
+msgid "Goblin Vanguard"
+msgstr "Cruinn-leumadair Bòcain"
+
+#: ../enemies/lvl5_skeleton_frostsword.txt:3
+#, fuzzy
+msgid "Skeleton Frostsword"
+msgstr "Boghadair Cnàimhnich"
+
+#: ../enemies/lvl6_antlion_burster.txt:3
+msgid "Antlion Burster"
+msgstr ""
+
+#: ../enemies/lvl6_antlion_frostbite.txt:3
+msgid "Frostbite Antlion"
+msgstr ""
+
+#: ../enemies/lvl6_antlion_hatchling.txt:3
+msgid "Antlion Hatchling"
+msgstr ""
+
+#: ../enemies/lvl6_antlion_slasher.txt:3
+msgid "Antlion Slasher"
+msgstr ""
+
+#: ../enemies/lvl6_antlion_spitter.txt:3
+msgid "Antlion Spitter"
+msgstr ""
+
+#: ../enemies/lvl6_gruzza.txt:3
+msgid "Gruzza"
+msgstr ""
+
+#: ../enemies/lvl6_prioss.txt:3
+msgid "Prioss"
+msgstr ""
+
+#: ../enemies/lvl6_skeleton_assassin.txt:3
+#, fuzzy
+msgid "Skeleton Assassin"
+msgstr "Foill-mhurtair"
+
+#: ../enemies/lvl6_skeleton_frost_mage.txt:3
+#, fuzzy
+msgid "Skeleton Frost Mage"
+msgstr "Boghadair Cnàimhnich"
+
+#: ../enemies/lvl7_antlion_queen.txt:3
+msgid "Antlion Queen"
+msgstr ""
+
+#: ../enemies/lvl7_skeleton_basher.txt:3
+#, fuzzy
+msgid "Skeleton Basher"
+msgstr "Boghadair Cnàimhnich"
+
+#: ../enemies/lvl7_vampiric_zombie.txt:3
+msgid "Vampiric Zombie"
+msgstr ""
+
+#: ../enemies/lvl7_wyvern.txt:3
+msgid "Wyvern"
+msgstr ""
+
+#: ../enemies/lvl7_wyvern_fire.txt:3
+#, fuzzy
+msgid "Fire Wyvern"
 msgstr "Fàinne an teine"
 
-#: ..\items\categories\level_2.txt:140
-msgid "Ice Ring"
-msgstr "Fàinne na deighe"
+#: ../enemies/lvl7_wyvern_ice.txt:3
+msgid "Ice Wyvern"
+msgstr ""
 
-#: ..\items\categories\level_2.txt:148
-msgid "Lightning Ring"
-msgstr "Fàinne an dealanaich"
+#: ../enemies/lvl8_kylana.txt:3
+msgid "Kylana"
+msgstr ""
 
-#: ..\items\categories\level_2.txt:156
-msgid "Experience Ring"
-msgstr "Fàinne an eòlais"
+#: ../enemies/lvl8_mez.txt:3
+msgid "Mez"
+msgstr ""
 
-#: ..\items\categories\level_2.txt:164
-msgid "Wealth Ring"
-msgstr "Fàinne a bheartais"
+#: ../enemies/lvl8_zola.txt:3
+msgid "Zola"
+msgstr ""
 
-#: ..\items\categories\level_2.txt:172
-msgid "Treasure Ring"
-msgstr "Fàinne an ulaidh"
+#: ../enemies/lvl9_antlion_sprayer.txt:3
+msgid "Antlion Sprayer"
+msgstr ""
 
-#: ..\items\categories\level_4.txt:149
-msgid "Krolan's Pick"
+#: ../enemies/lvl9_boulder.txt:3
+msgid "Boulder"
+msgstr ""
+
+#: ../enemies/lvl9_goblin_hunter.txt:3
+#, fuzzy
+msgid "Goblin Hunter"
+msgstr "Ruithear Bòcain"
+
+#: ../enemies/lvl9_goblin_shaker.txt:3
+#, fuzzy
+msgid "Goblin Shaker"
+msgstr "Cruinn-leumadair Bòcain"
+
+#: ../enemies/lvl9_goblin_sprinter.txt:3
+#, fuzzy
+msgid "Goblin Sprinter"
+msgstr "Sleaghair Bòcain"
+
+#: ../enemies/lvl9_wyvern_tundra.txt:3
+msgid "Tundra Wyvern"
+msgstr ""
+
+#: ../enemies/summon_zombie.txt:3
+#, fuzzy
+msgid "Your Summoned Zombie"
+msgstr "Corp coisiche a' lobhadh"
+
+#: ../maps/abandoned_mines.txt:10
+#, fuzzy
+msgid "Abandoned Mines"
+msgstr "Mèinnean an Dubh-chaill"
+
+#: ../maps/abandoned_mines.txt:337
+msgid "Blackmire Mines"
+msgstr ""
+
+#: ../maps/abandoned_mines.txt:454
+msgid "Treasure Chest"
+msgstr "Ciste ulaidh"
+
+#: ../maps/abandoned_mines.txt:466
+msgid "Crate"
+msgstr "Creat"
+
+#: ../maps/abandoned_mines.txt:490
+msgid "Barrel"
+msgstr "Tunna"
+
+#: ../maps/abandoned_mines.txt:523
+msgid "The Breach"
+msgstr ""
+
+#: ../maps/abandoned_mines.txt:532
+msgid "Grot Lagoon"
+msgstr ""
+
+#: ../maps/antlion_nest.txt:10
+msgid "Antlion Nest"
+msgstr ""
+
+#: ../maps/antlion_nest.txt:390
+msgid "Temple of Mez: Basement"
+msgstr ""
+
+#: ../maps/arrival.txt:10
+msgid "Arrival"
+msgstr "Teachd"
+
+#: ../maps/arrival.txt:170
+msgid "River Trail"
+msgstr "Slighe na h-aibhne"
+
+#: ../maps/black_oak_city.txt:10
+msgid "Black Oak City"
+msgstr ""
+
+#: ../maps/black_oak_city.txt:341
+msgid "Black Oak Farm"
+msgstr ""
+
+#: ../maps/black_oak_city.txt:353
+msgid "Supplies"
+msgstr "Stòrasan"
+
+#: ../maps/black_oak_city.txt:601
+msgid "Wizard's Tower: Entrance Hall"
+msgstr ""
+
+#: ../maps/black_oak_farm.txt:341
+msgid "Southern Ridge"
+msgstr ""
+
+#: ../maps/black_oak_farm.txt:522
+msgid "Dilapidated Sewers"
+msgstr ""
+
+#: ../maps/black_oak_farm.txt:546
+msgid "Lumber"
+msgstr "Fiodh"
+
+#: ../maps/blackmire_mines.txt:276
+#, fuzzy
+msgid "Blackmire Mines waypoint discovered."
+msgstr "Chaidh puing-thurais Cladh na Glinne Guirme a lorg."
+
+#: ../maps/blackmire_mines.txt:289
+msgid "Hyperspace"
+msgstr "Os-fhànais"
+
+#: ../maps/blackmire_mines.txt:478
+msgid "Lake Kuuma"
+msgstr ""
+
+#: ../maps/book_of_the_dead.txt:10
+msgid "Book of the Dead"
+msgstr "Leabhar nam marbh"
+
+#: ../maps/book_of_the_dead.txt:191
+msgid "Perdition Harbor"
+msgstr "Port an Dubh-chaill"
+
+#: ../maps/book_of_the_dead.txt:201
+msgid "Salted Field"
+msgstr "Achadh Saillte"
+
+#: ../maps/book_of_the_dead.txt:294
+msgid "Quest added."
+msgstr ""
+
+#: ../maps/dilapidated_sewers.txt:309
+#, fuzzy
+msgid "Dilapidated Sewers waypoint discovered."
+msgstr "Chaidh puing-thurais Cladh na Glinne Guirme a lorg."
+
+#: ../maps/dilapidated_sewers.txt:574
+msgid "Fort Nasu"
+msgstr ""
+
+#: ../maps/family_crypt.txt:10
+msgid "Family Crypt"
+msgstr "Rèilig teaghlaich"
+
+#: ../maps/family_crypt.txt:229
+msgid "Switch"
+msgstr "Suidse"
+
+#: ../maps/family_crypt.txt:254
+msgid "Ardwen (1308-1364), founder of Lochport"
+msgstr "Àrdear (1308-1364), Ceann-phort an Locha"
+
+#: ../maps/family_crypt.txt:257
+msgid "In Memoriam"
+msgstr "Mar chuimhneachan"
+
+#: ../maps/family_crypt.txt:267
+msgid "Lochport Cemetery"
+msgstr "Cladh Phort an Locha"
+
+#: ../maps/family_crypt.txt:301
+msgid "The coffin has a small slot the size of Ardwen's ring. You place the ring in the slot."
+msgstr "Tha slot beag sa chiste-aighe air meud fàinne Àrdeir. Tha thu a' cur an fhàinne san t-slot."
+
+#: ../maps/family_crypt.txt:310
+msgid "Ardwen's Coffin"
+msgstr "Ciste-laighe Àrdeir"
+
+#: ../maps/family_crypt.txt:333
+msgid "The switch won't budge."
+msgstr "Cha ghluais an t-suidse."
+
+#: ../maps/family_crypt.txt:387
+msgid "Reset quest: \"Trapped in the Crypt\""
+msgstr ""
+
+#: ../maps/fort_amir.txt:10
+msgid "Fort Amir"
+msgstr ""
+
+#: ../maps/fort_amir.txt:369
+msgid "Opening the book reveals that it has been hollowed out. A gem is concealed inside."
+msgstr ""
+
+#: ../maps/fort_amir.txt:373
+msgid "Book"
+msgstr ""
+
+#: ../maps/fort_amir.txt:398
+msgid "The statue is missing an eye. The sapphire fits securely in the statue's eye socket."
+msgstr ""
+
+#: ../maps/fort_amir.txt:403
+msgid "Statue"
+msgstr ""
+
+#: ../maps/fort_amir.txt:424
+msgid "The statue is missing an eye."
+msgstr ""
+
+#: ../maps/fort_amir.txt:454
+msgid "The bookcase slides back and reveals a hidden path."
+msgstr ""
+
+#: ../maps/fort_nasu.txt:1085
+#, fuzzy
+msgid "Book Stand"
+msgstr "Leabhar nam marbh"
+
+#: ../maps/fort_nasu.txt:1124
+msgid "Altar"
+msgstr ""
+
+#: ../maps/fort_nasu.txt:1131
+msgid "As you enter the throne room, you see an Altar with a wooden figurine placed upon it."
+msgstr ""
+
+#: ../maps/fort_nasu.txt:1161
+#, fuzzy
+msgid "Strange Book"
+msgstr "Srad orains"
+
+#: ../maps/goblin_camp.txt:10
+msgid "Goblin Camp"
+msgstr "Campa nam bòcan"
+
+#: ../maps/goblin_camp.txt:222
+msgid "Stonewood"
+msgstr "Coille nan Clach"
+
+#: ../maps/goblin_camp.txt:401
+msgid "Merrimead Swamp"
+msgstr "Boglach na mìl-dhibhe meire"
+
+#: ../maps/goblin_camp.txt:410
+msgid "Goblin Cave"
+msgstr "Uamh nam bòcan"
+
+#: ../maps/goblin_camp.txt:422
+msgid "Gravestone"
+msgstr ""
+
+#: ../maps/hyperspace.txt:195
+msgid "St. Maria: Prison"
+msgstr ""
+
+#: ../maps/hyperspace.txt:217
+msgid "Stormrock Pass"
+msgstr ""
+
+#: ../maps/hyperspace.txt:228
+msgid "Temple of Mez: Main Hall"
+msgstr ""
+
+#: ../maps/hyperspace.txt:239
+msgid "Nazia Underground"
+msgstr ""
+
+#: ../maps/hyperspace.txt:261
+msgid "Wizard's Tower: Research Chambers"
+msgstr ""
+
+#: ../maps/lake_kuuma.txt:851
+msgid "Boat"
+msgstr ""
+
+#: ../maps/lochport.txt:10
+msgid "Lochport"
+msgstr "Port an Locha"
+
+#: ../maps/lochport.txt:358
+msgid "St. Maria: Mausoleum"
+msgstr ""
+
+#: ../maps/lochport_cemetery.txt:307
+#, fuzzy
+msgid "Lochport Cemetery waypoint discovered."
+msgstr "Chaidh puing-thurais Cladh na Glinne Guirme a lorg."
+
+#: ../maps/mog_caverns.txt:10
+msgid "Mog Caverns"
+msgstr ""
+
+#: ../maps/mog_caverns.txt:293
+msgid "Waterlogged Support Beam"
+msgstr ""
+
+#: ../maps/mog_caverns.txt:305
+msgid "Moldy Rock"
+msgstr ""
+
+#: ../maps/mog_caverns.txt:317
+msgid "Pile of Bones"
+msgstr ""
+
+#: ../maps/mog_caverns.txt:329
+msgid "Blocked Mine Cart"
+msgstr ""
+
+#: ../maps/nazia_highlands.txt:10
+msgid "Nazia Highlands"
+msgstr ""
+
+#: ../maps/nazia_highlands.txt:382
+msgid "Nazia Mines"
+msgstr ""
+
+#: ../maps/nazia_mines.txt:247
+msgid "Empty Mine Cart"
+msgstr ""
+
+#: ../maps/nazia_mines.txt:296
+msgid "By itself, this mine cart can't break open the rubble."
+msgstr ""
+
+#: ../maps/nazia_mines.txt:424
+msgid "Reset Quest: \"Trapped!\""
+msgstr ""
+
+#: ../maps/nazia_underground.txt:377
+#, fuzzy
+msgid "Nazia Underground waypoint discovered."
+msgstr "Chaidh puing-thurais Coille nan Clach a lorg."
+
+#: ../maps/perdition_harbor.txt:170
+msgid "Shared Stash"
+msgstr "Stòr co-roinnte"
+
+#: ../maps/perdition_harbor.txt:268
+msgid "Perdition Harbor waypoint discovered."
+msgstr "Chaidh puing-thurais Phort an Locha a lorg."
+
+#: ../maps/perdition_mines.txt:10
+msgid "Perdition Mines"
+msgstr "Mèinnean an Dubh-chaill"
+
+#: ../maps/perdition_mines.txt:161
+msgid "Krolan's Chest"
+msgstr "Ciste Chròlain"
+
+#: ../maps/st_maria_1.txt:348
+msgid "This door needs a key to be opened."
+msgstr ""
+
+#: ../maps/st_maria_1.txt:350
+msgid "Locked Door"
+msgstr ""
+
+#: ../maps/st_maria_2.txt:269
+#, fuzzy
+msgid "St. Maria: Prison waypoint discovered."
+msgstr "Chaidh puing-thurais Coille nan Clach a lorg."
+
+#: ../maps/st_maria_2.txt:461
+msgid "St. Maria: Crypt"
+msgstr ""
+
+#: ../maps/st_maria_3.txt:409
+msgid "The plaque reads: Grave of the Saints"
+msgstr ""
+
+#: ../maps/st_maria_3.txt:410
+msgid "Plaque"
+msgstr ""
+
+#: ../maps/st_maria_3.txt:418
+msgid "You remove the gravebloom flower from the Altar."
+msgstr ""
+
+#: ../maps/st_maria_3.txt:439
+msgid "There is a gravebloom flower on the altar, but it is frozen in place."
+msgstr ""
+
+#: ../maps/st_maria_3.txt:453
+msgid "The gravebloom flower laid upon the altar has thawed."
+msgstr ""
+
+#: ../maps/stonewood.txt:512
+msgid "Stonewood waypoint discovered."
+msgstr "Chaidh puing-thurais Coille nan Clach a lorg."
+
+#: ../maps/stormrock_pass.txt:893
+#, fuzzy
+msgid "Stormrock Pass waypoint discovered."
+msgstr "Chaidh puing-thurais Coille nan Clach a lorg."
+
+#: ../maps/stormrock_pass.txt:1051
+msgid "Stormrock Ruins"
+msgstr ""
+
+#: ../maps/temple_of_mez_2.txt:349
+#, fuzzy
+msgid "Temple of Mez: Main Hall waypoint discovered."
+msgstr "Chaidh puing-thurais Phort an Locha a lorg."
+
+#: ../maps/temple_of_mez_2.txt:532
+msgid "The plaque reads: Red Altar"
+msgstr ""
+
+#: ../maps/temple_of_mez_2.txt:543
+msgid "Temple of Mez: Entrance"
+msgstr ""
+
+#: ../maps/wizards_tower_1.txt:341
+msgid "to Black Oak City"
+msgstr ""
+
+#: ../maps/wizards_tower_1.txt:621
+msgid "to Wizard's Tower: Research Chambers"
+msgstr ""
+
+#: ../maps/wizards_tower_2.txt:475
+#, fuzzy
+msgid "Wizard's Tower: Research Chambers waypoint discovered."
+msgstr "Chaidh puing-thurais Phort an Locha a lorg."
+
+#: ../quests/000_empyrean.txt:1
+msgid "Return to Empyrean"
+msgstr ""
+
+#: ../quests/000_empyrean.txt:5
+msgid "The Book of the Dead states redemption is possible for those who sign their name in gravebloom ink. Florin in Perdition Harbor can tell you more."
+msgstr ""
+
+#: ../quests/000_empyrean.txt:10
+msgid "Before leaving St. Maria's Crypt, it would be wise to look for anything useful."
+msgstr ""
+
+#: ../quests/000_empyrean.txt:15
+msgid "Ask Florin about the Gravebloom flower."
+msgstr ""
+
+#: ../quests/000_empyrean.txt:20
+msgid "You've found a gravebloom flower. It is a primary component in the creation of gravebloom ink."
+msgstr ""
+
+#: ../quests/000_empyrean.txt:25
+msgid "A strange black feather fell off of Mez. You should take it before leaving the Temple of Mez."
+msgstr ""
+
+#: ../quests/000_empyrean.txt:30
+msgid "Ask Florin about the Black Quill."
+msgstr ""
+
+#: ../quests/000_empyrean.txt:35
+msgid "The Black Quill you found is the only thing capable of holding gravebloom ink. It will be the only way to write in the Book of the Dead."
+msgstr ""
+
+#: ../quests/001_krolan.txt:1
+#, fuzzy
+msgid "Krolan's Missing"
 msgstr "Piocaid Chròlain"
 
-#: ..\items\categories\level_4.txt:150
-msgid "Sharp enough to cut through stone."
-msgstr "Geur gu leòr gus clachan a ghearradh."
+#: ../quests/001_krolan.txt:6
+msgid "Travel to the Perdition Mines and look for Krolan."
+msgstr "Siubhail gu Mèinnean an Dubh-chaill agus lorg Cròlan."
 
-#: ..\items\categories\level_4.txt:163
+#: ../quests/001_krolan.txt:11
+msgid "Use Krolan's key to search his chest."
+msgstr "Cleachd iuchair Chròlain gus a' chiste seo a rannsachadh."
+
+#: ../quests/001_krolan.txt:16
+msgid "Return to Udana and inform her of Krolan's death."
+msgstr "Till gu Udana agus innis dhi mu bhàs Chròlain."
+
+#: ../quests/002_journal.txt:1
+#, fuzzy
+msgid "The Merchant's Journal"
+msgstr "Leabhar-latha a' mharsanta"
+
+#: ../quests/002_journal.txt:7
+#, fuzzy
+msgid "Find Abasi's journal. It is likely being carried by a nearby goblin."
+msgstr "Lorg leabhar-latha a' mharsanta-shiubhail. Cha lughaid gu bheil e aig bòcan a tha faisg ort."
+
+#: ../quests/002_journal.txt:13
+#, fuzzy
+msgid "Find Abasi's journal. He said that it was last seen near the Goblin Cave."
+msgstr "Lorg leabhar-latha a' mharsanta-shiubhail. Cha lughaid gu bheil e aig bòcan a tha faisg ort."
+
+#: ../quests/002_journal.txt:18
+#, fuzzy
+msgid "Return the journal to Abasi."
+msgstr "Till an leabhar-latha gun mharsanta-siubhail."
+
+#: ../quests/003_ardwen.txt:1
+msgid "Trapped in the Crypt"
+msgstr ""
+
+#: ../quests/003_ardwen.txt:6
+msgid "Find a way to escape the Family Crypt."
+msgstr "Lorg slighe a-mach às an rèilig teaghlaich."
+
+#: ../quests/003_ardwen.txt:11
+msgid "You found a strange ring. Maybe it will aid in escaping the Family Crypt."
+msgstr "Lorg thu fàinne neònach. 'S dòcha gun cuidich e thu ach an teich thu o rèilig an teaghlaich."
+
+#: ../quests/003_ardwen.txt:16
+msgid "Defeat Ardwen."
+msgstr "Cuir ruaig air Àrdear."
+
+#: ../quests/003_ardwen.txt:21
+msgid "Ardwen has been defeated. The lever near his coffin will likely open the nearby gate."
+msgstr "Chuir thu ruaig air Àrdear. Saoil am fosgail an luamhan faisg air a chiste-laighe an geata am fagas?"
+
+#: ../quests/004_fort_amir.txt:1
+msgid "The One-Eyed Guardians"
+msgstr ""
+
+#: ../quests/004_fort_amir.txt:6
+msgid "Investigate the statues in the Fort Amir throne room."
+msgstr ""
+
+#: ../quests/004_fort_amir.txt:11
+msgid "You found a strange sapphire inside one of Fort Amir's books."
+msgstr ""
+
+#: ../quests/004_fort_amir.txt:16
+msgid "Gruzza dropped a strange sapphire."
+msgstr ""
+
+#: ../quests/004_fort_amir.txt:21
+msgid "The bookcase in the Fort Amir throne room opened up, revealing a secret passage."
+msgstr ""
+
+#: ../quests/005_ort.txt:1
+msgid "Brother?"
+msgstr ""
+
+#: ../quests/005_ort.txt:6
+msgid "Ort gave you a ruby. It seemed like he wanted it devliered to someone he would call \"brother\"."
+msgstr ""
+
+#: ../quests/006_stormrock.txt:1
+msgid "Locked Out"
+msgstr ""
+
+#: ../quests/006_stormrock.txt:6
+msgid "The door to the Stormrock Ruins is locked. There must be a way to unlock it."
+msgstr ""
+
+#: ../quests/006_stormrock.txt:11
+msgid "Aldwulf wants you to get the key to unlock the Stormrock Ruins. It should be hidden somewhere in the camp south of Stonewood."
+msgstr ""
+
+#: ../quests/006_stormrock.txt:16
+msgid "You found the key to the Stormrock Ruins. You should return there and speak to Aldwulf."
+msgstr ""
+
+#: ../quests/007_nazia_mines.txt:1
+msgid "Trapped!"
+msgstr ""
+
+#: ../quests/007_nazia_mines.txt:6
+msgid "The path behind you has caved in. Find a way to escape the Nazia Mines."
+msgstr ""
+
+#: ../quests/007_nazia_mines.txt:11
+msgid "You found some sticks of dynamite. Those should be useful."
+msgstr ""
+
+#: ../quests/007_nazia_mines.txt:15
+msgid "You successfully cleared the rubble and can safely escape the Nazia Mines."
+msgstr ""
+
+#: ../quests/008_mog.txt:1
+msgid "The Lost Soul of the Mog Caverns"
+msgstr ""
+
+#: ../quests/008_mog.txt:6
+msgid "You found a mysterious note in the Mog Caverns. Maybe its directions will lead to treasure?"
+msgstr ""
+
+#: ../quests/008_mog.txt:11
+msgid "You found another note. Keep following the trail."
+msgstr ""
+
+#: ../quests/008_mog.txt:16
+msgid "A secret passage has been unveiled."
+msgstr ""
+
+#: ../quests/009_nasu.txt:1
+msgid "An Unusual Name..."
+msgstr ""
+
+#: ../quests/009_nasu.txt:6
+msgid "Discover a way to open the entrance door in Fort Nasu."
+msgstr ""
+
+#: ../quests/009_nasu.txt:11
+msgid "Discover a way to open the library door in Fort Nasu."
+msgstr ""
+
+#: ../quests/009_nasu.txt:16
+msgid "Discover a way to open the pit room door in Fort Nasu."
+msgstr ""
+
+#: ../quests/009_nasu.txt:21
+msgid "Discover a way to open the final door in Fort Nasu."
+msgstr ""
+
+#: ../quests/009_nasu.txt:26
+msgid "Defeat Buchi."
+msgstr ""
+
+#: ../npcs/abasi.txt:1
+#, fuzzy
+msgid "Abasi, Traveling Merchant"
+msgstr "Marsanta-siubhail"
+
+#: ../npcs/abasi.txt:23
+msgid "Talk"
+msgstr "Deasbaireachd"
+
+#: ../npcs/abasi.txt:26
+msgid "Be careful on these roads. Those goblins are nothing but trouble."
+msgstr "Thoir an aire air na rathaidean seo. Tha na bòcain 'nan trioblaid mhòr."
+
+#: ../npcs/abasi.txt:27
+msgid "Thanks for the warning."
+msgstr "Mòran taing airson an rabhaidh."
+
+#: ../npcs/abasi.txt:28
+msgid "It's the least I can do."
+msgstr "Tha thu làn di-beathte."
+
+#: ../npcs/abasi.txt:29
+#, fuzzy
+msgid "When I awoke this morning, my journal was missing. No doubt one of those filthy green creatures stole it from me."
+msgstr "Nuair an dhùisg mi an-diugh, bha an leabhar-latha agam a dhìth. Ghoid fear dhe na creutairean salach uaine seo e gun teagamh."
+
+#: ../npcs/abasi.txt:30
+msgid "If you come across my journal in your travels, please return it to me."
+msgstr "Ma thachras tu ris an leabhar-latha agam air an turas agad, an till thu dhomh e?"
+
+#: ../npcs/abasi.txt:35
+msgid "Journal"
+msgstr "Leabhar-latha"
+
+#: ../npcs/abasi.txt:38
+msgid "Any luck finding my journal?"
+msgstr "An deach leat an leabhar-latha agam a lorg?"
+
+#: ../npcs/abasi.txt:39
+msgid "Not yet."
+msgstr "Cha deach fhathast."
+
+#: ../npcs/abasi.txt:45
+msgid "Here is your journal."
+msgstr "Seo an leabhar-latha agad dhut."
+
+#: ../npcs/abasi.txt:46
+msgid "Wonderful! I had considered it forever lost at this point."
+msgstr "Mìorbhaileach! B' eagal leam nach faicinn a-rithist e."
+
+#: ../npcs/abasi.txt:47
+msgid "I am in your debt. Please take this as a reward for your trouble."
+msgstr "Tha mi fada 'nad chomain. Gabh seo mar dhais airson do thrioblaid."
+
+#: ../npcs/abasi.txt:58
+msgid "Show no mercy for those thieving goblins."
+msgstr "Na bhiodh tròcair agad air na mèirlich bòcain ud."
+
+#: ../npcs/abasi_2.txt:26
+msgid "Greetings, wanderer."
+msgstr ""
+
+#: ../npcs/abasi_2.txt:27
+msgid "Judging from your appearance, you're no stranger to a long journey. For that reason, I ask that you keep an eye out for my missing journal."
+msgstr ""
+
+#: ../npcs/abasi_2.txt:28
+msgid "I first noticed it was missing after a night of camping near the Goblin Cave. I searched for a while, but ultimately decided it was best to move on."
+msgstr ""
+
+#: ../npcs/aldwulf.txt:1
+msgid "Aldwulf, Treasure Hunter"
+msgstr ""
+
+#: ../npcs/aldwulf.txt:12
+msgid "Greetings wanderer. I did not expect to meet anyone in a place like this."
+msgstr ""
+
+#: ../npcs/aldwulf.txt:13
+msgid "I'm in a bit of a predicament. I wanted to come here in search of treasure, but my partner disagreed with my intentions."
+msgstr ""
+
+#: ../npcs/aldwulf.txt:14
+msgid "In an effort to stop me, he stole the key we found that supposedly opened the door up ahead."
+msgstr ""
+
+#: ../npcs/aldwulf.txt:15
+msgid "Regardless, I took my chances and left our camp south of Stonewood, hoping I could break through without the key. As you might be able to tell, that hasn't worked out in my favor."
+msgstr ""
+
+#: ../npcs/aldwulf.txt:16
+msgid "If you come across my partner in your travels, do what you must to get that key from him and bring it to me. Do that, and I'll split whatever we find in these ruins with you."
+msgstr ""
+
+#: ../npcs/aldwulf.txt:23
+msgid "Have you gotten the key yet? My partner likely has it hidden somewhere in the camp south of Stonewood."
+msgstr ""
+
+#: ../npcs/bakat.txt:1
+msgid "Bakat, Goblin Packrat"
+msgstr ""
+
+#: ../npcs/bakat.txt:20
+#, fuzzy
+msgid "Goblin's Ruby"
+msgstr "Ruithear Bòcain"
+
+#: ../npcs/bakat.txt:23
+msgid "(You show Bakat the ruby you received from Ort)."
+msgstr ""
+
+#: ../npcs/bakat.txt:24
+msgid "(Bakat snatches the jewel from your grasp)."
+msgstr ""
+
+#: ../npcs/bakat.txt:25
+msgid "(He holds the ruby up into the light and examines it closely)."
+msgstr ""
+
+#: ../npcs/bakat.txt:26
+msgid "(Looking satisfied, he reaches into his bag and hands you a wooden bear figurine)."
+msgstr ""
+
+#: ../npcs/bakat.txt:27
+msgid "..."
+msgstr ""
+
+#: ../npcs/florin.txt:1
+msgid "Florin, Apothecary"
+msgstr "Flòran, Poitigeir"
+
+#: ../npcs/florin.txt:26
+msgid "What can you tell me about the Book of the Dead?"
+msgstr ""
+
+#: ../npcs/florin.txt:27
+msgid "The Book of the Dead tells of redemption for those who sign their name in gravebloom ink. Your sins will be washed away, and you will be able to return to wherever you were banished from."
+msgstr ""
+
+#: ../npcs/florin.txt:28
+msgid "So, where can I find gravebloom ink?"
+msgstr ""
+
+#: ../npcs/florin.txt:29
+msgid "Gravebloom ink is not something you find. You must make it yourself. Besides the Gravebloom flower, you will need to sacrifice your own blood with a special blade."
+msgstr ""
+
+#: ../npcs/florin.txt:30
+msgid "Even if you can create some gravebloom ink, you won't be able to write with just anything. The ink won't stick to a normal quill. You will need to find something capable of holding the gravebloom ink."
+msgstr ""
+
+#: ../npcs/florin.txt:31
+msgid "If you can perform the ritual to make gravebloom ink and find a suitable writing utensil, redemption may be yours."
+msgstr ""
+
+#: ../npcs/florin.txt:34
+msgid "Gravebloom"
+msgstr ""
+
+#: ../npcs/florin.txt:37
+msgid "Ah yes, that is most certainly a gravebloom flower. It is the primary component in the creation of gravebloom ink."
+msgstr ""
+
+#: ../npcs/florin.txt:40
+msgid "Black Quill"
+msgstr ""
+
+#: ../npcs/florin.txt:42
+msgid "Do you think this quill is capable of holding gravebloom ink?"
+msgstr ""
+
+#: ../npcs/florin.txt:43
+msgid "It's certainly no normal quill. I've never seen anything like it."
+msgstr ""
+
+#: ../npcs/florin.txt:45
+msgid "If anything is capable of writing with gravebloom ink, it is that quill."
+msgstr ""
+
+#: ../npcs/glowing_obelisk_1.txt:1
+msgid "Glowing Obelisk"
+msgstr ""
+
+#: ../npcs/glowing_obelisk_1.txt:11
+msgid "(You touch the obelisk, but nothing happens.)"
+msgstr ""
+
+#: ../npcs/loren.txt:1
+msgid "Loren, Undead Trader"
+msgstr ""
+
+#: ../npcs/ort.txt:1
+msgid "Ort, Goblin Packrat"
+msgstr ""
+
+#: ../npcs/ort.txt:29
+msgid "... Bro-ther... g-give..."
+msgstr ""
+
+#: ../npcs/ort.txt:30
+msgid "(Ort grabs your hand and places a red gem in it)."
+msgstr ""
+
+#: ../npcs/tutorial.txt:1
+#, fuzzy
+msgid "Skeleton with note"
+msgstr "Boghadair Cnàimhnich"
+
+#: ../npcs/tutorial.txt:9
+msgid "Tutorial"
+msgstr ""
+
+#: ../npcs/tutorial.txt:11
+msgid "Welcome to the lands of the exiled. Allow me to go over a few things. Click on the arrow to continue."
+msgstr ""
+
+#: ../npcs/tutorial.txt:12
+msgid "Your health, mana, and experience points are displayed in the top left of the screen."
+msgstr ""
+
+#: ../npcs/tutorial.txt:13
+msgid "In the top right is a map of your current location."
+msgstr ""
+
+#: ../npcs/tutorial.txt:14
+msgid "On the bottom of the screen is your action bar. Here, you have quick access to your most used abilities."
+msgstr ""
+
+#: ../npcs/tutorial.txt:15
+msgid "In addition, you can access the Character, Inventory, Powers, and Log menus from the action bar."
+msgstr ""
+
+#: ../npcs/tutorial.txt:16
+msgid "${INPUT_MOVEMENT} will allow you to move around. ${INPUT_ATTACK} will use your primary attack."
+msgstr ""
+
+#: ../npcs/tutorial.txt:17
+#, fuzzy
+msgid "Good luck!"
+msgstr "Sgiathag fiodha"
+
+#: ../npcs/udana.txt:1
+msgid "Udana, Metalworker"
+msgstr "Udana, Ceàrd"
+
+#: ../npcs/udana.txt:27
+msgid "Greetings stranger. It's not often that we have people come here from the west."
+msgstr "Fàilte, a choigrich. Cha dig daoine a' tadhal oirnn on taobh siar tric."
+
+#: ../npcs/udana.txt:28
+msgid "I see that you're carrying a weapon. Would you be interested in helping us?"
+msgstr "Chì mi gu bheil arm agad. Am biodh tu deònach ar cuideachadh?"
+
+#: ../npcs/udana.txt:29
+msgid "Go on."
+msgstr "Dè seòrsa cuideachaidh?"
+
+#: ../npcs/udana.txt:30
+msgid "One of our encampment's residents, Krolan, works in the nearby mines. He supplies me with various gems that I craft into jewelery."
+msgstr "Tha Cròlan, fear-còmhnaidh a' champachaidh againn, ag obair sna mèinnean faisg oirnn. Bheir e caochladh sheudan dhomh 's nì mi seudraidh dhiubh."
+
+#: ../npcs/udana.txt:31
+msgid "Krolan has not returned in some time, and I am starting to think the worst."
+msgstr "'S ann fhada nach do thill Cròlan agus tha iomagain orm."
+
+#: ../npcs/udana.txt:32
+msgid "Could you please travel to the mines and look for Krolan? I will find some way to reward you for your trouble."
+msgstr "An siubhail thu dha na mèinnean gus Cròlan a lorg? Bidh dòigh agam gus taing a thoirt dhut airson do thrioblaid."
+
+#: ../npcs/udana.txt:40
+msgid "Please hurry to find Krolan. The Perdition Mines are located near the Salted Field."
+msgstr "Dèan cabhag gus Cròlan a lorg. Tha Mèinnean an Dubh-chaill faisg air an Achadh Shaillte."
+
+#: ../npcs/udana.txt:46
+msgid "I have found Krolan, but he was no longer of this world."
+msgstr "Lorg mi Cròlan ach bha e air a chaochladh."
+
+#: ../npcs/udana.txt:47
+msgid "This is terrible news. Our camp is already small, so this is a devastating loss."
+msgstr "Abair droch-naidheachd. Tha an campa againn beag mar-thà, mar sin seo call mòr duinn."
+
+#: ../npcs/udana.txt:48
+msgid "If it's any solace, I have his key and this emerald. Mementos to remember him by."
+msgstr "Mas e sòlas a th' ann idir, tha an iuchair 's an smàrag seo agam. Tha iad 'nan cuimhneachain air."
+
+#: ../npcs/udana.txt:49
+msgid "The key is enough of a memento. For your invaluable help, I can at least make you a ring with this emerald."
+msgstr "Foghnaidh an iuchair mar chuimhneachan. Airson do chuideachadh luachmhor, nì mi fàinne dhut dhen smàrag seo."
+
+#: ../npcs/udana.txt:62
+msgid "Thank you again for your help."
+msgstr "Mòran taing a-rithist airson do chuideachaidh."
+
+#: ../npcs/yora.txt:1
+msgid "Yora, Enchanter"
+msgstr ""
+
+#: ../cutscenes/backstory.txt:5
+msgid "Empyrean, the city in the sky. It is a majestic fortress and the last bastion of humankind."
+msgstr "Impirean, am baile sna speuran. 'S e dùn mòr a th' ann agus 's i daingneachadh mu dheireadh nan daoine."
+
+#: ../cutscenes/backstory.txt:7
+msgid "At the height of the kingdom's power the city was a beacon of peace and law."
+msgstr "Air àirde cumhachd na rìoghachd, 's e lòchran sìthe 's lagha a bh' anns a' bhaile."
+
+#: ../cutscenes/backstory.txt:9
+msgid "When darkness invaded the world in the last age people abandoned the surface. Empyrean was their only refuge."
+msgstr "Nuair an do lunn an dorchadas air an t-saoghal sa linn seo chaidh, thrèig na daoine an t-uachdar. Cha robh comraich ann dhaibh ach Impirean."
+
+#: ../cutscenes/backstory.txt:11
+msgid "Now the Age of Humanity is ending. Empyrean is crumbling. Scarcity and political infighting have consumed the city."
+msgstr "Tha Linn nan Daoine a' tighinn gu crìch a-nis. Tha Impirean ga bhruanadh agus gainnead is còmhstri poileataigeach a' caitheamh a' bhaile."
+
+#: ../cutscenes/backstory.txt:13
+msgid "Some, in desperation, flee to the surface hoping to survive without the protection of the city."
+msgstr "Tha cuid air teicheadh on chruadal dhan uachdar feuch am mair iad beò gun dìon a' bhaile."
+
+#: ../cutscenes/backstory.txt:15
+msgid "But no one returns from the surface. Most die or go missing. A few hide and survive, for a while."
+msgstr "Ach cha do thill duine beò on uachdar. Gheibh a' mhòrchuid bàs no thèid iad air chall. Thèid le cuid falach is tighinn beò greiseag co-dhiù."
+
+#: ../cutscenes/backstory.txt:17
+msgid "Surface dwellers cling to hope. Hope that they'll return to Empyrean some day. Hope that a hero will fight back against the darkness."
+msgstr "Tha daoine an uachdair an dòchas gun dig an latha a thilleas iad gu Impirean. An dòchas gun sabaid gaisgeach ris an dorchadas."
+
+#: ../cutscenes/backstory.txt:19
+msgid "There is always hope. But not for everyone: not for you. Not for the Exiled."
+msgstr "Tha dòchas ann an-còmhnaidh. Ach chan ann aig a h-uile duine: chan ann agadsa. Chan ann aig na fògraich."
+
+#: ../cutscenes/credits.txt:7
+msgid "Flare Game Credits - empyrean_campaign"
+msgstr "Urram Geama Flare - empyrean_campaign"
+
+#: ../cutscenes/credits.txt:10
+#, fuzzy
+msgid "Lead Content Designers"
+msgstr "Prìomh-dhealbhaiche na susbainte - Clint Bellanger"
+
+#: ../cutscenes/credits.txt:12
+msgid "Clint Bellanger"
+msgstr ""
+
+#: ../cutscenes/credits.txt:13
+msgid "Justin Jacobs"
+msgstr ""
+
+#: ../cutscenes/credits.txt:17
+msgid "Visual Artists"
+msgstr ""
+
+#: ../cutscenes/credits.txt:19
+msgid "cron"
+msgstr ""
+
+#: ../cutscenes/credits.txt:20
+msgid "Justin Nichol"
+msgstr ""
+
+#: ../cutscenes/credits.txt:21
+msgid "rubberduck"
+msgstr ""
+
+#: ../cutscenes/credits.txt:22
+msgid "VWolfDog"
+msgstr ""
+
+#: ../cutscenes/credits.txt:23
+msgid "yd"
+msgstr ""
+
+#: ../cutscenes/credits.txt:26
+msgid "Foley Artists"
+msgstr ""
+
+#: ../cutscenes/credits.txt:28
+msgid "adamgryu"
+msgstr ""
+
+#: ../cutscenes/credits.txt:29
+msgid "GuntherDorksen"
+msgstr ""
+
+#: ../books/book_of_the_dead.txt:13
+msgid "Those whose names are written here in gravebloom ink are admitted passage to the trail of redemption."
+msgstr ""
+
+#: ../books/merchants_journal.txt:13
+msgid "1488/9/27"
+msgstr ""
+
+#: ../books/merchants_journal.txt:18
+#, fuzzy
+msgid "-1  Dagger"
+msgstr "Biodag"
+
+#: ../books/merchants_journal.txt:23
+msgid "100"
+msgstr ""
+
+#: ../books/merchants_journal.txt:28
+#, fuzzy
+msgid "+1  Cloth Shirt"
+msgstr "Lèine clòtha"
+
+#: ../books/merchants_journal.txt:33
+msgid "-18"
+msgstr ""
+
+#: ../books/merchants_journal.txt:38
+msgid "+1  Gold Ring"
+msgstr ""
+
+#: ../books/merchants_journal.txt:43
+msgid "-50"
+msgstr ""
+
+#: ../books/merchants_journal.txt:49
+msgid "1488/9/28"
+msgstr ""
+
+#: ../books/merchants_journal.txt:54
+#, fuzzy
+msgid "-2  Health Potion"
+msgstr "Deoch-shlàinte"
+
+#: ../books/merchants_journal.txt:59
+msgid "120"
+msgstr ""
+
+#: ../books/merchants_journal.txt:64
+#, fuzzy
+msgid "+1  Dagger"
+msgstr "Biodag"
+
+#: ../books/merchants_journal.txt:69
+msgid "-25"
+msgstr ""
+
+#: ../books/mog_1.txt:12
+msgid "On the waterlogged support beam"
+msgstr ""
+
+#: ../books/mog_2.txt:12
+msgid "Beneath a rock on the moldy peninsula"
+msgstr ""
+
+#: ../books/mog_3.txt:12
+msgid "In the pile of bones near the three pillars"
+msgstr ""
+
+#: ../books/mog_4.txt:12
+msgid "Inside the blocked off mine cart"
+msgstr ""
+
+#: ../books/mog_5.txt:12
+msgid "Press the switch on the top of the middle boulder"
+msgstr ""
+
+#: ../books/nasu_sketchbook.txt:23
+msgid "-K"
+msgstr ""
+
+#: ../items/categories/level_4.txt:5
+#, fuzzy
+msgid "Warlord Cloth Shirt"
+msgstr "Lèine clòtha"
+
+#: ../items/categories/level_4.txt:17
+#, fuzzy
+msgid "Sniper Cloth Shirt"
+msgstr "Lèine clòtha"
+
+#: ../items/categories/level_4.txt:29
+#, fuzzy
+msgid "Archwizard Cloth Shirt"
+msgstr "Lèine clòtha"
+
+#: ../items/categories/level_4.txt:41
+#, fuzzy
+msgid "Warlord Cloth Pants"
+msgstr "Briogais clòtha"
+
+#: ../items/categories/level_4.txt:53
+#, fuzzy
+msgid "Sniper Cloth Pants"
+msgstr "Briogais clòtha"
+
+#: ../items/categories/level_4.txt:65
+#, fuzzy
+msgid "Archwizard Cloth Pants"
+msgstr "Briogais clòtha"
+
+#: ../items/categories/level_4.txt:77
+#, fuzzy
+msgid "Warlord Cloth Sandals"
+msgstr "Cuarain clòtha"
+
+#: ../items/categories/level_4.txt:89
+#, fuzzy
+msgid "Sniper Cloth Sandals"
+msgstr "Cuarain clòtha"
+
+#: ../items/categories/level_4.txt:101
+#, fuzzy
+msgid "Archwizard Cloth Sandals"
+msgstr "Cuarain clòtha"
+
+#: ../items/categories/level_4.txt:113
+#, fuzzy
+msgid "Warlord Cloth Gloves"
+msgstr "Miotagan clòtha"
+
+#: ../items/categories/level_4.txt:125
+#, fuzzy
+msgid "Sniper Cloth Gloves"
+msgstr "Miotagan clòtha"
+
+#: ../items/categories/level_4.txt:137
+#, fuzzy
+msgid "Archwizard Cloth Gloves"
+msgstr "Miotagan clòtha"
+
+#: ../items/categories/level_4.txt:149
+#, fuzzy
+msgid "Master Leather Belt"
+msgstr "Àrd-dhraoidh"
+
+#: ../items/categories/level_4.txt:160
+#, fuzzy
+msgid "Master Pendant"
+msgstr "Briogais clòtha"
+
+#: ../items/categories/level_4.txt:171
+msgid "Master Spellbook"
+msgstr ""
+
+#: ../items/categories/level_4.txt:182
+#, fuzzy
+msgid "Warlord Dagger"
+msgstr "Tighearna-cogaidh"
+
+#: ../items/categories/level_4.txt:194
+#, fuzzy
+msgid "Sniper Slingshot"
+msgstr "Longag"
+
+#: ../items/categories/level_4.txt:206
+#, fuzzy
+msgid "Archwizard Wand"
+msgstr "Àrd-dhraoidh"
+
+#: ../items/categories/level_4.txt:218
+#, fuzzy
+msgid "Templar Wood Buckler"
+msgstr "Sgiathag fiodha"
+
+#: ../items/categories/level_4.txt:229
+#, fuzzy
+msgid "Master Fire Ring"
+msgstr "Fàinne an teine"
+
+#: ../items/categories/level_4.txt:239
+#, fuzzy
+msgid "Master Ice Ring"
+msgstr "Fàinne na deighe"
+
+#: ../items/categories/level_4.txt:249
+#, fuzzy
+msgid "Master Lightning Ring"
+msgstr "Fàinne an dealanaich"
+
+#: ../items/categories/level_4.txt:259
+msgid "Master Dark Ring"
+msgstr ""
+
+#: ../items/categories/level_4.txt:269
+#, fuzzy
+msgid "Master Experience Ring"
+msgstr "Fàinne an eòlais"
+
+#: ../items/categories/level_4.txt:279
+#, fuzzy
+msgid "Master Wealth Ring"
+msgstr "Fàinne a bheartais"
+
+#: ../items/categories/level_4.txt:289
+#, fuzzy
+msgid "Master Treasure Ring"
+msgstr "Fàinne an ulaidh"
+
+#: ../items/categories/level_15.txt:5
+msgid "Warrior Plate Helmet"
+msgstr ""
+
+#: ../items/categories/level_15.txt:17
+msgid "Ranger Plate Helmet"
+msgstr ""
+
+#: ../items/categories/level_15.txt:29
+msgid "Wizard Velvet Hood"
+msgstr ""
+
+#: ../items/categories/level_15.txt:41
+msgid "Warrior Plate Curiass"
+msgstr ""
+
+#: ../items/categories/level_15.txt:53
+msgid "Ranger Plate Curiass"
+msgstr ""
+
+#: ../items/categories/level_15.txt:65
+msgid "Wizard Velvet Vest"
+msgstr ""
+
+#: ../items/categories/level_15.txt:77
+msgid "Warrior Plate Greaves"
+msgstr ""
+
+#: ../items/categories/level_15.txt:89
+msgid "Ranger Plate Greaves"
+msgstr ""
+
+#: ../items/categories/level_15.txt:101
+msgid "Wizard Velvet Skirt"
+msgstr ""
+
+#: ../items/categories/level_15.txt:113
+msgid "Warrior Plate Boots"
+msgstr ""
+
+#: ../items/categories/level_15.txt:125
+msgid "Ranger Plate Boots"
+msgstr ""
+
+#: ../items/categories/level_15.txt:137
+msgid "Wizard Velvet Boots"
+msgstr ""
+
+#: ../items/categories/level_15.txt:149
+msgid "Warrior Plate Gauntlets"
+msgstr ""
+
+#: ../items/categories/level_15.txt:161
+msgid "Ranger Plate Gauntlets"
+msgstr ""
+
+#: ../items/categories/level_15.txt:173
+msgid "Wizard Velvet Sleeves"
+msgstr ""
+
+#: ../items/categories/level_15.txt:185
+#, fuzzy
+msgid "Adventurer Warlord Leather Belt"
+msgstr "Àrd-dhraoidh"
+
+#: ../items/categories/level_15.txt:196
+#, fuzzy
+msgid "Adventurer Sniper Pendant"
+msgstr "Baoghlair"
+
+#: ../items/categories/level_15.txt:207
+msgid "Adventurer Archwizard Spellbook"
+msgstr ""
+
+#: ../items/categories/level_15.txt:218
+msgid "Warrior Greatsword"
+msgstr ""
+
+#: ../items/categories/level_15.txt:230
+msgid "Ranger Greatbow"
+msgstr ""
+
+#: ../items/categories/level_15.txt:242
+msgid "Wizard Greatstaff"
+msgstr ""
+
+#: ../items/categories/level_15.txt:254
+msgid "Paladin Tower Shield"
+msgstr ""
+
+#: ../items/categories/level_15.txt:265
+#, fuzzy
+msgid "Adventurer Inferno Ring"
+msgstr "Baoghlair"
+
+#: ../items/categories/level_15.txt:275
+#, fuzzy
+msgid "Adventurer Glacial Ring"
+msgstr "Baoghlair"
+
+#: ../items/categories/level_15.txt:285
+#, fuzzy
+msgid "Adventurer Volt Ring"
+msgstr "Baoghlair"
+
+#: ../items/categories/level_15.txt:295
+#, fuzzy
+msgid "Adventurer Void Ring"
+msgstr "Baoghlair"
+
+#: ../items/categories/level_15.txt:305
+#, fuzzy
+msgid "Adventurer Scholar Ring"
+msgstr "Baoghlair"
+
+#: ../items/categories/level_15.txt:315
+msgid "Adventurer Affluence Ring"
+msgstr ""
+
+#: ../items/categories/level_15.txt:325
+#, fuzzy
+msgid "Adventurer Relic Ring"
+msgstr "Baoghlair"
+
+#: ../items/categories/level_4_unique.txt:3
+#, fuzzy
+msgid "Krolan's Hammer"
+msgstr "Smàrag Chròlain"
+
+#: ../items/categories/level_4_unique.txt:4
+msgid "An essential tool for any blacksmith."
+msgstr ""
+
+#: ../items/categories/level_4_unique.txt:18
 msgid "Goblin Branch"
 msgstr "Meur bòcain"
 
-#: ..\items\categories\level_4.txt:164
+#: ../items/categories/level_4_unique.txt:19
 msgid "Mana flows inside its primitive exterior."
 msgstr "Tha mana a ruith ann ged a tha coltas primideach air."
 
-#: ..\items\categories\level_4.txt:177
+#: ../items/categories/level_4_unique.txt:33
 msgid "Ardwen's Gloves"
 msgstr "Miotagan Àrdeir"
 
-#: ..\items\categories\level_4.txt:178
+#: ../items/categories/level_4_unique.txt:34
 msgid "These hands built a village."
 msgstr "Thog na làmhan seo baile."
 
-#: ..\items\categories\potions.txt:5
+#: ../items/categories/level_4_unique.txt:49
+#, fuzzy
+msgid "Blood Tunic"
+msgstr "Buille fala"
+
+#: ../items/categories/level_4_unique.txt:50
+msgid "When worn, this shirt heats the wearers veins."
+msgstr ""
+
+#: ../items/categories/level_4_unique.txt:63
+msgid "Dark Steppers"
+msgstr ""
+
+#: ../items/categories/level_4_unique.txt:64
+msgid "Dancing through the shadows."
+msgstr ""
+
+#: ../items/categories/level_4_unique.txt:77
+msgid "Seagate's Tri-pants"
+msgstr ""
+
+#: ../items/categories/level_4_unique.txt:78
+msgid "These ragged trousers are covered in scorch marks, yet are cold to the touch."
+msgstr ""
+
+#: ../items/categories/potions.txt:5
 msgid "Health Potion"
 msgstr "Deoch-shlàinte"
 
-#: ..\items\categories\potions.txt:8
+#: ../items/categories/potions.txt:8
 msgid "Restore 25% of maximum HP"
 msgstr "Aisig 25% dhe na PB as motha"
 
-#: ..\items\categories\potions.txt:14
+#: ../items/categories/potions.txt:15
 msgid "Mana Potion"
 msgstr "Deoch mana"
 
-#: ..\items\categories\potions.txt:17
+#: ../items/categories/potions.txt:18
 msgid "Restore 25% of maximum MP"
 msgstr "Aisig 25% dhe na PG as motha"
 
-#: ..\items\categories\quest.txt:3
+#: ../items/categories/level_6.txt:5
+msgid "Fighting Leather Hood"
+msgstr ""
+
+#: ../items/categories/level_6.txt:17
+msgid "Recon Leather Hood"
+msgstr ""
+
+#: ../items/categories/level_6.txt:29
+#, fuzzy
+msgid "Sorcerer Wool Hood"
+msgstr "Buidseach"
+
+#: ../items/categories/level_6.txt:41
+msgid "Fighting Leather Tunic"
+msgstr ""
+
+#: ../items/categories/level_6.txt:53
+msgid "Recon Leather Tunic"
+msgstr ""
+
+#: ../items/categories/level_6.txt:65
+#, fuzzy
+msgid "Sorcerer Wool Vest"
+msgstr "Buidseach"
+
+#: ../items/categories/level_6.txt:77
+msgid "Fighting Leather Pants"
+msgstr ""
+
+#: ../items/categories/level_6.txt:89
+#, fuzzy
+msgid "Recon Leather Pants"
+msgstr "Briogais clòtha"
+
+#: ../items/categories/level_6.txt:101
+msgid "Sorcerer Wool Skirt"
+msgstr ""
+
+#: ../items/categories/level_6.txt:113
+msgid "Fighting Leather Boots"
+msgstr ""
+
+#: ../items/categories/level_6.txt:125
+msgid "Recon Leather Boots"
+msgstr ""
+
+#: ../items/categories/level_6.txt:137
+msgid "Sorcerer Wool Boots"
+msgstr ""
+
+#: ../items/categories/level_6.txt:149
+msgid "Fighting Leather Gloves"
+msgstr ""
+
+#: ../items/categories/level_6.txt:161
+#, fuzzy
+msgid "Recon Leather Gloves"
+msgstr "Miotagan clòtha"
+
+#: ../items/categories/level_6.txt:173
+msgid "Sorcerer Wool Sleeves"
+msgstr ""
+
+#: ../items/categories/level_6.txt:185
+#, fuzzy
+msgid "Wandering Fighting Leather Belt"
+msgstr "Fàinne an dealanaich"
+
+#: ../items/categories/level_6.txt:196
+#, fuzzy
+msgid "Wandering Recon Pendant"
+msgstr "Fàinne an eòlais"
+
+#: ../items/categories/level_6.txt:207
+msgid "Wandering Sorcerer Spellbook"
+msgstr ""
+
+#: ../items/categories/level_6.txt:218
+msgid "Fighting Shortsword"
+msgstr ""
+
+#: ../items/categories/level_6.txt:230
+msgid "Recon Shortbow"
+msgstr ""
+
+#: ../items/categories/level_6.txt:242
+#, fuzzy
+msgid "Sorcerer Rod"
+msgstr "Buidseach"
+
+#: ../items/categories/level_6.txt:254
+msgid "Keeper Iron Buckler"
+msgstr ""
+
+#: ../items/categories/level_6.txt:265
+msgid "Wandering Burn Ring"
+msgstr ""
+
+#: ../items/categories/level_6.txt:275
+msgid "Wandering Frost Ring"
+msgstr ""
+
+#: ../items/categories/level_6.txt:285
+msgid "Wandering Electric Ring"
+msgstr ""
+
+#: ../items/categories/level_6.txt:295
+msgid "Wandering Shadow Ring"
+msgstr ""
+
+#: ../items/categories/level_6.txt:305
+msgid "Wandering Knowledge Ring"
+msgstr ""
+
+#: ../items/categories/level_6.txt:315
+msgid "Wandering Prosperity Ring"
+msgstr ""
+
+#: ../items/categories/level_6.txt:325
+msgid "Wandering Loot Ring"
+msgstr ""
+
+#: ../items/categories/level_8_unique.txt:3
+msgid "Amir Blade"
+msgstr ""
+
+#: ../items/categories/level_8_unique.txt:4
+msgid "A remnant of those who guarded Fort Amir."
+msgstr ""
+
+#: ../items/categories/level_8_unique.txt:18
+msgid "Huntsman Bow"
+msgstr ""
+
+#: ../items/categories/level_8_unique.txt:19
+msgid "Compact enough to be deadly at all ranges of combat."
+msgstr ""
+
+#: ../items/categories/level_8_unique.txt:33
+msgid "Greed Cowl"
+msgstr ""
+
+#: ../items/categories/level_8_unique.txt:34
+msgid "Riches fit for a queen."
+msgstr ""
+
+#: ../items/categories/level_8_unique.txt:48
+#, fuzzy
+msgid "Battle Leathers"
+msgstr "Draoidh cogaidh"
+
+#: ../items/categories/level_8_unique.txt:49
+msgid "Designed to keep its wearer moving forward."
+msgstr ""
+
+#: ../items/categories/level_8_unique.txt:63
+#, fuzzy
+msgid "Escape Boots"
+msgstr "Peilear deighe"
+
+#: ../items/categories/level_8_unique.txt:64
+msgid "Running away doesn't mean the battle is lost."
+msgstr ""
+
+#: ../items/categories/level_8_unique.txt:78
+msgid "Mez's Wraps"
+msgstr ""
+
+#: ../items/categories/level_8_unique.txt:79
+msgid "With its layers of reptilian skin, not much can penetrate this armor."
+msgstr ""
+
+#: ../items/categories/level_12.txt:5
+msgid "Warlord Chain Coif"
+msgstr ""
+
+#: ../items/categories/level_12.txt:17
+msgid "Sniper Chain Coif"
+msgstr ""
+
+#: ../items/categories/level_12.txt:29
+#, fuzzy
+msgid "Archwizard Silk Hood"
+msgstr "Àrd-dhraoidh"
+
+#: ../items/categories/level_12.txt:41
+msgid "Warlord Chain Curiass"
+msgstr ""
+
+#: ../items/categories/level_12.txt:53
+msgid "Sniper Chain Curiass"
+msgstr ""
+
+#: ../items/categories/level_12.txt:65
+#, fuzzy
+msgid "Archwizard Silk Vest"
+msgstr "Àrd-dhraoidh"
+
+#: ../items/categories/level_12.txt:77
+msgid "Warlord Chain Greaves"
+msgstr ""
+
+#: ../items/categories/level_12.txt:89
+msgid "Sniper Chain Greaves"
+msgstr ""
+
+#: ../items/categories/level_12.txt:101
+#, fuzzy
+msgid "Archwizard Silk Skirt"
+msgstr "Àrd-dhraoidh"
+
+#: ../items/categories/level_12.txt:113
+msgid "Warlord Chain Boots"
+msgstr ""
+
+#: ../items/categories/level_12.txt:125
+msgid "Sniper Chain Boots"
+msgstr ""
+
+#: ../items/categories/level_12.txt:137
+#, fuzzy
+msgid "Archwizard Silk Boots"
+msgstr "Àrd-dhraoidh"
+
+#: ../items/categories/level_12.txt:149
+#, fuzzy
+msgid "Warlord Chain Gloves"
+msgstr "Miotagan clòtha"
+
+#: ../items/categories/level_12.txt:161
+msgid "Sniper Chain Gloves"
+msgstr ""
+
+#: ../items/categories/level_12.txt:173
+#, fuzzy
+msgid "Archwizard Silk Sleeves"
+msgstr "Àrd-dhraoidh"
+
+#: ../items/categories/level_12.txt:185
+#, fuzzy
+msgid "Master Warrior Leather Belt"
+msgstr "Àrd-dhraoidh"
+
+#: ../items/categories/level_12.txt:196
+msgid "Master Ranger Pendant"
+msgstr ""
+
+#: ../items/categories/level_12.txt:207
+msgid "Master Wizard Spellbook"
+msgstr ""
+
+#: ../items/categories/level_12.txt:218
+msgid "Warlord Longsword"
+msgstr ""
+
+#: ../items/categories/level_12.txt:230
+#, fuzzy
+msgid "Sniper Longbow"
+msgstr "Foill-bhoghadair"
+
+#: ../items/categories/level_12.txt:242
+#, fuzzy
+msgid "Archwizard Staff"
+msgstr "Àrd-dhraoidh"
+
+#: ../items/categories/level_12.txt:254
+msgid "Templar Crest Shield"
+msgstr ""
+
+#: ../items/categories/level_12.txt:265
+#, fuzzy
+msgid "Master Blaze Ring"
+msgstr "Fàinne an ulaidh"
+
+#: ../items/categories/level_12.txt:275
+msgid "Master Freeze Ring"
+msgstr ""
+
+#: ../items/categories/level_12.txt:285
+msgid "Master Shock Ring"
+msgstr ""
+
+#: ../items/categories/level_12.txt:295
+msgid "Master Gloom Ring"
+msgstr ""
+
+#: ../items/categories/level_12.txt:305
+msgid "Master Intellectual Ring"
+msgstr ""
+
+#: ../items/categories/level_12.txt:315
+msgid "Master Lucrative Ring"
+msgstr ""
+
+#: ../items/categories/level_12.txt:325
+msgid "Master Artifact Ring"
+msgstr ""
+
+#: ../items/categories/scrolls.txt:5
+msgid "Summon Zombie Scroll"
+msgstr ""
+
+#: ../items/categories/scrolls.txt:8
+msgid "Use: Summon Zombie"
+msgstr ""
+
+#: ../items/categories/level_7.txt:5
+msgid "Warrior Leather Hood"
+msgstr ""
+
+#: ../items/categories/level_7.txt:17
+msgid "Ranger Leather Hood"
+msgstr ""
+
+#: ../items/categories/level_7.txt:29
+msgid "Wizard Wool Hood"
+msgstr ""
+
+#: ../items/categories/level_7.txt:41
+msgid "Warrior Leather Tunic"
+msgstr ""
+
+#: ../items/categories/level_7.txt:53
+msgid "Ranger Leather Tunic"
+msgstr ""
+
+#: ../items/categories/level_7.txt:65
+msgid "Wizard Wool Vest"
+msgstr ""
+
+#: ../items/categories/level_7.txt:77
+msgid "Warrior Leather Pants"
+msgstr ""
+
+#: ../items/categories/level_7.txt:89
+msgid "Ranger Leather Pants"
+msgstr ""
+
+#: ../items/categories/level_7.txt:101
+msgid "Wizard Wool Skirt"
+msgstr ""
+
+#: ../items/categories/level_7.txt:113
+msgid "Warrior Leather Boots"
+msgstr ""
+
+#: ../items/categories/level_7.txt:125
+msgid "Ranger Leather Boots"
+msgstr ""
+
+#: ../items/categories/level_7.txt:137
+msgid "Wizard Wool Boots"
+msgstr ""
+
+#: ../items/categories/level_7.txt:149
+msgid "Warrior Leather Gloves"
+msgstr ""
+
+#: ../items/categories/level_7.txt:161
+msgid "Ranger Leather Gloves"
+msgstr ""
+
+#: ../items/categories/level_7.txt:173
+msgid "Wizard Wool Sleeves"
+msgstr ""
+
+#: ../items/categories/level_7.txt:185
+#, fuzzy
+msgid "Adventurer Fighting Leather Belt"
+msgstr "Fàinne an dealanaich"
+
+#: ../items/categories/level_7.txt:196
+#, fuzzy
+msgid "Adventurer Recon Pendant"
+msgstr "Baoghlair"
+
+#: ../items/categories/level_7.txt:207
+#, fuzzy
+msgid "Adventurer Sorcerer Spellbook"
+msgstr "Fàinne an ulaidh"
+
+#: ../items/categories/level_7.txt:218
+msgid "Warrior Shortsword"
+msgstr ""
+
+#: ../items/categories/level_7.txt:230
+msgid "Ranger Shortbow"
+msgstr ""
+
+#: ../items/categories/level_7.txt:242
+#, fuzzy
+msgid "Wizard Rod"
+msgstr "Draoidh"
+
+#: ../items/categories/level_7.txt:254
+msgid "Paladin Iron Buckler"
+msgstr ""
+
+#: ../items/categories/level_7.txt:265
+#, fuzzy
+msgid "Adventurer Burn Ring"
+msgstr "Baoghlair"
+
+#: ../items/categories/level_7.txt:275
+#, fuzzy
+msgid "Adventurer Frost Ring"
+msgstr "Baoghlair"
+
+#: ../items/categories/level_7.txt:285
+msgid "Adventurer Electric Ring"
+msgstr ""
+
+#: ../items/categories/level_7.txt:295
+#, fuzzy
+msgid "Adventurer Shadow Ring"
+msgstr "Baoghlair"
+
+#: ../items/categories/level_7.txt:305
+msgid "Adventurer Knowledge Ring"
+msgstr ""
+
+#: ../items/categories/level_7.txt:315
+msgid "Adventurer Prosperity Ring"
+msgstr ""
+
+#: ../items/categories/level_7.txt:325
+#, fuzzy
+msgid "Adventurer Loot Ring"
+msgstr "Baoghlair"
+
+#: ../items/categories/level_12_unique.txt:5
+msgid "Lost Totem"
+msgstr ""
+
+#: ../items/categories/level_12_unique.txt:6
+msgid "The ancient scripture contained appears to be some sort of magic."
+msgstr ""
+
+#: ../items/categories/level_12_unique.txt:20
+msgid "Mog's Axe"
+msgstr ""
+
+#: ../items/categories/level_12_unique.txt:21
+msgid "Not as sleek as an arrow, but just as effective."
+msgstr ""
+
+#: ../items/categories/level_12_unique.txt:35
+msgid "Guardsman Curiass"
+msgstr ""
+
+#: ../items/categories/level_12_unique.txt:36
+msgid "A royal mail with a 'K' engraved on the breast."
+msgstr ""
+
+#: ../items/categories/level_12_unique.txt:52
+msgid "Inferno Pendant"
+msgstr ""
+
+#: ../items/categories/level_12_unique.txt:53
+msgid "Hot. Hot. Hot."
+msgstr ""
+
+#: ../items/categories/level_12_unique.txt:67
+msgid "Alchemist's Skirt"
+msgstr ""
+
+#: ../items/categories/level_12_unique.txt:68
+msgid "Knowledge of formulating many concoctions bestows its wearer."
+msgstr ""
+
+#: ../items/categories/level_12_unique.txt:77
+msgid "Drinking potions may create another potion of the same type."
+msgstr ""
+
+#: ../items/categories/level_12_unique.txt:86
+msgid "Metzger's Battlemace"
+msgstr ""
+
+#: ../items/categories/level_12_unique.txt:87
+msgid "Swinging this mace around leaves a clouded trail of dark smoke."
+msgstr ""
+
+#: ../items/categories/level_16.txt:5
+msgid "Warlord Plate Helmet"
+msgstr ""
+
+#: ../items/categories/level_16.txt:17
+msgid "Sniper Plate Helmet"
+msgstr ""
+
+#: ../items/categories/level_16.txt:29
+#, fuzzy
+msgid "Archwizard Velvet Hood"
+msgstr "Àrd-dhraoidh"
+
+#: ../items/categories/level_16.txt:41
+msgid "Warlord Plate Curiass"
+msgstr ""
+
+#: ../items/categories/level_16.txt:53
+msgid "Sniper Plate Curiass"
+msgstr ""
+
+#: ../items/categories/level_16.txt:65
+#, fuzzy
+msgid "Archwizard Velvet Vest"
+msgstr "Àrd-dhraoidh"
+
+#: ../items/categories/level_16.txt:77
+msgid "Warlord Plate Greaves"
+msgstr ""
+
+#: ../items/categories/level_16.txt:89
+msgid "Sniper Plate Greaves"
+msgstr ""
+
+#: ../items/categories/level_16.txt:101
+#, fuzzy
+msgid "Archwizard Velvet Skirt"
+msgstr "Àrd-dhraoidh"
+
+#: ../items/categories/level_16.txt:113
+msgid "Warlord Plate Boots"
+msgstr ""
+
+#: ../items/categories/level_16.txt:125
+msgid "Sniper Plate Boots"
+msgstr ""
+
+#: ../items/categories/level_16.txt:137
+#, fuzzy
+msgid "Archwizard Velvet Boots"
+msgstr "Àrd-dhraoidh"
+
+#: ../items/categories/level_16.txt:149
+msgid "Warlord Plate Gauntlets"
+msgstr ""
+
+#: ../items/categories/level_16.txt:161
+msgid "Sniper Plate Gauntlets"
+msgstr ""
+
+#: ../items/categories/level_16.txt:173
+msgid "Archwizard Velvet Sleeves"
+msgstr ""
+
+#: ../items/categories/level_16.txt:185
+#, fuzzy
+msgid "Master Warlord Leather Belt"
+msgstr "Briogais clòtha"
+
+#: ../items/categories/level_16.txt:196
+#, fuzzy
+msgid "Master Sniper Pendant"
+msgstr "Fàinne an eòlais"
+
+#: ../items/categories/level_16.txt:207
+#, fuzzy
+msgid "Master Archwizard Spellbook"
+msgstr "Àrd-dhraoidh"
+
+#: ../items/categories/level_16.txt:218
+msgid "Warlord Greatsword"
+msgstr ""
+
+#: ../items/categories/level_16.txt:230
+msgid "Sniper Greatbow"
+msgstr ""
+
+#: ../items/categories/level_16.txt:242
+#, fuzzy
+msgid "Archwizard Greatstaff"
+msgstr "Àrd-dhraoidh"
+
+#: ../items/categories/level_16.txt:254
+msgid "Templar Tower Shield"
+msgstr ""
+
+#: ../items/categories/level_16.txt:265
+msgid "Master Inferno Ring"
+msgstr ""
+
+#: ../items/categories/level_16.txt:275
+msgid "Master Glacial Ring"
+msgstr ""
+
+#: ../items/categories/level_16.txt:285
+msgid "Master Volt Ring"
+msgstr ""
+
+#: ../items/categories/level_16.txt:295
+msgid "Master Void Ring"
+msgstr ""
+
+#: ../items/categories/level_16.txt:305
+msgid "Master Scholar Ring"
+msgstr ""
+
+#: ../items/categories/level_16.txt:315
+#, fuzzy
+msgid "Master Affluence Ring"
+msgstr "Fàinne an eòlais"
+
+#: ../items/categories/level_16.txt:325
+#, fuzzy
+msgid "Master Relic Ring"
+msgstr "Fàinne an ulaidh"
+
+#: ../items/categories/level_11.txt:5
+msgid "Warrior Chain Coif"
+msgstr ""
+
+#: ../items/categories/level_11.txt:17
+msgid "Ranger Chain Coif"
+msgstr ""
+
+#: ../items/categories/level_11.txt:29
+msgid "Wizard Silk Hood"
+msgstr ""
+
+#: ../items/categories/level_11.txt:41
+msgid "Warrior Chain Curiass"
+msgstr ""
+
+#: ../items/categories/level_11.txt:53
+msgid "Ranger Chain Curiass"
+msgstr ""
+
+#: ../items/categories/level_11.txt:65
+msgid "Wizard Silk Vest"
+msgstr ""
+
+#: ../items/categories/level_11.txt:77
+msgid "Warrior Chain Greaves"
+msgstr ""
+
+#: ../items/categories/level_11.txt:89
+msgid "Ranger Chain Greaves"
+msgstr ""
+
+#: ../items/categories/level_11.txt:101
+msgid "Wizard Silk Skirt"
+msgstr ""
+
+#: ../items/categories/level_11.txt:113
+msgid "Warrior Chain Boots"
+msgstr ""
+
+#: ../items/categories/level_11.txt:125
+msgid "Ranger Chain Boots"
+msgstr ""
+
+#: ../items/categories/level_11.txt:137
+msgid "Wizard Silk Boots"
+msgstr ""
+
+#: ../items/categories/level_11.txt:149
+msgid "Warrior Chain Gloves"
+msgstr ""
+
+#: ../items/categories/level_11.txt:161
+msgid "Ranger Chain Gloves"
+msgstr ""
+
+#: ../items/categories/level_11.txt:173
+msgid "Wizard Silk Sleeves"
+msgstr ""
+
+#: ../items/categories/level_11.txt:185
+#, fuzzy
+msgid "Adventurer Warrior Leather Belt"
+msgstr "Fàinne a bheartais"
+
+#: ../items/categories/level_11.txt:196
+#, fuzzy
+msgid "Adventurer Ranger Pendant"
+msgstr "Baoghlair"
+
+#: ../items/categories/level_11.txt:207
+msgid "Adventurer Wizard Spellbook"
+msgstr ""
+
+#: ../items/categories/level_11.txt:218
+msgid "Warrior Longsword"
+msgstr ""
+
+#: ../items/categories/level_11.txt:230
+#, fuzzy
+msgid "Ranger Longbow"
+msgstr "Maor-coille"
+
+#: ../items/categories/level_11.txt:242
+#, fuzzy
+msgid "Wizard Staff"
+msgstr "Draoidh"
+
+#: ../items/categories/level_11.txt:254
+msgid "Paladin Crest Shield"
+msgstr ""
+
+#: ../items/categories/level_11.txt:265
+#, fuzzy
+msgid "Adventurer Blaze Ring"
+msgstr "Baoghlair"
+
+#: ../items/categories/level_11.txt:275
+#, fuzzy
+msgid "Adventurer Freeze Ring"
+msgstr "Baoghlair"
+
+#: ../items/categories/level_11.txt:285
+#, fuzzy
+msgid "Adventurer Shock Ring"
+msgstr "Baoghlair"
+
+#: ../items/categories/level_11.txt:295
+#, fuzzy
+msgid "Adventurer Gloom Ring"
+msgstr "Baoghlair"
+
+#: ../items/categories/level_11.txt:305
+msgid "Adventurer Intellectual Ring"
+msgstr ""
+
+#: ../items/categories/level_11.txt:315
+msgid "Adventurer Lucrative Ring"
+msgstr ""
+
+#: ../items/categories/level_11.txt:325
+msgid "Adventurer Artifact Ring"
+msgstr ""
+
+#: ../items/categories/level_10.txt:5
+#, fuzzy
+msgid "Fighting Chain Coif"
+msgstr "Fàinne an dealanaich"
+
+#: ../items/categories/level_10.txt:17
+msgid "Recon Chain Coif"
+msgstr ""
+
+#: ../items/categories/level_10.txt:29
+#, fuzzy
+msgid "Sorcerer Silk Hood"
+msgstr "Buidseach"
+
+#: ../items/categories/level_10.txt:41
+msgid "Fighting Chain Curiass"
+msgstr ""
+
+#: ../items/categories/level_10.txt:53
+msgid "Recon Chain Curiass"
+msgstr ""
+
+#: ../items/categories/level_10.txt:65
+#, fuzzy
+msgid "Sorcerer Silk Vest"
+msgstr "Buidseach"
+
+#: ../items/categories/level_10.txt:77
+msgid "Fighting Chain Greaves"
+msgstr ""
+
+#: ../items/categories/level_10.txt:89
+msgid "Recon Chain Greaves"
+msgstr ""
+
+#: ../items/categories/level_10.txt:101
+msgid "Sorcerer Silk Skirt"
+msgstr ""
+
+#: ../items/categories/level_10.txt:113
+msgid "Fighting Chain Boots"
+msgstr ""
+
+#: ../items/categories/level_10.txt:125
+msgid "Recon Chain Boots"
+msgstr ""
+
+#: ../items/categories/level_10.txt:137
+msgid "Sorcerer Silk Boots"
+msgstr ""
+
+#: ../items/categories/level_10.txt:149
+msgid "Fighting Chain Gloves"
+msgstr ""
+
+#: ../items/categories/level_10.txt:161
+#, fuzzy
+msgid "Recon Chain Gloves"
+msgstr "Miotagan clòtha"
+
+#: ../items/categories/level_10.txt:173
+msgid "Sorcerer Silk Sleeves"
+msgstr ""
+
+#: ../items/categories/level_10.txt:185
+#, fuzzy
+msgid "Wandering Warrior Leather Belt"
+msgstr "Àrd-dhraoidh"
+
+#: ../items/categories/level_10.txt:196
+#, fuzzy
+msgid "Wandering Ranger Pendant"
+msgstr "Fàinne an eòlais"
+
+#: ../items/categories/level_10.txt:207
+msgid "Wandering Wizard Spellbook"
+msgstr ""
+
+#: ../items/categories/level_10.txt:218
+#, fuzzy
+msgid "Fighting Longsword"
+msgstr "Fàinne an dealanaich"
+
+#: ../items/categories/level_10.txt:230
+msgid "Recon Longbow"
+msgstr ""
+
+#: ../items/categories/level_10.txt:242
+#, fuzzy
+msgid "Sorcerer Staff"
+msgstr "Buidseach"
+
+#: ../items/categories/level_10.txt:254
+msgid "Keeper Crest Shield"
+msgstr ""
+
+#: ../items/categories/level_10.txt:265
+msgid "Wandering Blaze Ring"
+msgstr ""
+
+#: ../items/categories/level_10.txt:275
+msgid "Wandering Freeze Ring"
+msgstr ""
+
+#: ../items/categories/level_10.txt:285
+msgid "Wandering Shock Ring"
+msgstr ""
+
+#: ../items/categories/level_10.txt:295
+msgid "Wandering Gloom Ring"
+msgstr ""
+
+#: ../items/categories/level_10.txt:305
+msgid "Wandering Intellectual Ring"
+msgstr ""
+
+#: ../items/categories/level_10.txt:315
+msgid "Wandering Lucrative Ring"
+msgstr ""
+
+#: ../items/categories/level_10.txt:325
+msgid "Wandering Artifact Ring"
+msgstr ""
+
+#: ../items/categories/level_9.txt:5
+msgid "Chain Coif"
+msgstr ""
+
+#: ../items/categories/level_9.txt:14
+msgid "Chain Curiass"
+msgstr ""
+
+#: ../items/categories/level_9.txt:23
+msgid "Chain Greaves"
+msgstr ""
+
+#: ../items/categories/level_9.txt:32
+msgid "Chain Boots"
+msgstr ""
+
+#: ../items/categories/level_9.txt:41
+#, fuzzy
+msgid "Chain Gloves"
+msgstr "Miotagan clòtha"
+
+#: ../items/categories/level_9.txt:50
+msgid "Silk Hood"
+msgstr ""
+
+#: ../items/categories/level_9.txt:59
+msgid "Silk Vest"
+msgstr ""
+
+#: ../items/categories/level_9.txt:68
+msgid "Silk Skirt"
+msgstr ""
+
+#: ../items/categories/level_9.txt:77
+msgid "Silk Boots"
+msgstr ""
+
+#: ../items/categories/level_9.txt:86
+msgid "Silk Sleeves"
+msgstr ""
+
+#: ../items/categories/level_9.txt:95
+msgid "Longsword"
+msgstr ""
+
+#: ../items/categories/level_9.txt:104
+msgid "Longbow"
+msgstr ""
+
+#: ../items/categories/level_9.txt:113
+msgid "Staff"
+msgstr ""
+
+#: ../items/categories/level_9.txt:122
+#, fuzzy
+msgid "Crest Shield"
+msgstr "Sgiath"
+
+#: ../items/categories/level_13.txt:5
+msgid "Plate Helmet"
+msgstr ""
+
+#: ../items/categories/level_13.txt:14
+msgid "Plate Curiass"
+msgstr ""
+
+#: ../items/categories/level_13.txt:23
+msgid "Plate Greaves"
+msgstr ""
+
+#: ../items/categories/level_13.txt:32
+msgid "Plate Boots"
+msgstr ""
+
+#: ../items/categories/level_13.txt:41
+msgid "Plate Gauntlets"
+msgstr ""
+
+#: ../items/categories/level_13.txt:50
+msgid "Velvet Hood"
+msgstr ""
+
+#: ../items/categories/level_13.txt:59
+msgid "Velvet Vest"
+msgstr ""
+
+#: ../items/categories/level_13.txt:68
+msgid "Velvet Skirt"
+msgstr ""
+
+#: ../items/categories/level_13.txt:77
+msgid "Velvet Boots"
+msgstr ""
+
+#: ../items/categories/level_13.txt:86
+msgid "Velvet Sleeves"
+msgstr ""
+
+#: ../items/categories/level_13.txt:95
+msgid "Greatsword"
+msgstr ""
+
+#: ../items/categories/level_13.txt:104
+msgid "Greatbow"
+msgstr ""
+
+#: ../items/categories/level_13.txt:113
+msgid "Greatstaff"
+msgstr ""
+
+#: ../items/categories/level_13.txt:122
+#, fuzzy
+msgid "Tower Shield"
+msgstr "Sgiath"
+
+#: ../items/categories/level_5.txt:5
+msgid "Leather Hood"
+msgstr ""
+
+#: ../items/categories/level_5.txt:14
+msgid "Leather Tunic"
+msgstr ""
+
+#: ../items/categories/level_5.txt:23
+#, fuzzy
+msgid "Leather Pants"
+msgstr "Briogais clòtha"
+
+#: ../items/categories/level_5.txt:32
+msgid "Leather Boots"
+msgstr ""
+
+#: ../items/categories/level_5.txt:41
+#, fuzzy
+msgid "Leather Gloves"
+msgstr "Miotagan clòtha"
+
+#: ../items/categories/level_5.txt:50
+msgid "Wool Hood"
+msgstr ""
+
+#: ../items/categories/level_5.txt:59
+msgid "Wool Vest"
+msgstr ""
+
+#: ../items/categories/level_5.txt:68
+msgid "Wool Skirt"
+msgstr ""
+
+#: ../items/categories/level_5.txt:77
+msgid "Wool Boots"
+msgstr ""
+
+#: ../items/categories/level_5.txt:86
+msgid "Wool Sleeves"
+msgstr ""
+
+#: ../items/categories/level_5.txt:95
+msgid "Shortsword"
+msgstr ""
+
+#: ../items/categories/level_5.txt:104
+msgid "Shortbow"
+msgstr ""
+
+#: ../items/categories/level_5.txt:113
+msgid "Rod"
+msgstr ""
+
+#: ../items/categories/level_5.txt:122
+#, fuzzy
+msgid "Iron Buckler"
+msgstr "Sgiathag fiodha"
+
+#: ../items/categories/quest.txt:3
 msgid "Krolan's Key"
 msgstr "Iuchair Chròlain"
 
-#: ..\items\categories\quest.txt:11
+#: ../items/categories/quest.txt:12
 msgid "Krolan's Emerald"
 msgstr "Smàrag Chròlain"
 
-#: ..\items\categories\quest.txt:19
-msgid "Merchant's Journal"
+#: ../items/categories/quest.txt:21
+#, fuzzy
+msgid "Abasi's Journal"
 msgstr "Leabhar-latha a' mharsanta"
 
-#: ..\items\categories\quest.txt:28
+#: ../items/categories/quest.txt:31
 msgid "Ardwen's Ring"
 msgstr "Fàinne Àrdeir"
 
-#: ..\powers\base\magician\burn.txt:1
-msgid "Burn"
-msgstr "Teine"
-
-#: ..\powers\base\magician\burn.txt:4
-msgid "Blast multiple enemies in a distant area with fire."
-msgstr "Gread iomadh nàmhaid air raon fad air falbh le teine."
-
-#: ..\powers\base\magician\energy_flow.txt:1
-msgid "Energy Flow"
-msgstr "Sruthadh lùiths"
-
-#: ..\powers\base\magician\energy_flow.txt:2
-msgid "Each level grants an additional 10 MP and 20 MP regeneration."
-msgstr "Bheir gach leibheil 10 PG agus ath-ghineadh de 20 PG dhut."
-
-#: ..\powers\base\magician\fireball.txt:1
-msgid "Fireball"
-msgstr "Bàla-teine"
-
-#: ..\powers\base\magician\fireball.txt:2
-msgid "Launch a ball of fire that does extra mental damage."
-msgstr "Tilg bàla teine a nì dochann inntinne a bharrachd."
-
-#: ..\powers\base\magician\freeze.txt:1
-msgid "Freeze"
-msgstr "Reòthadh"
-
-#: ..\powers\base\magician\freeze.txt:4
-msgid "Create a ray of piercing cold that slows enemies"
-msgstr "Cruthaich leus fuachd uabhasaich a chuireas maille air nàimhdean"
-
-#: ..\powers\base\magician\ice_bolt.txt:1
-msgid "Ice Bolt"
-msgstr "Peilear deighe"
-
-#: ..\powers\base\magician\ice_bolt.txt:2
-msgid "Launch a chunk of ice that slows enemies."
-msgstr "Loisg cnap deighe a chuireas maille air na nàimhdean."
-
-#: ..\powers\base\magician\shield.txt:1
-msgid "Shield"
-msgstr "Sgiath"
-
-#: ..\powers\base\magician\shield.txt:4
-msgid "Create a force field that absorbs damage."
-msgstr "Cruthaich sgiath cumhachd a cheapas dochann."
-
-#: ..\powers\base\magician\shock.txt:1
-msgid "Shock"
-msgstr "Dealan"
-
-#: ..\powers\base\magician\shock.txt:2
-msgid "Electrocute an enemy from a distance with a bonus 25% chance to critically damage movement-impaired enemies."
+#: ../items/categories/quest.txt:40
+msgid "St. Maria Mausoleum Key"
 msgstr ""
-"Marbh nàmhaid le dealan aig astar le buannachd de 25% air an teans gun dèan "
-"thu dochann èiginneach air nàimhdean le cion-gluasaid."
 
-#: ..\powers\base\magician\thunderstrike.txt:1
-msgid "Thunderstrike"
-msgstr "Buille tàirneanach"
-
-#: ..\powers\base\magician\thunderstrike.txt:4
-msgid "Lightning strikes from the sky with a bonus 50% chance to critically damage movement-impaired enemies."
+#: ../items/categories/quest.txt:49
+msgid "St. Maria Prison Key"
 msgstr ""
-"Boillsgidh dealan o na speuran aig astar le buannachd de 50% air an teans "
-"gun dèan thu dochann èiginneach air nàimhdean le cion-gluasaid."
 
-#: ..\powers\base\ranger\bear_trap.txt:1
-msgid "Bear Trap"
-msgstr "Ribe mathain"
+#: ../items/categories/quest.txt:58
+#, fuzzy
+msgid "Strange Sapphire A"
+msgstr "Srad orains"
 
-#: ..\powers\base\ranger\bear_trap.txt:2
-msgid "This trap deals 150% ranged weapon damage and immobilizes the target."
+#: ../items/categories/quest.txt:67
+#, fuzzy
+msgid "Strange Sapphire B"
+msgstr "Srad orains"
+
+#: ../items/categories/quest.txt:85
+msgid "Bear Figurine"
 msgstr ""
-"Nì an ribe seo 150% a dhochann airm astair is chan urrainn dhan nàmhaid "
-"gluasad tuilleadh."
 
-#: ..\powers\base\ranger\caltrops.txt:1
-msgid "Caltrops"
-msgstr "Cas-ribean"
-
-#: ..\powers\base\ranger\caltrops.txt:2
-msgid "This trap deals 75% ranged weapon damage and slows the target."
+#: ../items/categories/quest.txt:88
+msgid "Wood sculpture of a bear. A \"1\" is carved into the bottom."
 msgstr ""
-"Nì an ribe seo 75% a dhochann airm astair is cuiridh e maille air an "
-"nàmhaid."
 
-#: ..\powers\base\ranger\ember_shot.txt:1
-msgid "Ember Shot"
-msgstr "Losgadh èibhleagan"
-
-#: ..\powers\base\ranger\ember_shot.txt:2
-msgid "Fire a spray of burning embers at close range. Effective against armored enemies."
+#: ../items/categories/quest.txt:97
+msgid "Owl Figurine"
 msgstr ""
-"Seall èibhleagan loisgeach air astar beag. Èifeachdach an aghaidh nàimhdean "
-"armaichte."
 
-#: ..\powers\base\ranger\haste.txt:1
-msgid "Haste"
-msgstr "Cabhag"
+#: ../items/categories/quest.txt:100
+msgid "Wood sculpture of an owl. A \"2\" is carved into the bottom."
+msgstr ""
 
-#: ..\powers\base\ranger\haste.txt:3
-msgid "Move at an increased speed for 10 seconds."
-msgstr "Gluais nas luaithe fad 10 diogan."
+#: ../items/categories/quest.txt:109
+msgid "Cat Figurine"
+msgstr ""
 
-#: ..\powers\base\ranger\multishot.txt:1
-msgid "Multishot"
-msgstr "Ioma-losgadh"
+#: ../items/categories/quest.txt:112
+msgid "Wood sculpture of a cat. A \"3\" is carved into the bottom."
+msgstr ""
 
-#: ..\powers\base\ranger\multishot.txt:2
-msgid "Shoot three projectiles simultaneously."
-msgstr "Loisg trì saighdean aig an aon àm."
+#: ../items/categories/quest.txt:121
+msgid "Turtle Figurine"
+msgstr ""
 
-#: ..\powers\base\ranger\piercing_shot.txt:1
-msgid "Piercing Shot"
-msgstr "Losgadh sàthaidh"
+#: ../items/categories/quest.txt:124
+msgid "Wood sculpture of a turtle. A \"4\" is carved into the bottom."
+msgstr ""
 
-#: ..\powers\base\ranger\piercing_shot.txt:2
-msgid "Fire a shot that ignores armor and goes through multiple enemies."
-msgstr "Loisg saighead a bhiod coma mu armachd agus a thèid tro iomadh nàmhaid."
+#: ../items/categories/quest.txt:133
+msgid "Stormrock Key"
+msgstr ""
 
-#: ..\powers\base\ranger\rapid_fire.txt:1
-msgid "Rapid Fire"
-msgstr "Losgadh luath"
+#: ../items/categories/quest.txt:142
+msgid "Temple of Mez Basement Key"
+msgstr ""
 
-#: ..\powers\base\ranger\rapid_fire.txt:2
-msgid "Fire five low power missiles in quick succession."
-msgstr "Loisg còig astasan le cumhachd bheag gu luath."
+#: ../items/categories/quest.txt:151
+msgid "Temple of Mez Main Hall Key"
+msgstr ""
 
-#: ..\powers\base\ranger\shoot.txt:1
-msgid "Shoot"
-msgstr "Losgadh"
+#: ../items/categories/quest.txt:160
+msgid "Dynamite"
+msgstr ""
 
-#: ..\powers\base\ranger\shoot.txt:4
-msgid "Basic ranged attack."
-msgstr "Ionnsaigh astair bhunasach."
+#: ../items/categories/quest.txt:169
+msgid "Worn Note #1"
+msgstr ""
 
-#: ..\powers\base\ranger\wolfs_eye.txt:1
+#: ../items/categories/quest.txt:179
+msgid "Worn Note #2"
+msgstr ""
+
+#: ../items/categories/quest.txt:189
+msgid "Worn Note #3"
+msgstr ""
+
+#: ../items/categories/quest.txt:199
+msgid "Worn Note #4"
+msgstr ""
+
+#: ../items/categories/quest.txt:209
+msgid "Worn Note #5"
+msgstr ""
+
+#: ../items/categories/quest.txt:219
+msgid "Wizard's Tower Entrance Key"
+msgstr ""
+
+#: ../items/categories/quest.txt:232
+msgid "An odor of iron and its abrasive petals make this rare plant easy to identify."
+msgstr ""
+
+#: ../items/categories/quest.txt:242
+msgid "This mysterious black feather has a very sharp follicle, making it a suitable writing utensil."
+msgstr ""
+
+#: ../items/categories/quest.txt:249
+msgid "Knife of Sacrifices"
+msgstr ""
+
+#: ../items/categories/quest.txt:257
+msgid "Vial of Your Blood"
+msgstr ""
+
+#: ../items/categories/quest.txt:265
+#, fuzzy
+msgid "Blood Inkwell"
+msgstr "Buille fala"
+
+#: ../items/categories/level_1.txt:5
+msgid "Cloth Shirt"
+msgstr "Lèine clòtha"
+
+#: ../items/categories/level_1.txt:12
+msgid "Cloth Pants"
+msgstr "Briogais clòtha"
+
+#: ../items/categories/level_1.txt:19
+msgid "Cloth Sandals"
+msgstr "Cuarain clòtha"
+
+#: ../items/categories/level_1.txt:26
+msgid "Cloth Gloves"
+msgstr "Miotagan clòtha"
+
+#: ../items/categories/level_1.txt:33
+msgid "Dagger"
+msgstr "Biodag"
+
+#: ../items/categories/level_1.txt:42
+msgid "Slingshot"
+msgstr "Longag"
+
+#: ../items/categories/level_1.txt:51
+msgid "Wand"
+msgstr "Slatan"
+
+#: ../items/categories/level_1.txt:60
+msgid "Wood Buckler"
+msgstr "Sgiathag fiodha"
+
+#: ../items/categories/level_8.txt:5
+msgid "Warlord Leather Hood"
+msgstr ""
+
+#: ../items/categories/level_8.txt:17
+msgid "Sniper Leather Hood"
+msgstr ""
+
+#: ../items/categories/level_8.txt:29
+#, fuzzy
+msgid "Archwizard Wool Hood"
+msgstr "Àrd-dhraoidh"
+
+#: ../items/categories/level_8.txt:41
+msgid "Warlord Leather Tunic"
+msgstr ""
+
+#: ../items/categories/level_8.txt:53
+msgid "Sniper Leather Tunic"
+msgstr ""
+
+#: ../items/categories/level_8.txt:65
+#, fuzzy
+msgid "Archwizard Wool Vest"
+msgstr "Àrd-dhraoidh"
+
+#: ../items/categories/level_8.txt:77
+#, fuzzy
+msgid "Warlord Leather Pants"
+msgstr "Briogais clòtha"
+
+#: ../items/categories/level_8.txt:89
+msgid "Sniper Leather Pants"
+msgstr ""
+
+#: ../items/categories/level_8.txt:101
+#, fuzzy
+msgid "Archwizard Wool Skirt"
+msgstr "Àrd-dhraoidh"
+
+#: ../items/categories/level_8.txt:113
+msgid "Warlord Leather Boots"
+msgstr ""
+
+#: ../items/categories/level_8.txt:125
+msgid "Sniper Leather Boots"
+msgstr ""
+
+#: ../items/categories/level_8.txt:137
+#, fuzzy
+msgid "Archwizard Wool Boots"
+msgstr "Àrd-dhraoidh"
+
+#: ../items/categories/level_8.txt:149
+#, fuzzy
+msgid "Warlord Leather Gloves"
+msgstr "Miotagan clòtha"
+
+#: ../items/categories/level_8.txt:161
+msgid "Sniper Leather Gloves"
+msgstr ""
+
+#: ../items/categories/level_8.txt:173
+#, fuzzy
+msgid "Archwizard Wool Sleeves"
+msgstr "Àrd-dhraoidh"
+
+#: ../items/categories/level_8.txt:185
+#, fuzzy
+msgid "Master Fighting Leather Belt"
+msgstr "Àrd-dhraoidh"
+
+#: ../items/categories/level_8.txt:196
+#, fuzzy
+msgid "Master Recon Pendant"
+msgstr "Fàinne an ulaidh"
+
+#: ../items/categories/level_8.txt:207
+#, fuzzy
+msgid "Master Sorcerer Spellbook"
+msgstr "Buidseach"
+
+#: ../items/categories/level_8.txt:218
+msgid "Warlord Shortsword"
+msgstr ""
+
+#: ../items/categories/level_8.txt:230
+msgid "Sniper Shortbow"
+msgstr ""
+
+#: ../items/categories/level_8.txt:242
+#, fuzzy
+msgid "Archwizard Rod"
+msgstr "Àrd-dhraoidh"
+
+#: ../items/categories/level_8.txt:254
+msgid "Templar Iron Buckler"
+msgstr ""
+
+#: ../items/categories/level_8.txt:265
+#, fuzzy
+msgid "Master Burn Ring"
+msgstr "Fàinne an ulaidh"
+
+#: ../items/categories/level_8.txt:275
+msgid "Master Frost Ring"
+msgstr ""
+
+#: ../items/categories/level_8.txt:285
+msgid "Master Electric Ring"
+msgstr ""
+
+#: ../items/categories/level_8.txt:295
+msgid "Master Shadow Ring"
+msgstr ""
+
+#: ../items/categories/level_8.txt:305
+msgid "Master Knowledge Ring"
+msgstr ""
+
+#: ../items/categories/level_8.txt:315
+msgid "Master Prosperity Ring"
+msgstr ""
+
+#: ../items/categories/level_8.txt:325
+msgid "Master Loot Ring"
+msgstr ""
+
+#: ../items/categories/level_2.txt:5
+#, fuzzy
+msgid "Fighting Cloth Shirt"
+msgstr "Lèine clòtha"
+
+#: ../items/categories/level_2.txt:15
+#, fuzzy
+msgid "Recon Cloth Shirt"
+msgstr "Lèine clòtha"
+
+#: ../items/categories/level_2.txt:25
+#, fuzzy
+msgid "Sorcerer Cloth Shirt"
+msgstr "Lèine clòtha"
+
+#: ../items/categories/level_2.txt:35
+#, fuzzy
+msgid "Fighting Cloth Pants"
+msgstr "Briogais clòtha"
+
+#: ../items/categories/level_2.txt:45
+#, fuzzy
+msgid "Recon Cloth Pants"
+msgstr "Briogais clòtha"
+
+#: ../items/categories/level_2.txt:55
+#, fuzzy
+msgid "Sorcerer Cloth Pants"
+msgstr "Briogais clòtha"
+
+#: ../items/categories/level_2.txt:64
+#, fuzzy
+msgid "Fighting Cloth Sandals"
+msgstr "Cuarain clòtha"
+
+#: ../items/categories/level_2.txt:74
+#, fuzzy
+msgid "Recon Cloth Sandals"
+msgstr "Cuarain clòtha"
+
+#: ../items/categories/level_2.txt:83
+#, fuzzy
+msgid "Sorcerer Cloth Sandals"
+msgstr "Cuarain clòtha"
+
+#: ../items/categories/level_2.txt:92
+#, fuzzy
+msgid "Fighting Cloth Gloves"
+msgstr "Miotagan clòtha"
+
+#: ../items/categories/level_2.txt:102
+#, fuzzy
+msgid "Recon Cloth Gloves"
+msgstr "Miotagan clòtha"
+
+#: ../items/categories/level_2.txt:111
+#, fuzzy
+msgid "Sorcerer Cloth Gloves"
+msgstr "Miotagan clòtha"
+
+#: ../items/categories/level_2.txt:120
+#, fuzzy
+msgid "Wandering Leather Belt"
+msgstr "Fàinne a bheartais"
+
+#: ../items/categories/level_2.txt:129
+#, fuzzy
+msgid "Wandering Pendant"
+msgstr "Fàinne an eòlais"
+
+#: ../items/categories/level_2.txt:138
+#, fuzzy
+msgid "Wandering Spellbook"
+msgstr "Fàinne a bheartais"
+
+#: ../items/categories/level_2.txt:147
+#, fuzzy
+msgid "Fighting Dagger"
+msgstr "Cathach"
+
+#: ../items/categories/level_2.txt:159
+#, fuzzy
+msgid "Recon Slingshot"
+msgstr "Longag"
+
+#: ../items/categories/level_2.txt:171
+#, fuzzy
+msgid "Sorcerer Wand"
+msgstr "Buidseach"
+
+#: ../items/categories/level_2.txt:183
+#, fuzzy
+msgid "Keeper Wood Buckler"
+msgstr "Sgiathag fiodha"
+
+#: ../items/categories/level_2.txt:193
+#, fuzzy
+msgid "Wandering Fire Ring"
+msgstr "Fàinne an teine"
+
+#: ../items/categories/level_2.txt:202
+#, fuzzy
+msgid "Wandering Ice Ring"
+msgstr "Fàinne an eòlais"
+
+#: ../items/categories/level_2.txt:211
+#, fuzzy
+msgid "Wandering Lightning Ring"
+msgstr "Fàinne an dealanaich"
+
+#: ../items/categories/level_2.txt:220
+msgid "Wandering Dark Ring"
+msgstr ""
+
+#: ../items/categories/level_2.txt:229
+#, fuzzy
+msgid "Wandering Experience Ring"
+msgstr "Fàinne an eòlais"
+
+#: ../items/categories/level_2.txt:238
+#, fuzzy
+msgid "Wandering Wealth Ring"
+msgstr "Fàinne a bheartais"
+
+#: ../items/categories/level_2.txt:247
+#, fuzzy
+msgid "Wandering Treasure Ring"
+msgstr "Fàinne an ulaidh"
+
+#: ../items/categories/level_3.txt:5
+#, fuzzy
+msgid "Warrior Cloth Shirt"
+msgstr "Lèine clòtha"
+
+#: ../items/categories/level_3.txt:15
+#, fuzzy
+msgid "Ranger Cloth Shirt"
+msgstr "Lèine clòtha"
+
+#: ../items/categories/level_3.txt:25
+#, fuzzy
+msgid "Wizard Cloth Shirt"
+msgstr "Lèine clòtha"
+
+#: ../items/categories/level_3.txt:35
+#, fuzzy
+msgid "Warrior Cloth Pants"
+msgstr "Briogais clòtha"
+
+#: ../items/categories/level_3.txt:45
+#, fuzzy
+msgid "Ranger Cloth Pants"
+msgstr "Briogais clòtha"
+
+#: ../items/categories/level_3.txt:55
+#, fuzzy
+msgid "Wizard Cloth Pants"
+msgstr "Briogais clòtha"
+
+#: ../items/categories/level_3.txt:65
+#, fuzzy
+msgid "Warrior Cloth Sandals"
+msgstr "Cuarain clòtha"
+
+#: ../items/categories/level_3.txt:75
+#, fuzzy
+msgid "Ranger Cloth Sandals"
+msgstr "Cuarain clòtha"
+
+#: ../items/categories/level_3.txt:85
+#, fuzzy
+msgid "Wizard Cloth Sandals"
+msgstr "Cuarain clòtha"
+
+#: ../items/categories/level_3.txt:94
+#, fuzzy
+msgid "Warrior Cloth Gloves"
+msgstr "Miotagan clòtha"
+
+#: ../items/categories/level_3.txt:104
+#, fuzzy
+msgid "Ranger Cloth Gloves"
+msgstr "Miotagan clòtha"
+
+#: ../items/categories/level_3.txt:114
+#, fuzzy
+msgid "Wizard Cloth Gloves"
+msgstr "Miotagan clòtha"
+
+#: ../items/categories/level_3.txt:123
+#, fuzzy
+msgid "Adventurer Leather Belt"
+msgstr "Fàinne a bheartais"
+
+#: ../items/categories/level_3.txt:132
+#, fuzzy
+msgid "Adventurer Pendant"
+msgstr "Baoghlair"
+
+#: ../items/categories/level_3.txt:141
+#, fuzzy
+msgid "Adventurer Spellbook"
+msgstr "Baoghlair"
+
+#: ../items/categories/level_3.txt:150
+#, fuzzy
+msgid "Warrior Dagger"
+msgstr "Laoch"
+
+#: ../items/categories/level_3.txt:162
+#, fuzzy
+msgid "Ranger Slingshot"
+msgstr "Longag"
+
+#: ../items/categories/level_3.txt:174
+#, fuzzy
+msgid "Wizard Wand"
+msgstr "Draoidh"
+
+#: ../items/categories/level_3.txt:186
+#, fuzzy
+msgid "Paladin Wood Buckler"
+msgstr "Sgiathag fiodha"
+
+#: ../items/categories/level_3.txt:197
+#, fuzzy
+msgid "Adventurer Fire Ring"
+msgstr "Baoghlair"
+
+#: ../items/categories/level_3.txt:206
+#, fuzzy
+msgid "Adventurer Ice Ring"
+msgstr "Baoghlair"
+
+#: ../items/categories/level_3.txt:215
+#, fuzzy
+msgid "Adventurer Lightning Ring"
+msgstr "Fàinne an dealanaich"
+
+#: ../items/categories/level_3.txt:224
+#, fuzzy
+msgid "Adventurer Dark Ring"
+msgstr "Baoghlair"
+
+#: ../items/categories/level_3.txt:233
+#, fuzzy
+msgid "Adventurer Experience Ring"
+msgstr "Fàinne an eòlais"
+
+#: ../items/categories/level_3.txt:242
+#, fuzzy
+msgid "Adventurer Wealth Ring"
+msgstr "Fàinne a bheartais"
+
+#: ../items/categories/level_3.txt:251
+#, fuzzy
+msgid "Adventurer Treasure Ring"
+msgstr "Fàinne an ulaidh"
+
+#: ../items/categories/level_14.txt:5
+msgid "Fighting Plate Helmet"
+msgstr ""
+
+#: ../items/categories/level_14.txt:17
+msgid "Recon Plate Helmet"
+msgstr ""
+
+#: ../items/categories/level_14.txt:29
+msgid "Sorcerer Velvet Hood"
+msgstr ""
+
+#: ../items/categories/level_14.txt:41
+msgid "Fighting Plate Curiass"
+msgstr ""
+
+#: ../items/categories/level_14.txt:53
+msgid "Recon Plate Curiass"
+msgstr ""
+
+#: ../items/categories/level_14.txt:65
+msgid "Sorcerer Velvet Vest"
+msgstr ""
+
+#: ../items/categories/level_14.txt:77
+msgid "Fighting Plate Greaves"
+msgstr ""
+
+#: ../items/categories/level_14.txt:89
+msgid "Recon Plate Greaves"
+msgstr ""
+
+#: ../items/categories/level_14.txt:101
+msgid "Sorcerer Velvet Skirt"
+msgstr ""
+
+#: ../items/categories/level_14.txt:113
+msgid "Fighting Plate Boots"
+msgstr ""
+
+#: ../items/categories/level_14.txt:125
+msgid "Recon Plate Boots"
+msgstr ""
+
+#: ../items/categories/level_14.txt:137
+msgid "Sorcerer Velvet Boots"
+msgstr ""
+
+#: ../items/categories/level_14.txt:149
+msgid "Fighting Plate Gauntlets"
+msgstr ""
+
+#: ../items/categories/level_14.txt:161
+msgid "Recon Plate Gauntlets"
+msgstr ""
+
+#: ../items/categories/level_14.txt:173
+msgid "Sorcerer Velvet Sleeves"
+msgstr ""
+
+#: ../items/categories/level_14.txt:185
+#, fuzzy
+msgid "Wandering Warlord Leather Belt"
+msgstr "Àrd-dhraoidh"
+
+#: ../items/categories/level_14.txt:196
+#, fuzzy
+msgid "Wandering Sniper Pendant"
+msgstr "Fàinne an eòlais"
+
+#: ../items/categories/level_14.txt:207
+#, fuzzy
+msgid "Wandering Archwizard Spellbook"
+msgstr "Àrd-dhraoidh"
+
+#: ../items/categories/level_14.txt:218
+msgid "Fighting Greatsword"
+msgstr ""
+
+#: ../items/categories/level_14.txt:230
+msgid "Recon Greatbow"
+msgstr ""
+
+#: ../items/categories/level_14.txt:242
+msgid "Sorcerer Greatstaff"
+msgstr ""
+
+#: ../items/categories/level_14.txt:254
+msgid "Keeper Tower Shield"
+msgstr ""
+
+#: ../items/categories/level_14.txt:265
+msgid "Wandering Inferno Ring"
+msgstr ""
+
+#: ../items/categories/level_14.txt:275
+msgid "Wandering Glacial Ring"
+msgstr ""
+
+#: ../items/categories/level_14.txt:285
+#, fuzzy
+msgid "Wandering Volt Ring"
+msgstr "Fàinne a bheartais"
+
+#: ../items/categories/level_14.txt:295
+msgid "Wandering Void Ring"
+msgstr ""
+
+#: ../items/categories/level_14.txt:305
+msgid "Wandering Scholar Ring"
+msgstr ""
+
+#: ../items/categories/level_14.txt:315
+#, fuzzy
+msgid "Wandering Affluence Ring"
+msgstr "Fàinne an eòlais"
+
+#: ../items/categories/level_14.txt:325
+msgid "Wandering Relic Ring"
+msgstr ""
+
+#: ../powers/base/ranger/wolfs_eye.txt:1
 msgid "Wolf's Eye"
 msgstr "Sùl a' mhadaidh-allaidh"
 
-#: ..\powers\base\ranger\wolfs_eye.txt:2
-msgid "Each level grants an additional 4% accuracy and 1% critical chance."
+#: ../powers/base/ranger/wolfs_eye.txt:2
+msgid "Improves the ability to hit and critically wound enemies."
 msgstr ""
-"Bheir gach leibheil 4% de phongalachd is 1% de theans èiginneach a bharrachd "
-"dhut."
 
-#: ..\powers\base\warrior\block.txt:1
-msgid "Block"
-msgstr "Bacadh"
+#: ../powers/base/ranger/shoot.txt:1
+msgid "Shoot"
+msgstr "Losgadh"
 
-#: ..\powers\base\warrior\block.txt:2
-msgid "Raise your shield to increase your absorption, as well as the chance to reflect incoming missiles."
+#: ../powers/base/ranger/shoot.txt:4
+msgid "Basic ranged attack."
+msgstr "Ionnsaigh astair bhunasach."
+
+#: ../powers/base/ranger/rapid_fire.txt:1
+msgid "Rapid Fire"
+msgstr "Losgadh luath"
+
+#: ../powers/base/ranger/rapid_fire.txt:2
+msgid "Fire five low power missiles in quick succession."
+msgstr "Loisg còig astasan le cumhachd bheag gu luath."
+
+#: ../powers/base/ranger/bear_trap.txt:1
+msgid "Bear Trap"
+msgstr "Ribe mathain"
+
+#: ../powers/base/ranger/bear_trap.txt:2
+#, fuzzy
+msgid "This trap deals extra ranged weapon damage and immobilizes the target."
+msgstr "Nì an ribe seo 150% a dhochann airm astair is chan urrainn dhan nàmhaid gluasad tuilleadh."
+
+#: ../powers/base/ranger/ember_shot.txt:1
+msgid "Ember Shot"
+msgstr "Losgadh èibhleagan"
+
+#: ../powers/base/ranger/ember_shot.txt:2
+msgid "Fire a spray of burning embers at close range. Effective against armored enemies."
+msgstr "Seall èibhleagan loisgeach air astar beag. Èifeachdach an aghaidh nàimhdean armaichte."
+
+#: ../powers/base/ranger/multishot.txt:1
+msgid "Multishot"
+msgstr "Ioma-losgadh"
+
+#: ../powers/base/ranger/multishot.txt:2
+msgid "Shoot three projectiles simultaneously."
+msgstr "Loisg trì saighdean aig an aon àm."
+
+#: ../powers/base/ranger/caltrops.txt:1
+msgid "Caltrops"
+msgstr "Cas-ribean"
+
+#: ../powers/base/ranger/caltrops.txt:2
+#, fuzzy
+msgid "This trap deals reduced ranged weapon damage and slows the target."
+msgstr "Nì an ribe seo 75% a dhochann airm astair is cuiridh e maille air an nàmhaid."
+
+#: ../powers/base/ranger/haste.txt:3
+#, fuzzy
+msgid "Move at an increased speed for a limited time."
+msgstr "Gluais nas luaithe fad 10 diogan."
+
+#: ../powers/base/ranger/piercing_shot.txt:1
+msgid "Piercing Shot"
+msgstr "Losgadh sàthaidh"
+
+#: ../powers/base/ranger/piercing_shot.txt:2
+msgid "Fire a shot that ignores armor and goes through multiple enemies."
+msgstr "Loisg saighead a bhiod coma mu armachd agus a thèid tro iomadh nàmhaid."
+
+#: ../powers/base/magician/burn.txt:1
+msgid "Burn"
+msgstr "Teine"
+
+#: ../powers/base/magician/burn.txt:4
+msgid "Blast multiple enemies in a distant area with fire."
+msgstr "Gread iomadh nàmhaid air raon fad air falbh le teine."
+
+#: ../powers/base/magician/ice_bolt.txt:1
+msgid "Ice Bolt"
+msgstr "Peilear deighe"
+
+#: ../powers/base/magician/ice_bolt.txt:2
+msgid "Launch a chunk of ice that slows enemies."
+msgstr "Loisg cnap deighe a chuireas maille air na nàimhdean."
+
+#: ../powers/base/magician/thunderstrike.txt:1
+msgid "Thunderstrike"
+msgstr "Buille tàirneanach"
+
+#: ../powers/base/magician/thunderstrike.txt:4
+#, fuzzy
+msgid "Lightning strikes from the sky with a high chance to crit movement-impaired enemies."
+msgstr "Boillsgidh dealan o na speuran aig astar le buannachd de 50% air an teans gun dèan thu dochann èiginneach air nàimhdean le cion-gluasaid."
+
+#: ../powers/base/magician/shock.txt:1
+msgid "Shock"
+msgstr "Dealan"
+
+#: ../powers/base/magician/shock.txt:2
+#, fuzzy
+msgid "Shoot a ball of electricity that is extra effective against movement-impaired enemies."
+msgstr "Seall èibhleagan loisgeach air astar beag. Èifeachdach an aghaidh nàimhdean armaichte."
+
+#: ../powers/base/magician/fireball.txt:1
+msgid "Fireball"
+msgstr "Bàla-teine"
+
+#: ../powers/base/magician/fireball.txt:2
+msgid "Launch a ball of fire that does extra mental damage."
+msgstr "Tilg bàla teine a nì dochann inntinne a bharrachd."
+
+#: ../powers/base/magician/shield.txt:4
+msgid "Create a force field that absorbs damage."
+msgstr "Cruthaich sgiath cumhachd a cheapas dochann."
+
+#: ../powers/base/magician/energy_flow.txt:1
+msgid "Energy Flow"
+msgstr "Sruthadh lùiths"
+
+#: ../powers/base/magician/energy_flow.txt:2
+msgid "Mana reserves are increased and regenerate faster."
 msgstr ""
-"Tog an sgiath agad gus an ceapadh agad a mheudachadh cho math ris an teans "
-"gum frith-thilg thu astas a thig a-steach."
 
-#: ..\powers\base\warrior\blood_strike.txt:1
-msgid "Blood Strike"
-msgstr "Buille fala"
+#: ../powers/base/magician/freeze.txt:1
+msgid "Freeze"
+msgstr "Reòthadh"
 
-#: ..\powers\base\warrior\blood_strike.txt:2
-msgid "Deal extra melee damage, as well as inflict a bleeding wound that causes additional damage over 5 seconds."
-msgstr ""
-"Dèan barrachd dochainn dhlùith 's leag cràdh-lot air an nàmhaid a "
-"dh'adhbharaicheas barrachd dochainn fad 5 diogan."
+#: ../powers/base/magician/freeze.txt:4
+#, fuzzy
+msgid "Create a ray of several piercing cold shards that slow enemies."
+msgstr "Cruthaich leus fuachd uabhasaich a chuireas maille air nàimhdean"
 
-#: ..\powers\base\warrior\cleave.txt:1
-msgid "Cleave"
-msgstr "Spealgadh"
-
-#: ..\powers\base\warrior\cleave.txt:2
-msgid "Attack all enemies in a wide arc."
-msgstr "Thoir ionnsaigh air gach nàmhaid le gluasad leathann."
-
-#: ..\powers\base\warrior\quake.txt:1
-msgid "Quake"
-msgstr "Crith-talmhainn"
-
-#: ..\powers\base\warrior\quake.txt:4
-msgid "Stun nearby enemies."
-msgstr "Cuir tuainealaich air na nàimhdean am fagas."
-
-#: ..\powers\base\warrior\stone_wall.txt:1
+#: ../powers/base/warrior/stone_wall.txt:1
 msgid "Stone Wall"
 msgstr "Balla cloiche"
 
-#: ..\powers\base\warrior\stone_wall.txt:2
-msgid "Each level grants an additional 125 HP and 2 absorption."
-msgstr "Bheir gach leibheil 10 PB agus ath-ghineadh de 20 cheapadh dhut."
+#: ../powers/base/warrior/stone_wall.txt:2
+msgid "Withstand stronger attacks with more health and absorption."
+msgstr ""
 
-#: ..\powers\base\warrior\throw_axe.txt:1
-msgid "Throw Axe"
-msgstr "Tilgeil tuagha"
-
-#: ..\powers\base\warrior\throw_axe.txt:2
-msgid "Throw an axe to deal extra melee weapon damage."
-msgstr "Tilg tuagh gus barrachd dochann airm dhlùth a dhèanamh."
-
-#: ..\powers\base\warrior\throw_knife.txt:1
+#: ../powers/base/warrior/throw_knife.txt:1
 msgid "Throw Knife"
 msgstr "Tilgeil sgeine"
 
-#: ..\powers\base\warrior\throw_knife.txt:2
+#: ../powers/base/warrior/throw_knife.txt:2
 msgid "Throw a knife to deal reduced melee weapon damage."
 msgstr "Tilg sgian gus dochann airm dhlùth lùghdaichte a dhèanamh."
 
-#: ..\powers\base\warrior\warcry.txt:1
+#: ../powers/base/warrior/shield_bash.txt:1
+#, fuzzy
+msgid "Shield Bash"
+msgstr "Sgiath"
+
+#: ../powers/base/warrior/shield_bash.txt:2
+msgid "Dash into enemies, crushing them with sheer force."
+msgstr ""
+
+#: ../powers/base/warrior/blood_strike.txt:1
+msgid "Blood Strike"
+msgstr "Buille fala"
+
+#: ../powers/base/warrior/blood_strike.txt:2
+msgid "Deal a powerful blow that inflicts a bleeding wound."
+msgstr ""
+
+#: ../powers/base/warrior/cleave.txt:1
+msgid "Cleave"
+msgstr "Spealgadh"
+
+#: ../powers/base/warrior/cleave.txt:2
+msgid "Attack all enemies in a wide arc."
+msgstr "Thoir ionnsaigh air gach nàmhaid le gluasad leathann."
+
+#: ../powers/base/warrior/throw_axe.txt:1
+msgid "Throw Axe"
+msgstr "Tilgeil tuagha"
+
+#: ../powers/base/warrior/throw_axe.txt:2
+msgid "Throw an axe to deal extra melee weapon damage."
+msgstr "Tilg tuagh gus barrachd dochann airm dhlùth a dhèanamh."
+
+#: ../powers/base/warrior/quake.txt:1
+msgid "Quake"
+msgstr "Crith-talmhainn"
+
+#: ../powers/base/warrior/quake.txt:4
+#, fuzzy
+msgid "Knock back nearby enemies with a chance to stun."
+msgstr "Cuir tuainealaich air na nàimhdean am fagas."
+
+#: ../powers/base/warrior/warcry.txt:1
 msgid "Warcry"
 msgstr "Sluagh-ghairm"
 
-#: ..\powers\base\warrior\warcry.txt:4
-msgid "Remove debuffs and become immune to debuffs for 10 seconds."
-msgstr ""
-"Thoir gach easbhaidh air falbh is faigh dìon an aghaidh easbhaidhean fad 10 "
-"diogan."
+#: ../powers/base/warrior/warcry.txt:4
+#, fuzzy
+msgid "Remove debuffs and become immune to debuffs for a limited time."
+msgstr "Thoir gach easbhaidh air falbh is faigh dìon an aghaidh easbhaidhean fad 10 diogan."
 
-#: ..\powers\categories\magician.txt:7
-msgid "Channel"
-msgstr "Geas"
+#: ../powers/categories/items.txt:23
+#, fuzzy
+msgid "Summon Zombie"
+msgstr "Corp coisiche a' lobhadh"
 
-#: ..\powers\categories\magician.txt:10
-msgid "Basic magic attack."
-msgstr "Ionnsaigh dhraoidheach bhunasach."
-
-#: ..\powers\categories\visual_effects.txt:3
-msgid "Arrow Wall Strike"
-msgstr "Bualadh balla saighdean"
-
-#: ..\powers\categories\visual_effects.txt:16
-msgid "Orange Spark"
-msgstr "Srad orains"
-
-#: ..\powers\categories\visual_effects.txt:28
-msgid "Blue Spark"
-msgstr "Srad ghorm"
-
-#: ..\powers\categories\visual_effects.txt:40
-msgid "Red Spark"
-msgstr "Srad dhearg"
-
-#: ..\powers\categories\warrior.txt:7
+#: ../powers/categories/warrior.txt:7
 msgid "Swing"
 msgstr "Buille"
 
-#: ..\powers\categories\warrior.txt:10
+#: ../powers/categories/warrior.txt:10
 msgid "Basic melee attack."
 msgstr "Ionnsaigh dhlùth bhunasach."
 
-#: ..\powers\trees\default.txt:11
+#: ../powers/categories/magician.txt:7
+msgid "Channel"
+msgstr "Geas"
+
+#: ../powers/categories/magician.txt:10
+msgid "Basic magic attack."
+msgstr "Ionnsaigh dhraoidheach bhunasach."
+
+#: ../powers/trees/default.txt:11
 msgid "Magician"
 msgstr "Draoidh"
+
+#, fuzzy
+#~ msgid "Warlord Cloth Sash"
+#~ msgstr "Bann clòtha"
+
+#, fuzzy
+#~ msgid "Sniper Cloth Sash"
+#~ msgstr "Bann clòtha"
+
+#, fuzzy
+#~ msgid "Archwizard Cloth Sash"
+#~ msgstr "Àrd-dhraoidh"
+
+#~ msgid "Krolan's Pick"
+#~ msgstr "Piocaid Chròlain"
+
+#~ msgid "Sharp enough to cut through stone."
+#~ msgstr "Geur gu leòr gus clachan a ghearradh."
+
+#, fuzzy
+#~ msgid "Archwizard Padded Belt"
+#~ msgstr "Àrd-dhraoidh"
+
+#, fuzzy
+#~ msgid "Archwizard Armored Belt"
+#~ msgstr "Àrd-dhraoidh"
+
+#, fuzzy
+#~ msgid "Fighting Cloth Sash"
+#~ msgstr "Bann clòtha"
+
+#, fuzzy
+#~ msgid "Recon Cloth Sash"
+#~ msgstr "Bann clòtha"
+
+#, fuzzy
+#~ msgid "Sorcerer Cloth Sash"
+#~ msgstr "Bann clòtha"
+
+#, fuzzy
+#~ msgid "Warrior Cloth Sash"
+#~ msgstr "Bann clòtha"
+
+#, fuzzy
+#~ msgid "Ranger Cloth Sash"
+#~ msgstr "Bann clòtha"
+
+#, fuzzy
+#~ msgid "Wizard Cloth Sash"
+#~ msgstr "Bann clòtha"
+
+#~ msgid "Fire Resistance"
+#~ msgstr "Comas-seasaimh an aghaidh teine"
+
+#~ msgid "Ice Resistance"
+#~ msgstr "Comas-seasaimh an aghaidh deighe"
+
+#~ msgid "Lightning Resistance"
+#~ msgstr "Comas-seasaimh an aghaidh dealanaich"
+
+#~ msgid "Ardwen (Quest)"
+#~ msgstr "Àrdear (ceann-turais)"
+
+#~ msgid "Each level grants an additional 10 MP and 20 MP regeneration."
+#~ msgstr "Bheir gach leibheil 10 PG agus ath-ghineadh de 20 PG dhut."
+
+#~ msgid "Electrocute an enemy from a distance with a bonus 25% chance to critically damage movement-impaired enemies."
+#~ msgstr "Marbh nàmhaid le dealan aig astar le buannachd de 25% air an teans gun dèan thu dochann èiginneach air nàimhdean le cion-gluasaid."
+
+#~ msgid "Each level grants an additional 4% accuracy and 1% critical chance."
+#~ msgstr "Bheir gach leibheil 4% de phongalachd is 1% de theans èiginneach a bharrachd dhut."
+
+#~ msgid "Block"
+#~ msgstr "Bacadh"
+
+#~ msgid "Raise your shield to increase your absorption, as well as the chance to reflect incoming missiles."
+#~ msgstr "Tog an sgiath agad gus an ceapadh agad a mheudachadh cho math ris an teans gum frith-thilg thu astas a thig a-steach."
+
+#~ msgid "Deal extra melee damage, as well as inflict a bleeding wound that causes additional damage over 5 seconds."
+#~ msgstr "Dèan barrachd dochainn dhlùith 's leag cràdh-lot air an nàmhaid a dh'adhbharaicheas barrachd dochainn fad 5 diogan."
+
+#~ msgid "Each level grants an additional 125 HP and 2 absorption."
+#~ msgstr "Bheir gach leibheil 10 PB agus ath-ghineadh de 20 cheapadh dhut."
+
+#~ msgid "Arrow Wall Strike"
+#~ msgstr "Bualadh balla saighdean"
+
+#~ msgid "Blue Spark"
+#~ msgstr "Srad ghorm"
+
+#~ msgid "Red Spark"
+#~ msgstr "Srad dhearg"

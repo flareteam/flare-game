@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-27 11:42+\n"
+"POT-Creation-Date: 2017-10-02 15:54+\n"
 "PO-Revision-Date: 2017-07-22 14:22+\n"
 "Last-Translator: Sang-froid <remi.millerat@gmail.com>\n"
 "Language-Team: French\n"
@@ -19,11 +19,11 @@ msgstr ""
 msgid "Gold"
 msgstr "Or"
 
-#: ../items/items.txt:51
+#: ../items/items.txt:54
 msgid "DEV Boots"
 msgstr "Bottes de DEV"
 
-#: ../items/items.txt:56
+#: ../items/items.txt:59
 msgid "Use: Teleport to target position."
 msgstr "Utilise: Téléporte à la position ciblée."
 
@@ -34,6 +34,43 @@ msgstr "Costume de St. Maria"
 #: ../items/sets.txt:14
 msgid "Temple Guard's Outfit"
 msgstr "Équipement de la garde du Temple"
+
+#: ../items/sets.txt:25
+#, fuzzy
+msgid "Wizard's Apparatus"
+msgstr "Grand Bâton du Mage"
+
+#: ../powers/effects.txt:6
+msgid "Shield"
+msgstr "Bouclier"
+
+#: ../powers/effects.txt:16
+msgid "Bleeding"
+msgstr ""
+
+#: ../powers/effects.txt:24
+msgid "Slow"
+msgstr ""
+
+#: ../powers/effects.txt:31
+msgid "Stun"
+msgstr ""
+
+#: ../powers/effects.txt:38
+msgid "Immunity"
+msgstr ""
+
+#: ../powers/effects.txt:45
+msgid "Haste"
+msgstr "Hâte"
+
+#: ../powers/effects.txt:96
+msgid "Weakness to Fire"
+msgstr ""
+
+#: ../powers/effects.txt:105
+msgid "Weakness to Ice"
+msgstr ""
 
 #: ../powers/powers.txt:23
 msgid "Teleport"
@@ -219,6 +256,11 @@ msgstr "Sentinelle"
 msgid "Exiled"
 msgstr "Éxilé"
 
+#: ../engine/equip_flags.txt:5
+#, fuzzy
+msgid "throwing axe"
+msgstr "Jeter une hache"
+
 #: ../enemies/lvl10_minotaur.txt:3
 msgid "Minotaur"
 msgstr "Minotaure"
@@ -227,9 +269,60 @@ msgstr "Minotaure"
 msgid "Minotaur Necromancer"
 msgstr "Minotaure Nécromancien"
 
+#: ../enemies/lvl10_mog.txt:3
+msgid "Mog"
+msgstr ""
+
 #: ../enemies/lvl10_skeleton_minion.txt:3
 msgid "Skeleton Minion"
 msgstr "Sbire Squelette"
+
+#: ../enemies/lvl10_skeleton_sharpshooter.txt:3
+#, fuzzy
+msgid "Skeleton Sharpshooter"
+msgstr "Squelette Briseur"
+
+#: ../enemies/lvl10_xonun.txt:3
+msgid "Xonun"
+msgstr ""
+
+#: ../enemies/lvl10_zombie_leecher.txt:3
+#, fuzzy
+msgid "Leecher Zombie"
+msgstr "Zombie Glacegriffe"
+
+#: ../enemies/lvl11_buchi.txt:3
+msgid "Buchi"
+msgstr ""
+
+#: ../enemies/lvl11_sentry_fire.txt:3
+#, fuzzy
+msgid "Fire Sentry"
+msgstr "Vouivre de feu"
+
+#: ../enemies/lvl11_sentry_ice.txt:3
+#, fuzzy
+msgid "Ice Sentry"
+msgstr "Vouivre de glace"
+
+#: ../enemies/lvl11_skeleton_blaze.txt:3
+#, fuzzy
+msgid "Blaze Skeleton"
+msgstr "Squelette Fêlé"
+
+#: ../enemies/lvl11_skeleton_frost.txt:3
+#, fuzzy
+msgid "Frost Skeleton"
+msgstr "Squelette"
+
+#: ../enemies/lvl11_skeleton_protector.txt:3
+#, fuzzy
+msgid "Skeleton Protector"
+msgstr "Squelette Épée de Glace"
+
+#: ../enemies/lvl12_nishi.txt:3
+msgid "Nishi"
+msgstr ""
 
 #: ../enemies/lvl1_goblin_runner.txt:3
 msgid "Goblin Runner"
@@ -435,6 +528,10 @@ msgstr "Zola"
 msgid "Antlion Sprayer"
 msgstr "Antilion Pulvérisateur"
 
+#: ../enemies/lvl9_boulder.txt:3
+msgid "Boulder"
+msgstr ""
+
 #: ../enemies/lvl9_goblin_hunter.txt:3
 msgid "Goblin Hunter"
 msgstr "Gobelin Chasseur"
@@ -451,285 +548,395 @@ msgstr "Gobelin Sprinteur"
 msgid "Tundra Wyvern"
 msgstr "Vouivre de la Toundra"
 
-#: ../maps/abandoned_mines.txt:9
+#: ../enemies/summon_zombie.txt:3
+#, fuzzy
+msgid "Your Summoned Zombie"
+msgstr "Invoquer un Zombie"
+
+#: ../maps/abandoned_mines.txt:10
 msgid "Abandoned Mines"
 msgstr "Mines Abandonnées"
 
-#: ../maps/abandoned_mines.txt:335
+#: ../maps/abandoned_mines.txt:337
 msgid "Blackmire Mines"
 msgstr "Mines de Blackmire"
 
-#: ../maps/abandoned_mines.txt:436
+#: ../maps/abandoned_mines.txt:454
 msgid "Treasure Chest"
 msgstr "Coffre au Trésor"
 
-#: ../maps/abandoned_mines.txt:447
+#: ../maps/abandoned_mines.txt:466
 msgid "Crate"
 msgstr "Caisse"
 
-#: ../maps/abandoned_mines.txt:469
+#: ../maps/abandoned_mines.txt:490
 msgid "Barrel"
 msgstr "Tonneau"
 
-#: ../maps/abandoned_mines.txt:499
+#: ../maps/abandoned_mines.txt:523
 msgid "The Breach"
 msgstr "La Brèche"
 
-#: ../maps/abandoned_mines.txt:507
+#: ../maps/abandoned_mines.txt:532
 msgid "Grot Lagoon"
 msgstr "Le Lagon de Grot"
 
-#: ../maps/antlion_nest.txt:9
+#: ../maps/antlion_nest.txt:10
 msgid "Antlion Nest"
 msgstr "Nid d'Antilions"
 
-#: ../maps/antlion_nest.txt:375
+#: ../maps/antlion_nest.txt:390
 msgid "Temple of Mez: Basement"
 msgstr "Le Sous-sol du Temple de Mez"
 
-#: ../maps/arrival.txt:9
+#: ../maps/arrival.txt:10
 msgid "Arrival"
 msgstr "Apparition"
 
-#: ../maps/arrival.txt:166
+#: ../maps/arrival.txt:170
 msgid "River Trail"
 msgstr "La Piste de la Rivière"
 
-#: ../maps/black_oak_farm.txt:9
+#: ../maps/black_oak_city.txt:10
+#, fuzzy
+msgid "Black Oak City"
+msgstr "La Ferme du Chêne noir"
+
+#: ../maps/black_oak_city.txt:341
 msgid "Black Oak Farm"
 msgstr "La Ferme du Chêne noir"
 
-#: ../maps/black_oak_farm.txt:339
-msgid "Southern Ridge"
-msgstr "La Crète du Sud"
-
-#: ../maps/black_oak_farm.txt:350
+#: ../maps/black_oak_city.txt:353
 msgid "Supplies"
 msgstr "Fournitures"
 
-#: ../maps/blackmire_mines.txt:274
-msgid "Blackmire Mines waypoint discovered."
-msgstr "Point de Passage des Mines de Blackmire découvert."
+#: ../maps/black_oak_city.txt:601
+msgid "Wizard's Tower: Entrance Hall"
+msgstr ""
 
-#: ../maps/blackmire_mines.txt:286
-msgid "Hyperspace"
-msgstr "Hyper-espace"
+#: ../maps/black_oak_farm.txt:341
+msgid "Southern Ridge"
+msgstr "La Crète du Sud"
 
-#: ../maps/blackmire_mines.txt:452
-msgid "Lake Kuuma"
-msgstr "Lac de Kuuma"
+#: ../maps/black_oak_farm.txt:522
+msgid "Dilapidated Sewers"
+msgstr ""
 
-#: ../maps/book_of_the_dead.txt:9
-msgid "Book of the Dead"
-msgstr "Livre de la Mort"
-
-#: ../maps/book_of_the_dead.txt:189
-msgid "Perdition Harbor"
-msgstr "Port de la Perdition"
-
-#: ../maps/book_of_the_dead.txt:198
-msgid "Salted Field"
-msgstr "Champ salé"
-
-#: ../maps/book_of_the_dead.txt:280
-msgid "Quest added."
-msgstr "Quête ajoutée."
-
-#: ../maps/family_crypt.txt:9
-msgid "Family Crypt"
-msgstr "Crypte Familiale"
-
-#: ../maps/family_crypt.txt:226
-msgid "Switch"
-msgstr "Levier"
-
-#: ../maps/family_crypt.txt:249
-msgid "Ardwen (1308-1364), founder of Lochport"
-msgstr "Ardwen (1308-1364), fondateur de Lochport"
-
-#: ../maps/family_crypt.txt:252
-msgid "In Memoriam"
-msgstr "En Mémoire"
-
-#: ../maps/family_crypt.txt:261
-msgid "Lochport Cemetery"
-msgstr "Cimetière de Lochport"
-
-#: ../maps/family_crypt.txt:292
-msgid "The coffin has a small slot the size of Ardwen's ring. You place the ring in the slot."
-msgstr "Le Cercueil a une petite fente de la taille de l'Anneau d'Ardwen. Vous placez l'Anneau dans la fente."
-
-#: ../maps/family_crypt.txt:301
-msgid "Ardwen's Coffin"
-msgstr "Cercueil d'Ardwen"
-
-#: ../maps/family_crypt.txt:322
-msgid "The switch won't budge."
-msgstr "Le levier ne bouge pas."
-
-#: ../maps/fort_amir.txt:9
-msgid "Fort Amir"
-msgstr "Fort Amir"
-
-#: ../maps/fort_amir.txt:359
-msgid "Opening the book reveals that it has been hollowed out. A gem is concealed inside."
-msgstr "L'ouverture du livre révèle qu'il a été creusé. Une gemme est cachée à l'intérieur."
-
-#: ../maps/fort_amir.txt:363
-msgid "Book"
-msgstr "Livre"
-
-#: ../maps/fort_amir.txt:385
-msgid "The statue is missing an eye. The sapphire fits securely in the statue's eye socket."
-msgstr "Il manque un oeil à la Statue. Le Saphir s'adapte solidement à l'emplacement de l'oeil de la statue."
-
-#: ../maps/fort_amir.txt:390
-msgid "Statue"
-msgstr "Statue"
-
-#: ../maps/fort_amir.txt:409
-msgid "The statue is missing an eye."
-msgstr "Il manque un oeil à la statue."
-
-#: ../maps/fort_amir.txt:436
-msgid "The bookcase slides back and reveals a hidden path."
-msgstr "La bibliothèque recule et révèle un passage secret."
-
-#: ../maps/goblin_camp.txt:9
-msgid "Goblin Camp"
-msgstr "Camp Gobelin"
-
-#: ../maps/goblin_camp.txt:219
-msgid "Stonewood"
-msgstr "Forêt de pierre"
-
-#: ../maps/goblin_camp.txt:232
+#: ../maps/black_oak_farm.txt:546
 msgid "Lumber"
 msgstr "Fagot"
 
-#: ../maps/goblin_camp.txt:376
+#: ../maps/blackmire_mines.txt:276
+msgid "Blackmire Mines waypoint discovered."
+msgstr "Point de Passage des Mines de Blackmire découvert."
+
+#: ../maps/blackmire_mines.txt:289
+msgid "Hyperspace"
+msgstr "Hyper-espace"
+
+#: ../maps/blackmire_mines.txt:478
+msgid "Lake Kuuma"
+msgstr "Lac de Kuuma"
+
+#: ../maps/book_of_the_dead.txt:10
+msgid "Book of the Dead"
+msgstr "Livre de la Mort"
+
+#: ../maps/book_of_the_dead.txt:191
+msgid "Perdition Harbor"
+msgstr "Port de la Perdition"
+
+#: ../maps/book_of_the_dead.txt:201
+msgid "Salted Field"
+msgstr "Champ salé"
+
+#: ../maps/book_of_the_dead.txt:294
+msgid "Quest added."
+msgstr "Quête ajoutée."
+
+#: ../maps/dilapidated_sewers.txt:309
+#, fuzzy
+msgid "Dilapidated Sewers waypoint discovered."
+msgstr "Point de Passage des Mines de Blackmire découvert."
+
+#: ../maps/dilapidated_sewers.txt:574
+msgid "Fort Nasu"
+msgstr ""
+
+#: ../maps/family_crypt.txt:10
+msgid "Family Crypt"
+msgstr "Crypte Familiale"
+
+#: ../maps/family_crypt.txt:229
+msgid "Switch"
+msgstr "Levier"
+
+#: ../maps/family_crypt.txt:254
+msgid "Ardwen (1308-1364), founder of Lochport"
+msgstr "Ardwen (1308-1364), fondateur de Lochport"
+
+#: ../maps/family_crypt.txt:257
+msgid "In Memoriam"
+msgstr "En Mémoire"
+
+#: ../maps/family_crypt.txt:267
+msgid "Lochport Cemetery"
+msgstr "Cimetière de Lochport"
+
+#: ../maps/family_crypt.txt:301
+msgid "The coffin has a small slot the size of Ardwen's ring. You place the ring in the slot."
+msgstr "Le Cercueil a une petite fente de la taille de l'Anneau d'Ardwen. Vous placez l'Anneau dans la fente."
+
+#: ../maps/family_crypt.txt:310
+msgid "Ardwen's Coffin"
+msgstr "Cercueil d'Ardwen"
+
+#: ../maps/family_crypt.txt:333
+msgid "The switch won't budge."
+msgstr "Le levier ne bouge pas."
+
+#: ../maps/family_crypt.txt:387
+#, fuzzy
+msgid "Reset quest: \"Trapped in the Crypt\""
+msgstr "Piégé dans la Crypte"
+
+#: ../maps/fort_amir.txt:10
+msgid "Fort Amir"
+msgstr "Fort Amir"
+
+#: ../maps/fort_amir.txt:369
+msgid "Opening the book reveals that it has been hollowed out. A gem is concealed inside."
+msgstr "L'ouverture du livre révèle qu'il a été creusé. Une gemme est cachée à l'intérieur."
+
+#: ../maps/fort_amir.txt:373
+msgid "Book"
+msgstr "Livre"
+
+#: ../maps/fort_amir.txt:398
+msgid "The statue is missing an eye. The sapphire fits securely in the statue's eye socket."
+msgstr "Il manque un oeil à la Statue. Le Saphir s'adapte solidement à l'emplacement de l'oeil de la statue."
+
+#: ../maps/fort_amir.txt:403
+msgid "Statue"
+msgstr "Statue"
+
+#: ../maps/fort_amir.txt:424
+msgid "The statue is missing an eye."
+msgstr "Il manque un oeil à la statue."
+
+#: ../maps/fort_amir.txt:454
+msgid "The bookcase slides back and reveals a hidden path."
+msgstr "La bibliothèque recule et révèle un passage secret."
+
+#: ../maps/fort_nasu.txt:1085
+#, fuzzy
+msgid "Book Stand"
+msgstr "Livre de la Mort"
+
+#: ../maps/fort_nasu.txt:1124
+msgid "Altar"
+msgstr ""
+
+#: ../maps/fort_nasu.txt:1131
+msgid "As you enter the throne room, you see an Altar with a wooden figurine placed upon it."
+msgstr ""
+
+#: ../maps/fort_nasu.txt:1161
+#, fuzzy
+msgid "Strange Book"
+msgstr "Étrange Saphire B"
+
+#: ../maps/goblin_camp.txt:10
+msgid "Goblin Camp"
+msgstr "Camp Gobelin"
+
+#: ../maps/goblin_camp.txt:222
+msgid "Stonewood"
+msgstr "Forêt de pierre"
+
+#: ../maps/goblin_camp.txt:401
 msgid "Merrimead Swamp"
 msgstr "Les Marais de Merrimead"
 
-#: ../maps/goblin_camp.txt:384
+#: ../maps/goblin_camp.txt:410
 msgid "Goblin Cave"
 msgstr "Cave des Gobelins"
 
-#: ../maps/goblin_camp.txt:395
+#: ../maps/goblin_camp.txt:422
 msgid "Gravestone"
 msgstr "Pierre gravée"
 
-#: ../maps/hyperspace.txt:189
+#: ../maps/hyperspace.txt:195
 msgid "St. Maria: Prison"
 msgstr "Prison de St. Maria"
 
-#: ../maps/hyperspace.txt:209
+#: ../maps/hyperspace.txt:217
 msgid "Stormrock Pass"
 msgstr "Passage de Stormrock"
 
-#: ../maps/hyperspace.txt:219
+#: ../maps/hyperspace.txt:228
 msgid "Temple of Mez: Main Hall"
 msgstr "Hall principal du Temple de Mez"
 
-#: ../maps/hyperspace.txt:229
+#: ../maps/hyperspace.txt:239
 msgid "Nazia Underground"
 msgstr "Souterrain de Nazia"
 
-#: ../maps/lake_kuuma.txt:848
+#: ../maps/hyperspace.txt:261
+msgid "Wizard's Tower: Research Chambers"
+msgstr ""
+
+#: ../maps/lake_kuuma.txt:851
 msgid "Boat"
 msgstr "Bateau"
 
-#: ../maps/lochport.txt:9
+#: ../maps/lochport.txt:10
 msgid "Lochport"
 msgstr "Lochport"
 
-#: ../maps/lochport.txt:338
+#: ../maps/lochport.txt:358
 msgid "St. Maria: Mausoleum"
 msgstr "Mausolée de St. Maria"
 
-#: ../maps/lochport_cemetery.txt:302
+#: ../maps/lochport_cemetery.txt:307
 msgid "Lochport Cemetery waypoint discovered."
 msgstr "Point de Passage du Cimetière de Lochport découvert."
 
-#: ../maps/nazia_highlands.txt:9
+#: ../maps/mog_caverns.txt:10
+msgid "Mog Caverns"
+msgstr ""
+
+#: ../maps/mog_caverns.txt:293
+msgid "Waterlogged Support Beam"
+msgstr ""
+
+#: ../maps/mog_caverns.txt:305
+msgid "Moldy Rock"
+msgstr ""
+
+#: ../maps/mog_caverns.txt:317
+msgid "Pile of Bones"
+msgstr ""
+
+#: ../maps/mog_caverns.txt:329
+#, fuzzy
+msgid "Blocked Mine Cart"
+msgstr "Mines de Blackmire"
+
+#: ../maps/nazia_highlands.txt:10
 msgid "Nazia Highlands"
 msgstr "Hauts Plateaux de Nazia"
 
-#: ../maps/nazia_underground.txt:300
-msgid "Unknown destination"
-msgstr "Destination inconnue"
+#: ../maps/nazia_highlands.txt:382
+#, fuzzy
+msgid "Nazia Mines"
+msgstr "Hauts Plateaux de Nazia"
 
-#: ../maps/nazia_underground.txt:378
+#: ../maps/nazia_mines.txt:247
+msgid "Empty Mine Cart"
+msgstr ""
+
+#: ../maps/nazia_mines.txt:296
+msgid "By itself, this mine cart can't break open the rubble."
+msgstr ""
+
+#: ../maps/nazia_mines.txt:424
+msgid "Reset Quest: \"Trapped!\""
+msgstr ""
+
+#: ../maps/nazia_underground.txt:377
 msgid "Nazia Underground waypoint discovered."
 msgstr "Point de Passage du Souterrain de Nazia découvert."
 
-#: ../maps/perdition_harbor.txt:167
+#: ../maps/perdition_harbor.txt:170
 msgid "Shared Stash"
 msgstr "Coffre commun"
 
-#: ../maps/perdition_harbor.txt:252
+#: ../maps/perdition_harbor.txt:268
 msgid "Perdition Harbor waypoint discovered."
 msgstr "Point de Passage du Port de la Perdition découvert."
 
-#: ../maps/perdition_mines.txt:9
+#: ../maps/perdition_mines.txt:10
 msgid "Perdition Mines"
 msgstr "Mines de la Perdition"
 
-#: ../maps/perdition_mines.txt:158
+#: ../maps/perdition_mines.txt:161
 msgid "Krolan's Chest"
 msgstr "Coffre de Krolan"
 
-#: ../maps/st_maria_1.txt:337
+#: ../maps/st_maria_1.txt:348
 msgid "This door needs a key to be opened."
 msgstr "Il vous faut une clé pour ouvrir la porte."
 
-#: ../maps/st_maria_1.txt:339
+#: ../maps/st_maria_1.txt:350
 msgid "Locked Door"
 msgstr "Porte verouillée"
 
-#: ../maps/st_maria_2.txt:265
+#: ../maps/st_maria_2.txt:269
 msgid "St. Maria: Prison waypoint discovered."
 msgstr "Point de Passage de la Prison de St. Maria découvert."
 
-#: ../maps/st_maria_2.txt:437
+#: ../maps/st_maria_2.txt:461
 msgid "St. Maria: Crypt"
 msgstr "Crypte de St. Maria"
 
-#: ../maps/st_maria_3.txt:458
+#: ../maps/st_maria_3.txt:409
 msgid "The plaque reads: Grave of the Saints"
 msgstr "Vous lisez sur la Plaque : Tombe des Saints"
 
-#: ../maps/st_maria_3.txt:459
+#: ../maps/st_maria_3.txt:410
 msgid "Plaque"
 msgstr "Plaque"
 
-#: ../maps/st_maria_3.txt:467
-msgid "A gravebloom emerges from the center of the altar."
-msgstr "Une Fleur de Tombe émerge du centre de l'autel."
+#: ../maps/st_maria_3.txt:418
+msgid "You remove the gravebloom flower from the Altar."
+msgstr ""
 
-#: ../maps/stonewood.txt:480
+#: ../maps/st_maria_3.txt:439
+msgid "There is a gravebloom flower on the altar, but it is frozen in place."
+msgstr ""
+
+#: ../maps/st_maria_3.txt:453
+msgid "The gravebloom flower laid upon the altar has thawed."
+msgstr ""
+
+#: ../maps/stonewood.txt:512
 msgid "Stonewood waypoint discovered."
 msgstr "Point de Passage de la Forêt de Pierre découvert."
 
-#: ../maps/stormrock_pass.txt:885
+#: ../maps/stormrock_pass.txt:893
 msgid "Stormrock Pass waypoint discovered."
 msgstr "Point de Passage du Passage de Stormrock découvert."
 
-#: ../maps/stormrock_pass.txt:1023
+#: ../maps/stormrock_pass.txt:1051
 msgid "Stormrock Ruins"
 msgstr "Ruines de Stormrock"
 
-#: ../maps/temple_of_mez_2.txt:346
+#: ../maps/temple_of_mez_2.txt:349
 msgid "Temple of Mez: Main Hall waypoint discovered."
 msgstr "Point de Passage du Hall Principal du Temple de Mez découvert."
 
-#: ../maps/temple_of_mez_2.txt:510
+#: ../maps/temple_of_mez_2.txt:532
 msgid "The plaque reads: Red Altar"
 msgstr "Vous lisez sur la Plaque : Autel Rouge"
 
-#: ../maps/temple_of_mez_2.txt:520
+#: ../maps/temple_of_mez_2.txt:543
 msgid "Temple of Mez: Entrance"
 msgstr "Entrée du Temple de Mez"
+
+#: ../maps/wizards_tower_1.txt:341
+#, fuzzy
+msgid "to Black Oak City"
+msgstr "La Ferme du Chêne noir"
+
+#: ../maps/wizards_tower_1.txt:621
+msgid "to Wizard's Tower: Research Chambers"
+msgstr ""
+
+#: ../maps/wizards_tower_2.txt:475
+#, fuzzy
+msgid "Wizard's Tower: Research Chambers waypoint discovered."
+msgstr "Point de Passage du Port de la Perdition découvert."
 
 #: ../quests/000_empyrean.txt:1
 msgid "Return to Empyrean"
@@ -783,11 +990,16 @@ msgstr "Retournez voir Udana et prévenez-la de la mort de Krolan."
 msgid "The Merchant's Journal"
 msgstr "Le Journal du Marchant"
 
-#: ../quests/002_journal.txt:6
+#: ../quests/002_journal.txt:7
 msgid "Find Abasi's journal. It is likely being carried by a nearby goblin."
 msgstr "Trouvez le Journal d'Abasi. Il est probablement porté par un gobelin à proximité."
 
-#: ../quests/002_journal.txt:11
+#: ../quests/002_journal.txt:13
+#, fuzzy
+msgid "Find Abasi's journal. He said that it was last seen near the Goblin Cave."
+msgstr "Trouvez le Journal d'Abasi. Il est probablement porté par un gobelin à proximité."
+
+#: ../quests/002_journal.txt:18
 msgid "Return the journal to Abasi."
 msgstr "Ramenez le Journal à Abasi."
 
@@ -855,6 +1067,62 @@ msgstr "Aldwulf veut que vous obteniez la clé pour débloquer les Ruines Stormr
 msgid "You found the key to the Stormrock Ruins. You should return there and speak to Aldwulf."
 msgstr "Vous avez trouvé la Clé des Ruines de Stormrock. Vous devriez y retourner et parler à Aldwulf."
 
+#: ../quests/007_nazia_mines.txt:1
+msgid "Trapped!"
+msgstr ""
+
+#: ../quests/007_nazia_mines.txt:6
+msgid "The path behind you has caved in. Find a way to escape the Nazia Mines."
+msgstr ""
+
+#: ../quests/007_nazia_mines.txt:11
+msgid "You found some sticks of dynamite. Those should be useful."
+msgstr ""
+
+#: ../quests/007_nazia_mines.txt:15
+msgid "You successfully cleared the rubble and can safely escape the Nazia Mines."
+msgstr ""
+
+#: ../quests/008_mog.txt:1
+msgid "The Lost Soul of the Mog Caverns"
+msgstr ""
+
+#: ../quests/008_mog.txt:6
+msgid "You found a mysterious note in the Mog Caverns. Maybe its directions will lead to treasure?"
+msgstr ""
+
+#: ../quests/008_mog.txt:11
+msgid "You found another note. Keep following the trail."
+msgstr ""
+
+#: ../quests/008_mog.txt:16
+msgid "A secret passage has been unveiled."
+msgstr ""
+
+#: ../quests/009_nasu.txt:1
+msgid "An Unusual Name..."
+msgstr ""
+
+#: ../quests/009_nasu.txt:6
+msgid "Discover a way to open the entrance door in Fort Nasu."
+msgstr ""
+
+#: ../quests/009_nasu.txt:11
+msgid "Discover a way to open the library door in Fort Nasu."
+msgstr ""
+
+#: ../quests/009_nasu.txt:16
+msgid "Discover a way to open the pit room door in Fort Nasu."
+msgstr ""
+
+#: ../quests/009_nasu.txt:21
+msgid "Discover a way to open the final door in Fort Nasu."
+msgstr ""
+
+#: ../quests/009_nasu.txt:26
+msgid "Defeat Buchi."
+msgstr ""
+
 #: ../npcs/abasi.txt:1
 msgid "Abasi, Traveling Merchant"
 msgstr "Abasi, Marchant Voyageur"
@@ -910,6 +1178,18 @@ msgstr "Je suis en dette. Prenez ceci comme une récompense pour votre problème
 #: ../npcs/abasi.txt:58
 msgid "Show no mercy for those thieving goblins."
 msgstr "Ne montrez pas de pitié pour les gobelins."
+
+#: ../npcs/abasi_2.txt:26
+msgid "Greetings, wanderer."
+msgstr ""
+
+#: ../npcs/abasi_2.txt:27
+msgid "Judging from your appearance, you're no stranger to a long journey. For that reason, I ask that you keep an eye out for my missing journal."
+msgstr ""
+
+#: ../npcs/abasi_2.txt:28
+msgid "I first noticed it was missing after a night of camping near the Goblin Cave. I searched for a while, but ultimately decided it was best to move on."
+msgstr ""
 
 #: ../npcs/aldwulf.txt:1
 msgid "Aldwulf, Treasure Hunter"
@@ -1026,6 +1306,10 @@ msgstr "Obélisque Rougeoyant"
 #: ../npcs/glowing_obelisk_1.txt:11
 msgid "(You touch the obelisk, but nothing happens.)"
 msgstr "(Vous touchez l'Obelisque mais il ne se passe rien.)"
+
+#: ../npcs/loren.txt:1
+msgid "Loren, Undead Trader"
+msgstr ""
 
 #: ../npcs/ort.txt:1
 msgid "Ort, Goblin Packrat"
@@ -1167,9 +1451,54 @@ msgstr "Il y a toujours de l'espoir. Mais pas pour tout le monde: pas pour vous.
 msgid "Flare Game Credits - empyrean_campaign"
 msgstr "Flare Game Credits - empyrean_campaign"
 
-#: ../cutscenes/credits.txt:9
-msgid "Lead Content Designer - Clint Bellanger"
+#: ../cutscenes/credits.txt:10
+#, fuzzy
+msgid "Lead Content Designers"
 msgstr "Concepteur de contenu principal - Clint Bellanger"
+
+#: ../cutscenes/credits.txt:12
+msgid "Clint Bellanger"
+msgstr ""
+
+#: ../cutscenes/credits.txt:13
+msgid "Justin Jacobs"
+msgstr ""
+
+#: ../cutscenes/credits.txt:17
+msgid "Visual Artists"
+msgstr ""
+
+#: ../cutscenes/credits.txt:19
+msgid "cron"
+msgstr ""
+
+#: ../cutscenes/credits.txt:20
+msgid "Justin Nichol"
+msgstr ""
+
+#: ../cutscenes/credits.txt:21
+msgid "rubberduck"
+msgstr ""
+
+#: ../cutscenes/credits.txt:22
+msgid "VWolfDog"
+msgstr ""
+
+#: ../cutscenes/credits.txt:23
+msgid "yd"
+msgstr ""
+
+#: ../cutscenes/credits.txt:26
+msgid "Foley Artists"
+msgstr ""
+
+#: ../cutscenes/credits.txt:28
+msgid "adamgryu"
+msgstr ""
+
+#: ../cutscenes/credits.txt:29
+msgid "GuntherDorksen"
+msgstr ""
 
 #: ../books/book_of_the_dead.txt:13
 msgid "Those whose names are written here in gravebloom ink are admitted passage to the trail of redemption."
@@ -1180,7 +1509,8 @@ msgid "1488/9/27"
 msgstr "1488/9/27"
 
 #: ../books/merchants_journal.txt:18
-msgid "-1 Dagger"
+#, fuzzy
+msgid "-1  Dagger"
 msgstr "-1 Dague"
 
 #: ../books/merchants_journal.txt:23
@@ -1188,7 +1518,8 @@ msgid "100"
 msgstr "100"
 
 #: ../books/merchants_journal.txt:28
-msgid "+1 Cloth Shirt"
+#, fuzzy
+msgid "+1  Cloth Shirt"
 msgstr "+1 Chemise d'étoffe"
 
 #: ../books/merchants_journal.txt:33
@@ -1196,7 +1527,8 @@ msgid "-18"
 msgstr "-18"
 
 #: ../books/merchants_journal.txt:38
-msgid "+1 Gold Ring"
+#, fuzzy
+msgid "+1  Gold Ring"
 msgstr "+1 Anneau d'Or"
 
 #: ../books/merchants_journal.txt:43
@@ -1208,7 +1540,8 @@ msgid "1488/9/28"
 msgstr "1488/9/28"
 
 #: ../books/merchants_journal.txt:54
-msgid "-2 Health Potion"
+#, fuzzy
+msgid "-2  Health Potion"
 msgstr "-2 Potion de Soin"
 
 #: ../books/merchants_journal.txt:59
@@ -1216,12 +1549,37 @@ msgid "120"
 msgstr "120"
 
 #: ../books/merchants_journal.txt:64
-msgid "+1 Dagger"
+#, fuzzy
+msgid "+1  Dagger"
 msgstr "+1 Dague"
 
 #: ../books/merchants_journal.txt:69
 msgid "-25"
 msgstr "-25"
+
+#: ../books/mog_1.txt:12
+msgid "On the waterlogged support beam"
+msgstr ""
+
+#: ../books/mog_2.txt:12
+msgid "Beneath a rock on the moldy peninsula"
+msgstr ""
+
+#: ../books/mog_3.txt:12
+msgid "In the pile of bones near the three pillars"
+msgstr ""
+
+#: ../books/mog_4.txt:12
+msgid "Inside the blocked off mine cart"
+msgstr ""
+
+#: ../books/mog_5.txt:12
+msgid "Press the switch on the top of the middle boulder"
+msgstr ""
+
+#: ../books/nasu_sketchbook.txt:23
+msgid "-K"
+msgstr ""
 
 #: ../items/categories/level_4.txt:5
 msgid "Warlord Cloth Shirt"
@@ -1272,16 +1630,19 @@ msgid "Archwizard Cloth Gloves"
 msgstr "Gants d'étoffe de l'Archimage"
 
 #: ../items/categories/level_4.txt:149
-msgid "Warlord Cloth Sash"
-msgstr "Ceinture d'étofffe du Seigneur de Guerre"
+#, fuzzy
+msgid "Master Leather Belt"
+msgstr "Ceinture de cuir du Ranger"
 
 #: ../items/categories/level_4.txt:160
-msgid "Sniper Cloth Sash"
-msgstr "Ceinture d'étoffe du Sniper"
+#, fuzzy
+msgid "Master Pendant"
+msgstr "Pantalon de cuir"
 
 #: ../items/categories/level_4.txt:171
-msgid "Archwizard Cloth Sash"
-msgstr "Ceinture d'étoffe de l'Archimage"
+#, fuzzy
+msgid "Master Spellbook"
+msgstr "Maître-Anneau de la Secousse"
 
 #: ../items/categories/level_4.txt:182
 msgid "Warlord Dagger"
@@ -1326,54 +1687,6 @@ msgstr "Maître-Anneau de Richesse"
 #: ../items/categories/level_4.txt:289
 msgid "Master Treasure Ring"
 msgstr "Maître-Anneau de Trésor"
-
-#: ../items/categories/level_4.txt:300
-msgid "Krolan's Pick"
-msgstr "Le choix de Krolan"
-
-#: ../items/categories/level_4.txt:301
-msgid "Sharp enough to cut through stone."
-msgstr "Assez pointu pour couper de la pierre."
-
-#: ../items/categories/level_4.txt:315
-msgid "Goblin Branch"
-msgstr "Branche Gobelin"
-
-#: ../items/categories/level_4.txt:316
-msgid "Mana flows inside its primitive exterior."
-msgstr "Le Mana coule à l'intérieur de son extérieur primitif."
-
-#: ../items/categories/level_4.txt:330
-msgid "Ardwen's Gloves"
-msgstr "Gants d'Ardwen"
-
-#: ../items/categories/level_4.txt:331
-msgid "These hands built a village."
-msgstr "Ces mains bâtirent un village."
-
-#: ../items/categories/level_4.txt:346
-msgid "Blood Tunic"
-msgstr "Tunique de Sang"
-
-#: ../items/categories/level_4.txt:347
-msgid "When worn, this shirt heats the wearers veins."
-msgstr "Lorsqu'elle est porté, cette chemise chauffe les veines des porteurs."
-
-#: ../items/categories/level_4.txt:360
-msgid "Dark Steppers"
-msgstr "Marcheurs d'Ombres"
-
-#: ../items/categories/level_4.txt:361
-msgid "Dancing through the shadows."
-msgstr "Danser dans les ombres."
-
-#: ../items/categories/level_4.txt:374
-msgid "Seagate's Tri-pants"
-msgstr "Triple pantalon de Seagate"
-
-#: ../items/categories/level_4.txt:375
-msgid "These ragged trousers are covered in scorch marks, yet are cold to the touch."
-msgstr "Ces pantalons déchiquetés sont couverts de marques de brûlure, mais ils sont froids au toucher."
 
 #: ../items/categories/level_15.txt:5
 msgid "Warrior Plate Helmet"
@@ -1436,60 +1749,111 @@ msgid "Wizard Velvet Sleeves"
 msgstr "Manches de velours du Mage"
 
 #: ../items/categories/level_15.txt:185
-msgid "Warrior Armored Belt"
-msgstr "Ceinture Armée de Guerrier"
+#, fuzzy
+msgid "Adventurer Warlord Leather Belt"
+msgstr "Ceinture de cuir du Seigneur de Guerre"
 
-#: ../items/categories/level_15.txt:197
-msgid "Ranger Armored Belt"
-msgstr "Ceinture Armée du Ranger"
+#: ../items/categories/level_15.txt:196
+#, fuzzy
+msgid "Adventurer Sniper Pendant"
+msgstr "Anneau Infernal d'Aventurier"
 
-#: ../items/categories/level_15.txt:209
-msgid "Wizard Armored Belt"
-msgstr "Ceinture Armée du Mage"
+#: ../items/categories/level_15.txt:207
+msgid "Adventurer Archwizard Spellbook"
+msgstr ""
 
-#: ../items/categories/level_15.txt:221
+#: ../items/categories/level_15.txt:218
 msgid "Warrior Greatsword"
 msgstr "Grande Épée du Guerrier"
 
-#: ../items/categories/level_15.txt:233
+#: ../items/categories/level_15.txt:230
 msgid "Ranger Greatbow"
 msgstr "Grand Arc du Ranger"
 
-#: ../items/categories/level_15.txt:245
+#: ../items/categories/level_15.txt:242
 msgid "Wizard Greatstaff"
 msgstr "Grand Bâton du Mage"
 
-#: ../items/categories/level_15.txt:257
+#: ../items/categories/level_15.txt:254
 msgid "Paladin Tower Shield"
 msgstr "Pavois du Paladin"
 
-#: ../items/categories/level_15.txt:268
+#: ../items/categories/level_15.txt:265
 msgid "Adventurer Inferno Ring"
 msgstr "Anneau Infernal d'Aventurier"
 
-#: ../items/categories/level_15.txt:278
+#: ../items/categories/level_15.txt:275
 msgid "Adventurer Glacial Ring"
 msgstr "Anneau Glacial d'Aventurier"
 
-#: ../items/categories/level_15.txt:288
+#: ../items/categories/level_15.txt:285
 msgid "Adventurer Volt Ring"
 msgstr "Anneau d'Énergie d'Aventurier"
 
-#: ../items/categories/level_15.txt:298
+#: ../items/categories/level_15.txt:295
 msgid "Adventurer Void Ring"
 msgstr "Anneau du Vide d'Aventurier"
 
-#: ../items/categories/level_15.txt:308
+#: ../items/categories/level_15.txt:305
 msgid "Adventurer Scholar Ring"
 msgstr "Anneau de l'Aventurier Érudit"
 
-#: ../items/categories/level_15.txt:318
+#: ../items/categories/level_15.txt:315
 msgid "Adventurer Affluence Ring"
 msgstr "Anneau d'Affluence d'Aventurier"
 
-#: ../items/categories/level_15.txt:328
+#: ../items/categories/level_15.txt:325
 msgid "Adventurer Relic Ring"
 msgstr "Anneau Relique d'Aventurier"
+
+#: ../items/categories/level_4_unique.txt:3
+#, fuzzy
+msgid "Krolan's Hammer"
+msgstr "Émeraude de Krolan"
+
+#: ../items/categories/level_4_unique.txt:4
+msgid "An essential tool for any blacksmith."
+msgstr ""
+
+#: ../items/categories/level_4_unique.txt:18
+msgid "Goblin Branch"
+msgstr "Branche Gobelin"
+
+#: ../items/categories/level_4_unique.txt:19
+msgid "Mana flows inside its primitive exterior."
+msgstr "Le Mana coule à l'intérieur de son extérieur primitif."
+
+#: ../items/categories/level_4_unique.txt:33
+msgid "Ardwen's Gloves"
+msgstr "Gants d'Ardwen"
+
+#: ../items/categories/level_4_unique.txt:34
+msgid "These hands built a village."
+msgstr "Ces mains bâtirent un village."
+
+#: ../items/categories/level_4_unique.txt:49
+msgid "Blood Tunic"
+msgstr "Tunique de Sang"
+
+#: ../items/categories/level_4_unique.txt:50
+msgid "When worn, this shirt heats the wearers veins."
+msgstr "Lorsqu'elle est porté, cette chemise chauffe les veines des porteurs."
+
+#: ../items/categories/level_4_unique.txt:63
+msgid "Dark Steppers"
+msgstr "Marcheurs d'Ombres"
+
+#: ../items/categories/level_4_unique.txt:64
+msgid "Dancing through the shadows."
+msgstr "Danser dans les ombres."
+
+#: ../items/categories/level_4_unique.txt:77
+msgid "Seagate's Tri-pants"
+msgstr "Triple pantalon de Seagate"
+
+#: ../items/categories/level_4_unique.txt:78
+msgid "These ragged trousers are covered in scorch marks, yet are cold to the touch."
+msgstr "Ces pantalons déchiquetés sont couverts de marques de brûlure, mais ils sont froids au toucher."
 
 #: ../items/categories/potions.txt:5
 msgid "Health Potion"
@@ -1568,60 +1932,110 @@ msgid "Sorcerer Wool Sleeves"
 msgstr "Manches de laine du Sorcier"
 
 #: ../items/categories/level_6.txt:185
-msgid "Fighting Leather Belt"
+#, fuzzy
+msgid "Wandering Fighting Leather Belt"
 msgstr "Ceinture de cuir de Combat"
 
-#: ../items/categories/level_6.txt:197
-msgid "Recon Leather Belt"
-msgstr "Ceinture de cuir de Reconnaissance"
+#: ../items/categories/level_6.txt:196
+#, fuzzy
+msgid "Wandering Recon Pendant"
+msgstr "Anneau Relique du Vagabond"
 
-#: ../items/categories/level_6.txt:209
-msgid "Sorcerer Leather Belt"
-msgstr "Ceinture de cuir du Sorcier"
+#: ../items/categories/level_6.txt:207
+msgid "Wandering Sorcerer Spellbook"
+msgstr ""
 
-#: ../items/categories/level_6.txt:221
+#: ../items/categories/level_6.txt:218
 msgid "Fighting Shortsword"
 msgstr "Épée Courte de Combat"
 
-#: ../items/categories/level_6.txt:233
+#: ../items/categories/level_6.txt:230
 msgid "Recon Shortbow"
 msgstr "Arc Court de reconnaissance"
 
-#: ../items/categories/level_6.txt:245
+#: ../items/categories/level_6.txt:242
 msgid "Sorcerer Rod"
 msgstr "Canne du Sorcier"
 
-#: ../items/categories/level_6.txt:257
+#: ../items/categories/level_6.txt:254
 msgid "Keeper Iron Buckler"
 msgstr "Rondache de Fer du Défenseur"
 
-#: ../items/categories/level_6.txt:268
+#: ../items/categories/level_6.txt:265
 msgid "Wandering Burn Ring"
 msgstr "Anneau de brûlure du Vagabond"
 
-#: ../items/categories/level_6.txt:278
+#: ../items/categories/level_6.txt:275
 msgid "Wandering Frost Ring"
 msgstr "Anneau du Givre du Vagabond"
 
-#: ../items/categories/level_6.txt:288
+#: ../items/categories/level_6.txt:285
 msgid "Wandering Electric Ring"
 msgstr "Anneau Électrique du Vagabond"
 
-#: ../items/categories/level_6.txt:298
+#: ../items/categories/level_6.txt:295
 msgid "Wandering Shadow Ring"
 msgstr "Anneau d'Ombre du Vagabond"
 
-#: ../items/categories/level_6.txt:308
+#: ../items/categories/level_6.txt:305
 msgid "Wandering Knowledge Ring"
 msgstr "Anneau de Connaissance du Vagabond"
 
-#: ../items/categories/level_6.txt:318
+#: ../items/categories/level_6.txt:315
 msgid "Wandering Prosperity Ring"
 msgstr "Anneau de Prospérité du Vagabond"
 
-#: ../items/categories/level_6.txt:328
+#: ../items/categories/level_6.txt:325
 msgid "Wandering Loot Ring"
 msgstr "Anneau de Butin du Vagabond"
+
+#: ../items/categories/level_8_unique.txt:3
+msgid "Amir Blade"
+msgstr "Lame d'Amir"
+
+#: ../items/categories/level_8_unique.txt:4
+msgid "A remnant of those who guarded Fort Amir."
+msgstr "Un reste de ceux qui ont gardé Fort Amir."
+
+#: ../items/categories/level_8_unique.txt:18
+msgid "Huntsman Bow"
+msgstr "Arc du Chasseur"
+
+#: ../items/categories/level_8_unique.txt:19
+msgid "Compact enough to be deadly at all ranges of combat."
+msgstr "Conçu pour être mortel à toutes les distances de combat."
+
+#: ../items/categories/level_8_unique.txt:33
+msgid "Greed Cowl"
+msgstr "Capuche d'Avidité"
+
+#: ../items/categories/level_8_unique.txt:34
+msgid "Riches fit for a queen."
+msgstr "Des richesses adaptées à une reine."
+
+#: ../items/categories/level_8_unique.txt:48
+msgid "Battle Leathers"
+msgstr "Cuirs de bataille"
+
+#: ../items/categories/level_8_unique.txt:49
+msgid "Designed to keep its wearer moving forward."
+msgstr "Conçu pour garder son porteur en marche."
+
+#: ../items/categories/level_8_unique.txt:63
+msgid "Escape Boots"
+msgstr "Bottes de Fuite"
+
+#: ../items/categories/level_8_unique.txt:64
+msgid "Running away doesn't mean the battle is lost."
+msgstr "S'enfuir ne signifie pas que la bataille est perdue."
+
+#: ../items/categories/level_8_unique.txt:78
+msgid "Mez's Wraps"
+msgstr "Manteau de Mez"
+
+#: ../items/categories/level_8_unique.txt:79
+msgid "With its layers of reptilian skin, not much can penetrate this armor."
+msgstr "Avec ses couches de peau reptilienne, beaucoup ne peuvent pas pénétrer dans cette armure."
 
 #: ../items/categories/level_12.txt:5
 msgid "Warlord Chain Coif"
@@ -1684,58 +2098,60 @@ msgid "Archwizard Silk Sleeves"
 msgstr "Manches de soie de l'Archimage"
 
 #: ../items/categories/level_12.txt:185
-msgid "Warlord Padded Belt"
-msgstr "Ceinture rembourée du Seigneur de Guerre"
+#, fuzzy
+msgid "Master Warrior Leather Belt"
+msgstr "Ceinture de cuir du Guerrier"
 
-#: ../items/categories/level_12.txt:197
-msgid "Sniper Padded Belt"
-msgstr "Ceinture rembourée du Sniper"
+#: ../items/categories/level_12.txt:196
+#, fuzzy
+msgid "Master Ranger Pendant"
+msgstr "Maître-Anneau Infernal"
 
-#: ../items/categories/level_12.txt:209
-msgid "Archwizard Padded Belt"
-msgstr "Ceinture rembourée de l'Archimage"
+#: ../items/categories/level_12.txt:207
+msgid "Master Wizard Spellbook"
+msgstr ""
 
-#: ../items/categories/level_12.txt:221
+#: ../items/categories/level_12.txt:218
 msgid "Warlord Longsword"
 msgstr "Épée Longue du Seigneur de Guerre"
 
-#: ../items/categories/level_12.txt:233
+#: ../items/categories/level_12.txt:230
 msgid "Sniper Longbow"
 msgstr "Arc Long du Sniper"
 
-#: ../items/categories/level_12.txt:245
+#: ../items/categories/level_12.txt:242
 msgid "Archwizard Staff"
 msgstr "Bâton de l'Archimage"
 
-#: ../items/categories/level_12.txt:257
+#: ../items/categories/level_12.txt:254
 msgid "Templar Crest Shield"
 msgstr "Bouclier Héraldique du Templier"
 
-#: ../items/categories/level_12.txt:268
+#: ../items/categories/level_12.txt:265
 msgid "Master Blaze Ring"
 msgstr "Maître-Anneau du flamboyement"
 
-#: ../items/categories/level_12.txt:278
+#: ../items/categories/level_12.txt:275
 msgid "Master Freeze Ring"
 msgstr "Maître-Anneau du Gel"
 
-#: ../items/categories/level_12.txt:288
+#: ../items/categories/level_12.txt:285
 msgid "Master Shock Ring"
 msgstr "Maître-Anneau de la Secousse"
 
-#: ../items/categories/level_12.txt:298
+#: ../items/categories/level_12.txt:295
 msgid "Master Gloom Ring"
 msgstr "Maître-Anneau de la Mélancolie"
 
-#: ../items/categories/level_12.txt:308
+#: ../items/categories/level_12.txt:305
 msgid "Master Intellectual Ring"
 msgstr "Maître-Anneau Intellectuel"
 
-#: ../items/categories/level_12.txt:318
+#: ../items/categories/level_12.txt:315
 msgid "Master Lucrative Ring"
 msgstr "Maître-Anneau Lucratif"
 
-#: ../items/categories/level_12.txt:328
+#: ../items/categories/level_12.txt:325
 msgid "Master Artifact Ring"
 msgstr "Maître-Anneau Artefact"
 
@@ -1808,60 +2224,117 @@ msgid "Wizard Wool Sleeves"
 msgstr "Manches de laine du Mage"
 
 #: ../items/categories/level_7.txt:185
-msgid "Warrior Leather Belt"
-msgstr "Ceinture de cuir du Guerrier"
+#, fuzzy
+msgid "Adventurer Fighting Leather Belt"
+msgstr "Ceinture de cuir de Combat"
 
-#: ../items/categories/level_7.txt:197
-msgid "Ranger Leather Belt"
-msgstr "Ceinture de cuir du Ranger"
+#: ../items/categories/level_7.txt:196
+#, fuzzy
+msgid "Adventurer Recon Pendant"
+msgstr "Anneau Relique d'Aventurier"
 
-#: ../items/categories/level_7.txt:209
-msgid "Wizard Leather Belt"
-msgstr "Ceinture de cuir du Mage"
+#: ../items/categories/level_7.txt:207
+#, fuzzy
+msgid "Adventurer Sorcerer Spellbook"
+msgstr "Anneau du Trésor d'Aventurier"
 
-#: ../items/categories/level_7.txt:221
+#: ../items/categories/level_7.txt:218
 msgid "Warrior Shortsword"
 msgstr "Épée courte du Guerrier"
 
-#: ../items/categories/level_7.txt:233
+#: ../items/categories/level_7.txt:230
 msgid "Ranger Shortbow"
 msgstr "Arc Court du Ranger"
 
-#: ../items/categories/level_7.txt:245
+#: ../items/categories/level_7.txt:242
 msgid "Wizard Rod"
 msgstr "Canne du Mage"
 
-#: ../items/categories/level_7.txt:257
+#: ../items/categories/level_7.txt:254
 msgid "Paladin Iron Buckler"
 msgstr "Rondache de fer du Paladin"
 
-#: ../items/categories/level_7.txt:268
+#: ../items/categories/level_7.txt:265
 msgid "Adventurer Burn Ring"
 msgstr "Anneau de Brûlure d'Aventurier"
 
-#: ../items/categories/level_7.txt:278
+#: ../items/categories/level_7.txt:275
 msgid "Adventurer Frost Ring"
 msgstr "Anneau du Givre d'Aventurier"
 
-#: ../items/categories/level_7.txt:288
+#: ../items/categories/level_7.txt:285
 msgid "Adventurer Electric Ring"
 msgstr "Anneau Électrique d'Aventurier"
 
-#: ../items/categories/level_7.txt:298
+#: ../items/categories/level_7.txt:295
 msgid "Adventurer Shadow Ring"
 msgstr "Anneau d'Ombre d'Aventurier"
 
-#: ../items/categories/level_7.txt:308
+#: ../items/categories/level_7.txt:305
 msgid "Adventurer Knowledge Ring"
 msgstr "Anneau de Connaissance d'Aventurier"
 
-#: ../items/categories/level_7.txt:318
+#: ../items/categories/level_7.txt:315
 msgid "Adventurer Prosperity Ring"
 msgstr "Anneau de Prospérité d'Aventurier"
 
-#: ../items/categories/level_7.txt:328
+#: ../items/categories/level_7.txt:325
 msgid "Adventurer Loot Ring"
 msgstr "Anneau de Butin d'Aventurier"
+
+#: ../items/categories/level_12_unique.txt:5
+msgid "Lost Totem"
+msgstr ""
+
+#: ../items/categories/level_12_unique.txt:6
+msgid "The ancient scripture contained appears to be some sort of magic."
+msgstr ""
+
+#: ../items/categories/level_12_unique.txt:20
+msgid "Mog's Axe"
+msgstr ""
+
+#: ../items/categories/level_12_unique.txt:21
+msgid "Not as sleek as an arrow, but just as effective."
+msgstr ""
+
+#: ../items/categories/level_12_unique.txt:35
+#, fuzzy
+msgid "Guardsman Curiass"
+msgstr "Cuirasse de chaînes du Seigneur de Guerre"
+
+#: ../items/categories/level_12_unique.txt:36
+msgid "A royal mail with a 'K' engraved on the breast."
+msgstr ""
+
+#: ../items/categories/level_12_unique.txt:52
+msgid "Inferno Pendant"
+msgstr ""
+
+#: ../items/categories/level_12_unique.txt:53
+msgid "Hot. Hot. Hot."
+msgstr ""
+
+#: ../items/categories/level_12_unique.txt:67
+#, fuzzy
+msgid "Alchemist's Skirt"
+msgstr "Jupe de velours"
+
+#: ../items/categories/level_12_unique.txt:68
+msgid "Knowledge of formulating many concoctions bestows its wearer."
+msgstr ""
+
+#: ../items/categories/level_12_unique.txt:77
+msgid "Drinking potions may create another potion of the same type."
+msgstr ""
+
+#: ../items/categories/level_12_unique.txt:86
+msgid "Metzger's Battlemace"
+msgstr ""
+
+#: ../items/categories/level_12_unique.txt:87
+msgid "Swinging this mace around leaves a clouded trail of dark smoke."
+msgstr ""
 
 #: ../items/categories/level_16.txt:5
 msgid "Warlord Plate Helmet"
@@ -1924,58 +2397,61 @@ msgid "Archwizard Velvet Sleeves"
 msgstr "Manches de velours de l'Archimage"
 
 #: ../items/categories/level_16.txt:185
-msgid "Warlord Armored Belt"
-msgstr "Ceinture Armée du Seigneur de Guerre"
+#, fuzzy
+msgid "Master Warlord Leather Belt"
+msgstr "Ceinture de cuir du Seigneur de Guerre"
 
-#: ../items/categories/level_16.txt:197
-msgid "Sniper Armored Belt"
-msgstr "Ceinture Armée du Sniper"
+#: ../items/categories/level_16.txt:196
+#, fuzzy
+msgid "Master Sniper Pendant"
+msgstr "Maître-Anneau d'Expérience"
 
-#: ../items/categories/level_16.txt:209
-msgid "Archwizard Armored Belt"
-msgstr "Ceinture Armée de l'Archimage"
+#: ../items/categories/level_16.txt:207
+#, fuzzy
+msgid "Master Archwizard Spellbook"
+msgstr "Capuche de soie de l'Archimage"
 
-#: ../items/categories/level_16.txt:221
+#: ../items/categories/level_16.txt:218
 msgid "Warlord Greatsword"
 msgstr "Grande Épée du Seigneur de Guerre"
 
-#: ../items/categories/level_16.txt:233
+#: ../items/categories/level_16.txt:230
 msgid "Sniper Greatbow"
 msgstr "Grand Arc du Sniper"
 
-#: ../items/categories/level_16.txt:245
+#: ../items/categories/level_16.txt:242
 msgid "Archwizard Greatstaff"
 msgstr "Grand Bâton de l'Archimage"
 
-#: ../items/categories/level_16.txt:257
+#: ../items/categories/level_16.txt:254
 msgid "Templar Tower Shield"
 msgstr "Pavois du Templier"
 
-#: ../items/categories/level_16.txt:268
+#: ../items/categories/level_16.txt:265
 msgid "Master Inferno Ring"
 msgstr "Maître-Anneau Infernal"
 
-#: ../items/categories/level_16.txt:278
+#: ../items/categories/level_16.txt:275
 msgid "Master Glacial Ring"
 msgstr "Maître-Anneau Glacial"
 
-#: ../items/categories/level_16.txt:288
+#: ../items/categories/level_16.txt:285
 msgid "Master Volt Ring"
 msgstr "Maître-Anneau d'Énergie"
 
-#: ../items/categories/level_16.txt:298
+#: ../items/categories/level_16.txt:295
 msgid "Master Void Ring"
 msgstr "Maître-Anneau du Vide"
 
-#: ../items/categories/level_16.txt:308
+#: ../items/categories/level_16.txt:305
 msgid "Master Scholar Ring"
 msgstr "Maître-Anneau Savant"
 
-#: ../items/categories/level_16.txt:318
+#: ../items/categories/level_16.txt:315
 msgid "Master Affluence Ring"
 msgstr "Maître-Anneau d'Affluence"
 
-#: ../items/categories/level_16.txt:328
+#: ../items/categories/level_16.txt:325
 msgid "Master Relic Ring"
 msgstr "Maître-Anneau Relique"
 
@@ -2040,58 +2516,60 @@ msgid "Wizard Silk Sleeves"
 msgstr "Manches de soie du Mage"
 
 #: ../items/categories/level_11.txt:185
-msgid "Warrior Padded Belt"
-msgstr "Ceinture rembourée du Guerrier"
+#, fuzzy
+msgid "Adventurer Warrior Leather Belt"
+msgstr "Ceinture de cuir du Guerrier"
 
-#: ../items/categories/level_11.txt:197
-msgid "Ranger Padded Belt"
-msgstr "Ceinture rembourée du Ranger"
+#: ../items/categories/level_11.txt:196
+#, fuzzy
+msgid "Adventurer Ranger Pendant"
+msgstr "Anneau Infernal d'Aventurier"
 
-#: ../items/categories/level_11.txt:209
-msgid "Wizard Padded Belt"
-msgstr "Ceinture rembourée du Mage"
+#: ../items/categories/level_11.txt:207
+msgid "Adventurer Wizard Spellbook"
+msgstr ""
 
-#: ../items/categories/level_11.txt:221
+#: ../items/categories/level_11.txt:218
 msgid "Warrior Longsword"
 msgstr "Épée Longue du Guerrier"
 
-#: ../items/categories/level_11.txt:233
+#: ../items/categories/level_11.txt:230
 msgid "Ranger Longbow"
 msgstr "Arc Long du Ranger"
 
-#: ../items/categories/level_11.txt:245
+#: ../items/categories/level_11.txt:242
 msgid "Wizard Staff"
 msgstr "Bâton du Mage"
 
-#: ../items/categories/level_11.txt:257
+#: ../items/categories/level_11.txt:254
 msgid "Paladin Crest Shield"
 msgstr "Bouclier Héraldique du Paladin"
 
-#: ../items/categories/level_11.txt:268
+#: ../items/categories/level_11.txt:265
 msgid "Adventurer Blaze Ring"
 msgstr "Anneau du Flamboyement d'Aventurier"
 
-#: ../items/categories/level_11.txt:278
+#: ../items/categories/level_11.txt:275
 msgid "Adventurer Freeze Ring"
 msgstr "Anneau du Gel d'Aventurier"
 
-#: ../items/categories/level_11.txt:288
+#: ../items/categories/level_11.txt:285
 msgid "Adventurer Shock Ring"
 msgstr "Anneau de Secousse d'Aventurier"
 
-#: ../items/categories/level_11.txt:298
+#: ../items/categories/level_11.txt:295
 msgid "Adventurer Gloom Ring"
 msgstr "Anneau de Mélancolie d'Aventurier"
 
-#: ../items/categories/level_11.txt:308
+#: ../items/categories/level_11.txt:305
 msgid "Adventurer Intellectual Ring"
 msgstr "Anneau Intellectuel d'Aventurier"
 
-#: ../items/categories/level_11.txt:318
+#: ../items/categories/level_11.txt:315
 msgid "Adventurer Lucrative Ring"
 msgstr "Anneau Lucratif d'Aventurier"
 
-#: ../items/categories/level_11.txt:328
+#: ../items/categories/level_11.txt:325
 msgid "Adventurer Artifact Ring"
 msgstr "Anneau Artefact d'Aventurier"
 
@@ -2156,58 +2634,60 @@ msgid "Sorcerer Silk Sleeves"
 msgstr "Manches de soie du Sorcier"
 
 #: ../items/categories/level_10.txt:185
-msgid "Fighting Padded Belt"
-msgstr "Ceinture rembourée de Combat"
+#, fuzzy
+msgid "Wandering Warrior Leather Belt"
+msgstr "Ceinture de cuir du Guerrier"
 
-#: ../items/categories/level_10.txt:197
-msgid "Recon Padded Belt"
-msgstr "Ceinture rembourée de Reconnaissance"
+#: ../items/categories/level_10.txt:196
+#, fuzzy
+msgid "Wandering Ranger Pendant"
+msgstr "Anneau Infernal du Vagabond"
 
-#: ../items/categories/level_10.txt:209
-msgid "Sorcerer Padded Belt"
-msgstr "Ceinture rembourée du Sorcier"
+#: ../items/categories/level_10.txt:207
+msgid "Wandering Wizard Spellbook"
+msgstr ""
 
-#: ../items/categories/level_10.txt:221
+#: ../items/categories/level_10.txt:218
 msgid "Fighting Longsword"
 msgstr "Épée Longue de Combat"
 
-#: ../items/categories/level_10.txt:233
+#: ../items/categories/level_10.txt:230
 msgid "Recon Longbow"
 msgstr "Arc Long de Reconnaissance"
 
-#: ../items/categories/level_10.txt:245
+#: ../items/categories/level_10.txt:242
 msgid "Sorcerer Staff"
 msgstr "Bâton du Sorcier"
 
-#: ../items/categories/level_10.txt:257
+#: ../items/categories/level_10.txt:254
 msgid "Keeper Crest Shield"
 msgstr "Bouclier Héraldique du Défenseur"
 
-#: ../items/categories/level_10.txt:268
+#: ../items/categories/level_10.txt:265
 msgid "Wandering Blaze Ring"
 msgstr "Anneau du Flamboyement du Vagabond"
 
-#: ../items/categories/level_10.txt:278
+#: ../items/categories/level_10.txt:275
 msgid "Wandering Freeze Ring"
 msgstr "Anneau du Gel du Vagabond"
 
-#: ../items/categories/level_10.txt:288
+#: ../items/categories/level_10.txt:285
 msgid "Wandering Shock Ring"
 msgstr "Anneau de Secousse du Vagabond"
 
-#: ../items/categories/level_10.txt:298
+#: ../items/categories/level_10.txt:295
 msgid "Wandering Gloom Ring"
 msgstr "Anneau de Mélancolie du Vagabond"
 
-#: ../items/categories/level_10.txt:308
+#: ../items/categories/level_10.txt:305
 msgid "Wandering Intellectual Ring"
 msgstr "Anneau Intellectuel du Vagabond"
 
-#: ../items/categories/level_10.txt:318
+#: ../items/categories/level_10.txt:315
 msgid "Wandering Lucrative Ring"
 msgstr "Anneau Lucratif du Vagabond"
 
-#: ../items/categories/level_10.txt:328
+#: ../items/categories/level_10.txt:325
 msgid "Wandering Artifact Ring"
 msgstr "Anneau Artefact du Vagabond"
 
@@ -2419,59 +2899,87 @@ msgstr "Figurine de l'Ours"
 msgid "Wood sculpture of a bear. A \"1\" is carved into the bottom."
 msgstr "Sculpture en bois d'un ours. Un \"1\" est sculpté en bas."
 
-#: ../items/categories/quest.txt:96
+#: ../items/categories/quest.txt:97
 msgid "Owl Figurine"
 msgstr "Figurine de la Chouette"
 
-#: ../items/categories/quest.txt:99
+#: ../items/categories/quest.txt:100
 msgid "Wood sculpture of an owl. A \"2\" is carved into the bottom."
 msgstr "Sculpture en bois d'une Chouette. Un \"2\" est sculpté en bas."
 
-#: ../items/categories/quest.txt:107
+#: ../items/categories/quest.txt:109
 msgid "Cat Figurine"
 msgstr "Figurine du Chat"
 
-#: ../items/categories/quest.txt:110
+#: ../items/categories/quest.txt:112
 msgid "Wood sculpture of a cat. A \"3\" is carved into the bottom."
 msgstr "Sculpture en bois d'un chat. Un \"3\" est sculpté en bas."
 
-#: ../items/categories/quest.txt:118
+#: ../items/categories/quest.txt:121
 msgid "Turtle Figurine"
 msgstr "Figurine de la Tortue"
 
-#: ../items/categories/quest.txt:121
+#: ../items/categories/quest.txt:124
 msgid "Wood sculpture of a turtle. A \"4\" is carved into the bottom."
 msgstr "Sculpture en bois d'une Tortue. Un \"4\" est sculpté en bas."
 
-#: ../items/categories/quest.txt:129
+#: ../items/categories/quest.txt:133
 msgid "Stormrock Key"
 msgstr "Clé de Stormrock"
 
-#: ../items/categories/quest.txt:138
+#: ../items/categories/quest.txt:142
 msgid "Temple of Mez Basement Key"
 msgstr "Clé du Sous-sol de Nazia"
 
-#: ../items/categories/quest.txt:147
+#: ../items/categories/quest.txt:151
 msgid "Temple of Mez Main Hall Key"
 msgstr "Clé du Hall Principal du Temple de Mez"
 
 #: ../items/categories/quest.txt:160
+msgid "Dynamite"
+msgstr ""
+
+#: ../items/categories/quest.txt:169
+msgid "Worn Note #1"
+msgstr ""
+
+#: ../items/categories/quest.txt:179
+msgid "Worn Note #2"
+msgstr ""
+
+#: ../items/categories/quest.txt:189
+msgid "Worn Note #3"
+msgstr ""
+
+#: ../items/categories/quest.txt:199
+msgid "Worn Note #4"
+msgstr ""
+
+#: ../items/categories/quest.txt:209
+msgid "Worn Note #5"
+msgstr ""
+
+#: ../items/categories/quest.txt:219
+msgid "Wizard's Tower Entrance Key"
+msgstr ""
+
+#: ../items/categories/quest.txt:232
 msgid "An odor of iron and its abrasive petals make this rare plant easy to identify."
 msgstr "Une odeur de fer et ses pétales abrasifs rendent cette plante rare facile à identifier."
 
-#: ../items/categories/quest.txt:170
+#: ../items/categories/quest.txt:242
 msgid "This mysterious black feather has a very sharp follicle, making it a suitable writing utensil."
 msgstr "Cette plume noire mystérieuse a un follicule très pointu, ce qui en fait un ustensile d'écriture approprié."
 
-#: ../items/categories/quest.txt:177
+#: ../items/categories/quest.txt:249
 msgid "Knife of Sacrifices"
 msgstr "Couteau de Sacrifice"
 
-#: ../items/categories/quest.txt:185
+#: ../items/categories/quest.txt:257
 msgid "Vial of Your Blood"
 msgstr "Flacon de votre sang"
 
-#: ../items/categories/quest.txt:193
+#: ../items/categories/quest.txt:265
 msgid "Blood Inkwell"
 msgstr "Encrier de Sang"
 
@@ -2568,108 +3076,63 @@ msgid "Archwizard Wool Sleeves"
 msgstr "Manches en laine de l'Archimage"
 
 #: ../items/categories/level_8.txt:185
-msgid "Warlord Leather Belt"
-msgstr "Ceinture de cuir du Seigneur de Guerre"
+#, fuzzy
+msgid "Master Fighting Leather Belt"
+msgstr "Ceinture de cuir de Combat"
 
-#: ../items/categories/level_8.txt:197
-msgid "Sniper Leather Belt"
-msgstr "Ceinture de cuir du Sniper"
+#: ../items/categories/level_8.txt:196
+#, fuzzy
+msgid "Master Recon Pendant"
+msgstr "Maître-Anneau Relique"
 
-#: ../items/categories/level_8.txt:209
-msgid "Archwizard Leather Belt"
-msgstr "Ceinture de cuir de l'Archimage"
+#: ../items/categories/level_8.txt:207
+#, fuzzy
+msgid "Master Sorcerer Spellbook"
+msgstr "Capuche de soie du Sorcier"
 
-#: ../items/categories/level_8.txt:221
+#: ../items/categories/level_8.txt:218
 msgid "Warlord Shortsword"
 msgstr "Épée courte du Seigneur de Guerre"
 
-#: ../items/categories/level_8.txt:233
+#: ../items/categories/level_8.txt:230
 msgid "Sniper Shortbow"
 msgstr "Arc Court du Sniper"
 
-#: ../items/categories/level_8.txt:245
+#: ../items/categories/level_8.txt:242
 msgid "Archwizard Rod"
 msgstr "Canne de l'Archimage"
 
-#: ../items/categories/level_8.txt:257
+#: ../items/categories/level_8.txt:254
 msgid "Templar Iron Buckler"
 msgstr "Rondache de fer du Templier"
 
-#: ../items/categories/level_8.txt:268
+#: ../items/categories/level_8.txt:265
 msgid "Master Burn Ring"
 msgstr "Maître-Anneau de brûlure"
 
-#: ../items/categories/level_8.txt:278
+#: ../items/categories/level_8.txt:275
 msgid "Master Frost Ring"
 msgstr "Maître-Anneau de Givre"
 
-#: ../items/categories/level_8.txt:288
+#: ../items/categories/level_8.txt:285
 msgid "Master Electric Ring"
 msgstr "Maître-Anneau Électrique"
 
-#: ../items/categories/level_8.txt:298
+#: ../items/categories/level_8.txt:295
 msgid "Master Shadow Ring"
 msgstr "Maître-Anneau d'Ombre"
 
-#: ../items/categories/level_8.txt:308
+#: ../items/categories/level_8.txt:305
 msgid "Master Knowledge Ring"
 msgstr "Maître-Anneau de Connaissance"
 
-#: ../items/categories/level_8.txt:318
+#: ../items/categories/level_8.txt:315
 msgid "Master Prosperity Ring"
 msgstr "Maître-Anneau de Prosperité"
 
-#: ../items/categories/level_8.txt:328
+#: ../items/categories/level_8.txt:325
 msgid "Master Loot Ring"
 msgstr "Maître-Anneau de Butin"
-
-#: ../items/categories/level_8.txt:339
-msgid "Amir Blade"
-msgstr "Lame d'Amir"
-
-#: ../items/categories/level_8.txt:340
-msgid "A remnant of those who guarded Fort Amir."
-msgstr "Un reste de ceux qui ont gardé Fort Amir."
-
-#: ../items/categories/level_8.txt:354
-msgid "Huntsman Bow"
-msgstr "Arc du Chasseur"
-
-#: ../items/categories/level_8.txt:355
-msgid "Compact enough to be deadly at all ranges of combat."
-msgstr "Conçu pour être mortel à toutes les distances de combat."
-
-#: ../items/categories/level_8.txt:369
-msgid "Greed Cowl"
-msgstr "Capuche d'Avidité"
-
-#: ../items/categories/level_8.txt:370
-msgid "Riches fit for a queen."
-msgstr "Des richesses adaptées à une reine."
-
-#: ../items/categories/level_8.txt:384
-msgid "Battle Leathers"
-msgstr "Cuirs de bataille"
-
-#: ../items/categories/level_8.txt:385
-msgid "Designed to keep its wearer moving forward."
-msgstr "Conçu pour garder son porteur en marche."
-
-#: ../items/categories/level_8.txt:399
-msgid "Escape Boots"
-msgstr "Bottes de Fuite"
-
-#: ../items/categories/level_8.txt:400
-msgid "Running away doesn't mean the battle is lost."
-msgstr "S'enfuir ne signifie pas que la bataille est perdue."
-
-#: ../items/categories/level_8.txt:414
-msgid "Mez's Wraps"
-msgstr "Manteau de Mez"
-
-#: ../items/categories/level_8.txt:415
-msgid "With its layers of reptilian skin, not much can penetrate this armor."
-msgstr "Avec ses couches de peau reptilienne, beaucoup ne peuvent pas pénétrer dans cette armure."
 
 #: ../items/categories/level_2.txt:5
 msgid "Fighting Cloth Shirt"
@@ -2720,16 +3183,19 @@ msgid "Sorcerer Cloth Gloves"
 msgstr "Gants d'étoffe du Sorcier"
 
 #: ../items/categories/level_2.txt:120
-msgid "Fighting Cloth Sash"
-msgstr "Ceinture d'étoffe de Combat"
+#, fuzzy
+msgid "Wandering Leather Belt"
+msgstr "Ceinture de cuir du Ranger"
 
 #: ../items/categories/level_2.txt:129
-msgid "Recon Cloth Sash"
-msgstr "Ceinture d'étoffe de Reconnaissance"
+#, fuzzy
+msgid "Wandering Pendant"
+msgstr "Anneau de Glace du Vagabond"
 
 #: ../items/categories/level_2.txt:138
-msgid "Sorcerer Cloth Sash"
-msgstr "Ceinture d'étoffe du Sorcier"
+#, fuzzy
+msgid "Wandering Spellbook"
+msgstr "Anneau de Secousse du Vagabond"
 
 #: ../items/categories/level_2.txt:147
 msgid "Fighting Dagger"
@@ -2824,16 +3290,19 @@ msgid "Wizard Cloth Gloves"
 msgstr "Gants d'étoffe du Mage"
 
 #: ../items/categories/level_3.txt:123
-msgid "Warrior Cloth Sash"
-msgstr "Ceinture d'étoffe du guerrier"
+#, fuzzy
+msgid "Adventurer Leather Belt"
+msgstr "Ceinture de cuir du Sorcier"
 
 #: ../items/categories/level_3.txt:132
-msgid "Ranger Cloth Sash"
-msgstr "Ceinture d'étoffe du Ranger"
+#, fuzzy
+msgid "Adventurer Pendant"
+msgstr "Aventurier"
 
 #: ../items/categories/level_3.txt:141
-msgid "Wizard Cloth Sash"
-msgstr "Ceinture d'étoffe du Mage"
+#, fuzzy
+msgid "Adventurer Spellbook"
+msgstr "Anneau de Secousse d'Aventurier"
 
 #: ../items/categories/level_3.txt:150
 msgid "Warrior Dagger"
@@ -2940,58 +3409,61 @@ msgid "Sorcerer Velvet Sleeves"
 msgstr "Manches de velours du Sorcier"
 
 #: ../items/categories/level_14.txt:185
-msgid "Fighting Armored Belt"
-msgstr "Ceinture Armée de Combat"
+#, fuzzy
+msgid "Wandering Warlord Leather Belt"
+msgstr "Ceinture de cuir du Seigneur de Guerre"
 
-#: ../items/categories/level_14.txt:197
-msgid "Recon Armored Belt"
-msgstr "Ceinture Armée de Reconnaissance"
+#: ../items/categories/level_14.txt:196
+#, fuzzy
+msgid "Wandering Sniper Pendant"
+msgstr "Anneau d'Expérience du Vagabond"
 
-#: ../items/categories/level_14.txt:209
-msgid "Sorcerer Armored Belt"
-msgstr "Ceinture Armée du Sorcier"
+#: ../items/categories/level_14.txt:207
+#, fuzzy
+msgid "Wandering Archwizard Spellbook"
+msgstr "Capuche de soie de l'Archimage"
 
-#: ../items/categories/level_14.txt:221
+#: ../items/categories/level_14.txt:218
 msgid "Fighting Greatsword"
 msgstr "Grande Épée de Combat"
 
-#: ../items/categories/level_14.txt:233
+#: ../items/categories/level_14.txt:230
 msgid "Recon Greatbow"
 msgstr "Grand Arc de Reconnaissance"
 
-#: ../items/categories/level_14.txt:245
+#: ../items/categories/level_14.txt:242
 msgid "Sorcerer Greatstaff"
 msgstr "Grand Bâton du Sorcier"
 
-#: ../items/categories/level_14.txt:257
+#: ../items/categories/level_14.txt:254
 msgid "Keeper Tower Shield"
 msgstr "Pavois du Défenseur"
 
-#: ../items/categories/level_14.txt:268
+#: ../items/categories/level_14.txt:265
 msgid "Wandering Inferno Ring"
 msgstr "Anneau Infernal du Vagabond"
 
-#: ../items/categories/level_14.txt:278
+#: ../items/categories/level_14.txt:275
 msgid "Wandering Glacial Ring"
 msgstr "Anneau Glacial du Vagabond"
 
-#: ../items/categories/level_14.txt:288
+#: ../items/categories/level_14.txt:285
 msgid "Wandering Volt Ring"
 msgstr "Anneau d'Énergie du Vagabond"
 
-#: ../items/categories/level_14.txt:298
+#: ../items/categories/level_14.txt:295
 msgid "Wandering Void Ring"
 msgstr "Anneau du Vide du Vagabond"
 
-#: ../items/categories/level_14.txt:308
+#: ../items/categories/level_14.txt:305
 msgid "Wandering Scholar Ring"
 msgstr "Anneau Savant du Vagabond"
 
-#: ../items/categories/level_14.txt:318
+#: ../items/categories/level_14.txt:315
 msgid "Wandering Affluence Ring"
 msgstr "Anneau d'Affluence du Vagabond"
 
-#: ../items/categories/level_14.txt:328
+#: ../items/categories/level_14.txt:325
 msgid "Wandering Relic Ring"
 msgstr "Anneau Relique du Vagabond"
 
@@ -3051,10 +3523,6 @@ msgstr "Chausse-Trappe"
 msgid "This trap deals reduced ranged weapon damage and slows the target."
 msgstr "Ce piège réduit les dégâts des armes à distance et ralentis la cible."
 
-#: ../powers/base/ranger/haste.txt:1
-msgid "Haste"
-msgstr "Hâte"
-
 #: ../powers/base/ranger/haste.txt:3
 msgid "Move at an increased speed for a limited time."
 msgstr "Déplacez-vous à une vitesse accrue pour un temps limité."
@@ -3106,10 +3574,6 @@ msgstr "Boule de Feu"
 #: ../powers/base/magician/fireball.txt:2
 msgid "Launch a ball of fire that does extra mental damage."
 msgstr "Lance une boule de feu qui inflige des dégâts mentaux supplémentaires."
-
-#: ../powers/base/magician/shield.txt:1
-msgid "Shield"
-msgstr "Bouclier"
 
 #: ../powers/base/magician/shield.txt:4
 msgid "Create a force field that absorbs damage."
@@ -3184,7 +3648,8 @@ msgid "Quake"
 msgstr "Séisme"
 
 #: ../powers/base/warrior/quake.txt:4
-msgid "Stun and knock back nearby enemies."
+#, fuzzy
+msgid "Knock back nearby enemies with a chance to stun."
 msgstr "Étourdis et fait reculer les ennemis autour de soi."
 
 #: ../powers/base/warrior/warcry.txt:1
@@ -3195,7 +3660,7 @@ msgstr "Cri de Guerre"
 msgid "Remove debuffs and become immune to debuffs for a limited time."
 msgstr "Supprime les effets négatifs et immunise contre ces derniers dans un temps limité."
 
-#: ../powers/categories/items.txt:29
+#: ../powers/categories/items.txt:23
 msgid "Summon Zombie"
 msgstr "Invoquer un Zombie"
 
@@ -3218,3 +3683,108 @@ msgstr "Attaque magique basique."
 #: ../powers/trees/default.txt:11
 msgid "Magician"
 msgstr "Magicien"
+
+#~ msgid "Unknown destination"
+#~ msgstr "Destination inconnue"
+
+#~ msgid "A gravebloom emerges from the center of the altar."
+#~ msgstr "Une Fleur de Tombe émerge du centre de l'autel."
+
+#~ msgid "Warlord Cloth Sash"
+#~ msgstr "Ceinture d'étofffe du Seigneur de Guerre"
+
+#~ msgid "Sniper Cloth Sash"
+#~ msgstr "Ceinture d'étoffe du Sniper"
+
+#~ msgid "Archwizard Cloth Sash"
+#~ msgstr "Ceinture d'étoffe de l'Archimage"
+
+#~ msgid "Krolan's Pick"
+#~ msgstr "Le choix de Krolan"
+
+#~ msgid "Sharp enough to cut through stone."
+#~ msgstr "Assez pointu pour couper de la pierre."
+
+#~ msgid "Warrior Armored Belt"
+#~ msgstr "Ceinture Armée de Guerrier"
+
+#~ msgid "Ranger Armored Belt"
+#~ msgstr "Ceinture Armée du Ranger"
+
+#~ msgid "Wizard Armored Belt"
+#~ msgstr "Ceinture Armée du Mage"
+
+#~ msgid "Recon Leather Belt"
+#~ msgstr "Ceinture de cuir de Reconnaissance"
+
+#~ msgid "Warlord Padded Belt"
+#~ msgstr "Ceinture rembourée du Seigneur de Guerre"
+
+#~ msgid "Sniper Padded Belt"
+#~ msgstr "Ceinture rembourée du Sniper"
+
+#~ msgid "Archwizard Padded Belt"
+#~ msgstr "Ceinture rembourée de l'Archimage"
+
+#~ msgid "Wizard Leather Belt"
+#~ msgstr "Ceinture de cuir du Mage"
+
+#~ msgid "Warlord Armored Belt"
+#~ msgstr "Ceinture Armée du Seigneur de Guerre"
+
+#~ msgid "Sniper Armored Belt"
+#~ msgstr "Ceinture Armée du Sniper"
+
+#~ msgid "Archwizard Armored Belt"
+#~ msgstr "Ceinture Armée de l'Archimage"
+
+#~ msgid "Warrior Padded Belt"
+#~ msgstr "Ceinture rembourée du Guerrier"
+
+#~ msgid "Ranger Padded Belt"
+#~ msgstr "Ceinture rembourée du Ranger"
+
+#~ msgid "Wizard Padded Belt"
+#~ msgstr "Ceinture rembourée du Mage"
+
+#~ msgid "Fighting Padded Belt"
+#~ msgstr "Ceinture rembourée de Combat"
+
+#~ msgid "Recon Padded Belt"
+#~ msgstr "Ceinture rembourée de Reconnaissance"
+
+#~ msgid "Sorcerer Padded Belt"
+#~ msgstr "Ceinture rembourée du Sorcier"
+
+#~ msgid "Sniper Leather Belt"
+#~ msgstr "Ceinture de cuir du Sniper"
+
+#~ msgid "Archwizard Leather Belt"
+#~ msgstr "Ceinture de cuir de l'Archimage"
+
+#~ msgid "Fighting Cloth Sash"
+#~ msgstr "Ceinture d'étoffe de Combat"
+
+#~ msgid "Recon Cloth Sash"
+#~ msgstr "Ceinture d'étoffe de Reconnaissance"
+
+#~ msgid "Sorcerer Cloth Sash"
+#~ msgstr "Ceinture d'étoffe du Sorcier"
+
+#~ msgid "Warrior Cloth Sash"
+#~ msgstr "Ceinture d'étoffe du guerrier"
+
+#~ msgid "Ranger Cloth Sash"
+#~ msgstr "Ceinture d'étoffe du Ranger"
+
+#~ msgid "Wizard Cloth Sash"
+#~ msgstr "Ceinture d'étoffe du Mage"
+
+#~ msgid "Fighting Armored Belt"
+#~ msgstr "Ceinture Armée de Combat"
+
+#~ msgid "Recon Armored Belt"
+#~ msgstr "Ceinture Armée de Reconnaissance"
+
+#~ msgid "Sorcerer Armored Belt"
+#~ msgstr "Ceinture Armée du Sorcier"
