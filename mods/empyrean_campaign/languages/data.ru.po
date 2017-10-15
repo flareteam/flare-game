@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flare-empyrean_campaign\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-02 15:54+\n"
+"POT-Creation-Date: 2017-10-15 14:41+\n"
 "PO-Revision-Date: 2016-09-14 16:46+\n"
 "Last-Translator: Pavel Maryanov <acid@jack.kiev.ua>\n"
 "Language-Team: Russian <gnu@dn07.ru>\n"
@@ -317,6 +317,10 @@ msgstr "Скелет"
 #, fuzzy
 msgid "Skeleton Protector"
 msgstr "Скелет с ледяным мечом"
+
+#: ../enemies/lvl12_cyl.txt:3
+msgid "Cyl"
+msgstr ""
 
 #: ../enemies/lvl12_nishi.txt:3
 msgid "Nishi"
@@ -921,14 +925,19 @@ msgstr "Храм Мез: вход"
 msgid "to Black Oak City"
 msgstr "Город Красильный дуб"
 
-#: ../maps/wizards_tower_1.txt:621
-msgid "to Wizard's Tower: Research Chambers"
-msgstr ""
-
-#: ../maps/wizards_tower_2.txt:475
+#: ../maps/wizards_tower_2.txt:363
 #, fuzzy
 msgid "Wizard's Tower: Research Chambers waypoint discovered."
 msgstr "Найден телепорт старой канализации."
+
+#: ../maps/wizards_tower_2.txt:502
+msgid "Wizard's Tower: Laboratory"
+msgstr ""
+
+#: ../maps/wizards_tower_2.txt:510
+#, fuzzy
+msgid "The plaque reads: Underworld Gate"
+msgstr "На мемориальной плите высечено: «Красный алтарь»"
 
 #: ../quests/000_empyrean.txt:1
 msgid "Return to Empyrean"
@@ -1473,22 +1482,26 @@ msgid "rubberduck"
 msgstr ""
 
 #: ../cutscenes/credits.txt:22
-msgid "VWolfDog"
+msgid "Stefano Peris"
 msgstr ""
 
 #: ../cutscenes/credits.txt:23
+msgid "VWolfDog"
+msgstr ""
+
+#: ../cutscenes/credits.txt:24
 msgid "yd"
 msgstr ""
 
-#: ../cutscenes/credits.txt:26
+#: ../cutscenes/credits.txt:27
 msgid "Foley Artists"
 msgstr ""
 
-#: ../cutscenes/credits.txt:28
+#: ../cutscenes/credits.txt:29
 msgid "adamgryu"
 msgstr ""
 
-#: ../cutscenes/credits.txt:29
+#: ../cutscenes/credits.txt:30
 msgid "GuntherDorksen"
 msgstr ""
 
@@ -2949,23 +2962,28 @@ msgstr "Ветхая записка №5"
 msgid "Wizard's Tower Entrance Key"
 msgstr ""
 
-#: ../items/categories/quest.txt:232
+#: ../items/categories/quest.txt:228
+#, fuzzy
+msgid "Wizard's Tower Research Hall Key"
+msgstr "Найден телепорт старой канализации."
+
+#: ../items/categories/quest.txt:241
 msgid "An odor of iron and its abrasive petals make this rare plant easy to identify."
 msgstr "По запаху металла и шершавым лепесткам легко понять, что это за редкое растение."
 
-#: ../items/categories/quest.txt:242
+#: ../items/categories/quest.txt:251
 msgid "This mysterious black feather has a very sharp follicle, making it a suitable writing utensil."
 msgstr "У этого загадочного чёрного пера очень острый кончик, что делает его пригодным для письма."
 
-#: ../items/categories/quest.txt:249
+#: ../items/categories/quest.txt:258
 msgid "Knife of Sacrifices"
 msgstr "Жертвенный нож"
 
-#: ../items/categories/quest.txt:257
+#: ../items/categories/quest.txt:266
 msgid "Vial of Your Blood"
 msgstr "Пузырёк с собственной кровью"
 
-#: ../items/categories/quest.txt:265
+#: ../items/categories/quest.txt:274
 msgid "Blood Inkwell"
 msgstr "Чернильница для крови"
 

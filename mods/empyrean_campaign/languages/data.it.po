@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-02 15:54+\n"
+"POT-Creation-Date: 2017-10-15 14:42+\n"
 "PO-Revision-Date: 2017-10-03 13:34+\n"
 "Last-Translator: Stefano Peris <lordstephen77@gmail.com>>\n"
 "Language-Team: Italian>\n"
@@ -311,6 +311,10 @@ msgstr "Scheletro di brina"
 #: ../enemies/lvl11_skeleton_protector.txt:3
 msgid "Skeleton Protector"
 msgstr "Scheletro protettore"
+
+#: ../enemies/lvl12_cyl.txt:3
+msgid "Cyl"
+msgstr ""
 
 #: ../enemies/lvl12_nishi.txt:3
 msgid "Nishi"
@@ -686,7 +690,7 @@ msgstr "L'interruttore non si sposta."
 
 #: ../maps/family_crypt.txt:387
 msgid "Reset quest: \"Trapped in the Crypt\""
-msgstr "Resettare la ricerca: \ "Intrappolato nella cripta\""
+msgstr "Resettare la ricerca: \"Intrappolato nella cripta\""
 
 #: ../maps/fort_amir.txt:10
 msgid "Fort Amir"
@@ -912,13 +916,19 @@ msgstr "Tempio di Mez: Ingresso"
 msgid "to Black Oak City"
 msgstr "alla città della Quercia Nera"
 
-#: ../maps/wizards_tower_1.txt:621
-msgid "to Wizard's Tower: Research Chambers"
-msgstr "alla Torre del Mago: Camere di Ricerca"
-
-#: ../maps/wizards_tower_2.txt:475
+#: ../maps/wizards_tower_2.txt:363
 msgid "Wizard's Tower: Research Chambers waypoint discovered."
 msgstr "Torre del mago: scoperto il waypoint delle Chambere di ricerca."
+
+#: ../maps/wizards_tower_2.txt:502
+#, fuzzy
+msgid "Wizard's Tower: Laboratory"
+msgstr "Torre del mago: Camere di ricerca"
+
+#: ../maps/wizards_tower_2.txt:510
+#, fuzzy
+msgid "The plaque reads: Underworld Gate"
+msgstr "Leggi la placca: Altare Rosso"
 
 #: ../quests/000_empyrean.txt:1
 msgid "Return to Empyrean"
@@ -1030,7 +1040,7 @@ msgstr "Fratello?"
 
 #: ../quests/005_ort.txt:6
 msgid "Ort gave you a ruby. It seemed like he wanted it devliered to someone he would call \"brother\"."
-msgstr "Ort ti ha dato un rubino. Sembrava che voleva che venisse consegnato a qualcuno che avrebbe chiamato "fratello". ""
+msgstr "Ort ti ha dato un rubino. Sembrava che voleva che venisse consegnato a qualcuno che avrebbe chiamato \"fratello\"."
 
 #: ../quests/006_stormrock.txt:1
 msgid "Locked Out"
@@ -1461,22 +1471,26 @@ msgid "rubberduck"
 msgstr ""
 
 #: ../cutscenes/credits.txt:22
-msgid "VWolfDog"
+msgid "Stefano Peris"
 msgstr ""
 
 #: ../cutscenes/credits.txt:23
+msgid "VWolfDog"
+msgstr ""
+
+#: ../cutscenes/credits.txt:24
 msgid "yd"
 msgstr ""
 
-#: ../cutscenes/credits.txt:26
+#: ../cutscenes/credits.txt:27
 msgid "Foley Artists"
 msgstr ""
 
-#: ../cutscenes/credits.txt:28
+#: ../cutscenes/credits.txt:29
 msgid "adamgryu"
 msgstr ""
 
-#: ../cutscenes/credits.txt:29
+#: ../cutscenes/credits.txt:30
 msgid "GuntherDorksen"
 msgstr ""
 
@@ -2916,23 +2930,28 @@ msgstr ""
 msgid "Wizard's Tower Entrance Key"
 msgstr ""
 
-#: ../items/categories/quest.txt:232
+#: ../items/categories/quest.txt:228
+#, fuzzy
+msgid "Wizard's Tower Research Hall Key"
+msgstr "Torre del mago: Camere di ricerca"
+
+#: ../items/categories/quest.txt:241
 msgid "An odor of iron and its abrasive petals make this rare plant easy to identify."
 msgstr ""
 
-#: ../items/categories/quest.txt:242
+#: ../items/categories/quest.txt:251
 msgid "This mysterious black feather has a very sharp follicle, making it a suitable writing utensil."
 msgstr ""
 
-#: ../items/categories/quest.txt:249
+#: ../items/categories/quest.txt:258
 msgid "Knife of Sacrifices"
 msgstr ""
 
-#: ../items/categories/quest.txt:257
+#: ../items/categories/quest.txt:266
 msgid "Vial of Your Blood"
 msgstr ""
 
-#: ../items/categories/quest.txt:265
+#: ../items/categories/quest.txt:274
 msgid "Blood Inkwell"
 msgstr ""
 
@@ -3623,3 +3642,6 @@ msgstr ""
 #: ../powers/trees/default.txt:11
 msgid "Magician"
 msgstr ""
+
+#~ msgid "to Wizard's Tower: Research Chambers"
+#~ msgstr "alla Torre del Mago: Camere di Ricerca"

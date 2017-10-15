@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-02 15:54+\n"
+"POT-Creation-Date: 2017-10-15 14:41+\n"
 "PO-Revision-Date: 2017-10-08 16:34+0100\n"
 "Last-Translator: Paweł Puszczyński <pawonashi@gmail.com>\n"
 "Language-Team: Polish\n"
@@ -310,6 +310,10 @@ msgstr "Mroźny Szkielet"
 #: ../enemies/lvl11_skeleton_protector.txt:3
 msgid "Skeleton Protector"
 msgstr "Szkieletowy Obrońca"
+
+#: ../enemies/lvl12_cyl.txt:3
+msgid "Cyl"
+msgstr ""
 
 #: ../enemies/lvl12_nishi.txt:3
 msgid "Nishi"
@@ -911,13 +915,19 @@ msgstr "Świątynia Mez: Wejście"
 msgid "to Black Oak City"
 msgstr "do Miasta Czarnego Dębu"
 
-#: ../maps/wizards_tower_1.txt:621
-msgid "to Wizard's Tower: Research Chambers"
-msgstr "do Wieży Maga: Komnaty Badaczy"
-
-#: ../maps/wizards_tower_2.txt:475
+#: ../maps/wizards_tower_2.txt:363
 msgid "Wizard's Tower: Research Chambers waypoint discovered."
 msgstr "Odkryto punkt nawigacyjny w Wieży Maga: Komnaty Badaczy."
+
+#: ../maps/wizards_tower_2.txt:502
+#, fuzzy
+msgid "Wizard's Tower: Laboratory"
+msgstr "Klucz do Wieży Maga"
+
+#: ../maps/wizards_tower_2.txt:510
+#, fuzzy
+msgid "The plaque reads: Underworld Gate"
+msgstr "Napis na plakiecie: Czerwony Ołtarz"
 
 #: ../quests/000_empyrean.txt:1
 msgid "Return to Empyrean"
@@ -1460,22 +1470,26 @@ msgid "rubberduck"
 msgstr "rubberduck"
 
 #: ../cutscenes/credits.txt:22
+msgid "Stefano Peris"
+msgstr ""
+
+#: ../cutscenes/credits.txt:23
 msgid "VWolfDog"
 msgstr "VWolfDog"
 
-#: ../cutscenes/credits.txt:23
+#: ../cutscenes/credits.txt:24
 msgid "yd"
 msgstr "yd"
 
-#: ../cutscenes/credits.txt:26
+#: ../cutscenes/credits.txt:27
 msgid "Foley Artists"
 msgstr "Imitatorzy Dźwięku"
 
-#: ../cutscenes/credits.txt:28
+#: ../cutscenes/credits.txt:29
 msgid "adamgryu"
 msgstr "adamgryu"
 
-#: ../cutscenes/credits.txt:29
+#: ../cutscenes/credits.txt:30
 msgid "GuntherDorksen"
 msgstr "GuntherDorksen"
 
@@ -2915,23 +2929,28 @@ msgstr "Podarta Notatka #5"
 msgid "Wizard's Tower Entrance Key"
 msgstr "Klucz do Wieży Maga"
 
-#: ../items/categories/quest.txt:232
+#: ../items/categories/quest.txt:228
+#, fuzzy
+msgid "Wizard's Tower Research Hall Key"
+msgstr "Wieża Maga: Komnaty Badaczy"
+
+#: ../items/categories/quest.txt:241
 msgid "An odor of iron and its abrasive petals make this rare plant easy to identify."
 msgstr "Zapach żelaza i jego szorstkie płatki czynią tą rzadką roślinę łatwą do rozpoznania."
 
-#: ../items/categories/quest.txt:242
+#: ../items/categories/quest.txt:251
 msgid "This mysterious black feather has a very sharp follicle, making it a suitable writing utensil."
 msgstr "To tajemnicze czarne pióro ma bardzo ostry czubek, czyniący z niego pełnoprawny przyrząd do pisania."
 
-#: ../items/categories/quest.txt:249
+#: ../items/categories/quest.txt:258
 msgid "Knife of Sacrifices"
 msgstr "Nóż Poświęceń"
 
-#: ../items/categories/quest.txt:257
+#: ../items/categories/quest.txt:266
 msgid "Vial of Your Blood"
 msgstr "Fiolka z Twoją Krwią"
 
-#: ../items/categories/quest.txt:265
+#: ../items/categories/quest.txt:274
 msgid "Blood Inkwell"
 msgstr "Kałamarz Krwi"
 
@@ -3622,6 +3641,9 @@ msgstr "Podstawowy atak magiczny."
 #: ../powers/trees/default.txt:11
 msgid "Magician"
 msgstr "Magik"
+
+#~ msgid "to Wizard's Tower: Research Chambers"
+#~ msgstr "do Wieży Maga: Komnaty Badaczy"
 
 #~ msgid "Unknown destination"
 #~ msgstr "Cel nieznany"
