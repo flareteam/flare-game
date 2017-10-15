@@ -1,0 +1,36 @@
+INCLUDE enemies/base/goblin_elite_runner.txt
+
+name=Cyl
+level=12
+categories=cyl
+xp=8192
+
+# combat stats
+stat=hp,1340
+speed=5.8
+turn_delay=200ms
+chance_pursue=10
+
+power=melee,164,5
+power=melee,168,1
+
+stat=accuracy,145
+stat=avoidance,65
+stat=poise,48
+
+stat=dmg_melee_min,200
+stat=dmg_melee_max,205
+cooldown=1075ms
+stat=absorb_min,12
+stat=absorb_max,12
+
+# wizard's tower entrance key
+quest_loot=emp_wizard2_init,emp_wizard2_key,1023
+
+# loot
+loot_count=5,7
+loot=loot/level_12.txt
+
+# alchemist's skirt
+loot=309,1
+
