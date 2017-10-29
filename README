@@ -84,7 +84,7 @@ Install the game system-wide (requires root access):
 	cd ../flare-game
 	cmake . && sudo make install
 	cd ~ #this step is important because we don't want to load mods from the repo folders
-	flare --game=flare-game #alternatively, launch Flare from the desktop application menu
+	flare #alternatively, launch Flare from the desktop application menu
 
 
 Option 2
@@ -95,7 +95,7 @@ Run the game without installing:
 	cd mods
 	ln -s ../../flare-engine/mods/default default
 	cd ..
-	./flare --game=flare-game
+	./flare
 
 
 
