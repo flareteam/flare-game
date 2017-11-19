@@ -522,6 +522,14 @@ activate=on_load
 mapmod=object,20,75,164
 requires_status=av_academy_bookstand1
 
+[event]
+# island bridge
+type=event
+location=44,96,3,3
+mapmod=background,44,90,51;background,45,90,51;background,46,90,51;background,44,91,51;background,45,91,51;background,46,91,51;background,44,92,51;background,45,92,51;background,46,92,51;background,44,93,51;background,45,93,51;background,46,93,51;background,44,94,51;background,45,94,51;background,46,94,51;background,44,95,51;background,45,95,51;background,46,95,51;collision,44,90,0;collision,45,90,0;collision,46,90,0;collision,44,91,0;collision,45,91,0;collision,46,91,0;collision,44,92,0;collision,45,92,0;collision,46,92,0;collision,44,93,0;collision,45,93,0;collision,46,93,0;collision,44,94,0;collision,45,94,0;collision,46,94,0;collision,44,95,0;collision,45,95,0;collision,46,95,0
+repeat=false
+soundfx=soundfx/door_open.ogg
+
 [enemy]
 # entrance guards
 type=enemy
