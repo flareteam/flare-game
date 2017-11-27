@@ -23,6 +23,7 @@ talker=true
 [dialog]
 topic=Book of the Dead
 requires_status=emp_main_init
+requires_not_status=emp_main_underworld
 you=What can you tell me about the Book of the Dead?
 him=The Book of the Dead tells of redemption for those who sign their name in gravebloom ink. Your sins will be washed away, and you will be able to return to wherever you were banished from.
 you=So, where can I find gravebloom ink?
@@ -33,13 +34,45 @@ him=If you can perform the ritual to make gravebloom ink and find a suitable wri
 [dialog]
 topic=Gravebloom
 requires_status=emp_main_gravebloom
+requires_not_status=emp_main_bloodinkwell
 set_status=emp_main_info1
 him=Ah yes, that is most certainly a gravebloom flower. It is the primary component in the creation of gravebloom ink.
 
 [dialog]
 topic=Black Quill
 requires_status=emp_main_quill
+requires_not_status=emp_main_underworld
 you=Do you think this quill is capable of holding gravebloom ink?
 him=It's certainly no normal quill. I've never seen anything like it.
 set_status=emp_main_info2
 him=If anything is capable of writing with gravebloom ink, it is that quill.
+
+[dialog]
+topic=Knife of Sacrifices
+requires_status=emp_main_knife
+requires_not_status=emp_main_bloodvial
+you=Do you know anything about this knife?
+set_status=emp_main_info3
+him=The Knife of Sacrifices. This must be the blade you will need to draw your blood for the gravebloom ink. From what I've read, this must be done at the "Red Altar".
+you=I recall such an altar from the Temple of Mez.
+him=I don't know why this blade in particular is required to make the ink. Once it pierces your skin, there is no telling what effect it will have on you. Please keep this in mind.
+
+[dialog]
+topic=Vial of Blood
+requires_status=emp_main_bloodvial
+requires_not_status=emp_main_bloodinkwell
+you=I completed the ritual at the Red Altar. What now?
+him=We are ready to create a small amount of gravebloom ink. Allow me to perform the mixing.
+him=The correct ratio of Gravebloom to blood is important. Too much Gravebloom will cause the ink to eat through the paper. Too little Gravebloom and the ink won't adhere to the quill.
+him=(Florin carefully mixes the two elements into a small inkwell, alternating the additions of Gravebloom and blood).
+remove_item=1100
+remove_item=1103
+reward_item=1104
+set_status=emp_main_bloodinkwell
+him=Finished! I don't want my work to go to waste, so move now to the Book of the Dead chamber.
+
+[dialog]
+topic=Book of the Dead
+requires_status=emp_main_underworld
+him=The ritual is complete. The Underworld is open to you.
+you=There was a portal to the Underworld in the Wizard's Tower. I shall return there.

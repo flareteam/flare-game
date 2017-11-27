@@ -384,7 +384,7 @@ mapmod=background,17,86,265
 requires_status=emp_waypoint_9
 
 [event]
-# to Wizard's Tower: Research Chambers
+# to Wizard's Tower: Entrance Hall
 type=event
 location=8,67,1,2
 activate=on_trigger
@@ -496,7 +496,7 @@ type=event
 location=5,38,4,4
 activate=on_trigger
 hotspot=location
-intermap=maps/wizards_tower_3.txt,0,0
+intermap=maps/wizards_tower_3.txt,4,7
 repeat=false
 soundfx=soundfx/environment/stairs.ogg,0,0
 tooltip=Wizard's Tower: Laboratory
@@ -541,6 +541,28 @@ requires_status=emp_wizard2_key
 set_status=emp_wizard2_door
 soundfx=soundfx/door_open.ogg
 tooltip=Locked Door
+
+[event]
+# to Underworld
+type=event
+location=27,53,2,2
+activate=on_trigger
+cooldown=2s
+hotspot=location
+msg=Under WORLD? More like Under CONSTRUCTION! Come back later...
+repeat=false
+requires_status=emp_main_underworld
+soundfx=soundfx/environment/teleporter.ogg,0,0
+tooltip=Underworld
+
+[event]
+# activate Underworld teleporter
+type=event
+location=26,48,1,1
+activate=on_load
+mapmod=background,27,54,265
+repeat=false
+requires_status=emp_main_underworld
 
 [enemy]
 type=enemy

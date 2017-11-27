@@ -1,0 +1,15 @@
+INCLUDE enemies/base/beacon.txt
+
+humanoid=true
+
+sfx_attack=swing,soundfx/enemies/skeleton_phys.ogg
+sfx_attack=shoot,soundfx/enemies/skeleton_phys.ogg
+sfx_attack=cast,soundfx/enemies/skeleton_ment.ogg
+sfx_hit=soundfx/enemies/skeleton_hit.ogg
+sfx_die=soundfx/enemies/skeleton_die.ogg
+sfx_critdie=soundfx/enemies/skeleton_critdie.ogg
+
+animations=animations/enemies/skeleton_mage_boss.txt
+
+melee_range=1.1875
+threat_range=8.0

@@ -305,6 +305,16 @@ requires_level=13
 requires_not_status=emp_perdition_trader3
 set_status=emp_perdition_trader3
 
+[event]
+# award XP for aquiring Knife of Sacrifices
+type=event
+location=11,37,1,1
+activate=on_load
+requires_not_status=emp_main_reward3
+requires_status=emp_main_knife
+reward_xp=51200
+set_status=emp_main_reward3
+
 [npc]
 type=npc
 location=25,8,1,1

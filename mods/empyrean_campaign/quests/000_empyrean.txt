@@ -2,6 +2,7 @@ name=Return to Empyrean
 
 [quest]
 requires_status=emp_main_init
+requires_not_status=emp_main_underworld
 quest_text=The Book of the Dead states redemption is possible for those who sign their name in gravebloom ink. Florin in Perdition Harbor can tell you more.
 
 [quest]
@@ -17,6 +18,7 @@ quest_text=Ask Florin about the Gravebloom flower.
 [quest]
 requires_status=emp_main_gravebloom
 requires_status=emp_main_info1
+requires_not_status=emp_main_bloodvial
 quest_text=You've found a gravebloom flower. It is a primary component in the creation of gravebloom ink.
 
 [quest]
@@ -32,4 +34,36 @@ quest_text=Ask Florin about the Black Quill.
 [quest]
 requires_status=emp_main_quill
 requires_status=emp_main_info2
+requires_not_status=emp_main_underworld
 quest_text=The Black Quill you found is the only thing capable of holding gravebloom ink. It will be the only way to write in the Book of the Dead.
+
+[quest]
+requires_status=emp_metzger_defeated
+requires_not_status=emp_main_knife
+quest_text=Before leaving the Wizard's Tower, you should take the knife that Metzger dropped.
+
+[quest]
+requires_status=emp_main_knife
+requires_not_status=emp_main_info3
+quest_text=Ask Florin about the Knife of Sacrifices.
+
+[quest]
+requires_status=emp_main_knife
+requires_status=emp_main_info3
+requires_not_status=emp_main_bloodvial
+quest_text=Gravebloom ink requires a sample of your blood to be drawn with the Knife of Sacrifices. This must take place at the Red Altar in the Temple of Mez.
+
+[quest]
+requires_status=emp_main_bloodvial
+requires_status=emp_main_gravebloom
+requires_not_status=emp_main_bloodinkwell
+quest_text=Having completed the ritual at the Red Altar, return to Florin to proceed with creating the gravebloom ink.
+
+[quest]
+requires_status=emp_main_bloodinkwell
+requires_not_status=emp_main_underworld
+quest_text=The time has come. Write your name in the Book of the Dead and gain entry to the Underworld.
+
+[quest]
+requires_status=emp_main_underworld
+quest_text=Make your way to the Underworld. A portal to the Underworld was located in the Wizard's Tower.

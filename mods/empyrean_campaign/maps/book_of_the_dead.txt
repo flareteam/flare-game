@@ -305,6 +305,7 @@ location=2,20,1,1
 activate=on_trigger
 book=books/book_of_the_dead.txt
 hotspot=4,25,1,1
+requires_not_item=1104
 requires_status=emp_main_init
 soundfx=soundfx/inventory/inventory_page.ogg
 tooltip=Book of the Dead
@@ -338,4 +339,19 @@ location=8,34,1,1
 activate=on_load
 mapmod=background,10,25,61;background,18,25,61
 requires_status=emp_main_init
+
+[event]
+# book of the dead (have blood inkwell)
+type=event
+location=4,20,1,1
+activate=on_trigger
+hotspot=4,25,1,1
+msg=You sign your name in the Book of the Dead. The Black Quill vanishes and the inkwell is dry. You hope this worked.
+remove_item=1101,1104
+requires_item=1104
+requires_status=emp_main_bloodinkwell
+set_status=emp_main_underworld
+shakycam=2s
+soundfx=soundfx/powers/thunder.ogg
+tooltip=Book of the Dead
 

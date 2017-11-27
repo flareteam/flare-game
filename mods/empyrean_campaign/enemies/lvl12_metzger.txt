@@ -1,0 +1,50 @@
+INCLUDE enemies/base/metzger.txt
+
+name=Metzger
+level=12
+categories=metzger
+xp=16384
+
+defeat_status=emp_metzger_defeated
+
+# combat stats
+stat=hp,5040
+speed=4.3
+turn_delay=200ms
+chance_pursue=15
+
+power=melee,164,2
+power=melee,183,10
+power=melee,236,5
+power=ranged,236,20
+power=melee,237,5
+power=ranged,237,5
+power=on_half_dead,237,100
+passive_powers=185
+
+stat=accuracy,145
+stat=avoidance,70
+stat=poise,43
+
+stat=absorb_min,11
+stat=absorb_max,11
+
+stat=dmg_melee_min,200
+stat=dmg_melee_max,205
+stat=dmg_ment_min,210
+stat=dmg_ment_max,215
+
+vulnerable=lightning,50
+vulnerable=dark,50
+
+cooldown=1275ms
+
+# Knife of Sacrifices
+quest_loot=emp_main_init,emp_main_knife,1102
+
+# loot
+loot_count=5,7
+loot=loot/level_12.txt
+
+# Metzger's Battlemace
+loot=310,1

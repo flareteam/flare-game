@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="isometric" renderorder="right-down" width="100" height="100" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="54">
+<map version="1.0" tiledversion="1.0.3" orientation="isometric" renderorder="right-down" width="100" height="100" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="55">
  <properties>
   <property name="hero_pos" value="70,10"/>
   <property name="music" value="music/dungeon_theme.ogg"/>
@@ -343,7 +343,7 @@
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
 </data>
  </layer>
- <objectgroup name="event" visible="0">
+ <objectgroup name="event">
   <object id="6" name="to Hyperspace" type="event" x="1216" y="928" width="64" height="64">
    <properties>
     <property name="activate" value="on_trigger"/>
@@ -534,6 +534,21 @@
     <property name="intermap" value="maps/temple_of_mez_3.txt,26,31"/>
     <property name="soundfx" value="soundfx/environment/stairs.ogg,0,0"/>
     <property name="tooltip" value="Temple of Mez: Entrance"/>
+   </properties>
+  </object>
+  <object id="54" type="event" x="1440" y="1632" width="64" height="32">
+   <properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="msg" value="You cut into your arm with the Knife of Sacrifices. The pain is excruciating. Shaking, you manage to collect some of your blood in a small vial. The knife quickly raises in temperature until it disintegrates. Your wound then begins to close itself, leaving no trace at all besides a warm feeling throughout your body."/>
+    <property name="remove_item" value="1102"/>
+    <property name="repeat" value="false"/>
+    <property name="requires_not_status" value="emp_main_bloodvial"/>
+    <property name="requires_status" value="emp_main_knife"/>
+    <property name="reward_item" value="1103"/>
+    <property name="set_status" value="emp_main_bloodvial"/>
+    <property name="soundfx" value="soundfx/enemies/zombie_hit.ogg"/>
+    <property name="tooltip" value="Red Altar"/>
    </properties>
   </object>
  </objectgroup>
