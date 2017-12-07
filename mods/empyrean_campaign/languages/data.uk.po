@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.19\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-15 14:41+\n"
+"POT-Creation-Date: 2017-12-06 21:00+\n"
 "PO-Revision-Date: 2013-10-12 16:38+0200\n"
 "Last-Translator: Igor Paliychuk <mansonigor@gmail.com>\n"
 "Language-Team: Ukrainian <LL@li.org>\n"
@@ -72,7 +72,11 @@ msgstr ""
 msgid "Weakness to Ice"
 msgstr ""
 
-#: ../powers/powers.txt:23
+#: ../powers/effects.txt:121
+msgid "Sacrifice"
+msgstr ""
+
+#: ../powers/powers.txt:25
 msgid "Teleport"
 msgstr ""
 
@@ -321,6 +325,10 @@ msgstr "Скелет лучник"
 
 #: ../enemies/lvl12_cyl.txt:3
 msgid "Cyl"
+msgstr ""
+
+#: ../enemies/lvl12_metzger.txt:3
+msgid "Metzger"
 msgstr ""
 
 #: ../enemies/lvl12_nishi.txt:3
@@ -674,6 +682,10 @@ msgstr "Солоне поле"
 msgid "Quest added."
 msgstr ""
 
+#: ../maps/book_of_the_dead.txt:349
+msgid "You sign your name in the Book of the Dead. The Black Quill vanishes and the inkwell is dry. You hope this worked."
+msgstr ""
+
 #: ../maps/dilapidated_sewers.txt:309
 #, fuzzy
 msgid "Dilapidated Sewers waypoint discovered."
@@ -945,6 +957,14 @@ msgstr ""
 msgid "Temple of Mez: Entrance"
 msgstr ""
 
+#: ../maps/temple_of_mez_2.txt:550
+msgid "You cut into your arm with the Knife of Sacrifices. The pain is excruciating. Shaking, you manage to collect some of your blood in a small vial. The knife quickly raises in temperature until it disintegrates. Your wound then begins to close itself, leaving no trace at all besides a warm feeling throughout your body."
+msgstr ""
+
+#: ../maps/temple_of_mez_2.txt:558
+msgid "Red Altar"
+msgstr ""
+
 #: ../maps/wizards_tower_1.txt:341
 msgid "to Black Oak City"
 msgstr ""
@@ -962,36 +982,68 @@ msgstr ""
 msgid "The plaque reads: Underworld Gate"
 msgstr ""
 
+#: ../maps/wizards_tower_2.txt:552
+msgid "Under WORLD? More like Under CONSTRUCTION! Come back later..."
+msgstr ""
+
+#: ../maps/wizards_tower_2.txt:556
+msgid "Underworld"
+msgstr ""
+
 #: ../quests/000_empyrean.txt:1
 msgid "Return to Empyrean"
 msgstr ""
 
-#: ../quests/000_empyrean.txt:5
+#: ../quests/000_empyrean.txt:6
 msgid "The Book of the Dead states redemption is possible for those who sign their name in gravebloom ink. Florin in Perdition Harbor can tell you more."
 msgstr ""
 
-#: ../quests/000_empyrean.txt:10
+#: ../quests/000_empyrean.txt:11
 msgid "Before leaving St. Maria's Crypt, it would be wise to look for anything useful."
 msgstr ""
 
-#: ../quests/000_empyrean.txt:15
+#: ../quests/000_empyrean.txt:16
 msgid "Ask Florin about the Gravebloom flower."
 msgstr ""
 
-#: ../quests/000_empyrean.txt:20
+#: ../quests/000_empyrean.txt:22
 msgid "You've found a gravebloom flower. It is a primary component in the creation of gravebloom ink."
 msgstr ""
 
-#: ../quests/000_empyrean.txt:25
+#: ../quests/000_empyrean.txt:27
 msgid "A strange black feather fell off of Mez. You should take it before leaving the Temple of Mez."
 msgstr ""
 
-#: ../quests/000_empyrean.txt:30
+#: ../quests/000_empyrean.txt:32
 msgid "Ask Florin about the Black Quill."
 msgstr ""
 
-#: ../quests/000_empyrean.txt:35
+#: ../quests/000_empyrean.txt:38
 msgid "The Black Quill you found is the only thing capable of holding gravebloom ink. It will be the only way to write in the Book of the Dead."
+msgstr ""
+
+#: ../quests/000_empyrean.txt:43
+msgid "Before leaving the Wizard's Tower, you should take the knife that Metzger dropped."
+msgstr ""
+
+#: ../quests/000_empyrean.txt:48
+msgid "Ask Florin about the Knife of Sacrifices."
+msgstr ""
+
+#: ../quests/000_empyrean.txt:54
+msgid "Gravebloom ink requires a sample of your blood to be drawn with the Knife of Sacrifices. This must take place at the Red Altar in the Temple of Mez."
+msgstr ""
+
+#: ../quests/000_empyrean.txt:60
+msgid "Having completed the ritual at the Red Altar, return to Florin to proceed with creating the gravebloom ink."
+msgstr ""
+
+#: ../quests/000_empyrean.txt:65
+msgid "The time has come. Write your name in the Book of the Dead and gain entry to the Underworld."
+msgstr ""
+
+#: ../quests/000_empyrean.txt:69
+msgid "Make your way to the Underworld. A portal to the Underworld was located in the Wizard's Tower."
 msgstr ""
 
 #: ../quests/001_krolan.txt:1
@@ -1282,52 +1334,104 @@ msgstr ""
 msgid "Florin, Apothecary"
 msgstr "Флорін, Аптекар"
 
-#: ../npcs/florin.txt:26
+#: ../npcs/florin.txt:27
 msgid "What can you tell me about the Book of the Dead?"
 msgstr ""
 
-#: ../npcs/florin.txt:27
+#: ../npcs/florin.txt:28
 msgid "The Book of the Dead tells of redemption for those who sign their name in gravebloom ink. Your sins will be washed away, and you will be able to return to wherever you were banished from."
 msgstr ""
 
-#: ../npcs/florin.txt:28
+#: ../npcs/florin.txt:29
 msgid "So, where can I find gravebloom ink?"
 msgstr ""
 
-#: ../npcs/florin.txt:29
+#: ../npcs/florin.txt:30
 msgid "Gravebloom ink is not something you find. You must make it yourself. Besides the Gravebloom flower, you will need to sacrifice your own blood with a special blade."
 msgstr ""
 
-#: ../npcs/florin.txt:30
+#: ../npcs/florin.txt:31
 msgid "Even if you can create some gravebloom ink, you won't be able to write with just anything. The ink won't stick to a normal quill. You will need to find something capable of holding the gravebloom ink."
 msgstr ""
 
-#: ../npcs/florin.txt:31
+#: ../npcs/florin.txt:32
 msgid "If you can perform the ritual to make gravebloom ink and find a suitable writing utensil, redemption may be yours."
 msgstr ""
 
-#: ../npcs/florin.txt:34
+#: ../npcs/florin.txt:35
 msgid "Gravebloom"
 msgstr ""
 
-#: ../npcs/florin.txt:37
+#: ../npcs/florin.txt:39
 msgid "Ah yes, that is most certainly a gravebloom flower. It is the primary component in the creation of gravebloom ink."
 msgstr ""
 
-#: ../npcs/florin.txt:40
+#: ../npcs/florin.txt:42
 msgid "Black Quill"
 msgstr ""
 
-#: ../npcs/florin.txt:42
+#: ../npcs/florin.txt:45
 msgid "Do you think this quill is capable of holding gravebloom ink?"
 msgstr ""
 
-#: ../npcs/florin.txt:43
+#: ../npcs/florin.txt:46
 msgid "It's certainly no normal quill. I've never seen anything like it."
 msgstr ""
 
-#: ../npcs/florin.txt:45
+#: ../npcs/florin.txt:48
 msgid "If anything is capable of writing with gravebloom ink, it is that quill."
+msgstr ""
+
+#: ../npcs/florin.txt:51
+msgid "Knife of Sacrifices"
+msgstr ""
+
+#: ../npcs/florin.txt:54
+msgid "Do you know anything about this knife?"
+msgstr ""
+
+#: ../npcs/florin.txt:56
+msgid "The Knife of Sacrifices. This must be the blade you will need to draw your blood for the gravebloom ink. From what I've read, this must be done at the \"Red Altar\"."
+msgstr ""
+
+#: ../npcs/florin.txt:57
+msgid "I recall such an altar from the Temple of Mez."
+msgstr ""
+
+#: ../npcs/florin.txt:58
+msgid "I don't know why this blade in particular is required to make the ink. Once it pierces your skin, there is no telling what effect it will have on you. Please keep this in mind."
+msgstr ""
+
+#: ../npcs/florin.txt:61
+msgid "Vial of Blood"
+msgstr ""
+
+#: ../npcs/florin.txt:64
+msgid "I completed the ritual at the Red Altar. What now?"
+msgstr ""
+
+#: ../npcs/florin.txt:65
+msgid "We are ready to create a small amount of gravebloom ink. Allow me to perform the mixing."
+msgstr ""
+
+#: ../npcs/florin.txt:66
+msgid "The correct ratio of Gravebloom to blood is important. Too much Gravebloom will cause the ink to eat through the paper. Too little Gravebloom and the ink won't adhere to the quill."
+msgstr ""
+
+#: ../npcs/florin.txt:67
+msgid "(Florin carefully mixes the two elements into a small inkwell, alternating the additions of Gravebloom and blood)."
+msgstr ""
+
+#: ../npcs/florin.txt:72
+msgid "Finished! I don't want my work to go to waste, so move now to the Book of the Dead chamber."
+msgstr ""
+
+#: ../npcs/florin.txt:77
+msgid "The ritual is complete. The Underworld is open to you."
+msgstr ""
+
+#: ../npcs/florin.txt:78
+msgid "There was a portal to the Underworld in the Wizard's Tower. I shall return there."
 msgstr ""
 
 #: ../npcs/glowing_obelisk_1.txt:1
@@ -3041,16 +3145,24 @@ msgstr ""
 msgid "This mysterious black feather has a very sharp follicle, making it a suitable writing utensil."
 msgstr ""
 
-#: ../items/categories/quest.txt:258
-msgid "Knife of Sacrifices"
+#: ../items/categories/quest.txt:261
+msgid "A dark, magical energy flows through the tip of this small blade."
 msgstr ""
 
-#: ../items/categories/quest.txt:266
+#: ../items/categories/quest.txt:268
 msgid "Vial of Your Blood"
 msgstr ""
 
-#: ../items/categories/quest.txt:274
+#: ../items/categories/quest.txt:271
+msgid "Spoils of the Red Altar ritual."
+msgstr ""
+
+#: ../items/categories/quest.txt:278
 msgid "Blood Inkwell"
+msgstr ""
+
+#: ../items/categories/quest.txt:281
+msgid "According to Florin, this is the only ink capable of being used in the Book of the Dead."
 msgstr ""
 
 #: ../items/categories/level_1.txt:5
@@ -3758,6 +3870,10 @@ msgstr ""
 
 #: ../powers/categories/magician.txt:10
 msgid "Basic magic attack."
+msgstr ""
+
+#: ../powers/categories/quest.txt:4
+msgid "Performing the ritual at the Red Altar has granted you faster regeneration."
 msgstr ""
 
 #: ../powers/trees/default.txt:11
