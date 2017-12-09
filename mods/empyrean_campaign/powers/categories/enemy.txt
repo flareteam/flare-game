@@ -769,6 +769,7 @@ count=5
 missile_angle=15
 post_effect=knockback,20,100ms
 
+# Metzger's heal
 [power]
 id=237
 type=fixed
@@ -779,3 +780,41 @@ post_effect=heal,0,0
 cooldown=5s
 base_damage=ment
 modifier_damage=multiply,200,0
+
+
+# antlion spit
+[power]
+id=239
+type=missile
+new_state=cast
+animation=animations/powers/spit.txt
+use_hazard=true
+aim_assist=false
+directional=true
+starting_pos=source
+base_damage=ment
+lifespan=866ms
+radius=1.0
+speed=15
+trait_elemental=dark
+modifier_accuracy=multiply,125,0
+post_effect=stun,0,1s,25
+cooldown=5s
+
+# teleport
+[power]
+id=240
+type=fixed
+new_state=cast
+animation=animations/powers/runes.txt
+soundfx=soundfx/powers/teleport.ogg
+use_hazard=true
+no_attack=true
+lifespan=533ms
+floor=true
+starting_pos=source
+buff_teleport=true
+target_range=8.0
+target_neighbor=1
+cooldown=6s
+

@@ -1,0 +1,40 @@
+INCLUDE enemies/base/antlion.txt
+
+name=Venom Antlion
+level=11
+categories=antlion,dungeon
+rarity=uncommon
+xp=4096
+
+# combat stats
+stat=hp,290
+speed=5
+turn_delay=166ms
+
+chance_pursue=30
+
+power=melee,164,2
+power=melee,239,5
+power=ranged,239,10
+power=ranged,240,5
+
+stat=accuracy,135
+stat=avoidance,75
+stat=poise,40
+
+stat=absorb_min,11
+stat=absorb_max,12
+
+stat=dmg_melee_min,155
+stat=dmg_melee_max,160
+stat=dmg_ment_min,170
+stat=dmg_ment_max,175
+
+vulnerable=lightning,125
+vulnerable=dark,50
+
+cooldown=1350ms
+
+# loot
+loot=loot/level_11.txt
+
