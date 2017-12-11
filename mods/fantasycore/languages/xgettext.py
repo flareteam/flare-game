@@ -41,11 +41,11 @@ def extract(filename):
         'msg', 'him', 'her', 'you', 'name', 'title', 'tooltip',
         'power_desc', 'quest_text', 'description',
         'tab_title', 'currency_name', 'flavor', 'topic', 'option',
-        'caption', 'text'
+        'caption', 'text', 'name_min', 'name_max'
     ]
     plain_text = [
         'msg', 'him', 'her', 'you', 'name', 'title', 'tooltip',
-        'quest_text', 'description', 'topic', 'flavor', 'caption',
+        'quest_text', 'description', 'topic', 'flavor', 'caption', 'text'
         ]
     for i, line in enumerate(infile, start=1):
         for trigger in triggers:
@@ -53,6 +53,7 @@ def extract(filename):
                 line = line.split('=')[1]
                 line = line.strip('\n')
                 values = line.split(',')
+		# TODO checking length of values isn't reliable, check trigger too?
                 if (trigger in plain_text):
                    stat = line.replace("\"", "\\\"");
                 elif len(values) == 1:
@@ -116,6 +117,8 @@ extract('../engine/classes.txt')
 extract('../engine/hero_options.txt')
 extract('../engine/titles.txt')
 extract('../engine/equip_flags.txt')
+extract('../engine/primary_stats.txt')
+extract('../engine/damage_types.txt')
 
 for folder in ['enemies', 'maps', 'quests', 'npcs', 'cutscenes', 'books']:
     target = os.path.join('..', folder)
