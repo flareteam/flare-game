@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-10 07:45+\n"
+"POT-Creation-Date: 2017-12-13 10:05+\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,55 +19,55 @@ msgstr ""
 msgid "Gold"
 msgstr ""
 
-#: ../items/items.txt:68
+#: ../items/items.txt:69
 msgid "Averguard Tome"
 msgstr ""
 
-#: ../items/items.txt:70
+#: ../items/items.txt:72
 msgid "This tome bears the seal of the Averguard"
 msgstr ""
 
-#: ../items/items.txt:76
+#: ../items/items.txt:78
 msgid "Averguard Key"
 msgstr ""
 
-#: ../items/items.txt:78
+#: ../items/items.txt:81
 msgid "Opens special doors in Averguard Keep"
 msgstr ""
 
-#: ../items/items.txt:84
+#: ../items/items.txt:87
 msgid "Langlier's Talisman"
 msgstr ""
 
-#: ../items/items.txt:86
+#: ../items/items.txt:90
 msgid "Etched runes surround this talisman"
 msgstr ""
 
-#: ../items/items.txt:94
+#: ../items/items.txt:98
 msgid "Scathelocke's Spellbook"
 msgstr ""
 
-#: ../items/items.txt:103
+#: ../items/items.txt:109
 msgid "Scathelocke's Key"
 msgstr ""
 
-#: ../items/items.txt:105
+#: ../items/items.txt:112
 msgid "Opens Scathelocke's Runed Chest"
 msgstr ""
 
-#: ../items/items.txt:111
+#: ../items/items.txt:118
 msgid "Vesuvvio's Key"
 msgstr ""
 
-#: ../items/items.txt:113
+#: ../items/items.txt:121
 msgid "Opens Vesuvvio's Runed Chest"
 msgstr ""
 
-#: ../items/items.txt:119
+#: ../items/items.txt:127
 msgid "Grisbon's Key"
 msgstr ""
 
-#: ../items/items.txt:121
+#: ../items/items.txt:130
 msgid "Opens Grisbon's Runed Chest"
 msgstr ""
 
@@ -76,11 +76,27 @@ msgid "Sage's Wardrobe"
 msgstr ""
 
 #: ../engine/elements.txt:3
-msgid "Fire Resistance"
+msgid "Fire"
 msgstr ""
 
 #: ../engine/elements.txt:7
-msgid "Ice Resistance"
+msgid "Ice"
+msgstr ""
+
+#: ../engine/elements.txt:11
+msgid "Air"
+msgstr ""
+
+#: ../engine/elements.txt:15
+msgid "Earth"
+msgstr ""
+
+#: ../engine/elements.txt:19
+msgid "Light"
+msgstr ""
+
+#: ../engine/elements.txt:23
+msgid "Shadow"
 msgstr ""
 
 #: ../engine/classes.txt:6
@@ -423,271 +439,283 @@ msgstr ""
 msgid "Ancient Temple"
 msgstr ""
 
-#: ../maps/ancient_temple.txt:447
+#: ../maps/ancient_temple.txt:352
+msgid "Frontier Plains"
+msgstr ""
+
+#: ../maps/ancient_temple.txt:464
 msgid "Treasure Chest"
 msgstr ""
 
-#: ../maps/ancient_temple.txt:468
+#: ../maps/ancient_temple.txt:487
 msgid "Tho' Nature, red in tooth and claw; With ravine, shriek'd against his creed"
 msgstr ""
 
-#: ../maps/ancient_temple.txt:471
+#: ../maps/ancient_temple.txt:490
 msgid "In Memoriam"
 msgstr ""
 
-#: ../maps/ancient_temple.txt:618
+#: ../maps/ancient_temple.txt:654
 msgid "Ancient Temple waypoint discovered."
 msgstr ""
 
-#: ../maps/ancient_temple.txt:629
+#: ../maps/ancient_temple.txt:667
 msgid "Warp Zone"
 msgstr ""
 
-#: ../maps/averguard_academy.txt:9
+#: ../maps/averguard_academy.txt:10
 msgid "Averguard Academy"
 msgstr ""
 
-#: ../maps/averguard_academy.txt:345
-msgid "\"Some say the Averguard Academy is the greatest collection of knowledge within the empire.\""
-msgstr ""
-
-#: ../maps/averguard_academy.txt:348
-msgid "Book Stand"
-msgstr ""
-
-#: ../maps/averguard_academy.txt:356
-msgid "\"Professor Langlier is High Sage of the Averguard.  Several volumes kept here are his own writings.\""
-msgstr ""
-
-#: ../maps/averguard_academy.txt:367
-msgid "\"The Academy is only open to oathkeeping members of the Averguard.  Few others know of its existence.\""
-msgstr ""
-
-#: ../maps/averguard_academy.txt:378
-msgid "\"The peasants could not be trusted with literacy.  Most gave up their books without incident.\""
-msgstr ""
-
-#: ../maps/averguard_academy.txt:390
-msgid "This false book has a secret compartment."
-msgstr ""
-
-#: ../maps/averguard_academy.txt:406
-msgid "Barrel"
-msgstr ""
-
-#: ../maps/averguard_academy.txt:450
-msgid "Crate"
-msgstr ""
-
-#: ../maps/averguard_academy.txt:478
-msgid "This tomb glows with magical runes."
-msgstr ""
-
-#: ../maps/averguard_academy.txt:488
-msgid "Langlier's Tomb"
-msgstr ""
-
-#: ../maps/averguard_atrium.txt:9
+#: ../maps/averguard_academy.txt:340
 msgid "Averguard Atrium"
 msgstr ""
 
-#: ../maps/averguard_atrium.txt:264
-msgid "Averguard Atrium waypoint discovered"
+#: ../maps/averguard_academy.txt:349
+msgid "\"Some say the Averguard Academy is the greatest collection of knowledge within the empire.\""
 msgstr ""
 
-#: ../maps/averguard_complex.txt:9
-msgid "Averguard Complex"
+#: ../maps/averguard_academy.txt:352
+msgid "Book Stand"
 msgstr ""
 
-#: ../maps/averguard_complex.txt:479
-msgid "This book is entitled \"Training Your Antlion\". Chapter 1 is \"How Not To Get Eaten\". The rest of the book is unfinished."
+#: ../maps/averguard_academy.txt:361
+msgid "\"Professor Langlier is High Sage of the Averguard.  Several volumes kept here are his own writings.\""
 msgstr ""
 
-#: ../maps/averguard_complex.txt:606
-msgid "Switch System"
+#: ../maps/averguard_academy.txt:373
+msgid "\"The Academy is only open to oathkeeping members of the Averguard.  Few others know of its existence.\""
 msgstr ""
 
-#: ../maps/averguard_prison.txt:9
-msgid "Averguard Prison"
+#: ../maps/averguard_academy.txt:385
+msgid "\"The peasants could not be trusted with literacy.  Most gave up their books without incident.\""
 msgstr ""
 
-#: ../maps/averguard_prison.txt:369
-msgid "Switch"
+#: ../maps/averguard_academy.txt:398
+msgid "This false book has a secret compartment."
 msgstr ""
 
-#: ../maps/averguard_prison.txt:377
-msgid "The last entry of this well-preserved journal reads: \"I feared it would come to this.  I knew the Warden's secrets but they would not be contained forever.\""
+#: ../maps/averguard_academy.txt:415
+msgid "Barrel"
 msgstr ""
 
-#: ../maps/averguard_temple.txt:9
+#: ../maps/averguard_academy.txt:463
+msgid "Crate"
+msgstr ""
+
+#: ../maps/averguard_academy.txt:494
+msgid "This tomb glows with magical runes."
+msgstr ""
+
+#: ../maps/averguard_academy.txt:505
+msgid "Langlier's Tomb"
+msgstr ""
+
+#: ../maps/averguard_atrium.txt:220
+msgid "Goblin Warrens"
+msgstr ""
+
+#: ../maps/averguard_atrium.txt:229
 msgid "Averguard Temple"
 msgstr ""
 
-#: ../maps/averguard_temple.txt:450
+#: ../maps/averguard_atrium.txt:238
+msgid "Averguard Prison"
+msgstr ""
+
+#: ../maps/averguard_atrium.txt:256
+msgid "Averguard Complex"
+msgstr ""
+
+#: ../maps/averguard_atrium.txt:279
+msgid "Averguard Atrium waypoint discovered"
+msgstr ""
+
+#: ../maps/averguard_complex.txt:490
+msgid "This book is entitled \"Training Your Antlion\". Chapter 1 is \"How Not To Get Eaten\". The rest of the book is unfinished."
+msgstr ""
+
+#: ../maps/averguard_complex.txt:629
+msgid "Switch System"
+msgstr ""
+
+#: ../maps/averguard_prison.txt:375
+msgid "Switch"
+msgstr ""
+
+#: ../maps/averguard_prison.txt:384
+msgid "The last entry of this well-preserved journal reads: \"I feared it would come to this.  I knew the Warden's secrets but they would not be contained forever.\""
+msgstr ""
+
+#: ../maps/averguard_temple.txt:455
 msgid "You insert the Averguard Key. Runes glow around the door, then fade. The door is still sealed."
 msgstr ""
 
-#: ../maps/averguard_temple.txt:456
+#: ../maps/averguard_temple.txt:461
 msgid "Sealed Temple Door"
 msgstr ""
 
-#: ../maps/averguard_temple.txt:464
+#: ../maps/averguard_temple.txt:470
 msgid "You read aloud the runes on Langlier's Talisman. The Avergard Key begins to glow!"
 msgstr ""
 
-#: ../maps/averguard_temple.txt:471
+#: ../maps/averguard_temple.txt:477
 msgid "Activate Talisman"
 msgstr ""
 
-#: ../maps/averguard_temple.txt:487
+#: ../maps/averguard_temple.txt:495
 msgid "\"Some said Sir Maddox cared too much for the peasants.  He would not quarantine, saying the villagers did not deserve to die locked away.\""
 msgstr ""
 
-#: ../maps/averguard_temple.txt:497
+#: ../maps/averguard_temple.txt:506
 msgid "\"Maddox died of the plague in 638.  After attempts to magically revive him failed he was sealed deep behind the temple.\""
 msgstr ""
 
-#: ../maps/averguard_temple.txt:507
+#: ../maps/averguard_temple.txt:517
 msgid "This chest is locked."
 msgstr ""
 
-#: ../maps/averguard_temple.txt:526
+#: ../maps/averguard_temple.txt:538
 msgid "A plaque under the statue reads \"Sir Evan Maddox, may he return to rescue us all\""
 msgstr ""
 
-#: ../maps/averguard_temple.txt:533
+#: ../maps/averguard_temple.txt:546
 msgid "A ghastly voice reverberates from the next chamber.  \"What fool disturbs my tomb?!\""
 msgstr ""
 
-#: ../maps/averguard_temple.txt:541
+#: ../maps/averguard_temple.txt:555
 msgid "You wipe dust away from the tomb lid, revealing an inscription: \"Here lies Sir Evan Maddox\""
 msgstr ""
 
-#: ../maps/averguard_temple.txt:543
+#: ../maps/averguard_temple.txt:557
 msgid "Maddox's Tomb"
 msgstr ""
 
-#: ../maps/averguard_temple.txt:562
+#: ../maps/averguard_temple.txt:579
 msgid "A locked gate is here, with a small keyhole in the center."
 msgstr ""
 
-#: ../maps/brothers_lair_atrium.txt:8
+#: ../maps/brothers_lair_atrium.txt:9
 msgid "Brothers' Lair Atrium"
 msgstr ""
 
-#: ../maps/brothers_lair_atrium.txt:242
-msgid "Brothers Lair Atrium waypoint discovered"
-msgstr ""
-
-#: ../maps/brothers_lair_fire_hall.txt:9
-msgid "Brothers' Lair Fire Hall"
-msgstr ""
-
-#: ../maps/brothers_lair_fire_hall.txt:352
-msgid "Runed Chest"
-msgstr ""
-
-#: ../maps/brothers_lair_fire_hall.txt:372
-msgid "\"Today Pompeii got a little over-excited to meet me and blew himself up. So I had to go into the caves and catch myself a NEW antlion burster. Again. I think I'm going to name this one 'Krakatoa'. ~Vesuvvio (the Destroyer)\""
-msgstr ""
-
-#: ../maps/brothers_lair_ice_hall.txt:9
+#: ../maps/brothers_lair_atrium.txt:190
 msgid "Brothers' Lair Ice Hall"
 msgstr ""
 
-#: ../maps/brothers_lair_ice_hall.txt:289
-msgid "Suspicious Bookcase"
-msgstr ""
-
-#: ../maps/brothers_lair_ice_hall.txt:297
-msgid "\"When we could no longer stand the idiotic practices of our master, I hatched a plan to kill him. My brothers agreed the deed had to be done.\""
-msgstr ""
-
-#: ../maps/brothers_lair_ice_hall.txt:308
-msgid "\"In accordance with our plan, G. asked the old fool to teach him about the preparation of corpses in the later stages of decay. Naturally, the corpse in question was a cleverly disguised bomb made by V.\""
-msgstr ""
-
-#: ../maps/brothers_lair_ice_hall.txt:318
-msgid "\"My brothers and I wandered around for a few days. In an incredible stroke of luck, we encountered a master necromancer who, seeing the marks of banishment on our foreheads, took us as his apprentices.\""
-msgstr ""
-
-#: ../maps/brothers_lair_ice_hall.txt:321
-msgid "Bookcase"
-msgstr ""
-
-#: ../maps/brothers_lair_ice_hall.txt:329
-msgid "\"We grew swiftly under the tutelage of the necromancer. The more we learned, the more we realized we could do better than the short-sighted git.\""
-msgstr ""
-
-#: ../maps/brothers_lair_ice_hall.txt:340
-msgid "\"My brothers V. and G. used to go to a wizard's academy with me. We were top students until one day V. killed another student in a spontaneous fit of rage.\""
-msgstr ""
-
-#: ../maps/brothers_lair_ice_hall.txt:351
-msgid "\"Naturally, V. was expelled for his crime. It was foolish of us, but G. and I decided to defend our brother. We were expelled too. The wizards magically marked us with a sign of banishment on our foreheads so that no wizard would dare teach us.\""
-msgstr ""
-
-#: ../maps/brothers_lair_ice_hall.txt:362
-msgid "\"G. suggested that each of us should take one of the halls in the old necromancer's lair.\""
-msgstr ""
-
-#: ../maps/brothers_lair_ice_hall.txt:373
-msgid "\"It's days like today that make me wonder if I should go a step further and eliminate V. and G. too... they're getting on my nerves. ~Scathelocke\""
-msgstr ""
-
-#: ../maps/brothers_lair_sacrifice_room.txt:9
+#: ../maps/brothers_lair_atrium.txt:200
 msgid "Brothers' Sacrifice Room"
 msgstr ""
 
-#: ../maps/brothers_lair_wind_hall.txt:8
+#: ../maps/brothers_lair_atrium.txt:210
+msgid "Cave of Living Bones 2"
+msgstr ""
+
+#: ../maps/brothers_lair_atrium.txt:220
+msgid "Brothers' Lair Fire Hall"
+msgstr ""
+
+#: ../maps/brothers_lair_atrium.txt:230
 msgid "Brothers' Lair Wind Hall"
 msgstr ""
 
-#: ../maps/brothers_lair_wind_hall.txt:192
+#: ../maps/brothers_lair_atrium.txt:260
+msgid "Brothers Lair Atrium waypoint discovered"
+msgstr ""
+
+#: ../maps/brothers_lair_fire_hall.txt:361
+msgid "Runed Chest"
+msgstr ""
+
+#: ../maps/brothers_lair_fire_hall.txt:383
+msgid "\"Today Pompeii got a little over-excited to meet me and blew himself up. So I had to go into the caves and catch myself a NEW antlion burster. Again. I think I'm going to name this one 'Krakatoa'. ~Vesuvvio (the Destroyer)\""
+msgstr ""
+
+#: ../maps/brothers_lair_ice_hall.txt:292
+msgid "Suspicious Bookcase"
+msgstr ""
+
+#: ../maps/brothers_lair_ice_hall.txt:301
+msgid "\"When we could no longer stand the idiotic practices of our master, I hatched a plan to kill him. My brothers agreed the deed had to be done.\""
+msgstr ""
+
+#: ../maps/brothers_lair_ice_hall.txt:313
+msgid "\"In accordance with our plan, G. asked the old fool to teach him about the preparation of corpses in the later stages of decay. Naturally, the corpse in question was a cleverly disguised bomb made by V.\""
+msgstr ""
+
+#: ../maps/brothers_lair_ice_hall.txt:324
+msgid "\"My brothers and I wandered around for a few days. In an incredible stroke of luck, we encountered a master necromancer who, seeing the marks of banishment on our foreheads, took us as his apprentices.\""
+msgstr ""
+
+#: ../maps/brothers_lair_ice_hall.txt:327
+msgid "Bookcase"
+msgstr ""
+
+#: ../maps/brothers_lair_ice_hall.txt:336
+msgid "\"We grew swiftly under the tutelage of the necromancer. The more we learned, the more we realized we could do better than the short-sighted git.\""
+msgstr ""
+
+#: ../maps/brothers_lair_ice_hall.txt:348
+msgid "\"My brothers V. and G. used to go to a wizard's academy with me. We were top students until one day V. killed another student in a spontaneous fit of rage.\""
+msgstr ""
+
+#: ../maps/brothers_lair_ice_hall.txt:360
+msgid "\"Naturally, V. was expelled for his crime. It was foolish of us, but G. and I decided to defend our brother. We were expelled too. The wizards magically marked us with a sign of banishment on our foreheads so that no wizard would dare teach us.\""
+msgstr ""
+
+#: ../maps/brothers_lair_ice_hall.txt:372
+msgid "\"G. suggested that each of us should take one of the halls in the old necromancer's lair.\""
+msgstr ""
+
+#: ../maps/brothers_lair_ice_hall.txt:384
+msgid "\"It's days like today that make me wonder if I should go a step further and eliminate V. and G. too... they're getting on my nerves. ~Scathelocke\""
+msgstr ""
+
+#: ../maps/brothers_lair_wind_hall.txt:194
 msgid "Rising Wind Switch"
 msgstr ""
 
-#: ../maps/brothers_lair_wind_hall.txt:205
+#: ../maps/brothers_lair_wind_hall.txt:208
 msgid "Rising Fire Switch"
 msgstr ""
 
-#: ../maps/brothers_lair_wind_hall.txt:215
+#: ../maps/brothers_lair_wind_hall.txt:219
 msgid "Rising Ice Switch"
 msgstr ""
 
-#: ../maps/brothers_lair_wind_hall.txt:228
+#: ../maps/brothers_lair_wind_hall.txt:233
 msgid "Falling Ice Switch"
 msgstr ""
 
-#: ../maps/brothers_lair_wind_hall.txt:238
+#: ../maps/brothers_lair_wind_hall.txt:244
 msgid "Falling Wind Switch"
 msgstr ""
 
-#: ../maps/brothers_lair_wind_hall.txt:251
+#: ../maps/brothers_lair_wind_hall.txt:258
 msgid "Falling Fire Switch"
 msgstr ""
 
-#: ../maps/brothers_lair_wind_hall.txt:264
+#: ../maps/brothers_lair_wind_hall.txt:272
 msgid "Waiting Wind Switch"
 msgstr ""
 
-#: ../maps/brothers_lair_wind_hall.txt:275
+#: ../maps/brothers_lair_wind_hall.txt:284
 msgid "Waiting Fire Switch"
 msgstr ""
 
-#: ../maps/brothers_lair_wind_hall.txt:288
+#: ../maps/brothers_lair_wind_hall.txt:298
 msgid "Waiting Ice Switch"
 msgstr ""
 
-#: ../maps/brothers_lair_wind_hall.txt:296
+#: ../maps/brothers_lair_wind_hall.txt:307
 msgid "\"Fire is either Falling or Waiting. One element, one temperament.\""
 msgstr ""
 
-#: ../maps/brothers_lair_wind_hall.txt:307
+#: ../maps/brothers_lair_wind_hall.txt:319
 msgid "\"Wind is not Rising. Wind is Falling on the firmament.\""
 msgstr ""
 
-#: ../maps/brothers_lair_wind_hall.txt:326
+#: ../maps/brothers_lair_wind_hall.txt:341
 msgid "\"People used to ask me why I use a sword rather than a wand. It never occurs to them that the metal blade can conduct and channel lightning as well as (or better than!) any enchanted twig. ~Grisbon\""
 msgstr ""
 
@@ -695,147 +723,135 @@ msgstr ""
 msgid "Caves Level 1"
 msgstr ""
 
-#: ../maps/cave1.txt:348
-msgid "Mine Cart"
-msgstr ""
-
-#: ../maps/cave1.txt:385
-msgid "The crumbling walls of the south tunnel are held up by planks of rotting wood."
-msgstr ""
-
-#: ../maps/cave1.txt:468
-msgid "These goblins have captured a human trader.  Human bones are carefully arranged around the pillar in preparation for a goblin ritual."
-msgstr ""
-
-#: ../maps/cave1.txt:476
-msgid "Talrych says, \"You arrived just in time.  Please, take this.\""
-msgstr ""
-
-#: ../maps/cave1.txt:484
-msgid "The walls collapse inward and rubble blocks off the passage!"
-msgstr ""
-
-#: ../maps/cave_of_living_bones1.txt:8
-msgid "Cave of Living Bones 1"
-msgstr ""
-
-#: ../maps/cave_of_living_bones2.txt:9
-msgid "Cave of Living Bones 2"
-msgstr ""
-
-#: ../maps/cave_of_living_bones2.txt:323
-msgid "This pillar is laced with cracks and crevices. Maybe with enough force it can be knocked down."
-msgstr ""
-
-#: ../maps/cave_of_living_bones2.txt:326
-msgid "Giant Pillar"
-msgstr ""
-
-#: ../maps/cave_of_living_bones2.txt:334
-msgid "Run! You don't want to be caught in the blast of your own explosion!"
-msgstr ""
-
-#: ../maps/cave_of_living_bones2.txt:339
-msgid "Place Explosive"
-msgstr ""
-
-#: ../maps/cave_of_living_bones3.txt:8
-msgid "Cave of Living Bones 3"
-msgstr ""
-
-#: ../maps/cave_of_living_bones3.txt:130
-msgid "Crate of Blasting Powder"
-msgstr ""
-
-#: ../maps/frontier_outpost.txt:8
-msgid "Frontier Outpost"
-msgstr ""
-
-#: ../maps/frontier_outpost.txt:273
-msgid "Shared Stash"
-msgstr ""
-
-#: ../maps/frontier_outpost.txt:280
-msgid "Frontier Outpost waypoint discovered."
-msgstr ""
-
-#: ../maps/frontier_plains.txt:9
-msgid "Frontier Plains"
-msgstr ""
-
-#: ../maps/frontier_plains.txt:838
-msgid "Supplies"
-msgstr ""
-
-#: ../maps/goblin_warrens.txt:9
-msgid "Goblin Warrens"
-msgstr ""
-
-#: ../maps/goblin_warrens.txt:328
-msgid "This book bears the seal of the Averguard"
-msgstr ""
-
-#: ../maps/goblin_warrens.txt:341
-msgid "\"In the Age of Settlement, the Averguard Knights defended peasants against the chaos of the wilderness.\""
-msgstr ""
-
-#: ../maps/goblin_warrens.txt:352
-msgid "\"Sir Evan Maddox led the Averguard when the plague struck.  Powerful clerics from the corners of the world were brought here.  By the time a cure was found it was too late.\""
-msgstr ""
-
-#: ../maps/lost_mines1.txt:9
+#: ../maps/cave1.txt:345
 msgid "Lost Mines Level 1"
 msgstr ""
 
-#: ../maps/lost_mines1.txt:358
-msgid "It looks like the necromancer has been raising the corpses of dead miners as his minions."
+#: ../maps/cave1.txt:355
+msgid "Mine Cart"
 msgstr ""
 
-#: ../maps/lost_mines1.txt:415
-msgid "A natural underground river flows through this room."
+#: ../maps/cave1.txt:396
+msgid "The crumbling walls of the south tunnel are held up by planks of rotting wood."
 msgstr ""
 
-#: ../maps/lost_mines1.txt:457
-msgid "Stalagmite Pillar"
+#: ../maps/cave1.txt:488
+msgid "These goblins have captured a human trader.  Human bones are carefully arranged around the pillar in preparation for a goblin ritual."
 msgstr ""
 
-#: ../maps/lost_mines1.txt:463
-msgid "The river appears to have swollen recently, covering the location where the tracks once were."
+#: ../maps/cave1.txt:497
+msgid "Talrych says, \"You arrived just in time.  Please, take this.\""
 msgstr ""
 
-#: ../maps/lost_mines1.txt:490
-msgid "The undead in this room are dressed in the remnants of shredded mining clothes."
+#: ../maps/cave1.txt:506
+msgid "The walls collapse inward and rubble blocks off the passage!"
 msgstr ""
 
-#: ../maps/mineshaft_longsword.txt:9
-msgid "Mineshaft Longsword"
+#: ../maps/cave_of_living_bones1.txt:9
+msgid "Cave of Living Bones 1"
 msgstr ""
 
-#: ../maps/river_encampment.txt:8
-msgid "River Encampment"
-msgstr ""
-
-#: ../maps/warp_zone.txt:244
+#: ../maps/cave_of_living_bones1.txt:334
 msgid "Ydrakka Pass"
 msgstr ""
 
-#: ../maps/warp_zone.txt:260
-msgid "Brothers Lair Atrium"
+#: ../maps/cave_of_living_bones2.txt:283
+msgid "Cave of Living Bones 3"
 msgstr ""
 
-#: ../maps/white_wind.txt:8
+#: ../maps/cave_of_living_bones2.txt:336
+msgid "This pillar is laced with cracks and crevices. Maybe with enough force it can be knocked down."
+msgstr ""
+
+#: ../maps/cave_of_living_bones2.txt:339
+msgid "Giant Pillar"
+msgstr ""
+
+#: ../maps/cave_of_living_bones2.txt:348
+msgid "Run! You don't want to be caught in the blast of your own explosion!"
+msgstr ""
+
+#: ../maps/cave_of_living_bones2.txt:353
+msgid "Place Explosive"
+msgstr ""
+
+#: ../maps/cave_of_living_bones3.txt:135
+msgid "Crate of Blasting Powder"
+msgstr ""
+
+#: ../maps/frontier_outpost.txt:9
+msgid "Frontier Outpost"
+msgstr ""
+
+#: ../maps/frontier_outpost.txt:261
+msgid "Mineshaft Longsword"
+msgstr ""
+
+#: ../maps/frontier_outpost.txt:280
+msgid "Shared Stash"
+msgstr ""
+
+#: ../maps/frontier_outpost.txt:288
+msgid "Frontier Outpost waypoint discovered."
+msgstr ""
+
+#: ../maps/frontier_plains.txt:815
+msgid "River Encampment"
+msgstr ""
+
+#: ../maps/frontier_plains.txt:833
 msgid "White Wind"
 msgstr ""
 
-#: ../maps/white_wind.txt:448
+#: ../maps/frontier_plains.txt:855
+msgid "Supplies"
+msgstr ""
+
+#: ../maps/goblin_warrens.txt:338
+msgid "This book bears the seal of the Averguard"
+msgstr ""
+
+#: ../maps/goblin_warrens.txt:352
+msgid "\"In the Age of Settlement, the Averguard Knights defended peasants against the chaos of the wilderness.\""
+msgstr ""
+
+#: ../maps/goblin_warrens.txt:364
+msgid "\"Sir Evan Maddox led the Averguard when the plague struck.  Powerful clerics from the corners of the world were brought here.  By the time a cure was found it was too late.\""
+msgstr ""
+
+#: ../maps/lost_mines1.txt:365
+msgid "It looks like the necromancer has been raising the corpses of dead miners as his minions."
+msgstr ""
+
+#: ../maps/lost_mines1.txt:428
+msgid "A natural underground river flows through this room."
+msgstr ""
+
+#: ../maps/lost_mines1.txt:474
+msgid "Stalagmite Pillar"
+msgstr ""
+
+#: ../maps/lost_mines1.txt:481
+msgid "The river appears to have swollen recently, covering the location where the tracks once were."
+msgstr ""
+
+#: ../maps/lost_mines1.txt:511
+msgid "The undead in this room are dressed in the remnants of shredded mining clothes."
+msgstr ""
+
+#: ../maps/warp_zone.txt:271
+msgid "Brothers Lair Atrium"
+msgstr ""
+
+#: ../maps/white_wind.txt:455
 msgid "You spot the abandoned tower in the distance."
 msgstr ""
 
-#: ../maps/white_wind.txt:457
+#: ../maps/white_wind.txt:465
 msgid "Looking through the grate, you confirm the tower is empty."
 msgstr ""
 
-#: ../maps/ydrakka_pass.txt:385
+#: ../maps/ydrakka_pass.txt:398
 msgid "Ydrakka Pass waypoint discovered."
 msgstr ""
 
@@ -1143,115 +1159,111 @@ msgstr ""
 msgid "Ah, you're the adventurer? If you seek out danger you're in the right place. We had two guards stationed here; both were recalled to Ancelot. Now we're vulnerable."
 msgstr ""
 
-#: ../npcs/martigan.txt:19
-msgid "Goblin Camp"
-msgstr ""
-
-#: ../npcs/martigan.txt:22
-msgid "We're having problems. Goblins. All the noise from our mining is drawing their attention. We can't have them thinking we're easy prey."
-msgstr ""
-
-#: ../npcs/martigan.txt:26
-msgid "Attack their encampment up river from here. 20 gold now, 80 more when you return."
-msgstr ""
-
-#: ../npcs/martigan.txt:29
-msgid "Goblin Camp Search"
-msgstr ""
-
-#: ../npcs/martigan.txt:32
-msgid "The goblins have an encampment up the river from here on the west side. Clear them out and I'll pay you 80 gold."
-msgstr ""
-
-#: ../npcs/martigan.txt:35
-msgid "Rilrak Defeated"
-msgstr ""
-
-#: ../npcs/martigan.txt:42
-msgid "Unfortunate work, but my workers will sleep safe tonight. Here's your reward."
-msgstr ""
-
-#: ../npcs/martigan.txt:47
-msgid "A member of the Order passed through our camp a few days ago. He left for the tower ruins in Ydrakka Pass."
-msgstr ""
-
-#: ../npcs/martigan.txt:50
-msgid "Rotten Tower"
-msgstr ""
-
-#: ../npcs/martigan.txt:53
-msgid "This region was once well guarded. There are watch towers positioned throughout these plains, but most are abandoned and crumbling now."
-msgstr ""
-
-#: ../npcs/martigan.txt:54
-msgid "I need someone to inspect the outpost tower in White Winds, south west of the Frontier Plains. Let me know if goblins have found their way inside."
-msgstr ""
-
-#: ../npcs/martigan.txt:58
-msgid "Rotten Tower Search"
-msgstr ""
-
-#: ../npcs/martigan.txt:61
-msgid "Search for the abandoned tower southwest of the Frontier plains. The lands around there are called White Wind."
-msgstr ""
-
-#: ../npcs/martigan.txt:64
-msgid "Rotten Tower Found"
-msgstr ""
-
-#: ../npcs/martigan.txt:67
-msgid "There are plenty of goblins in the White Winds area, but not near the tower."
-msgstr ""
-
-#: ../npcs/martigan.txt:68
-msgid "Are you sure? Did you look inside the tower?"
-msgstr ""
-
-#: ../npcs/martigan.txt:69
-msgid "Well..."
-msgstr ""
-
-#: ../npcs/martigan.txt:75
-msgid "There are plenty of goblins in the white winds area, but not near the tower."
-msgstr ""
-
-#: ../npcs/martigan.txt:77
-msgid "I saw no signs of goblins through the locked iron grate door."
-msgstr ""
-
-#: ../npcs/martigan.txt:79
-msgid "Good! Have this small reward."
-msgstr ""
-
-#: ../npcs/martigan.txt:84
-msgid "Mineshaft"
-msgstr ""
-
-#: ../npcs/martigan.txt:87
+#: ../npcs/martigan.txt:16
 msgid "So how's the mining business?"
 msgstr ""
 
-#: ../npcs/martigan.txt:88
+#: ../npcs/martigan.txt:17
 msgid "Not good at all. While I was digging, my pickaxe scraped a skull that was wedged in the rock wall. Before I knew it, the nasty thing started moving and a whole body emerged. Now that thing is in there, preventing any more mining."
 msgstr ""
 
-#: ../npcs/martigan.txt:89
+#: ../npcs/martigan.txt:18
 msgid "Kill that skeleton for me, and I'll make it worth your while."
 msgstr ""
 
-#: ../npcs/martigan.txt:97
+#: ../npcs/martigan.txt:23
+msgid "Goblin Camp"
+msgstr ""
+
+#: ../npcs/martigan.txt:26
+msgid "We're having problems. Goblins. All the noise from our mining is drawing their attention. We can't have them thinking we're easy prey."
+msgstr ""
+
+#: ../npcs/martigan.txt:30
+msgid "Attack their encampment up river from here. 20 gold now, 80 more when you return."
+msgstr ""
+
+#: ../npcs/martigan.txt:33
+msgid "Goblin Camp Search"
+msgstr ""
+
+#: ../npcs/martigan.txt:36
+msgid "The goblins have an encampment up the river from here on the west side. Clear them out and I'll pay you 80 gold."
+msgstr ""
+
+#: ../npcs/martigan.txt:39
+msgid "Rilrak Defeated"
+msgstr ""
+
+#: ../npcs/martigan.txt:46
+msgid "Unfortunate work, but my workers will sleep safe tonight. Here's your reward."
+msgstr ""
+
+#: ../npcs/martigan.txt:51
+msgid "A member of the Order passed through our camp a few days ago. He left for the tower ruins in Ydrakka Pass."
+msgstr ""
+
+#: ../npcs/martigan.txt:54
+msgid "Rotten Tower"
+msgstr ""
+
+#: ../npcs/martigan.txt:57
+msgid "This region was once well guarded. There are watch towers positioned throughout these plains, but most are abandoned and crumbling now."
+msgstr ""
+
+#: ../npcs/martigan.txt:58
+msgid "I need someone to inspect the outpost tower in White Winds, south west of the Frontier Plains. Let me know if goblins have found their way inside."
+msgstr ""
+
+#: ../npcs/martigan.txt:62
+msgid "Rotten Tower Search"
+msgstr ""
+
+#: ../npcs/martigan.txt:65
+msgid "Search for the abandoned tower southwest of the Frontier plains. The lands around there are called White Wind."
+msgstr ""
+
+#: ../npcs/martigan.txt:68
+msgid "Rotten Tower Found"
+msgstr ""
+
+#: ../npcs/martigan.txt:71
+msgid "There are plenty of goblins in the White Winds area, but not near the tower."
+msgstr ""
+
+#: ../npcs/martigan.txt:72
+msgid "Are you sure? Did you look inside the tower?"
+msgstr ""
+
+#: ../npcs/martigan.txt:73
+msgid "Well..."
+msgstr ""
+
+#: ../npcs/martigan.txt:79
+msgid "There are plenty of goblins in the white winds area, but not near the tower."
+msgstr ""
+
+#: ../npcs/martigan.txt:81
+msgid "I saw no signs of goblins through the locked iron grate door."
+msgstr ""
+
+#: ../npcs/martigan.txt:83
+msgid "Good! Have this small reward."
+msgstr ""
+
+#: ../npcs/martigan.txt:91
 msgid "Please take care of that skeleton. Work in the mine can't continue otherwise."
 msgstr ""
 
-#: ../npcs/martigan.txt:100
+#: ../npcs/martigan.txt:94
 msgid "Skeleton Defeated"
 msgstr ""
 
-#: ../npcs/martigan.txt:104
+#: ../npcs/martigan.txt:98
 msgid "I've defeated the Reanimated Skeleton."
 msgstr ""
 
-#: ../npcs/martigan.txt:105
+#: ../npcs/martigan.txt:99
 msgid "Excellent work! As promised, here's a little something for your troubles."
 msgstr ""
 
@@ -1335,16 +1347,132 @@ msgstr ""
 msgid "Welcome, Master Grisbon."
 msgstr ""
 
-#: ../cutscenes/credits.txt:8
+#: ../cutscenes/credits.txt:7
 msgid "Flare Game Credits - alpha_demo"
 msgstr ""
 
 #: ../cutscenes/credits.txt:10
-msgid "Content Designers - Clint Bellanger, Justin Jacobs, Stefan Beller, and Thane Brimhall"
+msgid "Content Designers"
 msgstr ""
 
 #: ../cutscenes/credits.txt:12
-msgid "Translators - Adrian Chaves Fernandez, Andrea Ranaldi, Andreas Berheim Brudin, Bas Doodeman, Bonbadil, Carlos Sanchez, Chris Oelmueller, Christoph J. Thompson, Evgen Pavlov, Giovanni Dalla Torre, Hans Joachim Desserud, Igor Paliychuk, Juan Pablo Tamayo, Mikhail Karalevich, Miro Jánošík, Morgan Strauss, Nikita Vanku, Paul Wortmann, Pawel Puszczynski, Quentin Stievenart, Sergey Basalaev, Stefan Beller, Thomas Glamsch, Timo Sievänen, and Yannis Anthymidis"
+msgid "Clint Bellanger"
+msgstr ""
+
+#: ../cutscenes/credits.txt:13
+msgid "Justin Jacobs"
+msgstr ""
+
+#: ../cutscenes/credits.txt:14
+msgid "Stefan Beller"
+msgstr ""
+
+#: ../cutscenes/credits.txt:15
+msgid "Thane Brimhall"
+msgstr ""
+
+#: ../cutscenes/credits.txt:18
+msgid "Translators"
+msgstr ""
+
+#: ../cutscenes/credits.txt:20
+msgid "Adrian Chaves Fernandez"
+msgstr ""
+
+#: ../cutscenes/credits.txt:21
+msgid "Andrea Ranaldi"
+msgstr ""
+
+#: ../cutscenes/credits.txt:22
+msgid "Andreas Berheim Brudin"
+msgstr ""
+
+#: ../cutscenes/credits.txt:23
+msgid "Bas Doodeman"
+msgstr ""
+
+#: ../cutscenes/credits.txt:24
+msgid "Bonbadil"
+msgstr ""
+
+#: ../cutscenes/credits.txt:25
+msgid "Carlos Sanchez"
+msgstr ""
+
+#: ../cutscenes/credits.txt:26
+msgid "Chris Oelmueller"
+msgstr ""
+
+#: ../cutscenes/credits.txt:27
+msgid "Christoph J. Thompson"
+msgstr ""
+
+#: ../cutscenes/credits.txt:28
+msgid "Evgen Pavlov"
+msgstr ""
+
+#: ../cutscenes/credits.txt:29
+msgid "Giovanni Dalla Torre"
+msgstr ""
+
+#: ../cutscenes/credits.txt:30
+msgid "Hans Joachim Desserud"
+msgstr ""
+
+#: ../cutscenes/credits.txt:31
+msgid "Igor Paliychuk"
+msgstr ""
+
+#: ../cutscenes/credits.txt:32
+msgid "Juan Pablo Tamayo"
+msgstr ""
+
+#: ../cutscenes/credits.txt:33
+msgid "Mikhail Karalevich"
+msgstr ""
+
+#: ../cutscenes/credits.txt:34
+msgid "Miro Jánošík"
+msgstr ""
+
+#: ../cutscenes/credits.txt:35
+msgid "Morgan Strauss"
+msgstr ""
+
+#: ../cutscenes/credits.txt:36
+msgid "Nikita Vanku"
+msgstr ""
+
+#: ../cutscenes/credits.txt:37
+msgid "Paul Wortmann"
+msgstr ""
+
+#: ../cutscenes/credits.txt:38
+msgid "Pawel Puszczynski"
+msgstr ""
+
+#: ../cutscenes/credits.txt:39
+msgid "Quentin Stievenart"
+msgstr ""
+
+#: ../cutscenes/credits.txt:40
+msgid "Sergey Basalaev"
+msgstr ""
+
+#: ../cutscenes/credits.txt:42
+msgid "sujiniku"
+msgstr ""
+
+#: ../cutscenes/credits.txt:43
+msgid "Thomas Glamsch"
+msgstr ""
+
+#: ../cutscenes/credits.txt:44
+msgid "Timo Sievänen"
+msgstr ""
+
+#: ../cutscenes/credits.txt:45
+msgid "Yannis Anthymidis"
 msgstr ""
 
 #: ../items/categories/armor_cloth.txt:5
@@ -1575,39 +1703,39 @@ msgstr ""
 msgid "Mage Hood"
 msgstr ""
 
-#: ../items/categories/armor_mage.txt:7
+#: ../items/categories/armor_mage.txt:8
 msgid "The seams on this hood are designed to aid the flow of mana."
 msgstr ""
 
-#: ../items/categories/armor_mage.txt:14
+#: ../items/categories/armor_mage.txt:15
 msgid "Mage Vest"
 msgstr ""
 
-#: ../items/categories/armor_mage.txt:16
+#: ../items/categories/armor_mage.txt:18
 msgid "Frost resistance runes line the inside of this vest."
 msgstr ""
 
-#: ../items/categories/armor_mage.txt:24
+#: ../items/categories/armor_mage.txt:26
 msgid "Mage Sleeves"
 msgstr ""
 
-#: ../items/categories/armor_mage.txt:26
+#: ../items/categories/armor_mage.txt:29
 msgid "The fire resistance runes that hem these sleeves help protect beginner students of Pyromancy."
 msgstr ""
 
-#: ../items/categories/armor_mage.txt:33
+#: ../items/categories/armor_mage.txt:36
 msgid "Mage Skirt"
 msgstr ""
 
-#: ../items/categories/armor_mage.txt:35
+#: ../items/categories/armor_mage.txt:39
 msgid "Spell components are tucked into hidden pockets covering this skirt."
 msgstr ""
 
-#: ../items/categories/armor_mage.txt:43
+#: ../items/categories/armor_mage.txt:47
 msgid "Mage Boots"
 msgstr ""
 
-#: ../items/categories/armor_mage.txt:45
+#: ../items/categories/armor_mage.txt:50
 msgid "Attunement with the elements allow mages to ice and fire walk."
 msgstr ""
 
@@ -1668,18 +1796,22 @@ msgid "Diamond"
 msgstr ""
 
 #: ../items/categories/weapons_melee.txt:5
-msgid "Dagger"
+msgid "Broken Dagger"
 msgstr ""
 
 #: ../items/categories/weapons_melee.txt:13
-msgid "Shortsword"
+msgid "Dagger"
 msgstr ""
 
 #: ../items/categories/weapons_melee.txt:21
-msgid "Longsword"
+msgid "Shortsword"
 msgstr ""
 
 #: ../items/categories/weapons_melee.txt:29
+msgid "Longsword"
+msgstr ""
+
+#: ../items/categories/weapons_melee.txt:37
 msgid "Greatsword"
 msgstr ""
 
@@ -1727,43 +1859,43 @@ msgstr ""
 msgid "Inflict a bleeding wound that causes additional damage over 5 seconds"
 msgstr ""
 
-#: ../powers/categories/warrior.txt:51
+#: ../powers/categories/warrior.txt:50
 msgid "Warcry"
 msgstr ""
 
-#: ../powers/categories/warrior.txt:54
+#: ../powers/categories/warrior.txt:53
 msgid "Remove debuffs and become immune to debuffs for 10 seconds"
 msgstr ""
 
-#: ../powers/categories/warrior.txt:65
+#: ../powers/categories/warrior.txt:64
 msgid "Cleave"
 msgstr ""
 
-#: ../powers/categories/warrior.txt:68
+#: ../powers/categories/warrior.txt:67
 msgid "Attack all enemies in a wide arc, dealing 50% of melee weapon damage"
 msgstr ""
 
-#: ../powers/categories/warrior.txt:87
+#: ../powers/categories/warrior.txt:85
 msgid "Heroic Swing"
 msgstr ""
 
-#: ../powers/categories/warrior.txt:90
+#: ../powers/categories/warrior.txt:88
 msgid "Melee attack with 10% HP steal"
 msgstr ""
 
-#: ../powers/categories/warrior.txt:103
+#: ../powers/categories/warrior.txt:101
 msgid "Throw Knife"
 msgstr ""
 
-#: ../powers/categories/warrior.txt:106
+#: ../powers/categories/warrior.txt:104
 msgid "Throw a knife to deal 75% of melee weapon damage"
 msgstr ""
 
-#: ../powers/categories/warrior.txt:123
+#: ../powers/categories/warrior.txt:120
 msgid "Throw Axe"
 msgstr ""
 
-#: ../powers/categories/warrior.txt:126
+#: ../powers/categories/warrior.txt:123
 msgid "Throw an axe to deal 150% of melee weapon damage"
 msgstr ""
 
@@ -1775,71 +1907,71 @@ msgstr ""
 msgid "Fire a shot that ignores armor and goes through multiple enemies"
 msgstr ""
 
-#: ../powers/categories/ranger.txt:13
+#: ../powers/categories/ranger.txt:12
 msgid "Multishot"
 msgstr ""
 
-#: ../powers/categories/ranger.txt:16
+#: ../powers/categories/ranger.txt:15
 msgid "Shoot three projectiles simultaneously"
 msgstr ""
 
-#: ../powers/categories/ranger.txt:23
+#: ../powers/categories/ranger.txt:21
 msgid "Shoot"
 msgstr ""
 
-#: ../powers/categories/ranger.txt:26
+#: ../powers/categories/ranger.txt:24
 msgid "Basic ranged attack"
 msgstr ""
 
-#: ../powers/categories/ranger.txt:32
+#: ../powers/categories/ranger.txt:30
 msgid "Rapid Fire"
 msgstr ""
 
-#: ../powers/categories/ranger.txt:35
+#: ../powers/categories/ranger.txt:33
 msgid "Fire five low power missiles in quick succession"
 msgstr ""
 
-#: ../powers/categories/ranger.txt:42
+#: ../powers/categories/ranger.txt:40
 msgid "Ember Shot"
 msgstr ""
 
-#: ../powers/categories/ranger.txt:45
+#: ../powers/categories/ranger.txt:43
 msgid "Fire a spray of burning embers at close range. Effective against armored enemies."
 msgstr ""
 
-#: ../powers/categories/ranger.txt:71
+#: ../powers/categories/ranger.txt:68
 msgid "Caltrops"
 msgstr ""
 
-#: ../powers/categories/ranger.txt:74
+#: ../powers/categories/ranger.txt:71
 msgid "This trap deals 75% ranged weapon damage and slows the target."
 msgstr ""
 
-#: ../powers/categories/ranger.txt:92
+#: ../powers/categories/ranger.txt:89
 msgid "Bear Trap"
 msgstr ""
 
-#: ../powers/categories/ranger.txt:95
+#: ../powers/categories/ranger.txt:92
 msgid "This trap deals 150% ranged weapon damage and immobilizes the target."
 msgstr ""
 
-#: ../powers/categories/ranger.txt:143
+#: ../powers/categories/ranger.txt:140
 msgid "Revert Form"
 msgstr ""
 
-#: ../powers/categories/ranger.txt:148
+#: ../powers/categories/ranger.txt:145
 msgid "Transform back to human"
 msgstr ""
 
-#: ../powers/categories/ranger.txt:158
+#: ../powers/categories/ranger.txt:155
 msgid "Move undetected with the opportunity to perform a sneak attack"
 msgstr ""
 
-#: ../powers/categories/ranger.txt:168
+#: ../powers/categories/ranger.txt:165
 msgid "Sneak Attack"
 msgstr ""
 
-#: ../powers/categories/ranger.txt:171
+#: ../powers/categories/ranger.txt:168
 msgid "Melee attack while stealthed for a high chance to crit"
 msgstr ""
 
@@ -1879,11 +2011,11 @@ msgstr ""
 msgid "Shock"
 msgstr ""
 
-#: ../powers/categories/magician.txt:46
+#: ../powers/categories/magician.txt:45
 msgid "Heal"
 msgstr ""
 
-#: ../powers/categories/magician.txt:49
+#: ../powers/categories/magician.txt:48
 msgid "Restore HP"
 msgstr ""
 
@@ -1895,47 +2027,47 @@ msgstr ""
 msgid "Stun nearby enemies"
 msgstr ""
 
-#: ../powers/categories/magician.txt:82
+#: ../powers/categories/magician.txt:83
 msgid "Shield"
 msgstr ""
 
-#: ../powers/categories/magician.txt:85
+#: ../powers/categories/magician.txt:86
 msgid "Create a force field that absorbs damage"
 msgstr ""
 
-#: ../powers/categories/magician.txt:95
+#: ../powers/categories/magician.txt:97
 msgid "Freeze"
 msgstr ""
 
-#: ../powers/categories/magician.txt:98
+#: ../powers/categories/magician.txt:100
 msgid "Create a ray of piercing cold that slows enemies"
 msgstr ""
 
-#: ../powers/categories/magician.txt:119
+#: ../powers/categories/magician.txt:121
 msgid "Teleport"
 msgstr ""
 
-#: ../powers/categories/magician.txt:141
+#: ../powers/categories/magician.txt:143
 msgid "Burn"
 msgstr ""
 
-#: ../powers/categories/magician.txt:144
+#: ../powers/categories/magician.txt:146
 msgid "Blast enemies in a distant area with fire"
 msgstr ""
 
-#: ../powers/categories/magician.txt:167
+#: ../powers/categories/magician.txt:168
 msgid "Greater Channel"
 msgstr ""
 
-#: ../powers/categories/magician.txt:170
+#: ../powers/categories/magician.txt:171
 msgid "Magic attack with 10% MP steal"
 msgstr ""
 
-#: ../powers/categories/magician.txt:187
+#: ../powers/categories/magician.txt:188
 msgid "Thunderstrike"
 msgstr ""
 
-#: ../powers/categories/magician.txt:190
+#: ../powers/categories/magician.txt:191
 msgid "Lightning strikes from the sky to stun enemies"
 msgstr ""
 

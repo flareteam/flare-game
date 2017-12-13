@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.17\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-10 07:45+\n"
+"POT-Creation-Date: 2017-12-13 10:05+\n"
 "PO-Revision-Date: 2013-03-18 18:38+0200\n"
 "Last-Translator: Igor Paliychuk <mansonigor@gmail.com>\n"
 "Language-Team: Ukrainian <LL@li.org>\n"
@@ -19,55 +19,55 @@ msgstr ""
 msgid "Gold"
 msgstr "Золото"
 
-#: ../items/items.txt:68
+#: ../items/items.txt:69
 msgid "Averguard Tome"
 msgstr "Фоліант Авергуарда"
 
-#: ../items/items.txt:70
+#: ../items/items.txt:72
 msgid "This tome bears the seal of the Averguard"
 msgstr "На цьому фоліанті є печатка Авергуарда"
 
-#: ../items/items.txt:76
+#: ../items/items.txt:78
 msgid "Averguard Key"
 msgstr "Ключ Авергуарда"
 
-#: ../items/items.txt:78
+#: ../items/items.txt:81
 msgid "Opens special doors in Averguard Keep"
 msgstr "Відкриває спеціальні двері в Донжоні Авергуарду"
 
-#: ../items/items.txt:84
+#: ../items/items.txt:87
 msgid "Langlier's Talisman"
 msgstr "Талісман Лангліера"
 
-#: ../items/items.txt:86
+#: ../items/items.txt:90
 msgid "Etched runes surround this talisman"
 msgstr "Гравіровані руни оточують цей талісман"
 
-#: ../items/items.txt:94
+#: ../items/items.txt:98
 msgid "Scathelocke's Spellbook"
 msgstr "Книга заклинань Скеслока"
 
-#: ../items/items.txt:103
+#: ../items/items.txt:109
 msgid "Scathelocke's Key"
 msgstr "Ключ Скеслока"
 
-#: ../items/items.txt:105
+#: ../items/items.txt:112
 msgid "Opens Scathelocke's Runed Chest"
 msgstr "Відкриває Рунічну скриню Скеслока"
 
-#: ../items/items.txt:111
+#: ../items/items.txt:118
 msgid "Vesuvvio's Key"
 msgstr "Ключ Везувіо"
 
-#: ../items/items.txt:113
+#: ../items/items.txt:121
 msgid "Opens Vesuvvio's Runed Chest"
 msgstr "Відкриває Рунічну скриню Везувіо"
 
-#: ../items/items.txt:119
+#: ../items/items.txt:127
 msgid "Grisbon's Key"
 msgstr "Ключ Грісбона"
 
-#: ../items/items.txt:121
+#: ../items/items.txt:130
 msgid "Opens Grisbon's Runed Chest"
 msgstr "Відкриває Рунічну скриню Грісбона"
 
@@ -76,12 +76,30 @@ msgid "Sage's Wardrobe"
 msgstr "Одяг мудреця"
 
 #: ../engine/elements.txt:3
-msgid "Fire Resistance"
-msgstr "Опір вогню"
+#, fuzzy
+msgid "Fire"
+msgstr "Вогняні боєприпаси"
 
 #: ../engine/elements.txt:7
-msgid "Ice Resistance"
-msgstr "Опір льоду"
+msgid "Ice"
+msgstr ""
+
+#: ../engine/elements.txt:11
+msgid "Air"
+msgstr ""
+
+#: ../engine/elements.txt:15
+msgid "Earth"
+msgstr ""
+
+#: ../engine/elements.txt:19
+#, fuzzy
+msgid "Light"
+msgstr "Лицар"
+
+#: ../engine/elements.txt:23
+msgid "Shadow"
+msgstr ""
 
 #: ../engine/classes.txt:6
 msgid "Brute"
@@ -423,271 +441,283 @@ msgstr "Гнійний зомбі"
 msgid "Ancient Temple"
 msgstr "Стародавній храм"
 
-#: ../maps/ancient_temple.txt:447
+#: ../maps/ancient_temple.txt:352
+msgid "Frontier Plains"
+msgstr "Прикордонні рівнини"
+
+#: ../maps/ancient_temple.txt:464
 msgid "Treasure Chest"
 msgstr "Скриня зі скарбами"
 
-#: ../maps/ancient_temple.txt:468
+#: ../maps/ancient_temple.txt:487
 msgid "Tho' Nature, red in tooth and claw; With ravine, shriek'd against his creed"
 msgstr "Tho' Nature, red in tooth and claw; With ravine, shriek'd against his creed"
 
-#: ../maps/ancient_temple.txt:471
+#: ../maps/ancient_temple.txt:490
 msgid "In Memoriam"
 msgstr "In Memoriam"
 
-#: ../maps/ancient_temple.txt:618
+#: ../maps/ancient_temple.txt:654
 msgid "Ancient Temple waypoint discovered."
 msgstr "Виявлений телепорт в Стародавньому храмі."
 
-#: ../maps/ancient_temple.txt:629
+#: ../maps/ancient_temple.txt:667
 msgid "Warp Zone"
 msgstr "Мертва Зона"
 
-#: ../maps/averguard_academy.txt:9
+#: ../maps/averguard_academy.txt:10
 msgid "Averguard Academy"
 msgstr "Академія Авергуарду"
 
-#: ../maps/averguard_academy.txt:345
-msgid "\"Some say the Averguard Academy is the greatest collection of knowledge within the empire.\""
-msgstr "\"Дехто каже що Академія Авергуарду є найбільшою скарбницею знань в межах імперії.\""
-
-#: ../maps/averguard_academy.txt:348
-msgid "Book Stand"
-msgstr "Стенд для книг"
-
-#: ../maps/averguard_academy.txt:356
-msgid "\"Professor Langlier is High Sage of the Averguard.  Several volumes kept here are his own writings.\""
-msgstr "\"Професор Ланглієр є Високим Мудрецем Авергуарду.  Декотрі томи, що тут зберігаються, написані ним.\""
-
-#: ../maps/averguard_academy.txt:367
-msgid "\"The Academy is only open to oathkeeping members of the Averguard.  Few others know of its existence.\""
-msgstr "\"Академія відкрита лише для тих, хто присягнув Авергуарду.  Деякі інші знають про її існування.\""
-
-#: ../maps/averguard_academy.txt:378
-msgid "\"The peasants could not be trusted with literacy.  Most gave up their books without incident.\""
-msgstr "\"Селянам не можна було довірити писемність.  Більшість з них просто віддали свої книги.\""
-
-#: ../maps/averguard_academy.txt:390
-msgid "This false book has a secret compartment."
-msgstr "Ця фальшива книга має секретний відсік."
-
-#: ../maps/averguard_academy.txt:406
-msgid "Barrel"
-msgstr "Бочка"
-
-#: ../maps/averguard_academy.txt:450
-msgid "Crate"
-msgstr "Ящик"
-
-#: ../maps/averguard_academy.txt:478
-msgid "This tomb glows with magical runes."
-msgstr "Ця гробниця світиться  магічними рунами."
-
-#: ../maps/averguard_academy.txt:488
-msgid "Langlier's Tomb"
-msgstr "Могила Лангліера"
-
-#: ../maps/averguard_atrium.txt:9
+#: ../maps/averguard_academy.txt:340
 msgid "Averguard Atrium"
 msgstr "Атріум Авергуарда"
 
-#: ../maps/averguard_atrium.txt:264
-msgid "Averguard Atrium waypoint discovered"
-msgstr "Виявлений телепорт в Атріумі Авергуарда"
+#: ../maps/averguard_academy.txt:349
+msgid "\"Some say the Averguard Academy is the greatest collection of knowledge within the empire.\""
+msgstr "\"Дехто каже що Академія Авергуарду є найбільшою скарбницею знань в межах імперії.\""
 
-#: ../maps/averguard_complex.txt:9
-msgid "Averguard Complex"
-msgstr "Комплекс Авергуарда"
+#: ../maps/averguard_academy.txt:352
+msgid "Book Stand"
+msgstr "Стенд для книг"
 
-#: ../maps/averguard_complex.txt:479
-msgid "This book is entitled \"Training Your Antlion\". Chapter 1 is \"How Not To Get Eaten\". The rest of the book is unfinished."
-msgstr "Ця книга називається \"Натренуй свого Мурашиного лева\". Глава 1: \"Як не бути з'їденим\". Далі книга не завершена."
+#: ../maps/averguard_academy.txt:361
+msgid "\"Professor Langlier is High Sage of the Averguard.  Several volumes kept here are his own writings.\""
+msgstr "\"Професор Ланглієр є Високим Мудрецем Авергуарду.  Декотрі томи, що тут зберігаються, написані ним.\""
 
-#: ../maps/averguard_complex.txt:606
-msgid "Switch System"
-msgstr "Система перемикачів"
+#: ../maps/averguard_academy.txt:373
+msgid "\"The Academy is only open to oathkeeping members of the Averguard.  Few others know of its existence.\""
+msgstr "\"Академія відкрита лише для тих, хто присягнув Авергуарду.  Деякі інші знають про її існування.\""
 
-#: ../maps/averguard_prison.txt:9
-msgid "Averguard Prison"
-msgstr "В'язниця Авергуарда"
+#: ../maps/averguard_academy.txt:385
+msgid "\"The peasants could not be trusted with literacy.  Most gave up their books without incident.\""
+msgstr "\"Селянам не можна було довірити писемність.  Більшість з них просто віддали свої книги.\""
 
-#: ../maps/averguard_prison.txt:369
-msgid "Switch"
-msgstr "Перемикач"
+#: ../maps/averguard_academy.txt:398
+msgid "This false book has a secret compartment."
+msgstr "Ця фальшива книга має секретний відсік."
 
-#: ../maps/averguard_prison.txt:377
-msgid "The last entry of this well-preserved journal reads: \"I feared it would come to this.  I knew the Warden's secrets but they would not be contained forever.\""
-msgstr "Останній запис цього добре збереженого журналу говорить: \"Я боявся що дійде до цього. Я знав секрети Тюремника, але вони не будуть берегтись вічно.\""
+#: ../maps/averguard_academy.txt:415
+msgid "Barrel"
+msgstr "Бочка"
 
-#: ../maps/averguard_temple.txt:9
+#: ../maps/averguard_academy.txt:463
+msgid "Crate"
+msgstr "Ящик"
+
+#: ../maps/averguard_academy.txt:494
+msgid "This tomb glows with magical runes."
+msgstr "Ця гробниця світиться  магічними рунами."
+
+#: ../maps/averguard_academy.txt:505
+msgid "Langlier's Tomb"
+msgstr "Могила Лангліера"
+
+#: ../maps/averguard_atrium.txt:220
+msgid "Goblin Warrens"
+msgstr "Район Гоблінів"
+
+#: ../maps/averguard_atrium.txt:229
 msgid "Averguard Temple"
 msgstr "Храм Авергуарда"
 
-#: ../maps/averguard_temple.txt:450
+#: ../maps/averguard_atrium.txt:238
+msgid "Averguard Prison"
+msgstr "В'язниця Авергуарда"
+
+#: ../maps/averguard_atrium.txt:256
+msgid "Averguard Complex"
+msgstr "Комплекс Авергуарда"
+
+#: ../maps/averguard_atrium.txt:279
+msgid "Averguard Atrium waypoint discovered"
+msgstr "Виявлений телепорт в Атріумі Авергуарда"
+
+#: ../maps/averguard_complex.txt:490
+msgid "This book is entitled \"Training Your Antlion\". Chapter 1 is \"How Not To Get Eaten\". The rest of the book is unfinished."
+msgstr "Ця книга називається \"Натренуй свого Мурашиного лева\". Глава 1: \"Як не бути з'їденим\". Далі книга не завершена."
+
+#: ../maps/averguard_complex.txt:629
+msgid "Switch System"
+msgstr "Система перемикачів"
+
+#: ../maps/averguard_prison.txt:375
+msgid "Switch"
+msgstr "Перемикач"
+
+#: ../maps/averguard_prison.txt:384
+msgid "The last entry of this well-preserved journal reads: \"I feared it would come to this.  I knew the Warden's secrets but they would not be contained forever.\""
+msgstr "Останній запис цього добре збереженого журналу говорить: \"Я боявся що дійде до цього. Я знав секрети Тюремника, але вони не будуть берегтись вічно.\""
+
+#: ../maps/averguard_temple.txt:455
 msgid "You insert the Averguard Key. Runes glow around the door, then fade. The door is still sealed."
 msgstr "Ви вставляєте ключ Авергуарда. Руни навколо дверей спалахують а потім гаснуть. Двері все же запечатані."
 
-#: ../maps/averguard_temple.txt:456
+#: ../maps/averguard_temple.txt:461
 msgid "Sealed Temple Door"
 msgstr "Герметичні двері храму"
 
-#: ../maps/averguard_temple.txt:464
+#: ../maps/averguard_temple.txt:470
 msgid "You read aloud the runes on Langlier's Talisman. The Avergard Key begins to glow!"
 msgstr "Ви вголос читаєте руни над Талісманом Лангліера. Ключ від Авергуарда починає світитися!"
 
-#: ../maps/averguard_temple.txt:471
+#: ../maps/averguard_temple.txt:477
 msgid "Activate Talisman"
 msgstr "Активувати Талісман"
 
-#: ../maps/averguard_temple.txt:487
+#: ../maps/averguard_temple.txt:495
 msgid "\"Some said Sir Maddox cared too much for the peasants.  He would not quarantine, saying the villagers did not deserve to die locked away.\""
 msgstr "\"Одні казали, що сер Меддокс занадто піклувався про селян.  Він би не ізолював їх, сказавши, що сільські жителі не заслуговують того, щоб померти замкненими.\""
 
-#: ../maps/averguard_temple.txt:497
+#: ../maps/averguard_temple.txt:506
 msgid "\"Maddox died of the plague in 638.  After attempts to magically revive him failed he was sealed deep behind the temple.\""
 msgstr "\"Меддокс помер від чуми в 638 році.  Після того як спроби воскресити його з допомогою магії зазнали невдачі, він був запечатаний глибоко за храмом.\""
 
-#: ../maps/averguard_temple.txt:507
+#: ../maps/averguard_temple.txt:517
 msgid "This chest is locked."
 msgstr "Ця скриня замкнена."
 
-#: ../maps/averguard_temple.txt:526
+#: ../maps/averguard_temple.txt:538
 msgid "A plaque under the statue reads \"Sir Evan Maddox, may he return to rescue us all\""
 msgstr "На дошці під статуєю написано: \"Сер Еван Меддокс, може він повернеться, щоб врятувати всіх нас\""
 
-#: ../maps/averguard_temple.txt:533
+#: ../maps/averguard_temple.txt:546
 msgid "A ghastly voice reverberates from the next chamber.  \"What fool disturbs my tomb?!\""
 msgstr "З наступної камери доноситься жахливий голос .  \"Який дурень турбує мою могилу?!\""
 
-#: ../maps/averguard_temple.txt:541
+#: ../maps/averguard_temple.txt:555
 msgid "You wipe dust away from the tomb lid, revealing an inscription: \"Here lies Sir Evan Maddox\""
 msgstr "Ви витираєте пил з кришки труни, і виявляєте напис: \"Тут спочиває сер Еван Меддокс\""
 
-#: ../maps/averguard_temple.txt:543
+#: ../maps/averguard_temple.txt:557
 msgid "Maddox's Tomb"
 msgstr "Могила Меддокса"
 
-#: ../maps/averguard_temple.txt:562
+#: ../maps/averguard_temple.txt:579
 msgid "A locked gate is here, with a small keyhole in the center."
 msgstr "Тут замкнені ворота з невеликою замковою щілиною в центрі."
 
-#: ../maps/brothers_lair_atrium.txt:8
+#: ../maps/brothers_lair_atrium.txt:9
 msgid "Brothers' Lair Atrium"
 msgstr "Атріум лігва Братів"
 
-#: ../maps/brothers_lair_atrium.txt:242
-msgid "Brothers Lair Atrium waypoint discovered"
-msgstr "Виявлений телепорт в Атріумі лігва Братів"
-
-#: ../maps/brothers_lair_fire_hall.txt:9
-msgid "Brothers' Lair Fire Hall"
-msgstr "Вогняний зал лігва Братів"
-
-#: ../maps/brothers_lair_fire_hall.txt:352
-msgid "Runed Chest"
-msgstr "Рунічна скриня"
-
-#: ../maps/brothers_lair_fire_hall.txt:372
-msgid "\"Today Pompeii got a little over-excited to meet me and blew himself up. So I had to go into the caves and catch myself a NEW antlion burster. Again. I think I'm going to name this one 'Krakatoa'. ~Vesuvvio (the Destroyer)\""
-msgstr "\"Сьогодні Помпеї був занадто радий мене бачити і вибухнув. Так що мені довелося йти в печери і спіймати собі НОВОГО розривного мурашиного лева. Знову. Думаю я назву його 'Кракатоа'. ~Везувіо (Руйнівник)\""
-
-#: ../maps/brothers_lair_ice_hall.txt:9
+#: ../maps/brothers_lair_atrium.txt:190
 msgid "Brothers' Lair Ice Hall"
 msgstr "Льодяний зал лігва Братів"
 
-#: ../maps/brothers_lair_ice_hall.txt:289
-msgid "Suspicious Bookcase"
-msgstr "Підозріла книжкова шафа"
-
-#: ../maps/brothers_lair_ice_hall.txt:297
-msgid "\"When we could no longer stand the idiotic practices of our master, I hatched a plan to kill him. My brothers agreed the deed had to be done.\""
-msgstr "\"Коли ми вже не могли стерпіти ідіотське навчання нашого вчителя, я намітив план щоб його вбити. Мої брати погодились що справа мала бути зроблена.\""
-
-#: ../maps/brothers_lair_ice_hall.txt:308
-msgid "\"In accordance with our plan, G. asked the old fool to teach him about the preparation of corpses in the later stages of decay. Naturally, the corpse in question was a cleverly disguised bomb made by V.\""
-msgstr "\"Згідно з нашим планом, Г. попросив старого дурня, щоб той навчив його про підготовку трупів в більш пізніх стадіях розпаду. Звичайно, що труп про який йшлося, був спритно замаскованою бомбою, зробленою В.\""
-
-#: ../maps/brothers_lair_ice_hall.txt:318
-msgid "\"My brothers and I wandered around for a few days. In an incredible stroke of luck, we encountered a master necromancer who, seeing the marks of banishment on our foreheads, took us as his apprentices.\""
-msgstr "\"Мої брати і я бродили навколо протягом кількох днів. Нам неймовірно пощастило і ми зіткнулися з майстром некромантом, який, побачивши знаки вигнання на наших чолах, взяв нас на навчання до себе.\""
-
-#: ../maps/brothers_lair_ice_hall.txt:321
-msgid "Bookcase"
-msgstr "Книжкова шафа"
-
-#: ../maps/brothers_lair_ice_hall.txt:329
-msgid "\"We grew swiftly under the tutelage of the necromancer. The more we learned, the more we realized we could do better than the short-sighted git.\""
-msgstr "\"Ми стрімко виросли під опікою некроманта. Чим більше ми дізнавалися, тим краще ми розуміли, що ми можемо зробити більше, ніж проста сліпа ходьба.\""
-
-#: ../maps/brothers_lair_ice_hall.txt:340
-msgid "\"My brothers V. and G. used to go to a wizard's academy with me. We were top students until one day V. killed another student in a spontaneous fit of rage.\""
-msgstr "\"Мої брати В. і Г. колись ходили разом зі мною до чаклунської академії. Ми були кращими студентами, допоки в один прекрасний день В. вбив іншого студента в спонтанному нападі люті.\""
-
-#: ../maps/brothers_lair_ice_hall.txt:351
-msgid "\"Naturally, V. was expelled for his crime. It was foolish of us, but G. and I decided to defend our brother. We were expelled too. The wizards magically marked us with a sign of banishment on our foreheads so that no wizard would dare teach us.\""
-msgstr "\"Очевидно, що В. був виключений з академії за свій злочин. Це було нерозумно з нашого боку, але Г. і я вирішили захистити нашого брата. Нас вигнали теж. Магістри чарами відмітили нас знаком вигнання на лобі так, щоб жоден магістр не посмів нас навчати.\""
-
-#: ../maps/brothers_lair_ice_hall.txt:362
-msgid "\"G. suggested that each of us should take one of the halls in the old necromancer's lair.\""
-msgstr "\"Г. запропонував, щоб кожен з нас взяв собі один із залів в лігві старого некроманта.\""
-
-#: ../maps/brothers_lair_ice_hall.txt:373
-msgid "\"It's days like today that make me wonder if I should go a step further and eliminate V. and G. too... they're getting on my nerves. ~Scathelocke\""
-msgstr "\"Такі дні, як сьогодні, змушують мене запитати себе чи повинен я піти далі і ліквідувати В. і Г. також ... вони починають діяти мені на нерви. ~Скеслок\""
-
-#: ../maps/brothers_lair_sacrifice_room.txt:9
+#: ../maps/brothers_lair_atrium.txt:200
 msgid "Brothers' Sacrifice Room"
 msgstr "Жертовна кімната Братів"
 
-#: ../maps/brothers_lair_wind_hall.txt:8
+#: ../maps/brothers_lair_atrium.txt:210
+msgid "Cave of Living Bones 2"
+msgstr "Печера Живих Кісток 2"
+
+#: ../maps/brothers_lair_atrium.txt:220
+msgid "Brothers' Lair Fire Hall"
+msgstr "Вогняний зал лігва Братів"
+
+#: ../maps/brothers_lair_atrium.txt:230
 msgid "Brothers' Lair Wind Hall"
 msgstr "Вітровий зал лігва Братів"
 
-#: ../maps/brothers_lair_wind_hall.txt:192
+#: ../maps/brothers_lair_atrium.txt:260
+msgid "Brothers Lair Atrium waypoint discovered"
+msgstr "Виявлений телепорт в Атріумі лігва Братів"
+
+#: ../maps/brothers_lair_fire_hall.txt:361
+msgid "Runed Chest"
+msgstr "Рунічна скриня"
+
+#: ../maps/brothers_lair_fire_hall.txt:383
+msgid "\"Today Pompeii got a little over-excited to meet me and blew himself up. So I had to go into the caves and catch myself a NEW antlion burster. Again. I think I'm going to name this one 'Krakatoa'. ~Vesuvvio (the Destroyer)\""
+msgstr "\"Сьогодні Помпеї був занадто радий мене бачити і вибухнув. Так що мені довелося йти в печери і спіймати собі НОВОГО розривного мурашиного лева. Знову. Думаю я назву його 'Кракатоа'. ~Везувіо (Руйнівник)\""
+
+#: ../maps/brothers_lair_ice_hall.txt:292
+msgid "Suspicious Bookcase"
+msgstr "Підозріла книжкова шафа"
+
+#: ../maps/brothers_lair_ice_hall.txt:301
+msgid "\"When we could no longer stand the idiotic practices of our master, I hatched a plan to kill him. My brothers agreed the deed had to be done.\""
+msgstr "\"Коли ми вже не могли стерпіти ідіотське навчання нашого вчителя, я намітив план щоб його вбити. Мої брати погодились що справа мала бути зроблена.\""
+
+#: ../maps/brothers_lair_ice_hall.txt:313
+msgid "\"In accordance with our plan, G. asked the old fool to teach him about the preparation of corpses in the later stages of decay. Naturally, the corpse in question was a cleverly disguised bomb made by V.\""
+msgstr "\"Згідно з нашим планом, Г. попросив старого дурня, щоб той навчив його про підготовку трупів в більш пізніх стадіях розпаду. Звичайно, що труп про який йшлося, був спритно замаскованою бомбою, зробленою В.\""
+
+#: ../maps/brothers_lair_ice_hall.txt:324
+msgid "\"My brothers and I wandered around for a few days. In an incredible stroke of luck, we encountered a master necromancer who, seeing the marks of banishment on our foreheads, took us as his apprentices.\""
+msgstr "\"Мої брати і я бродили навколо протягом кількох днів. Нам неймовірно пощастило і ми зіткнулися з майстром некромантом, який, побачивши знаки вигнання на наших чолах, взяв нас на навчання до себе.\""
+
+#: ../maps/brothers_lair_ice_hall.txt:327
+msgid "Bookcase"
+msgstr "Книжкова шафа"
+
+#: ../maps/brothers_lair_ice_hall.txt:336
+msgid "\"We grew swiftly under the tutelage of the necromancer. The more we learned, the more we realized we could do better than the short-sighted git.\""
+msgstr "\"Ми стрімко виросли під опікою некроманта. Чим більше ми дізнавалися, тим краще ми розуміли, що ми можемо зробити більше, ніж проста сліпа ходьба.\""
+
+#: ../maps/brothers_lair_ice_hall.txt:348
+msgid "\"My brothers V. and G. used to go to a wizard's academy with me. We were top students until one day V. killed another student in a spontaneous fit of rage.\""
+msgstr "\"Мої брати В. і Г. колись ходили разом зі мною до чаклунської академії. Ми були кращими студентами, допоки в один прекрасний день В. вбив іншого студента в спонтанному нападі люті.\""
+
+#: ../maps/brothers_lair_ice_hall.txt:360
+msgid "\"Naturally, V. was expelled for his crime. It was foolish of us, but G. and I decided to defend our brother. We were expelled too. The wizards magically marked us with a sign of banishment on our foreheads so that no wizard would dare teach us.\""
+msgstr "\"Очевидно, що В. був виключений з академії за свій злочин. Це було нерозумно з нашого боку, але Г. і я вирішили захистити нашого брата. Нас вигнали теж. Магістри чарами відмітили нас знаком вигнання на лобі так, щоб жоден магістр не посмів нас навчати.\""
+
+#: ../maps/brothers_lair_ice_hall.txt:372
+msgid "\"G. suggested that each of us should take one of the halls in the old necromancer's lair.\""
+msgstr "\"Г. запропонував, щоб кожен з нас взяв собі один із залів в лігві старого некроманта.\""
+
+#: ../maps/brothers_lair_ice_hall.txt:384
+msgid "\"It's days like today that make me wonder if I should go a step further and eliminate V. and G. too... they're getting on my nerves. ~Scathelocke\""
+msgstr "\"Такі дні, як сьогодні, змушують мене запитати себе чи повинен я піти далі і ліквідувати В. і Г. також ... вони починають діяти мені на нерви. ~Скеслок\""
+
+#: ../maps/brothers_lair_wind_hall.txt:194
 msgid "Rising Wind Switch"
 msgstr "Перемикач Піднятого Вітру"
 
-#: ../maps/brothers_lair_wind_hall.txt:205
+#: ../maps/brothers_lair_wind_hall.txt:208
 msgid "Rising Fire Switch"
 msgstr "Перемикач Піднятого Вогню"
 
-#: ../maps/brothers_lair_wind_hall.txt:215
+#: ../maps/brothers_lair_wind_hall.txt:219
 msgid "Rising Ice Switch"
 msgstr "Перемикач Піднятого Льоду"
 
-#: ../maps/brothers_lair_wind_hall.txt:228
+#: ../maps/brothers_lair_wind_hall.txt:233
 msgid "Falling Ice Switch"
 msgstr "Перемикач Падаючого Льоду"
 
-#: ../maps/brothers_lair_wind_hall.txt:238
+#: ../maps/brothers_lair_wind_hall.txt:244
 msgid "Falling Wind Switch"
 msgstr "Перемикач Падаючого Вітру"
 
-#: ../maps/brothers_lair_wind_hall.txt:251
+#: ../maps/brothers_lair_wind_hall.txt:258
 msgid "Falling Fire Switch"
 msgstr "Перемикач Падаючого Вогню"
 
-#: ../maps/brothers_lair_wind_hall.txt:264
+#: ../maps/brothers_lair_wind_hall.txt:272
 msgid "Waiting Wind Switch"
 msgstr "Перемикач Очікуючого Вітру"
 
-#: ../maps/brothers_lair_wind_hall.txt:275
+#: ../maps/brothers_lair_wind_hall.txt:284
 msgid "Waiting Fire Switch"
 msgstr "Перемикач Очікуючого Вогню"
 
-#: ../maps/brothers_lair_wind_hall.txt:288
+#: ../maps/brothers_lair_wind_hall.txt:298
 msgid "Waiting Ice Switch"
 msgstr "Перемикач Очікуючого Льоду"
 
-#: ../maps/brothers_lair_wind_hall.txt:296
+#: ../maps/brothers_lair_wind_hall.txt:307
 msgid "\"Fire is either Falling or Waiting. One element, one temperament.\""
 msgstr "\"Вогонь або Падає або Очікує. Одна стихія, один темперамент.\""
 
-#: ../maps/brothers_lair_wind_hall.txt:307
+#: ../maps/brothers_lair_wind_hall.txt:319
 msgid "\"Wind is not Rising. Wind is Falling on the firmament.\""
 msgstr "\"Вітер не Піднімається. Вітер Падає на небосхил.\""
 
-#: ../maps/brothers_lair_wind_hall.txt:326
+#: ../maps/brothers_lair_wind_hall.txt:341
 msgid "\"People used to ask me why I use a sword rather than a wand. It never occurs to them that the metal blade can conduct and channel lightning as well as (or better than!) any enchanted twig. ~Grisbon\""
 msgstr "\"Люди часто запитують мене, чому я користуюсь мечем, а не паличкою. Їм ніколи не траплялось, що металеве лезо може проводити і скеровувати блискавку так же добре (або навіть краще!) як будь яка зачарована гілляка. ~Грісбон\""
 
@@ -695,147 +725,135 @@ msgstr "\"Люди часто запитують мене, чому я кори�
 msgid "Caves Level 1"
 msgstr "Печери Рівень 1"
 
-#: ../maps/cave1.txt:348
-msgid "Mine Cart"
-msgstr "Шахтний візок"
-
-#: ../maps/cave1.txt:385
-msgid "The crumbling walls of the south tunnel are held up by planks of rotting wood."
-msgstr "Покришені стіни південного тунелю тримаються на гнилих дошках."
-
-#: ../maps/cave1.txt:468
-msgid "These goblins have captured a human trader.  Human bones are carefully arranged around the pillar in preparation for a goblin ritual."
-msgstr "Ці гобліни захопили торговця. Людські кісти ретельно викладені навколо стовпа і гобліни готуються до проведення ритуалу."
-
-#: ../maps/cave1.txt:476
-msgid "Talrych says, \"You arrived just in time.  Please, take this.\""
-msgstr "Тарлич каже, \"Ти якраз вчасно. Будь ласка візьми це.\""
-
-#: ../maps/cave1.txt:484
-msgid "The walls collapse inward and rubble blocks off the passage!"
-msgstr "Стіни обвалюються всередину і щебінь блокує прохід!"
-
-#: ../maps/cave_of_living_bones1.txt:8
-msgid "Cave of Living Bones 1"
-msgstr "Печера Живих Кісток 1"
-
-#: ../maps/cave_of_living_bones2.txt:9
-msgid "Cave of Living Bones 2"
-msgstr "Печера Живих Кісток 2"
-
-#: ../maps/cave_of_living_bones2.txt:323
-msgid "This pillar is laced with cracks and crevices. Maybe with enough force it can be knocked down."
-msgstr "Цей стовп пронизаний тріщинами і щілинами. Моживо якщо прикласти досить сили він завалиться."
-
-#: ../maps/cave_of_living_bones2.txt:326
-msgid "Giant Pillar"
-msgstr "Величезний стовп"
-
-#: ../maps/cave_of_living_bones2.txt:334
-msgid "Run! You don't want to be caught in the blast of your own explosion!"
-msgstr "Тікай! Ти не хочеш постраждати від вибуху власної вибухівки!"
-
-#: ../maps/cave_of_living_bones2.txt:339
-msgid "Place Explosive"
-msgstr "Встановіть Вибухівку"
-
-#: ../maps/cave_of_living_bones3.txt:8
-msgid "Cave of Living Bones 3"
-msgstr "Печера Живих Кісток 3"
-
-#: ../maps/cave_of_living_bones3.txt:130
-msgid "Crate of Blasting Powder"
-msgstr "Ящик з вибуховою речовиною"
-
-#: ../maps/frontier_outpost.txt:8
-msgid "Frontier Outpost"
-msgstr "Прикордонна застава"
-
-#: ../maps/frontier_outpost.txt:273
-msgid "Shared Stash"
-msgstr "Спільний тайник"
-
-#: ../maps/frontier_outpost.txt:280
-msgid "Frontier Outpost waypoint discovered."
-msgstr "Виявлений телепорт в Прикордонній заставі."
-
-#: ../maps/frontier_plains.txt:9
-msgid "Frontier Plains"
-msgstr "Прикордонні рівнини"
-
-#: ../maps/frontier_plains.txt:838
-msgid "Supplies"
-msgstr "Продовольство"
-
-#: ../maps/goblin_warrens.txt:9
-msgid "Goblin Warrens"
-msgstr "Район Гоблінів"
-
-#: ../maps/goblin_warrens.txt:328
-msgid "This book bears the seal of the Averguard"
-msgstr "На цій книзі є печатка Авергуарда"
-
-#: ../maps/goblin_warrens.txt:341
-msgid "\"In the Age of Settlement, the Averguard Knights defended peasants against the chaos of the wilderness.\""
-msgstr "\"В Епоху заселення, Лицарі Авергуарду захищали селян від хаосу дикої природи.\""
-
-#: ../maps/goblin_warrens.txt:352
-msgid "\"Sir Evan Maddox led the Averguard when the plague struck.  Powerful clerics from the corners of the world were brought here.  By the time a cure was found it was too late.\""
-msgstr "\"Сер Еван Меддокс вів Авергуард коли прийшла чума.  Могутні церковники з різних куточків світу прибули сюди.  Але коли лікування було знайдено, було вже пізно.\""
-
-#: ../maps/lost_mines1.txt:9
+#: ../maps/cave1.txt:345
 msgid "Lost Mines Level 1"
 msgstr "Загублена Шахта Рівень 1"
 
-#: ../maps/lost_mines1.txt:358
-msgid "It looks like the necromancer has been raising the corpses of dead miners as his minions."
-msgstr "Схоже некромант підняв трупи загиблих шахтарів як своїх оплічників."
+#: ../maps/cave1.txt:355
+msgid "Mine Cart"
+msgstr "Шахтний візок"
 
-#: ../maps/lost_mines1.txt:415
-msgid "A natural underground river flows through this room."
-msgstr "Через цю кімнату протікає природня підземна річка."
+#: ../maps/cave1.txt:396
+msgid "The crumbling walls of the south tunnel are held up by planks of rotting wood."
+msgstr "Покришені стіни південного тунелю тримаються на гнилих дошках."
 
-#: ../maps/lost_mines1.txt:457
-msgid "Stalagmite Pillar"
-msgstr "Сталагмітова колона"
+#: ../maps/cave1.txt:488
+msgid "These goblins have captured a human trader.  Human bones are carefully arranged around the pillar in preparation for a goblin ritual."
+msgstr "Ці гобліни захопили торговця. Людські кісти ретельно викладені навколо стовпа і гобліни готуються до проведення ритуалу."
 
-#: ../maps/lost_mines1.txt:463
-msgid "The river appears to have swollen recently, covering the location where the tracks once were."
-msgstr "Схоже недавно рівень річки піднявся і вона накрила стежки, які тут були раніше."
+#: ../maps/cave1.txt:497
+msgid "Talrych says, \"You arrived just in time.  Please, take this.\""
+msgstr "Тарлич каже, \"Ти якраз вчасно. Будь ласка візьми це.\""
 
-#: ../maps/lost_mines1.txt:490
-msgid "The undead in this room are dressed in the remnants of shredded mining clothes."
-msgstr "Нежить у цій кімнаті одягнена в залишки шахтарського одягу."
+#: ../maps/cave1.txt:506
+msgid "The walls collapse inward and rubble blocks off the passage!"
+msgstr "Стіни обвалюються всередину і щебінь блокує прохід!"
 
-#: ../maps/mineshaft_longsword.txt:9
-msgid "Mineshaft Longsword"
-msgstr "Довгий меч шахти"
+#: ../maps/cave_of_living_bones1.txt:9
+msgid "Cave of Living Bones 1"
+msgstr "Печера Живих Кісток 1"
 
-#: ../maps/river_encampment.txt:8
-msgid "River Encampment"
-msgstr "Річковий табір"
-
-#: ../maps/warp_zone.txt:244
+#: ../maps/cave_of_living_bones1.txt:334
 msgid "Ydrakka Pass"
 msgstr "Прохід Їдраки"
 
-#: ../maps/warp_zone.txt:260
-msgid "Brothers Lair Atrium"
-msgstr "Атріум лігва Братів"
+#: ../maps/cave_of_living_bones2.txt:283
+msgid "Cave of Living Bones 3"
+msgstr "Печера Живих Кісток 3"
 
-#: ../maps/white_wind.txt:8
+#: ../maps/cave_of_living_bones2.txt:336
+msgid "This pillar is laced with cracks and crevices. Maybe with enough force it can be knocked down."
+msgstr "Цей стовп пронизаний тріщинами і щілинами. Моживо якщо прикласти досить сили він завалиться."
+
+#: ../maps/cave_of_living_bones2.txt:339
+msgid "Giant Pillar"
+msgstr "Величезний стовп"
+
+#: ../maps/cave_of_living_bones2.txt:348
+msgid "Run! You don't want to be caught in the blast of your own explosion!"
+msgstr "Тікай! Ти не хочеш постраждати від вибуху власної вибухівки!"
+
+#: ../maps/cave_of_living_bones2.txt:353
+msgid "Place Explosive"
+msgstr "Встановіть Вибухівку"
+
+#: ../maps/cave_of_living_bones3.txt:135
+msgid "Crate of Blasting Powder"
+msgstr "Ящик з вибуховою речовиною"
+
+#: ../maps/frontier_outpost.txt:9
+msgid "Frontier Outpost"
+msgstr "Прикордонна застава"
+
+#: ../maps/frontier_outpost.txt:261
+msgid "Mineshaft Longsword"
+msgstr "Довгий меч шахти"
+
+#: ../maps/frontier_outpost.txt:280
+msgid "Shared Stash"
+msgstr "Спільний тайник"
+
+#: ../maps/frontier_outpost.txt:288
+msgid "Frontier Outpost waypoint discovered."
+msgstr "Виявлений телепорт в Прикордонній заставі."
+
+#: ../maps/frontier_plains.txt:815
+msgid "River Encampment"
+msgstr "Річковий табір"
+
+#: ../maps/frontier_plains.txt:833
 msgid "White Wind"
 msgstr "Білий Вітер"
 
-#: ../maps/white_wind.txt:448
+#: ../maps/frontier_plains.txt:855
+msgid "Supplies"
+msgstr "Продовольство"
+
+#: ../maps/goblin_warrens.txt:338
+msgid "This book bears the seal of the Averguard"
+msgstr "На цій книзі є печатка Авергуарда"
+
+#: ../maps/goblin_warrens.txt:352
+msgid "\"In the Age of Settlement, the Averguard Knights defended peasants against the chaos of the wilderness.\""
+msgstr "\"В Епоху заселення, Лицарі Авергуарду захищали селян від хаосу дикої природи.\""
+
+#: ../maps/goblin_warrens.txt:364
+msgid "\"Sir Evan Maddox led the Averguard when the plague struck.  Powerful clerics from the corners of the world were brought here.  By the time a cure was found it was too late.\""
+msgstr "\"Сер Еван Меддокс вів Авергуард коли прийшла чума.  Могутні церковники з різних куточків світу прибули сюди.  Але коли лікування було знайдено, було вже пізно.\""
+
+#: ../maps/lost_mines1.txt:365
+msgid "It looks like the necromancer has been raising the corpses of dead miners as his minions."
+msgstr "Схоже некромант підняв трупи загиблих шахтарів як своїх оплічників."
+
+#: ../maps/lost_mines1.txt:428
+msgid "A natural underground river flows through this room."
+msgstr "Через цю кімнату протікає природня підземна річка."
+
+#: ../maps/lost_mines1.txt:474
+msgid "Stalagmite Pillar"
+msgstr "Сталагмітова колона"
+
+#: ../maps/lost_mines1.txt:481
+msgid "The river appears to have swollen recently, covering the location where the tracks once were."
+msgstr "Схоже недавно рівень річки піднявся і вона накрила стежки, які тут були раніше."
+
+#: ../maps/lost_mines1.txt:511
+msgid "The undead in this room are dressed in the remnants of shredded mining clothes."
+msgstr "Нежить у цій кімнаті одягнена в залишки шахтарського одягу."
+
+#: ../maps/warp_zone.txt:271
+msgid "Brothers Lair Atrium"
+msgstr "Атріум лігва Братів"
+
+#: ../maps/white_wind.txt:455
 msgid "You spot the abandoned tower in the distance."
 msgstr "Ти помічаєш покинуту вежу на відстані."
 
-#: ../maps/white_wind.txt:457
+#: ../maps/white_wind.txt:465
 msgid "Looking through the grate, you confirm the tower is empty."
 msgstr "Дивлячись через грати ти бачиш, що вежа порожня."
 
-#: ../maps/ydrakka_pass.txt:385
+#: ../maps/ydrakka_pass.txt:398
 msgid "Ydrakka Pass waypoint discovered."
 msgstr "Виявлений телепорт в Проході Їдраки."
 
@@ -1143,115 +1161,111 @@ msgstr "Я чув що ви можете запропонувати щось б�
 msgid "Ah, you're the adventurer? If you seek out danger you're in the right place. We had two guards stationed here; both were recalled to Ancelot. Now we're vulnerable."
 msgstr "Ах, ти шукач пригод? Якщо ти шукаєш небезпеки то ти в правильному місці. У нас тут було два охоронці; обидва були відкликані в Анцелот. Тепер ми вразливі."
 
-#: ../npcs/martigan.txt:19
-msgid "Goblin Camp"
-msgstr "Табір Гоблінів"
-
-#: ../npcs/martigan.txt:22
-msgid "We're having problems. Goblins. All the noise from our mining is drawing their attention. We can't have them thinking we're easy prey."
-msgstr "У нас виникли проблеми. Гобліни. Всі шуми від нашого видобутку привертають їхню увагу. Ми не можемо дозволити їм подумати, що ми легка здобич."
-
-#: ../npcs/martigan.txt:26
-msgid "Attack their encampment up river from here. 20 gold now, 80 more when you return."
-msgstr "Атакуй їхній табір вгору по річці звідси. 20 золотих зараз, і ще 80 коли ти повернешся."
-
-#: ../npcs/martigan.txt:29
-msgid "Goblin Camp Search"
-msgstr "Пошук табору гоблінів"
-
-#: ../npcs/martigan.txt:32
-msgid "The goblins have an encampment up the river from here on the west side. Clear them out and I'll pay you 80 gold."
-msgstr "Гобліни мають табір вгору по річці на західній стороні. Звільни територію і я заплачу тобі 80 золотих."
-
-#: ../npcs/martigan.txt:35
-msgid "Rilrak Defeated"
-msgstr "Рілрак переможений"
-
-#: ../npcs/martigan.txt:42
-msgid "Unfortunate work, but my workers will sleep safe tonight. Here's your reward."
-msgstr "Невдячна робота, але мої робітники будуть спати вночі спокійно. Ось твоя нагорода."
-
-#: ../npcs/martigan.txt:47
-msgid "A member of the Order passed through our camp a few days ago. He left for the tower ruins in Ydrakka Pass."
-msgstr "Кілька днів тому через наш табір пройшов член Ордену. Він пішов до руїн вежі в Проході Їдраки."
-
-#: ../npcs/martigan.txt:50
-msgid "Rotten Tower"
-msgstr "Трухлява вежа"
-
-#: ../npcs/martigan.txt:53
-msgid "This region was once well guarded. There are watch towers positioned throughout these plains, but most are abandoned and crumbling now."
-msgstr "Цей район колись добре охоронявся. На рівнинах є сторожові вежі, але більшість покинуті і розвалюються."
-
-#: ../npcs/martigan.txt:54
-msgid "I need someone to inspect the outpost tower in White Winds, south west of the Frontier Plains. Let me know if goblins have found their way inside."
-msgstr "Мені потрібен хтось, щоб оглянути форпостну вежу в Білих Вітрах, на південний захід від Прикордонних Рівнин. Дай мені знати, якщо гобліни знайшли шлях всередину."
-
-#: ../npcs/martigan.txt:58
-msgid "Rotten Tower Search"
-msgstr "Пошук Трухлявої вежі"
-
-#: ../npcs/martigan.txt:61
-msgid "Search for the abandoned tower southwest of the Frontier plains. The lands around there are called White Wind."
-msgstr "Знайди покинуту вежу на північний захід від Прикордонної рівнини. Тамтешні землі звуть Білим Вітром."
-
-#: ../npcs/martigan.txt:64
-msgid "Rotten Tower Found"
-msgstr "Трухляву вежу знайдено"
-
-#: ../npcs/martigan.txt:67
-msgid "There are plenty of goblins in the White Winds area, but not near the tower."
-msgstr "На території Білого Вітру є багато гоблінів, але не поруч із вежею."
-
-#: ../npcs/martigan.txt:68
-msgid "Are you sure? Did you look inside the tower?"
-msgstr "Це точно? Ти дивився всередині вежі?"
-
-#: ../npcs/martigan.txt:69
-msgid "Well..."
-msgstr "Ну..."
-
-#: ../npcs/martigan.txt:75
-msgid "There are plenty of goblins in the white winds area, but not near the tower."
-msgstr "На території білого вітру є багато гоблінів, але не поруч із вежею."
-
-#: ../npcs/martigan.txt:77
-msgid "I saw no signs of goblins through the locked iron grate door."
-msgstr "Я заглянув усередину через замкнені залізні грати і не бачив гоблінів."
-
-#: ../npcs/martigan.txt:79
-msgid "Good! Have this small reward."
-msgstr "Добре! Ось невелика винагорода."
-
-#: ../npcs/martigan.txt:84
-msgid "Mineshaft"
-msgstr "Шахта"
-
-#: ../npcs/martigan.txt:87
+#: ../npcs/martigan.txt:16
 msgid "So how's the mining business?"
 msgstr "Як справи у шахті?"
 
-#: ../npcs/martigan.txt:88
+#: ../npcs/martigan.txt:17
 msgid "Not good at all. While I was digging, my pickaxe scraped a skull that was wedged in the rock wall. Before I knew it, the nasty thing started moving and a whole body emerged. Now that thing is in there, preventing any more mining."
 msgstr "Нікуди е годиться. Поки я копав, моя кирка зачепила череп, який був замурований в скелі. Перш ніж я про це подумав, мерзота почала рухатись і вилізло все тіло. Тепер, поки та штука там, робота стоїть."
 
-#: ../npcs/martigan.txt:89
+#: ../npcs/martigan.txt:18
 msgid "Kill that skeleton for me, and I'll make it worth your while."
 msgstr "Вбий того скелета для мене, і я тобе винагороджу."
 
-#: ../npcs/martigan.txt:97
+#: ../npcs/martigan.txt:23
+msgid "Goblin Camp"
+msgstr "Табір Гоблінів"
+
+#: ../npcs/martigan.txt:26
+msgid "We're having problems. Goblins. All the noise from our mining is drawing their attention. We can't have them thinking we're easy prey."
+msgstr "У нас виникли проблеми. Гобліни. Всі шуми від нашого видобутку привертають їхню увагу. Ми не можемо дозволити їм подумати, що ми легка здобич."
+
+#: ../npcs/martigan.txt:30
+msgid "Attack their encampment up river from here. 20 gold now, 80 more when you return."
+msgstr "Атакуй їхній табір вгору по річці звідси. 20 золотих зараз, і ще 80 коли ти повернешся."
+
+#: ../npcs/martigan.txt:33
+msgid "Goblin Camp Search"
+msgstr "Пошук табору гоблінів"
+
+#: ../npcs/martigan.txt:36
+msgid "The goblins have an encampment up the river from here on the west side. Clear them out and I'll pay you 80 gold."
+msgstr "Гобліни мають табір вгору по річці на західній стороні. Звільни територію і я заплачу тобі 80 золотих."
+
+#: ../npcs/martigan.txt:39
+msgid "Rilrak Defeated"
+msgstr "Рілрак переможений"
+
+#: ../npcs/martigan.txt:46
+msgid "Unfortunate work, but my workers will sleep safe tonight. Here's your reward."
+msgstr "Невдячна робота, але мої робітники будуть спати вночі спокійно. Ось твоя нагорода."
+
+#: ../npcs/martigan.txt:51
+msgid "A member of the Order passed through our camp a few days ago. He left for the tower ruins in Ydrakka Pass."
+msgstr "Кілька днів тому через наш табір пройшов член Ордену. Він пішов до руїн вежі в Проході Їдраки."
+
+#: ../npcs/martigan.txt:54
+msgid "Rotten Tower"
+msgstr "Трухлява вежа"
+
+#: ../npcs/martigan.txt:57
+msgid "This region was once well guarded. There are watch towers positioned throughout these plains, but most are abandoned and crumbling now."
+msgstr "Цей район колись добре охоронявся. На рівнинах є сторожові вежі, але більшість покинуті і розвалюються."
+
+#: ../npcs/martigan.txt:58
+msgid "I need someone to inspect the outpost tower in White Winds, south west of the Frontier Plains. Let me know if goblins have found their way inside."
+msgstr "Мені потрібен хтось, щоб оглянути форпостну вежу в Білих Вітрах, на південний захід від Прикордонних Рівнин. Дай мені знати, якщо гобліни знайшли шлях всередину."
+
+#: ../npcs/martigan.txt:62
+msgid "Rotten Tower Search"
+msgstr "Пошук Трухлявої вежі"
+
+#: ../npcs/martigan.txt:65
+msgid "Search for the abandoned tower southwest of the Frontier plains. The lands around there are called White Wind."
+msgstr "Знайди покинуту вежу на північний захід від Прикордонної рівнини. Тамтешні землі звуть Білим Вітром."
+
+#: ../npcs/martigan.txt:68
+msgid "Rotten Tower Found"
+msgstr "Трухляву вежу знайдено"
+
+#: ../npcs/martigan.txt:71
+msgid "There are plenty of goblins in the White Winds area, but not near the tower."
+msgstr "На території Білого Вітру є багато гоблінів, але не поруч із вежею."
+
+#: ../npcs/martigan.txt:72
+msgid "Are you sure? Did you look inside the tower?"
+msgstr "Це точно? Ти дивився всередині вежі?"
+
+#: ../npcs/martigan.txt:73
+msgid "Well..."
+msgstr "Ну..."
+
+#: ../npcs/martigan.txt:79
+msgid "There are plenty of goblins in the white winds area, but not near the tower."
+msgstr "На території білого вітру є багато гоблінів, але не поруч із вежею."
+
+#: ../npcs/martigan.txt:81
+msgid "I saw no signs of goblins through the locked iron grate door."
+msgstr "Я заглянув усередину через замкнені залізні грати і не бачив гоблінів."
+
+#: ../npcs/martigan.txt:83
+msgid "Good! Have this small reward."
+msgstr "Добре! Ось невелика винагорода."
+
+#: ../npcs/martigan.txt:91
 msgid "Please take care of that skeleton. Work in the mine can't continue otherwise."
 msgstr "Подбай про того скелета. Інакше я не продовжу роботу в шахті."
 
-#: ../npcs/martigan.txt:100
+#: ../npcs/martigan.txt:94
 msgid "Skeleton Defeated"
 msgstr "Скелет переможений"
 
-#: ../npcs/martigan.txt:104
+#: ../npcs/martigan.txt:98
 msgid "I've defeated the Reanimated Skeleton."
 msgstr "Я переміг Жвавого скелета."
 
-#: ../npcs/martigan.txt:105
+#: ../npcs/martigan.txt:99
 msgid "Excellent work! As promised, here's a little something for your troubles."
 msgstr "Чудова робота! Як я і обіцяв, ось дещо за твою роботу."
 
@@ -1335,17 +1349,133 @@ msgstr "Грісбон."
 msgid "Welcome, Master Grisbon."
 msgstr "Вітання, Магістр Грісбон."
 
-#: ../cutscenes/credits.txt:8
+#: ../cutscenes/credits.txt:7
 msgid "Flare Game Credits - alpha_demo"
 msgstr "Автори Flare Game - alpha_demo"
 
 #: ../cutscenes/credits.txt:10
-msgid "Content Designers - Clint Bellanger, Justin Jacobs, Stefan Beller, and Thane Brimhall"
-msgstr "Дизайнери контенту - Clint Bellanger, Justin Jacobs, Stefan Beller та Thane Brimhall"
+msgid "Content Designers"
+msgstr ""
 
 #: ../cutscenes/credits.txt:12
-msgid "Translators - Adrian Chaves Fernandez, Andrea Ranaldi, Andreas Berheim Brudin, Bas Doodeman, Bonbadil, Carlos Sanchez, Chris Oelmueller, Christoph J. Thompson, Evgen Pavlov, Giovanni Dalla Torre, Hans Joachim Desserud, Igor Paliychuk, Juan Pablo Tamayo, Mikhail Karalevich, Miro Jánošík, Morgan Strauss, Nikita Vanku, Paul Wortmann, Pawel Puszczynski, Quentin Stievenart, Sergey Basalaev, Stefan Beller, Thomas Glamsch, Timo Sievänen, and Yannis Anthymidis"
-msgstr "Перекладачі - Adrian Chaves Fernandez, Andrea Ranaldi, Andreas Berheim Brudin, Bas Doodeman, Bonbadil, Carlos Sanchez, Chris Oelmueller, Christoph J. Thompson, Evgen Pavlov, Giovanni Dalla Torre, Hans Joachim Desserud, Igor Paliychuk, Juan Pablo Tamayo, Mikhail Karalevich, Miro Jánošík, Morgan Strauss, Nikita Vanku, Paul Wortmann, Pawel Puszczynski, Quentin Stievenart, Sergey Basalaev, Stefan Beller, Thomas Glamsch, Timo Sievänen та Yannis Anthymidis"
+msgid "Clint Bellanger"
+msgstr ""
+
+#: ../cutscenes/credits.txt:13
+msgid "Justin Jacobs"
+msgstr ""
+
+#: ../cutscenes/credits.txt:14
+msgid "Stefan Beller"
+msgstr ""
+
+#: ../cutscenes/credits.txt:15
+msgid "Thane Brimhall"
+msgstr ""
+
+#: ../cutscenes/credits.txt:18
+msgid "Translators"
+msgstr ""
+
+#: ../cutscenes/credits.txt:20
+msgid "Adrian Chaves Fernandez"
+msgstr ""
+
+#: ../cutscenes/credits.txt:21
+msgid "Andrea Ranaldi"
+msgstr ""
+
+#: ../cutscenes/credits.txt:22
+msgid "Andreas Berheim Brudin"
+msgstr ""
+
+#: ../cutscenes/credits.txt:23
+msgid "Bas Doodeman"
+msgstr ""
+
+#: ../cutscenes/credits.txt:24
+msgid "Bonbadil"
+msgstr ""
+
+#: ../cutscenes/credits.txt:25
+msgid "Carlos Sanchez"
+msgstr ""
+
+#: ../cutscenes/credits.txt:26
+msgid "Chris Oelmueller"
+msgstr ""
+
+#: ../cutscenes/credits.txt:27
+msgid "Christoph J. Thompson"
+msgstr ""
+
+#: ../cutscenes/credits.txt:28
+msgid "Evgen Pavlov"
+msgstr ""
+
+#: ../cutscenes/credits.txt:29
+msgid "Giovanni Dalla Torre"
+msgstr ""
+
+#: ../cutscenes/credits.txt:30
+msgid "Hans Joachim Desserud"
+msgstr ""
+
+#: ../cutscenes/credits.txt:31
+msgid "Igor Paliychuk"
+msgstr ""
+
+#: ../cutscenes/credits.txt:32
+msgid "Juan Pablo Tamayo"
+msgstr ""
+
+#: ../cutscenes/credits.txt:33
+msgid "Mikhail Karalevich"
+msgstr ""
+
+#: ../cutscenes/credits.txt:34
+msgid "Miro Jánošík"
+msgstr ""
+
+#: ../cutscenes/credits.txt:35
+msgid "Morgan Strauss"
+msgstr ""
+
+#: ../cutscenes/credits.txt:36
+msgid "Nikita Vanku"
+msgstr ""
+
+#: ../cutscenes/credits.txt:37
+msgid "Paul Wortmann"
+msgstr ""
+
+#: ../cutscenes/credits.txt:38
+msgid "Pawel Puszczynski"
+msgstr ""
+
+#: ../cutscenes/credits.txt:39
+msgid "Quentin Stievenart"
+msgstr ""
+
+#: ../cutscenes/credits.txt:40
+msgid "Sergey Basalaev"
+msgstr ""
+
+#: ../cutscenes/credits.txt:42
+msgid "sujiniku"
+msgstr ""
+
+#: ../cutscenes/credits.txt:43
+msgid "Thomas Glamsch"
+msgstr ""
+
+#: ../cutscenes/credits.txt:44
+msgid "Timo Sievänen"
+msgstr ""
+
+#: ../cutscenes/credits.txt:45
+msgid "Yannis Anthymidis"
+msgstr ""
 
 #: ../items/categories/armor_cloth.txt:5
 msgid "Cloth Shirt"
@@ -1575,39 +1705,39 @@ msgstr "Баштовий щит"
 msgid "Mage Hood"
 msgstr "Капюшон мага"
 
-#: ../items/categories/armor_mage.txt:7
+#: ../items/categories/armor_mage.txt:8
 msgid "The seams on this hood are designed to aid the flow of mana."
 msgstr "Шви на цьому капюшоні призначені для підсилення потоку мани."
 
-#: ../items/categories/armor_mage.txt:14
+#: ../items/categories/armor_mage.txt:15
 msgid "Mage Vest"
 msgstr "Жилет мага"
 
-#: ../items/categories/armor_mage.txt:16
+#: ../items/categories/armor_mage.txt:18
 msgid "Frost resistance runes line the inside of this vest."
 msgstr "Зсередини цей жилет покритий рунами опору морозу."
 
-#: ../items/categories/armor_mage.txt:24
+#: ../items/categories/armor_mage.txt:26
 msgid "Mage Sleeves"
 msgstr "Рукави мага"
 
-#: ../items/categories/armor_mage.txt:26
+#: ../items/categories/armor_mage.txt:29
 msgid "The fire resistance runes that hem these sleeves help protect beginner students of Pyromancy."
 msgstr "Руни вогнестійкості, які покривають ці рукави, захистять студентів-початківців Школи Вогню."
 
-#: ../items/categories/armor_mage.txt:33
+#: ../items/categories/armor_mage.txt:36
 msgid "Mage Skirt"
 msgstr "Пола мага"
 
-#: ../items/categories/armor_mage.txt:35
+#: ../items/categories/armor_mage.txt:39
 msgid "Spell components are tucked into hidden pockets covering this skirt."
 msgstr "Компоненти заклинання заправлені в прихованих складках цієї поли."
 
-#: ../items/categories/armor_mage.txt:43
+#: ../items/categories/armor_mage.txt:47
 msgid "Mage Boots"
 msgstr "Черевики мага"
 
-#: ../items/categories/armor_mage.txt:45
+#: ../items/categories/armor_mage.txt:50
 msgid "Attunement with the elements allow mages to ice and fire walk."
 msgstr "Співзвуччя зі стихіями дозволяє магам ходити крізь лід і полум'я."
 
@@ -1668,18 +1798,23 @@ msgid "Diamond"
 msgstr "Алмаз"
 
 #: ../items/categories/weapons_melee.txt:5
-msgid "Dagger"
+#, fuzzy
+msgid "Broken Dagger"
 msgstr "Кинджал"
 
 #: ../items/categories/weapons_melee.txt:13
+msgid "Dagger"
+msgstr "Кинджал"
+
+#: ../items/categories/weapons_melee.txt:21
 msgid "Shortsword"
 msgstr "Короткий меч"
 
-#: ../items/categories/weapons_melee.txt:21
+#: ../items/categories/weapons_melee.txt:29
 msgid "Longsword"
 msgstr "Полуторний меч"
 
-#: ../items/categories/weapons_melee.txt:29
+#: ../items/categories/weapons_melee.txt:37
 msgid "Greatsword"
 msgstr "Дворучний меч"
 
@@ -1727,43 +1862,43 @@ msgstr "Кривавий удар"
 msgid "Inflict a bleeding wound that causes additional damage over 5 seconds"
 msgstr "Нанесіть кровоточиву рану, яка викликає додаткові пошкодження протягом 5 секунд"
 
-#: ../powers/categories/warrior.txt:51
+#: ../powers/categories/warrior.txt:50
 msgid "Warcry"
 msgstr "Бойовий крик"
 
-#: ../powers/categories/warrior.txt:54
+#: ../powers/categories/warrior.txt:53
 msgid "Remove debuffs and become immune to debuffs for 10 seconds"
 msgstr "Видаліть шкідливі ефекти і станьте несприйнятливі до шкідливих ефектів на 10 секунд"
 
-#: ../powers/categories/warrior.txt:65
+#: ../powers/categories/warrior.txt:64
 msgid "Cleave"
 msgstr "Розкол"
 
-#: ../powers/categories/warrior.txt:68
+#: ../powers/categories/warrior.txt:67
 msgid "Attack all enemies in a wide arc, dealing 50% of melee weapon damage"
 msgstr "Атакувати всіх ворогів у широкій дузі і завдати 50% шкоди ближньої зброї"
 
-#: ../powers/categories/warrior.txt:87
+#: ../powers/categories/warrior.txt:85
 msgid "Heroic Swing"
 msgstr "Героїчний розмах"
 
-#: ../powers/categories/warrior.txt:90
+#: ../powers/categories/warrior.txt:88
 msgid "Melee attack with 10% HP steal"
 msgstr "Ближня атака з крадіжкою 10% Здоров'я"
 
-#: ../powers/categories/warrior.txt:103
+#: ../powers/categories/warrior.txt:101
 msgid "Throw Knife"
 msgstr "Кидок ножа"
 
-#: ../powers/categories/warrior.txt:106
+#: ../powers/categories/warrior.txt:104
 msgid "Throw a knife to deal 75% of melee weapon damage"
 msgstr "Кинути ніж щоб завдати 75% шкоди ближньої зброї"
 
-#: ../powers/categories/warrior.txt:123
+#: ../powers/categories/warrior.txt:120
 msgid "Throw Axe"
 msgstr "Кидок сокири"
 
-#: ../powers/categories/warrior.txt:126
+#: ../powers/categories/warrior.txt:123
 msgid "Throw an axe to deal 150% of melee weapon damage"
 msgstr "Кинути сокиру щоб завдати 150% шкоди ближньої зброї"
 
@@ -1775,71 +1910,71 @@ msgstr "Пробивний постріл"
 msgid "Fire a shot that ignores armor and goes through multiple enemies"
 msgstr "Постріл, який ігнорує броню і проходить через кількох ворогів"
 
-#: ../powers/categories/ranger.txt:13
+#: ../powers/categories/ranger.txt:12
 msgid "Multishot"
 msgstr "Мультипостріл"
 
-#: ../powers/categories/ranger.txt:16
+#: ../powers/categories/ranger.txt:15
 msgid "Shoot three projectiles simultaneously"
 msgstr "Вистреліть три снаряди одночасно"
 
-#: ../powers/categories/ranger.txt:23
+#: ../powers/categories/ranger.txt:21
 msgid "Shoot"
 msgstr "Постріл"
 
-#: ../powers/categories/ranger.txt:26
+#: ../powers/categories/ranger.txt:24
 msgid "Basic ranged attack"
 msgstr "Базова дальня атака"
 
-#: ../powers/categories/ranger.txt:32
+#: ../powers/categories/ranger.txt:30
 msgid "Rapid Fire"
 msgstr "Частий вогонь"
 
-#: ../powers/categories/ranger.txt:35
+#: ../powers/categories/ranger.txt:33
 msgid "Fire five low power missiles in quick succession"
 msgstr "Вистреліть п'ять слабких снарядів один за одним"
 
-#: ../powers/categories/ranger.txt:42
+#: ../powers/categories/ranger.txt:40
 msgid "Ember Shot"
 msgstr "Постріл тліючим вугіллям"
 
-#: ../powers/categories/ranger.txt:45
+#: ../powers/categories/ranger.txt:43
 msgid "Fire a spray of burning embers at close range. Effective against armored enemies."
 msgstr "Вистрелює розсіяним тліючим вугіллям на близькій відстані. Ефективно проти ворогів в амуніції,"
 
-#: ../powers/categories/ranger.txt:71
+#: ../powers/categories/ranger.txt:68
 msgid "Caltrops"
 msgstr "Капкан"
 
-#: ../powers/categories/ranger.txt:74
+#: ../powers/categories/ranger.txt:71
 msgid "This trap deals 75% ranged weapon damage and slows the target."
 msgstr "Ця пастка завдає 75% шкоди дальньої зброї і уповільнює ціль."
 
-#: ../powers/categories/ranger.txt:92
+#: ../powers/categories/ranger.txt:89
 msgid "Bear Trap"
 msgstr "Ведмежа пастка"
 
-#: ../powers/categories/ranger.txt:95
+#: ../powers/categories/ranger.txt:92
 msgid "This trap deals 150% ranged weapon damage and immobilizes the target."
 msgstr "Ця пастка завдає 150% шкоди від дальної зброї і знерухомлює ціль."
 
-#: ../powers/categories/ranger.txt:143
+#: ../powers/categories/ranger.txt:140
 msgid "Revert Form"
 msgstr "Повернути форму"
 
-#: ../powers/categories/ranger.txt:148
+#: ../powers/categories/ranger.txt:145
 msgid "Transform back to human"
 msgstr "Перетворитись назад в людину"
 
-#: ../powers/categories/ranger.txt:158
+#: ../powers/categories/ranger.txt:155
 msgid "Move undetected with the opportunity to perform a sneak attack"
 msgstr "Рух непоміченим з можливістю виконання атаки крадькома"
 
-#: ../powers/categories/ranger.txt:168
+#: ../powers/categories/ranger.txt:165
 msgid "Sneak Attack"
 msgstr "Атака крадькома"
 
-#: ../powers/categories/ranger.txt:171
+#: ../powers/categories/ranger.txt:168
 msgid "Melee attack while stealthed for a high chance to crit"
 msgstr "Ближня атака при невидимості для високого шансу кріту"
 
@@ -1879,11 +2014,11 @@ msgstr "Базова магічна атака"
 msgid "Shock"
 msgstr "Електрошок"
 
-#: ../powers/categories/magician.txt:46
+#: ../powers/categories/magician.txt:45
 msgid "Heal"
 msgstr "Зцілення"
 
-#: ../powers/categories/magician.txt:49
+#: ../powers/categories/magician.txt:48
 msgid "Restore HP"
 msgstr "Відновлює Життя"
 
@@ -1895,47 +2030,47 @@ msgstr "Дрижання"
 msgid "Stun nearby enemies"
 msgstr "Оглушує найближчих ворогів"
 
-#: ../powers/categories/magician.txt:82
+#: ../powers/categories/magician.txt:83
 msgid "Shield"
 msgstr "Щит"
 
-#: ../powers/categories/magician.txt:85
+#: ../powers/categories/magician.txt:86
 msgid "Create a force field that absorbs damage"
 msgstr "Створіть силове поле, яке поглинає пошкодження"
 
-#: ../powers/categories/magician.txt:95
+#: ../powers/categories/magician.txt:97
 msgid "Freeze"
 msgstr "Заморозка"
 
-#: ../powers/categories/magician.txt:98
+#: ../powers/categories/magician.txt:100
 msgid "Create a ray of piercing cold that slows enemies"
 msgstr "Створює промінь пронизливого холоду, що уповільнює ворогів"
 
-#: ../powers/categories/magician.txt:119
+#: ../powers/categories/magician.txt:121
 msgid "Teleport"
 msgstr "Телепорт"
 
-#: ../powers/categories/magician.txt:141
+#: ../powers/categories/magician.txt:143
 msgid "Burn"
 msgstr "Підпал"
 
-#: ../powers/categories/magician.txt:144
+#: ../powers/categories/magician.txt:146
 msgid "Blast enemies in a distant area with fire"
 msgstr "Вдаряє вогнем ворогів на далекій відстані"
 
-#: ../powers/categories/magician.txt:167
+#: ../powers/categories/magician.txt:168
 msgid "Greater Channel"
 msgstr "Великий канал"
 
-#: ../powers/categories/magician.txt:170
+#: ../powers/categories/magician.txt:171
 msgid "Magic attack with 10% MP steal"
 msgstr "Магічна атака з крадіжкою 10% Мани"
 
-#: ../powers/categories/magician.txt:187
+#: ../powers/categories/magician.txt:188
 msgid "Thunderstrike"
 msgstr "Грозовий удар"
 
-#: ../powers/categories/magician.txt:190
+#: ../powers/categories/magician.txt:191
 msgid "Lightning strikes from the sky to stun enemies"
 msgstr "З неба сходить блискавка і оглушує ворогів"
 
@@ -1950,3 +2085,18 @@ msgstr "Льодяні боєприпаси"
 #: ../powers/trees/default.txt:11
 msgid "Magician"
 msgstr "Маг"
+
+#~ msgid "Fire Resistance"
+#~ msgstr "Опір вогню"
+
+#~ msgid "Ice Resistance"
+#~ msgstr "Опір льоду"
+
+#~ msgid "Mineshaft"
+#~ msgstr "Шахта"
+
+#~ msgid "Content Designers - Clint Bellanger, Justin Jacobs, Stefan Beller, and Thane Brimhall"
+#~ msgstr "Дизайнери контенту - Clint Bellanger, Justin Jacobs, Stefan Beller та Thane Brimhall"
+
+#~ msgid "Translators - Adrian Chaves Fernandez, Andrea Ranaldi, Andreas Berheim Brudin, Bas Doodeman, Bonbadil, Carlos Sanchez, Chris Oelmueller, Christoph J. Thompson, Evgen Pavlov, Giovanni Dalla Torre, Hans Joachim Desserud, Igor Paliychuk, Juan Pablo Tamayo, Mikhail Karalevich, Miro Jánošík, Morgan Strauss, Nikita Vanku, Paul Wortmann, Pawel Puszczynski, Quentin Stievenart, Sergey Basalaev, Stefan Beller, Thomas Glamsch, Timo Sievänen, and Yannis Anthymidis"
+#~ msgstr "Перекладачі - Adrian Chaves Fernandez, Andrea Ranaldi, Andreas Berheim Brudin, Bas Doodeman, Bonbadil, Carlos Sanchez, Chris Oelmueller, Christoph J. Thompson, Evgen Pavlov, Giovanni Dalla Torre, Hans Joachim Desserud, Igor Paliychuk, Juan Pablo Tamayo, Mikhail Karalevich, Miro Jánošík, Morgan Strauss, Nikita Vanku, Paul Wortmann, Pawel Puszczynski, Quentin Stievenart, Sergey Basalaev, Stefan Beller, Thomas Glamsch, Timo Sievänen та Yannis Anthymidis"

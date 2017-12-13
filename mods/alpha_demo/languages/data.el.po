@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-10 07:45+\n"
+"POT-Creation-Date: 2017-12-13 10:05+\n"
 "PO-Revision-Date: 2013-11-26 23:50+0300\n"
 "Last-Translator: Μιχάλης Παπαγεωργίου <werdanith@yahoo.gr>\n"
 "Language-Team: Μιχάλης Παπαγεωργίου\n"
@@ -16,72 +16,58 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../items/items.txt:8
-#: ../engine/loot.txt:19
 msgid "Gold"
 msgstr "Χρυσά Νομίσματα"
 
-#: ../items/items.txt:68
-#: ../items/items.txt:47
+#: ../items/items.txt:69
 msgid "Averguard Tome"
 msgstr "Τόμος του Άβεργκαρντ"
 
-#: ../items/items.txt:70
-#: ../items/items.txt:49
+#: ../items/items.txt:72
 msgid "This tome bears the seal of the Averguard"
 msgstr "Αυτός ο τόμος φέρει την σφραγίδα του Άβεργκαρντ"
 
-#: ../items/items.txt:76
-#: ../items/items.txt:57
+#: ../items/items.txt:78
 msgid "Averguard Key"
 msgstr "Κλειδί του Άβεργκαρντ"
 
-#: ../items/items.txt:78
-#: ../items/items.txt:59
+#: ../items/items.txt:81
 msgid "Opens special doors in Averguard Keep"
 msgstr "Ανοίγει ειδικές πύλες στο φρούριο του Άβεργκαρντ"
 
-#: ../items/items.txt:84
-#: ../items/items.txt:67
+#: ../items/items.txt:87
 msgid "Langlier's Talisman"
 msgstr "Περιδέραιο του Λάνγκλιερ"
 
-#: ../items/items.txt:86
-#: ../items/items.txt:70
+#: ../items/items.txt:90
 msgid "Etched runes surround this talisman"
 msgstr "Χαραγμένα ρουνικά κοσμούν αυτό το περιδέραιο"
 
-#: ../items/items.txt:94
-#: ../items/items.txt:80
+#: ../items/items.txt:98
 msgid "Scathelocke's Spellbook"
 msgstr "Βιβλίο με Ξόρκια του Σκέιθλοκ"
 
-#: ../items/items.txt:103
-#: ../items/items.txt:91
+#: ../items/items.txt:109
 msgid "Scathelocke's Key"
 msgstr "Κλειδί του Σκέιθλοκ"
 
-#: ../items/items.txt:105
-#: ../items/items.txt:93
+#: ../items/items.txt:112
 msgid "Opens Scathelocke's Runed Chest"
 msgstr "Ανοίγει του Χαραγμένο Σεντούκι του Σκέιθλοκ"
 
-#: ../items/items.txt:111
-#: ../items/items.txt:101
+#: ../items/items.txt:118
 msgid "Vesuvvio's Key"
 msgstr "Κλειδί του Βεζούββιου"
 
-#: ../items/items.txt:113
-#: ../items/items.txt:103
+#: ../items/items.txt:121
 msgid "Opens Vesuvvio's Runed Chest"
 msgstr "Ανοίγει του Χαραγμένο Σεντούκι του Βεζούββιου"
 
-#: ../items/items.txt:119
-#: ../items/items.txt:111
+#: ../items/items.txt:127
 msgid "Grisbon's Key"
 msgstr "Κλειδί του Γκρίζμπον"
 
-#: ../items/items.txt:121
-#: ../items/items.txt:113
+#: ../items/items.txt:130
 msgid "Opens Grisbon's Runed Chest"
 msgstr "Ανοίγει του Χαραγμένο Σεντούκι του Γκρίζμπον"
 
@@ -90,14 +76,30 @@ msgid "Sage's Wardrobe"
 msgstr ""
 
 #: ../engine/elements.txt:3
-#: ../engine/elements.txt:4
-msgid "Fire Resistance"
-msgstr "Αντίσταση στη Φωτιά"
+#, fuzzy
+msgid "Fire"
+msgstr "Πυρομαχικά Φωτιάς"
 
 #: ../engine/elements.txt:7
-#: ../engine/elements.txt:8
-msgid "Ice Resistance"
-msgstr "Αντίσταση στον Πάγο"
+msgid "Ice"
+msgstr ""
+
+#: ../engine/elements.txt:11
+msgid "Air"
+msgstr ""
+
+#: ../engine/elements.txt:15
+msgid "Earth"
+msgstr ""
+
+#: ../engine/elements.txt:19
+#, fuzzy
+msgid "Light"
+msgstr "Ιππότης"
+
+#: ../engine/elements.txt:23
+msgid "Shadow"
+msgstr ""
 
 #: ../engine/classes.txt:6
 msgid "Brute"
@@ -105,9 +107,7 @@ msgstr "Κραταιός"
 
 #: ../engine/classes.txt:7
 msgid "Brutes rely on physical strength and melee weapons to strike down foes. Primary attribute: Physical"
-msgstr ""
-"Οι Κραταιοί βασίζονται στη σωματική δύναμη και κοντινά όπλα για να "
-"εξολοθρεύσουν τους αντιπάλους τους. Θεμελιώδες χαρακτηριστικό: Πυγμή"
+msgstr "Οι Κραταιοί βασίζονται στη σωματική δύναμη και κοντινά όπλα για να εξολοθρεύσουν τους αντιπάλους τους. Θεμελιώδες χαρακτηριστικό: Πυγμή"
 
 #: ../engine/classes.txt:15
 msgid "Adept"
@@ -115,9 +115,7 @@ msgstr "Στοχαστής"
 
 #: ../engine/classes.txt:16
 msgid "Adepts have natural abilities in casting magical spells. Primary attribute: Mental"
-msgstr ""
-"Οι Στοχαστές έχουν φυσικό ταλέντο στη μαγεία. Θεμελιώδες χαρακτηριστικό: "
-"Πνεύμα"
+msgstr "Οι Στοχαστές έχουν φυσικό ταλέντο στη μαγεία. Θεμελιώδες χαρακτηριστικό: Πνεύμα"
 
 #: ../engine/classes.txt:25
 msgid "Scout"
@@ -125,9 +123,7 @@ msgstr "Ανιχνευτής"
 
 #: ../engine/classes.txt:26
 msgid "Scouts specialize in range weaponry and combat accuracy. Primary attribute: Offense"
-msgstr ""
-"Οι Ανιχνευτές εξειδικεύονται στο σημάδι και στη μάχη από απόσταση. "
-"Θεμελιώδες χαρακτηριστικό: Επιδεξιότητα"
+msgstr "Οι Ανιχνευτές εξειδικεύονται στο σημάδι και στη μάχη από απόσταση. Θεμελιώδες χαρακτηριστικό: Επιδεξιότητα"
 
 #: ../engine/classes.txt:35
 msgid "Keeper"
@@ -135,9 +131,7 @@ msgstr "Φύλακας"
 
 #: ../engine/classes.txt:36
 msgid "Keepers focus on defensive powers for survival. Primary attribute: Defense"
-msgstr ""
-"Οι Φύλακες επικεντρώνονται στις αμυντικές δυνάμεις για την επιβίωση τους. "
-"Θεμελιώδες χαρακτηριστικό: Άμυνα"
+msgstr "Οι Φύλακες επικεντρώνονται στις αμυντικές δυνάμεις για την επιβίωση τους. Θεμελιώδες χαρακτηριστικό: Άμυνα"
 
 #: ../engine/classes.txt:44
 msgid "Wanderer"
@@ -145,9 +139,7 @@ msgstr "Περιπλανώμενος"
 
 #: ../engine/classes.txt:45
 msgid "Wanderers choose their own paths. Primary attribute: custom"
-msgstr ""
-"Οι Περιπλανώμενοι διαλέγουν τον δικό τους μονοπάτι. Θεμελιώδες "
-"χαρακτηριστικό: Επιλογή"
+msgstr "Οι Περιπλανώμενοι διαλέγουν τον δικό τους μονοπάτι. Θεμελιώδες χαρακτηριστικό: Επιλογή"
 
 #: ../engine/titles.txt:4
 msgid "Grand Master"
@@ -202,12 +194,10 @@ msgid "Hero"
 msgstr "Ήρωας"
 
 #: ../engine/titles.txt:71
-#: ../menus/powers.txt:16
 msgid "Warrior"
 msgstr "Πολεμιστής"
 
 #: ../engine/titles.txt:76
-#: ../menus/powers.txt:19
 msgid "Ranger"
 msgstr "Ιχνηλάτης"
 
@@ -272,799 +262,598 @@ msgid "Watch"
 msgstr "Φρουρός"
 
 #: ../enemies/antlion.txt:3
-#: ../enemies/antlion.txt:1
 msgid "Antlion"
 msgstr "Μυρμηκολέων"
 
 #: ../enemies/antlion_blinker.txt:3
-#: ../enemies/antlion_blinker.txt:1
 msgid "Antlion Blinker"
 msgstr "Παρεμβάλλον Μυρμηκολέων"
 
 #: ../enemies/antlion_burster.txt:3
-#: ../enemies/antlion_burster.txt:1
 msgid "Antlion Burster"
 msgstr "Ανατιναζόμενος Μυρμηκολέων"
 
 #: ../enemies/antlion_freezer.txt:3
-#: ../enemies/antlion_freezer.txt:1
 msgid "Antlion Freezer"
 msgstr "Ψύκτης Μυρμηκολέων"
 
 #: ../enemies/antlion_hatchling.txt:3
-#: ../enemies/antlion_hatchling.txt:1
 msgid "Antlion Hatchling"
 msgstr "Νύμφη Μυρμηκολέωντα"
 
 #: ../enemies/antlion_slasher.txt:3
-#: ../enemies/antlion_slasher.txt:1
 msgid "Antlion Slasher"
 msgstr "Κόπτης Μυρμηκολέων"
 
 #: ../enemies/antlion_spitter.txt:3
-#: ../enemies/antlion_spitter.txt:1
 msgid "Antlion Spitter"
 msgstr "Πτύων Μυρμηκολέων"
 
 #: ../enemies/cursed_grave.txt:3
-#: ../enemies/cursed_grave.txt:1
 msgid "Cursed Grave"
 msgstr "Καταραμένος Τάφος"
 
 #: ../enemies/goblin.txt:3
-#: ../enemies/goblin.txt:1
 msgid "Goblin"
 msgstr "Καλικάντζαρος"
 
 #: ../enemies/goblin_charger.txt:3
-#: ../enemies/goblin_charger.txt:1
 msgid "Goblin Charger"
 msgstr "Oρμώμενος Καλικάντζαρος"
 
 #: ../enemies/goblin_charger_elite.txt:3
-#: ../enemies/goblin_charger_elite.txt:1
 msgid "Goblin Charger Elite"
 msgstr "Ανώτερος Oρμώμενος Καλικάντζαρος"
 
 #: ../enemies/goblin_shaman.txt:3
-#: ../enemies/goblin_shaman.txt:1
 msgid "Goblin Shaman"
 msgstr "Καλικάντζαρος Σαμάνος"
 
 #: ../enemies/goblin_spearman.txt:3
-#: ../enemies/goblin_spearman.txt:1
 msgid "Goblin Spearman"
 msgstr "Καλικάντζαρος Ακοντιστής"
 
 #: ../enemies/goblin_spearman_elite.txt:3
-#: ../enemies/goblin_spearman_elite.txt:1
 msgid "Goblin Spearman Elite"
 msgstr "Ανώτερος Καλικάντζαρος Ακοντιστής"
 
 #: ../enemies/grisbon.txt:3
-#: ../enemies/grisbon.txt:1
 msgid "Grisbon"
 msgstr "Γκρίζμπον"
 
 #: ../enemies/krakatoa.txt:3
-#: ../enemies/krakatoa.txt:1
 msgid "Krakatoa, Antlion Burster"
 msgstr "Κρακατόα, Ανατιναζόμενος Μυρμηκολέων"
 
 #: ../enemies/miner.txt:3
-#: ../enemies/miner.txt:1
 msgid "Miner"
 msgstr "Νεκροζώντανος Μεταλλωρύχος"
 
 #: ../enemies/minotaur.txt:3
-#: ../enemies/minotaur.txt:1
 msgid "Minotaur"
 msgstr "Μινόταυρος"
 
 #: ../enemies/necromancer_apprentice.txt:3
-#: ../enemies/necromancer_apprentice.txt:1
 msgid "Apprentice Necromancer"
 msgstr "Μαθητευόμενος Νεκρομάντης"
 
 #: ../enemies/professor_langlier.txt:3
-#: ../enemies/professor_langlier.txt:1
 msgid "Professor Langlier"
 msgstr "Καθηγητής Λάνγκλιερ"
 
 #: ../enemies/reanimated_skeleton.txt:3
-#: ../enemies/reanimated_skeleton.txt:1
 msgid "Reanimated Skeleton"
 msgstr "Ξεθαμμένος Σκελετός"
 
 #: ../enemies/rilrak.txt:3
-#: ../enemies/rilrak.txt:1
 msgid "Rilrak, Goblin Shaman"
 msgstr "Ρίλρακ, Καλικάντζαρος Σαμάνος"
 
 #: ../enemies/scathelocke.txt:3
-#: ../enemies/scathelocke.txt:1
 msgid "Scathelocke"
 msgstr "Σκέιθλοκ"
 
 #: ../enemies/sir_evan_maddox.txt:3
-#: ../enemies/sir_evan_maddox.txt:1
 msgid "Sir Evan Maddox"
 msgstr "Σερ Έβαν Μάντοξ"
 
 #: ../enemies/skeletal_archer.txt:3
-#: ../enemies/skeletal_archer.txt:1
 msgid "Skeletal Archer"
 msgstr "Σκελετός Τοξότης"
 
 #: ../enemies/skeletal_knight.txt:3
-#: ../enemies/skeletal_knight.txt:1
 msgid "Skeletal Knight"
 msgstr "Σκελετός Ιππότης"
 
 #: ../enemies/skeletal_mage.txt:3
-#: ../enemies/skeletal_mage.txt:1
 msgid "Skeletal Mage"
 msgstr "Σκελετός Μάγος"
 
 #: ../enemies/skeletal_occultist.txt:3
-#: ../enemies/skeletal_occultist.txt:1
 msgid "Skeletal Occultist"
 msgstr "Σκελετός Αποκρυφιστής"
 
 #: ../enemies/skeletal_prophet.txt:3
-#: ../enemies/skeletal_prophet.txt:1
 msgid "Skeletal Prophet"
 msgstr "Σκελετός Προφήτης"
 
 #: ../enemies/skeletal_sniper.txt:3
-#: ../enemies/skeletal_sniper.txt:1
 msgid "Skeletal Sniper"
 msgstr "Σκελετός Σκοπευτής"
 
 #: ../enemies/skeletal_thundersword.txt:3
-#: ../enemies/skeletal_thundersword.txt:1
 msgid "Skeletal Thundersword"
 msgstr "Κεραυνοφόρος Σκελετός"
 
 #: ../enemies/skeletal_warrior.txt:3
-#: ../enemies/skeletal_warrior.txt:1
 msgid "Skeletal Warrior"
 msgstr "Σκελετός Πολεμιστής"
 
 #: ../enemies/skeleton.txt:3
-#: ../enemies/skeleton.txt:1
 msgid "Skeleton"
 msgstr "Σκελετός"
 
 #: ../enemies/stealth.txt:1
-#: ../powers/powers.txt:1106
 msgid "Stealth"
 msgstr "Εξαφάνιση"
 
 #: ../enemies/the_warden.txt:3
-#: ../enemies/the_warden.txt:1
 msgid "The Warden"
 msgstr "Ο Αρχιφύλακας"
 
 #: ../enemies/ukkonen.txt:3
-#: ../enemies/ukkonen.txt:1
 msgid "Ukkonen, Goblin Chieftain"
 msgstr "Ουκόνεν, Καλικάντζαρος Φύλαρχος"
 
 #: ../enemies/vesuvvio.txt:3
-#: ../enemies/vesuvvio.txt:1
 msgid "Vesuvvio (the Destroyer)"
 msgstr "Βεζούββιος (ο Καταστροφέας)"
 
 #: ../enemies/wyvern.txt:3
-#: ../enemies/wyvern.txt:1
 msgid "Venom Wyvern"
 msgstr "Δηλητηριώδης Δράκοντας"
 
 #: ../enemies/wyvern_adult.txt:3
-#: ../enemies/wyvern_adult.txt:1
 msgid "Adult Wyvern"
 msgstr "Ενήλικος Δράκοντας"
 
 #: ../enemies/zombie.txt:3
-#: ../enemies/zombie.txt:1
 msgid "Zombie"
 msgstr "Νεκροζώντανος"
 
 #: ../enemies/zombie_bloodthirsty.txt:3
-#: ../enemies/zombie_bloodthirsty.txt:1
 msgid "Bloodthirsty Zombie"
 msgstr "Αιμοσταγής Νεκροζώντανος"
 
 #: ../enemies/zombie_brute.txt:3
-#: ../enemies/zombie_brute.txt:1
 msgid "Zombie Brute"
 msgstr "Κτηνώδης Νεκροζώντανος"
 
 #: ../enemies/zombie_iceclaw.txt:3
-#: ../enemies/zombie_iceclaw.txt:1
 msgid "Iceclaw Zombie"
 msgstr "Ψυκτόνυχος Νεκροζώντανος"
 
 #: ../enemies/zombie_rotting.txt:3
-#: ../enemies/zombie_rotting.txt:1
 msgid "Rotting Zombie"
 msgstr "Σάπιος Νεκροζώντανος"
 
 #: ../maps/ancient_temple.txt:9
-#: ../maps/ancient_temple.txt:8
 msgid "Ancient Temple"
 msgstr "Αρχαίος Ναός"
 
-#: ../maps/ancient_temple.txt:447
-#: ../maps/ancient_temple.txt:445
-msgid "Treasure Chest"
-msgstr "Σεντούκι Θησαυρού"
-
-#: ../maps/ancient_temple.txt:468
-#: ../maps/ancient_temple.txt:465
-msgid "Tho' Nature, red in tooth and claw; With ravine, shriek'd against his creed"
-msgstr ""
-"... Τὰ κόκαλα ἐβαρέθηκαν,  στὸ μνῆμα καρτερώντας  καὶ τρίζουνε ἀκατάπαυτα  "
-"τὴν Κρίση ἀναζητώντας ..."
-
-#: ../maps/ancient_temple.txt:471
-#: ../maps/ancient_temple.txt:467
-msgid "In Memoriam"
-msgstr "Εἰς Μοναχὴν"
-
-#: ../maps/ancient_temple.txt:618
-#: ../maps/ancient_temple.txt:612
-msgid "Ancient Temple waypoint discovered."
-msgstr "Η τοποθεσία του Αρχαίου Ναού ανακαλύφθηκε."
-
-#: ../maps/ancient_temple.txt:629
-#: ../maps/ancient_temple.txt:622
-msgid "Warp Zone"
-msgstr "Ζώνη Τηλεμεταφοράς"
-
-#: ../maps/averguard_academy.txt:9
-msgid "Averguard Academy"
-msgstr "Ακαδημία του Άβεργκαρντ"
-
-#: ../maps/averguard_academy.txt:345
-msgid "\"Some say the Averguard Academy is the greatest collection of knowledge within the empire.\""
-msgstr ""
-"«Λέγετε ότι η Ακαδημία του Άβεργκαρντ είναι η μεγαλύτερη συγκέντρωση γνώσης "
-"εντός της αυτοκρατορίας.»"
-
-#: ../maps/averguard_academy.txt:348
-#: ../maps/averguard_academy.txt:347
-msgid "Book Stand"
-msgstr "Αναλόγιο"
-
-#: ../maps/averguard_academy.txt:356
-#: ../maps/averguard_academy.txt:355
-msgid "\"Professor Langlier is High Sage of the Averguard.  Several volumes kept here are his own writings.\""
-msgstr ""
-"«Ο Καθηγητής Λάνγκλιερ είναι ο Πρώτος τη Τάξει Λόγιος του Άβεργκαρντ.  "
-"Πολλοί τόμοι που φυλάσσονται εδώ αποτελούν γραπτά του.»"
-
-#: ../maps/averguard_academy.txt:367
-#: ../maps/averguard_academy.txt:365
-msgid "\"The Academy is only open to oathkeeping members of the Averguard.  Few others know of its existence.\""
-msgstr ""
-"«Η Ακαδημία είναι ανοιχτή μόνο σε ορκισμένα μέλη του Άβεργκαρντ.  Ελάχιστοι "
-"γνωρίζουν την ύπαρξή της.»"
-
-#: ../maps/averguard_academy.txt:378
-#: ../maps/averguard_academy.txt:375
-msgid "\"The peasants could not be trusted with literacy.  Most gave up their books without incident.\""
-msgstr ""
-"«Στο ζήτημα της γραμματοσύνης οι χωρικοί ήταν ανάξιοι εμπιστοσύνης.  Οι "
-"περισσότεροι παρέδωσαν τα βιβλία τους χωρίς αντίσταση.»"
-
-#: ../maps/averguard_academy.txt:390
-#: ../maps/averguard_academy.txt:386
-msgid "This false book has a secret compartment."
-msgstr "Αυτό το ψεύτικο βιβλίο έχει μία κρυφή θήκη."
-
-#: ../maps/averguard_academy.txt:406
-#: ../maps/averguard_academy.txt:399
-msgid "Barrel"
-msgstr "Βαρέλι"
-
-#: ../maps/averguard_academy.txt:450
-#: ../maps/averguard_academy.txt:437
-msgid "Crate"
-msgstr "Κιβώτιο"
-
-#: ../maps/averguard_academy.txt:478
-#: ../maps/averguard_academy.txt:462
-msgid "This tomb glows with magical runes."
-msgstr "Αυτός ο τάφος ακτινοβολεί, διάκοσμος με μαγικά ρουνικά."
-
-#: ../maps/averguard_academy.txt:488
-#: ../maps/averguard_academy.txt:470
-msgid "Langlier's Tomb"
-msgstr "Τάφος του Λάνγκλιερ"
-
-#: ../maps/averguard_atrium.txt:9
-msgid "Averguard Atrium"
-msgstr "Προθάλαμος του Άβεργκαρντ"
-
-#: ../maps/averguard_atrium.txt:264
-msgid "Averguard Atrium waypoint discovered"
-msgstr "Η τοποθεσία του Προθάλαμου του Άβεργκαρντ ανακαλύφθηκε"
-
-#: ../maps/averguard_complex.txt:9
-msgid "Averguard Complex"
-msgstr "Σύμπλεγμα του Άβεργκαρντ"
-
-#: ../maps/averguard_complex.txt:479
-#: ../maps/averguard_complex.txt:472
-msgid "This book is entitled \"Training Your Antlion\". Chapter 1 is \"How Not To Get Eaten\". The rest of the book is unfinished."
-msgstr ""
-"Αυτό το βιβλίο τιτλοφορείτε «Εκπαιδεύοντας τον Μυρμηκολέωντα σας». Το πρώτο "
-"κεφάλαιο είναι «Πως να μην φαγωθείτε». Το υπόλοιπο βιβλίο είναι ημιτελές."
-
-#: ../maps/averguard_complex.txt:606
-#: ../maps/averguard_complex.txt:586
-msgid "Switch System"
-msgstr "Σύστημα Μοχλών"
-
-#: ../maps/averguard_prison.txt:9
-msgid "Averguard Prison"
-msgstr "Φυλακή του Άβεργκαρντ"
-
-#: ../maps/averguard_prison.txt:369
-#: ../maps/averguard_prison.txt:366
-msgid "Switch"
-msgstr "Μοχλός"
-
-#: ../maps/averguard_prison.txt:377
-#: ../maps/averguard_prison.txt:374
-msgid "The last entry of this well-preserved journal reads: \"I feared it would come to this.  I knew the Warden's secrets but they would not be contained forever.\""
-msgstr ""
-"Η τελευταία εγγραφή αυτού του καλοδιατηρημένου ημερολογίου γράφει: «Φοβόμουν "
-"ότι θα φτάναμε σε αυτό το σημείο.  Ήξερα τα μυστικά του Αρχιφύλακα, αλλά δεν "
-"θα μπορούσαν να περιοριστούν για πάντα.»"
-
-#: ../maps/averguard_temple.txt:9
-#: ../maps/averguard_temple.txt:8
-msgid "Averguard Temple"
-msgstr "Ναός του Άβεργκαρντ"
-
-#: ../maps/averguard_temple.txt:450
-#: ../maps/averguard_temple.txt:448
-msgid "You insert the Averguard Key. Runes glow around the door, then fade. The door is still sealed."
-msgstr ""
-"Εισάγεις το κλειδί του Άβεργκαρντ. Τα ρουνικά που περιβάλλουν την πύλη "
-"λάμπουν και μετά εξασθενούν. Η πύλη παραμένει σφραγισμένη."
-
-#: ../maps/averguard_temple.txt:456
-#: ../maps/averguard_temple.txt:453
-msgid "Sealed Temple Door"
-msgstr "Σφραγισμένη Πύλη του Ναού"
-
-#: ../maps/averguard_temple.txt:464
-#: ../maps/averguard_temple.txt:460
-msgid "You read aloud the runes on Langlier's Talisman. The Avergard Key begins to glow!"
-msgstr ""
-"Διαβάζεις δυνατά τα ρουνικά στο περιδέραιο του Λάνγκλιερ. Το κλειδί του "
-"Άβεργκαρντ αρχίζει να λάμπει!"
-
-#: ../maps/averguard_temple.txt:471
-#: ../maps/averguard_temple.txt:466
-msgid "Activate Talisman"
-msgstr "Ενεργοποίησε το Περιδέραιο"
-
-#: ../maps/averguard_temple.txt:487
-#: ../maps/averguard_temple.txt:482
-msgid "\"Some said Sir Maddox cared too much for the peasants.  He would not quarantine, saying the villagers did not deserve to die locked away.\""
-msgstr ""
-"«Κάποιοι είπαν ότι ο Σερ Μάντοξ νοιαζόταν υπερβολικά για τους χωρικούς. "
-"Αρνιόταν να τους φυλακίσει απολογούμενος ότι δεν τους αξίζει να σαπίσουν "
-"ξεχασμένοι σε ένα μπουντρούμι.»"
-
-#: ../maps/averguard_temple.txt:497
-#: ../maps/averguard_temple.txt:491
-msgid "\"Maddox died of the plague in 638.  After attempts to magically revive him failed he was sealed deep behind the temple.\""
-msgstr ""
-"«Ο Μάντοξ πέθανε από την πανούκλα το 638.  Εφόσον οι μαγικές προσπάθειες να "
-"τον αναβιώσουν απέτυχαν σφραγίστηκε βαθιά πίσω από το ναό.»"
-
-#: ../maps/averguard_temple.txt:507
-#: ../maps/averguard_temple.txt:500
-msgid "This chest is locked."
-msgstr "Αυτό το σεντούκι είναι κλειδωμένο."
-
-#: ../maps/averguard_temple.txt:526
-#: ../maps/averguard_temple.txt:517
-msgid "A plaque under the statue reads \"Sir Evan Maddox, may he return to rescue us all\""
-msgstr ""
-"Η πλάκα κάτω από το άγαλμα γράφει «Σερ Έβαν Μάντοξ, είθε να επιστρέψει για "
-"να μας σώσει»"
-
-#: ../maps/averguard_temple.txt:533
-#: ../maps/averguard_temple.txt:523
-msgid "A ghastly voice reverberates from the next chamber.  \"What fool disturbs my tomb?!\""
-msgstr ""
-"Μια ανατριχιαστική φωνή αντηχεί από την επόμενη αίθουσα.  «Ποιος ανόητος "
-"τολμά να διαταράξει τον τάφο μου;!»"
-
-#: ../maps/averguard_temple.txt:541
-#: ../maps/averguard_temple.txt:530
-msgid "You wipe dust away from the tomb lid, revealing an inscription: \"Here lies Sir Evan Maddox\""
-msgstr ""
-"Σκουπίζεις την σκόνη από το καπάκι του τάφου, αποκαλύπτοντας την επιγραφή: «"
-"Εδώ κείτεται ο Σερ Έβαν Μάντοξ»"
-
-#: ../maps/averguard_temple.txt:543
-#: ../maps/averguard_temple.txt:531
-msgid "Maddox's Tomb"
-msgstr "Τάφος του Μάντοξ"
-
-#: ../maps/averguard_temple.txt:562
-msgid "A locked gate is here, with a small keyhole in the center."
-msgstr ""
-
-#: ../maps/brothers_lair_atrium.txt:8
-msgid "Brothers' Lair Atrium"
-msgstr "Προθάλαμος του Νεκρομαντείου των Αδελφών"
-
-#: ../maps/brothers_lair_atrium.txt:242
-#: ../maps/brothers_lair_atrium.txt:248
-msgid "Brothers Lair Atrium waypoint discovered"
-msgstr "Ανακαλύφθηκε η τοποθεσία Προθάλαμος του Νεκρομαντείου των Αδελφών"
-
-#: ../maps/brothers_lair_fire_hall.txt:9
-#: ../maps/brothers_lair_fire_hall.txt:8
-msgid "Brothers' Lair Fire Hall"
-msgstr "Αίθουσα της Φωτιάς του Νεκρομαντείο των Αδελφών"
-
-#: ../maps/brothers_lair_fire_hall.txt:352
-#: ../maps/brothers_lair_fire_hall.txt:346
-msgid "Runed Chest"
-msgstr "Χαραγμένο Σεντούκι"
-
-#: ../maps/brothers_lair_fire_hall.txt:372
-#: ../maps/brothers_lair_fire_hall.txt:366
-msgid "\"Today Pompeii got a little over-excited to meet me and blew himself up. So I had to go into the caves and catch myself a NEW antlion burster. Again. I think I'm going to name this one 'Krakatoa'. ~Vesuvvio (the Destroyer)\""
-msgstr ""
-"«Σήμερα ο Πομπήιος υπερδιεγέρθηκε που με είδε και ανατινάχθηκε. Οπότε έπρεπε "
-"να πάω στις σπηλιές να πιάσω ένα ΚΑΙΝΟΥΡΙΟ Ανατιναζόμενο Μυρμηκολέωντα. "
-"Ξανά. Λέω να τον βαφτίσω 'Κρακατόα'. ~Βεζούββιος (Ο Καταστροφέας)»"
-
-#: ../maps/brothers_lair_ice_hall.txt:9
-#: ../maps/brothers_lair_ice_hall.txt:8
-msgid "Brothers' Lair Ice Hall"
-msgstr "Αίθουσα του Πάγου του Νεκρομαντείου των Αδελφών"
-
-#: ../maps/brothers_lair_ice_hall.txt:289
-#: ../maps/brothers_lair_ice_hall.txt:287
-msgid "Suspicious Bookcase"
-msgstr "Ύποπτη Βιβλιοθήκη"
-
-#: ../maps/brothers_lair_ice_hall.txt:297
-#: ../maps/brothers_lair_ice_hall.txt:295
-msgid "\"When we could no longer stand the idiotic practices of our master, I hatched a plan to kill him. My brothers agreed the deed had to be done.\""
-msgstr ""
-"«Δεν αντέχαμε άλλο τις ανόητες πρακτικές του αφέντη μας, κατέστρωσα ένα "
-"σχέδιο να τον ξεφορτωθούμε. Οι άλλοι συμφώνησαν, το φονικό έπρεπε να γίνει.»"
-
-#: ../maps/brothers_lair_ice_hall.txt:308
-#: ../maps/brothers_lair_ice_hall.txt:305
-msgid "\"In accordance with our plan, G. asked the old fool to teach him about the preparation of corpses in the later stages of decay. Naturally, the corpse in question was a cleverly disguised bomb made by V.\""
-msgstr ""
-"«Σύμφωνα με το σχέδιο, ο Γ. ζήτησε από τον γεροξεκούτη να του διδάξει την "
-"προετοιμασία των πτωμάτων στα τελικά στάδια αποσύνθεσης. Φυσικά, το πτώμα "
-"ήταν μια έξυπνα μεταμφιεσμένη βόμβα που έφτιαξε ο Β.»"
-
-#: ../maps/brothers_lair_ice_hall.txt:318
-#: ../maps/brothers_lair_ice_hall.txt:314
-msgid "\"My brothers and I wandered around for a few days. In an incredible stroke of luck, we encountered a master necromancer who, seeing the marks of banishment on our foreheads, took us as his apprentices.\""
-msgstr ""
-"«Τα αδέλφια μου και εγώ περιπλανιόμασταν για μέρες. Για μεγάλη μας τύχη "
-"συναντήσαμε έναν έμπειρο νεκρομάντη, ο οποίος μόλις είδε τα σημάδια της "
-"εξορίας στα μέτωπά μας, μας δέχτηκε σαν μαθητευόμενούς του.»"
-
-#: ../maps/brothers_lair_ice_hall.txt:321
-#: ../maps/brothers_lair_ice_hall.txt:316
-msgid "Bookcase"
-msgstr "Βιβλιοθήκη"
-
-#: ../maps/brothers_lair_ice_hall.txt:329
-#: ../maps/brothers_lair_ice_hall.txt:324
-msgid "\"We grew swiftly under the tutelage of the necromancer. The more we learned, the more we realized we could do better than the short-sighted git.\""
-msgstr ""
-"«Προοδεύσαμε γρήγορα υπό την καθοδήγηση του νεκρομάντη. Όσα περισσότερα "
-"μαθαίναμε, τόσο αντιλαμβανόμασταν ότι τα καταφέρναμε μια χαρά και χωρίς τον "
-"κοντόφθαλμο ξεκούτη.»"
-
-#: ../maps/brothers_lair_ice_hall.txt:340
-#: ../maps/brothers_lair_ice_hall.txt:334
-msgid "\"My brothers V. and G. used to go to a wizard's academy with me. We were top students until one day V. killed another student in a spontaneous fit of rage.\""
-msgstr ""
-"«Εγώ και τα αδέλφια μου, Ο Β. και ο Γ. φοιτούσαμε στην ακαδημία των μάγων. "
-"Ήμασταν κορυφαίοι μαθητές μέχρι την ημέρα που ο Β. σκότωσε έναν άλλο μαθητή "
-"μέσα στην οργή του.»"
-
-#: ../maps/brothers_lair_ice_hall.txt:351
-#: ../maps/brothers_lair_ice_hall.txt:344
-msgid "\"Naturally, V. was expelled for his crime. It was foolish of us, but G. and I decided to defend our brother. We were expelled too. The wizards magically marked us with a sign of banishment on our foreheads so that no wizard would dare teach us.\""
-msgstr ""
-"«Φυσικά, Ο Β. αποβλήθηκε για το έγκλημα του. Ήταν ανόητο εκ μέρους μας αλλά "
-"εγώ και ο Γ. αποφασίσαμε να υπερασπιστούμε τον αδελφό μας. Αποβληθήκαμε και "
-"εμείς. Οι μάγοι σημάδεψαν τα μέτωπά μας με ένα μαγικό σύμβολο εξορισμού, "
-"έτσι ώστε κανένας μάγος να μην τολμήσει να μας διδάξει.»"
-
-#: ../maps/brothers_lair_ice_hall.txt:362
-#: ../maps/brothers_lair_ice_hall.txt:354
-msgid "\"G. suggested that each of us should take one of the halls in the old necromancer's lair.\""
-msgstr ""
-"«Ο Γ. πρότεινε να πάρει ο καθένας μας από μία αίθουσα στο λημέρι του "
-"νεκρομάντη.»"
-
-#: ../maps/brothers_lair_ice_hall.txt:373
-#: ../maps/brothers_lair_ice_hall.txt:364
-msgid "\"It's days like today that make me wonder if I should go a step further and eliminate V. and G. too... they're getting on my nerves. ~Scathelocke\""
-msgstr ""
-"«Είναι μέρες σαν και αυτή που αναρωτιέμαι αν πρέπει να κάνω το επόμενο βήμα "
-"και να εξαφανίσω και τα αδέλφια μου... μου σπάνε τα νεύρα. ~Σκέιθλοκ»"
-
-#: ../maps/brothers_lair_sacrifice_room.txt:9
-msgid "Brothers' Sacrifice Room"
-msgstr "Αίθουσα Θυσιών του Νεκρομαντείου των Αδελφών"
-
-#: ../maps/brothers_lair_wind_hall.txt:8
-msgid "Brothers' Lair Wind Hall"
-msgstr "Αίθουσα του Ανέμου του Νεκρομαντείου των Αδελφών"
-
-#: ../maps/brothers_lair_wind_hall.txt:192
-#: ../maps/brothers_lair_wind_hall.txt:191
-msgid "Rising Wind Switch"
-msgstr "Μοχλός Ανερχόμενου Ανέμου"
-
-#: ../maps/brothers_lair_wind_hall.txt:205
-#: ../maps/brothers_lair_wind_hall.txt:203
-msgid "Rising Fire Switch"
-msgstr "Μοχλός Ανερχόμενης Φωτιάς"
-
-#: ../maps/brothers_lair_wind_hall.txt:215
-#: ../maps/brothers_lair_wind_hall.txt:212
-msgid "Rising Ice Switch"
-msgstr "Μοχλός Ανερχόμενου Πάγου"
-
-#: ../maps/brothers_lair_wind_hall.txt:228
-#: ../maps/brothers_lair_wind_hall.txt:224
-msgid "Falling Ice Switch"
-msgstr "Μοχλός Κατερχόμενου Πάγου"
-
-#: ../maps/brothers_lair_wind_hall.txt:238
-#: ../maps/brothers_lair_wind_hall.txt:233
-msgid "Falling Wind Switch"
-msgstr "Μοχλός Κατερχόμενου Ανέμου"
-
-#: ../maps/brothers_lair_wind_hall.txt:251
-#: ../maps/brothers_lair_wind_hall.txt:245
-msgid "Falling Fire Switch"
-msgstr "Μοχλός Κατερχόμενης Φωτιάς"
-
-#: ../maps/brothers_lair_wind_hall.txt:264
-#: ../maps/brothers_lair_wind_hall.txt:257
-msgid "Waiting Wind Switch"
-msgstr "Μοχλός Στάσιμου Ανέμου"
-
-#: ../maps/brothers_lair_wind_hall.txt:275
-#: ../maps/brothers_lair_wind_hall.txt:267
-msgid "Waiting Fire Switch"
-msgstr "Μοχλός Στάσιμης Φωτιάς"
-
-#: ../maps/brothers_lair_wind_hall.txt:288
-#: ../maps/brothers_lair_wind_hall.txt:279
-msgid "Waiting Ice Switch"
-msgstr "Μοχλός Στάσιμου Πάγου"
-
-#: ../maps/brothers_lair_wind_hall.txt:296
-#: ../maps/brothers_lair_wind_hall.txt:287
-msgid "\"Fire is either Falling or Waiting. One element, one temperament.\""
-msgstr ""
-"«Η φωτιά είτε Κατεβαίνει είτε Στέκεται. Κάθε στοιχείο μία ιδιοσυγκρασία.»"
-
-#: ../maps/brothers_lair_wind_hall.txt:307
-#: ../maps/brothers_lair_wind_hall.txt:297
-msgid "\"Wind is not Rising. Wind is Falling on the firmament.\""
-msgstr "«Ο άνεμος δεν Ανεβαίνει. Ο άνεμος Κατεβαίνει από τον ουράνιο θόλο.»"
-
-#: ../maps/brothers_lair_wind_hall.txt:326
-#: ../maps/brothers_lair_wind_hall.txt:315
-msgid "\"People used to ask me why I use a sword rather than a wand. It never occurs to them that the metal blade can conduct and channel lightning as well as (or better than!) any enchanted twig. ~Grisbon\""
-msgstr ""
-"«Με ρωτούσαν γιατί χρησιμοποιώ ξίφος αντί για ραβδί. Ποτέ δεν φαντάζονται "
-"ότι μια μεταλλική λεπίδα άγει τον κεραυνό όσο καλά (ή και καλύτερα!) όσο "
-"οποιοδήποτε μαγεμένο κλαδάκι. ~Γκρίζμπον»"
-
-#: ../maps/cave1.txt:10
-#: ../maps/cave1.txt:9
-msgid "Caves Level 1"
-msgstr "Σπηλιές Επίπεδο 1"
-
-#: ../maps/cave1.txt:348
-#: ../maps/cave1.txt:346
-msgid "Mine Cart"
-msgstr "Καρότσι Ορυχείου"
-
-#: ../maps/cave1.txt:385
-#: ../maps/cave1.txt:380
-msgid "The crumbling walls of the south tunnel are held up by planks of rotting wood."
-msgstr ""
-"Οι ετοιμόρροποι τοίχοι της νότιας σήραγγας συγκρατούνται από σάπια ξύλινα "
-"δοκάρια."
-
-#: ../maps/cave1.txt:468
-#: ../maps/cave1.txt:462
-msgid "These goblins have captured a human trader.  Human bones are carefully arranged around the pillar in preparation for a goblin ritual."
-msgstr ""
-"Αυτοί οι καλικάντζαροι αιχμαλώτισαν έναν άνθρωπο έμπορο.  Ανθρώπινα κόκαλα "
-"είναι προσεκτικά διατεταγμένα γύρο από την κολόνα, στην προετοιμασία ενός "
-"τελετουργικού."
-
-#: ../maps/cave1.txt:476
-#: ../maps/cave1.txt:469
-msgid "Talrych says, \"You arrived just in time.  Please, take this.\""
-msgstr "Ο Τάλρυχ λέει, «Έφτασες πάνω στην ώρα.  Παρακαλώ, δέξου αυτό το δώρο.»"
-
-#: ../maps/cave1.txt:484
-#: ../maps/cave1.txt:476
-msgid "The walls collapse inward and rubble blocks off the passage!"
-msgstr "Οι τοίχοι υποχωρούν και τα συντρίμμια κλείνουν το πέρασμα!"
-
-#: ../maps/cave_of_living_bones1.txt:8
-msgid "Cave of Living Bones 1"
-msgstr "Σπηλιά των Ζωντανών Οστών 1"
-
-#: ../maps/cave_of_living_bones2.txt:9
-#: ../maps/cave_of_living_bones2.txt:8
-msgid "Cave of Living Bones 2"
-msgstr "Σπηλιά των Ζωντανών Οστών 2"
-
-#: ../maps/cave_of_living_bones2.txt:323
-#: ../maps/cave_of_living_bones2.txt:319
-msgid "This pillar is laced with cracks and crevices. Maybe with enough force it can be knocked down."
-msgstr ""
-"Αυτή η στήλη είναι γεμάτη ρωγμές. Ίσως με αρκετή δύναμη μπορεί να πέσει."
-
-#: ../maps/cave_of_living_bones2.txt:326
-#: ../maps/cave_of_living_bones2.txt:322
-msgid "Giant Pillar"
-msgstr "Τεράστια Στήλη"
-
-#: ../maps/cave_of_living_bones2.txt:334
-#: ../quests/living_bones.txt:19
-msgid "Run! You don't want to be caught in the blast of your own explosion!"
-msgstr "Τρέξε! Δεν θες να σε πάρει η έκρηξη!"
-
-#: ../maps/cave_of_living_bones2.txt:339
-#: ../maps/cave_of_living_bones2.txt:333
-msgid "Place Explosive"
-msgstr "Τοποθέτησε τα Εκρηκτικά"
-
-#: ../maps/cave_of_living_bones3.txt:8
-msgid "Cave of Living Bones 3"
-msgstr "Σπηλιά των Ζωντανών Οστών 3"
-
-#: ../maps/cave_of_living_bones3.txt:130
-#: ../maps/cave_of_living_bones3.txt:129
-msgid "Crate of Blasting Powder"
-msgstr "Κιβώτιο Πυρίτιδας"
-
-#: ../maps/frontier_outpost.txt:8
-msgid "Frontier Outpost"
-msgstr "Συνοριακό Φυλάκιο"
-
-#: ../maps/frontier_outpost.txt:273
-msgid "Shared Stash"
-msgstr "Κοινόχρηστη Αποθήκη"
-
-#: ../maps/frontier_outpost.txt:280
-msgid "Frontier Outpost waypoint discovered."
-msgstr "Η τοποθεσία του Συνοριακού Φυλακίου ανακαλύφθηκε."
-
-#: ../maps/frontier_plains.txt:9
-#: ../maps/frontier_plains.txt:8
+#: ../maps/ancient_temple.txt:352
 msgid "Frontier Plains"
 msgstr "Συνοριακές Πεδιάδες"
 
-#: ../maps/frontier_plains.txt:838
-msgid "Supplies"
-msgstr "Προμήθειες"
+#: ../maps/ancient_temple.txt:464
+msgid "Treasure Chest"
+msgstr "Σεντούκι Θησαυρού"
 
-#: ../maps/goblin_warrens.txt:9
+#: ../maps/ancient_temple.txt:487
+msgid "Tho' Nature, red in tooth and claw; With ravine, shriek'd against his creed"
+msgstr "... Τὰ κόκαλα ἐβαρέθηκαν,  στὸ μνῆμα καρτερώντας  καὶ τρίζουνε ἀκατάπαυτα  τὴν Κρίση ἀναζητώντας ..."
+
+#: ../maps/ancient_temple.txt:490
+msgid "In Memoriam"
+msgstr "Εἰς Μοναχὴν"
+
+#: ../maps/ancient_temple.txt:654
+msgid "Ancient Temple waypoint discovered."
+msgstr "Η τοποθεσία του Αρχαίου Ναού ανακαλύφθηκε."
+
+#: ../maps/ancient_temple.txt:667
+msgid "Warp Zone"
+msgstr "Ζώνη Τηλεμεταφοράς"
+
+#: ../maps/averguard_academy.txt:10
+msgid "Averguard Academy"
+msgstr "Ακαδημία του Άβεργκαρντ"
+
+#: ../maps/averguard_academy.txt:340
+msgid "Averguard Atrium"
+msgstr "Προθάλαμος του Άβεργκαρντ"
+
+#: ../maps/averguard_academy.txt:349
+msgid "\"Some say the Averguard Academy is the greatest collection of knowledge within the empire.\""
+msgstr "«Λέγετε ότι η Ακαδημία του Άβεργκαρντ είναι η μεγαλύτερη συγκέντρωση γνώσης εντός της αυτοκρατορίας.»"
+
+#: ../maps/averguard_academy.txt:352
+msgid "Book Stand"
+msgstr "Αναλόγιο"
+
+#: ../maps/averguard_academy.txt:361
+msgid "\"Professor Langlier is High Sage of the Averguard.  Several volumes kept here are his own writings.\""
+msgstr "«Ο Καθηγητής Λάνγκλιερ είναι ο Πρώτος τη Τάξει Λόγιος του Άβεργκαρντ.  Πολλοί τόμοι που φυλάσσονται εδώ αποτελούν γραπτά του.»"
+
+#: ../maps/averguard_academy.txt:373
+msgid "\"The Academy is only open to oathkeeping members of the Averguard.  Few others know of its existence.\""
+msgstr "«Η Ακαδημία είναι ανοιχτή μόνο σε ορκισμένα μέλη του Άβεργκαρντ.  Ελάχιστοι γνωρίζουν την ύπαρξή της.»"
+
+#: ../maps/averguard_academy.txt:385
+msgid "\"The peasants could not be trusted with literacy.  Most gave up their books without incident.\""
+msgstr "«Στο ζήτημα της γραμματοσύνης οι χωρικοί ήταν ανάξιοι εμπιστοσύνης.  Οι περισσότεροι παρέδωσαν τα βιβλία τους χωρίς αντίσταση.»"
+
+#: ../maps/averguard_academy.txt:398
+msgid "This false book has a secret compartment."
+msgstr "Αυτό το ψεύτικο βιβλίο έχει μία κρυφή θήκη."
+
+#: ../maps/averguard_academy.txt:415
+msgid "Barrel"
+msgstr "Βαρέλι"
+
+#: ../maps/averguard_academy.txt:463
+msgid "Crate"
+msgstr "Κιβώτιο"
+
+#: ../maps/averguard_academy.txt:494
+msgid "This tomb glows with magical runes."
+msgstr "Αυτός ο τάφος ακτινοβολεί, διάκοσμος με μαγικά ρουνικά."
+
+#: ../maps/averguard_academy.txt:505
+msgid "Langlier's Tomb"
+msgstr "Τάφος του Λάνγκλιερ"
+
+#: ../maps/averguard_atrium.txt:220
 msgid "Goblin Warrens"
 msgstr "Καλικαντζαροφωλιές"
 
-#: ../maps/goblin_warrens.txt:328
-#: ../maps/goblin_warrens.txt:326
-msgid "This book bears the seal of the Averguard"
-msgstr "Αυτό το βιβλίο φέρει την σφραγίδα του Άβεργκαρντ"
+#: ../maps/averguard_atrium.txt:229
+msgid "Averguard Temple"
+msgstr "Ναός του Άβεργκαρντ"
 
-#: ../maps/goblin_warrens.txt:341
-#: ../maps/goblin_warrens.txt:338
-msgid "\"In the Age of Settlement, the Averguard Knights defended peasants against the chaos of the wilderness.\""
+#: ../maps/averguard_atrium.txt:238
+msgid "Averguard Prison"
+msgstr "Φυλακή του Άβεργκαρντ"
+
+#: ../maps/averguard_atrium.txt:256
+msgid "Averguard Complex"
+msgstr "Σύμπλεγμα του Άβεργκαρντ"
+
+#: ../maps/averguard_atrium.txt:279
+msgid "Averguard Atrium waypoint discovered"
+msgstr "Η τοποθεσία του Προθάλαμου του Άβεργκαρντ ανακαλύφθηκε"
+
+#: ../maps/averguard_complex.txt:490
+msgid "This book is entitled \"Training Your Antlion\". Chapter 1 is \"How Not To Get Eaten\". The rest of the book is unfinished."
+msgstr "Αυτό το βιβλίο τιτλοφορείτε «Εκπαιδεύοντας τον Μυρμηκολέωντα σας». Το πρώτο κεφάλαιο είναι «Πως να μην φαγωθείτε». Το υπόλοιπο βιβλίο είναι ημιτελές."
+
+#: ../maps/averguard_complex.txt:629
+msgid "Switch System"
+msgstr "Σύστημα Μοχλών"
+
+#: ../maps/averguard_prison.txt:375
+msgid "Switch"
+msgstr "Μοχλός"
+
+#: ../maps/averguard_prison.txt:384
+msgid "The last entry of this well-preserved journal reads: \"I feared it would come to this.  I knew the Warden's secrets but they would not be contained forever.\""
+msgstr "Η τελευταία εγγραφή αυτού του καλοδιατηρημένου ημερολογίου γράφει: «Φοβόμουν ότι θα φτάναμε σε αυτό το σημείο.  Ήξερα τα μυστικά του Αρχιφύλακα, αλλά δεν θα μπορούσαν να περιοριστούν για πάντα.»"
+
+#: ../maps/averguard_temple.txt:455
+msgid "You insert the Averguard Key. Runes glow around the door, then fade. The door is still sealed."
+msgstr "Εισάγεις το κλειδί του Άβεργκαρντ. Τα ρουνικά που περιβάλλουν την πύλη λάμπουν και μετά εξασθενούν. Η πύλη παραμένει σφραγισμένη."
+
+#: ../maps/averguard_temple.txt:461
+msgid "Sealed Temple Door"
+msgstr "Σφραγισμένη Πύλη του Ναού"
+
+#: ../maps/averguard_temple.txt:470
+msgid "You read aloud the runes on Langlier's Talisman. The Avergard Key begins to glow!"
+msgstr "Διαβάζεις δυνατά τα ρουνικά στο περιδέραιο του Λάνγκλιερ. Το κλειδί του Άβεργκαρντ αρχίζει να λάμπει!"
+
+#: ../maps/averguard_temple.txt:477
+msgid "Activate Talisman"
+msgstr "Ενεργοποίησε το Περιδέραιο"
+
+#: ../maps/averguard_temple.txt:495
+msgid "\"Some said Sir Maddox cared too much for the peasants.  He would not quarantine, saying the villagers did not deserve to die locked away.\""
+msgstr "«Κάποιοι είπαν ότι ο Σερ Μάντοξ νοιαζόταν υπερβολικά για τους χωρικούς. Αρνιόταν να τους φυλακίσει απολογούμενος ότι δεν τους αξίζει να σαπίσουν ξεχασμένοι σε ένα μπουντρούμι.»"
+
+#: ../maps/averguard_temple.txt:506
+msgid "\"Maddox died of the plague in 638.  After attempts to magically revive him failed he was sealed deep behind the temple.\""
+msgstr "«Ο Μάντοξ πέθανε από την πανούκλα το 638.  Εφόσον οι μαγικές προσπάθειες να τον αναβιώσουν απέτυχαν σφραγίστηκε βαθιά πίσω από το ναό.»"
+
+#: ../maps/averguard_temple.txt:517
+msgid "This chest is locked."
+msgstr "Αυτό το σεντούκι είναι κλειδωμένο."
+
+#: ../maps/averguard_temple.txt:538
+msgid "A plaque under the statue reads \"Sir Evan Maddox, may he return to rescue us all\""
+msgstr "Η πλάκα κάτω από το άγαλμα γράφει «Σερ Έβαν Μάντοξ, είθε να επιστρέψει για να μας σώσει»"
+
+#: ../maps/averguard_temple.txt:546
+msgid "A ghastly voice reverberates from the next chamber.  \"What fool disturbs my tomb?!\""
+msgstr "Μια ανατριχιαστική φωνή αντηχεί από την επόμενη αίθουσα.  «Ποιος ανόητος τολμά να διαταράξει τον τάφο μου;!»"
+
+#: ../maps/averguard_temple.txt:555
+msgid "You wipe dust away from the tomb lid, revealing an inscription: \"Here lies Sir Evan Maddox\""
+msgstr "Σκουπίζεις την σκόνη από το καπάκι του τάφου, αποκαλύπτοντας την επιγραφή: «Εδώ κείτεται ο Σερ Έβαν Μάντοξ»"
+
+#: ../maps/averguard_temple.txt:557
+msgid "Maddox's Tomb"
+msgstr "Τάφος του Μάντοξ"
+
+#: ../maps/averguard_temple.txt:579
+msgid "A locked gate is here, with a small keyhole in the center."
 msgstr ""
-"«Στην Εποχή της Εποίκισης, οι ιππότες του Άβεργκαρντ υπερασπιζόντουσαν τους "
-"χωρικούς από τα αγρίμια.»"
 
-#: ../maps/goblin_warrens.txt:352
-#: ../maps/goblin_warrens.txt:348
-msgid "\"Sir Evan Maddox led the Averguard when the plague struck.  Powerful clerics from the corners of the world were brought here.  By the time a cure was found it was too late.\""
-msgstr ""
-"«Ο Σερ Έβαν Μάντοξ ηγήθηκε του Άβεργκαρντ όταν έπεσε η πανούκλα.  Ισχυροί "
-"κληρικοί από τις άκρες του κόσμου κλήθηκαν εδώ.  Μέχρι να βρεθεί η θεραπεία, "
-"ήταν ήδη αργά.»"
+#: ../maps/brothers_lair_atrium.txt:9
+msgid "Brothers' Lair Atrium"
+msgstr "Προθάλαμος του Νεκρομαντείου των Αδελφών"
 
-#: ../maps/lost_mines1.txt:9
+#: ../maps/brothers_lair_atrium.txt:190
+msgid "Brothers' Lair Ice Hall"
+msgstr "Αίθουσα του Πάγου του Νεκρομαντείου των Αδελφών"
+
+#: ../maps/brothers_lair_atrium.txt:200
+msgid "Brothers' Sacrifice Room"
+msgstr "Αίθουσα Θυσιών του Νεκρομαντείου των Αδελφών"
+
+#: ../maps/brothers_lair_atrium.txt:210
+msgid "Cave of Living Bones 2"
+msgstr "Σπηλιά των Ζωντανών Οστών 2"
+
+#: ../maps/brothers_lair_atrium.txt:220
+msgid "Brothers' Lair Fire Hall"
+msgstr "Αίθουσα της Φωτιάς του Νεκρομαντείο των Αδελφών"
+
+#: ../maps/brothers_lair_atrium.txt:230
+msgid "Brothers' Lair Wind Hall"
+msgstr "Αίθουσα του Ανέμου του Νεκρομαντείου των Αδελφών"
+
+#: ../maps/brothers_lair_atrium.txt:260
+msgid "Brothers Lair Atrium waypoint discovered"
+msgstr "Ανακαλύφθηκε η τοποθεσία Προθάλαμος του Νεκρομαντείου των Αδελφών"
+
+#: ../maps/brothers_lair_fire_hall.txt:361
+msgid "Runed Chest"
+msgstr "Χαραγμένο Σεντούκι"
+
+#: ../maps/brothers_lair_fire_hall.txt:383
+msgid "\"Today Pompeii got a little over-excited to meet me and blew himself up. So I had to go into the caves and catch myself a NEW antlion burster. Again. I think I'm going to name this one 'Krakatoa'. ~Vesuvvio (the Destroyer)\""
+msgstr "«Σήμερα ο Πομπήιος υπερδιεγέρθηκε που με είδε και ανατινάχθηκε. Οπότε έπρεπε να πάω στις σπηλιές να πιάσω ένα ΚΑΙΝΟΥΡΙΟ Ανατιναζόμενο Μυρμηκολέωντα. Ξανά. Λέω να τον βαφτίσω 'Κρακατόα'. ~Βεζούββιος (Ο Καταστροφέας)»"
+
+#: ../maps/brothers_lair_ice_hall.txt:292
+msgid "Suspicious Bookcase"
+msgstr "Ύποπτη Βιβλιοθήκη"
+
+#: ../maps/brothers_lair_ice_hall.txt:301
+msgid "\"When we could no longer stand the idiotic practices of our master, I hatched a plan to kill him. My brothers agreed the deed had to be done.\""
+msgstr "«Δεν αντέχαμε άλλο τις ανόητες πρακτικές του αφέντη μας, κατέστρωσα ένα σχέδιο να τον ξεφορτωθούμε. Οι άλλοι συμφώνησαν, το φονικό έπρεπε να γίνει.»"
+
+#: ../maps/brothers_lair_ice_hall.txt:313
+msgid "\"In accordance with our plan, G. asked the old fool to teach him about the preparation of corpses in the later stages of decay. Naturally, the corpse in question was a cleverly disguised bomb made by V.\""
+msgstr "«Σύμφωνα με το σχέδιο, ο Γ. ζήτησε από τον γεροξεκούτη να του διδάξει την προετοιμασία των πτωμάτων στα τελικά στάδια αποσύνθεσης. Φυσικά, το πτώμα ήταν μια έξυπνα μεταμφιεσμένη βόμβα που έφτιαξε ο Β.»"
+
+#: ../maps/brothers_lair_ice_hall.txt:324
+msgid "\"My brothers and I wandered around for a few days. In an incredible stroke of luck, we encountered a master necromancer who, seeing the marks of banishment on our foreheads, took us as his apprentices.\""
+msgstr "«Τα αδέλφια μου και εγώ περιπλανιόμασταν για μέρες. Για μεγάλη μας τύχη συναντήσαμε έναν έμπειρο νεκρομάντη, ο οποίος μόλις είδε τα σημάδια της εξορίας στα μέτωπά μας, μας δέχτηκε σαν μαθητευόμενούς του.»"
+
+#: ../maps/brothers_lair_ice_hall.txt:327
+msgid "Bookcase"
+msgstr "Βιβλιοθήκη"
+
+#: ../maps/brothers_lair_ice_hall.txt:336
+msgid "\"We grew swiftly under the tutelage of the necromancer. The more we learned, the more we realized we could do better than the short-sighted git.\""
+msgstr "«Προοδεύσαμε γρήγορα υπό την καθοδήγηση του νεκρομάντη. Όσα περισσότερα μαθαίναμε, τόσο αντιλαμβανόμασταν ότι τα καταφέρναμε μια χαρά και χωρίς τον κοντόφθαλμο ξεκούτη.»"
+
+#: ../maps/brothers_lair_ice_hall.txt:348
+msgid "\"My brothers V. and G. used to go to a wizard's academy with me. We were top students until one day V. killed another student in a spontaneous fit of rage.\""
+msgstr "«Εγώ και τα αδέλφια μου, Ο Β. και ο Γ. φοιτούσαμε στην ακαδημία των μάγων. Ήμασταν κορυφαίοι μαθητές μέχρι την ημέρα που ο Β. σκότωσε έναν άλλο μαθητή μέσα στην οργή του.»"
+
+#: ../maps/brothers_lair_ice_hall.txt:360
+msgid "\"Naturally, V. was expelled for his crime. It was foolish of us, but G. and I decided to defend our brother. We were expelled too. The wizards magically marked us with a sign of banishment on our foreheads so that no wizard would dare teach us.\""
+msgstr "«Φυσικά, Ο Β. αποβλήθηκε για το έγκλημα του. Ήταν ανόητο εκ μέρους μας αλλά εγώ και ο Γ. αποφασίσαμε να υπερασπιστούμε τον αδελφό μας. Αποβληθήκαμε και εμείς. Οι μάγοι σημάδεψαν τα μέτωπά μας με ένα μαγικό σύμβολο εξορισμού, έτσι ώστε κανένας μάγος να μην τολμήσει να μας διδάξει.»"
+
+#: ../maps/brothers_lair_ice_hall.txt:372
+msgid "\"G. suggested that each of us should take one of the halls in the old necromancer's lair.\""
+msgstr "«Ο Γ. πρότεινε να πάρει ο καθένας μας από μία αίθουσα στο λημέρι του νεκρομάντη.»"
+
+#: ../maps/brothers_lair_ice_hall.txt:384
+msgid "\"It's days like today that make me wonder if I should go a step further and eliminate V. and G. too... they're getting on my nerves. ~Scathelocke\""
+msgstr "«Είναι μέρες σαν και αυτή που αναρωτιέμαι αν πρέπει να κάνω το επόμενο βήμα και να εξαφανίσω και τα αδέλφια μου... μου σπάνε τα νεύρα. ~Σκέιθλοκ»"
+
+#: ../maps/brothers_lair_wind_hall.txt:194
+msgid "Rising Wind Switch"
+msgstr "Μοχλός Ανερχόμενου Ανέμου"
+
+#: ../maps/brothers_lair_wind_hall.txt:208
+msgid "Rising Fire Switch"
+msgstr "Μοχλός Ανερχόμενης Φωτιάς"
+
+#: ../maps/brothers_lair_wind_hall.txt:219
+msgid "Rising Ice Switch"
+msgstr "Μοχλός Ανερχόμενου Πάγου"
+
+#: ../maps/brothers_lair_wind_hall.txt:233
+msgid "Falling Ice Switch"
+msgstr "Μοχλός Κατερχόμενου Πάγου"
+
+#: ../maps/brothers_lair_wind_hall.txt:244
+msgid "Falling Wind Switch"
+msgstr "Μοχλός Κατερχόμενου Ανέμου"
+
+#: ../maps/brothers_lair_wind_hall.txt:258
+msgid "Falling Fire Switch"
+msgstr "Μοχλός Κατερχόμενης Φωτιάς"
+
+#: ../maps/brothers_lair_wind_hall.txt:272
+msgid "Waiting Wind Switch"
+msgstr "Μοχλός Στάσιμου Ανέμου"
+
+#: ../maps/brothers_lair_wind_hall.txt:284
+msgid "Waiting Fire Switch"
+msgstr "Μοχλός Στάσιμης Φωτιάς"
+
+#: ../maps/brothers_lair_wind_hall.txt:298
+msgid "Waiting Ice Switch"
+msgstr "Μοχλός Στάσιμου Πάγου"
+
+#: ../maps/brothers_lair_wind_hall.txt:307
+msgid "\"Fire is either Falling or Waiting. One element, one temperament.\""
+msgstr "«Η φωτιά είτε Κατεβαίνει είτε Στέκεται. Κάθε στοιχείο μία ιδιοσυγκρασία.»"
+
+#: ../maps/brothers_lair_wind_hall.txt:319
+msgid "\"Wind is not Rising. Wind is Falling on the firmament.\""
+msgstr "«Ο άνεμος δεν Ανεβαίνει. Ο άνεμος Κατεβαίνει από τον ουράνιο θόλο.»"
+
+#: ../maps/brothers_lair_wind_hall.txt:341
+msgid "\"People used to ask me why I use a sword rather than a wand. It never occurs to them that the metal blade can conduct and channel lightning as well as (or better than!) any enchanted twig. ~Grisbon\""
+msgstr "«Με ρωτούσαν γιατί χρησιμοποιώ ξίφος αντί για ραβδί. Ποτέ δεν φαντάζονται ότι μια μεταλλική λεπίδα άγει τον κεραυνό όσο καλά (ή και καλύτερα!) όσο οποιοδήποτε μαγεμένο κλαδάκι. ~Γκρίζμπον»"
+
+#: ../maps/cave1.txt:10
+msgid "Caves Level 1"
+msgstr "Σπηλιές Επίπεδο 1"
+
+#: ../maps/cave1.txt:345
 msgid "Lost Mines Level 1"
 msgstr "Χαμένα Ορυχεία Επίπεδο 1"
 
-#: ../maps/lost_mines1.txt:358
-#: ../maps/lost_mines1.txt:356
-msgid "It looks like the necromancer has been raising the corpses of dead miners as his minions."
-msgstr ""
-"Φαίνεται ότι ο νεκρομάντης ζωντάνευε τα πτώματα των νεκρών μεταλλωρύχων για "
-"να τα κάνει υποτακτικούς του."
+#: ../maps/cave1.txt:355
+msgid "Mine Cart"
+msgstr "Καρότσι Ορυχείου"
 
-#: ../maps/lost_mines1.txt:415
-#: ../maps/lost_mines1.txt:416
-msgid "A natural underground river flows through this room."
-msgstr "Ένα φυσικό υπόγειο ποτάμι ρέει μέσα από αυτό το δωμάτιο."
+#: ../maps/cave1.txt:396
+msgid "The crumbling walls of the south tunnel are held up by planks of rotting wood."
+msgstr "Οι ετοιμόρροποι τοίχοι της νότιας σήραγγας συγκρατούνται από σάπια ξύλινα δοκάρια."
 
-#: ../maps/lost_mines1.txt:457
-#: ../maps/lost_mines1.txt:453
-msgid "Stalagmite Pillar"
-msgstr "Στήλη Σταλαγμίτη"
+#: ../maps/cave1.txt:488
+msgid "These goblins have captured a human trader.  Human bones are carefully arranged around the pillar in preparation for a goblin ritual."
+msgstr "Αυτοί οι καλικάντζαροι αιχμαλώτισαν έναν άνθρωπο έμπορο.  Ανθρώπινα κόκαλα είναι προσεκτικά διατεταγμένα γύρο από την κολόνα, στην προετοιμασία ενός τελετουργικού."
 
-#: ../maps/lost_mines1.txt:463
-#: ../maps/lost_mines1.txt:459
-msgid "The river appears to have swollen recently, covering the location where the tracks once were."
-msgstr "Φαίνεται πως το ποτάμι φούσκωσε πρόσφατα, καλύπτοντας τις παλιές ράγες."
+#: ../maps/cave1.txt:497
+msgid "Talrych says, \"You arrived just in time.  Please, take this.\""
+msgstr "Ο Τάλρυχ λέει, «Έφτασες πάνω στην ώρα.  Παρακαλώ, δέξου αυτό το δώρο.»"
 
-#: ../maps/lost_mines1.txt:490
-#: ../maps/lost_mines1.txt:483
-msgid "The undead in this room are dressed in the remnants of shredded mining clothes."
-msgstr ""
-"Οι νεκροζώντανοι είναι ντυμένοι με τα κουρέλια της ενδυμασίας των "
-"μεταλλωρύχων."
+#: ../maps/cave1.txt:506
+msgid "The walls collapse inward and rubble blocks off the passage!"
+msgstr "Οι τοίχοι υποχωρούν και τα συντρίμμια κλείνουν το πέρασμα!"
 
-#: ../maps/mineshaft_longsword.txt:9
-#: ../maps/mineshaft_longsword.txt:8
-msgid "Mineshaft Longsword"
-msgstr "Σήραγγα Ξίφος"
+#: ../maps/cave_of_living_bones1.txt:9
+msgid "Cave of Living Bones 1"
+msgstr "Σπηλιά των Ζωντανών Οστών 1"
 
-#: ../maps/river_encampment.txt:8
-msgid "River Encampment"
-msgstr "Καταυλισμός του Ποταμού"
-
-#: ../maps/warp_zone.txt:244
+#: ../maps/cave_of_living_bones1.txt:334
 msgid "Ydrakka Pass"
 msgstr "Πέρασμα Υντράκα"
 
-#: ../maps/warp_zone.txt:260
-msgid "Brothers Lair Atrium"
-msgstr "Προθάλαμος του Νεκρομαντείου των Αδελφών"
+#: ../maps/cave_of_living_bones2.txt:283
+msgid "Cave of Living Bones 3"
+msgstr "Σπηλιά των Ζωντανών Οστών 3"
 
-#: ../maps/white_wind.txt:8
+#: ../maps/cave_of_living_bones2.txt:336
+msgid "This pillar is laced with cracks and crevices. Maybe with enough force it can be knocked down."
+msgstr "Αυτή η στήλη είναι γεμάτη ρωγμές. Ίσως με αρκετή δύναμη μπορεί να πέσει."
+
+#: ../maps/cave_of_living_bones2.txt:339
+msgid "Giant Pillar"
+msgstr "Τεράστια Στήλη"
+
+#: ../maps/cave_of_living_bones2.txt:348
+msgid "Run! You don't want to be caught in the blast of your own explosion!"
+msgstr "Τρέξε! Δεν θες να σε πάρει η έκρηξη!"
+
+#: ../maps/cave_of_living_bones2.txt:353
+msgid "Place Explosive"
+msgstr "Τοποθέτησε τα Εκρηκτικά"
+
+#: ../maps/cave_of_living_bones3.txt:135
+msgid "Crate of Blasting Powder"
+msgstr "Κιβώτιο Πυρίτιδας"
+
+#: ../maps/frontier_outpost.txt:9
+msgid "Frontier Outpost"
+msgstr "Συνοριακό Φυλάκιο"
+
+#: ../maps/frontier_outpost.txt:261
+msgid "Mineshaft Longsword"
+msgstr "Σήραγγα Ξίφος"
+
+#: ../maps/frontier_outpost.txt:280
+msgid "Shared Stash"
+msgstr "Κοινόχρηστη Αποθήκη"
+
+#: ../maps/frontier_outpost.txt:288
+msgid "Frontier Outpost waypoint discovered."
+msgstr "Η τοποθεσία του Συνοριακού Φυλακίου ανακαλύφθηκε."
+
+#: ../maps/frontier_plains.txt:815
+msgid "River Encampment"
+msgstr "Καταυλισμός του Ποταμού"
+
+#: ../maps/frontier_plains.txt:833
 msgid "White Wind"
 msgstr "Λευκός Άνεμος"
 
-#: ../maps/white_wind.txt:448
-#: ../maps/white_wind.txt:446
+#: ../maps/frontier_plains.txt:855
+msgid "Supplies"
+msgstr "Προμήθειες"
+
+#: ../maps/goblin_warrens.txt:338
+msgid "This book bears the seal of the Averguard"
+msgstr "Αυτό το βιβλίο φέρει την σφραγίδα του Άβεργκαρντ"
+
+#: ../maps/goblin_warrens.txt:352
+msgid "\"In the Age of Settlement, the Averguard Knights defended peasants against the chaos of the wilderness.\""
+msgstr "«Στην Εποχή της Εποίκισης, οι ιππότες του Άβεργκαρντ υπερασπιζόντουσαν τους χωρικούς από τα αγρίμια.»"
+
+#: ../maps/goblin_warrens.txt:364
+msgid "\"Sir Evan Maddox led the Averguard when the plague struck.  Powerful clerics from the corners of the world were brought here.  By the time a cure was found it was too late.\""
+msgstr "«Ο Σερ Έβαν Μάντοξ ηγήθηκε του Άβεργκαρντ όταν έπεσε η πανούκλα.  Ισχυροί κληρικοί από τις άκρες του κόσμου κλήθηκαν εδώ.  Μέχρι να βρεθεί η θεραπεία, ήταν ήδη αργά.»"
+
+#: ../maps/lost_mines1.txt:365
+msgid "It looks like the necromancer has been raising the corpses of dead miners as his minions."
+msgstr "Φαίνεται ότι ο νεκρομάντης ζωντάνευε τα πτώματα των νεκρών μεταλλωρύχων για να τα κάνει υποτακτικούς του."
+
+#: ../maps/lost_mines1.txt:428
+msgid "A natural underground river flows through this room."
+msgstr "Ένα φυσικό υπόγειο ποτάμι ρέει μέσα από αυτό το δωμάτιο."
+
+#: ../maps/lost_mines1.txt:474
+msgid "Stalagmite Pillar"
+msgstr "Στήλη Σταλαγμίτη"
+
+#: ../maps/lost_mines1.txt:481
+msgid "The river appears to have swollen recently, covering the location where the tracks once were."
+msgstr "Φαίνεται πως το ποτάμι φούσκωσε πρόσφατα, καλύπτοντας τις παλιές ράγες."
+
+#: ../maps/lost_mines1.txt:511
+msgid "The undead in this room are dressed in the remnants of shredded mining clothes."
+msgstr "Οι νεκροζώντανοι είναι ντυμένοι με τα κουρέλια της ενδυμασίας των μεταλλωρύχων."
+
+#: ../maps/warp_zone.txt:271
+msgid "Brothers Lair Atrium"
+msgstr "Προθάλαμος του Νεκρομαντείου των Αδελφών"
+
+#: ../maps/white_wind.txt:455
 msgid "You spot the abandoned tower in the distance."
 msgstr "Διακρίνεις τον εγκαταλελειμμένο πύργο στο βάθος."
 
-#: ../maps/white_wind.txt:457
-#: ../maps/white_wind.txt:454
+#: ../maps/white_wind.txt:465
 msgid "Looking through the grate, you confirm the tower is empty."
 msgstr "Κοιτώντας μέσα από τα κάγκελα, επιβεβαιώνεις ότι ο πύργος είναι άδειος."
 
-#: ../maps/ydrakka_pass.txt:385
-#: ../maps/ydrakka_pass.txt:384
+#: ../maps/ydrakka_pass.txt:398
 msgid "Ydrakka Pass waypoint discovered."
 msgstr "Η τοποθεσία του Περάσματος Υντράκα ανακαλύφθηκε."
 
@@ -1074,14 +863,11 @@ msgstr "Νίκησε τον Ουκόνεν στις Καλικαντζαροφω
 
 #: ../quests/averguard_keep.txt:14
 msgid "Report your victory over Ukkonen to Guill in the Goblin Warrens."
-msgstr ""
-"Δώσε αναφορά στον Γκούιλ για τον θάνατο του Ουκόνεν στις Καλικαντζαροφωλιές."
+msgstr "Δώσε αναφορά στον Γκούιλ για τον θάνατο του Ουκόνεν στις Καλικαντζαροφωλιές."
 
 #: ../quests/averguard_keep.txt:19
 msgid "Search Ukkonen's lair in the Goblin Warrens for a missing Averguard Tome."
-msgstr ""
-"Ψάξε το λημέρι του Ουκόνεν στις Καλικαντζαροφωλιές για τον αγνοούμενο Τόμο "
-"του Άβεργκαρντ."
+msgstr "Ψάξε το λημέρι του Ουκόνεν στις Καλικαντζαροφωλιές για τον αγνοούμενο Τόμο του Άβεργκαρντ."
 
 #: ../quests/averguard_keep.txt:24
 msgid "Deliver the Averguard Tome to Guill in the Goblin Warrens."
@@ -1097,21 +883,15 @@ msgstr "Πες στον Γκούιλ ότι βρήκες το κλειδί το�
 
 #: ../quests/averguard_keep.txt:40
 msgid "Use the Averguard Key to enter the burial chamber deep within Averguard Temple."
-msgstr ""
-"Χρησιμοποίησε το Κλειδί του Άβεργκαρντ για να εισέλθεις στην κρύπτη βαθιά "
-"μέσα στο Ναό του Άβεργκαρντ."
+msgstr "Χρησιμοποίησε το Κλειδί του Άβεργκαρντ για να εισέλθεις στην κρύπτη βαθιά μέσα στο Ναό του Άβεργκαρντ."
 
 #: ../quests/averguard_keep.txt:45
 msgid "The Averguard Key did not open the burial chamber door. Speak to Guill for help."
-msgstr ""
-"Το κλειδί του Άβεργκαρντ δεν άνοιξε την πύλη της κρύπτης. Ζήτησε βοήθεια από "
-"τον Γκούιλ."
+msgstr "Το κλειδί του Άβεργκαρντ δεν άνοιξε την πύλη της κρύπτης. Ζήτησε βοήθεια από τον Γκούιλ."
 
 #: ../quests/averguard_keep.txt:50
 msgid "Search the Averguard Academy for Professor Langlier's secret to breaking the Burial Chamber seal."
-msgstr ""
-"Ψάξε την Ακαδημία του Άβεργκαρντ για το μυστικό του καθηγητή Λάνγκλιερ που "
-"σπάει την σφραγίδα της Κρύπτης."
+msgstr "Ψάξε την Ακαδημία του Άβεργκαρντ για το μυστικό του καθηγητή Λάνγκλιερ που σπάει την σφραγίδα της Κρύπτης."
 
 #: ../quests/averguard_keep.txt:55
 msgid "Show Langlier's Talisman to Guill."
@@ -1119,8 +899,7 @@ msgstr "Δείξε το Περιδέραιο του Λάνγκλιερ στον 
 
 #: ../quests/averguard_keep.txt:60
 msgid "Enter the Averguard Temple burial chamber and defeat Sir Evan Maddox."
-msgstr ""
-"Μπες στην Κρύπτη του Ναού του Άβεργκαρντ και νίκησε τον Σερ Έβαν Μάντοξ."
+msgstr "Μπες στην Κρύπτη του Ναού του Άβεργκαρντ και νίκησε τον Σερ Έβαν Μάντοξ."
 
 #: ../quests/averguard_keep.txt:65
 msgid "Report Maddox's defeat to Guill"
@@ -1132,9 +911,7 @@ msgstr "Εξολόθρευσε τους καλικάντζαρους στον Κ
 
 #: ../quests/frontier.txt:10
 msgid "River Encampment cleared. Return to Martigan for your reward."
-msgstr ""
-"Ο Καταυλισμός του Ποταμού εκκαθαρίστηκε. Επέστρεψε στον Μάρτιγκαν για την "
-"αμοιβή σου."
+msgstr "Ο Καταυλισμός του Ποταμού εκκαθαρίστηκε. Επέστρεψε στον Μάρτιγκαν για την αμοιβή σου."
 
 #: ../quests/living_bones.txt:9
 msgid "Find a way to destroy the large pillar near the lake."
@@ -1142,67 +919,47 @@ msgstr "Βρες ένα τρόπο να καταστρέψεις την μεγά
 
 #: ../quests/living_bones.txt:14
 msgid "Use the blasting powder you found to destroy the large pillar."
-msgstr ""
-"Χρησιμοποίησε την πυρίτιδα που βρήκες για να καταστρέψεις την μεγάλη στήλη."
+msgstr "Χρησιμοποίησε την πυρίτιδα που βρήκες για να καταστρέψεις την μεγάλη στήλη."
 
 #: ../quests/living_bones.txt:25
 msgid "Search for the name of the ice wizard to pass the statue guardian."
-msgstr ""
-"Ψάξε για το όνομα του μάγου του πάγου για να προσπεράσεις τον αγαλμάτινο "
-"φύλακα."
+msgstr "Ψάξε για το όνομα του μάγου του πάγου για να προσπεράσεις τον αγαλμάτινο φύλακα."
 
 #: ../quests/living_bones.txt:30
 msgid "Search for the name of the fire wizard to pass the statue guardian."
-msgstr ""
-"Ψάξε για το όνομα του μάγου της φωτιάς για να προσπεράσεις τον αγαλμάτινο "
-"φύλακα."
+msgstr "Ψάξε για το όνομα του μάγου της φωτιάς για να προσπεράσεις τον αγαλμάτινο φύλακα."
 
 #: ../quests/living_bones.txt:35
 msgid "Search for the name of the wind wizard to pass the statue guardian."
-msgstr ""
-"Ψάξε για το όνομα του μάγου του ανέμου για να προσπεράσεις τον αγαλμάτινο "
-"φύλακα."
+msgstr "Ψάξε για το όνομα του μάγου του ανέμου για να προσπεράσεις τον αγαλμάτινο φύλακα."
 
 #: ../quests/living_bones.txt:40
 msgid "Pass the ice statue guardian by using the name \"Scathelocke\"."
-msgstr ""
-"Προσπέρασε τον αγαλμάτινο φύλακα του πάγου χρησιμοποιώντας το όνομα "
-"«Σκέιθλοκ»."
+msgstr "Προσπέρασε τον αγαλμάτινο φύλακα του πάγου χρησιμοποιώντας το όνομα «Σκέιθλοκ»."
 
 #: ../quests/living_bones.txt:45
 msgid "Pass the fire statue guardian by using the name \"Vesuvvio\"."
-msgstr ""
-"Προσπέρασε τον αγαλμάτινο φύλακα της φωτιάς χρησιμοποιώντας το όνομα "
-"«Βεζούββιος»."
+msgstr "Προσπέρασε τον αγαλμάτινο φύλακα της φωτιάς χρησιμοποιώντας το όνομα «Βεζούββιος»."
 
 #: ../quests/living_bones.txt:50
 msgid "Pass the wind statue guardian by using the name \"Grisbon\"."
-msgstr ""
-"Προσπέρασε τον αγαλμάτινο φύλακα του πάγου χρησιμοποιώντας το όνομα "
-"«Γκρίζμπον»."
+msgstr "Προσπέρασε τον αγαλμάτινο φύλακα του πάγου χρησιμοποιώντας το όνομα «Γκρίζμπον»."
 
 #: ../quests/living_bones.txt:57
 msgid "Kill the three necromancer brothers: Scathelocke, Grisbon and Vesuvvio."
-msgstr ""
-"Σκότωσε τους τρεις αδελφούς νεκρομάντες: Σκέιθλοκ, Γκρίζμπον και Βεζούββιος."
+msgstr "Σκότωσε τους τρεις αδελφούς νεκρομάντες: Σκέιθλοκ, Γκρίζμπον και Βεζούββιος."
 
 #: ../quests/living_bones.txt:61
 msgid "Use Scathelocke's Key to open his runed chest."
-msgstr ""
-"Χρησιμοποίησε το κλειδί του Σκέιθλοκ για να ξεκλειδώσεις το χαραγμένο "
-"σεντούκι του."
+msgstr "Χρησιμοποίησε το κλειδί του Σκέιθλοκ για να ξεκλειδώσεις το χαραγμένο σεντούκι του."
 
 #: ../quests/living_bones.txt:65
 msgid "Use Vesuvvio's Key to open his runed chest."
-msgstr ""
-"Χρησιμοποίησε το κλειδί του Βεζούββιου για να ξεκλειδώσεις το χαραγμένο "
-"σεντούκι του."
+msgstr "Χρησιμοποίησε το κλειδί του Βεζούββιου για να ξεκλειδώσεις το χαραγμένο σεντούκι του."
 
 #: ../quests/living_bones.txt:69
 msgid "Use Grisbon's Key to open his runed chest."
-msgstr ""
-"Χρησιμοποίησε το κλειδί του Γκρίζμπον για να ξεκλειδώσεις το χαραγμένο "
-"σεντούκι του."
+msgstr "Χρησιμοποίησε το κλειδί του Γκρίζμπον για να ξεκλειδώσεις το χαραγμένο σεντούκι του."
 
 #: ../quests/mineshaft_longsword.txt:4
 msgid "Find and defeat the Reanimated Skeleton in Mineshaft Longsword."
@@ -1238,10 +995,7 @@ msgstr "Κουβέντα"
 
 #: ../npcs/guill.txt:18
 msgid "I am Guill, a scribe with the Order. I am grateful you've come -- we are short on trained warriors due to the call-to-arms in Ancelot."
-msgstr ""
-"Είμαι ο Γκούιλ, ένας γραφέας του Τάγματος. Είμαι ευγνώμον που ήρθες -- "
-"έχουμε έλλειψη εκπαιδευμένων πολεμιστών εξ αιτίας της επιστράτευσης στο "
-"Άνσελοτ."
+msgstr "Είμαι ο Γκούιλ, ένας γραφέας του Τάγματος. Είμαι ευγνώμον που ήρθες -- έχουμε έλλειψη εκπαιδευμένων πολεμιστών εξ αιτίας της επιστράτευσης στο Άνσελοτ."
 
 #: ../npcs/guill.txt:19
 msgid "Why is the Order interested in these ruins?"
@@ -1249,11 +1003,7 @@ msgstr "Γιατί ενδιαφέρεται το Τάγμα για αυτά τα
 
 #: ../npcs/guill.txt:20
 msgid "What the locals call the Goblin Warrens is actually the entrance to a grand underground fortress known as Averguard Keep. This site is sacred to our order. Our primary mission is to cleanse the evil from this place."
-msgstr ""
-"Αυτό που ονομάζουν οι ντόπιοι Καλικαντζαροφωλιές είναι στην πραγματικότητα η "
-"είσοδος σε ένα τεράστιο υπόγειο οχυρό, γνωστό ως Φρούριο του Άβεργκαρντ. "
-"Αυτή η τοποθεσία είναι ιερή για το τάγμα μας. Η κύρια αποστολή μας είναι "
-"εξαγνίσουμε το κακό από αυτό το μέρος."
+msgstr "Αυτό που ονομάζουν οι ντόπιοι Καλικαντζαροφωλιές είναι στην πραγματικότητα η είσοδος σε ένα τεράστιο υπόγειο οχυρό, γνωστό ως Φρούριο του Άβεργκαρντ. Αυτή η τοποθεσία είναι ιερή για το τάγμα μας. Η κύρια αποστολή μας είναι εξαγνίσουμε το κακό από αυτό το μέρος."
 
 #: ../npcs/guill.txt:23
 msgid "Goblins Warrens"
@@ -1261,11 +1011,7 @@ msgstr "Καλικαντζαροφωλιές"
 
 #: ../npcs/guill.txt:28
 msgid "The goblins in the Warrens answer to a warlord named Ukkonen. Most goblins are merely curious; this Ukkonen is bloodthirsty. Punish him for desecrating this place. His lair is here in the Warrens."
-msgstr ""
-"Οι καλικάντζαροι λογοδοτούν σε έναν πολέμαρχο εν ονόματι Ουκόνεν. Οι "
-"περισσότεροι είναι απλά περίεργοι, σε αντίθεση με τον Ουκόνεν που είναι "
-"αιμοσταγής. Τιμώρησε τον για την βεβήλωση αυτού του χώρου. Το λημέρι του "
-"είναι εδώ στις Φωλιές."
+msgstr "Οι καλικάντζαροι λογοδοτούν σε έναν πολέμαρχο εν ονόματι Ουκόνεν. Οι περισσότεροι είναι απλά περίεργοι, σε αντίθεση με τον Ουκόνεν που είναι αιμοσταγής. Τιμώρησε τον για την βεβήλωση αυτού του χώρου. Το λημέρι του είναι εδώ στις Φωλιές."
 
 #: ../npcs/guill.txt:31
 msgid "Ukkonen Search"
@@ -1281,9 +1027,7 @@ msgstr "Ο Ουκόνεν Νικήθηκε"
 
 #: ../npcs/guill.txt:44
 msgid "Ukkonen is defeated -- I sensed a calm in this place the moment you ended him. Take this reward for your bravery."
-msgstr ""
-"Ο Ουκόνεν νικήθηκε -- διαισθάνθηκα μια ηρεμία στο χώρο τη στιγμή που έφτασε "
-"το τέλος του. Δέξου αυτήν την ανταμοιβή για την γενναιότητα σου."
+msgstr "Ο Ουκόνεν νικήθηκε -- διαισθάνθηκα μια ηρεμία στο χώρο τη στιγμή που έφτασε το τέλος του. Δέξου αυτήν την ανταμοιβή για την γενναιότητα σου."
 
 #: ../npcs/guill.txt:47
 msgid "Averguard Chronicles"
@@ -1291,10 +1035,7 @@ msgstr "Χρονικά του Άβεργκαρντ"
 
 #: ../npcs/guill.txt:51
 msgid "The Averguard left a set of Chronicles detailing their final era. One volume is missing. I've searched this entire area except for Ukkonen's lair. If you find the book please return to me."
-msgstr ""
-"Το Άβεργκαρντ άφησε μια συλλογή από Χρονικά που περιγράφουν την τελική του "
-"περίοδο. Ένας τόμος λείπει. Έψαξα σε όλη την περιοχή εκτός από το λημέρι του "
-"Ουκόνεν. Αν βρεις το βιβλίο θα ήθελα να μου το επιστρέψεις."
+msgstr "Το Άβεργκαρντ άφησε μια συλλογή από Χρονικά που περιγράφουν την τελική του περίοδο. Ένας τόμος λείπει. Έψαξα σε όλη την περιοχή εκτός από το λημέρι του Ουκόνεν. Αν βρεις το βιβλίο θα ήθελα να μου το επιστρέψεις."
 
 #: ../npcs/guill.txt:52
 msgid "I'll keep an eye out for it."
@@ -1302,10 +1043,7 @@ msgstr "Θα έχω το νου μου."
 
 #: ../npcs/guill.txt:63
 msgid "You found this tome in Ukkonen's lair? Most excellent -- I feared this volume was lost. With it we can piece together the true history of this keep. I just need a moment to study..."
-msgstr ""
-"Βρήκες τον τόμο στο λημέρι του Ουκόνεν; Υπέροχα -- φοβόμουν ότι αυτός ο "
-"τόμος είχε χαθεί. Μαζί με αυτόν μπορούμε να συναρμολογήσουμε την πραγματική "
-"ιστορία αυτού του φρουρίου. Χρειάζομαι μια στιγμή για τον μελετήσω..."
+msgstr "Βρήκες τον τόμο στο λημέρι του Ουκόνεν; Υπέροχα -- φοβόμουν ότι αυτός ο τόμος είχε χαθεί. Μαζί με αυτόν μπορούμε να συναρμολογήσουμε την πραγματική ιστορία αυτού του φρουρίου. Χρειάζομαι μια στιγμή για τον μελετήσω..."
 
 #: ../npcs/guill.txt:66
 msgid "Averguard Keep"
@@ -1313,11 +1051,7 @@ msgstr "Φρούριο του Άβεργκαρντ"
 
 #: ../npcs/guill.txt:70
 msgid "This tome confirms what we know of Averguard Keep -- it crumbled against the plague many centuries ago. But not all of the infected were destroyed. It appears many undead where locked away in hopes that a cure would be found."
-msgstr ""
-"Αυτός ο τόμος επιβεβαιώνει αυτά που ήδη ξέραμε για το Φρούριο του Άβεργκαρντ "
-"-- υπέκυψε στην πανούκλα πριν πολλούς αιώνες. Αλλά δεν καταστράφηκαν όλοι οι "
-"μολυσμένοι. Από ότι φαίνεται πολλοί νεκροζώντανοι παρέμειναν κλειδωμένοι υπό "
-"την ελπίδα ότι μπορεί να βρεθεί μια θεραπεία."
+msgstr "Αυτός ο τόμος επιβεβαιώνει αυτά που ήδη ξέραμε για το Φρούριο του Άβεργκαρντ -- υπέκυψε στην πανούκλα πριν πολλούς αιώνες. Αλλά δεν καταστράφηκαν όλοι οι μολυσμένοι. Από ότι φαίνεται πολλοί νεκροζώντανοι παρέμειναν κλειδωμένοι υπό την ελπίδα ότι μπορεί να βρεθεί μια θεραπεία."
 
 #: ../npcs/guill.txt:71
 msgid "Why were the undead spared?"
@@ -1325,22 +1059,15 @@ msgstr "Γιατί δεν κατέστρεψαν τους νεκροζώνταν
 
 #: ../npcs/guill.txt:72
 msgid "I don't know, but we should investigate. Head into the Atrium, then the Averguard Prison. Search for a key to access the sealed areas of the Keep."
-msgstr ""
-"Δεν το ξέρω, θα πρέπει να ερευνήσουμε. Μπες στον Προθάλαμο, μετά στην Φυλακή "
-"του Άβεργκαρντ. Ψάξε για το κλειδί που δίνει πρόσβαση στις σφραγισμένες "
-"αίθουσες του Οχυρού."
+msgstr "Δεν το ξέρω, θα πρέπει να ερευνήσουμε. Μπες στον Προθάλαμο, μετά στην Φυλακή του Άβεργκαρντ. Ψάξε για το κλειδί που δίνει πρόσβαση στις σφραγισμένες αίθουσες του Οχυρού."
 
 #: ../npcs/guill.txt:79
 msgid "I have the prison key. The old prison warden carried it on his person -- he was infected, haunting the depths of the Prison."
-msgstr ""
-"Βρήκα το κλειδί της φυλακής. Ο παλιός δεσμοφύλακας το κουβάλαγε πάνω του -- "
-"είχε μολυνθεί και στοίχειωνε τα βάθη της Φυλακής."
+msgstr "Βρήκα το κλειδί της φυλακής. Ο παλιός δεσμοφύλακας το κουβάλαγε πάνω του -- είχε μολυνθεί και στοίχειωνε τα βάθη της Φυλακής."
 
 #: ../npcs/guill.txt:85
 msgid "A true shame that he was infected.  Well, now that we have the Averguard Key, the depths of Averguard Keep are open to us. The Order thanks you."
-msgstr ""
-"Κρίμα που μολύνθηκε.  Λοιπόν, τώρα που έχουμε το κλειδί του Άβεργκαρντ, τα "
-"βάθη του Φρουρίου είναι προσβάσιμα. Το Τάγμα σε ευχαριστεί."
+msgstr "Κρίμα που μολύνθηκε.  Λοιπόν, τώρα που έχουμε το κλειδί του Άβεργκαρντ, τα βάθη του Φρουρίου είναι προσβάσιμα. Το Τάγμα σε ευχαριστεί."
 
 #: ../npcs/guill.txt:88
 msgid "Burial Chamber"
@@ -1348,11 +1075,7 @@ msgstr "Κρύπτη"
 
 #: ../npcs/guill.txt:93
 msgid "There is one place within the Keep that no living being has seen for centuries: the burial chamber behind Averguard Temple. From the Atrium you can access the Temple. Use your key to enter the Burial Chamber."
-msgstr ""
-"Υπάρχει ένα μέρος εντός του Φρουρίου που κανένας ζωντανός δεν έχει δει εδώ "
-"και αιώνες: την κρύπτη πίσω από το Ναό του Άβεργκαρντ. Από τον Προθάλαμο "
-"υπάρχει πρόσβαση στο Ναό. Χρησιμοποίησε το κλειδί για να εισέλθεις στην "
-"Κρύπτη."
+msgstr "Υπάρχει ένα μέρος εντός του Φρουρίου που κανένας ζωντανός δεν έχει δει εδώ και αιώνες: την κρύπτη πίσω από το Ναό του Άβεργκαρντ. Από τον Προθάλαμο υπάρχει πρόσβαση στο Ναό. Χρησιμοποίησε το κλειδί για να εισέλθεις στην Κρύπτη."
 
 #: ../npcs/guill.txt:94
 msgid "Who is buried there?"
@@ -1372,11 +1095,7 @@ msgstr "Προσπάθησα να ανοίξω την πύλη της Κρύπτ
 
 #: ../npcs/guill.txt:105
 msgid "It must be sealed by powerful magic. There was only one sorceror of Averguard with that kind of power - Professor Langlier. Search through his collection to find a way into the Burial Chamber. Enter the Academy through the Atrium."
-msgstr ""
-"Πρέπει να έχει σφραγιστεί με ισχυρή μαγεία. Υπήρχε μόνο ένας μάγος στο "
-"Άβεργκαρντ με τέτοιες ικανότητες - ο Καθηγητής Λάνγκλιερ. Ψάξε την συλλογή "
-"του για να βρεις ένα δρόμο προς την Κρύπτη. Μπες στην ακαδημία μέσω του "
-"Προθάλαμου."
+msgstr "Πρέπει να έχει σφραγιστεί με ισχυρή μαγεία. Υπήρχε μόνο ένας μάγος στο Άβεργκαρντ με τέτοιες ικανότητες - ο Καθηγητής Λάνγκλιερ. Ψάξε την συλλογή του για να βρεις ένα δρόμο προς την Κρύπτη. Μπες στην ακαδημία μέσω του Προθάλαμου."
 
 #: ../npcs/guill.txt:106
 msgid "As you wish."
@@ -1384,33 +1103,19 @@ msgstr "Όπως επιθυμείς."
 
 #: ../npcs/guill.txt:107
 msgid "I must admit jealousy -- I have dreamed many years of seeing the old volumes there, but it is simply too dangerous yet."
-msgstr ""
-"Πρέπει να παραδεχτώ την ζήλια μου -- ονειρευόμουν πολλά χρόνια να δω τους "
-"παλιούς τόμους που φυλάσσονται εκεί, αλλά για την ώρα παρά είναι επικίνδυνο "
-"για μένα."
+msgstr "Πρέπει να παραδεχτώ την ζήλια μου -- ονειρευόμουν πολλά χρόνια να δω τους παλιούς τόμους που φυλάσσονται εκεί, αλλά για την ώρα παρά είναι επικίνδυνο για μένα."
 
 #: ../npcs/guill.txt:116
 msgid "I am back from the Academy. Langlier was rags and bones, yet still a powerful mage. He wore this symbol."
-msgstr ""
-"Επέστρεψα από την Ακαδημία. Ο Λάνγκλιερ ήταν κουρέλια και κόκαλα, αλλά "
-"παρέμενε ένας ισχυρός μάγος. Φορούσε αυτό το σύμβολο."
+msgstr "Επέστρεψα από την Ακαδημία. Ο Λάνγκλιερ ήταν κουρέλια και κόκαλα, αλλά παρέμενε ένας ισχυρός μάγος. Φορούσε αυτό το σύμβολο."
 
 #: ../npcs/guill.txt:120
 msgid "Fate has delivered this talisman to you. With it and the Averguard Key, you have the ability to open the Burial Chamber. Read these runes aloud at the sealed door and the path will be opened."
-msgstr ""
-"Η μοίρα παρέδωσε αυτό το περιδέραιο σε εσένα. Μαζί με αυτό και το κλειδί του "
-"Άβεργκαρντ, έχεις την ικανότητα να ξεκλειδώσεις την σφραγισμένη πύλη και το "
-"πέρασμα θα ανοίξει."
+msgstr "Η μοίρα παρέδωσε αυτό το περιδέραιο σε εσένα. Μαζί με αυτό και το κλειδί του Άβεργκαρντ, έχεις την ικανότητα να ξεκλειδώσεις την σφραγισμένη πύλη και το πέρασμα θα ανοίξει."
 
 #: ../npcs/guill.txt:128
 msgid "My worst fear is come alive. Just as with the Warden and with Professor Langlier, Sir Evan Maddox himself was inflicted with undeath. If we are to reclaim the Keep, you must defeat him. The Order will reward you magnificently for this service. But be prepared -- not even undeath will limit Maddox's zeal. Enter the Burial Chamber and allow him redemption."
-msgstr ""
-"Ο χειρότερος μου φόβος επαληθεύθηκε. Όπως ο Αρχιφύλακας και ο Καθηγητής "
-"Λάνγκλιερ, έτσι και ο Σερ Έβαν Μάντοξ μολύνθηκε την κατάρα των "
-"νεκροζώντανων. Αν θέλουμε να επανακτήσουμε το Φρούριο, πρέπει να τον "
-"νικήσεις. Το Τάγμα θα σε ανταμείψει πλουσιοπάροχα για αυτή σου την υπηρεσία. "
-"Αλλά προετοιμάσου -- γιατί ούτε η νεκρανάσταση δεν θα κάμψει το ζήλο του Σερ "
-"Μάντοξ. Μπες στην κρύπτη και εξιλέωσε τον."
+msgstr "Ο χειρότερος μου φόβος επαληθεύθηκε. Όπως ο Αρχιφύλακας και ο Καθηγητής Λάνγκλιερ, έτσι και ο Σερ Έβαν Μάντοξ μολύνθηκε την κατάρα των νεκροζώντανων. Αν θέλουμε να επανακτήσουμε το Φρούριο, πρέπει να τον νικήσεις. Το Τάγμα θα σε ανταμείψει πλουσιοπάροχα για αυτή σου την υπηρεσία. Αλλά προετοιμάσου -- γιατί ούτε η νεκρανάσταση δεν θα κάμψει το ζήλο του Σερ Μάντοξ. Μπες στην κρύπτη και εξιλέωσε τον."
 
 #: ../npcs/guill.txt:131
 msgid "Maddox Defeated"
@@ -1418,11 +1123,7 @@ msgstr "Ο Σερ Μάντοξ Νικήθηκε"
 
 #: ../npcs/guill.txt:142
 msgid "You have risked much for the Order. Take this final reward, as your mission here is complete. The grip of necromancy over Averguard Keep is broken -- in time the remaining undead will pass over into death."
-msgstr ""
-"Ρίσκαρες πολλά για το Τάγμα. Δέξου αυτήν την τελική ανταμοιβή, καθώς η "
-"αποστολή σου εδώ ολοκληρώθηκε. Το Φρούριο του Άβεργκαρντ απελευθερώθηκε από "
-"τα νύχια της νεκρομαντείας -- εν καιρώ, οι εναπομείναντες νεκροζώντανοι θα "
-"επιστρέψουν στην αγκαλιά του θανάτου."
+msgstr "Ρίσκαρες πολλά για το Τάγμα. Δέξου αυτήν την τελική ανταμοιβή, καθώς η αποστολή σου εδώ ολοκληρώθηκε. Το Φρούριο του Άβεργκαρντ απελευθερώθηκε από τα νύχια της νεκρομαντείας -- εν καιρώ, οι εναπομείναντες νεκροζώντανοι θα επιστρέψουν στην αγκαλιά του θανάτου."
 
 #: ../npcs/guill.txt:143
 msgid "Thank you Guill. I am glad to be of service."
@@ -1430,9 +1131,7 @@ msgstr "Σε ευχαριστώ Γκούιλ. Τιμή μου να βοηθήσ�
 
 #: ../npcs/guill.txt:148
 msgid "It is still dangerous here, but with Maddox defeated his followers will soon find rest."
-msgstr ""
-"Υπάρχει ακόμα κίνδυνος εδώ, αλλά με τον Μάντοξ ηττημένο, οι ακόλουθοί του "
-"σύντομα θα αναπαυθούν."
+msgstr "Υπάρχει ακόμα κίνδυνος εδώ, αλλά με τον Μάντοξ ηττημένο, οι ακόλουθοί του σύντομα θα αναπαυθούν."
 
 #: ../npcs/kayl.txt:1
 msgid "Kayl, Alchemist"
@@ -1452,9 +1151,7 @@ msgstr "Μάρτιγκαν, Επόπτης"
 
 #: ../npcs/martigan.txt:13
 msgid "Welcome to my mines, stranger. If you have the back for it, I've got the work."
-msgstr ""
-"Καλώς ήλθες στο ορυχείο μου, οδοιπόρε. Άμα αντέχουν οι πλάτες σου, σου έχω "
-"δουλειά."
+msgstr "Καλώς ήλθες στο ορυχείο μου, οδοιπόρε. Άμα αντέχουν οι πλάτες σου, σου έχω δουλειά."
 
 #: ../npcs/martigan.txt:14
 msgid "I heard you might have something more interesting."
@@ -1462,146 +1159,113 @@ msgstr "Αναζητούσα κάτι λίγο πιο ενδιαφέρον."
 
 #: ../npcs/martigan.txt:15
 msgid "Ah, you're the adventurer? If you seek out danger you're in the right place. We had two guards stationed here; both were recalled to Ancelot. Now we're vulnerable."
-msgstr ""
-"Α, αναζητάς την περιπέτεια λοιπόν. Αν είναι ο κίνδυνος αυτό που ψάχνεις, "
-"ήρθες στο σωστό μέρος. Είχα δύο φύλακες μέχρι που επιστρατεύθηκαν στο "
-"Άνσελοτ. Τώρα είμαστε ευάλωτοι."
+msgstr "Α, αναζητάς την περιπέτεια λοιπόν. Αν είναι ο κίνδυνος αυτό που ψάχνεις, ήρθες στο σωστό μέρος. Είχα δύο φύλακες μέχρι που επιστρατεύθηκαν στο Άνσελοτ. Τώρα είμαστε ευάλωτοι."
 
-#: ../npcs/martigan.txt:19
-msgid "Goblin Camp"
-msgstr "Καταυλισμός Καλικάντζαρων"
-
-#: ../npcs/martigan.txt:22
-msgid "We're having problems. Goblins. All the noise from our mining is drawing their attention. We can't have them thinking we're easy prey."
-msgstr ""
-"Οι καλικάντζαροι είναι πρόβλημα. Όλος ο θόρυβος από τις εξορύξεις τους "
-"τραβάει την προσοχή. Δεν μας συμφέρει να μας βλέπουν σαν εύκολη λεία."
-
-#: ../npcs/martigan.txt:26
-msgid "Attack their encampment up river from here. 20 gold now, 80 more when you return."
-msgstr ""
-"Κάνε επίθεση στον καταυλισμό τους δίπλα στο ποτάμι, βόρεια από εδώ. 20 χρυσά "
-"νομίσματα τώρα, 80 όταν επιστρέψεις."
-
-#: ../npcs/martigan.txt:29
-msgid "Goblin Camp Search"
-msgstr "Αναζήτηση του Καταυλισμού των Καλικάντζαρων"
-
-#: ../npcs/martigan.txt:32
-msgid "The goblins have an encampment up the river from here on the west side. Clear them out and I'll pay you 80 gold."
-msgstr ""
-"Οι καλικάντζαροι έχουν ένα καταυλισμό στο βορά, στη δυτική όχθη του ποταμού. "
-"Εκκαθάρισέ τους και θα σε ανταμείψω με 80 χρυσά νομίσματα."
-
-#: ../npcs/martigan.txt:35
-msgid "Rilrak Defeated"
-msgstr "Ο Ρίλρακ Ηττήθηκε"
-
-#: ../npcs/martigan.txt:42
-msgid "Unfortunate work, but my workers will sleep safe tonight. Here's your reward."
-msgstr ""
-"Βρώμικη δουλειά, αλλά τουλάχιστον θα κοιμηθούν ήσυχα οι εργάτες μου σήμερα. "
-"Να η ανταμοιβή σου."
-
-#: ../npcs/martigan.txt:47
-msgid "A member of the Order passed through our camp a few days ago. He left for the tower ruins in Ydrakka Pass."
-msgstr ""
-"Ένα μέλος του Τάγματος πέρασε από τον καταυλισμό πριν μερικές μέρες. Όδευε "
-"προς τα ερείπια του πύργου στο Πέρασμα Υντράκα."
-
-#: ../npcs/martigan.txt:50
-msgid "Rotten Tower"
-msgstr "Σάπιος Πύργος"
-
-#: ../npcs/martigan.txt:53
-msgid "This region was once well guarded. There are watch towers positioned throughout these plains, but most are abandoned and crumbling now."
-msgstr ""
-"Έναν καιρό αυτή η περιοχή φυλαγόταν καλά. Φυλάκια κάλυπταν όλη την πεδιάδα, "
-"αλλά πλέον είναι άδεια και ερειπωμένα."
-
-#: ../npcs/martigan.txt:54
-msgid "I need someone to inspect the outpost tower in White Winds, south west of the Frontier Plains. Let me know if goblins have found their way inside."
-msgstr ""
-"Θέλω κάποιον να επιθεωρήσει το φυλάκιο στον Λευκό Άνεμο, νοτιοδυτικά τον "
-"Συνοριακών Πεδιάδων. Ενημέρωσε με αν οι καλικάντζαροι το έχουν καταλάβει."
-
-#: ../npcs/martigan.txt:58
-msgid "Rotten Tower Search"
-msgstr "Αναζήτηση του Σάπιου Πύργου"
-
-#: ../npcs/martigan.txt:61
-msgid "Search for the abandoned tower southwest of the Frontier plains. The lands around there are called White Wind."
-msgstr ""
-"Ψάξε για τον εγκαταλελειμμένο πύργο νοτιοδυτικά των Συνοριακών Πεδιάδων. Η "
-"περιοχή γύρω του λέγεται Λευκός Άνεμος."
-
-#: ../npcs/martigan.txt:64
-msgid "Rotten Tower Found"
-msgstr "Ο Σάπιος Πύργος Βρέθηκε"
-
-#: ../npcs/martigan.txt:67
-msgid "There are plenty of goblins in the White Winds area, but not near the tower."
-msgstr ""
-"Υπάρχουν μπόλικοι καλικάντζαροι στην περιοχή του Λευκού Ανέμου, αλλά όχι "
-"μέσα στον πύργο."
-
-#: ../npcs/martigan.txt:68
-msgid "Are you sure? Did you look inside the tower?"
-msgstr "Σίγουρα; Κοίταξες μέσα στον πύργο;"
-
-#: ../npcs/martigan.txt:69
-msgid "Well..."
-msgstr "Ε..."
-
-#: ../npcs/martigan.txt:75
-msgid "There are plenty of goblins in the white winds area, but not near the tower."
-msgstr ""
-"Υπάρχουν μπόλικοι καλικάντζαροι στην περιοχή του Λευκού Ανέμου, αλλά όχι "
-"κοντά στον πύργο."
-
-#: ../npcs/martigan.txt:77
-msgid "I saw no signs of goblins through the locked iron grate door."
-msgstr "Δεν είδα ίχνη καλικάντζαρων μέσα από την κλειδωμένη καγκελωτή πόρτα."
-
-#: ../npcs/martigan.txt:79
-msgid "Good! Have this small reward."
-msgstr "Υπέροχα! Δέξου αυτή τη μικρή αμοιβή"
-
-#: ../npcs/martigan.txt:84
-msgid "Mineshaft"
-msgstr "Σήραγγα"
-
-#: ../npcs/martigan.txt:87
+#: ../npcs/martigan.txt:16
 msgid "So how's the mining business?"
 msgstr "Πως πάνε οι εξορύξεις;"
 
-#: ../npcs/martigan.txt:88
+#: ../npcs/martigan.txt:17
 msgid "Not good at all. While I was digging, my pickaxe scraped a skull that was wedged in the rock wall. Before I knew it, the nasty thing started moving and a whole body emerged. Now that thing is in there, preventing any more mining."
-msgstr ""
-"Καθόλου καλά. Εκεί που έσκαβα, η αξίνα μου καρφώθηκε πάνω σε ένα κρανίο "
-"σφηνωμένο μέσα στα τοιχώματα. Πριν το πάρω χαμπάρι, το απαίσιο πλάσμα άρχισε "
-"να κινείτε και ολόκληρο το σώμα του αναδύθηκε. Τώρα αυτό το πράγμα είναι "
-"ακόμα μέσα και αποτρέπει τις εκσκαφές."
+msgstr "Καθόλου καλά. Εκεί που έσκαβα, η αξίνα μου καρφώθηκε πάνω σε ένα κρανίο σφηνωμένο μέσα στα τοιχώματα. Πριν το πάρω χαμπάρι, το απαίσιο πλάσμα άρχισε να κινείτε και ολόκληρο το σώμα του αναδύθηκε. Τώρα αυτό το πράγμα είναι ακόμα μέσα και αποτρέπει τις εκσκαφές."
 
-#: ../npcs/martigan.txt:89
+#: ../npcs/martigan.txt:18
 msgid "Kill that skeleton for me, and I'll make it worth your while."
 msgstr "Σκότωσε τον σκελετό εκ μέρους μου, και θα σε ανταμείψω."
 
-#: ../npcs/martigan.txt:97
-msgid "Please take care of that skeleton. Work in the mine can't continue otherwise."
-msgstr ""
-"Παρακαλώ, ξεφορτώσου τον σκελετό. Ειδάλλως οι εξορύξεις δεν μπορούν να "
-"συνεχιστούν."
+#: ../npcs/martigan.txt:23
+msgid "Goblin Camp"
+msgstr "Καταυλισμός Καλικάντζαρων"
 
-#: ../npcs/martigan.txt:100
+#: ../npcs/martigan.txt:26
+msgid "We're having problems. Goblins. All the noise from our mining is drawing their attention. We can't have them thinking we're easy prey."
+msgstr "Οι καλικάντζαροι είναι πρόβλημα. Όλος ο θόρυβος από τις εξορύξεις τους τραβάει την προσοχή. Δεν μας συμφέρει να μας βλέπουν σαν εύκολη λεία."
+
+#: ../npcs/martigan.txt:30
+msgid "Attack their encampment up river from here. 20 gold now, 80 more when you return."
+msgstr "Κάνε επίθεση στον καταυλισμό τους δίπλα στο ποτάμι, βόρεια από εδώ. 20 χρυσά νομίσματα τώρα, 80 όταν επιστρέψεις."
+
+#: ../npcs/martigan.txt:33
+msgid "Goblin Camp Search"
+msgstr "Αναζήτηση του Καταυλισμού των Καλικάντζαρων"
+
+#: ../npcs/martigan.txt:36
+msgid "The goblins have an encampment up the river from here on the west side. Clear them out and I'll pay you 80 gold."
+msgstr "Οι καλικάντζαροι έχουν ένα καταυλισμό στο βορά, στη δυτική όχθη του ποταμού. Εκκαθάρισέ τους και θα σε ανταμείψω με 80 χρυσά νομίσματα."
+
+#: ../npcs/martigan.txt:39
+msgid "Rilrak Defeated"
+msgstr "Ο Ρίλρακ Ηττήθηκε"
+
+#: ../npcs/martigan.txt:46
+msgid "Unfortunate work, but my workers will sleep safe tonight. Here's your reward."
+msgstr "Βρώμικη δουλειά, αλλά τουλάχιστον θα κοιμηθούν ήσυχα οι εργάτες μου σήμερα. Να η ανταμοιβή σου."
+
+#: ../npcs/martigan.txt:51
+msgid "A member of the Order passed through our camp a few days ago. He left for the tower ruins in Ydrakka Pass."
+msgstr "Ένα μέλος του Τάγματος πέρασε από τον καταυλισμό πριν μερικές μέρες. Όδευε προς τα ερείπια του πύργου στο Πέρασμα Υντράκα."
+
+#: ../npcs/martigan.txt:54
+msgid "Rotten Tower"
+msgstr "Σάπιος Πύργος"
+
+#: ../npcs/martigan.txt:57
+msgid "This region was once well guarded. There are watch towers positioned throughout these plains, but most are abandoned and crumbling now."
+msgstr "Έναν καιρό αυτή η περιοχή φυλαγόταν καλά. Φυλάκια κάλυπταν όλη την πεδιάδα, αλλά πλέον είναι άδεια και ερειπωμένα."
+
+#: ../npcs/martigan.txt:58
+msgid "I need someone to inspect the outpost tower in White Winds, south west of the Frontier Plains. Let me know if goblins have found their way inside."
+msgstr "Θέλω κάποιον να επιθεωρήσει το φυλάκιο στον Λευκό Άνεμο, νοτιοδυτικά τον Συνοριακών Πεδιάδων. Ενημέρωσε με αν οι καλικάντζαροι το έχουν καταλάβει."
+
+#: ../npcs/martigan.txt:62
+msgid "Rotten Tower Search"
+msgstr "Αναζήτηση του Σάπιου Πύργου"
+
+#: ../npcs/martigan.txt:65
+msgid "Search for the abandoned tower southwest of the Frontier plains. The lands around there are called White Wind."
+msgstr "Ψάξε για τον εγκαταλελειμμένο πύργο νοτιοδυτικά των Συνοριακών Πεδιάδων. Η περιοχή γύρω του λέγεται Λευκός Άνεμος."
+
+#: ../npcs/martigan.txt:68
+msgid "Rotten Tower Found"
+msgstr "Ο Σάπιος Πύργος Βρέθηκε"
+
+#: ../npcs/martigan.txt:71
+msgid "There are plenty of goblins in the White Winds area, but not near the tower."
+msgstr "Υπάρχουν μπόλικοι καλικάντζαροι στην περιοχή του Λευκού Ανέμου, αλλά όχι μέσα στον πύργο."
+
+#: ../npcs/martigan.txt:72
+msgid "Are you sure? Did you look inside the tower?"
+msgstr "Σίγουρα; Κοίταξες μέσα στον πύργο;"
+
+#: ../npcs/martigan.txt:73
+msgid "Well..."
+msgstr "Ε..."
+
+#: ../npcs/martigan.txt:79
+msgid "There are plenty of goblins in the white winds area, but not near the tower."
+msgstr "Υπάρχουν μπόλικοι καλικάντζαροι στην περιοχή του Λευκού Ανέμου, αλλά όχι κοντά στον πύργο."
+
+#: ../npcs/martigan.txt:81
+msgid "I saw no signs of goblins through the locked iron grate door."
+msgstr "Δεν είδα ίχνη καλικάντζαρων μέσα από την κλειδωμένη καγκελωτή πόρτα."
+
+#: ../npcs/martigan.txt:83
+msgid "Good! Have this small reward."
+msgstr "Υπέροχα! Δέξου αυτή τη μικρή αμοιβή"
+
+#: ../npcs/martigan.txt:91
+msgid "Please take care of that skeleton. Work in the mine can't continue otherwise."
+msgstr "Παρακαλώ, ξεφορτώσου τον σκελετό. Ειδάλλως οι εξορύξεις δεν μπορούν να συνεχιστούν."
+
+#: ../npcs/martigan.txt:94
 msgid "Skeleton Defeated"
 msgstr "Ο Σκελετός Ηττήθηκε"
 
-#: ../npcs/martigan.txt:104
+#: ../npcs/martigan.txt:98
 msgid "I've defeated the Reanimated Skeleton."
 msgstr "Νίκησα τον Ξεθαμμένο Σκελετό."
 
-#: ../npcs/martigan.txt:105
+#: ../npcs/martigan.txt:99
 msgid "Excellent work! As promised, here's a little something for your troubles."
 msgstr "Άριστα! Όπως σου υποσχέθηκα, δέξου αυτά για τον κόπο σου."
 
@@ -1631,13 +1295,11 @@ msgstr "Βεζούββιος."
 
 #: ../npcs/statue_guardian_fire.txt:22
 msgid "...Are you feeling alright, Master Vesuvvio? You did not refer to yourself as \"the Destroyer.\""
-msgstr ""
-"...Νιώθεις καλά, Αφέντη Βεζούββιε; Δεν αυτοαποκαλέστηκες ως «ο Καταστροφέας»."
+msgstr "...Νιώθεις καλά, Αφέντη Βεζούββιε; Δεν αυτοαποκαλέστηκες ως «ο Καταστροφέας»."
 
 #: ../npcs/statue_guardian_fire.txt:23
 msgid "Have your brothers been teasing you about your real name being Stootley again?"
-msgstr ""
-"Πάλι σε κορόιδευαν τα αδέλφια σου που στην πραγματικότητα σε λένε Στούτλεϋ;"
+msgstr "Πάλι σε κορόιδευαν τα αδέλφια σου που στην πραγματικότητα σε λένε Στούτλεϋ;"
 
 #: ../npcs/statue_guardian_fire.txt:24
 msgid "Er, no. It's all right. I'm Vesuvvio the Destroyer."
@@ -1687,60 +1349,167 @@ msgstr "Γκρίζμπον."
 msgid "Welcome, Master Grisbon."
 msgstr "Καλωσόρισες, Αφέντη Γκρίζμπον."
 
-#: ../cutscenes/credits.txt:8
+#: ../cutscenes/credits.txt:7
 msgid "Flare Game Credits - alpha_demo"
 msgstr ""
 
 #: ../cutscenes/credits.txt:10
-msgid "Content Designers - Clint Bellanger, Justin Jacobs, Stefan Beller, and Thane Brimhall"
+msgid "Content Designers"
 msgstr ""
 
 #: ../cutscenes/credits.txt:12
-msgid "Translators - Adrian Chaves Fernandez, Andrea Ranaldi, Andreas Berheim Brudin, Bas Doodeman, Bonbadil, Carlos Sanchez, Chris Oelmueller, Christoph J. Thompson, Evgen Pavlov, Giovanni Dalla Torre, Hans Joachim Desserud, Igor Paliychuk, Juan Pablo Tamayo, Mikhail Karalevich, Miro Jánošík, Morgan Strauss, Nikita Vanku, Paul Wortmann, Pawel Puszczynski, Quentin Stievenart, Sergey Basalaev, Stefan Beller, Thomas Glamsch, Timo Sievänen, and Yannis Anthymidis"
+msgid "Clint Bellanger"
+msgstr ""
+
+#: ../cutscenes/credits.txt:13
+msgid "Justin Jacobs"
+msgstr ""
+
+#: ../cutscenes/credits.txt:14
+msgid "Stefan Beller"
+msgstr ""
+
+#: ../cutscenes/credits.txt:15
+msgid "Thane Brimhall"
+msgstr ""
+
+#: ../cutscenes/credits.txt:18
+msgid "Translators"
+msgstr ""
+
+#: ../cutscenes/credits.txt:20
+msgid "Adrian Chaves Fernandez"
+msgstr ""
+
+#: ../cutscenes/credits.txt:21
+msgid "Andrea Ranaldi"
+msgstr ""
+
+#: ../cutscenes/credits.txt:22
+msgid "Andreas Berheim Brudin"
+msgstr ""
+
+#: ../cutscenes/credits.txt:23
+msgid "Bas Doodeman"
+msgstr ""
+
+#: ../cutscenes/credits.txt:24
+msgid "Bonbadil"
+msgstr ""
+
+#: ../cutscenes/credits.txt:25
+msgid "Carlos Sanchez"
+msgstr ""
+
+#: ../cutscenes/credits.txt:26
+msgid "Chris Oelmueller"
+msgstr ""
+
+#: ../cutscenes/credits.txt:27
+msgid "Christoph J. Thompson"
+msgstr ""
+
+#: ../cutscenes/credits.txt:28
+msgid "Evgen Pavlov"
+msgstr ""
+
+#: ../cutscenes/credits.txt:29
+msgid "Giovanni Dalla Torre"
+msgstr ""
+
+#: ../cutscenes/credits.txt:30
+msgid "Hans Joachim Desserud"
+msgstr ""
+
+#: ../cutscenes/credits.txt:31
+msgid "Igor Paliychuk"
+msgstr ""
+
+#: ../cutscenes/credits.txt:32
+msgid "Juan Pablo Tamayo"
+msgstr ""
+
+#: ../cutscenes/credits.txt:33
+msgid "Mikhail Karalevich"
+msgstr ""
+
+#: ../cutscenes/credits.txt:34
+msgid "Miro Jánošík"
+msgstr ""
+
+#: ../cutscenes/credits.txt:35
+msgid "Morgan Strauss"
+msgstr ""
+
+#: ../cutscenes/credits.txt:36
+msgid "Nikita Vanku"
+msgstr ""
+
+#: ../cutscenes/credits.txt:37
+msgid "Paul Wortmann"
+msgstr ""
+
+#: ../cutscenes/credits.txt:38
+msgid "Pawel Puszczynski"
+msgstr ""
+
+#: ../cutscenes/credits.txt:39
+msgid "Quentin Stievenart"
+msgstr ""
+
+#: ../cutscenes/credits.txt:40
+msgid "Sergey Basalaev"
+msgstr ""
+
+#: ../cutscenes/credits.txt:42
+msgid "sujiniku"
+msgstr ""
+
+#: ../cutscenes/credits.txt:43
+msgid "Thomas Glamsch"
+msgstr ""
+
+#: ../cutscenes/credits.txt:44
+msgid "Timo Sievänen"
+msgstr ""
+
+#: ../cutscenes/credits.txt:45
+msgid "Yannis Anthymidis"
 msgstr ""
 
 #: ../items/categories/armor_cloth.txt:5
-#: ../items/items.txt:305
 msgid "Cloth Shirt"
 msgstr "Υφασμάτινο Πουκάμισο"
 
 #: ../items/categories/armor_cloth.txt:11
-#: ../items/items.txt:316
 msgid "Cloth Gloves"
 msgstr "Υφασμάτινα Γάντια"
 
 #: ../items/categories/armor_cloth.txt:17
-#: ../items/items.txt:327
 msgid "Cloth Pants"
 msgstr "Υφασμάτινο Παντελόνι"
 
 #: ../items/categories/armor_cloth.txt:23
-#: ../items/items.txt:338
 msgid "Cloth Sandals"
 msgstr "Υφασμάτινα Σανδάλια"
 
 #: ../items/categories/weapons_ranged.txt:5
-#: ../items/items.txt:193
 msgid "Slingshot"
 msgstr "Σφεντόνα"
 
 #: ../items/categories/weapons_ranged.txt:13
-#: ../items/items.txt:207
 msgid "Shortbow"
 msgstr "Κοντό Τόξο"
 
 #: ../items/categories/weapons_ranged.txt:21
-#: ../items/items.txt:221
 msgid "Longbow"
 msgstr "Τόξο"
 
 #: ../items/categories/weapons_ranged.txt:29
-#: ../items/items.txt:235
 msgid "Greatbow"
 msgstr "Μέγα Τόξο"
 
 #: ../items/categories/potions.txt:5
-#: ../items/items.txt:5
 msgid "Health Potion"
 msgstr "Φίλτρο Υγείας"
 
@@ -1749,7 +1518,6 @@ msgid "Restore 50% of maximum HP"
 msgstr ""
 
 #: ../items/categories/potions.txt:14
-#: ../items/items.txt:19
 msgid "Mana Potion"
 msgstr "Φίλτρο Μαγείας"
 
@@ -1758,27 +1526,22 @@ msgid "Restore 50% of maximum MP"
 msgstr ""
 
 #: ../items/categories/armor_leather.txt:5
-#: ../items/items.txt:428
 msgid "Leather Hood"
 msgstr "Δερμάτινη Κουκούλα"
 
 #: ../items/categories/armor_leather.txt:13
-#: ../items/items.txt:441
 msgid "Leather Chest"
 msgstr "Δερμάτινος Θώρακας"
 
 #: ../items/categories/armor_leather.txt:21
-#: ../items/items.txt:454
 msgid "Leather Gloves"
 msgstr "Δερμάτινα Γάντια"
 
 #: ../items/categories/armor_leather.txt:29
-#: ../items/items.txt:467
 msgid "Leather Pants"
 msgstr "Δερμάτινο Παντελόνι"
 
 #: ../items/categories/armor_leather.txt:37
-#: ../items/items.txt:480
 msgid "Leather Boots"
 msgstr "Δερμάτινες Μπότες"
 
@@ -1787,96 +1550,74 @@ msgid "Seven-league boots"
 msgstr ""
 
 #: ../items/categories/magic.txt:7
-#: ../items/items.txt:633
 msgid "These enchanted boots are prized possessions of Courier guildsmen."
 msgstr "Αυτές οι μαγεμένες μπότες εκτιμούνται δεόντως από αγγελιοφόρους."
 
 #: ../items/categories/magic.txt:15
-#: ../items/items.txt:648
 msgid "Thief Gloves"
 msgstr "Γάντια του Κλέφτη"
 
 #: ../items/categories/magic.txt:17
-#: ../items/items.txt:649
 msgid "In Lower Sceleris there is honor among thieves. Everyone else is a mark."
-msgstr ""
-"Στο Νότιο Σκελέρις υπάρχει τιμή μεταξύ κλεφτών. Όλοι οι άλλοι είναι στόχοι."
+msgstr "Στο Νότιο Σκελέρις υπάρχει τιμή μεταξύ κλεφτών. Όλοι οι άλλοι είναι στόχοι."
 
 #: ../items/categories/magic.txt:25
-#: ../items/items.txt:752
 msgid "Silent Tabi"
 msgstr "Αθόρυβα Υποδήματα"
 
 #: ../items/categories/magic.txt:35
-#: ../items/items.txt:766
 msgid "Duelist Gauntlets"
 msgstr "Περιχειρίδες του Ξιφομάχου"
 
 #: ../items/categories/magic.txt:45
-#: ../items/items.txt:780
 msgid "Blood Cuirass"
 msgstr "Αιματικός Θώρακας"
 
 #: ../items/categories/magic.txt:55
-#: ../items/items.txt:794
 msgid "Blood Greaves"
 msgstr "Αιματικές Περιμηρίδες"
 
 #: ../items/categories/magic.txt:65
-#: ../items/items.txt:808
 msgid "Fencing Gloves"
 msgstr "Γάντια Ξιφασκίας"
 
 #: ../items/categories/magic.txt:75
-#: ../items/items.txt:866
 msgid "Sage Mantle"
 msgstr "Μανδύας του Σοφού"
 
 #: ../items/categories/magic.txt:86
-#: ../items/items.txt:881
 msgid "Sage Frock"
 msgstr "Στιχάριο του Σοφού"
 
 #: ../items/categories/magic.txt:97
-#: ../items/items.txt:896
 msgid "Monastery Sandals"
 msgstr "Μοναστηριακά Σανδάλια"
 
 #: ../items/categories/magic.txt:106
-#: ../powers/powers.txt:1084
 msgid "Æther Walkers"
 msgstr "Αιθέρια Βήματα"
 
 #: ../items/categories/magic.txt:112
-#: ../items/items.txt:921
 msgid "Use: Blink to a nearby location"
 msgstr "Χρήση: Τηλεμεταφορά σε μια κοντινή τοποθεσία"
 
 #: ../items/categories/magic.txt:117
-#: ../items/items.txt:926
 msgid "Ashwood Wand"
 msgstr "Ραβδί Φλαμουριάς"
 
 #: ../items/categories/magic.txt:119
-#: ../items/items.txt:927
 msgid "The secrets to harvesting Yggdrasil twigs are known only to traitorous dryads."
-msgstr ""
-"Τα μυστικά περισυλλογής κλαριών του Υγκντράσιλ τα γνωρίζουν μόνο οι "
-"προδοτικές δρυάδες."
+msgstr "Τα μυστικά περισυλλογής κλαριών του Υγκντράσιλ τα γνωρίζουν μόνο οι προδοτικές δρυάδες."
 
 #: ../items/categories/magic.txt:129
-#: ../items/items.txt:942
 msgid "Lawman's Sidearm"
 msgstr "Όπλο του φρουρού"
 
 #: ../items/categories/magic.txt:131
-#: ../items/items.txt:943
 msgid "The workmanship on this blade appears hurried, as if forged under the fever of vigilance."
-msgstr ""
-"Η λεπίδα μοιάζει να φτιάχτηκε βιαστικά, υπό τον πυρετό της επαγρύπνησης."
+msgstr "Η λεπίδα μοιάζει να φτιάχτηκε βιαστικά, υπό τον πυρετό της επαγρύπνησης."
 
 #: ../items/categories/magic.txt:141
-#: ../items/items.txt:958
 msgid "Miner's Gloves"
 msgstr "Γάντια του Μεταλλωρύχου"
 
@@ -1889,279 +1630,223 @@ msgid "Faded memories are vivid to the wearer of this silver band."
 msgstr ""
 
 #: ../items/categories/armor_plate.txt:5
-#: ../items/items.txt:564
 msgid "Plate Helmet"
 msgstr "Ενισχυμένο Κράνος"
 
 #: ../items/categories/armor_plate.txt:13
-#: ../items/items.txt:577
 msgid "Plate Cuirass"
 msgstr "Ενισχυμένος Θώρακας"
 
 #: ../items/categories/armor_plate.txt:21
-#: ../items/items.txt:590
 msgid "Plate Gauntlets"
 msgstr "Ενισχυμένες Περιχειρίδες"
 
 #: ../items/categories/armor_plate.txt:29
-#: ../items/items.txt:603
 msgid "Plate Greaves"
 msgstr "Ενισχυμένες Περιμηρίδες"
 
 #: ../items/categories/armor_plate.txt:37
-#: ../items/items.txt:616
 msgid "Plate Boots"
 msgstr "Ενισχυμένες Μπότες"
 
 #: ../items/categories/weapons_magic.txt:5
-#: ../items/items.txt:139
 msgid "Wand"
 msgstr "Ραβδί"
 
 #: ../items/categories/weapons_magic.txt:13
-#: ../items/items.txt:152
 msgid "Rod"
 msgstr "Σκήπτρο"
 
 #: ../items/categories/weapons_magic.txt:21
-#: ../items/items.txt:165
 msgid "Staff"
 msgstr "Ράβδος"
 
 #: ../items/categories/weapons_magic.txt:29
-#: ../items/items.txt:178
 msgid "Greatstaff"
 msgstr "Μεγάλη Ράβδος"
 
 #: ../items/categories/armor_chain.txt:5
-#: ../items/items.txt:496
 msgid "Chain Coif"
 msgstr "Αλυσιδωτή Κουκούλα"
 
 #: ../items/categories/armor_chain.txt:13
-#: ../items/items.txt:509
 msgid "Chain Cuirass"
 msgstr "Αλυσιδωτός Θώρακας"
 
 #: ../items/categories/armor_chain.txt:21
-#: ../items/items.txt:522
 msgid "Chain Gloves"
 msgstr "Αλυσιδωτά Γάντια"
 
 #: ../items/categories/armor_chain.txt:29
-#: ../items/items.txt:535
 msgid "Chain Greaves"
 msgstr "Αλυσιδωτές Περιμηρίδες"
 
 #: ../items/categories/armor_chain.txt:37
-#: ../items/items.txt:548
 msgid "Chain Boots"
 msgstr "Αλυσιδωτές Μπότες"
 
 #: ../items/categories/shields.txt:5
-#: ../items/items.txt:251
 msgid "Wood Buckler"
 msgstr "Ξύλινο Σκουτάρι"
 
 #: ../items/categories/shields.txt:13
-#: ../items/items.txt:264
 msgid "Iron Buckler"
 msgstr "Σιδερένιο Σκουτάρι"
 
 #: ../items/categories/shields.txt:21
-#: ../items/items.txt:277
 msgid "Crest Shield"
 msgstr "Εμβληματική Ασπίδα"
 
 #: ../items/categories/shields.txt:29
-#: ../items/items.txt:290
 msgid "Tower Shield"
 msgstr "Πυργόσχημη Ασπίδα"
 
 #: ../items/categories/armor_mage.txt:5
-#: ../items/items.txt:352
 msgid "Mage Hood"
 msgstr "Κουκούλα του Μάγου"
 
-#: ../items/categories/armor_mage.txt:7
-#: ../items/items.txt:353
+#: ../items/categories/armor_mage.txt:8
 msgid "The seams on this hood are designed to aid the flow of mana."
-msgstr ""
-"Οι ραφές της κουκούλας είναι σχεδιασμένες να βοηθούν τη ροή της μαγείας."
+msgstr "Οι ραφές της κουκούλας είναι σχεδιασμένες να βοηθούν τη ροή της μαγείας."
 
-#: ../items/categories/armor_mage.txt:14
-#: ../items/items.txt:366
+#: ../items/categories/armor_mage.txt:15
 msgid "Mage Vest"
 msgstr "Γιλέκο του Μάγου"
 
-#: ../items/categories/armor_mage.txt:16
-#: ../items/items.txt:367
+#: ../items/categories/armor_mage.txt:18
 msgid "Frost resistance runes line the inside of this vest."
 msgstr "Ρουνικά αντοχής στον πάγο κοσμούν το εσωτερικό αυτού του γιλέκου."
 
-#: ../items/categories/armor_mage.txt:24
-#: ../items/items.txt:381
+#: ../items/categories/armor_mage.txt:26
 msgid "Mage Sleeves"
 msgstr "Μανίκια του Μάγου"
 
-#: ../items/categories/armor_mage.txt:26
-#: ../items/items.txt:382
+#: ../items/categories/armor_mage.txt:29
 msgid "The fire resistance runes that hem these sleeves help protect beginner students of Pyromancy."
-msgstr ""
-"Τα ρουνικά αντοχής στη φωτιά που είναι ραμμένα σε αυτά τα μανίκια "
-"προστατεύουν τους μαθητευόμενους πυρομάντες."
+msgstr "Τα ρουνικά αντοχής στη φωτιά που είναι ραμμένα σε αυτά τα μανίκια προστατεύουν τους μαθητευόμενους πυρομάντες."
 
-#: ../items/categories/armor_mage.txt:33
-#: ../items/items.txt:395
+#: ../items/categories/armor_mage.txt:36
 msgid "Mage Skirt"
 msgstr "Φούστα της Μάγισσας"
 
-#: ../items/categories/armor_mage.txt:35
-#: ../items/items.txt:396
+#: ../items/categories/armor_mage.txt:39
 msgid "Spell components are tucked into hidden pockets covering this skirt."
 msgstr "Σύνεργα μαγείας κρύβονται στις τσέπες αυτής της φούστας."
 
-#: ../items/categories/armor_mage.txt:43
-#: ../items/items.txt:410
+#: ../items/categories/armor_mage.txt:47
 msgid "Mage Boots"
 msgstr "Μπότες του Μάγου"
 
-#: ../items/categories/armor_mage.txt:45
-#: ../items/items.txt:411
+#: ../items/categories/armor_mage.txt:50
 msgid "Attunement with the elements allow mages to ice and fire walk."
-msgstr ""
-"Ο συντονισμός με τα στοιχεία επιτρέπει τους μάγους να βαδίζουν στην φωτιά "
-"και τον πάγο."
+msgstr "Ο συντονισμός με τα στοιχεία επιτρέπει τους μάγους να βαδίζουν στην φωτιά και τον πάγο."
 
 #: ../items/categories/rings.txt:5
-#: ../items/items.txt:662
 msgid "Ring of Invisibility"
 msgstr "Δαχτυλίδι Εξαφάνισης"
 
 #: ../items/categories/rings.txt:7
-#: ../items/items.txt:663
 msgid "This nondescript ring was forged in the land where shadows lie."
-msgstr ""
-"Αυτό το εμφανισιακά κοινό δαχτυλίδι σφυρηλατήθηκε στη χώρα που βρίσκονται οι "
-"σκιές."
+msgstr "Αυτό το εμφανισιακά κοινό δαχτυλίδι σφυρηλατήθηκε στη χώρα που βρίσκονται οι σκιές."
 
 #: ../items/categories/rings.txt:13
-#: ../items/items.txt:674
 msgid "Ring of Regeneration"
 msgstr "Δαχτυλίδι της Αναζωογόνησης"
 
 #: ../items/categories/rings.txt:20
-#: ../items/items.txt:685
 msgid "Ring of Concentration"
 msgstr "Δαχτυλίδι της Αυτοσυγκέντρωσης"
 
 #: ../items/categories/rings.txt:27
-#: ../items/items.txt:696
 msgid "Ring of Fire"
 msgstr "Δαχτυλίδι της Φωτιάς"
 
 #: ../items/categories/rings.txt:34
-#: ../items/items.txt:707
 msgid "Ring of Ice"
 msgstr "Δαχτυλίδι του Πάγου"
 
 #: ../items/categories/rings.txt:41
-#: ../items/items.txt:718
 msgid "Lineage Signet Ring"
 msgstr "Σφραγιστικό Δαχτυλίδι του Οίκου"
 
 #: ../items/categories/rings.txt:48
-#: ../items/items.txt:729
 msgid "Ouroboros Ring"
 msgstr "Ουροβόρο Δαχτυλίδι"
 
 #: ../items/categories/rings.txt:52
-#: ../items/items.txt:737
 msgid "One-time protection from death"
 msgstr "Προστασία από το θάνατο, μιας χρήσης"
 
 #: ../items/categories/rings.txt:56
-#: ../items/items.txt:741
 msgid "Relic Hunter's Ring"
 msgstr "Κειμήλιο δαχτυλίδι του Κυνηγού"
 
 #: ../items/categories/gems.txt:5
-#: ../items/items.txt:35
 msgid "Sapphire"
 msgstr "Ζαφείρι"
 
 #: ../items/categories/gems.txt:13
-#: ../items/items.txt:47
 msgid "Emerald"
 msgstr "Σμαράγδι"
 
 #: ../items/categories/gems.txt:21
-#: ../items/items.txt:59
 msgid "Ruby"
 msgstr "Ρουμπίνι"
 
 #: ../items/categories/gems.txt:29
-#: ../items/items.txt:71
 msgid "Diamond"
 msgstr "Διαμάντι"
 
 #: ../items/categories/weapons_melee.txt:5
-#: ../items/items.txt:85
-msgid "Dagger"
+#, fuzzy
+msgid "Broken Dagger"
 msgstr "Στιλέτο"
 
 #: ../items/categories/weapons_melee.txt:13
-#: ../items/items.txt:98
+msgid "Dagger"
+msgstr "Στιλέτο"
+
+#: ../items/categories/weapons_melee.txt:21
 msgid "Shortsword"
 msgstr "Κοντό Σπαθί"
 
-#: ../items/categories/weapons_melee.txt:21
-#: ../items/items.txt:111
+#: ../items/categories/weapons_melee.txt:29
 msgid "Longsword"
 msgstr "Σπαθί"
 
-#: ../items/categories/weapons_melee.txt:29
-#: ../items/items.txt:124
+#: ../items/categories/weapons_melee.txt:37
 msgid "Greatsword"
 msgstr "Μέγα Σπαθί"
 
 #: ../items/categories/figurines.txt:5
-#: ../items/items.txt:822
 msgid "Bear Figurine"
 msgstr "Αγαλματίδιο Αρκούδας"
 
 #: ../items/categories/figurines.txt:12
-#: ../items/items.txt:833
 msgid "Owl Figurine"
 msgstr "Αγαλματίδιο Κουκουβάγιας"
 
 #: ../items/categories/figurines.txt:19
-#: ../items/items.txt:844
 msgid "Cat Figurine"
 msgstr "Αγαλματίδιο Γάτας"
 
 #: ../items/categories/figurines.txt:26
-#: ../items/items.txt:855
 msgid "Turtle Figurine"
 msgstr "Αγαλματίδιο Χελώνας"
 
 #: ../powers/categories/items.txt:30
-#: ../powers/powers.txt:235
 msgid "Blink to a nearby location"
 msgstr "Τηλεμεταφορά σε μια κοντινή τοποθεσία"
 
 #: ../powers/categories/warrior.txt:4
-#: ../powers/powers.txt:5
 msgid "Swing"
 msgstr "Χτύπημα"
 
 #: ../powers/categories/warrior.txt:7
-#: ../powers/powers.txt:8
 msgid "Basic melee attack"
 msgstr "Βασική επίθεση εξ επαφής"
 
 #: ../powers/categories/warrior.txt:19
-#: ../powers/powers.txt:40
 msgid "Block"
 msgstr "Απόκρουση"
 
@@ -2170,181 +1855,142 @@ msgid "Raise your shield to raise your avoidance by 10% and absorb by 1-5. Chanc
 msgstr ""
 
 #: ../powers/categories/warrior.txt:33
-#: ../powers/powers.txt:63
 msgid "Blood Strike"
 msgstr "Διαμπερές Χτύπημα"
 
 #: ../powers/categories/warrior.txt:36
-#: ../powers/powers.txt:66
 msgid "Inflict a bleeding wound that causes additional damage over 5 seconds"
-msgstr ""
-"Πετυχαίνει αιμορραγία στον αντίπαλο που προκαλεί περαιτέρω ζημιά κάθε 5 "
-"δευτερόλεπτα"
+msgstr "Πετυχαίνει αιμορραγία στον αντίπαλο που προκαλεί περαιτέρω ζημιά κάθε 5 δευτερόλεπτα"
 
-#: ../powers/categories/warrior.txt:51
-#: ../powers/powers.txt:134
+#: ../powers/categories/warrior.txt:50
 msgid "Warcry"
 msgstr "Πολεμική Κραυγή"
 
-#: ../powers/categories/warrior.txt:54
-#: ../powers/powers.txt:137
+#: ../powers/categories/warrior.txt:53
 msgid "Remove debuffs and become immune to debuffs for 10 seconds"
 msgstr "Αφαιρεί τις κατάρες και σε κάνει άτρωτο σε αυτές για 10 δευτερόλεπτα"
 
-#: ../powers/categories/warrior.txt:65
-#: ../powers/powers.txt:192
+#: ../powers/categories/warrior.txt:64
 msgid "Cleave"
 msgstr "Θερισμός"
 
-#: ../powers/categories/warrior.txt:68
+#: ../powers/categories/warrior.txt:67
 msgid "Attack all enemies in a wide arc, dealing 50% of melee weapon damage"
 msgstr ""
 
-#: ../powers/categories/warrior.txt:87
-#: ../powers/powers.txt:309
+#: ../powers/categories/warrior.txt:85
 msgid "Heroic Swing"
 msgstr "Ηρωικό Χτύπημα"
 
-#: ../powers/categories/warrior.txt:90
-#: ../powers/powers.txt:312
+#: ../powers/categories/warrior.txt:88
 msgid "Melee attack with 10% HP steal"
 msgstr "Κοντινή επίθεση που κλέβει 10% των ΗΡ"
 
-#: ../powers/categories/warrior.txt:103
-#: ../powers/powers.txt:668
+#: ../powers/categories/warrior.txt:101
 msgid "Throw Knife"
 msgstr "Ρίψη Μαχαιριού"
 
-#: ../powers/categories/warrior.txt:106
-#: ../powers/powers.txt:671
+#: ../powers/categories/warrior.txt:104
 msgid "Throw a knife to deal 75% of melee weapon damage"
 msgstr "Ρίψη ενός μαχαιριού που προκαλεί το 75% της κοντινής ζημιάς"
 
-#: ../powers/categories/warrior.txt:123
-#: ../powers/powers.txt:687
+#: ../powers/categories/warrior.txt:120
 msgid "Throw Axe"
 msgstr "Ρίψη Τσεκουριού"
 
-#: ../powers/categories/warrior.txt:126
-#: ../powers/powers.txt:690
+#: ../powers/categories/warrior.txt:123
 msgid "Throw an axe to deal 150% of melee weapon damage"
 msgstr "Ρίψη ενός τσεκουριού που προκαλεί το 150% της κοντινής ζημιάς"
 
 #: ../powers/categories/ranger.txt:3
-#: ../powers/powers.txt:118
 msgid "Piercing Shot"
 msgstr "Διαπεραστική Βολή"
 
 #: ../powers/categories/ranger.txt:6
-#: ../powers/powers.txt:121
 msgid "Fire a shot that ignores armor and goes through multiple enemies"
 msgstr "Βολή που αγνοεί την πανοπλία και διαπερνά πολλαπλούς αντιπάλους"
 
-#: ../powers/categories/ranger.txt:13
-#: ../powers/powers.txt:253
+#: ../powers/categories/ranger.txt:12
 msgid "Multishot"
 msgstr "Πολλαπλή Βολή"
 
-#: ../powers/categories/ranger.txt:16
-#: ../powers/powers.txt:256
+#: ../powers/categories/ranger.txt:15
 msgid "Shoot three projectiles simultaneously"
 msgstr "Ρίψη τριών βλημάτων ταυτόχρονα"
 
-#: ../powers/categories/ranger.txt:23
-#: ../powers/powers.txt:346
+#: ../powers/categories/ranger.txt:21
 msgid "Shoot"
 msgstr "Βολή"
 
-#: ../powers/categories/ranger.txt:26
-#: ../powers/powers.txt:349
+#: ../powers/categories/ranger.txt:24
 msgid "Basic ranged attack"
 msgstr "Βασική επίθεση από απόσταση"
 
-#: ../powers/categories/ranger.txt:32
-#: ../powers/powers.txt:360
+#: ../powers/categories/ranger.txt:30
 msgid "Rapid Fire"
 msgstr "Απανωτές Βολές"
 
-#: ../powers/categories/ranger.txt:35
-#: ../powers/powers.txt:363
+#: ../powers/categories/ranger.txt:33
 msgid "Fire five low power missiles in quick succession"
 msgstr "Ρίψη 5 αδύναμων βλημάτων σε γρήγορη ακολουθία"
 
-#: ../powers/categories/ranger.txt:42
-#: ../powers/powers.txt:380
+#: ../powers/categories/ranger.txt:40
 msgid "Ember Shot"
 msgstr "Χοβολισμός"
 
-#: ../powers/categories/ranger.txt:45
+#: ../powers/categories/ranger.txt:43
 msgid "Fire a spray of burning embers at close range. Effective against armored enemies."
 msgstr ""
 
-#: ../powers/categories/ranger.txt:71
-#: ../powers/powers.txt:706
+#: ../powers/categories/ranger.txt:68
 msgid "Caltrops"
 msgstr "Καρφιά"
 
-#: ../powers/categories/ranger.txt:74
-#: ../powers/powers.txt:709
+#: ../powers/categories/ranger.txt:71
 msgid "This trap deals 75% ranged weapon damage and slows the target."
-msgstr ""
-"Αυτή η παγίδα προκαλεί το 75% της μακρινής επίθεσης και επιβραδύνει το στόχο."
+msgstr "Αυτή η παγίδα προκαλεί το 75% της μακρινής επίθεσης και επιβραδύνει το στόχο."
 
-#: ../powers/categories/ranger.txt:92
-#: ../powers/powers.txt:727
+#: ../powers/categories/ranger.txt:89
 msgid "Bear Trap"
 msgstr "Παγίδα για Αρκούδες"
 
-#: ../powers/categories/ranger.txt:95
-#: ../powers/powers.txt:730
+#: ../powers/categories/ranger.txt:92
 msgid "This trap deals 150% ranged weapon damage and immobilizes the target."
-msgstr ""
-"Αυτή η παγίδα προκαλεί το 150% της μακρινής επίθεσης και ακινητοποιεί το "
-"στόχο."
+msgstr "Αυτή η παγίδα προκαλεί το 150% της μακρινής επίθεσης και ακινητοποιεί το στόχο."
 
-#: ../powers/categories/ranger.txt:143
-#: ../powers/powers.txt:1041
+#: ../powers/categories/ranger.txt:140
 msgid "Revert Form"
 msgstr "Επαναφορά Μορφής"
 
-#: ../powers/categories/ranger.txt:148
-#: ../powers/powers.txt:1046
+#: ../powers/categories/ranger.txt:145
 msgid "Transform back to human"
 msgstr "Μεταμόρφωση ξανά σε άνθρωπο"
 
-#: ../powers/categories/ranger.txt:158
-#: ../powers/powers.txt:1112
+#: ../powers/categories/ranger.txt:155
 msgid "Move undetected with the opportunity to perform a sneak attack"
 msgstr "Κινείσαι απαρατήρητος με την ευκαιρία να εκτελέσεις μια ύπουλη επίθεση"
 
-#: ../powers/categories/ranger.txt:168
-#: ../powers/powers.txt:1121
+#: ../powers/categories/ranger.txt:165
 msgid "Sneak Attack"
 msgstr "Ύπουλη Επίθεση"
 
-#: ../powers/categories/ranger.txt:171
-#: ../powers/powers.txt:1124
+#: ../powers/categories/ranger.txt:168
 msgid "Melee attack while stealthed for a high chance to crit"
-msgstr ""
-"Εξ επαφής επίθεση ενώ είσαι άφαντος με υψηλό ενδεχόμενο κρίσιμου χτυπήματος"
+msgstr "Εξ επαφής επίθεση ενώ είσαι άφαντος με υψηλό ενδεχόμενο κρίσιμου χτυπήματος"
 
 #: ../powers/categories/visual_effects.txt:3
-#: ../powers/powers.txt:880
 msgid "Arrow Wall Strike"
 msgstr "Χτύπημα από Βέλη Τοίχου"
 
 #: ../powers/categories/visual_effects.txt:16
-#: ../powers/powers.txt:892
 msgid "Orange Spark"
 msgstr "Πορτοκαλί Σπίθα"
 
 #: ../powers/categories/visual_effects.txt:28
-#: ../powers/powers.txt:904
 msgid "Blue Spark"
 msgstr "Γαλάζια Σπίθα"
 
 #: ../powers/categories/visual_effects.txt:40
-#: ../powers/powers.txt:916
 msgid "Red Spark"
 msgstr "Ερυθρά Σπίθα"
 
@@ -2357,104 +2003,94 @@ msgid "Electrocute an enemy from a distance; +50% crit chance against movement-i
 msgstr ""
 
 #: ../powers/categories/magician.txt:3
-#: ../powers/powers.txt:21
 msgid "Channel"
 msgstr "Διοχέτευση"
 
 #: ../powers/categories/magician.txt:6
-#: ../powers/powers.txt:24
 msgid "Basic magic attack"
 msgstr "Βασική μαγική επίθεση"
 
 #: ../powers/categories/magician.txt:22
-#: ../powers/powers.txt:82
 msgid "Shock"
 msgstr "Ηλεκτροσόκ"
 
-#: ../powers/categories/magician.txt:46
-#: ../powers/powers.txt:105
+#: ../powers/categories/magician.txt:45
 msgid "Heal"
 msgstr "Ίαση"
 
-#: ../powers/categories/magician.txt:49
-#: ../powers/powers.txt:108
+#: ../powers/categories/magician.txt:48
 msgid "Restore HP"
 msgstr "Αναζωογονεί ΗΡ"
 
 #: ../powers/categories/magician.txt:60
-#: ../powers/powers.txt:147
 msgid "Quake"
 msgstr "Δόνηση"
 
 #: ../powers/categories/magician.txt:63
-#: ../powers/powers.txt:150
 msgid "Stun nearby enemies"
 msgstr "Αποσβολώνει κοντινούς εχθρούς"
 
-#: ../powers/categories/magician.txt:82
-#: ../powers/powers.txt:168
+#: ../powers/categories/magician.txt:83
 msgid "Shield"
 msgstr "Θωράκιση"
 
-#: ../powers/categories/magician.txt:85
-#: ../powers/powers.txt:171
+#: ../powers/categories/magician.txt:86
 msgid "Create a force field that absorbs damage"
 msgstr "Δημιουργεί ένα ενεργειακό πεδίο γύρω σου που απορροφά ζημιά"
 
-#: ../powers/categories/magician.txt:95
-#: ../powers/powers.txt:210
+#: ../powers/categories/magician.txt:97
 msgid "Freeze"
 msgstr "Παγετός"
 
-#: ../powers/categories/magician.txt:98
-#: ../powers/powers.txt:213
+#: ../powers/categories/magician.txt:100
 msgid "Create a ray of piercing cold that slows enemies"
 msgstr "Ακτίνα διαπεραστικού κρύου που επιβραδύνει τους αντιπάλους"
 
-#: ../powers/categories/magician.txt:119
-#: ../powers/powers.txt:232
+#: ../powers/categories/magician.txt:121
 msgid "Teleport"
 msgstr "Τηλεμεταφορά"
 
-#: ../powers/categories/magician.txt:141
-#: ../powers/powers.txt:269
+#: ../powers/categories/magician.txt:143
 msgid "Burn"
 msgstr "Ηφαίστειο"
 
-#: ../powers/categories/magician.txt:144
-#: ../powers/powers.txt:272
+#: ../powers/categories/magician.txt:146
 msgid "Blast enemies in a distant area with fire"
 msgstr "Ανατινάζει μακρινούς αντιπάλους με φωτιά"
 
-#: ../powers/categories/magician.txt:167
-#: ../powers/powers.txt:326
+#: ../powers/categories/magician.txt:168
 msgid "Greater Channel"
 msgstr "Ισχυρή Διοχέτευση"
 
-#: ../powers/categories/magician.txt:170
-#: ../powers/powers.txt:329
+#: ../powers/categories/magician.txt:171
 msgid "Magic attack with 10% MP steal"
 msgstr "Μαγική επίθεση που κλέβει 10% των ΜΡ"
 
-#: ../powers/categories/magician.txt:187
+#: ../powers/categories/magician.txt:188
 msgid "Thunderstrike"
 msgstr ""
 
-#: ../powers/categories/magician.txt:190
+#: ../powers/categories/magician.txt:191
 msgid "Lightning strikes from the sky to stun enemies"
 msgstr ""
 
 #: ../powers/categories/map_hazards.txt:3
-#: ../powers/powers.txt:840
 msgid "Fire Ammo"
 msgstr "Πυρομαχικά Φωτιάς"
 
 #: ../powers/categories/map_hazards.txt:23
-#: ../powers/powers.txt:860
 msgid "Ice Ammo"
 msgstr "Πυρομαχικά Πάγου"
 
 #: ../powers/trees/default.txt:11
-#: ../menus/powers.txt:22
 msgid "Magician"
 msgstr "Μάγος"
+
+#~ msgid "Fire Resistance"
+#~ msgstr "Αντίσταση στη Φωτιά"
+
+#~ msgid "Ice Resistance"
+#~ msgstr "Αντίσταση στον Πάγο"
+
+#~ msgid "Mineshaft"
+#~ msgstr "Σήραγγα"
