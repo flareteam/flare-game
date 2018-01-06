@@ -4,6 +4,7 @@ height=40
 tilewidth=64
 tileheight=32
 orientation=isometric
+background_color=0,0,0,255
 hero_pos=12,12
 music=music/dungeon_theme.ogg
 parallax_layers=maps/parallax/space.txt
@@ -261,6 +262,17 @@ soundfx=soundfx/environment/teleporter.ogg,0,0
 tooltip=Wizard's Tower: Research Chambers
 
 [event]
+# to Underworld Catacombs
+type=event
+location=7,22,2,2
+activate=on_trigger
+hotspot=location
+intermap=maps/underworld_catacombs.txt,60,40
+requires_status=emp_waypoint_10
+soundfx=soundfx/environment/teleporter.ogg,0,0
+tooltip=Underworld Catacombs
+
+[event]
 # Wind sound
 type=event
 location=0,0,1,1
@@ -338,4 +350,12 @@ location=9,32,1,1
 activate=on_load
 mapmod=background,9,30,265
 requires_status=emp_waypoint_9
+
+[event]
+# unlock Underworld Catacombs
+type=event
+location=5,23,1,1
+activate=on_load
+mapmod=background,7,23,265
+requires_status=emp_waypoint_10
 

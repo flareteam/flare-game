@@ -798,3 +798,12 @@ repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Treasure Chest
 
+[event]
+# to Underworld Catacombs
+type=event
+location=83,29,2,1
+activate=on_trigger
+hotspot=location
+intermap=maps/underworld_catacombs.txt,70,99
+tooltip=Underworld Catacombs
+
