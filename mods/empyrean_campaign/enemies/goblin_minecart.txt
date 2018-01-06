@@ -1,0 +1,16 @@
+INCLUDE enemies/base/goblin.txt
+animations=animations/enemies/goblin_minecart.txt
+
+name=Goblin
+level=1
+categories=goblin_minecart
+xp=0
+
+# combat stats
+stat=hp,1
+speed=4.5
+turn_delay=200ms
+chance_pursue=1
+threat_range=0
+waypoint_pause=0ms
+
