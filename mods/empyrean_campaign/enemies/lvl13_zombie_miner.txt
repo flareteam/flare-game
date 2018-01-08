@@ -1,0 +1,37 @@
+INCLUDE enemies/base/beacon.txt
+
+# sfx_attack=swing,soundfx/enemies/zombie_phys.ogg
+# sfx_attack=shoot,soundfx/enemies/zombie_phys.ogg
+# sfx_attack=cast,soundfx/enemies/zombie_ment.ogg
+sfx_hit=soundfx/enemies/zombie_hit.ogg
+sfx_die=soundfx/enemies/zombie_die.ogg
+sfx_critdie=soundfx/enemies/zombie_critdie.ogg
+
+animations=animations/enemies/zombie.txt
+
+melee_range=1.125
+threat_range=128
+
+name=Zombie Miner
+level=13
+categories=zombie_miner
+facing=false
+combat_style=aggressive
+
+power=melee,241,10
+power=ranged,241,10
+
+# combat stats
+stat=hp,360
+speed=0
+turn_delay=400ms
+chance_pursue=0
+
+stat=accuracy,140
+stat=avoidance,70
+stat=poise,56
+
+stat=dmg_melee_min,195
+stat=dmg_melee_max,200
+cooldown=1500ms
+

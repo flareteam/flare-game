@@ -542,6 +542,27 @@ hotspot=location
 intermap=maps/underworld.txt,84,31
 tooltip=Underworld
 
+[event]
+# Crate
+type=event
+location=109,16,1,1
+activate=on_trigger
+hotspot=location
+loot=loot/level_13.txt
+mapmod=object,109,16,179
+repeat=false
+soundfx=soundfx/wood_open.ogg
+tooltip=Crate
+
+[event]
+# to Underworld Mines
+type=event
+location=58,3,2,1
+activate=on_trigger
+hotspot=location
+intermap=maps/underworld_mines.txt,31,63
+tooltip=Underworld Mines
+
 [enemy]
 type=enemy
 location=34,84,1,1
