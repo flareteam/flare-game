@@ -1,0 +1,30 @@
+INCLUDE enemies/base/zombie.txt
+
+name=Vomit Zombie
+level=13
+categories=zombie,undead,dungeon,grassland
+rarity=common
+xp=8192
+
+# combat stats
+stat=hp,360
+speed=4.2
+turn_delay=400ms
+chance_pursue=10
+
+power=melee,164,2
+power=melee,168,5
+power=ranged,239,5
+
+stat=accuracy,140
+stat=avoidance,70
+stat=poise,56
+
+stat=dmg_melee_min,195
+stat=dmg_melee_max,200
+stat=dmg_ment_min,195
+stat=dmg_ment_max,200
+cooldown=1500ms
+
+#loot
+loot=loot/level_13.txt

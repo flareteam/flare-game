@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.0" orientation="isometric" renderorder="right-down" width="136" height="110" tilewidth="64" tileheight="32" infinite="0" backgroundcolor="#000000" nextobjectid="52">
+<map version="1.0" tiledversion="1.1.0" orientation="isometric" renderorder="right-down" width="136" height="110" tilewidth="64" tileheight="32" infinite="0" backgroundcolor="#000000" nextobjectid="71">
  <properties>
   <property name="hero_pos" value="31,63"/>
   <property name="music" value="music/cave_theme.ogg"/>
@@ -750,6 +750,125 @@
     <property name="direction" value="N"/>
     <property name="number" value="1"/>
     <property name="wander_radius" value="0"/>
+   </properties>
+  </object>
+  <object id="52" type="enemy" x="608" y="896" width="256" height="480">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="13"/>
+    <property name="number" value="4"/>
+   </properties>
+  </object>
+  <object id="53" type="enemy" x="64" y="544" width="384" height="480">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="13"/>
+    <property name="number" value="4"/>
+   </properties>
+  </object>
+  <object id="54" type="enemy" x="192" y="96" width="512" height="352">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="13"/>
+    <property name="number" value="4"/>
+   </properties>
+  </object>
+  <object id="55" type="enemy" x="800" y="96" width="512" height="352">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="13"/>
+    <property name="number" value="4"/>
+   </properties>
+  </object>
+  <object id="56" type="enemy" x="576" y="608" width="352" height="128">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="13"/>
+    <property name="number" value="2"/>
+   </properties>
+  </object>
+  <object id="57" type="enemy" x="960" y="1152" width="128" height="320">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="13"/>
+    <property name="number" value="2"/>
+   </properties>
+  </object>
+  <object id="58" type="enemy" x="1088" y="608" width="352" height="416">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="13"/>
+    <property name="number" value="4"/>
+   </properties>
+  </object>
+  <object id="59" type="enemy" x="1280" y="1312" width="448" height="448">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="13"/>
+    <property name="number" value="6"/>
+   </properties>
+  </object>
+  <object id="62" type="enemy" x="1504" y="1888" width="320" height="608">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="13"/>
+    <property name="number" value="4"/>
+   </properties>
+  </object>
+  <object id="63" type="enemy" x="1984" y="1536" width="128" height="320">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="13"/>
+    <property name="number" value="2"/>
+   </properties>
+  </object>
+  <object id="64" type="enemy" x="2016" y="2048" width="512" height="352">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="13"/>
+    <property name="number" value="4"/>
+   </properties>
+  </object>
+  <object id="65" type="enemy" x="2592" y="1504" width="160" height="576">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="13"/>
+    <property name="number" value="4"/>
+   </properties>
+  </object>
+  <object id="66" type="enemy" x="2592" y="2240" width="160" height="576">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="13"/>
+    <property name="number" value="4"/>
+   </properties>
+  </object>
+  <object id="67" type="enemy" x="1984" y="2560" width="384" height="320">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="13"/>
+    <property name="number" value="4"/>
+   </properties>
+  </object>
+  <object id="68" type="enemy" x="832" y="2592" width="864" height="352">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="13"/>
+    <property name="number" value="4"/>
+   </properties>
+  </object>
+  <object id="69" type="enemy" x="3008" y="2016" width="768" height="352">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="13"/>
+    <property name="number" value="6"/>
+   </properties>
+  </object>
+  <object id="70" type="enemy" x="2272" y="512" width="224" height="160">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="13"/>
+    <property name="number" value="2"/>
    </properties>
   </object>
  </objectgroup>

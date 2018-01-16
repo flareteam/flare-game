@@ -1,0 +1,34 @@
+INCLUDE enemies/base/goblin_runner.txt
+
+name=Goblin Thief
+level=13
+categories=goblin_charger,goblin,dungeon,grassland
+rarity=uncommon
+xp=8192
+
+# combat stats
+stat=hp,360
+speed=5.7
+turn_delay=200ms
+chance_pursue=10
+
+power=melee,164,5
+power=melee,243,2
+
+stat=accuracy,150
+stat=avoidance,70
+stat=poise,51
+
+stat=dmg_melee_min,185
+stat=dmg_melee_max,190
+cooldown=1100ms
+stat=absorb_min,13
+stat=absorb_max,13
+
+# loot
+loot=loot/level_13.txt
+
+# gold & potions
+loot=currency,50,125,250
+loot=2,50,1
+loot=3,50,1

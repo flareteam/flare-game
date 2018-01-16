@@ -1,0 +1,43 @@
+INCLUDE enemies/base/skeleton_archer.txt
+
+name=Shadowstep Skeleton
+level=13
+categories=skeleton_archer,skeleton,undead,dungeon,grassland
+rarity=common
+xp=8192
+
+# combat stats
+stat=hp,350
+speed=4.2
+turn_delay=200ms
+
+passive_powers=185
+power=on_join_combat,242,100
+power=ranged,242,50
+
+stat=accuracy,155
+stat=avoidance,80
+stat=poise,46
+
+stat=dmg_melee_min,185
+stat=dmg_melee_max,190
+stat=dmg_ranged_min,195
+stat=dmg_ranged_max,200
+stat=absorb_min,12
+stat=absorb_max,13
+
+cooldown=1500ms
+
+# loot
+loot=loot/level_13.txt
+
+# Ranged units behaviour, see docs/ranged_behavior.txt
+chance_pursue=1
+chance_flee=20
+flee_duration=3s
+flee_cooldown=1s
+flee_range=8
+threat_range=15,20
+power=melee,164,1
+power=ranged,171,80
+power=ranged,196,80

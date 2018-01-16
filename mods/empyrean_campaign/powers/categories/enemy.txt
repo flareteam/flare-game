@@ -826,3 +826,51 @@ new_state=swing
 face=false
 requires_los=false
 
+# shadowstep skeleton buff
+[power]
+id=242
+type=fixed
+new_state=cast
+buff=true
+post_effect=shadowstep,0,10s
+post_effect=avoidance,40,10s
+post_effect=accuracy,75,10s
+cooldown=15s
+soundfx=soundfx/powers/shield.ogg
+
+# goblin steal
+[power]
+id=243
+type=fixed
+new_state=swing
+face=true
+use_hazard=true
+base_damage=melee
+lifespan=33ms
+radius=1.0
+starting_pos=melee
+modifier_damage=multiply,50,0
+cooldown=20s
+script=on_hit,scripts/powers/goblin_steal.txt
+
+# antlion larva spawn 1
+[power]
+id=244
+type=spawn
+new_state=instant
+spawn_type=antlion_larva
+starting_pos=source
+target_neighbor=2
+requires_empty_target=true
+post_power=245
+
+# antlion larva spawn 2
+[power]
+id=245
+type=spawn
+new_state=instant
+spawn_type=antlion_larva
+starting_pos=source
+target_neighbor=2
+requires_empty_target=true
+

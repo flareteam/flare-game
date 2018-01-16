@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.0" orientation="isometric" renderorder="right-down" width="120" height="105" tilewidth="64" tileheight="32" infinite="0" backgroundcolor="#000000" nextobjectid="35">
+<map version="1.0" tiledversion="1.1.0" orientation="isometric" renderorder="right-down" width="120" height="105" tilewidth="64" tileheight="32" infinite="0" backgroundcolor="#000000" nextobjectid="60">
  <properties>
   <property name="hero_pos" value="70,99"/>
   <property name="music" value="music/cave_theme.ogg"/>
@@ -556,6 +556,160 @@
     <property name="category" value="catacomb_boulder_2"/>
     <property name="number" value="1"/>
     <property name="requires_not_status" value="emp_catacomb_boulder_2"/>
+   </properties>
+  </object>
+  <object id="39" type="enemy" x="2336" y="1824" width="256" height="256">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="13"/>
+    <property name="number" value="4"/>
+   </properties>
+  </object>
+  <object id="38" type="enemy" x="1760" y="1824" width="192" height="736">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="13"/>
+    <property name="number" value="4"/>
+   </properties>
+  </object>
+  <object id="36" type="enemy" x="1152" y="1792" width="256" height="640">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="13"/>
+    <property name="number" value="4"/>
+   </properties>
+  </object>
+  <object id="41" type="enemy" x="608" y="1664" width="256" height="640">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="13"/>
+    <property name="number" value="4"/>
+   </properties>
+  </object>
+  <object id="42" type="enemy" x="672" y="1216" width="320" height="224">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="13"/>
+    <property name="number" value="3"/>
+   </properties>
+  </object>
+  <object id="43" type="enemy" x="1184" y="1248" width="256" height="256">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="13"/>
+    <property name="number" value="4"/>
+   </properties>
+  </object>
+  <object id="44" type="enemy" x="96" y="1728" width="320" height="448">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="13"/>
+    <property name="number" value="3"/>
+   </properties>
+  </object>
+  <object id="45" type="enemy" x="64" y="1280" width="352" height="224">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="13"/>
+    <property name="number" value="3"/>
+   </properties>
+  </object>
+  <object id="46" type="enemy" x="96" y="576" width="320" height="416">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="13"/>
+    <property name="number" value="3"/>
+   </properties>
+  </object>
+  <object id="47" type="enemy" x="640" y="160" width="192" height="768">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="13"/>
+    <property name="number" value="4"/>
+   </properties>
+  </object>
+  <object id="48" type="enemy" x="1184" y="160" width="192" height="736">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="13"/>
+    <property name="number" value="4"/>
+   </properties>
+  </object>
+  <object id="49" type="enemy" x="1760" y="672" width="224" height="224">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="13"/>
+    <property name="number" value="3"/>
+   </properties>
+  </object>
+  <object id="50" type="enemy" x="2368" y="1248" width="224" height="224">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="13"/>
+    <property name="number" value="3"/>
+   </properties>
+  </object>
+  <object id="51" type="enemy" x="2880" y="1248" width="192" height="544">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="13"/>
+    <property name="number" value="3"/>
+   </properties>
+  </object>
+  <object id="52" type="enemy" x="2368" y="2368" width="352" height="192">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="13"/>
+    <property name="number" value="4"/>
+   </properties>
+  </object>
+  <object id="53" type="enemy" x="2912" y="2016" width="192" height="544">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="13"/>
+    <property name="number" value="3"/>
+   </properties>
+  </object>
+  <object id="54" type="enemy" x="3328" y="1696" width="320" height="448">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="13"/>
+    <property name="number" value="3"/>
+   </properties>
+  </object>
+  <object id="55" type="enemy" x="3296" y="1248" width="352" height="224">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="13"/>
+    <property name="number" value="3"/>
+   </properties>
+  </object>
+  <object id="56" type="enemy" x="3328" y="544" width="320" height="416">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="13"/>
+    <property name="number" value="3"/>
+   </properties>
+  </object>
+  <object id="57" type="enemy" x="2880" y="160" width="192" height="544">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="13"/>
+    <property name="number" value="3"/>
+   </properties>
+  </object>
+  <object id="58" type="enemy" x="2336" y="672" width="384" height="224">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="13"/>
+    <property name="number" value="3"/>
+   </properties>
+  </object>
+  <object id="59" type="enemy" x="2368" y="128" width="192" height="192">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="13"/>
+    <property name="number" value="2"/>
    </properties>
   </object>
  </objectgroup>

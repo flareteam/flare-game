@@ -1,0 +1,44 @@
+INCLUDE enemies/base/antlion_fossilized.txt
+
+name=Fossilized Antlion
+level=13
+categories=antlion,antlion_ice,ice,dungeon,grassland
+rarity=uncommon
+xp=8192
+
+# combat stats
+stat=hp,340
+speed=5.2
+turn_delay=200ms
+
+power=on_join_combat,244,100
+
+stat=accuracy,145
+stat=avoidance,85
+stat=poise,46
+
+stat=absorb_min,13
+stat=absorb_max,14
+
+stat=dmg_melee_min,185
+stat=dmg_melee_max,190
+stat=dmg_ment_min,200
+stat=dmg_ment_max,205
+
+vulnerable=ice,75
+
+cooldown=1300ms
+
+# loot
+loot=loot/level_13.txt
+
+# Ranged units behaviour, see docs/ranged_behavior.txt
+chance_pursue=6
+chance_flee=13
+flee_duration=2s
+flee_cooldown=1s
+flee_range=5
+threat_range=8,16
+power=melee,164,10
+power=melee,179,15
+power=ranged,172,50

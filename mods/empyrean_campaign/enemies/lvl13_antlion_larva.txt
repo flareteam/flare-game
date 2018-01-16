@@ -1,0 +1,29 @@
+INCLUDE enemies/base/antlion_small.txt
+
+name=Antlion Larva
+level=13
+categories=antlion_larva
+rarity=common
+xp=8192
+
+# combat stats
+stat=hp,130
+speed=5.2
+turn_delay=166ms
+
+chance_pursue=30
+
+power=melee,164,2
+
+stat=accuracy,135
+stat=avoidance,95
+stat=poise,46
+
+stat=dmg_melee_min,185
+stat=dmg_melee_max,190
+
+cooldown=1300ms
+
+# loot
+loot=loot/level_13.txt
+
