@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-06 21:00+\n"
+"POT-Creation-Date: 2018-01-16 18:32+\n"
 "PO-Revision-Date: 2017-12-12 01:29+0100\n"
 "Last-Translator: Paweł Puszczyński <pawonashi@gmail.com>\n"
 "Language-Team: Polish\n"
@@ -263,6 +263,14 @@ msgstr "Wygnaniec"
 msgid "throwing axe"
 msgstr "topór do rzucania"
 
+#: ../enemies/catacomb_boulder_1.txt:6
+msgid "Boulder"
+msgstr "Głaz"
+
+#: ../enemies/goblin_minecart.txt:4
+msgid "Goblin"
+msgstr "Goblin"
+
 #: ../enemies/lvl10_minotaur.txt:3
 msgid "Minotaur"
 msgstr "Minotaur"
@@ -290,6 +298,11 @@ msgstr "Xonun"
 #: ../enemies/lvl10_zombie_leecher.txt:3
 msgid "Leecher Zombie"
 msgstr "Wysysający Zombie"
+
+#: ../enemies/lvl11_antlion_venom.txt:3
+#, fuzzy
+msgid "Venom Antlion"
+msgstr "Antilion"
 
 #: ../enemies/lvl11_buchi.txt:3
 msgid "Buchi"
@@ -327,6 +340,36 @@ msgstr "Metzger"
 msgid "Nishi"
 msgstr "Nishi"
 
+#: ../enemies/lvl13_antlion_fossilized.txt:3
+#, fuzzy
+msgid "Fossilized Antlion"
+msgstr "Mrożący Antilion"
+
+#: ../enemies/lvl13_antlion_larva.txt:3
+#, fuzzy
+msgid "Antlion Larva"
+msgstr "Antilion Siekacz"
+
+#: ../enemies/lvl13_goblin_thief.txt:3
+#, fuzzy
+msgid "Goblin Thief"
+msgstr "Wódz Goblinów"
+
+#: ../enemies/lvl13_skeleton_shadowstep.txt:3
+#, fuzzy
+msgid "Shadowstep Skeleton"
+msgstr "Mroźny Szkielet"
+
+#: ../enemies/lvl13_zombie_miner.txt:13
+#, fuzzy
+msgid "Zombie Miner"
+msgstr "Potężny Zombie"
+
+#: ../enemies/lvl13_zombie_vomit.txt:3
+#, fuzzy
+msgid "Vomit Zombie"
+msgstr "Wampiryczny Zombie"
+
 #: ../enemies/lvl1_goblin_runner.txt:3
 msgid "Goblin Runner"
 msgstr "Gobliński Biegacz"
@@ -346,10 +389,6 @@ msgstr "Przeklęty Zombie"
 #: ../enemies/lvl1_zombie_rotting.txt:3
 msgid "Rotting Zombie"
 msgstr "Gnijący Zombie"
-
-#: ../enemies/lvl2_goblin.txt:3
-msgid "Goblin"
-msgstr "Goblin"
 
 #: ../enemies/lvl2_goblin_charger.txt:3
 msgid "Goblin Charger"
@@ -530,10 +569,6 @@ msgstr "Zola"
 #: ../enemies/lvl9_antlion_sprayer.txt:3
 msgid "Antlion Sprayer"
 msgstr "Antilion Rozpylacz"
-
-#: ../enemies/lvl9_boulder.txt:3
-msgid "Boulder"
-msgstr "Głaz"
 
 #: ../enemies/lvl9_goblin_hunter.txt:3
 msgid "Goblin Hunter"
@@ -767,25 +802,30 @@ msgstr "Jaskinia Goblinów"
 msgid "Gravestone"
 msgstr "Kamień nagrobny"
 
-#: ../maps/hyperspace.txt:195
+#: ../maps/hyperspace.txt:196
 msgid "St. Maria: Prison"
 msgstr "Św. Maria: Więzienie"
 
-#: ../maps/hyperspace.txt:217
+#: ../maps/hyperspace.txt:218
 msgid "Stormrock Pass"
 msgstr "Ścieżka Burzokamienia"
 
-#: ../maps/hyperspace.txt:228
+#: ../maps/hyperspace.txt:229
 msgid "Temple of Mez: Main Hall"
 msgstr "Świątynia Meza: Główny Hol"
 
-#: ../maps/hyperspace.txt:239
+#: ../maps/hyperspace.txt:240
 msgid "Nazia Underground"
 msgstr "Podziemia Nazia"
 
-#: ../maps/hyperspace.txt:261
+#: ../maps/hyperspace.txt:262
 msgid "Wizard's Tower: Research Chambers"
 msgstr "Wieża Maga: Komnaty Badaczy"
+
+#: ../maps/hyperspace.txt:273
+#, fuzzy
+msgid "Underworld Catacombs"
+msgstr "Podświat"
 
 #: ../maps/lake_kuuma.txt:851
 msgid "Boat"
@@ -931,29 +971,35 @@ msgstr "Wbijasz w swoje ramię Nóź Poświęceń. Ból zbija Cię z nóg. Mimo 
 msgid "Red Altar"
 msgstr "Czerwony Ołtarz"
 
+#: ../maps/underworld.txt:12
+msgid "Underworld"
+msgstr "Podświat"
+
+#: ../maps/underworld_catacombs.txt:513
+#, fuzzy
+msgid "Underworld Catacombs waypoint discovered."
+msgstr "Odkryto punkt nawigacyjny w Kamiennodrzewiu."
+
+#: ../maps/underworld_catacombs.txt:564
+#, fuzzy
+msgid "Underworld Mines"
+msgstr "Podświat"
+
 #: ../maps/wizards_tower_1.txt:341
 msgid "to Black Oak City"
 msgstr "do Miasta Czarnego Dębu"
 
-#: ../maps/wizards_tower_2.txt:363
+#: ../maps/wizards_tower_2.txt:364
 msgid "Wizard's Tower: Research Chambers waypoint discovered."
 msgstr "Odkryto punkt nawigacyjny w Wieży Maga: Komnaty Badaczy."
 
-#: ../maps/wizards_tower_2.txt:502
+#: ../maps/wizards_tower_2.txt:503
 msgid "Wizard's Tower: Laboratory"
 msgstr "Wieża Maga: Laboratorium"
 
-#: ../maps/wizards_tower_2.txt:510
+#: ../maps/wizards_tower_2.txt:511
 msgid "The plaque reads: Underworld Gate"
 msgstr "Napis na plakiecie: Wrota Podświata"
-
-#: ../maps/wizards_tower_2.txt:552
-msgid "Under WORLD? More like Under CONSTRUCTION! Come back later..."
-msgstr "Podświat w trakcie budowy. Wróć innym razem..."
-
-#: ../maps/wizards_tower_2.txt:556
-msgid "Underworld"
-msgstr "Podświat"
 
 #: ../quests/000_empyrean.txt:1
 msgid "Return to Empyrean"
@@ -1572,26 +1618,31 @@ msgid "rubberduck"
 msgstr "rubberduck"
 
 #: ../cutscenes/credits.txt:22
+#, fuzzy
+msgid "Short-Ribs"
+msgstr "Krótki Łuk"
+
+#: ../cutscenes/credits.txt:23
 msgid "Stefano Peris"
 msgstr "Stefano Peris"
 
-#: ../cutscenes/credits.txt:23
+#: ../cutscenes/credits.txt:24
 msgid "VWolfDog"
 msgstr "VWolfDog"
 
-#: ../cutscenes/credits.txt:24
+#: ../cutscenes/credits.txt:25
 msgid "yd"
 msgstr "yd"
 
-#: ../cutscenes/credits.txt:27
+#: ../cutscenes/credits.txt:28
 msgid "Foley Artists"
 msgstr "Imitatorzy Dźwięku"
 
-#: ../cutscenes/credits.txt:29
+#: ../cutscenes/credits.txt:30
 msgid "adamgryu"
 msgstr "adamgryu"
 
-#: ../cutscenes/credits.txt:30
+#: ../cutscenes/credits.txt:31
 msgid "GuntherDorksen"
 msgstr "GuntherDorksen"
 
@@ -3754,6 +3805,17 @@ msgstr "Wykonanie rytuału na Czerwonym Ołtarzu obdarzyło Cię umiejętności�
 #: ../powers/trees/default.txt:11
 msgid "Magician"
 msgstr "Magik"
+
+#: ../scripts/powers/goblin_steal.txt:8
+msgid "Goblin Thief stole a potion!"
+msgstr ""
+
+#: ../scripts/powers/goblin_steal.txt:25
+msgid "Goblin Thief stole some Gold!"
+msgstr ""
+
+#~ msgid "Under WORLD? More like Under CONSTRUCTION! Come back later..."
+#~ msgstr "Podświat w trakcie budowy. Wróć innym razem..."
 
 #~ msgid "to Wizard's Tower: Research Chambers"
 #~ msgstr "do Wieży Maga: Komnaty Badaczy"

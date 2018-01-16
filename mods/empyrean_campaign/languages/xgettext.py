@@ -129,7 +129,7 @@ for folder in ['enemies', 'maps', 'quests', 'npcs', 'cutscenes', 'books']:
                     extract(filename)
 
 # definitions for some larger collections of data are split up, so extract them here
-for folder in ['enemies', 'items', 'powers']:
+for folder in ['enemies', 'items', 'powers', 'scripts']:
     target = os.path.join('..', folder)
     if os.path.isdir(target):
         for filename in sorted(os.listdir(target)):

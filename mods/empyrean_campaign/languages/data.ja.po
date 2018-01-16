@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-06 21:00+\n"
+"POT-Creation-Date: 2018-01-16 18:32+\n"
 "PO-Revision-Date: 2017-12-10 02:53+0900\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -101,32 +101,23 @@ msgid "Brute"
 msgstr ""
 
 #: ../engine/classes.txt:7
-msgid ""
-"Brutes rely on physical strength and melee weapons to strike down foes. "
-"Primary attribute: Physical"
-msgstr ""
-"Brute なら、物理的な強さが頼りになります。近接戦の武器で敵を攻撃します。 第一"
-"の特徴: 肉体"
+msgid "Brutes rely on physical strength and melee weapons to strike down foes. Primary attribute: Physical"
+msgstr "Brute なら、物理的な強さが頼りになります。近接戦の武器で敵を攻撃します。 第一の特徴: 肉体"
 
 #: ../engine/classes.txt:16
 msgid "Scout"
 msgstr ""
 
 #: ../engine/classes.txt:17
-msgid ""
-"Scouts specialize in range weaponry and combat accuracy. Primary attribute: "
-"Offense"
-msgstr ""
-"Scout は遠距離攻撃の武器と戦闘の精度に特化しています。 第一の特徴: 攻撃"
+msgid "Scouts specialize in range weaponry and combat accuracy. Primary attribute: Offense"
+msgstr "Scout は遠距離攻撃の武器と戦闘の精度に特化しています。 第一の特徴: 攻撃"
 
 #: ../engine/classes.txt:26
 msgid "Adept"
 msgstr ""
 
 #: ../engine/classes.txt:27
-msgid ""
-"Adepts have natural abilities in casting magical spells. Primary attribute: "
-"Mental"
+msgid "Adepts have natural abilities in casting magical spells. Primary attribute: Mental"
 msgstr "Adept は魔法呪文を自然に唱えられる技能を持ちます。 第一の特徴: 精神"
 
 #: ../engine/titles.txt:3
@@ -273,6 +264,14 @@ msgstr "亡命者"
 msgid "throwing axe"
 msgstr "投げオノ"
 
+#: ../enemies/catacomb_boulder_1.txt:6
+msgid "Boulder"
+msgstr "丸い大石"
+
+#: ../enemies/goblin_minecart.txt:4
+msgid "Goblin"
+msgstr "ゴブリン"
+
 #: ../enemies/lvl10_minotaur.txt:3
 msgid "Minotaur"
 msgstr "ミノタウロス"
@@ -300,6 +299,11 @@ msgstr ""
 #: ../enemies/lvl10_zombie_leecher.txt:3
 msgid "Leecher Zombie"
 msgstr ""
+
+#: ../enemies/lvl11_antlion_venom.txt:3
+#, fuzzy
+msgid "Venom Antlion"
+msgstr "アントリオン"
 
 #: ../enemies/lvl11_buchi.txt:3
 msgid "Buchi"
@@ -337,6 +341,35 @@ msgstr ""
 msgid "Nishi"
 msgstr ""
 
+#: ../enemies/lvl13_antlion_fossilized.txt:3
+msgid "Fossilized Antlion"
+msgstr ""
+
+#: ../enemies/lvl13_antlion_larva.txt:3
+#, fuzzy
+msgid "Antlion Larva"
+msgstr "アントリオン スラッシャー"
+
+#: ../enemies/lvl13_goblin_thief.txt:3
+#, fuzzy
+msgid "Goblin Thief"
+msgstr "ゴブリン盗賊"
+
+#: ../enemies/lvl13_skeleton_shadowstep.txt:3
+#, fuzzy
+msgid "Shadowstep Skeleton"
+msgstr "こおり がいこつ"
+
+#: ../enemies/lvl13_zombie_miner.txt:13
+#, fuzzy
+msgid "Zombie Miner"
+msgstr "ゾンビ ブルート"
+
+#: ../enemies/lvl13_zombie_vomit.txt:3
+#, fuzzy
+msgid "Vomit Zombie"
+msgstr "吸血ゾンビ"
+
 #: ../enemies/lvl1_goblin_runner.txt:3
 msgid "Goblin Runner"
 msgstr "ゴブリン ランナー"
@@ -356,10 +389,6 @@ msgstr "呪われたゾンビ"
 #: ../enemies/lvl1_zombie_rotting.txt:3
 msgid "Rotting Zombie"
 msgstr "はいまわるゾンビ"
-
-#: ../enemies/lvl2_goblin.txt:3
-msgid "Goblin"
-msgstr "ゴブリン"
 
 #: ../enemies/lvl2_goblin_charger.txt:3
 msgid "Goblin Charger"
@@ -541,10 +570,6 @@ msgstr ""
 msgid "Antlion Sprayer"
 msgstr ""
 
-#: ../enemies/lvl9_boulder.txt:3
-msgid "Boulder"
-msgstr "丸い大石"
-
 #: ../enemies/lvl9_goblin_hunter.txt:3
 msgid "Goblin Hunter"
 msgstr ""
@@ -666,12 +691,8 @@ msgid "Quest added."
 msgstr "クエストが追加されました。"
 
 #: ../maps/book_of_the_dead.txt:349
-msgid ""
-"You sign your name in the Book of the Dead. The Black Quill vanishes and the "
-"inkwell is dry. You hope this worked."
-msgstr ""
-"あなたは死者の書に、あなたの名前をサインした。 黒の羽根ペンは消失し、インクか"
-"たまりは乾燥している。 あなたはこれが働くことを望む。"
+msgid "You sign your name in the Book of the Dead. The Black Quill vanishes and the inkwell is dry. You hope this worked."
+msgstr "あなたは死者の書に、あなたの名前をサインした。 黒の羽根ペンは消失し、インクかたまりは乾燥している。 あなたはこれが働くことを望む。"
 
 #: ../maps/dilapidated_sewers.txt:309
 msgid "Dilapidated Sewers waypoint discovered."
@@ -702,12 +723,8 @@ msgid "Lochport Cemetery"
 msgstr "Lochport 共同墓地"
 
 #: ../maps/family_crypt.txt:301
-msgid ""
-"The coffin has a small slot the size of Ardwen's ring. You place the ring in "
-"the slot."
-msgstr ""
-"ひつぎに、小さなスロットがあり、リングのサイズにピッタリである。 あなたはス"
-"ロットのその場所にリングを入れた。"
+msgid "The coffin has a small slot the size of Ardwen's ring. You place the ring in the slot."
+msgstr "ひつぎに、小さなスロットがあり、リングのサイズにピッタリである。 あなたはスロットのその場所にリングを入れた。"
 
 #: ../maps/family_crypt.txt:310
 msgid "Ardwen's Coffin"
@@ -726,23 +743,16 @@ msgid "Fort Amir"
 msgstr "Amir 砦（とりで）"
 
 #: ../maps/fort_amir.txt:369
-msgid ""
-"Opening the book reveals that it has been hollowed out. A gem is concealed "
-"inside."
-msgstr ""
-"本を開くと、何かがマブシい。 どうも宝石がひとつ、この本に、はさまっていたよう"
-"で、その本の宝石の光のようだ。"
+msgid "Opening the book reveals that it has been hollowed out. A gem is concealed inside."
+msgstr "本を開くと、何かがマブシい。 どうも宝石がひとつ、この本に、はさまっていたようで、その本の宝石の光のようだ。"
 
 #: ../maps/fort_amir.txt:373
 msgid "Book"
 msgstr "本"
 
 #: ../maps/fort_amir.txt:398
-msgid ""
-"The statue is missing an eye. The sapphire fits securely in the statue's eye "
-"socket."
-msgstr ""
-"この像には目が欠けている。 サファイアがピッタリと、像の目のくぼみに入る。"
+msgid "The statue is missing an eye. The sapphire fits securely in the statue's eye socket."
+msgstr "この像には目が欠けている。 サファイアがピッタリと、像の目のくぼみに入る。"
 
 #: ../maps/fort_amir.txt:403
 msgid "Statue"
@@ -765,9 +775,7 @@ msgid "Altar"
 msgstr "祭壇"
 
 #: ../maps/fort_nasu.txt:1131
-msgid ""
-"As you enter the throne room, you see an Altar with a wooden figurine placed "
-"upon it."
+msgid "As you enter the throne room, you see an Altar with a wooden figurine placed upon it."
 msgstr "あなたは謁見室に入ると、祭壇が見え、その近くに木の像があるのが見えた。"
 
 #: ../maps/fort_nasu.txt:1161
@@ -794,25 +802,29 @@ msgstr "ゴブリンの どうくつ"
 msgid "Gravestone"
 msgstr "墓石"
 
-#: ../maps/hyperspace.txt:195
+#: ../maps/hyperspace.txt:196
 msgid "St. Maria: Prison"
 msgstr "聖 MAria: 監獄"
 
-#: ../maps/hyperspace.txt:217
+#: ../maps/hyperspace.txt:218
 msgid "Stormrock Pass"
 msgstr "ストームロック パス"
 
-#: ../maps/hyperspace.txt:228
+#: ../maps/hyperspace.txt:229
 msgid "Temple of Mez: Main Hall"
 msgstr "Mez の寺: メインホール"
 
-#: ../maps/hyperspace.txt:239
+#: ../maps/hyperspace.txt:240
 msgid "Nazia Underground"
 msgstr "Nazia 地下"
 
-#: ../maps/hyperspace.txt:261
+#: ../maps/hyperspace.txt:262
 msgid "Wizard's Tower: Research Chambers"
 msgstr "Wizard の塔: 研究棟"
+
+#: ../maps/hyperspace.txt:273
+msgid "Underworld Catacombs"
+msgstr ""
 
 #: ../maps/lake_kuuma.txt:851
 msgid "Boat"
@@ -951,99 +963,77 @@ msgid "Temple of Mez: Entrance"
 msgstr "Mez の寺: エントランス"
 
 #: ../maps/temple_of_mez_2.txt:550
-msgid ""
-"You cut into your arm with the Knife of Sacrifices. The pain is "
-"excruciating. Shaking, you manage to collect some of your blood in a small "
-"vial. The knife quickly raises in temperature until it disintegrates. Your "
-"wound then begins to close itself, leaving no trace at all besides a warm "
-"feeling throughout your body."
-msgstr ""
-"あなたは犠牲のナイフで、あなたの腕を切る。 痛みがひどい。シェイクして、血を小瓶"
-"（こびん）に集めます。 The knife quickly raises in temperature until it "
-"disintegrates. あなたの傷は勝手にふさがり、 leaving no trace at "
-"all besides a warm feeling throughout your body. "
+msgid "You cut into your arm with the Knife of Sacrifices. The pain is excruciating. Shaking, you manage to collect some of your blood in a small vial. The knife quickly raises in temperature until it disintegrates. Your wound then begins to close itself, leaving no trace at all besides a warm feeling throughout your body."
+msgstr "あなたは犠牲のナイフで、あなたの腕を切る。 痛みがひどい。シェイクして、血を小瓶（こびん）に集めます。 The knife quickly raises in temperature until it disintegrates. あなたの傷は勝手にふさがり、 leaving no trace at all besides a warm feeling throughout your body. "
 
 #: ../maps/temple_of_mez_2.txt:558
 msgid "Red Altar"
 msgstr "赤の祭壇"
 
+#: ../maps/underworld.txt:12
+msgid "Underworld"
+msgstr ""
+
+#: ../maps/underworld_catacombs.txt:513
+#, fuzzy
+msgid "Underworld Catacombs waypoint discovered."
+msgstr "ストーンウッドのウェイポイントを発見した。"
+
+#: ../maps/underworld_catacombs.txt:564
+#, fuzzy
+msgid "Underworld Mines"
+msgstr "廃棄された鉱山"
+
 #: ../maps/wizards_tower_1.txt:341
 msgid "to Black Oak City"
 msgstr ""
 
-#: ../maps/wizards_tower_2.txt:363
+#: ../maps/wizards_tower_2.txt:364
 msgid "Wizard's Tower: Research Chambers waypoint discovered."
 msgstr "Wizard's の塔の研究棟のウェイポイントを発見した。"
 
-#: ../maps/wizards_tower_2.txt:502
+#: ../maps/wizards_tower_2.txt:503
 msgid "Wizard's Tower: Laboratory"
 msgstr "Wizard の塔: 実験棟"
 
-#: ../maps/wizards_tower_2.txt:510
+#: ../maps/wizards_tower_2.txt:511
 msgid "The plaque reads: Underworld Gate"
 msgstr "碑文にこうある: 下世界のトビラ"
-
-#: ../maps/wizards_tower_2.txt:552
-msgid "Under WORLD? More like Under CONSTRUCTION! Come back later..."
-msgstr ""
-
-#: ../maps/wizards_tower_2.txt:556
-msgid "Underworld"
-msgstr ""
 
 #: ../quests/000_empyrean.txt:1
 msgid "Return to Empyrean"
 msgstr "Empyrean に戻る"
 
 #: ../quests/000_empyrean.txt:6
-msgid ""
-"The Book of the Dead states redemption is possible for those who sign their "
-"name in gravebloom ink. Florin in Perdition Harbor can tell you more."
+msgid "The Book of the Dead states redemption is possible for those who sign their name in gravebloom ink. Florin in Perdition Harbor can tell you more."
 msgstr "死者の書は、 gravebloom インク で、そこに名前を書かれた者の償還を可能にする。 Perdition Harbor にいる Florin に聞けば、 もっと詳しく教えてくれる。"
 
 #: ../quests/000_empyrean.txt:11
-msgid ""
-"Before leaving St. Maria's Crypt, it would be wise to look for anything "
-"useful."
-msgstr ""
-"聖マリアのクリプトを離れる前に、 なにか役立ちそうな物がないかを探すのが良さそ"
-"うだ。"
+msgid "Before leaving St. Maria's Crypt, it would be wise to look for anything useful."
+msgstr "聖マリアのクリプトを離れる前に、 なにか役立ちそうな物がないかを探すのが良さそうだ。"
 
 #: ../quests/000_empyrean.txt:16
 msgid "Ask Florin about the Gravebloom flower."
 msgstr "Gravebloom フラワー について Florin から教えてもらう。"
 
 #: ../quests/000_empyrean.txt:22
-msgid ""
-"You've found a gravebloom flower. It is a primary component in the creation "
-"of gravebloom ink."
-msgstr ""
-"あなたは gravebloom フラワー を見つけている。 これは gravebloom インク を作成するた"
-"めの重要な部品だ。"
+msgid "You've found a gravebloom flower. It is a primary component in the creation of gravebloom ink."
+msgstr "あなたは gravebloom フラワー を見つけている。 これは gravebloom インク を作成するための重要な部品だ。"
 
 #: ../quests/000_empyrean.txt:27
-msgid ""
-"A strange black feather fell off of Mez. You should take it before leaving "
-"the Temple of Mez."
-msgstr ""
-"奇妙な黒い羽根が落ちてきた。 この寺を離れる前に、 その羽根をひろってください。"
+msgid "A strange black feather fell off of Mez. You should take it before leaving the Temple of Mez."
+msgstr "奇妙な黒い羽根が落ちてきた。 この寺を離れる前に、 その羽根をひろってください。"
 
 #: ../quests/000_empyrean.txt:32
 msgid "Ask Florin about the Black Quill."
 msgstr "黒の羽根ペンについて Florin から教えてもらう。"
 
 #: ../quests/000_empyrean.txt:38
-msgid ""
-"The Black Quill you found is the only thing capable of holding gravebloom "
-"ink. It will be the only way to write in the Book of the Dead."
-msgstr ""
-"この黒い羽根ペンは、 gravebloom インク をすくいとれる、唯一の物です。 死者の書に"
-"文字をかける、唯一の物です。"
+msgid "The Black Quill you found is the only thing capable of holding gravebloom ink. It will be the only way to write in the Book of the Dead."
+msgstr "この黒い羽根ペンは、 gravebloom インク をすくいとれる、唯一の物です。 死者の書に文字をかける、唯一の物です。"
 
 #: ../quests/000_empyrean.txt:43
-msgid ""
-"Before leaving the Wizard's Tower, you should take the knife that Metzger "
-"dropped."
+msgid "Before leaving the Wizard's Tower, you should take the knife that Metzger dropped."
 msgstr "Wizardの塔を離れる前に、 Metzger の落としたナイフを入手してください。"
 
 #: ../quests/000_empyrean.txt:48
@@ -1051,29 +1041,19 @@ msgid "Ask Florin about the Knife of Sacrifices."
 msgstr "犠牲のナイフ について Florin から教えてもらう。"
 
 #: ../quests/000_empyrean.txt:54
-msgid ""
-"Gravebloom ink requires a sample of your blood to be drawn with the Knife of "
-"Sacrifices. This must take place at the Red Altar in the Temple of Mez."
-msgstr ""
-"Gravebloom インク は、 あなたの血を材料として必要にする。 その血は、この 犠牲のナイフ をつ"
-"かって、 あなたの体を切って、 血を入手しなければならない。 Mez の寺にある赤の祭壇で、 この儀式は行われなければならない。"
+msgid "Gravebloom ink requires a sample of your blood to be drawn with the Knife of Sacrifices. This must take place at the Red Altar in the Temple of Mez."
+msgstr "Gravebloom インク は、 あなたの血を材料として必要にする。 その血は、この 犠牲のナイフ をつかって、 あなたの体を切って、 血を入手しなければならない。 Mez の寺にある赤の祭壇で、 この儀式は行われなければならない。"
 
 #: ../quests/000_empyrean.txt:60
-msgid ""
-"Having completed the ritual at the Red Altar, return to Florin to proceed "
-"with creating the gravebloom ink."
+msgid "Having completed the ritual at the Red Altar, return to Florin to proceed with creating the gravebloom ink."
 msgstr "赤の祭壇での儀式は完了した。 Florin のもとに帰り、 gravebloom インク を作成してもらう。"
 
 #: ../quests/000_empyrean.txt:65
-msgid ""
-"The time has come. Write your name in the Book of the Dead and gain entry to "
-"the Underworld."
+msgid "The time has come. Write your name in the Book of the Dead and gain entry to the Underworld."
 msgstr "時は来た。 死者の書にあなたの名前を書き、下世界に入りにいこう。"
 
 #: ../quests/000_empyrean.txt:69
-msgid ""
-"Make your way to the Underworld. A portal to the Underworld was located in "
-"the Wizard's Tower."
+msgid "Make your way to the Underworld. A portal to the Underworld was located in the Wizard's Tower."
 msgstr "下世界への道を開こう。 下世界へ入れる場所が、 Wizardの塔にある。"
 
 #: ../quests/001_krolan.txt:1
@@ -1098,15 +1078,11 @@ msgstr "商人ジャーナル"
 
 #: ../quests/002_journal.txt:7
 msgid "Find Abasi's journal. It is likely being carried by a nearby goblin."
-msgstr ""
-"Abasi のジャーナルをみつける。 どうやら、ちかくのゴブリンが持ち運んでいるようだ。"
+msgstr "Abasi のジャーナルをみつける。 どうやら、ちかくのゴブリンが持ち運んでいるようだ。"
 
 #: ../quests/002_journal.txt:13
-msgid ""
-"Find Abasi's journal. He said that it was last seen near the Goblin Cave."
-msgstr ""
-"Abasi のジャーナルをみつける。 彼が言うには、最後にそれを見たのは ゴブリンの"
-"どうくつ でだった。"
+msgid "Find Abasi's journal. He said that it was last seen near the Goblin Cave."
+msgstr "Abasi のジャーナルをみつける。 彼が言うには、最後にそれを見たのは ゴブリンのどうくつ でだった。"
 
 #: ../quests/002_journal.txt:18
 msgid "Return the journal to Abasi."
@@ -1121,22 +1097,16 @@ msgid "Find a way to escape the Family Crypt."
 msgstr "地下室の入口にもどれる方法をみつける。"
 
 #: ../quests/003_ardwen.txt:11
-msgid ""
-"You found a strange ring. Maybe it will aid in escaping the Family Crypt."
-msgstr ""
-"奇妙なリングを発見した。 たぶん、入り口にもどるための手助けになるだろう。"
+msgid "You found a strange ring. Maybe it will aid in escaping the Family Crypt."
+msgstr "奇妙なリングを発見した。 たぶん、入り口にもどるための手助けになるだろう。"
 
 #: ../quests/003_ardwen.txt:16
 msgid "Defeat Ardwen."
 msgstr "Ardwen を打倒する。"
 
 #: ../quests/003_ardwen.txt:21
-msgid ""
-"Ardwen has been defeated. The lever near his coffin will likely open the "
-"nearby gate."
-msgstr ""
-"Ardwen は倒されている。 彼の ひつぎ の近くのレバーを押せば、 ちかくの門が開く"
-"だろう。"
+msgid "Ardwen has been defeated. The lever near his coffin will likely open the nearby gate."
+msgstr "Ardwen は倒されている。 彼の ひつぎ の近くのレバーを押せば、 ちかくの門が開くだろう。"
 
 #: ../quests/004_fort_amir.txt:1
 msgid "The One-Eyed Guardians"
@@ -1155,9 +1125,7 @@ msgid "Gruzza dropped a strange sapphire."
 msgstr "Gruzza は 奇妙なサファイア を落とした。"
 
 #: ../quests/004_fort_amir.txt:21
-msgid ""
-"The bookcase in the Fort Amir throne room opened up, revealing a secret "
-"passage."
+msgid "The bookcase in the Fort Amir throne room opened up, revealing a secret passage."
 msgstr "Amir とりでの謁見室にある本棚が動き、 隠れていた通路が現れた。"
 
 #: ../quests/005_ort.txt:1
@@ -1165,36 +1133,24 @@ msgid "Brother?"
 msgstr "兄弟 ?"
 
 #: ../quests/005_ort.txt:6
-msgid ""
-"Ort gave you a ruby. It seemed like he wanted it devliered to someone he "
-"would call \"brother\"."
-msgstr ""
-"Ort はルビーをあなたに渡した。彼が「兄弟」と言う者まで運んで欲しいように見え"
-"た。"
+msgid "Ort gave you a ruby. It seemed like he wanted it devliered to someone he would call \"brother\"."
+msgstr "Ort はルビーをあなたに渡した。彼が「兄弟」と言う者まで運んで欲しいように見えた。"
 
 #: ../quests/006_stormrock.txt:1
 msgid "Locked Out"
 msgstr "閉まっていて入れない"
 
 #: ../quests/006_stormrock.txt:6
-msgid ""
-"The door to the Stormrock Ruins is locked. There must be a way to unlock it."
+msgid "The door to the Stormrock Ruins is locked. There must be a way to unlock it."
 msgstr "Stormrock 廃墟のトビラが閉まっている。 トビラを開ける方法が必要だ。"
 
 #: ../quests/006_stormrock.txt:11
-msgid ""
-"Aldwulf wants you to get the key to unlock the Stormrock Ruins. It should be "
-"hidden somewhere in the camp south of Stonewood."
-msgstr ""
-"Aldwulf は、ストームロック廃墟のカギが欲しい。 そのカギは、ストーンウッドより南"
-"側のキャンプのどこかに隠されているようだ。"
+msgid "Aldwulf wants you to get the key to unlock the Stormrock Ruins. It should be hidden somewhere in the camp south of Stonewood."
+msgstr "Aldwulf は、ストームロック廃墟のカギが欲しい。 そのカギは、ストーンウッドより南側のキャンプのどこかに隠されているようだ。"
 
 #: ../quests/006_stormrock.txt:16
-msgid ""
-"You found the key to the Stormrock Ruins. You should return there and speak "
-"to Aldwulf."
-msgstr ""
-"あなたは ストームロック廃墟のカギ を見つけた。 そのことを Aldwulf に伝えるため、 彼のもとに戻るべきだ。"
+msgid "You found the key to the Stormrock Ruins. You should return there and speak to Aldwulf."
+msgstr "あなたは ストームロック廃墟のカギ を見つけた。 そのことを Aldwulf に伝えるため、 彼のもとに戻るべきだ。"
 
 #: ../quests/007_nazia_mines.txt:1
 msgid "Trapped!"
@@ -1209,8 +1165,7 @@ msgid "You found some sticks of dynamite. Those should be useful."
 msgstr "あなたはダイナマイトを発見した。 きっと、これを使えばよいだろう。"
 
 #: ../quests/007_nazia_mines.txt:15
-msgid ""
-"You successfully cleared the rubble and can safely escape the Nazia Mines."
+msgid "You successfully cleared the rubble and can safely escape the Nazia Mines."
 msgstr "ガレキの除去に成功したので、鉱山から脱出できる。"
 
 #: ../quests/008_mog.txt:1
@@ -1218,9 +1173,7 @@ msgid "The Lost Soul of the Mog Caverns"
 msgstr "Mog 洞窟の 失われた魂"
 
 #: ../quests/008_mog.txt:6
-msgid ""
-"You found a mysterious note in the Mog Caverns. Maybe its directions will "
-"lead to treasure?"
+msgid "You found a mysterious note in the Mog Caverns. Maybe its directions will lead to treasure?"
 msgstr "あなたは不思議なノートを Mog 洞窟 で見つけた。 もしかして、その方向に従えば、宝にありつけるかも?"
 
 #: ../quests/008_mog.txt:11
@@ -1276,18 +1229,12 @@ msgid "It's the least I can do."
 msgstr "できることをしただけです。"
 
 #: ../npcs/abasi.txt:29
-msgid ""
-"When I awoke this morning, my journal was missing. No doubt one of those "
-"filthy green creatures stole it from me."
-msgstr ""
-"今朝、おきたら、私のジャーナルが無くなっていたのです。 きっと、ミドリ色のずる"
-"いモンスターが、 盗んでいったんだろう。"
+msgid "When I awoke this morning, my journal was missing. No doubt one of those filthy green creatures stole it from me."
+msgstr "今朝、おきたら、私のジャーナルが無くなっていたのです。 きっと、ミドリ色のずるいモンスターが、 盗んでいったんだろう。"
 
 #: ../npcs/abasi.txt:30
 msgid "If you come across my journal in your travels, please return it to me."
-msgstr ""
-"もし、ジャーナルを旅の途中にでも見かけたら、 わたしのもとに返すようにしてくだ"
-"さい。"
+msgstr "もし、ジャーナルを旅の途中にでも見かけたら、 わたしのもとに返すようにしてください。"
 
 #: ../npcs/abasi.txt:35
 msgid "Journal"
@@ -1322,67 +1269,40 @@ msgid "Greetings, wanderer."
 msgstr ""
 
 #: ../npcs/abasi_2.txt:27
-msgid ""
-"Judging from your appearance, you're no stranger to a long journey. For that "
-"reason, I ask that you keep an eye out for my missing journal."
+msgid "Judging from your appearance, you're no stranger to a long journey. For that reason, I ask that you keep an eye out for my missing journal."
 msgstr "あなたの外見から判断すると、長い旅行中の見知らぬ人ではなさそうです。 そこでお願いですが、私の行方不明のジャーナルに、道中、注意をしていただけませんか?"
 
 #: ../npcs/abasi_2.txt:28
-msgid ""
-"I first noticed it was missing after a night of camping near the Goblin "
-"Cave. I searched for a while, but ultimately decided it was best to move on."
-msgstr ""
-"晩にキャンプしていた場所が、ゴブリンのどうくつが近かったのです。 その翌日、"
-"ジャーナルが無くなっていることに気づいたのです。 その場所でしばらく探したので"
-"すが、そのあと、場所を移動する決心をしました。"
+msgid "I first noticed it was missing after a night of camping near the Goblin Cave. I searched for a while, but ultimately decided it was best to move on."
+msgstr "晩にキャンプしていた場所が、ゴブリンのどうくつが近かったのです。 その翌日、ジャーナルが無くなっていることに気づいたのです。 その場所でしばらく探したのですが、そのあと、場所を移動する決心をしました。"
 
 #: ../npcs/aldwulf.txt:1
 msgid "Aldwulf, Treasure Hunter"
 msgstr "Aldwulf, トレジャーハンター"
 
 #: ../npcs/aldwulf.txt:12
-msgid ""
-"Greetings wanderer. I did not expect to meet anyone in a place like this."
-msgstr ""
-"こんにちわ、みしらぬ人。 この場所で他人に出会うとは、期待していなかった。"
+msgid "Greetings wanderer. I did not expect to meet anyone in a place like this."
+msgstr "こんにちわ、みしらぬ人。 この場所で他人に出会うとは、期待していなかった。"
 
 #: ../npcs/aldwulf.txt:13
-msgid ""
-"I'm in a bit of a predicament. I wanted to come here in search of treasure, "
-"but my partner disagreed with my intentions."
-msgstr ""
-"私は、苦境に少し立たされているのです。 私は、この建物で宝探しをしようとしてい"
-"たのですが、しかし、仲間が反対しました。"
+msgid "I'm in a bit of a predicament. I wanted to come here in search of treasure, but my partner disagreed with my intentions."
+msgstr "私は、苦境に少し立たされているのです。 私は、この建物で宝探しをしようとしていたのですが、しかし、仲間が反対しました。"
 
 #: ../npcs/aldwulf.txt:14
-msgid ""
-"In an effort to stop me, he stole the key we found that supposedly opened "
-"the door up ahead."
-msgstr ""
-"仲間は私を止めようとして、カギを盗んでしまいました。 そのカギは、私の前にあ"
-"る、あのトビラを開くためのカギだったのです。"
+msgid "In an effort to stop me, he stole the key we found that supposedly opened the door up ahead."
+msgstr "仲間は私を止めようとして、カギを盗んでしまいました。 そのカギは、私の前にある、あのトビラを開くためのカギだったのです。"
 
 #: ../npcs/aldwulf.txt:15
-msgid ""
-"Regardless, I took my chances and left our camp south of Stonewood, hoping I "
-"could break through without the key. As you might be able to tell, that "
-"hasn't worked out in my favor."
+msgid "Regardless, I took my chances and left our camp south of Stonewood, hoping I could break through without the key. As you might be able to tell, that hasn't worked out in my favor."
 msgstr ""
 
 #: ../npcs/aldwulf.txt:16
-msgid ""
-"If you come across my partner in your travels, do what you must to get that "
-"key from him and bring it to me. Do that, and I'll split whatever we find in "
-"these ruins with you."
+msgid "If you come across my partner in your travels, do what you must to get that key from him and bring it to me. Do that, and I'll split whatever we find in these ruins with you."
 msgstr "もし、あなたが道中、私のなかまに出会ったら、 心からのお願いですが、カギを返してもらい、 そしてカギを私のところに持って来てほしいのです。 そして、この遺跡で見つけたものを、あなたと山分けしましょう。"
 
 #: ../npcs/aldwulf.txt:23
-msgid ""
-"Have you gotten the key yet? My partner likely has it hidden somewhere in "
-"the camp south of Stonewood."
-msgstr ""
-"まだカギを入手していませんか?  私の仲間は、おそらく ストーンウッドから南のキャンプのどこか"
-"に 隠れているでしょう。"
+msgid "Have you gotten the key yet? My partner likely has it hidden somewhere in the camp south of Stonewood."
+msgstr "まだカギを入手していませんか?  私の仲間は、おそらく ストーンウッドから南のキャンプのどこかに 隠れているでしょう。"
 
 #: ../npcs/bakat.txt:1
 msgid "Bakat, Goblin Packrat"
@@ -1405,12 +1325,8 @@ msgid "(He holds the ruby up into the light and examines it closely)."
 msgstr "(彼はルビーを光の中に保持し、それを近くでしらべた。)."
 
 #: ../npcs/bakat.txt:26
-msgid ""
-"(Looking satisfied, he reaches into his bag and hands you a wooden bear "
-"figurine)."
-msgstr ""
-"(満足そうに見え、 彼は手を伸ばして、彼のカバンに手をいれ、 そして木で出来たク"
-"マの置きものを手にし、 あなたに手渡した。)"
+msgid "(Looking satisfied, he reaches into his bag and hands you a wooden bear figurine)."
+msgstr "(満足そうに見え、 彼は手を伸ばして、彼のカバンに手をいれ、 そして木で出来たクマの置きものを手にし、 あなたに手渡した。)"
 
 #: ../npcs/bakat.txt:27
 msgid "..."
@@ -1425,58 +1341,32 @@ msgid "What can you tell me about the Book of the Dead?"
 msgstr "死者の書について、なにか教えていただけませんか?"
 
 #: ../npcs/florin.txt:28
-msgid ""
-"The Book of the Dead tells of redemption for those who sign their name in "
-"gravebloom ink. Your sins will be washed away, and you will be able to "
-"return to wherever you were banished from."
-msgstr ""
-"死者の書は、それに gravebloom インクで名前を書いた者を、どこかに償還するそう"
-"です。 それから、あなたのサインが洗い流されることとなり、 その後、あなたはど"
-"こかに戻ることとなり、消え去るそうです。"
+msgid "The Book of the Dead tells of redemption for those who sign their name in gravebloom ink. Your sins will be washed away, and you will be able to return to wherever you were banished from."
+msgstr "死者の書は、それに gravebloom インクで名前を書いた者を、どこかに償還するそうです。 それから、あなたのサインが洗い流されることとなり、 その後、あなたはどこかに戻ることとなり、消え去るそうです。"
 
 #: ../npcs/florin.txt:29
 msgid "So, where can I find gravebloom ink?"
 msgstr "では、どこで gravebloom を見つけることができますか?"
 
 #: ../npcs/florin.txt:30
-msgid ""
-"Gravebloom ink is not something you find. You must make it yourself. Besides "
-"the Gravebloom flower, you will need to sacrifice your own blood with a "
-"special blade."
-msgstr ""
-"Gravebloom インクは見つけることはできない。 あなたが自分で作らなければならな"
-"い。 Gravebloom フラワー に加えて、 特別な刃物を用いて、 あなたが自分の血を犠牲に"
-"しなければならない。"
+msgid "Gravebloom ink is not something you find. You must make it yourself. Besides the Gravebloom flower, you will need to sacrifice your own blood with a special blade."
+msgstr "Gravebloom インクは見つけることはできない。 あなたが自分で作らなければならない。 Gravebloom フラワー に加えて、 特別な刃物を用いて、 あなたが自分の血を犠牲にしなければならない。"
 
 #: ../npcs/florin.txt:31
-msgid ""
-"Even if you can create some gravebloom ink, you won't be able to write with "
-"just anything. The ink won't stick to a normal quill. You will need to find "
-"something capable of holding the gravebloom ink."
-msgstr ""
-"たとえ gravebloom インクを作成できても、字を書くことさえできないだろう。 普通"
-"の羽根ペンではダメで、特別な道具で gravebloom インクをすくわなければならな"
-"い。 gravebloom インクをすくえる道具を、見つける必要がある。"
+msgid "Even if you can create some gravebloom ink, you won't be able to write with just anything. The ink won't stick to a normal quill. You will need to find something capable of holding the gravebloom ink."
+msgstr "たとえ gravebloom インクを作成できても、字を書くことさえできないだろう。 普通の羽根ペンではダメで、特別な道具で gravebloom インクをすくわなければならない。 gravebloom インクをすくえる道具を、見つける必要がある。"
 
 #: ../npcs/florin.txt:32
-msgid ""
-"If you can perform the ritual to make gravebloom ink and find a suitable "
-"writing utensil, redemption may be yours."
-msgstr ""
-"もし、その儀式を実行できて、 gravebloom インクを作成できて、器具を見つける事"
-"ができたら、あなたは償還されるかもしれません。"
+msgid "If you can perform the ritual to make gravebloom ink and find a suitable writing utensil, redemption may be yours."
+msgstr "もし、その儀式を実行できて、 gravebloom インクを作成できて、器具を見つける事ができたら、あなたは償還されるかもしれません。"
 
 #: ../npcs/florin.txt:35
 msgid "Gravebloom"
 msgstr ""
 
 #: ../npcs/florin.txt:39
-msgid ""
-"Ah yes, that is most certainly a gravebloom flower. It is the primary "
-"component in the creation of gravebloom ink."
-msgstr ""
-"うーん、はい、これは確かに gravebloom フラワー でしょう。 gravebloom インク の"
-"作成のための重要な部品です。"
+msgid "Ah yes, that is most certainly a gravebloom flower. It is the primary component in the creation of gravebloom ink."
+msgstr "うーん、はい、これは確かに gravebloom フラワー でしょう。 gravebloom インク の作成のための重要な部品です。"
 
 #: ../npcs/florin.txt:42
 msgid "Black Quill"
@@ -1488,16 +1378,11 @@ msgstr "この羽根ペンで、 gravebloom インクをすくいとれるでし
 
 #: ../npcs/florin.txt:46
 msgid "It's certainly no normal quill. I've never seen anything like it."
-msgstr ""
-"これは確かに、普通の羽根ペンではない。 このような物は、いままで見たことがな"
-"い。"
+msgstr "これは確かに、普通の羽根ペンではない。 このような物は、いままで見たことがない。"
 
 #: ../npcs/florin.txt:48
-msgid ""
-"If anything is capable of writing with gravebloom ink, it is that quill."
-msgstr ""
-"もし、 gravebloom インクで書くことができる物があるとすれば、この羽根ペンで"
-"しょう。"
+msgid "If anything is capable of writing with gravebloom ink, it is that quill."
+msgstr "もし、 gravebloom インクで書くことができる物があるとすれば、この羽根ペンでしょう。"
 
 #: ../npcs/florin.txt:51
 msgid "Knife of Sacrifices"
@@ -1508,24 +1393,15 @@ msgid "Do you know anything about this knife?"
 msgstr "このナイフについて、 なにか ご存知ですか？"
 
 #: ../npcs/florin.txt:56
-msgid ""
-"The Knife of Sacrifices. This must be the blade you will need to draw your "
-"blood for the gravebloom ink. From what I've read, this must be done at the "
-"\"Red Altar\"."
-msgstr ""
-"犠牲のナイフ。 これは gravebloom インクのために 血を取り出すのに必要な刃であ"
-"る。 私が読んできた限りの情報では、 「赤の祭壇」で、行われなければならない、 と"
-"言われる。"
+msgid "The Knife of Sacrifices. This must be the blade you will need to draw your blood for the gravebloom ink. From what I've read, this must be done at the \"Red Altar\"."
+msgstr "犠牲のナイフ。 これは gravebloom インクのために 血を取り出すのに必要な刃である。 私が読んできた限りの情報では、 「赤の祭壇」で、行われなければならない、 と言われる。"
 
 #: ../npcs/florin.txt:57
 msgid "I recall such an altar from the Temple of Mez."
 msgstr "Mez寺に そのような祭壇があったハズです。"
 
 #: ../npcs/florin.txt:58
-msgid ""
-"I don't know why this blade in particular is required to make the ink. Once "
-"it pierces your skin, there is no telling what effect it will have on you. "
-"Please keep this in mind."
+msgid "I don't know why this blade in particular is required to make the ink. Once it pierces your skin, there is no telling what effect it will have on you. Please keep this in mind."
 msgstr "なぜ、この刃で特別にインクを作るのかの仕組みは、わかりません。 いったん、あなたの肌を刺したら、どんな作用があなたに起きるかは、教えようがありません。 このことを念頭においてください。"
 
 #: ../npcs/florin.txt:61
@@ -1537,28 +1413,19 @@ msgid "I completed the ritual at the Red Altar. What now?"
 msgstr "赤の祭壇での儀式を完了しました。 他にすべきは?"
 
 #: ../npcs/florin.txt:65
-msgid ""
-"We are ready to create a small amount of gravebloom ink. Allow me to perform "
-"the mixing."
+msgid "We are ready to create a small amount of gravebloom ink. Allow me to perform the mixing."
 msgstr "私たちはすでに、 gravebloom インクを作成する準備ができています。 混ぜるのは、私にやらせてください。"
 
 #: ../npcs/florin.txt:66
-msgid ""
-"The correct ratio of Gravebloom to blood is important. Too much Gravebloom "
-"will cause the ink to eat through the paper. Too little Gravebloom and the "
-"ink won't adhere to the quill."
+msgid "The correct ratio of Gravebloom to blood is important. Too much Gravebloom will cause the ink to eat through the paper. Too little Gravebloom and the ink won't adhere to the quill."
 msgstr "Gravebloom と血を、 正しい比率にするのが重要です。 Gravebloom が多すぎると、 インクが紙を通りこして食べてしまいます。 いっぽう、 Gravebloom が少なすぎると、 羽根ペンに付着しません。"
 
 #: ../npcs/florin.txt:67
-msgid ""
-"(Florin carefully mixes the two elements into a small inkwell, alternating "
-"the additions of Gravebloom and blood)."
+msgid "(Florin carefully mixes the two elements into a small inkwell, alternating the additions of Gravebloom and blood)."
 msgstr "(Florin は注意ぶかく、2つの材料を混ぜ、小さなインク塊に入れた。 交互に Gravebloom と血を 追加していく。)"
 
 #: ../npcs/florin.txt:72
-msgid ""
-"Finished! I don't want my work to go to waste, so move now to the Book of "
-"the Dead chamber."
+msgid "Finished! I don't want my work to go to waste, so move now to the Book of the Dead chamber."
 msgstr "終わりました! 私の手間をムダにしないためにも、 今すぐ、 死者の書のもとへ行ってください。"
 
 #: ../npcs/florin.txt:77
@@ -1566,9 +1433,7 @@ msgid "The ritual is complete. The Underworld is open to you."
 msgstr "儀式は完了しました。 あなたには、下世界が開かれるでしょう。"
 
 #: ../npcs/florin.txt:78
-msgid ""
-"There was a portal to the Underworld in the Wizard's Tower. I shall return "
-"there."
+msgid "There was a portal to the Underworld in the Wizard's Tower. I shall return there."
 msgstr "Wizard の塔に下世界への入口がありました。 私は、そこに行くだろう。 "
 
 #: ../npcs/glowing_obelisk_1.txt:1
@@ -1604,17 +1469,11 @@ msgid "Tutorial"
 msgstr "チュートリアル"
 
 #: ../npcs/tutorial.txt:11
-msgid ""
-"Welcome to the lands of the exiled. Allow me to go over a few things. Click "
-"on the arrow to continue."
-msgstr ""
-"亡命者の土地へようこそ。 私にいくつかの事を許してください。 続行するには矢印"
-"をクリックしてください。"
+msgid "Welcome to the lands of the exiled. Allow me to go over a few things. Click on the arrow to continue."
+msgstr "亡命者の土地へようこそ。 私にいくつかの事を許してください。 続行するには矢印をクリックしてください。"
 
 #: ../npcs/tutorial.txt:12
-msgid ""
-"Your health, mana, and experience points are displayed in the top left of "
-"the screen."
+msgid "Your health, mana, and experience points are displayed in the top left of the screen."
 msgstr "あなたの 健康 と マナ と 経験値 は、 画面の左上 に表示されています。"
 
 #: ../npcs/tutorial.txt:13
@@ -1622,28 +1481,16 @@ msgid "In the top right is a map of your current location."
 msgstr "右上には、居場所の地図があります。"
 
 #: ../npcs/tutorial.txt:14
-msgid ""
-"On the bottom of the screen is your action bar. Here, you have quick access "
-"to your most used abilities."
-msgstr ""
-"スクリーン下にはアクションバーがあり、 よく使うアビリティに すばやくアクセス"
-"できます。"
+msgid "On the bottom of the screen is your action bar. Here, you have quick access to your most used abilities."
+msgstr "スクリーン下にはアクションバーがあり、 よく使うアビリティに すばやくアクセスできます。"
 
 #: ../npcs/tutorial.txt:15
-msgid ""
-"In addition, you can access the Character, Inventory, Powers, and Log menus "
-"from the action bar."
-msgstr ""
-"加えて、 キャラクター と 物品 と パワー と ログメニュー に、アクションバーか"
-"らアクセスできます。"
+msgid "In addition, you can access the Character, Inventory, Powers, and Log menus from the action bar."
+msgstr "加えて、 キャラクター と 物品 と パワー と ログメニュー に、アクションバーからアクセスできます。"
 
 #: ../npcs/tutorial.txt:16
-msgid ""
-"${INPUT_MOVEMENT} will allow you to move around. ${INPUT_ATTACK} will use "
-"your primary attack."
-msgstr ""
-"${INPUT_MOVEMENT} で、あなたが周囲に移動できるでしょう。 ${INPUT_ATTACK} で、"
-"あなたが第一の攻撃手段を使用できます。"
+msgid "${INPUT_MOVEMENT} will allow you to move around. ${INPUT_ATTACK} will use your primary attack."
+msgstr "${INPUT_MOVEMENT} で、あなたが周囲に移動できるでしょう。 ${INPUT_ATTACK} で、あなたが第一の攻撃手段を使用できます。"
 
 #: ../npcs/tutorial.txt:17
 msgid "Good luck!"
@@ -1654,79 +1501,48 @@ msgid "Udana, Metalworker"
 msgstr "Udana, 金属加工師"
 
 #: ../npcs/udana.txt:27
-msgid ""
-"Greetings stranger. It's not often that we have people come here from the "
-"west."
-msgstr ""
-"こんにちわ、見知らぬ人。 私たちには、西から人が来ることは、ほとんどありませ"
-"ん。"
+msgid "Greetings stranger. It's not often that we have people come here from the west."
+msgstr "こんにちわ、見知らぬ人。 私たちには、西から人が来ることは、ほとんどありません。"
 
 #: ../npcs/udana.txt:28
-msgid ""
-"I see that you're carrying a weapon. Would you be interested in helping us?"
-msgstr ""
-"私は、あなたが武器をたずさえているのを見る。 私たちを助けることに興味を持って"
-"いただけませんか?"
+msgid "I see that you're carrying a weapon. Would you be interested in helping us?"
+msgstr "私は、あなたが武器をたずさえているのを見る。 私たちを助けることに興味を持っていただけませんか?"
 
 #: ../npcs/udana.txt:29
 msgid "Go on."
 msgstr "つづけてください。"
 
 #: ../npcs/udana.txt:30
-msgid ""
-"One of our encampment's residents, Krolan, works in the nearby mines. He "
-"supplies me with various gems that I craft into jewelery."
-msgstr ""
-"私達の野営地の残りの一人、Krolan, 彼は鉱山のちかくで働いている。 彼は私たちに"
-"宝石をいろいろと供給してくれる。 その宝石を私たちは宝飾品に加工している。"
+msgid "One of our encampment's residents, Krolan, works in the nearby mines. He supplies me with various gems that I craft into jewelery."
+msgstr "私達の野営地の残りの一人、Krolan, 彼は鉱山のちかくで働いている。 彼は私たちに宝石をいろいろと供給してくれる。 その宝石を私たちは宝飾品に加工している。"
 
 #: ../npcs/udana.txt:31
-msgid ""
-"Krolan has not returned in some time, and I am starting to think the worst."
+msgid "Krolan has not returned in some time, and I am starting to think the worst."
 msgstr "Krolan が戻ってこないままです。 そして、私は最悪の事態を考え始めた。"
 
 #: ../npcs/udana.txt:32
-msgid ""
-"Could you please travel to the mines and look for Krolan? I will find some "
-"way to reward you for your trouble."
-msgstr ""
-"鉱山まで行って、 Krolan を探してくれませんか? 報酬は、なんとか見つけます。"
+msgid "Could you please travel to the mines and look for Krolan? I will find some way to reward you for your trouble."
+msgstr "鉱山まで行って、 Krolan を探してくれませんか? 報酬は、なんとか見つけます。"
 
 #: ../npcs/udana.txt:40
-msgid ""
-"Please hurry to find Krolan. The Perdition Mines are located near the Salted "
-"Field."
-msgstr ""
-"いそいで Krolan を見つけてください。 Perdition 鉱山は Salted Field の近くにあ"
-"ります。"
+msgid "Please hurry to find Krolan. The Perdition Mines are located near the Salted Field."
+msgstr "いそいで Krolan を見つけてください。 Perdition 鉱山は Salted Field の近くにあります。"
 
 #: ../npcs/udana.txt:46
 msgid "I have found Krolan, but he was no longer of this world."
-msgstr ""
-"Krolan は見つかったのですが、しかし、彼はもう、この世の人では なくなっていま"
-"した。"
+msgstr "Krolan は見つかったのですが、しかし、彼はもう、この世の人では なくなっていました。"
 
 #: ../npcs/udana.txt:47
-msgid ""
-"This is terrible news. Our camp is already small, so this is a devastating "
-"loss."
+msgid "This is terrible news. Our camp is already small, so this is a devastating loss."
 msgstr "おそろしい知らせです。 私たちのキャンプはすでに小さい。多大な損失だ。"
 
 #: ../npcs/udana.txt:48
-msgid ""
-"If it's any solace, I have his key and this emerald. Mementos to remember "
-"him by."
-msgstr ""
-"なぐさめになるか分かりませんが、 私は彼のカギとエメラルドを持っています。 彼"
-"の形見になるかと。"
+msgid "If it's any solace, I have his key and this emerald. Mementos to remember him by."
+msgstr "なぐさめになるか分かりませんが、 私は彼のカギとエメラルドを持っています。 彼の形見になるかと。"
 
 #: ../npcs/udana.txt:49
-msgid ""
-"The key is enough of a memento. For your invaluable help, I can at least "
-"make you a ring with this emerald."
-msgstr ""
-"形見はカギで充分です。 あなたが助けてくれた礼に、そのエメラルドで、あなたにリ"
-"ングを作ります。"
+msgid "The key is enough of a memento. For your invaluable help, I can at least make you a ring with this emerald."
+msgstr "形見はカギで充分です。 あなたが助けてくれた礼に、そのエメラルドで、あなたにリングを作ります。"
 
 #: ../npcs/udana.txt:62
 msgid "Thank you again for your help."
@@ -1737,56 +1553,35 @@ msgid "Yora, Enchanter"
 msgstr "Yora, エンチャンター"
 
 #: ../cutscenes/backstory.txt:5
-msgid ""
-"Empyrean, the city in the sky. It is a majestic fortress and the last "
-"bastion of humankind."
-msgstr ""
-"Empyrean, 天空にある街。 それは雄大な要塞であり、人類の最後の拠点です。"
+msgid "Empyrean, the city in the sky. It is a majestic fortress and the last bastion of humankind."
+msgstr "Empyrean, 天空にある街。 それは雄大な要塞であり、人類の最後の拠点です。"
 
 #: ../cutscenes/backstory.txt:7
-msgid ""
-"At the height of the kingdom's power the city was a beacon of peace and law."
+msgid "At the height of the kingdom's power the city was a beacon of peace and law."
 msgstr "王国の力の高さで、この街は平和と法の標識でした。"
 
 #: ../cutscenes/backstory.txt:9
-msgid ""
-"When darkness invaded the world in the last age people abandoned the "
-"surface. Empyrean was their only refuge."
-msgstr ""
-"最後の時代に暗闇が侵略したとき、人々は地上を捨てました。 Empyrean は彼らの唯"
-"一の避難所でした。"
+msgid "When darkness invaded the world in the last age people abandoned the surface. Empyrean was their only refuge."
+msgstr "最後の時代に暗闇が侵略したとき、人々は地上を捨てました。 Empyrean は彼らの唯一の避難所でした。"
 
 #: ../cutscenes/backstory.txt:11
-msgid ""
-"Now the Age of Humanity is ending. Empyrean is crumbling. Scarcity and "
-"political infighting have consumed the city."
-msgstr ""
-"今では人類の時代は終わっています。 Empyrean は崩壊しています。 希少性と政治的"
-"な内戦で都市は浪費されています。"
+msgid "Now the Age of Humanity is ending. Empyrean is crumbling. Scarcity and political infighting have consumed the city."
+msgstr "今では人類の時代は終わっています。 Empyrean は崩壊しています。 希少性と政治的な内戦で都市は浪費されています。"
 
 #: ../cutscenes/backstory.txt:13
-msgid ""
-"Some, in desperation, flee to the surface hoping to survive without the "
-"protection of the city."
+msgid "Some, in desperation, flee to the surface hoping to survive without the protection of the city."
 msgstr ""
 
 #: ../cutscenes/backstory.txt:15
-msgid ""
-"But no one returns from the surface. Most die or go missing. A few hide and "
-"survive, for a while."
-msgstr ""
-"しかし、ひとりも地上から戻ることはありません。 いくつかの人は、しばらく、隠れ"
-"て生き延びる。"
+msgid "But no one returns from the surface. Most die or go missing. A few hide and survive, for a while."
+msgstr "しかし、ひとりも地上から戻ることはありません。 いくつかの人は、しばらく、隠れて生き延びる。"
 
 #: ../cutscenes/backstory.txt:17
-msgid ""
-"Surface dwellers cling to hope. Hope that they'll return to Empyrean some "
-"day. Hope that a hero will fight back against the darkness."
+msgid "Surface dwellers cling to hope. Hope that they'll return to Empyrean some day. Hope that a hero will fight back against the darkness."
 msgstr ""
 
 #: ../cutscenes/backstory.txt:19
-msgid ""
-"There is always hope. But not for everyone: not for you. Not for the Exiled."
+msgid "There is always hope. But not for everyone: not for you. Not for the Exiled."
 msgstr ""
 
 #: ../cutscenes/credits.txt:7
@@ -1822,33 +1617,36 @@ msgid "rubberduck"
 msgstr ""
 
 #: ../cutscenes/credits.txt:22
+#, fuzzy
+msgid "Short-Ribs"
+msgstr "ショートボウ"
+
+#: ../cutscenes/credits.txt:23
 msgid "Stefano Peris"
 msgstr ""
 
-#: ../cutscenes/credits.txt:23
+#: ../cutscenes/credits.txt:24
 msgid "VWolfDog"
 msgstr ""
 
-#: ../cutscenes/credits.txt:24
+#: ../cutscenes/credits.txt:25
 msgid "yd"
 msgstr ""
 
-#: ../cutscenes/credits.txt:27
+#: ../cutscenes/credits.txt:28
 msgid "Foley Artists"
 msgstr ""
 
-#: ../cutscenes/credits.txt:29
+#: ../cutscenes/credits.txt:30
 msgid "adamgryu"
 msgstr ""
 
-#: ../cutscenes/credits.txt:30
+#: ../cutscenes/credits.txt:31
 msgid "GuntherDorksen"
 msgstr ""
 
 #: ../books/book_of_the_dead.txt:13
-msgid ""
-"Those whose names are written here in gravebloom ink are admitted passage to "
-"the trail of redemption."
+msgid "Those whose names are written here in gravebloom ink are admitted passage to the trail of redemption."
 msgstr "ここに gravebloom インク で名前を書かれた者たちには、償還への道すじが認められる。 "
 
 #: ../books/merchants_journal.txt:13
@@ -2188,8 +1986,7 @@ msgid "Seagate's Tri-pants"
 msgstr ""
 
 #: ../items/categories/level_4_unique.txt:78
-msgid ""
-"These ragged trousers are covered in scorch marks, yet are cold to the touch."
+msgid "These ragged trousers are covered in scorch marks, yet are cold to the touch."
 msgstr ""
 
 #: ../items/categories/potions.txt:5
@@ -3289,18 +3086,12 @@ msgid "Wizard's Tower Research Hall Key"
 msgstr "Wizard の塔 研究棟の カギ"
 
 #: ../items/categories/quest.txt:241
-msgid ""
-"An odor of iron and its abrasive petals make this rare plant easy to "
-"identify."
+msgid "An odor of iron and its abrasive petals make this rare plant easy to identify."
 msgstr ""
 
 #: ../items/categories/quest.txt:251
-msgid ""
-"This mysterious black feather has a very sharp follicle, making it a "
-"suitable writing utensil."
-msgstr ""
-"この神秘的な黒い羽はとても鋭い毛包を持ち、そのため適切な筆記用具になってい"
-"る。"
+msgid "This mysterious black feather has a very sharp follicle, making it a suitable writing utensil."
+msgstr "この神秘的な黒い羽はとても鋭い毛包を持ち、そのため適切な筆記用具になっている。"
 
 #: ../items/categories/quest.txt:261
 msgid "A dark, magical energy flows through the tip of this small blade."
@@ -3319,9 +3110,7 @@ msgid "Blood Inkwell"
 msgstr ""
 
 #: ../items/categories/quest.txt:281
-msgid ""
-"According to Florin, this is the only ink capable of being used in the Book "
-"of the Dead."
+msgid "According to Florin, this is the only ink capable of being used in the Book of the Dead."
 msgstr ""
 
 #: ../items/categories/level_1.txt:5
@@ -3826,17 +3615,14 @@ msgstr "クマの罠"
 
 #: ../powers/base/ranger/bear_trap.txt:2
 msgid "This trap deals extra ranged weapon damage and immobilizes the target."
-msgstr ""
-"この罠は、獲物に 多めの遠距離武器ダメージ を与え、さらに動けなくします。"
+msgstr "この罠は、獲物に 多めの遠距離武器ダメージ を与え、さらに動けなくします。"
 
 #: ../powers/base/ranger/ember_shot.txt:1
 msgid "Ember Shot"
 msgstr "エンバーショット"
 
 #: ../powers/base/ranger/ember_shot.txt:2
-msgid ""
-"Fire a spray of burning embers at close range. Effective against armored "
-"enemies."
+msgid "Fire a spray of burning embers at close range. Effective against armored enemies."
 msgstr ""
 
 #: ../powers/base/ranger/multishot.txt:1
@@ -3853,8 +3639,7 @@ msgstr "まきびし"
 
 #: ../powers/base/ranger/caltrops.txt:2
 msgid "This trap deals reduced ranged weapon damage and slows the target."
-msgstr ""
-"この罠は、獲物に 少なめの遠距離武器ダメージ を与え、さらに動けなくする。"
+msgstr "この罠は、獲物に 少なめの遠距離武器ダメージ を与え、さらに動けなくする。"
 
 #: ../powers/base/ranger/haste.txt:3
 msgid "Move at an increased speed for a limited time."
@@ -3889,9 +3674,7 @@ msgid "Thunderstrike"
 msgstr "サンダーストライク"
 
 #: ../powers/base/magician/thunderstrike.txt:4
-msgid ""
-"Lightning strikes from the sky with a high chance to crit movement-impaired "
-"enemies."
+msgid "Lightning strikes from the sky with a high chance to crit movement-impaired enemies."
 msgstr ""
 
 #: ../powers/base/magician/shock.txt:1
@@ -3899,9 +3682,7 @@ msgid "Shock"
 msgstr ""
 
 #: ../powers/base/magician/shock.txt:2
-msgid ""
-"Shoot a ball of electricity that is extra effective against movement-"
-"impaired enemies."
+msgid "Shoot a ball of electricity that is extra effective against movement-impaired enemies."
 msgstr ""
 
 #: ../powers/base/magician/fireball.txt:1
@@ -4017,10 +3798,17 @@ msgid "Basic magic attack."
 msgstr "基本的な魔法攻撃。"
 
 #: ../powers/categories/quest.txt:4
-msgid ""
-"Performing the ritual at the Red Altar has granted you faster regeneration."
+msgid "Performing the ritual at the Red Altar has granted you faster regeneration."
 msgstr ""
 
 #: ../powers/trees/default.txt:11
 msgid "Magician"
 msgstr "マジシャン"
+
+#: ../scripts/powers/goblin_steal.txt:8
+msgid "Goblin Thief stole a potion!"
+msgstr ""
+
+#: ../scripts/powers/goblin_steal.txt:25
+msgid "Goblin Thief stole some Gold!"
+msgstr ""

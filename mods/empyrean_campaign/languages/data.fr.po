@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-06 21:00+\n"
+"POT-Creation-Date: 2018-01-16 18:32+\n"
 "PO-Revision-Date: 2017-07-22 14:22+\n"
 "Last-Translator: Sang-froid <remi.millerat@gmail.com>\n"
 "Language-Team: French\n"
@@ -266,6 +266,14 @@ msgstr "Éxilé"
 msgid "throwing axe"
 msgstr "Jeter une hache"
 
+#: ../enemies/catacomb_boulder_1.txt:6
+msgid "Boulder"
+msgstr ""
+
+#: ../enemies/goblin_minecart.txt:4
+msgid "Goblin"
+msgstr "Gobelin"
+
 #: ../enemies/lvl10_minotaur.txt:3
 msgid "Minotaur"
 msgstr "Minotaure"
@@ -295,6 +303,11 @@ msgstr ""
 #, fuzzy
 msgid "Leecher Zombie"
 msgstr "Zombie Glacegriffe"
+
+#: ../enemies/lvl11_antlion_venom.txt:3
+#, fuzzy
+msgid "Venom Antlion"
+msgstr "Antilion"
 
 #: ../enemies/lvl11_buchi.txt:3
 msgid "Buchi"
@@ -337,6 +350,36 @@ msgstr ""
 msgid "Nishi"
 msgstr ""
 
+#: ../enemies/lvl13_antlion_fossilized.txt:3
+#, fuzzy
+msgid "Fossilized Antlion"
+msgstr "Antilion Gelé"
+
+#: ../enemies/lvl13_antlion_larva.txt:3
+#, fuzzy
+msgid "Antlion Larva"
+msgstr "Antilion Slasheur"
+
+#: ../enemies/lvl13_goblin_thief.txt:3
+#, fuzzy
+msgid "Goblin Thief"
+msgstr "Chef Gobelin"
+
+#: ../enemies/lvl13_skeleton_shadowstep.txt:3
+#, fuzzy
+msgid "Shadowstep Skeleton"
+msgstr "Squelette"
+
+#: ../enemies/lvl13_zombie_miner.txt:13
+#, fuzzy
+msgid "Zombie Miner"
+msgstr "Brute Zombie"
+
+#: ../enemies/lvl13_zombie_vomit.txt:3
+#, fuzzy
+msgid "Vomit Zombie"
+msgstr "Zombie Vampire"
+
 #: ../enemies/lvl1_goblin_runner.txt:3
 msgid "Goblin Runner"
 msgstr "Coureur Gobelin"
@@ -356,10 +399,6 @@ msgstr "Zombie maudit"
 #: ../enemies/lvl1_zombie_rotting.txt:3
 msgid "Rotting Zombie"
 msgstr "Zombie pourissant"
-
-#: ../enemies/lvl2_goblin.txt:3
-msgid "Goblin"
-msgstr "Gobelin"
 
 #: ../enemies/lvl2_goblin_charger.txt:3
 msgid "Goblin Charger"
@@ -540,10 +579,6 @@ msgstr "Zola"
 #: ../enemies/lvl9_antlion_sprayer.txt:3
 msgid "Antlion Sprayer"
 msgstr "Antilion Pulvérisateur"
-
-#: ../enemies/lvl9_boulder.txt:3
-msgid "Boulder"
-msgstr ""
 
 #: ../enemies/lvl9_goblin_hunter.txt:3
 msgid "Goblin Hunter"
@@ -783,24 +818,28 @@ msgstr "Cave des Gobelins"
 msgid "Gravestone"
 msgstr "Pierre gravée"
 
-#: ../maps/hyperspace.txt:195
+#: ../maps/hyperspace.txt:196
 msgid "St. Maria: Prison"
 msgstr "Prison de St. Maria"
 
-#: ../maps/hyperspace.txt:217
+#: ../maps/hyperspace.txt:218
 msgid "Stormrock Pass"
 msgstr "Passage de Stormrock"
 
-#: ../maps/hyperspace.txt:228
+#: ../maps/hyperspace.txt:229
 msgid "Temple of Mez: Main Hall"
 msgstr "Hall principal du Temple de Mez"
 
-#: ../maps/hyperspace.txt:239
+#: ../maps/hyperspace.txt:240
 msgid "Nazia Underground"
 msgstr "Souterrain de Nazia"
 
-#: ../maps/hyperspace.txt:261
+#: ../maps/hyperspace.txt:262
 msgid "Wizard's Tower: Research Chambers"
+msgstr ""
+
+#: ../maps/hyperspace.txt:273
+msgid "Underworld Catacombs"
 msgstr ""
 
 #: ../maps/lake_kuuma.txt:851
@@ -949,32 +988,38 @@ msgstr ""
 msgid "Red Altar"
 msgstr ""
 
+#: ../maps/underworld.txt:12
+msgid "Underworld"
+msgstr ""
+
+#: ../maps/underworld_catacombs.txt:513
+#, fuzzy
+msgid "Underworld Catacombs waypoint discovered."
+msgstr "Point de Passage de la Forêt de Pierre découvert."
+
+#: ../maps/underworld_catacombs.txt:564
+#, fuzzy
+msgid "Underworld Mines"
+msgstr "Mines Abandonnées"
+
 #: ../maps/wizards_tower_1.txt:341
 #, fuzzy
 msgid "to Black Oak City"
 msgstr "La Ferme du Chêne noir"
 
-#: ../maps/wizards_tower_2.txt:363
+#: ../maps/wizards_tower_2.txt:364
 #, fuzzy
 msgid "Wizard's Tower: Research Chambers waypoint discovered."
 msgstr "Point de Passage du Port de la Perdition découvert."
 
-#: ../maps/wizards_tower_2.txt:502
+#: ../maps/wizards_tower_2.txt:503
 msgid "Wizard's Tower: Laboratory"
 msgstr ""
 
-#: ../maps/wizards_tower_2.txt:510
+#: ../maps/wizards_tower_2.txt:511
 #, fuzzy
 msgid "The plaque reads: Underworld Gate"
 msgstr "Vous lisez sur la Plaque : Autel Rouge"
-
-#: ../maps/wizards_tower_2.txt:552
-msgid "Under WORLD? More like Under CONSTRUCTION! Come back later..."
-msgstr ""
-
-#: ../maps/wizards_tower_2.txt:556
-msgid "Underworld"
-msgstr ""
 
 #: ../quests/000_empyrean.txt:1
 msgid "Return to Empyrean"
@@ -1597,26 +1642,31 @@ msgid "rubberduck"
 msgstr ""
 
 #: ../cutscenes/credits.txt:22
+#, fuzzy
+msgid "Short-Ribs"
+msgstr "Arc court"
+
+#: ../cutscenes/credits.txt:23
 msgid "Stefano Peris"
 msgstr ""
 
-#: ../cutscenes/credits.txt:23
+#: ../cutscenes/credits.txt:24
 msgid "VWolfDog"
 msgstr ""
 
-#: ../cutscenes/credits.txt:24
+#: ../cutscenes/credits.txt:25
 msgid "yd"
 msgstr ""
 
-#: ../cutscenes/credits.txt:27
+#: ../cutscenes/credits.txt:28
 msgid "Foley Artists"
 msgstr ""
 
-#: ../cutscenes/credits.txt:29
+#: ../cutscenes/credits.txt:30
 msgid "adamgryu"
 msgstr ""
 
-#: ../cutscenes/credits.txt:30
+#: ../cutscenes/credits.txt:31
 msgid "GuntherDorksen"
 msgstr ""
 
@@ -3820,6 +3870,14 @@ msgstr ""
 #: ../powers/trees/default.txt:11
 msgid "Magician"
 msgstr "Magicien"
+
+#: ../scripts/powers/goblin_steal.txt:8
+msgid "Goblin Thief stole a potion!"
+msgstr ""
+
+#: ../scripts/powers/goblin_steal.txt:25
+msgid "Goblin Thief stole some Gold!"
+msgstr ""
 
 #~ msgid "Unknown destination"
 #~ msgstr "Destination inconnue"
