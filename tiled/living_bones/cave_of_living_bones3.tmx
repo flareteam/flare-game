@@ -1,16 +1,18 @@
-<map height="30" nextobjectid="8" orientation="isometric" renderorder="right-down" tileheight="32" tilewidth="64" version="1.0" width="50">
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.1.0" orientation="isometric" renderorder="right-down" width="50" height="30" tilewidth="64" tileheight="32" infinite="0" backgroundcolor="#000000" nextobjectid="8">
  <properties>
-  <property name="music" value="music/cave_theme.ogg" />
-  <property name="tileset" value="tilesetdefs/tileset_cave.txt" />
-  <property name="title" value="Cave of Living Bones 3" />
+  <property name="hero_pos" value="47,19"/>
+  <property name="music" value="music/cave_theme.ogg"/>
+  <property name="tileset" value="tilesetdefs/tileset_cave.txt"/>
+  <property name="title" value="Cave of Living Bones 3"/>
  </properties>
- <tileset firstgid="1" name="tiled_collision.png" tileheight="32" tilewidth="64">
-  <image height="32" source="../cave/tiled_collision.png" width="960" />
+ <tileset firstgid="1" name="tiled_collision.png" tilewidth="64" tileheight="32" tilecount="15" columns="15">
+  <image source="../cave/tiled_collision.png" width="960" height="32"/>
  </tileset>
- <tileset firstgid="16" name="tiled_cave.png" tileheight="128" tilewidth="64">
-  <image height="1920" source="../cave/tiled_cave.png" width="1024" />
+ <tileset firstgid="16" name="tiled_cave.png" tilewidth="64" tileheight="128" tilecount="240" columns="16">
+  <image source="../cave/tiled_cave.png" width="1024" height="1920"/>
  </tileset>
- <layer height="30" name="background" width="50">
+ <layer name="background" width="50" height="30">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -44,7 +46,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer height="30" name="object" width="50">
+ <layer name="object" width="50" height="30">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -78,7 +80,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer height="30" name="collision" width="50">
+ <layer name="collision" width="50" height="30">
   <data encoding="csv">
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
@@ -113,60 +115,67 @@
 </data>
  </layer>
  <objectgroup name="event">
-  <object height="128" id="1" name="Warp to Cave 2" type="event" width="32" x="1536" y="544">
+  <object id="1" name="Warp to Cave 2" type="event" x="1536" y="544" width="32" height="128">
    <properties>
-    <property name="hotspot" value="location" />
-    <property name="intermap" value="maps/cave_of_living_bones2.txt,3,38" />
-    <property name="tooltip" value="Cave of Living Bones 2" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="intermap" value="maps/cave_of_living_bones2.txt,3,38"/>
+    <property name="tooltip" value="Cave of Living Bones 2"/>
+   </properties>
   </object>
-  <object height="32" id="2" name="Crate of Blasting Powder" type="event" width="32" x="192" y="192">
+  <object id="2" name="Crate of Blasting Powder" type="event" x="192" y="192" width="32" height="32">
    <properties>
-    <property name="hotspot" value="location" />
-    <property name="mapmod" value="collision,6,6,0;object,6,6,0" />
-    <property name="repeat" value="false" />
-    <property name="set_status" value="lb_has_explosive" />
-    <property name="tooltip" value="Crate of Blasting Powder" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="mapmod" value="collision,6,6,0;object,6,6,0"/>
+    <property name="repeat" value="false"/>
+    <property name="set_status" value="lb_has_explosive"/>
+    <property name="tooltip" value="Crate of Blasting Powder"/>
+   </properties>
   </object>
-  <object height="32" id="3" name="Barrel" type="event" width="32" x="160" y="192">
+  <object id="3" name="Barrel" type="event" x="160" y="192" width="32" height="32">
    <properties>
-    <property name="hotspot" value="location" />
-    <property name="loot" value="loot/leveled_high.txt" />
-    <property name="mapmod" value="object,5,6,178" />
-    <property name="repeat" value="false" />
-    <property name="soundfx" value="soundfx/wood_open.ogg" />
-    <property name="tooltip" value="Barrel" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="loot/leveled_high.txt"/>
+    <property name="mapmod" value="object,5,6,178"/>
+    <property name="repeat" value="false"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Barrel"/>
+   </properties>
   </object>
-  <object height="32" id="4" name="Barrel" type="event" width="32" x="96" y="576">
+  <object id="4" name="Barrel" type="event" x="96" y="576" width="32" height="32">
    <properties>
-    <property name="hotspot" value="location" />
-    <property name="loot" value="loot/leveled_mid.txt" />
-    <property name="mapmod" value="object,3,18,178" />
-    <property name="repeat" value="false" />
-    <property name="soundfx" value="soundfx/wood_open.ogg" />
-    <property name="tooltip" value="Barrel" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="loot/leveled_mid.txt"/>
+    <property name="mapmod" value="object,3,18,178"/>
+    <property name="repeat" value="false"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Barrel"/>
+   </properties>
   </object>
-  <object height="32" id="5" name="Cave wind sound effect" type="event" width="32" x="0" y="0">
+  <object id="5" name="Cave wind sound effect" type="event" x="0" y="0" width="32" height="32">
    <properties>
-    <property name="soundfx" value="soundfx/environment/cave_wind_loop.ogg" />
-   <property name="activate" value="on_load" /></properties>
+    <property name="activate" value="on_load"/>
+    <property name="soundfx" value="soundfx/environment/cave_wind_loop.ogg"/>
+   </properties>
   </object>
  </objectgroup>
  <objectgroup name="enemy">
-  <object height="544" id="6" name="Guard the Explosives" type="enemy" width="192" x="160" y="224">
+  <object id="6" name="Guard the Explosives" type="enemy" x="160" y="224" width="192" height="544">
    <properties>
-    <property name="level" value="6,8" />
-    <property name="number" value="5,7" />
-   <property name="category" value="undead" /></properties>
+    <property name="category" value="undead"/>
+    <property name="level" value="6,8"/>
+    <property name="number" value="5,7"/>
+   </properties>
   </object>
-  <object height="544" id="7" name="Various Enemies" type="enemy" width="832" x="352" y="256">
+  <object id="7" name="Various Enemies" type="enemy" x="352" y="256" width="832" height="544">
    <properties>
-    <property name="level" value="6,8" />
-    <property name="number" value="7,10" />
-   <property name="category" value="undead" /></properties>
+    <property name="category" value="undead"/>
+    <property name="level" value="6,8"/>
+    <property name="number" value="7,10"/>
+   </properties>
   </object>
  </objectgroup>
 </map>

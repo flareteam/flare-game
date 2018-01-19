@@ -1,16 +1,18 @@
-<map height="80" nextobjectid="25" orientation="isometric" renderorder="right-down" tileheight="32" tilewidth="64" version="1.0" width="80">
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.1.0" orientation="isometric" renderorder="right-down" width="80" height="80" tilewidth="64" tileheight="32" infinite="0" backgroundcolor="#000000" nextobjectid="25">
  <properties>
-  <property name="music" value="music/cave_theme.ogg" />
-  <property name="tileset" value="tilesetdefs/tileset_cave.txt" />
-  <property name="title" value="Cave of Living Bones 2" />
+  <property name="hero_pos" value="37,74"/>
+  <property name="music" value="music/cave_theme.ogg"/>
+  <property name="tileset" value="tilesetdefs/tileset_cave.txt"/>
+  <property name="title" value="Cave of Living Bones 2"/>
  </properties>
- <tileset firstgid="1" name="tiled_collision.png" tileheight="32" tilewidth="64">
-  <image height="32" source="../cave/tiled_collision.png" width="960" />
+ <tileset firstgid="1" name="tiled_collision.png" tilewidth="64" tileheight="32" tilecount="15" columns="15">
+  <image source="../cave/tiled_collision.png" width="960" height="32"/>
  </tileset>
- <tileset firstgid="16" name="tiled_cave.png" tileheight="128" tilewidth="64">
-  <image height="1920" source="../cave/tiled_cave.png" width="1024" />
+ <tileset firstgid="16" name="tiled_cave.png" tilewidth="64" tileheight="128" tilecount="240" columns="16">
+  <image source="../cave/tiled_cave.png" width="1024" height="1920"/>
  </tileset>
- <layer height="80" name="background" width="80">
+ <layer name="background" width="80" height="80">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -94,7 +96,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer height="80" name="object" width="80">
+ <layer name="object" width="80" height="80">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -178,7 +180,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer height="80" name="collision" width="80">
+ <layer name="collision" width="80" height="80">
   <data encoding="csv">
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
@@ -263,185 +265,209 @@
 </data>
  </layer>
  <objectgroup name="event">
-  <object height="32" id="1" name="to Cave 1" type="event" width="96" x="1152" y="2400">
+  <object id="1" name="to Cave 1" type="event" x="1152" y="2400" width="96" height="32">
    <properties>
-    <property name="hotspot" value="location" />
-    <property name="intermap" value="maps/cave_of_living_bones1.txt,33,3" />
-    <property name="tooltip" value="Cave of Living Bones 1" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="intermap" value="maps/cave_of_living_bones1.txt,33,3"/>
+    <property name="tooltip" value="Cave of Living Bones 1"/>
+   </properties>
   </object>
-  <object height="128" id="2" name="to Cave 3" type="event" width="32" x="64" y="1152">
+  <object id="2" name="to Cave 3" type="event" x="64" y="1152" width="32" height="128">
    <properties>
-    <property name="hotspot" value="location" />
-    <property name="intermap" value="maps/cave_of_living_bones3.txt,47,19" />
-    <property name="tooltip" value="Cave of Living Bones 3" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="intermap" value="maps/cave_of_living_bones3.txt,47,19"/>
+    <property name="tooltip" value="Cave of Living Bones 3"/>
+   </properties>
   </object>
-  <object height="32" id="3" name="to Atrium" type="event" width="32" x="1024" y="96">
+  <object id="3" name="to Atrium" type="event" x="1024" y="96" width="32" height="32">
    <properties>
-    <property name="hotspot" value="location" />
-    <property name="intermap" value="maps/brothers_lair_atrium.txt,15,46" />
-    <property name="tooltip" value="Brothers' Lair Atrium" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="intermap" value="maps/brothers_lair_atrium.txt,15,46"/>
+    <property name="tooltip" value="Brothers' Lair Atrium"/>
+   </properties>
   </object>
-  <object height="32" id="4" name="Barrel" type="event" width="32" x="1472" y="128">
+  <object id="4" name="Barrel" type="event" x="1472" y="128" width="32" height="32">
    <properties>
-    <property name="hotspot" value="location" />
-    <property name="loot" value="loot/leveled_mid.txt" />
-    <property name="mapmod" value="object,46,4,178" />
-    <property name="repeat" value="false" />
-    <property name="soundfx" value="soundfx/wood_open.ogg" />
-    <property name="tooltip" value="Barrel" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="loot/leveled_mid.txt"/>
+    <property name="mapmod" value="object,46,4,178"/>
+    <property name="repeat" value="false"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Barrel"/>
+   </properties>
   </object>
-  <object height="32" id="5" name="Crate" type="event" width="32" x="1536" y="160">
+  <object id="5" name="Crate" type="event" x="1536" y="160" width="32" height="32">
    <properties>
-    <property name="hotspot" value="location" />
-    <property name="loot" value="loot/leveled_mid.txt" />
-    <property name="mapmod" value="object,48,5,179" />
-    <property name="repeat" value="false" />
-    <property name="soundfx" value="soundfx/wood_open.ogg" />
-    <property name="tooltip" value="Crate" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="loot/leveled_mid.txt"/>
+    <property name="mapmod" value="object,48,5,179"/>
+    <property name="repeat" value="false"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Crate"/>
+   </properties>
   </object>
-  <object height="32" id="6" name="Crate" type="event" width="32" x="608" y="1408">
+  <object id="6" name="Crate" type="event" x="608" y="1408" width="32" height="32">
    <properties>
-    <property name="hotspot" value="location" />
-    <property name="loot" value="loot/leveled_mid.txt" />
-    <property name="mapmod" value="object,19,44,179" />
-    <property name="repeat" value="false" />
-    <property name="soundfx" value="soundfx/wood_open.ogg" />
-    <property name="tooltip" value="Crate" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="loot/leveled_mid.txt"/>
+    <property name="mapmod" value="object,19,44,179"/>
+    <property name="repeat" value="false"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Crate"/>
+   </properties>
   </object>
-  <object height="32" id="7" name="Give Pillar Quest" type="event" width="32" x="1504" y="1408">
+  <object id="7" name="Give Pillar Quest" type="event" x="1504" y="1408" width="32" height="32">
    <properties>
-    <property name="hotspot" value="45,42,3,3" />
-    <property name="msg" value="This pillar is laced with cracks and crevices. Maybe with enough force it can be knocked down." />
-    <property name="requires_not_status" value="lb_has_explosive" />
-    <property name="set_status" value="lb_destroy_pillar" />
-    <property name="tooltip" value="Giant Pillar" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="45,42,3,3"/>
+    <property name="msg" value="This pillar is laced with cracks and crevices. Maybe with enough force it can be knocked down."/>
+    <property name="requires_not_status" value="lb_has_explosive"/>
+    <property name="set_status" value="lb_destroy_pillar"/>
+    <property name="tooltip" value="Giant Pillar"/>
+   </properties>
   </object>
-  <object height="32" id="8" name="Place Explosive" type="event" width="32" x="1504" y="1408">
+  <object id="8" name="Place Explosive" type="event" x="1504" y="1408" width="32" height="32">
    <properties>
-    <property name="hotspot" value="45,42,3,3" />
-    <property name="mapmod" value="object,47,44,163" />
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="45,42,3,3"/>
+    <property name="mapmod" value="object,47,44,163"/>
     <property name="msg">Run! You don't want to be caught in the blast of your own explosion!
 </property>
-    <property name="requires_not_status" value="lb_explosive_set" />
-    <property name="requires_status" value="lb_has_explosive" />
-    <property name="set_status" value="lb_explosive_set" />
-    <property name="tooltip" value="Place Explosive" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="requires_not_status" value="lb_explosive_set"/>
+    <property name="requires_status" value="lb_has_explosive"/>
+    <property name="set_status" value="lb_explosive_set"/>
+    <property name="tooltip" value="Place Explosive"/>
+   </properties>
   </object>
-  <object height="32" id="9" name="Trigger Explosive Bottom" type="event" width="416" x="1312" y="1600">
+  <object id="9" name="Trigger Explosive Bottom" type="event" x="1312" y="1600" width="416" height="32">
    <properties>
-    <property name="mapmod" value="object,47,44,0;object,47,43,0;collision,47,43,2;object,47,42,0;collision,47,42,2;object,46,43,0;collision,46,43,2;object,46,44,0;collision,46,44,2;object,45,44,0;collision,45,44,2;object,46,42,0;collision,46,42,2;object,45,43,80;collision,45,43,1;object,47,41,80;object,45,42,68;collision,45,42,1;object,46,41,69;collision,46,41,1;object,45,41,76;collision,45,41,1;object,48,43,0;collision,48,43,0;object,48,44,0;collision,48,44,0;object,46,45,0;collision,46,45,0;object,49,40,0;collision,49,40,2;object,46,39,0;collision,46,39,2;object,48,40,150;collision,48,40,0;object,48,39,151;collision,48,39,0;collision,49,39,0;object,48,38,151;collision,48,38,0;object,49,37,152;collision,49,37,0;object,48,36,151;collision,48,36,0;object,49,35,152;collision,49,35,0;object,47,38,150;collision,47,38,0;object,45,46,150;collision,45,46,2;object,48,45,152;collision,48,45,2;object,49,44,150;collision,49,44,2;object,49,43,151;collision,49,43,2;object,51,42,152" />
-    <property name="power" value="18" />
-    <property name="power_path" value="47,44,47,44" />
-    <property name="repeat" value="false" />
-    <property name="requires_not_status" value="lb_explosive_detonated" />
-    <property name="requires_status" value="lb_explosive_set" />
-    <property name="set_status" value="lb_explosive_detonated" />
-    <property name="shakycam" value="2s" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="mapmod" value="object,47,44,0;object,47,43,0;collision,47,43,2;object,47,42,0;collision,47,42,2;object,46,43,0;collision,46,43,2;object,46,44,0;collision,46,44,2;object,45,44,0;collision,45,44,2;object,46,42,0;collision,46,42,2;object,45,43,80;collision,45,43,1;object,47,41,80;object,45,42,68;collision,45,42,1;object,46,41,69;collision,46,41,1;object,45,41,76;collision,45,41,1;object,48,43,0;collision,48,43,0;object,48,44,0;collision,48,44,0;object,46,45,0;collision,46,45,0;object,49,40,0;collision,49,40,2;object,46,39,0;collision,46,39,2;object,48,40,150;collision,48,40,0;object,48,39,151;collision,48,39,0;collision,49,39,0;object,48,38,151;collision,48,38,0;object,49,37,152;collision,49,37,0;object,48,36,151;collision,48,36,0;object,49,35,152;collision,49,35,0;object,47,38,150;collision,47,38,0;object,45,46,150;collision,45,46,2;object,48,45,152;collision,48,45,2;object,49,44,150;collision,49,44,2;object,49,43,151;collision,49,43,2;object,51,42,152"/>
+    <property name="power" value="18"/>
+    <property name="power_path" value="47,44,47,44"/>
+    <property name="repeat" value="false"/>
+    <property name="requires_not_status" value="lb_explosive_detonated"/>
+    <property name="requires_status" value="lb_explosive_set"/>
+    <property name="set_status" value="lb_explosive_detonated"/>
+    <property name="shakycam" value="2s"/>
+   </properties>
   </object>
-  <object height="192" id="10" name="Trigger Explosive Left Side" type="event" width="32" x="1312" y="1408">
+  <object id="10" name="Trigger Explosive Left Side" type="event" x="1312" y="1408" width="32" height="192">
    <properties>
-    <property name="mapmod" value="object,47,44,0;object,47,43,0;collision,47,43,2;object,47,42,0;collision,47,42,2;object,46,43,0;collision,46,43,2;object,46,44,0;collision,46,44,2;object,45,44,0;collision,45,44,2;object,46,42,0;collision,46,42,2;object,45,43,80;collision,45,43,1;object,47,41,80;object,45,42,68;collision,45,42,1;object,46,41,69;collision,46,41,1;object,45,41,76;collision,45,41,1;object,48,43,0;collision,48,43,0;object,48,44,0;collision,48,44,0;object,46,45,0;collision,46,45,0;object,49,40,0;collision,49,40,2;object,46,39,0;collision,46,39,2;object,48,40,150;collision,48,40,0;object,48,39,151;collision,48,39,0;collision,49,39,0;object,48,38,151;collision,48,38,0;object,49,37,152;collision,49,37,0;object,48,36,151;collision,48,36,0;object,49,35,152;collision,49,35,0;object,47,38,150;collision,47,38,0;object,45,46,150;collision,45,46,2;object,48,45,152;collision,48,45,2;object,49,44,150;collision,49,44,2;object,49,43,151;collision,49,43,2;object,51,42,152" />
-    <property name="power" value="18" />
-    <property name="power_path" value="47,44,47,44" />
-    <property name="repeat" value="false" />
-    <property name="requires_not_status" value="lb_explosive_detonated" />
-    <property name="requires_status" value="lb_explosive_set" />
-    <property name="set_status" value="lb_explosive_detonated" />
-    <property name="shakycam" value="2s" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="mapmod" value="object,47,44,0;object,47,43,0;collision,47,43,2;object,47,42,0;collision,47,42,2;object,46,43,0;collision,46,43,2;object,46,44,0;collision,46,44,2;object,45,44,0;collision,45,44,2;object,46,42,0;collision,46,42,2;object,45,43,80;collision,45,43,1;object,47,41,80;object,45,42,68;collision,45,42,1;object,46,41,69;collision,46,41,1;object,45,41,76;collision,45,41,1;object,48,43,0;collision,48,43,0;object,48,44,0;collision,48,44,0;object,46,45,0;collision,46,45,0;object,49,40,0;collision,49,40,2;object,46,39,0;collision,46,39,2;object,48,40,150;collision,48,40,0;object,48,39,151;collision,48,39,0;collision,49,39,0;object,48,38,151;collision,48,38,0;object,49,37,152;collision,49,37,0;object,48,36,151;collision,48,36,0;object,49,35,152;collision,49,35,0;object,47,38,150;collision,47,38,0;object,45,46,150;collision,45,46,2;object,48,45,152;collision,48,45,2;object,49,44,150;collision,49,44,2;object,49,43,151;collision,49,43,2;object,51,42,152"/>
+    <property name="power" value="18"/>
+    <property name="power_path" value="47,44,47,44"/>
+    <property name="repeat" value="false"/>
+    <property name="requires_not_status" value="lb_explosive_detonated"/>
+    <property name="requires_status" value="lb_explosive_set"/>
+    <property name="set_status" value="lb_explosive_detonated"/>
+    <property name="shakycam" value="2s"/>
+   </properties>
   </object>
-  <object height="320" id="11" name="Trigger Explosive Right Side" type="event" width="32" x="1696" y="1280">
+  <object id="11" name="Trigger Explosive Right Side" type="event" x="1696" y="1280" width="32" height="320">
    <properties>
-    <property name="mapmod" value="object,47,44,0;object,47,43,0;collision,47,43,2;object,47,42,0;collision,47,42,2;object,46,43,0;collision,46,43,2;object,46,44,0;collision,46,44,2;object,45,44,0;collision,45,44,2;object,46,42,0;collision,46,42,2;object,45,43,80;collision,45,43,1;object,47,41,80;object,45,42,68;collision,45,42,1;object,46,41,69;collision,46,41,1;object,45,41,76;collision,45,41,1;object,48,43,0;collision,48,43,0;object,48,44,0;collision,48,44,0;object,46,45,0;collision,46,45,0;object,49,40,0;collision,49,40,2;object,46,39,0;collision,46,39,2;object,48,40,150;collision,48,40,0;object,48,39,151;collision,48,39,0;collision,49,39,0;object,48,38,151;collision,48,38,0;object,49,37,152;collision,49,37,0;object,48,36,151;collision,48,36,0;object,49,35,152;collision,49,35,0;object,47,38,150;collision,47,38,0;object,45,46,150;collision,45,46,2;object,48,45,152;collision,48,45,2;object,49,44,150;collision,49,44,2;object,49,43,151;collision,49,43,2;object,51,42,152" />
-    <property name="power" value="18" />
-    <property name="power_path" value="47,44,47,44" />
-    <property name="repeat" value="false" />
-    <property name="requires_not_status" value="lb_explosive_detonated" />
-    <property name="requires_status" value="lb_explosive_set" />
-    <property name="set_status" value="lb_explosive_detonated" />
-    <property name="shakycam" value="2s" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="mapmod" value="object,47,44,0;object,47,43,0;collision,47,43,2;object,47,42,0;collision,47,42,2;object,46,43,0;collision,46,43,2;object,46,44,0;collision,46,44,2;object,45,44,0;collision,45,44,2;object,46,42,0;collision,46,42,2;object,45,43,80;collision,45,43,1;object,47,41,80;object,45,42,68;collision,45,42,1;object,46,41,69;collision,46,41,1;object,45,41,76;collision,45,41,1;object,48,43,0;collision,48,43,0;object,48,44,0;collision,48,44,0;object,46,45,0;collision,46,45,0;object,49,40,0;collision,49,40,2;object,46,39,0;collision,46,39,2;object,48,40,150;collision,48,40,0;object,48,39,151;collision,48,39,0;collision,49,39,0;object,48,38,151;collision,48,38,0;object,49,37,152;collision,49,37,0;object,48,36,151;collision,48,36,0;object,49,35,152;collision,49,35,0;object,47,38,150;collision,47,38,0;object,45,46,150;collision,45,46,2;object,48,45,152;collision,48,45,2;object,49,44,150;collision,49,44,2;object,49,43,151;collision,49,43,2;object,51,42,152"/>
+    <property name="power" value="18"/>
+    <property name="power_path" value="47,44,47,44"/>
+    <property name="repeat" value="false"/>
+    <property name="requires_not_status" value="lb_explosive_detonated"/>
+    <property name="requires_status" value="lb_explosive_set"/>
+    <property name="set_status" value="lb_explosive_detonated"/>
+    <property name="shakycam" value="2s"/>
+   </properties>
   </object>
-  <object height="160" id="12" name="Persist Explosion" type="event" width="128" x="1120" y="2240">
+  <object id="12" name="Persist Explosion" type="event" x="1120" y="2240" width="128" height="160">
    <properties>
-    <property name="mapmod" value="object,47,44,0;object,47,43,0;collision,47,43,2;object,47,42,0;collision,47,42,2;object,46,43,0;collision,46,43,2;object,46,44,0;collision,46,44,2;object,45,44,0;collision,45,44,2;object,46,42,0;collision,46,42,2;object,45,43,80;collision,45,43,1;object,47,41,80;object,45,42,68;collision,45,42,1;object,46,41,69;collision,46,41,1;object,45,41,76;collision,45,41,1;object,48,43,0;collision,48,43,0;object,48,44,0;collision,48,44,0;object,46,45,0;collision,46,45,0;object,49,40,0;collision,49,40,2;object,46,39,0;collision,46,39,2;object,48,40,150;collision,48,40,0;object,48,39,151;collision,48,39,0;collision,49,39,0;object,48,38,151;collision,48,38,0;object,49,37,152;collision,49,37,0;object,48,36,151;collision,48,36,0;object,49,35,152;collision,49,35,0;object,47,38,150;collision,47,38,0;object,45,46,150;collision,45,46,2;object,48,45,152;collision,48,45,2;object,49,44,150;collision,49,44,2;object,49,43,151;collision,49,43,2;object,51,42,152" />
-    <property name="requires_status" value="lb_explosive_detonated" />
-   <property name="activate" value="on_load" /></properties>
+    <property name="activate" value="on_load"/>
+    <property name="mapmod" value="object,47,44,0;object,47,43,0;collision,47,43,2;object,47,42,0;collision,47,42,2;object,46,43,0;collision,46,43,2;object,46,44,0;collision,46,44,2;object,45,44,0;collision,45,44,2;object,46,42,0;collision,46,42,2;object,45,43,80;collision,45,43,1;object,47,41,80;object,45,42,68;collision,45,42,1;object,46,41,69;collision,46,41,1;object,45,41,76;collision,45,41,1;object,48,43,0;collision,48,43,0;object,48,44,0;collision,48,44,0;object,46,45,0;collision,46,45,0;object,49,40,0;collision,49,40,2;object,46,39,0;collision,46,39,2;object,48,40,150;collision,48,40,0;object,48,39,151;collision,48,39,0;collision,49,39,0;object,48,38,151;collision,48,38,0;object,49,37,152;collision,49,37,0;object,48,36,151;collision,48,36,0;object,49,35,152;collision,49,35,0;object,47,38,150;collision,47,38,0;object,45,46,150;collision,45,46,2;object,48,45,152;collision,48,45,2;object,49,44,150;collision,49,44,2;object,49,43,151;collision,49,43,2;object,51,42,152"/>
+    <property name="requires_status" value="lb_explosive_detonated"/>
+   </properties>
   </object>
-  <object height="32" id="13" name="Cave wind sound effect" type="event" width="32" x="0" y="0">
+  <object id="13" name="Cave wind sound effect" type="event" x="0" y="0" width="32" height="32">
    <properties>
-    <property name="soundfx" value="soundfx/environment/cave_wind_loop.ogg" />
-   <property name="activate" value="on_load" /></properties>
+    <property name="activate" value="on_load"/>
+    <property name="soundfx" value="soundfx/environment/cave_wind_loop.ogg"/>
+   </properties>
   </object>
-  <object height="32" id="14" name="River sound" type="event" width="32" x="1408" y="704">
+  <object id="14" name="River sound" type="event" x="1408" y="704" width="32" height="32">
    <properties>
-    <property name="soundfx" value="soundfx/environment/river_loop.ogg" />
-   <property name="activate" value="on_load" /></properties>
+    <property name="activate" value="on_load"/>
+    <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>
+   </properties>
   </object>
-  <object height="32" id="15" name="River sound" type="event" width="32" x="1568" y="1184">
+  <object id="15" name="River sound" type="event" x="1568" y="1184" width="32" height="32">
    <properties>
-    <property name="soundfx" value="soundfx/environment/river_loop.ogg" />
-   <property name="activate" value="on_load" /></properties>
+    <property name="activate" value="on_load"/>
+    <property name="soundfx" value="soundfx/environment/river_loop.ogg"/>
+   </properties>
   </object>
-  <object height="32" id="16" name="Water dripping" type="event" width="32" x="480" y="992">
+  <object id="16" name="Water dripping" type="event" x="480" y="992" width="32" height="32">
    <properties>
-    <property name="soundfx" value="soundfx/environment/cave_droplets_loop.ogg" />
-   <property name="activate" value="on_load" /></properties>
+    <property name="activate" value="on_load"/>
+    <property name="soundfx" value="soundfx/environment/cave_droplets_loop.ogg"/>
+   </properties>
   </object>
-  <object height="32" id="17" name="Water dripping" type="event" width="32" x="1472" y="1312">
+  <object id="17" name="Water dripping" type="event" x="1472" y="1312" width="32" height="32">
    <properties>
-    <property name="soundfx" value="soundfx/environment/cave_droplets_loop.ogg" />
-   <property name="activate" value="on_load" /></properties>
+    <property name="activate" value="on_load"/>
+    <property name="soundfx" value="soundfx/environment/cave_droplets_loop.ogg"/>
+   </properties>
   </object>
-  <object height="32" id="18" name="Water dripping" type="event" width="32" x="1120" y="1888">
+  <object id="18" name="Water dripping" type="event" x="1120" y="1888" width="32" height="32">
    <properties>
-    <property name="soundfx" value="soundfx/environment/cave_droplets_loop.ogg" />
-   <property name="activate" value="on_load" /></properties>
+    <property name="activate" value="on_load"/>
+    <property name="soundfx" value="soundfx/environment/cave_droplets_loop.ogg"/>
+   </properties>
   </object>
-  <object height="32" id="19" name="Water dripping" type="event" width="32" x="1568" y="128">
+  <object id="19" name="Water dripping" type="event" x="1568" y="128" width="32" height="32">
    <properties>
-    <property name="soundfx" value="soundfx/environment/cave_droplets_loop.ogg" />
-   <property name="activate" value="on_load" /></properties>
+    <property name="activate" value="on_load"/>
+    <property name="soundfx" value="soundfx/environment/cave_droplets_loop.ogg"/>
+   </properties>
   </object>
-  <object height="32" id="20" name="Water dripping" type="event" width="32" x="640" y="352">
+  <object id="20" name="Water dripping" type="event" x="640" y="352" width="32" height="32">
    <properties>
-    <property name="soundfx" value="soundfx/environment/cave_droplets_loop.ogg" />
-   <property name="activate" value="on_load" /></properties>
+    <property name="activate" value="on_load"/>
+    <property name="soundfx" value="soundfx/environment/cave_droplets_loop.ogg"/>
+   </properties>
   </object>
  </objectgroup>
  <objectgroup name="enemy">
-  <object height="352" id="21" name="3-5 Undead" type="enemy" width="320" x="1120" y="1472">
+  <object id="21" name="3-5 Undead" type="enemy" x="1120" y="1472" width="320" height="352">
    <properties>
-    <property name="level" value="5,8" />
-    <property name="number" value="3,5" />
-   <property name="category" value="undead" /></properties>
+    <property name="category" value="undead"/>
+    <property name="level" value="5,8"/>
+    <property name="number" value="3,5"/>
+   </properties>
   </object>
-  <object height="256" id="22" name="3-4 Undead" type="enemy" width="320" x="1440" y="1344">
+  <object id="22" name="3-4 Undead" type="enemy" x="1440" y="1344" width="320" height="256">
    <properties>
-    <property name="level" value="5,8" />
-    <property name="number" value="3,4" />
-   <property name="category" value="undead" /></properties>
+    <property name="category" value="undead"/>
+    <property name="level" value="5,8"/>
+    <property name="number" value="3,4"/>
+   </properties>
   </object>
-  <object height="320" id="23" name="3-4 Undead" type="enemy" width="320" x="768" y="1376">
+  <object id="23" name="3-4 Undead" type="enemy" x="768" y="1376" width="320" height="320">
    <properties>
-    <property name="level" value="5,8" />
-    <property name="number" value="3,4" />
-   <property name="category" value="undead" /></properties>
+    <property name="category" value="undead"/>
+    <property name="level" value="5,8"/>
+    <property name="number" value="3,4"/>
+   </properties>
   </object>
-  <object height="256" id="24" name="3-5 Undead" type="enemy" width="448" x="960" y="352">
+  <object id="24" name="3-5 Undead" type="enemy" x="960" y="352" width="448" height="256">
    <properties>
-    <property name="level" value="5,8" />
-    <property name="number" value="3,5" />
-   <property name="category" value="undead" /></properties>
+    <property name="category" value="undead"/>
+    <property name="level" value="5,8"/>
+    <property name="number" value="3,5"/>
+   </properties>
   </object>
  </objectgroup>
 </map>

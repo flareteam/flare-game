@@ -1,35 +1,37 @@
-<map backgroundcolor="#000000" height="50" nextobjectid="12" orientation="isometric" renderorder="right-down" tileheight="32" tilewidth="64" version="1.0" width="30">
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.1.0" orientation="isometric" renderorder="right-down" width="30" height="50" tilewidth="64" tileheight="32" infinite="0" backgroundcolor="#000000" nextobjectid="12">
  <properties>
-  <property name="music" value="music/magical_theme.ogg" />
-  <property name="tileset" value="tilesetdefs/tileset_dungeon.txt" />
-  <property name="title" value="Brothers' Lair Atrium" />
+  <property name="hero_pos" value="15,46"/>
+  <property name="music" value="music/magical_theme.ogg"/>
+  <property name="tileset" value="tilesetdefs/tileset_dungeon.txt"/>
+  <property name="title" value="Brothers' Lair Atrium"/>
  </properties>
- <tileset firstgid="1" name="tiled_collision.png" tileheight="32" tilewidth="64">
-  <image height="32" source="../dungeon/tiled_collision.png" width="960" />
+ <tileset firstgid="1" name="tiled_collision.png" tilewidth="64" tileheight="32" tilecount="15" columns="15">
+  <image source="../dungeon/tiled_collision.png" width="960" height="32"/>
  </tileset>
- <tileset firstgid="16" name="tiled_dungeon.png" tileheight="128" tilewidth="64">
-  <image height="1920" source="../dungeon/tiled_dungeon.png" width="1024" />
+ <tileset firstgid="16" name="tiled_dungeon.png" tilewidth="64" tileheight="128" tilecount="240" columns="16">
+  <image source="../dungeon/tiled_dungeon.png" width="1024" height="1920"/>
  </tileset>
- <tileset firstgid="256" name="set_rules.png" tileheight="32" tilewidth="64">
-  <image height="128" source="../dungeon/set_rules.png" width="128" />
+ <tileset firstgid="256" name="set_rules.png" tilewidth="64" tileheight="32" tilecount="8" columns="2">
+  <image source="../dungeon/set_rules.png" width="128" height="128"/>
  </tileset>
- <tileset firstgid="264" name="tiled_dungeon_2x2.png" tileheight="64" tilewidth="128">
-  <tileoffset x="0" y="16" />
-  <image height="256" source="../dungeon/tiled_dungeon_2x2.png" width="512" />
+ <tileset firstgid="264" name="tiled_dungeon_2x2.png" tilewidth="128" tileheight="64" tilecount="16" columns="4">
+  <tileoffset x="0" y="16"/>
+  <image source="../dungeon/tiled_dungeon_2x2.png" width="512" height="256"/>
  </tileset>
- <tileset firstgid="280" name="door_left.png" tileheight="128" tilewidth="64">
-  <tileoffset x="-16" y="-8" />
-  <image height="128" source="../dungeon/door_left.png" width="128" />
+ <tileset firstgid="280" name="door_left.png" tilewidth="64" tileheight="128" tilecount="2" columns="2">
+  <tileoffset x="-16" y="-8"/>
+  <image source="../dungeon/door_left.png" width="128" height="128"/>
  </tileset>
- <tileset firstgid="282" name="door_right.png" tileheight="128" tilewidth="64">
-  <tileoffset x="16" y="-8" />
-  <image height="128" source="../dungeon/door_right.png" width="128" />
+ <tileset firstgid="282" name="door_right.png" tilewidth="64" tileheight="128" tilecount="2" columns="2">
+  <tileoffset x="16" y="-8"/>
+  <image source="../dungeon/door_right.png" width="128" height="128"/>
  </tileset>
- <tileset firstgid="284" name="stairs.png" tileheight="256" tilewidth="256">
-  <tileoffset x="0" y="48" />
-  <image height="256" source="../dungeon/stairs.png" width="1024" />
+ <tileset firstgid="284" name="stairs.png" tilewidth="256" tileheight="256" tilecount="4" columns="4">
+  <tileoffset x="0" y="48"/>
+  <image source="../dungeon/stairs.png" width="1024" height="256"/>
  </tileset>
- <layer height="50" name="background" width="30">
+ <layer name="background" width="30" height="50">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,16,32,35,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -83,7 +85,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer height="50" name="object" width="30">
+ <layer name="object" width="30" height="50">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,64,282,283,66,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -137,7 +139,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer height="50" name="collision" visible="0" width="30">
+ <layer name="collision" width="30" height="50" visible="0">
   <data encoding="csv">
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,1,0,0,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
@@ -192,85 +194,96 @@
 </data>
  </layer>
  <objectgroup name="event">
-  <object height="64" id="1" name="to Ice Hall" type="event" width="32" x="64" y="416">
+  <object id="1" name="to Ice Hall" type="event" x="64" y="416" width="32" height="64">
    <properties>
-    <property name="hotspot" value="location" />
-    <property name="intermap" value="maps/brothers_lair_ice_hall.txt,47,71" />
-    <property name="soundfx" value="soundfx/door_open.ogg,0,0" />
-    <property name="tooltip" value="Brothers' Lair Ice Hall" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="intermap" value="maps/brothers_lair_ice_hall.txt,47,71"/>
+    <property name="soundfx" value="soundfx/door_open.ogg,0,0"/>
+    <property name="tooltip" value="Brothers' Lair Ice Hall"/>
+   </properties>
   </object>
-  <object height="32" id="2" name="to Sacrifice Room" type="event" width="64" x="448" y="480">
+  <object id="2" name="to Sacrifice Room" type="event" x="448" y="480" width="64" height="32">
    <properties>
-    <property name="hotspot" value="location" />
-    <property name="intermap" value="maps/brothers_lair_sacrifice_room.txt,9,41" />
-    <property name="soundfx" value="soundfx/environment/stairs.ogg,0,0" />
-    <property name="tooltip" value="Brothers' Sacrifice Room" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="intermap" value="maps/brothers_lair_sacrifice_room.txt,9,41"/>
+    <property name="soundfx" value="soundfx/environment/stairs.ogg,0,0"/>
+    <property name="tooltip" value="Brothers' Sacrifice Room"/>
+   </properties>
   </object>
-  <object height="64" id="3" name="to Cave 2" type="event" width="64" x="448" y="1504">
+  <object id="3" name="to Cave 2" type="event" x="448" y="1504" width="64" height="64">
    <properties>
-    <property name="hotspot" value="location" />
-    <property name="intermap" value="maps/cave_of_living_bones2.txt,32,4" />
-    <property name="soundfx" value="soundfx/door_open.ogg,0,0" />
-    <property name="tooltip" value="Cave of Living Bones 2" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="intermap" value="maps/cave_of_living_bones2.txt,32,4"/>
+    <property name="soundfx" value="soundfx/door_open.ogg,0,0"/>
+    <property name="tooltip" value="Cave of Living Bones 2"/>
+   </properties>
   </object>
-  <object height="32" id="4" name="to Fire Hall" type="event" width="64" x="416" y="32">
+  <object id="4" name="to Fire Hall" type="event" x="416" y="32" width="64" height="32">
    <properties>
-    <property name="hotspot" value="location" />
-    <property name="intermap" value="maps/brothers_lair_fire_hall.txt,25,77" />
-    <property name="soundfx" value="soundfx/door_open.ogg,0,0" />
-    <property name="tooltip" value="Brothers' Lair Fire Hall" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="intermap" value="maps/brothers_lair_fire_hall.txt,25,77"/>
+    <property name="soundfx" value="soundfx/door_open.ogg,0,0"/>
+    <property name="tooltip" value="Brothers' Lair Fire Hall"/>
+   </properties>
   </object>
-  <object height="64" id="5" name="to Wind Hall" type="event" width="64" x="864" y="416">
+  <object id="5" name="to Wind Hall" type="event" x="864" y="416" width="64" height="64">
    <properties>
-    <property name="hotspot" value="location" />
-    <property name="intermap" value="maps/brothers_lair_wind_hall.txt,3,19" />
-    <property name="soundfx" value="soundfx/door_open.ogg,0,0" />
-    <property name="tooltip" value="Brothers' Lair Wind Hall" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="intermap" value="maps/brothers_lair_wind_hall.txt,3,19"/>
+    <property name="soundfx" value="soundfx/door_open.ogg,0,0"/>
+    <property name="tooltip" value="Brothers' Lair Wind Hall"/>
+   </properties>
   </object>
-  <object height="32" id="6" name="brazier sound effect" type="event" width="32" x="384" y="160">
+  <object id="6" name="brazier sound effect" type="event" x="384" y="160" width="32" height="32">
    <properties>
-    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg" />
-   <property name="activate" value="on_load" /></properties>
+    <property name="activate" value="on_load"/>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
+   </properties>
   </object>
-  <object height="32" id="7" type="event" width="32" x="32" y="32">
+  <object id="7" type="event" x="32" y="32" width="32" height="32">
    <properties>
-    <property name="mapmod" value="background,14,20,265" />
-    <property name="requires_status" value="waypoint_brothers_lair_atrium" />
-   <property name="activate" value="on_load" /></properties>
+    <property name="activate" value="on_load"/>
+    <property name="mapmod" value="background,14,20,265"/>
+    <property name="requires_status" value="waypoint_brothers_lair_atrium"/>
+   </properties>
   </object>
-  <object height="64" id="8" type="event" width="64" x="448" y="608">
+  <object id="8" type="event" x="448" y="608" width="64" height="64">
    <properties>
-    <property name="hotspot" value="location" />
-    <property name="intermap" value="maps/warp_zone.txt,36,38" />
-    <property name="soundfx" value="soundfx/environment/teleporter.ogg,0,0" />
-    <property name="tooltip" value="Warp Zone" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="intermap" value="maps/warp_zone.txt,36,38"/>
+    <property name="soundfx" value="soundfx/environment/teleporter.ogg,0,0"/>
+    <property name="tooltip" value="Warp Zone"/>
+   </properties>
   </object>
-  <object height="192" id="9" type="event" width="192" x="384" y="544">
+  <object id="9" type="event" x="384" y="544" width="192" height="192">
    <properties>
-    <property name="mapmod" value="background,14,20,265" />
-    <property name="msg" value="Brothers Lair Atrium waypoint discovered" />
-    <property name="repeat" value="false" />
-    <property name="requires_not_status" value="waypoint_brothers_lair_atrium" />
-    <property name="set_status" value="waypoint_brothers_lair_atrium" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="mapmod" value="background,14,20,265"/>
+    <property name="msg" value="Brothers Lair Atrium waypoint discovered"/>
+    <property name="repeat" value="false"/>
+    <property name="requires_not_status" value="waypoint_brothers_lair_atrium"/>
+    <property name="set_status" value="waypoint_brothers_lair_atrium"/>
+   </properties>
   </object>
-  <object height="32" id="10" name="brazier sound effect" type="event" width="32" x="480" y="160">
+  <object id="10" name="brazier sound effect" type="event" x="480" y="160" width="32" height="32">
    <properties>
-    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg" />
-   <property name="activate" value="on_load" /></properties>
+    <property name="activate" value="on_load"/>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
+   </properties>
   </object>
  </objectgroup>
  <objectgroup name="enemy">
-  <object height="32" id="11" name="Patrolling undead" type="enemy" width="32" x="288" y="256">
+  <object id="11" name="Patrolling undead" type="enemy" x="288" y="256" width="32" height="32">
    <properties>
-    <property name="waypoints" value="9,8;20,8;20,19;9,19" />
-   <property name="category" value="skeletal_warrior" /></properties>
+    <property name="category" value="skeletal_warrior"/>
+    <property name="waypoints" value="9,8;20,8;20,19;9,19"/>
+   </properties>
   </object>
  </objectgroup>
 </map>

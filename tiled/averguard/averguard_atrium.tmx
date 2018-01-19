@@ -1,36 +1,37 @@
-<map backgroundcolor="#000000" height="60" nextobjectid="15" orientation="isometric" renderorder="right-down" tileheight="32" tilewidth="64" version="1.0" width="20">
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.1.0" orientation="isometric" renderorder="right-down" width="20" height="60" tilewidth="64" tileheight="32" infinite="0" backgroundcolor="#000000" nextobjectid="15">
  <properties>
-  <property name="location" value="16,11,1" />
-  <property name="music" value="music/dungeon_theme.ogg" />
-  <property name="tileset" value="tilesetdefs/tileset_dungeon.txt" />
-  <property name="title" value="Averguard Atrium" />
+  <property name="hero_pos" value="17,10"/>
+  <property name="music" value="music/dungeon_theme.ogg"/>
+  <property name="tileset" value="tilesetdefs/tileset_dungeon.txt"/>
+  <property name="title" value="Averguard Atrium"/>
  </properties>
- <tileset firstgid="1" name="collision" tileheight="32" tilewidth="64">
-  <image height="32" source="../dungeon/tiled_collision.png" width="960" />
+ <tileset firstgid="1" name="collision" tilewidth="64" tileheight="32" tilecount="15" columns="15">
+  <image source="../dungeon/tiled_collision.png" width="960" height="32"/>
  </tileset>
- <tileset firstgid="16" name="dungeon" tileheight="128" tilewidth="64">
-  <image height="1920" source="../dungeon/tiled_dungeon.png" width="1024" />
+ <tileset firstgid="16" name="dungeon" tilewidth="64" tileheight="128" tilecount="240" columns="16">
+  <image source="../dungeon/tiled_dungeon.png" width="1024" height="1920"/>
  </tileset>
- <tileset firstgid="256" name="set_rules" tileheight="32" tilewidth="64">
-  <image height="128" source="../dungeon/set_rules.png" width="128" />
+ <tileset firstgid="256" name="set_rules" tilewidth="64" tileheight="32" tilecount="8" columns="2">
+  <image source="../dungeon/set_rules.png" width="128" height="128"/>
  </tileset>
- <tileset firstgid="264" name="tiled_dungeon_2x2" tileheight="64" tilewidth="128">
-  <tileoffset x="0" y="16" />
-  <image height="256" source="../dungeon/tiled_dungeon_2x2.png" width="512" />
+ <tileset firstgid="264" name="tiled_dungeon_2x2" tilewidth="128" tileheight="64" tilecount="16" columns="4">
+  <tileoffset x="0" y="16"/>
+  <image source="../dungeon/tiled_dungeon_2x2.png" width="512" height="256"/>
  </tileset>
- <tileset firstgid="280" name="door_left" tileheight="128" tilewidth="64">
-  <tileoffset x="-16" y="-8" />
-  <image height="128" source="../dungeon/door_left.png" width="128" />
+ <tileset firstgid="280" name="door_left" tilewidth="64" tileheight="128" tilecount="2" columns="2">
+  <tileoffset x="-16" y="-8"/>
+  <image source="../dungeon/door_left.png" width="128" height="128"/>
  </tileset>
- <tileset firstgid="282" name="door_right" tileheight="128" tilewidth="64">
-  <tileoffset x="16" y="-8" />
-  <image height="128" source="../dungeon/door_right.png" width="128" />
+ <tileset firstgid="282" name="door_right" tilewidth="64" tileheight="128" tilecount="2" columns="2">
+  <tileoffset x="16" y="-8"/>
+  <image source="../dungeon/door_right.png" width="128" height="128"/>
  </tileset>
- <tileset firstgid="284" name="stairs" tileheight="256" tilewidth="256">
-  <tileoffset x="0" y="48" />
-  <image height="256" source="../dungeon/stairs.png" width="1024" />
+ <tileset firstgid="284" name="stairs" tilewidth="256" tileheight="256" tilecount="4" columns="4">
+  <tileoffset x="0" y="48"/>
+  <image source="../dungeon/stairs.png" width="1024" height="256"/>
  </tileset>
- <layer height="60" name="background" width="20">
+ <layer name="background" width="20" height="60">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,17,16,16,16,16,16,17,16,17,17,18,0,0,0,0,0,0,
@@ -94,7 +95,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer height="60" name="object" width="20">
+ <layer name="object" width="20" height="60">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,77,69,69,107,73,282,283,74,107,69,65,78,0,0,0,0,0,
@@ -158,7 +159,7 @@
 0,0,0,0,0,0,0,0,282,283,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer height="60" name="collision" visible="0" width="20">
+ <layer name="collision" width="20" height="60" visible="0">
   <data encoding="csv">
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,1,1,1,1,1,0,0,1,1,1,1,1,3,3,3,3,3,
@@ -223,76 +224,108 @@
 </data>
  </layer>
  <objectgroup name="event">
-  <object height="64" id="1" type="event" width="64" x="576" y="320">
+  <object id="1" type="event" x="576" y="320" width="64" height="64">
    <properties>
-    <property name="hotspot" value="location" />
-    <property name="intermap" value="maps/goblin_warrens.txt,2,9" />
-    <property name="soundfx" value="soundfx/door_open.ogg,0,0" />
-    <property name="tooltip" value="Goblin Warrens" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="intermap" value="maps/goblin_warrens.txt,2,9"/>
+    <property name="soundfx" value="soundfx/door_open.ogg,0,0"/>
+    <property name="tooltip" value="Goblin Warrens"/>
+   </properties>
   </object>
-  <object height="32" id="2" type="event" width="64" x="256" y="32">
+  <object id="2" type="event" x="256" y="32" width="64" height="32">
    <properties>
-    <property name="hotspot" value="location" />
-    <property name="intermap" value="maps/averguard_temple.txt,15,126" />
-    <property name="soundfx" value="soundfx/door_open.ogg,0,0" />
-    <property name="tooltip" value="Averguard Temple" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="intermap" value="maps/averguard_temple.txt,15,126"/>
+    <property name="soundfx" value="soundfx/door_open.ogg,0,0"/>
+    <property name="tooltip" value="Averguard Temple"/>
+   </properties>
   </object>
-  <object height="64" id="3" type="event" width="64" x="512" y="1632">
+  <object id="3" type="event" x="512" y="1632" width="64" height="64">
    <properties>
-    <property name="hotspot" value="location" />
-    <property name="intermap" value="maps/averguard_prison.txt,2,55" />
-    <property name="soundfx" value="soundfx/door_open.ogg,0,0" />
-    <property name="tooltip" value="Averguard Prison" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="intermap" value="maps/averguard_prison.txt,2,55"/>
+    <property name="soundfx" value="soundfx/door_open.ogg,0,0"/>
+    <property name="tooltip" value="Averguard Prison"/>
+   </properties>
   </object>
-  <object height="64" id="4" type="event" width="64" x="256" y="1856">
+  <object id="4" type="event" x="256" y="1856" width="64" height="64">
    <properties>
-    <property name="hotspot" value="location" />
-    <property name="intermap" value="maps/averguard_academy.txt,62,3" />
-    <property name="soundfx" value="soundfx/door_open.ogg,0,0" />
-    <property name="tooltip" value="Averguard Academy" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="intermap" value="maps/averguard_academy.txt,62,3"/>
+    <property name="soundfx" value="soundfx/door_open.ogg,0,0"/>
+    <property name="tooltip" value="Averguard Academy"/>
+   </properties>
   </object>
-  <object height="64" id="5" type="event" width="32" x="32" y="1632">
+  <object id="5" type="event" x="32" y="1632" width="32" height="64">
    <properties>
-    <property name="hotspot" value="location" />
-    <property name="intermap" value="maps/averguard_complex.txt,98,70" />
-    <property name="soundfx" value="soundfx/door_open.ogg,0,0" />
-    <property name="tooltip" value="Averguard Complex" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="intermap" value="maps/averguard_complex.txt,98,70"/>
+    <property name="soundfx" value="soundfx/door_open.ogg,0,0"/>
+    <property name="tooltip" value="Averguard Complex"/>
+   </properties>
   </object>
-  <object height="32" id="6" type="event" width="32" x="64" y="1536">
+  <object id="6" type="event" x="64" y="1536" width="32" height="32">
    <properties>
-    <property name="mapmod" value="background,8,50,265" />
-    <property name="requires_status" value="waypoint_averguard_atrium" />
-   <property name="activate" value="on_load" /></properties>
+    <property name="activate" value="on_load"/>
+    <property name="mapmod" value="background,8,50,265"/>
+    <property name="requires_status" value="waypoint_averguard_atrium"/>
+   </properties>
   </object>
-  <object height="64" id="7" type="event" width="64" x="256" y="1568">
+  <object id="7" type="event" x="256" y="1568" width="64" height="64">
    <properties>
-    <property name="hotspot" value="location" />
-    <property name="intermap" value="maps/warp_zone.txt,30,32" />
-    <property name="soundfx" value="soundfx/environment/teleporter.ogg,0,0" />
-    <property name="tooltip" value="Warp Zone" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="intermap" value="maps/warp_zone.txt,30,32"/>
+    <property name="soundfx" value="soundfx/environment/teleporter.ogg,0,0"/>
+    <property name="tooltip" value="Warp Zone"/>
+   </properties>
   </object>
-  <object height="192" id="8" type="event" width="192" x="192" y="1504">
+  <object id="8" type="event" x="192" y="1504" width="192" height="192">
    <properties>
-    <property name="mapmod" value="background,8,50,265" />
-    <property name="msg" value="Averguard Atrium waypoint discovered" />
-    <property name="repeat" value="false" />
-    <property name="requires_not_status" value="waypoint_averguard_atrium" />
-    <property name="set_status" value="waypoint_averguard_atrium" />
-   <property name="activate" value="on_trigger" /></properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="mapmod" value="background,8,50,265"/>
+    <property name="msg" value="Averguard Atrium waypoint discovered"/>
+    <property name="repeat" value="false"/>
+    <property name="requires_not_status" value="waypoint_averguard_atrium"/>
+    <property name="set_status" value="waypoint_averguard_atrium"/>
+   </properties>
   </object>
  </objectgroup>
  <objectgroup name="enemy">
-  <object height="32" id="9" type="enemy" width="32" x="256" y="704"><properties><property name="category" value="goblin_charger" /></properties></object>
-  <object height="32" id="10" type="enemy" width="32" x="128" y="160"><properties><property name="category" value="goblin_spearman" /></properties></object>
-  <object height="32" id="11" type="enemy" width="32" x="256" y="512"><properties><property name="category" value="goblin_spearman" /></properties></object>
-  <object height="32" id="12" type="enemy" width="32" x="160" y="1024"><properties><property name="category" value="skeleton_normal" /></properties></object>
-  <object height="32" id="13" type="enemy" width="32" x="352" y="1024"><properties><property name="category" value="skeleton_normal" /></properties></object>
-  <object height="32" id="14" type="enemy" width="32" x="128" y="1184"><properties><property name="category" value="skeleton_normal" /></properties></object>
+  <object id="9" type="enemy" x="256" y="704" width="32" height="32">
+   <properties>
+    <property name="category" value="goblin_charger"/>
+   </properties>
+  </object>
+  <object id="10" type="enemy" x="128" y="160" width="32" height="32">
+   <properties>
+    <property name="category" value="goblin_spearman"/>
+   </properties>
+  </object>
+  <object id="11" type="enemy" x="256" y="512" width="32" height="32">
+   <properties>
+    <property name="category" value="goblin_spearman"/>
+   </properties>
+  </object>
+  <object id="12" type="enemy" x="160" y="1024" width="32" height="32">
+   <properties>
+    <property name="category" value="skeleton_normal"/>
+   </properties>
+  </object>
+  <object id="13" type="enemy" x="352" y="1024" width="32" height="32">
+   <properties>
+    <property name="category" value="skeleton_normal"/>
+   </properties>
+  </object>
+  <object id="14" type="enemy" x="128" y="1184" width="32" height="32">
+   <properties>
+    <property name="category" value="skeleton_normal"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>

@@ -4,6 +4,8 @@ height=64
 tilewidth=64
 tileheight=32
 orientation=isometric
+background_color=0,0,0,255
+hero_pos=44,61
 music=music/cave_theme.ogg
 tileset=tilesetdefs/tileset_cave.txt
 title=Mineshaft Longsword
@@ -265,8 +267,8 @@ tooltip=Barrel
 # wind sound
 type=event
 location=0,0,1,1
-activate=on_load
  soundfx=soundfx/environment/cave_wind_loop.ogg
+activate=on_load
 
 [event]
 # droplets sound
