@@ -807,6 +807,16 @@ hotspot=location
 intermap=maps/underworld_catacombs.txt,70,99
 tooltip=Underworld Catacombs
 
+[event]
+# to Torture Chambers
+type=event
+location=16,76,1,2
+activate=on_trigger
+hotspot=location
+intermap=maps/torture_chambers.txt,97,8
+soundfx=soundfx/environment/stairs.ogg,0,0
+tooltip=Torture Chambers
+
 [enemy]
 type=enemy
 location=49,46,5,6
