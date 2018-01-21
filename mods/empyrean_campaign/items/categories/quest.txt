@@ -232,6 +232,16 @@ quality=unique
 item_type=key
 pickup_status=emp_wizard2_key
 
+[item]
+id=1024
+name=Warden's Notes
+INCLUDE items/base/scrolls/scroll_blank.txt
+quest_item=true
+quality=unique
+item_type=book
+pickup_status=emp_torture_notes
+book=books/wardens_notes.txt
+
 ### Main quest items
 [item]
 id=1100

@@ -1,0 +1,23 @@
+name=Warden's Notes
+
+[quest]
+requires_status=emp_torture_init
+requires_not_status=emp_torture_finish
+quest_text=Find a way to get to the treasure in the Torture Chambers.
+
+[quest]
+requires_status=emp_torture_notes
+requires_not_status=emp_torture_traps
+quest_text=You found some notes belonging to the prison warden.
+
+[quest]
+requires_status=emp_torture_traps
+requires_not_status=emp_torture_barriers
+quest_text=You successfully made it through the warden's traps.
+
+[quest]
+requires_status=emp_torture_barriers
+requires_not_status=emp_torture_finish
+quest_text=You disabled the barriers in the Torture Chambers.
+
+
