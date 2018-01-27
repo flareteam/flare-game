@@ -4,6 +4,7 @@ height=100
 tilewidth=64
 tileheight=32
 orientation=isometric
+background_color=0,0,0,255
 hero_pos=48,97
 music=music/dungeon_theme.ogg
 tileset=tilesetdefs/tileset_dungeon.txt
@@ -347,7 +348,7 @@ type=event
 location=47,98,2,2
 activate=on_trigger
 hotspot=location
-intermap=maps/stormrock_pass.txt, 84,64
+intermap=maps/stormrock_pass.txt,84,64
 soundfx=soundfx/door_open.ogg,0,0
 tooltip=Stormrock Pass
 
