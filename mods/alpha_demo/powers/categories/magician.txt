@@ -126,17 +126,16 @@ new_state=cast
 requires_mp=3
 requires_empty_target=true
 requires_targeting=true
-animation=animations/powers/runes.txt
 soundfx=soundfx/powers/teleport.ogg
-use_hazard=true
 no_attack=true
 lifespan=533ms
-floor=true
 starting_pos=source
 buff_teleport=true
 target_range=8.0
 target_neighbor=1
 cooldown=6s
+buff=true
+post_effect=teleport,0,533ms
 
 [power]
 id=18
