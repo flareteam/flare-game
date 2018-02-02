@@ -8,7 +8,7 @@ level=6
 quality=high
 price=180
 abs=2,3
-requires_stat=defense,10
+requires_stat=defense,9
 requires_stat=physical,4
 bonus=poise,1
 
@@ -20,7 +20,7 @@ level=6
 quality=high
 price=180
 abs=2
-requires_stat=defense,9
+requires_stat=defense,8
 requires_stat=offense,5
 bonus=accuracy,1
 
@@ -32,7 +32,7 @@ level=6
 quality=high
 price=180
 abs=1,2
-requires_stat=defense,8
+requires_stat=defense,7
 requires_stat=mental,6
 bonus=mp,3
 
@@ -44,7 +44,7 @@ level=6
 quality=high
 price=450
 abs=3,4
-requires_stat=defense,10
+requires_stat=defense,8
 requires_stat=physical,4
 bonus=hp,100
 
@@ -56,7 +56,7 @@ level=6
 quality=high
 price=450
 abs=3
-requires_stat=defense,9
+requires_stat=defense,7
 requires_stat=offense,5
 bonus=accuracy,4
 
@@ -68,7 +68,7 @@ level=6
 quality=high
 price=450
 abs=2,3
-requires_stat=defense,8
+requires_stat=defense,6
 requires_stat=mental,6
 bonus=mp,12
 
@@ -80,7 +80,7 @@ level=6
 quality=high
 price=300
 abs=3
-requires_stat=defense,10
+requires_stat=defense,8
 requires_stat=physical,4
 bonus=poise,8
 
@@ -92,7 +92,7 @@ level=6
 quality=high
 price=300
 abs=2,3
-requires_stat=defense,9
+requires_stat=defense,7
 requires_stat=offense,5
 bonus=avoidance,4
 
@@ -104,7 +104,7 @@ level=6
 quality=high
 price=300
 abs=2
-requires_stat=defense,8
+requires_stat=defense,6
 requires_stat=mental,6
 bonus=mp,8
 
@@ -116,7 +116,7 @@ level=6
 quality=high
 price=180
 abs=2,3
-requires_stat=defense,10
+requires_stat=defense,8
 requires_stat=physical,4
 bonus=poise,4
 
@@ -128,7 +128,7 @@ level=6
 quality=high
 price=180
 abs=2
-requires_stat=defense,9
+requires_stat=defense,7
 requires_stat=offense,5
 bonus=avoidance,8
 
@@ -140,7 +140,7 @@ level=6
 quality=high
 price=180
 abs=1,2
-requires_stat=defense,8
+requires_stat=defense,6
 requires_stat=mental,6
 bonus=mp_regen,4
 
@@ -152,7 +152,7 @@ level=6
 quality=high
 price=150
 abs=2,3
-requires_stat=defense,10
+requires_stat=defense,8
 requires_stat=physical,4
 bonus=crit,4
 
@@ -164,7 +164,7 @@ level=6
 quality=high
 price=150
 abs=2
-requires_stat=defense,9
+requires_stat=defense,7
 requires_stat=offense,5
 bonus=accuracy,8
 
@@ -176,7 +176,7 @@ level=6
 quality=high
 price=150
 abs=1,2
-requires_stat=defense,8
+requires_stat=defense,6
 requires_stat=mental,6
 bonus=mp_regen,8
 
@@ -187,7 +187,7 @@ INCLUDE items/base/armor/belt.txt
 level=6
 quality=high
 price=300
-requires_stat=defense,10
+requires_stat=defense,8
 requires_stat=physical,4
 bonus=hp_regen,100
 
@@ -198,7 +198,7 @@ INCLUDE items/base/necklaces/gold_1.txt
 level=6
 quality=high
 price=300
-requires_stat=defense,9
+requires_stat=defense,7
 requires_stat=offense,5
 bonus=avoidance,4
 
@@ -209,7 +209,7 @@ INCLUDE items/base/misc/spellbook.txt
 level=6
 quality=high
 price=300
-requires_stat=defense,8
+requires_stat=defense,6
 requires_stat=mental,6
 bonus=mp_regen,8
 
@@ -221,7 +221,7 @@ level=6
 quality=high
 price=600
 dmg=melee,45,50
-requires_stat=physical,14
+requires_stat=physical,10
 bonus=dmg_melee_min,5
 bonus=dmg_melee_max,5
 
@@ -233,7 +233,7 @@ level=6
 quality=high
 price=600
 dmg=ranged,45,50
-requires_stat=offense,14
+requires_stat=offense,10
 bonus=dmg_ranged_min,5
 bonus=dmg_ranged_max,5
 
@@ -245,7 +245,7 @@ level=6
 quality=high
 price=600
 dmg=ment,45,50
-requires_stat=mental,14
+requires_stat=mental,10
 bonus=dmg_ment_min,5
 bonus=dmg_ment_max,5
 
@@ -257,7 +257,7 @@ level=6
 quality=high
 price=450
 abs=6
-requires_stat=defense,12
+requires_stat=defense,9
 bonus=absorb_max,1
 
 [item]

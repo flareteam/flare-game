@@ -16,7 +16,7 @@ INCLUDE items/base/armor/leather/chest.txt
 level=5
 price=375
 abs=2,3
-requires_stat=defense,6
+requires_stat=defense,5
 
 [item]
 id=98
@@ -25,7 +25,7 @@ INCLUDE items/base/armor/leather/legs.txt
 level=5
 price=250
 abs=2
-requires_stat=defense,6
+requires_stat=defense,5
 
 [item]
 id=99
@@ -34,7 +34,7 @@ INCLUDE items/base/armor/leather/feet.txt
 level=5
 price=150
 abs=1,2
-requires_stat=defense,6
+requires_stat=defense,5
 
 [item]
 id=100
@@ -43,7 +43,7 @@ INCLUDE items/base/armor/leather/hands.txt
 level=5
 price=125
 abs=1,2
-requires_stat=defense,6
+requires_stat=defense,5
 
 [item]
 id=101
@@ -61,7 +61,7 @@ INCLUDE items/base/armor/mage/chest.txt
 level=5
 price=375
 abs=2
-requires_stat=defense,5
+requires_stat=defense,4
 
 [item]
 id=103
@@ -70,7 +70,7 @@ INCLUDE items/base/armor/mage/legs.txt
 level=5
 price=250
 abs=1,2
-requires_stat=defense,5
+requires_stat=defense,4
 
 [item]
 id=104
@@ -79,7 +79,7 @@ INCLUDE items/base/armor/mage/feet.txt
 level=5
 price=150
 abs=1
-requires_stat=defense,5
+requires_stat=defense,4
 
 [item]
 id=105
@@ -88,7 +88,7 @@ INCLUDE items/base/armor/mage/hands.txt
 level=5
 price=125
 abs=1
-requires_stat=defense,5
+requires_stat=defense,4
 
 [item]
 id=106
@@ -97,7 +97,7 @@ INCLUDE items/base/weapons/melee/shortsword.txt
 level=5
 price=500
 dmg=melee,45,50
-requires_stat=physical,11
+requires_stat=physical,8
 
 [item]
 id=107
@@ -106,7 +106,7 @@ INCLUDE items/base/weapons/ranged/shortbow.txt
 level=5
 price=500
 dmg=ranged,45,50
-requires_stat=offense,11
+requires_stat=offense,8
 
 [item]
 id=108
@@ -115,7 +115,7 @@ INCLUDE items/base/weapons/magic/rod.txt
 level=5
 price=500
 dmg=ment,45,50
-requires_stat=mental,11
+requires_stat=mental,8
 
 [item]
 id=109
@@ -124,5 +124,5 @@ INCLUDE items/base/shields/iron.txt
 level=5
 price=375
 abs=5,6
-requires_stat=defense,9
+requires_stat=defense,7
 
