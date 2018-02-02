@@ -139,3 +139,15 @@ can_stack=false
 animation=animations/powers/runes.txt
 render_above=false
 
+[effect]
+id=reflect_scroll
+type=reflect_chance
+icon=13
+name=Reflect
+animation=animations/powers/shield_orange.txt
+can_stack=false
+
+[effect]
+id=reflect_scroll_dmg
+type=return_damage
+can_stack=false
