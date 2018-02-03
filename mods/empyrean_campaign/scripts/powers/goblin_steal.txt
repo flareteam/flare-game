@@ -1,7 +1,7 @@
 # 1 Health Potion
 [event]
 requires_not_status=emp_script_goblin_steal
-chance_exec=33
+chance_exec=50
 requires_item=2
 remove_item=2
 set_status=emp_script_goblin_steal
@@ -10,19 +10,11 @@ msg=Goblin Thief stole a potion!
 # 1 Mana Potion
 [event]
 requires_not_status=emp_script_goblin_steal
-chance_exec=50
 requires_item=3
 remove_item=3
 set_status=emp_script_goblin_steal
 msg=Goblin Thief stole a potion!
 
 # Gold
-[event]
-requires_not_status=emp_script_goblin_steal
-requires_currency=1
-remove_currency=250
-set_status=emp_script_goblin_steal
-msg=Goblin Thief stole some Gold!
-
 [event]
 unset_status=emp_script_goblin_steal
