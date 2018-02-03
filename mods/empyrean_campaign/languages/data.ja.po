@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-16 18:32+\n"
+"POT-Creation-Date: 2018-02-03 10:30+\n"
 "PO-Revision-Date: 2017-12-10 02:53+0900\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,6 +26,14 @@ msgstr ""
 
 #: ../items/items.txt:59
 msgid "Use: Teleport to target position."
+msgstr ""
+
+#: ../items/items.txt:63
+msgid "DEV Invisibility Boots"
+msgstr ""
+
+#: ../items/items.txt:68
+msgid "Use: Turn Invisible"
 msgstr ""
 
 #: ../items/sets.txt:3
@@ -76,9 +84,21 @@ msgstr ""
 msgid "Sacrifice"
 msgstr "犠牲"
 
+#: ../powers/effects.txt:146
+msgid "Reflect"
+msgstr ""
+
 #: ../powers/powers.txt:25
 msgid "Teleport"
 msgstr "テレポート"
+
+#: ../powers/powers.txt:42
+msgid "Turn Invisible"
+msgstr ""
+
+#: ../powers/powers.txt:53
+msgid "Remove Invisibility"
+msgstr ""
 
 #: ../engine/elements.txt:3
 msgid "Fire"
@@ -553,7 +573,7 @@ msgstr "こおり ワイバーン"
 msgid "Kylana"
 msgstr ""
 
-#: ../enemies/lvl8_mez.txt:3
+#: ../enemies/lvl8_mez.txt:4
 msgid "Mez"
 msgstr ""
 
@@ -629,31 +649,31 @@ msgstr "到着地"
 msgid "River Trail"
 msgstr "川ぞい"
 
-#: ../maps/black_oak_city.txt:10
+#: ../maps/black_oak_city.txt:11
 msgid "Black Oak City"
 msgstr ""
 
-#: ../maps/black_oak_city.txt:341
+#: ../maps/black_oak_city.txt:342
 msgid "Black Oak Farm"
 msgstr ""
 
-#: ../maps/black_oak_city.txt:353
+#: ../maps/black_oak_city.txt:354
 msgid "Supplies"
 msgstr "用品"
 
-#: ../maps/black_oak_city.txt:601
+#: ../maps/black_oak_city.txt:602
 msgid "Wizard's Tower: Entrance Hall"
 msgstr "Wizard の塔: エントランス ホール"
 
-#: ../maps/black_oak_farm.txt:341
+#: ../maps/black_oak_farm.txt:342
 msgid "Southern Ridge"
 msgstr "南 Ridge"
 
-#: ../maps/black_oak_farm.txt:522
+#: ../maps/black_oak_farm.txt:523
 msgid "Dilapidated Sewers"
 msgstr "老朽化した Sewers"
 
-#: ../maps/black_oak_farm.txt:546
+#: ../maps/black_oak_farm.txt:547
 msgid "Lumber"
 msgstr "木材"
 
@@ -761,21 +781,25 @@ msgstr "この像には目が欠けている。"
 msgid "The bookcase slides back and reveals a hidden path."
 msgstr "本棚が後ろにスライドして、隠れていた通路があらわれた。"
 
-#: ../maps/fort_nasu.txt:1085
+#: ../maps/fort_nasu.txt:1086
 msgid "Book Stand"
 msgstr "ブックスタンド"
 
-#: ../maps/fort_nasu.txt:1124
+#: ../maps/fort_nasu.txt:1125
 msgid "Altar"
 msgstr "祭壇"
 
-#: ../maps/fort_nasu.txt:1131
+#: ../maps/fort_nasu.txt:1132
 msgid "As you enter the throne room, you see an Altar with a wooden figurine placed upon it."
 msgstr "あなたは謁見室に入ると、祭壇が見え、その近くに木の像があるのが見えた。"
 
-#: ../maps/fort_nasu.txt:1161
+#: ../maps/fort_nasu.txt:1162
 msgid "Strange Book"
 msgstr "奇妙な本"
+
+#: ../maps/fort_nasu.txt:1192
+msgid "A book entitled \"Reflection\" sits here, but all the pages are missing."
+msgstr ""
 
 #: ../maps/goblin_camp.txt:10
 msgid "Goblin Camp"
@@ -821,7 +845,7 @@ msgstr "Wizard の塔: 研究棟"
 msgid "Underworld Catacombs"
 msgstr ""
 
-#: ../maps/lake_kuuma.txt:851
+#: ../maps/lake_kuuma.txt:852
 msgid "Boat"
 msgstr "小舟"
 
@@ -877,7 +901,7 @@ msgstr "これだけでは、ガレキを破壊できない。"
 msgid "Reset Quest: \"Trapped!\""
 msgstr ""
 
-#: ../maps/nazia_underground.txt:377
+#: ../maps/nazia_underground.txt:378
 msgid "Nazia Underground waypoint discovered."
 msgstr "Nazia 地下のウェイポイントを発見した。"
 
@@ -937,11 +961,11 @@ msgstr "gravebloom フラワー は解凍されており、祭壇の上で横た
 msgid "Stonewood waypoint discovered."
 msgstr "ストーンウッドのウェイポイントを発見した。"
 
-#: ../maps/stormrock_pass.txt:893
+#: ../maps/stormrock_pass.txt:894
 msgid "Stormrock Pass waypoint discovered."
 msgstr "ストームロック パス のウェイポイントを発見した。"
 
-#: ../maps/stormrock_pass.txt:1051
+#: ../maps/stormrock_pass.txt:1052
 msgid "Stormrock Ruins"
 msgstr "ストームロック廃墟"
 
@@ -1046,7 +1070,8 @@ msgid "The time has come. Write your name in the Book of the Dead and gain entry
 msgstr "時は来た。 死者の書にあなたの名前を書き、地下世界に入りにいこう。"
 
 #: ../quests/000_empyrean.txt:69
-msgid "Make your way to the Underworld. A portal to the Underworld was located in the Wizard's Tower."
+#, fuzzy
+msgid "Make your way to the Underworld. A portal to the Underworld was located in the Wizard's Tower. Once you are there, search for a way to return to Empyrean."
 msgstr "地下世界への道を開こう。 地下世界へ入れる場所が、 Wizardの塔にある。"
 
 #: ../quests/001_krolan.txt:1
@@ -1545,35 +1570,35 @@ msgstr "あなたのご協力に、お礼を再度、言います。"
 msgid "Yora, Enchanter"
 msgstr "Yora, エンチャンター"
 
-#: ../cutscenes/backstory.txt:5
+#: ../cutscenes/backstory.txt:7
 msgid "Empyrean, the city in the sky. It is a majestic fortress and the last bastion of humankind."
 msgstr "Empyrean, 天空にある街。 それは雄大な要塞であり、人類の最後の拠点です。"
 
-#: ../cutscenes/backstory.txt:7
+#: ../cutscenes/backstory.txt:9
 msgid "At the height of the kingdom's power the city was a beacon of peace and law."
 msgstr "王国の力の高さで、この街は平和と法の標識でした。"
 
-#: ../cutscenes/backstory.txt:9
+#: ../cutscenes/backstory.txt:11
 msgid "When darkness invaded the world in the last age people abandoned the surface. Empyrean was their only refuge."
 msgstr "最後の時代に暗闇が侵略したとき、人々は地上を捨てました。 Empyrean は彼らの唯一の避難所でした。"
 
-#: ../cutscenes/backstory.txt:11
+#: ../cutscenes/backstory.txt:13
 msgid "Now the Age of Humanity is ending. Empyrean is crumbling. Scarcity and political infighting have consumed the city."
 msgstr "今では人類の時代は終わっています。 Empyrean は崩壊しています。 希少性と政治的な内戦で都市は浪費されています。"
 
-#: ../cutscenes/backstory.txt:13
+#: ../cutscenes/backstory.txt:16
 msgid "Some, in desperation, flee to the surface hoping to survive without the protection of the city."
 msgstr ""
 
-#: ../cutscenes/backstory.txt:15
+#: ../cutscenes/backstory.txt:18
 msgid "But no one returns from the surface. Most die or go missing. A few hide and survive, for a while."
 msgstr "しかし、ひとりも地上から戻ることはありません。 いくつかの人は、しばらく、隠れて生き延びる。"
 
-#: ../cutscenes/backstory.txt:17
+#: ../cutscenes/backstory.txt:20
 msgid "Surface dwellers cling to hope. Hope that they'll return to Empyrean some day. Hope that a hero will fight back against the darkness."
 msgstr ""
 
-#: ../cutscenes/backstory.txt:19
+#: ../cutscenes/backstory.txt:22
 msgid "There is always hope. But not for everyone: not for you. Not for the Exiled."
 msgstr ""
 
@@ -1699,7 +1724,8 @@ msgid "Beneath a rock on the moldy peninsula"
 msgstr "こけむした半島の岩の下"
 
 #: ../books/mog_3.txt:12
-msgid "In the pile of bones near the three pillars"
+#, fuzzy
+msgid "In the pile of bones near the three submerged pillars"
 msgstr "3本の柱の近くにある、骨の つみ重なり の中"
 
 #: ../books/mog_4.txt:12
@@ -1990,11 +2016,11 @@ msgstr "ヘルスポーション"
 msgid "Restore 25% of maximum HP"
 msgstr "最大HPのうち 25% を回復"
 
-#: ../items/categories/potions.txt:15
+#: ../items/categories/potions.txt:16
 msgid "Mana Potion"
 msgstr "マナポーション"
 
-#: ../items/categories/potions.txt:18
+#: ../items/categories/potions.txt:19
 msgid "Restore 25% of maximum MP"
 msgstr "最大MPのうち 25% を回復"
 
@@ -2283,8 +2309,71 @@ msgid "Summon Zombie Scroll"
 msgstr "ゾンビ召喚の巻き物"
 
 #: ../items/categories/scrolls.txt:8
-msgid "Use: Summon Zombie"
+#, fuzzy
+msgid "Use: Summon a zombie to fight for you"
 msgstr "使用: ゾンビが召喚される"
+
+#: ../items/categories/scrolls.txt:16
+#, fuzzy
+msgid "Perdition Scroll"
+msgstr "Perdition 入り江"
+
+#: ../items/categories/scrolls.txt:19
+#, fuzzy
+msgid "Use: Teleport to Perdition Harbor"
+msgstr "Perdition 入り江"
+
+#: ../items/categories/scrolls.txt:27
+#, fuzzy
+msgid "Shield Scroll"
+msgstr "シールド"
+
+#: ../items/categories/scrolls.txt:30
+msgid "Use: Create a magical shield that absorbs damage"
+msgstr ""
+
+#: ../items/categories/scrolls.txt:38
+#, fuzzy
+msgid "Fireball Scroll"
+msgstr "ファイアボール"
+
+#: ../items/categories/scrolls.txt:41
+msgid "Use: Shoot a fireball"
+msgstr ""
+
+#: ../items/categories/scrolls.txt:49
+msgid "Ice Bolt Scroll"
+msgstr ""
+
+#: ../items/categories/scrolls.txt:52
+msgid "Use: Shoot an ice bolt"
+msgstr ""
+
+#: ../items/categories/scrolls.txt:60
+msgid "Haste Scroll"
+msgstr ""
+
+#: ../items/categories/scrolls.txt:63
+#, fuzzy
+msgid "Use: Move at an increased speed for a limited time"
+msgstr "移動スピードが一定時間のあいだ、 増加します。"
+
+#: ../items/categories/scrolls.txt:71
+#, fuzzy
+msgid "Immunity Scroll"
+msgstr "まぬがれ"
+
+#: ../items/categories/scrolls.txt:74
+msgid "Use: Remove debuffs and become immune to debuffs for a limited time"
+msgstr ""
+
+#: ../items/categories/scrolls.txt:82
+msgid "Reflection Scroll"
+msgstr ""
+
+#: ../items/categories/scrolls.txt:85
+msgid "Use: Creates a magical shield that reflects projectiles and damage for a limited time"
+msgstr ""
 
 #: ../items/categories/level_7.txt:5
 msgid "Warrior Leather Hood"
@@ -2410,47 +2499,47 @@ msgstr ""
 msgid "The ancient scripture contained appears to be some sort of magic."
 msgstr ""
 
-#: ../items/categories/level_12_unique.txt:20
+#: ../items/categories/level_12_unique.txt:21
 msgid "Mog's Axe"
 msgstr ""
 
-#: ../items/categories/level_12_unique.txt:21
+#: ../items/categories/level_12_unique.txt:22
 msgid "Not as sleek as an arrow, but just as effective."
 msgstr ""
 
-#: ../items/categories/level_12_unique.txt:35
+#: ../items/categories/level_12_unique.txt:36
 msgid "Guardsman Curiass"
 msgstr ""
 
-#: ../items/categories/level_12_unique.txt:36
+#: ../items/categories/level_12_unique.txt:37
 msgid "A royal mail with a 'K' engraved on the breast."
 msgstr ""
 
-#: ../items/categories/level_12_unique.txt:52
+#: ../items/categories/level_12_unique.txt:53
 msgid "Inferno Pendant"
 msgstr ""
 
-#: ../items/categories/level_12_unique.txt:53
+#: ../items/categories/level_12_unique.txt:54
 msgid "Hot. Hot. Hot."
 msgstr ""
 
-#: ../items/categories/level_12_unique.txt:67
+#: ../items/categories/level_12_unique.txt:68
 msgid "Alchemist's Skirt"
 msgstr ""
 
-#: ../items/categories/level_12_unique.txt:68
+#: ../items/categories/level_12_unique.txt:69
 msgid "Knowledge of formulating many concoctions bestows its wearer."
 msgstr ""
 
-#: ../items/categories/level_12_unique.txt:77
+#: ../items/categories/level_12_unique.txt:78
 msgid "Drinking potions may create another potion of the same type."
 msgstr ""
 
-#: ../items/categories/level_12_unique.txt:86
+#: ../items/categories/level_12_unique.txt:87
 msgid "Metzger's Battlemace"
 msgstr ""
 
-#: ../items/categories/level_12_unique.txt:87
+#: ../items/categories/level_12_unique.txt:88
 msgid "Swinging this mace around leaves a clouded trail of dark smoke."
 msgstr ""
 
@@ -3770,10 +3859,6 @@ msgstr "ウォークライ"
 msgid "Remove debuffs and become immune to debuffs for a limited time."
 msgstr ""
 
-#: ../powers/categories/items.txt:23
-msgid "Summon Zombie"
-msgstr "召喚されたゾンビ"
-
 #: ../powers/categories/warrior.txt:7
 msgid "Swing"
 msgstr "スイング"
@@ -3802,6 +3887,8 @@ msgstr "マジシャン"
 msgid "Goblin Thief stole a potion!"
 msgstr "ゴブリン盗賊がポーションを盗んだ!"
 
-#: ../scripts/powers/goblin_steal.txt:25
-msgid "Goblin Thief stole some Gold!"
-msgstr "ゴブリン盗賊が金を盗んだ!"
+#~ msgid "Summon Zombie"
+#~ msgstr "召喚されたゾンビ"
+
+#~ msgid "Goblin Thief stole some Gold!"
+#~ msgstr "ゴブリン盗賊が金を盗んだ!"

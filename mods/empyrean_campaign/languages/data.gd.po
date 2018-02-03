@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-16 18:32+\n"
+"POT-Creation-Date: 2018-02-03 10:30+\n"
 "PO-Revision-Date: 2015-11-16 12:06+0100\n"
 "Last-Translator: GunChleoc <fios@foramnagaidhlig.net>\n"
 "Language-Team: Fòram na Gàidhlig\n"
@@ -26,6 +26,14 @@ msgstr ""
 
 #: ../items/items.txt:59
 msgid "Use: Teleport to target position."
+msgstr ""
+
+#: ../items/items.txt:63
+msgid "DEV Invisibility Boots"
+msgstr ""
+
+#: ../items/items.txt:68
+msgid "Use: Turn Invisible"
 msgstr ""
 
 #: ../items/sets.txt:3
@@ -76,8 +84,20 @@ msgstr ""
 msgid "Sacrifice"
 msgstr ""
 
+#: ../powers/effects.txt:146
+msgid "Reflect"
+msgstr ""
+
 #: ../powers/powers.txt:25
 msgid "Teleport"
+msgstr ""
+
+#: ../powers/powers.txt:42
+msgid "Turn Invisible"
+msgstr ""
+
+#: ../powers/powers.txt:53
+msgid "Remove Invisibility"
 msgstr ""
 
 #: ../engine/elements.txt:3
@@ -580,7 +600,7 @@ msgstr ""
 msgid "Kylana"
 msgstr ""
 
-#: ../enemies/lvl8_mez.txt:3
+#: ../enemies/lvl8_mez.txt:4
 msgid "Mez"
 msgstr ""
 
@@ -661,31 +681,31 @@ msgstr "Teachd"
 msgid "River Trail"
 msgstr "Slighe na h-aibhne"
 
-#: ../maps/black_oak_city.txt:10
+#: ../maps/black_oak_city.txt:11
 msgid "Black Oak City"
 msgstr ""
 
-#: ../maps/black_oak_city.txt:341
+#: ../maps/black_oak_city.txt:342
 msgid "Black Oak Farm"
 msgstr ""
 
-#: ../maps/black_oak_city.txt:353
+#: ../maps/black_oak_city.txt:354
 msgid "Supplies"
 msgstr "Stòrasan"
 
-#: ../maps/black_oak_city.txt:601
+#: ../maps/black_oak_city.txt:602
 msgid "Wizard's Tower: Entrance Hall"
 msgstr ""
 
-#: ../maps/black_oak_farm.txt:341
+#: ../maps/black_oak_farm.txt:342
 msgid "Southern Ridge"
 msgstr ""
 
-#: ../maps/black_oak_farm.txt:522
+#: ../maps/black_oak_farm.txt:523
 msgid "Dilapidated Sewers"
 msgstr ""
 
-#: ../maps/black_oak_farm.txt:546
+#: ../maps/black_oak_farm.txt:547
 msgid "Lumber"
 msgstr "Fiodh"
 
@@ -795,23 +815,27 @@ msgstr ""
 msgid "The bookcase slides back and reveals a hidden path."
 msgstr ""
 
-#: ../maps/fort_nasu.txt:1085
+#: ../maps/fort_nasu.txt:1086
 #, fuzzy
 msgid "Book Stand"
 msgstr "Leabhar nam marbh"
 
-#: ../maps/fort_nasu.txt:1124
+#: ../maps/fort_nasu.txt:1125
 msgid "Altar"
 msgstr ""
 
-#: ../maps/fort_nasu.txt:1131
+#: ../maps/fort_nasu.txt:1132
 msgid "As you enter the throne room, you see an Altar with a wooden figurine placed upon it."
 msgstr ""
 
-#: ../maps/fort_nasu.txt:1161
+#: ../maps/fort_nasu.txt:1162
 #, fuzzy
 msgid "Strange Book"
 msgstr "Srad orains"
+
+#: ../maps/fort_nasu.txt:1192
+msgid "A book entitled \"Reflection\" sits here, but all the pages are missing."
+msgstr ""
 
 #: ../maps/goblin_camp.txt:10
 msgid "Goblin Camp"
@@ -857,7 +881,7 @@ msgstr ""
 msgid "Underworld Catacombs"
 msgstr ""
 
-#: ../maps/lake_kuuma.txt:851
+#: ../maps/lake_kuuma.txt:852
 msgid "Boat"
 msgstr ""
 
@@ -914,7 +938,7 @@ msgstr ""
 msgid "Reset Quest: \"Trapped!\""
 msgstr ""
 
-#: ../maps/nazia_underground.txt:377
+#: ../maps/nazia_underground.txt:378
 #, fuzzy
 msgid "Nazia Underground waypoint discovered."
 msgstr "Chaidh puing-thurais Coille nan Clach a lorg."
@@ -976,12 +1000,12 @@ msgstr ""
 msgid "Stonewood waypoint discovered."
 msgstr "Chaidh puing-thurais Coille nan Clach a lorg."
 
-#: ../maps/stormrock_pass.txt:893
+#: ../maps/stormrock_pass.txt:894
 #, fuzzy
 msgid "Stormrock Pass waypoint discovered."
 msgstr "Chaidh puing-thurais Coille nan Clach a lorg."
 
-#: ../maps/stormrock_pass.txt:1051
+#: ../maps/stormrock_pass.txt:1052
 msgid "Stormrock Ruins"
 msgstr ""
 
@@ -1091,7 +1115,7 @@ msgid "The time has come. Write your name in the Book of the Dead and gain entry
 msgstr ""
 
 #: ../quests/000_empyrean.txt:69
-msgid "Make your way to the Underworld. A portal to the Underworld was located in the Wizard's Tower."
+msgid "Make your way to the Underworld. A portal to the Underworld was located in the Wizard's Tower. Once you are there, search for a way to return to Empyrean."
 msgstr ""
 
 #: ../quests/001_krolan.txt:1
@@ -1600,35 +1624,35 @@ msgstr "Mòran taing a-rithist airson do chuideachaidh."
 msgid "Yora, Enchanter"
 msgstr ""
 
-#: ../cutscenes/backstory.txt:5
+#: ../cutscenes/backstory.txt:7
 msgid "Empyrean, the city in the sky. It is a majestic fortress and the last bastion of humankind."
 msgstr "Impirean, am baile sna speuran. 'S e dùn mòr a th' ann agus 's i daingneachadh mu dheireadh nan daoine."
 
-#: ../cutscenes/backstory.txt:7
+#: ../cutscenes/backstory.txt:9
 msgid "At the height of the kingdom's power the city was a beacon of peace and law."
 msgstr "Air àirde cumhachd na rìoghachd, 's e lòchran sìthe 's lagha a bh' anns a' bhaile."
 
-#: ../cutscenes/backstory.txt:9
+#: ../cutscenes/backstory.txt:11
 msgid "When darkness invaded the world in the last age people abandoned the surface. Empyrean was their only refuge."
 msgstr "Nuair an do lunn an dorchadas air an t-saoghal sa linn seo chaidh, thrèig na daoine an t-uachdar. Cha robh comraich ann dhaibh ach Impirean."
 
-#: ../cutscenes/backstory.txt:11
+#: ../cutscenes/backstory.txt:13
 msgid "Now the Age of Humanity is ending. Empyrean is crumbling. Scarcity and political infighting have consumed the city."
 msgstr "Tha Linn nan Daoine a' tighinn gu crìch a-nis. Tha Impirean ga bhruanadh agus gainnead is còmhstri poileataigeach a' caitheamh a' bhaile."
 
-#: ../cutscenes/backstory.txt:13
+#: ../cutscenes/backstory.txt:16
 msgid "Some, in desperation, flee to the surface hoping to survive without the protection of the city."
 msgstr "Tha cuid air teicheadh on chruadal dhan uachdar feuch am mair iad beò gun dìon a' bhaile."
 
-#: ../cutscenes/backstory.txt:15
+#: ../cutscenes/backstory.txt:18
 msgid "But no one returns from the surface. Most die or go missing. A few hide and survive, for a while."
 msgstr "Ach cha do thill duine beò on uachdar. Gheibh a' mhòrchuid bàs no thèid iad air chall. Thèid le cuid falach is tighinn beò greiseag co-dhiù."
 
-#: ../cutscenes/backstory.txt:17
+#: ../cutscenes/backstory.txt:20
 msgid "Surface dwellers cling to hope. Hope that they'll return to Empyrean some day. Hope that a hero will fight back against the darkness."
 msgstr "Tha daoine an uachdair an dòchas gun dig an latha a thilleas iad gu Impirean. An dòchas gun sabaid gaisgeach ris an dorchadas."
 
-#: ../cutscenes/backstory.txt:19
+#: ../cutscenes/backstory.txt:22
 msgid "There is always hope. But not for everyone: not for you. Not for the Exiled."
 msgstr "Tha dòchas ann an-còmhnaidh. Ach chan ann aig a h-uile duine: chan ann agadsa. Chan ann aig na fògraich."
 
@@ -1758,7 +1782,7 @@ msgid "Beneath a rock on the moldy peninsula"
 msgstr ""
 
 #: ../books/mog_3.txt:12
-msgid "In the pile of bones near the three pillars"
+msgid "In the pile of bones near the three submerged pillars"
 msgstr ""
 
 #: ../books/mog_4.txt:12
@@ -2083,11 +2107,11 @@ msgstr "Deoch-shlàinte"
 msgid "Restore 25% of maximum HP"
 msgstr "Aisig 25% dhe na PB as motha"
 
-#: ../items/categories/potions.txt:15
+#: ../items/categories/potions.txt:16
 msgid "Mana Potion"
 msgstr "Deoch mana"
 
-#: ../items/categories/potions.txt:18
+#: ../items/categories/potions.txt:19
 msgid "Restore 25% of maximum MP"
 msgstr "Aisig 25% dhe na PG as motha"
 
@@ -2395,7 +2419,71 @@ msgid "Summon Zombie Scroll"
 msgstr ""
 
 #: ../items/categories/scrolls.txt:8
-msgid "Use: Summon Zombie"
+msgid "Use: Summon a zombie to fight for you"
+msgstr ""
+
+#: ../items/categories/scrolls.txt:16
+#, fuzzy
+msgid "Perdition Scroll"
+msgstr "Port an Dubh-chaill"
+
+#: ../items/categories/scrolls.txt:19
+#, fuzzy
+msgid "Use: Teleport to Perdition Harbor"
+msgstr "Port an Dubh-chaill"
+
+#: ../items/categories/scrolls.txt:27
+#, fuzzy
+msgid "Shield Scroll"
+msgstr "Sgiath"
+
+#: ../items/categories/scrolls.txt:30
+#, fuzzy
+msgid "Use: Create a magical shield that absorbs damage"
+msgstr "Cruthaich sgiath cumhachd a cheapas dochann."
+
+#: ../items/categories/scrolls.txt:38
+#, fuzzy
+msgid "Fireball Scroll"
+msgstr "Bàla-teine"
+
+#: ../items/categories/scrolls.txt:41
+msgid "Use: Shoot a fireball"
+msgstr ""
+
+#: ../items/categories/scrolls.txt:49
+#, fuzzy
+msgid "Ice Bolt Scroll"
+msgstr "Peilear deighe"
+
+#: ../items/categories/scrolls.txt:52
+msgid "Use: Shoot an ice bolt"
+msgstr ""
+
+#: ../items/categories/scrolls.txt:60
+msgid "Haste Scroll"
+msgstr ""
+
+#: ../items/categories/scrolls.txt:63
+#, fuzzy
+msgid "Use: Move at an increased speed for a limited time"
+msgstr "Gluais nas luaithe fad 10 diogan."
+
+#: ../items/categories/scrolls.txt:71
+msgid "Immunity Scroll"
+msgstr ""
+
+#: ../items/categories/scrolls.txt:74
+#, fuzzy
+msgid "Use: Remove debuffs and become immune to debuffs for a limited time"
+msgstr "Thoir gach easbhaidh air falbh is faigh dìon an aghaidh easbhaidhean fad 10 diogan."
+
+#: ../items/categories/scrolls.txt:82
+msgid "Reflection Scroll"
+msgstr ""
+
+#: ../items/categories/scrolls.txt:85
+msgid "Use: Creates a magical shield that reflects projectiles and damage for a limited time"
 msgstr ""
 
 #: ../items/categories/level_7.txt:5
@@ -2530,47 +2618,47 @@ msgstr ""
 msgid "The ancient scripture contained appears to be some sort of magic."
 msgstr ""
 
-#: ../items/categories/level_12_unique.txt:20
+#: ../items/categories/level_12_unique.txt:21
 msgid "Mog's Axe"
 msgstr ""
 
-#: ../items/categories/level_12_unique.txt:21
+#: ../items/categories/level_12_unique.txt:22
 msgid "Not as sleek as an arrow, but just as effective."
 msgstr ""
 
-#: ../items/categories/level_12_unique.txt:35
+#: ../items/categories/level_12_unique.txt:36
 msgid "Guardsman Curiass"
 msgstr ""
 
-#: ../items/categories/level_12_unique.txt:36
+#: ../items/categories/level_12_unique.txt:37
 msgid "A royal mail with a 'K' engraved on the breast."
 msgstr ""
 
-#: ../items/categories/level_12_unique.txt:52
+#: ../items/categories/level_12_unique.txt:53
 msgid "Inferno Pendant"
 msgstr ""
 
-#: ../items/categories/level_12_unique.txt:53
+#: ../items/categories/level_12_unique.txt:54
 msgid "Hot. Hot. Hot."
 msgstr ""
 
-#: ../items/categories/level_12_unique.txt:67
+#: ../items/categories/level_12_unique.txt:68
 msgid "Alchemist's Skirt"
 msgstr ""
 
-#: ../items/categories/level_12_unique.txt:68
+#: ../items/categories/level_12_unique.txt:69
 msgid "Knowledge of formulating many concoctions bestows its wearer."
 msgstr ""
 
-#: ../items/categories/level_12_unique.txt:77
+#: ../items/categories/level_12_unique.txt:78
 msgid "Drinking potions may create another potion of the same type."
 msgstr ""
 
-#: ../items/categories/level_12_unique.txt:86
+#: ../items/categories/level_12_unique.txt:87
 msgid "Metzger's Battlemace"
 msgstr ""
 
-#: ../items/categories/level_12_unique.txt:87
+#: ../items/categories/level_12_unique.txt:88
 msgid "Swinging this mace around leaves a clouded trail of dark smoke."
 msgstr ""
 
@@ -4004,11 +4092,6 @@ msgstr "Sluagh-ghairm"
 msgid "Remove debuffs and become immune to debuffs for a limited time."
 msgstr "Thoir gach easbhaidh air falbh is faigh dìon an aghaidh easbhaidhean fad 10 diogan."
 
-#: ../powers/categories/items.txt:23
-#, fuzzy
-msgid "Summon Zombie"
-msgstr "Corp coisiche a' lobhadh"
-
 #: ../powers/categories/warrior.txt:7
 msgid "Swing"
 msgstr "Buille"
@@ -4037,9 +4120,9 @@ msgstr "Draoidh"
 msgid "Goblin Thief stole a potion!"
 msgstr ""
 
-#: ../scripts/powers/goblin_steal.txt:25
-msgid "Goblin Thief stole some Gold!"
-msgstr ""
+#, fuzzy
+#~ msgid "Summon Zombie"
+#~ msgstr "Corp coisiche a' lobhadh"
 
 #, fuzzy
 #~ msgid "Warlord Cloth Sash"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-16 18:32+\n"
+"POT-Creation-Date: 2018-02-03 10:30+\n"
 "PO-Revision-Date: 2017-12-12 01:29+0100\n"
 "Last-Translator: Paweł Puszczyński <pawonashi@gmail.com>\n"
 "Language-Team: Polish\n"
@@ -26,6 +26,14 @@ msgstr "Buty DEV"
 #: ../items/items.txt:59
 msgid "Use: Teleport to target position."
 msgstr "Użycie: Teleportuje na wyznaczoną pozycję"
+
+#: ../items/items.txt:63
+msgid "DEV Invisibility Boots"
+msgstr ""
+
+#: ../items/items.txt:68
+msgid "Use: Turn Invisible"
+msgstr ""
 
 #: ../items/sets.txt:3
 msgid "St. Maria Garb"
@@ -75,9 +83,21 @@ msgstr "Podatność na Lód"
 msgid "Sacrifice"
 msgstr "Poświęcenie"
 
+#: ../powers/effects.txt:146
+msgid "Reflect"
+msgstr ""
+
 #: ../powers/powers.txt:25
 msgid "Teleport"
 msgstr "Teleportacja"
+
+#: ../powers/powers.txt:42
+msgid "Turn Invisible"
+msgstr ""
+
+#: ../powers/powers.txt:53
+msgid "Remove Invisibility"
+msgstr ""
 
 #: ../engine/elements.txt:3
 msgid "Fire"
@@ -558,7 +578,7 @@ msgstr "Lodowa Wiwerna"
 msgid "Kylana"
 msgstr "Kylana"
 
-#: ../enemies/lvl8_mez.txt:3
+#: ../enemies/lvl8_mez.txt:4
 msgid "Mez"
 msgstr "Mez"
 
@@ -634,31 +654,31 @@ msgstr "Przybycie"
 msgid "River Trail"
 msgstr "Brzeg Rzeki"
 
-#: ../maps/black_oak_city.txt:10
+#: ../maps/black_oak_city.txt:11
 msgid "Black Oak City"
 msgstr "Miasto Czarnego Dębu"
 
-#: ../maps/black_oak_city.txt:341
+#: ../maps/black_oak_city.txt:342
 msgid "Black Oak Farm"
 msgstr "Farma Czarnego Dębu"
 
-#: ../maps/black_oak_city.txt:353
+#: ../maps/black_oak_city.txt:354
 msgid "Supplies"
 msgstr "Zapasy"
 
-#: ../maps/black_oak_city.txt:601
+#: ../maps/black_oak_city.txt:602
 msgid "Wizard's Tower: Entrance Hall"
 msgstr "Wieża Maga: Hol Wejściowy"
 
-#: ../maps/black_oak_farm.txt:341
+#: ../maps/black_oak_farm.txt:342
 msgid "Southern Ridge"
 msgstr "Południowa Grań"
 
-#: ../maps/black_oak_farm.txt:522
+#: ../maps/black_oak_farm.txt:523
 msgid "Dilapidated Sewers"
 msgstr "Wyniszczałe Ścieki"
 
-#: ../maps/black_oak_farm.txt:546
+#: ../maps/black_oak_farm.txt:547
 msgid "Lumber"
 msgstr "Deski"
 
@@ -766,21 +786,25 @@ msgstr "W statule brakuje oka."
 msgid "The bookcase slides back and reveals a hidden path."
 msgstr "Regał odsuwa się, ukazując ukrytą ścieżkę."
 
-#: ../maps/fort_nasu.txt:1085
+#: ../maps/fort_nasu.txt:1086
 msgid "Book Stand"
 msgstr "Regał z Książkami"
 
-#: ../maps/fort_nasu.txt:1124
+#: ../maps/fort_nasu.txt:1125
 msgid "Altar"
 msgstr "Ołtarz"
 
-#: ../maps/fort_nasu.txt:1131
+#: ../maps/fort_nasu.txt:1132
 msgid "As you enter the throne room, you see an Altar with a wooden figurine placed upon it."
 msgstr "Wchodząc do sali tronowej, zauważasz Ołtarz z umiejscowioną na nim drewnianą figurką."
 
-#: ../maps/fort_nasu.txt:1161
+#: ../maps/fort_nasu.txt:1162
 msgid "Strange Book"
 msgstr "Dziwna Książka"
+
+#: ../maps/fort_nasu.txt:1192
+msgid "A book entitled \"Reflection\" sits here, but all the pages are missing."
+msgstr ""
 
 #: ../maps/goblin_camp.txt:10
 msgid "Goblin Camp"
@@ -827,7 +851,7 @@ msgstr "Wieża Maga: Komnaty Badaczy"
 msgid "Underworld Catacombs"
 msgstr "Podświat"
 
-#: ../maps/lake_kuuma.txt:851
+#: ../maps/lake_kuuma.txt:852
 msgid "Boat"
 msgstr "Łódź"
 
@@ -883,7 +907,7 @@ msgstr "Sam wagonik nie przebije się przez to zwałowisko."
 msgid "Reset Quest: \"Trapped!\""
 msgstr "Zresetowano Zadanie: \"W potrzasku!\""
 
-#: ../maps/nazia_underground.txt:377
+#: ../maps/nazia_underground.txt:378
 msgid "Nazia Underground waypoint discovered."
 msgstr "Odkryto punkt nawigacyjny w Podziemiach Nazia."
 
@@ -943,11 +967,11 @@ msgstr "Grobokwiat znajdujący się na ołtarzu odtajał."
 msgid "Stonewood waypoint discovered."
 msgstr "Odkryto punkt nawigacyjny w Kamiennodrzewiu."
 
-#: ../maps/stormrock_pass.txt:893
+#: ../maps/stormrock_pass.txt:894
 msgid "Stormrock Pass waypoint discovered."
 msgstr "Odkryto punkt nawigacyjny na Ścieżce Burzokamienia."
 
-#: ../maps/stormrock_pass.txt:1051
+#: ../maps/stormrock_pass.txt:1052
 msgid "Stormrock Ruins"
 msgstr "Ruiny Burzokamienia"
 
@@ -1054,7 +1078,8 @@ msgid "The time has come. Write your name in the Book of the Dead and gain entry
 msgstr "Nadszedł czas. Zapisz swoje imię w Księdze Umarłych, by zyskać dostęp do Podświata."
 
 #: ../quests/000_empyrean.txt:69
-msgid "Make your way to the Underworld. A portal to the Underworld was located in the Wizard's Tower."
+#, fuzzy
+msgid "Make your way to the Underworld. A portal to the Underworld was located in the Wizard's Tower. Once you are there, search for a way to return to Empyrean."
 msgstr "Przedostań się do Podświata. Portal do niego prowadzący znajduje się w Wieży Maga."
 
 #: ../quests/001_krolan.txt:1
@@ -1553,35 +1578,35 @@ msgstr "Jeszcze raz dziękuję za Twoją pomoc."
 msgid "Yora, Enchanter"
 msgstr "Yora, Zaklinaczka."
 
-#: ../cutscenes/backstory.txt:5
+#: ../cutscenes/backstory.txt:7
 msgid "Empyrean, the city in the sky. It is a majestic fortress and the last bastion of humankind."
 msgstr "Empyrean, miasto w niebie. To majestatyczna forteca i ostatni bastion rodzaju ludzkiego."
 
-#: ../cutscenes/backstory.txt:7
+#: ../cutscenes/backstory.txt:9
 msgid "At the height of the kingdom's power the city was a beacon of peace and law."
 msgstr "W zasięgu królestwa leżała moc do zapewnienia miastu pokoju i sprawiedliwości."
 
-#: ../cutscenes/backstory.txt:9
+#: ../cutscenes/backstory.txt:11
 msgid "When darkness invaded the world in the last age people abandoned the surface. Empyrean was their only refuge."
 msgstr "Gdy ciemność zaatakowala świat w ostatnich latach, ludzie opuścili powierzchnię. Empyrean było ich ostatnim azylem."
 
-#: ../cutscenes/backstory.txt:11
+#: ../cutscenes/backstory.txt:13
 msgid "Now the Age of Humanity is ending. Empyrean is crumbling. Scarcity and political infighting have consumed the city."
 msgstr "Teraz zbliża się kres Epoki Ludzi. Empyrean się rozpada. Ubóstwo i polityczne utarczki pochłonęły miasto."
 
-#: ../cutscenes/backstory.txt:13
+#: ../cutscenes/backstory.txt:16
 msgid "Some, in desperation, flee to the surface hoping to survive without the protection of the city."
 msgstr "Niektórzy co bardziej zdesperowani uciekli na powierzchnię w nadziei, że przeżyją bez ochrony zapewnianej przez miasto."
 
-#: ../cutscenes/backstory.txt:15
+#: ../cutscenes/backstory.txt:18
 msgid "But no one returns from the surface. Most die or go missing. A few hide and survive, for a while."
 msgstr "Jednak z powierzchni nie wrócił nikt. Większość zmarła bądź zaginęła. Zaledwie garstka ukrywa się i żyje, póki co."
 
-#: ../cutscenes/backstory.txt:17
+#: ../cutscenes/backstory.txt:20
 msgid "Surface dwellers cling to hope. Hope that they'll return to Empyrean some day. Hope that a hero will fight back against the darkness."
 msgstr "Przebywający na powierzchni trzymają się nadziei. Nadziei, że pewnego dnia powrócą do Empyrean. Nadziei, że pojawi się bohater i zwalczy ciemność."
 
-#: ../cutscenes/backstory.txt:19
+#: ../cutscenes/backstory.txt:22
 msgid "There is always hope. But not for everyone: not for you. Not for the Exiled."
 msgstr "Zawsze jest nadzieja. Ale nie dla wszystkich: nie dla Ciebie. Nie dla Wygnanych."
 
@@ -1707,7 +1732,8 @@ msgid "Beneath a rock on the moldy peninsula"
 msgstr "Za kamieniem na porośniętym grzybem półwyspie"
 
 #: ../books/mog_3.txt:12
-msgid "In the pile of bones near the three pillars"
+#, fuzzy
+msgid "In the pile of bones near the three submerged pillars"
 msgstr "W stercie kości w pobliżu trzech słupów"
 
 #: ../books/mog_4.txt:12
@@ -1998,11 +2024,11 @@ msgstr "Mikstura Życia"
 msgid "Restore 25% of maximum HP"
 msgstr "Przywraca 25% maksymalnych PŻ"
 
-#: ../items/categories/potions.txt:15
+#: ../items/categories/potions.txt:16
 msgid "Mana Potion"
 msgstr "Mikstura Many"
 
-#: ../items/categories/potions.txt:18
+#: ../items/categories/potions.txt:19
 msgid "Restore 25% of maximum MP"
 msgstr "Przywraca 25% maksymalnych PM"
 
@@ -2291,8 +2317,74 @@ msgid "Summon Zombie Scroll"
 msgstr "Zwój Przywołania Zombie"
 
 #: ../items/categories/scrolls.txt:8
-msgid "Use: Summon Zombie"
+#, fuzzy
+msgid "Use: Summon a zombie to fight for you"
 msgstr "Użycie: Przywołuje Zombie"
+
+#: ../items/categories/scrolls.txt:16
+#, fuzzy
+msgid "Perdition Scroll"
+msgstr "Zatoka Zatracenia"
+
+#: ../items/categories/scrolls.txt:19
+#, fuzzy
+msgid "Use: Teleport to Perdition Harbor"
+msgstr "Użycie: Teleportuje na wyznaczoną pozycję"
+
+#: ../items/categories/scrolls.txt:27
+#, fuzzy
+msgid "Shield Scroll"
+msgstr "Osłona"
+
+#: ../items/categories/scrolls.txt:30
+#, fuzzy
+msgid "Use: Create a magical shield that absorbs damage"
+msgstr "Utwórz pole siłowe pochłaniające obrażenia."
+
+#: ../items/categories/scrolls.txt:38
+#, fuzzy
+msgid "Fireball Scroll"
+msgstr "Kula Ognia"
+
+#: ../items/categories/scrolls.txt:41
+msgid "Use: Shoot a fireball"
+msgstr ""
+
+#: ../items/categories/scrolls.txt:49
+#, fuzzy
+msgid "Ice Bolt Scroll"
+msgstr "Lodowy Pocisk"
+
+#: ../items/categories/scrolls.txt:52
+msgid "Use: Shoot an ice bolt"
+msgstr ""
+
+#: ../items/categories/scrolls.txt:60
+msgid "Haste Scroll"
+msgstr ""
+
+#: ../items/categories/scrolls.txt:63
+#, fuzzy
+msgid "Use: Move at an increased speed for a limited time"
+msgstr "Poruszaj się ze zwiększoną szybkością przez pewien czas."
+
+#: ../items/categories/scrolls.txt:71
+#, fuzzy
+msgid "Immunity Scroll"
+msgstr "Niewrażliwość"
+
+#: ../items/categories/scrolls.txt:74
+#, fuzzy
+msgid "Use: Remove debuffs and become immune to debuffs for a limited time"
+msgstr "Usuwa negatywne efekty i czyni Cię niewrażliwym na nie przez pewien czas."
+
+#: ../items/categories/scrolls.txt:82
+msgid "Reflection Scroll"
+msgstr ""
+
+#: ../items/categories/scrolls.txt:85
+msgid "Use: Creates a magical shield that reflects projectiles and damage for a limited time"
+msgstr ""
 
 #: ../items/categories/level_7.txt:5
 msgid "Warrior Leather Hood"
@@ -2418,47 +2510,47 @@ msgstr "Zaginiony Totem"
 msgid "The ancient scripture contained appears to be some sort of magic."
 msgstr "Znajdujące się na nim święte słowa zawierają chyba jakieś zaklęcie."
 
-#: ../items/categories/level_12_unique.txt:20
+#: ../items/categories/level_12_unique.txt:21
 msgid "Mog's Axe"
 msgstr "Topór Mog"
 
-#: ../items/categories/level_12_unique.txt:21
+#: ../items/categories/level_12_unique.txt:22
 msgid "Not as sleek as an arrow, but just as effective."
 msgstr "Nie tak gładki jak strzała, ale równie efektywny."
 
-#: ../items/categories/level_12_unique.txt:35
+#: ../items/categories/level_12_unique.txt:36
 msgid "Guardsman Curiass"
 msgstr "Kirys Wartownika"
 
-#: ../items/categories/level_12_unique.txt:36
+#: ../items/categories/level_12_unique.txt:37
 msgid "A royal mail with a 'K' engraved on the breast."
 msgstr "Królewska zbroja z wyrytą literą 'K' na piersi."
 
-#: ../items/categories/level_12_unique.txt:52
+#: ../items/categories/level_12_unique.txt:53
 msgid "Inferno Pendant"
 msgstr "Naszyjnik Inferna"
 
-#: ../items/categories/level_12_unique.txt:53
+#: ../items/categories/level_12_unique.txt:54
 msgid "Hot. Hot. Hot."
 msgstr "Parzy. Parzy. Parzy."
 
-#: ../items/categories/level_12_unique.txt:67
+#: ../items/categories/level_12_unique.txt:68
 msgid "Alchemist's Skirt"
 msgstr "Szata Alchemika"
 
-#: ../items/categories/level_12_unique.txt:68
+#: ../items/categories/level_12_unique.txt:69
 msgid "Knowledge of formulating many concoctions bestows its wearer."
 msgstr "Na tego, kto ją założy, przejdzie znajomość mnóstwa receptur."
 
-#: ../items/categories/level_12_unique.txt:77
+#: ../items/categories/level_12_unique.txt:78
 msgid "Drinking potions may create another potion of the same type."
 msgstr "Wypicie mikstury może stworzyć nową miksturę tego samego typu."
 
-#: ../items/categories/level_12_unique.txt:86
+#: ../items/categories/level_12_unique.txt:87
 msgid "Metzger's Battlemace"
 msgstr "Buława Metzgera"
 
-#: ../items/categories/level_12_unique.txt:87
+#: ../items/categories/level_12_unique.txt:88
 msgid "Swinging this mace around leaves a clouded trail of dark smoke."
 msgstr "Wymachiwanie tą byławą zostawia za sobą ślady w postaci czarnego dymu."
 
@@ -3778,10 +3870,6 @@ msgstr "Okrzyk Bojowy"
 msgid "Remove debuffs and become immune to debuffs for a limited time."
 msgstr "Usuwa negatywne efekty i czyni Cię niewrażliwym na nie przez pewien czas."
 
-#: ../powers/categories/items.txt:23
-msgid "Summon Zombie"
-msgstr "Przywołanie Zombie"
-
 #: ../powers/categories/warrior.txt:7
 msgid "Swing"
 msgstr "Zamach"
@@ -3810,9 +3898,8 @@ msgstr "Magik"
 msgid "Goblin Thief stole a potion!"
 msgstr ""
 
-#: ../scripts/powers/goblin_steal.txt:25
-msgid "Goblin Thief stole some Gold!"
-msgstr ""
+#~ msgid "Summon Zombie"
+#~ msgstr "Przywołanie Zombie"
 
 #~ msgid "Under WORLD? More like Under CONSTRUCTION! Come back later..."
 #~ msgstr "Podświat w trakcie budowy. Wróć innym razem..."

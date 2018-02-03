@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flare-empyrean_campaign\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-16 18:32+\n"
+"POT-Creation-Date: 2018-02-03 10:30+\n"
 "PO-Revision-Date: 2016-09-14 16:46+\n"
 "Last-Translator: Pavel Maryanov <acid@jack.kiev.ua>\n"
 "Language-Team: Russian <gnu@dn07.ru>\n"
@@ -26,6 +26,14 @@ msgstr "DEV Сапоги"
 #: ../items/items.txt:59
 msgid "Use: Teleport to target position."
 msgstr "Использование: телепортация в указанное местоположение."
+
+#: ../items/items.txt:63
+msgid "DEV Invisibility Boots"
+msgstr ""
+
+#: ../items/items.txt:68
+msgid "Use: Turn Invisible"
+msgstr ""
 
 #: ../items/sets.txt:3
 msgid "St. Maria Garb"
@@ -77,9 +85,21 @@ msgstr ""
 msgid "Sacrifice"
 msgstr "Жертвенный нож"
 
+#: ../powers/effects.txt:146
+msgid "Reflect"
+msgstr ""
+
 #: ../powers/powers.txt:25
 msgid "Teleport"
 msgstr "Телепорт"
+
+#: ../powers/powers.txt:42
+msgid "Turn Invisible"
+msgstr ""
+
+#: ../powers/powers.txt:53
+msgid "Remove Invisibility"
+msgstr ""
 
 #: ../engine/elements.txt:3
 msgid "Fire"
@@ -566,7 +586,7 @@ msgstr "Ледяная виверна"
 msgid "Kylana"
 msgstr "Килана"
 
-#: ../enemies/lvl8_mez.txt:3
+#: ../enemies/lvl8_mez.txt:4
 msgid "Mez"
 msgstr "Мез"
 
@@ -643,31 +663,31 @@ msgstr "Прибытие"
 msgid "River Trail"
 msgstr "Излучина реки"
 
-#: ../maps/black_oak_city.txt:10
+#: ../maps/black_oak_city.txt:11
 msgid "Black Oak City"
 msgstr "Город Красильный дуб"
 
-#: ../maps/black_oak_city.txt:341
+#: ../maps/black_oak_city.txt:342
 msgid "Black Oak Farm"
 msgstr "Ферма Красильный дуб"
 
-#: ../maps/black_oak_city.txt:353
+#: ../maps/black_oak_city.txt:354
 msgid "Supplies"
 msgstr "Припасы"
 
-#: ../maps/black_oak_city.txt:601
+#: ../maps/black_oak_city.txt:602
 msgid "Wizard's Tower: Entrance Hall"
 msgstr ""
 
-#: ../maps/black_oak_farm.txt:341
+#: ../maps/black_oak_farm.txt:342
 msgid "Southern Ridge"
 msgstr "Южный хребет"
 
-#: ../maps/black_oak_farm.txt:522
+#: ../maps/black_oak_farm.txt:523
 msgid "Dilapidated Sewers"
 msgstr "Старая канализация"
 
-#: ../maps/black_oak_farm.txt:546
+#: ../maps/black_oak_farm.txt:547
 msgid "Lumber"
 msgstr "Древесина"
 
@@ -776,21 +796,25 @@ msgstr "У статуи не хватает одного глаза."
 msgid "The bookcase slides back and reveals a hidden path."
 msgstr "Книжный шкаф скользит назад и открывает потайной проход."
 
-#: ../maps/fort_nasu.txt:1085
+#: ../maps/fort_nasu.txt:1086
 msgid "Book Stand"
 msgstr "Книжная стойка"
 
-#: ../maps/fort_nasu.txt:1124
+#: ../maps/fort_nasu.txt:1125
 msgid "Altar"
 msgstr "Алтарь"
 
-#: ../maps/fort_nasu.txt:1131
+#: ../maps/fort_nasu.txt:1132
 msgid "As you enter the throne room, you see an Altar with a wooden figurine placed upon it."
 msgstr "Войдя в тронный зал, вы увидели алтарь и стоящую на нём деревянную статуэтку."
 
-#: ../maps/fort_nasu.txt:1161
+#: ../maps/fort_nasu.txt:1162
 msgid "Strange Book"
 msgstr "Странная книга"
+
+#: ../maps/fort_nasu.txt:1192
+msgid "A book entitled \"Reflection\" sits here, but all the pages are missing."
+msgstr ""
 
 #: ../maps/goblin_camp.txt:10
 msgid "Goblin Camp"
@@ -836,7 +860,7 @@ msgstr ""
 msgid "Underworld Catacombs"
 msgstr ""
 
-#: ../maps/lake_kuuma.txt:851
+#: ../maps/lake_kuuma.txt:852
 msgid "Boat"
 msgstr "Лодка"
 
@@ -892,7 +916,7 @@ msgstr "Пустая вагонетка не сможет разбить вал�
 msgid "Reset Quest: \"Trapped!\""
 msgstr ""
 
-#: ../maps/nazia_underground.txt:377
+#: ../maps/nazia_underground.txt:378
 msgid "Nazia Underground waypoint discovered."
 msgstr "Найден телепорт подземелья Назии."
 
@@ -952,11 +976,11 @@ msgstr ""
 msgid "Stonewood waypoint discovered."
 msgstr "Найден телепорт Каменного леса."
 
-#: ../maps/stormrock_pass.txt:893
+#: ../maps/stormrock_pass.txt:894
 msgid "Stormrock Pass waypoint discovered."
 msgstr "Найден телепорт ущелья Скалы бурь."
 
-#: ../maps/stormrock_pass.txt:1051
+#: ../maps/stormrock_pass.txt:1052
 msgid "Stormrock Ruins"
 msgstr "Развалины Скалы бурь"
 
@@ -1068,7 +1092,7 @@ msgid "The time has come. Write your name in the Book of the Dead and gain entry
 msgstr ""
 
 #: ../quests/000_empyrean.txt:69
-msgid "Make your way to the Underworld. A portal to the Underworld was located in the Wizard's Tower."
+msgid "Make your way to the Underworld. A portal to the Underworld was located in the Wizard's Tower. Once you are there, search for a way to return to Empyrean."
 msgstr ""
 
 #: ../quests/001_krolan.txt:1
@@ -1568,35 +1592,35 @@ msgstr "Спасибо ещё раз за твою помощь."
 msgid "Yora, Enchanter"
 msgstr "Йора, чародейка"
 
-#: ../cutscenes/backstory.txt:5
+#: ../cutscenes/backstory.txt:7
 msgid "Empyrean, the city in the sky. It is a majestic fortress and the last bastion of humankind."
 msgstr "Эмпирей, город в небесах. Это величественная крепость и последний оплот человечества."
 
-#: ../cutscenes/backstory.txt:7
+#: ../cutscenes/backstory.txt:9
 msgid "At the height of the kingdom's power the city was a beacon of peace and law."
 msgstr "На пике величия королевства город был оплотом мира и закона."
 
-#: ../cutscenes/backstory.txt:9
+#: ../cutscenes/backstory.txt:11
 msgid "When darkness invaded the world in the last age people abandoned the surface. Empyrean was their only refuge."
 msgstr "Когда в мир вторглись тёмные силы, это ознаменовало последнюю эру. Люди решили покинуть поверхность. Эмпирей стал их единственным убежищем."
 
-#: ../cutscenes/backstory.txt:11
+#: ../cutscenes/backstory.txt:13
 msgid "Now the Age of Humanity is ending. Empyrean is crumbling. Scarcity and political infighting have consumed the city."
 msgstr "Сегодня эпоха человечества подходит к концу. Эмпирей гибнет. Город погряз в политических распрях, а жителям не хватает средств для существования."
 
-#: ../cutscenes/backstory.txt:13
+#: ../cutscenes/backstory.txt:16
 msgid "Some, in desperation, flee to the surface hoping to survive without the protection of the city."
 msgstr "Некоторые из людей, отчаявшись, бегут на поверхность в надежде выжить без защиты города."
 
-#: ../cutscenes/backstory.txt:15
+#: ../cutscenes/backstory.txt:18
 msgid "But no one returns from the surface. Most die or go missing. A few hide and survive, for a while."
 msgstr "Но ещё никто не вернулся с поверхности. Большинство погибли или пропали без вести. Лишь единицы смогли укрыться и выжить. Но это ненадолго..."
 
-#: ../cutscenes/backstory.txt:17
+#: ../cutscenes/backstory.txt:20
 msgid "Surface dwellers cling to hope. Hope that they'll return to Empyrean some day. Hope that a hero will fight back against the darkness."
 msgstr "У жителей поверхности осталась только надежда. Надежда, что однажды они смогут вернуться в Эмпирей. Надежда, что герой сможет дать отпор силам тьмы."
 
-#: ../cutscenes/backstory.txt:19
+#: ../cutscenes/backstory.txt:22
 msgid "There is always hope. But not for everyone: not for you. Not for the Exiled."
 msgstr "Надежда есть всегда. Но не для всех. Не для тебя. Не для изгнанника."
 
@@ -1724,7 +1748,8 @@ msgid "Beneath a rock on the moldy peninsula"
 msgstr "Под камнем на полуострове, покрытом грибами."
 
 #: ../books/mog_3.txt:12
-msgid "In the pile of bones near the three pillars"
+#, fuzzy
+msgid "In the pile of bones near the three submerged pillars"
 msgstr "В куче костей рядом с тремя колоннами."
 
 #: ../books/mog_4.txt:12
@@ -2020,11 +2045,11 @@ msgstr "Зелье здоровья"
 msgid "Restore 25% of maximum HP"
 msgstr "Восстанавливает 25% жизни"
 
-#: ../items/categories/potions.txt:15
+#: ../items/categories/potions.txt:16
 msgid "Mana Potion"
 msgstr "Зелье маны"
 
-#: ../items/categories/potions.txt:18
+#: ../items/categories/potions.txt:19
 msgid "Restore 25% of maximum MP"
 msgstr "Восстанавливает 25% маны"
 
@@ -2317,8 +2342,74 @@ msgid "Summon Zombie Scroll"
 msgstr "Свиток призыва зомби"
 
 #: ../items/categories/scrolls.txt:8
-msgid "Use: Summon Zombie"
+#, fuzzy
+msgid "Use: Summon a zombie to fight for you"
 msgstr "Использование: призыв зомби"
+
+#: ../items/categories/scrolls.txt:16
+#, fuzzy
+msgid "Perdition Scroll"
+msgstr "Пристанище обречённых"
+
+#: ../items/categories/scrolls.txt:19
+#, fuzzy
+msgid "Use: Teleport to Perdition Harbor"
+msgstr "Использование: телепортация в указанное местоположение."
+
+#: ../items/categories/scrolls.txt:27
+#, fuzzy
+msgid "Shield Scroll"
+msgstr "Щит"
+
+#: ../items/categories/scrolls.txt:30
+#, fuzzy
+msgid "Use: Create a magical shield that absorbs damage"
+msgstr "Создаёт силовое поле, поглощающее урон."
+
+#: ../items/categories/scrolls.txt:38
+#, fuzzy
+msgid "Fireball Scroll"
+msgstr "Огненный шар"
+
+#: ../items/categories/scrolls.txt:41
+msgid "Use: Shoot a fireball"
+msgstr ""
+
+#: ../items/categories/scrolls.txt:49
+#, fuzzy
+msgid "Ice Bolt Scroll"
+msgstr "Ледяная стрела"
+
+#: ../items/categories/scrolls.txt:52
+msgid "Use: Shoot an ice bolt"
+msgstr ""
+
+#: ../items/categories/scrolls.txt:60
+msgid "Haste Scroll"
+msgstr ""
+
+#: ../items/categories/scrolls.txt:63
+#, fuzzy
+msgid "Use: Move at an increased speed for a limited time"
+msgstr "Ускоряет перемещение на некоторое время."
+
+#: ../items/categories/scrolls.txt:71
+#, fuzzy
+msgid "Immunity Scroll"
+msgstr "Устойчивость"
+
+#: ../items/categories/scrolls.txt:74
+#, fuzzy
+msgid "Use: Remove debuffs and become immune to debuffs for a limited time"
+msgstr "Снять ослабление и защититься от последующих ослаблений в течение некоторого времени."
+
+#: ../items/categories/scrolls.txt:82
+msgid "Reflection Scroll"
+msgstr ""
+
+#: ../items/categories/scrolls.txt:85
+msgid "Use: Creates a magical shield that reflects projectiles and damage for a limited time"
+msgstr ""
 
 #: ../items/categories/level_7.txt:5
 msgid "Warrior Leather Hood"
@@ -2447,49 +2538,49 @@ msgstr ""
 msgid "The ancient scripture contained appears to be some sort of magic."
 msgstr ""
 
-#: ../items/categories/level_12_unique.txt:20
+#: ../items/categories/level_12_unique.txt:21
 msgid "Mog's Axe"
 msgstr ""
 
-#: ../items/categories/level_12_unique.txt:21
+#: ../items/categories/level_12_unique.txt:22
 msgid "Not as sleek as an arrow, but just as effective."
 msgstr ""
 
-#: ../items/categories/level_12_unique.txt:35
+#: ../items/categories/level_12_unique.txt:36
 #, fuzzy
 msgid "Guardsman Curiass"
 msgstr "Кольчужная кираса полководца"
 
-#: ../items/categories/level_12_unique.txt:36
+#: ../items/categories/level_12_unique.txt:37
 msgid "A royal mail with a 'K' engraved on the breast."
 msgstr ""
 
-#: ../items/categories/level_12_unique.txt:52
+#: ../items/categories/level_12_unique.txt:53
 msgid "Inferno Pendant"
 msgstr ""
 
-#: ../items/categories/level_12_unique.txt:53
+#: ../items/categories/level_12_unique.txt:54
 msgid "Hot. Hot. Hot."
 msgstr ""
 
-#: ../items/categories/level_12_unique.txt:67
+#: ../items/categories/level_12_unique.txt:68
 #, fuzzy
 msgid "Alchemist's Skirt"
 msgstr "Вельветовый подол"
 
-#: ../items/categories/level_12_unique.txt:68
+#: ../items/categories/level_12_unique.txt:69
 msgid "Knowledge of formulating many concoctions bestows its wearer."
 msgstr ""
 
-#: ../items/categories/level_12_unique.txt:77
+#: ../items/categories/level_12_unique.txt:78
 msgid "Drinking potions may create another potion of the same type."
 msgstr ""
 
-#: ../items/categories/level_12_unique.txt:86
+#: ../items/categories/level_12_unique.txt:87
 msgid "Metzger's Battlemace"
 msgstr ""
 
-#: ../items/categories/level_12_unique.txt:87
+#: ../items/categories/level_12_unique.txt:88
 msgid "Swinging this mace around leaves a clouded trail of dark smoke."
 msgstr ""
 
@@ -3832,10 +3923,6 @@ msgstr "Боевой крик"
 msgid "Remove debuffs and become immune to debuffs for a limited time."
 msgstr "Снять ослабление и защититься от последующих ослаблений в течение некоторого времени."
 
-#: ../powers/categories/items.txt:23
-msgid "Summon Zombie"
-msgstr "Призыв зомби"
-
 #: ../powers/categories/warrior.txt:7
 msgid "Swing"
 msgstr "Удар"
@@ -3864,9 +3951,8 @@ msgstr "маг"
 msgid "Goblin Thief stole a potion!"
 msgstr ""
 
-#: ../scripts/powers/goblin_steal.txt:25
-msgid "Goblin Thief stole some Gold!"
-msgstr ""
+#~ msgid "Summon Zombie"
+#~ msgstr "Призыв зомби"
 
 #~ msgid "A gravebloom emerges from the center of the altar."
 #~ msgstr "Из центра алтаря пробивается могильный цветок."
