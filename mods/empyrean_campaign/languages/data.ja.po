@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-03 10:30+\n"
+"POT-Creation-Date: 2018-02-04 12:22+\n"
 "PO-Revision-Date: 2017-12-10 02:53+0900\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,19 +20,19 @@ msgstr ""
 msgid "Gold"
 msgstr "金"
 
-#: ../items/items.txt:54
+#: ../items/items.txt:55
 msgid "DEV Boots"
 msgstr ""
 
-#: ../items/items.txt:59
+#: ../items/items.txt:60
 msgid "Use: Teleport to target position."
 msgstr ""
 
-#: ../items/items.txt:63
+#: ../items/items.txt:64
 msgid "DEV Invisibility Boots"
 msgstr ""
 
-#: ../items/items.txt:68
+#: ../items/items.txt:69
 msgid "Use: Turn Invisible"
 msgstr ""
 
@@ -384,6 +384,25 @@ msgstr "ゾンビ 鉱夫"
 #: ../enemies/lvl13_zombie_vomit.txt:3
 msgid "Vomit Zombie"
 msgstr "はきだすゾンビ"
+
+#: ../enemies/lvl14_antlion_firethorn.txt:3
+#, fuzzy
+msgid "Firethorn Antlion"
+msgstr "アントリオン"
+
+#: ../enemies/lvl14_goblin_sonic.txt:3
+#, fuzzy
+msgid "Sonic Goblin"
+msgstr "ゴブリン"
+
+#: ../enemies/lvl14_skeleton_shocker.txt:3
+#, fuzzy
+msgid "Shocker Skeleton"
+msgstr "ひびわれたスケルトン"
+
+#: ../enemies/lvl15_vohn.txt:4
+msgid "Vohn"
+msgstr ""
 
 #: ../enemies/lvl1_goblin_runner.txt:3
 msgid "Goblin Runner"
@@ -989,9 +1008,31 @@ msgstr "あなたは犠牲のナイフで、あなたの腕を切る。 痛み�
 msgid "Red Altar"
 msgstr "赤の祭壇"
 
-#: ../maps/underworld.txt:12
+#: ../maps/torture_chambers.txt:12
+#, fuzzy
+msgid "Torture Chambers"
+msgstr "宝箱"
+
+#: ../maps/torture_chambers.txt:447
 msgid "Underworld"
 msgstr "地下世界"
+
+#: ../maps/torture_chambers.txt:661
+msgid "Upon touching the book, you are teleported to a strange room."
+msgstr ""
+
+#: ../maps/torture_chambers.txt:665
+#, fuzzy
+msgid "Bookshelf"
+msgstr "本"
+
+#: ../maps/torture_chambers.txt:674
+msgid "The warden's notes vanish!"
+msgstr ""
+
+#: ../maps/torture_chambers.txt:750
+msgid "Warden's Crate"
+msgstr ""
 
 #: ../maps/underworld_catacombs.txt:513
 msgid "Underworld Catacombs waypoint discovered."
@@ -1225,6 +1266,28 @@ msgstr "Nasu 砦の最後のドアを開く方法を見つける。"
 #: ../quests/009_nasu.txt:26
 msgid "Defeat Buchi."
 msgstr "Buchi の打倒。"
+
+#: ../quests/010_torture.txt:1
+#, fuzzy
+msgid "Warden's Notes"
+msgstr "Ardwen のグラブ"
+
+#: ../quests/010_torture.txt:6
+msgid "Find a way to get to the treasure in the Torture Chambers."
+msgstr ""
+
+#: ../quests/010_torture.txt:11
+#, fuzzy
+msgid "You found some notes belonging to the prison warden."
+msgstr "あなたは別のノートを見つけた。 指示に、したがおう。"
+
+#: ../quests/010_torture.txt:16
+msgid "You successfully made it through the warden's traps."
+msgstr ""
+
+#: ../quests/010_torture.txt:21
+msgid "You disabled the barriers in the Torture Chambers."
+msgstr ""
 
 #: ../npcs/abasi.txt:1
 msgid "Abasi, Traveling Merchant"
@@ -1738,6 +1801,10 @@ msgstr "真ん中の丸石のトップの上にあるスイッチを押す"
 
 #: ../books/nasu_sketchbook.txt:23
 msgid "-K"
+msgstr ""
+
+#: ../books/wardens_notes.txt:12
+msgid "Read the book on the second shelf of the nearest bookshelf."
 msgstr ""
 
 #: ../items/categories/level_4.txt:5
@@ -3167,32 +3234,40 @@ msgstr "Wizard の塔 エントランスの カギ"
 msgid "Wizard's Tower Research Hall Key"
 msgstr "Wizard の塔 研究棟の カギ"
 
-#: ../items/categories/quest.txt:241
+#: ../items/categories/quest.txt:251
 msgid "An odor of iron and its abrasive petals make this rare plant easy to identify."
 msgstr ""
 
-#: ../items/categories/quest.txt:251
+#: ../items/categories/quest.txt:261
 msgid "This mysterious black feather has a very sharp follicle, making it a suitable writing utensil."
 msgstr "この神秘的な黒い羽はとても鋭い毛包を持ち、そのため適切な筆記用具になっている。"
 
-#: ../items/categories/quest.txt:261
+#: ../items/categories/quest.txt:271
 msgid "A dark, magical energy flows through the tip of this small blade."
 msgstr ""
 
-#: ../items/categories/quest.txt:268
+#: ../items/categories/quest.txt:278
 msgid "Vial of Your Blood"
 msgstr "あなたの血のビン"
 
-#: ../items/categories/quest.txt:271
+#: ../items/categories/quest.txt:281
 msgid "Spoils of the Red Altar ritual."
 msgstr ""
 
-#: ../items/categories/quest.txt:278
+#: ../items/categories/quest.txt:288
 msgid "Blood Inkwell"
 msgstr ""
 
-#: ../items/categories/quest.txt:281
+#: ../items/categories/quest.txt:291
 msgid "According to Florin, this is the only ink capable of being used in the Book of the Dead."
+msgstr ""
+
+#: ../items/categories/level_16_unique.txt:5
+msgid "Fleshband"
+msgstr ""
+
+#: ../items/categories/level_16_unique.txt:6
+msgid "Smooth to the touch, it constricts itself to the wearer's finger like a vice."
 msgstr ""
 
 #: ../items/categories/level_1.txt:5

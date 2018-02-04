@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.19\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-03 10:30+\n"
+"POT-Creation-Date: 2018-02-04 12:22+\n"
 "PO-Revision-Date: 2013-10-12 16:38+0200\n"
 "Last-Translator: Igor Paliychuk <mansonigor@gmail.com>\n"
 "Language-Team: Ukrainian <LL@li.org>\n"
@@ -20,19 +20,19 @@ msgstr ""
 msgid "Gold"
 msgstr "Золото"
 
-#: ../items/items.txt:54
+#: ../items/items.txt:55
 msgid "DEV Boots"
 msgstr ""
 
-#: ../items/items.txt:59
+#: ../items/items.txt:60
 msgid "Use: Teleport to target position."
 msgstr ""
 
-#: ../items/items.txt:63
+#: ../items/items.txt:64
 msgid "DEV Invisibility Boots"
 msgstr ""
 
-#: ../items/items.txt:68
+#: ../items/items.txt:69
 msgid "Use: Turn Invisible"
 msgstr ""
 
@@ -394,6 +394,24 @@ msgstr "Зомбі"
 #, fuzzy
 msgid "Vomit Zombie"
 msgstr "Гнійний зомбі"
+
+#: ../enemies/lvl14_antlion_firethorn.txt:3
+msgid "Firethorn Antlion"
+msgstr ""
+
+#: ../enemies/lvl14_goblin_sonic.txt:3
+#, fuzzy
+msgid "Sonic Goblin"
+msgstr "Гоблін"
+
+#: ../enemies/lvl14_skeleton_shocker.txt:3
+#, fuzzy
+msgid "Shocker Skeleton"
+msgstr "Потрісканий скелет"
+
+#: ../enemies/lvl15_vohn.txt:4
+msgid "Vohn"
+msgstr ""
 
 #: ../enemies/lvl1_goblin_runner.txt:3
 msgid "Goblin Runner"
@@ -1025,9 +1043,31 @@ msgstr ""
 msgid "Red Altar"
 msgstr ""
 
-#: ../maps/underworld.txt:12
+#: ../maps/torture_chambers.txt:12
+#, fuzzy
+msgid "Torture Chambers"
+msgstr "Скриня зі скарбами"
+
+#: ../maps/torture_chambers.txt:447
 msgid "Underworld"
 msgstr ""
+
+#: ../maps/torture_chambers.txt:661
+msgid "Upon touching the book, you are teleported to a strange room."
+msgstr ""
+
+#: ../maps/torture_chambers.txt:665
+msgid "Bookshelf"
+msgstr ""
+
+#: ../maps/torture_chambers.txt:674
+msgid "The warden's notes vanish!"
+msgstr ""
+
+#: ../maps/torture_chambers.txt:750
+#, fuzzy
+msgid "Warden's Crate"
+msgstr "Вартовий"
 
 #: ../maps/underworld_catacombs.txt:513
 #, fuzzy
@@ -1267,6 +1307,27 @@ msgstr ""
 
 #: ../quests/009_nasu.txt:26
 msgid "Defeat Buchi."
+msgstr ""
+
+#: ../quests/010_torture.txt:1
+#, fuzzy
+msgid "Warden's Notes"
+msgstr "Рукавиці Ардвена"
+
+#: ../quests/010_torture.txt:6
+msgid "Find a way to get to the treasure in the Torture Chambers."
+msgstr ""
+
+#: ../quests/010_torture.txt:11
+msgid "You found some notes belonging to the prison warden."
+msgstr ""
+
+#: ../quests/010_torture.txt:16
+msgid "You successfully made it through the warden's traps."
+msgstr ""
+
+#: ../quests/010_torture.txt:21
+msgid "You disabled the barriers in the Torture Chambers."
 msgstr ""
 
 #: ../npcs/abasi.txt:1
@@ -1783,6 +1844,10 @@ msgstr ""
 
 #: ../books/nasu_sketchbook.txt:23
 msgid "-K"
+msgstr ""
+
+#: ../books/wardens_notes.txt:12
+msgid "Read the book on the second shelf of the nearest bookshelf."
 msgstr ""
 
 #: ../items/categories/level_4.txt:5
@@ -3265,32 +3330,40 @@ msgstr ""
 msgid "Wizard's Tower Research Hall Key"
 msgstr "Знайдено телепорт Притулку смерті"
 
-#: ../items/categories/quest.txt:241
+#: ../items/categories/quest.txt:251
 msgid "An odor of iron and its abrasive petals make this rare plant easy to identify."
 msgstr ""
 
-#: ../items/categories/quest.txt:251
+#: ../items/categories/quest.txt:261
 msgid "This mysterious black feather has a very sharp follicle, making it a suitable writing utensil."
 msgstr ""
 
-#: ../items/categories/quest.txt:261
+#: ../items/categories/quest.txt:271
 msgid "A dark, magical energy flows through the tip of this small blade."
 msgstr ""
 
-#: ../items/categories/quest.txt:268
+#: ../items/categories/quest.txt:278
 msgid "Vial of Your Blood"
 msgstr ""
 
-#: ../items/categories/quest.txt:271
+#: ../items/categories/quest.txt:281
 msgid "Spoils of the Red Altar ritual."
 msgstr ""
 
-#: ../items/categories/quest.txt:278
+#: ../items/categories/quest.txt:288
 msgid "Blood Inkwell"
 msgstr ""
 
-#: ../items/categories/quest.txt:281
+#: ../items/categories/quest.txt:291
 msgid "According to Florin, this is the only ink capable of being used in the Book of the Dead."
+msgstr ""
+
+#: ../items/categories/level_16_unique.txt:5
+msgid "Fleshband"
+msgstr ""
+
+#: ../items/categories/level_16_unique.txt:6
+msgid "Smooth to the touch, it constricts itself to the wearer's finger like a vice."
 msgstr ""
 
 #: ../items/categories/level_1.txt:5

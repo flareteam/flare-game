@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flare-empyrean_campaign\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-03 10:30+\n"
+"POT-Creation-Date: 2018-02-04 12:22+\n"
 "PO-Revision-Date: 2016-09-14 16:46+\n"
 "Last-Translator: Pavel Maryanov <acid@jack.kiev.ua>\n"
 "Language-Team: Russian <gnu@dn07.ru>\n"
@@ -19,19 +19,19 @@ msgstr ""
 msgid "Gold"
 msgstr "золота"
 
-#: ../items/items.txt:54
+#: ../items/items.txt:55
 msgid "DEV Boots"
 msgstr "DEV Сапоги"
 
-#: ../items/items.txt:59
+#: ../items/items.txt:60
 msgid "Use: Teleport to target position."
 msgstr "Использование: телепортация в указанное местоположение."
 
-#: ../items/items.txt:63
+#: ../items/items.txt:64
 msgid "DEV Invisibility Boots"
 msgstr ""
 
-#: ../items/items.txt:68
+#: ../items/items.txt:69
 msgid "Use: Turn Invisible"
 msgstr ""
 
@@ -397,6 +397,25 @@ msgstr "Брутальный зомби"
 #, fuzzy
 msgid "Vomit Zombie"
 msgstr "Зомби-вампир"
+
+#: ../enemies/lvl14_antlion_firethorn.txt:3
+#, fuzzy
+msgid "Firethorn Antlion"
+msgstr "Муравьиный лев"
+
+#: ../enemies/lvl14_goblin_sonic.txt:3
+#, fuzzy
+msgid "Sonic Goblin"
+msgstr "Гоблин"
+
+#: ../enemies/lvl14_skeleton_shocker.txt:3
+#, fuzzy
+msgid "Shocker Skeleton"
+msgstr "Треснувший скелет"
+
+#: ../enemies/lvl15_vohn.txt:4
+msgid "Vohn"
+msgstr ""
 
 #: ../enemies/lvl1_goblin_runner.txt:3
 msgid "Goblin Runner"
@@ -1005,9 +1024,32 @@ msgstr ""
 msgid "Red Altar"
 msgstr "Алтарь"
 
-#: ../maps/underworld.txt:12
+#: ../maps/torture_chambers.txt:12
+#, fuzzy
+msgid "Torture Chambers"
+msgstr "Сундук"
+
+#: ../maps/torture_chambers.txt:447
 msgid "Underworld"
 msgstr ""
+
+#: ../maps/torture_chambers.txt:661
+msgid "Upon touching the book, you are teleported to a strange room."
+msgstr ""
+
+#: ../maps/torture_chambers.txt:665
+#, fuzzy
+msgid "Bookshelf"
+msgstr "Книга"
+
+#: ../maps/torture_chambers.txt:674
+msgid "The warden's notes vanish!"
+msgstr ""
+
+#: ../maps/torture_chambers.txt:750
+#, fuzzy
+msgid "Warden's Crate"
+msgstr "надзиратель"
 
 #: ../maps/underworld_catacombs.txt:513
 #, fuzzy
@@ -1246,6 +1288,28 @@ msgstr "Найдите способ открыть последнюю дверь
 #: ../quests/009_nasu.txt:26
 msgid "Defeat Buchi."
 msgstr "Победите Бучи."
+
+#: ../quests/010_torture.txt:1
+#, fuzzy
+msgid "Warden's Notes"
+msgstr "Перчатки Ардвина"
+
+#: ../quests/010_torture.txt:6
+msgid "Find a way to get to the treasure in the Torture Chambers."
+msgstr ""
+
+#: ../quests/010_torture.txt:11
+#, fuzzy
+msgid "You found some notes belonging to the prison warden."
+msgstr "Вы нашли ещё одну записку. Продолжайте идти по следу."
+
+#: ../quests/010_torture.txt:16
+msgid "You successfully made it through the warden's traps."
+msgstr ""
+
+#: ../quests/010_torture.txt:21
+msgid "You disabled the barriers in the Torture Chambers."
+msgstr ""
 
 #: ../npcs/abasi.txt:1
 msgid "Abasi, Traveling Merchant"
@@ -1763,6 +1827,10 @@ msgstr "Нажми переключатель в верхней части ср�
 #: ../books/nasu_sketchbook.txt:23
 msgid "-K"
 msgstr "-К"
+
+#: ../books/wardens_notes.txt:12
+msgid "Read the book on the second shelf of the nearest bookshelf."
+msgstr ""
 
 #: ../items/categories/level_4.txt:5
 msgid "Warlord Cloth Shirt"
@@ -3216,32 +3284,40 @@ msgstr ""
 msgid "Wizard's Tower Research Hall Key"
 msgstr "Найден телепорт старой канализации."
 
-#: ../items/categories/quest.txt:241
+#: ../items/categories/quest.txt:251
 msgid "An odor of iron and its abrasive petals make this rare plant easy to identify."
 msgstr "По запаху металла и шершавым лепесткам легко понять, что это за редкое растение."
 
-#: ../items/categories/quest.txt:251
+#: ../items/categories/quest.txt:261
 msgid "This mysterious black feather has a very sharp follicle, making it a suitable writing utensil."
 msgstr "У этого загадочного чёрного пера очень острый кончик, что делает его пригодным для письма."
 
-#: ../items/categories/quest.txt:261
+#: ../items/categories/quest.txt:271
 msgid "A dark, magical energy flows through the tip of this small blade."
 msgstr ""
 
-#: ../items/categories/quest.txt:268
+#: ../items/categories/quest.txt:278
 msgid "Vial of Your Blood"
 msgstr "Пузырёк с собственной кровью"
 
-#: ../items/categories/quest.txt:271
+#: ../items/categories/quest.txt:281
 msgid "Spoils of the Red Altar ritual."
 msgstr ""
 
-#: ../items/categories/quest.txt:278
+#: ../items/categories/quest.txt:288
 msgid "Blood Inkwell"
 msgstr "Чернильница для крови"
 
-#: ../items/categories/quest.txt:281
+#: ../items/categories/quest.txt:291
 msgid "According to Florin, this is the only ink capable of being used in the Book of the Dead."
+msgstr ""
+
+#: ../items/categories/level_16_unique.txt:5
+msgid "Fleshband"
+msgstr ""
+
+#: ../items/categories/level_16_unique.txt:6
+msgid "Smooth to the touch, it constricts itself to the wearer's finger like a vice."
 msgstr ""
 
 #: ../items/categories/level_1.txt:5
