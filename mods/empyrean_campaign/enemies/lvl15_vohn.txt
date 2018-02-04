@@ -1,0 +1,34 @@
+INCLUDE enemies/base/zombie.txt
+animations=animations/enemies/zombie_ghost.txt
+
+name=Vohn
+level=15
+categories=vohn
+rarity=rare
+xp=65536
+
+# combat stats
+stat=hp,1640
+speed=4.6
+turn_delay=400ms
+chance_pursue=10
+
+power=melee,164,2
+power=melee,201,5
+power=ranged,188,2
+power=ranged,240,5
+
+stat=accuracy,150
+stat=avoidance,80
+stat=poise,62
+
+stat=dmg_melee_min,255
+stat=dmg_melee_max,260
+cooldown=1400ms
+
+#loot
+loot_count=3,4
+loot=loot/level_15.txt
+
+# Fleshband
+loot=419,1

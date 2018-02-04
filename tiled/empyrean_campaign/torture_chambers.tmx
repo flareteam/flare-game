@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.0" orientation="isometric" renderorder="right-down" width="102" height="100" tilewidth="64" tileheight="32" infinite="0" backgroundcolor="#000000" nextobjectid="52">
+<map version="1.0" tiledversion="1.1.0" orientation="isometric" renderorder="right-down" width="102" height="100" tilewidth="64" tileheight="32" infinite="0" backgroundcolor="#000000" nextobjectid="73">
  <properties>
   <property name="hero_pos" value="97,8"/>
   <property name="music" value="music/dungeon_theme.ogg"/>
@@ -8,29 +8,29 @@
   <property name="title" value="Torture Chambers"/>
  </properties>
  <tileset firstgid="1" name="collision" tilewidth="64" tileheight="32" tilecount="15" columns="15">
-  <image source="tiled_collision.png" width="960" height="32"/>
+  <image source="../dungeon/tiled_collision.png" width="960" height="32"/>
  </tileset>
  <tileset firstgid="16" name="dungeon" tilewidth="64" tileheight="128" tilecount="240" columns="16">
-  <image source="tiled_dungeon.png" width="1024" height="1920"/>
+  <image source="../dungeon/tiled_dungeon.png" width="1024" height="1920"/>
  </tileset>
  <tileset firstgid="256" name="set_rules" tilewidth="64" tileheight="32" tilecount="8" columns="2">
-  <image source="set_rules.png" width="128" height="128"/>
+  <image source="../dungeon/set_rules.png" width="128" height="128"/>
  </tileset>
  <tileset firstgid="264" name="tiled_dungeon_2x2" tilewidth="128" tileheight="64" tilecount="16" columns="4">
   <tileoffset x="0" y="16"/>
-  <image source="tiled_dungeon_2x2.png" width="512" height="256"/>
+  <image source="../dungeon/tiled_dungeon_2x2.png" width="512" height="256"/>
  </tileset>
  <tileset firstgid="280" name="door_left" tilewidth="64" tileheight="128" tilecount="2" columns="2">
   <tileoffset x="-16" y="-8"/>
-  <image source="door_left.png" width="128" height="128"/>
+  <image source="../dungeon/door_left.png" width="128" height="128"/>
  </tileset>
  <tileset firstgid="282" name="door_right" tilewidth="64" tileheight="128" tilecount="2" columns="2">
   <tileoffset x="16" y="-8"/>
-  <image source="door_right.png" width="128" height="128"/>
+  <image source="../dungeon/door_right.png" width="128" height="128"/>
  </tileset>
  <tileset firstgid="284" name="stairs" tilewidth="256" tileheight="256" tilecount="4" columns="4">
   <tileoffset x="0" y="48"/>
-  <image source="stairs.png" width="1024" height="256"/>
+  <image source="../dungeon/stairs.png" width="1024" height="256"/>
  </tileset>
  <layer name="background" width="102" height="100">
   <data encoding="csv">
@@ -834,5 +834,169 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="enemy"/>
+ <objectgroup name="enemy">
+  <object id="52" type="enemy" x="2560" y="480" width="128" height="96">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="14"/>
+    <property name="number" value="1"/>
+    <property name="wander_radius" value="2"/>
+   </properties>
+  </object>
+  <object id="53" type="enemy" x="2304" y="192" width="128" height="96">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="14"/>
+    <property name="number" value="2"/>
+    <property name="wander_radius" value="2"/>
+   </properties>
+  </object>
+  <object id="54" type="enemy" x="2048" y="320" width="96" height="128">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="14"/>
+    <property name="number" value="2"/>
+    <property name="wander_radius" value="2"/>
+   </properties>
+  </object>
+  <object id="55" type="enemy" x="2336" y="704" width="96" height="128">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="14"/>
+    <property name="number" value="1"/>
+    <property name="wander_radius" value="2"/>
+   </properties>
+  </object>
+  <object id="56" type="enemy" x="2048" y="832" width="96" height="128">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="14"/>
+    <property name="number" value="1"/>
+    <property name="wander_radius" value="2"/>
+   </properties>
+  </object>
+  <object id="57" type="enemy" x="2336" y="1216" width="96" height="128">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="14"/>
+    <property name="number" value="2"/>
+    <property name="wander_radius" value="2"/>
+   </properties>
+  </object>
+  <object id="58" type="enemy" x="1920" y="1376" width="128" height="96">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="14"/>
+    <property name="number" value="1"/>
+    <property name="wander_radius" value="2"/>
+   </properties>
+  </object>
+  <object id="59" type="enemy" x="1536" y="1376" width="128" height="96">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="14"/>
+    <property name="number" value="1"/>
+    <property name="wander_radius" value="2"/>
+   </properties>
+  </object>
+  <object id="60" type="enemy" x="768" y="1088" width="96" height="128">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="14"/>
+    <property name="number" value="2"/>
+    <property name="wander_radius" value="2"/>
+   </properties>
+  </object>
+  <object id="61" type="enemy" x="768" y="1344" width="96" height="128">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="14"/>
+    <property name="number" value="1"/>
+    <property name="wander_radius" value="2"/>
+   </properties>
+  </object>
+  <object id="62" type="enemy" x="1312" y="1600" width="96" height="128">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="14"/>
+    <property name="number" value="1"/>
+    <property name="wander_radius" value="2"/>
+   </properties>
+  </object>
+  <object id="63" type="enemy" x="1312" y="1856" width="96" height="128">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="14"/>
+    <property name="number" value="1"/>
+    <property name="wander_radius" value="2"/>
+   </properties>
+  </object>
+  <object id="64" type="enemy" x="1024" y="2144" width="128" height="96">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="14"/>
+    <property name="number" value="2"/>
+    <property name="wander_radius" value="2"/>
+   </properties>
+  </object>
+  <object id="65" type="enemy" x="768" y="2144" width="128" height="96">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="14"/>
+    <property name="number" value="1"/>
+    <property name="wander_radius" value="2"/>
+   </properties>
+  </object>
+  <object id="66" type="enemy" x="288" y="1312" width="64" height="64">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="14"/>
+    <property name="number" value="1"/>
+    <property name="wander_radius" value="1"/>
+   </properties>
+  </object>
+  <object id="67" type="enemy" x="288" y="544" width="64" height="64">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="14"/>
+    <property name="number" value="1"/>
+    <property name="wander_radius" value="1"/>
+   </properties>
+  </object>
+  <object id="68" type="enemy" x="1280" y="576" width="512" height="512">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="14"/>
+    <property name="number" value="5"/>
+   </properties>
+  </object>
+  <object id="69" type="enemy" x="256" y="1728" width="512" height="128">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="14"/>
+    <property name="number" value="2"/>
+   </properties>
+  </object>
+  <object id="70" type="enemy" x="640" y="1856" width="640" height="256">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="14"/>
+    <property name="number" value="3"/>
+   </properties>
+  </object>
+  <object id="71" type="enemy" x="896" y="1056" width="384" height="544">
+   <properties>
+    <property name="category" value="dungeon"/>
+    <property name="level" value="14"/>
+    <property name="number" value="3"/>
+   </properties>
+  </object>
+  <object id="72" type="enemy" x="288" y="928" width="32" height="32">
+   <properties>
+    <property name="category" value="vohn"/>
+    <property name="level" value="15"/>
+    <property name="number" value="1"/>
+   </properties>
+  </object>
+ </objectgroup>
 </map>

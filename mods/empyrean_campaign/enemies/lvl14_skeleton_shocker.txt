@@ -1,0 +1,45 @@
+INCLUDE enemies/base/skeleton_mage.txt
+
+name=Shocker Skeleton
+level=14
+categories=skeleton_mage,skeleton,undead,dungeon,lightning
+rarity=common
+xp=16384
+
+# combat stats
+stat=hp,365
+speed=4.3
+turn_delay=200ms
+
+passive_powers=185
+
+stat=accuracy,155
+stat=avoidance,80
+stat=poise,49
+
+stat=absorb_min,13
+stat=absorb_max,13
+
+stat=dmg_melee_min,200
+stat=dmg_melee_max,205
+stat=dmg_ment_min,210
+stat=dmg_ment_max,215
+
+vulnerable=lightning,50
+vulnerable=dark,125
+
+cooldown=1275ms
+
+# loot
+loot=loot/level_14.txt
+
+# Ranged units behaviour, see docs/ranged_behavior.txt
+chance_pursue=3
+chance_flee=20
+flee_duration=3s
+flee_cooldown=1s
+flee_range=8
+threat_range=10,20
+power=melee,164,1
+power=ranged,174,50
+power=on_join_combat,167,100

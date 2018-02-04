@@ -1,0 +1,42 @@
+INCLUDE enemies/base/antlion_fire.txt
+
+name=Firethorn Antlion
+level=14
+categories=antlion,antlion_fire,fire,dungeon,grassland
+rarity=uncommon
+xp=16384
+
+# combat stats
+stat=hp,365
+speed=5.3
+turn_delay=200ms
+
+stat=accuracy,150
+stat=avoidance,90
+stat=poise,49
+
+stat=absorb_min,14
+stat=absorb_max,15
+
+stat=dmg_melee_min,200
+stat=dmg_melee_max,205
+stat=dmg_ment_min,215
+stat=dmg_ment_max,220
+
+vulnerable=fire,75
+vulnerable=ice,150
+
+cooldown=1275ms
+
+# loot
+loot=loot/level_14.txt
+
+# Ranged units behaviour, see docs/ranged_behavior.txt
+chance_pursue=4
+chance_flee=16
+flee_duration=2s
+flee_cooldown=1s
+flee_range=6
+threat_range=8,16
+power=melee,164,10
+power=ranged,253,50

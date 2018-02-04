@@ -1,0 +1,30 @@
+INCLUDE enemies/base/goblin_runner.txt
+
+name=Sonic Goblin
+level=14
+categories=goblin_charger,goblin,dungeon,grassland
+rarity=common
+xp=16384
+
+# combat stats
+stat=hp,385
+speed=5.8
+turn_delay=200ms
+chance_pursue=10
+
+power=melee,164,2
+power=melee,254,5
+
+stat=accuracy,155
+stat=avoidance,75
+stat=poise,54
+
+stat=dmg_melee_min,200
+stat=dmg_melee_max,205
+cooldown=1075ms
+stat=absorb_min,14
+stat=absorb_max,14
+
+# loot
+loot=loot/level_14.txt
+
